@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E43CA1017
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 07:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72444CA101F
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 07:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lDa6GpsWkCchb5SdGLpC+tR5usi4SxLoCgwNcA+DgL4=; b=DjigX4GkH3S9mD
-	OBq5kKZXatlipyQCjIBbopTroXXY++tvl9K2W7cOoB7cdR2D0binw1pF9n1KQ3wvLXHdt5pkH3LPj
-	C5J48KWosOwS5k3uj+lTXqyWN4qBmi/cDp/X5zEuRkfJsfYwMZTg0oSfgzmbizXH88qp+SxhvVvfj
-	q+fv/qbNsdgxDfDhIIieClJOji/nt/CwWLg0SDCpBpiSc9qpRKUEpXqg5WUKokxp5zmhJlFqE0J75
-	JjnZaMD+vhh5JnVTatCQ+zgu6v9Gab9lJaC79FG3dTMQ76JnThG4C4xusy2bFBsXpY1iSMuX4H7m/
-	7XdMxo89mP/kTht2qquQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BPG0wvmQ5PS3rBEhT60BujqpRRKerXOcuV+fB2AzqqA=; b=dMa47MhUBGqYQT
+	SBl8bV4Qet290Th4EbE9K2AiTLjpTqhiJLM7K0kNyPTInsH/P9Z7jP5hCLabhzaRBryJCZQvI2mf9
+	NN8VM8fzUkKw1nSDu4aatqRn9XbsWMlB4NR243PvtEF9Kpdm851MG3f0+fCz1sf0t6SD2/kPnWrnr
+	m4QFVwRc0RcC+f0WzEtHpzC/vvPv1K+rU0Wx1zRNk3EhIU6kHYukajFCqy8lynrYqV1saxRvawoWh
+	6uZ7sYrd9NU4WnLmHeDWcR6mAawdNYsirrnfbPQoezHfiuPmNeMW9UmKFcoLe91bfdOHYGwDNDyQv
+	hqwDQtArztmWbKSqSreQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu4l9-0000000A0VR-42XA;
-	Thu, 04 Sep 2025 07:51:55 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1uu4lC-0000000A0YD-1CAm;
+	Thu, 04 Sep 2025 07:51:58 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu4SO-00000009sv5-48Db
+	id 1uu4Sr-00000009t7R-38le
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Sep 2025 07:32:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1756971141; cv=none; 
+	Thu, 04 Sep 2025 07:33:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1756971173; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=DohdtRdsnWm+FTyceYTJ1ADB2Cu4BDb1acLuTd4SkmAWJE7xnDdnSJc2Mwa+DXakk4L+tYo3jZ3vfJPtoGaY/ES6YnB3yk4Qf3gfhZXM50Z+xWAl7tk7CFwx+yCY5Q2dmf/VMXmBQJpcZ07zN7gMhyTmZdM2fC6kW6/6qvOgOZM=
+	b=N830F5wCRmvGHXVmsXdayID+KtpY2o6AJO2tdC0f/MH1zdB1usLtXMzO6ttVurh9YjURoo37Ub/Xeh932XUgp72R0QxWNr6lhhQYf2LfhCalx7BAZnpIz3meRa69wbSqjh48nBN3ViCOkgeQ40jzbi64IBHHOkvc2tB1i7oGbr8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1756971141; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=aTE4qhWLj97cE91FZu0gKB2lFf3oxunWOUcVgs6SaiY=; 
-	b=CQzsD7s5mdKui9tWAxYTf59KjgQCG5QxG2pn9Ckh63Yd98snZqpAptfhid9wB0u2s5C65F9dFa21Dhq9yPAsaHWw+8tr9VRM7ESoPLOhx1Jirx6VWSpzaXNl4dEDpLxrBfRyqUWzTpEudyabVcLUgzn87UfRImIOpsgNVRk46vs=
+	t=1756971173; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=p9rz+uqQBiZe0UfpVbdcyvqjvC0WRMUSRqowV8Z/90g=; 
+	b=Phi3WAXsrZHdA+DfeIi7LkCkmOTlCTmWg5araHSQb5tZBmjMZCDJyUENygcoq9WoX7Qf5MFPDsPSVlkPPN32jEWJ+VgrjiuQE3+sZFU6atnebIwSR55kUBLSP7cgapQI8CA5kxcVP/KELsFbbYpcQYKcKO6NhquBXUhjdHvbqos=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=icenowy.me;
 	spf=pass  smtp.mailfrom=uwu@icenowy.me;
 	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1756971141;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1756971173;
 	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=aTE4qhWLj97cE91FZu0gKB2lFf3oxunWOUcVgs6SaiY=;
-	b=fJmEpBPVk/LMbZ5euOWMiJw4miTmtW7Msgj9kucoLU6iL98BN14/ytbyQZ/ZvNbL
-	LjS1jBL+WRG0CEKWrk43+v8W2dssyyHb6zeDjdSbotNJft1JcVZEp8IfZYk0Bpf9dsf
-	CUbmT7MX4vKA+iUTtH8fcsc5n0y5CceQjn5MlTeFIpJy2mySjx+c3UXhOAGTZWpgypa
-	srIc2bzCiqvi7BAC9vkfaAS2j85E0P1cn2IYboFcgjkzcXavYuIYlfAR6AMEll0Z5x5
-	cLcsWgrO0L7jbhILOL8a0HGVB0sxOKlSN7Tkxnizc2IMskk2B8kuOAzMuzYNZdKBT8Q
-	9Lw+h2YHwA==
-Received: by mx.zohomail.com with SMTPS id 1756971139231102.77951280999105;
-	Thu, 4 Sep 2025 00:32:19 -0700 (PDT)
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=p9rz+uqQBiZe0UfpVbdcyvqjvC0WRMUSRqowV8Z/90g=;
+	b=iJRsZ5KaFmvFZsr/OqKS1U0LB+C82w9uTKq2gw3yjnGuhrqWdirmTddpGoSKJNGa
+	jPBKusVIlHBZD3zBs3grmOEaCUD5YysN3xzP2pNJnRttlBOWsYMgksP+hAdjwUZw6CS
+	0DdpHnb5uB/+TK5e3sAWvqrTkFvrtgTYvj+oTec/NGxsYGZINyLb0TgQDLgiXOyz/tG
+	VleSIqFbtAQ8eSGxQmlCH/tbqLNBjDGW+dqUKWRtHy243kZ3TViprgaIZQA1ekX5raY
+	Tfj2Opj/IfykXHK+i5Y+lpjkNyIaZfcX6DbP2ZeIjoZiZ/kHqtXDaYWMEUjgohx08M3
+	EuuTn1LlnA==
+Received: by mx.zohomail.com with SMTPS id 1756971172084895.5447141221532;
+	Thu, 4 Sep 2025 00:32:52 -0700 (PDT)
 From: Icenowy Zheng <uwu@icenowy.me>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -65,15 +65,17 @@ Cc: Han Gao <rabenda.cn@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH v2 0/7] drm/etnaviv: add support for GC620 on T-Head TH1520
-Date: Thu,  4 Sep 2025 15:31:44 +0800
-Message-ID: <20250904073151.686227-1-uwu@icenowy.me>
+Subject: [PATCH v2 3/7] drm/etnaviv: setup DEC400EX on GC620 r5552
+Date: Thu,  4 Sep 2025 15:31:47 +0800
+Message-ID: <20250904073151.686227-4-uwu@icenowy.me>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250904073151.686227-1-uwu@icenowy.me>
+References: <20250904073151.686227-1-uwu@icenowy.me>
 MIME-Version: 1.0
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_003233_116708_E6770DED 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20250904_003301_845768_ADFDCD51 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,44 +92,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset tries to add support for the GC620 2D accelerator, which
-is a quirky thing -- it has quirks on both MMU and DEC.
+The GC620 r5552 GPU found on T-Head TH1520 features (and requires) a
+DEC400EX buffer compressor that needs to be set up. In addition, some
+quirk exist for the DEC400 part that needs to be handled during GPU
+reset, otherwise the reset will not happen.
 
-The DEC quirk is bound to the model number and revision number
-currently, and only involves writing to some DEC registers at specific
-situation.
+Set the DEC400EX up and add the quirk code to the GPU reset codepath.
 
-The MMU quirk is more weird -- it contains a broken implementation of
-PTA, which blocks directly writing MTLB address to switch MMU context,
-but loading page table IDs different to the initial one does not work
-either. A shared context practice, like what's done for IOMMUv1, has to
-be used instead.
+Currently the DEC400EX setup is gated by this specific GPU identity,
+however in future we should add a feature flag for it.
 
-The DT patch isn't ready because the VP (video processing) subsystem on
-TH1520 does not have proper clock and reset driver yet, and the DT patch
-included in this patchset uses fake clocks and ignore resets.
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+---
+No changes in v2.
 
-Tested by both the etnaviv_2d_test program in libdrm tests and
-xf86-video-thead 2D-accelerated DDX.
+ drivers/gpu/drm/etnaviv/etnaviv_gpu.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-Icenowy Zheng (7):
-  drm/etnaviv: add HWDB entry for GC620 r5552 c20b
-  drm/etnaviv: add handle for GPUs with only SECURITY_AHB flag
-  drm/etnaviv: setup DEC400EX on GC620 r5552
-  drm/etnaviv: protect whole iommuv2 ctx alloc func under global mutex
-  drm/etnaviv: prepare for shared_context support for iommuv2
-  drm/etnaviv: add shared context support for iommuv2
-  [NOT FOR UPSTREAM] riscv: dts: thead: enable GC620 G2D on TH1520
-
- arch/riscv/boot/dts/thead/th1520.dtsi      | 19 +++++++++++++
- drivers/gpu/drm/etnaviv/etnaviv_gpu.c      | 19 ++++++++++---
- drivers/gpu/drm/etnaviv/etnaviv_hwdb.c     | 31 ++++++++++++++++++++++
- drivers/gpu/drm/etnaviv/etnaviv_iommu.c    |  8 +++---
- drivers/gpu/drm/etnaviv/etnaviv_iommu_v2.c | 26 +++++++++++++-----
- drivers/gpu/drm/etnaviv/etnaviv_mmu.c      |  1 +
- drivers/gpu/drm/etnaviv/etnaviv_mmu.h      | 24 +++++++----------
- 7 files changed, 99 insertions(+), 29 deletions(-)
-
+diff --git a/drivers/gpu/drm/etnaviv/etnaviv_gpu.c b/drivers/gpu/drm/etnaviv/etnaviv_gpu.c
+index 7431e180b3ae4..a8d4394c8f637 100644
+--- a/drivers/gpu/drm/etnaviv/etnaviv_gpu.c
++++ b/drivers/gpu/drm/etnaviv/etnaviv_gpu.c
+@@ -559,6 +559,10 @@ static int etnaviv_hw_reset(struct etnaviv_gpu *gpu)
+ 		control |= VIVS_HI_CLOCK_CONTROL_ISOLATE_GPU;
+ 		gpu_write(gpu, VIVS_HI_CLOCK_CONTROL, control);
+ 
++		if (etnaviv_is_model_rev(gpu, 0x620, 0x5552)) {
++			gpu_write(gpu, VIVS_DEC400EX_UNK00800, 0x10);
++		}
++
+ 		if (gpu->identity.minor_features7 & chipMinorFeatures7_BIT_SECURITY) {
+ 			gpu_write(gpu, VIVS_MMUv2_AHB_CONTROL,
+ 			          VIVS_MMUv2_AHB_CONTROL_RESET);
+@@ -797,6 +801,15 @@ static void etnaviv_gpu_hw_init(struct etnaviv_gpu *gpu)
+ 		gpu_write(gpu, VIVS_MC_BUS_CONFIG, bus_config);
+ 	}
+ 
++	/*
++	 * FIXME: Required by GC620 r5552 as a bug workaround, but might be
++	 * useful on other GPUs with G2D_DEC400EX feature too.
++	 */
++	if (etnaviv_is_model_rev(gpu, 0x620, 0x5552)) {
++		gpu_write(gpu, VIVS_DEC400EX_UNK00800, 0x2010188);
++		gpu_write(gpu, VIVS_DEC400EX_UNK00808, 0x3fc104);
++	}
++
+ 	if (gpu->identity.minor_features7 & chipMinorFeatures7_BIT_SECURITY) {
+ 		u32 val = gpu_read(gpu, VIVS_MMUv2_AHB_CONTROL);
+ 		val |= VIVS_MMUv2_AHB_CONTROL_NONSEC_ACCESS;
 -- 
 2.51.0
 
