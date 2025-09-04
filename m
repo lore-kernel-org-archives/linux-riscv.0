@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F2FCA1002
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 12:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5174ACA1015
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 13:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mqeAvlDT4dklubipbGj9fakM4f+0FME5X/CZOaeAmnU=; b=l15wg/LLK7t0Xx
-	9VgRIWxFfedt+VhlPVEU3CiDPdYq0l04An4fCK3WsyJNZ0wWOnGxlG3WP0LBwDxYPbCarKyktYUzN
-	Py+SqK+9/z/V9pXfaV0EUmoIo6rYjSgVVpaaj8Tl4Hhfg4UeFFDXDrNYGQ3y/chsUCWMi1wAJl3W9
-	mjHOoRsnlQAlVXadF1D+emkxP0Crx6A5uZoINoP5Tnv3nbj8jKvWCc/F0JQ8Gn/Fvm8Luqiw1FNHb
-	VrtaXnJlONpqsmxH3WeBSzhEnAGw6O4Qqem2RmW/g1jBNpjuDge+ll1bT96nEP0eKKMEXzGv/2ci6
-	6LmYO0R1S6NDX2U/JX5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4yr1lkOb33HqpK6XWH06Zvzva036adHmkFQ1/SFwPnQ=; b=sVn/eMvz+cWHyWVTm1biabwVmb
+	XcUKcoKetbwOdzpVvRg3jz/qJ2V8STAmKtCGdlkVbSsFyAcPaz16s5davsQLSvBOyB7ZtSqLLZM3m
+	0V5KnzX9wGP8AnL9Z7bIM9VZ22FIEG9cXavwwniB3Hc6O3nJF9THSIgEka5Tn4Tw1mMNxMugbvqQB
+	fzKxwToobH2vVWl9tA1BOd1oYpZi0eoB5PqASgS+ktWR9hxcGAvwSQyjSft6ELUE+j7y7qt01YIxu
+	d/HyZ3k/b8FwhPCNJyXC2aIVhAtZOc4OUgSS54fzNBkl/ol91u+5kQkDS+uo2rjNH+ibSPzuQ1WBj
+	1vWFPUbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu8hj-0000000BQms-3DnD;
-	Thu, 04 Sep 2025 12:04:39 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1uu9zd-0000000Bsef-1ECQ;
+	Thu, 04 Sep 2025 13:27:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7Z7-0000000B1Eo-2aiL
+	id 1uu88f-0000000BEOY-33O3
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Sep 2025 10:51:42 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7724fe9b24dso674686b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Sep 2025 03:51:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756983101; x=1757587901; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=y7jQbVfvjjy4s26/KcS6dbO1yAkMslYFuaBzKbU8/+A=;
-        b=alv8O0j5gdwCwBvEt+HZ4wLJODUqqIzwl7KZ42eoS35rxQ0Qk/Sak7MwDJao8Po7J/
-         UqC7uibdumGxwo7CzgsH+9AivH0DHaE9XbYOt3KtAAtTTCJCJY8WtKWT/712T4Nx+U2n
-         Aeq1lJwMPGODilbQSSXNNIL27HfPiJl0jNhg1FRwt2rjAlkkIp4FRpCRGkZXFs/cCvMO
-         5uyDCOHJGdDZfHGW6SQsLDpl9NjoC0P0rvQrOzIGYGh+C8tXInavr5oQBAOnOuYw7e7u
-         KyXw5Xl3L+OzwTSE57A6W431l+/oULxpg/VltADNZG5UHKL5llllGlGxOUAjW1nfv3HS
-         ALdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756983101; x=1757587901;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=y7jQbVfvjjy4s26/KcS6dbO1yAkMslYFuaBzKbU8/+A=;
-        b=KjEOdGzRETDHHwgt+E6Krq12HXqiBmD2ReNLinddeW1DYb+paHKu5GQTKsl5KEPP5b
-         CgPgJ1S9ZcXjrlbOgn+wvCIRlpHxWhx31qb5o8u6DjFvEDWQkc9cB3fG5jl2Rtc7lDo9
-         bN+1vLYrNUyU2hqqzse3I8jgrA+4VMtBZhlrfgPGNEDQbQAgkTww2cTomc6CT9jhq60Q
-         3caoqA3LS0zPH4UfxkxSqCgTMeK/n/alix/2UMKHQUzqjx6MhlYHyb5URCqA1m/JNTOD
-         qPucG2G1vOXVz+7BC5707FsqVp45rCVJewYVkM+w1uW3QMGj5fV1rdkmcTuLdIx5bhdu
-         7ypQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9BB+bxHpT3nVB3v5u4w3lIzMGf/ofX0paCRFeFeUSOE/8qWKiXUAObHZj6dHS2zsUCqkR11QgQXkAMQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKo+njYOa+CmKZrIOhSR6VdU/AkbnoTW4Q+DWwopLDF9EbR0lV
-	bvFQDShOV1J3ZCN55wXzQtiBacYm+HAtphrJ/hk5NbCFPAdE6VclLGYg
-X-Gm-Gg: ASbGncukt6AQkzrHlE/IPaZ/7WAWYJl9XPR9nlqwOj0LfCXifuDXUFtefbAQNxSXbOz
-	GJmEkYcTXp4pXIx3WkIpiOipqsGDEPjWEA035fRd5x4FMpz06avQ2iBIjXXLGONp3+uGhXjXjW6
-	v5oMGKXnXD53tg5nUVBcuVemXS0npeTgMeTT2Ec5ZlwjBQSFCESs6F7qwr1TmfRxtZ4i4Ddtchz
-	XiLSRe1DudH+FNFhxDITd/BSr5LIM5QHXOvUE1FC01DtpESsEs/x++vCv4lya3OwDL8mSQ3EFjr
-	qsA8jmuoMM3XFzEJQjsfmiJzh2sTE0ukmxP8OG5ApjZdgkgM0IdvNN0M09BTa2ASXcBdFfFcEjq
-	8sVRdiJ9ktgQsl89LCIMSrmTyItQ0XKKGtcnEOE0HfmpOi/JbXmg=
-X-Google-Smtp-Source: AGHT+IGsqHfcYn1HKs9rJ6BOzzQ0f8SkFW4i15uSMDVYFJ4sqMTx8DnbC+WafRushmd718na10DSTA==
-X-Received: by 2002:a05:6a21:99a2:b0:248:b2c8:5cbf with SMTP id adf61e73a8af0-248b2c85fa6mr7775770637.58.1756983100730;
-        Thu, 04 Sep 2025 03:51:40 -0700 (PDT)
-Received: from ubuntu.. ([43.132.141.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4fb7d391casm2795224a12.7.2025.09.04.03.51.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 03:51:40 -0700 (PDT)
-From: Hengqi Chen <hengqi.chen@gmail.com>
-To: ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	martin.lau@linux.dev,
-	bjorn@kernel.org,
-	pulehui@huawei.com,
-	puranjay@kernel.org
-Cc: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Hengqi Chen <hengqi.chen@gmail.com>
-Subject: [PATCH bpf-next] riscv, bpf: Remove duplicated bpf_flush_icache()
-Date: Thu,  4 Sep 2025 10:51:18 +0000
-Message-ID: <20250904105119.21861-1-hengqi.chen@gmail.com>
-X-Mailer: git-send-email 2.45.2
+	Thu, 04 Sep 2025 11:28:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C0B5601AB;
+	Thu,  4 Sep 2025 11:28:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65D0FC4CEF0;
+	Thu,  4 Sep 2025 11:28:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756985304;
+	bh=tIBxjsccm8kHR8G43oxDZfY3p0spp/YY+1CMvOCugxc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PcUFedeGgYbOan+Gw1UzKa7IwKeF8ZNKF/wQhqY5w1osyqXlYOKvT97RRZoamD3qz
+	 xjJmcCeSKLXAQXLZS1p1HPmqNA6eqWzAfSUZQUXc+odCBBkOzqErAlx2n1h4OQVGox
+	 BlY2foolbjZJs4mjSkD/UBJ/9r/eQ6+RXbMyIRa7+pL/PV/LhhpunnYylMAOOaumEK
+	 WfUY+xkMMKwBKUQy4P7vs370ATiHsBSfwE9cNExcpwnxPnpqFxmYJDjU++3Z7IkA+i
+	 3XNFaaPPPxYXZjhty73Q1QcR8l2jGPA81YsNppPOHLpjE0Ln6CIPi7dvh0g3WAeVPK
+	 WJlNm9xf7/KqA==
+Date: Thu, 4 Sep 2025 12:28:19 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Asuna <spriteovo@gmail.com>
+Cc: Jason Montleon <jmontleo@redhat.com>, Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: RISC-V: Re-enable GCC+Rust builds
+Message-ID: <20250904-little-fester-546dac576c72@spud>
+References: <68496eed-b5a4-4739-8d84-dcc428a08e20@gmail.com>
+ <20250830-cheesy-prone-ee5fae406c22@spud>
+ <20250901-lasso-kabob-de32b8fcede8@spud>
+ <b1734c45-42ec-46c7-9d4c-2677044aacab@gmail.com>
+ <20250901-unseemly-blimp-a74e3c77e780@spud>
+ <e48699fb-287d-42a9-ba6c-5edad86965f4@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_035141_674548_6728BAE8 
-X-CRM114-Status: UNSURE (   7.12  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <e48699fb-287d-42a9-ba6c-5edad86965f4@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +79,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2096499115914203945=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The bpf_flush_icache() is done by bpf_arch_text_copy() already.
-Remove the duplicated one in arch_prepare_bpf_trampoline().
 
-Signed-off-by: Hengqi Chen <hengqi.chen@gmail.com>
----
- arch/riscv/net/bpf_jit_comp64.c | 1 -
- 1 file changed, 1 deletion(-)
+--===============2096499115914203945==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SyMjmTdRNomxZcq3"
+Content-Disposition: inline
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index c7ae4d0a8361..3fcc011c6be4 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -1305,7 +1305,6 @@ int arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *ro_image,
- 		goto out;
- 	}
- 
--	bpf_flush_icache(ro_image, ro_image_end);
- out:
- 	kvfree(image);
- 	return ret < 0 ? ret : size;
--- 
-2.45.2
 
+--SyMjmTdRNomxZcq3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Sep 03, 2025 at 08:59:29AM +0800, Asuna wrote:
+> > That particular one might be a problem not because of -mstack-protector=
+-guard itself, but rather three options get added at once:
+> > 	$(eval KBUILD_CFLAGS +=3D -mstack-protector-guard=3Dtls		  \
+> > 				-mstack-protector-guard-reg=3Dtp		  \
+> > 				-mstack-protector-guard-offset=3D$(shell	  \
+> > 			awk '{if ($$2 =3D=3D "TSK_STACK_CANARY") print $$3;}' \
+> > 				$(objtree)/include/generated/asm-offsets.h))
+> > and the other ones might be responsible for the error.
+>=20
+>=20
+> I still don't understand the problem here. `bindgen_skip_c_flags` in
+> `rust/Makefile` contains a pattern `-mstack-protector-guard%`, the % at t=
+he
+> end enables it to match all those 3 options at the same time, and
+> `filter-out` function removes them before passing to Rust bindgen's
+> libclang. Am I missing something here?
+
+If they don't ever appear with gcc + llvm builds, that's fine.
+
+> > Similarly, something like -Wno-unterminated-string-initialization could=
+ cause a problem if gcc supports it but not libclang.
+>=20
+>=20
+> Yes. However, this option is only about warnings, not architecture related
+> and does not affect the generated results, so simply adding it into
+> `bindgen_skip_c_flags` patterns should be enough, I think.
+>=20
+> > I think you're mostly better off catching that sort of thing in Kconfig=
+, where possible and just make incompatible mixes invalid. What's actually =
+incompatible is likely going to depend heavily on what options are enabled.
+>=20
+> Sounds better, I'll go down that path.
+
+--SyMjmTdRNomxZcq3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLl30gAKCRB4tDGHoIJi
+0kP/AP9CtL+bSxb0+e1UR7kmpRdoVFQ8gp0n5r5uvuNmnl4EAAEAhso8p2VU8aLB
+Z1AplovqHG+RP/1oJ11HofF9jAa44wA=
+=5wPA
+-----END PGP SIGNATURE-----
+
+--SyMjmTdRNomxZcq3--
+
+
+--===============2096499115914203945==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2096499115914203945==--
+
