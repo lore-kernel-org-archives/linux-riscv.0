@@ -4,87 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BF2CA1015
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 10:54:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32477CA1002
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 11:08:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kjt1Vzzp1y2jnXNhImT892e37wqKmmct6V8Bm4rBSIc=; b=W/+Ht947Aluawy
-	SptJJQklWW/ztg3QoiodsZeYfjN948b1D/+zG9JY5zccFlyidy2nxV5MpP8uX38NZutuTVwtGXJKM
-	ABePNJUlh7BJSUoBWWA50HFXilUp5Pc6pUJQa6Y7MKC+IYzTACRfyc4q8QuOZyC9P6FCCBI7CZUml
-	0wAtgZ2L0V2vc/F6kmqkZiRdiC10cxHfTjCjM/6/quIhioqbn/u31vIGJ7J0msiQS1Or+3vUqaIer
-	d07OQ15XMApQ0ltI7aoc+/4u/nq7WkgpxiwIhBZ+yudphvKjBWKDuYf1mYNQkcybqTb3/N+4PM/tW
-	1e6PMJcdSZZga4KhWQvg==;
+	List-Owner; bh=MkXT25yoBflyL5unAiC2YaPy/MnqbCUKy2p+t05Xwcg=; b=oJqDTvXLPSdsdg
+	J0V+hbgCE0dH0k8T1L3AVzldPzvyejaF0GRhXFBQkxBuxX9ZDlPiAKag8UEhZzNXZxce6VF2Nd9fu
+	uFECEG+Emwqa6Uwno1avMovjggbpFqwioFTG4d4ZiBe225CjtPts6AHohJpJIFjlcIqz/1mMN9eYr
+	vRknlqbONoIuF1aoKB/Yyk3ikaf4bFqtJlK2Qxk0Vq+boMz2WKY7XYCISXbfoXNhRwRbA2fQ7DZDY
+	FgLK5gOlmWRAxwGvQu0UghayTe5Wy7tGinv9/fsBfrXFpmWUEbdk9OwBlufeuyFtzxKh5AJyh3qQy
+	4o+KC/ee3iDSGrDy29Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7bH-0000000B1qz-0Vv0;
-	Thu, 04 Sep 2025 10:53:55 +0000
-Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
+	id 1uu7on-0000000B6lD-3WBs;
+	Thu, 04 Sep 2025 11:07:53 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu6a2-0000000Af44-0mkw;
-	Thu, 04 Sep 2025 09:48:35 +0000
-Received: by mail-pj1-x1041.google.com with SMTP id 98e67ed59e1d1-329e47dfa3eso769045a91.1;
-        Thu, 04 Sep 2025 02:48:33 -0700 (PDT)
+	id 1uu6zl-0000000AoTt-06un
+	for linux-riscv@lists.infradead.org;
+	Thu, 04 Sep 2025 10:15:10 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-71d6051aeafso9207287b3.2
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Sep 2025 03:15:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756979313; x=1757584113; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1IurcVIvDmIouCP1bc4ecxaPSklAYPP27lDW3IVEMq8=;
-        b=EbCkkz05Xn1whYgeDY1kxA23HDl0BUnbwaBTZ2ByB1z7pcKGxUPji+jOiFyxkfusyb
-         OCwokR3jqTTbY9Oz1Zlb/ZTHoejL2HfP1MTpFn1mscps3uEQQKyJXcw1st/r50vsKeGd
-         JbJAYbB4xnK5GZ3T0HlOqtfuY2g6PSbUeuwts4VAoHaRLrhDRUCKwVkEiGbDiDhrr+2v
-         iUPaWieG6iG0PJLYhcsqcbnxecwfId3JLS5G3te69FQror9EcSNzfCpqOltyzrfMjNmC
-         G4n6Byn0k54AqOdxETnfHr50U11P0auOCLqxdCluZcyDTRoQ0hS7aYqjcdAQuOdAWKce
-         cG8w==
+        d=linaro.org; s=google; t=1756980908; x=1757585708; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=TUjaia+OhMAEZTusU0F5Oa10icPeXNIDTIJALCJZSU0=;
+        b=LAZ3Qny5Y0WIjKd2vh1m2B6yAMsJzcxEeCZt6kYxmAM1SIM8UMO5WX9S/1eEB7HQGo
+         cwz2Jbr//qGsg2C8rKank2P4bocUdFL+iSLWsuG2cWNZFC4FXbHzTisaAiq7JjCBYzxh
+         iY4HP6nKPDg6SZA03hPZpxaq3Ugfa9pOxpXKkPS84nMc81BIZAnNxt/ZBYtyOCPBR02u
+         1dR6/0fz3L8dhuQR5syFMArXPV/q33nao2TTD3Wf9wlKMF/C8SiLQss0zy3cdJrrFjZa
+         0hdSKoyX0y9+Zuf2tC0OWcZ55o3JVyLxpYIJW3be946cADbva83MeT1bzAMBrediu24W
+         GgSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756979313; x=1757584113;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1IurcVIvDmIouCP1bc4ecxaPSklAYPP27lDW3IVEMq8=;
-        b=UF7K8L+9YG7SSiSGRD5whHsm2Rk5Ge2o/oEIZfxpYWqsydYy9DF84grl9+2n3xz7zl
-         rd/NenORNCVcuB3JrsPLQAmrEx9o7J/zieuZQtdUVsQoQh17vAJKmSFXDydl3kUAn+5J
-         GUIAi1bN0YkD4I0KJaCTiw0m09AiGREWWCFml+/qMdGzpV+0j8q30nZq10vYSWDIZC20
-         CFMMst6NEHu7LFpNB6QYRkqmKlaIVkI+5ahc16snBhomI9pR1YAccuBGJfwkgYccSw5U
-         e3NgrvWqI7DzCxCrOs70yT98Cv14zwRLnrrL3owO6+AFgObahvvIRGxL4GSD8cBnivIf
-         vedQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXPq2+fHNha9ddsRyuAfgQwwNVczQwltqCQ946zPtKu2Udt+oTmp2hgw+IDPdecbUXZBthhFy2/I8Y=@lists.infradead.org, AJvYcCXucKbNJ5ZE6bxltxUeBp1DFIeJafylRyqdGG+fjQfOa2qFpISdpVgPVIEoE4X+bmixMZ69+cictKKznTA=@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywo1aM8yMnVEw16fnrcvEyQZ51drOvYY86HvlDC1jXred7Ll6Ar
-	FWWP4aHpUS1laX9LRs8xEyRRoIOQD6ET7kg0gJUFI7DGiUNuMG29EjQ3ZJQfIgeoi/uVSA==
-X-Gm-Gg: ASbGncsncshqU1uMxwp5ZEvmsvAwNEu62yod8R9NFOBEmGmrcGbEMKdzEKM2pBUmXgi
-	eknfeVVj9659DYP/XOwn7KEzPkH5yjSKoEERy+aXJn3z2zUvxmoJi+UaXd8vyHCKi+eiIEKpoaV
-	lRo7xnqC1Fk6HBPQsy0MT8mySgL5y7VQxYZSsQLZ3C0LVFs8cjgsATyyGvdhVurY+tmHIP0TQM9
-	RbEkVCdgsFS3alID0XetD2DABLPPCONQ0dXNAe1kujffVYQuVVqwXyvHG+PxK9VtGBfW8y6i3Tn
-	v/jpEt+k/y41mfjZi3MNyBxsjLpTTMpFFOjV4LPmq4SMmwj+FSmQlvpEZxLehB5tE5HZS7XV9Tb
-	g/4pkU8/DB+5jrbaxM0Xu+dKT
-X-Google-Smtp-Source: AGHT+IEjJvp6rZMEUJSWcF25yiJN1Bj1VOnRLqvBit6RxKK7N20DSMX22/c7VA4ex8hcWLfqNlRIIw==
-X-Received: by 2002:a17:90b:1dcc:b0:31e:7410:a4d7 with SMTP id 98e67ed59e1d1-328156e473cmr24241658a91.33.1756979312777;
-        Thu, 04 Sep 2025 02:48:32 -0700 (PDT)
-Received: from days-ASUSLaptop ([50.7.253.114])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-329e1c8e07bsm7668990a91.4.2025.09.04.02.48.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 02:48:32 -0700 (PDT)
-Date: Thu, 4 Sep 2025 17:48:21 +0800
-From: Dong Yang <dayss1224@gmail.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: pbonzini@redhat.com, shuah@kernel.org, anup@brainfault.org,
-	atish.patra@linux.dev, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 0/3] KVM: riscv: selftests: Enable supported test cases
-Message-ID: <aLlf6ZQ1uNjs8XS+@days-ASUSLaptop>
-References: <cover.1756710918.git.dayss1224@gmail.com>
- <20250902-9cc0d0dad59ba680062dbbf8@orel>
+        d=1e100.net; s=20230601; t=1756980908; x=1757585708;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TUjaia+OhMAEZTusU0F5Oa10icPeXNIDTIJALCJZSU0=;
+        b=YqiQNLOiSDWmyFr1VJ1+byHPegQMph82Z8xuk7zZnwyMD3VH+ZmylmH1adFatQLKXn
+         1xcTEUttIun2qSsJ5A6DuZ59s9lK5Ne5gi9WQfJ1pZbETqwyWOv8rGtrsJUY7MXqZU8S
+         GEQZ8THIdSdPz+eh/txA2/X9w4eod8c3dITFZ512Iy4U+A9Z0h0SfdOqG5a3uFCLH1Hl
+         2plLDcgjRuGs+lAyz1p8fYpsgKsfyeBNL6fceDpl/lngOL5Vveh0cWdWlR8J3zJoUyJl
+         b4k/iFSJjg7kxCG7vBDLnJ3T+/JjPAEnioZ8dLVd/dg9NmomENG4VJr2RA1AIVL1Tla6
+         ltwA==
+X-Forwarded-Encrypted: i=1; AJvYcCUDek4gqfuAB8CbGlS9QWQPL6nc3Dx0M9JiaNEfG8vejPTe33lLLdQ0xSXMULmlfZfN4uDyRkozwK9nKQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYOUcnuoLXvGwph/5/GvKSYgjeBbkOahxftDZ602KpRizFs45T
+	pyNgWMwq3i6tuPPEDT5Dlbbv8IKGtU9EveGfEmUvUE7/hApRvQyL4tTuBfSGjnpzM5nvl23uU3c
+	u8r+Cq+TcPTLUol2myI7F6vS2QNpDw8OpV4hx4M0Rlw==
+X-Gm-Gg: ASbGncso7Bca1E5qhk2C/EJnB4A6E6JUU/l7D1VOJTuXM1C5Wcli66VI7CtwXo85MvO
+	JrC5WyrmvrP5U2aAbzXNpLgjoEvgyBGQaPHwsFOEOcVAddG/vv3xteBpFr/wL/bwgiHHzbsnHB0
+	mj+jj5NfxG+lr3wsEQUyjzcgrBKVz89Jng/ifv2npyEyxXpp7BMIitVpwpipvfSIF+RqZSQJGnT
+	0y9lqN0
+X-Google-Smtp-Source: AGHT+IG8ldfxQaFlFR9n1LdiPDQHlQEpQI4SJcztaYgkxIV+25ENTr0NTKySauZEe4IfUI9wm1RmPMFKF6lcMHOVLNM=
+X-Received: by 2002:a05:690c:2606:b0:724:be89:9b69 with SMTP id
+ 00721157ae682-724be899db1mr15536087b3.3.1756980907994; Thu, 04 Sep 2025
+ 03:15:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250902-9cc0d0dad59ba680062dbbf8@orel>
+References: <20250818074906.2907277-1-uwu@icenowy.me> <20250818074906.2907277-3-uwu@icenowy.me>
+In-Reply-To: <20250818074906.2907277-3-uwu@icenowy.me>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 4 Sep 2025 12:14:31 +0200
+X-Gm-Features: Ac12FXx0dPstIEelprge7mji5eoxeEe15kSVfZZNfNFrPoUORBDZRgDPR8LTXnQ
+Message-ID: <CAPDyKFombYNFvTsChewQ6cFY2woS+vSb1YUV0Bp_+DcigrFFXA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] pmdomain: thead: create auxiliary device for rebooting
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Michal Wilczynski <m.wilczynski@samsung.com>, Sebastian Reichel <sre@kernel.org>, 
+	Han Gao <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_024834_225473_DDA4A0C5 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20250904_031509_080679_B00C9B1E 
+X-CRM114-Status: GOOD (  23.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,47 +96,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 10:36:10AM -0500, Andrew Jones wrote:
-> On Mon, Sep 01, 2025 at 03:35:48PM +0800, dayss1224@gmail.com wrote:
-> > From: Dong Yang <dayss1224@gmail.com>
-> > 
-> > Add supported KVM test cases and fix the compilation dependencies.
-> > ---
-> > Changes in v3:
-> > - Reorder patches to fix build dependencies
-> > - Sort common supported test cases alphabetically
-> > - Move ucall_common.h include from common header to specific source files
-> > 
-> > Changes in v2:
-> > - Delete some repeat KVM test cases on riscv
-> > - Add missing headers to fix the build for new RISC-V KVM selftests
-> > 
-> > Dong Yang (1):
-> >   KVM: riscv: selftests: Add missing headers for new testcases
-> > 
-> > Quan Zhou (2):
-> >   KVM: riscv: selftests: Use the existing RISCV_FENCE macro in
-> >     `rseq-riscv.h`
-> >   KVM: riscv: selftests: Add common supported test cases
-> > 
-> >  tools/testing/selftests/kvm/Makefile.kvm                    | 6 ++++++
-> >  tools/testing/selftests/kvm/access_tracking_perf_test.c     | 1 +
-> >  tools/testing/selftests/kvm/include/riscv/processor.h       | 1 +
-> >  .../selftests/kvm/memslot_modification_stress_test.c        | 1 +
-> >  tools/testing/selftests/kvm/memslot_perf_test.c             | 1 +
-> >  tools/testing/selftests/rseq/rseq-riscv.h                   | 3 +--
-> >  6 files changed, 11 insertions(+), 2 deletions(-)
-> > 
-> > -- 
-> > 2.34.1
-> 
-> In the future please CC previous reviewers on the entire series
-> (particularly when they have reviewed the entire previous series).
-Okay, I will pay attention to this in the future. Thanks.
-> 
-> For the series,
-> 
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+On Mon, 18 Aug 2025 at 09:49, Icenowy Zheng <uwu@icenowy.me> wrote:
+>
+> The reboot / power off operations require communication with the AON
+> firmware too.
+>
+> As the driver is already present, create an auxiliary device with name
+> "reboot" to match that driver, and pass the AON channel by using
+> platform_data.
+>
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> ---
+>  drivers/pmdomain/thead/th1520-pm-domains.c | 35 ++++++++++++++++++++--
+>  1 file changed, 33 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/pmdomain/thead/th1520-pm-domains.c b/drivers/pmdomain/thead/th1520-pm-domains.c
+> index 9040b698e7f7f..8285f552897b0 100644
+> --- a/drivers/pmdomain/thead/th1520-pm-domains.c
+> +++ b/drivers/pmdomain/thead/th1520-pm-domains.c
+> @@ -129,12 +129,39 @@ static void th1520_pd_init_all_off(struct generic_pm_domain **domains,
+>         }
+>  }
+>
+> -static void th1520_pd_pwrseq_unregister_adev(void *adev)
+> +static void th1520_pd_unregister_adev(void *adev)
+>  {
+>         auxiliary_device_delete(adev);
+>         auxiliary_device_uninit(adev);
+>  }
+>
+> +static int th1520_pd_reboot_init(struct device *dev, struct th1520_aon_chan *aon_chan)
+> +{
+> +       struct auxiliary_device *adev;
+> +       int ret;
+> +
+> +       adev = devm_kzalloc(dev, sizeof(*adev), GFP_KERNEL);
+> +       if (!adev)
+> +               return -ENOMEM;
+> +
+> +       adev->name = "reboot";
+> +       adev->dev.parent = dev;
+> +       adev->dev.platform_data = aon_chan;
+> +
+> +       ret = auxiliary_device_init(adev);
+> +       if (ret)
+> +               return ret;
+> +
+> +       ret = auxiliary_device_add(adev);
+> +       if (ret) {
+> +               auxiliary_device_uninit(adev);
+> +               return ret;
+> +       }
+> +
+> +       return devm_add_action_or_reset(dev, th1520_pd_unregister_adev,
+> +                                       adev);
+
+We have devm_auxiliary_device_create() now, I suggest we use that instead.
+
+That said, I think it would make sense to convert the pwrseq-gpu
+auxiliary device to be registered with devm_auxiliary_device_create()
+too, but that's a separate change, of course.
+
+> +}
+> +
+>  static int th1520_pd_pwrseq_gpu_init(struct device *dev)
+>  {
+>         struct auxiliary_device *adev;
+> @@ -169,7 +196,7 @@ static int th1520_pd_pwrseq_gpu_init(struct device *dev)
+>                 return ret;
+>         }
+>
+> -       return devm_add_action_or_reset(dev, th1520_pd_pwrseq_unregister_adev,
+> +       return devm_add_action_or_reset(dev, th1520_pd_unregister_adev,
+>                                         adev);
+>  }
+>
+> @@ -235,6 +262,10 @@ static int th1520_pd_probe(struct platform_device *pdev)
+>         if (ret)
+>                 goto err_clean_provider;
+>
+> +       ret = th1520_pd_reboot_init(dev, aon_chan);
+> +       if (ret)
+> +               goto err_clean_provider;
+> +
+>         return 0;
+>
+>  err_clean_provider:
+> --
+> 2.50.1
+>
+
+Otherwise this looks good to me!
+
+Kind regards
+Uffe
 
 _______________________________________________
 linux-riscv mailing list
