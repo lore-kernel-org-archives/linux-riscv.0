@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 489D7CA1002
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 02:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2CCCA1012
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 02:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:MIME-Version:
 	Date:Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sxunIOB40PQ60YUD2T7XNxFw3YTQneoOt0tJ4ExosEA=; b=aFvsKjluWUu419j4IMUVC8mzZF
-	Jmr8AXRjIA7hmFljpL/21r/X2jIHG6F6MDRkl2LulC+czJbXFw89e2rDlr6AfbKfC0WjUcSHRP2iS
-	/l6WAMXbT8uMOYquh166O+31v9Pad9DO77e4DP9LCD8HJKN8WQYVbx1KURSnexpJF1QTc1ZMzz8FS
-	kJxJ1pG6NMAwVmfmSq2TJN1U/M5GXWfIHW5n3gxaINZzdSnUfEDCFIueKKhs/ZoFhiYoUD6YmWn4B
-	P2CCPfkY9D4D55UTdhThItm2zZDHP1IlVM24DarJr89TaxhaiQtxxa8M6ynXeoZDLlfQrs+8MIv4D
-	O7SYUVAg==;
+	bh=uji5djn5TBQvWRpbF7hmj6NEHJ6NWaYhbLkAiWcxsCU=; b=TSF7yPlZoWW1JwhLEa0tkjb0Ta
+	w76YhQ8kDgTcaBKpVb/RMfAlFQFO/MHEehfmLjQwxx/aSqovgiDAHEhtmrAfMCasUfVjnKLPhuvza
+	EhQOAmKnUkZp0qPqAkhtrrMIZo9eedUDeTZaO1uHIFSB7LFvuOxUsp283Bg0F8eW958v1UMWZnHCS
+	XK1DISziweaVa6iqmdduj9iZIuem5Th9epSyGL5MgzdxstpKmvDt73qBaL0YcF/HHWMTm+7tWfIRO
+	jxZ/qMm+eJFJuY1EjWzfJexXu7WAugV/BOEuR6o5C+E1YjrKuyGgLVEaMu0ZN+O4EeofeMpHF3y/9
+	FdKTOimw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM6Q-0000000G5UJ-3aEe;
-	Fri, 05 Sep 2025 02:23:02 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1uuM6T-0000000G5YY-2XHE;
+	Fri, 05 Sep 2025 02:23:05 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuJAt-0000000F5Cs-2hmd
+	id 1uuJCd-0000000F5wd-3ibP
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Sep 2025 23:15:28 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-71d6083cc69so17197927b3.2
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Sep 2025 16:15:27 -0700 (PDT)
+	Thu, 04 Sep 2025 23:17:17 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e94d678e116so1765289276.2
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Sep 2025 16:17:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757027726; x=1757632526; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757027835; x=1757632635; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:references
          :cc:to:subject:user-agent:mime-version:date:message-id:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Tpsuh96BYhE6mmizhC+t09E/UhsUORGOygG5WIux6Ag=;
-        b=kSF4I+2KMGOOg5C1szjdscqrv4DfiGYuQjgLFdBYBw4tNxH+Xn+6J0usUaIcLAzPKz
-         g/+M+/sX/tl02ERXXPyDfAtfjQ4MZmJcTvimr8OrRiT22zssjqhcB+IXxNKkroBhu2br
-         a+tTwHVNR8C04Wtfa/N9G+aktnUv5CcQ5aHheSJNrglsuJLy32p2aEJEwp93XoZn6d68
-         38Rwb+y5RxzH9BLBQ0bNWJO/HJPQAjVhcBK0JgzUe1Wtdn3HRonOMEjMz/g4jUMiyz0W
-         UyoQKJAq1d/PKH8BbgS25IX8J/JzhghnZi6yBTGYQyQ9+plmT7FtI6rblRaVTYt69KzU
-         mXAA==
+        bh=44c7GuplR7w23bz2/uE3YIyn+u8WzZUsTx1xHnP0MOM=;
+        b=Yfp+UXr8Hllmm4RIwlgJR0JVB2e4Du9Q+Cdg+TXjm0pl8qtxSRz+h3gfS0EWS2WHnI
+         2CqtkFmeYpjmV6YaRLskIbCsEAYnRal9yvXZQe5NhgCwhnEwG8J5iGtCOOtP5mhN223n
+         VXJ/w6f0AXf6dfGsUZp7LuVm2ik9wWn2kVt0gEerrNUBfQgVdzqPno7X/xqYPCdHpnV2
+         S2hMK2dec1J33NmF2rNcUajh+8sCyqqF1I6ZXwC2+dwydGqYAc9MqllzoN5/gnnshUyj
+         yGQ+ECi0nM0s37L48yHq1E24OqlEdM9vSd+NFMEFl6g7va9nTzko4Irf6Fzo+NKQbE71
+         WvXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757027726; x=1757632526;
+        d=1e100.net; s=20230601; t=1757027835; x=1757632635;
         h=content-transfer-encoding:in-reply-to:content-language:references
          :cc:to:subject:user-agent:mime-version:date:message-id:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Tpsuh96BYhE6mmizhC+t09E/UhsUORGOygG5WIux6Ag=;
-        b=KpBn8ZLU4ZvzJoasvr74tvc4aVI1dMdEbGuDx1kqOYZZ59AFE/h/ftLRJfjIvzI4OG
-         8Edvx/9eRvkLHZmNWnl8OeHwh+JonkhadvRoTxr4f0/6AOvjB4xtTCZ7d5ouF2gEboL/
-         qppr50UBfyahzwt2dllO7dpAo0IlRmPChj90ZxVP/3S3YyV5FQgfOoRyXvucKUU7m3Tu
-         nwuLxZGYVLadNZ+cfNrF2x5medorBJYK8O+seCJ4QmJuZdgIYdzRDKWFURYFj/166r9Q
-         aapZ2Gi1Y8v3vl8Llvfi7ni7U1MtNwXK6mjdc71X0T+BpOQyKaO57nM4Qfvquck4FF+8
-         YneA==
-X-Forwarded-Encrypted: i=1; AJvYcCWbRU7QlMcuOuKVim3byH+57P55BhVdLxbJ8uguOkmqPwaML3Zo3QKpf2oA1Ih9FnYXwygTSLlRDLy3DA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjVA6dzJJC3jp0kYFlj4rDAIs9xLOFVopMzou1C7kfOmriMOlh
-	gen9U2fGX8Srbwbrw/mM56VWeq0Lvjog7ryPyuLvpUzCfxx4B0yhbqwK
-X-Gm-Gg: ASbGnctLPi1ufnFmM70z5ug46+vCS5smvFCONBz0bf0mTPudasdPKfLrfTMrxaDzBlx
-	9y20vzF41w2x3+FSM/p/EWSIBgQq+EyHe8lWTMHR60uMmcUzJMVeAqOJ1g9MKia/zkcBDdQt0EA
-	rryUNJcLbwHcapsNrBuWtSORfj4kqqoDcAjgsvuNzJQC6BPRPfZmY8BUb6XlBAQ75t9XlJglHKz
-	jBceBVNy2jwBMsC/eJ/gGdBa//WrCJb63z95DByrij2EIWqHD2JFkfuu0FR0ox6VXtnSo41Gbvu
-	FBqpF4w9W3BxDXpQjxcjHHHeMC8QJuxhZzMkHfKpTdNAUCROT88DMWNJIKgCAXgWgn/cs0lsdv4
-	PGaONH8x/rJBZcKmTwyKQZG+lOELv7jtSk/3z5WpK4nYGHI2l/iS/CCGXrU+iSUw=
-X-Google-Smtp-Source: AGHT+IHnQqPIbJOAu33e4UiDHC0K7E2hrlF3HKVf3SiLs0oAF7WqPL0Qhjae/HNmcjm8lQ9kydnXvQ==
-X-Received: by 2002:a05:690c:630e:b0:71f:e154:7aa2 with SMTP id 00721157ae682-722764d161fmr242712347b3.25.1757027725963;
-        Thu, 04 Sep 2025 16:15:25 -0700 (PDT)
+        bh=44c7GuplR7w23bz2/uE3YIyn+u8WzZUsTx1xHnP0MOM=;
+        b=qU8TQ5I8rN0Hng+nuyDcwoTh1BSeT9G+odtE4mJqS0/mU3UFMG9nZehkjn+7Mo0UVB
+         Yxi5U1MI1B2QyL16U4HpvyV64AZI8+AVYruwBjhrYepplRDFK+xmh9L98uhG2R3gmGBg
+         EgQtViSxJNBoqsP0d/EFqpIngIyRztVw1WIbDs2AafmxAyNGJgYYq1IKFZOcEKJTQVty
+         r9hkCDTvla4SbYbPnWXGHvnUOJ5GadMsQ3LWYE4IdJyYpRU3AoQL0iAVnGqTH530bcnb
+         hNa0/ZDZhvnpobk2UB9krdTt+32/xENLhPJZ3t3mWQ8Lm4A6Hmx3XCvgIuFLKc4szn9N
+         Bdww==
+X-Forwarded-Encrypted: i=1; AJvYcCVb48RpJQMRe4OBsHf418+GuoN+OY6qHTm++iGd+JLwMDX4UCagdwRAmOPTFaY/tH1PtyS7PKE7SfW7Pw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXoeblYO+p7Is8tljArvWrH+XtX2f06QJ0lrOgHsIMW/YssVNQ
+	xXSe4OGB2veDDOIgJKRf9QONeNFGVqpY1sQP3OM+L6DrJGUR5S6hUC4b
+X-Gm-Gg: ASbGnctzRKQw70YcboB5U1y2YDsrUDp7oUMv9a8YAjxhdNCYD+fwJhzsvkD2y4V423i
+	myzuSYvnwRdQ9k7KXf+y65SXmTZxus2MOWPs0szLyH/deh3ei5F6T7kkB9X8orjvz82LPp8FU5/
+	rvyY/RMFLn/k7SPU7zj3C9srP+aSNYqtZ/Z4giBltJXtCPkMfBf2Zrj/GYgQpu7DssReVACMJ0/
+	RqjeIkgrUdlUfKoJHTSb0q40w0RDSt4huUWKrl2uhjO9wa97ZWjBammV8xCUx2EBcpmIVVaRvIT
+	rmgRA2003i1RtfEu5aMeFBItSA2/K8dpr7PMI7HjS+s8RrjRINBDFwXUc+MGlku+GVf0T89PSkf
+	qRPG5cHSgsisDdP8YvQ3fqWY6fmnSC5SRypnzO6uXlfO19j9mVShMWSfR6KZ8E5aw72Xj+zt42g
+	==
+X-Google-Smtp-Source: AGHT+IG5rC/L+YgDnZCQ1gLq4F9L2loshi3GG0alOQkkWDK4IDT94yEI8uFHJeAzvHVBTi2SzWU91Q==
+X-Received: by 2002:a05:690e:23c3:b0:5f3:317e:2eb2 with SMTP id 956f58d0204a3-601782cde5bmr3513128d50.28.1757027834471;
+        Thu, 04 Sep 2025 16:17:14 -0700 (PDT)
 Received: from [192.168.1.209] (74.211.99.176.16clouds.com. [74.211.99.176])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-723a82d6abbsm24968377b3.15.2025.09.04.16.15.17
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-723a8511f0asm24570997b3.34.2025.09.04.16.17.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Sep 2025 16:15:25 -0700 (PDT)
+        Thu, 04 Sep 2025 16:17:14 -0700 (PDT)
 From: Asuna <spriteovo@gmail.com>
 X-Google-Original-From: Asuna <SpriteOvO@gmail.com>
-Message-ID: <fb47fe55-7e9c-4d2b-91d2-1c6f29a77f79@gmail.com>
-Date: Fri, 5 Sep 2025 07:15:15 +0800
+Message-ID: <b0f83328-5df9-4280-a357-7fc4d48fd0cb@gmail.com>
+Date: Fri, 5 Sep 2025 07:17:04 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] rust: get the version of libclang used by bindgen in
- a separate script
+Subject: Re: [PATCH 2/2] RISC-V: re-enable gcc + rust builds
 To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
 Cc: Conor Dooley <conor@kernel.org>, Jason Montleon <jmontleo@redhat.com>,
  Han Gao <rabenda.cn@gmail.com>, Miguel Ojeda <ojeda@kernel.org>,
@@ -91,10 +91,10 @@ Cc: Conor Dooley <conor@kernel.org>, Jason Montleon <jmontleo@redhat.com>,
  Nathan Chancellor <nathan@kernel.org>,
  Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
  Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Kees Cook <kees@kernel.org>, Tejun Heo <tj@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Kees Cook <kees@kernel.org>,
  Peter Zijlstra <peterz@infradead.org>, Matthew Maurer <mmaurer@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Jan Hendrik Farr <kernel@jfarr.cc>,
- Shakeel Butt <shakeel.butt@linux.dev>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
+ Jeff Xu <jeffxu@chromium.org>, Shakeel Butt <shakeel.butt@linux.dev>,
+ Jan Hendrik Farr <kernel@jfarr.cc>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
  <mkoutny@suse.com>, Christian Brauner <brauner@kernel.org>,
  Brian Gerst <brgerst@gmail.com>, linux-doc@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
@@ -102,12 +102,14 @@ Cc: Conor Dooley <conor@kernel.org>, Jason Montleon <jmontleo@redhat.com>,
  rust-for-linux <rust-for-linux@vger.kernel.org>
 References: <20250830-cheesy-prone-ee5fae406c22@spud>
  <20250903190806.2604757-1-SpriteOvO@gmail.com>
- <CANiq72nRA9zHbzroLPa9aNSEzKre=V8Jwmw2Lezy6AHgbm+FcA@mail.gmail.com>
+ <20250903190806.2604757-2-SpriteOvO@gmail.com>
+ <CANiq72=FJSRwOPNG4ZFeoex3MssTjmhozp5Xd++PTCCSJaJ3hA@mail.gmail.com>
 Content-Language: en-US
-In-Reply-To: <CANiq72nRA9zHbzroLPa9aNSEzKre=V8Jwmw2Lezy6AHgbm+FcA@mail.gmail.com>
+In-Reply-To: <CANiq72=FJSRwOPNG4ZFeoex3MssTjmhozp5Xd++PTCCSJaJ3hA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_161527_696419_581A7CB8 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20250904_161715_945982_6E719F4F 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,19 +126,14 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/4/25 7:24 AM, Miguel Ojeda wrote:
-> Hmm... I am not sure it is a good idea to move that into another
-> script. Do we really need to intertwine these two scripts? The rename
-> isn't great either.
+On 9/4/25 7:27 AM, Miguel Ojeda wrote:
+> I think the commit message should try to explain each the changes here
+> (or to split them).
 >
-Because of adding a new Kconfig symbol for the Rust bindgen libclang 
-version, then we have three places manually calling bindgen for 
-rust_is_available_bindgen_libclang.h to get the version. I'd like to 
-merge them into one script so that it's easy to maintain in the future. 
-But if you prefer not to, I'd also be willing to revert it.
-
-For this approach and naming, I referred to script/cc-version.sh 
-rustc-version.sh and rustc-llvm-version.sh.
+> e.g. it doesn't mention the other config symbols added, nor the extra
+> flag skipped, nor the `error` call.
+Yes, the commit message is worth being more detailed, I'll improve it in 
+the v2 patch.
 
 _______________________________________________
 linux-riscv mailing list
