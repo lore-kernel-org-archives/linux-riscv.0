@@ -4,98 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD81ACA1014
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 03:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B99CA1010
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 03:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DxNgUVgY+u9nMCyrJUJG6mTxE4y6CTwhNziFPwp8YIg=; b=wQnQseh+b++bqY
-	nrafgfZ48x0u9YwVdA0Qma98vU791cA6Zkeue7N7KNYIlKckbozQl4o6gwU/OQ7rqxfdgle0qr+tj
-	ZbGoVznJA6TCigGYSvvTo3rZvv5QxcKFfGHHvWErAqa0ZubPitPdUR9zAGz0xvcyymUBP2zfbTqE5
-	g/VugdAZ7jk3T/MiHTV991U5oIZ7WBoPM+owY/bCU9CMJRthzSvRQHhHBDf2wWZrJq/iFW9F2CBrL
-	25naKBRwv0/JWoD3odYv6awd6yAbMo85S9vLcd/07XQTlMRvDlSjYcqnpRJtqZoSvMx8nrfGiGvQg
-	Ckd7pC7/gK6LN4RJcazw==;
+	List-Owner; bh=kNqDm4Qydpkrtf/DY0o067dCHaSRh0NzIjtmhmlD0LU=; b=yRR/EaOHGviJYj
+	oC5lGquqDsD0X0hQI7mZ/3N78l1eDwAmWCQzecsgixZ7j7x2wM2dD01piinP5W2CvvMIrJFm3hIGw
+	Ps45K/FP3/8SY9VjkHpZyITtPs/+cLLO52SlpbdK8uohxDW64xPsyVPSFi0FF5J4RaBgT0SxivB1I
+	nsYXmQ2IfExtmwCSP79pc/s0dflRNfrcs6/MU0yuGSPqbijxcONCmRb59t5/aqMvQ3PYN75G5Ofon
+	AVQ8n/31VjdafxynEbxinfkHnPfdfkC0ho6SR0bNd58/L0bBZ243zeOTvMTiH/woGy/cpQefq//4l
+	9heyXniZ/9C9hdKsZpOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu0EB-00000008Y1P-1Iq9;
-	Thu, 04 Sep 2025 03:01:35 +0000
-Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
+	id 1uu0Ld-00000008aN3-1oaf;
+	Thu, 04 Sep 2025 03:09:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu0E8-00000008Xzs-3Jwt
-	for linux-riscv@lists.infradead.org;
-	Thu, 04 Sep 2025 03:01:33 +0000
-Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-437d40a96feso17504b6e.2
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Sep 2025 20:01:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756954892; x=1757559692; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=W9CajuAm7VsoRhpeotc4jxkIe8TBDwxy99+zM/DwbrY=;
-        b=SZzeDaMqgL0VYqy9GsXJ9tNDyTy2uBr//LuiX1YRZHlEJCKxF3/utDprPFOx3IoWVF
-         eDzxCKQPahMWevZyXZQm8GEHQtso3SFQGzceVRlba2co04pnN8INnva3cHDTVUMcp0uQ
-         DUwGrk5hQ8IWN4DVwIE+hhJIuBIB9jH8SMeaIf1lo+ZefRuDq9bFSil0eBO22mtTjCWc
-         L6kkinc4nOG8r/eFri1R1HCNKTKv1fJphtVDpt1N1TkkhydoV9d10YsSRssQIO0Ut6q0
-         Z1Kaj1KcnvxR6pze2wGSe/jPHR1xTkO62GDn7dgCgfJK71OpiuzhgWEA9dS1bu0qkfS/
-         uUSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756954892; x=1757559692;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=W9CajuAm7VsoRhpeotc4jxkIe8TBDwxy99+zM/DwbrY=;
-        b=Wz4AU7SOl5oeCh6Sm6DpAzAO8rgsm+7FQmcl+qZ4Lsiyfim1+Tdou+3gYDU52GYyXD
-         hNWgN3Mc0GpIvyDzmbYjpxFPF/UsQbJ35MmZ06GMkxmCsoI3yo2fHhwyYwFgIc0TD4dL
-         fw8AdtzY+mXE1A3A+kNYj8+sF7wK8cek1KR15sk7LWcqVbrYdGid+OzOYQmNtJJ/L+fV
-         M7kzm8kODZUIh5hmTyhFz6wSsCfVrFM8PrPPXC2fHJ9thyyvr9ABVRGzw3U6tcw/F3+V
-         gmzpmXX8bQvQ0p0xEDYfi08Dnlr1KSe6aa02G5Mnk0NbY88lkABwbGLZ+m4yrluJZ+di
-         TX9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV6h0r8/Ewoer49C02874PYuItxIX9/0B76VZVzL7uRBtOXtyeHoFvN8h6wUv0OnstM9fyEAcl7YJWKcg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzz4U1SEWbZSf5xaDC4gVAH5SK3kIpDLNpWAJ0s33F+0k2nX8G7
-	Se8pFAN1agKEKwPPDwMvET9xivKFhkNufJgr/qUlJriYJeLYxi3zWOEf
-X-Gm-Gg: ASbGnctaWuMhj/mzxwA7u9ex0vlbarEdxyeVwM34ndDAva52vQI59pN7JuIbIbze02d
-	hgNy6YtX6ElZbqmXLFAMe6vrxWeYwSw+3zvVD5eT9CM2/9D5fBMsYFgi6dr3O0ia5eaCHFy4tCo
-	PhQodRGFrxmEu7ksYg8JGlfMjCau4XmBgDb3qAHaPHpMNs8Sp/BB0UR19b1KyxjaNdjVfcku7Ce
-	//Mn6t4uEBS+EalpMutDWRKFrkNxExMaGZYvFnL23z0DPMwO5nZNkwWQ93uC9vcQBExpKGD7R6C
-	AIs1lQy1F3zFTuRRpVSMSBptNZM0gFvvYM+QJult+f+WBeEOprrV0wj8l8ZRRQr/sonv4v/SnGr
-	ibcHwHepf0daGbvl5Z1e/0PUug5tlRl0SoSavrkGvr+4=
-X-Google-Smtp-Source: AGHT+IELP+mxSGzElVCEVywyn+fMnmBhJCUygHmISkh2tEXspU6mwEADZzjNbwOJ0l2qTQ0URFRXBg==
-X-Received: by 2002:a05:6808:152a:b0:438:247a:7d8f with SMTP id 5614622812f47-438247a8372mr2232071b6e.4.1756954891838;
-        Wed, 03 Sep 2025 20:01:31 -0700 (PDT)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-745a09af8efsm406946a34.29.2025.09.03.20.01.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 20:01:30 -0700 (PDT)
-From: Chen Wang <unicornxw@gmail.com>
-To: u.kleine-koenig@baylibre.com,
-	aou@eecs.berkeley.edu,
-	unicorn_wang@outlook.com,
-	conor+dt@kernel.org,
-	inochiama@gmail.com,
-	krzk+dt@kernel.org,
-	looong.bin@gmail.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh@kernel.org,
-	tglx@linutronix.de,
-	sycamoremoon376@gmail.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev
-Subject: [PATCH v3 3/3] irqchip/sg2042-msi: Set irq type according to DT configuration
-Date: Thu,  4 Sep 2025 11:01:19 +0800
-Message-Id: <b22d2b0a00a96161253435d17b3c66538f3ba1c2.1756953919.git.unicorn_wang@outlook.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1756953919.git.unicorn_wang@outlook.com>
-References: <cover.1756953919.git.unicorn_wang@outlook.com>
+	id 1uu0La-00000008aLb-3Bk3;
+	Thu, 04 Sep 2025 03:09:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AF53644B72;
+	Thu,  4 Sep 2025 03:09:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8ED34C4CEF1;
+	Thu,  4 Sep 2025 03:09:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756955352;
+	bh=2suWeNf3cFKy886NMzzbtvUL5qtLRZ5jEq1rGPIzRrU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=q5kHFqPUgDVJ35myaiu8/I6sO2I+p0++BOU7ly0ZRRcYpQWXCJ4wETXIv3v6K8j5k
+	 7oWZn2TjFrG7sFG2GfR0ZccNlQnELaJlJgcjzdCkuRABO1YuQUR0EtT9jQjZHJBzjY
+	 FUNo4vCpQC0qKEhAJkwGcbES6WC7EEKSlB4ejI6pG3hYeKoYMnVOHDlmmiF5rwHp52
+	 PK9O30TOBAgeOggzQSTGN1KEPbI7gkpoBtXzD+vVv2gj3tB7EZYlIF8ZmcM7dfTAfp
+	 QqUKguG9SCekFEG3cJtAzErKDdsH69xU2A+sR2UKxe7OKPZVaZSBJ14J+1Z8xhA5Ca
+	 xTBrFrlzf6U9Q==
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-3d44d734cabso292377f8f.3;
+        Wed, 03 Sep 2025 20:09:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVVw4QtIVgzjKoHy7c3bnOMh3B1LG2QmokSTuhTE+uiHgqJhkqDdUJ9+GPP53l0TxSYCSBj3KIcbek=@lists.infradead.org, AJvYcCXqFh9b94gCnVimBXBBBtSifaw3S34oUGGvNB9ARNP/gQxpMYB2zV3KYQrPiPwq8YEH1j+GfXHs4q9Wmbk=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQyjXnGmNATpX4pi+BwIQXA1gOY4R/W+hmlUZfkoWXso106Vu1
+	17o0GdeJYWd8X949uBtE/VmkVW4vtE1N36b5t5wis9oWetpV4ycYgIvhCC7n5f/cXNDerulAmoa
+	wfjz3tkd0+wf4T6MMBFz5+scLcoPxsVo=
+X-Google-Smtp-Source: AGHT+IFR6aINYU7huKlE/OzhcrboCQPzjWOQtTxIkuqU3b3el3/Iaex4o/xeyeJwxdLpMr/sGoJWeT6JGXEg536d6+c=
+X-Received: by 2002:a5d:5f95:0:b0:3bd:6308:a4bb with SMTP id
+ ffacd0b85a97d-3d1e0c85701mr13117757f8f.59.1756955351097; Wed, 03 Sep 2025
+ 20:09:11 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250821142542.2472079-1-guoren@kernel.org>
+In-Reply-To: <20250821142542.2472079-1-guoren@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 4 Sep 2025 11:08:58 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQ3XJB_UtziyfV0aFdg=L=mqc7KJPv4a8=3Z5pQYNDLng@mail.gmail.com>
+X-Gm-Features: Ac12FXwfohQEMlAkgm0ZGL0DFWWPk2cp_RxqrogprJgi0tUpgxNcRoqaF99tnT0
+Message-ID: <CAJF2gTQ3XJB_UtziyfV0aFdg=L=mqc7KJPv4a8=3Z5pQYNDLng@mail.gmail.com>
+Subject: Re: [PATCH V4 RESEND 0/3] Fixup & optimize hgatp mode & vmid detect functions
+To: anup@brainfault.org
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, atish.patra@linux.dev, 
+	guoren@kernel.org, troy.mitchell@linux.dev, fangyu.yu@linux.alibaba.com, 
+	guoren@linux.alibaba.com, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_200132_833563_7865EFAA 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20250903_200914_824551_FE6C9AA3 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,72 +80,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Wang <unicorn_wang@outlook.com>
-
-Read the device tree configuration and use it to set the
-interrupt type.
-
-Tested-by: Inochi Amaoto <inochiama@gmail.com> # Sophgo SRD3-10
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
----
- drivers/irqchip/irq-sg2042-msi.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/irqchip/irq-sg2042-msi.c b/drivers/irqchip/irq-sg2042-msi.c
-index 3b13dbbfdb51..f7cf0dc72eab 100644
---- a/drivers/irqchip/irq-sg2042-msi.c
-+++ b/drivers/irqchip/irq-sg2042-msi.c
-@@ -30,6 +30,7 @@ struct sg204x_msi_chip_info {
-  * @doorbell_addr:	see TRM, 10.1.32, GP_INTR0_SET
-  * @irq_first:		First vectors number that MSIs starts
-  * @num_irqs:		Number of vectors for MSIs
-+ * @irq_type:		IRQ type for MSIs
-  * @msi_map:		mapping for allocated MSI vectors.
-  * @msi_map_lock:	Lock for msi_map
-  * @chip_info:		chip specific infomations
-@@ -41,6 +42,7 @@ struct sg204x_msi_chipdata {
- 
- 	u32					irq_first;
- 	u32					num_irqs;
-+	unsigned int				irq_type;
- 
- 	unsigned long				*msi_map;
- 	struct mutex				msi_map_lock;
-@@ -137,14 +139,14 @@ static int sg204x_msi_parent_domain_alloc(struct irq_domain *domain, unsigned in
- 	fwspec.fwnode = domain->parent->fwnode;
- 	fwspec.param_count = 2;
- 	fwspec.param[0] = data->irq_first + hwirq;
--	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
-+	fwspec.param[1] = data->irq_type;
- 
- 	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
- 	if (ret)
- 		return ret;
- 
- 	d = irq_domain_get_irq_data(domain->parent, virq);
--	return d->chip->irq_set_type(d, IRQ_TYPE_EDGE_RISING);
-+	return d->chip->irq_set_type(d, data->irq_type);
- }
- 
- static int sg204x_msi_middle_domain_alloc(struct irq_domain *domain, unsigned int virq,
-@@ -298,6 +300,7 @@ static int sg2042_msi_probe(struct platform_device *pdev)
- 	}
- 
- 	data->irq_first = (u32)args.args[0];
-+	data->irq_type = (unsigned int)args.args[1];
- 	data->num_irqs = (u32)args.args[args.nargs - 1];
- 
- 	mutex_init(&data->msi_map_lock);
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQW51cCwKClBpbmcuLi4sIGhvcGUgZm9yIGZlZWRiYWNrLgoKT24gVGh1LCBBdWcgMjEsIDIw
+MjUgYXQgMTA6MjbigK9QTSA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gRnJvbTogIkd1
+byBSZW4gKEFsaWJhYmEgREFNTyBBY2FkZW15KSIgPGd1b3JlbkBrZXJuZWwub3JnPgo+Cj4gSGVy
+ZSBhcmUgc2VydmFsIGZpeHVwICYgb3B0bWl6aXRpb25zIGZvciBoZ2F0cCBkZXRlY3QgYWNjb3Jk
+aW5nCj4gdG8gdGhlIFJJU0MtViBQcml2aWxlZ2VkIEFyY2hpdGVjdHVyZSBTcGVjLgo+Cj4gLS0t
+Cj4gQ2hhbmdlcyBpbiB2NDoKPiAgLSBJbnZvbHZlICgiUklTQy1WOiBLVk06IFByZXZlbnQgSEdB
+VFBfTU9ERV9CQVJFIHBhc3NlZCIpLCB3aGljaAo+ICAgIGV4cGxhaW4gd2h5IGdzdGFnZV9tb2Rl
+X2RldGVjdCBuZWVkcyByZXNldCBIR0FUUCB0byB6ZXJvLgo+ICAtIFJFU0VORCBmb3Igd3Jvbmcg
+bWFpbGluZyB0aHJlYWQuCj4KPiBDaGFuZ2VzIGluIHYzOgo+ICAtIEFkZCAiRml4ZXMiIHRhZy4K
+PiAgLSBJbnZvbHZlKCJSSVNDLVY6IEtWTTogUmVtb3ZlIHVubmVjZXNzYXJ5IEhHQVRQIGNzcl9y
+ZWFkIiksIHdoaWNoCj4gICAgZGVwZW5kcyBvbiBwYXRjaCAxLgo+Cj4gQ2hhbmdlcyBpbiB2MjoK
+PiAgLSBGaXhlZCBidWlsZCBlcnJvciBzaW5jZSBrdm1fcmlzY3ZfZ3N0YWdlX21vZGUoKSBoYXMg
+YmVlbiBtb2RpZmllZC4KPiAtLS0KPgo+IEZhbmd5dSBZdSAoMSk6Cj4gICBSSVNDLVY6IEtWTTog
+V3JpdGUgaGdhdHAgcmVnaXN0ZXIgd2l0aCB2YWxpZCBtb2RlIGJpdHMKPgo+IEd1byBSZW4gKEFs
+aWJhYmEgREFNTyBBY2FkZW15KSAoMik6Cj4gICBSSVNDLVY6IEtWTTogUmVtb3ZlIHVubmVjZXNz
+YXJ5IEhHQVRQIGNzcl9yZWFkCj4gICBSSVNDLVY6IEtWTTogUHJldmVudCBIR0FUUF9NT0RFX0JB
+UkUgcGFzc2VkCj4KPiAgYXJjaC9yaXNjdi9rdm0vZ3N0YWdlLmMgfCAyNyArKysrKysrKysrKysr
+KysrKysrKysrKystLS0KPiAgYXJjaC9yaXNjdi9rdm0vbWFpbi5jICAgfCAzNSArKysrKysrKysr
+KysrKysrKy0tLS0tLS0tLS0tLS0tLS0tLQo+ICBhcmNoL3Jpc2N2L2t2bS92bWlkLmMgICB8ICA4
+ICsrKy0tLS0tCj4gIDMgZmlsZXMgY2hhbmdlZCwgNDQgaW5zZXJ0aW9ucygrKSwgMjYgZGVsZXRp
+b25zKC0pCj4KPiAtLQo+IDIuNDAuMQo+CgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
+bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
+LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
