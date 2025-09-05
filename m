@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832C5CA1010
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 15:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83FE5CA0FED
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 16:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MEuJSpb5iALH1rx+11wCa2L/sM7p9zXN1UpqyTQO9Fc=; b=mwVifX1YdGTKbL
-	++Icr8rK5/4FMZ6JqTmobef5hTD6FYJsVg1XGg730SCBCdQCtisFhlBP/nJqMLtz81PzJzy0papz5
-	pJbDy/uMU2iLlgCewN21rVzfA2fyynaPstY+MMOrexPpaShnEWC50DGB74JR4UfhohJaBhOf3ZNik
-	/efSX6TD3QWYicTG0ed2HTmvIKhZ/8NlAaJGwqgGj1slBLMxVmSQ2oS3w6Qs8Qf8SmZNigdyABm22
-	nYFJnsugXBC4sWptt6o8bbgjjH3LzzIxp0yEko8MyQNzjPhAkq2sUVdic1K03t9XQdUI3qXvWqALt
-	st5EgsVCvbRFge5aBeYw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rd95QzP47SbJRLc55wPj0CfKwwdQ5jBTDr/4Z9oHyYA=; b=uD8Sf+3xGTiNIe
+	kL+Csi2M+SWgSvOsYOV/k1KO2pUn0R9VwvcWZJHerKFl7PIqXDknttiam9DjTBdPDSGmTrmE7Mrh8
+	O0Pwda4S2y9mlYup+6ZIKTcEQwBz1K4sLXiWvmEj0s9UAO16YEOQ4o3M3OGcYxcuTEKJlrI4SANVo
+	Z5u2rvpBOazvmOmN13zGlXbxFlVj53fy0Q8buuN2D9ukctzk3mqV/uFAqlE0d3kD6ulMfC4QMWJpS
+	nWaNZREZFRek3gahbFzgsyv9fLsuUY0YjYOA5VSppJgNmmSGPSsqt+uFnpefxfyOR9T30zhy/KEu7
+	VcHRQvxuI6XKOlcUcHKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYYv-00000002pOP-3EW5;
-	Fri, 05 Sep 2025 15:41:17 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1uuYsG-00000002xWq-2wje;
+	Fri, 05 Sep 2025 16:01:16 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuUKq-00000001HiF-1hMR
+	id 1uuVVP-00000001g1j-2SAo
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 11:10:29 +0000
-Received: from [127.0.0.2] (unknown [114.241.87.235])
-	by APP-03 (Coremail) with SMTP id rQCowACnu4X1xLpoFdfLAA--.1807S5;
-	Fri, 05 Sep 2025 19:09:44 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Fri, 05 Sep 2025 19:09:32 +0800
-Subject: [PATCH net-next v9 3/5] riscv: dts: spacemit: Add Ethernet support
- for K1
+	Fri, 05 Sep 2025 12:25:28 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-24c7848519bso19828685ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Sep 2025 05:25:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1757075126; x=1757679926; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lt3wTba5HiLB1Jjnt9R6GaWmJOoFQXkQR++gb9ZWNVM=;
+        b=EZrUtqUwyuf71T8tEyKN6TFp68u9nVzCs+mGBE/ueEmgSqapESjFX3QlA6YuwMioyb
+         HkZm5z32mQy3RuUKUG0SJS/Kqx88jC0hUwc9v3YvyxIz67H/fwuPhO4NugNszI3eVrC3
+         WfUXvB0N+xTH5SPgu/+meRGnFDzTzadgKaw395cGME59ItCYsFpmOmHgwm9tRkYKTsSg
+         RaVwwSjEiXC3D0OikwVQ+Slg+DglyR+VlioEel2WnihQMf6ZndFAcFDU0Iz2CTCW5YxC
+         TJlYsUISEOt3qbwq1BaSqs9Vtn+RrLCVpM2Man4fmCkgkBMLXpt5WE4qOqE2ZNjR5Tqi
+         KvSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757075126; x=1757679926;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lt3wTba5HiLB1Jjnt9R6GaWmJOoFQXkQR++gb9ZWNVM=;
+        b=FE9ETqiypPK+0tlwsjE4CBIUa6Ob3nrJb+K+2G6rdCI/K2xzciqrGG7DV7pusBrD59
+         NMEW/Kc7zpSfAdDgKDzOToF9xFV0ZqqcNEI2CYPPYsZMIVqCcOxz3vMrl2ncxvhr2Y6H
+         zTbOTD8ikvRGlBhXa6hjIq9SrVbfJFprV6PmgVYaNADd11a856+SMIHTdsMZL1u3KCQD
+         nWNwhw5OHZsE0vuGlHyymSBEdDof58uYgFBhFjOCGocTrS6k6EVn+MYh38kIoDJcIoS/
+         rPozQuNuLw7kQ+gEs6cjotv0ZySfbnmNbZOkdW0yRhZ0BQijO9wyyL//6oHq7yDUQuv0
+         qINw==
+X-Forwarded-Encrypted: i=1; AJvYcCVP+FAPbNYJNR4lwhM95cl44HqmDarhPfxBeM5s07jqOaQoUTDgP7A4K12GdJ5GUhEk5jT9rvwGnWeyZw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxucIesirmMFfTPyYdCFXqi9s5ClAEirIlb5eo70CFuALxKp1zP
+	cqdXSMt1OMAJG8V4JuRakGWwRXviyTmv++nkdwmFz5/e1LAuxQtOYATA6Crb5XQYlbI=
+X-Gm-Gg: ASbGnctXVK+LsZxFL8jNwnygRyt4jILE9FntY480LIViWgaagYq8Wje/COjZkX7CNAq
+	iymjlHAqGgPoxRLVgfsfn1eeY4ttKnS6ANSrUzIeKdu+Wvo5486WlTuBgB6iwHMxfXK1K+HZKWk
+	1jawOXY3brvhLHv6CXZFVKO70K1uQUY+TFV87eaLQXLJZnscgByLQI3qb9ISeUHsa9SCW0mi15J
+	g9StN48klVdt1wSQ8auY7mSbzuz7RQ97AiNmtJWrgjmm/Gwh1HlYheSLIG+SJYQHTvXdIe/vec2
+	9VW2Tp2chsURKT9AX7KlN3aFWEk2Vdy3S5pFcpwlevL2RAgaXAZZmKdoDJATScSGC2+sIuM/dQP
+	X8WVtpF5XbGpI8WGlDEjWYPaMPRtYYr+TjkninaBvzz2CypaImTZWYw==
+X-Google-Smtp-Source: AGHT+IHis+PqALG8tubNoGDFf9m6dFRkq8Qrsc4cRLOgmsEFTlFHoYeOzdbeXp8E6o75X+gtKjjeRA==
+X-Received: by 2002:a17:903:28c:b0:249:1213:6725 with SMTP id d9443c01a7336-24944aef6f6mr275376745ad.50.1757075126264;
+        Fri, 05 Sep 2025 05:25:26 -0700 (PDT)
+Received: from localhost.localdomain ([122.171.19.71])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24cb6f17a2dsm48367725ad.75.2025.09.05.05.25.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Sep 2025 05:25:25 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: [PATCH] RISC-V: Enable HOTPLUG_PARALLEL for secondary CPUs
+Date: Fri,  5 Sep 2025 17:55:12 +0530
+Message-ID: <20250905122512.71684-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Message-Id: <20250905-net-k1-emac-v9-3-f1649b98a19c@iscas.ac.cn>
-References: <20250905-net-k1-emac-v9-0-f1649b98a19c@iscas.ac.cn>
-In-Reply-To: <20250905-net-k1-emac-v9-0-f1649b98a19c@iscas.ac.cn>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Vivian Wang <wangruikang@iscas.ac.cn>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Vivian Wang <uwu@dram.page>, 
- Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
- Junhui Liu <junhui.liu@pigmoral.tech>, Simon Horman <horms@kernel.org>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-CM-TRANSID: rQCowACnu4X1xLpoFdfLAA--.1807S5
-X-Coremail-Antispam: 1UD129KBjvJXoWxWFy7AFy8Wry7XF48Kr18AFb_yoW5KF4Dpa
-	yUAFs3Cr4xCw1rCwnavF9rWF4kGa1FkFyrGr9xGFWxGF4rtry7tFn0yry5Xw48Zws8ArW8
-	Gr48XrWxKFnrtw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUm214x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
-	AIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVF
-	xhVjvjDU0xZFpf9x0pRl_MsUUUUU=
-X-Originating-IP: [114.241.87.235]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_041028_812766_410E09E2 
-X-CRM114-Status: UNSURE (   7.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250905_052527_625002_06C050FD 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,116 +90,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add nodes for each of the two Ethernet MACs on K1 with generic
-properties. Also add "gmac" pins to pinctrl config.
+The core kernel already supports parallel bringup of secondary
+CPUs (aka HOTPLUG_PARALLEL). The x86 and MIPS architectures
+already use HOTPLUG_PARALLEL and ARM is also moving toward it.
 
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-Reviewed-by: Yixun Lan <dlan@gentoo.org>
+On RISC-V, there is no arch specific global data accessed in the
+RISC-V secondary CPU bringup path so enabling HOTPLUG_PARALLEL for
+RISC-V would only requires:
+1) Providing RISC-V specific arch_cpuhp_kick_ap_alive()
+2) Calling cpuhp_ap_sync_alive() from smp_callin()
+
+This patch is tested natively with OpenSBI on QEMU RV64 virt machine
+with 64 cores and also tested with KVM RISC-V guest with 32 VCPUs.
+
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi | 48 ++++++++++++++++++++++++++++
- arch/riscv/boot/dts/spacemit/k1.dtsi         | 22 +++++++++++++
- 2 files changed, 70 insertions(+)
+ arch/riscv/Kconfig          |  2 +-
+ arch/riscv/kernel/smpboot.c | 15 +++++++++++++++
+ 2 files changed, 16 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-index 3810557374228100be7adab58cd785c72e6d4aed..aff19c86d5ff381881016eaa87fc4809da65b50e 100644
---- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-@@ -11,6 +11,54 @@
- #define K1_GPIO(x)	(x / 32) (x % 32)
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a4b233a0659e..d5800d6f9a15 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -196,7 +196,7 @@ config RISCV
+ 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
+ 	select HAVE_STACKPROTECTOR
+ 	select HAVE_SYSCALL_TRACEPOINTS
+-	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
++	select HOTPLUG_PARALLEL if HOTPLUG_CPU
+ 	select IRQ_DOMAIN
+ 	select IRQ_FORCED_THREADING
+ 	select KASAN_VMALLOC if KASAN
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 601a321e0f17..d85916a3660c 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -39,7 +39,9 @@
  
- &pinctrl {
-+	gmac0_cfg: gmac0-cfg {
-+		gmac0-pins {
-+			pinmux = <K1_PADCONF(0, 1)>,	/* gmac0_rxdv */
-+				 <K1_PADCONF(1, 1)>,	/* gmac0_rx_d0 */
-+				 <K1_PADCONF(2, 1)>,	/* gmac0_rx_d1 */
-+				 <K1_PADCONF(3, 1)>,	/* gmac0_rx_clk */
-+				 <K1_PADCONF(4, 1)>,	/* gmac0_rx_d2 */
-+				 <K1_PADCONF(5, 1)>,	/* gmac0_rx_d3 */
-+				 <K1_PADCONF(6, 1)>,	/* gmac0_tx_d0 */
-+				 <K1_PADCONF(7, 1)>,	/* gmac0_tx_d1 */
-+				 <K1_PADCONF(8, 1)>,	/* gmac0_tx */
-+				 <K1_PADCONF(9, 1)>,	/* gmac0_tx_d2 */
-+				 <K1_PADCONF(10, 1)>,	/* gmac0_tx_d3 */
-+				 <K1_PADCONF(11, 1)>,	/* gmac0_tx_en */
-+				 <K1_PADCONF(12, 1)>,	/* gmac0_mdc */
-+				 <K1_PADCONF(13, 1)>,	/* gmac0_mdio */
-+				 <K1_PADCONF(14, 1)>,	/* gmac0_int_n */
-+				 <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <21>;
-+		};
-+	};
-+
-+	gmac1_cfg: gmac1-cfg {
-+		gmac1-pins {
-+			pinmux = <K1_PADCONF(29, 1)>,	/* gmac1_rxdv */
-+				 <K1_PADCONF(30, 1)>,	/* gmac1_rx_d0 */
-+				 <K1_PADCONF(31, 1)>,	/* gmac1_rx_d1 */
-+				 <K1_PADCONF(32, 1)>,	/* gmac1_rx_clk */
-+				 <K1_PADCONF(33, 1)>,	/* gmac1_rx_d2 */
-+				 <K1_PADCONF(34, 1)>,	/* gmac1_rx_d3 */
-+				 <K1_PADCONF(35, 1)>,	/* gmac1_tx_d0 */
-+				 <K1_PADCONF(36, 1)>,	/* gmac1_tx_d1 */
-+				 <K1_PADCONF(37, 1)>,	/* gmac1_tx */
-+				 <K1_PADCONF(38, 1)>,	/* gmac1_tx_d2 */
-+				 <K1_PADCONF(39, 1)>,	/* gmac1_tx_d3 */
-+				 <K1_PADCONF(40, 1)>,	/* gmac1_tx_en */
-+				 <K1_PADCONF(41, 1)>,	/* gmac1_mdc */
-+				 <K1_PADCONF(42, 1)>,	/* gmac1_mdio */
-+				 <K1_PADCONF(43, 1)>,	/* gmac1_int_n */
-+				 <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <21>;
-+		};
-+	};
-+
- 	uart0_2_cfg: uart0-2-cfg {
- 		uart0-2-pins {
- 			pinmux = <K1_PADCONF(68, 2)>,
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index abde8bb07c95c5a745736a2dd6f0c0e0d7c696e4..7b2ac3637d6d9fa1929418cc68aa25c57850ac7f 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -805,6 +805,28 @@ network-bus {
- 			#size-cells = <2>;
- 			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
- 				     <0x0 0x80000000 0x1 0x00000000 0x0 0x80000000>;
-+
-+			eth0: ethernet@cac80000 {
-+				compatible = "spacemit,k1-emac";
-+				reg = <0x0 0xcac80000 0x0 0x420>;
-+				clocks = <&syscon_apmu CLK_EMAC0_BUS>;
-+				interrupts = <131>;
-+				mac-address = [ 00 00 00 00 00 00 ];
-+				resets = <&syscon_apmu RESET_EMAC0>;
-+				spacemit,apmu = <&syscon_apmu 0x3e4>;
-+				status = "disabled";
-+			};
-+
-+			eth1: ethernet@cac81000 {
-+				compatible = "spacemit,k1-emac";
-+				reg = <0x0 0xcac81000 0x0 0x420>;
-+				clocks = <&syscon_apmu CLK_EMAC1_BUS>;
-+				interrupts = <133>;
-+				mac-address = [ 00 00 00 00 00 00 ];
-+				resets = <&syscon_apmu RESET_EMAC1>;
-+				spacemit,apmu = <&syscon_apmu 0x3ec>;
-+				status = "disabled";
-+			};
- 		};
+ #include "head.h"
  
- 		pcie-bus {
-
++#ifndef CONFIG_HOTPLUG_PARALLEL
+ static DECLARE_COMPLETION(cpu_running);
++#endif
+ 
+ void __init smp_prepare_cpus(unsigned int max_cpus)
+ {
+@@ -179,6 +181,12 @@ static int start_secondary_cpu(int cpu, struct task_struct *tidle)
+ 	return -EOPNOTSUPP;
+ }
+ 
++#ifdef CONFIG_HOTPLUG_PARALLEL
++int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle)
++{
++	return start_secondary_cpu(cpu, tidle);
++}
++#else
+ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ {
+ 	int ret = 0;
+@@ -199,6 +207,7 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ 
+ 	return ret;
+ }
++#endif
+ 
+ void __init smp_cpus_done(unsigned int max_cpus)
+ {
+@@ -225,6 +234,10 @@ asmlinkage __visible void smp_callin(void)
+ 	mmgrab(mm);
+ 	current->active_mm = mm;
+ 
++#ifdef CONFIG_HOTPLUG_PARALLEL
++	cpuhp_ap_sync_alive();
++#endif
++
+ 	store_cpu_topology(curr_cpuid);
+ 	notify_cpu_starting(curr_cpuid);
+ 
+@@ -243,7 +256,9 @@ asmlinkage __visible void smp_callin(void)
+ 	 */
+ 	local_flush_icache_all();
+ 	local_flush_tlb_all();
++#ifndef CONFIG_HOTPLUG_PARALLEL
+ 	complete(&cpu_running);
++#endif
+ 	/*
+ 	 * Disable preemption before enabling interrupts, so we don't try to
+ 	 * schedule a CPU that hasn't actually started yet.
 -- 
-2.50.1
+2.43.0
 
 
 _______________________________________________
