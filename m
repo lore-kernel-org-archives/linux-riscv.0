@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68173CA0FED
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 19:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59777CA101F
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 19:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hrfU4R0x/AM2+V7KqMxxGvm6DKSwVfM3fGftVKEV2W0=; b=Ot6x6FVRPdxUdF
-	HtlLEUdQpjtNex6iHy4WDoZKNZaaA7IzZnsOlwDrHNOr221W5XAQ/tHLV44eSccoN7Xh3rxZGo/6V
-	xE6TzKVg3noaZ3kaYBu8uGGOwRgcJjCgCUFUA26yckYgNgLl/UpmIzemDwZ8qzwajnIOl0B7Ma7qn
-	8JWWxzawmREbNDtO8FgOq5aVnWFLxlxcV7CDm2HnDr+BTH2kXCBBeNqQFjuHYcK+oo493Xb0MJ4mW
-	kGM5MHgL9LjvBFVTQrw4/RpslRq/K3G4bS6L+mOApNoxWMCGk1tay9iTrNDVrbtrz4e7BEYg79TE+
-	WZPqs5z+x2Nrj04BhpWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TTlNZp8DVHGx2MS1HHV3e+0aEDhlDiIarQQu7xnV2nI=; b=KrXP45bkNiEfk5dYtQotgU7/3K
+	DMGOf6+fZoqDQE937mZz9Nw1ULZVhoIlDaYK7q8Ixr3ib0j2Z1LlTFAwMAMNFKLDSIY6HCGYj/8pi
+	OTWOMduG35RQQs1Cbin/ktAAQj5oX8v3cUiyOwls9L9LRTODq9EfbVxs76NGQfevB0W7CKyb8bmNE
+	LDkHb6lHQLh29Litw/SOCVJzTajpLxxsu2meICUylM7oS2kKExgZqE462AJ499VzCwna4zpjI7dk4
+	X9H+lcXD+W2+wHXpqu4tcZif8Haq4p92hX+ZJyFbQSiwF1G/r0bPkRcxo1cAFdlKsCKjYRvyDMWp8
+	cwElcsPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuc86-000000049iT-0xJu;
-	Fri, 05 Sep 2025 19:29:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uuc83-000000049gS-2gUL;
+	Fri, 05 Sep 2025 19:29:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYSy-00000002nOc-11ec
+	id 1uuYIz-00000002jsW-3muF
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 15:35:09 +0000
+	Fri, 05 Sep 2025 15:24:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9A4F444C1;
-	Fri,  5 Sep 2025 15:35:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBC64C4CEF1;
-	Fri,  5 Sep 2025 15:35:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 27D4E60280;
+	Fri,  5 Sep 2025 15:24:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C28ADC4CEF1;
+	Fri,  5 Sep 2025 15:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757086507;
-	bh=Dd9GrN9GAAxETey0gekWGcwpoSTvYJkigJI730T+I/A=;
+	s=k20201202; t=1757085888;
+	bh=8YZ6X5KZJEhH4BEj11wZLZMihkQrfiHeRWmRqcL1PG8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CIOs0MwUE2I3vXSEEPPTN+UByCEoKcgiRiHDw6TewSKVGn4/U8x5RRsuDen7Pv75K
-	 K9i75Y8ZRfml3R3Q1JnpNWMYn34xSqNuDVLpxxgG5HxeJe23vnQtFVTNanWHk41xRo
-	 dn94M2R3O7wAFnCVyCqxqFnWmwNKCJzlhT7uNvn71z5+bXgFxeBmpxwsnmVCJVGXJ0
-	 M3vbD4qErghqHC6JQSa3SvMb/rVimU6/KS1ERkLxBMxnQBnuBxxCH6h500PlXA4ZX3
-	 MIRmtSIRaFJ8WT6T5z5f1J/+8E/HTp/rn9O2xpmyUfu+VnWWNZE96DieKtFu5xkgXi
-	 SRz6ymsmWx+Sw==
-Date: Fri, 5 Sep 2025 16:35:00 +0100
-From: Simon Horman <horms@kernel.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+	b=O18InHgfGkEe6qdiupEfZ/rxyk3ESsIOqG1A+gtZL2zWNFkB6hXBdJvwWWToXla3l
+	 wAt98PCKdsFUpkXrvSO4AHZQFJN9gCb9FDN+6TO7w2QBpBmkyosA7Z6oOO0MmhQeJZ
+	 kfqIdOEL1meUpPA0oxdHmKOeUpD3ym12FVjUvRasaK0Nm9fCZSA5ncNqfI3ZRl7h6h
+	 2kDNIl0XEdwDeQ0PwyHJFnc1IS7JKRaCP9WYPMVMfQ+L3e8uTAyuf8XhElTZd4GkYN
+	 T4AUBeJq9gzbC/BR5QXn3gafdVGsvkEmOkNALjs5UhaQSbWbazp5DLIM60otJkG2+3
+	 fUTIVO4pU9OWg==
+Date: Fri, 5 Sep 2025 16:24:39 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Asuna <spriteovo@gmail.com>
+Cc: Jason Montleon <jmontleo@redhat.com>, Han Gao <rabenda.cn@gmail.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Vivian Wang <uwu@dram.page>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH net-next v9 2/5] net: spacemit: Add K1 Ethernet MAC
-Message-ID: <20250905153500.GH553991@horms.kernel.org>
-References: <20250905-net-k1-emac-v9-0-f1649b98a19c@iscas.ac.cn>
- <20250905-net-k1-emac-v9-2-f1649b98a19c@iscas.ac.cn>
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, Tejun Heo <tj@kernel.org>,
+	Kees Cook <kees@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+	Matthew Maurer <mmaurer@google.com>, Jeff Xu <jeffxu@chromium.org>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Jan Hendrik Farr <kernel@jfarr.cc>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Brian Gerst <brgerst@gmail.com>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kbuild@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH 2/2] RISC-V: re-enable gcc + rust builds
+Message-ID: <20250905-prolonged-chip-73be9d74ddb5@spud>
+References: <20250830-cheesy-prone-ee5fae406c22@spud>
+ <20250903190806.2604757-1-SpriteOvO@gmail.com>
+ <20250903190806.2604757-2-SpriteOvO@gmail.com>
+ <20250904-sterilize-swagger-c7999b124e83@spud>
+ <f7434b76-49d0-4ef3-8c77-c1642dc211cd@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250905-net-k1-emac-v9-2-f1649b98a19c@iscas.ac.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_083508_329289_3F993E0E 
-X-CRM114-Status: GOOD (  23.15  )
+In-Reply-To: <f7434b76-49d0-4ef3-8c77-c1642dc211cd@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,166 +92,215 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6386232683765815439=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 05, 2025 at 07:09:31PM +0800, Vivian Wang wrote:
-> The Ethernet MACs found on SpacemiT K1 appears to be a custom design
-> that only superficially resembles some other embedded MACs. SpacemiT
-> refers to them as "EMAC", so let's just call the driver "k1_emac".
-> 
-> Supports RGMII and RMII interfaces. Includes support for MAC hardware
-> statistics counters. PTP support is not implemented.
-> 
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-> Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> Tested-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> Tested-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-...
+--===============6386232683765815439==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="nGPHKziLNNz0QDF3"
+Content-Disposition: inline
 
-> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
 
-...
+--nGPHKziLNNz0QDF3
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> +static void emac_init_hw(struct emac_priv *priv)
-> +{
-> +	/* Destination address for 802.3x Ethernet flow control */
-> +	u8 fc_dest_addr[ETH_ALEN] = { 0x01, 0x80, 0xc2, 0x00, 0x00, 0x01 };
-> +
-> +	u32 rxirq = 0, dma = 0;
-> +
-> +	regmap_set_bits(priv->regmap_apmu,
-> +			priv->regmap_apmu_offset + APMU_EMAC_CTRL_REG,
-> +			AXI_SINGLE_ID);
-> +
-> +	/* Disable transmit and receive units */
-> +	emac_wr(priv, MAC_RECEIVE_CONTROL, 0x0);
-> +	emac_wr(priv, MAC_TRANSMIT_CONTROL, 0x0);
-> +
-> +	/* Enable MAC address 1 filtering */
-> +	emac_wr(priv, MAC_ADDRESS_CONTROL, MREGBIT_MAC_ADDRESS1_ENABLE);
-> +
-> +	/* Zero initialize the multicast hash table */
-> +	emac_wr(priv, MAC_MULTICAST_HASH_TABLE1, 0x0);
-> +	emac_wr(priv, MAC_MULTICAST_HASH_TABLE2, 0x0);
-> +	emac_wr(priv, MAC_MULTICAST_HASH_TABLE3, 0x0);
-> +	emac_wr(priv, MAC_MULTICAST_HASH_TABLE4, 0x0);
-> +
-> +	/* Configure thresholds */
-> +	emac_wr(priv, MAC_TRANSMIT_FIFO_ALMOST_FULL, DEFAULT_TX_ALMOST_FULL);
-> +	emac_wr(priv, MAC_TRANSMIT_PACKET_START_THRESHOLD,
-> +		DEFAULT_TX_THRESHOLD);
-> +	emac_wr(priv, MAC_RECEIVE_PACKET_START_THRESHOLD, DEFAULT_RX_THRESHOLD);
-> +
-> +	/* Configure flow control (enabled in emac_adjust_link() later) */
-> +	emac_set_mac_addr_reg(priv, fc_dest_addr, MAC_FC_SOURCE_ADDRESS_HIGH);
-> +	emac_wr(priv, MAC_FC_PAUSE_HIGH_THRESHOLD, DEFAULT_FC_FIFO_HIGH);
-> +	emac_wr(priv, MAC_FC_HIGH_PAUSE_TIME, DEFAULT_FC_PAUSE_TIME);
-> +	emac_wr(priv, MAC_FC_PAUSE_LOW_THRESHOLD, 0);
-> +
-> +	/* RX IRQ mitigation */
-> +	rxirq = EMAC_RX_FRAMES & MREGBIT_RECEIVE_IRQ_FRAME_COUNTER_MASK;
-> +	rxirq |= (EMAC_RX_COAL_TIMEOUT
-> +		  << MREGBIT_RECEIVE_IRQ_TIMEOUT_COUNTER_SHIFT) &
-> +		 MREGBIT_RECEIVE_IRQ_TIMEOUT_COUNTER_MASK;
+Yo,
 
-Probably this driver can benefit from using FIELD_PREP and FIELD_GET
-in a number of places. In this case I think it would mean that
-MREGBIT_RECEIVE_IRQ_TIMEOUT_COUNTER_SHIFT can be removed entirely.
+On Fri, Sep 05, 2025 at 06:56:35AM +0800, Asuna wrote:
+> > One thing - please don't send new versions
+> > of patchsets in response to earlier versions or other threads. It
+> > doesn't do you any favours with mailbox visibility.
+>=20
+> I apologize for this, I'm pretty much new to mailing lists, so I had
+> followed the step "Explicit In-Reply-To headers" [1] in doc. For future
+> patches I'll send them alone instead of replying to existing threads.
+>=20
+> [1]: https://www.kernel.org/doc/html/v6.9/process/submitting-patches.html=
+#explicit-in-reply-to-headers
+>=20
+> > Other than Zicsr/Zifencei that may need explicit handling in a dedicated
+> > option, the approach here seems kinda backwards.
+> > Individually these symbols don't actually mean what they say they do,
+> > which is confusing: "recognises" here is true even when it may not be
+> > true at all because TOOLCHAIN_HAS_FOO is not set. Why can these options
+> > not be removed, and instead the TOOLCHAIN_HAS_FOO options grow a
+> > "depends on !RUST || <condition>"?
+>=20
+> Yes, it's kinda "backwards", which is intentional, based on the following
+> considerations:
+>=20
+> 1) As mentioned in rust/Makefile, filtering flags for libclang is a hack,
+> because currently bindgen only has libclang as backend, and ideally bindg=
+en
+> should support GCC so that the passed CC flags are supposed to be fully
+> compatible. On the RISC-V side, I tend to think that version checking for
+> extensions for libclang is also a hack, which could have been accomplished
+> with just the cc-option function, ideally.
+>=20
+> 2) Rust bindgen only "generates" FFI stuff, it is not involved in the fin=
+al
+> assembly stage. In other words, it doesn't matter so much what RISC-V
+> extensions to turn on for bindgen (although it does have a little impact,
+> like some macro switches), it's more matter to CC.
 
-> +
-> +	rxirq |= MREGBIT_RECEIVE_IRQ_MITIGATION_ENABLE;
-> +	emac_wr(priv, DMA_RECEIVE_IRQ_MITIGATION_CTRL, rxirq);
+> Therefore, I chose not to modify the original extension config conditions=
+ so
+> that if libclang doesn't support the CC flag for an extension, then the R=
+ust
+> build is not supported, rather than treating the extension as not support=
+ed.
 
-...
+I don't agree with this take, I don't think that any extension should
+"blindly" take priority over rust like this. Got two or three main gripes
+with how it is being done here.
+Firstly, you're lumping every extension into one option even though many
+of them will not be even implemented on the target. There's no need to
+disable rust if the user has no intention of even making use of the
+extension that would block its use. That runs into the second point, in
+that you're using TOOLCHAIN_HAS_FOO here, which is only an indicator of
+whether the toolchain supports the extension not whether the kernel is
+even going to use it. The third problem I have is that the symbol you're
+interacting with is not user selectable, and therefore doesn't allow the
+user to decide whether or not a particular extension or rust support
+with the toolchain they have is the higher priority. If the check moves
+to the individual TOOLCHAIN_HAS_FOO options, they could be a
 
-> +/* Returns number of packets received */
-> +static int emac_rx_clean_desc(struct emac_priv *priv, int budget)
-> +{
-> +	struct net_device *ndev = priv->ndev;
-> +	struct emac_rx_desc_buffer *rx_buf;
-> +	struct emac_desc_ring *rx_ring;
-> +	struct sk_buff *skb = NULL;
-> +	struct emac_desc *rx_desc;
-> +	u32 got = 0, skb_len, i;
-> +	int status;
-> +
-> +	rx_ring = &priv->rx_ring;
-> +
-> +	i = rx_ring->tail;
-> +
-> +	while (budget--) {
-> +		rx_desc = &((struct emac_desc *)rx_ring->desc_addr)[i];
-> +
-> +		/* Stop checking if rx_desc still owned by DMA */
-> +		if (READ_ONCE(rx_desc->desc0) & RX_DESC_0_OWN)
-> +			break;
-> +
-> +		dma_rmb();
-> +
-> +		rx_buf = &rx_ring->rx_desc_buf[i];
-> +
-> +		if (!rx_buf->skb)
-> +			break;
-> +
-> +		got++;
-> +
-> +		dma_unmap_single(&priv->pdev->dev, rx_buf->dma_addr,
-> +				 rx_buf->dma_len, DMA_FROM_DEVICE);
-> +
-> +		status = emac_rx_frame_status(priv, rx_desc);
-> +		if (unlikely(status == RX_FRAME_DISCARD)) {
-> +			ndev->stats.rx_dropped++;
+	depends on !RUST || <condition>
 
-As per the comment in struct net-device,
-ndev->stats should not be used in modern drivers.
+which would allow the user to make a decision about which has a greater
+priority while also handling the extensions individually.
 
-Probably you want to implement NETDEV_PCPU_STAT_TSTATS.
+> Nonetheless, it occurred to me as I was writing this reply that if GCC
+> implements a new extension in the future that LLVM/Clang doesn't yet have,
+> this could once again lead to a break in GCC+Rust build support if the
+> kernel decides to use the new extension. So it's a trade-off, you guys
+> decide, I'm fine with both.
+>=20
+> Regarding the name, initially I named it "compatible", and ended up chang=
+ed
+> it to "recognize" before sending the patch. If we continue on this path, =
+I'm
+> not sure what name is appropriate to use here, do you guys have any ideas?
+>=20
+> > What does the libclang >=3D 17 requirement actually do here? Is that the
+> > version where llvm starts to require that Zicsr/Zifencei is set in order
+> > to use them? I think a comment to that effect is required if so. This
+> > doesn't actually need to be blocking either, should just be able to
+> > filter it out of march when passing to bindgen, no?
+>=20
+> libclang >=3D 17 starts recognizing Zicsr/Zifencei in -march, passing the=
+m to
+> -march doesn't generate an error, and passing them or not doesn't have any
+> real difference. (still follows ISA before version 20190608 --
+> Zicsr/Zifencei are included in base ISA). I should have written a comment
+> there to avoid confusion.
+>=20
+> Reference commit in LLVM/Clang 22e199e6af ("[RISCV] Accept zicsr and
+> zifencei command line options")
+> https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d44986=
+94e15bf8a16
+>=20
+> > What about the case where TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI is not
+> > set at all? Currently your patch is going to block rust in that case,
+> > when actually nothing needs to be done at all - no part of the toolchain
+> > requires understanding Zicsr/Zifencei as standalone extensions in this
+> > case.
+>=20
+> This is a bug, I missed this case. So it should be corrected to:
+>=20
+>    config RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZICSR_ZIFENCEI
+>     =A0 =A0 def_bool y
+>     =A0 =A0 depends on TOOLCHAIN_NEEDS_OLD_ISA_SPEC ||
+>    !TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI ||
+>    RUST_BINDGEN_LIBCLANG_VERSION >=3D 170000
+>=20
+>=20
+> > The TOOLCHAIN_NEEDS_OLD_ISA_SPEC handling I don't remember 100% how it
+> > works, but if bindgen requires them to be set to use the extension
+> > this will return true but do nothing to add the extensions to march?
+> > That seems wrong to me.
+> > I'd be fairly amenable to disabling rust though when used in combination
+> > with gcc < 11.3 and gas >=3D2.36 since it's such a niche condition, rat=
+her
+> > doing work to support it. That'd be effectively an inversion of your
+> > first condition.
+>=20
+> The current latest version of LLVM/Clang still does not require explicit
+> Zicsr/Zifence to enable these two extensions, Clang just accepts them in
+> -march and then silently ignores them.
+>=20
+> Checking the usage of CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC:
+>=20
+>    ifdef CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC
+>    KBUILD_CFLAGS +=3D -Wa,-misa-spec=3D2.2
+>    KBUILD_AFLAGS +=3D -Wa,-misa-spec=3D2.2
+>    else
+>    riscv-march-$(CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI) :=3D
+>    $(riscv-march-y)_zicsr_zifencei
+>    endif
+>=20
+> It just uses -Wa to force an older ISA version to GAS. So the
+> RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZICSR_ZIFENCEI I corrected above should =
+be
+> fine now I guess? Or would you still prefer your idea of blocking Rust if
+> TOOLCHAIN_NEEDS_OLD_ISA_SPEC is true?
 
-Sorry for not mentioning this in an earlier review of
-stats in this driver.
+Nah, if the explicit setting isn't required then it should be fine to
+not block on it being used. To be honest, I'm not concerned about
+Zicsr/Zifencei being communicated across to bindgen as much as I would
+be about other extensions, my motivation here is regarding build
+breakages - in particular when things like TOOLCHAIN_NEEDS_OLD_ISA_SPEC
+is set, since it's a very niche configuration that if someone told me
+they were using I would tell them to stop. As I said, the original
+reason for this existing was to support w/e old version of debian linaro
+were using that could not do LLVM=3D1 builds and I think the person who
+added to this handle gcc with older binutils was trying to do a gradual
+move from an old toolchain in steps to a modern one, so neither were
+instances of someone actually wanting to use such a strange mix.
 
-> +			dev_kfree_skb_irq(rx_buf->skb);
-> +			rx_buf->skb = NULL;
-> +		} else {
-> +			skb = rx_buf->skb;
-> +			skb_len = rx_frame_len(rx_desc) - ETH_FCS_LEN;
-> +			skb_put(skb, skb_len);
-> +			skb->dev = ndev;
-> +			ndev->hard_header_len = ETH_HLEN;
-> +
-> +			skb->protocol = eth_type_trans(skb, ndev);
-> +
-> +			skb->ip_summed = CHECKSUM_NONE;
-> +
-> +			napi_gro_receive(&priv->napi, skb);
-> +
-> +			ndev->stats.rx_packets++;
-> +			ndev->stats.rx_bytes += skb_len;
-> +
-> +			memset(rx_desc, 0, sizeof(struct emac_desc));
-> +			rx_buf->skb = NULL;
-> +		}
-> +
-> +		if (++i == rx_ring->total_cnt)
-> +			i = 0;
-> +	}
-> +
-> +	rx_ring->tail = i;
-> +
-> +	emac_alloc_rx_desc_buffers(priv);
-> +
-> +	return got;
-> +}
+> (To be clear, the breaking changes regarding Zicsr/Zifence are since ISA
+> version 20190608, and versions 2.0, 2.1, 2.2 are older than 20190608)
+>=20
+> The only thing I'm confused about is that according to the comment of
+> TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI, GCC-12.1.0 bumped the default ISA
+> to 20191213, but why doesn't the depends-on have condition || (CC_IS_GCC =
+&&
+> GCC_VERSION >=3D 120100)?
 
-...
+It's probably something along the lines of there being no _C_ code that
+produces the Zicsr and Zifencei instructions, and therefore no build
+errors produced if they're missing. That's part of why I said my
+motivation in this particular case is build breakage, more than anything
+else.
+
+--nGPHKziLNNz0QDF3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLsApwAKCRB4tDGHoIJi
+0mwmAP9bDnlcc+95AWzyJyyoYFiI/Rtae49SrnuKHIhcU/MzCgD/XQD+0ddConmh
+ToGmliLxcwvMgLrAOpS8ZStzbjbnYQo=
+=xiVS
+-----END PGP SIGNATURE-----
+
+--nGPHKziLNNz0QDF3--
+
+
+--===============6386232683765815439==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6386232683765815439==--
+
