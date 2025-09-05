@@ -4,38 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C37CA101F
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 18:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81EECA1010
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 18:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=A/1K/yilvDx2QKsw2Zebf+FyCnPF6/OOFme5LWjeYmE=; b=dzlVuTGptUuZhk
-	rW9hIwP2DDmmPplAGGhxSHC5Yc96rB56AkAmVhfVrxx/TeMByk0BO1kUtt1JGdoaY1/Opc6yMMizw
-	FsAdxDkdko/cLBUNFIni44nt9LKqWFt2wntaDn67WlUDPa8NAuwI+8nskqkgksoBlBCmBj0V1yjBf
-	421w9TdZPZPvMwwzwxAiTgYoIwOK6MBzXJT5wGDvbYFZjzs+xxIiougko7k2+sRkVwz9Txds3PgJn
-	sYDhQW24FDW8KEf55om/syCT1zOQsjEhgNXVybUjwR9DFU9+dz9DmtZ73+0gNbkNV2D7HzG7RW5Mq
-	s+1PvRU7Zje1cCmRKpVA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aYMAG8bz1VYNbZNFPmahgYi/6M8UXo3iMateUNEpnqA=; b=gGdfLwYelWJ1nP
+	n21IjEvEpuwNsQ57LH0+jxDAcKeHADSEzudtr5DyuaUN4ulPTiXrUNXUACeS6nMB5yYNVyYko+6Lp
+	Fk5zbn4bOSHybPXBj7D8g6TrSgkzI3FfaODnKs/8lLACcWyjZ/QRo7dhdR7HuD0YymcZy33OebN99
+	a6OYZxabsx2CfI0JWXUP0XziqJHWLzWQwiaOz68G5DcI6hxH/GAC3eal6W47j2WZzaO+yajMdzN/3
+	iAmLaYLpleMw+2chMedrsrd3+/WXNWHwF1wQ8UDZSO/riY270ZcFmDl7pRwASs0rs+biyAGbpU4RA
+	HSmB0Uqp2fpgz6XW6HOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uubFz-00000003ovS-1FvN;
-	Fri, 05 Sep 2025 18:33:55 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1uubG1-00000003ox5-1q06;
+	Fri, 05 Sep 2025 18:33:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXcz-00000002SKu-1kMw
+	id 1uuXdl-00000002SbI-1j1G
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 05 Sep 2025 14:42:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=gOE7XNWSTpEmufTQ7PonAVEiPm1U0umeEflouSa4mAM=; b=Zyq30saL/TiRhvJyt4SptcX48+
+	PjtUvBDTiNERjQsu5Y9j9cm7fZ1ESqIyCZCkWfT545QNKjsTCSrGZqVtQ3IZSq2iFvNnQA5soFYZY
+	u3E1hjhIFkRqJ0LAX4E1IDQpdVQ7W1yVJHwuGb/3hxrXNpbrBspXCyInfqKBfjIXDUS5pMJC/TvgR
+	O4GaQ/U9HvVtMpAvec+ytlOyQ0bPiwgXcUU2K62F3zadqmJnH2HzUeHYfo8MUN9aRH5ZFpljKPtgP
+	BuZWqZ3A+t6TQtiYSnBAxBsm8cYN7GY/kJxaMiDLXIhWrPeFeEYm7svfblAU4NqdOkjDfZRaHmv7B
+	NWmBRdjg==;
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuXdi-00000004cnt-2Yms
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 14:41:27 +0000
+	Fri, 05 Sep 2025 14:42:12 +0000
 Received: from hay.lan (unknown [IPv6:2605:59c0:2078:cf00:6ecf:39ff:fe00:8375])
 	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 5EFDCB22004E;
-	Fri,  5 Sep 2025 16:41:18 +0200 (CEST)
+	by freeshell.de (Postfix) with ESMTPSA id 8BDC7B22007F;
+	Fri,  5 Sep 2025 16:42:03 +0200 (CEST)
 From: E Shattow <e@freeshell.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Michael Zhu <michael.zhu@starfivetech.com>,
+	Drew Fustini <drew@beagleboard.org>
 Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
@@ -43,14 +63,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	Conor Dooley <conor@kernel.org>
-Subject: [PATCH v3 0/5] riscv: dts: starfive: Add Milk-V Mars CM (Lite) SoM
-Date: Fri,  5 Sep 2025 07:39:38 -0700
-Message-ID: <20250905144011.928332-1-e@freeshell.de>
+Subject: [PATCH v3 2/5] dt-bindings: riscv: starfive: add milkv,marscm-emmc
+Date: Fri,  5 Sep 2025 07:39:40 -0700
+Message-ID: <20250905144011.928332-3-e@freeshell.de>
 X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250905144011.928332-1-e@freeshell.de>
+References: <20250905144011.928332-1-e@freeshell.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_074125_602244_DF01786A 
-X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-CacheID: sfid-20250905_154210_785536_9E1F180E 
+X-CRM114-Status: UNSURE (   5.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,66 +90,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Milk-V Mars CM and Mars CM Lite System-on-Module both are based on the
-StarFive JH7110 SoC and compatible with the Raspberry Pi CM4IO Classic IO
-Board carrier. Mars CM Lite is Mars CM without the eMMC storage component
-on mmc0 and the mmc0 interface configured instead for SD Card use. The
-optional WiFi+BT chipset is connected via SDIO on the mmc1 interface that
-would otherwise be connected to an SD Card slot on the StarFive
-VisionFive2 reference design.
+Add "milkv,marscm-emmc" as a StarFive JH7110 SoC-based system-on-module.
 
-Add the related devicetree files for both Milk-V Mars CM and Milk-V Mars
-CM Lite describing the currently supported features, namely PMIC, UART,
-I2C, GPIO, eMMC or SD Card, WiFi+BT, QSPI Flash, and Ethernet.
+Signed-off-by: E Shattow <e@freeshell.de>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/riscv/starfive.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Caveat with vendor AP6256 firmware files present the firmware loading is
-successful but subsequently fails IRQ wake initialization. Common GPIO
-conflicts for "WiFi" optioned boards having this module:
-
-pwmdac_pins:
- - AP6256: WL_REG_ON>>WIFI_REG_ON_H_GPIO33
- - AP6256: WL_HOST_WAKE>>WIFI_WAKE_HOST_H_GPIO34
-
-i2c2_pins:
- - AP6256: UART_CTS_N<<UART1_RTSn_GPIO2
- - AP6256: UART_RTS_N>>UART1_CTSn_GPIO3
-
-i2c6_pins:
- - AP6256: UART_RXD<<UART_TX_GPIO16
- - AP6256: UART_TXD>>UART_RX_GPIO17
-
-Tested successfully for basic mmc0 storage, USB, and network functionality on:
-- Milk-V Mars CM 8GB
-- Milk-V Mars CM Lite 4GB
-- Milk-V Mars CM Lite WiFi 8GB
-
-Changes since v2:
-- PATCH 3/5 delete newline at end of file
-- PATCH 5/5 delete newline at end of file
-
-Link to v2:
-https://lore.kernel.org/lkml/20250831225959.531393-1-e@freeshell.de/
-
-E Shattow (5):
-  riscv: dts: starfive: add common board dtsi for Milk-V Mars CM
-    variants
-  dt-bindings: riscv: starfive: add milkv,marscm-emmc
-  riscv: dts: starfive: add Milk-V Mars CM system-on-module
-  dt-bindings: riscv: starfive: add milkv,marscm-lite
-  riscv: dts: starfive: add Milk-V Mars CM Lite system-on-module
-
- .../devicetree/bindings/riscv/starfive.yaml   |   2 +
- arch/riscv/boot/dts/starfive/Makefile         |   2 +
- .../dts/starfive/jh7110-milkv-marscm-emmc.dts |  12 ++
- .../dts/starfive/jh7110-milkv-marscm-lite.dts |  25 +++
- .../dts/starfive/jh7110-milkv-marscm.dtsi     | 159 ++++++++++++++++++
- 5 files changed, 200 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-emmc.dts
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi
-
-
-base-commit: 8181cc2f3f21657392da912eb20ee17514c87828
+diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+index 7ef85174353d..0713edb687fe 100644
+--- a/Documentation/devicetree/bindings/riscv/starfive.yaml
++++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+@@ -28,6 +28,7 @@ properties:
+           - enum:
+               - deepcomputing,fml13v01
+               - milkv,mars
++              - milkv,marscm-emmc
+               - pine64,star64
+               - starfive,visionfive-2-v1.2a
+               - starfive,visionfive-2-v1.3b
 -- 
 2.50.0
 
