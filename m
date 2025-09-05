@@ -4,90 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5C4CA101F
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 03:59:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12B86CA1010
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 03:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AiibMykpyfWqS1AEqVQMM5feW2eKsw3PUyUKR8wofgg=; b=b6nBOo0c9Jf1Ax
-	QtC7NVKyVIyRFhWdCB6eSMyzVssX9XvHmqmvatZF0CFRXTTYgmXw2Fai2koX5SBcSg48f1v73s8VU
-	RVzISbonlsuPXSB5U1V8WuSLaSRgQH91ux09sEnhCY1l/tsafep11BGloIG53vhNQ172n1AtnrRag
-	tN1Ly5BrDP8OjcwTbNjDOoeOfllDDp0mWZS8tapSDFi939jMXYx2oF7MYKETGtf5+1W0I++nlKUNi
-	TimSFR3FCHTnhGw3LWlsjCyhie9XgzoxA+sqcVbSBIGcJ72kep/D6b84Bn+D42Li97tVgAxM1Xbvx
-	rZXdtha3bJnyf97C9WQw==;
+	List-Owner; bh=A5LqEDM3r9Ltlswc1K0BRmZBacY/M/68acf6xE4d0bQ=; b=rtEF5d9aYGN8by
+	dT7Gdq7qXm+gjz8Aj5oKvNOyRPnxOyDcoMCsrLgMPy8DWGH+YOTbsTOIErPgJriI08nnb5ufhHchC
+	o33YS+Wt4374xXiNph2jjRTJ/0l+k0823JMyhZqtRZnI7yfK9XWO6ux0VOPx29lvO+942QJLJZSlh
+	85LS/gf3iDy9mEhghTntQ89/FVBPCfmsCOTpQB1ILDwI0vfg3gS5ZWtOcMr204dKGsFIDz7bmrZwI
+	/+uIQPxuDbX1E/3KqZs+sIXIOUWJNuhnCzVeVdJLpnkPWxb+7n75D3hpcs9hL4tSOscVxozQ0yFTW
+	gUghviOq6KBg/s5ghYeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuNbO-0000000GaLx-2Tg0;
-	Fri, 05 Sep 2025 03:59:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uuNbT-0000000GaTh-40r7;
+	Fri, 05 Sep 2025 03:59:11 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuMrK-0000000GMhv-2fUW
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 05 Sep 2025 03:11:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=HAaOZik2ANBAT+yVYgoI1i1OIdAH5HCdNG6Pbp04IcU=; b=Ruoob2UFneK6O8RAWgEl+DUgic
-	0CcNW4txkqM6UUsxhbHsniGQxc6U37d7skwE+LZzywnt/EUnlOERMGBJ7ufEfTAp2h/ohks+P9+Wc
-	8cNGss9oXKFEjj7HHQ2IzSxD9oNyUTMRxOWrj4nvjw4pUPRX7mx1aKmQOZqKzaigSXoqvzEJXo9lX
-	JkPhANL3BTNVkENRzeVj+A69Lk7JKbjIi27ywDl2L4b2FLPpFHsuWy7RDqQfE0DMF3UH3AN+ObzyT
-	C8LBJq5uT7FJjYW0lRI8kc0+FKl7SADJvDjpVtesSy0YLsZepESw8RMHh9b3uCoxuj4+70MEK6kls
-	zozoJVfg==;
-Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuMrF-00000004Sg6-2RIB
+	id 1uuN6j-0000000GRvg-0XlI
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 03:11:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757041857; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=bRowkLUp2jHLHKmjNo72kcTTaTfMmkd7hOuHUD6ODWHwOsrf+pqwl4Y4FB4FqM+lVaVj3tb/OxPrHsooFNDrtvvAj8Vn3ovUQkMN0VN20GfVLtb3YA0IpkKlpgrxD1ALDXgbuoDiL3Zo1eblJim8ai+DiT7xxWbDlFD5jXQzsdo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757041857; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=HAaOZik2ANBAT+yVYgoI1i1OIdAH5HCdNG6Pbp04IcU=; 
-	b=KQ6nYZs1Su6xtBQg6p8l8gqxL9b/6mMFe60F0y0DXABR6wHXDH/vZoVyk4FUsXtzTgc7yMWjPRpFFTTbQbYDHtcEd6qfGfi/K9dgRE5tz/yc+iiV8j3dphGNfkNgPjIVC7E0ZKPUmunIITSbn9/dCNeFSoty8YWPHx4seP0EH3M=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
-	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757041857;
-	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Feedback-ID:Reply-To;
-	bh=HAaOZik2ANBAT+yVYgoI1i1OIdAH5HCdNG6Pbp04IcU=;
-	b=d0M0Gf1GUPJLVQxn/PWn14DGc+4jlmxFNpMfCsN5HmgH7aoZkaDdmKR2ZPkrniuw
-	tT712xUZwDD6eVXWxJPV4BU0rk30t+E75d8BgkH7ysxvEqVdSohebfzD4qwz0TtIAS0
-	7NhE5OxEc4Jm+t/RGrPQA1Os84YQX962gdEKNQPs=
-Received: by mx.zohomail.com with SMTPS id 175704185450396.43789058508014;
-	Thu, 4 Sep 2025 20:10:54 -0700 (PDT)
-From: Xukai Wang <kingxukai@zohomail.com>
-Date: Fri, 05 Sep 2025 11:10:22 +0800
-Subject: [PATCH v8 1/3] dt-bindings: clock: Add bindings for Canaan K230
- clock controller
+	Fri, 05 Sep 2025 03:27:26 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-61cb4374d2fso2606634a12.2
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Sep 2025 20:27:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1757042843; x=1757647643; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=os04syBpjRUYrOuY5Z5ul0OnAt1kwR5e6GPJHPTZohI=;
+        b=Qrdbk9u8fklyw5VaAzdtiwUhr/BA2k5SSZh0iQFX4uaSs+QRT/cMEL+gCiaaxeoBhE
+         c6bIuBCmYq9Ft8trvF3tVagbAwtKEArTDS8i6VNiVCbQjqeyl2Uz669ES99FruZGidAd
+         dN5ERcM4UFaJj+gRgZSG8cYvY2ivhpUYrsOA4TjO9zyYKb5TCSFiO9BUczWFrNATeH3L
+         HdLWgQCuQCP2WWJ/qZjjbK2jLmxF5Mz31QDXWrb14zFD6c9KbcePt9gwPxfQF6RUeWB+
+         Zx7g9kfzAnDxttIVmA79ZnQiTdJcgs3+23cg2b3ULaVzrRn3F8p0KCHdCwU2q3jeuSG7
+         N4Cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757042843; x=1757647643;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=os04syBpjRUYrOuY5Z5ul0OnAt1kwR5e6GPJHPTZohI=;
+        b=HXibVr8dh57SyI8pxg6g8UwzAAq29DvFXfkUNPlFc60STFwrQeIStikhJYDKMzvUXJ
+         ulyO/TGyfjuGQp6IGY8cJgBWQ9kaYHM31ur+onlG/jFFxVQQAuGygMP7TldvkSJ+WSl+
+         6jr5dx8rwoCRK+wkDq30I3ciE/8Y0P+KNdF/OQp5mxsHJ4tDsoBk27gTgP9ZME8l9O/N
+         uR7EcO2OwwLxYe5IiSkaeBPYMoiiED+r9dKe3E08a01ihBT0DrqySk4SJ3xK+w81F494
+         u8u4b6yD19gMu3Pdi7Hfa3AbTH2l16vF9xU90442de2nACiLUBI+WlNgtKCDkCaQBN1L
+         h6Ow==
+X-Forwarded-Encrypted: i=1; AJvYcCUn1w2FB63BI/nZAjmA9oONYT4uLOI2CpLomaFwYkke2WP60Qos+WuwQikzHxX4AdvqTmjm1VhEteW/GA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyE2BWmTl95Hq65ul2LFWSyPSs8ewhbm1UqGyJS+DPgJSF+L8Sl
+	/AEM9dkyK+KHa3K1nR+c7d1gz2xyMBD2lBJihBTTroh1PxXQKSEq/mJb48rjrpTer6Z20KDWa2x
+	MBTNbZlaQ9cCzPjrlA14hf8jdpPppuidIvy5Jz4di3g==
+X-Gm-Gg: ASbGncstJeDf0UrUuQgW+7Pmxas+g1YNykOA5cca+cA9G0F0fd/oHDxp4bUj/ygjajq
+	PtwzoYJMoz1MJIQD+l+fhuEovCzLKXz3NVuIw0r3BamzjjB3E5l2QNyMUOhkDz3T8sYRjPAx2NA
+	wesXujjfGYCghiPCphH9xK4rXh1nqmTx0FybrYY9Rp3LbugecxbbwYv8jgeCNPv9JtIMmL9FhVi
+	8xc2S/neq2DI01QTUTv
+X-Google-Smtp-Source: AGHT+IFTBZLssAj4YEI3yGO9zckI6NIStV+ozblxy5fjUOhfU+lQN15HDXjbRdJYZmz9vJUW1Pms6o2MHeVJKPYWHtY=
+X-Received: by 2002:a05:6402:5cd:b0:61d:1443:8599 with SMTP id
+ 4fb4d7f45d1cf-61d26ec6264mr18308728a12.32.1757042843053; Thu, 04 Sep 2025
+ 20:27:23 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20250905-b4-k230-clk-v8-1-96caa02d5428@zohomail.com>
-References: <20250905-b4-k230-clk-v8-0-96caa02d5428@zohomail.com>
-In-Reply-To: <20250905-b4-k230-clk-v8-0-96caa02d5428@zohomail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Xukai Wang <kingxukai@zohomail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Troy Mitchell <TroyMitchell988@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-Feedback-ID: rr080112274ff31d8bf776af84df8d64a70000b8c4ee5d4395f404b23f4b2f3cf28cb02537d7ec1beb2653d8:zu080112271c0bd73724cc6ee37e4e20670000e01efa4694a701f7b1025ee3cbc7ec48ef7e68e6f0ebf6c084:rf0801122cb1c0099e0a989776f504788d0000017441974cfbe2ba5bf42552cdeef0b44249af8edb66435a17c322babf4c:ZohoMail
-X-ZohoMailClient: External
+References: <20240614142156.29420-3-zong.li@sifive.com> <20250901133629.87310-1-ni_liqiang@126.com>
+ <CANXhq0ra+yv-Wt_vKTN3+c4StsPQB1vR+=Kp3RVSh0g10Oogqw@mail.gmail.com>
+In-Reply-To: <CANXhq0ra+yv-Wt_vKTN3+c4StsPQB1vR+=Kp3RVSh0g10Oogqw@mail.gmail.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Fri, 5 Sep 2025 11:27:10 +0800
+X-Gm-Features: Ac12FXxCOomRzLnISI4mSuIvWFVx9HD9ac2cyQivUPSI8ky_l1yBqci4E2RqAio
+Message-ID: <CANXhq0oeUZb7161eJ2z-9aRXSDSmt8P9RpC7QSH4DZ0YvNp_7Q@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 00/10] RISC-V IOMMU HPM and nested IOMMU support
+To: niliqiang <ni_liqiang@126.com>
+Cc: aou@eecs.berkeley.edu, iommu@lists.linux.dev, jgg@ziepe.ca, 
+	joro@8bytes.org, kevin.tian@intel.com, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	robin.murphy@arm.com, tjeznach@rivosinc.com, will@kernel.org, 
+	chenruisust@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_041127_468377_8A281AE2 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250904_202725_175289_C7D72AC7 
+X-CRM114-Status: GOOD (  40.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,322 +94,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds the Device Tree binding for the clock controller
-on Canaan k230. The binding defines the clocks and the required
-properties to configure them correctly.
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
----
- .../devicetree/bindings/clock/canaan,k230-clk.yaml |  59 ++++++
- include/dt-bindings/clock/canaan,k230-clk.h        | 223 +++++++++++++++++++++
- 2 files changed, 282 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml b/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..34c93cb5db400c7db0a7ede2ef79d340354f150c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml
-@@ -0,0 +1,59 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/canaan,k230-clk.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Canaan Kendryte K230 Clock
-+
-+maintainers:
-+  - Xukai Wang <kingxukai@zohomail.com>
-+
-+description:
-+  The Canaan K230 clock controller generates various clocks for SoC
-+  peripherals. See include/dt-bindings/clock/canaan,k230-clk.h for
-+  valid clock IDs.
-+
-+properties:
-+  compatible:
-+    const: canaan,k230-clk
-+
-+  reg:
-+    items:
-+      - description: PLL control registers
-+      - description: Sysclk control registers
-+
-+  clocks:
-+    items:
-+      - description: Main external reference clock
-+      - description:
-+          External clock which used as the pulse input
-+          for the timer to provide timing signals.
-+
-+  clock-names:
-+    items:
-+      - const: osc24m
-+      - const: timer-pulse-in
-+
-+  '#clock-cells':
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - '#clock-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    clock-controller@91102000 {
-+        compatible = "canaan,k230-clk";
-+        reg = <0x91102000 0x40>,
-+              <0x91100000 0x108>;
-+        clocks = <&osc24m>, <&timerx_pulse_in>;
-+        clock-names = "osc24m", "timer-pulse-in";
-+        #clock-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/canaan,k230-clk.h b/include/dt-bindings/clock/canaan,k230-clk.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..9eee9440a4f14583eac845b649e5685d623132e1
---- /dev/null
-+++ b/include/dt-bindings/clock/canaan,k230-clk.h
-@@ -0,0 +1,223 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Kendryte Canaan K230 Clock Drivers
-+ *
-+ * Author: Xukai Wang <kingxukai@zohomail.com>
-+ */
-+
-+#ifndef __DT_BINDINGS_CANAAN_K230_CLOCK_H__
-+#define __DT_BINDINGS_CANAAN_K230_CLOCK_H__
-+
-+/* Kendryte K230 SoC clock identifiers (arbitrary values) */
-+#define K230_CPU0_SRC_GATE			0
-+#define K230_CPU0_PLIC_GATE			1
-+#define K230_CPU0_NOC_DDRCP4_GATE		2
-+#define K230_CPU0_APB_GATE			3
-+#define K230_CPU0_SRC_RATE			4
-+#define K230_CPU0_AXI_RATE			5
-+#define K230_CPU0_PLIC_RATE			6
-+#define K230_CPU0_APB_RATE			7
-+#define K230_HS_OSPI_SRC_MUX			8
-+#define K230_HS_USB_REF_MUX			9
-+#define K230_HS_HCLK_HIGH_GATE			10
-+#define K230_HS_HCLK_SRC_GATE			11
-+#define K230_HS_SD0_AHB_GATE			12
-+#define K230_HS_SD1_AHB_GATE			13
-+#define K230_HS_SSI1_AHB_GATE			14
-+#define K230_HS_SSI2_AHB_GATE			15
-+#define K230_HS_USB0_AHB_GATE			16
-+#define K230_HS_USB1_AHB_GATE			17
-+#define K230_HS_SSI0_AXI_GATE			18
-+#define K230_HS_SSI1_GATE			19
-+#define K230_HS_SSI2_GATE			20
-+#define K230_HS_QSPI_AXI_SRC_GATE		21
-+#define K230_HS_SSI1_AXI_GATE			22
-+#define K230_HS_SSI2_AXI_GATE			23
-+#define K230_HS_SD_CARD_SRC_GATE		24
-+#define K230_HS_SD0_CARD_GATE			25
-+#define K230_HS_SD1_CARD_GATE			26
-+#define K230_HS_SD_AXI_SRC_GATE			27
-+#define K230_HS_SD0_AXI_GATE			28
-+#define K230_HS_SD1_AXI_GATE			29
-+#define K230_HS_SD0_BASE_GATE			30
-+#define K230_HS_SD1_BASE_GATE			31
-+#define K230_HS_OSPI_SRC_GATE			32
-+#define K230_HS_SD_TIMER_SRC_GATE		33
-+#define K230_HS_SD0_TIMER_GATE			34
-+#define K230_HS_SD1_TIMER_GATE			35
-+#define K230_HS_USB0_REF_GATE			36
-+#define K230_HS_USB1_REF_GATE			37
-+#define K230_HS_HCLK_HIGH_SRC_RATE		38
-+#define K230_HS_HCLK_SRC_RATE			39
-+#define K230_HS_SSI0_AXI_RATE			40
-+#define K230_HS_SSI1_RATE			41
-+#define K230_HS_SSI2_RATE			42
-+#define K230_HS_QSPI_AXI_SRC_RATE		43
-+#define K230_HS_SD_CARD_SRC_RATE		44
-+#define K230_HS_SD_AXI_SRC_RATE			45
-+#define K230_HS_USB_REF_50M_RATE		46
-+#define K230_HS_SD_TIMER_SRC_RATE		47
-+#define K230_TIMER0_MUX				48
-+#define K230_TIMER1_MUX				49
-+#define K230_TIMER2_MUX				50
-+#define K230_TIMER3_MUX				51
-+#define K230_TIMER4_MUX				52
-+#define K230_TIMER5_MUX				53
-+#define K230_SHRM_SRAM_MUX			54
-+#define K230_DDRC_SRC_MUX			55
-+#define K230_AI_SRC_MUX				56
-+#define K230_CAMERA0_MUX			57
-+#define K230_CAMERA1_MUX			58
-+#define K230_CAMERA2_MUX			59
-+#define K230_CPU1_SRC_MUX			60
-+#define K230_CPU1_SRC_GATE			61
-+#define K230_CPU1_PLIC_GATE			62
-+#define K230_CPU1_APB_GATE			63
-+#define K230_CPU1_SRC_RATE			64
-+#define K230_CPU1_AXI_RATE			65
-+#define K230_CPU1_PLIC_RATE			66
-+#define K230_CPU1_APB_RATE			67
-+#define K230_PMU_APB_GATE			68
-+#define K230_LS_APB_SRC_GATE			69
-+#define K230_LS_UART0_APB_GATE			70
-+#define K230_LS_UART1_APB_GATE			71
-+#define K230_LS_UART2_APB_GATE			72
-+#define K230_LS_UART3_APB_GATE			73
-+#define K230_LS_UART4_APB_GATE			74
-+#define K230_LS_I2C0_APB_GATE			75
-+#define K230_LS_I2C1_APB_GATE			76
-+#define K230_LS_I2C2_APB_GATE			77
-+#define K230_LS_I2C3_APB_GATE			78
-+#define K230_LS_I2C4_APB_GATE			79
-+#define K230_LS_GPIO_APB_GATE			80
-+#define K230_LS_PWM_APB_GATE			81
-+#define K230_LS_JAMLINK0_APB_GATE		82
-+#define K230_LS_JAMLINK1_APB_GATE		83
-+#define K230_LS_JAMLINK2_APB_GATE		84
-+#define K230_LS_JAMLINK3_APB_GATE		85
-+#define K230_LS_AUDIO_APB_GATE			86
-+#define K230_LS_ADC_APB_GATE			87
-+#define K230_LS_CODEC_APB_GATE			88
-+#define K230_LS_I2C0_GATE			89
-+#define K230_LS_I2C1_GATE			90
-+#define K230_LS_I2C2_GATE			91
-+#define K230_LS_I2C3_GATE			92
-+#define K230_LS_I2C4_GATE			93
-+#define K230_LS_CODEC_ADC_GATE			94
-+#define K230_LS_CODEC_DAC_GATE			95
-+#define K230_LS_AUDIO_DEV_GATE			96
-+#define K230_LS_PDM_GATE			97
-+#define K230_LS_ADC_GATE			98
-+#define K230_LS_UART0_GATE			99
-+#define K230_LS_UART1_GATE			100
-+#define K230_LS_UART2_GATE			101
-+#define K230_LS_UART3_GATE			102
-+#define K230_LS_UART4_GATE			103
-+#define K230_LS_JAMLINK0CO_GATE			104
-+#define K230_LS_JAMLINK1CO_GATE			105
-+#define K230_LS_JAMLINK2CO_GATE			106
-+#define K230_LS_JAMLINK3CO_GATE			107
-+#define K230_LS_GPIO_DEBOUNCE_GATE		108
-+#define K230_SYSCTL_WDT0_APB_GATE		109
-+#define K230_SYSCTL_WDT1_APB_GATE		110
-+#define K230_SYSCTL_TIMER_APB_GATE		111
-+#define K230_SYSCTL_IOMUX_APB_GATE		112
-+#define K230_SYSCTL_MAILBOX_APB_GATE		113
-+#define K230_SYSCTL_HDI_GATE			114
-+#define K230_SYSCTL_TIME_STAMP_GATE		115
-+#define K230_SYSCTL_WDT0_GATE			116
-+#define K230_SYSCTL_WDT1_GATE			117
-+#define K230_TIMER0_GATE			118
-+#define K230_TIMER1_GATE			119
-+#define K230_TIMER2_GATE			120
-+#define K230_TIMER3_GATE			121
-+#define K230_TIMER4_GATE			122
-+#define K230_TIMER5_GATE			123
-+#define K230_SHRM_APB_GATE			124
-+#define K230_SHRM_AXI_GATE			125
-+#define K230_SHRM_AXI_SLAVE_GATE		126
-+#define K230_SHRM_NONAI2D_AXI_GATE		127
-+#define K230_SHRM_SRAM_GATE			128
-+#define K230_SHRM_DECOMPRESS_AXI_GATE		129
-+#define K230_SHRM_SDMA_AXI_GATE			130
-+#define K230_SHRM_PDMA_AXI_GATE			131
-+#define K230_DDRC_SRC_GATE			132
-+#define K230_DDRC_BYPASS_GATE			133
-+#define K230_DDRC_APB_GATE			134
-+#define K230_DISPLAY_AHB_GATE			135
-+#define K230_DISPLAY_AXI_GATE			136
-+#define K230_DISPLAY_GPU_GATE			137
-+#define K230_DISPLAY_DPIP_GATE			138
-+#define K230_DISPLAY_CFG_GATE			139
-+#define K230_DISPLAY_REF_GATE			140
-+#define K230_USB_480M_GATE			141
-+#define K230_USB_100M_GATE			142
-+#define K230_DPHY_DFT_GATE			143
-+#define K230_SPI2AXI_GATE			144
-+#define K230_AI_SRC_GATE			145
-+#define K230_AI_AXI_GATE			146
-+#define K230_AI_SRC_RATE			147
-+#define K230_CAMERA0_GATE			148
-+#define K230_CAMERA1_GATE			149
-+#define K230_CAMERA2_GATE			150
-+#define K230_LS_APB_SRC_RATE			151
-+#define K230_LS_I2C0_RATE			152
-+#define K230_LS_I2C1_RATE			153
-+#define K230_LS_I2C2_RATE			154
-+#define K230_LS_I2C3_RATE			155
-+#define K230_LS_I2C4_RATE			156
-+#define K230_LS_CODEC_ADC_RATE			157
-+#define K230_LS_CODEC_DAC_RATE			158
-+#define K230_LS_AUDIO_DEV_RATE			159
-+#define K230_LS_PDM_RATE			160
-+#define K230_LS_ADC_RATE			161
-+#define K230_LS_UART0_RATE			162
-+#define K230_LS_UART1_RATE			163
-+#define K230_LS_UART2_RATE			164
-+#define K230_LS_UART3_RATE			165
-+#define K230_LS_UART4_RATE			166
-+#define K230_LS_JAMLINKCO_SRC_RATE		167
-+#define K230_LS_GPIO_DEBOUNCE_RATE		168
-+#define K230_SYSCTL_HDI_RATE			169
-+#define K230_SYSCTL_TIME_STAMP_RATE		170
-+#define K230_SYSCTL_TEMP_SENSOR_RATE		171
-+#define K230_SYSCTL_WDT0_RATE			172
-+#define K230_SYSCTL_WDT1_RATE			173
-+#define K230_TIMER0_SRC_RATE			174
-+#define K230_TIMER1_SRC_RATE			175
-+#define K230_TIMER2_SRC_RATE			176
-+#define K230_TIMER3_SRC_RATE			177
-+#define K230_TIMER4_SRC_RATE			178
-+#define K230_TIMER5_SRC_RATE			179
-+#define K230_SHRM_APB_RATE			180
-+#define K230_DDRC_SRC_RATE			181
-+#define K230_DDRC_APB_RATE			182
-+#define K230_DISPLAY_AHB_RATE			183
-+#define K230_DISPLAY_CLKEXT_RATE		184
-+#define K230_DISPLAY_GPU_RATE			185
-+#define K230_DISPLAY_DPIP_RATE			186
-+#define K230_DISPLAY_CFG_RATE			187
-+#define K230_VPU_SRC_GATE			188
-+#define K230_VPU_AXI_GATE			189
-+#define K230_VPU_DDRCP2_GATE			190
-+#define K230_VPU_CFG_GATE			191
-+#define K230_VPU_SRC_RATE			192
-+#define K230_VPU_AXI_SRC_RATE			193
-+#define K230_VPU_CFG_RATE			194
-+#define K230_SEC_APB_GATE			195
-+#define K230_SEC_FIX_GATE			196
-+#define K230_SEC_AXI_GATE			197
-+#define K230_SEC_APB_RATE			198
-+#define K230_SEC_FIX_RATE			199
-+#define K230_SEC_AXI_RATE			200
-+#define K230_USB_480M_RATE			201
-+#define K230_USB_100M_RATE			202
-+#define K230_DPHY_DFT_RATE			203
-+#define K230_SPI2AXI_RATE			204
-+#define K230_CAMERA0_RATE			205
-+#define K230_CAMERA1_RATE			206
-+#define K230_CAMERA2_RATE			207
-+#define K230_SHRM_SRAM_DIV2			208
-+
-+#endif /* __DT_BINDINGS_CANAAN_K230_CLOCK_H__ */
-+
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBTZXAgMiwgMjAyNSBhdCAxMjowMeKAr1BNIFpvbmcgTGkgPHpvbmcubGlAc2lmaXZl
+LmNvbT4gd3JvdGU6Cj4KPiBPbiBNb24sIFNlcCAxLCAyMDI1IGF0IDk6MzfigK9QTSBuaWxpcWlh
+bmcgPG5pX2xpcWlhbmdAMTI2LmNvbT4gd3JvdGU6Cj4gPgo+ID4gSGkgWm9uZwo+ID4KPiA+IEZy
+aSwgMTQgSnVuIDIwMjQgMjI6MjE6NDggKzA4MDAsIFpvbmcgTGkgPHpvbmcubGlAc2lmaXZlLmNv
+bT4gd3JvdGU6Cj4gPgo+ID4gPiBUaGlzIHBhdGNoIGluaXRpYWxpemUgdGhlIHBtdSBzdHVmZiBh
+bmQgdW5pbml0aWFsaXplIGl0IHdoZW4gZHJpdmVyCj4gPiA+IHJlbW92aW5nLiBUaGUgaW50ZXJy
+dXB0IGhhbmRsaW5nIGlzIGFsc28gcHJvdmlkZWQsIHRoaXMgaGFuZGxlciBuZWVkIHRvCj4gPiA+
+IGJlIHByaW1hcnkgaGFuZGxlciBpbnN0ZWFkIG9mIHRocmVhZCBmdW5jdGlvbiwgYmVjYXVzZSBw
+dF9yZWdzIGlzIGVtcHR5Cj4gPiA+IHdoZW4gdGhyZWFkaW5nIHRoZSBJUlEsIGJ1dCBwdF9yZWdz
+IGlzIG5lY2Vzc2FyeSBieSBwZXJmX2V2ZW50X292ZXJmbG93Lgo+ID4gPgo+ID4gPiBTaWduZWQt
+b2ZmLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gPiA+IC0tLQo+ID4gPiAgZHJp
+dmVycy9pb21tdS9yaXNjdi9pb21tdS5jIHwgNjUgKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKwo+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDY1IGluc2VydGlvbnMoKykKPiA+ID4K
+PiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYyBiL2RyaXZlcnMv
+aW9tbXUvcmlzY3YvaW9tbXUuYwo+ID4gPiBpbmRleCA4YjZhNjRjMWFkOGQuLjE3MTZiMjI1MWYz
+OCAxMDA2NDQKPiA+ID4gLS0tIGEvZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS5jCj4gPiA+ICsr
+KyBiL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYwo+ID4gPiBAQCAtNTQwLDYgKzU0MCw2MiBA
+QCBzdGF0aWMgaXJxcmV0dXJuX3QgcmlzY3ZfaW9tbXVfZmx0cV9wcm9jZXNzKGludCBpcnEsIHZv
+aWQgKmRhdGEpCj4gPiA+ICAgcmV0dXJuIElSUV9IQU5ETEVEOwo+ID4gPiAgfQo+ID4gPgo+ID4g
+PiArLyoKPiA+ID4gKyAqIElPTU1VIEhhcmR3YXJlIHBlcmZvcm1hbmNlIG1vbml0b3IKPiA+ID4g
+KyAqLwo+ID4gPiArCj4gPiA+ICsvKiBIUE0gaW50ZXJydXB0IHByaW1hcnkgaGFuZGxlciAqLwo+
+ID4gPiArc3RhdGljIGlycXJldHVybl90IHJpc2N2X2lvbW11X2hwbV9pcnFfaGFuZGxlcihpbnQg
+aXJxLCB2b2lkICpkZXZfaWQpCj4gPiA+ICt7Cj4gPiA+ICsgc3RydWN0IHJpc2N2X2lvbW11X2Rl
+dmljZSAqaW9tbXUgPSAoc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqKWRldl9pZDsKPiA+ID4g
+Kwo+ID4gPiArIC8qIFByb2Nlc3MgcG11IGlycSAqLwo+ID4gPiArIHJpc2N2X2lvbW11X3BtdV9o
+YW5kbGVfaXJxKCZpb21tdS0+cG11KTsKPiA+ID4gKwo+ID4gPiArIC8qIENsZWFyIHBlcmZvcm1h
+bmNlIG1vbml0b3JpbmcgaW50ZXJydXB0IHBlbmRpbmcgKi8KPiA+ID4gKyByaXNjdl9pb21tdV93
+cml0ZWwoaW9tbXUsIFJJU0NWX0lPTU1VX1JFR19JUFNSLCBSSVNDVl9JT01NVV9JUFNSX1BNSVAp
+Owo+ID4gPiArCj4gPiA+ICsgcmV0dXJuIElSUV9IQU5ETEVEOwo+ID4gPiArfQo+ID4gPiArCj4g
+PiA+ICsvKiBIUE0gaW5pdGlhbGl6YXRpb24gKi8KPiA+ID4gK3N0YXRpYyBpbnQgcmlzY3ZfaW9t
+bXVfaHBtX2VuYWJsZShzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21tdSkKPiA+ID4gK3sK
+PiA+ID4gKyBpbnQgcmM7Cj4gPiA+ICsKPiA+ID4gKyBpZiAoIShpb21tdS0+Y2FwcyAmIFJJU0NW
+X0lPTU1VX0NBUEFCSUxJVElFU19IUE0pKQo+ID4gPiArICAgICByZXR1cm4gMDsKPiA+ID4gKwo+
+ID4gPiArIC8qCj4gPiA+ICsgICogcHRfcmVncyBpcyBlbXB0eSB3aGVuIHRocmVhZGluZyB0aGUg
+SVJRLCBidXQgcHRfcmVncyBpcyBuZWNlc3NhcnkKPiA+ID4gKyAgKiBieSBwZXJmX2V2ZW50X292
+ZXJmbG93LiBVc2UgcHJpbWFyeSBoYW5kbGVyIGluc3RlYWQgb2YgdGhyZWFkCj4gPiA+ICsgICog
+ZnVuY3Rpb24gZm9yIFBNIElSUS4KPiA+ID4gKyAgKgo+ID4gPiArICAqIFNldCB0aGUgSVJRRl9P
+TkVTSE9UIGZsYWcgYmVjYXVzZSB0aGlzIElSUSBtaWdodCBiZSBzaGFyZWQgd2l0aAo+ID4gPiAr
+ICAqIG90aGVyIHRocmVhZGVkIElSUXMgYnkgb3RoZXIgcXVldWVzLgo+ID4gPiArICAqLwo+ID4g
+PiArIHJjID0gZGV2bV9yZXF1ZXN0X2lycShpb21tdS0+ZGV2LAo+ID4gPiArICAgICAgICAgICAg
+ICAgaW9tbXUtPmlycXNbcmlzY3ZfaW9tbXVfcXVldWVfdmVjKGlvbW11LCBSSVNDVl9JT01NVV9J
+UFNSX1BNSVApXSwKPiA+ID4gKyAgICAgICAgICAgICAgIHJpc2N2X2lvbW11X2hwbV9pcnFfaGFu
+ZGxlciwgSVJRRl9PTkVTSE9UIHwgSVJRRl9TSEFSRUQsIE5VTEwsIGlvbW11KTsKPiA+ID4gKyBp
+ZiAocmMpCj4gPiA+ICsgICAgIHJldHVybiByYzsKPiA+ID4gKwo+ID4gPiArIHJldHVybiByaXNj
+dl9pb21tdV9wbXVfaW5pdCgmaW9tbXUtPnBtdSwgaW9tbXUtPnJlZywgZGV2X25hbWUoaW9tbXUt
+PmRldikpOwo+ID4gPiArfQo+ID4gPiArCj4gPgo+ID4gV2hhdCBhcmUgdGhlIGJlbmVmaXRzIG9m
+IGluaXRpYWxpemluZyB0aGUgaW9tbXUtcG11IGRyaXZlciBpbiB0aGUgaW9tbXUgZHJpdmVyPwo+
+ID4KPiA+IEl0IG1pZ2h0IGJlIGJldHRlciBmb3IgdGhlIFJJU0MtViBJT01NVSBQTVUgZHJpdmVy
+IHRvIGJlIGxvYWRlZCBhcyBhIHNlcGFyYXRlIG1vZHVsZSwgYXMgdGhpcyB3b3VsZCBhbGxvdyBn
+cmVhdGVyIGZsZXhpYmlsaXR5IHNpbmNlIGRpZmZlcmVudCB2ZW5kb3JzIG1heSBuZWVkIHRvIGFk
+ZCBjdXN0b20gZXZlbnRzLgo+ID4KPiA+IEFsc28sIEknbSBub3QgcXVpdGUgY2xlYXIgb24gaG93
+IGN1c3RvbSBldmVudHMgc2hvdWxkIGJlIGFkZGVkIGlmIHRoZSBSSVNDLVYgaW9tbXUtcG11IGlz
+IHBsYWNlZCB3aXRoaW4gdGhlIGlvbW11IGRyaXZlci4KPgo+IEhpIExpcWlhbmcsCj4gTXkgb3Jp
+Z2luYWwgaWRlYSBpcyB0aGF0LCBzaW5jZSB0aGUgSU9NTVUgSFBNIGlzIG5vdCBhbHdheXMgcHJl
+c2VudCwKPiBpdCBkZXBlbmRzIG9uIHRoZSBjYXBhYmlsaXR5LkhQTSBiaXQsIGlmIHdlIHNlcGFy
+YXRlIEhQTSBpbnRvIGFuCj4gaW5kaXZpZHVhbCBtb2R1bGUsIEkgYXNzdW1lIHRoYXQgdGhlIFBN
+VSBkcml2ZXIgbWF5IG5vdCBoYXZlIGFjY2VzcyB0bwo+IHRoZSBJT01NVSdzIGNvbXBsZXRlIE1N
+SU8gcmVnaW9uLiBJ4oCZbSBub3Qgc3VyZSBob3cgd2Ugd291bGQgY2hlY2sgdGhlCj4gY2FwYWJp
+bGl0eSByZWdpc3RlciBpbiB0aGUgUE1VIGRyaXZlciBhbmQgYXZvaWQgdGhlIGZvbGxvd2luZwo+
+IHNpdHVhdGlvbjogY2FwYWJpbGl0eS5IUE0gaXMgemVybywgYnV0IHRoZSBJT01NVS1QTVUgZHJp
+dmVyIGlzIHN0aWxsCj4gbG9hZGVkIGJlY2F1c2UgdGhlIFBNVSBub2RlIGlzIHByZXNlbnQgaW4g
+dGhlIERUUy4gSXQgd2lsbCBiZSBoZWxwZnVsCj4gaWYgeW91IGhhdmUgYW55IHN1Z2dlc3Rpb25z
+IG9uIHRoaXMuCj4KPiBSZWdhcmRpbmcgY3VzdG9tIGV2ZW50cywgc2luY2Ugd2UgZG9u4oCZdCBo
+YXZlIHRoZSBkcml2ZXIgZGF0YSwgbXkKPiBjdXJyZW50IHJvdWdoIGlkZWEgaXMgdG8gYWRkIGEg
+dmVuZG9yIGV2ZW50IG1hcCB0YWJsZSB0byBsaXN0IHRoZQo+IHZlbmRvciBldmVudHMgYW5kIHVz
+ZSBLY29uZmlnIHRvIGRlZmluZSB0aGVtIHJlc3BlY3RpdmVseS4gVGhpcyBpcwo+IGp1c3QgYW4g
+aW5pdGlhbCB0aG91Z2h0IGFuZCBtYXkgbm90IGJlIHRoZSBnb29kIHNvbHV0aW9uLCBzbyBmZWVs
+IGZyZWUKPiB0byBzaGFyZSBhbnkgcmVjb21tZW5kYXRpb25zLiBPZiBjb3Vyc2UsIGlmIHdlIGV2
+ZW50dWFsbHkgZGVjaWRlIHRvCj4gbW92ZSBpdCB0byBkcml2ZXJzL3BlcmYgYXMgYW4gaW5kaXZp
+ZHVhbCBtb2R1bGUsIHRoZW4gd2UgY291bGQgdXNlIHRoZQo+IGRyaXZlciBkYXRhIGZvciBjdXN0
+b20gZXZlbnRzLCBzaW1pbGFyIHRvIHdoYXQgQVJNIGRvZXMuCgpNYXliZSBsZXQncyB0cnkgYXV4
+aWxpYXJ5IGRyaXZlciBmcmFtZXdvcmsgdG8gcmVzb2x2ZSB0aGlzIHRvcGljIGluCnRoZSBuZXh0
+IHZlcnNpb24uCgo+Cj4gVGhhbmtzCj4KPiA+Cj4gPgo+ID4gQmVzdCByZWdhcmRzLAo+ID4gTGlx
+aWFuZwo+ID4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
