@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B906CA1015
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 04:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B2BACA1010
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 07:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YYKYhXYlcVKwYy49sw5RE8ftYli166qSefIlEYcJ1R8=; b=nAmX3DxaLJENnt
-	7iUo+a1VYjeeFJYw6VWWJR1JGz8KVc6r9xDjJ1oEHwuXMmSJUqoNtNNt4RLJVuszXzSwEpQk7BSN2
-	Wgw/mklbY7trY8bdtiI9ksyZT1VoOnXcpQjE9DfSKDqXBoKMRdnMAzkdjnWiHQWfq+7sP/moyVxlp
-	3wD3g/cY+9mapkdAW0bm9tMtsn8iZw5nwoUvm+y5ocEg0U3o9UU+rWsqnU0X8ST/StCcEJ6ZFVtrf
-	YSYjJ5B+1HLrxKnkUboYDVt0I/OwbBgrHiibq3yOMkd5Nowqb/sFqWs6bBS/g2KxI2+2kglygxv/8
-	xdHM4XzsUdmwn+fRJhPw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=d+q0Fpscrt/AgofM5IDOM6nF+z9OCx5YHpcAI07V82s=; b=tQl1op+ZFtwfjxCs9LenfnxB0e
+	ZPSbYLoZFwzEuScpX4q40oWpTHPRPoBlugbMY4GVkjwpynEvohs89JDVsa7jmwLJyl4/YfIOvtv+c
+	+MpdsJXItBnSE7Sc/jJy2jJkxuCPBtSgkVY6U5nv3EajMdFa3ujRtvrWfol4BDYffvfMu9GT/ysU8
+	Tx6mJHSlriYngt0mgJEnKIqEtg5aDrdiSTdsFs8J5dR6pS4KwLUCw8BB/b8IVtkSvFtJqakErCJbH
+	PH/YcwHOnaV0qXtapJebXPJ2ob9F1h/xLXm7QkwEpC9c9CakrDCvaJrFKMHD1EM3Q3V+je2rLKuiM
+	mGl+PCtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuNuC-0000000Ggcq-45Pl;
-	Fri, 05 Sep 2025 04:18:32 +0000
-Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
+	id 1uuQdl-0000000HW8n-363I;
+	Fri, 05 Sep 2025 07:13:45 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuNol-0000000GfGB-1jdt
+	id 1uuPAo-0000000H3Ox-1ifU
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 04:12:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757045567; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=gM/Sls9VZ5T1dHf2Z1rAFKT1cspPYL35GR25pDh+8laJ42bY7UJ1J05cWvEL48knRhFcHTIfoD/96gWesM7VQZLXnM4lUgvXtq1bklTf+exzJkqZxW5jQUepiPZ1/NJQvincmXcjAhWsDPsZ9WRD9+DliciSKoTO6ymCUPwH1No=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757045567; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=6j8WVHUzpjmtLTPxg0zlXLMcBS5g1yEiQQDtA+CKY3s=; 
-	b=jVma1J2O5vrPhl0q1pbGJGQpMoWcV1sL9LwMP7Y+OEf0ftbvLfOnPn4+3M4HA+p5gg672FKY3GZoHAXHKe8WEG8w8iicdYDzIRwTWb7o9UnSNiDiCnrqKc9xMfFF1WtcvJqFUOW/ao+/5e7aXBfXk+4CxDase0pL/Ks7hSsuwac=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
-	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757045567;
-	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
-	bh=6j8WVHUzpjmtLTPxg0zlXLMcBS5g1yEiQQDtA+CKY3s=;
-	b=NZElVJmd0ndkhsNVJtUQSDK85slBkQPcXeL78AZDCE62ojFznh07Twt7hjZab9f6
-	iQjgHMOQIuxN3OPiIOs5x54Tusq6aWAOouc6ZqLRm+N6u+nxmW9agI4Ta6vnGv7tNBR
-	S5gSlBFdCWuWWQyRLuIyAPlCUsT1QHJbng9fPNyw=
-Received: by mx.zohomail.com with SMTPS id 1757045559172945.1322496024884;
-	Thu, 4 Sep 2025 21:12:39 -0700 (PDT)
-Message-ID: <c0775df8-f959-4c70-9f06-bfa22dd27d54@zohomail.com>
-Date: Fri, 5 Sep 2025 12:12:21 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/3] clk: canaan: Add clock driver for Canaan K230
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Samuel Holland <samuel.holland@sifive.com>,
- Troy Mitchell <TroyMitchell988@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Michael Turquette <mturquette@baylibre.com>
-References: <20250905-b4-k230-clk-v8-0-96caa02d5428@zohomail.com>
- <20250905-b4-k230-clk-v8-2-96caa02d5428@zohomail.com>
-From: Xukai Wang <kingxukai@zohomail.com>
-Content-Language: en-US
-In-Reply-To: <20250905-b4-k230-clk-v8-2-96caa02d5428@zohomail.com>
-Feedback-ID: rr080112276c7d67b73e77bdc8490d709c0000502e5d5094ca03801f33702c9bd07a306ca3328e5fa12003bc:zu080112277d54128bb0a004aa7d227705000049afec9605f2514ce51188b05b1ed005e393bf07381131e24f:rf0801122cd74f153e3036c567b85a7cd7000082ae154bd1fb4dfc1866f22e5df40d10ed18265ec4bb620f84aae37cb6ed:ZohoMail
-X-ZohoMailClient: External
+	Fri, 05 Sep 2025 05:39:48 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32b698861d8so1810645a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Sep 2025 22:39:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1757050785; x=1757655585; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3udnh9xsllR+FkjIGPPOo5bX8r6scLid4vmBPD5wmTc=;
+        b=zUWO50D3tiM87PviUcIZeXZHpRKLACZowq5urDeMUufJe8NTS2KuH/gppho7SKIqB7
+         /YDJ3u8WlYU1zM4jUFyGgoVfLQpLFb08dx52N5maIYS6IO9D9wbmbe+3GdUwX8FNZkzV
+         pYeFDn1PCbPTllXIxPJp7TOlhXBXh7ImatvaQmAIvjSkC7uyQ3mWlVPQ3ztuwXv10cbR
+         zckgjoyAK213NOjrtVVukE0PgNXdiViELF1ErH6ej+YJkkWOz7a+5IVQHAe4eSqlGfAi
+         7NRFLmJePAh6dTzGii8rnF//Kdn5f1ChyJzke/YMVQPkTQ356Gc7GcgmLLRBVNTkd2fn
+         Ob/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757050785; x=1757655585;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3udnh9xsllR+FkjIGPPOo5bX8r6scLid4vmBPD5wmTc=;
+        b=JmMj6QgoKafOZRdubDYSx5/Ny+xSAbPNVy54gSOUg6Qct0Ew5OwH3WJTzCMlPyBtvC
+         +p0/eSH2BAIHUlDImDZE2DSnIFw/FEamMnOGtqWdWRzmt9D/o5eFmgD8Veo//qCesaHh
+         MWfqfED+epJGA+BBjEAhGNQJUh5Qx4B4DD51O7PIupwqh5PbDtJe9+JWr3O092TkM/Nj
+         VcvgAaJ5Mf9CyHuV8g2HoZSXoiL5YyNfqDXXHMdiyqrBM6Pw93ovv1RgZ4e3XqYbtM23
+         f/MX/VEhDm5TGD2nq/DPGWcFw8bbemS/zBMdNS02zx6j00iVZl3ty7W9AVo5nyXHvr31
+         +ScA==
+X-Forwarded-Encrypted: i=1; AJvYcCUWZTXmMMq+isNsBZQP383G5S8bkqBt+8OisFw0KC/dnJ4qGQvxmWd8JLf9rEYevmbV1pG1Sypq6ynlXQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYTfNsmVnPLBOHT1powtG+iKYdoeI3Q/lpyhwWY8PdCgUzOQ2R
+	3H5NSZOJSBjBcaM9sJBVbbWxkOPOjzg5cXgrIJwZSd0IjyqAHSQqzadZqLystUZoh5vmxmG9ucf
+	L5Yj9lA==
+X-Google-Smtp-Source: AGHT+IEl3aDxdJxOeFOgsIqqYfLRUExl039yXm0dtHzzby5zYzVGU35ZbpW1dVjZIdU0C50mCLd9IUYMCJw=
+X-Received: from pjuw15.prod.google.com ([2002:a17:90a:d60f:b0:325:5e4e:4bd4])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3809:b0:329:dff0:701b
+ with SMTP id 98e67ed59e1d1-329dff070c6mr19066965a91.17.1757050784899; Thu, 04
+ Sep 2025 22:39:44 -0700 (PDT)
+Date: Thu, 4 Sep 2025 22:39:37 -0700
+In-Reply-To: <aLojpyTwAMdb1z6D@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
+Mime-Version: 1.0
+References: <20250828000156.23389-1-seanjc@google.com> <aLojpyTwAMdb1z6D@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
+Message-ID: <aLp3makY6FzuUwor@google.com>
+Subject: Re: [PATCH v2 0/7] Drivers: hv: Fix NEED_RESCHED_LAZY and use common APIs
+From: Sean Christopherson <seanjc@google.com>
+To: Wei Liu <wei.liu@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
+	Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
+	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-hyperv@vger.kernel.org, 
+	rcu@vger.kernel.org, Nuno Das Neves <nunodasneves@linux.microsoft.com>, 
+	Mukesh R <mrathor@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_211255_519674_0B54588C 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20250904_223946_445013_E5CC452F 
+X-CRM114-Status: GOOD (  30.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,31 +107,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Stephen Boyd,
+On Thu, Sep 04, 2025, Wei Liu wrote:
+> On Wed, Aug 27, 2025 at 05:01:49PM -0700, Sean Christopherson wrote:
+> > Fix a bug where MSHV root partitions (and upper-level VTL code) don't honor
+> > NEED_RESCHED_LAZY, and then deduplicate the TIF related MSHV code by turning
+> > the "kvm" entry APIs into more generic "virt" APIs.
+> > 
+> > This version is based on
+> > 
+> >   git://git.kernel.org/pub/scm/linux/kernel/git/hyperv/linux.git hyperv-next
+> > 
+> > in order to pickup the VTL changes that are queued for 6.18.  I also
+> > squashed the NEED_RESCHED_LAZY fixes for root and VTL modes into a single
+> > patch, as it should be easy/straightforward to drop the VTL change as needed
+> > if we want this in 6.17 or earlier.
+> > 
+> > That effectively means the full series is dependent on the VTL changes being
+> > fully merged for 6.18.  But I think that's ok as it's really only the MSHV
+> > changes that have any urgency whatsoever, and I assume that Microsoft is
+> > the only user that truly cares about the MSHV root fix.  I.e. if the whole
+> > thing gets delayed, I think it's only the Hyper-V folks that are impacted.
+> > 
+> > I have no preference what tree this goes through, or when, and can respin
+> > and/or split as needed.
+> > 
+> > As with v1, the Hyper-V stuff and non-x86 architectures are compile-tested
+> > only.
+> > 
+> > v2:
+> >  - Rebase on hyperv-next.
+> >  - Fix and converge the VTL code as well. [Peter, Nuno]
+> > 
+> > v1: https://lore.kernel.org/all/20250825200622.3759571-1-seanjc@google.com
+> > 
+> 
+> I dropped the mshv_vtl changes in this series and applied the rest
+> (including the KVM changes) to hyperv-next.
 
-Is the driver in this series satisfactory to you?
+mshv_do_pre_guest_mode_work() ended up getting left behind since its removal was
+in the last mshv_vtl patch.
 
-If you have any concerns or suggestions, I would appreciate your
-feedback.Otherwise, I would like to know if it is ready for merging.
+  $ git grep mshv_do_pre_guest_mode_work
+  drivers/hv/mshv.h:int mshv_do_pre_guest_mode_work(ulong th_flags);
+  drivers/hv/mshv_common.c:int mshv_do_pre_guest_mode_work(ulong th_flags)
+  drivers/hv/mshv_common.c:EXPORT_SYMBOL_GPL(mshv_do_pre_guest_mode_work);
 
-Thank you for your time and consideration.
+Want to squash this into 3786d7d6b3c0 ("mshv: Use common "entry virt" APIs to do
+work in root before running guest")?
 
-On 2025/9/5 11:10, Xukai Wang wrote:
-> This patch provides basic support for the K230 clock, which covers
-> all clocks in K230 SoC.
->
-> The clock tree of the K230 SoC consists of a 24MHZ external crystal
-> oscillator, PLLs and an external pulse input for timerX, and their
-> derived clocks.
->
-> Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
-> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
-> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
-> ---
->  drivers/clk/Kconfig    |    6 +
->  drivers/clk/Makefile   |    1 +
->  drivers/clk/clk-k230.c | 2456 ++++++++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 2463 insertions(+)
+---
+ drivers/hv/mshv.h        |  2 --
+ drivers/hv/mshv_common.c | 22 ----------------------
+ 2 files changed, 24 deletions(-)
+
+diff --git a/drivers/hv/mshv.h b/drivers/hv/mshv.h
+index 0340a67acd0a..d4813df92b9c 100644
+--- a/drivers/hv/mshv.h
++++ b/drivers/hv/mshv.h
+@@ -25,6 +25,4 @@ int hv_call_set_vp_registers(u32 vp_index, u64 partition_id, u16 count,
+ int hv_call_get_partition_property(u64 partition_id, u64 property_code,
+ 				   u64 *property_value);
+ 
+-int mshv_do_pre_guest_mode_work(ulong th_flags);
+-
+ #endif /* _MSHV_H */
+diff --git a/drivers/hv/mshv_common.c b/drivers/hv/mshv_common.c
+index eb3df3e296bb..aa2be51979fd 100644
+--- a/drivers/hv/mshv_common.c
++++ b/drivers/hv/mshv_common.c
+@@ -138,25 +138,3 @@ int hv_call_get_partition_property(u64 partition_id,
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(hv_call_get_partition_property);
+-
+-/*
+- * Handle any pre-processing before going into the guest mode on this cpu, most
+- * notably call schedule(). Must be invoked with both preemption and
+- * interrupts enabled.
+- *
+- * Returns: 0 on success, -errno on error.
+- */
+-int mshv_do_pre_guest_mode_work(ulong th_flags)
+-{
+-	if (th_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
+-		return -EINTR;
+-
+-	if (th_flags & (_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY))
+-		schedule();
+-
+-	if (th_flags & _TIF_NOTIFY_RESUME)
+-		resume_user_mode_work(NULL);
+-
+-	return 0;
+-}
+-EXPORT_SYMBOL_GPL(mshv_do_pre_guest_mode_work);
+
+base-commit: 3786d7d6b3c0a412ebe4439ba4a7d4b0e27d9a12
+--
 
 _______________________________________________
 linux-riscv mailing list
