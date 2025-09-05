@@ -4,81 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E235CAC586
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Sep 2025 00:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16999CA0FED
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Sep 2025 00:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZBZi37wzMSZuP3Ep5T6/Lm4ER1U/1PljgfSOCA8itZw=; b=Job9GfyoxyzXo6
-	2KIBgw5mile8JfsF7ePIx+fk86IRoUsbNMaztXcMs7LG+80GzCWqUMn9xogymaSWCavO/ZXY3KcZf
-	FNJDc4VCCqX/61yNrMWIVGb/Hyc4EfcD5byI07NWz9Vuuc4z47TxI6AqBGxjAQXAI03uuCYkmbYwJ
-	h4s6YZePF6fw5JdWX3sbqYTTV1ikkaG6/dSaygXUctiJwb7yMQjM6kCaloP9Kof6GiBxFCQoz/UH6
-	/3Dec4dkwKyurhXzf6U4QBgKuaKdbr2ZNfJzRumS7GnouP5Jf51qM+m/USR7g0P8uFwF8iEYZ2Iii
-	bClapkxETKtfFmg1SLWQ==;
+	List-Owner; bh=4af9bgRgDZio4/AzbsiJ0UHBeg4cvuMgronxSV0yYlc=; b=JE2/tzprWpnXmy
+	fnaPpODojgitPP1A8dz1Hxe0AONi4xdgbZOXBpY56pt9nTyqoYtv1/uBxqrKpZfn0psmUvQsQqSyn
+	7Va0k/QnCCveonp+/HfCK6a71h17HcZGnSnay0k4zHFy9GwPpEFyBBUu6s7fvD/4lADskxfKd0Fmx
+	Nl7SDg4JsW9IOYLSKfbEGdwLYvlyC4Ki5hQx6MEWOO8EA2Tn5OZyQUmtjRoELQ+IsYOurA02kR8lH
+	z6zpB3kZWDKwOlIyFp1zrpOJ6JClTa3hkiMNWDVODSeX7AKlg5gk5k3m4Hoa27bBJ+DLM5AJ8Z0++
+	N8SUJZy+O3oABtgR/EIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugVP-00000005R8H-1Lm7;
-	Sat, 06 Sep 2025 00:10:11 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1uugW6-00000005So9-0ns8;
+	Sat, 06 Sep 2025 00:10:54 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuZQP-000000039Mg-01XH
-	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 16:36:34 +0000
-Received: from [192.168.0.106] (unknown [114.241.87.235])
-	by APP-05 (Coremail) with SMTP id zQCowAAHqRJZEbtoxoHZAA--.36388S2;
-	Sat, 06 Sep 2025 00:35:37 +0800 (CST)
-Message-ID: <45053235-3b01-42d8-98aa-042681104d11@iscas.ac.cn>
-Date: Sat, 6 Sep 2025 00:35:37 +0800
+	id 1uualk-00000003ekG-32cz;
+	Fri, 05 Sep 2025 18:02:41 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-323266d6f57so2678675a91.0;
+        Fri, 05 Sep 2025 11:02:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757095360; x=1757700160; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vyvqbUDXebspKl35FIPJk0lFngkuMldmVpFc1O8R/zI=;
+        b=aJc8wYqKZky8sh2BqEZIYjVsD4nJuhlVS8A2O1Np7ijCFXPxffjq04OmUUlRjb8Ljo
+         ZlWGO2Kp4desQHKgIuSRwZDcpXbe9NftrQWR7A3rtM+W7S1LuynLWM4Pcu8NNv4IMM+U
+         O5aqqcozgtUe9NXOoiHxyj/8qsNxkQUpDCIzKz/zC+rPcWBUHGMrPAb9Oe/m8J9qR8hl
+         /wkaODb75tMQfIKQdmbwa5jn/akvwVHY8o7z12BWPVxvqoQFz42oBkWdjuiKjt3Abtk5
+         eNVJmsQojUiDmV3U/HtleB8DG5dciPinfvmdWx0AkDZBHYtMR0HSiXtIsrWEqFYtRJqB
+         XvNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757095360; x=1757700160;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vyvqbUDXebspKl35FIPJk0lFngkuMldmVpFc1O8R/zI=;
+        b=tOH7zFI9Im53naHX5kGevss/Uq2uxKuY+Z1Vjyp3AXGunud6/onlEJ0cPlOmB8Ymot
+         +fVNKrocQm3+onMuwadgi5shqYcQVCnym/XjwVcrOhV4RYNLSfbaGnJAPNSJxHVVwquH
+         jMQOwrXwZ/sFhz37Aw8KTGUsE5JP+94G4GABYpFP2Ne1BFa6FIESwpuvnhz3g3XQC5LU
+         kwE+fTA/vJGigd7nU8YKlAHZ5Ee4orZzUJJhV21cduC5+usyxLdEyO4k83aBHPv2OOrg
+         Gc1xpLQ/Kgeko7lr1CFOtzrL822Vg5LtslwniUVS0xHKXyfpSXhf70niPvuWvi35HwpA
+         xqDA==
+X-Forwarded-Encrypted: i=1; AJvYcCVa3YTLE4TbZciDUwXvNhsf1AqlYhNOz6NtUZaWXPfr2e3tZuJ2XLDR1GGl5eL+kDEr8SI6S9DRoxYQlnLwBGQE@lists.infradead.org, AJvYcCWpqi3Smlv3P5cs+wrIogB6CvyEq1k/QtHJ4khMocRQetL0ifNRzxIZ2O6kqp/AhyxQOI27YdeNkB5bvAs=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzY4REcuSc9Y7P/Py8mcMo2w+QZBUETu2cus4DPITQ5wUbYSBtn
+	BxQsNuvGKXJx096tjJFCI13DpnYWmxHUbM9bwFD5HyZli4qj8Xxd5XhN
+X-Gm-Gg: ASbGnctaA/DSxcWt2wK7gh0Q99eMvjUVqYfYRj8ZrcjFM7Mcq26WG8TEJwW+BPR6P08
+	e2tOUiHMdWW0Jm4H1b4kFg+/yZWe0s1HfDTbaIN2+4uTg18+FJzqpk+EAKTMLlHgUWCR91BdOSk
+	GzdjbH8jrAShc5Knzeb+jcc/I+3sH/3Wxpu2HXvUfj3stopV4ehENWgwuWWlsnTcIYEKlnhxZ2o
+	demKkm0VM1kDJQr59TE2uFRrwEouqtUYTJsL/am5Mo2cQ60okSEGYIsYJrwidum7ThFNO+7iSDJ
+	acm1feQryPqNxdRAsJf3tWRNa+1UyytPchmkUbFNfWv9fPk49vKnesQRJ0jXpPGVXP+Z1TSbOns
+	GjmyYk5BJZxSUC2SynfRx898P1Xq68ZQdDM2Yr7rp9FZlW6NRTgxNLzTazxGeOI1ESbBMUb79mK
+	w=
+X-Google-Smtp-Source: AGHT+IH4BIuCOkufR5zpdXWK9alIlYMnPti5eXH+01WmcFERf5EmF47R3LvTkLS7gssMCY0/Uh9xug==
+X-Received: by 2002:a17:90a:d64e:b0:32b:5c13:868d with SMTP id 98e67ed59e1d1-32b5c138af9mr13139268a91.1.1757095358574;
+        Fri, 05 Sep 2025 11:02:38 -0700 (PDT)
+Received: from fedora (c-67-164-59-41.hsd1.ca.comcast.net. [67.164.59.41])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32b95d31976sm5409595a91.22.2025.09.05.11.02.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Sep 2025 11:02:37 -0700 (PDT)
+Date: Fri, 5 Sep 2025 11:02:35 -0700
+From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-block@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-efi@vger.kernel.org, virtualization@lists.linux.dev,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [PATCH v3 3/7] x86: Stop calling page_address() in free_pages()
+Message-ID: <aLslu1yKPNgoz1OU@fedora>
+References: <20250903185921.1785167-1-vishal.moola@gmail.com>
+ <20250903185921.1785167-4-vishal.moola@gmail.com>
+ <aLl9KneqOYTujcCh@kernel.org>
+ <aLl98MQs-FlHo6bW@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v9 2/5] net: spacemit: Add K1 Ethernet MAC
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Vadim Fedorenko
- <vadim.fedorenko@linux.dev>, Junhui Liu <junhui.liu@pigmoral.tech>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, Vivian Wang <uwu@dram.page>
-References: <20250905-net-k1-emac-v9-0-f1649b98a19c@iscas.ac.cn>
- <20250905-net-k1-emac-v9-2-f1649b98a19c@iscas.ac.cn>
- <20250905153500.GH553991@horms.kernel.org>
- <0605f176-5cdb-4f5b-9a6b-afa139c96732@iscas.ac.cn>
- <20250905160158.GI553991@horms.kernel.org>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20250905160158.GI553991@horms.kernel.org>
-X-CM-TRANSID: zQCowAAHqRJZEbtoxoHZAA--.36388S2
-X-Coremail-Antispam: 1UD129KBjvJXoWruFW5Ary5JFW7Wr13trW8WFg_yoW8Jr4fpa
-	y8Ka1qyF4Ut347JrWDX397Ar92yFn3JrW3Xrn3WayYgas0yr13t34xtrWjkw1DCrWF9w40
-	va1jqr9FgFW5WFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUvaZXDUUUU
-X-Originating-IP: [114.241.87.235]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+Content-Disposition: inline
+In-Reply-To: <aLl98MQs-FlHo6bW@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_093633_464735_61CD1265 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20250905_110240_764888_CD64A4BF 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,42 +107,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/6/25 00:01, Simon Horman wrote:
+On Thu, Sep 04, 2025 at 02:54:24PM +0300, Mike Rapoport wrote:
+> On Thu, Sep 04, 2025 at 02:51:14PM +0300, Mike Rapoport wrote:
+> > On Wed, Sep 03, 2025 at 11:59:17AM -0700, Vishal Moola (Oracle) wrote:
+> > > free_pages() should be used when we only have a virtual address. We
+> > > should call __free_pages() directly on our page instead.
+> > > 
+> > > Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
+> > > Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
+> > > ---
+> > >  arch/x86/mm/init_64.c          | 2 +-
+> > >  arch/x86/platform/efi/memmap.c | 2 +-
+> > >  2 files changed, 2 insertions(+), 2 deletions(-)
+> > > 
+> > > diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
+> > > index b9426fce5f3e..0e4270e20fad 100644
+> > > --- a/arch/x86/mm/init_64.c
+> > > +++ b/arch/x86/mm/init_64.c
+> > > @@ -1031,7 +1031,7 @@ static void __meminit free_pagetable(struct page *page, int order)
+> > >  		free_reserved_pages(page, nr_pages);
+> > >  #endif
+> > >  	} else {
+> > > -		free_pages((unsigned long)page_address(page), order);
+> > > +		__free_pages(page, order);
+> > >  	}
+> > >  }
+> > >  
+> > > diff --git a/arch/x86/platform/efi/memmap.c b/arch/x86/platform/efi/memmap.c
+> > > index 061b8ecc71a1..023697c88910 100644
+> > > --- a/arch/x86/platform/efi/memmap.c
+> > > +++ b/arch/x86/platform/efi/memmap.c
+> > > @@ -42,7 +42,7 @@ void __init __efi_memmap_free(u64 phys, unsigned long size, unsigned long flags)
+> > >  		struct page *p = pfn_to_page(PHYS_PFN(phys));
+> > >  		unsigned int order = get_order(size);
+> > >  
+> > > -		free_pages((unsigned long) page_address(p), order);
+> > 
+> > Could be just free_pages((unsigned long)phys_to_virt(phys), order), then
+> > the page is not needed at all.
+> 
+> Or even __free_pages(phys_to_page(phys), order);
 
-> On Fri, Sep 05, 2025 at 11:45:29PM +0800, Vivian Wang wrote:
->
-> ...
->
-> Hi Vivian,
->
->>>> +		status = emac_rx_frame_status(priv, rx_desc);
->>>> +		if (unlikely(status == RX_FRAME_DISCARD)) {
->>>> +			ndev->stats.rx_dropped++;
->>> As per the comment in struct net-device,
->>> ndev->stats should not be used in modern drivers.
->>>
->>> Probably you want to implement NETDEV_PCPU_STAT_TSTATS.
->>>
->>> Sorry for not mentioning this in an earlier review of
->>> stats in this driver.
->>>
->> On a closer look, these counters in ndev->stats seems to be redundant
->> with the hardware-tracked statistics, so maybe I should just not bother
->> with updating ndev->stats. Does that make sense?
-> For rx/tx packets/bytes I think that makes sense.
-> But what about rx/tx drops?
+Right. It actually looks like we could inline this whole block if we
+really wanted to...
 
-Right... but tstats doesn't have *_dropped. It seems that tx_dropped and
-rx_dropped are considered "slow path" for real devices. It makes sense
-to me that those should be very rare.
+__free_pages(phys_to_page(phys), get_order(size));
 
-So it seems that what I should do is to just track tx_dropped and
-rx_dropped myself in a member in emac_priv and report in the
-ndo_get_stats64 callback, and use the hardware stuff for the rest, as
-implemented now.
-
-Vivian "dramforever" Wang
-
+Should I send a fixup (or v4) with this change?
 
 _______________________________________________
 linux-riscv mailing list
