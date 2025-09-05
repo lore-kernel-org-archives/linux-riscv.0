@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36DDCA1010
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 14:36:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B734CA0FED
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 14:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xx6tZuOakAGTO1DV4nUZR7d98wfVPOfWdSltNLQJyAw=; b=xqJTh5DiaplpND
-	vizw9YGmDaM99T3CxzSaX3Le3+YHv1Zp2kiluh0thMhydlxmNhBb64e+Q/bzJlC/LINbadcwD6JBR
-	hdHaGrv8WcifMWv84L2/ieX0rW8ozMLj/C+haeghrU4fWUBQv1aYrWL3jJJhbZ1WMCtrt2Hmzcs46
-	NLbgb8qEmjOXQ8/mZyEduHOHemNu7uEO/vzQ2k1rvYMB5BJS7hB7Y29YKTu7NIWfg1j6v8gr2p2xM
-	wmqxjWej1IZNUeETtrD65T94gQAr0TwKXaU9keHy9EXChNS9HWZZzUX+UGeiswxSKpJMGOaijmVT9
-	bprsuvTTsSOJRi5uGLBg==;
+	List-Owner; bh=1W+08CtnLbk2JuDiYDUiuk9adSory1kwjzpuHz3kDm4=; b=lwKySwRnEDAUSV
+	hr3/1R9E+hf2Y4KUvkXRO1gOxGnxTk9vgQtwA4ZLiJA9WCutz5ckNux2t9dj10EFf7w6dnUnCuszO
+	Uk/dUeFB3HiTH67yxJYafn7kBWHaAfFLAEaMCpxQt2wBk8zDKjnq7zA9jyOuuZZp9dD9R/eitAXPj
+	uLfRp3JbmnkbaitirH6zLz7HkGXJSA03sptruyDtnCtr7OKEC8DIihhITTtKSAZ5MV0q/RD/oXwAH
+	rwQU7BX81JxO/f1lM/+TjVEPyjUbGY0sc1CG4c/F60tZjlwgqCZtDH5A+o7KxYckELUWtOwexuNDI
+	QKHvdA9C8I19kjQp7Ptw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXYM-00000002OQk-3aeA;
-	Fri, 05 Sep 2025 14:36:38 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1uuXZF-00000002PMt-0WmQ;
+	Fri, 05 Sep 2025 14:37:33 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuTpB-000000016dr-21wr
+	id 1uuUKt-00000001HjV-2cvh
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 10:37:48 +0000
-Received: from ubt.. (unknown [210.73.43.101])
-	by APP-01 (Coremail) with SMTP id qwCowABnwaNMvbpoocLNAA--.50311S4;
-	Fri, 05 Sep 2025 18:37:02 +0800 (CST)
-From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-To: linux-riscv@lists.infradead.org,
-	linux-mm@kvack.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Ved Shanbhogue <ved@rivosinc.com>,
-	Peter Xu <peterx@redhat.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jan Kara <jack@suse.cz>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Wei Xu <weixugc@google.com>,
-	David Hildenbrand <david@redhat.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: [PATCH v9 2/5] mm: uffd_wp: Add pte_uffd_wp_available()
-Date: Fri,  5 Sep 2025 18:36:48 +0800
-Message-Id: <20250905103651.489197-3-zhangchunyan@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250905103651.489197-1-zhangchunyan@iscas.ac.cn>
-References: <20250905103651.489197-1-zhangchunyan@iscas.ac.cn>
+	Fri, 05 Sep 2025 11:10:33 +0000
+Received: from [127.0.0.2] (unknown [114.241.87.235])
+	by APP-03 (Coremail) with SMTP id rQCowACnu4X1xLpoFdfLAA--.1807S6;
+	Fri, 05 Sep 2025 19:09:44 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Fri, 05 Sep 2025 19:09:33 +0800
+Subject: [PATCH net-next v9 4/5] riscv: dts: spacemit: Add Ethernet support
+ for BPI-F3
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABnwaNMvbpoocLNAA--.50311S4
-X-Coremail-Antispam: 1UD129KBjvJXoWxtF1kWrWUtry5KFyrCFy3Jwb_yoW3GFW3pF
-	47Gw4Yqw1vvFykJa93JF4rA3s5Zw4xWFykWryF93W8Aa13t390vryFkr1FyF97Jr4kWa4a
-	vF12qrZ5ur42vwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPGb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUXwA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIE
-	c7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
-	8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCF
-	s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x
-	0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC2
-	0s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI
-	0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv2
-	0xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87
-	Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIF
-	yTuYvjxUaf-BDUUUU
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiDAgQB2i6oeFs+gAAsX
+Message-Id: <20250905-net-k1-emac-v9-4-f1649b98a19c@iscas.ac.cn>
+References: <20250905-net-k1-emac-v9-0-f1649b98a19c@iscas.ac.cn>
+In-Reply-To: <20250905-net-k1-emac-v9-0-f1649b98a19c@iscas.ac.cn>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Vivian Wang <uwu@dram.page>, 
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Simon Horman <horms@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+X-Mailer: b4 0.14.2
+X-CM-TRANSID: rQCowACnu4X1xLpoFdfLAA--.1807S6
+X-Coremail-Antispam: 1UD129KBjvJXoW7uF13JF4rXF1kZF15Gw18Grg_yoW8ArWxp3
+	yakFs3uFWDKr4Skw43ur9F9r1fGa95XrykG3ya9F1rGr4qvr90vw15Kwn7tr1DWrW5Xa45
+	Xr4xtFyj9r1qkw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmS14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
+	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
+	IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4U
+	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
+	kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
+	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
+	AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI
+	42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
+	4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
+	daVFxhVjvjDU0xZFpf9x0pRQJ5wUUUUU=
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_033746_095128_050766EF 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20250905_041032_036989_F2CBEAE0 
+X-CRM114-Status: UNSURE (   7.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,236 +95,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some platforms can customize the PTE uffd_wp bit and make it unavailable
-even if the architecture allows providing the PTE resource.
-This patch adds a macro API which allows architectures to define
-their specific one for checking if the PTE uffd_wp bit is available.
+Banana Pi BPI-F3 uses an RGMII PHY for each port and uses GPIO for PHY
+reset.
 
-Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+Tested-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
 ---
- fs/userfaultfd.c                   | 25 +++++++++--------
- include/asm-generic/pgtable_uffd.h | 12 ++++++++
- include/linux/mm_inline.h          |  6 ++--
- include/linux/pgtable.h            |  1 +
- include/linux/userfaultfd_k.h      | 44 +++++++++++++++++++-----------
- mm/memory.c                        |  6 ++--
- 6 files changed, 63 insertions(+), 31 deletions(-)
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 46 +++++++++++++++++++++++++
+ 1 file changed, 46 insertions(+)
 
-diff --git a/fs/userfaultfd.c b/fs/userfaultfd.c
-index 54c6cc7fe9c6..68e5006e5158 100644
---- a/fs/userfaultfd.c
-+++ b/fs/userfaultfd.c
-@@ -1270,9 +1270,10 @@ static int userfaultfd_register(struct userfaultfd_ctx *ctx,
- 	if (uffdio_register.mode & UFFDIO_REGISTER_MODE_MISSING)
- 		vm_flags |= VM_UFFD_MISSING;
- 	if (uffdio_register.mode & UFFDIO_REGISTER_MODE_WP) {
--#ifndef CONFIG_HAVE_ARCH_USERFAULTFD_WP
--		goto out;
--#endif
-+		if (!IS_ENABLED(CONFIG_HAVE_ARCH_USERFAULTFD_WP) ||
-+		    !pte_uffd_wp_available())
-+			goto out;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index fe22c747c5012fe56d42ac8a7efdbbdb694f31b6..15fa4a5ebd043f3fbb115d37e5a980c9b773a228 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -40,6 +40,52 @@ &emmc {
+ 	status = "okay";
+ };
+ 
++&eth0 {
++	phy-handle = <&rgmii0>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac0_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <0>;
++	status = "okay";
 +
- 		vm_flags |= VM_UFFD_WP;
- 	}
- 	if (uffdio_register.mode & UFFDIO_REGISTER_MODE_MINOR) {
-@@ -1980,14 +1981,16 @@ static int userfaultfd_api(struct userfaultfd_ctx *ctx,
- 	uffdio_api.features &=
- 		~(UFFD_FEATURE_MINOR_HUGETLBFS | UFFD_FEATURE_MINOR_SHMEM);
- #endif
--#ifndef CONFIG_HAVE_ARCH_USERFAULTFD_WP
--	uffdio_api.features &= ~UFFD_FEATURE_PAGEFAULT_FLAG_WP;
--#endif
--#ifndef CONFIG_PTE_MARKER_UFFD_WP
--	uffdio_api.features &= ~UFFD_FEATURE_WP_HUGETLBFS_SHMEM;
--	uffdio_api.features &= ~UFFD_FEATURE_WP_UNPOPULATED;
--	uffdio_api.features &= ~UFFD_FEATURE_WP_ASYNC;
--#endif
-+	if (!IS_ENABLED(CONFIG_HAVE_ARCH_USERFAULTFD_WP) ||
-+	    !pte_uffd_wp_available())
-+		uffdio_api.features &= ~UFFD_FEATURE_PAGEFAULT_FLAG_WP;
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
 +
-+	if (!IS_ENABLED(CONFIG_PTE_MARKER_UFFD_WP) ||
-+	    !pte_uffd_wp_available()) {
-+		uffdio_api.features &= ~UFFD_FEATURE_WP_HUGETLBFS_SHMEM;
-+		uffdio_api.features &= ~UFFD_FEATURE_WP_UNPOPULATED;
-+		uffdio_api.features &= ~UFFD_FEATURE_WP_ASYNC;
-+	}
- 
- 	ret = -EINVAL;
- 	if (features & ~uffdio_api.features)
-diff --git a/include/asm-generic/pgtable_uffd.h b/include/asm-generic/pgtable_uffd.h
-index 828966d4c281..b86a5ff447da 100644
---- a/include/asm-generic/pgtable_uffd.h
-+++ b/include/asm-generic/pgtable_uffd.h
-@@ -61,6 +61,18 @@ static inline pmd_t pmd_swp_clear_uffd_wp(pmd_t pmd)
- {
- 	return pmd;
- }
-+#define pte_uffd_wp_available()	(false)
-+#else
-+/*
-+ * Some platforms can customize the PTE uffd_wp bit and make it unavailable
-+ * even if the architecture allows providing the PTE resource.
-+ * This allows architectures to define their own API for checking if
-+ * the PTE uffd_wp bit is available.
-+ */
-+#ifndef pte_uffd_wp_available
-+#define pte_uffd_wp_available()	(true)
-+#endif
++		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
 +
- #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
- 
- #endif /* _ASM_GENERIC_PGTABLE_UFFD_H */
-diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-index 89b518ff097e..a81055bb3f87 100644
---- a/include/linux/mm_inline.h
-+++ b/include/linux/mm_inline.h
-@@ -570,7 +570,9 @@ static inline bool
- pte_install_uffd_wp_if_needed(struct vm_area_struct *vma, unsigned long addr,
- 			      pte_t *pte, pte_t pteval)
- {
--#ifdef CONFIG_PTE_MARKER_UFFD_WP
-+	if (!IS_ENABLED(CONFIG_PTE_MARKER_UFFD_WP) || !pte_uffd_wp_available())
-+		return false;
++		rgmii0: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
 +
- 	bool arm_uffd_pte = false;
- 
- 	/* The current status of the pte should be "cleared" before calling */
-@@ -601,7 +603,7 @@ pte_install_uffd_wp_if_needed(struct vm_area_struct *vma, unsigned long addr,
- 			   make_pte_marker(PTE_MARKER_UFFD_WP));
- 		return true;
- 	}
--#endif
++&eth1 {
++	phy-handle = <&rgmii1>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac1_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <250>;
++	status = "okay";
 +
- 	return false;
- }
- 
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 2a489647ac96..51f5b610c5ec 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1564,6 +1564,7 @@ static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
- }
- #endif
- #else /* !CONFIG_HAVE_ARCH_SOFT_DIRTY */
-+#define	pte_soft_dirty_available()	(false)
- static inline int pte_soft_dirty(pte_t pte)
- {
- 	return 0;
-diff --git a/include/linux/userfaultfd_k.h b/include/linux/userfaultfd_k.h
-index c0e716aec26a..ec4a815286c8 100644
---- a/include/linux/userfaultfd_k.h
-+++ b/include/linux/userfaultfd_k.h
-@@ -228,15 +228,15 @@ static inline bool vma_can_userfault(struct vm_area_struct *vma,
- 	if (wp_async && (vm_flags == VM_UFFD_WP))
- 		return true;
- 
--#ifndef CONFIG_PTE_MARKER_UFFD_WP
- 	/*
- 	 * If user requested uffd-wp but not enabled pte markers for
- 	 * uffd-wp, then shmem & hugetlbfs are not supported but only
- 	 * anonymous.
- 	 */
--	if ((vm_flags & VM_UFFD_WP) && !vma_is_anonymous(vma))
-+	if ((!IS_ENABLED(CONFIG_PTE_MARKER_UFFD_WP) ||
-+	     !pte_uffd_wp_available()) &&
-+	    (vm_flags & VM_UFFD_WP) && !vma_is_anonymous(vma))
- 		return false;
--#endif
- 
- 	/* By default, allow any of anon|shmem|hugetlb */
- 	return vma_is_anonymous(vma) || is_vm_hugetlb_page(vma) ||
-@@ -437,8 +437,11 @@ static inline bool userfaultfd_wp_use_markers(struct vm_area_struct *vma)
- static inline bool pte_marker_entry_uffd_wp(swp_entry_t entry)
- {
- #ifdef CONFIG_PTE_MARKER_UFFD_WP
--	return is_pte_marker_entry(entry) &&
--	    (pte_marker_get(entry) & PTE_MARKER_UFFD_WP);
-+	if (pte_uffd_wp_available())
-+		return is_pte_marker_entry(entry) &&
-+			(pte_marker_get(entry) & PTE_MARKER_UFFD_WP);
-+	else
-+		return false;
- #else
- 	return false;
- #endif
-@@ -447,14 +450,19 @@ static inline bool pte_marker_entry_uffd_wp(swp_entry_t entry)
- static inline bool pte_marker_uffd_wp(pte_t pte)
- {
- #ifdef CONFIG_PTE_MARKER_UFFD_WP
--	swp_entry_t entry;
-+	if (pte_uffd_wp_available()) {
-+		swp_entry_t entry;
- 
--	if (!is_swap_pte(pte))
--		return false;
-+		if (!is_swap_pte(pte))
-+			return false;
- 
--	entry = pte_to_swp_entry(pte);
-+		entry = pte_to_swp_entry(pte);
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
 +
-+		return pte_marker_entry_uffd_wp(entry);
-+	} else {
-+		return false;
-+	}
- 
--	return pte_marker_entry_uffd_wp(entry);
- #else
- 	return false;
- #endif
-@@ -467,14 +475,18 @@ static inline bool pte_marker_uffd_wp(pte_t pte)
- static inline bool pte_swp_uffd_wp_any(pte_t pte)
- {
- #ifdef CONFIG_PTE_MARKER_UFFD_WP
--	if (!is_swap_pte(pte))
--		return false;
-+	if (pte_uffd_wp_available()) {
-+		if (!is_swap_pte(pte))
-+			return false;
- 
--	if (pte_swp_uffd_wp(pte))
--		return true;
-+		if (pte_swp_uffd_wp(pte))
-+			return true;
- 
--	if (pte_marker_uffd_wp(pte))
--		return true;
-+		if (pte_marker_uffd_wp(pte))
-+			return true;
-+	} else {
-+		return false;
-+	}
- #endif
- 	return false;
- }
-diff --git a/mm/memory.c b/mm/memory.c
-index 0ba4f6b71847..1c61b2d7bd4d 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -1465,7 +1465,9 @@ zap_install_uffd_wp_if_needed(struct vm_area_struct *vma,
- {
- 	bool was_installed = false;
- 
--#ifdef CONFIG_PTE_MARKER_UFFD_WP
-+	if (!IS_ENABLED(CONFIG_PTE_MARKER_UFFD_WP) || !pte_uffd_wp_available())
-+		return was_installed;
++		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
 +
- 	/* Zap on anonymous always means dropping everything */
- 	if (vma_is_anonymous(vma))
- 		return false;
-@@ -1482,7 +1484,7 @@ zap_install_uffd_wp_if_needed(struct vm_area_struct *vma,
- 		pte++;
- 		addr += PAGE_SIZE;
- 	}
--#endif
++		rgmii1: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
 +
- 	return was_installed;
- }
- 
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_2_cfg>;
+
 -- 
-2.34.1
+2.50.1
 
 
 _______________________________________________
