@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B2BACA1010
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 07:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A35CA1010
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 07:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=d+q0Fpscrt/AgofM5IDOM6nF+z9OCx5YHpcAI07V82s=; b=tQl1op+ZFtwfjxCs9LenfnxB0e
-	ZPSbYLoZFwzEuScpX4q40oWpTHPRPoBlugbMY4GVkjwpynEvohs89JDVsa7jmwLJyl4/YfIOvtv+c
-	+MpdsJXItBnSE7Sc/jJy2jJkxuCPBtSgkVY6U5nv3EajMdFa3ujRtvrWfol4BDYffvfMu9GT/ysU8
-	Tx6mJHSlriYngt0mgJEnKIqEtg5aDrdiSTdsFs8J5dR6pS4KwLUCw8BB/b8IVtkSvFtJqakErCJbH
-	PH/YcwHOnaV0qXtapJebXPJ2ob9F1h/xLXm7QkwEpC9c9CakrDCvaJrFKMHD1EM3Q3V+je2rLKuiM
-	mGl+PCtw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/ePqgGaKC9c/gBBpoGu5srXznrk/mqDF6wlnpfJWp7M=; b=fvEijFzp1l0WQK
+	cxlXF2g1fHBkp+nIy1vhTFSdK2Gj+xAL2rLEkbB9BIFbrOI6oSqM8aZIPCQyEtf5AojDRWPk26sy4
+	S4RDpRXHDxN1aPoVzdVlLlY67IUvYn5WzlWUP0D9vYFqSVGvbjMi7PxfKJVdtogMU02G/kT8bIW8/
+	/dBrehUShgs2KcVabATPiQmIjHoYJU85jA7S5WXNwTslVh2HY2zo+QQGBlpfnV2RYckbDKCzSQbNt
+	q984uo6R8XedBX2aSLS7NHEatLF+xLqVJWDouK6Jrx40IUW0l8lUhD73uAB9RPoaH42jk0N9uQUKY
+	OjtWt9fSP3wdwDLZR3nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuQdl-0000000HW8n-363I;
-	Fri, 05 Sep 2025 07:13:45 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1uuQoW-0000000Haqd-0OKB;
+	Fri, 05 Sep 2025 07:24:52 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuPAo-0000000H3Ox-1ifU
+	id 1uuPwr-0000000HHYY-0MRu
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 05:39:48 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32b698861d8so1810645a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Sep 2025 22:39:45 -0700 (PDT)
+	Fri, 05 Sep 2025 06:29:26 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-32326e5f0bfso1533056a91.3
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Sep 2025 23:29:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1757050785; x=1757655585; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3udnh9xsllR+FkjIGPPOo5bX8r6scLid4vmBPD5wmTc=;
-        b=zUWO50D3tiM87PviUcIZeXZHpRKLACZowq5urDeMUufJe8NTS2KuH/gppho7SKIqB7
-         /YDJ3u8WlYU1zM4jUFyGgoVfLQpLFb08dx52N5maIYS6IO9D9wbmbe+3GdUwX8FNZkzV
-         pYeFDn1PCbPTllXIxPJp7TOlhXBXh7ImatvaQmAIvjSkC7uyQ3mWlVPQ3ztuwXv10cbR
-         zckgjoyAK213NOjrtVVukE0PgNXdiViELF1ErH6ej+YJkkWOz7a+5IVQHAe4eSqlGfAi
-         7NRFLmJePAh6dTzGii8rnF//Kdn5f1ChyJzke/YMVQPkTQ356Gc7GcgmLLRBVNTkd2fn
-         Ob/w==
+        d=rivosinc.com; s=google; t=1757053764; x=1757658564; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FW7lMn0AUODjA3RFU0eDriejARFtJxq8hraVOainqwI=;
+        b=B0yVgS18IU4kx5MGjmogTcT8aGfnQnyUc+f1NiBpwcfFc6OEQnqWq5E+zWCthjFhEI
+         ZlHDO1EOKZC/ZivMQiGAjnPy+OaM5ATT0n0sS5BioQZOmw7NXbRm8lZdjiG9I/xmzDC6
+         86INNdVvVKJ82+nTmL4K4OepyhYDEfht1Ap6opC9q6uxbSZ3RfD2AXTvJf8Z7WxyU+tF
+         xtuI66Pn18RjWnhqyz0RBuzn+aqknNAxo8KBwtAjdny7AxttwwoWPNG3+MhRqCLTB7QB
+         KZuGIyH0LoyMPSEyTCt4ZCYmNo/KiR821f8XiYCaoMsoA65uUNpBrm2qcCJpnXWytQix
+         JHcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757050785; x=1757655585;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3udnh9xsllR+FkjIGPPOo5bX8r6scLid4vmBPD5wmTc=;
-        b=JmMj6QgoKafOZRdubDYSx5/Ny+xSAbPNVy54gSOUg6Qct0Ew5OwH3WJTzCMlPyBtvC
-         +p0/eSH2BAIHUlDImDZE2DSnIFw/FEamMnOGtqWdWRzmt9D/o5eFmgD8Veo//qCesaHh
-         MWfqfED+epJGA+BBjEAhGNQJUh5Qx4B4DD51O7PIupwqh5PbDtJe9+JWr3O092TkM/Nj
-         VcvgAaJ5Mf9CyHuV8g2HoZSXoiL5YyNfqDXXHMdiyqrBM6Pw93ovv1RgZ4e3XqYbtM23
-         f/MX/VEhDm5TGD2nq/DPGWcFw8bbemS/zBMdNS02zx6j00iVZl3ty7W9AVo5nyXHvr31
-         +ScA==
-X-Forwarded-Encrypted: i=1; AJvYcCUWZTXmMMq+isNsBZQP383G5S8bkqBt+8OisFw0KC/dnJ4qGQvxmWd8JLf9rEYevmbV1pG1Sypq6ynlXQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYTfNsmVnPLBOHT1powtG+iKYdoeI3Q/lpyhwWY8PdCgUzOQ2R
-	3H5NSZOJSBjBcaM9sJBVbbWxkOPOjzg5cXgrIJwZSd0IjyqAHSQqzadZqLystUZoh5vmxmG9ucf
-	L5Yj9lA==
-X-Google-Smtp-Source: AGHT+IEl3aDxdJxOeFOgsIqqYfLRUExl039yXm0dtHzzby5zYzVGU35ZbpW1dVjZIdU0C50mCLd9IUYMCJw=
-X-Received: from pjuw15.prod.google.com ([2002:a17:90a:d60f:b0:325:5e4e:4bd4])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3809:b0:329:dff0:701b
- with SMTP id 98e67ed59e1d1-329dff070c6mr19066965a91.17.1757050784899; Thu, 04
- Sep 2025 22:39:44 -0700 (PDT)
-Date: Thu, 4 Sep 2025 22:39:37 -0700
-In-Reply-To: <aLojpyTwAMdb1z6D@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
-Mime-Version: 1.0
-References: <20250828000156.23389-1-seanjc@google.com> <aLojpyTwAMdb1z6D@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
-Message-ID: <aLp3makY6FzuUwor@google.com>
-Subject: Re: [PATCH v2 0/7] Drivers: hv: Fix NEED_RESCHED_LAZY and use common APIs
-From: Sean Christopherson <seanjc@google.com>
-To: Wei Liu <wei.liu@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
-	Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-hyperv@vger.kernel.org, 
-	rcu@vger.kernel.org, Nuno Das Neves <nunodasneves@linux.microsoft.com>, 
-	Mukesh R <mrathor@linux.microsoft.com>
+        d=1e100.net; s=20230601; t=1757053764; x=1757658564;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FW7lMn0AUODjA3RFU0eDriejARFtJxq8hraVOainqwI=;
+        b=fBqMjzNbDLpNpZob1TZMZ9EEi6f0RE4Si5sO9Ymhosmgm8TeRY92GPPRJE/9dF5wxC
+         mVsCGb/7TfMiYjpAu5CXGfKhtA1+gVijKgei1lhYt//bSeJVQdnUHBfWQcQ5slk7vVtp
+         EUr46g0zfl8ELa81m3wASoZIDJ64Y57bZvBlqgDPCZNdnjR5tp+62G0BYRjHADFgWFvX
+         BPE4t4JF39EfShhi/+MfPKo9DOLikl2tqIQvhUm0Y9E3jySLBc1HISR4qI5F/5h5/sD5
+         qbmGBMbbinhzFckmlCSjU0a1MYXhivfQCtrx6EOp9SvTCMofop1tKIRVc2Fcl7J+KDu5
+         +/ng==
+X-Gm-Message-State: AOJu0YzeUnUlJL0p/KdOWDjzkJeQZTrAW4c+o22BtqYMOz+fhGwTVJw8
+	KKYuLUIjq/FCpn30Qc9+hdg+DnjlFjXUJASvE2Dl67nQ/7v1OA5PqKztdddV8ZjKg7k=
+X-Gm-Gg: ASbGnctYtS4CdF360gg9cjKW30JxFRHdw6wuU1b5r3uIcbAV4gdz58M7slrQm7RyjUH
+	1ndrqdpQzIc/IbqGEyTnkKKYdDioaMUlFL0P9bAuP1DJpU7/XvWe9VPdrgK5SSBf1Iz9hzahZru
+	iLtNwYqjQkDDaCMS+oROB6S+mYJhuKWT35WFqVdfKY8pRQMXLGSxuAcHF4P7tqBofT3n2vqNiME
+	RzwYcradBFWjSdNc2oQGN1kjEq+9qb5tjMwn+6G262e6tPSbumesJcyTutGRDBKTiqvI2DWUNz3
+	Mm+xDXl+a7QaP3UHs8J7uATAPqaX5vNcgSTaoHkf76zxvfknTyYMTEbSSv3TOsoMlT8B7YMQNo6
+	GA6HIQZQ/ADl3kqFzGGihGI2lmfKb34PI1h6xKGXDjEgV8xWDgK0ez+Heig0cYCBT8RY=
+X-Google-Smtp-Source: AGHT+IGc3VU32PsX6C7ClVKA+lvc5cDeezn9b8o7ZgcI2xpiH2XwVhQRzLUpHdISHH74OneKcDaSiQ==
+X-Received: by 2002:a17:90b:3d87:b0:32b:65e6:ec39 with SMTP id 98e67ed59e1d1-32b65e6f260mr9655069a91.21.1757053764191;
+        Thu, 04 Sep 2025 23:29:24 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32b694fa438sm6229629a91.29.2025.09.04.23.29.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Sep 2025 23:29:23 -0700 (PDT)
+Message-ID: <97fb026b-54d7-42ec-a57c-51c8c8c44a76@rivosinc.com>
+Date: Fri, 5 Sep 2025 08:29:14 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] riscv: Fix sparse warning about different address
+ spaces
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+ kernel test robot <lkp@intel.com>, Al Viro <viro@zeniv.linux.org.uk>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Cyril Bur <cyrilbur@tenstorrent.com>,
+ Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20250903-dev-alex-sparse_warnings_v1-v1-0-7e6350beb700@rivosinc.com>
+ <20250903-dev-alex-sparse_warnings_v1-v1-2-7e6350beb700@rivosinc.com>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <20250903-dev-alex-sparse_warnings_v1-v1-2-7e6350beb700@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_223946_445013_E5CC452F 
-X-CRM114-Status: GOOD (  30.55  )
+X-CRM114-CacheID: sfid-20250904_232925_237960_06216C7C 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,110 +101,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025, Wei Liu wrote:
-> On Wed, Aug 27, 2025 at 05:01:49PM -0700, Sean Christopherson wrote:
-> > Fix a bug where MSHV root partitions (and upper-level VTL code) don't honor
-> > NEED_RESCHED_LAZY, and then deduplicate the TIF related MSHV code by turning
-> > the "kvm" entry APIs into more generic "virt" APIs.
-> > 
-> > This version is based on
-> > 
-> >   git://git.kernel.org/pub/scm/linux/kernel/git/hyperv/linux.git hyperv-next
-> > 
-> > in order to pickup the VTL changes that are queued for 6.18.  I also
-> > squashed the NEED_RESCHED_LAZY fixes for root and VTL modes into a single
-> > patch, as it should be easy/straightforward to drop the VTL change as needed
-> > if we want this in 6.17 or earlier.
-> > 
-> > That effectively means the full series is dependent on the VTL changes being
-> > fully merged for 6.18.  But I think that's ok as it's really only the MSHV
-> > changes that have any urgency whatsoever, and I assume that Microsoft is
-> > the only user that truly cares about the MSHV root fix.  I.e. if the whole
-> > thing gets delayed, I think it's only the Hyper-V folks that are impacted.
-> > 
-> > I have no preference what tree this goes through, or when, and can respin
-> > and/or split as needed.
-> > 
-> > As with v1, the Hyper-V stuff and non-x86 architectures are compile-tested
-> > only.
-> > 
-> > v2:
-> >  - Rebase on hyperv-next.
-> >  - Fix and converge the VTL code as well. [Peter, Nuno]
-> > 
-> > v1: https://lore.kernel.org/all/20250825200622.3759571-1-seanjc@google.com
-> > 
-> 
-> I dropped the mshv_vtl changes in this series and applied the rest
-> (including the KVM changes) to hyperv-next.
-
-mshv_do_pre_guest_mode_work() ended up getting left behind since its removal was
-in the last mshv_vtl patch.
-
-  $ git grep mshv_do_pre_guest_mode_work
-  drivers/hv/mshv.h:int mshv_do_pre_guest_mode_work(ulong th_flags);
-  drivers/hv/mshv_common.c:int mshv_do_pre_guest_mode_work(ulong th_flags)
-  drivers/hv/mshv_common.c:EXPORT_SYMBOL_GPL(mshv_do_pre_guest_mode_work);
-
-Want to squash this into 3786d7d6b3c0 ("mshv: Use common "entry virt" APIs to do
-work in root before running guest")?
-
----
- drivers/hv/mshv.h        |  2 --
- drivers/hv/mshv_common.c | 22 ----------------------
- 2 files changed, 24 deletions(-)
-
-diff --git a/drivers/hv/mshv.h b/drivers/hv/mshv.h
-index 0340a67acd0a..d4813df92b9c 100644
---- a/drivers/hv/mshv.h
-+++ b/drivers/hv/mshv.h
-@@ -25,6 +25,4 @@ int hv_call_set_vp_registers(u32 vp_index, u64 partition_id, u16 count,
- int hv_call_get_partition_property(u64 partition_id, u64 property_code,
- 				   u64 *property_value);
- 
--int mshv_do_pre_guest_mode_work(ulong th_flags);
--
- #endif /* _MSHV_H */
-diff --git a/drivers/hv/mshv_common.c b/drivers/hv/mshv_common.c
-index eb3df3e296bb..aa2be51979fd 100644
---- a/drivers/hv/mshv_common.c
-+++ b/drivers/hv/mshv_common.c
-@@ -138,25 +138,3 @@ int hv_call_get_partition_property(u64 partition_id,
- 	return 0;
- }
- EXPORT_SYMBOL_GPL(hv_call_get_partition_property);
--
--/*
-- * Handle any pre-processing before going into the guest mode on this cpu, most
-- * notably call schedule(). Must be invoked with both preemption and
-- * interrupts enabled.
-- *
-- * Returns: 0 on success, -errno on error.
-- */
--int mshv_do_pre_guest_mode_work(ulong th_flags)
--{
--	if (th_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
--		return -EINTR;
--
--	if (th_flags & (_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY))
--		schedule();
--
--	if (th_flags & _TIF_NOTIFY_RESUME)
--		resume_user_mode_work(NULL);
--
--	return 0;
--}
--EXPORT_SYMBOL_GPL(mshv_do_pre_guest_mode_work);
-
-base-commit: 3786d7d6b3c0a412ebe4439ba4a7d4b0e27d9a12
---
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAwMy8wOS8yMDI1IDIwOjUzLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4gV2UgZGlkIG5v
+dCBwcm9wYWdhdGUgdGhlIF9fdXNlciBhdHRyaWJ1dGUgb2YgdGhlIHBvaW50ZXJzIGluCj4gX19n
+ZXRfa2VybmVsX25vZmF1bHQoKSBhbmQgX19wdXRfa2VybmVsX25vZmF1bHQoKSwgd2hpY2ggcmVz
+dWx0cyBpbgo+IHNwYXJzZSBjb21wbGFpbmluZzoKPiAKPj4+IG1tL21hY2Nlc3MuYzo0MToxNzog
+c3BhcnNlOiBzcGFyc2U6IGluY29ycmVjdCB0eXBlIGluIGFyZ3VtZW50IDIgKGRpZmZlcmVudCBh
+ZGRyZXNzIHNwYWNlcykgQEAgICAgIGV4cGVjdGVkIHZvaWQgY29uc3QgW25vZGVyZWZdIF9fdXNl
+ciAqZnJvbSBAQCAgICAgZ290IHVuc2lnbmVkIGxvbmcgbG9uZyBbdXNlcnR5cGVdICogQEAKPiAg
+ICBtbS9tYWNjZXNzLmM6NDE6MTc6IHNwYXJzZTogICAgIGV4cGVjdGVkIHZvaWQgY29uc3QgW25v
+ZGVyZWZdIF9fdXNlciAqZnJvbQo+ICAgIG1tL21hY2Nlc3MuYzo0MToxNzogc3BhcnNlOiAgICAg
+Z290IHVuc2lnbmVkIGxvbmcgbG9uZyBbdXNlcnR5cGVdICoKPiAKPiBTbyBmaXggdGhpcyBieSBj
+b3JyZWN0bHkgY2FzdGluZyB0aG9zZSBwb2ludGVycy4KPiAKPiBSZXBvcnRlZC1ieToga2VybmVs
+IHRlc3Qgcm9ib3QgPGxrcEBpbnRlbC5jb20+Cj4gQ2xvc2VzOiBodHRwczovL2xvcmUua2VybmVs
+Lm9yZy9vZS1rYnVpbGQtYWxsLzIwMjUwODE2MTcxMy5SV3UzMEx2MS1sa3BAaW50ZWwuY29tLwo+
+IFN1Z2dlc3RlZC1ieTogQWwgVmlybyA8dmlyb0B6ZW5pdi5saW51eC5vcmcudWs+Cj4gRml4ZXM6
+IGY2YmZmNzgyN2E0OCAoInJpc2N2OiB1YWNjZXNzOiB1c2UgJ2FzbV9nb3RvX291dHB1dCcgZm9y
+IGdldF91c2VyKCkiKQo+IENjOiBzdGFibGVAdmdlci5rZXJuZWwub3JnCj4gU2lnbmVkLW9mZi1i
+eTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+IC0tLQo+ICBhcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3VhY2Nlc3MuaCB8IDQgKystLQo+ICAxIGZpbGUgY2hhbmdlZCwg
+MiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3VhY2Nlc3MuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdWFjY2Vz
+cy5oCj4gaW5kZXggNTUxZTc0OTA3MzdlZmZiMmMyMzhlNmE0ZGI1MDI5M2VjZTdjOWRmOS4uZjVm
+NGY3Zjg1NTQzZjJhNjM1YjE4ZTRiZDFjNjIwMmIyMGUzYjIzOSAxMDA2NDQKPiAtLS0gYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3VhY2Nlc3MuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vdWFjY2Vzcy5oCj4gQEAgLTQzOCwxMCArNDM4LDEwIEBAIHVuc2lnbmVkIGxvbmcgX19tdXN0
+X2NoZWNrIGNsZWFyX3VzZXIodm9pZCBfX3VzZXIgKnRvLCB1bnNpZ25lZCBsb25nIG4pCj4gIH0K
+PiAgCj4gICNkZWZpbmUgX19nZXRfa2VybmVsX25vZmF1bHQoZHN0LCBzcmMsIHR5cGUsIGVycl9s
+YWJlbCkJCQlcCj4gLQlfX2dldF91c2VyX25vY2hlY2soKigodHlwZSAqKShkc3QpKSwgKHR5cGUg
+Kikoc3JjKSwgZXJyX2xhYmVsKQo+ICsJX19nZXRfdXNlcl9ub2NoZWNrKCooKHR5cGUgKikoZHN0
+KSksIChfX2ZvcmNlIF9fdXNlciB0eXBlICopKHNyYyksIGVycl9sYWJlbCkKPiAgCj4gICNkZWZp
+bmUgX19wdXRfa2VybmVsX25vZmF1bHQoZHN0LCBzcmMsIHR5cGUsIGVycl9sYWJlbCkJCQlcCj4g
+LQlfX3B1dF91c2VyX25vY2hlY2soKigodHlwZSAqKShzcmMpKSwgKHR5cGUgKikoZHN0KSwgZXJy
+X2xhYmVsKQo+ICsJX19wdXRfdXNlcl9ub2NoZWNrKCooKHR5cGUgKikoc3JjKSksIChfX2ZvcmNl
+IF9fdXNlciB0eXBlICopKGRzdCksIGVycl9sYWJlbCkKPiAgCj4gIHN0YXRpYyBfX211c3RfY2hl
+Y2sgX19hbHdheXNfaW5saW5lIGJvb2wgdXNlcl9hY2Nlc3NfYmVnaW4oY29uc3Qgdm9pZCBfX3Vz
+ZXIgKnB0ciwgc2l6ZV90IGxlbikKPiAgewo+IAoKSGkgQWxleCwKCkxHVE0sCgpSZXZpZXdlZC1i
+eTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgoKVGhhbmtzLAoKQ2zDqW1l
+bnQKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
