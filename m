@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF596CA1013
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Sep 2025 00:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D34CA1013
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Sep 2025 00:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cdKhtr/YLlAVlOkiWf+WoEOYEyssP9c1rcti1jm55YI=; b=sKFyGJGWJhm6jY
-	waTbzG4TThF0ajh26MKMScivHfgjekn0EJQRPoEyQhBTF/hI6lyn2hq0b1r1LvONklqenV1d+HmfT
-	K3cwhrbQ4EhYSXe9jYq6gfi1aWdeeIyt5/RoUsmmMu/M5KbGhBc3Aco5+/CnS6w11cUJhkot4S6XC
-	Vg6zYDQPSo6RhKxbF6xAdtufRTCviUh3xp1FA99Bw59cNBKKpL/NeGqkmGPU7enJ7y9ZNdMCEREQQ
-	IypZDvv0j8rsH6OjloQpzskdhWfEtxk60oJJNAZIIZ+pvmnALklm/LFISBoEbV9EulhWlm0et2SjI
-	IkKo+LLr2OVqemUkhfpw==;
+	List-Owner; bh=whlPXKzEGeXsfIVzbfCQsd/r3T+KAGP5PS1N6abJgKg=; b=TOPwO2XXT31Xia
+	9viQrJnsq7mEmEBOiLjY4YuS3yyVX76WSwp2tQoftIIdY9uHIocivZKT/CBgzLk2axtuGg5iDBcoQ
+	i0rTJ75erXOiYtSt5sX7KVNK+vV4AFU6ddq4DeTNasBm1ZY61F8zai8t44uWRgDemoHXmGNLIJ9SN
+	Fesvz6ldt6tMH4sy3EtTKE6oBXV/5jPyxbuCSVjAWpnwj5DRKMG6OROV1HrgvlCNc4Id6JOj7+seX
+	cRXfBMNQa0o5zTObQNu5skyPxx+Lh+/yqKJ0V3KpAxh5BpH+/KH0EfYgDXDDN4C6OkpLslCQlvq7w
+	zXD4VxVG/4AJehxkOwiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uugYs-00000005Xda-0yds;
-	Sat, 06 Sep 2025 00:13:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uugYy-00000005Xmm-1dEp;
+	Sat, 06 Sep 2025 00:13:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuehk-00000004x3M-01Ur
+	id 1uuei7-00000004x7j-2xd4
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 22:14:48 +0000
+	Fri, 05 Sep 2025 22:15:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1D95F601AA;
-	Fri,  5 Sep 2025 22:14:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 146D1C4CEF1;
-	Fri,  5 Sep 2025 22:14:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A13144FDE;
+	Fri,  5 Sep 2025 22:15:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F515C4CEF1;
+	Fri,  5 Sep 2025 22:15:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757110486;
-	bh=M8ULZVGdfoNPKCkr0YbSFZ0232ZRMETp/w0mUxyeEAs=;
+	s=k20201202; t=1757110509;
+	bh=NTs7ekQEkNeZdhqJMnGSHZiWoHIQxzE/1U1C7GUFp3w=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=qQ3boSeueIpigl6fa71DchJ8VGIKdVFH7+Ui0CWxTf09/nhVmUNSdynhEB9CrTzHG
-	 DFEXWcftn82m/wOnPll9xdA1Bf/LGMyVV/o+1pnykAvQyLMcTcgJktBVyhBouhSURZ
-	 NyvULPeD9EdxyWfBMmWZuwmtILXvi1rEpzVqyawFV56uFMGxWBVnbi0FUuKqCL4Q3/
-	 r24sH5pzDdmxAcvmTVur/nKBw6BMjusU7FP1x0q7aiXnBuXfCS3dM/o0nxISo+6Qkv
-	 REUR9oQjjHu7txtnkMiKFtQWD8YM4lgyltKBIH8cTy1UfynvSzcovfV3pjHZYns1bn
-	 YhWTLpf3RFSRQ==
-Date: Fri, 5 Sep 2025 16:14:43 -0600 (MDT)
+	b=hSvIujslLpaZzfOg+xBZ/eTxP3WSmdyB/mUN4AUyM8t5Pq9coYjpMA5SbkSqijhsG
+	 gpm0Kk9uQtxgNi04OsMFmFLBUHAySIXk8VIZOFoVrbctACitdmFkVmNmWH7wLU41MS
+	 NdnDYwIBcOoslsOB0gpXRlhVhvO2q9nFC6TDqK3zZuDEK2bP7NTnrsBlxEc4Jt6kPD
+	 1BHr3FaHRBDObyr9smz/2kHa4J1h4C8grEtzHXwUsxAsFSXDxQRFHrdwACFwz2gsoI
+	 w0aHVQe7W13OCqh2cxqCJPQWoCgNcIBKOfn6YfLNQw/rgcg1YjFIXrLytgq3fQoFTf
+	 89AML4ntI8D5A==
+Date: Fri, 5 Sep 2025 16:15:06 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: Alexandre Ghiti <alexghiti@rivosinc.com>
 cc: kernel test robot <lkp@intel.com>, Al Viro <viro@zeniv.linux.org.uk>, 
@@ -51,11 +51,16 @@ cc: kernel test robot <lkp@intel.com>, Al Viro <viro@zeniv.linux.org.uk>,
     Alexandre Ghiti <alex@ghiti.fr>, Cyril Bur <cyrilbur@tenstorrent.com>, 
     Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, 
     linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] riscv: Fix sparse warning in __get_user_error()
-In-Reply-To: <20250903-dev-alex-sparse_warnings_v1-v1-1-7e6350beb700@rivosinc.com>
-Message-ID: <6bc6fe97-b9e6-03ca-91e9-e61fcd51f3b9@kernel.org>
-References: <20250903-dev-alex-sparse_warnings_v1-v1-0-7e6350beb700@rivosinc.com> <20250903-dev-alex-sparse_warnings_v1-v1-1-7e6350beb700@rivosinc.com>
+Subject: Re: [PATCH 2/2] riscv: Fix sparse warning about different address
+ spaces
+In-Reply-To: <20250903-dev-alex-sparse_warnings_v1-v1-2-7e6350beb700@rivosinc.com>
+Message-ID: <4381e8fc-67eb-c7f8-d4ad-17a1fe0a5bfa@kernel.org>
+References: <20250903-dev-alex-sparse_warnings_v1-v1-0-7e6350beb700@rivosinc.com> <20250903-dev-alex-sparse_warnings_v1-v1-2-7e6350beb700@rivosinc.com>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250905_151511_773428_A9C60C1A 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,12 +79,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Wed, 3 Sep 2025, Alexandre Ghiti wrote:
 
-> We used to assign 0 to x without an appropriate cast which results in
-> sparse complaining when x is a pointer:
+> We did not propagate the __user attribute of the pointers in
+> __get_kernel_nofault() and __put_kernel_nofault(), which results in
+> sparse complaining:
 > 
-> >> block/ioctl.c:72:39: sparse: sparse: Using plain integer as NULL pointer
+> >> mm/maccess.c:41:17: sparse: sparse: incorrect type in argument 2 (different address spaces) @@     expected void const [noderef] __user *from @@     got unsigned long long [usertype] * @@
+>    mm/maccess.c:41:17: sparse:     expected void const [noderef] __user *from
+>    mm/maccess.c:41:17: sparse:     got unsigned long long [usertype] *
 > 
-> So fix this by casting 0 to the correct type of x.
+> So fix this by correctly casting those pointers.
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202508161713.RWu30Lv1-lkp@intel.com/
+> Suggested-by: Al Viro <viro@zeniv.linux.org.uk>
+> Fixes: f6bff7827a48 ("riscv: uaccess: use 'asm_goto_output' for get_user()")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
 Thanks, queued for v6.17-rc fixes.
 
