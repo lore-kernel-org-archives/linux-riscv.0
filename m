@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF4ACA1017
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 19:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2510CAC580
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 19:30:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4O+gO/MtMZdzmmRfKocpTdzIuknqrOGhI3jQyKGzx8U=; b=TeI7xfZtkvzFZk
-	maLcaYHmuAbyzRdYrHhMkJl3Qyh3RjZcWQIqYSZq0m1C0gFpos3EJqb9dYJVswEC8NRq7Ul2EDHFa
-	LsVwf4PqqBQ1v4aJ7M9BOlLcKga4AttIYTeSRvKXIdW8UBOaY+yWFGhDQ+g1Pm+H3RKSC2zorn5Ek
-	zS1l20dcqD4r+XV4G7KMnG8VBjnVEv1Qi8bpJazdpb6SVA3/fQkoa45wrZhAD39YHDs1sp05qMzqK
-	JbqpX5Qc9w+hsrBkio4jGmS1ABAXxEocqf02JZZqz5LNjlw2SXU9dmhVJhNa2U1iEQ6V5ZYQe7Lf/
-	iki7nn8ooVzIPOxunSyw==;
+	List-Owner; bh=MmkLyhBcT324BUYw453EOAqNrXuQs4EbDO1d+67BkvU=; b=cbmtwmMephAhfD
+	iTAM/J1vSn4DDARJsQnWdtnJ7WKu5UT0bvrGBgV59v/Uh05inN2v0m4fUIj1FCAWwzBVXDMfjDPiX
+	BkjaiwcXe8lBo15DGR4zuUY6f+DAsoUks7VNSTRZ/cC7GBaC/C3Zs0mVM1FWy7FND87dIA8LDvQBH
+	weBcsasQWgrAbxswmtov+e2HS+Qr1pqBtOyGe8ORcqjnNoVlyOwstYe7tU5HDSJg5l94rv+tsIc+w
+	YECfQ86bXHaiFJ7X+/m+jCJx6o5b7/OASSqryv2m8ivTi5GqNJ/uT8Ck2j66sxbSh8EX9ginr/Iph
+	VYk/qdP8FTgf/htzUHNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuc8H-000000049y1-2KSM;
-	Fri, 05 Sep 2025 19:30:01 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1uuc8J-00000004A19-2rxW;
+	Fri, 05 Sep 2025 19:30:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuYdM-00000002rXb-19OL
+	id 1uuYt4-00000002xsg-1hon
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 15:45:55 +0000
-Received: from [192.168.0.106] (unknown [114.241.87.235])
-	by APP-03 (Coremail) with SMTP id rQCowAAnd4GZBbtosNvWAA--.30834S2;
-	Fri, 05 Sep 2025 23:45:29 +0800 (CST)
-Message-ID: <0605f176-5cdb-4f5b-9a6b-afa139c96732@iscas.ac.cn>
-Date: Fri, 5 Sep 2025 23:45:29 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v9 2/5] net: spacemit: Add K1 Ethernet MAC
-To: Simon Horman <horms@kernel.org>
+	Fri, 05 Sep 2025 16:02:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1CA1544B83;
+	Fri,  5 Sep 2025 16:02:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13389C4CEF1;
+	Fri,  5 Sep 2025 16:02:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757088126;
+	bh=XtZf11jbbBoilXsBT63MRb4g16CbjYXTUzh33VUyndQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Qf19mXo8p1IPKQFY0/UahTIRblVXtBICsSc3ebDDzITfYScFms3XLSzR4XT/AfBD1
+	 OySqhbWgBYAoQIPBm7WPAl1n8ItJ4IVZ7w32lKiBEOSAKlYAoJci+pSJYpRmfsSi+S
+	 2A3XDv2mWJhfeWexq7r+XRNFXiseFSMS/0Xjn9E1F1GwunHAuVWuE1YEbPUGOaSOgV
+	 BS4HYB46R7qujD8hm3bOvz3ki4e8bD4ZNWtYmnU6ro2b4OO6OBOCHVLvphT4el6TtF
+	 MnX+9ukJdOrtuZtElMAFMhCDHRVV/2HCvjYFYPuDpwfXB7OBg+cvAziKtB1RO6aPZc
+	 wMTMMngXUOpIw==
+Date: Fri, 5 Sep 2025 17:01:58 +0100
+From: Simon Horman <horms@kernel.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Vadim Fedorenko
- <vadim.fedorenko@linux.dev>, Junhui Liu <junhui.liu@pigmoral.tech>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, Vivian Wang <uwu@dram.page>
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Vivian Wang <uwu@dram.page>
+Subject: Re: [PATCH net-next v9 2/5] net: spacemit: Add K1 Ethernet MAC
+Message-ID: <20250905160158.GI553991@horms.kernel.org>
 References: <20250905-net-k1-emac-v9-0-f1649b98a19c@iscas.ac.cn>
  <20250905-net-k1-emac-v9-2-f1649b98a19c@iscas.ac.cn>
  <20250905153500.GH553991@horms.kernel.org>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20250905153500.GH553991@horms.kernel.org>
-X-CM-TRANSID: rQCowAAnd4GZBbtosNvWAA--.30834S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXFy8tw4rWFykAF18GFy7trb_yoW7JrWrpa
-	y5ta1DCF1UXF4jgrnaqF4UZFn3t3WfJr1UuFyYyrWF9FnFyrs7KFy8Kr17K34xCFW8uF4Y
-	9w1j9347GFZ8ZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUvaZXDUUUU
-X-Originating-IP: [114.241.87.235]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+ <0605f176-5cdb-4f5b-9a6b-afa139c96732@iscas.ac.cn>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <0605f176-5cdb-4f5b-9a6b-afa139c96732@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_084552_695106_724CB340 
-X-CRM114-Status: GOOD (  24.50  )
+X-CRM114-CacheID: sfid-20250905_090206_463148_162E8F03 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,138 +91,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Simon,
+On Fri, Sep 05, 2025 at 11:45:29PM +0800, Vivian Wang wrote:
 
-Thanks for the review.
+...
 
-(I have a question about the use of ndev->stats - see below.)
+Hi Vivian,
 
-On 9/5/25 23:35, Simon Horman wrote:
-> On Fri, Sep 05, 2025 at 07:09:31PM +0800, Vivian Wang wrote:
->> The Ethernet MACs found on SpacemiT K1 appears to be a custom design
->> that only superficially resembles some other embedded MACs. SpacemiT
->> refers to them as "EMAC", so let's just call the driver "k1_emac".
->>
->> Supports RGMII and RMII interfaces. Includes support for MAC hardware
->> statistics counters. PTP support is not implemented.
->>
->> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
->> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
->> Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
->> Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
->> Tested-by: Junhui Liu <junhui.liu@pigmoral.tech>
->> Tested-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ...
->
->> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-> ...
->
->> +static void emac_init_hw(struct emac_priv *priv)
->> +{
->> +	/* Destination address for 802.3x Ethernet flow control */
->> +	u8 fc_dest_addr[ETH_ALEN] = { 0x01, 0x80, 0xc2, 0x00, 0x00, 0x01 };
->> +
->> +	u32 rxirq = 0, dma = 0;
->> +
->> +	regmap_set_bits(priv->regmap_apmu,
->> +			priv->regmap_apmu_offset + APMU_EMAC_CTRL_REG,
->> +			AXI_SINGLE_ID);
->> +
->> +	/* Disable transmit and receive units */
->> +	emac_wr(priv, MAC_RECEIVE_CONTROL, 0x0);
->> +	emac_wr(priv, MAC_TRANSMIT_CONTROL, 0x0);
->> +
->> +	/* Enable MAC address 1 filtering */
->> +	emac_wr(priv, MAC_ADDRESS_CONTROL, MREGBIT_MAC_ADDRESS1_ENABLE);
->> +
->> +	/* Zero initialize the multicast hash table */
->> +	emac_wr(priv, MAC_MULTICAST_HASH_TABLE1, 0x0);
->> +	emac_wr(priv, MAC_MULTICAST_HASH_TABLE2, 0x0);
->> +	emac_wr(priv, MAC_MULTICAST_HASH_TABLE3, 0x0);
->> +	emac_wr(priv, MAC_MULTICAST_HASH_TABLE4, 0x0);
->> +
->> +	/* Configure thresholds */
->> +	emac_wr(priv, MAC_TRANSMIT_FIFO_ALMOST_FULL, DEFAULT_TX_ALMOST_FULL);
->> +	emac_wr(priv, MAC_TRANSMIT_PACKET_START_THRESHOLD,
->> +		DEFAULT_TX_THRESHOLD);
->> +	emac_wr(priv, MAC_RECEIVE_PACKET_START_THRESHOLD, DEFAULT_RX_THRESHOLD);
->> +
->> +	/* Configure flow control (enabled in emac_adjust_link() later) */
->> +	emac_set_mac_addr_reg(priv, fc_dest_addr, MAC_FC_SOURCE_ADDRESS_HIGH);
->> +	emac_wr(priv, MAC_FC_PAUSE_HIGH_THRESHOLD, DEFAULT_FC_FIFO_HIGH);
->> +	emac_wr(priv, MAC_FC_HIGH_PAUSE_TIME, DEFAULT_FC_PAUSE_TIME);
->> +	emac_wr(priv, MAC_FC_PAUSE_LOW_THRESHOLD, 0);
->> +
->> +	/* RX IRQ mitigation */
->> +	rxirq = EMAC_RX_FRAMES & MREGBIT_RECEIVE_IRQ_FRAME_COUNTER_MASK;
->> +	rxirq |= (EMAC_RX_COAL_TIMEOUT
->> +		  << MREGBIT_RECEIVE_IRQ_TIMEOUT_COUNTER_SHIFT) &
->> +		 MREGBIT_RECEIVE_IRQ_TIMEOUT_COUNTER_MASK;
-> Probably this driver can benefit from using FIELD_PREP and FIELD_GET
-> in a number of places. In this case I think it would mean that
-> MREGBIT_RECEIVE_IRQ_TIMEOUT_COUNTER_SHIFT can be removed entirely.
+> >> +		status = emac_rx_frame_status(priv, rx_desc);
+> >> +		if (unlikely(status == RX_FRAME_DISCARD)) {
+> >> +			ndev->stats.rx_dropped++;
+> > As per the comment in struct net-device,
+> > ndev->stats should not be used in modern drivers.
+> >
+> > Probably you want to implement NETDEV_PCPU_STAT_TSTATS.
+> >
+> > Sorry for not mentioning this in an earlier review of
+> > stats in this driver.
+> >
+> On a closer look, these counters in ndev->stats seems to be redundant
+> with the hardware-tracked statistics, so maybe I should just not bother
+> with updating ndev->stats. Does that make sense?
 
-That looks useful. There's a few more uses of *_SHIFT in this driver,
-and I think I can get them all to use FIELD_PREP. I'll change those in
-the next version.
+For rx/tx packets/bytes I think that makes sense.
+But what about rx/tx drops?
 
->> +
->> +	rxirq |= MREGBIT_RECEIVE_IRQ_MITIGATION_ENABLE;
->> +	emac_wr(priv, DMA_RECEIVE_IRQ_MITIGATION_CTRL, rxirq);
-> ...
->
->> +/* Returns number of packets received */
->> +static int emac_rx_clean_desc(struct emac_priv *priv, int budget)
->> +{
->> +	struct net_device *ndev = priv->ndev;
->> +	struct emac_rx_desc_buffer *rx_buf;
->> +	struct emac_desc_ring *rx_ring;
->> +	struct sk_buff *skb = NULL;
->> +	struct emac_desc *rx_desc;
->> +	u32 got = 0, skb_len, i;
->> +	int status;
->> +
->> +	rx_ring = &priv->rx_ring;
->> +
->> +	i = rx_ring->tail;
->> +
->> +	while (budget--) {
->> +		rx_desc = &((struct emac_desc *)rx_ring->desc_addr)[i];
->> +
->> +		/* Stop checking if rx_desc still owned by DMA */
->> +		if (READ_ONCE(rx_desc->desc0) & RX_DESC_0_OWN)
->> +			break;
->> +
->> +		dma_rmb();
->> +
->> +		rx_buf = &rx_ring->rx_desc_buf[i];
->> +
->> +		if (!rx_buf->skb)
->> +			break;
->> +
->> +		got++;
->> +
->> +		dma_unmap_single(&priv->pdev->dev, rx_buf->dma_addr,
->> +				 rx_buf->dma_len, DMA_FROM_DEVICE);
->> +
->> +		status = emac_rx_frame_status(priv, rx_desc);
->> +		if (unlikely(status == RX_FRAME_DISCARD)) {
->> +			ndev->stats.rx_dropped++;
-> As per the comment in struct net-device,
-> ndev->stats should not be used in modern drivers.
->
-> Probably you want to implement NETDEV_PCPU_STAT_TSTATS.
->
-> Sorry for not mentioning this in an earlier review of
-> stats in this driver.
->
-On a closer look, these counters in ndev->stats seems to be redundant
-with the hardware-tracked statistics, so maybe I should just not bother
-with updating ndev->stats. Does that make sense?
-
-Thanks,
-Vivian "dramforever" Wang
-
+...
 
 _______________________________________________
 linux-riscv mailing list
