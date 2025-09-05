@@ -4,90 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1BF4CA1010
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 18:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFD0CA0FED
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Sep 2025 18:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Deyxn2UiaAHEw9Nc8GnW43u+3gOLs/db0JySQy6Eg9c=; b=d2B+dZUYW4Ofp6
-	Dt2CNu00j96WyFsVHF/n3igFINSICmhuqSjaKAzkYU9z4nexlYSlDtbSIx1WMRZfF7iLa2jWSjgf4
-	cCqcOUJm79V7CwYk4RCAtHLxS/ihS6fJxqYB5REh66tVjH4ZhOZ/0TUwehJ01xbkMBkbprJAQ7HYd
-	gtu/dgXDePAr8HQop56/und9gjWe++qUgxf0i27GYdqMJBeOXKUB1S82NCcUwJpzonNU8FIFB97z3
-	cS3m0js3uW6YsZKEeqh2v9wMG8ROs+LT4BJY1SZesvjzm8mxT+shXxE9nT2TCltKkIE2QNTfFIGFP
-	Fq0IVgfhebC6UJ98Mf9Q==;
+	List-Owner; bh=F4dVTQ3BNBKd+TtU5a0xSda1nmX1NS53mhSsKWCTVEM=; b=ukXAJnX5eIUXOa
+	G1rHWKMZXhIFCRcprGTL/QHjsGBzmGvz7bW6qxijhOF4TZY90jc5G6GvrTSsGRinGJGlZyABsm+Gj
+	/k5Yket1zkbnGvcinIZs0Btgo7/qackVhJHKHrHJwcY4A1/GGDnNjQcUKsFuGiSR/R2L8NVjqr4Pf
+	ECym5wbcEFhII4oEEeE48h5yPeHC4+A77XYB//s48WTvqoK9UuPeTexDsyDOWlLUgcRuOXcrF99Vj
+	2tohT5mtUawGafPlhAsJkfLcVJecdmChXC3BkElOQtXzqAGLUp6bUqvEFK+DKUmOSatOI9s3UNvP+
+	5bziTFl2x+GYQlS/ZRmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uub4Q-00000003l2P-3tWU;
-	Fri, 05 Sep 2025 18:21:58 +0000
-Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
+	id 1uubG0-00000003owO-1Yro;
+	Fri, 05 Sep 2025 18:33:56 +0000
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuXK5-00000002FPB-43FL
+	id 1uuXdH-00000002SOg-35Xm
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 14:21:55 +0000
-Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-3f665603584so14380905ab.0
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Sep 2025 07:21:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1757082113; x=1757686913; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WAIXNF/yhxj3WIda95HMOmBhnbf7MpGftHHpVlcqDy4=;
-        b=UwF9Fy0pC/W9M2qcGRMy0CeYBm6WO2gWKUp4xPd+DGvf/CZVOz5IDZIDwV6IsAfq90
-         0Tj++FNdhZzU3A8xHUVmclV50Nj0FIxKTc6wxl9CPp9hM3RsO7NCMSR6FHUrL7diq5ss
-         RHjtHpih9XEe7UiblJc03wBnx43WRCxxAsGTLmy/3j5Gd90U7hwRfm54hPfliXyPw9SR
-         tg4oRT5X20EXaX6KixDY4+rRUiuInvtcysG2zT4u144qPYPARU2xSXKviOPGDyu22wK1
-         bb3tMQ/ewjlrZd7+hMATJECz19jwbUmSHRjUKpvxbgrmIXEIAyRxe+oFvVkm3EqnkNZ2
-         OMxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757082113; x=1757686913;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WAIXNF/yhxj3WIda95HMOmBhnbf7MpGftHHpVlcqDy4=;
-        b=RpDagiLzhDv38IxZngDK0yWCHGjqHKeZspYjXli0D8QUl5QyAk0t+ydvkIPZORY+a6
-         pl+nPKEEcpKny7DIh6FUlIifDg/8+SdLxaxg7RRMUzMQ8jkd2Uj87bnkxKH9b8FcvajM
-         bCcqkxcE5JtwMFx+VZFbji5vUO/huhawCo2NaIdJ0L68P3n3HMob5nl9zLMDeEdKZ/RR
-         ak7lMnole+R8AOMaXShinpyZyarXZ2S/4QUZLudra5JP0gkqGAP9JsQnSovxnRP51ZFH
-         BNE9lAukDBILXAwYqQi9cdw0KQGq6QzNykY5/tI3cko+uwetA+XkOICNaiiSS3its6j0
-         QnEA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtbTgsejQcfBmw3ox+U+wWfmAAxL444srdQPzI5RkzbOu3HJB+g8yVlNETLp0Y5m/mJrAzUEIrnamV3w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqnjWaNUOiy9mo7M15usLvR6coyQlXLm5vBit5JS8LVqeBotpm
-	BntdgcEBHBHnAOrgm457JvnZYEaMf9Xp9yoDlK+dNCej7UmP7sc/c2yJic9RhO9tJrY=
-X-Gm-Gg: ASbGncuzC9cDZPAMcx0yN0xpOoZcLlsKtxsWc/trYRzIZ0Fpoc+NHHv8+aoBea4ultV
-	+YvapGyzTP7+7JqdalIcxIN6fzcYQWTqvSxT0G8g1sZNvhFGV3Q8+8d0BsFjHiPbj4wdfhWfAdm
-	w02AxK+tmWpnEBEYcf9Elb3w1zreTu7Gmsc2FPBX5y+eexsylvz0RQQfglsiT09Tq9tbgpkxPsK
-	k9JeMOrp8NXVadZFTQXyzIpbp91/FgGMtNZ92mrLsE2UL8ALcn+iuq8DZ6sRMopUMXgBJ53obTc
-	rRaP5JBa9t9xO9QQ/6pLlxVYh0A0yXP9yTIniJa4A99IpUaB4LC97RnPahRsdMu8ZvzCYE1RM+9
-	GINwbDl5yZultsQdBbpieTEic
-X-Google-Smtp-Source: AGHT+IGf4qxxSXO6iewjkiZTlmr4yvaEZFX/IytJuUl4Nj32J40fOreM/84N8MX0m+sgaZr+dqFiDw==
-X-Received: by 2002:a05:6e02:240c:b0:3f6:6198:b39e with SMTP id e9e14a558f8ab-3f7b6808028mr57130415ab.0.1757082112699;
-        Fri, 05 Sep 2025 07:21:52 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50d8f0d594fsm6185353173.23.2025.09.05.07.21.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Sep 2025 07:21:52 -0700 (PDT)
-Date: Fri, 5 Sep 2025 09:21:51 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Atish Patra <atish.patra@linux.dev>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v3 5/6] RISC-V: KVM: Implement ONE_REG interface for SBI
- FWFT state
-Message-ID: <20250905-005c0bc3e16e909c5d91eef4@orel>
-References: <20250823155947.1354229-1-apatel@ventanamicro.com>
- <20250823155947.1354229-6-apatel@ventanamicro.com>
+	Fri, 05 Sep 2025 14:41:44 +0000
+Received: from hay.lan (unknown [IPv6:2605:59c0:2078:cf00:6ecf:39ff:fe00:8375])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id C124AB220079;
+	Fri,  5 Sep 2025 16:41:38 +0200 (CEST)
+From: E Shattow <e@freeshell.de>
+To: Conor Dooley <conor@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	E Shattow <e@freeshell.de>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Subject: [PATCH v3 1/5] riscv: dts: starfive: add common board dtsi for Milk-V Mars CM variants
+Date: Fri,  5 Sep 2025 07:39:39 -0700
+Message-ID: <20250905144011.928332-2-e@freeshell.de>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250905144011.928332-1-e@freeshell.de>
+References: <20250905144011.928332-1-e@freeshell.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250823155947.1354229-6-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250905_072154_004748_5D56DB55 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20250905_074143_919270_C5B9D5BB 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,19 +72,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 23, 2025 at 09:29:46PM +0530, Anup Patel wrote:
-> The KVM user-space needs a way to save/restore the state of
-> SBI FWFT features so implement SBI extension ONE_REG callbacks.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h |   1 +
->  arch/riscv/include/uapi/asm/kvm.h          |  15 ++
->  arch/riscv/kvm/vcpu_sbi_fwft.c             | 197 +++++++++++++++++++--
->  3 files changed, 200 insertions(+), 13 deletions(-)
->
+Add a common board dtsi for use by Milk-V Mars CM and Milk-V Mars CM Lite.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: E Shattow <e@freeshell.de>
+---
+ .../dts/starfive/jh7110-milkv-marscm.dtsi     | 159 ++++++++++++++++++
+ 1 file changed, 159 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi
+
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi
+new file mode 100644
+index 000000000000..25b70af564ee
+--- /dev/null
++++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi
+@@ -0,0 +1,159 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2025 E Shattow <e@freeshell.de>
++ */
++
++/dts-v1/;
++#include <dt-bindings/interrupt-controller/irq.h>
++#include "jh7110-common.dtsi"
++
++/ {
++	aliases {
++		i2c1 = &i2c1;
++		i2c3 = &i2c3;
++		i2c4 = &i2c4;
++		serial3 = &uart3;
++	};
++
++	sdio_pwrseq: sdio-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		reset-gpios = <&sysgpio 33 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&gmac0 {
++	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
++	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
++	starfive,tx-use-rgmii-clk;
++	status = "okay";
++};
++
++&i2c0 {
++	status = "okay";
++};
++
++&i2c2 {
++	status = "disabled";
++};
++
++&i2c6 {
++	status = "disabled";
++};
++
++&mmc1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	mmc-pwrseq = <&sdio_pwrseq>;
++	non-removable;
++	status = "okay";
++
++	ap6256: wifi@1 {
++		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
++		reg = <1>;
++		interrupt-parent = <&sysgpio>;
++		interrupts = <34 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "host-wake";
++		pinctrl-0 = <&wifi_host_wake_irq>;
++		pinctrl-names = "default";
++	};
++};
++
++&pcie0 {
++	status = "okay";
++};
++
++&phy0 {
++	rx-internal-delay-ps = <1500>;
++	tx-internal-delay-ps = <1500>;
++	motorcomm,rx-clk-drv-microamp = <3970>;
++	motorcomm,rx-data-drv-microamp = <2910>;
++	motorcomm,tx-clk-10-inverted;
++	motorcomm,tx-clk-100-inverted;
++	motorcomm,tx-clk-1000-inverted;
++	motorcomm,tx-clk-adj-enabled;
++};
++
++&pwm {
++	status = "okay";
++};
++
++&spi0 {
++	status = "okay";
++};
++
++&sysgpio {
++	uart1_pins: uart1-0 {
++		tx-pins {
++			pinmux = <GPIOMUX(16, GPOUT_SYS_UART1_TX,
++					      GPOEN_ENABLE,
++					      GPI_NONE)>;
++			bias-disable;
++			drive-strength = <12>;
++			input-disable;
++			input-schmitt-disable;
++		};
++
++		rx-pins {
++			pinmux = <GPIOMUX(17, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_SYS_UART1_RX)>;
++			bias-pull-up;
++			input-enable;
++			input-schmitt-enable;
++		};
++
++		cts-pins {
++			pinmux = <GPIOMUX(3, GPOUT_LOW,
++					     GPOEN_DISABLE,
++					     GPI_SYS_UART1_CTS)>;
++			bias-disable;
++			input-enable;
++			input-schmitt-enable;
++		};
++
++		rts-pins {
++			pinmux = <GPIOMUX(2, GPOUT_SYS_UART1_RTS,
++					     GPOEN_ENABLE,
++					     GPI_NONE)>;
++			bias-disable;
++			input-disable;
++			input-schmitt-disable;
++		};
++	};
++
++	usb0_pins: usb0-0 {
++		vbus-pins {
++			pinmux = <GPIOMUX(25, GPOUT_SYS_USB_DRIVE_VBUS,
++					      GPOEN_ENABLE,
++					      GPI_NONE)>;
++			bias-disable;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++
++	wifi_host_wake_irq: wifi-host-wake-irq-0 {
++		wake-pins {
++			pinmux = <GPIOMUX(34, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			input-enable;
++		};
++	};
++};
++
++&uart1 {
++	uart-has-rtscts;
++	pinctrl-0 = <&uart1_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&usb0 {
++	dr_mode = "host";
++	pinctrl-names = "default";
++	pinctrl-0 = <&usb0_pins>;
++	status = "okay";
++};
+-- 
+2.50.0
+
 
 _______________________________________________
 linux-riscv mailing list
