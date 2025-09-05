@@ -4,53 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC24ECA1013
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Sep 2025 01:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8060CA1013
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Sep 2025 01:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-ID:Content-Type:
-	MIME-Version:Message-ID:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OTj7HENo6eAtwHGQ6yGjOqfWPVIqoPm77hMFFg4/aTk=; b=Dk1TFdTAM5+bd/
-	tzNBnGzaTMVSgjFUF3l3JtWzRlSAOFV7QxBxDsNG5CsnoIyqsLSLaVJkhuWswL1PBmhLkqWUFgoXF
-	XUHDibue8MmEb19rFhoCl5xfaSf/kr97oAVw69OgLoZjRQ8GtCrO5wgesZNcRtHwxPQK1097xETYR
-	8RC+nQmZjeHAzHYypjVlBaD1dLq1w9Zs6D3kbJUi1Nr5xPyh+wpIa0sMGfTN1F0GPNaBwJLgT9JYv
-	r7GpWf7xiPGeLyk7+y9j4vvellw0Vek2mcEa4622PMGMhNB2caRvEcBGkrhWM1cK+D81BjchKN7yl
-	KbdVcTX0jQpvhiUfMIqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fcYXbtG1Uhewa+QApof6cSDN/wJOqg7bkUHUdPsDgLQ=; b=JQ+pmxLb0wsVvM
+	cHDAX8yjL2/anPdGUMTz7fAtV4ra23FVktm6gJT8F7fIsd9iPaR94rojGZAeQmeEL9M3Bl4OB6LG9
+	nB4D9CcCsCuX32R4vLE26dlHjuWjrJR8Na/CYAI9jr6WUMRFMOZZKL/k63IatyIq4fqUsp4dUdjlB
+	y60nd4DLo92lDyPamGKVVj/FeVGg/6U0DJ7csfqqEQda80pZNdlOQ/uFMWgwiWn34kLBNk2Bmidxm
+	XiI2qk/nyzOlqJJdczbyO8n804q7aPkQN37BTdiGpAqK6FELngvFhzHDcdP91z4w3JUdZ9mYNagfN
+	580fBL78PgnfBkTibldw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuhh0-00000005s21-3OZR;
-	Sat, 06 Sep 2025 01:26:14 +0000
+	id 1uuhh1-00000005s34-0OzZ;
+	Sat, 06 Sep 2025 01:26:15 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuejR-00000004xQZ-0dlO
-	for linux-riscv@lists.infradead.org;
-	Fri, 05 Sep 2025 22:16:33 +0000
+	id 1uufQo-000000059wT-2m00;
+	Fri, 05 Sep 2025 23:01:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 055E4601AA;
-	Fri,  5 Sep 2025 22:16:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D9D1C4CEF1;
-	Fri,  5 Sep 2025 22:16:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CBCC2601AA;
+	Fri,  5 Sep 2025 23:01:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2CEDC4CEF1;
+	Fri,  5 Sep 2025 23:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757110591;
-	bh=hiM3beF3fv5uGn3U41IG6n+nmzc1UenQ5CJyz/l9OE4=;
-	h=Date:From:To:cc:Subject:From;
-	b=Gl0twtyfvuDZHWL7ztRp01L1BmA/zS0azuZ5pyhFedqa8CfRYFFOXH3FSw+oeb2WX
-	 LJUAtkFpjRpwRm/q8P0eeRIrVjizvx3EwuYU1t/e1ViMM6QRevTivmdAC+UaGwujaJ
-	 eyj8bHCE4rZZ6xj5TReHLwp6Jq8rkOMy8vvw+N3XEC5OAjXShUfs754SJBxItsjiMb
-	 lWkEKwCRlrwkjsduucdFq/xf2x0acvdcfWaQljtzpRQc5pqtKAXSMNxfhaCgwLUycW
-	 LvZTrdAatXv64covL8M4b+5GW+jeluAU1G2jr1OhGtkbGCf15qcSXHkOljWI+WpF8o
-	 iWNsqB2LMsvkw==
-Date: Fri, 5 Sep 2025 16:16:30 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V updates for v6.17-rc5
-Message-ID: <053b276c-b22b-f3e7-6c11-abe61b8ee36b@kernel.org>
+	s=k20201202; t=1757113280;
+	bh=+lhopyxIHPkimkHLqjBagKsowbxPduHdhl1alB5XIHw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FKhh4N0YC7rktiPdXEfXclWanEDKYne9TN6cdcuCjqPCtcq4Rn0r96yLuECJbiw+4
+	 LjwCnjQtLBAm0edveUnCZZYiNonj/7aqKLJr2wGtnUHH+scBK/7r7JUigttXLAScDm
+	 pXeFnpIPvL1/rZKX9LdznwwDYBYkDL4/X0Q74Dlpx/NmySnEYO46ImCPWzvWXVlUfn
+	 7nKQ1fERSefzbF0N9pUOtT2Ew99OpHStRZ+01KHKpecJw2kFIukduhp+K3hQulq8o0
+	 47VhyxuU+d72ralUlgkhIgcgxiZyD9aQX9YFUuu3Ep7hq8BTDKfbNp6DFssdME8qWg
+	 uTEId8/MJZDQg==
+Date: Fri, 5 Sep 2025 16:00:06 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH v2 19/37] mm/gup: remove record_subpages()
+Message-ID: <20250905230006.GA1776@sol>
+References: <20250901150359.867252-1-david@redhat.com>
+ <20250901150359.867252-20-david@redhat.com>
+ <5090355d-546a-4d06-99e1-064354d156b5@redhat.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; BOUNDARY="8323329-1855849172-1757110411=:9369"
-Content-ID: <bda0ad22-1471-ad2a-586f-25bbb3716178@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <5090355d-546a-4d06-99e1-064354d156b5@redhat.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,91 +90,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Fri, Sep 05, 2025 at 08:41:23AM +0200, David Hildenbrand wrote:
+> On 01.09.25 17:03, David Hildenbrand wrote:
+> > We can just cleanup the code by calculating the #refs earlier,
+> > so we can just inline what remains of record_subpages().
+> > 
+> > Calculate the number of references/pages ahead of times, and record them
+> > only once all our tests passed.
+> > 
+> > Signed-off-by: David Hildenbrand <david@redhat.com>
+> > ---
+> >   mm/gup.c | 25 ++++++++-----------------
+> >   1 file changed, 8 insertions(+), 17 deletions(-)
+> > 
+> > diff --git a/mm/gup.c b/mm/gup.c
+> > index c10cd969c1a3b..f0f4d1a68e094 100644
+> > --- a/mm/gup.c
+> > +++ b/mm/gup.c
+> > @@ -484,19 +484,6 @@ static inline void mm_set_has_pinned_flag(struct mm_struct *mm)
+> >   #ifdef CONFIG_MMU
+> >   #ifdef CONFIG_HAVE_GUP_FAST
+> > -static int record_subpages(struct page *page, unsigned long sz,
+> > -			   unsigned long addr, unsigned long end,
+> > -			   struct page **pages)
+> > -{
+> > -	int nr;
+> > -
+> > -	page += (addr & (sz - 1)) >> PAGE_SHIFT;
+> > -	for (nr = 0; addr != end; nr++, addr += PAGE_SIZE)
+> > -		pages[nr] = page++;
+> > -
+> > -	return nr;
+> > -}
+> > -
+> >   /**
+> >    * try_grab_folio_fast() - Attempt to get or pin a folio in fast path.
+> >    * @page:  pointer to page to be grabbed
+> > @@ -2967,8 +2954,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+> >   	if (pmd_special(orig))
+> >   		return 0;
+> > -	page = pmd_page(orig);
+> > -	refs = record_subpages(page, PMD_SIZE, addr, end, pages + *nr);
+> > +	refs = (end - addr) >> PAGE_SHIFT;
+> > +	page = pmd_page(orig) + ((addr & ~PMD_MASK) >> PAGE_SHIFT);
+> >   	folio = try_grab_folio_fast(page, refs, flags);
+> >   	if (!folio)
+> > @@ -2989,6 +2976,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+> >   	}
+> >   	*nr += refs;
+> > +	for (; refs; refs--)
+> > +		*(pages++) = page++;
+> >   	folio_set_referenced(folio);
+> >   	return 1;
+> >   }
+> > @@ -3007,8 +2996,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
+> >   	if (pud_special(orig))
+> >   		return 0;
+> > -	page = pud_page(orig);
+> > -	refs = record_subpages(page, PUD_SIZE, addr, end, pages + *nr);
+> > +	refs = (end - addr) >> PAGE_SHIFT;
+> > +	page = pud_page(orig) + ((addr & ~PUD_MASK) >> PAGE_SHIFT);
+> >   	folio = try_grab_folio_fast(page, refs, flags);
+> >   	if (!folio)
+> > @@ -3030,6 +3019,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
+> >   	}
+> >   	*nr += refs;
+> > +	for (; refs; refs--)
+> > +		*(pages++) = page++;
+> >   	folio_set_referenced(folio);
+> >   	return 1;
+> >   }
+> 
+> Okay, this code is nasty. We should rework this code to just return the nr and receive a the proper
+> pages pointer, getting rid of the "*nr" parameter.
+> 
+> For the time being, the following should do the trick:
+> 
+> commit bfd07c995814354f6b66c5b6a72e96a7aa9fb73b (HEAD -> nth_page)
+> Author: David Hildenbrand <david@redhat.com>
+> Date:   Fri Sep 5 08:38:43 2025 +0200
+> 
+>     fixup: mm/gup: remove record_subpages()
+>     pages is not adjusted by the caller, but idnexed by existing *nr.
+>     Signed-off-by: David Hildenbrand <david@redhat.com>
+> 
+> diff --git a/mm/gup.c b/mm/gup.c
+> index 010fe56f6e132..22420f2069ee1 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -2981,6 +2981,7 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+>                 return 0;
+>         }
+> +       pages += *nr;
+>         *nr += refs;
+>         for (; refs; refs--)
+>                 *(pages++) = page++;
+> @@ -3024,6 +3025,7 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
+>                 return 0;
+>         }
+> +       pages += *nr;
+>         *nr += refs;
+>         for (; refs; refs--)
+>                 *(pages++) = page++;
 
---8323329-1855849172-1757110411=:9369
-Content-Type: text/plain; CHARSET=ISO-8859-2
-Content-Transfer-Encoding: 8BIT
-Content-ID: <a503a4c4-6dc8-b783-034c-98483ca7fdfa@kernel.org>
+Can this get folded in soon?  This bug is causing crashes in AF_ALG too.
 
-Linus,
+Thanks,
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
-
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.17-rc5
-
-for you to fetch changes up to a03ee11b8f850bd008226c6d392da24163dfb56e:
-
-  riscv: Fix sparse warning about different address spaces (2025-09-05 15:33:52 -0600)
-
-----------------------------------------------------------------
-Several RISC-V fixes for v6.17-rc5:
-
-- An LTO fix for clang when building with CONFIG_CMODEL_MEDLOW
-
-- A fix for ACPI CPPC CSR read/write return values
-
-- Several fixes for incorrect access widths in thread_info.cpu reads
-
-- A fix for an issue in __put_user_nocheck() that was causing the glibc
-  tst-socket-timestamp test to fail
-
-- A fix to initialize struct kexec_buf records in several kexec-related
-  functions, which were generating UBSAN warnings
-
-- Two fixes for sparse warnings
-
-----------------------------------------------------------------
-Alexandre Ghiti (2):
-      riscv: Fix sparse warning in __get_user_error()
-      riscv: Fix sparse warning about different address spaces
-
-Anup Patel (1):
-      ACPI: RISC-V: Fix FFH_CPPC_CSR error handling
-
-Aurelien Jarno (1):
-      riscv: uaccess: fix __put_user_nocheck for unaligned accesses
-
-Breno Leitao (1):
-      riscv: kexec: Initialize kexec_buf struct
-
-Nathan Chancellor (1):
-      riscv: Only allow LTO with CMODEL_MEDANY
-
-Radim Krèmáø (4):
-      riscv: use lw when reading int cpu in new_vmalloc_check
-      riscv, bpf: use lw when reading int cpu in BPF_MOV64_PERCPU_REG
-      riscv, bpf: use lw when reading int cpu in bpf_get_smp_processor_id
-      riscv: use lw when reading int cpu in asm_per_cpu
-
- arch/riscv/Kconfig                     | 2 +-
- arch/riscv/include/asm/asm.h           | 2 +-
- arch/riscv/include/asm/uaccess.h       | 8 ++++----
- arch/riscv/kernel/entry.S              | 2 +-
- arch/riscv/kernel/kexec_elf.c          | 4 ++--
- arch/riscv/kernel/kexec_image.c        | 2 +-
- arch/riscv/kernel/machine_kexec_file.c | 2 +-
- arch/riscv/net/bpf_jit_comp64.c        | 4 ++--
- drivers/acpi/riscv/cppc.c              | 4 ++--
- 9 files changed, 15 insertions(+), 15 deletions(-)
---8323329-1855849172-1757110411=:9369
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-1855849172-1757110411=:9369--
-
