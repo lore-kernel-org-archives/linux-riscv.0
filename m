@@ -4,55 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E2BCA1002
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Sep 2025 19:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4B6CA1017
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Sep 2025 19:26:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=S9QLA9ui+meRcxr3am/ZrMbSjYoEH58Mu8OZ40gq61o=; b=GaTl2Usp1inhJ9
-	97yLVs17U03ecB4koouT6lNrgVfHrO+6pjYALaTCeNIb95IX+GmvmowMJvzpBCZhQ5ENOeBVQHh9z
-	q53Du0vxWFSoLp/HG4peOlKYsB4js5wWkByT8BtC3O/7V/Le4gzu0N6w3pzIodvqIi2BmhxvlKyRJ
-	O9AyXvPgVizZqR6S7v37WxnThSX/hhHZve6r6RZC6Ewhw9JmQGTVLYA8LqZ6ciTpUXyne8/OHCbPz
-	abORP0/YWN0ZFm8li162DZKh/5Q+Odx6MDW6U64ZiKYKKAxOLSfWH0+uVUyZEahfG2+YqMl1V8T0y
-	JeAXiulg/wLVJyAmWIYw==;
+	List-Owner; bh=4oPAIQ7FsoqMO3n0HXHc8l0cv37kwi20+uAXGEG/85Q=; b=iVH/mMuz0S2Udd
+	R9fpSsQOIsrP0+RbCO89aS8RrM06hY5G7vjtYbvjbBxoULSdoX44Z5aXyzSxI/vuf9+PaNGzYfRMc
+	iuWlJEOGkNpMfM3MTTn0URIMHMc4zocvRfOv++3b2sMKYDUJxbsWXgV9haIewHsTY2+RMTcbuFuDo
+	wsYO926vaBfyUZURf71AntTQwPkT5olwgXXHLmXm/gxO4QLH3QhB1ge7qJE2kVTl368DyMNN3Jh58
+	pStPySBH9ENoE3xx1N9J8WkYO1UFP5cJcqBuqVi6+8S1oZ5dAccpihNnMhh64Dzc40e23GKRoDUWf
+	HUFT+ckuI0Nl01LiA51g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuyXr-00000008MO5-3Ry7;
+	id 1uuyXr-00000008MNr-0sIT;
 	Sat, 06 Sep 2025 19:25:55 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuyO0-00000008LWT-2XXY
+	id 1uuyLK-00000008LKH-0NvM
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Sep 2025 19:15:44 +0000
+	Sat, 06 Sep 2025 19:12:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 05BE160374;
-	Sat,  6 Sep 2025 19:15:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FD96C4CEE7;
-	Sat,  6 Sep 2025 19:15:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3CA6F60373;
+	Sat,  6 Sep 2025 19:12:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEF72C4CEE7;
+	Sat,  6 Sep 2025 19:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757186143;
-	bh=XOwKVqtcDN9k49oRYkZUzZnxSFvtc1z2zGDKWcxVwjM=;
+	s=k20201202; t=1757185976;
+	bh=QHY0+QhCJ0gde/ktx4tvJbgsXT6QCzobFLcyaTfoVhI=;
 	h=Date:From:To:Cc:Subject:From;
-	b=HaTRfP0kXVAUlsc6FZ3zqW7nlDOh7zgiy4DkAhm44KE91VFS0XCE9ZvNhotvxwcKv
-	 Vw4AKa5gX3wKmS/s0BKSaINpc7bVFO+qbVDgm4R6JelSOuWXKevQb2h8aFUL55bSl7
-	 +cZ5B04PB3nAQqwTDPC6glf8tZQKpmyJqBybjuVaG7kv7SpNwOuG/A+7uhwk6wgvJa
-	 GGxmU+GO2ccDmW9KNMCDhOfUaOvBSP0mZ+l3X/2o+iWpf/O2aFX85nMBVjNEvW1FM6
-	 IQyo7V/ux7ZI/vxr3UyyVtCF9yjEX5gVcWo0cYU5X4nwRIZpl1k9ynzzqgOH+oXhil
-	 DrYytDbQi5uIw==
-Date: Sat, 6 Sep 2025 12:15:41 -0700
+	b=Ijb25Xr3nxmCzkM9SHloRJmes2F0WpNk+nFMs4keCuthT9bvUq0ck8ODZMQMiB0Gp
+	 O2ZPVAccI4xifo71rjyV0SGo9y9UUOEV+Ev3EbxQo4+5+1mGLIpkfl3GBEGLRR/o4M
+	 +ga2xcx9X8Zoiiq9P1CqPQEuaKZ2rPppFCSDeU3Na7eWTmlw1dVxGjDSZ3ssfUDfbO
+	 iiGfCaPzZgRLdVHz2W5b4QZ1vl/F9R5Ke8vmdiQqbe3cxjBCVBM0bOgO54uPP2gz7Z
+	 dWoXEnd1JntsOhkU9wZQy1JO82CP9bsg7NDqaCyd7ZKxQNCCYbaq4D/rt2cdNzR//5
+	 CBWRnKYpzkPMg==
+Date: Sat, 6 Sep 2025 12:12:55 -0700
 From: Drew Fustini <fustini@kernel.org>
-To: soc@kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>, Jisheng Zhang <jszhang@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michal Wilczynski <m.wilczynski@samsung.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V T-HEAD Devicetrees for v6.18
-Message-ID: <aLyIXR1G9DUzwGWc@x1>
+To: Stephen Boyd <sboyd@kernel.org>
+Subject: [GIT PULL] clk: thead: Updates for v6.18
+Message-ID: <aLyHtxrU4mGFfnFs@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -66,6 +60,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: linux-kernel@vger.kernel.org, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Yao Zi <ziyao@disroot.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -77,39 +72,53 @@ The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git tags/thead-dt-for-v6.18
+  git://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git tags/thead-clk-for-v6.18
 
-for you to fetch changes up to dfa743da83ab7ba51ec5692d5939ba1bab4b78c1:
+for you to fetch changes up to c567bc5fc68c4388c00e11fc65fd14fe86b52070:
 
-  MAINTAINERS: Add RISC-V T-HEAD SoC patchwork (2025-09-06 11:05:03 -0700)
+  clk: thead: th1520-ap: set all AXI clocks to CLK_IS_CRITICAL (2025-08-18 14:58:23 -0700)
 
 ----------------------------------------------------------------
-T-HEAD Devicetrees for v6.18
+T-HEAD clock changes for v6.18
 
-Add a device tree node for the IMG BXM-4-64 GPU present in the T-HEAD
-TH1520 SoC used by the Lichee Pi 4A board. This node enables support for
-the GPU using the drm/imagination driver.
+Updates for the T-HEAD TH1520 clock controller:
 
-By adding this node, the kernel can recognize and initialize the GPU,
-providing graphics acceleration capabilities on the Lichee Pi 4A and
-other boards based on the TH1520 SoC. The display controller and HDMI
-output are still a work in progress.
+ - Describe gate clocks with clk_gate so that clock gates can be clock
+   parents. This is similar to the mux clock refactor in 54edba916e29
+   ("clk: thead: th1520-ap: Describe mux clocks with clk_mux").
 
-Also included is a MAINTAINERS patch that adds an entry for the T-Head
-SoC patchwork.
+ - Add support for enabling/disabling PLLs. Some PLLs are put into a
+   disabled state by the bootloader, and clock driver now has the
+   ability to enable them.
+
+ - Set all AXI clocks to CLK_IS_CRITICAL. The AXI crossbar of TH1520 has
+   no proper timeout handling, which means gating AXI clocks can easily
+   lead to bus timeout and hang the system. All these clock gates are
+   ungated by default on system reset.
+
+ - Convert all current CLK_IGNORE_UNUSED usage to CLK_IS_CRITICAL to
+   prevent unwanted clock gating.
+
+ - Fix parent of padctrl0 clock, fix parent of DPU pixel clocks and
+   support changing DPU pixel clock rate.
+
+All changes have been tested in linux-next.
 
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 
 ----------------------------------------------------------------
-Drew Fustini (1):
-      MAINTAINERS: Add RISC-V T-HEAD SoC patchwork
+Icenowy Zheng (5):
+      clk: thead: th1520-ap: describe gate clocks with clk_gate
+      clk: thead: th1520-ap: fix parent of padctrl0 clock
+      clk: thead: add support for enabling/disabling PLLs
+      clk: thead: support changing DPU pixel clock rate
+      clk: thead: th1520-ap: set all AXI clocks to CLK_IS_CRITICAL
 
 Michal Wilczynski (1):
-      riscv: dts: thead: th1520: Add IMG BXM-4-64 GPU node
+      clk: thead: Correct parent for DPU pixel clocks
 
- MAINTAINERS                           |  1 +
- arch/riscv/boot/dts/thead/th1520.dtsi | 21 +++++++++++++++++++++
- 2 files changed, 22 insertions(+)
+ drivers/clk/thead/clk-th1520-ap.c | 503 ++++++++++++++++++++++----------------
+ 1 file changed, 292 insertions(+), 211 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
