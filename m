@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 304EECA1016
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Sep 2025 18:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4657CCA1016
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Sep 2025 18:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=27UvN2XrR84cT1yM/0WC1SMy1CzIYKnWao3Un2S76I4=; b=euaNlc+z35+ERU
-	VNE67X0v5Fm9CBEE+ELV1vdQbaHPWiASDYgdwdG6VK4kq1/dGD6mXILYXvcvGl7utC6SowCK3nA/K
-	OwFhZi2tJzsB2TywAKLJKBD4P+APKKuur//3VWsiagPfJtHaGIukR05QXXE9st9no/k04eXHWbFQ9
-	oCUY1VY5krO1GzWR+FJfFausNggMJczSsqwOqryNZkoDlE8tdhOCsMbsTpMgUR1gR+vwLvWEsJpXM
-	6DTY+/h2gggPFQKoWFCYveBckneDKXZrQZ8IzTqgrEwaIYlabtmtkZnKczcq667mlY8KOSJJWY5Hx
-	mMxexSAvAnt6hSoGKCdQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LYhE1Ww5W2Yi2Mw/Q2Uip6eEK/e0Bcdw9CjbN/OhP/A=; b=rQg47dJvjjJqt8W1znZvj5eOpS
+	BtJQPKvBy7G36+2bHRHbuxhmnqvgGHV/u/buflQRl0O/TGRc3la/89JEPqs0BWVzDT8/SVhj8+5dw
+	88WWVfEBKJdwjC1/2vHnSIWjNGMUHfeqlfMkH0HY8usq3SUYAzV1QHl/2T/gDlZgJZXiHHN/00T82
+	0ETbmqqHhMmFd+fZnJmJsFSBdSxTxN9mAavq+XHjhhedZrz5S/I+9xiOV6PSWtRicEL1ZOoFd0orU
+	8cALAe2F5hNVEeX/5jAWosgrI1/6lBn+grP7rh3HJZBPvFlFSgfjLD3eInnCmhXdhNTiqRwt1eY92
+	LaxzMB3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvgUj-00000001VEE-0zdV;
-	Mon, 08 Sep 2025 18:21:37 +0000
-Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
+	id 1uvggH-00000001aMr-2EWj;
+	Mon, 08 Sep 2025 18:33:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvccs-000000001mR-00TL
-	for linux-riscv@lists.infradead.org;
-	Mon, 08 Sep 2025 14:13:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1757340821; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=HY1W1rb3UWJjXA4GWgwrCg3WFkQYKp1HxUYChOQp3hLHVwQmGlreUJ7mJwoAZN9IWGGGMSS58l6BY4O88C8jkfzlujM0PWICCdBvDCM1UIKSB4FViavBd39KBrBvC+G6MdoKUdRCyyAziCEkOG0c4p8kmE15p8+mw3IOSckdVh8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1757340821; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=D7dn87T1Q/YhXyIChz9la9EUN9N/WrqpB+mjFuCaq8M=; 
-	b=oCoF7sKbhb1bY8MBY26jtyvrM6IKx3Ifx1TrBY7xQuB2JAJ6TafPnxd+q/Vb1CCBq0PqC93uAVaVf8KseSDKeU1CZGnHf3sTQ6x8MGy87EqZTn8144CIREu2l3Ls+jWsN1o/ukf3QbJYLS5z6fB1+YCKIwzifeDT0GqEObu3w8U=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
-	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1757340821;
-	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
-	bh=D7dn87T1Q/YhXyIChz9la9EUN9N/WrqpB+mjFuCaq8M=;
-	b=fAzFDKRW67DZIKvriEmeGKwNktUD9kT8p1+18uMw43hFU0ZWUgF7va0Aom3vwjPl
-	xOqPlSXBITAEhLbBU4WtsKg+6bmDMldmi2bPZNOe3JSYE4n4GjXrEBM8p2ppjOiEcS1
-	PGR9TQ0WJBjxwZoXYMSBpU/FHgseaGM9t+eznWVo=
-Received: by mx.zohomail.com with SMTPS id 1757340814629883.3802401714803;
-	Mon, 8 Sep 2025 07:13:34 -0700 (PDT)
-Message-ID: <0947d9cc-86ba-46e0-92aa-04f4714e7a20@zohomail.com>
-Date: Mon, 8 Sep 2025 22:13:15 +0800
+	id 1uvdbW-00000000MG0-0932;
+	Mon, 08 Sep 2025 15:16:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7DEBD40687;
+	Mon,  8 Sep 2025 15:16:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88CCDC4CEF1;
+	Mon,  8 Sep 2025 15:16:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757344585;
+	bh=umvdsJFWdtigWKmoxQL4B75JWYUmxJL5Q2ubcYGL9BE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Xt4oq4p+eD6fB5GwqIdO+UcpoPHMpVgOjZ8rtdUH+AoQ2sUDN+DrW2BOo+n7MfOU/
+	 +4/cJTNl6BuJrNnN19q+pFGWWXkpZ54aWal2xvK7iy/cJcYj3QGCf3ieXdXUYixs/0
+	 4hoCWj0HqQOsGrcnoeLOI2o1rNzwesdi75IxniAnM40twnZZtf866OXUbvikKfBt3o
+	 nGmXqe9RfkG0dO4wrT6PikHasjtmbO9iaFheITzsr+MRrb8jjjp5lwhwfNSQGJZmEt
+	 9YYLKFXKhVNqw5jqLv7CEFKLsntebK7HHGRfq56DDBQDLt+RFtDzVdmMy1THqPN9Bz
+	 eNGyEWhH1mDQw==
+Date: Mon, 8 Sep 2025 16:16:13 +0100
+From: Mark Brown <broonie@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH v2 19/37] mm/gup: remove record_subpages()
+Message-ID: <f5032553-9ec0-494c-8689-0e3a6a73853c@sirena.org.uk>
+References: <20250901150359.867252-1-david@redhat.com>
+ <20250901150359.867252-20-david@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/3] clk: canaan: Add clock driver for Canaan K230
-To: Yao Zi <ziyao@disroot.org>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Samuel Holland <samuel.holland@sifive.com>,
- Troy Mitchell <TroyMitchell988@gmail.com>
-References: <20250905-b4-k230-clk-v8-0-96caa02d5428@zohomail.com>
- <20250905-b4-k230-clk-v8-2-96caa02d5428@zohomail.com> <aLz4Q7LZFEfQQGUj@pie>
-From: Xukai Wang <kingxukai@zohomail.com>
-Content-Language: en-US
-In-Reply-To: <aLz4Q7LZFEfQQGUj@pie>
-Feedback-ID: rr08011227f7ec689b3a1cc24ae91973f30000be427d4c8078f809808da5614982b6ab992c7250b1278ceefc:zu08011227438f7af4f083e7026300f4d400000fbe94f06e0793af23973735d85f8d1e64b7706faea7ad9aad:rf0801122c56cc4189672bcef28f1e80d3000043dc8331194374bd3027e2bf5ba8e1559fece2c3849fc43722bf23cf923e:ZohoMail
-X-ZohoMailClient: External
+In-Reply-To: <20250901150359.867252-20-david@redhat.com>
+X-Cookie: Trouble always comes at the wrong time.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_071346_451587_22D80361 
-X-CRM114-Status: GOOD (  36.77  )
+X-CRM114-CacheID: sfid-20250908_081626_122981_34C6EC9B 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,318 +92,472 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1669026713700708541=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 2025/9/7 11:13, Yao Zi wrote:
->> On Fri, Sep 05, 2025 at 11:10:23AM +0800, Xukai Wang wrote:
->> This patch provides basic support for the K230 clock, which covers
->> all clocks in K230 SoC.
->>
->> The clock tree of the K230 SoC consists of a 24MHZ external crystal
->> oscillator, PLLs and an external pulse input for timerX, and their
->> derived clocks.
->>
->> Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
->> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
->> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
->> ---
->>  drivers/clk/Kconfig    |    6 +
->>  drivers/clk/Makefile   |    1 +
->>  drivers/clk/clk-k230.c | 2456 ++++++++++++++++++++++++++++++++++++++++++++++++
->>  3 files changed, 2463 insertions(+)
->>
->> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
->> index 299bc678ed1b9fcd9110bb8c5937a1bd1ea60e23..b597912607a6cc8eabff459a890a1e7353ef9c1d 100644
->> --- a/drivers/clk/Kconfig
->> +++ b/drivers/clk/Kconfig
->> @@ -464,6 +464,12 @@ config COMMON_CLK_K210
->>  	help
->>  	  Support for the Canaan Kendryte K210 RISC-V SoC clocks.
->>  
->> +config COMMON_CLK_K230
->> +	bool "Clock driver for the Canaan Kendryte K230 SoC"
->> +	depends on ARCH_CANAAN || COMPILE_TEST
->> +	help
->> +	  Support for the Canaan Kendryte K230 RISC-V SoC clocks.
->> +
->>  config COMMON_CLK_SP7021
->>  	tristate "Clock driver for Sunplus SP7021 SoC"
->>  	depends on SOC_SP7021 || COMPILE_TEST
->> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
->> index fb8878a5d7d93da6bec487460cdf63f1f764a431..5df50b1e14c701ed38397bfb257db26e8dd278b8 100644
->> --- a/drivers/clk/Makefile
->> +++ b/drivers/clk/Makefile
->> @@ -51,6 +51,7 @@ obj-$(CONFIG_MACH_ASPEED_G6)		+= clk-ast2600.o
->>  obj-$(CONFIG_ARCH_HIGHBANK)		+= clk-highbank.o
->>  obj-$(CONFIG_CLK_HSDK)			+= clk-hsdk-pll.o
->>  obj-$(CONFIG_COMMON_CLK_K210)		+= clk-k210.o
->> +obj-$(CONFIG_COMMON_CLK_K230)		+= clk-k230.o
->>  obj-$(CONFIG_LMK04832)			+= clk-lmk04832.o
->>  obj-$(CONFIG_COMMON_CLK_LAN966X)	+= clk-lan966x.o
->>  obj-$(CONFIG_COMMON_CLK_LOCHNAGAR)	+= clk-lochnagar.o
->> diff --git a/drivers/clk/clk-k230.c b/drivers/clk/clk-k230.c
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..2ba74c008b30ae3400acbd8c08550e8315dfe205
->> --- /dev/null
->> +++ b/drivers/clk/clk-k230.c
->> @@ -0,0 +1,2456 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Kendryte Canaan K230 Clock Drivers
->> + *
->> + * Author: Xukai Wang <kingxukai@zohomail.com>
->> + * Author: Troy Mitchell <troymitchell988@gmail.com>
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/clkdev.h>
->> +#include <linux/clk-provider.h>
->> +#include <linux/iopoll.h>
->> +#include <linux/mod_devicetable.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/spinlock.h>
->> +
->> +#include <dt-bindings/clock/canaan,k230-clk.h>
->> +
->> +/* PLL control register bits. */
->> +#define K230_PLL_BYPASS_ENABLE			BIT(19)
->> +#define K230_PLL_GATE_ENABLE			BIT(2)
->> +#define K230_PLL_GATE_WRITE_ENABLE		BIT(18)
->> +#define K230_PLL_OD_SHIFT			24
->> +#define K230_PLL_OD_MASK			0xF
->> +#define K230_PLL_R_SHIFT			16
->> +#define K230_PLL_R_MASK				0x3F
->> +#define K230_PLL_F_SHIFT			0
->> +#define K230_PLL_F_MASK				0x1FFF
->> +#define K230_PLL_DIV_REG_OFFSET			0x00
->> +#define K230_PLL_BYPASS_REG_OFFSET		0x04
->> +#define K230_PLL_GATE_REG_OFFSET		0x08
->> +#define K230_PLL_LOCK_REG_OFFSET		0x0C
-> Maybe FIELD_PREP() and FIELD_GET() would help for the PLL-related
-> rountines, and you could get avoid of writing shifts and masks by hand.
-OK, I've already replaced the manual shifts and masks with GENMASK() and
-FIELD_GET().
->
-> ...
->
->> +struct k230_clk_rate_self {
->> +	struct clk_hw	hw;
->> +	void __iomem	*reg;
->> +	bool		read_only;
-> Isn't a read-only multiplier, divider or something capable of both a
-> simple fixed-factor hardware?
-You're right. None of the rate clocks are read-only, so this flag is
-unnecessary and should be removed.
-> If so please switch to the existing clock
-> hardware, instead of introducing a field in description of rate clocks.
->
-> It's worth noting that you've already had at least one fixed-ra te clock
-> (shrm_sram_div2).
+--===============1669026713700708541==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="V80dSr/3LzMwjpsi"
+Content-Disposition: inline
 
->
->> +	u32		write_enable_bit;
->> +	u32		mul_min;
->> +	u32		mul_max;
->> +	u32		mul_shift;
->> +	u32		mul_mask;
->> +	u32		div_min;
->> +	u32		div_max;
->> +	u32		div_shift;
->> +	u32		div_mask;
->> +	/* ensures mutual exclusion for concurrent register access. */
->> +	spinlock_t	*lock;
->> +};
-> ...
->
->> +static int k230_clk_find_approximate_mul_div(u32 mul_min, u32 mul_max,
->> +					     u32 div_min, u32 div_max,
->> +					     unsigned long rate,
->> +					     unsigned long parent_rate,
->> +					     u32 *div, u32 *mul)
->> +{
->> +	long abs_min;
->> +	long abs_current;
->> +	long perfect_divide;
->> +
->> +	if (!rate || !parent_rate || !mul_min)
->> +		return -EINVAL;
->> +
->> +	perfect_divide = (long)((parent_rate * 1000) / rate);
->> +	abs_min = abs(perfect_divide -
->> +		     (long)(((long)div_max * 1000) / (long)mul_min));
->> +
->> +	*div = div_max;
->> +	*mul = mul_min;
->> +
->> +	for (u32 i = div_max - 1; i >= div_min; i--) {
->> +		for (u32 j = mul_min + 1; j <= mul_max; j++) {
->> +			abs_current = abs(perfect_divide -
->> +					 (long)(((long)i * 1000) / (long)j));
->> +
->> +			if (abs_min > abs_current) {
->> +				abs_min = abs_current;
->> +				*div = i;
->> +				*mul = j;
->> +			}
->> +		}
->> +	}
->> +
->> +	return 0;
->> +}
-> This looks like a poor version of rational_best_approximation(). Could
-> you please consider switching to it?
-OK, I've switched k230_clk_find_approximate_mul_div() to use
-rational_best_approximation().
 
-Additionally, since rational_best_approximation() only supports setting
-the maximum value for numerator and denominator, I added extra checks
-after the call to ensure that the resulting values are not lower than
-mul_min and div_min.
->
->> +static int k230_clk_set_rate_mul(struct clk_hw *hw, unsigned long rate,
->> +				 unsigned long parent_rate)
->> +{
->> +	struct k230_clk_rate *clk = hw_to_k230_clk_rate(hw);
->> +	struct k230_clk_rate_self *rate_self = &clk->clk;
->> +	u32 div, mul, mul_reg;
->> +
->> +	if (rate > parent_rate)
->> +		return -EINVAL;
->> +
->> +	if (rate_self->read_only)
->> +		return 0;
->> +
->> +	if (k230_clk_find_approximate_mul(rate_self->mul_min, rate_self->mul_max,
->> +					  rate_self->div_min, rate_self->div_max,
->> +					  rate, parent_rate, &div, &mul))
->> +		return -EINVAL;
->> +
->> +	guard(spinlock)(rate_self->lock);
->> +
->> +	mul_reg = readl(rate_self->reg + clk->mul_reg_off);
->> +	mul_reg |= ((mul - 1) & rate_self->mul_mask) << (rate_self->mul_shift);
->> +	mul_reg |= BIT(rate_self->write_enable_bit);
->> +	writel(mul_reg, rate_self->reg + clk->mul_reg_off);
->> +
->> +	return 0;
->> +}
->> +
->> +static int k230_clk_set_rate_div(struct clk_hw *hw, unsigned long rate,
->> +				 unsigned long parent_rate)
->> +{
->> +	struct k230_clk_rate *clk = hw_to_k230_clk_rate(hw);
->> +	struct k230_clk_rate_self *rate_self = &clk->clk;
->> +	u32 div, mul, div_reg;
->> +
->> +	if (rate > parent_rate)
->> +		return -EINVAL;
->> +
->> +	if (rate_self->read_only)
->> +		return 0;
->> +
->> +	if (k230_clk_find_approximate_div(rate_self->mul_min, rate_self->mul_max,
->> +					  rate_self->div_min, rate_self->div_max,
->> +					  rate, parent_rate, &div, &mul))
->> +		return -EINVAL;
->> +
->> +	guard(spinlock)(rate_self->lock);
->> +
->> +	div_reg = readl(rate_self->reg + clk->div_reg_off);
->> +	div_reg |= ((div - 1) & rate_self->div_mask) << (rate_self->div_shift);
->> +	div_reg |= BIT(rate_self->write_enable_bit);
->> +	writel(div_reg, rate_self->reg + clk->div_reg_off);
->> +
->> +	return 0;
->> +}
->> +
->> +static int k230_clk_set_rate_mul_div(struct clk_hw *hw, unsigned long rate,
->> +				     unsigned long parent_rate)
->> +{
->> +	struct k230_clk_rate *clk = hw_to_k230_clk_rate(hw);
->> +	struct k230_clk_rate_self *rate_self = &clk->clk;
->> +	u32 div, mul, div_reg, mul_reg;
->> +
->> +	if (rate > parent_rate)
->> +		return -EINVAL;
->> +
->> +	if (rate_self->read_only)
->> +		return 0;
->> +
->> +	if (k230_clk_find_approximate_mul_div(rate_self->mul_min, rate_self->mul_max,
->> +					      rate_self->div_min, rate_self->div_max,
->> +					      rate, parent_rate, &div, &mul))
->> +		return -EINVAL;
->> +
->> +	guard(spinlock)(rate_self->lock);
->> +
->> +	div_reg = readl(rate_self->reg + clk->div_reg_off);
->> +	div_reg |= ((div - 1) & rate_self->div_mask) << (rate_self->div_shift);
->> +	div_reg |= BIT(rate_self->write_enable_bit);
->> +	writel(div_reg, rate_self->reg + clk->div_reg_off);
->> +
->> +	mul_reg = readl(rate_self->reg + clk->mul_reg_off);
->> +	mul_reg |= ((mul - 1) & rate_self->mul_mask) << (rate_self->mul_shift);
->> +	mul_reg |= BIT(rate_self->write_enable_bit);
->> +	writel(mul_reg, rate_self->reg + clk->mul_reg_off);
->> +
->> +	return 0;
->> +}
-> There are three variants of rate clocks, mul-only, div-only and mul-div
-> ones, which are similar to clk-multiplier, clk-divider,
-> clk-fractional-divider.
->
-> The only difference is to setup new parameters for K230's rate clocks,
-> a register bit, described as k230_clk_rate_self.write_enable_bit, must
-> be set first.
-Actually, I think the differences are not limited to just the
-write_enable_bit. There are also distinct mul_min, mul_max, div_min, and
-div_max values, which are not typically just 1 and (1 << bit_width) as
-in standard clock divider or multiplier structures.
+--V80dSr/3LzMwjpsi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-For example, the div_min for hs_sd_card_src_rate is 2, not 1. This
-affects the calculation of the approximate divider, and cannot be fully
-represented if we only use the clk_divider structure.
+On Mon, Sep 01, 2025 at 05:03:40PM +0200, David Hildenbrand wrote:
+> We can just cleanup the code by calculating the #refs earlier,
+> so we can just inline what remains of record_subpages().
+>=20
+> Calculate the number of references/pages ahead of times, and record them
+> only once all our tests passed.
 
-Another example is ls_codec_adc_rate, where mul_min is 0x10, mul_max is
-0x1B9, div_min is 0xC35, and div_max is 0x3D09. These specific ranges
-cannot be described using the normal clk_fractional_divider structure.
+I'm seeing failures in kselftest-mm in -next on at least Raspberry Pi 4
+and Orion O6 which bisect to this patch.  I'm seeing a NULL pointer
+dereference during the GUP test (which isn't actually doing anything as
+I'm just using a standard defconfig rather than one with the mm
+fragment):
 
->
-> What do you think of introducing support for such "write enable bit" to
-> the generic implementation of multipler/divider/fractional? Then you
-> could reuse the generic implementation in K230's driver, avoiding code
-> duplication.
-Therefore, in addition to the requirement of setting the
-write_enable_bit, the customizable ranges for these parameters are also
-important differences that should be considered.
->
-> ...
->
->> +static const struct of_device_id k230_clk_ids[] = {
->> +	{ .compatible = "canaan,k230-clk" },
->> +	{ /* Sentinel */ }
->> +};
->> +MODULE_DEVICE_TABLE(of, k230_clk_ids);
-> MODULE_DEVICE_TABLE is unnecessary if your driver couldn't be built as
-> a module.
-OK, thanks for point it out.
->
->> +static struct platform_driver k230_clk_driver = {
->> +	.driver = {
->> +		.name = "k230_clock_controller",
->> +		.of_match_table = k230_clk_ids,
->> +	},
->> +	.probe = k230_clk_probe,
->> +};
->> +builtin_platform_driver(k230_clk_driver);
-> Best regards,
-> Yao Zi
+# # # [RUN] R/O longterm GUP-fast pin in MAP_SHARED file mapping .[   92.20=
+9804] Unable to handle kernel NULL pointer dereference at virtual address 0=
+000000000000008
+
+=2E..
+
+[   92.443816] Call trace:
+[   92.446284]  io_check_coalesce_buffer+0xd4/0x160 (P)
+[   92.451306]  io_sqe_buffers_register+0x1b0/0x22c
+[   92.455976]  __arm64_sys_io_uring_register+0x330/0xe74
+[   92.461176]  invoke_syscall+0x48/0x104
+[   92.464966]  el0_svc_common.constprop.0+0x40/0xe0
+
+Full log:
+
+  https://lava.sirena.org.uk/scheduler/job/1778528#L1985
+
+The bisect looks to converge reasonably clearly, I didn't make much more
+effort to diagnose:
+
+# bad: [be5d4872e528796df9d7425f2bd9b3893eb3a42c] Add linux-next specific f=
+iles for 20250905
+# good: [5fe42852269dc659c8d511864410bd5cf3393e91] Merge branch 'for-linux-=
+next-fixes' of https://gitlab.freedesktop.org/drm/misc/kernel.git
+# good: [0ccc1eeda155c947d88ef053e0b54e434e218ee2] ASoC: dt-bindings: wlf,w=
+m8960: Document routing strings (pin names)
+# good: [7748328c2fd82efed24257b2bfd796eb1fa1d09b] ASoC: dt-bindings: qcom,=
+lpass-va-macro: Update bindings for clocks to support ADSP
+# good: [dd7ae5b8b3c291c0206f127a564ae1e316705ca0] ASoC: cs42l43: Shutdown =
+jack detection on suspend
+# good: [ce1a46b2d6a8465a86f7a6f71beb4c6de83bce5c] ASoC: codecs: lpass-wsa-=
+macro: add Codev version 2.9
+# good: [ce57b718006a069226b5e5d3afe7969acd59154e] ASoC: Intel: avs: ssm456=
+7: Adjust platform name
+# good: [94b39cb3ad6db935b585988b36378884199cd5fc] spi: mxs: fix "transfere=
+d"->"transferred"
+# good: [5cc49b5a36b32a2dba41441ea13b93fb5ea21cfd] spi: spi-fsl-dspi: Repor=
+t FIFO overflows as errors
+# good: [3279052eab235bfb7130b1fabc74029c2260ed8d] ASoC: SOF: ipc4-topology=
+: Fix a less than zero check on a u32
+# good: [8f57dcf39fd0864f5f3e6701fe885e55f45d0d3a] ASoC: qcom: audioreach: =
+convert to cpu endainess type before accessing
+# good: [9d35d068fb138160709e04e3ee97fe29a6f8615b] regulator: scmi: Use int=
+ type to store negative error codes
+# good: [8a9772ec08f87c9e45ab1ad2c8d2b8c1763836eb] ASoC: soc-dapm: rename s=
+nd_soc_kcontrol_component() to snd_soc_kcontrol_to_component()
+# good: [07752abfa5dbf7cb4d9ce69fa94dc3b12bc597d9] ASoC: SOF: sof-client: I=
+ntroduce sof_client_dev_entry structure
+# good: [d57d27171c92e9049d5301785fb38de127b28fbf] ASoC: SOF: sof-client-pr=
+obes: Add available points_info(), IPC4 only
+# good: [f7c41911ad744177d8289820f01009dc93d8f91c] ASoC: SOF: ipc4-topology=
+: Add support for float sample type
+# good: [3d439e1ec3368fae17db379354bd7a9e568ca0ab] ASoC: sof: ipc4-topology=
+: Add support to sched_domain attribute
+# good: [5c39bc498f5ff7ef016abf3f16698f3e8db79677] ASoC: SOF: Intel: only d=
+etect codecs when HDA DSP probe
+# good: [f522da9ab56c96db8703b2ea0f09be7cdc3bffeb] ASoC: doc: Internally li=
+nk to Writing an ALSA Driver docs
+# good: [f4672dc6e9c07643c8c755856ba8e9eb9ca95d0c] regmap: use int type to =
+store negative error codes
+# good: [b088b6189a4066b97cef459afd312fd168a76dea] ASoC: mediatek: common: =
+Switch to for_each_available_child_of_node_scoped()
+# good: [c42e36a488c7e01f833fc9f4814f735b66b2d494] spi: Drop dev_pm_domain_=
+detach() call
+# good: [a37280daa4d583c7212681c49b285de9464a5200] ASoC: Intel: avs: Allow =
+i2s test and non-test boards to coexist
+# good: [ff9a7857b7848227788f113d6dc6a72e989084e0] spi: rb4xx: use devm for=
+ clk_prepare_enable
+# good: [edb5c1f885207d1d74e8a1528e6937e02829ee6e] ASoC: renesas: msiof: st=
+art DMAC first
+# good: [e2ab5f600bb01d3625d667d97b3eb7538e388336] rust: regulator: use `to=
+_result` for error handling
+# good: [5b4dcaf851df8c414bfc2ac3bf9c65fc942f3be4] ASoC: amd: acp: Remove (=
+explicitly) unused header
+# good: [899fb38dd76dd3ede425bbaf8a96d390180a5d1c] regulator: core: Remove =
+redundant ternary operators
+# good: [11f5c5f9e43e9020bae452232983fe98e7abfce0] ASoC: qcom: use int type=
+ to store negative error codes
+# good: [a12b74d2bd4724ee1883bc97ec93eac8fafc8d3c] ASoC: tlv320aic32x4: use=
+ dev_err_probe() for regulators
+# good: [f840737d1746398c2993be34bfdc80bdc19ecae2] ASoC: SOF: imx: Remove t=
+he use of dev_err_probe()
+# good: [d78e48ebe04e9566f8ecbf51471e80da3adbceeb] ASoC: dt-bindings: Minor=
+ whitespace cleanup in example
+# good: [96bcb34df55f7fee99795127c796315950c94fed] ASoC: test-component: Us=
+e kcalloc() instead of kzalloc()
+# good: [c232495d28ca092d0c39b10e35d3d613bd2414ab] ASoC: dt-bindings: omap-=
+twl4030: convert to DT schema
+# good: [87a877de367d835b527d1086f75727123ef85fc4] KVM: x86: Rename handle_=
+fastpath_set_msr_irqoff() to handle_fastpath_wrmsr()
+# good: [c26675447faff8c4ddc1dc5d2cd28326b8181aaf] KVM: x86: Zero XSTATE co=
+mponents on INIT by iterating over supported features
+# good: [ec0be3cdf40b5302248f3fb27a911cc630e8b855] regulator: consumer.rst:=
+ document bulk operations
+# good: [27848c082ba0b22850fd9fb7b185c015423dcdc7] spi: s3c64xx: Remove the=
+ use of dev_err_probe()
+# good: [c1dd310f1d76b4b13f1854618087af2513140897] spi: SPISG: Use devm_kca=
+lloc() in aml_spisg_clk_init()
+# good: [da9881d00153cc6d3917f6b74144b1d41b58338c] ASoC: qcom: audioreach: =
+add support for SMECNS module
+# good: [cf65182247761f7993737b710afe8c781699356b] ASoC: codecs: wsa883x: H=
+andle shared reset GPIO for WSA883x speakers
+# good: [2a55135201d5e24b80b7624880ff42eafd8e320c] ASoC: Intel: avs: Stream=
+line register-component function names
+# good: [550bc517e59347b3b1af7d290eac4fb1411a3d4e] regulator: bd718x7: Use =
+kcalloc() instead of kzalloc()
+# good: [0056b410355713556d8a10306f82e55b28d33ba8] spi: offload trigger: ad=
+i-util-sigma-delta: clean up imports
+# good: [daf855f76a1210ceed9541f71ac5dd9be02018a6] ASoC: es8323: enable DAP=
+M power widgets for playback DAC
+# good: [90179609efa421b1ccc7d8eafbc078bafb25777c] spi: spl022: use min_t()=
+ to improve code
+# good: [258384d8ce365dddd6c5c15204de8ccd53a7ab0a] ASoC: es8323: enable DAP=
+M power widgets for playback DAC and output
+# good: [6d068f1ae2a2f713d7f21a9a602e65b3d6b6fc6d] regulator: rt5133: Fix s=
+pelling mistake "regualtor" -> "regulator"
+# good: [a46e95c81e3a28926ab1904d9f754fef8318074d] ASoC: wl1273: Remove
+# good: [48124569bbc6bfda1df3e9ee17b19d559f4b1aa3] spi: remove unneeded 'fa=
+st_io' parameter in regmap_config
+# good: [37533933bfe92cd5a99ef4743f31dac62ccc8de0] regulator: remove unneed=
+ed 'fast_io' parameter in regmap_config
+# good: [0e62438e476494a1891a8822b9785bc6e73e9c3f] ASoC: Intel: sst: Remove=
+ redundant semicolons
+# good: [5c36b86d2bf68fbcad16169983ef7ee8c537db59] regmap: Remove superfluo=
+us check for !config in __regmap_init()
+# good: [714165e1c4b0d5b8c6d095fe07f65e6e7047aaeb] regulator: rt5133: Add R=
+T5133 PMIC regulator Support
+# good: [9c45f95222beecd6a284fd1284d54dd7a772cf59] spi: spi-qpic-snand: han=
+dle 'use_ecc' parameter of qcom_spi_config_cw_read()
+# good: [bab4ab484a6ca170847da9bffe86f1fa90df4bbe] ASoC: dt-bindings: Conve=
+rt brcm,bcm2835-i2s to DT schema
+# good: [b832b19318534bb4f1673b24d78037fee339c679] spi: loopback-test: Don'=
+t use %pK through printk
+# good: [8c02c8353460f8630313aef6810f34e134a3c1ee] ASoC: dt-bindings: realt=
+ek,alc5623: convert to DT schema
+# good: [6b7e2aa50bdaf88cd4c2a5e2059a7bf32d85a8b1] spi: spi-qpic-snand: rem=
+ove 'clr*status' members of struct 'qpic_ecc'
+# good: [2291a2186305faaf8525d57849d8ba12ad63f5e7] MAINTAINERS: Add entry f=
+or FourSemi audio amplifiers
+# good: [a54ef14188519a0994d0264f701f5771815fa11e] regulator: dt-bindings: =
+Clean-up active-semi,act8945a duplication
+# good: [a1d0b0ae65ae3f32597edfbb547f16c75601cd87] spi: spi-qpic-snand: avo=
+id double assignment in qcom_spi_probe()
+# good: [cf25eb8eae91bcae9b2065d84b0c0ba0f6d9dd34] ASoC: soc-component: unp=
+ack snd_soc_component_init_bias_level()
+# good: [595b7f155b926460a00776cc581e4dcd01220006] ASoC: Intel: avs: Condit=
+ional-path support
+# good: [3059067fd3378a5454e7928c08d20bf3ef186760] ASoC: cs48l32: Use PTR_E=
+RR_OR_ZERO() to simplify code
+# good: [2d86d2585ab929a143d1e6f8963da1499e33bf13] ASoC: pxa: add GPIOLIB_L=
+EGACY dependency
+# good: [9a200cbdb54349909a42b45379e792e4b39dd223] rust: regulator: impleme=
+nt Send and Sync for Regulator<T>
+# good: [162e23657e5379f07c6404dbfbf4367cb438ea7d] regulator: pf0900: Add P=
+MIC PF0900 support
+# good: [886f42ce96e7ce80545704e7168a9c6b60cd6c03] regmap: mmio: Add missin=
+g MODULE_DESCRIPTION()
+# good: [6684aba0780da9f505c202f27e68ee6d18c0aa66] XArray: Add extra debugg=
+ing check to xas_lock and friends
+git bisect start 'be5d4872e528796df9d7425f2bd9b3893eb3a42c' '5fe42852269dc6=
+59c8d511864410bd5cf3393e91' '0ccc1eeda155c947d88ef053e0b54e434e218ee2' '774=
+8328c2fd82efed24257b2bfd796eb1fa1d09b' 'dd7ae5b8b3c291c0206f127a564ae1e3167=
+05ca0' 'ce1a46b2d6a8465a86f7a6f71beb4c6de83bce5c' 'ce57b718006a069226b5e5d3=
+afe7969acd59154e' '94b39cb3ad6db935b585988b36378884199cd5fc' '5cc49b5a36b32=
+a2dba41441ea13b93fb5ea21cfd' '3279052eab235bfb7130b1fabc74029c2260ed8d' '8f=
+57dcf39fd0864f5f3e6701fe885e55f45d0d3a' '9d35d068fb138160709e04e3ee97fe29a6=
+f8615b' '8a9772ec08f87c9e45ab1ad2c8d2b8c1763836eb' '07752abfa5dbf7cb4d9ce69=
+fa94dc3b12bc597d9' 'd57d27171c92e9049d5301785fb38de127b28fbf' 'f7c41911ad74=
+4177d8289820f01009dc93d8f91c' '3d439e1ec3368fae17db379354bd7a9e568ca0ab' '5=
+c39bc498f5ff7ef016abf3f16698f3e8db79677' 'f522da9ab56c96db8703b2ea0f09be7cd=
+c3bffeb' 'f4672dc6e9c07643c8c755856ba8e9eb9ca95d0c' 'b088b6189a4066b97cef45=
+9afd312fd168a76dea' 'c42e36a488c7e01f833fc9f4814f735b66b2d494' 'a37280daa4d=
+583c7212681c49b285de9464a5200' 'ff9a7857b7848227788f113d6dc6a72e989084e0' '=
+edb5c1f885207d1d74e8a1528e6937e02829ee6e' 'e2ab5f600bb01d3625d667d97b3eb753=
+8e388336' '5b4dcaf851df8c414bfc2ac3bf9c65fc942f3be4' '899fb38dd76dd3ede425b=
+baf8a96d390180a5d1c' '11f5c5f9e43e9020bae452232983fe98e7abfce0' 'a12b74d2bd=
+4724ee1883bc97ec93eac8fafc8d3c' 'f840737d1746398c2993be34bfdc80bdc19ecae2' =
+'d78e48ebe04e9566f8ecbf51471e80da3adbceeb' '96bcb34df55f7fee99795127c796315=
+950c94fed' 'c232495d28ca092d0c39b10e35d3d613bd2414ab' '87a877de367d835b527d=
+1086f75727123ef85fc4' 'c26675447faff8c4ddc1dc5d2cd28326b8181aaf' 'ec0be3cdf=
+40b5302248f3fb27a911cc630e8b855' '27848c082ba0b22850fd9fb7b185c015423dcdc7'=
+ 'c1dd310f1d76b4b13f1854618087af2513140897' 'da9881d00153cc6d3917f6b74144b1=
+d41b58338c' 'cf65182247761f7993737b710afe8c781699356b' '2a55135201d5e24b80b=
+7624880ff42eafd8e320c' '550bc517e59347b3b1af7d290eac4fb1411a3d4e' '0056b410=
+355713556d8a10306f82e55b28d33ba8' 'daf855f76a1210ceed9541f71ac5dd9be02018a6=
+' '90179609efa421b1ccc7d8eafbc078bafb25777c' '258384d8ce365dddd6c5c15204de8=
+ccd53a7ab0a' '6d068f1ae2a2f713d7f21a9a602e65b3d6b6fc6d' 'a46e95c81e3a28926a=
+b1904d9f754fef8318074d' '48124569bbc6bfda1df3e9ee17b19d559f4b1aa3' '3753393=
+3bfe92cd5a99ef4743f31dac62ccc8de0' '0e62438e476494a1891a8822b9785bc6e73e9c3=
+f' '5c36b86d2bf68fbcad16169983ef7ee8c537db59' '714165e1c4b0d5b8c6d095fe07f6=
+5e6e7047aaeb' '9c45f95222beecd6a284fd1284d54dd7a772cf59' 'bab4ab484a6ca1708=
+47da9bffe86f1fa90df4bbe' 'b832b19318534bb4f1673b24d78037fee339c679' '8c02c8=
+353460f8630313aef6810f34e134a3c1ee' '6b7e2aa50bdaf88cd4c2a5e2059a7bf32d85a8=
+b1' '2291a2186305faaf8525d57849d8ba12ad63f5e7' 'a54ef14188519a0994d0264f701=
+f5771815fa11e' 'a1d0b0ae65ae3f32597edfbb547f16c75601cd87' 'cf25eb8eae91bcae=
+9b2065d84b0c0ba0f6d9dd34' '595b7f155b926460a00776cc581e4dcd01220006' '30590=
+67fd3378a5454e7928c08d20bf3ef186760' '2d86d2585ab929a143d1e6f8963da1499e33b=
+f13' '9a200cbdb54349909a42b45379e792e4b39dd223' '162e23657e5379f07c6404dbfb=
+f4367cb438ea7d' '886f42ce96e7ce80545704e7168a9c6b60cd6c03' '6684aba0780da9f=
+505c202f27e68ee6d18c0aa66'
+# test job: [0ccc1eeda155c947d88ef053e0b54e434e218ee2] https://lava.sirena.=
+org.uk/scheduler/job/1773040
+# test job: [7748328c2fd82efed24257b2bfd796eb1fa1d09b] https://lava.sirena.=
+org.uk/scheduler/job/1773378
+# test job: [dd7ae5b8b3c291c0206f127a564ae1e316705ca0] https://lava.sirena.=
+org.uk/scheduler/job/1773233
+# test job: [ce1a46b2d6a8465a86f7a6f71beb4c6de83bce5c] https://lava.sirena.=
+org.uk/scheduler/job/1768983
+# test job: [ce57b718006a069226b5e5d3afe7969acd59154e] https://lava.sirena.=
+org.uk/scheduler/job/1768713
+# test job: [94b39cb3ad6db935b585988b36378884199cd5fc] https://lava.sirena.=
+org.uk/scheduler/job/1768603
+# test job: [5cc49b5a36b32a2dba41441ea13b93fb5ea21cfd] https://lava.sirena.=
+org.uk/scheduler/job/1769293
+# test job: [3279052eab235bfb7130b1fabc74029c2260ed8d] https://lava.sirena.=
+org.uk/scheduler/job/1762427
+# test job: [8f57dcf39fd0864f5f3e6701fe885e55f45d0d3a] https://lava.sirena.=
+org.uk/scheduler/job/1760074
+# test job: [9d35d068fb138160709e04e3ee97fe29a6f8615b] https://lava.sirena.=
+org.uk/scheduler/job/1758673
+# test job: [8a9772ec08f87c9e45ab1ad2c8d2b8c1763836eb] https://lava.sirena.=
+org.uk/scheduler/job/1758556
+# test job: [07752abfa5dbf7cb4d9ce69fa94dc3b12bc597d9] https://lava.sirena.=
+org.uk/scheduler/job/1752251
+# test job: [d57d27171c92e9049d5301785fb38de127b28fbf] https://lava.sirena.=
+org.uk/scheduler/job/1752624
+# test job: [f7c41911ad744177d8289820f01009dc93d8f91c] https://lava.sirena.=
+org.uk/scheduler/job/1752345
+# test job: [3d439e1ec3368fae17db379354bd7a9e568ca0ab] https://lava.sirena.=
+org.uk/scheduler/job/1753454
+# test job: [5c39bc498f5ff7ef016abf3f16698f3e8db79677] https://lava.sirena.=
+org.uk/scheduler/job/1751954
+# test job: [f522da9ab56c96db8703b2ea0f09be7cdc3bffeb] https://lava.sirena.=
+org.uk/scheduler/job/1751875
+# test job: [f4672dc6e9c07643c8c755856ba8e9eb9ca95d0c] https://lava.sirena.=
+org.uk/scheduler/job/1747876
+# test job: [b088b6189a4066b97cef459afd312fd168a76dea] https://lava.sirena.=
+org.uk/scheduler/job/1746202
+# test job: [c42e36a488c7e01f833fc9f4814f735b66b2d494] https://lava.sirena.=
+org.uk/scheduler/job/1746271
+# test job: [a37280daa4d583c7212681c49b285de9464a5200] https://lava.sirena.=
+org.uk/scheduler/job/1746918
+# test job: [ff9a7857b7848227788f113d6dc6a72e989084e0] https://lava.sirena.=
+org.uk/scheduler/job/1746336
+# test job: [edb5c1f885207d1d74e8a1528e6937e02829ee6e] https://lava.sirena.=
+org.uk/scheduler/job/1746134
+# test job: [e2ab5f600bb01d3625d667d97b3eb7538e388336] https://lava.sirena.=
+org.uk/scheduler/job/1746607
+# test job: [5b4dcaf851df8c414bfc2ac3bf9c65fc942f3be4] https://lava.sirena.=
+org.uk/scheduler/job/1747672
+# test job: [899fb38dd76dd3ede425bbaf8a96d390180a5d1c] https://lava.sirena.=
+org.uk/scheduler/job/1747375
+# test job: [11f5c5f9e43e9020bae452232983fe98e7abfce0] https://lava.sirena.=
+org.uk/scheduler/job/1747503
+# test job: [a12b74d2bd4724ee1883bc97ec93eac8fafc8d3c] https://lava.sirena.=
+org.uk/scheduler/job/1734077
+# test job: [f840737d1746398c2993be34bfdc80bdc19ecae2] https://lava.sirena.=
+org.uk/scheduler/job/1727318
+# test job: [d78e48ebe04e9566f8ecbf51471e80da3adbceeb] https://lava.sirena.=
+org.uk/scheduler/job/1706175
+# test job: [96bcb34df55f7fee99795127c796315950c94fed] https://lava.sirena.=
+org.uk/scheduler/job/1699577
+# test job: [c232495d28ca092d0c39b10e35d3d613bd2414ab] https://lava.sirena.=
+org.uk/scheduler/job/1699507
+# test job: [87a877de367d835b527d1086f75727123ef85fc4] https://lava.sirena.=
+org.uk/scheduler/job/1697972
+# test job: [c26675447faff8c4ddc1dc5d2cd28326b8181aaf] https://lava.sirena.=
+org.uk/scheduler/job/1698132
+# test job: [ec0be3cdf40b5302248f3fb27a911cc630e8b855] https://lava.sirena.=
+org.uk/scheduler/job/1694308
+# test job: [27848c082ba0b22850fd9fb7b185c015423dcdc7] https://lava.sirena.=
+org.uk/scheduler/job/1693100
+# test job: [c1dd310f1d76b4b13f1854618087af2513140897] https://lava.sirena.=
+org.uk/scheduler/job/1693035
+# test job: [da9881d00153cc6d3917f6b74144b1d41b58338c] https://lava.sirena.=
+org.uk/scheduler/job/1693416
+# test job: [cf65182247761f7993737b710afe8c781699356b] https://lava.sirena.=
+org.uk/scheduler/job/1687562
+# test job: [2a55135201d5e24b80b7624880ff42eafd8e320c] https://lava.sirena.=
+org.uk/scheduler/job/1685772
+# test job: [550bc517e59347b3b1af7d290eac4fb1411a3d4e] https://lava.sirena.=
+org.uk/scheduler/job/1685910
+# test job: [0056b410355713556d8a10306f82e55b28d33ba8] https://lava.sirena.=
+org.uk/scheduler/job/1685649
+# test job: [daf855f76a1210ceed9541f71ac5dd9be02018a6] https://lava.sirena.=
+org.uk/scheduler/job/1685441
+# test job: [90179609efa421b1ccc7d8eafbc078bafb25777c] https://lava.sirena.=
+org.uk/scheduler/job/1686081
+# test job: [258384d8ce365dddd6c5c15204de8ccd53a7ab0a] https://lava.sirena.=
+org.uk/scheduler/job/1673411
+# test job: [6d068f1ae2a2f713d7f21a9a602e65b3d6b6fc6d] https://lava.sirena.=
+org.uk/scheduler/job/1673133
+# test job: [a46e95c81e3a28926ab1904d9f754fef8318074d] https://lava.sirena.=
+org.uk/scheduler/job/1673748
+# test job: [48124569bbc6bfda1df3e9ee17b19d559f4b1aa3] https://lava.sirena.=
+org.uk/scheduler/job/1670184
+# test job: [37533933bfe92cd5a99ef4743f31dac62ccc8de0] https://lava.sirena.=
+org.uk/scheduler/job/1668977
+# test job: [0e62438e476494a1891a8822b9785bc6e73e9c3f] https://lava.sirena.=
+org.uk/scheduler/job/1669534
+# test job: [5c36b86d2bf68fbcad16169983ef7ee8c537db59] https://lava.sirena.=
+org.uk/scheduler/job/1667971
+# test job: [714165e1c4b0d5b8c6d095fe07f65e6e7047aaeb] https://lava.sirena.=
+org.uk/scheduler/job/1667699
+# test job: [9c45f95222beecd6a284fd1284d54dd7a772cf59] https://lava.sirena.=
+org.uk/scheduler/job/1667598
+# test job: [bab4ab484a6ca170847da9bffe86f1fa90df4bbe] https://lava.sirena.=
+org.uk/scheduler/job/1664664
+# test job: [b832b19318534bb4f1673b24d78037fee339c679] https://lava.sirena.=
+org.uk/scheduler/job/1659213
+# test job: [8c02c8353460f8630313aef6810f34e134a3c1ee] https://lava.sirena.=
+org.uk/scheduler/job/1659264
+# test job: [6b7e2aa50bdaf88cd4c2a5e2059a7bf32d85a8b1] https://lava.sirena.=
+org.uk/scheduler/job/1656585
+# test job: [2291a2186305faaf8525d57849d8ba12ad63f5e7] https://lava.sirena.=
+org.uk/scheduler/job/1655709
+# test job: [a54ef14188519a0994d0264f701f5771815fa11e] https://lava.sirena.=
+org.uk/scheduler/job/1656024
+# test job: [a1d0b0ae65ae3f32597edfbb547f16c75601cd87] https://lava.sirena.=
+org.uk/scheduler/job/1654201
+# test job: [cf25eb8eae91bcae9b2065d84b0c0ba0f6d9dd34] https://lava.sirena.=
+org.uk/scheduler/job/1654790
+# test job: [595b7f155b926460a00776cc581e4dcd01220006] https://lava.sirena.=
+org.uk/scheduler/job/1653119
+# test job: [3059067fd3378a5454e7928c08d20bf3ef186760] https://lava.sirena.=
+org.uk/scheduler/job/1655440
+# test job: [2d86d2585ab929a143d1e6f8963da1499e33bf13] https://lava.sirena.=
+org.uk/scheduler/job/1655917
+# test job: [9a200cbdb54349909a42b45379e792e4b39dd223] https://lava.sirena.=
+org.uk/scheduler/job/1654762
+# test job: [162e23657e5379f07c6404dbfbf4367cb438ea7d] https://lava.sirena.=
+org.uk/scheduler/job/1652978
+# test job: [886f42ce96e7ce80545704e7168a9c6b60cd6c03] https://lava.sirena.=
+org.uk/scheduler/job/1654270
+# test job: [6684aba0780da9f505c202f27e68ee6d18c0aa66] https://lava.sirena.=
+org.uk/scheduler/job/1738722
+# test job: [be5d4872e528796df9d7425f2bd9b3893eb3a42c] https://lava.sirena.=
+org.uk/scheduler/job/1778528
+# bad: [be5d4872e528796df9d7425f2bd9b3893eb3a42c] Add linux-next specific f=
+iles for 20250905
+git bisect bad be5d4872e528796df9d7425f2bd9b3893eb3a42c
+# test job: [c3ce85ecd0268df1e0ca692e8126bb181fc89a08] https://lava.sirena.=
+org.uk/scheduler/job/1779086
+# bad: [c3ce85ecd0268df1e0ca692e8126bb181fc89a08] Merge branch 'main' of ht=
+tps://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git
+git bisect bad c3ce85ecd0268df1e0ca692e8126bb181fc89a08
+# test job: [973a887a5bb9a42878e276209592e0f75c287bb6] https://lava.sirena.=
+org.uk/scheduler/job/1780104
+# bad: [973a887a5bb9a42878e276209592e0f75c287bb6] Merge branch 'fs-next' of=
+ linux-next
+git bisect bad 973a887a5bb9a42878e276209592e0f75c287bb6
+# test job: [fdabd8890022a9439b95d7395f7ae046544d96fd] https://lava.sirena.=
+org.uk/scheduler/job/1780530
+# bad: [fdabd8890022a9439b95d7395f7ae046544d96fd] Merge branch 'for-next' o=
+f https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git
+git bisect bad fdabd8890022a9439b95d7395f7ae046544d96fd
+# test job: [94bd0249a4a06131c4a1c2097b6134217a658976] https://lava.sirena.=
+org.uk/scheduler/job/1780904
+# bad: [94bd0249a4a06131c4a1c2097b6134217a658976] Merge branch 'for-next' o=
+f https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git
+git bisect bad 94bd0249a4a06131c4a1c2097b6134217a658976
+# test job: [702b6c2f1008779e8fc8a4a4438410165309a4b4] https://lava.sirena.=
+org.uk/scheduler/job/1781370
+# bad: [702b6c2f1008779e8fc8a4a4438410165309a4b4] kasan-apply-write-only-mo=
+de-in-kasan-kunit-testcases-v7
+git bisect bad 702b6c2f1008779e8fc8a4a4438410165309a4b4
+# test job: [0ac48805721d5952a920356e454167bba8d27737] https://lava.sirena.=
+org.uk/scheduler/job/1781448
+# good: [0ac48805721d5952a920356e454167bba8d27737] mm: convert page_to_sect=
+ion() to memdesc_section()
+git bisect good 0ac48805721d5952a920356e454167bba8d27737
+# test job: [dc731eba2e47fa81d50aa1cb167100889253cfe0] https://lava.sirena.=
+org.uk/scheduler/job/1781608
+# good: [dc731eba2e47fa81d50aa1cb167100889253cfe0] mm/damon/paddr: support =
+addr_unit for MIGRATE_{HOT,COLD}
+git bisect good dc731eba2e47fa81d50aa1cb167100889253cfe0
+# test job: [e24bb041cafabaa5fa3d76386c86af389cc324f5] https://lava.sirena.=
+org.uk/scheduler/job/1781660
+# good: [e24bb041cafabaa5fa3d76386c86af389cc324f5] mm/memremap: reject unre=
+asonable folio/compound page sizes in memremap_pages()
+git bisect good e24bb041cafabaa5fa3d76386c86af389cc324f5
+# test job: [62fd63f4688f40f01a6df23225523ece10d4b69a] https://lava.sirena.=
+org.uk/scheduler/job/1781975
+# bad: [62fd63f4688f40f01a6df23225523ece10d4b69a] dma-remap: drop nth_page(=
+) in dma_common_contiguous_remap()
+git bisect bad 62fd63f4688f40f01a6df23225523ece10d4b69a
+# test job: [cb42f7f6d9e4eff4e5259cddf82fd913306b8fe7] https://lava.sirena.=
+org.uk/scheduler/job/1782145
+# good: [cb42f7f6d9e4eff4e5259cddf82fd913306b8fe7] fs: hugetlbfs: remove nt=
+h_page() usage within folio in adjust_range_hwpoison()
+git bisect good cb42f7f6d9e4eff4e5259cddf82fd913306b8fe7
+# test job: [db076b5db550aa34169dceee81d0974c7b2a2482] https://lava.sirena.=
+org.uk/scheduler/job/1782813
+# bad: [db076b5db550aa34169dceee81d0974c7b2a2482] mm/gup: remove record_sub=
+pages()
+git bisect bad db076b5db550aa34169dceee81d0974c7b2a2482
+# test job: [891d0b3189945a5c37ce92c4e5337ec2c17b6378] https://lava.sirena.=
+org.uk/scheduler/job/1782916
+# good: [891d0b3189945a5c37ce92c4e5337ec2c17b6378] mm/pagewalk: drop nth_pa=
+ge() usage within folio in folio_walk_start()
+git bisect good 891d0b3189945a5c37ce92c4e5337ec2c17b6378
+# test job: [21999f6315d786cbd21d5b2d0ad56f3f6125279f] https://lava.sirena.=
+org.uk/scheduler/job/1783020
+# good: [21999f6315d786cbd21d5b2d0ad56f3f6125279f] mm/gup: drop nth_page() =
+usage within folio when recording subpages
+git bisect good 21999f6315d786cbd21d5b2d0ad56f3f6125279f
+# first bad commit: [db076b5db550aa34169dceee81d0974c7b2a2482] mm/gup: remo=
+ve record_subpages()
+
+--V80dSr/3LzMwjpsi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmi+8z0ACgkQJNaLcl1U
+h9C0HQf/YLILQMy3G3PZlLVziChCHgLklSdjOdu58eGRZBkdjWnggsnR8H+o1TRT
+qrYLTwPAQ7TkDlNC/IpdZTn6fTQnbmy/5CpEidfBuHIth4hUPlGHOHWwwaHo92Gd
+bJmRfogfYX4kma6egaQbjIHdXUWb3BHdc+K3JmaaPInJN0sRsX8Od85Oxtx4cRAW
+2A6bXjqDo+7pLzkMx+1LI15r2lS9AtPy53xbumPlHVmIOmn76VnDG+TaKlD6XmmD
+z3piY3bbxBbFy5iZuZbC/xvn1JCA5lp+OHriZcz+eB8UBWoReKPRtq0Ugar/jbfo
+bOBx+BGSWZGrrkT+5KyatEb3cS3IWw==
+=1t1P
+-----END PGP SIGNATURE-----
+
+--V80dSr/3LzMwjpsi--
+
+
+--===============1669026713700708541==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1669026713700708541==--
+
