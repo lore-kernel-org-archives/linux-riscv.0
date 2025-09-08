@@ -4,91 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52428CAC581
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Sep 2025 17:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFB2CAC581
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Sep 2025 18:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9r7Cbm3cWOUfRKy8D0IQKnfvxh8eadQ+p2CrYK6jF7g=; b=rLC9Jtmfd/RjnW
-	g3fPnb6a41Kr0P87YKMgf2oOZvQaDWfvdQQNi45xmPoySbHd1B3M+dWiG3Kzo2XjR178jOgSykZHk
-	vVvjqNLAgljPabIjzyrBUUKOFQucwDONdK8Ecwz3ecEmRr9bLGBffHvL1URY92B2VkNOHtYtw72O/
-	AmU21ICP0DahR1Fy+S7jn12EcAiQJ0LXgXHcPccAL1KUJyotcd976XHp42g6pjEQoGlcaaJ6cn1gX
-	eeRzx2yNq1mgSmNPJk0f/bRPooDCi74Uem5gLaHJ+SlgnHYQaBD6Sr/Bt0znIInBbOdreMjo3mDTC
-	NarvfEGCmHdxlS/fUHhw==;
+	List-Owner; bh=XQc610eBX+oxKahrUgeCcRklE16BtcYbxpM/SlsuBJ0=; b=P/wyg/FKfl+Slk
+	URLGqTIBxR+PXGXIOJtQzV9SpJYApMhACpjJb3xllALYYq4Wo5poeCM63Q+v7QmG68Svf6UzdmJ29
+	dEhAhSOkxTC1vvGS+Whz/FMVBu5QsEPWnWJv/2mHhSilqNsfpTcP6ftSmFEpET/lDl58xMxeztjl/
+	m76c99f2MHWWA/h9x/DV2PWbM+kBq9K/I+ETV7NNNw7C7PTPpJ4Tp5a5XUXkIy/ihZmgXc0qmx2gu
+	K0XTTBSwKRkU3oB2v/4qrpVw4uLCtdWkdhrU46hVfw++gAGO6YhGwedbGOBWPP4T4asZVPzXeXcaA
+	CefJ/rHhiiAdU6Hq8z9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvfUx-000000019Rs-2PC1;
-	Mon, 08 Sep 2025 17:17:47 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1uvgUW-00000001UxX-0tIf;
+	Mon, 08 Sep 2025 18:21:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvcyl-000000009SE-3v04
+	id 1uvbMq-0000000HAbN-2bKH
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Sep 2025 14:36:24 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-24b150fb800so11970925ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Sep 2025 07:36:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757342183; x=1757946983; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FIVWf3bpKmjp75cp07PUchurcybMcPfdUSIyZqVIJkQ=;
-        b=TxuuwLLAK7CxHELT5LTKl7mibFiQI+W5hB1GP2Flan/jFmRUBaYlOyHl4PWlEj9Rdw
-         b83KBr4P+WglGW+GnLNjUubwLwIyKikCf51aPKeEEUzV3936O/G1/NYYhyuloks5ccGm
-         IQ8nBw3KzaXSbzXqXI9yxRpkliTeAwnEiNedrlHWEr3QsiSXWPHNHXhNZgo8xDCdcZ3H
-         3f9zfrrpmGAKVzXeqc7VFi50RdpCWCbRjBedXQLnA0F2JWpD5dB9OZjGPkcsA+5iDoBk
-         LfOSWOjDjZZybIRfNnr/QnZMc8Tf9suSQZ78JRoHktu9LNmZke+1H5TuvNUog4HM7Pe5
-         Bc9w==
+	Mon, 08 Sep 2025 12:53:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757335987;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=nqKqSNT26uK0ctF10EJrKeCsL0Ppf+8ee2pPXGgNN7Q=;
+	b=bnu3yxtYkcXe0OTHnBYCpKPzE1C2Gc7e/GNrWQNvBTQcyE7ZNNyJdqOtasldnxG/Ucf1Ob
+	mfnOV4ty6PYeO/2mHnSGM50ucwErdOUzgHs7Gyc2AXNfGnuuPrzn1O67mBkAk62huBdsfE
+	qUmTERAHqyD5VVZ7VjUFjq7HdvFCdMA=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-648-zgqKsQpoMsq3QlmrjaTlOQ-1; Mon, 08 Sep 2025 08:53:05 -0400
+X-MC-Unique: zgqKsQpoMsq3QlmrjaTlOQ-1
+X-Mimecast-MFC-AGG-ID: zgqKsQpoMsq3QlmrjaTlOQ_1757335985
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3e26b5e3f41so1730972f8f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Sep 2025 05:53:05 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757342183; x=1757946983;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FIVWf3bpKmjp75cp07PUchurcybMcPfdUSIyZqVIJkQ=;
-        b=D4GYR2TcTyul3lw1rbageuFVr8u8U9CtgQ2uHq3B1AcYNCIb8nj1ftjEptlw7EA1H+
-         MYJhsati6tZ9k/3JeYYLQJG28mtl5Z3POy2qKqWDUwkssgCdrigUN1LmJMdmJbvj9W9Y
-         MUoJntNwfw0PHXwE9GrO6k4jcIkIsCmfs2NTOY9i8aUzWDzs/I/7qfAiFrzAynyeuyBw
-         AhGp/n332ChDNirPpDfR6ZwzauTYbKl+4KM36DsnWHPpa15pRSTCOHajrCGv35h2eQ0f
-         USHgvkKINsLJqC+j3cizGex7wr+sWnSewhN65lRPa3kDw7yNKmjZNLeOJ1SIZGvQ0L0p
-         bZbg==
-X-Forwarded-Encrypted: i=1; AJvYcCUKmosf23C69zqvlJnYRWe+LovPrK87XfStiJOzJP7RaLpR0K5fZubdeuTUbecNYimOyjuVj9Hd7U5eiA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2mt+r539WeWbYxsuCwFztGkJJc8FHy6CeFAL/IP2SIuPAhTWd
-	39gZAaXdUMor98gg4nxhwVHHZ90oBMuWcm97j6XQsBLimSxZJ3YfIUamDJkAjEQi0sXnvBq2GjB
-	eVt/GJ2wwUop3COn+vrE8EKZe/z81DXI=
-X-Gm-Gg: ASbGncvw9aW7FZNT4MphncrrecdOEMmLvCQ8KqYmfiT8AVBUIj6QwRO5bkv2sklRl85
-	HK+i1I7N1Wkj4RpOWDjZbgxrkZuLjYMLqq9vZWksVYaoSqFb6Xn5DYm5QBugxxnxul9YSOhDEev
-	PIBAgJvoZZwgA3uWcfA0xk/DQstxV657DgCVM49PB4HAProBbSAtMtei7LfajcfKlcNoR4AFvry
-	+isFiGNk/TCLrRVv6Ibb1VitkS0EB8cKtVGW49Z1Gnv2yeDX/LBZtJbs2/DXEMI7RwPid2u66np
-	1cFGTTl1ZVTHAQjhoYfaOu8SUA==
-X-Google-Smtp-Source: AGHT+IEds3iCyTuDUwiTjHRJ7lLf/Q2xjxTJDIKMpnFx1aFKpliIcBsGFm3iFx+addcMcQGerU8ggQutMgqEUUjcd3Y=
-X-Received: by 2002:a17:903:18c:b0:24c:cc2c:9da5 with SMTP id
- d9443c01a7336-25173ea24a3mr62209635ad.6.1757342183075; Mon, 08 Sep 2025
- 07:36:23 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757335985; x=1757940785;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nqKqSNT26uK0ctF10EJrKeCsL0Ppf+8ee2pPXGgNN7Q=;
+        b=dPtgOkoN6VmHX/Nf+HxoTkOCDCP8vYuqlpv+OxdcnisWZwXQsLvnKhImybU6uOcTN7
+         qnBIOb2lOfsNp5gCY6rufe1AR1+f1uWVt2HEaSZKLYu+Uys3tRdDKVJUID308z65+JgM
+         bV7MiXp95noGdjEb/stemSSeYsK7BT623iSiMhe6zjXR0G9pe94UhMdzlfGdRxKXg9tc
+         DwOyT3pyyyGfmJrk/gm5jJZOhy1GkGK5rrDCY5rL4m3qKDvAYpxj9SE1JrPAcOhxvjcb
+         nvd6N4uYuqYVHd0oy9nvBRaVVeq+Q6bbeeztoBF1Yq1ocaNaJUOdLklcsZ+p9mVjU9G8
+         Hy4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVLbVWCeTcSN4rrzrrJz1jwwcVr/XfzHag3QakwW06HcToa9hWi7yKQbUavqqwt+N+TXvv1WdKkit0J2Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPuoPO/v0PZ9GT5odGygL5KIzIVgD+7LFS8qgcUxAl7d8KOZIk
+	FJOIZ1Jzi8SGpKBECI3UEo2ftGk50an3AO5wzih1O32g++vjc4J4rWjyj3qrJpIlTWQ4CTRogv1
+	vH7Vh6yJxtvF5xHaXz8HRKvsvB3w/3huGMhvEdyH1J0zK7S6F/sa0M8rNCRFaXC4Z9lLbYQ==
+X-Gm-Gg: ASbGncswxbgpEsHiv+5h6glGCTjFZAXnHztgqXdjh0hr02+qwUEXX4SVrD+CIP86RcV
+	JG5lIQ9C9xiCszbveeYUk1oNDaIERHQQaKcC5upJTmgFLTYGnDkW0ARb0yNqxMmKrHujFUWIu9Q
+	j7uYNgieYF60crHBBdBCCbrWpIUpFUv+sjVbZJ8u8ItaH5wxBNMKDsRZER3+SNlRZE5vYahsj5Y
+	aed4nTcbwMbbzuZD1SWtVmpH+YofjZOUEn509I+BeRiijguUkWZrlqYL9c493AWybN12sW3bGul
+	irmyltN4LKLlAJnmFLE3m3qC6nejPQSesKzePmeuK5KfNlMbBO41SViOPGASsKDawFIwCD72fUo
+	X+zI4aXWowBmomFfN2W6RhPDOKHrL2XNvwh/6H+ik1/MDZpl/J/olcqXWJer4F2Mn
+X-Received: by 2002:a5d:64e4:0:b0:3df:58c5:efd1 with SMTP id ffacd0b85a97d-3e6427d6e15mr6188418f8f.25.1757335984522;
+        Mon, 08 Sep 2025 05:53:04 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFCDxFquotzqnajJLjBsVtEGOKTyR3mfE6vqo6/1C+mdI526t5VUp3r/8RO80kgSz2c6+Q56w==
+X-Received: by 2002:a5d:64e4:0:b0:3df:58c5:efd1 with SMTP id ffacd0b85a97d-3e6427d6e15mr6188391f8f.25.1757335984032;
+        Mon, 08 Sep 2025 05:53:04 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f25:700:d846:15f3:6ca0:8029? (p200300d82f250700d84615f36ca08029.dip0.t-ipconnect.de. [2003:d8:2f25:700:d846:15f3:6ca0:8029])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d1007c0dc8sm40030772f8f.53.2025.09.08.05.53.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 08 Sep 2025 05:53:03 -0700 (PDT)
+Message-ID: <7ee0b58a-8fe4-46fe-bfef-f04f900f3040@redhat.com>
+Date: Mon, 8 Sep 2025 14:53:00 +0200
 MIME-Version: 1.0
-References: <20250908-distill-lint-1ae78bcf777c@spud>
-In-Reply-To: <20250908-distill-lint-1ae78bcf777c@spud>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Mon, 8 Sep 2025 16:36:09 +0200
-X-Gm-Features: AS18NWB-MWPE9egfDgR8swoEM8VNIC5oT99W_zIRlpTR_s6ZNeMwU8I66RyA-sw
-Message-ID: <CANiq72mw36RzCtNVax650fJ=+cYjuGNF722_Mn2Oy1FAvxWc8Q@mail.gmail.com>
-Subject: Re: [PATCH v1] rust: cfi: only 64-bit arm and x86 support CFI_CLANG
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
-	stable@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Sami Tolvanen <samitolvanen@google.com>, Matthew Maurer <mmaurer@google.com>, 
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>, linux-riscv@lists.infradead.org, 
-	rust-for-linux@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 19/37] mm/gup: remove record_subpages()
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: John Hubbard <jhubbard@nvidia.com>, linux-kernel@vger.kernel.org,
+ Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, kasan-dev@googlegroups.com,
+ kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+References: <20250901150359.867252-1-david@redhat.com>
+ <20250901150359.867252-20-david@redhat.com>
+ <016307ba-427d-4646-8e4d-1ffefd2c1968@nvidia.com>
+ <85e760cf-b994-40db-8d13-221feee55c60@redhat.com>
+ <727cabec-5ee8-4793-926b-8d78febcd623@lucifer.local>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <727cabec-5ee8-4793-926b-8d78febcd623@lucifer.local>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ixUzxPV7362l1O2Mogz9izEjYnAdQNVlwAXnwMy_avQ_1757335985
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250908_073623_974855_7BC554FE 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20250908_055308_739301_CD633DEB 
+X-CRM114-Status: GOOD (  34.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +175,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBTZXAgOCwgMjAyNSBhdCAzOjEz4oCvUE0gQ29ub3IgRG9vbGV5IDxjb25vckBrZXJu
-ZWwub3JnPiB3cm90ZToKPgo+IEZyb206IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3Jv
-Y2hpcC5jb20+Cj4KPiBUaGUga2VybmVsIHVzZXMgdGhlIHN0YW5kYXJkIHJ1c3RjIHRhcmdldHMg
-Zm9yIG5vbi14ODYgdGFyZ2V0cywgYW5kIG91dAo+IG9mIHRob3NlIG9ubHkgNjQtYml0IGFybSdz
-IHRhcmdldCBoYXMga2NmaSBzdXBwb3J0IGVuYWJsZWQuIEZvciB4ODYsIHRoZQo+IGN1c3RvbSA2
-NC1iaXQgdGFyZ2V0IGVuYWJsZXMga2NmaS4KPgo+IFRoZSBIQVZFX0NGSV9JQ0FMTF9OT1JNQUxJ
-WkVfSU5URUdFUlNfUlVTVEMgY29uZmlnIG9wdGlvbiB0aGF0IGFsbG93cwo+IENGSV9DTEFORyB0
-byBiZSB1c2VkIGluIGNvbWJpbmF0aW9uIHdpdGggUlVTVCBkb2VzIG5vdCBjaGVjayB3aGV0aGVy
-IHRoZQo+IHJ1c3RjIHRhcmdldCBzdXBwb3J0cyBrY2ZpLiBUaGlzIGJyZWFrcyB0aGUgYnVpbGQg
-b24gcmlzY3YgKGFuZAo+IHByZXN1bWFibHkgMzItYml0IGFybSkgd2hlbiBDRklfQ0xBTkcgYW5k
-IFJVU1QgYXJlIGVuYWJsZWQgYXQgdGhlIHNhbWUKPiB0aW1lLgo+Cj4gT3JkaW5hcmlseSwgYSBy
-dXN0Yy1vcHRpb24gY2hlY2sgd291bGQgYmUgdXNlZCB0byBkZXRlY3QgdGFyZ2V0IHN1cHBvcnQK
-PiBidXQgdW5mb3J0dW5hdGVseSBydXN0Yy1vcHRpb24gZmlsdGVycyBvdXQgdGhlIHRhcmdldCBm
-b3IgcmVhc29ucyBnaXZlbgo+IGluIGNvbW1pdCA0NmUyNGE1NDVjZGI0ICgicnVzdDoga2FzYW4v
-a2J1aWxkOiBmaXggbWlzc2luZyBmbGFncyBvbiBmaXJzdAo+IGJ1aWxkIikuIEFzIGEgcmVzdWx0
-LCBpZiB0aGUgaG9zdCBzdXBwb3J0cyBrY2ZpIGJ1dCB0aGUgdGFyZ2V0IGRvZXMgbm90LAo+IGUu
-Zy4gd2hlbiBidWlsZGluZyBmb3IgcmlzY3Ygb24geDg2XzY0LCB0aGUgYnVpbGQgd291bGQgcmVt
-YWluIGJyb2tlbi4KPgo+IEluc3RlYWQsIG1ha2UgSEFWRV9DRklfSUNBTExfTk9STUFMSVpFX0lO
-VEVHRVJTX1JVU1RDIGRlcGVuZCBvbiB0aGUgb25seQo+IHR3byBhcmNoaXRlY3R1cmVzIHdoZXJl
-IHRoZSB0YXJnZXQgdXNlZCBzdXBwb3J0cyBpdCB0byBmaXggdGhlIGJ1aWxkLgo+Cj4gQ0M6IHN0
-YWJsZUB2Z2VyLmtlcm5lbC5vcmcKPiBGaXhlczogY2E2MjdlNjM2NTUxZSAoInJ1c3Q6IGNmaTog
-YWRkIHN1cHBvcnQgZm9yIENGSV9DTEFORyB3aXRoIFJ1c3QiKQo+IFNpZ25lZC1vZmYtYnk6IENv
-bm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+CgpJZiB5b3UgYXJlIHRha2lu
-ZyB0aGlzIHRocm91Z2ggUklTQy1WOgoKQWNrZWQtYnk6IE1pZ3VlbCBPamVkYSA8b2plZGFAa2Vy
-bmVsLm9yZz4KCkNoZWVycywKTWlndWVsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+On 08.09.25 14:25, Lorenzo Stoakes wrote:
+> On Sat, Sep 06, 2025 at 08:56:48AM +0200, David Hildenbrand wrote:
+>> On 06.09.25 03:05, John Hubbard wrote:
+>>>
+>>> Probably a similar sentiment as Lorenzo here...the above diffs make the code
+>>> *worse* to read. In fact, I recall adding record_subpages() here long ago,
+>>> specifically to help clarify what was going on.
+>>
+>> Well, there is a lot I dislike about record_subpages() to go back there.
+>> Starting with "as Willy keeps explaining, the concept of subpages do
+>> not exist and ending with "why do we fill out the array even on failure".
+> 
+> Yes
+> 
+>>
+>> :)
+>>
+>>>
+>>> Now it's been returned to it's original, cryptic form.
+>>>
+>>
+>> The code in the caller was so uncryptic that both me and Lorenzo missed
+>> that magical addition. :P
+> 
+> :'(
+> 
+>>
+>>> Just my take on it, for whatever that's worth. :)
+>>
+>> As always, appreciated.
+>>
+>> I could of course keep the simple loop in some "record_folio_pages"
+>> function and clean up what I dislike about record_subpages().
+>>
+>> But I much rather want the call chain to be cleaned up instead, if possible.
+>>
+>>
+>> Roughly, what I am thinking (limiting it to pte+pmd case) about is the following:
+> 
+> I cannot get the below to apply even with the original patch here applied + fix.
+> 
+> It looks like (in mm-new :) commit e73f43a66d5f ("mm/gup: remove dead pgmap
+> refcounting code") by Alastair has conflicted here, but even then I can't make
+> it apply, with/without your fix...!
+
+To be clear: it was never intended to be applied, because it wouldn't 
+even compile in the current form.
+
+It was based on this nth_page submission + fix.
+
+
+[...]
+
+>>   }
+>>   static int gup_fast_pud_range(p4d_t *p4dp, p4d_t p4d, unsigned long addr,
+> 
+> OK I guess you intentionally left the rest as a TODO :)
+> 
+> So I'll wait for you to post it before reviewing in-depth.
+> 
+> This generally LGTM as an approach, getting rid of *nr is important that's
+> really horrible.
+
+Yes. Expect a cleanup in that direction soonish (again, either from me 
+or someone else I poke)
+
+> 
+>> --
+>> 2.50.1
+>>
+>>
+>>
+>> Oh, I might even have found a bug moving away from that questionable
+>> "ret==1 means success" handling in gup_fast_pte_range()? Will
+>> have to double-check, but likely the following is the right thing to do.
+>>
+>>
+>>
+>>  From 8f48b25ef93e7ef98611fd58ec89384ad5171782 Mon Sep 17 00:00:00 2001
+>> From: David Hildenbrand <david@redhat.com>
+>> Date: Sat, 6 Sep 2025 08:46:45 +0200
+>> Subject: [PATCH] mm/gup: fix handling of errors from
+>>   arch_make_folio_accessible() in follow_page_pte()
+>>
+>> In case we call arch_make_folio_accessible() and it fails, we would
+>> incorrectly return a value that is "!= 0" to the caller, indicating that
+>> we pinned all requested pages and that the caller can keep going.
+>>
+>> follow_page_pte() is not supposed to return error values, but instead
+>> 0 on failure and 1 on success.
+>>
+>> That is of course wrong, because the caller will just keep going pinning
+>> more pages. If we happen to pin a page afterwards, we're in trouble,
+>> because we essentially skipped some pages.
+>>
+>> Fixes: f28d43636d6f ("mm/gup/writeback: add callbacks for inaccessible pages")
+>> Signed-off-by: David Hildenbrand <david@redhat.com>
+>> ---
+>>   mm/gup.c | 3 +--
+>>   1 file changed, 1 insertion(+), 2 deletions(-)
+>>
+>> diff --git a/mm/gup.c b/mm/gup.c
+>> index 22420f2069ee1..cff226ec0ee7d 100644
+>> --- a/mm/gup.c
+>> +++ b/mm/gup.c
+>> @@ -2908,8 +2908,7 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
+>>   		 * details.
+>>   		 */
+>>   		if (flags & FOLL_PIN) {
+>> -			ret = arch_make_folio_accessible(folio);
+>> -			if (ret) {
+>> +			if (arch_make_folio_accessible(folio)) {
+> 
+> Oh Lord above. Lol. Yikes.
+> 
+> Yeah I think your fix is valid...
+
+I sent it out earlier today. Fortunately that function shouldn't usually 
+really fail IIUC.
+
+-- 
+Cheers
+
+David / dhildenb
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
