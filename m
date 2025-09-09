@@ -4,93 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4E6CAC587
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Sep 2025 16:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29DADCA0FED
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Sep 2025 16:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L84egX4hoUYt9o8yn3Y5KjohfENv8XSap4pvth3Dtzc=; b=S6ikdzwX/C8zHV
-	mxZpHr/EjlNcJIiS4kqA7XFf/XA3Kesey4o1v4/9OSkZl6KNgftiWbMYm6h5nSH5eDl0wWcNxtO+z
-	JdCVRkucdUoVaBs1aOBP2m/U7Q2F9Q9/skrw9itqpahh3LV4KBwiMw2lm5YGMdwcFqFvfJi6NDSK3
-	Q6uxNqOS2FG2D2S2UFvscxH6GQFwfDDuOpJoq6QixsFe6CCa/OyAyuZxBKEysVXST46llPJBp/9RB
-	jndKZ1NaA2uWIKmvljw74FSz0GwoNRYeGNOUprpkQ2qcc4ivj8InCx5fy9qRcdwnuP55pDsEVSJX1
-	By0q6td6JVDLpdouXWqQ==;
+	List-Owner; bh=SDXqEM96sVcoIAUx5Sh7ofrwRHtmbBumilmhm45B8hw=; b=qpbJlgBcbYe3mI
+	dN6a9slOhrZtIiiDCQSTxPXTmBE2NKzU8cHZ0N8cKBoZoe2+Dq0J5FjrMApgZ/ZtRoBM21Po53HWs
+	ZY4Y3hOD2R/nE2NTygkq1R/lswZtQLNDSatx33R+S7nw6iJQ29gkC1r6iARB4qgwm8GSZGyWYTaQe
+	P6Gif20YXDifGhlPwTdsjHOdRPQd5KHALSv0204jKp1TcQn1DMXvCYK9RMn2QgMlmcdtRTsI6uEEq
+	AUGryhV3iEHym0vgQganYCfYl/CZbuUqiwKj1Ki71SFAC9l+4V2v3Ym76SQZ2sx60vJwSO0ToP026
+	bdmqkWN2ijX4W9SzX+FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw0nr-00000008ODo-3ht1;
-	Tue, 09 Sep 2025 16:02:43 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1uw1QG-00000008axm-1rml;
+	Tue, 09 Sep 2025 16:42:24 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvyfG-00000007Uhh-3ikN;
-	Tue, 09 Sep 2025 13:45:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757425543; x=1788961543;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=cuvp1jqzP0KmBIeFPlYIHdueAMSWUkXNMbTb2SDREqQ=;
-  b=UonzozE+plb8Cdd4HIY75ymdSUXVW4NlJt2uN5xOC/5YGjBCWFoFv/1f
-   lFmmP80YSMsI6Xz0FyRVcnepwxnu8TxjVjDfEXYwo8SR2Oc3BDs01hy0Z
-   Hk8Ugx4/vaRjvovXvV8PeUJbrtxqLvawUzMsOdHZI21B+Gu0YB4LUUm1b
-   xIc14e+4nxXzUjJsqmpCUSPlCi4J/PhSMdodeqRMtY3fOhnsVeRW53Pe4
-   Cgo+V0SeFJ4Mrl1PaKk1mpH7nguZZ6NGupXBeDZScJix8tDkp4kA8OIY1
-   3t3NcYqDhW8WIzNjucmsqHN3EGKURnrtpqBrgp3lpnSQawnYPbK4YxKU7
-   A==;
-X-CSE-ConnectionGUID: 1je0Mm8BQJyKXYsM0fzzmQ==
-X-CSE-MsgGUID: K8Dy0YV/ROafaNPd93OvHA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11548"; a="77320978"
-X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
-   d="scan'208";a="77320978"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 06:45:40 -0700
-X-CSE-ConnectionGUID: YelEPzAPTVimIapPXZjDQA==
-X-CSE-MsgGUID: DSSZAarXTPmifkvXgS2MQw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,251,1751266800"; 
-   d="scan'208";a="177436591"
-Received: from smile.fi.intel.com ([10.237.72.51])
-  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2025 06:45:35 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1uvyf5-00000001S9X-2kkM;
-	Tue, 09 Sep 2025 16:45:31 +0300
-Date: Tue, 9 Sep 2025 16:45:31 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Alban Bedel <albeu@free.fr>, Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH 13/15] gpio: sodaville: use new generic GPIO chip API
-Message-ID: <aMAve1MbONmKVjjg@smile.fi.intel.com>
-References: <20250909-gpio-mmio-gpio-conv-part4-v1-0-9f723dc3524a@linaro.org>
- <20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org>
- <aMAP9hAWars0T83r@smile.fi.intel.com>
- <CAMRc=MeLTGq8Qu2aT43tkt3vaYCSaJPJPLmaUQ1SAyD_OgVr_g@mail.gmail.com>
- <aMAn4MM_Fs8q8qwj@smile.fi.intel.com>
- <CAMRc=Mdr4oW2d7XZ90rRr_fKC7WToz72v=_kW-s8=Urd0g8k3g@mail.gmail.com>
+	id 1uvv66-00000006B79-40aF
+	for linux-riscv@lists.infradead.org;
+	Tue, 09 Sep 2025 09:57:12 +0000
+Received: from ubt.. (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowADHHqHO+b9oWh7qAQ--.61766S6;
+	Tue, 09 Sep 2025 17:56:33 +0800 (CST)
+From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+To: linux-riscv@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Ved Shanbhogue <ved@rivosinc.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Peter Xu <peterx@redhat.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Subject: [PATCH V10 4/5] riscv: mm: Add soft-dirty page tracking support
+Date: Tue,  9 Sep 2025 17:56:10 +0800
+Message-Id: <20250909095611.803898-5-zhangchunyan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250909095611.803898-1-zhangchunyan@iscas.ac.cn>
+References: <20250909095611.803898-1-zhangchunyan@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMRc=Mdr4oW2d7XZ90rRr_fKC7WToz72v=_kW-s8=Urd0g8k3g@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CM-TRANSID: qwCowADHHqHO+b9oWh7qAQ--.61766S6
+X-Coremail-Antispam: 1UD129KBjvJXoW3WFW5WFyUWry8tryfuw4rKrg_yoW7GFyxpF
+	Z5GFyrZ390yFn3KayftrsIgrWYvws3WayUWr9xCa1kJFWUG3yUXr90grW3AryrJFWkAa4f
+	urZ3tr45CrW7Jr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQjb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUAVCq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28C
+	jxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI
+	8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2
+	z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0V
+	AKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1l
+	Ox8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04
+	v7MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVAFwVW8uwCF04k20xvY0x0EwIxGrwCFx2Iq
+	xVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r
+	106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AK
+	xVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20x
+	vaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8
+	Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07jQVyxUUUUU=
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiCREAB2i-5zJK+gAAst
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_064542_941355_29B91281 
-X-CRM114-Status: GOOD (  29.99  )
+X-CRM114-CacheID: sfid-20250909_025711_355886_8D252EC4 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,58 +98,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMDksIDIwMjUgYXQgMDg6MjQ6MjNBTSAtMDUwMCwgQmFydG9zeiBHb2xhc3pl
-d3NraSB3cm90ZToKPiBPbiBUdWUsIDkgU2VwIDIwMjUgMTU6MTM6MDQgKzAyMDAsIEFuZHkgU2hl
-dmNoZW5rbwo+IDxhbmRyaXkuc2hldmNoZW5rb0BpbnRlbC5jb20+IHNhaWQ6Cj4gPiBPbiBUdWUs
-IFNlcCAwOSwgMjAyNSBhdCAwMTozNTowNFBNICswMjAwLCBCYXJ0b3N6IEdvbGFzemV3c2tpIHdy
-b3RlOgo+ID4+IE9uIFR1ZSwgU2VwIDksIDIwMjUgYXQgMTozMeKAr1BNIEFuZHkgU2hldmNoZW5r
-bwo+ID4+IDxhbmRyaXkuc2hldmNoZW5rb0BpbnRlbC5jb20+IHdyb3RlOgo+ID4+ID4gT24gVHVl
-LCBTZXAgMDksIDIwMjUgYXQgMTE6MTU6NDBBTSArMDIwMCwgQmFydG9zeiBHb2xhc3pld3NraSB3
-cm90ZToKCi4uLgoKPiA+PiA+ID4gKyAgICAgY29uZmlnID0gKHR5cGVvZihjb25maWcpKXsKPiA+
-PiA+Cj4gPj4gPiBUaGlzIGxvb2tzIHVudXN1YWwuIFdoeSBjYW4ndCBwcm9wZXJseSBmb3JtZWQg
-Y29tcG91bmQgbGl0ZXJhbCBiZSB1c2VkIGFzIGluCj4gPj4gPiBtYW55IG90aGVyIHBsYWNlcyBp
-biB0aGUga2VybmVsPwo+ID4+Cj4gPj4gSXQgaXMgY29ycmVjdCBDCj4gPgo+ID4gSWYgaXQgY29t
-cGlsZXMsIGl0IGRvZXNuJ3QgbWVhbiBpdCdzIGNvcnJlY3QgQywgaXQgbWlnaHQgYmUgbm9uLXN0
-YW5kYXJkLgo+ID4gSGF2ZSB5b3UgY2hlY2tlZCB3aXRoIHRoZSBzdGFuZGFyZCAobm90ZSwgSSBy
-ZWFkIHRoYXQgcGFydCBpbiB0aGUgcGFzdCwKPiA+IGJ1dCBJIG1heSBmb3Jnb3QgdGhlIGRldGFp
-bHMsIHNvIEkgZG9uJ3Qga25vdyB0aGUgYW5zd2VyIHRvIHRoaXMpPwo+IAo+IEl0J3MgYSBHTlUg
-ZXh0ZW5zaW9uIGFscmlnaHQKCmNsYW5nLCBJIHN1cHBvc2UsIGFsc28gb2theSB3aXRoIHRoaXM/
-Cgo+IGJ1dCBpdCdzIHN1cHBvcnRlZCBpbiB0aGUga2VybmVsIGFzIGl0IGV2YWx1YXRlcwo+IHRv
-IGEgc2ltcGxlIGNhc3QuCgpUaGVyZSBpcyBubyBjYXN0LiBBbmQgdGhhdCdzIG1ha2UgYSBiaWcg
-ZGlmZmVyZW5jZSB0byB3aGF0IHRoZSBjb2RlIHRyaWVzIHRvIGRvLgoKPiA+PiBhbmQgY2hlY2tw
-YXRjaCBkb2Vzbid0IHJhaXNlIGFueSB3YXJuaW5ncy4KPiA+Cj4gPiBjaGVja3BhdGNoIGlzIGZh
-ciBmcm9tIGJlaW5nIHVzZWZ1bCBpbiB0aGUgcXVlc3Rpb25zIGxpa2UgdGhpcy4KPiA+IEl0IGZh
-bHNlIHBvc2l0aXZlbHkgY29tcGxhaW5zIGZvciBmb3JfZWFjaCooKSBtYWNyb3MgYWxsIG92ZXIK
-PiA+IHRoZSBrZXJuZWwsIGZvciBleGFtcGxlLgo+ID4KPiA+PiBJdCdzIHRoZQo+ID4+IHNhbWUg
-a2luZCBvZiBhcmd1bWVudCBhcyBiZXR3ZWVuIGttYWxsb2Moc2l6ZW9mKHN0cnVjdCBmb28pKSB2
-cwo+ID4+IGttYWxsb2Moc2l6ZW9mKGYpKS4KPiA+Cj4gPiBNYXliZSwgYnV0IGl0IGludHJvZHVj
-ZXMgYSBuZXcgc3R5bGUgd2hpbGUgYWxsIG90aGVyIGNhc2VzIHVzZSB0aGUgb3RoZXIsCj4gPiBf
-ZXN0YWJsaXNoZWRfIHN0eWxlLiBTbyB3ZSBoYXZlIGEgcHJlY2VkZW50IGFuZCB0aGUgZm9ybSB0
-aGUgY29kZSBpcyB3cml0dGVuCj4gPiBpbiBpcyBhZ2FpbnN0IHRoZSBkZSBmYWN0byB1c2FnZSBv
-ZiB0aGUgY29tcG91bmQgbGl0ZXJhbHMuCj4gCj4gSXQgbWF5IG5vdCBiZSAqdmVyeSogY29tbW9u
-IGJ1dCBpdCdzIGhhcmRseSBuZXcgc3R5bGU6CgpJIHRoaW5rIHlvdXIgc3RhdGVtZW50IGlzIGlu
-Y29ycmVjdCBzZWUgYmVsb3cgd2h5LgoKPiAkIGdpdCBncmVwIC1QICJcKHR5cGVvZlwoLipcKVwp
-ID9ceyIgfCB3Ywo+ICAgICAxMDggICAgIDUyOSAgICA3MzE1CgpOb3QgY29ycmVjdC4gVGhlIGNv
-cnJlY3Qgb3V0cHV0IHdpbGwgYmUgY2xvc2VyIHRvCgokIGdpdCBncmVwIC1sIC1QICJcKHR5cGVv
-ZlwoLipcKVwpID9ceyIgfCB3YyAtbAoxNQoKQW5kIGlmIHlvdSBsb29rZWQgYXQgdGhlIG91dHB1
-dCBjYXJlZnVsbHksIHlvdSBzZWUgdGhlIGJ1ZyBpbiB0aGUgUkUgeW91IHVzZWQuCgpTbywgZXZl
-biBjbG9zZXIgd2lsbCBiZSB0aGlzIG9uZToKCiQgZ2l0IGdyZXAgLWwgLVAgIj1bWzpzcGFjZTpd
-XStcKHR5cGVvZlwoLipcKVwpID9ceyIgfCB3YyAtbAo3CgoyIG91dCBvZiB3aGljaCBhcmUgcmVs
-YXRlZCB0byBsaWJldGgsIGVmZmVjdGl2ZWx5IG1ha2VzIHRoaXMgNi4KCk5vLCB0aGlzIGlzIGNv
-bXBsZXRlbHkgbm9uLXN0YW5kYXJkIGFuZCB1bnVzdWFsIHRoaW5nIGluIHRoZSBrZXJuZWwuCgo+
-ID4+IEkgZ3Vlc3MgaXQncyBwZXJzb25hbCB0YXN0ZSBidXQgSSBsaWtlIHRoaXMgdmVyc2lvbiBi
-ZXR0ZXIuCj4gPgo+ID4gSW4ga2VybmVsIHdlIGFsc28gdHJ5IHRvIGJlIGNvbnNpc3RlbnQuIFRo
-aXMgYWRkIGluY29uc2lzdGVuY3kuIEFtIEkgd3Jvbmc/Cj4gPgo+ID4+ID4gPiArICAgICAgICAg
-ICAgIC5kZXYgPSAmcGRldi0+ZGV2LAo+ID4+ID4gPiArICAgICAgICAgICAgIC5zeiA9IDQsCj4g
-Pj4gPiA+ICsgICAgICAgICAgICAgLmRhdCA9IHNkLT5ncGlvX3B1Yl9iYXNlICsgR1BJTlIsCj4g
-Pj4gPiA+ICsgICAgICAgICAgICAgLnNldCA9IHNkLT5ncGlvX3B1Yl9iYXNlICsgR1BPVVRSLAo+
-ID4+ID4gPiArICAgICAgICAgICAgIC5kaXJvdXQgPSBzZC0+Z3Bpb19wdWJfYmFzZSArIEdQT0VS
-LAo+ID4+ID4gPiArICAgICB9OwoKLS0gCldpdGggQmVzdCBSZWdhcmRzLApBbmR5IFNoZXZjaGVu
-a28KCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+The Svrsw60t59b extension allows to free the PTE reserved bits 60 and 59
+for software, this patch uses bit 59 for soft-dirty.
+
+To add swap PTE soft-dirty tracking, we borrow bit 3 which is available
+for swap PTEs on RISC-V systems.
+
+Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+---
+ arch/riscv/Kconfig                    |  1 +
+ arch/riscv/include/asm/pgtable-bits.h | 19 +++++++
+ arch/riscv/include/asm/pgtable.h      | 73 ++++++++++++++++++++++++++-
+ 3 files changed, 91 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d99df67cc7a4..53b73e4bdf3f 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -141,6 +141,7 @@ config RISCV
+ 	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+ 	select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
+ 	select HAVE_ARCH_SECCOMP_FILTER
++	select HAVE_ARCH_SOFT_DIRTY if 64BIT && MMU && RISCV_ISA_SVRSW60T59B
+ 	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+ 	select HAVE_ARCH_TRACEHOOK
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index 179bd4afece4..8ffe81bf66d2 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -19,6 +19,25 @@
+ #define _PAGE_SOFT      (3 << 8)    /* Reserved for software */
+ 
+ #define _PAGE_SPECIAL   (1 << 8)    /* RSW: 0x1 */
++
++#ifdef CONFIG_MEM_SOFT_DIRTY
++
++/* ext_svrsw60t59b: bit 59 for software dirty tracking */
++#define _PAGE_SOFT_DIRTY						\
++	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
++	 (1UL << 59) : 0)
++/*
++ * Bit 3 is always zero for swap entry computation, so we
++ * can borrow it for swap page soft-dirty tracking.
++ */
++#define _PAGE_SWP_SOFT_DIRTY						\
++	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
++	 _PAGE_EXEC : 0)
++#else
++#define _PAGE_SOFT_DIRTY	0
++#define _PAGE_SWP_SOFT_DIRTY	0
++#endif /* CONFIG_MEM_SOFT_DIRTY */
++
+ #define _PAGE_TABLE     _PAGE_PRESENT
+ 
+ /*
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 91697fbf1f90..b2d00d129d81 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -427,7 +427,7 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
+ 
+ static inline pte_t pte_mkdirty(pte_t pte)
+ {
+-	return __pte(pte_val(pte) | _PAGE_DIRTY);
++	return __pte(pte_val(pte) | _PAGE_DIRTY | _PAGE_SOFT_DIRTY);
+ }
+ 
+ static inline pte_t pte_mkclean(pte_t pte)
+@@ -455,6 +455,40 @@ static inline pte_t pte_mkhuge(pte_t pte)
+ 	return pte;
+ }
+ 
++#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
++#define pte_soft_dirty_available()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)
++
++static inline bool pte_soft_dirty(pte_t pte)
++{
++	return !!(pte_val(pte) & _PAGE_SOFT_DIRTY);
++}
++
++static inline pte_t pte_mksoft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) | _PAGE_SOFT_DIRTY);
++}
++
++static inline pte_t pte_clear_soft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~(_PAGE_SOFT_DIRTY));
++}
++
++static inline bool pte_swp_soft_dirty(pte_t pte)
++{
++	return !!(pte_val(pte) & _PAGE_SWP_SOFT_DIRTY);
++}
++
++static inline pte_t pte_swp_mksoft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) | _PAGE_SWP_SOFT_DIRTY);
++}
++
++static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~(_PAGE_SWP_SOFT_DIRTY));
++}
++#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
++
+ #ifdef CONFIG_RISCV_ISA_SVNAPOT
+ #define pte_leaf_size(pte)	(pte_napot(pte) ?				\
+ 					napot_cont_size(napot_cont_order(pte)) :\
+@@ -802,6 +836,40 @@ static inline pud_t pud_mkspecial(pud_t pud)
+ }
+ #endif
+ 
++#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
++static inline bool pmd_soft_dirty(pmd_t pmd)
++{
++	return pte_soft_dirty(pmd_pte(pmd));
++}
++
++static inline pmd_t pmd_mksoft_dirty(pmd_t pmd)
++{
++	return pte_pmd(pte_mksoft_dirty(pmd_pte(pmd)));
++}
++
++static inline pmd_t pmd_clear_soft_dirty(pmd_t pmd)
++{
++	return pte_pmd(pte_clear_soft_dirty(pmd_pte(pmd)));
++}
++
++#ifdef CONFIG_ARCH_ENABLE_THP_MIGRATION
++static inline bool pmd_swp_soft_dirty(pmd_t pmd)
++{
++	return pte_swp_soft_dirty(pmd_pte(pmd));
++}
++
++static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
++{
++	return pte_pmd(pte_swp_mksoft_dirty(pmd_pte(pmd)));
++}
++
++static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
++{
++	return pte_pmd(pte_swp_clear_soft_dirty(pmd_pte(pmd)));
++}
++#endif /* CONFIG_ARCH_ENABLE_THP_MIGRATION */
++#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
++
+ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 				pmd_t *pmdp, pmd_t pmd)
+ {
+@@ -983,7 +1051,8 @@ static inline pud_t pud_modify(pud_t pud, pgprot_t newprot)
+  *
+  * Format of swap PTE:
+  *	bit            0:	_PAGE_PRESENT (zero)
+- *	bit       1 to 3:       _PAGE_LEAF (zero)
++ *	bit       1 to 2:	(zero)
++ *	bit            3:	_PAGE_SWP_SOFT_DIRTY
+  *	bit            5:	_PAGE_PROT_NONE (zero)
+  *	bit            6:	exclusive marker
+  *	bits      7 to 11:	swap type
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
