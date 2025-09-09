@@ -4,102 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB53CAC583
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Sep 2025 11:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D20CAC583
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Sep 2025 11:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SbbjyJxBphAV9yHZtoCNh1vX+5yfX3SUJGarZ5rjFwk=; b=qltW2uSN52AZW9
-	NKy+6LgVQq2/5f9CO9esDVobwIP9wgLEEblio07wiPHE5jpRpOWjvcYOqAbeyAru0w/nw98YkYcot
-	uVYZJi2MQzO2YVDCsVY6LVhDp3aZFHsUajhUFuuFHK8bobah8d7+RDWDOQ16K5xQcPf5Ol0G7oyxY
-	jKkbcTfZp0j3qHA7OJ4PxvWQ6EdYL5jeD/50+hxwDHg1ojW1kKR5jtCkcnRz5IZlKoF6UHBhtXv04
-	uz8KWrjHElpt4y05ocRGUgetZqGwhIlCBZp6zXKhjWysoRhQ40lKydL0d+ipMxQQjCVBQqpivxgL/
-	avQaYJrPmFcFkaSJGBeg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kxpRn1lkr6/GiHHHQYG/q97Ksj7UaZaDoNaAmQ6FDQA=; b=D37NcWxKW9ccyf
+	J2Q5PYbVXUDlEhlhZuzDYTToM6eVjzm7yLn6mazKGPq/agLIeWfdpu7D89z09puzW34oigapBB4D/
+	HxhPcOcRIUqoYD8r5nJmp0l8JubNbOpurI2fS9a8AXEvwwS0vFycmrge9EtLIvoRl+xbrSE7tx3Lt
+	qdM+vVNA+KsNNLCiVoRtD4+lbqiOwtCxy45+oNHaxiHdAOpdNtwqNB5Bf9HVmBMpsc1ak8lMurZrN
+	Uaebr6uT1M8DsxbuFmWt82xb/9DsXyQMNAp7oWfp9hvnnMp73C01y+ddcBBFjbx13OoPby4FtXbsC
+	lyncJHH9WeOlsS5Q93LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvwAq-00000006b7M-3xTX;
-	Tue, 09 Sep 2025 11:06:08 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uvwGN-00000006dAL-1sry;
+	Tue, 09 Sep 2025 11:11:51 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uvuRv-00000005sPf-1hkp;
-	Tue, 09 Sep 2025 09:15:40 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58990div031661;
-	Tue, 9 Sep 2025 09:15:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=8lpZ7Kcjm736hRttC
-	DDPd8Oh+DFxjiym2RbVj81INmM=; b=ocmyOY+81FEpgusNJXMxmGzziiAMZU2w8
-	JSX1isTopHv9NlD59UxHu/ctRCubyO2slf6T345AZI8ofUGk7NZepHEOfjS4X4bG
-	SIQeD+FCUaSW/+EWOO4gWR+M3tEsnoysTxlxYo9+0o7g/6/dMkds73O6ZTaLERBL
-	4IUNFDC0uFjdgfsLoJDfpdOyYJXQ9zKB9YH70IuMI+6cV7sNDcL24z6W47r3QJkV
-	Y2IVnR6DAGbp2uLUwfTT9LXBTK+T4CQAgb80RQG5bTw8XCS/SxFvJzDaUF+FZ2ZW
-	vNZPj8td04UZtGyBECIXZsJTmnDy7UN9QlPsZyFLQJbHv3nbm/cIw==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 490acqxn9d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 09:15:29 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5897G6Bj017219;
-	Tue, 9 Sep 2025 09:15:28 GMT
-Received: from smtprelay05.dal12v.mail.ibm.com ([172.16.1.7])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4911gma5ct-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Sep 2025 09:15:28 +0000
-Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay05.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5899FSfl29950484
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 9 Sep 2025 09:15:28 GMT
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E41E158043;
-	Tue,  9 Sep 2025 09:15:27 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BDA8858060;
-	Tue,  9 Sep 2025 09:15:22 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com.com (unknown [9.36.2.198])
-	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Tue,  9 Sep 2025 09:15:22 +0000 (GMT)
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org
-Cc: akpm@linux-foundation.org, x86@kernel.org, linux-riscv@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
-        nicholas@linux.ibm.com, christophe.leroy@csgroup.eu,
-        alexghiti@rivosinc.com, Madhavan Srinivasan <maddy@linux.ibm.com>
-Subject: [PATCH v17 11/12] powerpc: mm: Use set_pte_at_unchecked() for internal usages
-Date: Tue,  9 Sep 2025 19:13:34 +1000
-Message-ID: <20250909091335.183439-12-ajd@linux.ibm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250909091335.183439-1-ajd@linux.ibm.com>
-References: <20250909091335.183439-1-ajd@linux.ibm.com>
+	id 1uvuRz-00000005sS5-3vrJ
+	for linux-riscv@lists.infradead.org;
+	Tue, 09 Sep 2025 09:15:46 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45deccb2c1eso5516025e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Sep 2025 02:15:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757409342; x=1758014142; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tP+ETbVnBSQFrRZK3WwBGuGE5HSVEMwxjNtKrFEHY8A=;
+        b=3gN64pIU9j4FG/3ghgbTdhqM+1325M83+0T2TUBRut/X8I3t7W6DZbQowS1LGy1qvJ
+         T9yUSfNWL3jd9drNTovMh46aXSOPN58ruVTXbnJMeH/hqEeaIFRc2h3MsbEv7SR8fVgz
+         7SvZAnRE5W2RXNEu3B0I2RNs/JhEv9FoCS6asfS4ZNbs2z4oTVuhynlIVI6meG4yVhIF
+         B2DhRgZ/9iof0oH1kSAPGFFwlJMQlOtVrnRacXr8gVFbeyU5v9fgg17zXrRlqMyiarOK
+         9kLB++aiHuOXiNeYHx+5SjutHv0rGd1rEOtflNoxyNhO9OEUtI+jS6odZwsJoT1Nha/V
+         tGuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757409342; x=1758014142;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tP+ETbVnBSQFrRZK3WwBGuGE5HSVEMwxjNtKrFEHY8A=;
+        b=xFVI/YnyshIPaMIiob6Q3++qj8d052sU8pf27/YBoDq+Z1fGGcDCUIYcX4NTWQfGC1
+         axp2cVW0+UdanI8zEpZ0dfRWVFLyRpQAGLfzP2sNX7BLpk2LLZaazj2ookR342jokO9R
+         VYKIiFaJTepzIAg642o9nYDmiFJjZA+/NPBFRJO4cLJwT7cjhzSI12wRT4/TLos+SqRk
+         yQyMMrvdB69mJ/RbWdW34iNsOz5R4eVKutLCcFGPp+wc73oDx/Y4Fl4fiN+wmvU/c1TQ
+         RWX9FhR85zybeJ3ALZyo4ooF3HV8BaeQQjmXcwpq5QPyCeRLFw2Dfza1e+IRs07HB8Wx
+         NePw==
+X-Forwarded-Encrypted: i=1; AJvYcCWkvagcdfzkMhYhTLXwfv8z8yhKzNZBZHl/pG3C+RTihjwYmDwEyL8RSi5REjQl4keVuVBJV9pCdrPTKw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwU1Vn538ESO3xu47B3v4JyzWMk9eCG+Sl4bpAy8XGQGTaWxXwG
+	hI8h8Rqni32ceZ6wGdszNbn2yyPXHGxuNa7Bx2pc6LYcyGLt6aB9WuCmrZ0FOB748Nc5R8dDEbm
+	h8tJE
+X-Gm-Gg: ASbGncvkVGTSDS2PbxapBzFtnjK6lKTC6A27NpHHMfXBMNMw4hTrUZAe/gDuI/qwTjY
+	a4eNJQliGHqKKjqnILLpDRgDGw3lSO0/Jh7TShg7B2lCo8tNixqpvB3F+Vo8Y2ON4b+yG7+Xpw3
+	DgU21+bq6BadKIRuz9hPebJPsy+FI9GoSykn0qut2wy1n0L8FMuXGEwyzYnQMi0FFpCTfGxMZKr
+	bGND5ymC3wBlrfft0ENhpj6BSq1dEB/5tct12HGwdmM3vxe4V7yhpyaLqTht/lbGyYiaURPfyvZ
+	vM1CwBsAqQWwTejQeGwchfbowE1aqyrGqSjT/P9SBisJxouwvMo7HdIyGO5grrJEUMPn9hliEaD
+	yCAObRi8Jkn/kKWDv/w==
+X-Google-Smtp-Source: AGHT+IFxM+HICQsKhDaBX2Rk22xBRkSqIHTShzXPmAQzNiNBdQoOhni1m43entJS3MAB8D5d0TZglQ==
+X-Received: by 2002:a05:6000:3106:b0:3e6:116a:8fed with SMTP id ffacd0b85a97d-3e64bde97a5mr9793821f8f.45.1757409341378;
+        Tue, 09 Sep 2025 02:15:41 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:c1ee:7be9:3ebb:6cc0])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7521c9caasm1900039f8f.19.2025.09.09.02.15.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Sep 2025 02:15:40 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH 00/15] gpio: replace legacy bgpio_init() with its
+ modernized alternative - part 4
+Date: Tue, 09 Sep 2025 11:15:27 +0200
+Message-Id: <20250909-gpio-mmio-gpio-conv-part4-v1-0-9f723dc3524a@linaro.org>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 63LcHXFzzkovazD-aRXH5GGwkMQxYNTi
-X-Authority-Analysis: v=2.4 cv=Mp1S63ae c=1 sm=1 tr=0 ts=68bff031 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=yJojWOMRYYMA:10 a=VnNF1IyMAAAA:8 a=aG8EAFyCJnWj3sFUJ80A:9
-X-Proofpoint-ORIG-GUID: 63LcHXFzzkovazD-aRXH5GGwkMQxYNTi
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTA2MDAwMCBTYWx0ZWRfXx1Yd4G+KdQRj
- o6pEaUCIlr5tzQVwA/upa5zjgdcR62dV5MKecMSPwt6wdSHHMJ6TlCyZp9Qp9rTmvX3PuIvVUnN
- Ut60YYspVxOcHFsvQ+5gpDG6P/rUg8a2d0jFB0oUtvxEKbhH184fsxqaAGF4Y0qG+Y5LZzn9D0D
- kDyyQ661GmDBN4Ot3Hb0V5OAd7iYh1oJA2uK7w/+BeXTq7ZgKIZ3tI/eArVWoS9sFR9SHJgPZAe
- AYaPYh3pD0uTOBBCyNJfXTo75FFVDFhirFFMm20IqEPVf1W2MfEKBbPapX62BQ8XiD0E6fy2uaq
- zbUHupzDOfL3VHXfBqfm0k1yDBG28ei44lWzOdkG58B2WAnjLgo0pljlyf8hbN/UrA8gv83Fhsm
- 8pdUzHZX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-08_06,2025-09-08_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 clxscore=1015 phishscore=0 spamscore=0
- adultscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509060000
+X-B4-Tracking: v=1; b=H4sIAC/wv2gC/x2MywqAIBBFf0Vm3YCKIfUr0cJqsln4QCOC6N+TN
+ od7Fvc8UKkwVRjFA4UurpxiE9UJWA8XPSFvzUFL3ctBGvSZE4bQ8K81xQuzK6fBntRurV6c1Qb
+ aPxfa+f7b0/y+HxskalRrAAAA
+X-Change-ID: 20250904-gpio-mmio-gpio-conv-part4-5e1f772ba724
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, 
+ Keguang Zhang <keguang.zhang@gmail.com>, Alban Bedel <albeu@free.fr>, 
+ Doug Berger <opendmb@gmail.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Samuel Holland <samuel.holland@sifive.com>, Yixun Lan <dlan@gentoo.org>, 
+ Andy Shevchenko <andy@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2606;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=sVPlOFYsePlUlVyNjlOXy8QPDA01db/Wvcm9y2+eUf8=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBov/Ays28j7tkwm0rJbaeX4j6Qex2lOj/LqMAOK
+ 1PDzm34psOJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaL/wMgAKCRARpy6gFHHX
+ ciEyD/4rjlTpLHFFOAETzbM8BZ7x3WlTsL5ofRL45hTWSkD3Bsd0OZjcixkAe0OHW2e3zFw2szF
+ KeXpnt2sCS7J2vacxQtg0jH2fWZAf5bZ+OoGUTAieReshYzmxRi1YJFUgIrAX33d2SDzSvQrZvR
+ VCG+aKnwtsgLIS3bpQ1AqNCIuxAy4Ry9lCAY3GF9UpNsbYioHxmLpykb53ferurCzD0dP9d2FfA
+ qniXI92yE/VlFaWTo+gqGjUntxHg8iOH4ZhmUCDpE+Jd4zHfEBtw+OfWRmZkRnTp79FeNdacHx5
+ p6k4r4XWU7dQ7BVOwC7MAvwAE8H7OI0viWBqD/6NVLyk6JNskJqsOwu8e94Ddt2gGDw0ARDpeD+
+ I7mJlpyD/qmL48+7obrP2XRtew+5bs1uUUL9Agv17b6I59tLZFIO+8lix4XEyj9/Fg2w8cNkyZY
+ c24JWXw0s0j+0JaiJKzZ5d6j7Bt4uYvxV2CCUoJ7bN1qi60NyHcPYrP2AwQ8sZKU1xtPedwTG+O
+ KxwLrf9Cweg0/cRvkk6QQ82ss5f+Y7QsEwe7HuuKRKPRU9azoXk5BTPKu4ym9w5yjZDgjO+RreU
+ OYdfHdNscHAHrLf43/UNtW2sSEmvItWokNn8tfM/e/oZXWUa6NjPf7lUXt62Wdv9ck60Df/2/bM
+ oqEJP5tTEFOaNGA==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_021539_552852_FE8721F4 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20250909_021544_092819_4806CD91 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,134 +132,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
+Here's the final part of the generic GPIO chip conversions. Once all the
+existing users are switched to the new API, the final patch in the
+series removes bgpio_init(), moves the gpio-mmio fields out of struct
+gpio_chip and into struct gpio_generic_chip and adjusts gpio-mmio.c to
+the new situation.
 
-In the new set_ptes() API, set_pte_at() (a special case of set_ptes())
-is intended to be instrumented by the page table check facility. There
-are however several other routines that constitute the API for setting
-page table entries, including set_pmd_at() among others. Such routines
-are themselves implemented in terms of set_ptes_at().
+Down the line we could probably improve gpio-mmio.c by using lock guards
+and replacing the - now obsolete - "bgpio" prefix with "gpio_generic" or
+something similar but this series is already big as is so I'm leaving
+that for the future.
 
-A future patch providing support for page table checking on powerpc
-must take care to avoid duplicate calls to
-page_table_check_p{te,md,ud}_set(). Allow for assignment of pte entries
-without instrumentation through the set_pte_at_unchecked() routine
-introduced in this patch.
-
-Cause API-facing routines that call set_pte_at() to instead call
-set_pte_at_unchecked(), which will remain uninstrumented by page
-table check. set_ptes() is itself implemented by calls to
-__set_pte_at(), so this eliminates redundant code.
-
-[ajd@linux.ibm.com: don't change to unchecked for early boot/kernel mappings]
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
-v13: don't use the unchecked version for early-boot kernel mappings (Pasha)
----
- arch/powerpc/include/asm/pgtable.h       | 2 ++
- arch/powerpc/mm/book3s64/pgtable.c       | 6 +++---
- arch/powerpc/mm/book3s64/radix_pgtable.c | 6 +++---
- arch/powerpc/mm/pgtable.c                | 8 ++++++++
- 4 files changed, 16 insertions(+), 6 deletions(-)
+Bartosz Golaszewski (15):
+      gpio: loongson1: allow building the module with COMPILE_TEST enabled
+      gpio: loongson1: use new generic GPIO chip API
+      gpio: hlwd: use new generic GPIO chip API
+      gpio: ath79: use new generic GPIO chip API
+      gpio: ath79: use the generic GPIO chip lock for IRQ handling
+      gpio: xgene-sb: use generic GPIO chip register read and write APIs
+      gpio: brcmstb: use new generic GPIO chip API
+      gpio: mt7621: use new generic GPIO chip API
+      gpio: mt7621: use the generic GPIO chip lock for IRQ handling
+      gpio: menz127: use new generic GPIO chip API
+      gpio: sifive: use new generic GPIO chip API
+      gpio: spacemit-k1: use new generic GPIO chip API
+      gpio: sodaville: use new generic GPIO chip API
+      gpio: mmio: use new generic GPIO chip API
+      gpio: move gpio-mmio-specific fields out of struct gpio_chip
 
-diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
-index fa43f663e615..3983efb365cc 100644
---- a/arch/powerpc/include/asm/pgtable.h
-+++ b/arch/powerpc/include/asm/pgtable.h
-@@ -34,6 +34,8 @@ struct mm_struct;
- void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
- 		pte_t pte, unsigned int nr);
- #define set_ptes set_ptes
-+void set_pte_at_unchecked(struct mm_struct *mm, unsigned long addr,
-+			  pte_t *ptep, pte_t pte);
- #define update_mmu_cache(vma, addr, ptep) \
- 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
- 
-diff --git a/arch/powerpc/mm/book3s64/pgtable.c b/arch/powerpc/mm/book3s64/pgtable.c
-index c9431ae7f78a..ff0c5a1988f8 100644
---- a/arch/powerpc/mm/book3s64/pgtable.c
-+++ b/arch/powerpc/mm/book3s64/pgtable.c
-@@ -127,7 +127,7 @@ void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pmd_leaf(pmd)));
- #endif
- 	trace_hugepage_set_pmd(addr, pmd_val(pmd));
--	return set_pte_at(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
-+	return set_pte_at_unchecked(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
- }
- 
- void set_pud_at(struct mm_struct *mm, unsigned long addr,
-@@ -144,7 +144,7 @@ void set_pud_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pud_leaf(pud)));
- #endif
- 	trace_hugepage_set_pud(addr, pud_val(pud));
--	return set_pte_at(mm, addr, pudp_ptep(pudp), pud_pte(pud));
-+	return set_pte_at_unchecked(mm, addr, pudp_ptep(pudp), pud_pte(pud));
- }
- 
- static void do_serialize(void *arg)
-@@ -549,7 +549,7 @@ void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr,
- 	if (radix_enabled())
- 		return radix__ptep_modify_prot_commit(vma, addr,
- 						      ptep, old_pte, pte);
--	set_pte_at(vma->vm_mm, addr, ptep, pte);
-+	set_pte_at_unchecked(vma->vm_mm, addr, ptep, pte);
- }
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
-index 73977dbabcf2..b2541bf33d01 100644
---- a/arch/powerpc/mm/book3s64/radix_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
-@@ -1606,7 +1606,7 @@ void radix__ptep_modify_prot_commit(struct vm_area_struct *vma,
- 	    (atomic_read(&mm->context.copros) > 0))
- 		radix__flush_tlb_page(vma, addr);
- 
--	set_pte_at(mm, addr, ptep, pte);
-+	set_pte_at_unchecked(mm, addr, ptep, pte);
- }
- 
- int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
-@@ -1617,7 +1617,7 @@ int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
- 	if (!radix_enabled())
- 		return 0;
- 
--	set_pte_at(&init_mm, 0 /* radix unused */, ptep, new_pud);
-+	set_pte_at_unchecked(&init_mm, 0 /* radix unused */, ptep, new_pud);
- 
- 	return 1;
- }
-@@ -1664,7 +1664,7 @@ int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot)
- 	if (!radix_enabled())
- 		return 0;
- 
--	set_pte_at(&init_mm, 0 /* radix unused */, ptep, new_pmd);
-+	set_pte_at_unchecked(&init_mm, 0 /* radix unused */, ptep, new_pmd);
- 
- 	return 1;
- }
-diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
-index 56d7e8960e77..7b69cd16e011 100644
---- a/arch/powerpc/mm/pgtable.c
-+++ b/arch/powerpc/mm/pgtable.c
-@@ -224,6 +224,14 @@ void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
- 	}
- }
- 
-+void set_pte_at_unchecked(struct mm_struct *mm, unsigned long addr,
-+			  pte_t *ptep, pte_t pte)
-+{
-+	VM_WARN_ON(pte_hw_valid(*ptep) && !pte_protnone(*ptep));
-+	pte = set_pte_filter(pte, addr);
-+	__set_pte_at(mm, addr, ptep, pte, 0);
-+}
-+
- void unmap_kernel_page(unsigned long va)
- {
- 	pmd_t *pmdp = pmd_off_k(va);
+ drivers/gpio/Kconfig            |   2 +-
+ drivers/gpio/TODO               |   5 -
+ drivers/gpio/gpio-ath79.c       |  88 +++++-----
+ drivers/gpio/gpio-brcmstb.c     | 112 +++++++------
+ drivers/gpio/gpio-hlwd.c        | 105 ++++++------
+ drivers/gpio/gpio-loongson1.c   |  40 +++--
+ drivers/gpio/gpio-menz127.c     |  31 ++--
+ drivers/gpio/gpio-mlxbf2.c      |   2 +-
+ drivers/gpio/gpio-mmio.c        | 350 +++++++++++++++++++++-------------------
+ drivers/gpio/gpio-mpc8xxx.c     |   5 +-
+ drivers/gpio/gpio-mt7621.c      |  80 ++++-----
+ drivers/gpio/gpio-sifive.c      |  73 +++++----
+ drivers/gpio/gpio-sodaville.c   |  20 ++-
+ drivers/gpio/gpio-spacemit-k1.c |  28 +++-
+ drivers/gpio/gpio-xgene-sb.c    |   5 +-
+ include/linux/gpio/driver.h     |  44 -----
+ include/linux/gpio/generic.h    |  67 +++++---
+ 17 files changed, 548 insertions(+), 509 deletions(-)
+---
+base-commit: 65dd046ef55861190ecde44c6d9fcde54b9fb77d
+change-id: 20250904-gpio-mmio-gpio-conv-part4-5e1f772ba724
+
+Best regards,
 -- 
-2.51.0
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
 
 _______________________________________________
