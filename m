@@ -4,94 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14F1CA0FED
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Sep 2025 17:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A500CA0FED
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Sep 2025 17:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1a2YMXNyX1UJEX6IzVSTmC8eq0dXPsIfUre1+PAUgG8=; b=0/uWqf9gIi4TMD
-	FwLP+067HWWwK+v8KByarh6pNVbYMDMeu9Lr3XK6ANCoSMSSoxCX/ngfJ/lfPja3Ox4BBfx6boNGr
-	DR65Bsyyav1iaNyoTWOFtzAqPpAuzPtM52u5041+tyfNdll0/czAfVfAjBOgUHU7MMZpxXf5H4rRy
-	3GgNFlmfwQIp7Hf5ayj38b+/o0ifunMQkzUC2DsQFkEBZM5iG2jH5kzAOce+g1KwaH0vqGJLcbbn4
-	gyfWtYvD6D9l7WefoTicIhfMKxCDwt0ltVhs0uXe7KbjrCGxAYJIpPnilcBOc64B5yOuWLhPgNquM
-	5Pae5E4hMLkHV4SoLlNg==;
+	List-Owner; bh=ug8tYqPrPwprZ5u35Xpn1kDPR6MN14J1aI/hWr8mAq0=; b=DIQ7N7v/E2SC0y
+	+go/udrNJoMyBsE0LqCdrFIGXgaMJn7pnvK/TNdFIn4iCsLZlRSTChvtkE1iZvPuWNp6BvrKqN+uu
+	gajSPER5J9t8iNJ5wBHmgFmTqGy94/aoF7Xu6PlixukWEa8oUYrJ6I78XK+hLOi1BkhiJsO7lQ2PL
+	e5YuzNBmgxiVbFAwOLLxRKRPz064+sLFhms7+TnSWDj+i8MEr+2AStw9OMWN3PKI88/JC5ugz4kJZ
+	RVenaLCVGLHOwxNTbfUoWHEGC8HX7hb1TU91wjoxXlSNf/TrNDso3Kjdhr3oU0dZ4L6k05oc08oXD
+	K+ASI/RbV+6NKLys+qeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw27e-000000097CI-1ruR;
-	Tue, 09 Sep 2025 17:27:14 +0000
-Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	id 1uw28a-0000000990O-0AdP;
+	Tue, 09 Sep 2025 17:28:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw1tx-00000008m6a-2miO
-	for linux-riscv@lists.infradead.org;
-	Tue, 09 Sep 2025 17:13:06 +0000
-Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-889b846c568so223357739f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Sep 2025 10:13:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1757437984; x=1758042784; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CLUjg7yNG/ewQNg8kcK05UeNpGcVlJZKIKA/TtV5FkM=;
-        b=k7L0v0UfTgH2LG7/EG8bG/Y5aArNx37LIU5Idv/puC8EfD3YApUYAdArde8g1nT8LZ
-         1upnLbc9wfegrYfIbggKHOvxNW1sq0RQlK/aON9AETI5wq88RuweZb0Q39tpYqZzxQvZ
-         wOS837M/S6cJwG57M71bbn7r6f8H3mGiOSTvEUQxgFQgB2T+mNikEjqd1ZAbYe9wLsIL
-         K6pgnUTBvoMV4Tw2bG5ThqloFcbyQvUYDiH2hyJfz18A0y6vAWgkjX20hPgASctyB9Ks
-         V+4s/Cylgz2fNGItOxRdMJnb1LsWjotWwle2sxZp/7y8OL3wR1UcZTRMPJRK9sUCKdQl
-         zUqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757437984; x=1758042784;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CLUjg7yNG/ewQNg8kcK05UeNpGcVlJZKIKA/TtV5FkM=;
-        b=v0cLWXLQGal1Bvp3IpjUhcyPyq93eCvkaSxzxVTSEh+Yf+BzygwTUgaapzF+765ZNZ
-         kZs42QAjBPhArelL0yFwURxXEUv7FM35PLli6mKlQKi+zlL/R/f9GtpBTfyAFw2/uk2Q
-         UY4iB0LWKJ4Rvpc1i73OSMvGlg9TeAJbldCdb4lU23Dfc3anvffiZbQZQpAJbfKxQxqW
-         nMAkNSM+9Yyi8m2xQupKc2kUxTVAk1BSEUEPcKf1aYlZE7FpdqZsFipWQG1yyWMYGVum
-         e5R9x2VpZyHytDgpfnms2CBc1i8R/FG/8Sf8aRTNd4gK/PPebnG+dNJ1WYw/37RV4y3K
-         U79g==
-X-Gm-Message-State: AOJu0YwPZhhIem2t47/XVQNJdBGCxFFetjoctkZeQJS9jOn9GN5EgF3G
-	EvIvulF8bmDb0EI+l0fejG/41HdbgV9QA8nl37M+K2TPBJm4+9LAmhy8YQVyVMp5MYY=
-X-Gm-Gg: ASbGncuw7LosHqBRI7BnCazOelRewr487C5P7RfX4Fcd+cF+ScU63YxeKmGykj0R+an
-	LLAktUXJgsCPaI1iIPf16cdA1g1SylNuTWLmT5LbZgaX1JLBwDBT/U7o5rt7I8lsR8GdyEfLGWO
-	cdzGfOAva2/2GwaGDWbaaeBXblvaV0t9/miXfvq4XQw4CDAvb4lmaifA1KDG05NeuXSzzwZlF4R
-	P8UEuF6xLZ1L6Ry4I7D0N9tcih1839Nh0BueRR64BzuQNRHSY65IxTxHYsziSqi0szQRZEuO+Fr
-	1sNOXzfHUwIK2fS8q3JwIz6J7L9i6FPc2nhaC0Gim5Wg9k88PtNSLQGhjacisMnZHn1S39gQ9To
-	m750JIa3D1CFJHLTfbjh4Vqp0rvokWusKn88=
-X-Google-Smtp-Source: AGHT+IEMFpaj8bMLzDHV4JtX7+vWxYaXCZCBKZ479bbfT1RoejNAOJVpK28JUe1NbmGtyLq/mXgp8A==
-X-Received: by 2002:a05:6e02:1a0c:b0:40a:e839:a2e4 with SMTP id e9e14a558f8ab-40ae839a49bmr96540285ab.30.1757437980965;
-        Tue, 09 Sep 2025 10:13:00 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5104c5a4d0dsm5507495173.0.2025.09.09.10.13.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 10:13:00 -0700 (PDT)
-Date: Tue, 9 Sep 2025 12:12:59 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-Cc: linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Deepak Gupta <debug@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>, Arnd Bergmann <arnd@arndb.de>, 
-	David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Axel Rasmussen <axelrasmussen@google.com>, 
-	Yuanchu Xie <yuanchu@google.com>, Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: Re: [PATCH V10 3/5] riscv: Add RISC-V Svrsw60t59b extension support
-Message-ID: <20250909-2130daabd7f57a8a357c677f@orel>
-References: <20250909095611.803898-1-zhangchunyan@iscas.ac.cn>
- <20250909095611.803898-4-zhangchunyan@iscas.ac.cn>
+	id 1uw21F-00000008wS5-3wb5;
+	Tue, 09 Sep 2025 17:20:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3750160224;
+	Tue,  9 Sep 2025 17:20:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B305C4CEF4;
+	Tue,  9 Sep 2025 17:20:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757438435;
+	bh=aDtO0EP2Luwblw7wXBa/S0nm/bbd84Amf4RIFEa0YMU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rWNA+SZ7P7XMqvonOPAEdmtY55rXaIKEEzU9HK+ppzMNafCHRqDvkVmEoUduHt/rT
+	 aa5OZZx3ilY519/VHWj4+vwbhsuG88pY0+u24AUMR9OeOT4pFbgJb7ecQe/x2pWO4E
+	 vcn4jx2aGZ2e8t05J44ouMyfLu5WoVzT4hxN53UWANQ6M/G517uScWAOMTyKqRmi5V
+	 diqflVnydGhyAkUdxMQ6Bnquv1D4Xk2wLalfluyanQAMUeNCL713BGUmRtcdXk2oSb
+	 +eCWCY1ISYJlrL6GLeiTkLfqGaoEYVf8wOe7r+TdNoqrDDp/wKG1ImILx8nFyAfEJN
+	 RYEyJmVbovIiA==
+Date: Tue, 9 Sep 2025 17:20:34 +0000
+From: Wei Liu <wei.liu@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Wei Liu <wei.liu@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Dexuan Cui <decui@microsoft.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org,
+	Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+	Mukesh R <mrathor@linux.microsoft.com>
+Subject: Re: [PATCH v2 0/7] Drivers: hv: Fix NEED_RESCHED_LAZY and use common
+ APIs
+Message-ID: <aMBh4kPNOEUKvxpV@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
+References: <20250828000156.23389-1-seanjc@google.com>
+ <aLojpyTwAMdb1z6D@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
+ <aLp3makY6FzuUwor@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250909095611.803898-4-zhangchunyan@iscas.ac.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_101305_705787_1FF494AA 
-X-CRM114-Status: GOOD (  22.54  )
+In-Reply-To: <aLp3makY6FzuUwor@google.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,83 +101,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 09, 2025 at 05:56:09PM +0800, Chunyan Zhang wrote:
-> The Svrsw60t59b extension allows to free the PTE reserved bits 60
-> and 59 for software to use.
+On Thu, Sep 04, 2025 at 10:39:37PM -0700, Sean Christopherson wrote:
+> On Thu, Sep 04, 2025, Wei Liu wrote:
+> > On Wed, Aug 27, 2025 at 05:01:49PM -0700, Sean Christopherson wrote:
+> > > Fix a bug where MSHV root partitions (and upper-level VTL code) don't honor
+> > > NEED_RESCHED_LAZY, and then deduplicate the TIF related MSHV code by turning
+> > > the "kvm" entry APIs into more generic "virt" APIs.
+> > > 
+> > > This version is based on
+> > > 
+> > >   git://git.kernel.org/pub/scm/linux/kernel/git/hyperv/linux.git hyperv-next
+> > > 
+> > > in order to pickup the VTL changes that are queued for 6.18.  I also
+> > > squashed the NEED_RESCHED_LAZY fixes for root and VTL modes into a single
+> > > patch, as it should be easy/straightforward to drop the VTL change as needed
+> > > if we want this in 6.17 or earlier.
+> > > 
+> > > That effectively means the full series is dependent on the VTL changes being
+> > > fully merged for 6.18.  But I think that's ok as it's really only the MSHV
+> > > changes that have any urgency whatsoever, and I assume that Microsoft is
+> > > the only user that truly cares about the MSHV root fix.  I.e. if the whole
+> > > thing gets delayed, I think it's only the Hyper-V folks that are impacted.
+> > > 
+> > > I have no preference what tree this goes through, or when, and can respin
+> > > and/or split as needed.
+> > > 
+> > > As with v1, the Hyper-V stuff and non-x86 architectures are compile-tested
+> > > only.
+> > > 
+> > > v2:
+> > >  - Rebase on hyperv-next.
+> > >  - Fix and converge the VTL code as well. [Peter, Nuno]
+> > > 
+> > > v1: https://lore.kernel.org/all/20250825200622.3759571-1-seanjc@google.com
+> > > 
+> > 
+> > I dropped the mshv_vtl changes in this series and applied the rest
+> > (including the KVM changes) to hyperv-next.
 > 
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-> ---
->  arch/riscv/Kconfig             | 14 ++++++++++++++
->  arch/riscv/include/asm/hwcap.h |  1 +
->  arch/riscv/kernel/cpufeature.c |  1 +
->  3 files changed, 16 insertions(+)
+> mshv_do_pre_guest_mode_work() ended up getting left behind since its removal was
+> in the last mshv_vtl patch.
 > 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index a4b233a0659e..d99df67cc7a4 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -862,6 +862,20 @@ config RISCV_ISA_ZICBOP
->  
->  	  If you don't know what to do here, say Y.
->  
-> +config RISCV_ISA_SVRSW60T59B
-> +	bool "Svrsw60t59b extension support for using PTE bits 60 and 59"
-> +	depends on MMU && 64BIT
-> +	depends on RISCV_ALTERNATIVE
-> +	default y
-> +	help
-> +	  Adds support to dynamically detect the presence of the Svrsw60t59b
-> +	  extension and enable its usage.
-> +
-> +	  The Svrsw60t59b extension allows to free the PTE reserved bits 60
-> +	  and 59 for software to use.
-> +
-> +	  If you don't know what to do here, say Y.
-> +
->  config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
->  	def_bool y
->  	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index affd63e11b0a..f98fcb5c17d5 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -106,6 +106,7 @@
->  #define RISCV_ISA_EXT_ZAAMO		97
->  #define RISCV_ISA_EXT_ZALRSC		98
->  #define RISCV_ISA_EXT_ZICBOP		99
-> +#define RISCV_ISA_EXT_SVRSW60T59B	100
->  
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
->  
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 743d53415572..de29562096ff 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -540,6 +540,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
->  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
->  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
->  	__RISCV_ISA_EXT_DATA(svvptc, RISCV_ISA_EXT_SVVPTC),
-> +	__RISCV_ISA_EXT_DATA(svrsw60t59b, RISCV_ISA_EXT_SVRSW60T59B),
-
-svrsw60t59b should come before svvptc. See the ordering rule comment at
-the top of the array.
-
-Otherwise,
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
->  };
->  
->  const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
-> -- 
-> 2.34.1
+>   $ git grep mshv_do_pre_guest_mode_work
+>   drivers/hv/mshv.h:int mshv_do_pre_guest_mode_work(ulong th_flags);
+>   drivers/hv/mshv_common.c:int mshv_do_pre_guest_mode_work(ulong th_flags)
+>   drivers/hv/mshv_common.c:EXPORT_SYMBOL_GPL(mshv_do_pre_guest_mode_work);
 > 
+> Want to squash this into 3786d7d6b3c0 ("mshv: Use common "entry virt" APIs to do
+> work in root before running guest")?
 > 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+It's done. Thanks for pointing it out.
+
+Wei
 
 _______________________________________________
 linux-riscv mailing list
