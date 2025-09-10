@@ -4,87 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46644CA0FED
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Sep 2025 22:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D37CAC582
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 02:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mATWBSdIP7uPA24mHl6s/H0Eegabqw2h8MVfX1AAsFA=; b=5AfkPv63Guil8a
-	lTB6QqAHsBdRzj6xwtnV7I+pFWsSi/p5aWiLVvafgt7BvLOCoFCaZrSdWovyRbX8TPaK1qp14Ykr4
-	JRIV9lrIslYrT5NKQ4VajcWR+75OHGpEDCfYA3oZBF0uHA9NEj/A3dh1nQ8aTb1VcBkd/XZ/H40dj
-	kw/pW+qi72V4wdiABHKlj1tfnefNB0doA0d7Gt2nyqou2zdfoPvkUD8p/uMpPm8e7A9wRW5L282de
-	7JjTRSDm4ofzTmKfIKCxGOxl7svBYwcsehapj/A/XqBHgQJ6N9bjMXGdkRL8e4vZ3wfNUyTprBBEp
-	9oTjcwBvTx31mxD/szrw==;
+	List-Owner; bh=OjdaAAjUJa4n3VelcJlYxwAToCx2cEbqxuZowU5/6c0=; b=STXpwoMI76qfyi
+	4S4ZWdl9K4kV3/2bQbCc9MdWQ1sxlzpjcT8gN4xeypzBkbKpY5gnuEUgFDh0k9ITra2LXHb+LF3fm
+	ts5tZ28EkEa9S0eUFwJK0qSrmRaUdx6/kNFc/akEinG4FpUfSosFTKMYl0GdpmnyP/d17xMre3rqc
+	tTaObV8W0wtzmIGQa9+87mV7qHl20gJ90HwFP1RVN/IWdqvrJOPBbi725hUEaYZ6tp6xv2HlYUdMd
+	pQGiXX+SP0CK4KO+htSxB7wjdqpdxqgEYN4e8ew84ZsKB3jlCTC5vXc6jiEwY+87eqrMahJeSQFsm
+	3qf6oCXH6Y0FKEyjTKEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw71s-0000000Aij1-0Xcm;
-	Tue, 09 Sep 2025 22:41:36 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1uwAF6-0000000Basz-0kvh;
+	Wed, 10 Sep 2025 02:07:28 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uw71q-0000000AiiG-0Day
+	id 1uwAF4-0000000Baru-0jAp
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Sep 2025 22:41:35 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b4f9d61e7deso3928958a12.2
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Sep 2025 15:41:33 -0700 (PDT)
+	Wed, 10 Sep 2025 02:07:27 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-4b61161c30fso17970611cf.3
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Sep 2025 19:07:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1757457693; x=1758062493; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=u1ipfyK9b5YmSa8JFsuC7Jixb/D0wPo4LPC95p6875o=;
-        b=f6Z8pNMZne/EjUYgevyyKkmxUbm5NpZjSwNcQaSkDsyv1udQeZV8tYqULD+5ivzEzM
-         zxmy7gK8JawVQqB/RAdxXZ+sccy7WkgFLNqa8cy5OZaOQkyqHxDDIZjRr1SxZL3NinRi
-         dpmDeWuGDgA/XVLaXbMkQfM6F+ZPwjetdIRncI72xqpdmele88foXbCI//0pJTajnMX2
-         F6+c9FQTvgZKdJo60V4TDT3mWVEjZT+jLjdy2lByEeGHZWPBr8EOiT7ByK8Ros+342yP
-         pjWqYkIMB2+lbgWxjEK/FfvKJ2PrjNRhdLbaRYXmfAPYX7PPYiPO+uvAMwFDHDnB5/8r
-         UM/w==
+        d=gmail.com; s=20230601; t=1757470044; x=1758074844; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JupvMSKgb1rw1zIHQW+fGueHkoJ8uYm/8I5zPauDxTU=;
+        b=YZ8oeHzNKpuTkRB6DrAZvKyj6cnnaXV/wzY0zibcIk7jr2I5Pr/wKfOJdEve0oaips
+         f7OSkVHkjQur0MlacVD/ixgBhZPIpdO0Rrekr8I8QkdVWIdSxAddSNuduEv+r08ravvr
+         PCXXzAVYIQ7TmQ+YuG0G2EDsL8YRYB3d/NHE4RFIlLoM7C+HtPQ13JFoUgHRqzg1HcLA
+         2GaKU21Dqhzu0XDkWdRy35wx2p8lZHJutVZCKpHkhDgB6Hk10IvcebGXI5h5c2WryUik
+         fDMtSB4BaNmtpsJeFoesPnMkVj6GNLJdq3jpPLzM9x97B+NmfmtoH69l39iCFYw5HUpo
+         mdkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757457693; x=1758062493;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=u1ipfyK9b5YmSa8JFsuC7Jixb/D0wPo4LPC95p6875o=;
-        b=jTi/aNB0cSUA0APTS0kCnReOqHEBIjCNyXxkUI0wa0+6XiHZ1U9HNTM03EpWon2x6L
-         GGYrp47jlJHRz3MlO3xIzFwPEvy4crJAujsSvNKX/QHB6ZPm8+aHrdX9SFwLTSPWOKXq
-         XTaWn8Soz3yqVTMuxYLXzlmALq6IN6vrs23GiAurBEy4pkoKfGM4AfOzdDJcJRT0eGy5
-         GZRavwcBeGTlSpPSK/MNoiet3nqe5uaK2VFPCvTx57OjEjN5hdKnIoQRs6akhlhSJ5IA
-         X4joCcCiZqA0PlDGBDNapq1ewCWi3xSEljWgC0r7IknyzjG+rJtUsQHrsX8rJnxvJ3In
-         njrg==
-X-Forwarded-Encrypted: i=1; AJvYcCXnoqkrjvKgzTt2xZ56XecfcE+uOOZpxXAWNMvbIaNz1QDf7iNyCIRpopsAonLqXqAaiHGc37WCjMU3xw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCu0TkJt2pIBMvE/2LLpsHdz+flNTtUGfv8fxJrX2vvJvUUuxT
-	iPYUp+D8hAZPlpOtsKnrCd8JYnlP2iZ/oyBruFd1lgwd26hTTHpgaEUr2m4GScipK50=
-X-Gm-Gg: ASbGncui3ix0Rpaw9t9fwoqauJPNeysRVWsWxMnPDtZUH+1lZ4wDsIYA4mmC63ZIaiw
-	p+7YKTEomVzuf8+bfgxhVpriPqV8f4CSDc4TD07YewsloSxtPZULfnJOuAUfvVDiJEiEZF+JA5k
-	mvq+sh+JMpS070wNtSLF4mDSsYbhLnx7DNCBY6JEIAeYet9ulTqXJBb3MHe2S6UmeIO8xvgskbZ
-	hIlxOp6B7K1rE9kCFHaJyvXwnNMyFGn0PmOgpeCE6NH0GYmZOxEgfTppPRLZgbMv2Z9ZVAIcKrW
-	PBaIw81kzUgrOuREX6H61ATFcH39NEKnY7aA/1peY2WVI3e3zvFWXBmJWeYcbTbV0zjDd/0y2ma
-	Skv7jGGel51LVNH5UczBKTwSEW8iZ2vriaVdqAZO6HJGPR9FlBFM6J8Q=
-X-Google-Smtp-Source: AGHT+IHckWZ4Zmqgngr3HglCZr4AquYHliN4dZVtohCeeipZhQom/qfD2zWCfOQFtVElwxlYywtNXA==
-X-Received: by 2002:a17:903:380f:b0:24b:164d:4e61 with SMTP id d9443c01a7336-2516d531c06mr160527835ad.13.1757457692920;
-        Tue, 09 Sep 2025 15:41:32 -0700 (PDT)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-25a27422e30sm8043835ad.23.2025.09.09.15.41.32
+        d=1e100.net; s=20230601; t=1757470044; x=1758074844;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JupvMSKgb1rw1zIHQW+fGueHkoJ8uYm/8I5zPauDxTU=;
+        b=cgAxYbGgMKY/TjliigqnZhtmSLuOXO7c7IUiGbOshoeWeOAfg81sWwoCf2VDeMC0oF
+         8GuHJ+tKoUfW9Fj+JD6v+ww7dAobNrZ224It3uWVEAZLY1DamPYJBjBrgW8Oppfw6iLo
+         fCm7O80CP6gT1hiJhLgMHG0d4FiaRQM2rJDJlu8kqMIl6zG08xvCWss/lx3fiRP1DzyD
+         BrAUJEt88qeeiDXD91yeAezpWpw4b+NBctoLyzhw2OGduSFQljUnFKEkXmXRJdnbCVcX
+         GwizafsapLhmIQqwDmuib+12XEqzQFbnhu7ra8O+51qB7FKk0Nxl5Uz/1TWkKl78tQx1
+         z01g==
+X-Forwarded-Encrypted: i=1; AJvYcCXN2Ciyk0cxK5P+E8UyHPQtJ50xymp8SGEE+SWXRHWHL+Yl37bKnKCalmR01mBYWVggk09NfAARLP/TvA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7CUTjiaEJeNv+HwVe1jSt9CyAgjLhk0XR9hVXEzd0dpQQwlzg
+	Gg9BI24/Ct5hK65vT4sOoq6fxsISdnVn/nbDamuoZraHVYnBuB9MPxK3
+X-Gm-Gg: ASbGnctEplYdMMp0nEsReCb6IDYhhL1cfJpdL73LEU8M/N/H+8w5KbPGcFQkqOm2f7w
+	rzQmjromYe8wgmC7+nMIRk3liOkBpbaz4pa9EfimcVjBe3GRvzoJtXF1Tj+fuPCrIWXARU4rFvD
+	QNGwXM2HZJaRFL180/iKg6/MNJluTKEzIiHYOwYZl1UluHLLdMQg166Wmdw75Iqn6a4AEUjsHLJ
+	Y8HqSPmTymK1hojCCs6rzANEKS8TLC8UaEVJvtx8xQfBrDTJjhG11IVhL6PweWMnmyiAKZ5KbLP
+	26irexNOJwlhuyoY/lHJQYUFf5wTSGkkqDvS2OA8Bf/XinnTdCc3wV3hmWBD9+bl/S+i9EIcDfF
+	7+2+2jYMB6UogJlZxVMH7vXOkPy/kfJRR
+X-Google-Smtp-Source: AGHT+IEjRNv9cyUm69QgMJCJnQnyhEp01tNG6SttjuPNziAGSPXCkaLL31LMoOKqtBh6Pvi3fZ7WJQ==
+X-Received: by 2002:ac8:578d:0:b0:4b0:80c7:ba32 with SMTP id d75a77b69052e-4b5f843c29amr155667861cf.38.1757470044192;
+        Tue, 09 Sep 2025 19:07:24 -0700 (PDT)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-81b5ec7d5d1sm212773085a.48.2025.09.09.19.07.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 15:41:32 -0700 (PDT)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Conor Dooley <conor@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Cc: linmin@eswincomputing.com,
-	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
-	linux-riscv@lists.infradead.org,
+        Tue, 09 Sep 2025 19:07:23 -0700 (PDT)
+From: Chen Wang <unicornxw@gmail.com>
+To: kwilczynski@kernel.org,
+	u.kleine-koenig@baylibre.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	arnd@arndb.de,
+	bwawrzyn@cisco.com,
+	bhelgaas@google.com,
+	unicorn_wang@outlook.com,
+	conor+dt@kernel.org,
+	18255117159@163.com,
+	inochiama@gmail.com,
+	kishon@kernel.org,
+	krzk+dt@kernel.org,
+	lpieralisi@kernel.org,
+	mani@kernel.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh@kernel.org,
+	s-vadapalli@ti.com,
+	tglx@linutronix.de,
+	thomas.richard@bootlin.com,
+	sycamoremoon376@gmail.com,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH] cache: sifive_ccache: Optimize cache flushes
-Date: Tue,  9 Sep 2025 15:41:27 -0700
-Message-ID: <20250909224131.276800-1-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.47.2
+	linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	sophgo@lists.linux.dev,
+	rabenda.cn@gmail.com,
+	chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	fengchun.li@sophgo.com
+Subject: [PATCH v2 0/7] Add PCIe support to Sophgo SG2042 SoC
+Date: Wed, 10 Sep 2025 10:07:11 +0800
+Message-Id: <cover.1757467895.git.unicorn_wang@outlook.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_154134_105450_8836A864 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250909_190726_230835_542F574F 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +123,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fence instructions are required only at the beginning and the end of
-a flush operation, not separately for each cache line being flushed.
-Speed up cache flushes by about 15% by removing the extra fences.
+From: Chen Wang <unicorn_wang@outlook.com>
 
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+Sophgo's SG2042 SoC uses Cadence PCIe core to implement RC mode.
+
+This is a completely rewritten PCIe driver for SG2042. It inherits
+some previously submitted patch codes (not merged into the upstream
+mainline), but the biggest difference is that the support for
+compatibility with old 32-bit PCIe devices has been removed in this
+new version. This is because after discussing with community users,
+we felt that there was not much demand for support for old devices,
+so we made a new design based on the simplified design and practical
+needs. If someone really needs to play with old devices, we can provide
+them with some necessary hack patches in the downstream repository.
+
+Since the new design is quite different from the old code, I will
+release it as a new patch series. The old patch series can be found in
+here [old-series].
+
+Note, regarding [2/7] of this patchset, this fix is introduced because
+the pcie->ops pointer is not filled in SG2042 PCIe driver. This is not
+a must-have parameter, if we use it w/o checking will cause a null
+pointer access error during runtime.
+
+Link: https://lore.kernel.org/linux-riscv/cover.1736923025.git.unicorn_wang@outlook.com/ [old-series]
+
+Thanks,
+Chen
+
 ---
 
- drivers/cache/sifive_ccache.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Changes in v2:
 
-diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
-index e1a283805ea7f..a86800b123b9e 100644
---- a/drivers/cache/sifive_ccache.c
-+++ b/drivers/cache/sifive_ccache.c
-@@ -151,16 +151,16 @@ static void ccache_flush_range(phys_addr_t start, size_t len)
- 	if (!len)
- 		return;
- 
--	mb();
-+	mb(); /* complete earlier memory accesses before the cache flush */
- 	for (line = ALIGN_DOWN(start, SIFIVE_CCACHE_LINE_SIZE); line < end;
- 			line += SIFIVE_CCACHE_LINE_SIZE) {
- #ifdef CONFIG_32BIT
--		writel(line >> 4, ccache_base + SIFIVE_CCACHE_FLUSH32);
-+		writel_relaxed(line >> 4, ccache_base + SIFIVE_CCACHE_FLUSH32);
- #else
--		writeq(line, ccache_base + SIFIVE_CCACHE_FLUSH64);
-+		writeq_relaxed(line, ccache_base + SIFIVE_CCACHE_FLUSH64);
- #endif
--		mb();
- 	}
-+	mb(); /* issue later memory accesses after the cache flush */
- }
- 
- static const struct riscv_nonstd_cache_ops ccache_mgmt_ops __initconst = {
+  This patchset is based on v6.17-rc1.
+
+  Fixed following issues based on feedbacks from Rob Herring, Manivannan Sadhasivam,
+  Bjorn Helgaas, ALOK TIWARI, thanks.
+
+  - Driver binding:
+    - Removed vendor-id/device-id from "required" property.
+  - Improve drivers code:
+    - Have separated pci_ops for the root bus and child buses.
+    - Make the driver tristate and as a module.
+    - Change the configuration name from PCIE_SG2042 to PCIE_SG2042_HOST.
+    - Removed "Fixes" tag from commit [2/7], since this is not for an existing bug fix.
+    - Other code cleanups and optimizations
+  - DT:
+    - Add PCIe support for SG2042 EVB boards.    
+
+Changes in v1:
+
+  The patch series is based on v6.17-rc1. You can simply review or test the
+  patches at the link [1].
+
+Link: https://lore.kernel.org/linux-riscv/cover.1756344464.git.unicorn_wang@outlook.com/ [1]
+
+---
+
+Chen Wang (7):
+  dt-bindings: pci: Add Sophgo SG2042 PCIe host
+  PCI: cadence: Check pcie-ops before using it.
+  PCI: sg2042: Add Sophgo SG2042 PCIe driver
+  riscv: sophgo: dts: add PCIe controllers for SG2042
+  riscv: sophgo: dts: enable PCIe for PioneerBox
+  riscv: sophgo: dts: enable PCIe for SG2042_EVB_V1.X
+  riscv: sophgo: dts: enable PCIe for SG2042_EVB_V2.0
+
+ .../bindings/pci/sophgo,sg2042-pcie-host.yaml |  64 +++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts  |  12 ++
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts  |  12 ++
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  12 ++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  88 +++++++++++++++
+ drivers/pci/controller/cadence/Kconfig        |  10 ++
+ drivers/pci/controller/cadence/Makefile       |   1 +
+ .../controller/cadence/pcie-cadence-host.c    |   2 +-
+ drivers/pci/controller/cadence/pcie-cadence.c |   4 +-
+ drivers/pci/controller/cadence/pcie-cadence.h |   6 +-
+ drivers/pci/controller/cadence/pcie-sg2042.c  | 104 ++++++++++++++++++
+ 11 files changed, 309 insertions(+), 6 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+ create mode 100644 drivers/pci/controller/cadence/pcie-sg2042.c
+
+
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
 -- 
-2.47.2
+2.34.1
 
-base-commit: 9dd1835ecda5b96ac88c166f4a87386f3e727bd9
-branch: up/ccache-flush-opt
 
 _______________________________________________
 linux-riscv mailing list
