@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99610CA101F
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 09:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B766FCA0FED
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 10:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=faNPE6e+MxIIInq/W6+M0f7kWrT7MhoIpfM1gFSOOkQ=; b=CfE0iYhUxpvBn6
-	olq/P2u2yuneRNJ4IDhww4A9wuZief6Yv05T2MolDzKd6ZCEZ/w6oyDZuQA9GPuxZQnvaAna8mAIV
-	/uEExNLmMcJi3OMcd7vybYfEQavc+qf0G+AIfsz/3XjSo7/Wz6FlqLLeETG/wOJoVfftlZBaDUxpf
-	HQHJjUQefVjdQUq7WpqJ1pUsfuEshETjxWolESu0b7T+/+jfCo77pJQoxJr4nu0Y8Pj1s5gVo6tZ3
-	wTfE5NaH0fONc0uXzPXHwngEve0CgScYtwzgfSnwTbmYbr0DFljrmrHiNcKWE/nKJBcU+fdxe6XtJ
-	hWuSilmCmHv8MHfsU2RA==;
+	List-Owner; bh=SuL53mtG5jkGwn9V1L8UbTBv3U2kkIFyPddk3dpQCpw=; b=KysxCYdso6pQUk
+	4L9VVz0EBjuTJO1l1KOaIEovQUrV+YI2Uc5mSQvbgOqllRVgS5bg6k7ptJnEhWepaNHGXOLmx41Ao
+	XIdWsaGTt64k1ojxrW0oGN76/098YE/BkshWiZajiwiF//9+w/QPuIWTOa3P5CC37DYW8Ic6UezIx
+	gCHoXyFqNRG7K4/4rmtn3JoMWXhV2bHNBq9XEpaHGiHXZM8qAGNiq4Gdk34qOZLF1lFGuQvO7p46o
+	t7rFmG2pTsxyxyb7Jbqnt1ZUyV4D/G4Oh3NZ2vSfSeGfaJycQM7s96+vIyMgeP332lLu3T3xMzww/
+	3iaKDmAUo2CKX3i0jY9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHXO-0000000DNHo-3ilR;
-	Wed, 10 Sep 2025 09:54:50 +0000
-Received: from out28-93.mail.aliyun.com ([115.124.28.93])
+	id 1uwHng-0000000DRhQ-0mIQ;
+	Wed, 10 Sep 2025 10:11:40 +0000
+Received: from out28-131.mail.aliyun.com ([115.124.28.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHXK-0000000DNCt-3cpP
+	id 1uwHnc-0000000DRfb-1uEO
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Sep 2025 09:54:49 +0000
-Received: from LAPTOP-2KT3QRS7.localdomain(mailfrom:guoyaxing@bosc.ac.cn fp:SMTPD_---.ebuVOdW_1757498072 cluster:ay29)
+	Wed, 10 Sep 2025 10:11:38 +0000
+Received: from LAPTOP-2KT3QRS7.localdomain(mailfrom:guoyaxing@bosc.ac.cn fp:SMTPD_---.ebyLtlZ_1757499087 cluster:ay29)
           by smtp.aliyun-inc.com;
-          Wed, 10 Sep 2025 17:54:38 +0800
+          Wed, 10 Sep 2025 18:11:30 +0800
 From: Yaxing Guo <guoyaxing@bosc.ac.cn>
 To: linux-riscv@lists.infradead.org
 Cc: tjeznach@rivosinc.com,
@@ -41,14 +41,14 @@ Cc: tjeznach@rivosinc.com,
 	aou@eecs.berkeley.edu,
 	alex@ghiti.fr,
 	Yaxing Guo <guoyaxing@bosc.ac.cn>
-Subject: [PATCH v1] riscv: iommu: Fix irq failure due to idx mismatch in icvec
-Date: Wed, 10 Sep 2025 17:54:30 +0800
-Message-Id: <20250910095430.93868-1-guoyaxing@bosc.ac.cn>
+Subject: [PATCH v1] riscv: iommu: Kconfig: Add RISC-V to IOMMU_DMA def_bool
+Date: Wed, 10 Sep 2025 18:11:25 +0800
+Message-Id: <20250910101125.94345-1-guoyaxing@bosc.ac.cn>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_025447_069247_5A501228 
-X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-CacheID: sfid-20250910_031136_659113_976DB680 
+X-CRM114-Status: UNSURE (   8.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -66,36 +66,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In icvec, the idx of civ, fiv, pmiv and piv are 0, 1, 2, 3
-(According to spec 5.27). And usually, the interrupt-names
-property in dts riscv-iommu node also follows this (In qemu
-virt machine follows this) which will cause hardware irq
-number errors (Especially when using qemu virt machine to
-start Linux).
+The IOMMU_DMA configuration option is used to enable DMA mapping
+support via IOMMU for platforms that require it. Currently, it is
+enabled for ARM64, X86, and S390 architectures.
 
-By the way, should use interfaces such as platform_get_irq_byname
-to implement it further?
+This patch adds RISC-V (RISCV) to the def_bool condition, enabling
+IOMMU_DMA support for RISC-V platforms that have an IOMMU and require
+DMA remapping.
 
 Signed-off-by: Yaxing Guo <guoyaxing@bosc.ac.cn>
 ---
- drivers/iommu/riscv/iommu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/iommu/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 52d5e3d76019..00f11368bf24 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1583,8 +1583,8 @@ static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
- 		return -EINVAL;
+diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
+index 70d29b14d851..9d8c90690275 100644
+--- a/drivers/iommu/Kconfig
++++ b/drivers/iommu/Kconfig
+@@ -150,7 +150,7 @@ config OF_IOMMU
  
- 	iommu->icvec = FIELD_PREP(RISCV_IOMMU_ICVEC_FIV, 1 % iommu->irqs_count) |
--		       FIELD_PREP(RISCV_IOMMU_ICVEC_PIV, 2 % iommu->irqs_count) |
--		       FIELD_PREP(RISCV_IOMMU_ICVEC_PMIV, 3 % iommu->irqs_count);
-+		       FIELD_PREP(RISCV_IOMMU_ICVEC_PIV, 3 % iommu->irqs_count) |
-+		       FIELD_PREP(RISCV_IOMMU_ICVEC_PMIV, 2 % iommu->irqs_count);
- 	riscv_iommu_writeq(iommu, RISCV_IOMMU_REG_ICVEC, iommu->icvec);
- 	iommu->icvec = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_ICVEC);
- 	if (max(max(FIELD_GET(RISCV_IOMMU_ICVEC_CIV, iommu->icvec),
+ # IOMMU-agnostic DMA-mapping layer
+ config IOMMU_DMA
+-	def_bool ARM64 || X86 || S390
++	def_bool ARM64 || X86 || S390 || RISCV
+ 	select DMA_OPS_HELPERS
+ 	select IOMMU_API
+ 	select IOMMU_IOVA
 -- 
 2.34.1
 
