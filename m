@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F213CA101F
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 14:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77ACCA0FED
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 14:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=lVNxFWUiImnZ0ukWqeJt7f8e5WA6QVUx4OMjU3Brbvs=; b=y3ETfyVPb6fako
-	8naOvHT7OTdfg5sy9VCp7tM5LcZ0KfgJeXWpHrRuPh6Z/mfGyJUu9yEjwkzDVhWodiF70LIojIR5X
-	ZQpca4RXJxsy1EbALkm1ezBdMtt7AzqZEygejccRFqFiL+8No/VMI4BjyT7AHprvsMwEha7bcRiBB
-	DBQPXjVzh6XJoHUFRPJO0ZmUKy3drnyqFzDyE69Eg5yOIOitdkwZCF9TWqDnPlcKRLkFKYZraMyQm
-	Knrz0/iOSuOJfO8PVWI0vMbg5t/JDWlf1rooiNHHeQywJ4vR+52OHNclp3vPmC7jVaynNf2ifWW7Y
-	PZSLlAL6X/hwz8/lBv+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h9h6GTwtUi+enUVRuWFOZfaGsftnmRcJpm9Cm5CTiQE=; b=1FZXjbE28++92YsVZpe7RxgdtN
+	lJmjnQiE9wbPJnYIe91KQBFHqWgw++dw6d9l/n6KTYcXgnDS1Pm983QWPeGPeDZlhTvGMT1JK3kyX
+	s2vb2mtcw158ISymrtMU+2ksl5mDl485+HwBmB1lrpfifq9oT0INFRjGe4jwLMwMHANKv1MENPYtp
+	ie/a3MRt9Sd3d9swA3sRCXawpdTCvhLZgsF0ZyeEUgV1GS6t1o9hvHCcXXEKqL7QNoXVQz1TWaRHX
+	TTlUCNQN4AHms2D5JJ32kYWh1mHaRKYut2TKx5PIa/hY4DRnwGA31SQ+LMfSDk9bBQfuYk4KieVnS
+	K1kFa45A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLjK-0000000EgIV-1aZD;
-	Wed, 10 Sep 2025 14:23:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uwLnF-0000000EhVQ-1G8d;
+	Wed, 10 Sep 2025 14:27:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLjH-0000000EgHZ-354o
+	id 1uwLnE-0000000EhUd-1dRK
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Sep 2025 14:23:24 +0000
+	Wed, 10 Sep 2025 14:27:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD09644818;
-	Wed, 10 Sep 2025 14:23:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79A7FC4CEEB;
-	Wed, 10 Sep 2025 14:23:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C1B0601AB;
+	Wed, 10 Sep 2025 14:27:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53A3DC4CEEB;
+	Wed, 10 Sep 2025 14:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757514202;
-	bh=sPrb8D0bSLp1Js3/8C0uU0W0ATkZZf+fqUxj/05AtlY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=ZXqV7Y5wyyMy8XPbh7JLpkdcpaKmaztp6Y0DwSjdEv41hAbGELyFer083foOLZxDB
-	 uVTwM9d0VzXe5ApdhOhBcOigUrmCndv5r7VieWdnOyaoM19Y2rzdYnc1aoBHnuFulc
-	 AqIe8dr5b831dN+Kb2n63v4Akag6nRBwY80VbL4FSiuspLylF3TddTA/6EyrER5x/B
-	 DDJiWxz4rrkQ5gD0S9WprL3hWsUolUwdU5r0Q36JY+D4tTcHsNqhb229bRBfxu4z9Y
-	 ZHr8s3wIy6jmv8qTiakGq+vJ6g4lTDSc0pwVl5u9S7lykALNBAxV4MmKgjiH15D5tn
-	 w5RdZe7h8z7oA==
-Date: Wed, 10 Sep 2025 09:23:21 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: kwilczynski@kernel.org, u.kleine-koenig@baylibre.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, arnd@arndb.de,
-	bwawrzyn@cisco.com, bhelgaas@google.com, unicorn_wang@outlook.com,
-	conor+dt@kernel.org, 18255117159@163.com, inochiama@gmail.com,
-	kishon@kernel.org, krzk+dt@kernel.org, lpieralisi@kernel.org,
-	mani@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
-	robh@kernel.org, s-vadapalli@ti.com, tglx@linutronix.de,
-	thomas.richard@bootlin.com, sycamoremoon376@gmail.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev, rabenda.cn@gmail.com, chao.wei@sophgo.com,
-	xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com
-Subject: Re: [PATCH v2 2/7] PCI: cadence: Check pcie-ops before using it.
-Message-ID: <20250910142321.GA1533672@bhelgaas>
+	s=k20201202; t=1757514447;
+	bh=5g5RBXhPqG8J7yMsN/VQOQGJMxPjWBvVy7aoWO0AUds=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VgVuC69I2qrVBPMfqkgTTLxAyUIuw76pJEbQ38ySGUovDRmI8lPGgl9VOtjd0N5ef
+	 ijzr+reZCZmyXh7jK3TI9w4LOjsS70ahUFH/iBSe6PJP3ZV14vJZy5OGTn2wdxqYgY
+	 JWJeQGDYoyH2qG2JTGXF5R7IYQXN/PC7+0AbzzqLmgxIvN/YzpsxHWzo+4zhGXAt5r
+	 riklA7PCu75l3QKjY2ueNesmDrZRW76jCTBEXlAFmyqVW1DWdi+Dv5cA3FFMgvg8Ps
+	 I7IhPyT7ZSQpELg1/N13ETsNErDw67UnFcc5RPVjsxCAHEMp/hh7teC8KDfrpj5FOR
+	 m8Lmz6j7BcKkA==
+Date: Wed, 10 Sep 2025 15:27:19 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Asuna Yang <spriteovo@gmail.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Han Gao <rabenda.cn@gmail.com>, rust-for-linux@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2] RISC-V: re-enable gcc + rust builds
+Message-ID: <20250910-harmless-bamboo-ebc94758fdad@spud>
+References: <20250909-gcc-rust-v2-v2-1-35e086b1b255@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <18aba25b853d00caf10cc784093c0b91fdc1747d.1757467895.git.unicorn_wang@outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_072323_811153_3ABE12F3 
-X-CRM114-Status: GOOD (  18.78  )
+In-Reply-To: <20250909-gcc-rust-v2-v2-1-35e086b1b255@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,98 +80,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7677788667914468772=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drop period at end of subject.
 
-On Wed, Sep 10, 2025 at 10:08:16AM +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> ops of struct cdns_pcie may be NULL, direct use
-> will result in a null pointer error.
-> 
-> Add checking of pcie->ops before using it for new
-> driver that may not supply pcie->ops.
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+--===============7677788667914468772==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9LQSzFz/Ck3gJsLT"
+Content-Disposition: inline
+
+
+--9LQSzFz/Ck3gJsLT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Sep 09, 2025 at 06:53:11PM +0200, Asuna Yang wrote:
+> Commit 33549fcf37ec ("RISC-V: disallow gcc + rust builds") disabled GCC
+> + Rust builds for RISC-V due to differences in extension handling
+> compared to LLVM.
+>=20
+> Add a Kconfig symbol to indicate the version of libclang used by Rust
+> bindgen and add conditions for the availability of libclang to the
+> RISC-V extension Kconfig symbols that depend on the cc-option function.
+>=20
+> For Zicsr/Zifencei special handling, since LLVM/Clang always enables
+> these two extensions, either don't pass them to -march, or pass them
+> explicitly and Rust bindgen libclang must recognize them.
+>=20
+> Clang does not support -mno-riscv-attribute flag, filter it out to
+> resolve error: unknown argument: '-mno-riscv-attribute'.
+>=20
+> Define BINDGEN_TARGET_riscv to pass the target triplet to Rust bindgen
+> libclang for RISC-V to resolve error: unsupported argument 'medany' to
+> option '-mcmodel=3D' for target 'unknown'. Improve to output a clearer
+> error message if the target triplet is undefined for Rust bindgen
+> libclang.
+>=20
+> Update the documentation, GCC + Rust builds are now supported.
+>=20
 > ---
->  drivers/pci/controller/cadence/pcie-cadence-host.c | 2 +-
->  drivers/pci/controller/cadence/pcie-cadence.c      | 4 ++--
->  drivers/pci/controller/cadence/pcie-cadence.h      | 6 +++---
->  3 files changed, 6 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
-> index 59a4631de79f..fffd63d6665e 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence-host.c
-> +++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
-> @@ -531,7 +531,7 @@ static int cdns_pcie_host_init_address_translation(struct cdns_pcie_rc *rc)
->  	cdns_pcie_writel(pcie, CDNS_PCIE_AT_OB_REGION_PCI_ADDR1(0), addr1);
->  	cdns_pcie_writel(pcie, CDNS_PCIE_AT_OB_REGION_DESC1(0), desc1);
->  
-> -	if (pcie->ops->cpu_addr_fixup)
-> +	if (pcie->ops && pcie->ops->cpu_addr_fixup)
->  		cpu_addr = pcie->ops->cpu_addr_fixup(pcie, cpu_addr);
->  
->  	addr0 = CDNS_PCIE_AT_OB_REGION_CPU_ADDR0_NBITS(12) |
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence.c b/drivers/pci/controller/cadence/pcie-cadence.c
-> index 70a19573440e..61806bbd8aa3 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence.c
-> +++ b/drivers/pci/controller/cadence/pcie-cadence.c
-> @@ -92,7 +92,7 @@ void cdns_pcie_set_outbound_region(struct cdns_pcie *pcie, u8 busnr, u8 fn,
->  	cdns_pcie_writel(pcie, CDNS_PCIE_AT_OB_REGION_DESC1(r), desc1);
->  
->  	/* Set the CPU address */
-> -	if (pcie->ops->cpu_addr_fixup)
-> +	if (pcie->ops && pcie->ops->cpu_addr_fixup)
->  		cpu_addr = pcie->ops->cpu_addr_fixup(pcie, cpu_addr);
->  
->  	addr0 = CDNS_PCIE_AT_OB_REGION_CPU_ADDR0_NBITS(nbits) |
-> @@ -123,7 +123,7 @@ void cdns_pcie_set_outbound_region_for_normal_msg(struct cdns_pcie *pcie,
->  	}
->  
->  	/* Set the CPU address */
-> -	if (pcie->ops->cpu_addr_fixup)
-> +	if (pcie->ops && pcie->ops->cpu_addr_fixup)
->  		cpu_addr = pcie->ops->cpu_addr_fixup(pcie, cpu_addr);
->  
->  	addr0 = CDNS_PCIE_AT_OB_REGION_CPU_ADDR0_NBITS(17) |
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
-> index 1d81c4bf6c6d..2f07ba661bda 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence.h
-> +++ b/drivers/pci/controller/cadence/pcie-cadence.h
-> @@ -468,7 +468,7 @@ static inline u32 cdns_pcie_ep_fn_readl(struct cdns_pcie *pcie, u8 fn, u32 reg)
->  
->  static inline int cdns_pcie_start_link(struct cdns_pcie *pcie)
->  {
-> -	if (pcie->ops->start_link)
-> +	if (pcie->ops && pcie->ops->start_link)
->  		return pcie->ops->start_link(pcie);
->  
->  	return 0;
-> @@ -476,13 +476,13 @@ static inline int cdns_pcie_start_link(struct cdns_pcie *pcie)
->  
->  static inline void cdns_pcie_stop_link(struct cdns_pcie *pcie)
->  {
-> -	if (pcie->ops->stop_link)
-> +	if (pcie->ops && pcie->ops->stop_link)
->  		pcie->ops->stop_link(pcie);
->  }
->  
->  static inline bool cdns_pcie_link_up(struct cdns_pcie *pcie)
->  {
-> -	if (pcie->ops->link_up)
-> +	if (pcie->ops && pcie->ops->link_up)
->  		return pcie->ops->link_up(pcie);
->  
->  	return true;
-> -- 
-> 2.34.1
-> 
+
+FWIW, this --- breaks git, and anything after this line (including your
+signoff) is lost when the patch is applied.
+
+> Discussion:
+> https://lore.kernel.org/linux-riscv/68496eed-b5a4-4739-8d84-dcc428a08e20@=
+gmail.com/
+> Patch v1:
+> https://lore.kernel.org/linux-riscv/20250903190806.2604757-1-SpriteOvO@gm=
+ail.com/
+>=20
+> GCC + Rust builds for RISC-V are disabled about a year ago due to differe=
+nces in
+> extension handling compared to LLVM, as discussed in
+> https://lore.kernel.org/all/20240917000848.720765-1-jmontleo@redhat.com/
+>=20
+> This patch re-enables GCC + Rust builds. Compared to v1, v2 reverts the
+> separation of get-rust-bindgen-libclang script and improves Kconfig condi=
+tions
+> based on Conor's review.
+>=20
+> The separation of get-rust-bindgen-libclang script is reverted based on t=
+he
+> concerns raised by Miguel. However, it's worth noting that we now have 3
+> different places rust/Makefile scripts/{Kconfig.include,rust_is_avilable.=
+sh}
+> where manually calling bindgen rust_is_available_bindgen_libclang.h + sed=
+ to get
+> the version of libclang, and in particular, for our newly added Kconfig s=
+ymbol,
+> we now use awk to canonicalize the version to an integer. I would still l=
+ike to
+> do the script separation later for better maintainability and readability=
+ if
+> possible, which can be discussed further later when Miguel has time.
+>=20
+> Signed-off-by: Asuna Yang <SpriteOvO@gmail.com>
+
+> diff --git a/init/Kconfig b/init/Kconfig
+> index e3eb63eadc8757a10b091c74bbee8008278c0521..0859d308a48591df769c7dbae=
+f6f035324892bd3 100644
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -82,6 +82,12 @@ config RUSTC_LLVM_VERSION
+>  	int
+>  	default $(rustc-llvm-version)
+> =20
+> +config RUST_BINDGEN_LIBCLANG_VERSION
+> +	int
+> +	default $(rustc-bindgen-libclang-version)
+> +	help
+> +	  This is the version of `libclang` used by the Rust bindings generator.
+
+The riscv patchwork CI stuff is really unhappy with this change:
+init/Kconfig:87: syntax error
+init/Kconfig:87: invalid statement
+init/Kconfig:88: invalid statement
+init/Kconfig:89:warning: ignoring unsupported character '`'
+init/Kconfig:89:warning: ignoring unsupported character '`'
+init/Kconfig:89:warning: ignoring unsupported character '.'
+init/Kconfig:89: unknown statement "This"
+
+Is this bogus, or can rustc-bindgen-libclang-version return nothing
+under some conditions where rust is not available?
+Should this have 2 default lines like some other options in the file?
+
+--9LQSzFz/Ck3gJsLT
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMGKxwAKCRB4tDGHoIJi
+0i95AQCss36HRy+RsBlpl62gIPI85+hygKJh0GXl428sU0nQ8AEA2u/2TAxBFT7L
+YIW9Fn96HjUF3TjlXvi7128E1IzngQg=
+=mZl4
+-----END PGP SIGNATURE-----
+
+--9LQSzFz/Ck3gJsLT--
+
+
+--===============7677788667914468772==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7677788667914468772==--
+
