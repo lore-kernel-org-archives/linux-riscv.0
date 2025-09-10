@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA69FCA101F
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 07:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFDFCA0FED
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 07:13:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GxkWT9pQuP2wy3UpNntrD2zuCWR0Sqs3mGsApMx/pl4=; b=vyQO2GVeWtLDa9
-	LkXYD7g1zRFyNs2F07odWgJ58lPcNl2uz2X968IKbgEEFTM/v56jNvM/3+n2Nf+4KP146xFc9iDMO
-	m2vqkRDzsIG+8dnXvTzm/KfdFoAuqa3ioWH6Ct4LhIZFyMABjEI0m9cjKFzdJaehBHGm4YoFr0GF8
-	p5N4ktK26OablQiHTTUzebjxGAoE4+xZR696ZUHE3738Ncp5Km8X+5e9BHc+/E6exNbFLmkLmiOb0
-	3awZxeno1x90oavVqrOQ87Tb5XSsULeOvSYF1XaoY1k6UbEL9MkPILhtrxz6Gaf/Z0NPhmyHXd/mi
-	GBf15lx49XO/82lVm0tA==;
+	List-Owner; bh=8E7w3o+uAR7lAh3CdnHZ4sQqyIOGMugY7knD0aAAZbk=; b=Wucn3ToCh7ZDYD
+	YpKk+pz7ygAeBCfGa34Tuyqv9hkkXKUtbUWGuXKTmw3XXynTH2QBLilUQyWRXM+peibb/U+NWGcII
+	cqNXUS5P5LpIJmHKP0gsPwNtYGVa/vDVEwoT91/wz5xGpBd+NUObV3BI3w5+Se+fJSXpxQ7xBQI1f
+	35QWWPLW8QwiXNTTJEQ1r5JIar04Bn3hE4nKAr5p7Rpg4kJUa9M+rEsPEKlAydkLnEw+qKEUjlbvp
+	XWfL5bE+Pr6kYh2S8m3I3iFRnp3hjq/ZUvYQ3osMOj3rJO4P+esdqxMb5fwRjZBEDs+oBVj3fhYXg
+	2fh8GP1snqH+apveMT+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwF0t-0000000CRPs-1POm;
-	Wed, 10 Sep 2025 07:13:07 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1uwF13-0000000CRee-06Tv;
+	Wed, 10 Sep 2025 07:13:17 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwF0l-0000000CRBV-49j9
+	id 1uwF0s-0000000CRMP-1ig8
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Sep 2025 07:13:03 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45decc9e83eso15732625e9.3
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Sep 2025 00:12:59 -0700 (PDT)
+	Wed, 10 Sep 2025 07:13:09 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45df7ca2955so1443595e9.3
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Sep 2025 00:13:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757488378; x=1758093178; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757488384; x=1758093184; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=2LgKNcxsdLsFnLguR4L7e69gd1tme3quh6qNbEycm/0=;
-        b=eOX0RAYQMafWLD0/kZJUePGDirxB0hKEfPVK4GndTfJIgqyE1fk2QmuHNRvjKrf5cO
-         5OqAlKv35AvE+jMWqf69OKNXHqpyxJtCg5sJBXRDQtpng7NPpiUzdNzUcb1IiFe1ZnwV
-         j5sXv1FV6bgbU5NP040Aw8zLVCYcvjHCAz+Zmh9ajnKbrbAYBF4QSvs9yBwWc1HrS31T
-         jpQoLj7DcvYTvxP1zY1atzD8MRqu8HutMLXpl5121xlk6vATlu9u/4sjWG6lzDPYSVhR
-         PNTiWMOKQwHqi2JdOAbN05RWi+ktf0N6YZJKZ+ZauMr4Q55gdEXuCS5pKLkE4xQbL0ZT
-         EF0w==
+        bh=xHR8kEAINHQx8cEJdNb56gXGfX3p65LuAbViPfkkq1g=;
+        b=16QCSthO9GnBFjZeVlfTa3Ib8EHuNzMTn5CczRxrNnBgylbWF85UnFjiGrXYVk1og9
+         Ce4KVbLwlJIGbAnGN+hqDVDk9pkodCyMpyepNVlbQCzV10zCyn9zP9HBZvNzhVkLq+Ci
+         5gTUwB7M2ORLosw3+dAR9XuHvUEHuoHoZeRVZU56cCh9gVQn0LYzohJNRXqLpBEWO/4B
+         Nfexw5UZJZzZsMdhx+cYhz314BsDZQGy79T7AhNe14n6q7At0TbKPWPd6IrgTE8kHLix
+         ck3DP1Kqluj5WJYot6cKDDa7mlEa9WZ5mBuDLfEmJ2RNEQyxYup5SEv20sUwIbnFBkBD
+         vTdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757488378; x=1758093178;
+        d=1e100.net; s=20230601; t=1757488384; x=1758093184;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2LgKNcxsdLsFnLguR4L7e69gd1tme3quh6qNbEycm/0=;
-        b=frFti0dJ0OEJmxtqgIMRz6D9YcdBBNFopW4BPT3WqBbmXcluiTFmd92rvCb7hEKnVc
-         WlCshUVU5mSZTDGmxXDrFlvW7oA+/UQXy1ybLKPaaT0LY6fgLWaAHb5gIegQOyZofFt2
-         OrmLPleZCaVjwmfgFejWLNXrfnek9wd3xpab4EU0oKnpwb0zSOF968liBf5k2yGj19Vv
-         s3cbwXDG8hEoIaTHCSDIbKGs66AhWLS4lV97BMpZn2ys16+WLasJkfKwWv2pY0rrhlp9
-         nyR08kgFl/gENNp57kgvIaKTzaVb7i+SowU34643zyTYg7g2LOxX1DI/AZZ6BjXTJQcP
-         oYmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX5KoOkqz2qiMLuJgDdhvd2Yfbr7PnKJpPq179dLcaqPosuYVfoYA8noLerPIROdFRZTsUWb74RqJDILQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDb1MK4e0MXkbOLt3a4mMeXXk8vjE7IlC4JjA7spQQ4s87KFC+
-	vIKBEMHMis/FD7C/WH8qFD+E4kZviEoZrMh/Q7SdA92GXWc73BZzHRMpQz2M0pI9frI=
-X-Gm-Gg: ASbGncv+eCubl2+MSn5HRN9dN1DWnHSvXIu/hfS4Da9nRb3LYiO/O9WIkM5NjW11P32
-	43C/azKO0FK6C56ekP1ajtQzLQgzsZRKTebBOEBXYok4FzaUhpso4nmdvEOaMYUHJXn6GrLJqN3
-	DTTqIIaHiTz3FHNLS9ECCu1GRx9oCpknN4KtRCIF1eLLpDhBFEX7K6ucd7t8i3v+4ExTTXaru2I
-	1QghWXom7uab5ANAhF06difJ0YKvNuwhxq8JLf1rGyOJyEcarxhVmwdRy5y41mDb8pAWQTtVOBl
-	gLGknCC8+9Zza4DyZcUleNItXBHstB//UTvF5vAJjB7J3ikkIjFqaDrb+pbEuViVYvdwipynpOD
-	lR2kxtelZPq9BbS6YUY+wwDvWTUI=
-X-Google-Smtp-Source: AGHT+IGJB3PQIUYZyiw6+3o8Sn4R39vuxJ9NIx24EQd1RwwSDB8q/LrrapFJhvdDKRaEZQ28E4N+3A==
-X-Received: by 2002:a05:600c:1ca4:b0:45d:edf6:367c with SMTP id 5b1f17b1804b1-45dfa19b7a9mr3614415e9.30.1757488377653;
-        Wed, 10 Sep 2025 00:12:57 -0700 (PDT)
+        bh=xHR8kEAINHQx8cEJdNb56gXGfX3p65LuAbViPfkkq1g=;
+        b=ggsKjzU1Vx/eznv6F135/AfXYuHB/GIfAVUHu6eSFqCf8d9xfbX3Sq+OskVIgGR9YV
+         gDpYCiRTDWCdnGwJO5yWahkK74kp5t0e63LJVXmu5RbVDHsTijwZvXScTyCWoIEy8hkp
+         r3umppsxQvi3G/3+Hz8VFLMP23qX1DJculdrcO97Xc4Po3ObIqjVYj/QLqj1VrpKVW0m
+         CLHqkFnu9cAT7+bf+3xHecKD0R+4jOKLpFaFfvMD9cF5r/nS5y9AokW8xze9Px/v01Uf
+         X6GjP7kjDoa4gjAt6rb+SdA8WJd8ipD2EobC0ZQfMpTqTwr51vq/GY/Fv92pwRWgjsfd
+         4m4w==
+X-Forwarded-Encrypted: i=1; AJvYcCXJ9Jdpvac/s3Q3usEFUzYP9eFeyoJxh2/o+mf5omvA/yNMhryUtZF3EggWjaiClhzRCIVdyidya5AoLQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5w4SckNPVXYPdA4SkKmWuJ2NFVQYQagzaPIyhwW7YAy6fl3Aa
+	5Cf6NvnNTmhgvHAfPEY36F/9IKmGzSaMQP3rnS0FEG8utk0Yt5hXDlTQ2D0AVeekqsc=
+X-Gm-Gg: ASbGncti567LnWYG0r+3fESFQrnwdDvK7CT9eSfz95k4YJgIHO9blz6MXWQAdyF3gOZ
+	cSiCQNz06lzQux6MsLIDf1sA3N7fMPpBPc2jMHpAfZQ1sHXqqmDV+nmO2i/TrE9opKu75Idf8lZ
+	gh292wGE9EFxqHMZBIyFaeiyBEgIVjo8kdX3P3fFJ/y0uY75ZkD/ZS1/y8o54lH/NYocr0lFY9S
+	j/OTys1k7eaAthT5piKyhzxybyXjDmXshAP0WRBIaK2GtdrpyYZlu9wQKB0s/moDTQGvujX0jr0
+	BcFeGVxNWVzKva29c/RqMU3WBF82/PE/JF8REHpUCBLjKcKoZCx4Y3Boy+Svrmenhzkkkhy4/5L
+	KJA0WgD6LKZhwBLBWe4GJfGl2Jvk=
+X-Google-Smtp-Source: AGHT+IFSdci3CHq8VqUJcbVpnmzo+2lQEmXOuKmC8RRv+wtgm3NDfrNeLIsCyZlc4vVFVDxHItzjfQ==
+X-Received: by 2002:a05:600c:c4ab:b0:45d:d505:a1c3 with SMTP id 5b1f17b1804b1-45dddef8c61mr118822845e9.37.1757488383998;
+        Wed, 10 Sep 2025 00:13:03 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:3936:709a:82c4:3e38])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df81d20d2sm16357035e9.8.2025.09.10.00.12.54
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45df81d20d2sm16357035e9.8.2025.09.10.00.13.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Sep 2025 00:12:55 -0700 (PDT)
+        Wed, 10 Sep 2025 00:13:02 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 10 Sep 2025 09:12:39 +0200
-Subject: [PATCH v2 03/15] gpio: hlwd: use new generic GPIO chip API
+Date: Wed, 10 Sep 2025 09:12:42 +0200
+Subject: [PATCH v2 06/15] gpio: xgene-sb: use generic GPIO chip register
+ read and write APIs
 MIME-Version: 1.0
-Message-Id: <20250910-gpio-mmio-gpio-conv-part4-v2-3-f3d1a4c57124@linaro.org>
+Message-Id: <20250910-gpio-mmio-gpio-conv-part4-v2-6-f3d1a4c57124@linaro.org>
 References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
 In-Reply-To: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -93,26 +94,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  spacemit@lists.linux.dev, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8099;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1238;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=GIo9/S93VPUBfQ6xvrpidEregjsP7FkaGPkWmJwT4jo=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBowSTsnxh40ocSMjnMrnX6+YmVvuhxetveQ9JD2
- RuxrOMz/veJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaMEk7AAKCRARpy6gFHHX
- ckv9D/4nLHThrlKEMZ2arKcEEyQC039F8gSblcrmQ1yb2JUPD1XxFGc6cwT7H6+DHECz9C7YhOn
- 0ly3riecS1q0hqBTBBP7u1DGllHh5KNSLjSOD2npeqgYC4x2N7vWzOF6LwOYtXpsw95jB2RDx6t
- UxvVJwyXW7XEzBqexP3qUDzvGDMYXIHHVYQU65xT2xHsJNKGeChGVFKpvuGA9UvLEl3HGgOXUND
- cvB4L4rs5s+vh+yhOG+Ewn4lk++UDQCCAFk7+SsrQcux2I8uEon/iDlr6VA/iAn4nUlC02vylRE
- tu1OTxkHfTwn4LtLFDZfm5xYJ00r5EkvTD1nzch0qvWzgJHdcNRkXtX7ZTui2MyCGAVvRzUAoAJ
- dy+xABlcqRSZKYihMHMg1xFCKbUAtWGAAFv1K0rikut9lS/0ixaIdeuARtf6hwnZPFqLmhIjd8J
- 35og3KjICmSzjp4S7SbXrZVCh8G9NiyaBkNHc9tfU6r7BBgC750h1nhYn0kO9mUC1Tn6tywYsgp
- M28kKTTkG2zcCOO6IP9VLtTWrfop7PplC9LZP0ZYCaDbnTcPXcdP/vPPc1jihj//nCCEdgqVuXU
- T60AjrsNtiLJElv/spQQiqoj6hONaUMrbozWw4rV6qzWxQtpod1QvyCtpRaakB3I9RJHyDUVLXX
- QoxyFu/BJLo3MKg==
+ bh=We0X7xb7ACmLY+lbQa1fcNw6pP25NDN5z92R8VM93TU=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBowSTtTDj4oNGwDRR7+qL+H0qpz1nceYdGpGDPH
+ ia1yPhYhmCJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaMEk7QAKCRARpy6gFHHX
+ cltID/9Ctub5VaMhx1Y9F7RnCwKevVF+bxKd+hpiZxi/K5bnOELNFhQC9MrYe3Jo/xgNtSOubP+
+ e6d48QqOuSuIV5d++/Pwni9yyHDsRzqCfGPA2sfV/Bab6KBoWxhzDFn7s3lGqcOecV05i8onc8w
+ wFCuxdoJ2i+LvKp0salt7xPfvkjgcIgKGzQmTopLYLKahtb4dC4nWif9HBKqL3RiNU2dkpEQiAI
+ ippQcDB6/0i6YRrnVZAEtqpMgKaPwyRaKiOa0VdiVA+ZmDw7GrC1p+27jgEkErOCxYboKXTW5Ae
+ gKTqLhDKSVO7c8IKGCdbIQxYiJEsGZCrYFuLA0pAogyydqwf/ZrcVP6UgJSOttmdPXlWCEfaWHy
+ cLBcQnSi7cTCuPVS9mvSF6h4umNbP3tpRfb6pOfp7l0RY4i9BJsC6WTDRDQ/vHekGy86Kwi6Esq
+ IzhKLr3OO4wfaano0EJJ5Gs84UnV4nMnYW9Nts1TM7oIybmuoDUgWV2QyuT4HcBQmTL6/b7FDyw
+ 82BVH/fdSFI2eKKOB3z+/AkHtl9+TcngTVS3xIAQWvL6HdAmpBuy2zbPJ7GMd0eV+meic7kYxxF
+ 1/MoGJeiOoVwFVOK5uGV2GtBCFo8xz97rQ3SKuV2hyxM9CExMXw9JCmDOBulmxf8+Vd8Afmotk7
+ 5UhY14It5j5GHJw==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_001300_165189_471E3DC3 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20250910_001306_504301_8D5F4573 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,236 +132,38 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Convert the driver to using the new generic GPIO chip interfaces from
-linux/gpio/generic.h.
+The conversion to using the modernized generic GPIO chip API was
+incomplete without also converting the direct calls to write/read_reg()
+callbacks. Use the provided wrappers from linux/gpio/generic.h.
 
+Fixes: 38d98a822c14 ("gpio: xgene-sb: use new generic GPIO chip API")
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/gpio/gpio-hlwd.c | 105 ++++++++++++++++++++++++-----------------------
- 1 file changed, 54 insertions(+), 51 deletions(-)
+ drivers/gpio/gpio-xgene-sb.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpio/gpio-hlwd.c b/drivers/gpio/gpio-hlwd.c
-index 0580f6712bea9a4d510bd332645982adbc5c6a32..a395f87436ac4df386ce2ee345fc0a7cc34c843d 100644
---- a/drivers/gpio/gpio-hlwd.c
-+++ b/drivers/gpio/gpio-hlwd.c
-@@ -6,6 +6,7 @@
- // Nintendo Wii (Hollywood) GPIO driver
- 
- #include <linux/gpio/driver.h>
-+#include <linux/gpio/generic.h>
- #include <linux/io.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
-@@ -48,7 +49,7 @@
- #define HW_GPIO_OWNER		0x3c
- 
- struct hlwd_gpio {
--	struct gpio_chip gpioc;
-+	struct gpio_generic_chip gpioc;
- 	struct device *dev;
- 	void __iomem *regs;
- 	int irq;
-@@ -61,45 +62,44 @@ static void hlwd_gpio_irqhandler(struct irq_desc *desc)
- 	struct hlwd_gpio *hlwd =
- 		gpiochip_get_data(irq_desc_get_handler_data(desc));
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
--	unsigned long flags;
- 	unsigned long pending;
- 	int hwirq;
- 	u32 emulated_pending;
- 
--	raw_spin_lock_irqsave(&hlwd->gpioc.bgpio_lock, flags);
--	pending = ioread32be(hlwd->regs + HW_GPIOB_INTFLAG);
--	pending &= ioread32be(hlwd->regs + HW_GPIOB_INTMASK);
-+	scoped_guard(gpio_generic_lock_irqsave, &hlwd->gpioc) {
-+		pending = ioread32be(hlwd->regs + HW_GPIOB_INTFLAG);
-+		pending &= ioread32be(hlwd->regs + HW_GPIOB_INTMASK);
- 
--	/* Treat interrupts due to edge trigger emulation separately */
--	emulated_pending = hlwd->edge_emulation & pending;
--	pending &= ~emulated_pending;
--	if (emulated_pending) {
--		u32 level, rising, falling;
-+		/* Treat interrupts due to edge trigger emulation separately */
-+		emulated_pending = hlwd->edge_emulation & pending;
-+		pending &= ~emulated_pending;
-+		if (emulated_pending) {
-+			u32 level, rising, falling;
- 
--		level = ioread32be(hlwd->regs + HW_GPIOB_INTLVL);
--		rising = level & emulated_pending;
--		falling = ~level & emulated_pending;
-+			level = ioread32be(hlwd->regs + HW_GPIOB_INTLVL);
-+			rising = level & emulated_pending;
-+			falling = ~level & emulated_pending;
- 
--		/* Invert the levels */
--		iowrite32be(level ^ emulated_pending,
--			    hlwd->regs + HW_GPIOB_INTLVL);
-+			/* Invert the levels */
-+			iowrite32be(level ^ emulated_pending,
-+				    hlwd->regs + HW_GPIOB_INTLVL);
- 
--		/* Ack all emulated-edge interrupts */
--		iowrite32be(emulated_pending, hlwd->regs + HW_GPIOB_INTFLAG);
-+			/* Ack all emulated-edge interrupts */
-+			iowrite32be(emulated_pending, hlwd->regs + HW_GPIOB_INTFLAG);
- 
--		/* Signal interrupts only on the correct edge */
--		rising &= hlwd->rising_edge;
--		falling &= hlwd->falling_edge;
-+			/* Signal interrupts only on the correct edge */
-+			rising &= hlwd->rising_edge;
-+			falling &= hlwd->falling_edge;
- 
--		/* Mark emulated interrupts as pending */
--		pending |= rising | falling;
-+			/* Mark emulated interrupts as pending */
-+			pending |= rising | falling;
-+		}
- 	}
--	raw_spin_unlock_irqrestore(&hlwd->gpioc.bgpio_lock, flags);
- 
- 	chained_irq_enter(chip, desc);
- 
- 	for_each_set_bit(hwirq, &pending, 32)
--		generic_handle_domain_irq(hlwd->gpioc.irq.domain, hwirq);
-+		generic_handle_domain_irq(hlwd->gpioc.gc.irq.domain, hwirq);
- 
- 	chained_irq_exit(chip, desc);
- }
-@@ -116,30 +116,29 @@ static void hlwd_gpio_irq_mask(struct irq_data *data)
+diff --git a/drivers/gpio/gpio-xgene-sb.c b/drivers/gpio/gpio-xgene-sb.c
+index c559a89aadf7a77bd9cce7e5a7d4a2b241307812..62545e358b6c4b1cab25e1135cb24ccc3e955078 100644
+--- a/drivers/gpio/gpio-xgene-sb.c
++++ b/drivers/gpio/gpio-xgene-sb.c
+@@ -63,14 +63,15 @@ struct xgene_gpio_sb {
+ static void xgene_gpio_set_bit(struct gpio_chip *gc,
+ 				void __iomem *reg, u32 gpio, int val)
  {
- 	struct hlwd_gpio *hlwd =
- 		gpiochip_get_data(irq_data_get_irq_chip_data(data));
--	unsigned long flags;
- 	u32 mask;
++	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
+ 	u32 data;
  
--	raw_spin_lock_irqsave(&hlwd->gpioc.bgpio_lock, flags);
--	mask = ioread32be(hlwd->regs + HW_GPIOB_INTMASK);
--	mask &= ~BIT(data->hwirq);
--	iowrite32be(mask, hlwd->regs + HW_GPIOB_INTMASK);
--	raw_spin_unlock_irqrestore(&hlwd->gpioc.bgpio_lock, flags);
--	gpiochip_disable_irq(&hlwd->gpioc, irqd_to_hwirq(data));
-+	scoped_guard(gpio_generic_lock_irqsave, &hlwd->gpioc) {
-+		mask = ioread32be(hlwd->regs + HW_GPIOB_INTMASK);
-+		mask &= ~BIT(data->hwirq);
-+		iowrite32be(mask, hlwd->regs + HW_GPIOB_INTMASK);
-+	}
-+	gpiochip_disable_irq(&hlwd->gpioc.gc, irqd_to_hwirq(data));
+-	data = gc->read_reg(reg);
++	data = gpio_generic_read_reg(chip, reg);
+ 	if (val)
+ 		data |= GPIO_MASK(gpio);
+ 	else
+ 		data &= ~GPIO_MASK(gpio);
+-	gc->write_reg(reg, data);
++	gpio_generic_write_reg(chip, reg, data);
  }
  
- static void hlwd_gpio_irq_unmask(struct irq_data *data)
- {
- 	struct hlwd_gpio *hlwd =
- 		gpiochip_get_data(irq_data_get_irq_chip_data(data));
--	unsigned long flags;
- 	u32 mask;
- 
--	gpiochip_enable_irq(&hlwd->gpioc, irqd_to_hwirq(data));
--	raw_spin_lock_irqsave(&hlwd->gpioc.bgpio_lock, flags);
-+	gpiochip_enable_irq(&hlwd->gpioc.gc, irqd_to_hwirq(data));
-+
-+	guard(gpio_generic_lock_irqsave)(&hlwd->gpioc);
-+
- 	mask = ioread32be(hlwd->regs + HW_GPIOB_INTMASK);
- 	mask |= BIT(data->hwirq);
- 	iowrite32be(mask, hlwd->regs + HW_GPIOB_INTMASK);
--	raw_spin_unlock_irqrestore(&hlwd->gpioc.bgpio_lock, flags);
- }
- 
- static void hlwd_gpio_irq_enable(struct irq_data *data)
-@@ -173,10 +172,9 @@ static int hlwd_gpio_irq_set_type(struct irq_data *data, unsigned int flow_type)
- {
- 	struct hlwd_gpio *hlwd =
- 		gpiochip_get_data(irq_data_get_irq_chip_data(data));
--	unsigned long flags;
- 	u32 level;
- 
--	raw_spin_lock_irqsave(&hlwd->gpioc.bgpio_lock, flags);
-+	guard(gpio_generic_lock_irqsave)(&hlwd->gpioc);
- 
- 	hlwd->edge_emulation &= ~BIT(data->hwirq);
- 
-@@ -197,11 +195,9 @@ static int hlwd_gpio_irq_set_type(struct irq_data *data, unsigned int flow_type)
- 		hlwd_gpio_irq_setup_emulation(hlwd, data->hwirq, flow_type);
- 		break;
- 	default:
--		raw_spin_unlock_irqrestore(&hlwd->gpioc.bgpio_lock, flags);
- 		return -EINVAL;
- 	}
- 
--	raw_spin_unlock_irqrestore(&hlwd->gpioc.bgpio_lock, flags);
- 	return 0;
- }
- 
-@@ -225,6 +221,7 @@ static const struct irq_chip hlwd_gpio_irq_chip = {
- 
- static int hlwd_gpio_probe(struct platform_device *pdev)
- {
-+	struct gpio_generic_chip_config config;
- 	struct hlwd_gpio *hlwd;
- 	u32 ngpios;
- 	int res;
-@@ -244,25 +241,31 @@ static int hlwd_gpio_probe(struct platform_device *pdev)
- 	 * systems where the AHBPROT memory firewall hasn't been configured to
- 	 * permit PPC access to HW_GPIO_*.
- 	 *
--	 * Note that this has to happen before bgpio_init reads the
--	 * HW_GPIOB_OUT and HW_GPIOB_DIR, because otherwise it reads the wrong
--	 * values.
-+	 * Note that this has to happen before gpio_generic_chip_init() reads
-+	 * the HW_GPIOB_OUT and HW_GPIOB_DIR, because otherwise it reads the
-+	 * wrong values.
- 	 */
- 	iowrite32be(0xffffffff, hlwd->regs + HW_GPIO_OWNER);
- 
--	res = bgpio_init(&hlwd->gpioc, &pdev->dev, 4,
--			hlwd->regs + HW_GPIOB_IN, hlwd->regs + HW_GPIOB_OUT,
--			NULL, hlwd->regs + HW_GPIOB_DIR, NULL,
--			BGPIOF_BIG_ENDIAN_BYTE_ORDER);
-+	config = (struct gpio_generic_chip_config) {
-+		.dev = &pdev->dev,
-+		.sz = 4,
-+		.dat = hlwd->regs + HW_GPIOB_IN,
-+		.set = hlwd->regs + HW_GPIOB_OUT,
-+		.dirout = hlwd->regs + HW_GPIOB_DIR,
-+		.flags = BGPIOF_BIG_ENDIAN_BYTE_ORDER,
-+	};
-+
-+	res = gpio_generic_chip_init(&hlwd->gpioc, &config);
- 	if (res < 0) {
--		dev_warn(&pdev->dev, "bgpio_init failed: %d\n", res);
-+		dev_warn(&pdev->dev, "failed to initialize generic GPIO chip: %d\n", res);
- 		return res;
- 	}
- 
- 	res = of_property_read_u32(pdev->dev.of_node, "ngpios", &ngpios);
- 	if (res)
- 		ngpios = 32;
--	hlwd->gpioc.ngpio = ngpios;
-+	hlwd->gpioc.gc.ngpio = ngpios;
- 
- 	/* Mask and ack all interrupts */
- 	iowrite32be(0, hlwd->regs + HW_GPIOB_INTMASK);
-@@ -282,7 +285,7 @@ static int hlwd_gpio_probe(struct platform_device *pdev)
- 			return hlwd->irq;
- 		}
- 
--		girq = &hlwd->gpioc.irq;
-+		girq = &hlwd->gpioc.gc.irq;
- 		gpio_irq_chip_set_chip(girq, &hlwd_gpio_irq_chip);
- 		girq->parent_handler = hlwd_gpio_irqhandler;
- 		girq->num_parents = 1;
-@@ -296,7 +299,7 @@ static int hlwd_gpio_probe(struct platform_device *pdev)
- 		girq->handler = handle_level_irq;
- 	}
- 
--	return devm_gpiochip_add_data(&pdev->dev, &hlwd->gpioc, hlwd);
-+	return devm_gpiochip_add_data(&pdev->dev, &hlwd->gpioc.gc, hlwd);
- }
- 
- static const struct of_device_id hlwd_gpio_match[] = {
+ static int xgene_gpio_sb_irq_set_type(struct irq_data *d, unsigned int type)
 
 -- 
 2.48.1
