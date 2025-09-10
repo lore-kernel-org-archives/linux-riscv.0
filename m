@@ -4,59 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B85CA101F
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 09:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99610CA101F
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 09:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E5jC2TDN90ab6U+4hdIXxwHnHZ8nYjCXXq+gDb1pR4s=; b=t8XqxwX2iqHrAf
-	48LAX6C+BcDvebYxMhU5mG3QRTPhTIsnnrZFovZhKs1tLZPhlVDDZJbONyj1QzYb6uNuCWvWLYLGs
-	lY2+ElLmlVjkqasHq/52skluXfrGZ7b+FDHu08Gs3S0YSPg9kASYterJ8COR8YhIQOtQ1GlNrTRV9
-	Pf6VKYwlxqHgHJ3N9zZSi5rzNH1XIzKiojmUUPMru+ro0/fYzHWfnBZGxknGWGdN8KCvcBmNXmY3t
-	ZyNdt2nLuHmLvL9XweSP7an+xFGJoQNvwtL2rY2T8m7zbneYvW+1MzI8NuTjKxHqd+gdm68nDylRj
-	Lo007DmMzjyAmDVd1wRw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=faNPE6e+MxIIInq/W6+M0f7kWrT7MhoIpfM1gFSOOkQ=; b=CfE0iYhUxpvBn6
+	olq/P2u2yuneRNJ4IDhww4A9wuZief6Yv05T2MolDzKd6ZCEZ/w6oyDZuQA9GPuxZQnvaAna8mAIV
+	/uEExNLmMcJi3OMcd7vybYfEQavc+qf0G+AIfsz/3XjSo7/Wz6FlqLLeETG/wOJoVfftlZBaDUxpf
+	HQHJjUQefVjdQUq7WpqJ1pUsfuEshETjxWolESu0b7T+/+jfCo77pJQoxJr4nu0Y8Pj1s5gVo6tZ3
+	wTfE5NaH0fONc0uXzPXHwngEve0CgScYtwzgfSnwTbmYbr0DFljrmrHiNcKWE/nKJBcU+fdxe6XtJ
+	hWuSilmCmHv8MHfsU2RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHDM-0000000DF0O-2Zfc;
-	Wed, 10 Sep 2025 09:34:08 +0000
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
+	id 1uwHXO-0000000DNHo-3ilR;
+	Wed, 10 Sep 2025 09:54:50 +0000
+Received: from out28-93.mail.aliyun.com ([115.124.28.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHDI-0000000DEyq-3efF
+	id 1uwHXK-0000000DNCt-3cpP
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Sep 2025 09:34:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1757496842; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=H6tZbk8xd14arH4x+y5nLcp4ATXMokGEomrYYieeMvA=;
-	b=gELJHgkci93cnWuBCIn2/Ojyd44punoVHsouC2auzIK68AuQhIf0DTg7U3u70a1svsjoA2ZMSHzBUCQ7KqynwPBxxMXaSOXtVRyPQBuuCvLAg6qi2x+48vcnurQZPGablakRoF8J6JN1Lkm6dbKvGvkKKhf5NS3LvTNaFyNoMOo=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WnhhBon_1757496838 cluster:ay36)
+	Wed, 10 Sep 2025 09:54:49 +0000
+Received: from LAPTOP-2KT3QRS7.localdomain(mailfrom:guoyaxing@bosc.ac.cn fp:SMTPD_---.ebuVOdW_1757498072 cluster:ay29)
           by smtp.aliyun-inc.com;
-          Wed, 10 Sep 2025 17:34:00 +0800
-From: Ruidong Tian <tianruidong@linux.alibaba.com>
-To: xueshuai@linux.alibaba.com,
-	palmer@dabbelt.com,
+          Wed, 10 Sep 2025 17:54:38 +0800
+From: Yaxing Guo <guoyaxing@bosc.ac.cn>
+To: linux-riscv@lists.infradead.org
+Cc: tjeznach@rivosinc.com,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
 	paul.walmsley@sifive.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org
-Cc: james.morse@arm.com,
-	tony.luck@intel.com,
-	cleger@rivosinc.com,
-	hchauhan@ventanamicro.com,
-	tianruidong@linux.alibaba.com
-Subject: [RFC PATCH 2/5] riscv: Define arch_apei_get_mem_attribute for RISC-V
-Date: Wed, 10 Sep 2025 17:33:44 +0800
-Message-Id: <20250910093347.75822-3-tianruidong@linux.alibaba.com>
-X-Mailer: git-send-email 2.33.1
-In-Reply-To: <20250910093347.75822-1-tianruidong@linux.alibaba.com>
-References: <20250910093347.75822-1-tianruidong@linux.alibaba.com>
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	Yaxing Guo <guoyaxing@bosc.ac.cn>
+Subject: [PATCH v1] riscv: iommu: Fix irq failure due to idx mismatch in icvec
+Date: Wed, 10 Sep 2025 17:54:30 +0800
+Message-Id: <20250910095430.93868-1-guoyaxing@bosc.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_023405_064780_F883C2D0 
-X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-CacheID: sfid-20250910_025447_069247_5A501228 
+X-CRM114-Status: UNSURE (   8.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,50 +66,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Himanshu Chauhan <hchauhan@ventanamicro.com>
+In icvec, the idx of civ, fiv, pmiv and piv are 0, 1, 2, 3
+(According to spec 5.27). And usually, the interrupt-names
+property in dts riscv-iommu node also follows this (In qemu
+virt machine follows this) which will cause hardware irq
+number errors (Especially when using qemu virt machine to
+start Linux).
 
-ghes_map function uses arch_apei_get_mem_attribute to get the
-protection bits for a given physical address. These protection
-bits are then used to map the physical address.
+By the way, should use interfaces such as platform_get_irq_byname
+to implement it further?
 
-Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
+Signed-off-by: Yaxing Guo <guoyaxing@bosc.ac.cn>
 ---
- arch/riscv/include/asm/acpi.h | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ drivers/iommu/riscv/iommu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-index 6e13695120bc..0c599452ef48 100644
---- a/arch/riscv/include/asm/acpi.h
-+++ b/arch/riscv/include/asm/acpi.h
-@@ -27,6 +27,26 @@ extern int acpi_disabled;
- extern int acpi_noirq;
- extern int acpi_pci_disabled;
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index 52d5e3d76019..00f11368bf24 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1583,8 +1583,8 @@ static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
+ 		return -EINVAL;
  
-+#ifdef	CONFIG_ACPI_APEI
-+/*
-+ * acpi_disable_cmcff is used in drivers/acpi/apei/hest.c for disabling
-+ * IA-32 Architecture Corrected Machine Check (CMC) Firmware-First mode
-+ * with a kernel command line parameter "acpi=nocmcoff". But we don't
-+ * have this IA-32 specific feature on ARM64, this definition is only
-+ * for compatibility.
-+ */
-+#define acpi_disable_cmcff 1
-+static inline pgprot_t arch_apei_get_mem_attribute(phys_addr_t addr)
-+{
-+	/*
-+	 * Until we have a way to look for EFI memory attributes.
-+	 */
-+	return PAGE_KERNEL;
-+}
-+#else /* CONFIG_ACPI_APEI */
-+#define acpi_disable_cmcff 0
-+#endif /* !CONFIG_ACPI_APEI */
-+
- static inline void disable_acpi(void)
- {
- 	acpi_disabled = 1;
+ 	iommu->icvec = FIELD_PREP(RISCV_IOMMU_ICVEC_FIV, 1 % iommu->irqs_count) |
+-		       FIELD_PREP(RISCV_IOMMU_ICVEC_PIV, 2 % iommu->irqs_count) |
+-		       FIELD_PREP(RISCV_IOMMU_ICVEC_PMIV, 3 % iommu->irqs_count);
++		       FIELD_PREP(RISCV_IOMMU_ICVEC_PIV, 3 % iommu->irqs_count) |
++		       FIELD_PREP(RISCV_IOMMU_ICVEC_PMIV, 2 % iommu->irqs_count);
+ 	riscv_iommu_writeq(iommu, RISCV_IOMMU_REG_ICVEC, iommu->icvec);
+ 	iommu->icvec = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_ICVEC);
+ 	if (max(max(FIELD_GET(RISCV_IOMMU_ICVEC_CIV, iommu->icvec),
 -- 
-2.43.7
+2.34.1
 
 
 _______________________________________________
