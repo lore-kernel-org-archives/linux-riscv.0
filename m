@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77ACCA0FED
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 14:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 535DACA101F
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 14:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h9h6GTwtUi+enUVRuWFOZfaGsftnmRcJpm9Cm5CTiQE=; b=1FZXjbE28++92YsVZpe7RxgdtN
-	lJmjnQiE9wbPJnYIe91KQBFHqWgw++dw6d9l/n6KTYcXgnDS1Pm983QWPeGPeDZlhTvGMT1JK3kyX
-	s2vb2mtcw158ISymrtMU+2ksl5mDl485+HwBmB1lrpfifq9oT0INFRjGe4jwLMwMHANKv1MENPYtp
-	ie/a3MRt9Sd3d9swA3sRCXawpdTCvhLZgsF0ZyeEUgV1GS6t1o9hvHCcXXEKqL7QNoXVQz1TWaRHX
-	TTlUCNQN4AHms2D5JJ32kYWh1mHaRKYut2TKx5PIa/hY4DRnwGA31SQ+LMfSDk9bBQfuYk4KieVnS
-	K1kFa45A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=iwmsaoMPMMxzLg0D/r0eWvHehIiCAXfaf9YPc/B9/z4=; b=sW0VCfpDuNDu8b
+	3bnHoEoK9UIt/mE99ylW1nlHZKqM0hAfcnfncJjP6/azkmi0m+nNaENNbsgp55dVN3DkX6QlxY9oA
+	oDp4qzU4BHQCfzSSNowOSNP8jNhLN7D1I22cvRUlXHpYGQV3NrzOVyPgXPasrHLu4j8l+Ehc+CHb4
+	XFQNHLWGsVesUgOD5LTa0dRv8VauMvp7jyDs5QttqPeGA3ouRnnglVC+TJmoEQi8zbfpNFT+2oIEI
+	jupNYbitbOQLOft7kShFuSxoKT3ixUxfrQQO2j/r4FlrclXzXdvxM4uKDasWCCmQJAzR1aAWMf+z6
+	vXi999jcicZ8nDWc1txw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLnF-0000000EhVQ-1G8d;
-	Wed, 10 Sep 2025 14:27:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uwLuU-0000000EkeQ-3nb3;
+	Wed, 10 Sep 2025 14:34:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwLnE-0000000EhUd-1dRK
+	id 1uwLuS-0000000EkdH-03Jq
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Sep 2025 14:27:28 +0000
+	Wed, 10 Sep 2025 14:34:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C1B0601AB;
-	Wed, 10 Sep 2025 14:27:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53A3DC4CEEB;
-	Wed, 10 Sep 2025 14:27:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A4BF344B97;
+	Wed, 10 Sep 2025 14:34:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EC15C4CEEB;
+	Wed, 10 Sep 2025 14:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757514447;
-	bh=5g5RBXhPqG8J7yMsN/VQOQGJMxPjWBvVy7aoWO0AUds=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VgVuC69I2qrVBPMfqkgTTLxAyUIuw76pJEbQ38ySGUovDRmI8lPGgl9VOtjd0N5ef
-	 ijzr+reZCZmyXh7jK3TI9w4LOjsS70ahUFH/iBSe6PJP3ZV14vJZy5OGTn2wdxqYgY
-	 JWJeQGDYoyH2qG2JTGXF5R7IYQXN/PC7+0AbzzqLmgxIvN/YzpsxHWzo+4zhGXAt5r
-	 riklA7PCu75l3QKjY2ueNesmDrZRW76jCTBEXlAFmyqVW1DWdi+Dv5cA3FFMgvg8Ps
-	 I7IhPyT7ZSQpELg1/N13ETsNErDw67UnFcc5RPVjsxCAHEMp/hh7teC8KDfrpj5FOR
-	 m8Lmz6j7BcKkA==
-Date: Wed, 10 Sep 2025 15:27:19 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Asuna Yang <spriteovo@gmail.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Han Gao <rabenda.cn@gmail.com>, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v2] RISC-V: re-enable gcc + rust builds
-Message-ID: <20250910-harmless-bamboo-ebc94758fdad@spud>
-References: <20250909-gcc-rust-v2-v2-1-35e086b1b255@gmail.com>
+	s=k20201202; t=1757514895;
+	bh=xjYSrTXZn2L7+z07HiLOzSt4wzGMOD/saMQb5WcdX3g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=mZTfNxdGDMJd16WavKni+yoqXTP+Gqz+lZsuuz8ArGJqWcu6LJwJRCqTuoIUbslaE
+	 JnpLpbgvTq1pjFCqt0go3f9iie1Zra0iWRO/JZ7oPMJWklYQvadpBCMljKdoIPsF5c
+	 j4s0+KMvmJlXyTpdssMKAkAr3mMGnu4RTTG8kAUragSTGUiB7jOyzuOHIjbIf2+3T4
+	 ZKrWUFvMSZOAM6TjiMJMzdXFl/xMZ8XFHSTRSoWUuCIOY7Fklzhx3ztXMrHL3UFBcn
+	 LGLe3ccIU7axC27rvLrRU3mgxEA4Td88GFTAgYWVGy/xI5Rki/AskwMkkhpwKGA2uj
+	 MqUIlPR9qXMaQ==
+Date: Wed, 10 Sep 2025 09:34:53 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: kwilczynski@kernel.org, u.kleine-koenig@baylibre.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, arnd@arndb.de,
+	bwawrzyn@cisco.com, bhelgaas@google.com, unicorn_wang@outlook.com,
+	conor+dt@kernel.org, 18255117159@163.com, inochiama@gmail.com,
+	kishon@kernel.org, krzk+dt@kernel.org, lpieralisi@kernel.org,
+	mani@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
+	robh@kernel.org, s-vadapalli@ti.com, tglx@linutronix.de,
+	thomas.richard@bootlin.com, sycamoremoon376@gmail.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+	sophgo@lists.linux.dev, rabenda.cn@gmail.com, chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com
+Subject: Re: [PATCH v2 3/7] PCI: sg2042: Add Sophgo SG2042 PCIe driver
+Message-ID: <20250910143453.GA1533730@bhelgaas>
 MIME-Version: 1.0
-In-Reply-To: <20250909-gcc-rust-v2-v2-1-35e086b1b255@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <162d064228261ccd0bf9313a20288e510912effd.1757467895.git.unicorn_wang@outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250910_073456_071392_13608DF0 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,137 +77,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7677788667914468772=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 10, 2025 at 10:08:39AM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+> 
+> Add support for PCIe controller in SG2042 SoC. The controller
+> uses the Cadence PCIe core programmed by pcie-cadence*.c. The
+> PCIe controller will work in host mode only, supporting data
+> rate(gen4) and lanes(x16 or x8).
 
---===============7677788667914468772==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="9LQSzFz/Ck3gJsLT"
-Content-Disposition: inline
-
-
---9LQSzFz/Ck3gJsLT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Sep 09, 2025 at 06:53:11PM +0200, Asuna Yang wrote:
-> Commit 33549fcf37ec ("RISC-V: disallow gcc + rust builds") disabled GCC
-> + Rust builds for RISC-V due to differences in extension handling
-> compared to LLVM.
->=20
-> Add a Kconfig symbol to indicate the version of libclang used by Rust
-> bindgen and add conditions for the availability of libclang to the
-> RISC-V extension Kconfig symbols that depend on the cc-option function.
->=20
-> For Zicsr/Zifencei special handling, since LLVM/Clang always enables
-> these two extensions, either don't pass them to -march, or pass them
-> explicitly and Rust bindgen libclang must recognize them.
->=20
-> Clang does not support -mno-riscv-attribute flag, filter it out to
-> resolve error: unknown argument: '-mno-riscv-attribute'.
->=20
-> Define BINDGEN_TARGET_riscv to pass the target triplet to Rust bindgen
-> libclang for RISC-V to resolve error: unsupported argument 'medany' to
-> option '-mcmodel=3D' for target 'unknown'. Improve to output a clearer
-> error message if the target triplet is undefined for Rust bindgen
-> libclang.
->=20
-> Update the documentation, GCC + Rust builds are now supported.
->=20
-> ---
-
-FWIW, this --- breaks git, and anything after this line (including your
-signoff) is lost when the patch is applied.
-
-> Discussion:
-> https://lore.kernel.org/linux-riscv/68496eed-b5a4-4739-8d84-dcc428a08e20@=
-gmail.com/
-> Patch v1:
-> https://lore.kernel.org/linux-riscv/20250903190806.2604757-1-SpriteOvO@gm=
-ail.com/
->=20
-> GCC + Rust builds for RISC-V are disabled about a year ago due to differe=
-nces in
-> extension handling compared to LLVM, as discussed in
-> https://lore.kernel.org/all/20240917000848.720765-1-jmontleo@redhat.com/
->=20
-> This patch re-enables GCC + Rust builds. Compared to v1, v2 reverts the
-> separation of get-rust-bindgen-libclang script and improves Kconfig condi=
-tions
-> based on Conor's review.
->=20
-> The separation of get-rust-bindgen-libclang script is reverted based on t=
-he
-> concerns raised by Miguel. However, it's worth noting that we now have 3
-> different places rust/Makefile scripts/{Kconfig.include,rust_is_avilable.=
-sh}
-> where manually calling bindgen rust_is_available_bindgen_libclang.h + sed=
- to get
-> the version of libclang, and in particular, for our newly added Kconfig s=
-ymbol,
-> we now use awk to canonicalize the version to an integer. I would still l=
-ike to
-> do the script separation later for better maintainability and readability=
- if
-> possible, which can be discussed further later when Miguel has time.
->=20
-> Signed-off-by: Asuna Yang <SpriteOvO@gmail.com>
-
-> diff --git a/init/Kconfig b/init/Kconfig
-> index e3eb63eadc8757a10b091c74bbee8008278c0521..0859d308a48591df769c7dbae=
-f6f035324892bd3 100644
-> --- a/init/Kconfig
-> +++ b/init/Kconfig
-> @@ -82,6 +82,12 @@ config RUSTC_LLVM_VERSION
->  	int
->  	default $(rustc-llvm-version)
-> =20
-> +config RUST_BINDGEN_LIBCLANG_VERSION
-> +	int
-> +	default $(rustc-bindgen-libclang-version)
-> +	help
-> +	  This is the version of `libclang` used by the Rust bindings generator.
-
-The riscv patchwork CI stuff is really unhappy with this change:
-init/Kconfig:87: syntax error
-init/Kconfig:87: invalid statement
-init/Kconfig:88: invalid statement
-init/Kconfig:89:warning: ignoring unsupported character '`'
-init/Kconfig:89:warning: ignoring unsupported character '`'
-init/Kconfig:89:warning: ignoring unsupported character '.'
-init/Kconfig:89: unknown statement "This"
-
-Is this bogus, or can rustc-bindgen-libclang-version return nothing
-under some conditions where rust is not available?
-Should this have 2 default lines like some other options in the file?
-
---9LQSzFz/Ck3gJsLT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMGKxwAKCRB4tDGHoIJi
-0i95AQCss36HRy+RsBlpl62gIPI85+hygKJh0GXl428sU0nQ8AEA2u/2TAxBFT7L
-YIW9Fn96HjUF3TjlXvi7128E1IzngQg=
-=mZl4
------END PGP SIGNATURE-----
-
---9LQSzFz/Ck3gJsLT--
-
-
---===============7677788667914468772==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Strictly speaking, "gen4" is a spec revision, not a data rate.
+Include the GT/s rate instead or in addition.  We can fix this when
+merging if there's no other reason to repost (I assume you mean 16
+GT/s).  Will also add spaces before the open "(".
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7677788667914468772==--
-
