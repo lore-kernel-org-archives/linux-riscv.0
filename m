@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D81CAC582
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 02:08:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C79CACA0FED
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 02:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bc4dkKMTWLUPElngXhsK0BmePit2AoQPoDJDN5dL7j0=; b=oi0mM+beHuN5F3
-	d78oTAkzu6NGWer+/ynYbSiHiExbeJsZ8cBvothIbfEzqAbb1ZWAWpyC52+BVvHt4N2b0B410kFdn
-	cIwx362wJoc8cWhF90AioefxeWelt8aEIiL0vgn8I0/NbrWoVoKSVYUveYWLrTyH1iiePY1dBcPvP
-	fHY+l+Wpr1EbVC64SMGe28Hmjbft73yhLzHlL/a6gtqbFjgeb2i11zLMm07htfr0dghFjlaMa8Qev
-	lzcL82DS1ydt1dhGJL7N0Q55CgQyf9BuJI9nMEpB43MmSsjTc01GrYAe+4QuTiVNrttk56yui/+Vo
-	QPSXx4anfmPEZdWWQbVQ==;
+	List-Owner; bh=YodvcwUp8OjhGGecQ19966Vin1lYrEOUhbO70/rZoZw=; b=K+m8ulectm3TMY
+	3X+je8TqUcrz8aSEdq7NmqW/hJVkU3GPRh1nnbzVO7JBMidfhGBgRZHFBIUpgJ3NMPF2zOpfVsBce
+	PCZuzOo/7k15BIUZKnQQY/o9Z6IsBn5uoG8tL3bhoy7jZ8a5PYNlB/eACOeFSeNC2I62YGX0e5YFC
+	Ywq9KrugtIFFMZ56jjKacq9GtpPwidQQqYQy+oQRmEg33tG4BCjVjsmPgd7hdvZsuKkYCuFGTQCX7
+	toJdIGUQ3RVduDDzBi9vSvuGIXjxVQxTuQmi2GjZQB0QViMNSpey88uWcBHocZgWy8GIBcr4kOdX9
+	VAbSlRfw13+zC0MCOTzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwAFn-0000000Bb6i-2A2d;
-	Wed, 10 Sep 2025 02:08:11 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1uwAG6-0000000BbHD-3TNh;
+	Wed, 10 Sep 2025 02:08:30 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwAFk-0000000Bb4W-2OCz
+	id 1uwAG4-0000000BbGE-1zgd
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Sep 2025 02:08:09 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-7240eb21ccaso2072366d6.0
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Sep 2025 19:08:08 -0700 (PDT)
+	Wed, 10 Sep 2025 02:08:29 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4b5e88d9994so43646971cf.1
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Sep 2025 19:08:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757470087; x=1758074887; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757470107; x=1758074907; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0XFM07Z5n/PQZ1U15JfmMTCdL390KHJnWHFIuZFK96s=;
-        b=QsO8TT4mMU56rbvr1egPimuaz2FlMPOi9jMIQkj3rDzZW3iE7e7wZ8q2aIUWlzIbrG
-         5bH7QZkUVNRMTznRg8xc2iOQfvKdcWOE8vLWnNywIJHqvyND2kgr2h6wniRcWyHs1+rc
-         FPDQpLRuqYwvJxPyg8LKcyKLqM33qRTCFPD8YRXjKuZdJHvjnT6VciUDv8w1lq7YRPb8
-         0xjHSsvFQvMGwk+PP2Fj4Kh0Iv7ONxOvOaxuldpYwI5tFjmRH6gCSHmOh4Zw0hs90AV0
-         u9S/DdvpxJkfladuvBxyAOOemazjLGyPNdY+iHcVtLtU7FA7tYK3NVJ8o7zWUdQLAUti
-         CplA==
+        bh=ufI02VTMyX7sTfBD7Jn/jEH2YUmO7DVAO0QyMj+WG88=;
+        b=HdCf75+BMQjLd/yTqca9WuXCZECAW4wdktabvA6f4hgUNOBdGa+amd4lEpZZuqY6DK
+         wKA/M3KBkjREV4ZA2lYdQ81rmh+G5yNi/8wT2HmO/PlOklPba8fkz1nVG9cIjmGati7x
+         44MVSBB6gyd0YdibuPF0GLEB2S9kqapFEXMQ5YeYqmqdkWYJBUffmqbSBr/SMmF/K/+i
+         1CADvx8YElTW9XUMnj/Vm+R5CY/6JdtF+H34MkyRterZCILAkDzJI5XBkLnZXMb6a6sB
+         aKmfkGQEWw/zoD2t9ySTC5vdwPNeuRtvCN2hosGuJXGmLb5+3TB5LvK3VxYMvF8VIj5P
+         Hfyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757470087; x=1758074887;
+        d=1e100.net; s=20230601; t=1757470107; x=1758074907;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0XFM07Z5n/PQZ1U15JfmMTCdL390KHJnWHFIuZFK96s=;
-        b=Os73V2sYJdiEStXD6ojLROL7hT9s0MKP3xVc61wYo+eiTLoEr8yFnAEBZX6Jc5JLUS
-         NfN+9XpJpz9kYW1x7lnhkz6minOQzKZwVORR3hG3Ri2KwzSBGw8g3AhmhEePWsSYno+u
-         GjrHQc7RV+D3NYECKCdeauO7xB0RMDdzUDwScouIXiemYAnHsJgvFYw9D6ick8JHcp9P
-         HRpQMchiNKg/b7h4dbMyCntchAF/xK6e5UbBgz1BXJzVCKOQPeHjJ7v98oPVgA5mqlba
-         s06z4lqf13SNVz3RrCkzAUwN2ynjfOhnnFjE3CGNigB3CLOTMOfFQAS90MIMT3F29ixB
-         Wk1g==
-X-Forwarded-Encrypted: i=1; AJvYcCXVunuaA0tFntnpnpgwO0jB+Y/cGk/nY/dCw/D7YjaHPPBWzvLQ9rsG+diS9f8UVnZgRAjTNEehtveKKw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YymfgvN2sGvQTp8njHlyPxPnemKpmL3yslRvh4PKrWoS+1Z79yU
-	D09mXvTnVLW8pX3flLY3/5c4xhKYpp6WA2xjU9IT1GO75+sucwLkHfMr
-X-Gm-Gg: ASbGnct0z43k7Cor0etZ413Z3C4ZbnlVGvyigizCpzm0D0X2cUL4r1ZmYkQnBFOOqWs
-	LlhuYWwhVOEs7pOaGB+5Y8/K5NgJIGjQmsW1eHKUCT9oFIAp9MhFWwT97AobEoiRVpIgscuYyd+
-	lUGef5ZQbsCVD/0vCFt/q97mjDI4vNcbEqeyKY+EEzKQYolBvIkO7pzhbQ3H+FPJdz7yA84aUco
-	9A6lG1B22MgkFDoMWwUPd8PPVP8bygx/8zB1myuJfTmzxp5GL0VClj1zkkHW/FoPkIckqJy0qgd
-	jxL0YMjHGgZaZ8cB/hJkITGnOTNkhyWiIxzmd3nk20tMFw4DnUxBHK+zEBEGYssV/U0/IGLy88H
-	hE7QU608VgVQCJGS1GsjD/fIBBfJYl3M16WSRUacaJFvfS+8YGYGzjQ==
-X-Google-Smtp-Source: AGHT+IGNC8sHtACh6gI+vt2l2BTS2R0uh7vi8B+8jgdFE32SPqkIaSaf1sgwm1dD4KthnaDiWgRQyw==
-X-Received: by 2002:a0c:f096:0:20b0:71f:b221:9aa9 with SMTP id 6a1803df08f44-73a3dbf58a3mr135461976d6.29.1757470087200;
-        Tue, 09 Sep 2025 19:08:07 -0700 (PDT)
+        bh=ufI02VTMyX7sTfBD7Jn/jEH2YUmO7DVAO0QyMj+WG88=;
+        b=vZ9e6R/LxE209/VsIFo8Ai0d2NH8H0dEjElWqI3QIbTiYOVdk8lL8+ikykDiJ8MiPk
+         Lh6Ku2GT7BT/mV9Unr9rsqBSNY0lNYYmxUrbS8eVEI7XViDGpESh+XSSYs3HpV/cndyD
+         1t9LwxQbqskLNGbTQ5A1Cpsamp5qADlBarqMMs2NYecYCyfpbQ9wHd3+0bu+hvZFuiHD
+         bm1QGEPIX1vxRIAg4c5z4MgSVrvIcdXeey5kDzdmIXoaJMiXNBTGz6qCEuGwjsFrU7ve
+         S/vJrdH/drQafT7QOLM2GRSPF4ULOT7hdJs7L96vlwMfVvBUprYODoUiGJ65SYzJfOn0
+         5Oew==
+X-Forwarded-Encrypted: i=1; AJvYcCVu20Riloy4R47J3u5rHYRkAf2ZqBII1cm0msXy3InTduNQ9SyBmQj/D5ZcrlVV3Us3VTUgLfcRBrusmA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP6iIgrH9GFSAAkinH7wkjit2P+G9NjaE5lXtSCyAza+QofrDt
+	vbECt4onVuMhWHjyX8J8gZG+Zaw7ezy2MgWxWlVox+IiLl2hnm0Bn+Dc
+X-Gm-Gg: ASbGncvYV8rJCYwdQYwZRRvgdxjUuLR2Q6KOIIM212u708BEpk41xgec8lU+ujVPtGE
+	/Rspz6ypGvwMjA2kNgLenYzvh9gzxGcLn0E6c77bYK1O0uj2tLDjDtgnf6fBOtefWo3Rh7R5LEo
+	4X7CtNHO+hHq2HPQ4Z0oz4iGxqK5y+qpEQiBD8b+C/tymYouBCnd2U6UK6Zlupuefi3qnVKoDGH
+	HlwCSmmhWLoT6AgwbsE3lPY3IWQgiFFi7w4B5nUdNcSfty3oTtEbZFoKKy/WeeynS/wTTrE4nKl
+	PlCkw93LSKadnFVqSPNJnthXihs6ufRsy1Jd3FiZIowXzssFrQr0d66/9X0527W4xRlnHBpeMZH
+	HwdkVMVItnpu8aKXqy6O8KGd4979gfyQlJ/u752cVEec=
+X-Google-Smtp-Source: AGHT+IF9QL0BSm2MkcIQqxgCM1KsqBHMb+NHGINqAC5fWDSx6gqC8dNQv1p+5MAyDgt2C/yVUIW7Kw==
+X-Received: by 2002:a05:622a:40cf:b0:4b3:709d:1f1f with SMTP id d75a77b69052e-4b5f8490899mr154710911cf.75.1757470106975;
+        Tue, 09 Sep 2025 19:08:26 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-728d6f8b338sm119377366d6.0.2025.09.09.19.08.04
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b61ba871e4sm17265451cf.14.2025.09.09.19.08.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 19:08:06 -0700 (PDT)
+        Tue, 09 Sep 2025 19:08:26 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 To: kwilczynski@kernel.org,
 	u.kleine-koenig@baylibre.com,
@@ -101,16 +101,16 @@ To: kwilczynski@kernel.org,
 	chao.wei@sophgo.com,
 	xiaoguang.xing@sophgo.com,
 	fengchun.li@sophgo.com
-Subject: [PATCH v2 1/7] dt-bindings: pci: Add Sophgo SG2042 PCIe host
-Date: Wed, 10 Sep 2025 10:07:57 +0800
-Message-Id: <2755f145755b6096247c26852b63671a6fea4dbf.1757467895.git.unicorn_wang@outlook.com>
+Subject: [PATCH v2 2/7] PCI: cadence: Check pcie-ops before using it.
+Date: Wed, 10 Sep 2025 10:08:16 +0800
+Message-Id: <18aba25b853d00caf10cc784093c0b91fdc1747d.1757467895.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1757467895.git.unicorn_wang@outlook.com>
 References: <cover.1757467895.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_190808_621404_8265435F 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20250909_190828_524364_1DB404CE 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,85 +129,83 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Add binding for Sophgo SG2042 PCIe host controller.
+ops of struct cdns_pcie may be NULL, direct use
+will result in a null pointer error.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Add checking of pcie->ops before using it for new
+driver that may not supply pcie->ops.
+
 Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- .../bindings/pci/sophgo,sg2042-pcie-host.yaml | 64 +++++++++++++++++++
- 1 file changed, 64 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+ drivers/pci/controller/cadence/pcie-cadence-host.c | 2 +-
+ drivers/pci/controller/cadence/pcie-cadence.c      | 4 ++--
+ drivers/pci/controller/cadence/pcie-cadence.h      | 6 +++---
+ 3 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml b/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
-new file mode 100644
-index 000000000000..f8b7ca57fff1
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
-@@ -0,0 +1,64 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/sophgo,sg2042-pcie-host.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Sophgo SG2042 PCIe Host (Cadence PCIe Wrapper)
-+
-+description:
-+  Sophgo SG2042 PCIe host controller is based on the Cadence PCIe core.
-+
-+maintainers:
-+  - Chen Wang <unicorn_wang@outlook.com>
-+
-+properties:
-+  compatible:
-+    const: sophgo,sg2042-pcie-host
-+
-+  reg:
-+    maxItems: 2
-+
-+  reg-names:
-+    items:
-+      - const: reg
-+      - const: cfg
-+
-+  vendor-id:
-+    const: 0x1f1c
-+
-+  device-id:
-+    const: 0x2042
-+
-+  msi-parent: true
-+
-+allOf:
-+  - $ref: cdns-pcie-host.yaml#
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    pcie@62000000 {
-+      compatible = "sophgo,sg2042-pcie-host";
-+      device_type = "pci";
-+      reg = <0x62000000  0x00800000>,
-+            <0x48000000  0x00001000>;
-+      reg-names = "reg", "cfg";
-+      #address-cells = <3>;
-+      #size-cells = <2>;
-+      ranges = <0x81000000 0 0x00000000 0xde000000 0 0x00010000>,
-+               <0x82000000 0 0xd0400000 0xd0400000 0 0x0d000000>;
-+      bus-range = <0x00 0xff>;
-+      vendor-id = <0x1f1c>;
-+      device-id = <0x2042>;
-+      cdns,no-bar-match-nbits = <48>;
-+      msi-parent = <&msi>;
-+    };
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
+index 59a4631de79f..fffd63d6665e 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-host.c
++++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
+@@ -531,7 +531,7 @@ static int cdns_pcie_host_init_address_translation(struct cdns_pcie_rc *rc)
+ 	cdns_pcie_writel(pcie, CDNS_PCIE_AT_OB_REGION_PCI_ADDR1(0), addr1);
+ 	cdns_pcie_writel(pcie, CDNS_PCIE_AT_OB_REGION_DESC1(0), desc1);
+ 
+-	if (pcie->ops->cpu_addr_fixup)
++	if (pcie->ops && pcie->ops->cpu_addr_fixup)
+ 		cpu_addr = pcie->ops->cpu_addr_fixup(pcie, cpu_addr);
+ 
+ 	addr0 = CDNS_PCIE_AT_OB_REGION_CPU_ADDR0_NBITS(12) |
+diff --git a/drivers/pci/controller/cadence/pcie-cadence.c b/drivers/pci/controller/cadence/pcie-cadence.c
+index 70a19573440e..61806bbd8aa3 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence.c
++++ b/drivers/pci/controller/cadence/pcie-cadence.c
+@@ -92,7 +92,7 @@ void cdns_pcie_set_outbound_region(struct cdns_pcie *pcie, u8 busnr, u8 fn,
+ 	cdns_pcie_writel(pcie, CDNS_PCIE_AT_OB_REGION_DESC1(r), desc1);
+ 
+ 	/* Set the CPU address */
+-	if (pcie->ops->cpu_addr_fixup)
++	if (pcie->ops && pcie->ops->cpu_addr_fixup)
+ 		cpu_addr = pcie->ops->cpu_addr_fixup(pcie, cpu_addr);
+ 
+ 	addr0 = CDNS_PCIE_AT_OB_REGION_CPU_ADDR0_NBITS(nbits) |
+@@ -123,7 +123,7 @@ void cdns_pcie_set_outbound_region_for_normal_msg(struct cdns_pcie *pcie,
+ 	}
+ 
+ 	/* Set the CPU address */
+-	if (pcie->ops->cpu_addr_fixup)
++	if (pcie->ops && pcie->ops->cpu_addr_fixup)
+ 		cpu_addr = pcie->ops->cpu_addr_fixup(pcie, cpu_addr);
+ 
+ 	addr0 = CDNS_PCIE_AT_OB_REGION_CPU_ADDR0_NBITS(17) |
+diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
+index 1d81c4bf6c6d..2f07ba661bda 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence.h
++++ b/drivers/pci/controller/cadence/pcie-cadence.h
+@@ -468,7 +468,7 @@ static inline u32 cdns_pcie_ep_fn_readl(struct cdns_pcie *pcie, u8 fn, u32 reg)
+ 
+ static inline int cdns_pcie_start_link(struct cdns_pcie *pcie)
+ {
+-	if (pcie->ops->start_link)
++	if (pcie->ops && pcie->ops->start_link)
+ 		return pcie->ops->start_link(pcie);
+ 
+ 	return 0;
+@@ -476,13 +476,13 @@ static inline int cdns_pcie_start_link(struct cdns_pcie *pcie)
+ 
+ static inline void cdns_pcie_stop_link(struct cdns_pcie *pcie)
+ {
+-	if (pcie->ops->stop_link)
++	if (pcie->ops && pcie->ops->stop_link)
+ 		pcie->ops->stop_link(pcie);
+ }
+ 
+ static inline bool cdns_pcie_link_up(struct cdns_pcie *pcie)
+ {
+-	if (pcie->ops->link_up)
++	if (pcie->ops && pcie->ops->link_up)
+ 		return pcie->ops->link_up(pcie);
+ 
+ 	return true;
 -- 
 2.34.1
 
