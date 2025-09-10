@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5FCCA0FED
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 09:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0997CAC587
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 09:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HQdPEQ2+Zt6MARJZNzilIkq2n2P3YBb5Wk0C/X7DreU=; b=0RFNcPJiyaGUzO
-	7Xj2xOZJdogo8iTAtpNA429/4RdQ8OdZdm99H64TO+ZxaFfYzWK8AuQUxIAjlOsSdaKe++uqh4dNT
-	sA0zi32Op4gfcP/eB2Tcut3TCaUB6mpY0knEeHeDDZEsK1JkyZJAW8ZTcwkqdEvhcvu+nnahHlp5o
-	kif+B5t+Ln5cQfdCXnZV7YjKvCDEegUwn0AaaTKJVlgp8r6xGl0ZK797xPJQeA1ZkpiayM51BypLx
-	ERqLgW3cdF34MozoHIdbNFYtJSIKGIx4xR+eT8iLqaqYyox117lKxidU/I2YMhv60MitMXYDCj/XI
-	LjBnThV4R60a54z4aSiA==;
+	List-Owner; bh=WqRxmIONGwWi4WvQQxBxt8Ale5tnseQnwfZH3fOJ9lQ=; b=bSr7+zAQhOXDbp
+	A6SRG4/0d1bwe26z2YE63YyidEMhPGvt+GC6rpkkdNiOhDtsZ1zi2JwcH711HOSnNjoR+l1G96mLE
+	HRsLYAceM+wPhrdkSUCXnCfeZUEoY5McUZ4X2r6RHK20fjWNc8HQWqbuJrSdJMEiKh3YWOiPCJ9ap
+	EHaeaV/dDWEjG6Zq6NKAVtG/P5/0yFpESnI1WKxIS5uqc0NZJrSicHwqPy8wpYQ5fRhC8rwzRpgXM
+	PAm8/sOY5L91bAFKihwHFrMxgYz1NIyho9S9r7FGfg22RzyAgL3k1epULl1WXApoqEQIqZUzWY4KT
+	b/obocbcr6tBV0Q82uOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHDK-0000000DEzZ-1MMI;
-	Wed, 10 Sep 2025 09:34:06 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1uwHDW-0000000DF4A-2Hpk;
+	Wed, 10 Sep 2025 09:34:18 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHDF-0000000DEw1-2u3J
+	id 1uwHDT-0000000DF2l-3k3v
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Sep 2025 09:34:04 +0000
+	Wed, 10 Sep 2025 09:34:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1757496837; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=CkbLKay4KW6gGBpr5vlMMMrvH8ODs320iGf0xAuSytA=;
-	b=bS4ZskhUIoMWdABONmhGdNOClVMn4KKWzS0XzjgIFrcerC+M7s/CZO6vSXvVysq9W4fZYKJXGUPFMw+3JJ4elRAXZqENBoVbQ7u2V1i/1lw+XdRVC+MiF7bouVFmP4j4qfd978bf0iOP1pa96dM6iRYIkADqu0GmbyEjCYy/0Rw=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WnhhBo9_1757496834 cluster:ay36)
+	t=1757496853; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=CxOpiotR3/TBBHbw/zXSnCu06zXOVHPuSixUgLaNya4=;
+	b=ty2WBiMULegD1S7qvJw/bXQZDV7HJ/q64rOCmdSA6jY6ahB3d51uYvMv2mIMvhHrd+FPnqHAqVdxBnMXjvj8NZawQS9QcC6B0P3Z+FVUtmkpj7pk4u9D1uz4Fm0fWWZRVb7DseDGEz11/l6i3XWTsK44q1Gbne7Z05o8AIbffpg=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0Wnhbz2M_1757496849 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Wed, 10 Sep 2025 17:33:56 +0800
+          Wed, 10 Sep 2025 17:34:12 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: xueshuai@linux.alibaba.com,
 	palmer@dabbelt.com,
@@ -47,17 +47,16 @@ Cc: james.morse@arm.com,
 	cleger@rivosinc.com,
 	hchauhan@ventanamicro.com,
 	tianruidong@linux.alibaba.com
-Subject: [RFC PATCH 1/5] riscv: Define ioremap_cache for RISC-V
-Date: Wed, 10 Sep 2025 17:33:43 +0800
-Message-Id: <20250910093347.75822-2-tianruidong@linux.alibaba.com>
+Subject: [RFC PATCH 5/5] riscv: Add Hardware Error Exception trap handler
+Date: Wed, 10 Sep 2025 17:33:47 +0800
+Message-Id: <20250910093347.75822-6-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20250910093347.75822-1-tianruidong@linux.alibaba.com>
 References: <20250910093347.75822-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_023402_174018_509B118C 
-X-CRM114-Status: UNSURE (   7.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250910_023416_098108_E8499C34 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +73,168 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Himanshu Chauhan <hchauhan@ventanamicro.com>
+Implement the Hardware Error Exception trap handler for RISC-V architecture
+synchronous hardware error handling. This enables the OS to receive
+hardware error notifications from firmware through the standardized ACPI
+HEST (Hardware Error Source Table) interface.
 
-bert and einj drivers use ioremap_cache for mapping entries
-but ioremap_cache is not defined for RISC-V.
+The implementation includes:
+- A new exception vector entry for Hardware Error Exceptio
+- A trap handler (do_trap_hardware_error) that processes hardware errors
+  in both kernel(panic now) and user modes(SIGBUS)
+- Integration with APEI GHES (Generic Hardware Error Source) to report
+  hardware errors from firmware
 
-Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
+This change enables RISC-V systems with ACPI to handle synchronous
+hardware errors in a firmware-first manner.
+
+Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- arch/riscv/include/asm/io.h | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/riscv/include/asm/acpi.h |  2 ++
+ arch/riscv/kernel/acpi.c      | 55 +++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/entry.S     |  4 +++
+ arch/riscv/kernel/traps.c     | 19 ++++++++++++
+ 4 files changed, 80 insertions(+)
 
-diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
-index a0e51840b9db..56eca6b3031f 100644
---- a/arch/riscv/include/asm/io.h
-+++ b/arch/riscv/include/asm/io.h
-@@ -30,6 +30,9 @@
- #define PCI_IOBASE		((void __iomem *)PCI_IO_START)
- #endif /* CONFIG_MMU */
+diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+index 0c599452ef48..ae861885b97d 100644
+--- a/arch/riscv/include/asm/acpi.h
++++ b/arch/riscv/include/asm/acpi.h
+@@ -91,6 +91,7 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,
  
-+#define ioremap_cache(addr, size)					\
-+	((__force void *)ioremap_prot((addr), (size), __pgprot(_PAGE_KERNEL)))
+ void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
+ 			     u32 *cboz_size, u32 *cbop_size);
++int apei_claim_hee(struct pt_regs *regs);
+ #else
+ static inline void acpi_init_rintc_map(void) { }
+ static inline struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
+@@ -108,6 +109,7 @@ static inline void acpi_get_cbo_block_size(struct acpi_table_header *table,
+ 					   u32 *cbom_size, u32 *cboz_size,
+ 					   u32 *cbop_size) { }
+ 
++static inline int apei_claim_hee(struct pt_regs *regs) { return -ENOENT; }
+ #endif /* CONFIG_ACPI */
+ 
+ #ifdef CONFIG_ACPI_NUMA
+diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
+index 3f6d5a6789e8..928f9474bfee 100644
+--- a/arch/riscv/kernel/acpi.c
++++ b/arch/riscv/kernel/acpi.c
+@@ -20,6 +20,11 @@
+ #include <linux/of_fdt.h>
+ #include <linux/pci.h>
+ #include <linux/serial_core.h>
++#include <linux/efi.h>
++#include <linux/irq_work.h>
++#include <linux/nmi.h>
++#include <acpi/ghes.h>
++#include <asm/csr.h>
+ 
+ int acpi_noirq = 1;		/* skip ACPI IRQ initialization */
+ int acpi_disabled = 1;
+@@ -334,3 +339,53 @@ int raw_pci_write(unsigned int domain, unsigned int bus,
+ }
+ 
+ #endif	/* CONFIG_PCI */
 +
- /*
-  * Emulation routines for the port-mapped IO space used by some PCI drivers.
-  * These are defined as being "fully synchronous", but also "not guaranteed to
++/*
++ * Claim Hardware Error Exception as a firmware first notification.
++ *
++ * Used by RISC-V exception handler for hardware error processing.
++ * @regs may be NULL when called from process context.
++ */
++int apei_claim_hee(struct pt_regs *regs)
++{
++	int err = -ENOENT;
++	bool return_to_irqs_enabled;
++	unsigned long flags;
++
++	if (!IS_ENABLED(CONFIG_ACPI_APEI_GHES))
++		return err;
++
++	/* Save current interrupt state */
++	local_irq_save(flags);
++	return_to_irqs_enabled = !irqs_disabled();
++
++	if (regs)
++		return_to_irqs_enabled = (regs->status & SR_SIE) != 0;
++
++	/*
++	 * HEE can interrupt other operations, handle as NMI-like context
++	 * to ensure proper APEI processing
++	 */
++	nmi_enter();
++	err = ghes_notify_hee();
++	nmi_exit();
++
++	/*
++	 * APEI NMI-like notifications are deferred to irq_work. Unless
++	 * we interrupted irqs-masked code, we can do that now.
++	 */
++	if (!err) {
++		if (return_to_irqs_enabled) {
++			local_irq_restore(flags);
++			irq_work_run();
++		} else {
++			pr_warn_ratelimited("APEI work queued but not completed");
++			err = -EINPROGRESS;
++		}
++	} else {
++		local_irq_restore(flags);
++	}
++
++	return err;
++}
++EXPORT_SYMBOL(apei_claim_hee);
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 3a0ec6fd5956..1cbefe934d84 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -459,6 +459,10 @@ SYM_DATA_START_LOCAL(excp_vect_table)
+ 	RISCV_PTR do_page_fault   /* load page fault */
+ 	RISCV_PTR do_trap_unknown
+ 	RISCV_PTR do_page_fault   /* store page fault */
++	RISCV_PTR do_trap_unknown
++	RISCV_PTR do_trap_unknown
++	RISCV_PTR do_trap_unknown
++	RISCV_PTR do_trap_hardware_error /* Hardware Error */
+ SYM_DATA_END_LABEL(excp_vect_table, SYM_L_LOCAL, excp_vect_table_end)
+ 
+ #ifndef CONFIG_MMU
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 80230de167de..48f1ea1e03e6 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -22,6 +22,7 @@
+ #include <linux/irq.h>
+ #include <linux/kexec.h>
+ #include <linux/entry-common.h>
++#include <linux/acpi.h>
+ 
+ #include <asm/asm-prototypes.h>
+ #include <asm/bug.h>
+@@ -442,3 +443,21 @@ asmlinkage void handle_bad_stack(struct pt_regs *regs)
+ 		wait_for_interrupt();
+ }
+ #endif
++
++asmlinkage __visible __trap_section void do_trap_hardware_error(struct pt_regs *regs)
++{
++	if (user_mode(regs)) {
++		irqentry_enter_from_user_mode(regs);
++
++		if (apei_claim_hee(regs))
++			do_trap_error(regs, SIGBUS, BUS_OBJERR, regs->badaddr, "Hardware Error");
++
++		irqentry_exit_to_user_mode(regs);
++	} else {
++		irqentry_state_t state = irqentry_nmi_enter(regs);
++
++		die(regs, "Hardware Error");
++
++		irqentry_nmi_exit(regs, state);
++	}
++}
 -- 
 2.43.7
 
