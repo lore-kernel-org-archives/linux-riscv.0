@@ -4,57 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617FACA101F
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 12:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F213CA101F
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 14:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=loeCu4RKyZvHPIKzFPePH2X3j4vn61OdcBYLOwOLgZ0=; b=A+HyMcR57tVslo
-	TpYqUXa7ac05CkiqBV7uGfAKim9JF6fGhEoASYP8Xqbi4ylIJ0VYOUI+kG4bJdY1lWpJaRz+oZcXp
-	hK7Xfliy0fJd9N2B0Xu0M5etMZgqs/FfcQ3Oq+3TClvS7ihIXAcGnSVwxQJcOpqrQz5Ck0GRLkFrf
-	lo1vcIbRbPmpSIDxeOf4CTgplFr8UPxvVwYiepqU8h1y7be6Qazf8yyJYZBE5jR29ihIKTgh2Xell
-	l/bf2WkUMw/FCRnG6ZVwWet3JbFUT4rLiEWLx8qwvyMqP1+jL2VuV1+khLRFN6vIKmrwntVlqKKqQ
-	LfdErwIxZKm3Y9BtG/xQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=lVNxFWUiImnZ0ukWqeJt7f8e5WA6QVUx4OMjU3Brbvs=; b=y3ETfyVPb6fako
+	8naOvHT7OTdfg5sy9VCp7tM5LcZ0KfgJeXWpHrRuPh6Z/mfGyJUu9yEjwkzDVhWodiF70LIojIR5X
+	ZQpca4RXJxsy1EbALkm1ezBdMtt7AzqZEygejccRFqFiL+8No/VMI4BjyT7AHprvsMwEha7bcRiBB
+	DBQPXjVzh6XJoHUFRPJO0ZmUKy3drnyqFzDyE69Eg5yOIOitdkwZCF9TWqDnPlcKRLkFKYZraMyQm
+	Knrz0/iOSuOJfO8PVWI0vMbg5t/JDWlf1rooiNHHeQywJ4vR+52OHNclp3vPmC7jVaynNf2ifWW7Y
+	PZSLlAL6X/hwz8/lBv+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwKNp-0000000EFhW-0oFJ;
-	Wed, 10 Sep 2025 12:57:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uwLjK-0000000EgIV-1aZD;
+	Wed, 10 Sep 2025 14:23:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwKNl-0000000EFe3-37gF;
-	Wed, 10 Sep 2025 12:57:07 +0000
+	id 1uwLjH-0000000EgHZ-354o
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 Sep 2025 14:23:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6462440785;
-	Wed, 10 Sep 2025 12:57:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FA3AC4CEF0;
-	Wed, 10 Sep 2025 12:57:05 +0000 (UTC)
-Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id 2A4245FA46;
-	Wed, 10 Sep 2025 20:57:02 +0800 (CST)
-From: Chen-Yu Tsai <wens@csie.org>
-To: linux-sunxi@lists.linux.dev, Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250909-frown-wrinkle-f16df243a970@spud>
-References: <20250909-frown-wrinkle-f16df243a970@spud>
-Subject: Re: [PATCH v1] riscv: dts: allwinner: rename devterm i2c-gpio node
- to comply with binding
-Message-Id: <175750902214.2590389.9826563009120753959.b4-ty@csie.org>
-Date: Wed, 10 Sep 2025 20:57:02 +0800
+	by sea.source.kernel.org (Postfix) with ESMTP id CD09644818;
+	Wed, 10 Sep 2025 14:23:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79A7FC4CEEB;
+	Wed, 10 Sep 2025 14:23:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757514202;
+	bh=sPrb8D0bSLp1Js3/8C0uU0W0ATkZZf+fqUxj/05AtlY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=ZXqV7Y5wyyMy8XPbh7JLpkdcpaKmaztp6Y0DwSjdEv41hAbGELyFer083foOLZxDB
+	 uVTwM9d0VzXe5ApdhOhBcOigUrmCndv5r7VieWdnOyaoM19Y2rzdYnc1aoBHnuFulc
+	 AqIe8dr5b831dN+Kb2n63v4Akag6nRBwY80VbL4FSiuspLylF3TddTA/6EyrER5x/B
+	 DDJiWxz4rrkQ5gD0S9WprL3hWsUolUwdU5r0Q36JY+D4tTcHsNqhb229bRBfxu4z9Y
+	 ZHr8s3wIy6jmv8qTiakGq+vJ6g4lTDSc0pwVl5u9S7lykALNBAxV4MmKgjiH15D5tn
+	 w5RdZe7h8z7oA==
+Date: Wed, 10 Sep 2025 09:23:21 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: kwilczynski@kernel.org, u.kleine-koenig@baylibre.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, arnd@arndb.de,
+	bwawrzyn@cisco.com, bhelgaas@google.com, unicorn_wang@outlook.com,
+	conor+dt@kernel.org, 18255117159@163.com, inochiama@gmail.com,
+	kishon@kernel.org, krzk+dt@kernel.org, lpieralisi@kernel.org,
+	mani@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
+	robh@kernel.org, s-vadapalli@ti.com, tglx@linutronix.de,
+	thomas.richard@bootlin.com, sycamoremoon376@gmail.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+	sophgo@lists.linux.dev, rabenda.cn@gmail.com, chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com
+Subject: Re: [PATCH v2 2/7] PCI: cadence: Check pcie-ops before using it.
+Message-ID: <20250910142321.GA1533672@bhelgaas>
 MIME-Version: 1.0
-X-Mailer: b4 0.14.2
+Content-Disposition: inline
+In-Reply-To: <18aba25b853d00caf10cc784093c0b91fdc1747d.1757467895.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_055705_808675_B2392349 
-X-CRM114-Status: UNSURE (   6.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250910_072323_811153_3ABE12F3 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,26 +81,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Sep 2025 20:58:17 +0100, Conor Dooley wrote:
-> The i2c controller binding does not permit permit the node name to
-> contain "gpio", resulting in two warnings:
+Drop period at end of subject.
+
+On Wed, Sep 10, 2025 at 10:08:16AM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> i2c-gpio-0 (i2c-gpio): $nodename:0: 'i2c-gpio-0' does not match '^i2c(@.+|-[a-z0-9]+)?$'
-> i2c-gpio-0 (i2c-gpio): Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'adc@54' were unexpected)
+> ops of struct cdns_pcie may be NULL, direct use
+> will result in a null pointer error.
 > 
-> Drop it to satisfy dtbs_check.
+> Add checking of pcie->ops before using it for new
+> driver that may not supply pcie->ops.
 > 
-> [...]
-
-Applied to sunxi/fixes-for-6.17 in local tree, thanks!
-
-[1/1] riscv: dts: allwinner: rename devterm i2c-gpio node to comply with binding
-      commit: a5d7a8ab4b21747173a2f8f0ebf71d72692793c3
-
-Best regards,
--- 
-Chen-Yu Tsai <wens@csie.org>
-
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ---
+>  drivers/pci/controller/cadence/pcie-cadence-host.c | 2 +-
+>  drivers/pci/controller/cadence/pcie-cadence.c      | 4 ++--
+>  drivers/pci/controller/cadence/pcie-cadence.h      | 6 +++---
+>  3 files changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
+> index 59a4631de79f..fffd63d6665e 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence-host.c
+> +++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
+> @@ -531,7 +531,7 @@ static int cdns_pcie_host_init_address_translation(struct cdns_pcie_rc *rc)
+>  	cdns_pcie_writel(pcie, CDNS_PCIE_AT_OB_REGION_PCI_ADDR1(0), addr1);
+>  	cdns_pcie_writel(pcie, CDNS_PCIE_AT_OB_REGION_DESC1(0), desc1);
+>  
+> -	if (pcie->ops->cpu_addr_fixup)
+> +	if (pcie->ops && pcie->ops->cpu_addr_fixup)
+>  		cpu_addr = pcie->ops->cpu_addr_fixup(pcie, cpu_addr);
+>  
+>  	addr0 = CDNS_PCIE_AT_OB_REGION_CPU_ADDR0_NBITS(12) |
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence.c b/drivers/pci/controller/cadence/pcie-cadence.c
+> index 70a19573440e..61806bbd8aa3 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence.c
+> +++ b/drivers/pci/controller/cadence/pcie-cadence.c
+> @@ -92,7 +92,7 @@ void cdns_pcie_set_outbound_region(struct cdns_pcie *pcie, u8 busnr, u8 fn,
+>  	cdns_pcie_writel(pcie, CDNS_PCIE_AT_OB_REGION_DESC1(r), desc1);
+>  
+>  	/* Set the CPU address */
+> -	if (pcie->ops->cpu_addr_fixup)
+> +	if (pcie->ops && pcie->ops->cpu_addr_fixup)
+>  		cpu_addr = pcie->ops->cpu_addr_fixup(pcie, cpu_addr);
+>  
+>  	addr0 = CDNS_PCIE_AT_OB_REGION_CPU_ADDR0_NBITS(nbits) |
+> @@ -123,7 +123,7 @@ void cdns_pcie_set_outbound_region_for_normal_msg(struct cdns_pcie *pcie,
+>  	}
+>  
+>  	/* Set the CPU address */
+> -	if (pcie->ops->cpu_addr_fixup)
+> +	if (pcie->ops && pcie->ops->cpu_addr_fixup)
+>  		cpu_addr = pcie->ops->cpu_addr_fixup(pcie, cpu_addr);
+>  
+>  	addr0 = CDNS_PCIE_AT_OB_REGION_CPU_ADDR0_NBITS(17) |
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
+> index 1d81c4bf6c6d..2f07ba661bda 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence.h
+> +++ b/drivers/pci/controller/cadence/pcie-cadence.h
+> @@ -468,7 +468,7 @@ static inline u32 cdns_pcie_ep_fn_readl(struct cdns_pcie *pcie, u8 fn, u32 reg)
+>  
+>  static inline int cdns_pcie_start_link(struct cdns_pcie *pcie)
+>  {
+> -	if (pcie->ops->start_link)
+> +	if (pcie->ops && pcie->ops->start_link)
+>  		return pcie->ops->start_link(pcie);
+>  
+>  	return 0;
+> @@ -476,13 +476,13 @@ static inline int cdns_pcie_start_link(struct cdns_pcie *pcie)
+>  
+>  static inline void cdns_pcie_stop_link(struct cdns_pcie *pcie)
+>  {
+> -	if (pcie->ops->stop_link)
+> +	if (pcie->ops && pcie->ops->stop_link)
+>  		pcie->ops->stop_link(pcie);
+>  }
+>  
+>  static inline bool cdns_pcie_link_up(struct cdns_pcie *pcie)
+>  {
+> -	if (pcie->ops->link_up)
+> +	if (pcie->ops && pcie->ops->link_up)
+>  		return pcie->ops->link_up(pcie);
+>  
+>  	return true;
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
