@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0E9CA0FED
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 09:34:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2334CA101F
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 09:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=a4m/ReBj0OGHs2WWIGh1InSz2h/xcR2TUXHjhGd6akM=; b=VcOyou6W5uTRMv
-	eYFRVgJAafZIwTsepP4fc1rUKnRx5gmroCJ9VsA3fZc9gcjrko43PfnCLTOuUn5nKfz6uIW0NhTHd
-	Gk/SIfu1jHzGNoctCvDifhy8E4rKAmXl+VaiTHwZT5AtMoLyh9rNejnGFP1fCUX9VNGQx6KJkIO9O
-	/ZlV4pxWioJkY0nKGAFL0wOHJC6tzG3t6lB6wkEo0rGUqIJVvuKnmdQScSeDdedupvOgQ+q56rACb
-	B49+RtqlArNI4Ae5Li0a7EVPrXf3VJb3KiEFm44Nj+NNLxVseWR6omwkwak8NTWOFcTgJIChr0QpG
-	KqF8g4xKlFDIGmaIGFmA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Qd7iSvUADHAT7oxdzO+y1VDHSAlHTVOdEbmiYu5S2DA=; b=JOJt4X/L8EFZF1
+	es+WB+BLB9Ud/5/lrPnExMSBQuUddhYD5emeixy8kYGHA5PYVKendYLq5UucUqCoGHN6zZzNnQFQZ
+	KBFvTNdHv1QcuCGh0lrU9tjwpEVU4Q/DpVj5dfw61o23mygRpxSGTSdYbEZryg30GU0xnfFhvfL6S
+	k0NqE/lyltfLvjeLg/frhyR6RSQcyNJU39JXo0C/U8yo1s2E7h/3xOTTpNvHZ7f+BhhBxKffCpAyh
+	VxKloefOKS9lqlZSUOo1W07ocYGEivpWkzHO4Xq0xcCUiu0JzIh/q8nEMt6/GEdOQU8n7w07pRHQf
+	dNGCQTzF49ep9pLXadnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHDJ-0000000DEz9-08qp;
-	Wed, 10 Sep 2025 09:34:05 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1uwHDS-0000000DF2j-11sj;
+	Wed, 10 Sep 2025 09:34:14 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwHDF-0000000DEvj-2fR4
+	id 1uwHDP-0000000DF1K-2YXL
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Sep 2025 09:34:04 +0000
+	Wed, 10 Sep 2025 09:34:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1757496836; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
-	bh=kUn2anvFDF2qqR807aTGWlj36Qp+tfcJksS6Q6qbn5w=;
-	b=JVNRgPD0qy7M5dPcoIRRE3z6SYLg3oIVwF7N9Kjup+XVwVdKbEVB1QRMfNKRuF+dEdrcAHulKjOrZWci9RlCmXpxnxEr+CDLdOG3ULB/uyJWsZkswjX5+a86g3K/q2dG2sC5rGG87JyW5U+LkHWaJwIuOZ+9UHKLeUwOiD2yrek=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WnhgSX4_1757496830 cluster:ay36)
+	t=1757496849; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=5iaWrlk2P/qazoj+ucrjuJcazBZzpbTMnF2UzUvRWzk=;
+	b=s1mLUNjQEKb0C+FsdPPmUJA3TwCYPYTOVJ0mngZvImGogezH51/Y12IL7vRL2AsIcKP5v8GdNgFn5R4jMRjCmLrlVCTjkmFj1But8SiivrUWUHiwT6swjK03MBVB1OkDsID3Qn06i2QmrkX4Mb3RB7wYGWQXIhIyH2nvNpZ96B4=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WnhXsbO_1757496846 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Wed, 10 Sep 2025 17:33:52 +0800
+          Wed, 10 Sep 2025 17:34:08 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: xueshuai@linux.alibaba.com,
 	palmer@dabbelt.com,
@@ -47,14 +47,16 @@ Cc: james.morse@arm.com,
 	cleger@rivosinc.com,
 	hchauhan@ventanamicro.com,
 	tianruidong@linux.alibaba.com
-Subject: [RFC PATCH 0/5] riscv: Handle synchronous hardware error exception
-Date: Wed, 10 Sep 2025 17:33:42 +0800
-Message-Id: <20250910093347.75822-1-tianruidong@linux.alibaba.com>
+Subject: [RFC PATCH 4/5] riscv: Introduce HEST HEE notification handlers for APEI
+Date: Wed, 10 Sep 2025 17:33:46 +0800
+Message-Id: <20250910093347.75822-5-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.33.1
+In-Reply-To: <20250910093347.75822-1-tianruidong@linux.alibaba.com>
+References: <20250910093347.75822-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_023402_173979_1403EB06 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20250910_023411_962197_DBA000E5 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,96 +68,195 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgYWxsLApUaGlzIHBhdGNoIHNlcmllcyBpbnRyb2R1Y2VzIHN1cHBvcnQgZm9yIGhhbmRsaW5n
-IHN5bmNocm9ub3VzIGhhcmR3YXJlIGVycm9ycyAKb24gUklTQy1WLCBsYXlpbmcgdGhlIGdyb3Vu
-ZHdvcmsgZm9yIG1vcmUgcm9idXN0IGtlcm5lbC1tb2RlIGVycm9yIHJlY292ZXJ5LgoKMS4gQmFj
-a2dyb3VuZApIYXJkd2FyZSBlcnJvciByZXBvcnRpbmcgbWVjaGFuaXNtcyB0eXBpY2FsbHkgZmFs
-bCBpbnRvIHR3byBjYXRlZ29yaWVzOiAKYXN5bmNocm9ub3VzIGFuZCBzeW5jaHJvbm91cy4KCi0g
-QXN5bmNocm9ub3VzIGVycm9ycyAoZS5nLiwgbWVtb3J5IHNjcnViYmluZyBlcnJvcnMpIHJlcG90
-ZWQgYnkgYSBhc3luY2hyb25vdXMKZXhjZXB0aW9ucyBvciBhIGludGVycnVwdCwgYXJlIHVzdWFs
-bHkgaGFuZGxlZCBieSBHSEVTIHN1YnN5c3RlbXMuIEZvciBpbnN0YW5jZSwKQVJNIHVzZXMgU0RF
-SSwgYW5kIGEgc2ltaWxhciBTU0Ugc3BlY2lmaWNhdGlvbiBpcyBiZWluZyBwcm9wb3NlZCBmb3Ig
-UklTQy1WLgotIFN5bmNocm9ub3VzIGVycm9ycyAoZS5nLiwgcmVhZGluZyBwb2lzb25lZCBkYXRh
-KSBjYXVzZSB0aGUgcHJvY2Vzc29yIGNvcmUgdG8gCnRha2UgYSBwcmVjaXNlIGV4Y2VwdGlvbi4g
-VGhpcyBpcyBrbm93biBhcyBhIFN5bmNocm9ub3VzIEV4dGVybmFsIEFib3J0IChTRUEpCm9uIEFS
-TSwgYSBNYWNoaW5lIENoZWNrIEV4Y2VwdGlvbiAoTUNFKSBvbiB4ODYsIGFuZCBpcyBkZXNpZ25h
-dGVkIGFzIHRyYXAgd2l0aAptY2F1c2UgMTkgb24gUklTQy1WLgoKRGlzY3Vzc2lvbnMgd2l0aGlu
-IHRoZSBSVkkgUFJTIFRHIGhhdmUgYWxyZWFkeSBsZWQgdG8gcHJvcG9zYWxzWzBdIHRvIFVFRkkg
-Zm9yIApzdGFuZGFyZGl6aW5nIHR3byBub3RpZmljYXRpb24gbWV0aG9kcywgU1NFIGFuZCBIYXJk
-d2FyZSBFcnJvciBFeGNlcHRpb24sIApvbiBSSVNDLVYuIApUaGlzIHNlcmllcyBmb2N1c2VzIG9u
-IGltcGxlbWVudGluZyBIYXJkd2FyZSBFcnJvciBFeGNlcHRpb24gbm90aWZpY2F0aW9uIHRvCmhh
-bmRsZSBzeW5jaHJvbm91cyBlcnJvcnMuIEhpbWFuc2h1IENoYXVoYW4gaGFzIGFscmVhZHkgc3Rh
-cnRlZCB3b3JraW5nIG9uIFNTRVsxXS4KCjIuIE1vdGl2YXRpb24KV2hpbGUgYSBzeW5jaHJvbm91
-cyBoYXJkd2FyZSBlcnJvcnMgb2NjdXJyaW5nIGluIGtlcm5lbCBjb250ZXh0IChlLmcuLCBkdXJp
-bmcgCmdldF91c2VyLCBwdXRfdXNlciwgQ29XLCBldGMuKS4gVGhlIGtlcm5lbCByZXF1aXJlcyBh
-IGZpeHVwIG1lY2hhbmlzbSAodmlhCmV4dGFibGUpIHRvIHJlY292ZXIgZnJvbSBzdWNoIGVycm9y
-cyBhbmQgcHJldmVudCBhIHN5c3RlbSBwYW5pYy4gSG93ZXZlciwgdGhlIApBUEVJL0dIRVMgc3Vi
-c3lzdGVtLCBiZWluZyBhc3luY2hyb25vdXMsIGNhbm5vdCBkaXJlY3RseSBsZXZlcmFnZSB0aGUg
-c3luY2hyb25vdXMKZXh0YWJsZSBmaXh1cCBwYXRoLgoKQnkgaGFuZGxpbmcgdGhlIHN5bmNocm9u
-b3VzIGV4Y2VwdGlvbiBkaXJlY3RseSwgd2UgZW5hYmxlIHRoZSB1c2Ugb2YgdGhpcyBmaXh1cApt
-ZWNoYW5pc20sIGFsbG93aW5nIHRoZSBrZXJuZWwgdG8gZ3JhY2VmdWxseSByZWNvdmVyIGZyb20g
-aGFyZHdhcmUgZXJyb3JzCmVuY291bnRlcmVkIGR1cmluZyBrZXJuZWwgZXhlY3V0aW9uLiBUaGlz
-IGJyaW5ncyBSSVNDLVYncyBlcnJvciBoYW5kbGluZwpjYXBhYmlsaXRpZXMgY2xvc2VyIHRvIHRo
-ZSByb2J1c3RuZXNzIGZvdW5kIG9uIEFSTVsyXSBhbmQgeDg2WzNdLgoKMy4gV2hhdCBUaGlzIFBh
-dGNoIFNlcmllcyBEb2VzClRoaXMgaW5pdGlhbCBzZXJpZXMgbGF5cyB0aGUgZm91bmRhdGlvbmFs
-IGluZnJhc3RydWN0dXJlLiBJdCBwcmltYXJpbHk6Ci0gSW50cm9kdWNlcyBhIG5ldyBleGNlcHRp
-b24gaGFuZGxlciBmb3Igc3luY2hyb25vdXMgaGFyZHdhcmUgZXJyb3JzIChtY2F1c2U9MTkpLgot
-IEVzdGFibGlzaGVzIHRoZSBjb3JlIGV4Y2VwdGlvbiBwYXRoLCB3aGljaCBpcyBhIHByZXJlcXVp
-c2l0ZSBmb3Iga2VybmVsCiAgY29udGV4dCBlcnJvciByZWNvdmVyeS4KClBsZWFzZSBub3RlIHRo
-YXQgdGhpcyB2ZXJzaW9uIGRvZXMgbm90IHlldCBpbXBsZW1lbnQgdGhlIGZ1bGwga2VybmVsIGZp
-eHVwIGxvZ2ljCmZvciByZWNvdmVyeS4gVGhhdCBmdW5jdGlvbmFsaXR5IGlzIHBsYW5uZWQgZm9y
-IHRoZSBuZXh0IGZvcm1hbCB2ZXJzaW9uLgoKU29tZSBhZGFwdGF0aW9ucyBmb3IgR0hFUyBhcmUg
-aW5jbHVkZWQsIGJhc2VkIG9uIHRoZSB3b3JrIGZyb20gSGltYW5zaHUgQ2hhdWhhblsxXQoKNC4g
-RnV0dXJlIFBsYW5zCi0gSW1wbGVtZW50IGZ1bGwga2VybmVsIGZpeHVwIHN1cHBvcnQgdG8gaGFu
-ZGxlIGFuZCByZWNvdmVyIGZyb20gZXJyb3JzIGluIAogIHNvbWUga2VybmVsIGNvbnRleHRbMl0u
-Ci0gQWRkIHN1cHBvcnQgZm9yIGhhbmRsaW5nICJkb3VibGUgdHJhcCIgc2NlbmFyaW9zLgoKNS4g
-VGVzdGluZyBNZXRob2RvbG9neQoKdGVzdCBwcm9ncmFtOiByYXMtdG9vbHM6IGh0dHBzOi8va2Vy
-bmVsLmdvb2dsZXNvdXJjZS5jb20vcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2FlZ2wvcmFzLXRv
-b2xzLwpxZW11OiBodHRwczovL2dpdGh1Yi5jb20vd2ludGVyZGRkL3FlbXUKb2ZmY2lhbCBvcGVu
-c2JpIGFuZCBlZGsyOgoKLSBSdW4gcWVtdToKcWVtdS1zeXN0ZW0tcmlzY3Y2NCAtTSB2aXJ0LHBm
-bGFzaDA9cGZsYXNoMCxwZmxhc2gxPXBmbGFzaDEsYWNwaT1vbixhaWE9YXBsaWMtaW1zaWMgCiAt
-Y3B1IG1heCAtbSA2NEcgLXNtcCA2NCAtZGV2aWNlIHZpcnRpby1ncHUtcGNpIC1mdWxsLXNjcmVl
-biAtZGV2aWNlIHFlbXUteGhjaSAKIC1kZXZpY2UgdXNiLWtiZCAtZGV2aWNlIHZpcnRpby1ybmct
-cGNpIAogLWJsb2NrZGV2IG5vZGUtbmFtZT1wZmxhc2gwLGRyaXZlcj1maWxlLHJlYWQtb25seT1v
-bixmaWxlbmFtZT1SSVNDVl9WSVJUX0NPREUuZmQgCiAtYmxvY2tkZXYgbm9kZS1uYW1lPXBmbGFz
-aDEsZHJpdmVyPWZpbGUsZmlsZW5hbWU9UklTQ1ZfVklSVF9WQVJTLmZkIAogLWJpb3MgZndfZHlu
-YW1pYy5iaW4gLWRldmljZSB2aXJ0aW8tbmV0LWRldmljZSxuZXRkZXY9bmV0MCAKIC1uZXRkZXYg
-dXNlcixpZD1uZXQwLGhvc3Rmd2Q9dGNwOjoyMjIzLToyMiAKIC1rZXJuZWwgSW1hZ2UgLWluaXRy
-ZCByb290ZnMKIC1hcHBlbmQgInJkaW5pdD0vc2Jpbi9pbml0IGVhcmx5Y29uIHZlcmJvc2UgZGVi
-dWcgc3RyaWN0X2Rldm1lbT0wIG5va2FzbHIiIAogLW1vbml0b3IgdGVsbmV0OjEyNy4wLjAuMTo1
-NTU3LHNlcnZlcixub3dhaXQgLW5vZ3JhcGhpYwoKLSBSdW4gcmFzLXRvb2xzOgouL2VpbmpfbWVt
-X3VjIC1qIC1rIHNpbmdsZSAmCiQgMDogc2luZ2xlIMKgIHZhZGRyID0gMHg3ZmZmODZmZjQ0MDAg
-cGFkZHIgPSAxMDdkMTFiNDAwCgotIEluamVjdCBwb2lzb24KdGVsbmV0IGxvY2FsaG9zdCA1NTU3
-CnBvaXNvbl9lbmFibGUgb24KcG9pc29uX2FkZCAweDEwN2QxMWI0MDAKCi0gUmVhZCBwb2lzb24K
-ZWNobyB0cmlnZ2VyID4gLi90cmlnZ2VyX3N0YXJ0CiQgdHJpZ2dlcmluZyAuLi4KJCBzaWduYWwg
-NyBjb2RlIDMgYWRkciAweDdmZmY4NmZmNDQwMAoKWzBdOiBodHRwczovL2xpc3RzLnJpc2N2Lm9y
-Zy9nL3RlY2gtcHJzL3RvcGljL3Jpc2Nfdl9yYXNfcmVsYXRlZF9lY3JzLzExMzY4NTY1MyAKWzFd
-OiBodHRwczovL3BhdGNoZXcub3JnL2xpbnV4LzIwMjUwMjI3MTIzNjI4LjI5MzE0OTAtMS1oY2hh
-dWhhbkB2ZW50YW5hbWljcm8uY29tLwpbMl06IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwv
-MjAyNDEyMDkwMjQyNTcuMzYxODQ5Mi0xLXRvbmd0aWFuZ2VuQGh1YXdlaS5jb20vClszXTogaHR0
-cHM6Ly9naXRodWIuY29tL3RvcnZhbGRzL2xpbnV4L2Jsb2IvOWRkMTgzNWVjZGE1Yjk2YWM4OGMx
-NjZmNGE4NzM4NmYzZTcyN2JkOS9hcmNoL3g4Ni9rZXJuZWwvY3B1L21jZS9jb3JlLmMjTDE1MTQK
-CkhpbWFuc2h1IENoYXVoYW4gKDIpOgogIHJpc2N2OiBEZWZpbmUgaW9yZW1hcF9jYWNoZSBmb3Ig
-UklTQy1WCiAgcmlzY3Y6IERlZmluZSBhcmNoX2FwZWlfZ2V0X21lbV9hdHRyaWJ1dGUgZm9yIFJJ
-U0MtVgoKUnVpZG9uZyBUaWFuICgzKToKICBhY3BpOiBJbnRyb2R1Y2UgU1NFIGFuZCBIRUUgaW4g
-SEVTVCBub3RpZmljYXRpb24gdHlwZXMKICByaXNjdjogSW50cm9kdWNlIEhFU1QgSEVFIG5vdGlm
-aWNhdGlvbiBoYW5kbGVycyBmb3IgQVBFSQogIHJpc2N2OiBBZGQgSGFyZHdhcmUgRXJyb3IgRXhj
-ZXB0aW9uIHRyYXAgaGFuZGxlcgoKIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgfCAg
-MSArCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FjcGkuaCAgIHwgMjIgKysrKysrKysrKysrKwog
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9maXhtYXAuaCB8ICA2ICsrKysKIGFyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vaW8uaCAgICAgfCAgMyArKwogYXJjaC9yaXNjdi9rZXJuZWwvYWNwaS5jICAgICAg
-ICB8IDU1ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKIGFyY2gvcmlzY3Yva2VybmVs
-L2VudHJ5LlMgICAgICAgfCAgNCArKysKIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgICAgICAg
-fCAxOSArKysrKysrKysrKwogZHJpdmVycy9hY3BpL2FwZWkvS2NvbmZpZyAgICAgICB8IDEyICsr
-KysrKysKIGRyaXZlcnMvYWNwaS9hcGVpL2doZXMuYyAgICAgICAgfCA1OCArKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysKIGluY2x1ZGUvYWNwaS9hY3RibDEuaCAgICAgICAgICAgfCAg
-NCArKy0KIGluY2x1ZGUvYWNwaS9naGVzLmggICAgICAgICAgICAgfCAgNiArKysrCiAxMSBmaWxl
-cyBjaGFuZ2VkLCAxODkgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQoKLS0gCjIuNDMuNwoK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Add functions to register a ghes entry with HEE, allowing the OS
+to receive hardware error notifications from firmware through
+standardized ACPI interfaces.
+
+Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
+---
+ arch/riscv/Kconfig              |  1 +
+ arch/riscv/include/asm/fixmap.h |  6 ++++
+ drivers/acpi/apei/Kconfig       | 12 +++++++
+ drivers/acpi/apei/ghes.c        | 58 +++++++++++++++++++++++++++++++++
+ include/acpi/ghes.h             |  6 ++++
+ 5 files changed, 83 insertions(+)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a4b233a0659e..b085e172b355 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -23,6 +23,7 @@ config RISCV
+ 	select ARCH_ENABLE_MEMORY_HOTREMOVE if MEMORY_HOTPLUG
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
++	select HAVE_ACPI_APEI if (ACPI && EFI)
+ 	select ARCH_HAS_BINFMT_FLAT
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+index 0a55099bb734..07421edc9daa 100644
+--- a/arch/riscv/include/asm/fixmap.h
++++ b/arch/riscv/include/asm/fixmap.h
+@@ -38,6 +38,12 @@ enum fixed_addresses {
+ 	FIX_TEXT_POKE0,
+ 	FIX_EARLYCON_MEM_BASE,
+ 
++#ifdef CONFIG_ACPI_APEI_HEE
++	/* Used for GHES mapping from assorted contexts */
++	FIX_APEI_GHES_IRQ,
++	FIX_APEI_GHES_HEE,
++#endif /* CONFIG_ACPI_APEI_GHES */
++
+ 	__end_of_permanent_fixed_addresses,
+ 	/*
+ 	 * Temporary boot-time mappings, used by early_ioremap(),
+diff --git a/drivers/acpi/apei/Kconfig b/drivers/acpi/apei/Kconfig
+index 070c07d68dfb..d54a295cfc8d 100644
+--- a/drivers/acpi/apei/Kconfig
++++ b/drivers/acpi/apei/Kconfig
+@@ -46,6 +46,18 @@ config ACPI_APEI_SEA
+ 	depends on ARM64 && ACPI_APEI_GHES
+ 	default y
+ 
++config ACPI_APEI_HEE
++	bool "APEI Hardware Error Exception support"
++	depends on RISCV && ACPI_APEI_GHES
++	default y
++	help
++	  Enable support for RISC-V Hardware Error Exception (HEE) notification
++	  in ACPI Platform Error Interface (APEI). This allows firmware
++	  to report hardware errors through RISC-V exception mechanism.
++
++	  Say Y if you want to support firmware-first error handling
++	  on RISC-V platforms with ACPI.
++
+ config ACPI_APEI_MEMORY_FAILURE
+ 	bool "APEI memory error recovering support"
+ 	depends on ACPI_APEI && MEMORY_FAILURE
+diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+index a0d54993edb3..1011e28091dc 100644
+--- a/drivers/acpi/apei/ghes.c
++++ b/drivers/acpi/apei/ghes.c
+@@ -97,6 +97,11 @@
+ #define FIX_APEI_GHES_SDEI_CRITICAL	__end_of_fixed_addresses
+ #endif
+ 
++#if !defined(CONFIG_X86) && !defined(CONFIG_ARM64)
++#define FIX_APEI_GHES_NMI		__end_of_fixed_addresses
++#define FIX_APEI_GHES_SEA		__end_of_fixed_addresses
++#endif
++
+ static ATOMIC_NOTIFIER_HEAD(ghes_report_chain);
+ 
+ static inline bool is_hest_type_generic_v2(struct ghes *ghes)
+@@ -1415,6 +1420,45 @@ static inline void ghes_sea_add(struct ghes *ghes) { }
+ static inline void ghes_sea_remove(struct ghes *ghes) { }
+ #endif /* CONFIG_ACPI_APEI_SEA */
+ 
++#ifdef CONFIG_ACPI_APEI_HEE
++static LIST_HEAD(ghes_hee);
++
++/*
++ * Return 0 only if one of the HEE error sources successfully reported an error
++ * record sent from the firmware.
++ */
++int ghes_notify_hee(void)
++{
++	static DEFINE_RAW_SPINLOCK(ghes_notify_lock_hee);
++	int rv;
++
++	raw_spin_lock(&ghes_notify_lock_hee);
++	rv = ghes_in_nmi_spool_from_list(&ghes_hee, FIX_APEI_GHES_HEE);
++	raw_spin_unlock(&ghes_notify_lock_hee);
++
++	return rv;
++}
++EXPORT_SYMBOL_GPL(ghes_notify_hee);
++
++static void ghes_hee_add(struct ghes *ghes)
++{
++	mutex_lock(&ghes_list_mutex);
++	list_add_rcu(&ghes->list, &ghes_hee);
++	mutex_unlock(&ghes_list_mutex);
++}
++
++static void ghes_hee_remove(struct ghes *ghes)
++{
++	mutex_lock(&ghes_list_mutex);
++	list_del_rcu(&ghes->list);
++	mutex_unlock(&ghes_list_mutex);
++	synchronize_rcu();
++}
++#else /* CONFIG_ACPI_APEI_HEE */
++static inline void ghes_hee_add(struct ghes *ghes) { }
++static inline void ghes_hee_remove(struct ghes *ghes) { }
++#endif /* CONFIG_ACPI_APEI_HEE */
++
+ #ifdef CONFIG_HAVE_ACPI_APEI_NMI
+ /*
+  * NMI may be triggered on any CPU, so ghes_in_nmi is used for
+@@ -1558,6 +1602,14 @@ static int ghes_probe(struct platform_device *ghes_dev)
+ 			goto err;
+ 		}
+ 		break;
++	case ACPI_HEST_NOTIFY_HEE:
++		if (!IS_ENABLED(CONFIG_ACPI_APEI_HEE)) {
++			pr_warn(GHES_PFX "Generic hardware error source: %d notified via HEE is not supported\n",
++				generic->header.source_id);
++			rc = -ENOTSUPP;
++			goto err;
++		}
++		break;
+ 	case ACPI_HEST_NOTIFY_NMI:
+ 		if (!IS_ENABLED(CONFIG_HAVE_ACPI_APEI_NMI)) {
+ 			pr_warn(GHES_PFX "Generic hardware error source: %d notified via NMI interrupt is not supported!\n",
+@@ -1631,6 +1683,9 @@ static int ghes_probe(struct platform_device *ghes_dev)
+ 	case ACPI_HEST_NOTIFY_SEA:
+ 		ghes_sea_add(ghes);
+ 		break;
++	case ACPI_HEST_NOTIFY_HEE:
++		ghes_hee_add(ghes);
++		break;
+ 	case ACPI_HEST_NOTIFY_NMI:
+ 		ghes_nmi_add(ghes);
+ 		break;
+@@ -1698,6 +1753,9 @@ static void ghes_remove(struct platform_device *ghes_dev)
+ 	case ACPI_HEST_NOTIFY_SEA:
+ 		ghes_sea_remove(ghes);
+ 		break;
++	case ACPI_HEST_NOTIFY_HEE:
++		ghes_hee_remove(ghes);
++		break;
+ 	case ACPI_HEST_NOTIFY_NMI:
+ 		ghes_nmi_remove(ghes);
+ 		break;
+diff --git a/include/acpi/ghes.h b/include/acpi/ghes.h
+index ebd21b05fe6e..8046e1b30c21 100644
+--- a/include/acpi/ghes.h
++++ b/include/acpi/ghes.h
+@@ -127,6 +127,12 @@ int ghes_notify_sea(void);
+ static inline int ghes_notify_sea(void) { return -ENOENT; }
+ #endif
+ 
++#ifdef CONFIG_ACPI_APEI_HEE
++int ghes_notify_hee(void);
++#else
++static inline int ghes_notify_hee(void) { return -ENOENT; }
++#endif
++
+ struct notifier_block;
+ extern void ghes_register_report_chain(struct notifier_block *nb);
+ extern void ghes_unregister_report_chain(struct notifier_block *nb);
+-- 
+2.43.7
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
