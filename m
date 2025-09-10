@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D37CAC582
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 02:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D81CAC582
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Sep 2025 02:08:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OjdaAAjUJa4n3VelcJlYxwAToCx2cEbqxuZowU5/6c0=; b=STXpwoMI76qfyi
-	4S4ZWdl9K4kV3/2bQbCc9MdWQ1sxlzpjcT8gN4xeypzBkbKpY5gnuEUgFDh0k9ITra2LXHb+LF3fm
-	ts5tZ28EkEa9S0eUFwJK0qSrmRaUdx6/kNFc/akEinG4FpUfSosFTKMYl0GdpmnyP/d17xMre3rqc
-	tTaObV8W0wtzmIGQa9+87mV7qHl20gJ90HwFP1RVN/IWdqvrJOPBbi725hUEaYZ6tp6xv2HlYUdMd
-	pQGiXX+SP0CK4KO+htSxB7wjdqpdxqgEYN4e8ew84ZsKB3jlCTC5vXc6jiEwY+87eqrMahJeSQFsm
-	3qf6oCXH6Y0FKEyjTKEg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Bc4dkKMTWLUPElngXhsK0BmePit2AoQPoDJDN5dL7j0=; b=oi0mM+beHuN5F3
+	d78oTAkzu6NGWer+/ynYbSiHiExbeJsZ8cBvothIbfEzqAbb1ZWAWpyC52+BVvHt4N2b0B410kFdn
+	cIwx362wJoc8cWhF90AioefxeWelt8aEIiL0vgn8I0/NbrWoVoKSVYUveYWLrTyH1iiePY1dBcPvP
+	fHY+l+Wpr1EbVC64SMGe28Hmjbft73yhLzHlL/a6gtqbFjgeb2i11zLMm07htfr0dghFjlaMa8Qev
+	lzcL82DS1ydt1dhGJL7N0Q55CgQyf9BuJI9nMEpB43MmSsjTc01GrYAe+4QuTiVNrttk56yui/+Vo
+	QPSXx4anfmPEZdWWQbVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwAF6-0000000Basz-0kvh;
-	Wed, 10 Sep 2025 02:07:28 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1uwAFn-0000000Bb6i-2A2d;
+	Wed, 10 Sep 2025 02:08:11 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwAF4-0000000Baru-0jAp
+	id 1uwAFk-0000000Bb4W-2OCz
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Sep 2025 02:07:27 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-4b61161c30fso17970611cf.3
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Sep 2025 19:07:25 -0700 (PDT)
+	Wed, 10 Sep 2025 02:08:09 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-7240eb21ccaso2072366d6.0
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Sep 2025 19:08:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757470044; x=1758074844; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JupvMSKgb1rw1zIHQW+fGueHkoJ8uYm/8I5zPauDxTU=;
-        b=YZ8oeHzNKpuTkRB6DrAZvKyj6cnnaXV/wzY0zibcIk7jr2I5Pr/wKfOJdEve0oaips
-         f7OSkVHkjQur0MlacVD/ixgBhZPIpdO0Rrekr8I8QkdVWIdSxAddSNuduEv+r08ravvr
-         PCXXzAVYIQ7TmQ+YuG0G2EDsL8YRYB3d/NHE4RFIlLoM7C+HtPQ13JFoUgHRqzg1HcLA
-         2GaKU21Dqhzu0XDkWdRy35wx2p8lZHJutVZCKpHkhDgB6Hk10IvcebGXI5h5c2WryUik
-         fDMtSB4BaNmtpsJeFoesPnMkVj6GNLJdq3jpPLzM9x97B+NmfmtoH69l39iCFYw5HUpo
-         mdkw==
+        d=gmail.com; s=20230601; t=1757470087; x=1758074887; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0XFM07Z5n/PQZ1U15JfmMTCdL390KHJnWHFIuZFK96s=;
+        b=QsO8TT4mMU56rbvr1egPimuaz2FlMPOi9jMIQkj3rDzZW3iE7e7wZ8q2aIUWlzIbrG
+         5bH7QZkUVNRMTznRg8xc2iOQfvKdcWOE8vLWnNywIJHqvyND2kgr2h6wniRcWyHs1+rc
+         FPDQpLRuqYwvJxPyg8LKcyKLqM33qRTCFPD8YRXjKuZdJHvjnT6VciUDv8w1lq7YRPb8
+         0xjHSsvFQvMGwk+PP2Fj4Kh0Iv7ONxOvOaxuldpYwI5tFjmRH6gCSHmOh4Zw0hs90AV0
+         u9S/DdvpxJkfladuvBxyAOOemazjLGyPNdY+iHcVtLtU7FA7tYK3NVJ8o7zWUdQLAUti
+         CplA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757470044; x=1758074844;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JupvMSKgb1rw1zIHQW+fGueHkoJ8uYm/8I5zPauDxTU=;
-        b=cgAxYbGgMKY/TjliigqnZhtmSLuOXO7c7IUiGbOshoeWeOAfg81sWwoCf2VDeMC0oF
-         8GuHJ+tKoUfW9Fj+JD6v+ww7dAobNrZ224It3uWVEAZLY1DamPYJBjBrgW8Oppfw6iLo
-         fCm7O80CP6gT1hiJhLgMHG0d4FiaRQM2rJDJlu8kqMIl6zG08xvCWss/lx3fiRP1DzyD
-         BrAUJEt88qeeiDXD91yeAezpWpw4b+NBctoLyzhw2OGduSFQljUnFKEkXmXRJdnbCVcX
-         GwizafsapLhmIQqwDmuib+12XEqzQFbnhu7ra8O+51qB7FKk0Nxl5Uz/1TWkKl78tQx1
-         z01g==
-X-Forwarded-Encrypted: i=1; AJvYcCXN2Ciyk0cxK5P+E8UyHPQtJ50xymp8SGEE+SWXRHWHL+Yl37bKnKCalmR01mBYWVggk09NfAARLP/TvA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7CUTjiaEJeNv+HwVe1jSt9CyAgjLhk0XR9hVXEzd0dpQQwlzg
-	Gg9BI24/Ct5hK65vT4sOoq6fxsISdnVn/nbDamuoZraHVYnBuB9MPxK3
-X-Gm-Gg: ASbGnctEplYdMMp0nEsReCb6IDYhhL1cfJpdL73LEU8M/N/H+8w5KbPGcFQkqOm2f7w
-	rzQmjromYe8wgmC7+nMIRk3liOkBpbaz4pa9EfimcVjBe3GRvzoJtXF1Tj+fuPCrIWXARU4rFvD
-	QNGwXM2HZJaRFL180/iKg6/MNJluTKEzIiHYOwYZl1UluHLLdMQg166Wmdw75Iqn6a4AEUjsHLJ
-	Y8HqSPmTymK1hojCCs6rzANEKS8TLC8UaEVJvtx8xQfBrDTJjhG11IVhL6PweWMnmyiAKZ5KbLP
-	26irexNOJwlhuyoY/lHJQYUFf5wTSGkkqDvS2OA8Bf/XinnTdCc3wV3hmWBD9+bl/S+i9EIcDfF
-	7+2+2jYMB6UogJlZxVMH7vXOkPy/kfJRR
-X-Google-Smtp-Source: AGHT+IEjRNv9cyUm69QgMJCJnQnyhEp01tNG6SttjuPNziAGSPXCkaLL31LMoOKqtBh6Pvi3fZ7WJQ==
-X-Received: by 2002:ac8:578d:0:b0:4b0:80c7:ba32 with SMTP id d75a77b69052e-4b5f843c29amr155667861cf.38.1757470044192;
-        Tue, 09 Sep 2025 19:07:24 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757470087; x=1758074887;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0XFM07Z5n/PQZ1U15JfmMTCdL390KHJnWHFIuZFK96s=;
+        b=Os73V2sYJdiEStXD6ojLROL7hT9s0MKP3xVc61wYo+eiTLoEr8yFnAEBZX6Jc5JLUS
+         NfN+9XpJpz9kYW1x7lnhkz6minOQzKZwVORR3hG3Ri2KwzSBGw8g3AhmhEePWsSYno+u
+         GjrHQc7RV+D3NYECKCdeauO7xB0RMDdzUDwScouIXiemYAnHsJgvFYw9D6ick8JHcp9P
+         HRpQMchiNKg/b7h4dbMyCntchAF/xK6e5UbBgz1BXJzVCKOQPeHjJ7v98oPVgA5mqlba
+         s06z4lqf13SNVz3RrCkzAUwN2ynjfOhnnFjE3CGNigB3CLOTMOfFQAS90MIMT3F29ixB
+         Wk1g==
+X-Forwarded-Encrypted: i=1; AJvYcCXVunuaA0tFntnpnpgwO0jB+Y/cGk/nY/dCw/D7YjaHPPBWzvLQ9rsG+diS9f8UVnZgRAjTNEehtveKKw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YymfgvN2sGvQTp8njHlyPxPnemKpmL3yslRvh4PKrWoS+1Z79yU
+	D09mXvTnVLW8pX3flLY3/5c4xhKYpp6WA2xjU9IT1GO75+sucwLkHfMr
+X-Gm-Gg: ASbGnct0z43k7Cor0etZ413Z3C4ZbnlVGvyigizCpzm0D0X2cUL4r1ZmYkQnBFOOqWs
+	LlhuYWwhVOEs7pOaGB+5Y8/K5NgJIGjQmsW1eHKUCT9oFIAp9MhFWwT97AobEoiRVpIgscuYyd+
+	lUGef5ZQbsCVD/0vCFt/q97mjDI4vNcbEqeyKY+EEzKQYolBvIkO7pzhbQ3H+FPJdz7yA84aUco
+	9A6lG1B22MgkFDoMWwUPd8PPVP8bygx/8zB1myuJfTmzxp5GL0VClj1zkkHW/FoPkIckqJy0qgd
+	jxL0YMjHGgZaZ8cB/hJkITGnOTNkhyWiIxzmd3nk20tMFw4DnUxBHK+zEBEGYssV/U0/IGLy88H
+	hE7QU608VgVQCJGS1GsjD/fIBBfJYl3M16WSRUacaJFvfS+8YGYGzjQ==
+X-Google-Smtp-Source: AGHT+IGNC8sHtACh6gI+vt2l2BTS2R0uh7vi8B+8jgdFE32SPqkIaSaf1sgwm1dD4KthnaDiWgRQyw==
+X-Received: by 2002:a0c:f096:0:20b0:71f:b221:9aa9 with SMTP id 6a1803df08f44-73a3dbf58a3mr135461976d6.29.1757470087200;
+        Tue, 09 Sep 2025 19:08:07 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-81b5ec7d5d1sm212773085a.48.2025.09.09.19.07.20
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-728d6f8b338sm119377366d6.0.2025.09.09.19.08.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Sep 2025 19:07:23 -0700 (PDT)
+        Tue, 09 Sep 2025 19:08:06 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 To: kwilczynski@kernel.org,
 	u.kleine-koenig@baylibre.com,
@@ -99,14 +101,16 @@ To: kwilczynski@kernel.org,
 	chao.wei@sophgo.com,
 	xiaoguang.xing@sophgo.com,
 	fengchun.li@sophgo.com
-Subject: [PATCH v2 0/7] Add PCIe support to Sophgo SG2042 SoC
-Date: Wed, 10 Sep 2025 10:07:11 +0800
-Message-Id: <cover.1757467895.git.unicorn_wang@outlook.com>
+Subject: [PATCH v2 1/7] dt-bindings: pci: Add Sophgo SG2042 PCIe host
+Date: Wed, 10 Sep 2025 10:07:57 +0800
+Message-Id: <2755f145755b6096247c26852b63671a6fea4dbf.1757467895.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1757467895.git.unicorn_wang@outlook.com>
+References: <cover.1757467895.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250909_190726_230835_542F574F 
-X-CRM114-Status: GOOD (  20.26  )
+X-CRM114-CacheID: sfid-20250909_190808_621404_8265435F 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,87 +129,85 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Sophgo's SG2042 SoC uses Cadence PCIe core to implement RC mode.
+Add binding for Sophgo SG2042 PCIe host controller.
 
-This is a completely rewritten PCIe driver for SG2042. It inherits
-some previously submitted patch codes (not merged into the upstream
-mainline), but the biggest difference is that the support for
-compatibility with old 32-bit PCIe devices has been removed in this
-new version. This is because after discussing with community users,
-we felt that there was not much demand for support for old devices,
-so we made a new design based on the simplified design and practical
-needs. If someone really needs to play with old devices, we can provide
-them with some necessary hack patches in the downstream repository.
-
-Since the new design is quite different from the old code, I will
-release it as a new patch series. The old patch series can be found in
-here [old-series].
-
-Note, regarding [2/7] of this patchset, this fix is introduced because
-the pcie->ops pointer is not filled in SG2042 PCIe driver. This is not
-a must-have parameter, if we use it w/o checking will cause a null
-pointer access error during runtime.
-
-Link: https://lore.kernel.org/linux-riscv/cover.1736923025.git.unicorn_wang@outlook.com/ [old-series]
-
-Thanks,
-Chen
-
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
-
-Changes in v2:
-
-  This patchset is based on v6.17-rc1.
-
-  Fixed following issues based on feedbacks from Rob Herring, Manivannan Sadhasivam,
-  Bjorn Helgaas, ALOK TIWARI, thanks.
-
-  - Driver binding:
-    - Removed vendor-id/device-id from "required" property.
-  - Improve drivers code:
-    - Have separated pci_ops for the root bus and child buses.
-    - Make the driver tristate and as a module.
-    - Change the configuration name from PCIE_SG2042 to PCIE_SG2042_HOST.
-    - Removed "Fixes" tag from commit [2/7], since this is not for an existing bug fix.
-    - Other code cleanups and optimizations
-  - DT:
-    - Add PCIe support for SG2042 EVB boards.    
-
-Changes in v1:
-
-  The patch series is based on v6.17-rc1. You can simply review or test the
-  patches at the link [1].
-
-Link: https://lore.kernel.org/linux-riscv/cover.1756344464.git.unicorn_wang@outlook.com/ [1]
-
----
-
-Chen Wang (7):
-  dt-bindings: pci: Add Sophgo SG2042 PCIe host
-  PCI: cadence: Check pcie-ops before using it.
-  PCI: sg2042: Add Sophgo SG2042 PCIe driver
-  riscv: sophgo: dts: add PCIe controllers for SG2042
-  riscv: sophgo: dts: enable PCIe for PioneerBox
-  riscv: sophgo: dts: enable PCIe for SG2042_EVB_V1.X
-  riscv: sophgo: dts: enable PCIe for SG2042_EVB_V2.0
-
- .../bindings/pci/sophgo,sg2042-pcie-host.yaml |  64 +++++++++++
- arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts  |  12 ++
- arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts  |  12 ++
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  12 ++
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  88 +++++++++++++++
- drivers/pci/controller/cadence/Kconfig        |  10 ++
- drivers/pci/controller/cadence/Makefile       |   1 +
- .../controller/cadence/pcie-cadence-host.c    |   2 +-
- drivers/pci/controller/cadence/pcie-cadence.c |   4 +-
- drivers/pci/controller/cadence/pcie-cadence.h |   6 +-
- drivers/pci/controller/cadence/pcie-sg2042.c  | 104 ++++++++++++++++++
- 11 files changed, 309 insertions(+), 6 deletions(-)
+ .../bindings/pci/sophgo,sg2042-pcie-host.yaml | 64 +++++++++++++++++++
+ 1 file changed, 64 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
- create mode 100644 drivers/pci/controller/cadence/pcie-sg2042.c
 
-
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml b/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+new file mode 100644
+index 000000000000..f8b7ca57fff1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+@@ -0,0 +1,64 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/sophgo,sg2042-pcie-host.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo SG2042 PCIe Host (Cadence PCIe Wrapper)
++
++description:
++  Sophgo SG2042 PCIe host controller is based on the Cadence PCIe core.
++
++maintainers:
++  - Chen Wang <unicorn_wang@outlook.com>
++
++properties:
++  compatible:
++    const: sophgo,sg2042-pcie-host
++
++  reg:
++    maxItems: 2
++
++  reg-names:
++    items:
++      - const: reg
++      - const: cfg
++
++  vendor-id:
++    const: 0x1f1c
++
++  device-id:
++    const: 0x2042
++
++  msi-parent: true
++
++allOf:
++  - $ref: cdns-pcie-host.yaml#
++
++required:
++  - compatible
++  - reg
++  - reg-names
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    pcie@62000000 {
++      compatible = "sophgo,sg2042-pcie-host";
++      device_type = "pci";
++      reg = <0x62000000  0x00800000>,
++            <0x48000000  0x00001000>;
++      reg-names = "reg", "cfg";
++      #address-cells = <3>;
++      #size-cells = <2>;
++      ranges = <0x81000000 0 0x00000000 0xde000000 0 0x00010000>,
++               <0x82000000 0 0xd0400000 0xd0400000 0 0x0d000000>;
++      bus-range = <0x00 0xff>;
++      vendor-id = <0x1f1c>;
++      device-id = <0x2042>;
++      cdns,no-bar-match-nbits = <48>;
++      msi-parent = <&msi>;
++    };
 -- 
 2.34.1
 
