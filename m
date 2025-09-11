@@ -4,101 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50059CAC58E
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 17:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B0C9CAC587
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 18:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h1NlfDKSBeQ1SKtDYIlyClJ4NQMcrSL/ph9RTd2wu4A=; b=vctExAJGBbfR9e
-	UhpMhXvqD1+fh+bczSgZmAWduhRERoc4mSDbDyt0OcZ5FinVM2gbn3izUegjVDCtSLidLUaTvihyF
-	djrVISb1+Tn0FIjwgHZGu6gGkcqvy0Xh4tY5hY+geAUDxjE//nptaJ2AnXEXtYVDoIgbrYfD6Ag0i
-	4iRtfQ8BqTDYK9SkhCNI4g5S+HQZ+RTQ0ndaKWyu2FY56IobnfxDwzmgA6CABn1CILV83Ev3J+Ndv
-	K/xkbFQzu0EudlXX0C9t+MOYKsoWyx8z5Cvnc6m6gTgp4UCWUallkZqQPh3kH4k/qyYhgZ5WoQfEl
-	ARlA6kHsJTrOk41SevVw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Ob1emCIePaHXkRsPnVZqY47n7O7YW+0xEDXc50I/ks=; b=Vu7KaCmRe0ce1MqXrlgK3bKVLc
+	urmXkHXS8oYAuz7IxUlk7K4FyrGYEHAr0kKYsx+r1ZATF47VwImgHVuANVkVOIR6tjIhJGQhM1New
+	r+iufI4z/vCqbUTILQ7dEJ01xgXfJdu8SmjsfMK588aUti0+JWHp4L/GuuLzDSmLzVlt7X3fSBPRG
+	y0bAJ+sL5TcfWOoq3S6tjOdup/JEgurujY5n3NTTOobrb1ny77AcLvmYkybIvSPVPIb+QLbc/Z2Ko
+	kjatF1a9k5V6DyKXS8hQKFQVjJmOuImO9CiJBKxq5NiPWls9zO5saJjOUoGWEhdWXTTLH7+AgtGGp
+	6gVBAsOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwl2L-00000004SFJ-1tyt;
-	Thu, 11 Sep 2025 17:24:45 +0000
+	id 1uwlhV-00000004dOe-36cq;
+	Thu, 11 Sep 2025 18:07:17 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwl2K-00000004SF0-2HZE
+	id 1uwlhU-00000004dNU-0mhC
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Sep 2025 17:24:44 +0000
+	Thu, 11 Sep 2025 18:07:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DECEB601E5;
-	Thu, 11 Sep 2025 17:24:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CEC2C4CEF8;
-	Thu, 11 Sep 2025 17:24:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 92AB460249;
+	Thu, 11 Sep 2025 18:07:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50B3CC4CEF9;
+	Thu, 11 Sep 2025 18:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757611483;
-	bh=rUSira1eldMhRbCG3CRundU6gRCbCix6glN7E6cuuok=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QTHNBy5atytspwvpdN6J5kn7AGjGhcfMoZ75WG/sgpMrfBG654uwszVs8YrgIE2n/
-	 TN6N5EAsp1YvmhjJsW/vp9uX2/GMxa1q8VuQw66TSw8bchYARMVImbU0J4fBF9xm8G
-	 lMaEC1y5Xjm9hU1cQPohtcYHjHnJqbijcfTaOAgvo89B1aX4YHi9z6kmxEbua1nkF6
-	 SyVYJLSTbRAsiBdlLjrWjv1Q8MlZdlKu4eiBxMRf4+pIHR/EMCL8XB8D4eeLaVH9Q3
-	 8Z+wJzLCU5+65NkGgzBVNGXMPuRAsZLV8RyMBHGKJOfsZNl7LREgR8cDN9sKciI4RY
-	 03s4wylOWVUig==
-Message-ID: <a1749113-0b7e-43e7-a603-d1cf00c6a03f@kernel.org>
-Date: Thu, 11 Sep 2025 19:24:39 +0200
+	s=k20201202; t=1757614035;
+	bh=KpmAWMFxiOXu0TDDYDSlxIlbky8ODpeK2vXhN2ICIQA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=INoe1vRnK5LM4Wp7u1tuOus/4QP7QQGPulXi98gRJy9dJrY7QndKrpX9oFtdF3cYs
+	 MlydeLOMWEjbnjmtejdp22i8iCvRSLg8IlMmSPaZ7dABNJy5ACkCpDbL42DyKLz1jM
+	 gW9wkS09ibGCB6+752U+KXbGnBRYusk2Z6tO9aMhPsB7BB1wEsJVuWYhtCpYSFyoks
+	 3DbO018CcwtJJ/VnC7+0M5H4IXGs5UfxUaB0w/OqqEfoUQeJfgvq+W9ug75T2DcoeO
+	 czRFrmkOUo1WhCzYBGKR6RQH4k+Cen+ofyBGohViVHrQxAM31/Su8SbuFhYRkbsbMA
+	 4Ox2AKhBAFyVQ==
+Date: Thu, 11 Sep 2025 19:07:10 +0100
+From: Conor Dooley <conor@kernel.org>
+To: E Shattow <e@freeshell.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Subject: Re: [PATCH v3 0/5] riscv: dts: starfive: Add Milk-V Mars CM (Lite)
+ SoM
+Message-ID: <20250911-smoked-aviation-b514261e547e@spud>
+References: <20250905144011.928332-1-e@freeshell.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/4] dt-bindings: riscv: Add trace components
- description
-To: cp0613@linux.alibaba.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, guoren@kernel.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250911124448.1771-1-cp0613@linux.alibaba.com>
- <20250911124448.1771-2-cp0613@linux.alibaba.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250911124448.1771-2-cp0613@linux.alibaba.com>
+In-Reply-To: <20250905144011.928332-1-e@freeshell.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,89 +69,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6879198086859988894=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/09/2025 14:44, cp0613@linux.alibaba.com wrote:
-> From: Chen Pei <cp0613@linux.alibaba.com>
-> 
-> This patch has added property definitions related to the riscv
 
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
-
-<form letter>
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
-
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
-
-Please kindly resend and include all necessary To/Cc entries.
-</form letter>
+--===============6879198086859988894==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="QvKMfygXrttvtNJv"
+Content-Disposition: inline
 
 
-> trace component, providing a foundation for subsequent driver
-> implementations.
-> 
+--QvKMfygXrttvtNJv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Emil, This look okay to take?
+
+On Fri, Sep 05, 2025 at 07:39:38AM -0700, E Shattow wrote:
+> Milk-V Mars CM and Mars CM Lite System-on-Module both are based on the
+> StarFive JH7110 SoC and compatible with the Raspberry Pi CM4IO Classic IO
+> Board carrier. Mars CM Lite is Mars CM without the eMMC storage component
+> on mmc0 and the mmc0 interface configured instead for SD Card use. The
+> optional WiFi+BT chipset is connected via SDIO on the mmc1 interface that
+> would otherwise be connected to an SD Card slot on the StarFive
+> VisionFive2 reference design.
+>=20
+> Add the related devicetree files for both Milk-V Mars CM and Milk-V Mars
+> CM Lite describing the currently supported features, namely PMIC, UART,
+> I2C, GPIO, eMMC or SD Card, WiFi+BT, QSPI Flash, and Ethernet.
+>=20
+> Caveat with vendor AP6256 firmware files present the firmware loading is
+> successful but subsequently fails IRQ wake initialization. Common GPIO
+> conflicts for "WiFi" optioned boards having this module:
+>=20
+> pwmdac_pins:
+>  - AP6256: WL_REG_ON>>WIFI_REG_ON_H_GPIO33
+>  - AP6256: WL_HOST_WAKE>>WIFI_WAKE_HOST_H_GPIO34
+>=20
+> i2c2_pins:
+>  - AP6256: UART_CTS_N<<UART1_RTSn_GPIO2
+>  - AP6256: UART_RTS_N>>UART1_CTSn_GPIO3
+>=20
+> i2c6_pins:
+>  - AP6256: UART_RXD<<UART_TX_GPIO16
+>  - AP6256: UART_TXD>>UART_RX_GPIO17
+>=20
+> Tested successfully for basic mmc0 storage, USB, and network functionalit=
+y on:
+> - Milk-V Mars CM 8GB
+> - Milk-V Mars CM Lite 4GB
+> - Milk-V Mars CM Lite WiFi 8GB
+>=20
+> Changes since v2:
+> - PATCH 3/5 delete newline at end of file
+> - PATCH 5/5 delete newline at end of file
+>=20
+> Link to v2:
+> https://lore.kernel.org/lkml/20250831225959.531393-1-e@freeshell.de/
+>=20
+> E Shattow (5):
+>   riscv: dts: starfive: add common board dtsi for Milk-V Mars CM
+>     variants
+>   dt-bindings: riscv: starfive: add milkv,marscm-emmc
+>   riscv: dts: starfive: add Milk-V Mars CM system-on-module
+>   dt-bindings: riscv: starfive: add milkv,marscm-lite
+>   riscv: dts: starfive: add Milk-V Mars CM Lite system-on-module
+>=20
+>  .../devicetree/bindings/riscv/starfive.yaml   |   2 +
+>  arch/riscv/boot/dts/starfive/Makefile         |   2 +
+>  .../dts/starfive/jh7110-milkv-marscm-emmc.dts |  12 ++
+>  .../dts/starfive/jh7110-milkv-marscm-lite.dts |  25 +++
+>  .../dts/starfive/jh7110-milkv-marscm.dtsi     | 159 ++++++++++++++++++
+>  5 files changed, 200 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-emmc=
+=2Edts
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite=
+=2Edts
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi
+>=20
+>=20
+> base-commit: 8181cc2f3f21657392da912eb20ee17514c87828
+> --=20
+> 2.50.0
+>=20
+
+--QvKMfygXrttvtNJv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMMPzgAKCRB4tDGHoIJi
+0ltQAQDslWMe1fZ4Ww+Wl/yFLRedP+OoXPGPYVU5av62ToVj7wEAs25kRtwxXFFV
+17/h/NQnlcQRfNI3GHeBydWBbnX6ugA=
+=+/UZ
+-----END PGP SIGNATURE-----
+
+--QvKMfygXrttvtNJv--
 
 
-...
-
-> +$id: http://devicetree.org/schemas/riscv/trace/riscv,trace,funnel.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V Trace Funnel Controller
-> +
-> +description: |
-> +  riscv trace funnel controller description.
-> +
-> +maintainers:
-> +  - Chen Pei <cp0613@linux.alibaba.com>
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: riscv_trace,funnel-controller
-
-You need to start following DTS coding style.
-
-
-
-> +  reg:
-> +    description: A memory region containing registers for funnel controller
-> +
-> +  ports:
-> +    description: Input/Output port definitions
-> +
-> +  level:
-> +    description: Level of the funnel (e.g., 1 means close to the encoder)
-> +
-> +additionalProperties: true
-
-No clue from where you got this, but that's not how DT bindings are
-written. Maybe you used some AI tools for that - in that case, it would
-be strong grumpy NAK. :( You just waste community time with such approach.
-
-Please start from scratch from example-schema or known good bindings.
-
-Best regards,
-Krzysztof
+--===============6879198086859988894==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6879198086859988894==--
+
