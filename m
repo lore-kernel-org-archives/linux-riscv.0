@@ -4,67 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61254CAC587
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 16:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E5ECAC58E
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 16:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=agIu2EzXikEKWGrsAEg+oPyZV4bP96QY2rryeUl1qpk=; b=4cgobydn0TXnHgkE1o9RA4lLRY
-	qb38jF2fE7cDlp9/8Td12nYDjDWybGQrQydYbEpjn+myKxChNJpFNYwZTKtp79uD6r9SrTMVN/dn9
-	uUNM2jaRStXp+6FqRFPL6WeAUrTT+deN8HiRobANmmyfw9GLj39O9qU8RI2yiU9DClOTIj29drMA+
-	e3dGf5nAPPw1/DGLTwLcDmwRzIbGL6V22jGZAGsh40xSCfk2vqoMqmYNHWG30lBkfzgk8WMzVrtuh
-	9oHO70DIr8pzwn+NXc4a+zLm93R2HtFgk+YP4U8GJWpdsPgqpUUeR1NrcfbsFByQq5Eh36nItZ3pe
-	0ERYES+A==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=v780ZNqemaSZG+va8Lk+KULFnzjSkTCnbPeRgdMxZs4=; b=X4ni+Bng0hKyJf
+	G5+/ZCY9MyDU0ytANL2qByhdjxfw/XzGx0Wd0R3+BYfEeEnI51y2aELNIYH173hnTRaZuHURjmTau
+	bZfZ2Ry13RhGNF6KVtvPCzJiDD8kXR267lgrdnP52JqJXUqgRjdbiyTwL1FNFnsu5BJVKuTjOXF9z
+	Bx/rTsv11/cX3xAo4qO/SySkTWAZvUw+pAJOTvUezDMpSS+q9xYI5GHzAFIzXVd61VrR8FUEPWnBd
+	QoTs1IZKtbwK+26tJBCgR8TMG8X+5aQPhXvPeCmeeZV6cUHJlJs4gg1T3vQAxqvSXU4VC1dpl+UQm
+	39panpCBBNN9yhpYlbuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwk5D-00000004BWz-07Of;
-	Thu, 11 Sep 2025 16:23:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uwkHw-00000004FRJ-09hq;
+	Thu, 11 Sep 2025 16:36:48 +0000
+Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwk5A-00000004BWG-23lP
+	id 1uwkHt-00000004FQn-2Mv8
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Sep 2025 16:23:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A6C0340889;
-	Thu, 11 Sep 2025 16:23:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2208C4CEF0;
-	Thu, 11 Sep 2025 16:23:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757607815;
-	bh=9QxraYm5GUXl7u0Oai/gva02p1eqz1FDVLfEUwZUjL4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mMEp+KuToFa34pqvXC293dC/bMZBCA2jf39qtrvLFLtDv/jTjek/wWdEUC2zGsdFq
-	 0fUFc2eTzSZ/aLutBhS7V4XjRgFqzVDCTyXFbPpfbjFch/3tIMTu6KCUVzM0dLeKiT
-	 eLlJGLRWQSG3vnaYejiczvXdACq6Wfh1BrMPuK3lETFnL4PPXHgpkwxL0t204tBo2F
-	 nDhZc90oobiuGCV34Vd/yNGKHeJfBnQewGHLrx9iUTFofDOMjZU5/cFqU1SMk+cp2L
-	 Q9A0c6e9zs2ca6E9GsAWjvNOBQQJEb7u4XhU5yXM+QtSu3mMe65Ii8V5hwB9/acC1C
-	 3ppwPVU7AcoIQ==
-Date: Thu, 11 Sep 2025 17:23:30 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Adrien Ricciardi <aricciardi@baylibre.com>,
-	James Morse <james.morse@arm.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>, guo.wenjia23@zte.com.cn,
-	liu.qingtao2@zte.com.cn, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] RISC-V: Detect Ssqosid extension and handle srmcfg
- CSR
-Message-ID: <20250911-chaste-rare-fbc3b48a341a@spud>
-References: <20250910-ssqosid-v6-17-rc5-v1-0-72cb8f144615@kernel.org>
+	Thu, 11 Sep 2025 16:36:46 +0000
+Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-408929699eeso4426835ab.1
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Sep 2025 09:36:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1757608604; x=1758213404; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vIx9TAJKLDgZyZ0KM8pnfuvTopILKycVYmXw44N/kos=;
+        b=py3GOgWxCooi/SezFBSADnA+wyXJKqv0+DGMWCDR0Q01fiwcCU859WkTPamPY+z3mz
+         Lhd/hdNzwBMVcI1SQqOe7rYsDuAWcmrKQ+pCIj1FW5S6FLyAZjt4ni+53uITXWh1W4hT
+         awb7eqN3cWWl/zom8aDeZOjQbeH3rcWMxNAp5zZ4DDFw/rdkBit5uSl++EtE39dYMT1+
+         +nFn9xGH0JLyjalkQHMNbdcxoEpcrtj+hPHxzjFJO1HJB1Lg60B8v2vAMOnoqMvjpGeK
+         aNIoCJmNf6Oqcy07Rph6My8bt27f42eG/GbHlpPvTt3Ynp0+WhLUTs+7uOiH/DmQQQGo
+         5pDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757608604; x=1758213404;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vIx9TAJKLDgZyZ0KM8pnfuvTopILKycVYmXw44N/kos=;
+        b=lZ1im/ypxu9272fz2NTeOa99EIMVNgfZtfizFj7QrKEti9BJzfyPyphYC6hZitKKf2
+         7jIendR8pugW+nE+rz85dZNqLfiX5V33fIpDwOUewss+XyZVRhqkir+EHIjOTPEOMG0e
+         zkK7E1paNEQyaHppgVuZIGWBqldfNrgNTSLIrsaKaQCUWn9DHs7ABqDRDap+zjQUgGWP
+         0L4ttFXyyOy7UtVdus6kR8Nw/xaKaBmnpEZdXvApMApYe3hXF+AqJQLN74xXDWKsoFjb
+         T/hIz17MrRm+MlB99SrEUaykVH43MZ8yV9o1NM68pbV2qPWDeXGGgrHrn1wdxpqfCFqP
+         HQCA==
+X-Forwarded-Encrypted: i=1; AJvYcCU+2JSg+iqeE65Ao52TSNEyFaq0nB8PivAqugkwcgiKxsQeEwMO+wuRuqQOn2cphFU1H2HFCJkWIvuhiw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzmp88MLUUzjQNbegnIuKgI2HmxgeMTTl23AIj7v320yYRR6Ca7
+	6vdgisOLhJB200iHxMITCB7PFRBIglpcC4pWBQ8yU41o55sOyec5uiPffgHOXAOfn7s=
+X-Gm-Gg: ASbGncv5HoNOrbDqbP8VfhlMP9/0OSsBtUwzgfmKDXxE/a4ltpDlm0tT5qwg+JRVYds
+	ttyilFPGap92hiooo+SkyQLTgNZDx0wu9v/rWwkq4yVg2RSQJMZFx+Bt0ryp7e4c4nlIvx78/9t
+	SV79uLBRTFkd1z7J/xjDpTcnc7ToTZn8bWkbmfKDRB4L308PHbOgkDuPn18x82HeA7BhAXTMtm1
+	b4xGWp9KFKg6taTZKW2WEuI+auxHDopZVWFGMyX5NP8Z0A3io5B0VbPZLI+9sHrT6AnnGQX+Wo2
+	QwNS1Qxk82jZdHUb/n4l+rnjGZfXup4NpcjYHYy9qpZuPA8s1ReUxJ8wjUovdENW6CutRy8lfDg
+	5MduMBDjrP+5Pa/gWgzo7jQNFdPCChPnp9qkijFWJP+qXXhBmfoBQUCsMhDo0kA==
+X-Google-Smtp-Source: AGHT+IESTZWlrQ1ZzOp78ng5g4AamFP7UoV30m4Ba+h4YJCV6xC2C6gMfXuIzAo8ydU1NiPZGPw6eg==
+X-Received: by 2002:a05:6e02:17ca:b0:405:5e08:a3e4 with SMTP id e9e14a558f8ab-4209d40ff0emr3215465ab.1.1757608604054;
+        Thu, 11 Sep 2025 09:36:44 -0700 (PDT)
+Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-511f2efc55dsm735646173.1.2025.09.11.09.36.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Sep 2025 09:36:43 -0700 (PDT)
+Message-ID: <ec882a78-9604-45b1-9405-8f2f958f307c@riscstar.com>
+Date: Thu, 11 Sep 2025 11:36:41 -0500
 MIME-Version: 1.0
-In-Reply-To: <20250910-ssqosid-v6-17-rc5-v1-0-72cb8f144615@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: (subset) [PATCH v13 0/7] spacemit: introduce P1 PMIC support
+To: Lee Jones <lee@kernel.org>, lgirdwood@gmail.com, broonie@kernel.org,
+ alexandre.belloni@bootlin.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: mat.jonczyk@o2.pl, dlan@gentoo.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux.amoon@gmail.com, troymitchell988@gmail.com, guodong@riscstar.com,
+ linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250825172057.163883-1-elder@riscstar.com>
+ <175690199980.2656286.5459018179105557107.b4-ty@kernel.org>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <175690199980.2656286.5459018179105557107.b4-ty@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_092336_572331_C6576060 
-X-CRM114-Status: GOOD (  27.00  )
+X-CRM114-CacheID: sfid-20250911_093645_720002_D5A021D6 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,127 +102,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8527382530339738027=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8527382530339738027==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="66oBAo5TwOQvaR8d"
-Content-Disposition: inline
-
-
---66oBAo5TwOQvaR8d
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Sep 10, 2025 at 11:15:28PM -0700, Drew Fustini wrote:
-> This series adds support for the RISC-V Quality-of-Service Identifiers
-> (Ssqosid) extension [1] which adds the srmcfg register. This CSR=20
-> configures a hart with two identifiers: a Resource Control ID (RCID)
-> and a Monitoring Counter ID (MCID). These identifiers accompany each
-> request issued by the hart to shared resource controllers.
->=20
-> Background on RISC-V QoS:
->=20
-> The Ssqosid extension is used by the RISC-V Capacity and Bandwidth
-> Controller QoS Register Interface (CBQRI) specification [2]. QoS in
-> this context is concerned with shared resources on an SoC such as cache
-> capacity and memory bandwidth. Intel and AMD already have QoS features
-> on x86 and ARM has MPAM. There is an existing user interface in Linux:
-> the resctrl virtual filesystem [3].
->=20
-> The srmcfg CSR provides a mechanism by which a software workload (e.g.
-> a process or a set of processes) can be associated with an RCID and an
-> MCID. CBQRI defines operations to configure resource usage limits, in
-> the form of capacity or bandwidth. CBQRI also defines operations to
-> configure counters to track the resource utilization.
->=20
-> Goal for this series:
->=20
-> These two patches are taken from the implementation of resctrl support
-> for RISC-V CBQRI. Please refer to the proof-of-concept RFC [4] for
-> details on the resctrl implementation. More recently, I have rebased
-> the CBQRI support on mainline [5]. Big thanks to James Morse for the
-> tireless work to extract resctrl from arch/x86 and make it available
-> to all archs.
->=20
-> I think it makes sense to first focus on the detection of Ssqosid and
-> handling of srmcfg when switching tasks. It has been tested against a
-> QEMU branch that implements Ssqosid and CBQRI [6]. A test driver [7]
-> was used to set srmcfg for the current process. This allows switch_to
-> to be tested without resctrl.
->=20
-> Changes from RFC v2:
->  - Rename all instances of the sqoscfg CSR to srmcfg to match the
->    ratified Ssqosid spec
->  - RFC v2: https://lore.kernel.org/linux-riscv/20230430-riscv-cbqri-rfc-v=
-2-v2-0-8e3725c4a473@baylibre.com/
->=20
-> Changes from RFC v1:
->  - change DEFINE_PER_CPU to DECLARE_PER_CPU for cpu_sqoscfg in qos.h to
->    prevent linking error about multiple definition. Move DEFINE_PER_CPU
->    for cpu_sqoscfg into qos.c
->  - renamed qos prefix in function names to sqoscfg to be less generic
->  - handle sqoscfg the same way has_vector and has_fpu are handled in the
->    vector patch series
->  - RFC v1: https://lore.kernel.org/linux-riscv/20230410043646.3138446-1-d=
-fustini@baylibre.com/
->=20
-> [1] https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-> [2] https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
-> [3] https://docs.kernel.org/filesystems/resctrl.html
-> [4] https://lore.kernel.org/linux-riscv/20230419111111.477118-1-dfustini@=
-baylibre.com/
-> [5] https://github.com/tt-fustini/linux/tree/b4/cbqri-v6-17-rc5
-> [6] https://github.com/tt-fustini/qemu/tree/riscv-cbqri-rqsc-pptt
-> [7] https://github.com/tt-fustini/linux/tree/ssqosid-v6-17-rc5-debug
->=20
-> Signed-off-by: Drew Fustini <fustini@kernel.org>
-> ---
-> Drew Fustini (2):
->       RISC-V: Detect the Ssqosid extension
->       RISC-V: Add support for srmcfg CSR from Ssqosid ext
->=20
->  MAINTAINERS                        |  6 ++++++
->  arch/riscv/Kconfig                 | 17 ++++++++++++++++
->  arch/riscv/include/asm/csr.h       |  8 ++++++++
->  arch/riscv/include/asm/hwcap.h     |  1 +
->  arch/riscv/include/asm/processor.h |  3 +++
->  arch/riscv/include/asm/qos.h       | 41 ++++++++++++++++++++++++++++++++=
-++++++
->  arch/riscv/include/asm/switch_to.h |  3 +++
->  arch/riscv/kernel/cpufeature.c     |  1 +
-
-Why is there no binding change here? Is it not possible to use the
-extension on DT systems, or is this an oversight?
-
---66oBAo5TwOQvaR8d
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaML3ggAKCRB4tDGHoIJi
-0sDhAP0Y7MCc4EvQQ+4eO1Eg3H3Ujeucf8hI6xyXcdaIGBykMAD9E/9sPo9X2ojz
-/FZEoMDL+uhV7qYu4lfS54vhGJOVcAI=
-=u1qT
------END PGP SIGNATURE-----
-
---66oBAo5TwOQvaR8d--
-
-
---===============8527382530339738027==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8527382530339738027==--
-
+T24gOS8zLzI1IDc6MTkgQU0sIExlZSBKb25lcyB3cm90ZToKPiBPbiBNb24sIDI1IEF1ZyAyMDI1
+IDEyOjIwOjQ5IC0wNTAwLCBBbGV4IEVsZGVyIHdyb3RlOgo+PiBUaGUgU3BhY2VtaVQgUDEgaXMg
+YW4gSTJDLWNvbnRyb2xsZWQgUE1JQyB0aGF0IGltcGxlbWVudHMgNiBidWNrCj4+IGNvbnZlcnRl
+cnMgYW5kIDEyIExET3MuICBJdCBjb250YWlucyBhIGxvYWQgc3dpdGNoLCBBREMgY2hhbm5lbHMs
+Cj4+IEdQSU9zLCBhIHJlYWwtdGltZSBjbG9jaywgYW5kIGEgd2F0Y2hkb2cgdGltZXIuCj4+Cj4+
+IFRoaXMgc2VyaWVzIGludHJvZHVjZXMgYSBtdWx0aWZ1bmN0aW9uIGRyaXZlciBmb3IgdGhlIFAx
+IFBNSUMgYXMKPj4gd2VsbCBhcyBkcml2ZXJzIGZvciBpdHMgcmVndWxhdG9ycyBhbmQgUlRDLgo+
+Pgo+PiBbLi4uXQo+IAo+IEFwcGxpZWQsIHRoYW5rcyEKPiAKPiBbMS83XSBkdC1iaW5kaW5nczog
+bWZkOiBhZGQgc3VwcG9ydCB0aGUgU3BhY2VtaVQgUDEgUE1JQwo+ICAgICAgICBjb21taXQ6IGJh
+YWM2NzU1ZDNlOGRkZjQ3ZWVlMmJlM2NhNzJmZTE0ZWJhZTIxNDMKPiBbMi83XSBtZmQ6IHNpbXBs
+ZS1tZmQtaTJjOiBhZGQgU3BhY2VtaVQgUDEgc3VwcG9ydAo+ICAgICAgICBjb21taXQ6IDQ5ODMz
+NDk1Yzg1ZjI2ZDA3MGU3MDE0OGZkOTYwN2M2ZmJmOTI3ZmQKPiAKPiAtLQo+IExlZSBKb25lcyBb
+5p2O55C85pavXQo+IAoKWWl4dW4gTGFuIHBsYW5zIHRvIG1lcmdlIHBhdGNoZXMgNS03IG9mIHRo
+aXMgc2VyaWVzLgoKVGhhdCBsZWF2ZXMgcGF0Y2ggMywgd2hpY2ggZW5hYmxlcyByZWd1bGF0b3Ig
+c3VwcG9ydCwgYW5kIHBhdGNoCjQsIHdoaWNoIGFkZHMgUlRDIHN1cHBvcnQuCgpIb3cgc2hvdWxk
+IHRoZXNlIHR3byBwYXRjaGVzIGJlIG1lcmdlZD8gIE1hcmsgaGFzIHJldmlld2VkIHRoZQpyZWd1
+bGF0b3IgcGF0Y2ggMyBhbmQgQWxleGFuZHJlIGhhcyBhY2tlZCB0aGUgUlRDIHBhdGNoIDQuCgpU
+aGFuayB5b3UuCgoJCQkJCS1BbGV4CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
