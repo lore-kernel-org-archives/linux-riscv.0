@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62C3CAC594
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 09:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF4E4CAC593
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 09:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DAIb1y6m+QdW9qwIfv8+6AmUa7eb9W25BeIo9dJ1ZzI=; b=2qF8FeqK1nmAYT
-	6qx586wURITXPnPcDt2DdTinbEKY5Kg3U2LJ8o+bEvTHY1Mm9C7JpdlSVi4T4aKsY2IDJN9dAeywm
-	6DOo0IBOksUZ2mb/9QalfpAYy9CXCytLKIj0PW6Zdv2ZdB5xMQmc2XNl4FTgWCcvYwp0TUmUOd1jU
-	NHA0mM62ErRUAYAQ+7hbsvm8iluarIkKdwyQgPffnLHJf1OCzWjueCip2OLQSkzW1D9zeWOTFILQn
-	XDDfsf/pD7rFKlCuSfd5tYXRnXUe+8m9t9WD6VB/SYTzoHYh98XS0oWq+ifdfJVcJD2tKDT7bEI55
-	Pem7DSWBXdkvkcOufx5A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fFuZxrnK4evfU4kG3QKFiGR5SliopbjX6+4brFvZqKg=; b=glrqZqbuwFgpSH
+	B00Zx0EXQCoaQJ1/JR85WRP54cDPavIXS54MLFwvTFdB4r+n5CX9yDL5P8E0yy79vwtRBMXMgf9yg
+	C0kB+aQgoxeyaa3nhxvv2AtG3WjBYEf3AL9Uz5sq5ipfGtNhorGuc18wpzHMtxAffb8teTA0I+4ec
+	j+8PVo3mpPtd/s79hNuaiyxYfPTz7N3pdfgKbLOfutfTyn9/IEsvGtM9oxBNmgwnLzmoX6iKjfASM
+	mMAYuKXMVDYuqNvywGpM4mDr/1PeYWYi/6aOtTlCPooKYu7Rgd6rSZBCCCsjpKvdqpjd46Nsyijrq
+	L9z9wzlPVrF1MPVDuumQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwe2v-00000002FJJ-15PK;
-	Thu, 11 Sep 2025 09:56:53 +0000
+	id 1uwe2t-00000002FHg-2cuc;
+	Thu, 11 Sep 2025 09:56:51 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwe2r-00000002FEw-05P0
+	id 1uwe2q-00000002FEE-0a1q
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Sep 2025 09:56:51 +0000
+	Thu, 11 Sep 2025 09:56:50 +0000
 Received: from ubt.. (unknown [210.73.43.101])
-	by APP-03 (Coremail) with SMTP id rQCowACH2IK5nMJoo6pCAg--.44660S5;
-	Thu, 11 Sep 2025 17:56:13 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowACH2IK5nMJoo6pCAg--.44660S2;
+	Thu, 11 Sep 2025 17:56:09 +0800 (CST)
 From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 To: linux-riscv@lists.infradead.org,
 	linux-fsdevel@vger.kernel.org,
@@ -57,37 +57,33 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Axel Rasmussen <axelrasmussen@google.com>,
 	Yuanchu Xie <yuanchu@google.com>,
 	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: [PATCH v11 3/5] riscv: Add RISC-V Svrsw60t59b extension support
-Date: Thu, 11 Sep 2025 17:56:00 +0800
-Message-Id: <20250911095602.1130290-4-zhangchunyan@iscas.ac.cn>
+Subject: [PATCH v11 0/5] riscv: mm: Add soft-dirty and uffd-wp support
+Date: Thu, 11 Sep 2025 17:55:57 +0800
+Message-Id: <20250911095602.1130290-1-zhangchunyan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250911095602.1130290-1-zhangchunyan@iscas.ac.cn>
-References: <20250911095602.1130290-1-zhangchunyan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowACH2IK5nMJoo6pCAg--.44660S5
-X-Coremail-Antispam: 1UD129KBjvJXoW7CrykZr47tw4rWF1rtFWfGrg_yoW8KrWrpr
-	4FkryrCrWrWwn3uw4ayr95u3y8Xw4kGwsxGw4Uuw1rJrW7Z34xXw1vy3W7Gw1DXa1vqrnY
-	gF1F9r1xuw4jyFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmGb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUWwA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv
-	6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
-	02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJwAm72CE
-	4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7
-	CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI48JMxC20s026xCa
-	FVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_Jr
-	Wlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j
-	6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rV
-	WUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWx
-	JrUvcSsGvfC2KfnxnUUI43ZEXa7IUnsID7UUUUU==
+X-CM-TRANSID: rQCowACH2IK5nMJoo6pCAg--.44660S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWw4xGry5XF47Xry3Gw4kJFb_yoWrWFWkpF
+	45G343tr4rtr1Igws3Jw1j9a1Fqan5tw1rCw15X34rA3y2gF1jyrnaka1rGF1DJF48WryS
+	qrWakryq93yqyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9vb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
+	wI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI48JMxC20s
+	026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_
+	JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
+	v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xva
+	j40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JV
+	W8JrUvcSsGvfC2KfnxnUUI43ZEXa7IUYvXd7UUUUU==
 X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiDAgCB2jCjVc9QgABsP
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiDAYCB2jCjVc9NAAAs2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_025649_417166_12DB80DC 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250911_025648_538785_C86163E2 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,67 +100,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Svrsw60t59b extension allows to free the PTE reserved bits 60
-and 59 for software to use.
+This patchset adds support for Svrsw60t59b [1] extension which is ratified now,
+also add soft dirty and userfaultfd write protect tracking for RISC-V.
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
----
- arch/riscv/Kconfig             | 14 ++++++++++++++
- arch/riscv/include/asm/hwcap.h |  1 +
- arch/riscv/kernel/cpufeature.c |  1 +
- 3 files changed, 16 insertions(+)
+The patches 1 and 2 add macros to allow architectures to define their own checks
+if the soft-dirty / uffd_wp PTE bits are available, in other words for RISC-V,
+the Svrsw60t59b extension is supported on which device the kernel is running.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a4b233a0659e..d99df67cc7a4 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -862,6 +862,20 @@ config RISCV_ISA_ZICBOP
- 
- 	  If you don't know what to do here, say Y.
- 
-+config RISCV_ISA_SVRSW60T59B
-+	bool "Svrsw60t59b extension support for using PTE bits 60 and 59"
-+	depends on MMU && 64BIT
-+	depends on RISCV_ALTERNATIVE
-+	default y
-+	help
-+	  Adds support to dynamically detect the presence of the Svrsw60t59b
-+	  extension and enable its usage.
-+
-+	  The Svrsw60t59b extension allows to free the PTE reserved bits 60
-+	  and 59 for software to use.
-+
-+	  If you don't know what to do here, say Y.
-+
- config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
- 	def_bool y
- 	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index affd63e11b0a..f98fcb5c17d5 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -106,6 +106,7 @@
- #define RISCV_ISA_EXT_ZAAMO		97
- #define RISCV_ISA_EXT_ZALRSC		98
- #define RISCV_ISA_EXT_ZICBOP		99
-+#define RISCV_ISA_EXT_SVRSW60T59B	100
- 
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
- 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 743d53415572..2ba71d2d3fa3 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -539,6 +539,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
- 	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
- 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-+	__RISCV_ISA_EXT_DATA(svrsw60t59b, RISCV_ISA_EXT_SVRSW60T59B),
- 	__RISCV_ISA_EXT_DATA(svvptc, RISCV_ISA_EXT_SVVPTC),
- };
- 
+This patchset has been tested with kselftest mm suite in which soft-dirty, 
+madv_populate, test_unmerge_uffd_wp, and uffd-unit-tests run and pass,
+and no regressions are observed in any of the other tests.
+
+This patchset applies on top of v6.17-rc4.
+
+[1] https://github.com/riscv-non-isa/riscv-iommu/pull/543
+
+V11:
+- Rename the macro API to pgtable_*_supported() since we also have PMD support;
+- Change the default implementations of two macros, make CONFIG_MEM_SOFT_DIRTY or
+  CONFIG_HAVE_ARCH_USERFAULTFD_WP part of the macros;
+- Correct the order of insertion of RISCV_ISA_EXT_SVRSW60T59B;
+- Rephrase some comments.
+
+V10: https://lore.kernel.org/all/20250909095611.803898-1-zhangchunyan@iscas.ac.cn/
+- Fixed the issue reported by kernel test irobot <lkp@intel.com>.
+
+V9: https://lore.kernel.org/all/20250905103651.489197-1-zhangchunyan@iscas.ac.cn/
+- Add pte_soft_dirty/uffd_wp_available() API to allow dynamically checking
+  if the PTE bit is available for the platform on which the kernel is running.
+
+V8: https://lore.kernel.org/all/20250619065232.1786470-1-zhangchunyan@iscas.ac.cn/)
+- Rebase on v6.16-rc1;
+- Add dependencies to MMU && 64BIT for RISCV_ISA_SVRSW60T59B;
+- Use 'Svrsw60t59b' instead of 'SVRSW60T59B' in Kconfig help paragraph;
+- Add Alex's Reviewed-by tag in patch 1.
+
+V7: https://lore.kernel.org/all/20250409095320.224100-1-zhangchunyan@iscas.ac.cn/
+- Add Svrsw60t59b [1] extension support;
+- Have soft-dirty and uffd-wp depending on the Svrsw60t59b extension to
+  avoid crashes for the hardware which don't have this extension.
+
+V6: https://lore.kernel.org/all/20250408084301.68186-1-zhangchunyan@iscas.ac.cn/
+- Changes to use bits 59-60 which are supported by extension Svrsw60t59b
+  for soft dirty and userfaultfd write protect tracking.
+
+V5: https://lore.kernel.org/all/20241113095833.1805746-1-zhangchunyan@iscas.ac.cn/
+- Fixed typos and corrected some words in Kconfig and commit message;
+- Removed pte_wrprotect() from pte_swp_mkuffd_wp(), this is a copy-paste
+  error;
+- Added Alex's Reviewed-by tag in patch 2.
+
+V4: https://lore.kernel.org/all/20240830011101.3189522-1-zhangchunyan@iscas.ac.cn/
+- Added bit(4) descriptions into "Format of swap PTE".
+
+V3: https://lore.kernel.org/all/20240805095243.44809-1-zhangchunyan@iscas.ac.cn/
+- Fixed the issue reported by kernel test irobot <lkp@intel.com>.
+
+V2: https://lore.kernel.org/all/20240731040444.3384790-1-zhangchunyan@iscas.ac.cn/
+- Add uffd-wp supported;
+- Make soft-dirty uffd-wp and devmap mutually exclusive which all use
+  the same PTE bit;
+- Add test results of CRIU in the cover-letter.
+
+Chunyan Zhang (5):
+  mm: softdirty: Add pgtable_soft_dirty_supported()
+  mm: userfaultfd: Add pgtable_uffd_wp_supported()
+  riscv: Add RISC-V Svrsw60t59b extension support
+  riscv: mm: Add soft-dirty page tracking support
+  riscv: mm: Add userfaultfd write-protect support
+
+ arch/riscv/Kconfig                    |  16 +++
+ arch/riscv/include/asm/hwcap.h        |   1 +
+ arch/riscv/include/asm/pgtable-bits.h |  37 +++++++
+ arch/riscv/include/asm/pgtable.h      | 143 +++++++++++++++++++++++++-
+ arch/riscv/kernel/cpufeature.c        |   1 +
+ fs/proc/task_mmu.c                    |  17 ++-
+ fs/userfaultfd.c                      |  23 +++--
+ include/asm-generic/pgtable_uffd.h    |  11 ++
+ include/linux/mm_inline.h             |   7 ++
+ include/linux/pgtable.h               |  12 +++
+ include/linux/userfaultfd_k.h         |  44 +++++---
+ mm/debug_vm_pgtable.c                 |  10 +-
+ mm/huge_memory.c                      |  13 +--
+ mm/internal.h                         |   2 +-
+ mm/memory.c                           |   6 +-
+ mm/mremap.c                           |  13 +--
+ mm/userfaultfd.c                      |  10 +-
+ 17 files changed, 310 insertions(+), 56 deletions(-)
+
 -- 
 2.34.1
 
