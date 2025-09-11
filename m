@@ -4,70 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9ABDCAC58D
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 06:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D52ACAC583
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 06:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+h7XHXNscyi1Hz2ZwS0y//6INf7kkardMLj50XQBIxQ=; b=ZI/XNAtqFNExEd
-	ko3vl9Nb2lwIPrcSSY9RIMoz2DOXNsoUDBFbgE6uIyFJks9QPiE6mWxlqQ7mv/LzCzKkfAIoyHPHc
-	Py4lvJ1fnIJ5TEO4aCdCsuRkq3j5W1fw7VEufiDK41Dm5W/kTlc4i7rWV16pSdjQ6ElqHHYyV0EXK
-	3YBQWE6KRFEtBFh0gxZvtLj9gT9AczbuSK6zbWqVGh/kPyDBRZfJKA2endpMZq9oj4yni13M3yT+K
-	zxxfLVHN6xs7L1HvOjepNUho003+uRkKM4fFn370jO8NJOj94vQg/qTJyaGACINK7V2MmjlCVlnBt
-	Cqiz+pYNHNOzn4Zmox/Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GlAyk1zaJBK8SHtuBTWXqRhQtKYWvwdpnKCwZvUW7mE=; b=JCveYidnWrLrhn
+	pfdjT4Wy4vX28jcLAiau9MWLCBPUelBBdyC476WeZkfTAawCt/Mt0LKl5cAd5WF6JsQ7grziOEPCv
+	PakpAmqVRSSDW0BWJZDqUNvVnrs/pJTsnEooRSnb50qT+oM1+R+61WOpHTYxrLbU3EPpqH+ENUxcm
+	+U6QIbDON9E3JZDD3m5HO2vM8wudI0XQOUL2xHm4ijTTn1owbj23mbypUsyUi1cHitFXqLmpM5Lkk
+	DTGwZDhopqHnQzrmglpaRD65o2k8+6CwdrMV9L4POkl7Q7P5PWvp6GjhqClNfUVRKYtMdAbaQiPjb
+	wV9VaNXoiSHOr2l5di6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwabX-00000001BKG-3CI8;
-	Thu, 11 Sep 2025 06:16:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uwatM-00000001G1s-1VM2;
+	Thu, 11 Sep 2025 06:34:48 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwabW-00000001BJv-1Gtd
+	id 1uwatJ-00000001FzK-0Z5y
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Sep 2025 06:16:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81F8460232;
-	Thu, 11 Sep 2025 06:16:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B80D8C4CEFB;
-	Thu, 11 Sep 2025 06:16:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757571381;
-	bh=DjZFghpksciORuCBXL9QHTMWwRCOpfkdCfMsBDk4Gco=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=CG/fBUtlwMTX66LfpJ44F0Mfdscvv5wuStqf9gQg2XqoEJMVyMp+GDTHuDnxpW/lN
-	 KAMB2X4mptp5ik+yN8g7jiQI/FTn7HUA2hsAaZ11swY+VWeSYTw1I1Lnopq2QdJuuj
-	 +ckDi0tf0oQ/rMnUIjdBY+jGy4OOfC1fMiCL6bU8ZTFXVnygfGxDy459j/dErcFdR2
-	 MmeKjatDMd2gc4PKuzU3g3hk5PkGXWoB+FGp+0LGtdD8G6D4dWAMHg6dbNQIgaN2E9
-	 0FDvvFY7M2ocGzlajP0DWW7Mx81YYs+SxJrItLuLx1KrL4+08r+gObR201fYn+QpMT
-	 zePeWtUg/oh/g==
-From: Drew Fustini <fustini@kernel.org>
-Date: Wed, 10 Sep 2025 23:15:30 -0700
-Subject: [PATCH 2/2] RISC-V: Add support for srmcfg CSR from Ssqosid ext
+	Thu, 11 Sep 2025 06:34:46 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 5E2A8683E8;
+	Thu, 11 Sep 2025 06:34:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1757572479; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=Lfr1qPpuiB3AOwPU0ZFjKKYSXrWZllg4AtF3tp+3Wzs=;
+	b=Rb52kiLtTg3v2u9zgMn3NUgzc+I9t7goexfTSG/6vAd6CFqdCGPPMNDDYCobdCdyrq5sS4
+	THsDzUD4UF4y2fXBlIeYIVCPmZLL7CdaqepqR8WgmiYxUf4btn7G6HEQab08I1KrGeDcGm
+	nmUC3Xv4HYwAo2tomf/WXQlFMXA6O8w=
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1757572479; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=Lfr1qPpuiB3AOwPU0ZFjKKYSXrWZllg4AtF3tp+3Wzs=;
+	b=Rb52kiLtTg3v2u9zgMn3NUgzc+I9t7goexfTSG/6vAd6CFqdCGPPMNDDYCobdCdyrq5sS4
+	THsDzUD4UF4y2fXBlIeYIVCPmZLL7CdaqepqR8WgmiYxUf4btn7G6HEQab08I1KrGeDcGm
+	nmUC3Xv4HYwAo2tomf/WXQlFMXA6O8w=
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 773761372E;
+	Thu, 11 Sep 2025 06:34:37 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id KsszG31twmjuTAAAD6G6ig
+	(envelope-from <jgross@suse.com>); Thu, 11 Sep 2025 06:34:37 +0000
+From: Juergen Gross <jgross@suse.com>
+To: linux-kernel@vger.kernel.org,
+	x86@kernel.org,
+	linux-hyperv@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Juergen Gross <jgross@suse.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>,
+	Dexuan Cui <decui@microsoft.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Will Deacon <will@kernel.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Waiman Long <longman@redhat.com>,
+	Jiri Kosina <jikos@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	xen-devel@lists.xenproject.org,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.makhalov@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>
+Subject: [PATCH 00/14] paravirt: cleanup and reorg
+Date: Thu, 11 Sep 2025 08:34:19 +0200
+Message-ID: <20250911063433.13783-1-jgross@suse.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Message-Id: <20250910-ssqosid-v6-17-rc5-v1-2-72cb8f144615@kernel.org>
-References: <20250910-ssqosid-v6-17-rc5-v1-0-72cb8f144615@kernel.org>
-In-Reply-To: <20250910-ssqosid-v6-17-rc5-v1-0-72cb8f144615@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor@kernel.org>
-Cc: =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
- Adrien Ricciardi <aricciardi@baylibre.com>, 
- James Morse <james.morse@arm.com>, Atish Kumar Patra <atishp@rivosinc.com>, 
- Atish Patra <atish.patra@linux.dev>, 
- Vasudevan Srinivasan <vasu@rivosinc.com>, guo.wenjia23@zte.com.cn, 
- liu.qingtao2@zte.com.cn, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Drew Fustini <fustini@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6981; i=fustini@kernel.org;
- h=from:subject:message-id; bh=DjZFghpksciORuCBXL9QHTMWwRCOpfkdCfMsBDk4Gco=;
- b=owGbwMvMwCF2+43O4ZsaG3kYT6slMWQcyjR+sMD9r3uqt71DcMPH1QvDr9obnT/LFSkcz160L
- aHIzq+uo5SFQYyDQVZMkWXTh7wLS7xCvy6Y/2IbzBxWJpAhDFycAjCRe1qMDCeVbsga6k18sCPQ
- aDPnhqYJU79ZSE3pks8tW6l/M/bajUiG/+Wqs5ab+bGrfqkQq/n8o4Et5iXvZe7sug2PaxtzmmT
- mcwAA
-X-Developer-Key: i=fustini@kernel.org; a=openpgp;
- fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+X-Spamd-Result: default: False [-1.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_COUNT_TWO(0.00)[2];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FREEMAIL_CC(0.00)[suse.com,kernel.org,linutronix.de,redhat.com,alien8.de,linux.intel.com,zytor.com,microsoft.com,infradead.org,gmail.com,oracle.com,lists.xenproject.org,broadcom.com,armlinux.org.uk,arm.com,xen0n.name,linux.ibm.com,ellerman.id.au,csgroup.eu,sifive.com,dabbelt.com,eecs.berkeley.edu,ghiti.fr,linaro.org,goodmis.org,google.com,suse.de,lists.infradead.org,epam.com];
+	TO_DN_SOME(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_TLS_ALL(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:mid];
+	RCPT_COUNT_GT_50(0.00)[56];
+	FROM_HAS_DN(0.00)[];
+	DKIM_SIGNED(0.00)[suse.com:s=susede1];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLfdszjqhz8kzzb9uwpzdm8png)];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250910_233445_319121_E141C5D8 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,130 +160,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWRkIHN1cHBvcnQgZm9yIHRoZSBzcm1jZmcgQ1NSIGRlZmluZWQgaW4gdGhlIFNzcW9zaWQgSVNB
-IGV4dGVuc2lvbgooU3VwZXJ2aXNvci1tb2RlIFF1YWxpdHkgb2YgU2VydmljZSBJRCkuIFRoZSBD
-U1IgY29udGFpbnMgdHdvIGZpZWxkczoKCiAgLSBSZXNvdXJjZSBDb250cm9sIElEIChSQ0lEKSB1
-c2VkIGRldGVybWluZSByZXNvdXJjZSBhbGxvY2F0aW9uCiAgLSBNb25pdG9yaW5nIENvdW50ZXIg
-SUQgKE1DSUQpIHVzZWQgdG8gdHJhY2sgcmVzb3VyY2UgdXNhZ2UKClJlcXVlc3RzIGZyb20gYSBo
-YXJ0IHRvIHNoYXJlZCByZXNvdXJjZXMgbGlrZSBjYWNoZSB3aWxsIGJlIHRhZ2dlZCB3aXRoCnRo
-ZXNlIElEcy4gVGhpcyBhbGxvd3MgdGhlIHVzYWdlIG9mIHNoYXJlZCByZXNvdXJjZXMgdG8gYmUg
-YXNzb2NpYXRlZAp3aXRoIHRoZSB0YXNrIGN1cnJlbnRseSBydW5uaW5nIG9uIHRoZSBoYXJ0LgoK
-QSBzcm1jZmcgZmllbGQgaXMgYWRkZWQgdG8gdGhyZWFkX3N0cnVjdCBhbmQgaGFzIHRoZSBzYW1l
-IGZvcm1hdCBhcyB0aGUKc3JtY2ZnIENTUi4gVGhpcyBhbGxvd3MgdGhlIHNjaGVkdWxlciB0byBz
-ZXQgdGhlIGhhcnQncyBzcm1jZmcgQ1NSIHRvCmNvbnRhaW4gdGhlIFJDSUQgYW5kIE1DSUQgZm9y
-IHRoZSB0YXNrIHRoYXQgaXMgYmVpbmcgc2NoZWR1bGVkIGluLiBUaGUKc3JtY2ZnIENTUiBpcyBv
-bmx5IHdyaXR0ZW4gdG8gaWYgdGhlIHRocmVhZF9zdHJ1Y3Quc3JtY2ZnIGlzIGRpZmZlcmVudAp0
-aGFuIHRoZSBjdXJyZW50IHZhbHVlIG9mIHRoZSBDU1IuCgpBIHBlci1jcHUgdmFyaWFibGUgY3B1
-X3NybWNmZyBpcyB1c2VkIHRvIG1pcnJvciB0aGF0IHN0YXRlIG9mIHRoZSBDU1IuClRoaXMgaXMg
-YmVjYXVzZSBhY2Nlc3MgdG8gTDFEIGhvdCBtZW1vcnkgc2hvdWxkIGJlIHNldmVyYWwgdGltZXMg
-ZmFzdGVyCnRoYW4gYSBDU1IgcmVhZC4gQWxzbywgaW4gdGhlIGNhc2Ugb2YgdmlydHVhbGl6YXRp
-b24sIGFjY2Vzc2VzIHRvIHRoaXMKQ1NSIGFyZSB0cmFwcGVkIGluIHRoZSBoeXBlcnZpc29yLgoK
-TGluazogaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2LXNzcW9zaWQvcmVsZWFzZXMvdGFn
-L3YxLjAKQ28tZGV2ZWxvcGVkLWJ5OiBLb3JuZWwgRHVsxJliYSA8bWluZGFsQHNlbWloYWxmLmNv
-bT4KU2lnbmVkLW9mZi1ieTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFsZi5jb20+Cltm
-dXN0aW5pOiByZW5hbWUgY3NyIHRvIHNybWNmZywgcmVmYWN0b3Igc3dpdGNoX3RvLCByZWJhc2Ug
-b24gdjYuMTctcmM1XQpTaWduZWQtb2ZmLWJ5OiBEcmV3IEZ1c3RpbmkgPGZ1c3RpbmlAa2VybmVs
-Lm9yZz4KLS0tCiBNQUlOVEFJTkVSUyAgICAgICAgICAgICAgICAgICAgICAgIHwgIDYgKysrKysr
-CiBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgIHwgMTcgKysrKysrKysrKysrKysr
-KwogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCAgICAgICB8ICA4ICsrKysrKysrCiBhcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oIHwgIDMgKysrCiBhcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL3Fvcy5oICAgICAgIHwgNDEgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKysKIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmggfCAgMyArKysKIDYgZmls
-ZXMgY2hhbmdlZCwgNzggaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL01BSU5UQUlORVJTIGIv
-TUFJTlRBSU5FUlMKaW5kZXggY2Q3ZmY1NWI1ZDMyMTc1MmFjNDRjOTFkMmQ3ZTc0ZGUyOGUwODk2
-MC4uMDJhNzFlNGI0YThmMDQ1YmUwM2Y5Yzc3YTVkMjMxNGVlNjFkMjlmMCAxMDA2NDQKLS0tIGEv
-TUFJTlRBSU5FUlMKKysrIGIvTUFJTlRBSU5FUlMKQEAgLTIxNzI5LDYgKzIxNzI5LDEyIEBAIEY6
-CWRyaXZlcnMvcGVyZi9yaXNjdl9wbXUuYwogRjoJZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9sZWdh
-Y3kuYwogRjoJZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYwogCitSSVNDLVYgUU9TIFJFU0NU
-UkwgU1VQUE9SVAorTToJRHJldyBGdXN0aW5pIDxmdXN0aW5pQGtlcm5lbC5vcmc+CitMOglsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCitTOglTdXBwb3J0ZWQKK0Y6CWFyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vcW9zLmgKKwogUklTQy1WIFNQQUNFTUlUIFNvQyBTdXBwb3J0CiBNOglZaXh1
-biBMYW4gPGRsYW5AZ2VudG9vLm9yZz4KIEw6CWxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwpp
-bmRleCA1MWRjZDhlYWEyNDM1NmQ5NDdlYmUwZjFjNGE3MDFhM2NmYzZiNzU3Li45YjA5YTdhYWQy
-OTYyMWQ5OWYxNGQ0MTQ3NTFlNjdhNDNjYmRhZDNhIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L0tj
-b25maWcKKysrIGIvYXJjaC9yaXNjdi9LY29uZmlnCkBAIC02MDUsNiArNjA1LDIzIEBAIGNvbmZp
-ZyBSSVNDVl9JU0FfU1ZOQVBPVAogCiAJICBJZiB5b3UgZG9uJ3Qga25vdyB3aGF0IHRvIGRvIGhl
-cmUsIHNheSBZLgogCitjb25maWcgUklTQ1ZfSVNBX1NTUU9TSUQKKwlib29sICJTc3Fvc2lkIGV4
-dGVuc2lvbiBzdXBwb3J0IGZvciBzdXBlcnZpc29yIG1vZGUgUXVhbGl0eSBvZiBTZXJ2aWNlIElE
-IgorCWRlZmF1bHQgeQorCWhlbHAKKwkgIEFkZHMgc3VwcG9ydCBmb3IgdGhlIFNzcW9zaWQgSVNB
-IGV4dGVuc2lvbiAoU3VwZXJ2aXNvci1tb2RlCisJICBRdWFsaXR5IG9mIFNlcnZpY2UgSUQpLgor
-CisJICBTc3Fvc2lkIGRlZmluZXMgdGhlIHNybWNmZyBDU1Igd2hpY2ggYWxsb3dzIHRoZSBzeXN0
-ZW0gdG8gdGFnIHRoZQorCSAgcnVubmluZyBwcm9jZXNzIHdpdGggYW4gUkNJRCAoUmVzb3VyY2Ug
-Q29udHJvbCBJRCkgYW5kIE1DSUQKKwkgIChNb25pdG9yaW5nIENvdW50ZXIgSUQpLiBUaGUgUkNJ
-RCBpcyB1c2VkIHRvIGRldGVybWluZSByZXNvdXJjZQorCSAgYWxsb2NhdGlvbi4gVGhlIE1DSUQg
-aXMgdXNlZCB0byB0cmFjayByZXNvdXJjZSB1c2FnZSBpbiBldmVudAorCSAgY291bnRlcnMuCisK
-KwkgIEZvciBleGFtcGxlLCBhIGNhY2hlIGNvbnRyb2xsZXIgbWF5IHVzZSB0aGUgUkNJRCB0byBh
-cHBseSBhCisJICBjYWNoZSBwYXJ0aXRpb25pbmcgc2NoZW1lIGFuZCB1c2UgdGhlIE1DSUQgdG8g
-dHJhY2sgaG93IG11Y2gKKwkgIGNhY2hlIGEgcHJvY2Vzcywgb3IgYSBncm91cCBvZiBwcm9jZXNz
-ZXMsIGlzIHVzaW5nLgorCiBjb25maWcgUklTQ1ZfSVNBX1NWUEJNVAogCWJvb2wgIlN2cGJtdCBl
-eHRlbnNpb24gc3VwcG9ydCBmb3Igc3VwZXJ2aXNvciBtb2RlIHBhZ2UtYmFzZWQgbWVtb3J5IHR5
-cGVzIgogCWRlcGVuZHMgb24gNjRCSVQgJiYgTU1VCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2Nzci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaAppbmRleCA2ZmVk
-NDJlMzc3MDU5YzcwMDRlY2QzYzI5ZWIzNmQ1YzBlMzZhNjU2Li5lY2M1NzQ5MjI2NGMyYTI2MTZl
-MWUxNDc3OTYxNTc1MTJkYTcwZTg3IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L2Nzci5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKQEAgLTc1LDYgKzc1LDEz
-IEBACiAjZGVmaW5lIFNBVFBfQVNJRF9NQVNLCV9BQygweEZGRkYsIFVMKQogI2VuZGlmCiAKKy8q
-IFNSTUNGRyBmaWVsZHMgKi8KKyNkZWZpbmUgU1JNQ0ZHX1JDSURfTUFTSwlfQUMoMHgwMDAwMEZG
-RiwgVUwpCisjZGVmaW5lIFNSTUNGR19NQ0lEX01BU0sJU1JNQ0ZHX1JDSURfTUFTSworI2RlZmlu
-ZSBTUk1DRkdfTUNJRF9TSElGVAkxNgorI2RlZmluZSBTUk1DRkdfTUFTSwkJKChTUk1DRkdfTUNJ
-RF9NQVNLIDw8IFNSTUNGR19NQ0lEX1NISUZUKSB8IFwKKwkJCQkgIFNSTUNGR19SQ0lEX01BU0sp
-CisKIC8qIEV4Y2VwdGlvbiBjYXVzZSBoaWdoIGJpdCAtIGlzIGFuIGludGVycnVwdCBpZiBzZXQg
-Ki8KICNkZWZpbmUgQ0FVU0VfSVJRX0ZMQUcJCShfQUMoMSwgVUwpIDw8IChfX3Jpc2N2X3hsZW4g
-LSAxKSkKIApAQCAtMzE3LDYgKzMyNCw3IEBACiAjZGVmaW5lIENTUl9TVFZBTAkJMHgxNDMKICNk
-ZWZpbmUgQ1NSX1NJUAkJCTB4MTQ0CiAjZGVmaW5lIENTUl9TQVRQCQkweDE4MAorI2RlZmluZSBD
-U1JfU1JNQ0ZHCQkweDE4MQogCiAjZGVmaW5lIENTUl9TVElNRUNNUAkJMHgxNEQKICNkZWZpbmUg
-Q1NSX1NUSU1FQ01QSAkJMHgxNUQKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-cHJvY2Vzc29yLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oCmluZGV4IDI0
-ZDNhZjRkMzgwN2UzNzM5Njc0NGVmMjY1MzNhYzQ2NjFhYmNiNGYuLmNjOTU0OGI4NWQzNjNlY2Jj
-M2M0MTZlNTI5MDYxMDdhNzNlNjA1M2QgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vcHJvY2Vzc29yLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaApA
-QCAtMTIyLDYgKzEyMiw5IEBAIHN0cnVjdCB0aHJlYWRfc3RydWN0IHsKIAkvKiBBIGZvcmNlZCBp
-Y2FjaGUgZmx1c2ggaXMgbm90IG5lZWRlZCBpZiBtaWdyYXRpbmcgdG8gdGhlIHByZXZpb3VzIGNw
-dS4gKi8KIAl1bnNpZ25lZCBpbnQgcHJldl9jcHU7CiAjZW5kaWYKKyNpZmRlZiBDT05GSUdfUklT
-Q1ZfSVNBX1NTUU9TSUQKKwl1MzIgc3JtY2ZnOworI2VuZGlmCiB9OwogCiAvKiBXaGl0ZWxpc3Qg
-dGhlIGZzdGF0ZSBmcm9tIHRoZSB0YXNrX3N0cnVjdCBmb3IgaGFyZGVuZWQgdXNlcmNvcHkgKi8K
-ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcW9zLmggYi9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL3Fvcy5oCm5ldyBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDAwMDAwMDAwMDAwMDAw
-MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAuLjQxOGFjODM4M2ZiNzgwOGM2ZTNmNDIxYThkNGU5
-Mzg5YjcwMmEyNjQKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Fv
-cy5oCkBAIC0wLDAgKzEsNDEgQEAKKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4w
-ICovCisjaWZuZGVmIF9BU01fUklTQ1ZfUU9TX0gKKyNkZWZpbmUgX0FTTV9SSVNDVl9RT1NfSAor
-CisjaWZkZWYgQ09ORklHX1JJU0NWX0lTQV9TU1FPU0lECisKKyNpbmNsdWRlIDxsaW51eC9zY2hl
-ZC5oPgorI2luY2x1ZGUgPGxpbnV4L2p1bXBfbGFiZWwuaD4KKworI2luY2x1ZGUgPGFzbS9iYXJy
-aWVyLmg+CisjaW5jbHVkZSA8YXNtL2Nzci5oPgorI2luY2x1ZGUgPGFzbS9od2NhcC5oPgorCisv
-KiBjYWNoZWQgdmFsdWUgb2Ygc3JtY2ZnIGNzciBmb3IgZWFjaCBjcHUgKi8KK3N0YXRpYyBERUZJ
-TkVfUEVSX0NQVSh1MzIsIGNwdV9zcm1jZmcpOworCitzdGF0aWMgaW5saW5lIHZvaWQgX19zd2l0
-Y2hfdG9fc3JtY2ZnKHN0cnVjdCB0YXNrX3N0cnVjdCAqbmV4dCkKK3sKKwl1MzIgKmNwdV9zcm1j
-ZmdfcHRyID0gdGhpc19jcHVfcHRyKCZjcHVfc3JtY2ZnKTsKKwl1MzIgdGhyZWFkX3NybWNmZzsK
-KworCXRocmVhZF9zcm1jZmcgPSBSRUFEX09OQ0UobmV4dC0+dGhyZWFkLnNybWNmZyk7CisKKwlp
-ZiAodGhyZWFkX3NybWNmZyAhPSAqY3B1X3NybWNmZ19wdHIpIHsKKwkJKmNwdV9zcm1jZmdfcHRy
-ID0gdGhyZWFkX3NybWNmZzsKKwkJY3NyX3dyaXRlKENTUl9TUk1DRkcsIHRocmVhZF9zcm1jZmcp
-OworCX0KK30KKworc3RhdGljIF9fYWx3YXlzX2lubGluZSBib29sIGhhc19zcm1jZmcodm9pZCkK
-K3sKKwlyZXR1cm4gcmlzY3ZfaGFzX2V4dGVuc2lvbl9saWtlbHkoUklTQ1ZfSVNBX0VYVF9TU1FP
-U0lEKTsKK30KKworI2Vsc2UgLyogISBDT05GSUdfUklTQ1ZfSVNBX1NTUU9TSUQgICovCisKK3N0
-YXRpYyBfX2Fsd2F5c19pbmxpbmUgYm9vbCBoYXNfc3JtY2ZnKHZvaWQpIHsgcmV0dXJuIGZhbHNl
-OyB9CisjZGVmaW5lIF9fc3dpdGNoX3RvX3NybWNmZygpIGRvIHsgfSB3aGlsZSAoMCkKKworI2Vu
-ZGlmIC8qIENPTkZJR19SSVNDVl9JU0FfU1NRT1NJRCAqLworI2VuZGlmIC8qIF9BU01fUklTQ1Zf
-UU9TX0ggKi8KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmgg
-Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5oCmluZGV4IDBlNzFlYjgyZjkyMGNh
-YzJmMTRiYjYyNjg3OWJiMjE5YTJmMjQ3Y2MuLmE2ODRhMzc5NWQzZDdmNWUwMjdlYzBhODNjMzBh
-ZmQxYTE4ZDcyMjggMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3Rv
-LmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaApAQCAtMTQsNiArMTQs
-NyBAQAogI2luY2x1ZGUgPGFzbS9wcm9jZXNzb3IuaD4KICNpbmNsdWRlIDxhc20vcHRyYWNlLmg+
-CiAjaW5jbHVkZSA8YXNtL2Nzci5oPgorI2luY2x1ZGUgPGFzbS9xb3MuaD4KIAogI2lmZGVmIENP
-TkZJR19GUFUKIGV4dGVybiB2b2lkIF9fZnN0YXRlX3NhdmUoc3RydWN0IHRhc2tfc3RydWN0ICpz
-YXZlX3RvKTsKQEAgLTExOSw2ICsxMjAsOCBAQCBkbyB7CQkJCQkJCVwKIAkJX19zd2l0Y2hfdG9f
-ZnB1KF9fcHJldiwgX19uZXh0KTsJXAogCWlmIChoYXNfdmVjdG9yKCkgfHwgaGFzX3h0aGVhZHZl
-Y3RvcigpKQkJXAogCQlfX3N3aXRjaF90b192ZWN0b3IoX19wcmV2LCBfX25leHQpOwlcCisJaWYg
-KGhhc19zcm1jZmcoKSkJCQkJXAorCQlfX3N3aXRjaF90b19zcm1jZmcoX19uZXh0KTsJXAogCWlm
-IChzd2l0Y2hfdG9fc2hvdWxkX2ZsdXNoX2ljYWNoZShfX25leHQpKQlcCiAJCWxvY2FsX2ZsdXNo
-X2ljYWNoZV9hbGwoKTsJCVwKIAlfX3N3aXRjaF90b19lbnZjZmcoX19uZXh0KTsJCQlcCgotLSAK
-Mi4zNC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Some cleanups and reorg of paravirt code and headers:
+
+- The first 2 patches should be not controversial at all, as they
+  remove just some no longer needed #include and struct forward
+  declarations.
+
+- The 3rd patch is removing CONFIG_PARAVIRT_DEBUG, which IMO has
+  no real value, as it just changes a crash to a BUG() (the stack
+  trace will basically be the same). As the maintainer of the main
+  paravirt user (Xen) I have never seen this crash/BUG() to happen.
+
+- The 4th patch is just a movement of code.
+
+- I don't know for what reason asm/paravirt_api_clock.h was added,
+  as all archs supporting it do it exactly in the same way. Patch
+  5 is removing it.
+
+- Patches 6-12 are streamlining the paravirt clock interfaces by
+  using a common implementation across architectures where possible
+  and by moving the related code into common sched code, as this is
+  where it should live.
+
+- Patches 13+14 are more like RFC material: patch 13 is doing some
+  preparation work to enable patch 14 to move all spinlock related
+  paravirt functions into qspinlock.h. If this approach is accepted,
+  I'd like to continue with this work by moving most (or all?)
+  paravirt functions from paravirt.h into the headers where their
+  native counterparts are defined. This is meant to keep the native
+  and paravirt function definitions together in one place and
+  hopefully to be able to reduce the include hell with paravirt.
+
+Juergen Gross (14):
+  x86/paravirt: remove not needed includes of paravirt.h
+  x86/paravirt: remove some unneeded struct declarations
+  x86/paravirt: remove PARAVIRT_DEBUG config option
+  x86/paravirt: move thunk macros to paravirt_types.h
+  paravirt: remove asm/paravirt_api_clock.h
+  sched: move clock related paravirt code to kernel/sched
+  arm/paravirt: use common code for paravirt_steal_clock()
+  arm64/paravirt: use common code for paravirt_steal_clock()
+  loongarch/paravirt: use common code for paravirt_steal_clock()
+  riscv/paravirt: use common code for paravirt_steal_clock()
+  x86/paravirt: use common code for paravirt_steal_clock()
+  x86/paravirt: move paravirt_sched_clock() related code into tsc.c
+  x86/paravirt: allow pv-calls outside paravirt.h
+  x86/pvlocks: move paravirt spinlock functions into qspinlock.h
+
+ arch/Kconfig                                  |   3 +
+ arch/arm/Kconfig                              |   1 +
+ arch/arm/include/asm/paravirt.h               |  22 ---
+ arch/arm/include/asm/paravirt_api_clock.h     |   1 -
+ arch/arm/kernel/Makefile                      |   1 -
+ arch/arm/kernel/paravirt.c                    |  23 ---
+ arch/arm64/Kconfig                            |   1 +
+ arch/arm64/include/asm/paravirt.h             |  14 --
+ arch/arm64/include/asm/paravirt_api_clock.h   |   1 -
+ arch/arm64/kernel/paravirt.c                  |  11 +-
+ arch/loongarch/Kconfig                        |   1 +
+ arch/loongarch/include/asm/paravirt.h         |  13 --
+ .../include/asm/paravirt_api_clock.h          |   1 -
+ arch/loongarch/kernel/paravirt.c              |  10 +-
+ arch/powerpc/include/asm/paravirt.h           |   3 -
+ arch/powerpc/include/asm/paravirt_api_clock.h |   2 -
+ arch/powerpc/platforms/pseries/setup.c        |   4 +-
+ arch/riscv/Kconfig                            |   1 +
+ arch/riscv/include/asm/paravirt.h             |  14 --
+ arch/riscv/include/asm/paravirt_api_clock.h   |   1 -
+ arch/riscv/kernel/paravirt.c                  |  11 +-
+ arch/x86/Kconfig                              |   8 +-
+ arch/x86/entry/entry_64.S                     |   1 -
+ arch/x86/entry/vsyscall/vsyscall_64.c         |   1 -
+ arch/x86/hyperv/hv_spinlock.c                 |   1 -
+ arch/x86/include/asm/apic.h                   |   4 -
+ arch/x86/include/asm/highmem.h                |   1 -
+ arch/x86/include/asm/mmu_context.h            |   1 -
+ arch/x86/include/asm/mshyperv.h               |   1 -
+ arch/x86/include/asm/paravirt.h               | 166 ------------------
+ arch/x86/include/asm/paravirt_api_clock.h     |   1 -
+ arch/x86/include/asm/paravirt_types.h         |  82 +++++++--
+ arch/x86/include/asm/pgtable_32.h             |   1 -
+ arch/x86/include/asm/qspinlock.h              |  49 +++++-
+ arch/x86/include/asm/spinlock.h               |   1 -
+ arch/x86/include/asm/timer.h                  |   1 +
+ arch/x86/include/asm/tlbflush.h               |   4 -
+ arch/x86/kernel/apm_32.c                      |   1 -
+ arch/x86/kernel/callthunks.c                  |   1 -
+ arch/x86/kernel/cpu/bugs.c                    |   1 -
+ arch/x86/kernel/cpu/vmware.c                  |   1 +
+ arch/x86/kernel/kvm.c                         |   1 +
+ arch/x86/kernel/kvmclock.c                    |   1 +
+ arch/x86/kernel/paravirt.c                    |  16 --
+ arch/x86/kernel/tsc.c                         |  10 +-
+ arch/x86/kernel/vsmp_64.c                     |   1 -
+ arch/x86/kernel/x86_init.c                    |   1 -
+ arch/x86/lib/cache-smp.c                      |   1 -
+ arch/x86/mm/init.c                            |   1 -
+ arch/x86/xen/spinlock.c                       |   1 -
+ arch/x86/xen/time.c                           |   2 +
+ drivers/clocksource/hyperv_timer.c            |   2 +
+ drivers/xen/time.c                            |   2 +-
+ include/linux/sched/cputime.h                 |  18 ++
+ kernel/sched/core.c                           |   5 +
+ kernel/sched/cputime.c                        |  13 ++
+ kernel/sched/sched.h                          |   3 +-
+ 57 files changed, 182 insertions(+), 362 deletions(-)
+ delete mode 100644 arch/arm/include/asm/paravirt.h
+ delete mode 100644 arch/arm/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/arm/kernel/paravirt.c
+ delete mode 100644 arch/arm64/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/loongarch/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/powerpc/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/riscv/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/x86/include/asm/paravirt_api_clock.h
+
+-- 
+2.51.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
