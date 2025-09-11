@@ -4,155 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7DDCA101F
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 01:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFB3CA101F
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 02:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fnD9xTZyvG6NsGLXiKAfmDsiJRmqOVJDFAPCud3aRvY=; b=4TVZ9qIQp89lRDB7KC2Jm9aENB
-	50vxHd65KAMEFVglv0E0RUjK+xWhjfYo8ixUlpNZnEdKfC8JkoQF01Ks92A+Dxx0g9fxDqR1B9OHZ
-	BdLSdJHo3ipOeOSotqtEZ/JjYluZLU/W8nRKGWth1y75r3c1/bYPqI58EOIt1uv5OkAwY/Uf5FlET
-	46SPM7FehfbylbKe3NGwrCNe/MGz0yCan/iCsM7bSspxONukJOk5j+wyf58Ya1PT9qTxhMIfA+uLQ
-	njokAzFSb2QJNJnR20m226HsDXEj9234VP5mFHbptr/SUZ3GtcnHYpm0aFZZ4DNCsrsWtLcvGnGPc
-	k7petMdg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1arLXrypRb7zpNytSsrM4lNn/JyQLo9qSM5nU/09GLA=; b=eDe9TpvMrKS/jO
+	Q7WcVMibDnkaS+pLTwb4QW6fu6mA7hdfNY4cEpb2Hqm5MTtxqoGI0sRQcJfck9manhdK0BCQq4eOV
+	ui3P+bnEoJQQXbeGZ8fvWtrF7bCefORwr45Cl2TPsQNPZZ9ObQQ5UpCdZho5aNCikUS6To+NlBAFD
+	ySznwAWgJbTYj1yWCXYCpYHuqNqX47VjMI21WMWKGEhanZwLrROPBzjkbr5OICDRoXURt2s12z9gw
+	W17aiCnsenzmiTwZqLoG8UxiaZfajn3jpL7oCIyRlgmPhodHEzA4DPThNzCmx6CTITMHi7zi+a44d
+	8U/iGTCvZS4C2o3sSLZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwVqB-00000000598-3LIL;
-	Thu, 11 Sep 2025 01:11:11 +0000
-Received: from mail-centralindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d409::] helo=PNYPR01CU001.outbound.protection.outlook.com)
+	id 1uwXQI-00000000TCv-1NGb;
+	Thu, 11 Sep 2025 02:52:34 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwVq9-0000000057m-2Occ
+	id 1uwXQF-00000000TBg-2YUT
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Sep 2025 01:11:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZVQAPSh5TZz4907lrChMDTwWwiSCA9yHzcvS3CpspanS5dWBHnJ8DWiN/NSaiaQbkvqk2WBIjSzdHDXpbnpOqaNamq7sZnarEa81PLbXXAFDQlEwx/bB9+coeD/0W8VL0U/HLHQFZImLxeZA2InvwJfFEAvNHLP7iMCq0xOg0jy7U9uRwnHXW8eKrEutOsc30SOQiuimHRVPJtCHS5mUML3rufhAgJPJrQxKTxcMQcsNyZeKc7kMRqXuEPhJ3PVROxvFUH0+fTMwgogil9/ifjLGTjVK3BrpC16BJuZk0tM0ovF0ScCx+baxwTtclNzwD0UuSd0UfJnCKqJjm7WS7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SRuMD3y9z1rOHmbuAVbtIZpm2V3wxG07x7SqQ2tJnYU=;
- b=X3Pf9EDmo3olp8ys+au0yoJWctRPAJNBHUnN1mXocigAn2EHaOJWnFd1R9TNHiFtYx4/AOmStUWHZrBwt08+75d2XL1cRJsKJ8lkko+mETv+EDhNLEiJ2i0ItyhsV7+GFlyaZ7EewdwoPHlk8iwzhrnC8RYxYYGut8SCmP9C54KuQulc8v9lIxUjudcfEp4E9LgYcJ3Z8RvWxxjS4GECsmD2/7rz7FgEfFCUMEP7yvvg9sNwN1nL2DcoFzljRf4yZ0bCDjU6BEGqgB+ADa31wvg72yqWsIJXehGmlPF28EotVESuaVuJMB2PZJ+41SP8HcZSD5/zIl7zNcA74q5REQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SRuMD3y9z1rOHmbuAVbtIZpm2V3wxG07x7SqQ2tJnYU=;
- b=H3lbqGX0irNhW5bUnIWccAu++vWp/TGbKtTBEqjUnD42/fnggkHbGDEOFx0B9yF0/mRGzILwJLCQ96abPnunU0xxyhFhpgORWoccp32JbRLgdDEbzclB30rPaou9dGeXl7qZaKhpSB23Eun3riU23A+rDOpYVLBxlLckuIS+MmY9N85d/7YptBjozCR2ffm9fHDFkA0aBR/Aude4OXuHowKYhV3NndsKQY3ELUM2sNdhBtwcBxR+e6F/vgUFcaXUrltrmClTIsURLyrn1NcGfTxCzuGEaYI+luqz4kXLkhIMhCGI/ur3t9KZHybgKqeNtXxH9UOlzA9INwbtR8qOuA==
-Received: from MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:16f::16) by MAXPR01MB4135.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:9::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Thu, 11 Sep
- 2025 01:10:38 +0000
-Received: from MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::5dff:3ee7:86ee:6e4b]) by MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::5dff:3ee7:86ee:6e4b%4]) with mapi id 15.20.9094.021; Thu, 11 Sep 2025
- 01:10:38 +0000
-Message-ID: <MAUPR01MB110721A2F925ED68E40695C8DFE09A@MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM>
-Date: Thu, 11 Sep 2025 09:10:33 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dts: sophgo: sg2042: added numa id description
-To: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Inochi Amaoto <inochiama@gmail.com>,
- Nutty Liu <liujingqi@lanxincomputing.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Thomas Gleixner <tglx@linutronix.de>, Zixian Zeng <sycamoremoon376@gmail.com>
-Cc: linux-riscv@lists.infradead.org, sophgo@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250910105531.519897-1-rabenda.cn@gmail.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20250910105531.519897-1-rabenda.cn@gmail.com>
-X-ClientProxiedBy: SG2PR02CA0109.apcprd02.prod.outlook.com
- (2603:1096:4:92::25) To MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:16f::16)
-X-Microsoft-Original-Message-ID: <e1ccd383-87c5-4a82-966c-51d02c4ab56e@outlook.com>
+	Thu, 11 Sep 2025 02:52:32 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-328466c2aedso258026fac.2
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Sep 2025 19:52:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1757559150; x=1758163950; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bpMjHp2LWdB4AWDkPscdVaO0VRTcuWiIT22FTu9B1MU=;
+        b=Dd2e01AY5oLlsojlh550dUmh1NQexlQ8mdQCnEVXq3oPZMPOE+4JOsv5UWE7EDq7Sn
+         LelzBs4BKqHtfDPJ9dPXZ6kNrIEdAX+LBFF4/4LQFAOEo9im4+Afz4ENqrzT3w+lUs21
+         WCgjMvf/MXsmyA/lTXbxo63DbpoTVOn4OuT+KgatcYSjBr5wtdoWzw2bEmMw3Z1vDJYx
+         vGPzFpfLDA77zOvJaQUeB3U8e3sXoSLSQy7IbGgCzT1FN9wUSQp6yvvLCFsu2IQV+RY+
+         6LuPZW+0UvB4vOAGLX5cRCqLs/zKAVH9/Ur0wZO1wU5krMuuJi1ZNOCpJPnwc5BQ0lBi
+         CZ3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757559150; x=1758163950;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bpMjHp2LWdB4AWDkPscdVaO0VRTcuWiIT22FTu9B1MU=;
+        b=obWD7BFFUPzZDacS3GemxIaQVAlW4ocBBdNMDO0qnvbElZSy4Z3u+XplyHnUNxN6PQ
+         g0tsDXgUh5YpknWbg7bF4FNfdS/9h5V+BlsV857eb+uZ7LFjm/BeQKe8WmtXmIRwvlMg
+         Zgf0krQkpdoJhzogGZKenxq3wSEaXe/XxyT7Hb6ngMEOryMniC9+08N/fgq1C2rg8nan
+         beH0lUqDRRKCcWGilgCPNQ5DdFbynB/jS2ukDmXsktuFeCExD8lDXV2D6BVAAXHxapSe
+         k78NGDtJG/pEDfsJiH5szzIgqkuPJ5N9mAANT/K7+V77w+fVB1CU/HTWf3p+Ci+nGmZv
+         aVHw==
+X-Forwarded-Encrypted: i=1; AJvYcCWQwiRFqZhTEE1gzgX0QTSTPbOfsMfwT7K2adzXIvCoeDBxw4ljrk7TLEU3LH6y+v6MJXlsSTSusjurug==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSYycIIk/VqOeLsD2+KJnQVKvamtBvhbybyiVBwNpjipoOMylR
+	QmGhD8u1t2ifwrZ65LNORnG/wqeQ3LfipXU6bRces/XCHBNTJRCLxVYXPUvtAPgQjvQlNjhwU5A
+	d2qTmrwLU3HOPGi7k2Ukxd3ae1XACCXk=
+X-Gm-Gg: ASbGncuB7amVjpF4KkjurXEJ5IqZCDcZV1NnO3XveEC0cu83Hr8THmNImh4g6U4reqP
+	ddSd2zP4sgvgzmOER9a5UE0TGQJZMaQWjUmUHbmOSWdaQvkLUuhg/8KnmO1FO6uLnCdcS4k3XXI
+	6BkdxVos6ThPRxS1eXiUjNFwRBIQKQmkP6dW2X+UyCYShxvHzljQ+KugmNa3vhKI/m8tN6RVd1G
+	2VaXlKj6+4o6swYkHy2HPjPrIjteFfa8AjcHZU=
+X-Google-Smtp-Source: AGHT+IFv2XibXXypOlqv0RILHKkLaMk/1jc9mR92t82jtZp+Vm0vVDQ6eAhrLbih1UZ+0wzcwt9/oVQRFlYGSifHFZw=
+X-Received: by 2002:a05:6870:524d:b0:321:2680:2f84 with SMTP id
+ 586e51a60fabf-3226284cc7bmr8304474fac.3.1757559150312; Wed, 10 Sep 2025
+ 19:52:30 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAUPR01MB11072:EE_|MAXPR01MB4135:EE_
-X-MS-Office365-Filtering-Correlation-Id: cff1c4fd-da44-42a8-2a21-08ddf0d004f5
-X-Microsoft-Antispam: BCL:0;ARA:14566002|23021999003|8060799015|461199028|5072599009|6090799003|15080799012|19110799012|10035399007|53005399003|40105399003|3412199025|440099028|41105399003|12091999003|56899033;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z0tEeElDbGNBcE41ZjN5WGNNdHlGdXFZdDUzZlkyTXYzSVpUdGNoQmdHR2l4?=
- =?utf-8?B?S3RvTVdDaXZVdEFzdnlvcnlWRlpGck9yVzk2UWF2SWtwc3ZsY2puNjQzQVJM?=
- =?utf-8?B?Mk03bnJHajlWYVhoNnUvRXA3UDhSYXl0ZDZaQldoWkEzelNLRUM3UWZHbm5H?=
- =?utf-8?B?cjBIVjM5NzNjdCtQOG1oa3BnTUVmL3JiTjNzckQyQjJNZm4zNjU3N2trVHJ3?=
- =?utf-8?B?OWZwVE1OQ2tDZEN6dzhMNkxMdUhDRzBPMmtQWGJSRkhya0hUbXZzVmRWWjVW?=
- =?utf-8?B?Z0QyY1BwRDhoQ0h4dFJmWnAwMWtjYThicDFZcXFUMG5OTGttL3BkdDVSZEsx?=
- =?utf-8?B?S3FhdUtJYk41QTRFME5ZQXczbHBJSXg3UFpjRWluSHg0MXE0ZnpJTDlQa2ll?=
- =?utf-8?B?U3dzUXdja1hsdE5JNThSL3I4NlFWMXVvd3NCWXg5NnNSZ3NEcmQvY2xGNU5S?=
- =?utf-8?B?amZMbXhFK0NkV0kxQjFSWGUwdi9tR0JJR2xmVTl6dHFKMU04d0Z5T3FpYkZN?=
- =?utf-8?B?QUd2SklQNEkxa0crNUpRSzZYeVduOXk4RjNXVHoxMzZ6WExxdjR0SVYxRHNG?=
- =?utf-8?B?a1RkbHQza05acDhXTDg3RDNCOWYzSDYxZEhuaG5jUERMODdVSU5sZWY4UTNx?=
- =?utf-8?B?LytiaUEzYXdoRkxVVFVOVm84QWI1OXg4aW9UV3hVYkgvT2FCdDdIWUtkYUc5?=
- =?utf-8?B?ck1aTVF3a0xGQW43WkFoV0ZGTDFZOXpNZTQxdWpFV1B6TXpSRE0zKzcyOHBY?=
- =?utf-8?B?cXg4VjZyTjQ1V09zOUdPeWw5SmZyS1RSK3hsQVRnOTdyM3V3WnY4cmpHZ2l0?=
- =?utf-8?B?dnBmUzg3ZGVPd1ZGdmJDWW1oL2s0dXA2V2lYOXlwS0Z3L3hqRnpKdWRQaU5U?=
- =?utf-8?B?Q1hvUkN6TXhCa2tIdStJM04yN01LVVNZSVVxVllkeUZVaU50UXdEUEJuWlRG?=
- =?utf-8?B?eWQyNnJUQ24xKzd3S1kwNVYxTVQzRUV3YTU4dWw5eTNzQUFoQ1g5dGxaRWZC?=
- =?utf-8?B?N0R6QiswckhaNUxtVExLWC9jUHE1MkEydTBGUUJvdnFSaUt1K3dMckNkU3li?=
- =?utf-8?B?NGtyYVpuOFE3M1pHY3J2NHhUbHY3VU5kYTN5Q04wbUVoVE92amxibU9mTmFa?=
- =?utf-8?B?b0lwMUpYQnI1Y1ZaVWgzT2xVZ25VNE5RVW9YZnRHM0cxQmVpRlVzaDc4blNn?=
- =?utf-8?B?d2tvN1Iyemh2K1Nycmg2QnR0KzkzMGdXS014ZjhLR1RyZjBRRWhUd0JjMzdh?=
- =?utf-8?B?K3A1dnlNbzU5SUJBc0tTQXd1WUQ5WG5hL2h5dW5HNXV4MEd1ejU4OTVoZFdi?=
- =?utf-8?B?WjRjNEhoTjNsOUluSTc1czFZU2tpMVJlNnlnaFNxcEk5cjdmYm5sOHlXdkVo?=
- =?utf-8?B?L1EvZ3BTd29NNTk4ZVliZEhYWEtacUFZS2hzYWxLREY4aXZWd1RxNzBlTU1D?=
- =?utf-8?B?Y0NjTGQyWGZXbmQ4cG8yeSs2N0dQTEZhV29OSGI5RlRTa1pGekxqZ2NzeGtD?=
- =?utf-8?B?ckdqclIwanVvSWF2YWFveHVFYWJYSnNGd2VNR096cmhmRkZ5ZTEzR1VCZjlB?=
- =?utf-8?B?eDVObGxyUEhtTUxrenJYTW9Uc2I3bm9xNVNUZ1lGdVd5ZVp3RFBDdUpTbXUy?=
- =?utf-8?B?SnBKRWZvbm8zOGpzaTIrQTJhSkNnREVHRjFVTk9rZEVmREVyUFU4c2FaMmhn?=
- =?utf-8?B?aks0eVJOWkRObjFZQzN2S0RBQkp1Y2x4eUt0UTdENlBaMnBRMHp2TXZyYVdh?=
- =?utf-8?Q?l9mI4Kml9sen5z3ikc=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cksrb2lQNkg4czhsV1RyQ2t0ZHdOVzBkTGxIYU5ibmZxQUlyRjI4SzVUQ3VE?=
- =?utf-8?B?M0d4Q25YdHpORjJPKzdFbm9XazRic3pBU2diQmcrQXFuR1BldmdEM1pRRXZ2?=
- =?utf-8?B?VFBoa1h3WFdrSVh5ZGNIdnlWb1oyeUlQYklNWEltUEJ2MVVZcDdLa1FJc3NM?=
- =?utf-8?B?bjREbWIwM0wycWxNUWNhT2h0ZHJaM0JGQjBNNFFXd240ZXBkL28za0lYdkxa?=
- =?utf-8?B?WCtMa2N0TVpxK21vdHJzNkNIcUE1SHVKdmNpTzBOSW5vM3U3S1ZobmowWnVF?=
- =?utf-8?B?elcwSWdXOVVjTGl3dVBQKzdFblI5SGxrdnhFSEhOQngxc251d2c2Uzc5bVVV?=
- =?utf-8?B?SzBxUHpTNzRHSld6Zm1Rb1RoL2hEUkE0OVhBajlCQTNtWVNOUWU0TWhKQmVG?=
- =?utf-8?B?anAwaktBV0ZyK21zLytUU0hSVlJ3cWJYTEpQNHB1YVhHSVBJQ2w2ZlZmWk9Y?=
- =?utf-8?B?enVaY2dZdXN5QXJSdUoxYmF5TXcyRGxLenlPeURZNmV0TUxLcXBxWDhMV2dH?=
- =?utf-8?B?Znk3UlB4dWVFWkRXY0l1NFN4SGxhUnVMc2hoV0oxeVRnNkoyNm9jQUM5Rkda?=
- =?utf-8?B?T09QU20xamxWWnQwL04zdWFtOUJXL05GNXFqMlYySHlvblg0VmJSYW16NTI5?=
- =?utf-8?B?eHc3aW9oZmNSWmEyQmo3djI4Ymgra0tYYWp0c0RFcm9RS0FWNGE1SHJ5bTM1?=
- =?utf-8?B?N0phcFNCeDVacksrOFRHUmZzdEdMYTdFcG1QNDNOdGdRYW9HMUhhcFJRUy95?=
- =?utf-8?B?dVlpemV5UzBicXBvZUt2OWVWMUx1ZTBvcnlRTFEzbUpqTGdaNzB6VlQzMnh5?=
- =?utf-8?B?RXFwSkR5TjVtb2ltU1h4ZG14QTNSbmdoeWJrNmRVdnQvMkcvOGNWSVQzVmV1?=
- =?utf-8?B?WWZVVytRajZibEN4NmxmdnpWUEQwUCs4c1NsTkVjL24zdHhNRFFIdG9hSENp?=
- =?utf-8?B?ZG5xTmloYkxHWDREZmJkd090T1g4ZnhFMEJ1NUJheFFGU2dISEh2Nld4U2gy?=
- =?utf-8?B?dlNJMS9ud3YxaVlpbmZ3aW01TTcvamVQZWlUQnFDNFZ3Vmo4dVFSRmNVRWpY?=
- =?utf-8?B?ejl0RkhFSHd5NkF6MW5paEsxdWdiQnFyTDNpTENLOWFGZ1BOZE1lYitidWgy?=
- =?utf-8?B?UitRSVRCcWRUTHJKZ01LWitKNm9kNXZ2WDJnUnhzUFhNclBTVVBiRGNFQXNO?=
- =?utf-8?B?Y0xmemRuK1R1TnFRM3RlNTNQKzlzYUx0eDZCT08rMHcvMDdydWt1VnhLN3k2?=
- =?utf-8?B?NE0vS21mQU9ucmcrT3M2ZlZ5N3BYY3dVa2J0SnF3T2I0b0xiNG5ZRmNlZGlz?=
- =?utf-8?B?dFFRSkxsclJIYXdkZUM3T2Y2TzQzZmRaMm1weGVGMlZSaytTTEZ5Z1hWR1RJ?=
- =?utf-8?B?Z1J1L09jaEZ6YysydUU2MzZEcEpkZkl4dGJ6b2lqck5QQmJ2QnN5dE1HenZL?=
- =?utf-8?B?S3ZLd2FDSUZ6aFl3V0MvbUZuc2ZXV3ZCdXl4dDlseUZNR2pJZm85ai82Ukh4?=
- =?utf-8?B?NkhOUnJXZjN5ZzgwTmNROUJ6V1hyTTF0VUt2UlRlbjRxSmt1SDJOZkw4TERa?=
- =?utf-8?B?WkxTcm90MkJWSWdpQjkvT0g4MXFqcTluajBrQ0N4c1NQUWc0Rlg2djJBZERU?=
- =?utf-8?B?d3Vpd0lMZkNYVGtsbEdiRVgzMzhmSWZnMW93Yjh6R1poWGV0UklMbk5hMnlm?=
- =?utf-8?B?SXVzREI3TzhybUJObXI4QTNZa0g4RXZWVlFQRHBVRHJMYlBkQldEb0ZubUxj?=
- =?utf-8?Q?BHiNHjtDWppMHJtyl63q1KpuRpbPJIBaYTVp3EO?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cff1c4fd-da44-42a8-2a21-08ddf0d004f5
-X-MS-Exchange-CrossTenant-AuthSource: MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2025 01:10:38.6974
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAXPR01MB4135
+References: <20250909095611.803898-1-zhangchunyan@iscas.ac.cn>
+ <20250909095611.803898-2-zhangchunyan@iscas.ac.cn> <6b2f12aa-8ed9-476d-a69d-f05ea526f16a@redhat.com>
+ <CAAfSe-vbvGQy9JozQY3vsqrrPrTaWYMcNw+NaDf3nReWz8ynZg@mail.gmail.com> <8f9a4a13-2881-4baf-ab62-3d0d79e0cd3c@redhat.com>
+In-Reply-To: <8f9a4a13-2881-4baf-ab62-3d0d79e0cd3c@redhat.com>
+From: Chunyan Zhang <zhang.lyra@gmail.com>
+Date: Thu, 11 Sep 2025 10:51:54 +0800
+X-Gm-Features: Ac12FXw931KhRWiAwZHuKU_RVXZ29toqGSbWPbkJSujEUI17HyVR0UbdKmmlFK4
+Message-ID: <CAAfSe-snV-XZ3xGmK6gXNXw-D3ECWbyQgG+WG3c5gAsREz4ccQ@mail.gmail.com>
+Subject: Re: [PATCH V10 1/5] mm: softdirty: Add pte_soft_dirty_available()
+To: David Hildenbrand <david@redhat.com>
+Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Deepak Gupta <debug@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250910_181109_614599_B545229A 
-X-CRM114-Status: UNSURE (   6.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250910_195231_667889_80C88766 
+X-CRM114-Status: GOOD (  30.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,49 +100,178 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 9/10/2025 6:55 PM, Han Gao wrote:
-> According to the description of [1], sg2042 is divided into 4 numa.
-> STREAM test performance will improve.
+On Wed, 10 Sept 2025 at 16:51, David Hildenbrand <david@redhat.com> wrote:
 >
-> Before:
-> Function    Best Rate MB/s  Avg time     Min time     Max time
-> Copy:           10739.7     0.015687     0.014898     0.016385
-> Scale:          10865.9     0.015628     0.014725     0.016757
-> Add:            10622.3     0.023276     0.022594     0.023899
-> Triad:          10583.4     0.023653     0.022677     0.024761
+> On 10.09.25 10:25, Chunyan Zhang wrote:
+> > Hi David,
+> >
+> > On Tue, 9 Sept 2025 at 19:42, David Hildenbrand <david@redhat.com> wrote:
+> >>
+> >> On 09.09.25 11:56, Chunyan Zhang wrote:
+> >>> Some platforms can customize the PTE soft dirty bit and make it unavailable
+> >>> even if the architecture allows providing the PTE resource.
+> >>>
+> >>> Add an API which architectures can define their specific implementations
+> >>> to detect if the PTE soft-dirty bit is available, on which the kernel
+> >>> is running.
+> >>>
+> >>> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> >>> ---
+> >>>    fs/proc/task_mmu.c      | 17 ++++++++++++++++-
+> >>>    include/linux/pgtable.h | 10 ++++++++++
+> >>>    mm/debug_vm_pgtable.c   |  9 +++++----
+> >>>    mm/huge_memory.c        | 10 ++++++----
+> >>>    mm/internal.h           |  2 +-
+> >>>    mm/mremap.c             | 10 ++++++----
+> >>>    mm/userfaultfd.c        |  6 ++++--
+> >>>    7 files changed, 48 insertions(+), 16 deletions(-)
+> >>>
+> >>> diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
+> >>> index 29cca0e6d0ff..20a609ec1ba6 100644
+> >>> --- a/fs/proc/task_mmu.c
+> >>> +++ b/fs/proc/task_mmu.c
+> >>> @@ -1058,7 +1058,7 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
+> >>>         * -Werror=unterminated-string-initialization warning
+> >>>         *  with GCC 15
+> >>>         */
+> >>> -     static const char mnemonics[BITS_PER_LONG][3] = {
+> >>> +     static char mnemonics[BITS_PER_LONG][3] = {
+> >>>                /*
+> >>>                 * In case if we meet a flag we don't know about.
+> >>>                 */
+> >>> @@ -1129,6 +1129,16 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
+> >>>                [ilog2(VM_SEALED)] = "sl",
+> >>>    #endif
+> >>>        };
+> >>> +/*
+> >>> + * We should remove the VM_SOFTDIRTY flag if the PTE soft-dirty bit is
+> >>> + * unavailable on which the kernel is running, even if the architecture
+> >>> + * allows providing the PTE resource and soft-dirty is compiled in.
+> >>> + */
+> >>> +#ifdef CONFIG_MEM_SOFT_DIRTY
+> >>> +     if (!pte_soft_dirty_available())
+> >>> +             mnemonics[ilog2(VM_SOFTDIRTY)][0] = 0;
+> >>> +#endif
+> >>> +
+> >>>        size_t i;
+> >>>
+> >>>        seq_puts(m, "VmFlags: ");
+> >>> @@ -1531,6 +1541,8 @@ static inline bool pte_is_pinned(struct vm_area_struct *vma, unsigned long addr,
+> >>>    static inline void clear_soft_dirty(struct vm_area_struct *vma,
+> >>>                unsigned long addr, pte_t *pte)
+> >>>    {
+> >>> +     if (!pte_soft_dirty_available())
+> >>> +             return;
+> >>>        /*
+> >>>         * The soft-dirty tracker uses #PF-s to catch writes
+> >>>         * to pages, so write-protect the pte as well. See the
+> >>> @@ -1566,6 +1578,9 @@ static inline void clear_soft_dirty_pmd(struct vm_area_struct *vma,
+> >>>    {
+> >>>        pmd_t old, pmd = *pmdp;
+> >>>
+> >>> +     if (!pte_soft_dirty_available())
+> >>> +             return;
+> >>> +
+> >>>        if (pmd_present(pmd)) {
+> >>>                /* See comment in change_huge_pmd() */
+> >>>                old = pmdp_invalidate(vma, addr, pmdp);
+> >>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> >>> index 4c035637eeb7..c0e2a6dc69f4 100644
+> >>> --- a/include/linux/pgtable.h
+> >>> +++ b/include/linux/pgtable.h
+> >>> @@ -1538,6 +1538,15 @@ static inline pgprot_t pgprot_modify(pgprot_t oldprot, pgprot_t newprot)
+> >>>    #endif
+> >>>
+> >>>    #ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
+> >>> +
+> >>> +/*
+> >>> + * Some platforms can customize the PTE soft dirty bit and make it unavailable
+> >>> + * even if the architecture allows providing the PTE resource.
+> >>> + */
+> >>> +#ifndef pte_soft_dirty_available
+> >>> +#define pte_soft_dirty_available()   (true)
+> >>> +#endif
+> >>> +
+> >>>    #ifndef CONFIG_ARCH_ENABLE_THP_MIGRATION
+> >>>    static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
+> >>>    {
+> >>> @@ -1555,6 +1564,7 @@ static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
+> >>>    }
+> >>>    #endif
+> >>>    #else /* !CONFIG_HAVE_ARCH_SOFT_DIRTY */
+> >>> +#define pte_soft_dirty_available()   (false)
+> >>>    static inline int pte_soft_dirty(pte_t pte)
+> >>>    {
+> >>>        return 0;
+> >>> diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
+> >>> index 830107b6dd08..98ed7e22ccec 100644
+> >>> --- a/mm/debug_vm_pgtable.c
+> >>> +++ b/mm/debug_vm_pgtable.c
+> >>> @@ -690,7 +690,7 @@ static void __init pte_soft_dirty_tests(struct pgtable_debug_args *args)
+> >>>    {
+> >>>        pte_t pte = pfn_pte(args->fixed_pte_pfn, args->page_prot);
+> >>>
+> >>> -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
+> >>> +     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY) || !pte_soft_dirty_available())
+> >>
+> >> I suggest that you instead make pte_soft_dirty_available() be false without CONFIG_MEM_SOFT_DIRTY.
+> >>
+> >> e.g., for the default implementation
+> >>
+> >> define pte_soft_dirty_available()       IS_ENABLED(CONFIG_MEM_SOFT_DIRTY)
+> >>
+> >> That way you can avoid some ifefs and cleanup these checks.
+> >
+> > Do you mean something like this:
+> >
+> > --- a/include/linux/pgtable.h
+> > +++ b/include/linux/pgtable.h
+> > @@ -1538,6 +1538,16 @@ static inline pgprot_t pgprot_modify(pgprot_t
+> > oldprot, pgprot_t newprot)
+> >   #endif
+> >
+> >   #ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
+> > +#ifndef arch_soft_dirty_available
+> > +#define arch_soft_dirty_available()     (true)
+> > +#endif
+> > +#define pgtable_soft_dirty_supported()
+> > (IS_ENABLED(CONFIG_MEM_SOFT_DIRTY) && arch_soft_dirty_available())
+> > +
+> >   #ifndef CONFIG_ARCH_ENABLE_THP_MIGRATION
+> >   static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
+> >   {
+> > @@ -1555,6 +1565,7 @@ static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
+> >   }
+> >   #endif
+> >   #else /* !CONFIG_HAVE_ARCH_SOFT_DIRTY */
+> > +#define pgtable_soft_dirty_supported() (false)
 >
-> After:
-> Function    Best Rate MB/s  Avg time     Min time     Max time
-> Copy:           34254.9     0.005142     0.004671     0.005995
-> Scale:          37735.5     0.004752     0.004240     0.005407
-> Add:            44206.8     0.005983     0.005429     0.006461
-> Triad:          43040.6     0.006320     0.005576     0.006996
+> Maybe we can simplify to
 >
-> [1] https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/pic/mesh.png
+> #ifndef pgtable_soft_dirty_supported
+> #define pgtable_soft_dirty_supported()  IS_ENABLED(CONFIG_MEM_SOFT_DIRTY)
+> #endif
 >
-> Signed-off-by: Han Gao <rabenda.cn@gmail.com>
+> And then just let the arch that overrides this function just make it
+> respect IS_ENABLED(CONFIG_MEM_SOFT_DIRTY).
 
-The subject of patches that modify the device tree are usually prefixed 
-with "riscv: sophgo: dts: xxx". This isn't a big deal, so keep it in 
-mind next time. If you don't mind, we can modify it when merging.
+Ok, got you, I will address it.
 
-Others LGTM.
-
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-
-Thanks,
-
-Chen
-
-[......]
+Thanks for your review,
+Chunyan
 
 
+>
+> --
+> Cheers
+>
+> David / dhildenb
+>
 
 _______________________________________________
 linux-riscv mailing list
