@@ -4,54 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C927ACA1016
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 11:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 795CBCA1016
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 12:12:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EVj9BBAKZiUe3PgfF2q8hyQQ5k8BIW2rg/JN7WIiSHI=; b=oMrMEBU0Twh+8I
-	qemCKD/8sl1OGP/PnsMt33Gm+SgcdhZoz+aih0C3nqDNryF6knz2rC5AUbTtCsILWamCcQdxLpz+5
-	EMWsWi9eyo6E9CFIOibgl9CUZiqicnN6dPTp3Gu9IpxAewadDDPeHZpA+sm1eg/qZ1japdsuUxn+Q
-	pFzuQdmPZa8QdHy+KIYuYMlDg9C8HbXO0AaXR+Kwx4MZ/HoBTZIX5JuPTKFvrMkLERHLkuW47Y5g7
-	djAHKGTSUdIQhJAXPetEoqmvxyNsg/SX5dc/7IaFljRw96wMj9aos25MQIj4Kxobe94MZx/NpiPK9
-	kLWU1UmyKrSlQd2liyUQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IT1cGvJPu6O/yM/awR8QU6PrHWF33rCniZEjxHI+CfA=; b=IThTMNxaQrQSRx
+	+7vHSks0Tt0kMScj1zhSAD6crTUyVURpAzNga/9hMFdwRuOoqlhKFA3zu1A3xO2YdyXdmtp0urg/c
+	UN5H6vDtUar/i3s0r0snd3B8kIQWdEPH7S/ETj5Xc8CE7175PUcvGy7hcrz5JUuEcErAhk/GCi1dY
+	V0gJGLJ79DUsbKzHghdSL1Q7WSbsPm/yHwR063Ksu1i2rE8AvRFmUtxZny3yfoB8ch7MAlyN0iZQ9
+	4U81WozgjP8ueki2pRLIP22w8Fgo57F+oYL1iprKQ5qs9Pwjcem+s4osoK85WDGXu94Vc/ZXe+3z6
+	/d1/H9poZUKyLSKLGOBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwfP2-00000002eQ9-0Pcc;
-	Thu, 11 Sep 2025 11:23:48 +0000
-Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1uwgAH-00000002tn4-0Cjh;
+	Thu, 11 Sep 2025 12:12:37 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwfOz-00000002eNg-3mLI
+	id 1uwgAC-00000002tlE-2oRT
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Sep 2025 11:23:47 +0000
-Received: from localhost (unknown [116.232.18.168])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id A94333410A2;
-	Thu, 11 Sep 2025 11:23:09 +0000 (UTC)
-Date: Thu, 11 Sep 2025 19:22:51 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, skhan@linuxfoundation.org,
-	linux-kernel-mentees@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: spacemit: add UART pinctrl combinations
-Message-ID: <20250911112251-GYA1216475@gentoo.org>
-References: <20250903145334.425633-1-hendrik.hamerlinck@hammernet.be>
+	Thu, 11 Sep 2025 12:12:34 +0000
+Received: from Mobilestation.localdomain (unknown [61.144.19.246])
+	by APP-03 (Coremail) with SMTP id rQCowACXq4WlvMJouiJHAg--.45651S2;
+	Thu, 11 Sep 2025 20:12:25 +0800 (CST)
+From: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	zihong.plct@isrc.iscas.ac.cn,
+	zihongyao@outlook.com,
+	zhangyin2018@iscas.ac.cn,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Subject: [PATCH v1 0/2] riscv: hwprobe: add Zicbop support
+Date: Thu, 11 Sep 2025 20:12:07 +0800
+Message-ID: <20250911121219.20243-1-zihong.plct@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250903145334.425633-1-hendrik.hamerlinck@hammernet.be>
+X-CM-TRANSID: rQCowACXq4WlvMJouiJHAg--.45651S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUY67AC8VAFwI0_Gr0_Xr1l1xkIjI8I6I8E
+	6xAIw20EY4v20xvaj40_JFC_Wr1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
+	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8I
+	cVCY1x0267AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aV
+	CY1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE
+	5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeV
+	CFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1l
+	c2xSY4AK67AK6ryUMxAIw28IcxkI7VAKI48JMxAqzxv26xkF7I0En4kS14v26r1q6r43Mx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
+	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v2
+	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
+	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbQeOJUUUUU==
+X-Originating-IP: [61.144.19.246]
+X-CM-SenderInfo: p2lk00vjoszunw6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_042345_976512_965B2379 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20250911_051233_068923_98C184F2 
+X-CRM114-Status: UNSURE (   4.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,410 +82,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Hendrik,
+Add UAPI and kernel plumbing to expose the Zicbop extension presence
+and its block size through sys_hwprobe(). The interface mirrors
+Zicbom/Zicboz. This allows userspace to safely discover and optimize
+for Zicbop when available.
 
-On 16:53 Wed 03 Sep     , Hendrik Hamerlinck wrote:
-> This adds UART pinctrl configurations based on the SoC datasheet and the
-> downstream Bianbu Linux tree. The drive strength values were taken from
-> the downstream implementation, which uses medium drive strength.
-> 
-> For convenience, the board DTS files have been updated to include all
-> UART instances with their possible pinmux options in a disabled state.
-> 
-> Tested this locally on both Orange Pi RV2 and Banana Pi BPI-F3 boards. 
-> 
-> Signed-off-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-> ---
->  .../boot/dts/spacemit/k1-bananapi-f3.dts      |  18 ++
->  .../boot/dts/spacemit/k1-orangepi-rv2.dts     |  18 ++
->  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  | 276 +++++++++++++++++-
->  3 files changed, 309 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> index 6013be258542..661d47d1ce9e 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> @@ -49,3 +49,21 @@ &uart0 {
->  	pinctrl-0 = <&uart0_2_cfg>;
->  	status = "okay";
->  };
-> +
-> +&uart5 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart5_3_cfg>;
-> +	status = "disabled";
-> +};
-> +
-> +&uart8 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart8_2_cfg>;
-> +	status = "disabled";
-> +};
-> +
-> +&uart9 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart9_2_cfg>;
-> +	status = "disabled";
-> +};
+Yao Zihong (2):
+  uapi: riscv: hwprobe: add Zicbop extension bit and block-size key
+  riscv: hwprobe: report Zicbop presence and block size
 
-all of uart5, 8, 9 come from 26-pins port, the functionaly is
-very likely depending on the final use case.. and I get your idea
-of adding those nodes but with "disabled" status..
-
-my suggestion is to not add them, or leave to users to add separated
-dtbo (Device tree overlays) files in the future
-
-but I'm ok to complete uart pinctrl info in the dtsi file
-
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> index 337240ebb7b7..dc45b75b1ad4 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> @@ -38,3 +38,21 @@ &uart0 {
->  	pinctrl-0 = <&uart0_2_cfg>;
->  	status = "okay";
->  };
-> +
-> +&uart5 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart5_3_cfg>;
-> +	status = "disabled";
-> +};
-> +
-> +&uart8 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart8_2_cfg>;
-> +	status = "disabled";
-> +};
-> +
-> +&uart9 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart9_2_cfg>;
-> +	status = "disabled";
-> +};
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> index 381055737422..43425530b5bf 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> @@ -11,12 +11,282 @@
->  #define K1_GPIO(x)	(x / 32) (x % 32)
->  
->  &pinctrl {
-> +	uart0_0_cfg: uart0-0-cfg {
-> +		uart0-0-pins {
-> +			pinmux = <K1_PADCONF(104, 3)>,	/* uart0_txd */
-> +				 <K1_PADCONF(105, 3)>;	/* uart0_rxd */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	uart0_1_cfg: uart0-1-cfg {
-> +		uart0-1-pins {
-> +			pinmux = <K1_PADCONF(108, 1)>,	/* uart0_txd */
-> +				 <K1_PADCONF(80, 3)>;	/* uart0_rxd */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
->  	uart0_2_cfg: uart0-2-cfg {
->  		uart0-2-pins {
-> -			pinmux = <K1_PADCONF(68, 2)>,
-> -				 <K1_PADCONF(69, 2)>;
-> +			pinmux = <K1_PADCONF(68, 2)>,	/* uart0_txd */
-> +				 <K1_PADCONF(69, 2)>;	/* uart0_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
->  
-> -			bias-pull-up = <0>;
-> +	uart2_0_cfg: uart2-0-cfg {
-> +		uart2-0-pins {
-> +			pinmux = <K1_PADCONF(21, 1)>,	/* uart2_txd */
-> +				 <K1_PADCONF(22, 1)>,	/* uart2_rxd */
-> +				 <K1_PADCONF(23, 1)>,	/* uart2_cts */
-> +				 <K1_PADCONF(24, 1)>;	/* uart2_rts */
-
-I think for group has cts, rts pins, it's more practical to
-have two separated cfgs, so the final application can choose to 
-request two pins (tx, rx), or four pins (tx, tx, cts, rts)..
-(I believe the hardware should support this)
-
-something like this:
-
-uart2_0_cfg: uart2-0-cfg {
-	uart2-0-pins {
-		pinmux = <K1_PADCONF(21, 1)>,	/* uart2_txd */
-			 <K1_PADCONF(22, 1)>,	/* uart2_rxd */
-	};
-};
-
-uart2_0_cts_rts_cfg: uart2-0-cts-rts-cfg {
-	uart2-0-pins {
-		pinmux = <K1_PADCONF(23, 1)>,	/* uart2_cts */
-			 <K1_PADCONF(24, 1)>,	/* uart2_rts */
-	};
-};
-
-&uart2 { 
-	pinctrl-names = "default";
-	pinctrl-0 = <&uart2_0_cfg>, <&uart2_0_cts_rts_cfg>;
-};
-
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart3_0_cfg: uart3-0-cfg {
-> +		uart3-0-pins {
-> +			pinmux = <K1_PADCONF(81, 2)>,	/* uart3_txd */
-> +				 <K1_PADCONF(82, 2)>,	/* uart3_rxd */
-> +				 <K1_PADCONF(83, 2)>,	/* uart3_cts */
-> +				 <K1_PADCONF(84, 2)>;	/* uart3_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart3_1_cfg: uart3-1-cfg {
-> +		uart3-1-pins {
-> +			pinmux = <K1_PADCONF(18, 2)>,	/* uart3_txd */
-> +				 <K1_PADCONF(19, 2)>,	/* uart3_rxd */
-> +				 <K1_PADCONF(20, 2)>,	/* uart3_cts */
-> +				 <K1_PADCONF(21, 2)>;	/* uart3_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart3_2_cfg: uart3-2-cfg {
-> +		uart3-2-pins {
-> +			pinmux = <K1_PADCONF(53, 4)>,	/* uart3_txd */
-> +				 <K1_PADCONF(54, 4)>,	/* uart3_rxd */
-> +				 <K1_PADCONF(55, 4)>,	/* uart3_cts */
-> +				 <K1_PADCONF(56, 4)>;	/* uart3_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_0_cfg: uart4-0-cfg {
-> +		uart4-0-pins {
-> +			pinmux = <K1_PADCONF(100, 4)>,	/* uart4_txd */
-> +				 <K1_PADCONF(101, 4)>;	/* uart4_rxd */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	uart4_1_cfg: uart4-1-cfg {
-> +		uart4-1-pins {
-> +			pinmux = <K1_PADCONF(81, 3)>,	/* uart4_cts */
-> +				 <K1_PADCONF(82, 3)>,	/* uart4_rts */
-> +				 <K1_PADCONF(83, 3)>,	/* uart4_txd */
-> +				 <K1_PADCONF(84, 3)>;	/* uart4_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_2_cfg: uart4-2-cfg {
-> +		uart4-2-pins {
-> +			pinmux = <K1_PADCONF(23, 2)>,	/* uart4_txd */
-> +				 <K1_PADCONF(24, 2)>;	/* uart4_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_3_cfg: uart4-3-cfg {
-> +		uart4-3-pins {
-> +			pinmux = <K1_PADCONF(33, 2)>,	/* uart4_txd */
-> +				 <K1_PADCONF(34, 2)>,	/* uart4_rxd */
-> +				 <K1_PADCONF(35, 2)>,	/* uart4_cts */
-> +				 <K1_PADCONF(36, 2)>;	/* uart4_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_4_cfg: uart4-4-cfg {
-> +		uart4-4-pins {
-> +			pinmux = <K1_PADCONF(111, 4)>,	/* uart4_txd */
-> +				 <K1_PADCONF(112, 4)>,	/* uart4_rxd */
-> +				 <K1_PADCONF(113, 4)>,	/* uart4_cts */
-> +				 <K1_PADCONF(114, 4)>;	/* uart4_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart5_0_cfg: uart5-0-cfg {
-> +		uart5-0-pins {
-> +			pinmux = <K1_PADCONF(102, 3)>,	/* uart5_txd */
-> +				 <K1_PADCONF(103, 3)>;	/* uart5_rxd */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	uart5_1_cfg: uart5-1-cfg {
-> +		uart5-1-pins {
-> +			pinmux = <K1_PADCONF(25, 2)>,	/* uart5_txd */
-> +				 <K1_PADCONF(26, 2)>,	/* uart5_rxd */
-> +				 <K1_PADCONF(27, 2)>,	/* uart5_cts */
-> +				 <K1_PADCONF(28, 2)>;	/* uart5_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart5_2_cfg: uart5-2-cfg {
-> +		uart5-2-pins {
-> +			pinmux = <K1_PADCONF(42, 2)>,	/* uart5_txd */
-> +				 <K1_PADCONF(43, 2)>,	/* uart5_rxd */
-> +				 <K1_PADCONF(44, 2)>,	/* uart5_cts */
-> +				 <K1_PADCONF(45, 2)>;	/* uart5_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart5_3_cfg: uart5-3-cfg {
-> +		uart5-3-pins {
-> +			pinmux = <K1_PADCONF(70, 4)>,	/* uart5_txd */
-> +				 <K1_PADCONF(71, 4)>,	/* uart5_rxd */
-> +				 <K1_PADCONF(72, 4)>,	/* uart5_cts */
-> +				 <K1_PADCONF(73, 4)>;	/* uart5_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart6_0_cfg: uart6-0-cfg {
-> +		uart6-0-pins {
-> +			pinmux = <K1_PADCONF(85, 2)>,	/* uart6_cts */
-> +				 <K1_PADCONF(86, 2)>,	/* uart6_txd */
-> +				 <K1_PADCONF(87, 2)>,	/* uart6_rxd */
-> +				 <K1_PADCONF(90, 2)>;	/* uart6_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart6_1_cfg: uart6-1-cfg {
-> +		uart6-1-pins {
-> +			pinmux = <K1_PADCONF(0, 2)>,	/* uart6_txd */
-> +				 <K1_PADCONF(1, 2)>,	/* uart6_rxd */
-> +				 <K1_PADCONF(2, 2)>,	/* uart6_cts */
-> +				 <K1_PADCONF(3, 2)>;	/* uart6_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart6_2_cfg: uart6-2-cfg {
-> +		uart6-2-pins {
-> +			pinmux = <K1_PADCONF(56, 2)>,	/* uart6_txd */
-> +				 <K1_PADCONF(57, 2)>;	/* uart6_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart7_0_cfg: uart7-0-cfg {
-> +		uart7-0-pins {
-> +			pinmux = <K1_PADCONF(88, 2)>,	/* uart7_txd */
-> +				 <K1_PADCONF(89, 2)>;	/* uart7_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart7_1_cfg: uart7-1-cfg {
-> +		uart7-1-pins {
-> +			pinmux = <K1_PADCONF(4, 2)>,	/* uart7_txd */
-> +				 <K1_PADCONF(5, 2)>,	/* uart7_rxd */
-> +				 <K1_PADCONF(6, 2)>,	/* uart7_cts */
-> +				 <K1_PADCONF(7, 2)>;	/* uart7_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart8_0_cfg: uart8-0-cfg {
-> +		uart8-0-pins {
-> +			pinmux = <K1_PADCONF(82, 4)>,	/* uart8_txd */
-> +				 <K1_PADCONF(83, 4)>;	/* uart8_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart8_1_cfg: uart8-1-cfg {
-> +		uart8-1-pins {
-> +			pinmux = <K1_PADCONF(8, 2)>,	/* uart8_txd */
-> +				 <K1_PADCONF(9, 2)>,	/* uart8_rxd */
-> +				 <K1_PADCONF(10, 2)>,	/* uart8_cts */
-> +				 <K1_PADCONF(11, 2)>;	/* uart8_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart8_2_cfg: uart8-2-cfg {
-> +		uart8-2-pins {
-> +			pinmux = <K1_PADCONF(75, 4)>,	/* uart8_txd */
-> +				 <K1_PADCONF(76, 4)>,	/* uart8_rxd */
-> +				 <K1_PADCONF(77, 4)>,	/* uart8_cts */
-> +				 <K1_PADCONF(78, 4)>;	/* uart8_rts */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	uart9_0_cfg: uart9-0-cfg {
-> +		uart9-0-pins {
-> +			pinmux = <K1_PADCONF(12, 2)>,	/* uart9_txd */
-> +				 <K1_PADCONF(13, 2)>;	/* uart9_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart9_1_cfg: uart9-1-cfg {
-> +		uart9-1-pins {
-> +			pinmux = <K1_PADCONF(110, 3)>,	/* uart9_cts */
-> +				 <K1_PADCONF(115, 3)>,	/* uart9_rts */
-> +				 <K1_PADCONF(116, 3)>,	/* uart9_txd */
-> +				 <K1_PADCONF(117, 3)>;	/* uart9_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart9_2_cfg: uart9-2-cfg {
-> +		uart9-2-pins {
-> +			pinmux = <K1_PADCONF(72, 2)>,	/* uart9_txd */
-> +				 <K1_PADCONF(73, 2)>;	/* uart9_rxd */
-> +			bias-pull-up;
->  			drive-strength = <32>;
->  		};
->  	};
-> -- 
-> 2.43.0
-> 
+ arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
+ arch/riscv/kernel/sys_hwprobe.c       | 6 ++++++
+ 2 files changed, 8 insertions(+)
 
 -- 
-Yixun Lan (dlan)
+2.47.2
+
 
 _______________________________________________
 linux-riscv mailing list
