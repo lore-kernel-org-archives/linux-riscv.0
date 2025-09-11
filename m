@@ -4,91 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32846CA1016
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 07:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33EA1CA1016
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 07:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XU8aB8ymRd6bBSUtdGf9N5XmikFE6eK9OR+VYED73Fk=; b=dEM3lascOTujum
-	Y00TGO/c2CE3NNz+MgUQXV63BTFAjZl4BuCsKkYjMDGRu8g/aaAC5v1jT9hUsj6ISCwdQHb0wGilN
-	16gxhWTMjBgE4KreBuQzJ3bVrMJznOJykCc9sBaKkofT17eZB69kg0S1XZyIBWEns45eZixb3Tpq7
-	1FJU48A3Ul73oUogSf+bDNVIjpo7X0oA+vNa/0l+V7to75D0W/9YlwE3IRUut8xi2qJ55IauqEIGx
-	V3UyiOLGLgqIEJxK+R3jRyT0W5CwNDXMqqHNYUWhUEaQSv0/jtDkT9oPVVlzjl+AMCiaYEubxxfVS
-	qVWL9ZN+L7KDWZcT22BQ==;
+	List-Owner; bh=F5qlradbTxWScdNWM4C0kpXj8+SzOUJVGBZEINcEH1s=; b=Jj2XNaT5XaR3c0
+	euuoCvNV8TBFUIEEn2xKqnvhc9uZKxljaDRBouNBHmqJRLbb95UjiqGAL0gouuHeVfC1Nd+DpOHGZ
+	BytH4qtJrVZH7vskMsKdtNALGY2hRoaRB/vrskiuC6hI9H4NiyeQ3bwkQNwoLpcEnPTce5J30rse1
+	oaWCblcUVPHAQyCXSpKPcqZDZI29bB9TSNvHcTGLt5U4cO0UNHBH2iRqRpYGWiTTTPom3Br1YOQ3F
+	quSuI2DoXkZWiEgWAI4oVFWU8KCcNe85dD/+kRLQaXKxSlBUz5Upb+WXMEc7W3LrhSbS15yxKEhe1
+	sjcmw1uyGw1Z/sb5kE9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbsz-00000001XoX-49AE;
-	Thu, 11 Sep 2025 07:38:29 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1uwc2c-00000001azx-2cR8;
+	Thu, 11 Sep 2025 07:48:26 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwbsx-00000001XmX-20s1
-	for linux-riscv@lists.infradead.org;
-	Thu, 11 Sep 2025 07:38:28 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-55f7ab2a84eso335987e87.1
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Sep 2025 00:38:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757576305; x=1758181105; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jUK8rXo2J6tdIuNkdbMKBrXU6Rird8FTI89p+KzSTdU=;
-        b=W4shUZxtZ7WJQ3C1jj/eNuDU7Np3X77r/sqUgNNuCnZo6z9y6mouWj7iO7PDUJKuys
-         R2Wtx4Ilk15ymee4Apt4JxhS9yJySKYfpu8DGcAoNRVIUUAe2ob9JbhvvB6YC9RojM+R
-         kNjyVHTsrMaZ0rrPLhRkdqxlP5bJ02sZqQQ7MbtjnlPR0/TgT4tzzsDh4hWonyHlHVcf
-         QxRsAGjgXym80lFcWXyNFer182qzWr06ZLGPggFE8og4huytMUeE9e9mj5ZNy9esCfDa
-         6n1xIiLebLFZi6QcvQJ2UVhhNcFFYrlUqG4ba+hhkFWqBTdGFZnlRBEQ2XJBN3AceGT0
-         kXrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757576305; x=1758181105;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jUK8rXo2J6tdIuNkdbMKBrXU6Rird8FTI89p+KzSTdU=;
-        b=dblPsrS6Mjekyzhv09SwfyR+9xgbru1K+sI+Kb+kVqkpZdkhIut58xeHbjWY3TtBKh
-         eJrMNRvbxJM1uVpLgBwiamlVnpGXcBB7XnH651p8vVKHSHUymacpZ5MBACu4uLiLzAIX
-         mCWzZ+j+uhey3vW6kOvRGENADrAoBylsynY4ugbA9vYcIDbkwrv1usTglgLFbP+gm5yC
-         SvCs0ATFVGDZlFWvDgobeDDJ3bSiclud0yiqc6uLMkYap8l6O0vSYr+jJVFiL5lQDjoN
-         jXs7Hp8h1VRtdXcq8dimQ7tL7UHjMgXJltogjui8+LaPYfBBiS4LdCEHhLc6DVodcDy/
-         PB1A==
-X-Forwarded-Encrypted: i=1; AJvYcCX2NypYXPTcfVeVWgASge/DvejAX07bzU4TqtoEbF7jmswteyPHdRpSqD732CTK6mu1XCa3TBHpPB37tA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywti9UE7sAwrBCL8kOQa7zGt40BU43pQ1mRHtj0a2++yfUz67UA
-	do7OY6aFDeH8kZ+BGzbjuaQP864hLapMsYQYyH4DeYsw4BOroxSYj6V7zrOAtOjFi5mlc9v11KF
-	meby//ztlluXnycXWsg0VXvAAkAhfmMtXDuB9K3uk6g==
-X-Gm-Gg: ASbGncsQwQiMhrsCKG3rol5qfoS+VgqChZDPtrO+D41kBpm/Z/WtqsJP077iQk2QF9d
-	5ev8nUOmdoqmmPxBIlW52VFOPeeL3vRbexBBEEi9IEfkctsQV0/mqMTE4cM8HGjO9Uq/g8ptkd3
-	qQvx3FwbYaUF6RG4xHY8EGSLfJSX9bT/cp6eSvpn+ut1R6M4foanQQgYVzrw/iz4s7pFhpnt934
-	e39KuWvyb7geXnOb3cotKJth1fMjvVZgfwg+Uk=
-X-Google-Smtp-Source: AGHT+IGFKCUUrJkt+A6v+xuc1LQXhwUm4KpMBhnA0hSfXgMQG+z+UHy3svEwymKETUJXd9ilc9E5haoHU8vK2eJzapg=
-X-Received: by 2002:a05:6512:b17:b0:55f:498f:f08e with SMTP id
- 2adb3069b0e04-562614ff71emr7447870e87.24.1757576305171; Thu, 11 Sep 2025
- 00:38:25 -0700 (PDT)
+	id 1uwc2b-00000001azb-0Z1e;
+	Thu, 11 Sep 2025 07:48:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=U+zkD5dacXBFakf/sW3Py81BzX7lYGPL/ab+J9kqcdg=; b=rVrDSFK0bpnhi1r1s83os8o7QQ
+	XayC14Rrw5fJaPANeMNniOrj8N2qlmXZE8oUJBQvG5kSAFrlNf0KMvYQRq0gk7u/1f3wItoWc/zSx
+	gMRY+yKQ4sBjLvyySadOCkXFheZQ+DVX5dcy+Kawt4/VDIAADK8mtsP0tEVBlVeM6n5nliW9J5by5
+	qcxvNNuHTHH3MFrkCcD3e1F5nHscsfjsTcYJksi3IX2HuJ8nFMSKL67BI8jxt/ELGL2WX0z4ME16L
+	/SA7AkX24vu99JNGByq6XvVm5ZTsSUxhQ+ASMeIgwxmdEKvg7dsn3+Ahm1ViJVrCJYH4ibFHmaxtg
+	rAsWgZlg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uwc2T-00000006tc7-2uQY;
+	Thu, 11 Sep 2025 07:48:17 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 455AE3002EB; Thu, 11 Sep 2025 09:48:17 +0200 (CEST)
+Date: Thu, 11 Sep 2025 09:48:17 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Juergen Gross <jgross@suse.com>
+Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
+	linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
+	Waiman Long <longman@redhat.com>, Jiri Kosina <jikos@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	xen-devel@lists.xenproject.org,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.makhalov@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>
+Subject: Re: [PATCH 00/14] paravirt: cleanup and reorg
+Message-ID: <20250911074817.GX3245006@noisy.programming.kicks-ass.net>
+References: <20250911063433.13783-1-jgross@suse.com>
 MIME-Version: 1.0
-References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org> <CACRpkdb=J+hiC5cu+g0Z-gqzpG8PgX01CXc4P98FfSSAf7PZEA@mail.gmail.com>
-In-Reply-To: <CACRpkdb=J+hiC5cu+g0Z-gqzpG8PgX01CXc4P98FfSSAf7PZEA@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Thu, 11 Sep 2025 09:38:12 +0200
-X-Gm-Features: Ac12FXwiBbcmTD8LlFccmOHZdwwoOfYFi61pHLgjut8Pxa8sFHcycGYwle9xiUk
-Message-ID: <CAMRc=McbadZx1yK1jGeyUnXAFZgfA8YpLwacmqC0eMonS-c-9A@mail.gmail.com>
-Subject: Re: [PATCH v2 00/15] gpio: replace legacy bgpio_init() with its
- modernized alternative - part 4
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Keguang Zhang <keguang.zhang@gmail.com>, Alban Bedel <albeu@free.fr>, 
-	Doug Berger <opendmb@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Yixun Lan <dlan@gentoo.org>, Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_003827_647490_0D8CDB96 
-X-CRM114-Status: GOOD (  23.09  )
+Content-Disposition: inline
+In-Reply-To: <20250911063433.13783-1-jgross@suse.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,40 +106,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgMTAsIDIwMjUgYXQgMTE6MzLigK9QTSBMaW51cyBXYWxsZWlqIDxsaW51cy53
-YWxsZWlqQGxpbmFyby5vcmc+IHdyb3RlOgo+Cj4gT24gV2VkLCBTZXAgMTAsIDIwMjUgYXQgOTox
-MuKAr0FNIEJhcnRvc3ogR29sYXN6ZXdza2kgPGJyZ2xAYmdkZXYucGw+IHdyb3RlOgo+Cj4gPiBI
-ZXJlJ3MgdGhlIGZpbmFsIHBhcnQgb2YgdGhlIGdlbmVyaWMgR1BJTyBjaGlwIGNvbnZlcnNpb25z
-LiBPbmNlIGFsbCB0aGUKPiA+IGV4aXN0aW5nIHVzZXJzIGFyZSBzd2l0Y2hlZCB0byB0aGUgbmV3
-IEFQSSwgdGhlIGZpbmFsIHBhdGNoIGluIHRoZQo+ID4gc2VyaWVzIHJlbW92ZXMgYmdwaW9faW5p
-dCgpLCBtb3ZlcyB0aGUgZ3Bpby1tbWlvIGZpZWxkcyBvdXQgb2Ygc3RydWN0Cj4gPiBncGlvX2No
-aXAgYW5kIGludG8gc3RydWN0IGdwaW9fZ2VuZXJpY19jaGlwIGFuZCBhZGp1c3RzIGdwaW8tbW1p
-by5jIHRvCj4gPiB0aGUgbmV3IHNpdHVhdGlvbi4KPiA+Cj4gPiBEb3duIHRoZSBsaW5lIHdlIGNv
-dWxkIHByb2JhYmx5IGltcHJvdmUgZ3Bpby1tbWlvLmMgYnkgdXNpbmcgbG9jayBndWFyZHMKPiA+
-IGFuZCByZXBsYWNpbmcgdGhlIC0gbm93IG9ic29sZXRlIC0gImJncGlvIiBwcmVmaXggd2l0aCAi
-Z3Bpb19nZW5lcmljIiBvcgo+ID4gc29tZXRoaW5nIHNpbWlsYXIgYnV0IHRoaXMgc2VyaWVzIGlz
-IGFscmVhZHkgYmlnIGFzIGlzIHNvIEknbSBsZWF2aW5nCj4gPiB0aGF0IGZvciB0aGUgZnV0dXJl
-Lgo+ID4KPiA+IFRlc3RlZCBpbiBxZW11IG9uIHZleHByZXNzLWE5Lgo+ID4KPiA+IFNpZ25lZC1v
-ZmYtYnk6IEJhcnRvc3ogR29sYXN6ZXdza2kgPGJhcnRvc3ouZ29sYXN6ZXdza2lAbGluYXJvLm9y
-Zz4KPgo+IFRoZSBwYXRjaCBzZXQgaXMgYSBiZWF1dHksIGhhbmRzIGRvd24uCj4gUmV2aWV3ZWQt
-Ynk6IExpbnVzIFdhbGxlaWogPGxpbnVzLndhbGxlaWpAbGluYXJvLm9yZz4KPgo+IEkgZXNwZWNp
-YWxseSBsaWtlIHdoZXJlIHlvdSBjYXVnaHQgbG9jYWwgc3BpbmxvY2tzIGJlaW5nCj4gKGFiKXVz
-ZWQgaW5zdGVhZCBvZiB0aGUgZ2VuZXJpYyBpcnFjaGlwIG9uZXMuCj4KPiBJIGRvbid0IGtub3cg
-YWJvdXQgbWVyZ2luZyBwYXRjaCAxNS8xNSBpbnRvIGp1c3QgdGhlIEdQSU8KPiB0cmVlLCB0aGF0
-IGNhbiBtYWtlIHRoaW5ncyBmYWlsIGluIG90aGVyIHN1YnN5c3RlbXMgZGVwZW5kaW5nCj4gb24g
-bWVyZ2Ugb3JkZXIgaW50byBUb3J2YWxkcyB0cmVlIG9yIGxpbnV4LW5leHQgaWYgeW91ciB0cmVl
-IGlzCj4gbWVyZ2VkIGZpcnN0Lgo+Cj4gSSB3b3VsZCBtZXJnZSB0aGUgZmlyc3QgMTQgYW5kIGtl
-ZXAgdGhlIGxhc3QgZm9yIHRoZSBsYXRlciBwYXJ0Cj4gb2YgdGhlIG1lcmdlIHdpbmRvdyB3aGVu
-IGFsbCBvdGhlciB0cmVlcyB3aXRoIGNvbnZlcnNpb25zCj4gYXJlIG1lcmdlZC4KPgo+IChZb3Ug
-cHJvYmFibHkgYWxyZWFkeSB0aG91Z2h0IG9mIHRoaXMuKQo+Cj4gWW91cnMsCj4gTGludXMgV2Fs
-bGVpagoKSSBhbHJlYWR5IGhhdmUgYm90aCBwaW5jdHJsIGFuZCBtZmQgY2hhbmdlcyBpbiBteSB0
-cmVlIGZyb20gTGVlJ3MgYW5kCnlvdXIgaW1tdXRhYmxlIGJyYW5jaGVzLiBJIHB1c2hlZCB0aGlz
-IGludG8gZ3Bpby9kZXZlbCBhbmQgaXQgYnVpbHQKanVzdCBmaW5lLgoKQmFydAoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, Sep 11, 2025 at 08:34:19AM +0200, Juergen Gross wrote:
+> Some cleanups and reorg of paravirt code and headers:
+> 
+> - The first 2 patches should be not controversial at all, as they
+>   remove just some no longer needed #include and struct forward
+>   declarations.
+> 
+> - The 3rd patch is removing CONFIG_PARAVIRT_DEBUG, which IMO has
+>   no real value, as it just changes a crash to a BUG() (the stack
+>   trace will basically be the same). As the maintainer of the main
+>   paravirt user (Xen) I have never seen this crash/BUG() to happen.
+> 
+> - The 4th patch is just a movement of code.
+> 
+> - I don't know for what reason asm/paravirt_api_clock.h was added,
+>   as all archs supporting it do it exactly in the same way. Patch
+>   5 is removing it.
+> 
+> - Patches 6-12 are streamlining the paravirt clock interfaces by
+>   using a common implementation across architectures where possible
+>   and by moving the related code into common sched code, as this is
+>   where it should live.
+> 
+> - Patches 13+14 are more like RFC material: patch 13 is doing some
+>   preparation work to enable patch 14 to move all spinlock related
+>   paravirt functions into qspinlock.h. If this approach is accepted,
+>   I'd like to continue with this work by moving most (or all?)
+>   paravirt functions from paravirt.h into the headers where their
+>   native counterparts are defined. This is meant to keep the native
+>   and paravirt function definitions together in one place and
+>   hopefully to be able to reduce the include hell with paravirt.
+> 
+> Juergen Gross (14):
+>   x86/paravirt: remove not needed includes of paravirt.h
+>   x86/paravirt: remove some unneeded struct declarations
+>   x86/paravirt: remove PARAVIRT_DEBUG config option
+>   x86/paravirt: move thunk macros to paravirt_types.h
+>   paravirt: remove asm/paravirt_api_clock.h
+>   sched: move clock related paravirt code to kernel/sched
+>   arm/paravirt: use common code for paravirt_steal_clock()
+>   arm64/paravirt: use common code for paravirt_steal_clock()
+>   loongarch/paravirt: use common code for paravirt_steal_clock()
+>   riscv/paravirt: use common code for paravirt_steal_clock()
+>   x86/paravirt: use common code for paravirt_steal_clock()
+>   x86/paravirt: move paravirt_sched_clock() related code into tsc.c
+>   x86/paravirt: allow pv-calls outside paravirt.h
+>   x86/pvlocks: move paravirt spinlock functions into qspinlock.h
+
+With the note that tip typically likes a capital after the prefix, like:
+
+  x86/paravirt: Remove unneeded includes of paravirt.h
+
+For 1-12:
+
+  Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+
+
+Now, as to the last two, I'm not sure. Leaking those macros out of PV
+isn't particularly nice, then again, not the end of the world either.
+Just not sure.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
