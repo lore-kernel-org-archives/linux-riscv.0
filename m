@@ -4,95 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4450ACAC58E
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 16:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61254CAC587
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Sep 2025 16:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jFOj8rh4cuaKWwWcigJ/C/ececBLGSd6Lf3ZSI/VymE=; b=2bZiy85lXZ37paF64qKVW/8eAU
-	GT+XG3OTZK82igVBSHzyfWyhr2ensL0l6CqjVZXFExIXK2YIh80XoXPQa9Rbn9b1fj8tQq/eSmMZU
-	86w2n8uluOz27arXj+XH9d/BCGgbDfnbCTIuyxAsj/qriUrfRj/6pG0WdMGon2o/jJkxPxJtBYKua
-	a7Bue9m27DbQTs7BYo7WUlC2ihu0Ao847wC+tmE+LKEUE3zUC3iJLLKO2K0PMXxLRVKF+gn4VdKvB
-	htoNvyEat+NShFyZETeAChimmEGIAaiOcCQH1g+DAkxMIvvK3D4pdwhqCvmdv7AkW5opo45DB+5Kk
-	SpxLUZZA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=agIu2EzXikEKWGrsAEg+oPyZV4bP96QY2rryeUl1qpk=; b=4cgobydn0TXnHgkE1o9RA4lLRY
+	qb38jF2fE7cDlp9/8Td12nYDjDWybGQrQydYbEpjn+myKxChNJpFNYwZTKtp79uD6r9SrTMVN/dn9
+	uUNM2jaRStXp+6FqRFPL6WeAUrTT+deN8HiRobANmmyfw9GLj39O9qU8RI2yiU9DClOTIj29drMA+
+	e3dGf5nAPPw1/DGLTwLcDmwRzIbGL6V22jGZAGsh40xSCfk2vqoMqmYNHWG30lBkfzgk8WMzVrtuh
+	9oHO70DIr8pzwn+NXc4a+zLm93R2HtFgk+YP4U8GJWpdsPgqpUUeR1NrcfbsFByQq5Eh36nItZ3pe
+	0ERYES+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjzs-000000049ah-3q9J;
-	Thu, 11 Sep 2025 16:18:08 +0000
-Received: from relay1.mymailcheap.com ([149.56.97.132])
+	id 1uwk5D-00000004BWz-07Of;
+	Thu, 11 Sep 2025 16:23:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwjzq-000000049aO-3ET2
+	id 1uwk5A-00000004BWG-23lP
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Sep 2025 16:18:07 +0000
-Received: from nf2.mymailcheap.com (nf2.mymailcheap.com [54.39.180.165])
-	by relay1.mymailcheap.com (Postfix) with ESMTPS id 38E793E9B6;
-	Thu, 11 Sep 2025 16:18:02 +0000 (UTC)
-Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
-	by nf2.mymailcheap.com (Postfix) with ESMTPSA id D119B400AA;
-	Thu, 11 Sep 2025 16:18:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=aosc.io; s=default;
-	t=1757607480; bh=e2daLt1V5mwDLfvAGnCZnTwhKH5st86SEoa+sdQ3cwY=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=pvJXc7OOKMED2ekAYpSqv4knHYjPwO5dDZlAKPC35VG+sb/VtDFXUl1NnqYrh1UXj
-	 oqtSXUorEwrfscU8/9u2M4zcEMrV/eH3P395DK2FP6hwsrSKEbXFUe0CZeXuSaX2Y5
-	 qv2uXDs7e95IXNUkJseNOzjItiidNbT6Xz/0iZN0=
-Received: from [198.18.0.1] (unknown [183.95.75.61])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail20.mymailcheap.com (Postfix) with ESMTPSA id BE34E41059;
-	Thu, 11 Sep 2025 16:17:41 +0000 (UTC)
-Message-ID: <35447ba0-21c2-4a12-9d27-033a7be0af3e@aosc.io>
-Date: Fri, 12 Sep 2025 00:17:30 +0800
+	Thu, 11 Sep 2025 16:23:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A6C0340889;
+	Thu, 11 Sep 2025 16:23:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2208C4CEF0;
+	Thu, 11 Sep 2025 16:23:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757607815;
+	bh=9QxraYm5GUXl7u0Oai/gva02p1eqz1FDVLfEUwZUjL4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mMEp+KuToFa34pqvXC293dC/bMZBCA2jf39qtrvLFLtDv/jTjek/wWdEUC2zGsdFq
+	 0fUFc2eTzSZ/aLutBhS7V4XjRgFqzVDCTyXFbPpfbjFch/3tIMTu6KCUVzM0dLeKiT
+	 eLlJGLRWQSG3vnaYejiczvXdACq6Wfh1BrMPuK3lETFnL4PPXHgpkwxL0t204tBo2F
+	 nDhZc90oobiuGCV34Vd/yNGKHeJfBnQewGHLrx9iUTFofDOMjZU5/cFqU1SMk+cp2L
+	 Q9A0c6e9zs2ca6E9GsAWjvNOBQQJEb7u4XhU5yXM+QtSu3mMe65Ii8V5hwB9/acC1C
+	 3ppwPVU7AcoIQ==
+Date: Thu, 11 Sep 2025 17:23:30 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Drew Fustini <fustini@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Adrien Ricciardi <aricciardi@baylibre.com>,
+	James Morse <james.morse@arm.com>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Vasudevan Srinivasan <vasu@rivosinc.com>, guo.wenjia23@zte.com.cn,
+	liu.qingtao2@zte.com.cn, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] RISC-V: Detect Ssqosid extension and handle srmcfg
+ CSR
+Message-ID: <20250911-chaste-rare-fbc3b48a341a@spud>
+References: <20250910-ssqosid-v6-17-rc5-v1-0-72cb8f144615@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/7] PCI: sg2042: Add Sophgo SG2042 PCIe driver
-To: Chen Wang <unicornxw@gmail.com>, kwilczynski@kernel.org,
- u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- arnd@arndb.de, bwawrzyn@cisco.com, bhelgaas@google.com,
- unicorn_wang@outlook.com, conor+dt@kernel.org, 18255117159@163.com,
- inochiama@gmail.com, kishon@kernel.org, krzk+dt@kernel.org,
- lpieralisi@kernel.org, mani@kernel.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, robh@kernel.org, s-vadapalli@ti.com,
- tglx@linutronix.de, thomas.richard@bootlin.com, sycamoremoon376@gmail.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- sophgo@lists.linux.dev, rabenda.cn@gmail.com, chao.wei@sophgo.com,
- xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com
-References: <cover.1757467895.git.unicorn_wang@outlook.com>
- <162d064228261ccd0bf9313a20288e510912effd.1757467895.git.unicorn_wang@outlook.com>
-Content-Language: en-US
-From: Mingcong Bai <jeffbai@aosc.io>
-In-Reply-To: <162d064228261ccd0bf9313a20288e510912effd.1757467895.git.unicorn_wang@outlook.com>
-X-Rspamd-Queue-Id: D119B400AA
-X-Rspamd-Server: nf2.mymailcheap.com
-X-Spamd-Result: default: False [1.40 / 10.00];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_ONE(0.00)[1];
-	ASN(0.00)[asn:16276, ipnet:51.83.0.0/16, country:FR];
-	MIME_TRACE(0.00)[0:+];
-	TAGGED_RCPT(0.00)[dt];
-	FREEMAIL_TO(0.00)[gmail.com,kernel.org,baylibre.com,eecs.berkeley.edu,ghiti.fr,arndb.de,cisco.com,google.com,outlook.com,163.com,dabbelt.com,sifive.com,ti.com,linutronix.de,bootlin.com,vger.kernel.org,lists.infradead.org,lists.linux.dev,sophgo.com];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[32];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[163.com,gmail.com,outlook.com];
-	TO_DN_SOME(0.00)[]
-X-Rspamd-Action: no action
+In-Reply-To: <20250910-ssqosid-v6-17-rc5-v1-0-72cb8f144615@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_091806_883331_E015FD4A 
-X-CRM114-Status: UNSURE (   7.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250911_092336_572331_C6576060 
+X-CRM114-Status: GOOD (  27.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,26 +76,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============8527382530339738027=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2hlbiwKCuWcqCAyMDI1LzkvMTAgMTA6MDgsIENoZW4gV2FuZyDlhpnpgZM6Cj4gK2NvbmZp
-ZyBQQ0lFX1NHMjA0Ml9IT1NUCj4gKwl0cmlzdGF0ZSAiU29waGdvIFNHMjA0MiBQQ0llIGNvbnRy
-b2xsZXIgKGhvc3QgbW9kZSkiCj4gKwlkZXBlbmRzIG9uIE9GICYmIChBUkNIX1NPUEhHTyB8fCBD
-T01QSUxFX1RFU1QpCj4gKwlzZWxlY3QgUENJRV9DQURFTkNFX0hPU1QKPiArCWhlbHAKPiArCSAg
-U2F5IFkgaGVyZSBpZiB5b3Ugd2FudCB0byBzdXBwb3J0IHRoZSBTb3BoZ28gU0cyMDQyIFBDSWUg
-cGxhdGZvcm0KPiArCSAgY29udHJvbGxlciBpbiBob3N0IG1vZGUuIFNvcGhnbyBTRzIwNDIgUENJ
-ZSBjb250cm9sbGVyIHVzZXMgQ2FkZW5jZQo+ICsJICBQQ0llIGNvcmUuCj4gKwoKV2hpbGUgYnVp
-bGQgdGVzdGluZyB0aGlzIHBhdGNoIGFnYWluc3QgdjYuMTYuNiwgUENJRV9TRzIwNDJfSE9TVCBp
-cyBzZXQgCnRvICJNIiwgdGhlIGtlcm5lbCB3b3VsZCBmYWlsIHRvIGJ1aWxkIGR1cmluZyBNT0RQ
-T1NUOgoKRVJST1I6IG1vZHBvc3Q6ICJjZG5zX3BjaWVfcG1fb3BzIiAKW2RyaXZlcnMvcGNpL2Nv
-bnRyb2xsZXIvY2FkZW5jZS9wY2llLXNnMjA0Mi5rb10gdW5kZWZpbmVkIQptYWtlWzJdOiAqKiog
-W3NjcmlwdHMvTWFrZWZpbGUubW9kcG9zdDoxNDc6IE1vZHVsZS5zeW12ZXJzXSBFcnJvciAxCm1h
-a2VbMV06ICoqKiBbWy4uLl0vbGludXgtNi4xNi42L01ha2VmaWxlOjE5NTM6IG1vZHBvc3RdIEVy
-cm9yIDIKbWFrZTogKioqIFtNYWtlZmlsZToyNDg6IF9fc3ViLW1ha2VdIEVycm9yIDIKCkJlc3Qg
-UmVnYXJkcywKTWluZ2NvbmcgQmFpCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+
+--===============8527382530339738027==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="66oBAo5TwOQvaR8d"
+Content-Disposition: inline
+
+
+--66oBAo5TwOQvaR8d
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Sep 10, 2025 at 11:15:28PM -0700, Drew Fustini wrote:
+> This series adds support for the RISC-V Quality-of-Service Identifiers
+> (Ssqosid) extension [1] which adds the srmcfg register. This CSR=20
+> configures a hart with two identifiers: a Resource Control ID (RCID)
+> and a Monitoring Counter ID (MCID). These identifiers accompany each
+> request issued by the hart to shared resource controllers.
+>=20
+> Background on RISC-V QoS:
+>=20
+> The Ssqosid extension is used by the RISC-V Capacity and Bandwidth
+> Controller QoS Register Interface (CBQRI) specification [2]. QoS in
+> this context is concerned with shared resources on an SoC such as cache
+> capacity and memory bandwidth. Intel and AMD already have QoS features
+> on x86 and ARM has MPAM. There is an existing user interface in Linux:
+> the resctrl virtual filesystem [3].
+>=20
+> The srmcfg CSR provides a mechanism by which a software workload (e.g.
+> a process or a set of processes) can be associated with an RCID and an
+> MCID. CBQRI defines operations to configure resource usage limits, in
+> the form of capacity or bandwidth. CBQRI also defines operations to
+> configure counters to track the resource utilization.
+>=20
+> Goal for this series:
+>=20
+> These two patches are taken from the implementation of resctrl support
+> for RISC-V CBQRI. Please refer to the proof-of-concept RFC [4] for
+> details on the resctrl implementation. More recently, I have rebased
+> the CBQRI support on mainline [5]. Big thanks to James Morse for the
+> tireless work to extract resctrl from arch/x86 and make it available
+> to all archs.
+>=20
+> I think it makes sense to first focus on the detection of Ssqosid and
+> handling of srmcfg when switching tasks. It has been tested against a
+> QEMU branch that implements Ssqosid and CBQRI [6]. A test driver [7]
+> was used to set srmcfg for the current process. This allows switch_to
+> to be tested without resctrl.
+>=20
+> Changes from RFC v2:
+>  - Rename all instances of the sqoscfg CSR to srmcfg to match the
+>    ratified Ssqosid spec
+>  - RFC v2: https://lore.kernel.org/linux-riscv/20230430-riscv-cbqri-rfc-v=
+2-v2-0-8e3725c4a473@baylibre.com/
+>=20
+> Changes from RFC v1:
+>  - change DEFINE_PER_CPU to DECLARE_PER_CPU for cpu_sqoscfg in qos.h to
+>    prevent linking error about multiple definition. Move DEFINE_PER_CPU
+>    for cpu_sqoscfg into qos.c
+>  - renamed qos prefix in function names to sqoscfg to be less generic
+>  - handle sqoscfg the same way has_vector and has_fpu are handled in the
+>    vector patch series
+>  - RFC v1: https://lore.kernel.org/linux-riscv/20230410043646.3138446-1-d=
+fustini@baylibre.com/
+>=20
+> [1] https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
+> [2] https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
+> [3] https://docs.kernel.org/filesystems/resctrl.html
+> [4] https://lore.kernel.org/linux-riscv/20230419111111.477118-1-dfustini@=
+baylibre.com/
+> [5] https://github.com/tt-fustini/linux/tree/b4/cbqri-v6-17-rc5
+> [6] https://github.com/tt-fustini/qemu/tree/riscv-cbqri-rqsc-pptt
+> [7] https://github.com/tt-fustini/linux/tree/ssqosid-v6-17-rc5-debug
+>=20
+> Signed-off-by: Drew Fustini <fustini@kernel.org>
+> ---
+> Drew Fustini (2):
+>       RISC-V: Detect the Ssqosid extension
+>       RISC-V: Add support for srmcfg CSR from Ssqosid ext
+>=20
+>  MAINTAINERS                        |  6 ++++++
+>  arch/riscv/Kconfig                 | 17 ++++++++++++++++
+>  arch/riscv/include/asm/csr.h       |  8 ++++++++
+>  arch/riscv/include/asm/hwcap.h     |  1 +
+>  arch/riscv/include/asm/processor.h |  3 +++
+>  arch/riscv/include/asm/qos.h       | 41 ++++++++++++++++++++++++++++++++=
+++++++
+>  arch/riscv/include/asm/switch_to.h |  3 +++
+>  arch/riscv/kernel/cpufeature.c     |  1 +
+
+Why is there no binding change here? Is it not possible to use the
+extension on DT systems, or is this an oversight?
+
+--66oBAo5TwOQvaR8d
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaML3ggAKCRB4tDGHoIJi
+0sDhAP0Y7MCc4EvQQ+4eO1Eg3H3Ujeucf8hI6xyXcdaIGBykMAD9E/9sPo9X2ojz
+/FZEoMDL+uhV7qYu4lfS54vhGJOVcAI=
+=u1qT
+-----END PGP SIGNATURE-----
+
+--66oBAo5TwOQvaR8d--
+
+
+--===============8527382530339738027==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8527382530339738027==--
+
