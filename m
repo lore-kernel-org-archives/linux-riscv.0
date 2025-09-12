@@ -4,118 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D2FCCAC58F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 10:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E754CAC582
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 11:33:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CNEXoYUvNaNFBjVTom/HnQMFjmtZKnsANyhEOn9Don4=; b=zrEfAmMYpSf+iC
-	EAHJXRaeOADtQlYsC/xpY8jtN0H3DBzlUZPXX9VyyqONG8IO3a2jLDryFjKc7zWm9p5gCLNhxt28t
-	Zkodvlu1xBWuWhfm1q346rMRBorC7a6Xqe5FTkjaiuCZMT5sOMvvLyLBbJWJk7s5DsF9ypqMET/P8
-	I3vubXkLtPdKQYLsyeuNBOPNJ9Tv111VcVtxuAdvciju+hk+Jssj9T/kyMRW/ykBOVpvGZb0+P158
-	G+UagcFl+EjUnNf0bA2N9/hIs1FLOCsJcGPtNbwB69qGJGWLgvWUpixrxc0mzjo1ynqN/7Ts3Qyt+
-	6VKdTSVleY9TnFsnjyTg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9+2P9g2gMWxsnuXvs2r/kVWrihn7UNqv1RdCZoDqxRU=; b=3GzIKJqzPJvSkG
+	qxuH2FqMD/+fIzXBsSMMwp4RIRzqi7y3FZES2wI2bSm9VOhf5CmxkI9jVoryUq29in5+Yc704Vdr7
+	hc5srZhd1itNxX1imHgC2qhK0XGd2S5hMJMEIcpRsqKwaDqSFc0j6UZfabuQDy3MG5Ox5ve96O4KS
+	MvGc9PcWgK0igBckLAmM201NmalLz3ursIXNlRn+CtXFJHPxxuqvHYNiVYt7+bnFVNHmN7qtQyeoY
+	zoOwRQEz2DUfFZX1G1fr7ZdOWwktjhqOXAwG8QVp9kFSXQ4DVyNkUDwaK+2uHNOy/+UcyHlFnsLic
+	HCG7NA8/tbbw0ViMBUDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1KY-00000008gHE-159D;
-	Fri, 12 Sep 2025 10:48:38 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1ux21M-00000008tuM-1C8b;
+	Fri, 12 Sep 2025 11:32:52 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux1KV-00000008gDV-02y8
+	id 1ux21J-00000008ttp-1QVH
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Sep 2025 10:48:37 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 8A1A220760;
-	Fri, 12 Sep 2025 10:48:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1757674110; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CWphaHK8OZGZX1V68Y5uJkPgW2mcaEuIYhBomIwfjhY=;
-	b=pIhrbsz6PFEg2rsKfYIDk9LSisUudy3RRRF+vPTEdTVNBEc/IYjMGMRlHJPMd81a3PeAPQ
-	enViOBHkrPb/ixVfVxnLyPU7+6VjTklFYkyeXlsUfBRq5C+jV7UXdmEmLyAdx4Q3d4ezXR
-	1O/cIWn77hOKnup2fdLIdwqygTz6oOk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1757674110;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CWphaHK8OZGZX1V68Y5uJkPgW2mcaEuIYhBomIwfjhY=;
-	b=3KzBQV3sfhI2xmW0tXlMKSTmNI2mUbzMU7tkf31yqUEPagskAIo4a6mTeoFEttV9DasuS1
-	kLhxxYyMXH7/23Ag==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1757674110; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CWphaHK8OZGZX1V68Y5uJkPgW2mcaEuIYhBomIwfjhY=;
-	b=pIhrbsz6PFEg2rsKfYIDk9LSisUudy3RRRF+vPTEdTVNBEc/IYjMGMRlHJPMd81a3PeAPQ
-	enViOBHkrPb/ixVfVxnLyPU7+6VjTklFYkyeXlsUfBRq5C+jV7UXdmEmLyAdx4Q3d4ezXR
-	1O/cIWn77hOKnup2fdLIdwqygTz6oOk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1757674110;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CWphaHK8OZGZX1V68Y5uJkPgW2mcaEuIYhBomIwfjhY=;
-	b=3KzBQV3sfhI2xmW0tXlMKSTmNI2mUbzMU7tkf31yqUEPagskAIo4a6mTeoFEttV9DasuS1
-	kLhxxYyMXH7/23Ag==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8C11E13869;
-	Fri, 12 Sep 2025 10:48:25 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id RcKSHnn6w2gcWwAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Fri, 12 Sep 2025 10:48:25 +0000
-Date: Fri, 12 Sep 2025 11:48:15 +0100
-From: Pedro Falcato <pfalcato@suse.de>
-To: "Roy, Patrick" <roypat@amazon.co.uk>
-Subject: Re: [PATCH v6 01/11] filemap: Pass address_space mapping to
- ->free_folio()
-Message-ID: <2w22wsqar437lyp3w4bltyoql4ksn3exppkyaia5ogtnt2ttte@6nptj6ed4qnm>
-References: <20250912091708.17502-1-roypat@amazon.co.uk>
- <20250912091708.17502-2-roypat@amazon.co.uk>
+	Fri, 12 Sep 2025 11:32:50 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b49c1c130c9so1249147a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Sep 2025 04:32:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1757676768; x=1758281568; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=y6Vu9krI8L/L917eJRdmIwH3Jf+YuSh9fi/gZdnGGTM=;
+        b=eFlAtVNKJSTSDNSjuPjzfaZQM6SNVu7l5q/ad2nvyYnfV37Zd/Elj1gKf34QpOc7rV
+         WRGe/KXJgPobyvkm1Lm5QWc4cfm1ov85t/2gVTPlH9wkP6rUs3XRoYq7UCNoSdcC6X0G
+         l5ly4xkQTks05lYpMiF0q6llG2FlTRnCz8gHlvpsD4sl0Uh1Lb7c9UybhAl/DWVu1mok
+         +L+K7Ogn9n+aOpemrYd4y8FMWJgnQn6bwhVsgTqSbqnlNIyKtAanMtqIOiKWvBEkKVjh
+         IT2AFLnAdZas1mu+fQGuVUmaD70KDd1AJIUzONo+RzzgskdrIlzjg+LVV4usCnj+ZhiT
+         MTyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757676768; x=1758281568;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=y6Vu9krI8L/L917eJRdmIwH3Jf+YuSh9fi/gZdnGGTM=;
+        b=TPY6EzccA0hsO/w+OF6UeCgqLUYT+DyGplHhNo8gpCxIO6Z7/1MJsPvS4C+YpzPcdC
+         zCZpOa/hpu/K/E16V4SjZJas+Gbj1RFWrxkN/Qr7P8eTYCdCypTFWJPHUJ0OFHP1M4oA
+         vHBIpExdtDz7ijWJNio7/qT4H9a5bVCPhA/Xmmek68EVgRGwKLt7K77CqnS9THAk7V9d
+         kns8dEOG0KryrdZZY4112AqOrXtLqjicUSAIjIygltEYkUnV+qVQpoDx/Hg0Syym2zeb
+         l1k28SCpwyZEPuMatxphDiJeEVPWnV/aZZSTXMBhS5rtlhRppfhlx3GOB25sOHv7Ad6S
+         /k+A==
+X-Forwarded-Encrypted: i=1; AJvYcCU4std4tbEoyMi5esQTJfbbY3hlwJTYOsaBMfmM/TnjaEei1AshpvKocssEJo/yNe/aNm9CxH0C2t3udQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzG8DIno8Un8UcxY/SivapoC6dWp+Uf0NwQbmohntdKxO8yl2lH
+	DmEp9M3hoGJScCm79aBLzmepoFD9KmLAZT+TE5jfEGzMT6vRrEqgrS1scWwOTumAFIb7KmE4nSK
+	P2PnUojS9Prx04U7Rp59Xw+8wopAomawE0Uuy780P0Q==
+X-Gm-Gg: ASbGncu30oMlRKvCVXz1xIZCrQpjs7qgF9kB+gAjLMhBgdHTEj1NOxXMcxBXwnT4jll
+	/ZqGXgMsHA/jRX1NS6+95eq++et9QA4XcJkeK6IwZgWO9YvzErdtEV72Gg4TJ+FIjGbDrbIWqEw
+	cesdlk91e9iGVM6jskyrG88XF/wiRFv/u3ZpTO0jgBucaFpV32GsZ0q6PJZpL8FhfQFItYzB8hH
+	CV1UxY5ShVddufxV1+fkIOLSZNWKUyAQrx6eBGQzkFBAXAqJr5LHan2U3Mzz7/N11PH9aifM+px
+	95VINjg=
+X-Google-Smtp-Source: AGHT+IF1n0wZVljtgQdO4YjkTkuDA16K7j3EGrt+LavVV05cNjZjVMw0mRnQJqWQrvbyjkw61l+wH9wnd6eTRWsTKWg=
+X-Received: by 2002:a17:902:c40d:b0:251:a3b3:1580 with SMTP id
+ d9443c01a7336-25d24cac4eemr35190575ad.6.1757676768437; Fri, 12 Sep 2025
+ 04:32:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250912091708.17502-2-roypat@amazon.co.uk>
-X-Spamd-Result: default: False [-2.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_EQ_ADDR_SOME(0.00)[];
-	FREEMAIL_CC(0.00)[amazon.co.uk,quicinc.com,infradead.org,lwn.net,redhat.com,kernel.org,linux.dev,arm.com,huawei.com,xen0n.name,sifive.com,dabbelt.com,eecs.berkeley.edu,ghiti.fr,linux.ibm.com,linux.intel.com,linutronix.de,alien8.de,zytor.com,omnibond.com,zeniv.linux.org.uk,suse.cz,linux-foundation.org,oracle.com,google.com,suse.com,iogearbox.net,gmail.com,fomichev.me,ziepe.ca,nvidia.com,cmpxchg.org,bytedance.com,vger.kernel.org,lists.infradead.org,lists.linux.dev,lists.orangefs.org,kvack.org];
-	R_RATELIMIT(0.00)[to_ip_from(RL1bpf5rdkmpo98mj6oa9xanz3)];
-	TO_DN_SOME(0.00)[];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	RCPT_COUNT_GT_50(0.00)[89];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[amazon.co.uk:email,suse.de:email]
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Fri, 12 Sep 2025 17:02:36 +0530
+X-Gm-Features: AS18NWCRkwK2BEtW0uxWjqehT8uEFjWUmULflZWeqoftij31KvQE0_RmSXQs-jg
+Message-ID: <CA+G9fYvQekqNdZpOeibBf0DZNjqR+ZGHRw1yHq6uh0OROZ9sRw@mail.gmail.com>
+Subject: next-20250912: riscv: s390: mm/kasan/shadow.c 'kasan_populate_vmalloc_pte'
+ pgtable.h:247:41: error: statement with no effect [-Werror=unused-value]
+To: kasan-dev <kasan-dev@googlegroups.com>, linux-mm <linux-mm@kvack.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390@vger.kernel.org, 
+	lkft-triage@lists.linaro.org, Linux Regressions <regressions@lists.linux.dev>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@redhat.com>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Anders Roxell <anders.roxell@linaro.org>, Ben Copeland <benjamin.copeland@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_034835_347262_B80F45E6 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20250912_043249_394067_FE97AA83 
+X-CRM114-Status: UNSURE (   5.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,38 +94,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "hubcap@omnibond.com" <hubcap@omnibond.com>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "derekmn@amazon.co.uk" <derekmn@amazon.co.uk>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "devel@lists.orangefs.org" <devel@lists.orangefs.org>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>, "luto@kernel.org" <luto@kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>, "surenb@google.com" <surenb@google.com>, "brauner@kernel.org" <brauner@kernel.org>, "Cali, Marco" <xmarcalx@amazon.co.uk>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "trondmy@kernel.org" <trondmy@kernel.org>, "martin@omnibond.com" <martin@omnibond.com>, "david@redhat.com" <david@redhat.com>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "song@kernel.org" <song@kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>, "shuah@kernel.org" <shuah@kernel.org>, "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, "alex@ghiti.fr" <alex@ghiti.fr>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "andrii@kernel.org" <andrii@kernel.org>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "Thomson, Jack" <jackabt@amazon.co.uk>, "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "haoluo@google.com" <haoluo@google.com>, "seanjc@google.com" <seanjc@google.com>, "anna@kernel.org" <anna@kernel.org>, "ast@kernel.org" <ast@kernel.org>, "peterx@redhat.com" <peterx@redhat.com>, "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>, "will@kernel.org" <will@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "corbet@lwn.net" <corbet@lwn.net>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "willy@infradead.org" <willy@infradead.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "bp@alien8.de" <bp@alien8.de>, "shakeel.butt@linux.dev" <shakeel.butt@linux.dev>, "linux-nfs@vger.kernel.org" <linux-nfs@vger.kernel.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "mhocko@suse.com" <mhocko@suse.com>, "jack@suse.cz" <jack@suse.cz>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "yuanchu@google.com" <yuanchu@google.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>, "hpa@zytor.com" <hpa@zytor.com>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "maz@kernel.org" <maz@kernel.org>, "x86@kernel.org" <x86@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "mingo@redhat.com" <mingo@redhat.com>, "axelrasmussen@google.com" <axelrasmussen@google.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "jannh@google.com" <jannh@google.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "vbabka@suse.cz" <vbabka@suse.cz>, "weixugc@google.com" <weixugc@google.com>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "hannes@cmpxchg.org" <hannes@cmpxchg.org>, "pbonzini@redhat.com" <pbonzini@redhat.com>, "martin.lau@linux.dev" <martin.lau@linux.dev>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 09:17:31AM +0000, Roy, Patrick wrote:
-> From: Elliot Berman <quic_eberman@quicinc.com>
-> 
-> When guest_memfd removes memory from the host kernel's direct map,
-> direct map entries must be restored before the memory is freed again. To
-> do so, ->free_folio() needs to know whether a gmem folio was direct map
-> removed in the first place though. While possible to keep track of this
-> information on each individual folio (e.g. via page flags), direct map
-> removal is an all-or-nothing property of the entire guest_memfd, so it
-> is less error prone to just check the flag stored in the gmem inode's
-> private data.  However, by the time ->free_folio() is called,
-> folio->mapping might be cleared. To still allow access to the address
-> space from which the folio was just removed, pass it in as an additional
-> argument to ->free_folio, as the mapping is well-known to all callers.
-> 
-> Link: https://lore.kernel.org/all/15f665b4-2d33-41ca-ac50-fafe24ade32f@redhat.com/
-> Suggested-by: David Hildenbrand <david@redhat.com>
-> Acked-by: David Hildenbrand <david@redhat.com>
-> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
-> [patrick: rewrite shortlog for new usecase]
-> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
+The following build warnings / errors noticed on the riscv and s390
+with allyesconfig build on the Linux next-20250912 tag.
 
-Reviewed-by: Pedro Falcato <pfalcato@suse.de>
+Regression Analysis:
+- New regression? yes
+- Reproducibility? yes
 
--- 
-Pedro
+Build regression: next-20250912 mm/kasan/shadow.c
+'kasan_populate_vmalloc_pte' pgtable.h error statement with no effect
+[-Werror=unused-value]
+
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+
+$ git log --oneline next-20250911..next-20250912 --  mm/kasan/shadow.c
+  aed53ec0b797a mm: introduce local state for lazy_mmu sections
+  307f2dc9b308e kasan: introduce ARCH_DEFER_KASAN and unify static key
+across modes
+
+## Test log
+In file included from include/linux/kasan.h:37,
+                 from mm/kasan/shadow.c:14:
+mm/kasan/shadow.c: In function 'kasan_populate_vmalloc_pte':
+include/linux/pgtable.h:247:41: error: statement with no effect
+[-Werror=unused-value]
+  247 | #define arch_enter_lazy_mmu_mode()      (LAZY_MMU_DEFAULT)
+      |                                         ^
+mm/kasan/shadow.c:322:9: note: in expansion of macro 'arch_enter_lazy_mmu_mode'
+  322 |         arch_enter_lazy_mmu_mode();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+mm/kasan/shadow.c: In function 'kasan_depopulate_vmalloc_pte':
+include/linux/pgtable.h:247:41: error: statement with no effect
+[-Werror=unused-value]
+  247 | #define arch_enter_lazy_mmu_mode()      (LAZY_MMU_DEFAULT)
+      |                                         ^
+mm/kasan/shadow.c:497:9: note: in expansion of macro 'arch_enter_lazy_mmu_mode'
+  497 |         arch_enter_lazy_mmu_mode();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+
+## Source
+* Kernel version: 6.17.0-rc5
+* Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next.git
+* Git describe: 6.17.0-rc5-next-20250912
+* Git commit: 590b221ed4256fd6c34d3dea77aa5bd6e741bbc1
+* Architectures: riscv, s390
+* Toolchains: gcc (Debian 13.3.0-16) 13.3.0
+* Kconfigs: allyesconfig
+
+## Build
+* Build log: https://qa-reports.linaro.org/api/testruns/29863344/log_file/
+* Build details:
+https://regressions.linaro.org/lkft/linux-next-master/next-20250912/log-parser-build-gcc/gcc-compiler-include_linux_pgtable_h-error-statement-with-no-effect/
+* Build plan: https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/builds/32aTGVWBLzkF7PsIq9FBtLK3T4W
+* Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/32aTGVWBLzkF7PsIq9FBtLK3T4W/
+* Kernel config:
+https://storage.tuxsuite.com/public/linaro/lkft/builds/32aTGVWBLzkF7PsIq9FBtLK3T4W/config
+
+## Steps to reproduce
+ $ tuxmake --runtime podman --target-arch riscv --toolchain gcc-13
+--kconfig allyesconfig
+
+
+--
+Linaro LKFT
 
 _______________________________________________
 linux-riscv mailing list
