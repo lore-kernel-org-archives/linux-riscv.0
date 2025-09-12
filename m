@@ -4,154 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2514ECAC582
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 08:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00E7CAC582
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 09:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:From:Reply-To:To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=syMWXjKtydJf9tajR/CCmu2fBHp+chua8h14InSoiBk=; b=ksHWYod0c+Sl3q
-	1/GzIMM67iSgkNsSGwpvS1NzYpBBlmuFHtQRbBcMrWEmgik2XnxJlY38/wSB9U9DPJIUdFQoAs1rj
-	UN2EL4DsE9Gx0pRGQ4tXkBcsaEOMBC/7PhUqrl6KdJxm0kl+xhtLm86jTwtd863e77Ro1CtnkDZGt
-	iiLgjkVf48RaHNnwgArmc6s8obvUkTXMZjbNkloyfy0Oy4EIBUhppwleCZQBjaOHPVywES6nSL1qz
-	klGDg0Nt+Qy7CpQ8ALkVTnrlhCRf1rF65EL416KfH6lMjOUWdiKoVyboC1Rc4GfLkEjXLRRMleJ0b
-	mpIhbtfbRHfp8nfFD2TA==;
+	List-Owner; bh=pN2iVA/egWZrOqZqfo3Cbn8vJ3A1B60a6wCO+pazbAk=; b=hwpfyW1igZIm6z
+	HJtDjuGF5SfcEymRMlZd+Felr6j4dX798I8Mtme/zgvNrgDOWFRzkK3PDSR7CnxZ6ULJdByT7C/Zc
+	aDC3XTKF+HMZBhVHv4dmOYfwMoAYKfz/uMP6mYRhbjVthKLIHlAIey9pEgN3GjkcNRGGpMqiIO0oE
+	FIP6RdeEnm0T0UFgL8HTgvsMfALx8/V0zjrV3AdQNV49h6Qe3ugDdwda5RMjzKiltAjCUhuPKcZkv
+	3A+gY+eT8wEsVaQ5Zlh7dCRshLo6YyYCevwLzPNUNe0y27hT/g6TQqbVWQjuLpKnCOq00f5Zr4q1i
+	6SJv9kxOE2RHNmidgP1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwzY7-000000082qX-2Hdj;
-	Fri, 12 Sep 2025 08:54:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uwzum-00000008Byu-0OlZ;
+	Fri, 12 Sep 2025 09:17:56 +0000
+Received: from fra-out-001.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.156.205.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwzY4-000000082pA-2yRH
-	for linux-riscv@lists.infradead.org;
-	Fri, 12 Sep 2025 08:54:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757667267;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=a24yalJ9UBENITTj+pl79Bqmf3DrH7vWpN1mkZyCn+k=;
-	b=jE4cg2tz2yESbPyfbUBv03348SIECneJQtacqtJgdU1sP/X9f4vv9DJxl56QfkZ1ci3fuD
-	yHkRiEqrO0gDuNWZNflpXTvhrU0Lkk95VDLoOX0UmQxLCWc9F/v59R6Fv208mgYcvRavhz
-	7sOjTEDxagIfrsNnhKomuH57pwshjOI=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-104-rQsy7YQsPZCrQUOTVyJrEQ-1; Fri, 12 Sep 2025 04:54:23 -0400
-X-MC-Unique: rQsy7YQsPZCrQUOTVyJrEQ-1
-X-Mimecast-MFC-AGG-ID: rQsy7YQsPZCrQUOTVyJrEQ_1757667262
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45decfa5b26so9317525e9.3
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Sep 2025 01:54:22 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757667262; x=1758272062;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=a24yalJ9UBENITTj+pl79Bqmf3DrH7vWpN1mkZyCn+k=;
-        b=XfqitQuZ07wRPf6epxDt7ZY1M7POl9ZAif12ccxNWHQWMymT7hmfKKHe1SRwrYsxSt
-         S0RKEy4+8YEIBsqnTj4/MujNJiCUfk8C5eR55awVbjDeT4gR9gBeoULC3KKGq2GGSk35
-         vk5kboBqDwerZNQsz0GqBKPE2ei+2+W71zFFeep4nmkEMTL56U04aYrfR9RUm1O+zysK
-         babXWDAE1hQFdGwPRcLqtFWmwnv8pHIoLrGWj4dp4UXUiuPAT5YvkKd5jgq8Cyp1Vi9N
-         gYpasCWJjxt4mg4ODLNOhlSvRRQ1g4rmoaMeUD+jxfDFkeFdZJThZ638tROtyxR9G3qG
-         64Cg==
-X-Forwarded-Encrypted: i=1; AJvYcCX7KLve9cVFgaOZ1HZdaeMk5Fel6REL0KTXaeFQ0cjsuxUF0vmZIBgUCyogu9lNe+1u8z9g6AXzDiyvXg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5RRIwbFGdura3zQw0AmCLWC5wSWeK/s6bIoWgTAscJ16GUTlI
-	Y+xbstZviGYZ3HXbnnGNm7kzT6VwHW11I0sePjZ6VvoT2XvuQWkJPsmjGwfa13TvxixjdFjffqP
-	heWuO89/AILz8j9DVlMqtYsNkyiMJhbSp/wXsB4wE7wKn3mmRaCH1102OYzpBj3vgHM0mGw==
-X-Gm-Gg: ASbGnctSb5SRtk9K6UVGCB3sl1iI7dr/bgC9EwEF2I/8S9BTQ7UlrHSDbGfpTEpUykA
-	/HpEl2EkhXqvOYmTL6BwU3eIXSsm0zrxWOzr/sGb2IekC7hzGsjcqiiQAAlG51gwuTZlZ29JmSG
-	NxdeDckIMsdaWRSS6hArKrozB+atKaJLivwy3/9htCcFBsJI8ORx2nZOeosqR8b52hoFTzp8zty
-	798FZxZ7jN2RZaMR0S2eaJBv402sbW407bNmkSi8v4KsLa2RUvd/7rZpPEeBRZcdj5j9bm8fqP8
-	bKZ+pMEf3buEpKHy9sD0UIOH2J18YtWjEOH/xoS5NZQHn47J5FiWNyBwgnum6q5Cf7fA8qRKPTm
-	/Odri3M4znjNs4cBZE/lhRggt3r2r45KS/1yGYVNdPlbsfHpIhwRHndK4izpbS1OZ2Uk=
-X-Received: by 2002:a05:600c:294c:b0:45d:d5df:ab39 with SMTP id 5b1f17b1804b1-45f211fec30mr15922525e9.26.1757667261784;
-        Fri, 12 Sep 2025 01:54:21 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGzxHEWOj7/CJM7yM+dKgUjsT4XMxGQOVxPLPXDQMosBvdpTxq/L3oW66UT/5ZgoJvXp3UhZA==
-X-Received: by 2002:a05:600c:294c:b0:45d:d5df:ab39 with SMTP id 5b1f17b1804b1-45f211fec30mr15922155e9.26.1757667261329;
-        Fri, 12 Sep 2025 01:54:21 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f20:da00:b70a:d502:3b51:1f2d? (p200300d82f20da00b70ad5023b511f2d.dip0.t-ipconnect.de. [2003:d8:2f20:da00:b70a:d502:3b51:1f2d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7607d7bb1sm5739157f8f.50.2025.09.12.01.54.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Sep 2025 01:54:20 -0700 (PDT)
-Message-ID: <009f31e4-aba8-4ab4-b6f3-09244ca03e1c@redhat.com>
-Date: Fri, 12 Sep 2025 10:54:19 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 2/5] mm: userfaultfd: Add pgtable_uffd_wp_supported()
-To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Deepak Gupta <debug@rivosinc.com>,
- Ved Shanbhogue <ved@rivosinc.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>,
- Arnd Bergmann <arnd@arndb.de>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
- Chunyan Zhang <zhang.lyra@gmail.com>
-References: <20250911095602.1130290-1-zhangchunyan@iscas.ac.cn>
- <20250911095602.1130290-3-zhangchunyan@iscas.ac.cn>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20250911095602.1130290-3-zhangchunyan@iscas.ac.cn>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: SJ-aYwkfAPSLmNLUkpsJG74kiSM53SFemawl4KOyF70_1757667262
-X-Mimecast-Originator: redhat.com
+	id 1uwzui-00000008Bvt-3h4E;
+	Fri, 12 Sep 2025 09:17:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
+  s=amazoncorp2; t=1757668672; x=1789204672;
+  h=from:cc:subject:date:message-id:references:in-reply-to:
+   content-transfer-encoding:mime-version;
+  bh=nAXTWOycHUS9oQq/r+tGcFhviHWk3dwfE1BhY62JZQI=;
+  b=eE5fOLNMqBcB7QXVPGcGbvgtdG8miCs1CFKWMj1hmyXFriK/ciV/7g9j
+   HRFgxxnvHQZwpFdhe3xIJMlzd0csIPaPVi45enuKdYpD0SDclVnGFs3oM
+   cg7lNMvMrh5bRrCrSOCBMR4PBKwUFCShkOnEgvHwtu/Q6RzNRxDJEpO4F
+   Anp4o3i83Qsgmo28KNZzYh0dRTn0NFLPsK4nHMMaX09P+Kruq0LIIVT/e
+   BaFeUiu5VteA8Dkp3XEBG+OETrkEVulRSYnqrotvWyYxB3f16X3zFeu24
+   pWX1HkyfVyjOovJfOucDcpG9nE19LCZ8IKEDQPrLxtYJW7l5AuwZ24wYo
+   Q==;
+X-CSE-ConnectionGUID: j4Efto7WShqD4fI79HucAg==
+X-CSE-MsgGUID: 6DNTX8jxTMubfNopILf8Eg==
+X-IronPort-AV: E=Sophos;i="6.18,259,1751241600"; 
+   d="scan'208";a="2004634"
+Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
+  by internal-fra-out-001.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Sep 2025 09:17:34 +0000
+Received: from EX19MTAEUA002.ant.amazon.com [54.240.197.232:6318]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.11.107:2525] with esmtp (Farcaster)
+ id a91e1d85-e397-46af-94b1-48a53ba9e43e; Fri, 12 Sep 2025 09:17:34 +0000 (UTC)
+X-Farcaster-Flow-ID: a91e1d85-e397-46af-94b1-48a53ba9e43e
+Received: from EX19D015EUB001.ant.amazon.com (10.252.51.114) by
+ EX19MTAEUA002.ant.amazon.com (10.252.50.126) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Fri, 12 Sep 2025 09:17:33 +0000
+Received: from EX19D015EUB004.ant.amazon.com (10.252.51.13) by
+ EX19D015EUB001.ant.amazon.com (10.252.51.114) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Fri, 12 Sep 2025 09:17:33 +0000
+Received: from EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a]) by
+ EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a%3]) with mapi id
+ 15.02.2562.020; Fri, 12 Sep 2025 09:17:33 +0000
+From: "Roy, Patrick" <roypat@amazon.co.uk>
+CC: "Thomson, Jack" <jackabt@amazon.co.uk>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, "Cali, Marco" <xmarcalx@amazon.co.uk>, "derekmn@amazon.co.uk" <derekmn@amazon.co.uk>, "Roy, Patrick" <roypat@amazon.co.uk>, "willy@infradead.org" <willy@infradead.org>, "corbet@lwn.net" <corbet@lwn.net>, "pbonzini@redhat.com" <pbonzini@redhat.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "alex@ghiti.fr" <alex@ghiti.fr>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "trondmy@kernel.org" <trondmy@kernel.org>, "anna@kernel.org" <anna@kernel.org>, "hubcap@omnibond.com" <hubcap@omnibond.com>, "martin@omnibond.com" <martin@omnibond.com>, "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>, "brauner@kernel.org" <brauner@kernel.org>, "jack@suse.cz" <jack@suse.cz>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@redhat.com" <david@redhat.com>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "vbabka@suse.cz" <vbabka@suse.cz>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "axelrasmussen@google.com" <axelrasmussen@google.com>, "yuanchu@google.com" <yuanchu@google.com>, "weixugc@google.com" <weixugc@google.com>, "hannes@cmpxchg.org" <hannes@cmpxchg.org>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "shakeel.butt@linux.dev" <shakeel.butt@linux.dev>, "shuah@kernel.org" <shuah@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, "linux-nfs@vger.kernel.org" <linux-nfs@vger.kernel.org>, "devel@lists.orangefs.org" <devel@lists.orangefs.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+ "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>, "Fuad Tabba" <tabba@google.com>
+Subject: [PATCH v6 02/11] arch: export set_direct_map_valid_noflush to KVM
+ module
+Thread-Topic: [PATCH v6 02/11] arch: export set_direct_map_valid_noflush to
+ KVM module
+Thread-Index: AQHcI8YSgiTpMeKXGkS2hhvLGeEJDA==
+Date: Fri, 12 Sep 2025 09:17:32 +0000
+Message-ID: <20250912091708.17502-3-roypat@amazon.co.uk>
+References: <20250912091708.17502-1-roypat@amazon.co.uk>
+In-Reply-To: <20250912091708.17502-1-roypat@amazon.co.uk>
+Accept-Language: en-US
 Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [172.19.88.180]
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_015428_905886_40F4043C 
-X-CRM114-Status: GOOD (  31.39  )
+X-CRM114-CacheID: sfid-20250912_021753_071933_F82FEAD2 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,240 +93,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11.09.25 11:55, Chunyan Zhang wrote:
-> Some platforms can customize the PTE/PMD entry uffd-wp bit making
-> it unavailable even if the architecture provides the resource.
-> This patch adds a macro API that allows architectures to define their
-> specific implementations to check if the uffd-wp bit is available
-> on which device the kernel is running.
+Use the new per-module export functionality to allow KVM (and only KVM)
+access to set_direct_map_valid_noflush(). This allows guest_memfd to
+remove its memory from the direct map, even if KVM is built as a module.
 
-If you change the name of the sofdirty thingy, adjust that one here as well.
+Direct map removal gives guest_memfd the same protection that
+memfd_secret enjoys, such as hardening against Spectre-like attacks
+through in-kernel gadgets.
 
-> 
-> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-> ---
->   fs/userfaultfd.c                   | 23 ++++++++--------
->   include/asm-generic/pgtable_uffd.h | 11 ++++++++
->   include/linux/mm_inline.h          |  7 +++++
->   include/linux/userfaultfd_k.h      | 44 +++++++++++++++++++-----------
->   mm/memory.c                        |  6 ++--
->   5 files changed, 62 insertions(+), 29 deletions(-)
-> 
-> diff --git a/fs/userfaultfd.c b/fs/userfaultfd.c
-> index 54c6cc7fe9c6..b549c327d7ad 100644
-> --- a/fs/userfaultfd.c
-> +++ b/fs/userfaultfd.c
-> @@ -1270,9 +1270,9 @@ static int userfaultfd_register(struct userfaultfd_ctx *ctx,
->   	if (uffdio_register.mode & UFFDIO_REGISTER_MODE_MISSING)
->   		vm_flags |= VM_UFFD_MISSING;
->   	if (uffdio_register.mode & UFFDIO_REGISTER_MODE_WP) {
-> -#ifndef CONFIG_HAVE_ARCH_USERFAULTFD_WP
-> -		goto out;
-> -#endif
-> +		if (!pgtable_uffd_wp_supported())
-> +			goto out;
-> +
->   		vm_flags |= VM_UFFD_WP;
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
+---
+ arch/arm64/mm/pageattr.c     | 1 +
+ arch/loongarch/mm/pageattr.c | 1 +
+ arch/riscv/mm/pageattr.c     | 1 +
+ arch/s390/mm/pageattr.c      | 1 +
+ arch/x86/mm/pat/set_memory.c | 1 +
+ 5 files changed, 5 insertions(+)
 
-I like that, similar to the softdirty thing we will simply not set the flag.
-
->   	}
->   	if (uffdio_register.mode & UFFDIO_REGISTER_MODE_MINOR) {
-> @@ -1980,14 +1980,15 @@ static int userfaultfd_api(struct userfaultfd_ctx *ctx,
->   	uffdio_api.features &=
->   		~(UFFD_FEATURE_MINOR_HUGETLBFS | UFFD_FEATURE_MINOR_SHMEM);
->   #endif
-> -#ifndef CONFIG_HAVE_ARCH_USERFAULTFD_WP
-> -	uffdio_api.features &= ~UFFD_FEATURE_PAGEFAULT_FLAG_WP;
-> -#endif
-> -#ifndef CONFIG_PTE_MARKER_UFFD_WP
-> -	uffdio_api.features &= ~UFFD_FEATURE_WP_HUGETLBFS_SHMEM;
-> -	uffdio_api.features &= ~UFFD_FEATURE_WP_UNPOPULATED;
-> -	uffdio_api.features &= ~UFFD_FEATURE_WP_ASYNC;
-> -#endif
-> +	if (!pgtable_uffd_wp_supported())
-> +		uffdio_api.features &= ~UFFD_FEATURE_PAGEFAULT_FLAG_WP;
-> +
-> +	if (!IS_ENABLED(CONFIG_PTE_MARKER_UFFD_WP) ||
-> +	    !pgtable_uffd_wp_supported()) {
-
-I wonder if we would want to have a helper for that like
-
-static inline bool uffd_supports_wp_marker(void)
-{
-	return pgtable_uffd_wp_supported() && IS_ENABLED(CONFIG_PTE_MARKER_UFFD_WP);
-}
-
-That should clean all of this futher up.
-
-> +		uffdio_api.features &= ~UFFD_FEATURE_WP_HUGETLBFS_SHMEM;
-> +		uffdio_api.features &= ~UFFD_FEATURE_WP_UNPOPULATED;
-> +		uffdio_api.features &= ~UFFD_FEATURE_WP_ASYNC;
-> +	}
->   
->   	ret = -EINVAL;
->   	if (features & ~uffdio_api.features)
-> diff --git a/include/asm-generic/pgtable_uffd.h b/include/asm-generic/pgtable_uffd.h
-> index 828966d4c281..895d68ece0e7 100644
-> --- a/include/asm-generic/pgtable_uffd.h
-> +++ b/include/asm-generic/pgtable_uffd.h
-> @@ -1,6 +1,17 @@
->   #ifndef _ASM_GENERIC_PGTABLE_UFFD_H
->   #define _ASM_GENERIC_PGTABLE_UFFD_H
->   
-> +/*
-> + * Some platforms can customize the uffd-wp bit, making it unavailable
-> + * even if the architecture provides the resource.
-> + * Adding this API allows architectures to add their own checks for the
-> + * devices on which the kernel is running.
-> + * Note: When overiding it, please make sure the
-
-s/overiding/overriding/
-
-> + * CONFIG_HAVE_ARCH_USERFAULTFD_WP is part of this macro.
-> + */
-> +#ifndef pgtable_uffd_wp_supported
-> +#define pgtable_uffd_wp_supported()	IS_ENABLED(CONFIG_HAVE_ARCH_USERFAULTFD_WP)
-> +#endif
->   #ifndef CONFIG_HAVE_ARCH_USERFAULTFD_WP
->   static __always_inline int pte_uffd_wp(pte_t pte)
->   {
-> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-> index 89b518ff097e..38845b8b79ff 100644
-> --- a/include/linux/mm_inline.h
-> +++ b/include/linux/mm_inline.h
-> @@ -571,6 +571,13 @@ pte_install_uffd_wp_if_needed(struct vm_area_struct *vma, unsigned long addr,
->   			      pte_t *pte, pte_t pteval)
->   {
->   #ifdef CONFIG_PTE_MARKER_UFFD_WP
-> +	/*
-> +	 * Some platforms can customize the PTE uffd-wp bit, making it unavailable
-> +	 * even if the architecture allows providing the PTE resource.
-> +	 */
-> +	if (!pgtable_uffd_wp_supported())
-> +		return false;
-> +
-
-Likely we could use the uffd_supports_wp_marker() wrapper here isntead and
-remove the #ifdef.
-
->   	bool arm_uffd_pte = false;
->   
->   	/* The current status of the pte should be "cleared" before calling */
-> diff --git a/include/linux/userfaultfd_k.h b/include/linux/userfaultfd_k.h
-> index c0e716aec26a..6264b56ae961 100644
-> --- a/include/linux/userfaultfd_k.h
-> +++ b/include/linux/userfaultfd_k.h
-> @@ -228,15 +228,15 @@ static inline bool vma_can_userfault(struct vm_area_struct *vma,
->   	if (wp_async && (vm_flags == VM_UFFD_WP))
->   		return true;
->   
-> -#ifndef CONFIG_PTE_MARKER_UFFD_WP
->   	/*
->   	 * If user requested uffd-wp but not enabled pte markers for
->   	 * uffd-wp, then shmem & hugetlbfs are not supported but only
->   	 * anonymous.
->   	 */
-> -	if ((vm_flags & VM_UFFD_WP) && !vma_is_anonymous(vma))
-> +	if ((!IS_ENABLED(CONFIG_PTE_MARKER_UFFD_WP) ||
-> +	     !pgtable_uffd_wp_supported()) &&
-
-This would also use the helper.
-
-> +	    (vm_flags & VM_UFFD_WP) && !vma_is_anonymous(vma))
->   		return false;
-> -#endif
->   
->   	/* By default, allow any of anon|shmem|hugetlb */
->   	return vma_is_anonymous(vma) || is_vm_hugetlb_page(vma) ||
-> @@ -437,8 +437,11 @@ static inline bool userfaultfd_wp_use_markers(struct vm_area_struct *vma)
->   static inline bool pte_marker_entry_uffd_wp(swp_entry_t entry)
->   {
->   #ifdef CONFIG_PTE_MARKER_UFFD_WP
-> -	return is_pte_marker_entry(entry) &&
-> -	    (pte_marker_get(entry) & PTE_MARKER_UFFD_WP);
-> +	if (pgtable_uffd_wp_supported())
-> +		return is_pte_marker_entry(entry) &&
-> +			(pte_marker_get(entry) & PTE_MARKER_UFFD_WP);
-> +	else
-> +		return false;
-
-if (!uffd_supports_wp_marker())
-	return false;
-return is_pte_marker_entry(entry) &&
-	(pte_marker_get(entry) & PTE_MARKER_UFFD_WP);
-
->   #else
->   	return false;
->   #endif
-> @@ -447,14 +450,19 @@ static inline bool pte_marker_entry_uffd_wp(swp_entry_t entry)
->   static inline bool pte_marker_uffd_wp(pte_t pte)
->   {
->   #ifdef CONFIG_PTE_MARKER_UFFD_WP
-
-
-Simialrly here, just do a
-
-if (!uffd_supports_wp_marker())
-	return false;
-
-and remove the ifdef
-
->   #endif
-> @@ -467,14 +475,18 @@ static inline bool pte_marker_uffd_wp(pte_t pte)
->   static inline bool pte_swp_uffd_wp_any(pte_t pte)
->   {
->   #ifdef CONFIG_PTE_MARKER_UFFD_WP
-
-Same here.
-
-> -	if (!is_swap_pte(pte))
-> -		return false;
-> +	if (pgtable_uffd_wp_supported()) {
-> +		if (!is_swap_pte(pte))
-> +			return false;
->   
-> -	if (pte_swp_uffd_wp(pte))
-> -		return true;
-> +		if (pte_swp_uffd_wp(pte))
-> +			return true;
->   
-> -	if (pte_marker_uffd_wp(pte))
-> -		return true;
-> +		if (pte_marker_uffd_wp(pte))
-> +			return true;
-> +	} else {
-> +		return false;
-> +	}
->   #endif
->   	return false;
->   }
-> diff --git a/mm/memory.c b/mm/memory.c
-> index 0ba4f6b71847..4eb05c5f487b 100644
-> --- a/mm/memory.c
-> +++ b/mm/memory.c
-> @@ -1465,7 +1465,9 @@ zap_install_uffd_wp_if_needed(struct vm_area_struct *vma,
->   {
->   	bool was_installed = false;
->   
-> -#ifdef CONFIG_PTE_MARKER_UFFD_WP
-> +	if (!IS_ENABLED(CONFIG_PTE_MARKER_UFFD_WP) || !pgtable_uffd_wp_supported())
-> +		return false;
-> +
-
-
-Same here.
-
-
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index 04d4a8f676db..4f3cddfab9b0 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -291,6 +291,7 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+ 
+ 	return set_memory_valid(addr, nr, valid);
+ }
++EXPORT_SYMBOL_FOR_MODULES(set_direct_map_valid_noflush, "kvm");
+ 
+ #ifdef CONFIG_DEBUG_PAGEALLOC
+ /*
+diff --git a/arch/loongarch/mm/pageattr.c b/arch/loongarch/mm/pageattr.c
+index f5e910b68229..458f5ae6a89b 100644
+--- a/arch/loongarch/mm/pageattr.c
++++ b/arch/loongarch/mm/pageattr.c
+@@ -236,3 +236,4 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+ 
+ 	return __set_memory(addr, 1, set, clear);
+ }
++EXPORT_SYMBOL_FOR_MODULES(set_direct_map_valid_noflush, "kvm");
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+index 3f76db3d2769..6db31040cd66 100644
+--- a/arch/riscv/mm/pageattr.c
++++ b/arch/riscv/mm/pageattr.c
+@@ -400,6 +400,7 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+ 
+ 	return __set_memory((unsigned long)page_address(page), nr, set, clear);
+ }
++EXPORT_SYMBOL_FOR_MODULES(set_direct_map_valid_noflush, "kvm");
+ 
+ #ifdef CONFIG_DEBUG_PAGEALLOC
+ static int debug_pagealloc_set_page(pte_t *pte, unsigned long addr, void *data)
+diff --git a/arch/s390/mm/pageattr.c b/arch/s390/mm/pageattr.c
+index 348e759840e7..8ffd9ef09bc6 100644
+--- a/arch/s390/mm/pageattr.c
++++ b/arch/s390/mm/pageattr.c
+@@ -413,6 +413,7 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+ 
+ 	return __set_memory((unsigned long)page_to_virt(page), nr, flags);
+ }
++EXPORT_SYMBOL_FOR_MODULES(set_direct_map_valid_noflush, "kvm");
+ 
+ bool kernel_page_present(struct page *page)
+ {
+diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+index 8834c76f91c9..87e9c7d2dcdc 100644
+--- a/arch/x86/mm/pat/set_memory.c
++++ b/arch/x86/mm/pat/set_memory.c
+@@ -2661,6 +2661,7 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+ 
+ 	return __set_pages_np(page, nr);
+ }
++EXPORT_SYMBOL_FOR_MODULES(set_direct_map_valid_noflush, "kvm");
+ 
+ #ifdef CONFIG_DEBUG_PAGEALLOC
+ void __kernel_map_pages(struct page *page, int numpages, int enable)
 -- 
-Cheers
-
-David / dhildenb
+2.50.1
 
 
 _______________________________________________
