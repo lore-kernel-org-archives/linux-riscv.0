@@ -4,241 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC45CAC594
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 09:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D2FCCAC58F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 10:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gw6FSJb9MSLxholLlR60jbiiAEYOjOXny9yDSYwuLAg=; b=Qb9BvayIF26GBu
-	erlJXyjyJo4j5yGirMOaIbL8J3qDinATHnmhj8mwQ+PVrDNauypuwZnfrp2JPwF5rvwjVuOt29dzt
-	04cwsncV5n5wgDw1e7tAkgmmwXKmx2EDgTrfSGg9YzR6fWZY5tuTS4DEEHtccFwuFU5X/SM7sWE3F
-	9PB6RfsZ6S8zUOE+KhmgjM8hEX6AxAZfW15XgU0BYwazwSeEl26yzr4f07RMXACuLI5ExCdkLcbKH
-	uu3I39ahtbJ/AMhrR8vNNftOYyTVQvZIHLO4CNCiInPRYJI7HtmEVMWGzycj5OP8zm/M3QD0B5GUx
-	IWCyWLaQEbZ+eAHSp+Qw==;
+	List-Owner; bh=CNEXoYUvNaNFBjVTom/HnQMFjmtZKnsANyhEOn9Don4=; b=zrEfAmMYpSf+iC
+	EAHJXRaeOADtQlYsC/xpY8jtN0H3DBzlUZPXX9VyyqONG8IO3a2jLDryFjKc7zWm9p5gCLNhxt28t
+	Zkodvlu1xBWuWhfm1q346rMRBorC7a6Xqe5FTkjaiuCZMT5sOMvvLyLBbJWJk7s5DsF9ypqMET/P8
+	I3vubXkLtPdKQYLsyeuNBOPNJ9Tv111VcVtxuAdvciju+hk+Jssj9T/kyMRW/ykBOVpvGZb0+P158
+	G+UagcFl+EjUnNf0bA2N9/hIs1FLOCsJcGPtNbwB69qGJGWLgvWUpixrxc0mzjo1ynqN/7Ts3Qyt+
+	6VKdTSVleY9TnFsnjyTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0PK-00000008Nud-12Ku;
-	Fri, 12 Sep 2025 09:49:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ux1KY-00000008gHE-159D;
+	Fri, 12 Sep 2025 10:48:38 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0PI-00000008NsB-0vr4;
-	Fri, 12 Sep 2025 09:49:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=S3LbucmPw5s335YWhG8TSYaXlBUClMiqHk9+bvDVNf8=; b=gorBFwdqW2uxieKu5z8UmHF3oh
-	SNWTgzVyPTbDZyHIr1pQLrCYWzWN7pcUIhxqsrXNXWd7/MOh0OygvATax4T6yN6ucZVgCkkJk6V8S
-	xvxgHeQMboO2l4KijkTjOsxDcgxyG+TCYfrGJDCnW3ve+QJMFm4CScIQN7wHlbxqZQzuKHEc1FFWx
-	hlvAv1kscQ7/rqmoCYmgCqeDG8+T7+dkWjBfkVjFU5MxJIVpTkeQwwLtgKr4J7/n3BpaAlY15/3BB
-	iHmwplkHA4Ul5ptCQDK0ck9AVQ3z6EITiR+ZjzuP85p8kXucHdreb0ipuSkY2UZI2uwgIZMUgkoWu
-	dSkbfojw==;
-Received: from mgamail.intel.com ([192.198.163.12])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux0PE-00000006JPn-1Tj7;
-	Fri, 12 Sep 2025 09:49:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757670564; x=1789206564;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=HH59XwzLugIVfZTSarsP94cLPe35Ip8wQZP+K4wtHlo=;
-  b=OqOmRIv/Y6kDJNK8VjMWnYeGrnk9XCzCFLOcGdEWpL11+G0S9nPQrp6O
-   LSjBqUCotyd4wKWO0BIrdSvwe6531Hz3Pk7e/N2GYiHDa69Z02ahbSgtm
-   IzSPFqJJvSYEq2keQFCLWSeU17nPzAW/XEDLyiDUbPeDZrMIH2dYkQbLS
-   sgFQbsiYVcpzHiBi4sgTDLL7jEe4j0xbcmDZii3CyxnPSz6OsiC5xHZbj
-   YRVVxLlS98hEyG/bcwBjNW3cc4bVLrSTDsi0ko1OgDdLCOmJBg279bxtr
-   hILwUXJ9qiGih58ewR4j58cdVmjNbyo2EHPpYza7jqLjykRT3yny4N6Bk
-   Q==;
-X-CSE-ConnectionGUID: n4FyVmDmT1CD5SwNYlB7rw==
-X-CSE-MsgGUID: iG4XSwu4QdWPqQbgf/pFEQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11550"; a="63837385"
-X-IronPort-AV: E=Sophos;i="6.18,259,1751266800"; 
-   d="scan'208";a="63837385"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Sep 2025 02:49:18 -0700
-X-CSE-ConnectionGUID: PA1izaW7Sz2+xoM5EC7IvQ==
-X-CSE-MsgGUID: +DUnE2pMQi231Ngtwujq8g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,259,1751266800"; 
-   d="scan'208";a="174708484"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Sep 2025 02:49:17 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Fri, 12 Sep 2025 02:49:16 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17 via Frontend Transport; Fri, 12 Sep 2025 02:49:16 -0700
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (40.107.94.56) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Fri, 12 Sep 2025 02:49:16 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CLjTJDt1IQbSZU+pz9/dugMiGeRBuvCP2EEbjtnUEuI6DdkEzmHCSrSb9q6lg1CgSoh8yQ70IuHJ5PNJt0zBEENsWqnc++hLVQvkCau4OBoZXkb6c7DRPZ1RfrxjQHht8tA2pWn1NuVfRYXDzjDZAkL11Usla9LKew8h4jDFt3Qi3fuPTuTqC25Upgb/0IwhhUW/QXDbv6XCQhDZnmX4m9StRDgXo3hR8ZKQnU9cEZFUx9Ugf4O46dfwI5clZv6+aG2/TEW/gRNQlW0Mdthd+dtwtT6/SEE0QvbYtwPycdGKHQPcn/+Bl4+dN7Wm4nwUCTAz3CgxwfudqY8iXZ1D7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=S3LbucmPw5s335YWhG8TSYaXlBUClMiqHk9+bvDVNf8=;
- b=Ct3xOveArlx3NbYTF/WOOk1DGVPzh6UgMFUFWX/Tc79DpZSEe7MdXQcCqyK2ipEfCgRytoZHY/4K5e8cSstlJl73QoOq4X8dG5V5m1N4gUuHafa3kShAOsgesXbTUmiVG1CUyb+F6DVA8MQd+d/09FdhaVGcllpq/tkZoWA/S8pXAm8Ny1wio9bcrWZEj0soijvkhDolblb7KPPwA1eZ8UthL0UkYxnGwj9dc7BMKpiWmSPnZD8vVrTKz2+qBtmr4FsfaOKvouab1fkB6WMDTjvSnCw9K5awRGt/ajcecIOnxsi7nDDf8gkSaeuKV67d6+VY8F46AzVICXFZVYsixw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BL1PR11MB5271.namprd11.prod.outlook.com (2603:10b6:208:31a::21)
- by SN7PR11MB7420.namprd11.prod.outlook.com (2603:10b6:806:328::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Fri, 12 Sep
- 2025 09:49:13 +0000
-Received: from BL1PR11MB5271.namprd11.prod.outlook.com
- ([fe80::5616:a124:479a:5f2a]) by BL1PR11MB5271.namprd11.prod.outlook.com
- ([fe80::5616:a124:479a:5f2a%3]) with mapi id 15.20.9094.021; Fri, 12 Sep 2025
- 09:49:13 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"jgg@nvidia.com" <jgg@nvidia.com>, "bhelgaas@google.com"
-	<bhelgaas@google.com>
-CC: "suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
-	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "sven@kernel.org" <sven@kernel.org>, "j@jannau.net"
-	<j@jannau.net>, "alyssa@rosenzweig.io" <alyssa@rosenzweig.io>,
-	"neal@gompa.dev" <neal@gompa.dev>, "robin.clark@oss.qualcomm.com"
-	<robin.clark@oss.qualcomm.com>, "m.szyprowski@samsung.com"
-	<m.szyprowski@samsung.com>, "krzk@kernel.org" <krzk@kernel.org>,
-	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>, "dwmw2@infradead.org"
-	<dwmw2@infradead.org>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"yong.wu@mediatek.com" <yong.wu@mediatek.com>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>, "tjeznach@rivosinc.com"
-	<tjeznach@rivosinc.com>, "paul.walmsley@sifive.com"
-	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "alex@ghiti.fr"
-	<alex@ghiti.fr>, "heiko@sntech.de" <heiko@sntech.de>,
-	"schnelle@linux.ibm.com" <schnelle@linux.ibm.com>, "mjrosato@linux.ibm.com"
-	<mjrosato@linux.ibm.com>, "gerald.schaefer@linux.ibm.com"
-	<gerald.schaefer@linux.ibm.com>, "orsonzhai@gmail.com" <orsonzhai@gmail.com>,
-	"baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
-	"zhang.lyra@gmail.com" <zhang.lyra@gmail.com>, "wens@csie.org"
-	<wens@csie.org>, "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
-	"samuel@sholland.org" <samuel@sholland.org>, "jean-philippe@linaro.org"
-	<jean-philippe@linaro.org>, "rafael@kernel.org" <rafael@kernel.org>,
-	"lenb@kernel.org" <lenb@kernel.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
-	"cwabbott0@gmail.com" <cwabbott0@gmail.com>, "quic_pbrahma@quicinc.com"
-	<quic_pbrahma@quicinc.com>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-arm-msm@vger.kernel.org"
-	<linux-arm-msm@vger.kernel.org>, "linux-samsung-soc@vger.kernel.org"
-	<linux-samsung-soc@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
-	<linux-rockchip@lists.infradead.org>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, "linux-sunxi@lists.linux.dev"
-	<linux-sunxi@lists.linux.dev>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "virtualization@lists.linux.dev"
-	<virtualization@lists.linux.dev>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>, "Sethi, Vikram" <vsethi@nvidia.com>,
-	"helgaas@kernel.org" <helgaas@kernel.org>, "etzhao1900@gmail.com"
-	<etzhao1900@gmail.com>
-Subject: RE: [PATCH v4 6/7] iommu: Introduce iommu_dev_reset_prepare() and
- iommu_dev_reset_done()
-Thread-Topic: [PATCH v4 6/7] iommu: Introduce iommu_dev_reset_prepare() and
- iommu_dev_reset_done()
-Thread-Index: AQHcGs+kmRd6vX2VUUSIS9z2k1vHZLSPW/CA
-Date: Fri, 12 Sep 2025 09:49:13 +0000
-Message-ID: <BL1PR11MB5271BE949150D4C2B5EC589A8C08A@BL1PR11MB5271.namprd11.prod.outlook.com>
-References: <cover.1756682135.git.nicolinc@nvidia.com>
- <0f6021b500c74db33af8118210dd7a2b2fd31b3c.1756682135.git.nicolinc@nvidia.com>
-In-Reply-To: <0f6021b500c74db33af8118210dd7a2b2fd31b3c.1756682135.git.nicolinc@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BL1PR11MB5271:EE_|SN7PR11MB7420:EE_
-x-ms-office365-filtering-correlation-id: 32f8f0bd-455d-4c65-7bf6-08ddf1e1a17b
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?E+8XyKohKLugtT08kfmvO+uq2+uEk7DeBFJPEO43Aybt7UfO4tta36u9J3xe?=
- =?us-ascii?Q?fjD/xCWTm8489E++JMicVlxgvL5Q9ZXAXLB6zHhi7bJ1xv2UjWJ1tyOmda3l?=
- =?us-ascii?Q?trt7cJ88r42u5ahGWLPp3OhvqsDCBaqRKF15sO4ZRqhZZFX5iagHY/6qIkS3?=
- =?us-ascii?Q?9nZKIej+FXNmGvZ/+XZYlRsn93rOtd1C757ecoauWCN3LbP5+VPBX2woO5JU?=
- =?us-ascii?Q?xbCJ9QJSCW56dZ/VpIUA1Lc4nC8bEQUNA1VpG7+2qmV6MVXFAf6nLugsFJex?=
- =?us-ascii?Q?7Z978K+ZJwBRV1ojZkXMOK4UeCgjCUTAEklC6WcUlsg9DP6hbc/jguiN/+rM?=
- =?us-ascii?Q?SlAy+QJSmzNI39+VDNVm5uMDMIlVeL2gs2Dvl3Gk7ZjXIMiaR8jDNzmDwLvw?=
- =?us-ascii?Q?r7xv3qgw7BMS3wA4+dSPVIcQgO2nHrZgzkLljevgFwvbDefnt2u9sY0e4oPC?=
- =?us-ascii?Q?umAxNFoXOMSswTC6fWXOpzdnyZuRy6FjDCR2XJLsBE6FExioeATR+zFB+GML?=
- =?us-ascii?Q?yIObzuKY8/prcn1kLnbl5IJEZ+2tYbLH6lY0k+k+w5W/rIbTWiQX/waP1Xhj?=
- =?us-ascii?Q?LhAS/dUbIaoEynw1g86WdWalTa2u6sjrrZVQioO64c3qDGFzDg8t3pGsqZDb?=
- =?us-ascii?Q?uxYQJBvEBUjg5zMIDQrKwlex/sn+DTP/3hJ65JKcj9w3PydKxW251RV0BgD/?=
- =?us-ascii?Q?b9Bkj8RR4MpJAfz00szcoTTarZ5gqR5TGq6NpBw8xCv0I67MdH+1V48LiDVI?=
- =?us-ascii?Q?yigcd+U0ScryOvI5p5WCQi1DIUwvE6bqk9bKaaeikoLuTF6A0kbX0ijQqbNx?=
- =?us-ascii?Q?pIRl4sahQcKjbt9C83YSGngbSmf81QR7re+0a5wFcENvEaBTmQn3VqkFlOb4?=
- =?us-ascii?Q?dtkzzeiGVYU1aib0Qig3LdzR/CvH4/hk5Lw+sqar1TgPHxnri5Dki8sLbvAP?=
- =?us-ascii?Q?IzPi4ncdeRrMlZthsfJnvzcPtiH13XjATGYO48Erz9S3vIF/lSYJWQsqLDWI?=
- =?us-ascii?Q?hS0YzkAS951exYTkq4KRrUCwqbC7O87Rxoax925vV3R/+GQ134QaIwpZSds9?=
- =?us-ascii?Q?0Dx4foGEKBm5Hh7WkaH9BdXyQbcqkJlyOUHprXBucuhlznX8Zp8kd9DuoPZJ?=
- =?us-ascii?Q?mciVj+fe2vSVYU4OuIVklo69Kc7q/6lrSCOe3fAYYfM9xnY+YRpwfu+BA+KK?=
- =?us-ascii?Q?M1UxpPD1B0VdUXmJKQXyhpI2dmbSiv+Udl2oMPGjhZBJ/UPN8D6yulmoYMov?=
- =?us-ascii?Q?LOn11nSv8L0Ub/4O62vClDTrJIQhnLQQI3GZfXa0SP4+8Frozk9CrGDMPSus?=
- =?us-ascii?Q?sXS3vnN3RhdFq+KkxMgiiovbwJW6xGfqUqSb6+K1AXPB9G7UZromOMg6VhmC?=
- =?us-ascii?Q?fSTok7Tk1F5lGYxP/gaON6uQIiaCYfZtvLD6tGgQWX9ZjWvLKMfksTVb9F2j?=
- =?us-ascii?Q?tNqY9ZszOvI2Wcr4aEx1627HBCw8IqyGOfsWxWtZZEK95mvrahWdSA=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR11MB5271.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?eHeuMf5NaFH3LfOEi0E9oEW/DuUNhxhZaWHXTj4xSjpUWDJ5FoHZ+2Ghdskz?=
- =?us-ascii?Q?VPXhcvChVhPiCnO7UjacbwIgN8C9jgQ7kXGe3C9wZvH7gs0O2JmjllXML+si?=
- =?us-ascii?Q?vaGQGv6TyDEgFATpM7wht6IX8NCkJ9ju+A+gcveMWXPPMuMPuuC4KPR92/83?=
- =?us-ascii?Q?98ZitHARUwwiuBQpbPR7+mLx1/g8tz2kPHv3+dBfNpc4js209YikVpe7sHan?=
- =?us-ascii?Q?u3v6VdL4Un6/LNZ3UJA6asMAzSa365/X5i5167S9KWaVFQr3ha+iAdJTmCII?=
- =?us-ascii?Q?UjSfwkWT/t5VTHGipj3csNssn+k4hfpYaYjCh4q+sw5PrLq+sNykPB6ptk1c?=
- =?us-ascii?Q?gl+WN+eynA+oi/HoHSQJOF6ulQqQanSduQNk5pYV2qf1IkmnlixWeM85oTAj?=
- =?us-ascii?Q?5jDBz9zBPx/FndtpiLQoyAXJ/u43ZlrQ94gLVT3gYdXDCBiJ5WmRVqIxe91u?=
- =?us-ascii?Q?9W9jR+GtvGrRluSzIBGQpsnSG7QlUH+JKdazTiE/WRSrWHmTzErQqmYDd2D8?=
- =?us-ascii?Q?+tu454sCqHPYNMcDjCAYYeF9cnvjPJk1Fjm1GcOwhV5ZF52cgTkr91lDGRah?=
- =?us-ascii?Q?tQocWoWbpoNdk3sKuHqFhYstGtIQS1jzWcHGN0afYyjNTIr9lKib53fe4YYS?=
- =?us-ascii?Q?Y1pAoZGc0c1XC8pZcU/Ekcjlb4PlxN1a0bJ7qtig2O0bKwwtT9JWbXvVOzqG?=
- =?us-ascii?Q?fPMw/MhKWrznKSfOpMALyXEiLsWauHCc7W5jV6vwLvW3GrBTqleJNJ3Ibd9P?=
- =?us-ascii?Q?zZPgv0EGLIsHZa6sdS821qGcOX76z14qzbn/yLl2Xw3ywcoWrFzAPCiluFOU?=
- =?us-ascii?Q?g+GblwShmPLsamPRL6TwBiT0CDnGZ5y6j2bPNohcZ1ScbqwerUw4A1i54I34?=
- =?us-ascii?Q?dX0xcO5t73O8aqqk4VVQspZMzi8DJhTL4x1mYd6I355lnco2iANQmDFX/6kn?=
- =?us-ascii?Q?KbIgZOL6Kl4Rf6iDbfPXiXd8WGAf9mZ9I7KwNLmMNpSY7E6THrANeCtyum11?=
- =?us-ascii?Q?vSVIPBbsCCTdewdl29Ys5q1nW4BgG6nN/nACjbu/kLnj/nZunt7K4qwEscx5?=
- =?us-ascii?Q?tY2TAOaa6M+mFGI+y7J72s7eGpIENCy9xgFXv8F+tJn6VRxZYbyie2Z8Jp/l?=
- =?us-ascii?Q?tL7r5bhboeV2sPqwsPqKrpe6IDYo7jAP05XK5AG7W/p2tnW9H0tB6da4DHTj?=
- =?us-ascii?Q?8paZ/rCS9AN87cbDUrGV6ldmmRTsY3qaJeer+c/AsAvoXL9fTwafIGkebPzQ?=
- =?us-ascii?Q?pKfEYDBMhVx3UNJ2Lh1lY6B1DECiV1o0A8vFULJLF7pks9muPT2mUL3QdwZB?=
- =?us-ascii?Q?VI0t5fDSvDr5gF6GYyDUucl6w3L/u4/K5eed6pifSvEtAlRKmkIUBVkz4GFv?=
- =?us-ascii?Q?SIQQW1Z356eIk4BcexbPbFeSQkN4cuPCPpeREX7YfBXy1I5szpz7WYBqc6PL?=
- =?us-ascii?Q?jLyjQRFl11rw0rJavrRT+QVBqeK/Q6KebTBA5qmmyXrN3qH+IJQ02oYpfYTW?=
- =?us-ascii?Q?2y+ygYbfnfgiPrTSd/cXa+ixoR/4IR3uxr79r4Bwap7b47kiOPvsOi1/hNs7?=
- =?us-ascii?Q?1DaDgwYkRGj4DSEzYJKzmse0UZ6akw3EYcKodiYZ?=
+	id 1ux1KV-00000008gDV-02y8
+	for linux-riscv@lists.infradead.org;
+	Fri, 12 Sep 2025 10:48:37 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 8A1A220760;
+	Fri, 12 Sep 2025 10:48:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1757674110; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CWphaHK8OZGZX1V68Y5uJkPgW2mcaEuIYhBomIwfjhY=;
+	b=pIhrbsz6PFEg2rsKfYIDk9LSisUudy3RRRF+vPTEdTVNBEc/IYjMGMRlHJPMd81a3PeAPQ
+	enViOBHkrPb/ixVfVxnLyPU7+6VjTklFYkyeXlsUfBRq5C+jV7UXdmEmLyAdx4Q3d4ezXR
+	1O/cIWn77hOKnup2fdLIdwqygTz6oOk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1757674110;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CWphaHK8OZGZX1V68Y5uJkPgW2mcaEuIYhBomIwfjhY=;
+	b=3KzBQV3sfhI2xmW0tXlMKSTmNI2mUbzMU7tkf31yqUEPagskAIo4a6mTeoFEttV9DasuS1
+	kLhxxYyMXH7/23Ag==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1757674110; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CWphaHK8OZGZX1V68Y5uJkPgW2mcaEuIYhBomIwfjhY=;
+	b=pIhrbsz6PFEg2rsKfYIDk9LSisUudy3RRRF+vPTEdTVNBEc/IYjMGMRlHJPMd81a3PeAPQ
+	enViOBHkrPb/ixVfVxnLyPU7+6VjTklFYkyeXlsUfBRq5C+jV7UXdmEmLyAdx4Q3d4ezXR
+	1O/cIWn77hOKnup2fdLIdwqygTz6oOk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1757674110;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CWphaHK8OZGZX1V68Y5uJkPgW2mcaEuIYhBomIwfjhY=;
+	b=3KzBQV3sfhI2xmW0tXlMKSTmNI2mUbzMU7tkf31yqUEPagskAIo4a6mTeoFEttV9DasuS1
+	kLhxxYyMXH7/23Ag==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8C11E13869;
+	Fri, 12 Sep 2025 10:48:25 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id RcKSHnn6w2gcWwAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Fri, 12 Sep 2025 10:48:25 +0000
+Date: Fri, 12 Sep 2025 11:48:15 +0100
+From: Pedro Falcato <pfalcato@suse.de>
+To: "Roy, Patrick" <roypat@amazon.co.uk>
+Subject: Re: [PATCH v6 01/11] filemap: Pass address_space mapping to
+ ->free_folio()
+Message-ID: <2w22wsqar437lyp3w4bltyoql4ksn3exppkyaia5ogtnt2ttte@6nptj6ed4qnm>
+References: <20250912091708.17502-1-roypat@amazon.co.uk>
+ <20250912091708.17502-2-roypat@amazon.co.uk>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR11MB5271.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32f8f0bd-455d-4c65-7bf6-08ddf1e1a17b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Sep 2025 09:49:13.5036
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: GoK6vFC2RGvJGSF7IMaan6JE48+FCcW7iODz/G3gy+8hCjQKyhNky+MKbK6/I2c5sD4Q+je0QZO6lnD6Uq382Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB7420
-X-OriginatorOrg: intel.com
+Content-Disposition: inline
+In-Reply-To: <20250912091708.17502-2-roypat@amazon.co.uk>
+X-Spamd-Result: default: False [-2.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	ARC_NA(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_EQ_ADDR_SOME(0.00)[];
+	FREEMAIL_CC(0.00)[amazon.co.uk,quicinc.com,infradead.org,lwn.net,redhat.com,kernel.org,linux.dev,arm.com,huawei.com,xen0n.name,sifive.com,dabbelt.com,eecs.berkeley.edu,ghiti.fr,linux.ibm.com,linux.intel.com,linutronix.de,alien8.de,zytor.com,omnibond.com,zeniv.linux.org.uk,suse.cz,linux-foundation.org,oracle.com,google.com,suse.com,iogearbox.net,gmail.com,fomichev.me,ziepe.ca,nvidia.com,cmpxchg.org,bytedance.com,vger.kernel.org,lists.infradead.org,lists.linux.dev,lists.orangefs.org,kvack.org];
+	R_RATELIMIT(0.00)[to_ip_from(RL1bpf5rdkmpo98mj6oa9xanz3)];
+	TO_DN_SOME(0.00)[];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RCPT_COUNT_GT_50(0.00)[89];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[amazon.co.uk:email,suse.de:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_104924_938209_BCB724A4 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20250912_034835_347262_B80F45E6 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -250,82 +127,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "hubcap@omnibond.com" <hubcap@omnibond.com>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "derekmn@amazon.co.uk" <derekmn@amazon.co.uk>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "devel@lists.orangefs.org" <devel@lists.orangefs.org>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>, "luto@kernel.org" <luto@kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>, "surenb@google.com" <surenb@google.com>, "brauner@kernel.org" <brauner@kernel.org>, "Cali, Marco" <xmarcalx@amazon.co.uk>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "trondmy@kernel.org" <trondmy@kernel.org>, "martin@omnibond.com" <martin@omnibond.com>, "david@redhat.com" <david@redhat.com>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "song@kernel.org" <song@kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>, "shuah@kernel.org" <shuah@kernel.org>, "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, "alex@ghiti.fr" <alex@ghiti.fr>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "andrii@kernel.org" <andrii@kernel.org>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "Thomson, Jack" <jackabt@amazon.co.uk>, "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "haoluo@google.com" <haoluo@google.com>, "seanjc@google.com" <seanjc@google.com>, "anna@kernel.org" <anna@kernel.org>, "ast@kernel.org" <ast@kernel.org>, "peterx@redhat.com" <peterx@redhat.com>, "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>, "will@kernel.org" <will@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "corbet@lwn.net" <corbet@lwn.net>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "willy@infradead.org" <willy@infradead.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "bp@alien8.de" <bp@alien8.de>, "shakeel.butt@linux.dev" <shakeel.butt@linux.dev>, "linux-nfs@vger.kernel.org" <linux-nfs@vger.kernel.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "mhocko@suse.com" <mhocko@suse.com>, "jack@suse.cz" <jack@suse.cz>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "yuanchu@google.com" <yuanchu@google.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>, "hpa@zytor.com" <hpa@zytor.com>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "maz@kernel.org" <maz@kernel.org>, "x86@kernel.org" <x86@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "mingo@redhat.com" <mingo@redhat.com>, "axelrasmussen@google.com" <axelrasmussen@google.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "jannh@google.com" <jannh@google.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "vbabka@suse.cz" <vbabka@suse.cz>, "weixugc@google.com" <weixugc@google.com>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "hannes@cmpxchg.org" <hannes@cmpxchg.org>, "pbonzini@redhat.com" <pbonzini@redhat.com>, "martin.lau@linux.dev" <martin.lau@linux.dev>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: Monday, September 1, 2025 7:32 AM
+On Fri, Sep 12, 2025 at 09:17:31AM +0000, Roy, Patrick wrote:
+> From: Elliot Berman <quic_eberman@quicinc.com>
 > 
-> PCIe permits a device to ignore ATS invalidation TLPs, while processing a
-> reset. This creates a problem visible to the OS where an ATS invalidation
-> command will time out. E.g. an SVA domain will have no coordination with a
-> reset event and can racily issue ATS invalidations to a resetting device.
+> When guest_memfd removes memory from the host kernel's direct map,
+> direct map entries must be restored before the memory is freed again. To
+> do so, ->free_folio() needs to know whether a gmem folio was direct map
+> removed in the first place though. While possible to keep track of this
+> information on each individual folio (e.g. via page flags), direct map
+> removal is an all-or-nothing property of the entire guest_memfd, so it
+> is less error prone to just check the flag stored in the gmem inode's
+> private data.  However, by the time ->free_folio() is called,
+> folio->mapping might be cleared. To still allow access to the address
+> space from which the folio was just removed, pass it in as an additional
+> argument to ->free_folio, as the mapping is well-known to all callers.
 > 
-> The OS should do something to mitigate this as we do not want production
-> systems to be reporting critical ATS failures, especially in a hypervisor
-> environment. Broadly, OS could arrange to ignore the timeouts, block page
-> table mutations to prevent invalidations, or disable and block ATS.
-> 
-> The PCIe spec in sec 10.3.1 IMPLEMENTATION NOTE recommends to disable
-> and
-> block ATS before initiating a Function Level Reset. It also mentions that
-> other reset methods could have the same vulnerability as well.
-> 
-> Provide a callback from the PCI subsystem that will enclose the reset and
-> have the iommu core temporarily change all the attached domain to
-> BLOCKED.
-> After attaching a BLOCKED domain, IOMMU hardware would fence any
-> incoming
-> ATS queries. And IOMMU drivers should also synchronously stop issuing new
-> ATS invalidations and wait for all ATS invalidations to complete. This can
-> avoid any ATS invaliation timeouts.
-> 
-> However, if there is a domain attachment/replacement happening during an
-> ongoing reset, ATS routines may be re-activated between the two function
-> calls. So, introduce a new pending_reset flag in group_device, and reject
-> any concurrent attach_dev/set_dev_pasid call during a reset for a concern
-> of compatibility failure.
-> 
-> There are two corner cases that won't work:
-> 1. Alias devices that share the same RID
->    Blocking one device also blocks the other alias devices that might not
->    want a reset. Given that it's very rare for an alias device to support
->    ATS, simply skip the blocking routine.
+> Link: https://lore.kernel.org/all/15f665b4-2d33-41ca-ac50-fafe24ade32f@redhat.com/
+> Suggested-by: David Hildenbrand <david@redhat.com>
+> Acked-by: David Hildenbrand <david@redhat.com>
+> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
+> [patrick: rewrite shortlog for new usecase]
+> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
 
-it also applies to the devices in the same iommu group. While one device
-is being reset, all other devices in the group cannot change the domain. 
-This needs to be documented in the attach uAPI.
+Reviewed-by: Pedro Falcato <pfalcato@suse.de>
 
-> 
-> 2. SRIOV devices that its PF is resetting while its VF isn't.
->    Both PF and VF should block RID and PASIDs. But, since VF is not aware
->    of the reset, it is difficult to block it and reject concurrent attach
->    calls, because it's not logically reasonable to reject a VF attachment
->    due to a resetting PF unless the VF is resetting too. To address this,
->    we won't be able to reject any concurrent attachment as simple as this
->    patch does; instead we will need two new compatibility testing ops for
->    attach_dev/set_dev_pasid to allowing caching a compatible attach. This
->    itself, however, would be a big series. So, for now, skip the blocking
->    routine for PF devices, and leave a note.
-> 
-
-given it impacts uAPI:
-
-  - now attach/replace can be done anytime
-  - with this series attach/replace is rejected when a device is being reset
-  - later with compat testing ops attach/replace can be done again at
-    any time
-
-we should be cautious here, especially if this series goes into 6.18 (likely
-the next LTS version) the interim behavior change may last long. yes
-we discussed that no know usage would want to do attach/replace
-while a device is being reset, but I wonder whether we should instead 
-wait for a full solution to avoid unnecessary uAPI change back-and-forth...
-
-Thanks
-Kevin
+-- 
+Pedro
 
 _______________________________________________
 linux-riscv mailing list
