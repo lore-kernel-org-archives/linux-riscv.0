@@ -4,104 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 880CACAC582
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 06:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF2BCA101F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 07:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t2d2oE50cOoWqQYGimq6nwYGZvD43Vq5qZJ/winV0kI=; b=HQwsKGii0ymuMc
-	VaK+Vmh7Fq941PdIOpsyu0A0WWzcXvrJ0wYQayLZhbngkEo8XCFWertY3GROSHms1wyognjYECn3k
-	Fx5Ig7BfXzBhOBHFr2c1vhuxNwi2RjMhCWPaROjYBVeveqQNb7in2lOGyuK2zXGX9E6VR6h/W4qaQ
-	Qy14JC6YQQMlHOk7t4YBqY9CmXlUnGDxwCC+1vQuyDrVVD/lxlQgQGLHohSaMAzMLPGA9wVBb+YYg
-	CxaWk0Nm757lb3pFWqQ/kovAY+761aAEF9lm4wmhjgqJwmQBR9PrtLtVkg/Ew7nSPXLjJ400YGgn3
-	olW6jNF5pAyeKieslegA==;
+	List-Owner; bh=iW9W7XWe8folV5di8g6lLgkz2SC4a8AwMC1Cn5NJxgs=; b=l9ir/tqekTRNTp
+	z8uuH5EzoATQWTtMR4kihNAMkG+0u8aPrFXstUMQub/5zJnKmAQRfFgl2E+r6FRbJx9M7tVVqwYJO
+	d94FbgrKmDri+foqyXs6E8lNGetopMV/bc/A2SIye/6NkOH+cT0q+2tGMobae1IB/rYErFmqKLoko
+	Hw3wrm9agkixQwQMs6Nbs/HeFQrW4wC9RXcHErHT5V0E45AnKSGSwszo3LsSxhB44Bt5NOY0okeBl
+	oCRImwJU00ghUKnyuyr/QgI8rDBo0DzBlJPiljSSnjLCOSzhF2Y5Q5aNqJcRp57q9mV/vFiKAq5f0
+	uZf0+Cwqu8376ar3+S6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwxCK-00000007NVv-1awu;
-	Fri, 12 Sep 2025 06:23:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uwyBb-00000007dzd-3RFO;
+	Fri, 12 Sep 2025 07:27:11 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwxCI-00000007NV9-1kHC;
-	Fri, 12 Sep 2025 06:23:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77E38601AF;
-	Fri, 12 Sep 2025 06:23:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5749EC4CEF4;
-	Fri, 12 Sep 2025 06:23:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757658229;
-	bh=9T73VS9+o4Zoo6JQMDrxwkWyCcTGJSPu9bJ/JLxGhoI=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=K+tUT9Ui0Lj0qetX4V8f8hxvGPJsm/BKTf0HW7pE5h0z0YOzKPHtIxQhImX/f+n88
-	 gIuNPwW4DTVun4DprE4qf5t+qx5He/qG+pETHjCT3CATCAXmMzjZ1vWuw+ac99zdfm
-	 +0aVzmrQL52bl6DV3bmQq+0IRUqRkRMDEuBcnmXuYaPcRJHCkC+i31tQKa7A3TQ56D
-	 n7cx6at6JYpOJZbx3fVBPZli50U6g2ppn8f3IMad24G4Qk3PIFAOv0b3LedhAUosuY
-	 IGi+43ynLvyWq4ea6CVaNvuE7ALbHzlh+dAhb+JmPcQZnJO83RCRsGrJ+lGYixbAwm
-	 91fKGAvuN2fkg==
-Message-ID: <295aa861-8e5c-4146-a137-20dcfc24e1c0@kernel.org>
-Date: Fri, 12 Sep 2025 08:23:43 +0200
+	id 1uwyBW-00000007duX-1SVf
+	for linux-riscv@lists.infradead.org;
+	Fri, 12 Sep 2025 07:27:07 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45dd505a1dfso12568655e9.2
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Sep 2025 00:27:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1757662024; x=1758266824; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5K1W1vf8Z5GhVp1uTmKWJ/JLDCzOhXuDobj39bYgkVc=;
+        b=Yii5ylCYe6+9yzq7KQb/ujF3AgdEV/x/ouOxkH5aPlnZdyV5Apb7/tz8qUZlJeJUg3
+         MmO6/327HpjOWDZplC312cR5oDoiggVMAMBYh0fLeBy430VSBhvsDuDf/mOGW30+dg1d
+         ItqvEiCJ4pS3EFeaneDiyJahFW4yXOFw80HLf2346noL6OQH1c3ZNBKUA6NHR+FUxTb8
+         kQ5cJipZg01GK49YTHCEzATA+mShQh/QNlBHC/0GSRMm+ctwQNpcbGlosGClmOQ0rD19
+         l7F1Rp/2ctg/sqHnKz7SNpqa5b17QVlj3D9fu3pNIeNg8jAodTQKTHpQ2oy0EU5/WNpc
+         NsMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757662024; x=1758266824;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5K1W1vf8Z5GhVp1uTmKWJ/JLDCzOhXuDobj39bYgkVc=;
+        b=sGxSsLAE3/IKZOerHloedQPoIv2SWZwHE+0L86BSenijdAI3JhGBTYxQKj4lh07HQh
+         wS8VbEOdQBozSoqpx24GkAQrQNK4HDJyNPL3Ey8t5j4c7EfM3NXHC4nZnZvlrEpdaGU9
+         nPLZZrxOhPoMED3+gbTaVD8oltK1Xau2GcZdSMaHw5z9nQbdidXVJ6kjbAvuZtHS8pxM
+         DOoAPOVQFio3cKRrwHe7SNZtriUB+6UDZ3oJ5Jy4WxtaDp8La6sO5mMr/5WKsxofLWa9
+         lme6ylD3kM0tifXBm0YCaP5RZ/Wre2IIWnWQpe+h2C4IINkYjiZHwQaJLmaXflhDOe4D
+         tzjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXK/aDaImpjXGoztgjpBo1ryfU4Dw2nPt9ZDC3A2xneVTUkd1RNgbxXrFLDBuOqRMj+AkbdbQ9SUp9j5Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxALOxpqEoUcVScDR9UCIhYMHq8iw1V/JNHF7D9t5wwHn3igyub
+	OAsTgLYkNojZ33ZGkd/vsHEnvaiQhUslDPM79wU9d4E77fBmpRV89GO7MWoLqGVMVQ0=
+X-Gm-Gg: ASbGncse0aenS7hBoePff/8eRjUi/ALcdMZfiqeHLh344R0YuMjZ2PZasLDjUSvqYTG
+	gnU04dGBWsJQ+tpF2HkquCtN6h0WQeTyuo+dYdctg+O9Z9fzD+Eid50fS/4+Hp76RQKbAbWSVEp
+	ocJbTBGkL9ajMJPvNdEkoynrefXLGTV0tPu8RDWUPavWYRCLLhThZHyCwlo5ig/p7/q5f9bLGLN
+	lu5Da/9gW7z6EcBq4rZB41faUwPFVCWPu2uebHf3EMGqFPURgthqI9dvpLH2YvgsNO2hG5VpUuk
+	lMgZSuSLYTqqnFQxao1xfVE1TRYmowxTSp5rFVQJwIoN0x0GXLCjsh8VmEuLI7F8DGBnJ1IhxYq
+	JnWQbycfFr0HpvjNdDiqhXwg=
+X-Google-Smtp-Source: AGHT+IHnJFZvdCCeCxhMw56xuAjolN8GpBM01BpNCjssGvJ1wLlPBDHBDYHA0TwsVBlYSdL7Ex3cDw==
+X-Received: by 2002:a05:600c:8486:b0:456:18cf:66b5 with SMTP id 5b1f17b1804b1-45f211f7aaamr15546025e9.22.1757662024343;
+        Fri, 12 Sep 2025 00:27:04 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:b6ab:4211:ebab:762])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e774a3fb5bsm730202f8f.58.2025.09.12.00.27.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Sep 2025 00:27:02 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Alban Bedel <albeu@free.fr>,
+	Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Yixun Lan <dlan@gentoo.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v2 00/15] gpio: replace legacy bgpio_init() with its modernized alternative - part 4
+Date: Fri, 12 Sep 2025 09:26:56 +0200
+Message-ID: <175766186360.9646.5204996164911945151.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
+References: <20250910-gpio-mmio-gpio-conv-part4-v2-0-f3d1a4c57124@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] defconfig: cleanup orphaned CONFIG_SCHED_DEBUG
-To: Trevor Woerner <twoerner@gmail.com>, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-arm-msm@vger.kernel.org, openbmc@lists.ozlabs.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250828103828.33255-1-twoerner@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250828103828.33255-1-twoerner@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250912_002706_430693_9FFA7461 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,23 +117,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28/08/2025 12:38, Trevor Woerner wrote:
-> In commit b52173065e0a ("sched/debug: Remove CONFIG_SCHED_DEBUG") this
-> Kconfig option was removed since CONFIG_SCHED_DEBUG was made unconditional
-> by patches preceding it.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+
+On Wed, 10 Sep 2025 09:12:36 +0200, Bartosz Golaszewski wrote:
+> Here's the final part of the generic GPIO chip conversions. Once all the
+> existing users are switched to the new API, the final patch in the
+> series removes bgpio_init(), moves the gpio-mmio fields out of struct
+> gpio_chip and into struct gpio_generic_chip and adjusts gpio-mmio.c to
+> the new situation.
 > 
-> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
+> Down the line we could probably improve gpio-mmio.c by using lock guards
+> and replacing the - now obsolete - "bgpio" prefix with "gpio_generic" or
+> something similar but this series is already big as is so I'm leaving
+> that for the future.
+> 
+> [...]
 
-I doubt anyone will pick up such patch touching all possible
-architectures. I would suggest to split it per arch.
+Let's allow it to cook in next for some time.
 
-If you want to keep it like that, there is a chance soc@ would pick it
-up if you send it to them.
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+[01/15] gpio: loongson1: allow building the module with COMPILE_TEST enabled
+        https://git.kernel.org/brgl/linux/c/80d7319c7a2a9865dc730422ec7227bfcc92e6bb
+[02/15] gpio: loongson1: use new generic GPIO chip API
+        https://git.kernel.org/brgl/linux/c/116eadc92b4c47277d660271eac1efd4afd33121
+[03/15] gpio: hlwd: use new generic GPIO chip API
+        https://git.kernel.org/brgl/linux/c/43dffacf6be98fb31aa7790d693adc29276461f0
+[04/15] gpio: ath79: use new generic GPIO chip API
+        https://git.kernel.org/brgl/linux/c/551a097118391018ddc4079cbcec6fe4e7d64bc5
+[05/15] gpio: ath79: use the generic GPIO chip lock for IRQ handling
+        https://git.kernel.org/brgl/linux/c/e7a3a1be11d7e786924ed7af3b3411def2e46f21
+[06/15] gpio: xgene-sb: use generic GPIO chip register read and write APIs
+        https://git.kernel.org/brgl/linux/c/36f30f7ffc4b98dbd49deec8599cf810e7006cdf
+[07/15] gpio: brcmstb: use new generic GPIO chip API
+        https://git.kernel.org/brgl/linux/c/e8bd2a6a5059043a9f13a0723acd48c1291a55ff
+[08/15] gpio: mt7621: use new generic GPIO chip API
+        https://git.kernel.org/brgl/linux/c/80fd7e96d669d729d9e01bfa3e2b60ea6b500e20
+[09/15] gpio: mt7621: use the generic GPIO chip lock for IRQ handling
+        https://git.kernel.org/brgl/linux/c/2c1f22fa54fcbf8fbd9c03f5d341c73ef36c6d27
+[10/15] gpio: menz127: use new generic GPIO chip API
+        https://git.kernel.org/brgl/linux/c/b24489af4500720d8ad57c55111d90e762133c50
+[11/15] gpio: sifive: use new generic GPIO chip API
+        https://git.kernel.org/brgl/linux/c/8e1c8ccc1df8b802a7a1b4beadbd8b87fff1c3b3
+[12/15] gpio: spacemit-k1: use new generic GPIO chip API
+        https://git.kernel.org/brgl/linux/c/063411108de622a26b36487a711903443b0e864b
+[13/15] gpio: sodaville: use new generic GPIO chip API
+        https://git.kernel.org/brgl/linux/c/ae9a52990b2cd62e0555adad92d8fe9e431d1bac
+[14/15] gpio: mmio: use new generic GPIO chip API
+        https://git.kernel.org/brgl/linux/c/e43e94fa19cf058c4e465fcdbc2f521123058ea6
+[15/15] gpio: move gpio-mmio-specific fields out of struct gpio_chip
+        https://git.kernel.org/brgl/linux/c/9b90afa6d613b66ec4e74ae75f9bfa5baf386ecd
 
 Best regards,
-Krzysztof
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
 _______________________________________________
 linux-riscv mailing list
