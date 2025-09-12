@@ -4,90 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F74CAC582
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 08:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C707CCAC582
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 08:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PuahPy+gm/rNCg25gQs+aj4MpjQ/I4dudIKqGb5LndA=; b=wSUrj2XhokALBr
-	fpDiR7tf9nVqvhSq3ZowJs5ErnZCyvCK5o2DfXjPcPrL5gjR/xazsey0J2B2SA8WgxfTVUxaIfb39
-	P/JfRWtPk9do77ufaPEtzhMJegkP4fI7pkffV2oZCHF4HW1PxiPE+SF4gL9IA63xEl8eJaOFCrZvM
-	flLXUBmNYGaLIa38iFdnXzfHVmLM1uxe91Nq2t4LlNseqcIU3VzMQhk661Dx7afmOyYf2rHs4AJEI
-	NyfS3XK35dgAWYNDQBED9NrjHokxCSWYcv/ZB2LaxNixp3AgdHHtj721Ub/79quZqqXAykF7a0fyx
-	71wvI/qZAxEykdUEl1Xg==;
+	List-Owner; bh=/R/dTCWb79Bi8+HFJ4Smy7UOk4U8nozymo3j0Ria+Zw=; b=2pmTuyH01pDKVo
+	pWxzDWiqGEDDP3cJabSRHVlRh0PKv5VmPK3acQMFljInBQ3uMOl3HHfG+3VmqHfk2WFJpNHMJayMD
+	p/0tz86L0wsuA6CruMGFWN6QzbVMYzR6wYOZYgEvVy+AWQdPNuLVKXUPS8slT6EulCI2gH+HPTZcJ
+	Y3LNBlzXHKIDW69FAMuiYsulf8Aa5gWLseakPyLgo9QKRzE9MBu3FndmlWD/rd2CRjoXgv+Q7aT3m
+	aKO2gFnde7WejO90+j8DRgOeNQP5xmyiMYXMkrn/66SH2i4CBTr9Y7+Ng274wuXsu7rSF1ie66Ghb
+	UJWukv7j9Ak0vn9aWbWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwz3e-00000007tob-2Zrb;
-	Fri, 12 Sep 2025 08:23:02 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1uwzLP-00000007z6T-3LKm;
+	Fri, 12 Sep 2025 08:41:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwz3c-00000007tn3-0y66
+	id 1uwzLI-00000007z4U-41Si
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Sep 2025 08:23:01 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-746da717f35so825664a34.1
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Sep 2025 01:22:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757665379; x=1758270179; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=E5OA4HGL1bZCBXlCcQNNT1fh5jmZSp0K7o8ch/qdvnc=;
-        b=BhRf9op4V4kwIQslONpYXAOtf4OyYaa8klNK/wswIiKOtrqqCm4MYRvB1Rd6jio1Bv
-         rd044+1rWqi0PZDJrwTic8+5LN+dxMQ0Fqj195sixvoArvRzhtjnhcfxlQms3AKtCV2P
-         7Zslpos3YKE3I5u8vt0IP14eY1clltP2gTHrFPpSTLJrgae083KZ697osVyzjvUJieUe
-         HxCbIpebgcnsMsWY+1iX6APVhOYDbNvQ3uC3Jl2UWMr/F6CbIijpqzSbuoBDGCYl0rL6
-         Z4FFV+KkRSRi783HJMcNI853FHW+PO9YyzLTIrzpSG55osPEnpJ+xZNSk6ruvBS/HVHk
-         g9Mg==
+	Fri, 12 Sep 2025 08:41:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757666475;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=4OzxzOM1+YKpzQLdMTSo1m5QIHmsRAkL5OBReEyJoKA=;
+	b=AlmVoUjqFjTEVqTx4vAZ8Lq7h+f8BjJEWcumSuS1WF0DNuqlBTguwyNZ4WAB34IxKXeLTm
+	DXm79VzhXmPaTVgK9UrUKgBOnRYFylN0EUNpgSP7YNO1A/iK7zuDaKRhWQEbutQTHcWHb0
+	BWkpcweOAfqdixY6GQYmM7iY0GcpTuo=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-195-JeX9bq9BMUyC4PFfDzc3fw-1; Fri, 12 Sep 2025 04:41:14 -0400
+X-MC-Unique: JeX9bq9BMUyC4PFfDzc3fw-1
+X-Mimecast-MFC-AGG-ID: JeX9bq9BMUyC4PFfDzc3fw_1757666473
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-45cb4f23156so10079435e9.2
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Sep 2025 01:41:13 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757665379; x=1758270179;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1757666473; x=1758271273;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=E5OA4HGL1bZCBXlCcQNNT1fh5jmZSp0K7o8ch/qdvnc=;
-        b=iGur39hQ8f9rH1PldRSE9hBnE/HMLhYoSpGmLSnEePw8pnKVO/Tywt94NKP+2hTbRn
-         t8NNclduGR811pB/4sh2FpxbmyF9IiDSlqYQwrYOoFGIPtdBkwnCwxvio1Ta4YvBZHSM
-         ElUhPiDYNJT5i3fcE6+H6H6EqrK5wOdCuU6k9pZUK/PRnB+9Svd4qNVwNzEyEe5HflCy
-         ROdgyeAGiEpTWePJMZQrtIh6tHmiN6T2Z69TVpYSDKovkdn9nc9TSSZAFxL9cMf4Gr5K
-         j/rdRsZn4zES3tkKhVqweU3VJ2+25YOTRFsr0O54aX/ofSpEQ/Dk8Gz3vhtOUpe7DrVE
-         czcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVN1ql+As/R/gReflutuVJ1781N6WeD2Rb2rwe9w5eecGrJFKfXbyQbkbNlCohCT6RNpOtd5gm7hIc0fw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9fChF/7w0jzv0OjgXR8qm7NYUNv+QRxwGigPFS7nh2vEo0Qv6
-	RdjxEtaKYFS1qM7qzJqq4OH8khXH+foaUlf/4lGfRwLaHD/ETAU+DCedi0aOfZKHXv/BTW3gNvV
-	ldtTqwKA2GISfAcbwPPW8CTxWuVcVhQg=
-X-Gm-Gg: ASbGncssPq887HhxayDytwohdOvfIE5LWvTdHWo+skcbSSwsqwTovMs7nKX/wb3LDn6
-	hz103vOkQs+32rpd+T4zzJQyeem9wC/A6EO4pr13HPQ3Sj/Ye8WpW3qFHjb9bTeN2Lp2PN2FRUO
-	mFQFkC9bY+3rhuXwv872XTOmL1mLVc1L5ZkExRUC4EdzsVsY4JV8zvT7Og4I4MC0R7URiP1GYdm
-	IamTqvs2Z9OleEeb4/qBTimdDY=
-X-Google-Smtp-Source: AGHT+IHhOajMg45qoQKuHFqOphgW1v8C6Y3NGv24TZhjVOQCnYNmKayhLoX2A9i2pe11HP7tejVyO8ZyZRPs6TouXr8=
-X-Received: by 2002:a05:6808:80ad:b0:437:d306:3067 with SMTP id
- 5614622812f47-43b8d896834mr791446b6e.5.1757665378727; Fri, 12 Sep 2025
- 01:22:58 -0700 (PDT)
+        bh=4OzxzOM1+YKpzQLdMTSo1m5QIHmsRAkL5OBReEyJoKA=;
+        b=odMzb0iY3+CuHW0WqclDJTBXihuaoLlF+w1hRIv2i2Wa7gMYsTdlWhAD/+t41x2D3N
+         SHPUK26zWVBoACeDWLR2wo+2zzMT4a1mcHbr8SLSJ/O77ffkRs8pB+UyvkMvZrI3gIk6
+         5nocdkfDIls4b2d1OlhLlep/Ssaka9UGIlT8UqL2jkdhmI//c7BW0A9Ng83ltk4O6iSG
+         0WKTkNaXN3I6houn8kJgpWT50KrILXEu1ad0skOq6L2Y/JJUg9fZZZ6l4j8l8IW7A9K1
+         c7l7YpYYQWDpUHFFR7wAjhkbPgy/KYaxKIUq8qEubcoEGry9GcJBPe7KMtqRjxVn5zW7
+         dTzg==
+X-Forwarded-Encrypted: i=1; AJvYcCWeYYpBRNE0yvHwM+pksl/dHX6H87gJIasz30KYnB/lEQu5A8cVCLj366ZphD1IQ0NhR720ACO1O7WVmg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yymlgnrwk0RxSLLTmwWVRD6w6Ki/Y2UhqTcNXSqJ2mxK5zcNiUF
+	03/G6I+0C5tAGIL2yG6tNQbxK7R+5yn3yrmN2tKAPGCwr2HaThlnz2SBRhaGHcHXb9D4V1u7wmx
+	qszuTQp+uIvmSR4uB0mXocjhxrGXACFiiy/HV3U1kPJPS79Bl8QzGWi2BXHV0/kf/G5pfDg==
+X-Gm-Gg: ASbGncscNzCgCAA0iSHpS4io22vmbdFKf+Ot9vX25ZVUiN5Xt0oadqyi9ddnrWdPIKj
+	WYwVJO3EzO6dHwKPnRKRWdKst5cUARPdu7fnAq/3KIRijO52sWD+J5hz7FZW3EjRwNYKwuDAUuQ
+	0hHFGUDlkFRMwYSCXiQpU//CB/LXbG4wnnsWMz7Exa+HnBKDkiO9O2//6AobE5Vwcll7KBtsWE1
+	OG+FnuLaMsCKDUkhatAv4+cLu1DNzlTwtB6+1tzqtvnrhhrFkoV6Ebqw93SkSkJJ28yD4AeXg+m
+	u6ABNuyLhXL9WKKxT/hPVU3SYFi3wXeyHFRNESAxOrB0kzCXYYjpHZ80qhUnZIPqO2agj2ewyQb
+	kqtPTSOWMX4kdmMsjBIdywQ/J9UT2nIvNMmvpPfs42u5553kAWBajmRVYSfPu7fTsZV4=
+X-Received: by 2002:a05:600c:290:b0:45b:9c93:d236 with SMTP id 5b1f17b1804b1-45f211fc26emr13650465e9.27.1757666472910;
+        Fri, 12 Sep 2025 01:41:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH9nGjkCKKbvLuBZ8vdUOgkbUs8ycWo8YuG0foTEaRFm80gh0VfBYYzZsIurpnaFqL5oI4Ciw==
+X-Received: by 2002:a05:600c:290:b0:45b:9c93:d236 with SMTP id 5b1f17b1804b1-45f211fc26emr13650275e9.27.1757666472437;
+        Fri, 12 Sep 2025 01:41:12 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f20:da00:b70a:d502:3b51:1f2d? (p200300d82f20da00b70ad5023b511f2d.dip0.t-ipconnect.de. [2003:d8:2f20:da00:b70a:d502:3b51:1f2d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e0372b983sm53570065e9.9.2025.09.12.01.41.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Sep 2025 01:41:11 -0700 (PDT)
+Message-ID: <04d2d781-fd5e-4778-b042-d4dbeb8c5d49@redhat.com>
+Date: Fri, 12 Sep 2025 10:41:10 +0200
 MIME-Version: 1.0
-References: <20250911095602.1130290-1-zhangchunyan@iscas.ac.cn>
- <20250911095602.1130290-2-zhangchunyan@iscas.ac.cn> <9bcaf3ec-c0a1-4ca5-87aa-f84e297d1e42@redhat.com>
-In-Reply-To: <9bcaf3ec-c0a1-4ca5-87aa-f84e297d1e42@redhat.com>
-From: Chunyan Zhang <zhang.lyra@gmail.com>
-Date: Fri, 12 Sep 2025 16:22:22 +0800
-X-Gm-Features: Ac12FXy-cDQ5eFXWwommKSKcCFuy-deRstciVxjZJ-jBtke_I7rVvu7ZtFQQsPg
-Message-ID: <CAAfSe-sAru+FuhVWRa+i5_sj6m4318pLFrgP0Gsd0DVWzjE-hg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v11 1/5] mm: softdirty: Add pgtable_soft_dirty_supported()
-To: David Hildenbrand <david@redhat.com>
-Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Deepak Gupta <debug@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>
+To: Chunyan Zhang <zhang.lyra@gmail.com>
+Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Deepak Gupta <debug@rivosinc.com>,
+ Ved Shanbhogue <ved@rivosinc.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>,
+ Arnd Bergmann <arnd@arndb.de>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>
+References: <20250911095602.1130290-1-zhangchunyan@iscas.ac.cn>
+ <20250911095602.1130290-2-zhangchunyan@iscas.ac.cn>
+ <9bcaf3ec-c0a1-4ca5-87aa-f84e297d1e42@redhat.com>
+ <CAAfSe-sAru+FuhVWRa+i5_sj6m4318pLFrgP0Gsd0DVWzjE-hg@mail.gmail.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <CAAfSe-sAru+FuhVWRa+i5_sj6m4318pLFrgP0Gsd0DVWzjE-hg@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: EwrZnx--glWpQXHHRMuKnC0ETHXWYI7kHLKfnWhW4so_1757666473
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_012300_303327_20F7EB37 
-X-CRM114-Status: GOOD (  42.95  )
+X-CRM114-CacheID: sfid-20250912_014117_153628_1DC1E7E1 
+X-CRM114-Status: GOOD (  23.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,356 +165,247 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+[...]
 
-On Thu, 11 Sept 2025 at 21:09, David Hildenbrand <david@redhat.com> wrote:
->
-> On 11.09.25 11:55, Chunyan Zhang wrote:
-> > Some platforms can customize the PTE PMD entry soft-dirty bit making it
-> > unavailable even if the architecture provides the resource.
-> >
-> > Add an API which architectures can define their specific implementations
-> > to detect if soft-dirty bit is available on which device the kernel is
-> > running.
->
-> Thinking to myself: maybe pgtable_supports_soft_dirty() would read better
-> Whatever you prefer.
+>>> +/*
+>>> + * We should remove the VM_SOFTDIRTY flag if the soft-dirty bit is
+>>> + * unavailable on which the kernel is running, even if the architecture
+>>> + * provides the resource and soft-dirty is compiled in.
+>>> + */
+>>> +#ifdef CONFIG_MEM_SOFT_DIRTY
+>>> +     if (!pgtable_soft_dirty_supported())
+>>> +             mnemonics[ilog2(VM_SOFTDIRTY)][0] = 0;
+>>> +#endif
+>>
+>> You can now drop the ifdef.
+> 
+> Ok, you mean define VM_SOFTDIRTY 0x08000000 no matter if
+> MEM_SOFT_DIRTY is compiled in, right?
+> 
+> Then I need memcpy() to set mnemonics[ilog2(VM_SOFTDIRTY)] here.
 
-I will use pgtable_supports_* in the next version.
+The whole hunk will not be required when we make sure VM_SOFTDIRTY never 
+gets set, correct?
 
-> >
-> > Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-> > ---
-> >   fs/proc/task_mmu.c      | 17 ++++++++++++++++-
-> >   include/linux/pgtable.h | 12 ++++++++++++
-> >   mm/debug_vm_pgtable.c   | 10 +++++-----
-> >   mm/huge_memory.c        | 13 +++++++------
-> >   mm/internal.h           |  2 +-
-> >   mm/mremap.c             | 13 +++++++------
-> >   mm/userfaultfd.c        | 10 ++++------
-> >   7 files changed, 52 insertions(+), 25 deletions(-)
-> >
-> > diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
-> > index 29cca0e6d0ff..9e8083b6d4cd 100644
-> > --- a/fs/proc/task_mmu.c
-> > +++ b/fs/proc/task_mmu.c
-> > @@ -1058,7 +1058,7 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
-> >        * -Werror=unterminated-string-initialization warning
-> >        *  with GCC 15
-> >        */
-> > -     static const char mnemonics[BITS_PER_LONG][3] = {
-> > +     static char mnemonics[BITS_PER_LONG][3] = {
-> >               /*
-> >                * In case if we meet a flag we don't know about.
-> >                */
-> > @@ -1129,6 +1129,16 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
-> >               [ilog2(VM_SEALED)] = "sl",
-> >   #endif
-> >       };
-> > +/*
-> > + * We should remove the VM_SOFTDIRTY flag if the soft-dirty bit is
-> > + * unavailable on which the kernel is running, even if the architecture
-> > + * provides the resource and soft-dirty is compiled in.
-> > + */
-> > +#ifdef CONFIG_MEM_SOFT_DIRTY
-> > +     if (!pgtable_soft_dirty_supported())
-> > +             mnemonics[ilog2(VM_SOFTDIRTY)][0] = 0;
-> > +#endif
->
-> You can now drop the ifdef.
+> 
+>>
+>> But, I wonder if could we instead just stop setting the flag. Then we don't
+>> have to worry about any VM_SOFTDIRTY checks.
+>>
+>> Something like the following
+>>
+>> diff --git a/include/linux/mm.h b/include/linux/mm.h
+>> index 892fe5dbf9de0..8b8bf63a32ef7 100644
+>> --- a/include/linux/mm.h
+>> +++ b/include/linux/mm.h
+>> @@ -783,6 +783,7 @@ static inline void vma_init(struct vm_area_struct *vma, struct mm_struct *mm)
+>>    static inline void vm_flags_init(struct vm_area_struct *vma,
+>>                                   vm_flags_t flags)
+>>    {
+>> +       VM_WARN_ON_ONCE(!pgtable_soft_dirty_supported() && (flags & VM_SOFTDIRTY));
+>>          ACCESS_PRIVATE(vma, __vm_flags) = flags;
+>>    }
+>>
+>> @@ -801,6 +802,7 @@ static inline void vm_flags_reset(struct vm_area_struct *vma,
+>>    static inline void vm_flags_reset_once(struct vm_area_struct *vma,
+>>                                         vm_flags_t flags)
+>>    {
+>> +       VM_WARN_ON_ONCE(!pgtable_soft_dirty_supported() && (flags & VM_SOFTDIRTY));
+>>          vma_assert_write_locked(vma);
+>>          WRITE_ONCE(ACCESS_PRIVATE(vma, __vm_flags), flags);
+>>    }
+>> @@ -808,6 +810,7 @@ static inline void vm_flags_reset_once(struct vm_area_struct *vma,
+>>    static inline void vm_flags_set(struct vm_area_struct *vma,
+>>                                  vm_flags_t flags)
+>>    {
+>> +       VM_WARN_ON_ONCE(!pgtable_soft_dirty_supported() && (flags & VM_SOFTDIRTY));
+>>          vma_start_write(vma);
+>>          ACCESS_PRIVATE(vma, __vm_flags) |= flags;
+>>    }
+>> diff --git a/mm/mmap.c b/mm/mmap.c
+>> index 5fd3b80fda1d5..40cb3fbf9a247 100644
+>> --- a/mm/mmap.c
+>> +++ b/mm/mmap.c
+>> @@ -1451,8 +1451,10 @@ static struct vm_area_struct *__install_special_mapping(
+>>                  return ERR_PTR(-ENOMEM);
+>>
+>>          vma_set_range(vma, addr, addr + len, 0);
+>> -       vm_flags_init(vma, (vm_flags | mm->def_flags |
+>> -                     VM_DONTEXPAND | VM_SOFTDIRTY) & ~VM_LOCKED_MASK);
+>> +       vm_flags |= mm->def_flags | VM_DONTEXPAND;
+> 
+> Why use '|=' rather than not directly setting vm_flags which is an
+> uninitialized variable?
 
-Ok, you mean define VM_SOFTDIRTY 0x08000000 no matter if
-MEM_SOFT_DIRTY is compiled in, right?
+vm_flags is passed in by the caller?
 
-Then I need memcpy() to set mnemonics[ilog2(VM_SOFTDIRTY)] here.
+But just to clarify: this code was just a quick hack, adjust it as you need.
 
->
-> But, I wonder if could we instead just stop setting the flag. Then we don't
-> have to worry about any VM_SOFTDIRTY checks.
->
-> Something like the following
->
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index 892fe5dbf9de0..8b8bf63a32ef7 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -783,6 +783,7 @@ static inline void vma_init(struct vm_area_struct *vma, struct mm_struct *mm)
->   static inline void vm_flags_init(struct vm_area_struct *vma,
->                                  vm_flags_t flags)
->   {
-> +       VM_WARN_ON_ONCE(!pgtable_soft_dirty_supported() && (flags & VM_SOFTDIRTY));
->         ACCESS_PRIVATE(vma, __vm_flags) = flags;
->   }
->
-> @@ -801,6 +802,7 @@ static inline void vm_flags_reset(struct vm_area_struct *vma,
->   static inline void vm_flags_reset_once(struct vm_area_struct *vma,
->                                        vm_flags_t flags)
->   {
-> +       VM_WARN_ON_ONCE(!pgtable_soft_dirty_supported() && (flags & VM_SOFTDIRTY));
->         vma_assert_write_locked(vma);
->         WRITE_ONCE(ACCESS_PRIVATE(vma, __vm_flags), flags);
->   }
-> @@ -808,6 +810,7 @@ static inline void vm_flags_reset_once(struct vm_area_struct *vma,
->   static inline void vm_flags_set(struct vm_area_struct *vma,
->                                 vm_flags_t flags)
->   {
-> +       VM_WARN_ON_ONCE(!pgtable_soft_dirty_supported() && (flags & VM_SOFTDIRTY));
->         vma_start_write(vma);
->         ACCESS_PRIVATE(vma, __vm_flags) |= flags;
->   }
-> diff --git a/mm/mmap.c b/mm/mmap.c
-> index 5fd3b80fda1d5..40cb3fbf9a247 100644
-> --- a/mm/mmap.c
-> +++ b/mm/mmap.c
-> @@ -1451,8 +1451,10 @@ static struct vm_area_struct *__install_special_mapping(
->                 return ERR_PTR(-ENOMEM);
->
->         vma_set_range(vma, addr, addr + len, 0);
-> -       vm_flags_init(vma, (vm_flags | mm->def_flags |
-> -                     VM_DONTEXPAND | VM_SOFTDIRTY) & ~VM_LOCKED_MASK);
-> +       vm_flags |= mm->def_flags | VM_DONTEXPAND;
+[...]
 
-Why use '|=' rather than not directly setting vm_flags which is an
-uninitialized variable?
+>>>
+>>> +     if (!pgtable_soft_dirty_supported())
+>>> +             return;
+>>> +
+>>>        if (pmd_present(pmd)) {
+>>>                /* See comment in change_huge_pmd() */
+>>>                old = pmdp_invalidate(vma, addr, pmdp);
+>>
+>> That would all be handled with the above never-set-VM_SOFTDIRTY.
 
-> +       if (pgtable_soft_dirty_supported())
-> +               vm_flags |= VM_SOFTDIRTY;
-> +       vm_flags_init(vma, vm_flags & ~VM_LOCKED_MASK);
->         vma->vm_page_prot = vm_get_page_prot(vma->vm_flags);
->
->         vma->vm_ops = ops;
-> diff --git a/mm/vma.c b/mm/vma.c
-> index abe0da33c8446..16a1ed2a6199c 100644
-> --- a/mm/vma.c
-> +++ b/mm/vma.c
-> @@ -2551,7 +2551,8 @@ static void __mmap_complete(struct mmap_state *map, struct vm_area_struct *vma)
->          * then new mapped in-place (which must be aimed as
->          * a completely new data area).
->          */
-> -       vm_flags_set(vma, VM_SOFTDIRTY);
-> +       if (pgtable_soft_dirty_supported())
-> +               vm_flags_set(vma, VM_SOFTDIRTY);
->
->         vma_set_page_prot(vma);
->   }
-> @@ -2819,7 +2820,8 @@ int do_brk_flags(struct vma_iterator *vmi, struct vm_area_struct *vma,
->         mm->data_vm += len >> PAGE_SHIFT;
->         if (vm_flags & VM_LOCKED)
->                 mm->locked_vm += (len >> PAGE_SHIFT);
-> -       vm_flags_set(vma, VM_SOFTDIRTY);
-> +       if (pgtable_soft_dirty_supported())
-> +               vm_flags_set(vma, VM_SOFTDIRTY);
->         return 0;
->
->   mas_store_fail:
-> diff --git a/mm/vma_exec.c b/mm/vma_exec.c
-> index 922ee51747a68..c06732a5a620a 100644
-> --- a/mm/vma_exec.c
-> +++ b/mm/vma_exec.c
-> @@ -107,6 +107,7 @@ int relocate_vma_down(struct vm_area_struct *vma, unsigned long shift)
->   int create_init_stack_vma(struct mm_struct *mm, struct vm_area_struct **vmap,
->                           unsigned long *top_mem_p)
->   {
-> +       unsigned long flags  = VM_STACK_FLAGS | VM_STACK_INCOMPLETE_SETUP;
->         int err;
->         struct vm_area_struct *vma = vm_area_alloc(mm);
->
-> @@ -137,7 +138,9 @@ int create_init_stack_vma(struct mm_struct *mm, struct vm_area_struct **vmap,
->         BUILD_BUG_ON(VM_STACK_FLAGS & VM_STACK_INCOMPLETE_SETUP);
->         vma->vm_end = STACK_TOP_MAX;
->         vma->vm_start = vma->vm_end - PAGE_SIZE;
-> -       vm_flags_init(vma, VM_SOFTDIRTY | VM_STACK_FLAGS | VM_STACK_INCOMPLETE_SETUP);
-> +       if (pgtable_soft_dirty_supported())
-> +               flags |= VM_SOFTDIRTY;
-> +       vm_flags_init(vma, flags);
->         vma->vm_page_prot = vm_get_page_prot(vma->vm_flags);
->
->         err = insert_vm_struct(mm, vma);
->
->
-> > +
-> >       size_t i;
-> >
-> >       seq_puts(m, "VmFlags: ");
-> > @@ -1531,6 +1541,8 @@ static inline bool pte_is_pinned(struct vm_area_struct *vma, unsigned long addr,
-> >   static inline void clear_soft_dirty(struct vm_area_struct *vma,
-> >               unsigned long addr, pte_t *pte)
-> >   {
-> > +     if (!pgtable_soft_dirty_supported())
-> > +             return;
-> >       /*
-> >        * The soft-dirty tracker uses #PF-s to catch writes
-> >        * to pages, so write-protect the pte as well. See the
-> > @@ -1566,6 +1578,9 @@ static inline void clear_soft_dirty_pmd(struct vm_area_struct *vma,
-> >   {
-> >       pmd_t old, pmd = *pmdp;
-> >
-> > +     if (!pgtable_soft_dirty_supported())
-> > +             return;
-> > +
-> >       if (pmd_present(pmd)) {
-> >               /* See comment in change_huge_pmd() */
-> >               old = pmdp_invalidate(vma, addr, pmdp);
->
-> That would all be handled with the above never-set-VM_SOFTDIRTY.
+I meant that there is no need to add the pgtable_soft_dirty_supported() 
+check.
 
-Sorry I'm not sure I understand here, you mean no longer need #ifdef
-CONFIG_MEM_SOFT_DIRTY for these function definitions, right?
+> 
+> Sorry I'm not sure I understand here, you mean no longer need #ifdef
+> CONFIG_MEM_SOFT_DIRTY for these function definitions, right?
 
->
-> > diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> > index 4c035637eeb7..2a3578a4ae4c 100644
-> > --- a/include/linux/pgtable.h
-> > +++ b/include/linux/pgtable.h
-> > @@ -1537,6 +1537,18 @@ static inline pgprot_t pgprot_modify(pgprot_t oldprot, pgprot_t newprot)
-> >   #define arch_start_context_switch(prev)     do {} while (0)
-> >   #endif
-> >
-> > +/*
-> > + * Some platforms can customize the PTE soft-dirty bit making it unavailable
-> > + * even if the architecture provides the resource.
-> > + * Adding this API allows architectures to add their own checks for the
-> > + * devices on which the kernel is running.
-> > + * Note: When overiding it, please make sure the CONFIG_MEM_SOFT_DIRTY
-> > + * is part of this macro.
-> > + */
-> > +#ifndef pgtable_soft_dirty_supported
-> > +#define pgtable_soft_dirty_supported()       IS_ENABLED(CONFIG_MEM_SOFT_DIRTY)
-> > +#endif
-> > +
-> >   #ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
-> >   #ifndef CONFIG_ARCH_ENABLE_THP_MIGRATION
-> >   static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
-> > diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
-> > index 830107b6dd08..b32ce2b0b998 100644
-> > --- a/mm/debug_vm_pgtable.c
-> > +++ b/mm/debug_vm_pgtable.c
-> > @@ -690,7 +690,7 @@ static void __init pte_soft_dirty_tests(struct pgtable_debug_args *args)
-> >   {
-> >       pte_t pte = pfn_pte(args->fixed_pte_pfn, args->page_prot);
-> >
-> > -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
-> > +     if (!pgtable_soft_dirty_supported())
-> >               return;
-> >
-> >       pr_debug("Validating PTE soft dirty\n");
-> > @@ -702,7 +702,7 @@ static void __init pte_swap_soft_dirty_tests(struct pgtable_debug_args *args)
-> >   {
-> >       pte_t pte;
-> >
-> > -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
-> > +     if (!pgtable_soft_dirty_supported())
-> >               return;
-> >
-> >       pr_debug("Validating PTE swap soft dirty\n");
-> > @@ -718,7 +718,7 @@ static void __init pmd_soft_dirty_tests(struct pgtable_debug_args *args)
-> >   {
-> >       pmd_t pmd;
-> >
-> > -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
-> > +     if (!pgtable_soft_dirty_supported())
-> >               return;
-> >
-> >       if (!has_transparent_hugepage())
-> > @@ -734,8 +734,8 @@ static void __init pmd_swap_soft_dirty_tests(struct pgtable_debug_args *args)
-> >   {
-> >       pmd_t pmd;
-> >
-> > -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY) ||
-> > -             !IS_ENABLED(CONFIG_ARCH_ENABLE_THP_MIGRATION))
-> > +     if (!pgtable_soft_dirty_supported() ||
-> > +         !IS_ENABLED(CONFIG_ARCH_ENABLE_THP_MIGRATION))
-> >               return;
-> >
-> >       if (!has_transparent_hugepage())
-> > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> > index 9c38a95e9f09..218d430a2ec6 100644
-> > --- a/mm/huge_memory.c
-> > +++ b/mm/huge_memory.c
-> > @@ -2271,12 +2271,13 @@ static inline int pmd_move_must_withdraw(spinlock_t *new_pmd_ptl,
-> >
-> >   static pmd_t move_soft_dirty_pmd(pmd_t pmd)
-> >   {
-> > -#ifdef CONFIG_MEM_SOFT_DIRTY
-> > -     if (unlikely(is_pmd_migration_entry(pmd)))
-> > -             pmd = pmd_swp_mksoft_dirty(pmd);
-> > -     else if (pmd_present(pmd))
-> > -             pmd = pmd_mksoft_dirty(pmd);
-> > -#endif
-> > +     if (pgtable_soft_dirty_supported()) {
-> > +             if (unlikely(is_pmd_migration_entry(pmd)))
-> > +                     pmd = pmd_swp_mksoft_dirty(pmd);
-> > +             else if (pmd_present(pmd))
-> > +                     pmd = pmd_mksoft_dirty(pmd);
-> > +     }
-> > +
->
-> Wondering, should simply the arch take care of that and we can just clal
-> pmd_swp_mksoft_dirty / pmd_mksoft_dirty?
+Likely we could drop them. VM_SOFTDIRTY will never be set so the code 
+will not be invoked.
 
-Ok, I think I can do that in another patchset.
+And for architectures where VM_SOFTDIRTY is never even possible 
+(!CONFIG_MEM_SOFT_DIRTY) we keep it as 0.
 
->
-> >       return pmd;
-> >   }
-> >
-> > diff --git a/mm/internal.h b/mm/internal.h
-> > index 45b725c3dc03..c6ca62f8ecf3 100644
-> > --- a/mm/internal.h
-> > +++ b/mm/internal.h
-> > @@ -1538,7 +1538,7 @@ static inline bool vma_soft_dirty_enabled(struct vm_area_struct *vma)
-> >        * VM_SOFTDIRTY is defined as 0x0, then !(vm_flags & VM_SOFTDIRTY)
-> >        * will be constantly true.
-> >        */
-> > -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
-> > +     if (!pgtable_soft_dirty_supported())
-> >               return false;
-> >
->
-> That should be handled with the above never-set-VM_SOFTDIRTY.
+That way, the compiler can even optimize out all of that code because
 
-We don't need to check if (!pgtable_soft_dirty_supported()) if I
-understand correctly.
+"vma->vm_flags & VM_SOFTDIRTY" -> "vma->vm_flags & 0"
 
-Thanks for the review,
-Chunyan
+will never be true.
 
->
-> >       /*
-> > diff --git a/mm/mremap.c b/mm/mremap.c
-> > index e618a706aff5..7beb3114dbf5 100644
-> > --- a/mm/mremap.c
-> > +++ b/mm/mremap.c
-> > @@ -162,12 +162,13 @@ static pte_t move_soft_dirty_pte(pte_t pte)
-> >        * Set soft dirty bit so we can notice
-> >        * in userspace the ptes were moved.
-> >        */
-> > -#ifdef CONFIG_MEM_SOFT_DIRTY
-> > -     if (pte_present(pte))
-> > -             pte = pte_mksoft_dirty(pte);
-> > -     else if (is_swap_pte(pte))
-> > -             pte = pte_swp_mksoft_dirty(pte);
-> > -#endif
-> > +     if (pgtable_soft_dirty_supported()) {
-> > +             if (pte_present(pte))
-> > +                     pte = pte_mksoft_dirty(pte);
-> > +             else if (is_swap_pte(pte))
-> > +                     pte = pte_swp_mksoft_dirty(pte);
-> > +     }
-> > +
-> >       return pte;
-> >   }
-> >
-> --
-> Cheers
->
-> David / dhildenb
->
+> 
+>>
+>>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>>> index 4c035637eeb7..2a3578a4ae4c 100644
+>>> --- a/include/linux/pgtable.h
+>>> +++ b/include/linux/pgtable.h
+>>> @@ -1537,6 +1537,18 @@ static inline pgprot_t pgprot_modify(pgprot_t oldprot, pgprot_t newprot)
+>>>    #define arch_start_context_switch(prev)     do {} while (0)
+>>>    #endif
+>>>
+>>> +/*
+>>> + * Some platforms can customize the PTE soft-dirty bit making it unavailable
+>>> + * even if the architecture provides the resource.
+>>> + * Adding this API allows architectures to add their own checks for the
+>>> + * devices on which the kernel is running.
+>>> + * Note: When overiding it, please make sure the CONFIG_MEM_SOFT_DIRTY
+>>> + * is part of this macro.
+>>> + */
+>>> +#ifndef pgtable_soft_dirty_supported
+>>> +#define pgtable_soft_dirty_supported()       IS_ENABLED(CONFIG_MEM_SOFT_DIRTY)
+>>> +#endif
+>>> +
+>>>    #ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
+>>>    #ifndef CONFIG_ARCH_ENABLE_THP_MIGRATION
+>>>    static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
+>>> diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
+>>> index 830107b6dd08..b32ce2b0b998 100644
+>>> --- a/mm/debug_vm_pgtable.c
+>>> +++ b/mm/debug_vm_pgtable.c
+>>> @@ -690,7 +690,7 @@ static void __init pte_soft_dirty_tests(struct pgtable_debug_args *args)
+>>>    {
+>>>        pte_t pte = pfn_pte(args->fixed_pte_pfn, args->page_prot);
+>>>
+>>> -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
+>>> +     if (!pgtable_soft_dirty_supported())
+>>>                return;
+>>>
+>>>        pr_debug("Validating PTE soft dirty\n");
+>>> @@ -702,7 +702,7 @@ static void __init pte_swap_soft_dirty_tests(struct pgtable_debug_args *args)
+>>>    {
+>>>        pte_t pte;
+>>>
+>>> -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
+>>> +     if (!pgtable_soft_dirty_supported())
+>>>                return;
+>>>
+>>>        pr_debug("Validating PTE swap soft dirty\n");
+>>> @@ -718,7 +718,7 @@ static void __init pmd_soft_dirty_tests(struct pgtable_debug_args *args)
+>>>    {
+>>>        pmd_t pmd;
+>>>
+>>> -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
+>>> +     if (!pgtable_soft_dirty_supported())
+>>>                return;
+>>>
+>>>        if (!has_transparent_hugepage())
+>>> @@ -734,8 +734,8 @@ static void __init pmd_swap_soft_dirty_tests(struct pgtable_debug_args *args)
+>>>    {
+>>>        pmd_t pmd;
+>>>
+>>> -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY) ||
+>>> -             !IS_ENABLED(CONFIG_ARCH_ENABLE_THP_MIGRATION))
+>>> +     if (!pgtable_soft_dirty_supported() ||
+>>> +         !IS_ENABLED(CONFIG_ARCH_ENABLE_THP_MIGRATION))
+>>>                return;
+>>>
+>>>        if (!has_transparent_hugepage())
+>>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+>>> index 9c38a95e9f09..218d430a2ec6 100644
+>>> --- a/mm/huge_memory.c
+>>> +++ b/mm/huge_memory.c
+>>> @@ -2271,12 +2271,13 @@ static inline int pmd_move_must_withdraw(spinlock_t *new_pmd_ptl,
+>>>
+>>>    static pmd_t move_soft_dirty_pmd(pmd_t pmd)
+>>>    {
+>>> -#ifdef CONFIG_MEM_SOFT_DIRTY
+>>> -     if (unlikely(is_pmd_migration_entry(pmd)))
+>>> -             pmd = pmd_swp_mksoft_dirty(pmd);
+>>> -     else if (pmd_present(pmd))
+>>> -             pmd = pmd_mksoft_dirty(pmd);
+>>> -#endif
+>>> +     if (pgtable_soft_dirty_supported()) {
+>>> +             if (unlikely(is_pmd_migration_entry(pmd)))
+>>> +                     pmd = pmd_swp_mksoft_dirty(pmd);
+>>> +             else if (pmd_present(pmd))
+>>> +                     pmd = pmd_mksoft_dirty(pmd);
+>>> +     }
+>>> +
+>>
+>> Wondering, should simply the arch take care of that and we can just clal
+>> pmd_swp_mksoft_dirty / pmd_mksoft_dirty?
+> 
+
+I think we have that already in include/linux/pgtable.h:
+
+We have stubs that just don't do anything.
+
+For riscv support you would handle runtime-enablement in these helpers.
+
+> 
+>>
+>>>        return pmd;
+>>>    }
+>>>
+>>> diff --git a/mm/internal.h b/mm/internal.h
+>>> index 45b725c3dc03..c6ca62f8ecf3 100644
+>>> --- a/mm/internal.h
+>>> +++ b/mm/internal.h
+>>> @@ -1538,7 +1538,7 @@ static inline bool vma_soft_dirty_enabled(struct vm_area_struct *vma)
+>>>         * VM_SOFTDIRTY is defined as 0x0, then !(vm_flags & VM_SOFTDIRTY)
+>>>         * will be constantly true.
+>>>         */
+>>> -     if (!IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
+>>> +     if (!pgtable_soft_dirty_supported())
+>>>                return false;
+>>>
+>>
+>> That should be handled with the above never-set-VM_SOFTDIRTY.
+> 
+> We don't need to check if (!pgtable_soft_dirty_supported()) if I
+> understand correctly.
+Hm, let me think about that. No, I think this has to stay as the comment
+says, so this case here is special.
+
+-- 
+Cheers
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
