@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F682CA101F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 20:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B98B4CA101F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 21:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M4/xzZD7Wo4mUrTu96YyrjDGXbL3fQJgjlk3hkGM+5I=; b=3gJRuY/b4/Pnq3
-	T5QLdF83bBe/CkrnDDIr5S5L331nhI1z5uvj/mtAFY88HTEj5atAC93vo2Bc/Zym3AZ29HXqMILQ6
-	8BIAAaVSZAdTr1Mcx7TITSF9HVuQOxqWBGibtY5SWcIZdLT1NdhVaEsQjMl+cD7EM1AmhyMD82YuL
-	o4J8vbkTkH50TK+EDdjuueUDEjTLe9drS15H1Swas42gFfDNlMlfiWElb2jiNJ1wu84BNk0HqP87k
-	MR9ku21TaMmX5gkTdCcveIUWtN60Hf2PlbOsQprJCUadWqzwuAX7T+wo14ZhtGCnNvEKdm182bpvB
-	1YBj0XoImL+nBmGQ6D0g==;
+	List-Owner; bh=hUCx4PAceTjr1YLhsq95nWica3KUt9yim/pX3rmkF/U=; b=nb/v38DCe+Oorj
+	XTfnFvkQL3uzoiINuKDwe4o4ub2Essve35l8EBpf7sttncY4evf61qkMGM7i5lwotLQjSEPzDCWG8
+	OIYbSE3JyT40HDMJKt4KKwuT5uviIni7iIxP9bf4hXhOgPKDZTCaibR9JnM5tCg1kreLO1G5A3biN
+	iW82jPtNkkwDauGuDKUKB4N5kxYmlQIZP4XAB8uKOzSdYUr0NRl/ps12gC+mkGpPSydtEb2GHXL/i
+	J4rNUTB7B4a4BNe6aegZjrhvezIdTUestCUlJk7d6QyhpZxM4hk+zy0BDvSUHDJqy9HfoFzVKh2tA
+	mqNrOg2dced4kBxSSAzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxAD0-0000000BOYr-1Asy;
-	Fri, 12 Sep 2025 20:17:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uxB3I-0000000BZy2-3nnL;
+	Fri, 12 Sep 2025 21:11:28 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxACz-0000000BOYP-0U1f
+	id 1uxB3H-0000000BZx4-0UJT
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Sep 2025 20:17:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 28FAA601D3;
-	Fri, 12 Sep 2025 20:17:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DBE0C4CEF1;
-	Fri, 12 Sep 2025 20:17:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757708243;
-	bh=xzYM6gGITlLdf30EXs4Ltyuk3aaTOSZ0Cc0L+EpH8hU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=bmPfeuVjIhl84bamQEp4dco3dnTtzMRRex4ZranpAvU2GbR61Rq0qKN61JF2rk+iF
-	 is4dJBqAAns/liU28pVKtOT8t168cvkMOPoCot2HF2Lk2Ou49TQP9G2AdZcXM5LlCF
-	 qPGLN1vJAYQiWk6tNDG+Z4R0Wh8ep7Du2erMyWW2sdC010MMK9vSg4D+NaHOlgG/yr
-	 XiOM3OmtRm1QJoWPKcwYUSK52EF7YSBqZn/UXwtYw1oazRlrq0YYScRYM44dU0T6z3
-	 AeLpXxSFYEQ5CjILM4U763KcCBSi8l4+IxTctvGlmSWaUB+XmSt1UW8PW/QNRIewzW
-	 6WcmQy4uBLAcg==
-Date: Fri, 12 Sep 2025 13:17:22 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Yana Bashlykova <yana2bsh@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Shuah Khan
- <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Nathan
- Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
- Tom Rix <trix@redhat.com>, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-riscv@lists.infradead.org, bpf@vger.kernel.org, llvm@lists.linux.dev,
- lvc-project@linuxtesting.org
-Subject: Re: [PATCH 6.1 00/15] genetlink: Test Netlink subsystem of Linux
- v6.1
-Message-ID: <20250912131722.74658ec0@kernel.org>
-In-Reply-To: <20250912195339.20635-1-yana2bsh@gmail.com>
-References: <20250912195339.20635-1-yana2bsh@gmail.com>
+	Fri, 12 Sep 2025 21:11:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=QBCLCLlywXx8YW7RXuqLyrr43UeZ+UsFUs7lNnZijXg=; b=zKdZd0GQBLbpnow2hX0mg4RLTq
+	IgzOfcH2SoMMqohYhoOP+iTYzRufSCKI0yoRY30bhcZFvebxzYUMIMRYf0lxbN68kbmIb3/lqh8kC
+	dUIwc8WCtQdH+K4F0ooyAVxJZBLfuNczJhEKI5WpqwFGevsxAh5FnJFIzzCyEiADL5qY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uxB2h-008G1n-Rx; Fri, 12 Sep 2025 23:10:51 +0200
+Date: Fri, 12 Sep 2025 23:10:51 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Vivian Wang <uwu@dram.page>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH net-next v11 2/5] net: spacemit: Add K1 Ethernet MAC
+Message-ID: <1f2887e4-2644-48a4-8171-98bd310d190f@lunn.ch>
+References: <20250912-net-k1-emac-v11-0-aa3e84f8043b@iscas.ac.cn>
+ <20250912-net-k1-emac-v11-2-aa3e84f8043b@iscas.ac.cn>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250912-net-k1-emac-v11-2-aa3e84f8043b@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250912_141127_154332_DB720B8E 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,15 +87,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Sep 2025 22:53:23 +0300 Yana Bashlykova wrote:
-> This series adds comprehensive testing infrastructure for Netlink
-> and Generic Netlink
-> 
-> The implementation includes both kernel module and userspace tests to
-> verify correct Generic Netlink and Netlink behaviors under
-> various conditions.
+> +static u32 emac_rd(struct emac_priv *priv, u32 reg)
+> +{
+> +	return readl(priv->iobase + reg);
+> +}
 
-What is the motivation for this work?
+> +static int emac_mii_read(struct mii_bus *bus, int phy_addr, int regnum)
+> +{
+> +	struct emac_priv *priv = bus->priv;
+> +	u32 cmd = 0, val;
+> +	int ret;
+> +
+> +	cmd |= FIELD_PREP(MREGBIT_PHY_ADDRESS, phy_addr);
+> +	cmd |= FIELD_PREP(MREGBIT_REGISTER_ADDRESS, regnum);
+> +	cmd |= MREGBIT_START_MDIO_TRANS | MREGBIT_MDIO_READ_WRITE;
+> +
+> +	emac_wr(priv, MAC_MDIO_DATA, 0x0);
+> +	emac_wr(priv, MAC_MDIO_CONTROL, cmd);
+> +
+> +	ret = readl_poll_timeout(priv->iobase + MAC_MDIO_CONTROL, val,
+> +				 !(val & MREGBIT_START_MDIO_TRANS), 100, 10000);
+> +
+> +	if (ret)
+> +		return ret;
+> +
+> +	val = emac_rd(priv, MAC_MDIO_DATA);
+> +	return val;
+
+emac_rd() returns a u32. Is it guaranteed by the hardware that the
+upper word is 0? Maybe this needs to be masked?
+
+	Andrew
 
 _______________________________________________
 linux-riscv mailing list
