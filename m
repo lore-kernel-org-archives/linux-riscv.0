@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5829CAC587
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 02:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939E5CAC587
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 02:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PY4JrwDTDHrVX3ywWguN2+S8pZXCnyOlCMCIPg1SjUc=; b=Wr7DDMxkbJrOxQ
-	xrfzpZemb+HT6cqlDnxyj9aDLwDfWZpv5QRNeqkvZTXMYW+yZgY5OVLGqpebhve79p+MTXrdSebNR
-	yRWXFpT/6im019wW7+QYlsnkitxxW54WoFhvZMiMhu0RV2LG1l3SJc8xYTLVsuJjQ4rFOsYCAPf/v
-	SHM1k6iV5wv9ZwV9eSIcZ1onFkFR2Iil8c34YgjFIs/zc2sswngfZg3bci2bsnDVokVDn/JKgw9yz
-	anFabnjm1o3aKOvSpA07QSH3LduXwdHSeu0SD/XR0RhrraWcI172UaBDU0xJT6izevH3N+2fHtrWt
-	YlApInJrZ4uiX2QYEoxQ==;
+	List-Owner; bh=QGXRRNjMZsSJdBGQlbIG66fP5dxjfQBETzO/evj+O+4=; b=GrgbxtOgH4feTQ
+	vA83QWNSYTUnIDUHqelXas2fC39LNm/AnbUaEmzLFSm32EqhSUpzQN9dGLVx7CFzDJIrXxLwWZXKB
+	5lPKZQuzgoqF6xVeB8dWXAFuo6YSJgtRl3Yegbgm9Rmm9fin8EAGCzSnNnS7W3807Z0dDFkpUSB/n
+	iUKsYaU8nW8cWD1AAUY5qAwTvlid4oVBbOi+nxygzCFyXEZQLam5i5Bsa/wa5BBi7azyguXUgn6Ct
+	Mk6A3cvxZJQreSk9kDeHMtSfBK42pR5PUJ4cLJuED17jI+Mnmch5y46ben6oJkQKON4j4yq4Z/fhx
+	6KCegBKRVdjgOQgvDR8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwtfB-00000006YEf-3fKP;
-	Fri, 12 Sep 2025 02:37:25 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1uwtfZ-00000006YTB-0p1l;
+	Fri, 12 Sep 2025 02:37:49 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uwtf9-00000006YDH-2iIg
+	id 1uwtfX-00000006YRo-0FUu
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Sep 2025 02:37:24 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-31d6e39817fso1893444fac.3
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Sep 2025 19:37:23 -0700 (PDT)
+	Fri, 12 Sep 2025 02:37:48 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-74526ca7d64so1409963a34.2
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Sep 2025 19:37:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757644642; x=1758249442; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757644666; x=1758249466; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7rSqoF1bhRIMRZ/Ngttka/3cr36QgYmwYc1FwmVj14E=;
-        b=ISYfb+890wtODWv36xPKBaKksC2NAramVN3biDlzCWzRgxkNAp+nRMdoXXz7lFXcJE
-         FjHYZDPryuR60mjDSIB7SQM1XRujRdHYOMU+iG21O6fEWqAEdFqvowvO3UcZaPSKgjV+
-         KnY4cy2iFkjBqGWcEatSwu5K/D9QpKwsWk7HYStfwNl9bISUcAq6N0gOXy69VHY+Zner
-         mytWYLzisbdvUXVVj/CAKLkU+2O+S/ClWvgSifltG64x3ogHNYKeBwzHMZApNu/Rvj/V
-         55Go/R0b0w7g7u7NTYxU/rpCeHv4jZR2dJTiiPNfGj674tf72BzgZpykkdYXhPkko/9s
-         lXjA==
+        bh=a0NX4YDlfnF2moHa0Gi9m7awPoXSV0rkM143rN50kIc=;
+        b=cQCy45C3tR4DCmjVfHLyvn8gbzOIdLOiSYL4ZgWp6hhK2cL+NgXKZ5eF/Zy27I4N/O
+         8Dotv+6WF+f/002tFu+CedjyYTp01n3+/YfxmWfUvhtQ4oAkpj19dxocwxpi7bs3CzXY
+         VFzjWymrlVFJafGstr5g1q9u5wORmNGtWkbfr+22a55Hm6N4AvIjDSPXKj0fcWwIDNRF
+         5AbRDPqltimC6FE6+Pb2g5ZX87MjodgP/VUUeDSERyisgvoOhmrq4XjbdU4/TYJAJeei
+         fkK0Bm/lh8f8PD8cXf+Rj9byHgzN6AhZgYf3pAhN+IJ41MxoRvlibbtlHKWvHSn4q9EN
+         QXgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757644642; x=1758249442;
+        d=1e100.net; s=20230601; t=1757644666; x=1758249466;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7rSqoF1bhRIMRZ/Ngttka/3cr36QgYmwYc1FwmVj14E=;
-        b=ootpGIFuSbQtxP8L2xVVQTFkvIk4jBRJ0+NeIdByHAYYSftNL0jEoU2xkqH/Y8NIVY
-         fIRkUPNxV/9MGLP1kdKhnkOu2tUT6i6NtcCIYS/oibbUioCtld/Uxdsxs9ewv+4qGxJk
-         yk4A26yz7hgQowuUmg75797fbC/VeEPAuilwUr9+4mgUw21//qDOhI/Zniad/5F6OiFl
-         31pxWWaMRc33f2v4ThNlfHdxCjHfiKWwGyIaQG/JTVKzCh86bfTF2aGLBhTQoouSfYof
-         7ZsuDQmMnV0T62DN4njeLZZAwfk0WiGZBMa43n6XRttC7/L2pHfd/d1V4iWiZCGi76dz
-         uSgg==
-X-Forwarded-Encrypted: i=1; AJvYcCU/BkGgnV4MsQJzpaVkGpuM6BezXVOB3x6kreJYcW+JBBLpKbpqGmZrI4EdsLrlOAHuMM6lbGbcOA5j0w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxoOHvRZLOhNI2jfAORKG9mhP9oomOuarz7LumUCa0J6vhpG0U
-	3H0atnrZXahrswdCZjp8UQHc9IOkbPr49IZhZ6yQBm3SMmfX56sdiHM7
-X-Gm-Gg: ASbGncs+qa9hlLljIuG7sKK5XQcj5Eqb2V77eu8awAh4gAReFSYY1pz3nfz8uZMziwG
-	w2ElEiJdS+gur0IJ+TZhSCoUaQyfGp4RQbSnFZiq1PCjGKlLt9m2iDL5YAFKZoUmg0sgWnkjR6F
-	6gu2RvWbYx5UuRdhCEGtB4woLdsS14HM1/yFq7lwP27VZdiyJ3xtGPtTw+r5hVO+HAZrSQnfofY
-	gefbODGWk3drB60T/HOcTI9AMGNbzn87tQCocmYLh3i+F5fcDYPLjahfSuuOC8qR/hNxlbAta8J
-	F+pCFDgaxL2SqEFTeWxQoAp88Uh48cDL3iY+IAsIuS9S6r6cXdQcFqb2ka5NnrsIF1AC6Ioc0+L
-	sxGXHR5iJffySZUJM5QJgtlFqTSh2DtA6GXm7JUeqasY=
-X-Google-Smtp-Source: AGHT+IFJlDg83j9kDJr9JJPfps+eRdqlRn3OyrAApBvHJZ97334vhQbAuQiDLCanW42L2b91pkrT9A==
-X-Received: by 2002:a05:6808:6552:20b0:43b:6639:7307 with SMTP id 5614622812f47-43b8da12395mr687917b6e.23.1757644642421;
-        Thu, 11 Sep 2025 19:37:22 -0700 (PDT)
+        bh=a0NX4YDlfnF2moHa0Gi9m7awPoXSV0rkM143rN50kIc=;
+        b=UbLqMfW9S/ZUvCZUMUpW3urXHsG5ze2ijgQ+JIKVvbi57Vg33KpG8WH9cw9syAyV+o
+         sgQOnwC3Zsak+0Ehr2NYdqHcjloMA+TkEfdzPTA/zJJ5zh/rdYaEuGJCsznzZ5CZ4cIA
+         sRyziFAm7nZU6M35L7KB/gCCp2GBF/wd9vaHKamTlQL3QUcJmlFzN94bd4XuDI9cKN7M
+         uSvf6S/vrrjubUXlX5b9JW8WGuALr0FnKc0nW5Tlmz3L8PkGR1glc1dAMrOCmUQi/56v
+         C+cBDGxC4/UMPAsdI9n2SsKclq8e8xjkeZn56xuMtTFooBXnEUkOp+Vd0Ai6xzPYAvlK
+         glwQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQEl4H60vhXKshP4gP9BlrEV5xk8FFZBJ+TDlQsG1WAlCBaF6K3/3EOXLoZpH5M5IuqyZp0mAWMYtatw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxVuRQnXBTGD/umXoamIUIxUgx+r2Ivqom5Ewo7erAbIjgjaxK
+	0BPIOI9ntW6XTEiGIjOhidLUsaEUalF7jM/1CQRI7iUXgfdHcOEfbpta
+X-Gm-Gg: ASbGncvfjCTfdsnnHgnJl83NN6jRHFNdAAJuwxXnCjZdZTyeNgdOkmwWeIgZu60zxvk
+	REEClduqF2iF+ggyw+LkSGc0D2ZelIMv4jAuW9bmYT7SqdFcUAxk+29k85p7Mn0A3XO54jMEg7t
+	dNd5uijkV+WbZ35X1de7VvHQgCpecFfJs0Wi+gruWU0k7vBCqT3XfrgNTda++HOzXMzk+ip2lbP
+	fp+JBGipDND79CMF8iTf1nWc5AmVVcbVtbHva3WBnZvncPsGkbcW50iYkrfUSBWghKVeOcpDF0t
+	jmtKm38wGbXUwoxyPQwrgqWgo2qvhxUHSWVA75EDPuhlkqv7Vix14EWps8XddBag0HT8tdQsfa/
+	w3i6C8v4CpCD12JpqIYZ9LnY0uKrwcjfpOUp110mozRk=
+X-Google-Smtp-Source: AGHT+IG0TQa2WVbWUOjIbbfIZ5nePfOY9XArUERpTrkKtked//q7vNW0k55MNp1jMcZH67KflOuh+Q==
+X-Received: by 2002:a05:6808:4f24:b0:439:b198:23ab with SMTP id 5614622812f47-43b8d8cff2cmr506892b6e.18.1757644666012;
+        Thu, 11 Sep 2025 19:37:46 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-43b828d2ee3sm565466b6e.5.2025.09.11.19.37.19
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-43b82a7264asm586173b6e.21.2025.09.11.19.37.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Sep 2025 19:37:21 -0700 (PDT)
+        Thu, 11 Sep 2025 19:37:44 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 To: kwilczynski@kernel.org,
 	u.kleine-koenig@baylibre.com,
@@ -102,16 +102,16 @@ To: kwilczynski@kernel.org,
 	xiaoguang.xing@sophgo.com,
 	fengchun.li@sophgo.com,
 	jeffbai@aosc.io
-Subject: [PATCH v3 5/7] riscv: sophgo: dts: enable PCIe for PioneerBox
-Date: Fri, 12 Sep 2025 10:37:13 +0800
-Message-Id: <a499a1c17f317ea57de8769032ec65e1e18b4b36.1757643388.git.unicorn_wang@outlook.com>
+Subject: [PATCH v3 6/7] riscv: sophgo: dts: enable PCIe for SG2042_EVB_V1.X
+Date: Fri, 12 Sep 2025 10:37:35 +0800
+Message-Id: <76d4012e515dc3c3d4e406a237eadc55203f77b6.1757643388.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1757643388.git.unicorn_wang@outlook.com>
 References: <cover.1757643388.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250911_193723_694470_3087B2FA 
-X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-CacheID: sfid-20250911_193747_100344_D9802FAF 
+X-CRM114-Status: UNSURE (   8.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,18 +131,20 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Enable PCIe controllers for PioneerBox, which uses SG2042 SoC.
+Enable PCIe controllers for Sophgo SG2042_EVB_V1.X board,
+which uses SG2042 SoC.
 
+Signed-off-by: Han Gao <rabenda.cn@gmail.com>
 Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 12 ++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts | 12 ++++++++++++
  1 file changed, 12 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-index ef3a602172b1..c4d5f8d7d4ad 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-@@ -128,6 +128,18 @@ uart0-rx-pins {
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts b/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
+index 3320bc1dd2c6..a186d036cf36 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
++++ b/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
+@@ -164,6 +164,18 @@ phy0: phy@0 {
  	};
  };
  
@@ -150,17 +152,17 @@ index ef3a602172b1..c4d5f8d7d4ad 100644
 +	status = "okay";
 +};
 +
++&pcie_rc1 {
++	status = "okay";
++};
++
 +&pcie_rc2 {
 +	status = "okay";
 +};
 +
-+&pcie_rc3 {
-+	status = "okay";
-+};
-+
- &sd {
- 	pinctrl-0 = <&sd_cfg>;
- 	pinctrl-names = "default";
+ &pinctrl {
+ 	emmc_cfg: sdhci-emmc-cfg {
+ 		sdhci-emmc-wp-pins {
 -- 
 2.34.1
 
