@@ -4,136 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FE8CAC582
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Sep 2025 01:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C91EECAC582
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Sep 2025 01:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EwZ4k/wGaSRQUk0Hsj73cNUX6fFW9KES8WL2scMqJ6s=; b=ICWAtGFtLclz1u
-	eohrDNlpLJRHAJY7MNJI7qwfksuSnanB6enumfKutyGqOpX4KcME0+lVHtwLPMIYX3IArc24SXkEb
-	38qYGzqqAVPpf5vZStTBsPhGfz6fejOqXdfmyH5t3UdW5S23vL1fb5otGvsNkXJPuT3kydJlqdim6
-	A7BFgvww11sBPEegg01gacNRhYahmSfbPNQ5Nxw5GFTJh++A5U0ZQASxjLT9J5mzy1z32w5U+V1/8
-	gr1CM44SLSscFFOViHKZVdbeKATR/Gkyo3FSXp1gr5JFxsuR+u+O/ZitoGAmiebooAuyNe4FRtYh1
-	CJrB5vwGHs3au/FzjGxA==;
+	List-Owner; bh=R+01ImiOQ+6HiVoBWVw3froQ/bfwJ4Mr1ZbptO8RsRE=; b=gG5R/bMwPAJHWX
+	EQVRAQ58EvE5E9kmDiDvJ/rBh5y0ethvv2bzYx/1YHpF4ftaa4CM6vt1g7z4Iy3pOc5TDah//PRkm
+	I1vMkggdwmmCK63GcmYhPLkDNSnttmnkz+U91QcTh9o6Pjmmtn90MA4S3cGOeBsNOZNwIG+Bf/1YU
+	3hLtHpd7Md0kZ4nwBOzgY1ao5NFLrdWOvuCFf/2m2M8212ebixNjdAEoJ4qlMnsCmF4vcZsemAlKJ
+	EVkvKEAk6QSWjwTVSaJeZ0VvcV7d8q/vnky4HpzK7afNT0C5jJ4c9Gff0ltpVhAgAtJegY4muDXGd
+	zFSLA+dh4msAYlboxqHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxEvN-0000000Caj0-2jft;
-	Sat, 13 Sep 2025 01:19:33 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1uxF12-0000000Cbyx-2YIA;
+	Sat, 13 Sep 2025 01:25:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxEvL-0000000CahO-3UdH
-	for linux-riscv@lists.infradead.org;
-	Sat, 13 Sep 2025 01:19:33 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b07c38680b3so228178166b.1
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Sep 2025 18:19:31 -0700 (PDT)
+	id 1uxF10-0000000Cbxx-3g7K;
+	Sat, 13 Sep 2025 01:25:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=9I5RI3u2DR62/QoMG7oALiPeUv+mWBlAeBBb+VygSaI=; b=BMcxMtGrsmUEhD0Ideph5rzn86
+	mnjt/2JJ6HGHpDVujmOdhoNFbOSdTVWwHGPWoYYJsY1eelz6N5yUAwTa8tOG9DQnHaXbdUKTT3anj
+	gqrXjVEgJpunwSCoS7+WmlfwiV9xP0Q/zpiqu4UEZj21+drM+IoGUL9+5jmFXPnsLAjfMKA5xCcmr
+	awcFLrfmOnImcJGBZl+zhzlPByHE4m3bPfjnT7ExPDDJzVu1HHB1JgiXznKZE71G+oXtrcUASPy0b
+	HwwuGJ5/zTYBpj38AIUvcVFru8SF1jq25kVZLLZqimpDrgyyvoiyy9HUsz6BDe1VOkSxbVUUWJEL9
+	pjMFwp3g==;
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uxF0v-00000006XGY-2j6l;
+	Sat, 13 Sep 2025 01:25:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757726370; x=1758331170; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=01GQX+A5wcxVOfa45EtHUSgPI4YB4B2sFvA+zw7J76I=;
-        b=mW2jz9M+9z18sBgj2to3O4u3XW3UrXp83n39zD0ApRFnBTJ5VQuUD0lkZSS8iWBqiF
-         5jpBL9f7z5+BFpm2YWRw+NH94Lu9BYRxP51+a59ue5xd8Cfqwo8vZCtEVzluuNHnPJig
-         O2gS95RKJA/YU4jvAhUGp1ILmYSoyyYLE3oEjN/ia76m7WYx0+Tq0TNPznIyyU1/JHxy
-         J9/XgGo+CIKSFtTe2BqWQoDQbRI81BAXWm95vw+ksRdu5LwvvGxd9MXhvzaRaU/JqePg
-         u0uIQHjVV6ypCXgspJoUAkj/GYgBbYETNoWj+xRLu2FQfv7IaAjru6ie6Ln1XnnaMoLH
-         Am6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757726370; x=1758331170;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=01GQX+A5wcxVOfa45EtHUSgPI4YB4B2sFvA+zw7J76I=;
-        b=Jik7NpOlOXroCDzSL02lJUs4fdnUcgROcn/lxpdpMkETkZTL9CDSmMHdgTGSl8kuUk
-         tlvVLfTyiEg8xKNVJnwxFSkuhSxKRWK2iZBvT8Q61F9h2CjasAY2vXYaRrJWVIb212XX
-         eJL/Ba4xh+4iZduOnArTJzX7BsB3S+JTPIm2A8WJXd4Jm70F3yaQzjGm/Acvax3aUyCt
-         ZbjvwvRc4N4dQz/XNMEp22Iac15ylTAcanWKY5ui4b1umJNJMdxOunayUEyIMaAmMb12
-         y8epJ5uM5odyD07chf0qQBObTBd6F1uqm0mh6p38JvsNPhyDnu3Do4uUa3sDM+h6bOAC
-         QoWw==
-X-Forwarded-Encrypted: i=1; AJvYcCVkv3AdpTS2YnEiAGVH3XTKsQLiw/4QLmLm+eDkQs40IaPK2+d/cTC7vfG/36NqvWZOsQSXZJxGbzHhUw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxI6259XvBPzzCBGSm+VQyrAxNdov3Of0NEsTMVkqEV9SToQ5oK
-	d2AQ8NH6SXNZCu5yX4SDC6We3pEZqleO2g6bleim0IVuTOD0oHHRl0yh
-X-Gm-Gg: ASbGnct91jeAZMHHVd01zmjkwEDujuXozlMNU0tDeaXoyxanc64TIsUag9ULplv2C8B
-	dl2kp+eujVzbra3V7y2JHtVHkvefdqg9OzYk7WsJCBdzgU+gfTuq4OvRmsxDzoxqc6VLrR70iY9
-	kBT6rtT+iUgZqERPEmvUn0sCWugNkrFXQGdX99ak1kdb4N8+b6PyL3J0MjBUkWnHfwlZF3x0/UU
-	FDZC8YzdbEqgNfPXqOLUP6ylNvSuaJDb0QJxyZiFbzJ6uK7+lkV4d/X/wQcECz9IvCR0jbZqWVj
-	ssZZYUY3lyZXFQ2OPXODtTIrp8+Eu2+t7Idc/rNNir+8ctR+iFHFV5Dx+FMz2oS/HQtE4IBIw7j
-	8S52wjsaA74ewCYB4HCTCjG3oQPP7rQ==
-X-Google-Smtp-Source: AGHT+IEzeVwYKpSq5hVwsza+AqQmwMGGceGxnApLyMFPwDCsoulMW4PoMJQ37ACnH/5BZ1euJLookQ==
-X-Received: by 2002:a17:906:2493:b0:b04:9822:1ab4 with SMTP id a640c23a62f3a-b07c35fb2e4mr458597866b.27.1757726369974;
-        Fri, 12 Sep 2025 18:19:29 -0700 (PDT)
-Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b07b32dd5bfsm465661666b.63.2025.09.12.18.19.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Sep 2025 18:19:29 -0700 (PDT)
-From: Askar Safin <safinaskar@gmail.com>
-To: linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	Jan Kara <jack@suse.cz>,
-	Christoph Hellwig <hch@lst.de>,
-	Jens Axboe <axboe@kernel.dk>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Aleksa Sarai <cyphar@cyphar.com>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	Julian Stecklina <julian.stecklina@cyberus-technology.de>,
-	Gao Xiang <hsiangkao@linux.alibaba.com>,
-	Art Nikpal <email2tema@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Eric Curtin <ecurtin@redhat.com>,
-	Alexander Graf <graf@amazon.com>,
-	Rob Landley <rob@landley.net>,
-	Lennart Poettering <mzxreary@0pointer.de>,
-	linux-arch@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
+	d=linux.alibaba.com; s=default;
+	t=1757726702; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=9I5RI3u2DR62/QoMG7oALiPeUv+mWBlAeBBb+VygSaI=;
+	b=FG4lktRNKQ4iA2RZYqkhjM/g7PPPcXXzlouPK6C0AAE3/uGo+w9PXAsc8L/sMOnKbRdCugsWg61EnqU7mYfkw8qsuqD+grTf+MphqYb5qd+/X79wkdEpmPmy/Wo1Y2bQ3yPpd01XWs8t1nizK/pK9Sm2SIKgvc+oUtSW7Ny2leo=
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WnsD6mQ_1757726696 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 13 Sep 2025 09:24:58 +0800
+From: fangyu.yu@linux.alibaba.com
+To: fangyu.yu@linux.alibaba.com
+Cc: alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	graf@amazon.com,
+	guoren@kernel.org,
+	jiangyifei@huawei.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	x86@kernel.org,
-	Ingo Molnar <mingo@redhat.com>,
-	linux-block@vger.kernel.org,
-	initramfs@vger.kernel.org,
-	linux-api@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	"Theodore Y . Ts'o" <tytso@mit.edu>,
-	linux-acpi@vger.kernel.org,
-	Michal Simek <monstr@monstr.eu>,
-	devicetree@vger.kernel.org,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Thorsten Blum <thorsten.blum@linux.dev>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	patches@lists.linux.dev
-Subject: [PATCH RESEND 36/62] init: make mount_root static
-Date: Sat, 13 Sep 2025 00:38:15 +0000
-Message-ID: <20250913003842.41944-37-safinaskar@gmail.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250913003842.41944-1-safinaskar@gmail.com>
-References: <20250913003842.41944-1-safinaskar@gmail.com>
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	pbonzini@redhat.com
+Subject: Re: [PATCH] RISC-V: KVM: Fix guest page fault within HLV* instructions
+Date: Sat, 13 Sep 2025 09:24:51 +0800
+Message-Id: <20250913012451.33829-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20250912140142.25147-1-fangyu.yu@linux.alibaba.com>
+References: <20250912140142.25147-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_181931_887438_8437A3A4 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20250913_022518_892984_D844DB24 
+X-CRM114-Status: UNSURE (   4.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,42 +91,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is cleanup after initrd removal
+>>From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>>
+>>When executing HLV* instructions at the HS mode, a guest page fault
+>>may occur when a g-stage page table migration between triggering the
+>>virtual instruction exception and executing the HLV* instruction.
+>>
+>>This may be a corner case, and one simpler way to handle this is to
+>>re-execute the instruction where the virtual  instruction exception
+>>occurred, and the guest page fault will be automatically handled.
+>>
+>>Fixes: 9f7013265112 ("RISC-V: KVM: Handle MMIO exits for VCPU")
+>>Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>>---
+>> arch/riscv/kvm/vcpu_insn.c | 21 ++++++++++++++++++---
+>> 1 file changed, 18 insertions(+), 3 deletions(-)
+>>
+>>diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+>>index 97dec18e6989..a8b93aa4d8ec 100644
+>>--- a/arch/riscv/kvm/vcpu_insn.c
+>>+++ b/arch/riscv/kvm/vcpu_insn.c
+>>@@ -448,7 +448,12 @@ int kvm_riscv_vcpu_virtual_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>> 			insn = kvm_riscv_vcpu_unpriv_read(vcpu, true,
+>> 							  ct->sepc,
+>> 							  &utrap);
+>>-			if (utrap.scause) {
+>>+			switch (utrap.scause) {
+>>+			case 0:
+>>+				break;
+>>+			case EXC_LOAD_GUEST_PAGE_FAULT:
+>>+				return KVM_INSN_CONTINUE_SAME_SEPC;
+>>+			default:
+>> 				utrap.sepc = ct->sepc;
+>> 				kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+>> 				return 1;
+>>@@ -503,7 +508,12 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>> 		 */
+>> 		insn = kvm_riscv_vcpu_unpriv_read(vcpu, true, ct->sepc,
+>> 						  &utrap);
+>>-		if (utrap.scause) {
+>>+		switch (utrap.scause) {
+>>+		case 0:
+>>+			break;
+>>+		case EXC_LOAD_GUEST_PAGE_FAULT:
+>>+			return KVM_INSN_CONTINUE_SAME_SEPC;
+>>+		default:
+>> 			/* Redirect trap if we failed to read instruction */
+>> 			utrap.sepc = ct->sepc;
+>> 			kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+>>@@ -629,7 +639,12 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>> 		 */
+>> 		insn = kvm_riscv_vcpu_unpriv_read(vcpu, true, ct->sepc,
+>> 						  &utrap);
+>>-		if (utrap.scause) {
+>>+		switch (utrap.scause) {
+>>+		case 0:
+>>+			break;
+>>+		case EXC_LOAD_GUEST_PAGE_FAULT:
+>
+>Here should be EXC_STORE_GUEST_PAGE_FAULT, I will fix it next version.
 
-Signed-off-by: Askar Safin <safinaskar@gmail.com>
----
- init/do_mounts.c | 2 +-
- init/do_mounts.h | 1 -
- 2 files changed, 1 insertion(+), 2 deletions(-)
+Please ignore this comment, EXC_LOAD_GUEST_PAGE_FAULT is correct.
 
-diff --git a/init/do_mounts.c b/init/do_mounts.c
-index c722351c991f..7ec5ee5a5c19 100644
---- a/init/do_mounts.c
-+++ b/init/do_mounts.c
-@@ -381,7 +381,7 @@ static inline void mount_block_root(char *root_device_name)
- }
- #endif /* CONFIG_BLOCK */
- 
--void __init mount_root(char *root_device_name)
-+static void __init mount_root(char *root_device_name)
- {
- 	switch (ROOT_DEV) {
- 	case Root_NFS:
-diff --git a/init/do_mounts.h b/init/do_mounts.h
-index f291c30f7407..90422fb07c02 100644
---- a/init/do_mounts.h
-+++ b/init/do_mounts.h
-@@ -12,7 +12,6 @@
- #include <linux/task_work.h>
- #include <linux/file.h>
- 
--void  mount_root(char *root_device_name);
- extern int root_mountflags;
- 
- /* Ensure that async file closing finished to prevent spurious errors. */
--- 
-2.47.2
-
+>
+>>+			return KVM_INSN_CONTINUE_SAME_SEPC;
+>>+		default:
+>> 			/* Redirect trap if we failed to read instruction */
+>> 			utrap.sepc = ct->sepc;
+>> 			kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+>>--
+>>2.49.0
+>
 
 _______________________________________________
 linux-riscv mailing list
