@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB21DCAC587
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Sep 2025 21:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD098CAC593
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Sep 2025 21:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QsUh5Lru+bojJ9TKcwjGWb0F4Z2wdkWKzvz7swa/1PM=; b=DlrJxpP1Z9JgDK
-	l2A8k442OzQdXZzzfqcd21x82SoQOI87ZBWMFjdzLOY2htA1AOkZKEDcrpdo5vCapnW35Ttf1RSYQ
-	xUDaq8FA+po6dfMswYP0BCKxVa+Lwnb2iRsQhIePEZ83YBKLhdEWeSUGyb8DqltYMt+ag6v0fuZXc
-	R8R2IhQSZzatHUonCLHebQgyrmBRRq185v+AwojabovxrGXxPZRRxzKxpPYeFP0cjSVjfJ30ZWr2R
-	CrBFGHsDMCbS8VRhu3Il3XuDmpmBBcQk/v8f956NjKnOVfpTSgsU/2T5p7C39idJk7INjIq01gU7f
-	43hHPqMPe1i6ND6rKZdA==;
+	List-Owner; bh=4Gt34/TYJ3GwcHHJvE6cGketnMs0phPitPPR8nD+2RE=; b=Sic3dn5ZhivA/j
+	r6s4vp44SFXYP718gbx9q5k8VG8Z6FF1ekbQP/WpFUn8TvcSaM8qUfATbTPYbEuUBP8H5LvhThzuf
+	a2qceLUzCK397PzI9ycw79dtSYBLM/oUOxwQjXXWw7G4dZdV4ff1ry89bUO06ggfVp33lMePEJPku
+	6W39apRr/R/1gz217nr6brZ+MKq5Au763B04aEsFAJp5hF9lK9j8Kxyh0OPg8NABTH/sPDIBLLwwp
+	I7nxvNBpyAHiIznNDpdhXKwnhpk5ydmBwe80cjwqT2TXZJ1QRhGvzsAHyauNG1XhuDlHwHbj8K1gE
+	eEEaF6myCYpnahHG18lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXqL-0000000GMR6-3xM3;
-	Sat, 13 Sep 2025 21:31:37 +0000
+	id 1uxXqN-0000000GMSu-19b0;
+	Sat, 13 Sep 2025 21:31:39 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxXqL-0000000GMQb-2FDO
+	id 1uxXqM-0000000GMQt-09PW
 	for linux-riscv@lists.infradead.org;
-	Sat, 13 Sep 2025 21:31:37 +0000
+	Sat, 13 Sep 2025 21:31:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D637C601F9;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6250360229;
+	Sat, 13 Sep 2025 21:31:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1141C4CEFB;
 	Sat, 13 Sep 2025 21:31:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF399C4CEEB;
-	Sat, 13 Sep 2025 21:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757799066;
-	bh=thVTGezMo0pAosaN7Dx0/XK1CsqI2+np60A2VazYJJg=;
+	s=k20201202; t=1757799067;
+	bh=ROziO+R3VmC4VR2DFaqybvemVQOuiZGsH20u0Q0dkX4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=djWMGv+M7mlviDGoufdu4MGlzmMWmRrGGGyR55AJrlkvEv1MWmLg03bSuJIEI6Wqv
-	 d4k4EPkva7rPS9LfuviUDr2kMFhX5VwkyLG7HJuMws+/ZW5/HEggW4TTl+tnCd5Onm
-	 grrHOiDMenDr2P+8ODtU+9Hrhe92NQpdY2H7vrS/tS5xMb7azBGzo5TcvoGXuujSmb
-	 FdeKIvJddwzRPXZQni7O/ITseuVTLaaeETpBAubXh5ccMDETuzW0Y/MNS3L7WkU2pH
-	 g0OAIp6GWdnGFkQxhLQcinBPjmu3DLz0GQfPKJPJ/uKgamqEJNXjFOioTRQ5h5968o
-	 Lh2gpnkmjShpw==
+	b=TLYp7MnO2YyDeEmM3PVy7BIP0BZAvvh13gDY65vzgYxKjQI7OmAgc6+/DH7aE0XjW
+	 qox3pr0clWeommspMtn5cYm6JBMQVtYvGBSXqp53mmF0ZYEFqDnANSDJl0kUw7ue7K
+	 qc7lJJ0jnnRXy9i3Sj1ApMD6o3UzjS0R1KWDoWKBTj8ALHKtiPCixs9lsyvvqFmvwt
+	 bIb0GSUyovHvfo/pk8otEwlsQq/eJePzWJtpseb73mWC/HrJ91U83OsvsqNsH9uuWD
+	 EpXglKGM5S+q2/2UvMqZrnGAt74HKVe+2oiyoadzH/pES2rV+VkJNnBGU3VntR06xX
+	 hARxvrIz+N5pw==
 From: Drew Fustini <fustini@kernel.org>
-Date: Sat, 13 Sep 2025 14:31:04 -0700
-Subject: [PATCH 5/7] dt-bindings: interrupt-controller: Add Tenstorrent
- Blackhole compatible
+Date: Sat, 13 Sep 2025 14:31:05 -0700
+Subject: [PATCH 6/7] riscv: dts: Add Tenstorrent Blackhole A0 SoC PCIe
+ cards
 MIME-Version: 1.0
-Message-Id: <20250913-tt-bh-dts-v1-5-ddb0d6860fe5@tenstorrent.com>
+Message-Id: <20250913-tt-bh-dts-v1-6-ddb0d6860fe5@tenstorrent.com>
 References: <20250913-tt-bh-dts-v1-0-ddb0d6860fe5@tenstorrent.com>
 In-Reply-To: <20250913-tt-bh-dts-v1-0-ddb0d6860fe5@tenstorrent.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -83,25 +83,189 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Drew Fustini <dfustini@tenstorrent.com>
 
-Document compatible for the PLIC in the Tenstorrent Blackhole A0 SoC.
+Add device tree source describing the Tenstorrent Blackhole A0 SoC and
+the Blackhole P100 and P150 PCIe cards. There are no differences between
+the P100 and P150 cards from the perspective of an OS kernel like Linux
+running on the X280 cores.
 
+Link: https://github.com/tenstorrent/tt-isa-documentation/blob/main/BlackholeA0/
 Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
 ---
- .../devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml      | 1 +
- 1 file changed, 1 insertion(+)
+ MAINTAINERS                                        |   1 +
+ arch/riscv/boot/dts/Makefile                       |   1 +
+ arch/riscv/boot/dts/tenstorrent/Makefile           |   2 +
+ .../boot/dts/tenstorrent/blackhole-a0-card.dts     |  14 +++
+ arch/riscv/boot/dts/tenstorrent/blackhole-a0.dtsi  | 112 +++++++++++++++++++++
+ 5 files changed, 130 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 5b827bc243011cda1fd45d739d34eca95c6e1ee2..c960a9ec17e9fceb0b754c21162e8730b12120fb 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -63,6 +63,7 @@ properties:
-               - spacemit,k1-plic
-               - starfive,jh7100-plic
-               - starfive,jh7110-plic
-+              - tenstorrent,blackhole-a0-plic
-           - const: sifive,plic-1.0.0
-       - items:
-           - enum:
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f2cb2aae8d66d21bf5c13b16b3b1d8fdc98b9462..20605d7530a6d19e928709647ea91a9cf7913ee7 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21748,6 +21748,7 @@ L:	linux-riscv@lists.infradead.org
+ S:	Maintained
+ T:	git https://github.com/tenstorrent/linux.git
+ F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
++F:	arch/riscv/boot/dts/tenstorrent/
+ 
+ RISC-V THEAD SoC SUPPORT
+ M:	Drew Fustini <fustini@kernel.org>
+diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+index 3b99e91efa25be2d6ca5bc173342c24a72f87187..0624199867065dbb5eb62d660f950b4aa3a7abd7 100644
+--- a/arch/riscv/boot/dts/Makefile
++++ b/arch/riscv/boot/dts/Makefile
+@@ -8,4 +8,5 @@ subdir-y += sifive
+ subdir-y += sophgo
+ subdir-y += spacemit
+ subdir-y += starfive
++subdir-y += tenstorrent
+ subdir-y += thead
+diff --git a/arch/riscv/boot/dts/tenstorrent/Makefile b/arch/riscv/boot/dts/tenstorrent/Makefile
+new file mode 100644
+index 0000000000000000000000000000000000000000..009510bea6c8e558bda70850a7f8490b23bffdea
+--- /dev/null
++++ b/arch/riscv/boot/dts/tenstorrent/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_ARCH_TENSTORRENT) += blackhole-a0-card.dtb
+diff --git a/arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dts b/arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..b2b08023643a2cebd4f924579024290bb355c9b3
+--- /dev/null
++++ b/arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dts
+@@ -0,0 +1,14 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/dts-v1/;
++
++#include "blackhole-a0.dtsi"
++
++/ {
++	model = "Tenstorrent Blackhole A0 SoC PCIe card";
++	compatible = "tenstorrent,blackhole-a0-card", "tenstorrent,blackhole-a0";
++
++	memory@0 {
++		device_type = "memory";
++		reg = <0x4000 0x30000000 0x1 0x00000000>;
++	};
++};
+diff --git a/arch/riscv/boot/dts/tenstorrent/blackhole-a0.dtsi b/arch/riscv/boot/dts/tenstorrent/blackhole-a0.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..517b6442ff0fe61659069e29318ad3f01bc504e2
+--- /dev/null
++++ b/arch/riscv/boot/dts/tenstorrent/blackhole-a0.dtsi
+@@ -0,0 +1,112 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++// Copyright 2025 Tenstorrent AI ULC
++/dts-v1/;
++
++/ {
++	compatible = "tenstorrent,blackhole-a0";
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	cpus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++		timebase-frequency = <50000000>;
++
++		cpu@0 {
++			compatible = "sifive,x280", "sifive,rocket0", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			mmu-type = "riscv,sv57";
++			riscv,isa = "rv64imafdcv_zicsr_zifencei_zfh_zba_zbb_sscofpmf";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicsr",
++					       "zifencei", "zfh", "zba", "zbb", "sscofpmf";
++			riscv,cboz-block-size = <0x40>;
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		cpu@1 {
++			compatible = "sifive,x280", "sifive,rocket0", "riscv";
++			device_type = "cpu";
++			reg = <1>;
++			mmu-type = "riscv,sv57";
++			riscv,isa = "rv64imafdcv_zicsr_zifencei_zfh_zba_zbb_sscofpmf";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicsr",
++					       "zifencei", "zfh", "zba", "zbb", "sscofpmf";
++			riscv,cboz-block-size = <0x40>;
++			cpu1_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		cpu@2 {
++			compatible = "sifive,x280", "sifive,rocket0", "riscv";
++			device_type = "cpu";
++			reg = <2>;
++			mmu-type = "riscv,sv57";
++			riscv,isa = "rv64imafdcv_zicsr_zifencei_zfh_zba_zbb_sscofpmf";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicsr",
++					       "zifencei", "zfh", "zba", "zbb", "sscofpmf";
++			riscv,cboz-block-size = <0x40>;
++			cpu2_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		cpu@3 {
++			compatible = "sifive,x280", "sifive,rocket0", "riscv";
++			device_type = "cpu";
++			reg = <3>;
++			mmu-type = "riscv,sv57";
++			riscv,isa-base = "rv64i";
++			riscv,isa = "rv64imafdcv_zicsr_zifencei_zfh_zba_zbb_sscofpmf";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicsr",
++					       "zifencei", "zfh", "zba", "zbb", "sscofpmf";
++			riscv,cboz-block-size = <0x40>;
++			cpu3_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++	};
++
++	soc {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		compatible = "simple-bus";
++		ranges;
++
++		clint0: timer@2000000 {
++			compatible = "tenstorrent,blackhole-a0-clint", "sifive,clint0";
++			reg = <0x0 0x2000000 0x0 0x10000>;
++			interrupts-extended = <&cpu0_intc 0x3>, <&cpu0_intc 0x7>,
++					      <&cpu1_intc 0x3>, <&cpu1_intc 0x7>,
++					      <&cpu2_intc 0x3>, <&cpu2_intc 0x7>,
++					      <&cpu3_intc 0x3>, <&cpu3_intc 0x7>;
++		};
++
++		plic0: interrupt-controller@c000000 {
++			compatible = "tenstorrent,blackhole-a0-plic", "sifive,plic-1.0.0";
++			reg = <0x0 0x0c000000 0x0 0x04000000>;
++			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>,
++					      <&cpu1_intc 11>, <&cpu1_intc 9>,
++					      <&cpu2_intc 11>, <&cpu2_intc 9>,
++					      <&cpu3_intc 11>, <&cpu3_intc 9>;
++			interrupt-controller;
++			#interrupt-cells = <1>;
++			#address-cells = <0>;
++			riscv,ndev = <128>;
++		};
++	};
++};
 
 -- 
 2.34.1
