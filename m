@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D1ACAC582
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Sep 2025 00:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F043DCA101F
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Sep 2025 00:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IqgpplZ1AIFQHgQR76RB9Mje6rZgEcjdvdN0dAa1FH0=; b=GcRMydLiN7vaTJ
-	OinFBoy69kk0vn5zpXDNHxDxV2cdiaqCMiZMHAI1dr1VRfjwWOOJnHgv45jOtHIBj/CSXABeG2HEa
-	hO+DCtwj8XaQpsmtB3NYSlDE3/tp3BlM9Z55UpMuk5aG/urRlIdjdZvxswm042L6He3OeywWsR2pB
-	hlZkBsYBd80pdd9EyB0bEJVlxO8DbcTyoULQ4upWcrhHaiivkeqpHF1wV10yePSzXpMOWp9D3S2Ke
-	3retwbKorA9Wrvn79E7gyRVbXAz7/ZTpjYpN4PWQogmRDMWm8c9MQ+ScB7LEpBhB8qEL9thEcej5s
-	XvkZrWIwrH7Cnth1+EZw==;
+	List-Owner; bh=R7RYljoWUs+f3NsqHbNCppVGrIe4rWPm8JZ3NBuncfA=; b=48wIqGaLLf3fjC
+	H2LtdcTCdBbdhzqUvrZeW8P8t/LMyhaENt9YfWkzYHuIFIMqPLsuxo3Ij5JlyDyK1EzgjNnjFk6lj
+	6ZRMgFoMZ3wH1YMUMyWoZ14jJk0kfgy+oT0sRmCDBjBU2noPwLfF1JBvLLHDc+UVKj7E+mqG993uc
+	NMUNkSEtaEr5ukBWqUBHOLeaCHse7PdihM7OsNKwFeBTeCP2T3HUUt72LHxJIl9SBLcd4o9Yi0KTP
+	xGKklkH/W1EVLNCeggDoER0oln//1QwfxD8orBv3BhIn+i7is+hyhyqOXP4WH1jr+EvKdIXRPfflY
+	A+Et7EuQMyj+aewyXuwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxERd-0000000CPJM-3Wcl;
-	Sat, 13 Sep 2025 00:48:49 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1uxESh-0000000CPni-2y2e;
+	Sat, 13 Sep 2025 00:49:55 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxERb-0000000CPH6-27Mr
+	id 1uxESf-0000000CPlg-2MxA
 	for linux-riscv@lists.infradead.org;
-	Sat, 13 Sep 2025 00:48:48 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b0415e03e25so324087366b.0
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Sep 2025 17:48:47 -0700 (PDT)
+	Sat, 13 Sep 2025 00:49:55 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-620724883e6so4839171a12.2
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Sep 2025 17:49:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757724526; x=1758329326; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757724592; x=1758329392; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AaXPZ8GS+1OiGE0ZCje70+VbQ3y123W+k6t1ILETLlQ=;
-        b=DiB1WHpY3hl9urHfYoiGKQes/1+bZXlg0RRUxstjsS2LbN3XKKXMFIhSkyOS10254x
-         LJLSX/2KBTV6scucfASjOgnMe81XNuRRgLkUgK0XcktazhYGCabb04SHgecNrpn50MbD
-         9F1E0++oAHdNTzK1EIJ7QuCVOOxNLBMos+8AsEkuZyMcd/26s0uHUAp5uPxFaOVQkrcE
-         s3jjjEZCDW1083p4vMaWyqH6FwyTqygLDIthfRV2TCO/Uy9KpSPVQ2QwdEBvsRG+Y0s/
-         QjUbx8vhStrV5SbkNjbNeUFrxxLiDSvknIH7T8H3tGFUrHuNWnWM8xACK39wv0FdwKDK
-         3/Zw==
+        bh=k6cH8q1TrVQNxjzjuQXybOp7uw+/s7mQTk4MQOvceKM=;
+        b=KsmZ2+qAVnpckB1Xu7m4VDjB29wboUPnG8ECEsFHT+20Dg/TpfiFVXRhP9rW2WGMjM
+         TJ+n/cpUYxlAFYychQdqSGdVnoPcV39cPCCAzENtHGx2tPCB+dhvUP/+ZcxL2ZCtORc+
+         UvYjzCC8BlcEs6D/vHV3GKQCf3ia9Rn8Lx+lzgClRWOMp/kXwMv84fMul7wzBWMUMK/c
+         ixEYUHQMMDqJtV5MjWCcUHyzP+5ZQUsVsTqMZpymuX1O67d8a9A6C/SnhvdRnRNWQ8R5
+         SanIZg1jdoMF2rbLP7Z8W5Z0f9u6M8B0n8e4zOFvg2oRrpQgl7SodhY+DWwkB4QGp3PY
+         2Ptg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757724526; x=1758329326;
+        d=1e100.net; s=20230601; t=1757724592; x=1758329392;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=AaXPZ8GS+1OiGE0ZCje70+VbQ3y123W+k6t1ILETLlQ=;
-        b=FvVf9jZE+50dEoJP8Z2xcU/kiSWiqpxu8O7jiJjjgB84qd5oN7FK7A83oDJL7OYfr/
-         5efzoi9khPXsDDUuDbK427B2zsg1eogvO5iR9MyAWIJqQxkD0wrIt3PyUOGuW81DkmNW
-         jvOBUYDigAHUIAQduyr6HoTl/OlwT/4iZWQBELJuVLI83YAJ94xfLanyY17NjmRWVgJY
-         WR6Ku63Su5evvq2cbscD8HrrPZ+8iOrV59d0qme7rM0jB8mIe83BrTcc3hK5DH2w2BUK
-         eW7EiZkWBP08wHJTL7gbUwn/bdQIcISVE+GdMAK2jmnuEkjwGmUMqYpvsTN5P1KQlZJn
-         nRuA==
-X-Forwarded-Encrypted: i=1; AJvYcCWJ+Ch8vy1NjcjiS/Cp0/z0g9qlJf9DgFLZ+7Y9ZqOi+jGBFKnltBSRQb5WyXynkyJ+wYlXAdQSOSNgDw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj7vVWhT/c5sP6ka3/SGOzKmKvaMNwcjk4hRt9EeJ8JnLam5GL
-	vU1Uogen2x6IFuvxuGRmS1KIdGxiQ3dteG0PJSQGjG4OV5ih4zUriDql
-X-Gm-Gg: ASbGncucZU3EckNz7sBKMYWKqy17ehfhnjruVxAfSHPijtYjU0deMt58fGbpgudaQJl
-	6Cyxn4S3aQaMFdFHsknB2sG8SlzmQzBozK12kRiNUfQeSHfrkcDaaXBgEgZ+e7geyE7YkIoyKMX
-	KFpK/O+hQBOTJ83KUSeLwN27NjlVKS7Q3IdtGlZsmFsxVUJCx0d3Migyjd6g1VtU4uf/fDbGhYY
-	CEg+1DuuZM+c9UK4gsvuDDYlCwtDP8GcXHiWG0Jm67argHwChbh3Cj6hYNQPCxU5AeV3Z8xhTWO
-	gNKISZqf1cr62BigIiAKz5ecGIKnQT/eQokyG+R2nkrdfxtqDRWIA7ING2T514jWTHdkIeYVvnj
-	ZEPgxaBooMyQdl9gJZMM=
-X-Google-Smtp-Source: AGHT+IG9OWg6vz1Y30fO80tUWulNMPWiUpAt7xVByuYcp52he6rblxs++6dTXTQkGfdvR2czpiOABA==
-X-Received: by 2002:a17:907:d88:b0:af9:add3:6bbb with SMTP id a640c23a62f3a-b07c35fb469mr433586666b.29.1757724525627;
-        Fri, 12 Sep 2025 17:48:45 -0700 (PDT)
+        bh=k6cH8q1TrVQNxjzjuQXybOp7uw+/s7mQTk4MQOvceKM=;
+        b=GW12vjzxG5nA89+5ZMz5w9X2YY2Dt9g4Sz80G4Fxc3IPRUACD35c5iFV9W1VBI7rnj
+         K5oH4MMykOQUXJ7GR/hVRuG9F4qzX1XJOxiao9nFDsC1AeLku5N+bSjQeWzlSuJ3ePUK
+         jHiGD80nAuwJo4jaBYIcCmR41PujkAvJJhwvxHlnm/ld8ne2Mnu0jZe75uDS5DT7vBNP
+         kigZTyBlAJZa2AWvF9FuVq0v6o7WxLbXZL129Iy7NwZnYn5rM2YjY00AeRY9hmCFGr5s
+         96tqHtF90fLcLsn6Zk3EESFAeOogpzwF+mnu9J0gjLvQp21Q5TT6x5wGaBoYp9JfRZiF
+         MycQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW945nEzsk7j25N5kNeyf7z7zyGJDfCFFb8SF9iJHug40jIvITotLKO9HZHBQ36bljKSKCn7qgGGDFk0Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWzHtskE2ZEz0yEXwt4iHkA+HfK0qafFPQFMhaT8/JIzrmt5/Z
+	oqFcf6/9ZUvFJ+2qYFivSZK98uiPysEa5/wrVz75I+NngdfrbcExXgaC
+X-Gm-Gg: ASbGncsBxW4APsLdAaJt7+l1cPZDTq1f/lJBZS43s0UqWWJfEkRi/p2CdRS9TWbt0HK
+	7SI4yUagVsv21a0Pi5X01Nm7zJTtv6PZLpUdKeZa7Pko+fVgh1YXNFRsw/GA4apUL+cmIui1wMf
+	SdRFFnQ9R/qZ8BizbF8COO/bI/kQGmsHzf5DW2sUCkMFemHQltLzC1pwgbGezkOA5wqq9xE2Tfm
+	5SzE0N++JDK9/Ksx2i+KqpYQhrLcYyorwO2pkVCmPVu0xCApHnH17+viA0z6X1P4eC1PG+HG3zo
+	NqFYIUnuFEOui4eNaNrqBouXoyuixZCgH4uWk+kG/tW3y9HOsihGPAwhjEypihOGAJ0svxZnCTb
+	tgabtbpcJiSGOdKDed5gqM2NhUFfHFw==
+X-Google-Smtp-Source: AGHT+IFuaD6uE53o0kMUFqkBYFUIpIv4YZNYfnndGaXs7B0K4+B96SRU2dTVgEWhisS3xuLKgCtRtQ==
+X-Received: by 2002:a05:6402:4316:b0:62e:df3b:79a6 with SMTP id 4fb4d7f45d1cf-62edf3b81cemr3814693a12.1.1757724591635;
+        Fri, 12 Sep 2025 17:49:51 -0700 (PDT)
 Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b07b32dd5bfsm461777466b.63.2025.09.12.17.48.41
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-62ec33f3b6csm4149162a12.32.2025.09.12.17.49.46
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Sep 2025 17:48:45 -0700 (PDT)
+        Fri, 12 Sep 2025 17:49:51 -0700 (PDT)
 From: Askar Safin <safinaskar@gmail.com>
 To: linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -124,16 +124,16 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	Thorsten Blum <thorsten.blum@linux.dev>,
 	Heiko Carstens <hca@linux.ibm.com>,
 	patches@lists.linux.dev
-Subject: [PATCH RESEND 08/62] arm: init: remove FLAG_RDLOAD and FLAG_RDPROMPT
-Date: Sat, 13 Sep 2025 00:37:47 +0000
-Message-ID: <20250913003842.41944-9-safinaskar@gmail.com>
+Subject: [PATCH RESEND 09/62] arm: init: document rd_start (in param_struct) as obsolete
+Date: Sat, 13 Sep 2025 00:37:48 +0000
+Message-ID: <20250913003842.41944-10-safinaskar@gmail.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250913003842.41944-1-safinaskar@gmail.com>
 References: <20250913003842.41944-1-safinaskar@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_174847_558833_0B409455 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20250912_174953_611788_2A6EA7CB 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,42 +150,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-They are unused since previous commit
+It is unused now
 
 Signed-off-by: Askar Safin <safinaskar@gmail.com>
 ---
- Documentation/arch/arm/setup.rst | 4 ++--
- arch/arm/kernel/atags_compat.c   | 2 --
- 2 files changed, 2 insertions(+), 4 deletions(-)
+ Documentation/arch/arm/setup.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Documentation/arch/arm/setup.rst b/Documentation/arch/arm/setup.rst
-index 8e12ef3fb9a7..be77d4b2aac1 100644
+index be77d4b2aac1..01257f30d489 100644
 --- a/Documentation/arch/arm/setup.rst
 +++ b/Documentation/arch/arm/setup.rst
-@@ -35,8 +35,8 @@ below:
-     =====   ========================
-     bit 0   1 = mount root read only
-     bit 1   unused
--    bit 2   0 = load ramdisk
--    bit 3   0 = prompt for ramdisk
-+    bit 2   unused
-+    bit 3   unused
-     =====   ========================
+@@ -86,7 +86,7 @@ below:
+    initial ramdisk.
  
-  rootdev
-diff --git a/arch/arm/kernel/atags_compat.c b/arch/arm/kernel/atags_compat.c
-index b9747061fa97..8d04edee3066 100644
---- a/arch/arm/kernel/atags_compat.c
-+++ b/arch/arm/kernel/atags_compat.c
-@@ -44,8 +44,6 @@ struct param_struct {
- 	    unsigned long ramdisk_size;		/*  8 */
- 	    unsigned long flags;		/* 12 */
- #define FLAG_READONLY	1
--#define FLAG_RDLOAD	4
--#define FLAG_RDPROMPT	8
- 	    unsigned long rootdev;		/* 16 */
- 	    unsigned long video_num_cols;	/* 20 */
- 	    unsigned long video_num_rows;	/* 24 */
+  rd_start
+-   Start address in sectors of the ramdisk image on a floppy disk.
++   This is now obsolete, and should not be used.
+ 
+  system_rev
+    system revision number.
 -- 
 2.47.2
 
