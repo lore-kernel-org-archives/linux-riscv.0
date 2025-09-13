@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1056ACAC582
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Sep 2025 01:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59460CA101F
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Sep 2025 01:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YvQ5qztsvD5cI7h453QZfPe/mzcgIwEmQIWSOf/5RAY=; b=yD3EjPCBMgKjrv
-	pSGqNWeEKWHi6Fv2Hk6rNFXkNHNx70opGky1MtlAx5L6jURBws4S0Sl30TzBDlTjQpF6rFknYJxeW
-	faJw4wXIpRmJE8yOI+dwMPGzYFFnOhVqO/nArFNpUCg5FN2Rbo/PeyHb1sby068Sxb8Swuc90hfsR
-	kK7xmt5QtnKPe1DfcyNt/wiv2hLhSA+m0cK0o6hkS0vI0WdGWgojwvN3rlpcck5uCk/GfNTvJrC1Z
-	UJlALaAa2EqPJBTI+4ep/CpZPQJyvwjpsaqW4321f7qipwC74QIcPJk++TyiCVMy+68rnL0XxQI8K
-	m8+PacFgmwDalsBLn4rw==;
+	List-Owner; bh=BTb+6+t7ZUjQSBY/IQy/HmH/DgcRr0uvcr8FI+bnPGo=; b=uqkAAF0pz4Ob4v
+	eS3lJvkMDbj8n9/f+9wloFE8Wjnq0J096SMOaOUisawbHF5SiQn2ndorC4DbXpF3HrOncA4Z4D8gt
+	goeQRz26b/Pi7y2Vh/wTLVqi6lGpYPlH/8jy7IEZ1GOGxQ/UK4T3XBy6ZYAsrrX04mvUGeky8o29h
+	EBFCG3lnjAvBzsK/MHPYGYNrblExMJaxrtX4L6cUAAzlxnEu1SZRVaOlNTQ8GRlEtwbOxwWGdJhyK
+	syz7wHVFpTZ+t4J+5wERL2xZ0r3KH/Ujjk5HZu21ke1Sxu0kk1MIpjGDiN8XxmbztNugikL0oAVqo
+	rmPlX6AJS9MSR3kVepOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxF68-0000000Ccy5-2TvF;
-	Sat, 13 Sep 2025 01:30:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uxF8T-0000000CdZu-0AJO;
+	Sat, 13 Sep 2025 01:33:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxF65-0000000Ccwc-1qBq;
-	Sat, 13 Sep 2025 01:30:38 +0000
+	id 1uxF8Q-0000000CdZ7-3Hwp
+	for linux-riscv@lists.infradead.org;
+	Sat, 13 Sep 2025 01:33:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1317140A66;
-	Sat, 13 Sep 2025 01:30:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A4D4C4CEF1;
-	Sat, 13 Sep 2025 01:30:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 07D0B436F9;
+	Sat, 13 Sep 2025 01:33:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5035AC4CEF1;
+	Sat, 13 Sep 2025 01:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757727035;
-	bh=NqmYTFLNlgJCW+t+zwPLK3FAWSRW5RzSUK74Vz4Mfxg=;
+	s=k20201202; t=1757727181;
+	bh=IqZUTYDCDExdCes1X4lQ7ydsqNneBWR5IpoqupMGbNs=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=NzFHYSp7YYJ7PISif48D19LeoghOBY9n/DWZRzc9KcYpmPIXH0ZDmsZvAkCRQMbTw
-	 S6lnr+UmkVZPoO1v6oNL+xdFIhWUVt/b/gWQOQFTALRBdM4RDORACR/pGxR+1W/uo+
-	 0Zu3U2/oANPftZjHgnIOGjDLNaS31Xhusb/G3AXWNJHTyouv914OiyQuO9/Lv/+/dP
-	 saCS00n6CpkPZ+0Rple2xNopgnVhRuDzTGpzKStpHcigI9cJd0UfY2/xi455GYmlOh
-	 TSW/fmSfvBco1nXWbk0xfRywdpqMRmLQFlRtSbbzxvxLozNomCbSUr7kRQAG27Ymf7
-	 uli+XnYJ9mdIQ==
-Date: Fri, 12 Sep 2025 19:30:29 -0600 (MDT)
+	b=Qpu05onlK2q/MU9rBbJIndls8nGyLETDwt1GRtvkHWPA2IgG/K+06vGIdfcsg+Q9J
+	 ubXJusqfM6/7z0Z3qKmDNCLUndy+7cBZzH6Ku7a20A+GXMw4Q3vG2gmyAmH8YYP9bV
+	 dDrkwV/fZoRy2nr2PNfMa2gMAVhepO+yfoV/9XH6TK3EuvySQU1d3NPRTTbZBvk0bo
+	 hLywNNUNa44nKb5TBfZWxOXgtcARoHc6y4JzHRB6uR3/vYVQN4jMDpdULm5krbsBOS
+	 r4L14Cj+8cNLtMEVeA5XyGZx5hBdrq7Qp4fmsBRP0EceBRob//tf2fDwDNSz05bGsT
+	 ZJ/Zo/uiIMEEA==
+Date: Fri, 12 Sep 2025 19:33:00 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, 
-    Atish Patra <atish.patra@linux.dev>, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-    kvm-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH v5 2/3] riscv: Strengthen duplicate and inconsistent
- definition of RV_X()
-In-Reply-To: <20250620-dev-alex-insn_duplicate_v5_manual-v5-2-d865dc9ad180@rivosinc.com>
-Message-ID: <a0ca072b-74fd-82b6-1e7f-e15183d0495b@kernel.org>
-References: <20250620-dev-alex-insn_duplicate_v5_manual-v5-0-d865dc9ad180@rivosinc.com> <20250620-dev-alex-insn_duplicate_v5_manual-v5-2-d865dc9ad180@rivosinc.com>
+To: Thomas Huth <thuth@redhat.com>
+cc: Alexandre Ghiti <alexghiti@rivosinc.com>, linux-riscv@lists.infradead.org, 
+    paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+    alex@ghiti.fr, atish.patra@linux.dev, anup@brainfault.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] riscv: Replace __ASSEMBLY__ with __ASSEMBLER__
+ in header files
+In-Reply-To: <d1fe7fdf-b3da-4c53-8a5a-a87acd38d525@redhat.com>
+Message-ID: <d34c4b47-4acd-fd68-4cdf-b9cfaf022a32@kernel.org>
+References: <20250606070952.498274-1-thuth@redhat.com> <175450055499.2863135.2738368758577957268.git-patchwork-notify@kernel.org> <d1fe7fdf-b3da-4c53-8a5a-a87acd38d525@redhat.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_183037_495793_311DEEE8 
-X-CRM114-Status: UNSURE (   6.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250912_183302_847154_9F8372BB 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,20 +74,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Jun 2025, Alexandre Ghiti wrote:
+Hi Thomas,
 
-> RV_X() macro is defined in two different ways which is error prone.
+On Mon, 18 Aug 2025, Thomas Huth wrote:
+
+> On 06/08/2025 19.15, patchwork-bot+linux-riscv@kernel.org wrote:
+> > Hello:
+> > 
+> > This series was applied to riscv/linux.git (for-next)
+> > by Alexandre Ghiti <alexghiti@rivosinc.com>:
 > 
-> So harmonize its first definition and add another macro RV_X_mask() for
-> the second one.
+>  Hi Alexandre,
 > 
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> I can't see the patches in the for-next branch ... have they been dropped
+> again? Was there an issue with the patches?
 
-Thanks.  I updated this one to uppercase the name of the RV_X_MASK macro.  
-That way it matches the naming of the rest of the macros in the file.  
-Queued for v6.18.
-
+No issues with your patches; we just had some trouble getting the 
+arch/riscv PR merged during the last merge window.  I've queued both of 
+your patches for v6.18.  They should show up in for-next in a few days.  
+Thanks,
 
 - Paul
 
