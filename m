@@ -4,105 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D29CAC587
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Sep 2025 06:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20655CAC58E
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Sep 2025 06:09:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5QJF2VsqpdutgQiGubPYIF6k4laWq3ZMy744jfQPMLg=; b=WV/oSoFaZmd+XL
-	/5rEg5HhHhijr3hFxvke5zFjIIIrRrmy6lEpwaVQC6dYd/cfZt76IcwDd/WF/akDaAKye0hzrun6E
-	ArruYR9MaFxXcgB22WvWCzoHPSN6ow53Oa6FW1+9hQP61DfGo4aDP/weJNHvm9XLq2CTqBdwNk8+H
-	3Z9jVNm4w1URr6w45lGd+A9wwL5gVobAHyvPn7yDWGGbMYZG0bPkpJjUH56NHn6SMVC4kFlU5i3uB
-	CWacqXxn3vtMfodqlZaQ5/FyjnrFVqBJjhh15GEHcrTdd5OMovHsuZShK2YZw5qrD+TbBHoTGFnDO
-	sVX4r+TpLJ53WGp81lTw==;
+	List-Owner; bh=It2qg8egcG1t4JUI/v50LPnutzYi/1gpnlgzGa2o5CM=; b=NmwRFgceJfgQVt
+	TGyCn8UM6KQqWlEgLVgf459XeK4BoDO+5Bb/9TEmZJcepxhn1xQX8+n6styL30mG4ZDe0rC/6SbY9
+	UUCB0eKQQzu/5Vot1Niqu36PccN16nVwsLhbEQfs17KhPIoAKH03r9iQ5ix393NRgT7gA+8FQzsWI
+	oCNPwGFaiBmHLx8yj723I/DcCrSR/X9YztXqD6xe+S980jIHVvQqIlClox75SpLH68QYlOnZS4pZg
+	fxXMbLposSv/i+jLBkyW+woT58Yq7G3nZligSqrCjfPH1AlUT5h4qvZHaV8F4F5okGxxv4aJhrn/H
+	9oanQRBIuhhwXXsfyTdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxJJh-0000000DRJr-1XO0;
-	Sat, 13 Sep 2025 06:00:57 +0000
-Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxJJd-0000000DRHP-3zmB;
-	Sat, 13 Sep 2025 06:00:55 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id A0B8040E016D;
-	Sat, 13 Sep 2025 06:00:50 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 5iEw13_6N0hx; Sat, 13 Sep 2025 06:00:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1757743247; bh=ukCkckAuGMje9cA2p4fcL/eu4iSUrEgrcmTG6KbdR1M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M+CzmzEWar56cJJ17KOTR6P8eSnXvk4pSviym3bg7uW6BkqS0j+mtX3BQDzmjsLKN
-	 cBfUjtOzG0dtMWCm8gmhsUa3Xxo4FILO/a/EoDcNG+tlw8kR4uStWeJwPdhqSPG8vi
-	 dptoTCZKzdi0Lb7IKesUGcadI0V7LIgtuqv7+ljIAgi+MxFM4i8iy5ZzhN+eNcVDkT
-	 2U5qJFAQwTYKNKjXv/HnQbujbbxSSpVXj5bVy2aRYmWxFocdRZ21hDbVAksBWj/ayB
-	 IyVl/MGqAXPtO85g0YsubzV7s6ahQw9h0Csu9TVUFWQlf+WnPcHv5LpdW2BLaZTSLx
-	 MMPWrLyToEYejhS/laszKvXwNVgYIRKtn46zcfAmgWcVrksJjmgrxaFWOjZaf7IcIu
-	 69gMcfJR5mcDILFbprN0LrSSpnH27j6cHrFVqj50Pgarn5Z+5kEA74Cuh7F+wkwKag
-	 IgiVg9veF2ZWXTokCLUb6KziC0viJ3MFRPeERhFpkN9McnxLf/Lom5CWCUO/GLLsrO
-	 Ik0vYi9bLtv3NWaKGrZ5U38zUX6p3F6aTmchXQOEPOWj3S4lIPOayyV2rrbopxaE+l
-	 7bAPj5LxiMGFgfJow+wWYdkCpmcS3w+RlVWftduP1hFNqKDXn6mv7Glb2r+ccLg5uk
-	 Ktt/rgo0zlxIwboDscbgVlBU=
-Received: from zn.tnic (p5de8ed27.dip0.t-ipconnect.de [93.232.237.39])
+	id 1uxJRs-0000000DTH1-41F4;
+	Sat, 13 Sep 2025 06:09:24 +0000
+Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uxJRq-0000000DTGB-1o6H
+	for linux-riscv@lists.infradead.org;
+	Sat, 13 Sep 2025 06:09:23 +0000
+Received: from 8bytes.org (p54921b16.dip0.t-ipconnect.de [84.146.27.22])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with UTF8SMTPSA id 3961D40E015C;
-	Sat, 13 Sep 2025 05:59:52 +0000 (UTC)
-Date: Sat, 13 Sep 2025 07:59:45 +0200
-From: Borislav Petkov <bp@alien8.de>
-To: Askar Safin <safinaskar@gmail.com>
-Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Al Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>,
-	Christoph Hellwig <hch@lst.de>, Jens Axboe <axboe@kernel.dk>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Aleksa Sarai <cyphar@cyphar.com>,
-	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	Julian Stecklina <julian.stecklina@cyberus-technology.de>,
-	Gao Xiang <hsiangkao@linux.alibaba.com>,
-	Art Nikpal <email2tema@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alexander Graf <graf@amazon.com>, Rob Landley <rob@landley.net>,
-	Lennart Poettering <mzxreary@0pointer.de>,
-	linux-arch@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	x86@kernel.org, Ingo Molnar <mingo@redhat.com>,
-	linux-block@vger.kernel.org, initramfs@vger.kernel.org,
-	linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-efi@vger.kernel.org, linux-ext4@vger.kernel.org,
-	"Theodore Y . Ts'o" <tytso@mit.edu>, linux-acpi@vger.kernel.org,
-	Michal Simek <monstr@monstr.eu>, devicetree@vger.kernel.org,
-	Luis Chamberlain <mcgrof@kernel.org>, Kees Cook <kees@kernel.org>,
-	Thorsten Blum <thorsten.blum@linux.dev>,
-	Heiko Carstens <hca@linux.ibm.com>, patches@lists.linux.dev
-Subject: Re: [PATCH RESEND 28/62] init: alpha, arc, arm, arm64, csky, m68k,
- microblaze, mips, nios2, openrisc, parisc, powerpc, s390, sh, sparc, um,
- x86, xtensa: rename initrd_{start,end} to
- virt_external_initramfs_{start,end}
-Message-ID: <20250913055851.GBaMUIGyF8VhpUsOZg@fat_crate.local>
-References: <20250913003842.41944-1-safinaskar@gmail.com>
- <20250913003842.41944-29-safinaskar@gmail.com>
- <20250913054837.GAaMUFtd4YlaPqL2Ov@fat_crate.local>
+	by mail.8bytes.org (Postfix) with ESMTPSA id 066A550666;
+	Sat, 13 Sep 2025 08:09:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1757743761;
+	bh=e+IBdPHcalkLVr0ILXmN6MxTFPHTEVoUpqfQoXNQ02c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hyiM/gT9z2X1FnjL1mKyYYRxHOuklAHJHmK3jom3ihph6Bu+zQ6TH+5p4QXgiB25N
+	 ezP0e9SRPGYH8HQ+EUjqeJWs34cev5Lj1kcxiThaaip1zyX3y8Gd5gD/Yqp7hlitqQ
+	 ZrhNt3+0jnZZqDKf7mh4tpAD+g/sbJ+e9yZqOJ1xB6sa2yG5T15Q4yPcnxNjqTd6Yi
+	 2kRaGRN0RJFV5q4l5lsbhMz2nGCSgo90Bncu6VJ8F219SMaTOOTQv1B8ebUl1AfrEu
+	 dApyBRiNAqndSiHBK2VeFOdYgR+Bg9CX7isS6cIQY1RSPo1p9DFayUuUM1h04nLbRI
+	 XqgY7XakV4rfA==
+Date: Sat, 13 Sep 2025 08:09:19 +0200
+From: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
+To: Yaxing Guo <guoyaxing@bosc.ac.cn>
+Cc: linux-riscv@lists.infradead.org, tjeznach@rivosinc.com, 
+	will@kernel.org, robin.murphy@arm.com, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
+Subject: Re: [PATCH v1] riscv: iommu: Fix irq failure due to idx mismatch in
+ icvec
+Message-ID: <fpyenwjlw4fc3z6xk3jvra6qxvonu2qfvyl3g4pzvnlfmjuatn@jzegah4d2omz>
+References: <20250910095430.93868-1-guoyaxing@bosc.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250913054837.GAaMUFtd4YlaPqL2Ov@fat_crate.local>
+In-Reply-To: <20250910095430.93868-1-guoyaxing@bosc.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_230054_150308_9A867357 
-X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-CacheID: sfid-20250912_230922_616507_8144CDD7 
+X-CRM114-Status: UNSURE (   5.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,25 +76,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 13, 2025 at 07:48:37AM +0200, Borislav Petkov wrote:
-> On Sat, Sep 13, 2025 at 12:38:07AM +0000, Askar Safin wrote:
-> > Rename initrd_start to virt_external_initramfs_start and
-> > initrd_end to virt_external_initramfs_end.
-> 
-> "virt" as in "virtualization"?
+On Wed, Sep 10, 2025 at 05:54:30PM +0800, Yaxing Guo wrote:
+> In icvec, the idx of civ, fiv, pmiv and piv are 0, 1, 2, 3
+> (According to spec 5.27). And usually, the interrupt-names
+> property in dts riscv-iommu node also follows this (In qemu
+> virt machine follows this) which will cause hardware irq
+> number errors (Especially when using qemu virt machine to
+> start Linux).
 
-Ooh, now I see it - you have virtual and physical initramfs address things. We
-usually call those "va" and "pa". So
+This sounds like the patch needs a Fixes tag.
 
-initramfs_{va,pa}_{start,end}
-
-perhaps...
-
--- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
 
 _______________________________________________
 linux-riscv mailing list
