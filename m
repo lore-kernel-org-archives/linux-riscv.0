@@ -4,81 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E7FCA0EE8
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 15:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37DE2CAC587
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 15:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qEm1sVH7+tn+CqaiShyhap3N1B3NOYx5ON1ZVp1FYaM=; b=fLkNBor4htgJic
-	yNuQ+ITfF4+Dl47AHuUCS6jFF8MqcJwl+INN6cpmYGw9HU+Guh+qGxBFccrQ3ZipqyOIisivBkKt+
-	UUrt+/VSBBEmqGS3k6E3t2TvqIKE1jp+2w5QqfIC1ZyB/vKZrHtKoHsNemPgOQLMXl7lvCXeKTdfw
-	dNnyPoVsax/1Vyjm8LT4GVculYw3EXEvMpTW5cTLXGHkWS4ec16LO/oFfu+djscN2ssiQohQ70ddl
-	5PZS6xaK0ZEh3VpzdUY9fxbhFFQBOvG06B/Ou7YBvnhLpWNZYRkS3Z/dva17zUVGmq2J9ievPaiH5
-	s7cekNaYDtODl2624xGw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RX0r4zcnQVek7LUBnVaQaNRsDJBdCGjn6lCaJNp83pE=; b=nXi5Bcy1EpxLLiPLRc/WEsdP2h
+	dw3fbkonfVaZye08PdnjWN8AOtkcfp/Naqb9fXVgikbUNJUWyuiGB3u1gpEl97oHSVDH/+hdDr6i6
+	Mdum9FPdbYmR4N3QZJhIaPLlX5t6CKHO3Ia+LgHxAjwqg4FF/zawjKxNaxkSmw3gmjY57ZUWYZyhF
+	8Kvum/RlffPFp2EYoAbCxga5oA1y9ClkQl0qx7VA9pUjiNuB/c8iPki8zcHwGIb9LmBsQaufEkTc9
+	82I5/DdmHwlrIR8veMXgQe8V9Q6e9HmDyaWVZYV8/nUovv/eUSRqX6DCtJSOQN79NzsWGMe4Ru0+A
+	udhlCMiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxooK-00000001iX4-2fPj;
-	Sun, 14 Sep 2025 15:38:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uxoty-00000001jiX-2N5U;
+	Sun, 14 Sep 2025 15:44:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxooI-00000001iWP-1lsa
+	id 1uxotv-00000001jhE-1gsA
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 Sep 2025 15:38:39 +0000
+	Sun, 14 Sep 2025 15:44:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3BAFF40600;
-	Sun, 14 Sep 2025 15:38:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9D7FC4CEF0;
-	Sun, 14 Sep 2025 15:38:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 905264064F;
+	Sun, 14 Sep 2025 15:44:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FD65C4CEF0;
+	Sun, 14 Sep 2025 15:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757864317;
-	bh=ihW47HHuEW0kivT0LtQDfndFpj4gQlPyOZ8ChekheGs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UGrCk1KXR+kac/5OvXpvMS9DC7fpHqSkremvp3fzsvyb6prDigqDylpNSPElqidS8
-	 2otZXTknq+IJzTf5PFAMGbUSxGzxhWpaKhkmOQrn+AgAeY7zJtG5GJBBx5b2ZgfLA4
-	 KHWVBm/EMps/giN+yPji/JWLF5ESMN0zLZgjtT8uX25haYBS7eQRy2q0QTZeuR1AgC
-	 U0QhhxpiJ0NovZt8fUsZNnErPb477tzXnicb3fCOaGxLE/DO7Y4OBBMQ82TvQyR7yW
-	 /xsM67WgIOTtNXCzlJNRFq7IXj7X4QlJmgiq7XSOq4oXJtHlf94QGVuz1QHRwydKOM
-	 D0pF/zMF4y4QQ==
+	s=k20201202; t=1757864665;
+	bh=go4fbgG+AD8O+A1V17pC3IWuPz61hjCCsjI7QEuyln4=;
+	h=Date:From:List-Id:To:Cc:Subject:References:In-Reply-To:From;
+	b=P3QdzTyScG1lAhJeL+vFnLF5trdO/dfD/V8wu3ABJe8RIkt5zs9Y6mT8asP3B6hqL
+	 zyEOPGBtd2TUkRRzLjjGr/jHqQvVIcVdBrXnQtZZ0C4N6d9sV9cpbtPOG+jyQYdr8g
+	 3nX0NDo0zcGLt0Frg8yp6jpB7vAroKpMzf4XmgshC1rcYhouChYjRX3zOyLVfMwzVg
+	 q6BldCdEdW9XkMfb5kRt2pMNIxqZn7UbNiGPpBxioHDaWBYj8k0lH4AJnyzrXrL4th
+	 1ZlrssRfDHu/MiiFNcnvzI9pPKf5/jHp1k++z/GvrPkv6HXOULDxasu2/yH31qMmav
+	 G4cMfE9L3bEAA==
+Date: Sun, 14 Sep 2025 16:44:21 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	duje@dujemihanovic.xyz,
-	Guodong Xu <guodong@riscstar.com>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Alex Elder <elder@riscstar.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>
-Subject: Re: (subset) [PATCH v5 0/8] dmaengine: mmp_pdma: Add SpacemiT K1 SoC support with 64-bit addressing
-Date: Sun, 14 Sep 2025 16:38:27 +0100
-Message-ID: <20250914-crushed-blinker-9827464897d2@spud>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250822-working_dma_0701_v2-v5-0-f5c0eda734cc@riscstar.com>
-References: <20250822-working_dma_0701_v2-v5-0-f5c0eda734cc@riscstar.com>
+To: patchwork-bot+linux-riscv@kernel.org
+Cc: Yixun Lan <dlan@gentoo.org>, linux-riscv@lists.infradead.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, guodong@riscstar.com, linux-kernel@vger.kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH] riscv: defconfig: run savedefconfig to reorder it
+Message-ID: <20250914-rendering-afar-dd97b3a2505f@spud>
+References: <20250611-01-riscv-defconfig-v1-1-b48fc3517498@gentoo.org>
+ <174976442875.118664.14858626447477465303.git-patchwork-notify@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=682; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=W90YfP75Cf8fElnrlN+vBYi5av5KHOKCWFABavcr0+U=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDBnHHpaICZuwn2a+79lfyGly/JXfDkGVa9m7o3VK/p+2c DvWUc/WUcrCIMbFICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIlMtWT4Z5bI8PIWX4pvgvcz yYkPbJi33Tc82/TjbO4tBf0I34nNcxkZXvoc+cP8oOHAIyPPU222uyv9jMTe6ik9fPelq8PqQ7E ECwA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <174976442875.118664.14858626447477465303.git-patchwork-notify@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_083838_489316_94150AEE 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250914_084427_463610_7D998C6A 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +69,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6159087427332747160=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-On Fri, 22 Aug 2025 11:06:26 +0800, Guodong Xu wrote:
-> This patchset adds support for SpacemiT K1 PDMA controller to the existing
-> mmp_pdma driver. The K1 PDMA controller is compatible with Marvell MMP PDMA
-> but extends it with 64-bit addressing capabilities through LPAE (Long
-> Physical Address Extension) bit and higher 32-bit address registers (DDADRH,
-> DSADRH and DTADRH).
-> 
-> In v5, two smatch warnings reported by kernel test bot and Dan Carpenter were
-> fixed.
-> 
-> [...]
+--===============6159087427332747160==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="piIculNeLXDMcyrI"
+Content-Disposition: inline
 
-Applied to riscv-config-for-next, thanks!
 
-[8/8] riscv: defconfig: Enable MMP_PDMA support for SpacemiT K1 SoC
-      https://git.kernel.org/conor/c/3df7ce0e43ad
+--piIculNeLXDMcyrI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Conor.
+Paul,
+
+On Thu, Jun 12, 2025 at 09:40:28PM +0000, patchwork-bot+linux-riscv@kernel.=
+org wrote:
+> Hello:
+>=20
+> This patch was applied to riscv/linux.git (for-next)
+> by Palmer Dabbelt <palmer@dabbelt.com>:
+>=20
+> On Wed, 11 Jun 2025 22:56:04 +0800 you wrote:
+> > Changes to defconfig should be always updated via 'make
+> > savedefconfig', run this command to make it aligned again.
+> >=20
+> > This will ease the effort of reviewing changes of defconfig
+> > in the future.
+> >=20
+> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> >=20
+> > [...]
+>=20
+> Here is the summary with links:
+>   - riscv: defconfig: run savedefconfig to reorder it
+>     https://git.kernel.org/riscv/c/d958097bdf88
+
+This got lost in the 6.17 "incident". I applied it to my branch that I
+collect defconfig stuff for SoCs on as it is a prereq for some spacemit
+stuff that I was grabbing. It's up on my korg repo as a tag if you need
+or want to pull it in:
+
+The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+
+  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/ris=
+cv-savedefconfig-6.18
+
+for you to fetch changes up to 125c62df09a3fa4143298658340f093d2bd364a6:
+
+  riscv: defconfig: run savedefconfig to reorder it (2025-09-14 16:34:42 +0=
+100)
+
+----------------------------------------------------------------
+riscv-savedefconfig-6.18
+
+----------------------------------------------------------------
+Yixun Lan (1):
+      riscv: defconfig: run savedefconfig to reorder it
+
+ arch/riscv/configs/defconfig | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+--piIculNeLXDMcyrI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMbi1QAKCRB4tDGHoIJi
+0vquAP0U+9G5MAqk077lLuT4dfODkjR97SP5TFmveINFUmnT7AEAm8Wp/y80V3xq
+l/2Bq/TK5plRQs+u3MwLDoB1EMqvHg4=
+=QwpP
+-----END PGP SIGNATURE-----
+
+--piIculNeLXDMcyrI--
+
+
+--===============6159087427332747160==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6159087427332747160==--
+
