@@ -4,137 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C54CAC582
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 04:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A16CAC58F
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 04:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7DvD+OEENwGemlztZKqk+O8kCf2nO2/LcUO0pjeTgAM=; b=cSYzq9CpUti3n2
-	t2Al5DhCyIud8tTGs6dnHhVpmy3Davz2c8YVoGfJh3QVA5xDtcxa7J0mPbCLY/oXR7MtkoApGbZwE
-	n1XVAvFEFM28eqQSRokgnCG9rhrYnqgn+9ApNOU5gN0MW6wL6xfClNhGnqehOb58u8R6yot4btmeq
-	84qPMopgKIOIhIn08b4Jz2BNmnZ1HGC1yDQcGmF6hHvwkY29GoQBoUFONhGVagk44dgvZnJ2oeWPw
-	d6rcori/l/RWzgvBHp9dOurGvtn1B3+OBk2KsiS0u4L3/gy5BVDfhT6gqW3MDWkIBr6udZNs8GAzX
-	7EXUS+aqYObERmcYl1aQ==;
+	List-Owner; bh=MEuJSpb5iALH1rx+11wCa2L/sM7p9zXN1UpqyTQO9Fc=; b=TBrV2gEM4U1yuO
+	lt0TEZtLaWUzfa5W7Ybmd+zwNEKL8h/fmrOLc9+iuCM2w+ydLnNJqEneqhLMLcGunINtY91hIbDvC
+	s+k6uhqrRf0P2k7s3Sw5pG5Bo9pNlacgr9kYulzT3kWukObm97ast59nONTJdMbT8gE/WIS9677ia
+	RetBnt/cyoKQeqQ9CzR/3LYueA7BvChzCYZ3hBgBhJrPqOrjAULZYI9ytzfqEQiBE4csDwY/jXRGB
+	+yeUs6s6ETqzhLoT+lNTr1EjI3sS4EKAEJh+r6k+Wdw+oj2NTZ/sS61sVjF+71A5+VnLmsVTLRt0i
+	MzijuYRvNCwebBNhQ1Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxeD7-0000000HUqA-1ymG;
-	Sun, 14 Sep 2025 04:19:33 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1uxeHa-0000000HVfK-080j;
+	Sun, 14 Sep 2025 04:24:10 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxeD4-0000000HUoX-2LDq
+	id 1uxeHX-0000000HVdj-084V
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 Sep 2025 04:19:31 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b0b6bf0097aso101165966b.1
-        for <linux-riscv@lists.infradead.org>; Sat, 13 Sep 2025 21:19:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757823569; x=1758428369; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LXtvCmrZRR9OgP0sG11mqG9m/nOQIjqm8VdJ9uLACjc=;
-        b=i61K4bxjQxphbKR5XDfL9ITN2JqnD8OT+w31bCn8eI6HYw/Coi1JYcuIEbL/PXghKv
-         eL4gzJriILRpdbtLoAaLpzmAKolqCHgWUzURnhMbVrFQ2ClwjSS/N6RN8CyuBPUY57rv
-         EN48beJxu3EnnxjGPuHKBeh9w8y9L+y5PRfMMEKmQMPM8aJMXefdcHwyCeAd3dxDalLR
-         gIBfNLzcl2VumagVps/Onnx3Sw7gKMxfDBi0vS5O+Kjfsi8U7CGSdEILLm6pp3Xe+HMP
-         nxqrPwS0Mut363cT1h3FKE/0f8w2n/qbnPKPGs4rOrFiroMlEdT1/2bMmAVGMZc6L4ly
-         aXWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757823569; x=1758428369;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LXtvCmrZRR9OgP0sG11mqG9m/nOQIjqm8VdJ9uLACjc=;
-        b=eg7C6XTTeUNk2E2DvEgZxKBFZNyNlz61HLj0aKKJgW+xjLA2HOQC/gp0PyhATQMvkm
-         BHhYI//vv7xYeVdwAfV7V2ayBrkGhQsUpFMcIUq44czpbqW+KQ3ejMMNvBDEFwGXFy/l
-         rlbD8mUzY1ZlyA6BicwuTPXceakdS06TQ8rCgQLK8fVMtI1WMUpaXnzVTKJ3pANcqLiY
-         i9boLzOY7bFuTXWCpxds1uF18J91jo8eMJWGGtny+1p399GjG4Mls9PEqZEnEA/Y/WuF
-         pcZWz3DdwHrVoe2ln65w0P5u5gQScbAXzew5ebu7WPKI6FScn2fcuSGAbz8rS3B2SzXM
-         UDEg==
-X-Forwarded-Encrypted: i=1; AJvYcCV0vtLWgb+3+X8n7YSvDexUmfe5Q7a0mCurMHitzyqyJhgOgWTtB1tF5vIJ6M+2QsMMYZcI5skNUfZ2Pg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoyFVwFU2zIwBOFuJicemnCJhko/J9+is8zoeqXAdMPoDms6vs
-	cHmt+bWASRHnoEwciEieUXDMnrkhJEDGftU9dBSr0djN1UT7xSDcUWJp
-X-Gm-Gg: ASbGncukXC+CsGxHG3by+FAjMwJyD5K7TSiDFQqqH3YUcD1h8zGDYM/pOptfW7E6fLM
-	05dRuGAAMKpesu2jnUq/XxDKNFVM5DqEk9PmjEcR+2YsTfn0FnElgMMW1trUtnpBYhZywoMea6g
-	g19qQM1Tt2eaex+9PToB/IVF1aVdIsn5lGlmqYl316tfAjVXffFsbHlYvGQqSSk0dgbiHEmRAn+
-	bRRRySXzTFr8NAGvHlwPBDKKK4Mo/90NsbV01BgsubUn/lYCi1DNzV4G3jrEixiprGDw/mMgFNd
-	N/pdkQqHrnr6XphfUYsKT4vLWHfcCNaaiSydS8LM2ftmH1kBma8tf0BUVOzDdM2hYLyRjdgRsXb
-	l4oLr48kptWRcrzDAhwHPQj0eWTM27Q==
-X-Google-Smtp-Source: AGHT+IF6mujdx9qWAhF6oXDc9ZfcQYBKEdRbKR8jum+cm7upWvg9UYWarRjAWufJtq6SFHzRS8+jpA==
-X-Received: by 2002:a17:907:9809:b0:b04:25e6:2ddc with SMTP id a640c23a62f3a-b07c353a723mr763099266b.8.1757823568595;
-        Sat, 13 Sep 2025 21:19:28 -0700 (PDT)
-Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b07c28f190fsm504796666b.39.2025.09.13.21.19.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 13 Sep 2025 21:19:28 -0700 (PDT)
-From: Askar Safin <safinaskar@gmail.com>
-To: safinaskar@gmail.com
-Cc: akpm@linux-foundation.org,
-	andy.shevchenko@gmail.com,
-	axboe@kernel.dk,
-	brauner@kernel.org,
-	cyphar@cyphar.com,
-	devicetree@vger.kernel.org,
-	ecurtin@redhat.com,
-	email2tema@gmail.com,
-	graf@amazon.com,
-	gregkh@linuxfoundation.org,
-	hca@linux.ibm.com,
-	hch@lst.de,
-	hsiangkao@linux.alibaba.com,
-	initramfs@vger.kernel.org,
-	jack@suse.cz,
-	julian.stecklina@cyberus-technology.de,
-	kees@kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-api@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org,
-	linux-csky@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	mcgrof@kernel.org,
-	mingo@redhat.com,
-	monstr@monstr.eu,
-	mzxreary@0pointer.de,
-	patches@lists.linux.dev,
-	rob@landley.net,
-	sparclinux@vger.kernel.org,
-	thomas.weissschuh@linutronix.de,
-	thorsten.blum@linux.dev,
-	torvalds@linux-foundation.org,
-	tytso@mit.edu,
-	viro@zeniv.linux.org.uk,
-	x86@kernel.org
-Subject: Re: [PATCH RESEND 00/62] initrd: remove classic initrd support
-Date: Sun, 14 Sep 2025 07:19:23 +0300
-Message-ID: <20250914041923.4119219-1-safinaskar@gmail.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250913003842.41944-1-safinaskar@gmail.com>
-References: <20250913003842.41944-1-safinaskar@gmail.com>
+	Sun, 14 Sep 2025 04:24:08 +0000
+Received: from [127.0.0.2] (unknown [114.241.87.235])
+	by APP-03 (Coremail) with SMTP id rQCowAAndoBBQ8Zop+bBAg--.11749S5;
+	Sun, 14 Sep 2025 12:23:31 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Sun, 14 Sep 2025 12:23:14 +0800
+Subject: [PATCH net-next v12 3/5] riscv: dts: spacemit: Add Ethernet
+ support for K1
 MIME-Version: 1.0
+Message-Id: <20250914-net-k1-emac-v12-3-65b31b398f44@iscas.ac.cn>
+References: <20250914-net-k1-emac-v12-0-65b31b398f44@iscas.ac.cn>
+In-Reply-To: <20250914-net-k1-emac-v12-0-65b31b398f44@iscas.ac.cn>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Vivian Wang <uwu@dram.page>, 
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Simon Horman <horms@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-CM-TRANSID: rQCowAAndoBBQ8Zop+bBAg--.11749S5
+X-Coremail-Antispam: 1UD129KBjvJXoWxWFy7AFy8Wry7XF48Kr18AFb_yoW5KF4Dpa
+	yUAFs3Cr4xCw1rCwnavF9rWF4kGa1FkFyrGr9xGFWxGF4rtry7tFn0yry5Xw48Zws8ArW8
+	Gr48XrWxKFnrtw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmS14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	A2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26F4UJVW0
+	owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
+	IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4U
+	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
+	kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
+	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
+	AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI
+	42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
+	4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
+	daVFxhVjvjDU0xZFpf9x0pRl_MsUUUUU=
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_211930_610244_7ABE23B0 
-X-CRM114-Status: UNSURE (   3.93  )
+X-CRM114-CacheID: sfid-20250913_212407_434848_5FE8D102 
+X-CRM114-Status: UNSURE (   7.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -152,12 +94,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Gmail banned me after first bunch of letters.
-Just now I sent remaining letters.
-So now the patchset is ready for review
+Add nodes for each of the two Ethernet MACs on K1 with generic
+properties. Also add "gmac" pins to pinctrl config.
+
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
+---
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi | 48 ++++++++++++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi         | 22 +++++++++++++
+ 2 files changed, 70 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+index 3810557374228100be7adab58cd785c72e6d4aed..aff19c86d5ff381881016eaa87fc4809da65b50e 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+@@ -11,6 +11,54 @@
+ #define K1_GPIO(x)	(x / 32) (x % 32)
+ 
+ &pinctrl {
++	gmac0_cfg: gmac0-cfg {
++		gmac0-pins {
++			pinmux = <K1_PADCONF(0, 1)>,	/* gmac0_rxdv */
++				 <K1_PADCONF(1, 1)>,	/* gmac0_rx_d0 */
++				 <K1_PADCONF(2, 1)>,	/* gmac0_rx_d1 */
++				 <K1_PADCONF(3, 1)>,	/* gmac0_rx_clk */
++				 <K1_PADCONF(4, 1)>,	/* gmac0_rx_d2 */
++				 <K1_PADCONF(5, 1)>,	/* gmac0_rx_d3 */
++				 <K1_PADCONF(6, 1)>,	/* gmac0_tx_d0 */
++				 <K1_PADCONF(7, 1)>,	/* gmac0_tx_d1 */
++				 <K1_PADCONF(8, 1)>,	/* gmac0_tx */
++				 <K1_PADCONF(9, 1)>,	/* gmac0_tx_d2 */
++				 <K1_PADCONF(10, 1)>,	/* gmac0_tx_d3 */
++				 <K1_PADCONF(11, 1)>,	/* gmac0_tx_en */
++				 <K1_PADCONF(12, 1)>,	/* gmac0_mdc */
++				 <K1_PADCONF(13, 1)>,	/* gmac0_mdio */
++				 <K1_PADCONF(14, 1)>,	/* gmac0_int_n */
++				 <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
++
++			bias-pull-up = <0>;
++			drive-strength = <21>;
++		};
++	};
++
++	gmac1_cfg: gmac1-cfg {
++		gmac1-pins {
++			pinmux = <K1_PADCONF(29, 1)>,	/* gmac1_rxdv */
++				 <K1_PADCONF(30, 1)>,	/* gmac1_rx_d0 */
++				 <K1_PADCONF(31, 1)>,	/* gmac1_rx_d1 */
++				 <K1_PADCONF(32, 1)>,	/* gmac1_rx_clk */
++				 <K1_PADCONF(33, 1)>,	/* gmac1_rx_d2 */
++				 <K1_PADCONF(34, 1)>,	/* gmac1_rx_d3 */
++				 <K1_PADCONF(35, 1)>,	/* gmac1_tx_d0 */
++				 <K1_PADCONF(36, 1)>,	/* gmac1_tx_d1 */
++				 <K1_PADCONF(37, 1)>,	/* gmac1_tx */
++				 <K1_PADCONF(38, 1)>,	/* gmac1_tx_d2 */
++				 <K1_PADCONF(39, 1)>,	/* gmac1_tx_d3 */
++				 <K1_PADCONF(40, 1)>,	/* gmac1_tx_en */
++				 <K1_PADCONF(41, 1)>,	/* gmac1_mdc */
++				 <K1_PADCONF(42, 1)>,	/* gmac1_mdio */
++				 <K1_PADCONF(43, 1)>,	/* gmac1_int_n */
++				 <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
++
++			bias-pull-up = <0>;
++			drive-strength = <21>;
++		};
++	};
++
+ 	uart0_2_cfg: uart0-2-cfg {
+ 		uart0-2-pins {
+ 			pinmux = <K1_PADCONF(68, 2)>,
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index abde8bb07c95c5a745736a2dd6f0c0e0d7c696e4..7b2ac3637d6d9fa1929418cc68aa25c57850ac7f 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -805,6 +805,28 @@ network-bus {
+ 			#size-cells = <2>;
+ 			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
+ 				     <0x0 0x80000000 0x1 0x00000000 0x0 0x80000000>;
++
++			eth0: ethernet@cac80000 {
++				compatible = "spacemit,k1-emac";
++				reg = <0x0 0xcac80000 0x0 0x420>;
++				clocks = <&syscon_apmu CLK_EMAC0_BUS>;
++				interrupts = <131>;
++				mac-address = [ 00 00 00 00 00 00 ];
++				resets = <&syscon_apmu RESET_EMAC0>;
++				spacemit,apmu = <&syscon_apmu 0x3e4>;
++				status = "disabled";
++			};
++
++			eth1: ethernet@cac81000 {
++				compatible = "spacemit,k1-emac";
++				reg = <0x0 0xcac81000 0x0 0x420>;
++				clocks = <&syscon_apmu CLK_EMAC1_BUS>;
++				interrupts = <133>;
++				mac-address = [ 00 00 00 00 00 00 ];
++				resets = <&syscon_apmu RESET_EMAC1>;
++				spacemit,apmu = <&syscon_apmu 0x3ec>;
++				status = "disabled";
++			};
+ 		};
+ 
+ 		pcie-bus {
 
 -- 
-Askar Safin
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
