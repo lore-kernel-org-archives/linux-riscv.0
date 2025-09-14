@@ -4,136 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF5BCAC58F
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 03:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849C6CAC582
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 03:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5e3Qc1HNmZ2uH04Mgh00VDJXugXLC6319U/JMBAdlSo=; b=M3VgBrtVKUVwwh
-	MKFs8XcHSIpMW94MAxEMbRN+vgFYfQrREuoWyr7OJAvMzh3MS2IVhovowYpPHcdHiXlMvIM9Lfbyh
-	KcPLloTDtL4rjg8Sl3GvuFZUgs7bspQ+aluIYTOBqRPwd0iOAxiVgMalPeXzVE4k5lEYwW1iPGD+b
-	jKPysbk2WXuK58Fea0qCofrlyUVG/3Mr59ecm6vzlAtpSHhzBM0NhzhYEFZnoR428i06y4ojriJHV
-	wc8Nlgk/+mfm4/AaLgzOmQJ1dbelFcxo8Kxd1SedDm8pMLKzPTnNNytLcDA8eGWBEbG+TWiMu1KdS
-	Ew99JCcxuVTkLQJC2zpA==;
+	List-Owner; bh=ocCTrSvZQB/sEeAp5IY2ErnfIEtDhBEogY+1oJ91GU4=; b=UVzIj4P+IGqMNo
+	2cYam96kd36Nj8d8evwpc6/kVzxP1nnylFAZMViM4ugdeUGvwldS5z3HLBbj9VpzyPCszXqOI/6Dn
+	sjDCjFP/9tTjINyGvpXyLtp12eTiDzyaw56IJ8TzwuLmTXhERYb/XGD6AD+FhdcATpc/tguLF2s6Z
+	3z/hw4zFZvx9fr1QcTSzviuelEX7U+bJqt3Tnaw+o1fIgdGG4IuI9Jk3gq7u4sLOf12q8nAz1FIBY
+	PPnwf57du4hS9ZkZHASkAhk2AH6zU29RoxTcJEkcpGWFK9LUs+BzBECFAX9OzL38oOBOLKQugziun
+	LztV0LtZ/bVP4K6h0YDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxdoa-0000000HN4Z-0ubx;
-	Sun, 14 Sep 2025 03:54:12 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1uxdq2-0000000HNqV-2BXH;
+	Sun, 14 Sep 2025 03:55:42 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxdoX-0000000HN2d-3Lcy
+	id 1uxdpy-0000000HNnz-2uui
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 Sep 2025 03:54:10 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6228de280ccso6254139a12.3
-        for <linux-riscv@lists.infradead.org>; Sat, 13 Sep 2025 20:54:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757822048; x=1758426848; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=U0YiDU4Bzw7IKNW2/fgCfvKW6iRx1DQ4l7Ssn455PQA=;
-        b=jTGQaZar0UzFmlDsNCRsE3/st0+b97qgkJFkDRuoAhpXcipBOlJAUYF0BxZB/TaWas
-         CmNcqySEVJSL3IrX/3/vbvNNQvV7mnvMCay0Jf+HvSjGbOPok6mxf4+Tq3+rWe+Lde07
-         SKRt9a3QItIqRcIp2S0G1WF98wif9kFXtUiy1F92TkGJobY478ofpwjl0k97nauOOEyN
-         kFLasFINnTJLq27BUxXYMZuSUJLThfUJi/fqdnCerD72GjjgJ2J93uOlKRdM9wdECw7x
-         yTzw210MuERuwjR/qsElO1KR3iiM+LqiYcDMP2zF/tnO4CurSA6onxTOifMHxc4qCfqq
-         Mpdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757822048; x=1758426848;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=U0YiDU4Bzw7IKNW2/fgCfvKW6iRx1DQ4l7Ssn455PQA=;
-        b=LpLxlpApRXoFLkONZjBiEAXPpPD7lSvncBc1A2ISiVlrzvc3ppXnAqSpg59N6VIf9R
-         e9WGI61WHtLpKyXmS8T62VAyuGS+qGtbtMNb9Wf00ArNAas4UCyqtLlsmlGnjK2+hdKZ
-         8LPGOlFvJOKJWTUxHZIIr+/2bdUtqHAgD7nCMu7LfHciSx+FwXZDs/RXfrsQwR1P46Vl
-         9CHZEoHyQ9XtZzzXrAG5sL4u4Dg7YcKlr5KbTI9pgcPHHxGqdbhQ6Eu9LEPhc9PDWRnF
-         aFFJ9kTYlCG25Jzb14IY5QhQ6DEoSA5JlTKkuGt2JKBQTqlQjuSSZfGV1JMzchRTBdJU
-         9Z8w==
-X-Forwarded-Encrypted: i=1; AJvYcCXwSu8fbAITyVzb4GzvL0E3p3uE9OiGIpSxyhILFFtAf/ilGmqO6YC9usxja+cGxpjvEM0NPLFHCSEpvA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLJ+EUHH6HFfNomPrIHbZjKoSlkiscMXZQtnPZZS/AWMLMhhsm
-	v4nEbgyuGmhFqp9dY3cGUDQM67kc7WfIwPHmoTXyowU/NfO/lwd1iuyB
-X-Gm-Gg: ASbGnct5g30def1iJ3xiR8JrN+b3q84e2pN3pXPYjTNP/pLtbKmvm7fvGKP1VgTT9/p
-	IfHrq5n9HVKr7xR65B0mU3Kmyjt885Nl6guK3Fv0inNys9CXTdWa0kAZLXMQH4CWNpYYLvrtsxS
-	wnOy+5pLBykSKA5vE37DDmpc7b/xiQGmvFryTw9b7+TJUAYwz/Fj8C5hJ3xXH2bF4jPargQ3ISU
-	h6N6pHP9EKZSrafonV2wC6OGZaQvreww+ClzZ1IOxj6IGnRxfz+Z1ZDBoFlMmEShH6o0P6JtjNe
-	v3sDHmoD2Pck19GcEc8WNae4Shfp53swa6XViKJjCc3KEsLDn9O6wmFLaeLjZITZdQNWj5eVbw2
-	KJNxKoQnH75SnE+jHaFw28E+QXEiFSg==
-X-Google-Smtp-Source: AGHT+IEVLkeZlLSkzoTpPLzlBRvNTQ9m/bl133jXYp2zZldNvB+tlYKH8pXYzZ5ISfOO2+UjGM6RFg==
-X-Received: by 2002:a17:907:e8d:b0:b0e:3d88:27fd with SMTP id a640c23a62f3a-b0e3d97e027mr75192266b.8.1757822048020;
-        Sat, 13 Sep 2025 20:54:08 -0700 (PDT)
-Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b07da7a8918sm303079766b.56.2025.09.13.20.54.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 13 Sep 2025 20:54:07 -0700 (PDT)
-From: Askar Safin <safinaskar@gmail.com>
-To: linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	Jan Kara <jack@suse.cz>,
-	Christoph Hellwig <hch@lst.de>,
-	Jens Axboe <axboe@kernel.dk>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Aleksa Sarai <cyphar@cyphar.com>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	Julian Stecklina <julian.stecklina@cyberus-technology.de>,
-	Gao Xiang <hsiangkao@linux.alibaba.com>,
-	Art Nikpal <email2tema@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Eric Curtin <ecurtin@redhat.com>,
-	Alexander Graf <graf@amazon.com>,
-	Rob Landley <rob@landley.net>,
-	Lennart Poettering <mzxreary@0pointer.de>,
-	linux-arch@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	x86@kernel.org,
-	Ingo Molnar <mingo@redhat.com>,
-	linux-block@vger.kernel.org,
-	initramfs@vger.kernel.org,
-	linux-api@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	"Theodore Y . Ts'o" <tytso@mit.edu>,
-	linux-acpi@vger.kernel.org,
-	Michal Simek <monstr@monstr.eu>,
-	devicetree@vger.kernel.org,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Thorsten Blum <thorsten.blum@linux.dev>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	patches@lists.linux.dev
-Subject: [PATCH RESEND 44/62] doc: kernel-parameters: remove [RAM] from reserve_mem=
-Date: Sun, 14 Sep 2025 06:54:02 +0300
-Message-ID: <20250914035402.3670906-1-safinaskar@gmail.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250913003842.41944-1-safinaskar@gmail.com>
-References: <20250913003842.41944-1-safinaskar@gmail.com>
+	Sun, 14 Sep 2025 03:55:41 +0000
+Received: from [192.168.0.109] (unknown [114.241.87.235])
+	by APP-03 (Coremail) with SMTP id rQCowADX64V+PMZoDyHBAg--.5992S2;
+	Sun, 14 Sep 2025 11:54:39 +0800 (CST)
+Message-ID: <850e769c-ea03-4777-b91b-c7a8b0ad6455@iscas.ac.cn>
+Date: Sun, 14 Sep 2025 11:54:38 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v11 2/5] net: spacemit: Add K1 Ethernet MAC
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Vivian Wang <uwu@dram.page>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Junhui Liu <junhui.liu@pigmoral.tech>, Simon Horman <horms@kernel.org>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+References: <20250912-net-k1-emac-v11-0-aa3e84f8043b@iscas.ac.cn>
+ <20250912-net-k1-emac-v11-2-aa3e84f8043b@iscas.ac.cn>
+ <1f2887e4-2644-48a4-8171-98bd310d190f@lunn.ch>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <1f2887e4-2644-48a4-8171-98bd310d190f@lunn.ch>
+X-CM-TRANSID: rQCowADX64V+PMZoDyHBAg--.5992S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7Jr1UArWkXr4kCw1DZrWDurg_yoWktFgE9r
+	1DXwnrGwnxArsrCw4akr1UJa9Y9rZrZFnrZ3WfG39xZa9FvFWkZrW8Ar1Sgr97Ar4fGryS
+	kr9xuF4xCa48ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbV8YjsxI4VWkCwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
+	xwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
+	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x07jDKsUUUUUU=
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_205409_852631_D131A67B 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20250913_205539_118947_BACBD921 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,29 +95,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This parameter has nothing to do with ramdisk
 
-Signed-off-by: Askar Safin <safinaskar@gmail.com>
----
- Documentation/admin-guide/kernel-parameters.txt | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+On 9/13/25 05:10, Andrew Lunn wrote:
+>> +static u32 emac_rd(struct emac_priv *priv, u32 reg)
+>> +{
+>> +	return readl(priv->iobase + reg);
+>> +}
+>> +static int emac_mii_read(struct mii_bus *bus, int phy_addr, int regnum)
+>> +{
+>> +	struct emac_priv *priv = bus->priv;
+>> +	u32 cmd = 0, val;
+>> +	int ret;
+>> +
+>> +	cmd |= FIELD_PREP(MREGBIT_PHY_ADDRESS, phy_addr);
+>> +	cmd |= FIELD_PREP(MREGBIT_REGISTER_ADDRESS, regnum);
+>> +	cmd |= MREGBIT_START_MDIO_TRANS | MREGBIT_MDIO_READ_WRITE;
+>> +
+>> +	emac_wr(priv, MAC_MDIO_DATA, 0x0);
+>> +	emac_wr(priv, MAC_MDIO_CONTROL, cmd);
+>> +
+>> +	ret = readl_poll_timeout(priv->iobase + MAC_MDIO_CONTROL, val,
+>> +				 !(val & MREGBIT_START_MDIO_TRANS), 100, 10000);
+>> +
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	val = emac_rd(priv, MAC_MDIO_DATA);
+>> +	return val;
+> emac_rd() returns a u32. Is it guaranteed by the hardware that the
+> upper word is 0? Maybe this needs to be masked?
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index a259f2bdba0f..0805d3ebc75a 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -6277,8 +6277,7 @@
- 			them.  If <base> is less than 0x10000, the region
- 			is assumed to be I/O ports; otherwise it is memory.
- 
--	reserve_mem=	[RAM]
--			Format: nn[KMG]:<align>:<label>
-+	reserve_mem=	Format: nn[KMG]:<align>:<label>
- 			Reserve physical memory and label it with a name that
- 			other subsystems can use to access it. This is typically
- 			used for systems that do not wipe the RAM, and this command
--- 
-2.47.2
+This should be fine, since most of the registers only have lower 16
+bits, and the upper 16 bits ignores writes and read as zeros. But I'll
+change it to a FIELD_GET for v12 just so there's no question on whether
+this is safe.
+
+Thanks,
+Vivian "dramforever" Wang
+
+> 	Andrew
 
 
 _______________________________________________
