@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EEDCAC582
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 03:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AF9CAC58F
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 03:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v13mRMeDYZeHahBepaurknLOcVVrfqPv9DsxUd+Iuks=; b=D6hWzyq2vD07DD
-	0K+OGaXmON4t6WDhYv0KawVfKbPk0QaTA+OkOXe5Iftx14Phaqpn7XGJi8XWdZjcu94PcJTw8Rhrh
-	LDBBhavw8uDIzNboXlHemA5EsAmtfqAuz0oucgME55pPCXb8E3ZiXHuZhBxvHPoExkuxRrqZfP2ad
-	lCJHYq4en8dN7SeQlg7W/S1LIuLsdUrW5ON7u6vLZz48PJ5SIsMGxkhDap42MxyJC6DGq6Sx7nuzT
-	CgE9wYGtV14BJZuILmpFjoDx5Slw1wzkaN7TLLFUS1lMBVkmA2Xw6bqruWJe84cbn8A1LpuswJI36
-	/Pw7o2apfvbuPFwyh8sg==;
+	List-Owner; bh=sydslr8VWxjcvR+Od2sNgiBS4mA8NDUhlA4mi6HWr+g=; b=ocV/o7KxrlxwFr
+	CIOVGoqNm84huveGmRuU8BvDSRMDo7qX/99nBbbPBh6mJ8RpAQOaM/I/C3qyHUNyUZr6SD5+HOwEq
+	mtlnUn3JlQS03LMoR3ouNpv9JUmC2SaeVXlE3d5eOEqMdfxN9QBho79UjqIS0HI/LpCQP+PEQzmJ3
+	pzGtDwJc35zTXyQuBwFS0yISbhJbdOiM7IO3iJCNToDdcsaW2DVO0A4RdMKFRZBcRe7E+BjNh0HSf
+	DFWwST6HpF8gHZ7i8jzGDXvp5fPJnfVvhOgvL/T2q99t+iZwi3pMwEoSSueVXjG6BSrIK8JzXveyk
+	EqIPsdwGWuM7HZ8vv1kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxdeV-0000000HJmT-0GmN;
-	Sun, 14 Sep 2025 03:43:47 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1uxdl8-0000000HL6j-0SNV;
+	Sun, 14 Sep 2025 03:50:38 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxdeS-0000000HJkg-1kcv
+	id 1uxdl5-0000000HL5B-0R8T
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 Sep 2025 03:43:45 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b0415e03e25so404075566b.0
-        for <linux-riscv@lists.infradead.org>; Sat, 13 Sep 2025 20:43:43 -0700 (PDT)
+	Sun, 14 Sep 2025 03:50:36 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b079c13240eso507235366b.1
+        for <linux-riscv@lists.infradead.org>; Sat, 13 Sep 2025 20:50:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757821422; x=1758426222; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757821833; x=1758426633; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Edp+OfqM1e00xcpSWGvAGWC/LGQGu+BMiq7TC0KqX/w=;
-        b=BlZQXbWjci3FF67OT+SMS+BwCMpBLrRWq59TavGPcqUXNpx4UxoLrTKsSfyARpC44f
-         Q2jL+qf2JYS3j+507tOrb5YVkBBlNywD14WiOR+lq/PpWZFRu/Fd5Nt5+/gGhwhXWKi9
-         gSi/vWV7Mn2SapmGYwU9CwZSVjbc12tS+SomN1E2yG/eUQhb/lcgkONskvMnziYHYXvJ
-         5vd0okokwlVLyvdK8bXBXpkth2TC83D6u5XQb9ba2NSxoPlySMy9S1FOvS12mNFSsaD9
-         eySgQ/e9fJek4knCN/w/6seEHm3vQEi4Ood4sYeU1zvkRRaf6sLy9UNp+SzWvisNxKYx
-         s7AQ==
+        bh=xULsRy9EzPzDuVUBFXoTlnqFZHMdg+FSwp5f1Vonn0Q=;
+        b=ktw2TMdo9suWgqcb0iUD1/xRPMnWK6fyC67w6hVwL1KLXETPBjg+b4X8IjQStfbyOg
+         oJYK/zjz85V/DLhjjiBLOVGs0JS2XV/+D1a6UHqU4X9vteMRmpIUUy2jnpnCVFgA/8GQ
+         SXco/l8QXtk55rXqAT4D24VYobEnxcKLOgr19SiXfP1HmIvfkJfXCfmHm61XA1dRTqXP
+         F6HQJrh4lVPNc0JFtbCFbg47ZY0NUlxmb9oPzrTs4bP9wssKB6BpmbUlBscrLjY4Y+ZM
+         mdk3YGoW3gdhhB6XNoRb1CSsUqInlSkARjkL3jCU3juM3FEqzuwWDB++93mplafiyCVK
+         OyqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757821422; x=1758426222;
+        d=1e100.net; s=20230601; t=1757821833; x=1758426633;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Edp+OfqM1e00xcpSWGvAGWC/LGQGu+BMiq7TC0KqX/w=;
-        b=UYO+VDIIbEg65nMZOss65CpPRIIt8kg3z7g0JJ/dKDeZnbNpM4LZ4fVRtPTiGZe4/w
-         RDdLNfITSzPtvojBcuX/iZLVz2ZR/hvO/+CGTy+w/q2YdyV3SnFtiZKM8YIDoNnkyEe9
-         zoXwFa2yPQKMrmEYCg9iDWk9MnHIaLIYQMEgM2JPl2Pnqh4y1ASmBGnVI1WxJipwXamF
-         cCR7jPSqSrk66uwJu6rtakf1uQQAxpAce3ibxSCh4aRplD8kwyAZfLybIqjLlkRtA0BI
-         UWacYITwwGY8jEbwMbrVQG2I/c7YeHaVUyMKQIJHA35TsA8xp9ts+GSUYMQ5A0p+TRMD
-         P2Sw==
-X-Forwarded-Encrypted: i=1; AJvYcCUTNOgL1ZWBWmA+MLIhZswruETMc65+Lu1TTQKHZXuun5aLlLkpBiM/5SndKge9pPYdqNxR7BTqfvJriA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9eaQqhzKg9dwWZE/Qqd3JmvgKBIcDdEmqE2c5Xp4QBZ6ZC7wl
-	Yuqt2OMKI3p2cgYa33/rbXR0HW8BeYf52d0aPZTQtHVsZkrL1V0FKFSb
-X-Gm-Gg: ASbGncuLUQHyi0hPWEpWez5X37m/yFElgtWqfj4DzpLTAfZsDyxrUf00Tu4ochGTubo
-	I8zcamqB7i83CnHphdlzzlD3ZOKNGPw//EZhyuzYROy4EbeSmGMbb4Rh9TzaIRJagXjg8maUbuI
-	aYeXXxTqy3ZWzDnc7X6UlGjSZEgGK9JAb7k0ZC7pYgsfIw1pAtj896LpUB7gZYHE8ELwuo8Yqxn
-	14bhPaP/ArhyqCZ7JWqqpg9SwDLCIBwzzfn00n+dr/+fEUQ/3GxaKJMv5x9OCt37h0DY3x3y29C
-	q6anb4pfp2tb2bB3V9TwsNevHu3v+ATLbWARc84R60VYyBrFBC7tUgROIGVLKSXN13eHpkmi60i
-	VlZqHk2T3/cRp4VJjC3M=
-X-Google-Smtp-Source: AGHT+IET6lw3qY9XyvNvb3pybcnRN4nnQ2bci5TeiF0EBvfDGIL/USbY9x3ZkIUotRlW6z+hFZZ7Dw==
-X-Received: by 2002:a17:907:72c9:b0:af9:6bfb:58b7 with SMTP id a640c23a62f3a-b07c354e9b4mr721980466b.5.1757821422077;
-        Sat, 13 Sep 2025 20:43:42 -0700 (PDT)
+        bh=xULsRy9EzPzDuVUBFXoTlnqFZHMdg+FSwp5f1Vonn0Q=;
+        b=obtkbVJC/ix/C7YcB5zGS989WZJVTVZYP9kGAHkBqFLvj2So7pGBcJYTAe+2XIcWA1
+         A4yL8QHm6J5Ir97N0oiJPulGdhg0xVzQsyIyuTJo+ImCyRX+XLW2VXae+65BuBiBIu1X
+         b/1ZyLJOEIzIzk8evyl6larFxKk41lfraKETkv0cfDX5gMJMIHwxmFtsTR4kpgaAVQsR
+         rc7wsdcOQ1ulDnGFZbLS50UTGop8amHqZhOIZVyUP/jpYqLCRzkU6T5Px+O7kY71Gc0z
+         wnhA3fR5qjQwPBuI8ger25noC7Hwm1W/9HRrKN8SHxRDSfsNs/r3r7znqHjc8ac2pCva
+         LrRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVgKIUibn17ooF0holBaWZxdzsCkLVRqY7UkovEMwylG8nFyIvrmoNF1p3ZcDT8nf2fYb5iluvTEAAlRA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9DiNAoX/p3grkiQUckpR7gvjYWn8o2AIcz7+32AURxtBLjoIL
+	VKDANuPZG4q1TtvZiYB5xWX1eniSpJLsX3BZsDUw/Oal/h/+SuZNPkex
+X-Gm-Gg: ASbGncv2qnfc1fh43PsoalD7hZujJbIjz2/weFY6Fia0NvngQvtHVJMLz9NNV3KYTmA
+	pCZvIuVJFvQjAlDXhL/X/bKafR3gofaX4SvEs/ib/9u0etig0hEDx/+gEC0HIVRmxvwahKwNWLp
+	nBKNvaUNT61ZjeJ4NHyI7WKc1eUURZwB/D3UIhMb1S4N1vUnwoCWR5rfUIdTLYQe8tpkxyUOilt
+	VxCHg6ggf8v11cxC03yjjUTx8iz2cQ1VYfCpEPeUcpuoZPCvJxjkWvgRCAXqN0OMd3ge2+Rxh72
+	svsuzEgzsCIn/3TSnNKuIOqPjLIa68N++3P+wwDeLqasabrIQtocnUDuLdMMq09kbm424884Rg/
+	oO3aTs3Ut2MT/IJ6EQdcowf8/f6jT4g==
+X-Google-Smtp-Source: AGHT+IHE3K7efxQ+hk8pVBE6YY31PD4G3LjwwPuEi1DqCDNI+Ud0foCSPIjpPnt40T661VaNMc1/Ow==
+X-Received: by 2002:a17:907:3e8c:b0:b07:8836:dea9 with SMTP id a640c23a62f3a-b07c3819dc5mr855439466b.39.1757821832889;
+        Sat, 13 Sep 2025 20:50:32 -0700 (PDT)
 Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b07d2870da1sm345137366b.13.2025.09.13.20.43.37
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b07b32dd3efsm668828766b.55.2025.09.13.20.50.28
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 13 Sep 2025 20:43:40 -0700 (PDT)
+        Sat, 13 Sep 2025 20:50:32 -0700 (PDT)
 From: Askar Safin <safinaskar@gmail.com>
 To: linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -124,17 +124,16 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	Thorsten Blum <thorsten.blum@linux.dev>,
 	Heiko Carstens <hca@linux.ibm.com>,
 	patches@lists.linux.dev
-Subject: [PATCH RESEND 37/62] init: remove root_mountflags from init/do_mounts.h
-Date: Sun, 14 Sep 2025 06:43:35 +0300
-Message-ID: <20250914034335.3506706-1-safinaskar@gmail.com>
+Subject: [PATCH RESEND 38/62] init: remove most headers from init/do_mounts.h
+Date: Sun, 14 Sep 2025 06:50:27 +0300
+Message-ID: <20250914035027.3609569-1-safinaskar@gmail.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250913003842.41944-1-safinaskar@gmail.com>
 References: <20250913003842.41944-1-safinaskar@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250913_204344_477334_36C8958E 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250913_205035_164001_8EF4A518 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,26 +150,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It is already declared in include/linux/kernel.h
+This is cleanup after initrd removal
 
 Signed-off-by: Askar Safin <safinaskar@gmail.com>
 ---
- init/do_mounts.h | 2 --
- 1 file changed, 2 deletions(-)
+ init/do_mounts.c |  2 ++
+ init/do_mounts.h | 10 ----------
+ 2 files changed, 2 insertions(+), 10 deletions(-)
 
+diff --git a/init/do_mounts.c b/init/do_mounts.c
+index 7ec5ee5a5c19..5b55d0035e03 100644
+--- a/init/do_mounts.c
++++ b/init/do_mounts.c
+@@ -5,12 +5,14 @@
+ #include <linux/fd.h>
+ #include <linux/tty.h>
+ #include <linux/suspend.h>
++#include <linux/blkdev.h>
+ #include <linux/root_dev.h>
+ #include <linux/security.h>
+ #include <linux/delay.h>
+ #include <linux/mount.h>
+ #include <linux/device.h>
+ #include <linux/init.h>
++#include <linux/init_syscalls.h>
+ #include <linux/fs.h>
+ #include <linux/initrd.h>
+ #include <linux/async.h>
 diff --git a/init/do_mounts.h b/init/do_mounts.h
-index 90422fb07c02..e225d594dd06 100644
+index e225d594dd06..53e60add795a 100644
 --- a/init/do_mounts.h
 +++ b/init/do_mounts.h
-@@ -12,8 +12,6 @@
+@@ -1,14 +1,4 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+-#include <linux/kernel.h>
+-#include <linux/blkdev.h>
+-#include <linux/init.h>
+-#include <linux/syscalls.h>
+-#include <linux/unistd.h>
+-#include <linux/slab.h>
+-#include <linux/mount.h>
+-#include <linux/major.h>
+-#include <linux/root_dev.h>
+-#include <linux/init_syscalls.h>
  #include <linux/task_work.h>
  #include <linux/file.h>
  
--extern int root_mountflags;
--
- /* Ensure that async file closing finished to prevent spurious errors. */
- static inline void init_flush_fput(void)
- {
 -- 
 2.47.2
 
