@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B5ECAC58F
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 03:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF10CAC58F
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 03:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kZoiIOA7f85LKykzqmoDSdYn0Pbm+WPRDxc3aOxITpg=; b=1TFDuDUFh3/WHl
-	ZwTNbguDGp1zSpAVxBcMT1TGCTJPVgLB0iF3cOzhApBtqcr4hSFvQ+8GUOwMYNNcDMhlbjKHzq8BO
-	EIwYa/V/AWriF14kqdpH3eLyKyybqEijS9C0/sXdHNmKaLGglbmpyQ/urLLtnktJPjhbSPUjlnlI1
-	uF0WhSaSgsj3cs8eVl0SasTUKQyoeWgldt8H5fmm8RxR56bedNFE1CN4GHgLq8/WR/zFwi810iF73
-	XtlskSpF15njqJzNjv4VhkO0YcwH6Rjzi81YoNcienl5eDyndq/YPUOhTEFeuNQfhL733U7LILKDX
-	T+31/KCVYtM2vTpa4IhA==;
+	List-Owner; bh=fBYJ22pmq219LfuuaUGD0f8nnvd4Q4B4NVXNKJqxIW4=; b=Vzk6WSUNb+nYmj
+	KqTNAzy2zM8MfXFXjNIAmvLGEu75k9pdx3vYOFyqYcRYbbjcauHKmSTulzHW3XqG0mSYUZolpOVFF
+	+rx4SogoHKIVwZG6Qn7lQk4Tl/xCfLuEkllKLQ2W3WRckOoczwWvNV5A4XjJlGC6ag8ZtwrXM0vng
+	aUqR0jOfGRohlWwpPZ5pmCQNoqq0Wq6ilOo67PCs5JZcdsnX9L8LelQDsJWFzAlW7JNkWnbG7ciu2
+	YYieH973YGeVYrVTbW1sOn0lQ/1k0dK7Oh62bJiOQ4xgebWolwXhBnUpUYHn2C258qDqhdk/R5y7w
+	n7qo+Stp4N9YgGEEsaMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxdsA-0000000HOut-2fkq;
-	Sun, 14 Sep 2025 03:57:54 +0000
+	id 1uxdsE-0000000HOy2-1x0h;
+	Sun, 14 Sep 2025 03:57:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxds9-0000000HOsw-0mOv
+	id 1uxdsD-0000000HOwR-13Tb
 	for linux-riscv@bombadil.infradead.org;
-	Sun, 14 Sep 2025 03:57:53 +0000
+	Sun, 14 Sep 2025 03:57:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=pjKVSjXysip/b5UNUwgMX+OIg9u3DNn6e0+I8Cmpn0k=; b=N+dw6MkphiLez3vJP3ucZ/2Y+W
-	cjatwufisuohrPKkldojVCE5Zn2TCdBAco1jgTcrEg3/gIzlNVUdKThnDYLX3F6bZpw7s9tB3A+0J
-	iLAEfhFS54bEbL4lIbP27U+VyM2NRVTQ85ElKDYJ/J6f3OG4daWnnf3bkUMijZ+SRa/4uqQW4gzrs
-	Apq2rcM41ZRwoRdP6DZsVxJrf5wdUY1l8JrZaW3/AxIeb+xDqtnjdxd2mecWJ7WrG47Dzy3AjBvQV
-	VVRGjrYbZB4GaaxjjbmPmR8WaLfvUTN2Tbji0y13x3CzsqhII8b7o01EDZ3e7x1KhP4nKt3jnkb01
-	6ZeoO+NQ==;
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	bh=wOmwD5NF6m1DAFdekL887975d4wKOOnVQzHmGUBheo0=; b=jZO40r/BX4J6u04nRTqcnUdWPL
+	9+j4PmIoDBOkk2Dhkgn+5iegvFErqjMMxvKTcV5DcLMysMmqtGUHl4b97SO3YuOFQ7bjTcfMY+LZl
+	mRdh02Zn32X3I8Wb634EXYVxkPbn1vPfUc2/IWI7ev3KXVlSaxnQdC9XK9bhg3MWoXM34D18zJfKG
+	/OSIFhoaxEvcFCkxpsmRvlQ5OOCI4CQmc8FADF+zNHrz3MPU5cVMhmxkCNjYZ0B/RRmQRFctNugz5
+	V0DFEjQduKi676tD8376oWMKAIqp4XUekUZW//3PqssB3oc/pRnFTv6DXgLuvTLA2mPczoeDUtc8t
+	sGR9VSdw==;
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxdp8-00000006iB9-1PDu
+	id 1uxdpi-00000006iC5-1ffO
 	for linux-riscv@lists.infradead.org;
 	Sun, 14 Sep 2025 03:57:50 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b00a9989633so589071666b.0
-        for <linux-riscv@lists.infradead.org>; Sat, 13 Sep 2025 20:54:45 -0700 (PDT)
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-62f2b27a751so347632a12.3
+        for <linux-riscv@lists.infradead.org>; Sat, 13 Sep 2025 20:55:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757822083; x=1758426883; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757822120; x=1758426920; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pjKVSjXysip/b5UNUwgMX+OIg9u3DNn6e0+I8Cmpn0k=;
-        b=KOlZDnDLNHxu1SOi0M6WXxLA1IM/j7/fp+y1LUMs23SL3zLIajiBBYJEmZHsAF0Oqw
-         gi7WKEn5JdLqa+rpa0scetIo0iqL/kWgi92JF5pQzR50DRaGDUJSAg7WWXQNLT5fOgT3
-         IZpRDCkY/Qv2vZJPlKTkXVAy9WsHKLxdOK6swNMO4VPSbRJ+8M7A9SM71+heE1iolOgE
-         DafWdg9kqVi3zBk6FeLgdXDoQHBIqx7YhnlBOhnyW57+a0KkP55D6SJ47v2CirK9Wk5G
-         4YMbmzIvQQkuC/A4yNThTrXnGY3pjlB+f7Fyqg469X+UZlt6sCo4AczAs6NNCZjmqqGM
-         RgAQ==
+        bh=wOmwD5NF6m1DAFdekL887975d4wKOOnVQzHmGUBheo0=;
+        b=kcadL6RFu2Li2Y0NZlRw9ENx0cZYV4e4C3753TIh7ai3YceZpu1Fhk1lVUslkGBrJm
+         H1jAEnIiqoGAV0Jz7u13EtrlZq1+IVtAzhpJ80uqo2SviMADlDZsxX6hHFhfDOU1GTT7
+         AZKmu8g1nbCaTDQ/iiu9oU9pURWUu2z040L+6xBNEEIHdIpl74/qu0N6StY2rdfSQGdR
+         /DrS6eSSF9KZBDY7mG8uc0V+dzUt0pO9Sw43wsDHFmNlswvq7uWLXHToZdiyPKxQsuOm
+         uqGXowmegTB66ujUw5XlkDTxcShYuavK6FHsbYchQQTCLjcZh5iu179OFMzODLK6cOGq
+         83lA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757822083; x=1758426883;
+        d=1e100.net; s=20230601; t=1757822120; x=1758426920;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pjKVSjXysip/b5UNUwgMX+OIg9u3DNn6e0+I8Cmpn0k=;
-        b=aq1xsdffV7pBJ/jLVasi7BJID02UAsw3V2cIcuaTL25aN/MqKwgdSVWXKY+wD5PFBO
-         kEVLE0wG0ljSbx+ls62dLfcAjN8/gq55eaib6T3sAV65PQnBaSf1feig9xW7lpVp5CjM
-         fy2mpuzSH/dSKmiU/TtAGu8XCRkFIhhSNaeeaTipwOg2JRNntbqg6c6T4KTB8z1CczsQ
-         o2mroMNDmc4zWAwF0+73s9FuRhKtaKQsrNa5Hxhvb+fpyszAGZ0s00UDg1df20LT3419
-         7oyoxng1jS7vhglHbCnKGnnQY5DsoaIltr7/ssGEq2uwLMgJMQZCXiCZ+sVObB8s3DK2
-         FxDg==
-X-Forwarded-Encrypted: i=1; AJvYcCV+ComYPXTnY/Ypmv+gjtc7mqhwXp0/+ENad3t48nct5iD8J0FiWl1hVxHYcchom+izay/MTJkGd2ZN8w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywc+l+LOLpG1Kyowqvtva7YWDdlVYvMvJ6XUZVd1RNb6wPQgrqP
-	DZ8zrwYVShaiNj0Xwd1MaZlWGTm+kNoGne17WFUbnu3kCDBNBBmhHi/9
-X-Gm-Gg: ASbGncuMoRN4KsD29x20K9JveRBO+ls3IY+PUr5eWHt+mufetAYYq5+RobcMl6xKeP/
-	o8m6vNeY3Gxy8QxSC1cMJRaQJrpKAqe7iHLeA9NRRT48RsXfCUn2v3e1GTHFLg2due3A9QA+ngw
-	7MtiwLgmY//rkeAyEZ7s2GD2xhSnRNqKpW7QnFK+/sggp8YIiRXHc1hJxiw/NxXNRTdCW1TGOyS
-	DyRAn0hgnK2TaTv15S40dqghAagc68cfegBb1fEVZaaY9G5b+XfnJ9LfmHtTnbr6CFsIjzSO+vo
-	HQMsbNK7X/OAYNB+w6ac808x9PPgxFK42vasDO94cw8OthG2wuUGb+xlhTSkJFuV5xHVwLFnggb
-	uqsMxmTLfCuRuX0PtAoEE34euKt1htw==
-X-Google-Smtp-Source: AGHT+IFpMpCVJeNrUipt0dZC4eBHRTy08fiFy9cwywIocPIoMawoMDT0bJrFyHi72vkPeUNRc3Oodg==
-X-Received: by 2002:a17:906:114e:b0:b0b:35d8:248e with SMTP id a640c23a62f3a-b0b35d8267fmr237998166b.18.1757822083468;
-        Sat, 13 Sep 2025 20:54:43 -0700 (PDT)
+        bh=wOmwD5NF6m1DAFdekL887975d4wKOOnVQzHmGUBheo0=;
+        b=FeqWnYutR37GZtdQAa3FP5u7/YHdnTz6nNfL2tpRwzq2QmrlrvdWyS7cqricFvTN9K
+         OjES5KpXoEq698M71i/2YdWrrMGeZeemZajb4roPUkimt2du9mQbjsXQHrDIavRocn0t
+         kiy6rspRayJZ44Q6K/QUiP+LmeWM5ypRa1lZHx6t/DA3EvzRLm6LPf9AYMZAB5r89f3s
+         AmECUltusZGfCkisBEICjJG+LFfII2EG5fKV/Me8Sd7ByFvxLIWDJhzJtaVjKjmoYV2+
+         Qj40lS9oInvEO8456HBQ2PVf4Vquoyenwxy9CI7u1z9DQsSvmaq9GC7yPxc0w5S83AnS
+         ZlFA==
+X-Forwarded-Encrypted: i=1; AJvYcCWaC8mo28rLjOa8CXfEbOS42YA2UJjHFSPv15QufQAdxFsKGLYjGOA8WVDaSf4tD92xag35L3K8PtPSyw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUIRq0Wfz+v9IchXNlnUE46YDjPwDtXXwVfXSFhmb/ETdV5SHm
+	iHFsBMRqh/6SRqHxl0JLiBaXJUKl7w/bKlOfd1w4zfX/OCEhLZ5MXzdt
+X-Gm-Gg: ASbGnctflXAflZR8MBW8xS3T/RLzHCcvHs70v+uoKtgXtuJ+IzBP4IbdMJXrPHmX941
+	RNUWs8anSo63GOWYdwDAXAJxpCpUNsGfm7qwWM/FuyukJL7sFYJKAGFPHEHURzu35896ZfLvHZH
+	D0Lxdu0cBaWyScp80aUQj9KJZlqHQs1+wecK0gjh8UQPfY/80tZm2F2lc34qvs7PzEod5jLjd+M
+	+b8I1kt2denKSMKOC24kTBKdntSmAde0lEY2DreRqQpQAnqWIpqq2uQXTOToFcp+4ni6uPcFXZu
+	qQv1jCQgqbyTVjij5U659WazfXcJ7eJTIdxXT1Ee36D4oX3vNs3KaL/yKP1GHi/uZxz2Na3Wtn5
+	k80NO7536V3jW7DZ/Sr4=
+X-Google-Smtp-Source: AGHT+IFVXahsOiekrkN9a/Uz4eTnqleIeXBA7XQN4UsGQJ/USlX1vtxhVK0N6asLg1FonCbVUR1qZQ==
+X-Received: by 2002:a05:6402:44d2:b0:61b:ff85:398b with SMTP id 4fb4d7f45d1cf-62ed80ee786mr6900890a12.14.1757822119812;
+        Sat, 13 Sep 2025 20:55:19 -0700 (PDT)
 Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b07b32dd5a9sm665619166b.57.2025.09.13.20.54.39
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-62ec2e661a5sm6313404a12.0.2025.09.13.20.55.14
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 13 Sep 2025 20:54:43 -0700 (PDT)
+        Sat, 13 Sep 2025 20:55:18 -0700 (PDT)
 From: Askar Safin <safinaskar@gmail.com>
 To: linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -139,16 +139,16 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	Thorsten Blum <thorsten.blum@linux.dev>,
 	Heiko Carstens <hca@linux.ibm.com>,
 	patches@lists.linux.dev
-Subject: [PATCH RESEND 45/62] doc: kernel-parameters: replace [RAM] with [INITRAMFS]
-Date: Sun, 14 Sep 2025 06:54:38 +0300
-Message-ID: <20250914035438.3682240-1-safinaskar@gmail.com>
+Subject: [PATCH RESEND 46/62] init: edit docs for initramfs-related configs
+Date: Sun, 14 Sep 2025 06:55:13 +0300
+Message-ID: <20250914035513.3694090-1-safinaskar@gmail.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250913003842.41944-1-safinaskar@gmail.com>
 References: <20250913003842.41944-1-safinaskar@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_045549_660982_E4F0DD58 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20250914_045549_661698_7AD5CA74 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,117 +165,229 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Also, do other initramfs-related edits, while we are here
+This is cleanup after initrd removal
 
 Signed-off-by: Askar Safin <safinaskar@gmail.com>
 ---
- .../admin-guide/kernel-parameters.rst         |  4 ++--
- .../admin-guide/kernel-parameters.txt         | 20 +++++++++----------
- 2 files changed, 12 insertions(+), 12 deletions(-)
+ drivers/block/Kconfig |  7 ++-----
+ init/Kconfig          | 18 +++++++-----------
+ usr/Kconfig           | 42 +++++++++++++++++++++---------------------
+ 3 files changed, 30 insertions(+), 37 deletions(-)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.rst b/Documentation/admin-guide/kernel-parameters.rst
-index 39d0e7ff0965..22af6bbffc35 100644
---- a/Documentation/admin-guide/kernel-parameters.rst
-+++ b/Documentation/admin-guide/kernel-parameters.rst
-@@ -123,7 +123,7 @@ is applicable::
- 	CMA	Contiguous Memory Area support is enabled.
- 	DRM	Direct Rendering Management support is enabled.
- 	DYNAMIC_DEBUG Build in debug messages and enable them at runtime
--	EARLY	Parameter processed too early to be embedded in initrd.
-+	EARLY	Parameter processed too early to be embedded in initramfs.
- 	EDD	BIOS Enhanced Disk Drive Services (EDD) is enabled
- 	EFI	EFI Partitioning (GPT) is enabled
- 	EVM	Extended Verification Module
-@@ -134,6 +134,7 @@ is applicable::
- 	HW	Appropriate hardware is enabled.
- 	HYPER_V HYPERV support is enabled.
- 	IMA     Integrity measurement architecture is enabled.
-+	INITRAMFS Initramfs support is enabled.
- 	IP_PNP	IP DHCP, BOOTP, or RARP is enabled.
- 	IPV6	IPv6 support is enabled.
- 	ISAPNP	ISA PnP code is enabled.
-@@ -167,7 +168,6 @@ is applicable::
- 	PPT	Parallel port support is enabled.
- 	PS2	Appropriate PS/2 support is enabled.
- 	PV_OPS	A paravirtualized kernel is enabled.
--	RAM	RAM disk support is enabled.
- 	RDT	Intel Resource Director Technology.
- 	RISCV	RISCV architecture is enabled.
- 	S390	S390 architecture is enabled.
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 0805d3ebc75a..8e10abac4cc7 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -565,7 +565,7 @@
- 			Format: integer
+diff --git a/drivers/block/Kconfig b/drivers/block/Kconfig
+index 8cf06e40f61c..a268ac3dd304 100644
+--- a/drivers/block/Kconfig
++++ b/drivers/block/Kconfig
+@@ -225,9 +225,7 @@ config BLK_DEV_RAM
+ 	  Saying Y here will allow you to use a portion of your RAM memory as
+ 	  a block device, so that you can make file systems on it, read and
+ 	  write to it and do all the other things that you can do with normal
+-	  block devices (such as hard drives). It is usually used to load and
+-	  store a copy of a minimal root file system off of a floppy into RAM
+-	  during the initial install of Linux.
++	  block devices (such as hard drives).
  
- 	bootconfig	[KNL,EARLY]
--			Extended command line options can be added to an initrd
-+			Extended command line options can be added to an initramfs
- 			and this will cause the kernel to look for it.
+ 	  For details, read <file:Documentation/admin-guide/blockdev/ramdisk.rst>.
  
- 			See Documentation/admin-guide/bootconfig.rst
-@@ -1005,7 +1005,7 @@
- 			may be missing from the dump.
+@@ -244,8 +242,7 @@ config BLK_DEV_RAM_COUNT
+ 	depends on BLK_DEV_RAM
+ 	help
+ 	  The default value is 16 RAM disks. Change this if you know what you
+-	  are doing. If you boot from a filesystem that needs to be extracted
+-	  in memory, you will need at least one RAM disk (e.g. root on cramfs).
++	  are doing.
  
- 			A standard crashkernel reservation, as described above,
--			is still needed to hold the crash kernel and initrd.
-+			is still needed to hold the crash kernel and initramfs.
+ config BLK_DEV_RAM_SIZE
+ 	int "Default RAM disk size (kbytes)"
+diff --git a/init/Kconfig b/init/Kconfig
+index 0263c08960bc..1c371dca7fd4 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -1435,18 +1435,14 @@ config RELAY
+ 	  If unsure, say N.
  
- 			This option increases the risk of a kdump failure: DMA
- 			transfers configured by the first kernel may end up
-@@ -2298,7 +2298,7 @@
- 			initcall functions.  Useful for debugging built-in
- 			modules and initcalls.
+ config BLK_DEV_INITRD
+-	bool "Initial RAM filesystem and RAM disk (initramfs/initrd) support"
++	bool "Initial RAM filesystem (initramfs) support"
+ 	help
+-	  The initial RAM filesystem is a ramfs which is loaded by the
+-	  boot loader (loadlin or lilo) and that is mounted as root
++	  The initial RAM filesystem is a ramfs or tmpfs which is loaded by the
++	  boot loader and that is mounted as root
+ 	  before the normal boot procedure. It is typically used to
+ 	  load modules needed to mount the "real" root file system,
+ 	  etc. See <file:Documentation/filesystems/ramfs-rootfs-initramfs.rst> for details.
  
--	initramfs_async= [KNL]
-+	initramfs_async= [INITRAMFS,KNL]
- 			Format: <bool>
- 			Default: 1
- 			This parameter controls whether the initramfs
-@@ -2310,10 +2310,10 @@
- 			unpacking being completed before device_ and
- 			late_ initcalls.
+-	  If RAM disk support (BLK_DEV_RAM) is also included, this
+-	  also enables initial RAM disk (initrd) support and adds
+-	  15 Kbytes (more on some other architectures) to the kernel size.
+-
+ 	  If unsure say Y.
  
--	initrd=		[BOOT,EARLY] Specify the location of the initial ramdisk
-+	initrd=		[BOOT,EARLY,INITRAMFS,KNL] Same as initrdmem=
+ if BLK_DEV_INITRD
+@@ -1485,8 +1481,8 @@ config BOOT_CONFIG_EMBED
+ 	depends on BOOT_CONFIG
+ 	help
+ 	  Embed a bootconfig file given by BOOT_CONFIG_EMBED_FILE in the
+-	  kernel. Usually, the bootconfig file is loaded with the initrd
+-	  image. But if the system doesn't support initrd, this option will
++	  kernel. Usually, the bootconfig file is loaded with the initramfs.
++	  But if the system doesn't support initramfs, this option will
+ 	  help you by embedding a bootconfig file while building the kernel.
  
--	initrdmem=	[KNL,EARLY] Specify a physical address and size from which to
--			load the initrd. If an initrd is compiled in or
-+	initrdmem=	[BOOT,EARLY,INITRAMFS,KNL] Specify a physical address and size from which to
-+			load initramfs. If initramfs is compiled in or
- 			specified in the bootparams, it takes priority over this
- 			setting.
- 			Format: ss[KMG],nn[KMG]
-@@ -2749,7 +2749,7 @@
- 			between unregistering the boot console and initializing
- 			the real console.
+ 	  If unsure, say N.
+@@ -1496,8 +1492,8 @@ config BOOT_CONFIG_EMBED_FILE
+ 	depends on BOOT_CONFIG_EMBED
+ 	help
+ 	  Specify a bootconfig file which will be embedded to the kernel.
+-	  This bootconfig will be used if there is no initrd or no other
+-	  bootconfig in the initrd.
++	  This bootconfig will be used if there is no initramfs or no other
++	  bootconfig in the initramfs.
  
--	keepinitrd	[HW,ARM] See retain_initrd.
-+	keepinitrd	[HW,ARM,INITRAMFS] See retain_initrd.
+ config INITRAMFS_PRESERVE_MTIME
+ 	bool "Preserve cpio archive mtimes in initramfs"
+diff --git a/usr/Kconfig b/usr/Kconfig
+index 9279a2893ab0..8899353bd7d5 100644
+--- a/usr/Kconfig
++++ b/usr/Kconfig
+@@ -27,7 +27,7 @@ config INITRAMFS_FORCE
+ 	depends on CMDLINE_EXTEND || CMDLINE_FORCE
+ 	help
+ 	  This option causes the kernel to ignore the initramfs image
+-	  (or initrd image) passed to it by the bootloader. This is
++	  passed to it by the bootloader. This is
+ 	  analogous to CMDLINE_FORCE, which is found on some architectures,
+ 	  and is useful if you cannot or don't want to change the image
+ 	  your bootloader passes to the kernel.
+@@ -53,59 +53,59 @@ config INITRAMFS_ROOT_GID
+ 	  If you are not sure, leave it set to "0".
  
- 	kernelcore=	[KNL,X86,PPC,EARLY]
- 			Format: nn[KMGTPE] | nn% | "mirror"
-@@ -6129,8 +6129,8 @@
+ config RD_GZIP
+-	bool "Support initial ramdisk/ramfs compressed using gzip"
++	bool "Support initial ramfs compressed using gzip"
+ 	default y
+ 	select DECOMPRESS_GZIP
+ 	help
+-	  Support loading of a gzip encoded initial ramdisk or cpio buffer.
++	  Support loading of a gzip encoded initial ramfs.
+ 	  If unsure, say Y.
  
- 	rdinit=		[KNL]
- 			Format: <full_path>
--			Run specified binary instead of /init from the ramdisk,
--			used for early userspace startup. See initrd.
-+			Run specified binary instead of /init from initramfs,
-+			used for early userspace startup.
+ config RD_BZIP2
+-	bool "Support initial ramdisk/ramfs compressed using bzip2"
++	bool "Support initial ramfs compressed using bzip2"
+ 	default y
+ 	select DECOMPRESS_BZIP2
+ 	help
+-	  Support loading of a bzip2 encoded initial ramdisk or cpio buffer
++	  Support loading of a bzip2 encoded initial ramfs.
+ 	  If unsure, say N.
  
- 	rdrand=		[X86,EARLY]
- 			force - Override the decision by the kernel to hide the
-@@ -6324,7 +6324,7 @@
- 			Useful for devices that are detected asynchronously
- 			(e.g. USB and MMC devices).
+ config RD_LZMA
+-	bool "Support initial ramdisk/ramfs compressed using LZMA"
++	bool "Support initial ramfs compressed using LZMA"
+ 	default y
+ 	select DECOMPRESS_LZMA
+ 	help
+-	  Support loading of a LZMA encoded initial ramdisk or cpio buffer
++	  Support loading of a LZMA encoded initial ramfs.
+ 	  If unsure, say N.
  
--	retain_initrd	[RAM] Keep initrd memory after extraction. After boot, it will
-+	retain_initrd	[INITRAMFS] Keep initramfs memory after extraction. After boot, it will
- 			be accessible via /sys/firmware/initrd.
+ config RD_XZ
+-	bool "Support initial ramdisk/ramfs compressed using XZ"
++	bool "Support initial ramfs compressed using XZ"
+ 	default y
+ 	select DECOMPRESS_XZ
+ 	help
+-	  Support loading of a XZ encoded initial ramdisk or cpio buffer.
++	  Support loading of a XZ encoded initial ramfs.
+ 	  If unsure, say N.
  
- 	retbleed=	[X86] Control mitigation of RETBleed (Arbitrary
+ config RD_LZO
+-	bool "Support initial ramdisk/ramfs compressed using LZO"
++	bool "Support initial ramfs compressed using LZO"
+ 	default y
+ 	select DECOMPRESS_LZO
+ 	help
+-	  Support loading of a LZO encoded initial ramdisk or cpio buffer
++	  Support loading of a LZO encoded initial ramfs.
+ 	  If unsure, say N.
+ 
+ config RD_LZ4
+-	bool "Support initial ramdisk/ramfs compressed using LZ4"
++	bool "Support initial ramfs compressed using LZ4"
+ 	default y
+ 	select DECOMPRESS_LZ4
+ 	help
+-	  Support loading of a LZ4 encoded initial ramdisk or cpio buffer
++	  Support loading of a LZ4 encoded initial ramfs.
+ 	  If unsure, say N.
+ 
+ config RD_ZSTD
+-	bool "Support initial ramdisk/ramfs compressed using ZSTD"
++	bool "Support initial ramfs compressed using ZSTD"
+ 	default y
+ 	select DECOMPRESS_ZSTD
+ 	help
+-	  Support loading of a ZSTD encoded initial ramdisk or cpio buffer.
++	  Support loading of a ZSTD encoded initial ramfs.
+ 	  If unsure, say N.
+ 
+ choice
+@@ -127,7 +127,7 @@ choice
+ 	  boot.
+ 
+ 	  Keep in mind that your build system needs to provide the appropriate
+-	  compression tool to compress the generated initram cpio file for
++	  compression tool to compress the generated initramfs cpio file for
+ 	  embedding.
+ 
+ 	  If in doubt, select 'None'
+@@ -153,7 +153,7 @@ config INITRAMFS_COMPRESSION_BZIP2
+ 	  booting.
+ 
+ 	  If you choose this, keep in mind that you need to have the bzip2 tool
+-	  available to be able to compress the initram.
++	  available to be able to compress the initramfs.
+ 
+ config INITRAMFS_COMPRESSION_LZMA
+ 	bool "LZMA"
+@@ -166,7 +166,7 @@ config INITRAMFS_COMPRESSION_LZMA
+ 	  comparison to gzip.
+ 
+ 	  If you choose this, keep in mind that you may need to install the xz
+-	  or lzma tools to be able to compress the initram.
++	  or lzma tools to be able to compress the initramfs.
+ 
+ config INITRAMFS_COMPRESSION_XZ
+ 	bool "XZ"
+@@ -179,7 +179,7 @@ config INITRAMFS_COMPRESSION_XZ
+ 	  slow.
+ 
+ 	  If you choose this, keep in mind that you may need to install the xz
+-	  tool to be able to compress the initram.
++	  tool to be able to compress the initramfs.
+ 
+ config INITRAMFS_COMPRESSION_LZO
+ 	bool "LZO"
+@@ -191,7 +191,7 @@ config INITRAMFS_COMPRESSION_LZO
+ 	  is quite fast too.
+ 
+ 	  If you choose this, keep in mind that you may need to install the lzop
+-	  tool to be able to compress the initram.
++	  tool to be able to compress the initramfs.
+ 
+ config INITRAMFS_COMPRESSION_LZ4
+ 	bool "LZ4"
+@@ -213,7 +213,7 @@ config INITRAMFS_COMPRESSION_ZSTD
+ 	  decompress around the same speed as LZO, but slower than LZ4.
+ 
+ 	  If you choose this, keep in mind that you may need to install the zstd
+-	  tool to be able to compress the initram.
++	  tool to be able to compress the initramfs.
+ 
+ config INITRAMFS_COMPRESSION_NONE
+ 	bool "None"
 -- 
 2.47.2
 
