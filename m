@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEDAECAC582
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 04:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B14ACAC58F
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 04:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=80RHavz3RbYQEwEU55I4xL8s/P8Z869FZm7C0sa5HQ4=; b=e4QYX2ALOOto/h
-	XiuTl4m9ZRK3UZIF79nfvaUKbPOxFfEHGKxz/RUCP9+3OQ7EtJfTP77yxrqLd9XLVozOLCY24H+TA
-	XTBF3+flVobdY5uv+kWW4hkZTdjPYUrsCxwqc+0B4xj0eNGi8ZZukLs3/0Mj7cYAvSSJFDQYKABZu
-	vnpFTB6o6fSPhDB+wkOGKt9Ew3N/Q1mxq2WlaO0YjVM+CvyOjXggf6xfGnIH2fFRnC6N5MFRQ3XBJ
-	NUSBZSHa4JaMFizpB6yBzvLTQy1swa+nj8anbbR927w2aV+Fy9GNyk4rGRbhLrwG6lyNqEfIejgyY
-	E/gjiinFkNWHgK29F6MA==;
+	List-Owner; bh=4UUekD0o4Q43XcqnOOIpFPYgMpN135j2JoskdZWmCHw=; b=bCDAf/QEBF9odM
+	5IBXWVqkFGzpNv8KWWouzjrwJ2G+vR62PUcLlGfGx6sWtoWAfc0/NmTHZASCJ2Zd9SK7zroQgoQnG
+	/DoKFmszOJdcvhVDfpf1VUjEf35n2OxWJjSN9AAru7AbU77xRSxgo/EH6cKnO4to6fV7xmzcZ0ECX
+	zw7h/aJ1prkdqNmjkpntaIPH/n8zTIFZTOiZGE9hwEyrYum+OgcuYfa/Drs6dZqJbRReGu0HOUtY9
+	7szdbpSg7JDP/Jvv/HCRV6sRi1CHjqLSi66MN3mU3P4t373dSQUg7lggdyjUtHaUV7Hw5rpNj1iNM
+	EC7gK/tUSycNo1umYJCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxduQ-0000000HQ8x-1UCY;
-	Sun, 14 Sep 2025 04:00:14 +0000
+	id 1uxdve-0000000HQfc-0FCk;
+	Sun, 14 Sep 2025 04:01:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxduO-0000000HQ7m-3gXC
+	id 1uxdvc-0000000HQeJ-2nVd
 	for linux-riscv@bombadil.infradead.org;
-	Sun, 14 Sep 2025 04:00:13 +0000
+	Sun, 14 Sep 2025 04:01:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=sPu72pvE4Wbo60re69UImAF/YSQlNTTbxtv7CBRvcjs=; b=pDtpHZM3+usTlg9cjFGLsieaeG
-	qjTSN5yUD68SIdbWtkHFyW22YttNW5qctBxHXmEjY96ONCweOpPZYDYubWhwmKGwPyPh0xXdnB1v2
-	PnZGy1XZxJokKsIKa+4Kini6RXLtjVbDv+UNao1oxMaO4YdgU0yYg8t3ex5FsfAYHI0b+LKy7lZLx
-	onQaURq8KO7Hx7r33DsqOHRq5vaxFEhotgRMM+bHyXKFT/6L8mS9vZTqh2eyYxsSGWXWvMtiW5jrS
-	v7wFbOIHH89WDHnr58tzJx3xrtwrU6BRcyfM+wV66c+rkafu4mcaHfS/LSRUiLgmKy/34b9fj+pW0
-	+iGujgkA==;
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	bh=VwNZ1dGhSyiZay2XNiU9ezAgD/oIZHhpGCNy2W223z4=; b=CRCO+WLsQFyhKUHq/V4F9khr3s
+	lYDspZ2iKXHrsLjMl3Y9MN39h514G+Kb+WFvE5B2D75BXueoE1kdB14/9I3JJcGZW7T1375FKEvbY
+	EfG5xzVtLAIgdlp+Eooy5/RjFYV/kJ6KwohtsfRgqxcaXZRiwGqQzX//afi+kifHOZDdII52Ro+tJ
+	tp47wPgwbI0Pqca1L7Ls+7tMlL26c7YHw67UO0b3X4R+49WWO0IyC5coRBXHYokivpvnxrVm+QkXA
+	bjooUb7HC8SYb4VHpPzLO/XRkC8+VV80xPfvgTXCx3wrlTyzHdFxVLaWIoz3J1/ISxqPBvvS+SHbQ
+	vzpAMZIA==;
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxduL-00000006iUs-1s03
+	id 1uxdvW-00000006iXr-3bGv
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 Sep 2025 04:00:11 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b07d01fd4fbso242258666b.0
-        for <linux-riscv@lists.infradead.org>; Sat, 13 Sep 2025 21:00:08 -0700 (PDT)
+	Sun, 14 Sep 2025 04:01:26 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-62f1987d53aso720677a12.0
+        for <linux-riscv@lists.infradead.org>; Sat, 13 Sep 2025 21:01:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757822408; x=1758427208; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757822481; x=1758427281; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=sPu72pvE4Wbo60re69UImAF/YSQlNTTbxtv7CBRvcjs=;
-        b=nOWQEh+3PEQIHLxKQxnVUqchcUlGm/qxCESYmSPC06HT1Jmtxqh2d32XIWZiMWzUV5
-         4dTlnNjUQ1UOUP5GTTk6L6J7LsCl+AzYGXu1URpKv8QgKbqqjFK+2bFsItIVCQL47aR7
-         INn1TneuQNgblEDuCFmgR+QtGZHkzBFI6aM/BOBwz17WOICSOz52CZ1xEUj32K3bb1BR
-         TvzJQ2H+NyieXC8mXZUPT86lczGwvucdxSVYrTriT2k/8y779kLXjfipQvqWQNpTwfN0
-         3PFOiHiMogU3JAnn2aQsEuLhNrdK/JbPLUn/5gJWgwXPXk133YGSGAdESR5Hk32EM6by
-         VuYA==
+        bh=VwNZ1dGhSyiZay2XNiU9ezAgD/oIZHhpGCNy2W223z4=;
+        b=bb/+YgaoJrkiIgRL7cBDqCXsIeNEbxJz2EvKSoDFVYCw0kK/Fcrtx/ARiSNhG251rf
+         cC+kZnzpVVKukmoYuQEzTR09T+4gaJrW+8p6F+qOmT7kowiDCUp1TFEXiTcxaev1h1/5
+         rSZQ5QrTGlMUaQp2P1nDKJTP5mJDO8QBblcdQR49rjKx4d5oTKeKHWCbcwrsN5GEGzlD
+         h6EBGNThYNdQXvbyX9rikW+4ITTyLsMAr+0gqrK0aQUBcfEjhVAR+3mk7jPNQJU0m6fz
+         hD4DpGXiCIaSC+tJlYyX7qU5npACQKTRXxIZODkZcPai0geLh3tABY7R8Lx6uBefAS1S
+         zo8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757822408; x=1758427208;
+        d=1e100.net; s=20230601; t=1757822481; x=1758427281;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=sPu72pvE4Wbo60re69UImAF/YSQlNTTbxtv7CBRvcjs=;
-        b=fPD6UzBnVMl6FyhG1Ensvkj7cyTR1vpWY8xYBtHVOJdVta7uYShpLTvjuYIl2JO9oq
-         dsGFwVZRzlfr8psx1itQO0TBX4CWEc4ddoQRUugCO8jElEdwRgqL/PdW2tNzIM3rm5+w
-         SmHNsyTYE/ixWe6GJ4tkOflE33fSaWN6dXfVUl+qie6shx3oNwyuu18PmCal3cNGzApE
-         1qVouSR6bha3ZABwDVi4l6SIQFTTiryarK5Mpm9ueusPRX5n4sTp4YQpqyhK7NE1KtMF
-         z2r6YXM/ryBrA9k06EtMrehPcVIxKvDuu2MdYdpqRRYHvDd3Du495WcYr5+D5kekv0mt
-         RKyA==
-X-Forwarded-Encrypted: i=1; AJvYcCWmjkFC82v/mgGULS+0duvSePIchYtt+7I6D5fbqfLMmKBYC2ba2j+WlVWFNku22NttatIgLbljBRv5yA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzz0+/6c0xtyW2Josqx7jhFVF8WlyOmy9mbh9uuVKUMlAu6m/D/
-	+HHL6l4+KUMFj+im7ggPa3TuUEY7JaYin4j6YtmCf+7dIzZv1fh2Z1hi
-X-Gm-Gg: ASbGncsH4r6225wXB1zC+h+wEhwqic+HUZcJvUS/UeSNtV+sXjeY+h3NArJopW4EKbp
-	ga+nNPVbSWxlZJVi6kj775Dlp9N8zo3ml1KOrOtXlglT4rJtz6lxUl0o550tCYE5dXAoeklNWGS
-	5LbIu7zQolRVtmXuFJ6rqdcrCttjyFggq3T2hXZkfSnQamKqauUUQnDCFByx6s419h+EHVc/SFY
-	5udOThR3E6abpC92zvJzBOSgLfbpvyCDC74HcQILTuGpbe48qRqAtNIlQmCgw9Cr9UZfV2gP+f5
-	bDfmKoZ3RfNdgqEf0DbGiDV+4iLHhDf2LGHOXjI9jPYCfr1Pho4TXbFg65HuBeB4BY3Vy5oWJZ3
-	j0kEW7ma7zYNcNGjGCkU=
-X-Google-Smtp-Source: AGHT+IEl+TZwxB50+bcUbtwQ17obwnzKEwTqhOZYOAPQC+b9EZK3iFYtQ6uoMv0unkK0mvoXQKHChg==
-X-Received: by 2002:a17:907:3e1e:b0:afe:35d:fd5d with SMTP id a640c23a62f3a-b07c3475927mr787189666b.1.1757822407322;
-        Sat, 13 Sep 2025 21:00:07 -0700 (PDT)
+        bh=VwNZ1dGhSyiZay2XNiU9ezAgD/oIZHhpGCNy2W223z4=;
+        b=I28ZmH+o59SsXeim6jxGZYt6jtJHZeX8aJRFDQtyXFhhU7laURFNJ49zBNBBvrfdIF
+         5+FdCFZbdXsr/zoBZYuYZv6KF8PKI38w/2DHHr5yF1kD5x2+3IgorfhzjPzoISh4sTQk
+         +4tZlpwmVyKfK3cdpwaBx6oAwhPLcFa2PyZ45rOPYXP6JOx4Rf/dqa4SWTa6fBNSFeFD
+         tQiVuN9AZ6sLr6XEYu4sSZQ9vUcIFhiv0wliRkBxGamPtv1yoyoRKZnM6iSHEG937zVD
+         hmCL0ki+A0+ABvSDpaKVC2WmRQ8iJN7LI/bPGpfqOS1N22wZAGS5GIg08iJZwKZW06II
+         AvPg==
+X-Forwarded-Encrypted: i=1; AJvYcCW5419rLd0jqTbIsQkvv3GBevzSEftycFj6QhxyTNdeMIqIDSaNQciRQHIoE0VYLSs/E+RrLPC/T0rGpw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+fAxcKbOZU5xm+U1rZPD+mzzsqnmFhK4qfV1Ph3/Jgw8QRR3v
+	MS8HZxWuddg0L126fuOu6+0zbp2WaQjnh7QU3CyxK2b28+cEHNhWBx5Z
+X-Gm-Gg: ASbGncvpc1Z31fm9thCupoS1yFAJfIFA/jiGybaFRjwmzIxFxGf+VYkWble92VypGKB
+	onk61eQUA9xuaXAd4h8fYF0WY1uPfPvAS3LbUY2bccNr0vEVt/v0ra7kL/u+jPe5clGy4ALZaoL
+	qT3Wsn7o91lfcHu4K+/iM/ladT+g+1IJdZMkAan/H3IfqlAm2vdtbdAxmUGIYCdtkmkk3NW007E
+	sdGwurWMIuRS7TmIRWQX+zl6Z7hsDfeE5MRbl1QrzK5Nz8nhBiqxBZrYxGZAgTvYKWff5kVDoHX
+	DnBDRN6Vazxy0JEZ/A/ieCexuei8s7Z5sm0S5f/9rosqSA+MVjceIKYtj3gbqi5X3BNbvTIgdi2
+	XBxj684TFkRtBm1ndyWfH9Kp0kExOYeZ3VdO2hMrA
+X-Google-Smtp-Source: AGHT+IFULnpNvXsN8iyaJQvxHQtijyFN7+GqapflbxpSh737GK1sqeditLl7Ifn9jo0c7UhvyyAB9w==
+X-Received: by 2002:a05:6402:5107:b0:62a:82e8:e1bd with SMTP id 4fb4d7f45d1cf-62ed82b22cbmr8144850a12.32.1757822480960;
+        Sat, 13 Sep 2025 21:01:20 -0700 (PDT)
 Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b07b32ef574sm682456966b.73.2025.09.13.21.00.03
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-62ec33f57dbsm6450117a12.25.2025.09.13.21.01.15
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 13 Sep 2025 21:00:06 -0700 (PDT)
+        Sat, 13 Sep 2025 21:01:19 -0700 (PDT)
 From: Askar Safin <safinaskar@gmail.com>
 To: linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -139,16 +139,16 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	Thorsten Blum <thorsten.blum@linux.dev>,
 	Heiko Carstens <hca@linux.ibm.com>,
 	patches@lists.linux.dev
-Subject: [PATCH RESEND 54/62] init: arm, x86: deal with some references to initrd
-Date: Sun, 14 Sep 2025 07:00:01 +0300
-Message-ID: <20250914040002.3779907-1-safinaskar@gmail.com>
+Subject: [PATCH RESEND 56/62] init: rename CONFIG_RD_GZIP to CONFIG_INITRAMFS_DECOMPRESS_GZIP
+Date: Sun, 14 Sep 2025 07:01:13 +0300
+Message-ID: <20250914040114.3796281-1-safinaskar@gmail.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250913003842.41944-1-safinaskar@gmail.com>
 References: <20250913003842.41944-1-safinaskar@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_050010_022996_4536D91E 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20250914_050123_965145_D7B1CE61 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,217 +165,206 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-...in comments and printk
+Initrd support was removed,
+and CONFIG_RD_GZIP has nothing to do with ramdisks.
+
+Update your configs
 
 Signed-off-by: Askar Safin <safinaskar@gmail.com>
 ---
- arch/arm/mm/init.c      |  2 +-
- arch/x86/kernel/setup.c | 10 +++++-----
- arch/x86/mm/init.c      |  2 +-
- init/initramfs.c        | 18 +++++++++---------
- init/main.c             | 12 ++++++------
- 5 files changed, 22 insertions(+), 22 deletions(-)
+ arch/arc/configs/tb10x_defconfig           | 2 +-
+ arch/arm/configs/sp7021_defconfig          | 2 +-
+ arch/mips/configs/ath25_defconfig          | 2 +-
+ arch/mips/configs/ath79_defconfig          | 2 +-
+ arch/mips/configs/bmips_stb_defconfig      | 2 +-
+ arch/mips/configs/rt305x_defconfig         | 2 +-
+ arch/mips/configs/xway_defconfig           | 2 +-
+ arch/openrisc/configs/or1ksim_defconfig    | 2 +-
+ arch/openrisc/configs/simple_smp_defconfig | 2 +-
+ arch/powerpc/configs/mgcoge_defconfig      | 2 +-
+ arch/powerpc/configs/skiroot_defconfig     | 2 +-
+ arch/riscv/configs/nommu_k210_defconfig    | 2 +-
+ usr/Kconfig                                | 4 ++--
+ 13 files changed, 14 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
-index ae5921db626e..04ba9b385e24 100644
---- a/arch/arm/mm/init.c
-+++ b/arch/arm/mm/init.c
-@@ -445,7 +445,7 @@ void free_initramfs_mem(unsigned long start, unsigned long end)
- 		end = round_up(end, PAGE_SIZE);
+diff --git a/arch/arc/configs/tb10x_defconfig b/arch/arc/configs/tb10x_defconfig
+index 26a06eb336df..f177600a527a 100644
+--- a/arch/arc/configs/tb10x_defconfig
++++ b/arch/arc/configs/tb10x_defconfig
+@@ -13,7 +13,7 @@ CONFIG_INITRAMFS=y
+ CONFIG_INITRAMFS_SOURCE="../tb10x-rootfs.cpio"
+ CONFIG_INITRAMFS_ROOT_UID=2100
+ CONFIG_INITRAMFS_ROOT_GID=501
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ CONFIG_KALLSYMS_ALL=y
+ # CONFIG_AIO is not set
+ CONFIG_EXPERT=y
+diff --git a/arch/arm/configs/sp7021_defconfig b/arch/arm/configs/sp7021_defconfig
+index ec723401b440..30cfafc49ec9 100644
+--- a/arch/arm/configs/sp7021_defconfig
++++ b/arch/arm/configs/sp7021_defconfig
+@@ -5,7 +5,7 @@ CONFIG_PREEMPT=y
+ CONFIG_IKCONFIG=y
+ CONFIG_IKCONFIG_PROC=y
+ CONFIG_LOG_BUF_SHIFT=14
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ # CONFIG_RD_BZIP2 is not set
+ # CONFIG_RD_LZMA is not set
+ # CONFIG_RD_XZ is not set
+diff --git a/arch/mips/configs/ath25_defconfig b/arch/mips/configs/ath25_defconfig
+index cb16a1f18db8..58ae5f9726a0 100644
+--- a/arch/mips/configs/ath25_defconfig
++++ b/arch/mips/configs/ath25_defconfig
+@@ -3,7 +3,7 @@ CONFIG_SYSVIPC=y
+ # CONFIG_CROSS_MEMORY_ATTACH is not set
+ CONFIG_HIGH_RES_TIMERS=y
+ CONFIG_INITRAMFS=y
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ # CONFIG_RD_BZIP2 is not set
+ # CONFIG_RD_XZ is not set
+ # CONFIG_RD_LZO is not set
+diff --git a/arch/mips/configs/ath79_defconfig b/arch/mips/configs/ath79_defconfig
+index 014bb1107b86..500b94dfc6c1 100644
+--- a/arch/mips/configs/ath79_defconfig
++++ b/arch/mips/configs/ath79_defconfig
+@@ -2,7 +2,7 @@
+ CONFIG_SYSVIPC=y
+ CONFIG_HIGH_RES_TIMERS=y
+ CONFIG_INITRAMFS=y
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ # CONFIG_AIO is not set
+ # CONFIG_KALLSYMS is not set
+ CONFIG_EXPERT=y
+diff --git a/arch/mips/configs/bmips_stb_defconfig b/arch/mips/configs/bmips_stb_defconfig
+index ed4d4be772be..2217a3ca5b72 100644
+--- a/arch/mips/configs/bmips_stb_defconfig
++++ b/arch/mips/configs/bmips_stb_defconfig
+@@ -14,7 +14,7 @@ CONFIG_SMP=y
+ CONFIG_NR_CPUS=4
+ # CONFIG_SECCOMP is not set
+ CONFIG_MIPS_O32_FP64_SUPPORT=y
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ # CONFIG_RD_BZIP2 is not set
+ # CONFIG_RD_LZMA is not set
+ CONFIG_RD_XZ=y
+diff --git a/arch/mips/configs/rt305x_defconfig b/arch/mips/configs/rt305x_defconfig
+index bf4dd5930876..9102f9ebcf88 100644
+--- a/arch/mips/configs/rt305x_defconfig
++++ b/arch/mips/configs/rt305x_defconfig
+@@ -3,7 +3,7 @@ CONFIG_SYSVIPC=y
+ # CONFIG_CROSS_MEMORY_ATTACH is not set
+ CONFIG_HIGH_RES_TIMERS=y
+ CONFIG_INITRAMFS=y
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+ # CONFIG_AIO is not set
+ CONFIG_KALLSYMS_ALL=y
+diff --git a/arch/mips/configs/xway_defconfig b/arch/mips/configs/xway_defconfig
+index 41d0d7d8cb6c..fa49183a4147 100644
+--- a/arch/mips/configs/xway_defconfig
++++ b/arch/mips/configs/xway_defconfig
+@@ -3,7 +3,7 @@ CONFIG_SYSVIPC=y
+ # CONFIG_CROSS_MEMORY_ATTACH is not set
+ CONFIG_HIGH_RES_TIMERS=y
+ CONFIG_INITRAMFS=y
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+ # CONFIG_AIO is not set
+ CONFIG_KALLSYMS_ALL=y
+diff --git a/arch/openrisc/configs/or1ksim_defconfig b/arch/openrisc/configs/or1ksim_defconfig
+index 96578bfb7159..56ddb48f7955 100644
+--- a/arch/openrisc/configs/or1ksim_defconfig
++++ b/arch/openrisc/configs/or1ksim_defconfig
+@@ -1,7 +1,7 @@
+ CONFIG_NO_HZ=y
+ CONFIG_LOG_BUF_SHIFT=14
+ CONFIG_INITRAMFS=y
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ CONFIG_EXPERT=y
+ # CONFIG_KALLSYMS is not set
+ # CONFIG_EPOLL is not set
+diff --git a/arch/openrisc/configs/simple_smp_defconfig b/arch/openrisc/configs/simple_smp_defconfig
+index f7c807b32d50..e4aaaeaec7a8 100644
+--- a/arch/openrisc/configs/simple_smp_defconfig
++++ b/arch/openrisc/configs/simple_smp_defconfig
+@@ -2,7 +2,7 @@ CONFIG_LOCALVERSION="-simple-smp"
+ CONFIG_NO_HZ=y
+ CONFIG_LOG_BUF_SHIFT=14
+ CONFIG_INITRAMFS=y
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ # CONFIG_RD_BZIP2 is not set
+ # CONFIG_RD_LZMA is not set
+ # CONFIG_RD_XZ is not set
+diff --git a/arch/powerpc/configs/mgcoge_defconfig b/arch/powerpc/configs/mgcoge_defconfig
+index 1b782855c84a..6d543b9f0bc6 100644
+--- a/arch/powerpc/configs/mgcoge_defconfig
++++ b/arch/powerpc/configs/mgcoge_defconfig
+@@ -6,7 +6,7 @@ CONFIG_IKCONFIG=y
+ CONFIG_IKCONFIG_PROC=y
+ CONFIG_LOG_BUF_SHIFT=14
+ CONFIG_INITRAMFS=y
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ CONFIG_KALLSYMS_ALL=y
+ # CONFIG_PCSPKR_PLATFORM is not set
+ CONFIG_EXPERT=y
+diff --git a/arch/powerpc/configs/skiroot_defconfig b/arch/powerpc/configs/skiroot_defconfig
+index 1611e15a72f3..9a6ef1d8ca44 100644
+--- a/arch/powerpc/configs/skiroot_defconfig
++++ b/arch/powerpc/configs/skiroot_defconfig
+@@ -10,7 +10,7 @@ CONFIG_IKCONFIG=y
+ CONFIG_IKCONFIG_PROC=y
+ CONFIG_LOG_BUF_SHIFT=20
+ CONFIG_INITRAMFS=y
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ # CONFIG_RD_BZIP2 is not set
+ # CONFIG_RD_LZMA is not set
+ # CONFIG_RD_LZO is not set
+diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
+index 7824f13e84f3..a1fa77563bb8 100644
+--- a/arch/riscv/configs/nommu_k210_defconfig
++++ b/arch/riscv/configs/nommu_k210_defconfig
+@@ -1,7 +1,7 @@
+ # CONFIG_CPU_ISOLATION is not set
+ CONFIG_LOG_BUF_SHIFT=13
+ CONFIG_INITRAMFS=y
+-# CONFIG_RD_GZIP is not set
++# CONFIG_INITRAMFS_DECOMPRESS_GZIP is not set
+ # CONFIG_RD_BZIP2 is not set
+ # CONFIG_RD_LZMA is not set
+ # CONFIG_RD_XZ is not set
+diff --git a/usr/Kconfig b/usr/Kconfig
+index 8899353bd7d5..cf3c7539e3dc 100644
+--- a/usr/Kconfig
++++ b/usr/Kconfig
+@@ -52,7 +52,7 @@ config INITRAMFS_ROOT_GID
  
- 	poison_init_mem((void *)start, PAGE_ALIGN(end) - start);
--	free_reserved_area((void *)start, (void *)end, -1, "initrd");
-+	free_reserved_area((void *)start, (void *)end, -1, "initramfs");
- }
- #endif
+ 	  If you are not sure, leave it set to "0".
  
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 3b88d156ed39..65670e0f59c0 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -325,19 +325,19 @@ static void __init relocate_initrd(void)
- 	u64 relocated_ramdisk = memblock_phys_alloc_range(area_size, PAGE_SIZE, 0,
- 						      PFN_PHYS(max_pfn_mapped));
- 	if (!relocated_ramdisk)
--		panic("Cannot find place for new RAMDISK of size %lld\n",
-+		panic("Cannot find place for new INITRAMFS of size %lld\n",
- 		      ramdisk_size);
+-config RD_GZIP
++config INITRAMFS_DECOMPRESS_GZIP
+ 	bool "Support initial ramfs compressed using gzip"
+ 	default y
+ 	select DECOMPRESS_GZIP
+@@ -134,7 +134,7 @@ choice
  
- 	virt_external_initramfs_start = relocated_ramdisk + PAGE_OFFSET;
- 	virt_external_initramfs_end   = virt_external_initramfs_start + ramdisk_size;
--	printk(KERN_INFO "Allocated new RAMDISK: [mem %#010llx-%#010llx]\n",
-+	printk(KERN_INFO "Allocated new INITRAMFS: [mem %#010llx-%#010llx]\n",
- 	       relocated_ramdisk, relocated_ramdisk + ramdisk_size - 1);
- 
- 	ret = copy_from_early_mem((void *)virt_external_initramfs_start, ramdisk_image, ramdisk_size);
- 	if (ret)
--		panic("Copy RAMDISK failed\n");
-+		panic("Copy INITRAMFS failed\n");
- 
--	printk(KERN_INFO "Move RAMDISK from [mem %#010llx-%#010llx] to"
-+	printk(KERN_INFO "Move INITRAMFS from [mem %#010llx-%#010llx] to"
- 		" [mem %#010llx-%#010llx]\n",
- 		ramdisk_image, ramdisk_image + ramdisk_size - 1,
- 		relocated_ramdisk, relocated_ramdisk + ramdisk_size - 1);
-@@ -370,7 +370,7 @@ static void __init reserve_initrd(void)
- 
- 	virt_external_initramfs_start = 0;
- 
--	printk(KERN_INFO "RAMDISK: [mem %#010llx-%#010llx]\n", ramdisk_image,
-+	printk(KERN_INFO "INITRAMFS: [mem %#010llx-%#010llx]\n", ramdisk_image,
- 			ramdisk_end - 1);
- 
- 	if (pfn_range_is_mapped(PFN_DOWN(ramdisk_image),
-diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
-index b7c45004f999..51b632f7fd21 100644
---- a/arch/x86/mm/init.c
-+++ b/arch/x86/mm/init.c
-@@ -992,7 +992,7 @@ void __init free_initramfs_mem(unsigned long start, unsigned long end)
- 	 *   - relocate_initrd()
- 	 * So here We can do PAGE_ALIGN() safely to get partial page to be freed
- 	 */
--	free_init_pages("initrd", start, PAGE_ALIGN(end));
-+	free_init_pages("initramfs", start, PAGE_ALIGN(end));
- }
- #endif
- 
-diff --git a/init/initramfs.c b/init/initramfs.c
-index d52314b17c25..348cfcc4c95e 100644
---- a/init/initramfs.c
-+++ b/init/initramfs.c
-@@ -643,7 +643,7 @@ void __init reserve_initramfs_mem(void)
- 		return;
- 	/*
- 	 * Round the memory region to page boundaries as per free_initramfs_mem()
--	 * This allows us to detect whether the pages overlapping the initrd
-+	 * This allows us to detect whether the pages overlapping the initramfs
- 	 * are in use, but more importantly, reserves the entire set of pages
- 	 * as we don't want these pages allocated for other purposes.
- 	 */
-@@ -652,26 +652,26 @@ void __init reserve_initramfs_mem(void)
- 	size = round_up(size, PAGE_SIZE);
- 
- 	if (!memblock_is_region_memory(start, size)) {
--		pr_err("INITRD: 0x%08llx+0x%08lx is not a memory region",
-+		pr_err("INITRAMFS: 0x%08llx+0x%08lx is not a memory region",
- 		       (u64)start, size);
- 		goto disable;
- 	}
- 
- 	if (memblock_is_region_reserved(start, size)) {
--		pr_err("INITRD: 0x%08llx+0x%08lx overlaps in-use memory region\n",
-+		pr_err("INITRAMFS: 0x%08llx+0x%08lx overlaps in-use memory region\n",
- 		       (u64)start, size);
- 		goto disable;
- 	}
- 
- 	memblock_reserve(start, size);
--	/* Now convert initrd to virtual addresses */
-+	/* Now convert initramfs to virtual addresses */
- 	virt_external_initramfs_start = (unsigned long)__va(phys_external_initramfs_start);
- 	virt_external_initramfs_end = virt_external_initramfs_start + phys_external_initramfs_size;
- 	initramfs_below_start_ok = 1;
- 
- 	return;
- disable:
--	pr_cont(" - disabling initrd\n");
-+	pr_cont(" - disabling initramfs\n");
- 	virt_external_initramfs_start = 0;
- 	virt_external_initramfs_end = 0;
- }
-@@ -686,7 +686,7 @@ void __weak __init free_initramfs_mem(unsigned long start, unsigned long end)
- #endif
- 
- 	free_reserved_area((void *)start, (void *)end, POISON_FREE_INITMEM,
--			"initrd");
-+			"initramfs");
- }
- 
- #ifdef CONFIG_CRASH_RESERVE
-@@ -696,14 +696,14 @@ static bool __init kexec_free_initramfs(void)
- 	unsigned long crashk_end   = (unsigned long)__va(crashk_res.end);
- 
- 	/*
--	 * If the initrd region is overlapped with crashkernel reserved region,
-+	 * If the initramfs region is overlapped with crashkernel reserved region,
- 	 * free only memory that is not part of crashkernel region.
- 	 */
- 	if (virt_external_initramfs_start >= crashk_end || virt_external_initramfs_end <= crashk_start)
- 		return false;
- 
- 	/*
--	 * Initialize initrd memory region since the kexec boot does not do.
-+	 * Initialize initramfs memory region since the kexec boot does not do.
- 	 */
- 	memset((void *)virt_external_initramfs_start, 0, virt_external_initramfs_end - virt_external_initramfs_start);
- 	if (virt_external_initramfs_start < crashk_start)
-@@ -740,7 +740,7 @@ static void __init do_populate_rootfs(void *unused, async_cookie_t cookie)
- 	security_initramfs_populated();
- 
- 	/*
--	 * If the initrd region is overlapped with crashkernel reserved region,
-+	 * If the initramfs region is overlapped with crashkernel reserved region,
- 	 * free only memory that is not part of crashkernel region.
- 	 */
- 	if (!retain_initramfs && virt_external_initramfs_start && !kexec_free_initramfs()) {
-diff --git a/init/main.c b/init/main.c
-index c535e0613df8..4212efb33e77 100644
---- a/init/main.c
-+++ b/init/main.c
-@@ -276,7 +276,7 @@ static void * __init get_boot_config_from_initramfs(size_t *_size)
- 
- 	data = (char *)virt_external_initramfs_end - BOOTCONFIG_MAGIC_LEN;
- 	/*
--	 * Since Grub may align the size of initrd to 4, we must
-+	 * Since Grub may align the size of initramfs to 4, we must
- 	 * check the preceding 3 bytes as well.
- 	 */
- 	for (i = 0; i < 4; i++) {
-@@ -293,7 +293,7 @@ static void * __init get_boot_config_from_initramfs(size_t *_size)
- 
- 	data = ((void *)hdr) - size;
- 	if ((unsigned long)data < virt_external_initramfs_start) {
--		pr_err("bootconfig size %d is greater than initrd size %ld\n",
-+		pr_err("bootconfig size %d is greater than initramfs size %ld\n",
- 			size, virt_external_initramfs_end - virt_external_initramfs_start);
- 		return NULL;
- 	}
-@@ -303,7 +303,7 @@ static void * __init get_boot_config_from_initramfs(size_t *_size)
- 		return NULL;
- 	}
- 
--	/* Remove bootconfig from initramfs/initrd */
-+	/* Remove bootconfig from initramfs */
- 	virt_external_initramfs_end = (unsigned long)data;
- 	if (_size)
- 		*_size = size;
-@@ -421,7 +421,7 @@ static void __init setup_boot_config(void)
- 
- 	/* Cut out the bootconfig data even if we have no bootconfig option */
- 	data = get_boot_config_from_initramfs(&size);
--	/* If there is no bootconfig in initrd, try embedded one. */
-+	/* If there is no bootconfig in initramfs, try embedded one. */
- 	if (!data)
- 		data = xbc_get_embedded_bootconfig(&size);
- 
-@@ -478,7 +478,7 @@ static void __init exit_boot_config(void)
- 
- static void __init setup_boot_config(void)
- {
--	/* Remove bootconfig data from initrd */
-+	/* Remove bootconfig data from initramfs */
- 	get_boot_config_from_initramfs(NULL);
- }
- 
-@@ -1049,7 +1049,7 @@ void start_kernel(void)
- #ifdef CONFIG_BLK_DEV_INITRD
- 	if (virt_external_initramfs_start && !initramfs_below_start_ok &&
- 	    page_to_pfn(virt_to_page((void *)virt_external_initramfs_start)) < min_low_pfn) {
--		pr_crit("initrd overwritten (0x%08lx < 0x%08lx) - disabling it.\n",
-+		pr_crit("initramfs overwritten (0x%08lx < 0x%08lx) - disabling it.\n",
- 		    page_to_pfn(virt_to_page((void *)virt_external_initramfs_start)),
- 		    min_low_pfn);
- 		virt_external_initramfs_start = 0;
+ config INITRAMFS_COMPRESSION_GZIP
+ 	bool "Gzip"
+-	depends on RD_GZIP
++	depends on INITRAMFS_DECOMPRESS_GZIP
+ 	help
+ 	  Use the old and well tested gzip compression algorithm. Gzip provides
+ 	  a good balance between compression ratio and decompression speed and
 -- 
 2.47.2
 
