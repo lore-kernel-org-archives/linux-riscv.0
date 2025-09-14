@@ -4,84 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508EECA0EE8
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 20:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790B1CA0EE8
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 21:17:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EG8lvOXT8ro+SBp43e2E5/FxJBjPDV1DzSjtZEghtxw=; b=2jXEzyHnfXrb4W
-	2idoPZZdA748ycefdaHBRfP0LYZ9HquTc/W/87hXwa1iEb/DWULtzXFN6oAM7XBtuuWlvgwfEV2w1
-	rlEk7vA2SYx4sXE9h5Qnv5/Mqp5Jg5828/2AYCoU0Ig+mK8pQNmpWyPaudWI4/bsrufX6Hbq7TXTJ
-	dp2DN+QDiYHdOFP0ZkzgfxYmeRN587EkXeCZzEzy+G3MuZaEs+eoavOVhYAGN2sgJYh/f/vsxiH6M
-	Rx6Q6r/jkgW7kpWraZ7ksWy0t3frL22DvEodnl1PJFjHh0kb4g8h9W6Fn5A+K8f6G/vCBnJ8YW3Ij
-	NnqdNK4Sch8RWBphvMMw==;
+	List-Owner; bh=axX90+X/xjkgBIFIpPl8nPLuo2hee1kwMVh7479Jnvk=; b=FJou5aH/T+BTE+
+	KPYmtPaoXdb/F5M3cTEUy9ze6UAamBmqZjA2EfoQOxSdRGuN6UIyTz0alnFCb8zkvfJfAn/LI2ITo
+	W4tkZ3VbtfrjkOcKrA1mSvWkO32iz0e4jOdqyMYTJGa+48XKbRrGp+eHVYLrwl/deh644bth8ZKkG
+	+1V7jJ8mx5SpvSpsLYK+yRzXlv7O0GRXQkPswTEXcMLncl7y5VEPqfP4h32LfcOdW+uvh7qVY+gll
+	88NbIiw/Wf9tOd2xgQI7E6sfm2Tqz2BgJg7lKphvEitBtTJp/G8A59UvHh31V7/lCZamM7bdzQAoU
+	8Hl3bdPSMS9uguxnmaHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxt6F-000000027gq-189r;
-	Sun, 14 Sep 2025 20:13:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uxu5h-00000002Dm4-3L68;
+	Sun, 14 Sep 2025 21:16:57 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxt6C-000000027fe-1d47;
-	Sun, 14 Sep 2025 20:13:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B693437D6;
-	Sun, 14 Sep 2025 20:13:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6D19C4CEF0;
-	Sun, 14 Sep 2025 20:13:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1757880803;
-	bh=S1O2mYg/nuSFWiepEfi3INn1/VxeJMAKyzsDV4vYqvg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=2UPxRGMw8I/maQZ+HN3ir+gn07zWGBMkkdWTdW2X4OKEgkpUDDbZLiyj3E0pJDtL3
-	 1+D42ZKa/D0blrtutGoeATk6sFzQAtpGrIpNKIWACFz+9+7ensOkK9v2abyA5QnetQ
-	 dB1gPfBNpyMhvJhlFN9WW4x1lQUIWNYqbIuD5q6A=
-Date: Sun, 14 Sep 2025 13:13:21 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Askar Safin <safinaskar@gmail.com>, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, Linus Torvalds
- <torvalds@linux-foundation.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Christian Brauner <brauner@kernel.org>, Al
- Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, Christoph Hellwig
- <hch@lst.de>, Jens Axboe <axboe@kernel.dk>, Andy Shevchenko
- <andy.shevchenko@gmail.com>, Aleksa Sarai <cyphar@cyphar.com>, Thomas
- =?ISO-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>, Julian
- Stecklina <julian.stecklina@cyberus-technology.de>, Gao Xiang
- <hsiangkao@linux.alibaba.com>, Art Nikpal <email2tema@gmail.com>, Eric
- Curtin <ecurtin@redhat.com>, Alexander Graf <graf@amazon.com>, Rob Landley
- <rob@landley.net>, Lennart Poettering <mzxreary@0pointer.de>,
- linux-arch@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, x86@kernel.org, Ingo Molnar
- <mingo@redhat.com>, linux-block@vger.kernel.org, initramfs@vger.kernel.org,
- linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-efi@vger.kernel.org, linux-ext4@vger.kernel.org, "Theodore Y . Ts'o"
- <tytso@mit.edu>, linux-acpi@vger.kernel.org, Michal Simek
- <monstr@monstr.eu>, devicetree@vger.kernel.org, Luis Chamberlain
- <mcgrof@kernel.org>, Kees Cook <kees@kernel.org>, Thorsten Blum
- <thorsten.blum@linux.dev>, Heiko Carstens <hca@linux.ibm.com>,
- patches@lists.linux.dev
-Subject: Re: [PATCH RESEND 21/62] init: remove all mentions of
- root=/dev/ram*
-Message-Id: <20250914131321.df00dfc835be48c10f4cce4b@linux-foundation.org>
-In-Reply-To: <a079375f-38c2-4f38-b2be-57737084fde8@kernel.org>
-References: <20250913003842.41944-1-safinaskar@gmail.com>
-	<20250913003842.41944-22-safinaskar@gmail.com>
-	<a079375f-38c2-4f38-b2be-57737084fde8@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	id 1uxu5c-00000002Dkh-0kxl
+	for linux-riscv@lists.infradead.org;
+	Sun, 14 Sep 2025 21:16:56 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 5B4954E40BD1;
+	Sun, 14 Sep 2025 21:16:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 092936063F;
+	Sun, 14 Sep 2025 21:16:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 76865102F2A78;
+	Sun, 14 Sep 2025 23:16:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1757884606; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=PrFkxRI/rM5SQxoVJY6C6jishZsikS57oIN/hwunQlI=;
+	b=j+82wh8EW/26ftt8B3pTo1EF6a84LZS/ds3nQRpCwbhT3EnmTALAHRvlO8AaJPUcIhLHT/
+	gl6jy60jXJho+DItqUqAiO30JedIhLNi6Q8iHiliohdlf/U1fzqVAfru1ocswYYozJrZ6b
+	G8T1SuFDUk3FEl5M8tYxF5FckzXCm3SvxGXKysA2w/fNni0aqN7/YjLZ7Qrcx+e+82gmuN
+	TrF/Uq8mV4ZHEstaLbfM1ST8YeXhs0i1w7ilUCrIHelmL+RBtOtGJN4y4l7FAtcPFuJc7e
+	9AmDmRUv8YBvnRbWBiulqtUTQeRPGkyMscOZZNXSS0NMEANY+15EN7K4nD8YnA==
+Date: Sun, 14 Sep 2025 23:16:29 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb+git@google.com>
+Subject: Re: (subset) [RFC PATCH 1/3] efi-rtc: Remove wakeup functionality
+Message-ID: <175788449957.388732.6353062596898107602.b4-ty@bootlin.com>
+References: <20250714060843.4029171-5-ardb+git@google.com>
+ <20250714060843.4029171-6-ardb+git@google.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250714060843.4029171-6-ardb+git@google.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_131324_889183_D01D05DA 
-X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-CacheID: sfid-20250914_141652_355070_0AFD4CE8 
+X-CRM114-Status: UNSURE (   6.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,28 +69,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Juergen Gross <jgross@suse.com>, linux-rtc@vger.kernel.org, Stefano Stabellini <sstabellini@kernel.org>, linux-efi@vger.kernel.org, x86@kernel.org, Bibo Mao <maobibo@loongson.cn>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, xen-devel@lists.xenproject.org, Feng Tang <feng.tang@linux.alibaba.com>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 14 Sep 2025 12:06:24 +0200 Krzysztof Kozlowski <krzk@kernel.org> wrote:
-
-> >  Documentation/admin-guide/kernel-parameters.txt          | 3 +--
-> >  Documentation/arch/m68k/kernel-options.rst               | 9 ++-------
-> >  arch/arm/boot/dts/arm/integratorap.dts                   | 2 +-
-> >  arch/arm/boot/dts/arm/integratorcp.dts                   | 2 +-
-> >  arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-cmm.dts     | 2 +-
-> >  .../boot/dts/aspeed/aspeed-bmc-facebook-galaxy100.dts    | 2 +-
-> >  .../arm/boot/dts/aspeed/aspeed-bmc-facebook-minipack.dts | 2 +-
-> >  .../arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge100.dts | 2 +-
-> >  arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge40.dts | 2 +-
-> >  arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yamp.dts    | 2 +-
-> >  .../boot/dts/aspeed/ast2600-facebook-netbmc-common.dtsi  | 2 +-
+On Mon, 14 Jul 2025 08:08:45 +0200, Ard Biesheuvel wrote:
+> The EFI rtc driver is used by non-x86 architectures only, and exposes
+> the get/set wakeup time functionality provided by the underlying
+> platform. This is usually broken on most platforms, and not widely used
+> to begin with [if at all], so let's just remove it.
 > 
-> No, don't do that. DTS is always separate.
+> 
 
-Why can't DTS changes be carried in a different tree?
+Applied, thanks!
+
+[1/3] efi-rtc: Remove wakeup functionality
+      https://git.kernel.org/abelloni/c/50562f9cd366
+
+Best regards,
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
