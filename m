@@ -4,60 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790B1CA0EE8
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Sep 2025 21:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D02CAC587
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 01:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=axX90+X/xjkgBIFIpPl8nPLuo2hee1kwMVh7479Jnvk=; b=FJou5aH/T+BTE+
-	KPYmtPaoXdb/F5M3cTEUy9ze6UAamBmqZjA2EfoQOxSdRGuN6UIyTz0alnFCb8zkvfJfAn/LI2ITo
-	W4tkZ3VbtfrjkOcKrA1mSvWkO32iz0e4jOdqyMYTJGa+48XKbRrGp+eHVYLrwl/deh644bth8ZKkG
-	+1V7jJ8mx5SpvSpsLYK+yRzXlv7O0GRXQkPswTEXcMLncl7y5VEPqfP4h32LfcOdW+uvh7qVY+gll
-	88NbIiw/Wf9tOd2xgQI7E6sfm2Tqz2BgJg7lKphvEitBtTJp/G8A59UvHh31V7/lCZamM7bdzQAoU
-	8Hl3bdPSMS9uguxnmaHQ==;
+	List-Owner; bh=uxOXIl6CpzS/PJkkeUR3mvBkhkQU7GmxEQIzPcq0g+o=; b=ylt2ykl66kQeb+
+	teHlUhaxOfIpJjVV5LFORNSX6uOO2/h8fZadOJbPvsd0RPM4b1w1AfkgnZzmPpvrcRYAUntceYCTo
+	xVQTM3obbzUtqwWavWQCV8cv9IWD0Xs+9xl4eCGNa0xHm/I9mYBCew4CTGMoHBRoCPR3LhZJ2LUQf
+	0jKyBmSDhHMWj9ldetLNClxsKwLc4MIV4pGkAujTedsujbKGVF2Jhc+kf9RXARNe2ARmQgt73lCaf
+	yJqjfcdOQV5FNTZuCRssPUp4fpxU8EDCxSsmKyORIl1+LufexcaUm2nkWw/caLmVKOqVheu1mmHb5
+	+N3KaGdehpLt7vc5clGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxu5h-00000002Dm4-3L68;
-	Sun, 14 Sep 2025 21:16:57 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1uxySQ-00000002W6r-2fqw;
+	Mon, 15 Sep 2025 01:56:42 +0000
+Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxu5c-00000002Dkh-0kxl
+	id 1uxySN-00000002W65-1JzP
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 Sep 2025 21:16:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 5B4954E40BD1;
-	Sun, 14 Sep 2025 21:16:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 092936063F;
-	Sun, 14 Sep 2025 21:16:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 76865102F2A78;
-	Sun, 14 Sep 2025 23:16:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1757884606; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=PrFkxRI/rM5SQxoVJY6C6jishZsikS57oIN/hwunQlI=;
-	b=j+82wh8EW/26ftt8B3pTo1EF6a84LZS/ds3nQRpCwbhT3EnmTALAHRvlO8AaJPUcIhLHT/
-	gl6jy60jXJho+DItqUqAiO30JedIhLNi6Q8iHiliohdlf/U1fzqVAfru1ocswYYozJrZ6b
-	G8T1SuFDUk3FEl5M8tYxF5FckzXCm3SvxGXKysA2w/fNni0aqN7/YjLZ7Qrcx+e+82gmuN
-	TrF/Uq8mV4ZHEstaLbfM1ST8YeXhs0i1w7ilUCrIHelmL+RBtOtGJN4y4l7FAtcPFuJc7e
-	9AmDmRUv8YBvnRbWBiulqtUTQeRPGkyMscOZZNXSS0NMEANY+15EN7K4nD8YnA==
-Date: Sun, 14 Sep 2025 23:16:29 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb+git@google.com>
-Subject: Re: (subset) [RFC PATCH 1/3] efi-rtc: Remove wakeup functionality
-Message-ID: <175788449957.388732.6353062596898107602.b4-ty@bootlin.com>
-References: <20250714060843.4029171-5-ardb+git@google.com>
- <20250714060843.4029171-6-ardb+git@google.com>
+	Mon, 15 Sep 2025 01:56:41 +0000
+Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-3316cc5ba2fso467503fac.1
+        for <linux-riscv@lists.infradead.org>; Sun, 14 Sep 2025 18:56:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1757901394; x=1758506194; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BO6IHIraaA33AzZrGgraDPlur/2l0PmDTVZQ4KAkd3I=;
+        b=HGN14kcGpEpw73GHXWf3s+1jeh8bl5y+1GYL6mDFTUSHD130zrKgPZGysM4AzGwQkl
+         y55ZnfOyAJtcmox3nEPzidLTA1pf6f+p6c0IFCcNe85e7lQylySzcfgIFfiDlS/kxzDC
+         K2LQu/IEcQ/Onjyo0sHjVefLSuvgV3oVzWIFJngvNnSqt2qKk6LregcCVgumfzstYgzo
+         2F+2uWrtIl+a44zMWU7nhtDH+ALULSi8uWYiVsW7zuvSMnL2UcIdN+W1fb3/5YEwzkYl
+         gbiKj5KTYi1arYRchPk0e5N/5UM0V/01SyD3PMUgzI9OH7jIcYE23saxH9IWn9mlbkdu
+         G2zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757901394; x=1758506194;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BO6IHIraaA33AzZrGgraDPlur/2l0PmDTVZQ4KAkd3I=;
+        b=q2pHzfT4DNLdVvKWuHepdnoTrbiQlnR32FtQZPu7HiaZL+7oNmOVLDOmCDOKIZMF5r
+         eDaaWFnobA/Z7tWwWWk+tW3ftAXceziUpX7r7eZNyI4UomGmIE5ROdMuF8o4+OQlpnRb
+         y7vNVlbBL+On3WlPlPD135Vx+tuTYBTb0DCX4HeHWuTTgFv5BHQQj4/p3kub8fZOdB4M
+         PQDtOm2t7F6ysgWrwJ4vJTkDn3lLPiSl8U2qW4T1qFShJ9hJoXJx7mXf/8wf5qOnm3H1
+         7l1DSQ/IqQiiW4gwhR/dbJy4R2jjui0CDXGa0+8OEgQ41OJXl6WKpmJ2BMuQO3W8RwO0
+         DuYg==
+X-Forwarded-Encrypted: i=1; AJvYcCVuuaujp4NM70JE9NJ/8cAl2/9nvwz+0kYIUAUKvn6WhC3fsgFrwzdSMCfrYxf9QcZHm3DaeREE/E0Q7A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+5mOMwsVCXsSCvcuG2AfaJJSzlTUW6J+968o9P6eKgTxyPfxV
+	mMPKV+TUJhIMZzpayZTXyFDfwAQP7HektsJNaQDl5+mKp09u21fT6jh/JwU8fFp+rHzjNmjKsve
+	P8z0VORVLfNdrk3JovcLIDXt5fre9xhxHBtXMquioOA==
+X-Gm-Gg: ASbGncuh5R8+o0OqEPixbqjNTEaAKRFqCg/83Cq6NV8Dp+OPPLtnufwS3Z+DmFqgZ+R
+	OKTPnjbEMDQFxKVEraKu07G91gnRg75D27ZW7vzbw0Hb8hs3NIkLnDZyRyiLleXcjhP72iXV8VR
+	xCT6GQeA2AhDHlxCa4Xo+ZNFZuxUp1FVhFeBBltILSOHPmaZ5PUylsjSQhQza1QrdsxHeYzo3bT
+	V974UuNilLOks2y
+X-Google-Smtp-Source: AGHT+IEzxKXkgKqnV741v0vWC49ZtgXVeKwHXnAtJZiM2Qjz2M2QceURl7ZTg3slF5Ghl+7/2KbprcKdhFECr+rtPe4=
+X-Received: by 2002:a05:6871:4149:b0:31d:8c7b:401d with SMTP id
+ 586e51a60fabf-32e56dc007dmr4929305fac.46.1757901393993; Sun, 14 Sep 2025
+ 18:56:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250714060843.4029171-6-ardb+git@google.com>
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20250827100959.83023-1-cuiyunhui@bytedance.com>
+ <20250827100959.83023-2-cuiyunhui@bytedance.com> <CAD=FV=WiZ5=4Ck3G2gme=ey6uYQhi-3Wo32DpLj9P53wxGCojw@mail.gmail.com>
+ <CAEEQ3wmBvevbkP8XmwR0_q_1QWQsie5g0UUxTFm6ovS1m41pEQ@mail.gmail.com>
+ <CAD=FV=UzUCPtwuQRFR0SkAkh63MbzMefxNYmiOBxCemL3P_+EQ@mail.gmail.com>
+ <CAEEQ3wmLOjZxVh_vBhmctH-u_ZSxnyg0GiN-_e_4v8_pfxcbSw@mail.gmail.com>
+ <CAD=FV=XaSP2A7Dufrxt1DUUznF9Yk-qdBY3wbE03x4_L8HJLSQ@mail.gmail.com> <CAP-5=fWkcxvZ0z9FJztbN4EhU+BNEJTNxe2a6_+11EcYhjZQaQ@mail.gmail.com>
+In-Reply-To: <CAP-5=fWkcxvZ0z9FJztbN4EhU+BNEJTNxe2a6_+11EcYhjZQaQ@mail.gmail.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Mon, 15 Sep 2025 09:56:22 +0800
+X-Gm-Features: AS18NWB5q8BMOMaL4qJUD7HTlg6i3YBaukDHZMMVfaFmVYmSZ3j_z8EethM99sE
+Message-ID: <CAEEQ3wn2FfgzKq-vwt5m=Xy5NThrGkZaY4=U45QmN4JzJG8Rng@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH 1/2] watchdog: refactor watchdog_hld functionality
+To: Ian Rogers <irogers@google.com>
+Cc: Doug Anderson <dianders@chromium.org>, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, atish.patra@linux.dev, 
+	anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	catalin.marinas@arm.com, masahiroy@kernel.org, suzuki.poulose@arm.com, 
+	maz@kernel.org, zhanjie9@hisilicon.com, yangyicong@hisilicon.com, 
+	mingo@kernel.org, lihuafei1@huawei.com, akpm@linux-foundation.org, 
+	jpoimboe@kernel.org, rppt@kernel.org, kees@kernel.org, 
+	thomas.weissschuh@linutronix.de
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_141652_355070_0AFD4CE8 
-X-CRM114-Status: UNSURE (   6.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250914_185639_665160_EDCDCA47 
+X-CRM114-Status: GOOD (  25.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,33 +103,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Juergen Gross <jgross@suse.com>, linux-rtc@vger.kernel.org, Stefano Stabellini <sstabellini@kernel.org>, linux-efi@vger.kernel.org, x86@kernel.org, Bibo Mao <maobibo@loongson.cn>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, xen-devel@lists.xenproject.org, Feng Tang <feng.tang@linux.alibaba.com>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Jul 2025 08:08:45 +0200, Ard Biesheuvel wrote:
-> The EFI rtc driver is used by non-x86 architectures only, and exposes
-> the get/set wakeup time functionality provided by the underlying
-> platform. This is usually broken on most platforms, and not widely used
-> to begin with [if at all], so let's just remove it.
-> 
-> 
-
-Applied, thanks!
-
-[1/3] efi-rtc: Remove wakeup functionality
-      https://git.kernel.org/abelloni/c/50562f9cd366
-
-Best regards,
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpPbiBNb24sIFNlcCA4LCAyMDI1IGF0IDc6MTXigK9BTSBJYW4gUm9nZXJzIDxpcm9nZXJz
+QGdvb2dsZS5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBTZXAgNSwgMjAyNSBhdCA0OjU34oCvUE0g
+RG91ZyBBbmRlcnNvbiA8ZGlhbmRlcnNAY2hyb21pdW0ub3JnPiB3cm90ZToKPiA+Cj4gPiBIaSwK
+PiA+Cj4gPiBPbiBXZWQsIFNlcCAzLCAyMDI1IGF0IDQ6NTbigK9BTSB5dW5odWkgY3VpIDxjdWl5
+dW5odWlAYnl0ZWRhbmNlLmNvbT4gd3JvdGU6Cj4gPiA+IEnigJl2ZSByZWFkIHlvdXIgbGlua2Vk
+IGNvbnRlbnQsIHdoaWNoIGRldGFpbHMgdGhlIHByb3MgYW5kIGNvbnMgb2YgcGVyZgo+ID4gPiB3
+YXRjaGRvZyBhbmQgYnVkZHkgd2F0Y2hkb2cuCj4gPiA+IEkgdGhpbmsgZXZlcnlvbmUgd2lsbCBh
+Z3JlZSBvbiBjaG9vc2luZyBvbmUgYXMgdGhlIGRlZmF1bHQuCj4gPiA+IEl0IHNlZW1zIHRoZXJl
+4oCZcyBubyBrZXJuZWwvd2F0Y2hkb2cgZW50cnkgaW4gTUFJTlRBSU5FUlPigJR3aGF04oCZcyBu
+ZXh0Cj4gPiA+IGZvciB0aGVzZSB0d28gYXBwcm9hY2hlcz8KPiA+Cj4gPiBJIGd1ZXNzIHRvIHN0
+YXJ0LCBzb21lb25lICh5b3U/KSBzaG91bGQgc2VuZCBzb21lIHBhdGNoZXMgdG8gdGhlIGxpc3Qu
+Cj4gPiBNYXliZSBvbmUgcGF0Y2ggdG8gbWFrZSBidWRkeSB0aGUgZGVmYXVsdCBhbmQgb25lIHRv
+IGNoYW5nZSB0aGUKPiA+IGRlc2NyaXB0aW9uIG9mIHRoZSAicGVyZiIgbG9ja3VwIGRldGVjdG9y
+IHNheSB0aGF0IGl0cyB1c2FnZSBpcwo+ID4gZGlzY291cmFnZWQsIHRoYXQgaXQgbWlnaHQgYmUg
+cmVtb3ZlZCwgdGhhdCBwZW9wbGUgc2hvdWxkIHVzZSB0aGUKPiA+ICJidWRkeSIgZGV0ZWN0b3Ig
+aW5zdGVhZCwgYW5kIHRoYXQgaWYgdGhlcmUncyBhIHJlYXNvbiBzb21lb25lIG5lZWRzCj4gPiB0
+aGUgInBlcmYiIGRldGVjdG9yIGluc3RlYWQgb2YgdGhlIGJ1ZGR5IG9uZSB0aGVuIHRoZXkgc2hv
+dWxkIG1ha2UKPiA+IHNvbWUgbG91ZCBub2lzZXMuCj4gPgo+ID4gWW91J2Qgd2FudCB0byBDQyBm
+b2xrcyB3aG8gd2VyZSBpbnZvbHZlZCBpbiByZWNlbnQgd2F0Y2hkb2cgY2hhbmdlcwo+ID4gYW5k
+IG1ha2Ugc3VyZSB0byBDQyBBbmRyZXcgKGFrcG0pLiBJZiBmb2xrcyByZWFjdCBwb3NpdGl2ZSBh
+bmQgQW5kcmV3Cj4gPiBhZ3JlZXMgdGhlbiBoZSdsbCBsaWtlbHkgbGFuZCB0aGUgdGhlIHBhdGNo
+ZXMgYW5kIHdlJ2xsIGhhdmUgbWFkZQo+ID4gZm9yd2FyZCBwcm9ncmVzcy4gOi0pCj4KPiArMQoK
+T2theSwgSSBpbnRlbmQgdG8gZGlyZWN0bHkgc2VuZCBhIHBhdGNoIHRoYXQgcmVtb3ZlcwpIQVJE
+TE9DS1VQX0RFVEVDVE9SX1BFUkYsIGFuZCB0aGVuIHdlIGNhbiBkaXNjdXNzIG9uIHRoYXQgcGF0
+Y2guCgo+Cj4gVGhlcmUgYXJlIGFsc28gdGhpbmdzIGxpa2UgL3Byb2Mvc3lzL2tlcm5lbC9ubWlf
+d2F0Y2hkb2cgYmVpbmcgdXNlZCB0bwo+IGVuYWJsZS9kaXNhYmxlIHRoZSBoYXJkIGxvb2t1cCBk
+ZXRlY3Rvci4gSWYgd2UgY291bGQgbW92ZSB0aGF0IHRvIGEKPiB1bmlxdWUgZmlsZSBzbyB0aGF0
+IHBlcmYgaXMgbGVzcyBjb25mdXNlZCBpbiBwbGFjZXMgbGlrZToKPiBodHRwczovL3dlYi5naXQu
+a2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvdG9ydmFsZHMvbGludXguZ2l0L3Ry
+ZWUvdG9vbHMvcGVyZi91dGlsL3V0aWwuYyNuNzAKPiBpZS4gcGVyZiBzaG91bGRuJ3Qgd2FybiBh
+Ym91dCB0aGUgTk1JIHdhdGNoZG9nIGJlaW5nIGVuYWJsZWQgYW5kCj4gdGFraW5nIGEgcGVyZiBl
+dmVudCB3aGVuIGl0IGRvZXNuJ3QuCgpPa2F5LCBsZXQncyBmaXJzdCB0YWtlIGEgbG9vayBhdCB0
+aGUgc3RhdHVzIG9mIHRoZSBkaXNjdXNzaW9uIG9uIHRoZQpwYXRjaCBmb3IgcmVtb3ZpbmcgSEFS
+RExPQ0tVUF9ERVRFQ1RPUl9QRVJGLCBhbmQgdGhlbiB3ZSdsbCBtb2RpZnkKdGhpcyBwYXJ0LgoK
+Pgo+IFRoYW5rcywKPiBJYW4KClRoYW5rcywKWXVuaHVpCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
