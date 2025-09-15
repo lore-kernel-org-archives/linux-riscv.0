@@ -4,69 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C22D9CAC597
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 16:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E643CAC597
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 16:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DabbfLelSGzk0kSIT9LFfVeTeFlhIHXbVKz8RQiWSx8=; b=bksnqzACWJUS2G4i1ZIWPmtSkm
-	htDHsvVx1LzmCaP4J+c1augHJEwh5r7u0Gw/aeCBSrGFIE2SuhwDcMDJh1Q8gBh7mT0t7Oqey6xVH
-	XCYA2cPmR3rf7yrOK7PXAvo3gJzMQeWgwbLvKQAF52mdBZE0z+di4bdxsx5vWUKvNvgWI6/Mrj2Cj
-	XbVCwCf1zRPZ+i/Pt5wa+tq1Q9HqiUuHgvtLp9AyG/sfBWKq8O0hgvcEDTcJXLYEjpSoquTSLd+WL
-	b5LPr/9IFk8WmpuBNgIy38V3jlofxX5R09gBro7Tm6nv8ambiOnuKNIYoNN0Kzu/Oa1M9G4iA88Dw
-	6BPSetLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DWF0MLiOF2BCKYs6MRC4y7RUPTtNxuwHNsFZSmZOOJI=; b=VTzHzstAWpOhJX
+	uPUov/iHtWiCcpgvlkkXXwctAR5CClfDZI3rsnjflUkmVlNaKSGl3Fk0aWnhFNp6a80rI3RQMfTZG
+	Jpq/l9iY8lQhNabqySOZIFnIn02x8uPDPQ5IcoEwAFLjfFvPSX4g/sp7ZQwRvH4fWYRp5TEh2lNK7
+	nD2nO+YISLwtlfqA4kYeCiisc6s9HviBR9sNtt39P3PF0VPoh+KEfci44wri8qGBZilmIi1Q6jVpz
+	giZCf6D0CbomQqeFnZ2jIztzUyj1mNK0brdoOFDqqeg1EbKY7nv/Mf98lnTSne6XNgUSDlJbcc8Sj
+	c7eike25Audamr0WoR7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyCNC-00000005Acu-1OKH;
-	Mon, 15 Sep 2025 16:48:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uyCSf-00000005BNw-2h3T;
+	Mon, 15 Sep 2025 16:53:53 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyCNB-00000005Ack-2gzp
+	id 1uyCSc-00000005BMg-3d1H
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Sep 2025 16:48:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 15881601F3;
-	Mon, 15 Sep 2025 16:48:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C84C3C4CEF1;
-	Mon, 15 Sep 2025 16:48:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757954892;
-	bh=WQA8yZXJ9fX2DhH1V6vZEYWM0tWKWwWe9hNuujBFV00=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C9XFcap1I2mhRx2afrhKhwgXGsLL9QcZAZI7rOuicb4bHC8CxFEguFgM1pnq0DBog
-	 9PQ4H/4ke6cimoXAWQktcOl4mbrTVjKXfHQ9Wa/EmjaQTk7YCXGZ4DfELKCygU7tKd
-	 TprEcrcCgAb2XTnMNuNTTE3xQBW0z3MyAiRqhxod2t6+05ON2orc3kj4yyoIOobt5F
-	 sDoDTufGBkEM8ijYcwlZ1zq4UrgKtkAJwMHhpTtlv89I3OqIvGLKyaMmd+WitWvjoH
-	 fNHuzzRFRDh8BATAQWtFUNTCFzBWmckIxAqRoGAbF06JoO3pVix6RsqVmI4LxPq9Wg
-	 K5KCYzWXHJJcw==
-Date: Mon, 15 Sep 2025 17:48:06 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <anup@brainfault.org>, Arnd Bergmann <arnd@arndb.de>,
-	Joel Stanley <jms@tenstorrent.com>, Joel Stanley <joel@jms.id.au>,
-	Michael Neuling <mikey@neuling.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Michael Ellerman <mpe@kernel.org>, Andy Gross <agross@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, Drew Fustini <dfustini@tenstorrent.com>
-Subject: Re: [PATCH 7/7] riscv: Kconfig.socs: Add ARCH_TENSTORRENT for
- Tenstorrent SoCs
-Message-ID: <20250915-overeater-escalator-9ed8a77d809d@spud>
-References: <20250913-tt-bh-dts-v1-0-ddb0d6860fe5@tenstorrent.com>
- <20250913-tt-bh-dts-v1-7-ddb0d6860fe5@tenstorrent.com>
-MIME-Version: 1.0
-In-Reply-To: <20250913-tt-bh-dts-v1-7-ddb0d6860fe5@tenstorrent.com>
+	Mon, 15 Sep 2025 16:53:52 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45dec4289f0so2404715e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 09:53:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1757955229; x=1758560029; darn=lists.infradead.org;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QMjc1jYjo0pPUV3IEMrRaUWcTH6UPkM8lTmOpgavsDM=;
+        b=F0LWUPEYEz/Qe9uG7w/HQs+uhjspaYdWBBTlJfc7OX6hZYitUXQYe0d5qcO4M6X0uc
+         qcAJdWymaYc3RqfZDN4jwNRNc9GGfulWyckHKYG4/GL8cZHxLktGox5iPMTnh1dBNFpb
+         icsSX8W+Xh1DOgXqY2JHGNkDcsTfwm5dhJ/NuxGt/7pvWt8tg+cogVH3pXjhIFyhoyaN
+         8LDuqc/ULozRp+wzVTXH9lLWyPoY0cC5uF3DOZQcXwn9KS0Occ0huLW04Bh2jlLF9kF7
+         T6wxSdoS3pi/RYwKpCMe8WQWiRe9+3JiJhkV8U1lWZ8d2uIoStaj2/9GHeWyFM72Tp95
+         gVkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757955229; x=1758560029;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=QMjc1jYjo0pPUV3IEMrRaUWcTH6UPkM8lTmOpgavsDM=;
+        b=Wia3dHX/LCu/VAe4jjhPTZWMmxefZRNxZa4BcQzUGEjyVj0E8nKFYjQ2myPZYwlz2j
+         ihu2vbSxWCghtzG938qT4qSLCLRh3V56ZV7232He7mLq8R+kBCJpCAYRwhAF93uMSp1y
+         JudHdu6P9EH2RZBu456DWjXwbkV5k6De3XqCVDKwRikE2Fnfu4LQ2mMWRtKY/T6PycAW
+         p207wWKn4DLBiaMtBrGzeM6m3B+9zQrESb5++y0MlhwcAWSvZQRqXVGxztxoO98c2Zkq
+         Et074sUy46TyhY/RLwED7DxwOdVzm/g7rTPw9gY53gjFIP4wrqx9ufXpAlcQOKSjEQl7
+         3GnA==
+X-Forwarded-Encrypted: i=1; AJvYcCXu/1ei6lPLT/G3zwmmdM9CcUSVhDYym+XRWjsBuIlMHKS3zx+6JGneIXGiNefkyEFGhLGxzsvhlzZIfg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+MzyjDioMkyQxRCErXKAM651DXR0JdzhqIlptUJhGOW/HATlO
+	UiP7jOUQ0kmwrbOXHodfLwvzJRyyNDRK8EPg0KCIZlAQN8suHyQnxX6JTsn5nnnmegU=
+X-Gm-Gg: ASbGncv+C/5aFJIFspbAbAl0Wfs2HBXkSZGvgW5NDckf1ElRKCbvO9Gq7qOUjav08nC
+	hVFFVaTtTfbjEjpt5V/IkLDxOh4WcvxpoGCzM2gLVc7B4uracRhRRxHNj/zcYKk4Ve+DTxeiSNq
+	Yri5P+N7MGIRXXJ5LNxVHmqwF20Mvxluj9rYeU3hX4w82/QeLUhTvWxxYC8cZJmIIR4tGPoiic4
+	EoDcSQ7hgR4pqD1zkE2Nco1JW5WTkNGvTv+cg7mkH/P9kws6D0yvDdw9zn65bStIGykajW30FXR
+	HcrwSzrb4NzsA8Zkg280AWaVA/YYBD9I9YUFuKKtlVzgn/WTBBE6S4W83fRKxcMzVK0t12lBXv9
+	MH1h2PzDllC0+VKBTKpQXNw==
+X-Google-Smtp-Source: AGHT+IEBYG+XYWr4vSIUvW4i/gC6ebTomXgFIobLIBRml4hWNT81ZQCvn/NDrF/4mBzDZAjMlg3idw==
+X-Received: by 2002:a05:6000:2008:b0:3ea:6680:8fc6 with SMTP id ffacd0b85a97d-3ea668092cemr1990129f8f.3.1757955228923;
+        Mon, 15 Sep 2025 09:53:48 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::bfbb])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3ec22b16adesm726619f8f.13.2025.09.15.09.53.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Sep 2025 09:53:48 -0700 (PDT)
+Mime-Version: 1.0
+Date: Mon, 15 Sep 2025 18:52:56 +0200
+Message-Id: <DCTJ3N8W4PCL.9XCHFVGS62SF@ventanamicro.com>
+Subject: Re: [RFC PATCH] kvm/riscv: Add ctxsstatus and ctxhstatus for
+ migration
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Tianshun Sun" <stsmail163@163.com>
+To: "Jinyu Tang" <tjytimi@163.com>, "Anup Patel" <anup@brainfault.org>,
+ "Atish Patra" <atish.patra@linux.dev>, "Andrew Jones"
+ <ajones@ventanamicro.com>, "Conor Dooley" <conor.dooley@microchip.com>,
+ "Yong-Xuan Wang" <yongxuan.wang@sifive.com>, "Paul Walmsley"
+ <paul.walmsley@sifive.com>, "Nutty Liu" <nutty.liu@hotmail.com>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+References: <20250915152731.1371067-1-tjytimi@163.com>
+In-Reply-To: <20250915152731.1371067-1-tjytimi@163.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_095350_926457_00CDE5CE 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,86 +99,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6683153905679924208=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+2025-09-15T23:27:31+08:00, Jinyu Tang <tjytimi@163.com>:
+> When migrating a VM which guest running in user mode 
+> (e.g., executing a while(1) application), the target 
+> VM fails to run because it loses the information of 
+> guest_context.hstatus and guest_context.sstatus. The 
+> VM uses the initialized values instead of the correct ones.
+>
+> This patch adds two new context registers (ctxsstatus and 
+> ctxhstatus) to the kvm_vcpu_csr structure and implements 
+> the necessary KVM get and set logic to preserve these values 
+> during migration.
+>
+> QEMU needs to be updated to support these new registers.
+> See https://github.com/tjy-zhu/qemu
+> for the corresponding QEMU changes.
+>
+> I'm not sure if adding these CSR registers is a right way. RISCV
+> KVM doesn't have API to save these two context csrs now. I will
+> submit the corresponding QEMU patch to the QEMU community if
+> KVM has API to get and set them.
 
---===============6683153905679924208==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cHMJMGHJfC+NtBBa"
-Content-Disposition: inline
+I don't think it is...
 
-
---cHMJMGHJfC+NtBBa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Sep 13, 2025 at 02:31:06PM -0700, Drew Fustini wrote:
-> From: Drew Fustini <dfustini@tenstorrent.com>
->=20
-> Add Kconfig option ARCH_TENSTORRENT to enable support for SoCs like the
-> Blackhole A0.
->=20
-> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
+> Signed-off-by: Jinyu Tang <tjytimi@163.com>
+> Tested-by: Tianshun Sun <stsmail163@163.com>
 > ---
->  arch/riscv/Kconfig.socs | 8 ++++++++
->  1 file changed, 8 insertions(+)
->=20
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 61ceae0aa27a6fa3a91da6a46becfd96da99fd09..ff733a998612d429e7b1e0027=
-6eb86290d8331a3 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -57,6 +57,14 @@ config ARCH_SUNXI
->  	  This enables support for Allwinner sun20i platform hardware,
->  	  including boards based on the D1 and D1s SoCs.
-> =20
-> +config ARCH_TENSTORRENT
-> +	bool "Tenstorrent SoCs"
-> +	help
-> +	  This enables support for Tenstorrent SoC platforms.
-> +	  Current support is for Blackhole P100 and P150 PCIe cards.
-> +	  The Blackhole A0 SoC contains four RISC-V CPU tiles each
-> +	  consisting of 4x SiFive X280 cores.
+> diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+> @@ -489,6 +489,12 @@ static int kvm_riscv_vcpu_general_get_csr(struct kvm_vcpu *vcpu,
+>  	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
+>  		return -ENOENT;
+>  
+> +	if (reg_num == KVM_REG_RISCV_CSR_REG(ctxsstatus))
+> +		csr->ctxsstatus = vcpu->arch.guest_context.sstatus;
 
-Can you add this to defconfig too, so that it gets build by default in
-that configuration?
+Userspace can set guest privilege mode via KVM_REG_RISCV_CORE_REG(mode).
+
+This does propagate to guest_context.sstatus, which is otherwise
+internal KVM state, so we definitely shouldn't expose it directly.
 
 > +
->  config ARCH_THEAD
->  	bool "T-HEAD RISC-V SoCs"
->  	depends on MMU && !XIP_KERNEL
->=20
-> --=20
-> 2.34.1
->=20
+> +	if (reg_num == KVM_REG_RISCV_CSR_REG(ctxhstatus))
+> +		csr->ctxhstatus = vcpu->arch.guest_context.hstatus;
 
---cHMJMGHJfC+NtBBa
-Content-Type: application/pgp-signature; name="signature.asc"
+Neither should userspace be able to directly set hstatus.
+KVM should derive it from other userspace configuration.
 
------BEGIN PGP SIGNATURE-----
+What isn't correctly reflected in hstatus?
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMhDRgAKCRB4tDGHoIJi
-0jQrAP9Vn6YoN51FdwADMapdbRnnjWP3M9R8PvkSA2d0UeID9wD/Wk2sTq4sKW2f
-ptcxToCfzx9hY/tmsSUCi0aw0dNKkAk=
-=ii9g
------END PGP SIGNATURE-----
-
---cHMJMGHJfC+NtBBa--
-
-
---===============6683153905679924208==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6683153905679924208==--
-
