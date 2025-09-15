@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D54F6CAC597
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 15:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 876BBCAC592
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 16:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m0rmjMhl7P0Gn/Y1aaEGpIPHP7KnXQ51QVmw//8oCYY=; b=tNjh8X/2b1g3pB
-	gNO6RTu+diCjIGX+GydIzWnfuHMua4CbZimRAXwZyfnYQfz4MzNbA6VYg0STOQojh5EqK41vSR7Hi
-	2wlqKQsMmrn0KYc28nZRNTcxGEIzTJNNDdLA2G/fs9ZHtnqCXjKXazdMlNVHlNvsr8h1ZmmswHHdO
-	Irzam1Oyvf+YroOid9yMK0OS6ftYb6ln0gY3F2uynBONIkFaa72bKoPGgLcBh5G1eqmgGoscGwgaY
-	tZxBXJxzgvrfS7w9I9H8veSAIQaMNqYVJ1ajAcrTyJgDpooSbjK2u5IG1XjOEpQBU6Q8J4VybrAgw
-	5SCvKiIrhTBo0Wf4FOhw==;
+	List-Owner; bh=LfOpRBGuPPxyVUDo0tY4Ba0lhgJjUz6i/RwEbqRYa6U=; b=gDttrpzA5WOrIV
+	kRMTkKxUDp9khX7Z3u1+mUPKpR4iuZxDN/bDMoK4V40513OOXLw0ObInCE80H2aiAv6qaIW9YiX5m
+	qaaCHhVICEYjBtsC/AX3MpXrenH9kJO4rioBxKEPuDlfoBlJ15l8LymFYxmGS9vdxuUVrAloniIFj
+	d+/eJHxKQRxi+6yixFiF8Q3rEurqsiLZkvMwTtAqXfpeseVftk2u7+c8TQ0kM+3QtwO5wGgAZ+K03
+	2puhBiJELiDyj4vtiMGwS69NJr2NpBoRFzaUXRidYOM2T/Q8doQDSnNN78tj1lsIepZAJq2RhhRbh
+	GR2Pk+W6QZ4h+NmsmYfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyBAo-00000004xJ5-0jP9;
-	Mon, 15 Sep 2025 15:31:22 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1uyC69-000000057bM-2PW0;
+	Mon, 15 Sep 2025 16:30:37 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyBAl-00000004xI0-0U1k;
-	Mon, 15 Sep 2025 15:31:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=2Z
-	MhoW1DNs7CX4cb16cWpeKngS2s2Gd2rkB8a0nMfaU=; b=QfjXwgF9hRiVp/8zHs
-	1XR7KqjVOiZ52kFXVwRkLoh5NBsTzbaFxcjZFvTyMw7unAu6olB4TBKRg7N0T8Nq
-	ce7iCLX51qU6LDSmTD0YQqx+3t3jdxs/l17WyQURh4NlydJLSwbSXqvUuYiEfSvB
-	d3d5Rs0zve3upTjVJBjlxlJ9w=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgCnk+BnMMho_C9hDA--.18834S2;
-	Mon, 15 Sep 2025 23:27:36 +0800 (CST)
-From: Jinyu Tang <tjytimi@163.com>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	id 1uyC66-000000057av-2zG4
+	for linux-riscv@lists.infradead.org;
+	Mon, 15 Sep 2025 16:30:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757953832;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=90J5I7tDJWuTtR4pzepvkTqrxkeGN9PC3IPf6m4g6yQ=;
+	b=TNpMK0Xwfwt7W3ni4U82FLuB0P1+Rr1kgLfqead2kn5DbZEuv/rtkEXHzyHHZuMaI9Zlgv
+	m90ITD8HTssE8ckWsNZBNNfaWtwLQdrpS5EEkXzlMsFV/ezx6uQAQQcl+zUpEFe+p4S9j9
+	CRtY7BoFjlK4JYRIEjE1pvLgJhMEQDA=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-532-oB5SOTJDMTicGcT5d6RiAA-1; Mon, 15 Sep 2025 12:28:59 -0400
+X-MC-Unique: oB5SOTJDMTicGcT5d6RiAA-1
+X-Mimecast-MFC-AGG-ID: oB5SOTJDMTicGcT5d6RiAA_1757953738
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45b467f5173so30155675e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 09:28:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757953738; x=1758558538;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=90J5I7tDJWuTtR4pzepvkTqrxkeGN9PC3IPf6m4g6yQ=;
+        b=j/ymx93TgKC0MXkfKfd2RInh22ML5xlMQJtv+ymEYLV4LToR5vZWgMx9wS9C/+h8v0
+         wKKOW0Kt3D0vchQzRzg5ItPJXiA0HW4X197IazwYnFC1gmAdjr7cn1r6xEb5lXwfA1J4
+         51/624TO9iu5nsj59gp6rC6KObNmjJHRRCAfZf9ei6gH9aNoxawrQvdk9sJH4T2AwzIN
+         a9vMk5nEfkx9FQs1h05gxrezMRAA6VMJfX2ogwMA+BAn/B6svPCogVbJn3Zgy8oT7Prq
+         8SeGnKghbvBvRBZx6Hq8CN+Hwwoy1WjigSgFSyNMQEnrAy0+xy+6L2kNTz7sCdm7cJtD
+         6gAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV+mAv0TQDjobFMDa1hpcVPY45X27NvmQMmhnr1sW+EP1Hk/Xidu208jpjxPzofUJjRt8e7wX4yUnBnJw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOay441th9DOo4dVIQI1oQy6lkcRJcg7balBkPafXxm7cp88UF
+	Az0J2OsYw85urdjYeYk0TfHg4pPYZPVnvbP+zlzSUd4MKhX621IeTsmaYpiPvU/eK6DfThIWCkH
+	y+KmnLRbdHEf7EjC7HDbN1/rizhQX6vG1/s3UCwfZrg//bIJumjGR6fIr3n10VWkb2flLqkvR14
+	lGT+rJ
+X-Gm-Gg: ASbGnct5R8FLGdWElFxUfZEJIm4dZlumIuYylMXJMBB8p6CgS1CPK8RGIY+nEUjDOdL
+	jS+DbtnsurECu1S1CUKfn3IiqUYX6HxvTysTlM/Regm7ItkiX4dlnNh/5QlSGXHTCjX03xelsLS
+	pjJhs+qzV0bcRT+D9DI1pB353p1WtWrT78svFM2xqkQhVfJluuSLGmUjqoznQrcCd1edPKg/2vk
+	T24s3MQCr5s7tFx2vjTs4+/nthwTDXvcryq55Y6YyjIVzm72ElpBPy322Loy+4kdFhCSieiS1IB
+	f4l8+4rQloxeq5VGctUWJ+pX78AIpn/uXoAfUsyubl0J/gEJ4tE0Qs0=
+X-Received: by 2002:a05:600c:1d22:b0:45f:2bc1:22d0 with SMTP id 5b1f17b1804b1-45f2c422f88mr52741725e9.33.1757953737861;
+        Mon, 15 Sep 2025 09:28:57 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGGcqLg89RzAzIylVbUAdhxQnrbuII6q9BMD4UeHPPpyAnAih60GUdiWlXGIqVqjdTWEN3ljw==
+X-Received: by 2002:a05:600c:1d22:b0:45f:2bc1:22d0 with SMTP id 5b1f17b1804b1-45f2c422f88mr52741475e9.33.1757953737422;
+        Mon, 15 Sep 2025 09:28:57 -0700 (PDT)
+Received: from holism.lzampier.com ([2a06:5900:814a:ab00:c1c7:2e09:633d:e94e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e7cde81491sm12840179f8f.42.2025.09.15.09.28.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Sep 2025 09:28:56 -0700 (PDT)
+From: Lucas Zampieri <lzampier@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: Lucas Zampieri <lzampier@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Nutty Liu <nutty.liu@hotmail.com>,
-	Radim Krcmar <rkrcmar@ventanamicro.com>
-Cc: kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	stable@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jinyu Tang <tjytimi@163.com>,
-	Tianshun Sun <stsmail163@163.com>
-Subject: [RFC PATCH] kvm/riscv: Add ctxsstatus and ctxhstatus for migration
-Date: Mon, 15 Sep 2025 23:27:31 +0800
-Message-ID: <20250915152731.1371067-1-tjytimi@163.com>
-X-Mailer: git-send-email 2.43.0
+	Thomas Gleixner <tglx@linutronix.de>,
+	Jia Wang <wangjia@ultrarisc.com>
+Subject: [PATCH] irqchip/sifive-plic: avoid interrupt ID 0 handling during suspend/resume
+Date: Mon, 15 Sep 2025 17:28:46 +0100
+Message-ID: <20250915162847.103445-1-lzampier@redhat.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-CM-TRANSID: PigvCgCnk+BnMMho_C9hDA--.18834S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAryxJw4ruw47ZF4DZF17Awb_yoW5uFy7pF
-	ZakwsY9rW0qrWSka42kF4qgry5W3s5G34akr92qry5ZF4UtF4rZrs5K3y5AFyDJFWrXFn2
-	kFyrtF18Can0q37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piHa0PUUUUU=
-X-Originating-IP: [2408:823d:2011:2f19:4657:e776:64ca:e2f2]
-X-CM-SenderInfo: xwm13xlpl6il2tof0z/1tbiTg3JeGjIGXU-ywAEsO
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: IyUYaxoTMzryzFiAH9J_ifyjFOwNTLYZNp0O0SRpby8_1757953738
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_083119_645814_1CB80496 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20250915_093034_817504_D3EEEC46 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,96 +111,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When migrating a VM which guest running in user mode 
-(e.g., executing a while(1) application), the target 
-VM fails to run because it loses the information of 
-guest_context.hstatus and guest_context.sstatus. The 
-VM uses the initialized values instead of the correct ones.
+To: linux-kernel@vger.kernel.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Samuel Holland <samuel.holland@sifive.com>
+Cc: stable@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: Thomas Gleixner <tglx@linutronix.de>
 
-This patch adds two new context registers (ctxsstatus and 
-ctxhstatus) to the kvm_vcpu_csr structure and implements 
-the necessary KVM get and set logic to preserve these values 
-during migration.
+According to the PLIC specification[1], global interrupt sources are
+assigned small unsigned integer identifiers beginning at the value 1.
+An interrupt ID of 0 is reserved to mean "no interrupt".
 
-QEMU needs to be updated to support these new registers.
-See https://github.com/tjy-zhu/qemu
-for the corresponding QEMU changes.
+The current plic_irq_resume() and plic_irq_suspend() functions incorrectly
+starts the loop from index 0, which could access the reserved interrupt ID
+0 register space.
+This fix changes the loop to start from index 1, skipping the reserved
+interrupt ID 0 as per the PLIC specification.
 
-I'm not sure if adding these CSR registers is a right way. RISCV
-KVM doesn't have API to save these two context csrs now. I will
-submit the corresponding QEMU patch to the QEMU community if
-KVM has API to get and set them.
+This prevents potential undefined behavior when accessing the reserved
+register space during suspend/resume cycles.
 
-Signed-off-by: Jinyu Tang <tjytimi@163.com>
-Tested-by: Tianshun Sun <stsmail163@163.com>
+Fixes: e80f0b6a2cf3 ("irqchip/irq-sifive-plic: Add syscore callbacks for hibernation")
+Co-developed-by: Jia Wang <wangjia@ultrarisc.com>
+Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+Signed-off-by: Lucas Zampieri <lzampier@redhat.com>
+
+[1] https://github.com/riscv/riscv-plic-spec/releases/tag/1.0.0
 ---
- arch/riscv/include/asm/kvm_host.h |  2 ++
- arch/riscv/include/uapi/asm/kvm.h |  2 ++
- arch/riscv/kvm/vcpu_onereg.c      | 16 ++++++++++++++++
- 3 files changed, 20 insertions(+)
+ drivers/irqchip/irq-sifive-plic.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index d71d3299a..55604b075 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -161,6 +161,8 @@ struct kvm_vcpu_csr {
- 	unsigned long vsatp;
- 	unsigned long scounteren;
- 	unsigned long senvcfg;
-+	unsigned long ctxsstatus;
-+	unsigned long ctxhstatus;
- };
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index bf69a4802b71..1c2b4d2575ac 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -252,7 +252,7 @@ static int plic_irq_suspend(void)
  
- struct kvm_vcpu_config {
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index ef27d4289..cd7d7087f 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -81,6 +81,8 @@ struct kvm_riscv_csr {
- 	unsigned long satp;
- 	unsigned long scounteren;
- 	unsigned long senvcfg;
-+	unsigned long ctxsstatus;
-+	unsigned long ctxhstatus;
- };
+ 	priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
  
- /* AIA CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index cce6a38ea..284ee6e81 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -489,6 +489,12 @@ static int kvm_riscv_vcpu_general_get_csr(struct kvm_vcpu *vcpu,
- 	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
- 		return -ENOENT;
+-	for (i = 0; i < priv->nr_irqs; i++) {
++	for (i = 1; i < priv->nr_irqs; i++) {
+ 		__assign_bit(i, priv->prio_save,
+ 			     readl(priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID));
+ 	}
+@@ -283,7 +283,7 @@ static void plic_irq_resume(void)
  
-+	if (reg_num == KVM_REG_RISCV_CSR_REG(ctxsstatus))
-+		csr->ctxsstatus = vcpu->arch.guest_context.sstatus;
-+
-+	if (reg_num == KVM_REG_RISCV_CSR_REG(ctxhstatus))
-+		csr->ctxhstatus = vcpu->arch.guest_context.hstatus;
-+
- 	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
- 		kvm_riscv_vcpu_flush_interrupts(vcpu);
- 		*out_val = (csr->hvip >> VSIP_TO_HVIP_SHIFT) & VSIP_VALID_MASK;
-@@ -515,6 +521,16 @@ static int kvm_riscv_vcpu_general_set_csr(struct kvm_vcpu *vcpu,
+ 	priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
  
- 	((unsigned long *)csr)[reg_num] = reg_val;
- 
-+	if (reg_num == KVM_REG_RISCV_CSR_REG(ctxsstatus)) {
-+		if (csr->ctxsstatus != 0)
-+			vcpu->arch.guest_context.sstatus = csr->ctxsstatus;
-+	}
-+
-+	if (reg_num == KVM_REG_RISCV_CSR_REG(ctxhstatus)) {
-+		if (csr->ctxhstatus != 0)
-+			vcpu->arch.guest_context.hstatus = csr->ctxhstatus;
-+	}
-+
- 	if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
- 		WRITE_ONCE(vcpu->arch.irqs_pending_mask[0], 0);
- 
+-	for (i = 0; i < priv->nr_irqs; i++) {
++	for (i = 1; i < priv->nr_irqs; i++) {
+ 		index = BIT_WORD(i);
+ 		writel((priv->prio_save[index] & BIT_MASK(i)) ? 1 : 0,
+ 		       priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID);
 -- 
-2.43.0
+2.51.0
 
 
 _______________________________________________
