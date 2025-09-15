@@ -4,86 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D72CAC597
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 11:59:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC3FCAC592
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 12:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xKJjwMY0K4sICloNQcsKUHxAZGa8u4svjXPS7F+u6xc=; b=xeJ6wSfLAMrcWH
-	av41gwAhd151Nvp/SR6ttNucRcCM494+wROHhmhg/s1zSl5MCw244xP32CZvqIvyEl1D5Kjr9yKDr
-	y0CQsNh+4fWOwCt3uW6iG2asW3WW9CUMMMBoSwl+NYbq/HDQN6srnvFeLg8WAP2L1y29C5sjL1ffV
-	JFMz0j0lNgvD3PWaWwzFg3AR63/eQXNgvByCxhjKeorD2IcfRwMozzRO5zmqV7WrfHSdr06obPxd5
-	pxyf7tXha2PLnymW9PZSaFk2Vevr312N3rXNm0vcl/yb0bb3e2fASMs/I5tPCcJO+YbDQoCPDrrIX
-	9v8L1GD1/2/PzxFhFKuQ==;
+	List-Owner; bh=uDkP9pEwUTP6NPYC7yAoYhR6z8xq6Ea9yU4NlirQ1WE=; b=rAT6i90rgqqbXa
+	uZ2IF9JQlTtcifNUE/mjgBiRKzcxWpsRbIFSoUE9+yH8hQBafu3lj7H1r/2K0sUMstqh6zxKSNu0v
+	H3t2owvpqxHohfKXTBD/K1l3P9goMFRnF2S2f0e83l5nu9iCRvRO0jB4yZmUUkqKRG5+s25k2KVcy
+	Avh1/hRJ9tjRXF4mtbwLnYHRFs+nU3515fCF8raGZPuIihBtjl1Psfz8rri+i9UKVwr1F/98cyNTY
+	vZjzOgQ/ODIQbt7icgIDZIQjzp8iY80v7xJy7+s6C4B9/zl21woz4PoiiR0rbtilbJq+Rrkbotha+
+	aQ0D35SnI5LkkZqdQOdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7rO-000000042hQ-2Z79;
-	Mon, 15 Sep 2025 11:59:06 +0000
-Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
+	id 1uy7t2-0000000434w-1O6B;
+	Mon, 15 Sep 2025 12:00:48 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7rL-000000042fw-20LT
+	id 1uy7sz-00000004341-2W8D
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Sep 2025 11:59:05 +0000
-Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-89365bbc079so16263139f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 04:59:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1757937542; x=1758542342; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w+Wo4LOKOK6vQ7K4HYgfgfOSwUdpnB4dRYCTrPRiDio=;
-        b=ne65M2J7ZkQAwhEXxrHu00YUT4pQWDiMrP633cB3O5/GDFgviT8Qe2HFO4W51Ep1oP
-         L8o4pacU3xIw4TmsDXC4aoKdZ2Y/NvYRniLXbLXxBJnto6FPgX8WbTRU2xQs0BjO7f7O
-         S9ErupvpPRFfPM6EqYFoYSgWpLl33NznxF/Tg8J2SZoppiY3wlUqOJZYegJoCkExtrPh
-         MBrIt4TPqsFsTCss2csdT18SIu1N9tKUIIXFN4/z/2Dv1hqoapAtmfEehWW/O8LEdPiI
-         Af/4MHF34nqTVtaVBfrGOjWAsQYU0YkGahtTyw7+k5JsQYTiYCw3BTnpUn/YU6UtgseR
-         Pa0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757937542; x=1758542342;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=w+Wo4LOKOK6vQ7K4HYgfgfOSwUdpnB4dRYCTrPRiDio=;
-        b=pO6Mf39r9FguBjzuVHEd+ONFSGwSZvTe+JaBsaZJtrrzOVYBGqjieCU7GUpSBLdEas
-         IutI6o0yzeXqXUBj82mzNJ/ohvlJ9SiTR6aPydnL6d5x9cU58aUXDgT+lXtwmisS4A7y
-         u6rcTL+UrIUZhL9i3fjA9OPdi/ry6JUIwqiSwDbFIgEd5bjSeWIdQR3tS3EmUl4gcsWt
-         LWHZ//6OCdQjUwbSRc9Mv23EjtldroI1HSjkMo5sCrVmZzNRho/KzcY+Y/bEByEJQpvf
-         seCqdRg3QcHhjZKamZnCmGHD99c8L3RQwLOSjtVpP4gJEGm4y2DcEPf+adK+OXpXFgS8
-         ZHpw==
-X-Forwarded-Encrypted: i=1; AJvYcCXFdaN2DmiToVD4YTVke6V6w0c4gjezKNi1bIVYpw7SeSzihVPpDXYNakjLr40MfmOlV7PSbOcxm+P2xA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuwA4ZuW2JloAOF3NmDLdNQwaBJ6j5YYrp3ERV46J8yTQqOBrG
-	IfPcFdlxwukHD71QFwZZVzWAORRxbARqKjBkHSs9/Umo4Eef1d/PlMRxvzCETWb6KHR609BpWaV
-	urZ59sfu3F2zWR2/zGr8iN1Y8VYxM1VWC2c5BjatC0A==
-X-Gm-Gg: ASbGnctgpsXE9d0qonuS/NMaCcDtXfGvcuwLJ1F0Lo8BAxl/f0HbksB6LIZm142Wh8A
-	SwsqO6jfGX2rZ0YCEgG6GhKZNLjLsZgUgd7V3E/9MsjNWdq47ygYxF3/VqpTvZCp7FQv1HurCue
-	Hvsg0vBsYXTx+N8oeY9X7yiGAteLpYQ19uUABLpmyqXlXLMqE712MYZxGaXsB3wqXDDgZBqvWu5
-	TbpmcQVNlobtMUXdi5SXI1dS1EGCInj0J9sOgDK
-X-Google-Smtp-Source: AGHT+IHTDrsD99f5SQM6r2xQgpJxH71mXjBKOGQCXs9gTx5sBfVD90LiO27Njr8hwWJISfU1lWc6TvRVPNc4XTqs0j4=
-X-Received: by 2002:a05:6e02:3312:b0:423:fd3b:ef72 with SMTP id
- e9e14a558f8ab-423fd3bf017mr46668695ab.0.1757937541951; Mon, 15 Sep 2025
- 04:59:01 -0700 (PDT)
+	Mon, 15 Sep 2025 12:00:46 +0000
+Received: from localhost (unknown [180.158.240.90])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 91C7F340F3A;
+	Mon, 15 Sep 2025 12:00:43 +0000 (UTC)
+Date: Mon, 15 Sep 2025 20:00:31 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, skhan@linuxfoundation.org,
+	linux-kernel-mentees@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: dts: spacemit: add UART pinctrl combinations
+Message-ID: <20250915120031-GYA1251948@gentoo.org>
+References: <20250915112845.58134-1-hendrik.hamerlinck@hammernet.be>
 MIME-Version: 1.0
-References: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
- <f740b716-6c8b-46a5-31ae-ecc37e766152@kernel.org> <aMftcHLgBvH76erX@willie-the-truck>
-In-Reply-To: <aMftcHLgBvH76erX@willie-the-truck>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 15 Sep 2025 17:28:48 +0530
-X-Gm-Features: AS18NWDM6MzdjjPsw0ij-OL-CWk_57B0_4S3ilJtO7cErapGgoLvo5MzWEvUv3s
-Message-ID: <CAAhSdy3wJd5uicJntf+WgTaLciiQsqT1QfUmrZ1Jk9qEONRgPw@mail.gmail.com>
-Subject: Re: [PATCH v6 0/8] Add SBI v3.0 PMU enhancements
-To: Will Deacon <will@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Atish Patra <atishp@rivosinc.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, Sean Christopherson <seanjc@google.com>
+Content-Disposition: inline
+In-Reply-To: <20250915112845.58134-1-hendrik.hamerlinck@hammernet.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_045903_753044_FF3A5299 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20250915_050045_669033_05921A0C 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,39 +63,445 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgV2lsbCwKCk9uIE1vbiwgU2VwIDE1LCAyMDI1IGF0IDQ6MTHigK9QTSBXaWxsIERlYWNvbiA8
-d2lsbEBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIE1vbiwgU2VwIDE1LCAyMDI1IGF0IDEyOjI1
-OjUyQU0gLTA2MDAsIFBhdWwgV2FsbXNsZXkgd3JvdGU6Cj4gPiBPbiBUdWUsIDkgU2VwIDIwMjUs
-IEF0aXNoIFBhdHJhIHdyb3RlOgo+ID4KPiA+ID4gU0JJIHYzLjAgc3BlY2lmaWNhdGlvblsxXSBh
-ZGRlZCB0d28gbmV3IGltcHJvdmVtZW50cyB0byB0aGUgUE1VIGNoYXBlci4KPiA+ID4gVGhlIFNC
-SSB2My4wIHNwZWNpZmljYXRpb24gaXMgZnJvemVuIGFuZCB1bmRlciBwdWJsaWMgcmV2aWV3IHBo
-YXNlIGFzCj4gPiA+IHBlciB0aGUgUklTQy1WIEludGVybmF0aW9uYWwgZ3VpZGVsaW5lcy4KPiA+
-ID4KPiA+ID4gMS4gQWRkZWQgYW4gYWRkaXRpb25hbCBnZXRfZXZlbnRfaW5mbyBmdW5jdGlvbiB0
-byBxdWVyeSBldmVudCBhdmFpbGFibGl0eQo+ID4gPiBpbiBidWxrIGluc3RlYWQgb2YgaW5kaXZp
-ZHVhbCBTQkkgY2FsbHMgZm9yIGVhY2ggZXZlbnQuIFRoaXMgaGVscHMgaW4KPiA+ID4gaW1wcm92
-aW5nIHRoZSBib290IHRpbWUuCj4gPiA+Cj4gPiA+IDIuIFJhdyBldmVudCB3aWR0aCBhbGxvd2Vk
-IGJ5IHRoZSBwbGF0Zm9ybSBpcyB3aWRlbmVkIHRvIGhhdmUgNTYgYml0cwo+ID4gPiB3aXRoIFJB
-VyBldmVudCB2MiBhcyBwZXIgbmV3IGNsYXJpZmljYXRpb24gaW4gdGhlIHByaXYgSVNBWzJdLgo+
-ID4gPgo+ID4gPiBBcGFydCBmcm9tIGltcGxlbWVudGluZyB0aGVzZSBuZXcgZmVhdHVyZXMsIHRo
-aXMgc2VyaWVzIGltcHJvdmVzIHRoZSBncGEKPiA+ID4gcmFuZ2UgY2hlY2sgaW4gS1ZNIGFuZCB1
-cGRhdGVzIHRoZSBrdm0gU0JJIGltcGxlbWVudGF0aW9uIHRvIFNCSSB2My4wLgo+ID4gPgo+ID4g
-PiBUaGUgb3BlbnNiaSBwYXRjaGVzIGhhdmUgYmVlbiBtZXJnZWQuIFRoaXMgc2VyaWVzIGNhbiBi
-ZSBmb3VuZCBhdCBbM10uCj4gPiA+Cj4gPiA+IFsxXSBodHRwczovL2dpdGh1Yi5jb20vcmlzY3Yt
-bm9uLWlzYS9yaXNjdi1zYmktZG9jL3JlbGVhc2VzL2Rvd25sb2FkL3YzLjAtcmM3L3Jpc2N2LXNi
-aS5wZGYKPiA+ID4gWzJdIGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9yaXNjdi1pc2EtbWFudWFs
-L2lzc3Vlcy8xNTc4Cj4gPiA+IFszXSBodHRwczovL2dpdGh1Yi5jb20vYXRpc2hwMDQvbGludXgv
-dHJlZS9iNC9wbXVfZXZlbnRfaW5mb192Ngo+ID4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBBdGlz
-aCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT4KPiA+Cj4gPiBGb3IgdGhlIHNlcmllczoKPiA+
-Cj4gPiBBY2tlZC1ieTogUGF1bCBXYWxtc2xleSA8cGp3QGtlcm5lbC5vcmc+Cj4KPiBJIHdhcyBh
-c3N1bWluZyB0aGlzIHNlcmllcyB3b3VsZCBnbyB2aWEgdGhlIFJpc2MtViBhcmNoIHRyZWUgc28g
-cGxlYXNlCj4gc2hvdXQgaWYgeW91IHdlcmUgZXhwZWN0aW5nIG1lIHRvIHRha2UgaXQgdmlhIGRy
-aXZlcnMvcGVyZi8hCj4KCkJhc2VkIG9uIG9mZmxpbmUgZGlzY3Vzc2lvbiB3aXRoIFBhdWwsIEkg
-d2lsbCB0YWtlIHRoaXMgc2VyaWVzCnRocm91Z2ggdGhlIEtWTSBSSVNDLVYgdHJlZS4KClJlZ2Fy
-ZHMsCkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Hendrik,
+
+On 13:28 Mon 15 Sep     , Hendrik Hamerlinck wrote:
+> Add UART pinctrl configurations based on the SoC datasheet and the
+> downstream Bianbu Linux tree. The drive strength values were taken from
+> the downstream implementation, which uses medium drive strength.
+> CTS/RTS are moved to separate *-cts-rts-cfg states so boards can enable
+> hardware flow control conditionally.
+> 
+> Signed-off-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+> ---
+> Changes in v2:
+> - Split cts/rts into separate pinctrl configs as suggested
+> - Removed options from board DTS files to keep them cleaner
+> ---
+>  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi | 389 ++++++++++++++++++-
+>  1 file changed, 386 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> index 381055737422..8f87f8baaf77 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> @@ -11,12 +11,395 @@
+>  #define K1_GPIO(x)	(x / 32) (x % 32)
+>  
+>  &pinctrl {
+Generally I'm good with this version, only have one minor comment
+
+How about adding a "/omit-if-no-ref/" before each pin cfg?
+This will shrink the final blob size if no referece to the node
+
+> +	uart0_0_cfg: uart0-0-cfg {
+> +		uart0-0-pins {
+> +			pinmux = <K1_PADCONF(104, 3)>,	/* uart0_txd */
+> +				 <K1_PADCONF(105, 3)>;	/* uart0_rxd */
+> +			power-source = <3300>;
+> +			bias-pull-up;
+> +			drive-strength = <19>;
+> +		};
+> +	};
+> +
+> +	uart0_1_cfg: uart0-1-cfg {
+> +		uart0-1-pins {
+> +			pinmux = <K1_PADCONF(108, 1)>,	/* uart0_txd */
+> +				 <K1_PADCONF(80, 3)>;	/* uart0_rxd */
+> +			power-source = <3300>;
+> +			bias-pull-up;
+> +			drive-strength = <19>;
+> +		};
+> +	};
+> +
+>  	uart0_2_cfg: uart0-2-cfg {
+>  		uart0-2-pins {
+> -			pinmux = <K1_PADCONF(68, 2)>,
+> -				 <K1_PADCONF(69, 2)>;
+> +			pinmux = <K1_PADCONF(68, 2)>,	/* uart0_txd */
+> +				 <K1_PADCONF(69, 2)>;	/* uart0_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+>  
+> -			bias-pull-up = <0>;
+> +	uart2_0_cfg: uart2-0-cfg {
+> +		uart2-0-pins {
+> +			pinmux = <K1_PADCONF(21, 1)>,	/* uart2_txd */
+> +				 <K1_PADCONF(22, 1)>;	/* uart2_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart2_0_cts_rts_cfg: uart2-0-cts-rts-cfg {
+> +		uart2-0-pins {
+> +			pinmux = <K1_PADCONF(23, 1)>,	/* uart2_cts */
+> +				 <K1_PADCONF(24, 1)>;	/* uart2_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart3_0_cfg: uart3-0-cfg {
+> +		uart3-0-pins {
+> +			pinmux = <K1_PADCONF(81, 2)>,	/* uart3_txd */
+> +				 <K1_PADCONF(82, 2)>;	/* uart3_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart3_0_cts_rts_cfg: uart3-0-cts-rts-cfg {
+> +		uart3-0-pins {
+> +			pinmux = <K1_PADCONF(83, 2)>,	/* uart3_cts */
+> +				 <K1_PADCONF(84, 2)>;	/* uart3_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart3_1_cfg: uart3-1-cfg {
+> +		uart3-1-pins {
+> +			pinmux = <K1_PADCONF(18, 2)>,	/* uart3_txd */
+> +				 <K1_PADCONF(19, 2)>;	/* uart3_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart3_1_cts_rts_cfg: uart3-1-cts-rts-cfg {
+> +		uart3-1-pins {
+> +			pinmux = <K1_PADCONF(20, 2)>,	/* uart3_cts */
+> +				 <K1_PADCONF(21, 2)>;	/* uart3_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart3_2_cfg: uart3-2-cfg {
+> +		uart3-2-pins {
+> +			pinmux = <K1_PADCONF(53, 4)>,	/* uart3_txd */
+> +				 <K1_PADCONF(54, 4)>;	/* uart3_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart3_2_cts_rts_cfg: uart3-2-cts-rts-cfg {
+> +		uart3-2-pins {
+> +			pinmux = <K1_PADCONF(55, 4)>,	/* uart3_cts */
+> +				 <K1_PADCONF(56, 4)>;	/* uart3_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart4_0_cfg: uart4-0-cfg {
+> +		uart4-0-pins {
+> +			pinmux = <K1_PADCONF(100, 4)>,	/* uart4_txd */
+> +				 <K1_PADCONF(101, 4)>;	/* uart4_rxd */
+> +			power-source = <3300>;
+> +			bias-pull-up;
+> +			drive-strength = <19>;
+> +		};
+> +	};
+> +
+> +	uart4_1_cfg: uart4-1-cfg {
+> +		uart4-1-pins {
+> +			pinmux = <K1_PADCONF(83, 3)>,	/* uart4_txd */
+> +				 <K1_PADCONF(84, 3)>;	/* uart4_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart4_1_cts_rts_cfg: uart4-1-cts-rts-cfg {
+> +		uart4-1-pins {
+> +			pinmux = <K1_PADCONF(81, 3)>,	/* uart4_cts */
+> +				 <K1_PADCONF(82, 3)>;	/* uart4_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart4_2_cfg: uart4-2-cfg {
+> +		uart4-2-pins {
+> +			pinmux = <K1_PADCONF(23, 2)>,	/* uart4_txd */
+> +				 <K1_PADCONF(24, 2)>;	/* uart4_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart4_3_cfg: uart4-3-cfg {
+> +		uart4-3-pins {
+> +			pinmux = <K1_PADCONF(33, 2)>,	/* uart4_txd */
+> +				 <K1_PADCONF(34, 2)>;	/* uart4_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart4_3_cts_rts_cfg: uart4-3-cts-rts-cfg {
+> +		uart4-3-pins {
+> +			pinmux = <K1_PADCONF(35, 2)>,	/* uart4_cts */
+> +				 <K1_PADCONF(36, 2)>;	/* uart4_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart4_4_cfg: uart4-4-cfg {
+> +		uart4-4-pins {
+> +			pinmux = <K1_PADCONF(111, 4)>,	/* uart4_txd */
+> +				 <K1_PADCONF(112, 4)>;	/* uart4_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart4_4_cts_rts_cfg: uart4-4-cts-rts-cfg {
+> +		uart4-4-pins {
+> +			pinmux = <K1_PADCONF(113, 4)>,	/* uart4_cts */
+> +				 <K1_PADCONF(114, 4)>;	/* uart4_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart5_0_cfg: uart5-0-cfg {
+> +		uart5-0-pins {
+> +			pinmux = <K1_PADCONF(102, 3)>,	/* uart5_txd */
+> +				 <K1_PADCONF(103, 3)>;	/* uart5_rxd */
+> +			power-source = <3300>;
+> +			bias-pull-up;
+> +			drive-strength = <19>;
+> +		};
+> +	};
+> +
+> +	uart5_1_cfg: uart5-1-cfg {
+> +		uart5-1-pins {
+> +			pinmux = <K1_PADCONF(25, 2)>,	/* uart5_txd */
+> +				 <K1_PADCONF(26, 2)>;	/* uart5_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart5_1_cts_rts_cfg: uart5-1-cts-rts-cfg {
+> +		uart5-1-pins {
+> +			pinmux = <K1_PADCONF(27, 2)>,	/* uart5_cts */
+> +				 <K1_PADCONF(28, 2)>;	/* uart5_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart5_2_cfg: uart5-2-cfg {
+> +		uart5-2-pins {
+> +			pinmux = <K1_PADCONF(42, 2)>,	/* uart5_txd */
+> +				 <K1_PADCONF(43, 2)>;	/* uart5_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart5_2_cts_rts_cfg: uart5-2-cts-rts-cfg {
+> +		uart5-2-pins {
+> +			pinmux = <K1_PADCONF(44, 2)>,	/* uart5_cts */
+> +				 <K1_PADCONF(45, 2)>;	/* uart5_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart5_3_cfg: uart5-3-cfg {
+> +		uart5-3-pins {
+> +			pinmux = <K1_PADCONF(70, 4)>,	/* uart5_txd */
+> +				 <K1_PADCONF(71, 4)>;	/* uart5_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart5_3_cts_rts_cfg: uart5-3-cts-rts-cfg {
+> +		uart5-3-pins {
+> +			pinmux = <K1_PADCONF(72, 4)>,	/* uart5_cts */
+> +				 <K1_PADCONF(73, 4)>;	/* uart5_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart6_0_cfg: uart6-0-cfg {
+> +		uart6-0-pins {
+> +			pinmux = <K1_PADCONF(86, 2)>,	/* uart6_txd */
+> +				 <K1_PADCONF(87, 2)>;	/* uart6_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart6_0_cts_rts_cfg: uart6-0-cts-rts-cfg {
+> +		uart6-0-pins {
+> +			pinmux = <K1_PADCONF(85, 2)>,	/* uart6_cts */
+> +				 <K1_PADCONF(90, 2)>;	/* uart6_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart6_1_cfg: uart6-1-cfg {
+> +		uart6-1-pins {
+> +			pinmux = <K1_PADCONF(0, 2)>,	/* uart6_txd */
+> +				 <K1_PADCONF(1, 2)>;	/* uart6_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart6_1_cts_rts_cfg: uart6-1-cts-rts-cfg {
+> +		uart6-1-pins {
+> +			pinmux = <K1_PADCONF(2, 2)>,	/* uart6_cts */
+> +				 <K1_PADCONF(3, 2)>;	/* uart6_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart6_2_cfg: uart6-2-cfg {
+> +		uart6-2-pins {
+> +			pinmux = <K1_PADCONF(56, 2)>,	/* uart6_txd */
+> +				 <K1_PADCONF(57, 2)>;	/* uart6_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart7_0_cfg: uart7-0-cfg {
+> +		uart7-0-pins {
+> +			pinmux = <K1_PADCONF(88, 2)>,	/* uart7_txd */
+> +				 <K1_PADCONF(89, 2)>;	/* uart7_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart7_1_cfg: uart7-1-cfg {
+> +		uart7-1-pins {
+> +			pinmux = <K1_PADCONF(4, 2)>,	/* uart7_txd */
+> +				 <K1_PADCONF(5, 2)>;	/* uart7_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart7_1_cts_rts_cfg: uart7-1-cts-rts-cfg {
+> +		uart7-1-pins {
+> +			pinmux = <K1_PADCONF(6, 2)>,	/* uart7_cts */
+> +				 <K1_PADCONF(7, 2)>;	/* uart7_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart8_0_cfg: uart8-0-cfg {
+> +		uart8-0-pins {
+> +			pinmux = <K1_PADCONF(82, 4)>,	/* uart8_txd */
+> +				 <K1_PADCONF(83, 4)>;	/* uart8_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart8_1_cfg: uart8-1-cfg {
+> +		uart8-1-pins {
+> +			pinmux = <K1_PADCONF(8, 2)>,	/* uart8_txd */
+> +				 <K1_PADCONF(9, 2)>;	/* uart8_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart8_1_cts_rts_cfg: uart8-1-cts-rts-cfg {
+> +		uart8-1-pins {
+> +			pinmux = <K1_PADCONF(10, 2)>,	/* uart8_cts */
+> +				 <K1_PADCONF(11, 2)>;	/* uart8_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart8_2_cfg: uart8-2-cfg {
+> +		uart8-2-pins {
+> +			pinmux = <K1_PADCONF(75, 4)>,	/* uart8_txd */
+> +				 <K1_PADCONF(76, 4)>;	/* uart8_rxd */
+> +			power-source = <3300>;
+> +			bias-pull-up;
+> +			drive-strength = <19>;
+> +		};
+> +	};
+> +
+> +	uart8_2_cts_rts_cfg: uart8-2-cts-rts-cfg {
+> +		uart8-2-pins {
+> +			pinmux = <K1_PADCONF(77, 4)>,	/* uart8_cts */
+> +				 <K1_PADCONF(78, 4)>;	/* uart8_rts */
+> +			power-source = <3300>;
+> +			bias-pull-up;
+> +			drive-strength = <19>;
+> +		};
+> +	};
+> +
+> +	uart9_0_cfg: uart9-0-cfg {
+> +		uart9-0-pins {
+> +			pinmux = <K1_PADCONF(12, 2)>,	/* uart9_txd */
+> +				 <K1_PADCONF(13, 2)>;	/* uart9_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart9_1_cfg: uart9-1-cfg {
+> +		uart9-1-pins {
+> +			pinmux = <K1_PADCONF(116, 3)>,	/* uart9_txd */
+> +				 <K1_PADCONF(117, 3)>;	/* uart9_rxd */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart9_1_cts_rts_cfg: uart9-1-cts-rts-cfg {
+> +		uart9-1-pins {
+> +			pinmux = <K1_PADCONF(110, 3)>,	/* uart9_cts */
+> +				 <K1_PADCONF(115, 3)>;	/* uart9_rts */
+> +			bias-pull-up;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+> +
+> +	uart9_2_cfg: uart9-2-cfg {
+> +		uart9-2-pins {
+> +			pinmux = <K1_PADCONF(72, 2)>,	/* uart9_txd */
+> +				 <K1_PADCONF(73, 2)>;	/* uart9_rxd */
+> +			bias-pull-up;
+>  			drive-strength = <32>;
+>  		};
+>  	};
+> -- 
+> 2.43.0
+> 
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
