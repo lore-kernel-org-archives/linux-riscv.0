@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09F9CAC597
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 11:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52DEFCAC597
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 11:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZtbEVc7Rr8J59cd6XNk8hTGH99hlOFj1JObrw8MM1i8=; b=wj7PDhu3YfzsfC
-	RI3xsC26PIXgtKVXeuYsdsBPyM7cO1cYDUhsTpUdlv6pYJMOxxhLt5bPXMLT3gZniRrosjit+87q5
-	qbfQFO4dFJFmKwSVoYLJDtugX5dklQVR1sj32axRPK6H9MlY8YO/naqmyzODcyH+P9bh1ddM2SY5A
-	tDrQfg3YP/ftiv+F/eIsGbs6mTWnA8Eaf8CLWUhgsKhqlDdmO04ATuiljcBsIEaJNa9nuncSquaAd
-	XPUNH4Rlgq5bs8HmpJilepRhf/ZS935TQy9wakdGNz+T0+zRgy4WYPu9KmVf+nN+eScOllv9X37CL
-	TWPU3sloxrvrz/o+PtVg==;
+	List-Owner; bh=2v9qzixxvpeSdRopqlXhti2RV/DHG7KiS3+ZJ5aBpQo=; b=XaASmidVXugiuz
+	gJcwMBbaafyTSCcLgfkNayKopqs7zAuLrVm8CxJ/F3MtS5ZiMxxL5RbK8d1XQh93LzOoBea1hwOKm
+	ujLokSC9kVpgQzFr2rDRE3mOczVGhNUCstur/n9tgxMfyFQZWwrpb8lkxeux0PY8BaXzjHy+6cp9O
+	zFoxZmfxd8kyFDvsmv0wtym7zfbTvXzuBQ3WUso6IUHyoEVrigFj+Up3MbSQ6iSclZpqK1wwZ51qa
+	vLsCjAgImzAX+IrxrkHGp41Y6R9wNb9b0AEob/v0nl/ET1O5yhOoMwKb3tkMmyesvTsogvDI7QDLZ
+	njGO/A7hMwl4KjiOwW1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7PM-00000003uMX-0lOj;
-	Mon, 15 Sep 2025 11:30:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uy7PO-00000003uNV-22IX;
+	Mon, 15 Sep 2025 11:30:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7PK-00000003uLi-3gi3
+	id 1uy7PL-00000003uMJ-2v8W
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Sep 2025 11:30:06 +0000
+	Mon, 15 Sep 2025 11:30:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 03ABE601A3;
-	Mon, 15 Sep 2025 11:30:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5A82C4CEF1;
-	Mon, 15 Sep 2025 11:30:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5C41044939;
+	Mon, 15 Sep 2025 11:30:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33520C4CEF1;
+	Mon, 15 Sep 2025 11:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757935805;
-	bh=0LeemALigBhOE/z8tc+3LQeO3KM+cUtqRXMQIlOWg7E=;
+	s=k20201202; t=1757935807;
+	bh=EofV7MWcaoULPmVM3l1hDLo0abjEMWXWU4I9ukTS6To=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=aT+e0fxJ0WcXTdzmFMlaOmeLBj7G/nVsrGnYX0C5UQGZARV4Ddqa6GBUMaI4JctuJ
-	 ZPklzrvRxCLa1KLCc9Fi6nvlJdBqs/apKscB39/MZJ33CBkYH82FeDGLsy4j6EsJZR
-	 PRiBwZHL+mAc6ZwY5oBbRb9Sk0ySNSpZ0PVrPgMwnwHINrn5hT24xaZMw9kKuSI64c
-	 KcwnOODa3LxeBaspYEv12GgUIV1GjSv4h6OAJnMVEg+KLdRamu4Z3etavGWEsQR5ZE
-	 8MZF5nW00qYy02gvPGV68CsQD07ZDPghoiBNYU8HhOouHwjlhX1+iaCviO1pr6wNAU
-	 a6+bF0ClR8jvQ==
+	b=FOcXWYOJ8EjmejDdgpDhB4wkSxch2Y6F7LoCXMgPP5veK4zNJ4f/sjr/QT2I78Sky
+	 Dr1kZ2xj5KC9LRe/pCZAIqd+obanlmYpnsspxB/1KeClM4JxraNwt+McR+ZmQrbWAZ
+	 soM8Sydd6ZyiRCKd3llOj/rTrk4WhkP9NMMs9+bN73K3CXzWQWW11kTeEU8fCpNoHF
+	 bzfzlBm5j58wh6ZHPpiCziGQEjNRD/Oaqxr3376IvXcOuEHL8N0Tm5bdgwU72xFgxs
+	 uFHrOVsPzn2TW2lXPRrWwEsgZCWc1nbZA9zMlAg9tJdVsU1uDd/C8nnsKqZXdsWR1C
+	 8wWjGEQxDM3gg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70CE5383BF6C;
-	Mon, 15 Sep 2025 11:30:08 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAC44383BF6C;
+	Mon, 15 Sep 2025 11:30:09 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next] riscv, bpf: Remove duplicated bpf_flush_icache()
+Subject: Re: [PATCH bpf-next v3] riscv,
+ bpf: Sign extend struct ops return values properly
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175793580727.4119003.4683827020122621439.git-patchwork-notify@kernel.org>
-Date: Mon, 15 Sep 2025 11:30:07 +0000
-References: <20250904105119.21861-1-hengqi.chen@gmail.com>
-In-Reply-To: <20250904105119.21861-1-hengqi.chen@gmail.com>
+Message-Id: <175793580854.4119003.9326711065064953061.git-patchwork-notify@kernel.org>
+Date: Mon, 15 Sep 2025 11:30:08 +0000
+References: <20250908012448.1695-1-hengqi.chen@gmail.com>
+In-Reply-To: <20250908012448.1695-1-hengqi.chen@gmail.com>
 To: Hengqi Chen <hengqi.chen@gmail.com>
 Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
  martin.lau@linux.dev, bjorn@kernel.org, pulehui@huawei.com,
  puranjay@kernel.org, bpf@vger.kernel.org, linux-riscv@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_043007_774521_6A8C09E1 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,18 +82,56 @@ Hello:
 This patch was applied to bpf/bpf-next.git (master)
 by Daniel Borkmann <daniel@iogearbox.net>:
 
-On Thu,  4 Sep 2025 10:51:18 +0000 you wrote:
-> The bpf_flush_icache() is done by bpf_arch_text_copy() already.
-> Remove the duplicated one in arch_prepare_bpf_trampoline().
+On Mon,  8 Sep 2025 01:24:48 +0000 you wrote:
+> The ns_bpf_qdisc selftest triggers a kernel panic:
 > 
-> Signed-off-by: Hengqi Chen <hengqi.chen@gmail.com>
-> ---
->  arch/riscv/net/bpf_jit_comp64.c | 1 -
->  1 file changed, 1 deletion(-)
+>     Unable to handle kernel paging request at virtual address ffffffffa38dbf58
+>     Current test_progs pgtable: 4K pagesize, 57-bit VAs, pgdp=0x00000001109cc000
+>     [ffffffffa38dbf58] pgd=000000011fffd801, p4d=000000011fffd401, pud=000000011fffd001, pmd=0000000000000000
+>     Oops [#1]
+>     Modules linked in: bpf_testmod(OE) xt_conntrack nls_iso8859_1 dm_mod drm drm_panel_orientation_quirks configfs backlight btrfs blake2b_generic xor lzo_compress zlib_deflate raid6_pq efivarfs [last unloaded: bpf_testmod(OE)]
+>     CPU: 1 UID: 0 PID: 23584 Comm: test_progs Tainted: G        W  OE       6.17.0-rc1-g2465bb83e0b4 #1 NONE
+>     Tainted: [W]=WARN, [O]=OOT_MODULE, [E]=UNSIGNED_MODULE
+>     Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2024.01+dfsg-1ubuntu5.1 01/01/2024
+>     epc : __qdisc_run+0x82/0x6f0
+>      ra : __qdisc_run+0x6e/0x6f0
+>     epc : ffffffff80bd5c7a ra : ffffffff80bd5c66 sp : ff2000000eecb550
+>      gp : ffffffff82472098 tp : ff60000096895940 t0 : ffffffff8001f180
+>      t1 : ffffffff801e1664 t2 : 0000000000000000 s0 : ff2000000eecb5d0
+>      s1 : ff60000093a6a600 a0 : ffffffffa38dbee8 a1 : 0000000000000001
+>      a2 : ff2000000eecb510 a3 : 0000000000000001 a4 : 0000000000000000
+>      a5 : 0000000000000010 a6 : 0000000000000000 a7 : 0000000000735049
+>      s2 : ffffffffa38dbee8 s3 : 0000000000000040 s4 : ff6000008bcda000
+>      s5 : 0000000000000008 s6 : ff60000093a6a680 s7 : ff60000093a6a6f0
+>      s8 : ff60000093a6a6ac s9 : ff60000093140000 s10: 0000000000000000
+>      s11: ff2000000eecb9d0 t3 : 0000000000000000 t4 : 0000000000ff0000
+>      t5 : 0000000000000000 t6 : ff60000093a6a8b6
+>     status: 0000000200000120 badaddr: ffffffffa38dbf58 cause: 000000000000000d
+>     [<ffffffff80bd5c7a>] __qdisc_run+0x82/0x6f0
+>     [<ffffffff80b6fe58>] __dev_queue_xmit+0x4c0/0x1128
+>     [<ffffffff80b80ae0>] neigh_resolve_output+0xd0/0x170
+>     [<ffffffff80d2daf6>] ip6_finish_output2+0x226/0x6c8
+>     [<ffffffff80d31254>] ip6_finish_output+0x10c/0x2a0
+>     [<ffffffff80d31446>] ip6_output+0x5e/0x178
+>     [<ffffffff80d2e232>] ip6_xmit+0x29a/0x608
+>     [<ffffffff80d6f4c6>] inet6_csk_xmit+0xe6/0x140
+>     [<ffffffff80c985e4>] __tcp_transmit_skb+0x45c/0xaa8
+>     [<ffffffff80c995fe>] tcp_connect+0x9ce/0xd10
+>     [<ffffffff80d66524>] tcp_v6_connect+0x4ac/0x5e8
+>     [<ffffffff80cc19b8>] __inet_stream_connect+0xd8/0x318
+>     [<ffffffff80cc1c36>] inet_stream_connect+0x3e/0x68
+>     [<ffffffff80b42b20>] __sys_connect_file+0x50/0x88
+>     [<ffffffff80b42bee>] __sys_connect+0x96/0xc8
+>     [<ffffffff80b42c40>] __riscv_sys_connect+0x20/0x30
+>     [<ffffffff80e5bcae>] do_trap_ecall_u+0x256/0x378
+>     [<ffffffff80e69af2>] handle_exception+0x14a/0x156
+>     Code: 892a 0363 1205 489c 8bc1 c7e5 2d03 084a 2703 080a (2783) 0709
+> 
+> [...]
 
 Here is the summary with links:
-  - [bpf-next] riscv, bpf: Remove duplicated bpf_flush_icache()
-    https://git.kernel.org/bpf/bpf-next/c/6798668ab195
+  - [bpf-next,v3] riscv, bpf: Sign extend struct ops return values properly
+    https://git.kernel.org/bpf/bpf-next/c/fd2e08128944
 
 You are awesome, thank you!
 -- 
