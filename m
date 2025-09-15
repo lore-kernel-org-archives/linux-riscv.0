@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C10CAC597
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 13:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B319CCAC597
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 13:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=miqoIpCWNzD757r/o6XIpr2yEgOVE0xg9K6ice/RND8=; b=4A1YJ06Jx8IrHW
-	+/VL0HjTsG2WpNsrXfv5n0lDrmhPrgqwEFdchD8lW/3pjSB7q+g80QrDKdR239Z5a33Pk3MAE0v4/
-	7xn9yijMSMywxnaj3d6WP8CVx84XkoNRV3oYcICtr7HoKw7pgXsWUAojiYebD1VxG13jX3N1hYvSY
-	IfIocBHnYV7fRXYYRLzze5de6tyDWgw7Dbmoqjr3Ev9000+asazTjYN1tXJjI0icAb4cRI5Fj4W13
-	IDYm4EgraUguQYrc1lFCbwNg6V89RzJZJvXgFOM5ku9fp1ILm2w0Fkvs4V1mz9HWyVMaUNp5dz7B6
-	WWYcuC5y9Fse7kGz7RrA==;
+	List-Owner; bh=Szdjx51Y0GFTjVYe4+G5JqXbDVXnXfsuxhtPj5PaLm8=; b=iTySor+G7fUhtd
+	7q1hIn0DSMseOxtlzBoLs4CicY320xORQ2qSwtPyhzkDkDycjL8RmoPsab6jVBiAQ4utUxkrB8RSE
+	4Ee7f4U6ly9MEeEEYjMlIj/fT8UqUn3hZbAGTJuEVvWYE+HfJQlIb4lQzPDkjHnIiDVovTecv7/x0
+	HWsBu2wsrJSS/wHiWPg/dYO95vxkvopPGCySbvPdm8U+WjxTM+PcUyqE9GhmLnNp2F0B3je0jEZPh
+	gFLIAqnoGA3Msp4MiTW64ItLZreL+OtNhzL83juPrqgQo31gOSXBRAObjAmHR63p+5umlZAM6N40w
+	FJrolNPfCsXIIfIL1YoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy9Wn-00000004Qdm-1ZD3;
-	Mon, 15 Sep 2025 13:45:57 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uy9dk-00000004U22-2DjP;
+	Mon, 15 Sep 2025 13:53:08 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy9Wk-00000004Qbu-1F6L
+	id 1uy9dh-00000004Tyf-2KpF
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Sep 2025 13:45:56 +0000
+	Mon, 15 Sep 2025 13:53:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757943952;
+	s=mimecast20190719; t=1757944384;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=qd22CcRHxTz6S9weuM1x7AkdMNNHqOghUEX9jI8G2J4=;
-	b=RVHD+qEjAVqrQDHYn0PKoFGnhEF6Gf5CqDFFVXEM04LVnLEBTUSKyWMpNkg3mnTv1Zx7v8
-	Lq858wVGGyyrQgwXBlSZJ0Aiem/xlAGFY18atX5n6VvD6vwthxMO4w2Qwe6hn56IMYh+g4
-	t1QVEbmWwzrFzWjvhceNNIfG7U9sQnc=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=WLlYJinc0dfQVpvH1UOH7RnaSWYBlLeAZhMVXB0T/UY=;
+	b=TeCecidt2hZfddGwJQRQT1Tc4OARsm0J1scjdDxLaNDNoyJPRu4uwVHI6t4lTsp3PKnwBh
+	xy1d5GhYmyNcoihglV6Mac3oMEch6nH8MV/RJG8I6rl8OMSPuEfAZQCuXFE//4jy7QskvD
+	WsieWLCIivaFZmOR0dXWvsERZP5XeR0=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-287-1-HWo0SgPZCIpsNrd0eGHA-1; Mon, 15 Sep 2025 09:45:50 -0400
-X-MC-Unique: 1-HWo0SgPZCIpsNrd0eGHA-1
-X-Mimecast-MFC-AGG-ID: 1-HWo0SgPZCIpsNrd0eGHA_1757943949
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3e4a8e6df10so2661661f8f.3
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 06:45:50 -0700 (PDT)
+ us-mta-460-X4YyrnIZMXuZz3zcZggUZg-1; Mon, 15 Sep 2025 09:53:02 -0400
+X-MC-Unique: X4YyrnIZMXuZz3zcZggUZg-1
+X-Mimecast-MFC-AGG-ID: X4YyrnIZMXuZz3zcZggUZg_1757944382
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-45cb604427fso25595045e9.1
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 06:53:02 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757943949; x=1758548749;
+        d=1e100.net; s=20230601; t=1757944381; x=1758549181;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qd22CcRHxTz6S9weuM1x7AkdMNNHqOghUEX9jI8G2J4=;
-        b=pGxXmQn+n0UcacHgcdHFMINWIxRD3GonaqexPKqMA+k7WeyxZSTsVAyO9fAOL3fmXF
-         gvwPWVPGlABEcivxbPA2zXm88UXiYEEzn5ZyTj0kij2Bnhnv/bO6IbxcKJCs6Jd3UWDH
-         94jKix5ytxS1UY/dAqcAk3y/XVqa5MZkIuX4cD1hVlHyMbQCOlupmXkux+aRb8yHG06n
-         7TFLgus/OPzDw67gKcu8bnDHI9mL4Efh5h9bb465ij6+aC5gts+xXB0OOAhqBOMeOp26
-         72FWLY5TrQH1XnTS0+kvdfGN6v7rRHQHkIBT+JBqDg4feDG9GC1NgYFMnoC9WU3TdZu5
-         XZzA==
-X-Forwarded-Encrypted: i=1; AJvYcCVcbUcaFMPHhgyTcV364iDQy+bIxQqMDRme62K+act3R6tGRQUkBnFpZSI70wecMgYfhSDzKhLgisqCgw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGer22hLfww6IptXg3qj4Q6DEBWAKlnra190irzqVDpxjWdOmt
-	4MjLgp5cvw8sm4NCNOX/If7mYtzGHzFSBjd9QKZvtc8rPtrsjXWlk7aQQW1fXjBcsbe/lyiJ5hn
-	q5HYZF4LxFQfAVJAnHQcrbNPVEDoioxFU+70LWKM8g4zEFCqvwtGIJ/DuR0jHt530LxU+Ig==
-X-Gm-Gg: ASbGncsQcyIhm5UkuW81cv3dQ5Q9Fjey/Jt4sgq7gGs2jaeln/DPUFt5KBWqdJxTFXY
-	GscJr/0vdClvdT4PJj7w2dzK6s8BDH/3QvlahMNyQ3Dsj6h9Ejfj9H1EDn4qD8tmbCt6zJ3ot4q
-	GH9QKBW0SnsjgW59u2lAafAv+HGWKuz/EhnKIKpTWYkT02ya3Chq3P4lDcqWW5jBveLkoWV1DNG
-	riFaZiQ5d6etrfj3umqBqFjW3zOX0C3/OTF7nlYeQGuAcXJbOpkL4y118ZWaHV7dTGHi3E6Bjui
-	hOzANWqc8RRxuyyA0NfO44DgV+lBZ5SbBYOckgs8og/IF/BmLRGqN80tR7PhgZ/YzWcVZ4dZeK8
-	AhoclBxqJaqd9iSjGgsTYrwIDhRrYkHFrGnL7vRHJcCcBs2lPz9oZYMClCgC2XOtOkl8=
-X-Received: by 2002:a05:6000:438a:b0:3eb:5ff:cb2e with SMTP id ffacd0b85a97d-3eb05ffcfdbmr1834606f8f.29.1757943948979;
-        Mon, 15 Sep 2025 06:45:48 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEFLyX6UvLCuUUA80n4GoWHIr/EyUeUL4oLh9hf7GfvHPwfVKVtA1c+Ma7f+eiXJQjtzYNjOg==
-X-Received: by 2002:a05:6000:438a:b0:3eb:5ff:cb2e with SMTP id ffacd0b85a97d-3eb05ffcfdbmr1834581f8f.29.1757943948471;
-        Mon, 15 Sep 2025 06:45:48 -0700 (PDT)
+        bh=WLlYJinc0dfQVpvH1UOH7RnaSWYBlLeAZhMVXB0T/UY=;
+        b=OLDn8tXdkysv9yVPxesAxkciCgv3mD+lOTdRtDLp+egWqJzsvrJlxVPlxp0bZOrAVE
+         Dbli9N9WnWVgt8jq34DK0/xQNU8FhxpmPEltiE+6jwyaDvhGHDveNe/h/OXhWEiYwNUh
+         z+irmdOFrbqwFxY0D+FXXkw1XgylIP1p/+BO75Im5Hg9eu5n4kZ9Pn0wp4hPoPVtKsjd
+         /g7ZlwrTdqcon68Rc5ZxZgPRD3el0shK8HNXSu1C6gw7GBGvO+E3rp8Mb2p94b0cT/jx
+         9eeh8ythHLmV/c9lRmRqwGwGxxLe0rwDbSS5qlu2h6FIz2q7TU+YrqQBUvgAa+ZSESnz
+         Q9Rw==
+X-Forwarded-Encrypted: i=1; AJvYcCWMXh8oII1BoUhiQI0EWSn6gNfeLMhf51OMTaVtoe26u+14ImY4zB3zc7isVpp3DQQ6aYMjaa6mQEOtwg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJmpmemZtdAmnTwpJtAO2MwsnzzmiAuI4vuWHRwrrPBuqKuNhR
+	dATevImQamZfLGChUitxVrmChtoRwwqqVHiAnLdGbQCUU31ho42n0V+Tt22JDEfdkyoY1pKIXBs
+	RYxIGThl1gu/Po/Qo2vgRdybdg12vCosapN2D2MkFb61OS+kqwjfCwiRwdCOt+s86kDFBxw==
+X-Gm-Gg: ASbGncshXvL4JvQVhPZ45CaZHV/YhjdwwMI9/OSPrpaxNOEYrVCc7Vx8ezJlQEInkb+
+	k5pGdZP2ukntLeCJKlpAlfOiExAfemloBkEf5U7rYBnnkIt4aLSdWeOeVPuGbAdo2fdrEMDrOLE
+	TIjr8pFG8bh1CxUAGxXsFljDuWILabz45jrBauQXyaQ3bC4pPxcLoZ1iKTS3YwGNj1xr6P8VQhJ
+	YiVDlmsmpSaHKjtC7aJvp8KigMAPujpViWjmYwRQeovZHdgHsuwbZwj4hHUltJAXJ+qI12OJlWo
+	AhFMMFQeGILhajro/UPH31Na1m7EvVI39tfwvM7t64bGjm05jfi3KHbSuIl2T8crLFWZWB0DLhT
+	6YFu2kdYTtVyHYfySOYBeyysnNbGn6xcx/mesVfdRqUkyAsYZSxn0ap+kghLtf3P5dKQ=
+X-Received: by 2002:a05:600c:354f:b0:45f:2c7c:c1ed with SMTP id 5b1f17b1804b1-45f2c7cc3dcmr34398625e9.2.1757944381495;
+        Mon, 15 Sep 2025 06:53:01 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHcLx/v+RcvjN7afogw7EpWBGd7QAXnqzzVsXD0ZOV8pq1yT5xn6CvxOmjMR8tWQ2JOMsAx5g==
+X-Received: by 2002:a05:600c:354f:b0:45f:2c7c:c1ed with SMTP id 5b1f17b1804b1-45f2c7cc3dcmr34398405e9.2.1757944381060;
+        Mon, 15 Sep 2025 06:53:01 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f18:f900:e0ae:65d5:8bf8:8cfd? (p200300d82f18f900e0ae65d58bf88cfd.dip0.t-ipconnect.de. [2003:d8:2f18:f900:e0ae:65d5:8bf8:8cfd])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e9a066366fsm7321173f8f.44.2025.09.15.06.45.46
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e017bfd14sm179952405e9.21.2025.09.15.06.52.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Sep 2025 06:45:47 -0700 (PDT)
-Message-ID: <2b13e434-192a-451c-a09b-69eb92392a3e@redhat.com>
-Date: Mon, 15 Sep 2025 15:45:46 +0200
+        Mon, 15 Sep 2025 06:53:00 -0700 (PDT)
+Message-ID: <9c66e21b-c782-4ed5-b89d-0d7412ef3c85@redhat.com>
+Date: Mon, 15 Sep 2025 15:52:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V12 0/5] riscv: mm: Add soft-dirty and uffd-wp support
+Subject: Re: [PATCH V12 1/5] mm: softdirty: Add pgtable_supports_soft_dirty()
 To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
  linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
  linux-mm@kvack.org, linux-kernel@vger.kernel.org
@@ -98,6 +98,7 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
  Chunyan Zhang <zhang.lyra@gmail.com>
 References: <20250915101343.1449546-1-zhangchunyan@iscas.ac.cn>
+ <20250915101343.1449546-2-zhangchunyan@iscas.ac.cn>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -143,14 +144,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20250915101343.1449546-1-zhangchunyan@iscas.ac.cn>
+In-Reply-To: <20250915101343.1449546-2-zhangchunyan@iscas.ac.cn>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 1JfvfL8jsRDfLGPc2cnaB8F5YerMtjZg7Gq83jQr2_c_1757943949
+X-Mimecast-MFC-PROC-ID: 1a8ltU3c0xplbc_zHHpJMwiYeMDR3OGnqsLDu5fTg94_1757944382
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_064554_760930_2E721983 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20250915_065305_672950_5BF9C35B 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,25 +169,45 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 15.09.25 12:13, Chunyan Zhang wrote:
-> This patchset adds support for Svrsw60t59b [1] extension which is ratified now,
-> also add soft dirty and userfaultfd write protect tracking for RISC-V.
+> Some platforms can customize the PTE PMD entry soft-dirty bit making it
+> unavailable even if the architecture provides the resource.
 > 
-> The patches 1 and 2 add macros to allow architectures to define their own checks
-> if the soft-dirty / uffd_wp PTE bits are available, in other words for RISC-V,
-> the Svrsw60t59b extension is supported on which device the kernel is running.
+> Add an API which architectures can define their specific implementations
+> to detect if soft-dirty bit is available on which device the kernel is
+> running.
+
+You should probably mention that we are removing "ifdef 
+CONFIG_MEM_SOFT_DIRTY" in favor of pgtable_supports_soft_dirty() checks 
+that defaults to IS_ENABLED(CONFIG_MEM_SOFT_DIRTY) if not overriden by 
+the arch -> no change in behavior expected.
+
+Then you should mention that we make sure to never set VM_SOFTDIRTY if 
+!pgtable_supports_soft_dirty(), so we will never run into VM_SOFTDIRTY 
+checks.
+
 > 
-> This patchset has been tested with kselftest mm suite in which soft-dirty,
-> madv_populate, test_unmerge_uffd_wp, and uffd-unit-tests run and pass,
-> and no regressions are observed in any of the other tests.
+> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> ---
+>   fs/proc/task_mmu.c      | 15 ++++++---------
+>   include/linux/mm.h      |  3 +++
+>   include/linux/pgtable.h | 12 ++++++++++++
+>   mm/debug_vm_pgtable.c   | 10 +++++-----
+>   mm/huge_memory.c        | 13 +++++++------
+>   mm/internal.h           |  2 +-
+>   mm/mmap.c               |  6 ++++--
+>   mm/mremap.c             | 13 +++++++------
+>   mm/userfaultfd.c        | 10 ++++------
+>   mm/vma.c                |  6 ++++--
+>   mm/vma_exec.c           |  5 ++++-
+>   11 files changed, 57 insertions(+), 38 deletions(-)
 > 
-> This patchset applies on top of v6.17-rc6.
 
-What are the plans for this series? It fails to apply on top of 
-mm-unstable / mm-new, so likely merge conflicts when merging through 
-another tree.
+Good! All relevant CONFIG_MEM_SOFT_DIRTY occurrences seem to be gone 
+now, which is nice.
 
-Likely best to base this on mm-new and route it through the MM tree?
+Nothing jumped at me, hoping this makes cross-compilers happy.
 
+Acked-by: David Hildenbrand <david@redhat.com>
 
 -- 
 Cheers
