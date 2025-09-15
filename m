@@ -4,57 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC57CAC58E
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 06:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D052CA101F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 06:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e+D9oUGVrO4v+w3qfk9JWeMB4Ky/Rg9KsbukkAg+T0Q=; b=S3qM0pIOJjCdVU
-	1M3VbIppKUZf7lUCTLRQP0J4RQ4n8Iu4h1QKnqsGEGrO4MFPfqX8fupO30V+oRHwhsT7u5xTzYFZo
-	7twx32VyJWhvpyhJ1e5B84gt4YuM9NSZeSDub7+vuRtR2Hw54aArfjlM/VkS6INaqikO/+ObR9rta
-	iv2ROnkgfIHauFjNmNZU5Y8hrUvZbjbNxvVmR4oDJItHKvNLsdCqQ54QQz33kF6QBI1b9YL8AvjUw
-	y+0NG6vIstw60yZ5pLyXXko69p6ibJUb16jTv4/yf9M4texHYwJPuIvKpLHACRttcG2aiWpKiXP1H
-	gE0GamhIWliVqBOfIYGA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kdKVgSmq4d9yWR65yBMSrY8BhmCVKDRRSLGRz0pYWAU=; b=U5EKDuxa+o/Uqh
+	xX6eA5sVq70xhTQZgrHOwkRmC8d9fjd6400i5R73qedHrzofNV5qao1lXUWFo6RiF4lk7bFrlxnfQ
+	Nfp+tUehfeRxuh9FfyURy8PxLg3W7CcTyCzvXnAm9PvG155TLUcJ2JpkAGsPS9D1gVhFQeS/8SUXd
+	ZOdCbeT7jJlxiymK84TWmiu8jd64nQmCmc+Q/OVbwWWbOEKI9ZA2BPXX8T4QKiJnqhL5AwAEsc6dQ
+	tyQlEl7ZzredotQT6344os+8SoaigbZU1N4UqMwoN/6yT5mYWPfObmY2mcRtNlb90NM/NQHvor28F
+	L4pCplDHU7iUdBgqqf3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy2ey-00000002upF-1zrO;
-	Mon, 15 Sep 2025 06:25:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uy2jb-00000002vjk-2Ze6;
+	Mon, 15 Sep 2025 06:30:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy2ew-00000002uoj-2uxi;
-	Mon, 15 Sep 2025 06:25:54 +0000
+	id 1uy2ja-00000002vjY-0OTW
+	for linux-riscv@lists.infradead.org;
+	Mon, 15 Sep 2025 06:30:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4BCC96014D;
-	Mon, 15 Sep 2025 06:25:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49D65C4CEF1;
-	Mon, 15 Sep 2025 06:25:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 36DDF6014D;
+	Mon, 15 Sep 2025 06:30:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8364C4CEF1;
+	Mon, 15 Sep 2025 06:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757917552;
-	bh=YXcIhrbg/wc7/PC0yhFG/NxcxwFsfdkDJDbFz4bgiJo=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=NlJfJLF7m2EQcyHFVyI/13N9QUB8Cft+tGjjcwm2v4qFJzXXHZcfIRcaPOKWtEm3Q
-	 53a67rBuOs6EzCf1tJOPVATA/lku9Lqm64q8eQm0oyU8otM22h1qtPmBlYUfgazuIX
-	 s2vckc1AEmG1XLvcJp0hmMA/Z0NSoElXF3If2J5IitpCaJkxwRs7dmLWQiBYHlyyw0
-	 l1jdYhYCsltrJlJrNKjcaicpNUdONiCcNwwR+XNFL0yckEvExlW1ZK730jSMdIqkDT
-	 trxkfG+Vyyhz95CaL1S3lhlvuXn4oCm7QBaA2oPoNnjxHqU5OViT/BuZrjgR6hLbe7
-	 9oy4QSJJvrFdw==
-Date: Mon, 15 Sep 2025 00:25:52 -0600 (MDT)
+	s=k20201202; t=1757917840;
+	bh=ht03jlqLtN1+50q+yrJO7Nhcw4NQZ6+dmocueZw8+Dk=;
+	h=Date:From:To:cc:Subject:From;
+	b=U1RucKmjoxN/cmf2Af3pxmFk9IofrFb2rIjADoVgLk00gNk1Q07F+9Nh8Id1S6wf9
+	 svThMM4ei2Livt7Qhj73xxKR8fYgJ8XMazE+upzo9N/9RQM3NjwxQtTFb0zDnGq104
+	 DbN6GwNxhSqKjk8uCGH/Ma2ax1CrrW0Ps50On/eHnFBRXHrsVBF3H3XoEpb1jtEihy
+	 4ivqTWs4uH8UOJwf4EmoGU4C4W9RAD08hAOXoXRvTKkMKFopPFpvB9I55iiXugYoNQ
+	 bHDNaTwpK+hCTQByXhpt3lS2W3Xa0Z0Nb4ZFYRPvg0MRPFDokzjIJXxMtYYtylnPeR
+	 mePC5Uif8UpiA==
+Date: Mon, 15 Sep 2025 00:30:37 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>
-cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-    Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, 
-    Mayuresh Chitale <mchitale@ventanamicro.com>, 
-    linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-    kvm-riscv@lists.infradead.org, Sean Christopherson <seanjc@google.com>
-Subject: Re: [PATCH v6 0/8] Add SBI v3.0 PMU enhancements
-In-Reply-To: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
-Message-ID: <f740b716-6c8b-46a5-31ae-ecc37e766152@kernel.org>
-References: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
+To: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+cc: paul.walmsley@sifive.com
+Subject: [PATCH] MAINTAINERS: Update Paul Walmsley's E-mail address
+Message-ID: <4a3d959d-56ea-36d8-029d-141e7820279d@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,37 +65,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 9 Sep 2025, Atish Patra wrote:
 
-> SBI v3.0 specification[1] added two new improvements to the PMU chaper.
-> The SBI v3.0 specification is frozen and under public review phase as
-> per the RISC-V International guidelines. 
-> 
-> 1. Added an additional get_event_info function to query event availablity
-> in bulk instead of individual SBI calls for each event. This helps in
-> improving the boot time.
-> 
-> 2. Raw event width allowed by the platform is widened to have 56 bits
-> with RAW event v2 as per new clarification in the priv ISA[2].
-> 
-> Apart from implementing these new features, this series improves the gpa
-> range check in KVM and updates the kvm SBI implementation to SBI v3.0.
-> 
-> The opensbi patches have been merged. This series can be found at [3].
-> 
-> [1] https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/v3.0-rc7/riscv-sbi.pdf 
-> [2] https://github.com/riscv/riscv-isa-manual/issues/1578
-> [3] https://github.com/atishp04/linux/tree/b4/pmu_event_info_v6
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+My experiment with using corporate Gmail for Linux kernel list
+interaction has come to an end.  For my MAINTAINERS entries that
+use that E-mail address, let's switch those to use the k.org E-mail
+forwarding.
 
-For the series:
+Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+Signed-off-by: Paul Walmsley <pjw@kernel.org>
+---
 
-Acked-by: Paul Walmsley <pjw@kernel.org>
+Unless someone else prefers to take this, I'll plan to send this through 
+the RISC-V pull requests.
 
+ MAINTAINERS | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-- Paul
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 6dcfbd11efef..ca31f34ca79b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1772,7 +1772,7 @@ F:	drivers/staging/iio/*/ad*
+ X:	drivers/iio/*/adjd*
+ 
+ ANALOGBITS PLL LIBRARIES
+-M:	Paul Walmsley <paul.walmsley@sifive.com>
++M:	Paul Walmsley <pjw@kernel.org>
+ M:	Samuel Holland <samuel.holland@sifive.com>
+ S:	Supported
+ F:	drivers/clk/analogbits/*
+@@ -19292,7 +19292,7 @@ S:	Maintained
+ F:	drivers/pci/controller/dwc/*layerscape*
+ 
+ PCI DRIVER FOR FU740
+-M:	Paul Walmsley <paul.walmsley@sifive.com>
++M:	Paul Walmsley <pjw@kernel.org>
+ M:	Greentime Hu <greentime.hu@sifive.com>
+ M:	Samuel Holland <samuel.holland@sifive.com>
+ L:	linux-pci@vger.kernel.org
+@@ -21652,7 +21652,7 @@ F:	Documentation/devicetree/bindings/timer/andestech,plmt0.yaml
+ F:	arch/riscv/boot/dts/andes/
+ 
+ RISC-V ARCHITECTURE
+-M:	Paul Walmsley <paul.walmsley@sifive.com>
++M:	Paul Walmsley <pjw@kernel.org>
+ M:	Palmer Dabbelt <palmer@dabbelt.com>
+ M:	Albert Ou <aou@eecs.berkeley.edu>
+ R:	Alexandre Ghiti <alex@ghiti.fr>
+@@ -23103,7 +23103,7 @@ S:	Maintained
+ F:	drivers/watchdog/simatic-ipc-wdt.c
+ 
+ SIFIVE DRIVERS
+-M:	Paul Walmsley <paul.walmsley@sifive.com>
++M:	Paul Walmsley <pjw@kernel.org>
+ M:	Samuel Holland <samuel.holland@sifive.com>
+ L:	linux-riscv@lists.infradead.org
+ S:	Supported
+-- 
+2.48.1
 
 
 _______________________________________________
