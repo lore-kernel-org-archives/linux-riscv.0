@@ -4,142 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C69CAC597
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 09:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BEDCAC598
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 09:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TqDxl3XjLRYkYjU8XQqvE3T0v4W/wLBAmAOTFPzebZE=; b=WxLdW9PosODAIo
-	snQgrHQVlq4K6G4VNxBbTe39NUxGJPCF8fGPGV3KdvYJr3ZdOxMQOApwdD7AhzQ5L9/R0dj6h/I44
-	pDc+XeWPcPFUWWeRpPFfRVX4lZ+ffZS1GBIShSaWNvb5GMOIP5BcQDzeos1AC3mfB9P07FUrge9pO
-	QyJNuwT/1fNTn/9IL0cPFXo+bEBUAPyCJkz0q9J4eaS7y5WXtljaNPfvlED6XoKOTjGNoGWPpp7ww
-	10fRkWrQal6Il8vXQuDVL5OYGRoErrje1ph/FSg0RWOwHbGyX34MRjbtPBuDPuna+TH3gqjhtkJdK
-	lamXz4/17ZRH4N4bUMpw==;
+	List-Owner; bh=6cYHk69gRcWsYCJkQ42tJzlZhD6YftxTEu/o/4z5fr4=; b=ulntO/ut3X7xgS
+	QinDPQBRvtcB6fGsvO3wGEyJeXFdygJlIDZZd8DslVUr7iX+tqUTC93IVLx6xjK7Mzas7mi68WCCM
+	fGL5wVOKtyfhj/oe0HEkUeK7tqGzcUyDMSugjSPVt50umhgR9WGarxIKwhxqvwucv2GADP5gGyUxz
+	aSvjad6dam0SeDrF8fQwV6NVYR2x+v+RBaHHJCEqoclu5g3/jNU7qbLv3886H5Md2rLXjoozJWdHp
+	UHDs44nkOsjW2hAtBB3qClMy5bFIIusm9LwTwR/C938s2rEa8RMpGnKAUZjktrJ1ykvZjLa7+gs3M
+	LpgPWU7T/Ya0EyTak0Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy5NA-00000003QVn-3f58;
-	Mon, 15 Sep 2025 09:19:44 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1uy5gv-00000003V9c-1GWk;
+	Mon, 15 Sep 2025 09:40:09 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy5N8-00000003QU5-1JsM
+	id 1uy5gs-00000003V6z-127V
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Sep 2025 09:19:44 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id EA1BB33712;
-	Mon, 15 Sep 2025 09:19:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1757927979; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PhWypHhs76OUhW0wRhEmCSwbci4KHZ6s4gw5WflTcZE=;
-	b=y6rhBH2yIHqcEhWvW3OK/M1MGL07yB+6JMwC6X/CknVE5ua038lWDkVtBxXcMW2YiW0/gB
-	rSMv7hNa/JVKJWM7hARJEEPpYWbHOSmUMRbz8f4sVhqeny14kYvL5lcca9exMU9JyNeq6n
-	Pyq6WFF1sN1B85usXfvLUNO8krTzzDE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1757927979;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PhWypHhs76OUhW0wRhEmCSwbci4KHZ6s4gw5WflTcZE=;
-	b=SJvrSjvI7wBdkhoQj3MZ4ZBU7tX1b1mGqMmsm9Le3rr8bw1HFENqVr83A7BDG7tAfD/H3I
-	rh7jnWIRJSAAW1Cg==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1757927978; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PhWypHhs76OUhW0wRhEmCSwbci4KHZ6s4gw5WflTcZE=;
-	b=dMec5VwZSk27WNcuKLsJWYANLg5lWjboI6lQZXChre5tGBQy9LfQiob4gACGMYnIEyj7wt
-	of5w1OHw8GaX5rzloEDHnRzUEa9We+whyL+vVkIgzkYI4qkYUE0EW8OsHCuSl7kqKZApPI
-	R62vbkO0euBFSVizbuH5OjHtbfjlT3s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1757927978;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PhWypHhs76OUhW0wRhEmCSwbci4KHZ6s4gw5WflTcZE=;
-	b=NOo6WaFMZo/gSs0Cn6FVxnoIe/rbPumE4+eUSjak33WwfmR1YoYCMva3UzVfmUFBWfq4S4
-	cDjh2ACDImG9O8DA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D5CE31398D;
-	Mon, 15 Sep 2025 09:19:38 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id FQ3QMyrax2hoeQAAD6G6ig
-	(envelope-from <jack@suse.cz>); Mon, 15 Sep 2025 09:19:38 +0000
-Received: by quack3.suse.cz (Postfix, from userid 1000)
-	id 74FF7A0A2B; Mon, 15 Sep 2025 11:19:38 +0200 (CEST)
-Date: Mon, 15 Sep 2025 11:19:38 +0200
-From: Jan Kara <jack@suse.cz>
-To: Askar Safin <safinaskar@gmail.com>
-Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Christian Brauner <brauner@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
-	Christoph Hellwig <hch@lst.de>, Jens Axboe <axboe@kernel.dk>, 
-	Andy Shevchenko <andy.shevchenko@gmail.com>, Aleksa Sarai <cyphar@cyphar.com>, 
-	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, Julian Stecklina <julian.stecklina@cyberus-technology.de>, 
-	Gao Xiang <hsiangkao@linux.alibaba.com>, Art Nikpal <email2tema@gmail.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Eric Curtin <ecurtin@redhat.com>, 
-	Alexander Graf <graf@amazon.com>, Rob Landley <rob@landley.net>, 
-	Lennart Poettering <mzxreary@0pointer.de>, linux-arch@vger.kernel.org, linux-alpha@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
-	x86@kernel.org, Ingo Molnar <mingo@redhat.com>, linux-block@vger.kernel.org, 
-	initramfs@vger.kernel.org, linux-api@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-efi@vger.kernel.org, linux-ext4@vger.kernel.org, "Theodore Y . Ts'o" <tytso@mit.edu>, 
-	linux-acpi@vger.kernel.org, Michal Simek <monstr@monstr.eu>, devicetree@vger.kernel.org, 
-	Luis Chamberlain <mcgrof@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Thorsten Blum <thorsten.blum@linux.dev>, Heiko Carstens <hca@linux.ibm.com>, patches@lists.linux.dev
-Subject: Re: [PATCH RESEND 13/62] ext2: remove ext2_image_size and associated
- code
-Message-ID: <5xr5efvf4dhy43fchbvfsxspzgde5bxezhszdgqcya4eqrocgy@lqqkaq5wok6a>
-References: <20250913003842.41944-1-safinaskar@gmail.com>
- <20250913003842.41944-14-safinaskar@gmail.com>
+	Mon, 15 Sep 2025 09:40:08 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4cQKkf1GYHzKHNCl
+	for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 17:39:54 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.252])
+	by mail.maildlp.com (Postfix) with ESMTP id B94451A0BB3
+	for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 17:39:54 +0800 (CST)
+Received: from [10.67.109.184] (unknown [10.67.109.184])
+	by APP3 (Coremail) with SMTP id _Ch0CgBX82rn3sdoJxUmCg--.53822S2;
+	Mon, 15 Sep 2025 17:39:53 +0800 (CST)
+Message-ID: <a806d318-e51b-4e79-8d36-15d9a78af66b@huaweicloud.com>
+Date: Mon, 15 Sep 2025 17:39:51 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250913003842.41944-14-safinaskar@gmail.com>
-X-Spamd-Result: default: False [-2.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_COUNT_THREE(0.00)[3];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[vger.kernel.org,linux-foundation.org,linuxfoundation.org,kernel.org,zeniv.linux.org.uk,suse.cz,lst.de,kernel.dk,gmail.com,cyphar.com,linutronix.de,cyberus-technology.de,linux.alibaba.com,redhat.com,amazon.com,landley.net,0pointer.de,lists.infradead.org,lists.linux.dev,lists.linux-m68k.org,lists.ozlabs.org,mit.edu,monstr.eu,linux.dev,linux.ibm.com];
-	R_RATELIMIT(0.00)[to_ip_from(RLbyy5b47ky7xssyr143sji8pp)];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	RCPT_COUNT_GT_50(0.00)[55];
-	RCVD_TLS_LAST(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.cz:email,imap1.dmz-prg2.suse.org:helo]
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next 08/10] riscv, bpf: Add ex_insn_off and ex_jmp_off
+ for exception table handling
+To: Chris Mason <clm@meta.com>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Pu Lehui <pulehui@huawei.com>
+References: <20250913155133.657930-1-clm@meta.com>
+Content-Language: en-US
+From: Pu Lehui <pulehui@huaweicloud.com>
+In-Reply-To: <20250913155133.657930-1-clm@meta.com>
+X-CM-TRANSID: _Ch0CgBX82rn3sdoJxUmCg--.53822S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWw4rKr4fXrWkCFyrWr4xXrb_yoW5Xry8pF
+	WUJ3s3AFWvgr1rJasrX3WUJw43Zan09rnrGrn5Wry3JFnIqF1IkF1fKayYya98Cry0gw1r
+	ZFWqvryfCas3A37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
+	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
+	s2-5UUUUU==
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_021942_499447_8D72E50C 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20250915_024006_613575_C68A191F 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,75 +90,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat 13-09-25 00:37:52, Askar Safin wrote:
-> It is not used anymore
+
+
+On 2025/9/13 23:51, Chris Mason wrote:
+> On Sat, 19 Jul 2025 09:17:28 +0000 Pu Lehui <pulehui@huaweicloud.com> wrote:
 > 
-> Signed-off-by: Askar Safin <safinaskar@gmail.com>
-
-Looks good.
-
-Acked-by: Jan Kara <jack@suse.cz>
-
-								Honza
-
-> ---
->  fs/ext2/ext2.h          |  9 ---------
->  include/linux/ext2_fs.h | 13 -------------
->  2 files changed, 22 deletions(-)
+>> From: Pu Lehui <pulehui@huawei.com>
+>>
+>> Add ex_insn_off and ex_jmp_off fields to struct rv_jit_context so that
+>> add_exception_handler() does not need to be immediately followed by the
+>> instruction to add the exception table. ex_insn_off indicates the offset
+>> of the instruction to add the exception table, and ex_jmp_off indicates
+>> the offset to jump over the faulting instruction. This is to prepare for
+>> adding the exception table to atomic instructions later, because some
+>> atomic instructions need to perform zext or other operations.
+>>
 > 
-> diff --git a/fs/ext2/ext2.h b/fs/ext2/ext2.h
-> index cf97b76e9fd3..d623a14040d9 100644
-> --- a/fs/ext2/ext2.h
-> +++ b/fs/ext2/ext2.h
-> @@ -608,15 +608,6 @@ struct ext2_dir_entry_2 {
->  					 ~EXT2_DIR_ROUND)
->  #define EXT2_MAX_REC_LEN		((1<<16)-1)
->  
-> -static inline void verify_offsets(void)
-> -{
-> -#define A(x,y) BUILD_BUG_ON(x != offsetof(struct ext2_super_block, y));
-> -	A(EXT2_SB_MAGIC_OFFSET, s_magic);
-> -	A(EXT2_SB_BLOCKS_OFFSET, s_blocks_count);
-> -	A(EXT2_SB_BSIZE_OFFSET, s_log_block_size);
-> -#undef A
-> -}
-> -
->  /*
->   * ext2 mount options
->   */
-> diff --git a/include/linux/ext2_fs.h b/include/linux/ext2_fs.h
-> index 1fef88569037..e5ebe6cdf06c 100644
-> --- a/include/linux/ext2_fs.h
-> +++ b/include/linux/ext2_fs.h
-> @@ -27,17 +27,4 @@
->   */
->  #define EXT2_LINK_MAX		32000
->  
-> -#define EXT2_SB_MAGIC_OFFSET	0x38
-> -#define EXT2_SB_BLOCKS_OFFSET	0x04
-> -#define EXT2_SB_BSIZE_OFFSET	0x18
-> -
-> -static inline u64 ext2_image_size(void *ext2_sb)
-> -{
-> -	__u8 *p = ext2_sb;
-> -	if (*(__le16 *)(p + EXT2_SB_MAGIC_OFFSET) != cpu_to_le16(EXT2_SUPER_MAGIC))
-> -		return 0;
-> -	return (u64)le32_to_cpup((__le32 *)(p + EXT2_SB_BLOCKS_OFFSET)) <<
-> -		le32_to_cpup((__le32 *)(p + EXT2_SB_BSIZE_OFFSET));
-> -}
-> -
->  #endif	/* _LINUX_EXT2_FS_H */
-> -- 
-> 2.47.2
+> Hi everyone,
 > 
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+> I've been working on some patch review automation, and I recently ran it on
+> the bpf-next branch.  I don't know the verifier well enough to decide if this
+> is a false positive, but Alexei asked me to kick off discussion, so:
+> 
+>> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+>> index 8e813809d3054..56b592af53a64 100644
+>> --- a/arch/riscv/net/bpf_jit_comp64.c
+>> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> 
+> [ ... ]
+> 
+>> -static int emit_stx(u8 rd, s16 off, u8 rs, u8 size, struct rv_jit_context *ctx)
+>> +static void emit_stx(u8 rd, s16 off, u8 rs, u8 size, struct rv_jit_context *ctx)
+>>   {
+>> -	int insns_start;
+>> -
+>>   	if (is_12b_int(off)) {
+>> -		insns_start = ctx->ninsns;
+>> +		ctx->ex_insn_off = ctx->ninsns;
+>>   		emit_stx_insn(rd, off, rs, size, ctx);
+>> -		return ctx->ninsns - insns_start;
+>> +		ctx->ex_jmp_off = ctx->ex_jmp_off;
+
+Hi Chris,
+
+I'm not sure if I have misunderstood your intention, maybe just for 
+talking about reviewing automation? But the code I checked in the 
+bpf-next branch is inconsistent with yours. The code here in bpf-next is:
+
+`ctx->ex_jmp_off = ctx->ninsns;`
+
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/riscv/net/bpf_jit_comp64.c?h=next-20250912#n553
+
+> 
+> Does this assignment leave ex_jmp_off uninitialized? Looking at emit_ldx()
+> and emit_st(), this should probably be "ctx->ex_jmp_off = ctx->ninsns;" to
+> match the pattern. Without proper initialization, add_exception_handler()
+> might use stale offset values when creating exception table entries for
+> the is_12b_int() code path in emit_stx().
+> 
+>> +		return;
+>>   	}
+>>   
+>>   	emit_imm(RV_REG_T1, off, ctx);
+>>   	emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
+>> -	insns_start = ctx->ninsns;
+>> +	ctx->ex_insn_off = ctx->ninsns;
+>>   	emit_stx_insn(RV_REG_T1, 0, rs, size, ctx);
+>> -	return ctx->ninsns - insns_start;
+>> +	ctx->ex_jmp_off = ctx->ninsns;
+>>   }
+> 
+> -chris
+
 
 _______________________________________________
 linux-riscv mailing list
