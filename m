@@ -4,88 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84047CAC592
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 17:01:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9C6CAC597
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 17:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:From:To:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X1cd5fe0tkNKMzldbuci2UdeaZb/+dPiqrgQzODA7m0=; b=yhbantCRB+g9XQ
-	L3N+PBc3YvUNxOv8Ieo4yVx6EmBRKTv9tIwJlTCbpgW5BfcCMj7rBMohA9JeKR8+Z7QJzFa+1WiGb
-	8427MqQeJFKVnuGtktlAlkekL+yneMYp4O0xJ+kTo5yzyJO65f4oiYsW/Wz+JmZBLVtlRoMe3q8UC
-	vyWnUVEe+5xuQlMvpOoaP3deqG3mFIw2MTc8dGFMPtG2l8zBzeWrZvAnhOqwmsjG/SFZYgSAT0UIc
-	xgG6Ccyytxybj8wpBnCF5KXjG//4B1UbBtQT5ey3M1BnKYwyDrlyA4MJ13Q/kogCLK01S04NdA7Rk
-	hvUyq8tLiqzQ4ZthZBOw==;
+	List-Owner; bh=qtBgaJ04Ned+ntcjy0easc4uuwQw3U23E+NWSh68GaU=; b=uH7FJ/hzLebb9h
+	ggH7m/2FLwNduLmQDmV7Ff//Ihh8X0oyJfkKeP+QyA5IQscZdmH87TdItMSYfeKEnAk8R++xx916r
+	aXSpjgUzgLziTmb5kHjvosonSyMaKmsJnVf/lPmSDJhQNqiYRWgbweKCx3MeMcKyn+noCvG5x/LoD
+	jp2d2jMAdr/81StVCT+J2n1YLFWWw7eX8KWHPk8sgLDhLQ7TTD7o0f3u62tTmhJYL/im1AUcGf005
+	p+TUyGXCP4/tQUzDCtMN1fPunjDgmKxdnANp6MV06KBhLvbJP8Q2DC6AQBjBiNVhg4Xtp9vuswvGs
+	GUNOFsq2yy0v8FoAC91g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyCaN-00000005CJV-3ewK;
-	Mon, 15 Sep 2025 17:01:51 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1uyCaW-00000005COB-3C0r;
+	Mon, 15 Sep 2025 17:02:00 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyCaK-00000005CHS-1U0L
+	id 1uyCaT-00000005CMZ-3F0N
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Sep 2025 17:01:50 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-88703c873d5so119761239f.3
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 10:01:48 -0700 (PDT)
+	Mon, 15 Sep 2025 17:01:58 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45de185c04aso4535385e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 10:01:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1757955707; x=1758560507; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=k8pxyW/bjpXpmupAYzyp4FH4PZi8lnxP+pKqyf7C5o8=;
-        b=n5QWBeHKzvW8wpGn+f6rg8W1dai4bJxr2HdErGyGSa6NoXAUk0NcRJZ+kZm1yUddJI
-         4TvalQke/VQgO0ptD6RvHDpzFbAxxWlfHcYf1NsrN2jxHGa6NnKuJisrQjXEwOLg3nDy
-         iJfcwxxi3BXvqBb7HON5QNF9OVE4w8QC5ujL93IQ7oFYezOYpoW7BoptnQTGsqBQFy4I
-         qGzzXIFIkQ1EGWCMt7E1GtRBl1rOModv6yzl6pGACHLQmhx2PUuJ2EKK8ouRVNS8WPcG
-         zzgEUImFlRtbln8+GacsZjR5qHij05v6FE3MhTh3GWmd6eIE7Qvx8cyu3mG/LaBTWUxi
-         tbDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757955707; x=1758560507;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=ventanamicro.com; s=google; t=1757955716; x=1758560516; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:from:to:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=k8pxyW/bjpXpmupAYzyp4FH4PZi8lnxP+pKqyf7C5o8=;
-        b=gmoTgI2PJZnSfJIt1B0YLnJpjzQzZLr+m4LlwSj80gmp/kW82/JhoPu+/Sf/Lbpe1q
-         VJwdS4tLEEXNlO4BsVfi07W36KVXIOfPawbPjtEVC9UEp/jO690ua1QDg5Y5sPSYFdIv
-         KbyypnaR8ruPsog6hJoTxDFb0Y5pt21aWUzZLd7MS/yPqJfIX8LbcVq9hNukSDH5ZKoe
-         NTV2qrT8zutS0QJveavjFqeVTZoTzcQaCO5jrCOjrlYYRk7eIBXOMBMb+X07NzcAwXZh
-         z+lk9HNPgHcSw7Un7TuABNVynaOVkD8jp/sXJUmlPNdchLJNzGXbaCgxl+eUJEKJrmvU
-         a9nw==
-X-Forwarded-Encrypted: i=1; AJvYcCXMmizReCeSC8moXyhhYhHyA37L7iUQ12sa1/ecDjFKPhW4H/gpGx6a1CR5F6Gou88lN484UbGvZFvlNQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNroaFPehIBkd8XuA7BC+1HnrtCL7cCh5bkcgV42SI2LT6X43F
-	ub65z4Gqb+k1/vcx9cfdYVoWyDOqrbXifPCPAFv/7ak5EwkE2rDmnS0ssfDAPBcVDqk=
-X-Gm-Gg: ASbGncuGdlW07qb7gCwRcBT3xUvtVGpRrduf8gUosGW7NwcDlMl61ZoOHjVhsLKGOZ0
-	UNKlHxZ8CUfGgA+DiIVIbzZOp5VnAAfb2NFEhPBK1Yofr70Nej1BfuZ54uYuch4LuLMRNuit+hP
-	ajIxCZAXlxMHDHZV+2R4ACsuDQyJr9j5u71c11MmvDXx+IvcSJKKo/5jHEQ+UDzuxn03ALua0Al
-	tUaKCKxrzFKxrVVg/Wdviy57BkqUCoe7++ms1mxHnm+QzxbAsLgMFjLLVylboMOPsOY0U9/GqCx
-	GYe3Zi0zyOr99dWfP/V5jPMhxIwy/zr1dQ7K0eJb0JC24xPNDt2ac30vHukNSISqw2FQooJd3Ey
-	g0dSDN9p9e07t1A1UhF1T1seW
-X-Google-Smtp-Source: AGHT+IFi6vqzi7uBigrs1rkZ7BYQA7tKMwkaIff57LL4Wv+ao8W4QcMhs/+e22hjK6NK5HxClZr37A==
-X-Received: by 2002:a05:6e02:188d:b0:3eb:5862:7cef with SMTP id e9e14a558f8ab-420a4173bb3mr104487445ab.22.1757955706965;
-        Mon, 15 Sep 2025 10:01:46 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-41dfb240f4fsm58897935ab.43.2025.09.15.10.01.46
+        bh=DWHHL1s0psJfb//epbwV/zjtkXGJcyLhcOl2Is0sDa4=;
+        b=Osg3tlKoonHD5LMEY9pP1UMwDmdzKVnWx1EhuxrFqoHecfDSucPud/qJPVF4qUKgIn
+         EeTxcgDI4fYGDhaeSooMHczZYdj7M84RUzCrQgKlKFqHAAy6kzaf9DGzJBd1ea94mER4
+         wZaf9TZOLc1j1E17MLSUeTxY8UEqemqqf5zI7zSa1GSYWsS+8AXYhxqP1hDMFyMOSAqX
+         RS1mQ1yye91HcWIvCZofoRgj8Y7dQ2y+jbRTv7k5fq9dtVLARgLaa+EBe7x5domuIWjH
+         sQ2bvktJXbOFkbv0SuNVROn72dHt3+Vgoeq7i2YGm0nHy+TnojrSLU+HTLs06hGuUE8I
+         0KgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757955716; x=1758560516;
+        h=in-reply-to:references:subject:from:to:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=DWHHL1s0psJfb//epbwV/zjtkXGJcyLhcOl2Is0sDa4=;
+        b=r/iiCbklzrKV/yPVMJoEiuWuRWt7HQyn2JA2G9WbhlenSJDPfRrcUcM7VFA3s+hDNM
+         aWX3pbr/NHeP62q+HiKrfV6zMX05qYLBdK7MOZEPMMfuQmB4eIjKDTAwejqhadYskuKx
+         +6uaVKGBFyC7H4pmEDRhXnaxLlcQwQu3PzcfX4OO5RqKhbtnNOPKM5DjcybDoj6UpMF/
+         fvpXmF1M6kbNCsAtw/bwFlOhO4crpKxZuM/h3PVFKqwVzh0Zqyiz4OeygDoMq5Tvt3Je
+         hok8QZiJDi1pdIQFohPsro2meZ+wJLFqhWLWIIuZBYZSK1wmitJ07pwioeL1MJ9pbwAt
+         5o2g==
+X-Forwarded-Encrypted: i=1; AJvYcCWaB9/hFy1URh1mO11/i9dXDAZcCeAZPfgNSqKEsZHmR1gFdNSzhagoZtOAmJb3C5DAvozTUI+NG2gK9g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKjK6mMGCNP8QKmmDmqcNmw5tl+sw86Aa3J3NFTVbuhwqOghKT
+	x0DpnHKfggeZCSqwvkZ3nnPAtMEZrcT2TCpDnyMaDr9myEOXLVGZUC7A6rCEZKN//+4=
+X-Gm-Gg: ASbGnctXz56cmhsEPHjFl8hH86vKoBAaqYyzfQjFGToHVI2DgGvIUaJ/eTBcekACF8Z
+	xPKgcuG7bZ2E0VbvGTQalmtYH8TlQXT0w8ozMkVV7vbbHwRcDS73LW+JpK5snspd+HjoDSKU806
+	faPuzSaqqahjju9UNpzwvnuDr594uRC/UQuhyW4H8C/nX510n0hfHtfGhGYbW3q/yxiagzde2Q7
+	L0Gs0aAJMrWgJSS9g2wtld0kunyJ89LMhPrXoyV3+WIlleeo7rgU9liBoHlqAbxfjEQc72LxT0U
+	rgW2x18GcLY03RLatCmh4I4EfefgQx3rg5chSxnK/K0WtYCnA2s0hFvTiViPowaFSfEGNK1z9WP
+	bo0+k/61rUkMTk/f97M75LA==
+X-Google-Smtp-Source: AGHT+IFU1lq2Hn1rhnQ1PXztdy1u0/BZUM8rfqOS080uGF0cxwIiBohWrEivOXB1opFs7TzdP9qSMg==
+X-Received: by 2002:a5d:64e3:0:b0:3e6:4b2:b9b2 with SMTP id ffacd0b85a97d-3e7659e936fmr5550562f8f.6.1757955715906;
+        Mon, 15 Sep 2025 10:01:55 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::bfbb])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3e9c2954b10sm7301300f8f.50.2025.09.15.10.01.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Sep 2025 10:01:46 -0700 (PDT)
-Date: Mon, 15 Sep 2025 12:01:45 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Jinyu Tang <tjytimi@163.com>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
-	Conor Dooley <conor.dooley@microchip.com>, Yong-Xuan Wang <yongxuan.wang@sifive.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Nutty Liu <nutty.liu@hotmail.com>, 
-	Radim Krcmar <rkrcmar@ventanamicro.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Tianshun Sun <stsmail163@163.com>
+        Mon, 15 Sep 2025 10:01:55 -0700 (PDT)
+Mime-Version: 1.0
+Date: Mon, 15 Sep 2025 19:01:03 +0200
+Message-Id: <DCTJ9US6E4PG.1MA4ICDR21DS6@ventanamicro.com>
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Tianshun Sun" <stsmail163@163.com>
+To: "Jinyu Tang" <tjytimi@163.com>, "Anup Patel" <anup@brainfault.org>,
+ "Atish Patra" <atish.patra@linux.dev>, "Andrew Jones"
+ <ajones@ventanamicro.com>, "Conor Dooley" <conor.dooley@microchip.com>,
+ "Yong-Xuan Wang" <yongxuan.wang@sifive.com>, "Paul Walmsley"
+ <paul.walmsley@sifive.com>, "Nutty Liu" <nutty.liu@hotmail.com>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
 Subject: Re: [RFC PATCH] kvm/riscv: Add ctxsstatus and ctxhstatus for
  migration
-Message-ID: <20250915-ad649bd2a0c0b9e98b63c5f4@orel>
 References: <20250915152731.1371067-1-tjytimi@163.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250915152731.1371067-1-tjytimi@163.com>
+ <DCTJ3N8W4PCL.9XCHFVGS62SF@ventanamicro.com>
+In-Reply-To: <DCTJ3N8W4PCL.9XCHFVGS62SF@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_100148_401219_246882FE 
-X-CRM114-Status: GOOD (  27.69  )
+X-CRM114-CacheID: sfid-20250915_100157_816759_EDD1033C 
+X-CRM114-Status: UNSURE (   5.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,117 +101,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 11:27:31PM +0800, Jinyu Tang wrote:
-> When migrating a VM which guest running in user mode 
-> (e.g., executing a while(1) application), the target 
-> VM fails to run because it loses the information of 
-> guest_context.hstatus and guest_context.sstatus. The 
-> VM uses the initialized values instead of the correct ones.
-
-Does https://lore.kernel.org/all/20250915070811.3422578-1-xb@ultrarisc.com/
-fix this?
-
-Thanks,
-drew
-
-> 
-> This patch adds two new context registers (ctxsstatus and 
-> ctxhstatus) to the kvm_vcpu_csr structure and implements 
-> the necessary KVM get and set logic to preserve these values 
-> during migration.
-> 
-> QEMU needs to be updated to support these new registers.
-> See https://github.com/tjy-zhu/qemu
-> for the corresponding QEMU changes.
-> 
-> I'm not sure if adding these CSR registers is a right way. RISCV
-> KVM doesn't have API to save these two context csrs now. I will
-> submit the corresponding QEMU patch to the QEMU community if
-> KVM has API to get and set them.
-> 
-> Signed-off-by: Jinyu Tang <tjytimi@163.com>
-> Tested-by: Tianshun Sun <stsmail163@163.com>
-> ---
->  arch/riscv/include/asm/kvm_host.h |  2 ++
->  arch/riscv/include/uapi/asm/kvm.h |  2 ++
->  arch/riscv/kvm/vcpu_onereg.c      | 16 ++++++++++++++++
->  3 files changed, 20 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> index d71d3299a..55604b075 100644
-> --- a/arch/riscv/include/asm/kvm_host.h
-> +++ b/arch/riscv/include/asm/kvm_host.h
-> @@ -161,6 +161,8 @@ struct kvm_vcpu_csr {
->  	unsigned long vsatp;
->  	unsigned long scounteren;
->  	unsigned long senvcfg;
-> +	unsigned long ctxsstatus;
-> +	unsigned long ctxhstatus;
->  };
->  
->  struct kvm_vcpu_config {
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index ef27d4289..cd7d7087f 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -81,6 +81,8 @@ struct kvm_riscv_csr {
->  	unsigned long satp;
->  	unsigned long scounteren;
->  	unsigned long senvcfg;
-> +	unsigned long ctxsstatus;
-> +	unsigned long ctxhstatus;
->  };
->  
->  /* AIA CSR registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-> diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-> index cce6a38ea..284ee6e81 100644
-> --- a/arch/riscv/kvm/vcpu_onereg.c
-> +++ b/arch/riscv/kvm/vcpu_onereg.c
-> @@ -489,6 +489,12 @@ static int kvm_riscv_vcpu_general_get_csr(struct kvm_vcpu *vcpu,
->  	if (reg_num >= sizeof(struct kvm_riscv_csr) / sizeof(unsigned long))
->  		return -ENOENT;
->  
-> +	if (reg_num == KVM_REG_RISCV_CSR_REG(ctxsstatus))
-> +		csr->ctxsstatus = vcpu->arch.guest_context.sstatus;
-> +
-> +	if (reg_num == KVM_REG_RISCV_CSR_REG(ctxhstatus))
-> +		csr->ctxhstatus = vcpu->arch.guest_context.hstatus;
-> +
->  	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
->  		kvm_riscv_vcpu_flush_interrupts(vcpu);
->  		*out_val = (csr->hvip >> VSIP_TO_HVIP_SHIFT) & VSIP_VALID_MASK;
-> @@ -515,6 +521,16 @@ static int kvm_riscv_vcpu_general_set_csr(struct kvm_vcpu *vcpu,
->  
->  	((unsigned long *)csr)[reg_num] = reg_val;
->  
-> +	if (reg_num == KVM_REG_RISCV_CSR_REG(ctxsstatus)) {
-> +		if (csr->ctxsstatus != 0)
-> +			vcpu->arch.guest_context.sstatus = csr->ctxsstatus;
-> +	}
-> +
-> +	if (reg_num == KVM_REG_RISCV_CSR_REG(ctxhstatus)) {
-> +		if (csr->ctxhstatus != 0)
-> +			vcpu->arch.guest_context.hstatus = csr->ctxhstatus;
-> +	}
-> +
->  	if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
->  		WRITE_ONCE(vcpu->arch.irqs_pending_mask[0], 0);
->  
-> -- 
-> 2.43.0
-> 
-> 
-> -- 
-> kvm-riscv mailing list
-> kvm-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/kvm-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+MjAyNS0wOS0xNVQxODo1Mjo1NiswMjowMCwgUmFkaW0gS3LEjW3DocWZIDxya3JjbWFyQHZlbnRh
+bmFtaWNyby5jb20+Ogo+IDIwMjUtMDktMTVUMjM6Mjc6MzErMDg6MDAsIEppbnl1IFRhbmcgPHRq
+eXRpbWlAMTYzLmNvbT46Cj4+ICsJaWYgKHJlZ19udW0gPT0gS1ZNX1JFR19SSVNDVl9DU1JfUkVH
+KGN0eGhzdGF0dXMpKQo+PiArCQljc3ItPmN0eGhzdGF0dXMgPSB2Y3B1LT5hcmNoLmd1ZXN0X2Nv
+bnRleHQuaHN0YXR1czsKPgo+IE5laXRoZXIgc2hvdWxkIHVzZXJzcGFjZSBiZSBhYmxlIHRvIGRp
+cmVjdGx5IHNldCBoc3RhdHVzLgo+IEtWTSBzaG91bGQgZGVyaXZlIGl0IGZyb20gb3RoZXIgdXNl
+cnNwYWNlIGNvbmZpZ3VyYXRpb24uCj4KPiBXaGF0IGlzbid0IGNvcnJlY3RseSByZWZsZWN0ZWQg
+aW4gaHN0YXR1cz8KCkFoLCB3ZSBkb24ndCBzZXQgaHN0YXR1cy5TUFZQIHdoZW4gc2V0dGluZyBL
+Vk1fUkVHX1JJU0NWX0NPUkVfUkVHKG1vZGUpLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
