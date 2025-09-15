@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5844CAC59A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A88CAC597
 	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 10:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,24 +12,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v11fRRXhx4+uYFyufFXX6PpYaIm0NhFhe+O9qzxHQdk=; b=uxzLZ4o1GQWPRl
-	c8bKmOquXTeJPHXF4ICCFqymqoM5QQGH9d9Ak2Q968Fyb0qItsOFkCyXHH4ThQYPkAbSNkgFHrOK0
-	qllEsHsM5YPO+VfGwwS9bP5DgM7LVLx+dGx4TeQ9f08SJNbwVxxeDQs3BDuwcfDIWkXzIuAFb6ceA
-	g5riQSM8UcaH5VruMbK2VEWSuUhjeoFCwE0o2q/zyVgs8kG40DB+mEX3QScaY1xPvcH7MG5pCEwVh
-	nV7keX2ZSNz6RIV3tsAavEPST4hDsQGQ1MNVUclIgKPLlg5kB5XFByBac05Ip/h7scf7zbEIRb66R
-	gNdMETOgHXsi1c9Y4BiA==;
+	List-Owner; bh=yqtI8FVNwmrr2e/diI1vbMulhO2mxUxBPsL/adY5XkM=; b=KtV/MVTXh6skLG
+	dbu7iQA+YS1iBA3ffoDNHMZyTtKzcE08APEQdUnYHc7EGo9cJBK/2wZydw7bTxJTVCWpiGn3nhtri
+	AETYPy35I88eUtqfrHa1WVYxHgMhxrycrI/RunkRpWJAOb/DBZyx0O/orABRgXtArEb9voJXv1GOJ
+	WjHv2mueullZWYJgQEx/05+j9EpxELtkBg/Z/6tdRN4rVTmbSYJp2ITOImzbpvXrr0saiQ7/60kZK
+	tXtnyjIwthNQgxDa/gY7IW4IVkLEwpcL/1FEhO6DJCcsoyB9WxfKulxCerfLXvvL/uTIytI6zpBkn
+	Z/9Fi+y2DHoDw7sUW96g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6EJ-00000003bRX-4Bqt;
-	Mon, 15 Sep 2025 10:14:40 +0000
+	id 1uy6EJ-00000003bR1-2pRD;
+	Mon, 15 Sep 2025 10:14:39 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6ED-00000003bJS-0cxX
+	id 1uy6ED-00000003bKE-2kr8
 	for linux-riscv@lists.infradead.org;
 	Mon, 15 Sep 2025 10:14:36 +0000
 Received: from ubt.. (unknown [210.73.43.101])
-	by APP-05 (Coremail) with SMTP id zQCowAD3lxHf5sdoHWn3Ag--.53429S5;
-	Mon, 15 Sep 2025 18:13:56 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowAD3lxHf5sdoHWn3Ag--.53429S7;
+	Mon, 15 Sep 2025 18:13:58 +0800 (CST)
 From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 To: linux-riscv@lists.infradead.org,
 	linux-fsdevel@vger.kernel.org,
@@ -57,37 +57,36 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Axel Rasmussen <axelrasmussen@google.com>,
 	Yuanchu Xie <yuanchu@google.com>,
 	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: [PATCH V12 3/5] riscv: Add RISC-V Svrsw60t59b extension support
-Date: Mon, 15 Sep 2025 18:13:41 +0800
-Message-Id: <20250915101343.1449546-4-zhangchunyan@iscas.ac.cn>
+Subject: [PATCH V12 5/5] riscv: mm: Add userfaultfd write-protect support
+Date: Mon, 15 Sep 2025 18:13:43 +0800
+Message-Id: <20250915101343.1449546-6-zhangchunyan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250915101343.1449546-1-zhangchunyan@iscas.ac.cn>
 References: <20250915101343.1449546-1-zhangchunyan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowAD3lxHf5sdoHWn3Ag--.53429S5
-X-Coremail-Antispam: 1UD129KBjvJXoW7CrykZr47tw4rWF1ruF48Zwb_yoW8KrWrpr
-	sYkryrCrWrXwn3uw4ayr95u3y8Xws8Gws8Kw4Uuw1rJrW7Z34xXw1vy3W7Gw1DX3WvqrnY
-	gF1F9r18uw4jyF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmGb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+X-CM-TRANSID: zQCowAD3lxHf5sdoHWn3Ag--.53429S7
+X-Coremail-Antispam: 1UD129KBjvJXoWxZF48ZF4kKF4xKFW5urWrAFb_yoWruw15pr
+	s5Ga95urWDJF97tayftr4YgrWrZw4fWa4DWr9xCa1kJFy7K3yDXr95Kry3try8JFWvv347
+	WFWrKr1rCw47JrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmEb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
 	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUWwA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv
-	6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
-	02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE
-	4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7
-	CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK67AK6r4DMxAIw28IcxkI7VAKI48JMxC20s026xCa
-	FVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_Jr
-	Wlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j
-	6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rV
-	WUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWx
-	JrUvcSsGvfC2KfnxnUUI43ZEXa7IUnwXo7UUUUU==
+	8067AKxVWUAVCq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28C
+	jxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI
+	8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E
+	87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64
+	kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm
+	72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI
+	1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK67AK6r4DMxAIw28IcxkI7VAKI48JMxC20s02
+	6xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_Jr
+	I_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v2
+	6r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcI
+	k0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4U
+	JVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IUnqNt7UUUUU==
 X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiCRAGB2jHtda7WAABs2
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiDAgGB2jHtULAQwABsf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_031433_548394_39D5CF95 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250915_031434_061933_D7D85B4A 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,67 +103,153 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Svrsw60t59b extension allows to free the PTE reserved bits 60
-and 59 for software to use.
+The Svrsw60t59b extension allows to free the PTE reserved bits 60 and 59
+for software, this patch uses bit 60 for uffd-wp tracking
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Additionally for tracking the uffd-wp state as a PTE swap bit, we borrow
+bit 4 which is not involved into swap entry computation.
+
 Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 ---
- arch/riscv/Kconfig             | 14 ++++++++++++++
- arch/riscv/include/asm/hwcap.h |  1 +
- arch/riscv/kernel/cpufeature.c |  1 +
- 3 files changed, 16 insertions(+)
+ arch/riscv/Kconfig                    |  1 +
+ arch/riscv/include/asm/pgtable-bits.h | 18 +++++++
+ arch/riscv/include/asm/pgtable.h      | 68 +++++++++++++++++++++++++++
+ 3 files changed, 87 insertions(+)
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 51dcd8eaa243..e1b6a95952c4 100644
+index db3337300c4c..637edec03b2d 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -862,6 +862,20 @@ config RISCV_ISA_ZICBOP
+@@ -147,6 +147,7 @@ config RISCV
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD if 64BIT && MMU
+ 	select HAVE_ARCH_USERFAULTFD_MINOR if 64BIT && USERFAULTFD
++	select HAVE_ARCH_USERFAULTFD_WP if 64BIT && MMU && USERFAULTFD && RISCV_ISA_SVRSW60T59B
+ 	select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
+ 	select HAVE_ASM_MODVERSIONS
+ 	select HAVE_CONTEXT_TRACKING_USER
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index f3bac2bbc157..b422d9691e60 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -38,6 +38,24 @@
+ #define _PAGE_SWP_SOFT_DIRTY	0
+ #endif /* CONFIG_MEM_SOFT_DIRTY */
  
- 	  If you don't know what to do here, say Y.
- 
-+config RISCV_ISA_SVRSW60T59B
-+	bool "Svrsw60t59b extension support for using PTE bits 60 and 59"
-+	depends on MMU && 64BIT
-+	depends on RISCV_ALTERNATIVE
-+	default y
-+	help
-+	  Adds support to dynamically detect the presence of the Svrsw60t59b
-+	  extension and enable its usage.
++#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
 +
-+	  The Svrsw60t59b extension allows to free the PTE reserved bits 60
-+	  and 59 for software to use.
++/* ext_svrsw60t59b: Bit(60) for uffd-wp tracking */
++#define _PAGE_UFFD_WP							\
++	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
++	 (1UL << 60) : 0)
++/*
++ * Bit 4 is not involved into swap entry computation, so we
++ * can borrow it for swap page uffd-wp tracking.
++ */
++#define _PAGE_SWP_UFFD_WP						\
++	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
++	 _PAGE_USER : 0)
++#else
++#define _PAGE_UFFD_WP		0
++#define _PAGE_SWP_UFFD_WP	0
++#endif
 +
-+	  If you don't know what to do here, say Y.
+ #define _PAGE_TABLE     _PAGE_PRESENT
+ 
+ /*
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 28057afaee33..0d9ae32ae29e 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -416,6 +416,41 @@ static inline pte_t pte_wrprotect(pte_t pte)
+ 	return __pte(pte_val(pte) & ~(_PAGE_WRITE));
+ }
+ 
++#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
++#define pgtable_supports_uffd_wp()	\
++	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)
 +
- config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
- 	def_bool y
- 	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index affd63e11b0a..f98fcb5c17d5 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -106,6 +106,7 @@
- #define RISCV_ISA_EXT_ZAAMO		97
- #define RISCV_ISA_EXT_ZALRSC		98
- #define RISCV_ISA_EXT_ZICBOP		99
-+#define RISCV_ISA_EXT_SVRSW60T59B	100
++static inline bool pte_uffd_wp(pte_t pte)
++{
++	return !!(pte_val(pte) & _PAGE_UFFD_WP);
++}
++
++static inline pte_t pte_mkuffd_wp(pte_t pte)
++{
++	return pte_wrprotect(__pte(pte_val(pte) | _PAGE_UFFD_WP));
++}
++
++static inline pte_t pte_clear_uffd_wp(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~(_PAGE_UFFD_WP));
++}
++
++static inline bool pte_swp_uffd_wp(pte_t pte)
++{
++	return !!(pte_val(pte) & _PAGE_SWP_UFFD_WP);
++}
++
++static inline pte_t pte_swp_mkuffd_wp(pte_t pte)
++{
++	return __pte(pte_val(pte) | _PAGE_SWP_UFFD_WP);
++}
++
++static inline pte_t pte_swp_clear_uffd_wp(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~(_PAGE_SWP_UFFD_WP));
++}
++#endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
++
+ /* static inline pte_t pte_mkread(pte_t pte) */
  
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ static inline pte_t pte_mkwrite_novma(pte_t pte)
+@@ -838,6 +873,38 @@ static inline pud_t pud_mkspecial(pud_t pud)
+ }
+ #endif
  
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 743d53415572..2ba71d2d3fa3 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -539,6 +539,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
- 	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
- 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-+	__RISCV_ISA_EXT_DATA(svrsw60t59b, RISCV_ISA_EXT_SVRSW60T59B),
- 	__RISCV_ISA_EXT_DATA(svvptc, RISCV_ISA_EXT_SVVPTC),
- };
- 
++#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
++static inline bool pmd_uffd_wp(pmd_t pmd)
++{
++	return pte_uffd_wp(pmd_pte(pmd));
++}
++
++static inline pmd_t pmd_mkuffd_wp(pmd_t pmd)
++{
++	return pte_pmd(pte_mkuffd_wp(pmd_pte(pmd)));
++}
++
++static inline pmd_t pmd_clear_uffd_wp(pmd_t pmd)
++{
++	return pte_pmd(pte_clear_uffd_wp(pmd_pte(pmd)));
++}
++
++static inline bool pmd_swp_uffd_wp(pmd_t pmd)
++{
++	return pte_swp_uffd_wp(pmd_pte(pmd));
++}
++
++static inline pmd_t pmd_swp_mkuffd_wp(pmd_t pmd)
++{
++	return pte_pmd(pte_swp_mkuffd_wp(pmd_pte(pmd)));
++}
++
++static inline pmd_t pmd_swp_clear_uffd_wp(pmd_t pmd)
++{
++	return pte_pmd(pte_swp_clear_uffd_wp(pmd_pte(pmd)));
++}
++#endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
++
+ #ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
+ static inline bool pmd_soft_dirty(pmd_t pmd)
+ {
+@@ -1055,6 +1122,7 @@ static inline pud_t pud_modify(pud_t pud, pgprot_t newprot)
+  *	bit            0:	_PAGE_PRESENT (zero)
+  *	bit       1 to 2:	(zero)
+  *	bit            3:	_PAGE_SWP_SOFT_DIRTY
++ *	bit            4:	_PAGE_SWP_UFFD_WP
+  *	bit            5:	_PAGE_PROT_NONE (zero)
+  *	bit            6:	exclusive marker
+  *	bits      7 to 11:	swap type
 -- 
 2.34.1
 
