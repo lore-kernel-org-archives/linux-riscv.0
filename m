@@ -4,66 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA08CAC58F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 08:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C69CAC597
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 09:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ChxK3W59qPUsQYXR3wkWFIW7aT99qVQj9HfliH/Ri1U=; b=3T18xDqSQMEouK
-	IYJc86bCpobZC4/G5bQ1L+dOkujCJiQGXoINKg65QFWiEbCb8o66DfKcobFyiOZk7kEola+qhL5Db
-	XwovVl9qyKp/7cpWZl5c7d+GXMafwIZO7VKp2N1SrQOcE3oaQtZN7imvdVpLLiRMxaJDBY2UgsG1B
-	zQ+/cw3LTlGcHJWju5vZYW12SJb10UTRcqCcr0XHDUyegJA8okCC5kkMzmYSjsxwDcXiBaiwO13tT
-	V1Nn++zvsNGrrXmPschGuh34FIN8OC6C6GloELa3DCmmxZZjUzUy5IFU4zukjiyOVLjBBnrsZm5MB
-	ZcWJrG+aVVuCzVBLvt/w==;
+	List-Owner; bh=TqDxl3XjLRYkYjU8XQqvE3T0v4W/wLBAmAOTFPzebZE=; b=WxLdW9PosODAIo
+	snQgrHQVlq4K6G4VNxBbTe39NUxGJPCF8fGPGV3KdvYJr3ZdOxMQOApwdD7AhzQ5L9/R0dj6h/I44
+	pDc+XeWPcPFUWWeRpPFfRVX4lZ+ffZS1GBIShSaWNvb5GMOIP5BcQDzeos1AC3mfB9P07FUrge9pO
+	QyJNuwT/1fNTn/9IL0cPFXo+bEBUAPyCJkz0q9J4eaS7y5WXtljaNPfvlED6XoKOTjGNoGWPpp7ww
+	10fRkWrQal6Il8vXQuDVL5OYGRoErrje1ph/FSg0RWOwHbGyX34MRjbtPBuDPuna+TH3gqjhtkJdK
+	lamXz4/17ZRH4N4bUMpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4Mp-00000003A7o-224A;
-	Mon, 15 Sep 2025 08:15:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uy5NA-00000003QVn-3f58;
+	Mon, 15 Sep 2025 09:19:44 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4Mm-00000003A6d-3m7v;
-	Mon, 15 Sep 2025 08:15:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 994E2406FF;
-	Mon, 15 Sep 2025 08:15:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A93D4C4CEF1;
-	Mon, 15 Sep 2025 08:15:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757924114;
-	bh=mpw1Kp/ruV8064l6dcTGb8KpE+L8YZqt3SSB47iPlo0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=peH66S1MaL/o5ItLrB+kDxmnPsq9tk53l1nKj5PFQAY7UlTolv/oeUbJ8dP4CuEwz
-	 yVJ2U3mDcclKIL+pJ7MvcHbLaQXVoadr590BASq+j3+XbNQUhTqfRtZ1BEqRiA23i0
-	 E6tcSm3VKTTS42rKBMAYqxTQtX1e1UXcsLTfvnwcoy8FtFWnG1TgKD0IfVIhxPHBo3
-	 sA7gPahnYjouLq07rtGr/fspDIqe9abSsQ0v6BWtN4J3podytFClcXZQmEyeckPvf8
-	 DxslL10q5RDuxRlv8ZcKXSkNbVjDN0ohQXPN6FGEk3JQdjyUJi/fYc/f927/skzN6M
-	 9s8wrlhV8nB7A==
-Date: Mon, 15 Sep 2025 13:44:58 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com, vkoul@kernel.org, 
-	kishon@kernel.org, dlan@gentoo.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de, tglx@linutronix.de, 
-	johan+linaro@kernel.org, thippeswamy.havalige@amd.com, namcao@linutronix.de, 
-	mayank.rana@oss.qualcomm.com, shradha.t@samsung.com, inochiama@gmail.com, 
-	quic_schintav@quicinc.com, fan.ni@samsung.com, devicetree@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org, spacemit@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/6] dt-bindings: phy: spacemit: introduce PCIe root
- complex
-Message-ID: <tmdq6iut5z2bzemduovvyarya6ho2lwlxvvqqhazw6dnnyjpq3@72xrd2pij42h>
-References: <20250813184701.2444372-1-elder@riscstar.com>
- <20250813184701.2444372-4-elder@riscstar.com>
+	id 1uy5N8-00000003QU5-1JsM
+	for linux-riscv@lists.infradead.org;
+	Mon, 15 Sep 2025 09:19:44 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id EA1BB33712;
+	Mon, 15 Sep 2025 09:19:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1757927979; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PhWypHhs76OUhW0wRhEmCSwbci4KHZ6s4gw5WflTcZE=;
+	b=y6rhBH2yIHqcEhWvW3OK/M1MGL07yB+6JMwC6X/CknVE5ua038lWDkVtBxXcMW2YiW0/gB
+	rSMv7hNa/JVKJWM7hARJEEPpYWbHOSmUMRbz8f4sVhqeny14kYvL5lcca9exMU9JyNeq6n
+	Pyq6WFF1sN1B85usXfvLUNO8krTzzDE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1757927979;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PhWypHhs76OUhW0wRhEmCSwbci4KHZ6s4gw5WflTcZE=;
+	b=SJvrSjvI7wBdkhoQj3MZ4ZBU7tX1b1mGqMmsm9Le3rr8bw1HFENqVr83A7BDG7tAfD/H3I
+	rh7jnWIRJSAAW1Cg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1757927978; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PhWypHhs76OUhW0wRhEmCSwbci4KHZ6s4gw5WflTcZE=;
+	b=dMec5VwZSk27WNcuKLsJWYANLg5lWjboI6lQZXChre5tGBQy9LfQiob4gACGMYnIEyj7wt
+	of5w1OHw8GaX5rzloEDHnRzUEa9We+whyL+vVkIgzkYI4qkYUE0EW8OsHCuSl7kqKZApPI
+	R62vbkO0euBFSVizbuH5OjHtbfjlT3s=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1757927978;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PhWypHhs76OUhW0wRhEmCSwbci4KHZ6s4gw5WflTcZE=;
+	b=NOo6WaFMZo/gSs0Cn6FVxnoIe/rbPumE4+eUSjak33WwfmR1YoYCMva3UzVfmUFBWfq4S4
+	cDjh2ACDImG9O8DA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D5CE31398D;
+	Mon, 15 Sep 2025 09:19:38 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id FQ3QMyrax2hoeQAAD6G6ig
+	(envelope-from <jack@suse.cz>); Mon, 15 Sep 2025 09:19:38 +0000
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+	id 74FF7A0A2B; Mon, 15 Sep 2025 11:19:38 +0200 (CEST)
+Date: Mon, 15 Sep 2025 11:19:38 +0200
+From: Jan Kara <jack@suse.cz>
+To: Askar Safin <safinaskar@gmail.com>
+Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Christian Brauner <brauner@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
+	Christoph Hellwig <hch@lst.de>, Jens Axboe <axboe@kernel.dk>, 
+	Andy Shevchenko <andy.shevchenko@gmail.com>, Aleksa Sarai <cyphar@cyphar.com>, 
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, Julian Stecklina <julian.stecklina@cyberus-technology.de>, 
+	Gao Xiang <hsiangkao@linux.alibaba.com>, Art Nikpal <email2tema@gmail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Eric Curtin <ecurtin@redhat.com>, 
+	Alexander Graf <graf@amazon.com>, Rob Landley <rob@landley.net>, 
+	Lennart Poettering <mzxreary@0pointer.de>, linux-arch@vger.kernel.org, linux-alpha@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
+	x86@kernel.org, Ingo Molnar <mingo@redhat.com>, linux-block@vger.kernel.org, 
+	initramfs@vger.kernel.org, linux-api@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-efi@vger.kernel.org, linux-ext4@vger.kernel.org, "Theodore Y . Ts'o" <tytso@mit.edu>, 
+	linux-acpi@vger.kernel.org, Michal Simek <monstr@monstr.eu>, devicetree@vger.kernel.org, 
+	Luis Chamberlain <mcgrof@kernel.org>, Kees Cook <kees@kernel.org>, 
+	Thorsten Blum <thorsten.blum@linux.dev>, Heiko Carstens <hca@linux.ibm.com>, patches@lists.linux.dev
+Subject: Re: [PATCH RESEND 13/62] ext2: remove ext2_image_size and associated
+ code
+Message-ID: <5xr5efvf4dhy43fchbvfsxspzgde5bxezhszdgqcya4eqrocgy@lqqkaq5wok6a>
+References: <20250913003842.41944-1-safinaskar@gmail.com>
+ <20250913003842.41944-14-safinaskar@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250813184701.2444372-4-elder@riscstar.com>
+In-Reply-To: <20250913003842.41944-14-safinaskar@gmail.com>
+X-Spamd-Result: default: False [-2.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	FREEMAIL_TO(0.00)[gmail.com];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_COUNT_THREE(0.00)[3];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[vger.kernel.org,linux-foundation.org,linuxfoundation.org,kernel.org,zeniv.linux.org.uk,suse.cz,lst.de,kernel.dk,gmail.com,cyphar.com,linutronix.de,cyberus-technology.de,linux.alibaba.com,redhat.com,amazon.com,landley.net,0pointer.de,lists.infradead.org,lists.linux.dev,lists.linux-m68k.org,lists.ozlabs.org,mit.edu,monstr.eu,linux.dev,linux.ibm.com];
+	R_RATELIMIT(0.00)[to_ip_from(RLbyy5b47ky7xssyr143sji8pp)];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	RCPT_COUNT_GT_50(0.00)[55];
+	RCVD_TLS_LAST(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.cz:email,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_011516_980975_AFD0C262 
-X-CRM114-Status: GOOD (  19.94  )
+X-CRM114-CacheID: sfid-20250915_021942_499447_8D72E50C 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,84 +151,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBBdWcgMTMsIDIwMjUgYXQgMDE6NDY6NTdQTSBHTVQsIEFsZXggRWxkZXIgd3JvdGU6
-CgpTdWJqZWN0IHNob3VsZCBoYXZlICdwY2knIHByZWZpeCwgbm90ICdwaHknLgoKPiBBZGQgdGhl
-IERldmljZSBUcmVlIGJpbmRpbmcgZm9yIHRoZSBQQ0llIHJvb3QgY29tcGxleCBmb3VuZCBvbiB0
-aGUKPiBTcGFjZW1pVCBLMSBTb0MuICBUaGlzIGRldmljZSBpcyBkZXJpdmVkIGZyb20gdGhlIFN5
-bm9wc3lzIERlc2lnbndhcmUKPiBQQ0llIElQLiAgSXQgc3VwcG9ydHMgdXAgdG8gdGhyZWUgUENJ
-ZSBwb3J0cyBvcGVyYXRpbmcgYXQgUENJZSBnZW4gMgo+IGxpbmsgc3BlZWRzICg1IEdUL3NlYyku
-ICBPbmUgb2YgdGhlIHBvcnRzIHVzZXMgYSBjb21ibyBQSFksIHdoaWNoIGlzCj4gdHlwaWNhbGx5
-IHVzZWQgdG8gc3VwcG9ydCBhIFVTQiAzIHBvcnQuCj4gCj4gU2lnbmVkLW9mZi1ieTogQWxleCBF
-bGRlciA8ZWxkZXJAcmlzY3N0YXIuY29tPgo+IC0tLQo+ICAuLi4vYmluZGluZ3MvcGNpL3NwYWNl
-bWl0LGsxLXBjaWUtcmMueWFtbCAgICAgfCAxNDEgKysrKysrKysrKysrKysrKysrCj4gIDEgZmls
-ZSBjaGFuZ2VkLCAxNDEgaW5zZXJ0aW9ucygrKQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgRG9jdW1l
-bnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BjaS9zcGFjZW1pdCxrMS1wY2llLXJjLnlhbWwK
-PiAKPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BjaS9z
-cGFjZW1pdCxrMS1wY2llLXJjLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGlu
-Z3MvcGNpL3NwYWNlbWl0LGsxLXBjaWUtcmMueWFtbAo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4g
-aW5kZXggMDAwMDAwMDAwMDAwMC4uNmJjY2EyZjkxYTZmZAo+IC0tLSAvZGV2L251bGwKPiArKysg
-Yi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcGNpL3NwYWNlbWl0LGsxLXBjaWUt
-cmMueWFtbAo+IEBAIC0wLDAgKzEsMTQxIEBACj4gKyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6
-IChHUEwtMi4wLW9ubHkgT1IgQlNELTItQ2xhdXNlKQo+ICslWUFNTCAxLjIKPiArLS0tCj4gKyRp
-ZDogaHR0cDovL2RldmljZXRyZWUub3JnL3NjaGVtYXMvcGNpL3NwYWNlbWl0LGsxLXBjaWUtcmMu
-eWFtbCMKPiArJHNjaGVtYTogaHR0cDovL2RldmljZXRyZWUub3JnL21ldGEtc2NoZW1hcy9jb3Jl
-LnlhbWwjCj4gKwo+ICt0aXRsZTogU3BhY2VtaVQgSzEgUENJIEV4cHJlc3MgUm9vdCBDb21wbGV4
-Cj4gKwo+ICttYWludGFpbmVyczoKPiArICAtIEFsZXggRWxkZXIgPGVsZGVyQHJpc2NzdGFyLmNv
-bT4KPiArCj4gK2Rlc2NyaXB0aW9uOgo+ICsgIFRoZSBTcGFjZW1pVCBLMSBTb0MgUENJZSByb290
-IGNvbXBsZXggY29udHJvbGxlciBpcyBiYXNlZCBvbiB0aGUKPiArICBTeW5vcHN5cyBEZXNpZ25X
-YXJlIFBDSWUgSVAuCj4gKwo+ICtwcm9wZXJ0aWVzOgo+ICsgIGNvbXBhdGlibGU6Cj4gKyAgICBj
-b25zdDogc3BhY2VtaXQsazEtcGNpZS1yYy55YW1sCj4gKwo+ICsgIHJlZzoKPiArICAgIGl0ZW1z
-Ogo+ICsgICAgICAtIGRlc2NyaXB0aW9uOiBEZXNpZ25XYXJlIFBDSWUgcmVnaXN0ZXJzCj4gKyAg
-ICAgIC0gZGVzY3JpcHRpb246IEFUVSBhZGRyZXNzIHNwYWNlCj4gKyAgICAgIC0gZGVzY3JpcHRp
-b246IFBDSWUgY29uZmlndXJhdGlvbiBzcGFjZQo+ICsgICAgICAtIGRlc2NyaXB0aW9uOiBMaW5r
-IGNvbnRyb2wgcmVnaXN0ZXJzCj4gKwo+ICsgIHJlZy1uYW1lczoKPiArICAgIGl0ZW1zOgo+ICsg
-ICAgICAtIGNvbnN0OiBkYmkKPiArICAgICAgLSBjb25zdDogYXR1Cj4gKyAgICAgIC0gY29uc3Q6
-IGNvbmZpZwo+ICsgICAgICAtIGNvbnN0OiBsaW5rCj4gKwo+ICsgIGNsb2NrczoKPiArICAgIGl0
-ZW1zOgo+ICsgICAgICAtIGRlc2NyaXB0aW9uOiBEV0MgUENJZSBEYXRhIEJ1cyBJbnRlcmZhY2Ug
-KERCSSkgY2xvY2sKPiArICAgICAgLSBkZXNjcmlwdGlvbjogRFdDIFBDSWUgYXBwbGljYXRpb24g
-QVhJLWJ1cyBNYXN0ZXIgaW50ZXJmYWNlIGNsb2NrCj4gKyAgICAgIC0gZGVzY3JpcHRpb246IERX
-QyBQQ0llIGFwcGxpY2F0aW9uIEFYSS1idXMgU2xhdmUgaW50ZXJmYWNlIGNsb2NrLgo+ICsKPiAr
-ICBjbG9jay1uYW1lczoKPiArICAgIGl0ZW1zOgo+ICsgICAgICAtIGNvbnN0OiBkYmkKPiArICAg
-ICAgLSBjb25zdDogbXN0cgo+ICsgICAgICAtIGNvbnN0OiBzbHYKPiArCj4gKyAgcmVzZXRzOgo+
-ICsgICAgaXRlbXM6Cj4gKyAgICAgIC0gZGVzY3JpcHRpb246IERXQyBQQ0llIERhdGEgQnVzIElu
-dGVyZmFjZSAoREJJKSByZXNldAo+ICsgICAgICAtIGRlc2NyaXB0aW9uOiBEV0MgUENJZSBhcHBs
-aWNhdGlvbiBBWEktYnVzIE1hc3RlciBpbnRlcmZhY2UgcmVzZXQKPiArICAgICAgLSBkZXNjcmlw
-dGlvbjogRFdDIFBDSWUgYXBwbGljYXRpb24gQVhJLWJ1cyBTbGF2ZSBpbnRlcmZhY2UgcmVzZXQu
-Cj4gKyAgICAgIC0gZGVzY3JpcHRpb246IEdsb2JhbCByZXNldDsgbXVzdCBiZSBkZWFzc2VydGVk
-IGZvciBQSFkgdG8gZnVuY3Rpb24KPiArCj4gKyAgcmVzZXQtbmFtZXM6Cj4gKyAgICBpdGVtczoK
-PiArICAgICAgLSBjb25zdDogZGJpCj4gKyAgICAgIC0gY29uc3Q6IG1zdHIKPiArICAgICAgLSBj
-b25zdDogc2x2Cj4gKyAgICAgIC0gY29uc3Q6IGdsb2JhbAo+ICsKPiArICBpbnRlcnJ1cHRzLWV4
-dGVuZGVkOgo+ICsgICAgbWF4SXRlbXM6IDEKCldoYXQgaXMgdGhlIHB1cnBvc2Ugb2YgdGhpcyBw
-cm9wZXJ0eT8gSXMgaXQgZm9yIE1TSSBvciBJTlR4PwoKPiArCj4gKyAgc3BhY2VtaXQsc3lzY29u
-LXBtdToKPiArICAgIGRlc2NyaXB0aW9uOgo+ICsgICAgICBQSGFuZGxlIHRoYXQgcmVmZXJzIHRv
-IHRoZSBBUE1VIHN5c3RlbSBjb250cm9sbGVyLCB3aG9zZQo+ICsgICAgICByZWdtYXAgaXMgdXNl
-ZCBpbiBtYW5hZ2luZyByZXNldHMgYW5kIGxpbmsgc3RhdGUuCj4gKyAgICAkcmVmOiAvc2NoZW1h
-cy90eXBlcy55YW1sIy9kZWZpbml0aW9ucy9waGFuZGxlCj4gKwo+ICsgIGRldmljZV90eXBlOgo+
-ICsgICAgY29uc3Q6IHBjaQo+ICsKPiArICBtYXgtbGluay1zcGVlZDoKPiArICAgIGNvbnN0OiAy
-CgpXaHkgZG8geW91IG5lZWQgdG8gbGltaXQgaXQgdG8gNSBHVC9zIGFsd2F5cz8KCj4gKwo+ICsg
-IG51bS12aWV3cG9ydDoKPiArICAgIGNvbnN0OiA4Cj4gKwo+ICtyZXF1aXJlZDoKPiArICAtIGNv
-bXBhdGlibGUKPiArICAtIHJlZwo+ICsgIC0gY2xvY2tzCj4gKyAgLSBjbG9jay1uYW1lcwo+ICsg
-IC0gcmVzZXRzCj4gKyAgLSByZXNldC1uYW1lcwo+ICsgIC0gc3BhY2VtaXQsc3lzY29uLXBtdQo+
-ICsgIC0gIiNhZGRyZXNzLWNlbGxzIgo+ICsgIC0gIiNzaXplLWNlbGxzIgo+ICsgIC0gZGV2aWNl
-X3R5cGUKPiArICAtIG1heC1saW5rLXNwZWVkCgpTYW1lIGNvbW1lbnQgYXMgYWJvdmUuCgo+ICsg
-IC0gYnVzLXJhbmdlCj4gKyAgLSBudW0tdmlld3BvcnQKPiArCj4gK2FkZGl0aW9uYWxQcm9wZXJ0
-aWVzOiBmYWxzZQo+ICsKPiArZXhhbXBsZXM6Cj4gKyAgLSB8Cj4gKyAgICAjaW5jbHVkZSA8ZHQt
-YmluZGluZ3MvY2xvY2svc3BhY2VtaXQsazEtc3lzY29uLmg+Cj4gKyAgICBwY2llMDogcGNpZUBj
-YTAwMDAwMCB7Cj4gKyAgICAgICAgY29tcGF0aWJsZSA9ICJzcGFjZW1pdCxrMS1wY2llLXJjIjsK
-PiArICAgICAgICByZWcgPSA8MHgwIDB4Y2EwMDAwMDAgMHgwIDB4MDAwMDEwMDA+LAo+ICsgICAg
-ICAgICAgICAgIDwweDAgMHhjYTMwMDAwMCAweDAgMHgwMDAxZmYyND4sCj4gKyAgICAgICAgICAg
-ICAgPDB4MCAweDhmMDAwMDAwIDB4MCAweDAwMDAyMDAwPiwKPiArICAgICAgICAgICAgICA8MHgw
-IDB4YzBiMjAwMDAgMHgwIDB4MDAwMDEwMDA+Owo+ICsgICAgICAgIHJlZy1uYW1lcyA9ICJkYmki
-LAo+ICsgICAgICAgICAgICAgICAgICAgICJhdHUiLAo+ICsgICAgICAgICAgICAgICAgICAgICJj
-b25maWciLAo+ICsgICAgICAgICAgICAgICAgICAgICJsaW5rIjsKPiArCj4gKyAgICAgICAgcmFu
-Z2VzID0gPDB4MDEwMDAwMDAgMHg4ZjAwMjAwMCAweDAgMHg4ZjAwMjAwMCAweDAgMHgxMDAwMDA+
-LAoKSS9PIHBvcnQgQ1BVIGFkZHJlc3Mgc3RhcnRzIGZyb20gMC4KCi0gTWFuaQoKLS0gCuCuruCu
-o+Cuv+CuteCuo+CvjeCuo+CuqeCvjSDgrprgrqTgrr7grprgrr/grrXgrq7gr40KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sat 13-09-25 00:37:52, Askar Safin wrote:
+> It is not used anymore
+> 
+> Signed-off-by: Askar Safin <safinaskar@gmail.com>
+
+Looks good.
+
+Acked-by: Jan Kara <jack@suse.cz>
+
+								Honza
+
+> ---
+>  fs/ext2/ext2.h          |  9 ---------
+>  include/linux/ext2_fs.h | 13 -------------
+>  2 files changed, 22 deletions(-)
+> 
+> diff --git a/fs/ext2/ext2.h b/fs/ext2/ext2.h
+> index cf97b76e9fd3..d623a14040d9 100644
+> --- a/fs/ext2/ext2.h
+> +++ b/fs/ext2/ext2.h
+> @@ -608,15 +608,6 @@ struct ext2_dir_entry_2 {
+>  					 ~EXT2_DIR_ROUND)
+>  #define EXT2_MAX_REC_LEN		((1<<16)-1)
+>  
+> -static inline void verify_offsets(void)
+> -{
+> -#define A(x,y) BUILD_BUG_ON(x != offsetof(struct ext2_super_block, y));
+> -	A(EXT2_SB_MAGIC_OFFSET, s_magic);
+> -	A(EXT2_SB_BLOCKS_OFFSET, s_blocks_count);
+> -	A(EXT2_SB_BSIZE_OFFSET, s_log_block_size);
+> -#undef A
+> -}
+> -
+>  /*
+>   * ext2 mount options
+>   */
+> diff --git a/include/linux/ext2_fs.h b/include/linux/ext2_fs.h
+> index 1fef88569037..e5ebe6cdf06c 100644
+> --- a/include/linux/ext2_fs.h
+> +++ b/include/linux/ext2_fs.h
+> @@ -27,17 +27,4 @@
+>   */
+>  #define EXT2_LINK_MAX		32000
+>  
+> -#define EXT2_SB_MAGIC_OFFSET	0x38
+> -#define EXT2_SB_BLOCKS_OFFSET	0x04
+> -#define EXT2_SB_BSIZE_OFFSET	0x18
+> -
+> -static inline u64 ext2_image_size(void *ext2_sb)
+> -{
+> -	__u8 *p = ext2_sb;
+> -	if (*(__le16 *)(p + EXT2_SB_MAGIC_OFFSET) != cpu_to_le16(EXT2_SUPER_MAGIC))
+> -		return 0;
+> -	return (u64)le32_to_cpup((__le32 *)(p + EXT2_SB_BLOCKS_OFFSET)) <<
+> -		le32_to_cpup((__le32 *)(p + EXT2_SB_BSIZE_OFFSET));
+> -}
+> -
+>  #endif	/* _LINUX_EXT2_FS_H */
+> -- 
+> 2.47.2
+> 
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
