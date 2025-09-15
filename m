@@ -4,132 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB96CAC58E
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 04:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AB8FCAC58E
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 05:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=258D7n3g3ATV3Jhc9b0inixpFwe+Y86wxnCe7/2AON0=; b=YA8IK+l2Na6NZl
-	xH5g5X//YAYYEbQKf4M/PrLftb/YJYNGEGoLRFtp2HYvHQpQP4KVZI+fFGWNynCrsjuM3fwPb93ug
-	3i3EM1x7/u/EL3k4oE83iU/zA95QEbDeY/z27jYv0kto6Zbbv7FVW3AJNX9BAScVcncvqKl9lYg9L
-	L9xUV/uj90oZvt0L7vra0i94tAS+phjNPkqxAThh5rVcl93cVLeGkwaxFEik8mrzFB+nvRnH+5KsW
-	zjUzwSQEUJH/VmnnLspiTw9smyHOW8jK9H8ZQpqsHGEwYnMET88bZiA4y5PJz9RFW7Iny+I6uV91+
-	CGhGKe1K2d8B03CUe5hQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=r8rHBqVgQsb9v5EgDpS9DqBkDTaTwA8/S3FjLycl6ho=; b=Lp8CFEb1vRXbzF
+	zyUIN4bYIp7fWsOgcND+ec928qtOTEWTW5U5uBKf5dH6pIQH95xrpBsvym9edFZe30dskW64jRJj9
+	Hxy71HHLBeaI+od0EqX+8/xzA46NqKn41jUGcNyCQafSi33IzF77CYkpy0xKm2h8pFXXU6VIeY0tj
+	XjAgP7jMjso2oUaxvx1bTRt3AdzCfGyEGm0su2TMqhDjkDxJmGKVs6u7eFJ7g7iy0L9++nCOq0n3H
+	PHIJn4avWFZcRtO8hV0/Bsafi4kUwtaZcqdZivvHNaSx/VwbwgSfWXk6ii4VqaVI9Vlci/UuE2k0e
+	rtw+oNs+Z1/KbGiaYHEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy12Q-00000002mkv-0IJi;
-	Mon, 15 Sep 2025 04:42:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uy1rJ-00000002qem-1SNK;
+	Mon, 15 Sep 2025 05:34:37 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy12N-00000002mkC-3WAW;
-	Mon, 15 Sep 2025 04:42:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ADC794185E;
-	Mon, 15 Sep 2025 04:41:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3122BC4CEF1;
-	Mon, 15 Sep 2025 04:41:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757911318;
-	bh=b/qNKcp4cR4Py7I6Jmk+kD30432fdQwu0TjuOKJbeyo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BKGQ7ztDCnDjfZJ0cK4jdzXAQlg5ER9a5S6mlLN1o2ImSD31RSh7Lwze8SuHF0TkX
-	 rfYJllK7y5wqOF93+DWlDBGMbmuup4Xlc3cqmEwbBku+pHZv5LLLt4z0G5b/4h1Jmq
-	 tOvtOzEZGHAKZql6rfhAGE8Hlr5P+fKpGYuacg5DmAiwH+/6KnsntmV30MxFoQF/e6
-	 7KB/uFRVxkdhQVFx+hr+PdjvWpl5gYmxr/jt7jldbt6xV9avUOPDdv8XdP7TlPbQEh
-	 w1yrB6rfYNAO6IjSoEt1bL+fK4LlE/db6uK0ux8c5Sfz62bLPnEdXBc1TD6rAq6wQE
-	 8k9Zh2ZA8ao3g==
-Message-ID: <1b39712b-86c1-4eff-83ea-eb8b180db48c@kernel.org>
-Date: Mon, 15 Sep 2025 06:41:45 +0200
+	id 1uy1rG-00000002qdt-13IA
+	for linux-riscv@lists.infradead.org;
+	Mon, 15 Sep 2025 05:34:36 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-77619f3f41aso1789052b3a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 14 Sep 2025 22:34:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1757914473; x=1758519273; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HcWOum1mNBViAIuGhSYHqBX6ni4rWoPSQnGJMRFhyRI=;
+        b=bPnokRpS0PBV+9vMiGypvIB5QcCzW7r1hIhFK6nncoN6efD8mN86gz4W64zDHorKMB
+         8QY8w7Ns0cRRemWJYH9TqQ5jPhWXTLqtNwpQhl1a9MPDyWYyL5IsyjNCJVA/9J7cS4ep
+         Is0IIrk02qrto9p/ve6lXUOs8IElFsdXtgHrkr46MCf49NDPyuQHzTr7kwehOSpxsJhU
+         k14GyQOY+oS+0AqkuQr0tzF2VAeKJkWutBBgjXeiy9uqVeSSmep8CKfFyMC9LbF5jpeD
+         5INPZuLzTdJ/qwPvZl54KamWtS5ME1LFbSJ8rr2stHFuSHUXuC0AfGx7b7U6/POvJuIH
+         fCDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757914473; x=1758519273;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HcWOum1mNBViAIuGhSYHqBX6ni4rWoPSQnGJMRFhyRI=;
+        b=XOBfRbmNFYzmJOUghPd0AQQe4WFr2TJeoG1zClRk22mbU6CH6SSqtfpVGJQHEQo8/f
+         cKsgfsMVJw7BUVaFihq5OJ0Sv6QBRsyxOSjtDeJb5VScPvP37YeHuZDw3cMtpv0j1oGF
+         0Zr40HHbBUM/2KavxQgNGN9xqTY0BqPdDdO6AvqjD3YEadPqv2lpXL5x3Uhl8bpkYPit
+         /DJINNy/lqUBQzp9kWGpLUWqaaJKqqP+4JS++F4aAXIU2SgsRFKkmzc98H4pzSCwiqUy
+         TtOr9Fiian22NaCfNDfCCWHpekKaCDQjmXLJoAmZf5fpK+YZv850TXPo/5fwJHU2GBh/
+         fXXA==
+X-Forwarded-Encrypted: i=1; AJvYcCUbA6WBGMcKOkwfw6bceFEvIIj2476OFkLARoqM5+Ep+ORF4AIJEvz+5kySPY50zVkjNBenJQSBcfYq8g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbOvZzsi4WQNvS7TVS4jxxCeW2mP22f0iBO3Fklceif1S9eOj6
+	3FKohjR+5xpblNzatNdAnyRNYzS9KoasIHA9oPNPVmCSLIwWlQ6IZri0+V6VQklsd8Y=
+X-Gm-Gg: ASbGncvWtYsNshFKfpbb1m6Bbu8ttNaX+eD+GMWonWC+ZsQYlx7Eoj1XQVWv9UdqjbA
+	GI0kr4KgEtWMm8vi8kN41fJphBt1FsCZ2BexU1FhkXpNtaK4lV71YRW/lUISxX3YoZBsA7rOR77
+	ANR6BYNrMBFrVtQRWR5Jc2uhBCx3XT/l2rfMsmSoyfOtAHps12bKos01RU0CgG1rkPWg1DbxBk0
+	nWRgmdBGpu8ABMh59CQq0Xh42j6IZnnZ/ZfGzJl2/5FQXUHZtQvJKlgpEM96EGM7tHY4RRYo89C
+	CFjFhUhDXiF5hH4xnLDO0i0eE/wkLJetNIwKlygKx1jY14T1bG4mmzXP2z7n4kTKbzRt18hueQ2
+	e2xHdAiD68sol6rDCKfYZrqaWDSUHoeiBu9LaBGF65Me+Dkr20E9cN9k=
+X-Google-Smtp-Source: AGHT+IGjRSvNn9pjamHg0axHO24KuBYdd0ejvKhVmAXCjHWpKLeck8mQqMrFQreoUO1LGLwUqHHLQg==
+X-Received: by 2002:a05:6a21:999a:b0:262:d265:a3c with SMTP id adf61e73a8af0-262d2650de3mr5504416637.32.1757914473069;
+        Sun, 14 Sep 2025 22:34:33 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b54a387cc21sm10604151a12.28.2025.09.14.22.34.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 14 Sep 2025 22:34:32 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	kvm-riscv@lists.infradead.org
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] RISC-V: KVM: Fix SBI_FWFT_POINTER_MASKING_PMLEN algorithm
+Date: Sun, 14 Sep 2025 22:34:20 -0700
+Message-ID: <20250915053431.1910941-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND 21/62] init: remove all mentions of root=/dev/ram*
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Askar Safin <safinaskar@gmail.com>, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, Linus Torvalds
- <torvalds@linux-foundation.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Christian Brauner <brauner@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>,
- Jan Kara <jack@suse.cz>, Christoph Hellwig <hch@lst.de>,
- Jens Axboe <axboe@kernel.dk>, Andy Shevchenko <andy.shevchenko@gmail.com>,
- Aleksa Sarai <cyphar@cyphar.com>,
- =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Julian Stecklina <julian.stecklina@cyberus-technology.de>,
- Gao Xiang <hsiangkao@linux.alibaba.com>, Art Nikpal <email2tema@gmail.com>,
- Eric Curtin <ecurtin@redhat.com>, Alexander Graf <graf@amazon.com>,
- Rob Landley <rob@landley.net>, Lennart Poettering <mzxreary@0pointer.de>,
- linux-arch@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, x86@kernel.org, Ingo Molnar
- <mingo@redhat.com>, linux-block@vger.kernel.org, initramfs@vger.kernel.org,
- linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-efi@vger.kernel.org, linux-ext4@vger.kernel.org,
- "Theodore Y . Ts'o" <tytso@mit.edu>, linux-acpi@vger.kernel.org,
- Michal Simek <monstr@monstr.eu>, devicetree@vger.kernel.org,
- Luis Chamberlain <mcgrof@kernel.org>, Kees Cook <kees@kernel.org>,
- Thorsten Blum <thorsten.blum@linux.dev>, Heiko Carstens <hca@linux.ibm.com>,
- patches@lists.linux.dev
-References: <20250913003842.41944-1-safinaskar@gmail.com>
- <20250913003842.41944-22-safinaskar@gmail.com>
- <a079375f-38c2-4f38-b2be-57737084fde8@kernel.org>
- <20250914131321.df00dfc835be48c10f4cce4b@linux-foundation.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250914131321.df00dfc835be48c10f4cce4b@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_214159_927717_3F54D8A7 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20250914_223434_299735_884481DB 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,42 +104,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2025 22:13, Andrew Morton wrote:
-> On Sun, 14 Sep 2025 12:06:24 +0200 Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> 
->>>  Documentation/admin-guide/kernel-parameters.txt          | 3 +--
->>>  Documentation/arch/m68k/kernel-options.rst               | 9 ++-------
->>>  arch/arm/boot/dts/arm/integratorap.dts                   | 2 +-
->>>  arch/arm/boot/dts/arm/integratorcp.dts                   | 2 +-
->>>  arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-cmm.dts     | 2 +-
->>>  .../boot/dts/aspeed/aspeed-bmc-facebook-galaxy100.dts    | 2 +-
->>>  .../arm/boot/dts/aspeed/aspeed-bmc-facebook-minipack.dts | 2 +-
->>>  .../arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge100.dts | 2 +-
->>>  arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge40.dts | 2 +-
->>>  arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yamp.dts    | 2 +-
->>>  .../boot/dts/aspeed/ast2600-facebook-netbmc-common.dtsi  | 2 +-
->>
->> No, don't do that. DTS is always separate.
-> 
-> Why can't DTS changes be carried in a different tree?
+The implementation of SBI_FWFT_POINTER_MASKING_PMLEN from commit
+aa04d131b88b ("RISC-V: KVM: Add support for SBI_FWFT_POINTER_MASKING_PMLEN")
+was based on a draft of the SBI 3.0 specification, and is not compliant
+with the ratified version.
 
+Update the algorithm to be compliant. Specifically, do not fall back to
+a pointer masking mode with a larger PMLEN if the mode with the
+requested PMLEN is unsupported by the hardware.
 
-It must be carried in a different kernel tree and it must be ALWAYS a
-separate commit. Embedding it in the middle of this patchset and in the
-middle of some other commit breaks these two rules.
+Fixes: aa04d131b88b ("RISC-V: KVM: Add support for SBI_FWFT_POINTER_MASKING_PMLEN")
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
+I saw that the RFC version of this patch already made it into
+riscv_kvm_queue, but it needs an update for ratified SBI 3.0. Feel free
+to squash this into the original commit, or I can send a replacement v2
+patch if you prefer.
 
-If you asked why it cannot be carried by VFS (or by any non-SoC tree in
-general), it is because DTS is completely independent hardware
-description, so by keeping it on separate tree we enforce that rule of
-lack of dependency between DTS and any driver or core code.
+ arch/riscv/kvm/vcpu_sbi_fwft.c | 17 +++++++++++++----
+ 1 file changed, 13 insertions(+), 4 deletions(-)
 
-If there is a dependency here, then it would be a NAK, because there
-cannot be such - it would be a breach of contract for outside users (DTS
-is shared with other, non-Linux projects).
+diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft.c
+index cacb3d4410a54..62cc9c3d57599 100644
+--- a/arch/riscv/kvm/vcpu_sbi_fwft.c
++++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
+@@ -160,14 +160,23 @@ static long kvm_sbi_fwft_set_pointer_masking_pmlen(struct kvm_vcpu *vcpu,
+ 	struct kvm_sbi_fwft *fwft = vcpu_to_fwft(vcpu);
+ 	unsigned long pmm;
+ 
+-	if (value == 0)
++	switch (value) {
++	case 0:
+ 		pmm = ENVCFG_PMM_PMLEN_0;
+-	else if (value <= 7 && fwft->have_vs_pmlen_7)
++		break;
++	case 7:
++		if (!fwft->have_vs_pmlen_7)
++			return SBI_ERR_INVALID_PARAM;
+ 		pmm = ENVCFG_PMM_PMLEN_7;
+-	else if (value <= 16 && fwft->have_vs_pmlen_16)
++		break;
++	case 16:
++		if (!fwft->have_vs_pmlen_16)
++			return SBI_ERR_INVALID_PARAM;
+ 		pmm = ENVCFG_PMM_PMLEN_16;
+-	else
++		break;
++	default:
+ 		return SBI_ERR_INVALID_PARAM;
++	}
+ 
+ 	vcpu->arch.cfg.henvcfg &= ~ENVCFG_PMM;
+ 	vcpu->arch.cfg.henvcfg |= pmm;
+-- 
+2.47.2
 
-
-Best regards,
-Krzysztof
+base-commit: 7835b892d1d9f52fb61537757aa446fb44984215
+branch: up/kvm-fwft-pmlen
 
 _______________________________________________
 linux-riscv mailing list
