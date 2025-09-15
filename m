@@ -4,54 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC3FCAC592
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 12:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D96CAC59C
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Sep 2025 12:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uDkP9pEwUTP6NPYC7yAoYhR6z8xq6Ea9yU4NlirQ1WE=; b=rAT6i90rgqqbXa
-	uZ2IF9JQlTtcifNUE/mjgBiRKzcxWpsRbIFSoUE9+yH8hQBafu3lj7H1r/2K0sUMstqh6zxKSNu0v
-	H3t2owvpqxHohfKXTBD/K1l3P9goMFRnF2S2f0e83l5nu9iCRvRO0jB4yZmUUkqKRG5+s25k2KVcy
-	Avh1/hRJ9tjRXF4mtbwLnYHRFs+nU3515fCF8raGZPuIihBtjl1Psfz8rri+i9UKVwr1F/98cyNTY
-	vZjzOgQ/ODIQbt7icgIDZIQjzp8iY80v7xJy7+s6C4B9/zl21woz4PoiiR0rbtilbJq+Rrkbotha+
-	aQ0D35SnI5LkkZqdQOdg==;
+	List-Owner; bh=wJB/EOoOYgUo7UvOgj4DiTH73IsH7YiHhWRNu7bnLD0=; b=AizmRt/+gGETFE
+	muwQLmpiEGcoys/TSqq7PvEaRU0qPYSRn9LDP49312kxnemr8g2LZwMrk2bh4NCYoAkCAvQOgbhuF
+	YUQUXHgVc8FaDs6R3+YeiHJ7JWW7gGfvLlcVYThyUHXp6lJ1YO3tOQDbduUtIi4i7k/Lix4g0AVdg
+	19OjfPJ1NilfKrLsUT6fgeHnW5rNE76vC1vtK+Ss53fHhiD6Z8BGy4U8aUbHPa8jR43YAM/r0arRR
+	K7JcJS3l+5hCRut2se9T3uFt1hRI1AW+qP9+FrNG6wBLaNwkfq9TVP5oel2oUmR7dcBH+QphB7TmL
+	AGtVkYxk0yHc0ZdFoGIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7t2-0000000434w-1O6B;
-	Mon, 15 Sep 2025 12:00:48 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7sz-00000004341-2W8D
-	for linux-riscv@lists.infradead.org;
-	Mon, 15 Sep 2025 12:00:46 +0000
-Received: from localhost (unknown [180.158.240.90])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 91C7F340F3A;
-	Mon, 15 Sep 2025 12:00:43 +0000 (UTC)
-Date: Mon, 15 Sep 2025 20:00:31 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, skhan@linuxfoundation.org,
-	linux-kernel-mentees@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: dts: spacemit: add UART pinctrl combinations
-Message-ID: <20250915120031-GYA1251948@gentoo.org>
-References: <20250915112845.58134-1-hendrik.hamerlinck@hammernet.be>
+	id 1uy8CF-000000046i0-3Uq6;
+	Mon, 15 Sep 2025 12:20:39 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy8CD-000000046gn-0f20;
+	Mon, 15 Sep 2025 12:20:38 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4cQNhn1N0hz9sxb;
+	Mon, 15 Sep 2025 13:53:29 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id anqguhIbwei8; Mon, 15 Sep 2025 13:53:29 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4cQNhm09sdz9sxY;
+	Mon, 15 Sep 2025 13:53:28 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id CE0528B766;
+	Mon, 15 Sep 2025 13:53:27 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id xl8Y1gVm9bTH; Mon, 15 Sep 2025 13:53:27 +0200 (CEST)
+Received: from [10.25.207.160] (unknown [10.25.207.160])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id B538F8B763;
+	Mon, 15 Sep 2025 13:53:26 +0200 (CEST)
+Message-ID: <b7ecad05-9880-4443-b2d2-843cf6fcc937@csgroup.eu>
+Date: Mon, 15 Sep 2025 13:53:26 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250915112845.58134-1-hendrik.hamerlinck@hammernet.be>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND 06/62] arm: init: remove special logic for setting
+ brd.rd_size
+To: Askar Safin <safinaskar@gmail.com>, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Christian Brauner <brauner@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>,
+ Jan Kara <jack@suse.cz>, Christoph Hellwig <hch@lst.de>,
+ Jens Axboe <axboe@kernel.dk>, Andy Shevchenko <andy.shevchenko@gmail.com>,
+ Aleksa Sarai <cyphar@cyphar.com>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ Julian Stecklina <julian.stecklina@cyberus-technology.de>,
+ Gao Xiang <hsiangkao@linux.alibaba.com>, Art Nikpal <email2tema@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Eric Curtin <ecurtin@redhat.com>,
+ Alexander Graf <graf@amazon.com>, Rob Landley <rob@landley.net>,
+ Lennart Poettering <mzxreary@0pointer.de>, linux-arch@vger.kernel.org,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org, x86@kernel.org,
+ Ingo Molnar <mingo@redhat.com>, linux-block@vger.kernel.org,
+ initramfs@vger.kernel.org, linux-api@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+ linux-ext4@vger.kernel.org, "Theodore Y . Ts'o" <tytso@mit.edu>,
+ linux-acpi@vger.kernel.org, Michal Simek <monstr@monstr.eu>,
+ devicetree@vger.kernel.org, Luis Chamberlain <mcgrof@kernel.org>,
+ Kees Cook <kees@kernel.org>, Thorsten Blum <thorsten.blum@linux.dev>,
+ Heiko Carstens <hca@linux.ibm.com>, patches@lists.linux.dev
+References: <20250913003842.41944-1-safinaskar@gmail.com>
+ <20250913003842.41944-7-safinaskar@gmail.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <20250913003842.41944-7-safinaskar@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_050045_669033_05921A0C 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20250915_052037_359735_1629ACDB 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,445 +101,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Hendrik,
-
-On 13:28 Mon 15 Sep     , Hendrik Hamerlinck wrote:
-> Add UART pinctrl configurations based on the SoC datasheet and the
-> downstream Bianbu Linux tree. The drive strength values were taken from
-> the downstream implementation, which uses medium drive strength.
-> CTS/RTS are moved to separate *-cts-rts-cfg states so boards can enable
-> hardware flow control conditionally.
-> 
-> Signed-off-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-> ---
-> Changes in v2:
-> - Split cts/rts into separate pinctrl configs as suggested
-> - Removed options from board DTS files to keep them cleaner
-> ---
->  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi | 389 ++++++++++++++++++-
->  1 file changed, 386 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> index 381055737422..8f87f8baaf77 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> @@ -11,12 +11,395 @@
->  #define K1_GPIO(x)	(x / 32) (x % 32)
->  
->  &pinctrl {
-Generally I'm good with this version, only have one minor comment
-
-How about adding a "/omit-if-no-ref/" before each pin cfg?
-This will shrink the final blob size if no referece to the node
-
-> +	uart0_0_cfg: uart0-0-cfg {
-> +		uart0-0-pins {
-> +			pinmux = <K1_PADCONF(104, 3)>,	/* uart0_txd */
-> +				 <K1_PADCONF(105, 3)>;	/* uart0_rxd */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	uart0_1_cfg: uart0-1-cfg {
-> +		uart0-1-pins {
-> +			pinmux = <K1_PADCONF(108, 1)>,	/* uart0_txd */
-> +				 <K1_PADCONF(80, 3)>;	/* uart0_rxd */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
->  	uart0_2_cfg: uart0-2-cfg {
->  		uart0-2-pins {
-> -			pinmux = <K1_PADCONF(68, 2)>,
-> -				 <K1_PADCONF(69, 2)>;
-> +			pinmux = <K1_PADCONF(68, 2)>,	/* uart0_txd */
-> +				 <K1_PADCONF(69, 2)>;	/* uart0_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
->  
-> -			bias-pull-up = <0>;
-> +	uart2_0_cfg: uart2-0-cfg {
-> +		uart2-0-pins {
-> +			pinmux = <K1_PADCONF(21, 1)>,	/* uart2_txd */
-> +				 <K1_PADCONF(22, 1)>;	/* uart2_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart2_0_cts_rts_cfg: uart2-0-cts-rts-cfg {
-> +		uart2-0-pins {
-> +			pinmux = <K1_PADCONF(23, 1)>,	/* uart2_cts */
-> +				 <K1_PADCONF(24, 1)>;	/* uart2_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart3_0_cfg: uart3-0-cfg {
-> +		uart3-0-pins {
-> +			pinmux = <K1_PADCONF(81, 2)>,	/* uart3_txd */
-> +				 <K1_PADCONF(82, 2)>;	/* uart3_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart3_0_cts_rts_cfg: uart3-0-cts-rts-cfg {
-> +		uart3-0-pins {
-> +			pinmux = <K1_PADCONF(83, 2)>,	/* uart3_cts */
-> +				 <K1_PADCONF(84, 2)>;	/* uart3_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart3_1_cfg: uart3-1-cfg {
-> +		uart3-1-pins {
-> +			pinmux = <K1_PADCONF(18, 2)>,	/* uart3_txd */
-> +				 <K1_PADCONF(19, 2)>;	/* uart3_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart3_1_cts_rts_cfg: uart3-1-cts-rts-cfg {
-> +		uart3-1-pins {
-> +			pinmux = <K1_PADCONF(20, 2)>,	/* uart3_cts */
-> +				 <K1_PADCONF(21, 2)>;	/* uart3_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart3_2_cfg: uart3-2-cfg {
-> +		uart3-2-pins {
-> +			pinmux = <K1_PADCONF(53, 4)>,	/* uart3_txd */
-> +				 <K1_PADCONF(54, 4)>;	/* uart3_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart3_2_cts_rts_cfg: uart3-2-cts-rts-cfg {
-> +		uart3-2-pins {
-> +			pinmux = <K1_PADCONF(55, 4)>,	/* uart3_cts */
-> +				 <K1_PADCONF(56, 4)>;	/* uart3_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_0_cfg: uart4-0-cfg {
-> +		uart4-0-pins {
-> +			pinmux = <K1_PADCONF(100, 4)>,	/* uart4_txd */
-> +				 <K1_PADCONF(101, 4)>;	/* uart4_rxd */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	uart4_1_cfg: uart4-1-cfg {
-> +		uart4-1-pins {
-> +			pinmux = <K1_PADCONF(83, 3)>,	/* uart4_txd */
-> +				 <K1_PADCONF(84, 3)>;	/* uart4_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_1_cts_rts_cfg: uart4-1-cts-rts-cfg {
-> +		uart4-1-pins {
-> +			pinmux = <K1_PADCONF(81, 3)>,	/* uart4_cts */
-> +				 <K1_PADCONF(82, 3)>;	/* uart4_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_2_cfg: uart4-2-cfg {
-> +		uart4-2-pins {
-> +			pinmux = <K1_PADCONF(23, 2)>,	/* uart4_txd */
-> +				 <K1_PADCONF(24, 2)>;	/* uart4_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_3_cfg: uart4-3-cfg {
-> +		uart4-3-pins {
-> +			pinmux = <K1_PADCONF(33, 2)>,	/* uart4_txd */
-> +				 <K1_PADCONF(34, 2)>;	/* uart4_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_3_cts_rts_cfg: uart4-3-cts-rts-cfg {
-> +		uart4-3-pins {
-> +			pinmux = <K1_PADCONF(35, 2)>,	/* uart4_cts */
-> +				 <K1_PADCONF(36, 2)>;	/* uart4_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_4_cfg: uart4-4-cfg {
-> +		uart4-4-pins {
-> +			pinmux = <K1_PADCONF(111, 4)>,	/* uart4_txd */
-> +				 <K1_PADCONF(112, 4)>;	/* uart4_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart4_4_cts_rts_cfg: uart4-4-cts-rts-cfg {
-> +		uart4-4-pins {
-> +			pinmux = <K1_PADCONF(113, 4)>,	/* uart4_cts */
-> +				 <K1_PADCONF(114, 4)>;	/* uart4_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart5_0_cfg: uart5-0-cfg {
-> +		uart5-0-pins {
-> +			pinmux = <K1_PADCONF(102, 3)>,	/* uart5_txd */
-> +				 <K1_PADCONF(103, 3)>;	/* uart5_rxd */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	uart5_1_cfg: uart5-1-cfg {
-> +		uart5-1-pins {
-> +			pinmux = <K1_PADCONF(25, 2)>,	/* uart5_txd */
-> +				 <K1_PADCONF(26, 2)>;	/* uart5_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart5_1_cts_rts_cfg: uart5-1-cts-rts-cfg {
-> +		uart5-1-pins {
-> +			pinmux = <K1_PADCONF(27, 2)>,	/* uart5_cts */
-> +				 <K1_PADCONF(28, 2)>;	/* uart5_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart5_2_cfg: uart5-2-cfg {
-> +		uart5-2-pins {
-> +			pinmux = <K1_PADCONF(42, 2)>,	/* uart5_txd */
-> +				 <K1_PADCONF(43, 2)>;	/* uart5_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart5_2_cts_rts_cfg: uart5-2-cts-rts-cfg {
-> +		uart5-2-pins {
-> +			pinmux = <K1_PADCONF(44, 2)>,	/* uart5_cts */
-> +				 <K1_PADCONF(45, 2)>;	/* uart5_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart5_3_cfg: uart5-3-cfg {
-> +		uart5-3-pins {
-> +			pinmux = <K1_PADCONF(70, 4)>,	/* uart5_txd */
-> +				 <K1_PADCONF(71, 4)>;	/* uart5_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart5_3_cts_rts_cfg: uart5-3-cts-rts-cfg {
-> +		uart5-3-pins {
-> +			pinmux = <K1_PADCONF(72, 4)>,	/* uart5_cts */
-> +				 <K1_PADCONF(73, 4)>;	/* uart5_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart6_0_cfg: uart6-0-cfg {
-> +		uart6-0-pins {
-> +			pinmux = <K1_PADCONF(86, 2)>,	/* uart6_txd */
-> +				 <K1_PADCONF(87, 2)>;	/* uart6_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart6_0_cts_rts_cfg: uart6-0-cts-rts-cfg {
-> +		uart6-0-pins {
-> +			pinmux = <K1_PADCONF(85, 2)>,	/* uart6_cts */
-> +				 <K1_PADCONF(90, 2)>;	/* uart6_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart6_1_cfg: uart6-1-cfg {
-> +		uart6-1-pins {
-> +			pinmux = <K1_PADCONF(0, 2)>,	/* uart6_txd */
-> +				 <K1_PADCONF(1, 2)>;	/* uart6_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart6_1_cts_rts_cfg: uart6-1-cts-rts-cfg {
-> +		uart6-1-pins {
-> +			pinmux = <K1_PADCONF(2, 2)>,	/* uart6_cts */
-> +				 <K1_PADCONF(3, 2)>;	/* uart6_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart6_2_cfg: uart6-2-cfg {
-> +		uart6-2-pins {
-> +			pinmux = <K1_PADCONF(56, 2)>,	/* uart6_txd */
-> +				 <K1_PADCONF(57, 2)>;	/* uart6_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart7_0_cfg: uart7-0-cfg {
-> +		uart7-0-pins {
-> +			pinmux = <K1_PADCONF(88, 2)>,	/* uart7_txd */
-> +				 <K1_PADCONF(89, 2)>;	/* uart7_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart7_1_cfg: uart7-1-cfg {
-> +		uart7-1-pins {
-> +			pinmux = <K1_PADCONF(4, 2)>,	/* uart7_txd */
-> +				 <K1_PADCONF(5, 2)>;	/* uart7_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart7_1_cts_rts_cfg: uart7-1-cts-rts-cfg {
-> +		uart7-1-pins {
-> +			pinmux = <K1_PADCONF(6, 2)>,	/* uart7_cts */
-> +				 <K1_PADCONF(7, 2)>;	/* uart7_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart8_0_cfg: uart8-0-cfg {
-> +		uart8-0-pins {
-> +			pinmux = <K1_PADCONF(82, 4)>,	/* uart8_txd */
-> +				 <K1_PADCONF(83, 4)>;	/* uart8_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart8_1_cfg: uart8-1-cfg {
-> +		uart8-1-pins {
-> +			pinmux = <K1_PADCONF(8, 2)>,	/* uart8_txd */
-> +				 <K1_PADCONF(9, 2)>;	/* uart8_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart8_1_cts_rts_cfg: uart8-1-cts-rts-cfg {
-> +		uart8-1-pins {
-> +			pinmux = <K1_PADCONF(10, 2)>,	/* uart8_cts */
-> +				 <K1_PADCONF(11, 2)>;	/* uart8_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart8_2_cfg: uart8-2-cfg {
-> +		uart8-2-pins {
-> +			pinmux = <K1_PADCONF(75, 4)>,	/* uart8_txd */
-> +				 <K1_PADCONF(76, 4)>;	/* uart8_rxd */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	uart8_2_cts_rts_cfg: uart8-2-cts-rts-cfg {
-> +		uart8-2-pins {
-> +			pinmux = <K1_PADCONF(77, 4)>,	/* uart8_cts */
-> +				 <K1_PADCONF(78, 4)>;	/* uart8_rts */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	uart9_0_cfg: uart9-0-cfg {
-> +		uart9-0-pins {
-> +			pinmux = <K1_PADCONF(12, 2)>,	/* uart9_txd */
-> +				 <K1_PADCONF(13, 2)>;	/* uart9_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart9_1_cfg: uart9-1-cfg {
-> +		uart9-1-pins {
-> +			pinmux = <K1_PADCONF(116, 3)>,	/* uart9_txd */
-> +				 <K1_PADCONF(117, 3)>;	/* uart9_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart9_1_cts_rts_cfg: uart9-1-cts-rts-cfg {
-> +		uart9-1-pins {
-> +			pinmux = <K1_PADCONF(110, 3)>,	/* uart9_cts */
-> +				 <K1_PADCONF(115, 3)>;	/* uart9_rts */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
-> +
-> +	uart9_2_cfg: uart9-2-cfg {
-> +		uart9-2-pins {
-> +			pinmux = <K1_PADCONF(72, 2)>,	/* uart9_txd */
-> +				 <K1_PADCONF(73, 2)>;	/* uart9_rxd */
-> +			bias-pull-up;
->  			drive-strength = <32>;
->  		};
->  	};
-> -- 
-> 2.43.0
-> 
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAxMy8wOS8yMDI1IMOgIDAyOjM3LCBBc2thciBTYWZpbiBhIMOpY3JpdMKgOgo+IFtWb3Vz
+IG5lIHJlY2V2ZXogcGFzIHNvdXZlbnQgZGUgY291cnJpZXJzIGRlIHNhZmluYXNrYXJAZ21haWwu
+Y29tLiBEw6ljb3V2cmV6IHBvdXJxdW9pIGNlY2kgZXN0IGltcG9ydGFudCDDoCBodHRwczovL2Fr
+YS5tcy9MZWFybkFib3V0U2VuZGVySWRlbnRpZmljYXRpb24gXQo+IAo+IFRoZXJlIGlzIG5vIGFu
+eSByZWFzb24gZm9yIGhhdmluZyBzcGVjaWFsIG1lY2hhbmlzbQo+IGZvciBzZXR0aW5nIHJhbWRp
+c2sgc2l6ZS4KClRoYXQncyB5b3Ugb3Bpbmlvbi4KCllvdSBzaG91bGQgZXhwbGFpbiB3aHkuCgo+
+IAo+IEFsc28gdGhpcyBhbGxvd3MgdXMgdG8gY2hhbmdlIHJkX3NpemUgdmFyaWFibGUgdG8gc3Rh
+dGljCj4gCj4gU2lnbmVkLW9mZi1ieTogQXNrYXIgU2FmaW4gPHNhZmluYXNrYXJAZ21haWwuY29t
+Pgo+IC0tLQo+ICAgYXJjaC9hcm0va2VybmVsL2F0YWdzX3BhcnNlLmMgfCAxMiAtLS0tLS0tLS0t
+LS0KPiAgIGRyaXZlcnMvYmxvY2svYnJkLmMgICAgICAgICAgIHwgIDggKysrKy0tLS0KPiAgIGlu
+Y2x1ZGUvbGludXgvaW5pdHJkLmggICAgICAgIHwgIDMgLS0tCgpXaGF0IGFib3V0OgoKYXJjaC9t
+aXBzL2tlcm5lbC9zZXR1cC5jOmVhcmx5X3BhcmFtKCJyZF9zaXplIiwgcmRfc2l6ZV9lYXJseSk7
+CgpJcyBpdCB1bnJlbGF0ZWQgPwoKPiAgIDMgZmlsZXMgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCsp
+LCAxOSBkZWxldGlvbnMoLSkKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm0va2VybmVsL2F0YWdz
+X3BhcnNlLmMgYi9hcmNoL2FybS9rZXJuZWwvYXRhZ3NfcGFyc2UuYwo+IGluZGV4IGEzZjBhNGY4
+NGUwNC4uNjE1ZDllODNjOWI1IDEwMDY0NAo+IC0tLSBhL2FyY2gvYXJtL2tlcm5lbC9hdGFnc19w
+YXJzZS5jCj4gKysrIGIvYXJjaC9hcm0va2VybmVsL2F0YWdzX3BhcnNlLmMKPiBAQCAtODcsMTgg
+Kzg3LDYgQEAgc3RhdGljIGludCBfX2luaXQgcGFyc2VfdGFnX3ZpZGVvdGV4dChjb25zdCBzdHJ1
+Y3QgdGFnICp0YWcpCj4gICBfX3RhZ3RhYmxlKEFUQUdfVklERU9URVhULCBwYXJzZV90YWdfdmlk
+ZW90ZXh0KTsKPiAgICNlbmRpZgo+IAo+IC0jaWZkZWYgQ09ORklHX0JMS19ERVZfUkFNCj4gLXN0
+YXRpYyBpbnQgX19pbml0IHBhcnNlX3RhZ19yYW1kaXNrKGNvbnN0IHN0cnVjdCB0YWcgKnRhZykK
+PiAtewo+IC0gICAgICAgaWYgKHRhZy0+dS5yYW1kaXNrLnNpemUpCj4gLSAgICAgICAgICAgICAg
+IHJkX3NpemUgPSB0YWctPnUucmFtZGlzay5zaXplOwo+IC0KPiAtICAgICAgIHJldHVybiAwOwo+
+IC19Cj4gLQo+IC1fX3RhZ3RhYmxlKEFUQUdfUkFNRElTSywgcGFyc2VfdGFnX3JhbWRpc2spOwo+
+IC0jZW5kaWYKPiAtCj4gICBzdGF0aWMgaW50IF9faW5pdCBwYXJzZV90YWdfc2VyaWFsbnIoY29u
+c3Qgc3RydWN0IHRhZyAqdGFnKQo+ICAgewo+ICAgICAgICAgIHN5c3RlbV9zZXJpYWxfbG93ID0g
+dGFnLT51LnNlcmlhbG5yLmxvdzsKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9ibG9jay9icmQuYyBi
+L2RyaXZlcnMvYmxvY2svYnJkLmMKPiBpbmRleCAwYzJlYWJlMTRhZjMuLjcyZjAyZDJiOGE5OSAx
+MDA2NDQKPiAtLS0gYS9kcml2ZXJzL2Jsb2NrL2JyZC5jCj4gKysrIGIvZHJpdmVycy9ibG9jay9i
+cmQuYwo+IEBAIC0yNyw2ICsyNywxMCBAQAo+IAo+ICAgI2luY2x1ZGUgPGxpbnV4L3VhY2Nlc3Mu
+aD4KPiAKPiArc3RhdGljIHVuc2lnbmVkIGxvbmcgcmRfc2l6ZSA9IENPTkZJR19CTEtfREVWX1JB
+TV9TSVpFOwo+ICttb2R1bGVfcGFyYW0ocmRfc2l6ZSwgdWxvbmcsIDA0NDQpOwo+ICtNT0RVTEVf
+UEFSTV9ERVNDKHJkX3NpemUsICJTaXplIG9mIGVhY2ggUkFNIGRpc2sgaW4ga2J5dGVzLiIpOwo+
+ICsKPiAgIC8qCj4gICAgKiBFYWNoIGJsb2NrIHJhbWRpc2sgZGV2aWNlIGhhcyBhIHhhcnJheSBi
+cmRfcGFnZXMgb2YgcGFnZXMgdGhhdCBzdG9yZXMKPiAgICAqIHRoZSBwYWdlcyBjb250YWluaW5n
+IHRoZSBibG9jayBkZXZpY2UncyBjb250ZW50cy4KPiBAQCAtMjA5LDEwICsyMTMsNiBAQCBzdGF0
+aWMgaW50IHJkX25yID0gQ09ORklHX0JMS19ERVZfUkFNX0NPVU5UOwo+ICAgbW9kdWxlX3BhcmFt
+KHJkX25yLCBpbnQsIDA0NDQpOwo+ICAgTU9EVUxFX1BBUk1fREVTQyhyZF9uciwgIk1heGltdW0g
+bnVtYmVyIG9mIGJyZCBkZXZpY2VzIik7Cj4gCj4gLXVuc2lnbmVkIGxvbmcgcmRfc2l6ZSA9IENP
+TkZJR19CTEtfREVWX1JBTV9TSVpFOwo+IC1tb2R1bGVfcGFyYW0ocmRfc2l6ZSwgdWxvbmcsIDA0
+NDQpOwo+IC1NT0RVTEVfUEFSTV9ERVNDKHJkX3NpemUsICJTaXplIG9mIGVhY2ggUkFNIGRpc2sg
+aW4ga2J5dGVzLiIpOwo+IC0KPiAgIHN0YXRpYyBpbnQgbWF4X3BhcnQgPSAxOwo+ICAgbW9kdWxl
+X3BhcmFtKG1heF9wYXJ0LCBpbnQsIDA0NDQpOwo+ICAgTU9EVUxFX1BBUk1fREVTQyhtYXhfcGFy
+dCwgIk51bSBNaW5vcnMgdG8gcmVzZXJ2ZSBiZXR3ZWVuIGRldmljZXMiKTsKPiBkaWZmIC0tZ2l0
+IGEvaW5jbHVkZS9saW51eC9pbml0cmQuaCBiL2luY2x1ZGUvbGludXgvaW5pdHJkLmgKPiBpbmRl
+eCA2MzIwYTljYjY2ODYuLmI0MjIzNWMyMTQ0NCAxMDA2NDQKPiAtLS0gYS9pbmNsdWRlL2xpbnV4
+L2luaXRyZC5oCj4gKysrIGIvaW5jbHVkZS9saW51eC9pbml0cmQuaAo+IEBAIC01LDkgKzUsNiBA
+QAo+IAo+ICAgI2RlZmluZSBJTklUUkRfTUlOT1IgMjUwIC8qIHNob3VsZG4ndCBjb2xsaWRlIHdp
+dGggL2Rldi9yYW0qIHRvbyBzb29uIC4uLiAqLwo+IAo+IC0vKiBzaXplIG9mIGEgc2luZ2xlIFJB
+TSBkaXNrICovCj4gLWV4dGVybiB1bnNpZ25lZCBsb25nIHJkX3NpemU7Cj4gLQo+ICAgLyogMSBp
+ZiBpdCBpcyBub3QgYW4gZXJyb3IgaWYgaW5pdHJkX3N0YXJ0IDwgbWVtb3J5X3N0YXJ0ICovCj4g
+ICBleHRlcm4gaW50IGluaXRyZF9iZWxvd19zdGFydF9vazsKPiAKPiAtLQo+IDIuNDcuMgo+IAo+
+IAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
