@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B48D1CAC599
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 13:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CE81CAC598
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 13:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KcYu1hMldT4cNYXwnozFmtznccPOTIEjM02KJVu5IFI=; b=r3LsMBOfWoKj/c
-	iMcLoO4qU9Q7nJIplBua0PrA6Etrp09bhtVYeqZNx+MsRLvNxFmK8YYO0impFg0uWjEUlCiANT2ir
-	VLmG8QSUlsgIJj22DnxIGl2AUR3AjSXPh6ZZOOI1J+luuH3r0BLtqxANlvozQaIt17mvdg1LaKezU
-	0YEI115bg2Joy/iuTd9f7PJO/5MS/eQX1msAP23UrwjGwtZBRmt3kVJ7LLSD3DVBa/oaFRInWKh0F
-	Dz/fVuGKySlSghE2NL+B065Mc6v2VHTd+8WXujuwiazJoucu8nZBLm4shH84uWNaFkHeoX5eTcVNq
-	XYly2Dw169WhahrkIZig==;
+	List-Owner; bh=JfusNQ//yuWOQIKo0NDQBIsP1wxfVYrLN24nXPrgFw8=; b=L1VvZVjYEt+69A
+	+97lYxYTsWjEQhkZcQDweHHmGIQTSnYQ415dCoqvEttDdgL80R+sZKSlbrCk5nBznoOUwqjlPFJle
+	AJmAcp1gEd0MOdxTJDvfLqn76/KSzKxwNKyiITgQy+avHJyrY3jcJaR8EkVqmqtOlRJwi5vo1MjJY
+	B/33zb7lVskC5KjYyWS4uMVO67010NtB5lTqSL8nchxZTqxnXmaU+0+s8MeqCitiw7s59iA9AlM28
+	4o23elwkxXsyPS9sjjS8UG84NOxiV6GYaclDJIgNcVTvbpR1SBIuSsAjM561RA4fU8lnJwc6pXK8A
+	Z57BGoBiLyxC0iKpwUgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyVyU-00000007yc4-33lO;
-	Tue, 16 Sep 2025 13:44:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uyWAw-000000080WY-1c7h;
+	Tue, 16 Sep 2025 13:56:54 +0000
+Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyVyU-00000007ybk-0Ekw
+	id 1uyWAt-000000080Ur-04xi
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 13:44:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5BCCD600AE;
-	Tue, 16 Sep 2025 13:44:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3966C4CEEB;
-	Tue, 16 Sep 2025 13:44:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758030241;
-	bh=PaMXEFXqCAuG12KEQ4djKfa6Cip7cabwIbwPaQn8wY0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ljdjCTkGxZRvb0F7FEBCvF8MQvB8OpQlHE+8U5+ljM2dNkPq/jtyw3AYlywCWUB1L
-	 GD4yIqOid2EWZ5zKmN/h7A5ulypmjpBgT8ztUSUR0m/bbJal5/a/xuReQRkTYGo3PE
-	 IhmdHuKSmAFKstZdjPFBsnbr2E6wqoUgl90AIRy6/CG4dm9+haJYr13LVSD61Snai3
-	 TZ0K6/J+qkwq7cY0pYSKZDJKQgn3zX/heNEEXzrFVj7J8mC2t2fRqS2ucj5VUw6cnH
-	 QBcWHDkMmHYirrBPbcz7Z9ca4cRZZU25bWgyzUXy9eBu2zc9C1E65PQ62MXxBkBvRU
-	 pBxHVu/xdGfzA==
-Date: Tue, 16 Sep 2025 08:44:00 -0500
-From: Rob Herring <robh@kernel.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <anup@brainfault.org>, Arnd Bergmann <arnd@arndb.de>,
-	Joel Stanley <jms@tenstorrent.com>, Joel Stanley <joel@jms.id.au>,
-	Michael Neuling <mikey@neuling.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Michael Ellerman <mpe@kernel.org>, Andy Gross <agross@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, Conor Dooley <conor@kernel.org>,
-	Drew Fustini <dfustini@tenstorrent.com>
-Subject: Re: [PATCH 4/7] dt-bindings: timers: Add Tenstorrent Blackhole
- compatible
-Message-ID: <20250916134400.GA3654122-robh@kernel.org>
-References: <20250913-tt-bh-dts-v1-0-ddb0d6860fe5@tenstorrent.com>
- <20250913-tt-bh-dts-v1-4-ddb0d6860fe5@tenstorrent.com>
+	Tue, 16 Sep 2025 13:56:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=uNIYRj9GoFIgE0bx3nW1lY0HxQFaZbKTteY8eNBKQ4Q=; b=jQayv1VVFcnT5BAqM4uK/OlAZV
+	LYQJq1eiD3b8JQ6j5nfh6GhIW7kNsl830AW0BcyIre0+fpaQe5OovfHNcu2bdd3aXIx0cBUg26kOY
+	uCIV44iDgprzcHZycLPQATqNaZj4c6wlsX5K+lvNIKUkhafja4KfRzYxIiCdcsRjvvV45AchOqMdq
+	Zy0rQosUwpNiP7PGCpeUym+btRkzwd4P5R9HBEG3iHrS7Z+FMIgjvSHbw+vm2sl0QKuckPdN95Qd1
+	aCwXyD/6+9l/KENCZwlZD1iDLCaxI6GnBRjzJ5iPzIG7tjF8LWwpiFBQ+gI9QwICo1BS7yXE6TGWo
+	s5SoBbwQ==;
+Received: from [63.135.74.212] (helo=[192.168.1.249])
+	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1uyWAA-00HS9q-OA; Tue, 16 Sep 2025 14:56:07 +0100
+Message-ID: <70241f44-2f8d-4945-9c84-71416776cefd@codethink.co.uk>
+Date: Tue, 16 Sep 2025 14:56:05 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250913-tt-bh-dts-v1-4-ddb0d6860fe5@tenstorrent.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/7] riscv: dts: Add Tenstorrent Blackhole A0 SoC PCIe
+ cards
+To: Drew Fustini <fustini@kernel.org>, Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Anup Patel <anup@brainfault.org>,
+ Arnd Bergmann <arnd@arndb.de>, Joel Stanley <jms@tenstorrent.com>,
+ Joel Stanley <joel@jms.id.au>, Michael Neuling <mikey@neuling.org>,
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@kernel.org>,
+ Andy Gross <agross@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ Drew Fustini <dfustini@tenstorrent.com>
+References: <20250913-tt-bh-dts-v1-0-ddb0d6860fe5@tenstorrent.com>
+ <20250913-tt-bh-dts-v1-6-ddb0d6860fe5@tenstorrent.com>
+ <20250915-mouth-banner-ddfb2e48bdb3@spud> <aMhSSka3gyIcND/L@x1>
+Content-Language: en-GB
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <aMhSSka3gyIcND/L@x1>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250916_065651_143096_02508A0E 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +83,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 13, 2025 at 02:31:03PM -0700, Drew Fustini wrote:
-> From: Drew Fustini <dfustini@tenstorrent.com>
+On 15/09/2025 18:52, Drew Fustini wrote:
+> On Mon, Sep 15, 2025 at 05:47:08PM +0100, Conor Dooley wrote:
+>> On Sat, Sep 13, 2025 at 02:31:05PM -0700, Drew Fustini wrote:
+>>> new file mode 100644
+>>> index 0000000000000000000000000000000000000000..b2b08023643a2cebd4f924579024290bb355c9b3
+>>> --- /dev/null
+>>> +++ b/arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dts
+>>> @@ -0,0 +1,14 @@
+>>> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+>>> +/dts-v1/;
+>>> +
+>>> +#include "blackhole-a0.dtsi"
+>>> +
+>>> +/ {
+>>> +	model = "Tenstorrent Blackhole A0 SoC PCIe card";
+>>> +	compatible = "tenstorrent,blackhole-a0-card", "tenstorrent,blackhole-a0";
+>>> +
+>>> +	memory@0 {
+>>> +		device_type = "memory";
+>>> +		reg = <0x4000 0x30000000 0x1 0x00000000>;
+>>
+>> This isn't at address zero as the node address claims.
 > 
-> Document clint compatible for the Tenstorrent Blackhole A0 SoC.
-> 
-> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
-> ---
->  Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> index d85a1a088b35dabc0aa202475b926302705c4cf1..198146c59de0c95a2ffa052c8d4d7aa3f91f8e92 100644
-> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> @@ -36,6 +36,7 @@ properties:
->                - starfive,jh7100-clint   # StarFive JH7100
->                - starfive,jh7110-clint   # StarFive JH7110
->                - starfive,jh8100-clint   # StarFive JH8100
-> +              - tenstorrent,blackhole-a0-clint # Tenstorrent Blackhole
+> Thanks, I'll fix the unit address.
 
-We usually don't put Si versions (A0) in compatible strings unless later 
-versions changed in incompatible ways. Perhaps if you already knew that 
-B0 was different, then it would be appropriate. Or am I misunderstanding 
-what A0 means?
+Is it time to just assume any dtc can handle a 64bit number?
 
-Rob
+
+-- 
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
