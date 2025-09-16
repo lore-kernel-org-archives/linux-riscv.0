@@ -4,157 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8375CAC599
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 11:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE90CAC598
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 11:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:Cc:From:References:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UfvcrAigpLFINp12bCuG7oUy2VLdYVcMtHJy5VENypA=; b=t/GESDX53zE/tIC1aO7XA+uaWr
-	C27aeU8T085JbH6ksZcw6msmKnPczDPx50eJdhe2NHGPWOhBojjB2MVlEt9QsZjqUVonDvoyK7Req
-	NcWIrCTplKFuQMRpgj53lPTu9KI3XEAO9pl5vIksCXU+k0xW+8Wcsr1BwU/C9EVru4eubmZHUuFhC
-	h9S79b7DvmduSex8q/xHTgLhUFYDPESMW4b1e14J9erx6FLaKLFGuk1ZdAhKmyHrXdrMRA+bbQOXF
-	d0tjhPyVM8QxKQp6SO9CmMM4kvMelrCvxwEH1NUkgMMGAPvk/WMr0AqssdbGoxmnnJhf+Ny4pp9Su
-	HxtRQDCQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=b082q5bzgsbLtS3x9xvkex1SwqcCo8NpOlXWleN/36c=; b=ocx+aJa3+bDkMw
+	u6rqHmRG0/jwf9RcMrAh174/SFytBlsi4uADIeaHYzPtHOs6hZDwsDK0oQaSK2sfFD4qcfP6GGFUr
+	470Lkqt0GsqhxjbWNsh6uHe1dhHqj4yM4JigLkbea3nsR/6T3wA3keVaqSPZxr+WA+QFqLHpPJrSJ
+	AjDkgLD8RbUOeg3z77o3wM5WDdGDs4NxZmUdliZJRK24XeFUrCyomyVytQM258og6saiDWbEfUNZK
+	6fTdrc2xhoaptColKQRYIJFj0bEALai3Wtwg+bURiuihDxt9TyfHglajGmkmGEBI1gOYgOq2NvxJW
+	HcTFOq1B2zghGq5nw6HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyTWd-00000007csd-2VbK;
-	Tue, 16 Sep 2025 11:07:07 +0000
-Received: from mail-southindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d408::] helo=MA0PR01CU009.outbound.protection.outlook.com)
+	id 1uyTjK-00000007eUl-0tRu;
+	Tue, 16 Sep 2025 11:20:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyTWa-00000007crT-3caf
+	id 1uyTjI-00000007eUd-42iX
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 11:07:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rCEajQEFaMK0Mby5pxLITQw0SxPxh/iELYQgqPr8hG/8vLmQvgC1ioOB6aXsW4dmGar66XSZglFr2i8FMHihxxSzUFQAWRJETwTAPxqCo/dQdIKg33AXztErZpnZ5/kdjCNSYm/eFQh8Z2z6r1TI5BhvzYBjpI1qHqdU7cvzAqys856NTYASdtkkuY1ekDh7zvhFttdB8hfgc6CMP2va5CRsX/7bwJZC4x7J2wkuRRAQG1iHcSk7+YSx33nDrseY4ziZF+ptEf2IgIJgSTxZwNwJgSNtCosRxKrXmAp+sSfJFdqpD7v8GD7K0twkPWWaBznlR0FZuF+sei+u0YXL3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Op3D7/goUTQ5LpwwKdFPv/F+JK5K0I/OMeTRnPwrwv4=;
- b=Ft7tJcwlf/Roz8tb2yGEi6yg0Us/zHpmDo2klMC8cwh+cQG8uWHnkkYEvHWadhaw0hrxwX7G9fDDLVu8/UqS821J3YzKGdgdfGr46UyJANn6bh9fITuJCCjGBCcN8dEUhKAyJ2e4UuDv4smmp80uihHZB9uG/eW6qUR6ICgRn82iB5pxNqkEefYEmwdXc77XcMFbQbLa184tm111Ty0yvmkuZSzDJJTWIa0gA70Q9eMNs/wVV+6YHNXLZPmYwPgubBisylAMqCjoK8WVXrnjij5WnHJQ7bgW6MsKPuHMr4rzv/ga/qcFFflVEEjxxzX/Z7wKHq3yE+TZs+Ix3h+8EQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Op3D7/goUTQ5LpwwKdFPv/F+JK5K0I/OMeTRnPwrwv4=;
- b=BrW9NbhfSh2XZ+ZqoGI/SR8M+YttC5E6jy5fYLWZXKzur4iP3IZ0aHV9qrdGxxToH4poiOVTbhy67ZK9K2rDyYpX3udQp6RWcIouekMRXfqQlGVQGDFgaWyt6ELS7xzVfo4uGhnM0zG4pLTOIlcvsY5CD5FY0D21Uf5tUziicdLZZmHqMpS2bXzb+VVASPcTTUyf+AcdNATqAYpBmypDAfLnH5Ubvv1m2hOAw5s0psuddGvUvc8VHrRENGJlavo+sGKWlgovVhH3Dbce3WdFncfrbDNF7KJ0RedhoaW9lmLRxSMxA1U4WHTnWt9Rze2TPALfevod8j5oRE3nRsGhIQ==
-Received: from PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:2f4::10) by MA0PR01MB9078.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:11a::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.23; Tue, 16 Sep
- 2025 11:06:34 +0000
-Received: from PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::aedf:9d47:d2fd:7de0]) by PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::aedf:9d47:d2fd:7de0%7]) with mapi id 15.20.9115.017; Tue, 16 Sep 2025
- 11:06:34 +0000
-Message-ID: <PN4PR01MB11064C24A188A68558B5CD94DFE14A@PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM>
-Date: Tue, 16 Sep 2025 19:06:21 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/7] Add PCIe support to Sophgo SG2042 SoC
-To: Bjorn Helgaas <bhelgaas@google.com>
-References: <cover.1757643388.git.unicorn_wang@outlook.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-Cc: Chen Wang <unicornxw@gmail.com>, kwilczynski@kernel.org,
- u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- arnd@arndb.de, bwawrzyn@cisco.com, bhelgaas@google.com, conor+dt@kernel.org,
- 18255117159@163.com, inochiama@gmail.com, kishon@kernel.org,
- krzk+dt@kernel.org, lpieralisi@kernel.org, mani@kernel.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org,
- s-vadapalli@ti.com, tglx@linutronix.de, thomas.richard@bootlin.com,
- sycamoremoon376@gmail.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-riscv@lists.infradead.org, sophgo@lists.linux.dev,
- rabenda.cn@gmail.com, chao.wei@sophgo.com, xiaoguang.xing@sophgo.com,
- fengchun.li@sophgo.com, jeffbai@aosc.io
-In-Reply-To: <cover.1757643388.git.unicorn_wang@outlook.com>
-X-ClientProxiedBy: SGXP274CA0003.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::15)
- To PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:2f4::10)
-X-Microsoft-Original-Message-ID: <291160b7-5431-46ba-b53a-5ecebb896bde@outlook.com>
+	Tue, 16 Sep 2025 11:20:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 635E660141;
+	Tue, 16 Sep 2025 11:20:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A2E0C4CEEB;
+	Tue, 16 Sep 2025 11:20:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758021612;
+	bh=14sOQQinc11cHCKnIiI6Ab/MANDaVgA92SJ8bByuOrA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=GwM8jv5bXdsHfLGp25eYIs+KXZkrnrk1BTxTI8uOnCDcLnnOfpO7jCDV8/zfKyVYw
+	 R3XtBe05hWce2cnVkQsWvnmAS6GM/kKDsOzCofqrfT18T0y2niThi4CnnpYHDDO88d
+	 nKBfo9i2rs1o6ZeMPVkdOYV7Yc4y1BZHEendlGMtaF4ft9LzwJr+XO6VMgnGhInk9w
+	 cYGz8RF2NITu2t9He49tjMR/MEWemu0HRVIwouU54Z5YviVndwjmPqAdu4k4dPSsjo
+	 MV8FMOL0+kY0vKZLLpvC2AXRvXS9C9JG/eOr5N9aJmw309/U4K7I1wXe7n3l3QnSex
+	 +Qo1j+I6FVvfQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70F4F39D0C1A;
+	Tue, 16 Sep 2025 11:20:14 +0000 (UTC)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PN4PR01MB11064:EE_|MA0PR01MB9078:EE_
-X-MS-Office365-Filtering-Correlation-Id: b3cbf5ee-30e5-4eb0-b3c1-08ddf51118e4
-X-Microsoft-Antispam: BCL:0;ARA:14566002|23021999003|15080799012|461199028|8060799015|19110799012|5072599009|6090799003|1602099012|40105399003|52005399003|41105399003|440099028|3412199025|4302099013|10035399007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eHZnVUk0SmkvcUkvMVJTMERraUYzVlgwamVHamptdWlqZnlzU29OREdmR0E3?=
- =?utf-8?B?aUU4ZlpZVEZCcXc5QkhnNjBoQ29lcHFqTEppY2ZLT1BWQ1dJY0NvT2RLVk9n?=
- =?utf-8?B?clU0ZEJaZE1tOUtVMVByUmtmZ2xRNHFEeXpPSlBhV3FyaE5XbVU0QmV4ektN?=
- =?utf-8?B?VThhNC9pOEorRm10YThyaExlNU9oejRibXlvTUZxYzQ3ODZUQVd4VXgwdWFN?=
- =?utf-8?B?U2dKTUE3QUtvbFlQZFRkWGU2YnFHS2x4d0JWMURuTkZ3a0FUS0I3Q1FnZS9i?=
- =?utf-8?B?ZUJpazlXYzN1bUhQWEVJUTlQZmpvUGtXcER1U3VuRVd2UFN3TnVseC9jMFdC?=
- =?utf-8?B?ZjBZTjRLUjBoMXBuYmp3Y3FtR2R2eUlxRUU0dHRaWkJDM3VnM1dxallzTGRV?=
- =?utf-8?B?QldwMzJMZmFkdE5ZWGFvWkU4TzF3SU4vMmR6QXM0WHRWdHNTb0FJaHJnOC9m?=
- =?utf-8?B?N1ZDbHZPTEJURUl1TXlVWHJwZW56Z29SQzk1dFhSdDdrSGNsaEJ6c2JoK3Rw?=
- =?utf-8?B?WnRjUklYNmVGQ0hCekplZzFFdDE4VUthSXc2OGVXUU80YUlNK0ROaGVnVVp2?=
- =?utf-8?B?cnlRaTR0SjJ2bjYzZEZEdlJONVBIL2tnNSt3ODVWbEMzZFdsa04wRFlVSjNk?=
- =?utf-8?B?dVIzd01ibnIyc2JoYWlzVGVxYkcxZGROYUhNNDVTdHVwVGt4bVZuWGg1VWdk?=
- =?utf-8?B?bmZoTG1rSnJqWkRMMXRMRGMyMDM3ZHJqK0d0a2duOHp1RnI1dFFCQmc2UUhj?=
- =?utf-8?B?RHEyRTBjSW42U2NGcXA3MlkzdUFxWVZFbFgwclNtZXAvZWdaTUxFb1JVbDR5?=
- =?utf-8?B?NkdpcjdCRm5BU0NNbWtYTmlNcGVQM01GaTVjWFc1eFJRb3A2NFZHRmF2NUlV?=
- =?utf-8?B?N0VkSDlwMkpFc1hFN3lHSXFTeWQ0dTdtQ21RRVVYTkN3TWtMQkRrT01EU3dE?=
- =?utf-8?B?aFdOa0ZMN21OR0tmUlZOMTA4dkxEdFBmUk1TM2xrR3ZMbWhkcFBKdVJKcmZS?=
- =?utf-8?B?WE5ya0trU0QvSGZ5dVFJVHJmRXFUT3JmcWNPbzkzWTUzKzI2UzMvaHJyMEpK?=
- =?utf-8?B?NldGUkt2U3lDTDdEaHRuZk84dm5FYyswMGduQ1IyRjRVRTNOSHZXQnVUTkdP?=
- =?utf-8?B?K3d2YXZ2NTluaktEekZKTnN0cXdGSUZibXBiTDRET0pVa1BWVUNoU0p2RHNW?=
- =?utf-8?B?M2YxdmcxY1F5ajFrS0ZqQnpJTmhSb01sQWRrOHhwNlN1OFNQWlRSb1R2RFcr?=
- =?utf-8?B?RlJGMjBFUXZKbUZmaW1YVnVaU0xSQXhqV1d4M0V2Z21ZYndsWFgwVHJSSTNX?=
- =?utf-8?B?dVp6bjlxUGJzV2lWK2VVcGVSeFBoRksxalNZZWFWYnkzQ2twdWh5UEpnN1Rt?=
- =?utf-8?B?SFBsa0ZDSWo3M1dXRHMvMnlNbzdPMCtUM2U4dXBFcVVVZXFDZk9MRFlXd3hO?=
- =?utf-8?B?SjBPNnhNT1hMT1RDeXVkYU5VdWlYeExUMXpES1JabTd1S29UMUxSOHNNMXdJ?=
- =?utf-8?B?N0VtZXBwNnd4TWRHcEl5cmVmWE5DYnJSYkFtbklwUFpOZmlSVkIxVm5HMktl?=
- =?utf-8?B?bmI1L0N5OFhLQnVGYmsyOE55eFZrV0FVZzBFbFZYK1M0ZGJMSzM4UUZOb2Iv?=
- =?utf-8?B?dnYxQzlIRXpIY2VPUmlqSTJaT05uZXB4K0Q0NFJOU0dkUXJlQTBPZU1iZWJh?=
- =?utf-8?B?Q09QRmR0MW50V0kxZEhIUjJjNkRUa2s0YVZwbnk3ck8xc3NPV0xDU0VCQVdC?=
- =?utf-8?B?QzIwN3FIQkZQemVnTVRIbnhtZzU2V3ZGRFlKRkN0V3JTcVIwbFYwekZWQlNH?=
- =?utf-8?B?Sk43R1pTUUVhaWhxUFhmemRJVG5SQVdKSEF4RGJ1SXlrYmphOCtyWnRQMS96?=
- =?utf-8?Q?+qbSCq3OoSgWZ?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SzZMb3l0TGtRbS9KNkpKajdQVUlSUGlPVWNwbFhsUUFTcjlpYWhmNHRJamh2?=
- =?utf-8?B?NUtzVERocjFTN1ZhT2lReDF2VVg2T01mUDJiLyt4eUttMFJJR0tQaGJzRW1v?=
- =?utf-8?B?WVg4djZRZklwNGQ1WnVrbWxiRHRUdExmNGMydEdVS29yUU93TjdxMk5ubEM3?=
- =?utf-8?B?ZTNPUnB6akMvWUlnRFpENDhJOXdYVk1kRjRlc3VjY3dmRFRQOHgzd1ozYzE1?=
- =?utf-8?B?clBadmRtK2tzVzRnV1VqejdmblltNDFWV2I5aGl3SEtscnZYZ3BkNVcyMHVz?=
- =?utf-8?B?Q3BJMHgrSHhiejduc1g2NnFvY0xZdGh3WFA2TTk3R2ZEeEE0RVVldnNYVjYw?=
- =?utf-8?B?bzFWdU9kUUlkTGNkVm82cS81RE9yUUM5MTlwbVlwbW43RTN5ajNpVDlxbFdu?=
- =?utf-8?B?NlFUVldEMkl3dEgyTGhrcVp6VHlzcmNnVnE3RVZsajRqaTVRUVo3SVJFZmlF?=
- =?utf-8?B?RVNndVV2T2l2Z1BYOTlURGozVS8xOXZlY3M2Qy9ia1VmQlNkTHJsV004RjZE?=
- =?utf-8?B?R2c3aFJVOGdsd0ZzSVZoK2hsYVlmcis1VEEyUEswQVNIckJSRTM3MzJ4d0Qv?=
- =?utf-8?B?UC9ucXplU1RyVGduSFVpUEdNdnNXMVJKRnV0Q01BRk5Wblc4WnRidHl5MEVH?=
- =?utf-8?B?TFMwSFlqK0x4NWxoazIwb24wOUkxTVJxUlBzUHZadWpVaG5HVEJXcnljRFJl?=
- =?utf-8?B?NllNL2pJYVhTTmFoa1RMUVc2S1Q0dXZJcWQwL1NXUE1wdGwvNHB2aHhKUzJy?=
- =?utf-8?B?S1RlR00vVFlEMTJXckZTOEpubDA2L041UnJNMXo5dmQ1eVNXWXNSekdWbldr?=
- =?utf-8?B?bFgzRlB5N3NFRGFrY3VoSTdyYzJ5WWkwWDhxWVBKdlI4VTl0Z21aN0ZITThq?=
- =?utf-8?B?Q0g4Z2paWWNmbGF3YnQvQ2JvQ3JUenByS1B5aG1ramYrRXpiMGtvbEhMM3ht?=
- =?utf-8?B?OEpVUHUvck5peXBYbVVOamdqdCtycXIwKzVhbjlGeUlwYis3TE5wdVNQSUYz?=
- =?utf-8?B?bHpINTF3VWE0S3NBb0R2c0J5Y1p4dHhnZVJRTjk3cTR4Z3BNS1ZSekhNVWx2?=
- =?utf-8?B?bEUvcFkxWWcybUYwVXhIdHdBZGt0Q3JncGdTWXEyUENDWHFOM3h3L2htanM1?=
- =?utf-8?B?NDI1dGtwMU9OWml1L1NXeVRlcVdaNTVoTFpBRjFoM0JXNDdUMDhVZVFaY21E?=
- =?utf-8?B?RzdwVFNWL0x3RlNPV0hVbGd2UXBvQkV1aDZwcStYRFhiYTdENDdQUnFobFB2?=
- =?utf-8?B?NFdvM0NJbFpaemY1ZFdwUnVjVGVsQUsxRGRRaGRKWnNvdktMNDZxaEViQW1i?=
- =?utf-8?B?eFRXc3hXb28yRGs0bm9na3I0VXd0bjZTMnVSV1NrTkp3S2ZWU29uSUpHUTQr?=
- =?utf-8?B?b2hXdHpVM3cvM1BMU0xkN0tMN3lyaWJRczUrY2UrWHBaTzlIL2ZsMWUwNWR0?=
- =?utf-8?B?QWloMmpqS1NBZnphbGxJNVlvYTAzYXRpcjdwd1E1ejJLS3FxVmorZGxoMTBI?=
- =?utf-8?B?V0cvT0hUeXpXSmx2YW5PVXpYRGs1Z0c3dkQvdU5STm5ya29JUHZtVEgvVnRx?=
- =?utf-8?B?MWp1VjllaFdIbU01ekRmeStPanRCQlFYSWthc21FekNiRFVjRjNNK3U5TTBk?=
- =?utf-8?B?dWlhYlZDajl1cWtEbGJqVVRCdFZuMFFXdzRWUFB1Ukx0c1lpUC9pcmhyQ1VG?=
- =?utf-8?B?VTROWlM2aStIcXlNMzl4Y0hXQjY1QlBsRndGaE9jRUJ5U1FVZmJMM2MrYnFE?=
- =?utf-8?Q?h0vLhGYey+gF0BaJCUQ7oP1aYk1Xl3KB9fqpUop?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b3cbf5ee-30e5-4eb0-b3c1-08ddf51118e4
-X-MS-Exchange-CrossTenant-AuthSource: PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 11:06:34.0720
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0PR01MB9078
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_040704_906444_D5BEAB78 
-X-CRM114-Status: GOOD (  30.89  )
+Subject: Re: [PATCH net-next v12 0/5] Add Ethernet MAC support for SpacemiT K1
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175802161326.713595.16381910315366172301.git-patchwork-notify@kernel.org>
+Date: Tue, 16 Sep 2025 11:20:13 +0000
+References: <20250914-net-k1-emac-v12-0-65b31b398f44@iscas.ac.cn>
+In-Reply-To: <20250914-net-k1-emac-v12-0-65b31b398f44@iscas.ac.cn>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: andrew+netdev@lunn.ch, kuba@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, dlan@gentoo.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ p.zabel@pengutronix.de, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, uwu@dram.page,
+ vadim.fedorenko@linux.dev, junhui.liu@pigmoral.tech, horms@kernel.org,
+ maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ conor.dooley@microchip.com, troy.mitchell@linux.spacemit.com,
+ hendrik.hamerlinck@hammernet.be, andrew@lunn.ch
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,118 +75,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello, Bjorn,
+Hello:
 
-Is it ok for you to pick this patchset, so we can see this in next 6.18.
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-You can pick [1/7]~[3/7], I can handle the left dts part.
+On Sun, 14 Sep 2025 12:23:11 +0800 you wrote:
+> SpacemiT K1 has two gigabit Ethernet MACs with RGMII and RMII support.
+> Add devicetree bindings, driver, and DTS for it.
+> 
+> Tested primarily on BananaPi BPI-F3. Basic TX/RX functionality also
+> tested on Milk-V Jupiter.
+> 
+> I would like to note that even though some bit field names superficially
+> resemble that of DesignWare MAC, all other differences point to it in
+> fact being a custom design.
+> 
+> [...]
 
-Thanks,
+Here is the summary with links:
+  - [net-next,v12,1/5] dt-bindings: net: Add support for SpacemiT K1
+    https://git.kernel.org/netdev/net-next/c/62a12a221769
+  - [net-next,v12,2/5] net: spacemit: Add K1 Ethernet MAC
+    https://git.kernel.org/netdev/net-next/c/bfec6d7f2001
+  - [net-next,v12,3/5] riscv: dts: spacemit: Add Ethernet support for K1
+    https://git.kernel.org/netdev/net-next/c/60775f28cfb7
+  - [net-next,v12,4/5] riscv: dts: spacemit: Add Ethernet support for BPI-F3
+    https://git.kernel.org/netdev/net-next/c/3c247a6366d5
+  - [net-next,v12,5/5] riscv: dts: spacemit: Add Ethernet support for Jupiter
+    https://git.kernel.org/netdev/net-next/c/e32dc7a936b1
 
-Chen
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-On 9/12/2025 10:35 AM, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
->
-> Sophgo's SG2042 SoC uses Cadence PCIe core to implement RC mode.
->
-> This is a completely rewritten PCIe driver for SG2042. It inherits
-> some previously submitted patch codes (not merged into the upstream
-> mainline), but the biggest difference is that the support for
-> compatibility with old 32-bit PCIe devices has been removed in this
-> new version. This is because after discussing with community users,
-> we felt that there was not much demand for support for old devices,
-> so we made a new design based on the simplified design and practical
-> needs. If someone really needs to play with old devices, we can provide
-> them with some necessary hack patches in the downstream repository.
->
-> Since the new design is quite different from the old code, I will
-> release it as a new patch series. The old patch series can be found in
-> here [old-series].
->
-> Note, regarding [2/7] of this patchset, this fix is introduced because
-> the pcie->ops pointer is not filled in SG2042 PCIe driver. This is not
-> a must-have parameter, if we use it w/o checking will cause a null
-> pointer access error during runtime.
->
-> Link: https://lore.kernel.org/linux-riscv/cover.1736923025.git.unicorn_wang@outlook.com/ [old-series]
->
-> Thanks,
-> Chen
->
-> ---
->
-> Changes in v3:
->
->    This patchset is based on v6.17-rc1.
->
->    Fixed following issues for driver code based on feedbacks from Bjorn Helgaas,
->    Mingcong Bai, thanks.
->
->    - Fixed the issue when building the driver as a module. Define own pm_ops
->      inside driver, don't use the ops defined in other built-in drivers.
->    - Improve .remove() function to properly disable the host.
->
-> Changes in v2:
->
->    This patchset is based on v6.17-rc1. You can simply review or test the
->    patches at the link [2].
->
->    Fixed following issues based on feedbacks from Rob Herring, Manivannan Sadhasivam,
->    Bjorn Helgaas, ALOK TIWARI, thanks.
->
->    - Driver binding:
->      - Removed vendor-id/device-id from "required" property.
->    - Improve drivers code:
->      - Have separated pci_ops for the root bus and child buses.
->      - Make the driver tristate and as a module.
->      - Change the configuration name from PCIE_SG2042 to PCIE_SG2042_HOST.
->      - Removed "Fixes" tag from commit [2/7], since this is not for an existing bug fix.
->      - Other code cleanups and optimizations
->    - DT:
->      - Add PCIe support for SG2042 EVB boards.
->
-> Changes in v1:
->
->    The patch series is based on v6.17-rc1. You can simply review or test the
->    patches at the link [1].
->
-> Link: https://lore.kernel.org/linux-riscv/cover.1756344464.git.unicorn_wang@outlook.com/ [1]
-> Link: https://lore.kernel.org/linux-riscv/cover.1757467895.git.unicorn_wang@outlook.com/ [2]
->
-> ---
->
-> Chen Wang (7):
->    dt-bindings: pci: Add Sophgo SG2042 PCIe host
->    PCI: cadence: Check pcie-ops before using it
->    PCI: sg2042: Add Sophgo SG2042 PCIe driver
->    riscv: sophgo: dts: add PCIe controllers for SG2042
->    riscv: sophgo: dts: enable PCIe for PioneerBox
->    riscv: sophgo: dts: enable PCIe for SG2042_EVB_V1.X
->    riscv: sophgo: dts: enable PCIe for SG2042_EVB_V2.0
->
->   .../bindings/pci/sophgo,sg2042-pcie-host.yaml |  64 ++++++++
->   arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts  |  12 ++
->   arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts  |  12 ++
->   .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  12 ++
->   arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  88 +++++++++++
->   drivers/pci/controller/cadence/Kconfig        |  10 ++
->   drivers/pci/controller/cadence/Makefile       |   1 +
->   .../controller/cadence/pcie-cadence-host.c    |   2 +-
->   drivers/pci/controller/cadence/pcie-cadence.c |   4 +-
->   drivers/pci/controller/cadence/pcie-cadence.h |   6 +-
->   drivers/pci/controller/cadence/pcie-sg2042.c  | 138 ++++++++++++++++++
->   11 files changed, 343 insertions(+), 6 deletions(-)
->   create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
->   create mode 100644 drivers/pci/controller/cadence/pcie-sg2042.c
->
->
-> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+
 
 _______________________________________________
 linux-riscv mailing list
