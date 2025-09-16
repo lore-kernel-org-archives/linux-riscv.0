@@ -4,76 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C16CAC598
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 09:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EEEBCAC599
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 09:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uDQE+Vtmy+zGsy6eqGvf+pgs3ByqJX8wDEXOYCVxL+g=; b=z+IMjat5wVqvZ5
-	MyFZstuXpOol7WSU8pj8qyMucTf21r8Wfg2yoyZPYjEwOJL2B12goBeiE71kev4A6Ues3q5vYEu4a
-	kzeqHpTCWp/9Ixbno4ZsEhwyt/nrLJB5eeB7dIryVOpjxTJCwNPrfGWrUKCkwacpwRQbAl9KnkPRT
-	N0n5eGEOmfzSJ2mOQbBrKBlHHcqWmqmA5Txn+hYqXTns+opdLH63yP57cDuYZqW7bE+tudpbsGhX8
-	FODMAK30BUfOH6g6D3GM2TqryLa4uTTsxyjVn24SOh8UAIaxuPRf1Dm8ahlJSFraUr0Ecs+8iW5J9
-	hc1RtysBZ6hEhDBkTnPQ==;
+	List-Owner; bh=0txyHXREaDxuWTmG5IW50GN2+jkPRj268OpsM4964Ts=; b=a/KZP6pnoeTgJF
+	bF44BaRgufENDnPiqBQNVxh9vre54xAccFSG44tAUGUgH6xOIZtidjJ9MzC/wnReSbhqm4C15stuz
+	vf/3ODEUnxcVluetqMfHlb3zYzlYWZfL4brS5iOToB0xDcfL3Uy6Ni/OkFFDsYTUbv9BC6n72Peg/
+	gWmZSWWuKLJcKK2nMOGTJ99eyhm1TN1Lw5Nh5agAL946+JG1YAIJj0np+5HMwngRRDeuy/hcZsaKt
+	n/PLjajIpgktGlqfhrQDkvsvV8RVyKsqndbxW8k5SihSG9nbBUHbm6frPKsC2Q0i8sibK7jov2Ma5
+	Wtr/BjiUEFKPiYvXuvuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyRj6-00000007K9f-0a99;
-	Tue, 16 Sep 2025 09:11:52 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1uyRwS-00000007Mig-3F0G;
+	Tue, 16 Sep 2025 09:25:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyRj2-00000007K83-13j5
+	id 1uyRwR-00000007Mi5-1oNi
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 09:11:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758013908; x=1789549908;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=zMt+lj07w4o0jqg5XJ/ynsRarpPmoVl62tOzbhSFTo4=;
-  b=mQ6C4vPi6xTlDTcKuPQfIf6NvmgiV5F08dExvsSP4iUu4ooHyzqYjgxJ
-   CErfwJM3tmZgIlb7S3mQKPV2838CTIEq4n4X2LYsM9f6cjMVaijVR6KRW
-   XMO9Y6A+eGPLXRpc/iG+ezFdUCaGf5zSBZyQGH05dQSrb3HgA9xvbl0sx
-   fMekRHN23vIW8HdyZ999BpOCdDlKf1X+rlir1pEuhAwINnc78TtKeqBfS
-   3yrDez06Vj5ad8FH/e98D5pkh1Bc9TuefBbvy4Cu+VEaBhOwY3x/kPtr2
-   WXDX/9dX1NDGm04XgOufn0eMqfYWUMOMkpMwYyimqWCoIex+hUg2HoNtr
-   Q==;
-X-CSE-ConnectionGUID: Ff6eorUpStSH7rKk+x408w==
-X-CSE-MsgGUID: E4ccY2jOTuChuS2c/GyAlQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11554"; a="60156183"
-X-IronPort-AV: E=Sophos;i="6.18,268,1751266800"; 
-   d="scan'208";a="60156183"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2025 02:11:42 -0700
-X-CSE-ConnectionGUID: uZhwW8IrSsG2Bt+G9sPI2Q==
-X-CSE-MsgGUID: vXVH7QybRG+5S4cYC1RT9g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,268,1751266800"; 
-   d="scan'208";a="205672250"
-Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 16 Sep 2025 02:11:40 -0700
-Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uyRir-00008V-1z;
-	Tue, 16 Sep 2025 09:11:37 +0000
-Date: Tue, 16 Sep 2025 17:10:50 +0800
-From: kernel test robot <lkp@intel.com>
-To: Miquel =?iso-8859-1?Q?Sabat=E9_Sol=E0?= <mikisabate@gmail.com>,
-	linux-riscv@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	pjw@kernel.org, palmer@dabbelt.com, alex@ghiti.fr,
-	wangyuli@uniontech.com, chenhuacai@kernel.org, mikisabate@gmail.com
-Subject: Re: [PATCH] riscv: kgdb: Prefer strscpy instead of strcpy
-Message-ID: <202509161619.eJeLbfU0-lkp@intel.com>
-References: <20250915200644.200498-1-mikisabate@gmail.com>
+	Tue, 16 Sep 2025 09:25:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A79F160143
+	for <linux-riscv@lists.infradead.org>; Tue, 16 Sep 2025 09:25:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55B97C4CEEB
+	for <linux-riscv@lists.infradead.org>; Tue, 16 Sep 2025 09:25:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758014738;
+	bh=94nfd9D2/3JrQ92cFxfHxwSHOkP/1U5/RVIAJbOP5v0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=DgVimv++zCTtvcsPbf0fL8LD41opT+4QyXK8f1XH3ct+STVNU6Qv1kuo4eYIefhXk
+	 sJZa3HnsWVJ3jCL2Ud/3DFeSh4IEC+dUdR3RDXyWpmYVj0e5XSGy3LRdlnJNpDu6JA
+	 1qOH9//dIRricRGIu0acwC5+9qmSYnT9IJ5gy8FsJvJa8Dj3zlbWLXvKxSnDpDKQlC
+	 TJaCDwolBEufxPZsxOimiKY+qebkg2ioqJ59uvU7mK+kUkZ1knhO9bb+Ek9kbIT+c1
+	 B+tRzstMeduDlrF1nykB/sw2eghONbeWEpLLZk2DE5qCULJUKGlKt7UjVomFxj5liL
+	 sgPUUaoGhH9Jg==
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-3e9c5faa858so2470859f8f.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Sep 2025 02:25:38 -0700 (PDT)
+X-Gm-Message-State: AOJu0YwpihDbbV2cV/I9dpZC2nVoa9f/QFLqpqwLvwWvcCB+S6UWQoK9
+	FfDNVfCXvL+aVk+P0aTN/pBuFSDvIxW9pC4iRm7PhBnZ3SVlk8qlEB1zk1NVRs5yXPzeHk+NYIc
+	DjNQmtUSXcznRVc1vb58cU+SIgs4ULv8=
+X-Google-Smtp-Source: AGHT+IFJHiRuQQ163JGnK5u5j/SLTzwdI+SdpUJ+UN87XgMbQzd6zH3QI8OublorMeiT+hg5VU2kmXWaq3EwVJlSQOg=
+X-Received: by 2002:a05:6000:e:b0:3e9:9282:cff8 with SMTP id
+ ffacd0b85a97d-3e99282d39amr6395145f8f.5.1758014736884; Tue, 16 Sep 2025
+ 02:25:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250915200644.200498-1-mikisabate@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_021148_354550_4163DD62 
-X-CRM114-Status: GOOD (  11.16  )
+References: <6191817.lOV4Wx5bFT@fvogt-thinkpad>
+In-Reply-To: <6191817.lOV4Wx5bFT@fvogt-thinkpad>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 16 Sep 2025 17:25:24 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQnkP0noK_s0ho36OdxN4-EOgFyvLeTgA+w+YTwUb2d9g@mail.gmail.com>
+X-Gm-Features: AS18NWDYfF6_0jctcxDyY9_0G5irzA_3PV00ZRemrogDa3rebAgcSAfN-qRgBhA
+Message-ID: <CAJF2gTQnkP0noK_s0ho36OdxN4-EOgFyvLeTgA+w+YTwUb2d9g@mail.gmail.com>
+Subject: Re: [PATCH] riscv: kprobes: Fix probe address validation
+To: Fabian Vogt <fvogt@suse.de>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Marvin Friedrich <marvin.friedrich@suse.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,98 +76,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Miquel,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.17-rc6 next-20250915]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Miquel-Sabat-Sol/riscv-kgdb-Prefer-strscpy-instead-of-strcpy/20250916-040750
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20250915200644.200498-1-mikisabate%40gmail.com
-patch subject: [PATCH] riscv: kgdb: Prefer strscpy instead of strcpy
-config: riscv-randconfig-002-20250916 (https://download.01.org/0day-ci/archive/20250916/202509161619.eJeLbfU0-lkp@intel.com/config)
-compiler: riscv32-linux-gcc (GCC) 10.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250916/202509161619.eJeLbfU0-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509161619.eJeLbfU0-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/ptrace.h:5,
-                    from arch/riscv/kernel/kgdb.c:6:
-   arch/riscv/kernel/kgdb.c: In function 'kgdb_arch_handle_qxfer_pkt':
->> include/linux/compiler.h:197:67: error: static assertion failed: "must be array"
-     197 | #define __BUILD_BUG_ON_ZERO_MSG(e, msg, ...) ((int)sizeof(struct {_Static_assert(!(e), msg);}))
-         |                                                                   ^~~~~~~~~~~~~~
-   include/linux/compiler.h:202:28: note: in expansion of macro '__BUILD_BUG_ON_ZERO_MSG'
-     202 | #define __must_be_array(a) __BUILD_BUG_ON_ZERO_MSG(!__is_array(a), \
-         |                            ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/string.h:80:40: note: in expansion of macro '__must_be_array'
-      80 |  sized_strscpy(dst, src, sizeof(dst) + __must_be_array(dst) + \
-         |                                        ^~~~~~~~~~~~~~~
-   include/linux/args.h:25:24: note: in expansion of macro '__strscpy0'
-      25 | #define __CONCAT(a, b) a ## b
-         |                        ^
-   include/linux/args.h:26:27: note: in expansion of macro '__CONCAT'
-      26 | #define CONCATENATE(a, b) __CONCAT(a, b)
-         |                           ^~~~~~~~
-   include/linux/string.h:114:2: note: in expansion of macro 'CONCATENATE'
-     114 |  CONCATENATE(__strscpy, COUNT_ARGS(__VA_ARGS__))(dst, src, __VA_ARGS__)
-         |  ^~~~~~~~~~~
-   arch/riscv/kernel/kgdb.c:268:3: note: in expansion of macro 'strscpy'
-     268 |   strscpy(remcom_out_buffer, riscv_gdb_stub_target_desc);
-         |   ^~~~~~~
->> include/linux/compiler.h:197:67: error: static assertion failed: "must be array"
-     197 | #define __BUILD_BUG_ON_ZERO_MSG(e, msg, ...) ((int)sizeof(struct {_Static_assert(!(e), msg);}))
-         |                                                                   ^~~~~~~~~~~~~~
-   include/linux/compiler.h:202:28: note: in expansion of macro '__BUILD_BUG_ON_ZERO_MSG'
-     202 | #define __must_be_array(a) __BUILD_BUG_ON_ZERO_MSG(!__is_array(a), \
-         |                            ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/string.h:80:40: note: in expansion of macro '__must_be_array'
-      80 |  sized_strscpy(dst, src, sizeof(dst) + __must_be_array(dst) + \
-         |                                        ^~~~~~~~~~~~~~~
-   include/linux/args.h:25:24: note: in expansion of macro '__strscpy0'
-      25 | #define __CONCAT(a, b) a ## b
-         |                        ^
-   include/linux/args.h:26:27: note: in expansion of macro '__CONCAT'
-      26 | #define CONCATENATE(a, b) __CONCAT(a, b)
-         |                           ^~~~~~~~
-   include/linux/string.h:114:2: note: in expansion of macro 'CONCATENATE'
-     114 |  CONCATENATE(__strscpy, COUNT_ARGS(__VA_ARGS__))(dst, src, __VA_ARGS__)
-         |  ^~~~~~~~~~~
-   arch/riscv/kernel/kgdb.c:271:3: note: in expansion of macro 'strscpy'
-     271 |   strscpy(remcom_out_buffer, riscv_gdb_stub_cpuxml);
-         |   ^~~~~~~
-
-
-vim +197 include/linux/compiler.h
-
-230fa253df6352 Christian Borntraeger 2014-11-25  193  
-cb7380de9e4cbc Kees Cook             2025-02-05  194  #ifdef __CHECKER__
-243c90e917f5cf Vincent Mailhol       2025-03-29  195  #define __BUILD_BUG_ON_ZERO_MSG(e, msg, ...) (0)
-cb7380de9e4cbc Kees Cook             2025-02-05  196  #else /* __CHECKER__ */
-243c90e917f5cf Vincent Mailhol       2025-03-29 @197  #define __BUILD_BUG_ON_ZERO_MSG(e, msg, ...) ((int)sizeof(struct {_Static_assert(!(e), msg);}))
-cb7380de9e4cbc Kees Cook             2025-02-05  198  #endif /* __CHECKER__ */
-cb7380de9e4cbc Kees Cook             2025-02-05  199  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBTZXAgMTAsIDIwMjUgYXQgMTE6MjXigK9QTSBGYWJpYW4gVm9ndCA8ZnZvZ3RAc3Vz
+ZS5kZT4gd3JvdGU6Cj4KPiBXaGVuIGFkZGluZyBhIGtwcm9iZSBzdWNoIGFzICJwOnByb2JlL3Rj
+cF9zZW5kbXNnIF90ZXh0KzE1MzkyMTkyIiwKPiBhcmNoX2NoZWNrX2twcm9iZSB3b3VsZCBzdGFy
+dCBpdGVyYXRpbmcgYWxsIGluc3RydWN0aW9ucyBzdGFydGluZyBmcm9tCj4gX3RleHQgdW50aWwg
+dGhlIHByb2JlZCBhZGRyZXNzLiBOb3Qgb25seSBpcyB0aGlzIHZlcnkgaW5lZmZpY2llbnQsIGJ1
+dAo+IGxpdGVyYWwgdmFsdWVzIGluIHRoZXJlIChlLmcuIGxlZnQgYnkgZnVuY3Rpb24gcGF0Y2hp
+bmcpIGFyZQo+IG1pc2ludGVycHJldGVkIGluIGEgd2F5IHRoYXQgY2F1c2VzIGEgZGVzeW5jLgoK
+TEdUTSEgVGhpcyBwcmV2ZW50cyBiYWQgcC0+b2Zmc2V0IGZyb20gY2F1c2luZyBwcm9ibGVtcy4K
+CkFja2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KCj4KPiBGaXggdGhpcyBieSBk
+b2luZyBpdCBsaWtlIHg4Njogc3RhcnQgdGhlIGl0ZXJhdGlvbiBhdCB0aGUgY2xvc2VzdAo+IHBy
+ZWNlZGluZyBzeW1ib2wgaW5zdGVhZCBvZiB0aGUgZ2l2ZW4gc3RhcnRpbmcgcG9pbnQuCj4KPiBG
+aXhlczogODdmNDhjN2NjYzczICgicmlzY3Y6IGtwcm9iZTogRml4dXAga2VybmVsIHBhbmljIHdo
+ZW4gcHJvYmluZyBhbiBpbGxlZ2FsIHBvc2l0aW9uIikKPiBTaWduZWQtb2ZmLWJ5OiBGYWJpYW4g
+Vm9ndCA8ZnZvZ3RAc3VzZS5kZT4KPiBTaWduZWQtb2ZmLWJ5OiBNYXJ2aW4gRnJpZWRyaWNoIDxt
+YXJ2aW4uZnJpZWRyaWNoQHN1c2UuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9i
+ZXMva3Byb2Jlcy5jIHwgMTMgKysrKysrKysrLS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgOSBpbnNl
+cnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2Vy
+bmVsL3Byb2Jlcy9rcHJvYmVzLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5j
+Cj4gaW5kZXggYzA3MzhkNmM2NDk4Li44NzIzMzkwYzdjYWQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9y
+aXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3By
+b2Jlcy9rcHJvYmVzLmMKPiBAQCAtNDksMTAgKzQ5LDE1IEBAIHN0YXRpYyB2b2lkIF9fa3Byb2Jl
+cyBhcmNoX3NpbXVsYXRlX2luc24oc3RydWN0IGtwcm9iZSAqcCwgc3RydWN0IHB0X3JlZ3MgKnJl
+Z3MpCj4gICAgICAgICBwb3N0X2twcm9iZV9oYW5kbGVyKHAsIGtjYiwgcmVncyk7Cj4gIH0KPgo+
+IC1zdGF0aWMgYm9vbCBfX2twcm9iZXMgYXJjaF9jaGVja19rcHJvYmUoc3RydWN0IGtwcm9iZSAq
+cCkKPiArc3RhdGljIGJvb2wgX19rcHJvYmVzIGFyY2hfY2hlY2tfa3Byb2JlKHVuc2lnbmVkIGxv
+bmcgYWRkcikKPiAgewo+IC0gICAgICAgdW5zaWduZWQgbG9uZyB0bXAgID0gKHVuc2lnbmVkIGxv
+bmcpcC0+YWRkciAtIHAtPm9mZnNldDsKPiAtICAgICAgIHVuc2lnbmVkIGxvbmcgYWRkciA9ICh1
+bnNpZ25lZCBsb25nKXAtPmFkZHI7Cj4gKyAgICAgICB1bnNpZ25lZCBsb25nIHRtcCwgb2Zmc2V0
+Owo+ICsKPiArICAgICAgIC8qIHN0YXJ0IGl0ZXJhdGluZyBhdCB0aGUgY2xvc2VzdCBwcmVjZWRp
+bmcgc3ltYm9sICovCj4gKyAgICAgICBpZiAoIWthbGxzeW1zX2xvb2t1cF9zaXplX29mZnNldChh
+ZGRyLCBOVUxMLCAmb2Zmc2V0KSkKPiArICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwo+ICsK
+PiArICAgICAgIHRtcCA9IGFkZHIgLSBvZmZzZXQ7Cj4KPiAgICAgICAgIHdoaWxlICh0bXAgPD0g
+YWRkcikgewo+ICAgICAgICAgICAgICAgICBpZiAodG1wID09IGFkZHIpCj4gQEAgLTcxLDcgKzc2
+LDcgQEAgaW50IF9fa3Byb2JlcyBhcmNoX3ByZXBhcmVfa3Byb2JlKHN0cnVjdCBrcHJvYmUgKnAp
+Cj4gICAgICAgICBpZiAoKHVuc2lnbmVkIGxvbmcpaW5zbiAmIDB4MSkKPiAgICAgICAgICAgICAg
+ICAgcmV0dXJuIC1FSUxTRVE7Cj4KPiAtICAgICAgIGlmICghYXJjaF9jaGVja19rcHJvYmUocCkp
+Cj4gKyAgICAgICBpZiAoIWFyY2hfY2hlY2tfa3Byb2JlKCh1bnNpZ25lZCBsb25nKXAtPmFkZHIp
+KQo+ICAgICAgICAgICAgICAgICByZXR1cm4gLUVJTFNFUTsKPgo+ICAgICAgICAgLyogY29weSBp
+bnN0cnVjdGlvbiAqLwo+IC0tCj4gMi41MS4wCj4KPgo+Cj4KCgotLSAKQmVzdCBSZWdhcmRzCiBH
+dW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
