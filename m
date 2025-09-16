@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA42CAC59B
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 19:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120E2CAC592
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 20:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XOwHoGV0A73tLDXm+RYHZYxXSp6yU/hwIgdCsAdXQC4=; b=kfd9hPZlrwO0tp
-	GSIDMNgZEZdmQNgDwqMLFtju63qh6JLwDwTMMcwU7T9i0oyJLyfqfc5C8yvq2ZnKbT4OcEBfFvPuc
-	i6JaueSKRa6tCX2Zr1wgQlERpJGXJl+y6GsWSJolYD+hp/HFb1ErC0UEpeaPRwNO2GSjMGtBrzgx5
-	eavYfvKHU1P+e4oxVHgznw43FMNhMl2Y8a+GYBst1hkY/drgf912Q46Px/OhEBqhuczv9IAxM6eH+
-	BUC8lUsAemGnIZX+xbpPcziqZbVIH4yX0NmGU0apTpoioYrilZHIRXu3aNgEwBgdZ9ZzUTIu7Xbmj
-	2LIhg0n3OO8ol87eHJaA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qKa0OmbidJmtHCWe/Y6gQ/Ohlb4H0JdPzJDTDlPoQV8=; b=N+u+JenOdZ/YgzAQ06YShYTfmB
+	qiqAw74BvGQ+vVtuEoBGcf2dt6ZLWU0UWDPNXeGDLun27lhruXDLNFicCEc4Z9xIg1ryeoseUxOXt
+	eCGUSesWxIe44yimb7RLXZyBT2lizvPyj/sLnzMm4G8CwSebd+14AM8WIX6lXsr57D/t8klDBNGEW
+	W+SDCMLW9dT9Z3UVnE94qafQ/9MzP2nI2zYPtkTODf2k6KqMSAK84+ESVdVnQ76bA0bl0hKTf0hEG
+	7cBGQdQl/9KepYofvbNlz2Ne7FBocumEBCtktTC3i3fD70WiypUjVIoBG4BPfZuusK6Wk0J/ayFB2
+	YKwKv8fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybTD-00000008seR-3J9S;
-	Tue, 16 Sep 2025 19:36:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uybqd-00000008uXl-29VG;
+	Tue, 16 Sep 2025 20:00:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybTC-00000008seE-0xrj
+	id 1uybqa-00000008uXM-3CVn
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 19:36:06 +0000
+	Tue, 16 Sep 2025 20:00:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A501E601B3;
-	Tue, 16 Sep 2025 19:36:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08295C4CEEB;
-	Tue, 16 Sep 2025 19:36:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 73CC743E85;
+	Tue, 16 Sep 2025 20:00:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18E73C4CEEB;
+	Tue, 16 Sep 2025 20:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758051365;
-	bh=ghR7W+6OUpqFqZvySPtXRRnnWTRyswPrma1f/7NfxfY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pf+xkC50Z8w4iBf8i4FVLF3nUB0UJUEQdWf/4ouPzp5iPOPJmQ8V2v8/3+Y7IuYeO
-	 DWSsLPh1zYyuWBHoIMNsuqCOBgsVxJQieY/qdXr42pPNBNzLCbJiSiM2kJdtn9LKie
-	 OX2/rNKyQyUfaY4IXH4k14gM0jHh5tsRRZNR2IhnG515xl74jO1xeJl+9usTADlKF8
-	 FZ6PBCfXVx6y5enFbWzuP58bJ+Qe0bI1SI6VnKDx8HZ1xeppFpIqaHXOBVo/JjNHtq
-	 XB7vNgIQUNr8/+sYMv2Nju/IwTa1CJa9ZZR1P17hgLSXSId13VXNiItS2qruv53nJm
-	 xKibcABpOHQAA==
-From: Conor Dooley <conor@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	s=k20201202; t=1758052816;
+	bh=l5RcyRudbMnKY2qL2IjniShJoq21cxYpHC73/ta/rIc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WiA3Ub8XYcwT1DFXZ/U0zg5fVLhMo7zwb3vorV4CSHFeQkUaVUq0q/CcVo5dbTCRk
+	 aPvmEYLA9+g3C/ITecGWf6qg5a8JnZVAk3Qe5uBKQIvTfxwC/4lgnrY2pC6YWbDFK5
+	 arFTIMQKar9g7mjl3iQlr2LF3mDLMra3Snc4fUmcG0LunKMwM5V2jviFidtfZpvqrQ
+	 w7KXuW/8WmwN7zuWpmN8xPWfrGl0Y5R97VRre8Av68zN8Irn9vejQ51dZ1i1vWPA2T
+	 9fqDiTXb0y1BhPfgTm1rp1aAgCixpG7jTm/0U3ApDjycvMMxdO5JvDRFch0alA+nwd
+	 TuZEb8t8eLaEA==
+Date: Tue, 16 Sep 2025 13:00:14 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	E Shattow <e@freeshell.de>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: Re: [PATCH v3 0/5] riscv: dts: starfive: Add Milk-V Mars CM (Lite) SoM
-Date: Tue, 16 Sep 2025 20:35:56 +0100
-Message-ID: <20250916-evacuee-postbox-8b576a82e868@spud>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250905144011.928332-1-e@freeshell.de>
-References: <20250905144011.928332-1-e@freeshell.de>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Adrien Ricciardi <aricciardi@baylibre.com>,
+	James Morse <james.morse@arm.com>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Vasudevan Srinivasan <vasu@rivosinc.com>, guo.wenjia23@zte.com.cn,
+	liu.qingtao2@zte.com.cn, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: riscv: Add Ssqosid extension
+ description
+Message-ID: <aMnBzqgoUrLMAtxw@x1>
+References: <20250915-ssqosid-v6-17-rc5-v2-0-2d4b0254dfd6@kernel.org>
+ <20250915-ssqosid-v6-17-rc5-v2-1-2d4b0254dfd6@kernel.org>
+ <20250916-landfall-easeful-782b60eb7d69@spud>
+ <aMm4n2PlI8JqmK2c@x1>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1195; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=jlPwUGixLoNmykuR6H7mnfwCfEkNvHVsl2XHNQnmeWE=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDBkn98jUzrz69YiyxrTMLXtOXtDxWOLScl7m/6tpqSETB Apf1/1/2lHKwiDGxSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJdO1lZGhcxRnjWLt+J882 Nr97R+3f2a74fdv8gtBDmW+NRimb0+czMmxffeaU9ePLAgbc9w5l9eZeiyxhOn3Uhm3b7gQHx52 r+tkB
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <aMm4n2PlI8JqmK2c@x1>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250916_130016_849934_AD73D3D6 
+X-CRM114-Status: GOOD (  23.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +82,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0430474760625915964=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-On Fri, 05 Sep 2025 07:39:38 -0700, E Shattow wrote:
-> Milk-V Mars CM and Mars CM Lite System-on-Module both are based on the
-> StarFive JH7110 SoC and compatible with the Raspberry Pi CM4IO Classic IO
-> Board carrier. Mars CM Lite is Mars CM without the eMMC storage component
-> on mmc0 and the mmc0 interface configured instead for SD Card use. The
-> optional WiFi+BT chipset is connected via SDIO on the mmc1 interface that
-> would otherwise be connected to an SD Card slot on the StarFive
-> VisionFive2 reference design.
-> 
-> [...]
+--===============0430474760625915964==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="10bvof6Yj50fwpad"
+Content-Disposition: inline
 
-Applied to riscv-dt-for-next, thanks!
 
-[1/5] riscv: dts: starfive: add common board dtsi for Milk-V Mars CM variants
-      https://git.kernel.org/conor/c/651b30c58775
-[2/5] dt-bindings: riscv: starfive: add milkv,marscm-emmc
-      https://git.kernel.org/conor/c/d1829e0b2f06
-[3/5] riscv: dts: starfive: add Milk-V Mars CM system-on-module
-      https://git.kernel.org/conor/c/8d193bc0aa2e
-[4/5] dt-bindings: riscv: starfive: add milkv,marscm-lite
-      https://git.kernel.org/conor/c/12a29108384c
-[5/5] riscv: dts: starfive: add Milk-V Mars CM Lite system-on-module
-      https://git.kernel.org/conor/c/4cce8b2503ab
+--10bvof6Yj50fwpad
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Conor.
+On Tue, Sep 16, 2025 at 12:21:03PM -0700, Drew Fustini wrote:
+> On Tue, Sep 16, 2025 at 07:36:01PM +0100, Conor Dooley wrote:
+> > On Mon, Sep 15, 2025 at 10:13:41PM -0700, Drew Fustini wrote:
+> > > Document the ratified Supervisor-mode Quality of Service ID (Ssqosid)
+> > > extension v1.0.
+> > >=20
+> > > Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
+> > > Signed-off-by: Drew Fustini <fustini@kernel.org>
+> > > ---
+> > >  Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+> > >  1 file changed, 6 insertions(+)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml =
+b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > index ede6a58ccf5347d92785dc085a011052c1aade14..38e3d8d38cce55022ea70=
+eb52423b1163e3cb097 100644
+> > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > @@ -165,6 +165,12 @@ properties:
+> > >              ratified at commit d70011dde6c2 ("Update to ratified sta=
+te")
+> > >              of riscv-j-extension.
+> > > =20
+> > > +        - const: ssqosid
+> > > +          description: |
+> > > +            The ratified Supervisor-mode Quality of Service ID (Ssqo=
+sid)
+> > > +            extension v1.0 which adds the Supervisor Resource Manage=
+ment
+> > > +            Configuration (srmcfg) CSR.
+> >=20
+> > Please cite when it was added, as is done for other extensions.
+>=20
+> I had seen the pattern of commit X from Unpriv or Priv spec but I was
+> having trouble adapting that for Ssqosid as it has its own v1.0 PDF.
+>=20
+> However, I now notice 'zacas' seems to have its own spec. Would this
+> work for 'ssqosid'?
+>=20
+>         - const: ssqosid
+>           description: |
+>             The Ssqosid extension for Quality of Service ID is ratified
+> 	      as v1.0 in commit 5059e0ca641c of riscv-ssqosid.
+
+I'll change it to use the kernel style of commit reference:
+
+        - const: ssqosid
+          description: |
+            The Ssqosid extension for Quality of Service ID is ratified
+            as v1.0 in commit 5059e0ca641c  ("Merge pull request #7 from
+	    ved-rivos/Ratified") of riscv-ssqosid.
+
+-Drew
+
+--10bvof6Yj50fwpad
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCaMnBvwAKCRDb7CzD2Six
+DGI2AQDqcVG90uwlP30BH0fXNY11iff7sli6pD7f9SZz6jEMrAEA2BRJtcXM8MdC
+qHtH4+VmDypq4EK6VlAvtKryUzkWigU=
+=euQh
+-----END PGP SIGNATURE-----
+
+--10bvof6Yj50fwpad--
+
+
+--===============0430474760625915964==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0430474760625915964==--
+
