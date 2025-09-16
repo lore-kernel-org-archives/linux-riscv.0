@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21250CAC599
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 15:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BCCCAC598
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 16:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SsuFYMu2rKRAONVEZW3b/kOA7Zjan3LiArJQNsSuscI=; b=YW4rhFafW+b6nk
-	2XlzDrvwTKJrvkyRJ0yL6ww5B8szvyLEaNy0ejS5LzOEliOLpDz7Lgk2kNp/fmXMDcqCo8tV14Fyy
-	Wr/iVFaqaNqIt7I+OkfX/lqMi7gvBRzaqgm9IIAtEiDT5RicrmGuU9aORlf12774bA1SYSFWxyygh
-	8S+QcSpNzrRKuqApoZkU/S7a7qsBT9edPNvPUeptOwvRG/58LTrjVIUaXFDj4t3vrs8K7EzAmBNH2
-	hwqx2WGT0Hl1JcMnB5i3oeY0XRrbqKdI5wXBb+vhx23lxqyhu/5XJcSEh+ge0i2n5yz4lidlYPx5m
-	Egx/WLL15IlPi/lSJGIw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Y7hqVHPT2R9Qc+QBcA6sdGqS1iNLqg+ATaVjCtGvYDw=; b=ThiSdnqqfg712Y
+	vHvt6rlL9NiWe83tSJJJh1pF8lZUUfPo9C84dCqEafU+QJ2dOlBWnwzmDhC7SbIXmjRsFsjvy6WPi
+	YfJ39bRBzw5avKp6/ecf9hECaqJRh6I/EAOPzgn6e89ucfbfbP/nUEaMmFLlCyutkE1MAXZH71k9P
+	gGc+tUZmh0qrSUR3D383/k3EnMW9yM1wRFMg1tHiIXvNFRPil5lxUeA8AMJTztvE0295ISYHmuPD0
+	xA9MaunrBxTjrb9Str45dmKuGHtjI06AhnVuxagwhFjnUW+CZPZpXUBUcLvcdFXb8L4DJRW64uSwb
+	h5AfnwAzmXarI4h4EtUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyY2i-00000008MEz-04da;
-	Tue, 16 Sep 2025 15:56:32 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1uyYzd-00000008YGf-34pW;
+	Tue, 16 Sep 2025 16:57:25 +0000
+Received: from forward102d.mail.yandex.net ([2a02:6b8:c41:1300:1:45:d181:d102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyY2f-00000008MDt-2u8q
+	id 1uyYza-00000008YEL-2r4Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 15:56:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758038189; x=1789574189;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=FkI9Tbml2q8AETxR1CPQZdgvVSUFpF2rgdlI2Oo5IcM=;
-  b=jyd6MP8Zq7+RNSrnDRiZ15XneHAV1NlHM7tGfwCHG8qLQZ7Jxcq21ELA
-   lrxwHKQDyhs8lKPV3BYKZH+k9nlJ/y6scMx9r4ZUjgoX74tyxHVBC02bW
-   5/W00TyNBl3gjwmZ3I9sTYCa8QmN7sOOxP0FTOy0zhVKTICj7w0y3hCdb
-   0avaHwA5kyEkp8FlxTpmWHZu8darlbVNzaUWjY9ltsUqCRwgocHB6nG5/
-   LFf64mzsh/QEQ5d66kspLVW5BsCDI8cqV0YAxqCGiDfOZbIAHGhhQx1eQ
-   vBCE7m2R8knUpk6kIltKzUI8aQHl0HZ7edUrNTQN12e4ci96xiXnu7+8k
-   Q==;
-X-CSE-ConnectionGUID: wM+eTgvESq2y/7BZpZlMMw==
-X-CSE-MsgGUID: yOaFVkrYTUemPD9fDKAtTg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11555"; a="60393782"
-X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
-   d="scan'208";a="60393782"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2025 08:56:23 -0700
-X-CSE-ConnectionGUID: 9AvNrVEQR92yo/d6J1r/OQ==
-X-CSE-MsgGUID: rcwVnKqRTNyvw6rm9RmTkw==
-X-ExtLoop1: 1
-Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
-  by fmviesa003.fm.intel.com with ESMTP; 16 Sep 2025 08:56:19 -0700
-Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uyY2T-0000RD-0L;
-	Tue, 16 Sep 2025 15:56:17 +0000
-Date: Tue, 16 Sep 2025 23:55:39 +0800
-From: kernel test robot <lkp@intel.com>
-To: Drew Fustini <fustini@kernel.org>,
+	Tue, 16 Sep 2025 16:57:24 +0000
+Received: from mail-nwsmtp-smtp-production-main-80.klg.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-80.klg.yp-c.yandex.net [IPv6:2a02:6b8:c43:4985:0:640:840f:0])
+	by forward102d.mail.yandex.net (Yandex) with ESMTPS id 5103DC01B1;
+	Tue, 16 Sep 2025 19:57:12 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-80.klg.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id 5vT9EV0LxSw0-ZMk2EQOV;
+	Tue, 16 Sep 2025 19:57:11 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cloudbear.ru;
+	s=mail; t=1758041831;
+	bh=EFeeSu4GhJq3UlGQ+sl0zXkSLxrNHkuxsapv8WRHun0=;
+	h=Message-ID:Date:Cc:Subject:To:From;
+	b=XTn1cBFmjca+xPXjNY4+Rx2VypbzztYTtctl355nJfBgfm1BisE9x+m1j52mw1CS2
+	 aO5anuOTR0ouu7EPzZoc7mh7uew5LHD7AxOu6XkBCNAcrOYbPzaKwmtIP+5fA4llAr
+	 Il56zm3yqYbHFrETMt84zEhsqPQHAfvy75l0Vrhw=
+Authentication-Results: mail-nwsmtp-smtp-production-main-80.klg.yp-c.yandex.net; dkim=pass header.i=@cloudbear.ru
+From: Danil Skrebenkov <danil.skrebenkov@cloudbear.ru>
+To: 
+Cc: Danil Skrebenkov <danil.skrebenkov@cloudbear.ru>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Adrien Ricciardi <aricciardi@baylibre.com>,
-	James Morse <james.morse@arm.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>, guo.wenjia23@zte.com.cn,
-	liu.qingtao2@zte.com.cn, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Drew Fustini <fustini@kernel.org>
-Subject: Re: [PATCH v2 3/3] RISC-V: Add support for srmcfg CSR from Ssqosid
- ext
-Message-ID: <202509162355.wByessnb-lkp@intel.com>
-References: <20250915-ssqosid-v6-17-rc5-v2-3-2d4b0254dfd6@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	WangYuli <wangyuli@uniontech.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] clear_tasks_mm_cpumask(cpu) is added to arch_cpuhp_cleanup_dead_cpu
+Date: Tue, 16 Sep 2025 19:56:54 +0300
+Message-ID: <20250916165658.19052-1-danil.skrebenkov@cloudbear.ru>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250915-ssqosid-v6-17-rc5-v2-3-2d4b0254dfd6@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_085629_744708_264D0A5C 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20250916_095723_251541_7B451F58 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,123 +76,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Drew,
+openSBI v1.7 adds harts checks for ipi operations. Especially it
+adds comparison between hmask passed as an argument from linux
+and mask of online harts (from openSBI side). If they don't
+fit each other the error occurs.
 
-kernel test robot noticed the following build errors:
+When cpu is offline, cpu_online_mask is explicitly cleared in
+__cpu_disable. However, there is no explicit clearing of
+mm_cpumask. mm_cpumask is used for rfence operations that
+call openSBI RFENCE extension which uses ipi to remote harts.
+If hart is offline there may be error if mask of linux is not
+as mask of online harts in openSBI.
 
-[auto build test ERROR on 76eeb9b8de9880ca38696b2fb56ac45ac0a25c6c]
+this patch adds explicit clearing of mm_cpumask for offline hart.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Drew-Fustini/dt-bindings-riscv-Add-Ssqosid-extension-description/20250916-131818
-base:   76eeb9b8de9880ca38696b2fb56ac45ac0a25c6c
-patch link:    https://lore.kernel.org/r/20250915-ssqosid-v6-17-rc5-v2-3-2d4b0254dfd6%40kernel.org
-patch subject: [PATCH v2 3/3] RISC-V: Add support for srmcfg CSR from Ssqosid ext
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20250916/202509162355.wByessnb-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250916/202509162355.wByessnb-lkp@intel.com/reproduce)
+Signed-off-by: Danil Skrebenkov <danil.skrebenkov@cloudbear.ru>
+---
+ arch/riscv/kernel/cpu-hotplug.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509162355.wByessnb-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   kernel/sched/core.c: In function 'context_switch':
->> kernel/sched/core.c:5357:35: error: macro '__switch_to_srmcfg' passed 1 arguments, but takes just 0
-    5357 |         switch_to(prev, next, prev);
-         |                                   ^
-   In file included from arch/riscv/include/asm/switch_to.h:17,
-                    from kernel/sched/core.c:80:
-   arch/riscv/include/asm/qos.h:38:9: note: macro '__switch_to_srmcfg' defined here
-      38 | #define __switch_to_srmcfg() do { } while (0)
-         |         ^~~~~~~~~~~~~~~~~~
->> arch/riscv/include/asm/switch_to.h:124:17: error: '__switch_to_srmcfg' undeclared (first use in this function); did you mean '__switch_to_envcfg'?
-     124 |                 __switch_to_srmcfg(__next);     \
-         |                 ^~~~~~~~~~~~~~~~~~
-   kernel/sched/core.c:5357:9: note: in expansion of macro 'switch_to'
-    5357 |         switch_to(prev, next, prev);
-         |         ^~~~~~~~~
-   arch/riscv/include/asm/switch_to.h:124:17: note: each undeclared identifier is reported only once for each function it appears in
-     124 |                 __switch_to_srmcfg(__next);     \
-         |                 ^~~~~~~~~~~~~~~~~~
-   kernel/sched/core.c:5357:9: note: in expansion of macro 'switch_to'
-    5357 |         switch_to(prev, next, prev);
-         |         ^~~~~~~~~
-
-
-vim +/__switch_to_srmcfg +5357 kernel/sched/core.c
-
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16  5296  
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16  5297  /*
-dfa50b605c2a93 kernel/sched/core.c Oleg Nesterov       2014-10-09  5298   * context_switch - switch to the new MM and the new thread's register state.
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16  5299   */
-049369487e2068 kernel/sched/core.c Josh Poimboeuf      2016-02-28  5300  static __always_inline struct rq *
-70b97a7f0b19cf kernel/sched.c      Ingo Molnar         2006-07-03  5301  context_switch(struct rq *rq, struct task_struct *prev,
-d8ac897137a230 kernel/sched/core.c Matt Fleming        2016-09-21  5302  	       struct task_struct *next, struct rq_flags *rf)
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16  5303  {
-e107be36efb2a2 kernel/sched.c      Avi Kivity          2007-07-26  5304  	prepare_task_switch(rq, prev, next);
-fe4b04fa31a6dc kernel/sched.c      Peter Zijlstra      2011-02-02  5305  
-9226d125d94c7e kernel/sched.c      Zachary Amsden      2007-02-13  5306  	/*
-9226d125d94c7e kernel/sched.c      Zachary Amsden      2007-02-13  5307  	 * For paravirt, this is coupled with an exit in switch_to to
-9226d125d94c7e kernel/sched.c      Zachary Amsden      2007-02-13  5308  	 * combine the page table reload and the switch backend into
-9226d125d94c7e kernel/sched.c      Zachary Amsden      2007-02-13  5309  	 * one hypercall.
-9226d125d94c7e kernel/sched.c      Zachary Amsden      2007-02-13  5310  	 */
-224101ed69d3fb kernel/sched.c      Jeremy Fitzhardinge 2009-02-18  5311  	arch_start_context_switch(prev);
-9226d125d94c7e kernel/sched.c      Zachary Amsden      2007-02-13  5312  
-306e060435d7a3 kernel/sched/core.c Mathieu Desnoyers   2018-01-29  5313  	/*
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5314  	 * kernel -> kernel   lazy + transfer active
-aa464ba9a1e444 kernel/sched/core.c Nicholas Piggin     2023-02-03  5315  	 *   user -> kernel   lazy + mmgrab_lazy_tlb() active
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5316  	 *
-aa464ba9a1e444 kernel/sched/core.c Nicholas Piggin     2023-02-03  5317  	 * kernel ->   user   switch + mmdrop_lazy_tlb() active
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5318  	 *   user ->   user   switch
-223baf9d17f25e kernel/sched/core.c Mathieu Desnoyers   2023-04-20  5319  	 *
-223baf9d17f25e kernel/sched/core.c Mathieu Desnoyers   2023-04-20  5320  	 * switch_mm_cid() needs to be updated if the barriers provided
-223baf9d17f25e kernel/sched/core.c Mathieu Desnoyers   2023-04-20  5321  	 * by context_switch() are modified.
-306e060435d7a3 kernel/sched/core.c Mathieu Desnoyers   2018-01-29  5322  	 */
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5323  	if (!next->mm) {                                // to kernel
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5324  		enter_lazy_tlb(prev->active_mm, next);
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16  5325  
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5326  		next->active_mm = prev->active_mm;
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5327  		if (prev->mm)                           // from user
-aa464ba9a1e444 kernel/sched/core.c Nicholas Piggin     2023-02-03  5328  			mmgrab_lazy_tlb(prev->active_mm);
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5329  		else
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5330  			prev->active_mm = NULL;
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5331  	} else {                                        // to user
-227a4aadc75ba2 kernel/sched/core.c Mathieu Desnoyers   2019-09-19  5332  		membarrier_switch_mm(rq, prev->active_mm, next->mm);
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5333  		/*
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5334  		 * sys_membarrier() requires an smp_mb() between setting
-227a4aadc75ba2 kernel/sched/core.c Mathieu Desnoyers   2019-09-19  5335  		 * rq->curr / membarrier_switch_mm() and returning to userspace.
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5336  		 *
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5337  		 * The below provides this either through switch_mm(), or in
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5338  		 * case 'prev->active_mm == next->mm' through
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5339  		 * finish_task_switch()'s mmdrop().
-306e060435d7a3 kernel/sched/core.c Mathieu Desnoyers   2018-01-29  5340  		 */
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5341  		switch_mm_irqs_off(prev->active_mm, next->mm, next);
-bd74fdaea14602 kernel/sched/core.c Yu Zhao             2022-09-18  5342  		lru_gen_use_mm(next->mm);
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5343  
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5344  		if (!prev->mm) {                        // from kernel
-aa464ba9a1e444 kernel/sched/core.c Nicholas Piggin     2023-02-03  5345  			/* will mmdrop_lazy_tlb() in finish_task_switch(). */
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5346  			rq->prev_mm = prev->active_mm;
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16  5347  			prev->active_mm = NULL;
-139d025cda1da5 kernel/sched/core.c Peter Zijlstra      2019-07-29  5348  		}
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16  5349  	}
-92509b732baf14 kernel/sched/core.c Matt Fleming        2016-09-21  5350  
-223baf9d17f25e kernel/sched/core.c Mathieu Desnoyers   2023-04-20  5351  	/* switch_mm_cid() requires the memory barriers above. */
-223baf9d17f25e kernel/sched/core.c Mathieu Desnoyers   2023-04-20  5352  	switch_mm_cid(rq, prev, next);
-223baf9d17f25e kernel/sched/core.c Mathieu Desnoyers   2023-04-20  5353  
-269d599271fa60 kernel/sched/core.c Peter Zijlstra      2018-02-06  5354  	prepare_lock_switch(rq, next, rf);
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16  5355  
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16  5356  	/* Here we just switch the register state and the stack. */
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16 @5357  	switch_to(prev, next, prev);
-dd41f596cda0d7 kernel/sched.c      Ingo Molnar         2007-07-09  5358  	barrier();
-dfa50b605c2a93 kernel/sched/core.c Oleg Nesterov       2014-10-09  5359  
-dfa50b605c2a93 kernel/sched/core.c Oleg Nesterov       2014-10-09  5360  	return finish_task_switch(prev);
-^1da177e4c3f41 kernel/sched.c      Linus Torvalds      2005-04-16  5361  }
-f711f6090a81cb kernel/sched.c      Gautham R Shenoy    2009-04-14  5362  
-
+diff --git a/arch/riscv/kernel/cpu-hotplug.c b/arch/riscv/kernel/cpu-hotplug.c
+index a1e38ecfc8be..3f50d3dd76c6 100644
+--- a/arch/riscv/kernel/cpu-hotplug.c
++++ b/arch/riscv/kernel/cpu-hotplug.c
+@@ -54,6 +54,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
+ 
+ 	pr_notice("CPU%u: off\n", cpu);
+ 
++	clear_tasks_mm_cpumask(cpu);
+ 	/* Verify from the firmware if the cpu is really stopped*/
+ 	if (cpu_ops->cpu_is_stopped)
+ 		ret = cpu_ops->cpu_is_stopped(cpu);
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
