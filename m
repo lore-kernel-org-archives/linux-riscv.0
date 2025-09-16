@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02B7CAC598
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 13:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D30CAC599
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 13:23:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=925XHFZgqFVIcyoW02GMPcDQl0cxHp2PGIJrlLG1a5s=; b=nvwKOK2rEUshSr
-	YdVUUdEGBQPGR0Wn5DFPJWhTvU92v73U1D5G1aXprhKUbUM7lpOKtmKjMipf02dhIz5MVffnBpHsJ
-	bMq2kSfAEUi6cDGY+GV4IAG6ABllTFwYW/4JfumBjoOdUdExjvVl0Zg3yWQ340dE6fbmBlQBucCr0
-	gxelTzppmCpsbZ5Jws7qH77Uf69qRKc3QYkP6gluGPxCYir0CDrkUWZLLdYKh2dmWhXKE0xiBaa4D
-	w/lpGAcaqccB3AMgcrjMXYu7bGMfIWLNqifwl083CNFhT7fLeVDBbFNHdJxLg7cZ6VY6vuq7K8t3j
-	SCWSPsgYHBtqNjHQzQwA==;
+	List-Owner; bh=mzQUnHKre/8Ae4oMvtp8qjyLgyISipmu3+WvZ4kRGrs=; b=c7k5NVNq3/WnWE
+	OYDBhntCwg8SJWQY2nbR1RxqJNeSUDZNyu4PhxelpyOcgBIF0akXEcCYMQ79kD3YXiTCdBc/wszov
+	0+OwolH4CWFFswXF1SECuBVGfgdEdgpzU0M5vgg/Dzs/iAWX4nvnbpQW6y6TnsCsFx1+v2DPLiYj6
+	T8/E3VgZ/4pOzokiaoXL0yHv/jqVLFZWHMRKvoeiQkLB3B8BSFbq9eoLMlwNJ+D4RvjJlNpk1+NHe
+	jvTGc/VFAjUDqhz8WpuG7fpczT2BjfAzcNfH/tWtLEtSNLjbPEMKGX2Yfe3necwx6s8gO1yBAg9ib
+	4qM2g0a83VX053fLVWVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyVeG-00000007v6V-1y94;
-	Tue, 16 Sep 2025 13:23:08 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1uyVeL-00000007v95-3FVw;
+	Tue, 16 Sep 2025 13:23:13 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyVeE-00000007v5w-2Pb1
+	id 1uyVeI-00000007v7B-3D3G
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 13:23:07 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-772301f8ae2so5059945b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Sep 2025 06:23:06 -0700 (PDT)
+	Tue, 16 Sep 2025 13:23:12 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-76e4fc419a9so4337734b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Sep 2025 06:23:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758028986; x=1758633786; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1758028990; x=1758633790; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kyl0BpQ16/PyZbIlinkdVOcrBnbxP1cm62TtUJjokW4=;
-        b=Xh22b+oJrP80hXdR2H1vO2dFroaY65XafhKCr7fiJ4dANry0UvQwHB7YFCujWbbAHc
-         WcBL5vy5g0aMJE4QC8V+wjIPTwATGR9Rg5a0FA+IdlnZsjuKYOnOdk6JJ6A6IzGE87dS
-         XWTuUaGk70UIyO8W5HEvlBaBZBK3FKYzoOv+fW1rIeXciEp3o5m6t3gGaubeTscudcpN
-         tIqOijNf5A1+qisN75iPLLjFXprbIWsO6hCG25Ell/mZN8X9jkp5klJoxBDw1dXvCFD4
-         adwDrqNy6AhVrp2iAfYk/4xF07TDW7WXyt9Bm/Dbq8uTcdCLLbeykNhISMq7ThoYiP61
-         nAqA==
+        bh=sWMqq9LO02bLf8s/U6m0bmjKdBTSQTZetwyPUYJWXY4=;
+        b=H0cXDX2dwDwA2Ti1o9rCx+KOvzwljMsbtqwvlSnylmucOYNVozC9SH8knwp4jk/o23
+         c75c216KwcOWexvRicFI5VPExS3RiBjyI8LiRBFER29oBM0D17iojhYW49kZ1iZmqaju
+         DXFd8u90hcisnI5TLo/JSib6UXUd0N6w1k+MI0UffmLvjLHO1yREWv5Ru7KifLqMaay6
+         x5VTKDn+mnY7GowQT0QD513SaGJD9MCDUOUlgQCp785+1MhI16CIDrfKejHfqljeLmKX
+         6zbi8gAfulX76UkN2CZuU6tbHTSCRIlyWxyC2ad5/mRQhD7PMgLZ/90AvSQzLX0yQ2dR
+         7eZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758028986; x=1758633786;
+        d=1e100.net; s=20230601; t=1758028990; x=1758633790;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=kyl0BpQ16/PyZbIlinkdVOcrBnbxP1cm62TtUJjokW4=;
-        b=u5LUhir3MrCS7y/xdrQ+HfCq6wZRL+RgPnqWY48YtME9CCVqiY50RKIWxU/zl74pDc
-         DoHe5p/EeuIZk1qmg4VimK7RDucpaXDx+vbErV5E8Qt++0nXcJNUwJ0cEpxBQTjDOejJ
-         IHKx6eJmgZhhLom+2R7qQClYmkuSSRg88gOEfLF3gjrTqTNee68+9+Y7CrEUc/RAv2Wx
-         5p2lHGtsrLLIpWPftnOLqqgVnLJY2iVCQgtP/B3ToSWh2tivxx7eusGHpOu1jRt0N+Ps
-         bKHT3qSdfAzjyCu50RF5QHDlUII9fXbh0N6u8TNGaEbfgUXROsYd2a5SXc9vs6gOjGqb
-         E6Mw==
-X-Forwarded-Encrypted: i=1; AJvYcCU0t4gSK4TB660ZMNCcUH7VEzo/zXrRtOMv5cNTy64PHdMrsdGjTV0dvEgb2kyLZ6IY4Pe6hKiIcdsKPQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvFXfLwqq2s2qLwImZ4UbmgTdyQXcWt2VBlYPFExX422kzUHyB
-	JCR8Dr+XTGQboXwdTliZBcIIuDsGHhGrlGRMeNV+Y73lbbBpHUd8eUoJ
-X-Gm-Gg: ASbGncsjB7fYg/dBJunOyoQNdGqU1A/md6PQ3umclMT6BKmxDDD8b+A4ZsEp2tCMc6N
-	sctJOIFC/drBh76SjvQaUP/Qa6e+9Q4t00gtEM9wLvdpe6wHnBY4EYI/cvJC3z2DYUd55jRt/56
-	GhNmBUMfQHF8b9yMMdG9fzOWlyaKOSC3sezFrx5tei6jIMZC9TpjTU7BbtDs/OLbuHeN9AnYpJM
-	3269vD6ue6/dy9VfxaCgM2KjkGpqxcnyJde5sRIFYtUiM7yQPusqReaUx5QqSP8RRwY0ETQ1878
-	225Zj/LAzNOMQbVhcEgWx+pmNibEOE87BBt2oNR/YaY/ms4mwYUpR2JpRjMNIIGspa4Am99Ovrq
-	akovpZXlaKYu5xrEi7ZBArnSw59+cqg==
-X-Google-Smtp-Source: AGHT+IGSbUcFgUuRvZhaEbQGDXU6wqj1uhsdBmleOb5RXYY5OoqndPwdDpqY08h9eGK8Pj5YxrReZA==
-X-Received: by 2002:a05:6a20:1594:b0:243:78a:8291 with SMTP id adf61e73a8af0-2602cf10c79mr22060394637.56.1758028985340;
-        Tue, 16 Sep 2025 06:23:05 -0700 (PDT)
+        bh=sWMqq9LO02bLf8s/U6m0bmjKdBTSQTZetwyPUYJWXY4=;
+        b=XNkBhdI0zHLX+GI86pCsy4Z4Fr/UiimZHfvdf7Ib0oeaSNvVJ5lSGmvrqLhvfufbE9
+         iY0FmBWS7dDypLMu3SIM+oHJYDNwPKbkZ+qH4J7k4C9BM2V3nUoRzvVOOFehoFpqvJKh
+         96RqvNKzqYAPLel8BYaLtSQqYUNUxaKKhDuxCNq/VyenBBZnqU0fns0GBOKenls851kQ
+         YOGZ1ZJJqJg6TZfL5PMcDamF6RmRQt5MqbC3mukd+7fIm6Cuk3uCSO7Pw8UeVti0WleE
+         1WHBxRsqsAww/fYpsLQ+w5f+wmL6h7mnEDZyUZORGMAPW1K2BtQfSYyrnXV9dvNE0bO9
+         QBVg==
+X-Forwarded-Encrypted: i=1; AJvYcCXBpM4gnCl9hkf0ROSMMV21V3SooFVUTxkP7f9eEv/GDsZDLJWTpVQMXUkJuBfBkmGCSioYxhWEcZ/STg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfUlSAlRoJgRSyhVt7RHccVg4DBJVqMuZSlSctRx8K/cfQLpmt
+	94Y/JR0MdC8mTpaJo/VP1u3d0IYN5zzCY7jLlG0AlHOAAERuPYPHdrof
+X-Gm-Gg: ASbGncsdyb07isj3MTrLnQrjZgOA4tvfO7fbG8W9S0yFMbJgXkqujAfN5cW7u3EWDZ1
+	8hN0dh0iDseKSZPDonVrM5XBKjCzu96zOkc5YEjS8UveGpYTZk8SWSpsSt2UHUys0GdbS02gTqw
+	ZJ9fYQz02wJo7svT6mVhpAzNrstHtCXuPt7/sTb+xm4Nh2Y4CFbCS0A9c7lGe7WAnaPEQhoSpLU
+	eO4VzONSwVNNFGRnP5B43LeTT4m8n4WeTVYYV8Gl2L5oJvSuOLH+yy9pgTM4OvjXg8QAj4mVMzS
+	VW/8+2yCJNfexcZFvP0rmP/X+l48HaQ7HVKDp37Zm68wkTzbhZq/2Iqt4K42GwAFBfAbKrR0XV5
+	K/cro0BE++GPR9OaL8EKojlqzIuBcIw==
+X-Google-Smtp-Source: AGHT+IFXpFj62OZ32vgpqEl0jm4rS+hTk4dVTJ7qY1Ii9cd3iLkjwoIHMHjRDgvG6v07+neosQb++A==
+X-Received: by 2002:a05:6a00:a8a:b0:771:ec42:1c1e with SMTP id d2e1a72fcca58-77612168e3emr16052303b3a.16.1758028989635;
+        Tue, 16 Sep 2025 06:23:09 -0700 (PDT)
 Received: from [127.0.0.1] ([101.76.241.248])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7761562f25dsm13277310b3a.74.2025.09.16.06.23.01
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7761562f25dsm13277310b3a.74.2025.09.16.06.23.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Sep 2025 06:23:04 -0700 (PDT)
+        Tue, 16 Sep 2025 06:23:09 -0700 (PDT)
 From: Zixian Zeng <sycamoremoon376@gmail.com>
-Date: Tue, 16 Sep 2025 21:22:51 +0800
-Subject: [PATCH v2 2/4] riscv: dts: sophgo: Enable SPI NOR node for
- PioneerBox
+Date: Tue, 16 Sep 2025 21:22:52 +0800
+Subject: [PATCH v2 3/4] riscv: dts: sophgo: Enable SPI NOR node for
+ SG2042_EVB_V1
 MIME-Version: 1.0
-Message-Id: <20250916-sfg-spidts-v2-2-b5d9024fe1c8@gmail.com>
+Message-Id: <20250916-sfg-spidts-v2-3-b5d9024fe1c8@gmail.com>
 References: <20250916-sfg-spidts-v2-0-b5d9024fe1c8@gmail.com>
 In-Reply-To: <20250916-sfg-spidts-v2-0-b5d9024fe1c8@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,16 +88,16 @@ Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev,
  Han Gao <rabenda.cn@gmail.com>, Longbin Li <looong.bin@gmail.com>, 
  Zixian Zeng <sycamoremoon376@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758028972; l=1355;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758028972; l=1276;
  i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
- bh=LW8gKY2G7VDUyUL5o7Bf03DIXlO30RMJvYfW4F5X8pE=;
- b=LmgXboPjMuiz3VPvrfkLEdDdVW0rUIoVOP3joiPKFCvu9SUeNA/yoJgD6nm7b0aJ96eV9Rtb0
- +QkVfFRRv0kCq67IYvjTluKfTWicee+PH4Ibp9rjh8E8H/WzMTholA4
+ bh=3DhmzJSYRDsFCvFry1NGwCNmIuQHA8Daa9KPGiMP4XY=;
+ b=OLm66401v2Yc411lYVRBOoQ+/JCntUIWLk1Znyf/hX9gSFKbuT59M3tCILRkKSEjEaaHjGW2C
+ dJTZ/jmXKq1Dwveckan4KcjmhHWTbAuLhHVnTO5XbTGuox/oBOZGp0P
 X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
  pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_062306_623864_213AFDD8 
-X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-CacheID: sfid-20250916_062310_813044_CC2D2CC8 
+X-CRM114-Status: UNSURE (   8.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,23 +115,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable SPI NOR node for PioneerBox device tree
+Enable SPI NOR node for SG2042_EVB_V1 device tree
 
-According to PioneerBox schematic, SPI-NOR Flash cannot support QSPI
+According to SG2042_EVB_V1 schematic, SPI-NOR Flash cannot support QSPI
 due to hardware design. Thus spi-(tx|rx)-bus-width must be set to 1.
 
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-Tested-by: Chen Wang <unicorn_wang@outlook.com>
+Signed-off-by: Han Gao <rabenda.cn@gmail.com>
 Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
 ---
- .../riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 24 ++++++++++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts | 24 ++++++++++++++++++++++++
  1 file changed, 24 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-index ef3a602172b1e5bf3dcf54a8cacdad5172b7f50e..93fb493995522a88d61de67fa570631c01807718 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-@@ -138,6 +138,30 @@ &sd {
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts b/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
+index 3320bc1dd2c66ab1a77fce719f145070ad51f297..517943696eb464d54d42018825f02a48c6ca00b8 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
++++ b/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
+@@ -238,6 +238,30 @@ &sd {
  	status = "okay";
  };
  
