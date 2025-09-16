@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F63ACAC592
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 17:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4019CCAC592
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 17:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MVHjF5TlnVCQkSjlGVEXaZlBR+aAR3y9ndRP/qc79bc=; b=ZhM3+zx4HeXeyiX4p1WpmhF3Ma
-	gAgf6DgY5BkFnL7ZJJOZsmmjBSw89GYa8lHHKK7brprqBv2bG4KIg93e/GsM6dxom2mdz/FIe4Ku6
-	gtjIHlwbAyT4BtIMqL9NegKHCToJ6YBdEu4wrhYYJe0rBb/FMXVU9WdvxIDQ8DQAnYbJA1/bA0IKx
-	qf3mpvDGBHpX2EKjvkI2SekZTvpagjP8omRmQOf8BnZYK6rQPivLyqrUEV9vGepfnGL2nxnpoFCB7
-	9hllzBuRDVOAxyXbybDu4EqyvQUTUsuv0lgF1EIn5P3S3eaCsE5T6wfXXBm54F02dcpfeC3erDZOT
-	uDdF6fpQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=D06TxcWTgD1+tADy8oKfuBSBNvyVl4775d/hGT+okPE=; b=PJUJ+DyzN/Sl53
+	MWC05SlOzxUiLEQzz6+ZQGy/XvbrYTDqwA4VhgkebsHw25m3+9BAGSj+LUzht67rJsOilP94llugb
+	kOXkjtFfihxVCzgZeZ1g4rc1xUsx/yTO8E1Z4QzZIM2/f9PF6KjdAJnIubmrRcFMla30IulXle7bE
+	lSnmI8rrtGSVSAOeeT9YRfjmayTJfRYbvv1gjShVBlJBrDX1+gs3Zi6XStYrNnNO3P3xv6bILaWTR
+	GFLLraI1dmlcJpmeoxDAqN8OKPZOx1anRqmVLaaYCjr1w6bFyzBQ+spHIMYmkHHfegBstXZKpUP9D
+	g9Emn56GhiFJLsLzxzUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyZNA-00000008bvQ-3acG;
-	Tue, 16 Sep 2025 17:21:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uyZSi-00000008cTh-2grC;
+	Tue, 16 Sep 2025 17:27:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyZN9-00000008bvH-2NgI
+	id 1uyZSh-00000008cTV-0Rp7
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 17:21:43 +0000
+	Tue, 16 Sep 2025 17:27:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E99C7601D7;
-	Tue, 16 Sep 2025 17:21:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0DFCC4CEEB;
-	Tue, 16 Sep 2025 17:21:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3A0B6601DD;
+	Tue, 16 Sep 2025 17:27:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D7AEC4CEEB;
+	Tue, 16 Sep 2025 17:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758043302;
-	bh=DJ5Z50X5vQEdBklBEnK9nMQ+7I1JuqRFkk4wtkg6jd8=;
+	s=k20201202; t=1758043645;
+	bh=fWZs1qHqxRc9T0uAavz42c01e6M1hsLN3wfmP16pG5c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nK69Sf8A1+xQNLJPVP5BMJ34gDV+ob4401QWkOJn2E0veRXaRdI6Ugl/7gQMNL9YY
-	 anIZ70kGc1KRSKOY7lYBBFLIc3oVLaEQG5u+XQsGg6UkFhzdHFZhV87Lyw1zyt7AlA
-	 7gDO+7SbCDSrk37n8XlySD3fJoNGfvj4br40D3f0NLU1JzZ/omxvw+vMXLrCyaxvt3
-	 ofyTDfzZnSMOzU+VJV8DuOetScgLJ4QskNO31s515siQCddQoY/EwZQGf8yc6zkwfK
-	 Msnm+vTz0q53ELGYhldIzo9lkjCsWqdWScOrKmVo8727WeaPkUBZyl/ZaoMF0Qayrj
-	 fODObCWXRQNHQ==
-Date: Tue, 16 Sep 2025 18:21:35 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Asuna Yang <spriteovo@gmail.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
+	b=pO0gLIw+EEmWFX6tZXueH7cSlByMKixpJMBIDvQkWSCEZhMB/8zQvhP4lc9i93XUJ
+	 3y5YvqeMzAp/aMJDyS06ibIi3WQHXNveV95k+wyRs0wP4cp6/oEz7uOpat2evlxuze
+	 nhSLYhb2uEHWlDQn2+Z0NU2Znp0dczegfKAwkEJJn21vmyDfGyyKNHSeqHW9+7IB7I
+	 pMOemdOTeWPys3Rh8+aIy7LbfSTEQKzJbhl4BHHSpVAuFO2UddhkDa0LZFxIEWZy8q
+	 xOLTFA0RbhXQdYAt3YfhdGmlLAKEms03tBXXod/iYW+7fIdN4EjhRdaBF7aDhSZZS7
+	 GBfN6JCNnBeUw==
+Date: Tue, 16 Sep 2025 10:27:24 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: Conor Dooley <conor@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Han Gao <rabenda.cn@gmail.com>,
-	Jason Montleon <jmontleo@redhat.com>,
-	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kbuild@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v3] RISC-V: re-enable gcc + rust builds
-Message-ID: <20250916-getaway-grew-46e4fb956a78@spud>
-References: <20250914-gcc-rust-v3-v3-1-34d4d5864144@gmail.com>
+	Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Anup Patel <anup@brainfault.org>, Arnd Bergmann <arnd@arndb.de>,
+	Joel Stanley <jms@tenstorrent.com>, Joel Stanley <joel@jms.id.au>,
+	Michael Neuling <mikey@neuling.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Michael Ellerman <mpe@kernel.org>, Andy Gross <agross@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, Drew Fustini <dfustini@tenstorrent.com>
+Subject: Re: [PATCH 6/7] riscv: dts: Add Tenstorrent Blackhole A0 SoC PCIe
+ cards
+Message-ID: <aMmd/JQAfPwKuYyB@x1>
+References: <20250913-tt-bh-dts-v1-0-ddb0d6860fe5@tenstorrent.com>
+ <20250913-tt-bh-dts-v1-6-ddb0d6860fe5@tenstorrent.com>
+ <20250915-mouth-banner-ddfb2e48bdb3@spud>
+ <aMhSSka3gyIcND/L@x1>
+ <70241f44-2f8d-4945-9c84-71416776cefd@codethink.co.uk>
 MIME-Version: 1.0
-In-Reply-To: <20250914-gcc-rust-v3-v3-1-34d4d5864144@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <70241f44-2f8d-4945-9c84-71416776cefd@codethink.co.uk>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,67 +83,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3569116621173420986=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Sep 16, 2025 at 02:56:05PM +0100, Ben Dooks wrote:
+> On 15/09/2025 18:52, Drew Fustini wrote:
+> > On Mon, Sep 15, 2025 at 05:47:08PM +0100, Conor Dooley wrote:
+> > > On Sat, Sep 13, 2025 at 02:31:05PM -0700, Drew Fustini wrote:
+> > > > new file mode 100644
+> > > > index 0000000000000000000000000000000000000000..b2b08023643a2cebd4f924579024290bb355c9b3
+> > > > --- /dev/null
+> > > > +++ b/arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dts
+> > > > @@ -0,0 +1,14 @@
+> > > > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > > > +/dts-v1/;
+> > > > +
+> > > > +#include "blackhole-a0.dtsi"
+> > > > +
+> > > > +/ {
+> > > > +	model = "Tenstorrent Blackhole A0 SoC PCIe card";
+> > > > +	compatible = "tenstorrent,blackhole-a0-card", "tenstorrent,blackhole-a0";
+> > > > +
+> > > > +	memory@0 {
+> > > > +		device_type = "memory";
+> > > > +		reg = <0x4000 0x30000000 0x1 0x00000000>;
+> > > 
+> > > This isn't at address zero as the node address claims.
+> > 
+> > Thanks, I'll fix the unit address.
+> 
+> Is it time to just assume any dtc can handle a 64bit number?
 
---===============3569116621173420986==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ovMXMPQdHm2Jci7/"
-Content-Disposition: inline
+Is it not valid for me to use the 64 bit hex number in the unit address?
+
+I changed it to memory@400030000000 and 'W=1 dtbs_check' did not
+complain. Am I doing something wrong?
+
+-------------------------------------------------
+$ git diff
+diff --git a/arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dts b/arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dts
+index b2b08023643a..7963712b53ea 100644
+--- a/arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dts
++++ b/arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dts
+@@ -7,7 +7,7 @@ / {
+        model = "Tenstorrent Blackhole A0 SoC PCIe card";
+        compatible = "tenstorrent,blackhole-a0-card", "tenstorrent,blackhole-a0";
+
+-       memory@0 {
++       memory@400030000000 {
+                device_type = "memory";
+                reg = <0x4000 0x30000000 0x1 0x00000000>;
+        };
 
 
---ovMXMPQdHm2Jci7/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+$ make W=1 ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- -j32 dtbs_check
+  DTC [C] arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dtb
+  DTC [C] arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dtb
+  DTC [C] arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dtb
+-------------------------------------------------
 
-On Sun, Sep 14, 2025 at 03:16:40PM +0800, Asuna Yang wrote:
-> +config TOOLCHAIN_MATCHES_ZICSR_ZIFENCEI
-> +	def_bool y
-> +	# https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d4498694e15bf8a16
-> +	depends on TOOLCHAIN_NEEDS_OLD_ISA_SPEC || !TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI || RUST_BINDGEN_LIBCLANG_VERSION >= 170000
-> +	help
-> +	  LLVM/Clang >= 17.0.0 starts recognizing Zicsr/Zifencei in -march, passing
-> +	  them to -march doesn't generate an error anymore, and passing them or not
-> +	  doesn't have any real difference, it still follows ISA before version
-> +	  20190608 - Zicsr/Zifencei are included in base ISA.
-> +
-> +	  The current latest version of LLVM/Clang still does not require explicit
-> +	  Zicsr/Zifencei to enable these two extensions, Clang just accepts them in
-> +	  -march and then silently ignores them.
-
-I still don't really like the name of this option, but I don't really
-have any good suggestions for what to call this.
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
---ovMXMPQdHm2Jci7/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMmcigAKCRB4tDGHoIJi
-0rfDAP9q+R3zLBj2lwiOj46Ay1jJrWFrzRnaLIF9CVcqW7Tq6gEAhYmZWcMRrz3+
-1MPkLLx2PkcE4kEft2ZLozNAEw1LCww=
-=UxeS
------END PGP SIGNATURE-----
-
---ovMXMPQdHm2Jci7/--
-
-
---===============3569116621173420986==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3569116621173420986==--
-
