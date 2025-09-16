@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D6BCAC599
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 12:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0715BCAC598
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 12:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nXP7zwZH731q0W2s2ekQnV+anOc0OimbVFUNM8Y9UNE=; b=udvHx1nzJTAxkq
-	KB+hpCvJNoVwHCC2Sv54Vh9ZR0z5nXW7id2eLooz3IPvongkSAe1kvmOJkHP+cGWeaf6dSIHO2KhO
-	MbCp0kPNMJRbd1xsfTqVmuo2UTnaHsLLbNLuggjC3be0+u6qirV0rmArbL3RzXEGcQq+PXY1kMyJK
-	ZXbrtrVcFV9E2OCdfutV7TMx2o5fNHJYKPB+LjfddjRUneS5gn4vAy9RujQBOYlQWiPQ2stj+Vl5x
-	e/TmOOk95HG0muqWRmHostRe2N+R1XSIB2N/ANuOyMrpE+IAC5t4np8QXhyU70MitMNFP3a8wMOPJ
-	URwPUCbdx8fh8Pna/MZQ==;
+	List-Owner; bh=eY1TKtRfxsqFu8w4gHMULkgpijl+xhZW6kIs0Fdc4lA=; b=R8j8GSRJBMVqtW
+	7/nrPX5CFwJ432wBrtK98XXN32wPL8wyKLVZJk6e24+16NBsLH/HKeGgxQ5i7Y0f9f8yCSXGjvxdg
+	/vfwj+j7rHwULFEGP8XxKbYoDRAVNnQ3VOl1YIorTl76vWoKrFzPF/RZkwhP5XRZzKaSbhKgHI9Pe
+	HhUwy5n91BFF00BjoEnjvuJ8N9Pf1v7jZvAWIemISCMFiHwSqU00ktceQ3V53O1k++g4MAF2p+2VA
+	merN8ykWoo1HRZgw/eV6K+Zn9S1jLP5HtasAWNq6jEVEN38MSH6NPvCPs+xAlH/8r0JSgEeBTE7lX
+	LibX7k1xrQjV7HKIRKsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyUfq-00000007kSf-1uyE;
-	Tue, 16 Sep 2025 12:20:42 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1uyUmV-00000007mE7-1Nz0;
+	Tue, 16 Sep 2025 12:27:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyUfo-00000007kSB-0Fhv
+	id 1uyUmS-00000007mCr-26wP
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 12:20:41 +0000
-Received: from localhost (unknown [180.158.240.90])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id B1D73340DBF;
-	Tue, 16 Sep 2025 12:20:36 +0000 (UTC)
-Date: Tue, 16 Sep 2025 20:20:26 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: pabeni@redhat.com
-Cc: Vivian Wang <wangruikang@iscas.ac.cn>, andrew+netdev@lunn.ch,
-	kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, davem@davemloft.net, edumazet@google.com,
-	pabeni@redhat.com, p.zabel@pengutronix.de, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	uwu@dram.page, vadim.fedorenko@linux.dev, junhui.liu@pigmoral.tech,
-	horms@kernel.org, maxime.chevallier@bootlin.com,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, conor.dooley@microchip.com,
-	troy.mitchell@linux.spacemit.com, hendrik.hamerlinck@hammernet.be,
-	andrew@lunn.ch
-Subject: Re: [PATCH net-next v12 0/5] Add Ethernet MAC support for SpacemiT K1
-Message-ID: <20250916122026-GYB1255161@gentoo.org>
-References: <20250914-net-k1-emac-v12-0-65b31b398f44@iscas.ac.cn>
- <175802161326.713595.16381910315366172301.git-patchwork-notify@kernel.org>
+	Tue, 16 Sep 2025 12:27:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 31D83405AA;
+	Tue, 16 Sep 2025 12:27:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 107E0C4CEEB;
+	Tue, 16 Sep 2025 12:27:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758025651;
+	bh=PNIloqRamoe/Ge+tqcsD4qceDuD9HPaHcfIdp82zej4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=D1jzHQiJiKYPH1CgVKK4Ty4Hg5VhVK3z3t8zMDGq+GocyFcKU8bBAH4mz6zJmkSR/
+	 GLv+WQIGKQ3jW8dhfqFqd+vDQ2KBAMYz8Vs6ZgyqBdPvuhLtKrxqO8hGlYTL/QFmJa
+	 umaOAcoPFzYfyEtZxsvOugzqJm6O5OV3sHftIJv5AgTL/fm6mg1I0dIgKRsJkzblc0
+	 PtUOqM+6PVr21bfBYZSmujcMX4qsoABOWuZwiQUyVEyAM9WbmxaiqhBBf36Y1u+9j4
+	 sejSITCPRgzLOORWc+5hzCuQgWQ9AHnc9Mro0NmLJAgzoHnYUZbOONCyEgpp9cat9j
+	 zZowNpBu2FqGA==
+Date: Tue, 16 Sep 2025 13:27:24 +0100
+From: Lee Jones <lee@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Alex Elder <elder@riscstar.com>, lgirdwood@gmail.com,
+	alexandre.belloni@bootlin.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mat.jonczyk@o2.pl, dlan@gentoo.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux.amoon@gmail.com, troymitchell988@gmail.com,
+	guodong@riscstar.com, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v13 0/7] spacemit: introduce P1 PMIC support
+Message-ID: <20250916122724.GB3585920@google.com>
+References: <20250825172057.163883-1-elder@riscstar.com>
+ <175690199980.2656286.5459018179105557107.b4-ty@kernel.org>
+ <ec882a78-9604-45b1-9405-8f2f958f307c@riscstar.com>
+ <7aba368e-709b-49b0-b62c-f2f8250c8628@sirena.org.uk>
+ <20250916084229.GG1637058@google.com>
+ <c8bcfff9-9d2a-426d-9df8-100efd2af64f@sirena.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <175802161326.713595.16381910315366172301.git-patchwork-notify@kernel.org>
+In-Reply-To: <c8bcfff9-9d2a-426d-9df8-100efd2af64f@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_052040_122263_D0A9F672 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20250916_052732_569895_BDC0CC6B 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,60 +78,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo Abeni,
-
-Thanks for taking this series, but I have one comment (see below)
-
-On 11:20 Tue 16 Sep     , patchwork-bot+netdevbpf@kernel.org wrote:
-> Hello:
-> 
-> This series was applied to netdev/net-next.git (main)
-> by Paolo Abeni <pabeni@redhat.com>:
-> 
-> On Sun, 14 Sep 2025 12:23:11 +0800 you wrote:
-> > SpacemiT K1 has two gigabit Ethernet MACs with RGMII and RMII support.
-> > Add devicetree bindings, driver, and DTS for it.
-> > 
-> > Tested primarily on BananaPi BPI-F3. Basic TX/RX functionality also
-> > tested on Milk-V Jupiter.
-> > 
-> > I would like to note that even though some bit field names superficially
-> > resemble that of DesignWare MAC, all other differences point to it in
-> > fact being a custom design.
-> > 
-> > [...]
-> 
-> Here is the summary with links:
->   - [net-next,v12,1/5] dt-bindings: net: Add support for SpacemiT K1
->     https://git.kernel.org/netdev/net-next/c/62a12a221769
->   - [net-next,v12,2/5] net: spacemit: Add K1 Ethernet MAC
->     https://git.kernel.org/netdev/net-next/c/bfec6d7f2001
-..
->   - [net-next,v12,3/5] riscv: dts: spacemit: Add Ethernet support for K1
->     https://git.kernel.org/netdev/net-next/c/60775f28cfb7
->   - [net-next,v12,4/5] riscv: dts: spacemit: Add Ethernet support for BPI-F3
->     https://git.kernel.org/netdev/net-next/c/3c247a6366d5
->   - [net-next,v12,5/5] riscv: dts: spacemit: Add Ethernet support for Jupiter
->     https://git.kernel.org/netdev/net-next/c/e32dc7a936b1
-> 
-
-Generally, I'd expect the DT part patch (3-5) to go via SpacemiT's SoC tree[1],
-so, this will avoid potential conflicts..
-
-Can you drop patch 3-5? then I will take care of them, plus there is one more
-patch in my queue..
-
-Link: https://github.com/spacemit-com/linux/tree/k1/dt-for-next [1]
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAxNiBTZXAgMjAyNSwgTWFyayBCcm93biB3cm90ZToKCj4gT24gVHVlLCBTZXAgMTYs
+IDIwMjUgYXQgMDk6NDI6MjlBTSArMDEwMCwgTGVlIEpvbmVzIHdyb3RlOgo+ID4gT24gVGh1LCAx
+MSBTZXAgMjAyNSwgTWFyayBCcm93biB3cm90ZToKPiA+ID4gT24gVGh1LCBTZXAgMTEsIDIwMjUg
+YXQgMTE6MzY6NDFBTSAtMDUwMCwgQWxleCBFbGRlciB3cm90ZToKPiAKPiA+ID4gPiBIb3cgc2hv
+dWxkIHRoZXNlIHR3byBwYXRjaGVzIGJlIG1lcmdlZD8gIE1hcmsgaGFzIHJldmlld2VkIHRoZQo+
+ID4gPiA+IHJlZ3VsYXRvciBwYXRjaCAzIGFuZCBBbGV4YW5kcmUgaGFzIGFja2VkIHRoZSBSVEMg
+cGF0Y2ggNC4KPiAKPiA+ID4gV2UnZCBib3RoIGhhdmUgYmVlbiBleHBlY3RpbmcgdGhlbSB0byBn
+byB2aWEgTUZELgo+IAo+ID4gV2h5PyAgSSBkb24ndCBzZWUgYW55IGRlcGVuZGVuY2llcyBiZXR3
+ZWVuIHRoZW0gKHVzdWFsbHkgYSBzaGFyZWQgTUZECj4gPiBoZWFkZXItZmlsZSkuICBJZiB0aGVy
+ZSBhcmUgbm8gZGVwcywgaXQgc2hvdWxkIGJlIHRha2VuIHRocm91Z2ggaXRzIG93bgo+ID4gcmVw
+bywgbm8/Cj4gCj4gSSB1c2VkIHRvIGp1c3QgYXBwbHkgdGhpbmdzIGJ1dCBhdCBzb21lIHBvaW50
+IExpbnVzIGNvbXBsYWluZWQgYWJvdXQKPiBjYXNlcyB3aGVyZSB0aGUgTUZEIGVuZGVkIHVwIG5v
+dCBnZXR0aW5nIG1lcmdlZCAobWlzc2luZyB0aGUgbWVyZ2UKPiB3aW5kb3cgb3Igd2hhdGV2ZXIp
+IHNvIEkndmUgYmVlbiB0cmVhdGluZyB0aGVtIGxpa2UgdGhleSBoYWQgYW4gYWN0dWFsCj4gZGVw
+ZW5kZW5jeS4KCk5vdCBzdXJlIEkndmUgc2VlbiBhbnkgb2YgdGhhdCBmcm9tIExpbnVzLCBidXQg
+SSBkb24ndCBkb3VidCB5b3UuICBUaGUKTUZEIHBhcnQgaGFzIGJlZW4gbWVyZ2VkIG5vdywgc28g
+aXQncyBzYXZlIHRvIGdvIGFoZWFkIGFuZCBhcHBseSB0aGUKUmVndWxhdG9yIHBhcnQuCgotLSAK
+TGVlIEpvbmVzIFvmnY7nkLzmlq9dCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
