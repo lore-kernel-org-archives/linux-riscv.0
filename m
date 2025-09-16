@@ -4,68 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6351CAC599
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 10:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8375CAC599
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 11:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EapOk6gyQOEtr5XAwzw1pV0M89e/KaK8RVOVM6ZCqu0=; b=uDMj8XnTVBjKUn
-	sy6yI+yYtl+fFabc9rbxAld9fXsxzNxYmtLLcQbHvPryCbqxav23xY5dTJ22Sd/trbRUNxyZWLoJh
-	Wov02mdol8OMbb7eefbTwE6BYmRqVYfacKso4clnwT9P/ri6GahC7AGPcLm1xlFscv/0qtfAEXHWX
-	k7VK9blllTZDJxvTnxIxV0h5RlM2V5ukdBYcn7BSu8ze0WifrP06Wflv9DosdYHUaYQYaOTLNm4uy
-	9AayY9zMyMIwSSt/eYpBt5tdzd45XYqS+SKptNhSZzGwiT4AMhZyNiyrqJv7yntJw8lIAvaApO9Lh
-	UcV6CHbaw+ZqGgdNoGJA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:Cc:From:References:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UfvcrAigpLFINp12bCuG7oUy2VLdYVcMtHJy5VENypA=; b=t/GESDX53zE/tIC1aO7XA+uaWr
+	C27aeU8T085JbH6ksZcw6msmKnPczDPx50eJdhe2NHGPWOhBojjB2MVlEt9QsZjqUVonDvoyK7Req
+	NcWIrCTplKFuQMRpgj53lPTu9KI3XEAO9pl5vIksCXU+k0xW+8Wcsr1BwU/C9EVru4eubmZHUuFhC
+	h9S79b7DvmduSex8q/xHTgLhUFYDPESMW4b1e14J9erx6FLaKLFGuk1ZdAhKmyHrXdrMRA+bbQOXF
+	d0tjhPyVM8QxKQp6SO9CmMM4kvMelrCvxwEH1NUkgMMGAPvk/WMr0AqssdbGoxmnnJhf+Ny4pp9Su
+	HxtRQDCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyT3G-00000007YSa-1k70;
-	Tue, 16 Sep 2025 10:36:46 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1uyTWd-00000007csd-2VbK;
+	Tue, 16 Sep 2025 11:07:07 +0000
+Received: from mail-southindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d408::] helo=MA0PR01CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyT3D-00000007YQR-1tMk
+	id 1uyTWa-00000007crT-3caf
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 10:36:44 +0000
-Received: from Atcsqr.andestech.com (localhost [127.0.0.2] (may be forged))
-	by Atcsqr.andestech.com with ESMTP id 58GA7Hfq069135
-	for <linux-riscv@lists.infradead.org>; Tue, 16 Sep 2025 18:07:17 +0800 (+08)
-	(envelope-from randolph@andestech.com)
-Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 58GA4QXx067800
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 16 Sep 2025 18:04:26 +0800 (+08)
-	(envelope-from randolph@andestech.com)
-Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS31.andestech.com
- (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Tue, 16 Sep 2025
- 18:04:26 +0800
-From: Randolph Lin <randolph@andestech.com>
-To: <linux-kernel@vger.kernel.org>
-CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <jingoohan1@gmail.com>,
-        <mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <alex@ghiti.fr>, <aou@eecs.berkeley.edu>,
-        <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
-        <ben717@andestech.com>, <inochiama@gmail.com>,
-        <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
-        <shradha.t@samsung.com>, <randolph.sklin@gmail.com>,
-        <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
-Subject: [PATCH v2 3/5] riscv: dts: andes: Add PCIe node into the QiLai SoC
-Date: Tue, 16 Sep 2025 18:04:15 +0800
-Message-ID: <20250916100417.3036847-4-randolph@andestech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250916100417.3036847-1-randolph@andestech.com>
-References: <20250916100417.3036847-1-randolph@andestech.com>
+	Tue, 16 Sep 2025 11:07:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rCEajQEFaMK0Mby5pxLITQw0SxPxh/iELYQgqPr8hG/8vLmQvgC1ioOB6aXsW4dmGar66XSZglFr2i8FMHihxxSzUFQAWRJETwTAPxqCo/dQdIKg33AXztErZpnZ5/kdjCNSYm/eFQh8Z2z6r1TI5BhvzYBjpI1qHqdU7cvzAqys856NTYASdtkkuY1ekDh7zvhFttdB8hfgc6CMP2va5CRsX/7bwJZC4x7J2wkuRRAQG1iHcSk7+YSx33nDrseY4ziZF+ptEf2IgIJgSTxZwNwJgSNtCosRxKrXmAp+sSfJFdqpD7v8GD7K0twkPWWaBznlR0FZuF+sei+u0YXL3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Op3D7/goUTQ5LpwwKdFPv/F+JK5K0I/OMeTRnPwrwv4=;
+ b=Ft7tJcwlf/Roz8tb2yGEi6yg0Us/zHpmDo2klMC8cwh+cQG8uWHnkkYEvHWadhaw0hrxwX7G9fDDLVu8/UqS821J3YzKGdgdfGr46UyJANn6bh9fITuJCCjGBCcN8dEUhKAyJ2e4UuDv4smmp80uihHZB9uG/eW6qUR6ICgRn82iB5pxNqkEefYEmwdXc77XcMFbQbLa184tm111Ty0yvmkuZSzDJJTWIa0gA70Q9eMNs/wVV+6YHNXLZPmYwPgubBisylAMqCjoK8WVXrnjij5WnHJQ7bgW6MsKPuHMr4rzv/ga/qcFFflVEEjxxzX/Z7wKHq3yE+TZs+Ix3h+8EQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Op3D7/goUTQ5LpwwKdFPv/F+JK5K0I/OMeTRnPwrwv4=;
+ b=BrW9NbhfSh2XZ+ZqoGI/SR8M+YttC5E6jy5fYLWZXKzur4iP3IZ0aHV9qrdGxxToH4poiOVTbhy67ZK9K2rDyYpX3udQp6RWcIouekMRXfqQlGVQGDFgaWyt6ELS7xzVfo4uGhnM0zG4pLTOIlcvsY5CD5FY0D21Uf5tUziicdLZZmHqMpS2bXzb+VVASPcTTUyf+AcdNATqAYpBmypDAfLnH5Ubvv1m2hOAw5s0psuddGvUvc8VHrRENGJlavo+sGKWlgovVhH3Dbce3WdFncfrbDNF7KJ0RedhoaW9lmLRxSMxA1U4WHTnWt9Rze2TPALfevod8j5oRE3nRsGhIQ==
+Received: from PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:2f4::10) by MA0PR01MB9078.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:11a::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.23; Tue, 16 Sep
+ 2025 11:06:34 +0000
+Received: from PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::aedf:9d47:d2fd:7de0]) by PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::aedf:9d47:d2fd:7de0%7]) with mapi id 15.20.9115.017; Tue, 16 Sep 2025
+ 11:06:34 +0000
+Message-ID: <PN4PR01MB11064C24A188A68558B5CD94DFE14A@PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM>
+Date: Tue, 16 Sep 2025 19:06:21 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/7] Add PCIe support to Sophgo SG2042 SoC
+To: Bjorn Helgaas <bhelgaas@google.com>
+References: <cover.1757643388.git.unicorn_wang@outlook.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+Cc: Chen Wang <unicornxw@gmail.com>, kwilczynski@kernel.org,
+ u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ arnd@arndb.de, bwawrzyn@cisco.com, bhelgaas@google.com, conor+dt@kernel.org,
+ 18255117159@163.com, inochiama@gmail.com, kishon@kernel.org,
+ krzk+dt@kernel.org, lpieralisi@kernel.org, mani@kernel.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org,
+ s-vadapalli@ti.com, tglx@linutronix.de, thomas.richard@bootlin.com,
+ sycamoremoon376@gmail.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-riscv@lists.infradead.org, sophgo@lists.linux.dev,
+ rabenda.cn@gmail.com, chao.wei@sophgo.com, xiaoguang.xing@sophgo.com,
+ fengchun.li@sophgo.com, jeffbai@aosc.io
+In-Reply-To: <cover.1757643388.git.unicorn_wang@outlook.com>
+X-ClientProxiedBy: SGXP274CA0003.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::15)
+ To PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:2f4::10)
+X-Microsoft-Original-Message-ID: <291160b7-5431-46ba-b53a-5ecebb896bde@outlook.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.173]
-X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 58GA7Hfq069135
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN4PR01MB11064:EE_|MA0PR01MB9078:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3cbf5ee-30e5-4eb0-b3c1-08ddf51118e4
+X-Microsoft-Antispam: BCL:0;ARA:14566002|23021999003|15080799012|461199028|8060799015|19110799012|5072599009|6090799003|1602099012|40105399003|52005399003|41105399003|440099028|3412199025|4302099013|10035399007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eHZnVUk0SmkvcUkvMVJTMERraUYzVlgwamVHamptdWlqZnlzU29OREdmR0E3?=
+ =?utf-8?B?aUU4ZlpZVEZCcXc5QkhnNjBoQ29lcHFqTEppY2ZLT1BWQ1dJY0NvT2RLVk9n?=
+ =?utf-8?B?clU0ZEJaZE1tOUtVMVByUmtmZ2xRNHFEeXpPSlBhV3FyaE5XbVU0QmV4ektN?=
+ =?utf-8?B?VThhNC9pOEorRm10YThyaExlNU9oejRibXlvTUZxYzQ3ODZUQVd4VXgwdWFN?=
+ =?utf-8?B?U2dKTUE3QUtvbFlQZFRkWGU2YnFHS2x4d0JWMURuTkZ3a0FUS0I3Q1FnZS9i?=
+ =?utf-8?B?ZUJpazlXYzN1bUhQWEVJUTlQZmpvUGtXcER1U3VuRVd2UFN3TnVseC9jMFdC?=
+ =?utf-8?B?ZjBZTjRLUjBoMXBuYmp3Y3FtR2R2eUlxRUU0dHRaWkJDM3VnM1dxallzTGRV?=
+ =?utf-8?B?QldwMzJMZmFkdE5ZWGFvWkU4TzF3SU4vMmR6QXM0WHRWdHNTb0FJaHJnOC9m?=
+ =?utf-8?B?N1ZDbHZPTEJURUl1TXlVWHJwZW56Z29SQzk1dFhSdDdrSGNsaEJ6c2JoK3Rw?=
+ =?utf-8?B?WnRjUklYNmVGQ0hCekplZzFFdDE4VUthSXc2OGVXUU80YUlNK0ROaGVnVVp2?=
+ =?utf-8?B?cnlRaTR0SjJ2bjYzZEZEdlJONVBIL2tnNSt3ODVWbEMzZFdsa04wRFlVSjNk?=
+ =?utf-8?B?dVIzd01ibnIyc2JoYWlzVGVxYkcxZGROYUhNNDVTdHVwVGt4bVZuWGg1VWdk?=
+ =?utf-8?B?bmZoTG1rSnJqWkRMMXRMRGMyMDM3ZHJqK0d0a2duOHp1RnI1dFFCQmc2UUhj?=
+ =?utf-8?B?RHEyRTBjSW42U2NGcXA3MlkzdUFxWVZFbFgwclNtZXAvZWdaTUxFb1JVbDR5?=
+ =?utf-8?B?NkdpcjdCRm5BU0NNbWtYTmlNcGVQM01GaTVjWFc1eFJRb3A2NFZHRmF2NUlV?=
+ =?utf-8?B?N0VkSDlwMkpFc1hFN3lHSXFTeWQ0dTdtQ21RRVVYTkN3TWtMQkRrT01EU3dE?=
+ =?utf-8?B?aFdOa0ZMN21OR0tmUlZOMTA4dkxEdFBmUk1TM2xrR3ZMbWhkcFBKdVJKcmZS?=
+ =?utf-8?B?WE5ya0trU0QvSGZ5dVFJVHJmRXFUT3JmcWNPbzkzWTUzKzI2UzMvaHJyMEpK?=
+ =?utf-8?B?NldGUkt2U3lDTDdEaHRuZk84dm5FYyswMGduQ1IyRjRVRTNOSHZXQnVUTkdP?=
+ =?utf-8?B?K3d2YXZ2NTluaktEekZKTnN0cXdGSUZibXBiTDRET0pVa1BWVUNoU0p2RHNW?=
+ =?utf-8?B?M2YxdmcxY1F5ajFrS0ZqQnpJTmhSb01sQWRrOHhwNlN1OFNQWlRSb1R2RFcr?=
+ =?utf-8?B?RlJGMjBFUXZKbUZmaW1YVnVaU0xSQXhqV1d4M0V2Z21ZYndsWFgwVHJSSTNX?=
+ =?utf-8?B?dVp6bjlxUGJzV2lWK2VVcGVSeFBoRksxalNZZWFWYnkzQ2twdWh5UEpnN1Rt?=
+ =?utf-8?B?SFBsa0ZDSWo3M1dXRHMvMnlNbzdPMCtUM2U4dXBFcVVVZXFDZk9MRFlXd3hO?=
+ =?utf-8?B?SjBPNnhNT1hMT1RDeXVkYU5VdWlYeExUMXpES1JabTd1S29UMUxSOHNNMXdJ?=
+ =?utf-8?B?N0VtZXBwNnd4TWRHcEl5cmVmWE5DYnJSYkFtbklwUFpOZmlSVkIxVm5HMktl?=
+ =?utf-8?B?bmI1L0N5OFhLQnVGYmsyOE55eFZrV0FVZzBFbFZYK1M0ZGJMSzM4UUZOb2Iv?=
+ =?utf-8?B?dnYxQzlIRXpIY2VPUmlqSTJaT05uZXB4K0Q0NFJOU0dkUXJlQTBPZU1iZWJh?=
+ =?utf-8?B?Q09QRmR0MW50V0kxZEhIUjJjNkRUa2s0YVZwbnk3ck8xc3NPV0xDU0VCQVdC?=
+ =?utf-8?B?QzIwN3FIQkZQemVnTVRIbnhtZzU2V3ZGRFlKRkN0V3JTcVIwbFYwekZWQlNH?=
+ =?utf-8?B?Sk43R1pTUUVhaWhxUFhmemRJVG5SQVdKSEF4RGJ1SXlrYmphOCtyWnRQMS96?=
+ =?utf-8?Q?+qbSCq3OoSgWZ?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SzZMb3l0TGtRbS9KNkpKajdQVUlSUGlPVWNwbFhsUUFTcjlpYWhmNHRJamh2?=
+ =?utf-8?B?NUtzVERocjFTN1ZhT2lReDF2VVg2T01mUDJiLyt4eUttMFJJR0tQaGJzRW1v?=
+ =?utf-8?B?WVg4djZRZklwNGQ1WnVrbWxiRHRUdExmNGMydEdVS29yUU93TjdxMk5ubEM3?=
+ =?utf-8?B?ZTNPUnB6akMvWUlnRFpENDhJOXdYVk1kRjRlc3VjY3dmRFRQOHgzd1ozYzE1?=
+ =?utf-8?B?clBadmRtK2tzVzRnV1VqejdmblltNDFWV2I5aGl3SEtscnZYZ3BkNVcyMHVz?=
+ =?utf-8?B?Q3BJMHgrSHhiejduc1g2NnFvY0xZdGh3WFA2TTk3R2ZEeEE0RVVldnNYVjYw?=
+ =?utf-8?B?bzFWdU9kUUlkTGNkVm82cS81RE9yUUM5MTlwbVlwbW43RTN5ajNpVDlxbFdu?=
+ =?utf-8?B?NlFUVldEMkl3dEgyTGhrcVp6VHlzcmNnVnE3RVZsajRqaTVRUVo3SVJFZmlF?=
+ =?utf-8?B?RVNndVV2T2l2Z1BYOTlURGozVS8xOXZlY3M2Qy9ia1VmQlNkTHJsV004RjZE?=
+ =?utf-8?B?R2c3aFJVOGdsd0ZzSVZoK2hsYVlmcis1VEEyUEswQVNIckJSRTM3MzJ4d0Qv?=
+ =?utf-8?B?UC9ucXplU1RyVGduSFVpUEdNdnNXMVJKRnV0Q01BRk5Wblc4WnRidHl5MEVH?=
+ =?utf-8?B?TFMwSFlqK0x4NWxoazIwb24wOUkxTVJxUlBzUHZadWpVaG5HVEJXcnljRFJl?=
+ =?utf-8?B?NllNL2pJYVhTTmFoa1RMUVc2S1Q0dXZJcWQwL1NXUE1wdGwvNHB2aHhKUzJy?=
+ =?utf-8?B?S1RlR00vVFlEMTJXckZTOEpubDA2L041UnJNMXo5dmQ1eVNXWXNSekdWbldr?=
+ =?utf-8?B?bFgzRlB5N3NFRGFrY3VoSTdyYzJ5WWkwWDhxWVBKdlI4VTl0Z21aN0ZITThq?=
+ =?utf-8?B?Q0g4Z2paWWNmbGF3YnQvQ2JvQ3JUenByS1B5aG1ramYrRXpiMGtvbEhMM3ht?=
+ =?utf-8?B?OEpVUHUvck5peXBYbVVOamdqdCtycXIwKzVhbjlGeUlwYis3TE5wdVNQSUYz?=
+ =?utf-8?B?bHpINTF3VWE0S3NBb0R2c0J5Y1p4dHhnZVJRTjk3cTR4Z3BNS1ZSekhNVWx2?=
+ =?utf-8?B?bEUvcFkxWWcybUYwVXhIdHdBZGt0Q3JncGdTWXEyUENDWHFOM3h3L2htanM1?=
+ =?utf-8?B?NDI1dGtwMU9OWml1L1NXeVRlcVdaNTVoTFpBRjFoM0JXNDdUMDhVZVFaY21E?=
+ =?utf-8?B?RzdwVFNWL0x3RlNPV0hVbGd2UXBvQkV1aDZwcStYRFhiYTdENDdQUnFobFB2?=
+ =?utf-8?B?NFdvM0NJbFpaemY1ZFdwUnVjVGVsQUsxRGRRaGRKWnNvdktMNDZxaEViQW1i?=
+ =?utf-8?B?eFRXc3hXb28yRGs0bm9na3I0VXd0bjZTMnVSV1NrTkp3S2ZWU29uSUpHUTQr?=
+ =?utf-8?B?b2hXdHpVM3cvM1BMU0xkN0tMN3lyaWJRczUrY2UrWHBaTzlIL2ZsMWUwNWR0?=
+ =?utf-8?B?QWloMmpqS1NBZnphbGxJNVlvYTAzYXRpcjdwd1E1ejJLS3FxVmorZGxoMTBI?=
+ =?utf-8?B?V0cvT0hUeXpXSmx2YW5PVXpYRGs1Z0c3dkQvdU5STm5ya29JUHZtVEgvVnRx?=
+ =?utf-8?B?MWp1VjllaFdIbU01ekRmeStPanRCQlFYSWthc21FekNiRFVjRjNNK3U5TTBk?=
+ =?utf-8?B?dWlhYlZDajl1cWtEbGJqVVRCdFZuMFFXdzRWUFB1Ukx0c1lpUC9pcmhyQ1VG?=
+ =?utf-8?B?VTROWlM2aStIcXlNMzl4Y0hXQjY1QlBsRndGaE9jRUJ5U1FVZmJMM2MrYnFE?=
+ =?utf-8?Q?h0vLhGYey+gF0BaJCUQ7oP1aYk1Xl3KB9fqpUop?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3cbf5ee-30e5-4eb0-b3c1-08ddf51118e4
+X-MS-Exchange-CrossTenant-AuthSource: PN4PR01MB11064.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 11:06:34.0720
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0PR01MB9078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_033643_811426_5156A5C9 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250916_040704_906444_D5BEAB78 
+X-CRM114-Status: GOOD (  30.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,140 +166,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the Andes QiLai PCIe node, which includes 3 Root Complexes.
+Hello, Bjorn,
 
-Signed-off-by: Randolph Lin <randolph@andestech.com>
----
- arch/riscv/boot/dts/andes/qilai.dtsi | 109 +++++++++++++++++++++++++++
- 1 file changed, 109 insertions(+)
+Is it ok for you to pick this patchset, so we can see this in next 6.18.
 
-diff --git a/arch/riscv/boot/dts/andes/qilai.dtsi b/arch/riscv/boot/dts/andes/qilai.dtsi
-index de3de32f8c39..d475b5fe2356 100644
---- a/arch/riscv/boot/dts/andes/qilai.dtsi
-+++ b/arch/riscv/boot/dts/andes/qilai.dtsi
-@@ -182,5 +182,114 @@ uart0: serial@30300000 {
- 			reg-io-width = <4>;
- 			no-loopback-test;
- 		};
-+
-+		bus@80000000 {
-+			compatible = "simple-bus";
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
-+			ranges = <0x00 0x80000000 0x00 0x80000000 0x00 0x20000000>,
-+				 <0x00 0x04000000 0x00 0x04000000 0x00 0x00001000>,
-+				 <0x00 0x00000000 0x20 0x00000000 0x20 0x00000000>;
-+
-+			pci@80000000 {
-+				compatible = "andestech,qilai-pcie";
-+				device_type = "pci";
-+				reg = <0x00 0x80000000 0x00 0x20000000>, /* DBI registers */
-+				      <0x00 0x04000000 0x00 0x00001000>, /* APB registers */
-+				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
-+				reg-names = "dbi", "apb", "config";
-+
-+				bus-range = <0x0 0xff>;
-+				num-viewport = <4>;
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x00 0xf0000000>,
-+					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x1f 0x00000000>;
-+
-+				#interrupt-cells = <1>;
-+				interrupts = <0xf 0x4>;
-+				interrupt-names = "msi";
-+				interrupt-parent = <&plic>;
-+				interrupt-map-mask = <0 0 0 0>;
-+				interrupt-map = <0 0 0 1 &plic 0xf 0x4>,
-+						<0 0 0 2 &plic 0xf 0x4>,
-+						<0 0 0 3 &plic 0xf 0x4>,
-+						<0 0 0 4 &plic 0xf 0x4>;
-+			};
-+		};
-+
-+		bus@a0000000 {
-+			compatible = "simple-bus";
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
-+			ranges = <0x00 0xa0000000 0x00 0xa0000000 0x00 0x20000000>,
-+				 <0x00 0x04001000 0x00 0x04001000 0x00 0x00001000>,
-+				 <0x00 0x00000000 0x10 0x00000000 0x08 0x00000000>;
-+
-+			pci@a0000000 {
-+				compatible = "andestech,qilai-pcie";
-+				device_type = "pci";
-+				reg = <0x00 0xa0000000 0x00 0x20000000>, /* DBI registers */
-+				      <0x00 0x04001000 0x00 0x00001000>, /* APB registers */
-+				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
-+				reg-names = "dbi", "apb", "config";
-+
-+				bus-range = <0x0 0xff>;
-+				num-viewport = <4>;
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
-+					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x7 0x00000000>;
-+
-+				#interrupt-cells = <1>;
-+				interrupts = <0xe 0x4>;
-+				interrupt-names = "msi";
-+				interrupt-parent = <&plic>;
-+				interrupt-map-mask = <0 0 0 0>;
-+				interrupt-map = <0 0 0 1 &plic 0xe 0x4>,
-+						<0 0 0 2 &plic 0xe 0x4>,
-+						<0 0 0 3 &plic 0xe 0x4>,
-+						<0 0 0 4 &plic 0xe 0x4>;
-+			};
-+		};
-+
-+		bus@c0000000 {
-+			compatible = "simple-bus";
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
-+			ranges = <0x00 0xc0000000 0x00 0xc0000000 0x00 0x20000000>,
-+				 <0x00 0x04002000 0x00 0x04002000 0x00 0x00001000>,
-+				 <0x00 0x00000000 0x18 0x00000000 0x08 0x00000000>;
-+
-+			pci@c0000000 {
-+				compatible = "andestech,qilai-pcie";
-+				device_type = "pci";
-+				reg = <0x00 0xc0000000 0x00 0x20000000>, /* DBI registers */
-+				      <0x00 0x04002000 0x00 0x00001000>, /* APB registers */
-+				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
-+				reg-names = "dbi", "apb", "config";
-+
-+				bus-range = <0x0 0xff>;
-+				num-viewport = <4>;
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
-+					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x7 0x00000000>;
-+
-+				#interrupt-cells = <1>;
-+				interrupts = <0xd 0x4>;
-+				interrupt-names = "msi";
-+				interrupt-parent = <&plic>;
-+				interrupt-map-mask = <0 0 0 0>;
-+				interrupt-map = <0 0 0 1 &plic 0xd 0x4>,
-+						<0 0 0 2 &plic 0xd 0x4>,
-+						<0 0 0 3 &plic 0xd 0x4>,
-+						<0 0 0 4 &plic 0xd 0x4>;
-+			};
-+		};
-+
- 	};
- };
--- 
-2.34.1
+You can pick [1/7]~[3/7], I can handle the left dts part.
 
+Thanks,
+
+Chen
+
+On 9/12/2025 10:35 AM, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+>
+> Sophgo's SG2042 SoC uses Cadence PCIe core to implement RC mode.
+>
+> This is a completely rewritten PCIe driver for SG2042. It inherits
+> some previously submitted patch codes (not merged into the upstream
+> mainline), but the biggest difference is that the support for
+> compatibility with old 32-bit PCIe devices has been removed in this
+> new version. This is because after discussing with community users,
+> we felt that there was not much demand for support for old devices,
+> so we made a new design based on the simplified design and practical
+> needs. If someone really needs to play with old devices, we can provide
+> them with some necessary hack patches in the downstream repository.
+>
+> Since the new design is quite different from the old code, I will
+> release it as a new patch series. The old patch series can be found in
+> here [old-series].
+>
+> Note, regarding [2/7] of this patchset, this fix is introduced because
+> the pcie->ops pointer is not filled in SG2042 PCIe driver. This is not
+> a must-have parameter, if we use it w/o checking will cause a null
+> pointer access error during runtime.
+>
+> Link: https://lore.kernel.org/linux-riscv/cover.1736923025.git.unicorn_wang@outlook.com/ [old-series]
+>
+> Thanks,
+> Chen
+>
+> ---
+>
+> Changes in v3:
+>
+>    This patchset is based on v6.17-rc1.
+>
+>    Fixed following issues for driver code based on feedbacks from Bjorn Helgaas,
+>    Mingcong Bai, thanks.
+>
+>    - Fixed the issue when building the driver as a module. Define own pm_ops
+>      inside driver, don't use the ops defined in other built-in drivers.
+>    - Improve .remove() function to properly disable the host.
+>
+> Changes in v2:
+>
+>    This patchset is based on v6.17-rc1. You can simply review or test the
+>    patches at the link [2].
+>
+>    Fixed following issues based on feedbacks from Rob Herring, Manivannan Sadhasivam,
+>    Bjorn Helgaas, ALOK TIWARI, thanks.
+>
+>    - Driver binding:
+>      - Removed vendor-id/device-id from "required" property.
+>    - Improve drivers code:
+>      - Have separated pci_ops for the root bus and child buses.
+>      - Make the driver tristate and as a module.
+>      - Change the configuration name from PCIE_SG2042 to PCIE_SG2042_HOST.
+>      - Removed "Fixes" tag from commit [2/7], since this is not for an existing bug fix.
+>      - Other code cleanups and optimizations
+>    - DT:
+>      - Add PCIe support for SG2042 EVB boards.
+>
+> Changes in v1:
+>
+>    The patch series is based on v6.17-rc1. You can simply review or test the
+>    patches at the link [1].
+>
+> Link: https://lore.kernel.org/linux-riscv/cover.1756344464.git.unicorn_wang@outlook.com/ [1]
+> Link: https://lore.kernel.org/linux-riscv/cover.1757467895.git.unicorn_wang@outlook.com/ [2]
+>
+> ---
+>
+> Chen Wang (7):
+>    dt-bindings: pci: Add Sophgo SG2042 PCIe host
+>    PCI: cadence: Check pcie-ops before using it
+>    PCI: sg2042: Add Sophgo SG2042 PCIe driver
+>    riscv: sophgo: dts: add PCIe controllers for SG2042
+>    riscv: sophgo: dts: enable PCIe for PioneerBox
+>    riscv: sophgo: dts: enable PCIe for SG2042_EVB_V1.X
+>    riscv: sophgo: dts: enable PCIe for SG2042_EVB_V2.0
+>
+>   .../bindings/pci/sophgo,sg2042-pcie-host.yaml |  64 ++++++++
+>   arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts  |  12 ++
+>   arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts  |  12 ++
+>   .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  12 ++
+>   arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  88 +++++++++++
+>   drivers/pci/controller/cadence/Kconfig        |  10 ++
+>   drivers/pci/controller/cadence/Makefile       |   1 +
+>   .../controller/cadence/pcie-cadence-host.c    |   2 +-
+>   drivers/pci/controller/cadence/pcie-cadence.c |   4 +-
+>   drivers/pci/controller/cadence/pcie-cadence.h |   6 +-
+>   drivers/pci/controller/cadence/pcie-sg2042.c  | 138 ++++++++++++++++++
+>   11 files changed, 343 insertions(+), 6 deletions(-)
+>   create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+>   create mode 100644 drivers/pci/controller/cadence/pcie-sg2042.c
+>
+>
+> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
 
 _______________________________________________
 linux-riscv mailing list
