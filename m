@@ -4,62 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68043CAC598
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 13:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F23E7CAC59B
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 13:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B3ngvPu5R43GgGAAe8AHn7WsFOs7hwN2PlkscdJv564=; b=CFH0H2/ybkXHhs
-	0vunOKv8Hee0xgAYcR9EV7ywxzcp9WI3yRNJBiVncTusSlKHcEEYiwUGW3CPeDWGd7uMGdEMGxtxk
-	9bnKVPSZzS7rV1O47aB65jRZIwx2BNa8WA/x6NBBzh7XWKfj/I0l94uaCGmAkhgX8lLQk8MHtIlU5
-	dRVNBHZKDfp312nl8nY09JvC+HXo4R/vn1lL59v8d4M9JmZ1FMNxy9YJLbTDGT4CaxMCcb28MMYoP
-	Nh0o8Uz9ULn507Vg9glbi/BYDhEVotNtUzauQ376PcD37apVzspIf6uEjOSC+vjKeWXty3md56N+q
-	AldWHKOR+v1HP+qxwzPA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wO8PT0yDFyEVeevTpO5SHNHV26lIsUWPXgGDsO5PxDE=; b=JDVsWlXpV+vNqg
+	zedpDHwYdzLjz1CXnkFcr4ddHkF9xklQyXrx3TApQp6SKtR/lKd8bxN4qpN9ujhrn77IYeXwgmuw8
+	BtZNIkTUJm4cEt78hVvvegDZaWW/UNvbxt0swCuBtOQUOj0Tc2VRGxjmgalldAh0TOAFBGy1J/ie9
+	CiJeJxk/h8c3iNM2KjWg5zDaGSmhIR+icjckIEm1oBG74aijHVgKX4YirJbYVV8H8X7ovFryS69je
+	3ODfQh5kF3GMyuLAar9undYBeuXbBhDtsCU6aA7vVuw0aySoEP4Ap5H6iUHGoDnBIp2cB7536QLAh
+	94GxVip0ismY+zwP7Dhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyVNi-00000007sCA-0vOD;
-	Tue, 16 Sep 2025 13:06:02 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1uyVe9-00000007v3v-3d8h;
+	Tue, 16 Sep 2025 13:23:01 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyVNf-00000007sAp-2bmd
+	id 1uyVe6-00000007v3d-25hO
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 13:06:00 +0000
-Received: from localhost (unknown [180.158.240.90])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 6061A340E10;
-	Tue, 16 Sep 2025 13:05:58 +0000 (UTC)
-Date: Tue, 16 Sep 2025 21:05:53 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Lee Jones <lee@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Alex Elder <elder@riscstar.com>,
-	lgirdwood@gmail.com, alexandre.belloni@bootlin.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, mat.jonczyk@o2.pl,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux.amoon@gmail.com, troymitchell988@gmail.com,
-	guodong@riscstar.com, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v13 0/7] spacemit: introduce P1 PMIC support
-Message-ID: <20250916130553-GYC1255161@gentoo.org>
-References: <20250825172057.163883-1-elder@riscstar.com>
- <175690199980.2656286.5459018179105557107.b4-ty@kernel.org>
- <ec882a78-9604-45b1-9405-8f2f958f307c@riscstar.com>
- <7aba368e-709b-49b0-b62c-f2f8250c8628@sirena.org.uk>
- <20250916084229.GG1637058@google.com>
- <c8bcfff9-9d2a-426d-9df8-100efd2af64f@sirena.org.uk>
- <20250916122724.GB3585920@google.com>
+	Tue, 16 Sep 2025 13:23:00 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-77616dce48cso2982098b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Sep 2025 06:22:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758028977; x=1758633777; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zw7XcaE2r1FmXR6hLChylDYbe2XxfsRNzLzDm93R3xY=;
+        b=Ty2/lOMryaAIeR2VypY1ucwAcaosfKUAU3AqfL9pXNdc9NdPOfivu+stdQxvCZwTgv
+         zCCKMmTtGTfqouD7K1tHYD9nUJbA5pCJhl21tKqSZUk/Kcf5SbkW0RV3QI8bfZzyZ+qC
+         fOlGY6UWeDv5bxhIyRecNaFuvmvEQNA0FP/zOpt6a5qRM/4/8l6ooRwnKYuHxnLcwgqD
+         aDIQOOlVAVuY1/NTtsbB0PJV3QazbR4CRKXGCUvFhik5ORGj5q1KrKk4Fa0aYyfvCvSL
+         X0Xn891/ss67sHvymxxkdYo4p4C/Y1t29MYoPf5zk+el6dhRzlOyJo9UD6kn4mwxVmpe
+         XLNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758028977; x=1758633777;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zw7XcaE2r1FmXR6hLChylDYbe2XxfsRNzLzDm93R3xY=;
+        b=mAj58qKC6AUSJqi+c2nPhsMOCDYoqZqFMeWRO04qts0hb7FFJI4lDAO5RWW80RzFbG
+         a4CgZLsW4Dm8jDx01PhRcqU0Jp2TQxB7BkqdC0e+QaL1FwNKKsu1H312/rmi0nIw0ADS
+         TFknHLQuub3pouCVHni7wxeYOOnzlMeZPs0353MFxps/dmo/U/8oZ2xZGIx3JJ1pDqIx
+         uElS3+r3O2TGGVh7gLUh1rsmH/EUrcqStQ81+ox0f8H+P1wRuSNi1VBnpi/tBRwtD8PF
+         3Wpz8g5ndqchIvLqNleWk8gfGjAyVxv+hCt9P0gjVc3F9RCx5i1foS1ZldlMh/pSc+uv
+         t1yg==
+X-Forwarded-Encrypted: i=1; AJvYcCVjAAK1qitTNZWBiH3Z+7Egzqn3yZB+iw96LHwzZIAAskTjK0pl/te8X97HlLLgkZ72d2yaWGvegh0tdg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyzac3SJEihBA8aB/qu02oxF2DVAiyFodRvr9OTdOso8KtJQx5z
+	uoXfvS4FGJvY4HQ3baj4t7kGxcsxFjI8jchLKr+46gsnaIqJW12NobrfyG2w/O5hs4A=
+X-Gm-Gg: ASbGncv4Zhn7Wf8kWtSHu5AQ8/nZSWz84DlH0cW2zZWLn48Gl/AZlKEmIypQjAgINZp
+	8OnfrcRcY8PPNzKxqPp3WMi7RzoAvX4D0DGX7C452IE3yM3JcS5M1SQcd5hhml8tlbrR82ElPul
+	QvYCBJhY3o0zXbaCuhZvYBOePU0I2o/0JsBUqImsIXi2WMpLA6571EQ0eQm3kFgKXbaAb+dDDtM
+	Ps3IXtAW6a5O9wi81GbZbV52+9oRkiTY+EBLTrMe/lSYk4ExHewtej76fXq4xEc/gMNRH7P8nO3
+	mnwWeh411bvw3AOmakgs5GBwgfsDyMyjrBec22HrNxbGvC52PMObdn0CNje2E50JRXXx8vyN026
+	WP3arfFxRopXwE50efDHj799fvbz+gg==
+X-Google-Smtp-Source: AGHT+IH8qtkp61xqbdRtMzYn6rP/97r4rWCE3eOFI0oW0kXWAEgQS9ZSayzpkellSCtSLE8uefRSpQ==
+X-Received: by 2002:a05:6a00:8c6:b0:776:1804:6fe with SMTP id d2e1a72fcca58-776180409c5mr16008326b3a.7.1758028976698;
+        Tue, 16 Sep 2025 06:22:56 -0700 (PDT)
+Received: from [127.0.0.1] ([101.76.241.248])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7761562f25dsm13277310b3a.74.2025.09.16.06.22.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Sep 2025 06:22:56 -0700 (PDT)
+From: Zixian Zeng <sycamoremoon376@gmail.com>
+Subject: [PATCH v2 0/4] Add SPI NOR DTS node for SG2042 SoC and boards
+ using it
+Date: Tue, 16 Sep 2025 21:22:49 +0800
+Message-Id: <20250916-sfg-spidts-v2-0-b5d9024fe1c8@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250916122724.GB3585920@google.com>
+X-B4-Tracking: v=1; b=H4sIAKlkyWgC/23Myw6DIBCF4Vcxsy4NULXiqu/RuFAZcJJ6CWNIG
+ 8O7l7ru8j/J+Q5gDIQMbXFAwEhM65JDXwoYp37xKMjmBi11JRt1E+y84I3szgKxqmVZmto4hHz
+ YAjp6n9izyz0R72v4nHZUv/UvE5WQwpjhjnrAxljz8HNPr+u4ztCllL5rQK5+pAAAAA==
+X-Change-ID: 20250813-sfg-spidts-ee56044969fe
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+ Inochi Amaoto <inochiama@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Han Gao <rabenda.cn@gmail.com>, Longbin Li <looong.bin@gmail.com>, 
+ Zixian Zeng <sycamoremoon376@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758028972; l=1435;
+ i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
+ bh=CGgTSIYt63qsmZdwIds4EcFmwLudv2lGpTjjwlt+HoE=;
+ b=frGV+4xLcAYmFm8cXKHpsQaD0uBvclAaMVxAAhak1hE/IpCvgEap926nsl9BMP/TlwV0EZZ+P
+ mFr1wUbMukKDMfYQpgs48Il27cqhMfYZvRtaGw2q/TNe6z0g4TVVak7
+X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
+ pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_060559_682264_BD17EB5A 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20250916_062258_544469_4576E011 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,46 +116,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Mark, Jones,
+[PATCH 1/4] and [PATCH 2/4] are copied from patch set [1]
+[PATCH v4 4/4] with content changes:
 
-On 13:27 Tue 16 Sep     , Lee Jones wrote:
-> On Tue, 16 Sep 2025, Mark Brown wrote:
-> 
-> > On Tue, Sep 16, 2025 at 09:42:29AM +0100, Lee Jones wrote:
-> > > On Thu, 11 Sep 2025, Mark Brown wrote:
-> > > > On Thu, Sep 11, 2025 at 11:36:41AM -0500, Alex Elder wrote:
-> > 
-> > > > > How should these two patches be merged?  Mark has reviewed the
-> > > > > regulator patch 3 and Alexandre has acked the RTC patch 4.
-> > 
-> > > > We'd both have been expecting them to go via MFD.
-> > 
-> > > Why?  I don't see any dependencies between them (usually a shared MFD
-> > > header-file).  If there are no deps, it should be taken through its own
-> > > repo, no?
-> > 
-> > I used to just apply things but at some point Linus complained about
-> > cases where the MFD ended up not getting merged (missing the merge
-> > window or whatever) so I've been treating them like they had an actual
-> > dependency.
-> 
-> Not sure I've seen any of that from Linus, but I don't doubt you.  The
-> MFD part has been merged now, so it's save to go ahead and apply the
-> Regulator part.
-> 
+According to SG2042 Pioneer and SG2042_EVB_V1/V2 schematics, SPI-NOR Flash
+cannot support QSPI due to hardware design.
+Thus spi-(tx|rx)-bus-width must be set to 1.
 
-Forgive me to chim in..
+Link: https://lore.kernel.org/linux-riscv/20250720-sfg-spifmc-v4-0-033188ad801e@gmail.com/ [1]
 
-To be honest, I don't really mind which tree the patch to go through.. 
+Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+---
+Changes in v2:
+- Change value of spi-(tx|rx)-bus-width properties to 1 of all boards.
+- Decrease spi-max-frequency to 50MHz.
+- Link to v1: https://lore.kernel.org/r/20250813-sfg-spidts-v1-0-99b7e2be89d9@gmail.com
 
-But since the patch 3 has no build time dependency on previous two,
-so it should be fair to take via pmu/regulator tree, I've done a check
-locally which imply this..
+---
+Zixian Zeng (4):
+      riscv: dts: sophgo: Add SPI NOR node for SG2042
+      riscv: dts: sophgo: Enable SPI NOR node for PioneerBox
+      riscv: dts: sophgo: Enable SPI NOR node for SG2042_EVB_V1
+      riscv: dts: sophgo: Enable SPI NOR node for SG2042_EVB_V2
 
-What do you think, Mark?
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts       | 24 ++++++++++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts       | 12 +++++++++++
+ .../riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 24 ++++++++++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi             | 24 ++++++++++++++++++++++
+ 4 files changed, 84 insertions(+)
+---
+base-commit: 8a4fdd09c96f6713e6cb47d36e9f9dd6f6694215
+change-id: 20250813-sfg-spidts-ee56044969fe
 
+Best regards,
 -- 
-Yixun Lan (dlan)
+Zixian Zeng <sycamoremoon376@gmail.com>
+
 
 _______________________________________________
 linux-riscv mailing list
