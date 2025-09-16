@@ -4,73 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120E2CAC592
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 20:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA3CCAC592
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 21:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qKa0OmbidJmtHCWe/Y6gQ/Ohlb4H0JdPzJDTDlPoQV8=; b=N+u+JenOdZ/YgzAQ06YShYTfmB
-	qiqAw74BvGQ+vVtuEoBGcf2dt6ZLWU0UWDPNXeGDLun27lhruXDLNFicCEc4Z9xIg1ryeoseUxOXt
-	eCGUSesWxIe44yimb7RLXZyBT2lizvPyj/sLnzMm4G8CwSebd+14AM8WIX6lXsr57D/t8klDBNGEW
-	W+SDCMLW9dT9Z3UVnE94qafQ/9MzP2nI2zYPtkTODf2k6KqMSAK84+ESVdVnQ76bA0bl0hKTf0hEG
-	7cBGQdQl/9KepYofvbNlz2Ne7FBocumEBCtktTC3i3fD70WiypUjVIoBG4BPfZuusK6Wk0J/ayFB2
-	YKwKv8fw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jzo7HpZ1JMGnqIYTqVDI2ovxW8hC3zshnW/WS6By3Hs=; b=izODtbTbuR9vahFWWLkIG6GHHa
+	oqHJ3W103CgqiCOSROX7IbaR+smltWHAlLkUL/aS9ZHprn11RrDUzmx5vQq9rM6l6knKNDUJRuDB9
+	5SF/VVz6qHCJYJhl/yQV6dxm5CipzK74fWZMOHnkPYjC/VGRAY0NkCJ7uHAaEE7Dc99cI2zz7Vd0O
+	dvB8eoLAUDGIsOtUNLieQSXyNLDbdzlxHRflBGERmVxPywdhD5WCkO4ENIRSnm7PJ+KdMbk9ns5p0
+	xJytbuHXb9AIf1iMElIM0ANbAkvRzlrxSgmnoL1ym7QQumBfNrjtZRDfWeztBskdhkXokn5NBQY/m
+	Mh4ysRHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybqd-00000008uXl-29VG;
-	Tue, 16 Sep 2025 20:00:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uydUd-00000009G0z-0fR9;
+	Tue, 16 Sep 2025 21:45:43 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybqa-00000008uXM-3CVn
+	id 1uydUa-00000009Fyj-013m
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 20:00:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 73CC743E85;
-	Tue, 16 Sep 2025 20:00:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18E73C4CEEB;
-	Tue, 16 Sep 2025 20:00:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758052816;
-	bh=l5RcyRudbMnKY2qL2IjniShJoq21cxYpHC73/ta/rIc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WiA3Ub8XYcwT1DFXZ/U0zg5fVLhMo7zwb3vorV4CSHFeQkUaVUq0q/CcVo5dbTCRk
-	 aPvmEYLA9+g3C/ITecGWf6qg5a8JnZVAk3Qe5uBKQIvTfxwC/4lgnrY2pC6YWbDFK5
-	 arFTIMQKar9g7mjl3iQlr2LF3mDLMra3Snc4fUmcG0LunKMwM5V2jviFidtfZpvqrQ
-	 w7KXuW/8WmwN7zuWpmN8xPWfrGl0Y5R97VRre8Av68zN8Irn9vejQ51dZ1i1vWPA2T
-	 9fqDiTXb0y1BhPfgTm1rp1aAgCixpG7jTm/0U3ApDjycvMMxdO5JvDRFch0alA+nwd
-	 TuZEb8t8eLaEA==
-Date: Tue, 16 Sep 2025 13:00:14 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Tue, 16 Sep 2025 21:45:41 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b54acc8c96eso4219472a12.0
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Sep 2025 14:45:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1758059139; x=1758663939; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2oMu80/8qr3zTmEJZAl1KXHqB5S4PD4PrukmUZoG8ms=;
+        b=cQOKhctkn7pmfCRPW/4vsfWkZ8lSH6QUGRF6nIjYPbLi8bYkboD/F312P5SdsVldQw
+         geLxSOEyWMxU3mdr+HG2r22owsEx5Oj7q7XlUTsuBqhJ1y0zBj+Q+EzDiYfpEdNJ0yTO
+         lurEzWzhECfAi4mdGIJQ7nwqjQzwVq1/OZa8irBQHFHHNn3MlFfVA5vNNEi8T4d4GDfy
+         ipZhSMHBBFwZ1J+4/zB6Q3JAPwdv5SH3OLqeqSNSKJ+MJQVBYO7xjGdgli5Im68U7mzC
+         NUuj9FrGc8EKqU0pieXNnfg6LqqKYBrgMhfGL9a0Q68jxRP0rzcrrecs9PlJetuW/XN3
+         rDmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758059139; x=1758663939;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2oMu80/8qr3zTmEJZAl1KXHqB5S4PD4PrukmUZoG8ms=;
+        b=EAfQaU4QZdFJWD/owNm798Vboo+emUYupVV1BDgJkeHpJlfnZTvsQC8ahHUu2U7rTg
+         d9/g+il//sAlvxP1uIZnCjwff3NwjrRiXZDnQR1ODbVSKC+1a5PzOrWSzjJWew3QPgl8
+         xNzskhiG52UlNqH6cFisKklFjH+rTM/jCa7GwEx5YqvOlM+QohlYU6sGI/v2/FYvocdY
+         gSm1CKCobBU0+RAwHLPfQhiuaNV2zBxMNt7a1+NTeuA6QwjJsutOytzEplydy5esLQIw
+         99LWiwSlQtcr0OX8SsMen0XnbE0bUqkZ+QxrfRxtS6xwb5eZtM0Ef6RZpYuANRkVDgR0
+         d9Bg==
+X-Gm-Message-State: AOJu0YwvaJuQRHx7meIqtLZBwmSIwK9FAwANjj9IUjxNi4ucrFAT7KL5
+	IsPAa/lEAcPtK6Q2lU6LqEqKrA0EcmuwsTMmkPvx+5kKStzMfImzMArqRkOO/cvTxnM=
+X-Gm-Gg: ASbGncvUHLdJTp463DT1QdYZtYipC/XwEPiaVJGocR/jKdxe73gHUIwvJnQxeXNorOJ
+	jBwVQlB7lJQazX8B4A/zlv6qE+wXjYk+vov9joTezInN/2Y3vEoj8S01oN2ZTOaqAc9J4X1SiOn
+	4qLWsuPoHzVw4LUYXbrWOChAjl6O1OfCJH6FDMoPtwd7TNCU8N8S0jCzLcsTcuhn3BoC11n+XKv
+	eknY1IpNsTCD5TeLFeRjEl86pJ3z3tR62R0WDf4Ks0JPdskgs2FyDiF86lK/EBlzFk0ieg+uOJv
+	QAd/f/zLgVKcFx6FH42lHG/EroGfjrDoE3JyIy7cnaiM1nwHdfgBEluF7wdBk/svFWMsc11waqX
+	0wLEgDQ02huVchE2WCazi+S71hhO59xtS
+X-Google-Smtp-Source: AGHT+IF5/A9g/gHD57+H8Ivg3g3/IAIPeuIqDTP9P2EseS5E1C+rm4rMi/1Yy80FsS4n3Id30lQozg==
+X-Received: by 2002:a17:903:1ab0:b0:24c:d08e:309b with SMTP id d9443c01a7336-25d24cac50fmr187714865ad.15.1758059138768;
+        Tue, 16 Sep 2025 14:45:38 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32ed266eed7sm530003a91.3.2025.09.16.14.45.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Sep 2025 14:45:38 -0700 (PDT)
+Date: Tue, 16 Sep 2025 14:45:35 -0700
+From: Deepak Gupta <debug@rivosinc.com>
+To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Adrien Ricciardi <aricciardi@baylibre.com>,
-	James Morse <james.morse@arm.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>, guo.wenjia23@zte.com.cn,
-	liu.qingtao2@zte.com.cn, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: riscv: Add Ssqosid extension
- description
-Message-ID: <aMnBzqgoUrLMAtxw@x1>
-References: <20250915-ssqosid-v6-17-rc5-v2-0-2d4b0254dfd6@kernel.org>
- <20250915-ssqosid-v6-17-rc5-v2-1-2d4b0254dfd6@kernel.org>
- <20250916-landfall-easeful-782b60eb7d69@spud>
- <aMm4n2PlI8JqmK2c@x1>
+	Ved Shanbhogue <ved@rivosinc.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Peter Xu <peterx@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Subject: Re: [PATCH V12 4/5] riscv: mm: Add soft-dirty page tracking support
+Message-ID: <aMnaf_3tInUXbuTb@debug.ba.rivosinc.com>
+References: <20250915101343.1449546-1-zhangchunyan@iscas.ac.cn>
+ <20250915101343.1449546-5-zhangchunyan@iscas.ac.cn>
 MIME-Version: 1.0
-In-Reply-To: <aMm4n2PlI8JqmK2c@x1>
+Content-Disposition: inline
+In-Reply-To: <20250915101343.1449546-5-zhangchunyan@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_130016_849934_AD73D3D6 
-X-CRM114-Status: GOOD (  23.63  )
+X-CRM114-CacheID: sfid-20250916_144540_165256_00D72E8B 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,100 +111,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0430474760625915964=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 15, 2025 at 06:13:42PM +0800, Chunyan Zhang wrote:
+>The Svrsw60t59b extension allows to free the PTE reserved bits 60 and 59
+>for software, this patch uses bit 59 for soft-dirty.
+>
+>To add swap PTE soft-dirty tracking, we borrow bit 3 which is available
+>for swap PTEs on RISC-V systems.
+>
+>Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 
---===============0430474760625915964==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="10bvof6Yj50fwpad"
-Content-Disposition: inline
-
-
---10bvof6Yj50fwpad
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Sep 16, 2025 at 12:21:03PM -0700, Drew Fustini wrote:
-> On Tue, Sep 16, 2025 at 07:36:01PM +0100, Conor Dooley wrote:
-> > On Mon, Sep 15, 2025 at 10:13:41PM -0700, Drew Fustini wrote:
-> > > Document the ratified Supervisor-mode Quality of Service ID (Ssqosid)
-> > > extension v1.0.
-> > >=20
-> > > Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
-> > > Signed-off-by: Drew Fustini <fustini@kernel.org>
-> > > ---
-> > >  Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
-> > >  1 file changed, 6 insertions(+)
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml =
-b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > index ede6a58ccf5347d92785dc085a011052c1aade14..38e3d8d38cce55022ea70=
-eb52423b1163e3cb097 100644
-> > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > @@ -165,6 +165,12 @@ properties:
-> > >              ratified at commit d70011dde6c2 ("Update to ratified sta=
-te")
-> > >              of riscv-j-extension.
-> > > =20
-> > > +        - const: ssqosid
-> > > +          description: |
-> > > +            The ratified Supervisor-mode Quality of Service ID (Ssqo=
-sid)
-> > > +            extension v1.0 which adds the Supervisor Resource Manage=
-ment
-> > > +            Configuration (srmcfg) CSR.
-> >=20
-> > Please cite when it was added, as is done for other extensions.
->=20
-> I had seen the pattern of commit X from Unpriv or Priv spec but I was
-> having trouble adapting that for Ssqosid as it has its own v1.0 PDF.
->=20
-> However, I now notice 'zacas' seems to have its own spec. Would this
-> work for 'ssqosid'?
->=20
->         - const: ssqosid
->           description: |
->             The Ssqosid extension for Quality of Service ID is ratified
-> 	      as v1.0 in commit 5059e0ca641c of riscv-ssqosid.
-
-I'll change it to use the kernel style of commit reference:
-
-        - const: ssqosid
-          description: |
-            The Ssqosid extension for Quality of Service ID is ratified
-            as v1.0 in commit 5059e0ca641c  ("Merge pull request #7 from
-	    ved-rivos/Ratified") of riscv-ssqosid.
-
--Drew
-
---10bvof6Yj50fwpad
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCaMnBvwAKCRDb7CzD2Six
-DGI2AQDqcVG90uwlP30BH0fXNY11iff7sli6pD7f9SZz6jEMrAEA2BRJtcXM8MdC
-qHtH4+VmDypq4EK6VlAvtKryUzkWigU=
-=euQh
------END PGP SIGNATURE-----
-
---10bvof6Yj50fwpad--
-
-
---===============0430474760625915964==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Reviewed-by: Deepak Gupta <debug@rivosinc.com>
+>---
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0430474760625915964==--
-
