@@ -4,82 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E321CAC599
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 06:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5641CAC598
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 06:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gt7McASdUKbd4AHW25ZjYun+BJwzWco4SRjGAY6FpHE=; b=C74z5Y9y20KVKq
-	vyddUFAxap7HoEekyubLjBQD4FmSb/v+zZvYns1bnjCiJ3HzzEOTgbhhJC6KigASmdU3txGouvvjL
-	ZncfzfCjCuTl2ZDa8OqrWtKZMknadL0UrY8ZfbIBsaoX5uWC4Aozl1AMV3+YhvmKJKJz83Zea+Jx7
-	0C/ZjXy0xOYh5PfDZwX2XxCCwBgDTEHw2yrpo0taU/fRlnlk1/gSgHksrluQtguzz54R0v0wDfzCw
-	VHKax/JdrlsyrucF2x7nFBHRxCt9g+YJRKk9E41Hi5CJuKmMOL6wY6rb7Hyke0+SVs6AURolN5QjI
-	xjl6vN0HB8iV8SGsbzZQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sb3VRNT1WB9F4ObNLN7mwavXWqD+g+8k+BiwejcCMQw=; b=3ccWFi1l7/d4j/
+	XOJAS/SrAfwuvgUj0M+vy8eIgj6eSqYfDII8fZKZW+RB4A22+h1lBjjRr5fcYWbU1lqwYFBbcb3Qr
+	paCLxMFbqJLOmD3daU6oMEpOVF3WI09s6o5fV3DNDpLKrOX2GJOx4QZlQ+cdIYwuEvA5sbl7E2c92
+	u5cESq+MHVNI+1gihA1tVHahMmO4JuMafJa2iKBe60rhk0Iopl+dDOP9oQ/b64epmZM7pu3zn3t++
+	w+7OoYTgPWZvhfbKZ1QICA/SKoui5vS4qvZrLTC7JnN/hzR+E+RvHvmJFvV2laFama/DnNG40BLwR
+	+i+NHAzcdgNSbWo9+5Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyP69-00000006uKh-2iu5;
-	Tue, 16 Sep 2025 06:23:29 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1uyPU1-00000006wdb-0k6u;
+	Tue, 16 Sep 2025 06:48:09 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyP67-00000006uJF-0TU1
+	id 1uyPTy-00000006wd6-13MH
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 06:23:28 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-72e565bf2f0so39002867b3.3
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 23:23:26 -0700 (PDT)
+	Tue, 16 Sep 2025 06:48:08 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3e9ca387425so1665664f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Sep 2025 23:48:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758003806; x=1758608606; darn=lists.infradead.org;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jzwxSCgUK/3UElXn+qMCVZOXd6lLimgLpQ+KrGfwqaU=;
-        b=UKyKFLAsAwhyhT/QrcHfPl+H/Cfo9OXRuy6QSpm+u099hfovqFbFDwRcfb7HfCkLl6
-         VW1bBrxrQ1uO/RSKTIHpkse71ro36XFScrNKxIRWPQAZ+ak/d0mrqi+Z+TAawmHYBGZo
-         NPAivOM6IhNm0pJDtbCBnbP52vRbFp+x03SSaGUqSBAxAmOOIiMR8ofCpO2ItCFNWYWn
-         K7m+jMAMtZlnYPgCeSBF55xuJ970Bxmqx3fL0T+fI50plKUfqzamsXVCjahAPz2jRSQw
-         fn0NRo26oYzJ2ceLM7Yr8Iqucd65fpET1TAZuIRzrw3EmeT/0XekdTb/CkwmnWIBHdRy
-         tKkw==
+        d=hammernet-be.20230601.gappssmtp.com; s=20230601; t=1758005284; x=1758610084; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=X+tAo4VoGXmxIB6DBfAH6v8rnl1xLmXmwDgGYNdFUWo=;
+        b=ml0YcGQg97Ba/2/1SdaYSD4MIgoCE0SfHRATZmPsz+lzczs001ocUWVGnfK4Ea7P6i
+         wCepGMKCfWskH/B6G/Opk0W2TG9p+RK0BJclmoE24pHBuEfEkYcdLD3T5ZcmGSCFCdUr
+         O2t9zk86IGN9zYT91i/E2RixWjrrZaoQQKPNkfkWRqyu78n2EY44+fqqszmjBuy8VQRR
+         tIGD5wfbh7ufIpXU5U9/DfO7DcswxfBeNhs9V69+4wdcRoJb9iDCUCXIJXEAxm+yh/6+
+         u9D5YL7GJEHCqweXvMOEBADHv7b78ttVFRx9AWnxMsQsbhbGgt/p+WXmqqysmKBfLxOL
+         V8UQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758003806; x=1758608606;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jzwxSCgUK/3UElXn+qMCVZOXd6lLimgLpQ+KrGfwqaU=;
-        b=k1AuxPFIUVUqvu2s3nnHO3bbHhlUlrkG5mzamuYBomUDZdPksa2F/KnBrmBkPprAb6
-         Ue61r1vSgYQS8zAZI63gxGcqez2kakk0ZHEG/GnVRWc1EFk/3f+GKpnxTesFmjfLxBp0
-         TsPnzKyy0MSGD5Zrqq/SS7euFeVfeFjNo3uo09u0O9wf+QD3TkW4fECWIujwnuGpSEDc
-         jCyCEK+iTcCET35V1vVetN/ZdW4OOIHKN0aGvxEnRkQUrRflaAtRkYySEGgGqgAAZ6EF
-         nXKg3PdIDs0OcpJKXtNKbdRwUabzDB50l1WCj47ran9RAVjUIocXUgMPTR2qmngaicks
-         3+mw==
-X-Forwarded-Encrypted: i=1; AJvYcCUfBCoH28D72UO1KGf0Owuy3OhfbrEzvVZCGWqOdfUFzUoMNMnvW7u7f3OcH5jkisw6pWcisgQE31BVaw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8mjsIhLVdJpZsFGz0B8Iup+TuqsLuCJLHqaFlTSSRX6UgU52W
-	/NwYeeBoCECL2xXmR1CBEPSf64m/VOlAF6pSFiLjqyFH9WrCkJQNGkIbVdDETNwhbg==
-X-Gm-Gg: ASbGncspaySRCr9evnbS2A6jvno41xuKhi7aNTISGXMcjQqLPYnvMGGF3FLEaWSlod/
-	hUmjkSJVq50eiGmZaBmY+qS3eyc5BqUWJAKxF42vLz4nzUdueBtbzvpIilcGbBk8NyzMNpxIR2r
-	78UvHMennKuggc5vzt/Zd0q8tahaz7Qj/3lISXQyuYGo2fS9Cf3/HY6CQQaUcnHlwuiSqKfWRq7
-	5xmWljuOVZxztRbpdirdhWwYe1I7tHuH/fjQeNvzHlWA4kGnm/4HLuPa47aMn5llDQrLJ4JPR+p
-	BhqvXnfE8guh4GlBsTLERDkTKmUgGXVrmr1u8A4OLqPlwYH45e5dR5c6ni/cu4RObe5EPev9q0J
-	/GBRzj/88X8DRxDHa8gu/YkD4dPvWAZwcXxgbesiS3ZRVxixh1f1gb4WEKlUJ2JhPLulTJdtJbX
-	sLBjgcdLZqnq2/gA==
-X-Google-Smtp-Source: AGHT+IFYH7nKR98YSl0bgd4j6elLmVBr5qc5bTleI6LMDXL64/KgQAEWWcRI4ClTxXA+31LnE3T7pA==
-X-Received: by 2002:a05:690c:b13:b0:71f:eb2b:83e0 with SMTP id 00721157ae682-73062ca43c8mr138095197b3.13.1758003805348;
-        Mon, 15 Sep 2025 23:23:25 -0700 (PDT)
-Received: from darker.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-72f7683148dsm38488107b3.23.2025.09.15.23.23.18
+        d=1e100.net; s=20230601; t=1758005284; x=1758610084;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=X+tAo4VoGXmxIB6DBfAH6v8rnl1xLmXmwDgGYNdFUWo=;
+        b=Lj98S6NWVSNkx5TfyBhDSmDPIJmmg7FLZf1vOH/FFDZc01U8E+hqiOcYHck5yx1Koo
+         29CHxhd1kIamDgKO4aUp8xDozlgcYfhpOE9GqaWc904utJ4atn45ar0H8aXKRVYKulsG
+         uMr4hjAOXWL2Swsb2w0BfyrE1/ZZPmHoDwHzMdAAmf1lHv74E5PDswxS0UyxETiPK6gF
+         +J9GjefEFpujDQLprLf6OlhCDcSSUPDv0374FEeZIOxqAwZF5iA10CK+/45ob0c48qF5
+         IOcbnT32v94vSxaQEbBPq+QAiHWhA/dGF3ISJUez2iEVlaeO2X2Si4u1s9WLsFXfmQx9
+         r0aQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU1Ua9mRApO6zLkKH5S9Nirb5YCtsBiTACeIPV8Wjl9FXipFehQK87vFd/jk8EeXUldDXTrh8Ah3Ag6Zg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxKpKNhRjol5oQCeY/cbZc2JdYku5xhtFGlidlDHVy80Q/z/II
+	Ilj9uAtEt1kyNix5149/kzZ2hnFPDF2IuDeHmcFVxONlldVZOy2A6PcIItYN3HZEXx/Z7yQ0ClQ
+	Okll/sWs=
+X-Gm-Gg: ASbGncs6nlHaC2qsVX3JxZ5qaWOdN1i195WHbbZ8n5i933eALbyIo9lUiHcIWetgGuL
+	fTHPFTi0wWpl4kItbo7P/F063feRmuG26ooi/7ZMmge+X6yv5wItYnZpSl+GOjLhcxaZ2rpDlJM
+	6Ky9u+4NJU5iTMGzf40j/QKmsM1FgyKyHtSMF8hn7hMZ/g40AH5q7FQNynKJUvWIb53bwp9w47l
+	MVHVL7bCrmQn0JN1ssK3yx6uCBXDSOlb+//fObQEF/Go9G/T1XwP2hz0wDkqyay9NUkkZDhFO6w
+	VM9Q/IFFpOqgiPdV86+mlj8ZvEXxGeL1wa3khh/A7SL+mZegN79O9f4zVNYmLRFzhxLRb9ngkvE
+	sBou+SsERo9F2MWWRdNcUm8IA406OTFVN80l6YKcs0seOY4vhNCU=
+X-Google-Smtp-Source: AGHT+IGIwZaL6eOxPY8i2tbasRq97/i9+Lhu6vC4tuOQC3RyZlYOA3fBU42M6yAQ/jln3QAv3pl44Q==
+X-Received: by 2002:a05:6000:3112:b0:3ea:80ec:8552 with SMTP id ffacd0b85a97d-3ea80ec89aamr4981748f8f.57.1758005283614;
+        Mon, 15 Sep 2025 23:48:03 -0700 (PDT)
+Received: from pop-os.telenet.be ([2a02:1807:2a00:3400:7f27:d8d2:cb4b:f811])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e037c9d91sm203672575e9.20.2025.09.15.23.48.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Sep 2025 23:23:24 -0700 (PDT)
-Date: Mon, 15 Sep 2025 23:23:17 -0700 (PDT)
-From: Hugh Dickins <hughd@google.com>
-To: "Roy, Patrick" <roypat@amazon.co.uk>
-Subject: Re: [PATCH v6 01/11] filemap: Pass address_space mapping to
- ->free_folio()
-In-Reply-To: <20250912091708.17502-2-roypat@amazon.co.uk>
-Message-ID: <7c2677e1-daf7-3b49-0a04-1efdf451379a@google.com>
-References: <20250912091708.17502-1-roypat@amazon.co.uk> <20250912091708.17502-2-roypat@amazon.co.uk>
+        Mon, 15 Sep 2025 23:48:03 -0700 (PDT)
+From: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+To: dlan@gentoo.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: skhan@linuxfoundation.org,
+	linux-kernel-mentees@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+Subject: [PATCH v3] riscv: dts: spacemit: add UART pinctrl combinations
+Date: Tue, 16 Sep 2025 08:47:39 +0200
+Message-ID: <20250916064739.196695-1-hendrik.hamerlinck@hammernet.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_232327_242110_720CF343 
-X-CRM114-Status: GOOD (  23.90  )
+X-CRM114-CacheID: sfid-20250915_234806_716247_905BC9B0 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,80 +104,478 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "hubcap@omnibond.com" <hubcap@omnibond.com>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "derekmn@amazon.co.uk" <derekmn@amazon.co.uk>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "devel@lists.orangefs.org" <devel@lists.orangefs.org>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>, "luto@kernel.org" <luto@kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>, "surenb@google.com" <surenb@google.com>, "brauner@kernel.org" <brauner@kernel.org>, "Cali, Marco" <xmarcalx@amazon.co.uk>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "trondmy@kernel.org" <trondmy@kernel.org>, "martin@omnibond.com" <martin@omnibond.com>, "david@redhat.com" <david@redhat.com>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "song@kernel.org" <song@kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>, "shuah@kernel.org" <shuah@kernel.org>, "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, "alex@ghiti.fr" <alex@ghiti.fr>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "andrii@kernel.org" <andrii@kernel.org>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "Thomson, Jack" <jackabt@amazon.co.uk>, "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "pfalcato@suse.de" <pfalcato@suse.de>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "haoluo@google.com" <haoluo@google.com>, "seanjc@google.com" <seanjc@google.com>, "anna@kernel.org" <anna@kernel.org>, "ast@kernel.org" <ast@kernel.org>, "peterx@redhat.com" <peterx@redhat.com>, "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>, "will@kernel.org" <will@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "corbet@lwn.net" <corbet@lwn.net>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "willy@infradead.org" <willy@infradead.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "bp@alien8.de" <bp@alien8.de>, "shakeel.butt@linux.dev" <shakeel.butt@linux.dev>, "linux-nfs@vger.kernel.org" <linux-nfs@vger.kernel.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "mhocko@suse.com" <mhocko@suse.com>, "jack@suse.cz" <jack@suse.cz>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "yuanchu@google.com" <yuanchu@google.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>, "hpa@zytor.com" <hpa@zytor.com>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "maz@kernel.org" <maz@kernel.org>, "x86@kernel.org" <x86@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "mingo@redhat.com" <mingo@redhat.com>, "axelrasmussen@google.com" <axelrasmussen@google.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "jannh@google.com" <jannh@google.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "vbabka@suse.cz" <vbabka@suse.cz>, "weixugc@google.com" <weixugc@google.com>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "hannes@cmpxchg.org" <hannes@cmpxchg.org>, "pbonzini@redhat.com" <pbonzini@redhat.com>, "martin.lau@linux.dev" <martin.lau@linux.dev>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Sep 2025, Roy, Patrick wrote:
+Add UART pinctrl configurations based on the SoC datasheet and the
+downstream Bianbu Linux tree. The drive strength values were taken from
+the downstream implementation, which uses medium drive strength.
+CTS/RTS are moved to separate *-cts-rts-cfg states so boards can enable
+hardware flow control conditionally.
 
-> From: Elliot Berman <quic_eberman@quicinc.com>
-> 
-> When guest_memfd removes memory from the host kernel's direct map,
-> direct map entries must be restored before the memory is freed again. To
-> do so, ->free_folio() needs to know whether a gmem folio was direct map
-> removed in the first place though. While possible to keep track of this
-> information on each individual folio (e.g. via page flags), direct map
-> removal is an all-or-nothing property of the entire guest_memfd, so it
-> is less error prone to just check the flag stored in the gmem inode's
-> private data.  However, by the time ->free_folio() is called,
-> folio->mapping might be cleared. To still allow access to the address
-> space from which the folio was just removed, pass it in as an additional
-> argument to ->free_folio, as the mapping is well-known to all callers.
-> 
-> Link: https://lore.kernel.org/all/15f665b4-2d33-41ca-ac50-fafe24ade32f@redhat.com/
-> Suggested-by: David Hildenbrand <david@redhat.com>
-> Acked-by: David Hildenbrand <david@redhat.com>
-> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
-> [patrick: rewrite shortlog for new usecase]
-> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
-> ---
->  Documentation/filesystems/locking.rst |  2 +-
->  fs/nfs/dir.c                          | 11 ++++++-----
->  fs/orangefs/inode.c                   |  3 ++-
->  include/linux/fs.h                    |  2 +-
->  mm/filemap.c                          |  9 +++++----
->  mm/secretmem.c                        |  3 ++-
->  mm/vmscan.c                           |  4 ++--
->  virt/kvm/guest_memfd.c                |  3 ++-
->  8 files changed, 21 insertions(+), 16 deletions(-)
-> 
-> diff --git a/Documentation/filesystems/locking.rst b/Documentation/filesystems/locking.rst
-> index aa287ccdac2f..74c97287ec40 100644
-> --- a/Documentation/filesystems/locking.rst
-> +++ b/Documentation/filesystems/locking.rst
-> @@ -262,7 +262,7 @@ prototypes::
->  	sector_t (*bmap)(struct address_space *, sector_t);
->  	void (*invalidate_folio) (struct folio *, size_t start, size_t len);
->  	bool (*release_folio)(struct folio *, gfp_t);
-> -	void (*free_folio)(struct folio *);
-> +	void (*free_folio)(struct address_space *, struct folio *);
->  	int (*direct_IO)(struct kiocb *, struct iov_iter *iter);
->  	int (*migrate_folio)(struct address_space *, struct folio *dst,
->  			struct folio *src, enum migrate_mode);
+Signed-off-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+---
+Changes in v3:
+- Added /omit-if-no-ref/ to pinctrl states to reduce DT size
 
-Beware, that is against the intent of free_folio().
+Changes in v2:
+- Split cts/rts into separate pinctrl configs as suggested
+- Removed options from board DTS files to keep them cleaner
+---
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi | 432 ++++++++++++++++++-
+ 1 file changed, 429 insertions(+), 3 deletions(-)
 
-Since its 2.6.37 origin in 6072d13c4293 ("Call the filesystem back
-whenever a page is removed from the page cache"), freepage() or
-free_folio() has intentionally NOT taken a struct address_space *mapping,
-because that structure may already be freed by the time free_folio() is
-called, if the last folio holding it has now been freed.
+diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+index 381055737422..7811fb485bd4 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+@@ -11,12 +11,438 @@
+ #define K1_GPIO(x)	(x / 32) (x % 32)
+ 
+ &pinctrl {
++	/omit-if-no-ref/
++	uart0_0_cfg: uart0-0-cfg {
++		uart0-0-pins {
++			pinmux = <K1_PADCONF(104, 3)>,	/* uart0_txd */
++				 <K1_PADCONF(105, 3)>;	/* uart0_rxd */
++			power-source = <3300>;
++			bias-pull-up;
++			drive-strength = <19>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart0_1_cfg: uart0-1-cfg {
++		uart0-1-pins {
++			pinmux = <K1_PADCONF(108, 1)>,	/* uart0_txd */
++				 <K1_PADCONF(80, 3)>;	/* uart0_rxd */
++			power-source = <3300>;
++			bias-pull-up;
++			drive-strength = <19>;
++		};
++	};
++
++	/omit-if-no-ref/
+ 	uart0_2_cfg: uart0-2-cfg {
+ 		uart0-2-pins {
+-			pinmux = <K1_PADCONF(68, 2)>,
+-				 <K1_PADCONF(69, 2)>;
++			pinmux = <K1_PADCONF(68, 2)>,	/* uart0_txd */
++				 <K1_PADCONF(69, 2)>;	/* uart0_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
+ 
+-			bias-pull-up = <0>;
++	/omit-if-no-ref/
++	uart2_0_cfg: uart2-0-cfg {
++		uart2-0-pins {
++			pinmux = <K1_PADCONF(21, 1)>,	/* uart2_txd */
++				 <K1_PADCONF(22, 1)>;	/* uart2_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart2_0_cts_rts_cfg: uart2-0-cts-rts-cfg {
++		uart2-0-pins {
++			pinmux = <K1_PADCONF(23, 1)>,	/* uart2_cts */
++				 <K1_PADCONF(24, 1)>;	/* uart2_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart3_0_cfg: uart3-0-cfg {
++		uart3-0-pins {
++			pinmux = <K1_PADCONF(81, 2)>,	/* uart3_txd */
++				 <K1_PADCONF(82, 2)>;	/* uart3_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart3_0_cts_rts_cfg: uart3-0-cts-rts-cfg {
++		uart3-0-pins {
++			pinmux = <K1_PADCONF(83, 2)>,	/* uart3_cts */
++				 <K1_PADCONF(84, 2)>;	/* uart3_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart3_1_cfg: uart3-1-cfg {
++		uart3-1-pins {
++			pinmux = <K1_PADCONF(18, 2)>,	/* uart3_txd */
++				 <K1_PADCONF(19, 2)>;	/* uart3_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart3_1_cts_rts_cfg: uart3-1-cts-rts-cfg {
++		uart3-1-pins {
++			pinmux = <K1_PADCONF(20, 2)>,	/* uart3_cts */
++				 <K1_PADCONF(21, 2)>;	/* uart3_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart3_2_cfg: uart3-2-cfg {
++		uart3-2-pins {
++			pinmux = <K1_PADCONF(53, 4)>,	/* uart3_txd */
++				 <K1_PADCONF(54, 4)>;	/* uart3_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart3_2_cts_rts_cfg: uart3-2-cts-rts-cfg {
++		uart3-2-pins {
++			pinmux = <K1_PADCONF(55, 4)>,	/* uart3_cts */
++				 <K1_PADCONF(56, 4)>;	/* uart3_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart4_0_cfg: uart4-0-cfg {
++		uart4-0-pins {
++			pinmux = <K1_PADCONF(100, 4)>,	/* uart4_txd */
++				 <K1_PADCONF(101, 4)>;	/* uart4_rxd */
++			power-source = <3300>;
++			bias-pull-up;
++			drive-strength = <19>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart4_1_cfg: uart4-1-cfg {
++		uart4-1-pins {
++			pinmux = <K1_PADCONF(83, 3)>,	/* uart4_txd */
++				 <K1_PADCONF(84, 3)>;	/* uart4_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart4_1_cts_rts_cfg: uart4-1-cts-rts-cfg {
++		uart4-1-pins {
++			pinmux = <K1_PADCONF(81, 3)>,	/* uart4_cts */
++				 <K1_PADCONF(82, 3)>;	/* uart4_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart4_2_cfg: uart4-2-cfg {
++		uart4-2-pins {
++			pinmux = <K1_PADCONF(23, 2)>,	/* uart4_txd */
++				 <K1_PADCONF(24, 2)>;	/* uart4_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart4_3_cfg: uart4-3-cfg {
++		uart4-3-pins {
++			pinmux = <K1_PADCONF(33, 2)>,	/* uart4_txd */
++				 <K1_PADCONF(34, 2)>;	/* uart4_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart4_3_cts_rts_cfg: uart4-3-cts-rts-cfg {
++		uart4-3-pins {
++			pinmux = <K1_PADCONF(35, 2)>,	/* uart4_cts */
++				 <K1_PADCONF(36, 2)>;	/* uart4_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart4_4_cfg: uart4-4-cfg {
++		uart4-4-pins {
++			pinmux = <K1_PADCONF(111, 4)>,	/* uart4_txd */
++				 <K1_PADCONF(112, 4)>;	/* uart4_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart4_4_cts_rts_cfg: uart4-4-cts-rts-cfg {
++		uart4-4-pins {
++			pinmux = <K1_PADCONF(113, 4)>,	/* uart4_cts */
++				 <K1_PADCONF(114, 4)>;	/* uart4_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart5_0_cfg: uart5-0-cfg {
++		uart5-0-pins {
++			pinmux = <K1_PADCONF(102, 3)>,	/* uart5_txd */
++				 <K1_PADCONF(103, 3)>;	/* uart5_rxd */
++			power-source = <3300>;
++			bias-pull-up;
++			drive-strength = <19>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart5_1_cfg: uart5-1-cfg {
++		uart5-1-pins {
++			pinmux = <K1_PADCONF(25, 2)>,	/* uart5_txd */
++				 <K1_PADCONF(26, 2)>;	/* uart5_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart5_1_cts_rts_cfg: uart5-1-cts-rts-cfg {
++		uart5-1-pins {
++			pinmux = <K1_PADCONF(27, 2)>,	/* uart5_cts */
++				 <K1_PADCONF(28, 2)>;	/* uart5_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart5_2_cfg: uart5-2-cfg {
++		uart5-2-pins {
++			pinmux = <K1_PADCONF(42, 2)>,	/* uart5_txd */
++				 <K1_PADCONF(43, 2)>;	/* uart5_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart5_2_cts_rts_cfg: uart5-2-cts-rts-cfg {
++		uart5-2-pins {
++			pinmux = <K1_PADCONF(44, 2)>,	/* uart5_cts */
++				 <K1_PADCONF(45, 2)>;	/* uart5_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart5_3_cfg: uart5-3-cfg {
++		uart5-3-pins {
++			pinmux = <K1_PADCONF(70, 4)>,	/* uart5_txd */
++				 <K1_PADCONF(71, 4)>;	/* uart5_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart5_3_cts_rts_cfg: uart5-3-cts-rts-cfg {
++		uart5-3-pins {
++			pinmux = <K1_PADCONF(72, 4)>,	/* uart5_cts */
++				 <K1_PADCONF(73, 4)>;	/* uart5_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart6_0_cfg: uart6-0-cfg {
++		uart6-0-pins {
++			pinmux = <K1_PADCONF(86, 2)>,	/* uart6_txd */
++				 <K1_PADCONF(87, 2)>;	/* uart6_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart6_0_cts_rts_cfg: uart6-0-cts-rts-cfg {
++		uart6-0-pins {
++			pinmux = <K1_PADCONF(85, 2)>,	/* uart6_cts */
++				 <K1_PADCONF(90, 2)>;	/* uart6_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart6_1_cfg: uart6-1-cfg {
++		uart6-1-pins {
++			pinmux = <K1_PADCONF(0, 2)>,	/* uart6_txd */
++				 <K1_PADCONF(1, 2)>;	/* uart6_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart6_1_cts_rts_cfg: uart6-1-cts-rts-cfg {
++		uart6-1-pins {
++			pinmux = <K1_PADCONF(2, 2)>,	/* uart6_cts */
++				 <K1_PADCONF(3, 2)>;	/* uart6_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart6_2_cfg: uart6-2-cfg {
++		uart6-2-pins {
++			pinmux = <K1_PADCONF(56, 2)>,	/* uart6_txd */
++				 <K1_PADCONF(57, 2)>;	/* uart6_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart7_0_cfg: uart7-0-cfg {
++		uart7-0-pins {
++			pinmux = <K1_PADCONF(88, 2)>,	/* uart7_txd */
++				 <K1_PADCONF(89, 2)>;	/* uart7_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart7_1_cfg: uart7-1-cfg {
++		uart7-1-pins {
++			pinmux = <K1_PADCONF(4, 2)>,	/* uart7_txd */
++				 <K1_PADCONF(5, 2)>;	/* uart7_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart7_1_cts_rts_cfg: uart7-1-cts-rts-cfg {
++		uart7-1-pins {
++			pinmux = <K1_PADCONF(6, 2)>,	/* uart7_cts */
++				 <K1_PADCONF(7, 2)>;	/* uart7_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart8_0_cfg: uart8-0-cfg {
++		uart8-0-pins {
++			pinmux = <K1_PADCONF(82, 4)>,	/* uart8_txd */
++				 <K1_PADCONF(83, 4)>;	/* uart8_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart8_1_cfg: uart8-1-cfg {
++		uart8-1-pins {
++			pinmux = <K1_PADCONF(8, 2)>,	/* uart8_txd */
++				 <K1_PADCONF(9, 2)>;	/* uart8_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart8_1_cts_rts_cfg: uart8-1-cts-rts-cfg {
++		uart8-1-pins {
++			pinmux = <K1_PADCONF(10, 2)>,	/* uart8_cts */
++				 <K1_PADCONF(11, 2)>;	/* uart8_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart8_2_cfg: uart8-2-cfg {
++		uart8-2-pins {
++			pinmux = <K1_PADCONF(75, 4)>,	/* uart8_txd */
++				 <K1_PADCONF(76, 4)>;	/* uart8_rxd */
++			power-source = <3300>;
++			bias-pull-up;
++			drive-strength = <19>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart8_2_cts_rts_cfg: uart8-2-cts-rts-cfg {
++		uart8-2-pins {
++			pinmux = <K1_PADCONF(77, 4)>,	/* uart8_cts */
++				 <K1_PADCONF(78, 4)>;	/* uart8_rts */
++			power-source = <3300>;
++			bias-pull-up;
++			drive-strength = <19>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart9_0_cfg: uart9-0-cfg {
++		uart9-0-pins {
++			pinmux = <K1_PADCONF(12, 2)>,	/* uart9_txd */
++				 <K1_PADCONF(13, 2)>;	/* uart9_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart9_1_cfg: uart9-1-cfg {
++		uart9-1-pins {
++			pinmux = <K1_PADCONF(116, 3)>,	/* uart9_txd */
++				 <K1_PADCONF(117, 3)>;	/* uart9_rxd */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart9_1_cts_rts_cfg: uart9-1-cts-rts-cfg {
++		uart9-1-pins {
++			pinmux = <K1_PADCONF(110, 3)>,	/* uart9_cts */
++				 <K1_PADCONF(115, 3)>;	/* uart9_rts */
++			bias-pull-up;
++			drive-strength = <32>;
++		};
++	};
++
++	/omit-if-no-ref/
++	uart9_2_cfg: uart9-2-cfg {
++		uart9-2-pins {
++			pinmux = <K1_PADCONF(72, 2)>,	/* uart9_txd */
++				 <K1_PADCONF(73, 2)>;	/* uart9_rxd */
++			bias-pull-up;
+ 			drive-strength = <32>;
+ 		};
+ 	};
+-- 
+2.43.0
 
-Maybe something has changed since then, or maybe it happens to be safe
-just in the context in which you want to use it; but it is against the
-principle of free_folio().  (Maybe an rcu_read_lock() could be added
-in __remove_mapping() to make it safe nowadays? maybe not welcome.)
-
-See Documentation/filesystems/vfs.rst:
-free_folio is called once the folio is no longer visible in the
-page cache in order to allow the cleanup of any private data.
-Since it may be called by the memory reclaimer, it should not
-assume that the original address_space mapping still exists, and
-it should not block.
-
-Hugh
 
 _______________________________________________
 linux-riscv mailing list
