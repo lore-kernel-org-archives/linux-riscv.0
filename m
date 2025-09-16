@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 922EFCAC592
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 19:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA42CAC59B
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 19:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3w1yRc1tS2ZfRmO8lnVEHsB146Xx/8UZrRyK63byre4=; b=WvmTOoZiFm+scBENhEPAmIDJLS
-	++NJ373+AqLeMAJOONlO9AwKhVnHGodO37ByIfLTxdbeu1mbFQSoCgk1IZefLbehIjf7Mlh879kgd
-	IiZT14AXVzjeXgDc/cc/PkmLAR16uy2795GNN76n6O3gEK67MwMlW86dGlYOOtILdaCPSqLbvH76G
-	HnuzBQWpd8+cK56i/1r2QDaNUc671D2zkbdJ1U7YoY/L+nsY7J3O00gfrN9DUzMi8wvY18tMBsdpW
-	cTsUZid1gzjuqYZWS/tCWP28LcFocon3mZrjichee0s47T/dJItuU5Sr+rA+798C8VUGEvE+k0hQh
-	kf2lDIww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XOwHoGV0A73tLDXm+RYHZYxXSp6yU/hwIgdCsAdXQC4=; b=kfd9hPZlrwO0tp
+	GSIDMNgZEZdmQNgDwqMLFtju63qh6JLwDwTMMcwU7T9i0oyJLyfqfc5C8yvq2ZnKbT4OcEBfFvPuc
+	i6JaueSKRa6tCX2Zr1wgQlERpJGXJl+y6GsWSJolYD+hp/HFb1ErC0UEpeaPRwNO2GSjMGtBrzgx5
+	eavYfvKHU1P+e4oxVHgznw43FMNhMl2Y8a+GYBst1hkY/drgf912Q46Px/OhEBqhuczv9IAxM6eH+
+	BUC8lUsAemGnIZX+xbpPcziqZbVIH4yX0NmGU0apTpoioYrilZHIRXu3aNgEwBgdZ9ZzUTIu7Xbmj
+	2LIhg0n3OO8ol87eHJaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybRT-00000008sQd-1Xo2;
-	Tue, 16 Sep 2025 19:34:19 +0000
+	id 1uybTD-00000008seR-3J9S;
+	Tue, 16 Sep 2025 19:36:07 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybRS-00000008sQT-45YL
+	id 1uybTC-00000008seE-0xrj
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 19:34:19 +0000
+	Tue, 16 Sep 2025 19:36:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 196F9601E4;
-	Tue, 16 Sep 2025 19:34:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BED8FC4CEEB;
-	Tue, 16 Sep 2025 19:34:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A501E601B3;
+	Tue, 16 Sep 2025 19:36:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08295C4CEEB;
+	Tue, 16 Sep 2025 19:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758051257;
-	bh=QgN0tp5+BnqROHw9FXVqQqC/BdaT6YsmUWPyx8F9M30=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d2hr0L+H3wxrcQZIUsuKqZsZWLrrHlmNQ1AAvyCZTvqcbG5G349TozInbMZk+K2cA
-	 tQsNximPD64tdqmQFTjVg0ONSCSbIGFiBcHxS9BxL+KHsm1KMArXtHWAr6hbEPZhKC
-	 RhTXUHnhxhEOx9DaYGTMmCB67HjP2IQQlGZxzMaS1Tlo1880FAVtQngbHydIRgR8Wu
-	 6pkZx1YaAFQd5Hx8Qxf26Sw/IdSNHCupAYhLpjFq9vGvNqS86VzhXHE0HAYrhBiE1o
-	 ADOrSwwOjqHx+zLF3lk8ar1axaBU/alChU7qPUgSYwlp8usKHldPTv6UL8PQYZ5usH
-	 kYtaP4FvBdKGA==
-Date: Tue, 16 Sep 2025 20:34:13 +0100
+	s=k20201202; t=1758051365;
+	bh=ghR7W+6OUpqFqZvySPtXRRnnWTRyswPrma1f/7NfxfY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=pf+xkC50Z8w4iBf8i4FVLF3nUB0UJUEQdWf/4ouPzp5iPOPJmQ8V2v8/3+Y7IuYeO
+	 DWSsLPh1zYyuWBHoIMNsuqCOBgsVxJQieY/qdXr42pPNBNzLCbJiSiM2kJdtn9LKie
+	 OX2/rNKyQyUfaY4IXH4k14gM0jHh5tsRRZNR2IhnG515xl74jO1xeJl+9usTADlKF8
+	 FZ6PBCfXVx6y5enFbWzuP58bJ+Qe0bI1SI6VnKDx8HZ1xeppFpIqaHXOBVo/JjNHtq
+	 XB7vNgIQUNr8/+sYMv2Nju/IwTa1CJa9ZZR1P17hgLSXSId13VXNiItS2qruv53nJm
+	 xKibcABpOHQAA==
 From: Conor Dooley <conor@kernel.org>
-To: E Shattow <e@freeshell.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	E Shattow <e@freeshell.de>
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: Re: [PATCH v3 0/5] riscv: dts: starfive: Add Milk-V Mars CM (Lite)
- SoM
-Message-ID: <20250916-retired-unloaded-fd141b2a12a0@spud>
+Subject: Re: [PATCH v3 0/5] riscv: dts: starfive: Add Milk-V Mars CM (Lite) SoM
+Date: Tue, 16 Sep 2025 20:35:56 +0100
+Message-ID: <20250916-evacuee-postbox-8b576a82e868@spud>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250905144011.928332-1-e@freeshell.de>
 References: <20250905144011.928332-1-e@freeshell.de>
- <20250911-smoked-aviation-b514261e547e@spud>
 MIME-Version: 1.0
-In-Reply-To: <20250911-smoked-aviation-b514261e547e@spud>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1195; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=jlPwUGixLoNmykuR6H7mnfwCfEkNvHVsl2XHNQnmeWE=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDBkn98jUzrz69YiyxrTMLXtOXtDxWOLScl7m/6tpqSETB Apf1/1/2lHKwiDGxSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJdO1lZGhcxRnjWLt+J882 Nr97R+3f2a74fdv8gtBDmW+NRimb0+czMmxffeaU9ePLAgbc9w5l9eZeiyxhOn3Uhm3b7gQHx52 r+tkB
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,51 +75,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8195057806558889664=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============8195057806558889664==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ruQ4PJfRzjetgeGw"
-Content-Disposition: inline
+On Fri, 05 Sep 2025 07:39:38 -0700, E Shattow wrote:
+> Milk-V Mars CM and Mars CM Lite System-on-Module both are based on the
+> StarFive JH7110 SoC and compatible with the Raspberry Pi CM4IO Classic IO
+> Board carrier. Mars CM Lite is Mars CM without the eMMC storage component
+> on mmc0 and the mmc0 interface configured instead for SD Card use. The
+> optional WiFi+BT chipset is connected via SDIO on the mmc1 interface that
+> would otherwise be connected to an SD Card slot on the StarFive
+> VisionFive2 reference design.
+> 
+> [...]
 
+Applied to riscv-dt-for-next, thanks!
 
---ruQ4PJfRzjetgeGw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+[1/5] riscv: dts: starfive: add common board dtsi for Milk-V Mars CM variants
+      https://git.kernel.org/conor/c/651b30c58775
+[2/5] dt-bindings: riscv: starfive: add milkv,marscm-emmc
+      https://git.kernel.org/conor/c/d1829e0b2f06
+[3/5] riscv: dts: starfive: add Milk-V Mars CM system-on-module
+      https://git.kernel.org/conor/c/8d193bc0aa2e
+[4/5] dt-bindings: riscv: starfive: add milkv,marscm-lite
+      https://git.kernel.org/conor/c/12a29108384c
+[5/5] riscv: dts: starfive: add Milk-V Mars CM Lite system-on-module
+      https://git.kernel.org/conor/c/4cce8b2503ab
 
-On Thu, Sep 11, 2025 at 07:07:10PM +0100, Conor Dooley wrote:
-> Emil, This look okay to take?
-
-I'm just going to take it so it can make 6.18. Please yell Emil if you
-don't want me to.
-
---ruQ4PJfRzjetgeGw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMm7tQAKCRB4tDGHoIJi
-0nMMAPsGxNydWe0mP+15KraqnLZrrZxrsZJlFeeqeonAZ3VLTgEAnIwLs7kafDth
-bWJ3osir+X20IMY6ZeJLkAmDemJotQ4=
-=d0iP
------END PGP SIGNATURE-----
-
---ruQ4PJfRzjetgeGw--
-
-
---===============8195057806558889664==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8195057806558889664==--
-
