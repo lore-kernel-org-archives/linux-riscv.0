@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CE81CAC598
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 13:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A0FCAC599
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Sep 2025 14:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JfusNQ//yuWOQIKo0NDQBIsP1wxfVYrLN24nXPrgFw8=; b=L1VvZVjYEt+69A
-	+97lYxYTsWjEQhkZcQDweHHmGIQTSnYQ415dCoqvEttDdgL80R+sZKSlbrCk5nBznoOUwqjlPFJle
-	AJmAcp1gEd0MOdxTJDvfLqn76/KSzKxwNKyiITgQy+avHJyrY3jcJaR8EkVqmqtOlRJwi5vo1MjJY
-	B/33zb7lVskC5KjYyWS4uMVO67010NtB5lTqSL8nchxZTqxnXmaU+0+s8MeqCitiw7s59iA9AlM28
-	4o23elwkxXsyPS9sjjS8UG84NOxiV6GYaclDJIgNcVTvbpR1SBIuSsAjM561RA4fU8lnJwc6pXK8A
-	Z57BGoBiLyxC0iKpwUgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Gw6XVYH3EK3qQdy4tPNhDe20f42CPGaBuQR4ZHBo1Ew=; b=tA7D1Y3iwndSpL
+	Osk+5snMb/v7w0J/CPf+6t7xQr2nPsUt/E6HjPhfZqAaFIRwEdE3f1MLLg+Nafx49eEpv8CZ+oWfU
+	JvBCtxcCAFGqKjiVWmR2uD7m5k7YSkJTmEx99ztWaKjIlu7apfPgpDetAkmpbVmznUHaJQFc774eG
+	YxQNoteiINWSn30E3Gjggr84d0jaVoDqh/Jg1QxfYXMovbmZjTJHeFFS2qwvqMfnymeik3pu7wBEz
+	6xdOv53eBgPwSp806j0gBQEyF3inzOU4iWfiG4fDlueMKaOudBHrSYIzjVvU6lH7jv1c5BoEh1VGf
+	q+BMngoLF4X7eyYeisFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWAw-000000080WY-1c7h;
-	Tue, 16 Sep 2025 13:56:54 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1uyWxM-00000008Av0-3aLu;
+	Tue, 16 Sep 2025 14:46:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWAt-000000080Ur-04xi
+	id 1uyWxL-00000008AuU-1knK
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Sep 2025 13:56:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=uNIYRj9GoFIgE0bx3nW1lY0HxQFaZbKTteY8eNBKQ4Q=; b=jQayv1VVFcnT5BAqM4uK/OlAZV
-	LYQJq1eiD3b8JQ6j5nfh6GhIW7kNsl830AW0BcyIre0+fpaQe5OovfHNcu2bdd3aXIx0cBUg26kOY
-	uCIV44iDgprzcHZycLPQATqNaZj4c6wlsX5K+lvNIKUkhafja4KfRzYxIiCdcsRjvvV45AchOqMdq
-	Zy0rQosUwpNiP7PGCpeUym+btRkzwd4P5R9HBEG3iHrS7Z+FMIgjvSHbw+vm2sl0QKuckPdN95Qd1
-	aCwXyD/6+9l/KENCZwlZD1iDLCaxI6GnBRjzJ5iPzIG7tjF8LWwpiFBQ+gI9QwICo1BS7yXE6TGWo
-	s5SoBbwQ==;
-Received: from [63.135.74.212] (helo=[192.168.1.249])
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1uyWAA-00HS9q-OA; Tue, 16 Sep 2025 14:56:07 +0100
-Message-ID: <70241f44-2f8d-4945-9c84-71416776cefd@codethink.co.uk>
-Date: Tue, 16 Sep 2025 14:56:05 +0100
+	Tue, 16 Sep 2025 14:46:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B66EA601E4;
+	Tue, 16 Sep 2025 14:46:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35ACCC4CEEB;
+	Tue, 16 Sep 2025 14:46:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758034014;
+	bh=rmokWgu3bgtJV2jhI9peM2VUuHBg9IVE5FtZDhrD/Ec=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=azkm4t/CsnnuRennBkQm0BJYQ+7BWRA9gXx1iKf1V1BM2A0r5nTj6o09x+D14oNem
+	 zcrucLRqwjcRlf52eF2MlnmdJo+8ZhX0AQUzKGl8yg1djOC9iIGArAPTWwrwVirkk0
+	 64mJjJBVRvX+sUUnX/mbIVKcDFO3Mv/2iJ7OeM+5Dcba29PG/eCSjC5HK5i0qBdQQO
+	 9PJCn51wrREU3sd5bMSgfujKq9rrl/rgMHNjk7MGxlPvsA2BkTRT6gh5D7Ye/xKV50
+	 NeSP7Tmer3BhPWG6gXUQ3PWm+eWGsjFCri/1aBBi5JuC8Bei47VgmjM1Y+IFNZDr84
+	 lDwIq4uG73GPQ==
+Date: Tue, 16 Sep 2025 09:46:52 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Randolph Lin <randolph@andestech.com>
+Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alex@ghiti.fr,
+	aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
+	ben717@andestech.com, inochiama@gmail.com,
+	thippeswamy.havalige@amd.com, namcao@linutronix.de,
+	shradha.t@samsung.com, randolph.sklin@gmail.com,
+	tim609@andestech.com
+Subject: Re: [PATCH v2 4/5] PCI: andes: Add Andes QiLai SoC PCIe host driver
+ support
+Message-ID: <20250916144652.GA1795814@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/7] riscv: dts: Add Tenstorrent Blackhole A0 SoC PCIe
- cards
-To: Drew Fustini <fustini@kernel.org>, Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Samuel Holland <samuel.holland@sifive.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Anup Patel <anup@brainfault.org>,
- Arnd Bergmann <arnd@arndb.de>, Joel Stanley <jms@tenstorrent.com>,
- Joel Stanley <joel@jms.id.au>, Michael Neuling <mikey@neuling.org>,
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@kernel.org>,
- Andy Gross <agross@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Drew Fustini <dfustini@tenstorrent.com>
-References: <20250913-tt-bh-dts-v1-0-ddb0d6860fe5@tenstorrent.com>
- <20250913-tt-bh-dts-v1-6-ddb0d6860fe5@tenstorrent.com>
- <20250915-mouth-banner-ddfb2e48bdb3@spud> <aMhSSka3gyIcND/L@x1>
-Content-Language: en-GB
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <aMhSSka3gyIcND/L@x1>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_065651_143096_02508A0E 
-X-CRM114-Status: GOOD (  11.26  )
+Content-Disposition: inline
+In-Reply-To: <20250916100417.3036847-5-randolph@andestech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +72,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2025 18:52, Drew Fustini wrote:
-> On Mon, Sep 15, 2025 at 05:47:08PM +0100, Conor Dooley wrote:
->> On Sat, Sep 13, 2025 at 02:31:05PM -0700, Drew Fustini wrote:
->>> new file mode 100644
->>> index 0000000000000000000000000000000000000000..b2b08023643a2cebd4f924579024290bb355c9b3
->>> --- /dev/null
->>> +++ b/arch/riscv/boot/dts/tenstorrent/blackhole-a0-card.dts
->>> @@ -0,0 +1,14 @@
->>> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
->>> +/dts-v1/;
->>> +
->>> +#include "blackhole-a0.dtsi"
->>> +
->>> +/ {
->>> +	model = "Tenstorrent Blackhole A0 SoC PCIe card";
->>> +	compatible = "tenstorrent,blackhole-a0-card", "tenstorrent,blackhole-a0";
->>> +
->>> +	memory@0 {
->>> +		device_type = "memory";
->>> +		reg = <0x4000 0x30000000 0x1 0x00000000>;
->>
->> This isn't at address zero as the node address claims.
-> 
-> Thanks, I'll fix the unit address.
+On Tue, Sep 16, 2025 at 06:04:16PM +0800, Randolph Lin wrote:
+> Add driver support for DesignWare based PCIe controller in Andes
+> QiLai SoC. The driver only supports the Root Complex mode.
 
-Is it time to just assume any dtc can handle a 64bit number?
+> +config PCIE_ANDES_QILAI
+> +	bool "ANDES QiLai PCIe controller"
+> +	depends on OF && (RISCV || COMPILE_TEST)
+> +	depends on PCI_MSI
+> +	depends on ARCH_ANDES
 
+This prevents a lot of compile testing.  AFAICT, no other controller
+depends directly on the arch.  Most do something like these:
 
--- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+  depends on MACH_ARTPEC6 || COMPILE_TEST
+  depends on ARCH_MXC || COMPILE_TEST
+  depends on OF && (ARM || ARCH_LAYERSCAPE || COMPILE_TEST)
 
-https://www.codethink.co.uk/privacy.html
+> +	select PCIE_DW_HOST
+> +	help
+> +          Say Y here to enable PCIe controller support on Andes QiLai SoCs,
+> +	  which operate in Root Complex mode. The Andes QiLai SoCs PCIe
+> +	  controller is based on DesignWare IP (5.97a version) and therefore
+> +	  the driver re-uses the DesignWare core functions to implement the
+> +	  driver. The Andes QiLai SoC has three Root Complexes (RCs): one
+> +	  operates on PCIe 4.0 with 4 lanes at 0x80000000, while the other
+> +	  two operate on PCIe 4.0 with 2 lanes at 0xA0000000 and 0xC0000000,
+> +	  respectively.
+
+I assume these addresses come from devicetree, so I don't think
+there's any need to include them here.
+
+Fix space/tab indentation issue on first line of help text.  Do the
+indentation the same way as the rest of the file.
+
+> + * Refer to Table A4-5 (Memory type encoding) in the
+> + * AMBA AXI and ACE Protocol Specification.
+> + * The selected value corresponds to the Memory type field:
+> + * "Write-back, Read and Write-allocate".
+
+Add blank line between paragraphs or rewrap into a single paragraph.
+
+> +static
+> +bool qilai_pcie_outbound_atu_addr_valid(struct dw_pcie *pci,
+> +					const struct dw_pcie_ob_atu_cfg *atu,
+> +					u64 *limit_addr)
+> +{
+> +	u64 parent_bus_addr = atu->parent_bus_addr;
+> +
+> +	*limit_addr = parent_bus_addr + atu->size - 1;
+> +
+> +	/*
+> +	 * Addresses below 4 GB are not 1:1 mapped; therefore, range checks
+> +	 * only need to ensure addresses below 4 GB match pci->region_limit.
+> +	 */
+> +	if (lower_32_bits(*limit_addr & ~pci->region_limit) !=
+> +	    lower_32_bits(parent_bus_addr & ~pci->region_limit) ||
+> +	    !IS_ALIGNED(parent_bus_addr, pci->region_align) ||
+> +	    !IS_ALIGNED(atu->pci_addr, pci->region_align) || !atu->size)
+> +		return false;
+
+Seems a little bit strange.  Is this something that could be expressed
+via devicetree?  Or something peculiar about QiLai that's different
+from all the other DWC-based controllers?
+
+> + * Setup the Qilai PCIe IOCP (IO Coherence Port) Read/Write Behaviors to the
+> + * Write-Back, Read and Write Allocate mode.
+> + * The IOCP HW target is SoC last-level cache (L2 Cache), which serves as the
+> + * system cache.
+> + * The IOCP HW helps maintain cache monitoring, ensuring that the device can
+> + * snoop data from/to the cache.
+
+Add blank lines between paragraphs (or rewrap into a single paragraph
+if that's what you intend).
+
+> +static struct platform_driver qilai_pcie_driver = {
+> +	.probe = qilai_pcie_probe,
+> +	.driver = {
+> +		.name	= "qilai-pcie",
+> +		.of_match_table = qilai_pcie_of_match,
+> +		/* only test passed at PROBE_DEFAULT_STRATEGY */
+> +		.probe_type = PROBE_DEFAULT_STRATEGY,
+
+This is the only use of PROBE_DEFAULT_STRATEGY in the entire tree, so
+I doubt you need it.  If you do, please explain why in more detail.
+
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
