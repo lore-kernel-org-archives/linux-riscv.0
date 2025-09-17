@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F01CAC59A
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 02:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21ABDCAC598
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 02:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pntto6+uuF5QX5wjiyd7yzH40JM11G8hf5SFnvjZUfw=; b=s3lej699FnHWoS
-	ravYBNtuwCK3Zv1v7fhmueezoYX5aH0A2rjPNyShcF9rlw+GDS8ufmYOobR7MGMlyVbUozi1MVOLu
-	9AbG17pE4KGQCz5WDe58G1Qq80porrDLUh2u159muzn93PARZOrTclodij9DzYT+6ucbAQs8mEYvv
-	TFYEa1m9INhaNeKY+TEWIKOtvVKOzWGBtSpTI8fTliZVCtJXG0XXqfQTGP0SYWzBW+ISLeUjaozvH
-	jyq7DvJLDmtni8fADFviLnp2GZHQe7rLQ4ZQlV+CBN4kDQG4vo6aeu5K8R3T1CPY0Z7piPARpO0At
-	cR4ACKYqjwu97MBuBzdw==;
+	List-Owner; bh=18RP0i/L2WIXL8aDAS3HUPjs3NdYcZF/2AkRe5tzlyI=; b=Cch2QOpYf7+eOE
+	t3sVDFZ+ylVIRO9RP+B/fZNtrLbnpK/Mi9XEO+cvpUm/jtnfV1tzetL6fHR0pRlik+ePbAa7r92S7
+	dpXaLmaTWUj+b77dCpYPSCD6x2sXx7Y25VgNAUHUdypxGqRVDQcI/2Pmu117hLl3fV3AU/fr8C7St
+	peeaGngvTE/s/7dmXTZ7QeXYrS5i6d8N35cbcONu1iZuUjMpWqmyLlN8+OygTc+c+nhEnJDIe+RUe
+	9UzH1K0J9gozfycVqFH/LExcGzTTt6iw0OdEnQHBUu8k1FkJ+33mhRPq7lEI4bbgPL4qfz6G3eNuQ
+	+/m66elOucOotP+cmLxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyi5h-00000009zPi-0D2U;
-	Wed, 17 Sep 2025 02:40:17 +0000
+	id 1uyi5g-00000009zPT-2yr7;
+	Wed, 17 Sep 2025 02:40:16 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyi5d-00000009zO7-36wg
+	id 1uyi5d-00000009zO8-36uB
 	for linux-riscv@lists.infradead.org;
 	Wed, 17 Sep 2025 02:40:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6138844CF6;
-	Wed, 17 Sep 2025 02:40:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A204C4CEEB;
-	Wed, 17 Sep 2025 02:40:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3620B4086C;
+	Wed, 17 Sep 2025 02:40:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11A29C4CEEB;
+	Wed, 17 Sep 2025 02:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758076812;
-	bh=/S2HMi3usPSz32wfGIPF+rTLYNKndealNpX9ovOTxRM=;
+	s=k20201202; t=1758076811;
+	bh=w4wLr2yP8Lf0P8+wu6uiNnPTZbO4BPOT3E8l8dJYdWA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=OTo0eG04e9twFTepVCTYzVobxe+EIJigaScEgmbcQrfCSl44NK6jgQvJrqWyq46bq
-	 UU7PHRQI7K2R8k/ltzQGTEhl1cp4VAN3sgMphvR3Iowy2mudXgw+DUxOb1YSSNCNVy
-	 Q/HA8sVuG4lmN2gjW1SRwVhpkQ3cnYAxd+g4qGFSZByMlfh72pVBfnTE4h/fF+1MjE
-	 E1tt0zKjSSVoY2z5zj0ypYribQAEWoFpjfhU8d3a3C1dLLbsygz7oTa23UUO8GhG7x
-	 DEQ9df136oEN+iAjROowKLFnubG5BVoRYyqhuRYZYU+E2BAB7lHvFChY3gN7Ekc2bg
-	 gYiYlQiByDWXw==
+	b=pV0gbRikLFcdAi6S6oBasXHUmazo9Ijq3E1YrL4stpdS1JqA+JI66tleB1GCtaDRN
+	 Y7R4ElrtL/gNYTxlyJN9cVKJnEkM1+xVxx28zI/LNqsrFpfx0H2gcaHtLX+uNl7GOZ
+	 NpazGumn8ZKM9sKSlJ/5LVslpZvlO9y80i2vGK+26GnT1zKESblKd4RnxmmsonkPbI
+	 CtzcJJw/zktmjeSUpXXFHdxkHjZYpDvLn1mSlzNENjCRBUQ300u8zEIByis5kavqlN
+	 bYYJWVcUXMEYw2GFZX3nVg59xhelLfolp+sHHyiCWBmBuEqmVzJWQdb25PYaeuYoRh
+	 Zj1/H65b9WFJA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D2639D0C1A;
-	Wed, 17 Sep 2025 02:40:14 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33D3239D0C1A;
+	Wed, 17 Sep 2025 02:40:13 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/2] Fix riscv sparse warnings
+Subject: Re: [PATCH v2 0/2] Common csr_read_num() and csr_write_num() for
+ RISC-V
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175807681324.1444719.6787626572646476134.git-patchwork-notify@kernel.org>
-Date: Wed, 17 Sep 2025 02:40:13 +0000
-References: <20250903-dev-alex-sparse_warnings_v1-v1-0-7e6350beb700@rivosinc.com>
-In-Reply-To: <20250903-dev-alex-sparse_warnings_v1-v1-0-7e6350beb700@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, lkp@intel.com, viro@zeniv.linux.org.uk,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, cyrilbur@tenstorrent.com, jszhang@kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Message-Id: <175807681200.1444719.17820860384159771040.git-patchwork-notify@kernel.org>
+Date: Wed, 17 Sep 2025 02:40:12 +0000
+References: <20250818143600.894385-1-apatel@ventanamicro.com>
+In-Reply-To: <20250818143600.894385-1-apatel@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_194013_809946_A61804C7 
-X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-CacheID: sfid-20250916_194013_809266_CCCFE451 
+X-CRM114-Status: UNSURE (   9.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,6 +69,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, alex@ghiti.fr, rafael@kernel.org, anup@brainfault.org, atish.patra@linux.dev, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, ajones@ventanamicro.com, will@kernel.org, lenb@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -82,22 +80,22 @@ Hello:
 This series was applied to riscv/linux.git (for-next)
 by Paul Walmsley <pjw@kernel.org>:
 
-On Wed, 03 Sep 2025 18:53:07 +0000 you wrote:
-> This series simply fixes 2 recently introduced sparse warnings.
+On Mon, 18 Aug 2025 20:05:58 +0530 you wrote:
+> Some of the RISC-V drivers (such as RISC-V PMU and ACPI CPPC) need to
+> access CSR based on CSR number discovered from somewhere. Add common
+> RISC-V csr_read_num() and csr_write_num() functions under arch/riscv
+> for such drivers.
 > 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
-> Alexandre Ghiti (2):
->       riscv: Fix sparse warning in __get_user_error()
->       riscv: Fix sparse warning about different address spaces
+> These patches can be found in the riscv_csr_read_num_v2 branch at:
+> https://github.com/avpatel/linux.git
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/2] riscv: Fix sparse warning in __get_user_error()
-    https://git.kernel.org/riscv/c/fef7ded169ed
-  - [2/2] riscv: Fix sparse warning about different address spaces
-    https://git.kernel.org/riscv/c/a03ee11b8f85
+  - [v2,1/2] ACPI: RISC-V: Fix FFH_CPPC_CSR error handling
+    https://git.kernel.org/riscv/c/5b3706597b90
+  - [v2,2/2] RISC-V: Add common csr_read_num() and csr_write_num() functions
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
