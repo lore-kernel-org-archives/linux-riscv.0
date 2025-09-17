@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EB8CAC59A
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 12:11:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56AB4CA0EE8
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 12:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n0NrX3etuOMwQOysCVk7KMmIMExyY5OGEuCh9JHUF04=; b=cT4nb1UHCxMkk7
-	t4+/2bltwRNxBU+irmcChcFPT7Ns+syyEVJgRVJ6VjNzrWHEuwZeNrUpjCYC48qkLn4RvRgnjw3ZE
-	I26+i4DTRs0VwY1DOKGYhbQweVQMgLX7NBPsuS05/s+gYZCjeKMKUm9huVr4hYFI0/3q7wfTlhKGY
-	HiGldLNUr0qDh1wsraOs2hkLzyau7H2uL/8kqDAiDvxy6FsCApGvfNt/JQleLz6cPvDncOkzazzy9
-	1nm/zABHO/2rbOILXSnp6mpSeQJ9Uu00UjR02rcHfQKXqbgYpn7VyvLZ0oRCKadsQrDxAWjZVyn9j
-	cUbf7/IVfO6jza1Df8CA==;
+	List-Owner; bh=FIGJ2f6Z+EQFvxHNlMLGUrnKz0BRpGAzXmIRdXt3QhM=; b=Zr+DQYGkbO0juj
+	ZlrBZCJ5ek92kuFLm6fRsADvthZfRldMNtoeVT+zYSIiF+pmp5N4CXSenV6i53rYFCz/glOB/Id7u
+	ztjG0e5ozKxjVRQT9KQoHggxje93flx6JMVa0F99wvCjdwSwUjWv9YVLn+EVKibJB9QCKSyOMNVst
+	ymLX0tkl7JmmZmc/MKJq5Y1iZAicY6D6ctrvhc6o12umeZzibLEpMmiEuHXngGS9Beli6zdA1Yftl
+	b0FU5pL2TiZrZ26itV9Gi53E4y5wOR3I9/9xwDa8XIBO30YPNIBDdXhcVPXJr2/t2bUymwK0Ci3GH
+	aw8alX+DILSzbFhc0NNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyqzx-0000000BF9H-0FDb;
-	Wed, 17 Sep 2025 12:10:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uyr2s-0000000BFos-2vTm;
+	Wed, 17 Sep 2025 12:13:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyqzu-0000000BF8P-2dtc
+	id 1uyr2q-0000000BFoA-2xpY
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Sep 2025 12:10:55 +0000
+	Wed, 17 Sep 2025 12:13:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0820741998;
-	Wed, 17 Sep 2025 12:10:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7F0EC4CEF0;
-	Wed, 17 Sep 2025 12:10:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 65D0043272;
+	Wed, 17 Sep 2025 12:13:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C81EBC4CEF0;
+	Wed, 17 Sep 2025 12:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758111052;
-	bh=4b+3wgBOJBBGgs10wnxQNnQa4YQksLnQvgDmz/atCHA=;
+	s=k20201202; t=1758111236;
+	bh=LqRWtS1sP7B5lAKG4NiZ4OwXKCQ+4DM+sFwKGhKBCRM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o1ia5Ba4JC91lN3tqjfIYJNEE6Sj5awnPtnsY4WrxQlt0GrEhCSnlhH9/at7CpyaR
-	 ahZCSpp74RNyY7DBQHIq43XSVLJEChuF2F+UwrIleYDQ97oRt/21wb31ItPD4yODzP
-	 LkkPHlzBpcLyPdSxs5k1o/clildq2LgiyfsPllw3wK06Q37iHczN9U37+sXuQpAZd2
-	 ZwwR+tO4gpefQ6FgjPcwEBSXg8fA7pg6nZMYgg4qD+np/vPCO7GrcuQWiFjK0ftUIL
-	 CJ0FwF99/2OtEg9hyVvUg1i2GaYq37RC3ScLQSjcAVDDCiHUKLs38+nRVMASMCXt+v
-	 q7eLWIBjVuQ4A==
-Date: Wed, 17 Sep 2025 13:10:47 +0100
-From: Will Deacon <will@kernel.org>
-To: "guoyaxing@bosc.ac.cn" <guoyaxing@bosc.ac.cn>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
-	iommu <iommu@lists.linux.dev>, tjeznach <tjeznach@rivosinc.com>,
-	joro <joro@8bytes.org>, "robin.murphy" <robin.murphy@arm.com>,
-	"paul.walmsley" <paul.walmsley@sifive.com>,
-	palmer <palmer@dabbelt.com>, aou <aou@eecs.berkeley.edu>,
-	alex <alex@ghiti.fr>, anxu <anxu@bosc.ac.cn>,
-	wangran <wangran@bosc.ac.cn>
-Subject: Re: Re: [PATCH v1 1/3] iommu/riscv: Add iommu perf driver
-Message-ID: <aMqlR4vDOgrFuCUj@willie-the-truck>
-References: <20250915020911.1313-1-guoyaxing@bosc.ac.cn>
- <aMfsj1U7NY2m68T4@willie-the-truck>
- <202509161827232434929@bosc.ac.cn>
+	b=anfGVJbOjccq4Um5w31gTeSe2q+k1mtc9hK52Rk/DnnU3iR7mJKWHevRLTD9q2bA+
+	 y3AkCLwlN+iVJf06RPZKbyAM/90+HsIZX+qa3+P9+39WWaOV+ctXR6vPRwZG1rxWRQ
+	 cE/gB6y1bFQzGBB1YGgGLOsdztotDEGSjTxMqDGhoE7JaG+e0/H1IaOBWpQds7O29n
+	 AKQ/ifGr1FIdGpMfo3t99pj98NdLTK1mflMPcL1BVWzd9v/KK8W0M3pc1TS6JePV3l
+	 lbScKLDL3b0kEYwlVx6tx5nxRDHvS3zNt/MFPLv3Q+s3JXCO0CNAdTri9RGuibpLwB
+	 N5QXp0J4te1Pg==
+Date: Wed, 17 Sep 2025 14:13:38 +0200
+From: Nicolas Schier <nsc@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Asuna Yang <spriteovo@gmail.com>, Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Han Gao <rabenda.cn@gmail.com>, rust-for-linux@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2] RISC-V: re-enable gcc + rust builds
+Message-ID: <aMql8oB4GuU87lie@levanger>
+References: <20250909-gcc-rust-v2-v2-1-35e086b1b255@gmail.com>
+ <20250910-harmless-bamboo-ebc94758fdad@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <202509161827232434929@bosc.ac.cn>
+In-Reply-To: <20250910-harmless-bamboo-ebc94758fdad@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_051054_683762_D0EA8FF5 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_051356_773057_A897D996 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +91,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[nit: your email client has made a big mess of the thread here]
-
-On Tue, Sep 16, 2025 at 06:27:23PM +0800, guoyaxing@bosc.ac.cn wrote:
-> > PMU drivers are better placed under drivers/perf/
+On Wed, Sep 10, 2025 at 03:27:19PM +0100, Conor Dooley wrote:
+> On Tue, Sep 09, 2025 at 06:53:11PM +0200, Asuna Yang wrote:
+> > Commit 33549fcf37ec ("RISC-V: disallow gcc + rust builds") disabled GCC
+> > + Rust builds for RISC-V due to differences in extension handling
+> > compared to LLVM.
+> > 
+> > Add a Kconfig symbol to indicate the version of libclang used by Rust
+> > bindgen and add conditions for the availability of libclang to the
+> > RISC-V extension Kconfig symbols that depend on the cc-option function.
+> > 
+> > For Zicsr/Zifencei special handling, since LLVM/Clang always enables
+> > these two extensions, either don't pass them to -march, or pass them
+> > explicitly and Rust bindgen libclang must recognize them.
+> > 
+> > Clang does not support -mno-riscv-attribute flag, filter it out to
+> > resolve error: unknown argument: '-mno-riscv-attribute'.
+> > 
+> > Define BINDGEN_TARGET_riscv to pass the target triplet to Rust bindgen
+> > libclang for RISC-V to resolve error: unsupported argument 'medany' to
+> > option '-mcmodel=' for target 'unknown'. Improve to output a clearer
+> > error message if the target triplet is undefined for Rust bindgen
+> > libclang.
+> > 
+> > Update the documentation, GCC + Rust builds are now supported.
+> > 
+> > ---
 > 
-> I did a quick reading of SMMU pmu driver in drivers/perf/.  However, If
-> the RISC-V IOMMU PMU driver is placed under drivers/perf/ as the SMMU did,
-> it would cause an overlap in the iomem resource region between the two
-> devices(iommu & iommu pmu), because it needs to share interrupt-related
-> registers (such as the IPSR register) with the main IOMMU driver.
+> FWIW, this --- breaks git, and anything after this line (including your
+> signoff) is lost when the patch is applied.
 
-Is that not something you can resolve with IRQF_SHARED?
+FTR, there is good documentation about '---' in patch mails:
+https://docs.kernel.org/process/submitting-patches.html#commentary
 
-Will
+Kind regards,
+Nicolas
 
 _______________________________________________
 linux-riscv mailing list
