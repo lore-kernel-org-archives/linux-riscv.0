@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56AB4CA0EE8
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 12:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7487ECAC59A
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 12:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FIGJ2f6Z+EQFvxHNlMLGUrnKz0BRpGAzXmIRdXt3QhM=; b=Zr+DQYGkbO0juj
-	ZlrBZCJ5ek92kuFLm6fRsADvthZfRldMNtoeVT+zYSIiF+pmp5N4CXSenV6i53rYFCz/glOB/Id7u
-	ztjG0e5ozKxjVRQT9KQoHggxje93flx6JMVa0F99wvCjdwSwUjWv9YVLn+EVKibJB9QCKSyOMNVst
-	ymLX0tkl7JmmZmc/MKJq5Y1iZAicY6D6ctrvhc6o12umeZzibLEpMmiEuHXngGS9Beli6zdA1Yftl
-	b0FU5pL2TiZrZ26itV9Gi53E4y5wOR3I9/9xwDa8XIBO30YPNIBDdXhcVPXJr2/t2bUymwK0Ci3GH
-	aw8alX+DILSzbFhc0NNA==;
+	List-Owner; bh=MOkAdy3q9E7H04e7rknfepvcfEf3gUcqSP619WvqrWQ=; b=q0mtduSGS+6/JF
+	BZgbskednwJY8d56Sft4lJeCX3wstfpkir+k+cOtZ0iikDXtOo8cPTgXALSc44WrbvH8iFPwiyqcB
+	jZbgMVfHLNs3t8Gir4nssrnMK5a6IyqhOSq5Q7S0zvuPMvFGWTIsr9YTLOwTok49sE5s689xbZvfL
+	ixEaOMcWOE0cphdt6yDH1zrH+gn3WqrzfgEkEJfCghaA5wJPph5JNLdiiwo+9YxqOXIwH/BXKEw9W
+	iHmZvTDYQucJp0Oa2n7aX8/Gbc2e3lVxWR5xeiJt/FZl1b0P3AeoS/RIEUhhdHDCcf4pCOs40CGib
+	1b0KksCx5foXDU6pm7Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyr2s-0000000BFos-2vTm;
-	Wed, 17 Sep 2025 12:13:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uyr6S-0000000BGrn-1ANV;
+	Wed, 17 Sep 2025 12:17:40 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyr2q-0000000BFoA-2xpY
+	id 1uyr6P-0000000BGom-0Oql
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Sep 2025 12:13:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 65D0043272;
-	Wed, 17 Sep 2025 12:13:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C81EBC4CEF0;
-	Wed, 17 Sep 2025 12:13:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758111236;
-	bh=LqRWtS1sP7B5lAKG4NiZ4OwXKCQ+4DM+sFwKGhKBCRM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=anfGVJbOjccq4Um5w31gTeSe2q+k1mtc9hK52Rk/DnnU3iR7mJKWHevRLTD9q2bA+
-	 y3AkCLwlN+iVJf06RPZKbyAM/90+HsIZX+qa3+P9+39WWaOV+ctXR6vPRwZG1rxWRQ
-	 cE/gB6y1bFQzGBB1YGgGLOsdztotDEGSjTxMqDGhoE7JaG+e0/H1IaOBWpQds7O29n
-	 AKQ/ifGr1FIdGpMfo3t99pj98NdLTK1mflMPcL1BVWzd9v/KK8W0M3pc1TS6JePV3l
-	 lbScKLDL3b0kEYwlVx6tx5nxRDHvS3zNt/MFPLv3Q+s3JXCO0CNAdTri9RGuibpLwB
-	 N5QXp0J4te1Pg==
-Date: Wed, 17 Sep 2025 14:13:38 +0200
-From: Nicolas Schier <nsc@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Asuna Yang <spriteovo@gmail.com>, Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Han Gao <rabenda.cn@gmail.com>, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v2] RISC-V: re-enable gcc + rust builds
-Message-ID: <aMql8oB4GuU87lie@levanger>
-References: <20250909-gcc-rust-v2-v2-1-35e086b1b255@gmail.com>
- <20250910-harmless-bamboo-ebc94758fdad@spud>
+	Wed, 17 Sep 2025 12:17:38 +0000
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 58HCGWNJ024712
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 17 Sep 2025 20:16:32 +0800 (+08)
+	(envelope-from randolph@andestech.com)
+Received: from swlinux02 (10.0.15.183) by ATCPCS31.andestech.com (10.0.1.89)
+ with Microsoft SMTP Server id 14.3.498.0; Wed, 17 Sep 2025 20:16:32 +0800
+Date: Wed, 17 Sep 2025 20:16:25 +0800
+From: Randolph Lin <randolph@andestech.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <jingoohan1@gmail.com>, <mani@kernel.org>, <lpieralisi@kernel.org>,
+        <kwilczynski@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alex@ghiti.fr>,
+        <aou@eecs.berkeley.edu>, <palmer@dabbelt.com>,
+        <paul.walmsley@sifive.com>, <ben717@andestech.com>,
+        <inochiama@gmail.com>, <thippeswamy.havalige@amd.com>,
+        <namcao@linutronix.de>, <shradha.t@samsung.com>,
+        <randolph.sklin@gmail.com>, <tim609@andestech.com>
+Subject: Re: [PATCH v2 4/5] PCI: andes: Add Andes QiLai SoC PCIe host driver
+ support
+Message-ID: <aMqmmd381sySCGnY@swlinux02>
+References: <20250916100417.3036847-5-randolph@andestech.com>
+ <20250916144652.GA1795814@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250910-harmless-bamboo-ebc94758fdad@spud>
+In-Reply-To: <20250916144652.GA1795814@bhelgaas>
+User-Agent: Mutt/2.2.12 (2023-09-09)
+X-Originating-IP: [10.0.15.183]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 58HCGWNJ024712
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_051356_773057_A897D996 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20250917_051737_464183_1E99FF88 
+X-CRM114-Status: GOOD (  40.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,41 +79,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 03:27:19PM +0100, Conor Dooley wrote:
-> On Tue, Sep 09, 2025 at 06:53:11PM +0200, Asuna Yang wrote:
-> > Commit 33549fcf37ec ("RISC-V: disallow gcc + rust builds") disabled GCC
-> > + Rust builds for RISC-V due to differences in extension handling
-> > compared to LLVM.
-> > 
-> > Add a Kconfig symbol to indicate the version of libclang used by Rust
-> > bindgen and add conditions for the availability of libclang to the
-> > RISC-V extension Kconfig symbols that depend on the cc-option function.
-> > 
-> > For Zicsr/Zifencei special handling, since LLVM/Clang always enables
-> > these two extensions, either don't pass them to -march, or pass them
-> > explicitly and Rust bindgen libclang must recognize them.
-> > 
-> > Clang does not support -mno-riscv-attribute flag, filter it out to
-> > resolve error: unknown argument: '-mno-riscv-attribute'.
-> > 
-> > Define BINDGEN_TARGET_riscv to pass the target triplet to Rust bindgen
-> > libclang for RISC-V to resolve error: unsupported argument 'medany' to
-> > option '-mcmodel=' for target 'unknown'. Improve to output a clearer
-> > error message if the target triplet is undefined for Rust bindgen
-> > libclang.
-> > 
-> > Update the documentation, GCC + Rust builds are now supported.
-> > 
-> > ---
+Hi Bjorn,
+
+On Tue, Sep 16, 2025 at 09:46:52AM -0500, Bjorn Helgaas wrote:
+> [EXTERNAL MAIL]
 > 
-> FWIW, this --- breaks git, and anything after this line (including your
-> signoff) is lost when the patch is applied.
+> On Tue, Sep 16, 2025 at 06:04:16PM +0800, Randolph Lin wrote:
+> > Add driver support for DesignWare based PCIe controller in Andes
+> > QiLai SoC. The driver only supports the Root Complex mode.
+> 
+> > +config PCIE_ANDES_QILAI
+> > +     bool "ANDES QiLai PCIe controller"
+> > +     depends on OF && (RISCV || COMPILE_TEST)
+> > +     depends on PCI_MSI
+> > +     depends on ARCH_ANDES
+> 
+> This prevents a lot of compile testing.  AFAICT, no other controller
+> depends directly on the arch.  Most do something like these:
+> 
+>   depends on MACH_ARTPEC6 || COMPILE_TEST
+>   depends on ARCH_MXC || COMPILE_TEST
+>   depends on OF && (ARM || ARCH_LAYERSCAPE || COMPILE_TEST)
+> 
 
-FTR, there is good documentation about '---' in patch mails:
-https://docs.kernel.org/process/submitting-patches.html#commentary
+ok.
 
-Kind regards,
-Nicolas
+> > +     select PCIE_DW_HOST
+> > +     help
+> > +          Say Y here to enable PCIe controller support on Andes QiLai SoCs,
+> > +       which operate in Root Complex mode. The Andes QiLai SoCs PCIe
+> > +       controller is based on DesignWare IP (5.97a version) and therefore
+> > +       the driver re-uses the DesignWare core functions to implement the
+> > +       driver. The Andes QiLai SoC has three Root Complexes (RCs): one
+> > +       operates on PCIe 4.0 with 4 lanes at 0x80000000, while the other
+> > +       two operate on PCIe 4.0 with 2 lanes at 0xA0000000 and 0xC0000000,
+> > +       respectively.
+> 
+> I assume these addresses come from devicetree, so I don't think
+> there's any need to include them here.
+> 
+
+I will add num-lanes property in the devicetree.
+
+> Fix space/tab indentation issue on first line of help text.  Do the
+> indentation the same way as the rest of the file.
+> 
+
+I'm sorry for making this mistake.
+
+> > + * Refer to Table A4-5 (Memory type encoding) in the
+> > + * AMBA AXI and ACE Protocol Specification.
+> > + * The selected value corresponds to the Memory type field:
+> > + * "Write-back, Read and Write-allocate".
+> 
+> Add blank line between paragraphs or rewrap into a single paragraph.
+> 
+
+Ok.
+
+> > +static
+> > +bool qilai_pcie_outbound_atu_addr_valid(struct dw_pcie *pci,
+> > +                                     const struct dw_pcie_ob_atu_cfg *atu,
+> > +                                     u64 *limit_addr)
+> > +{
+> > +     u64 parent_bus_addr = atu->parent_bus_addr;
+> > +
+> > +     *limit_addr = parent_bus_addr + atu->size - 1;
+> > +
+> > +     /*
+> > +      * Addresses below 4 GB are not 1:1 mapped; therefore, range checks
+> > +      * only need to ensure addresses below 4 GB match pci->region_limit.
+> > +      */
+> > +     if (lower_32_bits(*limit_addr & ~pci->region_limit) !=
+> > +         lower_32_bits(parent_bus_addr & ~pci->region_limit) ||
+> > +         !IS_ALIGNED(parent_bus_addr, pci->region_align) ||
+> > +         !IS_ALIGNED(atu->pci_addr, pci->region_align) || !atu->size)
+> > +             return false;
+> 
+> Seems a little bit strange.  Is this something that could be expressed
+> via devicetree?  Or something peculiar about QiLai that's different
+> from all the other DWC-based controllers?
+> 
+
+After reviewing both the code history and the bug tracking system, it turns out
+that this code doesn't even qualify as a valid workaround.
+Apologies for having submitted it as a patch.
+
+The root cause is that the iATU limits were not configured correctly.
+The original design assumed at least 32GB or 128GB of BAR resource assignment,
+but the actual chip sets the iATU limit to only 4GB.
+As a result, region_limit is always constrained by this 4GB boundary.
+
+The correct workaround should be to program the iATU only for the 32-bit address
+space and skip iATU programming for the 64-bit space. A simple way to implement
+this workaround is to parse the num-viewport property from the devicetree and
+use this value directly, instead of relying on the result of reading
+PCIE_ATU_VIEWPORT.
+
+I will attempt to implement it this way, but the correct method is not yet
+well-defined. Do you have any suggestions on how to modify the num-viewport
+property from the devicetree for use in the driver?
+It seems it will be modified in pcie-designware.c.
+
+> > + * Setup the Qilai PCIe IOCP (IO Coherence Port) Read/Write Behaviors to the
+> > + * Write-Back, Read and Write Allocate mode.
+> > + * The IOCP HW target is SoC last-level cache (L2 Cache), which serves as the
+> > + * system cache.
+> > + * The IOCP HW helps maintain cache monitoring, ensuring that the device can
+> > + * snoop data from/to the cache.
+> 
+> Add blank lines between paragraphs (or rewrap into a single paragraph
+> if that's what you intend).
+> 
+
+Ok.
+
+> > +static struct platform_driver qilai_pcie_driver = {
+> > +     .probe = qilai_pcie_probe,
+> > +     .driver = {
+> > +             .name   = "qilai-pcie",
+> > +             .of_match_table = qilai_pcie_of_match,
+> > +             /* only test passed at PROBE_DEFAULT_STRATEGY */
+> > +             .probe_type = PROBE_DEFAULT_STRATEGY,
+> 
+> This is the only use of PROBE_DEFAULT_STRATEGY in the entire tree, so
+> I doubt you need it.  If you do, please explain why in more detail.
+> 
+
+In the V1 patch, the reviewer, Manivannan, suggested:
+"You should start using PROBE_PREFER_ASYNCHRONOUS."
+However, after setting up PROBE_PREFER_ASYNCHRONOUS, numerous errors
+were encountered during the EP device probe flow.
+Therefore, we would prefer to continue using PROBE_DEFAULT_STRATEGY.
+
+> Bjorn
+
+Sincerely,
+Randolph
 
 _______________________________________________
 linux-riscv mailing list
