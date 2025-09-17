@@ -4,54 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36BDCAC592
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 01:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A475CCAC598
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 02:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hT7UaOfM+28WKoEJGZxS0OFXdVvUIDXOTMXji1LQ13o=; b=tyJgX64FAXMBdI
-	fe5fyNWe6cYUjpWB6sx8//VtBtyAYNOrC7jslsL/k6UYqxhd1x3i3oa0axlpeQqUyo2F3+J5J/ek2
-	oyDDSPZclL3onqzaJxGanMVS/nsrnLjoytjCUJu1e0ca/+yLNjeRF5OqXJvIiI7ypv/wOUbKcRm9z
-	mqQNgxzXmjMMgDV/Pc0V3l4SKlVVnNbxjbTIC4qbaSFe6DQnw+1aYM0bhjH2/OaZMu85s1eVdCd31
-	mosmaoLs4JcTcMqAeeVfR7WLScZUqql1+ru7Gble6YUu0c+zSBw3GHRbnAbP8tazejwyxHgQvt950
-	pKFmVNvAx6hraCAi9kYw==;
+	List-Owner; bh=G2Rvo56/P6xPkMte1BCXk9UIX/QOpBTsc86J4UFJ4xU=; b=HzCGpXZaXyquJu
+	UGNGjIO94i6dmILqM1vYdsKi/BQdy00Dgj4S5xXIf7kqJIVqtB5XKdcL4vJTLY6XvLm08w+/cyAiu
+	yuA3IyALXVn7xkPYV08YTzA4L5Z59uUMXXb1wwkc6lOxzpsPFTpPem1zrOg9nBlm7awanROJS3tF5
+	I4j1R0nbF/xVn3vb1kLCWWE4RPEcR1zp5Bkt2Kz//xhxoPcKNiA4YEZidTRwbRhxMppzysydYPYcr
+	vG+dC5TYiXZHw6OZ5sDEYFkC8aB1Y13gAOkxxjyoFzcvN8KMgQNTntWh8wYG0XTdXoD/OJLKBatNu
+	vlQMpqJvA6e6KwqDbhFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uygzW-00000009qW9-3ENE;
-	Wed, 17 Sep 2025 01:29:50 +0000
-Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1uyi5m-00000009zRF-031S;
+	Wed, 17 Sep 2025 02:40:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uygzU-00000009qUr-354C
-	for linux-riscv@lists.infradead.org;
-	Wed, 17 Sep 2025 01:29:49 +0000
-Received: from localhost (unknown [180.158.240.90])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 71C89340EF8;
-	Wed, 17 Sep 2025 01:29:45 +0000 (UTC)
-Date: Wed, 17 Sep 2025 09:29:41 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, skhan@linuxfoundation.org,
-	linux-kernel-mentees@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: dts: spacemit: add UART pinctrl combinations
-Message-ID: <20250917012941-GYA1263349@gentoo.org>
-References: <20250916064739.196695-1-hendrik.hamerlinck@hammernet.be>
+	id 1uyi5f-00000009zP1-1g4h;
+	Wed, 17 Sep 2025 02:40:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 18C3644AEC;
+	Wed, 17 Sep 2025 02:40:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0BF2C4CEFA;
+	Wed, 17 Sep 2025 02:40:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758076815;
+	bh=S0LGJmfDGnE9fg7KBnzD+2AHLv2B7h2ODLru9DI0lsg=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Q2kToCabJnESW8vUmYIu1ab7o3eKbUVQ9kdfBJ5+bFVzM6d+DtAc8KVtPusjYCkkW
+	 lfDeTry07jpkrR88IDvRwTSm3FlaZ3DRQ6C++gAnt82jJ0z+Scrrn5/YRjgzwA/HN3
+	 00XOAJwZMLLA9HO7PYsBVjZTl/U8OOd6x+xQPVndCWFi4sV0hwZG8LvrJ5/ZQjM8dU
+	 g80BovHTnqKi3d7f1jLzDsU2LDkK8EhzlmQ9Ajml61y/5qXBl0YvlIuYhH5VvVi8p4
+	 O3PqYNJ19XigxUlBZqKp2vk/Cv2tkyyhAPwjYXzX5Qsgrgr/oifjbHdpTeNPeic3Xx
+	 l1L+BkrtQRVLQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33C6539D0C1A;
+	Wed, 17 Sep 2025 02:40:17 +0000 (UTC)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250916064739.196695-1-hendrik.hamerlinck@hammernet.be>
+Subject: Re: [PATCH 0/3] kexec: Fix invalid field access
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <175807681600.1444719.17902386827099362069.git-patchwork-notify@kernel.org>
+Date: Wed, 17 Sep 2025 02:40:16 +0000
+References: <20250827-kbuf_all-v1-0-1df9882bb01a@debian.org>
+In-Reply-To: <20250827-kbuf_all-v1-0-1df9882bb01a@debian.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: linux-riscv@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org,
+ akpm@linux-foundation.org, bhe@redhat.com, coxu@redhat.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+ borntraeger@linux.ibm.com, svens@linux.ibm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-s390@vger.kernel.org, kernel-team@meta.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_182948_810493_F28B38EF 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20250916_194015_460172_79C13DCC 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,88 +79,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Hendrik,
+Hello:
 
-On 08:47 Tue 16 Sep     , Hendrik Hamerlinck wrote:
-> Add UART pinctrl configurations based on the SoC datasheet and the
-> downstream Bianbu Linux tree. The drive strength values were taken from
-> the downstream implementation, which uses medium drive strength.
-> CTS/RTS are moved to separate *-cts-rts-cfg states so boards can enable
-> hardware flow control conditionally.
+This series was applied to riscv/linux.git (for-next)
+by Paul Walmsley <pjw@kernel.org>:
+
+On Wed, 27 Aug 2025 03:42:20 -0700 you wrote:
+> The kexec_buf structure was previously declared without initialization.
+> commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
+> added a field that is always read but not consistently populated by all
+> architectures. This un-initialized field will contain garbage.
 > 
-> Signed-off-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-> ---
-> Changes in v3:
-> - Added /omit-if-no-ref/ to pinctrl states to reduce DT size
+> This is also triggering a UBSAN warning when the uninitialized data was
+> accessed:
 > 
-> Changes in v2:
-> - Split cts/rts into separate pinctrl configs as suggested
-> - Removed options from board DTS files to keep them cleaner
-> ---
->  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi | 432 ++++++++++++++++++-
->  1 file changed, 429 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> index 381055737422..7811fb485bd4 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-> @@ -11,12 +11,438 @@
->  #define K1_GPIO(x)	(x / 32) (x % 32)
->  
->  &pinctrl {
-> +	/omit-if-no-ref/
-> +	uart0_0_cfg: uart0-0-cfg {
-> +		uart0-0-pins {
-> +			pinmux = <K1_PADCONF(104, 3)>,	/* uart0_txd */
-> +				 <K1_PADCONF(105, 3)>;	/* uart0_rxd */
-> +			power-source = <3300>;
-> +			bias-pull-up;
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	/omit-if-no-ref/
-> +	uart0_1_cfg: uart0-1-cfg {
-> +		uart0-1-pins {
-> +			pinmux = <K1_PADCONF(108, 1)>,	/* uart0_txd */
-> +				 <K1_PADCONF(80, 3)>;	/* uart0_rxd */
-> +			power-source = <3300>;
-..
-> +			bias-pull-up;
-here, see comment below
-> +			drive-strength = <19>;
-> +		};
-> +	};
-> +
-> +	/omit-if-no-ref/
->  	uart0_2_cfg: uart0-2-cfg {
->  		uart0-2-pins {
-> -			pinmux = <K1_PADCONF(68, 2)>,
-> -				 <K1_PADCONF(69, 2)>;
-> +			pinmux = <K1_PADCONF(68, 2)>,	/* uart0_txd */
-> +				 <K1_PADCONF(69, 2)>;	/* uart0_rxd */
-> +			bias-pull-up;
-> +			drive-strength = <32>;
-> +		};
-> +	};
->  
-> -			bias-pull-up = <0>;
+> [...]
 
-Sorry, I've overlooked this, the bias-pull-up need to explicitly set to
-a vale of 0, 1 - normal pull up, or strong pull up.. for uart, the normal
-pull up should be ok
+Here is the summary with links:
+  - [1/3] arm64: kexec: Initialize kexec_buf struct in load_other_segments()
+    (no matching commit)
+  - [2/3] riscv: kexec: Initialize kexec_buf struct
+    https://git.kernel.org/riscv/c/95c54cd9c769
+  - [3/3] s390: kexec: Initialize kexec_buf struct
+    (no matching commit)
 
-please refer Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml
-
-Since the rc6 is already tagged, I'm about to prepare a PR, so If you able 
-to respin a new version quickly, I'd be happy to take, otherwise let's wait
-for next merge window (which shouldn't be a big problem)
-
-btw, please always do a DT check: 
-  make ARCH=riscv dtbs_check W=1
-
+You are awesome, thank you!
 -- 
-Yixun Lan (dlan)
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
