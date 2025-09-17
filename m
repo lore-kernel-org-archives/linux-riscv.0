@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B70A9CAC598
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 09:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F69ECA0EE8
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 12:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OlE5CUYuav3WvqTW8D+ekU1kcXUmncCuCtmGml0Kztk=; b=Yqk7NWJ4Us8tOE
-	ytrFlGbQt8r1QkNIbcucia01U1j9/Ig6SE9ZEshyeK4UxoTjXX/LDHNrrH2CbuBSN4REDdL5IXvIL
-	tuJcBzF3AOa8bCZ/c6CstPvSIapsnRS+Ru/A66gWwGjCGoTxFTRPO6eiCo3hHUj5vyqpIdvaPHqkf
-	n/GmTNqzoSh0pW5EtphxPV9RK/2ESDx1sKqnZZh6KlI3rid3eFT+YE7PrMQPUBukcD4JclL6kuMfW
-	ssMoJkds5akuIJu8jxr+ScIMZrDdX4QCANJANTjVIyb7ycO3zFKdeDs/3r5cDCEpOmfDpnKFiHALw
-	/XK6tdYZWbHTzfa3Qo8Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pGGgsD9ZZxYEEgt+o3olx21fNFDVYS5ZmNIJjfoMwQ8=; b=Lvc5D04KwPUfma
+	b79yXxy7/xuv6BlYy6wpUKkiEL+pYpdUX9npFOISrD1RPwopPnLfj6+uTMgh8pQujhDJNiTm36aYM
+	JVvyfuTIc8GoDnTaXPQDeSbe9CFIetTQmwZASYkT693vSUDeIPuo8AFcVUl4/HesGzaUi7XDZZb+5
+	C5QkDMOVgUjCr4EUTdjw+s2RloS97Lpr8yND4ZL1pL5HOvRV7EtU1rMl2f6TssEicYy936q9tp+BU
+	wG9MsL8w8Ju4dMh2X8Jz/jF/eHwjqVHbh6JiQAIMNndHPT5CnbtblSgQvDq3q1sUrZ2ZjY2o3QFD6
+	fZAc4WNWtTLZhJjalrNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyoqI-0000000ArUy-1CzG;
-	Wed, 17 Sep 2025 09:52:50 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1uyqsd-0000000BDeW-1afq;
+	Wed, 17 Sep 2025 12:03:23 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyoqF-0000000ArUG-1Vv8
+	id 1uyqsa-0000000BDdy-0XAP
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Sep 2025 09:52:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758102767; x=1789638767;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BFX6ownYzY7fkpQNkKIV0Q6ij+7Fw1P1XuX9Ln822Ro=;
-  b=D7IpGn1rlu4qbWlppOk7zz9x/dQLzW8ocuoVYiC7QDH6JszhNniyYjbZ
-   rVD5vnakvHpf8OqYrv7FIzvpOvkvNJXqxFXkHydWjj4iRD8yxfiDQBz1g
-   xrTYK47gc3+NEZxm9Ud32/02f6q2rkmXpzTKQnwUv+w9zIn2zjW2yArt2
-   RBTLkMlb5IuC1n2fAS6NaO/bZWP4/MhiUf4XiMVSuJjD/V4mrOm8r8Jon
-   Z8FoNc4DjV3zsC9VAaa5ftb0Ec41mjVKiyjqkmhhy4H+oEcsXkI3gMIUJ
-   yp+P0/kDTURDGOdQx+AdvlhSbJgcZBL/J7tM1S0x8FRnra9b0K/tiGP9Y
-   A==;
-X-CSE-ConnectionGUID: wwgdxV2BR320ytip1dB2sw==
-X-CSE-MsgGUID: k9Kgqpd6Sr+dgS0r7gT3TA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11555"; a="71507488"
-X-IronPort-AV: E=Sophos;i="6.18,271,1751266800"; 
-   d="scan'208";a="71507488"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2025 02:52:27 -0700
-X-CSE-ConnectionGUID: fXDEHERxTC+QoYiDPK7aNg==
-X-CSE-MsgGUID: rnd60lEbSgK/07jnyeF1WQ==
-X-ExtLoop1: 1
-Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
-  by fmviesa003.fm.intel.com with ESMTP; 17 Sep 2025 02:52:21 -0700
-Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uyopm-0001LH-3A;
-	Wed, 17 Sep 2025 09:52:18 +0000
-Date: Wed, 17 Sep 2025 17:52:16 +0800
-From: kernel test robot <lkp@intel.com>
-To: Randolph Lin <randolph@andestech.com>, linux-kernel@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, jingoohan1@gmail.com, mani@kernel.org,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	alex@ghiti.fr, aou@eecs.berkeley.edu, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, ben717@andestech.com, inochiama@gmail.com,
-	thippeswamy.havalige@amd.com, namcao@linutronix.de,
-	shradha.t@samsung.com, randolph.sklin@gmail.com,
-	tim609@andestech.com, Randolph Lin <randolph@andestech.com>
-Subject: Re: [PATCH v2 4/5] PCI: andes: Add Andes QiLai SoC PCIe host driver
- support
-Message-ID: <202509171747.yJ9wsIkH-lkp@intel.com>
-References: <20250916100417.3036847-5-randolph@andestech.com>
+	Wed, 17 Sep 2025 12:03:22 +0000
+Received: from [192.168.0.107] (unknown [114.241.87.235])
+	by APP-05 (Coremail) with SMTP id zQCowADnhxF7o8poUhdeAw--.4222S2;
+	Wed, 17 Sep 2025 20:03:08 +0800 (CST)
+Message-ID: <b68478db-5a8c-4b5f-a4d1-f4202ca1f062@iscas.ac.cn>
+Date: Wed, 17 Sep 2025 20:03:08 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250916100417.3036847-5-randolph@andestech.com>
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: stable@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Subject: riscv: Backport request for mmap address space fixes to 6.6
+X-CM-TRANSID: zQCowADnhxF7o8poUhdeAw--.4222S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrJrWfur1kAw1xCFyxAry5Jwb_yoWxXrg_GF
+	1UJrWxJa4UXFWUWFWUKrWrArn5CaykZ3y3Jrs7Ww4IyF4UC3W7Ga1vkry8CwsrAF47AF93
+	t3WIya4Svr12qjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbVxFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
+	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
+	ACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkI
+	wI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
+	73UjIFyTuYvjfUonmRUUUUU
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_025247_440918_E691445A 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250917_050320_538460_70966C5E 
+X-CRM114-Status: UNSURE (   3.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,101 +73,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Vivian Wang <wangruikang@iscas.ac.cn>, Inochi Amaoto <inochiama@gmail.com>, Charlie Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org, Yangyu Chen <cyy@cyyself.name>, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org, Yao Zi <ziyao@disroot.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Randolph,
+Hi,
 
-kernel test robot noticed the following build warnings:
+I would like to request backport of these two commits to 6.6.y:
 
-[auto build test WARNING on pci/next]
-[also build test WARNING on pci/for-linus robh/for-next linus/master v6.17-rc6 next-20250916]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+b5b4287accd702f562a49a60b10dbfaf7d40270f ("riscv: mm: Use hint address in mmap if available")
+2116988d5372aec51f8c4fb85bf8e305ecda47a0 ("riscv: mm: Do not restrict mmap address based on hint")
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Randolph-Lin/PCI-dwc-Add-outbound-ATU-address-range-validation-callback/20250916-180841
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
-patch link:    https://lore.kernel.org/r/20250916100417.3036847-5-randolph%40andestech.com
-patch subject: [PATCH v2 4/5] PCI: andes: Add Andes QiLai SoC PCIe host driver support
-config: riscv-allmodconfig (https://download.01.org/0day-ci/archive/20250917/202509171747.yJ9wsIkH-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7c861bcedf61607b6c087380ac711eb7ff918ca6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250917/202509171747.yJ9wsIkH-lkp@intel.com/reproduce)
+Together, they amount to disabling arch_get_mmap_end and
+arch_get_mmap_base for riscv.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509171747.yJ9wsIkH-lkp@intel.com/
+I would like to note that the first patch conflicts with commit
+724103429a2d ("riscv: mm: Fixup compat arch_get_mmap_end") in the stable
+linux-6.6.y branch. STACK_TOP_MAX should end up as TASK_SIZE, *not*
+TASK_SIZE_64.
 
-All warnings (new ones prefixed by >>):
-
-   In file included from <built-in>:3:
-   In file included from include/linux/compiler_types.h:171:
-   include/linux/compiler-clang.h:28:9: warning: '__SANITIZE_ADDRESS__' macro redefined [-Wmacro-redefined]
-      28 | #define __SANITIZE_ADDRESS__
-         |         ^
-   <built-in>:371:9: note: previous definition is here
-     371 | #define __SANITIZE_ADDRESS__ 1
-         |         ^
->> drivers/pci/controller/dwc/pcie-andes-qilai.c:179:22: warning: variable 'ret' is uninitialized when used here [-Wuninitialized]
-     179 |                 dev_err_probe(dev, ret, "Failed to Get APB registers.\n");
-         |                                    ^~~
-   drivers/pci/controller/dwc/pcie-andes-qilai.c:159:9: note: initialize the variable 'ret' to silence this warning
-     159 |         int ret;
-         |                ^
-         |                 = 0
-   2 warnings generated.
+Thanks,
+Vivian "dramforever" Wang
 
 
-vim +/ret +179 drivers/pci/controller/dwc/pcie-andes-qilai.c
-
-   153	
-   154	static int qilai_pcie_probe(struct platform_device *pdev)
-   155	{
-   156		struct qilai_pcie *pcie;
-   157		struct dw_pcie *pci;
-   158		struct device *dev;
-   159		int ret;
-   160	
-   161		pcie = devm_kzalloc(&pdev->dev, sizeof(*pcie), GFP_KERNEL);
-   162		if (!pcie)
-   163			return -ENOMEM;
-   164	
-   165		pcie->pdev = pdev;
-   166		platform_set_drvdata(pdev, pcie);
-   167	
-   168		pci = &pcie->pci;
-   169		dev = &pcie->pdev->dev;
-   170		pcie->pci.dev = dev;
-   171		pcie->pci.ops = &qilai_pcie_ops;
-   172		pcie->pci.pp.ops = &qilai_pcie_host_ops;
-   173		pci->use_parent_dt_ranges = true;
-   174	
-   175		dw_pcie_cap_set(&pcie->pci, REQ_RES);
-   176	
-   177		pcie->apb_base = devm_platform_ioremap_resource_byname(pdev, "apb");
-   178		if (IS_ERR(pcie->apb_base)) {
- > 179			dev_err_probe(dev, ret, "Failed to Get APB registers.\n");
-   180			return PTR_ERR(pcie->apb_base);
-   181		}
-   182	
-   183		ret = dw_pcie_host_init(&pcie->pci.pp);
-   184		if (ret) {
-   185			dev_err_probe(dev, ret, "Failed to initialize PCIe host\n");
-   186			return ret;
-   187		}
-   188	
-   189		qilai_pcie_iocp_cache_setup(&pcie->pci.pp);
-   190	
-   191		return 0;
-   192	}
-   193	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
