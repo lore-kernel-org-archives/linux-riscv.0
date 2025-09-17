@@ -4,110 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB86CAC59A
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 14:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119A4CAC59A
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 15:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nkBeB55YuK3J4beDZdyAGTeyRkL4QE4odCBr1z3vKj4=; b=LcrgtjsHC8PuNE
-	IPFV7IFPtdEBovsWdC3LSLZjxGIKa56w6O4kr/Iq/+ZKH0jjeGhmT8l6Yq7Kn0HjUEkfBs+CkJGc+
-	vh0Qdkj6lOx3kf5wdZGvT5U/Pikd5Dfj9PeMTXJdAlqLFLvNLTnHzSDW7BgepwDcHxUzdBH5ygvXD
-	pzeaMQxk42ux/1v47oYzhaO3kps5LaeczVyQjto2W66ddbw+cqpMX1tGe3tAWOiCOATQTInhX58dG
-	tUHlqo8bcBlwGy+OoEiOckw8hMxndUKAxBZVBDwtdCgtxfZgdU/fbr4O4sZ2XDSZ1mzuZwXsb/uua
-	UpDaDLyJVf+5bY9v0ymQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZGW4LjlYeVk44hnUPrhv5dwMW73US/ExqCHLrC2Rla8=; b=AadNUNGzXM1FoY
+	3xyocNbO5I0CaDYuXw+8XvG324wlUNYwpddV6lJoe5wIYBapJrsdfemOQahYOHcgRFD+mEQvilSVi
+	ZnTK99UBi3CnrJz7K/e9TwV4mmiXDhaTCuKjLKSknfI0oVXUOwHzAAWAx1Ra/csw4rTr/SWK4Lz3z
+	Fipc840PEHatt5kVRUMaHHURh42v9sgG+968uV2jmpwMW6+Qha6FrKpFmDijRKtRbREJ2hvWq7XCm
+	nXltPJEYZzumKU9cDaQbYOqOpHQFmYjoj9ypLYMd8xMhhbFDLn12z8pRaM/rOPFhXre2DoKgGNfXo
+	132k8pYxG4IOIIiGy9VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytXE-0000000CQd6-3WP5;
-	Wed, 17 Sep 2025 14:53:28 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1uytpD-0000000CZnV-1Tx0;
+	Wed, 17 Sep 2025 15:12:03 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytXC-0000000CQZJ-1vE7
-	for linux-riscv@lists.infradead.org;
-	Wed, 17 Sep 2025 14:53:27 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id B5EA52072D;
-	Wed, 17 Sep 2025 14:53:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1758120804; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cBMToLLsE5aq4WUhEczoGLkR8SnuL7TSrOlvPZQgYGo=;
-	b=BNAxxHpbwJjevAKjcq6MiKmTaHVIjxsnC8MMS/NuyjomoYIC53rNPDlCoRTUqvemMAdO88
-	JNIsRZC5jd5E0inLt+2rm3wItX3Zw3qPiW0g1uiOPwtZssP33zbHt61ylIT+7Hn6JUj044
-	mqt0mn8Ln48KeFwkxGIrsxCRobZZDbs=
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1758120804; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cBMToLLsE5aq4WUhEczoGLkR8SnuL7TSrOlvPZQgYGo=;
-	b=BNAxxHpbwJjevAKjcq6MiKmTaHVIjxsnC8MMS/NuyjomoYIC53rNPDlCoRTUqvemMAdO88
-	JNIsRZC5jd5E0inLt+2rm3wItX3Zw3qPiW0g1uiOPwtZssP33zbHt61ylIT+7Hn6JUj044
-	mqt0mn8Ln48KeFwkxGIrsxCRobZZDbs=
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EC6571368D;
-	Wed, 17 Sep 2025 14:53:23 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id EGUqOGPLymg2EwAAD6G6ig
-	(envelope-from <jgross@suse.com>); Wed, 17 Sep 2025 14:53:23 +0000
-From: Juergen Gross <jgross@suse.com>
-To: linux-kernel@vger.kernel.org,
+	id 1uytpA-0000000CZl0-3ILY;
+	Wed, 17 Sep 2025 15:12:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Z9DCHnUskoAQsh4r0zX0pM3YjsFlNAkxg7COa2SK03s=; b=paOB4LDXN15KG0UXWrMKam+OMH
+	aZOO7D2SyGG0TEQzk8TvwQx527ujk+cjVaq9dB5vejyXfhPCSkTUJs64LU/CTQ9tZThfqn88jGwO8
+	5wR9xFtWLStSP/S1t5sY9e6o64ps6PeMAJZYb8HxbyPmmhvY0fy1s2iKuXnGotbZEEAJkyS58BUHC
+	Qun28H6WmBZUyEPcX2PntSb2b1KeGYKAvV63EpVbPs4MLVG4js2lHn1wNFqUU1cHEDDPwpqasmdj3
+	9NcyfYEEP1QUudsP4DznsTI7pEdsn5dJeYOyBJ7cC7Zj1oI4BWiC+boI55TDbz201JJx0ijh+qH0Z
+	1ZyX2ONA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43408)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uytot-000000004jS-0P44;
+	Wed, 17 Sep 2025 16:11:43 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uytoj-000000000Hx-11GN;
+	Wed, 17 Sep 2025 16:11:33 +0100
+Date: Wed, 17 Sep 2025 16:11:33 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <fustini@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, Fu Wei <wefu@redhat.com>,
+	Guo Ren <guoren@kernel.org>, imx@lists.linux.dev,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	virtualization@lists.linux.dev,
-	x86@kernel.org
-Cc: Juergen Gross <jgross@suse.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Ajay Kaher <ajay.kaher@broadcom.com>,
-	Alexey Makhalov <alexey.makhalov@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>
-Subject: [PATCH v2 10/21] riscv/paravirt: Use common code for paravirt_steal_clock()
-Date: Wed, 17 Sep 2025 16:52:09 +0200
-Message-ID: <20250917145220.31064-11-jgross@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250917145220.31064-1-jgross@suse.com>
-References: <20250917145220.31064-1-jgross@suse.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Samuel Holland <samuel@sholland.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>
+Subject: [PATCH net-next 00/10] net: stmmac: remove mac_interface
+Message-ID: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-6.80 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.com:s=susede1];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:mid,suse.com:email,imap1.dmz-prg2.suse.org:helo];
-	RCVD_TLS_ALL(0.00)[]
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_075326_660180_04C2B322 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20250917_081200_827366_8821015F 
+X-CRM114-Status: GOOD (  26.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,71 +97,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove the arch specific variant of paravirt_steal_clock() and use
-the common one instead.
+The dwmac core supports a range of interfaces, but when it comes to
+SerDes interfaces, the core itself does not include the SerDes block.
+Consequently, it has to provide an interface suitable to interface such
+a block to, and uses TBI for this.
 
-Signed-off-by: Juergen Gross <jgross@suse.com>
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
----
- arch/riscv/Kconfig                |  1 +
- arch/riscv/include/asm/paravirt.h | 10 ----------
- arch/riscv/kernel/paravirt.c      |  7 -------
- 3 files changed, 1 insertion(+), 17 deletions(-)
+The driver also uses "PCS" for RGMII, even though the dwmac PCS block
+is not present for this interface type - it was a convenice for the
+code structure as RGMII includes inband signalling of the PHY state,
+much like Cisco SGMII does at a high level.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 51dcd8eaa243..8a7573aebaca 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -1108,6 +1108,7 @@ config COMPAT
- config PARAVIRT
- 	bool "Enable paravirtualization code"
- 	depends on RISCV_SBI
-+	select HAVE_PV_STEAL_CLOCK_GEN
- 	help
- 	  This changes the kernel so it can modify itself when it is run
- 	  under a hypervisor, potentially improving performance significantly
-diff --git a/arch/riscv/include/asm/paravirt.h b/arch/riscv/include/asm/paravirt.h
-index 17e5e39c72c0..c49c55b266f3 100644
---- a/arch/riscv/include/asm/paravirt.h
-+++ b/arch/riscv/include/asm/paravirt.h
-@@ -3,16 +3,6 @@
- #define _ASM_RISCV_PARAVIRT_H
- 
- #ifdef CONFIG_PARAVIRT
--#include <linux/static_call_types.h>
--
--u64 dummy_steal_clock(int cpu);
--
--DECLARE_STATIC_CALL(pv_steal_clock, dummy_steal_clock);
--
--static inline u64 paravirt_steal_clock(int cpu)
--{
--	return static_call(pv_steal_clock)(cpu);
--}
- 
- int __init pv_time_init(void);
- 
-diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
-index d3c334f16172..5f56be79cd06 100644
---- a/arch/riscv/kernel/paravirt.c
-+++ b/arch/riscv/kernel/paravirt.c
-@@ -23,13 +23,6 @@
- #include <asm/paravirt.h>
- #include <asm/sbi.h>
- 
--static u64 native_steal_clock(int cpu)
--{
--	return 0;
--}
--
--DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
--
- static bool steal_acc = true;
- static int __init parse_no_stealacc(char *arg)
- {
+As such, the code refers to RGMII and SGMII modes for the PCS, and
+there used to be STMMAC_PCS_TBI and STMMAC_PCS_RTBI constants as well
+but these were never set, although they were used in the code.
+
+The selection of the PCS mode was from mac_interface. Thus, it seems
+that the original intention was for mac_interface to describe the
+interface mode used within the dwmac core, and phy_interface to
+describe the external world-accessible interface (e.g. which would
+connect to a PHY or SFP cage.)
+
+It appears that many glue drivers misinterpret these. A good exmple
+is socfpga. This supports SGMII and 1000BASE-X, but does not include
+the dwmac PCS, relying on the Lynx PCS instead. However, it makes use
+of mac_interface to configure the dwmac core to its GMII/MII mode.
+
+So, when operating in either of these modes, the dwmac is configured
+for GMII mode to communicate with the Lynx PCS which then provides
+the SGMII or 1000BASE-X interface mode to the external world.
+
+Given that phy_interface is the external world interface, and
+mac_interface is the dwmac core interface, selecting the interface
+mode based on mac_interface being 1000BASEX makes no sense.
+
+Moreover, mac_interface is initialised by the stmmac core code. If
+the "mac-mode" property is set in DT, this will be used. Otherwise,
+it will reflect the "phy-mode" property - meaning that it defaults
+to phy_interface. As no in-kernel DT makes reference to a "mac-mode"
+property, we can assume that for all in-kernel platforms, these two
+interface variables are the same. The exception are those platform
+glues which I reviwed and suggested they use phy_interface, setting
+mac_interface to PHY_INTERFACE_MODE_NA.
+
+The conclusion to all of this is that mac_interface serves no useful
+purpose, and causes confusion as the platform glue code doesn't seem
+to know which one should be used.
+
+Thus, let's get rid of mac_interface, which makes all this code more
+understandable. It also helps to untangle some of the questions such
+as:
+- should this be using the interface passed from phylink
+- should we set the range of phylink supported interfaces to be
+  more than one
+- when we get phylink PCS support for the dwmac PCS, should we be
+  selecting it based on mac_interface or phy_interface, and how
+  should we populate the PCS' supported_interface bitmap.
+
+Having converted socfpga to use phy_interface, this turns out to
+feel like "the right way" to do this - convert the external world
+"phy_interface" to whatever phy_intf_sel value that the dwmac core
+needs to achieve the connection to whatever hardware blocks are
+integrated inside the SoC to achieve the requested external world
+interface.
+
+As an illustration why - consider that in the case of socfpga, it
+_could_ have been implemented such that the dwmac PCS was used for
+SGMII, and the Lynx PCS for 1000BASE-X, or vice versa. Only the
+platform glue would know which it is.
+
+I will also note that several cores provide their currently configured
+interface mode via the ACTPHYIF field of Hardware Feature 0, and thus
+can be read back in the platform-independent parts of the driver to
+decide whether the internal PCS or the RGMII (or actually SMII) "PCS"
+should be used.
+
+This is hot-off-the-press, and has only been build tested. As I have
+none of these platforms, this series has not been run-tested, so
+please test on your hardware. Thanks.
+
+ drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c    | 20 +++++++-------
+ .../net/ethernet/stmicro/stmmac/dwmac-ingenic.c    | 25 ++++++++++-------
+ .../net/ethernet/stmicro/stmmac/dwmac-loongson.c   |  2 --
+ .../net/ethernet/stmicro/stmmac/dwmac-lpc18xx.c    |  1 -
+ .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    |  2 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-starfive.c   |  6 ++---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c  | 26 +++++++++---------
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c  |  4 +--
+ drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c  | 24 ++++++++---------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |  2 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |  6 ++++-
+ include/linux/stmmac.h                             | 31 ++++++++++++++--------
+ 12 files changed, 82 insertions(+), 67 deletions(-)
+
 -- 
-2.51.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
