@@ -4,157 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851E5CAC59F
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 09:03:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D89D9CAC59A
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 12:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oxAC/srg21M9QXGz3lKAm8KFJ0PwJIbe8oth0sEh/js=; b=XX3+SBsL7ETwR7
-	5btcxZg6z6CF8k+8jk7Rm39pCMIIjZAGUwvb33BMR4X8LoWnA9PUXK3e2BLLPxLiaIzVmJcIH6nSe
-	0JFBbUKeQKDlzwd2NfSUIR4hw41Tpguk/AvOAjr4sajTPnuNSNqOKN6tQDNVJdG6EQi4r2ZaUsftE
-	THSR6S8Jv3ByKy6ltiIJN8sEG0IPQUIW6n6Zg7zgZiGWcj2AoV27fqiG0tdMT02MNHaJ7/2d3I6hL
-	9Zx2lhxgZACg6ExO+WXtNI4FHIulYSdU4y5qTMlEVg1RU0MFYDiVHeSEfXErM8nsFSFjEDoasnB2k
-	g1IA5ZjhPXJS5z8U0b3w==;
+	List-Owner; bh=/DIsp1vLD3JXdHmrs2SdvjeoiKPkxQZWFjUdLLm3XPY=; b=jJJDM2/B+c+Ab8
+	IEUNgzGu4jedq+tPo4H+evGB5By8OfJy0QSTrffSRHrmZ6paLxla60fHDdSygjQuTwVFjcrzOdedI
+	mxwwXE2Gy9JJb7xuX9nVobJUeWlJ0bgHXs845/B6dgVgogInrMdeQBvE0dOof7/RKuNHg+PGJDf2Y
+	L50w2nfk20rKavU4ktViJVTNUNYKtJsheORMGVkfFRqxXwanwcPGW1mtcnYDcwX6VhwZq9e+aRhdX
+	Hz+e+oLl8Eb18eiKuDkB8dKdsy2UWBdSiG4yYNPhZN7qjO6t5ES1USWwWpDPKDGh3Kk8DYgL1qBdb
+	eHnFGAyusKFqNqUp1eMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzAXn-0000000Gnqi-3Jch;
-	Thu, 18 Sep 2025 09:03:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uzDJ4-0000000HJaG-1kuN;
+	Thu, 18 Sep 2025 12:00:10 +0000
+Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzAXl-0000000Gnpj-1sAH
+	id 1uzDJ2-0000000HJZB-1CO7
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Sep 2025 09:03:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1758186188;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=XFCZX9eN7thiq9pavKtpP8J9JCm4he2B7yCgrgp98u4=;
-	b=MCjtsiz4r9xGj+hY01nwJfnHfS/x74Wez0cQH0RlxB6nI6WsptM4xKY+TOJotUsgpZev9X
-	wb/PWgC8Oc9RujZKW7PV3HM1CnV/p2eAQIF3GoyvhHSTUZjm7bcurfjEwwCrKcbtx8eAgh
-	OUUiP4Rc3MsrCmEwdgpxAdJVriCXSbY=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-660-PdnHK873PCOqOLkwjIHRXQ-1; Thu, 18 Sep 2025 05:03:06 -0400
-X-MC-Unique: PdnHK873PCOqOLkwjIHRXQ-1
-X-Mimecast-MFC-AGG-ID: PdnHK873PCOqOLkwjIHRXQ_1758186185
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3ee10a24246so334940f8f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Sep 2025 02:03:06 -0700 (PDT)
+	Thu, 18 Sep 2025 12:00:09 +0000
+Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-42455d1f89aso2260825ab.3
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Sep 2025 05:00:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1758196807; x=1758801607; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8qhRL1lPN/JJ3TtUo+Jx4GT/xOTZw7lSfANOvM3eSdY=;
+        b=HzFSbycTK8aEImWndLDTP1DDeLgvTuLxa/FiDyThSZwWpG2s0yvVAxEnCj2llWwNlg
+         9OZYfDbaxxC9AfyIJrxQHozeIgM8dXt3txuDLpU47/wC3ntQuB9030h89qCd5vbdemLz
+         5ZN61+42cWaw4EQ5Y9fwWg4Wlisaf3AnoPhPc+FUpPP/pNlpgTCEGTE8FNd86HfGuNjZ
+         ZI+XQnx/y9NHHUJNaEeUWXh/S90pdc08+HVNxc4kneP5feHz/tIpRD1iwWK+TsD8AOZc
+         59Afg3v61vwgixSMZJCMHVf/6U+lSZ7BX5vHYtKIPME7s8S9uS7drpdEeGqviqVsUzmN
+         qKlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758186185; x=1758790985;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XFCZX9eN7thiq9pavKtpP8J9JCm4he2B7yCgrgp98u4=;
-        b=FrUaEOrO6R9sQokNPzCDJ1dNJo9eYZYeiAkoeYieLhW7jWrmvo5accmHNJiTdnFFEP
-         7uHGlCmlBeLeeFeOBQVrwf2pWhNM8KSMuKo0VLVwQtSVqsX86H8mPq2nkNNpz5uOvJyU
-         94lvst1lkp9mWR4G872jV3vddbC+i8WD2SURuoPj65pPaqEfp0o1L4VHOXJA0lni1xiC
-         9iTy41ohvza5LidRA3mSnHdU51MDLZbT62FbwZYpAYg59G1VUg/2Mhs8vw6iA454WDFC
-         IeTv+3qACIjB6kQbC3GtbCMUL/VjEEXSixYevTjtvK0ug6vugGH5WTPbRme69odr9h8O
-         kosA==
-X-Forwarded-Encrypted: i=1; AJvYcCVKqdfw4PG6XaF78xplh++o4Ddn+acYmtdY1cER7xhek0ZdNcO3lzyxyDa0BRb51Gnr8EvMBy6FUV8wSg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxneZS/OEgbVN86EeCcV7nWO0FSErShNWDS0+mkGKkzeQKpzkSp
-	GjSqmfZkcf6a4of0ShbGSUOMeelL6e3tIYKN1/ZM1OVudagY6kspbMng+FbSYfGwuY2Q+OoCKyy
-	j+Of9jG3Yt3TfrpNdUNDkk5w35sOqwXu9EpRaUmfJt8XduU9THl97wRY58TQv3pYGVvnA+Q==
-X-Gm-Gg: ASbGncsN1g2ue2Bz8fHFOGYmKEMsizCT6I98h+3kA3CGlzHQrohAhXN3i0dPu274No8
-	UorNjMKk/8WyOcOfBrfq5Eo3PZ0wi0oYVsVYmf7uJddmQiVbT412SCmnH66uMC0w4agSvBYajn/
-	PXrgPE6L0rZBu1iSFBKJGsUMasDyn+iERySyJgSMFRra3FRBLarfI0dHYM1wtUhDaQHwrRueSkE
-	TdM2SJGJomyu0v2mkYiOlZQIUGxLYSCcBvq6MQFmm27arUBujoWwStZTn4miU3j+MLa8goFZRma
-	dRIJoqhnrCrAxSGESWTFn7XmdykSOvYmlsaHvAR9SaTbyWwWhAcBhcm3FnodWUGr991mYoor2aH
-	iLOjrtZFh8D3xi0a9Jpkits2+a+A4clREInkpsethJZNOo/W1ENYNMUHgk8JJp4zxOHS9
-X-Received: by 2002:a05:6000:2313:b0:3e7:42ba:7e66 with SMTP id ffacd0b85a97d-3ecdf9f4477mr4804902f8f.3.1758186185417;
-        Thu, 18 Sep 2025 02:03:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IElkxupMxmNif5/lzfzUVobHl0PSoeQ1IdEubg1s704Bcn0Lb4/+vf/JHCv5gGV276WTwwYSg==
-X-Received: by 2002:a05:6000:2313:b0:3e7:42ba:7e66 with SMTP id ffacd0b85a97d-3ecdf9f4477mr4804839f8f.3.1758186184853;
-        Thu, 18 Sep 2025 02:03:04 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f07:dd00:ca9c:199e:d2b6:9099? (p200300d82f07dd00ca9c199ed2b69099.dip0.t-ipconnect.de. [2003:d8:2f07:dd00:ca9c:199e:d2b6:9099])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4613e754140sm70721995e9.21.2025.09.18.02.03.03
+        d=1e100.net; s=20230601; t=1758196807; x=1758801607;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8qhRL1lPN/JJ3TtUo+Jx4GT/xOTZw7lSfANOvM3eSdY=;
+        b=Pfdzg4M4ddRHu7nhq9sy4N1fwttvXWI7VqAxQ9VlCr73Pfn69pV4N3ePNynMqy+8jq
+         7kd2VK/yYSaMEM1UlXBhAYbSvf87f2LbZvVIhhZi3b2H8mZ/rJSsLJk6j0g3igtcHpxW
+         NALTb66wLrdaFYk0xDi4MmJIortpLCfXuzHMD6Jd5ZA2YMjpTuZ9yMkxPO5BZjWXoAVM
+         sa1JEHfXkyXYCO/IoYrnFNm8TtMkOGBg9YjOKjMVH2WYECKmGRm9qi0TCHxsDQqL23Az
+         0dvX3U0xQJrEg4oDLpdpMQlXXqVO7btShnvqo5OFH7m1VLrh1Gg3UYLJbr713uKv1Kmr
+         E0Sw==
+X-Forwarded-Encrypted: i=1; AJvYcCWOW4Se0vmRzHt3HAdyEmUlgsirQdkqhzjykhD2GEWsiBxpYSCqnvkGxt9AemoBKYNq8lAoWjeT5ALilQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyInkOI6bZYDtBR+F/HkUYcd4fndLlSFi9VS4ZzLkd9kV35Hjw
+	6M7xyZN7HdogFyzwpbIldAanJODJDrDEJIeBM9E7tewiHfhGWL/wSOKrGhipq6HB7E4=
+X-Gm-Gg: ASbGncukcoLol1RUYKFHoWTbPy4vQFOz4HlbI1lr9Zf3ZBowP6eqPn/9jf6a1KYOZDD
+	tcEs0S1HuIPSHVsOIw38o6s3XKEQT4zAZ9iH3vjjJXv6K4YWGhhGQfCXLhV3DibZHezKDmAyIes
+	HPJdVvLY+83yShdmaPM2X+STZ0ZP8J3LcgOFAkhCHMu208FdE0KYkeNtKDAIP//d1VOCfLprfwR
+	9aBbLCYPPsx/ITVmMCOaparwITOrjvAXfda0MAW6K6TV1UT/WpR9AEHNnRv6j+x7WqJLgOdF6z2
+	a06zRk1IvTpRn/C2JsjK4K3ydIYpaYOdzyCRHPxqVoaEi7l8mVbN6tHwXDCcvoMiPCNllP8W1q+
+	esqHm3hk2YKhJ06pSTjSHSk884dq/s3oggEtT2Us0jnP2xHOSfsjTLUEtWHqqoPuxF5g1ZgRv6V
+	Bf9FVLUw==
+X-Google-Smtp-Source: AGHT+IFQAoOoSgU3pp/rBPSgXlJVaHY1FXv4zqmRznbRq1wJRwagCo1+JA2yZnbtsBf93bWGJ+FcbA==
+X-Received: by 2002:a92:c265:0:b0:424:bec:49f5 with SMTP id e9e14a558f8ab-4241a52891amr66059875ab.15.1758196807090;
+        Thu, 18 Sep 2025 05:00:07 -0700 (PDT)
+Received: from [172.22.22.234] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-53d50aa5dc6sm876180173.47.2025.09.18.05.00.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 18 Sep 2025 02:03:04 -0700 (PDT)
-Message-ID: <45cd1637-54f6-4941-9670-7130aaf080f0@redhat.com>
-Date: Thu, 18 Sep 2025 11:03:02 +0200
+        Thu, 18 Sep 2025 05:00:06 -0700 (PDT)
+Message-ID: <95d9b310-7edc-47b1-ba9c-81390e9a8532@riscstar.com>
+Date: Thu, 18 Sep 2025 07:00:05 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V14 1/6] mm: softdirty: Add pgtable_supports_soft_dirty()
-To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
- Deepak Gupta <debug@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>,
- Arnd Bergmann <arnd@arndb.de>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
- Chunyan Zhang <zhang.lyra@gmail.com>
-References: <20250918083731.1820327-1-zhangchunyan@iscas.ac.cn>
- <20250918083731.1820327-2-zhangchunyan@iscas.ac.cn>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20250918083731.1820327-2-zhangchunyan@iscas.ac.cn>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Yb1c6lDoWP-XYjXmg6rd3LjGpMv6jpK55RJ-MTxFEnw_1758186185
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH 2/3] spi: spacemit: introduce SpacemiT K1 SPI controller
+ driver
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, broonie@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, dlan@gentoo.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, p.zabel@pengutronix.de, spacemit@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250917220724.288127-1-elder@riscstar.com>
+ <20250917220724.288127-3-elder@riscstar.com>
+ <4C1E339412373423+aMu5I4jmngaN0rOy@LT-Guozexi>
 Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <4C1E339412373423+aMu5I4jmngaN0rOy@LT-Guozexi>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_020309_560083_8AAD42C1 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20250918_050008_333598_6FC66938 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,46 +107,60 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18.09.25 10:37, Chunyan Zhang wrote:
-> Some platforms can customize the PTE PMD entry soft-dirty bit making it
-> unavailable even if the architecture provides the resource.
+On 9/18/25 2:47 AM, Troy Mitchell wrote:
+> On Wed, Sep 17, 2025 at 05:07:22PM -0500, Alex Elder wrote:
+>> This patch introduces the driver for the SPI controller found in the
+>> SpacemiT K1 SoC.  Currently the driver supports master mode only.
+>> The SPI hardware implements RX and TX FIFOs, 32 entries each, and
+>> supports both PIO and DMA mode transfers.
+>>
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>> ---
+>>   drivers/spi/Kconfig           |   8 +
+>>   drivers/spi/Makefile          |   1 +
+>>   drivers/spi/spi-spacemit-k1.c | 985 ++++++++++++++++++++++++++++++++++
+>>   3 files changed, 994 insertions(+)
+>>   create mode 100644 drivers/spi/spi-spacemit-k1.c
+>>
+>> +static void k1_spi_remove(struct platform_device *pdev)
+>> +{
+>> +	struct k1_spi_driver_data *drv_data = platform_get_drvdata(pdev);
+>> +
+>> +	k1_spi_register_reset(drv_data, false);
+>> +}
+>> +
+>> +static struct platform_driver k1_spi_driver = {
+>> +	.driver = {
+>> +		.name	= "k1x-spi",
+
+Oh wow I missed that one!  Yes it will be "k1-spi".
+
+Thanks.
+
+					-Alex
+
+> k1x? iis it from vendor driver? please keep k1-spi
 > 
-> Add an API which architectures can define their specific implementations
-> to detect if soft-dirty bit is available on which device the kernel is
-> running.
+>                  - Troy
 > 
-> This patch is removing "ifdef CONFIG_MEM_SOFT_DIRTY" in favor of
-> pgtable_supports_soft_dirty() checks that defaults to
-> IS_ENABLED(CONFIG_MEM_SOFT_DIRTY), if not overridden by
-> the architecture, no change in behavior is expected.
-> 
-> We make sure to never set VM_SOFTDIRTY if !pgtable_supports_soft_dirty(),
-> so we will never run into VM_SOFTDIRTY checks.
-> 
-> Acked-by: David Hildenbrand <david@redhat.com>
-> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-> ---
-
-[...]
-
->   mas_store_fail:
-> diff --git a/mm/vma_exec.c b/mm/vma_exec.c
-> index 922ee51747a6..a822fb73f4e2 100644
-> --- a/mm/vma_exec.c
-> +++ b/mm/vma_exec.c
-> @@ -107,6 +107,7 @@ int relocate_vma_down(struct vm_area_struct *vma, unsigned long shift)
->   int create_init_stack_vma(struct mm_struct *mm, struct vm_area_struct **vmap,
->   			  unsigned long *top_mem_p)
->   {
-> +	unsigned long flags  = VM_STACK_FLAGS | VM_STACK_INCOMPLETE_SETUP;
-
-No need to resend because of this (probably can be fixed up when 
-applying): there is a double space before the "="
-
--- 
-Cheers
-
-David / dhildenb
+>> +		.of_match_table = k1_spi_dt_ids,
+>> +	},
+>> +	.probe = k1_spi_probe,
+>> +	.remove = k1_spi_remove,
+>> +};
+>> +
+>> +module_platform_driver(k1_spi_driver);
+>> +
+>> +MODULE_DESCRIPTION("SpacemiT K1 SPI controller driver");
+>> +MODULE_LICENSE("GPL");
+>> -- 
+>> 2.48.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
 _______________________________________________
