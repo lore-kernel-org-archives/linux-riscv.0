@@ -4,84 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63898CAC59A
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 15:56:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CE1CAC59A
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 15:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5xvgWSXC+U2TO0cZLZTQ/ptMyXDlVICh7XgCRroxoLs=; b=K6+wra9QsMPqxz
-	utmPXhfHulSNhDa6NBcrv+QeeCyQAj2gdi/uX27dSMwwWxspaXhx5Qitqb08FAcjort6Z2at9DVcW
-	Nnd3NZnhY/qRjhSWFgAzDFqtZ0+LLB4f60IGFb/2i4sPhNldE1i7a+U2Fg49/N4v0wOAw8Vh39SP9
-	DlsdusbNQ3GqvJScbjXyDpUQbdTx8KT+1D4wQMJL4fhUQWoz9Nvue/vQzkGplgt7jfF0cIgDWf0x1
-	cUFhmZu9UctVlNlpaQ9K/sXDKyr3Hkvw8rP5DjjxXJc6azFsYyFxqTjYONiAarCmPkqGRRba0XGPR
-	mj7szj1Wpp7zeCslUlPQ==;
+	List-Owner; bh=r1ZZ0Emb6AxBpZeRP2HhaAaog4T8ErQKWun/QSv2Sv4=; b=fYlbwVJjD9JafW
+	Wvlk4N8dSiDG6vXfnMaAeqen6/vH3nDQNca2j1i6elBqjdzw6UvGu6TT1LXLUh55xOEQTnaSbSmyC
+	cYhQkFE66fobRd11XOsPmKMHQ7aP+EUQjdbvpk+IsDPqpMLTDbSvLAO+ey5cvmlqZl6VODv8AnmF/
+	oyuLeNb+OMVZ9X5UMU/e23n1ML7/vOKLveRK/KPDZUA35ibA6lLPBSU4ms7pW9u/9x1hpAp5clzh2
+	eUz2phqeiWo4McNDkjWKk1n2cp6RTu7LXziMNYfjioQqxtplrr/zwu6kPHOxr1h636i2miheJb6/b
+	KLawUG0peUKlPtF0A9vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGzN-00000000Wlk-1zoS;
-	Thu, 18 Sep 2025 15:56:05 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1uzH1v-00000000XJG-3zRu;
+	Thu, 18 Sep 2025 15:58:43 +0000
+Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGzJ-00000000WkS-15LV
+	id 1uzH1t-00000000XIJ-34AH
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Sep 2025 15:56:04 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-6296f6ce5ddso547852d50.3
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Sep 2025 08:56:00 -0700 (PDT)
+	Thu, 18 Sep 2025 15:58:42 +0000
+Received: by mail-io1-xd29.google.com with SMTP id ca18e2360f4ac-88432ccd787so71425439f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Sep 2025 08:58:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758210960; x=1758815760; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EdfK/q+Pwfof78/WFiIzEJbNGwk57mdR4QjuAR4qnWM=;
-        b=U+7TTjgQoHz3zhr3WDYcdwJsMtwrt1rciulCoAHbOXIZlPlENSKue5vmTq1jk+7LG9
-         SA7Z4f8+46lpriDptiLWqhtYJ7mH4aO/OPqWLt1mJABU8Mf3cIyxOHHr1d1BddHZ5Si8
-         SoJZ7djCx3hhWsmoIUB5uGdbyNvkMNslMXntfX7S7RRsUGwDvecIe8TCs32lAK/TaWzR
-         GYeLewgInPVYj8HVXK18EtkTBD6WkxpSaP8dW6wIXkXc3yglizRUCCwFmdM+NMAgQ2UW
-         Fe9XwopNhLm7UGtjPCg76HNOiUtFKRb/sCOdg+UzhRHCO7yH7NHHPWLEraxQ2X+BkGK5
-         ZRKA==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1758211121; x=1758815921; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RWwPXk3+CMDIY3Ii9TMDH0aQbdb6ssOVOtszqmINL5E=;
+        b=M/2HD6QF7gvVsKNoH8hCWbFNRN55wzS2NVm8Qa9sKzdiErHES0nDkGP598xDRd3rOO
+         ItyT6nlMBG2f+0BkjEG4L1ujps+/L27PxFFK9OGSwlCAWeeMgqHQIoGJ5CFx57H9BKQw
+         KRO4s9iGk0CYoFMfI8HfsAiLjW9HTkr9asagH5p/KLPx9S5Vnp+Wm/vekTsrnehlVUrc
+         tLsKT9bCYRXD9fBssLqVIzD/3O7f2YHNRddr8epfcNEtrnbMFUKq+ecTi9Cq961KQ5cJ
+         0pIsUIEWmcuYyRHDaEFkv7XNiMC1rOaGQjBTBBaKkTZ5YMmnzf5gxV+ygu6NwrC2i12Z
+         mSUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758210960; x=1758815760;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EdfK/q+Pwfof78/WFiIzEJbNGwk57mdR4QjuAR4qnWM=;
-        b=C7wOsJxnW6xiaaccMPX4YyynpdsIE3UruIWpwjVyF/W0Kp3yHV2B6dBKJmvq07jaQ7
-         7WfWxEHlB0LdhLVjzfON3VJNyhflnNzURmE4JgCcir6WP8pnX3rp+qQN5U8RgFx/G57Z
-         uAgj1HfhirXpZr3q7M5721QLjbI9+ZToqYsJnJRqwd/VxSZprmPkovfJOSjDnfY6G08g
-         5JAnGNrjNyPciY6tm7c3ASQ8tva1ldlo6a2GYSt0BqHMY50Tap0UydWRGqZfKmkYSGAH
-         sP7QZ+c74mIvYFBnjlfWL3HBTOmh2mu3kw0oDXM8loRpFQZTyDTaYQPWcq1JCEDVfh7j
-         Yt1g==
-X-Forwarded-Encrypted: i=1; AJvYcCUYkAJ9ZfB85Ze7201jTYY/245sPWpZWneygbCBrY2s0egEkfSblTd6LyqhYiEhMKxpwRtvwlPA7n5UxA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwN4qVF0E/FseidaVp4GtAtNay/nMlgAqgZBIEx8+QBGr9JCLO1
-	5alvZoM82UYBnHGjuyCWlyDyq/QOZ7IQAaPNUFcfJUIJc3LM/uChfiA3wh+0zswLhrvef0alr/D
-	N1IEvC1SphAB59wCwW7wqAV7k9ltuB6O0bBvlQNNoZQ==
-X-Gm-Gg: ASbGncs2m3HOwLQzqSAeEiSune4WlrDb7xeYlUM5OqyScPmRbzogi7C9zGTjaz5tU+L
-	KCwftZktxxpPbVsSruGyOeY4hJHoPgP/i0rfucq4scjN/vRCd/ELzABV/qG0XkAH8bx+aRzalDt
-	sHC5TGjkJnowzscRNCp2mMFwhR7PuTYCt1l/fOfQ6+MELaOrv3o2DPDHQy3+R/OW4rcvTujmobL
-	/OhasKsnsdXwbYKBIqGjcEJllE=
-X-Google-Smtp-Source: AGHT+IEECGH2G8e/CDH9F0qac/7FZa5yDye+HQmQVSLPgRHzbQeecfKUO0vMmnt8GIhKDbVRf8GMagQg2WceGWP5ZzQ=
-X-Received: by 2002:a05:690e:1559:20b0:628:9b45:5e29 with SMTP id
- 956f58d0204a3-6347f544d01mr24918d50.15.1758210958918; Thu, 18 Sep 2025
- 08:55:58 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758211121; x=1758815921;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RWwPXk3+CMDIY3Ii9TMDH0aQbdb6ssOVOtszqmINL5E=;
+        b=jbjgHrdiKq6nLikr+pMhPHS7YEInMv12mxdo3Wde6f/kU2XIelE8/KatCqlf9QmUvv
+         vS0golAhP+fH1JZUl3eW1PpKiOKJbXMPXBJLWELXFtQ6333O9r1NIm4SkrW74mM/cToR
+         GrGHS0TUxDSDnwOv2vJSjzqEVF099xZ943wddMtmrfVhH63tWufHdENQCBSI4kOzpI0c
+         U1AiWZbnxUOhLcU9O3/wmIx58SXwffn2M7NDOUPO0WcKfJQMxmH93ZVhAFx3P9E0ry7B
+         D1kV7DgB8r3zJQfq63qoyvr8iCR1DIlVyrUYtbUKwz+SDaMPYACrICR3tkSPvTxTst5U
+         NmfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXMjDL+bnqOt1PEtp8piBadTdAkC/7MqhwLU6AgROaLyk4jbOLgirGdwU2nysUa8a60+x/Koj1ozC6CTQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPg8PCO3UChNZKnMvy+HoiHHhdwqBwAXvg/wmGwu1QEALlyaet
+	Q9yQcozghJZo5mEIipQkqHPEAg/LYimrYXrqmSz9bVQ91llQx+cshuFy1zcj+jbK5mY=
+X-Gm-Gg: ASbGncu9AAxNNBAufKrCQ1t/hlJqLkUgfLXFEmNPDX6R986caHqlHjohEtkwziYk1zh
+	usRBuI6m1HxXtFUrQOo3SigIJd7hXtd3pOPP8LPkr0avHxvYU6aQUqvlXgnzyOuz1aGNPXtz30z
+	Q6zH6qz7PmoVpdrv7/Lw4yeBcHgFLulrDALmrdg16/WxXcmsiMPYwahPYYqQxbgaugiVZ1XdXu/
+	2kvemkpcrv95MazxcQ3xuheVFe+uUgawNJtyR4TqKg5MLpuWerbCw6OJ0uE4EawWNV81HtHdDMu
+	B26OocUjYGeDTJ84TANss4C4LGAqBUxfidkbq0auem/shsdpFEEFQcM82zdaRadpskq5OstCJrt
+	0N2Rek7WjHdjjM77L3sMfKyPjqLq+owJ+BuSmW/TxM2fke+lx0IM9S8lZjpoW9ozNhnh/jVv6eb
+	pwd1Zh4Ne86ni70zCf
+X-Google-Smtp-Source: AGHT+IF7L6Nzhpq00zRjUOtUlsvmOyj8YvPWYBfqvWW1/q2pHZGHXZWCIyaJ4bn8yb0d408EYIgLfQ==
+X-Received: by 2002:a05:6e02:b48:b0:41f:8265:4100 with SMTP id e9e14a558f8ab-4248199c677mr962075ab.18.1758211113083;
+        Thu, 18 Sep 2025 08:58:33 -0700 (PDT)
+Received: from [172.22.22.234] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-53d3a591637sm1058871173.15.2025.09.18.08.58.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Sep 2025 08:58:32 -0700 (PDT)
+Message-ID: <000a41ee-a099-4944-8ef5-eed768f905cb@riscstar.com>
+Date: Thu, 18 Sep 2025 10:58:30 -0500
 MIME-Version: 1.0
-References: <20250818074906.2907277-1-uwu@icenowy.me> <20250818074906.2907277-3-uwu@icenowy.me>
- <CAPDyKFombYNFvTsChewQ6cFY2woS+vSb1YUV0Bp_+DcigrFFXA@mail.gmail.com> <89ed15328b73b191fe152cf8559b92239b5596bd.camel@icenowy.me>
-In-Reply-To: <89ed15328b73b191fe152cf8559b92239b5596bd.camel@icenowy.me>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 18 Sep 2025 17:55:23 +0200
-X-Gm-Features: AS18NWAOrRn2SPBMcr_jo91dsxsIlLlmmb44l-SPKPjXdyTcSw8dHOMtiv-1B0s
-Message-ID: <CAPDyKFoQuLKwf69YK7ynj-HeWXsMzguYBtbOy8HE5X_jb1dUpQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] pmdomain: thead: create auxiliary device for rebooting
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Michal Wilczynski <m.wilczynski@samsung.com>, Sebastian Reichel <sre@kernel.org>, 
-	Han Gao <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] spi: spacemit: introduce SpacemiT K1 SPI controller
+ driver
+To: Yixun Lan <dlan@gentoo.org>
+Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, p.zabel@pengutronix.de, spacemit@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250917220724.288127-1-elder@riscstar.com>
+ <20250917220724.288127-3-elder@riscstar.com>
+ <20250918124120-GYA1273705@gentoo.org>
+ <034cecd3-c168-4c8d-9ad5-10cc1853894b@riscstar.com>
+ <20250918143928-GYB1274501@gentoo.org>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250918143928-GYB1274501@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_085601_324563_9D80F85D 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20250918_085841_777797_F69794F6 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,54 +104,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAxOCBTZXB0IDIwMjUgYXQgMTc6NDQsIEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5
-Lm1lPiB3cm90ZToKPgo+IOWcqCAyMDI1LTA5LTA05pif5pyf5Zub55qEIDEyOjE0ICswMjAw77yM
-VWxmIEhhbnNzb27lhpnpgZPvvJoKPiA+IE9uIE1vbiwgMTggQXVnIDIwMjUgYXQgMDk6NDksIElj
-ZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5Lm1lPiB3cm90ZToKPiA+ID4KPiA+ID4gVGhlIHJlYm9v
-dCAvIHBvd2VyIG9mZiBvcGVyYXRpb25zIHJlcXVpcmUgY29tbXVuaWNhdGlvbiB3aXRoIHRoZQo+
-ID4gPiBBT04KPiA+ID4gZmlybXdhcmUgdG9vLgo+ID4gPgo+ID4gPiBBcyB0aGUgZHJpdmVyIGlz
-IGFscmVhZHkgcHJlc2VudCwgY3JlYXRlIGFuIGF1eGlsaWFyeSBkZXZpY2Ugd2l0aAo+ID4gPiBu
-YW1lCj4gPiA+ICJyZWJvb3QiIHRvIG1hdGNoIHRoYXQgZHJpdmVyLCBhbmQgcGFzcyB0aGUgQU9O
-IGNoYW5uZWwgYnkgdXNpbmcKPiA+ID4gcGxhdGZvcm1fZGF0YS4KPiA+ID4KPiA+ID4gU2lnbmVk
-LW9mZi1ieTogSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4gPiA+IC0tLQo+ID4gPiAg
-ZHJpdmVycy9wbWRvbWFpbi90aGVhZC90aDE1MjAtcG0tZG9tYWlucy5jIHwgMzUKPiA+ID4gKysr
-KysrKysrKysrKysrKysrKystLQo+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDMzIGluc2VydGlvbnMo
-KyksIDIgZGVsZXRpb25zKC0pCj4gPiA+Cj4gPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BtZG9t
-YWluL3RoZWFkL3RoMTUyMC1wbS1kb21haW5zLmMKPiA+ID4gYi9kcml2ZXJzL3BtZG9tYWluL3Ro
-ZWFkL3RoMTUyMC1wbS1kb21haW5zLmMKPiA+ID4gaW5kZXggOTA0MGI2OThlN2Y3Zi4uODI4NWY1
-NTI4OTdiMCAxMDA2NDQKPiA+ID4gLS0tIGEvZHJpdmVycy9wbWRvbWFpbi90aGVhZC90aDE1MjAt
-cG0tZG9tYWlucy5jCj4gPiA+ICsrKyBiL2RyaXZlcnMvcG1kb21haW4vdGhlYWQvdGgxNTIwLXBt
-LWRvbWFpbnMuYwo+ID4gPiBAQCAtMTI5LDEyICsxMjksMzkgQEAgc3RhdGljIHZvaWQgdGgxNTIw
-X3BkX2luaXRfYWxsX29mZihzdHJ1Y3QKPiA+ID4gZ2VuZXJpY19wbV9kb21haW4gKipkb21haW5z
-LAo+ID4gPiAgICAgICAgIH0KPiA+ID4gIH0KPiA+ID4KPiA+ID4gLXN0YXRpYyB2b2lkIHRoMTUy
-MF9wZF9wd3JzZXFfdW5yZWdpc3Rlcl9hZGV2KHZvaWQgKmFkZXYpCj4gPiA+ICtzdGF0aWMgdm9p
-ZCB0aDE1MjBfcGRfdW5yZWdpc3Rlcl9hZGV2KHZvaWQgKmFkZXYpCj4gPiA+ICB7Cj4gPiA+ICAg
-ICAgICAgYXV4aWxpYXJ5X2RldmljZV9kZWxldGUoYWRldik7Cj4gPiA+ICAgICAgICAgYXV4aWxp
-YXJ5X2RldmljZV91bmluaXQoYWRldik7Cj4gPiA+ICB9Cj4gPiA+Cj4gPiA+ICtzdGF0aWMgaW50
-IHRoMTUyMF9wZF9yZWJvb3RfaW5pdChzdHJ1Y3QgZGV2aWNlICpkZXYsIHN0cnVjdAo+ID4gPiB0
-aDE1MjBfYW9uX2NoYW4gKmFvbl9jaGFuKQo+ID4gPiArewo+ID4gPiArICAgICAgIHN0cnVjdCBh
-dXhpbGlhcnlfZGV2aWNlICphZGV2Owo+ID4gPiArICAgICAgIGludCByZXQ7Cj4gPiA+ICsKPiA+
-ID4gKyAgICAgICBhZGV2ID0gZGV2bV9remFsbG9jKGRldiwgc2l6ZW9mKCphZGV2KSwgR0ZQX0tF
-Uk5FTCk7Cj4gPiA+ICsgICAgICAgaWYgKCFhZGV2KQo+ID4gPiArICAgICAgICAgICAgICAgcmV0
-dXJuIC1FTk9NRU07Cj4gPiA+ICsKPiA+ID4gKyAgICAgICBhZGV2LT5uYW1lID0gInJlYm9vdCI7
-Cj4gPiA+ICsgICAgICAgYWRldi0+ZGV2LnBhcmVudCA9IGRldjsKPiA+ID4gKyAgICAgICBhZGV2
-LT5kZXYucGxhdGZvcm1fZGF0YSA9IGFvbl9jaGFuOwo+ID4gPiArCj4gPiA+ICsgICAgICAgcmV0
-ID0gYXV4aWxpYXJ5X2RldmljZV9pbml0KGFkZXYpOwo+ID4gPiArICAgICAgIGlmIChyZXQpCj4g
-PiA+ICsgICAgICAgICAgICAgICByZXR1cm4gcmV0Owo+ID4gPiArCj4gPiA+ICsgICAgICAgcmV0
-ID0gYXV4aWxpYXJ5X2RldmljZV9hZGQoYWRldik7Cj4gPiA+ICsgICAgICAgaWYgKHJldCkgewo+
-ID4gPiArICAgICAgICAgICAgICAgYXV4aWxpYXJ5X2RldmljZV91bmluaXQoYWRldik7Cj4gPiA+
-ICsgICAgICAgICAgICAgICByZXR1cm4gcmV0Owo+ID4gPiArICAgICAgIH0KPiA+ID4gKwo+ID4g
-PiArICAgICAgIHJldHVybiBkZXZtX2FkZF9hY3Rpb25fb3JfcmVzZXQoZGV2LAo+ID4gPiB0aDE1
-MjBfcGRfdW5yZWdpc3Rlcl9hZGV2LAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgYWRldik7Cj4gPgo+ID4gV2UgaGF2ZSBkZXZtX2F1eGlsaWFyeV9kZXZpY2Vf
-Y3JlYXRlKCkgbm93LCBJIHN1Z2dlc3Qgd2UgdXNlIHRoYXQKPiA+IGluc3RlYWQuCj4KPiBTaG91
-bGQgSSBzZW5kIGEgdjIgdG8gY29udmVydCB0byB1c2UgdGhpcz8KClBsZWFzZSBkbywgdGhlbiBJ
-IGFtIHJlYWR5IHRvIHBpY2sgdXAgdGhlIHNlcmllcy4KClsuLi5dCgpLaW5kIHJlZ2FyZHMKVWZm
-ZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 9/18/25 9:39 AM, Yixun Lan wrote:
+>>>> +	virt = drv_data->ioaddr + SSP_TOP_CTRL;
+>>>> +	val = readl(virt);
+>>>> +	val |= TOP_TRAIL;	/* Trailing bytes handled by DMA */
+>>>> +	writel(val, virt);
+>>> I'd prefer to do like this, it's more easy for people to grep..
+>>> 	val = readl(drv_data->ioaddr + SSP_TOP_CTRL) | TOP_TRAIL;
+>>> 	writel(val, drv_data->ioaddr + SSP_TOP_CTRL);
+>> This is an idiom I use to make it very clear that:
+>> - The address being read is exactly the same as what's being
+>>     written
+>> - The value read is being updated with bits/values
+>>
+>> I find that putting the "| TOP_TRAIL" on the same line as the
+>> readl() call obscures things a bit.  Like my eye doesn't notice
+>> it as readiliy somehow...
+> fair, let's put it into another line
+> 
+>> Yours is a pure coding style comment.  There are two pieces, and
+>> I'd like you to tell me how strongly you feel about them:
+>> - Using virt to grab the address being written and read (versus
+>>     just using drv_data->ioaddr + SSP_TOP_CTRL twice)
+>> - Put the "| TOP_TRAIL" on the same line as the readl() (versus
+>>     having that be assigned on a separate line).
+>> To me, the second one is more important than the first.
+>>
+>> Let me know how strongly you feel about these and I'll update
+>> my convention througout.
+>>
+> I'd strongly prefer not to introduce 'virt', so be something like this:
+>   	val = readl(drv_data->ioaddr + SSP_TOP_CTRL);
+>   	val |= TOP_TRAIL;
+>   	writel(val, drv_data->ioaddr + SSP_TOP_CTRL);
+> 
+
+OK.  I'll do it this way throughout the driver in the
+next version.
+
+					-Alex
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
