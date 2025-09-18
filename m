@@ -4,53 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C84E7CAC59A
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 03:21:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3190CAC59A
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 06:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LW0EpvShAuLGEeb7VGpgli6vhJeOX97YMwemvUewneg=; b=As9+4iCghmejr7
-	SosZSx5BwGdM2QXRnTRPgHhX1cIRF+aUZXNwigqSpZLMQbx0p3k4EEOhNJPicKHWko8RxsE5iQdN0
-	8VHt2+4KH3TtbAxds92OeTxYX9bAGwow26XzQuR+3h22QJyoyinO0JPtYlQ6056eGUVCcieYOub5I
-	WBAc53zIMN/qM9meRjGZBzAhu7PsxBDXN2Q4Nxk8Fdns6ZgXLKQCiAopx/juhTUKodiJ1FnP4mw5a
-	Zncab6NrT++9Qgd0BH7v6Iuw1nBB6J1bsDd7PNwg+Ztwb5d5u9o2pnQ0hp3jJaLRTjFQm6N5d6iI3
-	Ys38avgMnFgqMgEmIv8Q==;
+	List-Owner; bh=9Ywaz2lbJa4M3+fLfV+5GPDaZY0yc1arSM+qEBJlS/g=; b=diS/U2ZB/A8Bd2
+	AenfhkITCABYoGRY8cCgWW4iZ30lJvVBHzbFywvesSGdFMR3i9+r64S3oP9xc0G15nwxP+Ejfvf92
+	gLehr01N0nBYgZNs9uLY4JMeDbOfsvIwZ1EqXr2ddMP2vAdmf0OGHdFSl+/AMV1CeZJqS9rpO4Mde
+	erOe/oPwrZjAU7xHQlQYZgNTa7s6CnG8GpBXhPIFOzzAFHUckoUnruFBLBLh/KTFRkT1Npb7grPd9
+	eOovVZiRTDu5tg/IGZ97vPPBel3Gg0Jp3biywiKGEXDheb5mzTQjjrRo3dkENPrmFx9G4n1NJb7He
+	2PLMmEjSCs9wBDg2ZjAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz5Cn-0000000G7NZ-3hoL;
-	Thu, 18 Sep 2025 03:21:09 +0000
-Received: from out28-97.mail.aliyun.com ([115.124.28.97])
+	id 1uz7zV-0000000GOob-2HGu;
+	Thu, 18 Sep 2025 06:19:37 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz5Ck-0000000G7ML-0ICS
+	id 1uz7zS-0000000GOnH-0nut
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Sep 2025 03:21:08 +0000
-Received: from 172.38.29.243(mailfrom:guoyaxing@bosc.ac.cn fp:SMTPD_---.ehi8CF8_1758165655 cluster:ay29)
+	Thu, 18 Sep 2025 06:19:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1758176369; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=DGA+GS60PqTglOf88J2GSxkMEWKStluL9dMmCunHxKY=;
+	b=idBk6JuIOXkWvoY1blFEdgAlhsDm8qon/4HRQta0j2UAodmbxUs7Z6UmORlPKqrwvy9UN1KAv6V5ZoELY/I18oV8iFwvvpoaiduB93BhxT6gfgkiNveHRA0mdpR43Y0LgvH36CvvVmMINAO0Sio9vPCyKk5TUXwW7c0TAHhOeLw=
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0WoF.rCr_1758176361 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Thu, 18 Sep 2025 11:20:56 +0800
-Message-ID: <48b8385a-ad44-4098-a647-109a3cfe3bbb@bosc.ac.cn>
-Date: Thu, 18 Sep 2025 11:20:55 +0800
+          Thu, 18 Sep 2025 14:19:25 +0800
+From: cp0613@linux.alibaba.com
+To: ganboing@gmail.com
+Cc: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	cp0613@linux.alibaba.com,
+	guoren@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Subject: Re: [RFC PATCH 0/4] riscv: tarce: Implement riscv trace pmu driver and perf support
+Date: Thu, 18 Sep 2025 14:19:21 +0800
+Message-ID: <20250918061921.52513-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <58439862-945d-4b7d-bf6a-6d398e6dd744@gmail.com>
+References: <58439862-945d-4b7d-bf6a-6d398e6dd744@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/3] iommu/riscv: Add iommu perf driver
-To: Will Deacon <will@kernel.org>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- iommu <iommu@lists.linux.dev>, tjeznach <tjeznach@rivosinc.com>,
- joro <joro@8bytes.org>, "robin.murphy" <robin.murphy@arm.com>,
- "paul.walmsley" <paul.walmsley@sifive.com>, palmer <palmer@dabbelt.com>,
- aou <aou@eecs.berkeley.edu>, alex <alex@ghiti.fr>, anxu <anxu@bosc.ac.cn>,
- wangran <wangran@bosc.ac.cn>
-References: <20250915020911.1313-1-guoyaxing@bosc.ac.cn>
- <aMfsj1U7NY2m68T4@willie-the-truck> <202509161827232434929@bosc.ac.cn>
- <aMqlR4vDOgrFuCUj@willie-the-truck>
-From: =?UTF-8?B?6YOt5Lqa5pif?= <guoyaxing@bosc.ac.cn>
-In-Reply-To: <aMqlR4vDOgrFuCUj@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_202106_274874_2268DF0F 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_231934_786341_EBEF31D3 
+X-CRM114-Status: GOOD (  29.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,48 +66,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[Sorry, I tried switching a new email client and made some settings...]
+On Wed, 17 Sep 2025 00:27:43 -0700, ganboing@gmail.com:
 
-On 9/17/2025 8:10 PM, Will Deacon wrote:
-> [nit: your email client has made a big mess of the thread here]
-> 
-> On Tue, Sep 16, 2025 at 06:27:23PM +0800, guoyaxing@bosc.ac.cn wrote:
->>> PMU drivers are better placed under drivers/perf/
->>
->> I did a quick reading of SMMU pmu driver in drivers/perf/.  However, If
->> the RISC-V IOMMU PMU driver is placed under drivers/perf/ as the SMMU did,
->> it would cause an overlap in the iomem resource region between the two
->> devices(iommu & iommu pmu), because it needs to share interrupt-related
->> registers (such as the IPSR register) with the main IOMMU driver.
-> 
-> Is that not something you can resolve with IRQF_SHARED?
-> 
+> > Any comments or suggestions are welcome.
+> > 
+> > [1] https://github.com/riscv-non-isa/tg-nexus-trace.git
+> > > 
 
-Actually IOMMU perf is using stand-along interrupt, so might not need 
-IRQF_SHARED with IOMMU driver.
+> Hi Chen, thanks for starting this series. I have done a N-trace driver
+> in user space: https://github.com/ganboing/riscv-trace-umd, and I'd love
+> to see someone finally taking the effort to try a proper kernel driver.> 
 
-What I mean is the IOMMU and IOMMU perf share the same registers, such 
-as IPSR. This could result in overlap on this iomem regions between 
-them, which is highly undesirable.
+> My overall suggestions:> 
 
-For now, two ideas come to my mind:
-1. Integrate IOMMU perf functionality into IOMMU driver, just as 
-previous version patch.
+> 1. We need a way to expose proper topology to user-space like coresight.
+>     Thus, I'm thinking of using similar logic in coresight to export the
+>     topology through sysfs. Potentially we can abstract some logic out of
+>     coresight and make it a common core path that can be reused by riscv
+>     trace driver. Thus, we don't reinvent the wheel. This also helps
+>     debugging trace driver issues if anything goes wrong.> 
 
-2. Let IOMMU driver export external api for IOMMU perf
-(to obtain virtual address of IPSR register) for perf related operations.
+> 2. IMO, The driver should be moved to drivers/hwtracing/. It's not tightly
+>     coupled with arch, and there are many platform related logic where it
+>     doesn't belong to arch/riscv/. Having said that, I do believe we'll need
+>     something in arch/riscv/ eventually for trace once the self-hosted trace
+>     spec is finalized. Self-hosted trace behaves more like Intel PT, where
+>     the control will be done through some CSR(s), and it doesn't need those
+>     funnel/sink topology, and can emit trace stream to virtual memory directly.
+>     It's a per-hart thing with LAMBI and all that. I'd imagine that eventually
+>     riscv trace will be two parts. One is more coresight-alike, where you have
+>     encoders/funnel/sink/bridge that are described through DT and controlled by
+>     MMIO. The other part is more PT-alike, where the feature is described by
+>     ISA-string (I guess?), and it's much easier to program. For the time being,
+>     IMO, a coresight-alike driver, e.g., drivers/hwtracing/rvtrace, is more
+>     suited for existing platforms implementing N-trace or E-trace. Also, don't
+>     assume the memory sink is available. People using this "coresight-alike"
+>     driver can very-well be HW engineers who's collecting traces using external
+>     probes, so again I think we may want to abstract out part of coresight's
+>     logic and reuse then in riscv.> 
 
-So what's your suggestion?
+> 3. I've already implemented a N-trace decoder:
+>     https://github.com/ganboing/libnexus-rv
+>     It can decode N-trace on real HW (ESWIN EIC7700/Sifive P550). I'll try to
+>     see if I have the time to code up N-trace decoding in perf tool, once the
+>     driver and the perf trace collection part is stabilized. If not, I will be
+>     happy to review yours. Please include me in future series.> 
 
-> Will
+> BTW, perhaps you want to also CC riscv Task Groups such as
+>    - Sig-Debug-Trace-Perf-Mon (DTPM)
+>    - Tech-Self-Hosted-Trace> 
 
-Yaxing Guo
+> to keep people like Beeman/Robert/Bruce/Iain/Greg posted. Robert mentioned
+> they tried to contact Sifive to see if they had similar driver upstreaming
+> effort just like yours, but there were no reply. Keep them posted anyway to
+> avoid duplicate work. We should also discuss this during riscv NA summit if
+> you or Guo's attending.> 
 
+> > Chen Pei (4):
+> >    dt-bindings: riscv: Add trace components description
+> >    riscv: event: Initial riscv trace driver support
+> >    tools: perf: Support perf record with aux buffer for riscv trace
+> >    riscv: trace: Support sink using dma buffer
+
+Thank you very much for your review. Every suggestion and existing work is
+valuable, and I will carefully evaluate it.
+
+1. I will further investigate the technical details you mentioned in
+   CoreSight, reusing existing design and code as much as possible.
+
+2. Moving the driver to drivers/hwtracing/ is a good suggestion, and I've
+   considered it before.
+
+3. We've noticed that there are many types of sinks, such as the Lauterbach's
+   Debug Probe, as you mentioned. The current code does not reflect this, I
+   will consider compatibility later.
+
+4. Your implementation of the N-trace decoder is very useful as a reference.
+   I will study it carefully. We also have an internal implementation, which
+   I will compare and provide feedback to you later.
+
+5. The RISC-V Task Groups should indeed be cc'd. Thanks for the reminder.
+
+Thank you,
+Pei
 
 _______________________________________________
 linux-riscv mailing list
