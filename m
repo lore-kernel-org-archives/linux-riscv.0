@@ -4,93 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9DB3CAC59A
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 16:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E8B8CA1013
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 16:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M488P/9OxtKTNsfd3osD8aGZcmYZ6dYTx2St9iNVv6w=; b=XCkX9y/nd/Bdd+
-	XOpwzbH4gVtO96scaSLd+OLthYqS3sYYsNuJhyAVfyacAvGKONsdG1dnDdW03M5tvef0mKzLm1OmS
-	LxRWVOlkv8ZC3KKyKd37E6BmrER4smcm8pA2moIB+iKGKE9OSDXhBFdXSEr5Jnt26kKu5bOAHY1Oe
-	Zj1lKrEianl6tZJbP9y3XNILjV/h8/62E+mz6k7r5N7eapoe1MgTf8ffBcA6S2GMNI8ikQLew5x7l
-	2jNs1oTH/EngmCpyLI3+ZpbL4Jn9eiCDzaB7bqaZ4hQBvMPPRduIIdo3rp4Qfld/lWESNst/cKCRV
-	KJ8PDvTZKlHmFFSS1Jjw==;
+	List-Owner; bh=C1cQ3U47//yiHfKSjrj/M8x0LSPcXvXrZyHOm+HPsXk=; b=GHRj7Kvh9FZo/g
+	8PkoZe6aj+jnGiqRc6aP+notlr/3AdZI3iCuCuy6n0TnubFfqMWov5lku1wptCFDPCkq/WV02MnSJ
+	dVdg6w18CVsgKGttz6Bn656pWaBNs/4F15lUIgXEb1KuM0660SgXxQpnXjxci09b2I5mNsHGerDNr
+	rbBzJNW587Q+TRSLSJsMPbMiKoTV+eVyNMKJWQg/2onbNEbDi0gEtO1VhXMHtIVgQoRhg+7gM+N/O
+	Hxq5J3eInMXLB36bn209bRap5i1Dttsj86OrKD6sOIidpefQPiEe5vCQsRkKu4eiBFPSX5SvEUsyB
+	dhjzAEJKB59gICDgBeaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHOt-00000000bfW-3GTK;
-	Thu, 18 Sep 2025 16:22:27 +0000
-Received: from mail-il1-x131.google.com ([2607:f8b0:4864:20::131])
+	id 1uzHoP-00000000gB5-28WP;
+	Thu, 18 Sep 2025 16:48:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHOr-00000000beD-3bXy
+	id 1uzHoO-00000000gAp-3lML
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Sep 2025 16:22:26 +0000
-Received: by mail-il1-x131.google.com with SMTP id e9e14a558f8ab-42406e56820so5980005ab.3
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Sep 2025 09:22:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1758212545; x=1758817345; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=q60ma2V2EhO0+PfY8j2XOpbs7KGOot7DJdfuAqVmdQM=;
-        b=GaOyQGg4LwKFGizV8SdTRW8hErDIx3ascm56Wd3FjD3NF5VSXI5A8B1DNaaHlCEqen
-         KLOUPnudBTeKT25diNN0CgAIm7GjmOk/XRCjAr6JZQIXyqeQIR8XCxZfj6yVj159zJfv
-         mLtualI1CuKjyLu8VfmfqDs97TjE9auZfKoeTuwk/Acq+O7pGxbXRVVI8QiIN0HU3Lop
-         aCVU9gDDlsWDaMUzWo2B4HNsDHYHq4qDM47kiJ+4yjK3K/RSH3iuF82Wvi2DbNB6S7Gj
-         3pyshnsGPtv1ULUU0hps+AZ/WJfD6Da8r5YMp/Cev86nUSpXRZtyJbt0SqZZyXkN+HeI
-         6R2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758212545; x=1758817345;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=q60ma2V2EhO0+PfY8j2XOpbs7KGOot7DJdfuAqVmdQM=;
-        b=bhkW6NBSwkcSIbGbeZmWM09xcz0+WrBqIHZeNUTNOdoDZeekRfx844Y6hpUXofgSz6
-         BqPgbQrhU+WG5pXHqJzZ80pKi7CPgMdJJRRYLLEHSpgt4L7xhBmJxEyqnEv5xkgJqdUa
-         /lblpkOoi7P6tEHtF95ovH9+2PbbnC/i9wLumdxFbLsJ8jKvtZicNyM04xceCtzsv4K9
-         gh2YYhtJJlVhYdKDgLX2Nn67vtgAFxN3QTGz4UeuDSD/g4PVEnm/y5wzDgoZZMPKpGyn
-         SISqNuAs9Cfb1uNgLs+IgbxtxRnCxSE53IX7DkCZl4AT79b1SDkMG2HJshqmTiNAl+wl
-         7Mfg==
-X-Forwarded-Encrypted: i=1; AJvYcCUH007AWN38mRz5rjYhTQjTpoSaymb6LhvGqAYFr2taDsf5BRuu7bKPwwjioiiLe/ggBj9mO/gSrpbR5w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWTDE4QFINwKQyona9yzf1JWtNvwXglpp6BpYusKrvCJvDR3uK
-	vfrEkbzp0of6oJfZb9tlfMRUC0wHZfQWkrdXklHaXUnCCz4dTkrE3hbnfIsmf4tmA0I=
-X-Gm-Gg: ASbGncvZTYSnP2ZaCkjy49+lJS9cmZLAym0wI6ZFVqSZ6jzDwCbPi+dFNIF3DxaOGzB
-	mBbXuWhBRB0bF5vYiwEP6GO8RlyQaIf+Tm6gabnV7YZ9aOIURVjOX1e8MQDUCT0ysLEI5WCKoDK
-	SF5jjSqdvgrIhEJ+Fs4zEEPVo1/Lc81r0/mokwXU3L43UROXN3HvqSpeENx0Xdz04n/3pllMPoz
-	obJ2cuZIRRUg9WtAjXSJQZYdxIWiaTD3GQbAfJA1KlatelAfKTPBUC8apqqwEodalROfDyp4GBT
-	FaL7jKGRoN/bvXiI34gGb7WHczyjHuVKVGgl2GzCRTvrgGOjQRvWZF5By2R2pa2SDnq4/8Nskgb
-	+m+biHdONKj5cV5myZgis9yoedwQvUsxydPSgoqs1SD02477AP0yJjeGKC3sQP5wsQq8odi41iu
-	ZhtlM/gsrz43dsisJ4
-X-Google-Smtp-Source: AGHT+IHno87PGRHfIe/4sYG48mSDNVPM2G0IVfwWSmkQa5Io8uxPrbllpYQCUBUanWZMFS1pdWGK8Q==
-X-Received: by 2002:a05:6e02:148c:b0:424:80c5:87a with SMTP id e9e14a558f8ab-42481984015mr1925725ab.19.1758212544749;
-        Thu, 18 Sep 2025 09:22:24 -0700 (PDT)
-Received: from [172.22.22.234] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-53d3e3373f6sm1110059173.29.2025.09.18.09.22.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 18 Sep 2025 09:22:24 -0700 (PDT)
-Message-ID: <c32cc8da-6703-496f-b30f-4961aa811869@riscstar.com>
-Date: Thu, 18 Sep 2025 11:22:23 -0500
+	Thu, 18 Sep 2025 16:48:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D0C99601D5;
+	Thu, 18 Sep 2025 16:48:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDCD4C4CEF1;
+	Thu, 18 Sep 2025 16:48:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758214127;
+	bh=lcnXAdz6eIiS2i4gNCDuvBwy6QESdH9dXmWvZ7PR3PY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vJbjFpDbUGXmzxI/0WVwntr23iz5TXsd0ZLzSTe8ZzeO2OXU+LJT/eDbko3nnKBIn
+	 4JxfRG1JYEaMBlOo/N7kfP8S2J4W1hK3JRgIBaE/xSARC+DIGIrrziu07F5IO0uKuI
+	 rFeK8ELZSO7ukd1mALvEPQjzVQO2fyL1B+qilvsHwz65cPf2+I/He3fFG+iJhg+Cxu
+	 Kgq2i2J20NbZ/rjmQDn1O1w6vvdLcGEyzJxkOmLITqqmPUprA20lRSUzCht9MRPu9m
+	 qgmYUjS166LupcRcdeN1thxaY4T4pHcHyNWYV1GHbfMwk6qQq20S+UqAIOL35iKRTo
+	 2XIWrBRslE7WA==
+Date: Thu, 18 Sep 2025 12:48:39 -0400
+From: Guo Ren <guoren@kernel.org>
+To: Andrea Parri <parri.andrea@gmail.com>
+Cc: Xu Lu <luxu.kernel@bytedance.com>, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, ajones@ventanamicro.com,
+	brs@rivosinc.com, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	apw@canonical.com, joe@perches.com
+Subject: Re: [PATCH v2 0/4] riscv: Add Zalasr ISA extension support
+Message-ID: <aMw3504EwlnDOJI0@gmail.com>
+References: <20250902042432.78960-1-luxu.kernel@bytedance.com>
+ <aLciY2putG8g2P9F@andrea>
+ <aMoyntAydNMtcl+3@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] riscv: dts: spacemit: define a SPI controller node
-To: Yao Zi <ziyao@disroot.org>, Yixun Lan <dlan@gentoo.org>
-Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, p.zabel@pengutronix.de, spacemit@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250917220724.288127-1-elder@riscstar.com>
- <20250917220724.288127-4-elder@riscstar.com>
- <20250918133209-GYB1273705@gentoo.org> <aMwYRGjTdbQCJf3S@pie>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <aMwYRGjTdbQCJf3S@pie>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_092225_902240_095E55EB 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <aMoyntAydNMtcl+3@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,28 +70,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/18/25 9:33 AM, Yao Zi wrote:
->> .. em, so the SPI will use pdma, then probably you should also adjust Kconfig to
->> select PDMA driver?
-> The driver seems to depend on the generic DMA engine API only, IOW,
-> theoretically it should work with other DMA controller as well. And it's
-> even capable to operate without DMA (see k1_spi_dma_setup()).
+On Wed, Sep 17, 2025 at 12:01:34AM -0400, Guo Ren wrote:
+> On Tue, Sep 02, 2025 at 06:59:15PM +0200, Andrea Parri wrote:
+> > > Xu Lu (4):
+> > >   riscv: add ISA extension parsing for Zalasr
+> > >   dt-bindings: riscv: Add Zalasr ISA extension description
+> > >   riscv: Instroduce Zalasr instructions
+> > >   riscv: Use Zalasr for smp_load_acquire/smp_store_release
+> > 
+> > Informally put, our (Linux) memory consistency model specifies that any
+> > sequence
+> > 
+> >   spin_unlock(s);
+> >   spin_lock(t);
+> > 
+> > behaves "as it provides at least FENCE.TSO ordering between operations
+> > which precede the UNLOCK+LOCK sequence and operations which follow the
+> > sequence".  Unless I missing something, the patch set in question breaks
+> > such ordering property (on RISC-V): for example, a "release" annotation,
+> > .RL (as in spin_unlock() -> smp_store_release(), after patch #4) paired
+> > with an "acquire" fence, FENCE R,RW (as could be found in spin_lock() ->
+> > atomic_try_cmpxchg_acquire()) do not provide the specified property.
+> > 
+> > I _think some solutions to the issue above include:
+> > 
+> >  a) make sure an .RL annotation is always paired with an .AQ annotation
+> >     and viceversa an .AQ annotation is paired with an .RL annotation
+> >     (this approach matches the current arm64 approach/implementation);
+> > 
+> >  b) on the opposite direction, always pair FENCE R,RW (or occasionally
+> >     FENCE R,R) with FENCE RW,W (this matches the current approach/the
+> >     current implementation within riscv);
+> > 
+> >  c) mix the previous two solutions (resp., annotations and fences), but
+> >     make sure to "upgrade" any releases to provide (insert) a FENCE.TSO.
+> I prefer option c) at first, it has fewer modification and influence.
+Another reason is that store-release-to-load-acquire would give out a
+FENCE rw, rw according to RVWMO PPO 7th rule instead of FENCE.TSO, which
+is stricter than the Linux requirement you've mentioned.
+
 > 
-> Dependency to PDMA really doesn't seem something should be enforced in
-> Kconfig: it doesn't exist in code level, and the driver is actually more
-> flexible.
-
-You're right on both points.  The code doesn't *require* PDMA to
-operate correctly (to my knowledge).
-
-Yixun, what do you think?
-
-					-Alex
+> asm volatile(ALTERNATIVE("fence rw, w;\t\nsb %0, 0(%1)\t\n",	\
+> -			  SB_RL(%0, %1) "\t\nnop\t\n",		\
+> +			  SB_RL(%0, %1) "\t\n fence.tso;\t\n",	\
+> 			  0, RISCV_ISA_EXT_ZALASR, 1)		\
+> 			  : : "r" (v), "r" (p) : "memory");	\
+> 
+> I didn't object option a), and I think it could be done in the future.
+> Acquire Zalasr extension step by step.
+> 
+> > 
+> > (a) would align RISC-V and ARM64 (which is a good thing IMO), though it
+> > is probably the most invasive approach among the three approaches above
+> > (requiring certain changes to arch/riscv/include/asm/{cmpxchg,atomic}.h,
+> > which are already relatively messy due to the various ZABHA plus ZACAS
+> > switches).  Overall, I'm not too exited at the idea of reviewing any of
+> > those changes, but if the community opts for it, I'll almost definitely
+> > take a closer look with due calm.  ;-)
+> > 
+> >   Andrea
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> > 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
 _______________________________________________
 linux-riscv mailing list
