@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8DFCAC59F
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 08:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33033CAC59F
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 08:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d/ZFeuai4fWlAmqC5DBqFxbxwVZzGq/wrvziFPrgZek=; b=2YDRZJNIBkyHSS
-	WTXUnaM0pQ4+id5grU14lkiBh37pxA3e8z5EmOY+Ar8bMtzo6b+8oUwjrwnyZ2sLaM/Tgoz/Pc4o+
-	bpBWWh7xO6h1LwKxSycc18i576DSbtCiaMzTJtBuBNQaD5/d0ciTdAhPSs/FabVx8B9O16ZvyOQ2Z
-	fedRROKUD2QariBshfVeYWS0CCvOlie9TEd+Bsx253ejmbLN/awRRIbJisOUexi9RPjNvrjRSsJMo
-	rKtO3DAsHWr1cMyJjHY3VetIp7/WohinITJAOiKu2DLCd/PQc8DD4uB/a722c3OSI8BbBGzZzGd1k
-	Tzcv7ecqgnxUeZ0EiDkw==;
+	List-Owner; bh=OCBGHpGpxTBYSUKPQYDkGnOOZ/N89UyDT4NcYDNMQlc=; b=f1h3JY5SN1N83p
+	Ru1PIiLs32iIW2hv5issLtkkxk9RLWyEtah7c21lvLDmLqCgDgTfG7TjhWmuS4tJFLlppovVS9gGm
+	iDPGtr18etupZhDDibDTKEelNxxQCDQKHJHeozmZwqLGheRj/497phlHY8VGkedbXznA3U67ArYs4
+	xPc86QPc23hH4T5NoIE66wLOakPR15UGDmrAhzbeQ+QFOSvjtVCqEuDqGt+4a7pmKEr9M5vFBK+cj
+	1Sh1euKWwpoRoFk/dD6+8roJdzR/BDb4WbFsCp3w68s28zC2wk1lIfGw9ZcayYydM9LmWYu+B+FYp
+	Qd6gmkuZqhWi4J0AqANg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzA9p-0000000GjCH-06D4;
-	Thu, 18 Sep 2025 08:38:25 +0000
+	id 1uzA9l-0000000Gj9h-2pOd;
+	Thu, 18 Sep 2025 08:38:21 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzA9l-0000000Gj8T-1P91
+	id 1uzA9i-0000000Gj6L-1iRh
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Sep 2025 08:38:23 +0000
+	Thu, 18 Sep 2025 08:38:19 +0000
 Received: from ubt.. (unknown [210.73.43.101])
-	by APP-03 (Coremail) with SMTP id rQCowACnu4XjxMtolHKCAw--.43062S5;
-	Thu, 18 Sep 2025 16:38:01 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowACnu4XjxMtolHKCAw--.43062S8;
+	Thu, 18 Sep 2025 16:38:05 +0800 (CST)
 From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 To: linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
@@ -61,36 +61,37 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Axel Rasmussen <axelrasmussen@google.com>,
 	Yuanchu Xie <yuanchu@google.com>,
 	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: [PATCH V14 3/6] riscv: Add RISC-V Svrsw60t59b extension support
-Date: Thu, 18 Sep 2025 16:37:28 +0800
-Message-Id: <20250918083731.1820327-4-zhangchunyan@iscas.ac.cn>
+Subject: [PATCH V14 6/6] dt-bindings: riscv: Add Svrsw60t59b extension description
+Date: Thu, 18 Sep 2025 16:37:31 +0800
+Message-Id: <20250918083731.1820327-7-zhangchunyan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250918083731.1820327-1-zhangchunyan@iscas.ac.cn>
 References: <20250918083731.1820327-1-zhangchunyan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowACnu4XjxMtolHKCAw--.43062S5
-X-Coremail-Antispam: 1UD129KBjvJXoW7CrykZr4DWF43uw45Kr18Grg_yoW8KFW3pr
-	sYkryrCrWrXwn3uw4ayr95u3yrXw4kGwsxGw4Uuw1rJrW7Z34xXw1vy3W7Gw1DZa1vqrnY
-	gF1F9r1xuw40yFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmjb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUWwA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280
-	aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzV
-	Aqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S
-	6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mx
-	kF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4U
-	MI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67
-	AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0
-	cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I
-	8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2Kfnx
-	nUUI43ZEXa7IUnw2-5UUUUU==
+X-CM-TRANSID: rQCowACnu4XjxMtolHKCAw--.43062S8
+X-Coremail-Antispam: 1UD129KBjvdXoWrZr1xtry3AFykZFyktFy7KFg_yoWkXrg_Ja
+	n7Zw1kZ3yUtFnYqF4qvrW8Gry3ZanakrWDC3ZxtF4vka47WFZ8KF9rt345Ar47ur4fu3Za
+	kFn7XrWagrnFgjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbkAYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l82xGYIkIc2x26280x7
+	IE14v26r126s0DM28IrcIa0xkI8VCY1x0267AKxVW5JVCq3wA2ocxC64kIII0Yj41l84x0
+	c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2
+	IY6xkF7I0E14v26r4UJVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E
+	87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64
+	kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm
+	72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI
+	1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
+	Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17
+	CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0
+	I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0x
+	vEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIev
+	Ja73UjIFyTuYvjxUa0tCDUUUU
 X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiBg0JB2jLv7wXtQAAsH
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiBgsJB2jLv7wXwAAAs0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_013821_810583_9C723EF2 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20250918_013818_834796_06A33308 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,68 +108,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Svrsw60t59b extension allows to free the PTE reserved bits 60
-and 59 for software to use.
+Add description for the Svrsw60t59b extension (PTE Reserved for SW
+bits 60:59) extension which was ratified recently in
+riscv-non-isa/riscv-iommu.
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Deepak Gupta <debug@rivosinc.com>
 Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 ---
- arch/riscv/Kconfig             | 14 ++++++++++++++
- arch/riscv/include/asm/hwcap.h |  1 +
- arch/riscv/kernel/cpufeature.c |  1 +
- 3 files changed, 16 insertions(+)
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a4b233a0659e..d99df67cc7a4 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -862,6 +862,20 @@ config RISCV_ISA_ZICBOP
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index ede6a58ccf53..bce4132f9c89 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -217,6 +217,12 @@ properties:
+             memory types as ratified in the 20191213 version of the privileged
+             ISA specification.
  
- 	  If you don't know what to do here, say Y.
- 
-+config RISCV_ISA_SVRSW60T59B
-+	bool "Svrsw60t59b extension support for using PTE bits 60 and 59"
-+	depends on MMU && 64BIT
-+	depends on RISCV_ALTERNATIVE
-+	default y
-+	help
-+	  Adds support to dynamically detect the presence of the Svrsw60t59b
-+	  extension and enable its usage.
++        - const: svrsw60t59b
++          description:
++            The Svrsw60t59b extension for providing two more bits[60:59] to
++            PTE/PMD entry as ratified at commit 28bde925e7a7 ("PTE Reserved
++            for SW bits 60:59") of riscv-non-isa/riscv-iommu.
 +
-+	  The Svrsw60t59b extension allows to free the PTE reserved bits 60
-+	  and 59 for software to use.
-+
-+	  If you don't know what to do here, say Y.
-+
- config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
- 	def_bool y
- 	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index affd63e11b0a..f98fcb5c17d5 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -106,6 +106,7 @@
- #define RISCV_ISA_EXT_ZAAMO		97
- #define RISCV_ISA_EXT_ZALRSC		98
- #define RISCV_ISA_EXT_ZICBOP		99
-+#define RISCV_ISA_EXT_SVRSW60T59B	100
- 
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
- 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 743d53415572..2ba71d2d3fa3 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -539,6 +539,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
- 	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
- 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-+	__RISCV_ISA_EXT_DATA(svrsw60t59b, RISCV_ISA_EXT_SVRSW60T59B),
- 	__RISCV_ISA_EXT_DATA(svvptc, RISCV_ISA_EXT_SVVPTC),
- };
- 
+         - const: svvptc
+           description:
+             The standard Svvptc supervisor-level extension for
 -- 
 2.34.1
 
