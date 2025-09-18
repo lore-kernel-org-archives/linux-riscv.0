@@ -4,59 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75820CA1013
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 15:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B5BCAC59A
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 15:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PdKKimirroLjAmBnssffgR48Lc6WdjekuNCs6ih9zmM=; b=3eCrLeVex2Dv6o
-	9CUIUrTUo5JPK8Ix/s7BwBym8S7SgatFVF3nJbaiMyXFmliHAR1iCIKCR8VoUMC/ZXQFFcWVYtJ/O
-	M/mSqNkae+XLCGTt+hdjnKhuC26+IlHWKOiWIxEmzryadzVWdhnbKIi+cVvNp4+yBMZc+qNqZjHBy
-	XXOwRiapLPKWtzJb2eZ5wfRPA/AsnK6aWKcy7L3vRWoY3brp03pHArkVZFkwZhI1vQZg6GNFb4mWj
-	kmychEoLXXnszDaedZXSX/vTN2olWjuj0gCtq32s5jvgxRn4wG4jbraX54Z3Mw2C30xh3aGmjoqHM
-	dltEI5+VoyfH1X2/0Msg==;
+	List-Owner; bh=62ZDVw30lCdQBLmyQbebp9CtCfKkYR74qHX4XtEMs9o=; b=c8YlRJdmsYxnbi
+	6JpieNvpiIuYS+IbR/ns4J10fKw3YqsVAPu8zhBG3UBTVZA/P2R2NK9G1aGPEx4CYLSHIadXOgrSP
+	4khOYIhnl7jBqUVa1onxAx2aFA8D36B3EkyafXlVEDZ9VuhbHmtn5CjfKIHnTsv96O9hSlnVrWJ0X
+	lBgtJdRkkz5iKZVcKk94PIYpDTvzDfcwM2KxX1QVqzuImIV4hxHxG5SQzkkuYH0gGxRfRAItcwkC+
+	wpvvvjmQulXTla2PewxUge7FCoPmTc88KyBNlONJ9HtSqLPUo/nuUFEgsWgpZAPhQ3Ztm06JdEdSU
+	HLGKwxdlI7mbdcT3uH0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGQd-00000000LMj-1M9s;
-	Thu, 18 Sep 2025 15:20:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzGZu-00000000Ncw-1PTw;
+	Thu, 18 Sep 2025 15:29:46 +0000
+Received: from smtp2-g21.free.fr ([2a01:e0c:1:1599::11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGQb-00000000LLU-0tNK;
-	Thu, 18 Sep 2025 15:20:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 84EBB601BC;
-	Thu, 18 Sep 2025 15:20:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BA81C4CEE7;
-	Thu, 18 Sep 2025 15:20:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758208808;
-	bh=WtFvBNz1kJ7pD7bo4mQcWpsZ1ssTGarDzTz4XC7qwVU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=n49SMoE5Zt1WozM4r5I7FeD2ewGouOsP2e2IevUVtRyRC0LAPna1MaCaTClXqFwTj
-	 7wEJGLQk4Q9BT8ewfa8KTYJvri6JYRmfKnZlhJegGrrzWTORDKTzAsAKwJA4oJYfUj
-	 YZY7HQi4xeNpO34JScJdzKRisVDd5jyZTnaxFHbWgtRikFi81Y0onbNtZf8Xpsu4S7
-	 4x/IAMmM31spNaQbp0aNwomP8/86h/rm4k8ivzFLkXtPU7pG26flLaaKqVpZ7ftEq8
-	 Z+zye+fFsehsVlS5Zyv78mYcNT1sEBb2S6fSLi+HScdyx+7Eyuv3lJypyQ4C9rWVLm
-	 WE0TtZ3w/aG3w==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70CA139D0C28;
-	Thu, 18 Sep 2025 15:20:09 +0000 (UTC)
+	id 1uzGZq-00000000NbV-2oaz;
+	Thu, 18 Sep 2025 15:29:44 +0000
+Received: from daria.iliad.local (unknown [213.36.7.13])
+	by smtp2-g21.free.fr (Postfix) with ESMTP id 179252003FC;
+	Thu, 18 Sep 2025 17:28:31 +0200 (CEST)
+From: Nicolas Schichan <nschichan@freebox.fr>
+To: safinaskar@gmail.com
+Cc: akpm@linux-foundation.org,
+	andy.shevchenko@gmail.com,
+	axboe@kernel.dk,
+	brauner@kernel.org,
+	cyphar@cyphar.com,
+	devicetree@vger.kernel.org,
+	ecurtin@redhat.com,
+	email2tema@gmail.com,
+	graf@amazon.com,
+	gregkh@linuxfoundation.org,
+	hca@linux.ibm.com,
+	hch@lst.de,
+	hsiangkao@linux.alibaba.com,
+	initramfs@vger.kernel.org,
+	jack@suse.cz,
+	julian.stecklina@cyberus-technology.de,
+	kees@kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-api@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	mcgrof@kernel.org,
+	mingo@redhat.com,
+	monstr@monstr.eu,
+	mzxreary@0pointer.de,
+	patches@lists.linux.dev,
+	rob@landley.net,
+	sparclinux@vger.kernel.org,
+	thomas.weissschuh@linutronix.de,
+	thorsten.blum@linux.dev,
+	torvalds@linux-foundation.org,
+	tytso@mit.edu,
+	viro@zeniv.linux.org.uk,
+	x86@kernel.org,
+	nschichan@freebox.fr
+Subject: Re: [PATCH RESEND 00/62] initrd: remove classic initrd support
+Date: Thu, 18 Sep 2025 17:28:30 +0200
+Message-Id: <20250918152830.438554-1-nschichan@freebox.fr>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250913003842.41944-1-safinaskar@gmail.com>
+References: <20250913003842.41944-1-safinaskar@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH] drivers/perf: riscv: Remove redundant ternary operators
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175820880826.2459453.293698691705893286.git-patchwork-notify@kernel.org>
-Date: Thu, 18 Sep 2025 15:20:08 +0000
-References: <20250828122510.30843-1-liaoyuanhong@vivo.com>
-In-Reply-To: <20250828122510.30843-1-liaoyuanhong@vivo.com>
-To: Liao Yuanhong <liaoyuanhong@vivo.com>
-Cc: linux-riscv@lists.infradead.org, atish.patra@linux.dev,
- anup@brainfault.org, will@kernel.org, mark.rutland@arm.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250918_082942_851206_A95B5688 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,31 +112,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hello,
 
-This patch was applied to riscv/linux.git (for-next)
-by Paul Walmsley <pjw@kernel.org>:
+> Intro
+> ====
+> This patchset removes classic initrd (initial RAM disk) support,
+> which was deprecated in 2020.
 
-On Thu, 28 Aug 2025 20:25:09 +0800 you wrote:
-> For ternary operators in the form of "a ? true : false", if 'a' itself
-> returns a boolean result, the ternary operator can be omitted. Remove
-> redundant ternary operators to clean up the code.
-> 
-> Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
-> ---
->  drivers/perf/riscv_pmu_sbi.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+This serie came a bit as a surprise, because even though the message
+notifying of the initrd deprecation was added in July 2020, the message
+was never displayed on our kernels.
 
-Here is the summary with links:
-  - drivers/perf: riscv: Remove redundant ternary operators
-    https://git.kernel.org/riscv/c/01dc937ac18d
+When booting with root=/dev/ram0 in the kernel commandline,
+handle_initrd() where the deprecation message resides is never called,
+which is rather unfortunate (init/do_mounts_initrd.c):
 
-You are awesome, thank you!
+	if (rd_load_image("/initrd.image") && ROOT_DEV != Root_RAM0) {
+		init_unlink("/initrd.image");
+		handle_initrd(root_device_name); // shows the deprecation msg
+		return true;
+	}
+
+It is likely we are not the alone booting with that particular
+configuration, so other people are probably going to be surprised when
+initrd support is removed, because they never saw the deprecation
+message.
+
+We do depend on initrd support a lot on our embedded platforms (more
+than a million devices with a yearlyish upgrade to the latest
+kernel). If it eventually becomes removed this is going to impact us.
+
+We use an initrd squashfs4 image, because coming from a time where
+embedded flash devices were fragile, we avoid having the root
+filesystem directly mounted (even when read only) on the flash
+block/mtd device, and have the bootloader load the root filesystem as
+an initrd.
+
+We use a squashfs4 because we can mount it and keep it compressed. The
+kernel would decompress data on demand in the page cache, and evict it
+as needed.
+
+Regards,
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Nicolas Schichan
 
 _______________________________________________
 linux-riscv mailing list
