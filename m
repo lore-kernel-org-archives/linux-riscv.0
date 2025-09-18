@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3190CAC59A
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 06:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F20BECAC59A
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 07:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Ywaz2lbJa4M3+fLfV+5GPDaZY0yc1arSM+qEBJlS/g=; b=diS/U2ZB/A8Bd2
-	AenfhkITCABYoGRY8cCgWW4iZ30lJvVBHzbFywvesSGdFMR3i9+r64S3oP9xc0G15nwxP+Ejfvf92
-	gLehr01N0nBYgZNs9uLY4JMeDbOfsvIwZ1EqXr2ddMP2vAdmf0OGHdFSl+/AMV1CeZJqS9rpO4Mde
-	erOe/oPwrZjAU7xHQlQYZgNTa7s6CnG8GpBXhPIFOzzAFHUckoUnruFBLBLh/KTFRkT1Npb7grPd9
-	eOovVZiRTDu5tg/IGZ97vPPBel3Gg0Jp3biywiKGEXDheb5mzTQjjrRo3dkENPrmFx9G4n1NJb7He
-	2PLMmEjSCs9wBDg2ZjAw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UnmuRqEanhXgjm1yJ/E0XGC9wgWuHF46vsEhDSjhvnc=; b=xx4zjj2vqE7TqC
+	8O7CHHEzMpswsKkmHKo9eFo/utKCxtqm5+8wU3IJ0aOD8EcseETQ/7EkVeI7s0yUzKxByo2wqHo14
+	Zd6Q7DkWZj1HW7NjksoKl4Wjp0jcVZKWqFZ1swcgPoLfesR0rmjdD8EInuakH6Xijj3dq5CIbb12A
+	gAsOqsnuI6ZHp2OHm5+d+g6dAuQZvU+/ISbU71UKlBjCKpE9rtd++wKN4JLK4mdq/Ms75+ze3nsCq
+	nSjBAl83clGzGI/j5fLTtMpUIDSYiga+PhiEP5oA1yJxssnDzrqrg9uY1/TO+/be6IO1d5PxYze0v
+	UXCS8XNVxL6PLc9MSCEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz7zV-0000000GOob-2HGu;
-	Thu, 18 Sep 2025 06:19:37 +0000
-Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
+	id 1uz9FG-0000000GZSq-3ZGj;
+	Thu, 18 Sep 2025 07:39:58 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz7zS-0000000GOnH-0nut
-	for linux-riscv@lists.infradead.org;
-	Thu, 18 Sep 2025 06:19:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1758176369; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=DGA+GS60PqTglOf88J2GSxkMEWKStluL9dMmCunHxKY=;
-	b=idBk6JuIOXkWvoY1blFEdgAlhsDm8qon/4HRQta0j2UAodmbxUs7Z6UmORlPKqrwvy9UN1KAv6V5ZoELY/I18oV8iFwvvpoaiduB93BhxT6gfgkiNveHRA0mdpR43Y0LgvH36CvvVmMINAO0Sio9vPCyKk5TUXwW7c0TAHhOeLw=
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0WoF.rCr_1758176361 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 18 Sep 2025 14:19:25 +0800
-From: cp0613@linux.alibaba.com
-To: ganboing@gmail.com
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	cp0613@linux.alibaba.com,
-	guoren@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
+	id 1uz9FD-0000000GZQE-1USy;
+	Thu, 18 Sep 2025 07:39:57 +0000
+Received: from qiao.. (unknown [210.73.43.101])
+	by APP-05 (Coremail) with SMTP id zQCowADHaBI+t8toBKqGAw--.13402S2;
+	Thu, 18 Sep 2025 15:39:43 +0800 (CST)
+From: Zhe Qiao <qiaozhe@iscas.ac.cn>
+To: anup@brainfault.org,
+	atish.patra@linux.dev,
+	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
-	paul.walmsley@sifive.com
-Subject: Re: [RFC PATCH 0/4] riscv: tarce: Implement riscv trace pmu driver and perf support
-Date: Thu, 18 Sep 2025 14:19:21 +0800
-Message-ID: <20250918061921.52513-1-cp0613@linux.alibaba.com>
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	qiaozhe@iscas.ac.cn
+Cc: linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org
+Subject: [PATCH] RISCV: KVM: Add support for userspace to suspend a vCPU
+Date: Thu, 18 Sep 2025 15:39:27 +0800
+Message-ID: <20250918073927.403410-1-qiaozhe@iscas.ac.cn>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <58439862-945d-4b7d-bf6a-6d398e6dd744@gmail.com>
-References: <58439862-945d-4b7d-bf6a-6d398e6dd744@gmail.com>
 MIME-Version: 1.0
+X-CM-TRANSID: zQCowADHaBI+t8toBKqGAw--.13402S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWw4rCr1fKw1rJFyfJw1fWFg_yoW5ZFy7pF
+	sFkrs09w4rGryxCw13J3yDur15WrsYgrnxury29rW5Gr45KrWrAr4v9rW5JF1UJFW8XF1I
+	yFn8K3WUC3W5twUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9K14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_GF4l42xK82IYc2Ij64vIr4
+	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
+	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
+	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
+	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14
+	v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUeJ5rDUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: ptld061kh6x2xfdvhtffof0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_231934_786341_EBEF31D3 
-X-CRM114-Status: GOOD (  29.57  )
+X-CRM114-CacheID: sfid-20250918_003955_758742_5394247C 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,96 +79,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Sep 2025 00:27:43 -0700, ganboing@gmail.com:
-
-> > Any comments or suggestions are welcome.
-> > 
-> > [1] https://github.com/riscv-non-isa/tg-nexus-trace.git
-> > > 
-
-> Hi Chen, thanks for starting this series. I have done a N-trace driver
-> in user space: https://github.com/ganboing/riscv-trace-umd, and I'd love
-> to see someone finally taking the effort to try a proper kernel driver.> 
-
-> My overall suggestions:> 
-
-> 1. We need a way to expose proper topology to user-space like coresight.
->     Thus, I'm thinking of using similar logic in coresight to export the
->     topology through sysfs. Potentially we can abstract some logic out of
->     coresight and make it a common core path that can be reused by riscv
->     trace driver. Thus, we don't reinvent the wheel. This also helps
->     debugging trace driver issues if anything goes wrong.> 
-
-> 2. IMO, The driver should be moved to drivers/hwtracing/. It's not tightly
->     coupled with arch, and there are many platform related logic where it
->     doesn't belong to arch/riscv/. Having said that, I do believe we'll need
->     something in arch/riscv/ eventually for trace once the self-hosted trace
->     spec is finalized. Self-hosted trace behaves more like Intel PT, where
->     the control will be done through some CSR(s), and it doesn't need those
->     funnel/sink topology, and can emit trace stream to virtual memory directly.
->     It's a per-hart thing with LAMBI and all that. I'd imagine that eventually
->     riscv trace will be two parts. One is more coresight-alike, where you have
->     encoders/funnel/sink/bridge that are described through DT and controlled by
->     MMIO. The other part is more PT-alike, where the feature is described by
->     ISA-string (I guess?), and it's much easier to program. For the time being,
->     IMO, a coresight-alike driver, e.g., drivers/hwtracing/rvtrace, is more
->     suited for existing platforms implementing N-trace or E-trace. Also, don't
->     assume the memory sink is available. People using this "coresight-alike"
->     driver can very-well be HW engineers who's collecting traces using external
->     probes, so again I think we may want to abstract out part of coresight's
->     logic and reuse then in riscv.> 
-
-> 3. I've already implemented a N-trace decoder:
->     https://github.com/ganboing/libnexus-rv
->     It can decode N-trace on real HW (ESWIN EIC7700/Sifive P550). I'll try to
->     see if I have the time to code up N-trace decoding in perf tool, once the
->     driver and the perf trace collection part is stabilized. If not, I will be
->     happy to review yours. Please include me in future series.> 
-
-> BTW, perhaps you want to also CC riscv Task Groups such as
->    - Sig-Debug-Trace-Perf-Mon (DTPM)
->    - Tech-Self-Hosted-Trace> 
-
-> to keep people like Beeman/Robert/Bruce/Iain/Greg posted. Robert mentioned
-> they tried to contact Sifive to see if they had similar driver upstreaming
-> effort just like yours, but there were no reply. Keep them posted anyway to
-> avoid duplicate work. We should also discuss this during riscv NA summit if
-> you or Guo's attending.> 
-
-> > Chen Pei (4):
-> >    dt-bindings: riscv: Add trace components description
-> >    riscv: event: Initial riscv trace driver support
-> >    tools: perf: Support perf record with aux buffer for riscv trace
-> >    riscv: trace: Support sink using dma buffer
-
-Thank you very much for your review. Every suggestion and existing work is
-valuable, and I will carefully evaluate it.
-
-1. I will further investigate the technical details you mentioned in
-   CoreSight, reusing existing design and code as much as possible.
-
-2. Moving the driver to drivers/hwtracing/ is a good suggestion, and I've
-   considered it before.
-
-3. We've noticed that there are many types of sinks, such as the Lauterbach's
-   Debug Probe, as you mentioned. The current code does not reflect this, I
-   will consider compatibility later.
-
-4. Your implementation of the N-trace decoder is very useful as a reference.
-   I will study it carefully. We also have an internal implementation, which
-   I will compare and provide feedback to you later.
-
-5. The RISC-V Task Groups should indeed be cc'd. Thanks for the reminder.
-
-Thank you,
-Pei
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWRkIFJJU0MtViBhcmNoaXRlY3R1cmUgc3VwcG9ydCBmb3IgdGhlIEtWTV9NUF9TVEFURV9TVVNQ
+RU5ERUQgdkNQVQpzdGF0ZSwgaW5kaWNhdGluZyB0aGF0IGEgdkNQVSBpcyBpbiBzdXNwZW5kZWQg
+bW9kZS4gV2hpbGUgc3VzcGVuZGVkLAp0aGUgdkNQVSB3aWxsIGJsb2NrIGV4ZWN1dGlvbiB1bnRp
+bCBhIHdha2V1cCBldmVudCBpcyBkZXRlY3RlZC4KCkludHJvZHVjZSBhIG5ldyBzeXN0ZW0gZXZl
+bnQgdHlwZSwgS1ZNX1NZU1RFTV9FVkVOVF9XQUtFVVAsIHRvIG5vdGlmeQp1c2Vyc3BhY2Ugd2hl
+biBLVk0gaGFzIHJlY29nbml6ZWQgc3VjaCBhIHdha2V1cCBldmVudC4gSXQgaXMgdGhlbgp1c2Vy
+c3BhY2XigJlzIHJlc3BvbnNpYmlsaXR5IHRvIGVpdGhlciBtYWtlIHRoZSB2Q1BVIHJ1bm5hYmxl
+IGFnYWluIG9yCmtlZXAgaXQgc3VzcGVuZGVkIHVudGlsIHRoZSBuZXh0IHdha2V1cCBldmVudCBv
+Y2N1cnMuCgpTaWduZWQtb2ZmLWJ5OiBaaGUgUWlhbyA8cWlhb3poZUBpc2Nhcy5hYy5jbj4KLS0t
+CiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmggfCAgMiArKwogYXJjaC9yaXNjdi9r
+dm0vdmNwdS5jICAgICAgICAgICAgIHwgMzcgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KwogMiBmaWxlcyBjaGFuZ2VkLCAzOSBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9rdm1faG9zdC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1f
+aG9zdC5oCmluZGV4IGQ3MWQzMjk5YTMzNS4uZGJjNjM5MTQwN2FlIDEwMDY0NAotLS0gYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9rdm1faG9zdC5oCkBAIC00Myw2ICs0Myw4IEBACiAjZGVmaW5lIEtWTV9SRVFfSEZFTkNFCQkJ
+XAogCUtWTV9BUkNIX1JFUV9GTEFHUyg1LCBLVk1fUkVRVUVTVF9XQUlUIHwgS1ZNX1JFUVVFU1Rf
+Tk9fV0FLRVVQKQogI2RlZmluZSBLVk1fUkVRX1NURUFMX1VQREFURQkJS1ZNX0FSQ0hfUkVRKDYp
+CisjZGVmaW5lIEtWTV9SRVFfU1VTUEVORAkJXAorCUtWTV9BUkNIX1JFUV9GTEFHUyg3LCBLVk1f
+UkVRVUVTVF9XQUlUIHwgS1ZNX1JFUVVFU1RfTk9fV0FLRVVQKQogCiAjZGVmaW5lIF9fS1ZNX0hB
+VkVfQVJDSF9GTFVTSF9SRU1PVEVfVExCU19SQU5HRQogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2t2bS92Y3B1LmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKaW5kZXggM2ViY2ZmZmFhOTc4Li4w
+ODgxYzc4NDc2YjEgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYworKysgYi9hcmNo
+L3Jpc2N2L2t2bS92Y3B1LmMKQEAgLTQ5Niw2ICs0OTYsMTggQEAgaW50IGt2bV9hcmNoX3ZjcHVf
+aW9jdGxfZ2V0X21wc3RhdGUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LAogCXJldHVybiAwOwogfQog
+CitzdGF0aWMgdm9pZCBrdm1fcmlzY3ZfdmNwdV9zdXNwZW5kKHN0cnVjdCBrdm1fdmNwdSAqdmNw
+dSkKK3sKKwlXUklURV9PTkNFKHZjcHUtPmFyY2gubXBfc3RhdGUubXBfc3RhdGUsIEtWTV9NUF9T
+VEFURV9TVVNQRU5ERUQpOworCWt2bV9tYWtlX3JlcXVlc3QoS1ZNX1JFUV9TVVNQRU5ELCB2Y3B1
+KTsKKwlrdm1fdmNwdV9raWNrKHZjcHUpOworfQorCitzdGF0aWMgYm9vbCBrdm1fcmlzY3ZfdmNw
+dV9zdXNwZW5kZWQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQoreworCXJldHVybiBSRUFEX09OQ0Uo
+dmNwdS0+YXJjaC5tcF9zdGF0ZS5tcF9zdGF0ZSkgPT0gS1ZNX01QX1NUQVRFX1NVU1BFTkRFRDsK
+K30KKwogaW50IGt2bV9hcmNoX3ZjcHVfaW9jdGxfc2V0X21wc3RhdGUoc3RydWN0IGt2bV92Y3B1
+ICp2Y3B1LAogCQkJCSAgICBzdHJ1Y3Qga3ZtX21wX3N0YXRlICptcF9zdGF0ZSkKIHsKQEAgLTUx
+Niw2ICs1MjgsOSBAQCBpbnQga3ZtX2FyY2hfdmNwdV9pb2N0bF9zZXRfbXBzdGF0ZShzdHJ1Y3Qg
+a3ZtX3ZjcHUgKnZjcHUsCiAJCWVsc2UKIAkJCXJldCA9IC1FSU5WQUw7CiAJCWJyZWFrOworCWNh
+c2UgS1ZNX01QX1NUQVRFX1NVU1BFTkRFRDoKKwkJa3ZtX3Jpc2N2X3ZjcHVfc3VzcGVuZCh2Y3B1
+KTsKKwkJYnJlYWs7CiAJZGVmYXVsdDoKIAkJcmV0ID0gLUVJTlZBTDsKIAl9CkBAIC02ODIsNiAr
+Njk3LDI1IEBAIHZvaWQga3ZtX2FyY2hfdmNwdV9wdXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQog
+CX0KIH0KIAorc3RhdGljIGludCBrdm1fcmlzY3ZfaGFuZGxlX3N1c3BlbmQoc3RydWN0IGt2bV92
+Y3B1ICp2Y3B1KQoreworCWlmICgha3ZtX3Jpc2N2X3ZjcHVfc3VzcGVuZGVkKHZjcHUpKQorCQly
+ZXR1cm4gMTsKKworCWt2bV9yaXNjdl92Y3B1X3dmaSh2Y3B1KTsKKworCWt2bV9tYWtlX3JlcXVl
+c3QoS1ZNX1JFUV9TVVNQRU5ELCB2Y3B1KTsKKworCWlmIChrdm1fYXJjaF92Y3B1X3J1bm5hYmxl
+KHZjcHUpKSB7CisJCW1lbXNldCgmdmNwdS0+cnVuLT5zeXN0ZW1fZXZlbnQsIDAsIHNpemVvZih2
+Y3B1LT5ydW4tPnN5c3RlbV9ldmVudCkpOworCQl2Y3B1LT5ydW4tPnN5c3RlbV9ldmVudC50eXBl
+ID0gS1ZNX1NZU1RFTV9FVkVOVF9XQUtFVVA7CisJCXZjcHUtPnJ1bi0+ZXhpdF9yZWFzb24gPSBL
+Vk1fRVhJVF9TWVNURU1fRVZFTlQ7CisJCXJldHVybiAwOworCX0KKworCXJldHVybiAxOworfQor
+CiAvKioKICAqIGt2bV9yaXNjdl9jaGVja192Y3B1X3JlcXVlc3RzIC0gY2hlY2sgYW5kIGhhbmRs
+ZSBwZW5kaW5nIHZDUFUgcmVxdWVzdHMKICAqIEB2Y3B1Ogl0aGUgVkNQVSBwb2ludGVyCkBAIC03
+MzEsNiArNzY1LDkgQEAgc3RhdGljIGludCBrdm1fcmlzY3ZfY2hlY2tfdmNwdV9yZXF1ZXN0cyhz
+dHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCiAJCWlmIChrdm1fY2hlY2tfcmVxdWVzdChLVk1fUkVRX1NU
+RUFMX1VQREFURSwgdmNwdSkpCiAJCQlrdm1fcmlzY3ZfdmNwdV9yZWNvcmRfc3RlYWxfdGltZSh2
+Y3B1KTsKIAorCQlpZiAoa3ZtX2NoZWNrX3JlcXVlc3QoS1ZNX1JFUV9TVVNQRU5ELCB2Y3B1KSkK
+KwkJCWt2bV9yaXNjdl9oYW5kbGVfc3VzcGVuZCh2Y3B1KTsKKwogCQlpZiAoa3ZtX2RpcnR5X3Jp
+bmdfY2hlY2tfcmVxdWVzdCh2Y3B1KSkKIAkJCXJldHVybiAwOwogCX0KLS0gCjIuNDMuMAoKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
