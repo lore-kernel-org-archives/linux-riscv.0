@@ -4,92 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD59CAC59F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Sep 2025 23:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14B2CAC59A
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 00:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DCXuEudR1JLjpcHrvHr8sK8aGQFPAQR0+h43VqKdsQ4=; b=cU9X84sOOOEtyG
-	tTWVsqRHXXKwv6WGAv+lIUSLZ8htDEX0Oiiv6kE3HZzEY61dc32zTwodPjUVU545FZ2ymE5zxLoJd
-	oAbpVWjA8J2JEBpblACNPvnAJmKdkt95LZmm4DdHPiDX9dvVoxpu4dCZ8uSM6G+D41mBQOwHZYO8/
-	tSPnar/uRnI4ju+PsiVkpE+KP+X6JQLoRnc9SluuoNYoYA+dg0RhdvpN8CyOfAkr4U4SULGbIIQGv
-	mw5w92BjX/uGyEQUQ395wq4hbRP7O4Uqwzr1I+zkI07tCqVYsV9O5dKST16QrppA+BWCNUdeVo5ta
-	Jz2z1M8NH7IwQHPZ3u8w==;
+	List-Owner; bh=abeaZnzPhgDGKhrmle9yWRA4SgTHl+f5j/g+vRkdj84=; b=agfm7Sng+U8FP4
+	nQNl9c3s2TXg53vFt0YKBZDmKI3Gw7BO9JP8CXw6giqblo8/cX51UT1pcBiR9PPOIdgY1y69UKfjv
+	OOifG9tK8HQiY3Uo/tpEE/sLoFc/NEruJNl1pWQ47fDvIwM6ll9G/xAOXe7vZ5nLuDEuQRzoQqM/8
+	X3bg4trszyrHFuk1EMk+HUIzJFsoxmEpjtyCdqOBXQ/zOhorZmMRIkHUp/x36hvGodqDWVCrXaz19
+	iTWvKvsLJDm/N4Orl91w423lfWbTW03fQUqJlmB+lQLJqd6IuXSwqDUXk/mBemZehq8iZFz4dVP7y
+	QtjunJz5ANtphaFtxWGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz1lN-0000000Faxu-0wvB;
-	Wed, 17 Sep 2025 23:40:37 +0000
-Received: from mail-io1-xd34.google.com ([2607:f8b0:4864:20::d34])
+	id 1uz2Ef-0000000Fj1N-3RCD;
+	Thu, 18 Sep 2025 00:10:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz1lK-0000000FawT-27lK
+	id 1uz2Ef-0000000Fj0h-0Kwz
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Sep 2025 23:40:36 +0000
-Received: by mail-io1-xd34.google.com with SMTP id ca18e2360f4ac-889b846c314so11913739f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Sep 2025 16:40:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1758152433; x=1758757233; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=U4LnKnBe0mUrdxdcBF4M/llb4IeQlPfA2whttLuEB5Q=;
-        b=X/1kMhwF29zPr8Dvj6/zryj+UjNh8BYukAFuWnAodVTCZ2UazeCRNhoYVcpsMKMlzh
-         2OFwlQIyNqj+u/oRWpfAcfbAJJZQIqaMMy1qIQcDwYX6EnNbe3pqMBmqNjBgs1bQW5GL
-         xHbYITLqvL6PtkrVWksGMB5sPUsw3AjVBnc4KS37V3MKWrWUTzTZi3thOyZB7oTo/jN8
-         MwaVOmjL+xIzcx/0dlHrHULENuH717nPhETgp9pFaWc+uJcRQuV8afQbE6ZCznAAGPEW
-         vAs/7cWM/OS0VbAcWOf3gB0CIhbJkHOQuFTP2WAcSXirJKGNdo1n7XFaFIIA+La30PoJ
-         PU5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758152433; x=1758757233;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=U4LnKnBe0mUrdxdcBF4M/llb4IeQlPfA2whttLuEB5Q=;
-        b=fnx4acAQpe7XxOLLV5qtiywFUPktAxSL+20zBuELXc0hBfbctuDOD8fcOIvBi80kfo
-         Rz2NoZL7iFrdRWNntbePfAosxumQ26IQXV0XGLbt+VUMbYZE2qHSdJJBuDe+nM4+ghPv
-         cLS2MKkWNARh8Edf6vQ0jeNhWRav6SujxJJLpUJxNnOQ2CErP9OS7m5q9UimVy7Fy970
-         pC8tTOmORGw/YKzZ5nmjohc+Wo3QP2MWhNWnyljfXXXoV7qAycV4IA01D/bNSd0DlYyo
-         ewfd2Hj0yUFJzwzSGaApbz/jUXOfp253l0ETG99mcy8kXUshi/QlofH7HA7JwnnKVZxN
-         Kplw==
-X-Forwarded-Encrypted: i=1; AJvYcCUwTdiNl+Sv1ETsPO8SDTEALLuA7EAPP9upOwIy0NBCkYUUZhmgi11HiMgqWayi6vGdC3d8JesbB8E1Xw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiyFND8jM/NzG8s/Slzji9FCEl229eWcdE+WcA+9fNhZH/07YO
-	uq+UsZxCpsBumst3t6lVJv+6KcdMitLkmOsVyjd8ndI8LVJj7MHkIAKQcADYUy4HELr7wV4Vrlv
-	OAFG2
-X-Gm-Gg: ASbGncvf6ZaG+1F3Eg6nHT4hWTilmegdRGRlwE43ORu3cevxjd6vyfZQ84WeajYkIzK
-	4U4h4G0uP1XG8gMMoIYN7O+X0/ADXi/dmeRTDjJG103OhwT2C5kN3bSW6uCFWgnMteDsDwf+pbm
-	5bGhDNH1OU4j6KdCmv1a/cyX9hkQPXpbFodKepUDfR4h6Knotrg2Ywom0C+dew/uwTXqzFnkKAs
-	okDcbggL/8M+vFRsZT/lZJKYJByObdYwkE5QMFopJxvtFEwt2rPS6HqN5XfEPVfwRSYXiTKqIqs
-	7J/crnzinVCdNlj5pO4An/UGlHljuim1YzUgtOYRmnjBr0rubkKHDKedLIg+p5mb5eDaA/Kue0/
-	cqar0SXDxAZY5w+6MuhMRJpeSlBsvGPOoANwPWZDGelxOwCOIZAbNAQ==
-X-Google-Smtp-Source: AGHT+IFIMlPua7p/TY9YMSKjXsZOBX/5j6z1IJQ7nS5dT8sO4hABWq+/kl4R3zdjJi/vT1pYQ+i8NA==
-X-Received: by 2002:a05:6602:6c10:b0:86d:9ec7:267e with SMTP id ca18e2360f4ac-89d1a7c97eamr718446339f.4.1758152433403;
-        Wed, 17 Sep 2025 16:40:33 -0700 (PDT)
-Received: from [10.211.55.5] ([131.212.251.230])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-8a46fea3353sm31238739f.12.2025.09.17.16.40.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Sep 2025 16:40:32 -0700 (PDT)
-Message-ID: <3b815302-21f2-4ee2-bf83-c1dba77ce3d1@riscstar.com>
-Date: Wed, 17 Sep 2025 18:40:31 -0500
+	Thu, 18 Sep 2025 00:10:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 64B8760008;
+	Thu, 18 Sep 2025 00:10:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C556CC4CEE7;
+	Thu, 18 Sep 2025 00:10:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758154252;
+	bh=8mtrXdMjzuzHAbOpsanLGbWf7gnLc5D1Foi3/VnOcgM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OyJdYQkkFpHHEcM9nT6ur2S750w/3F2tqMonFEN576RIpuDdF180SobzO6c01xrAG
+	 5mTH7Bhinw/iqB4GxWe6fzkRy+b3A0pY9rRC6BFmmTeJgmR2IVLSGt/S/LoPv6A5hQ
+	 yFvYrMINAcPLCaBYCtaEIUk/y9s5skLO2xJqPa7SBDUDFvDbcYxWOOcg+kLK0CoFbv
+	 sGjJW6y72/Xrylr8p+PCJMBXtHFVGD1RN7/xvXcOz1i2H3o6JA1K810vPe3UhqPTkD
+	 zLSmoqhLwH5kNdxo8+UQ7Pzh4SbJpJ/RqwBv8ciIFpNJQ9xIuuOBHQ7riYj8pp/J72
+	 aQdzs3S5D+kHw==
+Message-ID: <7585233a-a41d-45b0-b009-58b9dfb9a828@kernel.org>
+Date: Thu, 18 Sep 2025 09:10:46 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: spi: add SpacemiT K1 SPI support
-To: Yixun Lan <dlan@gentoo.org>
-Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, p.zabel@pengutronix.de, spacemit@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250917220724.288127-1-elder@riscstar.com>
- <20250917220724.288127-2-elder@riscstar.com>
- <20250917231520-GYA1269891@gentoo.org>
+Subject: Re: [PATCH V13 6/6] dt-bindings: riscv: Add Svrsw60t59b extension
+ description
+To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor@kernel.org>,
+ Deepak Gupta <debug@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>,
+ Arnd Bergmann <arnd@arndb.de>, David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
+ Chunyan Zhang <zhang.lyra@gmail.com>
+References: <20250917033703.1695933-1-zhangchunyan@iscas.ac.cn>
+ <20250917033703.1695933-7-zhangchunyan@iscas.ac.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20250917231520-GYA1269891@gentoo.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_164034_798254_C26DD66E 
-X-CRM114-Status: GOOD (  22.29  )
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250917033703.1695933-7-zhangchunyan@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,159 +124,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/17/25 6:15 PM, Yixun Lan wrote:
-> Hi Alex,
+On 17/09/2025 12:37, Chunyan Zhang wrote:
+> Add description for the Svrsw60t59b extension (PTE Reserved for SW
+> bits 60:59) extension which was ratified recently in
+> riscv-non-isa/riscv-iommu.
 > 
-> On 17:07 Wed 17 Sep     , Alex Elder wrote:
->> Add support for the SPI controller implemented by the SpacemiT K1 SoC.
->>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->>   .../bindings/spi/spacemit,k1-spi.yaml         | 94 +++++++++++++++++++
->>   1 file changed, 94 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml b/Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml
->> new file mode 100644
->> index 0000000000000..5abd4fe268da9
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml
->> @@ -0,0 +1,94 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/spi/spacemit,k1-spi.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: SpacemiT K1 SoC Serial Peripheral Interface (SPI)
->> +
->> +maintainers:
->> +  - Alex Elder <elder@kernel.org>
->> +
->> +description:
->> +  The SpacemiT K1 SoC implements a SPI controller that has two 32-entry
->> +  FIFOs, for transmit and receive.  Details are currently available in
->> +  section 18.2.1 of the K1 User Manual, found in the SpacemiT Keystone
->> +  K1 Documentation[1].  The controller transfers words using PIO.  DMA
->> +  transfers are supported as well, if both TX and RX DMA channels are
->> +  specified,
->> +
->> +  [1] https://developer.spacemit.com/documentation
->> +
->> +allOf:
->> +  - $ref: /schemas/spi/spi-controller.yaml#
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - spacemit,k1-spi
-> one enum is effectively equal to const..
+> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> ---
+>  Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
 
-OK.  That's an easy fix.
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    items:
->> +      - description: Core clock
->> +      - description: Bus clock
->> +
->> +  clock-names:
->> +    items:
->> +      - const: core
->> +      - const: bus
->> +
->> +  resets:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  dmas:
->> +    items:
->> +      - description: RX DMA channel
->> +      - description: TX DMA channel
->> +
->> +  dma-names:
->> +    items:
->> +      - const: rx
->> +      - const: tx
->> +
->> +  spacemit,k1-ssp-id:
->> +    description: SPI controller number
->> +    $ref: /schemas/types.yaml#/definitions/uint32
-> could you explain a little bit why this vendor specific property should
-> be introduced? I took a look at the code, and didn't get the reason
-> behind.. or what's the problem of simply using "pdev->id"?
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
-This property was carried over from the vendor code.  It is
-optional, and if it isn't specified, the platform device ID (-1)
-will be used.  It's just intended to provide a well-defined ID
-for a particular SPI controller.
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
 
-> we should really be careful to introduce vendor specific property..
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
 
-If there were a standard way of doing this I'd love to use it.
-
-And if it isn't necessary, please just explain to me why.  I
-have no problem removing it.
-
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - clock-names
->> +  - resets
->> +  - interrupts
->> +
->> +unevaluatedProperties: false
->> +
->> +examples:
->> +  - |
->> +
->> +    #include <dt-bindings/clock/spacemit,k1-syscon.h>
->> +    spi3: spi@d401c000 {
-> label not needed for DT example
-
-OK.
-
->> +        compatible = "spacemit,k1-spi";
->> +        reg = <0xd401c000 0x30>;
->> +        #address-cells = <1>;
->> +        #size-cells = <0>;
->> +        clocks = <&syscon_apbc CLK_SSP3>,
->> +                 <&syscon_apbc CLK_SSP3_BUS>;
->> +        clock-names = "core",
->> +                      "bus";
->> +        resets = <&syscon_apbc RESET_SSP3>;
->> +        interrupts-extended = <&plic 55>;
->> +        spacemit,k1-ssp-id = <3>;
->> +        dmas = <&pdma 20>,
->> +               <&pdma 19>;
->> +        dma-names = "rx",
->> +                    "tx";
-> ..
->> +        status = "disabled";
-> ditto, drop it
-
-OK.  Thanks a lot for your quick review.  I'll wait a bit
-(probably until Monday) before I send an update.
-
-					-Alex
-
->> +    };
->> -- 
->> 2.48.1
->>
-> 
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
