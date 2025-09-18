@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F20BECAC59A
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 07:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68CB9CAC59A
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Sep 2025 07:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UnmuRqEanhXgjm1yJ/E0XGC9wgWuHF46vsEhDSjhvnc=; b=xx4zjj2vqE7TqC
-	8O7CHHEzMpswsKkmHKo9eFo/utKCxtqm5+8wU3IJ0aOD8EcseETQ/7EkVeI7s0yUzKxByo2wqHo14
-	Zd6Q7DkWZj1HW7NjksoKl4Wjp0jcVZKWqFZ1swcgPoLfesR0rmjdD8EInuakH6Xijj3dq5CIbb12A
-	gAsOqsnuI6ZHp2OHm5+d+g6dAuQZvU+/ISbU71UKlBjCKpE9rtd++wKN4JLK4mdq/Ms75+ze3nsCq
-	nSjBAl83clGzGI/j5fLTtMpUIDSYiga+PhiEP5oA1yJxssnDzrqrg9uY1/TO+/be6IO1d5PxYze0v
-	UXCS8XNVxL6PLc9MSCEA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IKneA3LPKT/1MXgqa6IJtJTYMgVB+K2cnB6JF/rH/DM=; b=L64ABm0GBqtqOi
+	FpNWp7XiKFyiuCYKKLnyRW8APGyMVF+YZ4Kg9bXd7B1Reod+RkMgTuMEfs5Gvh8Kp0w9KD3ruwKI+
+	qD1IP9LJgZH27yMeqmt7OTEtIBP1Hit82xbdUYJYhVCSpI06Id4Q4ZeBHOFB8S88CQkJ75IiE7DcG
+	Mx9PkSQ5STBHAawDJ4/9jM7I76exbk9xmcu7yzDAun2Cc1Ej96dJpK+rfNPubUbjWFu83Cy32esex
+	wyBfAjuY4BeNw3pu3E4oQAcvifgYibilTSxrkExY4sZe2I3tNBRHeC5KzCOHlPctH+FIzM+gvN+/W
+	iX5tKqu2v+peKOP9ynMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz9FG-0000000GZSq-3ZGj;
-	Thu, 18 Sep 2025 07:39:58 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1uz9Jx-0000000GaH6-3NZR;
+	Thu, 18 Sep 2025 07:44:49 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz9FD-0000000GZQE-1USy;
-	Thu, 18 Sep 2025 07:39:57 +0000
-Received: from qiao.. (unknown [210.73.43.101])
-	by APP-05 (Coremail) with SMTP id zQCowADHaBI+t8toBKqGAw--.13402S2;
-	Thu, 18 Sep 2025 15:39:43 +0800 (CST)
-From: Zhe Qiao <qiaozhe@iscas.ac.cn>
-To: anup@brainfault.org,
-	atish.patra@linux.dev,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	qiaozhe@iscas.ac.cn
-Cc: linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org
-Subject: [PATCH] RISCV: KVM: Add support for userspace to suspend a vCPU
-Date: Thu, 18 Sep 2025 15:39:27 +0800
-Message-ID: <20250918073927.403410-1-qiaozhe@iscas.ac.cn>
-X-Mailer: git-send-email 2.43.0
+	id 1uz9Ju-0000000GaCZ-2mHe
+	for linux-riscv@lists.infradead.org;
+	Thu, 18 Sep 2025 07:44:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1758181418;
+	bh=fKIhYdZo0gbuLJoLY01IaGGDghYLeBAKJXGGD1WoNs4=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=lQ5R+OFT5MufPI+DsRqXbxo4lmoOugWOwnv3uLEDkGeKmpsDSwhelcatAEHS4msrl
+	 S4ZHBEcJrfSOCuvU7dSunwHfE7Mcryb3yLhAO3M1jNtZq0Yq+11c/R5HIKepgs3kC+
+	 HYqJG/f+Y7X0i0mJqiQBdveHGFlZBxGWxioGZCrs=
+X-QQ-mid: esmtpsz11t1758181409t25a73e83
+X-QQ-Originating-IP: TBFWLYNJiVsLazlBh4iNqndLkAwUI57Zz+YC92McJmE=
+Received: from = ( [120.239.196.247])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 18 Sep 2025 15:43:27 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8956593677624534324
+EX-QQ-RecipientCnt: 17
+Date: Thu, 18 Sep 2025 15:43:27 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Alex Elder <elder@riscstar.com>, Yixun Lan <dlan@gentoo.org>
+Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	p.zabel@pengutronix.de, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH 1/3] dt-bindings: spi: add SpacemiT K1 SPI support
+Message-ID: <D2A109C6A8BDED08+aMu4H4xap2GSP50w@LT-Guozexi>
+References: <20250917220724.288127-1-elder@riscstar.com>
+ <20250917220724.288127-2-elder@riscstar.com>
+ <20250917231520-GYA1269891@gentoo.org>
+ <3b815302-21f2-4ee2-bf83-c1dba77ce3d1@riscstar.com>
+ <20250918001632-GYA1270371@gentoo.org>
+ <f7e12797-ea17-4e92-bd25-cc562c66d2a7@riscstar.com>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowADHaBI+t8toBKqGAw--.13402S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWw4rCr1fKw1rJFyfJw1fWFg_yoW5ZFy7pF
-	sFkrs09w4rGryxCw13J3yDur15WrsYgrnxury29rW5Gr45KrWrAr4v9rW5JF1UJFW8XF1I
-	yFn8K3WUC3W5twUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9K14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_GF4l42xK82IYc2Ij64vIr4
-	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
-	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
-	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
-	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14
-	v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUeJ5rDUUUU
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: ptld061kh6x2xfdvhtffof0/
+Content-Disposition: inline
+In-Reply-To: <f7e12797-ea17-4e92-bd25-cc562c66d2a7@riscstar.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: N3IC8um5pMyYh9hNCJhfVMgQzafTi66x7ya2/T3wzdUewhjfc1OAztkM
+	tIRCcQMR2rSrteZ3Oc36tJ/zxmpnE5p7p04Hk4xSksEObthnpA3l9A0kLPduujAWKui3KAN
+	shfpfMmRQnXiNEKIh0NaQiLAKjwBp7NB2s3A935HOqUNhdB0mu/3VM/O4+gMLa9UxAwVCjn
+	ZCckIu1XKoejlseCJvPk/j4MhzKSQB/gMfm0CEUiYYQBM9q0gZUKbztDQz8G7yoOiNhhw01
+	+d0m9JP+eM4G+JesT6tzMuXb05ELwnWW1fkBD6OcafZt7Dxe5tJjG7izZ+dq1wXDXe5I1PQ
+	0jmMZAGkGqmbzvSOeDR0vhICAaYN/oiXgbhR0/vUl4wwQe9BBcY21w9vefSPHGBl9T4Z1bT
+	dq4SY0djEa/3mcdir5+IT2K+hmtNgpyYpBGAuCtiZZ6+ZZN4zxfBUDKqHS9iZ02n+/d8D42
+	hCu39Q9oKFHsMfAoevwulqT/2qpXH2hGUgCBzr1rh9vvYo7HK1iN6iCpdRinHwTsQ8CfrDZ
+	TChdygCQBcdCBrwKyOQ0DFaczDQtIgSz6/RLcjtGV0RXYeuJcIlU5IlqRmP6dhhDxK9RJap
+	qeP7r1CtQSP/uzmHV/ZVhhezovrqhtSPiYDz7oP/EfJMLDpTpGT2YltLraiUC9s+WogEkpI
+	86KXuHvhjZ4C9Bw6P/J76Twc1Acv93FEpu85nUA5KpM57Hq7OZukCNIuy9RL7Y7yDnYgPtx
+	NafO1JKORGKGgSD728DJlpPUG3IBBGPBeRtX3rv6ekspP7ZKK3TL9gTbC2KyEiEgb7qMZmO
+	dZTBinxL39HKArkc9bP16ICrxFIuclaK2S1g67idHwYAgBI5YndbAbjVgOCrKmSY9ogf0C3
+	2TD26NdGvLqa+cpKJH0f5Uqj2XKHtwONK9/mj4xT9SBhpcZ4vjwIFdl4GLQU2hsDN7yAwaH
+	DQIE4fhbqsIXhnvh+kGtJAHtNe5QUq9wTDofhdRJwcB3wQUKXog5/y5F60N9ZohUT19iJgz
+	Ou6mv+IRs7ckp/gId5+QZ/96MaaSK95DaAGI6k7aTWh+85OVNaPeHjw4qrnXA=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_003955_758742_5394247C 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250918_004447_155169_8433EA60 
+X-CRM114-Status: GOOD (  38.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,65 +98,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWRkIFJJU0MtViBhcmNoaXRlY3R1cmUgc3VwcG9ydCBmb3IgdGhlIEtWTV9NUF9TVEFURV9TVVNQ
-RU5ERUQgdkNQVQpzdGF0ZSwgaW5kaWNhdGluZyB0aGF0IGEgdkNQVSBpcyBpbiBzdXNwZW5kZWQg
-bW9kZS4gV2hpbGUgc3VzcGVuZGVkLAp0aGUgdkNQVSB3aWxsIGJsb2NrIGV4ZWN1dGlvbiB1bnRp
-bCBhIHdha2V1cCBldmVudCBpcyBkZXRlY3RlZC4KCkludHJvZHVjZSBhIG5ldyBzeXN0ZW0gZXZl
-bnQgdHlwZSwgS1ZNX1NZU1RFTV9FVkVOVF9XQUtFVVAsIHRvIG5vdGlmeQp1c2Vyc3BhY2Ugd2hl
-biBLVk0gaGFzIHJlY29nbml6ZWQgc3VjaCBhIHdha2V1cCBldmVudC4gSXQgaXMgdGhlbgp1c2Vy
-c3BhY2XigJlzIHJlc3BvbnNpYmlsaXR5IHRvIGVpdGhlciBtYWtlIHRoZSB2Q1BVIHJ1bm5hYmxl
-IGFnYWluIG9yCmtlZXAgaXQgc3VzcGVuZGVkIHVudGlsIHRoZSBuZXh0IHdha2V1cCBldmVudCBv
-Y2N1cnMuCgpTaWduZWQtb2ZmLWJ5OiBaaGUgUWlhbyA8cWlhb3poZUBpc2Nhcy5hYy5jbj4KLS0t
-CiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmggfCAgMiArKwogYXJjaC9yaXNjdi9r
-dm0vdmNwdS5jICAgICAgICAgICAgIHwgMzcgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KwogMiBmaWxlcyBjaGFuZ2VkLCAzOSBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9rdm1faG9zdC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1f
-aG9zdC5oCmluZGV4IGQ3MWQzMjk5YTMzNS4uZGJjNjM5MTQwN2FlIDEwMDY0NAotLS0gYS9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9rdm1faG9zdC5oCkBAIC00Myw2ICs0Myw4IEBACiAjZGVmaW5lIEtWTV9SRVFfSEZFTkNFCQkJ
-XAogCUtWTV9BUkNIX1JFUV9GTEFHUyg1LCBLVk1fUkVRVUVTVF9XQUlUIHwgS1ZNX1JFUVVFU1Rf
-Tk9fV0FLRVVQKQogI2RlZmluZSBLVk1fUkVRX1NURUFMX1VQREFURQkJS1ZNX0FSQ0hfUkVRKDYp
-CisjZGVmaW5lIEtWTV9SRVFfU1VTUEVORAkJXAorCUtWTV9BUkNIX1JFUV9GTEFHUyg3LCBLVk1f
-UkVRVUVTVF9XQUlUIHwgS1ZNX1JFUVVFU1RfTk9fV0FLRVVQKQogCiAjZGVmaW5lIF9fS1ZNX0hB
-VkVfQVJDSF9GTFVTSF9SRU1PVEVfVExCU19SQU5HRQogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2t2bS92Y3B1LmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKaW5kZXggM2ViY2ZmZmFhOTc4Li4w
-ODgxYzc4NDc2YjEgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYworKysgYi9hcmNo
-L3Jpc2N2L2t2bS92Y3B1LmMKQEAgLTQ5Niw2ICs0OTYsMTggQEAgaW50IGt2bV9hcmNoX3ZjcHVf
-aW9jdGxfZ2V0X21wc3RhdGUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LAogCXJldHVybiAwOwogfQog
-CitzdGF0aWMgdm9pZCBrdm1fcmlzY3ZfdmNwdV9zdXNwZW5kKHN0cnVjdCBrdm1fdmNwdSAqdmNw
-dSkKK3sKKwlXUklURV9PTkNFKHZjcHUtPmFyY2gubXBfc3RhdGUubXBfc3RhdGUsIEtWTV9NUF9T
-VEFURV9TVVNQRU5ERUQpOworCWt2bV9tYWtlX3JlcXVlc3QoS1ZNX1JFUV9TVVNQRU5ELCB2Y3B1
-KTsKKwlrdm1fdmNwdV9raWNrKHZjcHUpOworfQorCitzdGF0aWMgYm9vbCBrdm1fcmlzY3ZfdmNw
-dV9zdXNwZW5kZWQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQoreworCXJldHVybiBSRUFEX09OQ0Uo
-dmNwdS0+YXJjaC5tcF9zdGF0ZS5tcF9zdGF0ZSkgPT0gS1ZNX01QX1NUQVRFX1NVU1BFTkRFRDsK
-K30KKwogaW50IGt2bV9hcmNoX3ZjcHVfaW9jdGxfc2V0X21wc3RhdGUoc3RydWN0IGt2bV92Y3B1
-ICp2Y3B1LAogCQkJCSAgICBzdHJ1Y3Qga3ZtX21wX3N0YXRlICptcF9zdGF0ZSkKIHsKQEAgLTUx
-Niw2ICs1MjgsOSBAQCBpbnQga3ZtX2FyY2hfdmNwdV9pb2N0bF9zZXRfbXBzdGF0ZShzdHJ1Y3Qg
-a3ZtX3ZjcHUgKnZjcHUsCiAJCWVsc2UKIAkJCXJldCA9IC1FSU5WQUw7CiAJCWJyZWFrOworCWNh
-c2UgS1ZNX01QX1NUQVRFX1NVU1BFTkRFRDoKKwkJa3ZtX3Jpc2N2X3ZjcHVfc3VzcGVuZCh2Y3B1
-KTsKKwkJYnJlYWs7CiAJZGVmYXVsdDoKIAkJcmV0ID0gLUVJTlZBTDsKIAl9CkBAIC02ODIsNiAr
-Njk3LDI1IEBAIHZvaWQga3ZtX2FyY2hfdmNwdV9wdXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQog
-CX0KIH0KIAorc3RhdGljIGludCBrdm1fcmlzY3ZfaGFuZGxlX3N1c3BlbmQoc3RydWN0IGt2bV92
-Y3B1ICp2Y3B1KQoreworCWlmICgha3ZtX3Jpc2N2X3ZjcHVfc3VzcGVuZGVkKHZjcHUpKQorCQly
-ZXR1cm4gMTsKKworCWt2bV9yaXNjdl92Y3B1X3dmaSh2Y3B1KTsKKworCWt2bV9tYWtlX3JlcXVl
-c3QoS1ZNX1JFUV9TVVNQRU5ELCB2Y3B1KTsKKworCWlmIChrdm1fYXJjaF92Y3B1X3J1bm5hYmxl
-KHZjcHUpKSB7CisJCW1lbXNldCgmdmNwdS0+cnVuLT5zeXN0ZW1fZXZlbnQsIDAsIHNpemVvZih2
-Y3B1LT5ydW4tPnN5c3RlbV9ldmVudCkpOworCQl2Y3B1LT5ydW4tPnN5c3RlbV9ldmVudC50eXBl
-ID0gS1ZNX1NZU1RFTV9FVkVOVF9XQUtFVVA7CisJCXZjcHUtPnJ1bi0+ZXhpdF9yZWFzb24gPSBL
-Vk1fRVhJVF9TWVNURU1fRVZFTlQ7CisJCXJldHVybiAwOworCX0KKworCXJldHVybiAxOworfQor
-CiAvKioKICAqIGt2bV9yaXNjdl9jaGVja192Y3B1X3JlcXVlc3RzIC0gY2hlY2sgYW5kIGhhbmRs
-ZSBwZW5kaW5nIHZDUFUgcmVxdWVzdHMKICAqIEB2Y3B1Ogl0aGUgVkNQVSBwb2ludGVyCkBAIC03
-MzEsNiArNzY1LDkgQEAgc3RhdGljIGludCBrdm1fcmlzY3ZfY2hlY2tfdmNwdV9yZXF1ZXN0cyhz
-dHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCiAJCWlmIChrdm1fY2hlY2tfcmVxdWVzdChLVk1fUkVRX1NU
-RUFMX1VQREFURSwgdmNwdSkpCiAJCQlrdm1fcmlzY3ZfdmNwdV9yZWNvcmRfc3RlYWxfdGltZSh2
-Y3B1KTsKIAorCQlpZiAoa3ZtX2NoZWNrX3JlcXVlc3QoS1ZNX1JFUV9TVVNQRU5ELCB2Y3B1KSkK
-KwkJCWt2bV9yaXNjdl9oYW5kbGVfc3VzcGVuZCh2Y3B1KTsKKwogCQlpZiAoa3ZtX2RpcnR5X3Jp
-bmdfY2hlY2tfcmVxdWVzdCh2Y3B1KSkKIAkJCXJldHVybiAwOwogCX0KLS0gCjIuNDMuMAoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Sep 17, 2025 at 09:59:35PM -0500, Alex Elder wrote:
+> On 9/17/25 7:16 PM, Yixun Lan wrote:
+> > Hi Alex,
+> > 
+> > On 18:40 Wed 17 Sep     , Alex Elder wrote:
+> > > On 9/17/25 6:15 PM, Yixun Lan wrote:
+> > > > Hi Alex,
+> > > > 
+> > > > On 17:07 Wed 17 Sep     , Alex Elder wrote:
+> > > > > Add support for the SPI controller implemented by the SpacemiT K1 SoC.
+> > > > > 
+> > > > > Signed-off-by: Alex Elder <elder@riscstar.com>
+> > > > > ---
+> > > > >    .../bindings/spi/spacemit,k1-spi.yaml         | 94 +++++++++++++++++++
+> > > > >    1 file changed, 94 insertions(+)
+> > > > >    create mode 100644 Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml
+> > > > > 
+> > > > > diff --git a/Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml b/Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml
+> > > > > new file mode 100644
+> > > > > index 0000000000000..5abd4fe268da9
+> > > > > --- /dev/null
+> > > > > +++ b/Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml
+> > ..
+> > > > > +
+> > > > > +  spacemit,k1-ssp-id:
+> > > > > +    description: SPI controller number
+> > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > > could you explain a little bit why this vendor specific property should
+> > > > be introduced? I took a look at the code, and didn't get the reason
+> > > > behind.. or what's the problem of simply using "pdev->id"?
+> > > 
+> > > This property was carried over from the vendor code.  It is
+> > inherit from vendor code isn't a valid reason
+> > 
+> > > optional, and if it isn't specified, the platform device ID (-1)
+> > > will be used.  It's just intended to provide a well-defined ID
+> > > for a particular SPI controller.
+> > > 
+> > while looking at the code, it seems you can use alias to map specific id
+> > to the spi controller, it even can do non-linear map, something like
+> > 	spi0 = &spi3;
+> I've never used this before, but yes, it looks like it's exactly
+> what I want.  I'll just get rid of the "spacemit,k1-ssp-id" DT
+> property entirely.  Easy.
+> 
+> > plese check of_alias_get_id()
+> > 
+> > note, I haven't actually verified on board, just look through the code
+This is the right API that Alex what to use.
+I have verified it in i2c driver.
+
+                - Troy
+
+> > 
+> > > > we should really be careful to introduce vendor specific property..
+> > > 
+> > > If there were a standard way of doing this I'd love to use it.
+> 
+> Looks like you have told me the standard way of doing this.
+> 
+> Thank you.
+> 
+> 					-Alex
+> 
+> > > 
+> > > And if it isn't necessary, please just explain to me why.  I
+> > > have no problem removing it.
+> > > 
+> > on the opposite, please have explicit good reason to introduce vendor
+> > speifici property, and if there is generic way, then we shouldn't do it
+> > 
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
