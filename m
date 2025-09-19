@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73588CA1013
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 05:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F1FCAC59A
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 07:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h7JhnYlzVTGjWM0PrLHOFr4p/beOiZnWh3S6OJYTctM=; b=5Edv0hOylxeOoW
-	DlOLi6I2k1yqbDQtwzqmrMq/2FXsWQYzMnZvQf/EH/uwBcoUHJjwqX6ResrKVMrf89MQO20McQbw3
-	mjX3TyEQcIFlBXDcMgqMjkYpbeo/9eg0VL/gek6vTegPyHSfGtgvH4mk9YeDWpMrIgIpbxz3Zpmlf
-	e7GD++veu1xd2StXEC44MSqwUps5H9kowqd4NskYLeMDUYDL0FlxcwYAouFS4tWoIyBXPD/1pZHjF
-	JBXwHDGnU5QFchLmC+EeRc6DVRdxbb22ssRoCWHYCV7wFu7SnKTSbjKKqtXBEhvH4NbSm8pgQnMas
-	z11ZIe+TDVECFKNNrQrQ==;
+	List-Owner; bh=K9NP9fx0cwiBE0GAZg6sxAfwqaOUJkF6Zp7W/fZB8w4=; b=uzftz22zCw7Qsa
+	6wDQ+JSsG48SkWbmGge3K18CfZ2y71Fp32d4+LdORzmdBH5oiDUrPKDfUufjVv66J/y8+GUashmQM
+	H1MW7hvko9NHgGolxGwaFisq+VS+U1nksi0J5B3JFiRpxHQiN7jpFY0XYhplwvh0zAiWzVQLwHeB9
+	MQtgqXZ3lPbhebmPqOipu9rpeFRJJkuOJxv04qWnNG4FdStQ1oKr3ZE3EHuV4omktzLfuis8H0X5b
+	hRtEW9SosLOMoU5m8ME2YDTotnHB1DKN2iuyB+9QkHlDLcvELxghyKb8lLozCBBNjT9c6rwjUUkso
+	br4AZ/0qSKkiVpHip7HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzTYl-00000001rO9-0YAn;
-	Fri, 19 Sep 2025 05:21:27 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1uzV7a-00000001zhs-0JyL;
+	Fri, 19 Sep 2025 07:01:30 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzTYg-00000001rLa-3ZcS
+	id 1uzV7Y-00000001zhC-0nSP
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 05:21:25 +0000
-Received: from [192.168.3.11] (unknown [124.16.136.212])
-	by APP-03 (Coremail) with SMTP id rQCowABnuIIa6MxoI9OnAw--.50765S2;
-	Fri, 19 Sep 2025 13:20:32 +0800 (CST)
-Message-ID: <73d55231-d1e5-400d-9446-1914a78c0db8@iscas.ac.cn>
-Date: Fri, 19 Sep 2025 13:20:25 +0800
+	Fri, 19 Sep 2025 07:01:29 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7728815e639so1246155b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 00:01:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1758265287; x=1758870087; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ab3i3SAEiCM3mWXvINF+8OQsYTxxSN3LITXrtSETem4=;
+        b=VP400ri/8w94UXVv9gLxNSvvfizjJzUpNTIHofzoVgN9rMa3oao4yrzKVd301Ekuw8
+         AOxwbg+0hJxW4z19hNy9Vi+8G6YP0oPk5ph693+AHFQ8xRPFvHrIHVqOXGZUsMyxsa1F
+         C0xjqOFXJdmQVug0J9V4TZYbHs5t0aTpTDaTRT5EOLpTMnXqwd5nv8bXOEoSATdJe7QX
+         rGg6qdj1RuDWuyXcrceuQ1BRtzwInql+I3RQOJybgWVD9ajXaqg5nLpwKObQcFju563s
+         ipleMj+m2pUIM2MS9AeDWBZ5OuGyJDPFKfRdxhc+z+2ZPXFanGpTiUoPLb6RsrybOOFE
+         v1Mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758265287; x=1758870087;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ab3i3SAEiCM3mWXvINF+8OQsYTxxSN3LITXrtSETem4=;
+        b=f4cVi4833b/RJxBH97SjXpNhpwLlSRtrpg7eZr8/nz6EQYkB7M02Ecg4gRs/UzshJX
+         CawuDYpBw4x5ehndDXV0+DTdSqEsrisPi5AfdIQkmNjz7xE4f0mxnzujlIxV8OmFCB+k
+         S88XQMoHlp9yWCogxqIrC/SgwAPUyciAdDYgEhHrrHlHmb72DRd1ZkWqdP9wuq80qRX+
+         WMprTcJh3nODT9RrPgnsnz3qai5Wfoooc3R6e4lhCAmWI7kVeyeMcQqPC24qS8WTxJdx
+         A/77zeN2MB5bL0upqWRMnIWPh2tTh1dOWAqXGmZHSUGhq/Sa3pVK4NF80de6bbtG7CYJ
+         3SsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUxuyt7xMVjnU9+2PZ/npCIbJn0fJHf69BFc2kfCk3hyyI4ls6v/yk+uH3fse5L8RnO243pOUTrJeA4ZQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YylxMj6e4Ntm87P4dim/8X5EqZVMaIh/vBfD2f8mjgtJermBSUH
+	gAGfl64QOXDwKtnuuc7syQTgwa2AmHpcehMqpU5xpJMhh3g/shPnpZqrOOmw/Es/u8c=
+X-Gm-Gg: ASbGnctkf8J6BK9hqX8P5pYJ33kjp5zjWRrMWYY3OOaC60QTePmd5LuFFe9+JlL8vsC
+	cJ+8ILvOl5Im606Yb/iLq5g+MYRCu5eNdt5U0l0ubak9rh2oHUOaYSlQZCwm9cw+r0NPaffIio1
+	jaGDbOrO5h0Y1GLHB7pC13JnaGG9GZYCPFSWv8kpyuzSoa19knwUPdfWIdKNIlNERZsSaDzgoiT
+	76aRIFyYWVt0fvREkkW7XtMcUprUwMUFBWELs9y7wQxDzCX2dVaVCSPRL1QkMSEwSReRKbYkvMy
+	ZsmbiNekv2Cg8q8OoaYjAf5+G+jxjnmm4INAuR95MK3Wkw5N5RAOjBUxkeCuxb4hhw9jwskbcjH
+	IHZ9UVrMR6WRTwU0vaEB1G0knrdMjvuEkrvLlM3HN2hkPOlgGfdUO
+X-Google-Smtp-Source: AGHT+IGD8AJEImnKfKuuhZhrYKTm9Rj3WupGLE/Dh4zz0ZaxRpZnsGB2qoYWsNp3E3YyLR4iv/o3eg==
+X-Received: by 2002:a05:6a00:3e0a:b0:776:f8f:8ce9 with SMTP id d2e1a72fcca58-77e4ecc343cmr2714103b3a.22.1758265286801;
+        Fri, 19 Sep 2025 00:01:26 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([61.213.176.9])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77dc606e10fsm2938738b3a.65.2025.09.19.00.01.21
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 19 Sep 2025 00:01:26 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	conor@kernel.org,
+	atishp@rivosinc.com,
+	cleger@rivosinc.com,
+	ajones@ventanamicro.com,
+	apatel@ventanamicro.com,
+	cuiyunhui@bytedance.com,
+	mchitale@ventanamicro.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RFC 1/1] drivers: firmware: riscv: add unknown NMI support
+Date: Fri, 19 Sep 2025 15:00:48 +0800
+Message-Id: <20250919070048.94646-2-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+In-Reply-To: <20250919070048.94646-1-cuiyunhui@bytedance.com>
+References: <20250919070048.94646-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] RISC-V: re-enable gcc + rust builds
-To: Asuna Yang <spriteovo@gmail.com>, Miguel Ojeda <ojeda@kernel.org>,
- Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Han Gao <rabenda.cn@gmail.com>, Jason Montleon <jmontleo@redhat.com>,
- Conor Dooley <conor@kernel.org>
-Cc: rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kbuild@vger.kernel.org, llvm@lists.linux.dev
-References: <20250914-gcc-rust-v3-v3-1-34d4d5864144@gmail.com>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20250914-gcc-rust-v3-v3-1-34d4d5864144@gmail.com>
-X-CM-TRANSID: rQCowABnuIIa6MxoI9OnAw--.50765S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXrW8GrW3Kry8Zr1ktr1kKrg_yoWrCw47pF
-	Z7ua4kKa17Jr95Ar4UC348Xa1093Z8J3y3GFy8Gw15G3yqyryDuFZ2kr17W34Uur1qv3yY
-	vr18u3Wq9FWUCa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxU3byCDUUUU
-X-Originating-IP: [124.16.136.212]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_222123_269825_4AB14C91 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20250919_000128_237231_6097A35F 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,114 +109,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Unknown NMI can force the kernel to respond (e.g., panic) when the
+system encounters unrecognized critical hardware events, aiding in
+troubleshooting system faults. This is implemented via the Supervisor
+Software Events (SSE) framework.
 
-On 9/14/25 15:16, Asuna Yang wrote:
-> [...]
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 51dcd8eaa24356d947ebe0f1c4a701a3cfc6b757..3e892864f930778218073e8ee5980eb8f4e1594a 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -191,7 +191,7 @@ config RISCV
->  	select HAVE_REGS_AND_STACK_ACCESS_API
->  	select HAVE_RETHOOK if !XIP_KERNEL
->  	select HAVE_RSEQ
-> -	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && CC_IS_CLANG
-> +	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && TOOLCHAIN_MATCHES_ZICSR_ZIFENCEI
->  	select HAVE_SAMPLE_FTRACE_DIRECT
->  	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
->  	select HAVE_STACKPROTECTOR
-> @@ -629,6 +629,8 @@ config TOOLCHAIN_HAS_V
->  	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32imv)
->  	depends on LLD_VERSION >= 140000 || LD_VERSION >= 23800
->  	depends on AS_HAS_OPTION_ARCH
-> +	# https://github.com/llvm/llvm-project/commit/e6de53b4de4aecca4ac892500a0907805896ed27
-> +	depends on !RUST || RUST_BINDGEN_LIBCLANG_VERSION >= 140000
->  
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+---
+ arch/riscv/include/asm/sbi.h     |  1 +
+ drivers/firmware/riscv/Kconfig   | 10 +++++
+ drivers/firmware/riscv/Makefile  |  1 +
+ drivers/firmware/riscv/sse_nmi.c | 77 ++++++++++++++++++++++++++++++++
+ 4 files changed, 89 insertions(+)
+ create mode 100644 drivers/firmware/riscv/sse_nmi.c
 
-I think instead of testing libclang version, it would make more sense to
-feature test if bindgen the binary supports these flags, like what we
-already do with $(cc-option,...).
-
-Same for all the other version tests.
-
-> [...]
->  
-> +config TOOLCHAIN_MATCHES_ZICSR_ZIFENCEI
-
-TOOLCHAIN_ACCEPTS_ZICSR_ZIFENCEI?
-
-> +	def_bool y
-> +	# https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d4498694e15bf8a16
-> +	depends on TOOLCHAIN_NEEDS_OLD_ISA_SPEC || !TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI || RUST_BINDGEN_LIBCLANG_VERSION >= 170000
-> +	help
-> +	  LLVM/Clang >= 17.0.0 starts recognizing Zicsr/Zifencei in -march, passing
-> +	  them to -march doesn't generate an error anymore, and passing them or not
-> +	  doesn't have any real difference, it still follows ISA before version
-> +	  20190608 - Zicsr/Zifencei are included in base ISA.
-> +
-> +	  The current latest version of LLVM/Clang still does not require explicit
-> +	  Zicsr/Zifencei to enable these two extensions, Clang just accepts them in
-> +	  -march and then silently ignores them.
-> +
->  config FPU
->  	bool "FPU support"
->  	default y
-> diff --git a/init/Kconfig b/init/Kconfig
-> index e3eb63eadc8757a10b091c74bbee8008278c0521..0859d308a48591df769c7dbaef6f035324892bd3 100644
-> --- a/init/Kconfig
-> +++ b/init/Kconfig
-> @@ -82,6 +82,12 @@ config RUSTC_LLVM_VERSION
->  	int
->  	default $(rustc-llvm-version)
->  
-> +config RUST_BINDGEN_LIBCLANG_VERSION
-> +	int
-> +	default $(rustc-bindgen-libclang-version)
-> +	help
-> +	  This is the version of `libclang` used by the Rust bindings generator.
-> +
-
-This can go away if we don't test the version anymore.
-
->  config CC_CAN_LINK
->  	bool
->  	default $(success,$(srctree)/scripts/cc-can-link.sh $(CC) $(CLANG_FLAGS) $(USERCFLAGS) $(USERLDFLAGS) $(m64-flag)) if 64BIT
-> diff --git a/rust/Makefile b/rust/Makefile
-> index bfa915b0e58854045b367557342727fee4fe2808..8c6f84487c41880816d1e55ba4c0df0e5af4e8fd 100644
-> --- a/rust/Makefile
-> +++ b/rust/Makefile
-> @@ -290,20 +290,25 @@ bindgen_skip_c_flags := -mno-fp-ret-in-387 -mpreferred-stack-boundary=% \
->  	-fno-inline-functions-called-once -fsanitize=bounds-strict \
->  	-fstrict-flex-arrays=% -fmin-function-alignment=% \
->  	-fzero-init-padding-bits=% -mno-fdpic \
-> -	--param=% --param asan-%
-> +	--param=% --param asan-% -mno-riscv-attribute
->  
->  # Derived from `scripts/Makefile.clang`.
->  BINDGEN_TARGET_x86	:= x86_64-linux-gnu
->  BINDGEN_TARGET_arm64	:= aarch64-linux-gnu
->  BINDGEN_TARGET_arm	:= arm-linux-gnueabi
->  BINDGEN_TARGET_loongarch	:= loongarch64-linux-gnusf
-> +BINDGEN_TARGET_riscv	:= riscv64-linux-gnu
-
-Do you know if this works for riscv32? Makefile.clang uses "-m32" for
-32BIT, AFAICT, but i don't know if this is a good idea.
-
-Maybe riscv32 Rust for Linux is broken anyway...
-
->  BINDGEN_TARGET_um	:= $(BINDGEN_TARGET_$(SUBARCH))
->  BINDGEN_TARGET		:= $(BINDGEN_TARGET_$(SRCARCH))
->  
-> +ifeq ($(BINDGEN_TARGET),)
-> +$(error add '--target=' option to rust/Makefile)
-> +else
-
-Is this necessary? Maybe this can go in a separate patch, or even
-submitted separately entirely - it's unrelated to "RISC-V: re-enable gcc
-+ rust builds" and would be weird to see in git blame.
-
-Vivian "dramforever" Wang
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 874cc1d7603a5..5801f90a88f62 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -481,6 +481,7 @@ enum sbi_sse_attr_id {
+ 
+ #define SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS	0x00000000
+ #define SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP		0x00000001
++#define SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI			0x00000002
+ #define SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS	0x00008000
+ #define SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW	0x00010000
+ #define SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS	0x00100000
+diff --git a/drivers/firmware/riscv/Kconfig b/drivers/firmware/riscv/Kconfig
+index ed5b663ac5f91..746bac862ac46 100644
+--- a/drivers/firmware/riscv/Kconfig
++++ b/drivers/firmware/riscv/Kconfig
+@@ -12,4 +12,14 @@ config RISCV_SBI_SSE
+ 	  this option provides support to register callbacks on specific SSE
+ 	  events.
+ 
++config RISCV_SSE_UNKNOWN_NMI
++	bool "Enable SBI Supervisor Software Events unknown NMI support"
++	depends on RISCV_SBI_SSE
++	default y
++	help
++	  This option enables support for delivering unknown Non-Maskable Interrupt (NMI)
++	  notifications via the Supervisor Software Events (SSE) framework. When enabled,
++	  unknown NMIs can trigger kernel responses (e.g., panic) for unrecognized critical
++	  hardware events, aiding in system fault diagnosis.
++
+ endmenu
+diff --git a/drivers/firmware/riscv/Makefile b/drivers/firmware/riscv/Makefile
+index c8795d4bbb2ea..9242c6cd5e3e9 100644
+--- a/drivers/firmware/riscv/Makefile
++++ b/drivers/firmware/riscv/Makefile
+@@ -1,3 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+ obj-$(CONFIG_RISCV_SBI_SSE)		+= riscv_sbi_sse.o
++obj-$(CONFIG_RISCV_SSE_UNKNOWN_NMI)	+= sse_nmi.o
+diff --git a/drivers/firmware/riscv/sse_nmi.c b/drivers/firmware/riscv/sse_nmi.c
+new file mode 100644
+index 0000000000000..43063f42efff0
+--- /dev/null
++++ b/drivers/firmware/riscv/sse_nmi.c
+@@ -0,0 +1,77 @@
++// SPDX-License-Identifier: GPL-2.0+
++
++#include <linux/mm.h>
++#include <linux/nmi.h>
++#include <linux/riscv_sbi_sse.h>
++#include <linux/sched/debug.h>
++#include <linux/sysctl.h>
++
++#include <asm/irq_regs.h>
++#include <asm/sbi.h>
++
++int panic_on_unknown_nmi = 1;
++struct sse_event *evt;
++static struct ctl_table_header *unknown_nmi_sysctl_header;
++
++const struct ctl_table unknown_nmi_table[] = {
++	{
++		.procname	= "panic_enable",
++		.data		= &panic_on_unknown_nmi,
++		.maxlen		= sizeof(int),
++		.mode		= 0644,
++		.proc_handler	= proc_dointvec_minmax,
++		.extra1		= SYSCTL_ZERO,
++		.extra2		= SYSCTL_ONE,
++	},
++};
++
++static void nmi_handler(struct pt_regs *regs)
++{
++	pr_emerg("NMI received for unknown on CPU %d.\n", smp_processor_id());
++
++	if (panic_on_unknown_nmi)
++		nmi_panic(regs, "NMI: Not continuing");
++
++	pr_emerg("Dazed and confused, but trying to continue\n");
++}
++
++static int nmi_sse_handler(u32 evt, void *arg, struct pt_regs *regs)
++{
++	nmi_handler(regs);
++
++	return 0;
++}
++
++static int sse_nmi_init(void)
++{
++	int ret;
++
++	evt = sse_event_register(SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI, 0,
++				 nmi_sse_handler, NULL);
++	if (IS_ERR(evt))
++		return PTR_ERR(evt);
++
++	ret = sse_event_enable(evt);
++	if (ret) {
++		sse_event_unregister(evt);
++		return ret;
++	}
++
++	unknown_nmi_sysctl_header = register_sysctl("kernel", unknown_nmi_table);
++	if (!unknown_nmi_sysctl_header) {
++		sse_event_disable(evt);
++		sse_event_unregister(evt);
++		return -ENOMEM;
++	}
++
++	pr_info("Using SSE for NMI event delivery\n");
++
++	return 0;
++}
++
++static int __init unknow_nmi_init(void)
++{
++	return sse_nmi_init();
++}
++
++late_initcall(unknow_nmi_init);
+-- 
+2.39.5
 
 
 _______________________________________________
