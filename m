@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24AC4CAC597
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 01:32:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C2ECA1013
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 01:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q2M9VaBEFjd+HHCkdZ9+LXIwVYgS0i6RbcRBO7J18xA=; b=p7pPNoVm/ELfv8
-	6ps6WBp8lsaAYGo5RVcDLVIdJIQANFc3FSr5UDLb7JQVRm5cduXeTe/pynrYO3bUULupAo2fAKzQz
-	9sPJXTeGcPJA5CCLOQj2gYcQyQa5g4TcA7KgvCvANbtveXIn7AktYggVNf44nZPxV0/UenTWj682T
-	b5E/x5OF6u9Xz84tK5fyFsmZKeq4rrs/sUHG5z1PdfbkBPB9kVHkaZC+6nC5A367sLLqTo8mlzCta
-	yntySHPxlWjmO994vVfGly2HS+ar91KG0YN5p4Yc+aMTkwi195gr6rA0pWJ4e81eRj5pJnR/7JRB0
-	DNeCTgtfF7zWEzQ9HmKQ==;
+	List-Owner; bh=rWYq82RaRIDcdgod3GC8UirLg3aWSX7YUdnJif7tlSQ=; b=Hnqu3UlCFbk/8y
+	ScEcO7SfNbZZV8PKvgQNInWP9kqLHMdTFSqovPZYurrFVnUuUZKZWD/hfp+5fAk80NLhExuCpG5VZ
+	tAP7E7sftnOu0pAJZ6X5vtFasAuRuN6gYd4Y1KHhRDHi1PIquby+aWEi1Tlj/LWWYx3orBrG33oz8
+	c4fg7LmCXqPQhUADBeHsXzp8XaGW2dJPauN7NFDKqAefo2pajO76i5EjDhVyJJgL7TUkUkGlqIgQh
+	3LwNmSyV6UrBM2MS06KB4b0UdBetuogMVnX9eWu6jPH+4bYM4EhaWpIJ2kKK/S4NA/wTAjuvRfaVx
+	kAUSsaHz99UWypEvM4gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzPyq-00000001bhk-1h3u;
-	Fri, 19 Sep 2025 01:32:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uzQ7P-00000001cUJ-3z6g;
+	Fri, 19 Sep 2025 01:40:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzPyo-00000001bh8-0h4M
-	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 01:32:07 +0000
+	id 1uzQ7O-00000001cTq-3hi0;
+	Fri, 19 Sep 2025 01:40:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 622DC40700;
-	Fri, 19 Sep 2025 01:32:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B209CC4CEE7;
-	Fri, 19 Sep 2025 01:32:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C46DB601F9;
+	Fri, 19 Sep 2025 01:40:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B717FC4CEE7;
+	Fri, 19 Sep 2025 01:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758245525;
-	bh=r9r5P1pDsAO1RtvUMBMRM6SqndCJSqetTZtA19T5plM=;
+	s=k20201202; t=1758246057;
+	bh=zPbgxi7Uh2u+IDqPDqnm42rsQFRLGFodybHJ11ddTzU=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=UgkzJrXt0vEvXlXfpPu9BwAmHvoO+JHBXnHA/kL+C872Pwo51sJeXR2ZZ0mz51Rg3
-	 E66IVqLjVbbPY8YtsaQ3LOlp7BDgAod8bdw1fZc84CwEPaNVr967FjWnff8xhN5Q+j
-	 cwz92/DjI23I5MCDjhbQRR1D/M90vXBFdRAC73QlQ5YO4PFtmi4YQP0FjmDZtybn9l
-	 FCuKG74DmkCLd0thooYGSCHuOvIKymaJx0o+tY1Y6l9O/VJe0JC6EWc++Y8Xp95iuq
-	 +KQSrgzf3AFjJVOQyRHLoEeKYAWB9M+v7oFovsn9yPzSuAUMbfJp6Upv0G3esx2dHg
-	 5brq0zuQCl8dA==
-Date: Thu, 18 Sep 2025 19:32:00 -0600 (MDT)
+	b=tpQMoHhm47Bs5bDLnjwYUKoQdkRK6kFewwAFoABQx6dGjucIipLdDoTG4QOsQ1WN8
+	 8nambApnBgJ3JlJcfCCPxjjldlmCihFYtrJxmwm4CIHtewRAE3Roq9GtyDVnacIdnD
+	 DKY4SL9xmCPM+gjejNtOWFSxBVlnhE1dfmr3qDSb3T5YmGe5Db/g+kbuv/vebqpltQ
+	 sd86jUKXvZGL+hlgSwasSUqalKzP0ubsMNteO6cWvpHwDoUv6BiQi+Y/kmtOl+LXC+
+	 0DkbpptdV37BY+EasHh/dmeVZ2wDIuLR67LxGREu0wHtn+eKsu/D6pBZYaGAK50oW9
+	 IXVuEPf9WFEpA==
+Date: Thu, 18 Sep 2025 19:40:55 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
-cc: shuah@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-    aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org, 
-    linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] selftests: riscv: Add README for RISC-V KSelfTest
-In-Reply-To: <20250815180724.14459-1-reddybalavignesh9979@gmail.com>
-Message-ID: <0a05a409-b161-88ee-a731-4a773b21dcb9@kernel.org>
-References: <20250815180724.14459-1-reddybalavignesh9979@gmail.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+cc: atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, 
+    mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+    aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org, 
+    linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] perf: riscv: skip empty batches in counter start
+In-Reply-To: <20250804025110.11088-1-cuiyunhui@bytedance.com>
+Message-ID: <57999508-fa1d-f6a1-4f40-188a61f54307@kernel.org>
+References: <20250804025110.11088-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_183206_222375_9BC9AD21 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,22 +70,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 15 Aug 2025, Bala-Vignesh-Reddy wrote:
+On Mon, 4 Aug 2025, Yunhui Cui wrote:
 
-> Add a README file for RISC-V specific kernel selftests under
-> tools/testing/selftests/riscv/. This mirrors the existing README
-> for arm64, providing clear guidance on how the tests are architecture
-> specific and skipped on non-riscv systems. It also includes
-> standard make commands for building, running and installing the
-> tests, along with a reference to general kselftest documentation.
+> Avoid unnecessary SBI calls when starting non-overflowed counters
+> in pmu_sbi_start_ovf_ctrs_sbi() by checking ctr_start_mask.
 > 
-> Signed-off-by: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 
-Thanks, queuing this one through the RISC-V tree for v6.18.
+Thanks, queued for v6.18.
 
 
 - Paul
-
 
 _______________________________________________
 linux-riscv mailing list
