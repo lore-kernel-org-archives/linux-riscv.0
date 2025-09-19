@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFE4CAC592
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF63DCAC5A8
 	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 15:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Cc:To:From:
 	Subject:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WaflqyFcuRiiIhjplj5OLYAeNvXJXLxSFqea2tKukcs=; b=e8GpBBnRgi6tTh
-	c+Ak3AOVBqJislXSamEySZ/lQKS4CUP0u/zVAxzBnjYgCZQ3aIjGnvwtDh0ZKbowCBVmWo60TjqNj
-	/nxfIBstBcIECo8txdRTQytqhZx/Jyv8BGT1mCX04YDvfPwoThkkq4evzTUeL/o2xj70Z21keTVkx
-	quinpJTOJUsUf0gnlE489MHthKV0rBJ2WvIayyhz3oK7TsIz75zIyMcjB9u4t5sCWzK5lkKLoptIv
-	LQCCcsr+ms+EciJR5Cd6bV9kW4/Sqb3g2qcZyNohINBdnHTx93Cop7J3oa9Csnuf9uprHi/4u5Dib
-	jTkBZZUqVqBT3TRwXEkw==;
+	List-Owner; bh=WaflqyFcuRiiIhjplj5OLYAeNvXJXLxSFqea2tKukcs=; b=LdmwgvZmLPZi+U
+	POW4bxL81y/pr032FNKA9B8L3Sj5zZ96Q/ApGDMAg3OEc/J98NAoL9NWNJZgswcNicDIGKLFVggTy
+	FzRM6YT/tTIyr2Tv2/fOH91K+F8HhywH3zzyXFX+LlZoEW0oR+++FQSzh8xtqYyalEmlo5PDj5aXB
+	mjbSdmxmxDLR6ov4ehizAl2IsO81fOODZQj8Jh10iKZg/LUZlvpJfrnbc1B+pNW5L/kMNHMI+uqXx
+	jee6vt/95J+tN+ZQvJb/iahMy0MrnJtLJ+s3KRZwp/aKk/nWk8Ueng43Okkr3t1ZzVgjkl1egFM6a
+	GvA6+qHYhtsiP6325S9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdVt-00000003RJ9-29Fq;
-	Fri, 19 Sep 2025 15:59:09 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1uzdVw-00000003RLr-3gAp;
+	Fri, 19 Sep 2025 15:59:12 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdVq-00000003RFk-3EoU
+	id 1uzdVr-00000003RGb-1659
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 15:59:08 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-32eb76b9039so2696563a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 08:59:06 -0700 (PDT)
+	Fri, 19 Sep 2025 15:59:09 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-244580523a0so25357985ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 08:59:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1758297546; x=1758902346; darn=lists.infradead.org;
         h=message-id:date:reply-to:cc:to:from:subject
          :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
         bh=CgJHB0f2ZN3bUarxuGAa6kT4dSp6f27kYDaIU7kYRH0=;
-        b=2b/GqX0dbCvj10Ll75k4kTntA1nWaWopwWqPNcgMSIhUG9vMCE/rYUJVLgZ0SmpRVy
-         ETZU88l/s+cbN5snN0m5uPO3VY07Os2XnQo4ztc238WZrc9UsngOaytJcFH2WkCZuAjQ
-         uYor6dV1/QyafG4LmqVmcNRnkBuC/QMeicg+yjG/qubTjNnwTJJzvTKS5/b8aealiQY+
-         5jUgfaSOkjhJDT/iec9kR8sL/06KhaCTYyayTpimvDfqQzGqgBt+qjqgp6QG9w0rc4A7
-         WoC4JMtC1soeaOeevz4oyqllU8QaiQCEHCpfeaFI9KlHbWrCyWSdq5P8H3i/juI/QWoO
-         OI7A==
+        b=i3DOwDCVUhMAartmltaPelqsn9/2s/TPfDME3lboWh3fPkB6ikndrmEzdEwWLgTdaY
+         cAlij/dWlYWa16brYafSbR3F3aBhT0sbZl+/it9JtFIz3VFjQgrqB2xSWYmYxttcG96p
+         XBjFBgzytGSEvtm98oxsrVzLZrYZD1hk+MIr9riizUwzIu2L68fDCRs6Lz4L8slvvn/k
+         N1o1zHtjv1FTDExFetzqsaeFx8sqFueAPfbLoOkaFzNQ5JNGzaJTvFwLLZSwAOognjIX
+         DWQW1vIeFIiJ3yOiMOiNnBlimdGlY33mWwwAcmu//4CJ6bVQKpYQIS/wq2iQSfxcHnq9
+         MzMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1758297546; x=1758902346;
         h=message-id:date:reply-to:cc:to:from:subject
          :content-transfer-encoding:mime-version:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
         bh=CgJHB0f2ZN3bUarxuGAa6kT4dSp6f27kYDaIU7kYRH0=;
-        b=udipCuQiGv6VqMDF4V8ZCYvg8Ybf9YiUscZsHJv6nBFcXiOuJdK6DAaTqa37vGW7NE
-         A81Shjgaj8cj2CZwNaqa9qNPHo3/DU4CaPPDI4IT4K1xagXCLrgXLyp6jo1iqTueQ4jV
-         1jB4f/6eRh1ckd9z/VZkS3vIk08xeBLODbNJ9/7vm0dar7ZHMHQvzl0xK/lXkF7Fes/I
-         ev3KchP0NjjEvTFvF6gHDTvVOu2jwVTYbPOrLeYLFDdXUcFThRFhFopmIGkCzD1CUsfr
-         d1evJ+UlLU1AeuhjVAZ1SHBopoJyltKLCRulVdYqAv1ArrNv9FXgoZxCFiz6VHkR+9q9
-         9bPg==
-X-Forwarded-Encrypted: i=1; AJvYcCVkOWWuoetnq4LfQRTThy8yCggnMsSxsNgkH+DhCGMhWInPas1BFS1q4/oXhkbtmQgmmhBedkwxTzX9lQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJgghLMp6ZmOKJVuf5mAaqRbVOJ/8xL3CbCrTfFQ9DtH6EKQQq
-	7foGqqCAfuEXfwK2TqX+eroq0aySnS2ZNojBDcfIrADoq2SW/VFyP/a754A4ekRwxvo=
-X-Gm-Gg: ASbGncuO9CWzMqKQ6niokN4hZZ39Y2cs43/i1Uu/kv7Plovr2oF+MokEtqcAZflqaUc
-	mbG4FHAWbrC28aREddNqOBilZfmjnRM1HTG3j8YtPdYEzbF+L3w8LJr4P5yIDvhlQ+asXehTfPW
-	J2IOhujBkYU6ssgMsVzT6E3fi/4Uq01eNX1WPmMOArp+TC25LxG1pdprNJqUdwlSGQF9f1tCkw/
-	GztaqqCqAeHk8fqXLiyWZbM2l9rePAo/OIKZtG5onYd0gjLNpWMrY4VpsXhsCo1tFNqUrXcf+Ka
-	eYGs8t/dbxBSd73UN6pvhQoF+O9OtCejEHcVeKY7Fhgm5WvC55k+6+UYbvdb+a8HrjkpBhG1Aov
-	lr6E6bQKrmP8eNJxdGjYaWWY1i9Y=
-X-Google-Smtp-Source: AGHT+IEdAyCSITR98V4XKa0FAl/E0GqQXNWCFucdaEXnbcjSumS7/t+fV3GOBTp74K+j/r6FUcBKoQ==
-X-Received: by 2002:a17:90b:1b11:b0:32f:98da:c38c with SMTP id 98e67ed59e1d1-3309835fe90mr4603799a91.26.1758297545831;
-        Fri, 19 Sep 2025 08:59:05 -0700 (PDT)
-Received: from 1dfac204f25d ([20.38.40.137])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3307f560453sm2122706a91.2.2025.09.19.08.59.04
+        b=Y1XrJgAhzBvbuJ2KGWaUuMXaVvkS+3lVy4Y+h8VkxvWGv6XYcjQw6wy4uTxEoNhg3J
+         DTwfPGRnpKkCuu4v3t+VJ+aA8HNX3H1rY7BpwRQZ4L/ZaXcKyKAlexXS4LzBmP+JA3gn
+         b1qx5IwZHgF4faK95R7OLMWgDywYGfyMtcZroVZ66YdoiPv3AJdacm28BiNG3cVvxkpB
+         T5GrjYjKaIf4L6zSBtZqq9oty5ZhiZmtGQICsQ/s+T6P3uklYjyC6r+cSgg9SDfVdLFf
+         gbqNU20aLBMs++Ku8a4N8THnYkuQUpp+wn3yNzn//5sT3DIrL3dANPZ0fo6zB8Undz0I
+         Ii/g==
+X-Forwarded-Encrypted: i=1; AJvYcCVOhTgTRpq/gTvbuF4hQet6ZWpDdNmyro81Ru5OHEPywR3wwyV789Rs906lMpwwNSovjCR4xtaMg1zJWw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHyZxuSDJ2pw80q+uyla+5IQ7M+b/BPc20PPJeUHaz2GllJBxJ
+	yKiRs/ZKAY/5fshFijC8pbj1/DUJPYMJnQfhw0rhS5sIwZSCyPaJMnydDAwyMTL67io=
+X-Gm-Gg: ASbGncse3tH43rdnNHcSVb4md/HjgkwzPjW66DyPjPVS2XG5uAGbkhmlBfsgjaxKPPX
+	arUyK2JYUZWOy2PHX2O1YLPjWPktx3y6InG4jwUlJpWpLtrcIJLzlqOiTz+5MJ7dsL9yyP6rKfv
+	PntdhjHNpJsil+QXInYQ758CSIo4MIi53rWyAbx3iRkEVU87iMUn9cV3wNk55uuqTfBYH7Q2PQ1
+	h8PycLHWXtnp7pQOxlc4EwSgVebopHo8nXeHP/Dfbki6Dg97zzNfvVquUGuHfvOQOhiUtqVH821
+	TYW9MOIO0dEERKCEFVg/krFQ9zCrHpnfKbO2a2aEN5A/k7bSTuE3K7eZkjB0pz3ABdc0j//FiBL
+	mqLUVWOHVqEriPLfu
+X-Google-Smtp-Source: AGHT+IGNuQ5wFE2K6Nm8Kz3yDo5AYTJUE8K8r5l2u7bFKGNu09la1L/D3nVqxykUhB1AH+EfTslLDA==
+X-Received: by 2002:a17:902:c94a:b0:269:ba77:4ec3 with SMTP id d9443c01a7336-269ba7755b3mr50030245ad.21.1758297546450;
+        Fri, 19 Sep 2025 08:59:06 -0700 (PDT)
+Received: from 166871acc15a ([20.38.40.137])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3306064afc2sm5800499a91.8.2025.09.19.08.59.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Sep 2025 08:59:04 -0700 (PDT)
+        Fri, 19 Sep 2025 08:59:05 -0700 (PDT)
 MIME-Version: 1.0
 Subject: [REGRESSION] riscv/for-next: (build) while in macro instantiation in
  arch/riscv/kernel/entry.o (arch/ri...
@@ -76,10 +76,10 @@ From: KernelCI bot <bot@kernelci.org>
 To: kernelci-results@groups.io
 Cc: gus@collabora.com, linux-riscv@lists.infradead.org
 Date: Fri, 19 Sep 2025 15:59:04 -0000
-Message-ID: <175829754353.367.8050455349214492658@1dfac204f25d>
+Message-ID: <175829754399.237.5173912564335866295@166871acc15a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_085906_835059_C188FA18 
-X-CRM114-Status: UNSURE (   5.32  )
+X-CRM114-CacheID: sfid-20250919_085907_317531_608408C9 
+X-CRM114-Status: UNSURE (   5.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
