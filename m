@@ -4,92 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E807CAC5A8
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 15:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFE4CAC592
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 15:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mpBPNYbWfJxWMay2wOtH3sAq/VdXEJ8qcomdKg1O9Q4=; b=CShig5lk5ei8Qa
-	3GvBXSe3eR6t9g3g3/xkOKQCaR0uFohrY+Y+6mfQbkh9JF0l3kfA6hzu9R4wOkgu5puMN3ULTBDyF
-	vOUcJBwgSYqCnODkluHs9TevCZXAKwJDwRZidfOt6OZ5DqVxzR5s3QMFWleoL5xGYlTVThYqdb9b4
-	yMhLK8dX+f/XB8aS4LkPmdj/MhjDt0y0KUwGDB1jZz75LH7xgvj4L77hHSZK2cFiV2I5R238iVanz
-	ul3Xzn6gGjibyr1P/6fTg0vWKnYy9KrxJsp2kiCgxy6CLgqy+tkYTFHZu8JqRFeiuikZE8PHF7suI
-	5z7usROxJAUWjtHS/kTw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Cc:To:From:
+	Subject:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WaflqyFcuRiiIhjplj5OLYAeNvXJXLxSFqea2tKukcs=; b=e8GpBBnRgi6tTh
+	c+Ak3AOVBqJislXSamEySZ/lQKS4CUP0u/zVAxzBnjYgCZQ3aIjGnvwtDh0ZKbowCBVmWo60TjqNj
+	/nxfIBstBcIECo8txdRTQytqhZx/Jyv8BGT1mCX04YDvfPwoThkkq4evzTUeL/o2xj70Z21keTVkx
+	quinpJTOJUsUf0gnlE489MHthKV0rBJ2WvIayyhz3oK7TsIz75zIyMcjB9u4t5sCWzK5lkKLoptIv
+	LQCCcsr+ms+EciJR5Cd6bV9kW4/Sqb3g2qcZyNohINBdnHTx93Cop7J3oa9Csnuf9uprHi/4u5Dib
+	jTkBZZUqVqBT3TRwXEkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzczL-00000003K4U-1rlS;
-	Fri, 19 Sep 2025 15:25:31 +0000
-Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
+	id 1uzdVt-00000003RJ9-29Fq;
+	Fri, 19 Sep 2025 15:59:09 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzczJ-00000003K2b-1pBW
+	id 1uzdVq-00000003RFk-3EoU
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 15:25:30 +0000
-Received: by mail-io1-xd32.google.com with SMTP id ca18e2360f4ac-88432e29adcso78430539f.2
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 08:25:28 -0700 (PDT)
+	Fri, 19 Sep 2025 15:59:08 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-32eb76b9039so2696563a91.1
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 08:59:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1758295528; x=1758900328; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+umzzpBSRQEc1V/CcodsQfdMrH/eWztzCvjBjz+cu5I=;
-        b=gkitzt0m9/eW+NATgkq2LUDrgJcyVTHgHumsChO8xqT+mu5Msa+6OEoBzsw6uMNhbv
-         5xgo0zQhOMLPQHH+5ICZE6BJ+eHPiJnIyM/JwDflmp4ad7sVhFSsNSCMPFqMTUpRpgHj
-         6N1kA4hUdkZKax6zxeal7wJ1DWtEqplVI9Bzk/MG6dAgoTTb+1ssyO6mWT8zT5Rtqb9f
-         ewgNj/1lhFmaPjWCgtZNwURqAOTTkwxpmP1LrolNYGrWQQg1JLwpP7rbrpHMdSePfMnS
-         WL7/qiMJfLxLM5bdO8RJwInrZ/VMNYy8KDnk2FcusdtxF80VElVxycOVKZuXBb2CmU+7
-         w/yw==
+        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1758297546; x=1758902346; darn=lists.infradead.org;
+        h=message-id:date:reply-to:cc:to:from:subject
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CgJHB0f2ZN3bUarxuGAa6kT4dSp6f27kYDaIU7kYRH0=;
+        b=2b/GqX0dbCvj10Ll75k4kTntA1nWaWopwWqPNcgMSIhUG9vMCE/rYUJVLgZ0SmpRVy
+         ETZU88l/s+cbN5snN0m5uPO3VY07Os2XnQo4ztc238WZrc9UsngOaytJcFH2WkCZuAjQ
+         uYor6dV1/QyafG4LmqVmcNRnkBuC/QMeicg+yjG/qubTjNnwTJJzvTKS5/b8aealiQY+
+         5jUgfaSOkjhJDT/iec9kR8sL/06KhaCTYyayTpimvDfqQzGqgBt+qjqgp6QG9w0rc4A7
+         WoC4JMtC1soeaOeevz4oyqllU8QaiQCEHCpfeaFI9KlHbWrCyWSdq5P8H3i/juI/QWoO
+         OI7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758295528; x=1758900328;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+umzzpBSRQEc1V/CcodsQfdMrH/eWztzCvjBjz+cu5I=;
-        b=rnFJ1fG6E27+9oI/oJWVwidpD9EQGGAWqF6/3nsv5Mqd3M7+B2+3iv2yYJj33qihqE
-         nlwLMxmI5MkplFj1U5F/uePekwi4ktBJ9D4KqFFm/M1g09XxnHDspFz4L726jiHZbLby
-         VKO1fjvW03E3mvGjzPbz2Ua5yKuLxG9XAalDNH9CbSs1Pnk2PLun/bVpw62Szs5xw0hM
-         JdKqaHMzpGI/LABY2Cw8u6RpZWvw5DTWR56t686gp0TuT9wPiRRMWnCZL0GzAmnJWr9B
-         nkiy10kYhTnCT63rZmi6fY8mJ9CeTYH+oT8FEnK6ZH0xR66buC3WDC/htmZZ6Ptf+2YF
-         KeSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVydG8MRzyR0bdozRzp9zQXjVwTGjGE2XAba2h7rMC0MXPAXvidk+1pJ/8bBLbAqQiXF/8uLZ1GLv13bA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmDHGFWZr1200lwalyh0dOO6l73PtX6L/y6XLMUrLfpvfkxXqk
-	Lyoicy9mfW2kyJQtaWpLez0oYC7I5WF0h51un4SVgDGFSVzyjTgzv+zd6xsl2tE6q8w=
-X-Gm-Gg: ASbGncv3eHne7IOgxm2/deCOrMzE7ePpzt1d6gI6M32HzuHYLVuKuPzQk8HcUkOzXV3
-	nZBWj0sPA3r8VPnkEvOT13+Q/A0edVvS0RID29FGBnD39trKdRrW+R/h1LyAuRRrRIqzCPHLmJd
-	pqC4ds8DtQhV8jyZSspaqweWewnFLf04Wc2GFoi1Rnn+9hUeo5BdlSd/0i+83WOuAJbxoCZ3otn
-	PLL7xhFZ+k2cmlV1cQ+OcG/65V0RoEMqnJ+5UiLWLid+AunmvpHwxpoZzgcX7LoIWKxKvDIPn1X
-	/ZL6Yb86EMgKWqVYUl5KgFNy754WSz6yoR8tX5W0AuAZjpsBe6mCqYCdlA7aqHRFmHjkwAo0Eli
-	IQaN11FashQ2LWeuQ0inksI4LFmIErAa0MGc/l5LwK22qWtKU+A1PkLxkZLzHTw==
-X-Google-Smtp-Source: AGHT+IEQ0mHzthbytAS8eyolftKz1JqkUaR4qV6jomifOWCNp485ZfecaLw2j1twDeq58dbQEdVFTw==
-X-Received: by 2002:a05:6e02:1a08:b0:424:7e36:f863 with SMTP id e9e14a558f8ab-424819ab873mr53155285ab.30.1758295527989;
-        Fri, 19 Sep 2025 08:25:27 -0700 (PDT)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-42482ad64d1sm10124555ab.41.2025.09.19.08.25.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Sep 2025 08:25:27 -0700 (PDT)
-Message-ID: <ca775631-4e45-4a58-8f30-133cfbba854e@riscstar.com>
-Date: Fri, 19 Sep 2025 10:25:25 -0500
+        d=1e100.net; s=20230601; t=1758297546; x=1758902346;
+        h=message-id:date:reply-to:cc:to:from:subject
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=CgJHB0f2ZN3bUarxuGAa6kT4dSp6f27kYDaIU7kYRH0=;
+        b=udipCuQiGv6VqMDF4V8ZCYvg8Ybf9YiUscZsHJv6nBFcXiOuJdK6DAaTqa37vGW7NE
+         A81Shjgaj8cj2CZwNaqa9qNPHo3/DU4CaPPDI4IT4K1xagXCLrgXLyp6jo1iqTueQ4jV
+         1jB4f/6eRh1ckd9z/VZkS3vIk08xeBLODbNJ9/7vm0dar7ZHMHQvzl0xK/lXkF7Fes/I
+         ev3KchP0NjjEvTFvF6gHDTvVOu2jwVTYbPOrLeYLFDdXUcFThRFhFopmIGkCzD1CUsfr
+         d1evJ+UlLU1AeuhjVAZ1SHBopoJyltKLCRulVdYqAv1ArrNv9FXgoZxCFiz6VHkR+9q9
+         9bPg==
+X-Forwarded-Encrypted: i=1; AJvYcCVkOWWuoetnq4LfQRTThy8yCggnMsSxsNgkH+DhCGMhWInPas1BFS1q4/oXhkbtmQgmmhBedkwxTzX9lQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJgghLMp6ZmOKJVuf5mAaqRbVOJ/8xL3CbCrTfFQ9DtH6EKQQq
+	7foGqqCAfuEXfwK2TqX+eroq0aySnS2ZNojBDcfIrADoq2SW/VFyP/a754A4ekRwxvo=
+X-Gm-Gg: ASbGncuO9CWzMqKQ6niokN4hZZ39Y2cs43/i1Uu/kv7Plovr2oF+MokEtqcAZflqaUc
+	mbG4FHAWbrC28aREddNqOBilZfmjnRM1HTG3j8YtPdYEzbF+L3w8LJr4P5yIDvhlQ+asXehTfPW
+	J2IOhujBkYU6ssgMsVzT6E3fi/4Uq01eNX1WPmMOArp+TC25LxG1pdprNJqUdwlSGQF9f1tCkw/
+	GztaqqCqAeHk8fqXLiyWZbM2l9rePAo/OIKZtG5onYd0gjLNpWMrY4VpsXhsCo1tFNqUrXcf+Ka
+	eYGs8t/dbxBSd73UN6pvhQoF+O9OtCejEHcVeKY7Fhgm5WvC55k+6+UYbvdb+a8HrjkpBhG1Aov
+	lr6E6bQKrmP8eNJxdGjYaWWY1i9Y=
+X-Google-Smtp-Source: AGHT+IEdAyCSITR98V4XKa0FAl/E0GqQXNWCFucdaEXnbcjSumS7/t+fV3GOBTp74K+j/r6FUcBKoQ==
+X-Received: by 2002:a17:90b:1b11:b0:32f:98da:c38c with SMTP id 98e67ed59e1d1-3309835fe90mr4603799a91.26.1758297545831;
+        Fri, 19 Sep 2025 08:59:05 -0700 (PDT)
+Received: from 1dfac204f25d ([20.38.40.137])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3307f560453sm2122706a91.2.2025.09.19.08.59.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Sep 2025 08:59:04 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] riscv: dts: spacemit: define a SPI controller node
-From: Alex Elder <elder@riscstar.com>
-To: Yao Zi <ziyao@disroot.org>, Yixun Lan <dlan@gentoo.org>
-Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, p.zabel@pengutronix.de, spacemit@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250917220724.288127-1-elder@riscstar.com>
- <20250917220724.288127-4-elder@riscstar.com>
- <20250918133209-GYB1273705@gentoo.org> <aMwYRGjTdbQCJf3S@pie>
- <c32cc8da-6703-496f-b30f-4961aa811869@riscstar.com>
-Content-Language: en-US
-In-Reply-To: <c32cc8da-6703-496f-b30f-4961aa811869@riscstar.com>
+Subject: [REGRESSION] riscv/for-next: (build) while in macro instantiation in
+ arch/riscv/kernel/entry.o (arch/ri...
+From: KernelCI bot <bot@kernelci.org>
+To: kernelci-results@groups.io
+Cc: gus@collabora.com, linux-riscv@lists.infradead.org
+Date: Fri, 19 Sep 2025 15:59:04 -0000
+Message-ID: <175829754353.367.8050455349214492658@1dfac204f25d>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_082529_605315_B972584A 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20250919_085906_835059_C188FA18 
+X-CRM114-Status: UNSURE (   5.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,36 +92,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Reply-To: kernelci@lists.linux.dev
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOS8xOC8yNSAxMToyMiBBTSwgQWxleCBFbGRlciB3cm90ZToKPiBPbiA5LzE4LzI1IDk6MzMg
-QU0sIFlhbyBaaSB3cm90ZToKPj4+IC4uIGVtLCBzbyB0aGUgU1BJIHdpbGwgdXNlIHBkbWEsIHRo
-ZW4gcHJvYmFibHkgeW91IHNob3VsZCBhbHNvIGFkanVzdCAKPj4+IEtjb25maWcgdG8KPj4+IHNl
-bGVjdCBQRE1BIGRyaXZlcj8KPj4gVGhlIGRyaXZlciBzZWVtcyB0byBkZXBlbmQgb24gdGhlIGdl
-bmVyaWMgRE1BIGVuZ2luZSBBUEkgb25seSwgSU9XLAo+PiB0aGVvcmV0aWNhbGx5IGl0IHNob3Vs
-ZCB3b3JrIHdpdGggb3RoZXIgRE1BIGNvbnRyb2xsZXIgYXMgd2VsbC4gQW5kIGl0J3MKPj4gZXZl
-biBjYXBhYmxlIHRvIG9wZXJhdGUgd2l0aG91dCBETUEgKHNlZSBrMV9zcGlfZG1hX3NldHVwKCkp
-Lgo+Pgo+PiBEZXBlbmRlbmN5IHRvIFBETUEgcmVhbGx5IGRvZXNuJ3Qgc2VlbSBzb21ldGhpbmcg
-c2hvdWxkIGJlIGVuZm9yY2VkIGluCj4+IEtjb25maWc6IGl0IGRvZXNuJ3QgZXhpc3QgaW4gY29k
-ZSBsZXZlbCwgYW5kIHRoZSBkcml2ZXIgaXMgYWN0dWFsbHkgbW9yZQo+PiBmbGV4aWJsZS4KPiAK
-PiBZb3UncmUgcmlnaHQgb24gYm90aCBwb2ludHMuwqAgVGhlIGNvZGUgZG9lc24ndCAqcmVxdWly
-ZSogUERNQSB0bwo+IG9wZXJhdGUgY29ycmVjdGx5ICh0byBteSBrbm93bGVkZ2UpLgo+IAo+IFlp
-eHVuLCB3aGF0IGRvIHlvdSB0aGluaz8KPiAKPiAgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgLUFsZXgKCkkgZGlkIHNvbWUgZXhwZXJpbWVudHMuICBDdXJyZW50bHksIGlm
-IEkgYnVpbGQgYSBrZXJuZWwgd2l0aApTUElfU1BBQ0VNSVRfSzEgZW5hYmxlZCAobW9kdWxlIG9y
-IGJ1aWx0LWluKSBidXQgTU1QX1BETUEKbm90IHNldCwgdGhlIEsxIFNQSSBkcml2ZXIgcHJvYmUg
-ZG9lc24ndCBjb21wbGV0ZS4gIFRoZSByZWFzb24KaXMgdGhhdCBkbWFfcmVxdWVzdF9jaGFuKCkg
-cmV0dXJucyAtRVBST0JFX0RFRkVSLCBub3QgImtub3dpbmciCnRoYXQgdGhlIG5lZWRlZCBkcml2
-ZXIgd2lsbCBuZXZlciBzaG93IHVwLgoKRm9yIG5vdyBJIGhhdmUgYWRkZWQgYSBjYWxsIHRvIElT
-X0VOQUJMRUQoQ09ORklHX01NUF9QRE1BKSBpbgpkZXZtX2sxX3NwaV9kbWFfc2V0dXAoKSwgYW5k
-IGlmIGl0J3Mgbm90IGVuYWJsZWQgaXQgd2lsbApyZXR1cm4gMCAodG8gaW5kaWNhdGUgImFsbCBp
-cyB3ZWxsLCBidXQgd2Ugd29uJ3QgdXNlIERNQSIpLgoKVGhhdCBkb2Vzbid0IGFsbG93IGZvciBh
-IGRpZmZlcmVudCBETUEgb3B0aW9uLCBidXQgaXQgZG9lcwphbGxvdyB0aGUgZHJpdmVyIHRvIHdv
-cmsgd2l0aG91dCBhbiBleHBsaWNpdCBkZXBlbmRlbmN5Cm9uIHRoZSBNTVBfUERNQSAodmlhIEtj
-b25maWcpLgoKCQkJCQktQWxleAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+
+
+
+
+Hello,
+
+New build issue found on riscv/for-next:
+
+---
+ while in macro instantiation in arch/riscv/kernel/entry.o (arch/riscv/kernel/entry.S) [logspec:kbuild,kbuild.compiler.note]
+---
+
+- dashboard: https://d.kernelci.org/i/maestro:4adda9bd89f93f21b8d87a69ffbf3044dd10a850
+- giturl: https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+- commit HEAD:  a054965b36af884083add1a286cabf98caca549e
+
+
+
+Log excerpt:
+=====================================================
+arch/riscv/kernel/entry.S:117:2: note: while in macro instantiation
+ new_vmalloc_check
+ ^
+<instantiation>:56:26: error: unknown operand
+ ALTERNATIVE("sfence.vma", "nop", 0, 86, 1)
+                         ^
+arch/riscv/kernel/entry.S:117:2: note: while in macro instantiation
+ new_vmalloc_check
+ ^
+arch/riscv/kernel/entry.S:446:41: error: expected ')'
+ ALTERNATIVE(".dword do_trap_insn_fault", ".dword sifive_cip_453_insn_fault_trp", 0x489, 0, 1)
+                                        ^
+arch/riscv/kernel/entry.S:446:41: error: unknown operand
+ ALTERNATIVE(".dword do_trap_insn_fault", ".dword sifive_cip_453_insn_fault_trp", 0x489, 0, 1)
+                                        ^
+arch/riscv/kernel/entry.S:458:36: error: expected ')'
+ ALTERNATIVE(".dword do_page_fault", ".dword sifive_cip_453_page_fault_trp", 0x489, 0, 1)
+                                   ^
+arch/riscv/kernel/entry.S:458:36: error: unknown operand
+ ALTERNATIVE(".dword do_page_fault", ".dword sifive_cip_453_page_fault_trp", 0x489, 0, 1)
+                                   ^
+
+=====================================================
+
+
+# Builds where the incident occurred:
+
+## defconfig+CONFIG_SMP=n on (riscv):
+- compiler: clang-17
+- dashboard: https://d.kernelci.org/build/maestro:68cd6d0875b320799d2ffc5d
+
+
+#kernelci issue maestro:4adda9bd89f93f21b8d87a69ffbf3044dd10a850
+
+Reported-by: kernelci.org bot <bot@kernelci.org>
+
+--
+This is an experimental report format. Please send feedback in!
+Talk to us at kernelci@lists.linux.dev
+
+Made with love by the KernelCI team - https://kernelci.org
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
