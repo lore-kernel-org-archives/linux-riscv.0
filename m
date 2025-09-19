@@ -4,89 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B75DCAC597
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 00:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24AC4CAC597
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 01:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=mswI3aoObqJd/uZOXKjeInc1onz+scDJPdic0Aw4ctU=; b=dsZ+KVlTj31You6mQzQbjRE2Dr
-	YEcc5JBE1nStBlG5radidp2HA34zh80dRiHhgjQNYNj64B0jl1GtmYxyHqi6Du86Ik5a2H8hzedi0
-	EqCa6jn9bBSvyj1IFYwb7KQOIcVl3wt2TmSWvDN/ikpd8lg5BTNoM9GwUxzxaMzftYJSdezYFBQJx
-	1JTWT4hPLYIlxQbJ2T7OI9nyDaAVYBt3WIiXpU2CKtbLtSF9A4xwxID6CO+ImHkNSxi172Lqziy2v
-	ucF5PGGJkPjsRkmVwzOx7ZKImY95NxImnVXenJwGFi4biCGAUwbxcI5+DZ47NWV1ecwltgC0bckew
-	bMZyO6ZA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q2M9VaBEFjd+HHCkdZ9+LXIwVYgS0i6RbcRBO7J18xA=; b=p7pPNoVm/ELfv8
+	6ps6WBp8lsaAYGo5RVcDLVIdJIQANFc3FSr5UDLb7JQVRm5cduXeTe/pynrYO3bUULupAo2fAKzQz
+	9sPJXTeGcPJA5CCLOQj2gYcQyQa5g4TcA7KgvCvANbtveXIn7AktYggVNf44nZPxV0/UenTWj682T
+	b5E/x5OF6u9Xz84tK5fyFsmZKeq4rrs/sUHG5z1PdfbkBPB9kVHkaZC+6nC5A367sLLqTo8mlzCta
+	yntySHPxlWjmO994vVfGly2HS+ar91KG0YN5p4Yc+aMTkwi195gr6rA0pWJ4e81eRj5pJnR/7JRB0
+	DNeCTgtfF7zWEzQ9HmKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzOiz-00000001Ux1-1pTD;
-	Fri, 19 Sep 2025 00:11:41 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1uzPyq-00000001bhk-1h3u;
+	Fri, 19 Sep 2025 01:32:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzOiv-00000001UvS-3nap
+	id 1uzPyo-00000001bh8-0h4M
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 00:11:39 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b54c46337c9so1993464a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Sep 2025 17:11:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758240697; x=1758845497; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5pHZG9bcElhtMtIe02tLqtkF2uGVTgQcC3bk12Urlxs=;
-        b=IlMGW6tPvNpk3IW/km8vLsSnW471EIUdbYbWVXknuoRw0PEDTNWaohhCIg/+ANXNQK
-         RtsmVmDO7W+BkzT24gXDy6ap0Y2WrrsebjXXEp5GBNZxV0tTMylnTghlgkSyTNSDhBa9
-         uhqz6fgh91PIQO9V0P2cj8427tpakgAX+SWweY5aRa25/mY3YP3oZR5vEIpi5wuqLOZk
-         MJeZJoFggRxkRuZ7oubTzARYA1xOgVv6sb5RSCgqTd0mm+6GJmMgP4xZd9awrnz059+I
-         rjU23A7Br9iDmKiygeG4maB6y/Fx98yYZ8lvIg+k2oby3rZRgUZENccqis8sRu94Af+x
-         zE+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758240697; x=1758845497;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5pHZG9bcElhtMtIe02tLqtkF2uGVTgQcC3bk12Urlxs=;
-        b=OsLi6MxtxW0QU0EIvncCOsDjgtiiLKzEVIvoBLyR9YJcPyIjDjTOm2SUCTyF/RBCUj
-         167Hkve8Qz0loFko/Dpz3ApBGH63rM2F5h5XmxsZ1oWGqm65U4QPqrra52P12OZkoJGs
-         MPI9VDS5LkY9Zr8tLnF/FC+w65DhjyFJ2NyJWk1Yi2JphPexhmy5omsYn1DKFH5GfYK0
-         x2FCTSbBIO0CmwRR4HiNhme9I6VP41FIAf06l7dbqRy6Etg7bM6FWtmC8gpTfxs67ld+
-         TaPNz57CMxDvbcuYdtXSVE2NkGRn7RUdrLF+NqsSxx0BsdkC1tTjLTyuWvmRv22svG2M
-         q4Hg==
-X-Forwarded-Encrypted: i=1; AJvYcCUWEXshjk5F0IcgkZXL/NIhuhpfMRDkwkdUXtJDkDIiiVMutLbjbq/OQNI7L0gH1f5xgQy+S1HBY0i9qQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPn5ugD6k4bUugrrvCDUZ5LCY445Zv25jcFHQpP1WIuJX/aBfr
-	0PyThtBXYExwcrs6J/WEz/6Z85wuVZj7OtuL8SeazFmql1EHzxFhSj3HMhMT/APHfyFMIu0h8Xx
-	W3mku4A==
-X-Google-Smtp-Source: AGHT+IHL6wVIYMVXo/qF+C7m2xAthhi9wrZHJ6iKg3qq/wSUNMfIVTHCzCbvYXSzkHH/AND/3vPqEr/ALak=
-X-Received: from pjyf16.prod.google.com ([2002:a17:90a:ec90:b0:330:75c7:341c])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:99a8:b0:252:3c5e:45cc
- with SMTP id adf61e73a8af0-2925d5abc4cmr2117916637.19.1758240696687; Thu, 18
- Sep 2025 17:11:36 -0700 (PDT)
-Date: Thu, 18 Sep 2025 17:10:50 -0700
-In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250806195706.1650976-1-seanjc@google.com>
-X-Mailer: git-send-email 2.51.0.470.ga7dc726c21-goog
-Message-ID: <175824021167.1343722.9290387002572827825.b4-ty@google.com>
-Subject: Re: [PATCH v5 00/44] KVM: x86: Add support for mediated vPMUs
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, Kan Liang <kan.liang@linux.intel.com>, 
-	Yongwei Ma <yongwei.ma@intel.com>, Mingwei Zhang <mizhang@google.com>, 
-	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>
+	Fri, 19 Sep 2025 01:32:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 622DC40700;
+	Fri, 19 Sep 2025 01:32:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B209CC4CEE7;
+	Fri, 19 Sep 2025 01:32:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758245525;
+	bh=r9r5P1pDsAO1RtvUMBMRM6SqndCJSqetTZtA19T5plM=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=UgkzJrXt0vEvXlXfpPu9BwAmHvoO+JHBXnHA/kL+C872Pwo51sJeXR2ZZ0mz51Rg3
+	 E66IVqLjVbbPY8YtsaQ3LOlp7BDgAod8bdw1fZc84CwEPaNVr967FjWnff8xhN5Q+j
+	 cwz92/DjI23I5MCDjhbQRR1D/M90vXBFdRAC73QlQ5YO4PFtmi4YQP0FjmDZtybn9l
+	 FCuKG74DmkCLd0thooYGSCHuOvIKymaJx0o+tY1Y6l9O/VJe0JC6EWc++Y8Xp95iuq
+	 +KQSrgzf3AFjJVOQyRHLoEeKYAWB9M+v7oFovsn9yPzSuAUMbfJp6Upv0G3esx2dHg
+	 5brq0zuQCl8dA==
+Date: Thu, 18 Sep 2025 19:32:00 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
+cc: shuah@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+    aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org, 
+    linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] selftests: riscv: Add README for RISC-V KSelfTest
+In-Reply-To: <20250815180724.14459-1-reddybalavignesh9979@gmail.com>
+Message-ID: <0a05a409-b161-88ee-a731-4a773b21dcb9@kernel.org>
+References: <20250815180724.14459-1-reddybalavignesh9979@gmail.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_171137_945198_7289F87F 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250918_183206_222375_9BC9AD21 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,54 +73,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 Aug 2025 12:56:22 -0700, Sean Christopherson wrote:
-> This series is based on the fastpath+PMU cleanups series[*] (which is based on
-> kvm/queue), but the non-KVM changes apply cleanly on v6.16 or Linus' tree.
-> I.e. if you only care about the perf changes, I would just apply on whatever
-> branch is convenient and stop when you hit the KVM changes.
+On Fri, 15 Aug 2025, Bala-Vignesh-Reddy wrote:
+
+> Add a README file for RISC-V specific kernel selftests under
+> tools/testing/selftests/riscv/. This mirrors the existing README
+> for arm64, providing clear guidance on how the tests are architecture
+> specific and skipped on non-riscv systems. It also includes
+> standard make commands for building, running and installing the
+> tests, along with a reference to general kselftest documentation.
 > 
-> My hope/plan is that the perf changes will go through the tip tree with a
-> stable tag/branch, and the KVM changes will go the kvm-x86 tree.
-> 
-> [...]
+> Signed-off-by: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
 
-Applied a subset (roughtly 1/4) of the KVM patches to kvm-x86 misc, as the full
-thing is far too late for 6.18.  In a nutshell, all of the random prep work and
-cleanups that aren't directly related to mediated PMU support.
+Thanks, queuing this one through the RISC-V tree for v6.18.
 
-I want to get "setup VMCS prior to kvm_x86_vendor_init()" in particular landed
-to establish the order of setup operations.  The in-progress CET series moves
-the _nested_ VMCS setup later, and I had a moment of panic that I was creating
-incompatible patches.
 
-[14/44] KVM: VMX: Setup canonical VMCS config prior to kvm_x86_vendor_init()
-        https://github.com/kvm-x86/linux/commit/4687a2c4e6a6
-[15/44] KVM: SVM: Check pmu->version, not enable_pmu, when getting PMC MSRs
-        https://github.com/kvm-x86/linux/commit/e3d1f2826da6
+- Paul
 
-[17/44] KVM: x86/pmu: Snapshot host (i.e. perf's) reported PMU capabilities
-        https://github.com/kvm-x86/linux/commit/51f34b1e650f
-
-[22/44] KVM: x86: Rename vmx_vmentry/vmexit_ctrl() helpers
-        https://github.com/kvm-x86/linux/commit/1e24bece2681
-[23/44] KVM: x86/pmu: Move PMU_CAP_{FW_WRITES,LBR_FMT} into msr-index.h header
-        https://github.com/kvm-x86/linux/commit/cdfed9370b96
-[24/44] KVM: x86: Rework KVM_REQ_MSR_FILTER_CHANGED into a generic RECALC_INTERCEPTS
-        https://github.com/kvm-x86/linux/commit/6057497336bb
-[25/44] KVM: x86: Use KVM_REQ_RECALC_INTERCEPTS to react to CPUID updates
-        https://github.com/kvm-x86/linux/commit/5a1a726e68ff
-[26/44] KVM: VMX: Add helpers to toggle/change a bit in VMCS execution controls
-        https://github.com/kvm-x86/linux/commit/2bff2edf69ed
-
-[29/44] KVM: x86/pmu: Use BIT_ULL() instead of open coded equivalents
-        https://github.com/kvm-x86/linux/commit/30c0267f1581
-[30/44] KVM: x86/pmu: Move initialization of valid PMCs bitmask to common x86
-        https://github.com/kvm-x86/linux/commit/9bae7a086394
-[31/44] KVM: x86/pmu: Restrict GLOBAL_{CTRL,STATUS}, fixed PMCs, and PEBS to PMU v2+
-        https://github.com/kvm-x86/linux/commit/c49aa9837686
-
---
-https://github.com/kvm-x86/linux/tree/next
 
 _______________________________________________
 linux-riscv mailing list
