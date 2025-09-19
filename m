@@ -4,76 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51EAACAC59A
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 12:05:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58339CAC59A
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 12:12:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=viihJ/g/ly7yboDSQZSX+z98QolnL76z26Gcb/1U+t4=; b=lcEZXyU5Hby8/k
-	ounPDc/gLjEjb1Cw9pkhb2YW5i2XpfynPIFaiPoQxk/zJwN8x6L9XV7pySNO/AqsuDodmNbquytnz
-	F2wYz4lRba0hxcZH0BGbsrTiVegg7CxuziN3TV23VSP1bndpY3JYOfGPpCKAUHMaqFKK/1aiGcCZo
-	nGr+U5UW5271nuFSgyf+KyLW8BjcfYdn52kw2Fd/h7bxiaOSx+WjGKPMjQhROq8ioER5+5Y+yYIYZ
-	lL1XN2M2uyZYs195UPhebY3AFks0J402mvZicfOt/OippinVaNU99wiO7gpR8xlJL0QHbrMd21Geg
-	g8sH/1qEed2GzBIl2pmg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5OSMbsYQJNqtaYueLmq2+GPUVflgWLSdbFnrMOUoWJs=; b=usIfPcL4SbQy4n
+	7GqtISHySDPzaYAmQZHUFCXrhYRfldYGtYj3Q0ZGO4jznOHpRr2khMQAKdI4fI+F+kuCAa1/6V5HP
+	ocVkEghfgzqz29omErfo3NkaUMPK7c3mWp1GUjOeOTF7lRxiscsZ0mC9q9haYRvHrn8F9jkPTC1lA
+	kiunzECiESTserJM1IRJhjVhSRCILKnpnUcNEvWpqDbXeqzrNOi4E1kI/jiORPxTZ5kTzDxYiEZNh
+	ByYtbVzdv3jwuTpXQw01BjTF8hvgzVAblqJpg/+N2dv53LBkkJ19a8zCYmYOzYugfPA/ziuhmDLRH
+	GsXGdDHpIL1VsddOlUlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzZrV-00000002lE3-33qq;
-	Fri, 19 Sep 2025 12:05:13 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1uzZyX-00000002mcN-224Q;
+	Fri, 19 Sep 2025 12:12:29 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzZrR-00000002lDQ-1pRP
+	id 1uzZyU-00000002mZz-2Nob
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 12:05:12 +0000
-Received: from [127.0.0.2] (unknown [114.241.87.235])
-	by APP-05 (Coremail) with SMTP id zQCowADXeBLSRs1oR9y_Aw--.22941S2;
-	Fri, 19 Sep 2025 20:04:37 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Fri, 19 Sep 2025 20:04:33 +0800
-Subject: [PATCH net-next] net: spacemit: Make stats_lock softirq-safe
+	Fri, 19 Sep 2025 12:12:28 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b523fb676efso1814263a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 05:12:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1758283946; x=1758888746; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t2HMMNKqDgzt194tG8vLKUMKuY47t2DmDtqHxNeA0cA=;
+        b=OC1Ls03Pbq0rJrnZbWRYx8Zd96SGL8Yr+HqW4M6q7ZhpqYkWWKjaJvezfFebV/doRa
+         DDveDWvO+4tAM2xnVICfCS4MN8JmCCQjz5dG1WScM8EvpnMeTwkJ8W1ObrXSxFuBPLY9
+         tl8pEzIpxaAc4uDLtVC+jKeHwwvPv6qjaWwwdY55biFr01gmqxRy+K4o+yXzGAXt1Rr4
+         BZ6jLdS53YXPJEpGGw6xjGD1foACNG2eP419PqJ/nHTFR3Zn1OOVwgxqE/MMQTRGxksy
+         Y21lxTYLPl+TL2dPgkZxJdIsNG1P9WGGSpujFdAFXkMuk0x57gwgCqR/tAKYiMJ4veMU
+         NfTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758283946; x=1758888746;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=t2HMMNKqDgzt194tG8vLKUMKuY47t2DmDtqHxNeA0cA=;
+        b=ERCKgtJATAN/NYoDlUMIDuwvGNuXyFkCxHQEW9pgyLbvQLxOv9K57YffQYGr+yCaRy
+         YDjwBm/KrYGnZNzAEfEei31FFYM0VWxIQW3A3u46F1bebfLFUlLRZ0I57RGDOmnpOvVc
+         jz8wo9SpTBl1NyGHEiPAfHr+de7AUZKVm2MwfZXSth1q5lDDiMsgkobz1qO6w+LxsgSO
+         h46lzU/go/IMe88GfrrXfT2pRXzPwaA/k/76OCUO4KvEeq8+2+CeHLVVsgudU4OnCKtX
+         1lnHUCxIPFmMaf7KDw0FWZIw5mspwHt8uOvpFiu9FwVxVDIL3y2s0L8Jr4FGDvkTX2U7
+         VWAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXCvnrMFb5MFbXhZZtivA/UU8/L13GrKkX1WlH0HbNH0DM7SVrG0/aatZTfn3uVi3ZNAZx9H0pPyeAT6Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0t8a6JvXyzJ450nyImcdpTs10+GpN1bGRBBLbHco+9Mr6Aekt
+	aCsbDjK2xEyIXHhsWklyQqnZKzIdu4KXRTXClaZS7Cf7go50R4zlQxF9A5s0ar1zxwe5Eu2RCIZ
+	HRDuzETFUt8Ctd/5tW1OJ4rcE6ARPyHb0UjXDwD9NJQ==
+X-Gm-Gg: ASbGncsZbW7KTM+nfKklrch9EeReaN70PEYcjqGo+aK7gD20aYsJXHgWsNGzmEOBEFJ
+	hYE62oeFxdb/4u7IAtgdP9l9On4O8CTOFEfiTK6V7GOlaPeosd1a6DUQNLMczOUT+ky+ZosHo1p
+	WrFId4rejaX1sUhvq7OWWsNXLCUCOTaSnevwqWwnkpkvvWHMo7Sw3WdSYDJxtnWROkUt8e5kQLw
+	T8cDe2cmbBh8W715KqWgOpaQfgxiKkZ+PpBvSxDn+ODOrCjEUGv
+X-Google-Smtp-Source: AGHT+IGm4y1poVxGUSiB4FXU7penSJROWpZ9IBJ4RsACGtjYuoj82wxnXamn8PKPxeWN3xAf3wDL9CKqcfW9WQHchPw=
+X-Received: by 2002:a17:90a:d40d:b0:32e:3f93:69f5 with SMTP id
+ 98e67ed59e1d1-3309836a969mr3636748a91.26.1758283945619; Fri, 19 Sep 2025
+ 05:12:25 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20250919-k1-ethernet-fix-lock-v1-1-c8b700aa4954@iscas.ac.cn>
-X-B4-Tracking: v=1; b=H4sIANBGzWgC/y2NyQ6DIBRFf8W8dUkEhIK/0rhgeFZixRZoY2L89
- 9JheXLusEPGFDBD3+yQ8BVyWGMFemrATSZekQRfGVjLRKupJjMlWCZMEQsZw0Zuq5uJ01oqarQ
- xwkOt3hNW9529wCcZcSsw/EzCx7P+lL+2JiNx67KE0jecirFj3GLrKVo8s9ar0XejkRa9VEJJS
- 7nnHQzH8QaKUMOZvAAAAA==
-X-Change-ID: 20250919-k1-ethernet-fix-lock-c99681a9aa5d
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Yixun Lan <dlan@gentoo.org>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
- Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Vivian Wang <uwu@dram.page>, Marek Szyprowski <m.szyprowski@samsung.com>
-X-Mailer: b4 0.14.2
-X-CM-TRANSID: zQCowADXeBLSRs1oR9y_Aw--.22941S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3XF1DKF18Cr4rGw18JryUGFg_yoW7Zw1Dp3
-	yj9a93AFW8Xa10qF4DGrWqv34UAw4Sgry7ZFn7A3yxC3ZIyryfua48KrW2vr1jvFW5urZI
-	g3yUAryDCayDt3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9j14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
-	C2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
-X-Originating-IP: [114.241.87.235]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+References: <20250919073714.83063-1-luxu.kernel@bytedance.com>
+ <aM0qlTNPiaQRY2Nv@andrea> <CAPYmKFsP+=S56Cj2XT0DjdvBT_SY84moM4LVeqxHTVWbtq4EVw@mail.gmail.com>
+ <CAPYmKFsV_ZPifJBtvPOdqM6_Mzhac9A4-PH9zt8TirOqAwKGhw@mail.gmail.com> <aM05J6FU0xG3SBzR@andrea>
+In-Reply-To: <aM05J6FU0xG3SBzR@andrea>
+From: Xu Lu <luxu.kernel@bytedance.com>
+Date: Fri, 19 Sep 2025 20:12:14 +0800
+X-Gm-Features: AS18NWC1LrBbaCsNeBFlqUXUWaqY8b6JknWKL06v5j39bQDtG4KDuo4wYFErj1E
+Message-ID: <CAPYmKFunbrughXdG9Fpum6bxHVu9jmjQdgLVSJ_JA9z+GDsZbA@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v3 0/8] riscv: Add Zalasr ISA extension support
+To: Andrea Parri <parri.andrea@gmail.com>
+Cc: corbet@lwn.net, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, will@kernel.org, peterz@infradead.org, boqun.feng@gmail.com, 
+	mark.rutland@arm.com, ajones@ventanamicro.com, brs@rivosinc.com, 
+	anup@brainfault.org, atish.patra@linux.dev, pbonzini@redhat.com, 
+	shuah@kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, apw@canonical.com, joe@perches.com, 
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_050509_861296_3A46F31F 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250919_051226_610280_1AD3A2BE 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,184 +99,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-While most of the statistics functions (emac_get_stats64() and such) are
-called with softirqs enabled, emac_stats_timer() is, as its name
-suggests, also called from a timer, i.e. called in softirq context.
-
-All of these take stats_lock. Therefore, make stats_lock softirq-safe by
-changing spin_lock() into spin_lock_bh() for the functions that get
-statistics.
-
-Also, instead of directly calling emac_stats_timer() in emac_up() and
-emac_resume(), set the timer to trigger instead, so that
-emac_stats_timer() is only called from the timer. It will keep using
-spin_lock().
-
-This fixes a lockdep warning, and potential deadlock when stats_timer is
-triggered in the middle of getting statistics.
-
-Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
-Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Closes: https://lore.kernel.org/all/a52c0cf5-0444-41aa-b061-a0a1d72b02fe@samsung.com/
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
----
-Thanks a lot for catching this, Marek!
----
- drivers/net/ethernet/spacemit/k1_emac.c | 30 +++++++++++++++---------------
- 1 file changed, 15 insertions(+), 15 deletions(-)
-
-diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-index 928fea02198c3754f63a7b33fc25c5dd8c2b59f9..e1c5faff3b71c7d4ceba2ea194d9c888f0e71b70 100644
---- a/drivers/net/ethernet/spacemit/k1_emac.c
-+++ b/drivers/net/ethernet/spacemit/k1_emac.c
-@@ -135,7 +135,7 @@ struct emac_priv {
- 	bool flow_control_autoneg;
- 	u8 flow_control;
- 
--	/* Hold while touching hardware statistics */
-+	/* Softirq-safe, hold while touching hardware statistics */
- 	spinlock_t stats_lock;
- };
- 
-@@ -1239,7 +1239,7 @@ static void emac_get_stats64(struct net_device *dev,
- 	/* This is the only software counter */
- 	storage->tx_dropped = emac_get_stat_tx_drops(priv);
- 
--	spin_lock(&priv->stats_lock);
-+	spin_lock_bh(&priv->stats_lock);
- 
- 	emac_stats_update(priv);
- 
-@@ -1261,7 +1261,7 @@ static void emac_get_stats64(struct net_device *dev,
- 	storage->rx_missed_errors = rx_stats->stats.rx_drp_fifo_full_pkts;
- 	storage->rx_missed_errors += rx_stats->stats.rx_truncate_fifo_full_pkts;
- 
--	spin_unlock(&priv->stats_lock);
-+	spin_unlock_bh(&priv->stats_lock);
- }
- 
- static void emac_get_rmon_stats(struct net_device *dev,
-@@ -1275,7 +1275,7 @@ static void emac_get_rmon_stats(struct net_device *dev,
- 
- 	*ranges = emac_rmon_hist_ranges;
- 
--	spin_lock(&priv->stats_lock);
-+	spin_lock_bh(&priv->stats_lock);
- 
- 	emac_stats_update(priv);
- 
-@@ -1294,7 +1294,7 @@ static void emac_get_rmon_stats(struct net_device *dev,
- 	rmon_stats->hist[5] = rx_stats->stats.rx_1024_1518_pkts;
- 	rmon_stats->hist[6] = rx_stats->stats.rx_1519_plus_pkts;
- 
--	spin_unlock(&priv->stats_lock);
-+	spin_unlock_bh(&priv->stats_lock);
- }
- 
- static void emac_get_eth_mac_stats(struct net_device *dev,
-@@ -1307,7 +1307,7 @@ static void emac_get_eth_mac_stats(struct net_device *dev,
- 	tx_stats = &priv->tx_stats;
- 	rx_stats = &priv->rx_stats;
- 
--	spin_lock(&priv->stats_lock);
-+	spin_lock_bh(&priv->stats_lock);
- 
- 	emac_stats_update(priv);
- 
-@@ -1325,7 +1325,7 @@ static void emac_get_eth_mac_stats(struct net_device *dev,
- 	mac_stats->FramesAbortedDueToXSColls =
- 		tx_stats->stats.tx_excessclsn_pkts;
- 
--	spin_unlock(&priv->stats_lock);
-+	spin_unlock_bh(&priv->stats_lock);
- }
- 
- static void emac_get_pause_stats(struct net_device *dev,
-@@ -1338,14 +1338,14 @@ static void emac_get_pause_stats(struct net_device *dev,
- 	tx_stats = &priv->tx_stats;
- 	rx_stats = &priv->rx_stats;
- 
--	spin_lock(&priv->stats_lock);
-+	spin_lock_bh(&priv->stats_lock);
- 
- 	emac_stats_update(priv);
- 
- 	pause_stats->tx_pause_frames = tx_stats->stats.tx_pause_pkts;
- 	pause_stats->rx_pause_frames = rx_stats->stats.rx_pause_pkts;
- 
--	spin_unlock(&priv->stats_lock);
-+	spin_unlock_bh(&priv->stats_lock);
- }
- 
- /* Other statistics that are not derivable from standard statistics */
-@@ -1393,14 +1393,14 @@ static void emac_get_ethtool_stats(struct net_device *dev,
- 	u64 *rx_stats = (u64 *)&priv->rx_stats;
- 	int i;
- 
--	spin_lock(&priv->stats_lock);
-+	spin_lock_bh(&priv->stats_lock);
- 
- 	emac_stats_update(priv);
- 
- 	for (i = 0; i < ARRAY_SIZE(emac_ethtool_rx_stats); i++)
- 		data[i] = rx_stats[emac_ethtool_rx_stats[i].offset];
- 
--	spin_unlock(&priv->stats_lock);
-+	spin_unlock_bh(&priv->stats_lock);
- }
- 
- static int emac_ethtool_get_regs_len(struct net_device *dev)
-@@ -1769,7 +1769,7 @@ static int emac_up(struct emac_priv *priv)
- 
- 	netif_start_queue(ndev);
- 
--	emac_stats_timer(&priv->stats_timer);
-+	mod_timer(&priv->stats_timer, jiffies);
- 
- 	return 0;
- 
-@@ -1807,14 +1807,14 @@ static int emac_down(struct emac_priv *priv)
- 
- 	/* Update and save current stats, see emac_stats_update() for usage */
- 
--	spin_lock(&priv->stats_lock);
-+	spin_lock_bh(&priv->stats_lock);
- 
- 	emac_stats_update(priv);
- 
- 	priv->tx_stats_off = priv->tx_stats;
- 	priv->rx_stats_off = priv->rx_stats;
- 
--	spin_unlock(&priv->stats_lock);
-+	spin_unlock_bh(&priv->stats_lock);
- 
- 	pm_runtime_put_sync(&pdev->dev);
- 	return 0;
-@@ -2111,7 +2111,7 @@ static int emac_resume(struct device *dev)
- 
- 	netif_device_attach(ndev);
- 
--	emac_stats_timer(&priv->stats_timer);
-+	mod_timer(&priv->stats_timer, jiffies);
- 
- 	return 0;
- }
-
----
-base-commit: 315f423be0d1ebe720d8fd4fa6bed68586b13d34
-change-id: 20250919-k1-ethernet-fix-lock-c99681a9aa5d
-
-Best regards,
--- 
-Vivian "dramforever" Wang
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBTZXAgMTksIDIwMjUgYXQgNzowNuKAr1BNIEFuZHJlYSBQYXJyaSA8cGFycmkuYW5k
+cmVhQGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiA+ID4gPiAobm90IGEgcmV2aWV3LCBqdXN0IGxvb2tp
+bmcgYXQgdGhpcyBkaWZmIHN0YXQpIGlzIGNoYW5naW5nIHRoZSBmYXN0cGF0aAo+ID4gPiA+Cj4g
+PiA+ID4gICByZWFkX3VubG9jaygpCj4gPiA+ID4gICByZWFkX2xvY2soKQo+ID4gPiA+Cj4gPiA+
+ID4gZnJvbSBzb21ldGhpbmcgbGlrZQo+ID4gPiA+Cj4gPiA+ID4gICBmZW5jZSBydyx3Cj4gPiA+
+ID4gICBhbW9kYWRkLncKPiA+ID4gPiAgIGFtb2FkZC53Cj4gPiA+ID4gICBmZW5jZSByLHJ3Cj4g
+PiA+ID4KPiA+ID4gPiB0bwo+ID4gPiA+Cj4gPiA+ID4gICBmZW5jZSBydyxydwo+ID4gPiA+ICAg
+YW1vYWRkLncKPiA+ID4gPiAgIGFtb2FkZC53Cj4gPiA+ID4gICBmZW5jZSBydyxydwo+ID4gPiA+
+Cj4gPiA+ID4gbm8gbWF0dGVyIFphbGFzciBvciAhWmFsYXNyLiAgU2ltaWxhcmx5IGZvciBvdGhl
+ciBhdG9taWMgb3BlcmF0aW9ucyB3aXRoCj4gPiA+ID4gcmVsZWFzZSBvciBhY3F1aXJlIHNlbWFu
+dGljcy4gIEkgZ3Vlc3MgdGhlIGNoYW5nZSB3YXMgbm90IGludGVudGlvbmFsPwo+ID4gPiA+IElm
+IGl0IHdhcyBpbnRlbnRpb25hbCwgaXQgc2hvdWxkIGJlIHByb3Blcmx5IG1lbnRpb25lZCBpbiB0
+aGUgY2hhbmdlbG9nLgo+ID4gPgo+ID4gPiBTb3JyeSBhYm91dCB0aGF0LiBJdCBpcyBpbnRlbmRl
+ZC4gVGhlIGF0b21pYyBvcGVyYXRpb24gYmVmb3JlCj4gPiA+IF9fYXRvbWljX2FjcXVpcmVfZmVu
+Y2Ugb3Igb3BlcmF0aW9uIGFmdGVyIF9fYXRvbWljX3JlbGVhc2VfZmVuY2UgY2FuCj4gPiA+IGJl
+IGp1c3QgYSBzaW5nbGUgbGQgb3Igc2QgaW5zdHJ1Y3Rpb24gaW5zdGVhZCBvZiBhbW9jYXMgb3Ig
+YW1vc3dhcC4gSW4KPiA+ID4gc3VjaCBjYXNlcywgd2hlbiB0aGUgc3RvcmUgcmVsZWFzZSBvcGVy
+YXRpb24gYmVjb21lcyAnc2QucmwnLCB0aGUKPiA+ID4gX19hdG9taWNfYWNxdWlyZV9mZW5jZSB2
+aWEgJ2ZlbmNlIHIsIHJ3JyBjYW4gbm90IGVuc3VyZSBGRU5DRS5UU08KPiA+ID4gYW55bW9yZS4g
+VGh1cyBJIHJlcGxhY2UgaXQgd2l0aCAnZmVuY2UgcncsIHJ3Jy4KPgo+IEJ1dCB5b3UgY291bGQg
+YXBwbHkgc2ltaWxhciBjaGFuZ2VzIHlvdSBwZXJmb3JtZWQgZm9yIHhjaGcgJiBjbXB4Y2hnOiB1
+c2UKPiAuQVEgYW5kIC5STCBmb3Igb3RoZXIgYXRvbWljIFJNVyBvcGVyYXRpb25zIGFzIHdlbGws
+IG5vPyAgQUZBSUNTLCB0aGF0IGlzCj4gd2hhdCBhcm02NCBhY3R1YWxseSBkb2VzIGluIGFyY2gv
+YXJtNjQvaW5jbHVkZS9hc20vYXRvbWljX3tsbF9zYyxsc2V9LmggLgoKSSBzZWUuIEkgd2lsbCBz
+dHVkeSB0aGUgaW1wbGVtZW50YXRpb24gb2YgQVJNIGFuZCByZWZpbmUgbXkgcGF0Y2guIFRoYW5r
+cyBhIGxvdC4KCkJlc3QgcmVnYXJkcywKWHUgTHUKCj4KPiAgIEFuZHJlYQo+Cj4KPiA+IFRoaXMg
+aXMgYWxzbyB0aGUgY29tbW9uIGltcGxlbWVudGF0aW9uIG9uIG90aGVyIGFyY2hpdGVjdHVyZXMg
+d2hvIHVzZQo+ID4gYXEvcmwgaW5zdHJ1Y3Rpb25zIGxpa2UgQVJNLiBBbmQgeW91IGNlcnRhaW5s
+eSBhbHJlYWR5IGtuZXcgaXR+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
