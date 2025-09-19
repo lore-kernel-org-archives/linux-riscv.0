@@ -4,76 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED4ACAC592
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 12:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8951CAC59A
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 13:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eZtC3rmBqvUbugm/RJargSqqk6M41FNW668NJ9LZQSc=; b=QxqsuHSDOGhU7V
-	+lpQESn9Iw18rjX8Yi6Fs2MtXHPGILfCyeKrMZBKZkETKfS66NqwJUiDCKog6M4A97nNcXDaiVvP6
-	5Z2X/0LTAd98vqul0j6nVYVL6Wu7sBtzXMMLtHxTEAU/BUlNasCFnmSlAtYiLEahbZihgHtBGghsB
-	J5eKzkSIXCGB2fQAwbLrWF9by46BtHFSxrxYFScrG4c1sqcutZ2Xi4b5eWGGEJhL4MEVUpX3MI2B3
-	5LlEDMwPESEqO9fU+cc+nx4mkeSfBq23LBd0jhhmfun3B5ZS4+CsDJr9p2cqjEg+WxaEreoPtUruK
-	AdZhrF7gERjKnU5GIVoQ==;
+	List-Owner; bh=EPI7yX/gMz8bfU81PQF/zGC4ohaJ+WeonpaKiBBHgOo=; b=eDkusayrw7P5cO
+	KikEk2Ajg0GLo4d+9TSYefu5sLBlStyDX9e/Vq+6OIoAo/4fQiBs6D1NCEHUqR13XwOz5+UwGgtOE
+	1t8H3j+Hye40NR4t52b6UHM/3oIVPkM23bjTMaou/kh1dFQoCBDr+K5J7DIqA5XnAGYWrV9uR4Flo
+	jPTK7XkI9OP/SVIRjco/bVclrs16PkNI7Nm0jDv1xx3SFpJyQYaXro0g8woM0mTBDYNUv19aKkbHB
+	3nOHwhN+3rK+6OieVb23F4dnZvqJWXpd5rvCulQD/FvyT7A23elRTybwXOASHTZcU7ZwJ0RKbm/oD
+	yXb1hSDMekzJDdrBI+9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzaBb-00000002p3s-36uf;
-	Fri, 19 Sep 2025 12:25:59 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1uzali-00000002vX7-1VlC;
+	Fri, 19 Sep 2025 13:03:18 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzaBX-00000002p3J-0r2a
+	id 1uzalf-00000002vV6-2bQ2
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 12:25:58 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250919122548euoutp0292a30b3d26f4e636a0191d6508f473df~mrqm60MYk0313803138euoutp02f
-	for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 12:25:48 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250919122548euoutp0292a30b3d26f4e636a0191d6508f473df~mrqm60MYk0313803138euoutp02f
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758284748;
-	bh=xSKIjPyrA9OEriZopMFlNAyxpcs3It57Viautl04tXI=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=F+Xk3glO2cgewx7e1iKp9JX1qLwGgul+qkbyUSnqJFUujLqQCD+JHqtjvA6C3plYu
-	 tb6XPaK8AiHnvh314NhvSLRtAY4447tqqdUgXWoNLeXPOAmqkxv+8RUKDUaNPnreiy
-	 X7XwGpQUJq2P149JjEd996iP8UKxN6e0DQeU8y+U=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250919122548eucas1p1ef58c5c747bee71acd5f9d6476e7c29c~mrqmcuafh2548325483eucas1p1m;
-	Fri, 19 Sep 2025 12:25:48 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250919122546eusmtip2896ff33c135295219ae1f797110c7a94~mrqk2ipmP1691216912eusmtip2-;
-	Fri, 19 Sep 2025 12:25:46 +0000 (GMT)
-Message-ID: <7605453a-ac62-497b-b77a-76d73e9a6741@samsung.com>
-Date: Fri, 19 Sep 2025 14:25:45 +0200
-MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH net-next] net: spacemit: Make stats_lock softirq-safe
-To: Vivian Wang <wangruikang@iscas.ac.cn>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
-	Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Yixun Lan <dlan@gentoo.org>, Maxime Chevallier
-	<maxime.chevallier@bootlin.com>, Troy Mitchell
-	<troy.mitchell@linux.spacemit.com>, Vadim Fedorenko
-	<vadim.fedorenko@linux.dev>
-Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, Vivian Wang
-	<uwu@dram.page>
+	Fri, 19 Sep 2025 13:03:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A017FxAYRYTRPnEJvjL3NjDTfznr68tiMmj8GNgKgh9xA6m7SA0hZQKEMN1jtlwh/wyw5C8LYd5E40bXUH6fmryWGeLRQVoXuQTsff71OtipI9AXcUHIISrVNbDMD8HfpvsVzwF0R8safs6FCUHQtYrLpvz1PgAhCpMgyleFEht4947BhrIdysZiUJWzqljZmScwN2BtyBTP85+64pS8qgK7xEU2AbsxBv1jBVlSsdJtL2MNNXLcAO/uUBPRHeWhTVa3DGzGy7wicpeB41iOEVI7Rqyf5bCMMh2cQVDt86qFWil5VfaeI7VqxDfFSEkjClB00FAJ25uOT+6S+zc06w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RLGtjyFyeNdD50Y2E8GZZ7HmKwLvawmWV3xoZ81Aqo0=;
+ b=nzg8GNOB85GjSfuVIzuicIogrMQ3eF0glL5O4Wt+EXbtm68ZCCBSdYIGzPhXpEsf27fBG7vsd71cSoHohdI6V/7V6Qhb3qNsNfxkGS4hpnt1/GvFQ/SiVIqQ905qg21O7yJz1MJX4Ujn8msRfBLOS+5yAdFcAVJnrhh6x6Hbt/vuwg8iyqxbyDIBj0wXCywYYEcxBH3Qjbz1UWqA1SneNr+k2btlY7MCJQ+bE+KODSGG6aMmvdzUOGCRUNi0ybFkmxodDqBNTpFsdiAbiP8XDug+aJyUIO3clXjbh0EGd1RPMlps8Wbh0DPhhsskIt85PnMSrdOkyvZVjbXeh4DhRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=htecgroup.com; dmarc=pass action=none
+ header.from=htecgroup.com; dkim=pass header.d=htecgroup.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=htecgroup.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RLGtjyFyeNdD50Y2E8GZZ7HmKwLvawmWV3xoZ81Aqo0=;
+ b=FTU+AriMKSRuV7mwpwKuU3Kf4x1TE7lLfsdAsubW6ksWltRZKqgkGR7tKar16MnSqj88B/wRjO0cgdV7zU3GaSbeVcL2QMMXkYVN93DP/urIz2W49KHX18cMwv8RJklWlpnCXIB9yAxE/lYmC74N3ZHt68zepBQ3Dw22/zDv4clXvJc7S+Fp3oAeYdArkh1ViZOeMjLkauFZZCAoVmaMuwawhaVwx9pJdKylsq/YJoQ7WcQPKLZ7A+NWouJJZuE6w8m4e+e4KKELcO4k7sd6nQZMyD+GKW3MH1P6DsMePpm99GWfbTVkbbtVs1mxSRx9bwTZYCJWTQbyFXn7//oQaA==
+Received: from AM0PR09MB4323.eurprd09.prod.outlook.com (2603:10a6:20b:167::7)
+ by DB8PR09MB4233.eurprd09.prod.outlook.com (2603:10a6:10:12d::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.16; Fri, 19 Sep
+ 2025 13:03:06 +0000
+Received: from AM0PR09MB4323.eurprd09.prod.outlook.com
+ ([fe80::4848:df8e:2001:b7ee]) by AM0PR09MB4323.eurprd09.prod.outlook.com
+ ([fe80::4848:df8e:2001:b7ee%6]) with mapi id 15.20.9137.015; Fri, 19 Sep 2025
+ 13:03:05 +0000
+From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+To: "devnull+aleksa.paunovic.htecgroup.com@kernel.org"
+	<devnull+aleksa.paunovic.htecgroup.com@kernel.org>
+CC: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, "alex@ghiti.fr"
+	<alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"arikalo@gmail.com" <arikalo@gmail.com>, "boqun.feng@gmail.com"
+	<boqun.feng@gmail.com>, "cfu@mips.com" <cfu@mips.com>, "charlie@rivosinc.com"
+	<charlie@rivosinc.com>, "conor@kernel.org" <conor@kernel.org>, Djordje
+ Todorovic <Djordje.Todorovic@htecgroup.com>, "jrtc27@jrtc27.com"
+	<jrtc27@jrtc27.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux@rasmusvillemoes.dk"
+	<linux@rasmusvillemoes.dk>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>, "peterz@infradead.org" <peterz@infradead.org>,
+	"samuel.holland@sifive.com" <samuel.holland@sifive.com>, "will@kernel.org"
+	<will@kernel.org>, "yury.norov@gmail.com" <yury.norov@gmail.com>
+Subject: Re: [PATCH v3] riscv: Use Zalrsc extension to implement atomic
+ functions
+Thread-Topic: [PATCH v3] riscv: Use Zalrsc extension to implement atomic
+ functions
+Thread-Index: AQHcGyyolP1obCCZ7U2/zE+FjPM0RrSalRoA
+Date: Fri, 19 Sep 2025 13:03:05 +0000
+Message-ID: <27b23b18-1e69-458c-9874-f704553d4bab@htecgroup.com>
+References: <20250901-p8700-zalrsc-v3-1-ec64fabbe093@htecgroup.com>
+In-Reply-To: <20250901-p8700-zalrsc-v3-1-ec64fabbe093@htecgroup.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20250919-k1-ethernet-fix-lock-v1-1-c8b700aa4954@iscas.ac.cn>
-X-CMS-MailID: 20250919122548eucas1p1ef58c5c747bee71acd5f9d6476e7c29c
-X-Msg-Generator: CA
-X-RootMTR: 20250919120522eucas1p224c42d0cc2a59903d85e6c80dfdfa727
-X-EPHeader: CA
-X-CMS-RootMailID: 20250919120522eucas1p224c42d0cc2a59903d85e6c80dfdfa727
-References: <CGME20250919120522eucas1p224c42d0cc2a59903d85e6c80dfdfa727@eucas1p2.samsung.com>
-	<20250919-k1-ethernet-fix-lock-v1-1-c8b700aa4954@iscas.ac.cn>
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=htecgroup.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM0PR09MB4323:EE_|DB8PR09MB4233:EE_
+x-ms-office365-filtering-correlation-id: 9b742cc9-9789-44ff-3c9d-08ddf77cdfa5
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?cXUwOXNoRWZ0OGVSV055MnQxdlFLOU9mbktWVnQ2ZGJQeVJ0dTZPdytQRGYv?=
+ =?utf-8?B?bEp2SUVqbnlPSHFxMEtTKzlZdk9aN2NvcmJCRlRQRDZnb0lPRWdOVWZRTVhR?=
+ =?utf-8?B?ZmlkcFVqOU53dnBROVd6cmFYMXJvSnJ5c3l6L0xpN2lDZUtrR0hwVTQwdk1Y?=
+ =?utf-8?B?WWFldUsxZ2N5TlY3YzB3ZkdMNGtQQ05Qb09oQzBORzJIYU10QWJlQTl6d0Zs?=
+ =?utf-8?B?RjZ3ajNsRkpVUUwvVU1wNHhqRUQrRGxhZFFTcUhFZkptVXNHRnhlTEVqOGt6?=
+ =?utf-8?B?LzJjcWp2S2JoOU5DRUxaZWdLZmtsWFBLQ2xUNlF3REtwNXhDenVWempLOHdY?=
+ =?utf-8?B?dndEZGYrN3dVSjVXRlVlaHZZRUxmcVJpNGE5QzdsM291cTM3emtaRTBXREJ2?=
+ =?utf-8?B?ZTBkWXlkUFdlUVVIOHVUaXIvOVcrbzBFV2hoVzBhN3NHTm8xSUVWcnpNUkpL?=
+ =?utf-8?B?TUg5aUZraFVnUlJISW44WlcrZXdUb0dWd2lYVCtkK0Joc3VvYmx0UWd0V3h1?=
+ =?utf-8?B?ZGJ0Y0lsS1RTSDhyMytKQndWbmo4bDNNTTh1c3R4MWY5YmhaUDJzckQyeHVr?=
+ =?utf-8?B?dmU2ZVZpdkhlTzR1U1Y5eHY4elJ5VEVXZGd5RzdkUWdwYXZiOU5JWnZmVlY5?=
+ =?utf-8?B?QlpZUGE1MXRGblBrVUpwTTdzcThiQ3dRdGd3cm1aVGRzVHNBUFgzVjRkUml1?=
+ =?utf-8?B?UGZDNWdmWEltbWFYdVM1TEtKVDllREZwakNWbXQ0SGdNcmk1UENOOUpCWDkr?=
+ =?utf-8?B?ang2QVg4eUhJalRrc25tc3hpcjYxdThKNjVPUHdoaUFmbFMxSWplZmpxY01S?=
+ =?utf-8?B?MjZJVXRreXB6bXgzTmZUc1lFZm5STXEvcVdKUkVoU3N6KzFzNUl3SzlzMncv?=
+ =?utf-8?B?Z1JyWnhzeHVVN3JTbnVoRVIwTU14bk11R1dtN1pMbEhsWUxPQit2aG5jeEM3?=
+ =?utf-8?B?VlAyMUxoc2JkM1FrV08zTlJiVGdWaUxlcHpCUGlXdEl6SWdYTGhBZUFOZ004?=
+ =?utf-8?B?aHJCQmhTZXFiRkg2NUE5cW11aU0veFg3UWhHN0NnWDh5aHovY2x5b1lyWmxR?=
+ =?utf-8?B?WndxZWdpcW9nTXhmTHBKbWtBaS91WlFaSnhJMVRhZGF6TTBud0pER25mM3A2?=
+ =?utf-8?B?L1puWjJXMzBxb1RhRUsxbi9lMytQNmZpT3VyczVGNnZscFdJNHRhdzlsNHZY?=
+ =?utf-8?B?TXNmMWdBelpVeEswWUhiQUpBOWFrZXBtMjVFN3J6N1pEekttemNZYjFqUlJt?=
+ =?utf-8?B?VWJHSHFxN3VjNGlmS1RHNDFudWNlNVRwVzhQQW1oRDgvSlJTVlA3MzB5ZnVa?=
+ =?utf-8?B?djdVOWVDdk1FLzR4cGRVTkx6VFNuQVBJRmRyWmJvZk9UTVZNQ2hKSC9Cd0oy?=
+ =?utf-8?B?a0p5Qkp6WmNkOEVMNEdSS1ZZUjZ6SWNndzJmRHB6T2RIZmF1NmV0NVBCMFJP?=
+ =?utf-8?B?VHJXN3RwUmdseTdQdFdJRTNYMFB5UEN6TkJlcVdpb1lGTERUTHJJbHJwWHUr?=
+ =?utf-8?B?NFVPckxOY1VEV3VtNUJwTUFqUC9QUnJXYjFvM3JEU1BuVHZTMnBnN01ldUpv?=
+ =?utf-8?B?aVdhNU9LQ2g3T3dhU3VTcHRNQmpMUzFnMytpelVYNWZyU28zWG40ZDNuYzcy?=
+ =?utf-8?B?eG5uMHBwbzdkOTEwcnhSZnBQTlRTYldEbmhIaDlCK05HRDZwNEQ2ODQ1TFJB?=
+ =?utf-8?B?UndXUFRQdnNCOVAxbWZYZ2hsY2ZRSGZUbC90UkJGQVF2TVozU00wWUdiMnZq?=
+ =?utf-8?B?SVFER0RXbEtEM1paKzhianBMUE1zOEN6NXdTdVNDK0JQblF0bjkyOStyRHFI?=
+ =?utf-8?B?STBWZDJTNGJ6RFhCaFl2OFRhZTR3T3NXM21wSjJFWVRqeWxrT0FvNHVVS0h1?=
+ =?utf-8?B?MVRHRFdvTXdZWXhrWENZSDg0N3M4Y2s2Vm1FaEgrK25mdVRya3ZCYVlwZjVi?=
+ =?utf-8?B?RCtZZWw5dEhBUjc3ZmhWcXJVUzN4dU90WU5GUkwrVWIvRmNWWGxlbkhRMGti?=
+ =?utf-8?Q?+1KHeM1HGoopjNNdaVv8mvA76HylHE=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR09MB4323.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?OWJtZ3dESndreXRjYzBzbGxTQXcweVc1K1ZVTm9McldEbzNVY25tVGs5cGpz?=
+ =?utf-8?B?ZTlPVVhMVnhneTNDSDJ6WVRmb2s5SWNQaUFMbUQwb1lnN1Q5M01WcFZNSk9U?=
+ =?utf-8?B?dVh1ejRMT0QxWXpIUStvYjQ0MHVwN2hIcG05U3A5WnNxTzJUcGVVMzlYcG1I?=
+ =?utf-8?B?VTI2eVlWUDZ6VDNDVE9jZ2tCbk5yWFNSdUxYaFZGcTJpQkVBOW9LTzAvSVhR?=
+ =?utf-8?B?WmoySFIwZ3FIWlNsYVFUeEw1U3J2NkJJZzdKa3V2Sis0aFJHOGVERHlNRnVw?=
+ =?utf-8?B?a1lRQVRBcCtzQWg3ZU5McXhoUEswVndYOUpJeWlJQ3FlOGd5YUdnVXAybHpN?=
+ =?utf-8?B?QzBqaDllTG53R0xYb3QxV1NSUVlPSlNQOWRnTjFSa1hSWm81a3dVZUZnbklS?=
+ =?utf-8?B?Q3l5R255Zm9vbDRCWmMvVkhaaXh6M1JYWndqYlp6YU5MaXNkOU1iQ2ptenNE?=
+ =?utf-8?B?Y2IyZzJGb3NPNWdwYkNackt4WW5ISGFlamZ4VkJQRlRvRnpibGx0RE9DWUFF?=
+ =?utf-8?B?MlMvNWVXM1kyN3ZUK2Q1U3N0WmNPVGY1ckpCdEk0UmErQmtwdExYSkg2amtV?=
+ =?utf-8?B?dC9mMUdwTmJEVEpyanJzRmlNSC9Tdi9HWWtySitIMVZNMDNVRkEwdDk0eU95?=
+ =?utf-8?B?Tm9vbWw2NG1Gazcrd3k0YSthM2w3QmNHNlRPbVY2UnZib3pBbVlkK1pqU0lT?=
+ =?utf-8?B?TG8xT3FxUXo1VW1ib3lmMVZvYmRnMUhwYkV2dVdSZ3E2Z0ViSTlBR0puZVBD?=
+ =?utf-8?B?SlllS1BMcExvNm9GSjBzTHI4TWZVMGNvT0J2ZTZUb2xPazhWLytjNnZiSnNm?=
+ =?utf-8?B?blllN2NDSXVsVjZPbkZBcFZsTXoxajk3R3FqaHkrVnpOVURyakxQNGtaQndl?=
+ =?utf-8?B?aWZhWHh1RkNFREdjRWY1Um1qY3JrZ2luNE9DM0pRSE1pTm1iMEN3Nlh1UmFv?=
+ =?utf-8?B?R1BFNWNRK3FhbmNpK1lvNGdUZVpYYnZPWmtsVDI0d2FxNk50YnJnTmhBTTFU?=
+ =?utf-8?B?K250WGhVbkd1U21Hd05IV0l4T2lzNGRPT1R3TlFGdyt1WW5reUs3RFAwa0Vx?=
+ =?utf-8?B?ZnNvTUhtQ2FBVG1XVFpXcG10MTJ2YmdVeDA0Mnk4N09NY1I0UFIzZ2lyd0la?=
+ =?utf-8?B?Q3FJUlBESGFBdXQvTFNjaUdWZ2xjWHJVK1RkSEJYUHdyUjhrR2kyVGxzRmpE?=
+ =?utf-8?B?Z2pma0hGRkRsWHFxd3NYYjNrc3JaSE9RUzFhVlNOdDVKM3Q1Y1FYZDFLN0Vm?=
+ =?utf-8?B?QTVzTzBFQlY2ck8xMVlaSzdmc2xtU0VRaG9hMnE2bTRjRG5vbnJnTEFVRTZr?=
+ =?utf-8?B?YlE1ZHEyTkV2Ymg4YzA4TjVqY2NGRGhONjVHeHFXSTN6bWJYd1NCYUFiRlN6?=
+ =?utf-8?B?ZDE4aS95OVZ4T1NNOU5wSGhkaVptNVpROGxDTzZWaFhWZzR0bW0zaXRnaFF0?=
+ =?utf-8?B?SGE0OXphWTVqZUN1Q2JaZWhDV3c2QTlUN0Z5YTVsbVRhZWVsT09wTFc1Rmk4?=
+ =?utf-8?B?K2ZpVGlPWTNTcGJtVnZ0YkVQSDgxZlVGL0lvdXFlY1pQYzM0c2R1Ym9oKzVR?=
+ =?utf-8?B?OFFPdENRY1VpOWpqL3FESmN2UFpKUkc4by94aW5JYVA2ZkVvcXQ1NDhYa21O?=
+ =?utf-8?B?cVBIYzdGNXh6RFBMeFVFald5SWc3VjF4ODk3WERNeUR3NHNseG5wRlRZa3V5?=
+ =?utf-8?B?V0duR1hNVEpYUnlaSGpjVkxqQW9COG8xNUE0amdDSSt6U283QUVncVJRZEZw?=
+ =?utf-8?B?RjVXcVZVaDAzSjdPMzZFYVRBRG5JaDBHZEFUeVFadmEzcVJROXI3YUFtWHV2?=
+ =?utf-8?B?T3hIbmN2OVMwYWVoMTFoV3VLbmpFelMwc1FlMlhwREFGQjlKTE42Q3lGbFNj?=
+ =?utf-8?B?eFZDUm40cTVZVFdnM0g4U0g5VXZ3T1lWQ3U4WFBjUXErYUFqTXVFa0VwNTFi?=
+ =?utf-8?B?Y0gzWUJZZ1JnVDQ2bDd2aU50Sm8zZUJKY3d2ekE4REUyTlpXZXVsTW9RVWU1?=
+ =?utf-8?B?bmNiSlR6WU5NMHFWd3dkNklJTkNXeEd2NllrWmYycUdWYTFLOVZRdUxUUWZy?=
+ =?utf-8?B?TXJ5bC9CUTVOcGdCRXVlb1I5bFdYclJyY29SMW43ZytaK2RraC9nRFNRQ2Fp?=
+ =?utf-8?B?NzRubFlXWGIySGh3aXZaOG02bDNhV0FyZkpRd2dLZVlyREhGSStjTE5oNkJV?=
+ =?utf-8?Q?praL4eVhXOFEVK4O+T3TyDU=3D?=
+Content-ID: <162556459DD290478F5408A8510CF0A7@eurprd09.prod.outlook.com>
+MIME-Version: 1.0
+X-OriginatorOrg: htecgroup.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR09MB4323.eurprd09.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9b742cc9-9789-44ff-3c9d-08ddf77cdfa5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Sep 2025 13:03:05.6205
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9f85665b-7efd-4776-9dfe-b6bfda2565ee
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 2e7YCIsCzV+z122jlEfbd6jeYy2dI1sTpiJXvQteddqP/y/mzo5oPtoQbq8hnv1nmHMv8BJa+brzgEucFcY5vBUIfem8bbQQlsqGWDsV/+w=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR09MB4233
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_052556_614444_A919FBA4 
-X-CRM114-Status: GOOD (  24.23  )
+X-CRM114-CacheID: sfid-20250919_060315_677115_1D01D880 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,189 +189,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19.09.2025 14:04, Vivian Wang wrote:
-> While most of the statistics functions (emac_get_stats64() and such) are
-> called with softirqs enabled, emac_stats_timer() is, as its name
-> suggests, also called from a timer, i.e. called in softirq context.
->
-> All of these take stats_lock. Therefore, make stats_lock softirq-safe by
-> changing spin_lock() into spin_lock_bh() for the functions that get
-> statistics.
->
-> Also, instead of directly calling emac_stats_timer() in emac_up() and
-> emac_resume(), set the timer to trigger instead, so that
-> emac_stats_timer() is only called from the timer. It will keep using
-> spin_lock().
->
-> This fixes a lockdep warning, and potential deadlock when stats_timer is
-> triggered in the middle of getting statistics.
->
-> Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
-> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Closes: https://lore.kernel.org/all/a52c0cf5-0444-41aa-b061-a0a1d72b02fe@samsung.com/
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> ---
-> Thanks a lot for catching this, Marek!
-> ---
->   drivers/net/ethernet/spacemit/k1_emac.c | 30 +++++++++++++++---------------
->   1 file changed, 15 insertions(+), 15 deletions(-)
->
-> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-> index 928fea02198c3754f63a7b33fc25c5dd8c2b59f9..e1c5faff3b71c7d4ceba2ea194d9c888f0e71b70 100644
-> --- a/drivers/net/ethernet/spacemit/k1_emac.c
-> +++ b/drivers/net/ethernet/spacemit/k1_emac.c
-> @@ -135,7 +135,7 @@ struct emac_priv {
->   	bool flow_control_autoneg;
->   	u8 flow_control;
->   
-> -	/* Hold while touching hardware statistics */
-> +	/* Softirq-safe, hold while touching hardware statistics */
->   	spinlock_t stats_lock;
->   };
->   
-> @@ -1239,7 +1239,7 @@ static void emac_get_stats64(struct net_device *dev,
->   	/* This is the only software counter */
->   	storage->tx_dropped = emac_get_stat_tx_drops(priv);
->   
-> -	spin_lock(&priv->stats_lock);
-> +	spin_lock_bh(&priv->stats_lock);
->   
->   	emac_stats_update(priv);
->   
-> @@ -1261,7 +1261,7 @@ static void emac_get_stats64(struct net_device *dev,
->   	storage->rx_missed_errors = rx_stats->stats.rx_drp_fifo_full_pkts;
->   	storage->rx_missed_errors += rx_stats->stats.rx_truncate_fifo_full_pkts;
->   
-> -	spin_unlock(&priv->stats_lock);
-> +	spin_unlock_bh(&priv->stats_lock);
->   }
->   
->   static void emac_get_rmon_stats(struct net_device *dev,
-> @@ -1275,7 +1275,7 @@ static void emac_get_rmon_stats(struct net_device *dev,
->   
->   	*ranges = emac_rmon_hist_ranges;
->   
-> -	spin_lock(&priv->stats_lock);
-> +	spin_lock_bh(&priv->stats_lock);
->   
->   	emac_stats_update(priv);
->   
-> @@ -1294,7 +1294,7 @@ static void emac_get_rmon_stats(struct net_device *dev,
->   	rmon_stats->hist[5] = rx_stats->stats.rx_1024_1518_pkts;
->   	rmon_stats->hist[6] = rx_stats->stats.rx_1519_plus_pkts;
->   
-> -	spin_unlock(&priv->stats_lock);
-> +	spin_unlock_bh(&priv->stats_lock);
->   }
->   
->   static void emac_get_eth_mac_stats(struct net_device *dev,
-> @@ -1307,7 +1307,7 @@ static void emac_get_eth_mac_stats(struct net_device *dev,
->   	tx_stats = &priv->tx_stats;
->   	rx_stats = &priv->rx_stats;
->   
-> -	spin_lock(&priv->stats_lock);
-> +	spin_lock_bh(&priv->stats_lock);
->   
->   	emac_stats_update(priv);
->   
-> @@ -1325,7 +1325,7 @@ static void emac_get_eth_mac_stats(struct net_device *dev,
->   	mac_stats->FramesAbortedDueToXSColls =
->   		tx_stats->stats.tx_excessclsn_pkts;
->   
-> -	spin_unlock(&priv->stats_lock);
-> +	spin_unlock_bh(&priv->stats_lock);
->   }
->   
->   static void emac_get_pause_stats(struct net_device *dev,
-> @@ -1338,14 +1338,14 @@ static void emac_get_pause_stats(struct net_device *dev,
->   	tx_stats = &priv->tx_stats;
->   	rx_stats = &priv->rx_stats;
->   
-> -	spin_lock(&priv->stats_lock);
-> +	spin_lock_bh(&priv->stats_lock);
->   
->   	emac_stats_update(priv);
->   
->   	pause_stats->tx_pause_frames = tx_stats->stats.tx_pause_pkts;
->   	pause_stats->rx_pause_frames = rx_stats->stats.rx_pause_pkts;
->   
-> -	spin_unlock(&priv->stats_lock);
-> +	spin_unlock_bh(&priv->stats_lock);
->   }
->   
->   /* Other statistics that are not derivable from standard statistics */
-> @@ -1393,14 +1393,14 @@ static void emac_get_ethtool_stats(struct net_device *dev,
->   	u64 *rx_stats = (u64 *)&priv->rx_stats;
->   	int i;
->   
-> -	spin_lock(&priv->stats_lock);
-> +	spin_lock_bh(&priv->stats_lock);
->   
->   	emac_stats_update(priv);
->   
->   	for (i = 0; i < ARRAY_SIZE(emac_ethtool_rx_stats); i++)
->   		data[i] = rx_stats[emac_ethtool_rx_stats[i].offset];
->   
-> -	spin_unlock(&priv->stats_lock);
-> +	spin_unlock_bh(&priv->stats_lock);
->   }
->   
->   static int emac_ethtool_get_regs_len(struct net_device *dev)
-> @@ -1769,7 +1769,7 @@ static int emac_up(struct emac_priv *priv)
->   
->   	netif_start_queue(ndev);
->   
-> -	emac_stats_timer(&priv->stats_timer);
-> +	mod_timer(&priv->stats_timer, jiffies);
->   
->   	return 0;
->   
-> @@ -1807,14 +1807,14 @@ static int emac_down(struct emac_priv *priv)
->   
->   	/* Update and save current stats, see emac_stats_update() for usage */
->   
-> -	spin_lock(&priv->stats_lock);
-> +	spin_lock_bh(&priv->stats_lock);
->   
->   	emac_stats_update(priv);
->   
->   	priv->tx_stats_off = priv->tx_stats;
->   	priv->rx_stats_off = priv->rx_stats;
->   
-> -	spin_unlock(&priv->stats_lock);
-> +	spin_unlock_bh(&priv->stats_lock);
->   
->   	pm_runtime_put_sync(&pdev->dev);
->   	return 0;
-> @@ -2111,7 +2111,7 @@ static int emac_resume(struct device *dev)
->   
->   	netif_device_attach(ndev);
->   
-> -	emac_stats_timer(&priv->stats_timer);
-> +	mod_timer(&priv->stats_timer, jiffies);
->   
->   	return 0;
->   }
->
-> ---
-> base-commit: 315f423be0d1ebe720d8fd4fa6bed68586b13d34
-> change-id: 20250919-k1-ethernet-fix-lock-c99681a9aa5d
->
-> Best regards,
-
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gOS8xLzI1IDEyOjM4LCBBbGVrc2EgUGF1bm92aWMgdmlhIEI0IFJlbGF5IHdyb3RlOg0KDQo+
+IEZyb206IENoYW8teWluZyBGdSA8Y2Z1QG1pcHMuY29tPg0KPg0KPiBVc2Ugb25seSBMUi9TQyBp
+bnN0cnVjdGlvbnMgdG8gaW1wbGVtZW50IGF0b21pYyBmdW5jdGlvbnMuDQo+DQo+IEFkZCBjb25m
+aWcgRVJSQVRBX01JUFNfUDg3MDBfQU1PX1pBTFJTQy4NCj4NCj4gU2lnbmVkLW9mZi1ieTogQ2hh
+by15aW5nIEZ1IDxjZnVAbWlwcy5jb20+DQo+IFNpZ25lZC1vZmYtYnk6IEFsZWtzYW5kYXIgUmlr
+YWxvIDxhcmlrYWxvQGdtYWlsLmNvbT4NCj4gQ28tZGV2ZWxvcGVkLWJ5OiBBbGVrc2EgUGF1bm92
+aWMgPGFsZWtzYS5wYXVub3ZpY0BodGVjZ3JvdXAuY29tPg0KPiBTaWduZWQtb2ZmLWJ5OiBBbGVr
+c2EgUGF1bm92aWMgPGFsZWtzYS5wYXVub3ZpY0BodGVjZ3JvdXAuY29tPg0KPiAtLS0NCj4gVGhp
+cyBwYXRjaCBkZXBlbmRzIG9uIFsxXSwgd2hpY2ggaW1wbGVtZW50cyBlcnJhdGEgc3VwcG9ydCBm
+b3IgdGhlIE1JUFMgcDg3MDAuDQo+DQo+IENoYW5nZXMgaW4gdjM6DQo+IC0gVXNlIGFsdGVybmF0
+aXZlcyB0byByZXBsYWNlIEFNTyBpbnN0cnVjdGlvbnMgd2l0aCBMUi9TQw0KPiAtIFJlYmFzZSBv
+biBBbGV4YW5kcmUgR2hpdGkncyAiZm9yLW5leHQiIGJyYW5jaC4NCj4gLSBMaW5rIHRvIHYyOiBo
+dHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI0MTIyNTA4MjQxMi4zNjcyNy0x
+LWFyaWthbG9AZ21haWwuY29tLw0KPg0KPiBbMV0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGlu
+dXgtcmlzY3YvMjAyNTA3MjQtcDg3MDAtcGF1c2UtdjUtMC1hNmNiYmUxYzM0MTJAaHRlY2dyb3Vw
+LmNvbS8NCj4gLS0tDQo+ICBhcmNoL3Jpc2N2L0tjb25maWcuZXJyYXRhICAgICAgICAgICAgICAg
+ICAgICB8ICAxMSArKw0KPiAgYXJjaC9yaXNjdi9lcnJhdGEvbWlwcy9lcnJhdGEuYyAgICAgICAg
+ICAgICAgfCAgMTMgKy0NCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXRvbWljLmggICAgICAg
+ICAgICAgIHwgIDI5ICsrLS0NCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vYml0b3BzLmggICAg
+ICAgICAgICAgIHwgIDI4ICsrLS0NCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY21weGNoZy5o
+ICAgICAgICAgICAgIHwgICA5ICstDQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VycmF0YV9s
+aXN0LmggICAgICAgICB8IDIxNSArKysrKysrKysrKysrKysrKysrKysrKysrKysNCj4gIGFyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3RfdmVuZG9ycy5oIHwgICAzICstDQo+ICBhcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL2Z1dGV4LmggICAgICAgICAgICAgICB8ICA0MSArKy0tLQ0KPiAg
+YXJjaC9yaXNjdi9rZXJuZWwvZW50cnkuUyAgICAgICAgICAgICAgICAgICAgfCAgMTAgKy0NCj4g
+IDkgZmlsZXMgY2hhbmdlZCwgMjkxIGluc2VydGlvbnMoKyksIDY4IGRlbGV0aW9ucygtKQ0KDQpH
+ZW50bGUgcGluZy4NCg0KV2Ugd291bGQgYXBwcmVjaWF0ZSBhbnkgY29tbWVudHMgb24gdGhlc2Ug
+Y2hhbmdlcy7CoCBJIGNvdWxkIHNwbGl0IHRoaXMgaW50byBtdWx0aXBsZSBwYXRjaGVzIGlmIHRo
+YXQgd291bGQgbWFrZSBpdCBlYXNpZXIgdG8gcmVhZC4NCg0KQmVzdCByZWdhcmRzLA0KQWxla3Nh
+wqANCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
