@@ -4,51 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46944CAC592
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 09:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58977CAC592
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 09:36:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pzw6pwsd9o9vHWlt041+OtNu7kqRLrDgoytPZ7XANS0=; b=C1mXoyBDAR6RtV
-	C5n6zJuUXc18vFJgJvrTdxkxpen3is0rDwhVRfajaqQD3+53942+RKrccq1Aj1CS2tXTwju3rlmON
-	3aDRsWHLM7Oge7fCmoycE8ViLRS35ddqv16HDRK/vI6mO2ALB6AsVDCO2JKVheSxDrjwE35tJY2bW
-	LTvxFPylcLjOd4eeeGePwFjCW/nOIuCcFY71sKhY41QrdVrG50c1bU2b6enrkvvH65m+5T7TOWEFa
-	RPBykI0BTOx4DXjvoTnfpBunyjuaPmH4q+rJaRhrdginHzBqeZwSpZlDMLSb2RtkdgoQGXbEXVVkj
-	m0Z4ez+Axd9ETzeLwu4Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SHN9vEjsf3qbXYLIbJhd/ysTS+l0kUOhup1y+U4ZfhI=; b=eiBIebfj9s36DH
+	wOsYB2d794idG5XAaPcPVozjurAUIz3BFQV85KJ7JVd0p3pqqHHkjkun62w//smLOaqUJbIo1TK5T
+	3P/OB8wO3/GpjQPmfyI7FuYGMOKWPaesP7wWR1omh5kYePxlKMHwXRLtU1SpOaEMvwKuvoO52qII1
+	MSvDJ+zd7C1trgcCoD2r+WQI21EkNSJLgCcW7Hchww/CGUwDtrWljy+CbSl27YE2o4LL2BPcJf+8R
+	mUDp6+bG2+BFezbaP7t9oYXJ1/Jd3+kxJ9ZtlcPjsKQV5iiSr8IS48ayUY9vU3dlpXxOfe4RopVsr
+	T6HOGfdTtvUW3kpGxHqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXST-00000002NmK-2EwV;
-	Fri, 19 Sep 2025 09:31:13 +0000
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXSQ-00000002Nlp-459V
-	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 09:31:12 +0000
-Received: from localhost (unknown [180.158.240.90])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 09EE3341FEB;
-	Fri, 19 Sep 2025 09:31:08 +0000 (UTC)
-Date: Fri, 19 Sep 2025 17:31:04 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: soc@kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>, Alex Elder <elder@riscstar.com>,
-	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [GIT PULL] RISC-V SpacemiT Devicetrees for v6.18
-Message-ID: <20250919093104-GYB1279412@gentoo.org>
-References: <20250919055525-GYC5766558@gentoo.org>
+	id 1uzXXU-00000002OhA-3MY2;
+	Fri, 19 Sep 2025 09:36:24 +0000
+Received: from mail.loongson.cn ([114.242.206.163])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzXXR-00000002OgY-2uvc;
+	Fri, 19 Sep 2025 09:36:23 +0000
+Received: from loongson.cn (unknown [113.200.148.30])
+	by gateway (Coremail) with SMTP id _____8Axz78RJM1omC0MAA--.24734S3;
+	Fri, 19 Sep 2025 17:36:18 +0800 (CST)
+Received: from linux.localdomain (unknown [113.200.148.30])
+	by front1 (Coremail) with SMTP id qMiowJDxbMEPJM1oMmufAA--.61162S2;
+	Fri, 19 Sep 2025 17:36:16 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Josh Poimboeuf <jpoimboe@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>
+Cc: loongarch@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/3] Only link libstub to final vmlinux
+Date: Fri, 19 Sep 2025 17:36:12 +0800
+Message-ID: <20250919093615.30235-1-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.42.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250919055525-GYC5766558@gentoo.org>
+X-CM-TRANSID: qMiowJDxbMEPJM1oMmufAA--.61162S2
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
+	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
+	BjDU0xBIdaVrnRJUUUBCb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26c
+	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
+	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxV
+	AFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
+	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx
+	1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv
+	67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l42xK82IYc2
+	Ij64vIr41l4c8EcI0En4kS14v26r1Y6r17MxAqzxv26xkF7I0En4kS14v26r126r1DMxC2
+	0s026xCaFVCjc4AY6r1j6r4UMxCIbckI1I0E14v26r1Y6r17MI8I3I0E5I8CrVAFwI0_Jr
+	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0E
+	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJV
+	W8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAI
+	cVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxU7_MaUUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_023111_039260_F8123444 
-X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-CacheID: sfid-20250919_023622_078623_CFF2318B 
+X-CRM114-Status: UNSURE (   5.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -66,35 +83,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+The initial aim is to fix the objtool warning on LoongArch,
+then do the similar thing for arm64 and riscv.
 
-On 05:57 Fri 19 Sep     , Yixun Lan wrote:
-> Hi Arnd,
-> 
->    Please pull SpacemiT's DeviceTree changes for v6.18
-> 
-> Yixun Lan
-> 
-> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
-> 
->   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
-> 
-> are available in the Git repository at:
-> 
->   https://github.com/spacemit-com/linux tags/spacemit-dt-for-6.18-1
-> 
-> for you to fetch changes up to 0f084b221e2c5ba16eca85b3d2497f9486bd0329:
-> 
->   riscv: dts: spacemit: uart: remove sec_uart1 device node (2025-09-04 08:50:29 +0800)
-> 
+Tiezhu Yang (3):
+  LoongArch: Only link libstub to final vmlinux
+  arm64: Only link libstub to final vmlinux
+  riscv: Only link libstub to final vmlinux
 
-I just want to let you aware there is a potentional conflict with this PR(trivial),
-please see more context from below link, I've already CCed to you, thanks
-
-https://lore.kernel.org/all/20250919092507-GYA1279412@gentoo.org/
+ Makefile                | 1 +
+ arch/arm64/Makefile     | 5 ++++-
+ arch/loongarch/Makefile | 5 ++++-
+ arch/riscv/Makefile     | 5 ++++-
+ scripts/link-vmlinux.sh | 5 ++---
+ 5 files changed, 15 insertions(+), 6 deletions(-)
 
 -- 
-Yixun Lan (dlan)
+2.42.0
+
 
 _______________________________________________
 linux-riscv mailing list
