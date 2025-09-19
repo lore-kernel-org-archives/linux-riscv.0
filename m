@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E63CCAC592
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 07:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E9ECAC59A
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 07:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iP6+alyKHJvOaf5qKLyyAZano6FXeFHAVxME4CRlCrk=; b=a/rnbMbjuNrtNz
-	5aKGvniN7xGvQSIPC3OqWcwEgTABLFyXL4H3PIFTI6nbnVJTC+/ZbcBn45sgaoAUgyfF0b1rjPChf
-	8rwq3btoJ+6FS6Pk+xUqRRCH+ql3hRdt6crBsPloomK1wy5l0t7OxBE366Tt/U8xd1xFZO8patGRm
-	yART3d6tUzv3h2T5biNVj2NBH1Njh5n3fjc1yLYglcZNvzBzIJIpMacwc/iY9z//OCDIMYf41+U0m
-	DTOShlqnr4i1sBumPtPuxE5JEWu8/abG0VjTackksxoSpLF0vj4SLHGsef5p+/FkQyEHzHwMLx1ic
-	eMnOeyhxyGseouNHN3pQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PE6eV5lHn20YHWTPS3f7CSXl3VuEIadZ6FUag210c2g=; b=OVPX5+yRdRO3Ig8Hl47aC/85Jp
+	BFAHmsVXsF0dUiOA4JIru+MMeV+ckDC04Wf6bD36HDRNaPm/cHwpW2s/DGJf3PjLORyyev9PtCJWt
+	klJLWfMlehvJMvmkfiH0uQPuszPboPVSU7C/vndwKEB86ws3ZqkGYYtZuoanYlKku2FjhG3YxNrmu
+	pW/ab7lcfbj1mBCgg9xhJ9h2P5TzP9ZV5YyCTghCcUkAhzV2OoQeR/1OhPpNtfEv4T4zekRK4EfFw
+	J4L+XXi52NV9l1aLuZsGysGW4wLijHQyxx8KsBZqN21YsNACaRkqs6Ruw2rcyQYY8ZpBgJaWO5sn/
+	J/GDhi0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzV7Y-00000001zhY-3Ctr;
-	Fri, 19 Sep 2025 07:01:28 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1uzVG2-000000021Pv-2KBV;
+	Fri, 19 Sep 2025 07:10:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzV7W-00000001zg5-0VbU
+	id 1uzVG0-000000021PS-0NNF
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 07:01:27 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7762021c574so1768591b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 00:01:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1758265281; x=1758870081; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=tB6QRb7jrsTmVzw62zDkWBc74Sx3MC31EtdUpSMEsXg=;
-        b=EwjKgbmeHhf4mbcmCpLpPD8eDrEPkTtPGGLmZYQVAVOq1g4zbWWbpqtwG5aV0z7IGb
-         VCRIYbAdz7bWtc0aKlQPLFpSkRZMIYTV0mf8o6G8TwROv5ORVY8YEF209fL7aGTYdjX5
-         iRmvZCI0b/WS6ZWwYk0ktI++vrYSsF+vGqiNbFDeCrC77xGvJdP+BRH3iurRolx1KFJ9
-         UA291V7d3E40J5XZq4VzkzludSh+CES6I3HIl5xFw6Bhk5ak90eka/bgY0hFMwMStj/e
-         ltcrPkFFfPJgDq0LzkHilXvYIiXZ6vt/D2KLI8jDlDZ+mjwEU7aT2etkUVa3jgxhvt+4
-         PRCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758265281; x=1758870081;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tB6QRb7jrsTmVzw62zDkWBc74Sx3MC31EtdUpSMEsXg=;
-        b=Hob3x0Z9FRR5T5siSvcf6m8w5NFnWzZGtAwmiL6DwB0tpmdrwMH7JvYLBZ6C7CC/2M
-         j4rFPS40XViUQZAr01MuxeJZVmLWt+Fe+hhYebF3DeoxiTHqErwG9zWrs7TNy5lkaLYx
-         g4bWwETkDaX0rAg14y4fBX0VF9PYjs+UtxDKdlW6pVKymhATZ2j/zDKeVIEG/npv3i52
-         4ZLMhlRRxudQSpWtSE/l7vc4uKg+la34yIUcwPx/P/CjeOeqkWp0fKdpPUkv865q7WNr
-         LNX6aRV8i5VQRvKOlOKcGKhgdZbkH9eyGJOvrXq1rRZfRs25kQYhDRrV9/39z1fvIEBm
-         mZow==
-X-Forwarded-Encrypted: i=1; AJvYcCWwVtq4M26p8ns9pnwfynYExGQA/AY3El+sfPWQT7NzZW5B0qnybXwC87KiuNHcRhFMkjIK31PTobLRbA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yye3YJCKjJ+8gnIyjY+xLd/zRrCQjXuwh6k6YpLqLK7i5115LuT
-	Q0qcpQRtTKhmgudM3Rmu3OZQtE+J4QfDbc4tgEfg0pz0P/zWVROWWXRMPbMJyewqVl4=
-X-Gm-Gg: ASbGnctDmoEp8kopbwwC7IBW4eIntLjSlSaqNcyb6NZaDYisniQBDghYbmZUbKVHKf+
-	+M7mJheI9jrNFBrX9upHgW2rmyafkXsHvd0mlXja5MpbXimBMvujs+LV0roasN3dhy/J+bzN/Tw
-	eiIuL8cLEgJAaAxeslO+LOyxmu6OF6cG5svRVpSduui5rBww3mwvv5bLOqXshuH6tlUlFzOuSHp
-	W52gi1YRAv0oBGHPQyDrsZUy1znbYb5oieIM/ORMCGe2M2EQxIoehaC7roJYgtDZ9VfJxlp7jHJ
-	21U9yWCMMN9uJNIG/CH/bzRL7Hsra6FQnaRnBDKwl7lwUYFB8K54fjeO1CC8qkqSPo1aazCmyTB
-	3M43AxikjiwtRyVPyM2myOCqqhcbwoo4bJeRkhdzNYPyu86LlMwE74LjkA9wV6lY=
-X-Google-Smtp-Source: AGHT+IHr4UxZDEHkDiNV7EOaRF3VONxVH0Cmxy2oMVJnQ6nic0Vry9y1+483kpnmptspoi7qgVuy9w==
-X-Received: by 2002:aa7:8894:0:b0:774:52bd:698d with SMTP id d2e1a72fcca58-77e4d709ac2mr2418765b3a.11.1758265280943;
-        Fri, 19 Sep 2025 00:01:20 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([61.213.176.9])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77dc606e10fsm2938738b3a.65.2025.09.19.00.01.15
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 19 Sep 2025 00:01:20 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	conor@kernel.org,
-	atishp@rivosinc.com,
-	cleger@rivosinc.com,
-	ajones@ventanamicro.com,
-	apatel@ventanamicro.com,
-	cuiyunhui@bytedance.com,
-	mchitale@ventanamicro.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH RFC 0/1] Support unknown NMI based on SSE
-Date: Fri, 19 Sep 2025 15:00:47 +0800
-Message-Id: <20250919070048.94646-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	Fri, 19 Sep 2025 07:10:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BFE1E4063D;
+	Fri, 19 Sep 2025 07:10:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17C97C4CEF0;
+	Fri, 19 Sep 2025 07:10:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758265810;
+	bh=UN238o5/y4J5dcysXM/nOx7D7SlXXhWZAQZD1SbKS5k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=e4rptESW8c1TJuIle/DO+v42SUIePmqwkH1ldDkMoiKtHMBytvKSjajtJiSb3nPN9
+	 SZUiSzFpYmEbdQ2lDykSTMN3H4UtiT6wPc3qd2YIrmcHOadRszfLjUMPnrG8Z2+/oX
+	 qmjqpky90EfNmOrqVK/9q7SDeetMtt1sPcTmdt+7ugCRTC+UzRe+CRllLBzfyyDAbq
+	 mVWV/EiOiy5wMlkPusXi8GGTJalfO9ryCf5EcuT+Z6vGQmHh3zQcQGuWZHCO2uS5s9
+	 pRC1AL2t0dBpSdT3jSU6cMer3lQDJdkYxmxVTXGVkVIjdzDpIwX46CGEiECd+9eb42
+	 nmtCQhxgibHoA==
+Date: Fri, 19 Sep 2025 09:10:08 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Benno Lossin <lossin@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Drew Fustini <fustini@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v14 4/7] pwm: Add Rust driver for T-HEAD TH1520 SoC
+Message-ID: <ca2ftwfducf4swuoondajiid642mctilh4lt3grgxpnup3nhag@tyuwyasfw4uj>
+References: <20250820-rust-next-pwm-working-fan-for-sending-v14-0-df2191621429@samsung.com>
+ <CGME20250820083544eucas1p2be0157353ec1201b0651292792429aa4@eucas1p2.samsung.com>
+ <20250820-rust-next-pwm-working-fan-for-sending-v14-4-df2191621429@samsung.com>
 MIME-Version: 1.0
+In-Reply-To: <20250820-rust-next-pwm-working-fan-for-sending-v14-4-df2191621429@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_000126_435700_8E3AB732 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250919_001012_207254_67308068 
+X-CRM114-Status: GOOD (  47.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,23 +79,533 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2109024021573122130=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBwYXRjaCBpcyBiYXNlZCBvbiB0aGUgU1NFIGZlYXR1cmVzIGJ5IENsw6ltZW50IEzDqWdl
-cjoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwOTA4MTgxNzE3LjE5OTc0NjEtMS1j
-bGVnZXJAcml2b3NpbmMuY29tLwoKSXQgbWFpbmx5IGFkZHMgc3VwcG9ydCBmb3IgdW5rbm93biBO
-TUkgZnVuY3Rpb25hbGl0eS4gU2luY2UgZXh0ZW5zaW9uCmRldmVsb3BtZW50IGhhcyBub3QgeWV0
-IGJlZW4gaW1wbGVtZW50ZWQgaW4gU0JJLCBhbiBSRkMgdmVyc2lvbiBpcwpzdWJtaXR0ZWQgZmly
-c3QuCgpZdW5odWkgQ3VpICgxKToKICBkcml2ZXJzOiBmaXJtd2FyZTogcmlzY3Y6IGFkZCB1bmtu
-b3duIE5NSSBzdXBwb3J0CgogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaCAgICAgfCAgMSAr
-CiBkcml2ZXJzL2Zpcm13YXJlL3Jpc2N2L0tjb25maWcgICB8IDEwICsrKysrCiBkcml2ZXJzL2Zp
-cm13YXJlL3Jpc2N2L01ha2VmaWxlICB8ICAxICsKIGRyaXZlcnMvZmlybXdhcmUvcmlzY3Yvc3Nl
-X25taS5jIHwgNzcgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKIDQgZmlsZXMgY2hh
-bmdlZCwgODkgaW5zZXJ0aW9ucygrKQogY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvZmlybXdh
-cmUvcmlzY3Yvc3NlX25taS5jCgotLSAKMi4zOS41CgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============2109024021573122130==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uu7qwrkf63ilczbj"
+Content-Disposition: inline
+
+
+--uu7qwrkf63ilczbj
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v14 4/7] pwm: Add Rust driver for T-HEAD TH1520 SoC
+MIME-Version: 1.0
+
+Hello,
+
+actually I intended to give my feedback as a patch, but I'm not fluent
+enough in Rust yet :-\, so here come my thoughts in text only.
+
+On Wed, Aug 20, 2025 at 10:35:39AM +0200, Michal Wilczynski wrote:
+> Introduce a PWM driver for the T-HEAD TH1520 SoC, written in Rust and
+> utilizing the safe PWM abstractions from the preceding commit.
+>=20
+> The driver implements the pwm::PwmOps trait using the modern waveform
+> API (round_waveform_tohw, write_waveform, etc.) to support configuration
+> of period, duty cycle, and polarity for the TH1520's PWM channels.
+>=20
+> Resource management is handled using idiomatic Rust patterns. The PWM
+> chip object is allocated via pwm::Chip::new and its registration with
+> the PWM core is managed by the pwm::Registration RAII guard. This
+> ensures pwmchip_remove is always called when the driver unbinds,
+> preventing resource leaks. Device managed resources are used for the
+> MMIO region, and the clock lifecycle is correctly managed in the
+> driver's private data Drop implementation.
+>=20
+> The driver's core logic is written entirely in safe Rust, with no unsafe
+> blocks, except for the Send and Sync implementations for the driver
+> data, which are explained in the comments.
+>=20
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  MAINTAINERS               |   1 +
+>  drivers/pwm/Kconfig       |  11 ++
+>  drivers/pwm/Makefile      |   1 +
+>  drivers/pwm/pwm_th1520.rs | 355 ++++++++++++++++++++++++++++++++++++++++=
+++++++
+
+For consistency I would prefer this file to be named pwm-th1520.rs. I
+tried to fix that but then the compiler was unhappy. I guess a minus in
+a filename just doesn't work for Rust?
+
+>  4 files changed, 368 insertions(+)
+>=20
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 5d7c0676c1d00a02b3d7db2de88b039c08c99c6e..d79dc21f22d143ca8cde6a061=
+94545fbc640e695 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -21741,6 +21741,7 @@ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thea=
+d.c
+>  F:	drivers/pinctrl/pinctrl-th1520.c
+>  F:	drivers/pmdomain/thead/
+>  F:	drivers/power/sequencing/pwrseq-thead-gpu.c
+> +F:	drivers/pwm/pwm_th1520.rs
+>  F:	drivers/reset/reset-th1520.c
+>  F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+>  F:	include/dt-bindings/power/thead,th1520-power.h
+> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> index 2b608f4378138775ee3ba4d53f682952e1914118..dd6db01832ee985e2e588a413=
+a13df869a029d3d 100644
+> --- a/drivers/pwm/Kconfig
+> +++ b/drivers/pwm/Kconfig
+> @@ -729,6 +729,17 @@ config PWM_TEGRA
+>  	  To compile this driver as a module, choose M here: the module
+>  	  will be called pwm-tegra.
+> =20
+> +config PWM_TH1520
+> +	tristate "TH1520 PWM support"
+> +	depends on RUST
+> +	select RUST_PWM_ABSTRACTIONS
+> +	help
+> +	  This option enables the driver for the PWM controller found on the
+> +	  T-HEAD TH1520 SoC.
+> +
+> +	  To compile this driver as a module, choose M here; the module
+> +	  will be called pwm-th1520. If you are unsure, say N.
+> +
+>  config PWM_TIECAP
+>  	tristate "ECAP PWM support"
+>  	depends on ARCH_OMAP2PLUS || ARCH_DAVINCI_DA8XX || ARCH_KEYSTONE || ARC=
+H_K3 || COMPILE_TEST
+> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+> index ff4f47e5fb7a0dbac72c12de82c3773e5582db6d..5c15c95c6e491439693891986=
+57eed0ecf4086b2 100644
+> --- a/drivers/pwm/Makefile
+> +++ b/drivers/pwm/Makefile
+> @@ -67,6 +67,7 @@ obj-$(CONFIG_PWM_STMPE)		+=3D pwm-stmpe.o
+>  obj-$(CONFIG_PWM_SUN4I)		+=3D pwm-sun4i.o
+>  obj-$(CONFIG_PWM_SUNPLUS)	+=3D pwm-sunplus.o
+>  obj-$(CONFIG_PWM_TEGRA)		+=3D pwm-tegra.o
+> +obj-$(CONFIG_PWM_TH1520)	+=3D pwm_th1520.o
+>  obj-$(CONFIG_PWM_TIECAP)	+=3D pwm-tiecap.o
+>  obj-$(CONFIG_PWM_TIEHRPWM)	+=3D pwm-tiehrpwm.o
+>  obj-$(CONFIG_PWM_TWL)		+=3D pwm-twl.o
+> diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..5ef887b1b5dfed92c5d4b87a7=
+d48f673352a257e
+> --- /dev/null
+> +++ b/drivers/pwm/pwm_th1520.rs
+> @@ -0,0 +1,355 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (c) 2025 Samsung Electronics Co., Ltd.
+> +// Author: Michal Wilczynski <m.wilczynski@samsung.com>
+> +
+> +//! Rust T-HEAD TH1520 PWM driver
+> +//!
+> +//! Limitations:
+> +//! - The period and duty cycle are controlled by 32-bit hardware regist=
+ers,
+> +//!   limiting the maximum resolution.
+> +//! - The driver supports continuous output mode only; one-shot mode is =
+not
+> +//!   implemented.
+> +//! - The controller hardware provides up to 6 PWM channels.
+> +//! - Reconfiguration is glitch free - new period and duty cycle values =
+are
+> +//!   latched and take effect at the start of the next period.
+> +//! - Polarity is handled via a simple hardware inversion bit; arbitrary
+> +//!   duty cycle offsets are not supported.
+> +//! - Disabling a channel is achieved by configuring its duty cycle to z=
+ero to
+> +//!   produce a static low output. Clearing the `start` does not reliably
+> +//!   force the static inactive level defined by the `INACTOUT` bit. Hen=
+ce
+> +//!   this method is not used in this driver.
+> +//!
+> +
+> +use core::ops::Deref;
+> +use kernel::{
+> +    c_str,
+> +    clk::Clk,
+> +    device::{Bound, Core, Device},
+> +    devres,
+> +    io::mem::IoMem,
+> +    of, platform,
+> +    prelude::*,
+> +    pwm, time,
+> +};
+> +
+> +const TH1520_MAX_PWM_NUM: u32 =3D 6;
+> +
+> +// Register offsets
+> +const fn th1520_pwm_chn_base(n: u32) -> usize {
+> +    (n * 0x20) as usize
+> +}
+> +
+> +const fn th1520_pwm_ctrl(n: u32) -> usize {
+> +    th1520_pwm_chn_base(n)
+> +}
+> +
+> +const fn th1520_pwm_per(n: u32) -> usize {
+> +    th1520_pwm_chn_base(n) + 0x08
+> +}
+> +
+> +const fn th1520_pwm_fp(n: u32) -> usize {
+> +    th1520_pwm_chn_base(n) + 0x0c
+> +}
+> +
+> +// Control register bits
+> +const TH1520_PWM_START: u32 =3D 1 << 0;
+> +const TH1520_PWM_CFG_UPDATE: u32 =3D 1 << 2;
+> +const TH1520_PWM_CONTINUOUS_MODE: u32 =3D 1 << 5;
+> +const TH1520_PWM_FPOUT: u32 =3D 1 << 8;
+> +
+> +const TH1520_PWM_REG_SIZE: usize =3D 0xB0;
+> +
+> +fn ns_to_cycles(ns: u64, rate_hz: u64) -> u64 {
+> +    const NSEC_PER_SEC_U64: u64 =3D time::NSEC_PER_SEC as u64;
+> +
+> +    (match ns.checked_mul(rate_hz) {
+> +        Some(product) =3D> product,
+> +        None =3D> u64::MAX,
+> +    }) / NSEC_PER_SEC_U64
+> +}
+> +
+> +fn cycles_to_ns(cycles: u64, rate_hz: u64) -> u64 {
+> +    const NSEC_PER_SEC_U64: u64 =3D time::NSEC_PER_SEC as u64;
+> +
+> +    // Round up
+> +    let Some(numerator) =3D cycles
+> +        .checked_mul(NSEC_PER_SEC_U64)
+> +        .and_then(|p| p.checked_add(rate_hz - 1))
+> +    else {
+> +        return u64::MAX;
+> +    };
+> +
+> +    numerator / rate_hz
+
+Does cycles_to_ns(18446744074, 66000000) yield u64::MAX or u64::MAX /
+66000000? Reading through the docs I found I think it's the former. I
+guess we don't reach these spheres in the driver, but conceptually the
+latter would be better and I think that's relevant as this is the first
+Rust driver and so very likely will be the blueprint for further
+drivers.
+
+Further below you're using saturating_sub(), is there a similar variant
+for multiplication that could simplify this function to
+
+	let numerator =3D cyles
+	  .saturating_mul(NSEC_PER_SEC_U64)
+	  .saturating_add(rate_hz - 1);
+
+	numerator / rate_hz
+
+?
+
+Additionally I'd add a comment that this should be replaced by
+mul_u64_u64_div_u64_roundup() once that exists in Rust. (Sigh, I just
+notice we still don't have that in C yet.)
+
+> +}
+> +
+> +/// Hardware-specific waveform representation for TH1520.
+> +#[derive(Copy, Clone, Debug, Default)]
+> +struct Th1520WfHw {
+> +    period_cycles: u32,
+> +    duty_cycles: u32,
+> +    ctrl_val: u32,
+> +    enabled: bool,
+> +}
+> +
+> +/// The driver's private data struct. It holds all necessary devres mana=
+ged resources.
+> +#[pin_data(PinnedDrop)]
+> +struct Th1520PwmDriverData {
+> +    #[pin]
+> +    iomem: devres::Devres<IoMem<TH1520_PWM_REG_SIZE>>,
+> +    clk: Clk,
+> +}
+> +
+> +// This `unsafe` implementation is a temporary necessity because the und=
+erlying `kernel::clk::Clk`
+> +// type does not yet expose `Send` and `Sync` implementations. This bloc=
+k should be removed
+> +// as soon as the clock abstraction provides these guarantees directly.
+> +// TODO: Remove those unsafe impl's when Clk will support them itself.
+> +
+> +// SAFETY: The `devres` framework requires the driver's private data to =
+be `Send` and `Sync`.
+> +// We can guarantee this because the PWM core synchronizes all callbacks=
+, preventing concurrent
+> +// access to the contained `iomem` and `clk` resources.
+> +unsafe impl Send for Th1520PwmDriverData {}
+> +
+> +// SAFETY: The same reasoning applies as for `Send`. The PWM core's sync=
+hronization
+> +// guarantees that it is safe for multiple threads to have shared access=
+ (`&self`)
+> +// to the driver data during callbacks.
+> +unsafe impl Sync for Th1520PwmDriverData {}
+> +
+> +impl pwm::PwmOps for Th1520PwmDriverData {
+> +    type WfHw =3D Th1520WfHw;
+> +
+> +    fn round_waveform_tohw(
+> +        chip: &pwm::Chip<Self>,
+> +        _pwm: &pwm::Device,
+> +        wf: &pwm::Waveform,
+> +    ) -> Result<pwm::RoundedWaveform<Self::WfHw>> {
+> +        let data =3D chip.drvdata();
+> +
+> +        if wf.period_length_ns =3D=3D 0 {
+
+Please add a dev_dbg! here for consistency with the wf.period_length_ns
+!=3D 0 case here.
+
+> +            return Ok(pwm::RoundedWaveform {
+> +                status: 0,
+> +                hardware_waveform: Th1520WfHw {
+> +                    enabled: false,
+> +                    ..Default::default()
+> +                },
+> +            });
+> +        }
+> +
+> +        let rate_hz =3D data.clk.rate().as_hz() as u64;
+> +
+> +        let period_cycles =3D ns_to_cycles(wf.period_length_ns, rate_hz)=
+=2Emin(u64::from(u32::MAX));
+
+What happens if you get period_cycles =3D 0 here?
+
+> +        let mut duty_cycles =3D ns_to_cycles(wf.duty_length_ns, rate_hz)=
+=2Emin(u64::from(u32::MAX));
+> +
+> +        let mut ctrl_val =3D TH1520_PWM_CONTINUOUS_MODE;
+> +
+> +        let is_inversed =3D wf.duty_length_ns > 0
+> +            && wf.duty_offset_ns > 0
+> +            && wf.duty_length_ns + wf.duty_offset_ns >=3D wf.period_leng=
+th_ns;
+
+For
+	duty_length_ns =3D   0x8000000000000000
+	duty_offset_ns =3D   0x8000000000000000
+	period_length_ns =3D 0xffffffffffffffff
+
+this should evaluate to true (right?) but if + overflows in the same way
+in Rust as it does in C, you get is_inversed =3D false here.
+
+The safe condition is
+
+	wf.duty_offset_ns >=3D wf.period_length_ns - wf.duty_length_ns
+
+here.
+
+> +        if is_inversed {
+> +            duty_cycles =3D period_cycles - duty_cycles;
+> +        } else {
+> +            ctrl_val |=3D TH1520_PWM_FPOUT;
+> +        }
+> +
+> +        let wfhw =3D Th1520WfHw {
+> +            period_cycles: period_cycles as u32,
+> +            duty_cycles: duty_cycles as u32,
+
+This casts period_cycles and duty_cycles from an u64 to an u32, right?
+Can you please add a comment that shortly explains why these values fit
+into an u32?
+
+> +            ctrl_val,
+> +            enabled: true,
+> +        };
+> +
+> +        dev_dbg!(
+> +            chip.device(),
+> +            "clk_rate: {}Hz Requested: period {}ns, duty {}ns, offset {}=
+ns -> HW: period {} cyc, duty {} cyc, ctrl 0x{:x}\n",
+
+" " before the units please.
+
+I want to establish
+
+	"{}/{} [+{}]", duty_length_ns, period_length_ns, duty_offset_ns
+
+as the typical way to emit a waveform. Please use that consistently.
+
+> +            rate_hz,
+> +            wf.period_length_ns,
+> +            wf.duty_length_ns,
+> +            wf.duty_offset_ns,
+> +            wfhw.period_cycles,
+> +            wfhw.duty_cycles,
+> +            wfhw.ctrl_val
+> +        );
+> +
+> +        Ok(pwm::RoundedWaveform {
+> +            status: 0,
+> +            hardware_waveform: wfhw,
+> +        })
+> +    }
+> +
+> +    fn round_waveform_fromhw(
+> +        chip: &pwm::Chip<Self>,
+> +        _pwm: &pwm::Device,
+> +        wfhw: &Self::WfHw,
+> +        wf: &mut pwm::Waveform,
+> +    ) -> Result {
+> +        let data =3D chip.drvdata();
+> +        let rate_hz =3D data.clk.rate().as_hz() as u64;
+> +
+> +        wf.period_length_ns =3D cycles_to_ns(u64::from(wfhw.period_cycle=
+s), rate_hz);
+
+Here I wonder again about wfhw.period_cycles =3D 0.
+
+> +        let duty_cycles =3D u64::from(wfhw.duty_cycles);
+> +
+> +        if (wfhw.ctrl_val & TH1520_PWM_FPOUT) !=3D 0 {
+> +            wf.duty_length_ns =3D cycles_to_ns(duty_cycles, rate_hz);
+> +            wf.duty_offset_ns =3D 0;
+> +        } else {
+> +            let period_cycles =3D u64::from(wfhw.period_cycles);
+> +            let original_duty_cycles =3D period_cycles.saturating_sub(du=
+ty_cycles);
+> +
+> +            // For an inverted signal, `duty_length_ns` is the high time=
+ (period - low_time).
+> +            wf.duty_length_ns =3D cycles_to_ns(original_duty_cycles, rat=
+e_hz);
+> +            // The offset is the initial low time, which is what the har=
+dware register provides.
+> +            wf.duty_offset_ns =3D cycles_to_ns(duty_cycles, rate_hz);
+> +        }
+> +
+> +        Ok(())
+> +    }
+> +
+> +    fn read_waveform(
+> +        chip: &pwm::Chip<Self>,
+> +        pwm: &pwm::Device,
+> +        parent_dev: &Device<Bound>,
+> +    ) -> Result<Self::WfHw> {
+> +        let data =3D chip.drvdata();
+> +        let hwpwm =3D pwm.hwpwm();
+> +        let iomem_accessor =3D data.iomem.access(parent_dev)?;
+> +        let iomap =3D iomem_accessor.deref();
+> +
+> +        let ctrl =3D iomap.try_read32(th1520_pwm_ctrl(hwpwm))?;
+> +        let period_cycles =3D iomap.try_read32(th1520_pwm_per(hwpwm))?;
+> +        let duty_cycles =3D iomap.try_read32(th1520_pwm_fp(hwpwm))?;
+> +
+> +        let wfhw =3D Th1520WfHw {
+> +            period_cycles,
+> +            duty_cycles,
+> +            ctrl_val: ctrl,
+> +            enabled: duty_cycles !=3D 0,
+> +        };
+> +
+> +        dev_dbg!(
+> +            chip.device(),
+> +            "PWM-{}: read_waveform: Read hw state - period: {}, duty: {}=
+, ctrl: 0x{:x}, enabled: {}",
+> +            hwpwm,
+> +            wfhw.period_cycles,
+> +            wfhw.duty_cycles,
+> +            wfhw.ctrl_val,
+> +            wfhw.enabled
+> +        );
+> +
+> +        Ok(wfhw)
+> +    }
+> +
+> +    fn write_waveform(
+> +        chip: &pwm::Chip<Self>,
+> +        pwm: &pwm::Device,
+> +        wfhw: &Self::WfHw,
+> +        parent_dev: &Device<Bound>,
+> +    ) -> Result {
+> +        let data =3D chip.drvdata();
+> +        let hwpwm =3D pwm.hwpwm();
+> +        let iomem_accessor =3D data.iomem.access(parent_dev)?;
+> +        let iomap =3D iomem_accessor.deref();
+> +        let was_enabled =3D pwm.state().enabled();
+
+The driver would be a tad more robust if was_enabled is determined from
+the hardware registers instead. (And also it helps not to add another
+dependency on pwm.state which I'd like to get rid of in the long run
+with waveforms being the canonical representation internally.)
+
+> +
+> +        if !wfhw.enabled {
+
+dev_dbg! here for consistence please.
+
+> +            if was_enabled {
+> +                iomap.try_write32(wfhw.ctrl_val, th1520_pwm_ctrl(hwpwm))=
+?;
+> +                iomap.try_write32(0, th1520_pwm_fp(hwpwm))?;
+> +                iomap.try_write32(wfhw.ctrl_val | TH1520_PWM_CFG_UPDATE,=
+ th1520_pwm_ctrl(hwpwm))?;
+> +            }
+> +            return Ok(());
+> +        }
+> +
+> +        iomap.try_write32(wfhw.ctrl_val, th1520_pwm_ctrl(hwpwm))?;
+> +        iomap.try_write32(wfhw.period_cycles, th1520_pwm_per(hwpwm))?;
+> +        iomap.try_write32(wfhw.duty_cycles, th1520_pwm_fp(hwpwm))?;
+> +        iomap.try_write32(wfhw.ctrl_val | TH1520_PWM_CFG_UPDATE, th1520_=
+pwm_ctrl(hwpwm))?;
+> +
+> +        // The `TH1520_PWM_START` bit must be written in a separate, fin=
+al transaction, and
+> +        // only when enabling the channel from a disabled state.
+> +        if !was_enabled {
+> +            iomap.try_write32(wfhw.ctrl_val | TH1520_PWM_START, th1520_p=
+wm_ctrl(hwpwm))?;
+> +        }
+> +
+> +        dev_dbg!(
+> +            chip.device(),
+> +            "PWM-{}: Wrote (per: {}, duty: {})",
+> +            hwpwm,
+> +            wfhw.period_cycles,
+> +            wfhw.duty_cycles,
+> +        );
+> +
+> +        Ok(())
+> +    }
+> +}
+
+Best regards
+Uwe
+
+--uu7qwrkf63ilczbj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmjNAcYACgkQj4D7WH0S
+/k4Sewf/SVau6tkPjfRkfj0oxHSb6f/jhZChnnVs4iPLwVSRazcobjGdD0WcUBQB
+fhDJHbAaYey6ihKnfiIL7mdcQxhwsfqfxfGqGY0Y2/hvyKFuV1CPtMPXzKEWvnP/
+cwHE6pOC1RfipN5UEwq3oUqIDwyPzq7vUdpWSxSFa3UbKg/nU5gnN2W2Mlb80X4r
+0pZli7Ht35xlNWbFhNc2/Zj/6bQtuA+E1U20dXy6fyH1k+3NqNjPMgfrq1z1SrUM
+lWYiHLKVE6d4JovqEVolhplH2akJfWCprBS7eVs1HxD3FKfhvHYf6sOzBlUw4JZm
++Z+1n6Rga3Rq1Z7d2tzl1/g+8zE9yg==
+=IOjA
+-----END PGP SIGNATURE-----
+
+--uu7qwrkf63ilczbj--
+
+
+--===============2109024021573122130==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2109024021573122130==--
+
