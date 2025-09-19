@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C0ECAC5A5
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 09:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF876CAC59A
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 10:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qkNSH8yPwI20pebdigrg6rSwZEOrAeSScr1kideCm1E=; b=XenmksxIX4gSvp
-	Ia9bqO3UKMrDnXmHxJo8IN4zBQj/SujhyuOMeJXdyQHgHusHsxZzumrwzgCjVQTqxbxiJke0k+bmD
-	mVVN1pcB4i4u4BNchKtZCYTUUm2xYlnXJa/ZP/+qAcBE0NzoF+bJ7zY8duHkko7fFNHEqhBm4LMnG
-	gEDKjrjMqAYJjoxIGppXylBlcpwWBXQsq8btItGOHnvw2Lt2omZjTMD9OVDeGQcTLS/hSnxp6GqdN
-	hn6rmUcxTWunx/IPZw0JiaGRBrYZJMvElggQHFnAV9f20Fu3fChpzzvyfPyThIKK0g/7oovGpiwXf
-	z333S/hwUwGjQXCaCB8g==;
+	List-Owner; bh=1XTKGT86Icsjn8yUHWRObNgPdPdaL7jbDmvU/0DrXis=; b=STGPf9dsgnkINA
+	ismraw5HfM+NTK14b4+e5YkLUoErr+NZtknN8UrcUPCJ12NbsyPFcs41UY20tzocjtao5qqOmZp5q
+	euqPG/CqHZSNSRizUYn9PDCzMiW9skSH25vHoY6PWZcqaa3xZxQaATTDzo1zmbqAjo6G2eIin5JRG
+	swrWWF9tDwdxnF77Rb5uLViQPUU6ICYJbe/a3hedKMMF8r+FPGipMzHJPjJQiH4L32fxuSMsVoD3S
+	ebEAK3mUYbh8IOYZ5jXRx3W5x+FbwKvJgVjVhtIXDtBmiSPhWX8yJq6TocQURgw6q3S5bcTkCs6MC
+	mPZgyhMYFedJmdCjFKkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXXl-00000002Os4-2uNw;
-	Fri, 19 Sep 2025 09:36:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uzXyU-00000002UXV-3zRg;
+	Fri, 19 Sep 2025 10:04:18 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXXg-00000002OnS-2iXi;
-	Fri, 19 Sep 2025 09:36:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=nP4fIhA2RKu4fTkXiqGyFZU2ycuLn8kRCo9WKKJ18zI=; b=KOw3ZPm240tko6PARM+0qPtabi
-	fUc5cgskLloCJv0B5iM6rZ/Dis20nC0LHeRGYa2l1pzAs1tjcUs1YcuafKj5G7t2EXZdANs+dDvdV
-	NHpG6xGJm/iEpwAJQynWSLDYtwurU5hqI3dAGBeWynNrm9xHk9TXFJwCb6Nhenkh0s59AES56+MF1
-	W0Gwzegc1/fnsw6bjHhiRBbcy9gFSEWjN3LG52vKkred0E1YmlwfHK/fhMwzoSDUVyTTv3yQCcfAy
-	78WwSRnwzdOD1+YNHbTsnNPODxvb52U3zQgqk2LgVdOCzDiXEJnXIKWUswLCEkJwX+sFrT0vTEMlf
-	VtH7Mwdg==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXXc-00000007oIu-10aE;
-	Fri, 19 Sep 2025 09:36:35 +0000
-Received: from loongson.cn (unknown [113.200.148.30])
-	by gateway (Coremail) with SMTP id _____8BxVNAYJM1opC0MAA--.25982S3;
-	Fri, 19 Sep 2025 17:36:24 +0800 (CST)
-Received: from linux.localdomain (unknown [113.200.148.30])
-	by front1 (Coremail) with SMTP id qMiowJDxbMEPJM1oMmufAA--.61162S4;
-	Fri, 19 Sep 2025 17:36:20 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-To: Josh Poimboeuf <jpoimboe@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>
-Cc: loongarch@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/3] arm64: Only link libstub to final vmlinux
-Date: Fri, 19 Sep 2025 17:36:14 +0800
-Message-ID: <20250919093615.30235-3-yangtiezhu@loongson.cn>
-X-Mailer: git-send-email 2.42.0
-In-Reply-To: <20250919093615.30235-1-yangtiezhu@loongson.cn>
-References: <20250919093615.30235-1-yangtiezhu@loongson.cn>
+	id 1uzXyQ-00000002UWD-3FRm
+	for linux-riscv@lists.infradead.org;
+	Fri, 19 Sep 2025 10:04:17 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45f2c5ef00fso15143845e9.1
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 03:04:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758276253; x=1758881053; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=cwSJqMLbkr+n3h9atzHQFhMdHOFSLWWZIBI6hzjzDlU=;
+        b=azb8n7KtSmlj/RyyMmlhn6vm48h14CxqNqx0omGojbo3sLPTNgHcXePQCI3fj9vrsV
+         L11OBhw3Rnps66q3SLJLFnD61xFjAVBvPiGcd24IAFXeTS7WY9sKfGaIezym+h24IOA8
+         mt5vXmuT0XaO6RB1byW3j4DEZ/pBvZ9uylG469cnCj/vl7hpTjETe+M97gLtS2yKc8aQ
+         IVSLnEdRQsdLGlN6hdBGu7i9KYwoeMHrjX7WuXpIbezIresIwUIQvEQPOvPYdgmOxdF/
+         V+sFsO1ZceCrq4hlqf4BDmQw53740MmFr9LRLEQp7bMbz5lrv6MErK//zynENcKXEGid
+         zH4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758276253; x=1758881053;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cwSJqMLbkr+n3h9atzHQFhMdHOFSLWWZIBI6hzjzDlU=;
+        b=ZS+BuLt3KTIkQvg3rKGP1GQPJ0tM0knI/5RVJwYPlDM7joYwpuMftDTsVo0OcxjCSG
+         /hTGSkxHqXpwT3X2q2AfnYMk8/aFLA+5bJ+22qDXZfDWX7TrMhlFDb7iuxZU4dwWRn9K
+         AMVJ4KlTjxm4V95e0ziQXcf4zRxdv923c7/3WgFvsEORWlpASKp1QfJepRr+FMmLUN4A
+         HSdGnoNmkKWeL91DagSu5FUzQXHtKfTgmb3ABQrWvomhYgRtSVIVF/Ls0uVVnrPc5kYR
+         sxX30u7afRsG5mT0B+HQoFUCH5LDeBg2qRnd6npZnCIYmzHRBzadZGTE9yB9Y3aNUnmZ
+         McQw==
+X-Forwarded-Encrypted: i=1; AJvYcCUBLz43GfaUli0uPvTk46z00iEh6J9dmPli/kmi2bzBiOSPVbD4qQ34w4eR797XJnBvKv6gQ0anqRa5Fg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5faUO95slWv0mF2V4d07YHBExwZZ9oP/sMVRrnd7O9hcgEAi2
+	lcIPeiKmmJex+fWWz0WADSvh2t6IZGlIJ/drWnd984bU4ryQ1OLSN+MK
+X-Gm-Gg: ASbGncu5/Yw6DAGMhtekmd6i+MeUbXTXk0fxKgPOiLUonzf55enempa4pND/hPw2ODZ
+	rml6+OhpKvH9vLK9q3DO+gN1xRqilXjvgEvIqs3lirGZlZyouoqa6Q70n0ZD/6j8R6ihG05YYS1
+	/d/J64hYiCd1ywEVUuo8VsBitU9aDBq8Kh338/Yesiu6OQvvcWnxH21UpguXj5zqmpZIAdBWFBJ
+	E1vVdKv/0VljvOh4MVIkODcQxcPOqzyyaHNHNN+tPlYbxzCxHbPllh7DcRYdAvlQdW//tHRnZOh
+	dNBSSza58f1N7ZlicewlXfOG2WGlj7lruQUwHU6cRckRvJ1e78uVC5ORWts5PbQTr/knLo71Gv2
+	TPf1w9d5Kw5q4SYGLmmyQ
+X-Google-Smtp-Source: AGHT+IHvZMGRRNi+u2pMIpVVRpaJCUA/81PZdTy1q3wdlCcos410V3il5VvXKBDg1PnvbPEV8rv3lQ==
+X-Received: by 2002:a05:600c:6305:b0:45b:868e:7f7f with SMTP id 5b1f17b1804b1-467ee8c56d6mr28084075e9.17.1758276252440;
+        Fri, 19 Sep 2025 03:04:12 -0700 (PDT)
+Received: from andrea ([176.201.192.207])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-464f5a286edsm90295055e9.16.2025.09.19.03.04.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Sep 2025 03:04:12 -0700 (PDT)
+Date: Fri, 19 Sep 2025 12:04:05 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Xu Lu <luxu.kernel@bytedance.com>
+Cc: corbet@lwn.net, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, will@kernel.org,
+	peterz@infradead.org, boqun.feng@gmail.com, mark.rutland@arm.com,
+	ajones@ventanamicro.com, brs@rivosinc.com, anup@brainfault.org,
+	atish.patra@linux.dev, pbonzini@redhat.com, shuah@kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, apw@canonical.com, joe@perches.com,
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v3 0/8] riscv: Add Zalasr ISA extension support
+Message-ID: <aM0qlTNPiaQRY2Nv@andrea>
+References: <20250919073714.83063-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
-X-CM-TRANSID: qMiowJDxbMEPJM1oMmufAA--.61162S4
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoW7ZrW8GryUWw17Ar45tF4fWFX_yoW8Jw4rpw
-	s0kF4qkr4qgrW8Xa4rKa17Xw1Ykws8XrsIgFykZry5tw45Z3s7Wr15GFWSkF4kXr18Jayf
-	Gw1ayFy8CF4DG3gCm3ZEXasCq-sJn29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUk0b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx1l5I
-	8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5McIj6I8E87Iv67AK
-	xVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l42xK82IYc2Ij64
-	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
-	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2I
-	x0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK
-	8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I
-	0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUcCD7UUUUU
+Content-Disposition: inline
+In-Reply-To: <20250919073714.83063-1-luxu.kernel@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_103633_019703_7D55DD22 
-X-CRM114-Status: UNSURE (   7.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250919_030414_831235_93BE6F51 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,38 +106,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since the efistub functions are useless for stack unwinder, they can be
-ignored by objtool. No need to link libstub to the vmlinux.o, only link
-libstub to the final vmlinux. Otherwise, there may be objtool warnings
-when arm64 supports objtool, this is to make consistent with the other
-archs that use libstub.
+On Fri, Sep 19, 2025 at 03:37:06PM +0800, Xu Lu wrote:
+> This patch adds support for the Zalasr ISA extension, which supplies the
+> real load acquire/store release instructions.
+> 
+> The specification can be found here:
+> https://github.com/riscv/riscv-zalasr/blob/main/chapter2.adoc
+> 
+> This patch seires has been tested with ltp on Qemu with Brensan's zalasr
+> support patch[1].
+> 
+> Some false positive spacing error happens during patch checking. Thus I
+> CCed maintainers of checkpatch.pl as well.
+> 
+> [1] https://lore.kernel.org/all/CAGPSXwJEdtqW=nx71oufZp64nK6tK=0rytVEcz4F-gfvCOXk2w@mail.gmail.com/
+> 
+> v3:
+>  - Apply acquire/release semantics to arch_xchg/arch_cmpxchg operations
+>  so as to ensure FENCE.TSO ordering between operations which precede the
+>  UNLOCK+LOCK sequence and operations which follow the sequence. Thanks
+>  to Andrea.
+>  - Support hwprobe of Zalasr.
+>  - Allow Zalasr extensions for Guest/VM.
+> 
+> v2:
+>  - Adjust the order of Zalasr and Zalrsc in dt-bindings. Thanks to
+>  Conor.
+> 
+> Xu Lu (8):
+>   riscv: add ISA extension parsing for Zalasr
+>   dt-bindings: riscv: Add Zalasr ISA extension description
+>   riscv: hwprobe: Export Zalasr extension
+>   riscv: Introduce Zalasr instructions
+>   riscv: Use Zalasr for smp_load_acquire/smp_store_release
+>   riscv: Apply acquire/release semantics to arch_xchg/arch_cmpxchg
+>     operations
+>   RISC-V: KVM: Allow Zalasr extensions for Guest/VM
+>   KVM: riscv: selftests: Add Zalasr extensions to get-reg-list test
+> 
+>  Documentation/arch/riscv/hwprobe.rst          |   5 +-
+>  .../devicetree/bindings/riscv/extensions.yaml |   5 +
+>  arch/riscv/include/asm/atomic.h               |   6 -
+>  arch/riscv/include/asm/barrier.h              |  91 ++++++++++--
+>  arch/riscv/include/asm/cmpxchg.h              | 136 ++++++++----------
+>  arch/riscv/include/asm/hwcap.h                |   1 +
+>  arch/riscv/include/asm/insn-def.h             |  79 ++++++++++
+>  arch/riscv/include/uapi/asm/hwprobe.h         |   1 +
+>  arch/riscv/include/uapi/asm/kvm.h             |   1 +
+>  arch/riscv/kernel/cpufeature.c                |   1 +
+>  arch/riscv/kernel/sys_hwprobe.c               |   1 +
+>  arch/riscv/kvm/vcpu_onereg.c                  |   2 +
+>  .../selftests/kvm/riscv/get-reg-list.c        |   4 +
+>  13 files changed, 242 insertions(+), 91 deletions(-)
 
-Link: https://lore.kernel.org/lkml/pq4h7jgndnt6p45lj4kgubxjd5gidfetugcuf5rcxzxxanzetd@6rrlpjnjsmuy/
-Suggested-by: Josh Poimboeuf <jpoimboe@kernel.org>
-Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
----
- arch/arm64/Makefile | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+I wouldn't have rushed this submission while the discussion on v2 seems
+so much alive;  IAC, to add and link to that discussion, this version
+(not a review, just looking at this diff stat) is changing the fastpath
 
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 73a10f65ce8b..038f37ef2143 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -156,7 +156,10 @@ KBUILD_CPPFLAGS += -DKASAN_SHADOW_SCALE_SHIFT=$(KASAN_SHADOW_SCALE_SHIFT)
- KBUILD_AFLAGS += -DKASAN_SHADOW_SCALE_SHIFT=$(KASAN_SHADOW_SCALE_SHIFT)
- 
- libs-y		:= arch/arm64/lib/ $(libs-y)
--libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+
-+ifdef CONFIG_EFI_STUB
-+KBUILD_VMLINUX_LIBS_PRELINK += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+endif
- 
- # Default target when executing plain make
- boot		:= arch/arm64/boot
--- 
-2.42.0
+  read_unlock()
+  read_lock()
 
+from something like
+
+  fence rw,w
+  amodadd.w
+  amoadd.w
+  fence r,rw
+
+to
+
+  fence rw,rw
+  amoadd.w
+  amoadd.w
+  fence rw,rw
+
+no matter Zalasr or !Zalasr.  Similarly for other atomic operations with
+release or acquire semantics.  I guess the change was not intentional?
+If it was intentional, it should be properly mentioned in the changelog.
+
+  Andrea
 
 _______________________________________________
 linux-riscv mailing list
