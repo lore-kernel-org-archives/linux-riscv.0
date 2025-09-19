@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9468CAC59A
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 14:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7B6CAC59A
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 14:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Date:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=oUGNUI9OEDTgD+ZgLA2JLG+uf62d6+Sp1+m7Cse8vMw=; b=trK
-	8wCHbW2URUGznL1Cv1lJU143uxi1L+HohIbaKyAAt07y42zA+9zaD9ow9PyGbv9KF/sobyDpf4rat
-	iE/PAMkvVHQJRKwUUaN4iysQbbAvXZsbxJTN0DgRZ5ZrUD0zPLVPH0cDplF9t7T5SNYVGLEy/fHrC
-	jPUYgMmom/vuUO+An2aGBP/+EBqvRY3fIy3Xql2VW3V63FgacBwJ6GwpfDmeYJRd/GLI6ttKaQpIF
-	vdBFvdhWssOOdC2P6OPI9cKz/SG4/3S/jy7/+8RRssfXGSXMLGzsvxysk6K7HgibuckiHgyo29F5L
-	lrvjyFtyb78sYlxsiShQO6TgHxj4B4A==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Cc:To:From:
+	Subject:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=11IcY6j105REAOsod+ee1dpth0IkIGau9XozfTltgfo=; b=pw4f2ErfCkO7Nq
+	2Vj3i/kZ9SQenVNpBPCbyNaoN7yUqj3QzE6b+U5bMhVkcuH2J43jFigOf3NK5EoL0jUK6u610lgqX
+	mGT5wctPxAajV9jKEMgQX/5L2gzJZ1PbDQ6kvtac/4V5j7Ogh+A2+3WTjoTOylOTAQT8YOVQN8ymN
+	4munxqqCh3BBJvpbDa/rnOQ4DEDCkeN6pVCHAziW10MkcImMGm32DaGronvXPnEFulK0mSvly+/4T
+	wxq/WCEaHlfdySfl1SUT9t5fYbkcUllirnccheri85/ZTtGAfIVpDRtPImq3b7ckFdCZNe1oHe4ij
+	JTvVcRuCYb7CxI1rFwrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzcJo-00000003Beq-1n5B;
-	Fri, 19 Sep 2025 14:42:36 +0000
-Received: from mail-il1-f199.google.com ([209.85.166.199])
+	id 1uzcZp-00000003Ell-0u94;
+	Fri, 19 Sep 2025 14:59:09 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzcJm-00000003BdG-0MdI
+	id 1uzcZn-00000003EkK-2ZbT
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 14:42:35 +0000
-Received: by mail-il1-f199.google.com with SMTP id e9e14a558f8ab-423f9d1ea61so43514815ab.0
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 07:42:33 -0700 (PDT)
+	Fri, 19 Sep 2025 14:59:08 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-77e69f69281so847315b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 07:59:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1758293946; x=1758898746; darn=lists.infradead.org;
+        h=message-id:date:reply-to:cc:to:from:subject
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=I+1oaj913MKNqaBevOphiHNrDtxzxcnVJ845ccXPHec=;
+        b=aVvGuq8Qrjv/pJTaUGA8Pb8348qxbTmfxYluoT/gMSCVvRuO57eQPO23dnQFwbkMaK
+         8DV7V5AL2wDMm8SbMDb5yi0JmBjUghpIVcsJfOcBcVR1ubgE4uksboffQlw+Tni89z27
+         nTeGli9lSo91Id6jkv7OBiUjkWZuRlC/zjMjXoR6HWAzE+5DnswvXzSaVZ6opwW7H84j
+         tdl71juFEtb4CwCcQeoRdbU99uejdTCh8lX6ZP1irzmbyVgGWnB13Vo8LVdwHapX6qwt
+         YM2UrtTVz8xku5zGXVKjvBeHhQACUsWWbF3QGstEsN96n/J6LyaSgvvvjJytnAg8hjYJ
+         gfQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758292952; x=1758897752;
-        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pAMs2+dv285mVlWJA8sr/wQEoMByjVHUfh3jerhKeq8=;
-        b=WOoUNhJAR71hcI+ktBmcefWAhp7RpPafRyQlEXzfz2Yw3Glw+I7BAL1DACSjyU1OBe
-         lgei502uRfAD92dFWOXjYI0xQX8vXxNatoa4xlnCO/NvSPP3RfuX2OEHw1YUQv4GQrbT
-         8Zb6TqZk9iKI66N/q27RgJH+YUlUZL9VoYkFyFBng8YOMyshRUT07rkW3XDj7KAP5dWX
-         w/YJRYFX1q7bq6lZVnkMMgAf/Q3EJRPldFPi114fPRaoNn5TP6LsDzcmRhosq1o90bpA
-         m22fiw1ZhjkyCEQYsXH4rhD0WT104edt2Tu2+8eyvGniX3YOJLNfqb1qzV2OJl/zKP7j
-         k1Qg==
-X-Forwarded-Encrypted: i=1; AJvYcCVJzSZK5R1wTa5MFEX8HpVIrG7pLD0hclawzLYNVgguka+XN4Tdw3ERQ25X2UDM4JSYeWHAjS7dGneaiA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxA6SUo3Knw9VbRecdn/1pO6EmDJjkzPfvnBWfN/t3GLhNQQau
-	Fr/8yB9In2vr3aHYFXgnG+JEHhMg2lF9dV6sNkJT9Qmyqwg0v+EjPC3haf6F5v8U0/6xmVI3GpM
-	AgXw0oJdPKf5tuefY07nwXs1JxZlTvaPaUltQMSuumiMoRZFPKVrDpVORJkY=
-X-Google-Smtp-Source: AGHT+IFL69chW45OJ+YdbOPP4b6VMa0jjV3dnzR4T5WW/fF7ucF7RSBtGHHzwyJ4vvYtui8tXLhb/VNVwBVichO/CcPDUZWGGx0d
+        d=1e100.net; s=20230601; t=1758293946; x=1758898746;
+        h=message-id:date:reply-to:cc:to:from:subject
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=I+1oaj913MKNqaBevOphiHNrDtxzxcnVJ845ccXPHec=;
+        b=gSmfRKzCRekgibZBtJhydgdy64LuY3I3FhbpNhDJim1iv6unmfCwS5N6tKi0itxjh5
+         TssXDjP+amePjKvJ/qs3EVM8S3nbitnMr+jGZtKwcxq/zIweZRV1ckCD+/Y5Bta2IIBt
+         RjVDKB7Uza4H4TIR3ZMWKvOXwmJkPNFnUQkcq9RL+BeydieEgL75nDytsXMRa0EqhJU8
+         6yDryeEgRmlCkywn8g4NJZYT0dRFD2N6zm7BmfMfuskSZIZLZM+83vrPfsm45NL+Gncw
+         rMvOlz4YK8XwArWojODiKSulkLYaA3lhRmn34NYW+sNF+bd3NdzbuedeFaKaKa2pAvyy
+         rMoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXrKUf1GsnBfAsxa8EBFAIZRIOHh5ogAOClCh6Bq6SQGYG+uuDzr5eniNKEbKQkolxipfaT15bOAW9Ojg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9nIHvPybiWDGT3ztjU8BK41jHmDJYSA8A/X9g8wn1+K12bFhQ
+	K1p+M105lhc0vJyEFW5/nYfepJhqPFh0wdmXOdobe/bAuq34IHBxtQ67Tlffc8vdWwM=
+X-Gm-Gg: ASbGncvhpctr0od2wHbDdaKMtNluxzChTtNQDJNL4dEJmxX7MdhIHvr07hvZzFqIPXm
+	S/7ngdFAAFmARwX4ZNizhxOngD3OPK6M8A2afolhpDzuO40O/4FR4FYUZTA1FLEoiwwp472J25K
+	Id93ttIb7wHkAq3oXwGBK2ybcXbVCRG67MIIdcUCWjIj7S8sVygKEW6ELWRDGLerPXk23cpprCG
+	vDqyPQEge3lQMCefA0Qpf4/bacQVDMkN2VZ6XFLU0Azkjh0MNUXjzBD3xXRS9ckjzf9rK7ThE5A
+	00JvriSrRyL/D5k2q9uRSG4MQ/YW8sO5zHc0B38sfi2vDgghb4wWxsdjmYYwY9e149v1d2X2FUs
+	o/TiThFpsORwflZhufRRimR/1w8Y=
+X-Google-Smtp-Source: AGHT+IFFZacYrP9LuAdO/G/eB3yru0znMIk726z4N3uDy6qR+Epo6GHsw3izcq8/C5XRXoqAtVbSuw==
+X-Received: by 2002:a05:6a20:728b:b0:243:b62c:8a7d with SMTP id adf61e73a8af0-291e4b6ba51mr5661567637.0.1758293946202;
+        Fri, 19 Sep 2025 07:59:06 -0700 (PDT)
+Received: from 166871acc15a ([20.38.40.137])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77cfe6691d7sm5606523b3a.56.2025.09.19.07.59.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Sep 2025 07:59:04 -0700 (PDT)
 MIME-Version: 1.0
-X-Received: by 2002:a05:6e02:258a:b0:424:7f6c:78c5 with SMTP id
- e9e14a558f8ab-4248190b437mr48957965ab.7.1758292952511; Fri, 19 Sep 2025
- 07:42:32 -0700 (PDT)
-Date: Fri, 19 Sep 2025 07:42:32 -0700
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <68cd6bd8.a00a0220.37dadf.001b.GAE@google.com>
-Subject: [syzbot] riscv/for-next build error
-From: syzbot <syzbot+8ea9d12facf13c334f88@syzkaller.appspotmail.com>
-To: alex@ghiti.fr, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	syzkaller-bugs@googlegroups.com
+Subject: [REGRESSION] riscv/for-next: (build) in arch/riscv/kernel/entry.o
+ (arch/riscv/kernel/entry.S) [logspec:...
+From: KernelCI bot <bot@kernelci.org>
+To: kernelci-results@groups.io
+Cc: gus@collabora.com, linux-riscv@lists.infradead.org
+Date: Fri, 19 Sep 2025 14:59:04 -0000
+Message-ID: <175829394378.230.11893936339643702468@166871acc15a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_074234_122305_0C5946B1 
-X-CRM114-Status: UNSURE (   4.78  )
+X-CRM114-CacheID: sfid-20250919_075907_748733_0DFF2362 
+X-CRM114-Status: UNSURE (   5.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,50 +92,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: kernelci@lists.linux.dev
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+
+
+
+
 Hello,
 
-syzbot found the following issue on:
-
-HEAD commit:    a054965b36af riscv: errata: Fix the PAUSE Opcode for MIPS ..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git for-next
-console output: https://syzkaller.appspot.com/x/log.txt?x=150c1858580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=a6ae75a6b3af4c52
-dashboard link: https://syzkaller.appspot.com/bug?extid=8ea9d12facf13c334f88
-compiler:       riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40
-userspace arch: riscv64
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+8ea9d12facf13c334f88@syzkaller.appspotmail.com
-
-arch/riscv/kernel/entry.S:78: Error: unrecognized opcode `alternative("sfence.vma", "nop",0,86,1)'
-arch/riscv/kernel/entry.S:446: Error: unrecognized opcode `alternative(".dword do_trap_insn_fault", ".dword sifive_cip_453_insn_fault_trp",0x489,0,1)'
-arch/riscv/kernel/entry.S:458: Error: unrecognized opcode `alternative(".dword do_page_fault", ".dword sifive_cip_453_page_fault_trp",0x489,0,1)'
+New build issue found on riscv/for-next:
 
 ---
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+ in arch/riscv/kernel/entry.o (arch/riscv/kernel/entry.S) [logspec:kbuild,kbuild.compiler]
+---
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+- dashboard: https://d.kernelci.org/i/maestro:b5288fe5157b1f4b4c95bb5102588c7874794ba5
+- giturl: https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+- commit HEAD:  a054965b36af884083add1a286cabf98caca549e
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
 
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
 
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
+Log excerpt:
+=====================================================
+arch/riscv/kernel/entry.S:458: Error: unrecognized opcode `alternative(".dword do_page_fault", ".dword sifive_cip_453_page_fault_trp",0x489,0,1)'
 
-If you want to undo deduplication, reply with:
-#syz undup
+=====================================================
+
+
+# Builds where the incident occurred:
+
+## defconfig on (riscv):
+- compiler: gcc-12
+- dashboard: https://d.kernelci.org/build/maestro:68cd6d0c75b320799d2ffc60
+
+## defconfig+CONFIG_SMP=n on (riscv):
+- compiler: gcc-12
+- dashboard: https://d.kernelci.org/build/maestro:68cd6d1075b320799d2ffc63
+
+
+#kernelci issue maestro:b5288fe5157b1f4b4c95bb5102588c7874794ba5
+
+Reported-by: kernelci.org bot <bot@kernelci.org>
+
+--
+This is an experimental report format. Please send feedback in!
+Talk to us at kernelci@lists.linux.dev
+
+Made with love by the KernelCI team - https://kernelci.org
 
 _______________________________________________
 linux-riscv mailing list
