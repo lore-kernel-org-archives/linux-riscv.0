@@ -4,83 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF63DCAC5A8
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 15:59:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF9ACAC592
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 15:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Cc:To:From:
-	Subject:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WaflqyFcuRiiIhjplj5OLYAeNvXJXLxSFqea2tKukcs=; b=LdmwgvZmLPZi+U
-	POW4bxL81y/pr032FNKA9B8L3Sj5zZ96Q/ApGDMAg3OEc/J98NAoL9NWNJZgswcNicDIGKLFVggTy
-	FzRM6YT/tTIyr2Tv2/fOH91K+F8HhywH3zzyXFX+LlZoEW0oR+++FQSzh8xtqYyalEmlo5PDj5aXB
-	mjbSdmxmxDLR6ov4ehizAl2IsO81fOODZQj8Jh10iKZg/LUZlvpJfrnbc1B+pNW5L/kMNHMI+uqXx
-	jee6vt/95J+tN+ZQvJb/iahMy0MrnJtLJ+s3KRZwp/aKk/nWk8Ueng43Okkr3t1ZzVgjkl1egFM6a
-	GvA6+qHYhtsiP6325S9A==;
+	List-Owner; bh=+YY5U7VHU6d4EzBK/D+gYuqXZLwb6N/V6ETFDOEjLf0=; b=tKO4zQHLyDq95Y
+	Ix39wTCxg6tmLZ7GNpKacsHI5vo8Hgin2TIZci5LSoP9MOhm/759lr1dShFR6Y5aPkoc69C3hHpCp
+	qAkcZuAtJ5521qDxWls3cKG4y4E9+f1l4YhvS74FFz77OreSXOeXKLqEowWTV6p6ar6yDazFXJCj1
+	I8e2PLa/vG6eOOewnGY7zibRdJ4nS4+JB1q1w2O8rTMu9gcDQB1YEzhD3KxiNy7bU7VSyUtTVh84I
+	SODLcA4xtH2oYIhV922ZpVSxOXdQr6a+XcbFI6uP+Dg5C6UCNNxJllbAIZHrOp4YY5bZQOTx5qe+u
+	Usax7dRgk0Ur2/Np03ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdVw-00000003RLr-3gAp;
-	Fri, 19 Sep 2025 15:59:12 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1uzdW7-00000003RSB-1YyL;
+	Fri, 19 Sep 2025 15:59:23 +0000
+Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdVr-00000003RGb-1659
+	id 1uzdW3-00000003ROy-12XM
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 15:59:09 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-244580523a0so25357985ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 08:59:07 -0700 (PDT)
+	Fri, 19 Sep 2025 15:59:22 +0000
+Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3fe48646d40so15446495ab.0
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 08:59:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1758297546; x=1758902346; darn=lists.infradead.org;
-        h=message-id:date:reply-to:cc:to:from:subject
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CgJHB0f2ZN3bUarxuGAa6kT4dSp6f27kYDaIU7kYRH0=;
-        b=i3DOwDCVUhMAartmltaPelqsn9/2s/TPfDME3lboWh3fPkB6ikndrmEzdEwWLgTdaY
-         cAlij/dWlYWa16brYafSbR3F3aBhT0sbZl+/it9JtFIz3VFjQgrqB2xSWYmYxttcG96p
-         XBjFBgzytGSEvtm98oxsrVzLZrYZD1hk+MIr9riizUwzIu2L68fDCRs6Lz4L8slvvn/k
-         N1o1zHtjv1FTDExFetzqsaeFx8sqFueAPfbLoOkaFzNQ5JNGzaJTvFwLLZSwAOognjIX
-         DWQW1vIeFIiJ3yOiMOiNnBlimdGlY33mWwwAcmu//4CJ6bVQKpYQIS/wq2iQSfxcHnq9
-         MzMw==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1758297558; x=1758902358; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PieohXBDde9aJoeZPffJCOlv0SEwDrquFxpLVqeOn8w=;
+        b=P8r1WK8LIHj/o7Nb86dU5Z20BuQsw/yJDjI9udVk/3J/qXPgoT7YGcm6mzMZHUu1Qg
+         kcbg8Tz6RDc83mCo2MghbnOLuW4FXyG3BLf+arvxPUEeyRPgQzC19d9/5QunHXbkgOz+
+         /XjajuCmlmUUreYyeZqdoRSUxuNKQcQNn+9+ao9yh4h4R9QXQkxUDLthsudJHZoNnKtW
+         OKULLknjOtXZevKnz12Dtdef1dNElcAQMFY3n+LqtamK/w+RtaVSI0/3J3oHv0VlRPWu
+         uM9Ck+7iyGuUFrc8kZ2VbyQ+78r4biLF86sNgGeGaeogfaatpaS/IGvJpurQCuTwqJB4
+         5zfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758297546; x=1758902346;
-        h=message-id:date:reply-to:cc:to:from:subject
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=CgJHB0f2ZN3bUarxuGAa6kT4dSp6f27kYDaIU7kYRH0=;
-        b=Y1XrJgAhzBvbuJ2KGWaUuMXaVvkS+3lVy4Y+h8VkxvWGv6XYcjQw6wy4uTxEoNhg3J
-         DTwfPGRnpKkCuu4v3t+VJ+aA8HNX3H1rY7BpwRQZ4L/ZaXcKyKAlexXS4LzBmP+JA3gn
-         b1qx5IwZHgF4faK95R7OLMWgDywYGfyMtcZroVZ66YdoiPv3AJdacm28BiNG3cVvxkpB
-         T5GrjYjKaIf4L6zSBtZqq9oty5ZhiZmtGQICsQ/s+T6P3uklYjyC6r+cSgg9SDfVdLFf
-         gbqNU20aLBMs++Ku8a4N8THnYkuQUpp+wn3yNzn//5sT3DIrL3dANPZ0fo6zB8Undz0I
-         Ii/g==
-X-Forwarded-Encrypted: i=1; AJvYcCVOhTgTRpq/gTvbuF4hQet6ZWpDdNmyro81Ru5OHEPywR3wwyV789Rs906lMpwwNSovjCR4xtaMg1zJWw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHyZxuSDJ2pw80q+uyla+5IQ7M+b/BPc20PPJeUHaz2GllJBxJ
-	yKiRs/ZKAY/5fshFijC8pbj1/DUJPYMJnQfhw0rhS5sIwZSCyPaJMnydDAwyMTL67io=
-X-Gm-Gg: ASbGncse3tH43rdnNHcSVb4md/HjgkwzPjW66DyPjPVS2XG5uAGbkhmlBfsgjaxKPPX
-	arUyK2JYUZWOy2PHX2O1YLPjWPktx3y6InG4jwUlJpWpLtrcIJLzlqOiTz+5MJ7dsL9yyP6rKfv
-	PntdhjHNpJsil+QXInYQ758CSIo4MIi53rWyAbx3iRkEVU87iMUn9cV3wNk55uuqTfBYH7Q2PQ1
-	h8PycLHWXtnp7pQOxlc4EwSgVebopHo8nXeHP/Dfbki6Dg97zzNfvVquUGuHfvOQOhiUtqVH821
-	TYW9MOIO0dEERKCEFVg/krFQ9zCrHpnfKbO2a2aEN5A/k7bSTuE3K7eZkjB0pz3ABdc0j//FiBL
-	mqLUVWOHVqEriPLfu
-X-Google-Smtp-Source: AGHT+IGNuQ5wFE2K6Nm8Kz3yDo5AYTJUE8K8r5l2u7bFKGNu09la1L/D3nVqxykUhB1AH+EfTslLDA==
-X-Received: by 2002:a17:902:c94a:b0:269:ba77:4ec3 with SMTP id d9443c01a7336-269ba7755b3mr50030245ad.21.1758297546450;
-        Fri, 19 Sep 2025 08:59:06 -0700 (PDT)
-Received: from 166871acc15a ([20.38.40.137])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3306064afc2sm5800499a91.8.2025.09.19.08.59.04
+        d=1e100.net; s=20230601; t=1758297558; x=1758902358;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PieohXBDde9aJoeZPffJCOlv0SEwDrquFxpLVqeOn8w=;
+        b=XeOqJHYO39Dm8NsIR18sHVuyz4S+7i+KsG6R4gPAma58sPvFnWj7qDdUW4DOLjKvYg
+         OPKoDIHkyRQnkTeb2h3Y5VmXyPbMHvMpMAkfJn2xHgGkViS6uizVGOIZgbxda+4+rfif
+         EIugfr21MJadoKCU8IKk2PCIMDDZVzJCnRLcMSkC70YGs5EmEPL2be1SaluIvTIdpOsR
+         MYO6DNXl+rDSpQVyzjWQqMY72F2O75zrtf2jPHq9UUlKuLrUHHCMSGGcwIaykwvk9g+W
+         RAYZUsprsVFLZOXflQzrZSvn06snTILzhRLZyvBtuTN+1XyBrilWg6wXZInxAJKVOvQb
+         X1Mg==
+X-Forwarded-Encrypted: i=1; AJvYcCUc5vqRI7Ym4y/SN/78jFGUKo4KrC9qti1+VvivVtK/GFj3wT0PmEJkOyP2VC4uJ2Rvf0LWY5Nky+8ssw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqZp01V13Ednx4S8vbkGc2yomb2M29UWfRqziFD135hqWpe1IP
+	KLTDh8Ry3xGa0HVU4v3ZKyehyuBgSvwRnmNnRFJjGty5Rzo818d0rLAA2/cCgvmNJuY=
+X-Gm-Gg: ASbGncsIVgt+YTyQfG38YP3d3aACHGRlDJ2IFPJjr1u8uorkho7AQDqvS40Tr7BBZMh
+	rdfohqecI2JbGdDdLWex3kS67yktwkX00mCiNa10mf2etvMczVlwMef0QDsNDWJmUlpZyyKYTkZ
+	Cd1rK8eS8RDt7TJOZ0R7cyCcmFAnniIsTKHV/rDpLbbbeb5wNmWV9XKYoFsG6PaLqKg6Sluy0Gs
+	BP9tUh/QNmLp5iRB7qUpcea/QqfOBFVyZMQHvpAAdP1bGzyIZfv40Y+PC7d5psNrF8yF45Mh3uZ
+	SW0TIizWRg11S7FghWXFlCGraLtE/gtADkn/T7HglYj1n+yBKkOoBFxOLozN04Ok2ZqOSK1f0HV
+	NsV4dTR9W8kor3SkX6IVjwitvBvrAW//cwJON8kQnKsMbGtGyWEtsv1BXqmVocCFW4g==
+X-Google-Smtp-Source: AGHT+IEjqrlSFIoeKxmjUweDtrCLwaQpAtyQ3arbMa+ZmRjzpi9BoH5PVFn/nUo5LPbXaE/8/YT8KA==
+X-Received: by 2002:a92:c5b2:0:b0:411:6759:bfad with SMTP id e9e14a558f8ab-42441af5df5mr105138315ab.10.1758297558106;
+        Fri, 19 Sep 2025 08:59:18 -0700 (PDT)
+Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-53d50aa460bsm2250898173.52.2025.09.19.08.59.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Sep 2025 08:59:05 -0700 (PDT)
+        Fri, 19 Sep 2025 08:59:17 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: dlan@gentoo.org,
+	ziyao@disroot.org,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	p.zabel@pengutronix.de,
+	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/3] spi: support the SpacemiT K1 SPI controller
+Date: Fri, 19 Sep 2025 10:59:10 -0500
+Message-ID: <20250919155914.935608-1-elder@riscstar.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Subject: [REGRESSION] riscv/for-next: (build) while in macro instantiation in
- arch/riscv/kernel/entry.o (arch/ri...
-From: KernelCI bot <bot@kernelci.org>
-To: kernelci-results@groups.io
-Cc: gus@collabora.com, linux-riscv@lists.infradead.org
-Date: Fri, 19 Sep 2025 15:59:04 -0000
-Message-ID: <175829754399.237.5173912564335866295@166871acc15a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_085907_317531_608408C9 
-X-CRM114-Status: UNSURE (   5.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250919_085919_302517_EE35EE9F 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,73 +104,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: kernelci@lists.linux.dev
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series adds support for the SPI controller found in the SpacemiT
+K1 SoC.  The driver currently supports only master mode.  The controller
+has two 32-entry FIFOs and supports PIO and DMA for transfers.
+
+Version 2 incorporates changes suggested during review of v1.
+
+					-Alex
+
+This series is available here:
+  https://github.com/riscstar/linux/tree/outgoing/spi-v2
+
+Between version 1 and version 2:
+  - Use enum rather than const for the binding compatible string
+  - Omit the label and status property in the binding example
+  - The spi-spacemit-k1.o make target is now added in sorted order
+  - The SPI_SPACEMIT_K1 config option is added in sorted order
+  - The SPI_SPACEMIT_K1 config does *not* depend on MMP_PDMA,
+    however MMP_PDMA is checked at runtime, and if not enabled,
+    DMA will not be used
+  - Read/modify/writes of registers no longer use an additional
+    "virt" variable to hold the address accessed
+  - The k1_spi_driver_data->ioaddr field has been renamed base
+  - The DMA address for the base address is maintained, rather than
+    saving the DMA address of the data register
+  - The spi-max-frequency property value is now bounds checked
+  - A local variable is now initialized to 0 in k1_spi_write_word()
+  - The driver name is now "k1-spi"
+  - DT aliases are used rather than spacemit,k1-ssp-id for bus number
+  - The order of two pin control properties was changed as requested
+  - Clock names and DMA names are now on one line in the "k1.dtsi"
+  - The interrupts property is used rather than interrupts-extended
+  - The order of two pin control properties was changed as requested
+  - Clock names and DMA names are now on one line in the "k1.dtsi"
+  - The interrupts property is used rather than interrupts-extended
+
+Here is version 1 of this series:
+  https://lore.kernel.org/lkml/20250917220724.288127-1-elder@riscstar.com/
+
+Alex Elder (3):
+  dt-bindings: spi: add SpacemiT K1 SPI support
+  spi: spacemit: introduce SpacemiT K1 SPI controller driver
+  riscv: dts: spacemit: define a SPI controller node
+
+ .../bindings/spi/spacemit,k1-spi.yaml         |  87 ++
+ .../boot/dts/spacemit/k1-bananapi-f3.dts      |   7 +
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  |  20 +
+ arch/riscv/boot/dts/spacemit/k1.dtsi          |  16 +
+ drivers/spi/Kconfig                           |   8 +
+ drivers/spi/Makefile                          |   1 +
+ drivers/spi/spi-spacemit-k1.c                 | 968 ++++++++++++++++++
+ 7 files changed, 1107 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml
+ create mode 100644 drivers/spi/spi-spacemit-k1.c
 
 
+base-commit: 846bd2225ec3cfa8be046655e02b9457ed41973e
+-- 
+2.48.1
 
-
-Hello,
-
-New build issue found on riscv/for-next:
-
----
- while in macro instantiation in arch/riscv/kernel/entry.o (arch/riscv/kernel/entry.S) [logspec:kbuild,kbuild.compiler.note]
----
-
-- dashboard: https://d.kernelci.org/i/maestro:4adda9bd89f93f21b8d87a69ffbf3044dd10a850
-- giturl: https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
-- commit HEAD:  a054965b36af884083add1a286cabf98caca549e
-
-
-
-Log excerpt:
-=====================================================
-arch/riscv/kernel/entry.S:117:2: note: while in macro instantiation
- new_vmalloc_check
- ^
-<instantiation>:56:26: error: unknown operand
- ALTERNATIVE("sfence.vma", "nop", 0, 86, 1)
-                         ^
-arch/riscv/kernel/entry.S:117:2: note: while in macro instantiation
- new_vmalloc_check
- ^
-arch/riscv/kernel/entry.S:446:41: error: expected ')'
- ALTERNATIVE(".dword do_trap_insn_fault", ".dword sifive_cip_453_insn_fault_trp", 0x489, 0, 1)
-                                        ^
-arch/riscv/kernel/entry.S:446:41: error: unknown operand
- ALTERNATIVE(".dword do_trap_insn_fault", ".dword sifive_cip_453_insn_fault_trp", 0x489, 0, 1)
-                                        ^
-arch/riscv/kernel/entry.S:458:36: error: expected ')'
- ALTERNATIVE(".dword do_page_fault", ".dword sifive_cip_453_page_fault_trp", 0x489, 0, 1)
-                                   ^
-arch/riscv/kernel/entry.S:458:36: error: unknown operand
- ALTERNATIVE(".dword do_page_fault", ".dword sifive_cip_453_page_fault_trp", 0x489, 0, 1)
-                                   ^
-
-=====================================================
-
-
-# Builds where the incident occurred:
-
-## defconfig+CONFIG_SMP=n on (riscv):
-- compiler: clang-17
-- dashboard: https://d.kernelci.org/build/maestro:68cd6d0875b320799d2ffc5d
-
-
-#kernelci issue maestro:4adda9bd89f93f21b8d87a69ffbf3044dd10a850
-
-Reported-by: kernelci.org bot <bot@kernelci.org>
-
---
-This is an experimental report format. Please send feedback in!
-Talk to us at kernelci@lists.linux.dev
-
-Made with love by the KernelCI team - https://kernelci.org
 
 _______________________________________________
 linux-riscv mailing list
