@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58339CAC59A
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 12:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED4ACAC592
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Sep 2025 12:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5OSMbsYQJNqtaYueLmq2+GPUVflgWLSdbFnrMOUoWJs=; b=usIfPcL4SbQy4n
-	7GqtISHySDPzaYAmQZHUFCXrhYRfldYGtYj3Q0ZGO4jznOHpRr2khMQAKdI4fI+F+kuCAa1/6V5HP
-	ocVkEghfgzqz29omErfo3NkaUMPK7c3mWp1GUjOeOTF7lRxiscsZ0mC9q9haYRvHrn8F9jkPTC1lA
-	kiunzECiESTserJM1IRJhjVhSRCILKnpnUcNEvWpqDbXeqzrNOi4E1kI/jiORPxTZ5kTzDxYiEZNh
-	ByYtbVzdv3jwuTpXQw01BjTF8hvgzVAblqJpg/+N2dv53LBkkJ19a8zCYmYOzYugfPA/ziuhmDLRH
-	GsXGdDHpIL1VsddOlUlA==;
+	List-Owner; bh=eZtC3rmBqvUbugm/RJargSqqk6M41FNW668NJ9LZQSc=; b=QxqsuHSDOGhU7V
+	+lpQESn9Iw18rjX8Yi6Fs2MtXHPGILfCyeKrMZBKZkETKfS66NqwJUiDCKog6M4A97nNcXDaiVvP6
+	5Z2X/0LTAd98vqul0j6nVYVL6Wu7sBtzXMMLtHxTEAU/BUlNasCFnmSlAtYiLEahbZihgHtBGghsB
+	J5eKzkSIXCGB2fQAwbLrWF9by46BtHFSxrxYFScrG4c1sqcutZ2Xi4b5eWGGEJhL4MEVUpX3MI2B3
+	5LlEDMwPESEqO9fU+cc+nx4mkeSfBq23LBd0jhhmfun3B5ZS4+CsDJr9p2cqjEg+WxaEreoPtUruK
+	AdZhrF7gERjKnU5GIVoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzZyX-00000002mcN-224Q;
-	Fri, 19 Sep 2025 12:12:29 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1uzaBb-00000002p3s-36uf;
+	Fri, 19 Sep 2025 12:25:59 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzZyU-00000002mZz-2Nob
+	id 1uzaBX-00000002p3J-0r2a
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Sep 2025 12:12:28 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b523fb676efso1814263a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 05:12:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1758283946; x=1758888746; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=t2HMMNKqDgzt194tG8vLKUMKuY47t2DmDtqHxNeA0cA=;
-        b=OC1Ls03Pbq0rJrnZbWRYx8Zd96SGL8Yr+HqW4M6q7ZhpqYkWWKjaJvezfFebV/doRa
-         DDveDWvO+4tAM2xnVICfCS4MN8JmCCQjz5dG1WScM8EvpnMeTwkJ8W1ObrXSxFuBPLY9
-         tl8pEzIpxaAc4uDLtVC+jKeHwwvPv6qjaWwwdY55biFr01gmqxRy+K4o+yXzGAXt1Rr4
-         BZ6jLdS53YXPJEpGGw6xjGD1foACNG2eP419PqJ/nHTFR3Zn1OOVwgxqE/MMQTRGxksy
-         Y21lxTYLPl+TL2dPgkZxJdIsNG1P9WGGSpujFdAFXkMuk0x57gwgCqR/tAKYiMJ4veMU
-         NfTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758283946; x=1758888746;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=t2HMMNKqDgzt194tG8vLKUMKuY47t2DmDtqHxNeA0cA=;
-        b=ERCKgtJATAN/NYoDlUMIDuwvGNuXyFkCxHQEW9pgyLbvQLxOv9K57YffQYGr+yCaRy
-         YDjwBm/KrYGnZNzAEfEei31FFYM0VWxIQW3A3u46F1bebfLFUlLRZ0I57RGDOmnpOvVc
-         jz8wo9SpTBl1NyGHEiPAfHr+de7AUZKVm2MwfZXSth1q5lDDiMsgkobz1qO6w+LxsgSO
-         h46lzU/go/IMe88GfrrXfT2pRXzPwaA/k/76OCUO4KvEeq8+2+CeHLVVsgudU4OnCKtX
-         1lnHUCxIPFmMaf7KDw0FWZIw5mspwHt8uOvpFiu9FwVxVDIL3y2s0L8Jr4FGDvkTX2U7
-         VWAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXCvnrMFb5MFbXhZZtivA/UU8/L13GrKkX1WlH0HbNH0DM7SVrG0/aatZTfn3uVi3ZNAZx9H0pPyeAT6Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0t8a6JvXyzJ450nyImcdpTs10+GpN1bGRBBLbHco+9Mr6Aekt
-	aCsbDjK2xEyIXHhsWklyQqnZKzIdu4KXRTXClaZS7Cf7go50R4zlQxF9A5s0ar1zxwe5Eu2RCIZ
-	HRDuzETFUt8Ctd/5tW1OJ4rcE6ARPyHb0UjXDwD9NJQ==
-X-Gm-Gg: ASbGncsZbW7KTM+nfKklrch9EeReaN70PEYcjqGo+aK7gD20aYsJXHgWsNGzmEOBEFJ
-	hYE62oeFxdb/4u7IAtgdP9l9On4O8CTOFEfiTK6V7GOlaPeosd1a6DUQNLMczOUT+ky+ZosHo1p
-	WrFId4rejaX1sUhvq7OWWsNXLCUCOTaSnevwqWwnkpkvvWHMo7Sw3WdSYDJxtnWROkUt8e5kQLw
-	T8cDe2cmbBh8W715KqWgOpaQfgxiKkZ+PpBvSxDn+ODOrCjEUGv
-X-Google-Smtp-Source: AGHT+IGm4y1poVxGUSiB4FXU7penSJROWpZ9IBJ4RsACGtjYuoj82wxnXamn8PKPxeWN3xAf3wDL9CKqcfW9WQHchPw=
-X-Received: by 2002:a17:90a:d40d:b0:32e:3f93:69f5 with SMTP id
- 98e67ed59e1d1-3309836a969mr3636748a91.26.1758283945619; Fri, 19 Sep 2025
- 05:12:25 -0700 (PDT)
+	Fri, 19 Sep 2025 12:25:58 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250919122548euoutp0292a30b3d26f4e636a0191d6508f473df~mrqm60MYk0313803138euoutp02f
+	for <linux-riscv@lists.infradead.org>; Fri, 19 Sep 2025 12:25:48 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250919122548euoutp0292a30b3d26f4e636a0191d6508f473df~mrqm60MYk0313803138euoutp02f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758284748;
+	bh=xSKIjPyrA9OEriZopMFlNAyxpcs3It57Viautl04tXI=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=F+Xk3glO2cgewx7e1iKp9JX1qLwGgul+qkbyUSnqJFUujLqQCD+JHqtjvA6C3plYu
+	 tb6XPaK8AiHnvh314NhvSLRtAY4447tqqdUgXWoNLeXPOAmqkxv+8RUKDUaNPnreiy
+	 X7XwGpQUJq2P149JjEd996iP8UKxN6e0DQeU8y+U=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250919122548eucas1p1ef58c5c747bee71acd5f9d6476e7c29c~mrqmcuafh2548325483eucas1p1m;
+	Fri, 19 Sep 2025 12:25:48 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250919122546eusmtip2896ff33c135295219ae1f797110c7a94~mrqk2ipmP1691216912eusmtip2-;
+	Fri, 19 Sep 2025 12:25:46 +0000 (GMT)
+Message-ID: <7605453a-ac62-497b-b77a-76d73e9a6741@samsung.com>
+Date: Fri, 19 Sep 2025 14:25:45 +0200
 MIME-Version: 1.0
-References: <20250919073714.83063-1-luxu.kernel@bytedance.com>
- <aM0qlTNPiaQRY2Nv@andrea> <CAPYmKFsP+=S56Cj2XT0DjdvBT_SY84moM4LVeqxHTVWbtq4EVw@mail.gmail.com>
- <CAPYmKFsV_ZPifJBtvPOdqM6_Mzhac9A4-PH9zt8TirOqAwKGhw@mail.gmail.com> <aM05J6FU0xG3SBzR@andrea>
-In-Reply-To: <aM05J6FU0xG3SBzR@andrea>
-From: Xu Lu <luxu.kernel@bytedance.com>
-Date: Fri, 19 Sep 2025 20:12:14 +0800
-X-Gm-Features: AS18NWC1LrBbaCsNeBFlqUXUWaqY8b6JknWKL06v5j39bQDtG4KDuo4wYFErj1E
-Message-ID: <CAPYmKFunbrughXdG9Fpum6bxHVu9jmjQdgLVSJ_JA9z+GDsZbA@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v3 0/8] riscv: Add Zalasr ISA extension support
-To: Andrea Parri <parri.andrea@gmail.com>
-Cc: corbet@lwn.net, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, will@kernel.org, peterz@infradead.org, boqun.feng@gmail.com, 
-	mark.rutland@arm.com, ajones@ventanamicro.com, brs@rivosinc.com, 
-	anup@brainfault.org, atish.patra@linux.dev, pbonzini@redhat.com, 
-	shuah@kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, apw@canonical.com, joe@perches.com, 
-	linux-doc@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-kselftest@vger.kernel.org
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH net-next] net: spacemit: Make stats_lock softirq-safe
+To: Vivian Wang <wangruikang@iscas.ac.cn>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+	Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Yixun Lan <dlan@gentoo.org>, Maxime Chevallier
+	<maxime.chevallier@bootlin.com>, Troy Mitchell
+	<troy.mitchell@linux.spacemit.com>, Vadim Fedorenko
+	<vadim.fedorenko@linux.dev>
+Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, Vivian Wang
+	<uwu@dram.page>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20250919-k1-ethernet-fix-lock-v1-1-c8b700aa4954@iscas.ac.cn>
+X-CMS-MailID: 20250919122548eucas1p1ef58c5c747bee71acd5f9d6476e7c29c
+X-Msg-Generator: CA
+X-RootMTR: 20250919120522eucas1p224c42d0cc2a59903d85e6c80dfdfa727
+X-EPHeader: CA
+X-CMS-RootMailID: 20250919120522eucas1p224c42d0cc2a59903d85e6c80dfdfa727
+References: <CGME20250919120522eucas1p224c42d0cc2a59903d85e6c80dfdfa727@eucas1p2.samsung.com>
+	<20250919-k1-ethernet-fix-lock-v1-1-c8b700aa4954@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_051226_610280_1AD3A2BE 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20250919_052556_614444_A919FBA4 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +85,189 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBTZXAgMTksIDIwMjUgYXQgNzowNuKAr1BNIEFuZHJlYSBQYXJyaSA8cGFycmkuYW5k
-cmVhQGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiA+ID4gPiAobm90IGEgcmV2aWV3LCBqdXN0IGxvb2tp
-bmcgYXQgdGhpcyBkaWZmIHN0YXQpIGlzIGNoYW5naW5nIHRoZSBmYXN0cGF0aAo+ID4gPiA+Cj4g
-PiA+ID4gICByZWFkX3VubG9jaygpCj4gPiA+ID4gICByZWFkX2xvY2soKQo+ID4gPiA+Cj4gPiA+
-ID4gZnJvbSBzb21ldGhpbmcgbGlrZQo+ID4gPiA+Cj4gPiA+ID4gICBmZW5jZSBydyx3Cj4gPiA+
-ID4gICBhbW9kYWRkLncKPiA+ID4gPiAgIGFtb2FkZC53Cj4gPiA+ID4gICBmZW5jZSByLHJ3Cj4g
-PiA+ID4KPiA+ID4gPiB0bwo+ID4gPiA+Cj4gPiA+ID4gICBmZW5jZSBydyxydwo+ID4gPiA+ICAg
-YW1vYWRkLncKPiA+ID4gPiAgIGFtb2FkZC53Cj4gPiA+ID4gICBmZW5jZSBydyxydwo+ID4gPiA+
-Cj4gPiA+ID4gbm8gbWF0dGVyIFphbGFzciBvciAhWmFsYXNyLiAgU2ltaWxhcmx5IGZvciBvdGhl
-ciBhdG9taWMgb3BlcmF0aW9ucyB3aXRoCj4gPiA+ID4gcmVsZWFzZSBvciBhY3F1aXJlIHNlbWFu
-dGljcy4gIEkgZ3Vlc3MgdGhlIGNoYW5nZSB3YXMgbm90IGludGVudGlvbmFsPwo+ID4gPiA+IElm
-IGl0IHdhcyBpbnRlbnRpb25hbCwgaXQgc2hvdWxkIGJlIHByb3Blcmx5IG1lbnRpb25lZCBpbiB0
-aGUgY2hhbmdlbG9nLgo+ID4gPgo+ID4gPiBTb3JyeSBhYm91dCB0aGF0LiBJdCBpcyBpbnRlbmRl
-ZC4gVGhlIGF0b21pYyBvcGVyYXRpb24gYmVmb3JlCj4gPiA+IF9fYXRvbWljX2FjcXVpcmVfZmVu
-Y2Ugb3Igb3BlcmF0aW9uIGFmdGVyIF9fYXRvbWljX3JlbGVhc2VfZmVuY2UgY2FuCj4gPiA+IGJl
-IGp1c3QgYSBzaW5nbGUgbGQgb3Igc2QgaW5zdHJ1Y3Rpb24gaW5zdGVhZCBvZiBhbW9jYXMgb3Ig
-YW1vc3dhcC4gSW4KPiA+ID4gc3VjaCBjYXNlcywgd2hlbiB0aGUgc3RvcmUgcmVsZWFzZSBvcGVy
-YXRpb24gYmVjb21lcyAnc2QucmwnLCB0aGUKPiA+ID4gX19hdG9taWNfYWNxdWlyZV9mZW5jZSB2
-aWEgJ2ZlbmNlIHIsIHJ3JyBjYW4gbm90IGVuc3VyZSBGRU5DRS5UU08KPiA+ID4gYW55bW9yZS4g
-VGh1cyBJIHJlcGxhY2UgaXQgd2l0aCAnZmVuY2UgcncsIHJ3Jy4KPgo+IEJ1dCB5b3UgY291bGQg
-YXBwbHkgc2ltaWxhciBjaGFuZ2VzIHlvdSBwZXJmb3JtZWQgZm9yIHhjaGcgJiBjbXB4Y2hnOiB1
-c2UKPiAuQVEgYW5kIC5STCBmb3Igb3RoZXIgYXRvbWljIFJNVyBvcGVyYXRpb25zIGFzIHdlbGws
-IG5vPyAgQUZBSUNTLCB0aGF0IGlzCj4gd2hhdCBhcm02NCBhY3R1YWxseSBkb2VzIGluIGFyY2gv
-YXJtNjQvaW5jbHVkZS9hc20vYXRvbWljX3tsbF9zYyxsc2V9LmggLgoKSSBzZWUuIEkgd2lsbCBz
-dHVkeSB0aGUgaW1wbGVtZW50YXRpb24gb2YgQVJNIGFuZCByZWZpbmUgbXkgcGF0Y2guIFRoYW5r
-cyBhIGxvdC4KCkJlc3QgcmVnYXJkcywKWHUgTHUKCj4KPiAgIEFuZHJlYQo+Cj4KPiA+IFRoaXMg
-aXMgYWxzbyB0aGUgY29tbW9uIGltcGxlbWVudGF0aW9uIG9uIG90aGVyIGFyY2hpdGVjdHVyZXMg
-d2hvIHVzZQo+ID4gYXEvcmwgaW5zdHJ1Y3Rpb25zIGxpa2UgQVJNLiBBbmQgeW91IGNlcnRhaW5s
-eSBhbHJlYWR5IGtuZXcgaXR+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On 19.09.2025 14:04, Vivian Wang wrote:
+> While most of the statistics functions (emac_get_stats64() and such) are
+> called with softirqs enabled, emac_stats_timer() is, as its name
+> suggests, also called from a timer, i.e. called in softirq context.
+>
+> All of these take stats_lock. Therefore, make stats_lock softirq-safe by
+> changing spin_lock() into spin_lock_bh() for the functions that get
+> statistics.
+>
+> Also, instead of directly calling emac_stats_timer() in emac_up() and
+> emac_resume(), set the timer to trigger instead, so that
+> emac_stats_timer() is only called from the timer. It will keep using
+> spin_lock().
+>
+> This fixes a lockdep warning, and potential deadlock when stats_timer is
+> triggered in the middle of getting statistics.
+>
+> Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
+> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> Closes: https://lore.kernel.org/all/a52c0cf5-0444-41aa-b061-a0a1d72b02fe@samsung.com/
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> ---
+> Thanks a lot for catching this, Marek!
+> ---
+>   drivers/net/ethernet/spacemit/k1_emac.c | 30 +++++++++++++++---------------
+>   1 file changed, 15 insertions(+), 15 deletions(-)
+>
+> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
+> index 928fea02198c3754f63a7b33fc25c5dd8c2b59f9..e1c5faff3b71c7d4ceba2ea194d9c888f0e71b70 100644
+> --- a/drivers/net/ethernet/spacemit/k1_emac.c
+> +++ b/drivers/net/ethernet/spacemit/k1_emac.c
+> @@ -135,7 +135,7 @@ struct emac_priv {
+>   	bool flow_control_autoneg;
+>   	u8 flow_control;
+>   
+> -	/* Hold while touching hardware statistics */
+> +	/* Softirq-safe, hold while touching hardware statistics */
+>   	spinlock_t stats_lock;
+>   };
+>   
+> @@ -1239,7 +1239,7 @@ static void emac_get_stats64(struct net_device *dev,
+>   	/* This is the only software counter */
+>   	storage->tx_dropped = emac_get_stat_tx_drops(priv);
+>   
+> -	spin_lock(&priv->stats_lock);
+> +	spin_lock_bh(&priv->stats_lock);
+>   
+>   	emac_stats_update(priv);
+>   
+> @@ -1261,7 +1261,7 @@ static void emac_get_stats64(struct net_device *dev,
+>   	storage->rx_missed_errors = rx_stats->stats.rx_drp_fifo_full_pkts;
+>   	storage->rx_missed_errors += rx_stats->stats.rx_truncate_fifo_full_pkts;
+>   
+> -	spin_unlock(&priv->stats_lock);
+> +	spin_unlock_bh(&priv->stats_lock);
+>   }
+>   
+>   static void emac_get_rmon_stats(struct net_device *dev,
+> @@ -1275,7 +1275,7 @@ static void emac_get_rmon_stats(struct net_device *dev,
+>   
+>   	*ranges = emac_rmon_hist_ranges;
+>   
+> -	spin_lock(&priv->stats_lock);
+> +	spin_lock_bh(&priv->stats_lock);
+>   
+>   	emac_stats_update(priv);
+>   
+> @@ -1294,7 +1294,7 @@ static void emac_get_rmon_stats(struct net_device *dev,
+>   	rmon_stats->hist[5] = rx_stats->stats.rx_1024_1518_pkts;
+>   	rmon_stats->hist[6] = rx_stats->stats.rx_1519_plus_pkts;
+>   
+> -	spin_unlock(&priv->stats_lock);
+> +	spin_unlock_bh(&priv->stats_lock);
+>   }
+>   
+>   static void emac_get_eth_mac_stats(struct net_device *dev,
+> @@ -1307,7 +1307,7 @@ static void emac_get_eth_mac_stats(struct net_device *dev,
+>   	tx_stats = &priv->tx_stats;
+>   	rx_stats = &priv->rx_stats;
+>   
+> -	spin_lock(&priv->stats_lock);
+> +	spin_lock_bh(&priv->stats_lock);
+>   
+>   	emac_stats_update(priv);
+>   
+> @@ -1325,7 +1325,7 @@ static void emac_get_eth_mac_stats(struct net_device *dev,
+>   	mac_stats->FramesAbortedDueToXSColls =
+>   		tx_stats->stats.tx_excessclsn_pkts;
+>   
+> -	spin_unlock(&priv->stats_lock);
+> +	spin_unlock_bh(&priv->stats_lock);
+>   }
+>   
+>   static void emac_get_pause_stats(struct net_device *dev,
+> @@ -1338,14 +1338,14 @@ static void emac_get_pause_stats(struct net_device *dev,
+>   	tx_stats = &priv->tx_stats;
+>   	rx_stats = &priv->rx_stats;
+>   
+> -	spin_lock(&priv->stats_lock);
+> +	spin_lock_bh(&priv->stats_lock);
+>   
+>   	emac_stats_update(priv);
+>   
+>   	pause_stats->tx_pause_frames = tx_stats->stats.tx_pause_pkts;
+>   	pause_stats->rx_pause_frames = rx_stats->stats.rx_pause_pkts;
+>   
+> -	spin_unlock(&priv->stats_lock);
+> +	spin_unlock_bh(&priv->stats_lock);
+>   }
+>   
+>   /* Other statistics that are not derivable from standard statistics */
+> @@ -1393,14 +1393,14 @@ static void emac_get_ethtool_stats(struct net_device *dev,
+>   	u64 *rx_stats = (u64 *)&priv->rx_stats;
+>   	int i;
+>   
+> -	spin_lock(&priv->stats_lock);
+> +	spin_lock_bh(&priv->stats_lock);
+>   
+>   	emac_stats_update(priv);
+>   
+>   	for (i = 0; i < ARRAY_SIZE(emac_ethtool_rx_stats); i++)
+>   		data[i] = rx_stats[emac_ethtool_rx_stats[i].offset];
+>   
+> -	spin_unlock(&priv->stats_lock);
+> +	spin_unlock_bh(&priv->stats_lock);
+>   }
+>   
+>   static int emac_ethtool_get_regs_len(struct net_device *dev)
+> @@ -1769,7 +1769,7 @@ static int emac_up(struct emac_priv *priv)
+>   
+>   	netif_start_queue(ndev);
+>   
+> -	emac_stats_timer(&priv->stats_timer);
+> +	mod_timer(&priv->stats_timer, jiffies);
+>   
+>   	return 0;
+>   
+> @@ -1807,14 +1807,14 @@ static int emac_down(struct emac_priv *priv)
+>   
+>   	/* Update and save current stats, see emac_stats_update() for usage */
+>   
+> -	spin_lock(&priv->stats_lock);
+> +	spin_lock_bh(&priv->stats_lock);
+>   
+>   	emac_stats_update(priv);
+>   
+>   	priv->tx_stats_off = priv->tx_stats;
+>   	priv->rx_stats_off = priv->rx_stats;
+>   
+> -	spin_unlock(&priv->stats_lock);
+> +	spin_unlock_bh(&priv->stats_lock);
+>   
+>   	pm_runtime_put_sync(&pdev->dev);
+>   	return 0;
+> @@ -2111,7 +2111,7 @@ static int emac_resume(struct device *dev)
+>   
+>   	netif_device_attach(ndev);
+>   
+> -	emac_stats_timer(&priv->stats_timer);
+> +	mod_timer(&priv->stats_timer, jiffies);
+>   
+>   	return 0;
+>   }
+>
+> ---
+> base-commit: 315f423be0d1ebe720d8fd4fa6bed68586b13d34
+> change-id: 20250919-k1-ethernet-fix-lock-c99681a9aa5d
+>
+> Best regards,
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
