@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B0CCAC5A7
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 23:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A4D7CAC5A5
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 23:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tSwtb4KWtdQkLbIKvMAORfjq98NbpbWV1KizQWoDOvU=; b=ZbqhWjnIPoVxOs
-	gONWUPPT1ZUgQZf4O0nAzDTsirmKSmhJ1QRJwKsd1BOy027e1zmZH6UqUtzjCb8ZIP+nCoRS2696I
-	EHHJkGc+W1O5xu/4j/ZIqI0FA5nJDZhS34Of/kFSEAw4uyexppgV8kfnn1krX1Si6wGWYH9LjVtlO
-	xd3QAkXaVshROra7VmnMXTQhp6SaK6KR54IubYPjqX6w+BujcJsG5OIUyLdQbcaG9g3rC1X8NAsHu
-	y95lKIgrunemde+Pl3FPrYMO7FNK2rElTTwiDKUZK7GvtIddU1r5xd+Mc8gSzKsAJs5EX1Otfe0K0
-	NwEdyoed7gakd8UdKWdw==;
+	List-Owner; bh=IfaNM9dEw93PctprokfAm5W/mu0ny4oq073M13TxFMo=; b=PLTeFbsBrbxwAi
+	FzExrCtthblLRW5ux9NA3C3hiyykTriJTMA7hkiM2ZZwedozD4ibdf2ggUy7UM8igENigfvvkWMUN
+	Pe5HwdrpoF5XjBHDewflKUubhdKoxkLzw1t7t9E/ru553AByLPOEBdS9q9QPP89soBBydJ0SEA1v4
+	3+dqx6ZIvFa2tb8sw6BvK7bNzFlxtZ5LI8YX8i+Nfp6ELrpcNEOM3WTkTQ2SwOs2wlhHP4aQHyR/i
+	NyR4oFwn7Wc68DZEjAgAjam/UcLxbUeUgrZRzbOurqLwd1RMFefuoF/DYnc+n+Bd5rtoC4Ri1VQ/F
+	23etWJhqg9gRlN1PwZug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v06ki-000000063Kr-2F6h;
-	Sat, 20 Sep 2025 23:12:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v07BT-000000064ib-1RzL;
+	Sat, 20 Sep 2025 23:40:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v06kg-000000063KH-1CFb
+	id 1v07BR-000000064iS-24hq
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Sep 2025 23:12:23 +0000
+	Sat, 20 Sep 2025 23:40:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AC58E449E7;
-	Sat, 20 Sep 2025 23:12:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53BBAC4CEEB;
-	Sat, 20 Sep 2025 23:12:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8D17E60144;
+	Sat, 20 Sep 2025 23:40:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EB60C4CEEB;
+	Sat, 20 Sep 2025 23:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758409939;
-	bh=eFnc9b1aoladqShWY6Ma0VhkLo6XXery986wD968NAU=;
+	s=k20201202; t=1758411599;
+	bh=lfvyd0eukorymeOecy6sHOks87edoKZdQD+c2emmFSY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TZz9J+MjJDl0UvG7r5/l1XW/V0b12bQdNcvgPUBCpjiNXi38BeAg0wndvCctQIusZ
-	 JRQNgo2s5r3IVYGkTN0RsvAJm/TD7b7uube7HjIMwc+NCKicO06glpZcC1NPanxG/q
-	 fTfL7XRimHxs94vMlvKtTVXxPn6Kil2Fb+Zx7fo34YFG/w/IYPENoZ0y/Glfa1QTJE
-	 59Q5M/eL+Z2RYvpnDCGvRqQxkeXGIBXgo5Z/RcW2mJzSqhc+PfGVxILXmX2/gzTecF
-	 wkCeO6iYhiRUoTNmtEn8s/PN9SCFXxJbIry6gMNW5z96hefum1S62gYwUYSawWCmPE
-	 nmnjkfsCDzkiA==
-Date: Sat, 20 Sep 2025 16:12:18 -0700
+	b=SaukMz9Xoi0diaJjnjmHRiVBc537RfPRUW1pOODJmnUlIWzwGyFP6vFppIwF64T6y
+	 a6zADKvBaY7vgMAJij3nZsG/usijLhtUmfBkXrvD3vqd/cQb9Fc6SINpMiS/nL8BXv
+	 y7/Jdvevo4K7x9xJdlkZk7afWGfG09vyzxtuLPOz/zAQKLjb0Mdp9GyN0t606pLVxL
+	 jw+wgWXeyMg3E1cbl2FPGlt2WtgticSI1O2EthcydwnGJSlt0ZxcZ8I6Xa91cRwbWy
+	 +TbfbVOXiSBghYckrvx5De/EI5iL6hcNe6yPfMbTDjZCUa+CBT9IPUxpJ1e0RIldxv
+	 u44ifDIGb8usg==
+Date: Sat, 20 Sep 2025 16:39:53 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: Han Gao <rabenda.cn@gmail.com>
 Cc: devicetree@vger.kernel.org, Guo Ren <guoren@kernel.org>,
@@ -55,17 +55,13 @@ Cc: devicetree@vger.kernel.org, Guo Ren <guoren@kernel.org>,
 	Chen Wang <unicorn_wang@outlook.com>,
 	Inochi Amaoto <inochiama@gmail.com>,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] riscv: dts: thead: add ziccrse for th1520
-Message-ID: <aM800uhWPZ3x28mm@thelio>
+Subject: Re: [PATCH v2 3/3] riscv: dts: thead: add zfh for th1520
+Message-ID: <aM87ScdxI-D2O6sP@gen8>
 References: <cover.1758228055.git.rabenda.cn@gmail.com>
- <71ac2ff73a63bd8674c4bc91fd287390d5339609.1758228055.git.rabenda.cn@gmail.com>
+ <38abc793c2fcb9dd26c89bab10dd4450d91ced4c.1758228055.git.rabenda.cn@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <71ac2ff73a63bd8674c4bc91fd287390d5339609.1758228055.git.rabenda.cn@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_161222_343005_E7509526 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <38abc793c2fcb9dd26c89bab10dd4450d91ced4c.1758228055.git.rabenda.cn@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,15 +78,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 19, 2025 at 04:44:48AM +0800, Han Gao wrote:
-> Existing rv64 hardware conforms to the rva20 profile.
+On Fri, Sep 19, 2025 at 04:44:49AM +0800, Han Gao wrote:
+> th1520 support Zfh ISA extension.
+> It supports the same RISC-V extensions as SG2042.
 > 
-> Ziccrse is an additional extension required by the rva20 profile, so
-> th1520 has this extension.
+> commit cb074bed1186 ("riscv: dts: sophgo: add zfh for sg2042")
 > 
 > Signed-off-by: Han Gao <rabenda.cn@gmail.com>
 
-Reviewed-by: Drew Fustini <fustini@kernel.org>      
+Reviewed-by: Drew Fustini <fustini@kernel.org>     
 
 Thanks,
 Drew
