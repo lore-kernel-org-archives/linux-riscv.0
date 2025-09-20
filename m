@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5026CAC5A0
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 07:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F85FCAC5A7
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 14:52:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sqTCbrMfNaeOpYOpc1xtyW2aPZRByIyQFEHnPxDB9pQ=; b=NAayK4nk2lY59U
-	7CswiqQVq0bog7LHmFuH8wysdCxtm9qBBnlPr37gd8C/83ZpZJdY0LZi9FTGVheRdQMQ0o7TI6cY8
-	T4NzmTYGWMy8Mb9ap40yZjaHu6egC7oj/VjSdd2OjL6nk1ZjbmsFbP49Avb0RyWXyo0VovttRgjkW
-	MnPwPobnZClemQL3/HNqWotOPHSxZ07TllyXUivFw36vuaqg4BalQq8VdipgltWpEsW4OnxU38lPE
-	KP3ustUC1/pmcSmrSbKBOzMFzTTu/yyiU2cSPwtHQsgDyeKvhgTYlvW0R8qIjP1A26i14b1yVmz+s
-	4pOHgknNtf3X5cWQDEhQ==;
+	List-Owner; bh=xujA44EaK4ID7hGuvKhQKFex0gemeDOetOMBch0GY08=; b=L7I6g8M6/UVqUi
+	9cNW4Lzsb/vUX51kmmCjoyM5HM2EmC74aT3mg87XIjelhj1KK37Yqotq4YM/Pv2ZogUs6D6iLqdV6
+	P0cEc0RlU5SSpsDPBh31mw2AcmQc/rzUv4VCja9/QCd5K/Oc3oZLWyD7oHlZ6N8eM3TLnqZ+lh1Lt
+	BarptZXKTD3z346SVh29PuLkUC1xCaA+fACPPLyxb/ckHbY2oc6GIRmau8UviELuv+4Avlis7k4nq
+	+9+lo5EecUDRAU5vyqoxYH1xfVdTVP+ZbLCIG3HzwX39Oq+bz6X+YH1Bx9P1t0jfAiUsj8m0yR6NN
+	w0PTzS9maEzvmVEQ59zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzsEg-00000004xJd-2oiu;
-	Sat, 20 Sep 2025 07:42:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzywn-00000005UJZ-4BJQ;
+	Sat, 20 Sep 2025 14:52:22 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzsEf-00000004xJK-0eMo
-	for linux-riscv@lists.infradead.org;
-	Sat, 20 Sep 2025 07:42:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1DE4060194;
-	Sat, 20 Sep 2025 07:42:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AEC7C4CEEB;
-	Sat, 20 Sep 2025 07:42:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758354139;
-	bh=00/ZcdeScyYNhHtGZfw/xJV1F83XgBgalo+slKN3fjw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dvVfkc9p1DQkPQGO6GvJxUSVuzwQyG0dxhdApalfEBZOdOBtSMcgKk0xJmK0jQuSI
-	 XJCEEZuu3VbGnRULFowmzwbchAXvDXUvZpGCmgsUuRslFce1oMhKt7E6EcErgv28Wg
-	 RyDp2qZDwjG2Y7kOPZXACiBEAOHtVl6rlsUUxQlC6lUi8rMdwh/6e79eUW49+2FUBX
-	 zok+//sVZGZwSXAqgmZu4pmzJgNCWIVHVs9xQdvaFa/JRRaTL3wxR+jFonqq5Il91m
-	 VOjFZP0Pokvf691m8TEg6SZgdo3SFE65v43VtPDUquAzoW0lGYueiwehQWKtAPNC5C
-	 znSjsF7BW7Udg==
-Date: Sat, 20 Sep 2025 13:12:06 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: kwilczynski@kernel.org, u.kleine-koenig@baylibre.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, arnd@arndb.de, bwawrzyn@cisco.com, 
-	bhelgaas@google.com, unicorn_wang@outlook.com, conor+dt@kernel.org, 
-	18255117159@163.com, inochiama@gmail.com, kishon@kernel.org, krzk+dt@kernel.org, 
-	lpieralisi@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org, 
-	s-vadapalli@ti.com, tglx@linutronix.de, thomas.richard@bootlin.com, 
-	sycamoremoon376@gmail.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org, sophgo@lists.linux.dev, 
-	rabenda.cn@gmail.com, chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, 
-	fengchun.li@sophgo.com, jeffbai@aosc.io
-Subject: Re: [PATCH v3 4/7] riscv: sophgo: dts: add PCIe controllers for
- SG2042
-Message-ID: <cwc3hnre3s3rvzcgzjdbdrhlrizz4obifwragusrixa5owj5qg@yotfd3l3qxf4>
-References: <cover.1757643388.git.unicorn_wang@outlook.com>
- <828860951ec4973285fe92fceb4b6f0ecb365a2f.1757643388.git.unicorn_wang@outlook.com>
+	id 1uzywl-00000005UIs-0Bx2;
+	Sat, 20 Sep 2025 14:52:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758379937; x=1789915937;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=UUc100DiH5QSCSSktpUYXl2/8ztlxI58qE2abR1pwAo=;
+  b=ie2mMMAUy5FZvgXGnOkcsekVrOI0UE6yj7SUZHo4ZSD8/z8FXDSm6CGG
+   cipMmYsRqRHo4u142ENU8tqNQUqoHS4sulL3OyeunPJezNWmcNIxg/4sv
+   ZN49A3Oes+H7ObJqMFINBMqF2qJ8LEQs2Rrk1rSX5HroJe1bF4IDQD/zL
+   8PW/1SXh12/hmeoHcPmQw1NaRgRmfeq6bcfS2cvBbLQaAbCUdxrHWQHCF
+   pxiK/175b3ie+cioZ8LEQD7655bxO50hvTsRBfI+Ga8ZMa/xsrVj+W+Cv
+   NIPNq8jcH4SJqLXiJYNIJcieb7hdByUYET6Jyy1V6SQvXl51imi9mSoG1
+   g==;
+X-CSE-ConnectionGUID: XhvLuZzSSmCDSFv+CpVvsA==
+X-CSE-MsgGUID: N+xpnzTPQcKBODSyDAqseg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11559"; a="64342015"
+X-IronPort-AV: E=Sophos;i="6.18,281,1751266800"; 
+   d="scan'208";a="64342015"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2025 07:52:13 -0700
+X-CSE-ConnectionGUID: 6OvbacEKTU2c8vyfRuSxaQ==
+X-CSE-MsgGUID: 1lrjLAWUTZmK37vpom/sQA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,281,1751266800"; 
+   d="scan'208";a="181236519"
+Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 20 Sep 2025 07:52:08 -0700
+Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uzywX-0005ON-01;
+	Sat, 20 Sep 2025 14:52:05 +0000
+Date: Sat, 20 Sep 2025 22:52:01 +0800
+From: kernel test robot <lkp@intel.com>
+To: Xu Lu <luxu.kernel@bytedance.com>, corbet@lwn.net, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	will@kernel.org, peterz@infradead.org, boqun.feng@gmail.com,
+	mark.rutland@arm.com, parri.andrea@gmail.com,
+	ajones@ventanamicro.com, brs@rivosinc.com, anup@brainfault.org,
+	atish.patra@linux.dev, pbonzini@redhat.com, shuah@kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, apw@canonical.com, joe@perches.com,
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: Re: [PATCH v3 6/8] riscv: Apply acquire/release semantics to
+ arch_xchg/arch_cmpxchg operations
+Message-ID: <202509202249.rOR3GJbT-lkp@intel.com>
+References: <20250919073714.83063-7-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <828860951ec4973285fe92fceb4b6f0ecb365a2f.1757643388.git.unicorn_wang@outlook.com>
+In-Reply-To: <20250919073714.83063-7-luxu.kernel@bytedance.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250920_075219_166274_364E2D13 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,95 +93,444 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBTZXAgMTIsIDIwMjUgYXQgMTA6MzY6NTBBTSArMDgwMCwgQ2hlbiBXYW5nIHdyb3Rl
-Ogo+IEZyb206IENoZW4gV2FuZyA8dW5pY29ybl93YW5nQG91dGxvb2suY29tPgo+IAo+IEFkZCBQ
-Q0llIGNvbnRyb2xsZXIgbm9kZXMgaW4gRFRTIGZvciBTb3BoZ28gU0cyMDQyLgo+IERlZmF1bHQg
-dGhleSBhcmUgZGlzYWJsZWQuCj4gCj4gU2lnbmVkLW9mZi1ieTogSW5vY2hpIEFtYW90byA8aW5v
-Y2hpYW1hQGdtYWlsLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBIYW4gR2FvIDxyYWJlbmRhLmNuQGdt
-YWlsLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBDaGVuIFdhbmcgPHVuaWNvcm5fd2FuZ0BvdXRsb29r
-LmNvbT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vc2cyMDQyLmR0c2kgfCA4
-OCArKysrKysrKysrKysrKysrKysrKysrKysrKwo+ICAxIGZpbGUgY2hhbmdlZCwgODggaW5zZXJ0
-aW9ucygrKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9zZzIw
-NDIuZHRzaSBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc29waGdvL3NnMjA0Mi5kdHNpCj4gaW5kZXgg
-YjNlNGQzYzE4ZmRjLi5iNTIxZjY3NDI4M2UgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9ib290
-L2R0cy9zb3BoZ28vc2cyMDQyLmR0c2kKPiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhn
-by9zZzIwNDIuZHRzaQo+IEBAIC0yMjAsNiArMjIwLDk0IEBAIGNsa2dlbjogY2xvY2stY29udHJv
-bGxlckA3MDMwMDEyMDAwIHsKPiAgCQkJI2Nsb2NrLWNlbGxzID0gPDE+Owo+ICAJCX07Cj4gIAo+
-ICsJCXBjaWVfcmMwOiBwY2llQDcwNjAwMDAwMDAgewo+ICsJCQljb21wYXRpYmxlID0gInNvcGhn
-byxzZzIwNDItcGNpZS1ob3N0IjsKPiArCQkJZGV2aWNlX3R5cGUgPSAicGNpIjsKPiArCQkJcmVn
-ID0gPDB4NzAgMHg2MDAwMDAwMCAgMHgwIDB4MDA4MDAwMDA+LAo+ICsJCQkgICAgICA8MHg0MCAw
-eDAwMDAwMDAwICAweDAgMHgwMDAwMTAwMD47Cj4gKwkJCXJlZy1uYW1lcyA9ICJyZWciLCAiY2Zn
-IjsKPiArCQkJbGludXgscGNpLWRvbWFpbiA9IDwwPjsKPiArCQkJI2FkZHJlc3MtY2VsbHMgPSA8
-Mz47Cj4gKwkJCSNzaXplLWNlbGxzID0gPDI+Owo+ICsJCQlyYW5nZXMgPSA8MHgwMTAwMDAwMCAw
-eDAgIDB4YzAwMDAwMDAgIDB4NDAgMHhjMDAwMDAwMCAgMHgwIDB4MDA0MDAwMDA+LAoKUENJIGFk
-ZHJlc3Mgb2YgdGhlIEkvTyBwb3J0IHN0YXJ0cyBmcm9tIDAuIFNvIHRoaXMgc2hvdWxkIGJlOgoK
-CQkJCTwweDAxMDAwMDAwIDB4MCAgMHgwMDAwMDAwMCAgMHg0MCAweGMwMDAwMDAwICAweDAgMHgw
-MDQwMDAwMD4sCgpTYW1lIGNvbW1lbnQgZm9yIG90aGVyIG5vZGVzLgoKV2l0aCB0aGlzIGZpeGVk
-LAoKQWNrZWQtYnk6IE1hbml2YW5uYW4gU2FkaGFzaXZhbSA8bWFuaUBrZXJuZWwub3JnPgoKLSBN
-YW5pCgo+ICsJCQkJIDwweDQyMDAwMDAwIDB4MCAgMHhkMDAwMDAwMCAgMHg0MCAweGQwMDAwMDAw
-ICAweDAgMHgxMDAwMDAwMD4sCj4gKwkJCQkgPDB4MDIwMDAwMDAgMHgwICAweGUwMDAwMDAwICAw
-eDQwIDB4ZTAwMDAwMDAgIDB4MCAweDIwMDAwMDAwPiwKPiArCQkJCSA8MHg0MzAwMDAwMCAweDQy
-IDB4MDAwMDAwMDAgIDB4NDIgMHgwMDAwMDAwMCAgMHgyIDB4MDAwMDAwMDA+LAo+ICsJCQkJIDww
-eDAzMDAwMDAwIDB4NDEgMHgwMDAwMDAwMCAgMHg0MSAweDAwMDAwMDAwICAweDEgMHgwMDAwMDAw
-MD47Cj4gKwkJCWJ1cy1yYW5nZSA9IDwweDAgMHhmZj47Cj4gKwkJCXZlbmRvci1pZCA9IDwweDFm
-MWM+Owo+ICsJCQlkZXZpY2UtaWQgPSA8MHgyMDQyPjsKPiArCQkJY2Rucyxuby1iYXItbWF0Y2gt
-bmJpdHMgPSA8NDg+Owo+ICsJCQltc2ktcGFyZW50ID0gPCZtc2k+Owo+ICsJCQlzdGF0dXMgPSAi
-ZGlzYWJsZWQiOwo+ICsJCX07Cj4gKwo+ICsJCXBjaWVfcmMxOiBwY2llQDcwNjA4MDAwMDAgewo+
-ICsJCQljb21wYXRpYmxlID0gInNvcGhnbyxzZzIwNDItcGNpZS1ob3N0IjsKPiArCQkJZGV2aWNl
-X3R5cGUgPSAicGNpIjsKPiArCQkJcmVnID0gPDB4NzAgMHg2MDgwMDAwMCAgMHgwIDB4MDA4MDAw
-MDA+LAo+ICsJCQkgICAgICA8MHg0NCAweDAwMDAwMDAwICAweDAgMHgwMDAwMTAwMD47Cj4gKwkJ
-CXJlZy1uYW1lcyA9ICJyZWciLCAiY2ZnIjsKPiArCQkJbGludXgscGNpLWRvbWFpbiA9IDwxPjsK
-PiArCQkJI2FkZHJlc3MtY2VsbHMgPSA8Mz47Cj4gKwkJCSNzaXplLWNlbGxzID0gPDI+Owo+ICsJ
-CQlyYW5nZXMgPSA8MHgwMTAwMDAwMCAweDAgIDB4YzA0MDAwMDAgIDB4NDQgMHhjMDQwMDAwMCAg
-MHgwIDB4MDA0MDAwMDA+LAo+ICsJCQkJIDwweDQyMDAwMDAwIDB4MCAgMHhkMDAwMDAwMCAgMHg0
-NCAweGQwMDAwMDAwICAweDAgMHgxMDAwMDAwMD4sCj4gKwkJCQkgPDB4MDIwMDAwMDAgMHgwICAw
-eGUwMDAwMDAwICAweDQ0IDB4ZTAwMDAwMDAgIDB4MCAweDIwMDAwMDAwPiwKPiArCQkJCSA8MHg0
-MzAwMDAwMCAweDQ2IDB4MDAwMDAwMDAgIDB4NDYgMHgwMDAwMDAwMCAgMHgyIDB4MDAwMDAwMDA+
-LAo+ICsJCQkJIDwweDAzMDAwMDAwIDB4NDUgMHgwMDAwMDAwMCAgMHg0NSAweDAwMDAwMDAwICAw
-eDEgMHgwMDAwMDAwMD47Cj4gKwkJCWJ1cy1yYW5nZSA9IDwweDAgMHhmZj47Cj4gKwkJCXZlbmRv
-ci1pZCA9IDwweDFmMWM+Owo+ICsJCQlkZXZpY2UtaWQgPSA8MHgyMDQyPjsKPiArCQkJY2Rucyxu
-by1iYXItbWF0Y2gtbmJpdHMgPSA8NDg+Owo+ICsJCQltc2ktcGFyZW50ID0gPCZtc2k+Owo+ICsJ
-CQlzdGF0dXMgPSAiZGlzYWJsZWQiOwo+ICsJCX07Cj4gKwo+ICsJCXBjaWVfcmMyOiBwY2llQDcw
-NjIwMDAwMDAgewo+ICsJCQljb21wYXRpYmxlID0gInNvcGhnbyxzZzIwNDItcGNpZS1ob3N0IjsK
-PiArCQkJZGV2aWNlX3R5cGUgPSAicGNpIjsKPiArCQkJcmVnID0gPDB4NzAgMHg2MjAwMDAwMCAg
-MHgwIDB4MDA4MDAwMDA+LAo+ICsJCQkgICAgICA8MHg0OCAweDAwMDAwMDAwICAweDAgMHgwMDAw
-MTAwMD47Cj4gKwkJCXJlZy1uYW1lcyA9ICJyZWciLCAiY2ZnIjsKPiArCQkJbGludXgscGNpLWRv
-bWFpbiA9IDwyPjsKPiArCQkJI2FkZHJlc3MtY2VsbHMgPSA8Mz47Cj4gKwkJCSNzaXplLWNlbGxz
-ID0gPDI+Owo+ICsJCQlyYW5nZXMgPSA8MHgwMTAwMDAwMCAweDAgIDB4YzA4MDAwMDAgIDB4NDgg
-MHhjMDgwMDAwMCAgMHgwIDB4MDA0MDAwMDA+LAo+ICsJCQkJIDwweDQyMDAwMDAwIDB4MCAgMHhk
-MDAwMDAwMCAgMHg0OCAweGQwMDAwMDAwICAweDAgMHgxMDAwMDAwMD4sCj4gKwkJCQkgPDB4MDIw
-MDAwMDAgMHgwICAweGUwMDAwMDAwICAweDQ4IDB4ZTAwMDAwMDAgIDB4MCAweDIwMDAwMDAwPiwK
-PiArCQkJCSA8MHgwMzAwMDAwMCAweDQ5IDB4MDAwMDAwMDAgIDB4NDkgMHgwMDAwMDAwMCAgMHgx
-IDB4MDAwMDAwMDA+LAo+ICsJCQkJIDwweDQzMDAwMDAwIDB4NGEgMHgwMDAwMDAwMCAgMHg0YSAw
-eDAwMDAwMDAwICAweDIgMHgwMDAwMDAwMD47Cj4gKwkJCWJ1cy1yYW5nZSA9IDwweDAgMHhmZj47
-Cj4gKwkJCXZlbmRvci1pZCA9IDwweDFmMWM+Owo+ICsJCQlkZXZpY2UtaWQgPSA8MHgyMDQyPjsK
-PiArCQkJY2Rucyxuby1iYXItbWF0Y2gtbmJpdHMgPSA8NDg+Owo+ICsJCQltc2ktcGFyZW50ID0g
-PCZtc2k+Owo+ICsJCQlzdGF0dXMgPSAiZGlzYWJsZWQiOwo+ICsJCX07Cj4gKwo+ICsJCXBjaWVf
-cmMzOiBwY2llQDcwNjI4MDAwMDAgewo+ICsJCQljb21wYXRpYmxlID0gInNvcGhnbyxzZzIwNDIt
-cGNpZS1ob3N0IjsKPiArCQkJZGV2aWNlX3R5cGUgPSAicGNpIjsKPiArCQkJcmVnID0gPDB4NzAg
-MHg2MjgwMDAwMCAgMHgwIDB4MDA4MDAwMDA+LAo+ICsJCQkgICAgICA8MHg0YyAweDAwMDAwMDAw
-ICAweDAgMHgwMDAwMTAwMD47Cj4gKwkJCXJlZy1uYW1lcyA9ICJyZWciLCAiY2ZnIjsKPiArCQkJ
-bGludXgscGNpLWRvbWFpbiA9IDwzPjsKPiArCQkJI2FkZHJlc3MtY2VsbHMgPSA8Mz47Cj4gKwkJ
-CSNzaXplLWNlbGxzID0gPDI+Owo+ICsJCQlyYW5nZXMgPSA8MHgwMTAwMDAwMCAweDAgIDB4YzBj
-MDAwMDAgIDB4NGMgMHhjMGMwMDAwMCAgMHgwIDB4MDA0MDAwMDA+LAo+ICsJCQkJIDwweDQyMDAw
-MDAwIDB4MCAgMHhmODAwMDAwMCAgMHg0YyAweGY4MDAwMDAwICAweDAgMHgwNDAwMDAwMD4sCj4g
-KwkJCQkgPDB4MDIwMDAwMDAgMHgwICAweGZjMDAwMDAwICAweDRjIDB4ZmMwMDAwMDAgIDB4MCAw
-eDA0MDAwMDAwPiwKPiArCQkJCSA8MHg0MzAwMDAwMCAweDRlIDB4MDAwMDAwMDAgIDB4NGUgMHgw
-MDAwMDAwMCAgMHgyIDB4MDAwMDAwMDA+LAo+ICsJCQkJIDwweDAzMDAwMDAwIDB4NGQgMHgwMDAw
-MDAwMCAgMHg0ZCAweDAwMDAwMDAwICAweDEgMHgwMDAwMDAwMD47Cj4gKwkJCWJ1cy1yYW5nZSA9
-IDwweDAgMHhmZj47Cj4gKwkJCXZlbmRvci1pZCA9IDwweDFmMWM+Owo+ICsJCQlkZXZpY2UtaWQg
-PSA8MHgyMDQyPjsKPiArCQkJY2Rucyxuby1iYXItbWF0Y2gtbmJpdHMgPSA8NDg+Owo+ICsJCQlt
-c2ktcGFyZW50ID0gPCZtc2k+Owo+ICsJCQlzdGF0dXMgPSAiZGlzYWJsZWQiOwo+ICsJCX07Cj4g
-Kwo+ICAJCWNsaW50X21zd2k6IGludGVycnVwdC1jb250cm9sbGVyQDcwOTQwMDAwMDAgewo+ICAJ
-CQljb21wYXRpYmxlID0gInNvcGhnbyxzZzIwNDItYWNsaW50LW1zd2kiLCAidGhlYWQsYzkwMC1h
-Y2xpbnQtbXN3aSI7Cj4gIAkJCXJlZyA9IDwweDAwMDAwMDcwIDB4OTQwMDAwMDAgMHgwMDAwMDAw
-MCAweDAwMDA0MDAwPjsKPiAtLSAKPiAyLjM0LjEKPiAKCi0tIArgrq7grqPgrr/grrXgrqPgr43g
-rqPgrqngr40g4K6a4K6k4K6+4K6a4K6/4K614K6u4K+NCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Xu,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on kvm/queue kvm/next linus/master v6.17-rc6]
+[cannot apply to kvm/linux-next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Xu-Lu/riscv-add-ISA-extension-parsing-for-Zalasr/20250919-154304
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250919073714.83063-7-luxu.kernel%40bytedance.com
+patch subject: [PATCH v3 6/8] riscv: Apply acquire/release semantics to arch_xchg/arch_cmpxchg operations
+config: riscv-randconfig-002-20250920 (https://download.01.org/0day-ci/archive/20250920/202509202249.rOR3GJbT-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7c861bcedf61607b6c087380ac711eb7ff918ca6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250920/202509202249.rOR3GJbT-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509202249.rOR3GJbT-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from lib/objpool.c:3:
+>> include/linux/objpool.h:156:7: error: invalid .org offset '1528' (at offset '1532')
+     156 |                 if (try_cmpxchg_release(&slot->head, &head, head + 1))
+         |                     ^
+   include/linux/atomic/atomic-instrumented.h:4899:2: note: expanded from macro 'try_cmpxchg_release'
+    4899 |         raw_try_cmpxchg_release(__ai_ptr, __ai_oldp, __VA_ARGS__); \
+         |         ^
+   include/linux/atomic/atomic-arch-fallback.h:228:9: note: expanded from macro 'raw_try_cmpxchg_release'
+     228 |         ___r = raw_cmpxchg_release((_ptr), ___o, (_new)); \
+         |                ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+   In file included from lib/objpool.c:3:
+>> include/linux/objpool.h:156:7: error: invalid .org offset '1528' (at offset '1532')
+     156 |                 if (try_cmpxchg_release(&slot->head, &head, head + 1))
+         |                     ^
+   include/linux/atomic/atomic-instrumented.h:4899:2: note: expanded from macro 'try_cmpxchg_release'
+    4899 |         raw_try_cmpxchg_release(__ai_ptr, __ai_oldp, __VA_ARGS__); \
+         |         ^
+   include/linux/atomic/atomic-arch-fallback.h:228:9: note: expanded from macro 'raw_try_cmpxchg_release'
+     228 |         ___r = raw_cmpxchg_release((_ptr), ___o, (_new)); \
+         |                ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+   2 errors generated.
+--
+>> lib/generic-radix-tree.c:53:12: error: invalid .org offset '1850' (at offset '1854')
+      53 |                 if ((v = cmpxchg_release(&radix->root, r, new_root)) == r) {
+         |                          ^
+   include/linux/atomic/atomic-instrumented.h:4803:2: note: expanded from macro 'cmpxchg_release'
+    4803 |         raw_cmpxchg_release(__ai_ptr, __VA_ARGS__); \
+         |         ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   arch/riscv/include/asm/cmpxchg.h:265:2: note: expanded from macro 'arch_cmpxchg_release'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ^
+   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+   lib/generic-radix-tree.c:74:14: error: invalid .org offset '1862' (at offset '1866')
+      74 |                         if (!(n = cmpxchg_release(p, NULL, new_node)))
+         |                                   ^
+   include/linux/atomic/atomic-instrumented.h:4803:2: note: expanded from macro 'cmpxchg_release'
+    4803 |         raw_cmpxchg_release(__ai_ptr, __VA_ARGS__); \
+         |         ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   arch/riscv/include/asm/cmpxchg.h:265:2: note: expanded from macro 'arch_cmpxchg_release'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ^
+   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+>> lib/generic-radix-tree.c:53:12: error: invalid .org offset '1850' (at offset '1854')
+      53 |                 if ((v = cmpxchg_release(&radix->root, r, new_root)) == r) {
+         |                          ^
+   include/linux/atomic/atomic-instrumented.h:4803:2: note: expanded from macro 'cmpxchg_release'
+    4803 |         raw_cmpxchg_release(__ai_ptr, __VA_ARGS__); \
+         |         ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   arch/riscv/include/asm/cmpxchg.h:265:2: note: expanded from macro 'arch_cmpxchg_release'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ^
+   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+   lib/generic-radix-tree.c:74:14: error: invalid .org offset '1862' (at offset '1866')
+      74 |                         if (!(n = cmpxchg_release(p, NULL, new_node)))
+         |                                   ^
+   include/linux/atomic/atomic-instrumented.h:4803:2: note: expanded from macro 'cmpxchg_release'
+    4803 |         raw_cmpxchg_release(__ai_ptr, __VA_ARGS__); \
+         |         ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   arch/riscv/include/asm/cmpxchg.h:265:2: note: expanded from macro 'arch_cmpxchg_release'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ^
+   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+   4 errors generated.
+--
+   In file included from lib/refcount.c:6:
+   In file included from include/linux/mutex.h:17:
+   In file included from include/linux/lockdep.h:14:
+   In file included from include/linux/smp.h:13:
+   In file included from include/linux/cpumask.h:14:
+   In file included from include/linux/atomic.h:80:
+>> include/linux/atomic/atomic-arch-fallback.h:2083:9: error: invalid .org offset '528' (at offset '532')
+    2083 |         return raw_cmpxchg_release(&v->counter, old, new);
+         |                ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   arch/riscv/include/asm/cmpxchg.h:265:2: note: expanded from macro 'arch_cmpxchg_release'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ^
+   arch/riscv/include/asm/cmpxchg.h:238:3: note: expanded from macro '_arch_cmpxchg'
+     238 |                 __arch_cmpxchg(".w" lr_sfx, ".w" sc_sfx, ".w" cas_sfx,  \
+         |                 ^
+   note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+   In file included from lib/refcount.c:6:
+   In file included from include/linux/mutex.h:17:
+   In file included from include/linux/lockdep.h:14:
+   In file included from include/linux/smp.h:13:
+   In file included from include/linux/cpumask.h:14:
+   In file included from include/linux/atomic.h:80:
+   include/linux/atomic/atomic-arch-fallback.h:2083:9: error: invalid .org offset '540' (at offset '544')
+    2083 |         return raw_cmpxchg_release(&v->counter, old, new);
+         |                ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   arch/riscv/include/asm/cmpxchg.h:265:2: note: expanded from macro 'arch_cmpxchg_release'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ^
+   arch/riscv/include/asm/cmpxchg.h:238:3: note: expanded from macro '_arch_cmpxchg'
+     238 |                 __arch_cmpxchg(".w" lr_sfx, ".w" sc_sfx, ".w" cas_sfx,  \
+         |                 ^
+   note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+   In file included from lib/refcount.c:6:
+   In file included from include/linux/mutex.h:17:
+   In file included from include/linux/lockdep.h:14:
+   In file included from include/linux/smp.h:13:
+   In file included from include/linux/cpumask.h:14:
+   In file included from include/linux/atomic.h:80:
+>> include/linux/atomic/atomic-arch-fallback.h:2083:9: error: invalid .org offset '528' (at offset '532')
+    2083 |         return raw_cmpxchg_release(&v->counter, old, new);
+         |                ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   arch/riscv/include/asm/cmpxchg.h:265:2: note: expanded from macro 'arch_cmpxchg_release'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ^
+   arch/riscv/include/asm/cmpxchg.h:238:3: note: expanded from macro '_arch_cmpxchg'
+     238 |                 __arch_cmpxchg(".w" lr_sfx, ".w" sc_sfx, ".w" cas_sfx,  \
+         |                 ^
+   note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+   In file included from lib/refcount.c:6:
+   In file included from include/linux/mutex.h:17:
+   In file included from include/linux/lockdep.h:14:
+   In file included from include/linux/smp.h:13:
+   In file included from include/linux/cpumask.h:14:
+   In file included from include/linux/atomic.h:80:
+   include/linux/atomic/atomic-arch-fallback.h:2083:9: error: invalid .org offset '540' (at offset '544')
+    2083 |         return raw_cmpxchg_release(&v->counter, old, new);
+         |                ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   arch/riscv/include/asm/cmpxchg.h:265:2: note: expanded from macro 'arch_cmpxchg_release'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ^
+   arch/riscv/include/asm/cmpxchg.h:238:3: note: expanded from macro '_arch_cmpxchg'
+     238 |                 __arch_cmpxchg(".w" lr_sfx, ".w" sc_sfx, ".w" cas_sfx,  \
+         |                 ^
+   note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+   4 errors generated.
+--
+>> fs/overlayfs/file.c:147:10: error: invalid .org offset '3640' (at offset '3644')
+     147 |                         old = cmpxchg_release(&of->upperfile, NULL, upperfile);
+         |                               ^
+   include/linux/atomic/atomic-instrumented.h:4803:2: note: expanded from macro 'cmpxchg_release'
+    4803 |         raw_cmpxchg_release(__ai_ptr, __VA_ARGS__); \
+         |         ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   arch/riscv/include/asm/cmpxchg.h:265:2: note: expanded from macro 'arch_cmpxchg_release'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ^
+   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+>> fs/overlayfs/file.c:147:10: error: invalid .org offset '3640' (at offset '3644')
+     147 |                         old = cmpxchg_release(&of->upperfile, NULL, upperfile);
+         |                               ^
+   include/linux/atomic/atomic-instrumented.h:4803:2: note: expanded from macro 'cmpxchg_release'
+    4803 |         raw_cmpxchg_release(__ai_ptr, __VA_ARGS__); \
+         |         ^
+   include/linux/atomic/atomic-arch-fallback.h:77:29: note: expanded from macro 'raw_cmpxchg_release'
+      77 | #define raw_cmpxchg_release arch_cmpxchg_release
+         |                             ^
+   arch/riscv/include/asm/cmpxchg.h:265:2: note: expanded from macro 'arch_cmpxchg_release'
+     265 |         _arch_cmpxchg((ptr), (o), (n),                                  \
+         |         ^
+   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/alternative-macros.h:104:2: note: expanded from macro '_ALTERNATIVE_CFG'
+     104 |         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:94:2: note: expanded from macro '__ALTERNATIVE_CFG'
+      94 |         ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)
+         |         ^
+   arch/riscv/include/asm/alternative-macros.h:81:3: note: expanded from macro 'ALT_NEW_CONTENT'
+      81 |         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
+         |          ^
+   <inline asm>:27:6: note: instantiated into assembly here
+      27 | .org    . - (887b - 886b) + (889b - 888b)
+         |         ^
+   2 errors generated.
+..
+
+
+vim +156 include/linux/objpool.h
+
+b4edb8d2d4647a wuqiang.matt    2023-10-17  100  
+b4edb8d2d4647a wuqiang.matt    2023-10-17  101  /**
+b4edb8d2d4647a wuqiang.matt    2023-10-17  102   * objpool_init() - initialize objpool and pre-allocated objects
+b4edb8d2d4647a wuqiang.matt    2023-10-17  103   * @pool:    the object pool to be initialized, declared by caller
+b4edb8d2d4647a wuqiang.matt    2023-10-17  104   * @nr_objs: total objects to be pre-allocated by this object pool
+b4edb8d2d4647a wuqiang.matt    2023-10-17  105   * @object_size: size of an object (should be > 0)
+b4edb8d2d4647a wuqiang.matt    2023-10-17  106   * @gfp:     flags for memory allocation (via kmalloc or vmalloc)
+b4edb8d2d4647a wuqiang.matt    2023-10-17  107   * @context: user context for object initialization callback
+b4edb8d2d4647a wuqiang.matt    2023-10-17  108   * @objinit: object initialization callback for extra setup
+b4edb8d2d4647a wuqiang.matt    2023-10-17  109   * @release: cleanup callback for extra cleanup task
+b4edb8d2d4647a wuqiang.matt    2023-10-17  110   *
+b4edb8d2d4647a wuqiang.matt    2023-10-17  111   * return value: 0 for success, otherwise error code
+b4edb8d2d4647a wuqiang.matt    2023-10-17  112   *
+b4edb8d2d4647a wuqiang.matt    2023-10-17  113   * All pre-allocated objects are to be zeroed after memory allocation.
+b4edb8d2d4647a wuqiang.matt    2023-10-17  114   * Caller could do extra initialization in objinit callback. objinit()
+b4edb8d2d4647a wuqiang.matt    2023-10-17  115   * will be called just after slot allocation and called only once for
+b4edb8d2d4647a wuqiang.matt    2023-10-17  116   * each object. After that the objpool won't touch any content of the
+b4edb8d2d4647a wuqiang.matt    2023-10-17  117   * objects. It's caller's duty to perform reinitialization after each
+b4edb8d2d4647a wuqiang.matt    2023-10-17  118   * pop (object allocation) or do clearance before each push (object
+b4edb8d2d4647a wuqiang.matt    2023-10-17  119   * reclamation).
+b4edb8d2d4647a wuqiang.matt    2023-10-17  120   */
+b4edb8d2d4647a wuqiang.matt    2023-10-17  121  int objpool_init(struct objpool_head *pool, int nr_objs, int object_size,
+b4edb8d2d4647a wuqiang.matt    2023-10-17  122  		 gfp_t gfp, void *context, objpool_init_obj_cb objinit,
+b4edb8d2d4647a wuqiang.matt    2023-10-17  123  		 objpool_fini_cb release);
+b4edb8d2d4647a wuqiang.matt    2023-10-17  124  
+a3b00f10da808b Andrii Nakryiko 2024-04-24  125  /* try to retrieve object from slot */
+a3b00f10da808b Andrii Nakryiko 2024-04-24  126  static inline void *__objpool_try_get_slot(struct objpool_head *pool, int cpu)
+a3b00f10da808b Andrii Nakryiko 2024-04-24  127  {
+a3b00f10da808b Andrii Nakryiko 2024-04-24  128  	struct objpool_slot *slot = pool->cpu_slots[cpu];
+a3b00f10da808b Andrii Nakryiko 2024-04-24  129  	/* load head snapshot, other cpus may change it */
+a3b00f10da808b Andrii Nakryiko 2024-04-24  130  	uint32_t head = smp_load_acquire(&slot->head);
+a3b00f10da808b Andrii Nakryiko 2024-04-24  131  
+a3b00f10da808b Andrii Nakryiko 2024-04-24  132  	while (head != READ_ONCE(slot->last)) {
+a3b00f10da808b Andrii Nakryiko 2024-04-24  133  		void *obj;
+a3b00f10da808b Andrii Nakryiko 2024-04-24  134  
+a3b00f10da808b Andrii Nakryiko 2024-04-24  135  		/*
+a3b00f10da808b Andrii Nakryiko 2024-04-24  136  		 * data visibility of 'last' and 'head' could be out of
+a3b00f10da808b Andrii Nakryiko 2024-04-24  137  		 * order since memory updating of 'last' and 'head' are
+a3b00f10da808b Andrii Nakryiko 2024-04-24  138  		 * performed in push() and pop() independently
+a3b00f10da808b Andrii Nakryiko 2024-04-24  139  		 *
+a3b00f10da808b Andrii Nakryiko 2024-04-24  140  		 * before any retrieving attempts, pop() must guarantee
+a3b00f10da808b Andrii Nakryiko 2024-04-24  141  		 * 'last' is behind 'head', that is to say, there must
+a3b00f10da808b Andrii Nakryiko 2024-04-24  142  		 * be available objects in slot, which could be ensured
+a3b00f10da808b Andrii Nakryiko 2024-04-24  143  		 * by condition 'last != head && last - head <= nr_objs'
+a3b00f10da808b Andrii Nakryiko 2024-04-24  144  		 * that is equivalent to 'last - head - 1 < nr_objs' as
+a3b00f10da808b Andrii Nakryiko 2024-04-24  145  		 * 'last' and 'head' are both unsigned int32
+a3b00f10da808b Andrii Nakryiko 2024-04-24  146  		 */
+a3b00f10da808b Andrii Nakryiko 2024-04-24  147  		if (READ_ONCE(slot->last) - head - 1 >= pool->nr_objs) {
+a3b00f10da808b Andrii Nakryiko 2024-04-24  148  			head = READ_ONCE(slot->head);
+a3b00f10da808b Andrii Nakryiko 2024-04-24  149  			continue;
+a3b00f10da808b Andrii Nakryiko 2024-04-24  150  		}
+a3b00f10da808b Andrii Nakryiko 2024-04-24  151  
+a3b00f10da808b Andrii Nakryiko 2024-04-24  152  		/* obj must be retrieved before moving forward head */
+a3b00f10da808b Andrii Nakryiko 2024-04-24  153  		obj = READ_ONCE(slot->entries[head & slot->mask]);
+a3b00f10da808b Andrii Nakryiko 2024-04-24  154  
+a3b00f10da808b Andrii Nakryiko 2024-04-24  155  		/* move head forward to mark it's consumption */
+a3b00f10da808b Andrii Nakryiko 2024-04-24 @156  		if (try_cmpxchg_release(&slot->head, &head, head + 1))
+a3b00f10da808b Andrii Nakryiko 2024-04-24  157  			return obj;
+a3b00f10da808b Andrii Nakryiko 2024-04-24  158  	}
+a3b00f10da808b Andrii Nakryiko 2024-04-24  159  
+a3b00f10da808b Andrii Nakryiko 2024-04-24  160  	return NULL;
+a3b00f10da808b Andrii Nakryiko 2024-04-24  161  }
+a3b00f10da808b Andrii Nakryiko 2024-04-24  162  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
