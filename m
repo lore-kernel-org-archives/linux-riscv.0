@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA57CAC5A7
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 20:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC62CAC5A5
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 20:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nMTgk/3NCG2Apw/fjfB/mmDWemGEDaognBlFE4dxqZ0=; b=CYgcDZ6Q7HSvr3
-	AgpVeNpTjWw2pdirf35qtIM5LhScFmXlhvi1IuXMjSGYN2KML79zExK/VhcvqwvjCXf7oSu8Ho7LE
-	EhitzvVs5CMbCUBpz2NFjDoDdQbyFu8AUhYGmOimENgEK3W4LkYx8viYiNJUWOQVftfkGPBAb4zka
-	3VlMS8C3W8GGkdYXv3SxH55WkhZHEOeOnP8qZoEfdLlNb9fBktKDZLCQAB+Fqt4M/q7kGW4lIyduv
-	QvyWPzT+yAejQfL7w2sp70d1SksNOoc7n7EEgTbw0+1MdThjbyBujxORua+n5K7690K2fNEmIrk5T
-	5WaB128XvbE+B007zsBA==;
+	List-Owner; bh=goMzb1r9hflCUKJPtVABBfT+38xXD8ITByvBtGrxuZI=; b=VYqpuHuchz2Wkr
+	A9TsHV6aFw64YGdBs3AH3OL8jLjXs6RtK6LXfJ0tamltSKcAfLsiAPzcdti7dxhZteM5j5Vo8f9Lj
+	j8lAjQ3yhc2C58z8YaEUmKWNqZrA9mN41C1cEPz6cYg3TtalobVpZMT5hNTukJpKuaq+oCIWPlPJM
+	1IBsHftGz+9n51KwVyMhy+T14/GNPFWszXCK+4k2siPpbJ2FAEbhZzOuTS+Q4AYuWRQplW8nWIlpX
+	Sr7YJQV54RcCo0zx9bB21vAiYV0oJV7oQI0vgcFGHW4D7ckxLxa5ZYjtzerv4qBWU9tFjTvPk2kB8
+	/J72tQyZtExfW3by3i7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v04MQ-00000005tZK-3sDc;
-	Sat, 20 Sep 2025 20:39:10 +0000
-Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
+	id 1v04MT-00000005tdu-3nEL;
+	Sat, 20 Sep 2025 20:39:13 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v04MM-00000005tSH-1djv
+	id 1v04MN-00000005tUN-3mth
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Sep 2025 20:39:07 +0000
-Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-4248b3204d4so5002905ab.3
-        for <linux-riscv@lists.infradead.org>; Sat, 20 Sep 2025 13:39:06 -0700 (PDT)
+	Sat, 20 Sep 2025 20:39:09 +0000
+Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-42403719ae6so15234645ab.2
+        for <linux-riscv@lists.infradead.org>; Sat, 20 Sep 2025 13:39:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1758400745; x=1759005545; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1758400747; x=1759005547; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WfEiik7U1UfCLLRy1SfBX6A4ZldZkp0tuNOLkoczFfo=;
-        b=eMr5Sru0i9dZePcOhNe+UE04Ur6aQCNNStNL75AMAr1bpDcln1de/jkWVUULbWDa94
-         iUeWEifv/ArpylQVcKdBzxbRS0uTtE/IuPUYYtTP87uEdnRixZq+jHWMNhMVP77FsVtC
-         1xl2YQFxWLzqq8He/JUxEx2aamxkF86P0Z0v0Tc1COKhOGjH98K8y5QB1BZOreIlXc6M
-         aYJuxQ+T+CM4gsl63aN3VP6mkFFH5YV+xv7Rr3Ixm8PXE+fDJEMFWfIfH+Q1aOUsnzcK
-         lmDZhbFUV+vSXz9ZywM3RZHx0xckXSgya8jkrEdQnygZLlqZEycBiCGj9OrDWx9vrIXn
-         EUxg==
+        bh=qLOgLIfPePBzUWNKI9OUk1ZH4Tzzj3tfMuaJlKPwZCo=;
+        b=KUMSU0jzTGw3sHCk+pmNYXDx3t3Ksn3bM5MNfh9y3y/VZU5cR9zBXGpNKrQJVaz1sV
+         OaYjVUYkQVMU0t1ZGmn3PR716lz/9m+V0+TZf2yTqDcwut1E+2efkF8Mb77rfARPy4tK
+         NAh+wx+4Pl5rdRlzkXE0cj02fC7VIyFNrRJD4nhPiUmRqKhBNg25ABpn3myMZ7aY+/gC
+         vVgA+gsWJFiQrbeusKVGexryS8l6/P80J0GRn+QWVnpItsGJ5hdMk/3I34DMXHNatmF4
+         zwgK/czhILX0UOxttpm2Sx/rwEuGg58c5zuZ+RIkwW025DMCnzBQUtoUNZF3HkvBGi+y
+         ybEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758400745; x=1759005545;
+        d=1e100.net; s=20230601; t=1758400747; x=1759005547;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=WfEiik7U1UfCLLRy1SfBX6A4ZldZkp0tuNOLkoczFfo=;
-        b=kGcyotAxudAhdXMIKTMZk3na89cYXAQvc/uEF02dQgfnR5wEUxeXX7BaTE4/TXASei
-         UwQkf+eqMz/zrqDfywH8/Lz3M9Z+WOnEK7lfEklHcdoBslw4bxRGr4scI5plDi3jqZyd
-         c3cPWIjbqkb18B4Zxm1pHHpk0ZdFDlCoOi7IZDuFCELYMuAX4StKhRhHa0rre+FjrlQn
-         9s6WC++1G6xdpdHQ4Tugns0G43royJtQfAd51mUlI2mDm2vj/v2lMkHfIp2HT9Zrol7J
-         fDGJuPTAhVcuLUoPo9HIueFHHeJdT9OUAOLWNjZVfG5HHHvHpoDIx5Kbi7OLyJhYHoq/
-         YQNw==
-X-Forwarded-Encrypted: i=1; AJvYcCUgoL9JVuuDs6rhWNfmX/0xD9w11SQEy538iQH7D0OXSd2uwqOa9oZyhc5PT2V7QiB1pU9mUn5Xbb27xA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC4XDZlIfLrYeqzooszCJ+VGD4tz/PLquz6+FsagbyrVKHssSx
-	KAO/QulMFs3XKy4zLk0d+krUexbJl18E8ch5ND8588cS7zKifuqpMKfo8tOCZuwJ8AM=
-X-Gm-Gg: ASbGncsOhIgwsTsvrErnpdd/OIN6c9BtGl+hOXb5dbXiorZPzQsXB34iTNCP7GvnXd4
-	69KyRnLSMqHsX8RorBbnpSDrGETX2eyRbxveT80TLAOgBHD7AOjzq2gEYsFACB/2SIESrrGnH6N
-	5VmnbPznR5SzMX1U9kEy5tc44ar2FSIipdNkTmxmmMywn027T1yi4GWUWuSoyzR3BOyzYwtE2mr
-	+n8MaCJGJOgeIKxgPxoh5vjfx+y68mS/fN8bBVlTuFMqIIE3dtjziqgnNuKKJL5QvXMhoei0lB8
-	dQDaasfhX9PRAJsb1iQrEZeYREp+4IbJ/mwf8Cwy+18vL5AlIuk0Y9va/bLkQmVjjtsWKjMpzTy
-	hjwEs+sj+hD1G6BerEoW/D6YH
-X-Google-Smtp-Source: AGHT+IE581P0AkyphXbszugWZqZNJhwWmOr5TRI9ATozw6M+qkg0V/7BRnonU41e1GD3hHsR2JSR+w==
-X-Received: by 2002:a05:6e02:1b09:b0:424:69b:e8bb with SMTP id e9e14a558f8ab-42481936b23mr116504325ab.9.1758400745560;
-        Sat, 20 Sep 2025 13:39:05 -0700 (PDT)
+        bh=qLOgLIfPePBzUWNKI9OUk1ZH4Tzzj3tfMuaJlKPwZCo=;
+        b=OcyROVv6qlAhFL5XRtM/OvY6/tZllvml/RnMTKukXHnnxw4eQIhyLZHzvFJ7MLEDYk
+         r+b0RRC8Ylc1wT5PGJUkvqpCGps6Fuxu+txgjkwJ8HSu2zIvSXGtNCpDPbRX6y8fLAXH
+         1QxTrCO/87L7m+PKhtjK4/lQeCchDqYcLvw7ivuZDRHs800Ww9dg9JF0XIZqBSOs2POG
+         U6J41ZWai/NLjTpMnDof+hpT9C7Zm7KxwiblPiAIhXpjT7xkb8MQwbIs3fWCUK2l++DI
+         ZYBKaZ/y2TeOO4QQjXfiEB0eQd1YY6TIcPnqGKEAQ0D2PAMpt70KADi4XaPcT2prL73g
+         K45A==
+X-Forwarded-Encrypted: i=1; AJvYcCU5/FL/ZM0uF2qavE+L5Vyi8YjNVxlS6+8DujF8+OrLfgbmtX3YRT0bDjdVobasr95nxbVJRxOtbXhkLA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJwyTAFnfHzIAatDS9D/riap5/rxgQpu6R7uJ+IPZIu+QFVFBp
+	PyAyxSeUx0FIJY60zof+vYg1DN/UOdD+Odjg0b9SsATCzeBWM6yGQyZLP7l/suRXd4I=
+X-Gm-Gg: ASbGncvURyxNbuIwOyHLLOAxZKSTM2vjSY2fpRFskiUxXUUhqTBW+qjg9a30SQH1HZz
+	xL9onxcFz1j8KJRNuLPgnzQQyK04mMi7Q+vnnuoe7ZFMLRtG3LI3xFpeUWBNYpsq8XbsjYcsMg7
+	WksVQRwbywt+52jdorz3MwpDUEDxKBx8cZF5nwvlVWXyTluobzI7ODVrTcfX3MlfCIpOBlQaGWm
+	qftt5h1pTF25TfcSFh6o2Bm2V4V9TwZ82mV/M8gMv15TfRn3CF6FIsdhaKqCc4g94KIhX1EzDV1
+	8uV9lNF9PgRfbIEJLDqZ3FYNHNaZ3mmab7XVw9w1V/A8riaOsfwPlO1A10GclbB+x0CpD0USeE2
+	707tWYECkwFW0UN+Msys/HFXH
+X-Google-Smtp-Source: AGHT+IEWlWgkYSGO8sbLjeEJVsqweL0Gl+KFRCXKq/6gJAMJHxAY6N4lyWxDMwaZbg9QR7K4TJrpzg==
+X-Received: by 2002:a05:6e02:1a64:b0:423:5293:5739 with SMTP id e9e14a558f8ab-424819748bamr113626355ab.19.1758400746834;
+        Sat, 20 Sep 2025 13:39:06 -0700 (PDT)
 Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-53d3a590fcfsm3682210173.11.2025.09.20.13.39.05
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-4244a4938b4sm38308745ab.11.2025.09.20.13.39.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Sep 2025 13:39:05 -0700 (PDT)
+        Sat, 20 Sep 2025 13:39:06 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: iommu@lists.linux.dev,
 	kvm-riscv@lists.infradead.org,
@@ -88,17 +88,16 @@ Cc: jgg@nvidia.com,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	alex@ghiti.fr
-Subject: [RFC PATCH v2 10/18] RISC-V: Define irqbypass vcpu_info
-Date: Sat, 20 Sep 2025 15:39:00 -0500
-Message-ID: <20250920203851.2205115-30-ajones@ventanamicro.com>
+Subject: [RFC PATCH v2 11/18] iommu/riscv: Maintain each irq msitbl index with chip data
+Date: Sat, 20 Sep 2025 15:39:01 -0500
+Message-ID: <20250920203851.2205115-31-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250920203851.2205115-20-ajones@ventanamicro.com>
 References: <20250920203851.2205115-20-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_133906_457043_A06C9FED 
-X-CRM114-Status: UNSURE (   7.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250920_133907_974968_6B515C7D 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,35 +114,181 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The vcpu_info parameter to irq_set_vcpu_affinity() effectively
-defines an arch specific IOMMU <=> hypervisor protocol. Provide
-a definition for the RISCV IOMMU.
+Track each IRQ's MSI table index in the IRQ's chip data of the IR
+irqdomain along with a generation number. This will be necessary
+when support for irq-set-vcpu-affinity is added as the msitbl
+configuration will change to match the guest. When a configuration
+changes then it may no longer be possible to compute the index from
+the target address, hence the need to stash it. Also, if an allocated
+IRQ is not mapped with irq-set-vcpu-affinity after a configuration
+change (which will unmap everything), then we need to avoid
+attempting to unmap it at free-irqs time.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/include/asm/irq.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/iommu/riscv/iommu-ir.c | 75 +++++++++++++++++++++++++++++-----
+ drivers/iommu/riscv/iommu.h    |  1 +
+ 2 files changed, 65 insertions(+), 11 deletions(-)
 
-diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
-index 59c975f750c9..27ff169d1b77 100644
---- a/arch/riscv/include/asm/irq.h
-+++ b/arch/riscv/include/asm/irq.h
-@@ -25,6 +25,15 @@ struct fwnode_handle *riscv_get_intc_hwnode(void);
- int riscv_get_hart_index(struct fwnode_handle *fwnode, u32 logical_index,
- 			 u32 *hart_index);
+diff --git a/drivers/iommu/riscv/iommu-ir.c b/drivers/iommu/riscv/iommu-ir.c
+index b97768cac4be..059671f18267 100644
+--- a/drivers/iommu/riscv/iommu-ir.c
++++ b/drivers/iommu/riscv/iommu-ir.c
+@@ -164,11 +164,42 @@ static void riscv_iommu_ir_msitbl_inval(struct riscv_iommu_domain *domain,
+ 	rcu_read_unlock();
+ }
  
-+struct riscv_iommu_ir_vcpu_info {
-+	u64 gpa;
-+	u64 hpa;
-+	u64 msi_addr_mask;
-+	u64 msi_addr_pattern;
-+	u32 group_index_bits;
-+	u32 group_index_shift;
+-static void riscv_iommu_ir_msitbl_map(struct riscv_iommu_domain *domain, size_t idx,
+-				      phys_addr_t addr)
++struct riscv_iommu_ir_chip_data {
++	size_t idx;
++	u32 config;
 +};
 +
- #ifdef CONFIG_ACPI
++static size_t riscv_iommu_ir_irq_msitbl_idx(struct irq_data *data)
++{
++	struct riscv_iommu_ir_chip_data *chip_data = irq_data_get_irq_chip_data(data);
++
++	return chip_data->idx;
++}
++
++static u32 riscv_iommu_ir_irq_msitbl_config(struct irq_data *data)
++{
++	struct riscv_iommu_ir_chip_data *chip_data = irq_data_get_irq_chip_data(data);
++
++	return chip_data->config;
++}
++
++static void riscv_iommu_ir_irq_set_msitbl_info(struct irq_data *data,
++					       size_t idx, u32 config)
++{
++	struct riscv_iommu_ir_chip_data *chip_data = irq_data_get_irq_chip_data(data);
++
++	chip_data->idx = idx;
++	chip_data->config = config;
++}
++
++static void riscv_iommu_ir_msitbl_map(struct riscv_iommu_domain *domain,
++				      struct irq_data *data,
++				      size_t idx, phys_addr_t addr)
+ {
+ 	struct riscv_iommu_msipte *pte;
  
- enum riscv_irqchip_type {
++	riscv_iommu_ir_irq_set_msitbl_info(data, idx, domain->msitbl_config);
++
+ 	if (!domain->msi_root)
+ 		return;
+ 
+@@ -186,9 +217,17 @@ static void riscv_iommu_ir_msitbl_map(struct riscv_iommu_domain *domain, size_t
+ 	}
+ }
+ 
+-static void riscv_iommu_ir_msitbl_unmap(struct riscv_iommu_domain *domain, size_t idx)
++static void riscv_iommu_ir_msitbl_unmap(struct riscv_iommu_domain *domain,
++					struct irq_data *data, size_t idx)
+ {
+ 	struct riscv_iommu_msipte *pte;
++	u32 config;
++
++	config = riscv_iommu_ir_irq_msitbl_config(data);
++	riscv_iommu_ir_irq_set_msitbl_info(data, -1, -1);
++
++	if (WARN_ON_ONCE(config != domain->msitbl_config))
++		return;
+ 
+ 	if (!domain->msi_root)
+ 		return;
+@@ -219,11 +258,11 @@ static int riscv_iommu_ir_irq_set_affinity(struct irq_data *data,
+ {
+ 	struct riscv_iommu_info *info = data->domain->host_data;
+ 	struct riscv_iommu_domain *domain = info->domain;
+-	phys_addr_t old_addr, new_addr;
+ 	size_t old_idx, new_idx;
++	phys_addr_t new_addr;
+ 	int ret;
+ 
+-	old_idx = riscv_iommu_ir_get_msipte_idx_from_target(domain, data, &old_addr);
++	old_idx = riscv_iommu_ir_irq_msitbl_idx(data);
+ 
+ 	ret = irq_chip_set_affinity_parent(data, dest, force);
+ 	if (ret < 0)
+@@ -234,8 +273,8 @@ static int riscv_iommu_ir_irq_set_affinity(struct irq_data *data,
+ 	if (new_idx == old_idx)
+ 		return ret;
+ 
+-	riscv_iommu_ir_msitbl_unmap(domain, old_idx);
+-	riscv_iommu_ir_msitbl_map(domain, new_idx, new_addr);
++	riscv_iommu_ir_msitbl_unmap(domain, data, old_idx);
++	riscv_iommu_ir_msitbl_map(domain, data, new_idx, new_addr);
+ 
+ 	return ret;
+ }
+@@ -254,11 +293,16 @@ static int riscv_iommu_ir_irq_domain_alloc_irqs(struct irq_domain *irqdomain,
+ {
+ 	struct riscv_iommu_info *info = irqdomain->host_data;
+ 	struct riscv_iommu_domain *domain = info->domain;
++	struct riscv_iommu_ir_chip_data *chip_data;
+ 	struct irq_data *data;
+ 	phys_addr_t addr;
+ 	size_t idx;
+ 	int i, ret;
+ 
++	chip_data = kzalloc(sizeof(*chip_data), GFP_KERNEL_ACCOUNT);
++	if (!chip_data)
++		return -ENOMEM;
++
+ 	ret = irq_domain_alloc_irqs_parent(irqdomain, irq_base, nr_irqs, arg);
+ 	if (ret)
+ 		return ret;
+@@ -266,8 +310,9 @@ static int riscv_iommu_ir_irq_domain_alloc_irqs(struct irq_domain *irqdomain,
+ 	for (i = 0; i < nr_irqs; i++) {
+ 		data = irq_domain_get_irq_data(irqdomain, irq_base + i);
+ 		data->chip = &riscv_iommu_ir_irq_chip;
++		data->chip_data = chip_data;
+ 		idx = riscv_iommu_ir_get_msipte_idx_from_target(domain, data, &addr);
+-		riscv_iommu_ir_msitbl_map(domain, idx, addr);
++		riscv_iommu_ir_msitbl_map(domain, data, idx, addr);
+ 	}
+ 
+ 	return 0;
+@@ -280,14 +325,22 @@ static void riscv_iommu_ir_irq_domain_free_irqs(struct irq_domain *irqdomain,
+ 	struct riscv_iommu_info *info = irqdomain->host_data;
+ 	struct riscv_iommu_domain *domain = info->domain;
+ 	struct irq_data *data;
+-	phys_addr_t addr;
++	u32 config;
+ 	size_t idx;
+ 	int i;
+ 
+ 	for (i = 0; i < nr_irqs; i++) {
+ 		data = irq_domain_get_irq_data(irqdomain, irq_base + i);
+-		idx = riscv_iommu_ir_get_msipte_idx_from_target(domain, data, &addr);
+-		riscv_iommu_ir_msitbl_unmap(domain, idx);
++		config = riscv_iommu_ir_irq_msitbl_config(data);
++		/*
++		 * Only irqs with matching config versions need to be unmapped here
++		 * since config changes will unmap everything.
++		 */
++		if (config == domain->msitbl_config) {
++			idx = riscv_iommu_ir_irq_msitbl_idx(data);
++			riscv_iommu_ir_msitbl_unmap(domain, data, idx);
++		}
++		kfree(data->chip_data);
+ 	}
+ 
+ 	irq_domain_free_irqs_parent(irqdomain, irq_base, nr_irqs);
+diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
+index aeb5642f003c..130f82e8392a 100644
+--- a/drivers/iommu/riscv/iommu.h
++++ b/drivers/iommu/riscv/iommu.h
+@@ -36,6 +36,7 @@ struct riscv_iommu_domain {
+ 	struct riscv_iommu_msipte *msi_root;
+ 	refcount_t *msi_pte_counts;
+ 	raw_spinlock_t msi_lock;
++	u32 msitbl_config;
+ 	u64 msi_addr_mask;
+ 	u64 msi_addr_pattern;
+ 	u32 group_index_bits;
 -- 
 2.49.0
 
