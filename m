@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A245CAC5AC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7E8CAC5B1
 	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 20:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZFnaslHtLjRV97I79vFcSUL7F3+PeBQKGtr2lUC6eHw=; b=4OzOtohl6pxFL/
-	XdRhK3YE2LYWgsy+5Rt9jx9nNrJw6xa6f59L4RPrTe8XDqneyQNXsU+SSVNcCfwqESLFigjmd+9Gg
-	YeC+tpHLTZPsZz4kdp/fFXaP5T8nm2wTupO+0ZkduMJrNZKAMeGhh0Bo8wG9hJOkWHnnpmvBn5fCd
-	OFfwmhWtylh02GnPsZAIZGHLnwVXAzeTnrMqW4qrbHPriZnoFrhPmhT5+mfoe8eVCqD7P8OJ6wXOk
-	e5zOhmAuFAQHVACu72qd3RCngu85dHl3GL2H/qZNoyxqQvIINYXkVAkOkNQgr4nJUA04+xd2dG6wH
-	qXXADoDH438IJEmjTnKQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mkRC7382bqo9fi9GoWF9z7fp2MMNuMjX7oLQH4icrv0=; b=ZrdYH7njgcrrn5
+	iGEPOCQ/LhsSirWHi/JAtk+B/FdWlIzn/OUNbNcf7RP06L01SFB1TrrQikAUAkdhEv780fi3+4Ktj
+	DF0oJmjoAhHC7z33bKRAKqrx3Rn0XEW1NT3q2gkXh2HaH6HEk9/F6xrrOuWUMlJOAp4aGynRjVaSE
+	8b/T10XZezM3tcc6WW3yG+E/VUNPGw9rb9n0/Gxit3ruFV7cOJcoRX7TMyubvKRHQCw1VYNQfAtrr
+	NTLtqCH2z4GQAUnTQ1QXNtRAKekNsnnOrVyWPZtVlJL60qivvxpuZVS9uBPMNDofiGxdWNGi9ep2E
+	uSSGaE7Teb+/IVBDVT2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v04MC-00000005tGD-1vRc;
-	Sat, 20 Sep 2025 20:38:56 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1v04MI-00000005tM1-0zvb;
+	Sat, 20 Sep 2025 20:39:02 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v04MA-00000005tEt-1UVQ
+	id 1v04MD-00000005tHA-3xZ6
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Sep 2025 20:38:55 +0000
-Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-4247d991161so13735005ab.3
-        for <linux-riscv@lists.infradead.org>; Sat, 20 Sep 2025 13:38:53 -0700 (PDT)
+	Sat, 20 Sep 2025 20:38:59 +0000
+Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-4248a13fbe9so7503145ab.1
+        for <linux-riscv@lists.infradead.org>; Sat, 20 Sep 2025 13:38:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1758400733; x=1759005533; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QhhBAyqrQkktxGVEvf+eNDaA1KtGAPXA3DGbaEzOigo=;
-        b=nR8crLzAuYWMKFIhItF90HhbAYlHeILKKkpqcHUkkqQBmRxz03KTZTblUm9nbJoRo7
-         EgGGhXJxw59a00OyWJ+cNpB7M2aLautOsrrtuanS3w3e+Tx93soHsnbKRzbQ/NGz/BEQ
-         UQgM8XIpALClECaGMS4M9b8HJ91DLu2/4XJlRqxvDV8qhsCosxff7h1v8qMdwYefip8N
-         9gH4gt51h4FSk2gSCkWOg80Yff9xya/uFzSGjqacYnGyLXhZ4N1+iWkdrr+3KL1DSABg
-         Vt/Yrx5GVBMTHp5Js6XjPzFyN8r4hGKcWDTZiPWT98EWVet8eEUHrAefTnPeMQB5Vz7l
-         YSbQ==
+        d=ventanamicro.com; s=google; t=1758400737; x=1759005537; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vZPFm4Y9icCAth6wrzJMUkgkEfNQH2w/TjaKN8QVYFg=;
+        b=KoOpdXSISh6UKvvemsceSc24gCtCunwMfMBceJ3u8T7d3PAKiCM3b9N+xmSBeCmey1
+         zjLNhBS/t/XNG1Ld4GwSUuRM0pF8ij0AfG0LfIXrtS/BQhWK5Ym5XO8Bctt//JrRxrsG
+         KosnMaR6MFKxigI1MKlzr1SbtyBrLpwKYh/a99iwA2Z9FiCd3ixeMggXTw1/HAFqm0di
+         ZnApnBICDXqT65jA+r4uv9+gr5qxy73SlFjNsSeh/5hlmhDoMw+FkPNS+HM7UAvMA57V
+         EzwSvjtAhzX7tBGuEmQfVRLyAbjljKpZ7dDjaE+c7JBJwscV8cT7O+vewurQpoSHYYya
+         pbbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758400733; x=1759005533;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QhhBAyqrQkktxGVEvf+eNDaA1KtGAPXA3DGbaEzOigo=;
-        b=iqdy6eePNyTs72U9LqtFKjA2oixUylhZsfmE2wUrfj0dgBCId6zepP2/mPyiAVAaCt
-         sdZG8SNSkUR/pChArCrKGshxPs3m9LSivS/GgOmjwtWHucxTfuvpSSLG5uXd5XqrlEa8
-         PQALAbYWEnxulPUKP/ZnjL/EAKDyv0O3c3hANkHdWqy0RAr6N2kNtM208X0VXHx0tB4c
-         eXGClst8IM7wQyFPJij32K5eu2OR6r4oxYFKeJip5+NsRwZbD304RY4EyPquaqS+7qOZ
-         j5ivu7ue4BpPrmkTELjR6h9WRdFomRO7oRr4yup6lL3UT5MKqVS30AMC63+KheVZzxKV
-         iSaw==
-X-Forwarded-Encrypted: i=1; AJvYcCVwEogPkZpOY8yi6GLj8eF3ThhpdFqCoicxXl7HQWR28uOG9vv6EbUkg3/VDfsRZRDPx/LK73GgkF1cbw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/PWlTYD4Nj4XBBoKg2VdDd/eab5FUE+p+ZG4YKv+yjntcPQI/
-	O7aYVuJIRKZafO7zEBoTzDkzv7CaiQeJEm0FcFRaWjCSl/SsZ3sIXArzrGtZ+IS1j1Q=
-X-Gm-Gg: ASbGncuf4EE9NOjjGwY8kOC9KaizpRUhPoHzEgRbYtkDXFLQYmfaRcZ3HN5CVCMGcS6
-	CGWBRy/jdgDGIl+rTbCMEOPVfXfBmAfaLjLgi8z+o7agbroD7hUWyITroyOfyk1RcLNG9RJGvzz
-	80KCusSpucuNGhcUgd419GF0f6E/ahAdA2MW1G1q8tr2gF4npedKa3+wL+YCUBfsvpifKQgr/YL
-	N+5gW3mSkQ5L5i12F3blO88oC3MLyG5It+VuCjbXRthx28zreiMMf9O2wroIi7mfXMHdyFRwmSG
-	Puf8bFzQWOtmfSJl1uOH+H1UAPfnpHjCIxKJOrYepj5Vuv1F3iTJSjVjLVvhZcNTqmHqMRFpvFM
-	+47HzVx+21Mbpl505jvk2ddSq
-X-Google-Smtp-Source: AGHT+IGwK4PrAd7CyoBUGRZ3PUQqWIF5Zj/5N9zpz7O49heeJaggKCpHt+afTDzWqXDEvIoleQehPQ==
-X-Received: by 2002:a05:6e02:12e9:b0:424:bec:4a01 with SMTP id e9e14a558f8ab-424819743bbmr104189845ab.16.1758400733061;
-        Sat, 20 Sep 2025 13:38:53 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758400737; x=1759005537;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vZPFm4Y9icCAth6wrzJMUkgkEfNQH2w/TjaKN8QVYFg=;
+        b=CRaO2VjplsQyKTgh3AR/Pom9cU2ahtXuRV8cwY8SkZDKjiSW15iUdSxLTwqjwk7z2S
+         B5ZAzbNYt1sAH0TsrzKm7J0GYIveAASwkF1aObdBRea3R+JTLQ9rgT9arXrMCPk2c6of
+         lPXFc47YGI5CsGChDMOCPafKNWk86XFMbX+2B2mAMDIwulcm5KgsFqmJ1z369c95eNN3
+         LCaAFVPhgH/P6Pmh7wGIJpQpwaSa4y73HHHTluzahipGgKAM8OM8qZjeSB5eKCqENH+L
+         dJIlFv9wSP68KTfjoYzQeWluKLWniAH6ML43TmX1kzwiKttZrWbXxwJNDcdZ+kQMmwx7
+         gmCg==
+X-Forwarded-Encrypted: i=1; AJvYcCVzZpttAo+jfhGC9Mvw/66rUeMQmYzffCtpjv2tnilbKusHSWeX3wfGvPQxaT/5twuhNpATRqG1s4FjKQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkQ0djqI66C5wDWVk1DiPi8/vymDQQ8PUWchhIx6p5mw4umQCd
+	RT/nf66WVMD17tvKj9ruJGmkV1O8/+jisFGLt9sFOpmARSla1kvNtrHazlhHe0ti6eE=
+X-Gm-Gg: ASbGncshKQt4xLP7fgeieDAvm8ZmocigjKHK4daLdi4HCeUFQE7wGGaWx3XJRDoasAD
+	A/YHyDLmgl/Dg3S9CpM9yhuFy/73yDaD+YjI2kaXwh4H2GBniPdEI0VcOBzEqRdoRvoE4uHJcGr
+	XsWdW9pohopo9EWgaZaaji2klYvm36MSo5t7Q0mvORYc2+OvF2YXFch82kKBU5czAdNoBurk/oR
+	GT58QyFY5rqAn85uvfMJbEvVaA2iidf6iJUND/xBRjM773uJLszpNTSzQi4OsD9xK7onCHRQSAD
+	FpRfIqgYlKpZ0CKUNdglcO/CNiWe8Y3hqw8T9Nt2BIptf1DLuiYmGXknnckywNwgqEzarwyF95I
+	wP00GzYV8LZyKyEXxZWhxQeXt
+X-Google-Smtp-Source: AGHT+IFXBb6vr/8D7CZ5otepQnRcmkVx5TB79A7j3YsaSno67UMLJAS4DCtxM6o0ZN+HnZGFA1J8HQ==
+X-Received: by 2002:a05:6e02:17c9:b0:405:5e08:a3e4 with SMTP id e9e14a558f8ab-42481911882mr110200895ab.1.1758400737038;
+        Sat, 20 Sep 2025 13:38:57 -0700 (PDT)
 Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-4244afa9fbfsm39814525ab.26.2025.09.20.13.38.52
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-4244afaa351sm39931395ab.29.2025.09.20.13.38.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Sep 2025 13:38:52 -0700 (PDT)
+        Sat, 20 Sep 2025 13:38:56 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: iommu@lists.linux.dev,
 	kvm-riscv@lists.infradead.org,
@@ -87,14 +88,16 @@ Cc: jgg@nvidia.com,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	alex@ghiti.fr
-Subject: [RFC PATCH v2 00/18] iommu/riscv: Add irqbypass support
-Date: Sat, 20 Sep 2025 15:38:50 -0500
-Message-ID: <20250920203851.2205115-20-ajones@ventanamicro.com>
+Subject: [RFC PATCH v2 03/18] iommu/riscv: Use data structure instead of individual values
+Date: Sat, 20 Sep 2025 15:38:53 -0500
+Message-ID: <20250920203851.2205115-23-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250920203851.2205115-20-ajones@ventanamicro.com>
+References: <20250920203851.2205115-20-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_133854_404903_6E399240 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20250920_133857_994787_DC0AA281 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,98 +114,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Changelog
----------
-This is v2 of the RFC for adding interrupt remapping support to the
-RISC-V IOMMU driver along with support for KVM in order to apply it
-to irqbypass. v1 of the series was discussed here[1] where a couple
-large design flaws were pointed out. Those, along with a v1 TODO of
-referencing counting MSI PTEs in order to track when they may be
-unmapped, have been addressed in v2. Additionally, v2 is based on
-msi-lib, which didn't exist at the time of the v1 posting, and on
-the recent KVM irqbypass rework.
+From: Zong Li <zong.li@sifive.com>
 
-Description
------------
-Platforms with MSI support (IMSICs) and implementations of the RISC-V
-IOMMU with an MSI table can control device MSI delivery, including
-directly delivering MSIs of devices assigned to guests to VCPUs. This
-series enables that control and enables IOMMU_DMA in order to use
-paging IOMMU domains by default. When the IOMMU doesn't support an MSI
-table (it's an optional IOMMU capability) then paging domains are still
-used, but the system does not have isolated MSIs. For direct delivery
-to VCPUs an MSI table is required and thanks to KVM+VFIO it's possible
-to determine when and how to map guest IMSIC addresses to host guest
-interrupt files. The RISC-V IOMMU and AIA also support MRIFs (memory-
-resident interrupt files), but support for those will be posted as a
-follow-on to this series. Also, additional work will be done in order
-to take advantage of the RISC-V IOMMU's second stage of paging. At
-this time, the series just uses the first stage which allows testing
-with unmodified KVM userspace and VFIO.
+The parameter will be increased when we need to set up more fields
+in the device context. Use a data structure to wrap them up.
 
-The patches are organized as follows:
-  1-4:  Create an irq domain and some function stubs for an initial
-        interrupt remapping support skeleton
-  5-9:  Add MSI table management to enable host interrupt remapping
-        and enable IOMMU_DMA
- 10-13: Add IOMMU driver support for directly delivering MSIs to VCPUs
- 14-17: Add KVM support for directly delivering MSIs to VCPUs
+Signed-off-by: Zong Li <zong.li@sifive.com>
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ drivers/iommu/riscv/iommu.c | 31 +++++++++++++++++++------------
+ 1 file changed, 19 insertions(+), 12 deletions(-)
 
-The last patch is a workaround for a KVM bug not introduced by this series
-which is needed to enable testing of the series -- I still need to debug
-and fix that properly.
-
-There series is also available here[2].
-
-Based on commit 39879e3a4106.
-
-[1] https://lore.kernel.org/all/20241114161845.502027-17-ajones@ventanamicro.com/
-[2] https://github.com/jones-drew/linux/commits/riscv/iommu-irqbypass-rfc-v2/
-
-
-Andrew Jones (13):
-  genirq/msi: Provide DOMAIN_BUS_MSI_REMAP
-  iommu/riscv: Move struct riscv_iommu_domain and info to iommu.h
-  iommu/riscv: Add IRQ domain for interrupt remapping
-  iommu/riscv: Prepare to use MSI table
-  iommu/riscv: Implement MSI table management functions
-  iommu/riscv: Export phys_to_ppn and ppn_to_phys
-  iommu/riscv: Use MSI table to enable IMSIC access
-  RISC-V: Define irqbypass vcpu_info
-  iommu/riscv: Maintain each irq msitbl index with chip data
-  iommu/riscv: Add guest file irqbypass support
-  RISC-V: KVM: Add guest file irqbypass support
-  RISC-V: defconfig: Add VFIO modules
-  DO NOT UPSTREAM: RISC-V: KVM: Workaround kvm_riscv_gstage_ioremap()
-    bug
-
-Tomasz Jeznach (4):
-  iommu/dma: enable IOMMU_DMA for RISC-V
-  iommu/riscv: report iommu capabilities
-  RISC-V: KVM: Enable KVM_VFIO interfaces on RISC-V arch
-  vfio: enable IOMMU_TYPE1 for RISC-V
-
-Zong Li (1):
-  iommu/riscv: Use data structure instead of individual values
-
- arch/riscv/configs/defconfig     |   2 +
- arch/riscv/include/asm/irq.h     |   9 +
- arch/riscv/kvm/Kconfig           |   3 +
- arch/riscv/kvm/aia_imsic.c       | 143 ++++++-
- arch/riscv/kvm/mmu.c             |   2 +-
- arch/riscv/kvm/vm.c              |  31 ++
- drivers/iommu/Kconfig            |   2 +-
- drivers/iommu/riscv/Makefile     |   2 +-
- drivers/iommu/riscv/iommu-bits.h |  11 +
- drivers/iommu/riscv/iommu-ir.c   | 698 +++++++++++++++++++++++++++++++
- drivers/iommu/riscv/iommu.c      | 158 +++----
- drivers/iommu/riscv/iommu.h      |  75 ++++
- drivers/irqchip/irq-msi-lib.c    |   8 +-
- drivers/vfio/Kconfig             |   2 +-
- include/linux/irqdomain_defs.h   |   1 +
- 15 files changed, 1063 insertions(+), 84 deletions(-)
- create mode 100644 drivers/iommu/riscv/iommu-ir.c
-
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index 901d02529a26..a44c67a848fa 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -988,7 +988,7 @@ static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
+  * interim translation faults.
+  */
+ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+-				     struct device *dev, u64 fsc, u64 ta)
++				     struct device *dev, struct riscv_iommu_dc *new_dc)
+ {
+ 	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
+ 	struct riscv_iommu_dc *dc;
+@@ -1022,10 +1022,10 @@ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+ 	for (i = 0; i < fwspec->num_ids; i++) {
+ 		dc = riscv_iommu_get_dc(iommu, fwspec->ids[i]);
+ 		tc = READ_ONCE(dc->tc);
+-		tc |= ta & RISCV_IOMMU_DC_TC_V;
++		tc |= new_dc->ta & RISCV_IOMMU_DC_TC_V;
+ 
+-		WRITE_ONCE(dc->fsc, fsc);
+-		WRITE_ONCE(dc->ta, ta & RISCV_IOMMU_PC_TA_PSCID);
++		WRITE_ONCE(dc->fsc, new_dc->fsc);
++		WRITE_ONCE(dc->ta, new_dc->ta & RISCV_IOMMU_PC_TA_PSCID);
+ 		/* Update device context, write TC.V as the last step. */
+ 		dma_wmb();
+ 		WRITE_ONCE(dc->tc, tc);
+@@ -1304,20 +1304,20 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+ 	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+ 	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+ 	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+-	u64 fsc, ta;
++	struct riscv_iommu_dc dc = {0};
+ 
+ 	if (!riscv_iommu_pt_supported(iommu, domain->pgd_mode))
+ 		return -ENODEV;
+ 
+-	fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, domain->pgd_mode) |
+-	      FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, virt_to_pfn(domain->pgd_root));
+-	ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
+-	     RISCV_IOMMU_PC_TA_V;
++	dc.fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, domain->pgd_mode) |
++		 FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, virt_to_pfn(domain->pgd_root));
++	dc.ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
++			   RISCV_IOMMU_PC_TA_V;
+ 
+ 	if (riscv_iommu_bond_link(domain, dev))
+ 		return -ENOMEM;
+ 
+-	riscv_iommu_iodir_update(iommu, dev, fsc, ta);
++	riscv_iommu_iodir_update(iommu, dev, &dc);
+ 	riscv_iommu_bond_unlink(info->domain, dev);
+ 	info->domain = domain;
+ 
+@@ -1408,9 +1408,12 @@ static int riscv_iommu_attach_blocking_domain(struct iommu_domain *iommu_domain,
+ {
+ 	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+ 	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
++	struct riscv_iommu_dc dc = {0};
++
++	dc.fsc = RISCV_IOMMU_FSC_BARE;
+ 
+ 	/* Make device context invalid, translation requests will fault w/ #258 */
+-	riscv_iommu_iodir_update(iommu, dev, RISCV_IOMMU_FSC_BARE, 0);
++	riscv_iommu_iodir_update(iommu, dev, &dc);
+ 	riscv_iommu_bond_unlink(info->domain, dev);
+ 	info->domain = NULL;
+ 
+@@ -1429,8 +1432,12 @@ static int riscv_iommu_attach_identity_domain(struct iommu_domain *iommu_domain,
+ {
+ 	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+ 	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
++	struct riscv_iommu_dc dc = {0};
++
++	dc.fsc = RISCV_IOMMU_FSC_BARE;
++	dc.ta = RISCV_IOMMU_PC_TA_V;
+ 
+-	riscv_iommu_iodir_update(iommu, dev, RISCV_IOMMU_FSC_BARE, RISCV_IOMMU_PC_TA_V);
++	riscv_iommu_iodir_update(iommu, dev, &dc);
+ 	riscv_iommu_bond_unlink(info->domain, dev);
+ 	info->domain = NULL;
+ 
 -- 
 2.49.0
 
