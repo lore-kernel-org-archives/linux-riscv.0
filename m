@@ -4,93 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B65CCAC5A5
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 16:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C85BACAC5A7
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 20:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6MxXSlrsHdYmUiOVHeIaLSHW4YRNA04f5reZlHdQJaI=; b=I7Feqb7dhqa+m4
-	jCFTQq6k8Q0GG4ZrA3JEAbzrJUKNb0SzQUX5csGSE1pDh5sLUw8/MYxV5RBj1l0A6HzzTdd/Wx59Y
-	vT43Ns5GfmYCc+wGHaNcJZx/qH3gTQ7KwdkypBCUj6Yyg/dHnsc/S4UyJTUY+W3rvNo+oEuE3tRn1
-	jB0Hk+2TXbLlX2yWs/vD4pd2N0bd09J6zdzDDwtluwGjtrRV0b6kwzkC8s6AXJ2e6bMPk04FJI/Uj
-	fS33tSd8GRTSpefdBPZhFft2taziwKHvK3SdYLR2FrGaIluc+cLyUkkcxMDpdVSNXhvq3j+klOtpP
-	2E5yQjH+xlzY/eG+ObAQ==;
+	List-Owner; bh=kqIaIxo+8ZCm4vQ9d/jtpXsLkFJxEp23yIFVg60/UAE=; b=zM/ZbYVtEoN7+g
+	HREOBLRFhczu2GTYlq8XW01Pdn3cW38ZDFQ3tWm34nCiPnUTI861FoZGfSZPArs0zniTRIxu0bYW8
+	GAo2b3vFzwEqbyYODPIb9eG5G9afE3KGhRrbDyEz4q/EPrwYZE2tjF+T/0EQ2IrkyGtk0ugKDwRap
+	qbIXC1EmWQnXeGdgVPc5uv3Fe+17pkiIf/nMeQkqnIJoDlK5YlAnUN28qbEPVfYrRk1l3nTRpKjkQ
+	7613YJSwBr6nGSxD/3kLQaI3dbRVLYK0w87TO3wqaV1XTmqgACyQQN37U2UtCZ9XUFNAAAZFVPRVF
+	4Dk4aNbVFGcBXUnSYAIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v000M-00000005Zzl-0apA;
-	Sat, 20 Sep 2025 16:00:06 +0000
-Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
+	id 1v04MJ-00000005tNX-0LcN;
+	Sat, 20 Sep 2025 20:39:03 +0000
+Received: from mail-io1-xd34.google.com ([2607:f8b0:4864:20::d34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v000I-00000005Zy0-3wSC
+	id 1v04MF-00000005tIV-1iLW
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Sep 2025 16:00:04 +0000
-Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-4242bb22132so29667555ab.3
-        for <linux-riscv@lists.infradead.org>; Sat, 20 Sep 2025 09:00:02 -0700 (PDT)
+	Sat, 20 Sep 2025 20:39:00 +0000
+Received: by mail-io1-xd34.google.com with SMTP id ca18e2360f4ac-8a3e61fa206so143939839f.0
+        for <linux-riscv@lists.infradead.org>; Sat, 20 Sep 2025 13:38:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1758384001; x=1758988801; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=C6PlODS/te36zEm/c54Mnhcz+Tcquz9ec/vMr/RjPtI=;
-        b=0oKE6jzEv2pQewAqa2pwXIUU5w1TK8kgQUhS/387vO9KBCaLjsSOjFT/wnpxaMHD2I
-         gGoGIvfaCC7HmZV1+p9TVQrtOD1QNIKUiFeeM53MZJMUkGfQuz57gEPUDDqT4Rb0bQTr
-         ufOGbIai8tIGp+auQfuTX/rHsXAcoU4+Vm/9qcAvvAvSOqPWTbVJsFL0TGu2pGht7RtQ
-         A6UX9m+Ltnm8FZEC8sUt6wd+N9MHnsFLKzxLOmthIYAokswIXbC3GadmFFHPypAWTF05
-         OQW1/6v2Sn1jPe2N0fEdcM4IJy6BwzryBxRnCVkjYntk2vWpsAp9y6DQYcdFBgVNOEqJ
-         hqVA==
+        d=ventanamicro.com; s=google; t=1758400738; x=1759005538; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=whvw7GIAV0QOBLqmpln8l+jITmzsNllZxDqiVF4ag+w=;
+        b=HeXd1N4NP1BgTRpLP3LmzHM/+lOPQlG9MbYg1MK4rO9J7LFtQ2Ebbp0uip3B8vhV69
+         //f8LkF+lDZcEuqyAduD/XmiqmvQWT0BGaIklOqkmiiUmw/XfrDgaCkcMK2laXOT56Xl
+         uHYQ0JJA7FAL80QmqT3/iLTFvyFlLpvkzkveSlqVdDntuS5ReIp/XfLVsFmHwDs3Wiuo
+         nZEuC7p9wwtq/oH881FNC94YChhNMnBAUj7M1an1d+o0xEJel2n1YglxhJckfc6fzmO4
+         VoUVQ87MWXbbqX4qHKr4U6WzYxSnyM8xd33wZLATxDIw87bfsq20gB1Ay6kaksQA2gkG
+         QoBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758384001; x=1758988801;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=C6PlODS/te36zEm/c54Mnhcz+Tcquz9ec/vMr/RjPtI=;
-        b=J7l/VFI/LaJf0v6rHY70qdsUjBptyQuEwG7k34nhxKcbHIQwnyEQ5NMDlQNeTLB16a
-         eyNT64gwsAzxxgZU/FKiWPRYueer3+yA8UZ/rEXpUQ+p7h8NYDvCo8NXoRUzqait5eb5
-         bYnON5Y77pQkiURqGKwt/1+ppIS/ZF1jkT0ye43+4VaEA65UR3So/LSrhWB9drOvJ7bK
-         +GxK5f8lXlBeZDZYw4PJ1CQST2oPxJBeHgZJZ9g+l8LThv5bff8J6g3p/zjR5FjjKcim
-         eiZUCeYKEtEC0faAT7ePdObc/Ngm3Tcv9ppeKEapWlggWf9OoGsErqT4m1aqkfLEga3l
-         vbKg==
-X-Forwarded-Encrypted: i=1; AJvYcCWhkS9ldKqhbGJ8PEHM6hcXsOlSgEzcP8gj4RGNrVAtjt63BqAlyU7emaTICzfM4qXhIpHdDHEfDcv3/A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFhTSN34XjcWL/ektmeyfaZVtuNPYUNzdQqmNSzDYx4aHMVSQ5
-	8a+uEgK0BSsnLR7LKGuKzs4cFXXrNX2O6WyJAX2KznLkSV7EWN+r2Ta9MRhwDZsZpvg=
-X-Gm-Gg: ASbGnct/3qcW3LXu4K89dLLxlchZ2vz5LH2hdMu3Bln53psX5ilbAPrVcdjDsGv1Bk1
-	N8ZKsfOB5dTxHqwk8Te/LcgWGHxoU59jvHF4PAZCWBDJ+ZGddPYCoYIo20cPy12Lu87+FGji59F
-	B9KWZdzqOre8cBOJL8dUhvEc1vwwdsTcA7/6SpKhaVBTxjWyzx1Gkui2LSUcjVEcu4v9qNNNJOw
-	bo7heCz3YdAwUY6hDpmlt5S2lB+CPmOsyR+/CMYQklO05JPSSK51HUxSMNuuIALW47DhnAlfcB6
-	E6tzUUAowle0hZb1nAq+02oTtcSaOxuRWGm/alb/FZzqQwrBtVWfVOWQljafftcwY/o6WsCgT/C
-	haAMcKu7gr23tSkL5K5RYt057SfmR8IY2uVY6Jy8Xt0SpxooqlqxeoMgYnlGlrg==
-X-Google-Smtp-Source: AGHT+IEYudR+gY4osM7EXsgeTUGXkWk8dyLDUfBMwlEzSHDNS9I9DR2PejT5vWtn2160i7yeUhZThw==
-X-Received: by 2002:a05:6e02:481c:b0:424:85b0:e1cb with SMTP id e9e14a558f8ab-42485b0e39amr80339845ab.31.1758384001381;
-        Sat, 20 Sep 2025 09:00:01 -0700 (PDT)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-53d5399014dsm3493825173.59.2025.09.20.08.59.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 20 Sep 2025 09:00:00 -0700 (PDT)
-Message-ID: <3c9aaa62-f685-47f7-a21c-00f51550f185@riscstar.com>
-Date: Sat, 20 Sep 2025 10:59:58 -0500
+        d=1e100.net; s=20230601; t=1758400738; x=1759005538;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=whvw7GIAV0QOBLqmpln8l+jITmzsNllZxDqiVF4ag+w=;
+        b=lY+zecCVWO+Mq6G9l3dXNP/eu55I19yAPmoMhHF76IkM1+SKr2SdkYz3P33GRjF4Xi
+         n0uDEnj65GySfd4l5qPkGbP7/3PwxFbZfb95kmOowbwzxnfKX9LJJ/HiiHaq49+A5Kw3
+         +qz9buiYpBVEQaaR6sQVDJx7gHfd2n35+25fSt2WZvY+7iFu4hJLUZ78AQ72f5apC0bg
+         Nyn0HZur5qnJtYQjlPYI8brnLgZmlCaL1hEd/NUF5jRJ18xxybkPTs04+yG2dXIvEMav
+         sRbmBavfYIFMzJIFBmkiAY7JWaPEt8K57qXWNVS8iQCNSfQj4R7lFxzcjv7vB0dU2fxN
+         VbEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW1KFFTxW9cxBQaVNHiSax/rqcTqDXyshMNKIc6hmCAP1ZSWmwDS9Ragm31PUv8o0pEJTCm/j/xdRovPA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwirJPQimzfTIyC9P8jdnRck0aZiePLwXSODMuek+ffZmJPaNvD
+	ka3SK7PTszyFwUAy+3DqXVg65dxq3naN06HBgt7S1d2y+qu4G6a4t13jvDpSvgNtQnc=
+X-Gm-Gg: ASbGncsD3xkYcbOOdSp60PgMt6HwmHMlPxl4sY1MFB41+cA5oQUbYbA64uySsMeqRVr
+	R3kwKEQc5xo7fr+Vnd+0XKC0B4VnMoCQChplo8eCe/ZC5oxqYNSsIWhnSPWHgZVPWA/muyUaxZW
+	GsUU2sOw5sP3Ihk7BjQBuUHDyRYVwS3sdnDr3Eck7t0qbkHIBlZfsvuBqi9fWh2a2yYD3kcdLus
+	4eR7MeqtHj4Qq+TCLPVRSHInZoJQG4dTBcdJ38Wbk2b9MlGOkUdnDmXaOiMjAD68v/yaGx4kkhr
+	r15DRcXBjdP6yiGqTiuxPCuLeNC6VlTLtnHZoLfkFG/5LfZFQGa3RJ3CUy1n+elFbLVuPGe+NLd
+	3amN4RIoMzlvyYEwiSCZB1qTo
+X-Google-Smtp-Source: AGHT+IGphbpA8LUETpViwfc9r4c9ghsEimyNiVY0lUzG9ZGVUA6JiRqkq6yLPztHpengD8OD1tX9pg==
+X-Received: by 2002:a05:6602:26cb:b0:887:690b:2594 with SMTP id ca18e2360f4ac-8ad5eb39575mr1149464339f.5.1758400738371;
+        Sat, 20 Sep 2025 13:38:58 -0700 (PDT)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-8a46b2f3772sm284226539f.6.2025.09.20.13.38.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 20 Sep 2025 13:38:57 -0700 (PDT)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: iommu@lists.linux.dev,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: jgg@nvidia.com,
+	zong.li@sifive.com,
+	tjeznach@rivosinc.com,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	anup@brainfault.org,
+	atish.patra@linux.dev,
+	tglx@linutronix.de,
+	alex.williamson@redhat.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	alex@ghiti.fr
+Subject: [RFC PATCH v2 04/18] iommu/riscv: Add IRQ domain for interrupt remapping
+Date: Sat, 20 Sep 2025 15:38:54 -0500
+Message-ID: <20250920203851.2205115-24-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250920203851.2205115-20-ajones@ventanamicro.com>
+References: <20250920203851.2205115-20-ajones@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] spi: spacemit: introduce SpacemiT K1 SPI
- controller driver
-To: Vivian Wang <wangruikang@iscas.ac.cn>, broonie@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: dlan@gentoo.org, ziyao@disroot.org, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
- spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250919155914.935608-1-elder@riscstar.com>
- <20250919155914.935608-3-elder@riscstar.com>
- <a7070f3f-8857-4834-9e9e-02068637075c@iscas.ac.cn>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <a7070f3f-8857-4834-9e9e-02068637075c@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_090003_259775_248A5BA6 
-X-CRM114-Status: GOOD (  44.44  )
+X-CRM114-CacheID: sfid-20250920_133859_479035_2A6BFD69 
+X-CRM114-Status: GOOD (  24.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,312 +109,168 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/19/25 10:52 PM, Vivian Wang wrote:
-> Hi Alex,
-> 
-> On 9/19/25 23:59, Alex Elder wrote:
->> [...]
->>
->> diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
->> index 82fa5eb3b8684..4f6c446c6bc16 100644
->> --- a/drivers/spi/Kconfig
->> +++ b/drivers/spi/Kconfig
->> @@ -1071,6 +1071,14 @@ config SPI_SG2044_NOR
->>   	  also supporting 3Byte address devices and 4Byte address
->>   	  devices.
->>   
->> +config SPI_SPACEMIT_K1
->> +	tristate "K1 SPI Controller"
->> +	depends on ARCH_SPACEMIT || COMPILE_TEST
->> +	depends on OF
->> +	default ARCH_SPACEMIT
->> +	help
->> +	  Enable support for the SpacemiT K1 SPI controller.
->> +
-> 
-> We could still add:
-> 
-> 	imply MMP_PDMA if ARCH_SPACEMIT
-
-I have never used "imply", I guess it's new (as of 2016)...
-
-This sounds like a good suggestion.  This would mean MMP_PDMA
-would by default take the same value as SPI_SPACEMIT_K1 (if
-the former's dependencies were met), while allowing it to be
-deselected for the configuration.
-  > To add a "recommended" dependency. This way, enabling SPI_SPACEMIT_K1
-> automatically enables MMP_PDMA, but if the user is willing to fiddle
-> around, they can explicitly disable it. What do you think?
-
-I like it.
-
->>   config SPI_SPRD
->>   	tristate "Spreadtrum SPI controller"
->>   	depends on ARCH_SPRD || COMPILE_TEST
->>
->> [...]
->>
->> diff --git a/drivers/spi/spi-spacemit-k1.c b/drivers/spi/spi-spacemit-k1.c
->> new file mode 100644
->> index 0000000000000..8d564fe6c4303
->> --- /dev/null
->> +++ b/drivers/spi/spi-spacemit-k1.c
->> @@ -0,0 +1,968 @@
->>
->> [...]
->>
->> +static void k1_spi_read_word(struct k1_spi_driver_data *drv_data)
->> +{
->> +	struct k1_spi_io *rx = &drv_data->rx;
->> +	u32 bytes = drv_data->bytes;
->> +	u32 val;
->> +
->> +	val = readl(drv_data->base + SSP_DATAR);
->> +	rx->resid -= bytes;
->> +
->> +	if (!rx->buf)
->> +		return;	/* Null reader: discard the data */
->> +
->> +	if (bytes == 1)
->> +		*(u8 *)rx->buf = val;
->> +	else if (bytes == 1)
-> 
-> Typo? else if (bytes == 2)
-
-Wow.  Yes that is an error that I'll correct.
-
->> +		*(u16 *)rx->buf = val;
->> +	else
->> +		*(u32 *)rx->buf = val;
-> 
-> Maybe
-> 
-> 	else if (bytes == 4)
-> 		*(u32 *)rx->buf = val;
-> 	else
-> 		WARN_ON_ONCE(1);
-
-The value of bytes will be 1, 2, or 4, which we can tell
-by inspection.  At one time I had a switch statement with
-a default, but I decided to leave out the default, which
-won't happen.
-
-> Just to make the pattern consistent? Same for k1_spi_write_word.
-
-Consistent with what?
-
->> +	rx->buf += bytes;
->> +}
->>
->> [...]
->>
->> +static int k1_spi_dma_setup(struct k1_spi_driver_data *drv_data)
->> +{
->> +	struct device *dev = drv_data->dev;
->> +	int rx_ret;
->> +	int tx_ret;
->> +
->> +	/* We must get both DMA channels, or neither of them */
->> +	rx_ret = k1_spi_dma_setup_io(drv_data, true);
->> +	if (rx_ret == -EPROBE_DEFER)
->> +		return -EPROBE_DEFER;
->> +
->> +	tx_ret = k1_spi_dma_setup_io(drv_data, false);
->> +
->> +	/* If neither is specified, we don't use DMA */
->> +	if (rx_ret == -ENODEV && tx_ret == -ENODEV)
->> +		return 0;
->> +
->> +	if (rx_ret || tx_ret)
->> +		goto err_cleanup;
-> 
-> This seems a bit convoluted. I'm wondering if all this explicit handling
-> really is necessary - if we get an error at probe time, can we just
-> return that error and let devres handle the rest? With the special case
-> that if we get both -ENODEV then disable DMA.
-
-I agree it seems it should be less complex.
-
-I'm trying to ensure that both channels are set up, or
-that neither channel is set up, or that we try again if
-we get -EPROBE_DEFER.  And if there's something wrong
-with the configuration (only one of TX and RX is set up
-successfully), an error occurs.
-
-RX		TX		Result
---		--		------
-0		0		0	(DMA)
--ENODEV		-ENODEV		0	(PIO)
--EPROBE_DEFER	(anything)	-EPROBE_DEFER (try again)
-(anything)	-EPROBE_DEFER	-EPROBE_DEFER (try again)
-0		-ENODEV		-ENODEV	(error, abort probe)
--ENODEV		0		-ENODEV	(error, abort probe)
-error		(anything)	error	(error, abort probe)
-(anything)	error		error	(error, abort probe)
-
-Finally, if the buffer allocation fails:
-0		0		0	(PIO; clean up TX and RX)
-
-Let me think about this.  I'll see if I can find a simpler way
-to achieve the above result, relying on devres to clean things
-up.  I'd have to change k1_spi_dma_cleanup(), but you might be
-right that it could be done more simply.
-
-> k1_spi_dma_cleanup_io seems to handle unmapping and termination of DMA,
-> which we... don't need, right?
-> 
->> +
->> +	drv_data->dummy = devm_kzalloc(dev, SZ_2K, GFP_KERNEL);
->> +	if (drv_data->dummy)
->> +		return 0;		/* Success! */
->> +
->> +	dev_warn(dev, "error allocating DMA dummy buffer; DMA disabled\n");
-> 
-> Just return -ENOMEM. If we can't even allocate 2K of buffer, we're
-> doomed anyway.
-
-You're generally right, but I don't want my code to assume that.
-
->> +err_cleanup:
->> +	if (tx_ret) {
->> +		if (tx_ret != -EPROBE_DEFER)
->> +			dev_err(dev, "error requesting DMA TX DMA channel\n");
->> +	} else {
->> +		k1_spi_dma_cleanup_io(drv_data, false);
->> +	}
->> +
->> +	if (rx_ret)
->> +		dev_err(dev, "error requesting DMA RX DMA channel\n");
->> +	else
->> +		k1_spi_dma_cleanup_io(drv_data, true);
->> +
->> +	if (tx_ret == -EPROBE_DEFER)
->> +		return -EPROBE_DEFER;
->> +
->> +	/* Return success if we don't get the dummy buffer; PIO will be used */
->> +
->> +	return rx_ret ? : tx_ret ? : 0;
->> +}
->>
->> [...]
->>
->> +static int devm_k1_spi_dma_setup(struct k1_spi_driver_data *drv_data)
->> +{
->> +	struct k1_spi_driver_data **ptr;
->> +	int ret;
->> +
->> +	if (!IS_ENABLED(CONFIG_MMP_PDMA)) {
->> +		dev_warn(drv_data->dev, "DMA not available; using PIO\n");
->> +		return 0;
->> +	}
->> +
-> 
-> Shouldn't be necessary if we do the "imply" thing in Kconfig.
-
-The messages I provide are based on an assumption that using
-DMA is desirable and it will normally be used by this driver.
-So if it won't be used, I'd like to provide that information.
-
-On the other hand, I don't issue a warning if neither of
-the channels is configured in the DTB.
-
-I'm not going to commit either way on keeping/removing this.
-If someone else weighs in I'm open to changing it.
-
->> [...]
->>
->> +static void k1_spi_host_init(struct k1_spi_driver_data *drv_data)
->> +{
->>
->> [...]
->>
->> +
->> +	ret = of_property_read_u32(np, "spi-max-frequency", &max_speed_hz);
->> +	if (!ret) {
->> +		host->max_speed_hz = clamp(max_speed_hz, K1_SPI_MIN_SPEED_HZ,
->> +					   K1_SPI_MAX_SPEED_HZ);
->> +		if (host->max_speed_hz != max_speed_hz)
->> +			dev_warn(dev, "spi-max-frequency %u out of range, using %u\n",
->> +				max_speed_hz, host->max_speed_hz);
->> +	} else {
->> +		if (ret != -EINVAL)
->> +			dev_warn(dev, "bad spi-max-frequency, using %u\n",
->> +				 K1_SPI_DEFAULT_MAX_SPEED_HZ);
->> +		host->max_speed_hz = K1_SPI_DEFAULT_MAX_SPEED_HZ;
->> +	}
-> 
-> I think it makes sense to have spi-max-frequency default to
-> K1_SPI_DEFAULT_MAX_SPEED_HZ, but if the value is out of range just print
-> a message and return an error, to get whoever wrote the bad value to fix it.
-
-These errors just shouldn't happen.  But the way I handle this,
-it allows the SPI controller to still be used, even if the
-administrator can't really update the DTB.
-
-> This range seems to be fixed by hardware, so, it should also be
-> specified in the bindings.
-
-I define the hardware limits here, and enforce
-them, in case the bindings specify an out-of-range
-value.  Again, this is an error that just shouldn't
-occur in practice, but the code is defensive.
-
-Most of your comments really made me think about how
-errors are handled.  I appreciate it.
-
-					-Alex
-
-> 
->> +}
->> +
->>
->> [...]
->>
->> +
->> +static int k1_spi_probe(struct platform_device *pdev)
->> +{
->> +	struct k1_spi_driver_data *drv_data;
->> +	struct device *dev = &pdev->dev;
->> +	struct reset_control *reset;
->> +	struct spi_controller *host;
->> +	struct resource *iores;
->> +	struct clk *clk_bus;
->> +	int ret;
->> +
->> +	host = devm_spi_alloc_host(dev, sizeof(*drv_data));
->> +	if (!host)
->> +		return -ENOMEM;
->> +	drv_data = spi_controller_get_devdata(host);
->> +	drv_data->controller = host;
->> +	platform_set_drvdata(pdev, drv_data);
->> +	drv_data->dev = dev;
->> +	init_completion(&drv_data->completion);
->> +
->> +	drv_data->base = devm_platform_get_and_ioremap_resource(pdev, 0,
->> +								&iores);
-> 
-> Maybe
-> 
->      devm_platform_ioremap_resource(pdev, 0);
-> 
->> [...]
->>
->> +
->> +MODULE_DESCRIPTION("SpacemiT K1 SPI controller driver");
->> +MODULE_LICENSE("GPL");
-> 
-> Maybe MODULE_AUTHOR()?
-> 
-> Vivian "dramforever" Wang
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBpcyBqdXN0IGEgc2tlbGV0b24uIFVudGlsIGlycS1zZXQtYWZmaW5pdHkgZnVuY3Rpb25z
+IGFyZQppbXBsZW1lbnRlZCB0aGUgSVJRIGRvbWFpbiBkb2Vzbid0IHNlcnZlIGFueSBwdXJwb3Nl
+LgoKU2lnbmVkLW9mZi1ieTogQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNvbT4K
+LS0tCiBkcml2ZXJzL2lvbW11L3Jpc2N2L01ha2VmaWxlICAgfCAgIDIgKy0KIGRyaXZlcnMvaW9t
+bXUvcmlzY3YvaW9tbXUtaXIuYyB8IDExNCArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysKIGRyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYyAgICB8ICAzNiArKysrKysrKysrKwogZHJp
+dmVycy9pb21tdS9yaXNjdi9pb21tdS5oICAgIHwgIDEyICsrKysKIDQgZmlsZXMgY2hhbmdlZCwg
+MTYzIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2
+ZXJzL2lvbW11L3Jpc2N2L2lvbW11LWlyLmMKCmRpZmYgLS1naXQgYS9kcml2ZXJzL2lvbW11L3Jp
+c2N2L01ha2VmaWxlIGIvZHJpdmVycy9pb21tdS9yaXNjdi9NYWtlZmlsZQppbmRleCBiNTkyOWY5
+ZjIzZTYuLjljODNmODc3ZDUwZiAxMDA2NDQKLS0tIGEvZHJpdmVycy9pb21tdS9yaXNjdi9NYWtl
+ZmlsZQorKysgYi9kcml2ZXJzL2lvbW11L3Jpc2N2L01ha2VmaWxlCkBAIC0xLDMgKzEsMyBAQAog
+IyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5Ci1vYmoteSArPSBpb21tdS5v
+IGlvbW11LXBsYXRmb3JtLm8KK29iai15ICs9IGlvbW11Lm8gaW9tbXUtaXIubyBpb21tdS1wbGF0
+Zm9ybS5vCiBvYmotJChDT05GSUdfUklTQ1ZfSU9NTVVfUENJKSArPSBpb21tdS1wY2kubwpkaWZm
+IC0tZ2l0IGEvZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS1pci5jIGIvZHJpdmVycy9pb21tdS9y
+aXNjdi9pb21tdS1pci5jCm5ldyBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDAwMDAwMDAwMDAwMC4u
+MDhjZjE1OWI1ODdkCi0tLSAvZGV2L251bGwKKysrIGIvZHJpdmVycy9pb21tdS9yaXNjdi9pb21t
+dS1pci5jCkBAIC0wLDAgKzEsMTE0IEBACisvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BM
+LTIuMC1vbmx5CisvKgorICogSU9NTVUgSW50ZXJydXB0IFJlbWFwcGluZworICoKKyAqIENvcHly
+aWdodCDCqSAyMDI1IFZlbnRhbmEgTWljcm8gU3lzdGVtcyBJbmMuCisgKi8KKyNpbmNsdWRlIDxs
+aW51eC9pcnFkb21haW4uaD4KKyNpbmNsdWRlIDxsaW51eC9tc2kuaD4KKworI2luY2x1ZGUgImlv
+bW11LmgiCisKK3N0YXRpYyBzdHJ1Y3QgaXJxX2NoaXAgcmlzY3ZfaW9tbXVfaXJfaXJxX2NoaXAg
+PSB7CisJLm5hbWUJCQk9ICJJT01NVS1JUiIsCisJLmlycV9hY2sJCT0gaXJxX2NoaXBfYWNrX3Bh
+cmVudCwKKwkuaXJxX21hc2sJCT0gaXJxX2NoaXBfbWFza19wYXJlbnQsCisJLmlycV91bm1hc2sJ
+CT0gaXJxX2NoaXBfdW5tYXNrX3BhcmVudCwKKwkuaXJxX3NldF9hZmZpbml0eQk9IGlycV9jaGlw
+X3NldF9hZmZpbml0eV9wYXJlbnQsCit9OworCitzdGF0aWMgaW50IHJpc2N2X2lvbW11X2lyX2ly
+cV9kb21haW5fYWxsb2NfaXJxcyhzdHJ1Y3QgaXJxX2RvbWFpbiAqaXJxZG9tYWluLAorCQkJCQkJ
+dW5zaWduZWQgaW50IGlycV9iYXNlLCB1bnNpZ25lZCBpbnQgbnJfaXJxcywKKwkJCQkJCXZvaWQg
+KmFyZykKK3sKKwlzdHJ1Y3QgaXJxX2RhdGEgKmRhdGE7CisJaW50IGksIHJldDsKKworCXJldCA9
+IGlycV9kb21haW5fYWxsb2NfaXJxc19wYXJlbnQoaXJxZG9tYWluLCBpcnFfYmFzZSwgbnJfaXJx
+cywgYXJnKTsKKwlpZiAocmV0KQorCQlyZXR1cm4gcmV0OworCisJZm9yIChpID0gMDsgaSA8IG5y
+X2lycXM7IGkrKykgeworCQlkYXRhID0gaXJxX2RvbWFpbl9nZXRfaXJxX2RhdGEoaXJxZG9tYWlu
+LCBpcnFfYmFzZSArIGkpOworCQlkYXRhLT5jaGlwID0gJnJpc2N2X2lvbW11X2lyX2lycV9jaGlw
+OworCX0KKworCXJldHVybiAwOworfQorCitzdGF0aWMgY29uc3Qgc3RydWN0IGlycV9kb21haW5f
+b3BzIHJpc2N2X2lvbW11X2lyX2lycV9kb21haW5fb3BzID0geworCS5hbGxvYyA9IHJpc2N2X2lv
+bW11X2lyX2lycV9kb21haW5fYWxsb2NfaXJxcywKKwkuZnJlZSA9IGlycV9kb21haW5fZnJlZV9p
+cnFzX3BhcmVudCwKK307CisKK3N0YXRpYyBjb25zdCBzdHJ1Y3QgbXNpX3BhcmVudF9vcHMgcmlz
+Y3ZfaW9tbXVfaXJfbXNpX3BhcmVudF9vcHMgPSB7CisJLnByZWZpeAkJCT0gIklSLSIsCisJLnN1
+cHBvcnRlZF9mbGFncwk9IE1TSV9HRU5FUklDX0ZMQUdTX01BU0sgfAorCQkJCSAgTVNJX0ZMQUdf
+UENJX01TSVgsCisJLnJlcXVpcmVkX2ZsYWdzCQk9IE1TSV9GTEFHX1VTRV9ERUZfRE9NX09QUyB8
+CisJCQkJICBNU0lfRkxBR19VU0VfREVGX0NISVBfT1BTIHwKKwkJCQkgIE1TSV9GTEFHX1BDSV9N
+U0lfTUFTS19QQVJFTlQsCisJLmNoaXBfZmxhZ3MJCT0gTVNJX0NISVBfRkxBR19TRVRfQUNLLAor
+CS5pbml0X2Rldl9tc2lfaW5mbwk9IG1zaV9wYXJlbnRfaW5pdF9kZXZfbXNpX2luZm8sCit9Owor
+CitzdHJ1Y3QgaXJxX2RvbWFpbiAqcmlzY3ZfaW9tbXVfaXJfaXJxX2RvbWFpbl9jcmVhdGUoc3Ry
+dWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXUsCisJCQkJCQkgICAgc3RydWN0IGRldmljZSAq
+ZGV2LAorCQkJCQkJICAgIHN0cnVjdCByaXNjdl9pb21tdV9pbmZvICppbmZvKQoreworCXN0cnVj
+dCBpcnFfZG9tYWluICppcnFwYXJlbnQgPSBkZXZfZ2V0X21zaV9kb21haW4oZGV2KTsKKwlzdHJ1
+Y3QgaXJxX2RvbWFpbiAqaXJxZG9tYWluOworCXN0cnVjdCBmd25vZGVfaGFuZGxlICpmbjsKKwlj
+aGFyICpmd25hbWU7CisKKwlmd25hbWUgPSBrYXNwcmludGYoR0ZQX0tFUk5FTCwgIklPTU1VLUlS
+LSVzIiwgZGV2X25hbWUoZGV2KSk7CisJaWYgKCFmd25hbWUpCisJCXJldHVybiBOVUxMOworCisJ
+Zm4gPSBpcnFfZG9tYWluX2FsbG9jX25hbWVkX2Z3bm9kZShmd25hbWUpOworCWtmcmVlKGZ3bmFt
+ZSk7CisJaWYgKCFmbikgeworCQlkZXZfZXJyKGlvbW11LT5kZXYsICJDb3VsZG4ndCBhbGxvY2F0
+ZSBmd25vZGVcbiIpOworCQlyZXR1cm4gTlVMTDsKKwl9CisKKwlpcnFkb21haW4gPSBpcnFfZG9t
+YWluX2NyZWF0ZV9oaWVyYXJjaHkoaXJxcGFyZW50LCAwLCAwLCBmbiwKKwkJCQkJCSZyaXNjdl9p
+b21tdV9pcl9pcnFfZG9tYWluX29wcywKKwkJCQkJCWluZm8pOworCWlmICghaXJxZG9tYWluKSB7
+CisJCWRldl9lcnIoaW9tbXUtPmRldiwgIkZhaWxlZCB0byBjcmVhdGUgSU9NTVUgaXJxIGRvbWFp
+blxuIik7CisJCWlycV9kb21haW5fZnJlZV9md25vZGUoZm4pOworCQlyZXR1cm4gTlVMTDsKKwl9
+CisKKwlpcnFkb21haW4tPmZsYWdzIHw9IElSUV9ET01BSU5fRkxBR19NU0lfUEFSRU5UOworCWly
+cWRvbWFpbi0+bXNpX3BhcmVudF9vcHMgPSAmcmlzY3ZfaW9tbXVfaXJfbXNpX3BhcmVudF9vcHM7
+CisJaXJxX2RvbWFpbl91cGRhdGVfYnVzX3Rva2VuKGlycWRvbWFpbiwgRE9NQUlOX0JVU19NU0lf
+UkVNQVApOworCisJZGV2X3NldF9tc2lfZG9tYWluKGRldiwgaXJxZG9tYWluKTsKKworCXJldHVy
+biBpcnFkb21haW47Cit9CisKK3ZvaWQgcmlzY3ZfaW9tbXVfaXJfaXJxX2RvbWFpbl9yZW1vdmUo
+c3RydWN0IHJpc2N2X2lvbW11X2luZm8gKmluZm8pCit7CisJc3RydWN0IGZ3bm9kZV9oYW5kbGUg
+KmZuOworCisJaWYgKCFpbmZvLT5pcnFkb21haW4pCisJCXJldHVybjsKKworCWZuID0gaW5mby0+
+aXJxZG9tYWluLT5md25vZGU7CisJaXJxX2RvbWFpbl9yZW1vdmUoaW5mby0+aXJxZG9tYWluKTsK
+KwlpbmZvLT5pcnFkb21haW4gPSBOVUxMOworCWlycV9kb21haW5fZnJlZV9md25vZGUoZm4pOwor
+fQorCitpbnQgcmlzY3ZfaW9tbXVfaXJfYXR0YWNoX3BhZ2luZ19kb21haW4oc3RydWN0IHJpc2N2
+X2lvbW11X2RvbWFpbiAqZG9tYWluLAorCQkJCQlzdHJ1Y3QgZGV2aWNlICpkZXYpCit7CisJcmV0
+dXJuIDA7Cit9CisKK3ZvaWQgcmlzY3ZfaW9tbXVfaXJfZnJlZV9wYWdpbmdfZG9tYWluKHN0cnVj
+dCByaXNjdl9pb21tdV9kb21haW4gKmRvbWFpbikKK3sKK30KZGlmZiAtLWdpdCBhL2RyaXZlcnMv
+aW9tbXUvcmlzY3YvaW9tbXUuYyBiL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYwppbmRleCBh
+NDRjNjdhODQ4ZmEuLmRiMmFjZDlkYzY0YiAxMDA2NDQKLS0tIGEvZHJpdmVycy9pb21tdS9yaXNj
+di9pb21tdS5jCisrKyBiL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYwpAQCAtMTcsNiArMTcs
+OCBAQAogI2luY2x1ZGUgPGxpbnV4L2luaXQuaD4KICNpbmNsdWRlIDxsaW51eC9pb21tdS5oPgog
+I2luY2x1ZGUgPGxpbnV4L2lvcG9sbC5oPgorI2luY2x1ZGUgPGxpbnV4L2lycWNoaXAvcmlzY3Yt
+aW1zaWMuaD4KKyNpbmNsdWRlIDxsaW51eC9pcnFkb21haW4uaD4KICNpbmNsdWRlIDxsaW51eC9r
+ZXJuZWwuaD4KICNpbmNsdWRlIDxsaW51eC9wY2kuaD4KIApAQCAtMTAyNiw2ICsxMDI4LDkgQEAg
+c3RhdGljIHZvaWQgcmlzY3ZfaW9tbXVfaW9kaXJfdXBkYXRlKHN0cnVjdCByaXNjdl9pb21tdV9k
+ZXZpY2UgKmlvbW11LAogCiAJCVdSSVRFX09OQ0UoZGMtPmZzYywgbmV3X2RjLT5mc2MpOwogCQlX
+UklURV9PTkNFKGRjLT50YSwgbmV3X2RjLT50YSAmIFJJU0NWX0lPTU1VX1BDX1RBX1BTQ0lEKTsK
+KwkJV1JJVEVfT05DRShkYy0+bXNpcHRwLCBuZXdfZGMtPm1zaXB0cCk7CisJCVdSSVRFX09OQ0Uo
+ZGMtPm1zaV9hZGRyX21hc2ssIG5ld19kYy0+bXNpX2FkZHJfbWFzayk7CisJCVdSSVRFX09OQ0Uo
+ZGMtPm1zaV9hZGRyX3BhdHRlcm4sIG5ld19kYy0+bXNpX2FkZHJfcGF0dGVybik7CiAJCS8qIFVw
+ZGF0ZSBkZXZpY2UgY29udGV4dCwgd3JpdGUgVEMuViBhcyB0aGUgbGFzdCBzdGVwLiAqLwogCQlk
+bWFfd21iKCk7CiAJCVdSSVRFX09OQ0UoZGMtPnRjLCB0Yyk7CkBAIC0xMjc2LDYgKzEyODEsOCBA
+QCBzdGF0aWMgdm9pZCByaXNjdl9pb21tdV9mcmVlX3BhZ2luZ19kb21haW4oc3RydWN0IGlvbW11
+X2RvbWFpbiAqaW9tbXVfZG9tYWluKQogCiAJV0FSTl9PTighbGlzdF9lbXB0eSgmZG9tYWluLT5i
+b25kcykpOwogCisJcmlzY3ZfaW9tbXVfaXJfZnJlZV9wYWdpbmdfZG9tYWluKGRvbWFpbik7CisK
+IAlpZiAoKGludClkb21haW4tPnBzY2lkID4gMCkKIAkJaWRhX2ZyZWUoJnJpc2N2X2lvbW11X3Bz
+Y2lkcywgZG9tYWluLT5wc2NpZCk7CiAKQEAgLTEzMDUsMTUgKzEzMTIsMjggQEAgc3RhdGljIGlu
+dCByaXNjdl9pb21tdV9hdHRhY2hfcGFnaW5nX2RvbWFpbihzdHJ1Y3QgaW9tbXVfZG9tYWluICpp
+b21tdV9kb21haW4sCiAJc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXUgPSBkZXZfdG9f
+aW9tbXUoZGV2KTsKIAlzdHJ1Y3QgcmlzY3ZfaW9tbXVfaW5mbyAqaW5mbyA9IGRldl9pb21tdV9w
+cml2X2dldChkZXYpOwogCXN0cnVjdCByaXNjdl9pb21tdV9kYyBkYyA9IHswfTsKKwlpbnQgcmV0
+OwogCiAJaWYgKCFyaXNjdl9pb21tdV9wdF9zdXBwb3J0ZWQoaW9tbXUsIGRvbWFpbi0+cGdkX21v
+ZGUpKQogCQlyZXR1cm4gLUVOT0RFVjsKIAorCXJldCA9IHJpc2N2X2lvbW11X2lyX2F0dGFjaF9w
+YWdpbmdfZG9tYWluKGRvbWFpbiwgZGV2KTsKKwlpZiAocmV0KQorCQlyZXR1cm4gcmV0OworCiAJ
+ZGMuZnNjID0gRklFTERfUFJFUChSSVNDVl9JT01NVV9QQ19GU0NfTU9ERSwgZG9tYWluLT5wZ2Rf
+bW9kZSkgfAogCQkgRklFTERfUFJFUChSSVNDVl9JT01NVV9QQ19GU0NfUFBOLCB2aXJ0X3RvX3Bm
+bihkb21haW4tPnBnZF9yb290KSk7CiAJZGMudGEgPSBGSUVMRF9QUkVQKFJJU0NWX0lPTU1VX1BD
+X1RBX1BTQ0lELCBkb21haW4tPnBzY2lkKSB8CiAJCQkgICBSSVNDVl9JT01NVV9QQ19UQV9WOwog
+CisJaWYgKGRvbWFpbi0+bXNpX3Jvb3QpIHsKKwkJZGMubXNpcHRwID0gdmlydF90b19wZm4oZG9t
+YWluLT5tc2lfcm9vdCkgfAorCQkJICAgIEZJRUxEX1BSRVAoUklTQ1ZfSU9NTVVfRENfTVNJUFRQ
+X01PREUsCisJCQkJICAgICAgIFJJU0NWX0lPTU1VX0RDX01TSVBUUF9NT0RFX0ZMQVQpOworCQlk
+Yy5tc2lfYWRkcl9tYXNrID0gZG9tYWluLT5tc2lfYWRkcl9tYXNrOworCQlkYy5tc2lfYWRkcl9w
+YXR0ZXJuID0gZG9tYWluLT5tc2lfYWRkcl9wYXR0ZXJuOworCX0KKwogCWlmIChyaXNjdl9pb21t
+dV9ib25kX2xpbmsoZG9tYWluLCBkZXYpKQogCQlyZXR1cm4gLUVOT01FTTsKIApAQCAtMTQ2Niw2
+ICsxNDg2LDggQEAgc3RhdGljIGludCByaXNjdl9pb21tdV9vZl94bGF0ZShzdHJ1Y3QgZGV2aWNl
+ICpkZXYsIGNvbnN0IHN0cnVjdCBvZl9waGFuZGxlX2FyZ3MKIHN0YXRpYyBzdHJ1Y3QgaW9tbXVf
+ZGV2aWNlICpyaXNjdl9pb21tdV9wcm9iZV9kZXZpY2Uoc3RydWN0IGRldmljZSAqZGV2KQogewog
+CXN0cnVjdCBpb21tdV9md3NwZWMgKmZ3c3BlYyA9IGRldl9pb21tdV9md3NwZWNfZ2V0KGRldik7
+CisJY29uc3Qgc3RydWN0IGltc2ljX2dsb2JhbF9jb25maWcgKmltc2ljX2dsb2JhbDsKKwlzdHJ1
+Y3QgaXJxX2RvbWFpbiAqaXJxZG9tYWluID0gTlVMTDsKIAlzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2
+aWNlICppb21tdTsKIAlzdHJ1Y3QgcmlzY3ZfaW9tbXVfaW5mbyAqaW5mbzsKIAlzdHJ1Y3Qgcmlz
+Y3ZfaW9tbXVfZGMgKmRjOwpAQCAtMTQ4OSw2ICsxNTExLDE4IEBAIHN0YXRpYyBzdHJ1Y3QgaW9t
+bXVfZGV2aWNlICpyaXNjdl9pb21tdV9wcm9iZV9kZXZpY2Uoc3RydWN0IGRldmljZSAqZGV2KQog
+CWluZm8gPSBremFsbG9jKHNpemVvZigqaW5mbyksIEdGUF9LRVJORUwpOwogCWlmICghaW5mbykK
+IAkJcmV0dXJuIEVSUl9QVFIoLUVOT01FTSk7CisKKwlpbXNpY19nbG9iYWwgPSBpbXNpY19nZXRf
+Z2xvYmFsX2NvbmZpZygpOworCWlmIChpbXNpY19nbG9iYWwgJiYgaW1zaWNfZ2xvYmFsLT5ucl9p
+ZHMpIHsKKwkJaXJxZG9tYWluID0gcmlzY3ZfaW9tbXVfaXJfaXJxX2RvbWFpbl9jcmVhdGUoaW9t
+bXUsIGRldiwgaW5mbyk7CisJCWlmICghaXJxZG9tYWluKSB7CisJCQlrZnJlZShpbmZvKTsKKwkJ
+CXJldHVybiBFUlJfUFRSKC1FTk9NRU0pOworCQl9CisJfQorCisJaW5mby0+aXJxZG9tYWluID0g
+aXJxZG9tYWluOworCiAJLyoKIAkgKiBBbGxvY2F0ZSBhbmQgcHJlLWNvbmZpZ3VyZSBkZXZpY2Ug
+Y29udGV4dCBlbnRyaWVzIGluCiAJICogdGhlIGRldmljZSBkaXJlY3RvcnkuIERvIG5vdCBtYXJr
+IHRoZSBjb250ZXh0IHZhbGlkIHlldC4KQEAgLTE0OTksNiArMTUzMyw3IEBAIHN0YXRpYyBzdHJ1
+Y3QgaW9tbXVfZGV2aWNlICpyaXNjdl9pb21tdV9wcm9iZV9kZXZpY2Uoc3RydWN0IGRldmljZSAq
+ZGV2KQogCWZvciAoaSA9IDA7IGkgPCBmd3NwZWMtPm51bV9pZHM7IGkrKykgewogCQlkYyA9IHJp
+c2N2X2lvbW11X2dldF9kYyhpb21tdSwgZndzcGVjLT5pZHNbaV0pOwogCQlpZiAoIWRjKSB7CisJ
+CQlyaXNjdl9pb21tdV9pcl9pcnFfZG9tYWluX3JlbW92ZShpbmZvKTsKIAkJCWtmcmVlKGluZm8p
+OwogCQkJcmV0dXJuIEVSUl9QVFIoLUVOT0RFVik7CiAJCX0KQEAgLTE1MTYsNiArMTU1MSw3IEBA
+IHN0YXRpYyB2b2lkIHJpc2N2X2lvbW11X3JlbGVhc2VfZGV2aWNlKHN0cnVjdCBkZXZpY2UgKmRl
+dikKIHsKIAlzdHJ1Y3QgcmlzY3ZfaW9tbXVfaW5mbyAqaW5mbyA9IGRldl9pb21tdV9wcml2X2dl
+dChkZXYpOwogCisJcmlzY3ZfaW9tbXVfaXJfaXJxX2RvbWFpbl9yZW1vdmUoaW5mbyk7CiAJa2Zy
+ZWVfcmN1X21pZ2h0c2xlZXAoaW5mbyk7CiB9CiAKZGlmZiAtLWdpdCBhL2RyaXZlcnMvaW9tbXUv
+cmlzY3YvaW9tbXUuaCBiL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuaAppbmRleCAxZDE2M2Ni
+ZDllNGQuLjY0MGQ4MjVmMTFiOSAxMDA2NDQKLS0tIGEvZHJpdmVycy9pb21tdS9yaXNjdi9pb21t
+dS5oCisrKyBiL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuaApAQCAtMjcsMTEgKzI3LDE1IEBA
+IHN0cnVjdCByaXNjdl9pb21tdV9kb21haW4gewogCWludCBudW1hX25vZGU7CiAJdW5zaWduZWQg
+aW50IHBnZF9tb2RlOwogCXVuc2lnbmVkIGxvbmcgKnBnZF9yb290OworCXN0cnVjdCByaXNjdl9p
+b21tdV9tc2lwdGUgKm1zaV9yb290OworCXU2NCBtc2lfYWRkcl9tYXNrOworCXU2NCBtc2lfYWRk
+cl9wYXR0ZXJuOwogfTsKIAogLyogUHJpdmF0ZSBJT01NVSBkYXRhIGZvciBtYW5hZ2VkIGRldmlj
+ZXMsIGRldl9pb21tdV9wcml2XyogKi8KIHN0cnVjdCByaXNjdl9pb21tdV9pbmZvIHsKIAlzdHJ1
+Y3QgcmlzY3ZfaW9tbXVfZG9tYWluICpkb21haW47CisJc3RydWN0IGlycV9kb21haW4gKmlycWRv
+bWFpbjsKIH07CiAKIHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2U7CkBAIC04Niw2ICs5MCwxNCBA
+QCBpbnQgcmlzY3ZfaW9tbXVfaW5pdChzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21tdSk7
+CiB2b2lkIHJpc2N2X2lvbW11X3JlbW92ZShzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21t
+dSk7CiB2b2lkIHJpc2N2X2lvbW11X2Rpc2FibGUoc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAq
+aW9tbXUpOwogCitzdHJ1Y3QgaXJxX2RvbWFpbiAqcmlzY3ZfaW9tbXVfaXJfaXJxX2RvbWFpbl9j
+cmVhdGUoc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXUsCisJCQkJCQkgICAgc3RydWN0
+IGRldmljZSAqZGV2LAorCQkJCQkJICAgIHN0cnVjdCByaXNjdl9pb21tdV9pbmZvICppbmZvKTsK
+K3ZvaWQgcmlzY3ZfaW9tbXVfaXJfaXJxX2RvbWFpbl9yZW1vdmUoc3RydWN0IHJpc2N2X2lvbW11
+X2luZm8gKmluZm8pOworaW50IHJpc2N2X2lvbW11X2lyX2F0dGFjaF9wYWdpbmdfZG9tYWluKHN0
+cnVjdCByaXNjdl9pb21tdV9kb21haW4gKmRvbWFpbiwKKwkJCQkJc3RydWN0IGRldmljZSAqZGV2
+KTsKK3ZvaWQgcmlzY3ZfaW9tbXVfaXJfZnJlZV9wYWdpbmdfZG9tYWluKHN0cnVjdCByaXNjdl9p
+b21tdV9kb21haW4gKmRvbWFpbik7CisKICNkZWZpbmUgcmlzY3ZfaW9tbXVfcmVhZGwoaW9tbXUs
+IGFkZHIpIFwKIAlyZWFkbF9yZWxheGVkKChpb21tdSktPnJlZyArIChhZGRyKSkKIAotLSAKMi40
+OS4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
