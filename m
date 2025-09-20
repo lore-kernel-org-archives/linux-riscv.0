@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB98CAC59A
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 00:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E10CAC592
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 00:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3D9ufMyI6zWU7NwCeGxYsNtyOTptpf1ZEiK6bJSYw8E=; b=pigeheipzvl7BP
-	m53wyV6rueOjl5NCGcw3sx56WmAarxnscL6WNKC5EGbRZ54sY52W/OWXQxLonkeKNaXEIcqDf6ekm
-	TjoZPLORHcHHnMSafMseWC/5eFVa1tuzHaLxxh5XvbqqKz7qKbRfB5J8eEkf/mta3Yjg5X5+mRh5D
-	9HfuVtppggk6NvedzYZknLi0dx+AuWnvHmnSdM1d2E5mUAF+ntxjlBqVsi6S7sdvXfOxQlT+PXcr3
-	7wMs+AGmzuwvLQzrb9Bc/5y/J+UbMaOC+QZ8c+MRhcg/szONbl7XhCvvs9Nn2SLzYJOZBvKmBfUOA
-	6r3eU5FPFsprz92o6v6Q==;
+	List-Owner; bh=c+XpQskmujjS9n2J0p+iJTJ9gmhqZ8mw2NnvHXR6RWo=; b=QvdPpU0ZldlOVr
+	gu51s/7wtnFZw9hLfei24pRdU1aVpGFKXJZAlFg+F50r8m1o2xXodxiZjm6mhiT/D7uobBM0Dz179
+	oW4UsYpy2DhGgFHoFhMdmA7tRpBvyc8oWatdE7X//z7oiaDJS0DrBExAmaWPWuacWfnAYtBFX111L
+	J/CBxV4v0jyPDiANUKOEAHwGjvi6u/77wA6pTPS/FGwkDAkN0H5P9phOe6nIVu8SPxd5l7LcHgWUn
+	Kz5qOnQNrGzTYi1zw3MzO+zXtbNhlk/Jn+DN8lHws96c37Qu3U2JjhkzhxsXR4ukl7y/P7G7cvD+y
+	k8w3ZV65LAUBH4DriN6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzlFT-00000004OLc-3De7;
-	Sat, 20 Sep 2025 00:14:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uzlUb-00000004PiR-1C5V;
+	Sat, 20 Sep 2025 00:30:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzlFR-00000004OKz-0Tei;
-	Sat, 20 Sep 2025 00:14:42 +0000
+	id 1uzlUa-00000004Phw-2DDP;
+	Sat, 20 Sep 2025 00:30:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6DEB844961;
-	Sat, 20 Sep 2025 00:14:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F96FC4CEF0;
-	Sat, 20 Sep 2025 00:14:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A0FEF6013C;
+	Sat, 20 Sep 2025 00:30:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49A72C4CEF0;
+	Sat, 20 Sep 2025 00:30:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758327280;
-	bh=O0bDy6Ix2CSa2N0Q4JTxtP6HuLT6aOmOzysAyCGa/JQ=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=L3hzw6hsVszuDiJHPBCY82Amym8WdjwMr0g4coY501cIx1Z/cbkmYyw7MErPFCgVY
-	 9zOiRwZwy5zm841JL2MsK2jzXeQ3zuoERdnS/L8wMExSvv1T0o7mYbdFrsEWlA4SkK
-	 3svAd1LFwZ7z30kKWvM0DWesAGVpKsw7bZJco19Lm5M47zZgjVJZtlKLQMBsZ7yYaA
-	 FJfwNW5bTkOWmd9ZQMsw1BtXtJxClMXZcosYuHHq5MUc0nBPwOIMN0/MJI58CzbCdH
-	 z1MYamA/HTdmcm+e+/bELj1O9aqgYTVQyFTPfnXkV3EothiEolqhY+/B6Fha//O50S
-	 IdN4mLe8ZgdZQ==
-Date: Fri, 19 Sep 2025 18:14:34 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-cc: Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org, 
-    Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, Catalin Marinas <catalin.marinas@arm.com>, 
-    Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Peter Xu <peterx@redhat.com>, 
-    Oscar Salvador <osalvador@suse.de>, 
-    Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v2] asm-generic: Remove pud_user() from pgtable-nopmd.h
-In-Reply-To: <c2c9fc69871a7caaa205e237ff73557f19f5e176.1755509286.git.christophe.leroy@csgroup.eu>
-Message-ID: <d9f45fdb-4ecd-23b0-6c98-846be24976aa@kernel.org>
-References: <c2c9fc69871a7caaa205e237ff73557f19f5e176.1755509286.git.christophe.leroy@csgroup.eu>
+	s=k20201202; t=1758328219;
+	bh=Yes7uCAJIf1OW9O4lN6N9kWrrNuylVquEJn5lf44T44=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=LlSAb8P8UrBmrtodlL0ShRrL0RB/FGZLzl+svKgxt3WY1vou6qUJwz7D00B/ZXSle
+	 dmmeHMKIrCaZPNQYJ+hbARFCLF3BeG7+mz+dA8iu16BHLxtWaMVYHn18eynY59S/H9
+	 /yJYfv6NkCmIc8bZBwewQOWosl+jp9OATHySy4BBchEKejpLe42R6GnT0ArMrcZcQl
+	 7KvspaiqADgBilZFJk9CxI1SLjT2ttZ6NdGhUs5mUL1c8a84R8T5jqZSj0cStOifYd
+	 T2cP/YDSwrwUsiYhSxYdupE+K5NMm8whtP8u94NItPIpXVKTOcTvlB1gTfV4WKbTHf
+	 PN2u2DiCDEE6w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADFF439D0C20;
+	Sat, 20 Sep 2025 00:30:19 +0000 (UTC)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_171441_172331_9976D811 
-X-CRM114-Status: GOOD (  10.12  )
+Subject: Re: [PATCH net-next 00/10] net: stmmac: remove mac_interface
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175832821850.3748897.10411784128279455244.git-patchwork-notify@kernel.org>
+Date: Sat, 20 Sep 2025 00:30:18 +0000
+References: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
+In-Reply-To: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, wens@csie.org, davem@davemloft.net,
+ fustini@kernel.org, kernel@esmil.dk, edumazet@google.com, festevam@gmail.com,
+ wefu@redhat.com, guoren@kernel.org, imx@lists.linux.dev, kuba@kernel.org,
+ jernej.skrabec@gmail.com, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-sunxi@lists.linux.dev, maxime.chevallier@bootlin.com,
+ mcoquelin.stm32@gmail.com, minda.chen@starfivetech.com,
+ mohd.anwar@oss.qualcomm.com, netdev@vger.kernel.org, pabeni@redhat.com,
+ kernel@pengutronix.de, samuel@sholland.org, s.hauer@pengutronix.de,
+ shawnguo@kernel.org, vz@mleia.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +79,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 Aug 2025, Christophe Leroy wrote:
+Hello:
 
-> Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
-> issues") added pud_user() in include/asm-generic/pgtable-nopmd.h
-> 
-> But pud_user() only exists on ARM64 and RISCV and is not expected
-> by any part of MM.
-> 
-> Add the missing definition in arch/riscv/include/asm/pgtable-32.h
-> and remove it from asm-generic/pgtable-nopmd.h
-> 
-> A stub pud_user() is also required for ARM64 after
-> commit ed928a3402d8 ("arm64/mm: fix page table check compile
-> error for CONFIG_PGTABLE_LEVELS=2")
-> 
-> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Reviewed-by: Peter Xu <peterx@redhat.com>
-> Reviewed-by: Oscar Salvador <osalvador@suse.de>
-> Acked-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Acked-by: Paul Walmsley <pjw@kernel.org> # riscv
+On Wed, 17 Sep 2025 16:11:33 +0100 you wrote:
+> The dwmac core supports a range of interfaces, but when it comes to
+> SerDes interfaces, the core itself does not include the SerDes block.
+> Consequently, it has to provide an interface suitable to interface such
+> a block to, and uses TBI for this.
+> 
+> The driver also uses "PCS" for RGMII, even though the dwmac PCS block
+> is not present for this interface type - it was a convenice for the
+> code structure as RGMII includes inband signalling of the PHY state,
+> much like Cisco SGMII does at a high level.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,01/10] net: stmmac: rework mac_interface and phy_interface documentation
+    https://git.kernel.org/netdev/net-next/c/32a8d2a197c1
+  - [net-next,02/10] net: stmmac: use phy_interface in stmmac_check_pcs_mode()
+    https://git.kernel.org/netdev/net-next/c/0522f152a2c9
+  - [net-next,03/10] net: stmmac: imx: convert to use phy_interface
+    https://git.kernel.org/netdev/net-next/c/db1948da6860
+  - [net-next,04/10] net: stmmac: ingenic: convert to use phy_interface
+    https://git.kernel.org/netdev/net-next/c/9ff682b4a28f
+  - [net-next,05/10] net: stmmac: socfpga: convert to use phy_interface
+    https://git.kernel.org/netdev/net-next/c/de696c63c1dc
+  - [net-next,06/10] net: stmmac: starfive: convert to use phy_interface
+    https://git.kernel.org/netdev/net-next/c/6cb2b69c3419
+  - [net-next,07/10] net: stmmac: stm32: convert to use phy_interface
+    https://git.kernel.org/netdev/net-next/c/0ca60c26f655
+  - [net-next,08/10] net: stmmac: sun8i: convert to use phy_interface
+    https://git.kernel.org/netdev/net-next/c/0fe080fa884e
+  - [net-next,09/10] net: stmmac: thead: convert to use phy_interface
+    https://git.kernel.org/netdev/net-next/c/3a94ecdf1afb
+  - [net-next,10/10] net: stmmac: remove mac_interface
+    https://git.kernel.org/netdev/net-next/c/6b0ed6a3a89c
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
