@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30ECCAC5A5
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Sep 2025 23:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBA7CAC5A7
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Sep 2025 03:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1uX6KgXvRvkUhIjemqlauSYTvqI8smseiiVy9hSUT/M=; b=XfgfSNtbS7a6Wa
-	OJJbQPSJQXgSwF7ZlE4OeHXuxTTzRvB4s37UjQmP7Hhz/ccYxgYvgKxO/uxsgbbvqwlJolo172RzX
-	76OPp594SirXhrfVk5iahy0wapZ7ew0Cr192TpfEdeSdXCuo0sKLN1mLeO2F0hOdKJ+OB6oNRdBqO
-	aLx5wlL/ovgox+ZBTqt/tknNcthbV4ekB1ZhT1CbKVkFGF/Hch3SVUdIumh0sVq7K0CuW5qzgGJ4d
-	Ve2TaaGntIG22HyPQtjLFggnHLTAbH+JaQjAw+S2Jpa5kDGwmdW3uiECrLYXhP4uBM5mDikzQPAtp
-	EOvBbB1mTedhzjqCT91A==;
+	List-Owner; bh=AP6gYCqMcEVPiWR7tr5fY/t74nV8JB3nLUfT2AMMVuw=; b=PH7e94Zdybc/DY
+	tiIJ1ZozdvHdgKAjSGaOiwqMVF5ovoPuExV1Q4wzaLHDEVXc5FCsjYKkZnbB/hr0j/SXMZX5yEvDn
+	npen7sUTidaroogD15tCh6eJ9miSyJf27n4jjN6dEW/WanC+jPkEcmW9B5LkYXhLFk2vzRUuweUM9
+	7uUdIpuFB5BVMdr9Rv0ewLn4ecj0c1qegUugKilcV4FQCPq7DGyb6XCVL+1vLrVGCizg+fG3DB5JQ
+	kOxAxY4u9s3BAjCd6cDU+mlVpJz7sPb7fbwybUotT9VhDrddZeSVEoLLp2q7xEYZY0ArHdPXLTDt1
+	QZrDbw8nkeleZNEP2YOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v07ND-000000065ux-3Ysh;
-	Sat, 20 Sep 2025 23:52:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v0AZE-00000006PiE-35Xq;
+	Sun, 21 Sep 2025 03:16:48 +0000
+Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v07NC-000000065uQ-0dDx
-	for linux-riscv@bombadil.infradead.org;
-	Sat, 20 Sep 2025 23:52:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=hKmnK2zuWyqC62Awd1Rg0LR0Z98IiGLvKOqkNsrx8JA=; b=BItZ+CjZic+XXMSinP4aHxTlkC
-	zWiNFuv1PdrtSHTcQso7qMeh4Rf8nHMa5tzf653tbfEtlRp30TqH1W07zL0dWD6sMTa7tkSjUx87h
-	5ahrse1WAdzJdpD+rpXuEWch/LST1t/dAj4aqhsR03CK9uDp3e5hlX5aYwgWutYtCD5MgI19gHaRs
-	fZFBjnQlPfWeeBvx4MGxI2lLrkpWqNXsFlF90xNW3vnHnAROmHnkLrwaG/dRe1seV8MUgt/DIOIdb
-	GgBc2LfXMiQ1H7JjxzJtYdOwV20KEnFK6xEorzDJ9NdaBG06tiX3UQ3Z9U/xvwCKbQfgwrJXxNjhv
-	o21FsvcQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v07N8-000000083Vh-26RE
+	id 1v0AZB-00000006PcD-3Nb3
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Sep 2025 23:52:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3470044D49;
-	Sat, 20 Sep 2025 23:52:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D27AFC4CEF9;
-	Sat, 20 Sep 2025 23:52:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758412323;
-	bh=9yt15bhBxJ29FdOVoy7qXofN2+gy0lS93UKbdzFs5uI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=unJaCpkpFT9vR05IUzZs2IUZLgirLNHQ24c2/bixH6XJXJfN/C/thKef7ccktyOj6
-	 FC2d/ku+xtOdB5Ss2xRCpZccEzBOkTTIaxOpkOB7q5V8rm+43/lqBJezV7Is/6uiAN
-	 kx1evP9KZM9pmSskBwfH+JZhMiJaete7Gi2WRhvxuYfiiVYXQQS8p9UIrjXCS5AD5k
-	 Dx86p4MmFkdEFNQgT5Ww0mJBi484GSwM8TNBxB1gKVtC2K6BjexkCyjrLFna+Zo+Er
-	 rin9uIYxa5t02qbVJ+30re2c2aR0Q+L+3/CU0xE/3DV0NfZZUYNeRbHfgOJQbffNuF
-	 GGFsEq6kdG50Q==
-From: Drew Fustini <fustini@kernel.org>
-Date: Sat, 20 Sep 2025 16:51:44 -0700
-Subject: [PATCH v3 3/3] RISC-V: Add support for srmcfg CSR from Ssqosid ext
+	Sun, 21 Sep 2025 03:16:47 +0000
+Date: Sun, 21 Sep 2025 11:15:57 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1758424566;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=R537tprBZ1xn1R8NGg+wDfjRCqd0XP7UoN6FXrMrzaU=;
+	b=lw5kXzXjN8/iOkZRdakz6MlJnj1zoxg0kF/NeVLi5Hy0ZWdIwzrx4sl36sJ3ee8iA0FmR0
+	aWaFh1yEwQcMYxEPuZGluDB7ID5csQl7ZP9K6txHx/YCpDettJTqc9il7xjk/Kn2RRJYRS
+	HhHTPsljxxl1/wXdZfyQRYS9l4/SGkg=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Troy Mitchell <troy.mitchell@linux.dev>
+To: Alex Elder <elder@riscstar.com>, broonie@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: dlan@gentoo.org, ziyao@disroot.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	p.zabel@pengutronix.de, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Troy Mitchell <troy.mitchell@linux.dev>
+Subject: Re: [PATCH v2 2/3] spi: spacemit: introduce SpacemiT K1 SPI
+ controller driver
+Message-ID: <aM9t7fO_DyIG92Rx@troy-wujie14pro-arch>
+References: <20250919155914.935608-1-elder@riscstar.com>
+ <20250919155914.935608-3-elder@riscstar.com>
 MIME-Version: 1.0
-Message-Id: <20250920-ssqosid-v6-17-rc5-v3-3-5093162922d8@kernel.org>
-References: <20250920-ssqosid-v6-17-rc5-v3-0-5093162922d8@kernel.org>
-In-Reply-To: <20250920-ssqosid-v6-17-rc5-v3-0-5093162922d8@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
- Adrien Ricciardi <aricciardi@baylibre.com>, 
- James Morse <james.morse@arm.com>, Atish Kumar Patra <atishp@rivosinc.com>, 
- Atish Patra <atish.patra@linux.dev>, 
- Vasudevan Srinivasan <vasu@rivosinc.com>, guo.wenjia23@zte.com.cn, 
- liu.qingtao2@zte.com.cn, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Drew Fustini <fustini@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Disposition: inline
+In-Reply-To: <20250919155914.935608-3-elder@riscstar.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_005207_012398_8FB8B5BE 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20250920_201646_288854_EF5E184A 
+X-CRM114-Status: GOOD (  48.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,153 +70,422 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWRkIHN1cHBvcnQgZm9yIHRoZSBzcm1jZmcgQ1NSIGRlZmluZWQgaW4gdGhlIFNzcW9zaWQgSVNB
-IGV4dGVuc2lvbgooU3VwZXJ2aXNvci1tb2RlIFF1YWxpdHkgb2YgU2VydmljZSBJRCkuIFRoZSBD
-U1IgY29udGFpbnMgdHdvIGZpZWxkczoKCiAgLSBSZXNvdXJjZSBDb250cm9sIElEIChSQ0lEKSB1
-c2VkIGRldGVybWluZSByZXNvdXJjZSBhbGxvY2F0aW9uCiAgLSBNb25pdG9yaW5nIENvdW50ZXIg
-SUQgKE1DSUQpIHVzZWQgdG8gdHJhY2sgcmVzb3VyY2UgdXNhZ2UKClJlcXVlc3RzIGZyb20gYSBo
-YXJ0IHRvIHNoYXJlZCByZXNvdXJjZXMgbGlrZSBjYWNoZSB3aWxsIGJlIHRhZ2dlZCB3aXRoCnRo
-ZXNlIElEcy4gVGhpcyBhbGxvd3MgdGhlIHVzYWdlIG9mIHNoYXJlZCByZXNvdXJjZXMgdG8gYmUg
-YXNzb2NpYXRlZAp3aXRoIHRoZSB0YXNrIGN1cnJlbnRseSBydW5uaW5nIG9uIHRoZSBoYXJ0LgoK
-QSBzcm1jZmcgZmllbGQgaXMgYWRkZWQgdG8gdGhyZWFkX3N0cnVjdCBhbmQgaGFzIHRoZSBzYW1l
-IGZvcm1hdCBhcyB0aGUKc3JtY2ZnIENTUi4gVGhpcyBhbGxvd3MgdGhlIHNjaGVkdWxlciB0byBz
-ZXQgdGhlIGhhcnQncyBzcm1jZmcgQ1NSIHRvCmNvbnRhaW4gdGhlIFJDSUQgYW5kIE1DSUQgZm9y
-IHRoZSB0YXNrIHRoYXQgaXMgYmVpbmcgc2NoZWR1bGVkIGluLiBUaGUKc3JtY2ZnIENTUiBpcyBv
-bmx5IHdyaXR0ZW4gdG8gaWYgdGhlIHRocmVhZF9zdHJ1Y3Quc3JtY2ZnIGlzIGRpZmZlcmVudAp0
-aGFuIHRoZSBjdXJyZW50IHZhbHVlIG9mIHRoZSBDU1IuCgpBIHBlci1jcHUgdmFyaWFibGUgY3B1
-X3NybWNmZyBpcyB1c2VkIHRvIG1pcnJvciB0aGF0IHN0YXRlIG9mIHRoZSBDU1IuClRoaXMgaXMg
-YmVjYXVzZSBhY2Nlc3MgdG8gTDFEIGhvdCBtZW1vcnkgc2hvdWxkIGJlIHNldmVyYWwgdGltZXMg
-ZmFzdGVyCnRoYW4gYSBDU1IgcmVhZC4gQWxzbywgaW4gdGhlIGNhc2Ugb2YgdmlydHVhbGl6YXRp
-b24sIGFjY2Vzc2VzIHRvIHRoaXMKQ1NSIGFyZSB0cmFwcGVkIGluIHRoZSBoeXBlcnZpc29yLgoK
-TGluazogaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2LXNzcW9zaWQvcmVsZWFzZXMvdGFn
-L3YxLjAKQ28tZGV2ZWxvcGVkLWJ5OiBLb3JuZWwgRHVsxJliYSA8bWluZGFsQHNlbWloYWxmLmNv
-bT4KU2lnbmVkLW9mZi1ieTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFsZi5jb20+Cltm
-dXN0aW5pOiByZW5hbWUgY3NyIHRvIHNybWNmZywgcmVmYWN0b3Igc3dpdGNoX3RvLCByZWJhc2Ug
-b24gdjYuMTctcmM1XQpTaWduZWQtb2ZmLWJ5OiBEcmV3IEZ1c3RpbmkgPGZ1c3RpbmlAa2VybmVs
-Lm9yZz4KLS0tCiBNQUlOVEFJTkVSUyAgICAgICAgICAgICAgICAgICAgICAgIHwgIDcgKysrKysr
-KwogYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICB8IDE3ICsrKysrKysrKysrKysr
-KysKIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmggICAgICAgfCAgOCArKysrKysrKwogYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaCB8ICAzICsrKwogYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9xb3MuaCAgICAgICB8IDQxICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5oIHwgIDMgKysrCiBhcmNo
-L3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSAgICAgICAgIHwgIDIgKysKIGFyY2gvcmlzY3Yva2VybmVs
-L3Fvcy9NYWtlZmlsZSAgICAgfCAgMiArKwogYXJjaC9yaXNjdi9rZXJuZWwvcW9zL3Fvcy5jICAg
-ICAgICB8ICA1ICsrKysrCiA5IGZpbGVzIGNoYW5nZWQsIDg4IGluc2VydGlvbnMoKykKCmRpZmYg
-LS1naXQgYS9NQUlOVEFJTkVSUyBiL01BSU5UQUlORVJTCmluZGV4IGNkN2ZmNTViNWQzMjE3NTJh
-YzQ0YzkxZDJkN2U3NGRlMjhlMDg5NjAuLjkzZGE5MzM5ZDJmZDZmNWE2YWVkNjA0MWRhYjIyODJi
-MjdkODYxNjIgMTAwNjQ0Ci0tLSBhL01BSU5UQUlORVJTCisrKyBiL01BSU5UQUlORVJTCkBAIC0y
-MTcyOSw2ICsyMTcyOSwxMyBAQCBGOglkcml2ZXJzL3BlcmYvcmlzY3ZfcG11LmMKIEY6CWRyaXZl
-cnMvcGVyZi9yaXNjdl9wbXVfbGVnYWN5LmMKIEY6CWRyaXZlcnMvcGVyZi9yaXNjdl9wbXVfc2Jp
-LmMKIAorUklTQy1WIFFPUyBSRVNDVFJMIFNVUFBPUlQKK006CURyZXcgRnVzdGluaSA8ZnVzdGlu
-aUBrZXJuZWwub3JnPgorTDoJbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZworUzoJU3Vw
-cG9ydGVkCitGOglhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Fvcy5oCitGOglhcmNoL3Jpc2N2L2tl
-cm5lbC9xb3MvCisKIFJJU0MtViBTUEFDRU1JVCBTb0MgU3VwcG9ydAogTToJWWl4dW4gTGFuIDxk
-bGFuQGdlbnRvby5vcmc+CiBMOglsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKaW5kZXggNTFk
-Y2Q4ZWFhMjQzNTZkOTQ3ZWJlMGYxYzRhNzAxYTNjZmM2Yjc1Ny4uOWIwOWE3YWFkMjk2MjFkOTlm
-MTRkNDE0NzUxZTY3YTQzY2JkYWQzYSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCisr
-KyBiL2FyY2gvcmlzY3YvS2NvbmZpZwpAQCAtNjA1LDYgKzYwNSwyMyBAQCBjb25maWcgUklTQ1Zf
-SVNBX1NWTkFQT1QKIAogCSAgSWYgeW91IGRvbid0IGtub3cgd2hhdCB0byBkbyBoZXJlLCBzYXkg
-WS4KIAorY29uZmlnIFJJU0NWX0lTQV9TU1FPU0lECisJYm9vbCAiU3Nxb3NpZCBleHRlbnNpb24g
-c3VwcG9ydCBmb3Igc3VwZXJ2aXNvciBtb2RlIFF1YWxpdHkgb2YgU2VydmljZSBJRCIKKwlkZWZh
-dWx0IHkKKwloZWxwCisJICBBZGRzIHN1cHBvcnQgZm9yIHRoZSBTc3Fvc2lkIElTQSBleHRlbnNp
-b24gKFN1cGVydmlzb3ItbW9kZQorCSAgUXVhbGl0eSBvZiBTZXJ2aWNlIElEKS4KKworCSAgU3Nx
-b3NpZCBkZWZpbmVzIHRoZSBzcm1jZmcgQ1NSIHdoaWNoIGFsbG93cyB0aGUgc3lzdGVtIHRvIHRh
-ZyB0aGUKKwkgIHJ1bm5pbmcgcHJvY2VzcyB3aXRoIGFuIFJDSUQgKFJlc291cmNlIENvbnRyb2wg
-SUQpIGFuZCBNQ0lECisJICAoTW9uaXRvcmluZyBDb3VudGVyIElEKS4gVGhlIFJDSUQgaXMgdXNl
-ZCB0byBkZXRlcm1pbmUgcmVzb3VyY2UKKwkgIGFsbG9jYXRpb24uIFRoZSBNQ0lEIGlzIHVzZWQg
-dG8gdHJhY2sgcmVzb3VyY2UgdXNhZ2UgaW4gZXZlbnQKKwkgIGNvdW50ZXJzLgorCisJICBGb3Ig
-ZXhhbXBsZSwgYSBjYWNoZSBjb250cm9sbGVyIG1heSB1c2UgdGhlIFJDSUQgdG8gYXBwbHkgYQor
-CSAgY2FjaGUgcGFydGl0aW9uaW5nIHNjaGVtZSBhbmQgdXNlIHRoZSBNQ0lEIHRvIHRyYWNrIGhv
-dyBtdWNoCisJICBjYWNoZSBhIHByb2Nlc3MsIG9yIGEgZ3JvdXAgb2YgcHJvY2Vzc2VzLCBpcyB1
-c2luZy4KKwogY29uZmlnIFJJU0NWX0lTQV9TVlBCTVQKIAlib29sICJTdnBibXQgZXh0ZW5zaW9u
-IHN1cHBvcnQgZm9yIHN1cGVydmlzb3IgbW9kZSBwYWdlLWJhc2VkIG1lbW9yeSB0eXBlcyIKIAlk
-ZXBlbmRzIG9uIDY0QklUICYmIE1NVQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9jc3IuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKaW5kZXggNmZlZDQyZTM3NzA1
-OWM3MDA0ZWNkM2MyOWViMzZkNWMwZTM2YTY1Ni4uZWNjNTc0OTIyNjRjMmEyNjE2ZTFlMTQ3Nzk2
-MTU3NTEyZGE3MGU4NyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaAor
-KysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oCkBAIC03NSw2ICs3NSwxMyBAQAogI2Rl
-ZmluZSBTQVRQX0FTSURfTUFTSwlfQUMoMHhGRkZGLCBVTCkKICNlbmRpZgogCisvKiBTUk1DRkcg
-ZmllbGRzICovCisjZGVmaW5lIFNSTUNGR19SQ0lEX01BU0sJX0FDKDB4MDAwMDBGRkYsIFVMKQor
-I2RlZmluZSBTUk1DRkdfTUNJRF9NQVNLCVNSTUNGR19SQ0lEX01BU0sKKyNkZWZpbmUgU1JNQ0ZH
-X01DSURfU0hJRlQJMTYKKyNkZWZpbmUgU1JNQ0ZHX01BU0sJCSgoU1JNQ0ZHX01DSURfTUFTSyA8
-PCBTUk1DRkdfTUNJRF9TSElGVCkgfCBcCisJCQkJICBTUk1DRkdfUkNJRF9NQVNLKQorCiAvKiBF
-eGNlcHRpb24gY2F1c2UgaGlnaCBiaXQgLSBpcyBhbiBpbnRlcnJ1cHQgaWYgc2V0ICovCiAjZGVm
-aW5lIENBVVNFX0lSUV9GTEFHCQkoX0FDKDEsIFVMKSA8PCAoX19yaXNjdl94bGVuIC0gMSkpCiAK
-QEAgLTMxNyw2ICszMjQsNyBAQAogI2RlZmluZSBDU1JfU1RWQUwJCTB4MTQzCiAjZGVmaW5lIENT
-Ul9TSVAJCQkweDE0NAogI2RlZmluZSBDU1JfU0FUUAkJMHgxODAKKyNkZWZpbmUgQ1NSX1NSTUNG
-RwkJMHgxODEKIAogI2RlZmluZSBDU1JfU1RJTUVDTVAJCTB4MTRECiAjZGVmaW5lIENTUl9TVElN
-RUNNUEgJCTB4MTVECmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nv
-ci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAppbmRleCAyNGQzYWY0ZDM4
-MDdlMzczOTY3NDRlZjI2NTMzYWM0NjYxYWJjYjRmLi5jYzk1NDhiODVkMzYzZWNiYzNjNDE2ZTUy
-OTA2MTA3YTczZTYwNTNkIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nl
-c3Nvci5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmgKQEAgLTEyMiw2
-ICsxMjIsOSBAQCBzdHJ1Y3QgdGhyZWFkX3N0cnVjdCB7CiAJLyogQSBmb3JjZWQgaWNhY2hlIGZs
-dXNoIGlzIG5vdCBuZWVkZWQgaWYgbWlncmF0aW5nIHRvIHRoZSBwcmV2aW91cyBjcHUuICovCiAJ
-dW5zaWduZWQgaW50IHByZXZfY3B1OwogI2VuZGlmCisjaWZkZWYgQ09ORklHX1JJU0NWX0lTQV9T
-U1FPU0lECisJdTMyIHNybWNmZzsKKyNlbmRpZgogfTsKIAogLyogV2hpdGVsaXN0IHRoZSBmc3Rh
-dGUgZnJvbSB0aGUgdGFza19zdHJ1Y3QgZm9yIGhhcmRlbmVkIHVzZXJjb3B5ICovCmRpZmYgLS1n
-aXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Fvcy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9xb3MuaApuZXcgZmlsZSBtb2RlIDEwMDY0NAppbmRleCAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
-MDAwMDAwMDAwMDAwMDAwMDAwLi44NDgzMGQ3YzZkYzRhMWZjZTg2ZDUxNGVkNWFmOTdiZTMyYTI2
-NjMwCi0tLSAvZGV2L251bGwKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9xb3MuaApAQCAt
-MCwwICsxLDQxIEBACisvKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCAqLworI2lm
-bmRlZiBfQVNNX1JJU0NWX1FPU19ICisjZGVmaW5lIF9BU01fUklTQ1ZfUU9TX0gKKworI2lmZGVm
-IENPTkZJR19SSVNDVl9JU0FfU1NRT1NJRAorCisjaW5jbHVkZSA8bGludXgvc2NoZWQuaD4KKyNp
-bmNsdWRlIDxsaW51eC9qdW1wX2xhYmVsLmg+CisKKyNpbmNsdWRlIDxhc20vYmFycmllci5oPgor
-I2luY2x1ZGUgPGFzbS9jc3IuaD4KKyNpbmNsdWRlIDxhc20vaHdjYXAuaD4KKworLyogY2FjaGVk
-IHZhbHVlIG9mIHNybWNmZyBjc3IgZm9yIGVhY2ggY3B1ICovCitERUNMQVJFX1BFUl9DUFUodTMy
-LCBjcHVfc3JtY2ZnKTsKKworc3RhdGljIGlubGluZSB2b2lkIF9fc3dpdGNoX3RvX3NybWNmZyhz
-dHJ1Y3QgdGFza19zdHJ1Y3QgKm5leHQpCit7CisJdTMyICpjcHVfc3JtY2ZnX3B0ciA9IHRoaXNf
-Y3B1X3B0cigmY3B1X3NybWNmZyk7CisJdTMyIHRocmVhZF9zcm1jZmc7CisKKwl0aHJlYWRfc3Jt
-Y2ZnID0gUkVBRF9PTkNFKG5leHQtPnRocmVhZC5zcm1jZmcpOworCisJaWYgKHRocmVhZF9zcm1j
-ZmcgIT0gKmNwdV9zcm1jZmdfcHRyKSB7CisJCSpjcHVfc3JtY2ZnX3B0ciA9IHRocmVhZF9zcm1j
-Zmc7CisJCWNzcl93cml0ZShDU1JfU1JNQ0ZHLCB0aHJlYWRfc3JtY2ZnKTsKKwl9Cit9CisKK3N0
-YXRpYyBfX2Fsd2F5c19pbmxpbmUgYm9vbCBoYXNfc3JtY2ZnKHZvaWQpCit7CisJcmV0dXJuIHJp
-c2N2X2hhc19leHRlbnNpb25fdW5saWtlbHkoUklTQ1ZfSVNBX0VYVF9TU1FPU0lEKTsKK30KKwor
-I2Vsc2UgLyogISBDT05GSUdfUklTQ1ZfSVNBX1NTUU9TSUQgICovCisKK3N0YXRpYyBfX2Fsd2F5
-c19pbmxpbmUgYm9vbCBoYXNfc3JtY2ZnKHZvaWQpIHsgcmV0dXJuIGZhbHNlOyB9CisjZGVmaW5l
-IF9fc3dpdGNoX3RvX3NybWNmZyhfX25leHQpIGRvIHsgfSB3aGlsZSAoMCkKKworI2VuZGlmIC8q
-IENPTkZJR19SSVNDVl9JU0FfU1NRT1NJRCAqLworI2VuZGlmIC8qIF9BU01fUklTQ1ZfUU9TX0gg
-Ki8KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmggYi9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5oCmluZGV4IDBlNzFlYjgyZjkyMGNhYzJmMTRi
-YjYyNjg3OWJiMjE5YTJmMjQ3Y2MuLmE2ODRhMzc5NWQzZDdmNWUwMjdlYzBhODNjMzBhZmQxYTE4
-ZDcyMjggMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmgKKysr
-IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaApAQCAtMTQsNiArMTQsNyBAQAog
-I2luY2x1ZGUgPGFzbS9wcm9jZXNzb3IuaD4KICNpbmNsdWRlIDxhc20vcHRyYWNlLmg+CiAjaW5j
-bHVkZSA8YXNtL2Nzci5oPgorI2luY2x1ZGUgPGFzbS9xb3MuaD4KIAogI2lmZGVmIENPTkZJR19G
-UFUKIGV4dGVybiB2b2lkIF9fZnN0YXRlX3NhdmUoc3RydWN0IHRhc2tfc3RydWN0ICpzYXZlX3Rv
-KTsKQEAgLTExOSw2ICsxMjAsOCBAQCBkbyB7CQkJCQkJCVwKIAkJX19zd2l0Y2hfdG9fZnB1KF9f
-cHJldiwgX19uZXh0KTsJXAogCWlmIChoYXNfdmVjdG9yKCkgfHwgaGFzX3h0aGVhZHZlY3Rvcigp
-KQkJXAogCQlfX3N3aXRjaF90b192ZWN0b3IoX19wcmV2LCBfX25leHQpOwlcCisJaWYgKGhhc19z
-cm1jZmcoKSkJCQkJXAorCQlfX3N3aXRjaF90b19zcm1jZmcoX19uZXh0KTsJXAogCWlmIChzd2l0
-Y2hfdG9fc2hvdWxkX2ZsdXNoX2ljYWNoZShfX25leHQpKQlcCiAJCWxvY2FsX2ZsdXNoX2ljYWNo
-ZV9hbGwoKTsJCVwKIAlfX3N3aXRjaF90b19lbnZjZmcoX19uZXh0KTsJCQlcCmRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSBiL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxl
-CmluZGV4IGM3YjU0MjU3MzQwN2M4MTNhNGE0NWZlOWJmNzhhNjc2NTk5YzA1MDMuLjAxMDhhNGU2
-MzM4YTc5NzJiNjgwNWVmMTQwNDhkNGU1ZTg4MzNkODIgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yv
-a2VybmVsL01ha2VmaWxlCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCkBAIC0xMjUs
-MyArMTI1LDUgQEAgb2JqLSQoQ09ORklHX0FDUEkpCQkrPSBhY3BpLm8KIG9iai0kKENPTkZJR19B
-Q1BJX05VTUEpCSs9IGFjcGlfbnVtYS5vCiAKIG9iai0kKENPTkZJR19HRU5FUklDX0NQVV9WVUxO
-RVJBQklMSVRJRVMpICs9IGJ1Z3MubworCitvYmotJChDT05GSUdfUklTQ1ZfSVNBX1NTUU9TSUQp
-ICs9IHFvcy8KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3Fvcy9NYWtlZmlsZSBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL3Fvcy9NYWtlZmlsZQpuZXcgZmlsZSBtb2RlIDEwMDY0NAppbmRleCAw
-MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwLi45Zjk5NjI2M2E4NmQ3ZTJl
-NDEwODkwZDI0MjVlNzRiMjI3N2E1N2FkCi0tLSAvZGV2L251bGwKKysrIGIvYXJjaC9yaXNjdi9r
-ZXJuZWwvcW9zL01ha2VmaWxlCkBAIC0wLDAgKzEsMiBAQAorIyBTUERYLUxpY2Vuc2UtSWRlbnRp
-ZmllcjogR1BMLTIuMAorb2JqLSQoQ09ORklHX1JJU0NWX0lTQV9TU1FPU0lEKSArPSBxb3Mubwpk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcW9zL3Fvcy5jIGIvYXJjaC9yaXNjdi9rZXJu
-ZWwvcW9zL3Fvcy5jCm5ldyBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDAwMDAwMDAwMDAwMDAwMDAw
-MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAuLjdiMDZmN2FlOTA1NmI4ZjJlYjUzYTBlZWNmNWE2NTEy
-ZWRjMjlmYmUKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9xb3MvcW9zLmMK
-QEAgLTAsMCArMSw1IEBACisvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5
-CisjaW5jbHVkZSA8YXNtL3Fvcy5oPgorCisvKiBjYWNoZWQgdmFsdWUgb2Ygc3Fvc2NmZyBjc3Ig
-Zm9yIGVhY2ggY3B1ICovCitERUZJTkVfUEVSX0NQVSh1MzIsIGNwdV9zcm1jZmcpOwoKLS0gCjIu
-NDMuMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Sep 19, 2025 at 10:59:12AM -0500, Alex Elder wrote:
+> This patch introduces the driver for the SPI controller found in the
+> SpacemiT K1 SoC.  Currently the driver supports master mode only.
+> The SPI hardware implements RX and TX FIFOs, 32 entries each, and
+> supports both PIO and DMA mode transfers.
+> 
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
+> v2: - The SPI_SPACEMIT_K1 config option is added in sorted order
+>     - The spi-spacemit-k1.o make target is now added in sorted order
+>     - Read/modify/writes of registers no longer use an additional
+>       "virt" variable to hold the address accessed
+>     - The k1_spi_driver_data->ioaddr field has been renamed base
+>     - The DMA address for the base address is maintained, rather than
+>       saving the DMA address of the data register
+>     - CONFIG_MMP_PDMA is checked at runtime, and if it is not enabled,
+>       DMA will not be used
+>     - The spi-max-frequency property value is now bounds checked
+>     - A local variable is now initialized to 0 in k1_spi_write_word()
+>     - The driver name is now "k1-spi"
+> 
+>  drivers/spi/Kconfig           |   8 +
+>  drivers/spi/Makefile          |   1 +
+>  drivers/spi/spi-spacemit-k1.c | 968 ++++++++++++++++++++++++++++++++++
+>  3 files changed, 977 insertions(+)
+>  create mode 100644 drivers/spi/spi-spacemit-k1.c
+> 
+> diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
+> index 82fa5eb3b8684..4f6c446c6bc16 100644
+> --- a/drivers/spi/Kconfig
+> +++ b/drivers/spi/Kconfig
+> @@ -1071,6 +1071,14 @@ config SPI_SG2044_NOR
+>  	  also supporting 3Byte address devices and 4Byte address
+>  	  devices.
+>  
+> +config SPI_SPACEMIT_K1
+> +	tristate "K1 SPI Controller"
+> +	depends on ARCH_SPACEMIT || COMPILE_TEST
+> +	depends on OF
+> +	default ARCH_SPACEMIT
+> +	help
+> +	  Enable support for the SpacemiT K1 SPI controller.
+> +
+>  config SPI_SPRD
+>  	tristate "Spreadtrum SPI controller"
+>  	depends on ARCH_SPRD || COMPILE_TEST
+> diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
+> index eefaeca097456..637d750ead996 100644
+> --- a/drivers/spi/Makefile
+> +++ b/drivers/spi/Makefile
+> @@ -140,6 +140,7 @@ obj-$(CONFIG_SPI_SIFIVE)		+= spi-sifive.o
+>  obj-$(CONFIG_SPI_SLAVE_MT27XX)          += spi-slave-mt27xx.o
+>  obj-$(CONFIG_SPI_SN_F_OSPI)		+= spi-sn-f-ospi.o
+>  obj-$(CONFIG_SPI_SG2044_NOR)	+= spi-sg2044-nor.o
+> +obj-$(CONFIG_SPI_SPACEMIT_K1)		+= spi-spacemit-k1.o
+>  obj-$(CONFIG_SPI_SPRD)			+= spi-sprd.o
+>  obj-$(CONFIG_SPI_SPRD_ADI)		+= spi-sprd-adi.o
+>  obj-$(CONFIG_SPI_STM32) 		+= spi-stm32.o
+> diff --git a/drivers/spi/spi-spacemit-k1.c b/drivers/spi/spi-spacemit-k1.c
+> new file mode 100644
+> index 0000000000000..8d564fe6c4303
+> --- /dev/null
+> +++ b/drivers/spi/spi-spacemit-k1.c
+> @@ -0,0 +1,968 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Support for SpacemiT K1 SPI controller
+> + *
+> + * Copyright (C) 2025 by RISCstar Solutions Corporation.  All rights reserved.
+> + * Copyright (c) 2023, spacemit Corporation.
+SpacemiT?
+
+> + */
+> +
+[...]
+> +static void k1_spi_read_word(struct k1_spi_driver_data *drv_data)
+> +{
+> +	struct k1_spi_io *rx = &drv_data->rx;
+> +	u32 bytes = drv_data->bytes;
+> +	u32 val;
+> +
+> +	val = readl(drv_data->base + SSP_DATAR);
+> +	rx->resid -= bytes;
+> +
+> +	if (!rx->buf)
+> +		return;	/* Null reader: discard the data */
+> +
+> +	if (bytes == 1)
+> +		*(u8 *)rx->buf = val;
+> +	else if (bytes == 1)
+typo?
+
+> +		*(u16 *)rx->buf = val;
+> +	else
+> +		*(u32 *)rx->buf = val;
+> +
+> +	rx->buf += bytes;
+> +}
+> +
+[...]
+> +static bool k1_spi_write(struct k1_spi_driver_data *drv_data)
+> +{
+> +	struct k1_spi_io *tx = &drv_data->tx;
+> +	unsigned int count;
+> +	u32 val;
+> +
+> +	if (!tx->resid)
+> +		return true;	/* Nothing more to send */
+> +
+> +	/* See how many slots in the TX FIFO are available */
+> +	val = readl(drv_data->base + SSP_STATUS);
+> +	count = FIELD_GET(SSP_STATUS_TFL, val);
+> +
+> +	/* A zero count means the FIFO is either full or empty */
+> +	if (!count) {
+> +		if (val & SSP_STATUS_TNF)
+> +			count = K1_SPI_FIFO_SIZE;
+> +		else
+> +			return false;	/* No room in the FIFO */
+please early return:
+
+if (!(val & SSP_STATUS_TNF))
+  return false;
+count = K1_SPI_FIFO_SIZE;
+> +	}
+> +
+> +	/*
+> +	 * Limit how much we try to send at a time, to reduce the
+> +	 * chance the other side can overrun our RX FIFO.
+> +	 */
+> +	count = min3(count, K1_SPI_THRESH, tx->resid);
+> +	while (count--)
+> +		k1_spi_write_word(drv_data);
+> +
+> +	return !tx->resid;
+> +}
+> +
+[...]
+> +
+> +static int k1_spi_transfer_one_message(struct spi_controller *host,
+> +					   struct spi_message *message)
+> +{
+> +	struct k1_spi_driver_data *drv_data = spi_controller_get_devdata(host);
+> +	struct completion *completion = &drv_data->completion;
+> +	struct spi_transfer *transfer;
+> +	u32 val;
+> +
+> +	drv_data->message = message;
+> +
+> +	/* Message status starts out successful; set to -EIO on error */
+> +	message->status = 0;
+> +
+> +	/* Hold frame low to avoid losing transferred data */
+> +	val = readl(drv_data->base + SSP_TOP_CTRL);
+> +	val |= TOP_HOLD_FRAME_LOW;
+> +	writel(val, drv_data->base + SSP_TOP_CTRL);
+> +
+> +	list_for_each_entry(transfer, &message->transfers, transfer_list) {
+> +		reinit_completion(completion);
+> +
+> +		/* Issue the next transfer */
+> +		if (!k1_spi_transfer_start(drv_data, transfer)) {
+> +			message->status = -EIO;
+> +			break;
+we don't need return a error code?
+
+> +		}
+> +
+> +		k1_spi_transfer_wait(drv_data);
+> +
+> +		k1_spi_transfer_end(drv_data, transfer);
+> +
+> +		/* If an error has occurred, we're done */
+> +		if (message->status)
+> +			break;
+ditto.
+
+[...]
+> +}
+> +
+> +static void k1_spi_dma_cleanup(struct device *dev, void *res)
+> +{
+> +	struct k1_spi_driver_data *drv_data = res;
+> +
+> +	if (k1_spi_dma_enabled(drv_data)) {
+if (!k1_spi_dma_enabled(drv_data))
+  return;
+
+                  - Troy
+
+> +		k1_spi_dma_cleanup_io(drv_data, false);
+> +		k1_spi_dma_cleanup_io(drv_data, true);
+> +	}
+> +}
+> +
+> +
+> +static const struct of_device_id k1_spi_dt_ids[] = {
+> +	{ .compatible = "spacemit,k1-spi", },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, k1_spi_dt_ids);
+> +
+> +static void k1_spi_host_init(struct k1_spi_driver_data *drv_data)
+> +{
+> +	struct device_node *np = dev_of_node(drv_data->dev);
+> +	struct spi_controller *host = drv_data->controller;
+> +	struct device *dev = drv_data->dev;
+> +	u32 max_speed_hz;
+> +	int ret;
+> +
+> +	host->dev.of_node = np;
+> +	host->dev.parent = drv_data->dev;
+> +	host->mode_bits = SPI_CPOL | SPI_CPHA | SPI_LOOP;
+> +	host->bits_per_word_mask = SPI_BPW_RANGE_MASK(4, 32);
+> +	host->num_chipselect = 1;
+> +
+> +	if (k1_spi_dma_enabled(drv_data))
+> +		host->dma_alignment = K1_SPI_DMA_ALIGNMENT;
+> +	host->cleanup = k1_spi_cleanup;
+> +	host->setup = k1_spi_setup;
+> +	host->transfer_one_message = k1_spi_transfer_one_message;
+> +
+> +	ret = of_property_read_u32(np, "spi-max-frequency", &max_speed_hz);
+> +	if (!ret) {
+> +		host->max_speed_hz = clamp(max_speed_hz, K1_SPI_MIN_SPEED_HZ,
+> +					   K1_SPI_MAX_SPEED_HZ);
+> +		if (host->max_speed_hz != max_speed_hz)
+> +			dev_warn(dev, "spi-max-frequency %u out of range, using %u\n",
+> +				max_speed_hz, host->max_speed_hz);
+> +	} else {
+> +		if (ret != -EINVAL)
+> +			dev_warn(dev, "bad spi-max-frequency, using %u\n",
+> +				 K1_SPI_DEFAULT_MAX_SPEED_HZ);
+> +		host->max_speed_hz = K1_SPI_DEFAULT_MAX_SPEED_HZ;
+> +	}
+> +}
+> +
+> +/* Set our registers to a known initial state */
+> +static void
+> +k1_spi_register_reset(struct k1_spi_driver_data *drv_data, bool initial)
+> +{
+> +	u32 val = 0;
+> +
+> +	writel(0, drv_data->base + SSP_TOP_CTRL);
+> +
+> +	if (initial) {
+> +		/*
+> +		 * The TX and RX FIFO thresholds are the same no matter
+> +		 * what the speed or bits per word, so we can just set
+> +		 * them once.  The thresholds are one more than the values
+> +		 * in the register.
+> +		 */
+> +		val = FIELD_PREP(FIFO_RFT_MASK, K1_SPI_THRESH - 1);
+> +		val |= FIELD_PREP(FIFO_TFT_MASK, K1_SPI_THRESH - 1);
+> +	}
+> +	writel(val, drv_data->base + SSP_FIFO_CTRL);
+> +
+> +	writel(0, drv_data->base + SSP_INT_EN);
+> +	writel(0, drv_data->base + SSP_TIMEOUT);
+> +
+> +	/* Clear any pending interrupt conditions */
+> +	val = readl(drv_data->base + SSP_STATUS);
+> +	writel(val, drv_data->base + SSP_STATUS);
+> +}
+> +
+> +static irqreturn_t k1_spi_ssp_isr(int irq, void *dev_id)
+> +{
+> +	struct k1_spi_driver_data *drv_data = dev_id;
+> +	bool rx_done;
+> +	bool tx_done;
+> +	u32 val;
+> +
+> +	/* Get status and clear pending interrupts */
+> +	val = readl(drv_data->base + SSP_STATUS);
+> +	writel(val, drv_data->base + SSP_STATUS);
+> +
+> +	if (!drv_data->message)
+> +		return IRQ_NONE;
+> +
+> +	/* Check for a TX underrun or RX underrun first */
+> +	if (val & (SSP_STATUS_TUR | SSP_STATUS_ROR)) {
+> +		/* Disable all interrupts on error */
+> +		writel(0, drv_data->base + SSP_INT_EN);
+> +
+> +		drv_data->message->status = -EIO;
+> +		complete(&drv_data->completion);
+> +
+> +		return IRQ_HANDLED;
+> +	}
+> +
+> +	/* Drain the RX FIFO first, then transmit what we can */
+> +	rx_done = k1_spi_read(drv_data);
+> +	tx_done = k1_spi_write(drv_data);
+> +
+> +	/* Disable interrupts if we're done transferring either direction */
+> +	if (rx_done || tx_done) {
+> +		/* If both are done, disable all interrupts */
+> +		if (rx_done && tx_done) {
+> +			val = 0;
+> +		} else {
+> +			val = readl(drv_data->base + SSP_INT_EN);
+> +			if (rx_done)
+> +				val &= ~(SSP_INT_EN_TINTE | SSP_INT_EN_RIE);
+> +			if (tx_done)
+> +				val &= ~SSP_INT_EN_TIE;
+> +		}
+> +		writel(val, drv_data->base + SSP_INT_EN);
+> +	}
+> +
+> +	if (rx_done && tx_done)
+> +		complete(&drv_data->completion);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int k1_spi_probe(struct platform_device *pdev)
+> +{
+> +	struct k1_spi_driver_data *drv_data;
+> +	struct device *dev = &pdev->dev;
+> +	struct reset_control *reset;
+> +	struct spi_controller *host;
+> +	struct resource *iores;
+> +	struct clk *clk_bus;
+> +	int ret;
+> +
+> +	host = devm_spi_alloc_host(dev, sizeof(*drv_data));
+> +	if (!host)
+> +		return -ENOMEM;
+> +	drv_data = spi_controller_get_devdata(host);
+> +	drv_data->controller = host;
+> +	platform_set_drvdata(pdev, drv_data);
+> +	drv_data->dev = dev;
+> +	init_completion(&drv_data->completion);
+> +
+> +	drv_data->base = devm_platform_get_and_ioremap_resource(pdev, 0,
+> +								&iores);
+> +	if (IS_ERR(drv_data->base))
+> +		return dev_err_probe(dev, PTR_ERR(drv_data->base),
+> +				     "error mapping memory\n");
+> +	drv_data->base_addr = iores->start;
+> +
+> +	ret = devm_k1_spi_dma_setup(drv_data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "error setting up DMA\n");
+> +
+> +	k1_spi_host_init(drv_data);
+> +
+> +	clk_bus = devm_clk_get_enabled(dev, "bus");
+> +	if (IS_ERR(clk_bus))
+> +		return dev_err_probe(dev, PTR_ERR(clk_bus),
+> +				     "error getting/enabling bus clock\n");
+> +	drv_data->bus_rate = clk_get_rate(clk_bus);
+> +
+> +	drv_data->clk = devm_clk_get_enabled(dev, "core");
+> +	if (IS_ERR(drv_data->clk))
+> +		return dev_err_probe(dev, PTR_ERR(drv_data->clk),
+> +				     "error getting/enabling core clock\n");
+> +
+> +	reset = devm_reset_control_get_exclusive_deasserted(dev, NULL);
+> +	if (IS_ERR(reset))
+> +		return dev_err_probe(dev, PTR_ERR(reset),
+> +				     "error getting/deasserting reset\n");
+> +
+> +	k1_spi_register_reset(drv_data, true);
+> +
+> +	drv_data->irq = platform_get_irq(pdev, 0);
+> +	if (drv_data->irq < 0)
+> +		return dev_err_probe(dev, drv_data->irq, "error getting IRQ\n");
+> +
+> +	ret = devm_request_irq(dev, drv_data->irq, k1_spi_ssp_isr,
+> +			       IRQF_SHARED, dev_name(dev), drv_data);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "error requesting IRQ\n");
+> +
+> +	ret = devm_spi_register_controller(dev, host);
+> +	if (ret)
+> +		dev_err(dev, "error registering controller\n");
+> +
+> +	return ret;
+> +}
+> +
+> +static void k1_spi_remove(struct platform_device *pdev)
+> +{
+> +	struct k1_spi_driver_data *drv_data = platform_get_drvdata(pdev);
+> +
+> +	k1_spi_register_reset(drv_data, false);
+> +}
+> +
+> +static struct platform_driver k1_spi_driver = {
+> +	.driver = {
+> +		.name		= "k1-spi",
+> +		.of_match_table	= k1_spi_dt_ids,
+> +	},
+> +	.probe			= k1_spi_probe,
+> +	.remove			= k1_spi_remove,
+> +};
+> +
+> +module_platform_driver(k1_spi_driver);
+> +
+> +MODULE_DESCRIPTION("SpacemiT K1 SPI controller driver");
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.48.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
