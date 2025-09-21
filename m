@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D4FCAC5A8
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Sep 2025 08:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BFBFCAC5A7
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Sep 2025 08:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WYcMVQ1yAeKe0OZdhIN0GvB4WESKlUaKA+zwqJ7XCSA=; b=jqCAyz7sMw/J5g
-	c2xXpMlLWJu9FF8G8/vLI/UZ1r7t54kq596qIU5v6riFJCqC8tSJ1ZzL3MvQRcfJPk18uvX9gRAIn
-	H7crvClAoiLPKcedoWDNcemMifJy7mn6rSITG5o4UXzWY+ALZJCL6DvjNMbYDFJyPLU11Pic3KbU3
-	8dysqhCtk/pmFATpMXJfZMz/6ZNLa1cy0l4fk0FLulR8FcThq78Wx7iuMRDXYBSV/5vcXgx0xyJBz
-	di8geFMcmu/xJTvpTRnKR3CySazEe5jNG/4b1bQOzkr3x/XDhNlQZUAA1Y6W/+3EREfuZAlzi2cQm
-	cvVDTuX9sV9O8lOZ85VA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zRKhIihXJMvdBU8nGpMv72vjFqX3aRdIXIHdp1XfzLE=; b=T9PXDMNqxiex60
+	I3jBX17z1hNbT5autFJjpQWXgG1AnZguhpu2lB3PIZLSpICiK9+QQwObjLeaWdWLqwyC9maFqpCja
+	s+PRidBAeOULlkjsYc8FJXVsA+i2nRKAtqgLKEojEQ1MoMwvC71Xz/BO0NZueVkUKgKuRKmWYIXOZ
+	BxIBF6Bh71XGFHI0KiqcZ+x3v9WpLdIPAaJVUtd32lLXssKVX3Utct0EHTzKGyLKg2mx0cPZPEQO1
+	Z1DCWeuWXmEFfbaxsT5nvHfupXnLps2fT1i9Xjs6VQ2gqY7GfjUcYKIlZOIMKxCCRDqICYsKZbqNo
+	uBV8/IUTMqbszPcfNwSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0FY0-000000076fw-0G6v;
-	Sun, 21 Sep 2025 08:35:52 +0000
+	id 1v0FY1-000000076gO-1UMw;
+	Sun, 21 Sep 2025 08:35:53 +0000
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0FXx-000000076er-2Kby
+	id 1v0FXy-000000076fN-301F
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 Sep 2025 08:35:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758443710; cv=none; 
+	Sun, 21 Sep 2025 08:35:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1758443726; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=CJoO6owkdOESu+6bpP/sAPOHgBOb4L08csdM3HkGUVe8/zLBwk07/o2BoYNWVmXU366pyJRRfm7TeSjTPEd/Y5TX3mWpi9ZkOFPWzl/4vJrJI9a1U+tmvC0BnFkz1uGWNj/1DmDbtu5L/gevJn/EAHgx7vcvkE75utYjglEL+XE=
+	b=gsMA6quhUM1kWSDHXIaOjv2msYYcL73neNuoI0yUGWd3pgSG5k1Nr3xw6/iGmhE8or6WTSU+h02o6J00Q4G1C+WD/PD+k2L/VwpJghuhigvkDjrnEzBN63GcSoSp6Rb93CxgmCx5qyJ/GsNRdaJ68+jcl7bt3X3n8ITDcl3EMug=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758443710; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=kk0B0q8mgr/jR54kAu+j6qYyWJ8TWiaJRm+zdm8Bf7E=; 
-	b=Tf5YiL19ZW3Gs67Yj+VynW3W2saTT1Q2OfKRNrCzUkUfXTPsV9MiOSKuVNtEbX+E5tf3uYeEh1hKnr4sJMzkeWzwbNKp4r0GWktYgKtuYeGrhkZx1dT03KAeViF56tHKNybFIRyFvKj83mlTDXy459+N9KdJ/DtPhxDVYtacYos=
+	t=1758443726; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=efmETRccs8kLEdcb77jPapZRIKSB0g2ptOw7m7XUf8o=; 
+	b=WdwDiKpYm/wKw4bQhJGHMnrN12dA8NOAOUjExt9h8TL7Iy5ptVcweo9Xp+Tqglmy2FYhbQpqoiyHZSSh50ocvSUex/l1YWXWlWphMoKraw9QAiv902vWpgTOSv/CFJHuZf8n/InvZYzGoFPS43ful4Pnsfnt148XqfyHeqyUQoc=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=icenowy.me;
 	spf=pass  smtp.mailfrom=uwu@icenowy.me;
 	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758443709;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758443726;
 	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=kk0B0q8mgr/jR54kAu+j6qYyWJ8TWiaJRm+zdm8Bf7E=;
-	b=ZV5RVQ9/PGMk9oIm80L5KQ/VDupw2C3OvTif2JipyNtqpCYqVK1sXZuSvcURbLyW
-	AGpiJGSfK3Rs8zKFAGQcV/TF1T318sv09i6XqfMMH8WbGFFxFpsY1vdLQggpChuo9wi
-	RqiUF8Laem/fTYmx2wOmw40r6H4Vc2ATNhPfaYkJ7Z9TlPuofX+2QYCJhL3jvXwxSGR
-	RpIrOuegCr+gJarlq/4h0avUpc7KtLDj+4qot3lK4k3hrbaRFyPvlEtVAXgFEivgNTx
-	PaK+8qORybwEeQoHa79HKqTnzEVMAbyH/ljSaMPky6j5HHayqGZdC6hvFv4Ae4idM9A
-	Fj0neNwMcA==
-Received: by mx.zohomail.com with SMTPS id 1758443705635105.82961184727219;
-	Sun, 21 Sep 2025 01:35:05 -0700 (PDT)
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=efmETRccs8kLEdcb77jPapZRIKSB0g2ptOw7m7XUf8o=;
+	b=oYhd4n59U9zx2jaqND+0Vfz9I9c442p7Q4nnhK4NOZkLBr8dIvFb4yn1uPv645M9
+	2sYPqBY1FJk0XC6bol77PYKZ9tEIUB6ETO3755/n24t/GFR1VHAxCFtxekFo4VRFx76
+	r3lCFrRUYDOeNdKm6R0f6JqayBW4lvHEAmraA8BN86y/uhgk9IP+wID6uG0ZMUBnVOi
+	Xi6lqK8keXavlInpSJyEYXNBdV5MzEDYWJjueoGSbUZcJRPC7kjGTttKQ9HiAnl/SDO
+	rR7OmnTRXfdIYrjWafohEzaNRFZuXw8LEhgXVisza83K5zjb1MbO+PBBsYmC45M74YR
+	XGsYU8GADA==
+Received: by mx.zohomail.com with SMTPS id 1758443723225109.34629747101064;
+	Sun, 21 Sep 2025 01:35:23 -0700 (PDT)
 From: Icenowy Zheng <uwu@icenowy.me>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -78,15 +78,18 @@ Cc: Han Gao <rabenda.cn@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH v2 0/8] Verisilicon DC8200 driver (and adaption to TH1520)
-Date: Sun, 21 Sep 2025 16:34:38 +0800
-Message-ID: <20250921083446.790374-1-uwu@icenowy.me>
+Subject: [PATCH v2 1/8] dt-bindings: vendor-prefixes: add verisilicon
+Date: Sun, 21 Sep 2025 16:34:39 +0800
+Message-ID: <20250921083446.790374-2-uwu@icenowy.me>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250921083446.790374-1-uwu@icenowy.me>
+References: <20250921083446.790374-1-uwu@icenowy.me>
 MIME-Version: 1.0
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_013549_651659_BBBB3084 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20250921_013550_806214_1205BE25 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,98 +106,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset tries to add a driver for Verisilicon DC8200 driver, and
-demonstrates the driver on T-Head TH1520 with its HDMI output.
+VeriSilicon is a Silicon IP vendor, which is the current owner of
+Vivante series video-related IPs and Hantro series video codec IPs.
 
-This display controller IP is used on StarFive JH7110 too, but as the
-HDMI controller used there isn't as common as the DesignWare one, I
-choose to use TH1520 in this patchset.
+Add a vendor prefix for this company.
 
-The DC driver is written with other DC-series (mainly DC8000, which is
-known to be used on Eswin EIC7700 SoC) display controllers in mind, and
-uses the identification registers available on all Vivante branded IPs.
-A known exception is DCNano display controller, which is unlikely to be
-supported by this driver because of totally different register map and
-no known identification registers. (P.S. the in-tree loongson DRM driver
-seems to be for some DCNano instances based on the register map.)
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+---
+No changes in v2.
 
-The HDMI controller seems to come with some common PHY by Synopsys, the
-DesignWare HDMI TX 2.0 PHY. By searching a few register names from the
-BSP driver of that PHY, that PHY seems to be used by a in-tree dw-hdmi
-glue, rcar_dw_hdmi -- an updated downstream version of rcar_dw_hdmi
-contains all 6 registers set here in the th1520-dw-hdmi driver. Some
-more suprising thing is that RK3288 uses the same PHY too, but the
-in-tree dw_hdmi-rockchip driver writes the configuration data array in a
-weird way to reuse the HDMI 3D TX PHY configuring function. It might be
-valuable to add common configuring function and configuration data
-definition for this HDMI 2.0 PHY too, but the current driver in this
-patchset simply duplicated most configuration logic from rcar_dw_hdmi
-driver (but with 3 extra configuration registers configured).
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Icenowy Zheng (8):
-  dt-bindings: vendor-prefixes: add verisilicon
-  dt-bindings: display: add verisilicon,dc
-  drm: verisilicon: add a driver for Verisilicon display controllers
-  dt-bindings: display/bridge: add binding for TH1520 HDMI controller
-  drm/bridge: add a driver for T-Head TH1520 HDMI controller
-  riscv: dts: thead: add DPU and HDMI device tree nodes
-  riscv: dts: thead: lichee-pi-4a: enable HDMI
-  MAINTAINERS: assign myself as maintainer for verisilicon DC driver
-
- .../display/bridge/thead,th1520-dw-hdmi.yaml  | 120 +++++++
- .../bindings/display/verisilicon,dc.yaml      | 127 +++++++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- MAINTAINERS                                   |   8 +
- .../boot/dts/thead/th1520-lichee-pi-4a.dts    |  25 ++
- arch/riscv/boot/dts/thead/th1520.dtsi         |  70 ++++
- drivers/gpu/drm/Kconfig                       |   2 +
- drivers/gpu/drm/Makefile                      |   1 +
- drivers/gpu/drm/bridge/Kconfig                |  10 +
- drivers/gpu/drm/bridge/Makefile               |   1 +
- drivers/gpu/drm/bridge/th1520-dw-hdmi.c       | 173 +++++++++
- drivers/gpu/drm/verisilicon/Kconfig           |  15 +
- drivers/gpu/drm/verisilicon/Makefile          |   5 +
- drivers/gpu/drm/verisilicon/vs_bridge.c       | 330 ++++++++++++++++++
- drivers/gpu/drm/verisilicon/vs_bridge.h       |  40 +++
- drivers/gpu/drm/verisilicon/vs_bridge_regs.h  |  54 +++
- drivers/gpu/drm/verisilicon/vs_crtc.c         | 217 ++++++++++++
- drivers/gpu/drm/verisilicon/vs_crtc.h         |  29 ++
- drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |  60 ++++
- drivers/gpu/drm/verisilicon/vs_dc.c           | 205 +++++++++++
- drivers/gpu/drm/verisilicon/vs_dc.h           |  39 +++
- drivers/gpu/drm/verisilicon/vs_dc_top_regs.h  |  27 ++
- drivers/gpu/drm/verisilicon/vs_drm.c          | 177 ++++++++++
- drivers/gpu/drm/verisilicon/vs_drm.h          |  29 ++
- drivers/gpu/drm/verisilicon/vs_hwdb.c         | 150 ++++++++
- drivers/gpu/drm/verisilicon/vs_hwdb.h         |  29 ++
- drivers/gpu/drm/verisilicon/vs_plane.c        | 102 ++++++
- drivers/gpu/drm/verisilicon/vs_plane.h        |  68 ++++
- .../gpu/drm/verisilicon/vs_primary_plane.c    | 157 +++++++++
- .../drm/verisilicon/vs_primary_plane_regs.h   |  53 +++
- 30 files changed, 2325 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
- create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
- create mode 100644 drivers/gpu/drm/bridge/th1520-dw-hdmi.c
- create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
- create mode 100644 drivers/gpu/drm/verisilicon/Makefile
- create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge_regs.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc_regs.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_top_regs.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 9ec8947dfcad2..b24ab511251b6 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1656,6 +1656,8 @@ patternProperties:
+     description: Variscite Ltd.
+   "^vdl,.*":
+     description: Van der Laan b.v.
++  "^verisilicon,.*":
++    description: VeriSilicon Microelectronics (Shanghai) Co., Ltd.
+   "^vertexcom,.*":
+     description: Vertexcom Technologies, Inc.
+   "^via,.*":
 -- 
 2.51.0
 
