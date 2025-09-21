@@ -4,94 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 896F4CAC5AA
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Sep 2025 08:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D293CAC5A7
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Sep 2025 17:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Naf3kliMyfnPNQ2Vq/rC0YqdanYJ4sRhzYpLM3AQIRk=; b=lgY65J47pqeY5u
-	cc3pt19+RvlYtYUbcK9sbM5dPqdyhBcl0ba8pRMD4BQy4D/pUG0DaS/oSM2UWHxjTFjR41G3V59ZA
-	y0XqBvFt0A+7CqUug+uJh2VpwYafMhBxL6Uv4QLk8y2OUU8g1KpOoNRqWf/AR+AgoNHoby36zb9SB
-	wkDohbo04cJ1JH/olnGd6MV0t8U9a1T2aBHOUZklGRBJ9a07E8QuoMGVhs+q6uMVbpO7r5gMX1eVo
-	TiSN4JW0m3FB0bNOhZ5oAETYnj8G7D3eTRV0A3yl/sYZid7HPeY6Ain5xSBpfOsqlOMIKIkl7Qyxs
-	aOsTk4CQXnvbG/rnqNkw==;
+	List-Owner; bh=PR63oWfoJjkg9z6ieFfyU9sQLT2JiJ11AA9KR4u6DpA=; b=paAvc2HBgAK8CB
+	aAAjIAoJnB2F657LmUS343k61bmX5N3SePBRwCCqproyAWYu7fGCmOsbZdjJAQnwsLOD69d4uI1gq
+	MMoX9M2JKg0yYojuG+MQ2YdhadoeFe0kWwOQMZNfZSAaOY6euFIhhn0et0bYSfu26h/Mzy1dAdZcZ
+	Q7n8OSe4Xip01dpXhxcxASS4GuczlrgxkvqRp1OLGwkz4SF+r/gVMWPBvpE40a6leHKMfS2ew6FDH
+	xrNwtI0ZIDi4I3xDbDZelaFektsvW470oLWLJhK4n+oHZh3L/2n8JPSZqrKz74tVLQn1pStvyjV6c
+	kewbRvVoCn0jr1bjBibg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0FpC-00000007A22-3hbX;
-	Sun, 21 Sep 2025 08:53:38 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1v0NoE-00000007vWO-44Q2;
+	Sun, 21 Sep 2025 17:25:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0FpA-000000079tB-1Jny
+	id 1v0NoC-00000007vVt-0jlC
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 Sep 2025 08:53:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1758444754;
-	bh=2k5TB4fCGa99Tt+YiRV5hnuUcMUd7EkCwZPqTsiSIzg=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=u7+tXu4cPqkBD3cSFb583le+m8GbTwndZqvucwWO/k+rlIiDrazeBizaIWge4QSmr
-	 9bOuftdfE2i2b4LuCMCMo+74ugwkq0H0pLcNdBxbPcJLdt+LHwOcaZi4CyTZaeo03/
-	 4u1fD00oRHz8sl78u72mLPThtOsd4MmxoWRgGvp4=
-X-QQ-mid: zesmtpip2t1758444746t50d5cce6
-X-QQ-Originating-IP: YTbr4bF4fXXgOVGW6cQbxzmvzTq87tzsqIC72RSrILU=
-Received: from = ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sun, 21 Sep 2025 16:52:25 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11772700704362527638
-EX-QQ-RecipientCnt: 16
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Sun, 21 Sep 2025 16:52:16 +0800
-Subject: [PATCH v4 1/2] ASoC: dt-bindings: Add bindings for SpacemiT K1
+	Sun, 21 Sep 2025 17:25:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D6BAF4444C;
+	Sun, 21 Sep 2025 17:25:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 849EBC4CEE7;
+	Sun, 21 Sep 2025 17:25:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758475507;
+	bh=WKwhxvq7jY3OZNVkywwrxdkcffohNo1hcW1y9XvV6Vs=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=c0OaBZS9yKp9WHcw4ElnO4EXvPtp2u/u8xRmD4tCK1EW5wMuUNxGbK4cSa2LlgBEG
+	 ulSLvr8OIZI0BQaKmRvo3SLXtI4meKy6aa4StSY9FJYT1BbOqdcYXPA/dJftS/qOCj
+	 YIQ0SiL0lSPD5S6zBIQ/iIk0Rk1wOMdoVPYeu2qzAFOi56IPQ0j7OEDFJCx7W0lncv
+	 MwiUF3qwWJ3doA81mqzIm3TgEZsIygvvCyC10ZvycRDExQ2MxrFqZagdGhL0Nxw+ei
+	 2KCN4bZ/kyUj3CPCABT06BJEFmyul7Pm8EyGOGnQuEGEkLssa7dEQNJS1JW2oRNEzP
+	 dw8mapgNhUOMA==
 MIME-Version: 1.0
-Message-Id: <20250921-k1-i2s-v4-1-4f819f50e468@linux.spacemit.com>
-References: <20250921-k1-i2s-v4-0-4f819f50e468@linux.spacemit.com>
-In-Reply-To: <20250921-k1-i2s-v4-0-4f819f50e468@linux.spacemit.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758444738; l=2619;
- i=troy.mitchell@linux.spacemit.com; s=20250712; h=from:subject:message-id;
- bh=76HDuGO/++wYQY6OBZ6UZ1PVv6SNT6/hCuPuH7hW1LM=;
- b=QxEY1Pde0pS2iIBEaP61bZHv3W2NEtVTUquVa3ksdKOW3j7eXHewA82pyuP7xgj1vZmzOpUmO
- bmyd/x0pM0rC3VDgV1/aVc5LPmHJVNNOwTloG99/krigYRJqYqaXp+q
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
- pk=zhRP1xE0bftrurqSWI+SzcSdJGIZ0BTTY9Id0ESzqlI=
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: M7sIwA0XfUNnLHXCeJgcYuL7FscV+HWro1cAEceeJbiMZjmpR/cOHlg/
-	m045CJ2YMyRuv0qllbtP8frj0GsDHtXIICDkRgtZ6iiertLXWPQkkahaumdTkh9IgxfYzFO
-	AHxCMQrM/Wr4BkaiRPyMx4zo2zvkgOfL1tKs6+7NqcSatZK1neun/CKEdDH4ZDtCZYrBPoC
-	+QgcYLdtn22WP2nzuIcaPahGA3HhWExFULu7wiPOOTIVdhon/OxeF27e0zkjFG2JIERIrMs
-	SZbTlsoNDZVuDXPdVutCHJsHodKPBnBwiKDV9MnEiXRy1BPJCK0f4epbIq48DAW2kmz/NVt
-	2T4/RDkJmPLDGa2F/7qirzC5HXMcCnBbdmfcgsD7tJa2o8vsOr/bfsOCHHn1WFifQOj0lw+
-	9WA8LmwzyopuouLv45AqSpcq9fgaoajAbOm2K6wx9JQPlfC6s/EHL20T5emxMjl1InmThH5
-	cDx6WXIv3hqWHd/DfKmAyuTrl99bxLayAoKyLsv/BiBkpgC2x5U4VWHyuL2mdDqCSMORlvv
-	VihMCaiPKUvOHheE0F+WlXdHCei7S9Av/sZb3KkfYdhDr7lX7PSfICgwlJdy8rz3wHeBde/
-	QLzstgjungZLFPD3y/QNwEkxHGkPz8bPIG/MiFURdgSlFgN3U0So8afSuk+fsNFWYyM1W4b
-	36rekb6WFC+GN1P0hcivSsWLPDkBvk7QgWuzuqR4XsmKMIaCPlw6UCVyPW0UlF8JF/gd0n0
-	QPqRYiF7OEyG7LYfEOtDaKO8nIuFlEkcc2zsC8CwNi8tnJLAiM+vriApJlT5SZY4TmFv9te
-	bwY3tITMi8rXg87F43/3hQ3jZtM7Y+eQoMvrpqAly7Inn5r08ZE3dhyjR6hq0mha5IShTvj
-	xgl4iamTb7YQ2CdFZS6MkZjf0JOyknPmBiyenu2G7geyAqKDynd0C6egiuUVUti0kd5jcN9
-	JUNkAVeybcUzBF37oQek4lelZhCWgpQOROzkT5sMX6Gt9olGTN+r2Nv6MZVasFtRoolixtR
-	zysioHIoabakKmBzRZmacmoHsQa0uXqThwVZ6weduTm7MZZkO4kxZxyWrlBkiWVHVaf2JC4
-	oAaf6cC/16ArozeHmESuwKcCbawQNcki1eyDN4SSeReWokM9a1tMJk=
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
-X-QQ-RECHKSPAM: 0
+In-Reply-To: <20250818040920.272664-9-apatel@ventanamicro.com>
+References: <20250818040920.272664-1-apatel@ventanamicro.com> <20250818040920.272664-9-apatel@ventanamicro.com>
+Subject: Re: [PATCH v10 08/24] dt-bindings: clock: Add RPMI clock service message proxy bindings
+From: Stephen Boyd <sboyd@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Anup Patel <apatel@ventanamicro.com>, Bartosz Golaszewski <brgl@bgdev.pl>, Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Michael Turquette <mturquette@baylibre.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, Rafael J . Wysocki <rafael@kernel.org>, Rob Herring <robh@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Date: Sun, 21 Sep 2025 10:25:06 -0700
+Message-ID: <175847550625.4354.7736204929282849019@lazor>
+User-Agent: alot/0.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_015336_719258_E3579592 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20250921_102508_245951_1E4F49A0 
+X-CRM114-Status: UNSURE (   6.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,116 +66,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add dt-binding for the i2s driver of SpacemiT's K1 SoC.
+Quoting Anup Patel (2025-08-17 21:09:04)
+> Add device tree bindings for the RPMI clock service group based
+> message proxy implemented by the SBI implementation (machine mode
+> firmware or hypervisor).
+> 
+> The RPMI clock service group is defined by the RISC-V platform
+> management interface (RPMI) specification.
+> 
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
- .../devicetree/bindings/sound/spacemit,k1-i2s.yaml | 87 ++++++++++++++++++++++
- 1 file changed, 87 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml b/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..55bd0b307d22b3611d0fefb1e925e56812848dd1
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
-@@ -0,0 +1,87 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/spacemit,k1-i2s.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: K1 I2S controller
-+
-+description:
-+  The I2S bus (Inter-IC sound bus) is a serial link for digital
-+  audio data transfer between devices in the system.
-+
-+maintainers:
-+  - Troy Mitchell <troy.mitchell@linux.spacemit.com>
-+
-+allOf:
-+  - $ref: dai-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: spacemit,k1-i2s
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: clock for I2S sysclk
-+      - description: clock for I2S bclk
-+      - description: clock for I2S bus
-+      - description: clock for I2S controller
-+
-+  clock-names:
-+    items:
-+      - const: sysclk
-+      - const: bclk
-+      - const: bus
-+      - const: func
-+
-+  dmas:
-+    minItems: 1
-+    maxItems: 2
-+
-+  dma-names:
-+    minItems: 1
-+    items:
-+      - const: tx
-+      - const: rx
-+
-+  resets:
-+    maxItems: 1
-+
-+  port:
-+    $ref: audio-graph-port.yaml#
-+    unevaluatedProperties: false
-+
-+  "#sound-dai-cells":
-+    const: 0
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - dmas
-+  - dma-names
-+  - resets
-+  - "#sound-dai-cells"
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/spacemit,k1-syscon.h>
-+    i2s@d4026000 {
-+      compatible = "spacemit,k1-i2s";
-+      reg = <0xd4026000 0x30>;
-+      clocks = <&syscon_mpmu CLK_I2S_SYSCLK>,
-+               <&syscon_mpmu CLK_I2S_BCLK>,
-+               <&syscon_apbc CLK_SSPA0_BUS>,
-+               <&syscon_apbc CLK_SSPA0>;
-+      clock-names = "sysclk", "bclk", "bus", "func";
-+      dmas = <&pdma0 21>, <&pdma0 22>;
-+      dma-names = "tx", "rx";
-+      resets = <&syscon_apbc RESET_SSPA0>;
-+      #sound-dai-cells = <0>;
-+    };
-
--- 
-2.51.0
-
+Acked-by: Stephen Boyd <sboyd@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
