@@ -4,67 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007E6CAC5A8
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Sep 2025 08:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB07DCAC5A7
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Sep 2025 08:37:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pqfG9sS0w0S7gT2LMCxgfJ2fZI6ZcNuVdXSU5P44tCw=; b=OpdlpitMJ3MPTi
-	jbAWcAq7BkaOb9Z3/UZW0fGakmuseoZrIE81GKH/V1+9QwAEmz9IEqE66pQOutGVYoPhwOOSQW3ZM
-	u0gNWw2b1MFUACiVMN3PSlOUYkqyoVt2kb0N7EgVThDPDpPirFPQspBhXbFD+3+DE0U8GWmeWlLUT
-	YP55DMNhT0WJxwSgeYXDcEf8XSNQzkk4so3hX1NyDkywN15FncYREbb44fP852ACU482uv5nJChtt
-	s3eGUSr2oml2pVgrztRRSYPA8CxF0hxnbixr7jVm24psWHOJAYDajTXU+HNCPjXxlhoXhnb/moPtl
-	bhY+8iHT2ZHa897rPacg==;
+	List-Owner; bh=67WRtZUBWi3SZJf7fM2V2bJuGL68xExiFsTxGjJxyV0=; b=TzbPBYZGkPqgrn
+	m1KgYPswlGVLDSG7CQNXV4QpWexdcmXl37mnODTdBDDPRYUB5dSqppU5SsZOvltNgkxrEvHuqxvxa
+	61njH3/ZfL1jsgFA6uK2EJWtNHpVeNjQIUOZXUx72Duis+0dnxNLgvER3KoPRQJrS83ZgQG57LtIM
+	Q4VcNYQrX6oxR9p5WYi5AcdgalX1gOYXGqe93uslrGfFlrfvcTWzy+b9eHaEBiyzzsNTtUtXxI0TL
+	s0uep1b0JhXb+kPUxZMLSXPLoDnit3V2nhwNbUTP85lp7ZZ7Wu8xV/zogKAazqhfakv7x3z2BkkYC
+	IOixm+foy0AfjurLs5mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0FZM-000000077Nn-0JZ8;
-	Sun, 21 Sep 2025 08:37:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0FZK-000000077Mz-3mCd
-	for linux-riscv@bombadil.infradead.org;
-	Sun, 21 Sep 2025 08:37:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=8F+JwGCuCjf3w8Hhvlrd5/2iHdj26ikVBVJ1VKCtDTc=; b=R60x53H+0JbKREK5HKTVxxGPqI
-	YHpC91hFlrl5fM+fb6NC1TPJVdXXbPoC2SuEZii7EEc59tJa+Job0NmIctPMVP5DtSwmcNXTbFSYW
-	YGMSgKqKZXDf7MRjDtPCym36TFqy/xTkBCRkQ2K3C4ckTkhz6yGJFxD1XpxOSdeLCjlU3xWMPj2FM
-	OL8wiyBsrHjwBF34jWFd4ZGRTi9FpMY23+KtxWXKK9eccVoAJMGvvyNVgJY5AcR5OTp3Q7VtgSAyx
-	S4QAjF1Q+WWGmYclYxd8pctL6FFx2QX9zHu6/SWk/qWoDbYpzXNQBg6qhK0bK76g/vD8+Un5+E/Mp
-	2wrTW4zg==;
+	id 1v0FZU-000000077Tg-1tlE;
+	Sun, 21 Sep 2025 08:37:24 +0000
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0FZG-000000086Gi-1CTQ
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0FZR-000000077RM-3pdV
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 Sep 2025 08:37:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758443802; cv=none; 
+	Sun, 21 Sep 2025 08:37:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1758443816; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=WPqPnTQbFJxbkqA+h0xKvBLHwraN98u655+A7nF/4zkMZSc1hzcGtdN2t3ZVMAzMb+lYX7wQ8Z89V7TCCmZU6oNMMUh9mhWYAGa6Jgpt0SEykMp63lxM8fqUjPUKqCJHHjwjrvolB3qdLuKR0I4K2W7OmQMP7ccZbJW6DXy2JKw=
+	b=nxXNMqI2qg6zufy0Xd4Y514jhC0IROp7AKcI+Aanga4iNtC53S+f5SZL28kR7zqaLaKqnEOeEdfFgZZaSSjYIl0mPPFMAT0Cfj+G3lVh2nZNyrNxZVjiKR3/GoZHdaVYCpz3JnsLttwE6Cp1y1to0+RcxHJ1/L0hbdOyCc5ma+8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758443802; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8F+JwGCuCjf3w8Hhvlrd5/2iHdj26ikVBVJ1VKCtDTc=; 
-	b=ez/QpJ2G0NowWpIB0JRmqtiU40TxoScXu+Q0Da2I0y91AQ35W9CQAJ1a2i3iX6QToLeeiySpd8XwskktfaMrIHFp2wlyWC9DoW9sIg8tI8iWA73E4dC8sDQhGfRJqbBwcFTI4uIlFXEjoAuZ8fGTQXBTuPjgcO/YR/IgwEyxnzY=
+	t=1758443816; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=codWgtTq6Zb64pUUOo3Dzr6/p0mx/o9YUriH+67Le3Y=; 
+	b=OZWl27m87tvRQ788UMUql8HK10J3MIqNzlvXMwQJ6vcMokzda0xrsNi1mptshA5/cIUt62X0XQwyo2Kwce7HsF9ciMa7SNzzEdzCZ3gWW6yMssgRly90DoLOJlLjfMz8uHa4eOqQI/gTI5BvQ4YI2x/0TvuxOnixhzNoEKr24fc=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=icenowy.me;
 	spf=pass  smtp.mailfrom=uwu@icenowy.me;
 	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758443802;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758443816;
 	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
 	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=8F+JwGCuCjf3w8Hhvlrd5/2iHdj26ikVBVJ1VKCtDTc=;
-	b=BO+0t6IQ8piEQNXez8qXW7GulWVcYba1iCKdswdbNC/hengw8n+Y9clHPk5UmoRB
-	qIhZzFQCjwyof/e7BssMy9Weho+GE26D54+y2MDhzAyV6kpjLUXX6+Uq+WHPGHlLaKa
-	Fr8eJzzZbvslEIXbjieYhLeNcKVTczyk0s2Noq1Zlvf7DkltMwlbP3tVmmmP4VEED0T
-	lMg2skohdM+mknt95nvKRxRdsjrDVmbIWdzOPRpC2/eXPbp/DXX5BMEqGG3rbHqT8IA
-	KnpZngsyD7pba6jbS06LxqVxU+h4p9lZLyYImw9saPjgPTE893SJZkuPG88bq5Fqi1I
-	/Y5UNO5rgg==
-Received: by mx.zohomail.com with SMTPS id 1758443801039866.307085468272;
-	Sun, 21 Sep 2025 01:36:41 -0700 (PDT)
+	bh=codWgtTq6Zb64pUUOo3Dzr6/p0mx/o9YUriH+67Le3Y=;
+	b=UfF29hF1PQmU2MZ1Ge9X15w6oi2ao/rzoft/tWrDjnjk2+okrjGjfXRQI0xCNBub
+	UVPT3Tu9DJNDAtKt2eW1Ew/fDjDHd3TkCa2aPYSrXtqQTjU56WEdmdLjKlQhqFARjHl
+	9Kv/R6793q+gkpEcZc/12JSK9MGbqJyzG4soMAFYY7MuMUulyjY2dnOdw1Sb/XuJPnu
+	0+L3lyKvwsuruJcQQU36oQFC1hRIcKxeOtkaDoWCgrPH5134OWdtyuud08tftrbvXo7
+	tdUzRqiYaUOkkC9VjOPVYWn3caGMCW2Yy8ltlL9OjUuFbLZJWH4k+QyFquq4NOfjZ00
+	vQCziCay2g==
+Received: by mx.zohomail.com with SMTPS id 1758443814250482.2030454290558;
+	Sun, 21 Sep 2025 01:36:54 -0700 (PDT)
 From: Icenowy Zheng <uwu@icenowy.me>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -93,17 +78,17 @@ Cc: Han Gao <rabenda.cn@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH v2 6/8] riscv: dts: thead: add DPU and HDMI device tree nodes
-Date: Sun, 21 Sep 2025 16:34:44 +0800
-Message-ID: <20250921083446.790374-7-uwu@icenowy.me>
+Subject: [PATCH v2 7/8] riscv: dts: thead: lichee-pi-4a: enable HDMI
+Date: Sun, 21 Sep 2025 16:34:45 +0800
+Message-ID: <20250921083446.790374-8-uwu@icenowy.me>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250921083446.790374-1-uwu@icenowy.me>
 References: <20250921083446.790374-1-uwu@icenowy.me>
 MIME-Version: 1.0
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_093710_870615_D64583F2 
-X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-CacheID: sfid-20250921_013722_004103_A93DDA0A 
+X-CRM114-Status: UNSURE (   8.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,99 +106,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T-Head TH1520 SoC contains a Verisilicon DC8200 display controller
-(called DPU in manual) and a Synopsys DesignWare HDMI TX controller.
+Lichee Pi 4A board features a HDMI Type-A connector connected to the
+HDMI TX controller of TH1520 SoC.
 
-Add device tree nodes to them.
+Add a device tree node describing the connector, connect it to the HDMI
+controller, and enable everything on this display pipeline.
 
 Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 ---
 No changes in v2.
 
- arch/riscv/boot/dts/thead/th1520.dtsi | 70 +++++++++++++++++++++++++++
- 1 file changed, 70 insertions(+)
+ .../boot/dts/thead/th1520-lichee-pi-4a.dts    | 25 +++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index 03f1d73190499..8cebf4eaee5e3 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -515,6 +515,76 @@ clk_vo: clock-controller@ffef528050 {
- 			#clock-cells = <1>;
- 		};
+diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+index 4020c727f09e8..3e99f905dc316 100644
+--- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
++++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+@@ -28,6 +28,17 @@ aliases {
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
++
++	hdmi-connector {
++		compatible = "hdmi-connector";
++		type = "a";
++
++		port {
++			hdmi_con_in: endpoint {
++				remote-endpoint = <&hdmi_out_con>;
++			};
++		};
++	};
+ };
  
-+		hdmi: hdmi@ffef540000 {
-+			compatible = "thead,th1520-dw-hdmi";
-+			reg = <0xff 0xef540000 0x0 0x40000>;
-+			reg-io-width = <4>;
-+			interrupts = <111 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk_vo CLK_HDMI_PCLK>,
-+				 <&clk_vo CLK_HDMI_SFR>,
-+				 <&clk_vo CLK_HDMI_CEC>,
-+				 <&clk_vo CLK_HDMI_PIXCLK>;
-+			clock-names = "iahb", "isfr", "cec", "pix";
-+			resets = <&rst TH1520_RESET_ID_HDMI>,
-+				 <&rst TH1520_RESET_ID_HDMI_APB>;
-+			reset-names = "main", "apb";
-+			status = "disabled";
+ &padctrl0_apsys {
+@@ -54,6 +65,20 @@ rx-pins {
+ 	};
+ };
+ 
++&dpu {
++	status = "okay";
++};
 +
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
++&hdmi {
++	status = "okay";
++};
 +
-+				port@0 {
-+					reg = <0>;
++&hdmi_out_port {
++	hdmi_out_con: endpoint {
++		remote-endpoint = <&hdmi_con_in>;
++	};
++};
 +
-+					hdmi_in: endpoint {
-+						remote-endpoint = <&dpu_out_dp1>;
-+					};
-+				};
-+
-+				hdmi_out_port: port@1 {
-+					reg = <1>;
-+				};
-+			};
-+		};
-+
-+		dpu: display@ffef600000 {
-+			compatible = "verisilicon,dc";
-+			reg = <0xff 0xef600000 0x0 0x100000>;
-+			interrupts = <93 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk_vo CLK_DPU_CCLK>,
-+				 <&clk_vo CLK_DPU_ACLK>,
-+				 <&clk_vo CLK_DPU_HCLK>,
-+				 <&clk_vo CLK_DPU_PIXELCLK0>,
-+				 <&clk_vo CLK_DPU_PIXELCLK1>;
-+			clock-names = "core", "axi", "ahb", "pix0", "pix1";
-+			resets = <&rst TH1520_RESET_ID_DPU_CORE>,
-+				 <&rst TH1520_RESET_ID_DPU_AXI>,
-+				 <&rst TH1520_RESET_ID_DPU_AHB>;
-+			reset-names = "core", "axi", "ahb";
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				dpu_port0: port@0 {
-+					reg = <0>;
-+				};
-+
-+				dpu_port1: port@1 {
-+					reg = <1>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					dpu_out_dp1: endpoint@1 {
-+						reg = <1>;
-+						remote-endpoint = <&hdmi_in>;
-+					};
-+				};
-+			};
-+		};
-+
- 		dmac0: dma-controller@ffefc00000 {
- 			compatible = "snps,axi-dma-1.01a";
- 			reg = <0xff 0xefc00000 0x0 0x1000>;
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_pins>;
 -- 
 2.51.0
 
