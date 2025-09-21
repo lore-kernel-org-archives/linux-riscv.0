@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B96CAC5A7
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Sep 2025 19:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B624CAC5A7
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Sep 2025 19:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YMuQkmii43P+4E1737SWyXLmVYPRFsnLbwjpbrQIzDw=; b=kgz+FPlhd0RYz/
-	Mw7WzHN+jrEv7MS1jyCCzHbbG5cvO9/1m7jkWhPLhX2IxZVuMYvPfoomX0NwAUFkaPMlV6pK/noiS
-	4wHjAzh60t57biNFnT2/SqnYLHy0pRvzwwdoHFYe2Ii19nptvpMmjmv52TOQtom/5NoUTASf72D+E
-	S+vEKOcGR3hubx9Rh8lD8iAIdz3Cnp04cD63k1/Nnri/fL9q9ysl3fhSFfiJhBe+TNi41jkFp/J84
-	gqFIDc/y24f81r0pCOng3mTJpeNnUoDGbKWqyorKAN3N2OXroJcMMA+GjJkCM5AsQEOC9NTv1q3cv
-	tHUvae+pfuMfMQsL3A2Q==;
+	List-Owner; bh=Ba7lSV4YLaAqEZI4HKJgumFnqplhiA/vVSXGd8z2crY=; b=nbLsBA/DgvJY5V
+	bW+QK9GXhJ5ZUIuhBwkk9t1T0xErJwghuSLy4Mt/kOLVzfmrp62sYjpTYWpaSuyg5Ydtq55HbP3vt
+	0jFd4pkErq8tqT/1kJdBzbZrLNXxQRDo4l1fXmnW0smR9/kAw/SNy4B4xt+MEHTjdRpG3c745XCAj
+	HC7IPloXJjXIRXKC+gvCq1IVdzfs4yLsxXR354lwNqoKRChlZjyDWxVNTXWMjUBEG/3ef6cq1FVpP
+	M1ctD/HJWfc7ZMIfBBePeLdKoH8+3HzCZFr7r+cliNRKxjI+qW4CwUjP/K7TGJEYbnTspyt3sbNy6
+	6mnBpAvvTRiOc3UptUkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0PT8-000000084Io-3a04;
-	Sun, 21 Sep 2025 19:11:30 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1v0Pog-0000000862H-38Ph;
+	Sun, 21 Sep 2025 19:33:46 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0PT6-000000084IP-1NeP
+	id 1v0Poe-0000000861n-09C7
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 Sep 2025 19:11:29 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-8ca2e53c0d3so10205639f.1
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Sep 2025 12:11:27 -0700 (PDT)
+	Sun, 21 Sep 2025 19:33:45 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-b54bb1f3790so319027a12.3
+        for <linux-riscv@lists.infradead.org>; Sun, 21 Sep 2025 12:33:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1758481887; x=1759086687; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=GMuX0JbtGkVS69zIsmL/4yyhk/kkfK+G5uLsvMrvjAc=;
-        b=IZID4UCPU+uHz+nYu7fb5dyR/tD4JFU9IiOtiIKJn7yI/3jIJRp3hsVw4jC/uiMLaC
-         dwPMObDcLl5UR2ur4AzS4ZBXRIQbf52BR16eK8nPeq4kWfeE/Mx5zJOWTLsD46jh6U+t
-         6xSYPpfBwDT5GyDXymVBS3Z9v6V9/GXuip4iwkxn4FEBsnf+8Gk2tnKh18QL0gnLfC7+
-         9VKmGUB+ZCKQH5ZbaKCUt5dxQH5HEscbwmXlb1HiJ075NrHBTf4yFjdL28QGMDD1+lw0
-         STU0PP/rqYwfb6UQPv1UUzus9rFDzhOAUTwZ9aqNc/Zqcb26XS8SO4N9a8yddFq7lGLm
-         ZoYQ==
+        d=gmail.com; s=20230601; t=1758483223; x=1759088023; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2m+X/nfuv9HOhbheWVXsceeU1oB9iRe5Dx2bNoWj8Nk=;
+        b=WOx8afbBnO7MlWfCSqQ+CyNrGA6mO2jYTbbZ2iieICImdffj7ZXe6TxjVMkY31u/5R
+         Xv2OTc34dNOFdLQ0VqAiyxR1JOZJ3Tn+SSMeNTJq6nQx3WFEUYZQAOZ97kh93pXCoebM
+         AOxyUHGquktau354rkO3YDbi9vOQ1BAynjwZBpSAXNzSBb1VQOaESoZADTHDzu/zEulO
+         P1w96/cE8snt+Cm9QOJ5GbwwdNdySb51oP7MB9sqAtxhFQ4wUj5GwIKdTydKanBIz88D
+         Fpn21SqqIoVpmYRp/7bqQ9U7vMu5QESqGQeb44SNAcs7Bc9GKROlk7avRXEt3+imAwUS
+         9JXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758481887; x=1759086687;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GMuX0JbtGkVS69zIsmL/4yyhk/kkfK+G5uLsvMrvjAc=;
-        b=Mw2DwRGOC7w9DcL76qV2+ihiuibXRO8Gxujie8/jRY3gRgG+DGhmEhPKoJuPBuITNw
-         v0oyXXYV8ryo7jus0BnYjKLGI+v1HlkevjB8Q0xUAJrLqMvbhgwNvChb6Gb1J8SWH2Rs
-         A2/3mv/HZ5XORuMcbnqFkTyYQSfkLzuPQ3rFOkmrLJYZ+v5Z/IZDI2P3SL8xNnh2VQA3
-         DXUC2kNwOgLj2wxR/tlr1SZwWcuROVwaPXrJ0gIR+miMwKIZrt9y/NZU+yhGvV6+fNop
-         eWdUY/4glGogG0Tga4qw5ppihW51RYEZEab6GoXwHVVOXbXpwPn50U04ID+5zSdN4dHX
-         gtqA==
-X-Forwarded-Encrypted: i=1; AJvYcCXehHj8tS3HMb/508f2zvfJlWcsOhEhYFjP/RWJhSD85Hzx4aOA5jBHaEDp5BQqW15DCllS/dZpzjUT+w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyV04Uarv1xVQPCLL+wQICwcsw98T+UzI+gKAMsSbxDlqNgf9Lw
-	GWN8sOyq3rS2qj75LAUIe/L99Ol10Gl8JQitpVTB+HgtLo/JFEU+MxFM8TlECNXpkC0=
-X-Gm-Gg: ASbGncsNB/uc3b7zbo5Wp/Mtfgso7cBxWGAmQyR9jjp2KkwwKO53ZwxEhb0qCOSQY4B
-	Oquex+wp7V1U/ERJwiCEfTgpIzEZxnkax3aBermjX3U8NoWDnI3wKj6P5kGUYqxTBQzWiRa8YIm
-	7rB003CqQO6hYqCQ+A2WqIbeiY/HqwgTQAHtTAcUawcAXJBLk2vEJqz2F0O6pWYs5l+xZGzsz2a
-	jNA6pCtAbjKQM8iyHBsMeWtEoshQAl2+N8xyp4rZJHqUUsixslkeFiofX8b1kiZ1bXTSfV0EoZ6
-	i+NI9yQo8h4QthKEWqw6EPGEzSe69WGsbZ/RSB1D3GXTrdZf+Qz0KE+SzU/hkL2LXWgsYle3gpW
-	LVsXNi/ZNS8gTD6L06dKRBZXN7tKhM4q/MM0ADiqBe80spHyimWhEqeM/xMRh4Tb217Z0GxQ=
-X-Google-Smtp-Source: AGHT+IErLvmxbESoatXMb3XqN+8yw94Jw5Exiri+q1GvICGK0rTfRDmu/C2sh2YMSDRU5YG3uU2tzA==
-X-Received: by 2002:a05:6e02:190a:b0:425:7526:7f56 with SMTP id e9e14a558f8ab-425752680c5mr30193615ab.5.1758481887085;
-        Sun, 21 Sep 2025 12:11:27 -0700 (PDT)
-Received: from [10.211.55.5] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-55ec34ec281sm107152173.0.2025.09.21.12.11.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 21 Sep 2025 12:11:26 -0700 (PDT)
-Message-ID: <ab64c617-f0a0-4dd8-95c9-cf85486d5612@riscstar.com>
-Date: Sun, 21 Sep 2025 14:11:25 -0500
+        d=1e100.net; s=20230601; t=1758483223; x=1759088023;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2m+X/nfuv9HOhbheWVXsceeU1oB9iRe5Dx2bNoWj8Nk=;
+        b=e26wSmwJQgrv/JwT2JRim90OUqz0tsiDNM304dnUchU9kji0vBETYt+kQA0UcwnAY1
+         U9i7etcETkEC2cD0o7Q7v6cJ8RdPB1qpl1DJgzEYceLiWEculnaudxKHa2wSMkj7lxFz
+         4beMA5I9Yb+vAIHqajWpRXFiKv4Os1bxBpR56pxAUEMqx67yxuHkqG62BIvbWGAwltSc
+         5yUGiGEwcgxJVi+Q3UmGA9pgQUmpBmaz5rG4iQFpjFMLU5Q+r6NzGRA5NeyE6RW/niSK
+         8hjX7IsBot5/5fVi95tns+F66PiSsOo8kwa8olNqfJ0skYJwrdgMFL+Vf/6J2kuTRZPI
+         IZwg==
+X-Forwarded-Encrypted: i=1; AJvYcCWPChTB8Q850NZ4C1T3Cos/sEF9AisSNMUIduxgAVvbxgC/65ybfbze6LdQQMSas/Kftdm5l6MqsaKHgQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxpOXOcOao61qlCGZIyxJmv04o7YxGwWnmuAGc+q24pi+7j+7W
+	3HURRuprQcZwjhDsHGBU6y3NHqleWkHu9gA7+VV7nArkqn+cXz2O8N3IX/EDORWx/GdaWn6Hqs5
+	0bapR9jjtcxt2DxPcp5vNUPTXAwgzFH8=
+X-Gm-Gg: ASbGnct8osnOod66Cf0ffUYwVCanY5S8YcW4e9EdOq2CVasqTEdNgwr3svLdT0a+3o9
+	N2VyEzBKzY2DrmfYA0S0q7yZuts+dS2NheF79SJNF+ak3nnc/a2R+M2iTWnwcdeqk7MiNj5GlzL
+	nJeercAqgzFhjOBKUDGNFLbVjaiV+ykD5PscUC5GzhLe1Ad+WnrHD5QZrQEcT/ICUcE5mumb0Zz
+	XK7F8My5grAhXZmLOT8h+dy1gaYYyT7EQ8WZR1WC3y1d1AIBtPj8K3IkZFiw6Qbw2VRevGVKqo/
+	s8gFWbqGrf6x/s0ytlCv5lz5YQ==
+X-Google-Smtp-Source: AGHT+IG4kRzeiPGLm59ZZQszVAWsNaDqqCH2KI2Z0y+NJALvZL1xRg5SeR7LL082wuOV46ofwPf8NpR+imqiZxjX0Qk=
+X-Received: by 2002:a17:902:f68e:b0:269:96d2:9c96 with SMTP id
+ d9443c01a7336-269ba2611c1mr76464005ad.0.1758483223077; Sun, 21 Sep 2025
+ 12:33:43 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] spi: spacemit: introduce SpacemiT K1 SPI
- controller driver
-To: Troy Mitchell <troy.mitchell@linux.dev>, broonie@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: dlan@gentoo.org, ziyao@disroot.org, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
- spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250919155914.935608-1-elder@riscstar.com>
- <20250919155914.935608-3-elder@riscstar.com>
- <aM9t7fO_DyIG92Rx@troy-wujie14pro-arch>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <aM9t7fO_DyIG92Rx@troy-wujie14pro-arch>
+References: <20250914-gcc-rust-v3-v3-1-34d4d5864144@gmail.com> <73d55231-d1e5-400d-9446-1914a78c0db8@iscas.ac.cn>
+In-Reply-To: <73d55231-d1e5-400d-9446-1914a78c0db8@iscas.ac.cn>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Sun, 21 Sep 2025 21:33:30 +0200
+X-Gm-Features: AS18NWAcFs0MDi_Dw6rCzaLkE9gp-FV3yn7YymzJYRPsBMfxvetkj0p00jJxboU
+Message-ID: <CANiq72n6_JdbgBiZHHiTg4vqnFHdfQhHcV2JpyQ0pz2J+KBSDw@mail.gmail.com>
+Subject: Re: [PATCH v3] RISC-V: re-enable gcc + rust builds
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Asuna Yang <spriteovo@gmail.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, 
+	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Han Gao <rabenda.cn@gmail.com>, Jason Montleon <jmontleo@redhat.com>, 
+	Conor Dooley <conor@kernel.org>, rust-for-linux@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org, 
+	llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_121128_416458_ECF4F883 
-X-CRM114-Status: GOOD (  38.44  )
+X-CRM114-CacheID: sfid-20250921_123344_079173_0FEE4644 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,448 +105,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/20/25 10:15 PM, Troy Mitchell wrote:
-> On Fri, Sep 19, 2025 at 10:59:12AM -0500, Alex Elder wrote:
->> This patch introduces the driver for the SPI controller found in the
->> SpacemiT K1 SoC.  Currently the driver supports master mode only.
->> The SPI hardware implements RX and TX FIFOs, 32 entries each, and
->> supports both PIO and DMA mode transfers.
->>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->> v2: - The SPI_SPACEMIT_K1 config option is added in sorted order
->>      - The spi-spacemit-k1.o make target is now added in sorted order
->>      - Read/modify/writes of registers no longer use an additional
->>        "virt" variable to hold the address accessed
->>      - The k1_spi_driver_data->ioaddr field has been renamed base
->>      - The DMA address for the base address is maintained, rather than
->>        saving the DMA address of the data register
->>      - CONFIG_MMP_PDMA is checked at runtime, and if it is not enabled,
->>        DMA will not be used
->>      - The spi-max-frequency property value is now bounds checked
->>      - A local variable is now initialized to 0 in k1_spi_write_word()
->>      - The driver name is now "k1-spi"
->>
->>   drivers/spi/Kconfig           |   8 +
->>   drivers/spi/Makefile          |   1 +
->>   drivers/spi/spi-spacemit-k1.c | 968 ++++++++++++++++++++++++++++++++++
->>   3 files changed, 977 insertions(+)
->>   create mode 100644 drivers/spi/spi-spacemit-k1.c
->>
->> diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
->> index 82fa5eb3b8684..4f6c446c6bc16 100644
->> --- a/drivers/spi/Kconfig
->> +++ b/drivers/spi/Kconfig
->> @@ -1071,6 +1071,14 @@ config SPI_SG2044_NOR
->>   	  also supporting 3Byte address devices and 4Byte address
->>   	  devices.
->>   
->> +config SPI_SPACEMIT_K1
->> +	tristate "K1 SPI Controller"
->> +	depends on ARCH_SPACEMIT || COMPILE_TEST
->> +	depends on OF
->> +	default ARCH_SPACEMIT
->> +	help
->> +	  Enable support for the SpacemiT K1 SPI controller.
->> +
->>   config SPI_SPRD
->>   	tristate "Spreadtrum SPI controller"
->>   	depends on ARCH_SPRD || COMPILE_TEST
->> diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
->> index eefaeca097456..637d750ead996 100644
->> --- a/drivers/spi/Makefile
->> +++ b/drivers/spi/Makefile
->> @@ -140,6 +140,7 @@ obj-$(CONFIG_SPI_SIFIVE)		+= spi-sifive.o
->>   obj-$(CONFIG_SPI_SLAVE_MT27XX)          += spi-slave-mt27xx.o
->>   obj-$(CONFIG_SPI_SN_F_OSPI)		+= spi-sn-f-ospi.o
->>   obj-$(CONFIG_SPI_SG2044_NOR)	+= spi-sg2044-nor.o
->> +obj-$(CONFIG_SPI_SPACEMIT_K1)		+= spi-spacemit-k1.o
->>   obj-$(CONFIG_SPI_SPRD)			+= spi-sprd.o
->>   obj-$(CONFIG_SPI_SPRD_ADI)		+= spi-sprd-adi.o
->>   obj-$(CONFIG_SPI_STM32) 		+= spi-stm32.o
->> diff --git a/drivers/spi/spi-spacemit-k1.c b/drivers/spi/spi-spacemit-k1.c
->> new file mode 100644
->> index 0000000000000..8d564fe6c4303
->> --- /dev/null
->> +++ b/drivers/spi/spi-spacemit-k1.c
->> @@ -0,0 +1,968 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Support for SpacemiT K1 SPI controller
->> + *
->> + * Copyright (C) 2025 by RISCstar Solutions Corporation.  All rights reserved.
->> + * Copyright (c) 2023, spacemit Corporation.
-> SpacemiT?
-
-Already addressed this suggestion, which Yixun also made.
-  
-https://lore.kernel.org/lkml/034cecd3-c168-4c8d-9ad5-10cc1853894b@riscstar.com/
-
-
-> 
->> + */
->> +
-> [...]
->> +static void k1_spi_read_word(struct k1_spi_driver_data *drv_data)
->> +{
->> +	struct k1_spi_io *rx = &drv_data->rx;
->> +	u32 bytes = drv_data->bytes;
->> +	u32 val;
->> +
->> +	val = readl(drv_data->base + SSP_DATAR);
->> +	rx->resid -= bytes;
->> +
->> +	if (!rx->buf)
->> +		return;	/* Null reader: discard the data */
->> +
->> +	if (bytes == 1)
->> +		*(u8 *)rx->buf = val;
->> +	else if (bytes == 1)
-> typo?
-
-Yes, Vivian noticed this too.  It's a bug, and it will be
-fixed in the next version.
-  
-https://lore.kernel.org/lkml/a7070f3f-8857-4834-9e9e-02068637075c@iscas.ac.cn/
-
-> 
->> +		*(u16 *)rx->buf = val;
->> +	else
->> +		*(u32 *)rx->buf = val;
->> +
->> +	rx->buf += bytes;
->> +}
->> +
-> [...]
->> +static bool k1_spi_write(struct k1_spi_driver_data *drv_data)
->> +{
->> +	struct k1_spi_io *tx = &drv_data->tx;
->> +	unsigned int count;
->> +	u32 val;
->> +
->> +	if (!tx->resid)
->> +		return true;	/* Nothing more to send */
->> +
->> +	/* See how many slots in the TX FIFO are available */
->> +	val = readl(drv_data->base + SSP_STATUS);
->> +	count = FIELD_GET(SSP_STATUS_TFL, val);
->> +
->> +	/* A zero count means the FIFO is either full or empty */
->> +	if (!count) {
->> +		if (val & SSP_STATUS_TNF)
->> +			count = K1_SPI_FIFO_SIZE;
->> +		else
->> +			return false;	/* No room in the FIFO */
-> please early return:
-
-OK.
-
-> 
-> if (!(val & SSP_STATUS_TNF))
->    return false;
-> count = K1_SPI_FIFO_SIZE;
->> +	}
->> +
->> +	/*
->> +	 * Limit how much we try to send at a time, to reduce the
->> +	 * chance the other side can overrun our RX FIFO.
->> +	 */
->> +	count = min3(count, K1_SPI_THRESH, tx->resid);
->> +	while (count--)
->> +		k1_spi_write_word(drv_data);
->> +
->> +	return !tx->resid;
->> +}
->> +
-> [...]
->> +
->> +static int k1_spi_transfer_one_message(struct spi_controller *host,
->> +					   struct spi_message *message)
->> +{
->> +	struct k1_spi_driver_data *drv_data = spi_controller_get_devdata(host);
->> +	struct completion *completion = &drv_data->completion;
->> +	struct spi_transfer *transfer;
->> +	u32 val;
->> +
->> +	drv_data->message = message;
->> +
->> +	/* Message status starts out successful; set to -EIO on error */
->> +	message->status = 0;
->> +
->> +	/* Hold frame low to avoid losing transferred data */
->> +	val = readl(drv_data->base + SSP_TOP_CTRL);
->> +	val |= TOP_HOLD_FRAME_LOW;
->> +	writel(val, drv_data->base + SSP_TOP_CTRL);
->> +
->> +	list_for_each_entry(transfer, &message->transfers, transfer_list) {
->> +		reinit_completion(completion);
->> +
->> +		/* Issue the next transfer */
->> +		if (!k1_spi_transfer_start(drv_data, transfer)) {
->> +			message->status = -EIO;
->> +			break;
-> we don't need return a error code?
-
-You're right.  This always returns 0.  I think I'll
-just return message->status.
-
-Thank you for catching this.  I'll fix it in the next version.
-
-					-Alex
-
-
-> 
->> +		}
->> +
->> +		k1_spi_transfer_wait(drv_data);
->> +
->> +		k1_spi_transfer_end(drv_data, transfer);
->> +
->> +		/* If an error has occurred, we're done */
->> +		if (message->status)
->> +			break;
-> ditto.
-> 
-> [...]
->> +}
->> +
->> +static void k1_spi_dma_cleanup(struct device *dev, void *res)
->> +{
->> +	struct k1_spi_driver_data *drv_data = res;
->> +
->> +	if (k1_spi_dma_enabled(drv_data)) {
-> if (!k1_spi_dma_enabled(drv_data))
->    return;
-> 
->                    - Troy
-> 
->> +		k1_spi_dma_cleanup_io(drv_data, false);
->> +		k1_spi_dma_cleanup_io(drv_data, true);
->> +	}
->> +}
->> +
->> +
->> +static const struct of_device_id k1_spi_dt_ids[] = {
->> +	{ .compatible = "spacemit,k1-spi", },
->> +	{}
->> +};
->> +MODULE_DEVICE_TABLE(of, k1_spi_dt_ids);
->> +
->> +static void k1_spi_host_init(struct k1_spi_driver_data *drv_data)
->> +{
->> +	struct device_node *np = dev_of_node(drv_data->dev);
->> +	struct spi_controller *host = drv_data->controller;
->> +	struct device *dev = drv_data->dev;
->> +	u32 max_speed_hz;
->> +	int ret;
->> +
->> +	host->dev.of_node = np;
->> +	host->dev.parent = drv_data->dev;
->> +	host->mode_bits = SPI_CPOL | SPI_CPHA | SPI_LOOP;
->> +	host->bits_per_word_mask = SPI_BPW_RANGE_MASK(4, 32);
->> +	host->num_chipselect = 1;
->> +
->> +	if (k1_spi_dma_enabled(drv_data))
->> +		host->dma_alignment = K1_SPI_DMA_ALIGNMENT;
->> +	host->cleanup = k1_spi_cleanup;
->> +	host->setup = k1_spi_setup;
->> +	host->transfer_one_message = k1_spi_transfer_one_message;
->> +
->> +	ret = of_property_read_u32(np, "spi-max-frequency", &max_speed_hz);
->> +	if (!ret) {
->> +		host->max_speed_hz = clamp(max_speed_hz, K1_SPI_MIN_SPEED_HZ,
->> +					   K1_SPI_MAX_SPEED_HZ);
->> +		if (host->max_speed_hz != max_speed_hz)
->> +			dev_warn(dev, "spi-max-frequency %u out of range, using %u\n",
->> +				max_speed_hz, host->max_speed_hz);
->> +	} else {
->> +		if (ret != -EINVAL)
->> +			dev_warn(dev, "bad spi-max-frequency, using %u\n",
->> +				 K1_SPI_DEFAULT_MAX_SPEED_HZ);
->> +		host->max_speed_hz = K1_SPI_DEFAULT_MAX_SPEED_HZ;
->> +	}
->> +}
->> +
->> +/* Set our registers to a known initial state */
->> +static void
->> +k1_spi_register_reset(struct k1_spi_driver_data *drv_data, bool initial)
->> +{
->> +	u32 val = 0;
->> +
->> +	writel(0, drv_data->base + SSP_TOP_CTRL);
->> +
->> +	if (initial) {
->> +		/*
->> +		 * The TX and RX FIFO thresholds are the same no matter
->> +		 * what the speed or bits per word, so we can just set
->> +		 * them once.  The thresholds are one more than the values
->> +		 * in the register.
->> +		 */
->> +		val = FIELD_PREP(FIFO_RFT_MASK, K1_SPI_THRESH - 1);
->> +		val |= FIELD_PREP(FIFO_TFT_MASK, K1_SPI_THRESH - 1);
->> +	}
->> +	writel(val, drv_data->base + SSP_FIFO_CTRL);
->> +
->> +	writel(0, drv_data->base + SSP_INT_EN);
->> +	writel(0, drv_data->base + SSP_TIMEOUT);
->> +
->> +	/* Clear any pending interrupt conditions */
->> +	val = readl(drv_data->base + SSP_STATUS);
->> +	writel(val, drv_data->base + SSP_STATUS);
->> +}
->> +
->> +static irqreturn_t k1_spi_ssp_isr(int irq, void *dev_id)
->> +{
->> +	struct k1_spi_driver_data *drv_data = dev_id;
->> +	bool rx_done;
->> +	bool tx_done;
->> +	u32 val;
->> +
->> +	/* Get status and clear pending interrupts */
->> +	val = readl(drv_data->base + SSP_STATUS);
->> +	writel(val, drv_data->base + SSP_STATUS);
->> +
->> +	if (!drv_data->message)
->> +		return IRQ_NONE;
->> +
->> +	/* Check for a TX underrun or RX underrun first */
->> +	if (val & (SSP_STATUS_TUR | SSP_STATUS_ROR)) {
->> +		/* Disable all interrupts on error */
->> +		writel(0, drv_data->base + SSP_INT_EN);
->> +
->> +		drv_data->message->status = -EIO;
->> +		complete(&drv_data->completion);
->> +
->> +		return IRQ_HANDLED;
->> +	}
->> +
->> +	/* Drain the RX FIFO first, then transmit what we can */
->> +	rx_done = k1_spi_read(drv_data);
->> +	tx_done = k1_spi_write(drv_data);
->> +
->> +	/* Disable interrupts if we're done transferring either direction */
->> +	if (rx_done || tx_done) {
->> +		/* If both are done, disable all interrupts */
->> +		if (rx_done && tx_done) {
->> +			val = 0;
->> +		} else {
->> +			val = readl(drv_data->base + SSP_INT_EN);
->> +			if (rx_done)
->> +				val &= ~(SSP_INT_EN_TINTE | SSP_INT_EN_RIE);
->> +			if (tx_done)
->> +				val &= ~SSP_INT_EN_TIE;
->> +		}
->> +		writel(val, drv_data->base + SSP_INT_EN);
->> +	}
->> +
->> +	if (rx_done && tx_done)
->> +		complete(&drv_data->completion);
->> +
->> +	return IRQ_HANDLED;
->> +}
->> +
->> +static int k1_spi_probe(struct platform_device *pdev)
->> +{
->> +	struct k1_spi_driver_data *drv_data;
->> +	struct device *dev = &pdev->dev;
->> +	struct reset_control *reset;
->> +	struct spi_controller *host;
->> +	struct resource *iores;
->> +	struct clk *clk_bus;
->> +	int ret;
->> +
->> +	host = devm_spi_alloc_host(dev, sizeof(*drv_data));
->> +	if (!host)
->> +		return -ENOMEM;
->> +	drv_data = spi_controller_get_devdata(host);
->> +	drv_data->controller = host;
->> +	platform_set_drvdata(pdev, drv_data);
->> +	drv_data->dev = dev;
->> +	init_completion(&drv_data->completion);
->> +
->> +	drv_data->base = devm_platform_get_and_ioremap_resource(pdev, 0,
->> +								&iores);
->> +	if (IS_ERR(drv_data->base))
->> +		return dev_err_probe(dev, PTR_ERR(drv_data->base),
->> +				     "error mapping memory\n");
->> +	drv_data->base_addr = iores->start;
->> +
->> +	ret = devm_k1_spi_dma_setup(drv_data);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "error setting up DMA\n");
->> +
->> +	k1_spi_host_init(drv_data);
->> +
->> +	clk_bus = devm_clk_get_enabled(dev, "bus");
->> +	if (IS_ERR(clk_bus))
->> +		return dev_err_probe(dev, PTR_ERR(clk_bus),
->> +				     "error getting/enabling bus clock\n");
->> +	drv_data->bus_rate = clk_get_rate(clk_bus);
->> +
->> +	drv_data->clk = devm_clk_get_enabled(dev, "core");
->> +	if (IS_ERR(drv_data->clk))
->> +		return dev_err_probe(dev, PTR_ERR(drv_data->clk),
->> +				     "error getting/enabling core clock\n");
->> +
->> +	reset = devm_reset_control_get_exclusive_deasserted(dev, NULL);
->> +	if (IS_ERR(reset))
->> +		return dev_err_probe(dev, PTR_ERR(reset),
->> +				     "error getting/deasserting reset\n");
->> +
->> +	k1_spi_register_reset(drv_data, true);
->> +
->> +	drv_data->irq = platform_get_irq(pdev, 0);
->> +	if (drv_data->irq < 0)
->> +		return dev_err_probe(dev, drv_data->irq, "error getting IRQ\n");
->> +
->> +	ret = devm_request_irq(dev, drv_data->irq, k1_spi_ssp_isr,
->> +			       IRQF_SHARED, dev_name(dev), drv_data);
->> +	if (ret < 0)
->> +		return dev_err_probe(dev, ret, "error requesting IRQ\n");
->> +
->> +	ret = devm_spi_register_controller(dev, host);
->> +	if (ret)
->> +		dev_err(dev, "error registering controller\n");
->> +
->> +	return ret;
->> +}
->> +
->> +static void k1_spi_remove(struct platform_device *pdev)
->> +{
->> +	struct k1_spi_driver_data *drv_data = platform_get_drvdata(pdev);
->> +
->> +	k1_spi_register_reset(drv_data, false);
->> +}
->> +
->> +static struct platform_driver k1_spi_driver = {
->> +	.driver = {
->> +		.name		= "k1-spi",
->> +		.of_match_table	= k1_spi_dt_ids,
->> +	},
->> +	.probe			= k1_spi_probe,
->> +	.remove			= k1_spi_remove,
->> +};
->> +
->> +module_platform_driver(k1_spi_driver);
->> +
->> +MODULE_DESCRIPTION("SpacemiT K1 SPI controller driver");
->> +MODULE_LICENSE("GPL");
->> -- 
->> 2.48.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBTZXAgMTksIDIwMjUgYXQgNzoyMeKAr0FNIFZpdmlhbiBXYW5nIDx3YW5ncnVpa2Fu
+Z0Bpc2Nhcy5hYy5jbj4gd3JvdGU6Cj4KPiBJcyB0aGlzIG5lY2Vzc2FyeT8gTWF5YmUgdGhpcyBj
+YW4gZ28gaW4gYSBzZXBhcmF0ZSBwYXRjaCwgb3IgZXZlbgo+IHN1Ym1pdHRlZCBzZXBhcmF0ZWx5
+IGVudGlyZWx5IC0gaXQncyB1bnJlbGF0ZWQgdG8gIlJJU0MtVjogcmUtZW5hYmxlIGdjYwo+ICsg
+cnVzdCBidWlsZHMiIGFuZCB3b3VsZCBiZSB3ZWlyZCB0byBzZWUgaW4gZ2l0IGJsYW1lLgoKQWdy
+ZWVkLCBJIG1lbnRpb25lZCB0aGUgc2FtZSBpbiBhIHByZXZpb3VzIHZlcnNpb24gb2YgdGhlIHBh
+dGNoLgoKQ2hlZXJzLApNaWd1ZWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
