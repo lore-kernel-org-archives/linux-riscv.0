@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CFFBCAC5A7
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Sep 2025 12:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F46CAC5A7
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Sep 2025 12:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KTpRIkMDZGIRnLw60YejAwUmsHxUQhcF2rz/dAuTR7g=; b=g/t1JUhCEsc8Wj
-	FynL2hblwtu1kTasVrV2fF02bAGnVWFgFX+zGesz7ItgSvqvuGa6bxgloEjGup3RGOzrGhQ48Kkyh
-	zu15pvKPDBHHzCVrso6BZ+sIGlmXDg7wYNtsHR6pf+fFNxv9yTiHPNNgOSOvxfG6Hv36cFMwA+nD6
-	KZWJmFLy+NH+OdFmr5VvQeg0yGvCXow60F/Z0jeZQW4zFBdAa2CsogXRZZMPAdbiRoKQu3hOVAyzC
-	YqhtWz3W+tWoeEBc3ruCHwsDC/0Bkf8ej8heTEWwWYlc8t2s8H8pEv8zmvmti4vqnX3D/dNtXF7/z
-	KEMVDROffFi1asgMo9sg==;
+	List-Owner; bh=gey51lEzsAKaRGw4LUD1y/unC1lIivD8kWOK6Is1Jjo=; b=JOCB4mkB3yRJPP
+	ONyBvvS3ZesN0CtZtIvygArdaTDUMZFVh+bMjr6P8RJ9vh5BYZ49/AKETToiHP4KEhSN/PAZmSqs8
+	qaPWpZNKvZx8xJ2unkiI+nxMjAVQNvqr3pGdzwOsb/qUt5mJ1M+8mSZyImhlwvYNzyggAaURqF4pS
+	NLGfiXygWbopBLU2bVgU+v7IVeLAQAXLN6JCGsiMbWiIq4hHuWme/J2PAPhCfMnadFLXqXFeMjL2a
+	vw7SPNhypXk/CdfM33NQ8HtsKW1j0Pax/85o/5x0Tls0icFViR1Tsq7s4+gb9jzam8HE87UbuFcUP
+	Aax5OfdEe9uLy9/rTuOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0g43-0000000ANsZ-309y;
-	Mon, 22 Sep 2025 12:54:43 +0000
+	id 1v0g4P-0000000AO3D-1kNY;
+	Mon, 22 Sep 2025 12:55:05 +0000
 Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0g40-0000000ANrP-3lyZ
+	id 1v0g4M-0000000AO19-2ncc
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Sep 2025 12:54:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758545676; cv=none; 
+	Mon, 22 Sep 2025 12:55:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1758545698; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=fKXsmQQOHLxpCKowArx0qWxjlqz35dv/c4ohWJ3WsbDHH75+0d7s1z/hS78hiyDpQs/GoluloEHJmAZF+1+otJFQHyp7/Xb2h3xa1Fi2YfDnLF3MS3ov22AamHbaBFpiFzyyPiOvv8X776Dlje4ga0MzKyTBQ/vr+VR7psz9sow=
+	b=a7Pw2U8LKj/9G8q4teWsNgV6SPSFSdAiz8DXuxZ2FyrX4bTYiu+ElSygDAQ2L/pCN0oHsejIFaWqli5P/jL2zCRylTMTROpmU3xfwa9BDb/8EVJfSvXFiacfyLRlEuitwrz0YCL5KK10Z9ccmXoY509FuL5s1Oo5QdBceqPH7RY=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758545676; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wO22W9vle4i5bEyr0Bi4hKWmH4mcCxrcklcIbBfbcws=; 
-	b=OSfa/c3zJULQ1LzZ92I9tuyFeHtVFB1UpTP7MTY8JoXzBhwZmTXoFZN50JTDGcmYL+eu5e2XqCpFLB+KynzbRMXQ3im9ZwzxQZmOdHCLGboBhc5Yt1HKafG68TfP2vsVXE0icQz4qwn3E8FffeyW6eolppdSQP4aVJbehsvlSBU=
+	t=1758545698; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=FbOLEW/EcCLP6dBCcpzVgADz1ZqyMz4Fw7/Be5J1D64=; 
+	b=WgnLQjg/og6aPXT74FGC0vXfvmFL4jR9m+jq1ZXDVPGEdon5KBOkS9+oLduVTRfeyo8eu6s+DPRmyT8wE84X7u7sxbIPawlZEeVJpB+cc7Rqb9nLlgQLicVoDY7K8S6IkmOTonmFRMaN0Z39bihnjEatNjLPY1odTe4MFhQ0uV0=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758545676;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758545698;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=wO22W9vle4i5bEyr0Bi4hKWmH4mcCxrcklcIbBfbcws=;
-	b=EOuZafm4h/hsy0QD9YcLFF4TqzOe0jIWS5A63/3jQHhivAgZj7UI/4sgn78nXbgI
-	4aFEiloVzBcjSuxz5aAu945aTnItGbR/KivVWsli4vwCnsOnt898tCGxkJVKuyNRQVh
-	VM/2y2W2VgXe9KjOMMj9g2ECyTATQmMUEKEdzO+s=
-Received: by mx.zohomail.com with SMTPS id 17585456750162.658580432733288;
-	Mon, 22 Sep 2025 05:54:35 -0700 (PDT)
+	bh=FbOLEW/EcCLP6dBCcpzVgADz1ZqyMz4Fw7/Be5J1D64=;
+	b=UIjM1hzxYAs+CjO+7FDRlg5wt6eSmPtGP3YAawyQ1+ku9FktBXy/3b7MjXq7uPEM
+	NZpKFGmUk1C9ZHKyGsJRd2Lxg5PS7QXDYgtOeMSory+dBrYP/dXR3Y+GVUaWe/pa8FU
+	YcpWn5YHqZ5nK1MtepNKeoh9JUKjgCimxwZP1Yjs=
+Received: by mx.zohomail.com with SMTPS id 1758545697043323.7993928359582;
+	Mon, 22 Sep 2025 05:54:57 -0700 (PDT)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Mon, 22 Sep 2025 20:46:36 +0800
-Subject: [PATCH v2 06/11] dt-bindings: serial: snps-dw-apb-uart: Add
- Anlogic DR1V90 uart
+Date: Mon, 22 Sep 2025 20:46:37 +0800
+Subject: [PATCH v2 07/11] riscv: Add Anlogic SoC famly Kconfig support
 MIME-Version: 1.0
-Message-Id: <20250922-dr1v90-basic-dt-v2-6-64d28500cb37@pigmoral.tech>
+Message-Id: <20250922-dr1v90-basic-dt-v2-7-64d28500cb37@pigmoral.tech>
 References: <20250922-dr1v90-basic-dt-v2-0-64d28500cb37@pigmoral.tech>
 In-Reply-To: <20250922-dr1v90-basic-dt-v2-0-64d28500cb37@pigmoral.tech>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -69,17 +68,17 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
  linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758545232; l=995;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758545232; l=749;
  i=junhui.liu@pigmoral.tech; s=20250910; h=from:subject:message-id;
- bh=2duqhJJfa3OWCSE0ZYgcGXeD6NGxJzujcMjbQJAxiO4=;
- b=VBUHAMSHO09Ry2leHmRfzhpQE5vY/EH5hoSJ1OEQ993DTBLwsoC4M2LtvSyzXY+B77YEcdM6/
- d6tYVM5spvJAREhNvHnj/eDM5Jd8X2yL4ct3YO96C9uDqjjVWooUBoR
+ bh=w5ZIPq5ThjyGEwIRg/zVHH8FHcTm00gGBFVKYiZts7w=;
+ b=vY8tNb/qTUqOguwgBNQ9iWLAEtJ/gQlxPza89mMWGUgkPW0vmrfIbYzj9CrMok7NWWPg8vQtG
+ cg/wvYlTE3uD2D2h1pdFY3ZMs6KrcomeQGZ8LH58RALBe+tWYBvtG5b
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
  pk=cgATWSU1KfGWmdwNmkPyHGnWgofhqqhE8Vts58wyxe4=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_055441_021665_902E8F15 
-X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-CacheID: sfid-20250922_055502_795422_A6ECE7DE 
+X-CRM114-Status: UNSURE (   9.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,27 +96,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Anlogic DR1V90 SoC integrates a UART controller compatible with
-snps,dw-apb-uart, operating at a 50 MHz clock.
+The first SoC in the Anlogic series is DR1V90, which contains a RISC-V
+core from Nuclei.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
- Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/Kconfig.socs | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-index cb9da6c97afcfd27a315414959b2b17beb4454cf..691bd0bac6be449516e213b550415acd37badad6 100644
---- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-@@ -51,6 +51,7 @@ properties:
-           - const: renesas,rzn1-uart
-       - items:
-           - enum:
-+              - anlogic,dr1v90-uart
-               - brcm,bcm11351-dw-apb-uart
-               - brcm,bcm21664-dw-apb-uart
-               - rockchip,px30-uart
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 61ceae0aa27a6fa3a91da6a46becfd96da99fd09..c1c0681f4364647477c50518725d9323922ff270 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -7,6 +7,11 @@ config ARCH_ANDES
+ 	help
+ 	  This enables support for Andes SoC platform hardware.
+ 
++config ARCH_ANLOGIC
++	bool "Anlogic SoCs"
++	help
++	  This enables support for Anlogic SoC platform hardware.
++
+ config ARCH_MICROCHIP_POLARFIRE
+ 	def_bool ARCH_MICROCHIP
+ 
 
 -- 
 2.51.0
