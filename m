@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82CFCAC5A7
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Sep 2025 03:48:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5785CAC5A7
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Sep 2025 04:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+0FTbc9QthrBhDDEyJFbKryGnyoUoOrlLmxGfjliJ9U=; b=PfLS1ZMSSMJ4AN
-	yl5SJxpOLH9vCxJbkHjql4h6+ysceN1+lYOmT19VC+4vugu6gogyQ3M5zXn0Xb5wcUTEZfO6yM60l
-	E9eGcHZXCcCemFA7oHTA2H6cTOL0xekTFcupvZwtTqNQ7rWVqaMODydlsmaBEXkn2akjwQ6SbDbbg
-	hp4PXxqdpBYCdes4bof+dXEpaBcO9m++PkPGBLfOTqt4eUFx7AkDYN6oBdlte8Dw9FJZu295vCrF2
-	iwrRQRk4cIJ9/S4c0JG6EveiBm6oxtrf0cKeLC+nsIWMuGbemDFa7vNI4BEAZ3jy3/ZJmcY+IZuEy
-	IF/rcIue++6NqLEg9v3A==;
+	List-Owner; bh=sPxwRE2bDLLEw4biYu4p5gH42+9hYybuvPrzj+tHAt0=; b=s54xh8Qo8dR5wm
+	wKh7q7Chh/2cn0O0YoS/zLVHB80hMphzLD0Rl6Vj9rJaBsU6IQZBbIdICta8Uwysf2qT4XygKuija
+	NTFYlJl0pXtmQUKabDY0pXm3gt/1qsK7XC6jt7ZNCXhr9oYWgT62B7W7erleBEynY3MeFlBHLewHR
+	Jor/9RIQWUz1c+J4me2iguBqZ68VjtxRkda+8hIvZFmnQ2DdqEAOcXg2yFQQqXeaxyTnB2C4b3EMf
+	U9HTdjP6YLEZmbXM/EiUBOEj7+1owuE77R4bfzGCTJzUkm75RXkdJTb3kmWU31QQZBTJmUAm2Y3pk
+	9ODigaT46bcHFdeGScvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0XWy-00000008iyJ-39Fr;
-	Mon, 22 Sep 2025 03:48:00 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1v0YUm-00000008pUs-1AiD;
+	Mon, 22 Sep 2025 04:49:48 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0XWv-00000008ixN-1Qi3
+	id 1v0YUj-00000008pUC-0NtD
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Sep 2025 03:47:59 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-892db7eb552so519791839f.1
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Sep 2025 20:47:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1758512876; x=1759117676; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xGuVEvHGyfQ2BFC63znl+bSOQQ/TN+svZB+fJgEKx9M=;
-        b=FtIIr0bVGEzyswlMxZDc8uCh+fGzgJlR1G69sw4r6u17e26OQanTc/2J+xS+LBH0Ve
-         3uLvrwZKpYAMsByAl0N+SxXPx8ExR6u3OSeVeT6EHGbllZx3Qqk+EGpO8HbuOmQwUAKz
-         BO64ddZhwG+R7jH0OHuOtQrwn4+/lpvTqRtU2s7njZtVDpES87RJHumov8xhxAQ+QtXR
-         ilhsDn2F1DdW5UQ/WBYqKKCy+JFzhCTROdoqKb0Qvb/ICrJVIRPIIrDqWEjakOWBiBm5
-         eGiX7/kRAjQcR22mUitM6+H7VRlPyTOz5V+QSaDdaINwgy9YfgfqgQdKj2nzyNLF+q+q
-         D6Lw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758512876; x=1759117676;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xGuVEvHGyfQ2BFC63znl+bSOQQ/TN+svZB+fJgEKx9M=;
-        b=HiOUPMykotkbUmCeTzFlkGLe3cj4IVhydKSdi+U8n6jAIwfJh8nLoTahicjXgYyoyz
-         3fiDo6iH/1k0y6CGHFmtDxkOGo95QrRgLFqCLqsSIiq5OLH+LrDSkk6VzauUDzAMkJ7/
-         yrl2xBbt0LSkJHnLC2gIXC6Y341WA50clMIynP9vD//gOi/8Ms9oN8YqcSAefbBfCTm4
-         NZYvj+LDgqIXO2A9fXJYwz+1KK2DbPIBpGOBHO+xjrMSABBhfYuJV836lvOaVKzwFjHJ
-         hqEeJnipVDaJO6MOdRWVNbb2H9h1kA2yXduMNoBRN2V15zc5U6aoJJdtAbpUXb7/Zaxa
-         neXg==
-X-Forwarded-Encrypted: i=1; AJvYcCUrr9HZeATWuurFd4C38rj6uPqsM6fp3eu/Ag2opgU1hx9hEtmxNwXpk4Uoo2AAX0mGsUKZSnpELBUv6w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmaiZ1gJBw+lERKXwWPYA7FvYVJit8KmUgmDcFAHs1gCZXn4Eh
-	TdcDc8vypUbxerzrqzDQ1YKLRtRlQ+UQX8f95EdaFCL6oEe6DuyL8B+cM8Tq+wU97okgBE2tdy1
-	GRCib5IQmRmxJDMP6syLqQRz2nSJ7ALT37mBdHwAB1SMweaeCwPzYp4A=
-X-Gm-Gg: ASbGnctQJTLQ1uF7Yke8wDmooVLg63virWyEp7EaMrnuk01WKkan0iZGA45LndV8YdQ
-	pqHyWOFy/IBC3Q63ihcUl/UbaQkyvh8p0Cm0fOEQdb8uN9WDtR8aOwJlaG4EOPXYuISyBzBwQLW
-	ZUpNqh9tzylgOTVEN4lKhjlrZ5EWyDOOmtgxd60IcTU9AEHkqCXDGMjy4r6uMyZVjcFqYEcGI96
-	9DICjbc6fl27fAZvkyOGELZSIDUKaxt645vxYl7
-X-Google-Smtp-Source: AGHT+IHO8DNLPyWRRVhnXNw51Hz0e4MEtudltvnf2lQqnZc/nn0n4GS3gLJxQNB6R7/XqLb0csBtp5kh4GKuFoaudA8=
-X-Received: by 2002:a05:6e02:18ce:b0:424:7de2:61ca with SMTP id
- e9e14a558f8ab-4248199c624mr163717175ab.20.1758512876440; Sun, 21 Sep 2025
- 20:47:56 -0700 (PDT)
+	Mon, 22 Sep 2025 04:49:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=mrg3qT6OWlcGN/2n16b3vyg3rWGl9IqhWxJnoQsePU0=; b=imP4NH2gV71kFk8IQ+w9/T+u6W
+	JDKJXd4ZwNvYuueVUugG2LdVVAXerx0TT1SfKYtwixNUiqBZ0xP7SkFT5WEeydQX24pmMBeaqO8wW
+	BeSU6QWTm9aKBQnvotH9eLtSixCHfJkANe2j2b55tFgHe4WPDkWxYf3HNrbNyg3mb1lJod47h/fB1
+	eI7uLuE6iKqJXIGtShqaBd93csDLqN/2uvMGjMCZe6i3hw71sx63JyKl5GWMWGoGSh/DD+b4eoB0J
+	ScKyIhpGP/nYF1jlvKODSCNO/WbdMxyy549kK8eVV1c/OSIaBy8cur7Xhm3R1Ob/jK2Qt5eVrBJ6I
+	5o1s/rsA==;
+Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1v0YUa-009nwn-0v;
+	Mon, 22 Sep 2025 06:49:36 +0200
+Date: Mon, 22 Sep 2025 06:49:35 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH 2/3] riscv: dts: spacemit: add 24c02 eeprom on BPI-F3
+Message-ID: <aNDVX9IrDbH2w7yJ@aurel32.net>
+Mail-Followup-To: Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+References: <20250921210237.943370-1-aurelien@aurel32.net>
+ <20250921210237.943370-3-aurelien@aurel32.net>
+ <20250922032158-GYA1291757@gentoo.org>
 MIME-Version: 1.0
-References: <20250714072051.1928-1-xiangwencheng@lanxincomputing.com>
-In-Reply-To: <20250714072051.1928-1-xiangwencheng@lanxincomputing.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 22 Sep 2025 09:17:45 +0530
-X-Gm-Features: AS18NWCodXxq_NwRnNatjdWFDrBUIO_QWr6YpBDyOo-YuWb6ERuQ-Hm3OHSaNi8
-Message-ID: <CAAhSdy1WaaSSdPqHQfNGdc98vfvF83YZYetd4jVPpHWQJEY5GQ@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: Introduce KVM_EXIT_FAIL_ENTRY_NO_VSFILE
-To: BillXiang <xiangwencheng@lanxincomputing.com>
-Cc: atish.patra@linux.dev, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20250922032158-GYA1291757@gentoo.org>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_204757_382493_DCA3B4A0 
-X-CRM114-Status: GOOD (  20.92  )
+X-CRM114-CacheID: sfid-20250921_214945_564019_8A2EEE18 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,61 +88,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdWwgMTQsIDIwMjUgYXQgMTI6NTHigK9QTSBCaWxsWGlhbmcKPHhpYW5nd2VuY2hl
-bmdAbGFueGluY29tcHV0aW5nLmNvbT4gd3JvdGU6Cj4KPiBDb25zaWRlciBhIHN5c3RlbSB3aXRo
-IDggaGFydHMsIHdoZXJlIGVhY2ggaGFydCBzdXBwb3J0cyA1Cj4gR3Vlc3QgSW50ZXJydXB0IEZp
-bGVzIChHSUZzKSwgeWllbGRpbmcgNDAgdG90YWwgR0lGcy4KPiBJZiB3ZSBsYXVuY2ggYSBRRU1V
-IGd1ZXN0IHdpdGggb3ZlciA1IHZDUFVzIHVzaW5nCj4gIi1NIHZpcnQsYWlhPSdhcGxpYy1pbXNp
-YycgLWFjY2VsIGt2bSxyaXNjdi1haWE9aHdhY2NlbCIg4oCTIHdoaWNoCj4gcmVsaWVzIHNvbGVs
-eSBvbiBWUy1maWxlcyAobm90IFNXLWZpbGVzKSBmb3IgaGlnaGVyIHBlcmZvcm1hbmNlIOKAkyB0
-aGUKPiBndWVzdCByZXF1aXJlcyBtb3JlIHRoYW4gNSBHSUZzLiBIb3dldmVyLCB0aGUgY3VycmVu
-dCBMaW51eCBzY2hlZHVsZXIKPiBsYWNrcyBHSUYgYXdhcmVuZXNzLCBwb3RlbnRpYWxseSBzY2hl
-ZHVsaW5nID41IHZDUFVzIHRvIGEgc2luZ2xlIGhhcnQuCj4gVGhpcyB0cmlnZ2VycyBWUy1maWxl
-IGFsbG9jYXRpb24gZmFpbHVyZSwgYW5kIHNpbmNlIG5vIGhhbmRsZXIgZXhpc3RzCj4gZm9yIHRo
-aXMgZXJyb3IsIHRoZSBRRU1VIGd1ZXN0IGJlY29tZXMgY29ycnVwdGVkLgo+Cj4gVG8gYWRkcmVz
-cyB0aGlzLCB3ZSBpbnRyb2R1Y2UgS1ZNX0VYSVRfRkFJTF9FTlRSWV9OT19WU0ZJTEUgdXBvbgo+
-IFZTLWZpbGUgYWxsb2NhdGlvbiBmYWlsdXJlLiBUaGlzIHByb3ZpZGVzIGFuIG9wcG9ydHVuaXR5
-IGZvciBncmFjZWZ1bAo+IGVycm9yIGhhbmRsaW5nIGluc3RlYWQgb2YgY29ycnVwdGlvbi4gRm9y
-IGV4YW1wbGUsIFFFTVUgY2FuIGhhbmRsZQo+IHRoaXMgZXhpdCBieSByZXNjaGVkdWxpbmcgdkNQ
-VXMgdG8gYWx0ZXJuYXRpdmUgaGFydHMgd2hlbiBWUy1maWxlCj4gYWxsb2NhdGlvbiBmYWlscyBv
-biB0aGUgY3VycmVudCBoYXJ0IFsxXS4KCkN1cnJlbnRseSwgd2UgcmV0dXJuIENTUl9IU1RBVFVT
-IGFzIGhhcmR3YXJlX2VudHJ5X2ZhaWx1cmVfcmVhc29uCndoaWNoIGlzIHZhZ3VlIHNvIGl0IGlz
-IGJldHRlciB0byByZXR1cm4gYSB3ZWxsIGRlZmluZWQgdmFsdWUgcHJvdmlkZWQgdmlhCnVhcGkv
-YXNtL2t2bS5oLiBJbiBnZW5lcmFsLCB0aGlzIHBhdGNoIGlzIGZpbmUgYnV0IHRoZSBjb21taXQg
-ZGVzY3JpcHRpb24KbmVlZHMgdG8gYmUgaW1wcm92ZWQgYWxvbmcgdGhlc2UgbGluZXMuCgpSZWdh
-cmRzLApBbnVwCgo+Cj4gWzFdIGh0dHBzOi8vZ2l0aHViLmNvbS9CaWxsWGlhbmcvcWVtdS90cmVl
-L3Jpc2N2LXZzZmlsZS1hbGxvYy8KPgo+IFNpZ25lZC1vZmYtYnk6IEJpbGxYaWFuZyA8eGlhbmd3
-ZW5jaGVuZ0BsYW54aW5jb21wdXRpbmcuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUv
-dWFwaS9hc20va3ZtLmggfCAyICsrCj4gIGFyY2gvcmlzY3Yva3ZtL2FpYV9pbXNpYy5jICAgICAg
-ICB8IDIgKy0KPiAgMiBmaWxlcyBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24o
-LSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmggYi9h
-cmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmgKPiBpbmRleCA1ZjU5ZmQyMjZjYzUuLmJl
-MjljMzUwMmZlNCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3Zt
-LmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmgKPiBAQCAtMjIsNiAr
-MjIsOCBAQAo+ICAjZGVmaW5lIEtWTV9JTlRFUlJVUFRfU0VUICAgICAgLTFVCj4gICNkZWZpbmUg
-S1ZNX0lOVEVSUlVQVF9VTlNFVCAgICAtMlUKPgo+ICsjZGVmaW5lIEtWTV9FWElUX0ZBSUxfRU5U
-UllfTk9fVlNGSUxFICAoMVVMTCA8PCAwKQo+ICsKPiAgLyogZm9yIEtWTV9HRVRfUkVHUyBhbmQg
-S1ZNX1NFVF9SRUdTICovCj4gIHN0cnVjdCBrdm1fcmVncyB7Cj4gIH07Cj4gZGlmZiAtLWdpdCBh
-L2FyY2gvcmlzY3Yva3ZtL2FpYV9pbXNpYy5jIGIvYXJjaC9yaXNjdi9rdm0vYWlhX2ltc2ljLmMK
-PiBpbmRleCAyOWVmOWMyMTMzYTkuLjY5YjBhYjY1MTM4OSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jp
-c2N2L2t2bS9haWFfaW1zaWMuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL2FpYV9pbXNpYy5jCj4g
-QEAgLTc2MCw3ICs3NjAsNyBAQCBpbnQga3ZtX3Jpc2N2X3ZjcHVfYWlhX2ltc2ljX3VwZGF0ZShz
-dHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4gICAgICAgICAgICAgICAgIC8qIEZvciBIVyBhY2NlbGVy
-YXRpb24gbW9kZSwgd2UgY2FuJ3QgY29udGludWUgKi8KPiAgICAgICAgICAgICAgICAgaWYgKGt2
-bS0+YXJjaC5haWEubW9kZSA9PSBLVk1fREVWX1JJU0NWX0FJQV9NT0RFX0hXQUNDRUwpIHsKPiAg
-ICAgICAgICAgICAgICAgICAgICAgICBydW4tPmZhaWxfZW50cnkuaGFyZHdhcmVfZW50cnlfZmFp
-bHVyZV9yZWFzb24gPQo+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICBDU1JfSFNUQVRVUzsKPiArICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgS1ZNX0VYSVRfRkFJ
-TF9FTlRSWV9OT19WU0ZJTEU7Cj4gICAgICAgICAgICAgICAgICAgICAgICAgcnVuLT5mYWlsX2Vu
-dHJ5LmNwdSA9IHZjcHUtPmNwdTsKPiAgICAgICAgICAgICAgICAgICAgICAgICBydW4tPmV4aXRf
-cmVhc29uID0gS1ZNX0VYSVRfRkFJTF9FTlRSWTsKPiAgICAgICAgICAgICAgICAgICAgICAgICBy
-ZXR1cm4gMDsKPiAtLQo+IDIuNDYuMi53aW5kb3dzLjEKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi,
+
+On 2025-09-22 11:21, Yixun Lan wrote:
+> Hi Aurelien,
+> 
+> On 23:01 Sun 21 Sep     , Aurelien Jarno wrote:
+> > The BPI-F3 contains a 24c02 eeprom, that contains among other things the
+> > MAC addresses of the two network interfaces. For this reason, mark it as
+> > read-only.
+> > 
+> > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> > ---
+> >  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 11 ++++++++++-
+> >  1 file changed, 10 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> > index 3b6e4f52e9aad..574d10fdf9b82 100644
+> > --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> > +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> > @@ -115,6 +115,15 @@ &i2c2 {
+> >  	pinctrl-0 = <&i2c2_0_cfg>;
+> >  	pinctrl-names = "default";
+> >  	status = "okay";
+> > +
+> > +	eeprom@50 {
+> > +		compatible = "atmel,24c02";
+> > +		reg = <0x50>;
+> > +		vcc-supply = <&vcc1v8_sys>;
+> > +		pagesize = <16>;
+> ..
+> > +		read-only;
+> so you're sure there is no demand to write data to eeprom?
+> (update info at linux env)
+
+It seems to only contains board infos (mac addresses), but if there are 
+other use cases, that can indeed be dropped.
+
+> > +		size = <256>;
+> > +	};
+> >  };
+> >  
+> >  &i2c8 {
+> > @@ -143,7 +152,7 @@ buck2 {
+> >  				regulator-always-on;
+> >  			};
+> >  
+> > -			buck3 {
+> > +			vcc1v8_sys: buck3 {
+> I'm not sure if adding an alias here is a good idea, it occurs buck3
+> serve the suppy for many devices, besides, to me it's more proper to
+> name it as eeprom_vcc1v8 for the eeprom according to schematics in
+> this case..
+
+We need to add a label to be able to reference it for the eeprom 
+vcc-supply, but we'll have to also reference it for other devices (e.g.  
+emmc, wifi, phys, etc... It tried to choose a common name, ie the right 
+most one on the schematics. Another option could be to call it buck3, 
+but other name suggestions are welcome.
+
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
