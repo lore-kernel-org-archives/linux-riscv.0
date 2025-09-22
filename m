@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E09FCAC592
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Sep 2025 03:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82CFCAC5A7
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Sep 2025 03:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fM8p1AL6lXSWCEUNUWRsNiL8nM0c3KVHPmTP/uy+3Nw=; b=P6LPVI+HKgiwLC
-	K6ZymJAhGnCK9TbWMUpDlg75HnwjH08kawcMrddDZMpG97SybGEuRBFi1I1FHc1nbpmSsSD6PERt3
-	dfpT/r97zCx+8mLP5pLQNc9h05IralywKSqASvTDM+p79ZqxdTbPPaqL3A1jq61Co75T25mkWgjb1
-	9OaTJTJXzcZzhPX+fP72dNPY+BT4KIIiUmT4dnKa5e0XoJMV3G3voFdU/nNG+ZU/2drnAfKmVgRzg
-	naDnZLM4LlUs/t1LrBShGCK6p5GQifvL1bxXiEEcRqUVaZLIykarMjmrTPv5TFktjK32Ir4/2C3qo
-	tqU9/hxN9EYStiHDBiaQ==;
+	List-Owner; bh=+0FTbc9QthrBhDDEyJFbKryGnyoUoOrlLmxGfjliJ9U=; b=PfLS1ZMSSMJ4AN
+	yl5SJxpOLH9vCxJbkHjql4h6+ysceN1+lYOmT19VC+4vugu6gogyQ3M5zXn0Xb5wcUTEZfO6yM60l
+	E9eGcHZXCcCemFA7oHTA2H6cTOL0xekTFcupvZwtTqNQ7rWVqaMODydlsmaBEXkn2akjwQ6SbDbbg
+	hp4PXxqdpBYCdes4bof+dXEpaBcO9m++PkPGBLfOTqt4eUFx7AkDYN6oBdlte8Dw9FJZu295vCrF2
+	iwrRQRk4cIJ9/S4c0JG6EveiBm6oxtrf0cKeLC+nsIWMuGbemDFa7vNI4BEAZ3jy3/ZJmcY+IZuEy
+	IF/rcIue++6NqLEg9v3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0XM9-00000008hmD-2UVU;
-	Mon, 22 Sep 2025 03:36:49 +0000
-Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
+	id 1v0XWy-00000008iyJ-39Fr;
+	Mon, 22 Sep 2025 03:48:00 +0000
+Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0XM5-00000008hkj-0VxV
+	id 1v0XWv-00000008ixN-1Qi3
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Sep 2025 03:36:48 +0000
-Message-ID: <e4e82695-c03f-4105-bddd-9778d7e368d4@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758512191;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9/pAYjt1PTM1WTwOEAJ1ryShiXtBMZp1571RlbpsQfQ=;
-	b=dYeIGHtXEhwqRe5dY2kuaOhbMvjIC5LBJnI4MTLAavEHM28MO5fC1RBYYw1JQSenqd1Od+
-	ppNvqg9coKtIPXFQHgGtx3lExQK15m1zekX1RHO6FWDHA+ZXFNiB8BTagglJX3zuepxRoC
-	P2383CbGkK919uOabMZSgfcRGK4vAQ8=
-Date: Mon, 22 Sep 2025 11:36:11 +0800
+	Mon, 22 Sep 2025 03:47:59 +0000
+Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-892db7eb552so519791839f.1
+        for <linux-riscv@lists.infradead.org>; Sun, 21 Sep 2025 20:47:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1758512876; x=1759117676; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xGuVEvHGyfQ2BFC63znl+bSOQQ/TN+svZB+fJgEKx9M=;
+        b=FtIIr0bVGEzyswlMxZDc8uCh+fGzgJlR1G69sw4r6u17e26OQanTc/2J+xS+LBH0Ve
+         3uLvrwZKpYAMsByAl0N+SxXPx8ExR6u3OSeVeT6EHGbllZx3Qqk+EGpO8HbuOmQwUAKz
+         BO64ddZhwG+R7jH0OHuOtQrwn4+/lpvTqRtU2s7njZtVDpES87RJHumov8xhxAQ+QtXR
+         ilhsDn2F1DdW5UQ/WBYqKKCy+JFzhCTROdoqKb0Qvb/ICrJVIRPIIrDqWEjakOWBiBm5
+         eGiX7/kRAjQcR22mUitM6+H7VRlPyTOz5V+QSaDdaINwgy9YfgfqgQdKj2nzyNLF+q+q
+         D6Lw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758512876; x=1759117676;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xGuVEvHGyfQ2BFC63znl+bSOQQ/TN+svZB+fJgEKx9M=;
+        b=HiOUPMykotkbUmCeTzFlkGLe3cj4IVhydKSdi+U8n6jAIwfJh8nLoTahicjXgYyoyz
+         3fiDo6iH/1k0y6CGHFmtDxkOGo95QrRgLFqCLqsSIiq5OLH+LrDSkk6VzauUDzAMkJ7/
+         yrl2xBbt0LSkJHnLC2gIXC6Y341WA50clMIynP9vD//gOi/8Ms9oN8YqcSAefbBfCTm4
+         NZYvj+LDgqIXO2A9fXJYwz+1KK2DbPIBpGOBHO+xjrMSABBhfYuJV836lvOaVKzwFjHJ
+         hqEeJnipVDaJO6MOdRWVNbb2H9h1kA2yXduMNoBRN2V15zc5U6aoJJdtAbpUXb7/Zaxa
+         neXg==
+X-Forwarded-Encrypted: i=1; AJvYcCUrr9HZeATWuurFd4C38rj6uPqsM6fp3eu/Ag2opgU1hx9hEtmxNwXpk4Uoo2AAX0mGsUKZSnpELBUv6w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmaiZ1gJBw+lERKXwWPYA7FvYVJit8KmUgmDcFAHs1gCZXn4Eh
+	TdcDc8vypUbxerzrqzDQ1YKLRtRlQ+UQX8f95EdaFCL6oEe6DuyL8B+cM8Tq+wU97okgBE2tdy1
+	GRCib5IQmRmxJDMP6syLqQRz2nSJ7ALT37mBdHwAB1SMweaeCwPzYp4A=
+X-Gm-Gg: ASbGnctQJTLQ1uF7Yke8wDmooVLg63virWyEp7EaMrnuk01WKkan0iZGA45LndV8YdQ
+	pqHyWOFy/IBC3Q63ihcUl/UbaQkyvh8p0Cm0fOEQdb8uN9WDtR8aOwJlaG4EOPXYuISyBzBwQLW
+	ZUpNqh9tzylgOTVEN4lKhjlrZ5EWyDOOmtgxd60IcTU9AEHkqCXDGMjy4r6uMyZVjcFqYEcGI96
+	9DICjbc6fl27fAZvkyOGELZSIDUKaxt645vxYl7
+X-Google-Smtp-Source: AGHT+IHO8DNLPyWRRVhnXNw51Hz0e4MEtudltvnf2lQqnZc/nn0n4GS3gLJxQNB6R7/XqLb0csBtp5kh4GKuFoaudA8=
+X-Received: by 2002:a05:6e02:18ce:b0:424:7de2:61ca with SMTP id
+ e9e14a558f8ab-4248199c624mr163717175ab.20.1758512876440; Sun, 21 Sep 2025
+ 20:47:56 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
- zero-filled subpages
-Content-Language: en-US
-To: Zi Yan <ziy@nvidia.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, lorenzo.stoakes@oracle.com,
- usamaarif642@gmail.com, yuzhao@google.com, baolin.wang@linux.alibaba.com,
- baohua@kernel.org, voidice@gmail.com, Liam.Howlett@oracle.com,
- catalin.marinas@arm.com, cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
- kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
- roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
- dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
- surenb@google.com, hughd@google.com, willy@infradead.org,
- matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
- byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
- apopple@nvidia.com, qun-wei.lin@mediatek.com, Andrew.Yang@mediatek.com,
- casper.li@mediatek.com, chinwen.chang@mediatek.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-mm@kvack.org, ioworker0@gmail.com,
- stable@vger.kernel.org, linux-riscv@lists.infradead.org,
- palmer@rivosinc.com, samuel.holland@sifive.com, charlie@rivosinc.com
-References: <20250922021458.68123-1-lance.yang@linux.dev>
- <3DD2EF5E-3E6A-40B0-AFCC-8FB38F0763DB@nvidia.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <3DD2EF5E-3E6A-40B0-AFCC-8FB38F0763DB@nvidia.com>
-X-Migadu-Flow: FLOW_OUT
+References: <20250714072051.1928-1-xiangwencheng@lanxincomputing.com>
+In-Reply-To: <20250714072051.1928-1-xiangwencheng@lanxincomputing.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 22 Sep 2025 09:17:45 +0530
+X-Gm-Features: AS18NWCodXxq_NwRnNatjdWFDrBUIO_QWr6YpBDyOo-YuWb6ERuQ-Hm3OHSaNi8
+Message-ID: <CAAhSdy1WaaSSdPqHQfNGdc98vfvF83YZYetd4jVPpHWQJEY5GQ@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Introduce KVM_EXIT_FAIL_ENTRY_NO_VSFILE
+To: BillXiang <xiangwencheng@lanxincomputing.com>
+Cc: atish.patra@linux.dev, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_203645_699708_3572D5EB 
-X-CRM114-Status: GOOD (  26.73  )
+X-CRM114-CacheID: sfid-20250921_204757_382493_DCA3B4A0 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,165 +92,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cc: RISC-V folks
-
-On 2025/9/22 10:36, Zi Yan wrote:
-> On 21 Sep 2025, at 22:14, Lance Yang wrote:
-> 
->> From: Lance Yang <lance.yang@linux.dev>
->>
->> When both THP and MTE are enabled, splitting a THP and replacing its
->> zero-filled subpages with the shared zeropage can cause MTE tag mismatch
->> faults in userspace.
->>
->> Remapping zero-filled subpages to the shared zeropage is unsafe, as the
->> zeropage has a fixed tag of zero, which may not match the tag expected by
->> the userspace pointer.
->>
->> KSM already avoids this problem by using memcmp_pages(), which on arm64
->> intentionally reports MTE-tagged pages as non-identical to prevent unsafe
->> merging.
->>
->> As suggested by David[1], this patch adopts the same pattern, replacing the
->> memchr_inv() byte-level check with a call to pages_identical(). This
->> leverages existing architecture-specific logic to determine if a page is
->> truly identical to the shared zeropage.
->>
->> Having both the THP shrinker and KSM rely on pages_identical() makes the
->> design more future-proof, IMO. Instead of handling quirks in generic code,
->> we just let the architecture decide what makes two pages identical.
->>
->> [1] https://lore.kernel.org/all/ca2106a3-4bb2-4457-81af-301fd99fbef4@redhat.com
->>
->> Cc: <stable@vger.kernel.org>
->> Reported-by: Qun-wei Lin <Qun-wei.Lin@mediatek.com>
->> Closes: https://lore.kernel.org/all/a7944523fcc3634607691c35311a5d59d1a3f8d4.camel@mediatek.com
->> Fixes: b1f202060afe ("mm: remap unused subpages to shared zeropage when splitting isolated thp")
->> Suggested-by: David Hildenbrand <david@redhat.com>
->> Signed-off-by: Lance Yang <lance.yang@linux.dev>
->> ---
->> Tested on x86_64 and on QEMU for arm64 (with and without MTE support),
->> and the fix works as expected.
-> 
->  From [1], I see you mentioned RISC-V also has the address masking feature.
-> Is it affected by this? And memcmp_pages() is only implemented by ARM64
-> for MTE. Should any arch with address masking always implement it to avoid
-> the same issue?
-
-Yeah, I'm new to RISC-V, seems like RISC-V has a similar feature as
-described in Documentation/arch/riscv/uabi.rst, which is the Supm
-(Supervisor-mode Pointer Masking) extension.
-
-```
-Pointer masking
----------------
-
-Support for pointer masking in userspace (the Supm extension) is 
-provided via
-the ``PR_SET_TAGGED_ADDR_CTRL`` and ``PR_GET_TAGGED_ADDR_CTRL`` ``prctl()``
-operations. Pointer masking is disabled by default. To enable it, userspace
-must call ``PR_SET_TAGGED_ADDR_CTRL`` with the ``PR_PMLEN`` field set to the
-number of mask/tag bits needed by the application. ``PR_PMLEN`` is 
-interpreted
-as a lower bound; if the kernel is unable to satisfy the request, the
-``PR_SET_TAGGED_ADDR_CTRL`` operation will fail. The actual number of 
-tag bits
-is returned in ``PR_PMLEN`` by the ``PR_GET_TAGGED_ADDR_CTRL`` operation.
-```
-
-But, IIUC, Supm by itself only ensures that the upper bits are ignored on
-memory access :)
-
-So, RISC-V today would likely not be affected. However, once it implements
-full hardware tag checking, it will face the exact same zero-page problem.
-
-Anyway, any architecture with a feature like MTE in the future will need
-its own memcmp_pages() to prevent unsafe merges ;)
-
-> 
->>
->>   mm/huge_memory.c | 15 +++------------
->>   mm/migrate.c     |  8 +-------
->>   2 files changed, 4 insertions(+), 19 deletions(-)
->>
->> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
->> index 32e0ec2dde36..28d4b02a1aa5 100644
->> --- a/mm/huge_memory.c
->> +++ b/mm/huge_memory.c
->> @@ -4104,29 +4104,20 @@ static unsigned long deferred_split_count(struct shrinker *shrink,
->>   static bool thp_underused(struct folio *folio)
->>   {
->>   	int num_zero_pages = 0, num_filled_pages = 0;
->> -	void *kaddr;
->>   	int i;
->>
->>   	for (i = 0; i < folio_nr_pages(folio); i++) {
->> -		kaddr = kmap_local_folio(folio, i * PAGE_SIZE);
->> -		if (!memchr_inv(kaddr, 0, PAGE_SIZE)) {
->> -			num_zero_pages++;
->> -			if (num_zero_pages > khugepaged_max_ptes_none) {
->> -				kunmap_local(kaddr);
->> +		if (pages_identical(folio_page(folio, i), ZERO_PAGE(0))) {
->> +			if (++num_zero_pages > khugepaged_max_ptes_none)
->>   				return true;
->> -			}
->>   		} else {
->>   			/*
->>   			 * Another path for early exit once the number
->>   			 * of non-zero filled pages exceeds threshold.
->>   			 */
->> -			num_filled_pages++;
->> -			if (num_filled_pages >= HPAGE_PMD_NR - khugepaged_max_ptes_none) {
->> -				kunmap_local(kaddr);
->> +			if (++num_filled_pages >= HPAGE_PMD_NR - khugepaged_max_ptes_none)
->>   				return false;
->> -			}
->>   		}
->> -		kunmap_local(kaddr);
->>   	}
->>   	return false;
->>   }
->> diff --git a/mm/migrate.c b/mm/migrate.c
->> index aee61a980374..ce83c2c3c287 100644
->> --- a/mm/migrate.c
->> +++ b/mm/migrate.c
->> @@ -300,9 +300,7 @@ static bool try_to_map_unused_to_zeropage(struct page_vma_mapped_walk *pvmw,
->>   					  unsigned long idx)
->>   {
->>   	struct page *page = folio_page(folio, idx);
->> -	bool contains_data;
->>   	pte_t newpte;
->> -	void *addr;
->>
->>   	if (PageCompound(page))
->>   		return false;
->> @@ -319,11 +317,7 @@ static bool try_to_map_unused_to_zeropage(struct page_vma_mapped_walk *pvmw,
->>   	 * this subpage has been non present. If the subpage is only zero-filled
->>   	 * then map it to the shared zeropage.
->>   	 */
->> -	addr = kmap_local_page(page);
->> -	contains_data = memchr_inv(addr, 0, PAGE_SIZE);
->> -	kunmap_local(addr);
->> -
->> -	if (contains_data)
->> +	if (!pages_identical(page, ZERO_PAGE(0)))
->>   		return false;
->>
->>   	newpte = pte_mkspecial(pfn_pte(my_zero_pfn(pvmw->address),
->> -- 
->> 2.49.0
-> 
-> The changes look good to me. Thanks. Acked-by: Zi Yan <ziy@nvidia.com>
-
-Cheers!
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdWwgMTQsIDIwMjUgYXQgMTI6NTHigK9QTSBCaWxsWGlhbmcKPHhpYW5nd2VuY2hl
+bmdAbGFueGluY29tcHV0aW5nLmNvbT4gd3JvdGU6Cj4KPiBDb25zaWRlciBhIHN5c3RlbSB3aXRo
+IDggaGFydHMsIHdoZXJlIGVhY2ggaGFydCBzdXBwb3J0cyA1Cj4gR3Vlc3QgSW50ZXJydXB0IEZp
+bGVzIChHSUZzKSwgeWllbGRpbmcgNDAgdG90YWwgR0lGcy4KPiBJZiB3ZSBsYXVuY2ggYSBRRU1V
+IGd1ZXN0IHdpdGggb3ZlciA1IHZDUFVzIHVzaW5nCj4gIi1NIHZpcnQsYWlhPSdhcGxpYy1pbXNp
+YycgLWFjY2VsIGt2bSxyaXNjdi1haWE9aHdhY2NlbCIg4oCTIHdoaWNoCj4gcmVsaWVzIHNvbGVs
+eSBvbiBWUy1maWxlcyAobm90IFNXLWZpbGVzKSBmb3IgaGlnaGVyIHBlcmZvcm1hbmNlIOKAkyB0
+aGUKPiBndWVzdCByZXF1aXJlcyBtb3JlIHRoYW4gNSBHSUZzLiBIb3dldmVyLCB0aGUgY3VycmVu
+dCBMaW51eCBzY2hlZHVsZXIKPiBsYWNrcyBHSUYgYXdhcmVuZXNzLCBwb3RlbnRpYWxseSBzY2hl
+ZHVsaW5nID41IHZDUFVzIHRvIGEgc2luZ2xlIGhhcnQuCj4gVGhpcyB0cmlnZ2VycyBWUy1maWxl
+IGFsbG9jYXRpb24gZmFpbHVyZSwgYW5kIHNpbmNlIG5vIGhhbmRsZXIgZXhpc3RzCj4gZm9yIHRo
+aXMgZXJyb3IsIHRoZSBRRU1VIGd1ZXN0IGJlY29tZXMgY29ycnVwdGVkLgo+Cj4gVG8gYWRkcmVz
+cyB0aGlzLCB3ZSBpbnRyb2R1Y2UgS1ZNX0VYSVRfRkFJTF9FTlRSWV9OT19WU0ZJTEUgdXBvbgo+
+IFZTLWZpbGUgYWxsb2NhdGlvbiBmYWlsdXJlLiBUaGlzIHByb3ZpZGVzIGFuIG9wcG9ydHVuaXR5
+IGZvciBncmFjZWZ1bAo+IGVycm9yIGhhbmRsaW5nIGluc3RlYWQgb2YgY29ycnVwdGlvbi4gRm9y
+IGV4YW1wbGUsIFFFTVUgY2FuIGhhbmRsZQo+IHRoaXMgZXhpdCBieSByZXNjaGVkdWxpbmcgdkNQ
+VXMgdG8gYWx0ZXJuYXRpdmUgaGFydHMgd2hlbiBWUy1maWxlCj4gYWxsb2NhdGlvbiBmYWlscyBv
+biB0aGUgY3VycmVudCBoYXJ0IFsxXS4KCkN1cnJlbnRseSwgd2UgcmV0dXJuIENTUl9IU1RBVFVT
+IGFzIGhhcmR3YXJlX2VudHJ5X2ZhaWx1cmVfcmVhc29uCndoaWNoIGlzIHZhZ3VlIHNvIGl0IGlz
+IGJldHRlciB0byByZXR1cm4gYSB3ZWxsIGRlZmluZWQgdmFsdWUgcHJvdmlkZWQgdmlhCnVhcGkv
+YXNtL2t2bS5oLiBJbiBnZW5lcmFsLCB0aGlzIHBhdGNoIGlzIGZpbmUgYnV0IHRoZSBjb21taXQg
+ZGVzY3JpcHRpb24KbmVlZHMgdG8gYmUgaW1wcm92ZWQgYWxvbmcgdGhlc2UgbGluZXMuCgpSZWdh
+cmRzLApBbnVwCgo+Cj4gWzFdIGh0dHBzOi8vZ2l0aHViLmNvbS9CaWxsWGlhbmcvcWVtdS90cmVl
+L3Jpc2N2LXZzZmlsZS1hbGxvYy8KPgo+IFNpZ25lZC1vZmYtYnk6IEJpbGxYaWFuZyA8eGlhbmd3
+ZW5jaGVuZ0BsYW54aW5jb21wdXRpbmcuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUv
+dWFwaS9hc20va3ZtLmggfCAyICsrCj4gIGFyY2gvcmlzY3Yva3ZtL2FpYV9pbXNpYy5jICAgICAg
+ICB8IDIgKy0KPiAgMiBmaWxlcyBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24o
+LSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmggYi9h
+cmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmgKPiBpbmRleCA1ZjU5ZmQyMjZjYzUuLmJl
+MjljMzUwMmZlNCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3Zt
+LmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmgKPiBAQCAtMjIsNiAr
+MjIsOCBAQAo+ICAjZGVmaW5lIEtWTV9JTlRFUlJVUFRfU0VUICAgICAgLTFVCj4gICNkZWZpbmUg
+S1ZNX0lOVEVSUlVQVF9VTlNFVCAgICAtMlUKPgo+ICsjZGVmaW5lIEtWTV9FWElUX0ZBSUxfRU5U
+UllfTk9fVlNGSUxFICAoMVVMTCA8PCAwKQo+ICsKPiAgLyogZm9yIEtWTV9HRVRfUkVHUyBhbmQg
+S1ZNX1NFVF9SRUdTICovCj4gIHN0cnVjdCBrdm1fcmVncyB7Cj4gIH07Cj4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3Yva3ZtL2FpYV9pbXNpYy5jIGIvYXJjaC9yaXNjdi9rdm0vYWlhX2ltc2ljLmMK
+PiBpbmRleCAyOWVmOWMyMTMzYTkuLjY5YjBhYjY1MTM4OSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jp
+c2N2L2t2bS9haWFfaW1zaWMuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL2FpYV9pbXNpYy5jCj4g
+QEAgLTc2MCw3ICs3NjAsNyBAQCBpbnQga3ZtX3Jpc2N2X3ZjcHVfYWlhX2ltc2ljX3VwZGF0ZShz
+dHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4gICAgICAgICAgICAgICAgIC8qIEZvciBIVyBhY2NlbGVy
+YXRpb24gbW9kZSwgd2UgY2FuJ3QgY29udGludWUgKi8KPiAgICAgICAgICAgICAgICAgaWYgKGt2
+bS0+YXJjaC5haWEubW9kZSA9PSBLVk1fREVWX1JJU0NWX0FJQV9NT0RFX0hXQUNDRUwpIHsKPiAg
+ICAgICAgICAgICAgICAgICAgICAgICBydW4tPmZhaWxfZW50cnkuaGFyZHdhcmVfZW50cnlfZmFp
+bHVyZV9yZWFzb24gPQo+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBDU1JfSFNUQVRVUzsKPiArICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgS1ZNX0VYSVRfRkFJ
+TF9FTlRSWV9OT19WU0ZJTEU7Cj4gICAgICAgICAgICAgICAgICAgICAgICAgcnVuLT5mYWlsX2Vu
+dHJ5LmNwdSA9IHZjcHUtPmNwdTsKPiAgICAgICAgICAgICAgICAgICAgICAgICBydW4tPmV4aXRf
+cmVhc29uID0gS1ZNX0VYSVRfRkFJTF9FTlRSWTsKPiAgICAgICAgICAgICAgICAgICAgICAgICBy
+ZXR1cm4gMDsKPiAtLQo+IDIuNDYuMi53aW5kb3dzLjEKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
