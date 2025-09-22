@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F5ACAC592
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Sep 2025 14:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BFF1CAC592
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Sep 2025 15:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JfdwjeE3wWzOPFAWIvH0JPGs82taYu5ydS5Euqh3IW4=; b=pqu023pgmWwwjE
-	tTOjOEIFW2sn20rer/Wn0JT1Q31wZadaS7yRo3RVkzPOwYOAsr/w3aYsX0+DzFHiw49rzq7c8G8hc
-	AKh2Il+nlUmPNCyoDyxo5VjO50EBKbK2Kzm7CVJab0moK9H2QtgPlFBKIjBY/Vzk/TQMzhO2hBjH8
-	oiiMa13mYxttb3GahYxVKTeHfOfBg3NRhyeePa2CyUEWH+apn7U+2kkH8AOBg2L0pwnVIvOQdGlzD
-	OcdscX8iqhaM9sWiX9NGYEXiSQr+tcwQnlo+/naOCT5dua1UXmzJQBiooYdvgSZJi2FAbpMrelTnt
-	rq9RtkyGCgSzWjXe4X+A==;
+	List-Owner; bh=gK2VHnfGh32S5OUbNtdiFNkgxDVJrP0K6hMsW8BafvE=; b=JsoSDuqh0JqYDb
+	B1VM0ZWD+/m7DFGAMI6xXpsl7q2pXyhR1qRfKnLpwVNcBa4oSJsI9I54wWpQhOgYmHFoda23sMdHH
+	ByIFUGpiAWUE0NlkI+dPAJ+pSe3XPizHXoqWfv1s3kguOFpKbo52JybMn2w9JqC4pdAoXnkUzboHY
+	AktWLCqQFV2Gs8C9/NysCZg4qsaOh4XuSZs4r1pNUEEhYzgg9zVgetFTHMk05sgWVd1oidK4gBj9e
+	vQPJjnY0G6qPjgSWSHAfjCIQtYW7ICt6GQtOWkpdh/XsjOGnG4bnMVqMd5e85oaD6UKpliirrzoQ1
+	iT66AJMqtlG0KBNyl7wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0hww-0000000AjeT-1ugB;
-	Mon, 22 Sep 2025 14:55:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v0igE-0000000ArW0-30le;
+	Mon, 22 Sep 2025 15:42:18 +0000
+Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0hww-0000000Aje6-0HMQ
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 22 Sep 2025 14:55:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=PLzv6fg3fqqkM8iKZ+L1jhNCwLYKzVSOP0OdN57SCX8=; b=gLRWreLqPHCph2A0TfyLvfiVlx
-	SC7+vDxd6kJ8dEyedlpH1M4ppRlvsHGSnxmEDcEdv3UugU+0fLqZbWXkTDAyw+4xMBCwScFwgcNsu
-	IR4Afw2zzyCs5rmlO2rrMEibE63NcWyZzWG8s9dUCYXLdft6RPirxJWRedusl0kgCfbBjiPzpdJl1
-	hEbmLJ7Kg+LO8e8M8FNq7SUIld8Dlz4VFDearzCtjXsLVFzE+isQ1IVukAn706+OnkrawcQnItryH
-	3zBPfIxxi1E5IoHKQbAwGrfUmxB/HQwSMdTZLeYCH/MfS0Gdi+kQHbREbFdFi1Ch9osze6Rv7zrVe
-	X+TSgqUw==;
-Received: from sender4-op-o16.zoho.com ([136.143.188.16])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0hws-00000008KSl-3Ogh
+	id 1v0igB-0000000ArUA-12CU
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Sep 2025 14:55:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758552923; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=C55XzlbDLCmFbDiqjupdn3RbRvL/2iczTfU27UwBI4plR6YtkuDjy/pabhffB6p8nXzsPaNB4wlXlvfTY3j74iiwho6OqUvX//euxnMw1kEia6d860xS+CheNziVk7cbaXlqm85TQdoBhr085pEXZ4f7EtI25kun7g5sAANIUO0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758552923; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=PLzv6fg3fqqkM8iKZ+L1jhNCwLYKzVSOP0OdN57SCX8=; 
-	b=RJeWA3DqZvG8gjVnDJJ290dMwFXazbC23ufhwfITvd6mlu4ppzwoZmIzFbV6quvzIxylKPtv73bEFAgoo2LTntxzQd2vguSKnRoqjCUeqNswjG6QvA3f4xaxZA1gwKEBwUVRiRT4dcx1GHDgX1S3VxZMapoUF9Dni6xBTIqCxbU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758552923;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=PLzv6fg3fqqkM8iKZ+L1jhNCwLYKzVSOP0OdN57SCX8=;
-	b=MkzjBf4fxvx6JK7eEAmxLrzmYFsyDwsopO+l8NiJwOrpaQYQkr8P0K8Wl6cylHAD
-	p06iSvqcL0U0Mm/6G3xVU/f6ezlT7B3A5z1C7dcbVYOT5sgB1Wh6v0AquwAlXUrzSJy
-	J/+8woSfozohZgZSFj93cspma7J6hH/mkftdPxhs=
-Received: by mx.zohomail.com with SMTPS id 1758552920497610.5552985610591;
-	Mon, 22 Sep 2025 07:55:20 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Mon, 22 Sep 2025 22:51:51 +0800
-Subject: [PATCH 5/5] riscv: dts: anlogic: add clocks and CRU for DR1V90
+	Mon, 22 Sep 2025 15:42:16 +0000
+Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-42485372dc6so24940725ab.0
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Sep 2025 08:42:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1758555734; x=1759160534; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fCb28mlSlNfcpBhhz89Sqz+h4hruBEOLY8zc9ehwxLQ=;
+        b=ndFaD6tK51A6zXKMQRzR//rTgB2L346AsETn4lPN5aR3YWkPRNbKf1A+gHrBLAp78X
+         e9GtccWBDHU50k2cEoBOIsjtY04Q+HGL6xB8IRK+U1CBzGRrAJmQsYB8bBmMEqsuU8Mf
+         WvMUyfPosSiPFkYy4+SA8p7ErQ8sOfAlsFR52XOSxxA1A7OCsH7HIyEAwKyzO5xL0YZT
+         oK2KV1Y4YwCFufoNnRGVm5vaq2D0wmZ6l1cG6YZnS0p450Bg3xM7vXzX3aAn6LRmxI2X
+         Kjhi/VEvd0/YR3AGHGzoK7hE1ym9GKSSQSytqbJ2D7doTrHWLEfgHqJioMmSuBwAkamN
+         3hvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758555734; x=1759160534;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fCb28mlSlNfcpBhhz89Sqz+h4hruBEOLY8zc9ehwxLQ=;
+        b=a8rbp5QFqRL6CQvokP/WnlcTWum2oIOsvHKADQcLY0/qjbI8Ti81DxZ9aGqgnCYF0J
+         s19YRyFl+QX/BbTxHYv5L9LaO1qnUHfzvfuaiGpMcu+SoBvPgvuItnH1Ovcd1BXOP+CU
+         qREgJg5FE9c7znpgubj5xcZTxEj/iRB/Uq0hjJP4EBY8TmJM0mJ9+TeBs8gKXTOC5tli
+         HAE70EmPJFyh5HSjWnUpssp6t6ovc61cOVswawqoITp+xLKFoTh/5UdMRhSeAOUDkuAn
+         vNw39B495XG8VGv0/as1adT4AH/dLkmzZXRdcQXAyAd5epkQXKmn3ExuAOfBW5OgcDVB
+         n1Zg==
+X-Forwarded-Encrypted: i=1; AJvYcCX6YHuSkuZoRLmut/jv1itc+tLIaDTYATMLX9l09PPw2jru7oc3iGT9Lnzrrh/UI3HrTjPkPlmtrZ0UWQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzi5QAuIzY3H0bxf5dKex6rnfsNyKIbc9YoWZfx2/S2bLb5g/Cn
+	EJ542neC73CsNjj68jVBQryIbaJH/qpyzyVr10QfXPYXa6duy2PEn2rXzOU3JxZLOxI=
+X-Gm-Gg: ASbGncsDIdJSVX9sUZWcAWeta8KU6dQ2Eibf57mOyUKFJ3XR9WGthtTsMO1dWzgMKub
+	rptGlfh6gLEWhd50cmNFG+VRq2SNnNWM6K4Uenl35PIfgDtkcor2Y1r6oFyl1TDILAJrUbqLG3I
+	Qcvds7JjnB0MgXzxkpWtoTuIFALId9oT3g9ep1wtbkWfRLpY9GcaI86feYdAQ0lGAFnEYuHgyrt
+	+lx6XPcS+xWJY5Es9R4HdXMutmbf6Q2+aXQ3tp4yMXT5LATvHIru2izViTJ5eCuydAI+//vP1PC
+	FkexZUHVaEQ5cVuxaXiET/8/6Q3dWg7cr75DoXObClxsGZUPwsZFtkoELlOU57RdwVhJtthB/cr
+	9a0VsEqC3w7s4uDu+AJMfhEgBwBj3vrKqfbVAL/ACj0O4Ghwsxs4V9e6R0ttFVg==
+X-Google-Smtp-Source: AGHT+IEN4LGz38AGZZTp4ukzEKIPIUkdoS/Gnv7RkPq76qCV6jt3rdGb1C+1QpNl8gxWwynbDMr/lQ==
+X-Received: by 2002:a05:6e02:194d:b0:425:73c3:d25a with SMTP id e9e14a558f8ab-42573c3d2demr73984785ab.16.1758555734141;
+        Mon, 22 Sep 2025 08:42:14 -0700 (PDT)
+Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-4244afab539sm59790485ab.27.2025.09.22.08.42.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 22 Sep 2025 08:42:13 -0700 (PDT)
+Message-ID: <3fe0ffbe-b4fa-4585-b2d6-2437ade84928@riscstar.com>
+Date: Mon, 22 Sep 2025 10:42:12 -0500
 MIME-Version: 1.0
-Message-Id: <20250922-dr1v90-cru-v1-5-e393d758de4e@pigmoral.tech>
-References: <20250922-dr1v90-cru-v1-0-e393d758de4e@pigmoral.tech>
-In-Reply-To: <20250922-dr1v90-cru-v1-0-e393d758de4e@pigmoral.tech>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Junhui Liu <junhui.liu@pigmoral.tech>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- "fushan.zeng" <fushan.zeng@anlogic.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758552834; l=2783;
- i=junhui.liu@pigmoral.tech; s=20250910; h=from:subject:message-id;
- bh=cb7wy+ZwN39ONi58h69i1DPSVfww4xXrfbM+TXkw/WI=;
- b=buSBznMbOgHdkJQ7FZtYm3RCpZxmyXDsUY+oZXW+9KxaSJHF+RaKU0KAdU860IixMtuCCq3mH
- GvDkjS5Jr3VDxCDn3E9hmEHCWpG5kWwp9vZ8l7PKnL7HY3761+D2PZB
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
- pk=cgATWSU1KfGWmdwNmkPyHGnWgofhqqhE8Vts58wyxe4=
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] riscv: dts: spacemit: define a SPI controller node
+To: Vivian Wang <wangruikang@iscas.ac.cn>, broonie@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: dlan@gentoo.org, ziyao@disroot.org, linux-spi@vger.kernel.org,
+ devicetree@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
+ spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250919155914.935608-1-elder@riscstar.com>
+ <20250919155914.935608-4-elder@riscstar.com>
+ <50456256-fc9e-4de5-a512-5749b832dc3a@iscas.ac.cn>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <50456256-fc9e-4de5-a512-5749b832dc3a@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_155527_356614_E8B2653E 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250922_084215_405946_CC19490E 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,105 +101,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add clocks and introduce the CRU (Clock and Reset) unit node
-for Anlogic DR1V90 SoC, providing both clock and reset support.
+On 9/19/25 9:57 PM, Vivian Wang wrote:
+> On 9/19/25 23:59, Alex Elder wrote:
+> 
+>> [...]
+>>
+>> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+>> index 6cdcd80a7c83b..f8c37d16968e4 100644
+>> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
+>> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+>> @@ -856,6 +856,22 @@ storage-bus {
+>>   			#size-cells = <2>;
+>>   			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>;
+>>   
+>> +			spi3: spi@d401c000 {
+>> +				compatible = "spacemit,k1-spi";
+>> +				reg = <0x0 0xd401c000 0x0 0x30>;
+>> +				#address-cells = <1>;
+>> +				#size-cells = <0>;
+>> +				clocks = <&syscon_apbc CLK_SSP3>,
+>> +					 <&syscon_apbc CLK_SSP3_BUS>;
+>> +				clock-names = "core", "bus";
+>> +				resets = <&syscon_apbc RESET_SSP3>;
+>> +				interrupts = <55>;
+>> +				dmas = <&pdma 20>,
+>> +				       <&pdma 19>;
+>> +				dma-names = "rx", "tx";
+>> +				status = "disabled";
+>> +			};
+>> +
+> 
+> Is storage-bus the right place for SPI? I'd have thought that SPI
+> wouldn't need its own dma-ranges if it does DMA though &pdma.
+> 
+> I know "dram_range4" is where SpacemiT put it but I'm not sure if that
+> makes sense now.
 
-The DR1V90 SoC uses three external clocks:
-- A 33 MHz crystal oscillator as the main system clock.
-- Two optional external clocks (via IO) for the CAN and WDT modules.
+You're right.  It belongs in the dma-bus region.  I will fix that in v3.
 
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
- arch/riscv/boot/dts/anlogic/dr1v90.dtsi | 41 +++++++++++++++++++++++++++++++--
- 1 file changed, 39 insertions(+), 2 deletions(-)
+					-Alex
 
-diff --git a/arch/riscv/boot/dts/anlogic/dr1v90.dtsi b/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
-index f9f8754ceb5247d3ca25e6a65b3f915916ba6173..6458093dcf27afd640265aa07be9b93d6cb72f8a 100644
---- a/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
-+++ b/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
-@@ -3,6 +3,9 @@
-  * Copyright (C) 2025 Junhui Liu <junhui.liu@pigmoral.tech>
-  */
- 
-+#include <dt-bindings/clock/anlogic,dr1v90-cru.h>
-+#include <dt-bindings/reset/anlogic,dr1v90-cru.h>
-+
- /dts-v1/;
- / {
- 	#address-cells = <2>;
-@@ -39,6 +42,27 @@ cpu0_intc: interrupt-controller {
- 		};
- 	};
- 
-+	clocks {
-+		can_ext: clock-ext-can {
-+			compatible = "fixed-clock";
-+			clock-output-names = "can_ext";
-+			#clock-cells = <0>;
-+		};
-+
-+		osc_33m: clock-33m {
-+			compatible = "fixed-clock";
-+			clock-frequency = <33333333>;
-+			clock-output-names = "osc_33m";
-+			#clock-cells = <0>;
-+		};
-+
-+		wdt_ext: clock-ext-wdt {
-+			compatible = "fixed-clock";
-+			clock-output-names = "wdt_ext";
-+			#clock-cells = <0>;
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -65,21 +89,34 @@ plic: interrupt-controller@6c000000 {
- 		uart0: serial@f8400000 {
- 			compatible = "anlogic,dr1v90-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xf8400000 0x0 0x1000>;
--			clock-frequency = <50000000>;
-+			clocks = <&cru CLK_IO_400M_DIV8>, <&cru CLK_CPU_1X>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <71>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-+			resets = <&cru RESET_UART0>;
- 			status = "disabled";
- 		};
- 
- 		uart1: serial@f8401000 {
- 			compatible = "anlogic,dr1v90-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xf8401000 0x0 0x1000>;
--			clock-frequency = <50000000>;
-+			clocks = <&cru CLK_IO_400M_DIV8>, <&cru CLK_CPU_1X>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <72>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-+			resets = <&cru RESET_UART1>;
- 			status = "disabled";
- 		};
-+
-+		cru: clock-controller@f8801000 {
-+			compatible = "anlogic,dr1v90-cru";
-+			reg = <0x0 0xf8801000 0 0x400>;
-+			clocks = <&osc_33m>, <&can_ext>, <&wdt_ext>;
-+			clock-names = "osc_33m", "can_ext", "wdt_ext";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
- 	};
- };
-
--- 
-2.51.0
+> 
+> Vivian "dramforever" Wang
+> 
 
 
 _______________________________________________
