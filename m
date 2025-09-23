@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6607ACAC5A7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDB2CAC5B1
 	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 11:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=egMekaFccen750Il+5Kasv4g4VbB9AzrUt1BlUnrNyU=; b=l+zurlkuQH20gU
-	qWKL0qTXAjYnoemEs+rPrMSdgtheTMRKKxGnY52lMfILGCsp9YIFtTMwob8UxqU3rhwXcujQA7zjB
-	vOPCejW2Q5KMqml2ztQC/8YDGDidKTDLFF61XPmkXTZzowtBansquioOgvYXzjtXeSsnAAFcYKlwX
-	HQVYLrdy/9FZP8rFUDnzPa+rR+7F4F6ldgOzUIZU8EQ3yHhWZ9RlD3zGXxg1Qw0nTstEGvbyOqOXk
-	4qf9Qvb11iaGOQB+t6OTQqlv4A0R+1W9xt3Mq1i1DMx2jXucB07LXgWb6K2w+oiW0GwOWFZldvGia
-	sME2hleRflxoRZ6iXnDg==;
+	List-Owner; bh=99JmlxCC4LYagw1ChG2q6V6Nb2K6SZ61lNAKlyUkoSY=; b=e+nqZ6xJdSBXPR
+	pJkGGfszD+kHQ2QeF7KuO+eFB1YWjta2p6C7lQx5RIuxrUwPTVKIicenV2SsEr3/VytOc1/tvUld0
+	pFtkhJOOEwnkv2NXfhH0Iafrc+L9iRwHWkIHhn7t1H3z0+ZtMsITVkPBNZ++5UwRnBCK1h76mgf8h
+	YO3sSXHIiCvpz1OaCAaokRjTvSkOOC3D+Awyz9Ii4Vueo4tYsWRJup39bDhvcWONeofjt+6Pwp5+l
+	IqH/xxbfs1RCJ9gTJbiw0vvHH2V8oDl78+Yx3BGHx1xYcccZ2dLF7vOr7eR7FWCEWCd9ChsID8LRG
+	xw20NA5E2CAkUKjIvCWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v11LP-0000000DCDM-1ALc;
-	Tue, 23 Sep 2025 11:38:03 +0000
+	id 1v11LT-0000000DCEU-0gyM;
+	Tue, 23 Sep 2025 11:38:07 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v11LM-0000000DCBq-3kcL
+	id 1v11LN-0000000DCBv-1Dvi
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Sep 2025 11:38:02 +0000
+	Tue, 23 Sep 2025 11:38:03 +0000
 Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 58NBb07N067441
+	by Atcsqr.andestech.com with ESMTPS id 58NBbDNW067520
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 23 Sep 2025 19:37:12 +0800 (+08)
+	Tue, 23 Sep 2025 19:37:13 +0800 (+08)
 	(envelope-from randolph@andestech.com)
 Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS31.andestech.com
  (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Tue, 23 Sep 2025
- 19:37:00 +0800
+ 19:37:13 +0800
 From: Randolph Lin <randolph@andestech.com>
 To: <linux-kernel@vger.kernel.org>
 CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
@@ -47,9 +47,9 @@ CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
         <shradha.t@samsung.com>, <randolph.sklin@gmail.com>,
         <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
-Subject: [PATCH v3 1/5] PCI: dwc: Skip failed outbound iATU and continue
-Date: Tue, 23 Sep 2025 19:36:43 +0800
-Message-ID: <20250923113647.895686-2-randolph@andestech.com>
+Subject: [PATCH v3 3/5] riscv: dts: andes: Add PCIe node into the QiLai SoC
+Date: Tue, 23 Sep 2025 19:36:45 +0800
+Message-ID: <20250923113647.895686-4-randolph@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250923113647.895686-1-randolph@andestech.com>
 References: <20250923113647.895686-1-randolph@andestech.com>
@@ -57,10 +57,11 @@ MIME-Version: 1.0
 X-Originating-IP: [10.0.15.173]
 X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 58NBb07N067441
+X-MAIL: Atcsqr.andestech.com 58NBbDNW067520
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_043801_255228_DB95A7EA 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250923_043801_648197_3F6DC17A 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +78,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Previously, outbound iATU programming included range checks based
-on hardware limitations. If a configuration did not meet these
-constraints, the loop would stop immediately.
-
-This patch updates the behavior to enhance flexibility. Instead of
-stopping at the first issue, it now logs a warning with details of
-the affected window and proceeds to program the remaining iATU
-entries.
-
-This enables partial configuration to complete in cases where some
-iATU windows may not meet requirements, improving overall
-compatibility.
+Add the Andes QiLai PCIe node, which includes 3 Root Complexes.
 
 Signed-off-by: Randolph Lin <randolph@andestech.com>
 ---
- drivers/pci/controller/dwc/pcie-designware-host.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+ arch/riscv/boot/dts/andes/qilai.dtsi | 112 +++++++++++++++++++++++++++
+ 1 file changed, 112 insertions(+)
 
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 952f8594b501..91ee6b903934 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -756,7 +756,7 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
- 		if (resource_type(entry->res) != IORESOURCE_MEM)
- 			continue;
- 
--		if (pci->num_ob_windows <= ++i)
-+		if (pci->num_ob_windows <= i)
- 			break;
- 
- 		atu.index = i;
-@@ -773,9 +773,10 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
- 
- 		ret = dw_pcie_prog_outbound_atu(pci, &atu);
- 		if (ret) {
--			dev_err(pci->dev, "Failed to set MEM range %pr\n",
--				entry->res);
--			return ret;
-+			dev_warn(pci->dev, "Failed to set MEM range %pr\n",
-+				 entry->res);
-+		} else {
-+			i++;
- 		}
- 	}
- 
+diff --git a/arch/riscv/boot/dts/andes/qilai.dtsi b/arch/riscv/boot/dts/andes/qilai.dtsi
+index de3de32f8c39..69669111d9fb 100644
+--- a/arch/riscv/boot/dts/andes/qilai.dtsi
++++ b/arch/riscv/boot/dts/andes/qilai.dtsi
+@@ -182,5 +182,117 @@ uart0: serial@30300000 {
+ 			reg-io-width = <4>;
+ 			no-loopback-test;
+ 		};
++
++		bus@80000000 {
++			compatible = "simple-bus";
++			#address-cells = <2>;
++			#size-cells = <2>;
++			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
++			ranges = <0x00 0x80000000 0x00 0x80000000 0x00 0x20000000>,
++				 <0x00 0x04000000 0x00 0x04000000 0x00 0x00001000>,
++				 <0x00 0x00000000 0x20 0x00000000 0x20 0x00000000>;
++
++			pci@80000000 {
++				compatible = "andestech,qilai-pcie";
++				device_type = "pci";
++				reg = <0x00 0x80000000 0x00 0x20000000>, /* DBI registers */
++				      <0x00 0x04000000 0x00 0x00001000>, /* APB registers */
++				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
++				reg-names = "dbi", "apb", "config";
++
++				linux,pci-domain = <0>;
++				bus-range = <0x0 0xff>;
++				num-viewport = <4>;
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x00 0xf0000000>,
++					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x1f 0x00000000>;
++
++				#interrupt-cells = <1>;
++				interrupts = <0xf 0x4>;
++				interrupt-names = "msi";
++				interrupt-parent = <&plic>;
++				interrupt-map-mask = <0 0 0 0>;
++				interrupt-map = <0 0 0 1 &plic 0xf 0x4>,
++						<0 0 0 2 &plic 0xf 0x4>,
++						<0 0 0 3 &plic 0xf 0x4>,
++						<0 0 0 4 &plic 0xf 0x4>;
++			};
++		};
++
++		bus@a0000000 {
++			compatible = "simple-bus";
++			#address-cells = <2>;
++			#size-cells = <2>;
++			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
++			ranges = <0x00 0xa0000000 0x00 0xa0000000 0x00 0x20000000>,
++				 <0x00 0x04001000 0x00 0x04001000 0x00 0x00001000>,
++				 <0x00 0x00000000 0x10 0x00000000 0x08 0x00000000>;
++
++			pci@a0000000 {
++				compatible = "andestech,qilai-pcie";
++				device_type = "pci";
++				reg = <0x00 0xa0000000 0x00 0x20000000>, /* DBI registers */
++				      <0x00 0x04001000 0x00 0x00001000>, /* APB registers */
++				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
++				reg-names = "dbi", "apb", "config";
++
++				linux,pci-domain = <1>;
++				bus-range = <0x0 0xff>;
++				num-viewport = <4>;
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
++					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x7 0x00000000>;
++
++				#interrupt-cells = <1>;
++				interrupts = <0xe 0x4>;
++				interrupt-names = "msi";
++				interrupt-parent = <&plic>;
++				interrupt-map-mask = <0 0 0 0>;
++				interrupt-map = <0 0 0 1 &plic 0xe 0x4>,
++						<0 0 0 2 &plic 0xe 0x4>,
++						<0 0 0 3 &plic 0xe 0x4>,
++						<0 0 0 4 &plic 0xe 0x4>;
++			};
++		};
++
++		bus@c0000000 {
++			compatible = "simple-bus";
++			#address-cells = <2>;
++			#size-cells = <2>;
++			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
++			ranges = <0x00 0xc0000000 0x00 0xc0000000 0x00 0x20000000>,
++				 <0x00 0x04002000 0x00 0x04002000 0x00 0x00001000>,
++				 <0x00 0x00000000 0x18 0x00000000 0x08 0x00000000>;
++
++			pci@c0000000 {
++				compatible = "andestech,qilai-pcie";
++				device_type = "pci";
++				reg = <0x00 0xc0000000 0x00 0x20000000>, /* DBI registers */
++				      <0x00 0x04002000 0x00 0x00001000>, /* APB registers */
++				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
++				reg-names = "dbi", "apb", "config";
++
++				linux,pci-domain = <2>;
++				bus-range = <0x0 0xff>;
++				num-viewport = <4>;
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
++					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x7 0x00000000>;
++
++				#interrupt-cells = <1>;
++				interrupts = <0xd 0x4>;
++				interrupt-names = "msi";
++				interrupt-parent = <&plic>;
++				interrupt-map-mask = <0 0 0 0>;
++				interrupt-map = <0 0 0 1 &plic 0xd 0x4>,
++						<0 0 0 2 &plic 0xd 0x4>,
++						<0 0 0 3 &plic 0xd 0x4>,
++						<0 0 0 4 &plic 0xd 0x4>;
++			};
++		};
++
+ 	};
+ };
 -- 
 2.34.1
 
