@@ -4,87 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A314DCAC5A7
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 03:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2CC1CAC5A7
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 03:08:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jY1r70fTu1dNZateYs8cCdkia2Z9D4y7WwBM1x1eBho=; b=SzZcUESDPWLn6a
-	ItN3MT+6E646eqZMPpO6PvFKyiHcONdVkJGNzw3aamDD/YW5EzDgCL/Jeb71xNAx5VCT5OOC31OA1
-	ReK6hP6pDMHGXiG5rN9+0HwxpDfnqc6/HG3of3NSOCx2TU9jdaq5ubAq7paUT5I9eh8Z/N3LTkH+1
-	vIFbOUij39vWdVqt8ca4IJe13VKRpKRFlEIEcc8Yj3+iJSQbtcY6YF1uPa/USbCpFudxSD6niCawb
-	ZgsR3DbeihfXI0+riFbQPuF4+is3Zyu/OLbAU6EZkAGAsQ+L/3OarRcJ/qdg0UfVSxV3fpkPr7INl
-	uV+f2on1GR0H01LBOAEQ==;
+	List-Owner; bh=iudCEjRwy6sBqfBtS6At8qvuEifZ9JXq3bT0bBPymRM=; b=bYwcg80t65iAGq
+	EjVTleytENdmbPcNL1p7hWuRIlI7G1XLkT3/oA/yndl+g8K+/PpR4ibrhC68DNNX6cs9dMMeofgcZ
+	RqPuqJHUR0ObyetOYwjKeT6JkFcxZet8PmR4ZgAqezGaH5jPbRaL5W44uyb7sF7Y4a9x3QICWBjRN
+	pW0w5uCb64fHp+Uxq1NS6agqI+1FxZb7d5X/iM5Lw6OzKRnlDumD4St1ycMlyj7GziKcDB+4nZ1Oh
+	l8HUHgddPdiLhSArSgwWxEaEZ7nTiGjIE0qr2OCbpqPn2Y1o5kzP5tqjq8u8R8txAWuQUq109qwFz
+	08/g55yTU7p9YSGgKZvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0tHN-0000000CBRX-1ZR5;
-	Tue, 23 Sep 2025 03:01:21 +0000
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
+	id 1v0tNp-0000000CC3Q-3Kj5;
+	Tue, 23 Sep 2025 03:08:01 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0tHH-0000000CBOP-00u5
+	id 1v0tNl-0000000CBuj-3rsj
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Sep 2025 03:01:20 +0000
+	Tue, 23 Sep 2025 03:08:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1758596393;
-	bh=j3ZjDbLr3bk9oP8VaNnloWAFAE6ZFmd5SxI38WMzUrs=;
+	s=mxsw2412; t=1758596799;
+	bh=4NPMmXQNPhh43Vfgs8uvOVv9B0WUHZ6XpV40eYHU7hc=;
 	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=UdWcEkI2JHyoC+A9cxl0oWFBc8Ioe91TzajnZJgjeoVqKE3D7z92kpvrWBKUwXNw9
-	 ZxK/4XorGMUMrSw7xaB9nrjJFcUJ5QT1dN5S0nTSTPVqFfghycT5a522baNkgPx/SL
-	 QSvaEWibBXkSEcQSZF3PGsuEjURZUMnulDyBFS/A=
-X-QQ-mid: zesmtpsz7t1758596391t52fea924
-X-QQ-Originating-IP: nzpaKUhmb4SdUS4Gu0DvPdsaKPvAhj/hmH2eNiRVi4k=
+	b=RWKLlsaTlI58dXRyasyafMHNEme2ISSX4TT25Uzqn6Deqd7W3+C1baDDLwFhsAKRk
+	 PfKzkrrN5NFP+wL8liqjLsbMgwlayTBiDM5iomEUXCmzkwqrdgsdIwaT/ECJYMbdU1
+	 CtLcyQfOMsT12q4tgek0QGyMEtdgR1BuHhVJOS3A=
+X-QQ-mid: zesmtpsz9t1758596790t586b0683
+X-QQ-Originating-IP: qX9i0wUg26C8yleLcKZzLZ0/pKDmgU7emqW0M+Rvx98=
 Received: from = ( [61.145.255.150])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 23 Sep 2025 10:59:49 +0800 (CST)
+	id ; Tue, 23 Sep 2025 11:06:28 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10623942537580946484
-EX-QQ-RecipientCnt: 18
-Date: Tue, 23 Sep 2025 10:59:48 +0800
+X-BIZMAIL-ID: 14575087354260022270
+EX-QQ-RecipientCnt: 17
+Date: Tue, 23 Sep 2025 11:06:28 +0800
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>
-Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ziyao@disroot.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	p.zabel@pengutronix.de, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+To: Junhui Liu <junhui.liu@pigmoral.tech>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	"fushan.zeng" <fushan.zeng@anlogic.com>,
 	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH v3 3/3] riscv: dts: spacemit: define a SPI controller node
-Message-ID: <ED4C67FD136DEB19+aNINJJVYbNnT87va@LT-Guozexi>
-References: <20250922161717.1590690-1-elder@riscstar.com>
- <20250922161717.1590690-4-elder@riscstar.com>
- <20250923001930-GYB1303776@gentoo.org>
+Subject: Re: [PATCH 1/5] clk: correct clk_div_mask() return value for width
+ == 32
+Message-ID: <261F7D53235844E5+aNIOtLYG1NcypGqr@LT-Guozexi>
+References: <20250922-dr1v90-cru-v1-0-e393d758de4e@pigmoral.tech>
+ <20250922-dr1v90-cru-v1-1-e393d758de4e@pigmoral.tech>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250923001930-GYB1303776@gentoo.org>
+In-Reply-To: <20250922-dr1v90-cru-v1-1-e393d758de4e@pigmoral.tech>
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: OTk6Ry2bM9sxfkiWA/IfOL8KAvPoMfMhrhuYfVNTtCfMpSvoVXLmKSF7
-	ZHgjZ0ujC91xtJ1onUSbvWDJbtqs6cueEkz9puaFBT00QOvzkB/AOzsYc7gG3jXs0oTbD3x
-	QohFFsDZiILecOTdrG/uqhFqjrJNz38V8JMnBMnq6Blhn0Iqg0IPROW0VIx1wzMBjnGVMME
-	NYSvtsc+iPy9i5pakUU6PwDsZ6cGR4ZFBLrW5Jqf5b7GILEJj1hrz+bM17OdbN8h9pVoyHP
-	zMcfwIcl/MIQ4aD+IVx9PAo4y12EeFsYqp9ThaGl52tYK3kIz5+/KmCgAuGyZ4igIgYNZl2
-	CXC4Qo3az1zObkm9Lft9me2ivCzFsGlQpYsglM44OAEDxzP+K6sTeRlMSGKW/f9LbTVO74Z
-	9HQPh4Z6hHLqMc5+mHH3E/S5VGLTixRwzd3WhwFT9OOqiZL4FwTya6Ze4MpEy0nGf1AoyX2
-	/9nhI9PbR6E8fzwzPCcLifZvLt4rHpdj6oWLwjMTHgXdIIeH/GqnSU3yfEtESmE7CEMRskS
-	w2/T8ipChOkLwgkHzrPhXEZHWZLl773nohznKTpKsAf1fjOTel3iBbasxkp1OqzbjcB6fGN
-	1PrkJ/dBstoDMhAyMfNA2WNLXpEXoYe7mBVO/2NxFj2G51mi1LxASQ/PYjUU8wr9lvl0Fnb
-	p81AESzGb4JxXChTfEH8faz9U/nb0xQsr4t+eyo9io236Um57q6DQEPweoLHv5VVR4ky/Dg
-	QOcFrkG1tm4L8TPIde/hE4pcwh7z/xLO7//7/bFzcnCCItpaJ5WVvMwLgH3dbxouMrnBhiL
-	fkV09TvDKr16FtItpV4j6b8Poqj+aQ195oFY23L7XBV++CcIm5+3ksVUTHNM7Sw2/73LfNr
-	DmcV80TM9ZpJEAGCp67IihAOact7ht3gtEfWhnoBIo0FtM7qcJIXSmaGMQrZsg98FKOpr9y
-	mwAS605/Eb06ZRkKvMRbZBgvvCXdf2l5GEXQuqz3O5SwZoQd78aRBT/cICbusnlm3+PjXjC
-	2FvddnOJdWZx8gHo+WthuYclnJACR8hqgJiYNh0hMdykA8LLIeeRfUmyishpWcOYoQEUxM9
-	d3RTklF5qhiV9DKwN5YegZRRsFjuANdC+/3lm1EyrmeDZ0rBRS6ixxoySFD+iCz+Q==
-X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+X-QQ-XMAILINFO: M5znx2hx04lbAaSFkX4IUNpl2egN75/K6UoQHZW6qbo6aGC5PSuz433r
+	R3FqRT1DWG6Dc9GRECIMDApx69dETWLGyR7ZpKcR3Yxhn6i8YQfpqybkpLywLgj66YEiSB2
+	ucLcGHbvqE+0OmmqdoUCTYlVzS/kRCMx/zBPne/zR6OyXCJblU2aBk+whLkDj0N0foo46BT
+	/uxW7Mhf30oy/VHVYRF5QCnd05DrYTYMzFY1jp7JXx46/dgev4hB3GrWdsTNY+r9nWp/1MD
+	DIU2kJccX4AYgMPcYPPMPe3WxQPkg3Q/4CwY5jfFzKbm9Qmx510sWYuqY65vgvIzD6FlFoj
+	Z8Koy2gdeb6B8n7Ai8paqLe/hi75LiCb/BzKEMX8GbCEfnyWDG9mvLj3MxRT7MuTglr+T5w
+	VjJzQ+1AdkHxU68jGLwT5jmcSUUmrEvnt+M1Pfq+nhZY3LiUoioRozI+mWzo+HKVbE1Z6PG
+	l0GDQbKmQWQMegvUa4VIrxBCb27grSyOJIIp2LCleAJyeTyU6QqIPJrTC1gVwYxVoyS35Qj
+	yHbCaVYFthJhdLKWl0L7XtdV6BLCkyGBfFUHGmVoLQ4OSE1vzitDj478GuVATQmCR3X2ojn
+	yq2/IsFD22L0J4U5UZ0X/mNuENkT3ecAoIXHD/viZtmKvcTc9AbsNg71c6TH5y5ssLzeMcY
+	2AIgsLEp3gj3TU9Z3zPIvRvozTtgSQmtg3ScuZT+qc9NZU3D1LLmmj9eloqbdZWmHytJEVa
+	FMOj8Y5Ovomz9Bam1tCw2UAWEc4pFtq5TqFPCuj6KWcbR1zqiLQUkjlm0QEEo2f/Ptd6TpH
+	sU0/nH4KpKvuiVWG3JaUo7e5fhiwmGfvbhWBaU2xx1ZanVh20ozvEG5WN8Y5E/cpEOmTEU+
+	9yXikd0OS3fp1kM2FI2fz2d9j23pp8mSx5NQ0RbBwMJCw2qjb6rq1QhPDJRIFu5SCrFAlr1
+	Z6/L9O1s6JyB0SPWaDcgKdvlYcnxePzsRZNGjPDKxBQMvVwngiQmH6IZpTSFAGuf31gbHGB
+	Bc3cmu+8qv0oUHqBE+ENa9reOlOZp/L8cjl8J1QR6EKIzULz7j3w4ZZDG03bsHh5xbfTpno
+	u5ztWZtjCnp6vbtE7z4vPY=
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_200115_565496_253C8863 
-X-CRM114-Status: GOOD (  27.91  )
+X-CRM114-CacheID: sfid-20250922_200758_850623_9156344C 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,93 +101,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMjMsIDIwMjUgYXQgMDg6MTk6MzBBTSArMDgwMCwgWWl4dW4gTGFuIHdyb3Rl
-Ogo+IEhpIEFsZXgsCj4gCj4gT24gMTE6MTcgTW9uIDIyIFNlcCAgICAgLCBBbGV4IEVsZGVyIHdy
-b3RlOgo+ID4gRGVmaW5lIGEgbm9kZSBmb3IgdGhlIGZvdXJ0aCBTb0MgU1BJIGNvbnRyb2xsZXIg
-KG51bWJlciAzKSBvbgo+ID4gdGhlIFNwYWNlbWlUIEsxIFNvQy4KPiA+IAo+ID4gRW5hYmxlIGl0
-IG9uIHRoZSBCYW5hbmEgUGkgQlBJLUYzIGJvYXJkLCB3aGljaCBleHBvc2VzIHRoaXMgZmVhdHVy
-ZQo+ID4gdmlhIGl0cyBHUElPIGJsb2NrOgo+ID4gICBHUElPIFBJTiAxOTogIE1PU0kKPiA+ICAg
-R1BJTyBQSU4gMjE6ICBNSVNPCj4gPiAgIEdQSU8gUElOIDIzOiAgU0NMSwo+ID4gICBHUElPIFBJ
-TiAyNDogIFNTIChpbnZlcnRlZCkKPiA+IAo+ID4gRGVmaW5lIHBpbmNvbnRyb2wgY29uZmlndXJh
-dGlvbnMgZm9yIHRoZSBwaW5zIGFzIHVzZWQgb24gdGhhdCBib2FyZC4KPiA+IAo+ID4gKFRoaXMg
-d2FzIHRlc3RlZCB1c2luZyBhIEdpZ2FEZXZpY2UgR0QyNVE2NEUgU1BJIE5PUiBjaGlwLikKPiA+
-IAo+ID4gU2lnbmVkLW9mZi1ieTogQWxleCBFbGRlciA8ZWxkZXJAcmlzY3N0YXIuY29tPgo+ID4g
-LS0tCj4gPiB2MzogLSBNb3ZlZCB0aGUgU1BJIGNvbnRyb2xsZXIgaW50byB0aGUgZG1hLWJ1cyBt
-ZW1vcnkgcmVnaW9uCj4gPiAKPiA+ICAuLi4vYm9vdC9kdHMvc3BhY2VtaXQvazEtYmFuYW5hcGkt
-ZjMuZHRzICAgICAgfCAgNyArKysrKysrCj4gPiAgYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1p
-dC9rMS1waW5jdHJsLmR0c2kgIHwgMjAgKysrKysrKysrKysrKysrKysrKwo+ID4gIGFyY2gvcmlz
-Y3YvYm9vdC9kdHMvc3BhY2VtaXQvazEuZHRzaSAgICAgICAgICB8IDE2ICsrKysrKysrKysrKysr
-Kwo+ID4gIDMgZmlsZXMgY2hhbmdlZCwgNDMgaW5zZXJ0aW9ucygrKQo+ID4gCj4gPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1iYW5hbmFwaS1mMy5kdHMgYi9h
-cmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLWJhbmFuYXBpLWYzLmR0cwo+ID4gaW5kZXgg
-MmFhYWZmNzc4MzFlMS4uZDlkODY1ZmJlMzIwZSAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3Yv
-Ym9vdC9kdHMvc3BhY2VtaXQvazEtYmFuYW5hcGktZjMuZHRzCj4gPiArKysgYi9hcmNoL3Jpc2N2
-L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLWJhbmFuYXBpLWYzLmR0cwo+ID4gQEAgLTE0LDYgKzE0LDcg
-QEAgYWxpYXNlcyB7Cj4gPiAgCQlldGhlcm5ldDAgPSAmZXRoMDsKPiA+ICAJCWV0aGVybmV0MSA9
-ICZldGgxOwo+ID4gIAkJc2VyaWFsMCA9ICZ1YXJ0MDsKPiA+ICsJCXNwaTMgPSAmc3BpMzsKPiA+
-ICAJfTsKPiA+ICAKPiA+ICAJY2hvc2VuIHsKPiA+IEBAIC05Miw2ICs5MywxMiBAQCAmcGRtYSB7
-Cj4gPiAgCXN0YXR1cyA9ICJva2F5IjsKPiA+ICB9Owo+ID4gIAo+ID4gKyZzcGkzIHsKPiA+ICsJ
-cGluY3RybC0wID0gPCZzc3AzXzBfY2ZnPjsKPiA+ICsJcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0
-IjsKPiA+ICsJc3RhdHVzID0gIm9rYXkiOwo+ID4gK307Cj4gPiArCj4gPiAgJnVhcnQwIHsKPiA+
-ICAJcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKPiA+ICAJcGluY3RybC0wID0gPCZ1YXJ0MF8y
-X2NmZz47Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1w
-aW5jdHJsLmR0c2kgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLXBpbmN0cmwuZHRz
-aQo+ID4gaW5kZXggYWZmMTljODZkNWZmMy4uMjA1YzIwMWEzMDA1YyAxMDA2NDQKPiA+IC0tLSBh
-L2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtcGluY3RybC5kdHNpCj4gPiArKysgYi9h
-cmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLXBpbmN0cmwuZHRzaQo+ID4gQEAgLTc2LDQg
-Kzc2LDI0IEBAIHB3bTE0LTEtcGlucyB7Cj4gPiAgCQkJZHJpdmUtc3RyZW5ndGggPSA8MzI+Owo+
-ID4gIAkJfTsKPiA+ICAJfTsKPiA+ICsKPiA+ICsJc3NwM18wX2NmZzogc3NwMy0wLWNmZyB7Cj4g
-Li4KPiA+ICsJCXNzcDMtMC1uby1wdWxsLXBpbnMgewo+IEknZCBwcmVmZXIgbm90IHRvIGVuZm9y
-Y2UgInB1bGwiIGluZm8gaW5zaWRlIHRoZSBuYW1lLCB5b3UgY2FuJ3QgZW1iZWQKPiBhbGwgcHJv
-cGVydHkgaW5mbywgYmVzaWRlcywgd2hhdCdzIGlmIHlvdSB3YW50IHRvIGNoYW5nZS9vdmVycmlk
-ZSBsYXRlcj8KPiAKPiBob3cgYWJvdXQganVzdCBuYW1lIGl0IGFzIHNzcDMtMC1kZWZhdWwtcGlu
-cyBvciBzaW1wbHkgc3NwMy0wLXBpbnM/CnVhcnQ6IHVhcnQwXzJfY2ZnIGFuZCBmdW5jdGlvbiBp
-cyAyLgpwd206IHB3bTE0XzFfY2ZnIGFuZCBmdW5jdGlvbiBpcyA0CnNwaTogc3NwM18wX2NmZyBh
-bmQgZnVuY3Rpb24gaXMgMgoKSeKAmW0gYSBiaXQgY29uZnVzZWQgYWJvdXQgdGhlIG1lYW5pbmcg
-b2YgdGhlIHNlY29uZCBudW1iZXIgaGVyZS4KSXMgaXQgaW50ZW5kZWQgdG8gYmUgYW4gaW5kZXgs
-IG9yIHRoZSBmdW5jdGlvbiBudW1iZXI/CgpJZiBpdOKAmXMgYW4gaW5kZXgsIHNob3VsZCBpdCBz
-dGFydCBmcm9tIDAgb3IgMT8KVGhlIHN0YXJ0aW5nIHBvaW50IHNlZW1zIGluY29uc2lzdGVudCBh
-Y3Jvc3MgcHdtL3NwaS91YXJ0LgpJZiBpdOKAmXMgc3VwcG9zZWQgdG8gYmUgdGhlIGZ1bmN0aW9u
-IG51bWJlciwKdGhlbiB0aGUgc3BpIGFuZCBwd20gcGFydHMgbG9vayBpbmNvcnJlY3QuCgpDb3Vs
-ZCB5b3UgY2xhcmlmeSB0aGlzPyBZaXh1bi4KCiAgICAgICAgICAgICAgICAtIFRyb3kKPiAKPiA+
-ICsJCQlwaW5tdXggPSA8SzFfUEFEQ09ORig3NSwgMik+LAkvKiBTQ0xLICovCj4gPiArCQkJCSA8
-SzFfUEFEQ09ORig3NywgMik+LAkvKiBNT1NJICAqLwo+ID4gKwkJCQkgPEsxX1BBRENPTkYoNzgs
-IDIpPjsJLyogTUlTTyAqLwo+ID4gKwo+ID4gKwkJCWJpYXMtZGlzYWJsZTsKPiA+ICsJCQlkcml2
-ZS1zdHJlbmd0aCA9IDwxOT47Cj4gPiArCQkJcG93ZXItc291cmNlID0gPDMzMDA+Owo+ID4gKwkJ
-fTsKPiA+ICsKPiA+ICsJCXNzcDMtMC1mcm0tcGlucyB7Cj4gPiArCQkJcGlubXV4ID0gPEsxX1BB
-RENPTkYoNzYsIDIpPjsJLyogRlJNIChmcmFtZSkgKi8KPiA+ICsKPiA+ICsJCQliaWFzLXB1bGwt
-dXAgPSA8MD47Cj4gPiArCQkJZHJpdmUtc3RyZW5ndGggPSA8MTk+Owo+ID4gKwkJCXBvd2VyLXNv
-dXJjZSA9IDwzMzAwPjsKPiA+ICsJCX07Cj4gPiArCX07Cj4gPiAgfTsKPiA+IGRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLmR0c2kgYi9hcmNoL3Jpc2N2L2Jvb3Qv
-ZHRzL3NwYWNlbWl0L2sxLmR0c2kKPiA+IGluZGV4IDZjZGNkODBhN2M4M2IuLmViOGExNGRkNzJl
-YTQgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLmR0c2kK
-PiA+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEuZHRzaQo+ID4gQEAgLTc5
-Nyw2ICs3OTcsMjIgQEAgdWFydDk6IHNlcmlhbEBkNDAxNzgwMCB7Cj4gPiAgCQkJCXN0YXR1cyA9
-ICJkaXNhYmxlZCI7Cj4gPiAgCQkJfTsKPiA+ICAKPiA+ICsJCQlzcGkzOiBzcGlAZDQwMWMwMDAg
-ewo+ID4gKwkJCQljb21wYXRpYmxlID0gInNwYWNlbWl0LGsxLXNwaSI7Cj4gPiArCQkJCXJlZyA9
-IDwweDAgMHhkNDAxYzAwMCAweDAgMHgzMD47Cj4gPiArCQkJCSNhZGRyZXNzLWNlbGxzID0gPDE+
-Owo+ID4gKwkJCQkjc2l6ZS1jZWxscyA9IDwwPjsKPiA+ICsJCQkJY2xvY2tzID0gPCZzeXNjb25f
-YXBiYyBDTEtfU1NQMz4sCj4gPiArCQkJCQkgPCZzeXNjb25fYXBiYyBDTEtfU1NQM19CVVM+Owo+
-ID4gKwkJCQljbG9jay1uYW1lcyA9ICJjb3JlIiwgImJ1cyI7Cj4gPiArCQkJCXJlc2V0cyA9IDwm
-c3lzY29uX2FwYmMgUkVTRVRfU1NQMz47Cj4gPiArCQkJCWludGVycnVwdHMgPSA8NTU+Owo+IC4u
-Cj4gPiArCQkJCWRtYXMgPSA8JnBkbWEgMjA+LAo+ID4gKwkJCQkgICAgICAgPCZwZG1hIDE5PjsK
-PiBjYW4gd2UgYWxzbyBzcXVhc2ggdGhlIGRtYXMgaW50byBvbmUgbGluZT8gYnV0LCBkbyBzcGxp
-dCBpZiB0aGVyZSBhcmUgdG9vIG1hbnkuLgo+IAo+IHllcywgaXQncyBzaW1wbHkgYSBzdHlsZSBj
-aGFuZ2UgdGhhdCBJJ2QgbGlrZSB0byBrZWVwIHRoZW0gY29uc2lzdGVudCBhdCBEVCBsZXZlbCwK
-PiBiZXNpZGVzIHlvdSBtaWdodCBhbHNvIHdhbnQgdG8gYWRqdXN0IGR0LWJpbmRpbmcgZXhhbXBs
-ZXMgdG8gYWxpZ24gd2l0aCB0aGVtIGhlcmUuLgo+IAo+IHRoYW5rcwo+IAo+ID4gKwkJCQlkbWEt
-bmFtZXMgPSAicngiLCAidHgiOwo+ID4gKwkJCQlzdGF0dXMgPSAiZGlzYWJsZWQiOwo+ID4gKwkJ
-CX07Cj4gPiArCj4gPiAgCQkJLyogc2VjX3VhcnQxOiAweGYwNjEyMDAwLCBub3QgYXZhaWxhYmxl
-IGZyb20gTGludXggKi8KPiA+ICAJCX07Cj4gPiAgCj4gPiAtLSAKPiA+IDIuNDguMQo+ID4gCj4g
-PiAKPiAKPiAtLSAKPiBZaXh1biBMYW4gKGRsYW4pCj4gCj4gX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBs
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, Sep 22, 2025 at 10:51:47PM +0800, Junhui Liu wrote:
+> The macro clk_div_mask() currently wraps to zero when width is 32 due to
+> 1 << 32 being undefined behavior. This leads to incorrect mask generation
+> and prevents correct retrieval of register field values for 32-bit-wide
+> dividers.
+> 
+> Although it is unlikely to exhaust all U32_MAX div, some clock IPs may rely
+> on a 32-bit val entry in their div_table to match a div, so providing a
+> full 32-bit mask is necessary.
+> 
+> Fix this by casting 1 to long, ensuring proper behavior for valid widths up
+> to 32.
+> 
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+> ---
+>  include/linux/clk-provider.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
+> index 630705a47129453c241f1b1755f2c2f2a7ed8f77..a651ccaf1b44ff905c2bd4b9a7043f9e2169d27f 100644
+> --- a/include/linux/clk-provider.h
+> +++ b/include/linux/clk-provider.h
+> @@ -720,7 +720,7 @@ struct clk_divider {
+>  	spinlock_t	*lock;
+>  };
+>  
+> -#define clk_div_mask(width)	((1 << (width)) - 1)
+> +#define clk_div_mask(width)	((1L << (width)) - 1)
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+>  #define to_clk_divider(_hw) container_of(_hw, struct clk_divider, hw)
+>  
+>  #define CLK_DIVIDER_ONE_BASED		BIT(0)
+> 
+> -- 
+> 2.51.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
