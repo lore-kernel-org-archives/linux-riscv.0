@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886B5CAC5AC
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 22:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D960CAC5A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 22:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	In-Reply-To:Date:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nwC5GcBQ/x74aZqMcqho5bclJ1pTB+HkwCU3lEsxNbc=; b=AeHWpa+++lSrgQ
-	uh9S8JLmyQbChOR7E4JtV64tHsOKtcS417Cz8WulbgH5DNtqeoL0rmW/y6Ss9TPnoUC2oC8FpRVoV
-	j+kgGSjdSX0PEB5M1PBNXbJ4LrQnl4BEDidzTV7ONxmgvzGiefvMIaS32zNfyozYK2P6Z03S1o2Rw
-	L/dAjKS3E5sfDFGBiblW89draZBKYfTapVje0eM60sPjxD2kQm/z6ROZOt3Vh3b3sdyliWHcyVziQ
-	dWR+C0PntFJWr1Jj/grrUi/nl1dPCDAVDsRLuTEhpbz4jZL4COZ2efGfTA5+9IkZ1awbiGCHSefZC
-	3CPixdHXRh6gSdxtWd8Q==;
+	References:List-Owner; bh=R22qLUVFdWlaXqk4eYKgoEYMGKOV2IaUEE2g94FKSoE=; b=GV6
+	7Qk4IuDeYrEGR90p6zwX97ezHkmoAXLyHlgheJQvz6GnIU+qf0LY9iz02TkrnK6BwsiNGGz0DUx8G
+	JRDWaA+TvioaYQwp3F0l4x6mUE2L/W8K9hASR++BarTeemykbjdVhlYi/vEdU8Rz7nlAPC+IdmFEq
+	mLZ73u/1AFc+ZocOPq58259MAG6lDtm1cS9OQMSefwgOIJ84e/2p864+U/wR2o9QIYTZU6jenomzv
+	Ct8bv4qh7BM2Fn1LVt8ujSXt8oMXbpH/2LzWDpm+qhN2nuOHLrUWn9cq5af0ksqWB3iyNYttCI9o6
+	IZHIORezdcyLT3K9FNnxQffZViS728g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1BfH-0000000F5ry-3Qjl;
-	Tue, 23 Sep 2025 22:39:15 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1v1BtW-0000000F73B-1OS0;
+	Tue, 23 Sep 2025 22:53:58 +0000
+Received: from mail-il1-f197.google.com ([209.85.166.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1BfF-0000000F5rR-4C4e;
-	Tue, 23 Sep 2025 22:39:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=kMNRIy7juPEY6DIXxF9DZzfJvByV0E5yz461o/FuEmU=; b=SojriKu2ZEAiqDCZFCDQRhRKhn
-	nKspnPTfBVKaUKc77OtjSxdvixl+GHzCJK/5nnDH122mvTIjGuaDBtfO2/vhms/1t4MnJvEPwrhjB
-	SL/CfblZqb+J/Mg1qpXUiH8CIEeTs7RnM5SEdFEjpxScnHE1UEuvNZ37MUF2Idfeulhmd9iuFHN+X
-	YneEJmmbwYFcgPkAR878Rq4Hy6K/em+73ZwEXsSrT8HKSJSfk8+IhYUuoVieViWI58YHUR7Ufjd3M
-	/5l7MwBlIgT3Gk4OECBaBAUXXAeZup1SPEBlZdCDvKR6uwJtaxODOFfE3ZGINd6WxrnAwhB2zzg6Y
-	5izeBW/g==;
-Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Bf7-00000002lyS-1MIl;
-	Tue, 23 Sep 2025 22:39:05 +0000
-Date: Tue, 23 Sep 2025 23:39:05 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Yin Tirui <yintirui@huawei.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, lorenzo.stoakes@oracle.com,
-	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
-	surenb@google.com, mhocko@suse.com, ziy@nvidia.com,
-	baolin.wang@linux.alibaba.com, npache@redhat.com,
-	ryan.roberts@arm.com, dev.jain@arm.com, baohua@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	anshuman.khandual@arm.com, yangyicong@hisilicon.com,
-	ardb@kernel.org, apopple@nvidia.com, samuel.holland@sifive.com,
-	luxu.kernel@bytedance.com, abrestic@rivosinc.com,
-	yongxuan.wang@sifive.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, wangkefeng.wang@huawei.com,
-	chenjun102@huawei.com
-Subject: Re: [PATCH RFC 2/2] mm: add PMD-level huge page support for
- remap_pfn_range()
-Message-ID: <aNMhiZ4FiEE1Rk_T@casper.infradead.org>
-References: <20250923133104.926672-1-yintirui@huawei.com>
- <20250923133104.926672-3-yintirui@huawei.com>
+	id 1v1BtT-0000000F72I-1736
+	for linux-riscv@lists.infradead.org;
+	Tue, 23 Sep 2025 22:53:56 +0000
+Received: by mail-il1-f197.google.com with SMTP id e9e14a558f8ab-42570afa5d2so101386745ab.0
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Sep 2025 15:53:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758668034; x=1759272834;
+        h=cc:to:from:subject:message-id:in-reply-to:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/wNTZlN6qLp4sqdyo6QTG1IaiR5Ni0PqLyc9Tnrd6w0=;
+        b=owWzWPlSS7KF8FGjt4w14IvDUZim6agbnnsltkH64mUr3UGs4oMGRH1nBbqAlRT394
+         1Hg/fufOYCfmkGERFngzDob7CHj5c25FlIKYrUviKjr3UFW1szDbVS4UHOdMlMu5stgP
+         VWwoQM+YQ+g6yxgd9AcdxFXEhW30hlmk9XPI5FjuS3kNvKpFoHv2sZVipQlsWZxI18Na
+         hhGAN0k5Qc7olNx8fn/DrL+QgjDW7fJ6vVN8aiLqvTGnJ5gWIo27KQUBMLvNAEkGjfdv
+         6MKQj7+3vZLgB8Sud1z/zGVY4uy2DjBFOQ3pANkVzZnhcqlN9sq27k8v4OlTLGesrL2l
+         y7GQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXOZYvM+hUFAd+PMUvvGF3EII4wTtFJZnJA6AvLc4+XRe49d3JB+okahEXJezOKaPZVR4S3UdWLjQJMYQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAcRl9nfhulrQF/DXZNx6zOf93cR/vXrtOxQ6pY/29jzbhq1M1
+	N1FXS9AyTZUm9RnOU/N2hpjTxeNGDZxYtTtbcfFfFfd7VUpuyMiBfPBC3uD7ilIdWAdKbgBBPlY
+	XhAL7kXnQe0PHfr2WNlbfJpZDUzU5W/UUsIx8/mndSDg683+EjFE7sgtFgG8=
+X-Google-Smtp-Source: AGHT+IGM2aCp+eZxlq2lYE2sv5q3yAtCF346ZsErV/J6qoFUIgD7WjAxOqZ9UCXOlxf3mNdh2dP0thvuweiArcx6FLx35qJXyTJ2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250923133104.926672-3-yintirui@huawei.com>
+X-Received: by 2002:a05:6e02:1a2b:b0:425:7ae2:b8c1 with SMTP id
+ e9e14a558f8ab-42581e10bfamr72471655ab.13.1758668033945; Tue, 23 Sep 2025
+ 15:53:53 -0700 (PDT)
+Date: Tue, 23 Sep 2025 15:53:53 -0700
+In-Reply-To: <20250923133104.926672-1-yintirui@huawei.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <68d32501.a70a0220.4f78.0011.GAE@google.com>
+Subject: [syzbot ci] Re: mm: add huge pfnmap support for remap_pfn_range()
+From: syzbot ci <syzbot+ciae73d4d89faf898f@syzkaller.appspotmail.com>
+To: abrestic@rivosinc.com, akpm@linux-foundation.org, alex@ghiti.fr, 
+	anshuman.khandual@arm.com, aou@eecs.berkeley.edu, apopple@nvidia.com, 
+	ardb@kernel.org, baohua@kernel.org, baolin.wang@linux.alibaba.com, 
+	catalin.marinas@arm.com, chenjun102@huawei.com, david@redhat.com, 
+	dev.jain@arm.com, liam.howlett@oracle.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	lorenzo.stoakes@oracle.com, luxu.kernel@bytedance.com, mhocko@suse.com, 
+	npache@redhat.com, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	rppt@kernel.org, ryan.roberts@arm.com, samuel.holland@sifive.com, 
+	surenb@google.com, vbabka@suse.cz, wangkefeng.wang@huawei.com, 
+	will@kernel.org, willy@infradead.org, yangyicong@hisilicon.com, 
+	yintirui@huawei.com, yongxuan.wang@sifive.com, ziy@nvidia.com
+Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250923_155355_314429_A30B5759 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +90,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 23, 2025 at 09:31:04PM +0800, Yin Tirui wrote:
-> +			entry = pte_clrhuge(pfn_pte(pmd_pfn(old_pmd), pmd_pgprot(old_pmd)));
+syzbot ci has tested the following series
 
-This doesn't make sense.  And I'm not saying you got this wrong; I
-suspect in terms of how things work today it's actually necessary.
-But the way we handle this stuff is so insane.
+[v1] mm: add huge pfnmap support for remap_pfn_range()
+https://lore.kernel.org/all/20250923133104.926672-1-yintirui@huawei.com
+* [PATCH RFC 1/2] pgtable: add pte_clrhuge() implementation for arm64 and riscv
+* [PATCH RFC 2/2] mm: add PMD-level huge page support for remap_pfn_range()
 
-pte_clrhuge() should not exist.  If we have a PTE, it can't have the
-huge bit set, by definition (don't anybody mention hugetlbfs because
-that is an entirely separate pile of broken horrors).  I understand what
-you're trying to do here.  You want to construct a PTE that points to
-the same address as the first page of the PMD and has the same
-permissions.  But that *should* be written as:
+and found the following issues:
+* BUG: non-zero pgtables_bytes on freeing mm: NUM
+* stack segment fault in pgtable_trans_huge_withdraw
 
-	entry = pfn_pte(pmd_pfn(old_pmd), pmd_pgprot(old_pmd)));
+Full report is available here:
+https://ci.syzbot.org/series/633cbff7-ef54-4f3a-9133-71cc271396ee
 
-right?  Now, pmd_pgprot() might or might not want to return the huge bit
-set.  I'm not sure.  Perhaps you could have a look through and figure it
-out.  But pfn_pte() should never return a PTE with the huge bit set.
-So if it is set in the pgorot on entry, it should filter it out.
+***
 
-There are going to be consequences to this.  Maybe there's code
-somewhere that relies on pfn_pte() returning a PTE with the huge bit
-set.  Perhaps it's hugetlbfs.
+BUG: non-zero pgtables_bytes on freeing mm: NUM
 
-But we have to start cleaning this garbage up.  I did some work with
-e3981db444a0 and the commits leading up to that.  See
-https://lkml.kernel.org/r/20250402181709.2386022-12-willy@infradead.org
+tree:      torvalds
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux
+base:      07e27ad16399afcd693be20211b0dfae63e0615f
+arch:      amd64
+compiler:  Debian clang version 20.1.8 (++20250708063551+0c9f909b7976-1~exp1~20250708183702.136), Debian LLD 20.1.8
+config:    https://ci.syzbot.org/builds/72b4b6cf-5400-40d6-94b6-1cfc0e85050d/config
+C repro:   https://ci.syzbot.org/findings/3450ef75-3540-4c00-8b33-5625d4aa40ef/c_repro
+syz repro: https://ci.syzbot.org/findings/3450ef75-3540-4c00-8b33-5625d4aa40ef/syz_repro
 
-I'd like pte_clrhuge() to be deleted from x86, not added to arm and
-riscv.
+BUG: non-zero pgtables_bytes on freeing mm: 4096
+
+
+***
+
+stack segment fault in pgtable_trans_huge_withdraw
+
+tree:      torvalds
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux
+base:      07e27ad16399afcd693be20211b0dfae63e0615f
+arch:      amd64
+compiler:  Debian clang version 20.1.8 (++20250708063551+0c9f909b7976-1~exp1~20250708183702.136), Debian LLD 20.1.8
+config:    https://ci.syzbot.org/builds/72b4b6cf-5400-40d6-94b6-1cfc0e85050d/config
+C repro:   https://ci.syzbot.org/findings/dcfb72b5-c263-48da-830a-7f51aaa927db/c_repro
+syz repro: https://ci.syzbot.org/findings/dcfb72b5-c263-48da-830a-7f51aaa927db/syz_repro
+
+Oops: stack segment: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 6000 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:pgtable_trans_huge_withdraw+0x115/0x310 mm/pgtable-generic.c:188
+Code: c3 10 48 89 d8 48 c1 e8 03 42 80 3c 28 00 74 08 48 89 df e8 5d 38 13 00 48 8b 03 48 89 04 24 4c 8d 78 08 4c 89 fd 48 c1 ed 03 <42> 80 7c 2d 00 00 74 08 4c 89 ff e8 3b 38 13 00 49 8b 07 48 8d 48
+RSP: 0018:ffffc90002d5f300 EFLAGS: 00010202
+RAX: 0000000000000000 RBX: ffffea0000fb3dd0 RCX: ffff888107769cc0
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000001 R08: ffff888022b90843 R09: 1ffff11004572108
+R10: dffffc0000000000 R11: ffffed1004572109 R12: ffff88803ecf7000
+R13: dffffc0000000000 R14: ffff88803ecf7000 R15: 0000000000000008
+FS:  0000555576e7a500(0000) GS:ffff8880b8612000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 0000000107d74000 CR4: 00000000000006f0
+Call Trace:
+ <TASK>
+ zap_deposited_table mm/huge_memory.c:2177 [inline]
+ zap_huge_pmd+0xa25/0xf50 mm/huge_memory.c:2205
+ zap_pmd_range mm/memory.c:1798 [inline]
+ zap_pud_range mm/memory.c:1847 [inline]
+ zap_p4d_range mm/memory.c:1868 [inline]
+ unmap_page_range+0x9fe/0x4370 mm/memory.c:1889
+ unmap_single_vma mm/memory.c:1932 [inline]
+ unmap_vmas+0x399/0x580 mm/memory.c:1976
+ exit_mmap+0x248/0xb50 mm/mmap.c:1280
+ __mmput+0x118/0x430 kernel/fork.c:1129
+ copy_process+0x2910/0x3c00 kernel/fork.c:2454
+ kernel_clone+0x21e/0x840 kernel/fork.c:2605
+ __do_sys_clone kernel/fork.c:2748 [inline]
+ __se_sys_clone kernel/fork.c:2732 [inline]
+ __x64_sys_clone+0x18b/0x1e0 kernel/fork.c:2732
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xfa/0x3b0 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f96b638ec29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc07e618c8 EFLAGS: 00000206 ORIG_RAX: 0000000000000038
+RAX: ffffffffffffffda RBX: 00007f96b65d5fa0 RCX: 00007f96b638ec29
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000002001000
+RBP: 00007f96b6411e41 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000000000000
+R13: 00007f96b65d5fa0 R14: 00007f96b65d5fa0 R15: 0000000000000006
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:pgtable_trans_huge_withdraw+0x115/0x310 mm/pgtable-generic.c:188
+Code: c3 10 48 89 d8 48 c1 e8 03 42 80 3c 28 00 74 08 48 89 df e8 5d 38 13 00 48 8b 03 48 89 04 24 4c 8d 78 08 4c 89 fd 48 c1 ed 03 <42> 80 7c 2d 00 00 74 08 4c 89 ff e8 3b 38 13 00 49 8b 07 48 8d 48
+RSP: 0018:ffffc90002d5f300 EFLAGS: 00010202
+RAX: 0000000000000000 RBX: ffffea0000fb3dd0 RCX: ffff888107769cc0
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000001 R08: ffff888022b90843 R09: 1ffff11004572108
+R10: dffffc0000000000 R11: ffffed1004572109 R12: ffff88803ecf7000
+R13: dffffc0000000000 R14: ffff88803ecf7000 R15: 0000000000000008
+FS:  0000555576e7a500(0000) GS:ffff8880b8612000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 0000000107d74000 CR4: 00000000000006f0
+----------------
+Code disassembly (best guess):
+   0:	c3                   	ret
+   1:	10 48 89             	adc    %cl,-0x77(%rax)
+   4:	d8 48 c1             	fmuls  -0x3f(%rax)
+   7:	e8 03 42 80 3c       	call   0x3c80420f
+   c:	28 00                	sub    %al,(%rax)
+   e:	74 08                	je     0x18
+  10:	48 89 df             	mov    %rbx,%rdi
+  13:	e8 5d 38 13 00       	call   0x133875
+  18:	48 8b 03             	mov    (%rbx),%rax
+  1b:	48 89 04 24          	mov    %rax,(%rsp)
+  1f:	4c 8d 78 08          	lea    0x8(%rax),%r15
+  23:	4c 89 fd             	mov    %r15,%rbp
+  26:	48 c1 ed 03          	shr    $0x3,%rbp
+* 2a:	42 80 7c 2d 00 00    	cmpb   $0x0,0x0(%rbp,%r13,1) <-- trapping instruction
+  30:	74 08                	je     0x3a
+  32:	4c 89 ff             	mov    %r15,%rdi
+  35:	e8 3b 38 13 00       	call   0x133875
+  3a:	49 8b 07             	mov    (%r15),%rax
+  3d:	48                   	rex.W
+  3e:	8d                   	.byte 0x8d
+  3f:	48                   	rex.W
+
+
+***
+
+If these findings have caused you to resend the series or submit a
+separate fix, please add the following tag to your commit message:
+  Tested-by: syzbot@syzkaller.appspotmail.com
+
+---
+This report is generated by a bot. It may contain errors.
+syzbot ci engineers can be reached at syzkaller@googlegroups.com.
 
 _______________________________________________
 linux-riscv mailing list
