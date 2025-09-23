@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC10CAC5AC
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 19:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0051CAC5A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 19:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KwSHLQi3YryecW6r9kkCiye1+apP3H7zfvLQB9KtapI=; b=TAP7Yyv2GkX5ISYvTVd4bxf9t4
-	iZkeoc7VGNSK/W2MXiLbMTPOsn+uxKGg2KTN+XMz3mWTepeAApZ/JI+uAL37bfS0t1x7Z2gtRL3Rv
-	5Tpb8Buit/YWEn9C0Uj2NZ9Q+CVfR/w8IkX6g40Rob7L1bU6rim497w0ioVuOMkAGpxyLndBdXfbl
-	bqKDEEZmTuG3A1/GtDJ8/fpKLjAw1W6uopatfZadiTHx9BsAAlWlAEtbxKf4vACd73HkEnlquT3Df
-	PSAWaGiaR4amxnnSZYGUCUixa5A3UBn1bn4NMGtdCqWdDX+lSu2KRIB+btDYfUPp7f+G7kyp0yblI
-	uWVYVxQQ==;
+	bh=Ykgkw9ATMJ7UCatsNEEaGpBugruhz/oh4gJhC49mbn0=; b=gP99hxR4H7lv/F6AZgd65jo3qe
+	skbqnYezbFWRsjcplp5/7f+tj8ngOhFyMoJTohtocnQzyQyFaDOcSwioBq8MmLNPaCU/GXUdsb4gu
+	pkGeP2etnBU26oN3YTeI+chr9YLr+jpQqyLRap6p7nn1i8A5o+2hNH0BXsva0Qk1ihk2TpNcLKG23
+	3/l2Crohs6b47q0NfYKWcr9c0g3G21ZqSD39wgYEzxIeha1oPnUQikoBqRH4XwgzJyvcN8F23dW7T
+	xlR68ivBAeR+bXiNiZYl+dwQjWbc9S1jm/KWmKq6mFEMASESqsfclOi5wgaBbGUEaIuQC1uaViKKg
+	pHWhzViA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v18Hm-0000000EbVQ-08pJ;
-	Tue, 23 Sep 2025 19:02:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v18J6-0000000EbpX-2vgc;
+	Tue, 23 Sep 2025 19:04:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v18Hl-0000000EbUi-0Nwn
+	id 1v18J4-0000000Ebox-0Rrs
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Sep 2025 19:02:45 +0000
+	Tue, 23 Sep 2025 19:04:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07FED60258;
-	Tue, 23 Sep 2025 19:02:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA248C4CEF5;
-	Tue, 23 Sep 2025 19:02:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ED9CE418E2;
+	Tue, 23 Sep 2025 19:04:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5831EC4CEF5;
+	Tue, 23 Sep 2025 19:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758654163;
-	bh=MNCGLYKm4on4u/ee0QpshIh7g/1iu74HGsb1YK+Aibw=;
+	s=k20201202; t=1758654242;
+	bh=rObBVnG62ZJ7ZCcfJqDzxOXdIfr3WgqAb0OSmCfkgWo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YFE0L+0+CvqhghdBr8GrcfXgzMghGeuzg82fZL/ANbMx8p06EM+pmPK6qW7giVxMY
-	 4lezfrGeVb3lwff6JszTyLnYRHLZvQMUpuHS9QXgWnK4lkAy9vBWiDrKnWDi8YDf9S
-	 SZAsgeMVH2YnSwg2cUd8lhnT8XY5kA6KnMpy/h0c16NI0UY6EcznUXuCWPTKBgVyu1
-	 wJctx6hS/CrMzwwmw6i88ZSHiQpFDG/KAInowVijjdSTR85m+jqZerjrw353nxOZuA
-	 q3B4rOlHp869XST1wzhNcyJ311w4OrBDauYJAjja59Wq++RUMsxI2JXsTWJZJpth94
-	 5mFHF04PKnX6g==
-Date: Tue, 23 Sep 2025 20:02:38 +0100
+	b=abRMG2AlbbsDYgfeunO3H3ZWQqTgpqWoKeIKc13cYmTn/jceSJ4VF5d7wUD0Kf/lk
+	 PizfsETSN/oS3z2ZxTyiL4qRVXLkR2uCuHo/NC4LBXr8CFx8MiAl48NjSv+OQgsLQN
+	 t9sT9Einp0qDnjooqexa4Nt99QaVjDYajKI2kkj5QRZfVu6pcQDB3WdVaCnOOvNjBh
+	 zR3V9hZlh1Wj/BBFIok7N2obgy2/zgd9N6cpCPrG2xemoptGzp9LfgFj6OZY1Xeu0v
+	 YjLsf3fObMvlpvGGoWWSGslb70eWXipEHD5I9TRGBhcLMk0boDI6jgDuLfBHpoWWoO
+	 AKhq4mSbvBCvg==
+Date: Tue, 23 Sep 2025 20:03:57 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	"fushan.zeng" <fushan.zeng@anlogic.com>
-Subject: Re: [PATCH 2/5] dt-bindings: clock: add Anlogic DR1V90 CRU
-Message-ID: <20250923-cork-clarity-40358e06d361@spud>
-References: <20250922-dr1v90-cru-v1-0-e393d758de4e@pigmoral.tech>
- <20250922-dr1v90-cru-v1-2-e393d758de4e@pigmoral.tech>
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
+	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
+Subject: Re: [PATCH v2 02/11] dt-bindings: riscv: Add Nuclei UX900 compatibles
+Message-ID: <20250923-patchy-planner-112bd8448ef8@spud>
+References: <20250922-dr1v90-basic-dt-v2-0-64d28500cb37@pigmoral.tech>
+ <20250922-dr1v90-basic-dt-v2-2-64d28500cb37@pigmoral.tech>
 MIME-Version: 1.0
-In-Reply-To: <20250922-dr1v90-cru-v1-2-e393d758de4e@pigmoral.tech>
+In-Reply-To: <20250922-dr1v90-basic-dt-v2-2-64d28500cb37@pigmoral.tech>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250923_120406_158406_02EA2274 
+X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,38 +79,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2200559693326889707=="
+Content-Type: multipart/mixed; boundary="===============3988952515686893967=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2200559693326889707==
+--===============3988952515686893967==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cXQbIvmswZwfd+Xe"
+	protocol="application/pgp-signature"; boundary="CAd0kSoi90+pR06L"
 Content-Disposition: inline
 
 
---cXQbIvmswZwfd+Xe
+--CAd0kSoi90+pR06L
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---cXQbIvmswZwfd+Xe
+--CAd0kSoi90+pR06L
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNLuzgAKCRB4tDGHoIJi
-0rwtAP0fn0XwIXbjq5PVgdtSJxA38UMz2JFYXsDJnwLnKO8rUAD+MHiGKBTenito
-DVaMH1nw1vvZWEhPOZgX/2B/yC+LzQE=
-=BIbT
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNLvHQAKCRB4tDGHoIJi
+0mm0AQCNWP5i3bqaHYB02yTtRtUwZXq/nVW3Pa5v9mJmyekDigEArtrKBVf3mnsU
+AqMaRyV5PaznMNOPCQAKIpIxRWNaTgc=
+=qZfh
 -----END PGP SIGNATURE-----
 
---cXQbIvmswZwfd+Xe--
+--CAd0kSoi90+pR06L--
 
 
---===============2200559693326889707==
+--===============3988952515686893967==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -115,5 +121,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2200559693326889707==--
+--===============3988952515686893967==--
 
