@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECEFECAC5A5
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 08:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7A5CAC5A7
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 10:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzdmsWWKjkz7zDD1VionfGdBK5OcLpVSWM0XuAA8gnM=; b=aU35wBGxb2e9GFwHZOECpuXgU4
-	NZDs3DZTBXVRiQl1u71f+nPnnpet437n0ITCXAV+v7xjbrqWPvhEO1Q9U57NPDLq/Tn5DYIA2Wum8
-	MvxWueCRTBlEUT0GCSLjojddgbuyp3a0qGVayyOigFPKBwHAzplhHi4pIm4rWzwGgcPnfBNdammI/
-	K+MlDuJt2B8jokusBXes8rzmRlheRlarRJ3CzQtPy6YgJ2Ltb0qAFRWTbSRex0ZOQNUuab+81sMDr
-	/7jamrRsse4uAzcV1x+geFp4bv6d9bmLWwCKo3PrqcDXDEIFooZ8YXjEPJ97KlW5CkLr1bTYQgSML
-	po5hzT4w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Xk80w5zqnthtmEBvFqfHT6i1FhcWXIZ57hyhxLevcGI=; b=mrQAq1kvpH7jlG
+	r6/wL+5+v1WDJRGakJaZ9T+Ou4O26e5Y/kDgi4anCSw/r7e93IAsEfoJ1cLYJHwfv/+s4hYAcQa2E
+	WmjvYEo3iF0BNzlHoSxdAd//3sGXmKiyNb1oVe7kVnyvph5xY3f35HkK/ad8H4OO55gARwY+45x+L
+	ohT5joXFoDOGNp4yGlFN4czEhSux87VclGY7LvtRj5A6O/BaDuRS7eQf3SP0ekw4Qz41AzIvAATki
+	ZBWhIzz6/a3mo60CFTyUK3vyvMXce7eB3gtaFzkUlNxANqDNaN6+X6jwDmglVaHKtJ76lzk+erSRP
+	tl3OP1IBZhXchUBud1OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yNO-0000000CoJe-2XjD;
-	Tue, 23 Sep 2025 08:27:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v1016-0000000D22o-3ZOI;
+	Tue, 23 Sep 2025 10:13:00 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yNL-0000000CoIh-2g3a
-	for linux-riscv@lists.infradead.org;
-	Tue, 23 Sep 2025 08:27:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE8D343FED;
-	Tue, 23 Sep 2025 08:27:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2770DC4CEF7;
-	Tue, 23 Sep 2025 08:27:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758616070;
-	bh=DpOw3esgxv6fryqqMWiEbCIzH82geJydVvITLMOkr54=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R7EdvDgVwmk0J7sjYuIr5k+k1hAX1ayYzxWUkv9BJ2K+XHyLuvkeBcPHlOHWtSY7j
-	 GU1uxKJwDKI2vmRC0ZQkEPEJg9ChqJeTTE6DojnEJWRXbaTkymc525jUGu/9EqjpWG
-	 19jftow50k0Slyg09ReA5iifXwDu71SRTnOrAw50BWhY9Jnv8U2e83ZSdLx2eb/fOO
-	 M/Cz+13FQjZNlE+GqPskVnNKOmUVqRcKztDDdoBDLParnFPZWD8c29gt2Ij4+oJtpS
-	 Ab8HfCaQd4rURk33a0wctqwdYQ5O6nF71AFKY5AKuhP47cUi+GUGgCjHCfcjVF/QCR
-	 5qds8jkpkA4DQ==
-Date: Tue, 23 Sep 2025 10:27:45 +0200
-From: Mark Brown <broonie@kernel.org>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Alex Elder <elder@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ziyao@disroot.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	p.zabel@pengutronix.de, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] spi: spacemit: introduce SpacemiT K1 SPI
- controller driver
-Message-ID: <aNJaAQXdoDlytTDy@finisterre.sirena.org.uk>
-References: <20250922161717.1590690-1-elder@riscstar.com>
- <20250922161717.1590690-3-elder@riscstar.com>
- <20250922230639-GYA1303776@gentoo.org>
+	id 1v1012-0000000D21e-2AAx;
+	Tue, 23 Sep 2025 10:12:57 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1758622373;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jbygUmzfw8XS2VUG0sJP6HEJcO918I6DxufbOrM/Lys=;
+	b=bThBhpI0ltJ1hqx0PKVweVeLpdM3xppi1mqlVS9P988dnElWJFcno5EqlUW2/LORt+1zHz
+	Wfycx0wfOOEs+0yZfXstUOoTY3leeQd5TumBF3E+fPfmgUpBgr3z2gUegc384kvbK/Fw2U
+	zMu21rf4c2ypNNk6Q4WKuorRAmddD+LkdASO7a+EzkZR353yMhnagecaosBIt3xUhYRNDU
+	sO0qyqawwncogrv4F2rhWO3Rg0Zvfj/jZJB14UU1T0RU54TGMg9OOPdIipGEy6os0k5wJf
+	HqsjAOG4y7wjMTQ921422R3Oyvo/iBZvs68IHSoJxmN/QMofzRMMkt5Gab7g/Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1758622373;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jbygUmzfw8XS2VUG0sJP6HEJcO918I6DxufbOrM/Lys=;
+	b=bv0St62rsMuDh+7nigvQeW8MWJocEsM7XcTr5+GGEUrX8DshmHpEvAwaL6y/hDZduT7sB4
+	IDchlUJGMNv0/6Dw==
+To: Jason Gunthorpe <jgg@nvidia.com>, Andrew Jones <ajones@ventanamicro.com>
+Cc: iommu@lists.linux.dev, kvm-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, zong.li@sifive.com, tjeznach@rivosinc.com,
+ joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+ anup@brainfault.org, atish.patra@linux.dev, alex.williamson@redhat.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, alex@ghiti.fr
+Subject: Re: [RFC PATCH v2 08/18] iommu/riscv: Use MSI table to enable IMSIC
+ access
+In-Reply-To: <20250922235651.GG1391379@nvidia.com>
+References: <20250920203851.2205115-20-ajones@ventanamicro.com>
+ <20250920203851.2205115-28-ajones@ventanamicro.com>
+ <20250922184336.GD1391379@nvidia.com>
+ <20250922-50372a07397db3155fec49c9@orel>
+ <20250922235651.GG1391379@nvidia.com>
+Date: Tue, 23 Sep 2025 12:12:52 +0200
+Message-ID: <87ecrx4guz.ffs@tglx>
 MIME-Version: 1.0
-In-Reply-To: <20250922230639-GYA1303776@gentoo.org>
-X-Cookie: Filmed before a live audience.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_012751_720634_F12BA389 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20250923_031256_761632_7CEBF9B7 
+X-CRM114-Status: GOOD (  23.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,64 +78,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3790855393459375508=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 22 2025 at 20:56, Jason Gunthorpe wrote:
+> On Mon, Sep 22, 2025 at 04:20:43PM -0500, Andrew Jones wrote:
+>> > It has to do with each PCI BDF having a unique set of
+>> > validation/mapping tables for MSIs that are granular to the interrupt
+>> > number.
+>> 
+>> Interrupt numbers (MSI data) aren't used by the RISC-V IOMMU in any way.
+>
+> Interrupt number is a Linux concept, HW decodes the addr/data pair and
+> delivers it to some Linux interrupt. Linux doesn't care how the HW
+> treats the addr/data pair, it can ignore data if it wants.
 
---===============3790855393459375508==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6HpbpinsD42eNuLJ"
-Content-Disposition: inline
+Let me explain this a bit deeper.
 
+As you said, the interrupt number is a pure kernel software construct,
+which is mapped to a hardware interrupt source.
 
---6HpbpinsD42eNuLJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The interrupt domain, which is associated to a hardware interrupt
+source, creates the mapping and supplies the resulting configuration to
+the hardware, so that the hardware is able to raise an interrupt in the
+CPU.
 
-On Tue, Sep 23, 2025 at 07:06:39AM +0800, Yixun Lan wrote:
-> Hi Alex,
->=20
-> On 11:17 Mon 22 Sep     , Alex Elder wrote:
-> > This patch introduces the driver for the SPI controller found in the
-> > SpacemiT K1 SoC.  Currently the driver supports master mode only.
-> > The SPI hardware implements RX and TX FIFOs, 32 entries each, and
-> > supports both PIO and DMA mode transfers.
+In case of MSI, this configuration is the MSI message (address,
+data). That's composed by the domain according to the requirements of
+the underlying CPU hardware resource. This underlying hardware resource
+can be the CPUs interrupt controller itself or some intermediary
+hardware entity.
 
-Please delete unneeded context from mails when replying.  Doing this
-makes it much easier to find your reply in the message, helping ensure
-it won't be missed by people scrolling through the irrelevant quoted
-material.
+The kernel reflects this in the interrupt domain hierarchy. The simplest
+case for MSI is:
 
---6HpbpinsD42eNuLJ
-Content-Type: application/pgp-signature; name="signature.asc"
+     [ CPU domain ] --- [ MSI domain ] -- device
 
------BEGIN PGP SIGNATURE-----
+The flow is as follows:
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjSWgAACgkQJNaLcl1U
-h9Ag9Qf/agE9cLG7wxZYtQSASbZ9xoCAx98tPfyf7p5VPkN7z7QMkc8/+v5EAuZ4
-YpdaixFWN/I5CPMJG9ERW+ly0OleInqkzNX6DXwLwITABENCMHtC7zIRoSQGSl7b
-iMAhL0728G9SMt3GQYj8XYiPA7/4e6meb62W17h/W0aabrxuPi614O86fGS/puJt
-47uLgJlJuTTHKRt70Z5PeY1sy2oQZpmGTmbstGNS9P5/n2Xs3GL5C1lLyVfac/S+
-VIB7+AHD9FJORL4oiBtEHyjZ3L8OS7xk5Pds0PYKVCtvFdBXd73QXlTbCfsGtG4l
-HU6g8m1YlQpcZ+62tVSSBAdQ4PJtMQ==
-=Wogy
------END PGP SIGNATURE-----
+   device driver allocates an MSI interrupt in the MSI domain
 
---6HpbpinsD42eNuLJ--
+   MSI domain allocates an interrupt in the CPU domain
 
+   CPU domain allocates an interrupt vector and composes the
+   address/data pair. If @data is written to @address, the interrupt is
+   raised in the CPU
 
---===============3790855393459375508==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+   MSI domain converts the address/data pair into device format and
+   writes it into the device.
+
+   When the device fires an interrupt it writes @data to @address, which
+   raises the interrupt in the CPU at the allocated CPU vector.  That
+   vector is then translated to the Linux interrupt number in the
+   interrupt handling entry code by looking it up in the CPU domain.
+
+With a remapping domain intermediary this looks like this:
+
+     [ CPU domain ] --- [ Remap domain] --- [ MSI domain ] -- device
+ 
+   device driver allocates an MSI interrupt in the MSI domain
+
+   MSI domain allocates an interrupt in the Remap domain
+
+   Remap domain allocates a resource in the remap space, e.g. an entry
+   in the remap translation table and then allocates an interrupt in the
+   CPU domain.
+
+   CPU domain allocates an interrupt vector and composes the
+   address/data pair. If @data is written to @address, the interrupt is
+   raised in the CPU
+
+   Remap domain converts the CPU address/data pair to remap table format
+   and writes it to the alloacted entry in that table. It then composes
+   a new address/data pair, which points at the remap table entry.
+
+   MSI domain converts the remap address/data pair into device format
+   and writes it into the device.
+
+   So when the device fires an interrupt it writes @data to @address,
+   which triggers the remap unit. The remap unit validates that the
+   address/data pair is valid for the device and if so it writes the CPU
+   address/data pair, which raises the interrupt in the CPU at the
+   allocated vector. That vector is then translated to the Linux
+   interrupt number in the interrupt handling entry code by looking it
+   up in the CPU domain.
+
+So from a kernel POV, the address/data pairs are just opaque
+configuration values, which are written into the remap table and the
+device. Whether the content of @data is relevant or not, is a hardware
+implementation detail. That implementation detail is only relevant for
+the interrupt domain code, which handle a specific part of the
+hierarchy.
+
+The MSI domain does not need to know anything about the content and the
+meaning of @address and @data. It just cares about converting that into
+the device specific storage format.
+
+The Remap domain does not need to know anything about the content and
+the meaning of the CPU domain provided @address and @data. It just cares
+about converting that into the remap table specific format.
+
+The hardware entities do not know about the Linux interrupt number at
+all. That relationship is purely software managed as a mapping from the
+allocated CPU vector to the Linux interrupt number.
+
+Hope that helps.
+
+     tglx
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3790855393459375508==--
-
