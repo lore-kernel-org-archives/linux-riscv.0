@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7A5CAC5A7
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 10:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D7D6CAC5B0
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 11:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xk80w5zqnthtmEBvFqfHT6i1FhcWXIZ57hyhxLevcGI=; b=mrQAq1kvpH7jlG
-	r6/wL+5+v1WDJRGakJaZ9T+Ou4O26e5Y/kDgi4anCSw/r7e93IAsEfoJ1cLYJHwfv/+s4hYAcQa2E
-	WmjvYEo3iF0BNzlHoSxdAd//3sGXmKiyNb1oVe7kVnyvph5xY3f35HkK/ad8H4OO55gARwY+45x+L
-	ohT5joXFoDOGNp4yGlFN4czEhSux87VclGY7LvtRj5A6O/BaDuRS7eQf3SP0ekw4Qz41AzIvAATki
-	ZBWhIzz6/a3mo60CFTyUK3vyvMXce7eB3gtaFzkUlNxANqDNaN6+X6jwDmglVaHKtJ76lzk+erSRP
-	tl3OP1IBZhXchUBud1OQ==;
+	List-Owner; bh=BRtDxLQDVSKQ9iONgThUkNNyHoa47NwEF0wXbMoHJFI=; b=neOodydLEv2r2o
+	ofKN2789fx5Kv4zUT/FTOLl7yfcZJtlrJ68lGTblSjE1hOsiU+ITyj2qsyhP1tbXrb5nHDj0sPDYQ
+	6DcqwBWeDaWeiM3O3ndx7sc0ATuDEUunpe7ZBA9E0d871CvOqfa9XKmzEsCq76uDUPl9L2Ar/NJvE
+	Gb6+Uv/GwhcfiU55D3omER7wT44yKnsflNEh40CLRM6mbEGyOYo++ENM7uCCRWDRpoIL0jQLmKBnl
+	axVbVvh1iSDNmvrR8gJe7/pccpmyxSMtM7htkd0dKfwekq4/CZdDlbRBMlgMSUcDFdXAwvgrN6v5I
+	/vI44LyFg4qiVDn4aHTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1016-0000000D22o-3ZOI;
-	Tue, 23 Sep 2025 10:13:00 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1v11LS-0000000DCEJ-2Q1a;
+	Tue, 23 Sep 2025 11:38:06 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1012-0000000D21e-2AAx;
-	Tue, 23 Sep 2025 10:12:57 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758622373;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jbygUmzfw8XS2VUG0sJP6HEJcO918I6DxufbOrM/Lys=;
-	b=bThBhpI0ltJ1hqx0PKVweVeLpdM3xppi1mqlVS9P988dnElWJFcno5EqlUW2/LORt+1zHz
-	Wfycx0wfOOEs+0yZfXstUOoTY3leeQd5TumBF3E+fPfmgUpBgr3z2gUegc384kvbK/Fw2U
-	zMu21rf4c2ypNNk6Q4WKuorRAmddD+LkdASO7a+EzkZR353yMhnagecaosBIt3xUhYRNDU
-	sO0qyqawwncogrv4F2rhWO3Rg0Zvfj/jZJB14UU1T0RU54TGMg9OOPdIipGEy6os0k5wJf
-	HqsjAOG4y7wjMTQ921422R3Oyvo/iBZvs68IHSoJxmN/QMofzRMMkt5Gab7g/Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758622373;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jbygUmzfw8XS2VUG0sJP6HEJcO918I6DxufbOrM/Lys=;
-	b=bv0St62rsMuDh+7nigvQeW8MWJocEsM7XcTr5+GGEUrX8DshmHpEvAwaL6y/hDZduT7sB4
-	IDchlUJGMNv0/6Dw==
-To: Jason Gunthorpe <jgg@nvidia.com>, Andrew Jones <ajones@ventanamicro.com>
-Cc: iommu@lists.linux.dev, kvm-riscv@lists.infradead.org,
- kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, zong.li@sifive.com, tjeznach@rivosinc.com,
- joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- anup@brainfault.org, atish.patra@linux.dev, alex.williamson@redhat.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, alex@ghiti.fr
-Subject: Re: [RFC PATCH v2 08/18] iommu/riscv: Use MSI table to enable IMSIC
- access
-In-Reply-To: <20250922235651.GG1391379@nvidia.com>
-References: <20250920203851.2205115-20-ajones@ventanamicro.com>
- <20250920203851.2205115-28-ajones@ventanamicro.com>
- <20250922184336.GD1391379@nvidia.com>
- <20250922-50372a07397db3155fec49c9@orel>
- <20250922235651.GG1391379@nvidia.com>
-Date: Tue, 23 Sep 2025 12:12:52 +0200
-Message-ID: <87ecrx4guz.ffs@tglx>
+	id 1v11LM-0000000DCBs-3j8l
+	for linux-riscv@lists.infradead.org;
+	Tue, 23 Sep 2025 11:38:02 +0000
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 58NBbD7i067544
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 23 Sep 2025 19:37:13 +0800 (+08)
+	(envelope-from randolph@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Tue, 23 Sep 2025
+ 19:37:13 +0800
+From: Randolph Lin <randolph@andestech.com>
+To: <linux-kernel@vger.kernel.org>
+CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <jingoohan1@gmail.com>,
+        <mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <alex@ghiti.fr>, <aou@eecs.berkeley.edu>,
+        <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+        <ben717@andestech.com>, <inochiama@gmail.com>,
+        <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
+        <shradha.t@samsung.com>, <randolph.sklin@gmail.com>,
+        <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
+Subject: [PATCH v3 5/5] MAINTAINERS: Add maintainers for Andes QiLai PCIe driver
+Date: Tue, 23 Sep 2025 19:36:47 +0800
+Message-ID: <20250923113647.895686-6-randolph@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250923113647.895686-1-randolph@andestech.com>
+References: <20250923113647.895686-1-randolph@andestech.com>
 MIME-Version: 1.0
+X-Originating-IP: [10.0.15.173]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 58NBbD7i067544
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_031256_761632_7CEBF9B7 
-X-CRM114-Status: GOOD (  23.80  )
+X-CRM114-CacheID: sfid-20250923_043801_251597_B8296673 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,110 +78,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22 2025 at 20:56, Jason Gunthorpe wrote:
-> On Mon, Sep 22, 2025 at 04:20:43PM -0500, Andrew Jones wrote:
->> > It has to do with each PCI BDF having a unique set of
->> > validation/mapping tables for MSIs that are granular to the interrupt
->> > number.
->> 
->> Interrupt numbers (MSI data) aren't used by the RISC-V IOMMU in any way.
->
-> Interrupt number is a Linux concept, HW decodes the addr/data pair and
-> delivers it to some Linux interrupt. Linux doesn't care how the HW
-> treats the addr/data pair, it can ignore data if it wants.
+Here add maintainer information for Andes QiLai PCIe driver.
 
-Let me explain this a bit deeper.
+Signed-off-by: Randolph Lin <randolph@andestech.com>
+---
+ MAINTAINERS | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-As you said, the interrupt number is a pure kernel software construct,
-which is mapped to a hardware interrupt source.
-
-The interrupt domain, which is associated to a hardware interrupt
-source, creates the mapping and supplies the resulting configuration to
-the hardware, so that the hardware is able to raise an interrupt in the
-CPU.
-
-In case of MSI, this configuration is the MSI message (address,
-data). That's composed by the domain according to the requirements of
-the underlying CPU hardware resource. This underlying hardware resource
-can be the CPUs interrupt controller itself or some intermediary
-hardware entity.
-
-The kernel reflects this in the interrupt domain hierarchy. The simplest
-case for MSI is:
-
-     [ CPU domain ] --- [ MSI domain ] -- device
-
-The flow is as follows:
-
-   device driver allocates an MSI interrupt in the MSI domain
-
-   MSI domain allocates an interrupt in the CPU domain
-
-   CPU domain allocates an interrupt vector and composes the
-   address/data pair. If @data is written to @address, the interrupt is
-   raised in the CPU
-
-   MSI domain converts the address/data pair into device format and
-   writes it into the device.
-
-   When the device fires an interrupt it writes @data to @address, which
-   raises the interrupt in the CPU at the allocated CPU vector.  That
-   vector is then translated to the Linux interrupt number in the
-   interrupt handling entry code by looking it up in the CPU domain.
-
-With a remapping domain intermediary this looks like this:
-
-     [ CPU domain ] --- [ Remap domain] --- [ MSI domain ] -- device
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 520fb4e379a3..0fe27108e6b9 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19256,6 +19256,13 @@ S:	Supported
+ F:	Documentation/devicetree/bindings/pci/altr,pcie-root-port.yaml
+ F:	drivers/pci/controller/pcie-altera.c
  
-   device driver allocates an MSI interrupt in the MSI domain
-
-   MSI domain allocates an interrupt in the Remap domain
-
-   Remap domain allocates a resource in the remap space, e.g. an entry
-   in the remap translation table and then allocates an interrupt in the
-   CPU domain.
-
-   CPU domain allocates an interrupt vector and composes the
-   address/data pair. If @data is written to @address, the interrupt is
-   raised in the CPU
-
-   Remap domain converts the CPU address/data pair to remap table format
-   and writes it to the alloacted entry in that table. It then composes
-   a new address/data pair, which points at the remap table entry.
-
-   MSI domain converts the remap address/data pair into device format
-   and writes it into the device.
-
-   So when the device fires an interrupt it writes @data to @address,
-   which triggers the remap unit. The remap unit validates that the
-   address/data pair is valid for the device and if so it writes the CPU
-   address/data pair, which raises the interrupt in the CPU at the
-   allocated vector. That vector is then translated to the Linux
-   interrupt number in the interrupt handling entry code by looking it
-   up in the CPU domain.
-
-So from a kernel POV, the address/data pairs are just opaque
-configuration values, which are written into the remap table and the
-device. Whether the content of @data is relevant or not, is a hardware
-implementation detail. That implementation detail is only relevant for
-the interrupt domain code, which handle a specific part of the
-hierarchy.
-
-The MSI domain does not need to know anything about the content and the
-meaning of @address and @data. It just cares about converting that into
-the device specific storage format.
-
-The Remap domain does not need to know anything about the content and
-the meaning of the CPU domain provided @address and @data. It just cares
-about converting that into the remap table specific format.
-
-The hardware entities do not know about the Linux interrupt number at
-all. That relationship is purely software managed as a mapping from the
-allocated CPU vector to the Linux interrupt number.
-
-Hope that helps.
-
-     tglx
++PCI DRIVER FOR ANDES QILAI PCIE
++M:	Randolph Lin <randolph@andestech.com>
++L:	linux-pci@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
++F:	drivers/pci/controller/dwc/pcie-andes-qilai.c
++
+ PCI DRIVER FOR APPLIEDMICRO XGENE
+ M:	Toan Le <toan@os.amperecomputing.com>
+ L:	linux-pci@vger.kernel.org
+-- 
+2.34.1
 
 
 _______________________________________________
