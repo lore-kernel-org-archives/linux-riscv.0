@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE2BCAC5A5
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 20:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886B5CAC5AC
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 22:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=eetJlBw8OlGYoOFjaralMg+kUuHoowK/eZKpOPu4Eqk=; b=QoMHV1trIRYrE3
-	IS6yVhQqdb7YOYrrteVdvffbLvWckTox1ZlJHewx2te5F1QtB1hT8asUPfDhXXgl7kGN/KoYCnwNv
-	x2EOzspg44NyY/rPrak5x3ggBC7UDHI3UXI6VkNVPIX/vWYLcZhDmHqLG87bYK7lI8D8BGGtMGIMY
-	/UPfSe6qeTEhZXFMQ7kZA7QRnTmwQ46djDl/trsWQTrF2ZpNTz6q8WZIKHR63y2LY6/nqgcFZMp1k
-	lISeQv2ZMNE0XwVSxJhiaPZ5DtH2nDIUbxXtlSjTehVz3UWJyjwVAxzkp0hDM4b1sqN4Vvs0uMEs3
-	wigWK0yCIWBhukst3r1w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nwC5GcBQ/x74aZqMcqho5bclJ1pTB+HkwCU3lEsxNbc=; b=AeHWpa+++lSrgQ
+	uh9S8JLmyQbChOR7E4JtV64tHsOKtcS417Cz8WulbgH5DNtqeoL0rmW/y6Ss9TPnoUC2oC8FpRVoV
+	j+kgGSjdSX0PEB5M1PBNXbJ4LrQnl4BEDidzTV7ONxmgvzGiefvMIaS32zNfyozYK2P6Z03S1o2Rw
+	L/dAjKS3E5sfDFGBiblW89draZBKYfTapVje0eM60sPjxD2kQm/z6ROZOt3Vh3b3sdyliWHcyVziQ
+	dWR+C0PntFJWr1Jj/grrUi/nl1dPCDAVDsRLuTEhpbz4jZL4COZ2efGfTA5+9IkZ1awbiGCHSefZC
+	3CPixdHXRh6gSdxtWd8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v19yZ-0000000Eo94-24Ay;
-	Tue, 23 Sep 2025 20:51:03 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1v1BfH-0000000F5ry-3Qjl;
+	Tue, 23 Sep 2025 22:39:15 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v19yU-0000000Eo7R-32GF
-	for linux-riscv@lists.infradead.org;
-	Tue, 23 Sep 2025 20:51:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
-	Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
-	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
-	bh=S782zCaiS6n+iFj//HOlJ9oomrbwBysU57bfvWdg/Ng=; b=LxDvNElPgk5gLFeu6Kcq74YXve
-	7aeh0EZNYcnYz7ScFUCjqwjqHhzLdJjVBUUP4puXPvT69tg6GN11GGyGy0+JhPqAYEchlNdeK1Zre
-	iPCVWpQagZAh1neyLI4flPI1NTHOdMyuHIHbYHr/i5Nc2HSp54pMpmnql9DMv673xIkE8uDqDrAHB
-	y4jNuo/TTeCI5oSw2tllsod/24V7PCiRRxx8ZLdF9+aeVRhxghvrlf/7fjz5zUOjA4+OWNq2sK2xo
-	Uc8Jmf0lepEToiP7o3Wl8MqFaFmjXM4Qdda5MxGIZle6e/3Z29Bvi4A6P/aHZzedO61hIYN7354bM
-	uQF1bzyQ==;
-Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
-	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1v19yH-00CFUe-1x;
-	Tue, 23 Sep 2025 22:50:45 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@gentoo.org>,
-	Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Aurelien Jarno <aurelien@aurel32.net>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: [PATCH v2 0/3] riscv: dts: spacemit: add 24c02 eeprom on BPI-F3
-Date: Tue, 23 Sep 2025 21:45:40 +0200
-Message-ID: <20250923205028.2355244-1-aurelien@aurel32.net>
-X-Mailer: git-send-email 2.47.2
+	id 1v1BfF-0000000F5rR-4C4e;
+	Tue, 23 Sep 2025 22:39:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=kMNRIy7juPEY6DIXxF9DZzfJvByV0E5yz461o/FuEmU=; b=SojriKu2ZEAiqDCZFCDQRhRKhn
+	nKspnPTfBVKaUKc77OtjSxdvixl+GHzCJK/5nnDH122mvTIjGuaDBtfO2/vhms/1t4MnJvEPwrhjB
+	SL/CfblZqb+J/Mg1qpXUiH8CIEeTs7RnM5SEdFEjpxScnHE1UEuvNZ37MUF2Idfeulhmd9iuFHN+X
+	YneEJmmbwYFcgPkAR878Rq4Hy6K/em+73ZwEXsSrT8HKSJSfk8+IhYUuoVieViWI58YHUR7Ufjd3M
+	/5l7MwBlIgT3Gk4OECBaBAUXXAeZup1SPEBlZdCDvKR6uwJtaxODOFfE3ZGINd6WxrnAwhB2zzg6Y
+	5izeBW/g==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1Bf7-00000002lyS-1MIl;
+	Tue, 23 Sep 2025 22:39:05 +0000
+Date: Tue, 23 Sep 2025 23:39:05 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Yin Tirui <yintirui@huawei.com>
+Cc: akpm@linux-foundation.org, david@redhat.com, lorenzo.stoakes@oracle.com,
+	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
+	surenb@google.com, mhocko@suse.com, ziy@nvidia.com,
+	baolin.wang@linux.alibaba.com, npache@redhat.com,
+	ryan.roberts@arm.com, dev.jain@arm.com, baohua@kernel.org,
+	catalin.marinas@arm.com, will@kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	anshuman.khandual@arm.com, yangyicong@hisilicon.com,
+	ardb@kernel.org, apopple@nvidia.com, samuel.holland@sifive.com,
+	luxu.kernel@bytedance.com, abrestic@rivosinc.com,
+	yongxuan.wang@sifive.com, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, wangkefeng.wang@huawei.com,
+	chenjun102@huawei.com
+Subject: Re: [PATCH RFC 2/2] mm: add PMD-level huge page support for
+ remap_pfn_range()
+Message-ID: <aNMhiZ4FiEE1Rk_T@casper.infradead.org>
+References: <20250923133104.926672-1-yintirui@huawei.com>
+ <20250923133104.926672-3-yintirui@huawei.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_135100_021398_8157AA0C 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20250923133104.926672-3-yintirui@huawei.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +80,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The BPI-F3 board has a 24c02 eeprom connected to the i2c bus #2. It
-holds board data. This patchset adds support for it.
+On Tue, Sep 23, 2025 at 09:31:04PM +0800, Yin Tirui wrote:
+> +			entry = pte_clrhuge(pfn_pte(pmd_pfn(old_pmd), pmd_pgprot(old_pmd)));
 
-Version 2 incorporates changes suggested during review of v1.
+This doesn't make sense.  And I'm not saying you got this wrong; I
+suspect in terms of how things work today it's actually necessary.
+But the way we handle this stuff is so insane.
 
-Changes between version 1 and version 2:
- - Rename i2c2-0-cfg and i2c2-0-pins into i2c2-4-cfg and i2c2-4-pins to match
-   the naming convention encoding the function number in the second cell.
- - Rename the 24c02 supply name label to buck3_1v8
- - Add a onie,tlv-layout nvmem layout describing the content of the 24c02 eeprom
+pte_clrhuge() should not exist.  If we have a PTE, it can't have the
+huge bit set, by definition (don't anybody mention hugetlbfs because
+that is an entirely separate pile of broken horrors).  I understand what
+you're trying to do here.  You want to construct a PTE that points to
+the same address as the first page of the PMD and has the same
+permissions.  But that *should* be written as:
 
----
+	entry = pfn_pte(pmd_pfn(old_pmd), pmd_pgprot(old_pmd)));
 
-Aurelien Jarno (3):
-  riscv: dts: spacemit: enable the i2c2 adapter on BPI-F3
-  riscv: dts: spacemit: add 24c02 eeprom on BPI-F3
-  riscv: dts: spacemit: add i2c aliases on BPI-F3
+right?  Now, pmd_pgprot() might or might not want to return the huge bit
+set.  I'm not sure.  Perhaps you could have a look through and figure it
+out.  But pfn_pte() should never return a PTE with the huge bit set.
+So if it is set in the pgorot on entry, it should filter it out.
 
- .../boot/dts/spacemit/k1-bananapi-f3.dts      | 33 ++++++++++++++++++-
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  |  7 ++++
- arch/riscv/boot/dts/spacemit/k1.dtsi          | 13 ++++++++
- 3 files changed, 52 insertions(+), 1 deletion(-)
+There are going to be consequences to this.  Maybe there's code
+somewhere that relies on pfn_pte() returning a PTE with the huge bit
+set.  Perhaps it's hugetlbfs.
 
--- 
-2.47.2
+But we have to start cleaning this garbage up.  I did some work with
+e3981db444a0 and the commits leading up to that.  See
+https://lkml.kernel.org/r/20250402181709.2386022-12-willy@infradead.org
 
+I'd like pte_clrhuge() to be deleted from x86, not added to arm and
+riscv.
 
 _______________________________________________
 linux-riscv mailing list
