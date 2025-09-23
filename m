@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE7ACAC5A7
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 15:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C257CAC5A7
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 15:51:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ayOtzTG4G5DXScSmYslTir5ppJQZS1JEnvYnAATpVO8=; b=FFx+4UphP3EVKX
-	9scKlHeS8Ruvw78SdDyVUN0vCdOKDLuEL6jIv3AE5C49iHI53HaXpBTG8yysgtOVMPiFgE9Hapxhy
-	sosw3//A10c4gyle8HXXUt5LrebmnFP8O1rjTpjkmEXgfrJjAexeAVZsXgr6lGLPr5fEOKe/AYne4
-	1e/gHgsQ/sgy6joAjjhlmh9ZD+eJBiwLS2NfsvMl2rz0CXv97YBrO+K9WhZB3UpgznhdsvnfuWqPc
-	khOrJsor1IdtRVPTaUpp5D4xvuJUu2rhJeXOxGzRuU/p+FQdms+hveO+2CEI/8AXNrkMTtgjrCGM+
-	NcAKqbEfEP0TXeX2Wb7w==;
+	List-Owner; bh=FqsABQQd3ttQ5Niwworlvk4mDEeDhWLVzIwBKp53OUk=; b=wSauKm/rk/wO9v
+	peAGqnD5yx0Keiycyxm6W6mYW/QJZDoNon7XEmFxzA7p75gyRFAQrwMIoacLw+hvUK4kYDpCl3D4P
+	XhwaGS6szxtA5ACU1k6kG0CQBgGoFAmWQbJ64tYMZUpoLJfdpF/QMlkNp9Rt9Lnz1oOhrFpmFPeUs
+	zFij2wmvzbirn5Q7GRop60mzKJPhMEVvj52OLIeYMvNO3e5hL2glKqIptgwKcscxFSYNEJ1HkVN5S
+	b0W1ZS4zMd7RSJ9s5S1FsMclVdG5Ucf8bcQSHgb01L2Q+Kp9qmyrMUUX47KWvv2wGcqZwzU5QRWqO
+	UAZ9gM6UVUcNp3Dn5dJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v155E-0000000E5ed-3b2w;
-	Tue, 23 Sep 2025 15:37:36 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1v15ID-0000000E9AB-2T4J;
+	Tue, 23 Sep 2025 15:51:01 +0000
+Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v155B-0000000E5d1-0va0
+	id 1v15IB-0000000E98w-1ZZ4
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Sep 2025 15:37:34 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-eb3671a7db4so12953276.0
-        for <linux-riscv@lists.infradead.org>; Tue, 23 Sep 2025 08:37:32 -0700 (PDT)
+	Tue, 23 Sep 2025 15:51:00 +0000
+Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-63604582e53so814489d50.3
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Sep 2025 08:50:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1758641852; x=1759246652; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1758642658; x=1759247458; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wa5b2Ox9cKpFtfieebnhk7CueJ3gddY86USQDYphg/s=;
-        b=gf1yP1IOmhsAbIKXCe0YZ1rMtVDaR7FJWToJtK4ZdSXjBqx3On2HlZCP1TTYEVOUdv
-         8dwP6weTqwW1xy8xW6/ZbL/5RWnpLa6bLpVpXQZjwzAv1Q/fAWo4G8fWUtW/MnpsW8i8
-         4ATCOs7F2YqsM72mGleAayPeCbUex+xvvgyI+CmLUHIeho4MibndcWpdrEvkLevXVrF/
-         GwjEH2YjArLRq77N4tdh8oMGFUAOzOPQh1b+z8uSmfy2OUj6LzekuTf0H+NptTAuqkMl
-         HU06W3Nn3DEtbWKh0ZF53R5tct3UZqF4gllGCW2qO+HZgqVjN6QNibHBLo1yw++M5oJz
-         DYHg==
+        bh=3CqX8wo4OIF9dVnHcV+vNQ/UyqzH0cRogmJfYlIiKHQ=;
+        b=QoI+58+qHjYEZnt57GzRyoJ0belS4KVQPbf5Sy04LKZBODyEBji0iZeX5zVXNLY3vA
+         2VGGBmUjfiblc3jUzY8+OQC/a4p8WcdfTdO4+Jr2ivq6bdzsMb71riHmvE84+KgNgyiC
+         AmiXcnOBoy7NwYBMdU4esHGWbmMM7QPUbdNZpN8U93Hir5RiWkir7nS8mjrsfbBsHYHZ
+         xrVMG9tPtiUlphS1IGlzh8Am+5sSK7vsrBbpm8FqHWQ8wWInPLmQm7Q/uBPJsfqPRGRR
+         MPp1B2wIqA4Ni2hKWGdnnazeo91SSisEmygfsy/GuC1R0fsYSIsN6+yL3SCL5T9tWO0d
+         8kPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758641852; x=1759246652;
+        d=1e100.net; s=20230601; t=1758642658; x=1759247458;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wa5b2Ox9cKpFtfieebnhk7CueJ3gddY86USQDYphg/s=;
-        b=j/ZceFqslyITlHh6AbqB4chqMTo9Kb13DV4QdQgG1NwwqEJjoJQyV8u3Ebr+9rWfa1
-         iKo2smmi1HmpHrClHy6QsPhrldxWTM1GrtAQ0iVrRQ3v8d7YQgYYgSFibuge8ZOkRhJJ
-         u8cnzjoSotcFaTcuEcVnTBi3sSbOba/yS27VMGnl5GbQBdzTU6rw2wQTmmPASw/dnxsW
-         XmGr9S2ZWr7rwWkukBJgYbHnpm1yTG433kQe7dMf6q437vC5tgCF0JZCu2rCEsgCGU1i
-         gXonqCIjukWiaAwOmrsRCdLCEOyP26hE0iN9aaFnb2k7b4UANmTlh3PWxejjR0P3xebu
-         FVhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUYpc5P/dW1mjUfyxhpePiGA4a2lVQkhO1ZLwqUshlBa1zL2SA5gkkAi2pn0Qi3Oymvo/Cyo7j7O0MIWw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjGoh2/sWmKs76vCDIqNgtsRDjfM02YY9FDWkKFKIUYIYgtAD7
-	zICqufVSJZCr57/vnk3yZju2DzhR4xRH/C2k9HsJCicWqxLjPPkJEka32vV8ZKKaC1M=
-X-Gm-Gg: ASbGncs1ryAtAsNzH/xnkrTTVGuSTRxy0qg8by0CNVPIt2aoNl0tParMYqGaQNS1xb6
-	P/l/zNl5qKIOef74cPOoExuaumqXke1GJv1jP8zDCrLHroMdCDhQm8LwSpETuHBtQ6Mj8tpGD8B
-	SRXqB36+SZ/aW5hCKegGvuh9TA8GAmwgG8zAk5wZCPxln9tf7xLJsyjdt57rE3WwR+w0o/QK/ph
-	8lx9fQzbuxBhaS1okWZRs9JWaYw2Akhru9CJuR8HAaZsACKmMQ9GXtYpn4ZEunfqWfG8PdQh4sv
-	GzmSFMjEYQJ1NzDyngy/o/DDyh6gBbvbKDWuHYJ3mM4u5TytP7TlRPsDQVNN9qS1TahgmqNxUW4
-	NROjEwdJBI+uwtPv/akF/irAV
-X-Google-Smtp-Source: AGHT+IEg1iVUs6leKP9cHj2cx58SzsL13TI+csDZL0P1k6w1OJijHfrbcJXnEnD/4J+xBKVTIxDONg==
-X-Received: by 2002:a05:6902:1381:b0:eb3:6e74:dd0c with SMTP id 3f1490d57ef6-eb36e74defcmr792195276.24.1758641851831;
-        Tue, 23 Sep 2025 08:37:31 -0700 (PDT)
+        bh=3CqX8wo4OIF9dVnHcV+vNQ/UyqzH0cRogmJfYlIiKHQ=;
+        b=UIHF/qK6KCEO+p9aO1av+jIv+2pS37Qyjpv+kRfRMaypjvo6ZhCYz1kimArkRtO3sx
+         Z1wG8S5lciYIm8jxY7oG5DVLQXvr4lwzhpOKZEVSdhInzJ7Jlgl3q++A2bkCjCuf+t/V
+         HuwMNFgszs5rZO9QWLgOPqdWOPzwX27aTxlTu859zGcB/ideb9W0lFyAYoIT8TkuOCSp
+         MKlqmB+NyT4AaR9MUcTBO+p3u3qQwPQqsOyi3HIf0LJVGUreu2qfiRPte3FOvE1QOZsr
+         54sYQUv3Ge5WUc8KVju1UHgBOVjFB9gMRRO97I7vj/dPm/eQBwv/F4WP1AM394drYVrl
+         LBXg==
+X-Forwarded-Encrypted: i=1; AJvYcCXNmReVnrhs+1hV1BBBXlVUOz+n6Rdwtwr0xLdAqf/+IBOtzHTjXGHXP5gWQ0lyD9dQ+URlb1gSHhGQ8w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcUGg3QHfvoVAqI86J54TNLKRnl9fRGZfrdytKhayjrRBkghUR
+	h7W60uw0uX9F0ly3en8z0Kw0AeDMQGBe2/PDmPC++rEZfxO6HCzZFkhjyUlbnO0hurk=
+X-Gm-Gg: ASbGnculAh4i22Z3TFnf7VgK+LF6h+EJNl1/Mrtmiz7VD2J2lyMEvRxMkfeaew/t2kb
+	wgSHXb026vL3vqyscqhj/s4ZouxnvA6WX7lDhgos5C2oJSVPK68HC6xZOAbFw7w2bI3ur6sMJXA
+	r559CVOGUQe6cK6/m6ozH3YWafKcQxDfu6JuqW8iUFD9tt3T/ZEfDhNEMLxzi6nQyY+1C+EhCp3
+	UrPamzk5Kcm7xOFeWbruV9J/OWsvPAiRKeIZlihvb79e5+SbXeOMBEhJBNWZl1FMvDydV2j4Ftd
+	SK25RLA8cBAWQZxRgW+OW+4rqf0ReflBK4+JZVXscSVcSM/kPIoHkKgGwtAEUVvA/w67pNvM53h
+	t4mId7zPOAQhPqj87QEd4WOug
+X-Google-Smtp-Source: AGHT+IG9zvGVFr+YOmFk29/0ncfJA3SG76AOSrmrzmJdcjBUK8KbuId/KM4G7ZMmRoUwWwnCaf4a6g==
+X-Received: by 2002:a53:83ce:0:b0:636:3cc:28b2 with SMTP id 956f58d0204a3-6360476fce8mr1873137d50.36.1758642658091;
+        Tue, 23 Sep 2025 08:50:58 -0700 (PDT)
 Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-ea5ce854f57sm5087789276.22.2025.09.23.08.37.31
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-633bcb601d6sm5411190d50.0.2025.09.23.08.50.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Sep 2025 08:37:31 -0700 (PDT)
-Date: Tue, 23 Sep 2025 10:37:30 -0500
+        Tue, 23 Sep 2025 08:50:57 -0700 (PDT)
+Date: Tue, 23 Sep 2025 10:50:56 -0500
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: Thomas Gleixner <tglx@linutronix.de>, iommu@lists.linux.dev, 
@@ -78,21 +78,22 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, iommu@lists.linux.dev,
 	alex.williamson@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com, alex@ghiti.fr
 Subject: Re: [RFC PATCH v2 08/18] iommu/riscv: Use MSI table to enable IMSIC
  access
-Message-ID: <20250923-54e8e0f39d672845e2979286@orel>
+Message-ID: <20250923-e459316700c55d661c060b08@orel>
 References: <20250920203851.2205115-20-ajones@ventanamicro.com>
  <20250920203851.2205115-28-ajones@ventanamicro.com>
  <20250922184336.GD1391379@nvidia.com>
  <20250922-50372a07397db3155fec49c9@orel>
  <20250922235651.GG1391379@nvidia.com>
  <87ecrx4guz.ffs@tglx>
- <20250923-de370be816db3ec12b3ae5d4@orel>
- <20250923145251.GP1391379@nvidia.com>
+ <20250923140646.GM1391379@nvidia.com>
+ <20250923-b85e3309c54eaff1cdfddcf9@orel>
+ <20250923152702.GB2608121@nvidia.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250923145251.GP1391379@nvidia.com>
+In-Reply-To: <20250923152702.GB2608121@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_083733_265748_18DC18CB 
-X-CRM114-Status: GOOD (  28.22  )
+X-CRM114-CacheID: sfid-20250923_085059_434096_E794A5B5 
+X-CRM114-Status: GOOD (  27.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,53 +110,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 23, 2025 at 11:52:51AM -0300, Jason Gunthorpe wrote:
-> On Tue, Sep 23, 2025 at 09:37:31AM -0500, Andrew Jones wrote:
-> > undergoes a specified translation into an index of the MSI table. For the
-> > non-virt use case we skip the "composes a new address/data pair, which
-> > points at the remap table entry" step since we just forward the original
-> > with an identity mapping. For the virt case we do write a new addr,data
-> > pair (Patch15) since we need to map guest addresses to host addresses (but
-> > data is still just forwarded since the RISC-V IOMMU doesn't support data
-> > remapping). 
+On Tue, Sep 23, 2025 at 12:27:02PM -0300, Jason Gunthorpe wrote:
+> On Tue, Sep 23, 2025 at 10:12:42AM -0500, Andrew Jones wrote:
+> > be able to reach be reachable by managing the IOMMU MSI table. This gives
+> > us some level of isolation, but there is still the possibility a device
+> > may raise an interrupt it should not be able to when its irqs are affined
+> > to the same CPU as another device's
 > 
-> You should banish thinking of non-virt/virt from your lexicon. Linux
-> doesn't work that way, and trying to force it too is a loosing battle.
-
-Well, we need to consider virt when the hardware has virt-specific
-features that we want to control. We also need to consider virt when
-additional address translations to go from guest space to host space
-are needed, as in this case.
-
+> Yes, exactly, this is the problem with basic VFIO support as there is
+> no general idea of a virtualization context..
 > 
-> If you have a remap domain then it should always be remapping. There
-> is no such idea in Linux as a conditional IRQ domain dependent on
-> external factors (like how the IOMMU is configured, if the device is
-> "virt" or not, etc).
+> > and the malicious/broken device uses the wrong MSI data.
+> 
+> And to be clear it is not a malicious/broken device at issue here. In
+> PCI MSI is simple a DMA to a magic address. *ANY* device can be
+> commanded by system software to generate *ANY* address/data on PCIe.
+> 
+> So any VFIO user can effectively generate any MSI it wants. It isn't a
+> matter of device brokeness.
+> 
+> > near isolated enough. However, for the virt case, Addr is set to guest
+> > interrupt files (something like virtual IMSICs) which means there will be
+> > no other host device or other guest device irqs sharing those Addrs.
+> > Interrupts for devices assigned to guests are truly isolated (not within
+> > the guest, but we need nested support to fully isolate within the guest
+> > anyway).
+> 
+> At least this is something, and I do think this is enough security to
+> be a useful solution. However, Linux has no existing support for the
+> idea of a VFIO device that only has access to "guest" interrupt HW.
+> 
+> Presumably this is direct injection only now?
 
-The remap domain is created when the platform supports MSIs and always
-does remapping when the IOMMU supports the MSI table. It could even do
-remapping when the IOMMU doesn't support the MSI table since it could
-use the DMA table instead, but that's left for a later patch series if
-hardware actually shows up like that.
-
-The difference between virt and non-virt is what addresses get remapped
-for the remapping. For virt, guest addresses get remapped, for non-virt,
-we don't remap guest addresses. And, since we don't remap guest addresses
-for non-virt, then, rather than invent some new, arbitrary address, we
-just use the host address. Remapping is still in use, but, as I said
-above, it's an identity mapping.
-
-(Note, for the current riscv iommu, "remapping" for the non-virt case just
-means keeping the set of IMSICs that a device may reach limited to just
-what it should be allowed to reach.)
+Yup
 
 > 
-> Be specific what you mean.
+> I'm not even sure I could give you a sketch what that would look like,
+> it involves co-operation between so many orthogonal layers it is hard
+> to imagine :\
+> 
+> kvm provides the virt context, iommufd controls the MSI aperture, irq
+> remapping controls the remap table, vfio sets interrupts..
+> 
+> VFIO needs to say 'irq layer only establish an interrupt on this KVM'
+> as some enforced mode ?
+>
 
-I'm always happy to clarify when asked. I'm not sure what I said that
-would lead to thinking remapping was disabled for the non-virt case,
-but hopefully what I wrote now clarifies that it is not.
+Yes, this is the part that I'd like to lean on you for, since I understand
+we want to avoid too much KVM/virt special casing for VFIO/IOMMUFD. I was
+thinking that if I bit the bullet and implemented nested support than when
+nesting was selected it would be apparent we're in virt context. However,
+I was hoping to pull together a solution that works with current QEMU and
+VFIO too.
 
 Thanks,
 drew
