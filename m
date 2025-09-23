@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C257CAC5A7
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 15:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C841CAC5AC
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 15:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FqsABQQd3ttQ5Niwworlvk4mDEeDhWLVzIwBKp53OUk=; b=wSauKm/rk/wO9v
-	peAGqnD5yx0Keiycyxm6W6mYW/QJZDoNon7XEmFxzA7p75gyRFAQrwMIoacLw+hvUK4kYDpCl3D4P
-	XhwaGS6szxtA5ACU1k6kG0CQBgGoFAmWQbJ64tYMZUpoLJfdpF/QMlkNp9Rt9Lnz1oOhrFpmFPeUs
-	zFij2wmvzbirn5Q7GRop60mzKJPhMEVvj52OLIeYMvNO3e5hL2glKqIptgwKcscxFSYNEJ1HkVN5S
-	b0W1ZS4zMd7RSJ9s5S1FsMclVdG5Ucf8bcQSHgb01L2Q+Kp9qmyrMUUX47KWvv2wGcqZwzU5QRWqO
-	UAZ9gM6UVUcNp3Dn5dJA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=sVX6ClbauORF9jKSAE59ztDrQsvC8+/sfcYWEYKWlr0=; b=iPV285jhAdBBeN
+	76fCVQSzZIiK0kkovqAlwggkRHAq20dz6CXP101WJ4fcYlMkgsIzd7+1bspweFD0xQvqWmHAPJpd8
+	vmAG2dVpwMDQoJOEpaChcfS3VrsJyRIoPkhbbebYbyXUDupy+Io/OVClBiuc6Th3fOpF/yeyXBRvR
+	GpC8mjdpvu+Xm9orYlBYR/zAdkCO3Ur30PCxceTEqVwKUuVRVyDXMlZYo8dGfnxBb4f/VcutCysm4
+	9N+0yboks/9kWoplyNWLEp9pzdKhXtmZLvTsUQkDPGsuorNSYGYEyEvc/Z1AxbDicJ6HRQeLvG8fu
+	sCxn2cy9tIAjnhl7ZsAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v15ID-0000000E9AB-2T4J;
-	Tue, 23 Sep 2025 15:51:01 +0000
-Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
+	id 1v15Lr-0000000EA52-1ZWV;
+	Tue, 23 Sep 2025 15:54:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v15IB-0000000E98w-1ZZ4
+	id 1v15Lq-0000000EA4i-2vca
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Sep 2025 15:51:00 +0000
-Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-63604582e53so814489d50.3
-        for <linux-riscv@lists.infradead.org>; Tue, 23 Sep 2025 08:50:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1758642658; x=1759247458; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3CqX8wo4OIF9dVnHcV+vNQ/UyqzH0cRogmJfYlIiKHQ=;
-        b=QoI+58+qHjYEZnt57GzRyoJ0belS4KVQPbf5Sy04LKZBODyEBji0iZeX5zVXNLY3vA
-         2VGGBmUjfiblc3jUzY8+OQC/a4p8WcdfTdO4+Jr2ivq6bdzsMb71riHmvE84+KgNgyiC
-         AmiXcnOBoy7NwYBMdU4esHGWbmMM7QPUbdNZpN8U93Hir5RiWkir7nS8mjrsfbBsHYHZ
-         xrVMG9tPtiUlphS1IGlzh8Am+5sSK7vsrBbpm8FqHWQ8wWInPLmQm7Q/uBPJsfqPRGRR
-         MPp1B2wIqA4Ni2hKWGdnnazeo91SSisEmygfsy/GuC1R0fsYSIsN6+yL3SCL5T9tWO0d
-         8kPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758642658; x=1759247458;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3CqX8wo4OIF9dVnHcV+vNQ/UyqzH0cRogmJfYlIiKHQ=;
-        b=UIHF/qK6KCEO+p9aO1av+jIv+2pS37Qyjpv+kRfRMaypjvo6ZhCYz1kimArkRtO3sx
-         Z1wG8S5lciYIm8jxY7oG5DVLQXvr4lwzhpOKZEVSdhInzJ7Jlgl3q++A2bkCjCuf+t/V
-         HuwMNFgszs5rZO9QWLgOPqdWOPzwX27aTxlTu859zGcB/ideb9W0lFyAYoIT8TkuOCSp
-         MKlqmB+NyT4AaR9MUcTBO+p3u3qQwPQqsOyi3HIf0LJVGUreu2qfiRPte3FOvE1QOZsr
-         54sYQUv3Ge5WUc8KVju1UHgBOVjFB9gMRRO97I7vj/dPm/eQBwv/F4WP1AM394drYVrl
-         LBXg==
-X-Forwarded-Encrypted: i=1; AJvYcCXNmReVnrhs+1hV1BBBXlVUOz+n6Rdwtwr0xLdAqf/+IBOtzHTjXGHXP5gWQ0lyD9dQ+URlb1gSHhGQ8w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcUGg3QHfvoVAqI86J54TNLKRnl9fRGZfrdytKhayjrRBkghUR
-	h7W60uw0uX9F0ly3en8z0Kw0AeDMQGBe2/PDmPC++rEZfxO6HCzZFkhjyUlbnO0hurk=
-X-Gm-Gg: ASbGnculAh4i22Z3TFnf7VgK+LF6h+EJNl1/Mrtmiz7VD2J2lyMEvRxMkfeaew/t2kb
-	wgSHXb026vL3vqyscqhj/s4ZouxnvA6WX7lDhgos5C2oJSVPK68HC6xZOAbFw7w2bI3ur6sMJXA
-	r559CVOGUQe6cK6/m6ozH3YWafKcQxDfu6JuqW8iUFD9tt3T/ZEfDhNEMLxzi6nQyY+1C+EhCp3
-	UrPamzk5Kcm7xOFeWbruV9J/OWsvPAiRKeIZlihvb79e5+SbXeOMBEhJBNWZl1FMvDydV2j4Ftd
-	SK25RLA8cBAWQZxRgW+OW+4rqf0ReflBK4+JZVXscSVcSM/kPIoHkKgGwtAEUVvA/w67pNvM53h
-	t4mId7zPOAQhPqj87QEd4WOug
-X-Google-Smtp-Source: AGHT+IG9zvGVFr+YOmFk29/0ncfJA3SG76AOSrmrzmJdcjBUK8KbuId/KM4G7ZMmRoUwWwnCaf4a6g==
-X-Received: by 2002:a53:83ce:0:b0:636:3cc:28b2 with SMTP id 956f58d0204a3-6360476fce8mr1873137d50.36.1758642658091;
-        Tue, 23 Sep 2025 08:50:58 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-633bcb601d6sm5411190d50.0.2025.09.23.08.50.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Sep 2025 08:50:57 -0700 (PDT)
-Date: Tue, 23 Sep 2025 10:50:56 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, iommu@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, zong.li@sifive.com, tjeznach@rivosinc.com, joro@8bytes.org, 
-	will@kernel.org, robin.murphy@arm.com, anup@brainfault.org, atish.patra@linux.dev, 
-	alex.williamson@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com, alex@ghiti.fr
-Subject: Re: [RFC PATCH v2 08/18] iommu/riscv: Use MSI table to enable IMSIC
- access
-Message-ID: <20250923-e459316700c55d661c060b08@orel>
-References: <20250920203851.2205115-20-ajones@ventanamicro.com>
- <20250920203851.2205115-28-ajones@ventanamicro.com>
- <20250922184336.GD1391379@nvidia.com>
- <20250922-50372a07397db3155fec49c9@orel>
- <20250922235651.GG1391379@nvidia.com>
- <87ecrx4guz.ffs@tglx>
- <20250923140646.GM1391379@nvidia.com>
- <20250923-b85e3309c54eaff1cdfddcf9@orel>
- <20250923152702.GB2608121@nvidia.com>
+	Tue, 23 Sep 2025 15:54:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D90BC60202;
+	Tue, 23 Sep 2025 15:54:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 552B6C113CF;
+	Tue, 23 Sep 2025 15:54:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758642885;
+	bh=9PAHk1M/py/wmr9FX/AJcB5+6ZJZbCQJMTHF0F98NFw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=HB0XYEnR4MNkE+vIXx7MKexzkD7sZteWlROImwjLYmOQTkC+TRO+FbdgUqwZjKTr0
+	 rdPY61ShmA5mZEfCZ+nh3Vk5sJbUDb6Am8Ar30yP+v4j3hLx66DUUqA3i33LD97yEM
+	 cOEP9MGIhgzOomPU26Q5Dvuyc80y9DnlBz+cyEBuJOJKnmJeAwcp9ZnA1qxBfUbwrV
+	 TR+TJnaVZYVGOjFhxqRu6xwY8iG4FPm433mVuJkL5aBQZ53fpkHzfGBPOCxe8/aG8I
+	 MjRySA+WP+fnJWjfcQ+ep6S00INskkZhdIZBsQeiWDVcH77tGiZSA8EbH+2zpELl7d
+	 oeT+tC+hUDsQg==
+Date: Tue, 23 Sep 2025 10:54:43 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Randolph Lin <randolph@andestech.com>
+Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alex@ghiti.fr,
+	aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
+	ben717@andestech.com, inochiama@gmail.com,
+	thippeswamy.havalige@amd.com, namcao@linutronix.de,
+	shradha.t@samsung.com, randolph.sklin@gmail.com,
+	tim609@andestech.com
+Subject: Re: [PATCH v3 4/5] PCI: andes: Add Andes QiLai SoC PCIe host driver
+ support
+Message-ID: <20250923155443.GA2041202@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250923152702.GB2608121@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_085059_434096_E794A5B5 
-X-CRM114-Status: GOOD (  27.59  )
+In-Reply-To: <20250923113647.895686-5-randolph@andestech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,61 +77,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 23, 2025 at 12:27:02PM -0300, Jason Gunthorpe wrote:
-> On Tue, Sep 23, 2025 at 10:12:42AM -0500, Andrew Jones wrote:
-> > be able to reach be reachable by managing the IOMMU MSI table. This gives
-> > us some level of isolation, but there is still the possibility a device
-> > may raise an interrupt it should not be able to when its irqs are affined
-> > to the same CPU as another device's
-> 
-> Yes, exactly, this is the problem with basic VFIO support as there is
-> no general idea of a virtualization context..
-> 
-> > and the malicious/broken device uses the wrong MSI data.
-> 
-> And to be clear it is not a malicious/broken device at issue here. In
-> PCI MSI is simple a DMA to a magic address. *ANY* device can be
-> commanded by system software to generate *ANY* address/data on PCIe.
-> 
-> So any VFIO user can effectively generate any MSI it wants. It isn't a
-> matter of device brokeness.
-> 
-> > near isolated enough. However, for the virt case, Addr is set to guest
-> > interrupt files (something like virtual IMSICs) which means there will be
-> > no other host device or other guest device irqs sharing those Addrs.
-> > Interrupts for devices assigned to guests are truly isolated (not within
-> > the guest, but we need nested support to fully isolate within the guest
-> > anyway).
-> 
-> At least this is something, and I do think this is enough security to
-> be a useful solution. However, Linux has no existing support for the
-> idea of a VFIO device that only has access to "guest" interrupt HW.
-> 
-> Presumably this is direct injection only now?
+On Tue, Sep 23, 2025 at 07:36:46PM +0800, Randolph Lin wrote:
+> Add driver support for DesignWare based PCIe controller in Andes
+> QiLai SoC. The driver only supports the Root Complex mode.
 
-Yup
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -49,6 +49,19 @@ config PCIE_AMD_MDB
+>  	  DesignWare IP and therefore the driver re-uses the DesignWare
+>  	  core functions to implement the driver.
+>  
+> +config PCIE_ANDES_QILAI
+> +	bool "ANDES QiLai PCIe controller"
+> +	depends on ARCH_ANDES || COMPILE_TEST
+> +	depends on PCI_MSI
+> +	select PCIE_DW_HOST
+> +	help
+> +	  Say Y here to enable PCIe controller support on Andes QiLai SoCs,
+> +	  which operate in Root Complex mode. The Andes QiLai SoCs PCIe
+> +	  controller is based on DesignWare IP (5.97a version) and therefore
+> +	  the driver re-uses the DesignWare core functions to implement the
+> +	  driver. The Andes QiLai SoC features three Root Complexes, each
+> +	  operating on PCIe 4.0.
 
-> 
-> I'm not even sure I could give you a sketch what that would look like,
-> it involves co-operation between so many orthogonal layers it is hard
-> to imagine :\
-> 
-> kvm provides the virt context, iommufd controls the MSI aperture, irq
-> remapping controls the remap table, vfio sets interrupts..
-> 
-> VFIO needs to say 'irq layer only establish an interrupt on this KVM'
-> as some enforced mode ?
->
+Sort these by vendor name:
 
-Yes, this is the part that I'd like to lean on you for, since I understand
-we want to avoid too much KVM/virt special casing for VFIO/IOMMUFD. I was
-thinking that if I bit the bullet and implemented nested support than when
-nesting was selected it would be apparent we're in virt context. However,
-I was hoping to pull together a solution that works with current QEMU and
-VFIO too.
+  AMD MDB Versal2 PCIe controller
+  Amlogic Meson PCIe controller
+  ANDES QiLai PCIe controller
+  Axis ARTPEC-6 PCIe controller (host mode)
 
-Thanks,
-drew
+>  config PCI_MESON
+>  	tristate "Amlogic Meson PCIe controller"
+
+> + * Refer to Table A4-5 (Memory type encoding) in the
+> + * AMBA AXI and ACE Protocol Specification.
+> + *
+> + * The selected value corresponds to the Memory type field:
+> + * "Write-back, Read and Write-allocate".
+> + */
+> +#define IOCP_ARCACHE				0b1111
+> +#define IOCP_AWCACHE				0b1111
+
+Deserves a note about why these values are identical.
+
+> +struct qilai_pcie {
+> +	struct dw_pcie pci;
+> +	struct platform_device *pdev;
+
+"pdev" appears to be set but never used; drop it if you don't need it.
+
+> +/*
+> + * Setup the Qilai PCIe IOCP (IO Coherence Port) Read/Write Behaviors to the
+> + * Write-Back, Read and Write Allocate mode.
+
+Add blank line or rewrap into single paragraph.
+
+> + * The IOCP HW target is SoC last-level cache (L2 Cache), which serves as the
+> + * system cache. The IOCP HW helps maintain cache monitoring, ensuring that
+> + * the device can snoop data from/to the cache.
+> + */
+> +static void qilai_pcie_iocp_cache_setup(struct dw_pcie_rp *pp)
+> +{
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	u32 val;
+> +
+> +	dw_pcie_dbi_ro_wr_en(pci);
+> +
+> +	dw_pcie_read(pci->dbi_base + PCIE_LOGIC_COHERENCY_CONTROL3,
+> +		     sizeof(val), &val);
+> +	FIELD_MODIFY(PCIE_CFG_MSTR_ARCACHE_MODE, &val, IOCP_ARCACHE);
+> +	FIELD_MODIFY(PCIE_CFG_MSTR_AWCACHE_MODE, &val, IOCP_AWCACHE);
+> +	FIELD_MODIFY(PCIE_CFG_MSTR_ARCACHE_VALUE, &val, IOCP_ARCACHE);
+> +	FIELD_MODIFY(PCIE_CFG_MSTR_AWCACHE_VALUE, &val, IOCP_AWCACHE);
+> +	dw_pcie_write(pci->dbi_base + PCIE_LOGIC_COHERENCY_CONTROL3,
+> +		      sizeof(val), val);
+> +
+> +	dw_pcie_dbi_ro_wr_dis(pci);
+> +}
+
+> +static int qilai_pcie_host_init(struct dw_pcie_rp *pp)
+> +{
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	struct qilai_pcie *pcie = to_qilai_pcie(pci);
+> +
+> +	qilai_pcie_enable_msi(pcie);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dw_pcie_host_ops qilai_pcie_host_ops = {
+> +	.init = qilai_pcie_host_init,
+> +};
+> +
+> +static int qilai_pcie_probe(struct platform_device *pdev)
+> +{
+> +	struct qilai_pcie *pcie;
+> +	struct dw_pcie *pci;
+> +	struct device *dev;
+> +	int ret;
+> +
+> +	pcie = devm_kzalloc(&pdev->dev, sizeof(*pcie), GFP_KERNEL);
+> +	if (!pcie)
+> +		return -ENOMEM;
+> +
+> +	pcie->pdev = pdev;
+> +	platform_set_drvdata(pdev, pcie);
+> +
+> +	pci = &pcie->pci;
+> +	dev = &pcie->pdev->dev;
+> +	pcie->pci.dev = dev;
+> +	pcie->pci.ops = &qilai_pcie_ops;
+> +	pcie->pci.pp.ops = &qilai_pcie_host_ops;
+> +	pci->use_parent_dt_ranges = true;
+> +
+> +	dw_pcie_cap_set(&pcie->pci, REQ_RES);
+> +
+> +	pcie->apb_base = devm_platform_ioremap_resource_byname(pdev, "apb");
+> +	if (IS_ERR(pcie->apb_base))
+> +		return PTR_ERR(pcie->apb_base);
+> +
+> +	ret = dw_pcie_host_init(&pcie->pci.pp);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to initialize PCIe host\n");
+> +		return ret;
+> +	}
+> +
+> +	qilai_pcie_iocp_cache_setup(&pcie->pci.pp);
+
+I don't think we should be doing anything after dw_pcie_host_init()
+because by the time we get here, we've already enumerated downstream
+devices and potentially bound drivers to them.
+
+If you need things done in dw_pcie_host_init() before enumeration,
+qilai_pcie_host_init() and similar hooks are possibilities.
+
+> +	return 0;
+> +}
 
 _______________________________________________
 linux-riscv mailing list
