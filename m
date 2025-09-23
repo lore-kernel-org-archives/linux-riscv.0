@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CFF4CAC5AA
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 00:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F5A3CAC5AA
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 00:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+pjySFSddgpOQguMSFzDkw38v4y1kpVDosIClmquCHo=; b=HZPbR4dK8i+a9H
-	g/5nZfZxJL4QL66ewCzp76w0ktU0Uwyiy64OOZsKcLv+XcpZCrSLnMMIn37mE5tPScP2r2Pzqt2g4
-	WcJySbT3+b47bJoMrgzr5MT0l7YiE/Fp3jG2ZSZa6dtVSZTC7WVuulHQxi/lFLtz1WNk4RGzIYWO/
-	bWN7Ct1WH0bq0RTey+2ecdtmGNJQciaYqG8ADnePsT9fvH7H0nfbFjaKpFll65IiRIQq5r6aTKzxC
-	U2H/0aJI+ZwA+wBntCHlkETA83/+e4m3ULvUd86OXE7exVIWktE/MYbe8bEbvQY+cpKrrEwgQq0C9
-	4y5lTkIQ1Pw4jpbPrSEg==;
+	List-Owner; bh=8tCbA3tC6QIDajfGVP/a+KL3ixawPocFBq0VAxtRqII=; b=QUZUiId/trxruk
+	r2MOHSRvnwzz+Ln9wHVhkRX1dF56joK/Y7TcSEtqCk/8K0iYQ9hkiK10IeTptsG09BSmCuPmFOo2H
+	Vbvf5R95j0QA8Rjn5OSqwg2dabxnzF5ZbXtJ42H29tF3NFo2nQbCwR/hlLzxjPeMxlLDfMff60oU8
+	BYDLI3/DPXNYDID1tyg5crTio7/8DVrPyIwfDZHL46EvyarQi85Z+oMd4njT3ondXmDkbpjm7krSn
+	irOtV9Z/D8iIe34Wzdqp0flVPB1XFoXEdNY4dKib0S6Ugv0mwJJ94z+7HWUIQCeecka87aQ1n/GCm
+	EZnXWEBoq5pTAXgNPlVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0rCK-0000000Bvpr-1DON;
-	Tue, 23 Sep 2025 00:48:00 +0000
-Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	id 1v0rEh-0000000Bw9g-3LN3;
+	Tue, 23 Sep 2025 00:50:27 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0rCH-0000000BvnB-3KR6
+	id 1v0rEe-0000000Bw79-2lto
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Sep 2025 00:47:59 +0000
+	Tue, 23 Sep 2025 00:50:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1758588429;
-	bh=xopCxW8t1zBW6/HQ6IJ5noM3gFQ+1+pZ3gW2SFPiifM=;
+	s=mxsw2412; t=1758588572;
+	bh=tVo0Mj6EIacICU8Zva+Nvkjbbh1bFJr07yTobLy1i8s=;
 	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=s0ChkpwcsSK2P7MZqwPTiJNP3HyXLnfhxrpqM6V0TDSRqQ8O2jkTfwJilIvlgpQPH
-	 O55G6VLQMMgddRL9t3aYJCFdDI9sLfdSXUfpRzLNx4pOKnhryQso/JM7aDvoOOtnz7
-	 NxvPh0hg3OPRI8b2GFWGHlGHSJbbSiySn7Fc5NlQ=
-X-QQ-mid: esmtpgz16t1758588423tdee7036d
-X-QQ-Originating-IP: gbwnxMZe9hFGpOZhigdxuB2zr1wbTcYBJC+vkRRZDww=
+	b=iCrjq/+94WB8ZK2DA45Ss5J6kidmAsVrx81XOnHYGgkCU2caZeelIG3spxrz+xRAJ
+	 1OHe2ZlsQfwbbeXpUurQj1AGiT3qWmm6UrZ1opwhlyPvV8lDr+HBSAYcTeTd6kohqf
+	 9S4Ckpkut+CHwcRHQw3Z+cZ9XD0eLHn9iW9VFbCw=
+X-QQ-mid: esmtpsz17t1758588565t349df697
+X-QQ-Originating-IP: 5SFyfcmSsoOR4HcPrenmCrCBMq375FcJCu0OZG3kW9Y=
 Received: from = ( [61.145.255.150])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 23 Sep 2025 08:47:01 +0800 (CST)
+	id ; Tue, 23 Sep 2025 08:49:23 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8933899601725810788
+X-BIZMAIL-ID: 15703022042497834592
 EX-QQ-RecipientCnt: 9
-Date: Tue, 23 Sep 2025 08:47:01 +0800
+Date: Tue, 23 Sep 2025 08:49:23 +0800
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
 	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
@@ -51,39 +51,38 @@ To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
 	Troy Mitchell <troymitchell988@gmail.com>,
 	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH 4/6] i2c: spacemit: check SDA instead of SCL after bus
- reset
-Message-ID: <E0A67745AA4B2621+aNHuBTk9aK3AnZjR@LT-Guozexi>
+Subject: Re: [PATCH 5/6] i2c: spacemit: ensure SDA is released after bus reset
+Message-ID: <88C40EE66EF5519F+aNHukycHdAifY9du@LT-Guozexi>
 References: <20250827-k1-i2c-atomic-v1-0-e59bea02d680@linux.spacemit.com>
- <20250827-k1-i2c-atomic-v1-4-e59bea02d680@linux.spacemit.com>
- <aNG35Dwg7wWivSHJ@aurel32.net>
+ <20250827-k1-i2c-atomic-v1-5-e59bea02d680@linux.spacemit.com>
+ <aNG36jhaWN-mtgMm@aurel32.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aNG35Dwg7wWivSHJ@aurel32.net>
+In-Reply-To: <aNG36jhaWN-mtgMm@aurel32.net>
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: Ocx62dM7vaMVzX3fzuIb0L1F35xFrH55HAYaXJaWutu7nwzBqRvfrVz8
-	K/NyvCwgMMv+vK0mzu5WPaM8/Iv4vZQrNbnLIn5aetXp/OziZ/mvrAEhABcOnd8eOK1nXuS
-	wESoaQyrYAmbESb9LrW32b1B40DkOiVWR98lKFkQDYADwMdINqkJeAPRG7EADr1ogViSY/l
-	yvXem4+rO8HZOxRJgqsSn/XJxLFEdHaHtNnkdpPK/4itas9He7xmowWyHvqDZxWSe2kccSs
-	o9NZkiUTtHmB/jL1um+KvccbflKnKOFED79K1QTlVsSm6Ei7Ugmx58cAc8DjuHLQmBBf1a7
-	CLDV5oOJnrp6AQ8cO+DIKIrgjpGKysPbBF1ruxe+QJArECa+w7gxP7YSQofEPb+e/X/74MR
-	vMjGC5tF/sUPJqD/LMtcl7zeybkpogiWjAkp3q6fZKGsC6yQXpJxBFejfB1PWVMwLTwG7mp
-	N+grhpdAfMtY18TySvxUcF2dQ4kWQDAiM/AYmVWxPVrsNnbGPITe9Tu/Fo4Eywr7eLB5JLi
-	SDhpiVr6zGYfTfkYboFJ5x4Am2BGmCmylzgC/CVMexnSEbEKfxKogcgnvhRGfD7Y7ky6wvk
-	TEKCo49+F1pkxS5Zab8d2FbhT7diouYYIR3q2srUOA3E8Q+igmi38LejnaKVIz1PSA8F0Go
-	/4d0z2GD5LEeImhHUWKNytSDZbYJZh1c+3QBnbad/7aDER6LEtZCA04Bf7o8tXP6ccw6yY5
-	j7kfXoXPhjCcuCM/gE7o+oBKbHCnCPLPiy5xYvpB8SNbUQDcx8+/LrAdDgX4lRmFqGGhv4a
-	Ry5RaQVhJlTaHQCtBtTCjFBPnWcOf86MCISL+SQfGNiSYHCpCfrltAuGJbJERNMKkqnyvdu
-	VYEo8LtmyDrtDWy3ImcF350yE50JLbQ0ZCIWzs/6VgB6L9jdav0IX3WzbpcuoC1tc7UE5na
-	hX6avmJwxW7arV4RcBHOnQucHHVyxRny71wm7z54BvdmSTxPSIHcafHfwJPmcidROxI37J1
-	ldeSLankDY3co72JVqBOXx2RqNhtQzEp3v0DnkY+yf6qa86GKp2pf8m1hp2SMgihXGp+cv8
-	NziDh/ffipR9OGWfhbDoBY=
-X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: N5P8YjqDjrfy/hQiz0Myj1FjXNUs8PdgUUuMq2jBhf97aXpLGTodLUHP
+	pMa1rca5Xo/wgi8RbUbAez5R+GDOy4zxjWc11Ncl4IFEygZMM3CYwj513HobTOAFFL3tYH/
+	OE2tWRNIlEU9H6jGnQAzcJmLNWgU25UB2GgBu4YpGsZQtu4X/PEJfEjNc7umaIuQgokJ7TI
+	HoZZCWoGZjDMEqTCFa94OBponCuU55Q8pHOhU7xvFAU22qwEig5R72CT+ld0GUbeA54HS7X
+	YnqiC7Pjs3iN6i1av0sWohuLFhbWRJnT0+ME+RgBAQ5dzqnZu3hRKwQMb3AWa3tjEiHiMA0
+	apKO/FNz0kB1JmnGyJYG+Ng5K7aEIwObIJxUr5ynegttYiFKQFHQVEVvorLNEWMvD3QQA2x
+	+StohkJJZzGascFW495smxtmLxGTiEh2Y0O+3NzpJrDWPiOMv7ZCi/gUokb5LACcacXTTTq
+	7q22oo1pf9lM9AYlVsW31KR7TaVnTRO2P/vbnqAx57COgAMw+WyPQFqbH5S0fVV2/gW3z5u
+	m32evAqZbX5qk4lfmO8kKsfvkFtdnQSI9pqDew912U0c8yXPFdSwy0mdM8sho9U87FWjX3h
+	c33TKyKCln8EBRaVcasF7RKC3CDb+mzRw5OWLWtEG0ekdurKBMvp7vVnE0N7uMM8dCihduQ
+	6J0HCXWV1ko9XfLk7GoY9UWs07fMn5/Ah7pQ9ij6PHoCnyagHLclSM9TaUbkfnmqSZglLGj
+	/NZ22T+BtZyFXVRkp9uoiEa7H4YyT2d8C2KOybpCpbHjDTek+mYJ7ZuOkCgeZvJD5suh3dN
+	hTN8HMd922vQR5aWi4eHIjZa/5P6B0rlik7CbKgtpHCUfnrboucWhDEpVAklmuT5Klvh6+h
+	0+gmXbWkP8lu7uuzcGHbNAsleNMh3pDPtwgxxOOuMW1UlESNj7W3tnHhpnVTS7kYYBem4LL
+	3FFG62rQWgcO/Sgik4i2GbTmXo7mlUvxagSlGHoFhzjAcBfdteaG6fYGnQULZTa/lqzzxvN
+	bAoWgukePspXIAfkVangPSwOLh6R0YBBuS2BbzQIfdaOPK/x8jaMqR6VcLGaV534Cd+swGK
+	ysYIEJ5Mg0SGYU7rZEr4G5FckHxG1o6HaWGvWovcQX8
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_174758_122936_B1EC20EF 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20250922_175025_380848_E6CAAF54 
+X-CRM114-Status: GOOD (  28.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +99,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 10:56:04PM +0200, Aurelien Jarno wrote:
+On Mon, Sep 22, 2025 at 10:56:10PM +0200, Aurelien Jarno wrote:
 > On 2025-08-27 15:39, Troy Mitchell wrote:
-> > After calling spacemit_i2c_conditionally_reset_bus(),
-> > the controller should ensure that the SDA line is release
-> > before proceeding.
+> > After performing a conditional bus reset, the controller must ensure
+> > that the SDA line is actually released.
 > > 
-> > Previously, the driver checked the SCL line instead,
-> > which does not guarantee that the bus is truly idle.
+> > Previously, the reset routine only performed a single check,
+> > which could leave the bus in a locked state in some situations.
 > > 
-> > This patch changes the check to verify SDA. This ensures
-> > proper bus recovery and avoids potential communication errors
-> > after a conditional reset.
+> > This patch introduces a loop that toggles the reset cycle and issues
+> > a reset request up to SPACEMIT_BUS_RESET_CLK_CNT_MAX times, checking
+> > SDA after each attempt. If SDA is released before the maximum count,
+> > the function returns early. Otherwise, a warning is emitted.
+> > 
+> > This change improves bus recovery reliability.
 > > 
 > > Fixes: 5ea558473fa31 ("i2c: spacemit: add support for SpacemiT K1 SoC")
 > > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > > ---
-> >  drivers/i2c/busses/i2c-k1.c | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >  drivers/i2c/busses/i2c-k1.c | 23 ++++++++++++++++++++++-
+> >  1 file changed, 22 insertions(+), 1 deletion(-)
 > > 
 > > diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-> > index c1656b78f1681729ccc2ebca6e290259d14889d9..4d78ee7b6929ee43771e500d4f85d9e55e68b221 100644
+> > index 4d78ee7b6929ee43771e500d4f85d9e55e68b221..d2c0d20d19ba73baa8b2e9a6acb02b2cc3b7243f 100644
 > > --- a/drivers/i2c/busses/i2c-k1.c
 > > +++ b/drivers/i2c/busses/i2c-k1.c
-> > @@ -172,9 +172,9 @@ static void spacemit_i2c_conditionally_reset_bus(struct spacemit_i2c_dev *i2c)
+> > @@ -3,6 +3,7 @@
+> >   * Copyright (C) 2024-2025 Troy Mitchell <troymitchell988@gmail.com>
+> >   */
+> >  
+> > +#include <linux/bitfield.h>
+> >   #include <linux/clk.h>
+> >   #include <linux/i2c.h>
+> >   #include <linux/iopoll.h>
+> > @@ -26,7 +27,8 @@
+> >  #define SPACEMIT_CR_MODE_FAST    BIT(8)		/* bus mode (master operation) */
+> >  /* Bit 9 is reserved */
+> >  #define SPACEMIT_CR_UR           BIT(10)	/* unit reset */
+> > -/* Bits 11-12 are reserved */
+> > +#define SPACEMIT_CR_RSTREQ	 BIT(11)	/* i2c bus reset request */
+> > +/* Bit 12 is reserved */
+> >  #define SPACEMIT_CR_SCLE         BIT(13)	/* master clock enable */
+> >  #define SPACEMIT_CR_IUE          BIT(14)	/* unit enable */
+> >  /* Bits 15-17 are reserved */
+> > @@ -78,6 +80,7 @@
+> >  					SPACEMIT_SR_ALD)
+> >  
+> >  #define SPACEMIT_RCR_SDA_GLITCH_NOFIX		BIT(7)		/* bypass the SDA glitch fix */
+> > +#define SPACEMIT_RCR_FIELD_RST_CYC		GENMASK(3, 0)	/* bypass the SDA glitch fix */
+> 
+> The comment here seems wrong, datasheet says "The cycles of SCL during 
+> bus reset."
+Yes, that's my mistake.
+I'll fix it.
+
+> 
+> >  /* SPACEMIT_IBMR register fields */
+> >  #define SPACEMIT_BMR_SDA         BIT(0)		/* SDA line level */
+> > @@ -91,6 +94,8 @@
+> >  
+> >  #define SPACEMIT_SR_ERR	(SPACEMIT_SR_BED | SPACEMIT_SR_RXOV | SPACEMIT_SR_ALD)
+> >  
+> > +#define SPACEMIT_BUS_RESET_CLK_CNT_MAX		9
+> > +
+> >  enum spacemit_i2c_state {
+> >  	SPACEMIT_STATE_IDLE,
+> >  	SPACEMIT_STATE_START,
+> > @@ -163,6 +168,7 @@ static int spacemit_i2c_handle_err(struct spacemit_i2c_dev *i2c)
+> >  static void spacemit_i2c_conditionally_reset_bus(struct spacemit_i2c_dev *i2c)
+> >  {
+> >  	u32 status;
+> > +	u8 clk_cnt;
+> >  
+> >  	/* if bus is locked, reset unit. 0: locked */
+> >  	status = readl(i2c->base + SPACEMIT_IBMR);
+> > @@ -172,6 +178,21 @@ static void spacemit_i2c_conditionally_reset_bus(struct spacemit_i2c_dev *i2c)
 > >  	spacemit_i2c_reset(i2c);
 > >  	usleep_range(10, 20);
 > >  
-> > -	/* check scl status again */
-> > +	/* check sda again here */
-> >  	status = readl(i2c->base + SPACEMIT_IBMR);
-> > -	if (!(status & SPACEMIT_BMR_SCL))
-> > +	if (!(status & SPACEMIT_BMR_SDA))
-> >  		dev_warn_ratelimited(i2c->dev, "unit reset failed\n");
-> >  }
+> > +	for (clk_cnt = 0; clk_cnt < SPACEMIT_BUS_RESET_CLK_CNT_MAX; clk_cnt++) {
+> > +		status = readl(i2c->base + SPACEMIT_IBMR);
+> > +		if (status & SPACEMIT_BMR_SDA)
+> > +			break;
 > 
-> Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
-Thanks for the RB!
+> What about just adding the return here instead of checking clk_cnt 
+> below?
+> 
+See below.
+> > +
+> > +		/* There's nothing left to save here, we are about to exit */
+> > +		writel(FIELD_PREP(SPACEMIT_RCR_FIELD_RST_CYC, 1),
+> > +		       i2c->base + SPACEMIT_IRCR);
+> > +		writel(SPACEMIT_CR_RSTREQ, i2c->base + SPACEMIT_ICR);
+> > +		usleep_range(20, 30);
+> > +	}
+> > +
+> > +	if (clk_cnt < SPACEMIT_BUS_RESET_CLK_CNT_MAX)
+> > +		return;
+> > +
+> >  	/* check sda again here */
+> >  	status = readl(i2c->base + SPACEMIT_IBMR);
+> >  	if (!(status & SPACEMIT_BMR_SDA))
+> 
+> Once we have exited the loop, I am not sure we should check SDA once 
+> more, maybe just display the error message directly.
+I'll double check it.
+If it's unnecessary, I'll just return directly.
+
                 - Troy
 > 
 > -- 
