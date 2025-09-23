@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45393CAC5A7
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 07:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECEFECAC5A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Sep 2025 08:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=scW0z/ltlu9Lv2Tpe8na6lefMhAPC1vLo1mXCQk1e+Y=; b=QatEpCUnDHvpmt
-	4Dh//a3/PKoKd3+t5GmlF2MN1YqtjQqETbq4IuMcr/kG8oNNLHQ8U0DEZH0tsqRqjjGh4tuZsfGNN
-	NCiGtIxGpAEgwPsWOYhl+BSpu36epIciF1kuWzOwb4yFFN91SFn7Ic2M82G7vU7TQ6HsgxDiuJgvB
-	cxs8UAJqj9JPj5NzDqUyIhJAOhqcVYfsueDLTqHNOEEz4c6bLY7vY//jmzIysh0HNn2px+3mmYZVs
-	fcLEEUaHwGtFMFLYfTGVu6O8K7IxRhF5lZq+SMr26nxwS86KbfjsMLKHFUPWkt5nY2AYzfTgUMJ11
-	RWj+5ZPlTnXcwBJp/t5A==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kzdmsWWKjkz7zDD1VionfGdBK5OcLpVSWM0XuAA8gnM=; b=aU35wBGxb2e9GFwHZOECpuXgU4
+	NZDs3DZTBXVRiQl1u71f+nPnnpet437n0ITCXAV+v7xjbrqWPvhEO1Q9U57NPDLq/Tn5DYIA2Wum8
+	MvxWueCRTBlEUT0GCSLjojddgbuyp3a0qGVayyOigFPKBwHAzplhHi4pIm4rWzwGgcPnfBNdammI/
+	K+MlDuJt2B8jokusBXes8rzmRlheRlarRJ3CzQtPy6YgJ2Ltb0qAFRWTbSRex0ZOQNUuab+81sMDr
+	/7jamrRsse4uAzcV1x+geFp4bv6d9bmLWwCKo3PrqcDXDEIFooZ8YXjEPJ97KlW5CkLr1bTYQgSML
+	po5hzT4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0xY4-0000000ChOA-1zcw;
-	Tue, 23 Sep 2025 07:34:52 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1v0yNO-0000000CoJe-2XjD;
+	Tue, 23 Sep 2025 08:27:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0xY1-0000000ChMV-2S3y
+	id 1v0yNL-0000000CoIh-2g3a
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Sep 2025 07:34:51 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cWBYN6W1lztTWp;
-	Tue, 23 Sep 2025 15:33:44 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id CF8AA1800B1;
-	Tue, 23 Sep 2025 15:34:37 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 23 Sep 2025 15:34:36 +0800
-Message-ID: <97c8e410-5482-42cc-85e1-5c22bfd1d192@huawei.com>
-Date: Tue, 23 Sep 2025 15:34:35 +0800
+	Tue, 23 Sep 2025 08:27:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EE8D343FED;
+	Tue, 23 Sep 2025 08:27:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2770DC4CEF7;
+	Tue, 23 Sep 2025 08:27:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758616070;
+	bh=DpOw3esgxv6fryqqMWiEbCIzH82geJydVvITLMOkr54=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=R7EdvDgVwmk0J7sjYuIr5k+k1hAX1ayYzxWUkv9BJ2K+XHyLuvkeBcPHlOHWtSY7j
+	 GU1uxKJwDKI2vmRC0ZQkEPEJg9ChqJeTTE6DojnEJWRXbaTkymc525jUGu/9EqjpWG
+	 19jftow50k0Slyg09ReA5iifXwDu71SRTnOrAw50BWhY9Jnv8U2e83ZSdLx2eb/fOO
+	 M/Cz+13FQjZNlE+GqPskVnNKOmUVqRcKztDDdoBDLParnFPZWD8c29gt2Ij4+oJtpS
+	 Ab8HfCaQd4rURk33a0wctqwdYQ5O6nF71AFKY5AKuhP47cUi+GUGgCjHCfcjVF/QCR
+	 5qds8jkpkA4DQ==
+Date: Tue, 23 Sep 2025 10:27:45 +0200
+From: Mark Brown <broonie@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Alex Elder <elder@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ziyao@disroot.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	p.zabel@pengutronix.de, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] spi: spacemit: introduce SpacemiT K1 SPI
+ controller driver
+Message-ID: <aNJaAQXdoDlytTDy@finisterre.sirena.org.uk>
+References: <20250922161717.1590690-1-elder@riscstar.com>
+ <20250922161717.1590690-3-elder@riscstar.com>
+ <20250922230639-GYA1303776@gentoo.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/1] riscv: bpf: Fix uninitialized symbol 'retval_off'
-Content-Language: en-US
-To: Chenghao Duan <duanchenghao@kylinos.cn>, <ast@kernel.org>,
-	<daniel@iogearbox.net>, <andrii@kernel.org>, <bjorn@kernel.org>,
-	<puranjay@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>
-CC: <martin.lau@linux.dev>, <eddyz87@gmail.com>, <song@kernel.org>,
-	<yonghong.song@linux.dev>, <john.fastabend@gmail.com>, <kpsingh@kernel.org>,
-	<sdf@fomichev.me>, <haoluo@google.com>, <jolsa@kernel.org>, <alex@ghiti.fr>,
-	<bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20250922062244.822937-1-duanchenghao@kylinos.cn>
- <20250922062244.822937-2-duanchenghao@kylinos.cn>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20250922062244.822937-2-duanchenghao@kylinos.cn>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemf100007.china.huawei.com (7.202.181.221)
+In-Reply-To: <20250922230639-GYA1303776@gentoo.org>
+X-Cookie: Filmed before a live audience.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_003449_806024_7FEA779F 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250923_012751_720634_F12BA389 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +74,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============3790855393459375508=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============3790855393459375508==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6HpbpinsD42eNuLJ"
+Content-Disposition: inline
 
-On 2025/9/22 14:22, Chenghao Duan wrote:
-> In the __arch_prepare_bpf_trampoline() function, retval_off is only
-> meaningful when save_ret is true, so the current logic is correct.
-> However, in the original logic, retval_off is only initialized under
-> certain conditions; for example, in the fmod_ret logic, the compiler is
-> not aware that the flags of the fmod_ret program (prog) have set
-> BPF_TRAMP_F_CALL_ORIG, which results in an uninitialized symbol
-> compilation warning.
-> 
-> So initialize retval_off unconditionally to fix it.
-> 
-> Signed-off-by: Chenghao Duan <duanchenghao@kylinos.cn>
-> ---
->   arch/riscv/net/bpf_jit_comp64.c | 5 ++---
->   1 file changed, 2 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index 9883a55d61b5..8475a8ab5715 100644
-> --- a/arch/riscv/net/bpf_jit_comp64.c
-> +++ b/arch/riscv/net/bpf_jit_comp64.c
-> @@ -1079,10 +1079,9 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
->   	stack_size += 16;
->   
->   	save_ret = flags & (BPF_TRAMP_F_CALL_ORIG | BPF_TRAMP_F_RET_FENTRY_RET);
-> -	if (save_ret) {
-> +	if (save_ret)
->   		stack_size += 16; /* Save both A5 (BPF R0) and A0 */
-> -		retval_off = stack_size;
-> -	}
-> +	retval_off = stack_size;
->   
->   	stack_size += nr_arg_slots * 8;
->   	args_off = stack_size;
 
-Reviewed-by: Pu Lehui <pulehui@huawei.com>
+--6HpbpinsD42eNuLJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Sep 23, 2025 at 07:06:39AM +0800, Yixun Lan wrote:
+> Hi Alex,
+>=20
+> On 11:17 Mon 22 Sep     , Alex Elder wrote:
+> > This patch introduces the driver for the SPI controller found in the
+> > SpacemiT K1 SoC.  Currently the driver supports master mode only.
+> > The SPI hardware implements RX and TX FIFOs, 32 entries each, and
+> > supports both PIO and DMA mode transfers.
+
+Please delete unneeded context from mails when replying.  Doing this
+makes it much easier to find your reply in the message, helping ensure
+it won't be missed by people scrolling through the irrelevant quoted
+material.
+
+--6HpbpinsD42eNuLJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjSWgAACgkQJNaLcl1U
+h9Ag9Qf/agE9cLG7wxZYtQSASbZ9xoCAx98tPfyf7p5VPkN7z7QMkc8/+v5EAuZ4
+YpdaixFWN/I5CPMJG9ERW+ly0OleInqkzNX6DXwLwITABENCMHtC7zIRoSQGSl7b
+iMAhL0728G9SMt3GQYj8XYiPA7/4e6meb62W17h/W0aabrxuPi614O86fGS/puJt
+47uLgJlJuTTHKRt70Z5PeY1sy2oQZpmGTmbstGNS9P5/n2Xs3GL5C1lLyVfac/S+
+VIB7+AHD9FJORL4oiBtEHyjZ3L8OS7xk5Pds0PYKVCtvFdBXd73QXlTbCfsGtG4l
+HU6g8m1YlQpcZ+62tVSSBAdQ4PJtMQ==
+=Wogy
+-----END PGP SIGNATURE-----
+
+--6HpbpinsD42eNuLJ--
+
+
+--===============3790855393459375508==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3790855393459375508==--
+
