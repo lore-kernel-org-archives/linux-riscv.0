@@ -4,84 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E568ECAC5A5
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 19:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3496CAC5AE
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 19:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mmyPlYCdAjg8jytqc9UrA41aDj3hx1TH7ovTOWpr8IM=; b=TOahlc0vtzM8pW
-	NN7/uZregGmmGv4tSnkk/sBwXiVPREff4HLgpRNiOqXHPXguRbGyAVtvysvmyzVYNG2G4h4T7V332
-	m9MQpLwkPkWEhBzIIoVXFQLVH+kgwD3SNF0i0LQTAZRgkHQYe3gfrEkfchJVRZ5Mq+XCxa8b3HPbO
-	C93hkiRpg6bj+uTCgyyu3hFnpGICpNqPimO4I9R0uDnfFSo0HvOm1HUDLoEgBZO0lu+Pfw9j1ii86
-	pvlZR8Yy8fuJURnWOa4iRy0BwyH1A6Lia+0CHQ31VEc7cH/NLMKcXHQHPbN7EmfDgkR6D/pZ/CmWR
-	XWmtQOXc9Bm7rsAWKkqw==;
+	List-Owner; bh=2oBpGgDS95TyjRKAYYsveDWakkdeaUW0HUI+NzeuZPs=; b=E0mGjpy0HqYLhf
+	y/XCZbXqis1T0BAF/CIbuBMIso6QiOlkVlib0zZaJSIYXNburbapXQqGQoCmiT45nG4Qm61k5WysS
+	HtmH5KuRCKMnwLf6wlN5x2ctcX05QjJHAdZjYq+kb+eGbPopKxtSkC2V/RU6k7RC68gg/k0trRBPQ
+	zb9oGr6Rn8l/+BNyLlq5hcJjDuFy0ZKXSaDtQiPErvdlK3JN8Ie9htxsOR4fq2OBZ5PjLAAfKCAvA
+	L+/3wj10hOoJOc21UOxQKtU0OR+hEQVBKUtQqaSZgiNCsXqk1Esx5PX0oEPpncQErrJB0mveBLryR
+	ghWJfcfQcZY5Ia0MVvtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1VCO-000000035E5-3r6T;
-	Wed, 24 Sep 2025 19:30:44 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1v1VUu-00000003D9p-1NEF;
+	Wed, 24 Sep 2025 19:49:52 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1VCL-000000035BU-29Ss
-	for linux-riscv@lists.infradead.org;
-	Wed, 24 Sep 2025 19:30:43 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250924193036euoutp02fe892bfe1ffa30ff0615e43c7584f26d~oTr74OUg32356323563euoutp02D
-	for <linux-riscv@lists.infradead.org>; Wed, 24 Sep 2025 19:30:36 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250924193036euoutp02fe892bfe1ffa30ff0615e43c7584f26d~oTr74OUg32356323563euoutp02D
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758742236;
-	bh=/Gk+JQ7pocHBfcq36N6Notv0uvwakh9CVF4aSzWJ8hw=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=feWL4jvyddS/Rk6tUEFJ/d1jrrrJBbbtVkvIx0lREBNp6qbVJJBagYq/pHWTX/7dr
-	 Jy9Tqwk2nl7h4GTXgG+Z5lJ71I7YLU/Y/bXia+wqA6iDqDIw88WMHgAFG45hB+WETa
-	 Wk+fRSdNiGjlGnD1BkNB5oZ0FjK2jZZC5VzY2ZzI=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250924193035eucas1p18bc9f48e524c3824662031da8261758e~oTr7TWTQq1522115221eucas1p1B;
-	Wed, 24 Sep 2025 19:30:35 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250924193034eusmtip2cbf8bf03a89dc1fb923f25bee047d0da~oTr6PXOuQ0163201632eusmtip2W;
-	Wed, 24 Sep 2025 19:30:34 +0000 (GMT)
-Message-ID: <67e3a691-0ba8-4c21-97e1-4471f2a1a87c@samsung.com>
-Date: Wed, 24 Sep 2025 21:30:34 +0200
+	id 1v1VUs-00000003D6c-08oA;
+	Wed, 24 Sep 2025 19:49:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QP74wjyMpG7CyoQVWPXy57k69ABlVI4FVrW/OFVvV3BLO95/kKVCe0BkfxAAYVndNrZ7K23XYOq5OyoFyN31c061qkIjla+/BvQlzu8EgYIz7j0iP7FbyewVyBHOPMd0+C2FWEpS8DesWP0iz+cI5NX8yOw2kRxLQim9erD7Yl+150drCPomXHh583xueFl/DArh8SEiq4xgEuDO2oRZke51jVQ+kLFaSlGEPyMJNQ7hjsukegQ/12rmTh+EBdxk/Iqk9qykUgaf4VRgnolAu05wtBNms/cbK0m1o9TB1/JqDrmNYZXhJKpun46NuvfmYUao5+Fx/eOyjnpeZk12XQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ekVtrLWsRZLj/GYerixv4vut0tchd9bN6RaTKZCS6Po=;
+ b=xpFq5Kf1dRq//5H6Ab/YcNWhH6VFKQX6Qik2egh7rUaQlGf629GVCM4VNzAhuqjBncGYmu3KjsNG/CFnvxjhrZEv8HQuxz1JfndZ+uWsLoh3zmwnLrbD4CPkQP/XReRKDa/dIfIUW3wjqjvO+y2BvmfGlUUFuJJK1qocbQxqY/rvab6sAnY+PJMn9XKk/beAT9T4Go5B+v9p6+xJ9tn33VxGcncb9GTyfPo5JBC2Ihd8hz5wlSwSKgKiOdBYTY8//KVTA+mRwfudN0oxEC2t+TEob36D7GvbVU+6gmZShM2NGmM1OzTOlVO0cq3WCmkMl+6k5cbvWv6nuaZTm3/NBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=csie.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ekVtrLWsRZLj/GYerixv4vut0tchd9bN6RaTKZCS6Po=;
+ b=fMGTUwuVhqyUOaA3LfrM3+y7fa1CFcs2F/wW2dXb4DE+204nbDoa5r5l42SS9oq2mM6N8bENMtN4HSHAr7P7Ff4ByV5rhaOllacw6SCgzuyxWoynH2Q8tTkKktQqaovb3lyXI8P9peXUb9R4UvuYGvnyxv87N8EiIquT4BWonVKzi/RUaPXbqgj91M0H9KCHBFG5oppEhTBmYirapqgQC+YK3ywJXR2Jnmqj8Tj/SqTbfgFrBEBuj23Q0ZMOIGbO06C+f/RGKgaY/St9X+BCyVO2CVxxeReOZ21THQGZZ1Csm6+AEF0ZnTldk38cLJxa2upXH15xXqOARoGUHbrRyA==
+Received: from MN2PR04CA0029.namprd04.prod.outlook.com (2603:10b6:208:d4::42)
+ by SN7PR12MB6742.namprd12.prod.outlook.com (2603:10b6:806:26e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.19; Wed, 24 Sep
+ 2025 19:49:35 +0000
+Received: from BN1PEPF0000468D.namprd05.prod.outlook.com
+ (2603:10b6:208:d4:cafe::cf) by MN2PR04CA0029.outlook.office365.com
+ (2603:10b6:208:d4::42) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.21 via Frontend Transport; Wed,
+ 24 Sep 2025 19:49:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN1PEPF0000468D.mail.protection.outlook.com (10.167.243.138) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9160.9 via Frontend Transport; Wed, 24 Sep 2025 19:49:34 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Wed, 24 Sep
+ 2025 12:49:19 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 24 Sep
+ 2025 12:49:19 -0700
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 24 Sep 2025 12:49:15 -0700
+Date: Wed, 24 Sep 2025 12:49:14 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <joro@8bytes.org>, <bhelgaas@google.com>, <suravee.suthikulpanit@amd.com>,
+	<will@kernel.org>, <robin.murphy@arm.com>, <sven@kernel.org>, <j@jannau.net>,
+	<alyssa@rosenzweig.io>, <neal@gompa.dev>, <robin.clark@oss.qualcomm.com>,
+	<m.szyprowski@samsung.com>, <krzk@kernel.org>, <alim.akhtar@samsung.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
+	<yong.wu@mediatek.com>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <tjeznach@rivosinc.com>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<alex@ghiti.fr>, <heiko@sntech.de>, <schnelle@linux.ibm.com>,
+	<mjrosato@linux.ibm.com>, <gerald.schaefer@linux.ibm.com>,
+	<orsonzhai@gmail.com>, <baolin.wang@linux.alibaba.com>,
+	<zhang.lyra@gmail.com>, <wens@csie.org>, <jernej.skrabec@gmail.com>,
+	<samuel@sholland.org>, <jean-philippe@linaro.org>, <rafael@kernel.org>,
+	<lenb@kernel.org>, <yi.l.liu@intel.com>, <cwabbott0@gmail.com>,
+	<quic_pbrahma@quicinc.com>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <asahi@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, <virtualization@lists.linux.dev>,
+	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<patches@lists.linux.dev>, <vsethi@nvidia.com>, <helgaas@kernel.org>,
+	<etzhao1900@gmail.com>
+Subject: Re: [PATCH v4 5/7] iommu: Add iommu_get_domain_for_dev_locked()
+ helper
+Message-ID: <aNRLOsomtHNumaSY@Asurada-Nvidia>
+References: <cover.1756682135.git.nicolinc@nvidia.com>
+ <c9daeafb9046bed9e915fdafe20fe28a8c427d29.1756682135.git.nicolinc@nvidia.com>
+ <20250924191055.GJ2617119@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 1/7] pwm: Export `pwmchip_release` for external use
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, Andreas
-	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, Trevor
-	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Guo Ren
-	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
-	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
-	Ghiti <alex@ghiti.fr>, Marek Szyprowski <m.szyprowski@samsung.com>, Benno
-	Lossin <lossin@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
-	Drew Fustini <fustini@kernel.org>, Daniel Almeida
-	<daniel.almeida@collabora.com>, linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <3jxl6gpxwv376ooyny7qkeokeh7nzafttbyoehmwqzrccn5oip@747v6zdnogso>
-X-CMS-MailID: 20250924193035eucas1p18bc9f48e524c3824662031da8261758e
-X-Msg-Generator: CA
-X-RootMTR: 20250820083541eucas1p2ad7d78418576b8bc8cbddd8efe83bbe9
-X-EPHeader: CA
-X-CMS-RootMailID: 20250820083541eucas1p2ad7d78418576b8bc8cbddd8efe83bbe9
-References: <20250820-rust-next-pwm-working-fan-for-sending-v14-0-df2191621429@samsung.com>
-	<CGME20250820083541eucas1p2ad7d78418576b8bc8cbddd8efe83bbe9@eucas1p2.samsung.com>
-	<20250820-rust-next-pwm-working-fan-for-sending-v14-1-df2191621429@samsung.com>
-	<3jxl6gpxwv376ooyny7qkeokeh7nzafttbyoehmwqzrccn5oip@747v6zdnogso>
+Content-Disposition: inline
+In-Reply-To: <20250924191055.GJ2617119@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF0000468D:EE_|SN7PR12MB6742:EE_
+X-MS-Office365-Filtering-Correlation-Id: 53345ca9-0bca-475c-21c4-08ddfba37cdc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2VvThKy+Z0dKW+vZ3SCGnO1B0cWZ57HA6LzpcQUizmOexU4qFkdZk5B5mTjk?=
+ =?us-ascii?Q?rPc1tSTgpGGrInmMwxQY3LqzfGOFS5Ai5iWHhO8YewdiRbgnV//c8UJewvO2?=
+ =?us-ascii?Q?hvSxdUjfPgorCNdu+G1XtPtuKo08b2NcrLyKBHtYNrjC8sfvG9qzDy9wTXPW?=
+ =?us-ascii?Q?9zZ++lHMvsUjKwhdYwC9P4MQzzQasWvnUr6tZpESX7Ait/gbg2Lrb8JMjy5g?=
+ =?us-ascii?Q?x+MgyYZzRKp2lPfxqc6dN2pRN9d3iUi7XMaaPdvt04ZjIyCfJKs3AaaMdxrg?=
+ =?us-ascii?Q?o+EPd6+2eYOBzYZq0zcYfVGfc54K/NW/oCol2/PYpKV9grM7EkG4GRsIxGr/?=
+ =?us-ascii?Q?8Z9SfwQ/prUUQ4l8M3goSSnFVncgDDerSiH2XwKBL+PIC9svSUySD7UsTI1r?=
+ =?us-ascii?Q?pgexKKRydRUbWmvtqD5iO7NANzvTJojWMsip1ipQaNr/jFSmguD8Co54raB6?=
+ =?us-ascii?Q?JA5mvOd158KIDt74X6UkkeWnwFnTjUhoX/Ua8O0X39ggDbMB9PuB6h3olq+O?=
+ =?us-ascii?Q?o6YIkTTfxdMK+GX7AIxK/9YR4S7eTloBtV38YFU209eQzu0BNvJT9WjgWYAq?=
+ =?us-ascii?Q?PubLbX1+fHl/SYOoQSMxd/zdwyx4GWSyTNmMYCGdIjXjJnrAIxG+Db1j7PwU?=
+ =?us-ascii?Q?atOEElXj7vzDOwYHWKcjCd6BAv4yxsdgFH0S8Ako+k8x5tWvZMAfS6MAEuYf?=
+ =?us-ascii?Q?XhXBPiecBm/50kf3l8gc1XAkufghvZ0a7GpeIkDZSrhNbZF6jJDXlvtZWoRH?=
+ =?us-ascii?Q?6bsppMc6w51VMO49GNuazC7HKgmk0380uF+GJ4qft6iPdEdJMjPpxWQAF2k8?=
+ =?us-ascii?Q?x5rrdAyj71Ym7zMoJh1oTyGUTV4qdlyMidSZLF9blOyNRhst9fSxoD1amr81?=
+ =?us-ascii?Q?CoeqGXORPSULbUctv9DPfY9rrvAzXGymdKx2pe9Rt0sjhZAl7jam7K1TO/LI?=
+ =?us-ascii?Q?i5DDcBIuAzMOtGj31uZeoXuFb+jC3RRMzLdsxwlRppEVFOPGr7J4cIPVmydt?=
+ =?us-ascii?Q?z79LCWO9ZBXS/49WB7eDNocHBnc7S/5s931fPf8pT6iU0j+U08Izb83SQXeS?=
+ =?us-ascii?Q?knunoyAApldtOA/ETOKXTCnh3R7jotUU4HvF4RvEJckdhii/cb3nRKs0EAM6?=
+ =?us-ascii?Q?8VgAmIGFd4vB2GDyvAfVYGetZgd6KMj3Ht+nPkL/dk925xZsmD9nCG+Kws2c?=
+ =?us-ascii?Q?4iWzR8YA4//EQhyjQ3j32T9EMu1FdAyJeTbaOnf/Gmkm8/ObR2VMtHUoNOgQ?=
+ =?us-ascii?Q?rpepsxyICGQtqYjxaMy0nqkd/aXn/QRmfiQYcvljbs72YP+itr5ZXFQgj4EF?=
+ =?us-ascii?Q?5LhCRAHzULHM3aGU73sjS9la69QXMp4uvd15aJC2aJbvkIPPYaDVXUsyMDoX?=
+ =?us-ascii?Q?3wrANC9uHCIank9+AcOUqBae4eqKIS38Ky6CnB8AwXYZ3horYuewL0YKOHpb?=
+ =?us-ascii?Q?HJeXA7J7g3+Hl59GeeeNbfOlzxHO9oSB+T18Y108KNW9NHRPRAHgArCDM8Lt?=
+ =?us-ascii?Q?Ez+j1u0qzjY7GBzmzAixmxabnG0kj5LAorGV?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 19:49:34.8043
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 53345ca9-0bca-475c-21c4-08ddfba37cdc
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468D.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6742
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_123042_146564_65B3ED79 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20250924_124950_081891_2C130193 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,41 +169,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA5LzE1LzI1IDEyOjAwLCBVd2UgS2xlaW5lLUvDtm5pZyB3cm90ZToKPiBIZWxsbywKPiAK
-PiBPbiBXZWQsIEF1ZyAyMCwgMjAyNSBhdCAxMDozNTozNkFNICswMjAwLCBNaWNoYWwgV2lsY3p5
-bnNraSB3cm90ZToKPj4gVGhlIHVwY29taW5nIFJ1c3QgYWJzdHJhY3Rpb24gbGF5ZXIgZm9yIHRo
-ZSBQV00gc3Vic3lzdGVtIHVzZXMgYSBjdXN0b20KPj4gYGRldi0+cmVsZWFzZWAgaGFuZGxlciB0
-byBzYWZlbHkgbWFuYWdlIHRoZSBsaWZldGltZSBvZiBpdHMgZHJpdmVyCj4+IGRhdGEuCj4+Cj4+
-IFRvIHByZXZlbnQgbGVha2luZyB0aGUgbWVtb3J5IG9mIHRoZSBgc3RydWN0IHB3bV9jaGlwYCAo
-YWxsb2NhdGVkIGJ5Cj4+IGBwd21jaGlwX2FsbG9jYCksIHRoaXMgY3VzdG9tIGhhbmRsZXIgbXVz
-dCBhbHNvIGNhbGwgdGhlIG9yaWdpbmFsCj4+IGBwd21jaGlwX3JlbGVhc2VgIGZ1bmN0aW9uIHRv
-IGNvbXBsZXRlIHRoZSBjbGVhbnVwLgo+Pgo+PiBNYWtlIGBwd21jaGlwX3JlbGVhc2VgIGEgZ2xv
-YmFsLCBleHBvcnRlZCBmdW5jdGlvbiBzbyB0aGF0IGl0IGNhbiBiZQo+PiBjYWxsZWQgZnJvbSB0
-aGUgUnVzdCBGRkkgYnJpZGdlLiBUaGlzIGludm9sdmVzIHJlbW92aW5nIHRoZSBgc3RhdGljYAo+
-PiBrZXl3b3JkLCBhZGRpbmcgYSBwcm90b3R5cGUgdG8gdGhlIHB1YmxpYyBoZWFkZXIsIGFuZCBl
-eHBvcnRpbmcgdGhlCj4+IHN5bWJvbC4KPj4KPj4gU2lnbmVkLW9mZi1ieTogTWljaGFsIFdpbGN6
-eW5za2kgPG0ud2lsY3p5bnNraUBzYW1zdW5nLmNvbT4KPiAKPiBJIHN0aWxsIHNvbWV3aGF0IGRp
-c2xpa2UgdGhpcyBwYXRjaC4gSXNuJ3QgaXQgcG9zc2libGUgdG8gbWFrZSB0aGUgcnVzdAo+IGFi
-c3RyYWN0aW9uIHVzZSB0aGUgcG9pbnRlciB0aGF0IC5yZWxlYXNlIGlzIHNldCB0byB3aGVuIGl0
-IGNhbGxzCj4gcHdtY2hpcF9hbGxvYygpPwoKSGkgVXdlLAoKU29ycnkgZm9yIHRoZSBkZWxheSAt
-IEkgd2FzIG9uIHZhY2F0aW9uIGFuZCBJIGhvcGUgeW91IHJlY2VpdmVkIG15Cm91dCBvZiBvZmZp
-Y2UgbWVzc2FnZS4KCkkgYWdyZWUgeW91ciBzdWdnZXN0aW9uIGlzIHRlY2huaWNhbGx5IGZlYXNp
-YmxlLiBNeSBjb25jZXJuIHdhcyB0aGF0IGl0CndvdWxkIG1ha2UgdGhlIGFic3RyYWN0aW9uIGxl
-c3MgcmVhZGFibGUgYW5kIG1vcmUgY29tcGxleCwgYXMgaXQgd291bGQKcmVxdWlyZSB0aGUgRkZJ
-IHdyYXBwZXIgdG8gcmVhZCB0aGUgQyBmdW5jdGlvbiBwb2ludGVyIGFuZCBzdG9yZSBpdCBhcwpz
-dGF0ZSB3aXRoaW4gdGhlIGRyaXZlcidzIHByaXZhdGUgZGF0YS4KClRoZSBjdXJyZW50IGFwcHJv
-YWNoIG9mIGNhbGxpbmcgYSBrbm93biwgZXhwb3J0ZWQgZnVuY3Rpb24gZmVsdCBtb3JlCmRpcmVj
-dC4gSG93ZXZlciwgSSBhYnNvbHV0ZWx5IGFncmVlIHdpdGggeW91ciBwb2ludCBvbiBDIEFQSSBw
-dXJpdHkgYW5kLAphcyB5b3Ugc3VnZ2VzdGVkLCB0aGlzIGNhbiBiZSByZXZpc2l0ZWQgbGF0ZXIg
-aWYgbmVlZGVkLgoKPiAKPiAoSSB3b3VsZG4ndCBmdXJ0aGVyIGRlbGF5IHRoaXMgc2VyaWVzIGZv
-ciB0aGlzIGRpc2N1c3Npb24sIHRoaXMgY2FuIGJlCj4gaGFuZGxlZCBqdXN0IGZpbmUgYXQgYSBs
-YXRlciBwb2ludCBpbiB0aW1lLikKPiAKPiBCZXN0IHJlZ2FyZHMKPiBVd2UKCkJlc3QgcmVnYXJk
-cywKLS0gCk1pY2hhbCBXaWxjenluc2tpIDxtLndpbGN6eW5za2lAc2Ftc3VuZy5jb20+CgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
-YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Sep 24, 2025 at 04:10:55PM -0300, Jason Gunthorpe wrote:
+> On Sun, Aug 31, 2025 at 04:31:57PM -0700, Nicolin Chen wrote:
+> > diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+> > index ea2ef53bd4fef..99680cdb57265 100644
+> > --- a/drivers/iommu/dma-iommu.c
+> > +++ b/drivers/iommu/dma-iommu.c
+> > @@ -2097,7 +2097,7 @@ EXPORT_SYMBOL_GPL(dma_iova_destroy);
+> >  
+> >  void iommu_setup_dma_ops(struct device *dev)
+> >  {
+> > -	struct iommu_domain *domain = iommu_get_domain_for_dev(dev);
+> > +	struct iommu_domain *domain = iommu_get_domain_for_dev_locked(dev);
+> 
+> Lets have another patch to tidy this. This function can only be called on
+> the default_domain. We can trivally pass it in. In all three cases the
+> default domain was just attached to the device.
+
+Will replace with your patch.
+
+> > +/* Caller must be a general/external function that isn't an IOMMU callback */
+> >  struct iommu_domain *iommu_get_domain_for_dev(struct device *dev)
+> 
+> Maybe a kdoc?
+> 
+> /**
+>  * iommu_get_domain_for_dev() - Return the DMA API domain pointer
+>  * @dev - Device to query
+>  *
+>  * This function can be called within a driver bound to dev. The returned
+>  * pointer is valid for the lifetime of the bound driver.
+>  *
+>  * It should not be called by drivers with driver_managed_dma = true.
+>  */
+> struct iommu_domain *iommu_get_domain_for_dev(struct device *dev)
+
+Will add this.
+
+> I really wanted to say this should just always return the
+> default_domain, but it looks like host1x_client_iommu_detach() is the
+> only place outside the iommu drivers that would be unhappy with that.
+
+I suppose any external user that allocates/attaches a domain has a
+risk of potentially using this helper, in which case group->domain
+may not be default_domain?
+
+Thanks
+Nicolin
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
