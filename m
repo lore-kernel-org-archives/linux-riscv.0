@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE2ECAC5A5
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 12:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FB4CAC5B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 12:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=egMekaFccen750Il+5Kasv4g4VbB9AzrUt1BlUnrNyU=; b=uLPaMQqP4jsUUV
-	+3qtVUIiyAJ8k8Q1FpMYFla3U6jeqADUlbQdrvH5Z3okyI7xq1jpFz6oRHAx9aVzIq8E/qzZfvbED
-	Wtc7WKsip4+uenfZzrb8mQyTdDZYYPM9OAFrEU6DyyUxCztHn8qXNlba0v4VMERAixG2YLnGA+xTr
-	JIDq3uJJjFCgKZhW0aNKJf3WP8gerlXVShbz1bns+2amf3UJ+89XMuDI4eGFD41DnUazCYXCDVQnP
-	IIVvVMJDh4juZHRC27bdHLh8DG3cCnH6UWdm3fnZxIWMWYLyt7Cw5sr8c+BLKdP0/Xt2J9u93dmWF
-	8LFzR9Uf6Z3rabualWFw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=du9LSU1duMcW1dc4bLP92dFRoxtnie/y4x5wyQ9MEhk=; b=0kuaiDull/vnyT
+	8WVI+tWM4feBXM6TnCT1+eaqm/1DStp5ANgvccCgmqGlw+BujQ+69xTNvYBzGb7WM0Nb83Zw2qpNk
+	2DZG+1er6yC4IuV/deDtGtKF6KkmU9kBmx5SOMd/5xW2bYRlYIw+1oo37SPaDm0E5P/LQ+8gGjaqI
+	u/oQt7vyEIH1LR3QJcgkujgd2Bk+qj1QHg2LrsYtYQYmjRUW/RU7o7SY6wccPpEEm5oqRi30uAXuC
+	7K2d7ekZsvdl+g+jyUIy63g84CaBcWyynQ+FiY1+8c7gK5hDTM/DhzX2edzhy4e7D/HSlEiwrLSmD
+	Dz0KmBY2K9q9jvQUlVaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1OdG-0000000HOI9-1hPt;
+	id 1v1OdG-0000000HOI0-0Osj;
 	Wed, 24 Sep 2025 12:30:02 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1OdA-0000000HOC2-0whQ
+	id 1v1Od9-0000000HOAz-49ij
 	for linux-riscv@lists.infradead.org;
 	Wed, 24 Sep 2025 12:30:00 +0000
 Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 58OBSTgl074423
+	by Atcsqr.andestech.com with ESMTPS id 58OBST3P074422
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Wed, 24 Sep 2025 19:28:29 +0800 (+08)
 	(envelope-from randolph@andestech.com)
@@ -47,20 +47,18 @@ CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
         <shradha.t@samsung.com>, <randolph.sklin@gmail.com>,
         <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
-Subject: [PATCH v4 1/5] PCI: dwc: Skip failed outbound iATU and continue
-Date: Wed, 24 Sep 2025 19:28:16 +0800
-Message-ID: <20250924112820.2003675-2-randolph@andestech.com>
+Subject: [PATCH v4 0/5] Add support for Andes Qilai SoC PCIe controller
+Date: Wed, 24 Sep 2025 19:28:15 +0800
+Message-ID: <20250924112820.2003675-1-randolph@andestech.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250924112820.2003675-1-randolph@andestech.com>
-References: <20250924112820.2003675-1-randolph@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.173]
 X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 58OBSTgl074423
+X-MAIL: Atcsqr.andestech.com 58OBST3P074422
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_052956_603980_780C454A 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250924_052956_358895_58F5A6E3 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +75,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Previously, outbound iATU programming included range checks based
-on hardware limitations. If a configuration did not meet these
-constraints, the loop would stop immediately.
+Add support for Andes Qilai SoC PCIe controller
 
-This patch updates the behavior to enhance flexibility. Instead of
-stopping at the first issue, it now logs a warning with details of
-the affected window and proceeds to program the remaining iATU
-entries.
-
-This enables partial configuration to complete in cases where some
-iATU windows may not meet requirements, improving overall
-compatibility.
+These patches introduce driver support for the PCIe controller on the
+Andes Qilai SoC.
 
 Signed-off-by: Randolph Lin <randolph@andestech.com>
----
- drivers/pci/controller/dwc/pcie-designware-host.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 952f8594b501..91ee6b903934 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -756,7 +756,7 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
- 		if (resource_type(entry->res) != IORESOURCE_MEM)
- 			continue;
- 
--		if (pci->num_ob_windows <= ++i)
-+		if (pci->num_ob_windows <= i)
- 			break;
- 
- 		atu.index = i;
-@@ -773,9 +773,10 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
- 
- 		ret = dw_pcie_prog_outbound_atu(pci, &atu);
- 		if (ret) {
--			dev_err(pci->dev, "Failed to set MEM range %pr\n",
--				entry->res);
--			return ret;
-+			dev_warn(pci->dev, "Failed to set MEM range %pr\n",
-+				 entry->res);
-+		} else {
-+			i++;
- 		}
- 	}
- 
+---
+Changes in v4:
+- Add .post_init callback for enabling IOCP cache.  
+- Sort by vender name in Kconfig 
+- Using PROBE_PREFER_ASYNCHRONOUS as default probe type.
+- Made minor adjustments based on the reviewer's suggestions.
+
+---
+Changes in v3:
+- Remove outbound ATU address range validation callback and logic.
+- Add logic to skip failed outbound iATU configuration and continue.
+- Using PROBE_PREFER_ASYNCHRONOUS as default probe type.
+- Made minor adjustments based on the reviewer's suggestions.
+
+---
+Changes in v2:
+- Remove the patch that adds the dma-ranges property to the SoC node.
+- Add dma-ranges to the PCIe parent node bus node.
+- Refactor and rename outbound ATU address range validation callback and logic.
+- Use parent_bus_offset instead of cpu_addr_fixup().
+- Using PROBE_DEFAULT_STRATEGY as default probe type.
+- Made minor adjustments based on the reviewer's suggestions.
+
+Randolph Lin (5):
+  PCI: dwc: Skip failed outbound iATU and continue
+  dt-bindings: PCI: Add Andes QiLai PCIe support
+  riscv: dts: andes: Add PCIe node into the QiLai SoC
+  PCI: andes: Add Andes QiLai SoC PCIe host driver support
+  MAINTAINERS: Add maintainers for Andes QiLai PCIe driver
+
+ .../bindings/pci/andestech,qilai-pcie.yaml    | 103 +++++++++
+ MAINTAINERS                                   |   7 +
+ arch/riscv/boot/dts/andes/qilai.dtsi          | 112 ++++++++++
+ drivers/pci/controller/dwc/Kconfig            |  13 ++
+ drivers/pci/controller/dwc/Makefile           |   1 +
+ drivers/pci/controller/dwc/pcie-andes-qilai.c | 198 ++++++++++++++++++
+ .../pci/controller/dwc/pcie-designware-host.c |   9 +-
+ 7 files changed, 439 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
+ create mode 100644 drivers/pci/controller/dwc/pcie-andes-qilai.c
+
 -- 
 2.34.1
 
