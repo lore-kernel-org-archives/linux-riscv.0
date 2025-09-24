@@ -4,51 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB7EDCAC5AE
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 17:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ECCACAC5A5
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 17:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=pSUxxoD4Kdr59tNtBIYb2WiyyU45/tSmsljjjgPxLTU=; b=ONY
-	5k3uP/5svzaP3cflnd7qnHb44byh+e266whD8aWcvkMgsUY6QfX3kbZZJEnaWJKEk+3fGHt9G0G6M
-	i8bYmwinrrNv3KD51Oz7h3sCwSl/2SJzzycm1YehT0M/7vAhcNV5EjYoBUc2VUju0tP76a9bjjJnh
-	RzZGxKnjkmcEUvjGEMVj6DcuBTwg84Vocs0x6WYMdAG+4X2WUnEIsac60y3XfKgJvHex2wTh7OHng
-	tXiDjzmx4+AZ9VsMRs5p+pamK1rZ28lIm2cZHrDbtNv2pIhbI1mC6hClpdQvO9+yRR1bxIwpN5lW9
-	5cAtceOkQXPPAXNlKH0zuGOdNm5mGGQ==;
+	References:List-Owner; bh=p0fvyNDnEB/34fyNnabDKOAWtKCy28Rg6na/PbL2O0s=; b=zOH
+	/N4ZIXzupV9lM1XV5G3rVQhcCkloyYfhGHlfnK7dkERCB3kc95ocYk8hSLP0Q8a4cTP9YjZigC9CD
+	lAPHed6hTY/tUzFNpT7Vmv24HqkrwGEpTmZuq7xpYBZlI6GmxeJaGoOaz1EfLsDFcOqziL6SzZ/3t
+	/QXVZhvZD3iYp6WnLd+p2LBvj2DHiGvK7Db8r94ZKA1x3xxbrfQN2M11AgRaf3Eo+jw7obpnONxna
+	UBHXjs94xfV8mUh24O8sQO6rlYnGtv6Dwk/U060N6go2WaI3BedQE5ydMO9IVRCHn9SBDRahAE9X2
+	8QS6gtk6JrJr79hF0QNoCJtASy3x7sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1TZn-00000002GUN-0DD0;
-	Wed, 24 Sep 2025 17:46:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v1TdF-00000002IFZ-2zrQ;
+	Wed, 24 Sep 2025 17:50:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1TZl-00000002GTe-2hyb
+	id 1v1TdC-00000002IFB-1gYN
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Sep 2025 17:46:45 +0000
+	Wed, 24 Sep 2025 17:50:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A04260139
-	for <linux-riscv@lists.infradead.org>; Wed, 24 Sep 2025 17:46:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBAE5C4CEE7;
-	Wed, 24 Sep 2025 17:46:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 13E0A441E0
+	for <linux-riscv@lists.infradead.org>; Wed, 24 Sep 2025 17:50:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2139DC4CEE7;
+	Wed, 24 Sep 2025 17:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758736004;
-	bh=IN+QAr5tK0RV1rS3R/0YpjGQlOE9FqGg2X6T5EcrTMI=;
+	s=k20201202; t=1758736217;
+	bh=74KN9oh1byEWmXXX9aM096GB/KOeCB7XK8MCfkCFyrI=;
 	h=Date:From:To:Cc:Subject:From;
-	b=uZJuIas5bw2pPmUsPmIqhPhqcFbsi1TUf4DSZRqy0r7bTPxCPeQECcXGruBTe3tbK
-	 W8rsmoTHas+xQkZLKcv6JOYHmvHFrsghaqD/t+brkA+B/LpGWowHhfTN0bRFaSBmRU
-	 IFzdV7yvcaI55/fsuYLzjUMqFoZCmK0BxK1QE09M3Lp6xWy224uvAMzzwqMZzdsvv7
-	 VTiVTzOxvZDhQJe8hY87naKozap5VMsj8MrRdewiTUx5j/g1/9r82EjkVvG4i9reOC
-	 mbo/F+jrHM2xtkyX9Vjrj/ALA8yH5yPq1e27Ky6jbLbewZy2K06EsjGqmXjP4szo0R
-	 LS37hem7dV/3w==
-Date: Wed, 24 Sep 2025 18:46:41 +0100
+	b=A/ifURfTClGY1c+oC0O1OZnLh/WyrNAJZ3byA4Ba4oy0S1gDfG9ZGUvqtIEcytymB
+	 opreyiPg8eO7dXCHrpSR0CL7voY7WE+liGbw6TrUNCPhIEx0CiG3lwhjEuNQXyXBHC
+	 Pqin/wN6gBNQ0R0/ynZq+vnKWuJAGntfbHyiABZrFR2sU7IpXrGfDD4l5R9yRUxNb/
+	 Py19Mrm26PyMlya4XhmV4Jvrbs8TH21JLu62DItjTgRWY6Pb7eMXA8VGZyA3JLWAf9
+	 0WlgE3Top6fLH+nGoSCkW1XGeQ92pxyqJtCl5on3L8PhQsaAxlt1JUI370gcrhkTRp
+	 mxi05Sy0Z7OTQ==
+Date: Wed, 24 Sep 2025 18:50:14 +0100
 From: Conor Dooley <conor@kernel.org>
 To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org, pjw@kernel.org
-Subject: [GIT PULL] RISC-V config for v6.18
-Message-ID: <20250924-unenvied-armful-5fcc80c23d19@spud>
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V cache drivers for v6.18
+Message-ID: <20250924-relenting-aqua-a4a93b89809e@spud>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250924_105018_465096_A80692B4 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,27 +64,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7476898245145201070=="
+Content-Type: multipart/mixed; boundary="===============0304601942068237993=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7476898245145201070==
+--===============0304601942068237993==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4hQHISVyvhQW8+UH"
+	protocol="application/pgp-signature"; boundary="HYjhK9UizMWbDT15"
 Content-Disposition: inline
 
 
---4hQHISVyvhQW8+UH
+--HYjhK9UizMWbDT15
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-Arnd, Paul,
+Hey Arnd,
 
-Arnd: here's the soc-related config changes I have for v6.18-rc1
-
-Paul: I meant to come to today's call and forgot, so re-mentioning the
-fact that I grabbed the savedefconfig reorder. Pull this if you need to!
+Wee PR here with just two changes, for the standalone cache drivers that I
+look after.
 
 Cheers,
 Conor.
@@ -91,46 +93,51 @@ The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-config-for-v6.18
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-cache-for-v6.18
 
-for you to fetch changes up to 3df7ce0e43ad94afce24b6300e7836e2db6dc0ee:
+for you to fetch changes up to 941327ca5ddd45cfc4dd960cbbabed9e2b5cb1b0:
 
-  riscv: defconfig: Enable MMP_PDMA support for SpacemiT K1 SoC (2025-09-14 16:34:42 +0100)
+  cache: sifive_ccache: Optimize cache flushes (2025-09-11 19:13:21 +0100)
 
 ----------------------------------------------------------------
-RISC-V config for v6.18
+RISC-V cache drivers for v6.18
 
-Enable the MMP_PDMA driver as a module in defconfig builds, where it is
-needed by Spacemit K1 boards. This depends on a savedefconfig reorder
-that it'd otherwise conflict with, so that's here too.
+sifive:
+Reduce the number of fences issued while flushing. Samuel reports that
+this is approximately a 15peed-up.
+
+ax45mp:
+Fix the binding so that it permits the cache-sets setting used by the
+recently added QiLai SoC.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
 ----------------------------------------------------------------
-Guodong Xu (1):
-      riscv: defconfig: Enable MMP_PDMA support for SpacemiT K1 SoC
+Conor Dooley (1):
+      dt-bindings: cache: ax45mp: add 2048 as a supported cache-sets value
 
-Yixun Lan (1):
-      riscv: defconfig: run savedefconfig to reorder it
+Samuel Holland (1):
+      cache: sifive_ccache: Optimize cache flushes
 
- arch/riscv/configs/defconfig | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ .../devicetree/bindings/cache/andestech,ax45mp-cache.yaml         | 6 +++++-
+ drivers/cache/sifive_ccache.c                                     | 8 ++++----
+ 2 files changed, 9 insertions(+), 5 deletions(-)
 
---4hQHISVyvhQW8+UH
+--HYjhK9UizMWbDT15
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNQugQAKCRB4tDGHoIJi
-0mUDAQCTjVN9vHQTzb1c6eYVg6QN3G1e9arRZtZ7q0DH88BYIwD/TbzFv763VQlb
-pHORqK8dMo8mhkSzAZDc0XvVHBnfjgQ=
-=UJgL
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNQvVgAKCRB4tDGHoIJi
+0tFTAQDkNSfkghj3zWo4zEHYMGIvZajP2CI9t7HsHZku1aHfTgD/UQjcnHnPzOwZ
+cUJgR9ea40cJtMMcB3zNiViHjX3vdQk=
+=8Nuq
 -----END PGP SIGNATURE-----
 
---4hQHISVyvhQW8+UH--
+--HYjhK9UizMWbDT15--
 
 
---===============7476898245145201070==
+--===============0304601942068237993==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -141,5 +148,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7476898245145201070==--
+--===============0304601942068237993==--
 
