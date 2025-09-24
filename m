@@ -4,130 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560F0CAC5AE
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 15:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A64AACAC5B1
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 15:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E7Ypr+hyBG/sVFxlwPghSWSe2h4GrseM8uhINZz8Hnw=; b=YLFib2/BJ6wbBj
-	D0AMBNBLlGz32DG8E7Klk1vI87TGHG4SWmfrvKogOuJvFNsDsDcd8Pir/beO6ispY0l9LvKs4RldS
-	LUa7XNFVnGLWql14FLXvs01d1svIBx1x864GQ5lTi0lgz5FVy2ARH1o3Lvbh8IRthL4N3ZL+ONM73
-	95stvqqJKEXVz45urFfuCY6h+aprRPzN5nxSQ2HqWXZcMx5qVxytEdzsi/cnSlrrZhwLDFrq2bK9Z
-	IzDXW/0CbhCzGJeyi4p4wSjUhFFQsL+e+p5C0/T0j+U56l0JitEuunOxXEWaFd7OGaZs2DyfwlpzU
-	hNe2Vt4WMQ7QH+49JYrA==;
+	List-Owner; bh=Z+syC7SPYh3u5TngNuE8tBpN5Ay2M53l1KkT+0G3SeA=; b=H2jGR9dygDofjt
+	OP4ZMmUZqkt9Q33Oc4C+1ePzPSMHBGNT102mTzADwJW/A2+4UK3d5Zm0SM5rgIid4NA/uyN6BM0bI
+	pMJIhRIeArSFS2qfJMPvVvspRyygG9r5LcPNqyGz5z5mTD3kJc1MaTCArbORdaIiiTGtqXwXBstoS
+	5vXTzIZSdQddLUS4EX7alaQy5flw5QU7PC+tB1YN0dqjeA1GSaei/awU83hIUIUJWmIkD+WpH54L2
+	e+mvEC6g7Pyti2SiFsYZ3nI173jscfGdWlZNuyk6i0eYRkRfDKSKsKpeNVi9txYJ668c7cP9vcnu2
+	k9+HoWcI2aSthXA80C+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1RI8-00000001Ajp-2F67;
-	Wed, 24 Sep 2025 15:20:24 +0000
-Received: from postout2.mail.lrz.de ([129.187.255.138])
+	id 1v1RKJ-00000001Bux-05oV;
+	Wed, 24 Sep 2025 15:22:39 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1RI4-00000001Afm-3b8E;
-	Wed, 24 Sep 2025 15:20:22 +0000
-Received: from lxmhs52.srv.lrz.de (localhost [127.0.0.1])
-	by postout2.mail.lrz.de (Postfix) with ESMTP id 4cX0gB4hkgzyTD;
-	Wed, 24 Sep 2025 17:11:34 +0200 (CEST)
-Authentication-Results: postout.lrz.de (amavis); dkim=pass (2048-bit key)
- reason="pass (just generated, assumed good)" header.d=lmu.de
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lmu.de; h=
-	content-transfer-encoding:mime-version:references:in-reply-to
-	:x-mailer:message-id:date:date:subject:subject:from:from
-	:received:received; s=lm-postout21; i=@campus.lmu.de; t=
-	1758726694; bh=Wp7TACVDU5DtOz71qp4hjyzNeEjUGnycsxHnG+BQylo=; b=E
-	RCmo7GN3cJorQyZx7veOPX1uJX526B979gcoqD9YQPNg2IlhNVxWPFsMFg+QS/q3
-	L/wVNxo8mJlMHtkp/bEvKP7Hn+Gec2q7CNLyZt0EpSMka0FGzp5jCLM+/4Q4Yf9m
-	bVnNe2Tm7A8+i74QMY7Y1jxU7K7i3ZBWXNk3nMdvTZsDVJlux0h/VG4Yw7pbmUSO
-	RpLfSu4b6GZEIpe3sZKqyNWAaDHGBchXBCWQzjhHNdflPiUJAQ9O1DmlqkXQb9EW
-	Uhe+iIn9Bv6pA0Z2aDaAYUqxTzRjd0IKO7k1GlUoiaatpmzPZUMKJctUANGLq63W
-	fc7ujWT6qB0l70vnk9IVA==
-X-Virus-Scanned: by amavisd-new at lrz.de in lxmhs52.srv.lrz.de
-Received: from postout2.mail.lrz.de ([127.0.0.1])
- by lxmhs52.srv.lrz.de (lxmhs52.srv.lrz.de [127.0.0.1]) (amavis, port 20024)
- with LMTP id bdh52MywZE5f; Wed, 24 Sep 2025 17:11:34 +0200 (CEST)
-Received: from spacestation.cable.virginm.net (oxfd-27-b2-v4wan-164230-cust474.vm42.cable.virginm.net [86.22.133.219])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by postout2.mail.lrz.de (Postfix) with ESMTPSA id 4cX0g40m58zyXY;
-	Wed, 24 Sep 2025 17:11:28 +0200 (CEST)
-From: Patrick Roy <patrick.roy@campus.lmu.de>
-To: 
-Cc: Patrick Roy <roypat@amazon.co.uk>,
-	pbonzini@redhat.com,
-	corbet@lwn.net,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	luto@kernel.org,
-	peterz@infradead.org,
-	willy@infradead.org,
-	akpm@linux-foundation.org,
-	david@redhat.com,
-	lorenzo.stoakes@oracle.com,
-	Liam.Howlett@oracle.com,
-	vbabka@suse.cz,
-	rppt@kernel.org,
-	surenb@google.com,
-	mhocko@suse.com,
-	song@kernel.org,
-	jolsa@kernel.org,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	martin.lau@linux.dev,
-	eddyz87@gmail.com,
-	yonghong.song@linux.dev,
-	john.fastabend@gmail.com,
-	kpsingh@kernel.org,
-	sdf@fomichev.me,
-	haoluo@google.com,
-	jgg@ziepe.ca,
-	jhubbard@nvidia.com,
-	peterx@redhat.com,
-	jannh@google.com,
-	pfalcato@suse.de,
-	shuah@kernel.org,
-	seanjc@google.com,
-	kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org,
-	bpf@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	xmarcalx@amazon.co.uk,
-	kalyazin@amazon.co.uk,
-	jackabt@amazon.co.uk,
-	derekmn@amazon.co.uk,
-	tabba@google.com,
-	ackerleytng@google.com,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org
-Subject: [PATCH v7 01/12] arch: export set_direct_map_valid_noflush to KVM module
-Date: Wed, 24 Sep 2025 16:10:41 +0100
-Message-ID: <20250924151101.2225820-2-patrick.roy@campus.lmu.de>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250924151101.2225820-1-patrick.roy@campus.lmu.de>
-References: <20250924151101.2225820-1-patrick.roy@campus.lmu.de>
+	id 1v1RKG-00000001BsD-26bQ
+	for linux-riscv@lists.infradead.org;
+	Wed, 24 Sep 2025 15:22:37 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-330b0bb4507so4497354a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Sep 2025 08:22:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1758727355; x=1759332155; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AGkkH3On4e9g/uKbOlSYkJKHveGl2HpttCc7mFGVIhA=;
+        b=EDkw1bXuAeg/haFUtTJIMZzsI8u0nwvWg1xfUJDyxH3lrVfm0A86kZqK/129I+8W2M
+         a7Tqc4q6rB0nlZRWqGgVwRFul+VOPA8KtKD8Qs0hKb9ToLHQCoKfnqbEy3cmL/sO8ClE
+         Fz+FI1IWChU69PO7AJAMvLBg6xkhEof1A6Hz0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758727355; x=1759332155;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AGkkH3On4e9g/uKbOlSYkJKHveGl2HpttCc7mFGVIhA=;
+        b=D8leOHXc5AGQHs0530qMet42WvoL1jZd+V3WaW95e+F6GYOEiS7H8IPBM/i/0la+Ql
+         zrX2RtNyeVu60JOZdMSWV2IxDYrmE+Kl49s2rRa3gHHJxx1Bt8S25hbiAZaB9QcK23V/
+         JateG6iu+XzDFmmZtNQreBQluVzXv8ZjxZv2nTyNRCM7RzS2xZCmd9HFBViK54M9vLc+
+         PRLqjiVhncYgWap4Z2+Kag1HzcOsUjcI91T3ohszmoTTCJK2torXHqqn2w6Axx4v7+gO
+         cTGn2QBugCKJAb/Dks7Y3YwBiriFur6y2IYqlcLnA6GjunySCZtQTeKeZfD2y2aDbMih
+         4QRg==
+X-Forwarded-Encrypted: i=1; AJvYcCXdnc2D0X3k5NR6xul1Y5xkDb5Dioqp8bDUhYMTds6c1XR6v9tZlTfJ6/t6iVua1cJW/XQwuuVt89EA5A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIYS1XWwCkEqybWMgl0pnofOQpPNnaAha0t7GScFhoVoa/axw0
+	86cNh0XmxN/qrzfP/L4nD6SuG+RIsu5RpIXQ+y0UsEzIEk7ECi0qhR73JWgb5mDHHLtm4HuTGwL
+	khP0=
+X-Gm-Gg: ASbGncszRcOKTkMI543m5j0W8WvRl+BDmB3G9O3Zl8YuwLEt87O1sduKiOip2Uxod87
+	h5s9HegQRB8X6WpSpZbq/po/P6gwLPBuo6iLloxE349qrtk4u85qGrmrUJseDLCJJbm2kVh2Qby
+	vHjBQBoV/USqj4F6KEGHiH344huyw4BQm+Jw2DwrDkL32kQ9WKSVFT7g6E53zwB8ecxgCpMwToV
+	lIjqtaJrjQZQHNt6QEQuNpTFFh5Oex20Bx3298DwFAc0EG5g4rBHjPZ9StNAyJnX4SQW23JNK4z
+	H0e8AhkebhSAhzwudaM2skpFmPwuqZ5weBjc7E8EVqTisQNdpzMg4VDDkAS+bClj2+zE8bKEMds
+	G40ff2DyhCcxZEtGe8omjxgnm3pbLBYK8ik5ePcQvNjBBagNk8r1f5yR4PnABf223Bg==
+X-Google-Smtp-Source: AGHT+IF++hyxBGStVOmbu86cgHjzdHgaoqSvtCoonrmzZrSpWHW4aWEv89f6VdpXVEqJ9hKKLbdjhw==
+X-Received: by 2002:a17:90b:5109:b0:32b:baaa:21b0 with SMTP id 98e67ed59e1d1-3342a2498b0mr122839a91.6.1758727354501;
+        Wed, 24 Sep 2025 08:22:34 -0700 (PDT)
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com. [209.85.214.171])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3341bdb4fafsm2747366a91.17.2025.09.24.08.22.34
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 24 Sep 2025 08:22:34 -0700 (PDT)
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-24457f581aeso68783225ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Sep 2025 08:22:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXy/akYZKGoCx/2OfXqH+NZCagksKFrEtgoknM7OADKhKXF7/OlyrPps2RR30LYZLoQFsmwM+CBG+2O6g==@lists.infradead.org
+X-Received: by 2002:a17:902:c94d:b0:278:daab:7940 with SMTP id
+ d9443c01a7336-27ed4a3dfa8mr1337745ad.17.1758727353184; Wed, 24 Sep 2025
+ 08:22:33 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250827100959.83023-1-cuiyunhui@bytedance.com>
+ <20250827100959.83023-2-cuiyunhui@bytedance.com> <CAD=FV=WiZ5=4Ck3G2gme=ey6uYQhi-3Wo32DpLj9P53wxGCojw@mail.gmail.com>
+ <CAEEQ3wnHzL6KVaW=RAkoMNSoM+HW11n=5miFwkw7=LQw+375Gw@mail.gmail.com>
+In-Reply-To: <CAEEQ3wnHzL6KVaW=RAkoMNSoM+HW11n=5miFwkw7=LQw+375Gw@mail.gmail.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Wed, 24 Sep 2025 08:22:21 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=XYGmayve1ujv9oqRrJaq-D6g7pRygvQf31WfEMsT3g8Q@mail.gmail.com>
+X-Gm-Features: AS18NWDf2q3VkrTezxWiqMq5MaW03lcJwh8tH3BwlSFCZCG9Jd79C5JfcXHF2sY
+Message-ID: <CAD=FV=XYGmayve1ujv9oqRrJaq-D6g7pRygvQf31WfEMsT3g8Q@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH 1/2] watchdog: refactor watchdog_hld functionality
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, 
+	mark.rutland@arm.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, catalin.marinas@arm.com, 
+	masahiroy@kernel.org, suzuki.poulose@arm.com, maz@kernel.org, 
+	zhanjie9@hisilicon.com, yangyicong@hisilicon.com, mingo@kernel.org, 
+	lihuafei1@huawei.com, akpm@linux-foundation.org, jpoimboe@kernel.org, 
+	rppt@kernel.org, kees@kernel.org, thomas.weissschuh@linutronix.de
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_082021_045376_94047D55 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20250924_082236_569941_C0ABAAD9 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,97 +109,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Patrick Roy <roypat@amazon.co.uk>
-
-Use the new per-module export functionality to allow KVM (and only KVM)
-access to set_direct_map_valid_noflush(). This allows guest_memfd to
-remove its memory from the direct map, even if KVM is built as a module.
-
-Direct map removal gives guest_memfd the same protection that
-memfd_secret enjoys, such as hardening against Spectre-like attacks
-through in-kernel gadgets.
-
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: loongarch@lists.linux.dev
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-s390@vger.kernel.org
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
----
- arch/arm64/mm/pageattr.c     | 1 +
- arch/loongarch/mm/pageattr.c | 1 +
- arch/riscv/mm/pageattr.c     | 1 +
- arch/s390/mm/pageattr.c      | 1 +
- arch/x86/mm/pat/set_memory.c | 1 +
- 5 files changed, 5 insertions(+)
-
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 04d4a8f676db..4f3cddfab9b0 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -291,6 +291,7 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
- 
- 	return set_memory_valid(addr, nr, valid);
- }
-+EXPORT_SYMBOL_FOR_MODULES(set_direct_map_valid_noflush, "kvm");
- 
- #ifdef CONFIG_DEBUG_PAGEALLOC
- /*
-diff --git a/arch/loongarch/mm/pageattr.c b/arch/loongarch/mm/pageattr.c
-index f5e910b68229..458f5ae6a89b 100644
---- a/arch/loongarch/mm/pageattr.c
-+++ b/arch/loongarch/mm/pageattr.c
-@@ -236,3 +236,4 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
- 
- 	return __set_memory(addr, 1, set, clear);
- }
-+EXPORT_SYMBOL_FOR_MODULES(set_direct_map_valid_noflush, "kvm");
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index 3f76db3d2769..6db31040cd66 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -400,6 +400,7 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
- 
- 	return __set_memory((unsigned long)page_address(page), nr, set, clear);
- }
-+EXPORT_SYMBOL_FOR_MODULES(set_direct_map_valid_noflush, "kvm");
- 
- #ifdef CONFIG_DEBUG_PAGEALLOC
- static int debug_pagealloc_set_page(pte_t *pte, unsigned long addr, void *data)
-diff --git a/arch/s390/mm/pageattr.c b/arch/s390/mm/pageattr.c
-index 348e759840e7..8ffd9ef09bc6 100644
---- a/arch/s390/mm/pageattr.c
-+++ b/arch/s390/mm/pageattr.c
-@@ -413,6 +413,7 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
- 
- 	return __set_memory((unsigned long)page_to_virt(page), nr, flags);
- }
-+EXPORT_SYMBOL_FOR_MODULES(set_direct_map_valid_noflush, "kvm");
- 
- bool kernel_page_present(struct page *page)
- {
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 8834c76f91c9..87e9c7d2dcdc 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -2661,6 +2661,7 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
- 
- 	return __set_pages_np(page, nr);
- }
-+EXPORT_SYMBOL_FOR_MODULES(set_direct_map_valid_noflush, "kvm");
- 
- #ifdef CONFIG_DEBUG_PAGEALLOC
- void __kernel_map_pages(struct page *page, int numpages, int enable)
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpPbiBUdWUsIFNlcCAyMywgMjAyNSBhdCA3OjQx4oCvUE0geXVuaHVpIGN1aSA8Y3VpeXVu
+aHVpQGJ5dGVkYW5jZS5jb20+IHdyb3RlOgo+Cj4gSGkgRG91ZywKPgo+IE9uIFNhdCwgQXVnIDMw
+LCAyMDI1IGF0IDU6MzTigK9BTSBEb3VnIEFuZGVyc29uIDxkaWFuZGVyc0BjaHJvbWl1bS5vcmc+
+IHdyb3RlOgo+ID4KPiA+IEhpLAo+ID4KPiA+IE9uIFdlZCwgQXVnIDI3LCAyMDI1IGF0IDM6MTDi
+gK9BTSBZdW5odWkgQ3VpIDxjdWl5dW5odWlAYnl0ZWRhbmNlLmNvbT4gd3JvdGU6Cj4gPiA+Cj4g
+PiA+IE1vdmUgd2F0Y2hkb2dfaGxkLmMgdG8ga2VybmVsLywgYW5kIHJlbmFtZSBhcm1fcG11X2ly
+cV9pc19ubWkoKQo+ID4gPiB0byBhcmNoX3BtdV9pcnFfaXNfbm1pKCkgZm9yIGNyb3NzLWFyY2gg
+cmV1c2FiaWxpdHkuCj4gPiA+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6IFl1bmh1aSBDdWkgPGN1aXl1
+bmh1aUBieXRlZGFuY2UuY29tPgo+ID4gPiAtLS0KPiA+ID4gIGFyY2gvYXJtNjQva2VybmVsL01h
+a2VmaWxlICAgICAgICAgICAgICAgICAgIHwgMSAtCj4gPiA+ICBkcml2ZXJzL3BlcmYvYXJtX3Bt
+dS5jICAgICAgICAgICAgICAgICAgICAgICB8IDIgKy0KPiA+ID4gIGluY2x1ZGUvbGludXgvbm1p
+LmggICAgICAgICAgICAgICAgICAgICAgICAgIHwgMSArCj4gPiA+ICBpbmNsdWRlL2xpbnV4L3Bl
+cmYvYXJtX3BtdS5oICAgICAgICAgICAgICAgICB8IDIgLS0KPiA+ID4gIGtlcm5lbC9NYWtlZmls
+ZSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgMiArLQo+ID4gPiAge2FyY2gvYXJtNjQv
+a2VybmVsID0+IGtlcm5lbH0vd2F0Y2hkb2dfaGxkLmMgfCA4ICsrKysrKy0tCj4gPiA+ICA2IGZp
+bGVzIGNoYW5nZWQsIDkgaW5zZXJ0aW9ucygrKSwgNyBkZWxldGlvbnMoLSkKPiA+ID4gIHJlbmFt
+ZSB7YXJjaC9hcm02NC9rZXJuZWwgPT4ga2VybmVsfS93YXRjaGRvZ19obGQuYyAoOTclKQo+ID4K
+PiA+IEknbSBub3QgYSBodWdlIGZhbiBvZiB0aGUgcGVyZiBoYXJkbG9ja3VwIGRldGVjdG9yIGFu
+ZCBJTU8gd2Ugc2hvdWxkCj4gPiBtYXliZSBqdXN0IGRlbGV0ZSBpdC4gVGh1cyBzcHJlYWRpbmcg
+aXQgdG8gc3VwcG9ydCBhIG5ldyBhcmNoaXRlY3R1cmUKPiA+IGlzbid0IG15IGZhdm9yaXRlIHRo
+aW5nIHRvIGRvLiBDYW4ndCB5b3UgdXNlIHRoZSBidWRkeSBoYXJkbG9ja3VwCj4gPiBkZXRlY3Rv
+cj8KPiA+Cj4gPiBUaGF0IGJlaW5nIHNhaWQsIEkgZGlkIGEgcXVpY2sgbG9vayBhdCB5b3VyIHBh
+dGNoLiBJJ20gcHJldHR5IHN1cmUgeW91Cj4gPiBjYW4ndCBqdXN0IG1vdmUgdGhlIGFybTY0ICJ3
+YXRjaGRvZ19obGQuYyIgdG8gYmUgZ2VuZXJpYy4gV29uJ3QKPiA+IGh3X25taV9nZXRfc2FtcGxl
+X3BlcmlvZCgpIGNvbmZsaWN0IHdpdGggZXZlcnlvbmUgZWxzZSdzICh4ODYgYW5kCj4gPiBwb3dl
+cnBjKT8KPgo+IEFmdGVyIGRpc2N1c3Npbmcgd2hldGhlciB0byByZW1vdmUgd2F0Y2hkb2cgcGVy
+ZiwgaXQgc3RpbGwgc2VlbXMKPiBuZWNlc3NhcnkgdG8ga2VlcCBhZHZhbmNpbmcgd2l0aCBpdC4g
+Rm9yIHRoZSBjb2RlLCB3ZSBqdXN0IG5lZWQgdG8KPiBkZWNvcmF0ZSBod19ubWlfZ2V0X3NhbXBs
+ZV9wZXJpb2QoKSB3aXRoIF9fd2VhaywgcmlnaHQ/CgpUaGF0IHdvdWxkIHByb2JhYmx5IHdvcmss
+IGJ1dCBJTU8geW91IHNob3VsZCBtYWtlIHN1cmUgeW91IGNhbiBmaWd1cmUKb3V0IGhvdyB0byBh
+dCBsZWFzdCBjb21waWxlIHRoZSB4ODYvcG93ZXJwYyBrZXJuZWxzIHRvIGNvbmZpcm0uCgotRG91
+ZwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
