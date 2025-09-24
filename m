@@ -4,94 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA74CAC5A5
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 21:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F88CAC5A5
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 21:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dP39FWcChUNLmgn5KB+uOKIBr4HAnS4cM7PFMt1obSk=; b=CtLN2RiI7bFg7i
-	G8ZbgZkiojA2dwm4gG2QnOJTtk94D9RI4OjFU//PuLpB9m6tWRNmCdf7AyfQOu+WqEaRUc/Etw8FO
-	cJjfWQhbd0NAwtHpY6ZcSZoJcT+T4KtV3AYrXgnWRnFAcfzOLKbS0bq1zlwkdgLjP0EehSxRfgeCi
-	RrFB3X+mkWAIgcW+ifqQDtQCUcE+4m4scJ500BC5zwD3PzZw5Z9q4H0qa3Kobo4DIlmI8auYnPTj9
-	foKUnr1W2napM0FSMEaC+uHqdvRpGqKRNtXGQZ8l4jibFEhEHP0c7l9l9/oJfCtYhErOep6w/mIMS
-	7t6+AKuMZBIlodssHwSQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uBnhL8+YfUBa/aQxIsbMouWnPK7diVaUuxFkPXc4Stc=; b=XHGBPDD+VpZGeI
+	rWdnsbVnUOTSbb6WRTd2Gz2bCtmx0ZC73ypQ47SiR7yBq9t7iMqaR6jbvN0OXggUTRvo18nL5nBbw
+	uz9GsT6DuNnhgOH28w1Ceriy7ZLe/az7GLx7ACWAAaNUM3JEZ10c+cBXE0RF80Mh8XYXT/Cx7Su8O
+	qq2gw1T8zJKDkPPpRVwa8Ymx5aLBtCSITQAPYjc2ZIJjCDjezJk21Oghff5KK4TewIoPx82dCDl8P
+	aHZ8eJiF+p+oAd7r9+bTz/JCGo9fUYp116/djPwnFQ40/ZMxPR0vhiHB0EVE+P0HSul3OukcLcf7Z
+	G2e8glRwAjTMGWqjdEyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Wkr-00000003nCe-47Lw;
-	Wed, 24 Sep 2025 21:10:25 +0000
-Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
+	id 1v1XKS-000000041Q1-1I66;
+	Wed, 24 Sep 2025 21:47:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Wkp-00000003nAE-2ug4;
-	Wed, 24 Sep 2025 21:10:24 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.phl.internal (Postfix) with ESMTP id 85B44EC0177;
-	Wed, 24 Sep 2025 17:10:22 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Wed, 24 Sep 2025 17:10:22 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm1; t=1758748222; x=1758834622; bh=s9
-	+E7CcmL2AGPTpCUHFVgVtr+tUxO40W8zKKqRop2qI=; b=cczReymveyjXCZMdrt
-	lU1QwRSFnbkIkKVN7i11AdGuU6ilXmCoswgGYUlplW671tG6ZZNjje+pSoUER4I8
-	9tsuWTSqziW3DcfMzqhMYyKWQYw38aKZCthg9TZu+IJW8Bh2u3yPcOeKq9bgl4gH
-	lBl/HszTkDrkCXqZN7+INEJRPxLLsbjnunp/yt1DwDihkGfKkXea5+hlzYlgDGz6
-	eSHNprUbOGES7BrikCBM75eAx3XwVG9a30lqF21yxaKwU9MxSwrXvtYDyE/lASPW
-	wVDHXeMUdj0BgmzFN3x6hrvIxmZCxrY/kLEwa2eslSQgeKFbLbGoJYa+eaFQ1FtM
-	kEgg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1758748222; x=1758834622; bh=s9+E7CcmL2AGPTpCUHFVgVtr+tUx
-	O40W8zKKqRop2qI=; b=c9CJ17iZCiLZfGonu96fi2VA8XlPuBZe9sXKSDWtxJVa
-	zzmSSH3bAxPc3Cg4RlLQasmLAa4URT7m0yh7hZbAkTPjqPPJl1TiKzQbDVCERRJW
-	O8sx7moJDVeEK9vc7pxvbvH55VYv8EiJlmyrjPNhB+e+JRyPyVcdj+R3GQfsriq/
-	y4wRZxON+PEgnnLFVCYrJiLy+jTUS5nt10WE7tc/O3lnlQwsynPxEmsR5cDyA5r0
-	fzCRka8gt3ab6Kh8KeC1gywOl6PBCNNloQnm7xrWJhz/Jd9jP9IS/i0T/V86+ig3
-	GBN4POJNsjvf3hVCedXPTQu15EHUr1zcnXyNW3tisQ==
-X-ME-Sender: <xms:Pl7UaA1raZNvRpMUQO-BzXY9VQuLsEv3J-xI6pcCxnUg-n0-REnjsQ>
-    <xme:Pl7UaF4Wm0v4j4U-DfoHzxqbWMy4bqK6xf-eyKptMsPtv2iniql3lnaG5cFVq7o2-
-    EcRrLNIeXjsn3zI3ytcdAEruGkeO8M0h0g-wjUFVLzqMHSYuoiv6oFF>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdeigeeihecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcuuegv
-    rhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrhhnpe
-    eggfeggfeiheeiudffkeeifeehveetffeuhefgheeutefgveetjeekheefvddtheenucff
-    ohhmrghinhepkhgvrhhnvghlrdhorhhgpdhpvghnghhuthhrohhnihigrdguvgenucevlh
-    hushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghr
-    nhgusgdruggvpdhnsggprhgtphhtthhopeehpdhmohguvgepshhmthhpohhuthdprhgtph
-    htthhopehtohhrvhgrlhgusheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhr
-    tghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgrug
-    gvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhn
-    fhhrrgguvggrugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrdhlihhnuhigrd
-    guvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghl
-    rdhorhhg
-X-ME-Proxy: <xmx:Pl7UaOjeIud6WItB6tT9SsabL2OluFtbH2f_knyRz4FuCPapjiYC2Q>
-    <xmx:Pl7UaIXI6k-f_tqt98T2vZ_dwN0vZd3se_kirZOD0BFI63cjLP-7eQ>
-    <xmx:Pl7UaNWtMI7IFfT2Bd1SIHHOb2zN6j-kiwFoDcmbZFuFnK1GzXPDCw>
-    <xmx:Pl7UaIiAc8xzXYowpK6ydFENZrumS6S6zNpuLX05mDPAuNxRCX7g5w>
-    <xmx:Pl7UaOvQ8QKO-gvVOr0Wwl_0wTAgj2Uq5hu3vm51m9yAzndPdaJt0sBd>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 26D8170006A; Wed, 24 Sep 2025 17:10:22 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-Date: Wed, 24 Sep 2025 23:08:56 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, soc@lists.linux.dev
-Message-Id: <6565e739-19d5-465a-9fb5-d918bcb24b56@app.fastmail.com>
-Subject: [GIT PULL] soc: fixes for 6.17, part 3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_141023_810475_BD3C5436 
-X-CRM114-Status: GOOD (  11.74  )
+	id 1v1XKQ-000000041OZ-2yow;
+	Wed, 24 Sep 2025 21:47:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 28299602BB;
+	Wed, 24 Sep 2025 21:47:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAEBDC4CEE7;
+	Wed, 24 Sep 2025 21:47:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758750429;
+	bh=ANND0iRENRaFSgE/hRDoAWTStBO6vYY2JgBulVQWiNY=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=Nqc4PNqE6f/vBciuFeJBZkWPKGHKeTbRWqdfvotuXnfU32lKURFDzO0chk4DW7Xta
+	 gL6vvLdE2kZ4O+bxXgMWDPIJSpRDWBW8topiNqc4iIb6f2vhiA3mG9sMEQlWpR+71n
+	 lTuVk63mF64yHFxawcyEsYGQxnNwCqEXSHKSE6d+Fsl8oggdAnzVp9Y1jjV7kj/SR2
+	 kSQDh7lmGZU+IdzrLX4cHDJJ6SyQ1A9WDKIYic4gh/IKkyLlcpC4yIh7beGkYUxbOK
+	 kaYACZh0lvQRUVlWTpL9AKr7hCTIehADa/SpRljtVo5jXOneSYHAVrEVGnjyM8yO1m
+	 LBxztGerNt3Fg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70EF539D0C20;
+	Wed, 24 Sep 2025 21:47:07 +0000 (UTC)
+Subject: Re: [GIT PULL] soc: fixes for 6.17, part 3
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <6565e739-19d5-465a-9fb5-d918bcb24b56@app.fastmail.com>
+References: <6565e739-19d5-465a-9fb5-d918bcb24b56@app.fastmail.com>
+X-PR-Tracked-List-Id: <soc.lists.linux.dev>
+X-PR-Tracked-Message-Id: <6565e739-19d5-465a-9fb5-d918bcb24b56@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.17-3
+X-PR-Tracked-Commit-Id: 13923775d5b0b47656e800bec7baf50a20474aaf
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: ea78c190810ecd2c9dfb6d22b52fc670a38e8836
+Message-Id: <175875042603.2710061.11952077850560903706.pr-tracker-bot@kernel.org>
+Date: Wed, 24 Sep 2025 21:47:06 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, soc@lists.linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,116 +70,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 875691ceb8bd619de7791243b1cf6184ab534865:
+The pull request you sent on Wed, 24 Sep 2025 23:08:56 +0200:
 
-  Merge tag 'at91-fixes-6.17' of git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into arm/fixes (2025-09-03 23:02:54 +0200)
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.17-3
 
-are available in the Git repository at:
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/ea78c190810ecd2c9dfb6d22b52fc670a38e8836
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.17-3
+Thank you!
 
-for you to fetch changes up to 13923775d5b0b47656e800bec7baf50a20474aaf:
-
-  Merge tag 'tegra-for-6.17-firmware-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux into arm/fixes (2025-09-23 22:34:35 +0200)
-
-----------------------------------------------------------------
-soc: fixes for 6.17, part 3
-
-There are a few minor code fixes for tegra firmware, i.MX firmware and the
-eyeq reset controller, and a MAINTAINERS update as Alyssa Rosenzweig moves
-on to non-kernel projects. The other changes are all for devicetree files:
-
- - Multiple Marvell Armada SoCs need changes to fix PCIe, audio and SATA
- - A socfpga board fails to probe the ethernet phy
- - The two temperature sensors on i.MX8MP are swapped
- - Allwinner devicetree files cause build-time warnings
- - Two Rockchip based boards need corrections for headphone detection
-   and SPI flash
-
-----------------------------------------------------------------
-Alyssa Rosenzweig (1):
-      MAINTAINERS: remove Alyssa Rosenzweig
-
-Arnd Bergmann (8):
-      Merge tag 'mvebu-fixes-6.17-1' of git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu into arm/fixes
-      Merge tag 'reset-fixes-for-v6.17' of https://git.pengutronix.de/git/pza/linux into arm/fixes
-      Merge tag 'socfpga_dts_fix_for_v6.17' of git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux into arm/fixes
-      Merge tag 'imx-fixes-6.17-2' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into arm/fixes
-      Merge tag 'sunxi-fixes-for-6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux into arm/fixes
-      Merge tag 'apple-soc-fixes-6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux into arm/fixes
-      Merge tag 'v6.17-rockchip-dtsfixes2' of git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into arm/fixes
-      Merge tag 'tegra-for-6.17-firmware-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux into arm/fixes
-
-Conor Dooley (1):
-      riscv: dts: allwinner: rename devterm i2c-gpio node to comply with binding
-
-Jihed Chaibi (2):
-      ARM: dts: armada-370-db: Fix stereo audio input routing on Armada 370
-      ARM: dts: kirkwood: Fix sound DAI cells for OpenRD clients
-
-Jimmy Hon (1):
-      arm64: dts: rockchip: Fix the headphone detection on the orangepi 5
-
-Johan Hovold (1):
-      reset: eyeq: fix OF node leak
-
-Josua Mayer (3):
-      arm64: dts: marvell: cn913x-solidrun: fix sata ports status
-      arm64: dts: marvell: cn9132-clearfog: disable eMMC high-speed modes
-      arm64: dts: marvell: cn9132-clearfog: fix multi-lane pci x2 and x4 ports
-
-Krzysztof Kozlowski (1):
-      ARM: dts: allwinner: Minor whitespace cleanup
-
-Lukas Bulwahn (1):
-      ARM: imx: Kconfig: Adjust select after renamed config option
-
-Marcin Juszkiewicz (1):
-      arm64: dts: rockchip: Add vcc supply for SPI Flash on NanoPC-T6
-
-Nobuhiro Iwamatsu (1):
-      ARM: dts: socfpga: sodia: Fix mdio bus probe and PHY address
-
-Peng Fan (4):
-      firmware: imx: Add stub functions for SCMI MISC API
-      firmware: imx: Add stub functions for SCMI LMM API
-      firmware: imx: Add stub functions for SCMI CPU API
-      arm64: dts: imx8mp: Correct thermal sensor index
-
-Russell King (Oracle) (1):
-      ARM64: dts: mcbin: fix SATA ports on Macchiatobin
-
-Thierry Reding (1):
-      firmware: tegra: Do not warn on missing memory-region property
-
- .get_maintainer.ignore                             |  1 +
- MAINTAINERS                                        |  2 -
- .../dts/allwinner/sun4i-a10-olinuxino-lime.dts     |  2 +-
- arch/arm/boot/dts/allwinner/sun8i-q8-common.dtsi   |  2 +-
- arch/arm/boot/dts/allwinner/sun8i-r40.dtsi         |  2 +-
- .../dts/allwinner/sun8i-v3s-netcube-kumquat.dts    |  2 +-
- .../dts/intel/socfpga/socfpga_cyclone5_sodia.dts   |  6 ++-
- arch/arm/boot/dts/marvell/armada-370-db.dts        |  2 +-
- .../boot/dts/marvell/kirkwood-openrd-client.dts    |  2 +-
- arch/arm/mach-imx/Kconfig                          |  2 +-
- arch/arm64/boot/dts/freescale/imx8mp.dtsi          |  4 +-
- arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi |  2 +
- arch/arm64/boot/dts/marvell/cn9130-cf.dtsi         |  7 ++--
- arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts |  6 ++-
- arch/arm64/boot/dts/marvell/cn9132-clearfog.dts    | 22 +++++++---
- arch/arm64/boot/dts/marvell/cn9132-sr-cex7.dtsi    |  8 ++++
- arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi |  1 +
- .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi      |  3 +-
- .../boot/dts/allwinner/sun20i-d1-devterm-v3.14.dts |  2 +-
- drivers/firmware/tegra/bpmp-tegra186.c             |  5 ++-
- drivers/reset/reset-eyeq.c                         | 11 +++++
- include/linux/firmware/imx/sm.h                    | 47 ++++++++++++++++++++++
- 22 files changed, 113 insertions(+), 28 deletions(-)
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
