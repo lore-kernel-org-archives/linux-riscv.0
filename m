@@ -4,124 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32051CAC5AE
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 18:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABA7CAC5A5
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 18:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0waqTD9DpPM4np0qg402Srv6EIoP1EBt8ZMViED0h6s=; b=468YsL0PVy+uajuR/GZVICD7/K
-	RlR7RDqcN1ub1UU+VhOld1i/q2CEM+lfc8f2JWTWXf2vJXfAwubz6BAVQ7erLE4vfDUQeWc5EpWtO
-	iPT+XyIaKV9MObHIso2/xFO3z3PIIQegG5FFv5eul/hv9sMxfjFFUoNmmGGq5ilPcbS/hu5IHOqtn
-	/nKIqIvUJC358/jPmgfbNPy34mcyIBN1huvxUjb0Tmdz2Yn+Fr+wNke+syXnBsk6jup19mKTXhlpU
-	nXQnv8RXt6NF7jxQ2mOZz02jxi/0Jf4GRdcCdudKdqOS4QfPKjGGMo0dfkbpnFlYsgOYjXSxZHpk4
-	ru7yCq/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fdOwBhWKS8gA7xR25wg66b3Oy6hc0L3T2xQuFK7+iw4=; b=vkLa4KkgWG3IXW
+	Ly0N/UWdwolvfSQn/nqTNb1cY5IGOx6anK8T+hZ6NeM+85DWbGyy6HrPk9ivUEvcJ4pnngs+40LkG
+	8Pwv/J7Ja/UA4WeapeCbZO2w1Y71FYLe/6IEXVb/pOYOEAU/ySlzd648Ulw89mS1jY9rkHCvGY9LE
+	+b6US65Qj+KnjLpQd+qCJg0v7loqWlJ4TjnNRRtvT++Qz/SlFqsISjSAXueJkTtHPasK2pbs6mbFM
+	MkfODPneVvnRXxQMmObF2ff5a7Lam8MBidVWXHW4j1UwGhHaEJ9WlMGJwXsxJrAh9VZlAyraDwpPc
+	94QpME8EeJIO4/TkJddg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1UPe-00000002iKf-38Ie;
-	Wed, 24 Sep 2025 18:40:22 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1v1UTJ-00000002kNO-2ht2;
+	Wed, 24 Sep 2025 18:44:09 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1UPc-00000002iK3-2T2D
-	for linux-riscv@lists.infradead.org;
-	Wed, 24 Sep 2025 18:40:22 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-24456ce0b96so1375225ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Sep 2025 11:40:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1758739219; x=1759344019; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CmJ3vOxzWTYE+jCZQu9PTb3XdXqCFWVRNB5Wst4HaN8=;
-        b=Uv4hz2T6pgNwM61jZk8BgjtxNcXEmcmUJbIjHwziVhuw9ZzcPwNZL1Seri2M97hbq5
-         PdFU2bXayDgvr70YdnidovAARsFE5lJkVv7H7WPTxkmuG5B/Rv8Hq1U2ZOE89CEZAqaW
-         w/TzNIA9p2QF5mMoG25VQBYlF5z9Q4vjwcaQ98k6RDHg8O6hGJVI6FxlWytObTJQlRXz
-         xug3f1XMIK//khOyjgi/6EMuyK2Sg/nd4fVDPESozaEXDP0wd4Ds3PIpOple5gwlJXV2
-         Eosh/y+onGfJYWPxFfXUtJvmhNUaUtFchUsOok6y5myLtohtJ2rOAAejl3/x87ja5Mf+
-         FUHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758739219; x=1759344019;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CmJ3vOxzWTYE+jCZQu9PTb3XdXqCFWVRNB5Wst4HaN8=;
-        b=ZWTVL1/RlBKfRwkeBaKDwCy9uUKpepcuCHjj1oq1b5TpKpu8ivD1JNg81WCijrZdE7
-         GdDRdBdYRj81YKXUiOI83oc3L96plk3WFLYAeaXL0WswFmp8+l+k4/v+mXrtEqzUAobT
-         El6H1pUwMLwnG2UBcPUdw/uJGagpjcPVdXWlopAjlQJyb03uiddjnADZKrc51L/OJWDF
-         w8T8gd7YDtU1ZSeg9i2uEuruYnD9wUeIOoqrAK37QbtLobFl0xGlDQ7EV9rP4/MiTugw
-         IIgxyNOgRgg0ya8RXR+3e+6UyVbO0WUSQKu/CO4KNTQmBg8MM0Y6EWzGAsqMik0FNfGY
-         BPLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV/l2Lu94vF5qsncHCGpyv4vW57pSXqhM+Nr82MQ9XgJ995tKHeHv4Q0gFzLegEQ4Uia0AxoieFSPfQAQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzc8MYBOOGAhv3sPSH8+XTIR9YpovM+Sh+js5e1AB5FfN2qPHKB
-	wlSe/HhB8Tc6xvp61JqPi1dEnwKpkWqPWc46I6bQX8o8HPVx8RC1hovwaP2gslfwTG0=
-X-Gm-Gg: ASbGncv9xa4scldRXJRNkZLuq7pY6u+sp0w0KI8IUh9XVBLMTXSAjhFWTKpYe+qvzM6
-	OusDBjSe6MQkaRlK6rVyGQu0xNhTtYvhHNdp7be3R/K6Yo0Str4JcF+IZTAC2fFpU42D08QyMDI
-	3eCc9HWYc/wcTf6oZV8R15ve3LSzfVy5QTLsA51Gusu9OuL1iDa/iKE5DfSGvaW6ckkMjTcBuoB
-	8EILmfi2U/iHcU1h/P7AUDCAQCejaySr7LfDzafj1hbvgfBbX/FMVWhLnwRwAMO8xlHuor7v5i6
-	LscxRe/mX+CeJ3c8rz6tF131HpyC9G57NMaJ+jS0DmryHHb3pCacX1JLWFXeHTFjb76DCmSAZ6w
-	SssjuoLtO/GobKLH9tMw0byH0a3W+lJ4H
-X-Google-Smtp-Source: AGHT+IGXuHXHBWPf+oE+Ln4Jp/4CaKr0teMjK8nrYhSg666HYgvhIXatAPi5gWQsQGiN1OujHcfx1A==
-X-Received: by 2002:a17:902:e790:b0:24b:270e:56d4 with SMTP id d9443c01a7336-27ed4c67b42mr6992845ad.4.1758739219414;
-        Wed, 24 Sep 2025 11:40:19 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2698035ddcasm198787335ad.142.2025.09.24.11.40.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 11:40:18 -0700 (PDT)
-Date: Wed, 24 Sep 2025 11:40:15 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Paul Walmsley <pjw@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Brauner <brauner@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com,
-	richard.henderson@linaro.org, jim.shu@sifive.com,
-	Andy Chiu <andybnac@gmail.com>, kito.cheng@sifive.com,
-	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com,
-	cleger@rivosinc.com, alexghiti@rivosinc.com,
-	samitolvanen@google.com, broonie@kernel.org,
-	rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org,
-	Zong Li <zong.li@sifive.com>, David Hildenbrand <david@redhat.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	Florian Weimer <fweimer@redhat.com>, bharrington@redhat.com,
-	Aurelien Jarno <aurel32@debian.org>
-Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
-Message-ID: <aNQ7D6_ZYMhCdkmL@debug.ba.rivosinc.com>
-References: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
- <f953ee7b-91b3-f6f5-6955-b4a138f16dbc@kernel.org>
-MIME-Version: 1.0
+	id 1v1UTG-00000002kKP-3mcY;
+	Wed, 24 Sep 2025 18:44:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=T+sP7dTezXeV1UcfvipGrOusthP5rUCPZu4wwMqCiHTTPYxAtJRRgjBFiKLiwdBE0zv6Ped9D8vHid/uZ0aTI5Plw53GcgP+p3u55B7euGsAH2t653cns0eoxvDPUxM+bVmFciEsbbHb8SwnH3Zpc3x3WMSTHdoy4FIUpjrXzSQNRnzB7JMiyg6RVXFnp/ffmzIx4S6+j0Wqzb7/lOK62xzL+Jjuuyrn4ywm0Bs4Z7rLBt3W7V5z8PEks3dUulFuILYVnn7wUrK3dk3MHNYoV4CF69MAvzub5Hk0utzTWGfvSl5rEIq7r8hffJenS3JwtvnPsOxNhpBpZ8jhGJplng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Zzw2HcUr2PoxiD2L8KvFNGIWovYFKTJxOLFmSXX3o4I=;
+ b=u+zArf6UEFsDmICQEqAOEQpXyC/9Ec9fDa/bZ6CMkGd6aSxjcmJ1JV8v793igmZv9aBuPH3+jTgMP98rfnGEP1DJxkcY40yorKrB3oQ8Npnd8IDha9LCaBM/c5MlwUzExk3QBnNaYQdgyYqiLjeHcaiOF5G6GaKQPn/+YKuePIvv2URDO2oSb97VC1aBNyfytxJViVLddVXKCtLRVsnLUXzYPXaRje9r79zBKYG3XKU+z/W4hotvFNS11KweGnqgdIOLPDfE11ckEr7Y3N/o6tKXmB+TeL6RRepgsbfDYw4uDR7iYM9nr44gpHJHoj0LwJZ7udd/Zm2icnm94GpsCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Zzw2HcUr2PoxiD2L8KvFNGIWovYFKTJxOLFmSXX3o4I=;
+ b=T1smw1jEJ6t6m3HbKUvD/VTjTzS1HQMyF33AmonXc3Dk2BPzzswgNQg+HtckYdJeFVspUhHZdvt9vJp+n/IvWM/RHNMCArS35lwiF8B8GN9gfwN7oryLZZETx+QoyhlL5SttyGVuFFQVuqYYpCmNICc6R843Ftp4ZhxQL1qfajghIaod8XPvg3Ejc5zHJ/QmPBfnrPMG+oVWRfHzFtnW/YhGhNiC2/1wkPwkg22OTtcsq3VbgyHdiB1sT73wypSr/A3xcd67pknkb1NDzQ6m6mCl5ttABleBdDHlYMeXAhUQKOaZMRzo7xs60TQyYEG8s3C7yewjwjTWi6vMqdE32w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from PH7PR12MB5757.namprd12.prod.outlook.com (2603:10b6:510:1d0::13)
+ by CY8PR12MB7338.namprd12.prod.outlook.com (2603:10b6:930:52::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Wed, 24 Sep
+ 2025 18:43:49 +0000
+Received: from PH7PR12MB5757.namprd12.prod.outlook.com
+ ([fe80::f012:300c:6bf4:7632]) by PH7PR12MB5757.namprd12.prod.outlook.com
+ ([fe80::f012:300c:6bf4:7632%2]) with mapi id 15.20.9137.021; Wed, 24 Sep 2025
+ 18:43:49 +0000
+Date: Wed, 24 Sep 2025 15:43:46 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: joro@8bytes.org, bhelgaas@google.com, suravee.suthikulpanit@amd.com,
+	will@kernel.org, robin.murphy@arm.com, sven@kernel.org,
+	j@jannau.net, alyssa@rosenzweig.io, neal@gompa.dev,
+	robin.clark@oss.qualcomm.com, m.szyprowski@samsung.com,
+	krzk@kernel.org, alim.akhtar@samsung.com, dwmw2@infradead.org,
+	baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	yong.wu@mediatek.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, tjeznach@rivosinc.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, heiko@sntech.de, schnelle@linux.ibm.com,
+	mjrosato@linux.ibm.com, gerald.schaefer@linux.ibm.com,
+	orsonzhai@gmail.com, baolin.wang@linux.alibaba.com,
+	zhang.lyra@gmail.com, wens@csie.org, jernej.skrabec@gmail.com,
+	samuel@sholland.org, jean-philippe@linaro.org, rafael@kernel.org,
+	lenb@kernel.org, yi.l.liu@intel.com, cwabbott0@gmail.com,
+	quic_pbrahma@quicinc.com, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+	virtualization@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, patches@lists.linux.dev,
+	vsethi@nvidia.com, helgaas@kernel.org, etzhao1900@gmail.com
+Subject: Re: [PATCH v4 4/7] iommu: Pass in old domain to attach_dev callback
+ functions
+Message-ID: <20250924184346.GI2617119@nvidia.com>
+References: <cover.1756682135.git.nicolinc@nvidia.com>
+ <19570f350d15528e13447168b7dcd95795afdbf3.1756682135.git.nicolinc@nvidia.com>
 Content-Disposition: inline
-In-Reply-To: <f953ee7b-91b3-f6f5-6955-b4a138f16dbc@kernel.org>
+In-Reply-To: <19570f350d15528e13447168b7dcd95795afdbf3.1756682135.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: MN0PR02CA0008.namprd02.prod.outlook.com
+ (2603:10b6:208:530::10) To PH7PR12MB5757.namprd12.prod.outlook.com
+ (2603:10b6:510:1d0::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5757:EE_|CY8PR12MB7338:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8b9e5f1-5f96-49f0-8549-08ddfb9a4cc8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?G6VfVzphA3BUM/5NT8fGXajxuh7mocbcDHI7udJMAfyxKaiYqcJw24ikh0Ob?=
+ =?us-ascii?Q?O727qpk0e/LorIWGJGH1QUccC8m3Kuk50pAsBYecnpotg5FMrmdz6R/9FLBt?=
+ =?us-ascii?Q?YWZafNXe11UwP/f1upN00Aanc12HmAtNmU3Xi29Mg7OCXQ5WkL+PTmNjTkPm?=
+ =?us-ascii?Q?yGEv1yKa+Z39Y0EBV6qoXhU6FNrxu7BXGxAamYkDqgPxQFLzRS4taASvJUS6?=
+ =?us-ascii?Q?Phliu5otHt7qngp2Sk8tpg685O8gaMbbl9NevPBjT2bRKFs/CU4oZ3nSWUfN?=
+ =?us-ascii?Q?IcGLJKnKtwHgmrErRJ2Odc3hHkxzugI6G6i6hG3sgRArlPtMdRLiMinF2/C0?=
+ =?us-ascii?Q?cC1KGmJ/nbEq0m23NpPL0RXKUI8fqAT08GAgKQ9A4xshJCtTTbpIrt6iEwwX?=
+ =?us-ascii?Q?MU9ZY7IHRPN0OxE3p7u9YeN8WtF8KI5tepMcAtQSYNv+W61CDWfEd3yGFrTN?=
+ =?us-ascii?Q?rWP5DylQuyufayxAJuXfeF1mk5OTurGjdmFuCbXYrfk0jn+myZDx0A8UdACS?=
+ =?us-ascii?Q?WPQxiMhcsphEC80UKhc5hrHFF9pqTtpasOXDprKoGGR06vshhMqlQcBp+YWC?=
+ =?us-ascii?Q?EUApAYrXF43graJuh9ZGnZZ+vuQ+aXL5gyTobVDgi0nspi53o2FzxvJnAOKj?=
+ =?us-ascii?Q?ig+huXVn1agsPXOPjIk6tui2NB9wb1arvH7X8eoj+MIH6XIt7IItS0RIsF6m?=
+ =?us-ascii?Q?niIMHDyhE8iBxoWrR2OgodO6glDajrPpQPbaZPpS06sD0oWKcPQtA5Dwv03h?=
+ =?us-ascii?Q?X9oLBRY/SQzVcYv1d2IFq6moFRxMn7MCs/RhJ9p7vwDe2TdVqTLZiXjPwjsR?=
+ =?us-ascii?Q?SlN/nkouKEcu3OPDcPO2r9s9yIHwUZDU+IDn6gTdHqScSyes7voDWA5Ns3yU?=
+ =?us-ascii?Q?NPh+TfmuGQ/yCGfNjuhHwKZl4kNuVsnIwVuxRfDjYfoGpQnerX/dRNDCmmc8?=
+ =?us-ascii?Q?RD2SrKG6+YJ39bjsjlLahfaKuwI3wfqFoU2LF5IaFZGm+QVMF4KsIwSz8oQV?=
+ =?us-ascii?Q?6zpQw3KaSrleAV8zIuierheHtlKniU4TlJ4YeflovjE3FdrReg5gJKAOJW37?=
+ =?us-ascii?Q?dD6v5dTZY/2cgQBRN/3OlEP20gE0CV38WDzAYmjmq/gIopg50x8XfRP20pQJ?=
+ =?us-ascii?Q?6oqAJWwB8uCgg+48SsBysQdVt+nzFG1Ejc9u616ULITgPxRZOAUApWYQsozn?=
+ =?us-ascii?Q?+21ZPKkgeMBMf4GQzdKpYwCXreVDA7qQZ6twKwuwmGDWubu6ova6Y8SzkchR?=
+ =?us-ascii?Q?McJZ02qk6HhbY1dkWkaBjHwAkaySIE6R/aaG1EThPgd0aU2kidtVlye82xmI?=
+ =?us-ascii?Q?xmtegP65ZF7axJ6ARwdYoDGDp6p6pnb5Z5hOnaK4v6IX348qt03DfrmSziTu?=
+ =?us-ascii?Q?WKXoHlewug7dVgG8Ace0Btmc8TevnlZrZL4awc9RclduJpL9EH5d40qHDPw7?=
+ =?us-ascii?Q?9Jxtrp9Cxo5AkGqyPXFNsMjrOehxHQ27?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5757.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Xz2aH2uvI8r0Vvi1YRYUXGs1Cq0LJYr+OBhN2nXW5LKpQrV8iAxu3idGAAQC?=
+ =?us-ascii?Q?pvIlrpcQXa3Md9J7i0Iww9gjTybbHumYz/88ZhEYOJP1kXmG97ErDsUgXurS?=
+ =?us-ascii?Q?qkbTe+bNp+LJ11KuusJmoPhqpvbCkVrjo9Iu5IbNV41Tn2o90MLCMOUmtMeO?=
+ =?us-ascii?Q?kzRfVPYJ80x0oFsCmSRnJMmazU0SXGxMorg2ygBeT7Q+upbHv4f06sHOCBKQ?=
+ =?us-ascii?Q?bHLen5NWWNMJZ0isreFIYpkUwfwAl+wy63MZxSaftiKYlyCq36vMbkAeuehk?=
+ =?us-ascii?Q?ChpvDjIipdiK7zg6KcX71dGZl5A72JhvU8CLfyUczdr1hytSEbkh5Q4odbzL?=
+ =?us-ascii?Q?pzuEPqZye4YdbO/nImLyflA7BqD8pSMN6EhqGHgBGvCEr6b/lD+0rrfvmvQp?=
+ =?us-ascii?Q?H0wtLYLHseA/3WLuuPJW3RqPfDfL8+SYi+nSG6PhW4wPV5koZxG7y5LrBgNv?=
+ =?us-ascii?Q?P12wfzsIKflBPwUEjwukR2SNbsup7JwKV/yHaqlL0rxMF+0NsKPYjK+Vze9x?=
+ =?us-ascii?Q?l9d48QMixrL1fmIHNSfpK6tG5myF1CTH+/UY7DsFpCAfnM7iyDBQYqZd3tXE?=
+ =?us-ascii?Q?5MU1Yl+p0Yv1ABBakMLeOBV48TZgeDfTmQUU+fh6fnRbR9ghwemJwoPr603N?=
+ =?us-ascii?Q?wC7Oh7pLsmgSsajS7eM5AULB6wPNvk8Bgkw1DPLWe2Z78g7mFBRVYOu8y5Ko?=
+ =?us-ascii?Q?tOPJKBerkNHvggF86J8QTZLueKgiLy/IRpaQDcdwubr3A2tuNqWQCLVUCg5N?=
+ =?us-ascii?Q?wSlepXoTSIaLYzhCetl8F1Io8WwGF3cb/92E0wR9IoTzhjGCdbu9cL7Tth7S?=
+ =?us-ascii?Q?Ac9wFmbVf8ItXSVMQFA5hVAz2owa9yJqfWIqDWpOpvKafrHCYwDGHqvZ3wp/?=
+ =?us-ascii?Q?Cy0hCbJVWcr3y6olO/a4Hg+0kw3gAdkwI3MTvLT/vtfyRYf2TMM0aTRoP6zF?=
+ =?us-ascii?Q?1V0J3uNTr1U1cdsMiPQf3vBAOWa8WrLtW1lJ+5IlyGc+qCWA+1BNE57S/sZD?=
+ =?us-ascii?Q?ogKIjNzHRiHZZ5Kz7WUKAbIvcUPhnLATWFA3uVbgj7YxE6dnGh7yZZf+obSa?=
+ =?us-ascii?Q?tXL1H2wH3s0/S8ZBEzfIWrSynGv3SYOxeF+G/TmKYDUmbEBdHE3GE4gTAFEu?=
+ =?us-ascii?Q?urH0y1s2nMcbw66KoPdX/NjU17CxKUaLsL+UvUaROnTXsGyWejJvY8f4KWXn?=
+ =?us-ascii?Q?gtIjBfDKXzRTZkBn8S9exF9cFyvurs5KeFYAcearvMqpKhbrqbEi9pHZ/ULM?=
+ =?us-ascii?Q?3C3oYRB2erRBlypCRmHJXblU0EL0cxXWRboCytCKaZZlWWTmimX73apEhPTe?=
+ =?us-ascii?Q?vFZiNTiheD6Y97H0TdRDi4WIGc0sU+iFRDqCdTjjXcGidVA2MHWmSTYCRoG1?=
+ =?us-ascii?Q?GnWTJEgRfIp9De/iyprb2VpxBN61sNCcKQe3nJlIgpfA+CrulLUjSg+l+kXW?=
+ =?us-ascii?Q?3wJIgRGB+4xW+dnE2AAxgkUdCAHdOYaTeh7SUivNaLZNQQ4OBtfcTd20g8Tj?=
+ =?us-ascii?Q?eRvjSp7Zf360xxSd86yMQG7wEanH9cf9vUxSrZIE6lPvhHOKsRXmP3A/R9V9?=
+ =?us-ascii?Q?1yeKIm2VWz2mBHLy/FS8zOkeNWg1XFQcLgzd3s6e?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8b9e5f1-5f96-49f0-8549-08ddfb9a4cc8
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5757.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 18:43:49.0037
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QdQX4Qrt+nHrxWju+c6sUOvaW9aPLjI//2RpiMBFJ6ofulFb6twFfXsqmruG3Tsm
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7338
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_114020_729695_B5591E6B 
-X-CRM114-Status: GOOD (  37.28  )
+X-CRM114-CacheID: sfid-20250924_114406_937277_3E7154AE 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,154 +176,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 08:36:11AM -0600, Paul Walmsley wrote:
->Hi,
->
->On Thu, 31 Jul 2025, Deepak Gupta wrote:
->
->[ ... ]
->
->> vDSO related Opens (in the flux)
->> =================================
->>
->> I am listing these opens for laying out plan and what to expect in future
->> patch sets. And of course for the sake of discussion.
->>
->
->[ ... ]
->
->> How many vDSOs
->> ---------------
->> Shadow stack instructions are carved out of zimop (may be operations) and if CPU
->> doesn't implement zimop, they're illegal instructions. Kernel could be running on
->> a CPU which may or may not implement zimop. And thus kernel will have to carry 2
->> different vDSOs and expose the appropriate one depending on whether CPU implements
->> zimop or not.
->
->If we merge this series without this, then when CFI is enabled in the
->Kconfig, we'll wind up with a non-portable kernel that won't run on older
->hardware.  We go to great lengths to enable kernel binary portability
->across the presence or absence of other RISC-V extensions, and I think
->these CFI extensions should be no different.
->
->So before considering this for merging, I'd like to see at least an
->attempt to implement the dual-vDSO approach (or something equivalent)
->where the same kernel binary with CFI enabled can run on both pre-Zimop
->and post-Zimop hardware, with the existing userspaces that are common
->today.
+On Sun, Aug 31, 2025 at 04:31:56PM -0700, Nicolin Chen wrote:
+> The IOMMU core attaches each device to a default domain on probe(). Then,
+> every new "attach" operation has a fundamental meaning of two-fold:
+>  - detach from its currently attached (old) domain
+>  - attach to a given new domain
+> 
+> Modern IOMMU drivers following this pattern usually want to clean up the
+> things related to the old domain, so they call iommu_get_domain_for_dev()
+> to fetch the old domain.
+> 
+> Pass in the old domain pointer from the core to drivers, aligning with the
+> set_dev_pasid op that passes in already.
+> 
+> Ensure all low-level attach fcuntions in the core can forward the correct
+> old domain pointer. Thus, rework those functions as well.
+> 
+> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  include/linux/iommu.h                         |  3 +-
+>  drivers/iommu/amd/iommu.c                     | 11 ++++---
+>  drivers/iommu/apple-dart.c                    |  9 +++--
+>  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     |  5 +--
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 33 ++++++++++++-------
+>  drivers/iommu/arm/arm-smmu/arm-smmu.c         |  9 +++--
+>  drivers/iommu/arm/arm-smmu/qcom_iommu.c       | 11 ++++---
+>  drivers/iommu/exynos-iommu.c                  |  6 ++--
+>  drivers/iommu/fsl_pamu_domain.c               | 12 +++----
+>  drivers/iommu/intel/iommu.c                   | 10 ++++--
+>  drivers/iommu/intel/nested.c                  |  2 +-
+>  drivers/iommu/iommu.c                         | 26 +++++++++------
+>  drivers/iommu/iommufd/selftest.c              |  2 +-
+>  drivers/iommu/ipmmu-vmsa.c                    | 10 +++---
+>  drivers/iommu/msm_iommu.c                     |  8 ++---
+>  drivers/iommu/mtk_iommu.c                     |  8 ++---
+>  drivers/iommu/mtk_iommu_v1.c                  |  7 ++--
+>  drivers/iommu/omap-iommu.c                    | 12 +++----
+>  drivers/iommu/riscv/iommu.c                   |  9 +++--
+>  drivers/iommu/rockchip-iommu.c                | 20 ++++++++---
+>  drivers/iommu/s390-iommu.c                    |  9 +++--
+>  drivers/iommu/sprd-iommu.c                    |  3 +-
+>  drivers/iommu/sun50i-iommu.c                  |  8 +++--
+>  drivers/iommu/tegra-smmu.c                    | 10 +++---
+>  drivers/iommu/virtio-iommu.c                  |  6 ++--
+>  25 files changed, 152 insertions(+), 97 deletions(-)
 
-Added some distro folks in this email chain.
+I've split things like this into more patches before, but this
+actually isn't too bad, so I wouldn't push for it.
 
-After patchwork meeting today, I wanted to continue discussion here. So thanks
-Paul for looking into it and initiating a discussion here.
+A series version would be:
+ - add a new op 'attach_dev2' or whatever
+ - Convert all drivers that just change the signature
+ - Convert drivers that have a trivial iommu_get_domain_for_dev()
+ - N patches to convert more complex drivers one by one
+ - Remove old op attach_dev
 
-This patch series has been in the queue for quite a long time and we have had
-deliberations on vDSO topic earlier as well and after those deliberations it
-was decided to go ahead with merge and it indeed was sent for 6.17 merge
-window. Unfortunatley due to other unforeseen reasons, entirety of riscv
-changes were not picked. So it's a bit disappointing to see back-paddling on
-this topic.
+Again, looks Ok as-is:
 
-Anyways, we are here. So I'll provide a bit of context for the list about
-deliberations and discussions we have been having for so many merge windows.
-This so that a holistic discussion can happen on this before we make a
-decision.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Issue
-======
-
-Instructions in RISC-V shadow stack extension (zicfiss - [1]) are carved out of
-"may be ops" aka zimop extension [2]. "may be ops" are illegal on non-RVA23
-hardware. This means any existing riscv CPU or future CPU which isn't RVA23
-compliant and not implementing zimop will treat these encodings as illegal.
-
-Current kernel patches enable shadow stack and landing pad support for
-userspace using config `CONFIG_RISCV_USER_CFI`. If this config is selected then
-vDSO that will be exposed to user space will also have shadow stack
-instructions in them. Kernel compiled with `CONFIG_RISCV_USER_CFI`, for sake of
-this discussion lets call it RVA23 compiled kernel.
-
-Issue that we discussed earlier and even today is "This RVA23 compiled kernel
-won't be able to support non-RVA23 userspace on non-RVA23 hardware because".
-Please note that issue exists only on non-RVA23 hardware (which is existing
-hardware and future hardware which is not implementing zimop). RVA23 compiled
-kernel can support any sort of userspace on RVA23 hardware.
-
-
-Discussion
-===========
-
-So the issue is not really shadow stack instructions but rather may be op
-instructions in codegen (binaries and vDSO) which aren't hidden behind any
-flag (to hide them if hardware doesn't support). And if I can narrow down
-further, primary issue we are discussing is that if cfi is enabled during
-kernel compile, it is bringing in a piece of code (vDSO) which won't work
-on existing hardware. But the counter point is if someone were to deploy
-RVA23 compiled kernel on non-RVA23 hardware, they must have compiled
-rest of the userspace without shadow stack instructions in them for such
-a hardware. And thus at this point they could simply choose *not* to turn on
-`CONFIG_RISCV_USER_CFI` when compiling such kernel. It's not that difficult to
-do so.
-
-Any distro who is shipping userspace (which all of them are) along with kernel
-will not be shipping two different userspaces (one with shadow stack and one
-without them). If distro are shipping two different userspaces, then they might
-as well ship two different kernels. Tagging some distro folks here to get their
-take on shipping different userspace depending on whether hardware is RVA23 or
-not. @Heinrich, @Florian, @redbeard and @Aurelien.
-
-Major distro's have already drawn a distinction here that they will drop
-support for hardware which isn't RVA23 for the sake of keeping binary
-distribution simple.
-
-Only other use case that was discussed of a powerful linux user who just wants
-to use a single kernel on all kinds of riscv hardware. I am imagining such a
-user knows enough about kernel and if is really dear to them, they can develop
-their own patches and send it upstream to support their own usecase and we can
-discuss them out. Current patchset don't prevent such a developer to send such
-patches upstream.
-
-I heard the argument in meeting today that "Zbb" enabling works similar for
-kernel today. I looked at "Zbb" enabling. It's for kernel usage and it's
-surgically placed in kernel using asm hidden behind alternatives. vDSO isn't
-compiled with Zbb. Shadow stack instructions are part of codegen for C files
-compiled into vDSO.
-
-Furthermore,
-
-Kernel control flow integrity will introduce shadow stack instructions all
-over the kernel binary. Such kernel won't be deployable on non-RVA23 hardware.
-How to deal with this problem for a savvy kernel developer who wants to run
-same cfi enabled kernel binary on multiple hardware?
-
-Coming from engineering and hacker point of view, I understand the desire here
-but I still see that it's complexity enforced on rest of the kernel from a user
-base which anyways can achieve such goals. For majority of usecases, I don't
-see a reason to increase complexity in the kernel for build, possibly runtime
-patching and thus possibly introduce more issues and errors just for the sake
-of a science project.
-
-Being said that, re-iterating that currently default for `CONFIG_RISCV_USER_CFI`
-is "n" which means it won't be breaking anything unless a user opts "Y". So even
-though I really don't see a reason and usability to have complexity in kernel to
-carry multiple vDSOs, current patchsets are not a hinderance for such future
-capability (because current default is No) and motivated developer is welcome
-to build on top of it. Bottomline is I don't see a reason to block current
-patchset from merging in v6.18.
-
-
-[1] - https://github.com/riscv/riscv-isa-manual/blob/main/src/unpriv-cfi.adoc#shadow-stack-zicfiss
-[2] - https://github.com/riscv/riscv-isa-manual/blob/main/src/zimop.adoc
-
->
->thanks Deepak,
->
->- Paul
+Jason
 
 _______________________________________________
 linux-riscv mailing list
