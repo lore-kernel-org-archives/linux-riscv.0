@@ -4,90 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC21ACAC5A5
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 17:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E751CAC5A5
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 17:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3ho2xw0MTHWUfYbYpz3rOBZKcKGF6GLeszJ+G96zBJQ=; b=nwYgibYiDU9Rhj
-	KY+hNkhnf1XDIJwkMLgX0WQxF9cZVFrCTnyXgV5NmHCVB5XcOFGP+Q0VWu4TyOW5KuoinrFzH6Je8
-	fFXX/6RiOuZIBwC5XkdWHjKlrZCICQZyDJRpsrz8qBYNgxaiS5WEkpl041NAw1rhC1H2nESu/a78H
-	+JDnvnWQ34D4uwddpp+XzRN1iXJVQ6wWmsJ2wcgYodjW6/rmGFBD8eEoQTerJ0pC/HbDW2MfmJSaQ
-	tix0tOt1HKEF8EixT6yBX88dilOClLa3m8NwVff/fX1Yyit4tZ7QG8TFOkst1FgPY9NWgBQE0WUtB
-	7qKVXotKQcHJyAu0e0UQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=YtW9BlU5mJgs0uYkC+QMIoNQtQtsLn2Y2cQlaWZ21+k=; b=trn
+	9lyfLMhfHbDqva33tSb97wpLTPLGndjeNZQZ06k+1lqcH6TscLFP20FKNJ8OIyiecTOiQsDzpShXb
+	uDMFwrBNo5IYoI/GjBxwX8H2PUW4nM+4ulB3ZKbxbVeHDcY7zncuznA6PbvQ4HOL2Es9zQU4v17Hb
+	Xyx9RdraEvz0rO6JyYdsRgMM+/JO+/jF0FstPXDiePdsSJ94I+YPnqabdFSuMHQfrUVoBYzqBIUmF
+	RzR754FSL4CxfzPSZc/blH6aodA08F6VAtC0nxxfqsJeVcIR9LIQkMODIOqRY3PaTKUNg1D9jki9u
+	ic1NhNUSGNvX68vR9oijL6thwK0EiTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Sz5-00000001zn3-49HS;
-	Wed, 24 Sep 2025 17:08:51 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1v1TRf-00000002Cpg-2wML;
+	Wed, 24 Sep 2025 17:38:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Sz3-00000001zkx-0t47
+	id 1v1TRc-00000002CnK-2HDg
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Sep 2025 17:08:50 +0000
-Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-425757c5f84so227195ab.0
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Sep 2025 10:08:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1758733728; x=1759338528; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=u9YvycGlNJV4Q2DejLBsM63fTc6nBtT2JcHZL2ev/Ww=;
-        b=jZK+/s2FeHbKOzb491SaKSDslU1l7YT19b9yPF/KjWm1Jnax+ylii20vBj4yYFwhvs
-         lAGmPN4GNz9LMxPt9oxRK/BCU0k98cNF7pRtQzNtm/BEGDuI4FvGlWl114X/1ubi9+PG
-         xleBGdOLsKVuvf8UsVetFLrpjdEWCPWc32GtW2GBnavZ7PJrEE12hIXjjD9sIJsplArN
-         ybIBINOWQ86EOBA4/jSWZnszWQVKU82X2Ytv3Z8V1Wy0DLSdn4HlrjRBUJ2ImWuJkPgy
-         95Zf4bbTV/P/KCmxZ0Yg4ZjIy4xEsaA6tu9yIFYUnCzfQHU3eomFT+BDRJh1uSO2zoRO
-         SeEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758733728; x=1759338528;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u9YvycGlNJV4Q2DejLBsM63fTc6nBtT2JcHZL2ev/Ww=;
-        b=oZ9GjqyORGXHbFy7XGZOHrDX8+8oK2Gr3FY/1ieDjaLBOBmVCSNs3hp8G2gJ7Iln4J
-         0PBhUvChbYyGSm96wfGxq+/+JfwCLnZ6mqwSzJ/TehMO6j0761w8HCquZTD84aj2l+lB
-         3/rNAtPQRojqauGJ4bKVI0VaQdgsLDqLHZuoT85G0dB/8C0pULfVt4wmg1Ex61lbT+p9
-         QuWSNUmQR4ZH1WV+KjqDilEtAkiCqJ9y950tamxeAZhgV/HqbQvU69gPk70Ew6dCXnwr
-         6qQp13CjPEeMCZjT/nFYRXQP90kFsNFEFNaBvGGIt3FhNjfi+Jzy6gEL6mplIoWIYUck
-         rg0A==
-X-Forwarded-Encrypted: i=1; AJvYcCU00Nj7i1ukpRFYrvfAvswVgLk1mOS0NR+WCvIRWX4ou/Is1c73lANaIQcJRYe27CtDKzpLj35+qZlG6g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTLCKeLP1kuzDxhRul1oWRqstg3LW3KIRAil7D5k0w45NLkPGW
-	IsJEqRaK4CWvl5PUqsFIYjxp3duSc737ViO9B4RmkJvPGN9i9Ex0ag31uYrovpuaBfg=
-X-Gm-Gg: ASbGncvIqBlFk53xj/CRXgmITmvfjqsFFSBr+ezJRWRXhfMRB5Ll+7/STHtaALzm5yU
-	kHfgdN66r6+DYHe560TNZYRNkDEUBchjxsilrqytLbOH2/20jLFAUxwgHYBthNTHk0mCeHwTrfa
-	p11uHE/mfzyJEO/UwhD8OkCday0QzTGn5pI4oyvVPwf+irArfiTLPdlWy3vafc5eZtp2OVjwisl
-	1AVmZFekgFip4z9D/+Sc5siU093ekc/qaq37uOD7ZJjSyFNypspNMn4xjAzX6kD2gIIN2EZWOxZ
-	+phwsUwnP6D/bQFT8LOrlD9eCpcr1IVRuVpo741kcDqfjLHub0bNPQE7x+n1QL1IHaJx5RKtGdK
-	/oGVTVQwDmVmfL9zd1+Xc4yRa
-X-Google-Smtp-Source: AGHT+IGI2XTu1luL1W07izdN35I/CB5PQt7LugDhcv/pXBGWRBL2UtisiXkcMiabO518Q3HGRFAjrA==
-X-Received: by 2002:a05:6e02:5:b0:425:7afc:b84d with SMTP id e9e14a558f8ab-42595660be3mr5073975ab.18.1758733728037;
-        Wed, 24 Sep 2025 10:08:48 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-42585a701eesm18122715ab.7.2025.09.24.10.08.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 10:08:47 -0700 (PDT)
-Date: Wed, 24 Sep 2025 12:08:46 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Juergen Gross <jgross@suse.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	virtualization@lists.linux.dev, x86@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Ajay Kaher <ajay.kaher@broadcom.com>, 
-	Alexey Makhalov <alexey.makhalov@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, "Peter Zijlstra (Intel)" <peterz@infradead.org>
-Subject: Re: [PATCH v2 10/21] riscv/paravirt: Use common code for
- paravirt_steal_clock()
-Message-ID: <20250924-8189d2caf8323e5f6770f429@orel>
-References: <20250917145220.31064-1-jgross@suse.com>
- <20250917145220.31064-11-jgross@suse.com>
+	Wed, 24 Sep 2025 17:38:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F3F5405B8
+	for <linux-riscv@lists.infradead.org>; Wed, 24 Sep 2025 17:38:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 313DEC4CEE7;
+	Wed, 24 Sep 2025 17:38:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758735500;
+	bh=4c+S5dIladl46SxZRNzfOo7hGdC6o/Akf3Cc+iPm/uE=;
+	h=Date:From:To:Cc:Subject:From;
+	b=a5U3CELaSBP9qnO1bUd8jtflqhpNVJ+9Rgi9Po19OzwS5n/Lfhq32NDL3nGohgYX/
+	 /9Hr/TLvpPCKtS+dBW5w5iBSH+ulURdH1YUjaIYDmGriEpuo8MVsxFUIjpmWAti7Sx
+	 I9KLgYmmKM065sI5cJxM3umWfa8m0n+QTAwJGhRRUC/FSFLCU6W4nnHL4CCCcYH2HM
+	 ModQjW2sWaC9HS3hqNi2HaBaKe3AvUK5zbYJvf/i/RZB2u2H8F/sWRpTmXU5Pn4EMh
+	 K9HdIgI7Lo4a+SpZXrGLvdZvRBMLcI/9ILyIHMxe9jcl8VyeUe7nFYPiRflAIzkBct
+	 ZqVwHpW4iHWPw==
+Date: Wed, 24 Sep 2025 18:38:16 +0100
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V Misc Devicetrees for v6.18
+Message-ID: <20250924-frighten-magazine-ee2f16e64638@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250917145220.31064-11-jgross@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_100849_260103_20BB313F 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20250924_103820_632096_55BB8AD9 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,27 +63,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8970871129554212229=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 04:52:09PM +0200, Juergen Gross wrote:
-> Remove the arch specific variant of paravirt_steal_clock() and use
-> the common one instead.
-> 
-> Signed-off-by: Juergen Gross <jgross@suse.com>
-> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> ---
->  arch/riscv/Kconfig                |  1 +
->  arch/riscv/include/asm/paravirt.h | 10 ----------
->  arch/riscv/kernel/paravirt.c      |  7 -------
->  3 files changed, 1 insertion(+), 17 deletions(-)
->
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+--===============8970871129554212229==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="57lsGZaqux8LNYeQ"
+Content-Disposition: inline
+
+
+--57lsGZaqux8LNYeQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Hey Arnd,
+
+Wee bit late (meant to do this last week and forgot, sorry) but here's my
+dt content for v6.18.
+
+Thanks,
+Conor.
+
+The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+
+  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-for-v6.18
+
+for you to fetch changes up to 4cce8b2503ab50f75a2dbc3eef2e55722836588e:
+
+  riscv: dts: starfive: add Milk-V Mars CM Lite system-on-module (2025-09-16 20:35:01 +0100)
+
+----------------------------------------------------------------
+RISC-V Misc Devicetrees for v6.18
+
+Starfive:
+The main new addition is support for the JH7110 Milk-V Mars CM lite SoM.
+Other than that, there's several cleanups done to the common JH7110 dtsi
+file, some relating to properties used by U-Boot or encountered during
+U-Boot development. Additionally, there's a binding and devicetree node
+for the memory controller on the JH7110. The memory controller only sees
+use in U-Boot, so the binding is here rather than in Krzysztof's
+branch.
+
+SiFive:
+Support for SiFive vendor-specific extensions in the binding file for
+extensions. These currently only see use in the SBI implementation.
+
+Microchip:
+Addition of support for the PolarFire SoC Discovery kit and
+non-engineering sample Icicle kit. The latter differs very slightly from
+the final ES devices due to bug fixes affecting functionality, and needs
+its own dts. To reduce duplication, the common portion of the two Icicle
+kits are moved into a dtsi. There's a few minor fixes here too, mostly
+low-hanging fruit detected during the addition of the Discovery kit that
+were then applied to the Icicle.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+E Shattow (11):
+      riscv: dts: starfive: jh7110-common: drop no-sdio property from mmc1
+      dt-bindings: memory-controllers: add StarFive JH7110 SoC DMC
+      riscv: dts: starfive: jh7110: add DMC memory controller
+      riscv: dts: starfive: jh7110: bootph-pre-ram hinting needed by boot loader
+      riscv: dts: starfive: jh7110-common: drop no-mmc property from mmc1
+      riscv: dts: starfive: jh7110-common: drop mmc post-power-on-delay-ms
+      riscv: dts: starfive: add common board dtsi for Milk-V Mars CM variants
+      dt-bindings: riscv: starfive: add milkv,marscm-emmc
+      riscv: dts: starfive: add Milk-V Mars CM system-on-module
+      dt-bindings: riscv: starfive: add milkv,marscm-lite
+      riscv: dts: starfive: add Milk-V Mars CM Lite system-on-module
+
+Krzysztof Kozlowski (1):
+      riscv: dts: microchip: Minor whitespace cleanup
+
+Nick Hu (1):
+      dt-bindings: riscv: Add SiFive vendor extensions description
+
+Valentina Fernandez (6):
+      riscv: dts: microchip: add common board dtsi for icicle kit variants
+      dt-bindings: riscv: microchip: document icicle kit with production device
+      riscv: dts: microchip: add icicle kit with production device
+      riscv: dts: microchip: rename icicle kit ccc clock and other minor fixes
+      dt-bindings: riscv: microchip: document Discovery Kit
+      riscv: dts: microchip: add a device tree for Discovery Kit
+
+ .../memory-controllers/starfive,jh7110-dmc.yaml    |  74 ++++++
+ .../devicetree/bindings/riscv/extensions.yaml      |  18 ++
+ .../devicetree/bindings/riscv/microchip.yaml       |  13 ++
+ .../devicetree/bindings/riscv/starfive.yaml        |   2 +
+ arch/riscv/boot/dts/microchip/Makefile             |   2 +
+ .../riscv/boot/dts/microchip/mpfs-beaglev-fire.dts |   2 +-
+ .../boot/dts/microchip/mpfs-disco-kit-fabric.dtsi  |  58 +++++
+ arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts   | 190 ++++++++++++++++
+ .../boot/dts/microchip/mpfs-icicle-kit-common.dtsi | 249 +++++++++++++++++++++
+ .../boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi |  25 ++-
+ .../boot/dts/microchip/mpfs-icicle-kit-prod.dts    |  23 ++
+ arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts  | 244 +-------------------
+ arch/riscv/boot/dts/starfive/Makefile              |   2 +
+ arch/riscv/boot/dts/starfive/jh7110-common.dtsi    |   4 -
+ .../boot/dts/starfive/jh7110-milkv-marscm-emmc.dts |  12 +
+ .../boot/dts/starfive/jh7110-milkv-marscm-lite.dts |  25 +++
+ .../boot/dts/starfive/jh7110-milkv-marscm.dtsi     | 159 +++++++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi           |  24 ++
+ 18 files changed, 876 insertions(+), 250 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/memory-controllers/starfive,jh7110-dmc.yaml
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-disco-kit-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-emmc.dts
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi
+
+--57lsGZaqux8LNYeQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNQsiAAKCRB4tDGHoIJi
+0m7rAQDZTnjH0+4P3yhjHm59JpRD26B/TsKm5jXT4jjOUEtd+QD9HOmWjXkEecK2
+dQzBi215SMUVfOMr4d3EP1AiFMbJ6Q4=
+=3xfW
+-----END PGP SIGNATURE-----
+
+--57lsGZaqux8LNYeQ--
+
+
+--===============8970871129554212229==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8970871129554212229==--
+
