@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 876A6CAC5A5
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 13:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 633C1CAC5AE
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 13:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vYyCaujoR0sc39HzjxqZqqFzloiO7JLpMQTxIoKiXqE=; b=Q8cpxW8qDsgfHT
-	44GpikGx9H7p2pS7i1dvA1CO8dsowwjr66I044gk65PmhBLwP0tgPBD5yxaoibbiJzfY+U/t3PWPm
-	rserIvr7zHGpTStPpv/nWZXiqA3i5VlThROeQkzO3YTatMsDwQEQ56WHc1Joplgq4cJz4WzJ+KU6B
-	JuRQpkNbdf5l+2QSazBuOWESa9bFGRm/1BueMx66XFN6E7zdHHjN2TFiyg4sbwuD+qSverkwwJ3MB
-	U3QjJZpveT5s8+bN2z2Xc3SucUNu42GsELhPJlzQo+7N8XNOyAD36KqGQUCj+du/lyl9fVoFoeEdb
-	sd7YQIvR4P2WoAxl07TA==;
+	List-Owner; bh=7py+goNPEloJnOx0oGeGiUcjdipzKiOixJl6s3VA7aY=; b=CYclfDguPiMGhw
+	rn73U7T6xOTgoG/M91ix+U2BuSVRjsQhFYki1YESkEVnIXtSyEtqjmjX/N+r7Dqwg9tbDZ4JIbhN/
+	rMXOkpbprm0Qw/+V1uN1TI1KTgGvLa6OKFc2njsC/7JdrQeh79cX6+I6ErxWxaO3wtPyDS0pMkOps
+	8Iy8KotGouj9Xh1Li9FjOTHFeywceAosxfykZot561/4xm9VAZ8vio8NRPIUL9gHTNeNW815tu2m0
+	4/sYOHukwbnr/68pKG2sT24Muh5D/eeujXEGPTSng1jh3aC4JnabBXgrBBis+nLfPCAlLV+kIzlDt
+	ciz0DBUzvtszmw3EH5Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1P64-000000001QN-3pmu;
-	Wed, 24 Sep 2025 12:59:48 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1v1PbB-00000000EdY-21zx;
+	Wed, 24 Sep 2025 13:31:57 +0000
+Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1P5z-000000001ON-0Evw
+	id 1v1Pb8-00000000EaS-0mM3
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Sep 2025 12:59:47 +0000
-Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 58OCwIeM007328
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 24 Sep 2025 20:58:18 +0800 (+08)
-	(envelope-from randolph@andestech.com)
-Received: from swlinux02 (10.0.15.183) by ATCPCS31.andestech.com (10.0.1.89)
- with Microsoft SMTP Server id 14.3.498.0; Wed, 24 Sep 2025 20:58:18 +0800
-Date: Wed, 24 Sep 2025 20:58:11 +0800
-From: Randolph Lin <randolph@andestech.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <jingoohan1@gmail.com>, <mani@kernel.org>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alex@ghiti.fr>,
-        <aou@eecs.berkeley.edu>, <palmer@dabbelt.com>,
-        <paul.walmsley@sifive.com>, <ben717@andestech.com>,
-        <inochiama@gmail.com>, <thippeswamy.havalige@amd.com>,
-        <namcao@linutronix.de>, <shradha.t@samsung.com>,
-        <randolph.sklin@gmail.com>, <tim609@andestech.com>
-Subject: Re: [PATCH v3 1/5] PCI: dwc: Skip failed outbound iATU and continue
-Message-ID: <aNPq42O1Ml3ppF2M@swlinux02>
-References: <20250923113647.895686-2-randolph@andestech.com>
- <20250923144223.GA2032427@bhelgaas>
+	Wed, 24 Sep 2025 13:31:55 +0000
+Received: by mail-io1-xd29.google.com with SMTP id ca18e2360f4ac-88776dcac7aso223686739f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Sep 2025 06:31:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1758720713; x=1759325513; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Sjr8/7QWc40wBIvcq7xbnNiZ+KKEhi3m1vUvdK7Sd/0=;
+        b=cE5PAxGMFessfbp8MvxS+hKwIT3VyPOrGmM5RmOLB8KMDJ8umsaG5e4RBajkgMwz/o
+         Jimk7xASfx2lTTHY1Qk9KZyYLiXPIpzxuJe8w9HA6Ilw+hXZ5S124nrARcmsuc0YeyEt
+         18Bp8N/vva32C1xuTx7M1gAGbC9jKoxFryPbLlnsXE/wfNyBmhYTKiupxRu4B8GG0Zd4
+         K2ylP4h36FIjnDuDGGbI2Quz64xj4PkrBGj6mhIOp5xa8qOZOUBrOsqponL8CLY7trTS
+         IHSalThgdd1ZoCb+CEiwwpRdLRG3pxjM9geBhjsbqNjR35jxBp660S6JEQ4H9JgeweAZ
+         sTYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758720713; x=1759325513;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Sjr8/7QWc40wBIvcq7xbnNiZ+KKEhi3m1vUvdK7Sd/0=;
+        b=tyOQD78g3HshGSYHb4WYaGrawRoKwwEHgPY6p6AwyEKjZXU0mxHkI23ujuZ29QvP2c
+         JWpsxmXTwRAH4QpF9r25G11tdHzkItTLMJnFmw/1W4mA4FXeZMiORZ8TAKRpejNCoMWk
+         XDU+I+TmG6NEpHvQO9s5UOAKm0VWqUdU7zv4PhFAWVbyME7yRaWP7Hi3YB1hoCUO1Eog
+         iEd8qx8yM0JVReCMdeECgIdIKlJLQl4QzQ/cR+XOUa09YuuNVHuI4aGZYIgRVj8DOg1v
+         XNjFg2U/LT7y6s0xVXcG7VJt6VSc7LnHA3JByT3u/Gx5dUAuh85rmcLto67K7P5JMGeq
+         VEBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXicqCjly/CPG5NfEF/Uz7BPlPJYG7tPwUtoD8TkxoeM2beSczo+wpskZZDFuMFIgPDoOZca7IzvCNrPg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMJb2bEOGpho/EiM1qgU1wGSYdsK711z8Ad4/hPvZkMjQ66qOb
+	cVYjDfT3s48Cih0H7eBZL07DeM1RioTSAFFLOecThpESU1BWIuyIdMAX45H3jha9SNY=
+X-Gm-Gg: ASbGncsuShul8lqylHOh5SX8SeyUs8aswUQt6Tm07Wvug6YdK+9UZ7apOxN5ZhWuO5/
+	UlwPQlq7Kj99WcPMcrfD83Y1QAoVzP2L2rCE0TaaOA+QV8NWgJ7qoi+XzHR5Bp7iyTwPfeESMHl
+	B4g/z8J8070BkTnXNKm+n4dHxwwpXlU7XN3NyDXcdz/l8C6u675kMSElz2bpRsuEfPBPRPtwpTf
+	Id9yNelfLhEfSKLm3pKMZpp8itAhvYpTxQARcOMidbYVTX9awRmFy9yFCS2LN9kwDXLDmATl5CE
+	Ch18PBaK7iWWWPqjVXlFgdYxqe9s5YNqOoK0wRAfOlRAYixBhbJ7z23pf6NQ5b10GF/JhiHcaPT
+	au6OooKL4pl4/trrky7tXjtm6I34ExBN5vl0=
+X-Google-Smtp-Source: AGHT+IGomox+b2UDBxIjrLVdwH3ZQg0MBial2WDQuoPjUzT0cQ/7OM+jfwuVUQxS7ZLef0sIJoY2Og==
+X-Received: by 2002:a6b:6a04:0:b0:893:2ff0:162c with SMTP id ca18e2360f4ac-8e1fd6f67b8mr883021539f.9.1758720712618;
+        Wed, 24 Sep 2025 06:31:52 -0700 (PDT)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-8a46b2f3405sm646365839f.1.2025.09.24.06.31.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Sep 2025 06:31:51 -0700 (PDT)
+Date: Wed, 24 Sep 2025 08:31:50 -0500
+From: Andrew Jones <ajones@ventanamicro.com>
+To: "Nutty.Liu" <nutty.liu@hotmail.com>
+Cc: iommu@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	jgg@nvidia.com, zong.li@sifive.com, tjeznach@rivosinc.com, joro@8bytes.org, 
+	will@kernel.org, robin.murphy@arm.com, anup@brainfault.org, atish.patra@linux.dev, 
+	tglx@linutronix.de, alex.williamson@redhat.com, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, alex@ghiti.fr
+Subject: Re: [RFC PATCH v2 03/18] iommu/riscv: Use data structure instead of
+ individual values
+Message-ID: <20250924-01f9a5207f8865555c839abd@orel>
+References: <20250920203851.2205115-20-ajones@ventanamicro.com>
+ <20250920203851.2205115-23-ajones@ventanamicro.com>
+ <TY1PPFCDFFFA68A794163FFB7BFAAAC22BEF31CA@TY1PPFCDFFFA68A.apcprd02.prod.outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250923144223.GA2032427@bhelgaas>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Originating-IP: [10.0.15.183]
-X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 58OCwIeM007328
+In-Reply-To: <TY1PPFCDFFFA68A794163FFB7BFAAAC22BEF31CA@TY1PPFCDFFFA68A.apcprd02.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_055943_421506_EA86318A 
-X-CRM114-Status: GOOD (  35.61  )
+X-CRM114-CacheID: sfid-20250924_063154_234191_DD7080D6 
+X-CRM114-Status: GOOD (  26.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,97 +100,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQmpvcm4sCgpTb3JyeSwgSSBmb3Jnb3QgdG8gcmVwbHkgdG8gdGhlIGVtYWlsIGJlZm9yZSBz
-ZW5kaW5nIHRoZSBwYXRjaC4KSSBtaXNzZWQgdGhlIGVtYWlsLgoKT24gVHVlLCBTZXAgMjMsIDIw
-MjUgYXQgMDk6NDI6MjNBTSAtMDUwMCwgQmpvcm4gSGVsZ2FhcyB3cm90ZToKPiBbRVhURVJOQUwg
-TUFJTF0KPiAKPiBPbiBUdWUsIFNlcCAyMywgMjAyNSBhdCAwNzozNjo0M1BNICswODAwLCBSYW5k
-b2xwaCBMaW4gd3JvdGU6Cj4gPiBQcmV2aW91c2x5LCBvdXRib3VuZCBpQVRVIHByb2dyYW1taW5n
-IGluY2x1ZGVkIHJhbmdlIGNoZWNrcyBiYXNlZAo+ID4gb24gaGFyZHdhcmUgbGltaXRhdGlvbnMu
-IElmIGEgY29uZmlndXJhdGlvbiBkaWQgbm90IG1lZXQgdGhlc2UKPiA+IGNvbnN0cmFpbnRzLCB0
-aGUgbG9vcCB3b3VsZCBzdG9wIGltbWVkaWF0ZWx5Lgo+ID4KPiA+IFRoaXMgcGF0Y2ggdXBkYXRl
-cyB0aGUgYmVoYXZpb3IgdG8gZW5oYW5jZSBmbGV4aWJpbGl0eS4gSW5zdGVhZCBvZgo+ID4gc3Rv
-cHBpbmcgYXQgdGhlIGZpcnN0IGlzc3VlLCBpdCBub3cgbG9ncyBhIHdhcm5pbmcgd2l0aCBkZXRh
-aWxzIG9mCj4gPiB0aGUgYWZmZWN0ZWQgd2luZG93IGFuZCBwcm9jZWVkcyB0byBwcm9ncmFtIHRo
-ZSByZW1haW5pbmcgaUFUVQo+ID4gZW50cmllcy4KPiA+Cj4gPiBUaGlzIGVuYWJsZXMgcGFydGlh
-bCBjb25maWd1cmF0aW9uIHRvIGNvbXBsZXRlIGluIGNhc2VzIHdoZXJlIHNvbWUKPiA+IGlBVFUg
-d2luZG93cyBtYXkgbm90IG1lZXQgcmVxdWlyZW1lbnRzLCBpbXByb3Zpbmcgb3ZlcmFsbAo+ID4g
-Y29tcGF0aWJpbGl0eS4KPiAKPiBJdCdzIG5vdCByZWFsbHkgY2xlYXIgd2h5IHRoaXMgaXMgbmVl
-ZGVkLiAgSSBhc3N1bWUgaXQncyByZWxhdGVkIHRvCj4gZHJvcHBpbmcgcWlsYWlfcGNpZV9vdXRi
-b3VuZF9hdHVfYWRkcl92YWxpZCgpLgo+IAoKWWVzLCBJIHdhbnQgdG8gZHJvcCB0aGUgcHJldmlv
-dXMgYXR1X2FkZHJfdmFsaWQgZnVuY3Rpb24uCgo+IEkgZ3Vlc3MgZHdfcGNpZV9wcm9nX291dGJv
-dW5kX2F0dSgpIG11c3QgcmV0dXJuIGFuIGVycm9yIGZvciBvbmUgb2YKPiB0aGUgUWlMYWkgcmFu
-Z2VzPyAgV2hpY2ggb25lLCBhbmQgd2hhdCBleGFjdGx5IGlzIHRoZSBwcm9ibGVtPyAgSQo+IHN0
-aWxsIHN1c3BlY3Qgc29tZXRoaW5nIHdyb25nIGluIHRoZSBkZXZpY2V0cmVlIGRlc2NyaXB0aW9u
-Lgo+IAoKVGhlIG1haW4gaXNzdWUgaXMgbm90IHRoZSByZXR1cm5lZCBlcnJvcjsganVzdCBuZWVk
-IHRvIGF2b2lkIHRlcm1pbmF0aW5nCnRoZSBwcm9jZXNzIHdoZW4gdGhlIGNvbmZpZ3VyYXRpb24g
-ZXhjZWVkcyB0aGUgaGFyZHdhcmXigJlzIGV4cGVjdGVkIGxpbWl0cy4KClRoZXJlIGFyZSB0d28g
-bWV0aG9kcyB0byBmaXggdGhlIGlzc3VlIG9uIHRoZSBRaWxhaSBTb0M6CgoxLiBTaW1wbHkgc2tp
-cCB0aGUgZW50cmllcyB0aGF0IGRvIG5vdCBtYXRjaCB0aGUgZGVzaWdud2FyZSBoYXJkd2FyZSBp
-QVRVIGxpbWl0YXRpb25zLgpBbiBlcnJvciB3aWxsIGJlIHJldHVybmVkLCBidXQgaXQgY2FuIGJl
-IGlnbm9yZWQuIE9uIHRoZSBRaWxhaSBTb0MsIHRoZSBpQVRVCmxpbWl0YXRpb24gaXMgdGhlIDRH
-QiBib3VuZGFyeS4gUWlsYWkgU29DIG9ubHkgbmVlZCB0byBjb25maWd1cmUgaUFUVSBzdXBwb3J0
-CnRvIHRyYW5zbGF0ZSBhZGRyZXNzZXMgYmVsb3cgdGhlICIzMi1iaXRzIiBhZGRyZXNzIHJhbmdl
-LiBBbHRob3VnaCA2NC1iaXRzCmFkZHJlc3NlcyBkbyBub3QgbWF0Y2ggdGhlIGRlc2lnbndhcmUg
-aGFyZHdhcmUgaUFUVSBsaW1pdGF0aW9ucywgdGhlcmUgaXMgbm8KbmVlZCB0byBjb25maWd1cmUg
-NjQtYml0cyBhZGRyZXNzZXMsIHNpbmNlIHRoZSBjb25uZWN0aW9uIGlzIGhhcmQtd2lyZWQuCgoy
-LiBTZXQgdGhlIGRldmljZXRyZWUgb25seSAyIHZpZXdwb3J0IGZvciBpQVRVIGFuZCBmb3JjZSB1
-c2luZyBkZXZpY2V0cmVlIHZhbHVlLgpUaGlzIGlzIGEgd29ya2Fyb3VuZCBpbiB0aGUgZGV2aWNl
-dHJlZSwgYnV0IHRoZSBmaXggbG9naWMgaXMgbm90IGVhc3kgdG8gZG9jdW1lbnQuCkluc3RlYWQs
-IHdlIHNob3VsZCBlbmZvcmNlIHRoZSB1c2Ugb2YgdGhlIHZpZXdwb3J0IGRlZmluZWQgaW4gdGhl
-IGRldmljZXRyZWUgYW5kCm1vZGlmeSB0aGUgZGVzaWdud2FyZSBnZW5lcmljIGNvZGUgYWNjb3Jk
-aW5nbHkg4oCUIHVzaW5nIHRoZSB2aWV3cG9ydCB2YWx1ZXMKZnJvbSB0aGUgZGV2aWNldHJlZSBp
-bnN0ZWFkIG9mIHJlYWRpbmcgdGhlbSBmcm9tIHRoZSBkZXNpZ253YXJlIHJlZ2lzdGVycy4KU2lu
-Y2Ugb25seSB0d28gdmlld3BvcnRzIGFyZSBhdmFpbGFibGUgZm9yIGlBVFUsIHdlIHNob3VsZCBy
-ZXNlcnZlIG9uZSBmb3IKdGhlIGNvbmZpZ3VyYXRpb24gcmVnaXN0ZXJzIGFuZCB0aGUgb3RoZXIg
-Zm9yIDMyLWJpdCBhZGRyZXNzIGFjY2Vzcy4KVGhlcmVmb3JlLCByZXZlcnNlIGxvZ2ljIHN0aWxs
-IG5lZWRzIHRvIGJlIGFkZGVkIHRvIHRoZSBkZXNpZ253YXJlIGdlbmVyaWMgY29kZS4KCk1ldGhv
-ZCAyIGFkZHMgZXhjZXNzaXZlIGNvbXBsZXhpdHkgdG8gdGhlIGRlc2lnbndhcmUgZ2VuZXJpYyBj
-b2RlLiBJbnN0ZWFkLApkaXJlY3RseSBjb25maWd1cmluZyB0aGUgaUFUVSBhbmQgcmVwb3J0aW5n
-IGFuIGVycm9yIHdoZW4gdGhlIGNvbmZpZ3VyYXRpb24KZXhjZWVkcyB0aGUgaGFyZHdhcmUgaUFU
-VSBsaW1pdGF0aW9ucyBpcyBhIHNpbXBsZXIgYW5kIG1vcmUgZWZmZWN0aXZlCmFwcHJvYWNoIHRv
-IGFwcGx5aW5nIHRoZSBmaXguCgpDb25jbHVzaW9uOgoxLiBUaGUgaUFUVSBuZWVkcyB0byBiZSBj
-b25maWd1cmVkIGZvciAzMi1iaXRzIGFkZHJlc3Mgc3BhY2UuCiAgIEluIGNvbXBsaWFuY2Ugd2l0
-aCBoYXJkd2FyZSBsaW1pdGF0aW9ucy4KMi4gVGhlIGlBVFUgbmVlZHMgdG8gYmUgY29uZmlndXJl
-ZCBmb3IgY29uZmlnIHNwYWNlLgogICBJbiBjb21wbGlhbmNlIHdpdGggaGFyZHdhcmUgbGltaXRh
-dGlvbnMuCjMuIFRoZSBpQVRVIG5lZWRzIHRvIGJlIGNvbmZpZ3VyZWQgZm9yIDY0LWJpdCBhZGRy
-ZXNzIHNwYWNlLgogICBUaGlzIGRvZXMgbm90IGNvbXBseSB3aXRoIGhhcmR3YXJlIGxpbWl0YXRp
-b25zIGFuZCB3aWxsIHByaW50IGFuIGVycm9yLgogICBBcyBsb25nIGFzIGl0IGRvZXMgbm90IHJl
-dHVybiBhbiBlcnJvciB2YWx1ZSB0aGF0IHRlcm1pbmF0ZXMgc3Vic2VxdWVudAogICBvcGVyYXRp
-b25zLCBpdCBpcyBhY2NlcHRhYmxlLgogICBTaW1wbHkgc2tpcHBpbmcgdGhpcyBlbnRyeSB3aGVu
-IGNvbmZpZ3VyaW5nIHRoZSBpQVRVIGlzIGFjY2VwdGFibGUuCgo+ID4gU2lnbmVkLW9mZi1ieTog
-UmFuZG9scGggTGluIDxyYW5kb2xwaEBhbmRlc3RlY2guY29tPgo+ID4gLS0tCj4gPiAgZHJpdmVy
-cy9wY2kvY29udHJvbGxlci9kd2MvcGNpZS1kZXNpZ253YXJlLWhvc3QuYyB8IDkgKysrKystLS0t
-Cj4gPiAgMSBmaWxlIGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKPiA+
-Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpZS1kZXNpZ253
-YXJlLWhvc3QuYyBiL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZGVzaWdud2FyZS1o
-b3N0LmMKPiA+IGluZGV4IDk1MmY4NTk0YjUwMS4uOTFlZTZiOTAzOTM0IDEwMDY0NAo+ID4gLS0t
-IGEvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpZS1kZXNpZ253YXJlLWhvc3QuYwo+ID4g
-KysrIGIvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpZS1kZXNpZ253YXJlLWhvc3QuYwo+
-ID4gQEAgLTc1Niw3ICs3NTYsNyBAQCBzdGF0aWMgaW50IGR3X3BjaWVfaWF0dV9zZXR1cChzdHJ1
-Y3QgZHdfcGNpZV9ycCAqcHApCj4gPiAgICAgICAgICAgICAgIGlmIChyZXNvdXJjZV90eXBlKGVu
-dHJ5LT5yZXMpICE9IElPUkVTT1VSQ0VfTUVNKQo+ID4gICAgICAgICAgICAgICAgICAgICAgIGNv
-bnRpbnVlOwo+ID4KPiA+IC0gICAgICAgICAgICAgaWYgKHBjaS0+bnVtX29iX3dpbmRvd3MgPD0g
-KytpKQo+ID4gKyAgICAgICAgICAgICBpZiAocGNpLT5udW1fb2Jfd2luZG93cyA8PSBpKQo+ID4g
-ICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+ID4KPiA+ICAgICAgICAgICAgICAgYXR1Lmlu
-ZGV4ID0gaTsKPiA+IEBAIC03NzMsOSArNzczLDEwIEBAIHN0YXRpYyBpbnQgZHdfcGNpZV9pYXR1
-X3NldHVwKHN0cnVjdCBkd19wY2llX3JwICpwcCkKPiA+Cj4gPiAgICAgICAgICAgICAgIHJldCA9
-IGR3X3BjaWVfcHJvZ19vdXRib3VuZF9hdHUocGNpLCAmYXR1KTsKPiA+ICAgICAgICAgICAgICAg
-aWYgKHJldCkgewo+ID4gLSAgICAgICAgICAgICAgICAgICAgIGRldl9lcnIocGNpLT5kZXYsICJG
-YWlsZWQgdG8gc2V0IE1FTSByYW5nZSAlcHJcbiIsCj4gPiAtICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICBlbnRyeS0+cmVzKTsKPiA+IC0gICAgICAgICAgICAgICAgICAgICByZXR1cm4gcmV0
-Owo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGRldl93YXJuKHBjaS0+ZGV2LCAiRmFpbGVkIHRv
-IHNldCBNRU0gcmFuZ2UgJXByXG4iLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IGVudHJ5LT5yZXMpOwo+ID4gKyAgICAgICAgICAgICB9IGVsc2Ugewo+ID4gKyAgICAgICAgICAg
-ICAgICAgICAgIGkrKzsKPiA+ICAgICAgICAgICAgICAgfQo+ID4gICAgICAgfQo+ID4KPiA+IC0t
-Cj4gPiAyLjM0LjEKPiA+Cj4gPgo+ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KPiA+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+ID4gbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ID4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKU2luY2VyZWx5LApSYW5kb2xwaAoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Wed, Sep 24, 2025 at 11:25:59AM +0800, Nutty.Liu wrote:
+> On 9/21/2025 4:38 AM, Andrew Jones wrote:
+> > From: Zong Li <zong.li@sifive.com>
+> > 
+> > The parameter will be increased when we need to set up more fields
+> > in the device context. Use a data structure to wrap them up.
+> > 
+> > Signed-off-by: Zong Li <zong.li@sifive.com>
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> >   drivers/iommu/riscv/iommu.c | 31 +++++++++++++++++++------------
+> >   1 file changed, 19 insertions(+), 12 deletions(-)
+> > 
+> > diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> > index 901d02529a26..a44c67a848fa 100644
+> > --- a/drivers/iommu/riscv/iommu.c
+> > +++ b/drivers/iommu/riscv/iommu.c
+> > @@ -988,7 +988,7 @@ static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
+> >    * interim translation faults.
+> >    */
+> >   static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+> > -				     struct device *dev, u64 fsc, u64 ta)
+> > +				     struct device *dev, struct riscv_iommu_dc *new_dc)
+> >   {
+> >   	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
+> >   	struct riscv_iommu_dc *dc;
+> > @@ -1022,10 +1022,10 @@ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+> >   	for (i = 0; i < fwspec->num_ids; i++) {
+> >   		dc = riscv_iommu_get_dc(iommu, fwspec->ids[i]);
+> >   		tc = READ_ONCE(dc->tc);
+> > -		tc |= ta & RISCV_IOMMU_DC_TC_V;
+> > +		tc |= new_dc->ta & RISCV_IOMMU_DC_TC_V;
+> > -		WRITE_ONCE(dc->fsc, fsc);
+> > -		WRITE_ONCE(dc->ta, ta & RISCV_IOMMU_PC_TA_PSCID);
+> > +		WRITE_ONCE(dc->fsc, new_dc->fsc);
+> > +		WRITE_ONCE(dc->ta, new_dc->ta & RISCV_IOMMU_PC_TA_PSCID);
+> Seems it will override all other fields in 'TA' except for the field of
+> 'PSCID'.
+> Should the other fields remain unchanged ?
+
+The short answer is that the current implementation is doing the right
+thing. The long answer is that riscv_iommu_iodir_update() and how it's
+called from riscv_iommu_attach_paging_domain() could use some cleanup.
+
+A more logical interface would be that new_dc would be completely written,
+which means any fields left zero when creating new_dc will result in zeros
+being written -- it doesn't do that right now. Also, rather than passing
+DC_TC_V through new_dc->ta (as PC_TA_V, even though DC_TC_PDTV = 0), we
+should probably just set it directly in new_dc->tc.
+
+We can clean this up separately though, probably as work for adding SVA
+support.
+
+> Otherwise,
+> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+
+Thanks,
+drew
+
+> 
+> Thanks,
+> Nutty
+> >   		/* Update device context, write TC.V as the last step. */
+> >   		dma_wmb();
+> >   		WRITE_ONCE(dc->tc, tc);
+> > @@ -1304,20 +1304,20 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+> >   	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+> >   	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+> >   	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+> > -	u64 fsc, ta;
+> > +	struct riscv_iommu_dc dc = {0};
+> >   	if (!riscv_iommu_pt_supported(iommu, domain->pgd_mode))
+> >   		return -ENODEV;
+> > -	fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, domain->pgd_mode) |
+> > -	      FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, virt_to_pfn(domain->pgd_root));
+> > -	ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
+> > -	     RISCV_IOMMU_PC_TA_V;
+> > +	dc.fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, domain->pgd_mode) |
+> > +		 FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, virt_to_pfn(domain->pgd_root));
+> > +	dc.ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
+> > +			   RISCV_IOMMU_PC_TA_V;
+> >   	if (riscv_iommu_bond_link(domain, dev))
+> >   		return -ENOMEM;
+> > -	riscv_iommu_iodir_update(iommu, dev, fsc, ta);
+> > +	riscv_iommu_iodir_update(iommu, dev, &dc);
+> >   	riscv_iommu_bond_unlink(info->domain, dev);
+> >   	info->domain = domain;
+> > @@ -1408,9 +1408,12 @@ static int riscv_iommu_attach_blocking_domain(struct iommu_domain *iommu_domain,
+> >   {
+> >   	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+> >   	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+> > +	struct riscv_iommu_dc dc = {0};
+> > +
+> > +	dc.fsc = RISCV_IOMMU_FSC_BARE;
+> >   	/* Make device context invalid, translation requests will fault w/ #258 */
+> > -	riscv_iommu_iodir_update(iommu, dev, RISCV_IOMMU_FSC_BARE, 0);
+> > +	riscv_iommu_iodir_update(iommu, dev, &dc);
+> >   	riscv_iommu_bond_unlink(info->domain, dev);
+> >   	info->domain = NULL;
+> > @@ -1429,8 +1432,12 @@ static int riscv_iommu_attach_identity_domain(struct iommu_domain *iommu_domain,
+> >   {
+> >   	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+> >   	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+> > +	struct riscv_iommu_dc dc = {0};
+> > +
+> > +	dc.fsc = RISCV_IOMMU_FSC_BARE;
+> > +	dc.ta = RISCV_IOMMU_PC_TA_V;
+> > -	riscv_iommu_iodir_update(iommu, dev, RISCV_IOMMU_FSC_BARE, RISCV_IOMMU_PC_TA_V);
+> > +	riscv_iommu_iodir_update(iommu, dev, &dc);
+> >   	riscv_iommu_bond_unlink(info->domain, dev);
+> >   	info->domain = NULL;
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
