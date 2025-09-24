@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91DACAC5A5
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 11:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A795CAC5A5
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Sep 2025 11:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
-	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ESYsBQKRtWg2k0mTzwGzrN/LoirxL8ORB5dZs00yjb8=; b=P4aI5VGeVqsOKJ
-	4geIDbWBdnIJpipalf6EghzkwA0DZENai8m2oZZtRHpBI+ClyHGAArw24+cJyRNA5LjUqCLUrqDLN
-	ihS7udxLsWScMS4sep4ujI7/quwkSNJbdqMzpUeJ+IJMMpXVxxLH+6rfB/TbgtoCdH8P7xqtaoVM3
-	SUBpVJ/ycptVfBbfDlOvUqEQ+EChub0C5nRJoL02LQGaPhIqeyvDH0yQOhrdK0USmVFqE2KtZ2wvp
-	60ozCaFXbN2pUsZnJDh/KZvOt01Pa+gwRlTQ6dMhkoGS4tq1bs20/6ZKou45ch2qZza3tsMN3iHrg
-	DJ1HAfSraB7P7uCvCW4w==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=99JmlxCC4LYagw1ChG2q6V6Nb2K6SZ61lNAKlyUkoSY=; b=EWIKlf6pXfn2rj
+	eMYC/Oy7ahOSNKY8xDiFZCBPbW+yoFAvwQHD5zmn0Gs84iK4MUHbNK25wRNH6DMxTtdB11XVMkRzL
+	5/+xZKhr6WzvvbSwS5xHZG6WkWbOyktFRjzopt1kQw1YXAwj591/RP9fFjBF14GaAVFCET85QDfeQ
+	N/p136ndD2AfJ8CiyAj852saoOE95VTcuBz9V012Tm36WgVSkiZckop8IbcbAuYHN2QhM4bfQMNGf
+	TQ88ICXXic6v3ZsmIxKSjFphOafDdaBK9eReRhJ0VQOxDo9JB14l8nnjUmcjipsS6DJifSsyyPcSu
+	Aou+uvFCNLG/16b4WRPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1NPR-0000000Gnyl-0tXa;
-	Wed, 24 Sep 2025 11:11:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v1Nja-0000000Gwf2-3ibO;
+	Wed, 24 Sep 2025 11:32:30 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1NPP-0000000GnwP-0nQe
+	id 1v1NjR-0000000GwM5-20Yu
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Sep 2025 11:11:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD0114444C;
-	Wed, 24 Sep 2025 11:11:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9094FC4CEF0;
-	Wed, 24 Sep 2025 11:11:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758712268;
-	bh=doBgBoI1eDAhaG6OMnM5npExQ5Xq3oY1DJugrOTICDs=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=C+IkBcFvRHMhMqSTAi7QQvT426ov1Xu2lUdeVYhwFMZ/ySB+bA9+EkAeUtMjEoDzq
-	 hdgcIDbRhBuRXaITeBuyUwDm0WKiprteqxn4OwZ9WJgd+OW7yWorlsg9iC+29qhvG1
-	 x3luhyhCR4ln1Pgdt9UOW28fPZw8+otc+Zi69pMbQzZQpXIV7vjgV0TDrAmiSBPumf
-	 JBs+eh3+7HMARx8f6ph1+OMtreW/srOdiCHC9Klc4zI3JYPSM/3mBqlrBI8pZYpSal
-	 3K0kZora+PXHeg9JXNfEbKEjp/iQhE335xgQ5IHVeAmAjB+n/1ejXtKnyytdm4/FDV
-	 4T6bsdP7YnF6g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8525ACAC5A7;
-	Wed, 24 Sep 2025 11:11:08 +0000 (UTC)
-From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Subject: [PATCH RESEND v6 0/2] riscv: Use GCR.U timer device as clocksource
-Date: Wed, 24 Sep 2025 13:10:36 +0200
-Message-Id: <20250924-riscv-time-mmio-v6-0-9c6158a14b37@htecgroup.com>
+	Wed, 24 Sep 2025 11:32:29 +0000
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 58OBSUU6074425
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 24 Sep 2025 19:28:30 +0800 (+08)
+	(envelope-from randolph@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Wed, 24 Sep 2025
+ 19:28:30 +0800
+From: Randolph Lin <randolph@andestech.com>
+To: <linux-kernel@vger.kernel.org>
+CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <jingoohan1@gmail.com>,
+        <mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <alex@ghiti.fr>, <aou@eecs.berkeley.edu>,
+        <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+        <ben717@andestech.com>, <inochiama@gmail.com>,
+        <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
+        <shradha.t@samsung.com>, <randolph.sklin@gmail.com>,
+        <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
+Subject: [PATCH v4 3/5] riscv: dts: andes: Add PCIe node into the QiLai SoC
+Date: Wed, 24 Sep 2025 19:28:18 +0800
+Message-ID: <20250924112820.2003675-4-randolph@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250924112820.2003675-1-randolph@andestech.com>
+References: <20250924112820.2003675-1-randolph@andestech.com>
 MIME-Version: 1.0
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, 
- Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
- Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758712265; l=2047;
- i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=doBgBoI1eDAhaG6OMnM5npExQ5Xq3oY1DJugrOTICDs=;
- b=cGoKWPef+x/OJkYs0CfESXFWfVLvr4WX+Yo6owR4wQKjP0iD42TLYxf1tYO05HzoeQYXSwtF0
- DXSxwdt/bd2Df9BY7kAWrV0PLXuzNvKx6zZxEiTuuxwiSE2do/xWQXQ
-X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
- pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
-X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
- with auth_id=476
-X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+X-Originating-IP: [10.0.15.173]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 58OBSUU6074425
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_041139_275326_0E28A595 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20250924_043221_833655_D794FB9C 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,58 +73,142 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: aleksa.paunovic@htecgroup.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds bindings for the GCR.U timer device and corresponding
-driver support. Accessing the memory mapped mtime register in the GCR.U
-region should be faster than trapping to M mode each time the timer
-needs to be read.
+Add the Andes QiLai PCIe node, which includes 3 Root Complexes.
 
-Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+Signed-off-by: Randolph Lin <randolph@andestech.com>
 ---
-Changes in v6:
-- Rename mti,gcru to mips,p8700-gcru
-- Link to v5: https://lore.kernel.org/r/20250711-riscv-time-mmio-v5-0-9ed1f825ad5e@htecgroup.com
+ arch/riscv/boot/dts/andes/qilai.dtsi | 112 +++++++++++++++++++++++++++
+ 1 file changed, 112 insertions(+)
 
-Changes in v5:
-- Fixed build issues on 32-bit RISC-V and sparse warnings
-- Remove clint_time_val and clint.h, replace with riscv_time_val
-- Depend on RISCV_TIMER in Kconfig
-Changes in v4:
-- Remove "select" from mti,gcru.yaml.
-- Refactor the driver to use function pointers instead of static keys.
-
-Previous versions:
-v1: https://lore.kernel.org/lkml/20241227150056.191794-1-arikalo@gmail.com/#t
-v2: https://lore.kernel.org/linux-riscv/20250409143816.15802-1-aleksa.paunovic@htecgroup.com/
-v3: https://lore.kernel.org/linux-riscv/DU0PR09MB61968695A2A3146EE83B7708F6BA2@DU0PR09MB6196.eurprd09.prod.outlook.com/
-v4: https://lore.kernel.org/r/20250514-riscv-time-mmio-v4-0-cb0cf2922d66@htecgroup.com
-v5: https://lore.kernel.org/r/20250711-riscv-time-mmio-v5-0-9ed1f825ad5e@htecgroup.com
-
----
-Aleksa Paunovic (2):
-      dt-bindings: timer: mips,p8700-gcru
-      riscv: Allow for riscv-clock to pick up mmio address.
-
- .../devicetree/bindings/timer/mips,p8700-gcru.yaml | 38 +++++++++++++
- arch/riscv/include/asm/clint.h                     | 26 ---------
- arch/riscv/include/asm/timex.h                     | 63 ++++++++++++----------
- drivers/clocksource/Kconfig                        | 12 +++++
- drivers/clocksource/timer-clint.c                  | 20 ++++---
- drivers/clocksource/timer-riscv.c                  | 34 ++++++++++++
- 6 files changed, 128 insertions(+), 65 deletions(-)
----
-base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
-change-id: 20250424-riscv-time-mmio-5628e0fca8af
-
-Best regards,
+diff --git a/arch/riscv/boot/dts/andes/qilai.dtsi b/arch/riscv/boot/dts/andes/qilai.dtsi
+index de3de32f8c39..69669111d9fb 100644
+--- a/arch/riscv/boot/dts/andes/qilai.dtsi
++++ b/arch/riscv/boot/dts/andes/qilai.dtsi
+@@ -182,5 +182,117 @@ uart0: serial@30300000 {
+ 			reg-io-width = <4>;
+ 			no-loopback-test;
+ 		};
++
++		bus@80000000 {
++			compatible = "simple-bus";
++			#address-cells = <2>;
++			#size-cells = <2>;
++			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
++			ranges = <0x00 0x80000000 0x00 0x80000000 0x00 0x20000000>,
++				 <0x00 0x04000000 0x00 0x04000000 0x00 0x00001000>,
++				 <0x00 0x00000000 0x20 0x00000000 0x20 0x00000000>;
++
++			pci@80000000 {
++				compatible = "andestech,qilai-pcie";
++				device_type = "pci";
++				reg = <0x00 0x80000000 0x00 0x20000000>, /* DBI registers */
++				      <0x00 0x04000000 0x00 0x00001000>, /* APB registers */
++				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
++				reg-names = "dbi", "apb", "config";
++
++				linux,pci-domain = <0>;
++				bus-range = <0x0 0xff>;
++				num-viewport = <4>;
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x00 0xf0000000>,
++					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x1f 0x00000000>;
++
++				#interrupt-cells = <1>;
++				interrupts = <0xf 0x4>;
++				interrupt-names = "msi";
++				interrupt-parent = <&plic>;
++				interrupt-map-mask = <0 0 0 0>;
++				interrupt-map = <0 0 0 1 &plic 0xf 0x4>,
++						<0 0 0 2 &plic 0xf 0x4>,
++						<0 0 0 3 &plic 0xf 0x4>,
++						<0 0 0 4 &plic 0xf 0x4>;
++			};
++		};
++
++		bus@a0000000 {
++			compatible = "simple-bus";
++			#address-cells = <2>;
++			#size-cells = <2>;
++			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
++			ranges = <0x00 0xa0000000 0x00 0xa0000000 0x00 0x20000000>,
++				 <0x00 0x04001000 0x00 0x04001000 0x00 0x00001000>,
++				 <0x00 0x00000000 0x10 0x00000000 0x08 0x00000000>;
++
++			pci@a0000000 {
++				compatible = "andestech,qilai-pcie";
++				device_type = "pci";
++				reg = <0x00 0xa0000000 0x00 0x20000000>, /* DBI registers */
++				      <0x00 0x04001000 0x00 0x00001000>, /* APB registers */
++				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
++				reg-names = "dbi", "apb", "config";
++
++				linux,pci-domain = <1>;
++				bus-range = <0x0 0xff>;
++				num-viewport = <4>;
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
++					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x7 0x00000000>;
++
++				#interrupt-cells = <1>;
++				interrupts = <0xe 0x4>;
++				interrupt-names = "msi";
++				interrupt-parent = <&plic>;
++				interrupt-map-mask = <0 0 0 0>;
++				interrupt-map = <0 0 0 1 &plic 0xe 0x4>,
++						<0 0 0 2 &plic 0xe 0x4>,
++						<0 0 0 3 &plic 0xe 0x4>,
++						<0 0 0 4 &plic 0xe 0x4>;
++			};
++		};
++
++		bus@c0000000 {
++			compatible = "simple-bus";
++			#address-cells = <2>;
++			#size-cells = <2>;
++			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
++			ranges = <0x00 0xc0000000 0x00 0xc0000000 0x00 0x20000000>,
++				 <0x00 0x04002000 0x00 0x04002000 0x00 0x00001000>,
++				 <0x00 0x00000000 0x18 0x00000000 0x08 0x00000000>;
++
++			pci@c0000000 {
++				compatible = "andestech,qilai-pcie";
++				device_type = "pci";
++				reg = <0x00 0xc0000000 0x00 0x20000000>, /* DBI registers */
++				      <0x00 0x04002000 0x00 0x00001000>, /* APB registers */
++				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
++				reg-names = "dbi", "apb", "config";
++
++				linux,pci-domain = <2>;
++				bus-range = <0x0 0xff>;
++				num-viewport = <4>;
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
++					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x7 0x00000000>;
++
++				#interrupt-cells = <1>;
++				interrupts = <0xd 0x4>;
++				interrupt-names = "msi";
++				interrupt-parent = <&plic>;
++				interrupt-map-mask = <0 0 0 0>;
++				interrupt-map = <0 0 0 1 &plic 0xd 0x4>,
++						<0 0 0 2 &plic 0xd 0x4>,
++						<0 0 0 3 &plic 0xd 0x4>,
++						<0 0 0 4 &plic 0xd 0x4>;
++			};
++		};
++
+ 	};
+ };
 -- 
-Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-
+2.34.1
 
 
 _______________________________________________
