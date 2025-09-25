@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6A1CAC5A5
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 03:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57D44CAC5A5
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 03:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2/abLRhZQCuLHQrwhCgcOXQvx2vUX815us9y2vGWfDk=; b=j4eorW3xFw6RqT
-	NC7eq7hIcUnoMaVLrP7SdgZHR8F619bNExipPCEMH2YRYdFcBUZB47tJS1/xyDz5yVzsnbZP0N0AU
-	CGg3v/zSZIV3yBlwVAAeDmUrrYYpusXyfSjKamagF7Zq0CRRfTraIn7X7BA2BGuxq1MLkmq2g5S9B
-	PzAMI/4loSbUA8K9r+xUeoPWQ3Ielw2YdkJx+ni7H3dnPWSVeu73Ic5agMlaREZKwJ4e0RKNMULoU
-	OGrcO37RVmhg0s0XEs9jjAzAD7jTdo9NA4eBtt4Fy+kTxbsvaKHX5LQZ0jYsx5FCkEVh5k/r27z+O
-	O6IdsMCn/KMLvZqZnbqQ==;
+	List-Owner; bh=N7pwmEots21VyHiP6ubchlBdwpbfkIYXNVCxOWTzWs4=; b=H83JZM+AjIet0B
+	aexHY5d4j1XFlr5gieqV1tfTjHx1HZdQMYh3+ZeaVitD3s6dTLOcG/gHZhw0gz6CqrmOx2nLD5O49
+	tbRnx+29I1eDBsWGl8bEemNe1OOuMBI0bEo2ud9Jb/D4KlIwK8IGlPTeO86+xu9knCGz+K4t80O2S
+	R1gWEUcQraBRqoSf2U1ltW2UVEIutAHD2L3z+8Z4q5fct6eYXAHyRK21Oay4HMNNYncCBF2PQ2kmy
+	Sf7FEP2mm4h/y8dZiLKwyuGoBC7q4ZOdJsO5VkpgeBDU7tQ99xuLX54lnmWzdEwy3eUJ63p6MugNY
+	PHHmFl5vfnZI32RMOjtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1cKY-00000005Nb9-15pt;
-	Thu, 25 Sep 2025 03:07:38 +0000
-Received: from mail-m1973180.qiye.163.com ([220.197.31.80])
+	id 1v1cgQ-00000005PQ5-0BPm;
+	Thu, 25 Sep 2025 03:30:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1cKU-00000005NZp-2Glb
+	id 1v1cgN-00000005PPb-1l8b
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Sep 2025 03:07:37 +0000
-Received: from leo-wkm.. (unknown [210.22.154.122])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 10b5c3d81;
-	Thu, 25 Sep 2025 11:07:23 +0800 (GMT+08:00)
-From: "fushan.zeng" <fushan.zeng@anlogic.com>
-To: junhui.liu@pigmoral.tech
-Cc: alex@ghiti.fr,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	conor+dt@kernel.org,
-	conor@kernel.org,
-	daniel.lezcano@linaro.org,
-	devicetree@vger.kernel.org,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	krzk+dt@kernel.org,
-	krzysztof.kozlowski@linaro.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org,
-	palmer@dabbelt.com,
-	palmer@sifive.com,
-	paul.walmsley@sifive.com,
-	robh@kernel.org,
-	samuel.holland@sifive.com,
-	tglx@linutronix.de
-Subject: Re: [PATCH v2 00/11] riscv: Add initial support for Anlogic DR1V90
-Date: Thu, 25 Sep 2025 11:06:50 +0800
-Message-Id: <20250925030650.35694-1-fushan.zeng@anlogic.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250922-dr1v90-basic-dt-v2-0-64d28500cb37@pigmoral.tech>
-References: <20250922-dr1v90-basic-dt-v2-0-64d28500cb37@pigmoral.tech>
+	Thu, 25 Sep 2025 03:30:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E48B403F7;
+	Thu, 25 Sep 2025 03:30:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09D3FC4CEF0;
+	Thu, 25 Sep 2025 03:30:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758771010;
+	bh=Z1rEEP2xjUQWNQmCsKtyDGJqr+lSHSgBRvo63Lk1wR0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=BG88CM4dYQkU3URFWRSlOCJVo0faiCWaWqOh/9KYrTInYMOcf5Jw6Od5Ybjvd00c4
+	 xERQroOwStGGlwoSIXkG0A3YutwRWQWXxBL9Dhlaqre2WT+TM7S9cetFFNhm64B5AP
+	 clWLyv1AWS0DqQg6IIxDJxHVdNIjQxVaENlcdLxuLxqKqHRG2lJYjZHeMJ1bEkg1j7
+	 AOwOpJ4QvxfHnpmjUSu0lo990046Y2ESbnrP7XQoIkA86/QDG8a61nYAXak1DA6api
+	 ZnsWCcgQinKpetUucm68kqxAjysKtbO/UqCkzwFy6t7MYoDJPpzQXoHN7WS6i4kb2l
+	 is+G6YxMjXYMA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70B6539D0C20;
+	Thu, 25 Sep 2025 03:30:07 +0000 (UTC)
 MIME-Version: 1.0
-X-HM-Tid: 0a997ed7014c0224kunma317f75922ff69
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFJQjdXWS1ZQUlXWQ8JGhUIEh9ZQVkaT01JVkMaGE9DH0tCH0geSlYVFAkWGhdVGRETFh
-	oSFyQUDg9ZV1kYEgtZQVlJSktVSUlVSk5PVUpJSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PS1VKS0
-	tVS1kG
+Subject: Re: [PATCH] MAINTAINERS: Update Paul Walmsley's E-mail address
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <175877100625.2803569.11537236172793560743.git-patchwork-notify@kernel.org>
+Date: Thu, 25 Sep 2025 03:30:06 +0000
+References: <4a3d959d-56ea-36d8-029d-141e7820279d@kernel.org>
+In-Reply-To: <4a3d959d-56ea-36d8-029d-141e7820279d@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ paul.walmsley@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_200734_811994_09FB42BC 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20250924_203011_485093_095C2B6F 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +70,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMiBTZXAgMjAyNSAyMDo0NjozMCArMDgwMCwgSnVuaHVpIExpdSB3cm90ZToKPiBU
-aGlzIHBhdGNoIHNlcmllcyBpbnRyb2R1Y2VzIGluaXRpYWwgc3VwcG9ydCBmb3IgdGhlIEFubG9n
-aWMgRFIxVjkwIFNvQwo+IFsxXSBhbmQgdGhlIE1pbGlhbmtlIE1MS1BBSS1GUzAxIFsyXSBib2Fy
-ZC4KPiAKPiBUaGUgRFIxVjkwIGlzIGEgUklTQy1WIGJhc2VkIEZQU29DIGZyb20gQW5sb2dpYywg
-ZmVhdHVyaW5nIGEgTnVjbGVpCj4gVVg5MDAgWzNdIGNvcmUgYXMgaXRzIHByb2Nlc3Npbmcgc3lz
-dGVtIChQUykgYW5kIDk0LDQ2NCBMVVRzIGluIHRoZQo+IHByb2dyYW1tYWJsZSBsb2dpYyAoUEwp
-IHBhcnQuIFRoZSBNaWxpYW5rZSBNTEtQQUktRlMwMSBib2FyZCBpcyBvbmUgb2YKPiB0aGUgZmly
-c3QgcGxhdGZvcm1zIGJhc2VkIG9uIHRoaXMgU29DLCB3aXRoIFVBUlQxIHJvdXRlZCB0byBhIFR5
-cGUtQwo+IGludGVyZmFjZSBmb3IgY29uc29sZSBhY2Nlc3MuCj4gCj4gVGVzdGVkIG9uIHRoZSBN
-aWxpYW5rZSBNTEtQQUktRlMwMSBib2FyZCB3aXRoIGJvdGggdGhlIHZlbmRvcidzIE9wZW5TQkkK
-PiBhbmQgdGhlIG5vdC15ZXQtdXBzdHJlYW1lZCBtYWlubGluZSBPcGVuU0JJIFs0XSwgYXMgd2Vs
-bCBhcyB0aGUgdmVuZG9y4oCZcwo+IFUtQm9vdC4gQmVjYXVzZSB0aGUgdmVuZG9y4oCZcyBPcGVu
-U0JJIGlzIGxvYWRlZCBhdCAweDFmMzAwMDAwLCB3ZSBoYXZlCj4gdG8gYWRkaXRpb25hbGx5IHJl
-c2VydmUgdGhlIERSQU0gcmVnaW9uIDB4MWZlMDAwMDDigJMweDFmZmZmZmZmIHRvIHByZXZlbnQK
-PiBvdmVybGFwIGlmIHVzaW5nIHZlbmRvcidzIE9wZW5TQkkuCj4gCj4gTm90aWNlOiBBICJubzRs
-dmwiIGJvb3Rhcmcgb3IgZGVwZW5kZW5jeSBwYXRjaCBbNV0gaXMgY3VycmVudGx5IHJlcXVpcmVk
-Cj4gZm9yIHN1Y2Nlc3NmdWwgYm9vdCBvbiB0aGUgRFIxVjkwIHBsYXRmb3JtLCBzaW5jZSB0aGUg
-U29DIGhhbmdzIGlmIHRoZQo+IGtlcm5lbCBhdHRlbXB0cyB0byB1c2UgdW5zdXBwb3J0ZWQgNC1s
-ZXZlbCBvciA1LWxldmVsIHBhZ2luZyBtb2Rlcy4KClRoYW5rcyBmaXJzdC4KQW5sb2lnYyBhbHJl
-YWR5IGhhcyB0aGUgb3BlbiBzb3VyY2UgU0RLIGF0IGh0dHBzOi8vZ2l0ZWUuY29tL2FubG9naWMv
-c2RrLAphbmQgd2lsbCBzdWJtaXQgaXQgdG8gbWFpbmxpbmUgYXQgc3VpdGFibGUgdGltZS4KSXQg
-aXMgYmV0dGVyIHRoYXQgYW5sb2dpYyBTT0NzIGFyZSBsb25nIHRlcm0gbWFpbnRhaW5lZCBhbmQg
-c3VwcG9ydGVkCmJ5IEFubG9naWMgb2ZmaWNpYWxseSBpbiBtYWlubGluZSBhbmQgZm9yIGN1c3Rv
-bWVycy4KVGhlIGNvZGUgc2hvdWxkIGJlIGEgZnVsbCBmZWF0dXJlIHZlcnNpb24gYWZ0ZXIgbG90
-cyBvZiB0ZXN0cywgbm90IHRoZQptb2RpZmllZCBhbmQgc2ltcGxpZmllZCB2ZXJzaW9uIGZyb20g
-QW5sb2dpYyBvcGVuIHNvdXJjZS4KQW5kIHdlIGhvcGUgdGhhdCB0aGVyZSB3b24ndCBiZSB0d28g
-ZGlmZmVyZW50IHZlcnNpb25zIGNvZGUgb2YgYW5sb2dpYyBTT0NzLAppdCBtYXkgY29uZnVzZSBj
-dXN0b21lcnMuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+Hello:
+
+This patch was applied to riscv/linux.git (fixes)
+by Paul Walmsley <pjw@kernel.org>:
+
+On Mon, 15 Sep 2025 00:30:37 -0600 (MDT) you wrote:
+> My experiment with using corporate Gmail for Linux kernel list
+> interaction has come to an end.  For my MAINTAINERS entries that
+> use that E-mail address, let's switch those to use the k.org E-mail
+> forwarding.
+> 
+> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+> Signed-off-by: Paul Walmsley <pjw@kernel.org>
+> 
+> [...]
+
+Here is the summary with links:
+  - MAINTAINERS: Update Paul Walmsley's E-mail address
+    https://git.kernel.org/riscv/c/e24108012ce9
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
