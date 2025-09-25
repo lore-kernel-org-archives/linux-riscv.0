@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7D3CAC5AE
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 00:27:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7363ACAC5A5
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 01:44:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fia9NisoIujdUkWbOnYNc31quB9tsLi1fqRnlmUiYzU=; b=0msXwd6TBbJYZX
-	LbV0lzxFWRvwoabTNV+Q1pkmsDCAdQnG2r6EfWttDotwsRqKd1lSO/VwW57Jbz2olMaluzz8Em2XL
-	tZAb5znftGASVoKdOVLZYPRmLUsw+Mbe9LP0AjxJvBpjSXzTAIgFpx/XnehRRkW0Vl2iJD8Z7ebSJ
-	HA+2ikufJLcMa2wqyDkh/RvvYCCslKbDGcBHhYb1H+PqdHyDcxM/x5d5PLQ4YDsDZpmhqgzdJsUoG
-	F8Pyh5vGOYIbN5KVoVm8PayPif3DfdpS7sbP5CDfRmdCQDo6aqheHkvw3/+QvzDeSS5/BE2mOx+Nq
-	s5T1OWeX0EnYvpayoUwg==;
+	List-Owner; bh=pqG29Ehr+LNia37DEMTX6w/dXS794SMU/0h9elhMf9E=; b=X30UD9mGHyyj+K
+	TTgoePrgGnoRIccZd+9dWULzKN5Dr7T906xv63G/FXTZj8nEgmI8O/ZZ1HtjjFIOvjHJ1KhGBZ8qf
+	Ht0hg+huTZ2WJcr0nQOeDuzZcDwaF3adH6x/3hZ4Mo8NNEnKTOBerOUnGYsIiumxwGN9Fn+n0JDuG
+	dQAWAdgXdE16WFG5IxJxR8WSS5lR9p6CibVF+GzAWY4T+a3bYYnrc9Z3InJClHhtDKYhcvT1n8YGX
+	P3pam8jWQmPe78DtqSj8ir7+7CGaGOjZG3S5klBF+a7I1fdwNPzZIdBwrCxCvAJVTXaxJFYx2cp+l
+	0RgEyKo6VzVBSvvO4oxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1ZpI-000000056Xh-1KAR;
-	Thu, 25 Sep 2025 00:27:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v1b1Y-00000005DLw-0c61;
+	Thu, 25 Sep 2025 01:43:56 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1ZpH-000000056XX-01Ya
-	for linux-riscv@lists.infradead.org;
-	Thu, 25 Sep 2025 00:27:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E244601EB;
-	Thu, 25 Sep 2025 00:27:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5326BC4CEE7;
-	Thu, 25 Sep 2025 00:27:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758760029;
-	bh=SCbE9/zMp7eylZtDStOIb2RUlKH9zJzpcDZgJG8aLCw=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=BJwcg9bFpip0s5gqGKUUrRxODmLmubuYf+e39NgHOTqHatgAs3Axi/hHiOJ1cgR+U
-	 TukKw2OBmRP2e4AlipJlkzhvkoy8s7zQjuWSqykxMLRMQly55uLdR/TNQWppIzrOkt
-	 7laYo/gcAjrgWZBHLmLIa0z4bPcKOxprprqYy4bwXNNVagF4uy6YRqxAwF5rsYux4p
-	 VfJB4KXrYkOF2XEtTrPY4ugIo9WLfHfzpzNEjvpJTdjOXeAGG7sPT7o4n4NnYilXiY
-	 E3cYFayZuOeBV2Kb9s7dEpfhJHolXIIsc09jPVp9pXQ0YAgmM7OARc7JsrnCKE563k
-	 Zo7mTdPWZAH5g==
-Date: Wed, 24 Sep 2025 18:27:03 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-cc: Michael Turquette <mturquette@baylibre.com>, 
-    Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, 
-    Thomas Gleixner <tglx@linutronix.de>, 
-    "Rafael J . Wysocki" <rafael@kernel.org>, 
-    Mika Westerberg <mika.westerberg@linux.intel.com>, 
-    Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-    Linus Walleij <linus.walleij@linaro.org>, 
-    Bartosz Golaszewski <brgl@bgdev.pl>, 
-    =?ISO-8859-15?Q?Uwe_Kleine-K=F6nig?= <ukleinek@kernel.org>, 
-    devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, 
-    Leyfoon Tan <leyfoon.tan@starfivetech.com>, 
-    Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, 
-    Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, 
-    Palmer Dabbelt <palmer@dabbelt.com>, 
-    Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, 
-    Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, 
-    Rahul Pathak <rpathak@ventanamicro.com>
-Subject: Re: [PATCH v10 07/24] mailbox: Add RISC-V SBI message proxy (MPXY)
- based mailbox driver
-In-Reply-To: <20250818040920.272664-8-apatel@ventanamicro.com>
-Message-ID: <405a78ce-de03-382b-cab9-bb086e28505b@kernel.org>
-References: <20250818040920.272664-1-apatel@ventanamicro.com> <20250818040920.272664-8-apatel@ventanamicro.com>
+	id 1v1b1U-00000005DJ2-1PUa;
+	Thu, 25 Sep 2025 01:43:53 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4cXGb80jBLzddVk;
+	Thu, 25 Sep 2025 09:39:00 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2D3111401E9;
+	Thu, 25 Sep 2025 09:43:39 +0800 (CST)
+Received: from [10.174.179.35] (10.174.179.35) by
+ kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 25 Sep 2025 09:43:37 +0800
+Message-ID: <8313b0c1-bf62-4257-951c-fd7e29193ae2@huawei.com>
+Date: Thu, 25 Sep 2025 09:43:37 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 2/2] mm: add PMD-level huge page support for
+ remap_pfn_range()
+To: David Hildenbrand <david@redhat.com>, <akpm@linux-foundation.org>,
+	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <vbabka@suse.cz>,
+	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, <ziy@nvidia.com>,
+	<baolin.wang@linux.alibaba.com>, <npache@redhat.com>, <ryan.roberts@arm.com>,
+	<dev.jain@arm.com>, <baohua@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <anshuman.khandual@arm.com>,
+	<yangyicong@hisilicon.com>, <ardb@kernel.org>, <willy@infradead.org>,
+	<apopple@nvidia.com>, <samuel.holland@sifive.com>,
+	<luxu.kernel@bytedance.com>, <abrestic@rivosinc.com>,
+	<yongxuan.wang@sifive.com>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>
+CC: <wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>
+References: <20250923133104.926672-1-yintirui@huawei.com>
+ <20250923133104.926672-3-yintirui@huawei.com>
+ <f8571506-30c0-4dc8-9995-41a6469f8fc7@redhat.com>
+From: Yin Tirui <yintirui@huawei.com>
+In-Reply-To: <f8571506-30c0-4dc8-9995-41a6469f8fc7@redhat.com>
+X-Originating-IP: [10.174.179.35]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250924_184352_533870_137F1A98 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +78,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 Aug 2025, Anup Patel wrote:
 
-> Add a mailbox controller driver for the new SBI message proxy extension
-> which is part of the SBI v3.0 specification.
-> ---
->  drivers/mailbox/Kconfig               |  11 +
->  drivers/mailbox/Makefile              |   2 +
->  drivers/mailbox/riscv-sbi-mpxy-mbox.c | 994 ++++++++++++++++++++++++++
->  3 files changed, 1007 insertions(+)
->  create mode 100644 drivers/mailbox/riscv-sbi-mpxy-mbox.c
+
+On 9/24/2025 5:50 PM, David Hildenbrand wrote:
+>> Introduce pfnmap_max_page_shift parameter to control maximum page
+>> size and "nohugepfnmap" boot option to disable huge pfnmap entirely.
 > 
-> diff --git a/drivers/mailbox/riscv-sbi-mpxy-mbox.c b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
-> new file mode 100644
-> index 000000000000..21404baa6df0
-> --- /dev/null
-> +++ b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+> Why? If an arch supports it we should just do it. Or what's the reason 
+> behind that?
+> 
+There's no specific reason for this - it was just intended to provide an 
+additional option. I'll remove it in the next version.
 
-[ ... ]
+...
+> Are you sure we can just entirely remove this block for ! 
+> vma_is_anonymous(vma)?
+>
+Thank you for pointing this out!
+There is definitely a problem with removing this block entirely for 
+non-anonymous VMAs. I've also found some other problems. I'll fix all of 
+them in the next version.
 
-> +
-> +static int mpxy_mbox_populate_channels(struct mpxy_mbox *mbox)
-> +{
-> +	u32 i, *channel_ids __free(kfree) = NULL;
-> +	struct mpxy_mbox_channel *mchan;
-> +	int rc;
-> +
-> +	/* Find-out of number of channels */
-> +	rc = mpxy_get_channel_count(&mbox->channel_count);
-> +	if (rc)
-> +		return dev_err_probe(mbox->dev, rc, "failed to get number of MPXY channels\n");
-> +	if (!mbox->channel_count)
-> +		return dev_err_probe(mbox->dev, -ENODEV, "no MPXY channels available\n");
-> +
-> +	/* Allocate and fetch all channel IDs */
-> +	channel_ids = kcalloc(mbox->channel_count, sizeof(*channel_ids), GFP_KERNEL);
+-- 
+Best regards,
+Yin Tirui
 
-Should this be devm_kcalloc() ?
-
-
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
