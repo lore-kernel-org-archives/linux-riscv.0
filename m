@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B5FCAC5A7
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 17:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 579CDCAC5A7
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 17:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fjmgz7Y9TiX6NQJz01T6RrgVcYL2GEP9QU6XkmpO7a4=; b=1DLaXTB0rLrTkxfCkkwwAtJHEg
-	ijyNs6ioXlohdbRpKyAnZIQ7+nsyRA7HrI70ejx4oGEzOxUEYOl48SMmCEfk0pd6952Yg83fzvL9K
-	rMQ2wdVJgYenZMXVDs5QidgnHeObXqSkfA2egh7apqtNez58wovTKFBwCqCSy+LhVas7AZGBQa/GT
-	1Wf+P2iTAXJe0mOx5C8y3ohejCsYG24WZBQag6pvUFpbhMjltgBfj0kSwclvJ83si+s8zgkrceRay
-	X2lXPRc/mFViEVwPtpF7X3JKckTCxOs5vC86OLYSip/CvMOgljjAIfl6istrD2qFZ1Az/yWlzH4X9
-	F1YfjyMQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XNh6YKbSLWLFofIaO1sqAI7gYOfksV+PeqTXxc0v584=; b=DxtGQEamKaKAr3
+	NRyRGhqrJvlZUMao0VNTZoQrB/d755FnV6OZpK82cFoeA3jpvWmsUzbuLJPoJ3cGEQ8Gkbmkvj8vu
+	cy0vf2aY1OFdpqP19Wwd8MaTVpf/SwBRMwkSHMcmWKnA6wE2SU72V5MVGxm4MwWK0IGf4gxfKpfI4
+	41r/YQh3NdLaQVaTBEK2+4O/mSiKXjNhcjD+QDeLQ6CbDsTCFyOY/4DsEN5VfMmWb1p7aYPyVvGOQ
+	UpQl1fDJI0zc/fwtJDRDlbx30NPEQYggMqrYyOJEBmy243KIE/80bZIQKCe6NzZFGsqOA51BM/wsd
+	YzW1KCnq290IDSTCgp8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1pTs-0000000BPRy-14ad;
-	Thu, 25 Sep 2025 17:10:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v1pc9-0000000BTLO-2HpC;
+	Thu, 25 Sep 2025 17:18:41 +0000
+Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1pTq-0000000BPQf-3lCg
-	for linux-riscv@lists.infradead.org;
-	Thu, 25 Sep 2025 17:10:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 03C0B61191;
-	Thu, 25 Sep 2025 17:10:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF419C4CEF7;
-	Thu, 25 Sep 2025 17:10:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758820205;
-	bh=q9Rq4/H4aaM/wf9aFUG2tSAvIqRjG0CUjxb7SNWmI3E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kbWgcHmZnhxuMEtRTUmUs93JI0IYz2Z3HEnTvjy4KzYzdF1vPX4T6i5ei0jgCNWAW
-	 Tcy6D1XJhe8s4m92hBsXas9C/L3aBtcs7Rx9Bj0Wcg44SRNdPZa1cG+xUD7pRdWBp2
-	 1eU6ZsWa9EDshi40H217ep1tgmHWKTwYN5PN8FO+ptJ4gbzXOOixkyTYInChCpYtwW
-	 dOa2X7DGVgoWv70DAmjIiae6shfCf40YmkxTaUY4hXtt8P+8/LLz/BWhRzd4UJ5fuK
-	 1p4ZKmHDUYb4X+0S/uudSnEBUZL6gyx+fMwCwETjAXDpuipbJ1yHQ6IbWtmOnacs36
-	 HKf+aXpQlsBXg==
-Date: Thu, 25 Sep 2025 18:09:59 +0100
-From: Conor Dooley <conor@kernel.org>
-To: "fushan.zeng" <fushan.zeng@anlogic.com>
-Cc: junhui.liu@pigmoral.tech, alex@ghiti.fr, anup@brainfault.org,
-	aou@eecs.berkeley.edu, conor+dt@kernel.org,
-	daniel.lezcano@linaro.org, devicetree@vger.kernel.org,
-	gregkh@linuxfoundation.org, jirislaby@kernel.org,
-	krzk+dt@kernel.org, krzysztof.kozlowski@linaro.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org, palmer@dabbelt.com, palmer@sifive.com,
-	paul.walmsley@sifive.com, robh@kernel.org,
-	samuel.holland@sifive.com, tglx@linutronix.de
-Subject: Re: [PATCH v2 00/11] riscv: Add initial support for Anlogic DR1V90
-Message-ID: <20250925-jaundice-uneasy-ff8b3b595879@spud>
-References: <20250922-dr1v90-basic-dt-v2-0-64d28500cb37@pigmoral.tech>
- <20250925030650.35694-1-fushan.zeng@anlogic.com>
+	id 1v1pc6-0000000BTIl-35va;
+	Thu, 25 Sep 2025 17:18:40 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net A312E406FA
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1758820716; bh=s5E6NQtQfTfIKPQQ0U9jD4/CMTy4US3OKTTLePkEQTI=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=R0Wn+1obn8KJeQvchJRf2wnbf497DYVq2eKLFn6QktuoOjJ3ybxEAFLi03ACkYszP
+	 aV/OjxtFF+hU4Tsh169FcOQDax4qxVQ9VTRQ5PJJSjch78kboyCe+GLpFs9u3faXwK
+	 sLzdeUNWhiACyJ/ZAjFBZLz6tdfkBQ6C8B7WndqpWsfVcZvxEwMZH1A4qhyV9lZo3Q
+	 b2wTCYQQXw6BYIqMZBrOclNa/e8um3UEGq8N8lfZ1blNtXGR699/rVD18qJIcDrCWL
+	 7pPTqB2KjqyLNniqzC3PcY5nELWvyV6nwZIgjgws1HbGWRaL1WoJz8JVj6dHvLD/SZ
+	 AqCkRcme8WerA==
+Received: from localhost (mi-18-37-83.service.infuturo.it [151.18.37.83])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id A312E406FA;
+	Thu, 25 Sep 2025 17:18:35 +0000 (UTC)
+From: Jonathan Corbet <corbet@lwn.net>
+To: Lukas Bulwahn <lbulwahn@redhat.com>, linux-doc@vger.kernel.org
+Cc: linux-snps-arc@lists.infradead.org, linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-um@lists.infradead.org,
+ linux-openrisc@vger.kernel.org, kernel-janitors@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Subject: Re: [PATCH] Documentation/features: Update feature lists for 6.17-rc7
+In-Reply-To: <20250925073634.112142-1-lukas.bulwahn@redhat.com>
+References: <20250925073634.112142-1-lukas.bulwahn@redhat.com>
+Date: Thu, 25 Sep 2025 11:18:31 -0600
+Message-ID: <87qzvu30yg.fsf@trenco.lwn.net>
 MIME-Version: 1.0
-In-Reply-To: <20250925030650.35694-1-fushan.zeng@anlogic.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250925_101838_784352_CDFB921A 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,113 +68,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8151120199769711488=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Lukas Bulwahn <lbulwahn@redhat.com> writes:
 
---===============8151120199769711488==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eu9584PsFdUWS5DG"
-Content-Disposition: inline
+> From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+>
+> It seems that ./Documentation/features/scripts/features-refresh.sh was most
+> recently used in December 2022, with the latest kernel release v6.1-rc7 at
+> that time (see commit 7f2e60ff51ca ("Documentation/features: Update feature
+> lists for 6.1") to update the feature lists in this subdirectory. All
+> further changes to Documentation/features/ since then have probably been
+> done manually, without checking for changes in other architectures and
+> features, that missed to update this part of the documentation.
+>
+> Running ./Documentation/features/scripts/features-refresh.sh now showed
+> seven changes of supported features in various architectures (one in arc,
+> two in parisc, one in riscv, one in openrisc, and two in um), which were
+> not reflected yet in the current documentation.
+>
+> To confirm the sanity of this script's suggested changes, I checked if the
+> commit messages confirm that the features have in fact been added in the
+> following commits:
+>
+>   - commit f122668ddcce ("ARC: Add eBPF JIT support")
+>   - commit 4800a6215e33 ("parisc: Wire up eBPF JIT compiler")
+>   - commit a869b8c29f86 ("riscv: enable mseal sysmap for RV64")
+>   - commit 2f681ba4b352 ("um: move thread info into task")
+>   - commit 3f17fed21491 ("um: switch to regset API and depend on XSTATE")
+>   - commit 7ce8716e2769 ("openrisc: Add HAVE_REGS_AND_STACK_ACCESS_API support")
+>   - commit b5ff52be8913 ("parisc: Convert to generic clockevents")
+>
+> So, update all documents to the current state with features-refresh.sh.
+>
+> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+> ---
+>  Documentation/features/core/eBPF-JIT/arch-support.txt         | 4 ++--
+>  .../features/core/mseal_sys_mappings/arch-support.txt         | 2 +-
+>  .../features/core/thread-info-in-task/arch-support.txt        | 2 +-
+>  Documentation/features/core/tracehook/arch-support.txt        | 2 +-
+>  Documentation/features/perf/kprobes-event/arch-support.txt    | 2 +-
+>  Documentation/features/time/clockevents/arch-support.txt      | 2 +-
+>  6 files changed, 7 insertions(+), 7 deletions(-)
 
+OK, I went ahead and applied this one, thanks.
 
---eu9584PsFdUWS5DG
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Sep 25, 2025 at 11:06:50AM +0800, fushan.zeng wrote:
-> On Mon, 22 Sep 2025 20:46:30 +0800, Junhui Liu wrote:
-> > This patch series introduces initial support for the Anlogic DR1V90 SoC
-> > [1] and the Milianke MLKPAI-FS01 [2] board.
-> >=20
-> > The DR1V90 is a RISC-V based FPSoC from Anlogic, featuring a Nuclei
-> > UX900 [3] core as its processing system (PS) and 94,464 LUTs in the
-> > programmable logic (PL) part. The Milianke MLKPAI-FS01 board is one of
-> > the first platforms based on this SoC, with UART1 routed to a Type-C
-> > interface for console access.
-> >=20
-> > Tested on the Milianke MLKPAI-FS01 board with both the vendor's OpenSBI
-> > and the not-yet-upstreamed mainline OpenSBI [4], as well as the vendor=
-=E2=80=99s
-> > U-Boot. Because the vendor=E2=80=99s OpenSBI is loaded at 0x1f300000, w=
-e have
-> > to additionally reserve the DRAM region 0x1fe00000=E2=80=930x1fffffff t=
-o prevent
-> > overlap if using vendor's OpenSBI.
-> >=20
-> > Notice: A "no4lvl" bootarg or dependency patch [5] is currently required
-> > for successful boot on the DR1V90 platform, since the SoC hangs if the
-> > kernel attempts to use unsupported 4-level or 5-level paging modes.
->=20
-> Thanks first.
-> Anloigc already has the open source SDK at https://gitee.com/anlogic/sdk,
-> and will submit it to mainline at suitable time.
-> The code should be a full feature version after lots of tests, not the
-> modified and simplified version from Anlogic open source.
-
-The nature of the upstreaming process will require what you have to be
-broken down into multiple parts and be upstreamed at different times,
-depending on how long components take to review. This is normal and
-expected. Of course there should be through testing done, but I don't
-think that what is in this initial patchset really requires much
-testing - if it boots then it's probably sufficiently tested!
-
-> And we hope that there won't be two different versions code of anlogic SO=
-Cs,
-> it may confuse customers.
-
-If there's ever going to be complete upstream support for your device,
-then there will be two versions, because looking at just the dts files
-in the gitee sdk you linked I have noticed things that are not acceptable
-in upstream. As others have said, you are not entitled to control the
-upstreaming process for your device. The only way to have some control is
-to submit patches yourself and to engage with the review process for other
-components. It's in everybody's interest to keep differences with your
-SDK to a minimum, but you need to accept that there will always be
-differences because the upstream community simply has higher standards
-than those in your SDK as well as a requirement for portable code that
-you do not have.
-
-> It is better that anlogic SOCs are long term maintained and supported
-> by Anlogic officially in mainline and for customers.
-
-It's only better if Anlogic submits better quality patches (no evidence
-for that yet) or submits the patches more promptly than others (which
-clearly has not happened here), and offers review commentary etc at a
-higher standard and more frequently than a non-employee maintainer would
-be able to do (there's no evidence for that so far either, given you're
-trying to stall this patchset). Your claim seems to have no merit as
-there is no proof that you'd do a better job.
-
-Thanks,
-Conor.
-
---eu9584PsFdUWS5DG
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNV3ZwAKCRB4tDGHoIJi
-0uaWAQCSkbVTTIbafxcfF96xk5lgaG5ln+YtgPuJtAGRusRBkwD+LaffLvZLIg1V
-8qVEjLULVNOgXNHJOEiDL5yOwVweCAM=
-=QmTb
------END PGP SIGNATURE-----
-
---eu9584PsFdUWS5DG--
-
-
---===============8151120199769711488==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+jon
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8151120199769711488==--
-
