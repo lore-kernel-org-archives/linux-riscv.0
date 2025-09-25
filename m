@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1695ECAC5AE
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 02:17:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A68CAC5AE
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 02:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PQWizbuzsjQb4TXx0q6ixaPksq/iQ7TaIgOGRDLnYdk=; b=kP+OMFARuMlpe1
-	XKHRlT3tPvS2Oo6a6Qr1jd5swD+Zr56YfALReF3rHFpEWLyI0+T0/24RjlMPNZgK/x5SlPgyqS2Bt
-	6jtNAFq+KocARtsiv9c4M7Ng+x8nA5LLQ8Zi+ReG2OLKsipqQSXC1sWyUzzLFqCB/vEn/Jms0UFPK
-	kQbOYC9ozp3pQacwy0yWIeOwn0xmdL/LoQIntdLxxkysOkKUQEazqXm4ZGfm72rL1nqPggJRc1VdC
-	g4ySPQazUjTqO43jb2kXNTHtxD++vG21Mn6skbbhqETWROEDVEGBbA1KOufcY9y0heqzAJeS7B5a+
-	rHrm1I4s8yvmTet6hE4w==;
+	List-Owner; bh=qIeXXHa7jFMWr4LdewsZWPG7wGhlbBv1LZwB9G4PaW0=; b=G3sCg3XoYE9O0g
+	CTV/UUMSaG+Ji2XyMMiGG9WCa+QbIF86M5RgSaq5Ojw0fvwG2H9RM2AeCuF4Uw/5R7mAf3bK7vlWB
+	K/v9lYKjgZhcItZFCKQVbxU+buKm86ev7i4oXxUFPX+BbAEnyW3Os444EzMpvgQP936atUC08hkKj
+	kqgJcT1cYiLzjltMl0w+Ch1LcYj5ZNmLZfufGn4yv6F8zgQ5VtZ71hrDr4+t+/7Nh6nJHKn4znowg
+	bk8QqjBCERBjrGI04RRj3wDJq+OWufCCIBa6AWsrCCeJiIb40ud93lIibpZCLTPZ2scChSpRCo7De
+	t260eW088B0MSiBp02Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bYJ-00000005HOY-2iNP;
-	Thu, 25 Sep 2025 02:17:47 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1v1bxk-00000005LCA-1rm0;
+	Thu, 25 Sep 2025 02:44:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bYF-00000005HNI-107Q;
-	Thu, 25 Sep 2025 02:17:45 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cXHLG6dwBzTh3F;
-	Thu, 25 Sep 2025 10:12:54 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7EA3B180B63;
-	Thu, 25 Sep 2025 10:17:33 +0800 (CST)
-Received: from [10.174.179.35] (10.174.179.35) by
- kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 25 Sep 2025 10:17:31 +0800
-Message-ID: <620d202a-6078-4b5d-a42a-8a52543bc14a@huawei.com>
-Date: Thu, 25 Sep 2025 10:17:31 +0800
+	id 1v1bxh-00000005LBO-3ve0
+	for linux-riscv@lists.infradead.org;
+	Thu, 25 Sep 2025 02:44:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A7F6241A85
+	for <linux-riscv@lists.infradead.org>; Thu, 25 Sep 2025 02:44:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 888FFC4CEF8
+	for <linux-riscv@lists.infradead.org>; Thu, 25 Sep 2025 02:44:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758768240;
+	bh=S7vb/zf3V2GaassUXCT9UJV1Et/9TJiqD8ubx2PkhwE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=J58/SCUfWipwZ1MVIpQEBYOUxqgqodgM0cUqxO+6oYTnwX30OAYYFnF0WKJxi5SU3
+	 1YOU1P/IZqOtiBNDhKnXN1z4ovoCMhsotskp189F0RKKNay05fweIgyzg2e3gFkOa+
+	 mrEzWgOqJIw9XZ1B1L1AdSJy3OwrymPL9j/QShB/+lcZEezrx+noPCD585qWFJNKzN
+	 6E6HdZZvyCsVBaO63lJCmSambbsyS5Xwl45MRs1Bl9W47XafA1DEa4nLWflPswoZ74
+	 CUlx92J4FcsuHOfMtemFUEOhpKfKnlSdBytdl9IRLQmzaeKqeOP4mbfyhOZCLS3Mji
+	 uaOs9TbYVJNTg==
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-b3194020e86so72790566b.1
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Sep 2025 19:44:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW7OJEwOGOfl8tZOCc+K4Q1/I1hCbMoqtiu2L3vKGSJgFrqNAdzIymJtvgvuP3jjfFJUHjK8wo0vi4cxg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwAt1VdTi7g3e20g5eRGy73VNao6enGZl3EN6cpJ4QLCCsEDSc
+	zC+sXFrAjP2X0d6gUShG0N3K2kN+F5X6Drz8X+ki7c+mhKcEQKz4J6dq4h3KPOPR4muTr7TAKw+
+	/mOWTVss60JMoxF9Z/HYyZGwmzFhZMPM=
+X-Google-Smtp-Source: AGHT+IFAKAis+f8CsaeB/ZYEn6Mbsm0qvkYWWb/1JIaJw+bN7o9FCGRKh+44tCSaadZ6c4rMcagZJ6G9mHVPClZ1tck=
+X-Received: by 2002:a17:907:3f1e:b0:b11:c9df:7a73 with SMTP id
+ a640c23a62f3a-b34bd34a2b0mr217761266b.57.1758768239043; Wed, 24 Sep 2025
+ 19:43:59 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 2/2] mm: add PMD-level huge page support for
- remap_pfn_range()
-To: Matthew Wilcox <willy@infradead.org>
-CC: <akpm@linux-foundation.org>, <david@redhat.com>,
-	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <vbabka@suse.cz>,
-	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, <ziy@nvidia.com>,
-	<baolin.wang@linux.alibaba.com>, <npache@redhat.com>, <ryan.roberts@arm.com>,
-	<dev.jain@arm.com>, <baohua@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <anshuman.khandual@arm.com>,
-	<yangyicong@hisilicon.com>, <ardb@kernel.org>, <apopple@nvidia.com>,
-	<samuel.holland@sifive.com>, <luxu.kernel@bytedance.com>,
-	<abrestic@rivosinc.com>, <yongxuan.wang@sifive.com>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <wangkefeng.wang@huawei.com>,
-	<chenjun102@huawei.com>
-References: <20250923133104.926672-1-yintirui@huawei.com>
- <20250923133104.926672-3-yintirui@huawei.com>
- <aNMhiZ4FiEE1Rk_T@casper.infradead.org>
-From: Yin Tirui <yintirui@huawei.com>
-In-Reply-To: <aNMhiZ4FiEE1Rk_T@casper.infradead.org>
-X-Originating-IP: [10.174.179.35]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+References: <20250919093615.30235-1-yangtiezhu@loongson.cn> <20250919093615.30235-2-yangtiezhu@loongson.cn>
+In-Reply-To: <20250919093615.30235-2-yangtiezhu@loongson.cn>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Thu, 25 Sep 2025 10:43:44 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H4fdfB3fH0DnfgxNimPBsjiOGQZV-w0g63d7TVDOK5-zw@mail.gmail.com>
+X-Gm-Features: AS18NWDZZeQr-H2-K3eeVtlqTGrlSQzrQ7P8GUhNaKX_KK-BVvdywIo1Js7nnoc
+Message-ID: <CAAhV-H4fdfB3fH0DnfgxNimPBsjiOGQZV-w0g63d7TVDOK5-zw@mail.gmail.com>
+Subject: Re: [PATCH v1 1/3] LoongArch: Only link libstub to final vmlinux
+To: Tiezhu Yang <yangtiezhu@loongson.cn>
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>, loongarch@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_191743_581065_E460308B 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20250924_194402_016271_EC610707 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,71 +80,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/24/2025 6:39 AM, Matthew Wilcox wrote:
-> On Tue, Sep 23, 2025 at 09:31:04PM +0800, Yin Tirui wrote:
->> +			entry = pte_clrhuge(pfn_pte(pmd_pfn(old_pmd), pmd_pgprot(old_pmd)));
-> 
-> This doesn't make sense.  And I'm not saying you got this wrong; I
-> suspect in terms of how things work today it's actually necessary.
-> But the way we handle this stuff is so insane.
-
-Thank you for pointing this out and the broader context.
-
-> 
-> pte_clrhuge() should not exist.  If we have a PTE, it can't have the
-> huge bit set, by definition (don't anybody mention hugetlbfs because
-> that is an entirely separate pile of broken horrors).  I understand what
-> you're trying to do here.  You want to construct a PTE that points to
-> the same address as the first page of the PMD and has the same
-> permissions.  But that *should* be written as:
-> 
-> 	entry = pfn_pte(pmd_pfn(old_pmd), pmd_pgprot(old_pmd)));
-> 
-> right?  Now, pmd_pgprot() might or might not want to return the huge bit
-> set.  I'm not sure.  Perhaps you could have a look through and figure it
-
-I've tested this on arm64, and pmd_pgprot() does return the huge bit 
-set, which is exactly why I added pte_clrhuge().
-
-> out.  But pfn_pte() should never return a PTE with the huge bit set.
-> So if it is set in the pgorot on entry, it should filter it out.
-> 
-> There are going to be consequences to this.  Maybe there's code
-> somewhere that relies on pfn_pte() returning a PTE with the huge bit
-> set.  Perhaps it's hugetlbfs.
-
-I'll try to refactor pfn_pte() and related functions to filter out the 
-huge bit set and test its impact on hugetlbfs.
-
-> 
-> But we have to start cleaning this garbage up.  I did some work with
-> e3981db444a0 and the commits leading up to that.  See
-> https://lkml.kernel.org/r/20250402181709.2386022-12-willy@infradead.org
-> 
-> I'd like pte_clrhuge() to be deleted from x86, not added to arm and
-> riscv.
-> 
-I completely agree with the goal of deleting pte_clrhuge() rather than 
-expanding it. I'll study your referenced work and align my approach with 
-your efforts.
-
-Would you recommend I address the pfn_pte() and related function 
-refactoring as part of this patch series, or should I submit it as a 
-separate patch series?
-
--- 
-Best regards,
-Yin Tirui
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIFRpZXpodSwKCk9uIEZyaSwgU2VwIDE5LCAyMDI1IGF0IDU6MzbigK9QTSBUaWV6aHUgWWFu
+ZyA8eWFuZ3RpZXpodUBsb29uZ3Nvbi5jbj4gd3JvdGU6Cj4KPiBXaGVuIGNvbXBpbGluZyB3aXRo
+IExMVk0gYW5kIENPTkZJR19MVE9fQ0xBTkcgaXMgc2V0LCB0aGVyZSBleGlzdHMKPiB0aGUgZm9s
+bG93aW5nIG9ianRvb2wgd2FybmluZzoKPgo+ICAgdm1saW51eC5vOiB3YXJuaW5nOiBvYmp0b29s
+OiBfX2VmaXN0dWJfZWZpX2Jvb3Rfa2VybmVsKCkKPiAgIGZhbGxzIHRocm91Z2ggdG8gbmV4dCBm
+dW5jdGlvbiBfX2VmaXN0dWJfZXhpdF9ib290X2Z1bmMoKQo+Cj4gVGhpcyBpcyBiZWNhdXNlIGVm
+aV9ib290X2tlcm5lbCgpIGRvZXNuJ3QgZW5kIHdpdGggYSByZXR1cm4gaW5zdHJ1Y3Rpb24KPiBv
+ciBhbiB1bmNvbmRpdGlvbmFsIGp1bXAsIHRoZW4gb2JqdG9vbCBoYXMgZGV0ZXJtaW5lZCB0aGF0
+IHRoZSBmdW5jdGlvbgo+IGNhbiBmYWxsIHRocm91Z2ggaW50byB0aGUgbmV4dCBmdW5jdGlvbi4K
+Pgo+IEF0IHRoZSBiZWdpbm5pbmcsIHRyeSB0byBkbyBzb21ldGhpbmcgdG8gbWFrZSBlZmlfYm9v
+dF9rZXJuZWwoKSBlbmRzIHdpdGgKPiBhbiB1bmNvbmRpdGlvbmFsIGp1bXAgaW5zdHJ1Y3Rpb24s
+IGJ1dCB0aGlzIG1vZGlmaWNhdGlvbiBzZWVtcyBub3QgcHJvcGVyLgo+Cj4gU2luY2UgdGhlIGVm
+aXN0dWIgZnVuY3Rpb25zIGFyZSB1c2VsZXNzIGZvciBzdGFjayB1bndpbmRlciwgdGhleSBjYW4g
+YmUKPiBpZ25vcmVkIGJ5IG9ianRvb2wuIEFmdGVyIG1hbnkgZGlzY3Vzc2lvbnMsIG5vIG5lZWQg
+dG8gbGluayBsaWJzdHViIHRvCj4gdGhlIHZtbGludXgubywgb25seSBsaW5rIGxpYnN0dWIgdG8g
+dGhlIGZpbmFsIHZtbGludXguCj4KPiBMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21s
+L3BxNGg3amduZG50NnA0NWxqNGtndWJ4amQ1Z2lkZmV0dWdjdWY1cmN4enh4YW56ZXRkQDZycmxw
+am5qc211eS8KPiBTdWdnZXN0ZWQtYnk6IEpvc2ggUG9pbWJvZXVmIDxqcG9pbWJvZUBrZXJuZWwu
+b3JnPgo+IFNpZ25lZC1vZmYtYnk6IFRpZXpodSBZYW5nIDx5YW5ndGllemh1QGxvb25nc29uLmNu
+Pgo+IC0tLQo+ICBNYWtlZmlsZSAgICAgICAgICAgICAgICB8IDEgKwo+ICBhcmNoL2xvb25nYXJj
+aC9NYWtlZmlsZSB8IDUgKysrKy0KPiAgc2NyaXB0cy9saW5rLXZtbGludXguc2ggfCA1ICsrLS0t
+Cj4gIDMgZmlsZXMgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQo+Cj4g
+ZGlmZiAtLWdpdCBhL01ha2VmaWxlIGIvTWFrZWZpbGUKPiBpbmRleCA5NzcxNjE5YWM1OTYuLmI4
+ZTdjNjNhZTNkMSAxMDA2NDQKPiAtLS0gYS9NYWtlZmlsZQo+ICsrKyBiL01ha2VmaWxlCj4gQEAg
+LTEyMDEsNiArMTIwMSw3IEBAIEtCVUlMRF9WTUxJTlVYX09CSlMgOj0gYnVpbHQtaW4uYSAkKHBh
+dHN1YnN0ICUvLCAlL2xpYi5hLCAkKGZpbHRlciAlLywgJChsaWJzLXkpCj4gIEtCVUlMRF9WTUxJ
+TlVYX0xJQlMgOj0gJChmaWx0ZXItb3V0ICUvLCAkKGxpYnMteSkpCj4KPiAgZXhwb3J0IEtCVUlM
+RF9WTUxJTlVYX0xJQlMKPiArZXhwb3J0IEtCVUlMRF9WTUxJTlVYX0xJQlNfUFJFTElOSwo+ICBl
+eHBvcnQgS0JVSUxEX0xEUyAgICAgICAgICA6PSBhcmNoLyQoU1JDQVJDSCkva2VybmVsL3ZtbGlu
+dXgubGRzCj4KPiAgaWZkZWYgQ09ORklHX1RSSU1fVU5VU0VEX0tTWU1TCldoeSBkb2VzIHRoZSBM
+b29uZ0FyY2ggcGF0Y2ggbW9kaWZ5IHRoZSBjb21tb24gcGFydHM/IFNpbmNlIHRoZSB3aG9sZQpz
+ZXJpZXMgaXMgc21hbGwgZW5vdWdoLCBJIHN1Z2dlc3QgbW9kaWZ5aW5nIGV2ZXJ5dGhpbmcgaW4g
+YSBzaW5nbGUKcGF0Y2guIEFuZCB0aGUgc2luZ2xlIHBhdGNoIGNhbiBiZSBtZXJnZWQgdmlhIHRo
+ZSBlZmkgdHJlZS4KCkh1YWNhaQoKPiBkaWZmIC0tZ2l0IGEvYXJjaC9sb29uZ2FyY2gvTWFrZWZp
+bGUgYi9hcmNoL2xvb25nYXJjaC9NYWtlZmlsZQo+IGluZGV4IGEzYTk3NTk0MTRmNC4uZTljNjFm
+NzZhMDQ1IDEwMDY0NAo+IC0tLSBhL2FyY2gvbG9vbmdhcmNoL01ha2VmaWxlCj4gKysrIGIvYXJj
+aC9sb29uZ2FyY2gvTWFrZWZpbGUKPiBAQCAtMTY0LDcgKzE2NCwxMCBAQCBDSEVDS0ZMQUdTICs9
+ICQoc2hlbGwgJChDQykgJChLQlVJTERfQ1BQRkxBR1MpICQoS0JVSUxEX0NGTEFHUykgLWRNIC1F
+IC14IGMgL2Rldgo+ICBlbmRpZgo+Cj4gIGxpYnMteSArPSBhcmNoL2xvb25nYXJjaC9saWIvCj4g
+LWxpYnMtJChDT05GSUdfRUZJX1NUVUIpICs9ICQob2JqdHJlZSkvZHJpdmVycy9maXJtd2FyZS9l
+ZmkvbGlic3R1Yi9saWIuYQo+ICsKPiAraWZkZWYgQ09ORklHX0VGSV9TVFVCCj4gK0tCVUlMRF9W
+TUxJTlVYX0xJQlNfUFJFTElOSyArPSAkKG9ianRyZWUpL2RyaXZlcnMvZmlybXdhcmUvZWZpL2xp
+YnN0dWIvbGliLmEKPiArZW5kaWYKPgo+ICBkcml2ZXJzLXkgICAgICAgICAgICAgICs9IGFyY2gv
+bG9vbmdhcmNoL2NyeXB0by8KPgo+IGRpZmYgLS1naXQgYS9zY3JpcHRzL2xpbmstdm1saW51eC5z
+aCBiL3NjcmlwdHMvbGluay12bWxpbnV4LnNoCj4gaW5kZXggNTEzNjdjMmJmYzIxLi5iM2NiZmYz
+MWQ4YTkgMTAwNzU1Cj4gLS0tIGEvc2NyaXB0cy9saW5rLXZtbGludXguc2gKPiArKysgYi9zY3Jp
+cHRzL2xpbmstdm1saW51eC5zaAo+IEBAIC02MSwxMiArNjEsMTEgQEAgdm1saW51eF9saW5rKCkK
+PiAgICAgICAgIHNoaWZ0Cj4KPiAgICAgICAgIGlmIGlzX2VuYWJsZWQgQ09ORklHX0xUT19DTEFO
+RyB8fCBpc19lbmFibGVkIENPTkZJR19YODZfS0VSTkVMX0lCVDsgdGhlbgo+IC0gICAgICAgICAg
+ICAgICAjIFVzZSB2bWxpbnV4Lm8gaW5zdGVhZCBvZiBwZXJmb3JtaW5nIHRoZSBzbG93IExUTyBs
+aW5rIGFnYWluLgo+ICAgICAgICAgICAgICAgICBvYmpzPXZtbGludXgubwo+IC0gICAgICAgICAg
+ICAgICBsaWJzPQo+ICsgICAgICAgICAgICAgICBsaWJzPSIke0tCVUlMRF9WTUxJTlVYX0xJQlNf
+UFJFTElOS30iCj4gICAgICAgICBlbHNlCj4gICAgICAgICAgICAgICAgIG9ianM9dm1saW51eC5h
+Cj4gLSAgICAgICAgICAgICAgIGxpYnM9IiR7S0JVSUxEX1ZNTElOVVhfTElCU30iCj4gKyAgICAg
+ICAgICAgICAgIGxpYnM9IiR7S0JVSUxEX1ZNTElOVVhfTElCU30gJHtLQlVJTERfVk1MSU5VWF9M
+SUJTX1BSRUxJTkt9Igo+ICAgICAgICAgZmkKPgo+ICAgICAgICAgaWYgaXNfZW5hYmxlZCBDT05G
+SUdfR0VORVJJQ19CVUlMVElOX0RUQjsgdGhlbgo+IC0tCj4gMi40Mi4wCj4KCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
