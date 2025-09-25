@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A94DCAC5AE
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 02:03:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 389D4CAC5B6
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 02:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DX1n/0+XuMUQwTJRsrzaBTeeXQolnJ0q+aqFFOBsIZ8=; b=BRWb/5FfuIjvHR
-	balemHwKJZ6mUGp1wmMAis3O9u3p4xZr0DmKOTnXXkiOGwsEukFGgeaOo12v5GpycUpK1tApGCEEq
-	cASv+2OMdBtHTGZmoaJvsZdO4vKfh7J0FTn8QUGDlQ8gnZWge+W3CAJKlXxZlJgN/emzKJFYGvHt2
-	UpwO1mEeVgJbqBOUqLCsh/Fj0ivH8eGyXhiyE20rMZ29kEwzdOTNb+p2YUizRcCJBeMI+L95bbVER
-	0fJ5Afu9Dur60cNEVX8oXm7CM5VcIGrBK7Q7dwSW0YTT9HwAblKSugKYtXSB0NUcj8BRQm1a3a566
-	ThwAqoOvUDvTl02Do8Qw==;
+	List-Owner; bh=K49sIRlmkxOI5Gr4JyfCBDZfwCLxUizL0R+oyJWayao=; b=AQ/ILKetL5ENev
+	XeJVVjwVUDJ1wo/UKMG3gKWut0KVFL005XYA0gbmcY5lObBLWtIulwSndld9KixIShu7Y/nUC2TXh
+	gizzOror1MANu64GnTcqqSdmRlqfOq7CgexOTqpf1dWnD3+Esv3L1SVCu/CM6KRV6Rrxv5IuzW5UB
+	Ahldjf8RlM2YFFiHuF+qO+3GN3LJ8UVf0HjoG1lOtjeppUBKwNo1bztArpNbPL6yjvW2DplrgXIbU
+	qmjZC6cnzW9nTClqK83UQYridp4gMwvb6tOpO/rS2pMT/TDpCKBPweTo44NP+FaMiCMnzLGUulCyM
+	XgKMBw25GaJSuqLoLWQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bKn-00000005Ewk-3LcP;
-	Thu, 25 Sep 2025 02:03:49 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1v1bKi-00000005EvK-26xt;
+	Thu, 25 Sep 2025 02:03:44 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bKl-00000005Eu7-1Bz6
+	id 1v1bKe-00000005Eu2-2KAz
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Sep 2025 02:03:48 +0000
+	Thu, 25 Sep 2025 02:03:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1758765770;
-	bh=+hkW+dybFPp2RfqNxYXbnlgcxQFt/YzTD70p6fgGPRU=;
+	s=mxsw2412; t=1758765760;
+	bh=ki4zczk6VnUFNXrN8wqllJY+M2Ri/NDcc9h1NlUpC8E=;
 	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=XGimKihtBL1u0MldqE1+nGtItw5BrmBnaScjoDvugwkogJ7aWPX6sLmghcW1iMit9
-	 X28FxIUwc94TIw0Kk0i38n8Y8esnvalM4OJa73kKxbhAvGck+9zKVMvTbDt+wNjym+
-	 CxaRhJJeEYCLC/qJ7GeE7oQiMRHQt77tnA7neZrY=
-X-QQ-mid: zesmtpgz5t1758765768te9343b32
-X-QQ-Originating-IP: rlFNyZhhYIxNjjGAnGHO1Z28iGdv2wkNQPma5kfIAXg=
+	b=ih7PXNw5bucOl3nZMBveyjSptPcQ+Bttdlv9ASfroqgzrBWFJJ+t6dM5KwyR6JGEV
+	 RsmlYElRDhE/O5HIq4MpZjiM+z/SVY24zKZ0LVOQlLXTEcgaFifr9w4iEUHohsftTu
+	 o2VtJOGF9iXuIdPOTXu2iLDpzvvJzQk7bjs4ujNI=
+X-QQ-mid: zesmtpsz4t1758765758ta18b7565
+X-QQ-Originating-IP: 6831mDtJxG/SrWIEQuteX+9U7ft5g0Sd/JCA83Sqr8E=
 Received: from = ( [61.145.255.150])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 25 Sep 2025 10:02:46 +0800 (CST)
+	id ; Thu, 25 Sep 2025 10:02:36 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16720547865039363860
+X-BIZMAIL-ID: 6417342533199486618
 EX-QQ-RecipientCnt: 10
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Thu, 25 Sep 2025 10:02:28 +0800
-Subject: [PATCH v2 4/6] i2c: spacemit: check SDA instead of SCL after bus
- reset
+Date: Thu, 25 Sep 2025 10:02:25 +0800
+Subject: [PATCH v2 1/6] i2c: spacemit: ensure bus release check runs when
+ wait_bus_idle() fails
 MIME-Version: 1.0
-Message-Id: <20250925-k1-i2c-atomic-v2-4-46dc13311cda@linux.spacemit.com>
+Message-Id: <20250925-k1-i2c-atomic-v2-1-46dc13311cda@linux.spacemit.com>
 References: <20250925-k1-i2c-atomic-v2-0-46dc13311cda@linux.spacemit.com>
 In-Reply-To: <20250925-k1-i2c-atomic-v2-0-46dc13311cda@linux.spacemit.com>
 To: Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
@@ -58,37 +58,38 @@ Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
  Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
  Aurelien Jarno <aurelien@aurel32.net>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758765753; l=1341;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758765753; l=1370;
  i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=5FRSPJM4VoQdAJpjocHWzM235kXDg5Bbjt8YWtUL9zo=;
- b=g0au7yfa3Emqgo0Wp+99ATDNTVSzxiUL5fwuzPFjeLTqKObOYJvm6nZqAKwnfI1iRfpQE4+n0
- 6CeXGl9AOKyBeX2bIhabWTZTHpNsIL4QoLBrjmrWN1oWyQP+62eFUA/
+ bh=Mxko1HfYivBbT3R4nSU08f1apQBZPPP7+WzA53A2nhQ=;
+ b=6sLdHx5CBOsGsN1uV3b4FYW/koIj/8FPAVsFZ1gBAOpCL7oL8BGMOtzZWE9rlCfgsv5DUHaRF
+ dJenAmOw74GCSdacr5ByQxeiStC5Yu54/aWtZUhiSzYYTj1IJPHnXbd
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
  pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: MKTBhjEpzXIfLqCcsgi+7Ss5XXOYoDoadGKqnBrl9KvDMDR6mpcpsLjd
-	+tTRIazt3y/+98Conmwd2MxdSGb29hd3LlUt4jjX7Y4sX2TSjKU/2fLZO1e6OOluzTsTQJl
-	F5k4rO9MXmSMDKiJ3riEQBruLt9EVfUR5QpYAN18V34fOghkCH4N8jR0tcJrupJYTAWf4nn
-	ZGe1AXJWrMVyNuNv3MUVCbKacaY7cMnwCIgjPuScMIyMfpdcPeqUkcLEXWrZyxY+1w1zvq8
-	rF7yyvmIYghG/hd9KqeDja2b/f4bSzUMwmdjwdT+xItZlNpz/eDSmJFyeEZ3V0lu6rEOlXw
-	i3JBDLGsYzd/iWOI7g5Begz1DRR9NlReX6w74oZTCV39DZ6ZB8Skf0uXxgWzTmcZm9gTmDh
-	vmYs0smwOqy5QuraROSj0qPAqh5AQnJkpMh9Wkipv9XNvWcOvGSC4miYxug6WzWePmKvoeI
-	wrseSzj6iykscBoxiI/j1p7sZ6dGGKhTZ3qA+zAuA/AGDi2aR4QxNp5iFLbgLbM3MRPfUaE
-	xU+1zmMUSLKxxMABpuPGSV9BnBfinqvllzVp1UgyE9l2M91CF7u/IDxsfIqm3o/qUfEwdwX
-	BGq05JdCyHpALeFrKxvmq2OnnmdADWE3gueE1JE+gaJsn8FOEVlbhU4tHz9aHvGdsRsUBLN
-	A3NKAp/5vpcNaPeSiKBA8lQCWhiDYaE2YIW4l1Jvai5SBUIBOb4ytI3ZPKT+dThR/SpjMNb
-	ia7YDiu6ZGHPegdTYZ4EhxfEFGHSNsQaaHSwmQbkzs/+RHlj75yyHxvyu5Kijpe7Q0JWvhN
-	TKGBIzRTXry43tzAZ2NS5KYtY/nm+eQ2EgUZWQJsF9E5cfhOga67HowSl1jZHfC2j6BzbJO
-	QfdEQ/YQwEpJfzicht0bHKApdn+Tp3QhtwEMbuaOENIfaAQiitXctGQk2QrU2Q0U5dfmZit
-	xx2s5q44t52CrTjF321dNyGVv1bTLvfDTiZmz5JpsgVhP6vC9NGzX2p6MI4nVVsdkVYic+7
-	2/hjo2aS8tpWa2HlGFLAIAwlvA4+hTJSm+k0GQcGUnXSbkLj+rMX8Yt65XDBtdFUSxdeCEZ
-	L7CbOI+F2ehr5FIVHn8wYbo83u8LTARgsS8+1NE+hPh+i63i00I2W2/tzI593030Q==
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NxdC3wVPjoZEdRrLlBsWCG3BifrbHTJ24v5o5vVXwvwWOK3ZuePnKtx/
+	ICfUrLEkvEa1IxiFMNjtTu9Q/orziD5eMNCcuCCIje9HuuGWjavcDkTG+7mOPr5rsZf5d5z
+	tUkHmU922DX+1cy45qBJLABsJJXzUqxbKtC5B7T8JKCNlvL/P/syvl5gW6NM1cl9/hMwKvk
+	TLvNlLv6MQX3hZtOYw3mEKZBl0HMaKZ0wVRsKTMBIueCQltM7fIFAzcJRVTYKYibwfXU+Sz
+	unfZNm4yjyKGWY5iY8l9Pf9jFty1BDdEaOPcLonUCx1a2Cnc5AeiXBm68Ie+6mXCl9Hv5/G
+	dgoi8peItUeGPmHQROda7fNHIpgJIJT8DlAC58WkmGWFVEz5eBwh79Alb/I8YzLvJneOv60
+	eeSo4nigGVKPdi+/1YPvTHMq4IKJtiT3mSxwaQmlnU75JT1gQXym7aIyqaVMPtETZTIlDph
+	5Jycga+2cQGYzQcMovAA9A9dUTHZCjnbKbZSq1bJTIsRjBgnj1yaD7y6pilZWbW8ZL+6z1o
+	JO18fS0PbXUNB9UwFKUzA3dGpa17afB+S2CwsSwrkPYZumTIu8P0dp1i/2ld3oie3/gA0MC
+	yQ+pd0Nz/3wx0s0+Kh7B5m/OuzOlRwqRNzUooxVECUmDxE1UMStl+bqkLBjajZ84SzyYGz2
+	S8L3aG+BaBEMDynBBT9jHMn3KYdEMojkg6jqlVUcFdtJ0l0wto3jEi1pW93ULT6/TetAkdv
+	tyfwLqzgN3BmBea+He4MLh0UYD8T1doC/OyJpsHfxrk6DK6U7Dw3PfZuSzrJEWBL2iS2LHf
+	J+Wn9/6RCeO5BCzYyNikwGj65gZGFet6RLqXQkqe3otzZYl0yswVJH+tXF93TmqG1+o2wsR
+	0noT/eg8CWLpZHJSSR77q8BlwVyW43VjOs450Ac/BnnIQRmsX5AIKUaP3u+P6btGBBFJmiG
+	Y1M8/AwKRr+0j3DFk+1PtJv6eW3bDNV65e5obS0EUzN6OFg8WrvaP3hFnuTcdwmNX/3g2tz
+	QpEgHeX3X5WOt/JiMuoaZV2aPM0xyEDILn9k1NniAvT5eczQwk98Zm/0lkNIBVRBpxJj7Tb
+	h0tH1zRsGVqsgYTI9BksfmSHCi0sj1EhV5b/qUgO7+h
+X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_190347_765320_6AC1FF2A 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20250924_190341_308026_1E998910 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,39 +106,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After calling spacemit_i2c_conditionally_reset_bus(),
-the controller should ensure that the SDA line is release
-before proceeding.
+spacemit_i2c_wait_bus_idle() only returns 0 on success or a negative
+error code on failure.
 
-Previously, the driver checked the SCL line instead,
-which does not guarantee that the bus is truly idle.
+Since 'ret' can never be positive, the final 'else' branch was
+unreachable, and spacemit_i2c_check_bus_release() was never called.
 
-This patch changes the check to verify SDA. This ensures
-proper bus recovery and avoids potential communication errors
-after a conditional reset.
+This commit guarantees we attempt to release the bus whenever waiting for
+an idle bus fails.
 
 Fixes: 5ea558473fa31 ("i2c: spacemit: add support for SpacemiT K1 SoC")
 Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- drivers/i2c/busses/i2c-k1.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/i2c/busses/i2c-k1.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-index 9bf9f01aa68bde6460e50c6983edc3f705b12eea..848dfaf634f63021bc565f2c0a1c93f9f33665dd 100644
+index b68a21fff0b56b59fe2032ccb7ca6953423aad32..ee08811f4087c8e709d25dd314854ed643cc5a47 100644
 --- a/drivers/i2c/busses/i2c-k1.c
 +++ b/drivers/i2c/busses/i2c-k1.c
-@@ -172,9 +172,9 @@ static void spacemit_i2c_conditionally_reset_bus(struct spacemit_i2c_dev *i2c)
- 	spacemit_i2c_reset(i2c);
- 	usleep_range(10, 20);
+@@ -476,12 +476,13 @@ static int spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, in
+ 	spacemit_i2c_enable(i2c);
  
--	/* check scl status again */
-+	/* check sda again here */
- 	status = readl(i2c->base + SPACEMIT_IBMR);
--	if (!(status & SPACEMIT_BMR_SCL))
-+	if (!(status & SPACEMIT_BMR_SDA))
- 		dev_warn_ratelimited(i2c->dev, "unit reset failed\n");
- }
+ 	ret = spacemit_i2c_wait_bus_idle(i2c);
+-	if (!ret)
++	if (!ret) {
+ 		ret = spacemit_i2c_xfer_msg(i2c);
+-	else if (ret < 0)
+-		dev_dbg(i2c->dev, "i2c transfer error: %d\n", ret);
+-	else
++		if (ret < 0)
++			dev_dbg(i2c->dev, "i2c transfer error: %d\n", ret);
++	} else {
+ 		spacemit_i2c_check_bus_release(i2c);
++	}
+ 
+ 	spacemit_i2c_disable(i2c);
  
 
 -- 
