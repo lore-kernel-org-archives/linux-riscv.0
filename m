@@ -4,99 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6231CCAC5A7
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 12:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B8FCAC5A7
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 12:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D4MjZQUqMqiI21bKO7xMpV1B4ODfemEftykpBAYloww=; b=r/4mmc4g57abkg
-	QQuSBSFJDgzZl25dKAHT1tpeEsmNcYQWCFYxQWIxiYDGTzfSsiUfuEVeTjnUxKUWBihAwEhAAvzX1
-	HtSXdRVDADQ8mRxMqXdZL3yAKwg/qT9cQYnNfNkc8lzSxeD+brp47nwiUkQ+Yjn5YZoFDjlI6cdap
-	HM2tgJ22iG9Qc/tVirhTzwCEbeakBexzIZvtKIoS77iB6SI8WTpE13Kmdvowp1uH70ldrGDw2Ff5M
-	6kRN1CTppgOAGsQ/ssq5Cnv+34WuJKwPN+KVrVAtTR3WnPRa9PBBlHwzagmYTPcI7sp4+12tbdzm+
-	lf/e++sdt9C7ebg+Z8Sw==;
+	List-Owner; bh=U0mWy+IOd23EEqIUXTFq71oxwpmeVJztD9l7GICxk54=; b=lz9ywNHwPSBZhk
+	lO3l6HXRwqoXZ/WrayDgIHR8uVfKsJFH37m7o282zBWhjutjFoSsIOf+Is5s1fEeuZtPELIZ1r3Hp
+	9NLbyiHKypROQ8aW7ftIydBJTMtb8V67IyOFjEW8ZAlqNONSoNwE5u9ICa2y8USN9GNbSX18KMH7x
+	EHbIEyUiTP0dWB8twCKaVWNvRfkI0tnXFm22kZT2wo74s6XkfyINdedADouUpxDtwJDno/ezzYw/C
+	dDLquCU6Ve/wKPxXG37saXkvP7JKGH0hA0JEXlNitZTJaImPAIMyyyrk0go2CuzRuZ+gNCtEZP8Qg
+	Ou2Ykg02fp9aah471xbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1kud-00000008syT-47GB;
-	Thu, 25 Sep 2025 12:17:27 +0000
-Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
+	id 1v1l7A-00000008z0a-2FFG;
+	Thu, 25 Sep 2025 12:30:24 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1kua-00000008str-1rIe
+	id 1v1l78-00000008yzZ-3dJy
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Sep 2025 12:17:26 +0000
-Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-8c62e313847so36535339f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 25 Sep 2025 05:17:24 -0700 (PDT)
+	Thu, 25 Sep 2025 12:30:24 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-61feb87fe26so1165422a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Sep 2025 05:30:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1758802643; x=1759407443; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1758803420; x=1759408220; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JJLSfQ0J8vfRkVEAIBDGdkg4RIapIEycOa18R6BCXIU=;
-        b=dgIQXJ8c1tDmm1jXbXlWRQw/fGPl57J9eN+DPaQ5pIZFMnhfKCboPtGj37YAwO3IZe
-         5yshhZX91/ygye7HWKPtO59JnksGwgUfrWz7QDhCZHU0UmJk9yDRXReBAJFUZF2hQlem
-         uBDyvUA41tTuIw/t+4nXLoQEbjaAFOpvuHE7n0x+bDsxasSnJ9VbgwkUdo/2HGig2m8i
-         0j5bODUU0FLVG/r09t4dQ3qD+Zjo8n4xJrtvDdnvTzfAjJz/5k15OnvCZVMgWXyoU0rj
-         M/D58OVZ0Ga0ujMl+NJPN2Pi2UIfggh3Jz+A0FtfsBskNMi3cXCM3DqQpSJOFdX0hue5
-         Acuw==
+        bh=cpogRHSrLfl51nWywJppLMZXYXi2KQs1G3uCf0+H8cQ=;
+        b=bFqIF0WLsxsDI720TOy8gH07Xdi18zJCFyX5+PbpwglMHsUJ8TGUgYm0yTICe3ju3b
+         Mk95VUPPbP6jrJNuRR6eklxC48l/142yQ0hxTwbQuzqFMxyHbQgGFKP1R26JdRlevYWw
+         j51ivYxvC67t5tZcI57gQodX8fFm72eujWvt5lHFyJRqUIkLOBRnEvC08CtpkMdOf2zo
+         yOyKOO6WOUJldyxR5WQSFh1aOM/NqzIn7ukR3B6qGmyXm89EkAw4P+FZA7La2YWy8uop
+         RxdbUKfat7DkM3X5zIKFFpFwegVh3fQv338uyaQ1DXki3ok2IhEjQSwSQHXLbuhMwnJS
+         kVnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758802643; x=1759407443;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1758803420; x=1759408220;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JJLSfQ0J8vfRkVEAIBDGdkg4RIapIEycOa18R6BCXIU=;
-        b=jq7/X6+5keZVWDBj7LrkeF/fFJW3TNdItY4q/3XZAkJ3NMWHo+IdC4TmBt9ISJGIYy
-         gCoQvRsK2CQvBdUMigRMKeWn7DIrXpmyHKky8VZST2NU80CdUXDrOJtLZ+iB5OAyp0+w
-         vu8yJ2g1hz2GJhCeupV0sgNdYy6L67jwdCPB+rGIvArGSSUTEu2UgH8kTTdvv1naTbu1
-         37YbkxjVoTCLCVpIuY5/xzKQpBOUdYolQugZvvLgmBt5+gdwQJtXhbo+o1NCUnqPF3Ci
-         2tXJSGReTla8zLc+pSseA47MMsZeHfGBXilkoaZvXxekD24gcDXCNpuGyfZ/XEHeVqM7
-         RHrg==
-X-Forwarded-Encrypted: i=1; AJvYcCUdKoYonld5EzhngibteydwxFaqNq6RVQ5c1g54CC1Lsi1UQPv5G5ZiUujlcWYysv+vN9BQWCeC6P3XSA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5ZoT7NpHiBqzMkFHHjCqGhgebz8W0O2L0mFnHP/PlD34dtnMp
-	EcY1SVj6jkbFSzWkUA5ymunc6MNAhS55bW6WfSHiii82i8aLWtI+rYBHqhtPJI16XQw=
-X-Gm-Gg: ASbGnctPzFntDPseuayBMPesmIme7X7iKNrObl5jugWDTMToMNjAPGE0MdStF/rRi4m
-	Zbsoss4LQeh91iL9KQWw1Zq/fYC2g65POxOuDLQHFjBghljwPB6ARThst8suDw6p221Qyiu66Yx
-	pukuoMt/g4Nwg2NyB8bxtrkfB/r+T3lb3WVA6JlPN3L7uwbMrsz/QHErU8nOD1huc7mAgGxbpZ4
-	4jMR+osLaSdWl8JjTne7DubrKIJ/BMoLYkpRrjMGeOEN87Zs4FfDgLRkWZQLaPQP3bHwIT3kFWx
-	ngxw7EswL9Dy/WhMPxlrvRffvaUtp/oYdvDO1k+qKYKV2xF0wHzI/NURvpoM/x50dnSN5KalDik
-	mSLejGxpnp0Yan6rEuLhW329zWNBlTOFf30qRpA2WECpAufUoQ18moo1qQ41PqhN6Zw==
-X-Google-Smtp-Source: AGHT+IFsdhJSC1i3pWjD7folKjVi1DMBXZ/67eGjqV/jAQckCELphx7jHaxMHOJ8xTnbl3x+8qAPCQ==
-X-Received: by 2002:a05:6602:1502:b0:894:6ff:6ec1 with SMTP id ca18e2360f4ac-901366ecaeamr481935239f.0.1758802643292;
-        Thu, 25 Sep 2025 05:17:23 -0700 (PDT)
-Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-9040c57fa59sm66918439f.16.2025.09.25.05.17.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Sep 2025 05:17:22 -0700 (PDT)
-From: Alex Elder <elder@riscstar.com>
-To: broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: dlan@gentoo.org,
-	ziyao@disroot.org,
-	junhui.liu@pigmoral.tech,
-	linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	p.zabel@pengutronix.de,
-	spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 2/3] spi: spacemit: introduce SpacemiT K1 SPI controller driver
-Date: Thu, 25 Sep 2025 07:17:12 -0500
-Message-ID: <20250925121714.2514932-3-elder@riscstar.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250925121714.2514932-1-elder@riscstar.com>
-References: <20250925121714.2514932-1-elder@riscstar.com>
+        bh=cpogRHSrLfl51nWywJppLMZXYXi2KQs1G3uCf0+H8cQ=;
+        b=WizWYYDSEkfwkL+1XyaAKGsblGcn1IjBK4cnsAp6kfHyXnd+k9pZIc9W6so3abVl2O
+         IT8jPTZcpYjsN8l0909gSrnrK5RuCx93xJtADXsGWR2cg8XWxRHuvp/jOeP2dw5yk3i9
+         ICXzzfUhVCg+N0C1LsMsfFZGqxyHWs76AzJ7VwW9fYhSB+sOLzjkYJf+Ta49eWiMirdc
+         oujzf3iA+C9W+Hij+jztRcTtVR352egL/ms6bAC+bCFhjlzpcvGpxLzJ0hrFg4fkZrJs
+         2tGBL1qej8WMwJ5reIK81bFuXM6SmMkKGggzQWmaJt7lzE/UpB24GrGcJItCmNe+3PhM
+         1ZfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUAcYBNdPYSvttP7iOXUZsPxA6mfSUpkB/HUO8tEq51N2SZm3Q1YImjXIfU6/dI8/92U0EotB8i6eYUzQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjN8IymnJLcImqaj0+HwXbWkg9oHFgC8jkIEWoIV02Zdj+qH/b
+	xa0JNSO50IRDveEGChAa0/GvzkK5G/ayrXrNl8SoLYw/VtcRgkSHgacOig62f1fSTybQEuO2Zi7
+	3YPycX4gI4HrlfxzMajEY4E8dYc0Hpy4=
+X-Gm-Gg: ASbGnctqx/koKr6nUrcp/UmwZIhmdal66YVPfN3TbgvFESYdmeeYR2OCBBEbuN1SETN
+	5Ebt+r6NVpLRMvDNIYdWhc004Um6l97t8jl9GECFJe3dVr1ZFBhxxLDxDo6LQvcL6OpmHc8a3EL
+	yqZ5Z57dvx7MoilREOPQ4rfUiYbgQFhKYL4U65zJU0/IaG39rq0+g7SoblDzCfk1BySzmexfbpl
+	S5j
+X-Google-Smtp-Source: AGHT+IGrMTtF3rO6PyqglimJ6kWsoCOnyf9RbZPnOG2/Nl32fMXOunJIE5E6zYa1d9+08xohVhzghLhulRn9g+pvf4U=
+X-Received: by 2002:a17:907:3f87:b0:b09:2331:f150 with SMTP id
+ a640c23a62f3a-b34b84aba85mr396036566b.16.1758803420120; Thu, 25 Sep 2025
+ 05:30:20 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
+ <f953ee7b-91b3-f6f5-6955-b4a138f16dbc@kernel.org> <aNQ7D6_ZYMhCdkmL@debug.ba.rivosinc.com>
+In-Reply-To: <aNQ7D6_ZYMhCdkmL@debug.ba.rivosinc.com>
+From: Andy Chiu <andybnac@gmail.com>
+Date: Thu, 25 Sep 2025 07:30:08 -0500
+X-Gm-Features: AS18NWByhWo0dHTSYL4t2oFRcok3gmrZ-pBxSOOqriMBIQLUznFC4iXNOpyJQRE
+Message-ID: <CAFTtA3Nxq0UmXcuN7jmQOiuTbrenKbR4ihH027ya1WWybgLq4Q@mail.gmail.com>
+Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Christian Brauner <brauner@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Jann Horn <jannh@google.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, 
+	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
+	richard.henderson@linaro.org, jim.shu@sifive.com, kito.cheng@sifive.com, 
+	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com, 
+	cleger@rivosinc.com, alexghiti@rivosinc.com, samitolvanen@google.com, 
+	broonie@kernel.org, rick.p.edgecombe@intel.com, 
+	rust-for-linux@vger.kernel.org, Zong Li <zong.li@sifive.com>, 
+	David Hildenbrand <david@redhat.com>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+	Florian Weimer <fweimer@redhat.com>, bharrington@redhat.com, 
+	Aurelien Jarno <aurel32@debian.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_051724_533738_8EC36CB2 
-X-CRM114-Status: GOOD (  27.92  )
+X-CRM114-CacheID: sfid-20250925_053022_950948_F6FA6673 
+X-CRM114-Status: GOOD (  53.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,1034 +117,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch introduces the driver for the SPI controller found in the
-SpacemiT K1 SoC.  Currently the driver supports master mode only.
-The SPI hardware implements RX and TX FIFOs, 32 entries each, and
-supports both PIO and DMA mode transfers.
-
-Signed-off-by: Alex Elder <elder@riscstar.com>
----
-v4: - Fixed an underrun/overrun comment error
-
- drivers/spi/Kconfig           |   9 +
- drivers/spi/Makefile          |   1 +
- drivers/spi/spi-spacemit-k1.c | 965 ++++++++++++++++++++++++++++++++++
- 3 files changed, 975 insertions(+)
- create mode 100644 drivers/spi/spi-spacemit-k1.c
-
-diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
-index 4d8f00c850c14..2e933edab1718 100644
---- a/drivers/spi/Kconfig
-+++ b/drivers/spi/Kconfig
-@@ -1071,6 +1071,15 @@ config SPI_SG2044_NOR
- 	  also supporting 3Byte address devices and 4Byte address
- 	  devices.
- 
-+config SPI_SPACEMIT_K1
-+	tristate "K1 SPI Controller"
-+	depends on ARCH_SPACEMIT || COMPILE_TEST
-+	depends on OF
-+	imply MMP_PDMA if ARCH_SPACEMIT
-+	default ARCH_SPACEMIT
-+	help
-+	  Enable support for the SpacemiT K1 SPI controller.
-+
- config SPI_SPRD
- 	tristate "Spreadtrum SPI controller"
- 	depends on ARCH_SPRD || COMPILE_TEST
-diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
-index 8ff74a13faaa8..c17e7d62dbe16 100644
---- a/drivers/spi/Makefile
-+++ b/drivers/spi/Makefile
-@@ -140,6 +140,7 @@ obj-$(CONFIG_SPI_SIFIVE)		+= spi-sifive.o
- obj-$(CONFIG_SPI_SLAVE_MT27XX)          += spi-slave-mt27xx.o
- obj-$(CONFIG_SPI_SN_F_OSPI)		+= spi-sn-f-ospi.o
- obj-$(CONFIG_SPI_SG2044_NOR)	+= spi-sg2044-nor.o
-+obj-$(CONFIG_SPI_SPACEMIT_K1)		+= spi-spacemit-k1.o
- obj-$(CONFIG_SPI_SPRD)			+= spi-sprd.o
- obj-$(CONFIG_SPI_SPRD_ADI)		+= spi-sprd-adi.o
- obj-$(CONFIG_SPI_STM32) 		+= spi-stm32.o
-diff --git a/drivers/spi/spi-spacemit-k1.c b/drivers/spi/spi-spacemit-k1.c
-new file mode 100644
-index 0000000000000..91dc1315a64f7
---- /dev/null
-+++ b/drivers/spi/spi-spacemit-k1.c
-@@ -0,0 +1,965 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Support for SpacemiT K1 SPI controller
-+ *
-+ * Copyright (C) 2025 by RISCstar Solutions Corporation.  All rights reserved.
-+ * Copyright (c) 2023, spacemit Corporation.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/device.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/dmaengine.h>
-+#include <linux/interrupt.h>
-+#include <linux/kernel.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset.h>
-+#include <linux/scatterlist.h>
-+#include <linux/sizes.h>
-+#include <linux/spi/spi.h>
-+#include <linux/units.h>
-+
-+#include "internals.h"
-+
-+/* This is the range of transfer rates supported by the K1 SoC */
-+#define K1_SPI_MIN_SPEED_HZ		6250
-+#define K1_SPI_MAX_SPEED_HZ		51200000
-+
-+/* Default speed used if spi-max-frequency is invalid or not present */
-+#define K1_SPI_DEFAULT_MAX_SPEED_HZ	25600000
-+
-+/* DMA constraints */
-+#define K1_SPI_DMA_ALIGNMENT	64
-+#define K1_SPI_MAX_DMA_LEN	SZ_512K
-+
-+/* SpacemiT K1 SPI Registers */
-+
-+/* SSP Top Control Register */
-+#define SSP_TOP_CTRL		0x00
-+#define TOP_SSE				BIT(0)		/* Enable port */
-+#define TOP_FRF_MASK			GENMASK(2, 1)	/* Frame format */
-+#define TOP_FRF_MOTOROLA			0	/* Motorola SPI */
-+#define TOP_DSS_MASK			GENMASK(9, 5)	/* Data size (1-32) */
-+#define TOP_SPO				BIT(10)		/* Polarity: 0=low */
-+#define TOP_SPH				BIT(11)		/* Half-cycle phase */
-+#define TOP_LBM				BIT(12)		/* Loopback mode */
-+#define TOP_TRAIL			BIT(13)		/* Trailing bytes */
-+#define TOP_HOLD_FRAME_LOW		BIT(14)		/* Master mode */
-+
-+/* SSP FIFO Control Register */
-+#define SSP_FIFO_CTRL		0x04
-+#define FIFO_TFT_MASK			GENMASK(4, 0)	/* TX FIFO threshold */
-+#define FIFO_RFT_MASK			GENMASK(9, 5)	/* RX FIFO threshold */
-+#define FIFO_TSRE			BIT(10)		/* TX service request */
-+#define FIFO_RSRE			BIT(11)		/* RX service request */
-+
-+/* SSP Interrupt Enable Register */
-+#define SSP_INT_EN		0x08
-+#define SSP_INT_EN_TINTE		BIT(1)		/* RX timeout */
-+#define SSP_INT_EN_RIE			BIT(2)		/* RX FIFO */
-+#define SSP_INT_EN_TIE			BIT(3)		/* TX FIFO */
-+#define SSP_INT_EN_RIM			BIT(4)		/* RX FIFO overrun */
-+#define SSP_INT_EN_TIM			BIT(5)		/* TX FIFO underrun */
-+
-+/* SSP Time Out Register */
-+#define SSP_TIMEOUT		0x0c
-+#define SSP_TIMEOUT_MASK		GENMASK(23, 0)
-+
-+/* SSP Data Register */
-+#define SSP_DATAR		0x10
-+
-+/* SSP Status Register */
-+#define SSP_STATUS		0x14
-+#define SSP_STATUS_BSY			BIT(0)		/* SPI/I2S busy */
-+#define SSP_STATUS_TNF			BIT(6)		/* TX FIFO not full */
-+#define SSP_STATUS_TFL			GENMASK(11, 7)	/* TX FIFO level */
-+#define SSP_STATUS_TUR			BIT(12)		/* TX FIFO underrun */
-+#define SSP_STATUS_RNE			BIT(14)		/* RX FIFO not empty */
-+#define SSP_STATUS_RFL			GENMASK(19, 15)	/* RX FIFO level */
-+#define SSP_STATUS_ROR			BIT(20)		/* RX FIFO overrun */
-+
-+/* The FIFO sizes and thresholds are the same for RX and TX */
-+#define K1_SPI_FIFO_SIZE	32
-+#define K1_SPI_THRESH		(K1_SPI_FIFO_SIZE / 2)
-+
-+struct k1_spi_io {
-+	enum dma_data_direction dir;
-+	struct dma_chan *chan;
-+	void *buf;
-+	unsigned int resid;
-+	u32 nents;
-+	struct sg_table sgt;
-+};
-+
-+struct k1_spi_driver_data {
-+	struct spi_controller *controller;
-+	struct device *dev;
-+	void __iomem *base;
-+	unsigned long bus_rate;
-+	struct clk *clk;
-+	unsigned long rate;
-+	u32 rx_timeout;
-+	int irq;
-+
-+	struct k1_spi_io rx;
-+	struct k1_spi_io tx;
-+
-+	void *dummy;			/* DMA disabled if NULL */
-+	u32 base_addr;			/* DMA address corresponding to base */
-+
-+	struct spi_message *message;	/* Current message */
-+
-+	/* Current transfer information; not valid if message is null */
-+	unsigned int len;
-+	u32 bytes;			/* Bytes used for bits_per_word */
-+	bool dma_mapped;
-+	struct completion completion;	/* Transfer completion */
-+};
-+
-+static bool k1_spi_dma_enabled(struct k1_spi_driver_data *drv_data)
-+{
-+	return !!drv_data->dummy;
-+}
-+
-+static bool k1_spi_map_dma_buffer(struct k1_spi_io *io, size_t len, void *dummy)
-+{
-+	struct device *dmadev = io->chan->device->dev;
-+	unsigned int nents = DIV_ROUND_UP(len, SZ_2K);
-+	struct sg_table *sgt = &io->sgt;
-+	void *bufp = io->buf ? : dummy;
-+	struct scatterlist *sg;
-+	unsigned int i;
-+
-+	if (nents != sgt->nents) {
-+		sg_free_table(sgt);
-+		if (sg_alloc_table(sgt, nents, GFP_KERNEL))
-+			return false;
-+	}
-+
-+	for_each_sg(sgt->sgl, sg, nents, i) {
-+		size_t bytes = min_t(size_t, len, SZ_2K);
-+
-+		sg_set_buf(sg, bufp, bytes);
-+		if (bufp != dummy)
-+			bufp += bytes;
-+		len -= bytes;
-+	}
-+	io->nents = dma_map_sg(dmadev, sgt->sgl, nents, io->dir);
-+
-+	return !!io->nents;
-+}
-+
-+static void k1_spi_unmap_dma_buffer(struct k1_spi_io *io)
-+{
-+	struct sg_table *sgt = &io->sgt;
-+
-+	dma_unmap_sg(io->chan->device->dev, sgt->sgl, io->nents, io->dir);
-+	io->nents = 0;
-+}
-+
-+static bool k1_spi_map_dma_buffers(struct k1_spi_driver_data *drv_data)
-+{
-+	u32 dma_burst_size;
-+	void *dummy;
-+
-+	if (!k1_spi_dma_enabled(drv_data))
-+		return false;
-+
-+	dma_burst_size = K1_SPI_THRESH * drv_data->bytes;
-+
-+	/* Don't bother with DMA if we can't do even a single burst */
-+	if (drv_data->len < dma_burst_size)
-+		return false;
-+
-+	/* We won't use DMA if the transfer is too big, either */
-+	if (drv_data->len > K1_SPI_MAX_DMA_LEN)
-+		return false;
-+
-+	/* Map both directions for DMA; if either fails, we'll use PIO */
-+	dummy = drv_data->dummy;
-+	if (!k1_spi_map_dma_buffer(&drv_data->rx, drv_data->len, dummy))
-+		return false;
-+
-+	if (k1_spi_map_dma_buffer(&drv_data->tx, drv_data->len, dummy))
-+		return true;		/* Success! */
-+
-+	/* Failed to map the RX buffer; undo the TX mapping */
-+	k1_spi_unmap_dma_buffer(&drv_data->rx);
-+
-+	return false;
-+}
-+
-+static struct dma_async_tx_descriptor *
-+k1_spi_prepare_dma_io(struct k1_spi_driver_data *drv_data, struct k1_spi_io *io)
-+{
-+	u32 addr = drv_data->base_addr + SSP_DATAR;
-+	struct dma_slave_config cfg = { };
-+	enum dma_transfer_direction dir;
-+	enum dma_slave_buswidth width;
-+	u32 dma_burst_size;
-+	int ret;
-+
-+	dir = io->dir == DMA_TO_DEVICE ? DMA_MEM_TO_DEV
-+				       : DMA_DEV_TO_MEM;
-+
-+	width = drv_data->bytes == 1 ? DMA_SLAVE_BUSWIDTH_1_BYTE :
-+		drv_data->bytes == 2 ? DMA_SLAVE_BUSWIDTH_2_BYTES
-+		/* bytes == 4 */     : DMA_SLAVE_BUSWIDTH_4_BYTES;
-+
-+	dma_burst_size = K1_SPI_THRESH * drv_data->bytes;
-+
-+	cfg.direction = dir;
-+	if (dir == DMA_MEM_TO_DEV) {
-+		cfg.dst_addr = addr;
-+		cfg.dst_addr_width = width;
-+		cfg.dst_maxburst = dma_burst_size;
-+	} else {
-+		cfg.src_addr = addr;
-+		cfg.src_addr_width = width;
-+		cfg.src_maxburst = dma_burst_size;
-+	}
-+
-+	ret = dmaengine_slave_config(io->chan, &cfg);
-+	if (ret)
-+		return NULL;
-+
-+	return dmaengine_prep_slave_sg(io->chan, io->sgt.sgl, io->nents, dir,
-+				       DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-+}
-+
-+/* DMA completion callback */
-+static void k1_spi_callback(void *data)
-+{
-+	complete(data);
-+}
-+
-+static bool k1_spi_transfer_start_dma(struct k1_spi_driver_data *drv_data)
-+{
-+	struct dma_async_tx_descriptor *rx_desc;
-+	struct dma_async_tx_descriptor *tx_desc;
-+	struct device *dev = drv_data->dev;
-+	u32 val;
-+
-+	rx_desc = k1_spi_prepare_dma_io(drv_data, &drv_data->rx);
-+	if (!rx_desc) {
-+		dev_err(dev, "failed to get DMA RX descriptor\n");
-+		return false;
-+	}
-+
-+	tx_desc = k1_spi_prepare_dma_io(drv_data, &drv_data->tx);
-+	if (!tx_desc) {
-+		dev_err(dev, "failed to get DMA TX descriptor\n");
-+		return false;
-+	}
-+
-+	val = readl(drv_data->base + SSP_TOP_CTRL);
-+	val |= TOP_TRAIL;	/* Trailing bytes handled by DMA */
-+	writel(val, drv_data->base + SSP_TOP_CTRL);
-+
-+	val = readl(drv_data->base + SSP_FIFO_CTRL);
-+	val |= FIFO_TSRE | FIFO_RSRE;
-+	writel(val, drv_data->base + SSP_FIFO_CTRL);
-+
-+	/* When RX is complete we also know TX has completed */
-+	rx_desc->callback = k1_spi_callback;
-+	rx_desc->callback_param = &drv_data->completion;
-+
-+	dmaengine_submit(rx_desc);
-+	dmaengine_submit(tx_desc);
-+
-+	dma_async_issue_pending(drv_data->rx.chan);
-+	dma_async_issue_pending(drv_data->tx.chan);
-+
-+	return true;
-+}
-+
-+static void k1_spi_transfer_end_dma(struct k1_spi_driver_data *drv_data)
-+{
-+	u32 val;
-+
-+	val = readl(drv_data->base + SSP_FIFO_CTRL);
-+	val &= ~(FIFO_TSRE | FIFO_RSRE);
-+	writel(val, drv_data->base + SSP_FIFO_CTRL);
-+
-+	val = readl(drv_data->base + SSP_TOP_CTRL);
-+	val &= ~TOP_TRAIL;		/* Trailing bytes handled by the CPU */
-+	writel(val, drv_data->base + SSP_TOP_CTRL);
-+
-+	/* Signal an error if an RX overrun or TX underrun occurred */
-+	val = readl(drv_data->base + SSP_STATUS);
-+	if (val & (SSP_STATUS_TUR | SSP_STATUS_ROR))
-+		drv_data->message->status = -EIO;
-+}
-+
-+/* Discard any data in the RX FIFO */
-+static void k1_spi_flush(struct k1_spi_driver_data *drv_data)
-+{
-+	u32 val = readl(drv_data->base + SSP_STATUS);
-+	u32 count;
-+
-+	/* If there's nothing in the FIFO, we're done */
-+	if (!(val & SSP_STATUS_RNE))
-+		return;
-+
-+	/* Read and discard what's there (one more than what the field says) */
-+	count = FIELD_GET(SSP_STATUS_RFL, val) + 1;
-+	do
-+		(void)readl(drv_data->base + SSP_DATAR);
-+	while (--count);
-+}
-+
-+/* Set the transfer speed; the SPI core code ensures it is supported */
-+static bool k1_spi_set_speed(struct k1_spi_driver_data *drv_data, u32 rate)
-+{
-+	struct clk *clk = drv_data->clk;
-+	u64 nsec_per_word;
-+	u64 bus_ticks;
-+
-+	if (clk_set_rate(clk, rate))
-+		return false;
-+
-+	drv_data->rate = clk_get_rate(clk);
-+
-+	/*
-+	 * Compute the RX FIFO inactivity timeout value that should be used.
-+	 * The inactivity timer restarts with each word that lands in the
-+	 * FIFO.  If two or more "word transfer times" pass without any new
-+	 * data in the RX FIFO, we might as well read what's there.
-+	 *
-+	 * The rate at which words land in the FIFO is determined by the
-+	 * word size and the transfer rate.  One bit is transferred per
-+	 * clock tick, and 8 (or 16 or 32) bits are transferred per word.
-+	 *
-+	 * So we can get word transfer time (in nanoseconds) from:
-+	 *   nsec_per_tick = NANOHZ_PER_HZ / drv_data->rate;
-+	 *   ticks_per_word = BITS_PER_BYTE * drv_data->bytes;
-+	 * We do the divide last for better accuracy.
-+	 */
-+	nsec_per_word = NANOHZ_PER_HZ * BITS_PER_BYTE * drv_data->bytes;
-+	nsec_per_word = DIV_ROUND_UP(nsec_per_word, drv_data->rate);
-+
-+	/*
-+	 * The timeout (which we'll set to three word transfer times) is
-+	 * expressed as a number of APB clock ticks.
-+	 *   bus_ticks = 3 * nsec * (drv_data->bus_rate / NANOHZ_PER_HZ)
-+	 */
-+	bus_ticks = 3 * nsec_per_word * drv_data->bus_rate;
-+	drv_data->rx_timeout = DIV_ROUND_UP(bus_ticks, NANOHZ_PER_HZ);
-+
-+	return true;
-+}
-+
-+static void k1_spi_read_word(struct k1_spi_driver_data *drv_data)
-+{
-+	struct k1_spi_io *rx = &drv_data->rx;
-+	u32 bytes = drv_data->bytes;
-+	u32 val;
-+
-+	val = readl(drv_data->base + SSP_DATAR);
-+	rx->resid -= bytes;
-+
-+	if (!rx->buf)
-+		return;	/* Null reader: discard the data */
-+
-+	if (bytes == 1)
-+		*(u8 *)rx->buf = val;
-+	else if (bytes == 2)
-+		*(u16 *)rx->buf = val;
-+	else	/* bytes == 4 */
-+		*(u32 *)rx->buf = val;
-+
-+	rx->buf += bytes;
-+}
-+
-+static bool k1_spi_read(struct k1_spi_driver_data *drv_data)
-+{
-+	struct k1_spi_io *rx = &drv_data->rx;
-+	unsigned int count;
-+	u32 val;
-+
-+	if (!rx->resid)
-+		return true;	/* Nothing more to receive */
-+
-+	/* We'll read as many slots in the FIFO as there are available */
-+	val = readl(drv_data->base + SSP_STATUS);
-+	/* The number of open slots is one more than what's in the field */
-+	count = FIELD_GET(SSP_STATUS_RFL, val) + 1;
-+
-+	/* A full FIFO count means the FIFO is either full or empty */
-+
-+	if (count == K1_SPI_FIFO_SIZE)
-+		if (!(val & SSP_STATUS_RNE))
-+			return false;	/* Nothing available to read */
-+
-+	count = min(count, rx->resid);
-+	while (count--)
-+		k1_spi_read_word(drv_data);
-+
-+	return !rx->resid;
-+}
-+
-+static void k1_spi_write_word(struct k1_spi_driver_data *drv_data)
-+{
-+	struct k1_spi_io *tx = &drv_data->tx;
-+	u32 val = 0;
-+	u32 bytes;
-+
-+	bytes = drv_data->bytes;
-+	if (tx->buf) {
-+		if (bytes == 1)
-+			val = *(u8 *)tx->buf;
-+		else if (bytes == 2)
-+			val = *(u16 *)tx->buf;
-+		else	/* bytes == 4 */
-+			val = *(u32 *)tx->buf;
-+		tx->buf += bytes;
-+	} /* Otherwise null writer; write 1, 2, or 4 zero bytes */
-+
-+	tx->resid -= bytes;
-+	writel(val, drv_data->base + SSP_DATAR);
-+}
-+
-+static bool k1_spi_write(struct k1_spi_driver_data *drv_data)
-+{
-+	struct k1_spi_io *tx = &drv_data->tx;
-+	unsigned int count;
-+	u32 val;
-+
-+	if (!tx->resid)
-+		return true;	/* Nothing more to send */
-+
-+	/* See how many slots in the TX FIFO are available */
-+	val = readl(drv_data->base + SSP_STATUS);
-+	count = FIELD_GET(SSP_STATUS_TFL, val);
-+
-+	/* A zero count means the FIFO is either full or empty */
-+	if (!count) {
-+		if (val & SSP_STATUS_TNF)
-+			count = K1_SPI_FIFO_SIZE;
-+		else
-+			return false;	/* No room in the FIFO */
-+	}
-+
-+	/*
-+	 * Limit how much we try to send at a time, to reduce the
-+	 * chance the other side can overrun our RX FIFO.
-+	 */
-+	count = min3(count, K1_SPI_THRESH, tx->resid);
-+	while (count--)
-+		k1_spi_write_word(drv_data);
-+
-+	return !tx->resid;
-+}
-+
-+static bool k1_spi_transfer_start(struct k1_spi_driver_data *drv_data,
-+				  struct spi_transfer *transfer)
-+{
-+	u32 val;
-+
-+	/* Bits per word can change on a per-transfer basis */
-+	drv_data->bytes = spi_bpw_to_bytes(transfer->bits_per_word);
-+
-+	/* Each transfer can also specify a different rate */
-+	if (!k1_spi_set_speed(drv_data, transfer->speed_hz)) {
-+		dev_err(drv_data->dev, "failed to set transfer speed\n");
-+		return false;
-+	}
-+
-+	k1_spi_flush(drv_data);
-+
-+	/* Record the current transfer information */
-+	drv_data->rx.buf = transfer->rx_buf;
-+	drv_data->rx.resid = transfer->len;
-+	drv_data->tx.buf = (void *)transfer->tx_buf;
-+	drv_data->tx.resid = transfer->len;
-+	drv_data->len = transfer->len;
-+
-+	drv_data->dma_mapped = k1_spi_map_dma_buffers(drv_data);
-+
-+	/* Set the RX timeout period (required for both DMA and PIO) */
-+	val = FIELD_PREP(SSP_TIMEOUT_MASK, drv_data->rx_timeout);
-+	writel(val, drv_data->base + SSP_TIMEOUT);
-+
-+	/* Clear any existing interrupt conditions */
-+	val = readl(drv_data->base + SSP_STATUS);
-+	writel(val, drv_data->base + SSP_STATUS);
-+
-+	/* Set the data size and enable the hardware */
-+	val = readl(drv_data->base + SSP_TOP_CTRL);
-+	val |= FIELD_PREP(TOP_DSS_MASK, transfer->bits_per_word - 1);
-+	val |= TOP_SSE;
-+	writel(val, drv_data->base + SSP_TOP_CTRL);
-+
-+	/* DMA transfers are programmmed, then initiated */
-+	if (drv_data->dma_mapped)
-+		return k1_spi_transfer_start_dma(drv_data);
-+
-+	/*
-+	 * For PIO transfers, interrupts will cause words to get
-+	 * transferred.  The interrupts will get disabled as the
-+	 * transfer completes.  We'll write what we can to get
-+	 * things started.
-+	 */
-+	(void)k1_spi_write(drv_data);
-+
-+	val = SSP_INT_EN_RIM | SSP_INT_EN_TIM;
-+	val |= SSP_INT_EN_TINTE | SSP_INT_EN_RIE | SSP_INT_EN_TIE;
-+	writel(val, drv_data->base + SSP_INT_EN);
-+
-+	return true;
-+}
-+
-+static void k1_spi_transfer_end(struct k1_spi_driver_data *drv_data,
-+				struct spi_transfer *transfer)
-+{
-+	struct spi_message *message = drv_data->message;
-+	u32 val;
-+
-+	if (drv_data->dma_mapped)
-+		k1_spi_transfer_end_dma(drv_data);
-+
-+	val = readl(drv_data->base + SSP_TOP_CTRL);
-+	val &= ~TOP_SSE;
-+	val &= ~TOP_DSS_MASK;
-+	writel(val, drv_data->base + SSP_TOP_CTRL);
-+
-+	writel(0, drv_data->base + SSP_TIMEOUT);
-+
-+	if (drv_data->dma_mapped) {
-+		k1_spi_unmap_dma_buffer(&drv_data->tx);
-+		k1_spi_unmap_dma_buffer(&drv_data->rx);
-+	}
-+
-+	spi_transfer_delay_exec(transfer);
-+
-+	if (!message->status)
-+		message->actual_length += drv_data->len;
-+}
-+
-+static void k1_spi_transfer_wait(struct k1_spi_driver_data *drv_data)
-+{
-+	struct completion *completion = &drv_data->completion;
-+	struct spi_message *message = drv_data->message;
-+	unsigned long timeout;
-+	int ret;
-+
-+	/* Length in bits to be transferred */
-+	timeout = BITS_PER_BYTE * drv_data->bytes * drv_data->len;
-+	/* Time (usec) to transfer that many bits at the current bit rate */
-+	timeout = DIV_ROUND_UP(timeout * MICROHZ_PER_HZ, drv_data->rate);
-+	/* Convert that (+ 25%) to jiffies for the wait call */
-+	timeout = usecs_to_jiffies(5 * timeout / 4);
-+
-+	ret = wait_for_completion_interruptible_timeout(completion, timeout);
-+	if (ret > 0)
-+		return;
-+
-+	message->status = -EIO;
-+	if (ret && drv_data->dma_mapped) {
-+		dmaengine_terminate_sync(drv_data->tx.chan);
-+		dmaengine_terminate_sync(drv_data->rx.chan);
-+	}
-+}
-+
-+static int k1_spi_transfer_one_message(struct spi_controller *host,
-+					   struct spi_message *message)
-+{
-+	struct k1_spi_driver_data *drv_data = spi_controller_get_devdata(host);
-+	struct completion *completion = &drv_data->completion;
-+	struct spi_transfer *transfer;
-+	u32 val;
-+
-+	drv_data->message = message;
-+
-+	/* Message status starts out successful; set to -EIO on error */
-+	message->status = 0;
-+
-+	/* Hold frame low to avoid losing transferred data */
-+	val = readl(drv_data->base + SSP_TOP_CTRL);
-+	val |= TOP_HOLD_FRAME_LOW;
-+	writel(val, drv_data->base + SSP_TOP_CTRL);
-+
-+	list_for_each_entry(transfer, &message->transfers, transfer_list) {
-+		reinit_completion(completion);
-+
-+		/* Issue the next transfer */
-+		if (!k1_spi_transfer_start(drv_data, transfer)) {
-+			message->status = -EIO;
-+			break;
-+		}
-+
-+		k1_spi_transfer_wait(drv_data);
-+
-+		k1_spi_transfer_end(drv_data, transfer);
-+
-+		/* If an error has occurred, we're done */
-+		if (message->status)
-+			break;
-+	}
-+
-+	drv_data->message = NULL;
-+
-+	spi_finalize_current_message(drv_data->controller);
-+
-+	val = readl(drv_data->base + SSP_TOP_CTRL);
-+	val &= ~TOP_HOLD_FRAME_LOW;
-+	writel(val, drv_data->base + SSP_TOP_CTRL);
-+
-+	return 0;
-+}
-+
-+/*
-+ * The client can call the setup function multiple times, and each call
-+ * can specify a different SPI mode (and transfer speed).  Each transfer
-+ * can specify its own speed though, and the core code ensures each
-+ * transfer's speed is set to something nonzero and supported by both
-+ * the controller and the device).  We just set the speed for each
-+ * transfer.
-+ */
-+static int k1_spi_setup(struct spi_device *spi)
-+{
-+	struct k1_spi_driver_data *drv_data;
-+	u32 val;
-+
-+	drv_data = spi_controller_get_devdata(spi->controller);
-+
-+	/*
-+	 * Configure the message format for this device.  We only
-+	 * support Motorola SPI format in master mode.
-+	 */
-+	val = FIELD_PREP(TOP_FRF_MASK, TOP_FRF_MOTOROLA);
-+	val |= TOP_HOLD_FRAME_LOW;	/* Master mode */
-+
-+	/* Translate the mode into the value used to program the hardware. */
-+	if (spi->mode & SPI_CPHA)
-+		val |= TOP_SPH;		/* 1/2 cycle */
-+	if (spi->mode & SPI_CPOL)
-+		val |= TOP_SPO;		/* active low */
-+	if (spi->mode & SPI_LOOP)
-+		val |= TOP_LBM;		/* enable loopback */
-+	writel(val, drv_data->base + SSP_TOP_CTRL);
-+
-+	return 0;
-+}
-+
-+static void k1_spi_cleanup(struct spi_device *spi)
-+{
-+	struct k1_spi_driver_data *drv_data;
-+
-+	drv_data = spi_controller_get_devdata(spi->controller);
-+
-+	writel(0, drv_data->base + SSP_TOP_CTRL);
-+}
-+
-+static int k1_spi_dma_setup_io(struct k1_spi_driver_data *drv_data, bool rx)
-+{
-+	struct dma_chan *chan;
-+	struct k1_spi_io *io;
-+
-+	chan = dma_request_chan(drv_data->dev, rx ? "rx" : "tx");
-+	if (IS_ERR(chan))
-+		return PTR_ERR(chan);
-+
-+	io = rx ? &drv_data->rx : &drv_data->tx;
-+	io->dir = rx ? DMA_FROM_DEVICE : DMA_TO_DEVICE;
-+	io->chan = chan;
-+
-+	return 0;
-+}
-+
-+static void k1_spi_dma_cleanup_io(struct k1_spi_driver_data *drv_data, bool rx)
-+{
-+	struct k1_spi_io *io = rx ? &drv_data->rx : &drv_data->tx;
-+
-+	dmaengine_terminate_sync(io->chan);
-+	sg_free_table(&io->sgt);
-+
-+	dma_release_channel(io->chan);
-+}
-+
-+static int k1_spi_dma_setup(struct k1_spi_driver_data *drv_data)
-+{
-+	struct device *dev = drv_data->dev;
-+	int rx_ret;
-+	int tx_ret;
-+
-+	/* We must get both DMA channels, or neither of them */
-+	rx_ret = k1_spi_dma_setup_io(drv_data, true);
-+	if (rx_ret == -EPROBE_DEFER)
-+		return -EPROBE_DEFER;
-+
-+	tx_ret = k1_spi_dma_setup_io(drv_data, false);
-+
-+	/* If neither is specified, we don't use DMA (as intended) */
-+	if (rx_ret == -ENODEV && tx_ret == -ENODEV)
-+		return 0;		/* Success!  PIO will be used */
-+
-+	if (rx_ret || tx_ret)
-+		goto err_cleanup;
-+
-+	drv_data->dummy = kzalloc(SZ_2K, GFP_KERNEL);
-+	if (drv_data->dummy)
-+		return 0;		/* Success!  DMA will be used */
-+
-+	dev_warn(dev, "error allocating DMA dummy buffer; DMA disabled\n");
-+err_cleanup:
-+	if (!tx_ret)
-+		k1_spi_dma_cleanup_io(drv_data, false);
-+	else if (tx_ret == -EPROBE_DEFER)
-+		return -EPROBE_DEFER;
-+
-+	if (rx_ret)
-+		dev_err(dev, "error requesting DMA RX DMA channel\n");
-+	else
-+		k1_spi_dma_cleanup_io(drv_data, true);
-+
-+	/* Return success if we don't get the dummy buffer; PIO will be used */
-+
-+	return rx_ret ? : tx_ret ? : 0;
-+}
-+
-+static void k1_spi_dma_cleanup(struct device *dev, void *res)
-+{
-+	struct k1_spi_driver_data *drv_data = res;
-+
-+	if (!k1_spi_dma_enabled(drv_data))
-+		return;
-+
-+	kfree(drv_data->dummy);
-+	k1_spi_dma_cleanup_io(drv_data, false);
-+	k1_spi_dma_cleanup_io(drv_data, true);
-+}
-+
-+static int devm_k1_spi_dma_setup(struct k1_spi_driver_data *drv_data)
-+{
-+	struct k1_spi_driver_data **ptr;
-+	int ret;
-+
-+	if (!IS_ENABLED(CONFIG_MMP_PDMA)) {
-+		dev_warn(drv_data->dev, "DMA not available; using PIO\n");
-+		return 0;
-+	}
-+
-+	ptr = devres_alloc(k1_spi_dma_cleanup, sizeof(*ptr), GFP_KERNEL);
-+	if (!ptr)
-+		return -ENOMEM;
-+
-+	ret = k1_spi_dma_setup(drv_data);
-+	if (ret) {
-+		devres_free(ptr);
-+		return ret;
-+	}
-+
-+	*ptr = drv_data;
-+	devres_add(drv_data->dev, ptr);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id k1_spi_dt_ids[] = {
-+	{ .compatible = "spacemit,k1-spi", },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, k1_spi_dt_ids);
-+
-+static void k1_spi_host_init(struct k1_spi_driver_data *drv_data)
-+{
-+	struct device_node *np = dev_of_node(drv_data->dev);
-+	struct spi_controller *host = drv_data->controller;
-+	struct device *dev = drv_data->dev;
-+	u32 max_speed_hz;
-+	int ret;
-+
-+	host->dev.of_node = np;
-+	host->dev.parent = drv_data->dev;
-+	host->mode_bits = SPI_CPOL | SPI_CPHA | SPI_LOOP;
-+	host->bits_per_word_mask = SPI_BPW_RANGE_MASK(4, 32);
-+	host->num_chipselect = 1;
-+
-+	if (k1_spi_dma_enabled(drv_data))
-+		host->dma_alignment = K1_SPI_DMA_ALIGNMENT;
-+	host->cleanup = k1_spi_cleanup;
-+	host->setup = k1_spi_setup;
-+	host->transfer_one_message = k1_spi_transfer_one_message;
-+
-+	ret = of_property_read_u32(np, "spi-max-frequency", &max_speed_hz);
-+	if (!ret) {
-+		host->max_speed_hz = clamp(max_speed_hz, K1_SPI_MIN_SPEED_HZ,
-+					   K1_SPI_MAX_SPEED_HZ);
-+		if (host->max_speed_hz != max_speed_hz)
-+			dev_warn(dev, "spi-max-frequency %u out of range, using %u\n",
-+				max_speed_hz, host->max_speed_hz);
-+	} else {
-+		if (ret != -EINVAL)
-+			dev_warn(dev, "bad spi-max-frequency, using %u\n",
-+				 K1_SPI_DEFAULT_MAX_SPEED_HZ);
-+		host->max_speed_hz = K1_SPI_DEFAULT_MAX_SPEED_HZ;
-+	}
-+}
-+
-+/* Set our registers to a known initial state */
-+static void
-+k1_spi_register_reset(struct k1_spi_driver_data *drv_data, bool initial)
-+{
-+	u32 val = 0;
-+
-+	writel(0, drv_data->base + SSP_TOP_CTRL);
-+
-+	if (initial) {
-+		/*
-+		 * The TX and RX FIFO thresholds are the same no matter
-+		 * what the speed or bits per word, so we can just set
-+		 * them once.  The thresholds are one more than the values
-+		 * in the register.
-+		 */
-+		val = FIELD_PREP(FIFO_RFT_MASK, K1_SPI_THRESH - 1);
-+		val |= FIELD_PREP(FIFO_TFT_MASK, K1_SPI_THRESH - 1);
-+	}
-+	writel(val, drv_data->base + SSP_FIFO_CTRL);
-+
-+	writel(0, drv_data->base + SSP_INT_EN);
-+	writel(0, drv_data->base + SSP_TIMEOUT);
-+
-+	/* Clear any pending interrupt conditions */
-+	val = readl(drv_data->base + SSP_STATUS);
-+	writel(val, drv_data->base + SSP_STATUS);
-+}
-+
-+static irqreturn_t k1_spi_ssp_isr(int irq, void *dev_id)
-+{
-+	struct k1_spi_driver_data *drv_data = dev_id;
-+	bool rx_done;
-+	bool tx_done;
-+	u32 val;
-+
-+	/* Get status and clear pending interrupts */
-+	val = readl(drv_data->base + SSP_STATUS);
-+	writel(val, drv_data->base + SSP_STATUS);
-+
-+	if (!drv_data->message)
-+		return IRQ_NONE;
-+
-+	/* Check for an RX overrun or TX underrun first */
-+	if (val & (SSP_STATUS_TUR | SSP_STATUS_ROR)) {
-+		/* Disable all interrupts on error */
-+		writel(0, drv_data->base + SSP_INT_EN);
-+
-+		drv_data->message->status = -EIO;
-+		complete(&drv_data->completion);
-+
-+		return IRQ_HANDLED;
-+	}
-+
-+	/* Drain the RX FIFO first, then transmit what we can */
-+	rx_done = k1_spi_read(drv_data);
-+	tx_done = k1_spi_write(drv_data);
-+
-+	/* Disable interrupts if we're done transferring either direction */
-+	if (rx_done || tx_done) {
-+		/* If both are done, disable all interrupts */
-+		if (rx_done && tx_done) {
-+			val = 0;
-+		} else {
-+			val = readl(drv_data->base + SSP_INT_EN);
-+			if (rx_done)
-+				val &= ~(SSP_INT_EN_TINTE | SSP_INT_EN_RIE);
-+			if (tx_done)
-+				val &= ~SSP_INT_EN_TIE;
-+		}
-+		writel(val, drv_data->base + SSP_INT_EN);
-+	}
-+
-+	if (rx_done && tx_done)
-+		complete(&drv_data->completion);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int k1_spi_probe(struct platform_device *pdev)
-+{
-+	struct k1_spi_driver_data *drv_data;
-+	struct device *dev = &pdev->dev;
-+	struct reset_control *reset;
-+	struct spi_controller *host;
-+	struct resource *iores;
-+	struct clk *clk_bus;
-+	int ret;
-+
-+	host = devm_spi_alloc_host(dev, sizeof(*drv_data));
-+	if (!host)
-+		return -ENOMEM;
-+	drv_data = spi_controller_get_devdata(host);
-+	drv_data->controller = host;
-+	platform_set_drvdata(pdev, drv_data);
-+	drv_data->dev = dev;
-+	init_completion(&drv_data->completion);
-+
-+	drv_data->base = devm_platform_get_and_ioremap_resource(pdev, 0,
-+								&iores);
-+	if (IS_ERR(drv_data->base))
-+		return dev_err_probe(dev, PTR_ERR(drv_data->base),
-+				     "error mapping memory\n");
-+	drv_data->base_addr = iores->start;
-+
-+	ret = devm_k1_spi_dma_setup(drv_data);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "error setting up DMA\n");
-+
-+	k1_spi_host_init(drv_data);
-+
-+	clk_bus = devm_clk_get_enabled(dev, "bus");
-+	if (IS_ERR(clk_bus))
-+		return dev_err_probe(dev, PTR_ERR(clk_bus),
-+				     "error getting/enabling bus clock\n");
-+	drv_data->bus_rate = clk_get_rate(clk_bus);
-+
-+	drv_data->clk = devm_clk_get_enabled(dev, "core");
-+	if (IS_ERR(drv_data->clk))
-+		return dev_err_probe(dev, PTR_ERR(drv_data->clk),
-+				     "error getting/enabling core clock\n");
-+
-+	reset = devm_reset_control_get_exclusive_deasserted(dev, NULL);
-+	if (IS_ERR(reset))
-+		return dev_err_probe(dev, PTR_ERR(reset),
-+				     "error getting/deasserting reset\n");
-+
-+	k1_spi_register_reset(drv_data, true);
-+
-+	drv_data->irq = platform_get_irq(pdev, 0);
-+	if (drv_data->irq < 0)
-+		return dev_err_probe(dev, drv_data->irq, "error getting IRQ\n");
-+
-+	ret = devm_request_irq(dev, drv_data->irq, k1_spi_ssp_isr,
-+			       IRQF_SHARED, dev_name(dev), drv_data);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "error requesting IRQ\n");
-+
-+	ret = devm_spi_register_controller(dev, host);
-+	if (ret)
-+		dev_err(dev, "error registering controller\n");
-+
-+	return ret;
-+}
-+
-+static void k1_spi_remove(struct platform_device *pdev)
-+{
-+	struct k1_spi_driver_data *drv_data = platform_get_drvdata(pdev);
-+
-+	k1_spi_register_reset(drv_data, false);
-+}
-+
-+static struct platform_driver k1_spi_driver = {
-+	.driver = {
-+		.name		= "k1-spi",
-+		.of_match_table	= k1_spi_dt_ids,
-+	},
-+	.probe			= k1_spi_probe,
-+	.remove			= k1_spi_remove,
-+};
-+
-+module_platform_driver(k1_spi_driver);
-+
-+MODULE_DESCRIPTION("SpacemiT K1 SPI controller driver");
-+MODULE_LICENSE("GPL");
--- 
-2.48.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgRGVlcGFrLAoKT24gV2VkLCBTZXAgMjQsIDIwMjUgYXQgMTo0MOKAr1BNIERlZXBhayBHdXB0
+YSA8ZGVidWdAcml2b3NpbmMuY29tPiB3cm90ZToKPgo+IE9uIFdlZCwgU2VwIDI0LCAyMDI1IGF0
+IDA4OjM2OjExQU0gLTA2MDAsIFBhdWwgV2FsbXNsZXkgd3JvdGU6Cj4gPkhpLAo+ID4KPiA+T24g
+VGh1LCAzMSBKdWwgMjAyNSwgRGVlcGFrIEd1cHRhIHdyb3RlOgo+ID4KPiA+WyAuLi4gXQo+ID4K
+PiA+PiB2RFNPIHJlbGF0ZWQgT3BlbnMgKGluIHRoZSBmbHV4KQo+ID4+ID09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PQo+ID4+Cj4gPj4gSSBhbSBsaXN0aW5nIHRoZXNlIG9wZW5zIGZv
+ciBsYXlpbmcgb3V0IHBsYW4gYW5kIHdoYXQgdG8gZXhwZWN0IGluIGZ1dHVyZQo+ID4+IHBhdGNo
+IHNldHMuIEFuZCBvZiBjb3Vyc2UgZm9yIHRoZSBzYWtlIG9mIGRpc2N1c3Npb24uCj4gPj4KPiA+
+Cj4gPlsgLi4uIF0KPiA+Cj4gPj4gSG93IG1hbnkgdkRTT3MKPiA+PiAtLS0tLS0tLS0tLS0tLS0K
+PiA+PiBTaGFkb3cgc3RhY2sgaW5zdHJ1Y3Rpb25zIGFyZSBjYXJ2ZWQgb3V0IG9mIHppbW9wICht
+YXkgYmUgb3BlcmF0aW9ucykgYW5kIGlmIENQVQo+ID4+IGRvZXNuJ3QgaW1wbGVtZW50IHppbW9w
+LCB0aGV5J3JlIGlsbGVnYWwgaW5zdHJ1Y3Rpb25zLiBLZXJuZWwgY291bGQgYmUgcnVubmluZyBv
+bgo+ID4+IGEgQ1BVIHdoaWNoIG1heSBvciBtYXkgbm90IGltcGxlbWVudCB6aW1vcC4gQW5kIHRo
+dXMga2VybmVsIHdpbGwgaGF2ZSB0byBjYXJyeSAyCj4gPj4gZGlmZmVyZW50IHZEU09zIGFuZCBl
+eHBvc2UgdGhlIGFwcHJvcHJpYXRlIG9uZSBkZXBlbmRpbmcgb24gd2hldGhlciBDUFUgaW1wbGVt
+ZW50cwo+ID4+IHppbW9wIG9yIG5vdC4KPiA+Cj4gPklmIHdlIG1lcmdlIHRoaXMgc2VyaWVzIHdp
+dGhvdXQgdGhpcywgdGhlbiB3aGVuIENGSSBpcyBlbmFibGVkIGluIHRoZQo+ID5LY29uZmlnLCB3
+ZSdsbCB3aW5kIHVwIHdpdGggYSBub24tcG9ydGFibGUga2VybmVsIHRoYXQgd29uJ3QgcnVuIG9u
+IG9sZGVyCj4gPmhhcmR3YXJlLiAgV2UgZ28gdG8gZ3JlYXQgbGVuZ3RocyB0byBlbmFibGUga2Vy
+bmVsIGJpbmFyeSBwb3J0YWJpbGl0eQo+ID5hY3Jvc3MgdGhlIHByZXNlbmNlIG9yIGFic2VuY2Ug
+b2Ygb3RoZXIgUklTQy1WIGV4dGVuc2lvbnMsIGFuZCBJIHRoaW5rCj4gPnRoZXNlIENGSSBleHRl
+bnNpb25zIHNob3VsZCBiZSBubyBkaWZmZXJlbnQuCj4gPgo+ID5TbyBiZWZvcmUgY29uc2lkZXJp
+bmcgdGhpcyBmb3IgbWVyZ2luZywgSSdkIGxpa2UgdG8gc2VlIGF0IGxlYXN0IGFuCj4gPmF0dGVt
+cHQgdG8gaW1wbGVtZW50IHRoZSBkdWFsLXZEU08gYXBwcm9hY2ggKG9yIHNvbWV0aGluZyBlcXVp
+dmFsZW50KQo+ID53aGVyZSB0aGUgc2FtZSBrZXJuZWwgYmluYXJ5IHdpdGggQ0ZJIGVuYWJsZWQg
+Y2FuIHJ1biBvbiBib3RoIHByZS1aaW1vcAo+ID5hbmQgcG9zdC1aaW1vcCBoYXJkd2FyZSwgd2l0
+aCB0aGUgZXhpc3RpbmcgdXNlcnNwYWNlcyB0aGF0IGFyZSBjb21tb24KPiA+dG9kYXkuCj4KPiBB
+ZGRlZCBzb21lIGRpc3RybyBmb2xrcyBpbiB0aGlzIGVtYWlsIGNoYWluLgo+Cj4gQWZ0ZXIgcGF0
+Y2h3b3JrIG1lZXRpbmcgdG9kYXksIEkgd2FudGVkIHRvIGNvbnRpbnVlIGRpc2N1c3Npb24gaGVy
+ZS4gU28gdGhhbmtzCj4gUGF1bCBmb3IgbG9va2luZyBpbnRvIGl0IGFuZCBpbml0aWF0aW5nIGEg
+ZGlzY3Vzc2lvbiBoZXJlLgo+Cj4gVGhpcyBwYXRjaCBzZXJpZXMgaGFzIGJlZW4gaW4gdGhlIHF1
+ZXVlIGZvciBxdWl0ZSBhIGxvbmcgdGltZSBhbmQgd2UgaGF2ZSBoYWQKPiBkZWxpYmVyYXRpb25z
+IG9uIHZEU08gdG9waWMgZWFybGllciBhcyB3ZWxsIGFuZCBhZnRlciB0aG9zZSBkZWxpYmVyYXRp
+b25zIGl0Cj4gd2FzIGRlY2lkZWQgdG8gZ28gYWhlYWQgd2l0aCBtZXJnZSBhbmQgaXQgaW5kZWVk
+IHdhcyBzZW50IGZvciA2LjE3IG1lcmdlCj4gd2luZG93LiBVbmZvcnR1bmF0bGV5IGR1ZSB0byBv
+dGhlciB1bmZvcmVzZWVuIHJlYXNvbnMsIGVudGlyZXR5IG9mIHJpc2N2Cj4gY2hhbmdlcyB3ZXJl
+IG5vdCBwaWNrZWQuIFNvIGl0J3MgYSBiaXQgZGlzYXBwb2ludGluZyB0byBzZWUgYmFjay1wYWRk
+bGluZyBvbgo+IHRoaXMgdG9waWMuCj4KPiBBbnl3YXlzLCB3ZSBhcmUgaGVyZS4gU28gSSdsbCBw
+cm92aWRlIGEgYml0IG9mIGNvbnRleHQgZm9yIHRoZSBsaXN0IGFib3V0Cj4gZGVsaWJlcmF0aW9u
+cyBhbmQgZGlzY3Vzc2lvbnMgd2UgaGF2ZSBiZWVuIGhhdmluZyBmb3Igc28gbWFueSBtZXJnZSB3
+aW5kb3dzLgo+IFRoaXMgc28gdGhhdCBhIGhvbGlzdGljIGRpc2N1c3Npb24gY2FuIGhhcHBlbiBv
+biB0aGlzIGJlZm9yZSB3ZSBtYWtlIGEKPiBkZWNpc2lvbi4KPgo+IElzc3VlCj4gPT09PT09Cj4K
+PiBJbnN0cnVjdGlvbnMgaW4gUklTQy1WIHNoYWRvdyBzdGFjayBleHRlbnNpb24gKHppY2Zpc3Mg
+LSBbMV0pIGFyZSBjYXJ2ZWQgb3V0IG9mCj4gIm1heSBiZSBvcHMiIGFrYSB6aW1vcCBleHRlbnNp
+b24gWzJdLiAibWF5IGJlIG9wcyIgYXJlIGlsbGVnYWwgb24gbm9uLVJWQTIzCj4gaGFyZHdhcmUu
+IFRoaXMgbWVhbnMgYW55IGV4aXN0aW5nIHJpc2N2IENQVSBvciBmdXR1cmUgQ1BVIHdoaWNoIGlz
+bid0IFJWQTIzCj4gY29tcGxpYW50IGFuZCBub3QgaW1wbGVtZW50aW5nIHppbW9wIHdpbGwgdHJl
+YXQgdGhlc2UgZW5jb2RpbmdzIGFzIGlsbGVnYWwuCj4KPiBDdXJyZW50IGtlcm5lbCBwYXRjaGVz
+IGVuYWJsZSBzaGFkb3cgc3RhY2sgYW5kIGxhbmRpbmcgcGFkIHN1cHBvcnQgZm9yCj4gdXNlcnNw
+YWNlIHVzaW5nIGNvbmZpZyBgQ09ORklHX1JJU0NWX1VTRVJfQ0ZJYC4gSWYgdGhpcyBjb25maWcg
+aXMgc2VsZWN0ZWQgdGhlbgo+IHZEU08gdGhhdCB3aWxsIGJlIGV4cG9zZWQgdG8gdXNlciBzcGFj
+ZSB3aWxsIGFsc28gaGF2ZSBzaGFkb3cgc3RhY2sKPiBpbnN0cnVjdGlvbnMgaW4gdGhlbS4gS2Vy
+bmVsIGNvbXBpbGVkIHdpdGggYENPTkZJR19SSVNDVl9VU0VSX0NGSWAsIGZvciBzYWtlIG9mCj4g
+dGhpcyBkaXNjdXNzaW9uIGxldHMgY2FsbCBpdCBSVkEyMyBjb21waWxlZCBrZXJuZWwuCj4KPiBJ
+c3N1ZSB0aGF0IHdlIGRpc2N1c3NlZCBlYXJsaWVyIGFuZCBldmVuIHRvZGF5IGlzICJUaGlzIFJW
+QTIzIGNvbXBpbGVkIGtlcm5lbAo+IHdvbid0IGJlIGFibGUgdG8gc3VwcG9ydCBub24tUlZBMjMg
+dXNlcnNwYWNlIG9uIG5vbi1SVkEyMyBoYXJkd2FyZSBiZWNhdXNlIi4KPiBQbGVhc2Ugbm90ZSB0
+aGF0IGlzc3VlIGV4aXN0cyBvbmx5IG9uIG5vbi1SVkEyMyBoYXJkd2FyZSAod2hpY2ggaXMgZXhp
+c3RpbmcKPiBoYXJkd2FyZSBhbmQgZnV0dXJlIGhhcmR3YXJlIHdoaWNoIGlzIG5vdCBpbXBsZW1l
+bnRpbmcgemltb3ApLiBSVkEyMyBjb21waWxlZAo+IGtlcm5lbCBjYW4gc3VwcG9ydCBhbnkgc29y
+dCBvZiB1c2Vyc3BhY2Ugb24gUlZBMjMgaGFyZHdhcmUuCj4KPgo+IERpc2N1c3Npb24KPiA9PT09
+PT09PT09PQo+Cj4gU28gdGhlIGlzc3VlIGlzIG5vdCByZWFsbHkgc2hhZG93IHN0YWNrIGluc3Ry
+dWN0aW9ucyBidXQgcmF0aGVyIG1heSBiZSBvcAo+IGluc3RydWN0aW9ucyBpbiBjb2RlZ2VuIChi
+aW5hcmllcyBhbmQgdkRTTykgd2hpY2ggYXJlbid0IGhpZGRlbiBiZWhpbmQgYW55Cj4gZmxhZyAo
+dG8gaGlkZSB0aGVtIGlmIGhhcmR3YXJlIGRvZXNuJ3Qgc3VwcG9ydCkuIEFuZCBpZiBJIGNhbiBu
+YXJyb3cgZG93bgo+IGZ1cnRoZXIsIHByaW1hcnkgaXNzdWUgd2UgYXJlIGRpc2N1c3NpbmcgaXMg
+dGhhdCBpZiBjZmkgaXMgZW5hYmxlZCBkdXJpbmcKPiBrZXJuZWwgY29tcGlsZSwgaXQgaXMgYnJp
+bmdpbmcgaW4gYSBwaWVjZSBvZiBjb2RlICh2RFNPKSB3aGljaCB3b24ndCB3b3JrCj4gb24gZXhp
+c3RpbmcgaGFyZHdhcmUuIEJ1dCB0aGUgY291bnRlciBwb2ludCBpcyBpZiBzb21lb25lIHdlcmUg
+dG8gZGVwbG95Cj4gUlZBMjMgY29tcGlsZWQga2VybmVsIG9uIG5vbi1SVkEyMyBoYXJkd2FyZSwg
+dGhleSBtdXN0IGhhdmUgY29tcGlsZWQKPiByZXN0IG9mIHRoZSB1c2Vyc3BhY2Ugd2l0aG91dCBz
+aGFkb3cgc3RhY2sgaW5zdHJ1Y3Rpb25zIGluIHRoZW0gZm9yIHN1Y2gKPiBhIGhhcmR3YXJlLiBB
+bmQgdGh1cyBhdCB0aGlzIHBvaW50IHRoZXkgY291bGQgc2ltcGx5IGNob29zZSAqbm90KiB0byB0
+dXJuIG9uCj4gYENPTkZJR19SSVNDVl9VU0VSX0NGSWAgd2hlbiBjb21waWxpbmcgc3VjaCBrZXJu
+ZWwuIEl0J3Mgbm90IHRoYXQgZGlmZmljdWx0IHRvCj4gZG8gc28uCj4KPiBBbnkgZGlzdHJvIHdo
+byBpcyBzaGlwcGluZyB1c2Vyc3BhY2UgKHdoaWNoIGFsbCBvZiB0aGVtIGFyZSkgYWxvbmcgd2l0
+aCBrZXJuZWwKPiB3aWxsIG5vdCBiZSBzaGlwcGluZyB0d28gZGlmZmVyZW50IHVzZXJzcGFjZXMg
+KG9uZSB3aXRoIHNoYWRvdyBzdGFjayBhbmQgb25lCj4gd2l0aG91dCB0aGVtKS4gSWYgZGlzdHJv
+IGFyZSBzaGlwcGluZyB0d28gZGlmZmVyZW50IHVzZXJzcGFjZXMsIHRoZW4gdGhleSBtaWdodAo+
+IGFzIHdlbGwgc2hpcCB0d28gZGlmZmVyZW50IGtlcm5lbHMuIFRhZ2dpbmcgc29tZSBkaXN0cm8g
+Zm9sa3MgaGVyZSB0byBnZXQgdGhlaXIKPiB0YWtlIG9uIHNoaXBwaW5nIGRpZmZlcmVudCB1c2Vy
+c3BhY2UgZGVwZW5kaW5nIG9uIHdoZXRoZXIgaGFyZHdhcmUgaXMgUlZBMjMgb3IKPiBub3QuIEBI
+ZWlucmljaCwgQEZsb3JpYW4sIEByZWRiZWFyZCBhbmQgQEF1cmVsaWVuLgo+Cj4gTWFqb3IgZGlz
+dHJvJ3MgaGF2ZSBhbHJlYWR5IGRyYXduIGEgZGlzdGluY3Rpb24gaGVyZSB0aGF0IHRoZXkgd2ls
+bCBkcm9wCj4gc3VwcG9ydCBmb3IgaGFyZHdhcmUgd2hpY2ggaXNuJ3QgUlZBMjMgZm9yIHRoZSBz
+YWtlIG9mIGtlZXBpbmcgYmluYXJ5Cj4gZGlzdHJpYnV0aW9uIHNpbXBsZS4KPgo+IE9ubHkgb3Ro
+ZXIgdXNlIGNhc2UgdGhhdCB3YXMgZGlzY3Vzc2VkIG9mIGEgcG93ZXJmdWwgbGludXggdXNlciB3
+aG8ganVzdCB3YW50cwo+IHRvIHVzZSBhIHNpbmdsZSBrZXJuZWwgb24gYWxsIGtpbmRzIG9mIHJp
+c2N2IGhhcmR3YXJlLiBJIGFtIGltYWdpbmluZyBzdWNoIGEKPiB1c2VyIGtub3dzIGVub3VnaCBh
+Ym91dCBrZXJuZWwgYW5kIGlmIGlzIHJlYWxseSBkZWFyIHRvIHRoZW0sIHRoZXkgY2FuIGRldmVs
+b3AKPiB0aGVpciBvd24gcGF0Y2hlcyBhbmQgc2VuZCBpdCB1cHN0cmVhbSB0byBzdXBwb3J0IHRo
+ZWlyIG93biB1c2VjYXNlIGFuZCB3ZSBjYW4KPiBkaXNjdXNzIHRoZW0gb3V0LiBDdXJyZW50IHBh
+dGNoc2V0IGRvbid0IHByZXZlbnQgc3VjaCBhIGRldmVsb3BlciB0byBzZW5kIHN1Y2gKPiBwYXRj
+aGVzIHVwc3RyZWFtLgo+Cj4gSSBoZWFyZCB0aGUgYXJndW1lbnQgaW4gbWVldGluZyB0b2RheSB0
+aGF0ICJaYmIiIGVuYWJsaW5nIHdvcmtzIHNpbWlsYXIgZm9yCj4ga2VybmVsIHRvZGF5LiBJIGxv
+b2tlZCBhdCAiWmJiIiBlbmFibGluZy4gSXQncyBmb3Iga2VybmVsIHVzYWdlIGFuZCBpdCdzCj4g
+c3VyZ2ljYWxseSBwbGFjZWQgaW4ga2VybmVsIHVzaW5nIGFzbSBoaWRkZW4gYmVoaW5kIGFsdGVy
+bmF0aXZlcy4gdkRTTyBpc24ndAo+IGNvbXBpbGVkIHdpdGggWmJiLiBTaGFkb3cgc3RhY2sgaW5z
+dHJ1Y3Rpb25zIGFyZSBwYXJ0IG9mIGNvZGVnZW4gZm9yIEMgZmlsZXMKPiBjb21waWxlZCBpbnRv
+IHZEU08uCj4KPiBGdXJ0aGVybW9yZSwKPgo+IEtlcm5lbCBjb250cm9sIGZsb3cgaW50ZWdyaXR5
+IHdpbGwgaW50cm9kdWNlIHNoYWRvdyBzdGFjayBpbnN0cnVjdGlvbnMgYWxsCj4gb3ZlciB0aGUg
+a2VybmVsIGJpbmFyeS4gU3VjaCBrZXJuZWwgd29uJ3QgYmUgZGVwbG95YWJsZSBvbiBub24tUlZB
+MjMgaGFyZHdhcmUuCj4gSG93IHRvIGRlYWwgd2l0aCB0aGlzIHByb2JsZW0gZm9yIGEgc2F2dnkg
+a2VybmVsIGRldmVsb3BlciB3aG8gd2FudHMgdG8gcnVuCj4gc2FtZSBjZmkgZW5hYmxlZCBrZXJu
+ZWwgYmluYXJ5IG9uIG11bHRpcGxlIGhhcmR3YXJlPwo+Cj4gQ29taW5nIGZyb20gZW5naW5lZXJp
+bmcgYW5kIGhhY2tlciBwb2ludCBvZiB2aWV3LCBJIHVuZGVyc3RhbmQgdGhlIGRlc2lyZSBoZXJl
+Cj4gYnV0IEkgc3RpbGwgc2VlIHRoYXQgaXQncyBjb21wbGV4aXR5IGVuZm9yY2VkIG9uIHJlc3Qg
+b2YgdGhlIGtlcm5lbCBmcm9tIGEgdXNlcgo+IGJhc2Ugd2hpY2ggYW55d2F5cyBjYW4gYWNoaWV2
+ZSBzdWNoIGdvYWxzLiBGb3IgbWFqb3JpdHkgb2YgdXNlY2FzZXMsIEkgZG9uJ3QKPiBzZWUgYSBy
+ZWFzb24gdG8gaW5jcmVhc2UgY29tcGxleGl0eSBpbiB0aGUga2VybmVsIGZvciBidWlsZCwgcG9z
+c2libHkgcnVudGltZQo+IHBhdGNoaW5nIGFuZCB0aHVzIHBvc3NpYmx5IGludHJvZHVjZSBtb3Jl
+IGlzc3VlcyBhbmQgZXJyb3JzIGp1c3QgZm9yIHRoZSBzYWtlCj4gb2YgYSBzY2llbmNlIHByb2pl
+Y3QuCj4KPiBCZWluZyBzYWlkIHRoYXQsIHJlLWl0ZXJhdGluZyB0aGF0IGN1cnJlbnRseSBkZWZh
+dWx0IGZvciBgQ09ORklHX1JJU0NWX1VTRVJfQ0ZJYAo+IGlzICJuIiB3aGljaCBtZWFucyBpdCB3
+b24ndCBiZSBicmVha2luZyBhbnl0aGluZyB1bmxlc3MgYSB1c2VyIG9wdHMgIlkiLiBTbyBldmVu
+Cj4gdGhvdWdoIEkgcmVhbGx5IGRvbid0IHNlZSBhIHJlYXNvbiBhbmQgdXNhYmlsaXR5IHRvIGhh
+dmUgY29tcGxleGl0eSBpbiBrZXJuZWwgdG8KPiBjYXJyeSBtdWx0aXBsZSB2RFNPcywgY3VycmVu
+dCBwYXRjaHNldHMgYXJlIG5vdCBhIGhpbmRlcmFuY2UgZm9yIHN1Y2ggZnV0dXJlCj4gY2FwYWJp
+bGl0eSAoYmVjYXVzZSBjdXJyZW50IGRlZmF1bHQgaXMgTm8pIGFuZCBtb3RpdmF0ZWQgZGV2ZWxv
+cGVyIGlzIHdlbGNvbWUKPiB0byBidWlsZCBvbiB0b3Agb2YgaXQuIEJvdHRvbWxpbmUgaXMgSSBk
+b24ndCBzZWUgYSByZWFzb24gdG8gYmxvY2sgY3VycmVudAo+IHBhdGNoc2V0IGZyb20gbWVyZ2lu
+ZyBpbiB2Ni4xOC4KClNvcnJ5IGZvciByZWl0ZXJhdGluZywgSSBoYXZlIGJlZW4gZ29uZSBmb3Ig
+YSB3aGlsZSwgc28gbWF5YmUgSSBsb3N0IGEKYml0IG9mIGNvbnRleHQuCgpJbiB0aGF0IGNhc2Us
+IHNob3VsZCB3ZSBhZGQgYSBjb21tZW50IGluIHRoZSBLY29uZmlnIHRoYXQgc2F5cyAiaXQKYnJl
+YWtzIHVzZXJzcGFjZSBvbiBvbGRlci10aGFuIFJWQTIzIHBsYXRmb3JtcyI/CgpQZXJoYXBzIGEg
+dmVyeSB1Z2x5IHdheSB0byBtYWtlIFJWQTIzLWNvbXBpbGVkIGtlcm5lbCBjb21wYXRpYmxlIHdp
+dGgKcHJlLVJWQTIzIHBsYXRmb3JtcyBpcyB0byBkZWNvZGUgbWF5YmUtb3BzIGluIHRoZSBpbGxl
+Z2FsIGV4Y2VwdGlvbgpoYW5kbGVyLi4uCgpCdHcsIEkgZG9uJ3QgdGhpbmsga2VucmVsLWxldmVs
+IHNoYWRvdyBzdGFjayBzaG91bGQgYmUgYW4gYXJndW1lbnQKaGVyZSwgYXMga2VybmVsLWxldmVs
+IEFQSXMgYXJlIG1vcmUgZmxleGlibGUgYnkgbmF0dXJlLgoKVGhhbmtzLApBbmR5CgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
