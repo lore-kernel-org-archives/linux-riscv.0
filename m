@@ -4,108 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B8FCAC5A7
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 12:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABD2CAC5A5
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Sep 2025 13:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U0mWy+IOd23EEqIUXTFq71oxwpmeVJztD9l7GICxk54=; b=lz9ywNHwPSBZhk
-	lO3l6HXRwqoXZ/WrayDgIHR8uVfKsJFH37m7o282zBWhjutjFoSsIOf+Is5s1fEeuZtPELIZ1r3Hp
-	9NLbyiHKypROQ8aW7ftIydBJTMtb8V67IyOFjEW8ZAlqNONSoNwE5u9ICa2y8USN9GNbSX18KMH7x
-	EHbIEyUiTP0dWB8twCKaVWNvRfkI0tnXFm22kZT2wo74s6XkfyINdedADouUpxDtwJDno/ezzYw/C
-	dDLquCU6Ve/wKPxXG37saXkvP7JKGH0hA0JEXlNitZTJaImPAIMyyyrk0go2CuzRuZ+gNCtEZP8Qg
-	Ou2Ykg02fp9aah471xbQ==;
+	List-Owner; bh=XIbISOxZACyFLCIltLQlNBNcy9IT7OXm3MUfuophORU=; b=Asrxm7LZJnfJVO
+	NaJtXae0bA1IqQjGOxVpAYu98a3hIEDbCFYmPOKTWAIfIQUb34QEhJ/lm7rmUJCg/ZSzgeZ8YicA3
+	BHFERQQSXNhLHeyrqcFE+b3bYZCzAGMGYTVYQXed5f29FMNdqGpVGpXWK1uJLcGCvZKPL3BN7HJsX
+	2xBd1zHiPokkMx1UuIUcYJN9QX+uK/3fK0QKUeZ5O1dWm9A/MSIVy6qJ34fZSAtOGRE7QFUTYEz42
+	1mHGUedywe5SM+XqF+A8ZQ6BYYtbqQjdpOkYW0XAjris4eIueSA7/l1d4s2q0qWzwBC22vAu7o4wN
+	97jwYhMqbdX+65W/jbDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1l7A-00000008z0a-2FFG;
-	Thu, 25 Sep 2025 12:30:24 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1v1lm2-00000009HgP-0h9H;
+	Thu, 25 Sep 2025 13:12:38 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1l78-00000008yzZ-3dJy
+	id 1v1llu-00000009HbH-46d1
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Sep 2025 12:30:24 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-61feb87fe26so1165422a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 25 Sep 2025 05:30:21 -0700 (PDT)
+	Thu, 25 Sep 2025 13:12:32 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3fc36b99e92so1277652f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Sep 2025 06:12:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758803420; x=1759408220; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=freebox-fr.20230601.gappssmtp.com; s=20230601; t=1758805948; x=1759410748; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cpogRHSrLfl51nWywJppLMZXYXi2KQs1G3uCf0+H8cQ=;
-        b=bFqIF0WLsxsDI720TOy8gH07Xdi18zJCFyX5+PbpwglMHsUJ8TGUgYm0yTICe3ju3b
-         Mk95VUPPbP6jrJNuRR6eklxC48l/142yQ0hxTwbQuzqFMxyHbQgGFKP1R26JdRlevYWw
-         j51ivYxvC67t5tZcI57gQodX8fFm72eujWvt5lHFyJRqUIkLOBRnEvC08CtpkMdOf2zo
-         yOyKOO6WOUJldyxR5WQSFh1aOM/NqzIn7ukR3B6qGmyXm89EkAw4P+FZA7La2YWy8uop
-         RxdbUKfat7DkM3X5zIKFFpFwegVh3fQv338uyaQ1DXki3ok2IhEjQSwSQHXLbuhMwnJS
-         kVnw==
+        bh=NfJVwYFcsQ06QJkEnurciWiF3KgCM9rgqn4VVbABEtQ=;
+        b=cufwFiY8n+362OhlVDRuoOpoDmWsRBVJ7k05H4glEBY9LyS++SpEtVEieCprEzlLnF
+         v+AnXMWVbhgSr/9qp/YbLd/W4XXIoAfvk3WKv8TQTEFa8AiHdW/LJRjdiug7MgD+g/+j
+         QbfgFt+XndfYItHfZ62NT/kkUYp8WqlwWwn7E57BeU+64bvl/0Js6oo3FcfhSB4rMPZc
+         uBxQCvfn1ui4qW9KZN6UdbEl2lpodmbUZImWiBCc1vRqvsiZpE74V0texUJqENBzuhII
+         hp3YItGQsezIy4ys7zr8s+560RhsEwYRjXYhY/AYb/I+WH28a6cNXsFaMBJxW0UbK5J4
+         qP3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758803420; x=1759408220;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1758805948; x=1759410748;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=cpogRHSrLfl51nWywJppLMZXYXi2KQs1G3uCf0+H8cQ=;
-        b=WizWYYDSEkfwkL+1XyaAKGsblGcn1IjBK4cnsAp6kfHyXnd+k9pZIc9W6so3abVl2O
-         IT8jPTZcpYjsN8l0909gSrnrK5RuCx93xJtADXsGWR2cg8XWxRHuvp/jOeP2dw5yk3i9
-         ICXzzfUhVCg+N0C1LsMsfFZGqxyHWs76AzJ7VwW9fYhSB+sOLzjkYJf+Ta49eWiMirdc
-         oujzf3iA+C9W+Hij+jztRcTtVR352egL/ms6bAC+bCFhjlzpcvGpxLzJ0hrFg4fkZrJs
-         2tGBL1qej8WMwJ5reIK81bFuXM6SmMkKGggzQWmaJt7lzE/UpB24GrGcJItCmNe+3PhM
-         1ZfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUAcYBNdPYSvttP7iOXUZsPxA6mfSUpkB/HUO8tEq51N2SZm3Q1YImjXIfU6/dI8/92U0EotB8i6eYUzQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjN8IymnJLcImqaj0+HwXbWkg9oHFgC8jkIEWoIV02Zdj+qH/b
-	xa0JNSO50IRDveEGChAa0/GvzkK5G/ayrXrNl8SoLYw/VtcRgkSHgacOig62f1fSTybQEuO2Zi7
-	3YPycX4gI4HrlfxzMajEY4E8dYc0Hpy4=
-X-Gm-Gg: ASbGnctqx/koKr6nUrcp/UmwZIhmdal66YVPfN3TbgvFESYdmeeYR2OCBBEbuN1SETN
-	5Ebt+r6NVpLRMvDNIYdWhc004Um6l97t8jl9GECFJe3dVr1ZFBhxxLDxDo6LQvcL6OpmHc8a3EL
-	yqZ5Z57dvx7MoilREOPQ4rfUiYbgQFhKYL4U65zJU0/IaG39rq0+g7SoblDzCfk1BySzmexfbpl
-	S5j
-X-Google-Smtp-Source: AGHT+IGrMTtF3rO6PyqglimJ6kWsoCOnyf9RbZPnOG2/Nl32fMXOunJIE5E6zYa1d9+08xohVhzghLhulRn9g+pvf4U=
-X-Received: by 2002:a17:907:3f87:b0:b09:2331:f150 with SMTP id
- a640c23a62f3a-b34b84aba85mr396036566b.16.1758803420120; Thu, 25 Sep 2025
- 05:30:20 -0700 (PDT)
+        bh=NfJVwYFcsQ06QJkEnurciWiF3KgCM9rgqn4VVbABEtQ=;
+        b=qgasUfyVq8XygIa53HDqNfn7MEATrSCoskzm5eH7rRiNTz/dqTM3MK6a4QHaa2/0pm
+         yFvl9uvIkT9ESuBdk8o15khqxfkAyWRd1Ix07drz8Tmfh2OiXeBfNCwepyNd1SuX18ho
+         RhwWC6FAhsO3sBvOpq1rN7A2U5HpJjnf4jCU8P6bbfNfwXutbDzhIMydt2sumkJT1lkF
+         jCjSi+78zO4N4A9f1LzhWRBMUVoi2kbBj/CpSY86Rk36FGyADi4N+OlJ55EVWYPUEKzG
+         Cuawew2CxiAwo9nScqFi/c1/BiLbC9WPII5oWN68QIAdZFHZ9P3KrdqCa2euZ2o0auMW
+         yK6g==
+X-Forwarded-Encrypted: i=1; AJvYcCW3LSM1zBwbpZDnkfafxs8A9X8bONALFMMNeVCJmwuL+VuIToIy/RKKBhY04SQGkC7nfQesJHyZKi/xYw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOIHRXNVQzUTqZwK12O8zb709cXSuw5QTNVlfL+cHDaY0Qygus
+	4tbbBytmj2TgUoU3c4SbR1S24qBkBeAd6eT+SVDUht0RgNLp2YBzsq+PfEAS+PrYPEU=
+X-Gm-Gg: ASbGncu6619cGP2J2IGI7bkp0m7iKU9k5mmKND2K4JpqAXuXQQuptgB2IJgzC2IWqdj
+	7oFf05POTUHPX0BfKJ7VQB7NF2pW3cYXF72DdZlUF2Gk6jVLGdOXPo/gyUaf7N8p+ZP1KHR+dqX
+	OLORPbsjtjRW7BxjOyjLaNgT4IMXvSwVYUMwAKJOSv2eW/B3sf5b4ReqSFiD00etF3uqGenPawi
+	Jm8Ljc1LNW+TK8eSsA+d4YlB+jUFK6NXMSBBx72qTO3zIebZ0JhfMpJdJGFhqa8GfbgYcIJcNDI
+	4D/bIL45oftJosnOEYqbZfMlmMMc2ybd6JoF3jxj/bNhjr7/q4/+xtZeeQ6GafrHoMNzMz5NY7o
+	ABy/s8utbeCBdbx5agYJFBCH9wETqYBiDuntIzrGXyIfmJlwLaA==
+X-Google-Smtp-Source: AGHT+IGfEDsgYy1Y3V7mn/9vw12xwbotyOf9S0qvgxiLF/dTs1GE6jSNXI03j1w/2hgZi5tVGzAx+Q==
+X-Received: by 2002:a05:6000:290e:b0:3fc:cbfc:fbee with SMTP id ffacd0b85a97d-40f65bbb807mr2115268f8f.19.1758805948078;
+        Thu, 25 Sep 2025 06:12:28 -0700 (PDT)
+Received: from daria.iliad.local (freebox.vlq16.iliad.fr. [213.36.7.13])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e33bef4b4sm32929635e9.20.2025.09.25.06.12.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Sep 2025 06:12:27 -0700 (PDT)
+From: nschichan@freebox.fr
+To: nschichan@freebox.fr
+Cc: akpm@linux-foundation.org,
+	andy.shevchenko@gmail.com,
+	axboe@kernel.dk,
+	brauner@kernel.org,
+	cyphar@cyphar.com,
+	devicetree@vger.kernel.org,
+	ecurtin@redhat.com,
+	email2tema@gmail.com,
+	graf@amazon.com,
+	gregkh@linuxfoundation.org,
+	hca@linux.ibm.com,
+	hch@lst.de,
+	hsiangkao@linux.alibaba.com,
+	initramfs@vger.kernel.org,
+	jack@suse.cz,
+	julian.stecklina@cyberus-technology.de,
+	kees@kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-api@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	mcgrof@kernel.org,
+	mingo@redhat.com,
+	monstr@monstr.eu,
+	mzxreary@0pointer.de,
+	patches@lists.linux.dev,
+	rob@landley.net,
+	safinaskar@gmail.com,
+	sparclinux@vger.kernel.org,
+	thomas.weissschuh@linutronix.de,
+	thorsten.blum@linux.dev,
+	torvalds@linux-foundation.org,
+	tytso@mit.edu,
+	viro@zeniv.linux.org.uk,
+	x86@kernel.org
+Subject: [PATCH-RFC] init: simplify initrd code (was Re: [PATCH RESEND 00/62] initrd: remove classic initrd support).
+Date: Thu, 25 Sep 2025 15:10:56 +0200
+Message-Id: <20250925131055.3933381-1-nschichan@freebox.fr>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <CAHNNwZC7gC7zaZGiSBhobSAb4m2O1BuoZ4r=SQBF-tCQyuAPvw@mail.gmail.com>
+References: <CAHNNwZC7gC7zaZGiSBhobSAb4m2O1BuoZ4r=SQBF-tCQyuAPvw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
- <f953ee7b-91b3-f6f5-6955-b4a138f16dbc@kernel.org> <aNQ7D6_ZYMhCdkmL@debug.ba.rivosinc.com>
-In-Reply-To: <aNQ7D6_ZYMhCdkmL@debug.ba.rivosinc.com>
-From: Andy Chiu <andybnac@gmail.com>
-Date: Thu, 25 Sep 2025 07:30:08 -0500
-X-Gm-Features: AS18NWByhWo0dHTSYL4t2oFRcok3gmrZ-pBxSOOqriMBIQLUznFC4iXNOpyJQRE
-Message-ID: <CAFTtA3Nxq0UmXcuN7jmQOiuTbrenKbR4ihH027ya1WWybgLq4Q@mail.gmail.com>
-Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Christian Brauner <brauner@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Jann Horn <jannh@google.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
-	richard.henderson@linaro.org, jim.shu@sifive.com, kito.cheng@sifive.com, 
-	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com, 
-	cleger@rivosinc.com, alexghiti@rivosinc.com, samitolvanen@google.com, 
-	broonie@kernel.org, rick.p.edgecombe@intel.com, 
-	rust-for-linux@vger.kernel.org, Zong Li <zong.li@sifive.com>, 
-	David Hildenbrand <david@redhat.com>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
-	Florian Weimer <fweimer@redhat.com>, bharrington@redhat.com, 
-	Aurelien Jarno <aurel32@debian.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_053022_950948_F6FA6673 
-X-CRM114-Status: GOOD (  53.64  )
+X-CRM114-CacheID: sfid-20250925_061231_322781_8B042931 
+X-CRM114-Status: GOOD (  26.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,141 +147,363 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgRGVlcGFrLAoKT24gV2VkLCBTZXAgMjQsIDIwMjUgYXQgMTo0MOKAr1BNIERlZXBhayBHdXB0
-YSA8ZGVidWdAcml2b3NpbmMuY29tPiB3cm90ZToKPgo+IE9uIFdlZCwgU2VwIDI0LCAyMDI1IGF0
-IDA4OjM2OjExQU0gLTA2MDAsIFBhdWwgV2FsbXNsZXkgd3JvdGU6Cj4gPkhpLAo+ID4KPiA+T24g
-VGh1LCAzMSBKdWwgMjAyNSwgRGVlcGFrIEd1cHRhIHdyb3RlOgo+ID4KPiA+WyAuLi4gXQo+ID4K
-PiA+PiB2RFNPIHJlbGF0ZWQgT3BlbnMgKGluIHRoZSBmbHV4KQo+ID4+ID09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PQo+ID4+Cj4gPj4gSSBhbSBsaXN0aW5nIHRoZXNlIG9wZW5zIGZv
-ciBsYXlpbmcgb3V0IHBsYW4gYW5kIHdoYXQgdG8gZXhwZWN0IGluIGZ1dHVyZQo+ID4+IHBhdGNo
-IHNldHMuIEFuZCBvZiBjb3Vyc2UgZm9yIHRoZSBzYWtlIG9mIGRpc2N1c3Npb24uCj4gPj4KPiA+
-Cj4gPlsgLi4uIF0KPiA+Cj4gPj4gSG93IG1hbnkgdkRTT3MKPiA+PiAtLS0tLS0tLS0tLS0tLS0K
-PiA+PiBTaGFkb3cgc3RhY2sgaW5zdHJ1Y3Rpb25zIGFyZSBjYXJ2ZWQgb3V0IG9mIHppbW9wICht
-YXkgYmUgb3BlcmF0aW9ucykgYW5kIGlmIENQVQo+ID4+IGRvZXNuJ3QgaW1wbGVtZW50IHppbW9w
-LCB0aGV5J3JlIGlsbGVnYWwgaW5zdHJ1Y3Rpb25zLiBLZXJuZWwgY291bGQgYmUgcnVubmluZyBv
-bgo+ID4+IGEgQ1BVIHdoaWNoIG1heSBvciBtYXkgbm90IGltcGxlbWVudCB6aW1vcC4gQW5kIHRo
-dXMga2VybmVsIHdpbGwgaGF2ZSB0byBjYXJyeSAyCj4gPj4gZGlmZmVyZW50IHZEU09zIGFuZCBl
-eHBvc2UgdGhlIGFwcHJvcHJpYXRlIG9uZSBkZXBlbmRpbmcgb24gd2hldGhlciBDUFUgaW1wbGVt
-ZW50cwo+ID4+IHppbW9wIG9yIG5vdC4KPiA+Cj4gPklmIHdlIG1lcmdlIHRoaXMgc2VyaWVzIHdp
-dGhvdXQgdGhpcywgdGhlbiB3aGVuIENGSSBpcyBlbmFibGVkIGluIHRoZQo+ID5LY29uZmlnLCB3
-ZSdsbCB3aW5kIHVwIHdpdGggYSBub24tcG9ydGFibGUga2VybmVsIHRoYXQgd29uJ3QgcnVuIG9u
-IG9sZGVyCj4gPmhhcmR3YXJlLiAgV2UgZ28gdG8gZ3JlYXQgbGVuZ3RocyB0byBlbmFibGUga2Vy
-bmVsIGJpbmFyeSBwb3J0YWJpbGl0eQo+ID5hY3Jvc3MgdGhlIHByZXNlbmNlIG9yIGFic2VuY2Ug
-b2Ygb3RoZXIgUklTQy1WIGV4dGVuc2lvbnMsIGFuZCBJIHRoaW5rCj4gPnRoZXNlIENGSSBleHRl
-bnNpb25zIHNob3VsZCBiZSBubyBkaWZmZXJlbnQuCj4gPgo+ID5TbyBiZWZvcmUgY29uc2lkZXJp
-bmcgdGhpcyBmb3IgbWVyZ2luZywgSSdkIGxpa2UgdG8gc2VlIGF0IGxlYXN0IGFuCj4gPmF0dGVt
-cHQgdG8gaW1wbGVtZW50IHRoZSBkdWFsLXZEU08gYXBwcm9hY2ggKG9yIHNvbWV0aGluZyBlcXVp
-dmFsZW50KQo+ID53aGVyZSB0aGUgc2FtZSBrZXJuZWwgYmluYXJ5IHdpdGggQ0ZJIGVuYWJsZWQg
-Y2FuIHJ1biBvbiBib3RoIHByZS1aaW1vcAo+ID5hbmQgcG9zdC1aaW1vcCBoYXJkd2FyZSwgd2l0
-aCB0aGUgZXhpc3RpbmcgdXNlcnNwYWNlcyB0aGF0IGFyZSBjb21tb24KPiA+dG9kYXkuCj4KPiBB
-ZGRlZCBzb21lIGRpc3RybyBmb2xrcyBpbiB0aGlzIGVtYWlsIGNoYWluLgo+Cj4gQWZ0ZXIgcGF0
-Y2h3b3JrIG1lZXRpbmcgdG9kYXksIEkgd2FudGVkIHRvIGNvbnRpbnVlIGRpc2N1c3Npb24gaGVy
-ZS4gU28gdGhhbmtzCj4gUGF1bCBmb3IgbG9va2luZyBpbnRvIGl0IGFuZCBpbml0aWF0aW5nIGEg
-ZGlzY3Vzc2lvbiBoZXJlLgo+Cj4gVGhpcyBwYXRjaCBzZXJpZXMgaGFzIGJlZW4gaW4gdGhlIHF1
-ZXVlIGZvciBxdWl0ZSBhIGxvbmcgdGltZSBhbmQgd2UgaGF2ZSBoYWQKPiBkZWxpYmVyYXRpb25z
-IG9uIHZEU08gdG9waWMgZWFybGllciBhcyB3ZWxsIGFuZCBhZnRlciB0aG9zZSBkZWxpYmVyYXRp
-b25zIGl0Cj4gd2FzIGRlY2lkZWQgdG8gZ28gYWhlYWQgd2l0aCBtZXJnZSBhbmQgaXQgaW5kZWVk
-IHdhcyBzZW50IGZvciA2LjE3IG1lcmdlCj4gd2luZG93LiBVbmZvcnR1bmF0bGV5IGR1ZSB0byBv
-dGhlciB1bmZvcmVzZWVuIHJlYXNvbnMsIGVudGlyZXR5IG9mIHJpc2N2Cj4gY2hhbmdlcyB3ZXJl
-IG5vdCBwaWNrZWQuIFNvIGl0J3MgYSBiaXQgZGlzYXBwb2ludGluZyB0byBzZWUgYmFjay1wYWRk
-bGluZyBvbgo+IHRoaXMgdG9waWMuCj4KPiBBbnl3YXlzLCB3ZSBhcmUgaGVyZS4gU28gSSdsbCBw
-cm92aWRlIGEgYml0IG9mIGNvbnRleHQgZm9yIHRoZSBsaXN0IGFib3V0Cj4gZGVsaWJlcmF0aW9u
-cyBhbmQgZGlzY3Vzc2lvbnMgd2UgaGF2ZSBiZWVuIGhhdmluZyBmb3Igc28gbWFueSBtZXJnZSB3
-aW5kb3dzLgo+IFRoaXMgc28gdGhhdCBhIGhvbGlzdGljIGRpc2N1c3Npb24gY2FuIGhhcHBlbiBv
-biB0aGlzIGJlZm9yZSB3ZSBtYWtlIGEKPiBkZWNpc2lvbi4KPgo+IElzc3VlCj4gPT09PT09Cj4K
-PiBJbnN0cnVjdGlvbnMgaW4gUklTQy1WIHNoYWRvdyBzdGFjayBleHRlbnNpb24gKHppY2Zpc3Mg
-LSBbMV0pIGFyZSBjYXJ2ZWQgb3V0IG9mCj4gIm1heSBiZSBvcHMiIGFrYSB6aW1vcCBleHRlbnNp
-b24gWzJdLiAibWF5IGJlIG9wcyIgYXJlIGlsbGVnYWwgb24gbm9uLVJWQTIzCj4gaGFyZHdhcmUu
-IFRoaXMgbWVhbnMgYW55IGV4aXN0aW5nIHJpc2N2IENQVSBvciBmdXR1cmUgQ1BVIHdoaWNoIGlz
-bid0IFJWQTIzCj4gY29tcGxpYW50IGFuZCBub3QgaW1wbGVtZW50aW5nIHppbW9wIHdpbGwgdHJl
-YXQgdGhlc2UgZW5jb2RpbmdzIGFzIGlsbGVnYWwuCj4KPiBDdXJyZW50IGtlcm5lbCBwYXRjaGVz
-IGVuYWJsZSBzaGFkb3cgc3RhY2sgYW5kIGxhbmRpbmcgcGFkIHN1cHBvcnQgZm9yCj4gdXNlcnNw
-YWNlIHVzaW5nIGNvbmZpZyBgQ09ORklHX1JJU0NWX1VTRVJfQ0ZJYC4gSWYgdGhpcyBjb25maWcg
-aXMgc2VsZWN0ZWQgdGhlbgo+IHZEU08gdGhhdCB3aWxsIGJlIGV4cG9zZWQgdG8gdXNlciBzcGFj
-ZSB3aWxsIGFsc28gaGF2ZSBzaGFkb3cgc3RhY2sKPiBpbnN0cnVjdGlvbnMgaW4gdGhlbS4gS2Vy
-bmVsIGNvbXBpbGVkIHdpdGggYENPTkZJR19SSVNDVl9VU0VSX0NGSWAsIGZvciBzYWtlIG9mCj4g
-dGhpcyBkaXNjdXNzaW9uIGxldHMgY2FsbCBpdCBSVkEyMyBjb21waWxlZCBrZXJuZWwuCj4KPiBJ
-c3N1ZSB0aGF0IHdlIGRpc2N1c3NlZCBlYXJsaWVyIGFuZCBldmVuIHRvZGF5IGlzICJUaGlzIFJW
-QTIzIGNvbXBpbGVkIGtlcm5lbAo+IHdvbid0IGJlIGFibGUgdG8gc3VwcG9ydCBub24tUlZBMjMg
-dXNlcnNwYWNlIG9uIG5vbi1SVkEyMyBoYXJkd2FyZSBiZWNhdXNlIi4KPiBQbGVhc2Ugbm90ZSB0
-aGF0IGlzc3VlIGV4aXN0cyBvbmx5IG9uIG5vbi1SVkEyMyBoYXJkd2FyZSAod2hpY2ggaXMgZXhp
-c3RpbmcKPiBoYXJkd2FyZSBhbmQgZnV0dXJlIGhhcmR3YXJlIHdoaWNoIGlzIG5vdCBpbXBsZW1l
-bnRpbmcgemltb3ApLiBSVkEyMyBjb21waWxlZAo+IGtlcm5lbCBjYW4gc3VwcG9ydCBhbnkgc29y
-dCBvZiB1c2Vyc3BhY2Ugb24gUlZBMjMgaGFyZHdhcmUuCj4KPgo+IERpc2N1c3Npb24KPiA9PT09
-PT09PT09PQo+Cj4gU28gdGhlIGlzc3VlIGlzIG5vdCByZWFsbHkgc2hhZG93IHN0YWNrIGluc3Ry
-dWN0aW9ucyBidXQgcmF0aGVyIG1heSBiZSBvcAo+IGluc3RydWN0aW9ucyBpbiBjb2RlZ2VuIChi
-aW5hcmllcyBhbmQgdkRTTykgd2hpY2ggYXJlbid0IGhpZGRlbiBiZWhpbmQgYW55Cj4gZmxhZyAo
-dG8gaGlkZSB0aGVtIGlmIGhhcmR3YXJlIGRvZXNuJ3Qgc3VwcG9ydCkuIEFuZCBpZiBJIGNhbiBu
-YXJyb3cgZG93bgo+IGZ1cnRoZXIsIHByaW1hcnkgaXNzdWUgd2UgYXJlIGRpc2N1c3NpbmcgaXMg
-dGhhdCBpZiBjZmkgaXMgZW5hYmxlZCBkdXJpbmcKPiBrZXJuZWwgY29tcGlsZSwgaXQgaXMgYnJp
-bmdpbmcgaW4gYSBwaWVjZSBvZiBjb2RlICh2RFNPKSB3aGljaCB3b24ndCB3b3JrCj4gb24gZXhp
-c3RpbmcgaGFyZHdhcmUuIEJ1dCB0aGUgY291bnRlciBwb2ludCBpcyBpZiBzb21lb25lIHdlcmUg
-dG8gZGVwbG95Cj4gUlZBMjMgY29tcGlsZWQga2VybmVsIG9uIG5vbi1SVkEyMyBoYXJkd2FyZSwg
-dGhleSBtdXN0IGhhdmUgY29tcGlsZWQKPiByZXN0IG9mIHRoZSB1c2Vyc3BhY2Ugd2l0aG91dCBz
-aGFkb3cgc3RhY2sgaW5zdHJ1Y3Rpb25zIGluIHRoZW0gZm9yIHN1Y2gKPiBhIGhhcmR3YXJlLiBB
-bmQgdGh1cyBhdCB0aGlzIHBvaW50IHRoZXkgY291bGQgc2ltcGx5IGNob29zZSAqbm90KiB0byB0
-dXJuIG9uCj4gYENPTkZJR19SSVNDVl9VU0VSX0NGSWAgd2hlbiBjb21waWxpbmcgc3VjaCBrZXJu
-ZWwuIEl0J3Mgbm90IHRoYXQgZGlmZmljdWx0IHRvCj4gZG8gc28uCj4KPiBBbnkgZGlzdHJvIHdo
-byBpcyBzaGlwcGluZyB1c2Vyc3BhY2UgKHdoaWNoIGFsbCBvZiB0aGVtIGFyZSkgYWxvbmcgd2l0
-aCBrZXJuZWwKPiB3aWxsIG5vdCBiZSBzaGlwcGluZyB0d28gZGlmZmVyZW50IHVzZXJzcGFjZXMg
-KG9uZSB3aXRoIHNoYWRvdyBzdGFjayBhbmQgb25lCj4gd2l0aG91dCB0aGVtKS4gSWYgZGlzdHJv
-IGFyZSBzaGlwcGluZyB0d28gZGlmZmVyZW50IHVzZXJzcGFjZXMsIHRoZW4gdGhleSBtaWdodAo+
-IGFzIHdlbGwgc2hpcCB0d28gZGlmZmVyZW50IGtlcm5lbHMuIFRhZ2dpbmcgc29tZSBkaXN0cm8g
-Zm9sa3MgaGVyZSB0byBnZXQgdGhlaXIKPiB0YWtlIG9uIHNoaXBwaW5nIGRpZmZlcmVudCB1c2Vy
-c3BhY2UgZGVwZW5kaW5nIG9uIHdoZXRoZXIgaGFyZHdhcmUgaXMgUlZBMjMgb3IKPiBub3QuIEBI
-ZWlucmljaCwgQEZsb3JpYW4sIEByZWRiZWFyZCBhbmQgQEF1cmVsaWVuLgo+Cj4gTWFqb3IgZGlz
-dHJvJ3MgaGF2ZSBhbHJlYWR5IGRyYXduIGEgZGlzdGluY3Rpb24gaGVyZSB0aGF0IHRoZXkgd2ls
-bCBkcm9wCj4gc3VwcG9ydCBmb3IgaGFyZHdhcmUgd2hpY2ggaXNuJ3QgUlZBMjMgZm9yIHRoZSBz
-YWtlIG9mIGtlZXBpbmcgYmluYXJ5Cj4gZGlzdHJpYnV0aW9uIHNpbXBsZS4KPgo+IE9ubHkgb3Ro
-ZXIgdXNlIGNhc2UgdGhhdCB3YXMgZGlzY3Vzc2VkIG9mIGEgcG93ZXJmdWwgbGludXggdXNlciB3
-aG8ganVzdCB3YW50cwo+IHRvIHVzZSBhIHNpbmdsZSBrZXJuZWwgb24gYWxsIGtpbmRzIG9mIHJp
-c2N2IGhhcmR3YXJlLiBJIGFtIGltYWdpbmluZyBzdWNoIGEKPiB1c2VyIGtub3dzIGVub3VnaCBh
-Ym91dCBrZXJuZWwgYW5kIGlmIGlzIHJlYWxseSBkZWFyIHRvIHRoZW0sIHRoZXkgY2FuIGRldmVs
-b3AKPiB0aGVpciBvd24gcGF0Y2hlcyBhbmQgc2VuZCBpdCB1cHN0cmVhbSB0byBzdXBwb3J0IHRo
-ZWlyIG93biB1c2VjYXNlIGFuZCB3ZSBjYW4KPiBkaXNjdXNzIHRoZW0gb3V0LiBDdXJyZW50IHBh
-dGNoc2V0IGRvbid0IHByZXZlbnQgc3VjaCBhIGRldmVsb3BlciB0byBzZW5kIHN1Y2gKPiBwYXRj
-aGVzIHVwc3RyZWFtLgo+Cj4gSSBoZWFyZCB0aGUgYXJndW1lbnQgaW4gbWVldGluZyB0b2RheSB0
-aGF0ICJaYmIiIGVuYWJsaW5nIHdvcmtzIHNpbWlsYXIgZm9yCj4ga2VybmVsIHRvZGF5LiBJIGxv
-b2tlZCBhdCAiWmJiIiBlbmFibGluZy4gSXQncyBmb3Iga2VybmVsIHVzYWdlIGFuZCBpdCdzCj4g
-c3VyZ2ljYWxseSBwbGFjZWQgaW4ga2VybmVsIHVzaW5nIGFzbSBoaWRkZW4gYmVoaW5kIGFsdGVy
-bmF0aXZlcy4gdkRTTyBpc24ndAo+IGNvbXBpbGVkIHdpdGggWmJiLiBTaGFkb3cgc3RhY2sgaW5z
-dHJ1Y3Rpb25zIGFyZSBwYXJ0IG9mIGNvZGVnZW4gZm9yIEMgZmlsZXMKPiBjb21waWxlZCBpbnRv
-IHZEU08uCj4KPiBGdXJ0aGVybW9yZSwKPgo+IEtlcm5lbCBjb250cm9sIGZsb3cgaW50ZWdyaXR5
-IHdpbGwgaW50cm9kdWNlIHNoYWRvdyBzdGFjayBpbnN0cnVjdGlvbnMgYWxsCj4gb3ZlciB0aGUg
-a2VybmVsIGJpbmFyeS4gU3VjaCBrZXJuZWwgd29uJ3QgYmUgZGVwbG95YWJsZSBvbiBub24tUlZB
-MjMgaGFyZHdhcmUuCj4gSG93IHRvIGRlYWwgd2l0aCB0aGlzIHByb2JsZW0gZm9yIGEgc2F2dnkg
-a2VybmVsIGRldmVsb3BlciB3aG8gd2FudHMgdG8gcnVuCj4gc2FtZSBjZmkgZW5hYmxlZCBrZXJu
-ZWwgYmluYXJ5IG9uIG11bHRpcGxlIGhhcmR3YXJlPwo+Cj4gQ29taW5nIGZyb20gZW5naW5lZXJp
-bmcgYW5kIGhhY2tlciBwb2ludCBvZiB2aWV3LCBJIHVuZGVyc3RhbmQgdGhlIGRlc2lyZSBoZXJl
-Cj4gYnV0IEkgc3RpbGwgc2VlIHRoYXQgaXQncyBjb21wbGV4aXR5IGVuZm9yY2VkIG9uIHJlc3Qg
-b2YgdGhlIGtlcm5lbCBmcm9tIGEgdXNlcgo+IGJhc2Ugd2hpY2ggYW55d2F5cyBjYW4gYWNoaWV2
-ZSBzdWNoIGdvYWxzLiBGb3IgbWFqb3JpdHkgb2YgdXNlY2FzZXMsIEkgZG9uJ3QKPiBzZWUgYSBy
-ZWFzb24gdG8gaW5jcmVhc2UgY29tcGxleGl0eSBpbiB0aGUga2VybmVsIGZvciBidWlsZCwgcG9z
-c2libHkgcnVudGltZQo+IHBhdGNoaW5nIGFuZCB0aHVzIHBvc3NpYmx5IGludHJvZHVjZSBtb3Jl
-IGlzc3VlcyBhbmQgZXJyb3JzIGp1c3QgZm9yIHRoZSBzYWtlCj4gb2YgYSBzY2llbmNlIHByb2pl
-Y3QuCj4KPiBCZWluZyBzYWlkIHRoYXQsIHJlLWl0ZXJhdGluZyB0aGF0IGN1cnJlbnRseSBkZWZh
-dWx0IGZvciBgQ09ORklHX1JJU0NWX1VTRVJfQ0ZJYAo+IGlzICJuIiB3aGljaCBtZWFucyBpdCB3
-b24ndCBiZSBicmVha2luZyBhbnl0aGluZyB1bmxlc3MgYSB1c2VyIG9wdHMgIlkiLiBTbyBldmVu
-Cj4gdGhvdWdoIEkgcmVhbGx5IGRvbid0IHNlZSBhIHJlYXNvbiBhbmQgdXNhYmlsaXR5IHRvIGhh
-dmUgY29tcGxleGl0eSBpbiBrZXJuZWwgdG8KPiBjYXJyeSBtdWx0aXBsZSB2RFNPcywgY3VycmVu
-dCBwYXRjaHNldHMgYXJlIG5vdCBhIGhpbmRlcmFuY2UgZm9yIHN1Y2ggZnV0dXJlCj4gY2FwYWJp
-bGl0eSAoYmVjYXVzZSBjdXJyZW50IGRlZmF1bHQgaXMgTm8pIGFuZCBtb3RpdmF0ZWQgZGV2ZWxv
-cGVyIGlzIHdlbGNvbWUKPiB0byBidWlsZCBvbiB0b3Agb2YgaXQuIEJvdHRvbWxpbmUgaXMgSSBk
-b24ndCBzZWUgYSByZWFzb24gdG8gYmxvY2sgY3VycmVudAo+IHBhdGNoc2V0IGZyb20gbWVyZ2lu
-ZyBpbiB2Ni4xOC4KClNvcnJ5IGZvciByZWl0ZXJhdGluZywgSSBoYXZlIGJlZW4gZ29uZSBmb3Ig
-YSB3aGlsZSwgc28gbWF5YmUgSSBsb3N0IGEKYml0IG9mIGNvbnRleHQuCgpJbiB0aGF0IGNhc2Us
-IHNob3VsZCB3ZSBhZGQgYSBjb21tZW50IGluIHRoZSBLY29uZmlnIHRoYXQgc2F5cyAiaXQKYnJl
-YWtzIHVzZXJzcGFjZSBvbiBvbGRlci10aGFuIFJWQTIzIHBsYXRmb3JtcyI/CgpQZXJoYXBzIGEg
-dmVyeSB1Z2x5IHdheSB0byBtYWtlIFJWQTIzLWNvbXBpbGVkIGtlcm5lbCBjb21wYXRpYmxlIHdp
-dGgKcHJlLVJWQTIzIHBsYXRmb3JtcyBpcyB0byBkZWNvZGUgbWF5YmUtb3BzIGluIHRoZSBpbGxl
-Z2FsIGV4Y2VwdGlvbgpoYW5kbGVyLi4uCgpCdHcsIEkgZG9uJ3QgdGhpbmsga2VucmVsLWxldmVs
-IHNoYWRvdyBzdGFjayBzaG91bGQgYmUgYW4gYXJndW1lbnQKaGVyZSwgYXMga2VybmVsLWxldmVs
-IEFQSXMgYXJlIG1vcmUgZmxleGlibGUgYnkgbmF0dXJlLgoKVGhhbmtzLApBbmR5CgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Nicolas Schichan <nschichan@freebox.fr>
+
+- drop prompt_ramdisk and ramdisk_start kernel parameters
+- drop compression support
+- drop image autodetection, the whole /initrd.image content is now
+  copied into /dev/ram0
+- remove rd_load_disk() which doesn't seem to be used anywhere.
+
+There is now no more limitation on the type of initrd filesystem that
+can be loaded since the code trying to guess the initrd filesystem
+size is gone (the whole /initrd.image file is used).
+
+A few global variables in do_mounts_rd.c are now put as local
+variables in rd_load_image() since they do not need to be visible
+outside this function.
+---
+
+Hello,
+
+Hopefully my email config is now better and reaches gmail users
+correctly.
+
+The patch below could probably split in a few patches, but I think
+this simplify the code greatly without removing the functionality we
+depend on (and this allows now to use EROFS initrd images).
+
+Coupled with keeping the function populate_initrd_image() in
+init/initramfs.c, this will keep what we need from the initrd code.
+
+This removes support of loading bzip/gz/xz/... compressed images as
+well, not sure if many user depend on this feature anymore.
+
+No signoff because I'm only seeking comments about those changes right
+now.
+
+ init/do_mounts.h    |   2 -
+ init/do_mounts_rd.c | 243 +-------------------------------------------
+ 2 files changed, 4 insertions(+), 241 deletions(-)
+
+diff --git a/init/do_mounts.h b/init/do_mounts.h
+index 6069ea3eb80d..c0028ee3cff6 100644
+--- a/init/do_mounts.h
++++ b/init/do_mounts.h
+@@ -24,12 +24,10 @@ static inline __init int create_dev(char *name, dev_t dev)
+ 
+ #ifdef CONFIG_BLK_DEV_RAM
+ 
+-int __init rd_load_disk(int n);
+ int __init rd_load_image(char *from);
+ 
+ #else
+ 
+-static inline int rd_load_disk(int n) { return 0; }
+ static inline int rd_load_image(char *from) { return 0; }
+ 
+ #endif
+diff --git a/init/do_mounts_rd.c b/init/do_mounts_rd.c
+index ac021ae6e6fa..5a69ff43f5ee 100644
+--- a/init/do_mounts_rd.c
++++ b/init/do_mounts_rd.c
+@@ -14,173 +14,9 @@
+ 
+ #include <linux/decompress/generic.h>
+ 
+-static struct file *in_file, *out_file;
+-static loff_t in_pos, out_pos;
+-
+-static int __init prompt_ramdisk(char *str)
+-{
+-	pr_warn("ignoring the deprecated prompt_ramdisk= option\n");
+-	return 1;
+-}
+-__setup("prompt_ramdisk=", prompt_ramdisk);
+-
+-int __initdata rd_image_start;		/* starting block # of image */
+-
+-static int __init ramdisk_start_setup(char *str)
+-{
+-	rd_image_start = simple_strtol(str,NULL,0);
+-	return 1;
+-}
+-__setup("ramdisk_start=", ramdisk_start_setup);
+-
+-static int __init crd_load(decompress_fn deco);
+-
+-/*
+- * This routine tries to find a RAM disk image to load, and returns the
+- * number of blocks to read for a non-compressed image, 0 if the image
+- * is a compressed image, and -1 if an image with the right magic
+- * numbers could not be found.
+- *
+- * We currently check for the following magic numbers:
+- *	minix
+- *	ext2
+- *	romfs
+- *	cramfs
+- *	squashfs
+- *	gzip
+- *	bzip2
+- *	lzma
+- *	xz
+- *	lzo
+- *	lz4
+- */
+-static int __init
+-identify_ramdisk_image(struct file *file, loff_t pos,
+-		decompress_fn *decompressor)
+-{
+-	const int size = 512;
+-	struct minix_super_block *minixsb;
+-	struct romfs_super_block *romfsb;
+-	struct cramfs_super *cramfsb;
+-	struct squashfs_super_block *squashfsb;
+-	int nblocks = -1;
+-	unsigned char *buf;
+-	const char *compress_name;
+-	unsigned long n;
+-	int start_block = rd_image_start;
+-
+-	buf = kmalloc(size, GFP_KERNEL);
+-	if (!buf)
+-		return -ENOMEM;
+-
+-	minixsb = (struct minix_super_block *) buf;
+-	romfsb = (struct romfs_super_block *) buf;
+-	cramfsb = (struct cramfs_super *) buf;
+-	squashfsb = (struct squashfs_super_block *) buf;
+-	memset(buf, 0xe5, size);
+-
+-	/*
+-	 * Read block 0 to test for compressed kernel
+-	 */
+-	pos = start_block * BLOCK_SIZE;
+-	kernel_read(file, buf, size, &pos);
+-
+-	*decompressor = decompress_method(buf, size, &compress_name);
+-	if (compress_name) {
+-		printk(KERN_NOTICE "RAMDISK: %s image found at block %d\n",
+-		       compress_name, start_block);
+-		if (!*decompressor)
+-			printk(KERN_EMERG
+-			       "RAMDISK: %s decompressor not configured!\n",
+-			       compress_name);
+-		nblocks = 0;
+-		goto done;
+-	}
+-
+-	/* romfs is at block zero too */
+-	if (romfsb->word0 == ROMSB_WORD0 &&
+-	    romfsb->word1 == ROMSB_WORD1) {
+-		printk(KERN_NOTICE
+-		       "RAMDISK: romfs filesystem found at block %d\n",
+-		       start_block);
+-		nblocks = (ntohl(romfsb->size)+BLOCK_SIZE-1)>>BLOCK_SIZE_BITS;
+-		goto done;
+-	}
+-
+-	if (cramfsb->magic == CRAMFS_MAGIC) {
+-		printk(KERN_NOTICE
+-		       "RAMDISK: cramfs filesystem found at block %d\n",
+-		       start_block);
+-		nblocks = (cramfsb->size + BLOCK_SIZE - 1) >> BLOCK_SIZE_BITS;
+-		goto done;
+-	}
+-
+-	/* squashfs is at block zero too */
+-	if (le32_to_cpu(squashfsb->s_magic) == SQUASHFS_MAGIC) {
+-		printk(KERN_NOTICE
+-		       "RAMDISK: squashfs filesystem found at block %d\n",
+-		       start_block);
+-		nblocks = (le64_to_cpu(squashfsb->bytes_used) + BLOCK_SIZE - 1)
+-			 >> BLOCK_SIZE_BITS;
+-		goto done;
+-	}
+-
+-	/*
+-	 * Read 512 bytes further to check if cramfs is padded
+-	 */
+-	pos = start_block * BLOCK_SIZE + 0x200;
+-	kernel_read(file, buf, size, &pos);
+-
+-	if (cramfsb->magic == CRAMFS_MAGIC) {
+-		printk(KERN_NOTICE
+-		       "RAMDISK: cramfs filesystem found at block %d\n",
+-		       start_block);
+-		nblocks = (cramfsb->size + BLOCK_SIZE - 1) >> BLOCK_SIZE_BITS;
+-		goto done;
+-	}
+-
+-	/*
+-	 * Read block 1 to test for minix and ext2 superblock
+-	 */
+-	pos = (start_block + 1) * BLOCK_SIZE;
+-	kernel_read(file, buf, size, &pos);
+-
+-	/* Try minix */
+-	if (minixsb->s_magic == MINIX_SUPER_MAGIC ||
+-	    minixsb->s_magic == MINIX_SUPER_MAGIC2) {
+-		printk(KERN_NOTICE
+-		       "RAMDISK: Minix filesystem found at block %d\n",
+-		       start_block);
+-		nblocks = minixsb->s_nzones << minixsb->s_log_zone_size;
+-		goto done;
+-	}
+-
+-	/* Try ext2 */
+-	n = ext2_image_size(buf);
+-	if (n) {
+-		printk(KERN_NOTICE
+-		       "RAMDISK: ext2 filesystem found at block %d\n",
+-		       start_block);
+-		nblocks = n;
+-		goto done;
+-	}
+-
+-	printk(KERN_NOTICE
+-	       "RAMDISK: Couldn't find valid RAM disk image starting at %d.\n",
+-	       start_block);
+-
+-done:
+-	kfree(buf);
+-	return nblocks;
+-}
+-
+ static unsigned long nr_blocks(struct file *file)
+ {
+-	struct inode *inode = file->f_mapping->host;
+-
+-	if (!S_ISBLK(inode->i_mode))
+-		return 0;
+-	return i_size_read(inode) >> 10;
++	return i_size_read(file->f_mapping->host) >> 10;
+ }
+ 
+ int __init rd_load_image(char *from)
+@@ -190,10 +26,11 @@ int __init rd_load_image(char *from)
+ 	int nblocks, i;
+ 	char *buf = NULL;
+ 	unsigned short rotate = 0;
+-	decompress_fn decompressor = NULL;
+ #if !defined(CONFIG_S390)
+ 	char rotator[4] = { '|' , '/' , '-' , '\\' };
+ #endif
++	struct file *in_file, *out_file;
++	loff_t in_pos = 0, out_pos = 0;
+ 
+ 	out_file = filp_open("/dev/ram", O_RDWR, 0);
+ 	if (IS_ERR(out_file))
+@@ -203,17 +40,6 @@ int __init rd_load_image(char *from)
+ 	if (IS_ERR(in_file))
+ 		goto noclose_input;
+ 
+-	in_pos = rd_image_start * BLOCK_SIZE;
+-	nblocks = identify_ramdisk_image(in_file, in_pos, &decompressor);
+-	if (nblocks < 0)
+-		goto done;
+-
+-	if (nblocks == 0) {
+-		if (crd_load(decompressor) == 0)
+-			goto successful_load;
+-		goto done;
+-	}
+-
+ 	/*
+ 	 * NOTE NOTE: nblocks is not actually blocks but
+ 	 * the number of kibibytes of data to load into a ramdisk.
+@@ -228,10 +54,7 @@ int __init rd_load_image(char *from)
+ 	/*
+ 	 * OK, time to copy in the data
+ 	 */
+-	if (strcmp(from, "/initrd.image") == 0)
+-		devblocks = nblocks;
+-	else
+-		devblocks = nr_blocks(in_file);
++	nblocks = devblocks = nr_blocks(in_file);
+ 
+ 	if (devblocks == 0) {
+ 		printk(KERN_ERR "RAMDISK: could not determine device size\n");
+@@ -264,7 +87,6 @@ int __init rd_load_image(char *from)
+ 	}
+ 	pr_cont("done.\n");
+ 
+-successful_load:
+ 	res = 1;
+ done:
+ 	fput(in_file);
+@@ -275,60 +97,3 @@ int __init rd_load_image(char *from)
+ 	init_unlink("/dev/ram");
+ 	return res;
+ }
+-
+-int __init rd_load_disk(int n)
+-{
+-	create_dev("/dev/root", ROOT_DEV);
+-	create_dev("/dev/ram", MKDEV(RAMDISK_MAJOR, n));
+-	return rd_load_image("/dev/root");
+-}
+-
+-static int exit_code;
+-static int decompress_error;
+-
+-static long __init compr_fill(void *buf, unsigned long len)
+-{
+-	long r = kernel_read(in_file, buf, len, &in_pos);
+-	if (r < 0)
+-		printk(KERN_ERR "RAMDISK: error while reading compressed data");
+-	else if (r == 0)
+-		printk(KERN_ERR "RAMDISK: EOF while reading compressed data");
+-	return r;
+-}
+-
+-static long __init compr_flush(void *window, unsigned long outcnt)
+-{
+-	long written = kernel_write(out_file, window, outcnt, &out_pos);
+-	if (written != outcnt) {
+-		if (decompress_error == 0)
+-			printk(KERN_ERR
+-			       "RAMDISK: incomplete write (%ld != %ld)\n",
+-			       written, outcnt);
+-		decompress_error = 1;
+-		return -1;
+-	}
+-	return outcnt;
+-}
+-
+-static void __init error(char *x)
+-{
+-	printk(KERN_ERR "%s\n", x);
+-	exit_code = 1;
+-	decompress_error = 1;
+-}
+-
+-static int __init crd_load(decompress_fn deco)
+-{
+-	int result;
+-
+-	if (!deco) {
+-		pr_emerg("Invalid ramdisk decompression routine.  "
+-			 "Select appropriate config option.\n");
+-		panic("Could not decompress initial ramdisk image.");
+-	}
+-
+-	result = deco(NULL, 0, compr_fill, compr_flush, NULL, NULL, error);
+-	if (decompress_error)
+-		result = 1;
+-	return result;
+-}
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
