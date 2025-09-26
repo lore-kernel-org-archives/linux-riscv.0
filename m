@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AAF9CAC5B9
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Sep 2025 12:15:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C800CAC5B9
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Sep 2025 12:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EtfM3hV0UXLA7ZA5n+YIlfBCTyag36ew0PL/z+AR+C8=; b=iYpOPj7SGKmKc2
-	qwZnwCZipx5XOzOg/pnT92oSbs/j+c3F/tWg8EP7SsyTkjkpBr5pR/+zQcKYs/s25mY35erCdG1Dm
-	OdwSw+qDtyPGcVrbiTGDH4MrqmLNK851X8GO4oUCbRzxj8TS06SwNsQxgBDJsrHV6XnhREAn9YTih
-	ezYOPufuP1lUov5lfMJa5veqbGo4AA9eD8nS6ma0VqRfvvK8RqAUykVXjUQabA097i3e8bG40KlNB
-	SXtcCMhuO9BqAqd5RSIlDe2TodKizYlDk+jxvLYHCnKeIGgEZnGLFtnYmMa8gF1KxbYWny70e0oB3
-	itFZ6cUOvVLWlWoc2nmw==;
+	List-Owner; bh=53oL1rCQU1qGoYMpBDKPjKkLpHSmGtYzv33rkHu/hbU=; b=CxZFylJ5qKW/4R
+	OqZTenjygMBL+7Ox7dw3cHfZWMCByKc01VqpPgb4ThFuFwnRFPWOBdE5YUd8Ygm96CIzLT7RzRvY7
+	NLvkMBeOef4d98iN8WdbQ1cNVG/Ua+6s6rKr7cwURt50hC/FrK8XrXw4cyRtEqxxp7QglOA06XJYY
+	xYYmDcJxuTLqqMrL3VW0VCTGGf/9o2k5lnE23+6+M1y8Yk7Y6Mbj69KMPvFzK4eLxpgUdMDPFssB8
+	3SfqgMC8GLuehudmvcg4SgEs5/9UgCwGKHviPSmTACg7YKh/B1kfJgW9AhvigNtdxs0tiykeS71uE
+	X7SsYOfLf0qMF6BAFmoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v27Lr-000000014B3-3tYb;
-	Fri, 26 Sep 2025 12:15:03 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1v27vy-00000001K62-2Vh1;
+	Fri, 26 Sep 2025 12:52:22 +0000
+Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v27Lp-00000001467-0tOn
+	id 1v27vx-00000001K5K-19gg
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Sep 2025 12:15:02 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758888883;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nhDPg+3tDEf9MpUD75Uir8jON0jMqHC/BgN+drVu6Ik=;
-	b=RT5BCGClk8eYNLsWrCT9NGMhUhGTFCT+g6BuEE/ZgSTz46KzxrFGrxf5rfbhKDlmDfZ2dF
-	0ZS3KTcwV38r/I9xpofwrp6oDTVzXVb1vUNGtVC5atdEjQoMCLN+n17IHw1IKYK5tNyqjl
-	PpsWxBxMWoXH4oPHzHMNzFAg/azXKAospDHtzCjy+vga4mDcDWhgimkYd1OvPRfnzspNID
-	2Ze8EmQLtt7inp+OT80QkQZUC/jlS4Y1D19uQy1zaHa3NBESKAPm1UybMXTmNJKVjTNHb7
-	XuUCnx4CzTfl++4zbRBP36czEvE8qfTZL5xpxLFdff+pfnHvbojif7ItbBMl6A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758888883;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nhDPg+3tDEf9MpUD75Uir8jON0jMqHC/BgN+drVu6Ik=;
-	b=qZ9RmACIatl+hYddkSm7Z/zYxpY3meldLubKjVCBj7S4i2twoQgOwyHOKFHWfdMdyRASsV
-	T6yNn6QBRnHYPVCg==
-To: Thomas Huth <thuth@redhat.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: Add kprobes KUnit test
-In-Reply-To: <16b74b63-f223-4f0b-b6e5-31cea5e620b4@redhat.com>
-References: <20250513151631.3520793-1-namcao@linutronix.de>
- <16b74b63-f223-4f0b-b6e5-31cea5e620b4@redhat.com>
-Date: Fri, 26 Sep 2025 14:14:43 +0200
-Message-ID: <87frc9h0lo.fsf@yellow.woof>
+	Fri, 26 Sep 2025 12:52:22 +0000
+Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-635355713d9so1593953d50.3
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Sep 2025 05:52:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758891140; x=1759495940; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=oeq95/+JFRlc8XyWn/nswZYQ27eu4+ApswNk/R1twrM=;
+        b=oTG3MRnY4972A+IlfH9QyvbRijXUxXMgGovifkGT8bBDdoCDYKFCDtmoO0ncjeHvxT
+         +bxWVTCaVcwMmaxcwBajYrJ1m4VjRAz54+8DMmOFt9xOIRSQEBL0mOC0nPO/4wbw2emu
+         080YZnuJ8rM8AbiCTyZMlwErH7JVjiQTnAQf4Z8KcGO1y6kaYgPKwf3j7vXFF/FhkGyp
+         yvOCd815kx/of7UuFQLmfLvIzFub+SQmDRxsTsVfPZtpLPahpJK8/HtDZjbzKGw/sACR
+         akCdevb9weqvuiENEWO7Qq9re4iDoHGVCktiZhmesEArBV5+bsrNgdgYS/rBqIZUW+9k
+         mTuQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758891140; x=1759495940;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oeq95/+JFRlc8XyWn/nswZYQ27eu4+ApswNk/R1twrM=;
+        b=xHPv4Ex6fpIHCYtjqOVm1QdSDKjLKJqnst/UiZepaIzdwebOTEpGfmt4v4enJY1II0
+         DrMKOYnxqsGiiAKp19mowTuE75XW+DXdVyhZ8eVJHsACys+rukKnWH5/UUbGu0EP13UW
+         qnrabsiwDQcNUwFDg53HM3AAmk8P0/UBjHygOtapMezSYnjpXTUlpVOCB4X582n04QLj
+         99MR4CuQalw0VNQ0puA7r/QTWdUi1MumAlO7QjffDkH6xIewUpcFFgRYOzLBfQOKkq2c
+         Q4MTR39UqNuBISvJU/vagm382lVKObw275d9cyHkWnHVmSvln8z+zPHwwjQGWRPfUPJb
+         tvyA==
+X-Forwarded-Encrypted: i=1; AJvYcCXraOjILOW6nbTk6ifcbDHCGs9664zwuWK5ppUab3vxfkKLpe1Ll1A8+tDGNYejzb5X80X0UhEsRrQZ0w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyV4c6wCTVagwgk/J9bRZixBdqaQayhNBYc8v1ro1gVfgoaaUYp
+	kGO/sIdlqI2J+I17wSDDcL5+yHvfkn0BuHM4aKci4Lbx2fJr3npTA4zeigd7rVO5BDPbdLJRoLS
+	NjFrjV6KSjd7zlN8g6wEUdU9r1VkvCyG4QPP6EAErPw==
+X-Gm-Gg: ASbGnctRybqShKfOc0u+SxjVgFqbfcwgl4DLJrd77PxP1VyWpjdLl8ZviGU+obduaL5
+	iStRp/3JL0UBaMNqnJj8cEDMrrnMHiNw4cjvt8gyMM4OkqvK7kEyvfL9qyGqAxMmpVdL6EnpfGU
+	1+y9fkWGOBrhqRZZTRHFDSrN9VZaF8UykKXdLPSYl5Hs+KY3D4rZ334uUwwlKsYg6bGaTaajnvT
+	hMmmpOm
+X-Google-Smtp-Source: AGHT+IFbegjMBskXETWZWAHtZmLSq0HPSiddGUE92rJmk6oAyCGRgWRczPzi/diLvmOjt/dbfSTu3Ew31MNwwvilOAo=
+X-Received: by 2002:a05:690e:144c:b0:635:4ecd:75a0 with SMTP id
+ 956f58d0204a3-6361a89a815mr5888996d50.46.1758891139937; Fri, 26 Sep 2025
+ 05:52:19 -0700 (PDT)
 MIME-Version: 1.0
+References: <aNYQkVuVpP3Daq7x@stanley.mountain>
+In-Reply-To: <aNYQkVuVpP3Daq7x@stanley.mountain>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Fri, 26 Sep 2025 14:51:43 +0200
+X-Gm-Features: AS18NWAJ6VxhUJBeyo9x7sMCxxohCMAJ5raPfUmiVSZRv8RZbBNqJRlbPHJDbI0
+Message-ID: <CAPDyKFq7mwW7ys6_1wnhf+BYBeDcsxgcL5HxGhnpxv1vMO2qaA@mail.gmail.com>
+Subject: Re: [PATCH next] pmdomain: thead: Fix error pointer vs NULL bug in th1520_pd_reboot_init()
+To: Dan Carpenter <dan.carpenter@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_051501_401144_538F0DC5 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20250926_055221_317226_7E051C67 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,61 +87,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Drew Fustini <fustini@kernel.org>, linux-pm@vger.kernel.org, kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thomas Huth <thuth@redhat.com> writes:
-
-> On 13/05/2025 17.16, Nam Cao wrote:
->> Add KUnit test for riscv kprobes, mostly for simulated instructions. The
->> test install kprobes into multiple sample functions, and check that these
->> functions still return the expected magic value.
->> 
->> This test can detect some kprobe bugs reported in the past (in Link:).
->> 
->> Link: https://lore.kernel.org/linux-riscv/20241119111056.2554419-1-namcao@linutronix.de/
->> Link: https://lore.kernel.org/stable/c7e463c0-8cad-4f4e-addd-195c06b7b6de@iscas.ac.cn/
->> Link: https://lore.kernel.org/linux-riscv/20230829182500.61875-1-namcaov@gmail.com/
->> Signed-off-by: Nam Cao <namcao@linutronix.de>
->> ---
-> ...
->> diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes.h b/arch/riscv/kernel/tests/kprobes/test-kprobes.h
->> new file mode 100644
->> index 000000000000..3886ab491ecb
->> --- /dev/null
->> +++ b/arch/riscv/kernel/tests/kprobes/test-kprobes.h
->> @@ -0,0 +1,24 @@
->> +/* SPDX-License-Identifier: GPL-2.0+ */
->> +#ifndef TEST_KPROBES_H
->> +#define TEST_KPROBES_H
->> +
->> +/*
->> + * The magic value that all the functions in the test_kprobes_functions array return. The test
->> + * installs kprobes into these functions, and verify that the functions still correctly return this
->> + * value.
->> + */
->> +#define KPROBE_TEST_MAGIC          0xcafebabe
->> +#define KPROBE_TEST_MAGIC_LOWER    0x0000babe
->> +#define KPROBE_TEST_MAGIC_UPPER    0xcafe0000
->> +
->> +#ifndef __ASSEMBLY__
+On Fri, 26 Sept 2025 at 06:03, Dan Carpenter <dan.carpenter@linaro.org> wrote:
 >
-> Could you maybe change that into "__ASSEMBLER__" instead of "__ASSEMBLY__" ? 
-> I'm currently trying to get rid of the latter in the kernel sources, see: 
-> https://lore.kernel.org/all/20250606070952.498274-1-thuth@redhat.com/
+> The devm_auxiliary_device_create() returns NULL on error.  It never
+> returns error pointers.  Using PTR_ERR_OR_ZERO() here means the function
+> always returns success.  Replace the PTR_ERR_OR_ZERO() call check with
+> a NULL check.
+>
+> Fixes: 64581f41f4c4 ("pmdomain: thead: create auxiliary device for rebooting")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 
-It's been applied, it's up to riscv's maintainers how we should do this.
+Applied for next, thanks!
 
-I can send v3, or a follow-up patch.
+Kind regards
+Uffe
 
-Or riscv maintainers can also squash that change into this patch, or
-into your patch.
-
-I'm fine with any options.
-
-Nam
+> ---
+>  drivers/pmdomain/thead/th1520-pm-domains.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/pmdomain/thead/th1520-pm-domains.c b/drivers/pmdomain/thead/th1520-pm-domains.c
+> index 5213994101a5..d7cb9633c7c8 100644
+> --- a/drivers/pmdomain/thead/th1520-pm-domains.c
+> +++ b/drivers/pmdomain/thead/th1520-pm-domains.c
+> @@ -179,8 +179,10 @@ static int th1520_pd_reboot_init(struct device *dev,
+>         struct auxiliary_device *adev;
+>
+>         adev = devm_auxiliary_device_create(dev, "reboot", aon_chan);
+> +       if (!adev)
+> +               return -ENODEV;
+>
+> -       return PTR_ERR_OR_ZERO(adev);
+> +       return 0;
+>  }
+>
+>  static int th1520_pd_probe(struct platform_device *pdev)
+> --
+> 2.51.0
+>
 
 _______________________________________________
 linux-riscv mailing list
