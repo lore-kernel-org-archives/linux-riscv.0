@@ -4,51 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF9AACAC5BB
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Sep 2025 18:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A90CAC5B8
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Sep 2025 19:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FzAK2nMuALkeujVXmU4rSTkhMsuuRgZjKgQtlINHSQA=; b=YyfS4fp0rBQgMG
-	63vqWa5pZwXAViqavEzyKsacZ0xDMk9VD51B7INuOAZ9eBLFKVLXUbaASPGGD02ayWN1ynrFEFJHA
-	PjJXGbd+QsiNNFA6Bc15mYV+27Qi0a/0IOHt7kv/KAOrdBXtSp07Rb7zsBmOWAGj0c7SD3sC9JG+o
-	53ZW3Xd/7oIbLV2zlquFL8JAZ0yP70Z5FLJl6SXBp/nxFCX1WKCTT6CtbHqxGiPMNNs+NtgMfy+YP
-	7f7BsfRSMtBxKeyojRwjRj6rq0+zwZoso29UKyDfA1NTaQXxC9EKnyJ8kG7LpZT6GQnTHo2qSfGgz
-	MR2oTKcnAMCnlLfoGCKA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ete9QfDle/b5iwg2h++IcgM30BJ1Q/LxGDDnRzu4+Fo=; b=GhjTXM1W0DOFPk
+	Ky95kdLuBsEWgcHsWo3PZJu2SKnOtbJC7bYuq15iRcu5eBROIGdfyLn5UXTgLdJn+1Ka3qUY0fidb
+	jLlk1LJhMnKADgykrk3kzin+vbp9edGTwYyK7zdsheMKRKBQ1OVC9bi+BImxHWXyLUE/yQFSN4HQc
+	hEHHaCQdkZltnCrP4hUppYeVHwSq2j6a5BLUeUc/X7qjLzTeiV3k4esAUvueah3KlscwFyWUfvTDe
+	zMvLuXjxkQ79DjnAZ0yNd7aTmapNPodgwe78o5ZrD6RQ9RZ+T5Rk7o7jWuKOIyUUpY7n1kkpv67a5
+	rte0YzjuX3Gkhlo2mERQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2DFp-00000003d4d-1Uzg;
-	Fri, 26 Sep 2025 18:33:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v2EAL-00000003xwZ-3Mvi;
+	Fri, 26 Sep 2025 19:31:37 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2DFo-00000003d3k-07a1
+	id 1v2EAH-00000003xte-3u2r
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Sep 2025 18:33:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 76B0F61F2A;
-	Fri, 26 Sep 2025 18:33:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0DFEC4CEF4;
-	Fri, 26 Sep 2025 18:33:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758911591;
-	bh=1FEo+qjc2uVPZtPViZiq0sC5eXwLvDKqGoow+RAmhek=;
-	h=Date:From:To:cc:Subject:From;
-	b=FJIdnbNtGWpNcMaPMrA5nKAjR4qQNuEbY6hfgfzXPnBJxHz8/omC8jhIXzZgmvbou
-	 fQrrqiDzxG37jvslR9rDdBGPnKDGs1jp2j+kbHsy+hmC9CLJ5g+uFo6vRSoU89fYCl
-	 7EDdW46P55Zo3WvfuP4pR8Vf6P4b34Oli2XfFpaHw04vKqIxYeknvscjoEEI6etu8L
-	 mhVEGqdU6fKpWhPqDFOfFOMpshCfCYMhjWdJNjKN0ng0INAGcvYl0rlOSZIgVS5ao3
-	 QxjYViXvt5d2ECP+Brbxz7xR8shR0cZK81/+OY9pBZINmhBYxx+8qY9m1p2DGHKo64
-	 EuYLXcT0vSqcg==
-Date: Fri, 26 Sep 2025 12:33:10 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V updates for v6.17-rc8
-Message-ID: <c6ef1683-9c29-cb02-4498-31fce8934d9e@kernel.org>
+	Fri, 26 Sep 2025 19:31:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1758915092;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qJkwxIyAJhe7Z2sYVZyMCylwQN+VGhF0dp+d12hJfX4=;
+	b=iDW4J16G8YcHzOEpMct16z61O7dTNg9dOXwte4ELDjogEon4JcYp1NtfWnw6BYFguJeJlh
+	+giT75B7bfMdT9/xYOdHmaW7+zXDN/xmbxd52a7t9efljI2X49A5zJqaiMVxWmaC3zOqb+
+	KhzhYoKSuAMw5WqEE4UcrEWB11ALkSU=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-281-OaejFLB4NsC5vBb4BATwog-1; Fri,
+ 26 Sep 2025 15:29:53 -0400
+X-MC-Unique: OaejFLB4NsC5vBb4BATwog-1
+X-Mimecast-MFC-AGG-ID: OaejFLB4NsC5vBb4BATwog_1758914988
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EAFCA1800365;
+	Fri, 26 Sep 2025 19:29:45 +0000 (UTC)
+Received: from cmirabil.redhat.com (unknown [10.22.90.77])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 572901800115;
+	Fri, 26 Sep 2025 19:29:34 +0000 (UTC)
+From: Charles Mirabile <cmirabil@redhat.com>
+To: pjw@kernel.org
+Cc: Liam.Howlett@oracle.com,
+	a.hindborg@kernel.org,
+	akpm@linux-foundation.org,
+	alex.gaynor@gmail.com,
+	alexghiti@rivosinc.com,
+	aliceryhl@google.com,
+	alistair.francis@wdc.com,
+	andybnac@gmail.com,
+	aou@eecs.berkeley.edu,
+	arnd@arndb.de,
+	atishp@rivosinc.com,
+	bjorn3_gh@protonmail.com,
+	boqun.feng@gmail.com,
+	bp@alien8.de,
+	brauner@kernel.org,
+	broonie@kernel.org,
+	charlie@rivosinc.com,
+	cleger@rivosinc.com,
+	conor+dt@kernel.org,
+	conor@kernel.org,
+	corbet@lwn.net,
+	dave.hansen@linux.intel.com,
+	david@redhat.com,
+	debug@rivosinc.com,
+	devicetree@vger.kernel.org,
+	ebiederm@xmission.com,
+	evan@rivosinc.com,
+	gary@garyguo.net,
+	hpa@zytor.com,
+	jannh@google.com,
+	jim.shu@sifive.com,
+	kees@kernel.org,
+	kito.cheng@sifive.com,
+	krzk+dt@kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	lorenzo.stoakes@oracle.com,
+	lossin@kernel.org,
+	mingo@redhat.com,
+	ojeda@kernel.org,
+	oleg@redhat.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	peterz@infradead.org,
+	richard.henderson@linaro.org,
+	rick.p.edgecombe@intel.com,
+	robh@kernel.org,
+	rust-for-linux@vger.kernel.org,
+	samitolvanen@google.com,
+	shuah@kernel.org,
+	tglx@linutronix.de,
+	tmgross@umich.edu,
+	vbabka@suse.cz,
+	x86@kernel.org,
+	zong.li@sifive.com
+Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
+Date: Fri, 26 Sep 2025 15:29:19 -0400
+Message-ID: <20250926192919.349578-1-cmirabil@redhat.com>
+In-Reply-To: <f953ee7b-91b3-f6f5-6955-b4a138f16dbc@kernel.org>
+References: <f953ee7b-91b3-f6f5-6955-b4a138f16dbc@kernel.org>
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250926_123134_087642_9113CF53 
+X-CRM114-Status: GOOD (  27.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,50 +141,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Linus,
+Hi - 
 
-The following changes since commit a03ee11b8f850bd008226c6d392da24163dfb56e:
+Hoping that I got everything right with git-send-email so that this is
+delivered alright...
 
-  riscv: Fix sparse warning about different address spaces (2025-09-05 15:33:52 -0600)
+Wanted to jump in to head off a potential talking past one another / 
+miscommunication situation I see here.
 
-are available in the Git repository at:
+On Wed, Sep 24, 2025 at 08:36:11AM -0600, Paul Walmsley wrote:
+> Hi,
+> 
+> On Thu, 31 Jul 2025, Deepak Gupta wrote:
+> 
+> [ ... ]
+> 
+> > vDSO related Opens (in the flux)
+> > =================================
+> > 
+> > I am listing these opens for laying out plan and what to expect in future
+> > patch sets. And of course for the sake of discussion.
+> > 
+> 
+> [ ... ]
+> 
+> > How many vDSOs
+> > ---------------
+> > Shadow stack instructions are carved out of zimop (may be operations) and if CPU
+> > doesn't implement zimop, they're illegal instructions. Kernel could be running on
+> > a CPU which may or may not implement zimop. And thus kernel will have to carry 2
+> > different vDSOs and expose the appropriate one depending on whether CPU implements
+> > zimop or not.
+> 
+> If we merge this series without this, then when CFI is enabled in the 
+> Kconfig, we'll wind up with a non-portable kernel that won't run on older 
+> hardware.  We go to great lengths to enable kernel binary portability 
+> across the presence or absence of other RISC-V extensions, and I think 
+> these CFI extensions should be no different.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-v6.17-rc8
+That is not true, this series does not contain the VDSO changes so it can
+be merged as is.
 
-for you to fetch changes up to e24108012ce9662d90093f91d5ffebcbf78da7de:
+> 
+> So before considering this for merging, I'd like to see at least an 
+> attempt to implement the dual-vDSO approach (or something equivalent) 
+> where the same kernel binary with CFI enabled can run on both pre-Zimop 
+> and post-Zimop hardware, with the existing userspaces that are common 
+> today.
 
-  MAINTAINERS: Update Paul Walmsley's E-mail address (2025-09-23 20:18:45 -0600)
+I agree that when the VDSO patches are submitted for inclusion they should
+be written in a way that avoids limiting the entire kernel to either
+pre-Zimop or post-Zimop hardware based on the config, but I think it
+should be quite possible to perform e.g. runtime patching of the VDSO
+to replace the Zimop instructions with nops if the config is enabled but
+the hardware does not support Zimop.
 
-----------------------------------------------------------------
-RISC-V fixes for v6.17-rc8
+However, that concern should not hold up this patch series. Raise it again
+when the VDSO patches are posted.
 
-Two small RISC-V fixes for v6.17-rc8:
+> 
+> thanks Deepak,
+> 
+> - Paul
 
-- A race-free implementation of pudp_huge_get_and_clear() (based on the x86
-  code)
+Best - Charlie
 
-- A MAINTAINERS update to my E-mail address
-
-----------------------------------------------------------------
-Alexandre Ghiti (1):
-      riscv: Use an atomic xchg in pudp_huge_get_and_clear()
-
-Paul Walmsley (1):
-      MAINTAINERS: Update Paul Walmsley's E-mail address
-
- MAINTAINERS                      |  8 ++++----
- arch/riscv/include/asm/pgtable.h | 17 +++++++++++++++++
- 2 files changed, 21 insertions(+), 4 deletions(-)
-
-    text	   data	    bss	     dec	    hex	filename
-12772113	6174050	 419253	19365416	1277e28	vmlinux.rv64.orig
-12772113	6174050	 419253	19365416	1277e28	vmlinux.rv64
-11725507	5994478	 404229	18124214	1148db6	vmlinux.rv64_nosmp.orig
-11725507	5994478	 404229	18124214	1148db6	vmlinux.rv64_nosmp
-11723502	4702754	 309629	16735885	 ff5e8d	vmlinux.rv32.orig
-11723502	4702754	 309629	16735885	 ff5e8d	vmlinux.rv32
- 2612497	 761072	 119048	 3492617	 354b09	vmlinux.nommu_virt.orig
- 2612497	 761072	 119048	 3492617	 354b09	vmlinux.nommu_virt
 
 _______________________________________________
 linux-riscv mailing list
