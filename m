@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E45CAC5BB
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Sep 2025 01:01:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE52CCAC5BB
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Sep 2025 01:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=abnd0Uv1TxYr/IF3lKdegGZVVltvc6CYANALeGdKVVo=; b=1hQ9UND4lJzfsw
-	7U8yzNyIq/9Hl8EObMnVJ4P2Z73Xg8Vc3jErSoAU+BGOuPozrrSBiVDAiLrjCeeTHAYHObAZDsu4a
-	vjIohqMu85ajCIcPPwjbWYuXuC5Sj+RGKlx1iX0wkJVPkrtxOBjelrmm6ZSMRwBTPNmqOffDc2Nsd
-	bnWwy7JqVoPSAfKAxJj41pWSAczPPu9yS26ZYqR/7qeE6P++pSy+FDgvj7HZAGXgkdCTlMTHjLau0
-	RsCG6JL3eTLM0ycVWSXVDiHd+a/bnuXacw/yiU2PExn9KX9MX6esn03r4ivi+jw57q3AaD85+hPKq
-	oqN6HxCWTZJWIcGP7CxQ==;
+	List-Owner; bh=lUArMo36kvuuLgwbBvPXntFJ5W/93zpOZhJsm8mvjMc=; b=0S5PFIymCSHSpg
+	9YxFjQHGWyWEkkfvHNx5kvoLtCLsTrygDKDVQjuFp/95DDYkKfkk/HoGFsq5qBpL5ZoU1/eBHTCXh
+	TlZhrLsfhHsBvncGhfy8wGIONRo40qZoSlxbQxE1HzZQf4PsP+u7MH4zpheu63lhlw6U1+fZvQHwn
+	uNQ8XtxcPJJOQTAm5B1QtmKg51QmuNNJ6uKCUUP8s+DZFD/svVEfE223hyomJpidCDWR2EXuqgRGB
+	rJwGTLx7sjo3T95hjByjAMPwnyLEI9hifCt5vB+oMXw+/VNmwJJTS6Q708IsJJ9Cw4t8gDVPd126Q
+	O+5TTtNJ3D2h0oTV30Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2JJC-00000005rJG-21RX;
-	Sat, 27 Sep 2025 01:01:06 +0000
+	id 1v2Jfx-000000060r5-3SwM;
+	Sat, 27 Sep 2025 01:24:37 +0000
 Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2JJA-00000005rIm-2GUD
+	id 1v2Jfv-000000060qG-3lx5
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Sep 2025 01:01:05 +0000
+	Sat, 27 Sep 2025 01:24:36 +0000
 Received: from localhost (unknown [180.158.240.90])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 9EE62340D40;
-	Sat, 27 Sep 2025 01:01:02 +0000 (UTC)
-Date: Sat, 27 Sep 2025 09:00:58 +0800
+	by smtp.gentoo.org (Postfix) with ESMTPSA id AC438340D3C;
+	Sat, 27 Sep 2025 01:24:34 +0000 (UTC)
+Date: Sat, 27 Sep 2025 09:24:29 +0800
 From: Yixun Lan <dlan@gentoo.org>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v3 0/3] riscv: dts: spacemit: add 24c02 eeprom on BPI-F3
-Message-ID: <20250927010058-GYA1333274@gentoo.org>
-References: <20250926175833.3048516-1-aurelien@aurel32.net>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Alex Elder <elder@riscstar.com>,
+	Troy Mitchell <troymitchell988@gmail.com>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v2 6/6] i2c: spacemit: introduce pio for k1
+Message-ID: <20250927012429-GYA1330052@gentoo.org>
+References: <20250925-k1-i2c-atomic-v2-0-46dc13311cda@linux.spacemit.com>
+ <20250925-k1-i2c-atomic-v2-6-46dc13311cda@linux.spacemit.com>
+ <20250926111055-GYB1324993@gentoo.org>
+ <E4EE696368DDDB1E+aNaRl8upyNeld9zX@troy-wujie14pro-arch>
+ <aNajJ0RZ4Ku0eDXr@shikoro>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250926175833.3048516-1-aurelien@aurel32.net>
+In-Reply-To: <aNajJ0RZ4Ku0eDXr@shikoro>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_180104_602351_53F5FD32 
-X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-CacheID: sfid-20250926_182435_958763_3AEB2098 
+X-CRM114-Status: UNSURE (   7.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,26 +67,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aurelien,
-
-On 19:54 Fri 26 Sep     , Aurelien Jarno wrote:
-> The BPI-F3 board has a 24c02 eeprom connected to the i2c bus #2. It
-> holds board data. This patchset adds support for it.
-> 
-looks good to me, but will wait for others to give reviews,
-btw, generally, I will proceed after v6.18-rc1 is tagged..
-
-Reviewed-by: Yixun Lan <dlan@gentoo.org>
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgVHJveSwKCk9uIDE2OjI4IEZyaSAyNiBTZXAgICAgICwgV29sZnJhbSBTYW5nIHdyb3RlOgo+
+IAo+ID4gU2luY2UgcGF0Y2hlcyAx4oCTNSBoYXZlIGFscmVhZHkgYmVlbiBtZXJnZWQsCj4gPiBz
+aG91bGQgSSBrZWVwIHRoZSBjdXJyZW50IHZlcnNpb24gbnVtYmVyIGFuZCBqdXN0IHNlbmQgdGhp
+cyBzaW5nbGUgcGF0Y2ggPwo+IAo+IFllcywgcGxlYXNlLgo+IApJIGFncmVlLCBwbGVhc2UgZG8g
+aW5jcmVhc2UgdGhlIHBhdGNoIHZlcnNpb24sIGhhdmUgYSBmb3JtYWwgY292ZXIgbGV0dGVyLApk
+b2N1bWVudCB0aGUgY2hhbmdlcywgYW5kIGFkZCBvbGQgcGF0Y2ggVVJMIGxpbmsuLgoKLS0gCllp
+eHVuIExhbiAoZGxhbikKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
