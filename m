@@ -4,103 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AB6CAC5B0
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Sep 2025 13:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 646D6CAC5B0
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Sep 2025 22:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WvFShGlaiysQnHiUi3p2SLRNrkZ/wEd3KHbNzpM+bvg=; b=rmdijkKFApu4se
-	JXo2sfdfL2xmCkYrM8btGZLepRRafUjRCZYJvPy1zI43NqvntPLS0yrlUhOPuUO/xDeZ+wQXO54F2
-	bjCrE6vypOw7fnNOTQszuX/BEwLiCgUvAPSQG6yWLurR3LDZs9Sx1ExpjzyNhBgtg8kd/qmDcF1Nk
-	HcGOIQ6P0wkeGTXRWQKrlvskkbAkKutKSSvY29d1vNes7yN7ubRg+gBkmaXGNPK8NdwWSi2kDbLx8
-	Bog/B/WlFc8mXkKi/+f/Envn9QI7mqLmAmCfzJxsk/vX3QbRhFYK/45MvqdNHzXZ3smSV8r7oRRmx
-	qrcAPEMwhDD5M7kvUNYQ==;
+	List-Owner; bh=7EYwoeIaez39czTAvJelpkdPHCyADmAd/qcx6fyoPTc=; b=LCjUFHb6AkXKb1
+	MQSI893K0SRDpzGIUPFX9KAehdRViQ2bm5yUmH896vL2sMl/o9C1FY37BJFpYFoj7YU598BIPlCJO
+	wMLsws46ukKpwc9j2gyyab9g8NWmp2KmoVGfY0q8L6p+8ciD/4hhrd6USDTRBPdRiC3mosLoUTTcW
+	qUxxmO0cQXb/xBCoDZN4NsazkDSJmVUUeyxwHrFBNjd9Szs4vPAtsItrrEbGtFY2JmWqc4XRScJXW
+	ZbATwTEiON95FFR5msgUKEzje+wE8kSm6kp1znlQjAo93y+gSKG9dO53j2waLNGzMsL6Zg4QjfNgK
+	KGbpyNKLvRmRGON4P3Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2VSS-0000000AAj1-3vj9;
-	Sat, 27 Sep 2025 13:59:28 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1v2d6D-0000000CtA2-3hCI;
+	Sat, 27 Sep 2025 22:09:01 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2VSP-0000000AAiX-2Shb
+	id 1v2d67-0000000Ct4A-2eqF
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Sep 2025 13:59:27 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-244580523a0so33437245ad.1
-        for <linux-riscv@lists.infradead.org>; Sat, 27 Sep 2025 06:59:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758981564; x=1759586364; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AJ2zurBZlXyqU6xN/6EaGXAHpVHgluSazTPc6JBBq6Y=;
-        b=TXVk4FVAOgbRRPWBeqtUt6XnoyoHDc8/6pwv8HojGmiai+UZ3JvBShYXU4Q2Aph/DR
-         rm1EoPHSWvZy6ZajBU7XasXZJk8HIrwlGnHPIiv82lgLacnKuIgndUwH8Tl0/j8bT/HW
-         Frok9DI75JMCCSV4+cOqVBmWCLqBFBCrP/5cFqL5Dlue3RC7AG5aDqex4e2Gz3qf/HxL
-         HNPzqNE6spBPnUyayddHc3cOlxY86qwfCzL8QhD6Lq8gPe3WStTylqmJNMO6y7k3pUwd
-         clVPYSXSFU3O4wpLanaOFXfIarAsnRvJbdw4+H0znDyoRdC0EbnWpJQbaPFzLq1HyV1o
-         uO5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758981564; x=1759586364;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AJ2zurBZlXyqU6xN/6EaGXAHpVHgluSazTPc6JBBq6Y=;
-        b=G7B2w9zmLNhlo2BG00/Qo8O28jJmLM4/8JjBYhIx+Xh9wcIS0XWqa++TrROrXAJ3+G
-         UCMawg9I95LWz6Xd0M1V9fRA7DS61srProCNZXMHhsbXjx1in/LR54nmTdBk9ATc3Sr0
-         gMzTZBp6IfRmpc7QP17NMJJs+W5EQ8BtbpehTYWiOaGMOapzaDKOdE12P6EngPF3t3i7
-         ObNHWRqa93rgwcqIN+weAVMqJ+blDG9F2ai8vlHBbGrupoTW+O0REM2jmfPnUcjKHfXh
-         QPm2xDbZWgu3kF/DnkYgK41jNfkQOtWCqXh7EJS/eEnK6vEJrYmj1AZpNJrXGelEwze2
-         ztVg==
-X-Forwarded-Encrypted: i=1; AJvYcCWHNut5DD7iQ9fN8Bbq5awDdSDbpq622nOmzVIHiAySdBxalQjfcW2NG9Q3F10d+Fbln0p+tirXHrRdxA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YybKMXghf3+7oJlwhdxFs+xYZ0G1mEKs/hVLLqQ/ghNVGJrsXcW
-	VbHXO0rRuEsYY9pZzEeQXj0mJzmZGVdx3liVNO/fRbA5uFxktUzV64Sr
-X-Gm-Gg: ASbGnctm5+oUTuVPYBjN0V6UB6SR+nsgJ4aYkT96Qkrx1g64+v8VD5M9ZwyUehOHhHh
-	R0HcHkp+ux2syTy1zxG+YPhi9Om1ZEMJz9ncHeMgJbHOnMk2rCw3zD2YUMX4wbxFfRq66ouNlFC
-	CJY2ratEEFUQZMg4gH73ZiNJTxjCzmr7VgIozcJcOittJ9rM1dxhF33kzA4gM2a4WqfZrkwy45G
-	l1bOqbe1bFL7ybGMEPaARW1tdD+GsbV3kxiU4TyDeEFLnBumenmOXaa611lWR6dacCqTttsjlG2
-	gtxWnyyvEh+mjYqWD0Km5Sb/zOSkYghD08XoU1ety1j0bSn6JEocosYZYTppICwi+OaEqt/HQBK
-	AwHZZBCD+krE2TBOBhCP8gPCt
-X-Google-Smtp-Source: AGHT+IEf78Oq9CDF3Gdqzh+zztJ/1K0sMtW4DnsPMDn/dIyyhBV9SYuiQfoD+F6FHky70q2kK7m2SA==
-X-Received: by 2002:a17:903:2f8c:b0:27e:c27f:b834 with SMTP id d9443c01a7336-27ed4a6dc52mr119233195ad.56.1758981564487;
-        Sat, 27 Sep 2025 06:59:24 -0700 (PDT)
-Received: from gmail.com ([2a09:bac5:1f0b:281e::3ff:4e])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed66cf181sm82444095ad.28.2025.09.27.06.59.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Sep 2025 06:59:24 -0700 (PDT)
-From: Qingfang Deng <dqfext@gmail.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Sat, 27 Sep 2025 22:08:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=GpTo8pdhXGMVN7fhGczHnISpGYy58IC87QOueVeboFw=; b=OMMPUsYfHK5YCrxx05cDggLDXV
+	/xPmxv0L4Vp0wTnzmtBTMIbOZ1ek5jUTJYzbXKbe1/or7OnXu70wscVZK7S2jMWkAsJE2HGnq6+SV
+	tCx6zmb0K4xx2fTOH+2S1eoi+wJakai4Af6USx0C31F9E0FBybnQoTGU9G19V8AlFINXdQKv78fBz
+	GCqfhQt8Ecup26gQHiMRpVIFcUKD0Yh2iXM2y0Aof/EoK149d+UCGMxU1NfF+mT9S/jBlRcfbzDpF
+	sVI0opbBtBPMdZfGbCw3XZToAk3iq3BwTw0NLN1M2uiQWbwsluyG/cOj/Vg1CVVceypZfZVl9sp0+
+	RksunvbA==;
+Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1v2d5r-000QXM-0A;
+	Sun, 28 Sep 2025 00:08:39 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org,
+	Lee Jones <lee@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@sifive.com>,
-	Conor Dooley <conor@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org
-Subject: Re: [PATCH v2 04/11] dt-bindings: timer: Add Anlogic DR1V90 CLINT
-Date: Sat, 27 Sep 2025 21:59:12 +0800
-Message-Id: <20250927135912.3327-1-dqfext@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250922-dr1v90-basic-dt-v2-4-64d28500cb37@pigmoral.tech>
-References: <20250922-dr1v90-basic-dt-v2-0-64d28500cb37@pigmoral.tech> <20250922-dr1v90-basic-dt-v2-4-64d28500cb37@pigmoral.tech>
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Aurelien Jarno <aurelien@aurel32.net>,
+	linux-pm@vger.kernel.org (open list:SYSTEM RESET/SHUTDOWN DRIVERS),
+	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
+	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
+Subject: [PATCH 1/2] driver: reset: spacemit-p1: add driver for poweroff/reboot
+Date: Sun, 28 Sep 2025 00:07:40 +0200
+Message-ID: <20250927220824.1267318-2-aurelien@aurel32.net>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250927220824.1267318-1-aurelien@aurel32.net>
+References: <20250927220824.1267318-1-aurelien@aurel32.net>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250927_065925_622246_81618C43 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250927_150855_745650_E5AA21B8 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,29 +82,151 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Junhui,
-On Mon, 22 Sep 2025 20:46:34 +0800, Junhui Liu <junhui.liu@pigmoral.tech> wrote:
-> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> @@ -29,6 +29,7 @@ properties:
->      oneOf:
->        - items:
->            - enum:
-> +              - anlogic,dr1v90-clint    # Anlogic DR1V90
+This driver implements poweroff/reboot support for the SpacemiT P1 PMIC
+chip, which is commonly paired with the SpacemiT K1 SoC.
 
-UX900 uses the ACLINT with SSWI. Please use the new ACLINT binding.
+The SpacemiT P1 support is implemented as a MFD driver, so the access is
+done directly through the regmap interface. Reboot or poweroff is
+triggered by setting a specific bit in a control register, which is
+automatically cleared by the hardware afterwards.
 
-Link: https://www.nucleisys.com/upload/files/doc/Nuclei_RISC-V_ISA_Spec.pdf
+Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+---
+ drivers/power/reset/Kconfig              |  9 +++
+ drivers/power/reset/Makefile             |  1 +
+ drivers/power/reset/spacemit-p1-reboot.c | 88 ++++++++++++++++++++++++
+ 3 files changed, 98 insertions(+)
+ create mode 100644 drivers/power/reset/spacemit-p1-reboot.c
 
->                - canaan,k210-clint       # Canaan Kendryte K210
->                - eswin,eic7700-clint     # ESWIN EIC7700
->                - sifive,fu540-c000-clint # SiFive FU540
-> 
-> -- 
-> 2.51.0
+diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+index 77ea3129c7080..5afef049760d6 100644
+--- a/drivers/power/reset/Kconfig
++++ b/drivers/power/reset/Kconfig
+@@ -276,6 +276,15 @@ config POWER_RESET_KEYSTONE
+ 	help
+ 	  Reboot support for the KEYSTONE SoCs.
+ 
++config POWER_RESET_SPACEMIT_P1
++	bool "SpacemiT P1 poweroff and reset driver"
++	depends on ARCH_SPACEMIT || COMPILE_TEST
++	select MFD_SPACEMIT_P1
++	default ARCH_SPACEMIT
++	help
++	  This driver supports power-off and reset operations for the SpacemiT
++	  P1 PMIC.
++
+ config POWER_RESET_SYSCON
+ 	bool "Generic SYSCON regmap reset driver"
+ 	depends on OF
+diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
+index b7c2b5940be99..cb6fb1be865db 100644
+--- a/drivers/power/reset/Makefile
++++ b/drivers/power/reset/Makefile
+@@ -24,6 +24,7 @@ obj-$(CONFIG_POWER_RESET_LTC2952) += ltc2952-poweroff.o
+ obj-$(CONFIG_POWER_RESET_QNAP) += qnap-poweroff.o
+ obj-$(CONFIG_POWER_RESET_REGULATOR) += regulator-poweroff.o
+ obj-$(CONFIG_POWER_RESET_RESTART) += restart-poweroff.o
++obj-$(CONFIG_POWER_RESET_SPACEMIT_P1) += spacemit-p1-reboot.o
+ obj-$(CONFIG_POWER_RESET_ST) += st-poweroff.o
+ obj-$(CONFIG_POWER_RESET_TORADEX_EC) += tdx-ec-poweroff.o
+ obj-$(CONFIG_POWER_RESET_TPS65086) += tps65086-restart.o
+diff --git a/drivers/power/reset/spacemit-p1-reboot.c b/drivers/power/reset/spacemit-p1-reboot.c
+new file mode 100644
+index 0000000000000..105e19701ef85
+--- /dev/null
++++ b/drivers/power/reset/spacemit-p1-reboot.c
+@@ -0,0 +1,88 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2025 by Aurelien Jarno
++ */
++
++#include <linux/bits.h>
++#include <linux/mod_devicetable.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/reboot.h>
++
++/* Power Control Register 2 */
++#define PWR_CTRL2		0x7e
++#define PWR_CTRL2_SHUTDOWN	BIT(2)	/* Shutdown request */
++#define PWR_CTRL2_RST		BIT(1)	/* Reset request */
++
++static int spacemit_p1_pwroff_handler(struct sys_off_data *data)
++{
++	struct regmap *regmap = data->cb_data;
++	int ret;
++
++	/* Put the PMIC into shutdown state */
++	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_SHUTDOWN);
++	if (ret) {
++		dev_err(data->dev, "shutdown failed: %d\n", ret);
++		return notifier_from_errno(ret);
++	}
++
++	return NOTIFY_DONE;
++}
++
++static int spacemit_p1_restart_handler(struct sys_off_data *data)
++{
++	struct regmap *regmap = data->cb_data;
++	int ret;
++
++	/* Put the PMIC into reset state */
++	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_RST);
++	if (ret) {
++		dev_err(data->dev, "restart failed: %d\n", ret);
++		return notifier_from_errno(ret);
++	}
++
++	return NOTIFY_DONE;
++}
++
++static int spacemit_p1_reboot_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct regmap *regmap;
++	int ret;
++
++	regmap = dev_get_regmap(dev->parent, NULL);
++	if (!regmap)
++		return -ENODEV;
++
++	ret = devm_register_power_off_handler(dev, &spacemit_p1_pwroff_handler, regmap);
++	if (ret) {
++		dev_err(dev, "Failed to register power off handler: %d\n", ret);
++		return ret;
++	}
++
++	ret = devm_register_restart_handler(dev, spacemit_p1_restart_handler, regmap);
++	if (ret) {
++		dev_err(dev, "Failed to register restart handler: %d\n", ret);
++		return ret;
++	}
++
++	return 0;
++}
++
++static const struct platform_device_id spacemit_p1_reboot_id_table[] = {
++	{ "spacemit-p1-reboot", },
++	{ /* sentinel */ },
++};
++MODULE_DEVICE_TABLE(platform, spacemit_p1_reboot_id_table);
++
++static struct platform_driver spacemit_p1_reboot_driver = {
++	.driver = {
++		.name = "spacemit-p1-reboot",
++	},
++	.probe = spacemit_p1_reboot_probe,
++	.id_table = spacemit_p1_reboot_id_table,
++};
++module_platform_driver(spacemit_p1_reboot_driver);
++
++MODULE_DESCRIPTION("SpacemiT P1 reboot/poweroff driver");
++MODULE_LICENSE("GPL");
+-- 
+2.47.2
 
-Regards,
-Qingfang
 
 _______________________________________________
 linux-riscv mailing list
