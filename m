@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D685DCAC5B0
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Sep 2025 04:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F62ECAC5B9
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Sep 2025 04:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D0O9GBvD1HLVdbYD1VV5OQ0To/4w0kLe6betQGnjLZY=; b=xCGj5jR2HP716S
-	7DgyJ7jvC6DgZ318ckVVMTuspIvf0yb6ef/1YVYXGtZv49DmY9Ee7ks/nIC5tL8GdKHMSxqQ66UqQ
-	oyT3dDZs2i4qcvwhsD3XviSkruFU3EWlcNzyzI0rydfvIf0nMmhkorW2HN8JbAgw2ki7Iaf95umXo
-	OFt9ZvqXczV0ggMB88YvUer6mzJnFkIcfRDv2KcqpI+UgrR9JeZkWl3L7diu8IjynVzgc8ZrXfnIS
-	lZLyHKpRJW4iaZ306odhhzWNRHOX/9maEw7ys30kPyHeHnzBQnwpD7Blfa75BlX7wKD3NB0TdHrlq
-	RKNvSeagNibo0t8xmVIA==;
+	List-Owner; bh=EQqLEcvi5P+mkckwNWlZeBnpHbOwYy5OsyQnZJDias8=; b=wCMqskbomoADI5
+	pN9DGPLmKDkZ1T25jtNPkhvQTT9TpmjVnPkKG+0qCPVFQ0HD7C2bMhwK2anIoi1BCUxs8SnGMMHI+
+	zRay0ESVtFipe9JQOq9K0I3tS7moG9ONnFEhbFdZQXEr3oSKYve9NA3OUVzDOoHuqVd5NAerOWps3
+	MHQK62Cl3w3WCryRqVyiAPdoPIgQbPjbbzndVL0jbJVPLfMgJE4DVidhdYjaxMVswufK3zK36TWYB
+	Dg9FR5DNu6cyuq463+ZBnwZktv7cSwbhtvBaWVwL6xszVdwB0HiAeWz9ORjTvKjp46UgwOGu9u86n
+	Xj5wZWRRKA7hpbdEqfZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2MBc-00000006shz-09M3;
-	Sat, 27 Sep 2025 04:05:28 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1v2MD1-00000006tHU-1kWX;
+	Sat, 27 Sep 2025 04:06:55 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2MBa-00000006sfh-06n9
+	id 1v2MCy-00000006t64-34oQ
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Sep 2025 04:05:27 +0000
+	Sat, 27 Sep 2025 04:06:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1758945877;
-	bh=dOmDpWGWjAIcXaD2K4pnaMnVFW35Nhm0axjf6jjkM94=;
+	s=mxsw2412; t=1758945958;
+	bh=1cA0Twd5aoWkSdpWmk4AkKgqoVl4RWYZ2+yNa24hIj8=;
 	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=UX+GXElLT6vMpIUCtKCP8d4WgsQAPMzOoEJ0LXIk8ZbPsTqw6Wj/9QAQe5IV0VzQF
-	 Ujg3J2L3GceEI0o8OxoUWmVSx3FeMXIIwHvYCfQAQ7d0vLw4e5Kw0PPBFAXKQdBLbI
-	 9ueoLXq8A5Pz1mbdlnJxd6Ky3XKmHZJ1T65084yo=
-X-QQ-mid: zesmtpip3t1758945870tf42e45f4
-X-QQ-Originating-IP: Loc1WRX0yOLpBxWTT4vSk7P4W5l8b/UGyhQf8IANPZ8=
+	b=N3xrlTI7XgVnT30oUE78V5S/PTBe3kUFFDQr9c5atMxl0zoGpEZCD9k55bHfIeiN8
+	 SdlVU/hmQLd/rxwhESt8ux6STsdTfyczzUgLbikL67AbKj5qa3kA/6WYHOsmT8LVjW
+	 vleifV8/Ig6V3568VPKVMOg/xTd1lptsPDsAajhg=
+X-QQ-mid: zesmtpip4t1758945951t5ad2eb81
+X-QQ-Originating-IP: zqIHBn+nBguhXZ9TRxudpZn6Jb2l/o938Fjr57xEmcY=
 Received: from = ( [localhost])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 27 Sep 2025 12:04:28 +0800 (CST)
+	id ; Sat, 27 Sep 2025 12:05:50 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8734647494709726555
+X-BIZMAIL-ID: 11693667648508525757
 EX-QQ-RecipientCnt: 9
-Date: Sat, 27 Sep 2025 12:04:28 +0800
+Date: Sat, 27 Sep 2025 12:05:50 +0800
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Yixun Lan <dlan@gentoo.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Alex Elder <elder@riscstar.com>,
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>,
 	Troy Mitchell <troymitchell988@gmail.com>,
 	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 Subject: Re: [PATCH v2 6/6] i2c: spacemit: introduce pio for k1
-Message-ID: <7F98284B9618900A+aNdiTKvvbg4G-LwM@troy-wujie14pro-arch>
+Message-ID: <F3CBA41FF1849DD5+aNdint66DRw4AcZK@troy-wujie14pro-arch>
 References: <20250925-k1-i2c-atomic-v2-0-46dc13311cda@linux.spacemit.com>
  <20250925-k1-i2c-atomic-v2-6-46dc13311cda@linux.spacemit.com>
- <20250927014547-GYA1336612@gentoo.org>
+ <aNbDkn9AC4FFx-Zc@aurel32.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250927014547-GYA1336612@gentoo.org>
+In-Reply-To: <aNbDkn9AC4FFx-Zc@aurel32.net>
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: No4GWyI4cWt6yq7nsa2Z3T+dRhiHdHb2o95Jy8Vez7Eu1mpPog4IaybQ
-	F94BrRltarg9U94Z4iG74LtXAgn6U/J+ZjAxaZsIRzCtZFFz0xtUydnG6wyUswFduybVGsr
-	+gzNFgMvEs7NAi0j/TKgDVB2hYNTAtlwwhjRP5ntS8pWx69lLJ7dJwLeEUQxsfPDigq7bVZ
-	yN+uvXtu7XEFnf4xdhEElPQmPNtNkk1TNZ40cQHo8k30R44w2rrOQNJk7XFz59L0umJmfy2
-	mCgLLnF5Kcpe8tCu9ozfCLIxYKUzzIaytM2w5M5iYQQTxO4lOjfHSJN3RyNaOrks2m8U/5N
-	0aWL8xsFlkG8SHSViPqEpsCubdpDkzT5wH1XN7uTjKPDn8bhvho8wJqWHzjfcSeMODcZVrl
-	4yMylXCmjkoCCJNOH+anITlvfQQM1HSCR5AAhVmxZ6JhoO4C8idQ116YzMo/P94XgF+YIpF
-	vDVg7ij0d4B4zGz8XxncRiPO469fOmVPRKmFfHpE4zJVmOfVOT2lXEM1OMOf0UqY3m2/ssB
-	5geM9aG5q6vUVeXxJnGLdbuXz44Sw0Uql9mL7CnJSdJ7Ql+JGsmH2lLkbh2GMx8WVkDd4/T
-	R+GZ++JMjRdjdysiY7kTlu1HPwES7tkoWWGtaifFukwNthSfBVzBHUl8fmRw9bzehi6BESi
-	u1DA4Hy3xk4q1bQ6hQGWJC3m0JrQTjuDLLqHDKBHNEdSeTmcTDQkLldB/iFuEdROwjBGF64
-	VyrofMpsw+L2KjgLmaWXXnUcOeynAOsloofmHiDzMoE2NUz1UpfaEVlTdEstYc/lizRh5U1
-	rOnXjtRk0dFfILVMykKy45Y11TLOX4DYAojL8Gvi7+Yy+8oLZ7yif3I+QTx6boErf++zhFa
-	VHmEGQ71jH45eOT0UeFeJVJ89odeHmc92YSnaqz/wPaItnI5PwrnCvZXgFPJidYdXIpr5mw
-	lgWGHMv2PDh/aIGk5K62ewXQkqwldMGwWNMbVosfwph96JWbdPam3q567yc8XvIo5B5dvVF
-	9nnZ5JWA6oSYVdDQs3HgCHGhHuPmuDR3ozgr+T+L3+cllSgTCcUExxOOf6lVY=
-X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+X-QQ-XMAILINFO: MgQY1K25Ph0m8TgChpmhmRlSJRINu7fuTLeiY5CDXSnrgub8dw4qBJyp
+	qWI48vVAqj3/VmStXURHWd+6saUMG/NCYrxXlRxJ/aXDyW62IDGb/la9O3fpBOmifSxqc2f
+	U1UoW5mGKaS8rb660eQKNVlM/W1hYT2q4VL2GWVUsvcmeI2wGtCLuHwPuJHjXecI+3GlDlS
+	iC+iGu3Q4uh6GT/UaMoUEyy0osAVUQn9sXFBIuSnZKrO33QTsOsrRlt+4WT8cMTxZSRvmWS
+	7gXZ7UlrdgxCwgQISwFBAfhJhVPeTaI4dUfD775rdZFGzpC5tFZOzuqRAAryekRtJeVMrk8
+	C/ZtSYaScncvWefTG8hdGQtxJD7oM5yElnKbjQnNAIbXkKuW3XVGN9gWZUd1cKOk3Yvl6f7
+	I9YDVImGmk4PjjxsA20vlAnGWqJXl2UbAztr1OHFeBMA4+pl8/ekdF1H8vyibFF7PUSt+2A
+	KaeH5FZmH0dc2qapcQrQvSMFykj48HfYw4vrOfqMNgPPhlD7wl93uQfDkn2EEK+a8VQC678
+	OIPhKJVk5nJmJ7qnfwp2zLBSux9tmzdeIe9O//KqgFjSYJUIBEAUNe7wR9UyBhOA4EJ1/Pp
+	PXltJN1Sj270ArO3WQZ3rVzr9VpF5Bwn1zoBQopdGoEKHXPrHQehU3ql+JMMLO7ZIct1eb0
+	JarCBY0qc3IKYvxoVSjaaFRMnjQgydoKp2qC+KI62edHknYnCaIE9XezIFGwKVqBdEaag68
+	BxRCMOWyteQ/hvPOQkJTB/eCiXN7RWJBrd60AFiovu1Mbq00AyIYgh3bn3W0FaQ5tbswueg
+	2A7rLWyfoyM4NcScTnGPNdFSwwIM+4vSPee/Ewc44vVIECHgib/khQTYV+spIU4GngclwO/
+	GGvE1NxqZePm1HT1tGwbZSzdgx8Jul/8osrm4UeRRDgEiEGCYmrUxzHNNc8IamxV64X/u6x
+	V2z9cwA54s3i6YhisTmkioeHYaem4Dqfw5Xu/FP5MgvsRp74euPjcLSsiG8o2rFMJ8p/Msv
+	7gE/UYJ0vZgqnRCP+W0878JBC+bPzRdtUCiyQeKBQBQKNuDuHnGzww9abgSMhk024k/2rvN
+	g==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_210526_438644_294D893A 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20250926_210653_257477_B8E02878 
+X-CRM114-Status: GOOD (  25.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +94,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBTZXAgMjcsIDIwMjUgYXQgMDk6NDU6NDdBTSArMDgwMCwgWWl4dW4gTGFuIHdyb3Rl
-Ogo+IEhpIFRyb3ksCj4gCj4gT24gMTA6MDIgVGh1IDI1IFNlcCAgICAgLCBUcm95IE1pdGNoZWxs
-IHdyb3RlOgo+ID4gVGhpcyBwYXRjaCBpbnRyb2R1Y2VzIEkyQyBQSU8gZnVuY3Rpb25hbGl0eSBm
-b3IgdGhlIFNwYWNlbWl0IEsxIFNvQywKPiA+IGVuYWJsaW5nIHRoZSB1c2Ugb2YgSTJDIHdpdGgg
-aW50ZXJydXB0cyBkaXNhYmxlZC4KPiBJIGZlZWwgaXQncyBtb3JlIHByb3BlciB0byBzYXkKPiBz
-L3dpdGggaW50ZXJydXB0cyBkaXNhYmxlZC9pbiBhdG9taWMgY29udGV4dC8KR29vZCBwb2ludC4K
-Cj4gCj4gSSd2ZSBub3RpY2VkIHRoYXQgSzEgSTJDIGNvbnRyb2xsZXIgc3VwcG9ydCB0aHJlZSBk
-aWZmZXJlbnQgdHJhbnNtaXNzaW9uIG1vZGU6Cj4gIG5vbi1maWZvLCBmaWZvIG1vZGUsIGRtYSBt
-b2RlCj4gCj4gd2hpbGUgeW91IGFyZSB0cnlpbmcgdG8gaW1wbGVtZW50IHBpbyBzdXBwb3J0LCBJ
-J2Qgc3VnZ2VzdCB0byB0aGluayBvbmUKPiBmdXJ0aGVyIHN0ZXAgaW4gdGhlIGxvbmcgcnVuIC0g
-c3VwcG9ydCBtb3JlIGZpZm8vZG1hICsgbm9ybWFsL2F0b21pYyBmZWF0dXJlcywKSSB1bmRlcnN0
-YW5kIHlvdXIgY29uY2VybiwgYnV0IEkgaGF2ZSByZXZpZXdlZCB0aGUgY29kZSBzdHJ1Y3R1cmUs
-CmFuZCBhZGRpbmcgRklGTyBzdXBwb3J0IHdvdWxkIG5vdCBzaWduaWZpY2FudGx5IGFmZmVjdCB0
-aGUgY3VycmVudCBQSU8gaW1wbGVtZW50YXRpb24uCgo+IAo+IFBlcnNvbmFsbHksIEknZCBsaWtl
-IHRvIHNlZSBmaWZvIG1vZGUgaW1wbGVtZW50ZWQgYmVmb3JlIGFkZGluZyBwaW8KPiBzdXBwb3J0
-LCBhcyBpdCB3aWxsIGJyaW5nIHF1aXRlIHNpZ25pZmljYW50IGNvZGUgY2hhbmdlcywgcmVxdWly
-ZSBoZWF2eQo+IGNvZGUgcmV2aWV3IGVmZm9ydC4gQW5kIHllcywgdGhpcyB3aWxsIHB1dCBtb3Jl
-IGRlbWFuZGluZyB3b3JrIG9uIHlvdXIgc2lkZQo+IGFuZCBtYXkgc2xvdyB0aGluZ3MgYSBiaXQu
-LgpUaGF0IHNhaWQsIHdlIGRvbuKAmXQgaGF2ZSBhbnkgcGxhbnMgdG8gc3VwcG9ydCBGSUZPIGF0
-IHRoaXMgcG9pbnQsCmFuZCBQSU8gZnVuY3Rpb25hbGl0eSBpcyBzb21ldGhpbmcgd2UgbmVlZCB1
-cmdlbnRseS4KU28gSSB3aWxsIGNvbnRpbnVlIHRvIHB1c2ggdGhpcyBwYXRjaCAodG9tb3Jyb3cp
-LgpUaGFua3MgZm9yIHlvdXIgdW5kZXJzdGFuZGluZy4gRm9yIGRldGFpbHMgb24gdGhlIGNvZGUg
-Y2hhbmdlcywgcGxlYXNlIHNlZSBhYm92ZS4KCkluIGFkZGl0aW9uLCBpZiBhbnlvbmUgaXMgaW50
-ZXJlc3RlZCBpbiBhZGRpbmcgRklGTyBzdXBwb3J0LCBJ4oCZZCBiZSBoYXBweSB0byBoZWxwLgoK
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtIFRyb3kKPgo+IAo+
-IC0tIAo+IFlpeHVuIExhbiAoZGxhbikKPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+On Fri, Sep 26, 2025 at 06:47:14PM +0200, Aurelien Jarno wrote:
+> Hi Troy,
+> 
+> On 2025-09-25 10:02, Troy Mitchell wrote:
+> > This patch introduces I2C PIO functionality for the Spacemit K1 SoC,
+> > enabling the use of I2C with interrupts disabled.
+> > 
+> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > ---
+> >  drivers/i2c/busses/i2c-k1.c | 164 +++++++++++++++++++++++++++++++++++++-------
+> >  1 file changed, 140 insertions(+), 24 deletions(-)
+> > 
+> > diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+> > index 6b918770e612e098b8ad17418f420d87c94df166..e403eb7d6f329f4fe5c5242f94cc21094dff105c 100644
+> > --- a/drivers/i2c/busses/i2c-k1.c
+> > +++ b/drivers/i2c/busses/i2c-k1.c
+> 
+> [snip]
+> 
+> > @@ -293,10 +307,54 @@ static void spacemit_i2c_start(struct spacemit_i2c_dev *i2c)
+> >  	/* send start pulse */
+> >  	val = readl(i2c->base + SPACEMIT_ICR);
+> >  	val &= ~SPACEMIT_CR_STOP;
+> > -	val |= SPACEMIT_CR_START | SPACEMIT_CR_TB | SPACEMIT_CR_DTEIE;
+> > +	val |= SPACEMIT_CR_START | SPACEMIT_CR_TB;
+> > +
+> > +	if (!i2c->is_pio)
+> > +		val |= SPACEMIT_CR_DTEIE;
+> > +
+> >  	writel(val, i2c->base + SPACEMIT_ICR);
+> >  }
+> >  
+> > +static irqreturn_t spacemit_i2c_irq_handler(int irq, void *devid);
+> > +static int spacemit_i2c_wait_pio_xfer(struct spacemit_i2c_dev *i2c)
+> > +{
+> > +	u32 msec = jiffies_to_msecs(i2c->adapt.timeout);
+> > +	ktime_t timeout = ktime_add_ms(ktime_get(), msec);
+> > +	int ret;
+> > +
+> > +	while (i2c->unprocessed && ktime_compare(ktime_get(), timeout) < 0) {
+> > +		udelay(10);
+> > +		i2c->status = readl(i2c->base + SPACEMIT_ISR);
+> > +
+> > +		spacemit_i2c_clear_int_status(i2c, i2c->status);
+> > +
+> > +		if (!(i2c->status & SPACEMIT_SR_IRF) && !(i2c->status & SPACEMIT_SR_ITE))
+> > +			continue;
+> > +
+> > +		spacemit_i2c_irq_handler(0, i2c);
+> > +
+> > +		i2c->status = readl(i2c->base + SPACEMIT_ISR);
+> > +
+> > +		/*
+> > +		 * This is the last byte to write of the current message.
+> > +		 * If we do not wait here, control will proceed directly to start(),
+> > +		 * which would overwrite the current data.
+> > +		 */
+> > +		if (!i2c->read && !i2c->unprocessed) {
+> > +			ret = readl_poll_timeout(i2c->base + SPACEMIT_ISR,
+> > +						i2c->status, i2c->status & SPACEMIT_SR_ITE,
+> > +						30, 1000);
+> 
+> This needs to be readl_poll_timeout_atomic(), like you changed in 
+> spacemit_i2c_wait_bus_idle().
+Yes, nice catch!
+That's my mistake... I forgot this.
+> 
+> > +			if (ret)
+> > +				return 0;
+> > +		}
+> > +	}
+> > +
+> > +	if (i2c->unprocessed)
+> > +		return 0;
+> > +
+> > +	return 1;
+> > +}
+> > +
+> >  static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
+> >  {
+> >  	unsigned long time_left;
+> 
+> [snip]
+> 
+> > @@ -479,15 +578,21 @@ static void spacemit_i2c_calc_timeout(struct spacemit_i2c_dev *i2c)
+> >  	i2c->adapt.timeout = usecs_to_jiffies(timeout + USEC_PER_SEC / 10) / i2c->msg_num;
+> >  }
+> >  
+> > -static int spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, int num)
+> > +static inline int
+> > +spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, int num, bool is_pio)
+> >  {
+> >  	struct spacemit_i2c_dev *i2c = i2c_get_adapdata(adapt);
+> >  	int ret;
+> >  
+> > +	i2c->is_pio = is_pio;
+> > +
+> >  	i2c->msgs = msgs;
+> >  	i2c->msg_num = num;
+> >  
+> > -	spacemit_i2c_calc_timeout(i2c);
+> > +	if (!i2c->is_pio)
+> > +		spacemit_i2c_calc_timeout(i2c);
+> > +	else
+> > +		i2c->adapt.timeout = SPACEMIT_WAIT_TIMEOUT;
+> 
+> Thanks for fixing that, however i2c->adapt.timeout needs to be in 
+> jiffies, so you want to use msecs_to_jiffies(SPACEMIT_WAIT_TIMEOUT).
+Thanks for pointing this out!
+
+                - Troy
+> 
+> >  	spacemit_i2c_init(i2c);
+> >  
+> 
+> Regards
+> Aurelien
+> 
+> -- 
+> Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+> aurelien@aurel32.net                     http://aurel32.net
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
