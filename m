@@ -4,53 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6AECAC5B9
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Sep 2025 10:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C494ECAC5B0
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Sep 2025 11:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gsw3YqX6P6BCtzx9XPw3UW98y3XylzxQFzQtBH183EM=; b=0cO8mc8n8sp1sW
-	9g+SsjZJoXBL0xHDkhHtf1PakrxA/bE2N+8f1zaoX46HxyUaN+2K2NeIk8L4iuguFdtTAFB621ExH
-	KFvZjOjVXzFrlA96lxqLUzFNFdoHNafm+PcK/lG9cJighxQrmGheWtantjJ9hyQbmc33iQpZKa+80
-	fGaK3dGcdDZ04uyL+9gPBBQVol368AJwdW9651Buf8YZsp6qw6pOJYfL8a5dylYllxsIwohzKGBvO
-	+rAT/8WFmpGK/nfGGx2PWQzNZuXrXec68HUJ6cDN8DUuU6JX49QIsULDjT2nDwZmzO4FKkkpUqG8y
-	hdMvl/r7szyjinX+QuSA==;
+	List-Owner; bh=67uprzzc96ZgQjNwXqLguWVtCs7H9qHYYoxbNI/Vo6I=; b=NXCZ8YWHeji0Em
+	eSyRncLTHNPWE5xqRc1RYXqcFun68olh9CCF/z8laV+caEJQo208SX5zVr9SxZVLP6oGL82G9duCk
+	TWGSucBAgKxqrGFDlif+0XgriKfD6iAHixMZGOdzJyeQq1MJJpG5+7OUpOORUjF5qVdUiUHpSOg3z
+	ks8u+LMhuM+vSZN6T8mhhUBJsAjH+32XjVYY3sNrIzo5OJJCp9+rGhtEMEkGR1FNXdLNip4yjd0ei
+	ShcmCMgRmGVGgMAzSzMurCqfIdMVjNspazW0Os665hvILU+oMQO1bPp+KMBAA2774Wh8UrrhkTPw0
+	IPwsxHs/9hcDnAhK3tew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2SbM-000000099Ve-255G;
-	Sat, 27 Sep 2025 10:56:28 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1v2TTu-00000009SaT-1PD2;
+	Sat, 27 Sep 2025 11:52:50 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2SbJ-000000099VD-3UUr
+	id 1v2TTq-00000009SXk-1ibQ
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Sep 2025 10:56:26 +0000
-Received: from localhost (unknown [180.158.240.90])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 12DB133BEAD;
-	Sat, 27 Sep 2025 10:56:21 +0000 (UTC)
-Date: Sat, 27 Sep 2025 18:56:16 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Alex Elder <elder@riscstar.com>,
-	Troy Mitchell <troymitchell988@gmail.com>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 6/6] i2c: spacemit: introduce pio for k1
-Message-ID: <20250927105616-GYB1338789@gentoo.org>
-References: <20250925-k1-i2c-atomic-v2-0-46dc13311cda@linux.spacemit.com>
- <20250925-k1-i2c-atomic-v2-6-46dc13311cda@linux.spacemit.com>
+	Sat, 27 Sep 2025 11:52:48 +0000
+Received: from [192.168.0.102] (unknown [114.241.87.235])
+	by APP-03 (Coremail) with SMTP id rQCowAAXZoD7z9doKB1YBw--.16820S2;
+	Sat, 27 Sep 2025 19:52:28 +0800 (CST)
+Message-ID: <20a5af8e-ba3d-4cca-8fad-2343455aa0aa@iscas.ac.cn>
+Date: Sat, 27 Sep 2025 19:52:27 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250925-k1-i2c-atomic-v2-6-46dc13311cda@linux.spacemit.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/3] riscv: dts: spacemit: add 24c02 eeprom on BPI-F3
+To: Aurelien Jarno <aurelien@aurel32.net>, linux-kernel@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Yixun Lan <dlan@gentoo.org>
+Cc: "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ "open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+References: <20250926175833.3048516-1-aurelien@aurel32.net>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20250926175833.3048516-1-aurelien@aurel32.net>
+X-CM-TRANSID: rQCowAAXZoD7z9doKB1YBw--.16820S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYD7k0a2IF6w4xM7kC6x804xWl14x267AK
+	xVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGw
+	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r1I
+	6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Cr
+	1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAa
+	Y2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4
+	A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY
+	1x02628vn2kIc2xKxwCF04k20xvY0x0EwIxGrwCF54CYxVCY1x0262kKe7AKxVWUtVW8Zw
+	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
+	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
+	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
+	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
+	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07j04E_UUUUU=
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250927_035625_900529_C763C54A 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20250927_045246_833404_558CC5E2 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,72 +86,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10:02 Thu 25 Sep     , Troy Mitchell wrote:
-> This patch introduces I2C PIO functionality for the Spacemit K1 SoC,
-> enabling the use of I2C with interrupts disabled.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
->  drivers/i2c/busses/i2c-k1.c | 164 +++++++++++++++++++++++++++++++++++++-------
->  1 file changed, 140 insertions(+), 24 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-> index 6b918770e612e098b8ad17418f420d87c94df166..e403eb7d6f329f4fe5c5242f94cc21094dff105c 100644
-> --- a/drivers/i2c/busses/i2c-k1.c
-> +++ b/drivers/i2c/busses/i2c-k1.c
-> @@ -97,6 +97,9 @@
->  
-..
->  static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
->  {
->  	unsigned long time_left;
-> @@ -310,10 +368,28 @@ static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
->  
->  		reinit_completion(&i2c->complete);
->  
-> -		spacemit_i2c_start(i2c);
-> +		if (i2c->is_pio) {
-> +			/* We disable the interrupt to avoid unintended spurious triggers. */
-the comment is suspicious, and seems wrong..
-> +			disable_irq(i2c->irq);
-> +
-I guess this doesn't disable interrupt in the hardware layer, it will still
-fire interrupt once enabled, so instead of calling disable_irq(), why not
-dealing with ISR setting of the controller? I mean those "IE bits"(interrupt
-enableing) of ICR REGISTER, disabling them should prevent the interrupt
-triggered?
+On 9/27/25 01:54, Aurelien Jarno wrote:
 
-> +			/*
-> +			 * The K1 I2C controller has a quirk:
-> +			 * when doing PIO transfers, the status register must be cleared
-> +			 * of all other bits before issuing a START.
-> +			 * Failing to do so will prevent the transfer from working properly.
-> +			 */
-> +			spacemit_i2c_clear_int_status(i2c, SPACEMIT_I2C_INT_STATUS_MASK);
-this also doesn't seem correct to me, the irq status bit should be cleared once
-interrupt occur, not dealing it here before sending msg, this seems a
-wrong procedure
+> The BPI-F3 board has a 24c02 eeprom connected to the i2c bus #2. It
+> holds board data. This patchset adds support for it.
 
-> +
-> +			spacemit_i2c_start(i2c);
-> +			time_left = spacemit_i2c_wait_pio_xfer(i2c);
-> +
-> +			enable_irq(i2c->irq);
-> +		} else {
-> +			spacemit_i2c_start(i2c);
-> +			time_left = wait_for_completion_timeout(&i2c->complete,
-> +								i2c->adapt.timeout);
-> +		}
->  
-> -		time_left = wait_for_completion_timeout(&i2c->complete,
-> -							i2c->adapt.timeout);
->  		if (!time_left) {
->  			dev_err(i2c->dev, "msg completion timeout\n");
->  			spacemit_i2c_conditionally_reset_bus(i2c);
-> @@ -341,6 +417,9 @@ static bool spacemit_i2c_is_last_msg(struct spacemit_i2c_dev *i2c)
+Reviewed-by: Vivian Wang <wangruikang@iscas.ac.cn>
 
--- 
-Yixun Lan (dlan)
+I guess now it's up to me to figure out how to wire the MAC address
+nodes to the two ethernet nodes, after we get 6.18-rc1 of course.
+
+Theoretically it might not matter for Linux since a bootloader can set
+mac-address, but I think it would be a nice to have for less
+full-fledged boot situations.
+
+Thanks,
+Vivian "dramforever" Wang
+
 
 _______________________________________________
 linux-riscv mailing list
