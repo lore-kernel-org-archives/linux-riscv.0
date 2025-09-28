@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E799CAC5BB
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 07:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B45EDCAC5BB
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 07:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=cRIP08NjinYeqyidjXg0w7bjFXUudmJcpV3zxUSfn30=; b=n6R
-	jrC6VS4ZBnYxTXYEuvsNUJrRCQfvBclzOqVbWXDOZlzJTdR02GRX9dhBr+9H+/q2lgVW/7bz/Ra+M
-	ouxxKFw4gjR9o4bHPok0IbTh6WERUVCYTLdivM+hUGLX+b6V0k+PkrvgOqCOKS9637Zvt3nmJG+kw
-	sZX484ATuc+bUkbB2J94ggthwyG8P00cxKEpiAa/Q+JN9k795mo7351UYfyzMsTtzQ7/GlQYEUw3j
-	YZwzXtXytlJDK53hcL6aktF1nzPcnhx9qHyDoDxlDoSAB7IQdbVbDXeL2l1Dnixs+3mAVdkjeNKU1
-	nXu+ZxD8LDRtCv74cLYFBSo43sVUERg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YYMCzKYY0lLv08N9zFfE8Pq50/XLwB7H/A+Q2zi7/8k=; b=vLazsn6IEGE9k5
+	crnRFqj1HpkG4CwdAYuNhSfehrrUHKFTv+VEkd4UmBoXOYbLbmyY1gzp/vJ/9SGc09FeEwIx0Pl8D
+	jkpnfLQCbwgaOs4P6+7HUOzI96tqkBTRGqRlYZxuZqsj44v8tP0WKetZkjGbapX735MhNR/E79Jxv
+	i3BL3Zv8wu49hQEreV/kp3JAhMixdZGqHePZ0ahPZae7AIH/49Gvw+7esVdzehhuE1tGMEgRmmRYG
+	RluKTy7cvoX1KNKGQ9OaOkYQ3rXUZ6a8j3t4ymk+2E7TcDboHzoE1CVTLSUl/z+qxz3dDhhRcdVPn
+	6iViomdkOtuUHHhL/thg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2m5l-0000000E7AC-0OHt;
-	Sun, 28 Sep 2025 07:45:09 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1v2m9s-0000000E8Rz-1n2Z;
+	Sun, 28 Sep 2025 07:49:24 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2m5g-0000000E75k-3143;
-	Sun, 28 Sep 2025 07:45:07 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	id 1v2m9p-0000000E8Q0-41F3
+	for linux-riscv@lists.infradead.org;
+	Sun, 28 Sep 2025 07:49:23 +0000
+Received: from localhost (unknown [180.158.240.90])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4cZGYw5YCVz4xNt7;
-	Sun, 28 Sep 2025 15:44:52 +0800 (CST)
-Received: from xaxapp05.zte.com.cn ([10.99.98.109])
-	by mse-fl2.zte.com.cn with SMTP id 58S7imtK038376;
-	Sun, 28 Sep 2025 15:44:48 +0800 (+08)
-	(envelope-from liu.xuemei1@zte.com.cn)
-Received: from mapi (xaxapp04[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Sun, 28 Sep 2025 15:44:50 +0800 (CST)
-Date: Sun, 28 Sep 2025 15:44:50 +0800 (CST)
-X-Zmail-TransId: 2afb68d8e7723ba-ff67b
-X-Mailer: Zmail v1.0
-Message-ID: <20250928154450701hRC3fm00QYFnGiM0_M1No@zte.com.cn>
-Mime-Version: 1.0
-From: <liu.xuemei1@zte.com.cn>
-To: <anup@brainfault.org>
-Cc: <atish.patra@linux.dev>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-        <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <kvm@vger.kernel.org>,
-        <kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: =?UTF-8?B?W1BBVENIXSBSSVNDLVY6IEtWTTogVHJhbnNwYXJlbnQgaHVnZSBwYWdlIHN1cHBvcnQ=?=
-X-MAIL: mse-fl2.zte.com.cn 58S7imtK038376
-X-TLS: YES
-X-SPF-DOMAIN: zte.com.cn
-X-ENVELOPE-SENDER: liu.xuemei1@zte.com.cn
-X-SPF: None
-X-SOURCE-IP: 10.5.228.133 unknown Sun, 28 Sep 2025 15:44:52 +0800
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 68D8E774.001/4cZGYw5YCVz4xNt7
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id BC76E340D6C;
+	Sun, 28 Sep 2025 07:49:19 +0000 (UTC)
+Date: Sun, 28 Sep 2025 15:49:14 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Troy Mitchell <troy.mitchell@linux.dev>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: riscv: spacemit: Add MusePi Pro board
+Message-ID: <20250928074914-GYA1344940@gentoo.org>
+References: <20250928-k1-musepi-pro-dts-v1-0-64d0659dfdbc@linux.spacemit.com>
+ <20250928-k1-musepi-pro-dts-v1-1-5efcca0ce3ae@linux.spacemit.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250928-k1-musepi-pro-dts-v1-1-5efcca0ce3ae@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_004505_162200_6B4AED6E 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20250928_004922_023178_8CEF233B 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,173 +72,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jessica Liu <liu.xuemei1@zte.com.cn>
+Hi Troy,
 
-Use block mapping if backed by a THP, as implemented in architectures
-like ARM and x86_64.
+On 12:16 Sun 28 Sep     , Troy Mitchell wrote:
+> From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> 
+> Document the compatible string for the MusePi Pro [1].
+> It is a 1.8-inch single board computer based on the
+> SpacemiT K1/M1 RISC-V SoC [2].
+you could wrap at slightly more characters, I remember 72 chars
+(haven't spent time to find a formal document link..)
 
-Signed-off-by: Jessica Liu <liu.xuemei1@zte.com.cn>
----
- arch/riscv/include/asm/kvm_gstage.h |   3 +
- arch/riscv/kvm/gstage.c             | 100 ++++++++++++++++++++++++++++
- arch/riscv/kvm/mmu.c                |  12 +++-
- 3 files changed, 114 insertions(+), 1 deletion(-)
+> 
+> Link:
+> https://developer.spacemit.com/documentation?token=YJtdwnvvViPVcmkoPDpcvwfVnrh&type=pdf
+I'd suggest to list core features of this board, while using this link as a complement,
+base on previous experience, vendor may change the link address, thus the link vanish
 
-diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
-index 595e2183173e..cc67fb2d2d42 100644
---- a/arch/riscv/include/asm/kvm_gstage.h
-+++ b/arch/riscv/include/asm/kvm_gstage.h
-@@ -69,4 +69,7 @@ void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end
+> [1]
+> https://www.spacemit.com/en/key-stone-k1 [2]
+> 
+pleae keep them in one line, no break, and no blank line between SoB,
+something as below
+Link: https://.. [1]
 
- void kvm_riscv_gstage_mode_detect(void);
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> ---
+>  Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> index c56b62a6299ac24d3cdef7edcdfc407dc62a1846..52fe39296031f21d1c28c4f1ea5ca9fe28caf45a 100644
+> --- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> @@ -22,6 +22,7 @@ properties:
+>            - enum:
+>                - bananapi,bpi-f3
+>                - milkv,jupiter
+> +              - spacemit,musepi-pro
+>                - xunlong,orangepi-rv2
+>            - const: spacemit,k1
+>  
+> 
+> -- 
+> 2.51.0
+> 
 
-+long kvm_riscv_gstage_thp_adjust(struct kvm *kvm, struct kvm_memory_slot *memslot,
-+				 unsigned long hva, kvm_pfn_t *pfnp, gpa_t *gpa);
-+
- #endif
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index 24c270d6d0e2..98494b4b4652 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -77,6 +77,106 @@ static int gstage_level_to_page_size(u32 level, unsigned long *out_pgsize)
- 	return 0;
- }
-
-+static int gstage_get_user_mapping_size(struct kvm *kvm, u64 addr)
-+{
-+	pte_t *ptepp;
-+	u32 ptep_level;
-+	unsigned long out_pgsize;
-+	struct kvm_gstage gstage = {
-+		.pgd = kvm->mm->pgd
-+	};
-+
-+	if (!kvm_riscv_gstage_get_leaf(&gstage, addr, &ptepp, &ptep_level))
-+		return -EFAULT;
-+
-+	if (gstage_level_to_page_size(ptep_level, &out_pgsize))
-+		return -EFAULT;
-+
-+	return out_pgsize;
-+}
-+
-+static bool gstage_supports_huge_mapping(struct kvm_memory_slot *memslot, unsigned long hva)
-+{
-+	gpa_t gpa_start;
-+	hva_t uaddr_start, uaddr_end;
-+	size_t size;
-+
-+	size = memslot->npages * PAGE_SIZE;
-+	uaddr_start = memslot->userspace_addr;
-+	uaddr_end = uaddr_start + size;
-+
-+	gpa_start = memslot->base_gfn << PAGE_SIZE;
-+
-+	/*
-+	 * Pages belonging to memslots that don't have the same alignment
-+	 * within a PMD for userspace and GPA cannot be mapped with g-stage
-+	 * PMD entries, because we'll end up mapping the wrong pages.
-+	 *
-+	 * Consider a layout like the following:
-+	 *
-+	 *    memslot->userspace_addr:
-+	 *    +-----+--------------------+--------------------+---+
-+	 *    |abcde|fgh  vs-stage block  |    vs-stage block tv|xyz|
-+	 *    +-----+--------------------+--------------------+---+
-+	 *
-+	 *    memslot->base_gfn << PAGE_SHIFT:
-+	 *      +---+--------------------+--------------------+-----+
-+	 *      |abc|def  g-stage block  |    g-stage block   |tvxyz|
-+	 *      +---+--------------------+--------------------+-----+
-+	 *
-+	 * If we create those g-stage blocks, we'll end up with this incorrect
-+	 * mapping:
-+	 *   d -> f
-+	 *   e -> g
-+	 *   f -> h
-+	 */
-+	if ((gpa_start & (PMD_SIZE - 1)) != (uaddr_start & (PMD_SIZE - 1)))
-+		return false;
-+
-+	/*
-+	 * Next, let's make sure we're not trying to map anything not covered
-+	 * by the memslot. This means we have to prohibit block size mappings
-+	 * for the beginning and end of a non-block aligned and non-block sized
-+	 * memory slot (illustrated by the head and tail parts of the
-+	 * userspace view above containing pages 'abcde' and 'xyz',
-+	 * respectively).
-+	 *
-+	 * Note that it doesn't matter if we do the check using the
-+	 * userspace_addr or the base_gfn, as both are equally aligned (per
-+	 * the check above) and equally sized.
-+	 */
-+	return (hva >= ALIGN(uaddr_start, PMD_SIZE)) && (hva < ALIGN_DOWN(uaddr_end, PMD_SIZE));
-+}
-+
-+long kvm_riscv_gstage_thp_adjust(struct kvm *kvm, struct kvm_memory_slot *memslot,
-+				 unsigned long hva, kvm_pfn_t *hfnp, gpa_t *gpa)
-+{
-+	kvm_pfn_t hfn = *hfnp;
-+
-+	/*
-+	 * Make sure the adjustment is done only for THP pages. Also make
-+	 * sure that the HVA and GPA are sufficiently aligned and that the
-+	 * block map is contained within the memslot.
-+	 */
-+	if (gstage_supports_huge_mapping(memslot, hva)) {
-+		int sz = gstage_get_user_mapping_size(kvm, hva);
-+
-+		if (sz < 0)
-+			return sz;
-+
-+		if (sz < PMD_SIZE)
-+			return PAGE_SIZE;
-+
-+		*gpa &= PMD_MASK;
-+		hfn &= ~(PTRS_PER_PMD - 1);
-+		*hfnp = hfn;
-+
-+		return PMD_SIZE;
-+	}
-+
-+	return PAGE_SIZE;
-+}
-+
- bool kvm_riscv_gstage_get_leaf(struct kvm_gstage *gstage, gpa_t addr,
- 			       pte_t **ptepp, u32 *ptep_level)
- {
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 525fb5a330c0..f70cf721ebb8 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -337,7 +337,8 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	struct kvm_mmu_memory_cache *pcache = &vcpu->arch.mmu_page_cache;
- 	bool logging = (memslot->dirty_bitmap &&
- 			!(memslot->flags & KVM_MEM_READONLY)) ? true : false;
--	unsigned long vma_pagesize, mmu_seq;
-+	unsigned long mmu_seq;
-+	long vma_pagesize;
- 	struct kvm_gstage gstage;
- 	struct page *page;
-
-@@ -416,6 +417,15 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	if (mmu_invalidate_retry(kvm, mmu_seq))
- 		goto out_unlock;
-
-+	/* check if we are backed by a THP and thus use block mapping if possible */
-+	if (vma_pagesize == PAGE_SIZE) {
-+		vma_pagesize = kvm_riscv_gstage_thp_adjust(kvm, memslot, hva, &hfn, &gpa);
-+		if (vma_pagesize < 0) {
-+			ret = vma_pagesize;
-+			goto out_unlock;
-+		}
-+	}
-+
- 	if (writable) {
- 		mark_page_dirty_in_slot(kvm, memslot, gfn);
- 		ret = kvm_riscv_gstage_map_page(&gstage, pcache, gpa, hfn << PAGE_SHIFT,
 -- 
-2.27.0
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
