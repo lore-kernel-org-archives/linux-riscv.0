@@ -4,85 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2E8CAC5B5
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 08:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2213CAC5BB
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 09:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=C29kQ2jKNVNjzyxQJE7qKwc0x4eFcbuchamggyds/I8=; b=xrpnmiDTocuuHH
-	6QGzbJr/cQJfTLoqcJRnMwIKRRIMDe1c9uNjdfDZaf1CtthcX9gtPJtJQqsIbKNONO0X1DNhfqrh6
-	feeb2QHM+ir1nC6gqsiaCaWvVmUIO1Sm385DxQNO0AbquCW5BOu7q1/FPWs3TZYUlTI9s683WqYq1
-	RZMhPrfsoQ5n/dajmPd9FeOXx/LZOwNkK4k2Ju3aqKZArkz7+Eyfl4mdRjbCha+4ZpHx4Q+Zmrb6g
-	RFiJolIjLN1nNm6aOhT4DYcW66pxD+1a4G3+NdKIuyAjk1U/PG2TZETZpw8uPdgVHPaYHIkUr21+l
-	7UTuBTyL+9dMoMVIQnew==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fdvtNRqT3b/is83koat0lBaDjYwy35TZb3DXc7wqfQM=; b=s7/Ufugero7Xd3
+	/ZYyrIVqkUxmRlrECi94GyPlCyq2YSSu5D9YCvpO8k2KEyjO/Xo6IOXxK46O7V08Iqb4dutuwntnL
+	F3DY/9PGrB1VFOlqzkFk514brCmErLhMGTEoIuFQ7I3se8Ce74NmIFR+wKfFW9AnnDrHiJGDHueYo
+	2ve7qfBPI3SqOkfQrkYiju+30tRAGFY/HyNw62KYM3WTqxVjERcK1YJq8kqiF41avYJixzTWltlHh
+	alcJgKq+BoyVZ42cgTM31ne7yi1sCxjPLewFJiPmLAj8qxAd0kKKtjxBSWR+YM3Zr+q4BALxQvxf7
+	yfnXwsuAfdmorMCu5Wog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nBw-0000000ETHi-3UUc;
-	Sun, 28 Sep 2025 08:55:36 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1v2nLq-0000000EXLn-416I;
+	Sun, 28 Sep 2025 09:05:50 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nBu-0000000ETFn-2BXI;
-	Sun, 28 Sep 2025 08:55:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=HQsWcOOQOPFRh+csyXpVaXXlYECUrdq9XpTTlGCeshY=; b=eoLvKu4ksJ4WLw5t0JSu/6zmtD
-	RNM7Rqqku+Ag4jXgRozXjzd+ZqEZcPSLzMCP50v3gl1/Ioaa3T2QTjdKa3DdlyDhpNuRVVeFIigZs
-	6lf+VUcvQHweFK+SE5xLrwISApTcQAHzNOekL1IisN/RPhu53r6cKGniRSWOa+yFBPTujf6DZtEbg
-	kRswIPvYP4CjHFJnK67lU+HN97cpxnbu46gDHzPJP4KwuoVxXQvVWOyzVM/T39JItn/B2s9VSSO2g
-	4rIiLBffjkHxqvNEi9Vpk7HVo/a9Z7BtTrAxcweuQEg2bZ1i+ohmzCC0jv4HjDSukTuGdAeT+gdlO
-	7MlzBUFQ==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nBp-0000000H078-0mnk;
-	Sun, 28 Sep 2025 08:55:33 +0000
-Received: from loongson.cn (unknown [113.200.148.30])
-	by gateway (Coremail) with SMTP id _____8Dx_tLz99hoBswPAA--.33201S3;
-	Sun, 28 Sep 2025 16:55:16 +0800 (CST)
-Received: from linux.localdomain (unknown [113.200.148.30])
-	by front1 (Coremail) with SMTP id qMiowJBxpeTw99hoCnK5AA--.60733S2;
-	Sun, 28 Sep 2025 16:55:12 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-To: Ard Biesheuvel <ardb@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>
-Cc: loongarch@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
+	id 1v2nLn-0000000EXDj-2MKd
+	for linux-riscv@lists.infradead.org;
+	Sun, 28 Sep 2025 09:05:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1759050286;
+	bh=A5XNR7o7T9bmHUiLwBsgkJ4yBPqbpMEyQqeUzOe4SXs=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=ImulV0iQU+H0ZIQBDEeFdIqPecf0DTpSX/8p8uH6Wv5bzl1Y8YCsptoNE3xbkyQwU
+	 kq5YO47vkrLWjY4SXCs/kbZBb0X68J+9wi7Gc+ekBt5kc6cwH+KggMHmZfOqOx09mk
+	 QyH98HvdcSaWB0Y5FXvdYRIqyzvnRi7d5PVH+YEg=
+X-QQ-mid: zesmtpgz7t1759050284t3bf2e7e3
+X-QQ-Originating-IP: 5XgI999sx5jfiBgGyK3YT6uH/AVd7s0Bwsp5x2yvagA=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sun, 28 Sep 2025 17:04:43 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5680258146245078500
+EX-QQ-RecipientCnt: 15
+Date: Sun, 28 Sep 2025 17:04:43 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Yixun Lan <dlan@gentoo.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Troy Mitchell <troy.mitchell@linux.dev>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] efistub: Only link libstub to final vmlinux
-Date: Sun, 28 Sep 2025 16:55:06 +0800
-Message-ID: <20250928085506.4471-1-yangtiezhu@loongson.cn>
-X-Mailer: git-send-email 2.42.0
+Subject: Re: [PATCH 2/2] riscv: dts: spacemit: Add MusePi Pro board device
+ tree
+Message-ID: <35C0EFBB84167959+aNj6K33fl7utuqcf@kernel.org>
+References: <20250928-k1-musepi-pro-dts-v1-0-64d0659dfdbc@linux.spacemit.com>
+ <20250928-k1-musepi-pro-dts-v1-2-5efcca0ce3ae@linux.spacemit.com>
+ <20250928080003-GYB1344940@gentoo.org>
+ <3074FC8521909735+aNjsSWwkd1aH-moh@kernel.org>
+ <20250928085010-GYC1344940@gentoo.org>
 MIME-Version: 1.0
-X-CM-TRANSID: qMiowJBxpeTw99hoCnK5AA--.60733S2
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoWxZF4rCF15tF13uFykWry5Jrc_yoWrCFykpa
-	nakr4qvrWkWrWvq3s7G3yUWw15KFn8trZIqFyDCFZ0yr4UZwn29rZxJrZrAFZ8Xr1DAFWS
-	qr1xKFyakF1DA3gCm3ZEXasCq-sJn29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUkYb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AK
-	xVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
-	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE
-	14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k20xvY0x
-	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
-	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcV
-	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF
-	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
-	CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU1QVy3UUUUU==
+Content-Disposition: inline
+In-Reply-To: <20250928085010-GYC1344940@gentoo.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: M+4aTJW6U+KtEJ4ew0AdB4bnH4LBagWX45cFxLAbJuV0rfPRsYFcicUA
+	FneH9fczriD4gCX+ZW81FPz9QDRK/F0Uc8fEDtphd+5Gd7gjpWQqglDOp5NgQeRXHakZ/Yr
+	1GrSxe6qCdanRmP/EvuduR9RFIOjc72qRrCWl8jBj1CiYAJA3ITBq/vL7mFC56ZjJVjC6Ns
+	zir9Ik24aa08/vds7+J1QJtSU1opvA06bqTdTMCz2MLRto59n3L5zKnAky+6m81AaIcWnRR
+	6oCcwjdCQ71gqXxCfqChmqYwgMgFQt4DgqlFF8DHf6ZzdewHyHkZIEVsMWhDkkloutvVTbI
+	gqlTT50GmN1MEretky7h+vyMo3XBEL9npKPitka5Vx0zirhHZhbeNzd7zLQ1mwM7u2d2a5O
+	0sB2K53tgH5YPk5NKP04ySZYWS54xLI4TtfizfnI2Y+atFdYe0SH/jou1JDNmkfH11xXoUV
+	LQUkw/TU4//r+XiHcOlruvn9AzFXd2UupIlYyJoaXY+0Y9IAJEFVECjhcmJw5Eskd+wpxjy
+	cVCo+uarpXUULgscZGUl6Bi4ZGVE7tGjxlu0cyyxyDH5Ws2exq8v13HYL3xEQ9pvZVRk/tN
+	iHRt28AteHFt36UJPVLk2gWjFg4befi3QsJNcMS1AL5RzfpNvzmE/KbvjeART56R4smSyjp
+	agyC3NnFTCBpOkOqtxBV//6JdQ0ImJHY0XgLN4PCuM0P4TjSOALT6+rSEe3e8lxjX2IzljR
+	c/zSld+FSKnH4r2rBBKXRFrX/gFjMRqqm1N1QpVA52dwyz0Gwu6dxDP3g9ZwbxDW97FVr+K
+	DJn9WC0jPskxtKfwA1Lav6uIPtcTnxwnPurN0S8ObmyFDmdkqPRKGicjU9xSe9PLJkTgd4s
+	Ymywkk3zy4QXJ4I5gX0rPY2Tk64D5FZkS/LW315htn2s9bu0cMmA1rc9dpal/yXxi5wh7KM
+	2B7GfGJGG3EgqDn0WqeNRYOXMDPzpRvmU0eObTx5eh4u280CgBIEgUOEGtZaLqoP7Y7zmEt
+	YSwbuUfRjccCA0+27U2qM4lQqhUtV/9HVojlPEJKe6gVodbi1h/qp3eCcNyp48M+D4ggILh
+	c5kw6m09OFNZEactsEzc+b57ly6aihBfg==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_095530_432453_FAB1AC3B 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250928_020548_101401_248291CE 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,120 +107,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When compiling with LLVM and CONFIG_LTO_CLANG is set, there exists
-the following objtool warning on LoongArch:
+On Sun, Sep 28, 2025 at 04:50:10PM +0800, Yixun Lan wrote:
+> Hi Troy,
+> 
+> On 16:05 Sun 28 Sep     , Troy Mitchell wrote:
+> > On Sun, Sep 28, 2025 at 04:00:03PM +0800, Yixun Lan wrote:
+> > > Hi Troy,
+> > > 
+> > > On 12:16 Sun 28 Sep     , Troy Mitchell wrote:
+> > > > From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > > > 
+> > > > Add initial device tree support for the MusePi Pro board [1].
+> > > > The board is using the SpacemiT K1/M1 SoC.
+> > > > 
+> > > > The device tree is adapted from the SpacemiT vendor tree [2].
+> > > > 
+> > > > This minimal device tree enables booting into a serial console with UART
+> > > > output and a blinking LED.
+> > > > 
+> > > > Link:
+> > > > https://developer.spacemit.com/documentation?token=YJtdwnvvViPVcmkoPDpcvwfVnrh&type=pdf [1]
+> > > > https://gitee.com/bianbu-linux/linux-6.6/blob/k1-bl-v2.2.y/arch/riscv/boot/dts/spacemit/k1-x_MUSE-Pi-Pro.dts [2]
+> > > > 
+> > > same as patch 1
+> > > > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > > > ---
+> ..[snip]
+> > > 
+> > > while you are here, I'd suggest to push as many features as possible
+> > > instead of this minimal DT, which say - PMU, emmc, ethernet should be ready..
+> > > (ethernet is in next, should show up at v6.18-rc1)
+> > Good idea.
+> > I think I should split these into multiple commits, right?
+> > Like, PDMA and EMAC should definitely be two separate commits.
+> > 
+> IMO, not really necessary, but I wouldn't mind either..
+Thanks.
+Then I will split them to keep clear.
 
-  vmlinux.o: warning: objtool: __efistub_efi_boot_kernel()
-  falls through to next function __efistub_exit_boot_func()
-
-This is because efi_boot_kernel() doesn't end with a return instruction
-or an unconditional jump, then objtool has determined that the function
-can fall through into the next function.
-
-At the beginning, try to do something to make efi_boot_kernel() ends with
-an unconditional jump instruction, but this modification seems not proper.
-
-Since the efistub functions are useless for stack unwinder, they can be
-ignored by objtool. After many discussions, no need to link libstub to
-the vmlinux.o, only link libstub to the final vmlinux.
-
-Do the similar things for arm64 and riscv, otherwise there may be objtool
-warnings when arm64 and riscv support objtool, this is to make consistent
-with the archs that use libstub.
-
-Link: https://lore.kernel.org/lkml/pq4h7jgndnt6p45lj4kgubxjd5gidfetugcuf5rcxzxxanzetd@6rrlpjnjsmuy/
-Suggested-by: Josh Poimboeuf <jpoimboe@kernel.org>
-Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
----
- Makefile                | 1 +
- arch/arm64/Makefile     | 5 ++++-
- arch/loongarch/Makefile | 5 ++++-
- arch/riscv/Makefile     | 5 ++++-
- scripts/link-vmlinux.sh | 5 ++---
- 5 files changed, 15 insertions(+), 6 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index 10355ecf32cb..8ba2e28ef3d1 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1201,6 +1201,7 @@ KBUILD_VMLINUX_OBJS := built-in.a $(patsubst %/, %/lib.a, $(filter %/, $(libs-y)
- KBUILD_VMLINUX_LIBS := $(filter-out %/, $(libs-y))
- 
- export KBUILD_VMLINUX_LIBS
-+export KBUILD_VMLINUX_LIBS_PRELINK
- export KBUILD_LDS          := arch/$(SRCARCH)/kernel/vmlinux.lds
- 
- ifdef CONFIG_TRIM_UNUSED_KSYMS
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 73a10f65ce8b..038f37ef2143 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -156,7 +156,10 @@ KBUILD_CPPFLAGS += -DKASAN_SHADOW_SCALE_SHIFT=$(KASAN_SHADOW_SCALE_SHIFT)
- KBUILD_AFLAGS += -DKASAN_SHADOW_SCALE_SHIFT=$(KASAN_SHADOW_SCALE_SHIFT)
- 
- libs-y		:= arch/arm64/lib/ $(libs-y)
--libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+
-+ifdef CONFIG_EFI_STUB
-+KBUILD_VMLINUX_LIBS_PRELINK += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+endif
- 
- # Default target when executing plain make
- boot		:= arch/arm64/boot
-diff --git a/arch/loongarch/Makefile b/arch/loongarch/Makefile
-index ae419e32f22e..4eb904c20718 100644
---- a/arch/loongarch/Makefile
-+++ b/arch/loongarch/Makefile
-@@ -169,7 +169,10 @@ CHECKFLAGS += $(shell $(CC) $(KBUILD_CPPFLAGS) $(KBUILD_CFLAGS) -dM -E -x c /dev
- endif
- 
- libs-y += arch/loongarch/lib/
--libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+
-+ifdef CONFIG_EFI_STUB
-+KBUILD_VMLINUX_LIBS_PRELINK += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+endif
- 
- drivers-y		+= arch/loongarch/crypto/
- 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index df57654a615e..cfd82b2c1bbf 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -173,7 +173,10 @@ boot-image-$(CONFIG_XIP_KERNEL)		:= xipImage
- KBUILD_IMAGE				:= $(boot)/$(boot-image-y)
- 
- libs-y += arch/riscv/lib/
--libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+
-+ifdef CONFIG_EFI_STUB
-+KBUILD_VMLINUX_LIBS_PRELINK += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+endif
- 
- ifeq ($(KBUILD_EXTMOD),)
- ifeq ($(CONFIG_MMU),y)
-diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-index 51367c2bfc21..b3cbff31d8a9 100755
---- a/scripts/link-vmlinux.sh
-+++ b/scripts/link-vmlinux.sh
-@@ -61,12 +61,11 @@ vmlinux_link()
- 	shift
- 
- 	if is_enabled CONFIG_LTO_CLANG || is_enabled CONFIG_X86_KERNEL_IBT; then
--		# Use vmlinux.o instead of performing the slow LTO link again.
- 		objs=vmlinux.o
--		libs=
-+		libs="${KBUILD_VMLINUX_LIBS_PRELINK}"
- 	else
- 		objs=vmlinux.a
--		libs="${KBUILD_VMLINUX_LIBS}"
-+		libs="${KBUILD_VMLINUX_LIBS} ${KBUILD_VMLINUX_LIBS_PRELINK}"
- 	fi
- 
- 	if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
--- 
-2.42.0
-
+                        - Troy
+> 
+> -- 
+> Yixun Lan (dlan)
+> 
 
 _______________________________________________
 linux-riscv mailing list
