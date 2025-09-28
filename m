@@ -4,48 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D8CCAC5B5
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 05:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373CACAC5BB
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 05:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FTJ7DjiyDtqIcCu1g9naPSbGSUxvkyX5HU3RBPrvROs=; b=XXsIy6zmznIuL7
-	h0SbrMzaNfgBQBqEfEVFAFaUSCYamfM964YK10CjSTAGkC0H4vwPYDAAvHAqJ/EQ4EwNkHSHPrl8F
-	U/8HhLqNTZPu8MolX1Tg46PKyNr7P1BbHd2RZehEotM0wYTQW0AZK1t3KjL9AHy9i8taNPQFP5etm
-	vlpAylHlQnJBY7xnzHaWdhPb+VbWxxtjPfebpveGuvihHB/dweW+aGplsqlVTM+h9AeNhhn22J1U1
-	htLLLDl+ZEqenNpEKu7G+ox9jOImKarn/zBXI82aOwhmi3pi8PK7Q501Z0E5DVvq5CADd5Vg5AsWi
-	aBGB1w5uPU8uQjNNl7FA==;
+	List-Owner; bh=ieO8AvZaSLjjJpFEOsIs5gs+Q39iH789KgfAHtC528k=; b=B1KyS2+axW4a2y
+	Q8yMQdUZnMMlC1McNcZMbpUhStFkWjqPNmGgKYm/qhe54bZohjMbbJojEcdybkDfMdZWSPQFGdRzq
+	Ah2c84rs7ZKg2jmQFJnYba2RLQB+RNEPAGr4eYSjnSLxInmSMtEi5G8s8UVeFGJyUzDdRGTV7OtzL
+	nKPxCPRcRs0/fN0gHfJQiCVfpZ9i49aKlDZUeymCFM2VKd3YbeLIvf4Kh2CZ49h3aA92x5vSxmkBr
+	iQ6DaYGbdBOQAtaImCruVi8pr7LPm9MoiZOt8bm/xpTWFHtWfeyMcs6IFM1mKGm1ObioiihMiMJhf
+	3ULWBqS6A9TRqA/Ymoew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2jhB-0000000Dw81-1cKU;
-	Sun, 28 Sep 2025 05:11:37 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1v2jhf-0000000DwDn-2z9Y;
+	Sun, 28 Sep 2025 05:12:07 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2jh8-0000000Dw54-00BB
+	id 1v2jhc-0000000Dw9Q-0Y9m
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Sep 2025 05:11:36 +0000
+	Sun, 28 Sep 2025 05:12:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1759036214;
-	bh=UA1qJURCZwLdvL82SG3SQoBTLla6vgH9fxecp6XUcf0=;
+	s=mxsw2412; t=1759036243;
+	bh=EyKXkmVhd4Wq/fftgbLmz5/5UTp8yXrHyMxbT9ejo7U=;
 	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=XBOi12wjqi1GeJug2xMi8AbYSQjmegbpCwMOAwcD9AdcIaohEnNouW8oKdD3Ri1EX
-	 aFmTUJv+DOdG2Qo9YU1k859XIZMZKesqddg36OGyMXCAhvLq2bERaH4uzpcBrA87y/
-	 gjWRu9rL60aZIA5OAPie7SspYkhGaFsOGGtarCK4=
-X-QQ-mid: esmtpgz16t1759036211te633a7cc
-X-QQ-Originating-IP: 5UrDWMN67WjQ6+g3kaNEmQsia4NxmONpMnxQZJnktgo=
+	b=YHyCSYQhalD7uOoETswqj63acdVa3znz41drzdSPgRp7pAZfii+cE3zXQn8c0NUsE
+	 oC/hileZx8y/rBxc0sInEBW7TLAqojKGdaEv/84Gv0x3gnpxKg155W+esWkUd2b+aQ
+	 JrVSdh99Xiz5OinzldLxjr0FzmoSZupviW/jvcKI=
+X-QQ-mid: zesmtpgz7t1759036242t9f60582b
+X-QQ-Originating-IP: vZrW/0ceR/bex1xwbBd/Y09KBS2r8jnRxCvwYU5DFsk=
 Received: from = ( [61.145.255.150])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sun, 28 Sep 2025 13:10:10 +0800 (CST)
+	id ; Sun, 28 Sep 2025 13:10:40 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15722752708494261181
+X-BIZMAIL-ID: 14443702317554781717
 EX-QQ-RecipientCnt: 16
-Date: Sun, 28 Sep 2025 13:10:10 +0800
+Date: Sun, 28 Sep 2025 13:10:40 +0800
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: E Shattow <e@freeshell.de>, Troy Mitchell <troy.mitchell@linux.dev>,
+To: E Shattow <e@freeshell.de>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Troy Mitchell <troy.mitchell@linux.dev>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
@@ -53,42 +55,42 @@ To: E Shattow <e@freeshell.de>, Troy Mitchell <troy.mitchell@linux.dev>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Yangyu Chen <cyy@cyyself.name>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] riscv: dts: spacemit: Add MusePi Pro board device
- tree
-Message-ID: <D0091C3AA4E189AD+aNjDMpVOUJ6SZcAJ@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: riscv: spacemit: Add MusePi Pro board
+Message-ID: <E3B55605FD767D42+aNjDUGk1LNF2MKwE@kernel.org>
 References: <20250928-k1-musepi-pro-dts-v1-0-64d0659dfdbc@linux.spacemit.com>
- <20250928-k1-musepi-pro-dts-v1-2-5efcca0ce3ae@linux.spacemit.com>
- <beacb546-e4c4-43db-8f4c-97ea3cb55b43@freeshell.de>
+ <20250928-k1-musepi-pro-dts-v1-1-5efcca0ce3ae@linux.spacemit.com>
+ <C16FB37F0982124F+aNi46yQc_e-gCIvL@kernel.org>
+ <83fc0f4d-1e7c-41e0-87b3-bfcb84a0450c@freeshell.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <beacb546-e4c4-43db-8f4c-97ea3cb55b43@freeshell.de>
+In-Reply-To: <83fc0f4d-1e7c-41e0-87b3-bfcb84a0450c@freeshell.de>
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: NWth7vBa++GdjblFVo5LE5OLzN3uMVj+IIGUZtb80IeyZzswZp6McyHv
-	eT8WOmbac7J1L6aRNX2zvfzhSVweRzamQ7GGkwzlodF1g9oodiGYy7MB9gEJ7eesMt9TPKj
-	Oi0399b4VPTr4MQ/A+/+J2mtXqGPZVQeQL0qbgePVwjgm1eGAoNv53ByaY6yl6/vRJTsOOj
-	guK1gPeZb2rA10X2Pu1JIIXya59DCoav5uJTTv6+nAhjlzFNT29AWivOU8C/VuL0fIQbQM1
-	020qhqo2pNyAD6mKHOZ6spxJ1Sf/sMwtBlhfCSHL0UUm4PrMOOxh4GmIP0rres2GPahYviE
-	C1kCwU/EczW2SdA+LcOd8XMvOeLslqBWxLd/4biCX8CjHK9YkOjCqpL9Q+vl0Rs3219R2Nq
-	gz0mEab9ugaSgzDN+bgwE65Ibg3gj8yGrgpoKwZpqB/hzaBxFZl04YakIGgzadTTFAjKCsD
-	bvEQIautoAdmtZs5PmKwUgpeUT6ckUojDrGCu357VvwaUNRPOAQo7AXAvsfrpVPOZeU99FS
-	hyMc1M5M97q/s6NAANvFypBK1ON8tovlfoEhZQZIXh02xlPPtuIULB42Se4DC+EjH7lPMJE
-	2fMHE0aj8FAzPkQY58EE19S17i1W2PVwsjqGIOFd8E7D4OOWlNRYU0wqsdPaJny/ScUS2ln
-	tSSPkIYjxYFtGAeVEaeLykVfBGl8d+HDIZzd/u7jBxQZU8npBhVZYA7jXddDKapakULsXhd
-	/j+rKv1sPKjw18Eu+kniWwi+EVjy2S+IDS4Qi9znfXM8vO7VGdCXY09Z/gAUm5f+IRI/Kf+
-	7CvQKjA5xxyO2DRrLARZoHYZc3tx3Y0eETg5jO3dwaH089rXvZD/MIy6V5WYYP85rOxsgSA
-	UhsxMfLrfg7mHdR8yzakHLZxEb3K3bGmi0sgrHGWp4MoaUSnVETr3gOMSSjzXjYDVl+xK48
-	cpiuxKoP5/hmfgV4TjdPvIb1xrbP4HyT8N0dJEEyZysYyeII5PZ2ZgS+wHix/hNjd21Z+X8
-	00OgPka8tDGGwoJoO4QhnYEvZoblu4bjK45K6LzLsEu57/FgL6z7vtIZfSUhuTQ0dHI1uqU
-	4J+bEdJmNgY4qF7bb6zXSA=
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: MrL15gPbNc8szNemg3y3IxhJ+8TJTy2Eh1Uk4VCgI1xuRgyKMQPZJ/F4
+	w1aWk4ennxeg7Mk47vdniS55P8vh4nEiNxruUJgsWL5cTUR8i8PD9ABN5qFFV3WETyWHlMr
+	Ke3EpWjiDZ+LAXhDpYeQlmQnujme96rxVmWelPSYhjc1PNcnhFXByJE91GFFGfdx2D0P+yh
+	1QBYLtFrYPMtxCq/xPCOPjNWKdBIbyHq25Pp/Pie55PCzu9zLKsQg6LbGEVr2E8mzQEwisx
+	Ske74Z8KIPehUBAlZIzdvSRRryT/1PXnRFe2OXuzfflibWv30TUh0GYjK/PL7zcp/xo7wkX
+	tHT/Zp3dsxo9bIdkEQzPARK93XbRZFJVAqDD6IAw990244X6rMv1tjRWH1n5Clr7zqW6/Jk
+	duHcMNXebGhHraRYBJWQFDZHdVL40KtXv3u++ajkNebOXHmOPK9tPcVGu8Xb/vYCSKq+jk9
+	RkC+mKTdLQMceMUHHJSiXqyMwR7SJsiRFB0FTxWTB3+Rx8hWeKgo9yQTyox85ky7HdbV+Nc
+	hDX/ywKxFeuPvNpB4m+MyWasLNE9n+xaSFVThqR112Apwvyp3ZE/rrc9FXxh1296iX8umhq
+	BT4j0nZsaQjzNJkDYghF9nAjqivc+PX8IR7ci90vDqi1Wv3B9gZNZ4ixd27V2vnEKIAmAsG
+	yEKdbRLhSyqlCtdIKIE9SfmpJ5rUGI6suAbr9+8TJOO4FeXrKY9EsAjRNUJeI4q01ic6nY1
+	3hxz6irIdLw//F2vYrjoJlcF+21Yf4vT/NwSRKTxQtcHILCUVNoFGvQfScbX3frEaxdNlnL
+	4NL7Xu/7iuZCWU6G+oEhC3JPfdJT7/kwMIpD/COJtSp6P72B3RjmHr7iDOR83U0Ye/NFMRV
+	jyAff1s4ayidGI5UWCPx0iXvjm/Ih97iZEnliAwpVAm41Y8OrWLVn5SGVsxtobvBJhfvaDZ
+	InDi7xwHNYKwuQYrgxu0xdsgzzkRzVaxj5ZOT+1PVqs3MkNnfm91ZXVSn9WoRokKB3o72eE
+	9OcxMZfMk1yUPs4Q6M10VC6ofNbvVi9UOlXE0R4ygh/0WZUVIl5mzU9JxL4Ay68zXga1/kn
+	4clomUH/h0CJP4PE8nqSamDuyx4X7RBBlBGBgqx6QL0FNSZafMlIXG6RDPkNwGCAWOJ6JuM
+	ucrA
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250927_221134_803899_DF988A0E 
-X-CRM114-Status: GOOD (  22.07  )
+X-CRM114-CacheID: sfid-20250927_221204_712839_C586A68B 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,98 +107,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 27, 2025 at 10:05:54PM -0700, E Shattow wrote:
-> On 9/27/25 21:16, Troy Mitchell wrote:
-> > From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+On Sat, Sep 27, 2025 at 09:56:39PM -0700, E Shattow wrote:
+> On 9/27/25 21:26, Troy Mitchell wrote:
+> > On Sun, Sep 28, 2025 at 12:16:48PM +0800, Troy Mitchell wrote:
+> >> From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> >>
+> > My SMTP client messed up,
+> > and both 1/2 and 2/2 were sent from the wrong email address.
 > > 
-> > Add initial device tree support for the MusePi Pro board [1].
-> > The board is using the SpacemiT K1/M1 SoC.
+> >                                          - Troy
 > > 
-> > The device tree is adapted from the SpacemiT vendor tree [2].
-> > 
-> > This minimal device tree enables booting into a serial console with UART
-> > output and a blinking LED.
-> > 
-> > Link:
-> > https://developer.spacemit.com/documentation?token=YJtdwnvvViPVcmkoPDpcvwfVnrh&type=pdf [1]
-> > https://gitee.com/bianbu-linux/linux-6.6/blob/k1-bl-v2.2.y/arch/riscv/boot/dts/spacemit/k1-x_MUSE-Pi-Pro.dts [2]
-> > 
-> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > ---
-> >  arch/riscv/boot/dts/spacemit/Makefile          |  1 +
-> >  arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts | 40 ++++++++++++++++++++++++++
-> >  2 files changed, 41 insertions(+)
-> > 
-> > diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
-> > index 152832644870624d8fd77684ef33addb42b0baf3..76b98096e2a46c3192651d6d66af7742f740c635 100644
-> > --- a/arch/riscv/boot/dts/spacemit/Makefile
-> > +++ b/arch/riscv/boot/dts/spacemit/Makefile
-> > @@ -2,3 +2,4 @@
-> >  dtb-$(CONFIG_ARCH_SPACEMIT) += k1-bananapi-f3.dtb
-> >  dtb-$(CONFIG_ARCH_SPACEMIT) += k1-milkv-jupiter.dtb
-> >  dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-rv2.dtb
-> > +dtb-$(CONFIG_ARCH_SPACEMIT) += k1-musepi-pro.dtb
-> > diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..3791186ce47b88887eab4321dcd7035668e7f02d
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-> > @@ -0,0 +1,40 @@
-> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> > +/*
-> > + * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
-> > + * Copyright (C) 2025 Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > + */
-> > +
-> > +/dts-v1/;
-> > +
-> > +#include "k1.dtsi"
-> > +#include "k1-pinctrl.dtsi"
-> > +
-> > +/ {
-> > +	model = "MusePi Pro";
-> > +	compatible = "spacemit,musepi-pro", "spacemit,k1";
-> > +
-> > +	aliases {
-> > +		serial0 = &uart0;
-> > +	};
-> > +
-> > +	chosen {
-> > +		stdout-path = "serial0";
-> > +	};
-> > +
-> > +	leds {
-> > +		compatible = "gpio-leds";
-> > +
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 > 
-> > +		led1 {
-> > +			label = "sys-led";
-> > +			gpios = <&gpio K1_GPIO(96) GPIO_ACTIVE_HIGH>;
-> > +			linux,default-trigger = "heartbeat";
-> > +			default-state = "on";
-> 
-> Can you explain how you decided to sort this?  I think the documentation
-> examples needs updating but it is unclear to me.
-This snippet comes from the BPI-F3 DTS.
-I only verified the pins and polarity against the schematic.
+> Confirming it is showing up now. Thanks -E Shattow
+Thanks for confirming :)
 
-                           - Troy
+           - Troy
 > 
-> > +		};
-> > +	};
-> > +};
-> > +
-> > +&uart0 {
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&uart0_2_cfg>;
-> > +	status = "okay";
-> > +};
-> > 
-> 
-> Best regards,
-> 
-> -E Shattow
-> 
+
 
 _______________________________________________
 linux-riscv mailing list
