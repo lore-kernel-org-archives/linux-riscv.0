@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E12CAC5BB
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 14:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD321CAC5B5
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 15:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gdfyVTgUCgFSUoz5jcGXJCkXa2Uq9fnF33tmffFtnRY=; b=MKZwJmrUZxw+GW
-	yJokyPpyIMtDW3m7MhGSqfmt0D0CcIQKch1X+gH70HaV7imXy6LV/4jSwDOZqrKZeCGnmpZIdzV1W
-	EydNrSa59rVKYsfw1i6qQWEnV0xWbwMvi6l2Ghg67xpuqEWYBf0vNjjqw54VrfDmw7Y9lv04tnFVS
-	KGCKDxUNIWwH9cXokwgXVYfiOReDr6DpiqyafmBJEbnvgHWnQ+kD0DuL/tN8iQrnx8Nz4A3bEm4M5
-	8S949wgamcai+daCE1vIITboJJTRya8AGTI3G3PQbt/2ukA3GPcYDQcvkFf2ONjNhJqmJGwkn47v0
-	dCAtMHaI3/LVKNT0kVLg==;
+	List-Owner; bh=JbM3dHkrBAsQD4L/hjf9nP67rzDHsVt1/YSsNwi0ldU=; b=NoIBKhrCryBqfw
+	QKAhthE5nfQLdEKc+tno0vr9D8H6FuE/K/ddb/lLx0qYC6HjRzgJ+D9DnEj2NBk0ZbD4RZtdHLS/t
+	V5MzsjVVJPEV+j0xXTVlKPCWU1xFPKZUCm7hucbMuKEdPy9rtqgQwZIrMCpNTL5ai+lxY2S0C28ck
+	wTtXTmc3+kM7YncxcXOK7661l3/cOyW5CgdzjxlQQyNkzGbBymYyVSQKpxyf3nZcNYrIVvSHiO9u/
+	nR39ngQSK43pPxGJxZz6l13K4kbEPA4whUF2oz0My1E4FJ4Yz/K5r+6JTX9vhFEngjOHX8KWeqxi9
+	Jc5fHVjCgcIaXWXTArmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2sae-0000000G4NR-2P1A;
-	Sun, 28 Sep 2025 14:41:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v2tSL-0000000GLvL-1RIM;
+	Sun, 28 Sep 2025 15:36:57 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2sac-0000000G4N6-29oL
-	for linux-riscv@lists.infradead.org;
-	Sun, 28 Sep 2025 14:41:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE4CE62175
-	for <linux-riscv@lists.infradead.org>; Sun, 28 Sep 2025 14:41:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F463C116D0
-	for <linux-riscv@lists.infradead.org>; Sun, 28 Sep 2025 14:41:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759070485;
-	bh=zEl3HK9Huv3wAo8Gz3obptdVAl3BiTe7KlwyVun45hk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=KQHRjPwLC5G8brFRuLi7o+fpS7n5vnimwAp70vgaHEgFmGnQ+8/JXmEMwOpYluWwc
-	 gPh8y3NdWf05BAJsL1h89OUxuFiv9K0M0HAyMqKJAYGCpmKa3ACFswAt33tdsAo0Uw
-	 WdTCh+3Jn7TMW4j+oJj7r1EF6IJOs7ve0Px1LcHX9VnhjdE0r+UEpc5Xm6wBzwl3Yu
-	 a8fnF/rbiGqU15Qg4uTENsF6mjnkIPDm1zebsaCCre5mcLnUqjqOoCMEqJWnK6oHig
-	 l3Ae2UGbCke7CAP4d0CH4r2FibiszgEoGSh6Cq/uBnrxy4QLsw0AP9aujqJ9E7H1Ur
-	 kFjd+rIM8OAoQ==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5818de29d15so5076462e87.2
-        for <linux-riscv@lists.infradead.org>; Sun, 28 Sep 2025 07:41:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVaKUxMEsLN1VuNL+y4DQwfkefpeSc7/d0bAGiCQGl09MZ8VxNoRN2e5W4DPJhcuaWnfR+pSAneMnOXFQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJEabqwuA4pqC715hk/QRxeDWioYl+chuj1BLFWhBiuqEyjN4V
-	EfOWJAyXofHQv1skZXHjLwUfmrE6wdrtGYfvODLEw2S5sYxF8oPBTD5wQIaXT/yFlG5r51gp/pA
-	7UcLM9Ik7NWtvTssJkmaxDy1RlbFs2yQ=
-X-Google-Smtp-Source: AGHT+IFWQQN6QdQWgcfYnmBFENB0KuvC1Z/xcGcpQuzj5V+hESZTuEgEU7p0gTVxJK5oi7ZFD+wA09OxaRIm8jBNjGM=
-X-Received: by 2002:ac2:4f07:0:b0:55b:8afb:e638 with SMTP id
- 2adb3069b0e04-582d295ce23mr4091918e87.28.1759070484041; Sun, 28 Sep 2025
- 07:41:24 -0700 (PDT)
+	id 1v2tSI-0000000GLuM-3CkO;
+	Sun, 28 Sep 2025 15:36:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1759073815; x=1790609815;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Ps64nDklqamC6EV1MdTjLHaAg7vz5kbJKj7+3R+gE9M=;
+  b=RV+55QZvxG5md1/vu7OCRlagNXFS/SNVNrH7c3+a4e6PhzR8bBD8drbG
+   MnvjRWla7fr9QH2fb+IVUT6WCDMz9oMHsJm305KPz/3v8MARLiy5xSGly
+   aSRC/EpTd9LEfsejx5wwkZAj1kPZ6rGRdNz2KCkbu581bZTDMUn+Itc26
+   hk2UXrcMQRt0fLq+hVgqg9rDpz9PwHl/MhjDfq/yDjTlJetN6DwImix6u
+   zCBCvaASGnGtcZlm/dG5my1yDslu6Dgl1zbwyi0SMiNjlcT2n5AqbQIQO
+   jXS5T5/MrquYQ94mD45QwtiCP2yzaGdUp2NJXoCYoOu7JhyEfMty/mMF5
+   w==;
+X-CSE-ConnectionGUID: 3bBdt8aiSuq7KbnPgaIB8g==
+X-CSE-MsgGUID: Z4f6m4Y2RzyGg1UiZb/eYw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11567"; a="83945358"
+X-IronPort-AV: E=Sophos;i="6.18,299,1751266800"; 
+   d="scan'208";a="83945358"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2025 08:36:52 -0700
+X-CSE-ConnectionGUID: F6YSfJnxTLOaywNqfs2gRQ==
+X-CSE-MsgGUID: jMAzwS4qRquUF6Tp0XctNw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,299,1751266800"; 
+   d="scan'208";a="201703507"
+Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
+  by fmviesa002.fm.intel.com with ESMTP; 28 Sep 2025 08:36:49 -0700
+Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v2tSA-0007t5-0s;
+	Sun, 28 Sep 2025 15:36:46 +0000
+Date: Sun, 28 Sep 2025 23:36:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: liu.xuemei1@zte.com.cn, anup@brainfault.org
+Cc: oe-kbuild-all@lists.linux.dev, atish.patra@linux.dev,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] RISC-V: KVM: Transparent huge page support
+Message-ID: <202509282326.NFfcoD5h-lkp@intel.com>
+References: <20250928154450701hRC3fm00QYFnGiM0_M1No@zte.com.cn>
 MIME-Version: 1.0
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com> <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
-In-Reply-To: <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 28 Sep 2025 16:41:12 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
-X-Gm-Features: AS18NWDKeRljEYzTakhM3NRe_gYKBPPHlUPXn-bSPODAX07vV2YYljZFZWHKAg0
-Message-ID: <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20250928154450701hRC3fm00QYFnGiM0_M1No@zte.com.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250928_083654_884403_095D083F 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,48 +84,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCAyOCBTZXB0IDIwMjUgYXQgMTY6MzksIEFyZCBCaWVzaGV1dmVsIDxhcmRiQGtlcm5l
-bC5vcmc+IHdyb3RlOgo+Cj4gT24gU3VuLCAyOCBTZXB0IDIwMjUgYXQgMTU6NTIsIEh1YWNhaSBD
-aGVuIDxjaGVuaHVhY2FpQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IEhpLCBBcmQsCj4gPgo+
-ID4gT24gU3VuLCBTZXAgMjgsIDIwMjUgYXQgOTo0MuKAr1BNIEFyZCBCaWVzaGV1dmVsIDxhcmRi
-QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPgo+ID4gPiBPbiBTdW4sIDI4IFNlcHQgMjAyNSBhdCAx
-MDo1NSwgVGllemh1IFlhbmcgPHlhbmd0aWV6aHVAbG9vbmdzb24uY24+IHdyb3RlOgo+ID4gPiA+
-Cj4gPiA+ID4gV2hlbiBjb21waWxpbmcgd2l0aCBMTFZNIGFuZCBDT05GSUdfTFRPX0NMQU5HIGlz
-IHNldCwgdGhlcmUgZXhpc3RzCj4gPiA+ID4gdGhlIGZvbGxvd2luZyBvYmp0b29sIHdhcm5pbmcg
-b24gTG9vbmdBcmNoOgo+ID4gPiA+Cj4gPiA+ID4gICB2bWxpbnV4Lm86IHdhcm5pbmc6IG9ianRv
-b2w6IF9fZWZpc3R1Yl9lZmlfYm9vdF9rZXJuZWwoKQo+ID4gPiA+ICAgZmFsbHMgdGhyb3VnaCB0
-byBuZXh0IGZ1bmN0aW9uIF9fZWZpc3R1Yl9leGl0X2Jvb3RfZnVuYygpCj4gPiA+ID4KPiA+ID4g
-PiBUaGlzIGlzIGJlY2F1c2UgZWZpX2Jvb3Rfa2VybmVsKCkgZG9lc24ndCBlbmQgd2l0aCBhIHJl
-dHVybiBpbnN0cnVjdGlvbgo+ID4gPiA+IG9yIGFuIHVuY29uZGl0aW9uYWwganVtcCwgdGhlbiBv
-Ymp0b29sIGhhcyBkZXRlcm1pbmVkIHRoYXQgdGhlIGZ1bmN0aW9uCj4gPiA+ID4gY2FuIGZhbGwg
-dGhyb3VnaCBpbnRvIHRoZSBuZXh0IGZ1bmN0aW9uLgo+ID4gPiA+Cj4gPiA+ID4gQXQgdGhlIGJl
-Z2lubmluZywgdHJ5IHRvIGRvIHNvbWV0aGluZyB0byBtYWtlIGVmaV9ib290X2tlcm5lbCgpIGVu
-ZHMgd2l0aAo+ID4gPiA+IGFuIHVuY29uZGl0aW9uYWwganVtcCBpbnN0cnVjdGlvbiwgYnV0IHRo
-aXMgbW9kaWZpY2F0aW9uIHNlZW1zIG5vdCBwcm9wZXIuCj4gPiA+ID4KPiA+ID4gPiBTaW5jZSB0
-aGUgZWZpc3R1YiBmdW5jdGlvbnMgYXJlIHVzZWxlc3MgZm9yIHN0YWNrIHVud2luZGVyLCB0aGV5
-IGNhbiBiZQo+ID4gPiA+IGlnbm9yZWQgYnkgb2JqdG9vbC4gQWZ0ZXIgbWFueSBkaXNjdXNzaW9u
-cywgbm8gbmVlZCB0byBsaW5rIGxpYnN0dWIgdG8KPiA+ID4gPiB0aGUgdm1saW51eC5vLCBvbmx5
-IGxpbmsgbGlic3R1YiB0byB0aGUgZmluYWwgdm1saW51eC4KPiA+ID4gPgo+ID4gPgo+ID4gPiBQ
-bGVhc2UgdHJ5IGtlZXBpbmcgdGhlc2UgY2hhbmdlcyBjb25maW5lZCB0byBhcmNoL2xvb25nYXJj
-aC4gVGhpcwo+ID4gPiBwcm9ibGVtIGRvZXMgbm90IGV4aXN0IG9uIG90aGVyIGFyY2hpdGVjdHVy
-ZXMsIGFuZCBjaGFuZ2luZyB0aGUgd2F5Cj4gPiA+IHZtbGludXggaXMgY29uc3RydWN0ZWQgbWln
-aHQgY3JlYXRlIG90aGVyIGlzc3VlcyBkb3duIHRoZSByb2FkLgo+ID4gQVJNLCBSSVNDLVYgYW5k
-IExvb25nQXJjaCBkbyB0aGluZ3MgZXhhY3RseSBpbiB0aGUgc2FtZSB3YXkuIE5vdwo+ID4gTG9v
-bmdBcmNoIGlzIHRoZSBmaXJzdCBvZiB0aGUgdGhyZWUgdG8gZW5hYmxlIG9ianRvb2wsIHNvIHdl
-IG1lZXQgdGhlCj4gPiBwcm9ibGVtIGZpcnN0Lgo+ID4KPiA+IEJ1dCB5ZXMsIEkgYWxzbyBkb24n
-dCB3YW50IHRvIGNoYW5nZSB0aGUgd2F5IG9mIGNvbnN0cnVjdGluZyB2bWxpbnV4Lgo+ID4gU28g
-SSBwcmVmZXIgdGhlIGVhcmxpZXN0IHdheSB0byBmaXggdGhpcyBwcm9ibGVtLgo+ID4gaHR0cHM6
-Ly9sb3JlLmtlcm5lbC5vcmcvbG9vbmdhcmNoL0NBQWhWLUg3ZlJIR0ZWS1Y4SGl0UmdtdW9EUHQ1
-T0R0LS1pU3VWMEVtZWVVYjlkNUZOd0BtYWlsLmdtYWlsLmNvbS9ULyNtZWVmNzQxMWFiZDE0ZjRj
-MjhjODVlNjg2NjE0YWE5MjExZmNjZGNhMAo+ID4KPgo+IENhbiB3ZSBqdXN0IGRyb3AgdGhlIF9f
-bm9yZXR1cm4gYW5ub3RhdGlvbiBmcm9tIGtlcm5lbF9lbnRyeV90LCBhbmQKPiByZXR1cm4gRUZJ
-X1NVQ0NFU1MgZnJvbSBlZmlfYm9vdF9rZXJuZWwoKT8KCi4uLiBvciBhZGQgZWZpX2Jvb3Rfa2Vy
-bmVsKCkgdG8gLi90b29scy9vYmp0b29sL25vcmV0dXJucy5oPwoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on kvm/queue]
+[also build test WARNING on kvm/next mst-vhost/linux-next linus/master v6.17-rc7 next-20250926]
+[cannot apply to kvm/linux-next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/liu-xuemei1-zte-com-cn/RISC-V-KVM-Transparent-huge-page-support/20250928-154904
+base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
+patch link:    https://lore.kernel.org/r/20250928154450701hRC3fm00QYFnGiM0_M1No%40zte.com.cn
+patch subject: [PATCH] RISC-V: KVM: Transparent huge page support
+config: riscv-randconfig-001-20250928 (https://download.01.org/0day-ci/archive/20250928/202509282326.NFfcoD5h-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 11.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250928/202509282326.NFfcoD5h-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509282326.NFfcoD5h-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   arch/riscv/kvm/gstage.c: In function 'gstage_supports_huge_mapping':
+>> arch/riscv/kvm/gstage.c:108:39: warning: left shift count >= width of type [-Wshift-count-overflow]
+     108 |         gpa_start = memslot->base_gfn << PAGE_SIZE;
+         |                                       ^~
+
+
+vim +108 arch/riscv/kvm/gstage.c
+
+    97	
+    98	static bool gstage_supports_huge_mapping(struct kvm_memory_slot *memslot, unsigned long hva)
+    99	{
+   100		gpa_t gpa_start;
+   101		hva_t uaddr_start, uaddr_end;
+   102		size_t size;
+   103	
+   104		size = memslot->npages * PAGE_SIZE;
+   105		uaddr_start = memslot->userspace_addr;
+   106		uaddr_end = uaddr_start + size;
+   107	
+ > 108		gpa_start = memslot->base_gfn << PAGE_SIZE;
+   109	
+   110		/*
+   111		 * Pages belonging to memslots that don't have the same alignment
+   112		 * within a PMD for userspace and GPA cannot be mapped with g-stage
+   113		 * PMD entries, because we'll end up mapping the wrong pages.
+   114		 *
+   115		 * Consider a layout like the following:
+   116		 *
+   117		 *    memslot->userspace_addr:
+   118		 *    +-----+--------------------+--------------------+---+
+   119		 *    |abcde|fgh  vs-stage block  |    vs-stage block tv|xyz|
+   120		 *    +-----+--------------------+--------------------+---+
+   121		 *
+   122		 *    memslot->base_gfn << PAGE_SHIFT:
+   123		 *      +---+--------------------+--------------------+-----+
+   124		 *      |abc|def  g-stage block  |    g-stage block   |tvxyz|
+   125		 *      +---+--------------------+--------------------+-----+
+   126		 *
+   127		 * If we create those g-stage blocks, we'll end up with this incorrect
+   128		 * mapping:
+   129		 *   d -> f
+   130		 *   e -> g
+   131		 *   f -> h
+   132		 */
+   133		if ((gpa_start & (PMD_SIZE - 1)) != (uaddr_start & (PMD_SIZE - 1)))
+   134			return false;
+   135	
+   136		/*
+   137		 * Next, let's make sure we're not trying to map anything not covered
+   138		 * by the memslot. This means we have to prohibit block size mappings
+   139		 * for the beginning and end of a non-block aligned and non-block sized
+   140		 * memory slot (illustrated by the head and tail parts of the
+   141		 * userspace view above containing pages 'abcde' and 'xyz',
+   142		 * respectively).
+   143		 *
+   144		 * Note that it doesn't matter if we do the check using the
+   145		 * userspace_addr or the base_gfn, as both are equally aligned (per
+   146		 * the check above) and equally sized.
+   147		 */
+   148		return (hva >= ALIGN(uaddr_start, PMD_SIZE)) && (hva < ALIGN_DOWN(uaddr_end, PMD_SIZE));
+   149	}
+   150	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
