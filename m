@@ -4,59 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD951CAC5BB
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 03:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F71CCAC5B5
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 03:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ouSximxSba9Y3q7FhDZoH4AgLBZtL2AvhYjDtisXnSc=; b=BAg7wh2wMmK6/X
-	rj1+QlyAGCT7QRN2xx+P8cxHrXNFgaer8O/oWcAheYtdqQlOmMdwhe/DhiIi7POwWlBiSfVG24l27
-	Pif/f4Ai3qL1ENjyKDQOFSUdUyeOyvb8SJCU2cDP9PnjCbruWLuRgeh+ilh8rXG81yIHJZBQUDHDD
-	9CUHKMGx+8IkgBRLR4qkRMCKMlRx1HQ/QudvwQPcsBly+8H2FWu2SdmBu8F6WHmk1B4hwPKSkY9ax
-	ynWAPB6dChWiuJH6F7Reyp873uJB5/AMIwmSPHWP6snONeH+0BUcuPX/9JS/hwCD6tAzK3MC9Ig59
-	+aJ1ZoMXuJBkjMMTVjow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uzcLomz0InHm6d8bNgLY/c6SD01yP0HJO8YqrqkLss8=; b=gRUYXeIojwOSGR
+	XzI3VREBa/5yU6WdfLr/eJj3TuH0aRHRCofOx83FcFxp7TA12olUy9ahuv8wfapzUzDr0Cy4oGFew
+	4TbQ64ylwcdrdA2zFRAvZjpMesmGqHK8bbTqlVCnXjbpMzGJLlwEuHJUSOxRDEPfnN8a9KyC7HY73
+	wc27UR/mivcvOYUWZzl5kDI/wVlhjoXhE4UxvbsbZ/NU3SAU092vnPb1QSHwxR5K3QP7eI78PGdBP
+	/3PKCD7rx+vsW0uZM6S1bFTua13CgvnPfJn1ccWwH8U5+yzF2QZWitHMxmB1taKt11uFVZrLO7J3O
+	PIPA9HvQcD8deJdjF5DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2iMp-0000000DdCm-10J7;
-	Sun, 28 Sep 2025 03:46:31 +0000
-Received: from out-185.mta0.migadu.com ([91.218.175.185])
+	id 1v2iVW-0000000DhMC-0Hlj;
+	Sun, 28 Sep 2025 03:55:30 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2iMl-0000000DdBh-2AsL
+	id 1v2iVT-0000000DhJa-1Sza
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Sep 2025 03:46:29 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: [PATCH 0/2] riscv: dts: spacemit: Add initial support for MusePi
- Pro
-Date: Sun, 28 Sep 2025 11:46:14 +0800
-Message-Id: <20250928-k1-musepi-pro-dts-v1-0-64d0659dfdbc@linux.spacemit.com>
+	Sun, 28 Sep 2025 03:55:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759031705; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=TXfimD2q560aPLho43hi6Uuxe4qW179hIPP7duab3tYoOPl4/vdK1N3N9Ev6u1Mzbm6g3BoD+kn/IBbD/4zEECtK8eld8h4zkBetmzM6Vs8y24CMfbl2lJ/ivkF1MswtYpDA58KLRJyHRf9PlSKr3D26e8Vh5mkqeOewG9TrlvA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1759031705; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=tKfnmneuohN8coB1a+XGSw3Os4lO+rOJEhg1bdS4Bz8=; 
+	b=fPYT5e4/upYb5xdhouQr/mRM3SIn7M8i76Ia08te8OtWYHjoPBryTcbLS+zVGS77IUqWtQBg7tsuf53TRufWN8lIPEUjjFODNztz3wR/luMEkPcZ7z/TLoz9JuZ8tsDG8bf7hDlD8Bsl8EHHc6Z0cgS8ibWKlOK9RZ1O6Ryi0N0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759031705;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=tKfnmneuohN8coB1a+XGSw3Os4lO+rOJEhg1bdS4Bz8=;
+	b=Hi2KCnO8kZjT+5DHvNRBl89zKzpUDfTXWV5rkkForhdx3w6DPQp5WDvbt4UhUXqr
+	jo/9HWV/xKBAHE7dn3XWaoJJ8sEUsAaU3/CbD/g5c+mLwD7Tf2145O/6XXFgu0bs2fi
+	vKoGQiRHSULVmGoLODHlZ14OheQXUMKMUBrrgmjo=
+Received: by mx.zohomail.com with SMTPS id 1759031692647275.44505116756466;
+	Sat, 27 Sep 2025 20:54:52 -0700 (PDT)
+Message-ID: <416407c8-9af0-4331-beaa-f53e1a5cd427@pigmoral.tech>
+Date: Sun, 28 Sep 2025 11:54:42 +0800
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAIav2GgC/x3MwQpAQBCA4VfRnE2taQmvIgfsYBK2HaTk3W2O3
- +H/H1AOwgp18kDgS1T2LSJLExjmbpsYxUUDGcpNRSUuGa6nshf0YUd3KOa2cGQGa6nrIXY+8Cj
- 3/2za9/0APJ4m42MAAAA=
-X-Change-ID: 20250928-k1-musepi-pro-dts-546d20c442ab
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Yangyu Chen <cyy@cyyself.name>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759031178; l=997;
- i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=leAHyipuOrrNM/GHdGoDUYGJ6EFVBQ6TUO5UvR4dHaM=;
- b=KyplklxWO12GVPU+bp0gZ7RAp9WhOAzlXhFOisv8yAJsjTObE2dUqJ6fdZAbisASFR/pKWyjm
- aH/L3CB9hIKBWAuh4KSRBKXJRrNG8EHIcAP/1kCZ3Ix/O6pdpBAZfHD
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
- pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/11] dt-bindings: timer: Add Anlogic DR1V90 CLINT
+To: Qingfang Deng <dqfext@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Samuel Holland <samuel.holland@sifive.com>, Anup Patel
+ <anup@brainfault.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
+ Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-serial@vger.kernel.org
+References: <20250922-dr1v90-basic-dt-v2-0-64d28500cb37@pigmoral.tech>
+ <20250922-dr1v90-basic-dt-v2-4-64d28500cb37@pigmoral.tech>
+ <20250927135912.3327-1-dqfext@gmail.com>
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+In-Reply-To: <20250927135912.3327-1-dqfext@gmail.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250927_204627_716591_89832D69 
-X-CRM114-Status: UNSURE (   5.36  )
+X-CRM114-CacheID: sfid-20250927_205527_763119_03695CC2 
+X-CRM114-Status: UNSURE (   9.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,38 +86,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds initial device tree support for the MusePi Pro board.
+Hi Qingfang,
 
-Muse Pi Pro [1] is a single-board computer integrating a high-performance
-RISC-V 8-core processor, storage, I/O and expansion capabilities into
-a credit card-sized 1.8-inch board.
+On 9/27/25 9:59 PM, Qingfang Deng wrote:
+> Hi, Junhui,
+> On Mon, 22 Sep 2025 20:46:34 +0800, Junhui Liu <junhui.liu@pigmoral.tech> wrote:
+>> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+>> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+>> @@ -29,6 +29,7 @@ properties:
+>>       oneOf:
+>>         - items:
+>>             - enum:
+>> +              - anlogic,dr1v90-clint    # Anlogic DR1V90
+> UX900 uses the ACLINT with SSWI. Please use the new ACLINT binding.
+>
+> Link: https://www.nucleisys.com/upload/files/doc/Nuclei_RISC-V_ISA_Spec.pdf
 
-Link:
-https://developer.spacemit.com/documentation?token=YJtdwnvvViPVcmkoPDpcvwfVnrh&type=pdf
-[1]
+Thanks for pointing it out. I will verify it in both Kernel and OpenSBI,
+and update in next version.
 
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
-Troy Mitchell (2):
-      dt-bindings: riscv: spacemit: Add MusePi Pro board
-      riscv: dts: spacemit: Add MusePi Pro board device tree
+>
+>>                 - canaan,k210-clint       # Canaan Kendryte K210
+>>                 - eswin,eic7700-clint     # ESWIN EIC7700
+>>                 - sifive,fu540-c000-clint # SiFive FU540
+>>
+>> -- 
+>> 2.51.0
+> Regards,
+> Qingfang
 
- .../devicetree/bindings/riscv/spacemit.yaml        |  1 +
- arch/riscv/boot/dts/spacemit/Makefile              |  1 +
- arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts     | 40 ++++++++++++++++++++++
- 3 files changed, 42 insertions(+)
----
-base-commit: 0f084b221e2c5ba16eca85b3d2497f9486bd0329
-change-id: 20250928-k1-musepi-pro-dts-546d20c442ab
-
-Best regards,
 -- 
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Best regards,
+Junhui Liu
 
 
 _______________________________________________
