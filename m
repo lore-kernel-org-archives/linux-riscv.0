@@ -4,92 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92997CAC5B5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Sep 2025 15:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC5DCAC5B9
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Sep 2025 17:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nUpkyoXcmzy5jQ6uyilDdBi2GqhOoeXrd7pL1uur5to=; b=Dqwo6Meb5tTlCn
-	ZZR1tqrMPDprGZ3uqEtywleaGtzygEDqVsKo2CU3cN8eY2zKQ4Dvip7dWqxJgtfKgSP9X35HZBIYJ
-	xMQWaRBmq/NKbtK2ymiAviCo6V7NPJmcBlpln4dVDe4xDpywND84bux/Uhv+NHS+1lejQy3FY5tz9
-	VGEXdnx8Fg9gFRUZWyPKQu+L0BUEnAhy8U9VDOCPSuSIhfxANek4dCCameH8eWjQV4RaWWtpDl04j
-	qy/IyeqoR+l53K48IJ27WiubjbwdyjbowbXUQf5nqSxuFBbMyYlvJy4ZtvsIVzthvqUR4w2BoZo1J
-	r6dRJ8YyE12X0+1nyQtQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=avH6Z9eN2I11K50mFp/D3mjNiogg+isFZHHJD8uXfAg=; b=KLqobyT3yjbVIDxeQnlyQCvwGd
+	KowedsHJdo5JuaJ69QzKIjNhOhghfstv+Usx36rLM7EEQDuLWpOGRvT/Ee4/I6uXQoNu6yY9HAtcy
+	fkgUMyUZniPMJu91cdGi6ZUgxDR2BdWzIUue0SsgixiWyHp2DX61h48p7N6mAefblPfMuXKOFaFoA
+	EWdsxQx/sFAQvq13FXGcCBn6xTKFUsyQIuJPQn4DzFeBsemitRlQoFx9qiHCDX31e+nY5CplbD/Qq
+	s2dVyvGlRu9dgpVqcFbq4cECDaInTAySvqDSIHqHUCTRE8noZq0ZC43QdW0K/xkw6Kru3nJ6lHA0E
+	Tr6YLfJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3G9M-00000002pwV-03Kr;
-	Mon, 29 Sep 2025 15:50:52 +0000
-Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	id 1v3HzD-00000003BLT-3oxD;
+	Mon, 29 Sep 2025 17:48:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3G9I-00000002puL-23T1
+	id 1v3HzC-00000003BLH-3OkB
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Sep 2025 15:50:50 +0000
-Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-92613b9b1d2so51822739f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Sep 2025 08:50:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1759161047; x=1759765847; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=thl1botW/6JnUO3NJgzLyWhXcvMbSjUKSouz8HBMgL8=;
-        b=JvcUa06hKPS1eIKw/vqQEIgK7mfgDVAH6s98zvwqcEQ4r590IPlxyEXcE0jlRjmTJ/
-         qODcHg484U5gFrYJvYHc2c3+3D2ku1Jtj8KE/lO3NpVV2xrJxHCKMPjCUfp1isJderBj
-         4sIajUd+8PTs/GmStFtHXTX8DPrWoidCHYzAjtJoolOEy9l3q9AmzX3FuWcXZK3AJKWO
-         zfgc+8qZce+scc98vQ7fsvYI6jcwow/U0v7IOfqCHVQXUTy+0JFVzmtnMTcyNbLxCivm
-         I9/6FxBaSoPbiPuvrZGxeXPn4yTNhhGDfTitlbjhlwqSC//DPKZouy6H4MTivFDCah8v
-         W72Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759161047; x=1759765847;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=thl1botW/6JnUO3NJgzLyWhXcvMbSjUKSouz8HBMgL8=;
-        b=Kh/Nmos8mROoDuyFbzklxJzR07l4JmTqYc6QJ9Hcp+OQOfMPsD0bx5fPN5qCIxV/Vp
-         9yU5JeG3fPiUf0DaZdHO3Wtm9VMX3Nx6RjqWC/y6kKa3f5B9xA0bVOyxx/Yo8AtO6UtY
-         vdl8gEPrnG7Rmi+Wu045ZoR4boZ+jv9yxg2qDBJt8xtZDAKWLud13HDTA8XdU/r41M4y
-         /L/8Uhw3mCS3Dc/IoqglNHp9XpMO/h4lV/eiAONDcuPbrYThd8IrLG6V19sYIaFcz5D3
-         lB6jw/xuyURBOyGv2ee2An9TvdjJixH2lVLz938LKiijjrk5wy+Ap7WTzvqyMIZSCyMb
-         DXeA==
-X-Forwarded-Encrypted: i=1; AJvYcCWJAWUqC78k4xGK7zjZph5/+1tDZAfx2LkmvxjFigVXMpYVO2Hh5paM2NOANkKghT5R6skowlWAtu9Ofw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkengMRNL3MtSI9MtSNRoFIy2YS8nxe64mxP2Eb5lIrkC98iXu
-	J5q8QQiKEWRcUmOuqnXRYPbMb1JvVgZ8TfIm+vFqJa+q/kQwjZOPFNK7FU57cWtLo04=
-X-Gm-Gg: ASbGncvoSNS2A7Gh0n9BpoQ6aCTdI20NKqenpImsKR7N9v/1CJjclzhk7J1OykgmtmO
-	s8zwaNkKXgyQaokRPSlSVUfYCUWyjcM9rFf9ya8DwvQ2JwOo7HfJD+aoAltlzTPUrmmjdx6QuG/
-	25joiAkSyiHT3k5Hj2uh7MJ/JBFydN4zwCvSQBkrjVZ+BxGNtYuLeNV1fXb/ULQJonhXuAxmH/J
-	llMxLm8nyg+DVVuxK3K1+dhSC9dxk/D0s1KM8JynIQREnQlZKmy+VABfPz3RJgl74p1FNJVyOE+
-	Ty6vzoGAeD+k+kETXqZKsy9GWeMi4N6ohlAhWZFdNd0H4ThHA2UMJACIOhSZkOuDxkeodIohj0G
-	pqbouAfmjzg/vZ+Uem0iFIuJp
-X-Google-Smtp-Source: AGHT+IH7gk327UmY6C6eScZpxHXRC9XJhlTFKO90VrWRwUWHG19VAOUZaRB2R9AE7aS+Xnm+h8Ln6w==
-X-Received: by 2002:a05:6602:341e:b0:928:c6cc:3b1a with SMTP id ca18e2360f4ac-928c6cc3cbfmr562321039f.18.1759161047242;
-        Mon, 29 Sep 2025 08:50:47 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-56a6a5ae2c1sm4845167173.63.2025.09.29.08.50.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 08:50:46 -0700 (PDT)
-Date: Mon, 29 Sep 2025 10:50:45 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: "Nutty.Liu" <nutty.liu@hotmail.com>
-Cc: iommu@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	jgg@nvidia.com, zong.li@sifive.com, tjeznach@rivosinc.com, joro@8bytes.org, 
-	will@kernel.org, robin.murphy@arm.com, anup@brainfault.org, atish.patra@linux.dev, 
-	tglx@linutronix.de, alex.williamson@redhat.com, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, alex@ghiti.fr
-Subject: Re: [RFC PATCH v2 04/18] iommu/riscv: Add IRQ domain for interrupt
- remapping
-Message-ID: <20250929-816b2ab17977ffa1b9687fe2@orel>
-References: <20250920203851.2205115-20-ajones@ventanamicro.com>
- <20250920203851.2205115-24-ajones@ventanamicro.com>
- <TY1PPFCDFFFA68A1C49C083357FF49575AEF318A@TY1PPFCDFFFA68A.apcprd02.prod.outlook.com>
+	Mon, 29 Sep 2025 17:48:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DF88962675;
+	Mon, 29 Sep 2025 17:48:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1160C113D0;
+	Mon, 29 Sep 2025 17:48:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759168107;
+	bh=QYNJjNkcAi8f1hxQxRPpHKeysPae/MLqNM8ctOgO/eA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Lnk+Fs6k9EebnHXbPkvyWtVU1BONOuKH3ce7BMs3Y0U/Z0cB17CrCv9odBtFdJ5w4
+	 l74lyv0bm5fELHyt3Zy8iG2ZlfDpGdYZ9ZjDWjtWOrNWjMzg73gsQOgrBRfcKVWlWS
+	 1ofJVXY7HhUg9IC1rUnxb+UWvGWevioLdtuQlPVIqli29hAn4HQyIPIsZ57Jjz8dxs
+	 q8meddvm47unHiBchMMv53FkEyREEI/xyR3s9qD/ei2KHYR1g4zfIaq/l/c0OhlETO
+	 T+B2Gmv4ahhs1WeS2x/hJI7vpF+dkUVsFYvkyA3uOyIZrIKCb2Y3piOMuFcPoOpGjq
+	 9BkJ22xbJq/1g==
+Date: Mon, 29 Sep 2025 18:48:22 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Troy Mitchell <troy.mitchell@linux.dev>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: riscv: spacemit: Add MusePi Pro board
+Message-ID: <20250929-challenge-molecular-947bb1f5962b@spud>
+References: <20250928-k1-musepi-pro-dts-v1-0-64d0659dfdbc@linux.spacemit.com>
+ <20250928-k1-musepi-pro-dts-v1-1-5efcca0ce3ae@linux.spacemit.com>
+ <20250928074914-GYA1344940@gentoo.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <TY1PPFCDFFFA68A1C49C083357FF49575AEF318A@TY1PPFCDFFFA68A.apcprd02.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_085048_559968_50EF5F94 
-X-CRM114-Status: GOOD (  31.32  )
+In-Reply-To: <20250928074914-GYA1344940@gentoo.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,211 +73,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============4603568960030963660=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 28, 2025 at 05:30:26PM +0800, Nutty.Liu wrote:
-> =
 
-> On 9/21/2025 4:38 AM, Andrew Jones wrote:
-> > This is just a skeleton. Until irq-set-affinity functions are
-> > implemented the IRQ domain doesn't serve any purpose.
-> > =
+--===============4603568960030963660==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="cvUen0NxRlUjr0cE"
+Content-Disposition: inline
 
-> > Signed-off-by: Andrew Jones<ajones@ventanamicro.com>
+
+--cvUen0NxRlUjr0cE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Sep 28, 2025 at 03:49:14PM +0800, Yixun Lan wrote:
+> Hi Troy,
+>=20
+> On 12:16 Sun 28 Sep     , Troy Mitchell wrote:
+> > From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> >=20
+> > Document the compatible string for the MusePi Pro [1].
+> > It is a 1.8-inch single board computer based on the
+> > SpacemiT K1/M1 RISC-V SoC [2].
+> you could wrap at slightly more characters, I remember 72 chars
+> (haven't spent time to find a formal document link..)
+>=20
+> >=20
+> > Link:
+> > https://developer.spacemit.com/documentation?token=3DYJtdwnvvViPVcmkoPD=
+pcvwfVnrh&type=3Dpdf
+> I'd suggest to list core features of this board, while using this link as=
+ a complement,
+> base on previous experience, vendor may change the link address, thus the=
+ link vanish
+
+The link doesn't even work for me. Is this board actually made by
+spacemit as a developer platform?
+
+>=20
+> > [1]
+> > https://www.spacemit.com/en/key-stone-k1 [2]
+> >=20
+> pleae keep them in one line, no break, and no blank line between SoB,
+> something as below
+> Link: https://.. [1]
+>=20
+> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > > ---
-> >   drivers/iommu/riscv/Makefile   |   2 +-
-> >   drivers/iommu/riscv/iommu-ir.c | 114 +++++++++++++++++++++++++++++++++
-> >   drivers/iommu/riscv/iommu.c    |  36 +++++++++++
-> >   drivers/iommu/riscv/iommu.h    |  12 ++++
-> >   4 files changed, 163 insertions(+), 1 deletion(-)
-> >   create mode 100644 drivers/iommu/riscv/iommu-ir.c
-> > =
+> >  Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+> >  1 file changed, 1 insertion(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Do=
+cumentation/devicetree/bindings/riscv/spacemit.yaml
+> > index c56b62a6299ac24d3cdef7edcdfc407dc62a1846..52fe39296031f21d1c28c4f=
+1ea5ca9fe28caf45a 100644
+> > --- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> > @@ -22,6 +22,7 @@ properties:
+> >            - enum:
+> >                - bananapi,bpi-f3
+> >                - milkv,jupiter
+> > +              - spacemit,musepi-pro
+> >                - xunlong,orangepi-rv2
+> >            - const: spacemit,k1
+> > =20
+> >=20
+> > --=20
+> > 2.51.0
+> >=20
+>=20
+> --=20
+> Yixun Lan (dlan)
 
-> > diff --git a/drivers/iommu/riscv/Makefile b/drivers/iommu/riscv/Makefile
-> > index b5929f9f23e6..9c83f877d50f 100644
-> > --- a/drivers/iommu/riscv/Makefile
-> > +++ b/drivers/iommu/riscv/Makefile
-> > @@ -1,3 +1,3 @@
-> >   # SPDX-License-Identifier: GPL-2.0-only
-> > -obj-y +=3D iommu.o iommu-platform.o
-> > +obj-y +=3D iommu.o iommu-ir.o iommu-platform.o
-> >   obj-$(CONFIG_RISCV_IOMMU_PCI) +=3D iommu-pci.o
-> > diff --git a/drivers/iommu/riscv/iommu-ir.c b/drivers/iommu/riscv/iommu=
--ir.c
-> > new file mode 100644
-> > index 000000000000..08cf159b587d
-> > --- /dev/null
-> > +++ b/drivers/iommu/riscv/iommu-ir.c
-> > @@ -0,0 +1,114 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * IOMMU Interrupt Remapping
-> > + *
-> > + * Copyright =A9 2025 Ventana Micro Systems Inc.
-> > + */
-> > +#include <linux/irqdomain.h>
-> > +#include <linux/msi.h>
-> > +
-> > +#include "iommu.h"
-> > +
-> > +static struct irq_chip riscv_iommu_ir_irq_chip =3D {
-> > +	.name			=3D "IOMMU-IR",
-> > +	.irq_ack		=3D irq_chip_ack_parent,
-> > +	.irq_mask		=3D irq_chip_mask_parent,
-> > +	.irq_unmask		=3D irq_chip_unmask_parent,
-> > +	.irq_set_affinity	=3D irq_chip_set_affinity_parent,
-> > +};
-> > +
-> > +static int riscv_iommu_ir_irq_domain_alloc_irqs(struct irq_domain *irq=
-domain,
-> > +						unsigned int irq_base, unsigned int nr_irqs,
-> > +						void *arg)
-> > +{
-> > +	struct irq_data *data;
-> > +	int i, ret;
-> > +
-> > +	ret =3D irq_domain_alloc_irqs_parent(irqdomain, irq_base, nr_irqs, ar=
-g);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	for (i =3D 0; i < nr_irqs; i++) {
-> > +		data =3D irq_domain_get_irq_data(irqdomain, irq_base + i);
-> Nitpick:=A0 Would it be better to check if 'data' is NULL ?
+--cvUen0NxRlUjr0cE
+Content-Type: application/pgp-signature; name="signature.asc"
 
-A null irq-data here would imply a bug in the irq domain hierarchy
-implementation and warrant a BUG_ON for the response. But, a null
-dereference should give us the same backtrace, so I think we're OK
-to leave things as they are.
+-----BEGIN PGP SIGNATURE-----
 
-> =
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNrGZgAKCRB4tDGHoIJi
+0nnyAQC2RbyZY4DxV9VTcddgsLFj7tNKJ8OGxuJMGloqBaPbzQEA+MImol8+wEvz
+kopy4+f2gaph1xiXjMrIP82j4HmnMwc=
+=wddC
+-----END PGP SIGNATURE-----
 
-> > +		data->chip =3D &riscv_iommu_ir_irq_chip;
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static const struct irq_domain_ops riscv_iommu_ir_irq_domain_ops =3D {
-> > +	.alloc =3D riscv_iommu_ir_irq_domain_alloc_irqs,
-> > +	.free =3D irq_domain_free_irqs_parent,
-> > +};
-> > +
-> > +static const struct msi_parent_ops riscv_iommu_ir_msi_parent_ops =3D {
-> > +	.prefix			=3D "IR-",
-> > +	.supported_flags	=3D MSI_GENERIC_FLAGS_MASK |
-> > +				  MSI_FLAG_PCI_MSIX,
-> > +	.required_flags		=3D MSI_FLAG_USE_DEF_DOM_OPS |
-> > +				  MSI_FLAG_USE_DEF_CHIP_OPS |
-> > +				  MSI_FLAG_PCI_MSI_MASK_PARENT,
-> > +	.chip_flags		=3D MSI_CHIP_FLAG_SET_ACK,
-> > +	.init_dev_msi_info	=3D msi_parent_init_dev_msi_info,
-> > +};
-> > +
-> > +struct irq_domain *riscv_iommu_ir_irq_domain_create(struct riscv_iommu=
-_device *iommu,
-> > +						    struct device *dev,
-> > +						    struct riscv_iommu_info *info)
-> > +{
-> > +	struct irq_domain *irqparent =3D dev_get_msi_domain(dev);
-> > +	struct irq_domain *irqdomain;
-> > +	struct fwnode_handle *fn;
-> > +	char *fwname;
-> > +
-> > +	fwname =3D kasprintf(GFP_KERNEL, "IOMMU-IR-%s", dev_name(dev));
-> > +	if (!fwname)
-> > +		return NULL;
-> > +
-> > +	fn =3D irq_domain_alloc_named_fwnode(fwname);
-> > +	kfree(fwname);
-> > +	if (!fn) {
-> > +		dev_err(iommu->dev, "Couldn't allocate fwnode\n");
-> > +		return NULL;
-> > +	}
-> > +
-> > +	irqdomain =3D irq_domain_create_hierarchy(irqparent, 0, 0, fn,
-> > +						&riscv_iommu_ir_irq_domain_ops,
-> > +						info);
-> > +	if (!irqdomain) {
-> > +		dev_err(iommu->dev, "Failed to create IOMMU irq domain\n");
-> > +		irq_domain_free_fwnode(fn);
-> > +		return NULL;
-> > +	}
-> > +
-> > +	irqdomain->flags |=3D IRQ_DOMAIN_FLAG_MSI_PARENT;
-> > +	irqdomain->msi_parent_ops =3D &riscv_iommu_ir_msi_parent_ops;
-> > +	irq_domain_update_bus_token(irqdomain, DOMAIN_BUS_MSI_REMAP);
-> > +
-> > +	dev_set_msi_domain(dev, irqdomain);
-> > +
-> > +	return irqdomain;
-> > +}
-> > +
-> > +void riscv_iommu_ir_irq_domain_remove(struct riscv_iommu_info *info)
-> > +{
-> > +	struct fwnode_handle *fn;
-> > +
-> > +	if (!info->irqdomain)
-> > +		return;
-> > +
-> > +	fn =3D info->irqdomain->fwnode;
-> > +	irq_domain_remove(info->irqdomain);
-> > +	info->irqdomain =3D NULL;
-> > +	irq_domain_free_fwnode(fn);
-> > +}
-> > +
-> > +int riscv_iommu_ir_attach_paging_domain(struct riscv_iommu_domain *dom=
-ain,
-> > +					struct device *dev)
-> > +{
-> > +	return 0;
-> > +}
-> > +
-> > +void riscv_iommu_ir_free_paging_domain(struct riscv_iommu_domain *doma=
-in)
-> > +{
-> > +}
-> > diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-> > index a44c67a848fa..db2acd9dc64b 100644
-> > --- a/drivers/iommu/riscv/iommu.c
-> > +++ b/drivers/iommu/riscv/iommu.c
-> > @@ -17,6 +17,8 @@
-> >   #include <linux/init.h>
-> >   #include <linux/iommu.h>
-> >   #include <linux/iopoll.h>
-> > +#include <linux/irqchip/riscv-imsic.h>
-> > +#include <linux/irqdomain.h>
-> >   #include <linux/kernel.h>
-> >   #include <linux/pci.h>
-> > @@ -1026,6 +1028,9 @@ static void riscv_iommu_iodir_update(struct riscv=
-_iommu_device *iommu,
-> >   		WRITE_ONCE(dc->fsc, new_dc->fsc);
-> >   		WRITE_ONCE(dc->ta, new_dc->ta & RISCV_IOMMU_PC_TA_PSCID);
-> > +		WRITE_ONCE(dc->msiptp, new_dc->msiptp);
-> > +		WRITE_ONCE(dc->msi_addr_mask, new_dc->msi_addr_mask);
-> > +		WRITE_ONCE(dc->msi_addr_pattern, new_dc->msi_addr_pattern);
-> Since the MSI page table pointer (msiptp) has been changed,
-> should all cache entries from this MSI page table need to be invalidated ?
+--cvUen0NxRlUjr0cE--
 
-That's a good question and I need to bang my head against the spec some
-more for it. The invalidation guidance for a device context states that
-an iotinval.gvma is only needed when dc.iohgatp.mode is not bare (and
-currently it's always bare). However, the msi table needs an iotinval.gvma
-(whether or not dc.iohgatp.mode is bare). So, as you suggest, I think we
-need it and the spec could probably use some clarification.
 
-> =
-
-> Otherwise,
-> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
-
-Thanks,
-drew
+--===============4603568960030963660==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4603568960030963660==--
+
