@@ -4,86 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E13FCAC5B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Sep 2025 08:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9985CAC5B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Sep 2025 09:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Date:References:In-Reply-To:Subject:Cc:To:From:Message-ID:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fza5yyYRYEx5zmfc+cchU3hSxmLe6wViK9LiWgpff+w=; b=HSrrI4dE4J7XzXfHFVHdmgzWty
-	4lR0EU8EvnNFm8THelUrz23L9c/vNNeSddEC8Z06re1f6c1sMRN9noCpr8LiqGb1hWBUocrQfIZv3
-	Jt0tRtiLYbu4lzrrATqKYHSWMxvfx26D+XwZkueFYc7rSsMt8oseNXug0JYXOFRUaVQGB3taSJoen
-	QQE1IM4egiasHKt5PASE/au5c/z9Wu9TjZUeDh/7M6RgkuK+nfMNrVrjAYUFfefHSLOKfg1ggKMu7
-	R3JPjNxVzIOv78zqMTRc82H9tytg7cKhM1O9W1w0WahFDl17lY80pXbBq9RNXieEFw4YIufWnU2vB
-	e/ABd+rA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1+Le8r9T2XL9UfeVQzfdaB++6yspH8bSjDjw8VOBEBU=; b=rtzizdn4F2UUzd
+	Vwj+AVYAgGWNzId4MpiuRLdRSZ/DF0wo9chAlpdUykXscO2vBvSVG/gB/QjXsF2ATGDSaMRu5x6tA
+	rxvd3uJzzWG3KHQpCbymxi/8i9XINRvbXRpwPvt5MuhXLFLAa/tA5US1x7oOdk7i31eUfkfb+RMgK
+	P+SL9Zx6pDs7fxGrINMT326cQAn5Ium+L5sxBcaFNewTkU92JOOXllL09oPY300ayx2wcZfY/YGfH
+	Mv5g7PGsV5pzP3ou+oQ3Bo8zi4kphxMSThYw3dB/b6JQtDWvdkxptz324zwkeJSAzFHd4uj+Gx35w
+	WCZEacfMe+93T8JDLb1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38vj-00000001jN4-1wRY;
-	Mon, 29 Sep 2025 08:08:19 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1v39x5-00000001ttC-17bc;
+	Mon, 29 Sep 2025 09:13:47 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38vg-00000001jMO-1qW6
+	id 1v39x1-00000001tq2-2vXd
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Sep 2025 08:08:17 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-46e47cca387so21461385e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Sep 2025 01:08:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759133294; x=1759738094; darn=lists.infradead.org;
-        h=mime-version:date:user-agent:references:in-reply-to:subject:cc:to
-         :from:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=GVUj56PTBElUdL5rbfLGdPrTXQDNa/dgDh2G4V1z2Tg=;
-        b=MQaATDQPIEgNt5Zh7RN//p+CeTsa0IawwmZFInvMHjoltzBUDaQp7wIbmK/nCNqsO3
-         aTh402hW5zJBGihLWwMIud2WgLgbu2/vwhSp4MYjmaMhLK2yW5Juq9JB7rnKPNjkaRcv
-         TKX6T1twp2iAsfgjOcg35BkZyn5OoNfra7sQijD1YqH1Xa76wZTJ8u5Zjcj6mwz17XBf
-         WGdD3fCFf17RB3MRjV68rc2FcJ3xFWXlVdAh4/yAe6T/ax/J0iw//Z+EPPdDcaxXD4Oa
-         Hh1gvzI3hZnWpjVJvnSlDelBsYIYIznvXTJl1qx6w+zIGbGRrsO9HTtKamI1ueIdtSQ9
-         oYnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759133294; x=1759738094;
-        h=mime-version:date:user-agent:references:in-reply-to:subject:cc:to
-         :from:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GVUj56PTBElUdL5rbfLGdPrTXQDNa/dgDh2G4V1z2Tg=;
-        b=H7M2RjuN8+Qui3rN8Emi47j4PRJgNvaGAfWqWcFYUY6nhTTUPDR2GIIZYqWDv3XnH0
-         xY23IH3rVfrmFxL2hXYQfZreCtHP59VAfA+4qoVPlGZASZlqrTAOdzzCwJI0xU2YCfWQ
-         Nq7AmpNp1VXSq0UQy0b/moBsDhI0WlWDjycopHpOhcarS2hqriIsKdjIy7gCgpB7rtUf
-         Xo9IFyVinkOsUpN7z7AICOx/+DdohLVcijp+J9LIvdL4Snn3OW3+tn6LXh70zpPZ9ofA
-         hY2husjRfHjX73KnegIUVrA9/1C0tubz6eX4LB8UU9Z8bnwuV1mPANUwnPlWXGQJPRiE
-         evfw==
-X-Gm-Message-State: AOJu0YwAhBrCD40wLfWBq6Kc5Sr+4WGToo8XtCtKMlwAPxI/pqqIaUtE
-	ObhsyIRlp4K8qY2Yq30E7UYMdeMsnHPcL0QOLVZTD3/VFBs2Pp0cGH66XVAEyImILhw=
-X-Gm-Gg: ASbGnctYTqWHVJyJ/GB7N8D2d9pU9V10+espTRqzUEnkCX0WsqGB1jeEEP3FxemhaWP
-	QAxd4O1AXMGofY2LT8vb+60ykDIXIXknZwYfLb1K6BL4Hq0NUzeMezzjMHCSQrpPd2VQCC+DXiB
-	WBeXgzG9iz4Y5JvJgvcXwLztFeTxJnkPAtwlT/ln+ne+MCUO+/wA+ixhY7X3Xx7az2GaiQDXNIm
-	HHeEdH7lNIqjSfGCIOxlJSxE8m0D4LoDxoohmBUrYwWRKpBSmWQ5cCuiQbQZZ548LDo4cLoZAYE
-	zp5g+m9QE4wloUqDoPKskFndDqa7dyN965aNWdUzo+jMyN5/FnUfIsN65CABHni8eqLc639Kmw6
-	NxApelCgrSIs2uQPb8vQ/Wz8uJCiBxhIIq5Vp4TFG7UPRfr2Q4jt0/Uax2nI=
-X-Google-Smtp-Source: AGHT+IHI1PVHeNoXUhxNikFYnbqcWzMihaSMSG/MVn+wa3bjmjBsAoX15cYb0vlQ+YWd9XGgUfPh/g==
-X-Received: by 2002:a05:600c:1394:b0:46e:1f92:49aa with SMTP id 5b1f17b1804b1-46e329c6355mr146802235e9.15.1759133294014;
-        Mon, 29 Sep 2025 01:08:14 -0700 (PDT)
-Received: from localhost ([37.72.3.43])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-46e2ab31f62sm215500625e9.15.2025.09.29.01.08.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 01:08:13 -0700 (PDT)
-Message-ID: <68da3e6d.050a0220.c13dc.0f9a@mx.google.com>
-X-Google-Original-Message-ID: <87cy79y93o.fsf@>
-From: =?utf-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mikisabate@gmail.com>
-To: linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,  pjw@kernel.org,  palmer@dabbelt.com,
-  alex@ghiti.fr,  wangyuli@uniontech.com
-Subject: Re: [PATCH] riscv: kgdb: Ensure that BUFMAX > NUMREGBYTES
-In-Reply-To: <20250915143252.154955-1-mikisabate@gmail.com> ("Miquel
- =?utf-8?Q?Sabat=C3=A9=09Sol=C3=A0=22's?= message of "Mon, 15 Sep 2025
- 16:32:52 +0200")
-References: <20250915143252.154955-1-mikisabate@gmail.com>
-User-Agent: mu4e 1.12.13; emacs 30.2
-Date: Mon, 29 Sep 2025 10:08:11 +0200
+	Mon, 29 Sep 2025 09:13:45 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id A184628A42;
+	Mon, 29 Sep 2025 09:13:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1759137220; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=krawKFrMK6CfXJGZRbum6m0whh/VNnnKuCLw/mlg22U=;
+	b=Hq4pd3FLlIHlpsq/WIWIpKTQIK1u5uVC206WcP0fQUSFrI19DANzMPCVUP75KY+hBZcL0Q
+	dtdVgf8LzRHS+mLGqBHxvAYy4l40BsAWLIlpobyu01j8D02b0I98f1+p5dw6q44ptuX62H
+	m9Zo3mhg2ZXRKipx4DYunUuhbPd04E4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1759137220;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=krawKFrMK6CfXJGZRbum6m0whh/VNnnKuCLw/mlg22U=;
+	b=b25DWtEAGkPFc4sT9issDmqy/BMl9Qbnlh5ruisp0J1gFMCT/qNvoATff8AwO5EUhSceEL
+	kSBiQsu7tqSUuVAA==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=hMG0X5o7;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=ZWV8cEdM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1759137219; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=krawKFrMK6CfXJGZRbum6m0whh/VNnnKuCLw/mlg22U=;
+	b=hMG0X5o7qx5uLzOvtPU6oAOR/sM1jQy2B6QsQik0JJGzKLSrpedSDbKzqP6/qSgL4E6z5c
+	PYEIwt7LMqEi6gairxqjXKFRdyD4dFJYTy2ovOneowKDznaaZr9VZ4B/+OwUlRFxMrvTSI
+	pzIsg61tXM/wB+hrp8gOffgcwit1QxI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1759137219;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=krawKFrMK6CfXJGZRbum6m0whh/VNnnKuCLw/mlg22U=;
+	b=ZWV8cEdMR8rl5mD9g70Zqdfp6Osb2Z+ASfy/UIiBlSB9+DmXXVL0n2mnz3VGfUEWe6Zu2m
+	Fw46i1nCG69w1gBA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CB9D413782;
+	Mon, 29 Sep 2025 09:13:22 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id q2iJILJN2mgkQwAAD6G6ig
+	(envelope-from <ddiss@suse.de>); Mon, 29 Sep 2025 09:13:22 +0000
+Date: Mon, 29 Sep 2025 19:13:16 +1000
+From: David Disseldorp <ddiss@suse.de>
+To: nschichan@freebox.fr
+Cc: akpm@linux-foundation.org, andy.shevchenko@gmail.com, axboe@kernel.dk,
+ brauner@kernel.org, cyphar@cyphar.com, devicetree@vger.kernel.org,
+ ecurtin@redhat.com, email2tema@gmail.com, graf@amazon.com,
+ gregkh@linuxfoundation.org, hca@linux.ibm.com, hch@lst.de,
+ hsiangkao@linux.alibaba.com, initramfs@vger.kernel.org, jack@suse.cz,
+ julian.stecklina@cyberus-technology.de, kees@kernel.org,
+ linux-acpi@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-efi@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+ mcgrof@kernel.org, mingo@redhat.com, monstr@monstr.eu,
+ mzxreary@0pointer.de, patches@lists.linux.dev, rob@landley.net,
+ safinaskar@gmail.com, sparclinux@vger.kernel.org,
+ thomas.weissschuh@linutronix.de, thorsten.blum@linux.dev,
+ torvalds@linux-foundation.org, tytso@mit.edu, viro@zeniv.linux.org.uk,
+ x86@kernel.org
+Subject: Re: [PATCH-RFC] init: simplify initrd code (was Re: [PATCH RESEND
+ 00/62] initrd: remove classic initrd support).
+Message-ID: <20250929171652.50b7a959.ddiss@suse.de>
+In-Reply-To: <20250925131055.3933381-1-nschichan@freebox.fr>
+References: <CAHNNwZC7gC7zaZGiSBhobSAb4m2O1BuoZ4r=SQBF-tCQyuAPvw@mail.gmail.com>
+	<20250925131055.3933381-1-nschichan@freebox.fr>
 MIME-Version: 1.0
+X-Rspamd-Queue-Id: A184628A42
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-2.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_CC(0.00)[linux-foundation.org,gmail.com,kernel.dk,kernel.org,cyphar.com,vger.kernel.org,redhat.com,amazon.com,linuxfoundation.org,linux.ibm.com,lst.de,linux.alibaba.com,suse.cz,cyberus-technology.de,lists.infradead.org,lists.linux-m68k.org,lists.ozlabs.org,lists.linux.dev,monstr.eu,0pointer.de,landley.net,linutronix.de,linux.dev,mit.edu,zeniv.linux.org.uk];
+	ARC_NA(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	R_RATELIMIT(0.00)[to_ip_from(RL4bphh9snz1w7feaus4qmzef6)];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_DN_NONE(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	RCPT_COUNT_GT_50(0.00)[56];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_010816_495299_332AFD3E 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20250929_021343_884566_1ADFE30A 
+X-CRM114-Status: GOOD (  29.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,107 +163,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8151825733828158823=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8151825733828158823==
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+Hi Nicolas,
 
---=-=-=
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+On Thu, 25 Sep 2025 15:10:56 +0200, nschichan@freebox.fr wrote:
 
-Miquel Sabat=C3=A9 Sol=C3=A0 @ 2025-09-15 16:32 +02:
-
-> The current value of BUFMAX is similar as in other architectures, but as
-> per documentation on KGDB (see
-> 'Documentation/process/debugging/kgdb.rst'), BUFMAX has to be larger
-> than NUMREGBYTES.
->
-> Some NUMREGBYTES architectures (e.g. powerpc or hexagon) actually define
-> BUFMAX in relation to NUMREGBYTES, and thus this condition is always
-> guaranteed. Since 2048 is a value that is generally accepted on all
-> architectures, and that is larger than the current value of NUMREGBYTES,
-> we can keep this value in arch/riscv, but we can at least add an
-> 'static_assert' as an extra measure just in case NUMREGBYTES changes in
-> the future for some unforseen reason.
->
-> Signed-off-by: Miquel Sabat=C3=A9 Sol=C3=A0 <mikisabate@gmail.com>
+> From: Nicolas Schichan <nschichan@freebox.fr>
+> 
+> - drop prompt_ramdisk and ramdisk_start kernel parameters
+> - drop compression support
+> - drop image autodetection, the whole /initrd.image content is now
+>   copied into /dev/ram0
+> - remove rd_load_disk() which doesn't seem to be used anywhere.
+> 
+> There is now no more limitation on the type of initrd filesystem that
+> can be loaded since the code trying to guess the initrd filesystem
+> size is gone (the whole /initrd.image file is used).
+> 
+> A few global variables in do_mounts_rd.c are now put as local
+> variables in rd_load_image() since they do not need to be visible
+> outside this function.
 > ---
->  arch/riscv/include/asm/kgdb.h | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/kgdb.h b/arch/riscv/include/asm/kgdb.h
-> index cc11c4544cff..66ff46e434fa 100644
-> --- a/arch/riscv/include/asm/kgdb.h
-> +++ b/arch/riscv/include/asm/kgdb.h
-> @@ -3,14 +3,18 @@
->  #ifndef __ASM_KGDB_H_
->  #define __ASM_KGDB_H_
->
-> +#include <linux/build_bug.h>
-> +
->  #ifdef __KERNEL__
->
->  #define GDB_SIZEOF_REG sizeof(unsigned long)
->
-> -#define DBG_MAX_REG_NUM (36)
-> -#define NUMREGBYTES ((DBG_MAX_REG_NUM) * GDB_SIZEOF_REG)
-> +#define DBG_MAX_REG_NUM 36
-> +#define NUMREGBYTES (DBG_MAX_REG_NUM * GDB_SIZEOF_REG)
->  #define CACHE_FLUSH_IS_SAFE     1
->  #define BUFMAX                  2048
-> +static_assert(BUFMAX > NUMREGBYTES,
-> +	      "As per KGDB documentation, BUFMAX must be larger than NUMREGBYTE=
-S");
->  #ifdef CONFIG_RISCV_ISA_C
->  #define BREAK_INSTR_SIZE	2
->  #else
-> @@ -97,6 +101,7 @@ extern unsigned long kgdb_compiled_break;
->  #define DBG_REG_STATUS_OFF 33
->  #define DBG_REG_BADADDR_OFF 34
->  #define DBG_REG_CAUSE_OFF 35
-> +/* NOTE: increase DBG_MAX_REG_NUM if you add more values here. */
->
->  extern const char riscv_gdb_stub_feature[64];
+> 
+> Hello,
+> 
+> Hopefully my email config is now better and reaches gmail users
+> correctly.
+> 
+> The patch below could probably split in a few patches, but I think
+> this simplify the code greatly without removing the functionality we
+> depend on (and this allows now to use EROFS initrd images).
+> 
+> Coupled with keeping the function populate_initrd_image() in
+> init/initramfs.c, this will keep what we need from the initrd code.
+> 
+> This removes support of loading bzip/gz/xz/... compressed images as
+> well, not sure if many user depend on this feature anymore.
+> 
+> No signoff because I'm only seeking comments about those changes right
+> now.
+> 
+>  init/do_mounts.h    |   2 -
+>  init/do_mounts_rd.c | 243 +-------------------------------------------
+>  2 files changed, 4 insertions(+), 241 deletions(-)
 
-Gentle ping :)
+This seems like a reasonable improvement to me. FWIW, one alternative
+approach to clean up the FS specific code here was proposed by Al:
+https://lore.kernel.org/all/20250321020826.GB2023217@ZenIV/
 
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
+...
+> diff --git a/init/do_mounts_rd.c b/init/do_mounts_rd.c
+> index ac021ae6e6fa..5a69ff43f5ee 100644
+> --- a/init/do_mounts_rd.c
+> +++ b/init/do_mounts_rd.c
+> @@ -14,173 +14,9 @@
+>  
+>  #include <linux/decompress/generic.h>
+>  
+> -static struct file *in_file, *out_file;
+> -static loff_t in_pos, out_pos;
+> -
+> -static int __init prompt_ramdisk(char *str)
+> -{
+> -	pr_warn("ignoring the deprecated prompt_ramdisk= option\n");
+> -	return 1;
+> -}
+> -__setup("prompt_ramdisk=", prompt_ramdisk);
+> -
+> -int __initdata rd_image_start;		/* starting block # of image */
+> -
+> -static int __init ramdisk_start_setup(char *str)
+> -{
+> -	rd_image_start = simple_strtol(str,NULL,0);
+> -	return 1;
+> -}
+> -__setup("ramdisk_start=", ramdisk_start_setup);
 
------BEGIN PGP SIGNATURE-----
+There are a couple of other places that mention these parameters, which
+should also be cleaned up.
 
-iQJlBAEBCgBPFiEEG6U8esk9yirP39qXlr6Mb9idZWUFAmjaPmsbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTEsMiwyFRxtaWtpc2FiYXRlQGdtYWlsLmNvbQAKCRCWvoxv
-2J1lZa/kD/0SS0w13cbSDsDAHnIMSkwzhsxBOPIOH+FnsVfA5umjAhSchivjDOVh
-l6tl7s9XJoUH91fNuySbMOxgZvPa/TBHqBdImhKOqS+x9HtIAk8F4KT+RuXN28VH
-dOrOjXLin/qksjl0t7BEDvLZMrK9l8DkKN9RluE0902wvQOIt/2sEQsm1gF3tndD
-W8j7enoHf0A3nDEk71RcgtG3TVc4I4ds+9t5bE5xcZAOsftaW724lCsQMuL7/VAE
-pzPnmHC/t4ksx/Hp+7RSDu15l6HHeUXy3lsVFVD3VXkHcX0fjdvtk8WGGzj/s7nH
-LbWAOrHYJWW4vmHemAGbMq59AJFN/sHd0K81hfifCkOvFWqM4yx5W7dxhmyShaHi
-t2I1Wh4Tg5UNRbRA/gCunnXhUvBPSgcFNWij+eWZskGG3HsHTREvWeSXuOScY6uf
-ayKt3cL5DqhB9uh+CFD9//uaTmleZfVPNC/19w02CUmgUCFbKMRr7FyNkvjmUy+D
-jEWP89FctIhttKlfff6wwFlQm8AmagxkqHg9WhQu1PY3a/A8NPbUxhR0FDZMxbjp
-l5Mfj/5huZ53FM9XjzRUtFnCcEO4jfvedJUX3/6LDm4Fsx25BduXjZtUOdv0XJ3E
-1Y+ND6zCVD17mtrwict9mI3B8Hd+EE8QoW9v7TPq7k/j2RT1leltAA==
-=GfxR
------END PGP SIGNATURE-----
---=-=-=--
+...
+>  static unsigned long nr_blocks(struct file *file)
+>  {
+> -	struct inode *inode = file->f_mapping->host;
+> -
+> -	if (!S_ISBLK(inode->i_mode))
+> -		return 0;
+> -	return i_size_read(inode) >> 10;
+> +	return i_size_read(file->f_mapping->host) >> 10;
 
-
---===============8151825733828158823==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+This should be >> BLOCK_SIZE_BITS, and dropped as a wrapper function
+IMO.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8151825733828158823==--
-
