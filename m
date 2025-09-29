@@ -4,158 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A372CAC5B5
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Sep 2025 23:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C521CAC5B5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Sep 2025 01:46:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XrMje8dT3Gd9c6crWlxoutEmrCv02n2YOF3PtgmYTTU=; b=JxsqCwZIcfDrTv5XXvxj4npb+m
-	Wd/s8qkGsHQpBbzyEiQCEteHgjZpZXv3YTOM21iPk9EEsyrtXC7ctLrYvEUFRP12wpxSOaiN0FWlo
-	w1oYtJAeyo5WghyN4hP3uxDodqy+a/Uw9C8Dv/Dj106sRwNpknTkMvjPzVOqg7u1+ychfTS3APHxs
-	UtvUyE4awDS9OxWnS7SSJekmt2Hz90t02zpVKQ+E8U/I7U4lAUnJSt+bkimsyORjogsrMKgsso3nn
-	26A0/w1o8P7V7o9uLBh6T+IjWIHGqa+gzw6lcXQdmFTk4QfO7qfOvtOiTTMkbaT7ueYsKSZylpGLj
-	ewZTkagw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZuV2P1WAFPtxxSo4ONaURiukKFsFESbL0F4Gcr4onk4=; b=mNRCxjaIUmGrk5
+	VqCJreE3kiIhO+ELt4cWF8eGXcQsXpaAebSvV84+jalGevKzhSFJfAy31AUWRtuOLuTsPe9LwpNvJ
+	h4yTQTEZlJbchr/0k1MpdpqlV4I0COL77nuvzdIUogpYYaLNoWCckvXurK3bW1JFVBD9IRwqVZRm1
+	KyXwkSTAkc+Tb1jT42BLyic19y0+4CLGb5tMFwWABdqrv3AO5dOQpWLAr99oBZxaGm5eGQsY29qjZ
+	9SrDYVVDWc/E/fU1FEup/EJgFwpgfaxdXSyFOtZgtJQhl9XGcRBMIv082AxJvFXV2OMxUSIn2lPdF
+	JkB225FWtRl1zTuExbLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v31Dq-00000000cKB-3WvA;
-	Sun, 28 Sep 2025 23:54:30 +0000
-Received: from mail-southindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d408::1] helo=MA0PR01CU012.outbound.protection.outlook.com)
+	id 1v32y7-000000014bL-1KBi;
+	Mon, 29 Sep 2025 01:46:23 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v31Do-00000000cIK-1RDX
+	id 1v32y2-000000014a8-34Ys
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Sep 2025 23:54:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U12Is00bWnzaf6Fpb7S+vvT6dF6UIppVukcbVsmclvJrgdolihkA3sV7DyFvbWtp3fGh7N6yllpLoA/uqyJRq5FypcHFNpcYWNBAv9qoJL50kV/QXyTii7A5cDEZIESV0U9aXf21IO8ATz6Z/h2Krj0ekQ6NVKfnlKearQHmyB+iXFucRYNbP8NpSC2KZfMb8hbljXUocoegaz8kJK5r4i6fpMXhQ0Zb0hqCV4/5ecGWGhyZs3NSPQLhQ8sGuIX8XXFPLsTOadElx332Yue5p/ldfv5vuTD+HF2j8+YJbjkursDVr58nqyBWzzQ7Idbf0huV1+Vpc+IgWkumoRoaLQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XB50IxKZ+HabXVHP+T9MSg7RdDv6EGit2ZyBL1rxpTs=;
- b=JiyNM8q2rKeMKAmKRS/iTQ7fVvLv7q79+9qDghI8PROvLFSJmIBEHWGb8WVSExBxbtYD9jIg891sS7AuI8aH8CvPyaNOAl1+IYUWkj6xa3eTNLVcmOMOHkehzqhIJbtBmln/jqNy9d1iytoLNjkUNfvacDJB4IwMcTbg/CraTZH4TXjhvVgW6h1G0IyLBQmjDkZ0yEwYRPopGbLTyja2alpzbSr2ypdpw6MQvwN97g6W0VITJJ5bf9jaArktvNcbA+iHTaRX+pEe3xvQhOv0+BioMuYzEdcYvEMRgQYSktnq3+FeF8w2WLENiOrQkHRYJwDxPjpFTg6bnkmpdp6rXg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XB50IxKZ+HabXVHP+T9MSg7RdDv6EGit2ZyBL1rxpTs=;
- b=AKJGoMmaE1oYbldM4PHsqoymM9PGqwSYBre15us6P73RhUUtoqDKREXEplCoIg3GrDOmub7PV2QQHXmn71LAEfciawt/rBtz+WCFHMVhKA2ToEPXcnOi6mENI5dnjCPROpmI6P5pf7bwjql/jpTakVAsMuCyxEwLjFbeXPtZQ966TJyTdzUbyu01tqqn/Rf3IkGwWWmvHixo/VZ61D0fEw0AE7j2JnGI85RCinSl2/4yOx945pB/LGNV/DvvxO0qYBbv9kEDSNLODO5JdAHlNgRbdCP1XU4+ROm5ZPrPLYRzJyLVP+1zuhYoLcWco0MBu23vSKsXfmitX/yWWrkgkQ==
-Received: from MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:16f::16) by MAUPR01MB11101.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:170::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.16; Sun, 28 Sep
- 2025 23:53:46 +0000
-Received: from MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::5dff:3ee7:86ee:6e4b]) by MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::5dff:3ee7:86ee:6e4b%5]) with mapi id 15.20.9160.014; Sun, 28 Sep 2025
- 23:53:46 +0000
-Message-ID: <MAUPR01MB110728EEF983FFA560BFEB0B1FE18A@MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM>
-Date: Mon, 29 Sep 2025 07:53:38 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/7] riscv: sophgo: dts: add PCIe controllers for
- SG2042
-To: Manivannan Sadhasivam <mani@kernel.org>, Chen Wang <unicornxw@gmail.com>
-Cc: kwilczynski@kernel.org, u.kleine-koenig@baylibre.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, arnd@arndb.de, bwawrzyn@cisco.com,
- bhelgaas@google.com, conor+dt@kernel.org, 18255117159@163.com,
- inochiama@gmail.com, kishon@kernel.org, krzk+dt@kernel.org,
- lpieralisi@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
- robh@kernel.org, s-vadapalli@ti.com, tglx@linutronix.de,
- thomas.richard@bootlin.com, sycamoremoon376@gmail.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- sophgo@lists.linux.dev, rabenda.cn@gmail.com, chao.wei@sophgo.com,
- xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com, jeffbai@aosc.io
-References: <cover.1757643388.git.unicorn_wang@outlook.com>
- <828860951ec4973285fe92fceb4b6f0ecb365a2f.1757643388.git.unicorn_wang@outlook.com>
- <cwc3hnre3s3rvzcgzjdbdrhlrizz4obifwragusrixa5owj5qg@yotfd3l3qxf4>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <cwc3hnre3s3rvzcgzjdbdrhlrizz4obifwragusrixa5owj5qg@yotfd3l3qxf4>
-X-ClientProxiedBy: SG2PR02CA0116.apcprd02.prod.outlook.com
- (2603:1096:4:92::32) To MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:16f::16)
-X-Microsoft-Original-Message-ID: <11b01f33-8403-4ca5-981d-2d0aafccb49f@outlook.com>
+	Mon, 29 Sep 2025 01:46:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1759110345;
+	bh=wcAdC64IoDvuOrQvlgtX3SSK7I/0Gqzr371QiaJ0eJ8=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=rkN5HEusaX7RsK4hwfEuyyEI0TPGsrNZE/odfh/Pot3u0A3i40TWTzU7GTbYd8Y5U
+	 llNow34QmLN1Jgdu2Bz/FJNAbRkizQjlbi3zDtN5ofq10qEXF6FVnvTqCZ7X3Mkeqw
+	 CqgtiOqYmKUlpRHk/4rFIgY6jq8mB3KyyfX9nzpY=
+X-QQ-mid: zesmtpsz9t1759110335td8ec3eee
+X-QQ-Originating-IP: ZTEZqM8iQJKnO0ZTHvsvnhsW6346pK427L64pLl8GU8=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 29 Sep 2025 09:45:33 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11380537982907392339
+EX-QQ-RecipientCnt: 7
+Date: Mon, 29 Sep 2025 09:45:33 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Yixun Lan <dlan@gentoo.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v3] i2c: spacemit: configure ILCR for accurate SCL
+ frequency
+Message-ID: <F5859CB0056D50CB+aNnkveYgP3BM7XNp@kernel.org>
+References: <20250814-k1-i2c-ilcr-v3-1-317723e74bcd@linux.spacemit.com>
+ <20250928110327-GYA1346428@gentoo.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAUPR01MB11072:EE_|MAUPR01MB11101:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6a0de959-7369-4698-986e-08ddfeea430e
-X-MS-Exchange-SLBlob-MailProps: 70qbaZjg4mvwrPi3JhjWAjxLXnlVV0q2y5QLusbMKmG80fjqYCNDX1r609Q2PpzeNyDHiai7d9aSVwDHuX/Oa1DB1+0uu4D1SmIPnn9UobizXLk2mhHNBvo29pwaU5xtODmi/CqMq5juAbTqaKr4F2u44cjLk4U7usnQnvYmFpW0RYoptX2LrcdTQ5/pWliq9h0L09rS7dnBn4Se8MNUcx/3Az1YOScvTTxaqXzlhQvGCAm0zdKJGtzhdaVCEpEteWhZz4Viea9Yq6jp5r27jFLOzApzZIlWUnaf6HHP70ksfZZMXbyHJrdREoKfcz/7nuJCktiGg6McB5ojFRVGdpAPUzL+bwATRO7Ap2mS7BP1r5vfEZGg6fjUj0KsSf+1Kt8tNSygw8Kb2DyZcfInxJBHnA97OgHf991hiY+xjEswXoOZgj/o8jQUdq4lGPblxalMcMyFIvLSMH4TexQUEFDeE3mZHwx1yHlon4Idb1O+2f2lC6BOr1oQS6PAoLo1pkz5L0C6Gdq+cFIsGHGu866aclDtcbW7jK6jDSDxOxj+cUoKZvQsr5X0uJnPx3RlTey9tZwY+8LfVxmVmTEW1EXcZFd/u7H4FyfKtdtrF1VzWPElkZEyO6jRrlemRWbB+Tw/ZWC2FGHVK2VI7y9Vi0JAmK9u93OosWsmNQP5nDnpya8d7IlaZRx4eI+UNYer0ojLIPhZTp6gTFb9Dey6irlt770k8YjVrDO3elBfPLKn/GbwRVXLvA==
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|6090799003|5072599009|41001999006|23021999003|8060799015|15080799012|19110799012|3412199025|41105399003|40105399003|440099028|52005399003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WFZVVVpIdkpQeklkdmw3RUZzYVl4blhGNkhQL3VNSENCSEFsMk9JVW9oeEdo?=
- =?utf-8?B?N3NIOEc4TTlxNmh2SUdyWlNBQ2hGVzBxckkvenZ5MnM5OFBsQ1lrSHBKWEhL?=
- =?utf-8?B?MnNod0YxN2h4NTFySU5mMzVqOWdFN3IyQXpuNlJPcVgrSnJsSmZ5OGIxdjRE?=
- =?utf-8?B?RUhvelBaNmRHVHFhMFBRNVVYS2l4bU5iSG1oVXA0cVNOZkZXeURtVjA2bFNw?=
- =?utf-8?B?bEpkS3VqZUMxQ3pzYkZiWkRha3ZnQnB1Y3pQbC9yc0RaVkVoR3NLUmdGUXZZ?=
- =?utf-8?B?OW81R3hHbUtZNzFzVzFaeVdqcU5TdnBuTkF0bHFHTXgyV0xTcEE5T0tRYWtC?=
- =?utf-8?B?bnNEc2w2ZGhwTC8zUkVWTnJDOGlmZkxoK3Fka3dtY1MySnppSHdsNUJtZGFh?=
- =?utf-8?B?TWJUbWRCWHhlUG0xSnNPMitoU2NoSDFCdGdkbHJMcXIxb1libEVyc3Bxc2Nn?=
- =?utf-8?B?MGlIemlNZGp3VWhOQjNoUXFmcmRLLzZHbDJKNU9lNFFOa1AxOWk1RnBBYmwy?=
- =?utf-8?B?a2IwM2t5VWM0bGdnMFVNVXVJTFlwcVVpT01hUFcyUEZTWmt3RlhuVHo5RytV?=
- =?utf-8?B?OFJLOCtnQmc4SitnbmZSN0JzMlMxYy95TUdrWXJFUTJybEhGRHVWVzRyLzBB?=
- =?utf-8?B?K0FYN3NVZTZmN1NvdXZUUHRDaDgwRFpoSFJTWW9DelhiZ1dIWGFZRWpVWjFo?=
- =?utf-8?B?aXZTc3FEcC9ZZ2ZybXJ2YjVRbjBWa1oxeDE2ais3NlRsQzdCVTZoNVYydGdo?=
- =?utf-8?B?OXhJbGM3azRtVHlCZkdLVlZwcGw4UnQ1b28zTTA0TjViQVQzbExCczE4a0VB?=
- =?utf-8?B?ZlcvV2xQOExlL0VIdCtFRk1TOElqRDlXakQ2bkVSbUIvZjRlbThBYysySWtn?=
- =?utf-8?B?Y3BxNUkvN0RYYWpPMUk0R2FlQmNsOUhIcFRyMDF0TytKKzVYSHNEOEg0cVJt?=
- =?utf-8?B?R1RHWmRkUE1OYW1RbkJQM1R0dFdZWVJCNWNscVNyMHQvOFowOE8wZWlZMkU2?=
- =?utf-8?B?UDQveWJ6RWVyNHJNWnZxNmk3TnRMQk4xaTM2UVk2KzJwN3EyazJPcHJla1pD?=
- =?utf-8?B?MVI0emw2VG5YcUM3M1h1NEY0MXorRUh5N3doTGVXZTZGajNZVFNWMTRIa0xW?=
- =?utf-8?B?bUxUOXlHSzNBS1ZVRGNmQzVmbDkwbVdHTWRmUWxqWHBUaWFrTDJIN3R3N01X?=
- =?utf-8?B?Zzd1WGhoTDVTdHBFRlhuYWhvblRTVHlIa216NXJGOHRzYUlMaEprbFNidUdj?=
- =?utf-8?B?QzUzY3hPUjJuZnczM2k2WUdtWDlvQnFVNlA0SW0zNUN0MCt0VCtYK3lGalc3?=
- =?utf-8?B?ZzU4aUpsSGdDajcrazB2OThyNHZqUXMxRzZUSUpmUlplMHg2dUZLR2dvSnh4?=
- =?utf-8?B?cWQ0ZHR4cnl1WkdCSmNTeU9RMXZ3UjdYeklHQWNYakYvNDdrL2svSU1QT2dG?=
- =?utf-8?B?TGovSDZIZVk0cjZUODU1MjNneVcxM014WDJRdVVJd2NCbFZlZU5oY3RETzJn?=
- =?utf-8?B?eWdyejF2d2V3Ui9LZGNRMHV1bUlVWjRReHY5VU9WZXRtU3Znd2Q3emVGSkdk?=
- =?utf-8?B?NTRiRWFMZUxtdTRLVmp0aUJrTWx2NHFvUXhCOG1SQ1FxT2xsQUY2YXZXVXVU?=
- =?utf-8?B?c0dFaHpBUDlocENWTWszejRnOWhSYXVlWEFZNnVaU3FZTUtkWE1ReTBzWTlE?=
- =?utf-8?B?U0piSHZWOWVFVFkyY1h2QStwVm9TZDg4ZDZkdm5jZ0JDakhFWFNPbWVRPT0=?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SU5lNjVqajlRUngveUd3dnRWYTROMHZhcFFJQzQxQjIzOUhmVFErUjlyVXpF?=
- =?utf-8?B?WVpoUHIxblhQVmdXZ2U4MVptbFlDOFBwV2VKZS9jSHZ4R25lcVZRb3Ird0ZI?=
- =?utf-8?B?V1hoZjQzWlV1REVyMjN3WVhaSHZKQ3lDcGFMdk5FeEZ1ckhtRmlZSWU3ajAz?=
- =?utf-8?B?ZGoxaXA5eUJpZUpiVk1iZVVsT3V0Q3lTeTcrcS9wVExwY2ZwTm1HYk5GWkNY?=
- =?utf-8?B?Ny9NNlE0K00rSEpQRDQwb2RzMjNGdi93d2hrOVlJcVBqK0JZTjR1Ry9pSGFk?=
- =?utf-8?B?eE9qTjdzbHpQZU53S05CUG90YmdvTlk4UXVmSERESnhNSFc0UXpGSnB6MFIy?=
- =?utf-8?B?dUVDTVkxMUp0U1FoR3VlaythZXVBcnd1RWRGV2crUkt0OXdpZ1hMeVE1ck0r?=
- =?utf-8?B?bjFoZ2FhUG5VUjRnWCtnWmkzbS9FVkhGOGhJUFhVcFlBbUlOamJSZUlCbjAr?=
- =?utf-8?B?UXkwSzg0Wm16UnNYalBzQzF0RHRDMVRHWmFITnNNM1VDb2ZhbUlWWFd6cUpE?=
- =?utf-8?B?WjMxTkN6bCtYZlQ5eHdjclVmcmltUlp0ZFIwYkRtUklRa0dVVjczWlFxOWZQ?=
- =?utf-8?B?amphQjZjdzlxY3Z3Y0pvbk9zdVYvZWUxcHVNWUdFbnlpeS9XWWRDZExoM1A4?=
- =?utf-8?B?RmZ3S3E5WGk0c1BsbW16azJ1Z0R4alVKU0YwZkw1cWRJbDA0TitkVmlWWWsw?=
- =?utf-8?B?aHovUmU5TUVYTDQ3U09BRFN2OGo5aWNUZ3ptQW1pTU9MWStmNFB1c2JPVzNB?=
- =?utf-8?B?NktVRkpsTTRDVldiV2R0TnBqeUd4djlRS3VYbVBvU0Fob2FoOU9tbm40Tmdq?=
- =?utf-8?B?cVN5UnNFeXY0cUZ1MThMT2MxZGV6UVBJd21CWHFEZitDOWJWK0M3MHVZMWlL?=
- =?utf-8?B?aWFoMjN0ZUZMUVBXY3dVeWFWL1lKRS9HaEVNa1NyMVdORGY0MFlFdGRoOEkr?=
- =?utf-8?B?MDBhcW1sRDA4emxmOTZyS0VJOTJ1TStBcTJvZ2hTSHpRcnJQTHlIOWhqRklP?=
- =?utf-8?B?a2QrMjgyM1pYS2FJcnNVd1FQaWlKVzM2SkhhbHMyaDNSbGFnTGFkUi9IemFO?=
- =?utf-8?B?cXlpQitUbFVIS2k3a0NESS9tUXNPdG1ZZUtkaGpqM3FrWHAzcC9qZmNDa2Rp?=
- =?utf-8?B?dWhFdkRWdDd3aTlNVTgzU0syQlE0NmVqbkJ0S3NOQ3JBKy9sbTd6THJua3ho?=
- =?utf-8?B?Y2VwWlVLN0dXZDdkUnZuMURxMHNUWGYxTEZ4ZkxmbmwxRmdFRjJsRmxkYXEr?=
- =?utf-8?B?YmFMcHZZSEFNRmFJczMwOEpHdDB1SVZ6bldCVk9WYWdFbDV2bEZMK1pKcGJI?=
- =?utf-8?B?Ym5GOWhNQ2hXSER6SjdmS1Q2TUhxQjEySEZpUkpHYy9tZnpUYWR4aURwQ1Zz?=
- =?utf-8?B?WmduSlQ3QmRKWkl3T3BuUzNlb1o5elNvdndmVXo0cE5MTkJZVmVlTVB1dlFu?=
- =?utf-8?B?OFZtUFgwS2Q1OTRoZUozWlV2aC9UY0NXQ0FmUEp0NUhFeWVwcll1d0JDaFg1?=
- =?utf-8?B?YUFscWhKNnFjQWFqSmEzKzFJVytlVVcrV1IrdStaSUtqa3RSdUJsenRWVmsz?=
- =?utf-8?B?NnJHdlB2Y0ZoUmxrdFVXWEYyVDJaemh0aGJrNGFXS3lib2pVdW5HNjJjUmpl?=
- =?utf-8?B?OS9NZzFqM1M0T2M0VlNvdTdLZVZ5Y1YyN3dDYk11NzRNNE9remhkdHFsY2dG?=
- =?utf-8?B?MUc5M0FVVUtDL0kwdFE5eXJ5d0dYeWxsV1VsYmpKUUo2NzFndFAvQ0VZS3B3?=
- =?utf-8?Q?1dROavkxNtVPIJE/p8lUjLFfppCvmDJZ8D6WCgw?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a0de959-7369-4698-986e-08ddfeea430e
-X-MS-Exchange-CrossTenant-AuthSource: MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2025 23:53:46.1366
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAUPR01MB11101
+Content-Disposition: inline
+In-Reply-To: <20250928110327-GYA1346428@gentoo.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NXtWG+81RC1NyLNNPH2mjPkqIQFVWFkfKfENO7/0n9XlAJEM863MRHlH
+	iqKStHFdjSckbyOIahXCcxMcYbIh8SQk8c3lzawG/MRWwrEJ7vOzf00M4VTouj9gZ1DNOoe
+	7nvtXGvCprUFm4geQe1Srsu/9PEfj/vVTkh3+X50kqg/CWjoCCEWJP8QCmEtQRYNz23St8w
+	eJwAbI++RbWZvKP2REyFW6RtqHBkobN0mmC+sqZXLU2A+dr09G8cxWmgtz+IugZm9QgJWoN
+	DL3scOGO5Wpg9mk15ob0Vgzr5UARAbneWWVcjz2iRcgZQt2OqRq7gbdv2M8zAjNBh5rniRP
+	WyN4zsDvPoUeVkGiq6FFwSekW98gkMFeun0UXNlU2vWs/D3/wclWekvmRWcxgD/IE7RwLby
+	lri988y8ZYiTJ0O0wqfqOLDm/7XLbDdM+kQHXUuq5jMYXFmhDQ6KaINkH7PsR4u+YwtZmDR
+	JK0gmgNUsYj7HltsJKh2KFHcN9rnmTKkq6U9fLA+bjKyiM54OeBMqJO8oPeYcrWEW59ajrx
+	GvRGwqBZgWS1pF8+OrLfP5sre/M/QthLbkUpTZEvQqDyoYuiOgUSSIGGu+aV9AgvhKRnKzE
+	rgpc9pqbLWi+iujEQ4uHOSYo2icKHPjr39EahEhDo2OA6VZNhw4Ys1eIFS9333voyco3ss6
+	41svTKLmtyrGOq3VFMNq+tif5LAxI21wxutc+fsNzdBjBYeu+BZmwVT3wckwi9z9cgDZh2U
+	JIsspJpLzyKKRI0jM1KJnl+RummpNfAtijO4qX3/k1WiZ9TpGA5JvNXwhIDuXmER5EgPq9j
+	X3wz9/0O/pNcaS6gintM3AqTdIO0kH1amdxJ8MYAxJBMsgQE2+KmANbqp5pz2FQTzvsNJjI
+	s32jSmwWXZaf/DvG1AxGF5ROLvA66qMaQv7AMtD0VGq7c8pvVMakTcI9Epj3RApAh3CaA95
+	z5pyLhy1QFqY/lKP5tEEUE2CK6W1q9veoDIoo2PHF4AoUrOIlf5ZSI5KXMhiBhQEbr+7XcI
+	LSoUPumSG9Zlwyoto1BmmdQzrpe/+Z//OzEFmWTUZJTzU65ZRFBq3hfyxdw8otue/VPeKxq
+	mb9RggATqNWv9cAQtlgw4vLWh9jelTZrOp5KQMNVIgU
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_165428_382045_85D9D3D1 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20250928_184619_946645_EE68A866 
+X-CRM114-Status: GOOD (  41.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,60 +93,226 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Yixun, Thanks for your review!
 
-On 9/20/2025 3:42 PM, Manivannan Sadhasivam wrote:
-> On Fri, Sep 12, 2025 at 10:36:50AM +0800, Chen Wang wrote:
->> From: Chen Wang <unicorn_wang@outlook.com>
->>
->> Add PCIe controller nodes in DTS for Sophgo SG2042.
->> Default they are disabled.
->>
->> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
->> Signed-off-by: Han Gao <rabenda.cn@gmail.com>
->> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
->> ---
->>   arch/riscv/boot/dts/sophgo/sg2042.dtsi | 88 ++++++++++++++++++++++++++
->>   1 file changed, 88 insertions(+)
->>
->> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
->> index b3e4d3c18fdc..b521f674283e 100644
->> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
->> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
->> @@ -220,6 +220,94 @@ clkgen: clock-controller@7030012000 {
->>   			#clock-cells = <1>;
->>   		};
->>   
->> +		pcie_rc0: pcie@7060000000 {
->> +			compatible = "sophgo,sg2042-pcie-host";
->> +			device_type = "pci";
->> +			reg = <0x70 0x60000000  0x0 0x00800000>,
->> +			      <0x40 0x00000000  0x0 0x00001000>;
->> +			reg-names = "reg", "cfg";
->> +			linux,pci-domain = <0>;
->> +			#address-cells = <3>;
->> +			#size-cells = <2>;
->> +			ranges = <0x01000000 0x0  0xc0000000  0x40 0xc0000000  0x0 0x00400000>,
-> PCI address of the I/O port starts from 0. So this should be:
->
-> 				<0x01000000 0x0  0x00000000  0x40 0xc0000000  0x0 0x00400000>,
->
-> Same comment for other nodes.
->
-> With this fixed,
->
-> Acked-by: Manivannan Sadhasivam <mani@kernel.org>
->
-> - Mani
+On Sun, Sep 28, 2025 at 07:03:27PM +0800, Yixun Lan wrote:
+> Hi Troy,
+> 
+> On 17:06 Thu 14 Aug     , Troy Mitchell wrote:
+> > The SpacemiT I2C controller's SCL (Serial Clock Line) frequency for
+> > master mode operations is determined by the ILCR (I2C Load Count Register).
+> > Previously, the driver relied on the hardware's reset default
+> > values for this register.
+> > 
+> > The hardware's default ILCR values (SLV=0x156, FLV=0x5d) yield SCL
+> > frequencies lower than intended. For example, with the default
+> > 31.5 MHz input clock, these default settings result in an SCL
+> > frequency of approximately 93 kHz (standard mode) when targeting 100 kHz,
+> > and approximately 338 kHz (fast mode) when targeting 400 kHz.
+> > These frequencies are below the 100 kHz/400 kHz nominal speeds.
+> > 
+> > This patch integrates the SCL frequency management into
+> > the Common Clock Framework (CCF). Specifically, the ILCR register,
+> > which acts as a frequency divider for the SCL clock, is now registered
+> > as a managed clock (scl_clk) within the CCF.
+> > 
+> > This patch also cleans up unnecessary whitespace
+> > in the included header files.
+> > 
+> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > ---
+> > Changelog in v3:
+> > - use MASK macro in `recalc_rate` function
+> > - rename clock name
+> > - Link to v2: https://lore.kernel.org/r/20250718-k1-i2c-ilcr-v2-1-b4c68f13dcb1@linux.spacemit.com
+> > 
+> > Changelog in v2:
+> > - Align line breaks.
+> > - Check `lv` in `clk_set_rate` function.
+> > - Force fast mode when SCL frequency is illegal or unavailable.
+> > - Change "linux/bits.h" to <linux/bits.h>
+> > - Kconfig: Add dependency on CCF.
+> > - Link to v1: https://lore.kernel.org/all/20250710-k1-i2c-ilcr-v1-1-188d1f460c7d@linux.spacemit.com/
+> > ---
+> >  drivers/i2c/busses/Kconfig  |   2 +-
+> >  drivers/i2c/busses/i2c-k1.c | 180 ++++++++++++++++++++++++++++++++++++++++----
+> >  2 files changed, 167 insertions(+), 15 deletions(-)
+> > 
+> > diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+> > index c8d115b58e449b59a38339b439190dcb0e332965..1382b6c257fa4ba4cf5098d684c1bbd5e2636fd4 100644
+> > --- a/drivers/i2c/busses/Kconfig
+> > +++ b/drivers/i2c/busses/Kconfig
+> > @@ -797,7 +797,7 @@ config I2C_JZ4780
+> >  config I2C_K1
+> >  	tristate "SpacemiT K1 I2C adapter"
+> >  	depends on ARCH_SPACEMIT || COMPILE_TEST
+> > -	depends on OF
+> > +	depends on OF && COMMON_CLK
+> >  	help
+> >  	  This option enables support for the I2C interface on the SpacemiT K1
+> >  	  platform.
+> > diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+> > index b68a21fff0b56b59fe2032ccb7ca6953423aad32..34b22969cf6789e99de58dd93dda6f0951069f85 100644
+> > --- a/drivers/i2c/busses/i2c-k1.c
+> > +++ b/drivers/i2c/busses/i2c-k1.c
+> > @@ -3,17 +3,20 @@
+> >   * Copyright (C) 2024-2025 Troy Mitchell <troymitchell988@gmail.com>
+> >   */
+> >  
+> > - #include <linux/clk.h>
+> > - #include <linux/i2c.h>
+> > - #include <linux/iopoll.h>
+> > - #include <linux/module.h>
+> > - #include <linux/of_address.h>
+> > - #include <linux/platform_device.h>
+> > +#include <linux/bits.h>
+> > +#include <linux/clk.h>
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/i2c.h>
+> > +#include <linux/iopoll.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of_address.h>
+> > +#include <linux/platform_device.h>
+> >  
+> >  /* spacemit i2c registers */
+> >  #define SPACEMIT_ICR		 0x0		/* Control register */
+> >  #define SPACEMIT_ISR		 0x4		/* Status register */
+> >  #define SPACEMIT_IDBR		 0xc		/* Data buffer register */
+> > +#define SPACEMIT_ILCR		 0x10		/* Load Count Register */
+> >  #define SPACEMIT_IBMR		 0x1c		/* Bus monitor register */
+> >  
+> >  /* SPACEMIT_ICR register fields */
+> > @@ -80,6 +83,19 @@
+> >  #define SPACEMIT_BMR_SDA         BIT(0)		/* SDA line level */
+> >  #define SPACEMIT_BMR_SCL         BIT(1)		/* SCL line level */
+> >  
+> > +#define SPACEMIT_LCR_LV_STANDARD_SHIFT		0
+> > +#define SPACEMIT_LCR_LV_FAST_SHIFT		9
+> > +#define SPACEMIT_LCR_LV_STANDARD_WIDTH		9
+> > +#define SPACEMIT_LCR_LV_FAST_WIDTH		9
+> ..
+> > +#define SPACEMIT_LCR_LV_STANDARD_MAX_VALUE	GENMASK(SPACEMIT_LCR_LV_STANDARD_WIDTH - 1, 0)
+> > +#define SPACEMIT_LCR_LV_FAST_MAX_VALUE		GENMASK(SPACEMIT_LCR_LV_FAST_WIDTH - 1, 0)
+> using GENMASK() makes people even confusing since it's not a mask, I would
+> suggest simply put value directly here, which is 0x1ff
+> 
+> > +#define SPACEMIT_LCR_LV_STANDARD_MASK		GENMASK(SPACEMIT_LCR_LV_STANDARD_SHIFT +\
+> > +						SPACEMIT_LCR_LV_STANDARD_WIDTH - 1,\
+> > +						SPACEMIT_LCR_LV_STANDARD_SHIFT)
+> same reason here, suggest simplify as
+> #define SPACEMIT_LCR_LV_STANDARD_MASK		GENMASK(8, 0)
+> which is more readable and maintenace friendly
+Thanks, I will.
 
-Thanks, I will fix this in next version.
+> 
+> > +#define SPACEMIT_LCR_LV_FAST_MASK		GENMASK(SPACEMIT_LCR_LV_FAST_SHIFT +\
+> > +						SPACEMIT_LCR_LV_FAST_WIDTH - 1,\
+> > +						SPACEMIT_LCR_LV_FAST_SHIFT)
+> > +
+> ..[snip]
+> > +static struct clk *spacemit_i2c_register_scl_clk(struct spacemit_i2c_dev *i2c,
+> > +						 struct clk *parent)
+> > +{
+> > +	struct clk_init_data init;
+> > +	char name[32];
+> > +
+> > +	snprintf(name, sizeof(name), "%s_scl_clk", dev_name(i2c->dev));
+> > +
+> > +	init.name = name;
+> > +	init.ops = &spacemit_i2c_clk_ops;
+> > +	init.parent_data = (struct clk_parent_data[]) {
+> > +		{ .fw_name = "func" },
+> > +	};
+> > +	init.num_parents = 1;
+> ..
+> > +	init.flags = 0;
+> I think you can drop this line, by simply init it at declaration
+> 	struct clk_init_data init = {};
+Sounds good to me.
 
-[......]
+> ..
+> > +
+> > +	i2c->scl_clk_hw.init = &init;
+> > +
+> > +	return devm_clk_register(i2c->dev, &i2c->scl_clk_hw);
+> > +}
+> > +
+> >  static void spacemit_i2c_reset(struct spacemit_i2c_dev *i2c)
+> >  {
+> >  	writel(SPACEMIT_CR_UR, i2c->base + SPACEMIT_ICR);
+> > @@ -224,7 +352,7 @@ static void spacemit_i2c_init(struct spacemit_i2c_dev *i2c)
+> >  	 */
+> >  	val |= SPACEMIT_CR_DRFIE;
+> >  
+> > -	if (i2c->clock_freq == SPACEMIT_I2C_MAX_FAST_MODE_FREQ)
+> > +	if (i2c->mode == SPACEMIT_MODE_FAST)
+> >  		val |= SPACEMIT_CR_MODE_FAST;
+> >  
+> >  	/* disable response to general call */
+> > @@ -519,14 +647,15 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
+> >  		dev_warn(dev, "failed to read clock-frequency property: %d\n", ret);
+> >  
+> >  	/* For now, this driver doesn't support high-speed. */
+> > -	if (!i2c->clock_freq || i2c->clock_freq > SPACEMIT_I2C_MAX_FAST_MODE_FREQ) {
+> > -		dev_warn(dev, "unsupported clock frequency %u; using %u\n",
+> > -			 i2c->clock_freq, SPACEMIT_I2C_MAX_FAST_MODE_FREQ);
+> > +	if (i2c->clock_freq > SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ &&
+> > +	    i2c->clock_freq <= SPACEMIT_I2C_MAX_FAST_MODE_FREQ) {
+> > +		i2c->mode = SPACEMIT_MODE_FAST;
+> > +	} else if (i2c->clock_freq && i2c->clock_freq <= SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ) {
+> > +		i2c->mode = SPACEMIT_MODE_STANDARD;
+> > +	} else {
+> > +		dev_warn(i2c->dev, "invalid clock-frequency, using fast mode");
+> s/using../fallback to fast mode/
+Thanks.
 
+> 
+> > +		i2c->mode = SPACEMIT_MODE_FAST;
+> >  		i2c->clock_freq = SPACEMIT_I2C_MAX_FAST_MODE_FREQ;
+> > -	} else if (i2c->clock_freq < SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ) {
+> > -		dev_warn(dev, "unsupported clock frequency %u; using %u\n",
+> > -			 i2c->clock_freq,  SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ);
+> > -		i2c->clock_freq = SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ;
+> >  	}
+> >  
+> >  	i2c->dev = &pdev->dev;
+> > @@ -548,10 +677,33 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
+> >  	if (IS_ERR(clk))
+> >  		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable func clock");
+> >  
+> > +	i2c->scl_clk = spacemit_i2c_register_scl_clk(i2c, clk);
+> > +	if (IS_ERR(i2c->scl_clk))
+> > +		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->scl_clk),
+> > +				     "failed to register scl clock\n");
+> > +
+> >  	clk = devm_clk_get_enabled(dev, "bus");
+> >  	if (IS_ERR(clk))
+> >  		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock");
+> you can use dev_err_ptr_probe()
+Oh nice API, I will use it.
+> 
+> >  
+> > +	ret = clk_set_rate_exclusive(i2c->scl_clk, i2c->clock_freq);
+> why use _exclusive_ API? is there multi consumers? can you explain?
+No multi consumers. I will use clk_set_rate() in the next version.
+Thanks for you pointing it out. Nice catch!
+
+                        - Troy
+> 
+> > +	if (ret)
+> > +		return dev_err_probe(&pdev->dev, ret, "failed to set exclusive rate for SCL clock");
+> > +
+>  
+> 
+> -- 
+> Yixun Lan (dlan)
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
