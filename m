@@ -4,154 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9985CAC5B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Sep 2025 09:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61738CAC5B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Sep 2025 09:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1+Le8r9T2XL9UfeVQzfdaB++6yspH8bSjDjw8VOBEBU=; b=rtzizdn4F2UUzd
-	Vwj+AVYAgGWNzId4MpiuRLdRSZ/DF0wo9chAlpdUykXscO2vBvSVG/gB/QjXsF2ATGDSaMRu5x6tA
-	rxvd3uJzzWG3KHQpCbymxi/8i9XINRvbXRpwPvt5MuhXLFLAa/tA5US1x7oOdk7i31eUfkfb+RMgK
-	P+SL9Zx6pDs7fxGrINMT326cQAn5Ium+L5sxBcaFNewTkU92JOOXllL09oPY300ayx2wcZfY/YGfH
-	Mv5g7PGsV5pzP3ou+oQ3Bo8zi4kphxMSThYw3dB/b6JQtDWvdkxptz324zwkeJSAzFHd4uj+Gx35w
-	WCZEacfMe+93T8JDLb1g==;
+	List-Owner; bh=/by4hWJZwOGMuLKhbvQixZi8j/mSCXNJVcW+O8f7uo8=; b=D38CBd1Zs/U8wr
+	hbD4CRq4R6EhF1IgWdkm8PiMgtyHl12EBQ1wW7cBdl9E8k6DSdqbq1SQjHF/lbDEBKy0Uv8XTzjt5
+	h55XTpHpCzKnNOVk9rCI0LbwfDYtOJYeEA7F68MK6Z/TvOithInuyp65NOaaImxMYhJ44NuU9DS8U
+	exlCw5nJta6KRUhoRYZHoFSVfDjNM3liBqcqHdOwY7myUX5Jy6bR5p4/enns3dfGHWuCggOVdNCqt
+	BitE3fyrQu/05oqnaKLcQdc+ceSW/pcdyWIa2P0ho8K4yJWI7Lwoa/jJQKospsgFlfv92cw2VsxpL
+	DMiskoPaQTcN7qHFpfsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v39x5-00000001ttC-17bc;
-	Mon, 29 Sep 2025 09:13:47 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1v3A07-00000001w3T-3dFz;
+	Mon, 29 Sep 2025 09:16:55 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v39x1-00000001tq2-2vXd
+	id 1v3A04-00000001vtT-12T2
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Sep 2025 09:13:45 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id A184628A42;
-	Mon, 29 Sep 2025 09:13:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1759137220; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=krawKFrMK6CfXJGZRbum6m0whh/VNnnKuCLw/mlg22U=;
-	b=Hq4pd3FLlIHlpsq/WIWIpKTQIK1u5uVC206WcP0fQUSFrI19DANzMPCVUP75KY+hBZcL0Q
-	dtdVgf8LzRHS+mLGqBHxvAYy4l40BsAWLIlpobyu01j8D02b0I98f1+p5dw6q44ptuX62H
-	m9Zo3mhg2ZXRKipx4DYunUuhbPd04E4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1759137220;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=krawKFrMK6CfXJGZRbum6m0whh/VNnnKuCLw/mlg22U=;
-	b=b25DWtEAGkPFc4sT9issDmqy/BMl9Qbnlh5ruisp0J1gFMCT/qNvoATff8AwO5EUhSceEL
-	kSBiQsu7tqSUuVAA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=hMG0X5o7;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=ZWV8cEdM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1759137219; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=krawKFrMK6CfXJGZRbum6m0whh/VNnnKuCLw/mlg22U=;
-	b=hMG0X5o7qx5uLzOvtPU6oAOR/sM1jQy2B6QsQik0JJGzKLSrpedSDbKzqP6/qSgL4E6z5c
-	PYEIwt7LMqEi6gairxqjXKFRdyD4dFJYTy2ovOneowKDznaaZr9VZ4B/+OwUlRFxMrvTSI
-	pzIsg61tXM/wB+hrp8gOffgcwit1QxI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1759137219;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=krawKFrMK6CfXJGZRbum6m0whh/VNnnKuCLw/mlg22U=;
-	b=ZWV8cEdMR8rl5mD9g70Zqdfp6Osb2Z+ASfy/UIiBlSB9+DmXXVL0n2mnz3VGfUEWe6Zu2m
-	Fw46i1nCG69w1gBA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CB9D413782;
-	Mon, 29 Sep 2025 09:13:22 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id q2iJILJN2mgkQwAAD6G6ig
-	(envelope-from <ddiss@suse.de>); Mon, 29 Sep 2025 09:13:22 +0000
-Date: Mon, 29 Sep 2025 19:13:16 +1000
-From: David Disseldorp <ddiss@suse.de>
-To: nschichan@freebox.fr
-Cc: akpm@linux-foundation.org, andy.shevchenko@gmail.com, axboe@kernel.dk,
- brauner@kernel.org, cyphar@cyphar.com, devicetree@vger.kernel.org,
- ecurtin@redhat.com, email2tema@gmail.com, graf@amazon.com,
- gregkh@linuxfoundation.org, hca@linux.ibm.com, hch@lst.de,
- hsiangkao@linux.alibaba.com, initramfs@vger.kernel.org, jack@suse.cz,
- julian.stecklina@cyberus-technology.de, kees@kernel.org,
- linux-acpi@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-efi@vger.kernel.org, linux-ext4@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- mcgrof@kernel.org, mingo@redhat.com, monstr@monstr.eu,
- mzxreary@0pointer.de, patches@lists.linux.dev, rob@landley.net,
- safinaskar@gmail.com, sparclinux@vger.kernel.org,
- thomas.weissschuh@linutronix.de, thorsten.blum@linux.dev,
- torvalds@linux-foundation.org, tytso@mit.edu, viro@zeniv.linux.org.uk,
- x86@kernel.org
-Subject: Re: [PATCH-RFC] init: simplify initrd code (was Re: [PATCH RESEND
- 00/62] initrd: remove classic initrd support).
-Message-ID: <20250929171652.50b7a959.ddiss@suse.de>
-In-Reply-To: <20250925131055.3933381-1-nschichan@freebox.fr>
-References: <CAHNNwZC7gC7zaZGiSBhobSAb4m2O1BuoZ4r=SQBF-tCQyuAPvw@mail.gmail.com>
-	<20250925131055.3933381-1-nschichan@freebox.fr>
+	Mon, 29 Sep 2025 09:16:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1759137359;
+	bh=KeVkegvpdMgh47tnqmI3xOua1lgqp1cz8RZNtr7UffM=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=KLhSDn6IBsZmWQtzF/f/Zsyev6LZxPqwUzOAXeDRh09r1/PnwZa7soxBpCGCAaK7h
+	 DkM99ViR460i1OdO9ax2FYT2Xs0p5l7ZhmSk/+5aoGwYHbLrU6iKj9glFg+jQgQ8WD
+	 ashLz5+bJNFNlfEQIIzdv+xo0/Z6Lht4PQyROGOs=
+X-QQ-mid: zesmtpsz4t1759137350t17f23be7
+X-QQ-Originating-IP: FVLep5dVBtmVD5DCpCmR0xTVH0ACm5Z5iCCpFlyvgyw=
+Received: from = ( [14.123.252.176])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 29 Sep 2025 17:15:49 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 981246392991954728
+EX-QQ-RecipientCnt: 9
+Date: Mon, 29 Sep 2025 17:15:49 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>,
+	Troy Mitchell <troymitchell988@gmail.com>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH v3] i2c: spacemit: introduce pio for k1
+Message-ID: <A6E9D3643EC66124+aNpORZx6yq8VOfd8@kernel.org>
+References: <20250929-k1-i2c-atomic-v3-1-f7e660c138b6@linux.spacemit.com>
 MIME-Version: 1.0
-X-Rspamd-Queue-Id: A184628A42
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-2.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_CC(0.00)[linux-foundation.org,gmail.com,kernel.dk,kernel.org,cyphar.com,vger.kernel.org,redhat.com,amazon.com,linuxfoundation.org,linux.ibm.com,lst.de,linux.alibaba.com,suse.cz,cyberus-technology.de,lists.infradead.org,lists.linux-m68k.org,lists.ozlabs.org,lists.linux.dev,monstr.eu,0pointer.de,landley.net,linutronix.de,linux.dev,mit.edu,zeniv.linux.org.uk];
-	ARC_NA(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	R_RATELIMIT(0.00)[to_ip_from(RL4bphh9snz1w7feaus4qmzef6)];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_DN_NONE(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	RCPT_COUNT_GT_50(0.00)[56];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid]
+Content-Disposition: inline
+In-Reply-To: <20250929-k1-i2c-atomic-v3-1-f7e660c138b6@linux.spacemit.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NJcWJJyfcVSIE+dZGnLUCuQBwYiiXz1dGQt5VB3R/aE04qlDSLZIAkQt
+	YNnF67pY4NqjBJS7S1U58lSJ9l+OTKlyCzfmceYSbTL+mR4oq+3+rV/n8Kdu6TeQAeoB6jT
+	A0/qviKULd3LHkGnIzkTm8WylPHCGbkvpP/R52bgQDCJSEhO1qqYWUgb13WGwWSTmUGlG5a
+	SyL5XytTF6r+UBPzliJrvcW8Q9Ujn+kHQfa5xo1VgkhsBs/PBDgBmmehLKGxThxQxXqMeRj
+	F7uPtBSykgJRqqnwMF8RqZu3CkAMHFFpyW2iCx2bTPoC+WIkTc19BXHH3ArRPkA4Chsh10d
+	5kZbr9H/muJTLSbolyFwCxhQ2H7Izx+0Yc/ZizzXhhuUaDBiaKNb5KRS8wfYHAG61gJdfR4
+	9hK1qrPNyd4PtKkktB5cRlLGUSbR2WerX4+OXZJr65JG78DgUWtHELkYnV/tlfw3PSPmpi6
+	VEvU9a6RhpvJAYAmyXBEjiz11wyqJDpcktNw2HyQj0jkFetEhdGhsRJDJ95/c16V9xFKC8g
+	TqjiMcGD11K4jprS1psn/oG3r/mtdFJj71zZqhXQnQEe8kAOyXCNJi15ly+vu8V20HRejNl
+	ZPgpdJu/AVx9ca/7Cbmfe5Pm34CbWvdTrn3YE1SdQYDro5wrc6pT+rRYWiw6GXl1eZUSHRX
+	oO+NcFa2gq3itmRV/8Zo2NiWy5mNdBLYPzHZt2+bLfwE9fOMz3zDWVPsI9Cxd00k9VXM2Y6
+	Wa0qBx765KLSUI26Nmj7WZUlBPKVVmWuEyGQg7E6/ss6c/Qxp4irbhnRYY9rdvyVHbfOWWH
+	GTkKjPchdiLJBHx86y5a/Z4AkMzp6BAGDWlHfFXUR9wQbfIBIgOZOQLK8ooeRlnuQztHnw7
+	FR4YBn9CE+pRJu9Qm9QBxkriRvg4x/vwDjFKaBguBm5mGE4ZPeQ4ZGkzrlgi+zyQwnyHzyW
+	kyeapqnKFWEoyPkpZDDHpRtImxtVatSrtZTKKrhDaLK4Zwfm4pLCbSD+U6IaYdMnRFvksRi
+	ZOVN2IMhsrXb0RPwq9KkjlOFnLSAH2rGjyrPxMolXL7x5xbegKW9sioQPuaHYrUfRwHS3f/
+	Aiib/X+kum9LJUmaM+8QoE=
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_021343_884566_1ADFE30A 
-X-CRM114-Status: GOOD (  29.04  )
+X-CRM114-CacheID: sfid-20250929_021652_968562_1EDD333D 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,96 +97,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
-
-On Thu, 25 Sep 2025 15:10:56 +0200, nschichan@freebox.fr wrote:
-
-> From: Nicolas Schichan <nschichan@freebox.fr>
+On Mon, Sep 29, 2025 at 02:07:49PM +0800, Troy Mitchell wrote:
+> This patch introduces I2C PIO functionality for the Spacemit K1 SoC,
+> enabling the use of I2C in atomic context.
 > 
-> - drop prompt_ramdisk and ramdisk_start kernel parameters
-> - drop compression support
-> - drop image autodetection, the whole /initrd.image content is now
->   copied into /dev/ram0
-> - remove rd_load_disk() which doesn't seem to be used anywhere.
-> 
-> There is now no more limitation on the type of initrd filesystem that
-> can be loaded since the code trying to guess the initrd filesystem
-> size is gone (the whole /initrd.image file is used).
-> 
-> A few global variables in do_mounts_rd.c are now put as local
-> variables in rd_load_image() since they do not need to be visible
-> outside this function.
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > ---
+> Changes in v3:
+> - drop 1-5 patches (have been merged)
+> - modify commit message
+> - use readl_poll_timeout_atomic() in wait_pio_xfer()
+> - use msecs_to_jiffies() when get PIO mode timeout value
+> - factor out transfer state handling into spacemit_i2c_handle_state().
+> - do not disable/enable the controller IRQ around PIO transfers.
+> - consolidate spacemit_i2c_init() interrupt setup
+> - rename is_pio -> use_pio
+> - rename spacemit_i2c_xfer() -> spacemit_i2c_xfer_common()
+> - rename spacemit_i2c_int_xfer() -> spacemit_i2c_xfer()
+> - rename spacemit_i2c_pio_xfer() -> spacemit_i2c_pio_xfer_atomic()
+> - call spacemit_i2c_err_check() in wait_pio_xfer() when write last byte
+> - Link to v2: https://lore.kernel.org/r/20250925-k1-i2c-atomic-v2-0-46dc13311cda@linux.spacemit.com
 > 
-> Hello,
+> Changes in v2:
+> - Patch 1/6:
+>   Patch 3/6:
+>   Patch 4/6:
+>     - nothing
+> - Patch 2/6:
+>   - remove is_pio judgement in irq_handler()
+> - Patch 5/6:
+>   - fix wrong comment
+>   - In spacemit_i2c_conditionally_reset_bus(), once the condition is met inside the loop, it should
+>     return directly instead of using break.
+> - Patch 6/6:
+>   - add is_pio judgement in irq_handler()
+>   - use a fixed timeout value when PIO
+>   - use readl_poll_timeout() in  spacemit_i2c_wait_bus_idle() when PIO
 > 
-> Hopefully my email config is now better and reaches gmail users
-> correctly.
+> - Link to v1: https://lore.kernel.org/r/20250827-k1-i2c-atomic-v1-0-e59bea02d680@linux.spacemit.com
+> ---
+>  drivers/i2c/busses/i2c-k1.c | 206 ++++++++++++++++++++++++++++++++++----------
+>  1 file changed, 161 insertions(+), 45 deletions(-)
 > 
-> The patch below could probably split in a few patches, but I think
-> this simplify the code greatly without removing the functionality we
-> depend on (and this allows now to use EROFS initrd images).
-> 
-> Coupled with keeping the function populate_initrd_image() in
-> init/initramfs.c, this will keep what we need from the initrd code.
-> 
-> This removes support of loading bzip/gz/xz/... compressed images as
-> well, not sure if many user depend on this feature anymore.
-> 
-> No signoff because I'm only seeking comments about those changes right
-> now.
-> 
->  init/do_mounts.h    |   2 -
->  init/do_mounts_rd.c | 243 +-------------------------------------------
->  2 files changed, 4 insertions(+), 241 deletions(-)
-
-This seems like a reasonable improvement to me. FWIW, one alternative
-approach to clean up the FS specific code here was proposed by Al:
-https://lore.kernel.org/all/20250321020826.GB2023217@ZenIV/
-
-...
-> diff --git a/init/do_mounts_rd.c b/init/do_mounts_rd.c
-> index ac021ae6e6fa..5a69ff43f5ee 100644
-> --- a/init/do_mounts_rd.c
-> +++ b/init/do_mounts_rd.c
-> @@ -14,173 +14,9 @@
->  
->  #include <linux/decompress/generic.h>
->  
-> -static struct file *in_file, *out_file;
-> -static loff_t in_pos, out_pos;
-> -
-> -static int __init prompt_ramdisk(char *str)
-> -{
-> -	pr_warn("ignoring the deprecated prompt_ramdisk= option\n");
-> -	return 1;
-> -}
-> -__setup("prompt_ramdisk=", prompt_ramdisk);
-> -
-> -int __initdata rd_image_start;		/* starting block # of image */
-> -
-> -static int __init ramdisk_start_setup(char *str)
-> -{
-> -	rd_image_start = simple_strtol(str,NULL,0);
-> -	return 1;
-> -}
-> -__setup("ramdisk_start=", ramdisk_start_setup);
-
-There are a couple of other places that mention these parameters, which
-should also be cleaned up.
-
-...
->  static unsigned long nr_blocks(struct file *file)
+> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+>  static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
 >  {
-> -	struct inode *inode = file->f_mapping->host;
-> -
-> -	if (!S_ISBLK(inode->i_mode))
-> -		return 0;
-> -	return i_size_read(inode) >> 10;
-> +	return i_size_read(file->f_mapping->host) >> 10;
+>  	unsigned long time_left;
+> @@ -310,10 +376,16 @@ static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
+>  
+>  		reinit_completion(&i2c->complete);
+>  
+> -		spacemit_i2c_start(i2c);
+> +		if (i2c->use_pio) {
+> +			spacemit_i2c_start(i2c);
+> +
+> +			time_left = spacemit_i2c_wait_pio_xfer(i2c);
+> +		} else {
+> +			spacemit_i2c_start(i2c);
+I will put i2c_start() out in the next version.
 
-This should be >> BLOCK_SIZE_BITS, and dropped as a wrapper function
-IMO.
+                        - Troy
 
 _______________________________________________
 linux-riscv mailing list
