@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83064CAC5B9
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 02:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 367F9CAC5B0
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 02:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BVoY+RTYThu5SgwTHnJ16V26fVgY9Ap/1XS0ej5+Nno=; b=BCPbSU1g8DegPH
-	x7qc88kfcyxIAi61Hl+D5BI1qwx+xL2D0ostcUGeDqSL5/1vkxYpM3w2x1AVcP5/MAKyRKaPVQMYg
-	6HwoyBE/9Gzx37fuJL472HcuTSes4tZE5R2mtVTTJLvAmR3OHhr0eLS5Y6a04bu+yjq7VzZHOXZ1b
-	vlU7CXatCLsKQk5xONh2764SstF1z7qcc+4n+cT6cQ+Idnl4x7Z4whauUfMu7H3zTAVp3Lb2RxP70
-	neRp5HX7fLXF0YJDqz3zet/wUHQ2sdwYluR6lCY5SZPjeAiJfcA7lYXZTjAttwO0hjLJ89jzC7mt5
-	I2WEug5eGbgDOj1VJKuw==;
+	List-Owner; bh=WcVZJsVjzYT3iGFFiDrC1IKR1oLhJYj18+EzWN0yJ4o=; b=jllPGCwf3YipxQ
+	0TRaxKi1KeUFwP9KO5WnNp/q2/QqywvL+RseCRiRWcW96EmFdmkBtJGr/7c+F40oQzWSI60EZm2iH
+	JVAtoLpBPeEVtm1SNnCBQRSLakLddTdDmEFgyHvyZXho+VtUU8oY1KE048nRMrYcfvLtVy4fbyk9B
+	3U9TDTco+tuDEFRgnL1AWfSHI8X7ZJDhqz23NsmvrartUrjsT5ErTOrkhkUBKeFv2TvTaHbOhooBt
+	/hYhuoADl7KIupfwkuMHzoQz4GYd4NQCJ7bo3xrgcZaB5/8ZPsZm1TDdDBM2R1XKrzIUTxNO769wl
+	ciWoeLZqYsnILOamkpKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3QUO-00000003yQR-2Oth;
-	Tue, 30 Sep 2025 02:53:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v3QVr-00000003yla-1QqF;
+	Tue, 30 Sep 2025 02:54:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3QUL-00000003yOe-3Mye
+	id 1v3QVp-00000003ykK-0xPX
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Sep 2025 02:53:15 +0000
+	Tue, 30 Sep 2025 02:54:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A6D3E40625
-	for <linux-riscv@lists.infradead.org>; Tue, 30 Sep 2025 02:53:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86B46C4AF09
-	for <linux-riscv@lists.infradead.org>; Tue, 30 Sep 2025 02:53:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A81CD4184C;
+	Tue, 30 Sep 2025 02:54:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87CE5C4CEF5;
+	Tue, 30 Sep 2025 02:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759200792;
-	bh=ym6h+Qei6CJdmJJVbagIpDYKjBeMBZx8FHWAejUB0wE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ZQEQ98G3bc+RXLkAjVNzcVi/lvBuHyora3y6Zw3XprKqYOMPaiGuYjUK/G31JHpHr
-	 O/OuKZm9HxOCnEpUNddpaLPt8AEcacqAeWwfafojoodFqESXk1zkEJdNPhyMg0aCTq
-	 u9t2U/bkf6E2Ki2+tyhc3LF4SVgdenJkZpg5gxVO8OiTLyAuSdwIQIn6hyFegsIt+o
-	 czyltKdO8Mhzmuk9ok02kbwhybem3tvpxnlWZKLjd1DoG/jUDb+8I5/pMNXO+ow6wc
-	 9R56Mc3eNQU+YHPldkahVJa9yh0GzHiPaLclpp3q1D+rONvmophr3SCnxBPTIcVQ4F
-	 ilqJGzWWnxTQA==
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-b3e9d633b78so422940866b.1
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Sep 2025 19:53:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXmDwbOroV0dpGojFKnSmc6gZSLQlNwPN6Bb9ahI/CPnEU24Tb8iY2gXjJXVI06mE1xFqssG2a0m8nPiw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywc4Tq7QMCGhxalOC44rIHoRt9FjY4bCXQf7PvHZSdut7saKS70
-	auoRRBGK/ahByNO5JHU4F5SPun1v0IAXnO96/rBY5BPQio4/1pZsl8QuA04DZ6Bce9CWuO0l3Cy
-	sjI3GhrDAXYw7hnNjPmnbflJ11zCszNQ=
-X-Google-Smtp-Source: AGHT+IEfvCuZAVXXWVTEo167aebO6qUsrh2w2UDinUqmaNHItIXCoAnwHta702NRz1ENszkgUaXlenJfqCGyw7SV6Wc=
-X-Received: by 2002:a17:907:daa:b0:b2d:4e57:58d8 with SMTP id
- a640c23a62f3a-b413600acc6mr256609966b.10.1759200791107; Mon, 29 Sep 2025
- 19:53:11 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com> <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
-In-Reply-To: <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Tue, 30 Sep 2025 10:52:59 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H6PNcyTNXEhzdovt3an7e9V+B+Z-px=_HPiQ5vv7qaDMg@mail.gmail.com>
-X-Gm-Features: AS18NWDktm4BaCz5O-7O3VzGm9rq1tPjPU1iKF2Ar1jh6n3dOQanb3Px7roMXtU
-Message-ID: <CAAhV-H6PNcyTNXEhzdovt3an7e9V+B+Z-px=_HPiQ5vv7qaDMg@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+	s=k20201202; t=1759200884;
+	bh=HL+THJGskFVL433eKDDlQSm0NvfTmh1ckVcBvXfN6vo=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=BARO6QdbrN8WCShhkUT5OCrXk0WT7AvI6EFS4B5r3YgQigzKYHbc6ffhuEHKG4q26
+	 4InVRpj+vo6/Gx6snGSmm8j+VAwEdcZoIlUxUozPJaU2KH3kdRDirma3HWmTTX01mC
+	 PQMj14ejEBRUmTuV+v6uEx7Whl4lnxxETl0TVSWKZBASmo5JLgX4tQXDetNHfldyeZ
+	 tc1WEJa64PGj2g977zaS4GWoOHj24VFfTruWHr7U+Sa1iC6bywI2+okD4OMv5Q0Od/
+	 H07uS6SgkhmMAvxInjBhdDMXLVyUHcWlws6rB0I7iI7wCwYwU0CY+zG2w2YIVLjIUT
+	 Sz5j5AUiw/HSg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33FEB39D0C1A;
+	Tue, 30 Sep 2025 02:54:39 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V updates for v6.18-rc1
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <2c804359-3d43-0fba-7173-a87f9aec4bd2@kernel.org>
+References: <2c804359-3d43-0fba-7173-a87f9aec4bd2@kernel.org>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <2c804359-3d43-0fba-7173-a87f9aec4bd2@kernel.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.18-mw1
+X-PR-Tracked-Commit-Id: 0b0ca959d20689fece038954bbf1d7b14c0b11c3
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: cb7e3669c683669d93139184adff68a7d9000536
+Message-Id: <175920087774.1805104.1478127226373607827.pr-tracker-bot@kernel.org>
+Date: Tue, 30 Sep 2025 02:54:37 +0000
+To: Paul Walmsley <pjw@kernel.org>
+Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_195313_884913_0113EA22 
-X-CRM114-Status: GOOD (  24.65  )
+X-CRM114-CacheID: sfid-20250929_195445_314177_5670099E 
+X-CRM114-Status: UNSURE (   4.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,50 +75,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBTZXAgMjgsIDIwMjUgYXQgMTA6NDDigK9QTSBBcmQgQmllc2hldXZlbCA8YXJkYkBr
-ZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIFN1biwgMjggU2VwdCAyMDI1IGF0IDE1OjUyLCBIdWFj
-YWkgQ2hlbiA8Y2hlbmh1YWNhaUBrZXJuZWwub3JnPiB3cm90ZToKPiA+Cj4gPiBIaSwgQXJkLAo+
-ID4KPiA+IE9uIFN1biwgU2VwIDI4LCAyMDI1IGF0IDk6NDLigK9QTSBBcmQgQmllc2hldXZlbCA8
-YXJkYkBrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4KPiA+ID4gT24gU3VuLCAyOCBTZXB0IDIwMjUg
-YXQgMTA6NTUsIFRpZXpodSBZYW5nIDx5YW5ndGllemh1QGxvb25nc29uLmNuPiB3cm90ZToKPiA+
-ID4gPgo+ID4gPiA+IFdoZW4gY29tcGlsaW5nIHdpdGggTExWTSBhbmQgQ09ORklHX0xUT19DTEFO
-RyBpcyBzZXQsIHRoZXJlIGV4aXN0cwo+ID4gPiA+IHRoZSBmb2xsb3dpbmcgb2JqdG9vbCB3YXJu
-aW5nIG9uIExvb25nQXJjaDoKPiA+ID4gPgo+ID4gPiA+ICAgdm1saW51eC5vOiB3YXJuaW5nOiBv
-Ymp0b29sOiBfX2VmaXN0dWJfZWZpX2Jvb3Rfa2VybmVsKCkKPiA+ID4gPiAgIGZhbGxzIHRocm91
-Z2ggdG8gbmV4dCBmdW5jdGlvbiBfX2VmaXN0dWJfZXhpdF9ib290X2Z1bmMoKQo+ID4gPiA+Cj4g
-PiA+ID4gVGhpcyBpcyBiZWNhdXNlIGVmaV9ib290X2tlcm5lbCgpIGRvZXNuJ3QgZW5kIHdpdGgg
-YSByZXR1cm4gaW5zdHJ1Y3Rpb24KPiA+ID4gPiBvciBhbiB1bmNvbmRpdGlvbmFsIGp1bXAsIHRo
-ZW4gb2JqdG9vbCBoYXMgZGV0ZXJtaW5lZCB0aGF0IHRoZSBmdW5jdGlvbgo+ID4gPiA+IGNhbiBm
-YWxsIHRocm91Z2ggaW50byB0aGUgbmV4dCBmdW5jdGlvbi4KPiA+ID4gPgo+ID4gPiA+IEF0IHRo
-ZSBiZWdpbm5pbmcsIHRyeSB0byBkbyBzb21ldGhpbmcgdG8gbWFrZSBlZmlfYm9vdF9rZXJuZWwo
-KSBlbmRzIHdpdGgKPiA+ID4gPiBhbiB1bmNvbmRpdGlvbmFsIGp1bXAgaW5zdHJ1Y3Rpb24sIGJ1
-dCB0aGlzIG1vZGlmaWNhdGlvbiBzZWVtcyBub3QgcHJvcGVyLgo+ID4gPiA+Cj4gPiA+ID4gU2lu
-Y2UgdGhlIGVmaXN0dWIgZnVuY3Rpb25zIGFyZSB1c2VsZXNzIGZvciBzdGFjayB1bndpbmRlciwg
-dGhleSBjYW4gYmUKPiA+ID4gPiBpZ25vcmVkIGJ5IG9ianRvb2wuIEFmdGVyIG1hbnkgZGlzY3Vz
-c2lvbnMsIG5vIG5lZWQgdG8gbGluayBsaWJzdHViIHRvCj4gPiA+ID4gdGhlIHZtbGludXgubywg
-b25seSBsaW5rIGxpYnN0dWIgdG8gdGhlIGZpbmFsIHZtbGludXguCj4gPiA+ID4KPiA+ID4KPiA+
-ID4gUGxlYXNlIHRyeSBrZWVwaW5nIHRoZXNlIGNoYW5nZXMgY29uZmluZWQgdG8gYXJjaC9sb29u
-Z2FyY2guIFRoaXMKPiA+ID4gcHJvYmxlbSBkb2VzIG5vdCBleGlzdCBvbiBvdGhlciBhcmNoaXRl
-Y3R1cmVzLCBhbmQgY2hhbmdpbmcgdGhlIHdheQo+ID4gPiB2bWxpbnV4IGlzIGNvbnN0cnVjdGVk
-IG1pZ2h0IGNyZWF0ZSBvdGhlciBpc3N1ZXMgZG93biB0aGUgcm9hZC4KPiA+IEFSTSwgUklTQy1W
-IGFuZCBMb29uZ0FyY2ggZG8gdGhpbmdzIGV4YWN0bHkgaW4gdGhlIHNhbWUgd2F5LiBOb3cKPiA+
-IExvb25nQXJjaCBpcyB0aGUgZmlyc3Qgb2YgdGhlIHRocmVlIHRvIGVuYWJsZSBvYmp0b29sLCBz
-byB3ZSBtZWV0IHRoZQo+ID4gcHJvYmxlbSBmaXJzdC4KPiA+Cj4gPiBCdXQgeWVzLCBJIGFsc28g
-ZG9uJ3Qgd2FudCB0byBjaGFuZ2UgdGhlIHdheSBvZiBjb25zdHJ1Y3Rpbmcgdm1saW51eC4KPiA+
-IFNvIEkgcHJlZmVyIHRoZSBlYXJsaWVzdCB3YXkgdG8gZml4IHRoaXMgcHJvYmxlbS4KPiA+IGh0
-dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xvb25nYXJjaC9DQUFoVi1IN2ZSSEdGVktWOEhpdFJnbXVv
-RFB0NU9EdC0taVN1VjBFbWVlVWI5ZDVGTndAbWFpbC5nbWFpbC5jb20vVC8jbWVlZjc0MTFhYmQx
-NGY0YzI4Yzg1ZTY4NjYxNGFhOTIxMWZjY2RjYTAKPiA+Cj4KPiBDYW4gd2UganVzdCBkcm9wIHRo
-ZSBfX25vcmV0dXJuIGFubm90YXRpb24gZnJvbSBrZXJuZWxfZW50cnlfdCwgYW5kCj4gcmV0dXJu
-IEVGSV9TVUNDRVNTIGZyb20gZWZpX2Jvb3Rfa2VybmVsKCk/Ck5vdCBnb29kLCBiZWNhdXNlIGtl
-cm5lbF9lbnRyeV90IGlzIHJlYWxseSAibm9yZXR1cm4iLCBhbmQgYXQgcHJlc2VudApubyBhcmNo
-aXRlY3R1cmUgcmV0dXJucyBFRklfU1VDQ0VTUyBhdCB0aGUgZW5kIG9mIGVmaV9ib290X2tlcm5l
-bCgpLgoKCkh1YWNhaQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+The pull request you sent on Mon, 29 Sep 2025 02:00:17 -0600 (MDT):
+
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.18-mw1
+
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/cb7e3669c683669d93139184adff68a7d9000536
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
