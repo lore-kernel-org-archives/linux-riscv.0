@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33AACCA470
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 18:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DCECAC5B8
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 22:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtQ/8axhFazqzCBcN9nVoJk/1kLSFI93GVM3x+bYmiA=; b=MVm5b5BnSM1Px8jJomCndfpfRL
-	TmPPohggXnpoOBv3jeBGEN1V5z8FXt0t5hP9km0M31IMb1Lrh7Fb65ndJc7Mcq7wdG1qWy6W+dLLR
-	i7CLV5UBDsDj0VmrO6fIrqVYxoeqf22CQ3Z/2PxgXwOtqMFz0ootYTWv2FPutAk2P105OG+4b8ego
-	9XXAQL0spTgyG/hFtK14NzHtMQtD1dVYOwLmaSBCWLnj7Yb+XIQXierevEvaxvlTwnC8AFgqheGFy
-	gOc8KgdZV5OawuGwwGX8/OY421FdkpCMsk2ZtKj6KVG6a8Dkw/jNAKhDfJL1qrVL17wavCaDrnnkX
-	uevKmg3g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rHg6gUSLJbENGtv+/xqgBL6FfTZa9o4OlI+lHCxj7AQ=; b=g1m79ryPSSo3tR
+	XQ5EVWZq/1anpcv4LJvtxFCNCjfzBnv71jbkQT4fY7OyWazITNTOBa52oX8HeQ49pbPdNTV12/1tn
+	Lbl3yTsVym7nQlrjz8CsOp28xeyzmUf9DkkH6F4yWESWGGZYVq0fMQaNtlpunDzHc8Cbwb7FL/Roj
+	NA+L+6ncw3EzUF+RCOGGJvz/6VDQIn/1LyDySY8z699mP0zJ2+kQAocXi1tQKPkg+P58YvMZ7uli5
+	2aTljUFAToQrNLkUADrMis79pAor4ua3uuaWpOWH18yEoShEceoIwYt2rKbrrNhqD0YvysHmrlGwo
+	3CVNkB5O98klIiR5X1uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3fIt-00000005zQE-2QQS;
-	Tue, 30 Sep 2025 18:42:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v3iXz-00000006IO7-2YG0;
+	Tue, 30 Sep 2025 22:10:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3fIq-00000005zPl-3weC
+	id 1v3iXx-00000006INf-2CMR
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Sep 2025 18:42:22 +0000
+	Tue, 30 Sep 2025 22:10:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB2DF40121;
-	Tue, 30 Sep 2025 18:42:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D19C4C4CEF0;
-	Tue, 30 Sep 2025 18:42:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9D2DE45318;
+	Tue, 30 Sep 2025 22:10:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6719BC4CEF7;
+	Tue, 30 Sep 2025 22:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759257739;
-	bh=AwClXOYIL3t1a+GcEAIFfJ5ozI19kjStSruDq1e6QzI=;
+	s=k20201202; t=1759270207;
+	bh=hMd/AM3ewIb0jj5ghCyFKoP7KwuS14FKJyK/ph0ODyM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j3lbHwOiw/l6OtXSoVCd+MvPx2z/KJMMGsJmHIKetnAmrqrMnasM533hO/fTvkhzh
-	 2pHQ5mWEKXvHA/8TcefUyGMS0IYrHQ7bgz1bsX67XgJMp1+Q45TKVV7m3tJ+iYYEar
-	 cyqryGRRswWMzAL/Vdtyqis67qPoAmtG1J4YT3sEaMqKuqNVGyb2c/qzsrJ7ILOBxG
-	 gKUbHTJy597H7jlVEyGhgZHI6nm1FKWxbj/JZKxocuIDV+RlrPP2mA28t+urgGbLIp
-	 drpoe/dmDNZFZ1lNwJgRKwb9+BSidxSheYblUlNRSvGA2NsTZRte1lq6uSrysWNO4U
-	 LcLBlBedLWiiQ==
-Date: Tue, 30 Sep 2025 19:42:14 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Michael Zhu <michael.zhu@starfivetech.com>,
-	Drew Fustini <drew@beagleboard.org>, Yao Zi <ziyao@disroot.org>,
-	E Shattow <e@freeshell.de>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: riscv: starfive: add Orange Pi RV
- board compatible
-Message-ID: <20250930-sloped-recluse-41f839700f8c@spud>
-References: <20250930100318.2131968-1-uwu@icenowy.me>
+	b=TPNh/vzOa3u/0div8i87Dy9LaaSnw20oVgnYVKRcud+Zud4VcP9sdUT86mvKLNaSX
+	 4hAApTJERCXEwxyMUHksxymNDRP4jpQlEa1yLP9f1nLujyT+hadzblmndZVvy4p/rN
+	 kOvmUxDy/rtBUz2UkbWzN91Jesm1MVMAi+AKlbwZDWllnPORuKW0YFM6lCesag4T+R
+	 ktUTXq0voYdslGUv0vH5HEgr967cRvQ7H6pJ+xvbq+nzn+hE5n4JxEQ6kyutWDpaKH
+	 yYySGG4kJxBv0Sgb1y64k4KJ/MGp+Ijc6HtSg8ejVMd3/U/YpesfI3fgqa4fwUEJCP
+	 TEoo88EOFh0mw==
+Date: Tue, 30 Sep 2025 15:10:01 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Guodong Xu <guodong@riscstar.com>, Vinod Koul <vkoul@kernel.org>
+Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, Yixun Lan <dlan@gentoo.org>,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, elder@riscstar.com,
+	Naresh Kamboju <naresh.kamboju@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH] dmaengine: mmp_pdma: fix DMA mask handling
+Message-ID: <20250930221001.GA66006@ax162>
+References: <20250918-mmp-pdma-simplify-dma-addressing-v1-1-5c2be2b85696@riscstar.com>
 MIME-Version: 1.0
-In-Reply-To: <20250930100318.2131968-1-uwu@icenowy.me>
+Content-Disposition: inline
+In-Reply-To: <20250918-mmp-pdma-simplify-dma-addressing-v1-1-5c2be2b85696@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_114220_993849_9269CF40 
-X-CRM114-Status: UNSURE (   6.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250930_151009_609248_AA118BA2 
+X-CRM114-Status: GOOD (  31.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +73,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8507392849209169531=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Sep 18, 2025 at 10:27:27PM +0800, Guodong Xu wrote:
+> The driver's existing logic for setting the DMA mask for "marvell,pdma-1.0"
+> was flawed. It incorrectly relied on pdev->dev->coherent_dma_mask instead
+> of declaring the hardware's fixed addressing capability. A cleaner and
+> more correct approach is to define the mask directly based on the hardware
+> limitations.
+> 
+> The MMP/PXA PDMA controller is a 32-bit DMA engine. This is supported by
+> datasheets and various dtsi files for PXA25x, PXA27x, PXA3xx, and MMP2,
+> all of which are 32-bit systems.
+> 
+> This patch simplifies the driver's logic by replacing the 'u64 dma_mask'
+> field with a simpler 'u32 dma_width' to store the addressing capability
+> in bits. The complex if/else block in probe() is then replaced with a
+> single, clear call to dma_set_mask_and_coherent(). This sets a fixed
+> 32-bit DMA mask for "marvell,pdma-1.0" and a 64-bit mask for
+> "spacemit,k1-pdma," matching each device's hardware capabilities.
+> 
+> Finally, this change also works around a specific build error encountered
+> with clang-20 on x86_64 allyesconfig. The shift-count-overflow error is
+> caused by a known clang compiler issue where the DMA_BIT_MASK(n) macro's
+> ternary operator is not correctly evaluated in static initializers. By
+> moving the macro's evaluation into the probe() function, the driver avoids
+> this compiler bug.
+> 
+> Fixes: 5cfe585d8624 ("dmaengine: mmp_pdma: Add SpacemiT K1 PDMA support with 64-bit addressing")
+> Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
+> Closes: https://lore.kernel.org/lkml/CA+G9fYsPcMfW-e_0_TRqu4cnwqOqYF3aJOeKUYk6Z4qRStdFvg@mail.gmail.com
+> Suggested-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
 
---===============8507392849209169531==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+R1FBGQkGC0sH56x"
-Content-Disposition: inline
+Tested-by: Nathan Chancellor <nathan@kernel.org> # build
 
+It would be great if this could be picked up before the 6.18 DMA pull
+request so that I do not have to patch our CI to avoid this issue.
 
---+R1FBGQkGC0sH56x
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
---+R1FBGQkGC0sH56x
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNwkhgAKCRB4tDGHoIJi
-0loyAQDpGBt5M5Bt9rdbp4ZweJ7+EI45IWFhPPwUfdR6Q9NnnQEAx5F8PPjO9K8X
-I4bstGW4wkTMmwE0NHStZJHEMbSwXwQ=
-=daU6
------END PGP SIGNATURE-----
-
---+R1FBGQkGC0sH56x--
-
-
---===============8507392849209169531==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>  drivers/dma/mmp_pdma.c | 20 ++++++++------------
+>  1 file changed, 8 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/dma/mmp_pdma.c b/drivers/dma/mmp_pdma.c
+> index d07229a748868b8115892c63c54c16130d88e326..86661eb3cde1ff6d6d8f02b6f0d4142878b5a890 100644
+> --- a/drivers/dma/mmp_pdma.c
+> +++ b/drivers/dma/mmp_pdma.c
+> @@ -152,8 +152,8 @@ struct mmp_pdma_phy {
+>   *
+>   * Controller Configuration:
+>   * @run_bits:   Control bits in DCSR register for channel start/stop
+> - * @dma_mask:   DMA addressing capability of controller. 0 to use OF/platform
+> - *              settings, or explicit mask like DMA_BIT_MASK(32/64)
+> + * @dma_width:  DMA addressing width in bits (32 or 64). Determines the
+> + *              DMA mask capability of the controller hardware.
+>   */
+>  struct mmp_pdma_ops {
+>  	/* Hardware Register Operations */
+> @@ -173,7 +173,7 @@ struct mmp_pdma_ops {
+>  
+>  	/* Controller Configuration */
+>  	u32 run_bits;
+> -	u64 dma_mask;
+> +	u32 dma_width;
+>  };
+>  
+>  struct mmp_pdma_device {
+> @@ -1172,7 +1172,7 @@ static const struct mmp_pdma_ops marvell_pdma_v1_ops = {
+>  	.get_desc_src_addr = get_desc_src_addr_32,
+>  	.get_desc_dst_addr = get_desc_dst_addr_32,
+>  	.run_bits = (DCSR_RUN),
+> -	.dma_mask = 0,			/* let OF/platform set DMA mask */
+> +	.dma_width = 32,
+>  };
+>  
+>  static const struct mmp_pdma_ops spacemit_k1_pdma_ops = {
+> @@ -1185,7 +1185,7 @@ static const struct mmp_pdma_ops spacemit_k1_pdma_ops = {
+>  	.get_desc_src_addr = get_desc_src_addr_64,
+>  	.get_desc_dst_addr = get_desc_dst_addr_64,
+>  	.run_bits = (DCSR_RUN | DCSR_LPAEEN),
+> -	.dma_mask = DMA_BIT_MASK(64),	/* force 64-bit DMA addr capability */
+> +	.dma_width = 64,
+>  };
+>  
+>  static const struct of_device_id mmp_pdma_dt_ids[] = {
+> @@ -1314,13 +1314,9 @@ static int mmp_pdma_probe(struct platform_device *op)
+>  	pdev->device.directions = BIT(DMA_MEM_TO_DEV) | BIT(DMA_DEV_TO_MEM);
+>  	pdev->device.residue_granularity = DMA_RESIDUE_GRANULARITY_DESCRIPTOR;
+>  
+> -	/* Set DMA mask based on ops->dma_mask, or OF/platform */
+> -	if (pdev->ops->dma_mask)
+> -		dma_set_mask(pdev->dev, pdev->ops->dma_mask);
+> -	else if (pdev->dev->coherent_dma_mask)
+> -		dma_set_mask(pdev->dev, pdev->dev->coherent_dma_mask);
+> -	else
+> -		dma_set_mask(pdev->dev, DMA_BIT_MASK(64));
+> +	/* Set DMA mask based on controller hardware capabilities */
+> +	dma_set_mask_and_coherent(pdev->dev,
+> +				  DMA_BIT_MASK(pdev->ops->dma_width));
+>  
+>  	ret = dma_async_device_register(&pdev->device);
+>  	if (ret) {
+> 
+> ---
+> base-commit: cc0bacac6de7763a038550cf43cb94634d8be9cd
+> change-id: 20250904-mmp-pdma-simplify-dma-addressing-f6aef03e07c3
+> 
+> Best regards,
+> -- 
+> Guodong Xu <guodong@riscstar.com>
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8507392849209169531==--
-
