@@ -4,104 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D11CAC5B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Sep 2025 22:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A22BCAC5B0
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 01:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kgl28HKWLjmloCWx/fcknO/rBfqFp8PCnMxXTnrY10o=; b=cLF2DtaOy1qLH3
-	SVlKbtZ1trXAqY0TacbkkAlwe1CZXldSlIhXMuSx/zjU2hd3xDjixCdU+DTdxBvN55tMmJkL067Xn
-	F9cZp7GGULoiXS+OjM6HyRUBqPfRYQLdSnuayAYZuGkQ8A1/cXxRGMYRcXqW266bFow0s5iMohDVL
-	OwBiSLm0ovnNJFP6kgB/Pg4ldLfguXRaJqUOQrLD38KK6FthkV1V4UnHjlcO+fbUIWS0fFjdbroOT
-	UFU0rQWtHgEgsefVEcU5auRCA3nw69iCnP/DUzZfXOVdIsYqnB9lY9FeUJNinBOAE2owxVkt6Q3pF
-	TWTO8JiJ6Z9H6N6Y5zdw==;
+	List-Owner; bh=bCb7L6txeejC6IhPPbREPBb/bQlMx9vwYgeMMF/Dn/0=; b=wzfdCvmiXkXc2K
+	UBJFeyP6to6vkOaTbyNKqXTvlPyJzfvsMXnrTPOFQSav0kF5CWwoRIjFFvBKOcMu63w0OC416Z8m1
+	DQMNMZk8u2d++fkxO6ihYtoxp16BMJdMuMtgm+HmLXqvz+Jt8TdBEWqGnccD9Dhdj3+47J0adGYMh
+	2SrNYJEIZJKPZbySpLdB6gwKrfsrAGDDviRc0OB+CxKxjXu8MkvPI08fn/G/FhlJcsVtMMGTp0FqE
+	VbLM6hIvKTwoVgu64K2wHxdOCxLBdmusGXMRnIfTOqE2fxjg9BoZumBfXM2vuiYzNfNdP+ChwuH0o
+	7o2A+A7W5Isq1Yoj9q8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Mmh-00000003adL-1WHc;
-	Mon, 29 Sep 2025 22:55:55 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1v3P9D-00000003mua-2YlZ;
+	Tue, 30 Sep 2025 01:27:19 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Mme-00000003abY-361A
+	id 1v3P9A-00000003mtL-3P2h
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Sep 2025 22:55:53 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-780292fcf62so4023386b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Sep 2025 15:55:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1759186547; x=1759791347; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aWwi2YKfcBmpXzN2h2HKSfYkQo0+gXnuV1TKOkK9JPg=;
-        b=BxjdYvDcgqGF0NPXRPYsUtW1GiIaPa6CA/rpLDy3Q0jQP5lgFnK86rmbw8zOkApAuA
-         WBkxjpQEr5/0l6FaXEj0fq+nz1OGDcgrw90QBGD8lerYrRnZwNObGOZqkKkGEPUEM8Y9
-         /8jV99nRLz57FnwwNcFXKdPAs3Hp/afw7w1SY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759186547; x=1759791347;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aWwi2YKfcBmpXzN2h2HKSfYkQo0+gXnuV1TKOkK9JPg=;
-        b=BzWGF5apXIbqqeriY1/og4SsBFuHo7OzRmWGFKZ5cdkXJbIWZov038RSmmZ5mgrjG9
-         l6hbvjbrisi63oIxfk1KpDKcl0rSF28yprjLkCEcMHZQOc7bBjfP6EL8DhQFSVM0uowB
-         KaTduZXJRUI2Xg8j2Z/GsBf/HprMQdHm6nmB8lryd62O2g4ep03QB2gS1rT0RyRIzCz2
-         1R7lFOaGI77CW8zk3KK6U9DmNg0Vhg59nyriMXm9kAMV1Z0BZuVt5BEmku0uzBCbLza3
-         IcAef7LnNoL/zRH3/3/Cj0Rd5ZE1Jo+fOIFrX8qexEBf9BRuNZPz0jkb9ggu3MUsfkXL
-         f5xQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXtNRSKjAANkpqEMbIS+GtY8H7c8U6AURMWoljcAy1dx0rfDP2gP4ahU3tMpjs10G2Yi07JYgwcPCyQbg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7kzdUYgGkk3YDiFkqbDL25HQFHz07/m6BpPGvPC8KMjIHePMb
-	iTKOASZZDs8doie/FJXVIe7PM6lpY1fVg4SukBoxqKHue1xkiUqv8vEfdDATYtYcdW66fof+g+v
-	+b6I=
-X-Gm-Gg: ASbGncsjPCqZ2PlxDpP5aR3NLpsIwuMX2Uy+kF6zK3vkF7o5hNvsZRdzNat/L1aA8wO
-	OquSr7wA701Z83mkq1iu2aN3B65rQvlM+EwvGJqh0eWmTRDKARPK2aY4wyHn+4vwQgZzHpr7FoW
-	Q1HcqhY6fEJGONnC955Ey8FqKU0SOOKAI5o9W9+XTk9jLRXHE7ZV8UqYPmWs54LpbpnjPZnV4bb
-	vnZbJI8sXZt6/Qx3dpkjBvYUf1YXJkXh5j91ix44g/vAMU94bD8sN9mxuUieapve2+vkun5DtGB
-	g+nZDEKQnzoW4JLUjjup68pzkGvQLgNwYEliNp8MEsvrIg62+JIKS4f/ixmECLRUVp3XaPxCB/T
-	NzhrVNppgIhoEHXqkanIb5jLDNmRThhq6j+iFdiw/1NTjFuJQSdMiM0zUuWFrb+8bVw==
-X-Google-Smtp-Source: AGHT+IFmPoU9grfTe83lrQ6bnHfZOYSOqEah+UYuHeKZjoUvWS7V9jpLE2MHvbMs9sOxhYM7B9Ihog==
-X-Received: by 2002:a05:6a21:a8a:b0:2fa:52a0:e838 with SMTP id adf61e73a8af0-2fa52a0e86bmr14690626637.36.1759186546702;
-        Mon, 29 Sep 2025 15:55:46 -0700 (PDT)
-Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com. [209.85.214.170])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-783ad5e988csm4788732b3a.18.2025.09.29.15.55.46
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Sep 2025 15:55:46 -0700 (PDT)
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-27d2c35c459so42225855ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Sep 2025 15:55:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVMFnYTjwPkqpo+Cx/cEZKZ/7pLeJ3ZKtm4NQN7iAaGssckHDYcIizB5sfRfSCI68JroxnM6eyiapkFUg==@lists.infradead.org
-X-Received: by 2002:a17:903:2291:b0:27e:dc53:d222 with SMTP id
- d9443c01a7336-27edc53d5ddmr177688785ad.44.1759186545584; Mon, 29 Sep 2025
- 15:55:45 -0700 (PDT)
+	Tue, 30 Sep 2025 01:27:18 +0000
+Received: from localhost (unknown [116.232.147.32])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 78C0F335D92;
+	Tue, 30 Sep 2025 01:27:13 +0000 (UTC)
+Date: Tue, 30 Sep 2025 09:27:02 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Alex Elder <elder@riscstar.com>,
+	Troy Mitchell <troymitchell988@gmail.com>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v3] i2c: spacemit: introduce pio for k1
+Message-ID: <20250930012702-GYA1357001@gentoo.org>
+References: <20250929-k1-i2c-atomic-v3-1-f7e660c138b6@linux.spacemit.com>
 MIME-Version: 1.0
-References: <20250925084806.89715-1-cuiyunhui@bytedance.com>
- <20250925084806.89715-2-cuiyunhui@bytedance.com> <CAD=FV=VZLYqPQCOEhbH4QtndeG5e1-0wey24fgYNTeFiqd8qJg@mail.gmail.com>
- <CAEEQ3wnwNdTgt6ByHCzM43fhZMLSxwXvYx-AGBpsktraXqif2Q@mail.gmail.com>
- <CAD=FV=X6Xv_WYPMXKtOWLJX7skCoQmia3JbQej_u38qxqAbqDg@mail.gmail.com> <CAEEQ3wn0UckgNTJCPCNDtHW8DwWAJR1PXURvH57yfHATYqs7Gw@mail.gmail.com>
-In-Reply-To: <CAEEQ3wn0UckgNTJCPCNDtHW8DwWAJR1PXURvH57yfHATYqs7Gw@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 29 Sep 2025 15:55:33 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=XoUw6HWoFLMcgyHhYm7oeTOXCAyvBdpOghggmdvYzp6Q@mail.gmail.com>
-X-Gm-Features: AS18NWAnKZZMEtwxIM0YbV4Mazpr4rnQGlLmvr3-cqjcbEOsSH_1wE2lEHBVzYs
-Message-ID: <CAD=FV=XoUw6HWoFLMcgyHhYm7oeTOXCAyvBdpOghggmdvYzp6Q@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v2 1/2] watchdog: move arm64 watchdog_hld
- into common code
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, bp@alien8.de, 
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
-	ziqianlu@bytedance.com, akpm@linux-foundation.org, alex@ghiti.fr, 
-	anup@brainfault.org, aou@eecs.berkeley.edu, atish.patra@linux.dev, 
-	catalin.marinas@arm.com, johannes@sipsolutions.net, lihuafei1@huawei.com, 
-	mark.rutland@arm.com, masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
-	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
-	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20250929-k1-i2c-atomic-v3-1-f7e660c138b6@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_155552_781860_5A5EF079 
-X-CRM114-Status: GOOD (  39.91  )
+X-CRM114-CacheID: sfid-20250929_182716_879316_BCD771E7 
+X-CRM114-Status: GOOD (  34.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,96 +61,241 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiBTYXQsIFNlcCAyNywgMjAyNSBhdCA3OjM44oCvUE0geXVuaHVpIGN1aSA8Y3VpeXVu
-aHVpQGJ5dGVkYW5jZS5jb20+IHdyb3RlOgo+Cj4gSGkgRG91ZywKPgo+IE9uIFNhdCwgU2VwIDI3
-LCAyMDI1IGF0IDQ6NTjigK9BTSBEb3VnIEFuZGVyc29uIDxkaWFuZGVyc0BjaHJvbWl1bS5vcmc+
-IHdyb3RlOgo+ID4KPiA+IEhpLAo+ID4KPiA+IE9uIEZyaSwgU2VwIDI2LCAyMDI1IGF0IDI6Mzfi
-gK9BTSB5dW5odWkgY3VpIDxjdWl5dW5odWlAYnl0ZWRhbmNlLmNvbT4gd3JvdGU6Cj4gPiA+Cj4g
-PiA+IEhpIERvdWcsCj4gPiA+Cj4gPiA+IE9uIEZyaSwgU2VwIDI2LCAyMDI1IGF0IDQ6MDDigK9B
-TSBEb3VnIEFuZGVyc29uIDxkaWFuZGVyc0BjaHJvbWl1bS5vcmc+IHdyb3RlOgo+ID4gPiA+Cj4g
-PiA+ID4gSGksCj4gPiA+ID4KPiA+ID4gPiBPbiBUaHUsIFNlcCAyNSwgMjAyNSBhdCAxOjQ44oCv
-QU0gWXVuaHVpIEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+IHdyb3RlOgo+ID4gPiA+ID4K
-PiA+ID4gPiA+IEBAIC0xNyw2ICsxNyw3IEBACj4gPiA+ID4gPiAgI2luY2x1ZGUgPGxpbnV4L2Nw
-dV9wbS5oPgo+ID4gPiA+ID4gICNpbmNsdWRlIDxsaW51eC9leHBvcnQuaD4KPiA+ID4gPiA+ICAj
-aW5jbHVkZSA8bGludXgva2VybmVsLmg+Cj4gPiA+ID4gPiArI2luY2x1ZGUgPGxpbnV4L25taS5o
-Pgo+ID4gPiA+ID4gICNpbmNsdWRlIDxsaW51eC9wZXJmL2FybV9wbXUuaD4KPiA+ID4gPiA+ICAj
-aW5jbHVkZSA8bGludXgvc2xhYi5oPgo+ID4gPiA+ID4gICNpbmNsdWRlIDxsaW51eC9zY2hlZC9j
-bG9jay5oPgo+ID4gPiA+ID4gQEAgLTY5NiwxMCArNjk3LDEyIEBAIHN0YXRpYyBpbnQgYXJtcG11
-X2dldF9jcHVfaXJxKHN0cnVjdCBhcm1fcG11ICpwbXUsIGludCBjcHUpCj4gPiA+ID4gPiAgICAg
-ICAgIHJldHVybiBwZXJfY3B1KGh3X2V2ZW50cy0+aXJxLCBjcHUpOwo+ID4gPiA+ID4gIH0KPiA+
-ID4gPiA+Cj4gPiA+ID4gPiAtYm9vbCBhcm1fcG11X2lycV9pc19ubWkodm9pZCkKPiA+ID4gPiA+
-ICsjaWZkZWYgQ09ORklHX0hBUkRMT0NLVVBfREVURUNUT1JfUEVSRgo+ID4gPiA+ID4gK2Jvb2wg
-YXJjaF9wZXJmX25taV9pc19hdmFpbGFibGUodm9pZCkKPiA+ID4gPiA+ICB7Cj4gPiA+ID4gPiAg
-ICAgICAgIHJldHVybiBoYXNfbm1pOwo+ID4gPiA+ID4gIH0KPiA+ID4gPiA+ICsjZW5kaWYKPiA+
-ID4gPgo+ID4gPiA+IFNob3VsZCB0aGUgcHJldmlvdXMgY29tbWVudCBtb3ZlIGhlcmUsIEFLQToK
-PiA+ID4gPgo+ID4gPiA+IC8qCj4gPiA+ID4gICogaGFyZGxvY2t1cF9kZXRlY3Rvcl9wZXJmX2lu
-aXQoKSB3aWxsIHN1Y2Nlc3MgZXZlbiBpZiBQc2V1ZG8tTk1JIHR1cm5zIG9mZiwKPiA+ID4KPiA+
-ID4gT2theSwgd2UgYWxzbyBuZWVkIHRvIGNoYW5nZSBpdCB0byDigJx3YXRjaGRvZ19oYXJkbG9j
-a3VwX3Byb2JlKCnigJ0KPiA+ID4KPiA+ID4gPiAgKiBob3dldmVyLCB0aGUgcG11IGludGVycnVw
-dHMgd2lsbCBhY3QgbGlrZSBhIG5vcm1hbCBpbnRlcnJ1cHQgaW5zdGVhZCBvZgo+ID4gPiA+ICAq
-IE5NSSBhbmQgdGhlIGhhcmRsb2NrdXAgZGV0ZWN0b3Igd291bGQgYmUgYnJva2VuLgo+ID4gPiA+
-ICovCj4gPiA+ID4KPiA+ID4gPgo+ID4gPiA+ID4gK3N0YXRpYyBpbnQgX19pbml0IGluaXRfd2F0
-Y2hkb2dfZnJlcV9ub3RpZmllcih2b2lkKQo+ID4gPiA+ID4gK3sKPiA+ID4gPiA+ICsgICAgICAg
-cmV0dXJuIGNwdWZyZXFfcmVnaXN0ZXJfbm90aWZpZXIoJndhdGNoZG9nX2ZyZXFfbm90aWZpZXIs
-Cj4gPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIENQVUZS
-RVFfUE9MSUNZX05PVElGSUVSKTsKPiA+ID4gPgo+ID4gPiA+IEkgdGhpbmsgeW91IG5lZWQgdG8g
-ZG8gc29tZXRoaW5nIHRvIHByZXZlbnQgdGhpcyBmcm9tIGhhcHBlbmluZyBvbiBhbnkKPiA+ID4g
-PiBwbGF0Zm9ybXMgdGhhdCBvdmVycmlkZSBod19ubWlfZ2V0X3NhbXBsZV9wZXJpb2QoKSwgcmln
-aHQ/IFRoZXNlCj4gPiA+ID4gY3B1ZnJlcSBub3RpZmllcnMgd2lsbCBiZSB1c2VsZXNzIGluIHRo
-YXQgY2FzZS4uLgo+ID4gPgo+ID4gPiBJIHVuZGVyc3RhbmQgdGhpcyBpcyBub3QgYSBwcm9ibGVt
-LiB3YXRjaGRvZ19wZXJmIHVzZXMKPiA+ID4gUEVSRl9DT1VOVF9IV19DUFVfQ1lDTEVTLCB3aGlj
-aCBtZWFucyBpdCBpcyBpbmhlcmVudGx5IGxpbWl0ZWQgYnkgdGhlCj4gPiA+IENQVSdzIG1haW4g
-ZnJlcXVlbmN5LiBBZnRlciB3ZSBtYWtlIHN1Y2ggYSBjaGFuZ2UsIGEgbGFyZ2VyIHZhbHVlIG1h
-eQo+ID4gPiBiZSB1c2VkIGFzIHRoZSBwZXJpb2QsIHNvIHRoZSBOTUkgcGVyaW9kIHdpbGwgYmVj
-b21lIGxvbmdlciwgYnV0IHRoaXMKPiA+ID4gdmFsdWUgd2lsbCBub3QgY2hhbmdlIGFmdGVyIHRo
-ZSBzeXN0ZW0gc3RhcnRzLgo+ID4KPiA+IEknbSBub3Qgc3VyZSBJIGZvbGxvdy4gT24geDg2LCBo
-d19ubWlfZ2V0X3NhbXBsZV9wZXJpb2QoKSBpczoKPiA+Cj4gPiB1NjQgaHdfbm1pX2dldF9zYW1w
-bGVfcGVyaW9kKGludCB3YXRjaGRvZ190aHJlc2gpCj4gPiB7Cj4gPiAgIHJldHVybiAodTY0KShj
-cHVfa2h6KSAqIDEwMDAgKiB3YXRjaGRvZ190aHJlc2g7Cj4gPiB9Cj4KPiBJIGhhdmUgYWRkZWQg
-dGhlIG1haW50YWluZXJzIGZvciBhcmNoL3g4Ni4KPgo+IDEuIGNwdV9raHogY2FuIGJlIHVuZGVy
-c3Rvb2QgYXMgcmV0dXJuaW5nIHRoZSBiYXNlIG9wZXJhdGluZyBmcmVxdWVuY3kKPiBvZiBhIENQ
-VSwgc3VjaCBhcyAyLjNHSHouIEluIHByYWN0aWNlLCB0aGUgQ1BVJ3MgY29yZSBmcmVxdWVuY3kg
-bWF5Cj4gZG93bmNsb2NrIHRvIDgwME1IeiB1bmRlciBsb3cgbG9hZCBhbmQgb3ZlcmNsb2NrIHRv
-IDQuNEdIeiB1bmRlciBoaWdoCj4gbG9hZC4KPgo+IDIuIEJlY2F1c2UgdGhlIGV2ZW50IHByb3Zp
-ZGVkIHRvIHRoZSBQTVUgaGFzIHRoZQo+IFBFUkZfQ09VTlRfSFdfQ1BVX0NZQ0xFUyBhdHRyaWJ1
-dGUsIGFuZCB0aGUgY291bnRlcidzIHZhbHVlIGlzIGJhc2VkCj4gb24gMi4zR0h6LCB0aGUgZXhl
-Y3V0aW9uIGN5Y2xlIG9mIHdhdGNoZG9nX292ZXJmbG93X2NhbGxiYWNrKCkgaXMgbm90Cj4gZml4
-ZWQ7IGl0IHZhcmllcyB3aXRoIHRoZSBDUFUncyBjb3JlIGZyZXF1ZW5jeS4gV2hlbiB0aGUgQ1BV
-IHJ1bnMgYXQgYQo+IGZyZXF1ZW5jeSBoaWdoZXIgdGhhbiAyLjNHSHosIHRoZSBOTUkgY3ljbGUg
-d2lsbCBzaG9ydGVuOyBvdGhlcndpc2UsCj4gaXQgd2lsbCBsZW5ndGhlbi4KPgo+IDMuIEFmdGVy
-IG91ciBtb2RpZmljYXRpb24sIGlmIHRoZSBhcmNoaXRlY3R1cmUgaXMgbm90IGludGVncmF0ZWQg
-d2l0aAo+IGNwdWZyZXEsIGl0IHJldHVybnMgMCBhbmQgd2lsbCBub3QgdXBkYXRlIHRoZSBjeWNs
-ZS4gSWYgaW50ZWdyYXRlZAo+IHdpdGggY3B1ZnJlcSwgaXQgcmV0dXJucyB0aGUgbWF4aW11bSBm
-cmVxdWVuY3kgc3VwcG9ydGVkIGJ5IHRoZSBDUFUsCj4gc28gdGhlIE5NSSBjeWNsZSBpcyBvbmx5
-IHNsaWdodGx5IGxlbmd0aGVuZWQsIHdpdGggbm8gaW1wYWN0IG9uIHRoZQo+IGFjdHVhbCBoYXJk
-bG9ja3VwIGRldGVjdGlvbiBmdW5jdGlvbi4KPgo+IDQuIEkgaGF2ZSBhbHNvIGNvbmR1Y3RlZCB0
-ZXN0czoKPiBzdHJlc3MtbmcgLS1jcHUgMSAtLXRhc2tzZXQgMSAtLWNwdS1sb2FkIDgwCj4gZWNo
-byA4MDAwMDAgPiBzY2FsaW5nX21heF9mcmVxCj4gdHVyYm9zdGF0IHNob3dzIHRoYXQgQnp5X01I
-eiBhbmQgVFNDX01IeiBhcmUgODAwIGFuZCAyMzAwIHJlc3BlY3RpdmVseS4KPiBBbmQgdGhlIE5N
-SSBjeWNsZSBiZWNhbWUgYXBwcm94aW1hdGVseSAzMCBzZWNvbmRzOgo+IFsgMjMwOS40NDI3NDNd
-IE5NSSB3YXRjaGRvZzogLS0tLS0tIHdhdGNoZG9nIG92ZXJmbG93IGNhbGxiYWNrLCBjcHUgPSAx
-Cj4gWyAyMzQxLjUyNjAzMl0gTk1JIHdhdGNoZG9nOiAtLS0tLS0gd2F0Y2hkb2cgb3ZlcmZsb3cg
-Y2FsbGJhY2ssIGNwdSA9IDEKCldoZXRoZXIgb3Igbm90IGhhdmluZyB4ODYgYW5kIHBvd2VycGMg
-c3RhcnQgbG9va2luZyBhdCBjcHVmcmVxIGlzIGFuCmltcHJvdmVtZW50LCBjZXJ0YWlubHkgaXQg
-aXMgYSBjaGFuZ2UgaW4gYmVoYXZpb3IsIHJpZ2h0PyBJZiB3ZSdyZQpyZWFsbHkgY2hhbmdpbmcg
-dGhlIGJlaGF2aW9yIGhlcmUgdGhlbiB0aGUgY29tbWl0IHN1YmplY3QgYW5kIGNvbW1pdAptZXNz
-YWdlIG5lZWQgdG8gbWVudGlvbiB0aGlzLiBSaWdodCBub3cgdGhpcyBpcyBiaWxsZWQgYXMgYSBz
-aW1wbGUKcmVuYW1lLi4uCgpJIGRvbid0IHBlcnNvbmFsbHkgaGF2ZSBsb3RzIG9mIGV4cGVyaWVu
-Y2Ugd2l0aCB4ODYgY3B1ZnJlcSBidXQgSSBkbwprbm93IGl0IGRvZXNuJ3Qgd29yayBxdWl0ZSB0
-aGUgc2FtZSBhcyBob3cgaXQgZG9lcyBvbiBhcm0uIEl0IHdvdWxkCmRlZmluaXRlbHkgYmUgZ29v
-ZCB0byBnZXQgc29tZW9uZSBvbiB4ODYgLyBwb3dlcnBjIHRvIG1ha2Ugc3VyZSB0aGF0CnRoZXkg
-YXJlIGhhcHB5IHdpdGggdGhpcy4gLi4ub3IgeW91IGp1c3Qga2VlcCBtYWtpbmcgaXQgd29yayB0
-aGUgd2F5Cml0IGRpZCBiZWZvcmUgYW5kIHRoZW4geW91IGRvbid0IGhhdmUgdG8gd29ycnkgYWJv
-dXQgZ2V0dGluZyBhbnkKYnV5LWluIGZyb20geDg2IC8gcG93ZXJwYyBmb2xrcy4gVXAgdG8geW91
-LCBJIGd1ZXNzLgoKTm90ZSB0aGF0IGZvbGtzIG9uIHg4NiBoYXZlIGRlZmluaXRlbHkgaGFkIHRv
-IGRlYWwgd2l0aCB0dXJibyBtb2RlCmJlZm9yZS4gIFNlZSBjb21taXQgN2VkYWViNjg0MWRmICgi
-a2VybmVsL3dhdGNoZG9nOiBQcmV2ZW50IGZhbHNlCnBvc2l0aXZlcyB3aXRoIHR1cmJvIG1vZGVz
-IikuCgotRG91ZwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+Hi Troy and I2C maintainer,
+
+one thing I'd raise and seek I2C maintainer's suggestion, should this
+driver introduce lock to protect multi context - non-atomic vs atomic vs
+interrupt context, more than one i2c clients contend single controller?
+
+On 14:07 Mon 29 Sep     , Troy Mitchell wrote:
+> This patch introduces I2C PIO functionality for the Spacemit K1 SoC,
+> enabling the use of I2C in atomic context.
+> 
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> ---
+> Changes in v3:
+> - drop 1-5 patches (have been merged)
+> - modify commit message
+> - use readl_poll_timeout_atomic() in wait_pio_xfer()
+> - use msecs_to_jiffies() when get PIO mode timeout value
+> - factor out transfer state handling into spacemit_i2c_handle_state().
+> - do not disable/enable the controller IRQ around PIO transfers.
+> - consolidate spacemit_i2c_init() interrupt setup
+> - rename is_pio -> use_pio
+> - rename spacemit_i2c_xfer() -> spacemit_i2c_xfer_common()
+> - rename spacemit_i2c_int_xfer() -> spacemit_i2c_xfer()
+> - rename spacemit_i2c_pio_xfer() -> spacemit_i2c_pio_xfer_atomic()
+> - call spacemit_i2c_err_check() in wait_pio_xfer() when write last byte
+> - Link to v2: https://lore.kernel.org/r/20250925-k1-i2c-atomic-v2-0-46dc13311cda@linux.spacemit.com
+> 
+> Changes in v2:
+> - Patch 1/6:
+>   Patch 3/6:
+>   Patch 4/6:
+>     - nothing
+> - Patch 2/6:
+>   - remove is_pio judgement in irq_handler()
+> - Patch 5/6:
+>   - fix wrong comment
+>   - In spacemit_i2c_conditionally_reset_bus(), once the condition is met inside the loop, it should
+>     return directly instead of using break.
+> - Patch 6/6:
+>   - add is_pio judgement in irq_handler()
+>   - use a fixed timeout value when PIO
+>   - use readl_poll_timeout() in  spacemit_i2c_wait_bus_idle() when PIO
+> 
+> - Link to v1: https://lore.kernel.org/r/20250827-k1-i2c-atomic-v1-0-e59bea02d680@linux.spacemit.com
+> ---
+>  drivers/i2c/busses/i2c-k1.c | 206 ++++++++++++++++++++++++++++++++++----------
+>  1 file changed, 161 insertions(+), 45 deletions(-)
+> 
+> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+> index 6b918770e612e098b8ad17418f420d87c94df166..21c5dd56e71f5e59434767329fb84d50d5c04178 100644
+> --- a/drivers/i2c/busses/i2c-k1.c
+> +++ b/drivers/i2c/busses/i2c-k1.c
+> @@ -97,6 +97,9 @@
+>  
+>  #define SPACEMIT_BUS_RESET_CLK_CNT_MAX		9
+>  
+[snip]..
+
+> +static void spacemit_i2c_handle_state(struct spacemit_i2c_dev *i2c);
+> +static void spacemit_i2c_err_check(struct spacemit_i2c_dev *i2c);
+please sort to avoid this kind declaration, if it's inevitable, 
+you can move to top, before the function, after macro 
+
+> +static int spacemit_i2c_wait_pio_xfer(struct spacemit_i2c_dev *i2c)
+> +{
+> +	u32 msec = jiffies_to_msecs(i2c->adapt.timeout);
+> +	ktime_t timeout = ktime_add_ms(ktime_get(), msec);
+> +	int ret;
+> +
+> +	while (i2c->unprocessed && ktime_compare(ktime_get(), timeout) < 0) {
+> +		udelay(10);
+> +		i2c->status = readl(i2c->base + SPACEMIT_ISR);
+> +
+> +		spacemit_i2c_clear_int_status(i2c, i2c->status);
+> +
+> +		if (!(i2c->status & SPACEMIT_SR_IRF) && !(i2c->status & SPACEMIT_SR_ITE))
+this is hard to read
+		mask = SPACEMIT_SR_IRF | SPACEMIT_SR_ITE;
+		if ((i2c->status & mask) == 0)
+		..
+> +			continue;
+> +
+> +		spacemit_i2c_handle_state(i2c);
+> +
+> +		/*
+> +		 * This is the last byte to write of the current message.
+> +		 * If we do not wait here, control will proceed directly to start(),
+> +		 * which would overwrite the current data.
+> +		 */
+> +		if (!i2c->read && !i2c->unprocessed) {
+> +			ret = readl_poll_timeout_atomic(i2c->base + SPACEMIT_ISR,
+> +							i2c->status, i2c->status & SPACEMIT_SR_ITE,
+> +							30, 1000);
+> +			if (ret)
+> +				return 0;
+> +			/*
+> +			 * In read mode, err_check() in handle_state properly handles what happens
+> +			 * after the MSD bit is set. For writes it is different: in interrupt mode,
+> +			 * an ITE (write-empty) interrupt is triggered after the last byte, and the
+> +			 * MSD-related handling takes place there. In PIO mode, however, we need to
+> +			 * explicitly call err_check() to emulate this step, otherwise the next
+> +			 * transfer will fail.
+> +			 */
+> +			spacemit_i2c_err_check(i2c);
+> +		}
+> +	}
+> +
+> +	if (i2c->unprocessed)
+> +		return 0;
+> +
+> +	return 1;
+> +}
+> +
+>  static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
+>  {
+>  	unsigned long time_left;
+> @@ -310,10 +376,16 @@ static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
+>  
+>  		reinit_completion(&i2c->complete);
+>  
+> -		spacemit_i2c_start(i2c);
+..
+> +		if (i2c->use_pio) {
+> +			spacemit_i2c_start(i2c);
+> +
+> +			time_left = spacemit_i2c_wait_pio_xfer(i2c);
+> +		} else {
+> +			spacemit_i2c_start(i2c);
+> +			time_left = wait_for_completion_timeout(&i2c->complete,
+> +								i2c->adapt.timeout);
+> +		}
+suggest to distill a common function spacemit_i2c_wait_xfer_complete()
+and converge above if/elselogic inside, which is more readable
+
+>  
+> -		time_left = wait_for_completion_timeout(&i2c->complete,
+> -							i2c->adapt.timeout);
+>  		if (!time_left) {
+>  			dev_err(i2c->dev, "msg completion timeout\n");
+..
+>  			spacemit_i2c_conditionally_reset_bus(i2c);
+btw, not introduced in this patch, spacemit_i2c_reset() followed unconditionally after
+spacemit_i2c_conditionally_reset_bus() which is very confusing
+
+please double check the logic
+
+
+> @@ -341,6 +413,9 @@ static bool spacemit_i2c_is_last_msg(struct spacemit_i2c_dev *i2c)
+>  
+>  static void spacemit_i2c_handle_write(struct spacemit_i2c_dev *i2c)
+>  {
+> +	if (!(i2c->status & SPACEMIT_SR_ITE))
+> +		return;
+> +
+>  	/* if transfer completes, SPACEMIT_ISR will handle it */
+>  	if (i2c->status & SPACEMIT_SR_MSD)
+>  		return;
+[snip]..
+>  
+> -static int spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, int num)
+> +static inline int
+> +spacemit_i2c_xfer_common(struct i2c_adapter *adapt, struct i2c_msg *msgs, int num, bool use_pio)
+>  {
+>  	struct spacemit_i2c_dev *i2c = i2c_get_adapdata(adapt);
+>  	int ret;
+>  
+> +	i2c->use_pio = use_pio;
+> +
+>  	i2c->msgs = msgs;
+>  	i2c->msg_num = num;
+>  
+..
+> -	spacemit_i2c_calc_timeout(i2c);
+> +	if (!i2c->use_pio)
+> +		spacemit_i2c_calc_timeout(i2c);
+> +	else
+> +		i2c->adapt.timeout = msecs_to_jiffies(SPACEMIT_WAIT_TIMEOUT);
+suggest merge "if else" into spacemit_i2c_calc_timeout(), same as previous suggestion
+>  
+>  	spacemit_i2c_init(i2c);
+>  
+>  	spacemit_i2c_enable(i2c);
+>  
+> +	/* To avoid being affected by the state of the previous transfer */
+> +	spacemit_i2c_clear_int_status(i2c, SPACEMIT_I2C_INT_STATUS_MASK);
+> +
+I've not see my previous comment has been addressed!
+
+>  	ret = spacemit_i2c_wait_bus_idle(i2c);
+>  	if (!ret) {
+>  		ret = spacemit_i2c_xfer_msg(i2c);
+> @@ -506,11 +611,21 @@ static int spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, in
+>  
+>  	if (ret == -ETIMEDOUT || ret == -EAGAIN)
+>  		dev_err(i2c->dev, "i2c transfer failed, ret %d err 0x%lx\n",
+> -			  ret, i2c->status & SPACEMIT_SR_ERR);
+> +			ret, i2c->status & SPACEMIT_SR_ERR);
+>  
+have to say, I personally don't like those unrelated changes, which
+makes people review the patch even difficult
+>  	return ret < 0 ? ret : num;
+>  }
+>  
+> +static int spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, int num)
+> +{
+> +	return spacemit_i2c_xfer_common(adapt, msgs, num, false);
+> +}
+> +
+> +static int spacemit_i2c_pio_xfer_atomic(struct i2c_adapter *adapt, struct i2c_msg *msgs, int num)
+> +{
+> +	return spacemit_i2c_xfer_common(adapt, msgs, num, true);
+> +}
+> +
+
+atomic API should not call sleepable function, please check this
+spacemit_i2c_pio_xfer_atomic() -> 
+  spacemit_i2c_xfer_common() -> 
+    spacemit_i2c_xfer_msg() -> 
+      spacemit_i2c_conditionally_reset_bus() -> 
+        usleep_range()
+    spacemit_i2c_check_bus_release() -> 
+      usleep_range()
+
+they are in err handle path, but still need to take care with caution
+
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
