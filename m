@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 126B5CAC5B9
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 09:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A708CCA470
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 10:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uKY/tr9GgepE8QqoyL2ZXRjCqMndqzF3x87H6HhCvZI=; b=Hc34U9mtZFDsOU
-	mInff9eTc8fE4yUVcNn1YKfNSdGwRw3piOxEx4146nduL0U5AqobLHXd2yeWuMq6QbkFx8yeiatEf
-	XhJxdYxdrAewJlBzdl8dQ+jIZ65r33D9sxrhbXIfAnHikuqur0Z0p7XdPdxMSRyiMDh7yVSewNqTW
-	IwAv5wcWLZu65Txr964uonWGSfihCQDUBtoh0JB5jLz9hmOR1aOuQmiYcqGSIi1ZSK3gfjlatRGnw
-	q1WZFz4J5utdwCjvr9n8dHiAatIYEb1DqpE498YVilNIJkptRW7OD7wiQdzd+jemtCC4k/m8DoUO1
-	PJ7WDZGsRJ/9vjJ4lHkQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OmsK7YlxZGlO03jtt9FMNfKGi0YmzF4RAosYJRl/co0=; b=Tn4xMSz3aYluqj
+	laL3SlapSpO7iTYJCz1sztBbw65d6nl/U7pe1JzihxUSf+0fec+YVOYBA9tlHkWus7KTY7vZ316ej
+	cghHQsYDfsiYFdAEPc/eztblsk16T7bZqLKQ/AbKTywUqgEwnzYnDPd4odCWgzCq8tHDi52gqcEqi
+	JbYkgdwgK+CBx2Q8FlG9DCYwpta+fS8E3IQmyKkZgZt/Z5KEd0DatTvYlbZTHwfeOjD5Rd2UH7euu
+	cfws+5PbJHS1v1tXI09GLVKuLWduh7YWw7wPCp7b4Wze9/3slqwq/phNKuh7fW90/qVDA273kQurC
+	wLSHB2QIG43+QDjpA+xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3WXm-00000004o5b-3bMB;
-	Tue, 30 Sep 2025 09:21:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v3XDC-00000004x3o-2FIb;
+	Tue, 30 Sep 2025 10:03:58 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3WXg-00000004o24-2fQa
+	id 1v3XDA-00000004x3U-2Wfh
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Sep 2025 09:21:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1759224062;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9lQSfvfcTNySF441awH7y9u1KuhzkH5FEbQXswdQdkk=;
-	b=AvNdlLo9a1cWGse7zMpFg1nzbB26M9JQA0tIAZ2qBXlgXonbj1bJ9snhI1YilnCCcxfZrn
-	AsweM6/n81miGHJG56gcihwiO9ftnZMzcByyOUcMYEsWtL8/0EEJXDAe5zQTx62BONHdyF
-	p7g31vpVvVnafYyxH+L5bcjdHghtHFs=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-90-34emJvPvN3m5oBvcOsfJzQ-1; Tue,
- 30 Sep 2025 05:20:58 -0400
-X-MC-Unique: 34emJvPvN3m5oBvcOsfJzQ-1
-X-Mimecast-MFC-AGG-ID: 34emJvPvN3m5oBvcOsfJzQ_1759224053
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0B5A218004D8;
-	Tue, 30 Sep 2025 09:20:52 +0000 (UTC)
-Received: from fweimer-oldenburg.csb.redhat.com (unknown [10.44.33.56])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 051C1180035E;
-	Tue, 30 Sep 2025 09:20:34 +0000 (UTC)
-From: Florian Weimer <fweimer@redhat.com>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Charles Mirabile <cmirabil@redhat.com>,  pjw@kernel.org,
-  Liam.Howlett@oracle.com,  a.hindborg@kernel.org,
-  akpm@linux-foundation.org,  alex.gaynor@gmail.com,
-  alexghiti@rivosinc.com,  aliceryhl@google.com,  alistair.francis@wdc.com,
-  andybnac@gmail.com,  aou@eecs.berkeley.edu,  arnd@arndb.de,
-  atishp@rivosinc.com,  bjorn3_gh@protonmail.com,  boqun.feng@gmail.com,
-  bp@alien8.de,  brauner@kernel.org,  broonie@kernel.org,
-  charlie@rivosinc.com,  cleger@rivosinc.com,  conor+dt@kernel.org,
-  conor@kernel.org,  corbet@lwn.net,  dave.hansen@linux.intel.com,
-  david@redhat.com,  devicetree@vger.kernel.org,  ebiederm@xmission.com,
-  evan@rivosinc.com,  gary@garyguo.net,  hpa@zytor.com,  jannh@google.com,
-  jim.shu@sifive.com,  kees@kernel.org,  kito.cheng@sifive.com,
-  krzk+dt@kernel.org,  linux-arch@vger.kernel.org,
-  linux-doc@vger.kernel.org,  linux-fsdevel@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-kselftest@vger.kernel.org,
-  linux-mm@kvack.org,  linux-riscv@lists.infradead.org,
-  lorenzo.stoakes@oracle.com,  lossin@kernel.org,  mingo@redhat.com,
-  ojeda@kernel.org,  oleg@redhat.com,  palmer@dabbelt.com,
-  paul.walmsley@sifive.com,  peterz@infradead.org,
-  richard.henderson@linaro.org,  rick.p.edgecombe@intel.com,
-  robh@kernel.org,  rust-for-linux@vger.kernel.org,
-  samitolvanen@google.com,  shuah@kernel.org,  tglx@linutronix.de,
-  tmgross@umich.edu,  vbabka@suse.cz,  x86@kernel.org,  zong.li@sifive.com
-Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
-In-Reply-To: <aNcAela5tln5KTUI@debug.ba.rivosinc.com> (Deepak Gupta's message
-	of "Fri, 26 Sep 2025 14:07:06 -0700")
-References: <f953ee7b-91b3-f6f5-6955-b4a138f16dbc@kernel.org>
-	<20250926192919.349578-1-cmirabil@redhat.com>
-	<aNbwNN_st4bxwdwx@debug.ba.rivosinc.com>
-	<CABe3_aE4+06Um2x3e1D=M6Z1uX4wX8OjdcT48FueXRp+=KD=-w@mail.gmail.com>
-	<aNcAela5tln5KTUI@debug.ba.rivosinc.com>
-Date: Tue, 30 Sep 2025 11:20:32 +0200
-Message-ID: <lhu3484i9en.fsf@oldenburg.str.redhat.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Tue, 30 Sep 2025 10:03:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759226622; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=jFyA5s13TGp4YMP4M/gm0d2i+4oQiLGVPkahAPQhgE2OVdXLvhNYusWZzfFwH8T3XNoZU3wutiasCbIZAtI08Gpl+sL5y6oQVxL6f2yvR+KSyYf+uCGRrqHSbiFkFFSdWXqyIYGsUIs7kZr++iMMXj7Zi3z9XEAUqUjhaNbIIII=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1759226622; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Tl+f+Pgxhudu6lRBZrTcBlIXtgXTfSiaBeAZSwRQqlw=; 
+	b=T2iFLgEw5e5KL0hai8TOt9xyPfszNKlneXtT/3L4i/LG88Y7nvZGlTMJbNtpCQbFIcPapRsncizGClTZGG0VUjEgT2Z6ltxoGnzR/cPOmnDcIy3G1uqEwyY8hmSOeXngBH2T6jJQv447erGV7D/Vr68Rd8c+o3/9Bdkd4yr0/oE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759226622;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=Tl+f+Pgxhudu6lRBZrTcBlIXtgXTfSiaBeAZSwRQqlw=;
+	b=p9VxmwBwBbyjrOuf06SdFrfMNjMgfUqtGRZ4/WKhRCgTvww3DiXvHh0kxi2l4ePU
+	Oxiugjd8Vy/s3j6qwmnpbAuj2SlGeJGnjz5NW6SKf81eJ8mgSCmbarEqk/X1JnVPEeY
+	ZKlFF0BZIN9j0kM7tm1M7dlsP4Z5tiUDoDyN0T0qLXDH1KBOdPyrxxkuUKKmWqOCxpY
+	y+1/NwDtkVDEx+b+ob8QMcblk2JNPZPIKM3Jpy6pHZpkL5q55QPpAOhLT0jMuGMs1yo
+	Br60e+cnQhBGQwv9xoEcVlNRpywBPkdgbC2v05gxQHvq17fYd293L499u3s9lMPXWsn
+	tnk8e/ZPnA==
+Received: by mx.zohomail.com with SMTPS id 1759226619881894.4752828267287;
+	Tue, 30 Sep 2025 03:03:39 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Michael Zhu <michael.zhu@starfivetech.com>,
+	Drew Fustini <drew@beagleboard.org>,
+	Yao Zi <ziyao@disroot.org>,
+	E Shattow <e@freeshell.de>
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH v2 1/2] dt-bindings: riscv: starfive: add Orange Pi RV board compatible
+Date: Tue, 30 Sep 2025 18:03:17 +0800
+Message-ID: <20250930100318.2131968-1-uwu@icenowy.me>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_022104_783649_8585766E 
-X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-CacheID: sfid-20250930_030356_703652_81AA8E03 
+X-CRM114-Status: UNSURE (   7.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,23 +93,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-* Deepak Gupta:
+Orange Pi RV is a newly released JH7110 board by Xunlong.
 
-> In case of shadow stack, it similar situation. If enabled compiler
-> decides to insert sspush and sspopchk. They necessarily won't be
-> prologue or epilogue but somewhere in function body as deemed fit by
-> compiler, thus increasing the complexity of runtime patching.
->
-> More so, here are wishing for kernel to do this patching for usermode
-> vDSO when there is no guarantee of such of rest of usermode (which if
-> was compiled with shadow stack would have faulted before vDSO's
-> sspush/sspopchk if ran on pre-zimop hardware)
+Add a compatible string to the starfive platform DT binding.
 
-I think this capability is desirable so that you can use a distribution
-kernel during CFI userspace bringup.
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+---
+No changes in v2.
 
-Thanks,
-Florian
+ Documentation/devicetree/bindings/riscv/starfive.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+index 7ef85174353de..dd5cd51e38797 100644
+--- a/Documentation/devicetree/bindings/riscv/starfive.yaml
++++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+@@ -31,6 +31,7 @@ properties:
+               - pine64,star64
+               - starfive,visionfive-2-v1.2a
+               - starfive,visionfive-2-v1.3b
++              - xunlong,orangepi-rv
+           - const: starfive,jh7110
+ 
+ additionalProperties: true
+-- 
+2.51.0
 
 
 _______________________________________________
