@@ -4,80 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21294CCA468
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 10:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 381B3CCA470
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 11:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u2kmcPxJ1IZBbxsxJJFPltSjYp11N6HL4ojsfwIsgg4=; b=VMNqiGhD47sJ9p
-	hv0oB/wChzxcyWIaF3SrWC6N2sGT18ylK1Ob0Ml6eqoqbj4Xq1ovLHRTYwL7DEETtY/ZvV8L7S/ry
-	CPkpxr2d7Wwm7tdAKUQKxTEt+Yoy8oAJKEVzVGNcXb0k8FE6XQw5LA3h1kzsmtztAX9iPB0viNZWE
-	L3tWJaLSRRN3NdJb0DJhn659uGyFs+kWLR2HZQ9jlR01oRhuUWXsIlzhcJchbr+hRHoFYBpCVPmYG
-	F2V6VqVsCGXlUM62kXF2Y8Q5Sfv4D+ZSOg1mmjLKhPTvPmoUuZByQSjLmuWLrRIvklQ4hEzVojnXO
-	qMBu28B8T3KpUeZ7N+8g==;
+	List-Owner; bh=nYXRJKx0Hp6ndaYezWlfjwryHIBjdBNs5yEpPqf6mzE=; b=OpowcqHtXEJ85e
+	bhBgGOBS31pP5J0b8Wgcc0i7vwRuhd26ijoUPy2ViGYMkoSVh7RORIm+yMQT8WlYZIcqwt+oEjDaJ
+	PjGLfwnWoACbAni6FGOEv9wJdRyXgfeDpma2pSkaJeiORv+NOhYrS6bCUmP6aXtvd/z9OBLVrNWJC
+	KQJyRsw5bjqJ/f60lNh7TBKl3oKIbxaTnImmujbt2yhod6GaDCJZ3eh5RWzRJ4azw0wjAJSHJrx/9
+	5D9wz3jcGIpqbHO1tiCPsAn/rqGhD0XNypKNnAESxBBr693JxKoUHEiUGV+tyd7VOvrqJUQG01S7h
+	HWZi5m5AAH+SVjT7q23w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3XDO-00000004x5O-3VI6;
-	Tue, 30 Sep 2025 10:04:10 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1v3YL2-000000057Ei-372u;
+	Tue, 30 Sep 2025 11:16:08 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3XDM-00000004x4q-11ES
+	id 1v3YKz-000000057Do-3CYJ
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Sep 2025 10:04:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759226640; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mvbioyt5TZ0Bjifd5WH/AHYzbKrXx5QlgQ8yN3wfKPUIKBhZ9JRg6yaXSARU4SxHFN5GItlfo1rtcv2m1+0FSVFBQsmm+MhmrIcB75cAfglCk9jRDEtTLJ11K0E3sVDflN6HlhWlAHm1r3Vj2eXWf9b8O5XskDGy5S+gXv9vIkU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759226640; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=X+2Kt7ia+spiy1WSmoZW7Xpn1ruAr5JNqGp2P8AiYYo=; 
-	b=RdRa7o2bPSVGPpCdYbWw9XIjwnjogUIbonJHU2pqjwkeTFHxcP5fcKzqGedE0/0CpugUnPwXBxGArn6ewNfdP//HWZbzftq6lJqEd+qIEIS6ccgViBwNVCb+bvc39Pwr6mKItrDPcvxLrwUNMxdufEkCkeC3HD8z6khxmwayXzA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759226640;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=X+2Kt7ia+spiy1WSmoZW7Xpn1ruAr5JNqGp2P8AiYYo=;
-	b=mflzYbfNcZdJYS4Hb+wkeIHFdK9qS4IdJyyP4wsRvvjIIgBg78f+N01tx5XSLG7S
-	9UWgol1LaIcb2aD6swjnFMbJoans2pattEJ9dIpJbAQa4UFtlxFgcRMDYLjmVB1YQFG
-	T47gb1tDabaui9IzUw2NgHNmYGNPW+myCwNOL4HjMVvLTiASOu7p6mFhyq7r+Xf0m8I
-	uU+7saeDsHcOFcuIVwU7uVBBKnbGOKBlM/AtC14Hc4fDCneaTMiiDpRt7dXPgCFmVGs
-	Beb/lng8xgLBqDb3rkhuTlOzkxE1GHuD8mHIVi5pRgb16TjAdcOR751lkfyUXEkDWr6
-	MiHgkAIRug==
-Received: by mx.zohomail.com with SMTPS id 1759226638649745.844690092961;
-	Tue, 30 Sep 2025 03:03:58 -0700 (PDT)
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Michael Zhu <michael.zhu@starfivetech.com>,
-	Drew Fustini <drew@beagleboard.org>,
-	Yao Zi <ziyao@disroot.org>,
-	E Shattow <e@freeshell.de>
-Cc: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH v2 2/2] riscv: dts: starfive: add DT for Orange Pi RV
-Date: Tue, 30 Sep 2025 18:03:18 +0800
-Message-ID: <20250930100318.2131968-2-uwu@icenowy.me>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250930100318.2131968-1-uwu@icenowy.me>
-References: <20250930100318.2131968-1-uwu@icenowy.me>
+	Tue, 30 Sep 2025 11:16:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1759230964;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZEOnnvfg2VP9jFylWLMcLAcGpm2F4oh7aBv+d9st9Ec=;
+	b=DvoR1Cy/j7btiKHjzLRtPLx6mKmgh5Rfys2qjl0AaWbY5hqmUJDQgl41vrEJ/SNgYkhnXW
+	vXZn/gR7wFGHbincknJFFM3E3Nm/gk+QaRqUVmgrjGpjAEklq/73j0ZLjP2zIlDb/GRqpF
+	TSjayJe96gR5iGxEjaiEfIlEn4rIkec=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-355-rJUdj_0aOK-QG4zQjk5sLg-1; Tue,
+ 30 Sep 2025 07:16:02 -0400
+X-MC-Unique: rJUdj_0aOK-QG4zQjk5sLg-1
+X-Mimecast-MFC-AGG-ID: rJUdj_0aOK-QG4zQjk5sLg_1759230956
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4EDB9195609E;
+	Tue, 30 Sep 2025 11:15:55 +0000 (UTC)
+Received: from fweimer-oldenburg.csb.redhat.com (unknown [10.44.33.56])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 018161800447;
+	Tue, 30 Sep 2025 11:15:34 +0000 (UTC)
+From: Florian Weimer <fweimer@redhat.com>
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: Paul Walmsley <pjw@kernel.org>,  Thomas Gleixner <tglx@linutronix.de>,
+  Ingo Molnar <mingo@redhat.com>,  Borislav Petkov <bp@alien8.de>,  Dave
+ Hansen <dave.hansen@linux.intel.com>,  x86@kernel.org,  "H. Peter Anvin"
+ <hpa@zytor.com>,  Andrew Morton <akpm@linux-foundation.org>,  "Liam R.
+ Howlett" <Liam.Howlett@oracle.com>,  Vlastimil Babka <vbabka@suse.cz>,
+  Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,  Paul Walmsley
+ <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,  Albert
+ Ou <aou@eecs.berkeley.edu>,  Conor Dooley <conor@kernel.org>,  Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Arnd
+ Bergmann <arnd@arndb.de>,  Christian Brauner <brauner@kernel.org>,  Peter
+ Zijlstra <peterz@infradead.org>,  Oleg Nesterov <oleg@redhat.com>,  Eric
+ Biederman <ebiederm@xmission.com>,  Kees Cook <kees@kernel.org>,  Jonathan
+ Corbet <corbet@lwn.net>,  Shuah Khan <shuah@kernel.org>,  Jann Horn
+ <jannh@google.com>,  Conor Dooley <conor+dt@kernel.org>,  Miguel Ojeda
+ <ojeda@kernel.org>,  Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
+ <boqun.feng@gmail.com>,  Gary Guo <gary@garyguo.net>,  =?utf-8?Q?Bj=C3=B6?=
+ =?utf-8?Q?rn?= Roy Baron
+ <bjorn3_gh@protonmail.com>,  Andreas Hindborg <a.hindborg@kernel.org>,
+  Alice Ryhl <aliceryhl@google.com>,  Trevor Gross <tmgross@umich.edu>,
+  Benno Lossin <lossin@kernel.org>,  linux-kernel@vger.kernel.org,
+  linux-fsdevel@vger.kernel.org,  linux-mm@kvack.org,
+  linux-riscv@lists.infradead.org,  devicetree@vger.kernel.org,
+  linux-arch@vger.kernel.org,  linux-doc@vger.kernel.org,
+  linux-kselftest@vger.kernel.org,  alistair.francis@wdc.com,
+  richard.henderson@linaro.org,  jim.shu@sifive.com,  Andy Chiu
+ <andybnac@gmail.com>,  kito.cheng@sifive.com,  charlie@rivosinc.com,
+  atishp@rivosinc.com,  evan@rivosinc.com,  cleger@rivosinc.com,
+  alexghiti@rivosinc.com,  samitolvanen@google.com,  broonie@kernel.org,
+  rick.p.edgecombe@intel.com,  rust-for-linux@vger.kernel.org,  Zong Li
+ <zong.li@sifive.com>,  David Hildenbrand <david@redhat.com>,  Heinrich
+ Schuchardt <heinrich.schuchardt@canonical.com>,  bharrington@redhat.com,
+  Aurelien Jarno <aurel32@debian.org>, bergner@tenstorrent.com,
+ jeffreyalaw@gmail.com
+Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
+In-Reply-To: <aNQ7D6_ZYMhCdkmL@debug.ba.rivosinc.com> (Deepak Gupta's message
+	of "Wed, 24 Sep 2025 11:40:15 -0700")
+References: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
+	<f953ee7b-91b3-f6f5-6955-b4a138f16dbc@kernel.org>
+	<aNQ7D6_ZYMhCdkmL@debug.ba.rivosinc.com>
+Date: Tue, 30 Sep 2025 13:15:32 +0200
+Message-ID: <lhuldlwgpij.fsf@oldenburg.str.redhat.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-X-ZohoMailClient: External
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: mr9QuRuo4g6ZOI11MBeXCqtBMVXXCpwd-s-gRIYICC0_1759230956
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_030408_342502_F485C662 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20250930_041605_868133_AF36122F 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,139 +120,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Orange Pi RV is a newly released SBC with JH7110 SoC, single GbE port
-(connected to JH7110 GMAC0 via a YT8531 PHY), 4 USB ports (via a VL805
-PCIe USB controller connected to JH7110 PCIE0), a M.2 M-key slot
-(connected to JH7110 PCIE1), a HDMI video output, a 3.5mm audio output
-and a microSD slot.
+* Deepak Gupta:
 
-Other Onboard peripherals contain a SPI NOR (which contains the U-Boot
-firmware), a 24c02 EEPROM storing some StarFive-specific information
-(factory programmed and read only by default) and an Ampak AP6256 SDIO
-Wi-Fi module.
+> Any distro who is shipping userspace (which all of them are) along
+> with kernel will not be shipping two different userspaces (one with
+> shadow stack and one without them). If distro are shipping two
+> different userspaces, then they might as well ship two different
+> kernels. Tagging some distro folks here to get their take on shipping
+> different userspace depending on whether hardware is RVA23 or
+> not. @Heinrich, @Florian, @redbeard and @Aurelien.
+>
+> Major distro's have already drawn a distinction here that they will drop
+> support for hardware which isn't RVA23 for the sake of keeping binary
+> distribution simple.
 
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
----
-Changes in v2:
-- Property order change mentioned in the review of v1.
-- Added Wi-Fi (along with the always on VCC3V3_PCIE regulator, which is
-  used to power up WIFI_3V3). The OOB IRQ is still not possible to use
-  because of some incompatibility between StarFive pinctrl driver and
-  brcmfmac.
-- Removed the LED because it's in common DTSI.
+The following are just my personal thoughts.
 
- arch/riscv/boot/dts/starfive/Makefile         |  1 +
- .../boot/dts/starfive/jh7110-orangepi-rv.dts  | 87 +++++++++++++++++++
- 2 files changed, 88 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts
+For commercial distributions, I just don't see how things work out if
+you have hardware that costs less than (say) $30 over its lifetime, and
+you want LTS support for 10+ years.  The existing distribution business
+models aren't really compatible with such low per-node costs.  So it
+makes absolute sense for distributions to target more powerful cores,
+and therefore require RVA23.  Nobody is suggesting that mainstream
+distributions should target soft-float, either.
 
-diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-index b3bb12f78e7d5..24f1a44828350 100644
---- a/arch/riscv/boot/dts/starfive/Makefile
-+++ b/arch/riscv/boot/dts/starfive/Makefile
-@@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
- 
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-deepcomputing-fml13v01.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
-+dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-orangepi-rv.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts b/arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts
-new file mode 100644
-index 0000000000000..5a917b7db6f78
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts
-@@ -0,0 +1,87 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
-+ */
-+
-+/dts-v1/;
-+#include "jh7110-common.dtsi"
-+
-+/ {
-+	model = "Xunlong Orange Pi RV";
-+	compatible = "xunlong,orangepi-rv", "starfive,jh7110";
-+
-+	/* This regulator is always on by hardware */
-+	reg_vcc3v3_pcie: regulator-vcc3v3-pcie {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3-pcie";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&sysgpio 62 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&gmac0 {
-+	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
-+	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
-+	starfive,tx-use-rgmii-clk;
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	cap-sd-highspeed;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	vmmc-supply = <&reg_vcc3v3_pcie>;
-+	vqmmc-supply = <&vcc_3v3>;
-+	status = "okay";
-+
-+	ap6256: wifi@1 {
-+		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
-+		reg = <1>;
-+		/* TODO: out-of-band IRQ on GPIO21 */
-+	};
-+};
-+
-+&mmc0_pins {
-+	/*
-+	 * As the MMC0 bus is used to connect a SDIO Wi-Fi card instead of
-+	 * an eMMC card, and the eMMC RST is repurposed to be an enablement
-+	 * pin of the SDIO Wi-Fi, remove it from the pinctrl node and manage
-+	 * it as a GPIO instead.
-+	 */
-+	/delete-node/ rst-pins;
-+};
-+
-+&mmc1 {
-+	/delete-property/ cd-gpios;
-+	broken-cd;
-+};
-+
-+&pcie0 {
-+	status = "okay";
-+};
-+
-+&pcie1 {
-+	status = "okay";
-+};
-+
-+&phy0 {
-+	rx-internal-delay-ps = <1500>;
-+	tx-internal-delay-ps = <1500>;
-+	motorcomm,tx-clk-adj-enabled;
-+	motorcomm,tx-clk-10-inverted;
-+	motorcomm,tx-clk-100-inverted;
-+	motorcomm,tx-clk-1000-inverted;
-+	motorcomm,rx-clk-drv-microamp = <3970>;
-+	motorcomm,rx-data-drv-microamp = <2910>;
-+};
-+
-+&pwmdac {
-+	status = "okay";
-+};
--- 
-2.51.0
+For community distributions, it is a much tougher call.  Obsoleting
+virtually all existing hardware sends a terrible signal to early
+supporters of the architecture.  But given how limited the RISC-V
+baseline ISA is, I'm not sure if there is much of a choice here.  Maybe
+it's possible to soften the blow by committing to (say) two more years
+of baseline ISA support, and then making the switch, assuming that RVA23
+hardware for local installation is widely available by then.
+
+However, my real worry is that in the not-too-distant future, another
+ISA transition will be required after RVA23.  This is not entirely
+hypothetical because RVA23 is still an ISA designed mostly for C (at
+least in the scalar space, I don't know much about the vector side).
+Other architectures carry forward support for efficient overflow
+checking (as required by Ada and some other now less-popular languages,
+and as needed for efficiently implementing fixnums with arbitrary
+precision fallback).  Considering current industry trends, it is not
+inconceivable that these ISA features become important again in the near
+term.
+
+You can see the effect of native overflow checking support if you look
+at Ada code examples with integer arithmetic.  For example, this:
+
+function Fib (N: Integer) return Integer is
+begin
+   if N <= 1 then
+      return N;
+   else
+      return Fib (N - 1) + Fib (N - 2);
+   end if;
+end;
+
+produces about 370 RISC-V instructions with -gnato, compared to 218
+instructions with -gnato0 and overflow checking disabled (using GCC
+trunk).  For GCC 15, the respective instruction counts are 301 and 258
+for x86-64, and 288 and 244 for AArch64.  RVA23 reduces the instruction
+count with overflow checking to 353.  A further reduction should be
+possible once GCC starts using xnor in its overflow checks, but I expect
+that the overhead from overflow checking will remain high.
+
+Thanks,
+Florian
 
 
 _______________________________________________
