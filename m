@@ -4,41 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E5D1CCA476
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 16:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75F28CCA470
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Sep 2025 16:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ThRNFWYkRUJP0LUeT+3UYf7YcLVP4KrNnMCECBaJdCQ=; b=2w/O6Xf0r2OAdY
-	cPNMHU9P3FDda2m2RqTcaIZ5Jr6yDU/fQhL9EuMmYAT3j6bgbR4siQyycy2qBlOaEDE3I79nLqz6H
-	KIbzErhXS0BjmPq4PVyLosAkToQQc+7/yQEuxd76oQeSTxKkHKtgWJWCfjBz5rbhXPTATTyuA/9TV
-	rmO6jY6f3LQ03bk0eax9U1kCgTCWodVtzqbW2YklIJTNpy47Q5pKPMyLRgj5VZm6cgrmYFWeXo/IQ
-	OJQjd3VUi4lGaVeQeSk6rMB6DwUChnSRP/Y/pOyIj4RDISCtgieBLxmylmzyue1udkgHV/YH5czIc
-	mGIYC6tWyqCUt7os4JwQ==;
+	List-Owner; bh=vU/zw45OR+aBkDTZZZMwsS2Ac/qDdIDSavVbNTQi0MY=; b=zKy4YWzwikDkBD
+	GT2/FU+wgTeoRuKDhGyorHBY1/c79Nk0NXpp6Z+PNrALbX4/4NcLRxDbX9iKNtGl3ac6d6Df0/zrc
+	OB4+Kbxd0WtbV2jhbHPolQEc/V4gDa7xfJsdEbk2jsWmro9G9SKzbZ4rL1PsYZJiScByyQ4n7JV4f
+	fTCjz6MrLbcXnFSE7cBU3NOKGaiT/zvEsrN1/lk5xvM87pbenHxfLOH057eu9nFRSzXuhzBXwhwCm
+	KdOquukqjnn9M5ADrm3hx0kj1WilKWgXGBUooDpjfQ9gIn+GtGrdkNcrGt3fXdsDsjw6oCm4VV3Vt
+	+CXOlOGYs3Aq7gYknQLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ddW-00000005oax-0AOr;
-	Tue, 30 Sep 2025 16:55:34 +0000
+	id 1v3ddN-00000005oWh-08Z3;
+	Tue, 30 Sep 2025 16:55:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ddT-00000005oZf-1pt0
+	id 1v3ddL-00000005oVt-09YX
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Sep 2025 16:55:33 +0000
+	Tue, 30 Sep 2025 16:55:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F359E106F;
-	Tue, 30 Sep 2025 09:55:22 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DA6A2008;
+	Tue, 30 Sep 2025 09:55:14 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82A923F59E;
-	Tue, 30 Sep 2025 09:55:28 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2B9DB3F59E;
+	Tue, 30 Sep 2025 09:55:20 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 30 Sep 2025 17:54:54 +0100
-Subject: [PATCH v2 6/8] perf test coresight: Dismiss clang warning for
- unroll loop thread
+Date: Tue, 30 Sep 2025 17:54:51 +0100
+Subject: [PATCH v2 3/8] perf: build: Correct CROSS_ARCH for clang
 MIME-Version: 1.0
-Message-Id: <20250930-perf_build_android_ndk-v2-6-2ea440b7ef01@arm.com>
+Message-Id: <20250930-perf_build_android_ndk-v2-3-2ea440b7ef01@arm.com>
 References: <20250930-perf_build_android_ndk-v2-0-2ea440b7ef01@arm.com>
 In-Reply-To: <20250930-perf_build_android_ndk-v2-0-2ea440b7ef01@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -54,16 +53,16 @@ Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
  llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759251311; l=1677;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759251311; l=1923;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=6JaO7UUmiEVn7pKrHNGJDEz9BYZJxL1KrwbjcRDT7O4=;
- b=IL/PtsxjrtyZRg6KRWstnSYp5wNt6/32M/wHANXmPmbiMF5O1tf7AOPJLXWhrVbYU1Tb3s5/B
- MMKbuhplGktCHa4HUqCP/OH0wowWkyrD+ugaDL6GNmXy9AZeLgP3bN/
+ bh=m3SmlzRsMKVpO74OXfiVE3r/DuuiN/mWjDes/0cwih0=;
+ b=qUc6vL977vzutRPctHwk1sckCH+1J1T6H7bOBO7DYTmLBmUjwij5vDGLB3/y7XbyFMRL7bm1h
+ LqO51kVR3eMAVhrO7d+2ZKDZqEN6w1OzCZrAWr9lUOxhTmkvAWy1Mc3
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_095531_517554_78E8F52D 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20250930_095523_119369_B10877BD 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +79,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-clang-18.1.3 on Ubuntu 24.04.2 reports warning:
+Clang's -dumpmachine outputs "aarch64-unknown-linux-gnu", which does not
+match the MultiArch convention. This prevents the build system from
+detecting installed packages.
 
-  unroll_loop_thread.c:35:25: warning: value size does not match register size specified by the constraint and modifier [-Wasm-operand-widths]
-     35 |                         : /* in */ [in] "r" (in)
-        |                                              ^
-  unroll_loop_thread.c:39:1: warning: non-void function does not return a value [-Wreturn-type]
-     39 | }
-        | ^
-
-Use the modifier "w" for 32-bit register access and return NULL at the
-end of thread function.
+Fix by stripping the trailing '-' from CROSS_COMPILE when setting
+CROSS_ARCH.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- .../tests/shell/coresight/unroll_loop_thread/unroll_loop_thread.c     | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ tools/build/feature/Makefile | 2 +-
+ tools/perf/Makefile.perf     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/tools/perf/tests/shell/coresight/unroll_loop_thread/unroll_loop_thread.c b/tools/perf/tests/shell/coresight/unroll_loop_thread/unroll_loop_thread.c
-index 0fc7bf1a25af3607b40f091f62176134ddb7f9f6..8f4e1c985ca38ab545a05189432a14a6d888d34c 100644
---- a/tools/perf/tests/shell/coresight/unroll_loop_thread/unroll_loop_thread.c
-+++ b/tools/perf/tests/shell/coresight/unroll_loop_thread/unroll_loop_thread.c
-@@ -20,7 +20,7 @@ static void *thrfn(void *arg)
- 	for (i = 0; i < 10000; i++) {
- 		asm volatile (
- // force an unroll of thia add instruction so we can test long runs of code
--#define SNIP1 "add %[in], %[in], #1\n"
-+#define SNIP1 "add %w[in], %w[in], #1\n"
- // 10
- #define SNIP2 SNIP1 SNIP1 SNIP1 SNIP1 SNIP1 SNIP1 SNIP1 SNIP1 SNIP1 SNIP1
- // 100
-@@ -36,6 +36,8 @@ static void *thrfn(void *arg)
- 			: /* clobber */
- 		);
- 	}
-+
-+	return NULL;
- }
- 
- static pthread_t new_thr(void *(*fn) (void *arg), void *arg)
+diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
+index bd615a708a0aa89ddbe87401f04bd736e384a9c4..214ccaee69181cce1f8e736b85c8dc940efa6c19 100644
+--- a/tools/build/feature/Makefile
++++ b/tools/build/feature/Makefile
+@@ -94,7 +94,7 @@ else
+   # paths are used instead.
+   ifdef CROSS_COMPILE
+     ifeq ($(PKG_CONFIG_LIBDIR)$(PKG_CONFIG_PATH)$(PKG_CONFIG_SYSROOT_DIR),)
+-      CROSS_ARCH = $(shell $(CC) -dumpmachine)
++      CROSS_ARCH = $(notdir $(CROSS_COMPILE:%-=%))
+       PKG_CONFIG_LIBDIR := /usr/local/$(CROSS_ARCH)/lib/pkgconfig/
+       PKG_CONFIG_LIBDIR := $(PKG_CONFIG_LIBDIR):/usr/local/lib/$(CROSS_ARCH)/pkgconfig/
+       PKG_CONFIG_LIBDIR := $(PKG_CONFIG_LIBDIR):/usr/lib/$(CROSS_ARCH)/pkgconfig/
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index e2150acc2c13325f93a2d5cd4a60b4a6bfeedc94..47bc9d8a91df90535408c427909bcb3f7cd50970 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -194,7 +194,7 @@ else
+   # paths are used instead.
+   ifdef CROSS_COMPILE
+     ifeq ($(PKG_CONFIG_LIBDIR)$(PKG_CONFIG_PATH)$(PKG_CONFIG_SYSROOT_DIR),)
+-      CROSS_ARCH = $(shell $(CC) -dumpmachine)
++      CROSS_ARCH = $(notdir $(CROSS_COMPILE:%-=%))
+       PKG_CONFIG_LIBDIR := /usr/local/$(CROSS_ARCH)/lib/pkgconfig/
+       PKG_CONFIG_LIBDIR := $(PKG_CONFIG_LIBDIR):/usr/local/lib/$(CROSS_ARCH)/pkgconfig/
+       PKG_CONFIG_LIBDIR := $(PKG_CONFIG_LIBDIR):/usr/lib/$(CROSS_ARCH)/pkgconfig/
 
 -- 
 2.34.1
