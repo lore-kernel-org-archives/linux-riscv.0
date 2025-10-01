@@ -4,47 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32DC4CAC5BB
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Oct 2025 18:26:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 921FBCAC5BB
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Oct 2025 18:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=woHypWmn8pYf++2nYoMTvDiBf155goLKBObyK+wCHgg=; b=C3m85L+ECe+fGt
-	39rLQSmPnCGW/LyPiyiwdyqDHnfIAL+b8Y+7+olehpEHIvwnvpVpieVN0XGYnnxP+nxO20GBd0df2
-	ItOuqrCErHz+6x0DISqUAx8ZOJXBdFZehork8MQQzSpX7dwA3zWHyG6xXsWzpzKph26y/s0GpVUmi
-	8iwhA5pnf92pQF6K5S8GzqfGgMTSgKH0j/7JZyPNtRn71P7OYmR0uzr5d8uWOjMTXktbLjz5JQ1vs
-	OcSfg/iwm0NeIGFQhr44hMqAppmWNdXW6SUhN4qgiBbsm9IwapZA+8hRZB2ruMdnX4zbhAxwUf/wa
-	S5IDAKS1n2xRF1ZBQtWA==;
+	List-Owner; bh=9hI6V44mc9X7eRkkTmbVEvUa5BbPDS4Vn8ujGK4i1jA=; b=0NfL19MTb7Zr9Y
+	V5swA4+RJItwJyyoOimIEi+9BHeFSnZ3KVWQJu+7pBCEEwiPArXSs3tpor/AULpKJZUYeb/CWkuLt
+	WtiuhP/n6VYUBx2FkYSa/M8PSwszOr3Sse13/9mHdtDtRTcm27wTK369/meX+mzWx8KriYXOhJtXA
+	x/9DAp8SUOaPTQBryWhDY+8sc3ue36SVVMv+I9+wIrojA9/lCqeH0qU9W4b0vKq8PZlK01XyEdmuw
+	5RCIwgITOlPyf6yP4w9CCB7k+G6gJbl5LR2Z4bbcAq28s1BoAW+0fwby/RvBMC6RRpkPNjkIW44uq
+	FWNEeJUepwS6P9AFmisg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v41Wb-00000008kC0-34ZN;
-	Wed, 01 Oct 2025 18:26:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v41Wa-00000008kBp-3fvC
+	id 1v41dQ-00000008l9z-1lQX;
+	Wed, 01 Oct 2025 18:33:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v41dN-00000008l9Z-46Mv
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Oct 2025 18:26:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B6BA61D41;
-	Wed,  1 Oct 2025 18:26:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D2A2C4CEF1;
-	Wed,  1 Oct 2025 18:25:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759343159;
-	bh=5tYNT4AGhA/+brjUhG2yYDjWkEhcuOCmBfZz1pB8S80=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ggQQZR28GyrqV38FAse77cgleFho3+rhhrF1fmbm4xBVbG8ZvrODWbxMN1//DAiM9
-	 lr0hmlEL4hzMrny7caHA5VOPxXg2sP4qyZEycboXHPcLxTYov6qcp7AZjpwucGsTly
-	 zlBBopr9omwfkXqzFwWO55kxXGpO8jJJsg/R+piBqu3/6X/hX+Eq9G+PCMQ1Siv35o
-	 u2OMbtituhHO22VoDospws+EJmTNswQ6ZziJQGYZaMmgXL6fotsjl8T48QklpqNney
-	 2JwK1LkMwQSIz4BlKzdi5eLT1DU9cfDvvoEfTL9oikVfmvhFlP55NmAmjCJP7TMk8z
-	 QUCFZItEvHHdQ==
-Date: Wed, 1 Oct 2025 15:25:56 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
+	Wed, 01 Oct 2025 18:33:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7DD4B16F8;
+	Wed,  1 Oct 2025 11:32:50 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23ADB3F66E;
+	Wed,  1 Oct 2025 11:32:58 -0700 (PDT)
+Date: Wed, 1 Oct 2025 19:32:56 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
 Cc: Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
 	Ian Rogers <irogers@google.com>,
 	Adrian Hunter <adrian.hunter@intel.com>,
@@ -59,13 +50,18 @@ Cc: Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
 	linux-perf-users@vger.kernel.org, llvm@lists.linux.dev,
 	linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v2 0/8] perf build: Support building with Clang
-Message-ID: <aN1yNKxXLnMtQczW@x1>
+Message-ID: <20251001183256.GS7985@e132581.arm.com>
 References: <20250930-perf_build_android_ndk-v2-0-2ea440b7ef01@arm.com>
  <aN044EY-Ds9-E6iz@x1>
  <20251001152217.GQ7985@e132581.arm.com>
+ <aN1yNKxXLnMtQczW@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251001152217.GQ7985@e132581.arm.com>
+In-Reply-To: <aN1yNKxXLnMtQczW@x1>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251001_113302_073855_32951AE8 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,88 +73,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBPY3QgMDEsIDIwMjUgYXQgMDQ6MjI6MTdQTSArMDEwMCwgTGVvIFlhbiB3cm90ZToK
-PiBPbiBXZWQsIE9jdCAwMSwgMjAyNSBhdCAxMToyMToyMEFNIC0wMzAwLCBBcm5hbGRvIENhcnZh
-bGhvIGRlIE1lbG8gd3JvdGU6Cj4gPiBPbiBUdWUsIFNlcCAzMCwgMjAyNSBhdCAwNTo1NDo0OFBN
-ICswMTAwLCBMZW8gWWFuIHdyb3RlOgo+ID4gPiBUaGlzIHNlcmllcyBhZGRzIHN1cHBvcnQgZm9y
-IGJ1aWxkaW5nIHBlcmYgd2l0aCBDbGFuZywgZm9sbG93aW5nIHRoZQo+ID4gPiBkaXNjdXNzaW9u
-IGluIFsxXS4gQmVjYXVzZSB0aGUgQW5kcm9pZCBOREsgdXNlcyBDbGFuZyBieSBkZWZhdWx0LAo+
-ID4gPiBlbmFibGluZyBDbGFuZyBidWlsZHMgbmF0dXJhbGx5IGNvdmVycyBBbmRyb2lkIGFzIHdl
-bGwuCj4gPiA+IAo+ID4gPiBUaGUgc2VyaWVzIGlzIG9yZ2FuaXplZCBhcyBmb2xsb3dzOgo+ID4g
-PiAKPiA+ID4gICAtIFBhdGNoZXMgMeKAkzI6IEZpeCB0d28gYnVncyBmb3VuZCB3aXRoIENsYW5n
-Lgo+ID4gPiAgIC0gUGF0Y2hlcyAz4oCTNjogQ29ycmVjdCBDUk9TU19BUkNIIGFuZCBkaXNtaXNz
-IENsYW5nIGJ1aWxkIHdhcm5pbmdzLgo+ID4gPiAgIC0gUGF0Y2hlcyA34oCTODogRW5hYmxlIENs
-YW5nIGluIHRoZSBNYWtlZmlsZSBhbmQgdXBkYXRlIHRoZQo+ID4gPiAgICAgZG9jdW1lbnRhdGlv
-bi4KPiA+ID4gCj4gPiA+IFRlc3Rpbmc6Cj4gPiA+IAo+ID4gPiAgIC0gQ2xhbmcgMTUuMC43IG9u
-IFVidW50dSAyMi4wNC41OiBuYXRpdmUgYW5kIGNyb3NzLWNvbXBpbGluZyAoYWFyY2g2NCkKPiA+
-ID4gICAtIENsYW5nIDE4LjEuMyBvbiBVYnVudHUgMjQuMDQuMjogbmF0aXZlIGFuZCBjcm9zcy1j
-b21waWxpbmcgKGFhcmNoNjQpCj4gPiA+ICAgLSBBbmRyb2lkIE5ESyByMjdkIChsYXRlc3QgTFRT
-KTogY3Jvc3MtY29tcGlsaW5nIChhYXJjaDY0KQo+ID4gCj4gPiAgIExEICAgICAgL3RtcC9idWls
-ZC9wZXJmL3V0aWwvcGVyZi11dGlsLWluLm8KPiA+ICAgTEQgICAgICAvdG1wL2J1aWxkL3BlcmYv
-cGVyZi11dGlsLWluLm8KPiA+ICAgQVIgICAgICAvdG1wL2J1aWxkL3BlcmYvbGlicGVyZi11dGls
-LmEKPiA+ICAgQ0MgICAgICAvdG1wL2J1aWxkL3BlcmYvcG11LWV2ZW50cy9wbXUtZXZlbnRzLm8K
-PiA+ICAgTEQgICAgICAvdG1wL2J1aWxkL3BlcmYvcG11LWV2ZW50cy9wbXUtZXZlbnRzLWluLm8K
-PiA+ICAgQVIgICAgICAvdG1wL2J1aWxkL3BlcmYvbGlicG11LWV2ZW50cy5hCj4gPiAgIExJTksg
-ICAgL3RtcC9idWlsZC9wZXJmL3BlcmYKPiA+IG1ha2U6IExlYXZpbmcgZGlyZWN0b3J5ICcvZ2l0
-L3BlcmYtNi4xNy4wLXJjNi90b29scy9wZXJmJwo+ID4gKyBybSAtcmYgL3RtcC9idWlsZC9wZXJm
-Cj4gPiArIG1rZGlyIC90bXAvYnVpbGQvcGVyZgo+ID4gKyBtYWtlICdBUkNIPScgJ0NST1NTX0NP
-TVBJTEU9JyAnRVhUUkFfQ0ZMQUdTPScgLUMgdG9vbHMvcGVyZiAnTz0vdG1wL2J1aWxkL3BlcmYn
-ICdDQz1jbGFuZycKPiA+IG1ha2U6IEVudGVyaW5nIGRpcmVjdG9yeSAnL2dpdC9wZXJmLTYuMTcu
-MC1yYzYvdG9vbHMvcGVyZicKPiA+ICAgQlVJTEQ6ICAgRG9pbmcgJ21ha2UgLWoyOCcgcGFyYWxs
-ZWwgYnVpbGQKPiA+IE1ha2VmaWxlLmNvbmZpZzo0OTQ6ICoqKiBObyBnbnUvbGliYy12ZXJzaW9u
-LmggZm91bmQsIHBsZWFzZSBpbnN0YWxsIGdsaWJjLWRldltlbF0uICBTdG9wLgo+ID4gbWFrZVsx
-XTogKioqIFtNYWtlZmlsZS5wZXJmOjI4OTogc3ViLW1ha2VdIEVycm9yIDIKPiA+IG1ha2U6ICoq
-KiBbTWFrZWZpbGU6NzY6IGFsbF0gRXJyb3IgMgo+ID4gbWFrZTogTGVhdmluZyBkaXJlY3Rvcnkg
-Jy9naXQvcGVyZi02LjE3LjAtcmM2L3Rvb2xzL3BlcmYnCj4gPiArIGV4aXQgMQo+ID4gdG9vbHNi
-dWlsZGVyQGZpdmU6fiQgY2F0IGRtLmxvZy9hbHBpbmVcOjMuMjIKIAo+IEEgcXVpY2sgbG9vazog
-dGhlIGJ1aWxkIGNhbm5vdCBmaW5kIGJvdGggbGliZWxmIChmZWF0dXJlLWxpYmVsZj0wKSBhbmQK
-PiBnbGliYyAoZmVhdHVyZS1nbGliYz0wKSwgdGh1cyBsZWFkIHRvIGJ1aWxkIGZhaWx1cmUuIEl0
-IGlzIGdvb2QgdG8KPiBrbm93IHdoYXQgdGhlIHJlYXNvbiBmb3IgdGhlIGZlYXR1cmUgYnVpbGRp
-bmcgZmFpbHVyZXM6CiAKPiAgIHRvb2xzL3BlcmYvZmVhdHVyZS90ZXN0LWxpYmVsZi5tYWtlLm91
-dHB1dAo+ICAgdG9vbHMvcGVyZi9mZWF0dXJlL3Rlc3QtZ2xpYmMubWFrZS5vdXRwdXQKIAo+IEkg
-YW0gbm90IHN1cnByaXNlZCBmb3IgdGhlIGZhaWx1cmUgb2YgbGliZWxmICh0aGlzIGlzIGNvbW1v
-biBjYXNlCj4gdGhhdCB0aGUgcGFja2FnZSBpcyBub3QgaW5zdGFsbGVkIGJ5IGRlZmF1bHQgaW4g
-YSBkaXN0cm8pLCBidXQgaXQgaXMgYQo+IGJpdCBjb25mdXNlZCBmb3IgdGhlIGdsaWJjIGZlYXR1
-cmUgZmFpbHVyZS4KIAo+IEl0IHNlZW1zIHRoZSBpc3N1ZSBvY2N1cnMgb24gQWxwaW5lIDMuMjIs
-IGJ1dCB0aGUgaGlnaGVzdCB2ZXJzaW9uCj4gc3VwcG9ydGVkIGluIGNvbnRhaW5lci1idWlsZCBp
-cyAzLjIxIFsxXS4gQ291bGQgeW91IGNvbmZpcm0gd2hldGhlcgo+IHRoZSBpc3N1ZSByZXByb2R1
-Y2VzIG9uIG90aGVyIGRpc3Ryb3Mgb3IgdmVyc2lvbnM/CgpJdCB3YXMgaW4gYWxsIGFscGluZSB2
-ZXJzaW9ucyBJIGhhdmUgY29udGFpbmVycyB0byB0ZXN0IG9uOgoKdG9vbHNidWlsZGVyQGZpdmU6
-fiQgZ3JlcCBGQUlMIGRtLmxvZy5vbGQvc3VtbWFyeSAKICAgMyAgICA3MS44NSBhbG1hbGludXg6
-OS1pMzg2ICAgICAgICAgICAgICA6IEZBSUwgY2xhbmcgdmVyc2lvbiAxNy4wLjYgKEFsbWFMaW51
-eCBPUyBGb3VuZGF0aW9uIDE3LjAuNi01LmVsOSkKICAgNSAgICA3OC42MCBhbHBpbmU6My4xNiAg
-ICAgICAgICAgICAgICAgICA6IEZBSUwgZ2NjIHZlcnNpb24gMTEuMi4xIDIwMjIwMjE5IChBbHBp
-bmUgMTEuMi4xX2dpdDIwMjIwMjE5KSAKICAgNiAgICA1OS43NyBhbHBpbmU6My4xNyAgICAgICAg
-ICAgICAgICAgICA6IEZBSUwgZ2NjIHZlcnNpb24gMTIuMi4xIDIwMjIwOTI0IChBbHBpbmUgMTIu
-Mi4xX2dpdDIwMjIwOTI0LXI0KSAKICAgNyAgICA1Ni44OSBhbHBpbmU6My4xOCAgICAgICAgICAg
-ICAgICAgICA6IEZBSUwgZ2NjIHZlcnNpb24gMTIuMi4xIDIwMjIwOTI0IChBbHBpbmUgMTIuMi4x
-X2dpdDIwMjIwOTI0LXIxMCkgCiAgIDggICAgNjAuODYgYWxwaW5lOjMuMTkgICAgICAgICAgICAg
-ICAgICAgOiBGQUlMIGdjYyB2ZXJzaW9uIDEzLjIuMSAyMDIzMTAxNCAoQWxwaW5lIDEzLjIuMV9n
-aXQyMDIzMTAxNCkgCiAgIDkgICAgNjAuMTggYWxwaW5lOjMuMjAgICAgICAgICAgICAgICAgICAg
-OiBGQUlMIGdjYyB2ZXJzaW9uIDEzLjIuMSAyMDI0MDMwOSAoQWxwaW5lIDEzLjIuMV9naXQyMDI0
-MDMwOSkgCiAgMTAgICAgNjQuNTggYWxwaW5lOjMuMjIgICAgICAgICAgICAgICAgICAgOiBGQUlM
-IGdjYyB2ZXJzaW9uIDE0LjIuMCAoQWxwaW5lIDE0LjIuMCkgCiAgMTEgICAgNjMuMzYgYWxwaW5l
-OmVkZ2UgICAgICAgICAgICAgICAgICAgOiBGQUlMIGdjYyB2ZXJzaW9uIDE0LjIuMCAoQWxwaW5l
-IDE0LjIuMCkgCnRvb2xzYnVpbGRlckBmaXZlOn4kCgogIEdFTiAgICAgL3RtcC9idWlsZC9wZXJm
-L3B5dGhvbi9wZXJmLmNweXRob24tMzEyLXg4Nl82NC1saW51eC1tdXNsLnNvCm1ha2U6IExlYXZp
-bmcgZGlyZWN0b3J5ICcvZ2l0L3BlcmYtNi4xNy4wLXJjNi90b29scy9wZXJmJworIHJtIC1yZiAv
-dG1wL2J1aWxkL3BlcmYKKyBta2RpciAvdG1wL2J1aWxkL3BlcmYKKyBtYWtlICdBUkNIPScgJ0NS
-T1NTX0NPTVBJTEU9JyAnRVhUUkFfQ0ZMQUdTPScgLUMgdG9vbHMvcGVyZiAnTz0vdG1wL2J1aWxk
-L3BlcmYnICdDQz1jbGFuZycKbWFrZTogRW50ZXJpbmcgZGlyZWN0b3J5ICcvZ2l0L3BlcmYtNi4x
-Ny4wLXJjNi90b29scy9wZXJmJwogIEJVSUxEOiAgIERvaW5nICdtYWtlIC1qMjgnIHBhcmFsbGVs
-IGJ1aWxkCk1ha2VmaWxlLmNvbmZpZzo0OTQ6ICoqKiBObyBnbnUvbGliYy12ZXJzaW9uLmggZm91
-bmQsIHBsZWFzZSBpbnN0YWxsIGdsaWJjLWRldltlbF0uICBTdG9wLgptYWtlWzFdOiAqKiogW01h
-a2VmaWxlLnBlcmY6Mjg5OiBzdWItbWFrZV0gRXJyb3IgMgptYWtlOiAqKiogW01ha2VmaWxlOjc2
-OiBhbGxdIEVycm9yIDIKbWFrZTogTGVhdmluZyBkaXJlY3RvcnkgJy9naXQvcGVyZi02LjE3LjAt
-cmM2L3Rvb2xzL3BlcmYnCisgZXhpdCAxCnRvb2xzYnVpbGRlckBmaXZlOn4KJAoKbGVtbWUgdHJ5
-IHRvIHJlYXBwbHkgdGhvc2UgcGF0Y2hlcyBhbmQgZ2V0IHRoZQp0b29scy9wZXJmL2ZlYXR1cmUv
-dGVzdC1saWJlbGYubWFrZS5vdXRwdXQgYW5kCnRvb2xzL3BlcmYvZmVhdHVyZS90ZXN0LWdsaWJj
-Lm1ha2Uub3V0cHV0IGZpbGVzLgoKLSBBcm5hbGRvCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Oct 01, 2025 at 03:25:56PM -0300, Arnaldo Carvalho de Melo wrote:
+
+[...]
+
+> It was in all alpine versions I have containers to test on:
+> 
+> toolsbuilder@five:~$ grep FAIL dm.log.old/summary 
+>    3    71.85 almalinux:9-i386              : FAIL clang version 17.0.6 (AlmaLinux OS Foundation 17.0.6-5.el9)
+>    5    78.60 alpine:3.16                   : FAIL gcc version 11.2.1 20220219 (Alpine 11.2.1_git20220219) 
+>    6    59.77 alpine:3.17                   : FAIL gcc version 12.2.1 20220924 (Alpine 12.2.1_git20220924-r4) 
+>    7    56.89 alpine:3.18                   : FAIL gcc version 12.2.1 20220924 (Alpine 12.2.1_git20220924-r10) 
+>    8    60.86 alpine:3.19                   : FAIL gcc version 13.2.1 20231014 (Alpine 13.2.1_git20231014) 
+>    9    60.18 alpine:3.20                   : FAIL gcc version 13.2.1 20240309 (Alpine 13.2.1_git20240309) 
+>   10    64.58 alpine:3.22                   : FAIL gcc version 14.2.0 (Alpine 14.2.0) 
+>   11    63.36 alpine:edge                   : FAIL gcc version 14.2.0 (Alpine 14.2.0) 
+> toolsbuilder@five:~$
+> 
+>   GEN     /tmp/build/perf/python/perf.cpython-312-x86_64-linux-musl.so
+> make: Leaving directory '/git/perf-6.17.0-rc6/tools/perf'
+> + rm -rf /tmp/build/perf
+> + mkdir /tmp/build/perf
+> + make 'ARCH=' 'CROSS_COMPILE=' 'EXTRA_CFLAGS=' -C tools/perf 'O=/tmp/build/perf' 'CC=clang'
+> make: Entering directory '/git/perf-6.17.0-rc6/tools/perf'
+>   BUILD:   Doing 'make -j28' parallel build
+> Makefile.config:494: *** No gnu/libc-version.h found, please install glibc-dev[el].  Stop.
+> make[1]: *** [Makefile.perf:289: sub-make] Error 2
+> make: *** [Makefile:76: all] Error 2
+> make: Leaving directory '/git/perf-6.17.0-rc6/tools/perf'
+> + exit 1
+> toolsbuilder@five:~
+> $
+> 
+> lemme try to reapply those patches and get the
+> tools/perf/feature/test-libelf.make.output and
+> tools/perf/feature/test-glibc.make.output files.
+
+That is fine.  I have reproduced at my side, will look into.
+
+Thanks,
+Leo
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
