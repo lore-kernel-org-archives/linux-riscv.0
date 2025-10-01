@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B10CCA470
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Oct 2025 11:15:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00BF6CAC5BB
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Oct 2025 11:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OiYLUlUZOHSOBbCAG/RhW82opk6Izpf2G7qKZEZedEA=; b=a+Jqqh7NNR3pu2
-	tARBdsuelYYIb1tCoS38tPtuZKjikqdCRQmiFGwDhSnAn569SPorPKlpeojgda3mJTFJjqm2gKmm9
-	d1w5QkqFqNeXTPV1ONsMnw6TVRHnBY0+17Q4pnRE6aduCKaTNPz1HP8cQIFY7BK3zWhH1wia4DN8r
-	vIMVy0DCrYufyd7Cc8gNSyrPIwncgW0NykuMmXywJb7N8GFS/J6HYIYjvBLHa4uRAGwTDmGXfmxYZ
-	0b1sR7bhXXWH08WZJYjNXNshZtpR9maDAk6v1ETbJq3xbdkEOAzrw6KvAXaWNv5Vid+DTcXGxMgho
-	uDN3rPloD17hSq/SAuUQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tWB4ekj4Qnm0oUoibKd+e4RgzbJWwaKGv3x2OveIBWA=; b=Ufh0zjx2MkI3bg
+	aZ5H0QHmHvJPmZ+7XyRA65AFAE3GSkJowZ1qSMmZnJ3Vl7QEp8f/hCxegGsvqse7stJdEeK/JqvVp
+	Qif8uZWJYOAno/q9uS56jo/9NepUiuehHPeM5m9Z3YcC6TeSb3X/0FMW1dEMrXrVa0g+GrZETIQiL
+	4G6Ik5qQDRcLvktYQPhdjSp32JL/RlnIC7MMGy0rRJ/S08s0H5Hvy1zfBx4yA3CKAI//aovVcglSc
+	ZpeKo4SJfjrAeJfx3UAXDgeg6067I6B3v+vd8M+o5YDxS57mp3K7+dt9TN3oEV6c5Ocy5e0khDkph
+	oIHppsgVgp0OEuh5hCcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3unX-00000007M5U-37kT;
-	Wed, 01 Oct 2025 11:15:03 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1v3unn-00000007MB2-0DIO;
+	Wed, 01 Oct 2025 11:15:19 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3unU-00000007M4W-30IK
+	id 1v3unk-00000007M9h-1Xrr
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Oct 2025 11:15:02 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-27eceb38eb1so84325965ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Oct 2025 04:15:00 -0700 (PDT)
+	Wed, 01 Oct 2025 11:15:17 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b553412a19bso4934539a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Oct 2025 04:15:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1759317300; x=1759922100; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=z1+2fSaFB9F3RSpAxYACKIZ12RlpjvIv2ZQovdB0QZc=;
-        b=T46keLDtm+BMUWICJ0qiE2FcHkpDuljSfKZeYk6ks90IWPAijsDJyGJQV4I6o79sZ3
-         aRABBGQ0SpcNpEpWn4CDlqmc/hxSAayFyKXezrxv7jqkEcSL54McrG64nUSQa1PhILA2
-         S5ZujB54C+5ZsDGY1qxtp+dp+WO6SC2OXdklKMQ46VVglCigc1Q+rs2McSVSpZQpPlRY
-         xtCBfkpG+qBfYhPqPCWGmE11Rt6YrTTjRTnCYQGQ+YobAx0swsxYin5QVTyyeapwY9i+
-         VvK7T6GsJcjnlDlKPlxG2uoWXLXgBoG6bzXHOnSCXvjcfQZ/ALGs9BNPFMXQsPoY6ti8
-         ydCQ==
+        d=sifive.com; s=google; t=1759317315; x=1759922115; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=duIDlBd6DWondZbhFgBkxnIom+/wxjruSnguKN5DCTE=;
+        b=bxbypcP6Bm0NHlRqz9gBJQrLWQAUSZ9Y7PDbrxFVlPJn4esg+qqs5YHYDOizAJnD34
+         Iuegh+x4XR/7Tomzzy/0fq5kV83LuDUcS9jml2Dk0XDhM9ECigKKfgYoRxRciDUYOz+U
+         iiDRy1fsv/Oe9wty5u4gml2+dUeM6RHhZsgo5eKi7ShOTIQEVWE4witqrPJfPWYL0DZU
+         YtPvAq+H8k+lEiudiC3u2JND+2RC77WvguHnZvQ5SI3kWXHu5QtqpRNI+6T6vdjAS5/N
+         l8n5jv61cPPPbkUiAlWzVZNyWEobpwLZzS735tIik3gUv3vbcv0/0LRRDH4pSg3tJTAr
+         58Ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759317300; x=1759922100;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=z1+2fSaFB9F3RSpAxYACKIZ12RlpjvIv2ZQovdB0QZc=;
-        b=ubrfhCZKI1qHteJRxNSYd+1pFCtuRuSRhcqsIYp1Ubc4/1p+l9t8EgCu3OBZNJm3c7
-         FpXMPH0OuBTNxTXgeY+ENRPn2URiYgt8cCAp9EYEbvdcpzqfjWRjckwvHgThZnYj0LMp
-         TNCe1pFq8k/GDDznArt7fGVTqZZAWiJyqX20EzvpEj4uz5onsJO1c9OBTIwpR5x0U+q1
-         OUwY/EdXFCPnVyG7Q3yM+1wPmrfdpkXg6b1s2p65ZQ9TvPnDKs7zBUc7i1cDF+cTSIpN
-         KOLu1WMLKA8ugGzSIcG/DPhWzgOh5XwWgRocPp6hByyeJsOp5MoInI191FwE3zQFac3v
-         XtQg==
-X-Forwarded-Encrypted: i=1; AJvYcCVasNPgdyxPRpmTJr59e+OdyuZcMzq5/FlX4Ad7E4LLFLX30ukOuXiWKsMrNVw7k87a+UaiChYnjGtrhg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+36PV2AIIfNaHKOHcKbQTopBNvqfjy2vxwY2E+LUCsqXFx3VD
-	3u8Y7Vf/vEVXXPtjM8P1ZTLW2zLYdFQYQMKKf7f11MerE5iU+kjbVx4jkWU8YHlA79M=
-X-Gm-Gg: ASbGnctPqAsciPKfrnrvJh9E8eO/aBMlpoIgAjjYhoviwFMaunZuf4EvSxNeuvSw5J1
-	rdPkLRFq2A/0cRb1a5hUNsbq7HDapIRYapKg7X3PBCjAH10ErL6ZqLTitu7AgMTG1zfqPf+Rtxx
-	4RrcigZkIu0/O7i0KD+SMvR9ByugfwNulbhtZ8nOfQ2ME7042t8TpYWNhG+v0dHpSP1eU5GVAgE
-	GaN1AVtlOuZdRbMyNRjB1v4Dp65oK9haO8ULbWCszIRKfMAMxaOYugUDVCWqVNPHKQPddM8dyRr
-	5AAOmRBsOYbACuVM5dB2lg5Dp5masVDC38IDN7+JF0IcqhzzFeiDKMvmCoFnGpNjEwW4JBt60OQ
-	KA9FW2I4FDR52FVcThGnAvI3nC1hTS9M+1oOHiaW6yuz81uzmmYw/zy0STcrXoelk7tAB9WQTPQ
-	Tb
-X-Google-Smtp-Source: AGHT+IFKORUJMM66qEClhRMugGzGpIYW8rORBanMylDpKjSnLar+t2zXK3ZVyvAq3H4MPmvctX3m/w==
-X-Received: by 2002:a17:903:1b46:b0:27a:6c30:49c with SMTP id d9443c01a7336-28e7f2b59c1mr39193525ad.27.1759317299709;
-        Wed, 01 Oct 2025 04:14:59 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759317315; x=1759922115;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=duIDlBd6DWondZbhFgBkxnIom+/wxjruSnguKN5DCTE=;
+        b=F5TY7TA3BRC01Rk7z33ABJV12YVvbLwz49JaykGcFFnU4q8gfzBi4DcKRHPNlT2thZ
+         BEXQea0FkF+D7qdx8kQ6JwlkATIIiBiUJv002K85TPjZigFvPN0gyCnE30s+5D2AEAVp
+         dU0FjY7KokMYAPvngZPnAthreFGiC2PMmG2R1Q2tAHg+PDQX71Rd0FP9vMh1DxHax40m
+         S6ZDg8mAsYfr6meRIUOdnsirQMmW/fq0VH/th70GrPv3N1v8QXcoNNjZvBMdB8DsYbSW
+         2nHpY7b9/T2EUuGVFVNAGjeKuI8fHKACBePol4PdL5d+w2WpWd75MRqml36suqb1wNYr
+         sX4A==
+X-Forwarded-Encrypted: i=1; AJvYcCW5m6HP2Nnt6S/Dryttk2NZJPWoAVu9kP0m5fo+XNE2G1/i7MW0AC54i6gkPMSLRDVNm5RoHzKinJnItg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkPtOjNXd92dOCGuS0ydEmioZQN8OPlUaqg3vvxWobKmY3eNHy
+	CgONHRVjQAC3mjHHp0PCKTPz5/MClh6YvOgaG+wsJ8BENnVZ2P6pvcGY8PJ9W6Cie/A=
+X-Gm-Gg: ASbGnctD125HseIv1CXQ8hhLdjegXcWwF9Bp/pPnsmfA9NxL+lTnpjTzDiNnqY4Asx/
+	kK9jdqWFS2AWH/wruqZtq2RYPLyAWh13laZ28x2jG1Ulk/9jQOijis/VEEkxXkjynqkf6Ts4oih
+	FXqD/FQ0u1HqddIJmo8CNEiJvdQQVoVv2Ufwzg0/Hh2Ej1Y/MRRr6DIJXt0QjNtsTYHjCJyRYpw
+	XKe8MONFL7MTv2Li68zqhv0NM0w3txNzP4/ZmaRmUGTEoWfHi4OLB22SgfLSdfXOsuqzmPQ2p7a
+	9bz8/vWr8NaGMiXgA5PGuqQAapFawlu4tDAvFNhziMcCepGhJSs9j1Hw+Wecfa5ZnpY239M6N9X
+	H7igSOUpYyMdfSyDYkFH3De0Cv8HZCO1itrCWIpo4I1pSDbC4EkOzrcPDGWPiiAJNPx1DSaTOHa
+	QyIFIWZGMRHOU=
+X-Google-Smtp-Source: AGHT+IHjVNODYRhSl9w8wTzY7/4OarsvAh7QM7qsu5LY7xOefbG8sewwIMg0Z1M/bBWd3fTkCwMIyA==
+X-Received: by 2002:a17:903:17c5:b0:26e:62c9:1cc4 with SMTP id d9443c01a7336-28e7f26f791mr35301405ad.4.1759317315540;
+        Wed, 01 Oct 2025 04:15:15 -0700 (PDT)
 Received: from hsinchu26.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27eeb9a8ebfsm155163455ad.67.2025.10.01.04.14.57
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27eeb9a8ebfsm155163455ad.67.2025.10.01.04.15.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Oct 2025 04:14:59 -0700 (PDT)
+        Wed, 01 Oct 2025 04:15:15 -0700 (PDT)
 From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
@@ -79,15 +80,25 @@ Cc: greentime.hu@sifive.com,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH v 0/2] Optimize the allocation of vector regset
-Date: Wed,  1 Oct 2025 19:14:25 +0800
-Message-ID: <20251001111451.299163-1-yongxuan.wang@sifive.com>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Jesse Taube <jesse@rivosinc.com>,
+	Han Gao <rabenda.cn@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Bill O'Donnell" <bodonnel@redhat.com>,
+	Joel Granados <joel.granados@kernel.org>
+Subject: [PATCH v 1/2] riscv: ptrace: Optimize the allocation of vector regset
+Date: Wed,  1 Oct 2025 19:14:26 +0800
+Message-ID: <20251001111451.299163-2-yongxuan.wang@sifive.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251001111451.299163-1-yongxuan.wang@sifive.com>
+References: <20251001111451.299163-1-yongxuan.wang@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_041500_952145_A0393777 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20251001_041516_426731_D8EA2AE6 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,43 +110,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIHZlY3RvciByZWdzZXQgdXNlcyB0aGUgbWF4aW11bSBwb3NzaWJsZSB2bGVuYiA4MTkyIHRv
-IGFsbG9jYXRlIGEKMl4xOCBieXRlcyBidWZmZXIgdG8gY29weSB0aGUgdmVjdG9yIHJlZ2lzdGVy
-LiBCdXQgbW9zdCBwbGF0Zm9ybXMKZG9u4oCZdCBzdXBwb3J0IHRoZSBsYXJnZXN0IHZsZW5iLgoK
-VGhlIHJlZ3NldCBoYXMgMiB1c2VycywgcHRyYWNlIHN5c2NhbGwgYW5kIGNvcmVkdW1wLiBXaGVu
-IGhhbmRsaW5nIHRoZQpQVFJBQ0VfR0VUUkVHU0VUIHJlcXVlc3RzIGZyb20gcHRyYWNlIHN5c2Nh
-bGwsIExpbnV4IHdpbGwgcHJlcGFyZSBhCmtlcm5lbCBidWZmZXIgd2hpY2ggc2l6ZSBpcyBtaW4o
-dXNlciBidWZmZXIgc2l6ZSwgbGltaXQpLiBBIG1hbGljaW91cwp1c2VyIHByb2Nlc3MgbWlnaHQg
-b3ZlcndoZWxtIGEgbWVtb3J5LWNvbnN0cmFpbnRlZCBzeXN0ZW0gd2hlbiB0aGUKYnVmZmVyIGxp
-bWl0IGlzIHZlcnkgbGFyZ2UuIFRoZSBjb3JlZHVtcCB1c2VzIHJlZ3NldF9nZXRfYWxsb2MoKSB0
-bwpnZXQgdGhlIGNvbnRleHQgb2YgdmVjdG9yIHJlZ2lzdGVyLiBCdXQgdGhpcyBBUEkgYWxsb2Nh
-dGVzIGJ1ZmZlcgpiZWZvcmUgY2hlY2tpbmcgd2hldGhlciB0aGUgdGFyZ2V0IHByb2Nlc3MgdXNl
-cyB2ZWN0b3IgZXh0ZW5zaW9uLCB0aGlzCndhc3RlcyB0aW1lIHRvIHByZXBhcmUgYSBsYXJnZSBt
-ZW1vcnkgYnVmZmVyLiAKClRoZSBidWZmZXIgbGltaXQgY2FuIGJlIGRldGVybWluZWQgYWZ0ZXIg
-Z2V0dGluZyBwbGF0Zm9ybSB2bGVuYiBpbiB0aGUKZWFybHkgYm9vdCBzdGFnZSwgdGhpcyBjYW4g
-bGV0IHRoZSByZWdzZXQgYnVmZmVyIG1hdGNoIHJlYWwgaGFyZHdhcmUKbGltaXRzLiBBbHNvIGFk
-ZCAuYWN0aXZlIGNhbGxiYWNrcyB0byBsZXQgdGhlIGNvcmVkdW1wIHNraXAgdmVjdG9yIHBhcnQK
-d2hlbiB0YXJnZXQgcHJvY2VzcyBkb2Vzbid0IHVzZSBpdC4KCkFmdGVyIHRoaXMgcGF0Y2hzZXQs
-IHVzZXJzcGFjZSBwcm9jZXNzIG5lZWRzIDIgcHRyYWNlIHN5c2NhbGxzIHRvCnJldHJpZXZlIHRo
-ZSB2ZWN0b3IgcmVnc2V0IHdpdGggUFRSQUNFX0dFVFJFR1NFVC4gVGhlIGZpcnN0IHB0cmFjZSBj
-YWxsCm9ubHkgcmVhZHMgdGhlIGhlYWRlciB0byBnZXQgdGhlIHZsZW5iIGluZm9ybWF0aW9uLiBU
-aGVuIHByZXBhcmUgYQpzdWl0YWJsZSBidWZmZXIgdG8gZ2V0IHRoZSByZWdpc3RlciBjb250ZXh0
-LiBUaGUgbmV3IHZlY3RvciBwdHJhY2UKa3NlbGZ0ZXN0IGRlbW9uc3RyYXRlcyBpdC4KCllvbmct
-WHVhbiBXYW5nICgyKToKICByaXNjdjogcHRyYWNlOiBPcHRpbWl6ZSB0aGUgYWxsb2NhdGlvbiBv
-ZiB2ZWN0b3IgcmVnc2V0CiAgc2VsZnRlc3RzOiByaXNjdjogQWRkIHRlc3QgZm9yIHRoZSBWZWN0
-b3IgcHRyYWNlIGludGVyZmFjZQoKIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVjdG9yLmggICAg
-ICAgICAgICAgICB8ICAgMSArCiBhcmNoL3Jpc2N2L2tlcm5lbC9wdHJhY2UuYyAgICAgICAgICAg
-ICAgICAgICAgfCAgMjQgKysrLQogYXJjaC9yaXNjdi9rZXJuZWwvdmVjdG9yLmMgICAgICAgICAg
-ICAgICAgICAgIHwgICAyICsKIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2L3ZlY3Rvci9N
-YWtlZmlsZSB8ICAgNSArLQogLi4uL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdnN0YXRlX3B0cmFj
-ZS5jICAgIHwgMTMyICsrKysrKysrKysrKysrKysrKwogNSBmaWxlcyBjaGFuZ2VkLCAxNjAgaW5z
-ZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy90ZXN0
-aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdnN0YXRlX3B0cmFjZS5jCgotLSAKMi40My4wCgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+The vector regset uses the maximum possible vlen value to estimate the
+.n field. But not all the hardwares support the maximum vlen. Linux
+might wastes time to prepare a large memory buffer(about 2^6 pages) for
+the vector regset.
+
+The regset can only copy vector registers when the process are using
+vector. Add .active callback and determine the n field of vector regset
+in riscv_v_setup_ctx_cache() doesn't affect the ptrace syscall and
+coredump. It can avoid oversized allocations and better matches real
+hardware limits.
+
+Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
+---
+ arch/riscv/include/asm/vector.h |  1 +
+ arch/riscv/kernel/ptrace.c      | 24 +++++++++++++++++++++---
+ arch/riscv/kernel/vector.c      |  2 ++
+ 3 files changed, 24 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index b61786d43c20..e7aa449368ad 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -51,6 +51,7 @@ void put_cpu_vector_context(void);
+ void riscv_v_thread_free(struct task_struct *tsk);
+ void __init riscv_v_setup_ctx_cache(void);
+ void riscv_v_thread_alloc(struct task_struct *tsk);
++void __init update_regset_vector_info(unsigned long size);
+ 
+ static inline u32 riscv_v_flags(void)
+ {
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index 8e86305831ea..e6272d74572f 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -153,6 +153,17 @@ static int riscv_vr_set(struct task_struct *target,
+ 				 0, riscv_v_vsize);
+ 	return ret;
+ }
++
++static int riscv_vr_active(struct task_struct *target, const struct user_regset *regset)
++{
++	if (!(has_vector() || has_xtheadvector()))
++		return -ENODEV;
++
++	if (!riscv_v_vstate_query(task_pt_regs(target)))
++		return 0;
++
++	return regset->n;
++}
+ #endif
+ 
+ #ifdef CONFIG_RISCV_ISA_SUPM
+@@ -184,7 +195,7 @@ static int tagged_addr_ctrl_set(struct task_struct *target,
+ }
+ #endif
+ 
+-static const struct user_regset riscv_user_regset[] = {
++static struct user_regset riscv_user_regset[] __ro_after_init = {
+ 	[REGSET_X] = {
+ 		USER_REGSET_NOTE_TYPE(PRSTATUS),
+ 		.n = ELF_NGREG,
+@@ -207,11 +218,10 @@ static const struct user_regset riscv_user_regset[] = {
+ 	[REGSET_V] = {
+ 		USER_REGSET_NOTE_TYPE(RISCV_VECTOR),
+ 		.align = 16,
+-		.n = ((32 * RISCV_MAX_VLENB) +
+-		      sizeof(struct __riscv_v_regset_state)) / sizeof(__u32),
+ 		.size = sizeof(__u32),
+ 		.regset_get = riscv_vr_get,
+ 		.set = riscv_vr_set,
++		.active = riscv_vr_active,
+ 	},
+ #endif
+ #ifdef CONFIG_RISCV_ISA_SUPM
+@@ -233,6 +243,14 @@ static const struct user_regset_view riscv_user_native_view = {
+ 	.n = ARRAY_SIZE(riscv_user_regset),
+ };
+ 
++#ifdef CONFIG_RISCV_ISA_V
++void __init update_regset_vector_info(unsigned long size)
++{
++	riscv_user_regset[REGSET_V].n = (size + sizeof(struct __riscv_v_regset_state)) /
++					sizeof(__u32);
++}
++#endif
++
+ struct pt_regs_offset {
+ 	const char *name;
+ 	int offset;
+diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+index 901e67adf576..3ed071dab9d8 100644
+--- a/arch/riscv/kernel/vector.c
++++ b/arch/riscv/kernel/vector.c
+@@ -66,6 +66,8 @@ void __init riscv_v_setup_ctx_cache(void)
+ 	if (!(has_vector() || has_xtheadvector()))
+ 		return;
+ 
++	update_regset_vector_info(riscv_v_vsize);
++
+ 	riscv_v_user_cachep = kmem_cache_create_usercopy("riscv_vector_ctx",
+ 							 riscv_v_vsize, 16, SLAB_PANIC,
+ 							 0, riscv_v_vsize, NULL);
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
