@@ -4,45 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08529CAC5BB
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Oct 2025 20:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1A7CCA470
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Oct 2025 20:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lpskrt46L45Js9LJVEulY9OlIoEiSoimCNrGHBR0n7w=; b=UEO6zzg2DoMpo5
-	+eDHUkcTAYIPA2VSrVf4ih5c6xN6i3Hd1XTwWPl2mjpELNJWRdvGcwXWdG+UaRC6PNpoG0jF4qg+P
-	hDFkpwO5QKzdKi3CMk1k8iMfUbksNmesfH/WxoXmW+8NwEUc2qUKHhxb/ihv0EDlFOE7n6JWRMqa4
-	rced9TpaEo330x/2ya6nU4R12papwljeOEjziSXIIJLpCWXXqbJ/WY0mujXs3PNcwfNEH5s3wjav6
-	pJjPBiC//SNg3uAr7/DbOzKVQGrz3QlPkY46j+KfY6k4eEfbTs00FLR0mnxGjsbLmScB8xsbGV9Hj
-	4/kQN58m2jSb5oaVFYfQ==;
+	List-Owner; bh=vV3LabrmKRQ2JqTW0V1lQh+AZeL6xJvSkZxDqLCgYV4=; b=wgy4Mn0Y/xUMCR
+	6eQaMnryRgbX/5caSnEuLSArOULrXqeboomCjUz6ZIFGi2Vz2hoLajIVO7ORmQFe+I48a4TBB28ua
+	/SBVf9yoxWkmPGweEm1R6z0QfK2MYevs5uAzC5bnE9p/YSP+aFk/7aCl7GqV5HnH9TXR4HHjc5Eer
+	bW3EoRIfphyGNmZljS8xrPl863W6XCNHog+Io5GCm8lcGkMzS4lRXeVvQJplxHyyO3Be3Ero0kuvm
+	1WJAkLJ2aWrmJRo92UUbNpnTBbxGC4a0UbNRCZcifKbxRn/8m3eNvcziDr3FeiGm9RAK3k7jeG6id
+	D9rNoydf2oRTHKx8yKzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43of-00000008wpS-050w;
-	Wed, 01 Oct 2025 20:52:49 +0000
-Received: from mx-out2.startmail.com ([145.131.90.155])
+	id 1v43t7-00000008xLH-2ip1;
+	Wed, 01 Oct 2025 20:57:25 +0000
+Received: from mx-out1.startmail.com ([145.131.90.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43oc-00000008wmx-0G7y
+	id 1v43t4-00000008xKn-3Kqz
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Oct 2025 20:52:47 +0000
+	Wed, 01 Oct 2025 20:57:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=weathered-steel.dev;
-	s=startmail1; t=1759351963;
-	bh=UoLolgZjobGjS/KiQaI7MTlo0BgUiakv4CVrspm+7+k=;
+	s=startmail1; t=1759352241;
+	bh=uueKw9/6m1Dh+ZcpaQp6GBPPTzIfF5z4FJkuzeC1hZ8=;
 	h=Date:From:To:Subject:Message-ID:References:Mime-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To:From:Subject:To:Date:Sender:Content-Type:
-	 Content-Transfer-Encoding:Content-Disposition:Mime-Version:
-	 Reply-To:In-Reply-To:References:Message-Id:List-Unsubscribe:
-	 List-Unsubscribe-Post:Autocrypt;
-	b=Q3rH9e6Q0Ei+/evpcdwzIcU4DnfCsJbXD/3fzLRk3weIh8Jbn85D2yBOaiHlOy1Ij
-	 70EoEjE/a0a5mG74BJZ0kB9hohYooyTxdzwL4tRvWSQOrc0LZp1hvO7o5g2Orq7cAD
-	 581zSHYD7PdTKvzV9Iqt9uMyml4z0nqhIzCjqZ5hDsi+HNAx80SJkMZ6NIHS5raroT
-	 9RMbpSSwYEkniT4heI6UGS640jLv0gMSrUTJpPUjPv2AYV1NreZxBjHknWQLgYzaQZ
-	 wnFcksso4yoBF3nEC+ea83im1nG0tqdJ/MGoz4ypPQYmh8iNUON9jmEh5ag4oz91dA
-	 1g9XW9XIIKfyA==
-Date: Wed, 1 Oct 2025 20:52:39 +0000
+	 Content-Type:Content-Disposition:In-Reply-To:From:Subject:To:Date:
+	 Sender:Content-Type:Content-Transfer-Encoding:Content-Disposition:
+	 Mime-Version:Reply-To:In-Reply-To:References:Message-Id:
+	 List-Unsubscribe:List-Unsubscribe-Post:Autocrypt;
+	b=o3LgzfgELssDiflXJovGkwc03TUTlr/sZWiaFXXKgIo4+7z0Qh6CuiEaLJ80rfjwg
+	 IPk3z5Q0vCOToGwN2WjSyYzeYalYV9vRAI8YUne0pNoa3jYpZ373JniCtv5n3wNq7h
+	 WrNWZ275WYJBwokEP9s0BlZbBtdQ9AKn56hd7cZ0XQbLmd7TktDlT1m2YUzJS8cyhO
+	 OVW3hDUfdAghx2i7yK5VgqK2r0IuJ9dtEooY25doQQl8idf4F35yZ3/ymHL2k5nOEd
+	 BByFc5R1zLD7AHNVpe+kD56bpgMahjTYCVaaViEAwoR2A3Kt9POQl5oFKeSTkG+JGh
+	 LNNwdyAR9n/Ag==
+Date: Wed, 1 Oct 2025 20:57:17 +0000
 From: Elle Rhumsaa <elle@weathered-steel.dev>
 To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
@@ -67,17 +66,17 @@ Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
 	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
 	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org
-Subject: Re: [PATCH v15 2/7] rust: pwm: Add Kconfig and basic data structures
-Message-ID: <aN2Ul7nHCg6M4uez@archiso>
+Subject: Re: [PATCH v15 3/7] rust: pwm: Add complete abstraction layer
+Message-ID: <aN2Vrf97-uCR41x9@archiso>
 References: <20250930-rust-next-pwm-working-fan-for-sending-v15-0-5661c3090877@samsung.com>
- <CGME20250930122732eucas1p2fbf9c050934b356165377776a8aef247@eucas1p2.samsung.com>
- <20250930-rust-next-pwm-working-fan-for-sending-v15-2-5661c3090877@samsung.com>
+ <CGME20250930122733eucas1p1017471af8564a40f60be74c5ae50bbc4@eucas1p1.samsung.com>
+ <20250930-rust-next-pwm-working-fan-for-sending-v15-3-5661c3090877@samsung.com>
 Mime-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250930-rust-next-pwm-working-fan-for-sending-v15-2-5661c3090877@samsung.com>
+In-Reply-To: <20250930-rust-next-pwm-working-fan-for-sending-v15-3-5661c3090877@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_135246_383822_37F0FC5D 
-X-CRM114-Status: GOOD (  27.00  )
+X-CRM114-CacheID: sfid-20251001_135723_125595_63A1FB4C 
+X-CRM114-Status: GOOD (  33.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,165 +88,733 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMzAsIDIwMjUgYXQgMDI6MjA6MzNQTSArMDIwMCwgTWljaGFsIFdpbGN6eW5z
-a2kgd3JvdGU6Cj4gSW50cm9kdWNlIHRoZSBmb3VuZGF0aW9uYWwgc3VwcG9ydCBmb3IgUFdNIGFi
-c3RyYWN0aW9ucyBpbiBSdXN0Lgo+IAo+IFRoaXMgY29tbWl0IGFkZHMgdGhlIGBSVVNUX1BXTV9B
-QlNUUkFDVElPTlNgIEtjb25maWcgb3B0aW9uIHRvIGVuYWJsZQo+IHRoZSBmZWF0dXJlLCBhbG9u
-ZyB3aXRoIHRoZSBuZWNlc3NhcnkgYnVpbGQtc3lzdGVtIHN1cHBvcnQgYW5kIEMKPiBoZWxwZXJz
-Lgo+IAo+IEl0IGFsc28gaW50cm9kdWNlcyB0aGUgZmlyc3Qgc2V0IG9mIHNhZmUgd3JhcHBlcnMg
-Zm9yIHRoZSBQV00KPiBzdWJzeXN0ZW0sIGNvdmVyaW5nIHRoZSBiYXNpYyBkYXRhIGNhcnJ5aW5n
-IEMgc3RydWN0cyBhbmQgZW51bXM6Cj4gLSBgUG9sYXJpdHlgOiBBIHNhZmUgd3JhcHBlciBmb3Ig
-YGVudW0gcHdtX3BvbGFyaXR5YC4KPiAtIGBXYXZlZm9ybWA6IEEgd3JhcHBlciBmb3IgYHN0cnVj
-dCBwd21fd2F2ZWZvcm1gLgo+IC0gYFN0YXRlYDogQSB3cmFwcGVyIGZvciBgc3RydWN0IHB3bV9z
-dGF0ZWAuCj4gCj4gVGhlc2UgdHlwZXMgcHJvdmlkZSBtZW1vcnkgc2FmZSwgaWRpb21hdGljIFJ1
-c3QgcmVwcmVzZW50YXRpb25zIG9mIHRoZQo+IGNvcmUgUFdNIGRhdGEgc3RydWN0dXJlcyBhbmQg
-Zm9ybSB0aGUgYnVpbGRpbmcgYmxvY2tzIGZvciB0aGUKPiBhYnN0cmFjdGlvbnMgdGhhdCB3aWxs
-IGZvbGxvdy4KPiAKPiBUZXN0ZWQtYnk6IERyZXcgRnVzdGluaSA8ZnVzdGluaUBrZXJuZWwub3Jn
-Pgo+IFJldmlld2VkLWJ5OiBEYW5pZWwgQWxtZWlkYSA8ZGFuaWVsLmFsbWVpZGFAY29sbGFib3Jh
-LmNvbT4KPiBSZXZpZXdlZC1ieTogRWxsZSBSaHVtc2FhIDxlbGxlQHdlYXRoZXJlZC1zdGVlbC5k
-ZXY+Cj4gU2lnbmVkLW9mZi1ieTogTWljaGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5bnNraUBzYW1z
-dW5nLmNvbT4KPiAtLS0KPiAgTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICB8ICAgOCAr
-KysrCj4gIGRyaXZlcnMvcHdtL0tjb25maWcgICAgICAgICAgICAgfCAgMTMgKysrKysKPiAgcnVz
-dC9iaW5kaW5ncy9iaW5kaW5nc19oZWxwZXIuaCB8ICAgMSArCj4gIHJ1c3QvaGVscGVycy9oZWxw
-ZXJzLmMgICAgICAgICAgfCAgIDEgKwo+ICBydXN0L2hlbHBlcnMvcHdtLmMgICAgICAgICAgICAg
-IHwgIDIwICsrKysrKysrCj4gIHJ1c3Qva2VybmVsL2xpYi5ycyAgICAgICAgICAgICAgfCAgIDIg
-Kwo+ICBydXN0L2tlcm5lbC9wd20ucnMgICAgICAgICAgICAgIHwgMTAyICsrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrKysKPiAgNyBmaWxlcyBjaGFuZ2VkLCAxNDcgaW5zZXJ0
-aW9ucygrKQo+IAo+IGRpZmYgLS1naXQgYS9NQUlOVEFJTkVSUyBiL01BSU5UQUlORVJTCj4gaW5k
-ZXggZmUxNjg0NzdjYWE0NTc5OWRmZTA3ZGUyZjU0ZGU2ZDZhMWNlMDYxNS4uNWQ3YzA2NzZjMWQw
-MGEwMmIzZDdkYjJkZTg4YjAzOWMwOGM5OWM2ZSAxMDA2NDQKPiAtLS0gYS9NQUlOVEFJTkVSUwo+
-ICsrKyBiL01BSU5UQUlORVJTCj4gQEAgLTIwMzg3LDYgKzIwMzg3LDE0IEBAIEY6CWluY2x1ZGUv
-bGludXgvcHdtLmgKPiAgRjoJaW5jbHVkZS9saW51eC9wd21fYmFja2xpZ2h0LmgKPiAgSzoJcHdt
-Xyhjb25maWd8YXBwbHlfbWlnaHRfc2xlZXB8YXBwbHlfYXRvbWljfG9wcykKPiAgCj4gK1BXTSBT
-VUJTWVNURU0gQklORElOR1MgW1JVU1RdCj4gK006CU1pY2hhbCBXaWxjenluc2tpIDxtLndpbGN6
-eW5za2lAc2Ftc3VuZy5jb20+Cj4gK0w6CWxpbnV4LXB3bUB2Z2VyLmtlcm5lbC5vcmcKPiArTDoJ
-cnVzdC1mb3ItbGludXhAdmdlci5rZXJuZWwub3JnCj4gK1M6CU1haW50YWluZWQKPiArRjoJcnVz
-dC9oZWxwZXJzL3B3bS5jCj4gK0Y6CXJ1c3Qva2VybmVsL3B3bS5ycwo+ICsKPiAgUFhBIEdQSU8g
-RFJJVkVSCj4gIE06CVJvYmVydCBKYXJ6bWlrIDxyb2JlcnQuamFyem1pa0BmcmVlLmZyPgo+ICBM
-OglsaW51eC1ncGlvQHZnZXIua2VybmVsLm9yZwo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3B3bS9L
-Y29uZmlnIGIvZHJpdmVycy9wd20vS2NvbmZpZwo+IGluZGV4IGYwMGNlOTczZGRkZjY1MTI4NzE2
-OGI0NDIyODU3NGY0ZDVjMjhkYzAuLjJiNjA4ZjQzNzgxMzg3NzVlZTNiYTRkNTNmNjgyOTUyZTE5
-MTQxMTggMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9wd20vS2NvbmZpZwo+ICsrKyBiL2RyaXZlcnMv
-cHdtL0tjb25maWcKPiBAQCAtODAwLDQgKzgwMCwxNyBAQCBjb25maWcgUFdNX1hJTElOWAo+ICAJ
-ICBUbyBjb21waWxlIHRoaXMgZHJpdmVyIGFzIGEgbW9kdWxlLCBjaG9vc2UgTSBoZXJlOiB0aGUg
-bW9kdWxlCj4gIAkgIHdpbGwgYmUgY2FsbGVkIHB3bS14aWxpbnguCj4gIAo+ICsgY29uZmlnIFJV
-U1RfUFdNX0FCU1RSQUNUSU9OUwo+ICsJYm9vbCAiUnVzdCBQV00gYWJzdHJhY3Rpb25zIHN1cHBv
-cnQiCj4gKwlkZXBlbmRzIG9uIFJVU1QKPiArCWRlcGVuZHMgb24gUFdNPXkKPiArCWhlbHAKPiAr
-CSAgVGhpcyBvcHRpb24gZW5hYmxlcyB0aGUgc2FmZSBSdXN0IGFic3RyYWN0aW9uIGxheWVyIGZv
-ciB0aGUgUFdNCj4gKwkgIHN1YnN5c3RlbS4gSXQgcHJvdmlkZXMgaWRpb21hdGljIHdyYXBwZXJz
-IGFuZCB0cmFpdHMgbmVjZXNzYXJ5IGZvcgo+ICsJICB3cml0aW5nIFBXTSBjb250cm9sbGVyIGRy
-aXZlcnMgaW4gUnVzdC4KPiArCj4gKwkgIFRoZSBhYnN0cmFjdGlvbnMgaGFuZGxlIHJlc291cmNl
-IG1hbmFnZW1lbnQgKGxpa2UgbWVtb3J5IGFuZCByZWZlcmVuY2UKPiArCSAgY291bnRpbmcpIGFu
-ZCBwcm92aWRlIHNhZmUgaW50ZXJmYWNlcyB0byB0aGUgdW5kZXJseWluZyBDIGNvcmUsCj4gKwkg
-IGFsbG93aW5nIGRyaXZlciBsb2dpYyB0byBiZSB3cml0dGVuIGluIHNhZmUgUnVzdC4KPiArCj4g
-IGVuZGlmCj4gZGlmZiAtLWdpdCBhL3J1c3QvYmluZGluZ3MvYmluZGluZ3NfaGVscGVyLmggYi9y
-dXN0L2JpbmRpbmdzL2JpbmRpbmdzX2hlbHBlci5oCj4gaW5kZXggODRkNjA2MzVlOGE5YmFlZjFm
-MWExYjI3NTJkYzBmYTA0NGY4NTQyZi4uN2EwNmVlNTc4MWVhZGM5ZjIxY2NkNDU2YjU3NGE5Y2Ix
-NTJjZDU4YyAxMDA2NDQKPiAtLS0gYS9ydXN0L2JpbmRpbmdzL2JpbmRpbmdzX2hlbHBlci5oCj4g
-KysrIGIvcnVzdC9iaW5kaW5ncy9iaW5kaW5nc19oZWxwZXIuaAo+IEBAIC02Niw2ICs2Niw3IEBA
-Cj4gICNpbmNsdWRlIDxsaW51eC9wbV9vcHAuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L3BvbGwuaD4K
-PiAgI2luY2x1ZGUgPGxpbnV4L3Byb3BlcnR5Lmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9wd20uaD4K
-PiAgI2luY2x1ZGUgPGxpbnV4L3JlZmNvdW50Lmg+Cj4gICNpbmNsdWRlIDxsaW51eC9yZWd1bGF0
-b3IvY29uc3VtZXIuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L3NjaGVkLmg+Cj4gZGlmZiAtLWdpdCBh
-L3J1c3QvaGVscGVycy9oZWxwZXJzLmMgYi9ydXN0L2hlbHBlcnMvaGVscGVycy5jCj4gaW5kZXgg
-N2NmN2ZlOTVlNDFkZDUxNzE3MDUwNjQ4ZDYxNjBiZWJlYmRmNGIyNi4uODYxMDUyZmZmZmFmZjYw
-ZTljMmU4MTA5ZTU1ZjNiNjE1OGZmMjI4MSAxMDA2NDQKPiAtLS0gYS9ydXN0L2hlbHBlcnMvaGVs
-cGVycy5jCj4gKysrIGIvcnVzdC9oZWxwZXJzL2hlbHBlcnMuYwo+IEBAIC0zNSw2ICszNSw3IEBA
-Cj4gICNpbmNsdWRlICJwbGF0Zm9ybS5jIgo+ICAjaW5jbHVkZSAicG9sbC5jIgo+ICAjaW5jbHVk
-ZSAicHJvcGVydHkuYyIKPiArI2luY2x1ZGUgInB3bS5jIgo+ICAjaW5jbHVkZSAicmJ0cmVlLmMi
-Cj4gICNpbmNsdWRlICJyY3UuYyIKPiAgI2luY2x1ZGUgInJlZmNvdW50LmMiCj4gZGlmZiAtLWdp
-dCBhL3J1c3QvaGVscGVycy9wd20uYyBiL3J1c3QvaGVscGVycy9wd20uYwo+IG5ldyBmaWxlIG1v
-ZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
-MC4uZDc1YzU4ODg2MzY4NWQzOTkwYjUyNWJiMWI4NGFhNGJjMzVhYzM5Nwo+IC0tLSAvZGV2L251
-bGwKPiArKysgYi9ydXN0L2hlbHBlcnMvcHdtLmMKPiBAQCAtMCwwICsxLDIwIEBACj4gKy8vIFNQ
-RFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4gKy8vIENvcHlyaWdodCAoYykgMjAyNSBT
-YW1zdW5nIEVsZWN0cm9uaWNzIENvLiwgTHRkLgo+ICsvLyBBdXRob3I6IE1pY2hhbCBXaWxjenlu
-c2tpIDxtLndpbGN6eW5za2lAc2Ftc3VuZy5jb20+Cj4gKwo+ICsjaW5jbHVkZSA8bGludXgvcHdt
-Lmg+Cj4gKwo+ICtzdHJ1Y3QgZGV2aWNlICpydXN0X2hlbHBlcl9wd21jaGlwX3BhcmVudChjb25z
-dCBzdHJ1Y3QgcHdtX2NoaXAgKmNoaXApCj4gK3sKPiArCXJldHVybiBwd21jaGlwX3BhcmVudChj
-aGlwKTsKPiArfQo+ICsKPiArdm9pZCAqcnVzdF9oZWxwZXJfcHdtY2hpcF9nZXRfZHJ2ZGF0YShz
-dHJ1Y3QgcHdtX2NoaXAgKmNoaXApCj4gK3sKPiArCXJldHVybiBwd21jaGlwX2dldF9kcnZkYXRh
-KGNoaXApOwo+ICt9Cj4gKwo+ICt2b2lkIHJ1c3RfaGVscGVyX3B3bWNoaXBfc2V0X2RydmRhdGEo
-c3RydWN0IHB3bV9jaGlwICpjaGlwLCB2b2lkICpkYXRhKQo+ICt7Cj4gKwlwd21jaGlwX3NldF9k
-cnZkYXRhKGNoaXAsIGRhdGEpOwo+ICt9Cj4gZGlmZiAtLWdpdCBhL3J1c3Qva2VybmVsL2xpYi5y
-cyBiL3J1c3Qva2VybmVsL2xpYi5ycwo+IGluZGV4IGVkNTMxNjllNzk1YzBiYWRmNTQ4MDI1YTU3
-Zjk0NmZhMThiYzczZTMuLmUzMzliNTUyZjk2NTA4MDNiMWVmYTFlYjhlY2M2ZmU5ZDJjNTY1NjMg
-MTAwNjQ0Cj4gLS0tIGEvcnVzdC9rZXJuZWwvbGliLnJzCj4gKysrIGIvcnVzdC9rZXJuZWwvbGli
-LnJzCj4gQEAgLTExNyw2ICsxMTcsOCBAQAo+ICBwdWIgbW9kIHNlcV9maWxlOwo+ICBwdWIgbW9k
-IHNpemVzOwo+ICBtb2Qgc3RhdGljX2Fzc2VydDsKPiArI1tjZmcoQ09ORklHX1JVU1RfUFdNX0FC
-U1RSQUNUSU9OUyldCj4gK3B1YiBtb2QgcHdtOwo+ICAjW2RvYyhoaWRkZW4pXQo+ICBwdWIgbW9k
-IHN0ZF92ZW5kb3I7Cj4gIHB1YiBtb2Qgc3RyOwo+IGRpZmYgLS1naXQgYS9ydXN0L2tlcm5lbC9w
-d20ucnMgYi9ydXN0L2tlcm5lbC9wd20ucnMKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4
-IDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAuLmJlYWJmMDA4NmEyZjFi
-ZWVhMDFlMGIwYTlmNjU0MGM2MDFmNzdhNDkKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvcnVzdC9r
-ZXJuZWwvcHdtLnJzCj4gQEAgLTAsMCArMSwxMDIgQEAKPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50
-aWZpZXI6IEdQTC0yLjAKPiArLy8gQ29weXJpZ2h0IChjKSAyMDI1IFNhbXN1bmcgRWxlY3Ryb25p
-Y3MgQ28uLCBMdGQuCj4gKy8vIEF1dGhvcjogTWljaGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5bnNr
-aUBzYW1zdW5nLmNvbT4KPiArCj4gKy8vISBQV00gc3Vic3lzdGVtIGFic3RyYWN0aW9ucy4KPiAr
-Ly8hCj4gKy8vISBDIGhlYWRlcjogW2BpbmNsdWRlL2xpbnV4L3B3bS5oYF0oc3JjdHJlZS9pbmNs
-dWRlL2xpbnV4L3B3bS5oKS4KPiArCj4gK3VzZSBjcmF0ZTo6ewo+ICsgICAgYmluZGluZ3MsCj4g
-KyAgICBwcmVsdWRlOjoqLAo+ICsgICAgdHlwZXM6Ok9wYXF1ZSwKPiArfTsKPiArdXNlIGNvcmU6
-OmNvbnZlcnQ6OlRyeUZyb207Cj4gKwo+ICsvLy8gUFdNIHBvbGFyaXR5LiBNaXJyb3JzIFtgZW51
-bSBwd21fcG9sYXJpdHlgXShzcmN0cmVlL2luY2x1ZGUvbGludXgvcHdtLmgpLgo+ICsjW2Rlcml2
-ZShDb3B5LCBDbG9uZSwgRGVidWcsIFBhcnRpYWxFcSwgRXEpXQo+ICtwdWIgZW51bSBQb2xhcml0
-eSB7Cj4gKyAgICAvLy8gTm9ybWFsIHBvbGFyaXR5IChkdXR5IGN5Y2xlIGRlZmluZXMgdGhlIGhp
-Z2ggcGVyaW9kIG9mIHRoZSBzaWduYWwpLgo+ICsgICAgTm9ybWFsLAo+ICsKPiArICAgIC8vLyBJ
-bnZlcnNlZCBwb2xhcml0eSAoZHV0eSBjeWNsZSBkZWZpbmVzIHRoZSBsb3cgcGVyaW9kIG9mIHRo
-ZSBzaWduYWwpLgo+ICsgICAgSW52ZXJzZWQsCj4gK30KPiArCj4gK2ltcGwgVHJ5RnJvbTxiaW5k
-aW5nczo6cHdtX3BvbGFyaXR5PiBmb3IgUG9sYXJpdHkgewo+ICsgICAgdHlwZSBFcnJvciA9IEVy
-cm9yOwo+ICsKPiArICAgIGZuIHRyeV9mcm9tKHBvbGFyaXR5OiBiaW5kaW5nczo6cHdtX3BvbGFy
-aXR5KSAtPiBSZXN1bHQ8U2VsZiwgRXJyb3I+IHsKPiArICAgICAgICBtYXRjaCBwb2xhcml0eSB7
-Cj4gKyAgICAgICAgICAgIGJpbmRpbmdzOjpwd21fcG9sYXJpdHlfUFdNX1BPTEFSSVRZX05PUk1B
-TCA9PiBPayhQb2xhcml0eTo6Tm9ybWFsKSwKPiArICAgICAgICAgICAgYmluZGluZ3M6OnB3bV9w
-b2xhcml0eV9QV01fUE9MQVJJVFlfSU5WRVJTRUQgPT4gT2soUG9sYXJpdHk6OkludmVyc2VkKSwK
-PiArICAgICAgICAgICAgXyA9PiBFcnIoRUlOVkFMKSwKPiArICAgICAgICB9Cj4gKyAgICB9Cj4g
-K30KPiArCj4gK2ltcGwgRnJvbTxQb2xhcml0eT4gZm9yIGJpbmRpbmdzOjpwd21fcG9sYXJpdHkg
-ewo+ICsgICAgZm4gZnJvbShwb2xhcml0eTogUG9sYXJpdHkpIC0+IFNlbGYgewo+ICsgICAgICAg
-IG1hdGNoIHBvbGFyaXR5IHsKPiArICAgICAgICAgICAgUG9sYXJpdHk6Ok5vcm1hbCA9PiBiaW5k
-aW5nczo6cHdtX3BvbGFyaXR5X1BXTV9QT0xBUklUWV9OT1JNQUwsCj4gKyAgICAgICAgICAgIFBv
-bGFyaXR5OjpJbnZlcnNlZCA9PiBiaW5kaW5nczo6cHdtX3BvbGFyaXR5X1BXTV9QT0xBUklUWV9J
-TlZFUlNFRCwKPiArICAgICAgICB9Cj4gKyAgICB9Cj4gK30KPiArCj4gKy8vLyBSZXByZXNlbnRz
-IGEgUFdNIHdhdmVmb3JtIGNvbmZpZ3VyYXRpb24uCj4gKy8vLyBNaXJyb3JzIHN0cnVjdCBbYHN0
-cnVjdCBwd21fd2F2ZWZvcm1gXShzcmN0cmVlL2luY2x1ZGUvbGludXgvcHdtLmgpLgo+ICsjW2Rl
-cml2ZShDb3B5LCBDbG9uZSwgRGVidWcsIERlZmF1bHQsIFBhcnRpYWxFcSwgRXEpXQo+ICtwdWIg
-c3RydWN0IFdhdmVmb3JtIHsKPiArICAgIC8vLyBUb3RhbCBkdXJhdGlvbiBvZiBvbmUgY29tcGxl
-dGUgUFdNIGN5Y2xlLCBpbiBuYW5vc2Vjb25kcy4KPiArICAgIHB1YiBwZXJpb2RfbGVuZ3RoX25z
-OiB1NjQsCj4gKwo+ICsgICAgLy8vIER1dHktY3ljbGUgYWN0aXZlIHRpbWUsIGluIG5hbm9zZWNv
-bmRzLgo+ICsgICAgLy8vCj4gKyAgICAvLy8gRm9yIGEgdHlwaWNhbCBub3JtYWwgcG9sYXJpdHkg
-Y29uZmlndXJhdGlvbiAoYWN0aXZlLWhpZ2gpIHRoaXMgaXMgdGhlCj4gKyAgICAvLy8gaGlnaCB0
-aW1lIG9mIHRoZSBzaWduYWwuCj4gKyAgICBwdWIgZHV0eV9sZW5ndGhfbnM6IHU2NCwKPiArCj4g
-KyAgICAvLy8gRHV0eS1jeWNsZSBzdGFydCBvZmZzZXQsIGluIG5hbm9zZWNvbmRzLgo+ICsgICAg
-Ly8vCj4gKyAgICAvLy8gRGVsYXkgZnJvbSB0aGUgYmVnaW5uaW5nIG9mIHRoZSBwZXJpb2QgdG8g
-dGhlIGZpcnN0IGFjdGl2ZSBlZGdlLgo+ICsgICAgLy8vIEluIG1vc3Qgc2ltcGxlIFBXTSBzZXR1
-cHMgdGhpcyBpcyBgMGAsIHNvIHRoZSBkdXR5IGN5Y2xlIHN0YXJ0cwo+ICsgICAgLy8vIGltbWVk
-aWF0ZWx5IGF0IGVhY2ggcGVyaW9k4oCZcyBzdGFydC4KPiArICAgIHB1YiBkdXR5X29mZnNldF9u
-czogdTY0LAo+ICt9Cj4gKwo+ICtpbXBsIEZyb208YmluZGluZ3M6OnB3bV93YXZlZm9ybT4gZm9y
-IFdhdmVmb3JtIHsKPiArICAgIGZuIGZyb20od2Y6IGJpbmRpbmdzOjpwd21fd2F2ZWZvcm0pIC0+
-IFNlbGYgewo+ICsgICAgICAgIFdhdmVmb3JtIHsKPiArICAgICAgICAgICAgcGVyaW9kX2xlbmd0
-aF9uczogd2YucGVyaW9kX2xlbmd0aF9ucywKPiArICAgICAgICAgICAgZHV0eV9sZW5ndGhfbnM6
-IHdmLmR1dHlfbGVuZ3RoX25zLAo+ICsgICAgICAgICAgICBkdXR5X29mZnNldF9uczogd2YuZHV0
-eV9vZmZzZXRfbnMsCj4gKyAgICAgICAgfQo+ICsgICAgfQo+ICt9Cj4gKwo+ICtpbXBsIEZyb208
-V2F2ZWZvcm0+IGZvciBiaW5kaW5nczo6cHdtX3dhdmVmb3JtIHsKPiArICAgIGZuIGZyb20od2Y6
-IFdhdmVmb3JtKSAtPiBTZWxmIHsKPiArICAgICAgICBiaW5kaW5nczo6cHdtX3dhdmVmb3JtIHsK
-PiArICAgICAgICAgICAgcGVyaW9kX2xlbmd0aF9uczogd2YucGVyaW9kX2xlbmd0aF9ucywKPiAr
-ICAgICAgICAgICAgZHV0eV9sZW5ndGhfbnM6IHdmLmR1dHlfbGVuZ3RoX25zLAo+ICsgICAgICAg
-ICAgICBkdXR5X29mZnNldF9uczogd2YuZHV0eV9vZmZzZXRfbnMsCj4gKyAgICAgICAgfQo+ICsg
-ICAgfQo+ICt9Cj4gKwo+ICsvLy8gV3JhcHBlciBmb3IgUFdNIHN0YXRlIFtgc3RydWN0IHB3bV9z
-dGF0ZWBdKHNyY3RyZWUvaW5jbHVkZS9saW51eC9wd20uaCkuCj4gKyNbcmVwcih0cmFuc3BhcmVu
-dCldCj4gK3B1YiBzdHJ1Y3QgU3RhdGUoYmluZGluZ3M6OnB3bV9zdGF0ZSk7Cj4gKwo+ICtpbXBs
-IFN0YXRlIHsKPiArICAgIC8vLyBDcmVhdGVzIGEgYFN0YXRlYCB3cmFwcGVyIGJ5IHRha2luZyBv
-d25lcnNoaXAgb2YgYSBDIGBwd21fc3RhdGVgIHZhbHVlLgo+ICsgICAgcHViKGNyYXRlKSBmbiBm
-cm9tX2MoY19zdGF0ZTogYmluZGluZ3M6OnB3bV9zdGF0ZSkgLT4gU2VsZiB7Cj4gKyAgICAgICAg
-U3RhdGUoY19zdGF0ZSkKPiArICAgIH0KPiArCj4gKyAgICAvLy8gUmV0dXJucyBgdHJ1ZWAgaWYg
-dGhlIFBXTSBzaWduYWwgaXMgZW5hYmxlZC4KPiArICAgIHB1YiBmbiBlbmFibGVkKCZzZWxmKSAt
-PiBib29sIHsKPiArICAgICAgICBzZWxmLjAuZW5hYmxlZAo+ICsgICAgfQo+ICt9Cj4gCj4gLS0g
-Cj4gMi4zNC4xCj4gCgpSZXZpZXdlZC1ieTogRWxsZSBSaHVtc2FhIDxlbGxlQHdlYXRoZXJlZC1z
-dGVlbC5kZXY+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On Tue, Sep 30, 2025 at 02:20:34PM +0200, Michal Wilczynski wrote:
+> Introduce a comprehensive abstraction layer for the PWM subsystem to
+> enable writing drivers in Rust.
+> 
+> Because `Device`, `Chip`, and `PwmOps` all refer to each other, they
+> form a single, indivisible unit with circular dependencies. They are
+> introduced together in this single commit to create a complete,
+> compilable abstraction layer.
+> 
+> The main components are:
+>  - Data Wrappers: Safe, idiomatic wrappers for core C types like
+>    `pwm_device`, and `pwm_chip`.
+> 
+>  - PwmOps Trait: An interface that drivers can implement to provide
+>    their hardware-specific logic, mirroring the C `pwm_ops` interface.
+> 
+>  - FFI VTable and Adapter: A bridge to connect the high-level PwmOps trait
+>    to the C kernel's pwm_ops vtable.
+> 
+>  - Allocation and Lifetime Management: A high-level `Chip::new()`
+>    API to safely allocate a chip and a `Registration` guard that integrates
+>    with `devres` to manage the chip's registration with the PWM core.
+>    An `AlwaysRefCounted` implementation and a custom release handler
+>    prevent memory leaks by managing the chip's lifetime and freeing
+>    driver data correctly.
+> 
+> Reviewed-by: Danilo Krummrich <dakr@kernel.org>
+> Reviewed-by: Elle Rhumsaa <elle@weathered-steel.dev>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  rust/kernel/pwm.rs | 664 ++++++++++++++++++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 662 insertions(+), 2 deletions(-)
+> 
+> diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
+> index beabf0086a2f1beea01e0b0a9f6540c601f77a49..79fbb13cd47f75681283648ddc4fffb7889be930 100644
+> --- a/rust/kernel/pwm.rs
+> +++ b/rust/kernel/pwm.rs
+> @@ -8,10 +8,14 @@
+>  
+>  use crate::{
+>      bindings,
+> +    container_of,
+> +    device::{self, Bound},
+> +    devres,
+> +    error::{self, to_result},
+>      prelude::*,
+> -    types::Opaque,
+> +    types::{ARef, AlwaysRefCounted, Opaque},
+>  };
+> -use core::convert::TryFrom;
+> +use core::{convert::TryFrom, marker::PhantomData, ptr::NonNull};
+>  
+>  /// PWM polarity. Mirrors [`enum pwm_polarity`](srctree/include/linux/pwm.h).
+>  #[derive(Copy, Clone, Debug, PartialEq, Eq)]
+> @@ -100,3 +104,659 @@ pub fn enabled(&self) -> bool {
+>          self.0.enabled
+>      }
+>  }
+> +
+> +/// Describes the outcome of a `round_waveform` operation.
+> +#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+> +pub enum RoundingOutcome {
+> +    /// The requested waveform was achievable exactly or by rounding values down.
+> +    ExactOrRoundedDown,
+> +
+> +    /// The requested waveform could only be achieved by rounding up.
+> +    RoundedUp,
+> +}
+> +
+> +/// Wrapper for a PWM device [`struct pwm_device`](srctree/include/linux/pwm.h).
+> +#[repr(transparent)]
+> +pub struct Device(Opaque<bindings::pwm_device>);
+> +
+> +impl Device {
+> +    /// Creates a reference to a [`Device`] from a valid C pointer.
+> +    ///
+> +    /// # Safety
+> +    ///
+> +    /// The caller must ensure that `ptr` is valid and remains valid for the lifetime of the
+> +    /// returned [`Device`] reference.
+> +    pub(crate) unsafe fn from_raw<'a>(ptr: *mut bindings::pwm_device) -> &'a Self {
+> +        // SAFETY: The safety requirements guarantee the validity of the dereference, while the
+> +        // `Device` type being transparent makes the cast ok.
+> +        unsafe { &*ptr.cast::<Self>() }
+> +    }
+> +
+> +    /// Returns a raw pointer to the underlying `pwm_device`.
+> +    fn as_raw(&self) -> *mut bindings::pwm_device {
+> +        self.0.get()
+> +    }
+> +
+> +    /// Gets the hardware PWM index for this device within its chip.
+> +    pub fn hwpwm(&self) -> u32 {
+> +        // SAFETY: `self.as_raw()` provides a valid pointer for `self`'s lifetime.
+> +        unsafe { (*self.as_raw()).hwpwm }
+> +    }
+> +
+> +    /// Gets a reference to the parent `Chip` that this device belongs to.
+> +    pub fn chip<T: PwmOps>(&self) -> &Chip<T> {
+> +        // SAFETY: `self.as_raw()` provides a valid pointer. (*self.as_raw()).chip
+> +        // is assumed to be a valid pointer to `pwm_chip` managed by the kernel.
+> +        // Chip::from_raw's safety conditions must be met.
+> +        unsafe { Chip::<T>::from_raw((*self.as_raw()).chip) }
+> +    }
+> +
+> +    /// Gets the label for this PWM device, if any.
+> +    pub fn label(&self) -> Option<&CStr> {
+> +        // SAFETY: self.as_raw() provides a valid pointer.
+> +        let label_ptr = unsafe { (*self.as_raw()).label };
+> +        if label_ptr.is_null() {
+> +            return None
+> +        }
+> +
+> +        // SAFETY: label_ptr is non-null and points to a C string
+> +        // managed by the kernel, valid for the lifetime of the PWM device.
+> +        Some(unsafe { CStr::from_char_ptr(label_ptr) })
+> +    }
+> +
+> +    /// Gets a copy of the current state of this PWM device.
+> +    pub fn state(&self) -> State {
+> +        // SAFETY: `self.as_raw()` gives a valid pointer. `(*self.as_raw()).state`
+> +        // is a valid `pwm_state` struct. `State::from_c` copies this data.
+> +        State::from_c(unsafe { (*self.as_raw()).state })
+> +    }
+> +
+> +    /// Sets the PWM waveform configuration and enables the PWM signal.
+> +    pub fn set_waveform(&self, wf: &Waveform, exact: bool) -> Result {
+> +        let c_wf = bindings::pwm_waveform::from(*wf);
+> +
+> +        // SAFETY: `self.as_raw()` provides a valid `*mut pwm_device` pointer.
+> +        // `&c_wf` is a valid pointer to a `pwm_waveform` struct. The C function
+> +        // handles all necessary internal locking.
+> +        let ret = unsafe { bindings::pwm_set_waveform_might_sleep(self.as_raw(), &c_wf, exact) };
+> +        to_result(ret)
+> +    }
+> +
+> +    /// Queries the hardware for the configuration it would apply for a given
+> +    /// request.
+> +    pub fn round_waveform(&self, wf: &mut Waveform) -> Result<RoundingOutcome> {
+> +        let mut c_wf = bindings::pwm_waveform::from(*wf);
+> +
+> +        // SAFETY: `self.as_raw()` provides a valid `*mut pwm_device` pointer.
+> +        // `&mut c_wf` is a valid pointer to a mutable `pwm_waveform` struct that
+> +        // the C function will update.
+> +        let ret = unsafe { bindings::pwm_round_waveform_might_sleep(self.as_raw(), &mut c_wf) };
+> +
+> +        to_result(ret)?;
+> +
+> +        *wf = Waveform::from(c_wf);
+> +
+> +        if ret == 1 {
+> +            Ok(RoundingOutcome::RoundedUp)
+> +        } else {
+> +            Ok(RoundingOutcome::ExactOrRoundedDown)
+> +        }
+> +    }
+> +
+> +    /// Reads the current waveform configuration directly from the hardware.
+> +    pub fn get_waveform(&self) -> Result<Waveform> {
+> +        let mut c_wf = bindings::pwm_waveform::default();
+> +
+> +        // SAFETY: `self.as_raw()` is a valid pointer. We provide a valid pointer
+> +        // to a stack-allocated `pwm_waveform` struct for the kernel to fill.
+> +        let ret = unsafe { bindings::pwm_get_waveform_might_sleep(self.as_raw(), &mut c_wf) };
+> +
+> +        to_result(ret)?;
+> +
+> +        Ok(Waveform::from(c_wf))
+> +    }
+> +}
+> +
+> +/// The result of a `round_waveform_tohw` operation.
+> +#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+> +pub struct RoundedWaveform<WfHw> {
+> +    /// A status code, 0 for success or 1 if values were rounded up.
+> +    pub status: c_int,
+> +    /// The driver-specific hardware representation of the waveform.
+> +    pub hardware_waveform: WfHw,
+> +}
+> +
+> +/// Trait defining the operations for a PWM driver.
+> +pub trait PwmOps: 'static + Sized {
+> +    /// The driver-specific hardware representation of a waveform.
+> +    ///
+> +    /// This type must be [`Copy`], [`Default`], and fit within `PWM_WFHWSIZE`.
+> +    type WfHw: Copy + Default;
+> +
+> +    /// Optional hook for when a PWM device is requested.
+> +    fn request(
+> +        _chip: &Chip<Self>,
+> +        _pwm: &Device,
+> +        _parent_dev: &device::Device<Bound>,
+> +    ) -> Result {
+> +        Ok(())
+> +    }
+> +
+> +    /// Optional hook for capturing a PWM signal.
+> +    fn capture(
+> +        _chip: &Chip<Self>,
+> +        _pwm: &Device,
+> +        _result: &mut bindings::pwm_capture,
+> +        _timeout: usize,
+> +        _parent_dev: &device::Device<Bound>,
+> +    ) -> Result {
+> +        Err(ENOTSUPP)
+> +    }
+> +
+> +    /// Convert a generic waveform to the hardware-specific representation.
+> +    /// This is typically a pure calculation and does not perform I/O.
+> +    fn round_waveform_tohw(
+> +        _chip: &Chip<Self>,
+> +        _pwm: &Device,
+> +        _wf: &Waveform,
+> +    ) -> Result<RoundedWaveform<Self::WfHw>> {
+> +        Err(ENOTSUPP)
+> +    }
+> +
+> +    /// Convert a hardware-specific representation back to a generic waveform.
+> +    /// This is typically a pure calculation and does not perform I/O.
+> +    fn round_waveform_fromhw(
+> +        _chip: &Chip<Self>,
+> +        _pwm: &Device,
+> +        _wfhw: &Self::WfHw,
+> +        _wf: &mut Waveform,
+> +    ) -> Result {
+> +        Err(ENOTSUPP)
+> +    }
+> +
+> +    /// Read the current hardware configuration into the hardware-specific representation.
+> +    fn read_waveform(
+> +        _chip: &Chip<Self>,
+> +        _pwm: &Device,
+> +        _parent_dev: &device::Device<Bound>,
+> +    ) -> Result<Self::WfHw> {
+> +        Err(ENOTSUPP)
+> +    }
+> +
+> +    /// Write a hardware-specific waveform configuration to the hardware.
+> +    fn write_waveform(
+> +        _chip: &Chip<Self>,
+> +        _pwm: &Device,
+> +        _wfhw: &Self::WfHw,
+> +        _parent_dev: &device::Device<Bound>,
+> +    ) -> Result {
+> +        Err(ENOTSUPP)
+> +    }
+> +}
+> +
+> +/// Bridges Rust `PwmOps` to the C `pwm_ops` vtable.
+> +struct Adapter<T: PwmOps> {
+> +    _p: PhantomData<T>,
+> +}
+> +
+> +impl<T: PwmOps> Adapter<T> {
+> +    const VTABLE: PwmOpsVTable = create_pwm_ops::<T>();
+> +
+> +    /// # Safety
+> +    ///
+> +    /// `wfhw_ptr` must be valid for writes of `size_of::<T::WfHw>()` bytes.
+> +    unsafe fn serialize_wfhw(wfhw: &T::WfHw, wfhw_ptr: *mut c_void) -> Result {
+> +        let size = core::mem::size_of::<T::WfHw>();
+> +
+> +        build_assert!(size <= bindings::PWM_WFHWSIZE as usize);
+> +
+> +        // SAFETY: The caller ensures `wfhw_ptr` is valid for `size` bytes.
+> +        unsafe {
+> +            core::ptr::copy_nonoverlapping(
+> +                core::ptr::from_ref::<T::WfHw>(wfhw).cast::<u8>(),
+> +                wfhw_ptr.cast::<u8>(),
+> +                size,
+> +            );
+> +        }
+> +
+> +        Ok(())
+> +    }
+> +
+> +    /// # Safety
+> +    ///
+> +    /// `wfhw_ptr` must be valid for reads of `size_of::<T::WfHw>()` bytes.
+> +    unsafe fn deserialize_wfhw(wfhw_ptr: *const c_void) -> Result<T::WfHw> {
+> +        let size = core::mem::size_of::<T::WfHw>();
+> +
+> +        build_assert!(size <= bindings::PWM_WFHWSIZE as usize);
+> +
+> +        let mut wfhw = T::WfHw::default();
+> +        // SAFETY: The caller ensures `wfhw_ptr` is valid for `size` bytes.
+> +        unsafe {
+> +            core::ptr::copy_nonoverlapping(
+> +                wfhw_ptr.cast::<u8>(),
+> +                core::ptr::from_mut::<T::WfHw>(&mut wfhw).cast::<u8>(),
+> +                size,
+> +            );
+> +        }
+> +
+> +        Ok(wfhw)
+> +    }
+> +
+> +    /// # Safety
+> +    ///
+> +    /// `dev` must be a valid pointer to a `bindings::device` embedded within a
+> +    /// `bindings::pwm_chip`. This function is called by the device core when the
+> +    /// last reference to the device is dropped.
+> +    unsafe extern "C" fn release_callback(dev: *mut bindings::device) {
+> +        // SAFETY: The function's contract guarantees that `dev` points to a `device`
+> +        // field embedded within a valid `pwm_chip`. `container_of!` can therefore
+> +        // safely calculate the address of the containing struct.
+> +        let c_chip_ptr = unsafe { container_of!(dev, bindings::pwm_chip, dev) };
+> +
+> +        // SAFETY: `c_chip_ptr` is a valid pointer to a `pwm_chip` as established
+> +        // above. Calling this FFI function is safe.
+> +        let drvdata_ptr = unsafe { bindings::pwmchip_get_drvdata(c_chip_ptr) };
+> +
+> +        // SAFETY: The driver data was initialized in `new`. We run its destructor here.
+> +        unsafe { core::ptr::drop_in_place(drvdata_ptr.cast::<T>()) };
+> +
+> +        // Now, call the original release function to free the `pwm_chip` itself.
+> +        // SAFETY: `dev` is the valid pointer passed into this callback, which is
+> +        // the expected argument for `pwmchip_release`.
+> +        unsafe { bindings::pwmchip_release(dev); }
+> +    }
+> +
+> +    /// # Safety
+> +    ///
+> +    /// Pointers from C must be valid.
+> +    unsafe extern "C" fn request_callback(
+> +        chip_ptr: *mut bindings::pwm_chip,
+> +        pwm_ptr: *mut bindings::pwm_device,
+> +    ) -> c_int {
+> +        // SAFETY: PWM core guarentees `chip_ptr` and `pwm_ptr` are valid pointers.
+> +        let (chip, pwm) = unsafe { (Chip::<T>::from_raw(chip_ptr), Device::from_raw(pwm_ptr)) };
+> +
+> +        // SAFETY: The PWM core guarantees the parent device exists and is bound during callbacks.
+> +        let bound_parent = unsafe { chip.bound_parent_device() };
+> +        match T::request(chip, pwm, bound_parent) {
+> +            Ok(()) => 0,
+> +            Err(e) => e.to_errno(),
+> +        }
+> +    }
+> +
+> +    /// # Safety
+> +    ///
+> +    /// Pointers from C must be valid.
+> +    unsafe extern "C" fn capture_callback(
+> +        chip_ptr: *mut bindings::pwm_chip,
+> +        pwm_ptr: *mut bindings::pwm_device,
+> +        res: *mut bindings::pwm_capture,
+> +        timeout: usize,
+> +    ) -> c_int {
+> +        // SAFETY: Relies on the function's contract that `chip_ptr` and `pwm_ptr` are valid
+> +        // pointers.
+> +        let (chip, pwm, result) = unsafe {
+> +            (
+> +                Chip::<T>::from_raw(chip_ptr),
+> +                Device::from_raw(pwm_ptr),
+> +                &mut *res,
+> +            )
+> +        };
+> +
+> +        // SAFETY: The PWM core guarantees the parent device exists and is bound during callbacks.
+> +        let bound_parent = unsafe { chip.bound_parent_device() };
+> +        match T::capture(chip, pwm, result, timeout, bound_parent) {
+> +            Ok(()) => 0,
+> +            Err(e) => e.to_errno(),
+> +        }
+> +    }
+> +
+> +    /// # Safety
+> +    ///
+> +    /// Pointers from C must be valid.
+> +    unsafe extern "C" fn round_waveform_tohw_callback(
+> +        chip_ptr: *mut bindings::pwm_chip,
+> +        pwm_ptr: *mut bindings::pwm_device,
+> +        wf_ptr: *const bindings::pwm_waveform,
+> +        wfhw_ptr: *mut c_void,
+> +    ) -> c_int {
+> +        // SAFETY: Relies on the function's contract that `chip_ptr` and `pwm_ptr` are valid
+> +        // pointers.
+> +        let (chip, pwm, wf) = unsafe {
+> +            (
+> +                Chip::<T>::from_raw(chip_ptr),
+> +                Device::from_raw(pwm_ptr),
+> +                Waveform::from(*wf_ptr),
+> +            )
+> +        };
+> +        match T::round_waveform_tohw(chip, pwm, &wf) {
+> +            Ok(rounded) => {
+> +                // SAFETY: `wfhw_ptr` is valid per this function's safety contract.
+> +                if unsafe { Self::serialize_wfhw(&rounded.hardware_waveform, wfhw_ptr) }.is_err() {
+> +                    return EINVAL.to_errno();
+> +                }
+> +                rounded.status
+> +            }
+> +            Err(e) => e.to_errno(),
+> +        }
+> +    }
+> +
+> +    /// # Safety
+> +    ///
+> +    /// Pointers from C must be valid.
+> +    unsafe extern "C" fn round_waveform_fromhw_callback(
+> +        chip_ptr: *mut bindings::pwm_chip,
+> +        pwm_ptr: *mut bindings::pwm_device,
+> +        wfhw_ptr: *const c_void,
+> +        wf_ptr: *mut bindings::pwm_waveform,
+> +    ) -> c_int {
+> +        // SAFETY: Relies on the function's contract that `chip_ptr` and `pwm_ptr` are valid
+> +        // pointers.
+> +        let (chip, pwm) = unsafe { (Chip::<T>::from_raw(chip_ptr), Device::from_raw(pwm_ptr)) };
+> +        // SAFETY: `deserialize_wfhw`'s safety contract is met by this function's contract.
+> +        let wfhw = match unsafe { Self::deserialize_wfhw(wfhw_ptr) } {
+> +            Ok(v) => v,
+> +            Err(e) => return e.to_errno(),
+> +        };
+> +
+> +        let mut rust_wf = Waveform::default();
+> +        match T::round_waveform_fromhw(chip, pwm, &wfhw, &mut rust_wf) {
+> +            Ok(()) => {
+> +                // SAFETY: `wf_ptr` is guaranteed valid by the C caller.
+> +                unsafe {
+> +                    *wf_ptr = rust_wf.into();
+> +                };
+> +                0
+> +            }
+> +            Err(e) => e.to_errno(),
+> +        }
+> +    }
+> +
+> +    /// # Safety
+> +    ///
+> +    /// Pointers from C must be valid.
+> +    unsafe extern "C" fn read_waveform_callback(
+> +        chip_ptr: *mut bindings::pwm_chip,
+> +        pwm_ptr: *mut bindings::pwm_device,
+> +        wfhw_ptr: *mut c_void,
+> +    ) -> c_int {
+> +        // SAFETY: Relies on the function's contract that `chip_ptr` and `pwm_ptr` are valid
+> +        // pointers.
+> +        let (chip, pwm) = unsafe { (Chip::<T>::from_raw(chip_ptr), Device::from_raw(pwm_ptr)) };
+> +
+> +        // SAFETY: The PWM core guarantees the parent device exists and is bound during callbacks.
+> +        let bound_parent = unsafe { chip.bound_parent_device() };
+> +        match T::read_waveform(chip, pwm, bound_parent) {
+> +            // SAFETY: `wfhw_ptr` is valid per this function's safety contract.
+> +            Ok(wfhw) => match unsafe { Self::serialize_wfhw(&wfhw, wfhw_ptr) } {
+> +                Ok(()) => 0,
+> +                Err(e) => e.to_errno(),
+> +            },
+> +            Err(e) => e.to_errno(),
+> +        }
+> +    }
+> +
+> +    /// # Safety
+> +    ///
+> +    /// Pointers from C must be valid.
+> +    unsafe extern "C" fn write_waveform_callback(
+> +        chip_ptr: *mut bindings::pwm_chip,
+> +        pwm_ptr: *mut bindings::pwm_device,
+> +        wfhw_ptr: *const c_void,
+> +    ) -> c_int {
+> +        // SAFETY: Relies on the function's contract that `chip_ptr` and `pwm_ptr` are valid
+> +        // pointers.
+> +        let (chip, pwm) = unsafe { (Chip::<T>::from_raw(chip_ptr), Device::from_raw(pwm_ptr)) };
+> +
+> +        // SAFETY: The PWM core guarantees the parent device exists and is bound during callbacks.
+> +        let bound_parent = unsafe { chip.bound_parent_device() };
+> +
+> +        // SAFETY: `wfhw_ptr` is valid per this function's safety contract.
+> +        let wfhw = match unsafe { Self::deserialize_wfhw(wfhw_ptr) } {
+> +            Ok(v) => v,
+> +            Err(e) => return e.to_errno(),
+> +        };
+> +        match T::write_waveform(chip, pwm, &wfhw, bound_parent) {
+> +            Ok(()) => 0,
+> +            Err(e) => e.to_errno(),
+> +        }
+> +    }
+> +}
+> +
+> +/// VTable structure wrapper for PWM operations.
+> +/// Mirrors [`struct pwm_ops`](srctree/include/linux/pwm.h).
+> +#[repr(transparent)]
+> +pub struct PwmOpsVTable(bindings::pwm_ops);
+> +
+> +// SAFETY: PwmOpsVTable is Send. The vtable contains only function pointers
+> +// and a size, which are simple data types that can be safely moved across
+> +// threads. The thread-safety of calling these functions is handled by the
+> +// kernel's locking mechanisms.
+> +unsafe impl Send for PwmOpsVTable {}
+> +
+> +// SAFETY: PwmOpsVTable is Sync. The vtable is immutable after it is created,
+> +// so it can be safely referenced and accessed concurrently by multiple threads
+> +// e.g. to read the function pointers.
+> +unsafe impl Sync for PwmOpsVTable {}
+> +
+> +impl PwmOpsVTable {
+> +    /// Returns a raw pointer to the underlying `pwm_ops` struct.
+> +    pub(crate) fn as_raw(&self) -> *const bindings::pwm_ops {
+> +        &self.0
+> +    }
+> +}
+> +
+> +/// Creates a PWM operations vtable for a type `T` that implements `PwmOps`.
+> +///
+> +/// This is used to bridge Rust trait implementations to the C `struct pwm_ops`
+> +/// expected by the kernel.
+> +pub const fn create_pwm_ops<T: PwmOps>() -> PwmOpsVTable {
+> +    // SAFETY: `core::mem::zeroed()` is unsafe. For `pwm_ops`, all fields are
+> +    // `Option<extern "C" fn(...)>` or data, so a zeroed pattern (None/0) is valid initially.
+> +    let mut ops: bindings::pwm_ops = unsafe { core::mem::zeroed() };
+> +
+> +    ops.request = Some(Adapter::<T>::request_callback);
+> +    ops.capture = Some(Adapter::<T>::capture_callback);
+> +
+> +    ops.round_waveform_tohw = Some(Adapter::<T>::round_waveform_tohw_callback);
+> +    ops.round_waveform_fromhw = Some(Adapter::<T>::round_waveform_fromhw_callback);
+> +    ops.read_waveform = Some(Adapter::<T>::read_waveform_callback);
+> +    ops.write_waveform = Some(Adapter::<T>::write_waveform_callback);
+> +    ops.sizeof_wfhw = core::mem::size_of::<T::WfHw>();
+> +
+> +    PwmOpsVTable(ops)
+> +}
+> +
+> +/// Wrapper for a PWM chip/controller ([`struct pwm_chip`](srctree/include/linux/pwm.h)).
+> +#[repr(transparent)]
+> +pub struct Chip<T: PwmOps>(Opaque<bindings::pwm_chip>, PhantomData<T>);
+> +
+> +impl<T: PwmOps> Chip<T> {
+> +    /// Creates a reference to a [`Chip`] from a valid pointer.
+> +    ///
+> +    /// # Safety
+> +    ///
+> +    /// The caller must ensure that `ptr` is valid and remains valid for the lifetime of the
+> +    /// returned [`Chip`] reference.
+> +    pub(crate) unsafe fn from_raw<'a>(ptr: *mut bindings::pwm_chip) -> &'a Self {
+> +        // SAFETY: The safety requirements guarantee the validity of the dereference, while the
+> +        // `Chip` type being transparent makes the cast ok.
+> +        unsafe { &*ptr.cast::<Self>() }
+> +    }
+> +
+> +    /// Returns a raw pointer to the underlying `pwm_chip`.
+> +    pub(crate) fn as_raw(&self) -> *mut bindings::pwm_chip {
+> +        self.0.get()
+> +    }
+> +
+> +    /// Gets the number of PWM channels (hardware PWMs) on this chip.
+> +    pub fn num_channels(&self) -> u32 {
+> +        // SAFETY: `self.as_raw()` provides a valid pointer for `self`'s lifetime.
+> +        unsafe { (*self.as_raw()).npwm }
+> +    }
+> +
+> +    /// Returns `true` if the chip supports atomic operations for configuration.
+> +    pub fn is_atomic(&self) -> bool {
+> +        // SAFETY: `self.as_raw()` provides a valid pointer for `self`'s lifetime.
+> +        unsafe { (*self.as_raw()).atomic }
+> +    }
+> +
+> +    /// Returns a reference to the embedded `struct device` abstraction.
+> +    pub fn device(&self) -> &device::Device {
+> +        // SAFETY:
+> +        // - `self.as_raw()` provides a valid pointer to `bindings::pwm_chip`.
+> +        // - The `dev` field is an instance of `bindings::device` embedded
+> +        //   within `pwm_chip`.
+> +        // - Taking a pointer to this embedded field is valid.
+> +        // - `device::Device` is `#[repr(transparent)]`.
+> +        // - The lifetime of the returned reference is tied to `self`.
+> +        unsafe { device::Device::from_raw(&raw mut (*self.as_raw()).dev) }
+> +    }
+> +
+> +    /// Gets the typed driver specific data associated with this chip's embedded device.
+> +    pub fn drvdata(&self) -> &T {
+> +        // SAFETY: `pwmchip_get_drvdata` returns the pointer to the private data area,
+> +        // which we know holds our `T`. The pointer is valid for the lifetime of `self`.
+> +        unsafe { &*bindings::pwmchip_get_drvdata(self.as_raw()).cast::<T>() }
+> +    }
+> +
+> +    /// Returns a reference to the parent device of this PWM chip's device.
+> +    ///
+> +    /// # Safety
+> +    ///
+> +    /// The caller must guarantee that the parent device exists and is bound.
+> +    /// This is guaranteed by the PWM core during `PwmOps` callbacks.
+> +    unsafe fn bound_parent_device(&self) -> &device::Device<Bound> {
+> +        // SAFETY: Per the function's safety contract, the parent device exists.
+> +        let parent = unsafe { self.device().parent().unwrap_unchecked() };
+> +
+> +        // SAFETY: Per the function's safety contract, the parent device is bound.
+> +        // This is guaranteed by the PWM core during `PwmOps` callbacks.
+> +        unsafe { parent.as_bound() }
+> +    }
+> +
+> +    /// Allocates and wraps a PWM chip using `bindings::pwmchip_alloc`.
+> +    ///
+> +    /// Returns an [`ARef<Chip>`] managing the chip's lifetime via refcounting
+> +    /// on its embedded `struct device`.
+> +    pub fn new(
+> +        parent_dev: &device::Device,
+> +        num_channels: u32,
+> +        data: impl pin_init::PinInit<T, Error>,
+> +    ) -> Result<ARef<Self>> {
+> +        let sizeof_priv = core::mem::size_of::<T>();
+> +        // SAFETY: `pwmchip_alloc` allocates memory for the C struct and our private data.
+> +        let c_chip_ptr_raw = unsafe {
+> +            bindings::pwmchip_alloc(parent_dev.as_raw(), num_channels, sizeof_priv)
+> +        };
+> +
+> +        let c_chip_ptr: *mut bindings::pwm_chip = error::from_err_ptr(c_chip_ptr_raw)?;
+> +
+> +        // SAFETY: The `drvdata` pointer is the start of the private area, which is where
+> +        // we will construct our `T` object.
+> +        let drvdata_ptr = unsafe { bindings::pwmchip_get_drvdata(c_chip_ptr) };
+> +
+> +        // SAFETY: We construct the `T` object in-place in the allocated private memory.
+> +        unsafe { data.__pinned_init(drvdata_ptr.cast())? };
+> +
+> +        // SAFETY: `c_chip_ptr` points to a valid chip.
+> +        unsafe { (*c_chip_ptr).dev.release = Some(Adapter::<T>::release_callback); }
+> +
+> +        // SAFETY: `c_chip_ptr` points to a valid chip.
+> +        // The `Adapter`'s `VTABLE` has a 'static lifetime, so the pointer
+> +        // returned by `as_raw()` is always valid.
+> +        unsafe { (*c_chip_ptr).ops = Adapter::<T>::VTABLE.as_raw(); }
+> +
+> +        // Cast the `*mut bindings::pwm_chip` to `*mut Chip`. This is valid because
+> +        // `Chip` is `repr(transparent)` over `Opaque<bindings::pwm_chip>`, and
+> +        // `Opaque<T>` is `repr(transparent)` over `T`.
+> +        let chip_ptr_as_self = c_chip_ptr.cast::<Self>();
+> +
+> +        // SAFETY: `chip_ptr_as_self` points to a valid `Chip` (layout-compatible with
+> +        // `bindings::pwm_chip`) whose embedded device has refcount 1.
+> +        // `ARef::from_raw` takes this pointer and manages it via `AlwaysRefCounted`.
+> +        Ok(unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) })
+> +    }
+> +}
+> +
+> +// SAFETY: Implements refcounting for `Chip` using the embedded `struct device`.
+> +unsafe impl<T: PwmOps> AlwaysRefCounted for Chip<T> {
+> +    #[inline]
+> +    fn inc_ref(&self) {
+> +        // SAFETY: `self.0.get()` points to a valid `pwm_chip` because `self` exists.
+> +        // The embedded `dev` is valid. `get_device` increments its refcount.
+> +        unsafe { bindings::get_device(&raw mut (*self.0.get()).dev); }
+> +    }
+> +
+> +    #[inline]
+> +    unsafe fn dec_ref(obj: NonNull<Chip<T>>) {
+> +        let c_chip_ptr = obj.cast::<bindings::pwm_chip>().as_ptr();
+> +
+> +        // SAFETY: `obj` is a valid pointer to a `Chip` (and thus `bindings::pwm_chip`)
+> +        // with a non-zero refcount. `put_device` handles decrement and final release.
+> +        unsafe { bindings::put_device(&raw mut (*c_chip_ptr).dev); }
+> +    }
+> +}
+> +
+> +// SAFETY: `Chip` is a wrapper around `*mut bindings::pwm_chip`. The underlying C
+> +// structure's state is managed and synchronized by the kernel's device model
+> +// and PWM core locking mechanisms. Therefore, it is safe to move the `Chip`
+> +// wrapper (and the pointer it contains) across threads.
+> +unsafe impl<T: PwmOps + Send> Send for Chip<T> {}
+> +
+> +// SAFETY: It is safe for multiple threads to have shared access (`&Chip`) because
+> +// the `Chip` data is immutable from the Rust side without holding the appropriate
+> +// kernel locks, which the C core is responsible for. Any interior mutability is
+> +// handled and synchronized by the C kernel code.
+> +unsafe impl<T: PwmOps + Sync> Sync for Chip<T> {}
+> +
+> +/// A resource guard that ensures `pwmchip_remove` is called on drop.
+> +///
+> +/// This struct is intended to be managed by the `devres` framework by transferring its ownership
+> +/// via [`Devres::register`]. This ties the lifetime of the PWM chip registration
+> +/// to the lifetime of the underlying device.
+> +pub struct Registration<T: PwmOps> {
+> +    chip: ARef<Chip<T>>,
+> +}
+> +
+> +impl<T: 'static + PwmOps + Send + Sync> Registration<T> {
+> +    /// Registers a PWM chip with the PWM subsystem.
+> +    ///
+> +    /// Transfers its ownership to the `devres` framework, which ties its lifetime
+> +    /// to the parent device.
+> +    /// On unbind of the parent device, the `devres` entry will be dropped, automatically
+> +    /// calling `pwmchip_remove`. This function should be called from the driver's `probe`.
+> +    pub fn register(
+> +        dev: &device::Device<Bound>,
+> +        chip: ARef<Chip<T>>,
+> +    ) -> Result {
+> +	let chip_parent = chip.device().parent().ok_or(EINVAL)?;
+> +        if dev.as_raw() != chip_parent.as_raw() {
+> +            return Err(EINVAL);
+> +        }
+> +
+> +        let c_chip_ptr = chip.as_raw();
+> +
+> +        // SAFETY: `c_chip_ptr` points to a valid chip with its ops initialized.
+> +        // `__pwmchip_add` is the C function to register the chip with the PWM core.
+> +        unsafe {
+> +            to_result(bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()))?;
+> +        }
+> +
+> +        let registration = Registration { chip };
+> +
+> +        devres::register(dev, registration, GFP_KERNEL)
+> +    }
+> +}
+> +
+> +impl<T: PwmOps> Drop for Registration<T> {
+> +    fn drop(&mut self) {
+> +        let chip_raw = self.chip.as_raw();
+> +
+> +        // SAFETY: `chip_raw` points to a chip that was successfully registered.
+> +        // `bindings::pwmchip_remove` is the correct C function to unregister it.
+> +        // This `drop` implementation is called automatically by `devres` on driver unbind.
+> +        unsafe { bindings::pwmchip_remove(chip_raw); }
+> +    }
+> +}
+> 
+> -- 
+> 2.34.1
+> 
+
+Reviewed-by: Elle Rhumsaa <elle@weathered-steel.dev>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
