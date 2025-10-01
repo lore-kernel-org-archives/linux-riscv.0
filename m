@@ -4,126 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51996CAC5B8
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Oct 2025 00:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4023CCA470
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Oct 2025 02:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vT3JJKLjp+8mxFe4zG238oCPoPEK30dXU748mY/NcAg=; b=aF0fZhBXukEYOIQjlyK5NXO5Tj
-	kS6FSWX7h0znOuV6sEJTKXhEnYbEHgS5eKjTUUiW421OhhZaxRF1tRU6y3ICrDXopmljrLHj1vwFz
-	IxiqyalUyxFAVIna9UdRGXtaUPwuAvO5guTf8YBHbyXq95Mx8Pigz82TPubs6DPJKWK++uDPOePCL
-	uX+lgSWKB926C2NszcaQBZyWosTsHDNdqUV30xaa4zr4zmhsUw7PLJJUGh/ZXj4iyqqLgrUZhsVFz
-	04+rOeb/TjGRPY2BrOjCcqQpTFiQybzJ+/NpW3FNmCbP9jAzXDgP0fcyzGvXKc5pp/40irqPdmCML
-	uSfDC/XQ==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cDizVgYLKSmIeF3GszfRy5pMS4ccGgE2yj1/dw5jkAY=; b=FgWGLIyatKR7DU
+	3PGIOcEtnOM29GiAKitUCqQACTA0HuhfP0T3XdcBDxrAmIn/efWrejHPdH+Hr/o1QPdIuYVOPicyA
+	ngroC0jlVFw+QGfqIlT3vjyg6w46kNP+pn/XVqvEy2jqYRh/bbNeMn0y9SwASlJPGCCHryChAex5o
+	9c5ehnvBqA8mDDozxeX/frjwGXzcrRoWU+e2kKNfTDS7kSVQofCcf2LQ4++EW2JR9JAdxYxNIw5ja
+	5YVkye5ndeSe3F+rNMASO/s2EGebbavWsp3g25FU2bjAheO8ujxjX9iSf79YX515TMAccnAPIMkEB
+	S/kdj7eIWL1NKU4gSevQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3kTI-00000006QkE-3d7z;
-	Wed, 01 Oct 2025 00:13:28 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1v3mlQ-00000006aTO-3NKs;
+	Wed, 01 Oct 2025 02:40:20 +0000
+Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3kTG-00000006QjO-0jOC
+	id 1v3mlN-00000006aS5-1Pmc
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Oct 2025 00:13:27 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-76e4fc419a9so6763721b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Sep 2025 17:13:25 -0700 (PDT)
+	Wed, 01 Oct 2025 02:40:19 +0000
+Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-91524f5e6a8so410684039f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Sep 2025 19:40:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1759277605; x=1759882405; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CUsbmESiNHTapnE6rmxwHkpYC/VK0QzGDUHHcofE4qs=;
-        b=NS/V8uNT3EkZSIh/CyER8lhos/F0MUoq9VpuELjVWim5vA5d9eoOL/ezzAr1QBPKsf
-         BJW+Rd0BCG9wo0zmgykcme71yWr5g/9bMaApjEfRsuNbKcTlf3JnzXxcVtx6Jc1Dkh9h
-         Pd1u0LDHAfU3gsxw4bKg5+kYgkIfbCCwt2v1gOmMnE48IgsLbZRCg3usKLxtM3hqMQqv
-         AMG45vReon+Ll6H5T06WYdXYVYSRyHgOOtHw4t0P/l8pWeFwaWr+S3RS2h6OwydxGCUQ
-         QZgM2QKiXqzFbazxjWK3ArezOCIooj5MzqZLaGNsdr8GrmvXY5fA+A9vKUvsIE51xuhN
-         wunQ==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1759286416; x=1759891216; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zxQ2zgdrHb7uD7qDfrNlnD3XXSfWmfO7hzlzDTfXqcQ=;
+        b=FFQH8J/UlNjPxw60QtQPIjFDHxtka7fJ9+TidNPmpe7kUNi/HgkdX9nhcK+w06Kymn
+         538kzej6Bk8tjX9VdhpK4kKGehyxrMhbTyBYdAtWTz/0bVVE4eWakgeb0zIh7A/IPu2U
+         Dm+Mt9+OYaikSv1EXxvA+dEVVxNWT5P1ruW93Plr/naulJkyPrERgzDm2YfB2OxW9vtf
+         mo6w/EUxv26vQTLcMZqpZUq/s6PGBfhDcQn33b1BeWFocNpXxCF2yJthPItqmjDtid5J
+         3zYYADfMLjjHr36iunmyhMFcwqATw5MIcw72wGcqP0HxFPga1XSwmY4n/AV4X6t1IxWP
+         b5OA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759277605; x=1759882405;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CUsbmESiNHTapnE6rmxwHkpYC/VK0QzGDUHHcofE4qs=;
-        b=b68J2pp5ABBbNKZuxzbkUTT1oYGkHzGTZh0JuxSb75EU5niQLqsu8Cz85yQN1jZWST
-         Dionl8B2/Sh6bbcuCZUWB9Y5BPecw45E1HIYwMcE4ZP9dCk/PoiKaD7592lZliOjJ5Yt
-         hfDWnnCsZkwHuTCE/WVKBT6jU/VS6v4JQsuRj8eAQK5HHCNW6jBaEdl1m9mxDq9CkSa1
-         +DC5i6a2zY2AKb1NBqUsxbuSzfFNO4mpMyMmhOBcPaB0gaS6p196O95FVdeckVP+g7Um
-         NjotpIrxS7H+vL8yQTsQDPtjOUJJDPYW6S3NVmeXf3yQdcAFbFrSoYW86JRyPgbmz1Qa
-         8lbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXLOE2N39Eg0hCjrEsOi8OYMlc3qLBY6v5YP4YyOXSBdqFP1DN+YpGBtYS97jDw0Q0iy/8T4sTbbKCtEg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwD9ORcFskvv+vCJJoN6L8Jgt2ov84kS1AmcY5Ajg92HyJGWWUA
-	cxMKtrf/Y1W0BP81KXDTgnDnYxVpk2P65UBtl44N6+Lw+y4hkyJFCCPnIProLu5XZdg=
-X-Gm-Gg: ASbGncu11bg91FG2LBh2fbbfL4pFOchQOxlaOtKnxHDjx88Y+M8md5pIOoQBZMNvoyx
-	LjrIpQ5ayjlKm9ufzfe3MWyGoBgEIkYNQ4vpfjjYeLnXy5VHgcFzcX2KuKQ7fs6a+iVlx1V86Ae
-	75pRXKFTcI/uKhw4AtZkLEP1gJiPlLxKfE//1G7QVG0NhGBUYtxofi4R9E2VaBykwtEjhdNHEZp
-	5SLBWNoITb7e3QVRqmq7NjR51CHoWVdPx3o7kT8OVJ0DJDcIX5MZVFctac7LkmtcIdCMQh9OgoO
-	Cv+dnP+GbFL/FymLqoqyFxfRRmwsMZQg1rFWexh23vBRycJB4sNI4udprxsEsmNP3UDJ47Sbc0j
-	bla7I0q6RG5t0H0sdrX+ZnVxH8HKqab/u7LZinUmPrXh5yf7eQzLBhq7m
-X-Google-Smtp-Source: AGHT+IH1ajiur2VZSdi3/i+zRO/0+860zWmY2Oc/Oh+OdPF2Hx4MVy9Glo++QmHnaPr2yVoYd0LYtw==
-X-Received: by 2002:a05:6a00:3d51:b0:77f:2f7c:b709 with SMTP id d2e1a72fcca58-78af404c9c4mr1324097b3a.5.1759277605281;
-        Tue, 30 Sep 2025 17:13:25 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-78102b64599sm14805168b3a.70.2025.09.30.17.13.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Sep 2025 17:13:24 -0700 (PDT)
-Date: Tue, 30 Sep 2025 17:13:21 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Florian Weimer <fweimer@redhat.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Brauner <brauner@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com,
-	richard.henderson@linaro.org, jim.shu@sifive.com,
-	Andy Chiu <andybnac@gmail.com>, kito.cheng@sifive.com,
-	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com,
-	cleger@rivosinc.com, alexghiti@rivosinc.com,
-	samitolvanen@google.com, broonie@kernel.org,
-	rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org,
-	Zong Li <zong.li@sifive.com>, David Hildenbrand <david@redhat.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	bharrington@redhat.com, Aurelien Jarno <aurel32@debian.org>,
-	bergner@tenstorrent.com, jeffreyalaw@gmail.com
-Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
-Message-ID: <aNxyIeVB8Rjsu6wW@debug.ba.rivosinc.com>
-References: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
- <f953ee7b-91b3-f6f5-6955-b4a138f16dbc@kernel.org>
- <aNQ7D6_ZYMhCdkmL@debug.ba.rivosinc.com>
- <lhuldlwgpij.fsf@oldenburg.str.redhat.com>
+        d=1e100.net; s=20230601; t=1759286416; x=1759891216;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zxQ2zgdrHb7uD7qDfrNlnD3XXSfWmfO7hzlzDTfXqcQ=;
+        b=hqngMBksRyAlFKZ2I2f3jfow2JHvA64rHBJDT5LxQrSNbX4BaRjpbiyVCZ5PbTwwYz
+         CW+h3cGj3LemNRF82DVU7L298f7BgjMISbnhitxbzF0xBnyfHYDKkHhgQtDhjZ9UKVZs
+         5LiMMW4a+Y6wq7s98k0h7zsusSV4DLTAg9O9DtRDVR+mQdetWrPJDPgXnE0CPDwcbOtf
+         ctERVlUB7eBB4qXVGHGhEuiZ/MZ0ZfvEoGcGzsHygKtsCJbnd9kRPKHWIDzWmYEbdoZ9
+         MQN/Z0+BTz38Vu3XZ+yoL4UStnVHMN4V+LLnRUMMJl8qyKo36IphvHdOKNmIe2PTuAzi
+         tDfg==
+X-Forwarded-Encrypted: i=1; AJvYcCVwQeb8NDeTdYh8UzcpsU92el4PbI5Gvq0zv5A42IzF1yYMHQc+XFmoCaSPQdHae6V264F8ytQWRbxi7Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFaUQh+PGr4RsfUH5Z27cbsJPBvVBoqMdZhCS4jPPIelV+eRRJ
+	yU5GxrTMtpKyQ+gmBltHHjRsq72x7G5keEqD83TFClG9YTDLB/IQw2ChaMLYY4FryRY=
+X-Gm-Gg: ASbGncs5vIcjuci/WyGzpd1rIr6o0OS3Tkzh5Stsi7snX0ECL8g7DngMPDAsT++ZBZq
+	Vxb6PhafqcEMGzow+V3xvqbqPw2vQChmzUqHnR1u5Ihr/XL+2zoHA49wVaGATELhADBz8MdXoUt
+	JZxxsFvbDUNv0ELf2aO94GyNs7FMzg3UgwkyhpLvbghh6AlZZzI+y9eapNpsZ8wUsI0AbPRUz39
+	F/LASAK0AFQzC8FnE3YhfYo95R81XTR3BrS8ieLIh1C/DzCGU5LBe9YOCbhq6Q0nT27oHZL7P/j
+	4oEe8lSESyHBA7M7fHvZ8XfNhwPWQu45MexkPBjF4duaW4PEmJtZiAiVH6rsy14wEBk57tI8COr
+	uBmvacDokaL+vTJqhXQ72n1cuVpR1JvFR/577AK+8hzOffonPNMyW9cnjkC1I1KIsdGdhiA8C1n
+	rMy3Rij5Fx+c1mSztcXHRL
+X-Google-Smtp-Source: AGHT+IFQFvztbn8UfbzR8C12GJuYMM6yN5QwMW7n9lxY6XdpjQ/LdhbflFmYGAY5ytHhPYAVoI2Qfg==
+X-Received: by 2002:a05:6602:2c08:b0:935:90f6:892e with SMTP id ca18e2360f4ac-937aebad412mr291037439f.17.1759286415752;
+        Tue, 30 Sep 2025 19:40:15 -0700 (PDT)
+Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-92d06cc3b9esm184392139f.12.2025.09.30.19.40.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 30 Sep 2025 19:40:15 -0700 (PDT)
+Message-ID: <365ade7c-bb2c-42ff-a2e7-9a291b1faab7@riscstar.com>
+Date: Tue, 30 Sep 2025 21:40:12 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <lhuldlwgpij.fsf@oldenburg.str.redhat.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/6] dt-bindings: phy: spacemit: introduce PCIe root
+ complex
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
+ vkoul@kernel.org, kishon@kernel.org, dlan@gentoo.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, p.zabel@pengutronix.de, tglx@linutronix.de,
+ johan+linaro@kernel.org, thippeswamy.havalige@amd.com, namcao@linutronix.de,
+ mayank.rana@oss.qualcomm.com, shradha.t@samsung.com, inochiama@gmail.com,
+ quic_schintav@quicinc.com, fan.ni@samsung.com, devicetree@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+ spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250813184701.2444372-1-elder@riscstar.com>
+ <20250813184701.2444372-4-elder@riscstar.com>
+ <tmdq6iut5z2bzemduovvyarya6ho2lwlxvvqqhazw6dnnyjpq3@72xrd2pij42h>
+ <804ea57f-699f-41cc-a27c-844f107e627f@riscstar.com>
+ <kam6fgc7ykxwnksu562etrib2z4w3sucvr27ojxq62iwyrdai3@i76ygp2anscy>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <kam6fgc7ykxwnksu562etrib2z4w3sucvr27ojxq62iwyrdai3@i76ygp2anscy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_171326_222460_6BEBC582 
-X-CRM114-Status: GOOD (  26.82  )
+X-CRM114-CacheID: sfid-20250930_194017_619528_5DD78533 
+X-CRM114-Status: GOOD (  36.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,106 +115,170 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 30, 2025 at 01:15:32PM +0200, Florian Weimer wrote:
->* Deepak Gupta:
->
->> Any distro who is shipping userspace (which all of them are) along
->> with kernel will not be shipping two different userspaces (one with
->> shadow stack and one without them). If distro are shipping two
->> different userspaces, then they might as well ship two different
->> kernels. Tagging some distro folks here to get their take on shipping
->> different userspace depending on whether hardware is RVA23 or
->> not. @Heinrich, @Florian, @redbeard and @Aurelien.
+On 9/20/25 12:55 AM, Manivannan Sadhasivam wrote:
+> On Fri, Sep 19, 2025 at 03:14:05PM -0500, Alex Elder wrote:
+>> On 9/15/25 3:14 AM, Manivannan Sadhasivam wrote:
+>>> On Wed, Aug 13, 2025 at 01:46:57PM GMT, Alex Elder wrote:
+>>>
+>>> Subject should have 'pci' prefix, not 'phy'.
 >>
->> Major distro's have already drawn a distinction here that they will drop
->> support for hardware which isn't RVA23 for the sake of keeping binary
->> distribution simple.
->
->The following are just my personal thoughts.
->
->For commercial distributions, I just don't see how things work out if
->you have hardware that costs less than (say) $30 over its lifetime, and
->you want LTS support for 10+ years.  The existing distribution business
->models aren't really compatible with such low per-node costs.  So it
->makes absolute sense for distributions to target more powerful cores,
->and therefore require RVA23.  Nobody is suggesting that mainstream
->distributions should target soft-float, either.
->
->For community distributions, it is a much tougher call.  Obsoleting
->virtually all existing hardware sends a terrible signal to early
->supporters of the architecture.  But given how limited the RISC-V
->baseline ISA is, I'm not sure if there is much of a choice here.  Maybe
->it's possible to soften the blow by committing to (say) two more years
->of baseline ISA support, and then making the switch, assuming that RVA23
->hardware for local installation is widely available by then.
+>> OK I'll update that in the next version.
 
-Yes that's totally fine. Distro (community or commercial) get to decide.
-They aren't forced to make a decision of RVA23 switch. Question is about
-"Once they switch to RVA23 on say release `A`, will they build release `A`
-for non-RVA23 as well". 
+I have a new version of this code ready, but I'll delay sending
+it until the end of the merge window.
 
-Once they make a switch, I do not expect the userspace they're building
-to be able to run on older hardware because it'll have zimop instruction
-in them in epilogue and prologue.
+>>>> Add the Device Tree binding for the PCIe root complex found on the
+>>>> SpacemiT K1 SoC.  This device is derived from the Synopsys Designware
+>>>> PCIe IP.  It supports up to three PCIe ports operating at PCIe gen 2
+>>>> link speeds (5 GT/sec).  One of the ports uses a combo PHY, which is
+>>>> typically used to support a USB 3 port.
+>>>>
+>>>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>>>> ---
+>>>>    .../bindings/pci/spacemit,k1-pcie-rc.yaml     | 141 ++++++++++++++++++
+>>>>    1 file changed, 141 insertions(+)
+>>>>    create mode 100644 Documentation/devicetree/bindings/pci/spacemit,k1-pcie-rc.yaml
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-rc.yaml b/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-rc.yaml
+>>>> new file mode 100644
+>>>> index 0000000000000..6bcca2f91a6fd
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-rc.yaml
+>>>> @@ -0,0 +1,141 @@
 
-Sure, they can keep supporting older releases, keep building userspace
-without cfi/non-rva23 and thus they should be building kernel without
-cfi config as well for those releases.
+. . .
 
-New release (RVA23) isn't expected to run on older hardware. If new userspace
-is not going to be able to run on older hardware and new userspace isn't
-making an effort to have runtime selection of binaries depending on which
-hardware it is running, Is it worth the effort to have two vDSO in kernel
-and expose the one depending on which hardware its running? It's just added
-complexity for usecase which I don't really see a usecase.
+>>>> +  interrupts-extended:
+>>>> +    maxItems: 1
+>>>
+>>> What is the purpose of this property? Is it for MSI or INTx?
+>>
+>> It is for MSIs, which are translated into this interrupt.
+>> I'll add a short description indicating this.
+>>
+>> Is there a better way to represent this?
+>>
+> 
+> For external MSI controllers, it is recommended to use 'msi-map' property as the
+> client often need to pass RID, RID length and other sideband data to the MSI
+> controller.
 
-Yes a savvy kernel hacker might have a need where they want to build a kernel
-with RVA23 and transport it on all kind of hardware but that's a very corner
-use-case. 
+This implementation is using the DWC built-in MSI controller, not an
+external controller.  It implements 256 MSIs, and they're handled by
+dw_handle_msi_irq().  The interrupt will be given name "msi" in the
+next version and I hope that at least helps clarify things.
 
-At the very least this corner use case shouldn't block these patches from
-being taken in 6.18. Current patches don't block such future capability (if any
-one feels like this is really needed).
+> 
+>>>> +
+>>>> +  spacemit,syscon-pmu:
+>>>> +    description:
+>>>> +      PHandle that refers to the APMU system controller, whose
+>>>> +      regmap is used in managing resets and link state.
+>>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>>> +
+>>>> +  device_type:
+>>>> +    const: pci
+>>>> +
+>>>> +  max-link-speed:
+>>>> +    const: 2
+>>>
+>>> Why do you need to limit it to 5 GT/s always?
+>>
+>> It's what the hardware overview says is the speed
+>> of the ports.
+>>      PCIE PortA Gen2x1
+>>      PCIE PortB Gen2x2
+>>      PCIE PortC Gen2x2
+>>
+>> But I think what you're asking might be "why do you
+>> need to specify in DT that the link speed is limited".
+>> And in that case, I realize now that it is not needed.
+>> I will specify dw_pcie->max_link_speed to 2 before
+>> calling dw_pcie_host_init().
+>>
+> 
+> You only need to specify this property if you want to limit the link speed to a
+> certain data rate by the controller driver than what is supported by the
+> hardware.
 
->
->However, my real worry is that in the not-too-distant future, another
->ISA transition will be required after RVA23.  This is not entirely
->hypothetical because RVA23 is still an ISA designed mostly for C (at
->least in the scalar space, I don't know much about the vector side).
->Other architectures carry forward support for efficient overflow
->checking (as required by Ada and some other now less-popular languages,
->and as needed for efficiently implementing fixnums with arbitrary
->precision fallback).  Considering current industry trends, it is not
->inconceivable that these ISA features become important again in the near
->term.
->
+Yes, this makes sense.
 
-I can only be optimistic here and hope that enough ecosystem adoption would
-prevent such breaks in transition.
+> Looks like your hardware supports 5 GT/s by default for all ports. So you can
+> omit this property and also no need to set 'dw_pcie->max_link_speed'. In the
+> absence of this property, 'dw_pcie->max_link_speed' will be populated with the
+> hardware default value, which will be 2 in your case.
 
->You can see the effect of native overflow checking support if you look
->at Ada code examples with integer arithmetic.  For example, this:
->
->function Fib (N: Integer) return Integer is
->begin
->   if N <= 1 then
->      return N;
->   else
->      return Fib (N - 1) + Fib (N - 2);
->   end if;
->end;
->
->produces about 370 RISC-V instructions with -gnato, compared to 218
->instructions with -gnato0 and overflow checking disabled (using GCC
->trunk).  For GCC 15, the respective instruction counts are 301 and 258
->for x86-64, and 288 and 244 for AArch64.  RVA23 reduces the instruction
->count with overflow checking to 353.  A further reduction should be
->possible once GCC starts using xnor in its overflow checks, but I expect
->that the overhead from overflow checking will remain high.
->
->Thanks,
->Florian
->
+You are correct, and I verified this.  I won't specify the link
+speed "manually," and the hardware default (which is 2) will be
+used.
+
+>> If that's not what you meant, please let me know.
+>>
+>>>> +  num-viewport:
+>>>> +    const: 8
+>>>> +
+>>>> +required:
+>>>> +  - compatible
+>>>> +  - reg
+>>>> +  - clocks
+>>>> +  - clock-names
+>>>> +  - resets
+>>>> +  - reset-names
+>>>> +  - spacemit,syscon-pmu
+>>>> +  - "#address-cells"
+>>>> +  - "#size-cells"
+>>>> +  - device_type
+>>>> +  - max-link-speed
+>>>
+>>> Same comment as above.
+>>>
+>>>> +  - bus-range
+>>>> +  - num-viewport
+>>>> +
+>>>> +additionalProperties: false
+>>>> +
+>>>> +examples:
+>>>> +  - |
+>>>> +    #include <dt-bindings/clock/spacemit,k1-syscon.h>
+>>>> +    pcie0: pcie@ca000000 {
+>>>> +        compatible = "spacemit,k1-pcie-rc";
+>>>> +        reg = <0x0 0xca000000 0x0 0x00001000>,
+>>>> +              <0x0 0xca300000 0x0 0x0001ff24>,
+>>>> +              <0x0 0x8f000000 0x0 0x00002000>,
+>>>> +              <0x0 0xc0b20000 0x0 0x00001000>;
+>>>> +        reg-names = "dbi",
+>>>> +                    "atu",
+>>>> +                    "config",
+>>>> +                    "link";
+>>>> +
+>>>> +        ranges = <0x01000000 0x8f002000 0x0 0x8f002000 0x0 0x100000>,
+>>>
+>>> I/O port CPU address starts from 0.
+>>
+>> First, I'm not sure what this comment means.
+>>
+> 
+> Sorry, I meant to say 'PCI address' not 'CPU address'. The second element in
+> your 'ranges' example corresponds to the PCI start address of the I/O port and
+> it should always start from 0. Also, the encoding for both tuples are wrong. It
+> should be:
+> 
+> 	ranges = <0x01000000 0x0 0x00000000 0x8f002000 0x0 0x100000>,
+> 		 <0x02000000 0x0 0x80000000 0x80000000 0x0 0x0f000000>;
+
+Simply switching to what you show works just fine.  PCI
+addresses show up being zero-based, as they should be.
+What I don't fully understand is why it worked before.
+Maybe because this is simply defining bounds in the
+mapping?
+
+In any case, I am using ranges properties like what you show.
+
+Thanks Mani.
+
+					-Alex
+
+> - Mani
 
 _______________________________________________
 linux-riscv mailing list
