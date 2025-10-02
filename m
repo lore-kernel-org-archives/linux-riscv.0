@@ -4,98 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 742F8CCA470
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Oct 2025 22:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23571CAC5BB
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 00:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=M2ObYsS7rwXwb3Jn+nxCJtZtxfDZCFDP2N9dCdsv8UM=; b=CY8ie1H5UD9UUaRMgbJCViYtpy
-	nV65wem14LuzinJP64ywDcjwSQSzpVXHn950QL0wHtQDczWdFA+SMlQKxVWPWIHEfUAarTNDZKuya
-	OAFrhtEq1WgF+9ll6jgtniCWKBUZTkYQ8pkGvcvA6MXupgqRsV0VPWzdljOTMu/3iEZ1pKFtnfOs3
-	8idJITvapnbbbsBjhX4kGLg8gtrTgY9gmRqR6J6+AnKoUfubeLp60BUPGUVdd+1Xgwj4SLjRIWRXX
-	eqauaYncElxAdtnijTIAVNWJPIC9WYH0ktqQx4QnY3IZfUUBY/5pK7lyIFvMA+defKIVrAdFwGrNO
-	y9ezHTCA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tmIv+7eWaoCKLl/LAqlFeOw343WqpdpntUUg5R/uypI=; b=3m+4R6sd6p1rQX
+	g8eNkFTWIDtUu4msY2FwSTvOB/RwWlxEQmAqHlsd6aZWdKG2SAeKIoRfu1CT0agE17pExA8zfaOC6
+	AmV7Pkgz0XveLRLjWTfxy8mjPv/ZI7jOe9dXx3hFryk1pYCpFDqgVDm1lwTnFVXxmtMYzj1KJaH6n
+	c1FLuzJ0UvuuXVAjwGlFuwMeEKBRdBnicCCS/1F4MpJGAKC5ikxI3vmNPJE4td0RmWTz1tqIgYpSx
+	4H4LkIpqlnqhUI9NGhHSJjfJrVqa2hZif/YoW6db1s+Ej5ZPdxrKqzLRZ8vcMKnc/qcXeVp6BxMnp
+	s7+iOCTVnv8wsVmfXo1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v45Jr-00000009BON-3swt;
-	Wed, 01 Oct 2025 22:29:07 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1v476y-00000009JBE-3xFM;
+	Thu, 02 Oct 2025 00:23:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v45Jp-00000009BNX-3vC8;
-	Wed, 01 Oct 2025 22:29:07 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id F0C521400227;
-	Wed,  1 Oct 2025 18:29:04 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Wed, 01 Oct 2025 18:29:04 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1759357744;
-	 x=1759444144; bh=e80+6vo9buWuYqu+Lf/tDAVDE3/qCFzJ8xmUUjjUM7w=; b=
-	MBB4CuZkuOmZWEShgelqtgsyJkDXYkMndglMB9gqZJ5Yq/inUoS2LAjpV8EWN687
-	WRL7FkvlPLmdMJGc68mNeI5+xv7CQE2+z9vIDSfSlA0uh3/pS0JlogOV6FnficDs
-	giZlACQEd7KE+qQMzkjBjZ3/6/9Zv6We0emrzE5nznwjfv5ii/zVobMxI7Tc+VJn
-	kbLq0/U35dRYrW8dELQn5gtKUN125Y1yFQPn6MbstP2LhuhDFwwc/n1rSIteH4Fh
-	8ANxWL2eLD6hhp/DQWWHSNdj8xJRmpScJteTwajNDz1EhUExPi384ZY0BXcI/YqR
-	kCQA/kql1NEA9a+ZaZhj+Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1759357744; x=
-	1759444144; bh=e80+6vo9buWuYqu+Lf/tDAVDE3/qCFzJ8xmUUjjUM7w=; b=B
-	OrdYiMJw03ebe78oZYysH1NOqGKncnjFJCD9LK/bSIvDDJOYaHq2iLIxc3KwJodY
-	umafGAu34sqe5bNSaydJxZHIdzYGl5bejyeluI8oN61mOAJXG+B0Z1OonmyHScY7
-	6zlz5MM0J/96tCXIuH9gsDLKwlTbgHnlKLeFTvW8SZmk8JtCT+QSI4AejEwWA3tI
-	pA5Tl7wFXY1GLRRGJv1H14JBYXk/iEgR9TmJzIGzqiOZGGpMB+XEBJkeXLMB0ERq
-	lcC1PQMJvYtUU1VEVzfh8R3mOATJ4tgQA+R8XgNoqHsIq6NP62hQDFPhOmiJDAeE
-	tWiXSc/E4FysnBljuE46w==
-X-ME-Sender: <xms:MKvdaBT4cnljR2nmaF5eSB-50ZmfZ61uVTrmiBG1-12ld3xXmfOdxg>
-    <xme:MKvdaFls1OZRgXhzaWuRwaZUvo3pX4CaTLPI76LO3E9QtGt7DfJrhgxv6EXF3QUcS
-    VNBdPKb7zjXZNh2u8dS-2QrTQKT6XHpRJi5l6PHE5JPtAD1-x4--HE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdekgeefgecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpeefhfehteffuddvgfeigefhjeetvdekteekjeefkeekleffjeetvedvgefhhfeihfen
-    ucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghp
-    thhtohephedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepthhorhhvrghlughsse
-    hlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdgr
-    rhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtth
-    hopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhr
-    tghpthhtohepshhotgeslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlih
-    hnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:MKvdaE_lIHtHMRznkTd9TW4evKIOAca-wLgTUQFZRJCBeWKslHpChA>
-    <xmx:MKvdaGAMyMUjWIV7Qvt_hlkbpjHR_PFKD14_1BvDv1hKLcrlMtxmVA>
-    <xmx:MKvdaBRUQQAv7WfMUg3QR8z91qjM8yYjiA-Ird6Zg5n3AHopekcnFw>
-    <xmx:MKvdaFvj-jYJvL1_dw1NCxBdp-sE0HRqsJvXmXHQ6RCRGPbbk_J31g>
-    <xmx:MKvdaNpshx1fGS5yHYusXRv8na6nM27uf2EvoDNRY9oOvdBJmdUaNuST>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id B32CA700065; Wed,  1 Oct 2025 18:29:04 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1v476x-00000009JAl-2wS6
+	for linux-riscv@lists.infradead.org;
+	Thu, 02 Oct 2025 00:23:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C81E0601A9;
+	Thu,  2 Oct 2025 00:23:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D677C4CEF5;
+	Thu,  2 Oct 2025 00:23:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759364634;
+	bh=nLP9fhz32gTFEWdtwpsj7W9ND021HfhNxyofKluho6w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hVncy673Ouc6oDlymJrlJBYVllMJPVo9qRPxUCmt7wiJFH5+Sb4PBeeRmIbadcjMZ
+	 IRNL+Qgm310d/brridU3WBuserJwTUDJGoPt48MemO+bxadoXwctLeWP2biFyIZQ9o
+	 ds0+MUCbh4xckpMv72ksV0abLBftwcd4UUUiTAbvB5K8zhjLYZGIRb7mmzrNgB6xLU
+	 LOZRu+h0k+mvsdGM1U14VjlD99qh7QKqHhr8/j4gVrkM0zP2AGxBK2gFuUhRctvhxg
+	 4TKkPNahRkz1SuEyX1XyoBywuPGAOdRRW1DxuMgzZinlR5L+BXzkPHNE5dwzZxP5Dw
+	 17rdW+LczJGXA==
+Date: Wed, 1 Oct 2025 19:23:47 -0500
+From: Rob Herring <robh@kernel.org>
+To: Randolph Lin <randolph@andestech.com>
+Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alex@ghiti.fr, aou@eecs.berkeley.edu,
+	palmer@dabbelt.com, paul.walmsley@sifive.com, ben717@andestech.com,
+	inochiama@gmail.com, thippeswamy.havalige@amd.com,
+	namcao@linutronix.de, shradha.t@samsung.com,
+	randolph.sklin@gmail.com, tim609@andestech.com
+Subject: Re: [PATCH v4 2/5] dt-bindings: PCI: Add Andes QiLai PCIe support
+Message-ID: <20251002002347.GA2629882-robh@kernel.org>
+References: <20250924112820.2003675-1-randolph@andestech.com>
+ <20250924112820.2003675-3-randolph@andestech.com>
 MIME-Version: 1.0
-X-ThreadId: AjqV-Bcf-9VR
-Date: Thu, 02 Oct 2025 00:28:45 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, soc@lists.linux.dev
-Message-Id: <cf067bf7-5990-43b4-b96c-0700b3d59293@app.fastmail.com>
-In-Reply-To: <54b49f7b-9232-44d7-9ae3-ecc1826f17d7@app.fastmail.com>
-References: <54b49f7b-9232-44d7-9ae3-ecc1826f17d7@app.fastmail.com>
-Subject: [GIT PULL 5/5] ARM: soc updates for 6.18
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_152906_048312_F6586F00 
-X-CRM114-Status: GOOD (  10.13  )
+Content-Disposition: inline
+In-Reply-To: <20250924112820.2003675-3-randolph@andestech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,91 +77,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit b320789d6883cc00ac78ce83bccbfe7ed58afcf0:
+On Wed, Sep 24, 2025 at 07:28:17PM +0800, Randolph Lin wrote:
+> Add the Andes QiLai PCIe node, which includes 3 Root Complexes.
+> Only one example is required in the DTS bindings YAML file.
+> 
+> Signed-off-by: Randolph Lin <randolph@andestech.com>
+> ---
+>  .../bindings/pci/andestech,qilai-pcie.yaml    | 103 ++++++++++++++++++
+>  1 file changed, 103 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml b/Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
+> new file mode 100644
+> index 000000000000..8effe6ebd9d7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
+> @@ -0,0 +1,103 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/andestech,qilai-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Andes QiLai PCIe host controller
+> +
+> +description: |+
 
-  Linux 6.17-rc4 (2025-08-31 15:33:07 -0700)
+Don't need '|+'.
 
-are available in the Git repository at:
+> +  Andes QiLai PCIe host controller is based on the Synopsys DesignWare
+> +  PCI core. It shares common features with the PCIe DesignWare core and
+> +  inherits common properties defined in
+> +  Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
+> +
+> +maintainers:
+> +  - Randolph Lin <randolph@andestech.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: andestech,qilai-pcie
+> +
+> +  reg:
+> +    items:
+> +      - description: Data Bus Interface (DBI) registers.
+> +      - description: APB registers.
+> +      - description: PCIe configuration space region.
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: apb
+> +      - const: config
+> +
+> +  ranges:
+> +    maxItems: 2
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  "#interrupt-cells":
+> +    const: 1
+> +
+> +  interrupt-map: true
+> +
+> +required:
+> +  - reg
+> +  - reg-names
+> +  - "#interrupt-cells"
+> +  - interrupts
+> +  - interrupt-names
+> +  - interrupt-map-mask
+> +  - interrupt-map
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    soc {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      bus@80000000 {
+> +        compatible = "simple-bus";
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +        dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
+> +        ranges = <0x00 0x80000000 0x00 0x80000000 0x00 0x20000000>,
+> +                 <0x00 0x04000000 0x00 0x04000000 0x00 0x00001000>,
+> +                 <0x00 0x00000000 0x20 0x00000000 0x20 0x00000000>;
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-6.18
+Drop ranges and dma-ranges. Not relevant to the example.
 
-for you to fetch changes up to 65d2419f931c08ead6722fbb9d4bd8cecb25a7e3:
+> +
+> +        pci@80000000 {
 
-  ARM: versatile: clock: convert from round_rate() to determine_rate() (2025-10-01 23:49:09 +0200)
+pcie
 
-----------------------------------------------------------------
-ARM: soc updates for 6.18
+> +          compatible = "andestech,qilai-pcie";
+> +          device_type = "pci";
+> +          reg = <0x0 0x80000000 0x0 0x20000000>,
+> +                <0x0 0x04000000 0x0 0x00001000>,
+> +                <0x0 0x00000000 0x0 0x00010000>;
+> +          reg-names = "dbi", "apb", "config";
+> +
+> +          linux,pci-domain = <0>;
+> +          bus-range = <0x0 0xff>;
 
-The at91 power management code and the TI AM33 platform each get
-a few updates for robustness, the other changes are just minor
-cleanups.
+You don't need this if 0-0xff is supported. That's the default.
 
-----------------------------------------------------------------
-Alexander Sverdlin (1):
-      ARM: AM33xx: Implement TI advisory 1.0.36 (EMU0/EMU1 pins state on reset)
+> +          num-viewport = <4>;
 
-Andrew Davis (1):
-      ARM: mach-hpe: Rework support and directory structure
+Deprecated...
 
-Arnd Bergmann (4):
-      Merge tag 'renesas-arm-soc-for-v6.18-tag1' of https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/arm
-      Merge tag 'at91-soc-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into soc/arm
-      Merge tag 'omap-for-v6.18/soc-signed' of git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap into soc/arm
-      Merge tag 'v6.18-rockchip-arm32-1' of git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into soc/arm
-
-Brian Masney (3):
-      ARM: OMAP1: clock: convert from round_rate() to determine_rate()
-      ARM: OMAP2+: clock: convert from round_rate() to determine_rate()
-      ARM: versatile: clock: convert from round_rate() to determine_rate()
-
-Geert Uytterhoeven (1):
-      ARM: shmobile: rcar-gen2: Use SZ_256K definition
-
-Kuninori Morimoto (1):
-      arm: omap2: use string choices helper
-
-Miaoqian Lin (1):
-      ARM: OMAP2+: pm33xx-core: ix device node reference leaks in amx3_idle_init
-
-Mikko Rapeli (1):
-      ARM: rockchip: remove REGULATOR conditional to PM
-
-Nicolas Ferre (3):
-      ARM: at91: pm: fix .uhp_udp_mask specification for current SoCs
-      ARM: at91: pm: fix MCKx restore routine
-      ARM: at91: pm: save and restore ACR during PLL disable/enable
-
-Ryan Wanner (1):
-      ARM: at91: pm: Remove 2.5V regulator
-
-Yang Xiuwei (1):
-      ARM: OMAP2+: use IS_ERR_OR_NULL() helper
-
- MAINTAINERS                                  |  1 -
- arch/arm/Kconfig                             |  2 --
- arch/arm/Kconfig.platforms                   | 25 +++++++++++++++++
- arch/arm/Makefile                            |  1 -
- arch/arm/mach-at91/pm.c                      |  2 +-
- arch/arm/mach-at91/pm_suspend.S              | 41 ++++++----------------------
- arch/arm/mach-hpe/Kconfig                    | 23 ----------------
- arch/arm/mach-hpe/Makefile                   |  1 -
- arch/arm/mach-hpe/gxp.c                      | 15 ----------
- arch/arm/mach-omap1/clock.c                  | 19 +++++++++----
- arch/arm/mach-omap2/am33xx-restart.c         | 36 ++++++++++++++++++++++++
- arch/arm/mach-omap2/board-n8x0.c             |  2 +-
- arch/arm/mach-omap2/clkt2xxx_virt_prcm_set.c | 12 ++++----
- arch/arm/mach-omap2/pm33xx-core.c            |  6 +++-
- arch/arm/mach-omap2/powerdomain.c            |  2 +-
- arch/arm/mach-omap2/voltage.c                | 12 ++++----
- arch/arm/mach-omap2/vp.c                     |  4 +--
- arch/arm/mach-rockchip/Kconfig               |  2 +-
- arch/arm/mach-shmobile/pm-rcar-gen2.c        |  2 +-
- arch/arm/mach-versatile/spc.c                |  9 +++---
- include/soc/at91/sama7-sfrbu.h               |  7 -----
- 21 files changed, 113 insertions(+), 111 deletions(-)
- delete mode 100644 arch/arm/mach-hpe/Kconfig
- delete mode 100644 arch/arm/mach-hpe/Makefile
- delete mode 100644 arch/arm/mach-hpe/gxp.c
+> +          #address-cells = <3>;
+> +          #size-cells = <2>;
+> +          ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
+> +                   <0x43000000 0x01 0x00000000 0x01 0x0000000 0x1f 0x00000000>;
+> +
+> +          #interrupt-cells = <1>;
+> +          interrupts = <0xf>;
+> +          interrupt-names = "msi";
+> +          interrupt-parent = <&plic0>;
+> +          interrupt-map-mask = <0 0 0 7>;
+> +          interrupt-map = <0 0 0 1 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>,
+> +                          <0 0 0 2 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>,
+> +                          <0 0 0 3 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>,
+> +                          <0 0 0 4 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>;
+> +        };
+> +      };
+> +    };
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
