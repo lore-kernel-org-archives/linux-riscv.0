@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D41CCA472
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282B3CAC5B8
 	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 06:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,79 +12,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7WxneDP03wW8FJDb5G27rHwjxgxG3OMdgJBCaeEzTdY=; b=4Cmwu+wwcosUwG
-	fvD0nE6WTc3zcxaRHtzo0q1eu+TtAq8R5fdpd4kwZ3psV7VrLR/CihPmsciqOsQs+unNrrJSYfRMT
-	9thOIbpjTcv4lEb5sYXCy78LcwhC2NVfsgrVpyeCE+7wzyl5+NV9QvzIniDeM99Ig9LrBfswmCkou
-	kIlGsVXlEAW5NOYVmEh5131u/0KBLvWs6USfgl5ENFtpVUtdecrPyGXTW7VTxBmjOsfMUKfY4lCn9
-	EUoDna+SbKjsq9fpEm2JA+Ur/ZlB9BqfjSdaGj2YLiGZIhcnl0HwOU09E0a329KUC9TWZmuaPus+N
-	9zm/BSQkHhlrylw7zQFA==;
+	List-Owner; bh=JzOud4uIeHpmxNxJkp3H8teKFpduey8m1vkzS7v+p/Y=; b=1r6LhtHPl/qFWd
+	9sSq/VYD8TcEHlsdrG0mK6wERR479ANYYsssuQuEnxzQviDcy9SE0I4wQafCygXcWzX9ZxRBT38Ry
+	rduOKgySt0pw6E6AC9iGUPaMAOVvmdEeWUITPzzG3RirshJ3KysbRZ0tav+ORMHukQ23agZf926In
+	hd05vTARW0SXP50wfosUAJcVQ95piHTDGW7KatEk783Xb86jsG1IrIb0Sd5pEK3QKLGwtn5RxRbAa
+	U/ziRazeirrg8XN6xMXYxG3rK+EKz/FYWez8qno5ata+jUgHV3NNPOiKN3A1ed6y2yoQB9Mrgi6SW
+	xkmDsYxZ6CuISSVlzWHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4CVd-00000009hku-3KHI;
-	Thu, 02 Oct 2025 06:09:45 +0000
+	id 1v4CVc-00000009hjx-1xR1;
+	Thu, 02 Oct 2025 06:09:44 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4CVc-00000009hje-1qMV
+	id 1v4CVb-00000009hjE-0SU7
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 02 Oct 2025 06:09:44 +0000
+	Thu, 02 Oct 2025 06:09:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=MF1UBNl0YQdxkCR2Wq/BcrNYDGhukTT3j7EdaD4pBPY=; b=hXdRG+dTq0NccANvDmBk4XRmhC
-	pu9RBgRFsXm8fAh9n34gzzyiasOVxFdktwJB+gyp3SdBWLSXY2k3oQsBztiz2dvwBRIrlSM7GM730
-	H3xDnDiexXPpNAb5O+rf6/YgQ8x/r6ujeLHoypQUrX0rHx/bVvl8OMLenbXAxmg7qhaf/rgmbT+Hq
-	8SAyQ/2a13/JOzs++Qa0mv6IT5POSprhlzUv6f+x0XQRK/G48RaIciP3nBFsXmptE3k1XUfGtFyqe
-	PPTstWjnIawgfalWdLN+1d6FZLxqQKjtQsSOn6PyPtsV5g6Bf8GWsLMgwbp8QdHvfOKSDLdWolUoI
-	gQgnDuMA==;
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	bh=8zmmvMMm35WfJWJCu/rbPWUzK6j6v7Igidp5p7E+6WY=; b=JURQk/rpc+ZmZ1LwmrHy5mKPqt
+	djmmSHrYoZMv/Cdjz+HTOKMF+QwjIL0zymFrK1XSNH8MY9f/z5dgIkuzQ6ZWP6+bNKvJgCu7buSiM
+	6S0zBwGk/GlPY4LXY8ALHgJd3nGU274N9jJfdPnHsw5Y7ZYOsyMUwaWTaGvAftaa13VV9i14S6KFZ
+	nXeRPzK8euV2ovGGI50TeMmPLJ7V/gjcoHuyMzB3+6nBoFusfhyM8+PwC6Mw2YApYYVw7wtstFC0B
+	7I9fAzVfTpOvg9IHSia+SPH3o/IvqVzFwXGm1fbh5oBcEiPuG3jusvPGl5g6Mx8xMGVnEfRaS22Sl
+	eN/olT3g==;
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4CVW-0000000DsjO-3Esq
+	id 1v4CVU-0000000DsYh-0V9z
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Oct 2025 06:09:43 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-33292adb180so748199a91.3
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Oct 2025 23:09:39 -0700 (PDT)
+	Thu, 02 Oct 2025 06:09:42 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-76e2ea933b7so488614b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Oct 2025 23:09:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1759385377; x=1759990177; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1759385370; x=1759990170; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MF1UBNl0YQdxkCR2Wq/BcrNYDGhukTT3j7EdaD4pBPY=;
-        b=JImNUV8/KAVg2eTAvwzSA1kof/f3W8eeGOGUdwe8hr8essYGgn0AYsFgdAGfR9VVLz
-         BLaqR4Qz93wI+w88f4R0+OoJsbtXQ3fyhez08YRoSnipWYMVWxEKj5sfbAwQJRK1kwHY
-         DTcFn8pOk4alpjQCYXCtUEzOUa6m0LtC8AKnKZsrWEoTHJ5bew6TTWHDhJDX7+4Ovzuj
-         mAfF15xAhxUJ7hojA59RWi01rJU3fOEriOUyXEe62YYOfnjZotJxKf7nQQRJCjiaPtaG
-         E3qToUYhMWagE4v/HlHEj9ionAr/OVBWT6Np0IynxkzfW/ia7I9rnoJk7cNcJc4Pgymd
-         LZng==
+        bh=8zmmvMMm35WfJWJCu/rbPWUzK6j6v7Igidp5p7E+6WY=;
+        b=FauhZOxZLWrYDJyyre37kyUoJzSlGocRYV53P1X89jNMGBelnrebd/ZyNpTtX2dnfe
+         t79Fx2qw1+u7ZyF74x9lMlFZZmPihrT7+upisj0gftOYSSEH+fGiwwj0OpeXAVexQ6pS
+         CcrXvfh8w86IGT8bvpD7Re0f2nj46+hoj+e5/jDj9RHwClz7ZFY0YmgBZ3DlBU2iDaGl
+         ojUFjKQ9qdfyek0qYsL/p8yyGhpIRsqzLcHRnPuRLAtObEQ8vsjktwf264zyP+/rpg1F
+         rkgUvKiLg/udwWLxBTJ7aXdNysZ2QejP7+3R+D2ze3M45itPxS3GBpJpHDrlK0zoDB78
+         lW3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759385377; x=1759990177;
+        d=1e100.net; s=20230601; t=1759385370; x=1759990170;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MF1UBNl0YQdxkCR2Wq/BcrNYDGhukTT3j7EdaD4pBPY=;
-        b=vvcRU6iei0q8hK3jICGo0u7l72PNXoUy6rTO4u006zV3OtxcK1pr7XG1uvu+Yl0OuA
-         D3oze/JPvynVoLYWL1UeO61htbzSTxd7BzSzGMYHaEfnN+/+gxUvbKddItbFh2yZKGgg
-         IitPovUEfHsRsJqlinGgE5NJiIYF6Ot/TDLnpOpwQBPoJUgXyS6ytCThfQ3gTzdmEU3a
-         BHb7suahgliqQNJ5AJJ6COTjv0NjhChG3FHhXm35xy4LNdwQV7nCnjbUv/hMV7pU2G9G
-         sSTyPXAdyIOJAKyaQ24c8bq0W52vp/AQTXzTITkIkKutsPegFuPNX+APAWU+SWUX8uYv
-         NAPg==
-X-Forwarded-Encrypted: i=1; AJvYcCW091bS4rOAuaxqwe0Sz/QJ3848PHXn7DPdmCtoG7YXRJzW7/yj8TvqarppfQ/jz+NCuv+4a+gIIhIaGw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1EKNsjcy/kQrJeUgimWicWvSL/x+Ua9rJfD2v9USm7IX02K9V
-	vpkQzr/DFYMXUoCyX2faqd1usjE5dUXX3GKjW9RQbSEhjcUv5+V5pWivsgHL/z0iTgQ=
-X-Gm-Gg: ASbGncvjKkJQmEQ7BRTtEHcKuF2RYRhD4gsg/dvy4mWgPv6qvkt8o3PNX981Ye89bpO
-	zWMk6MKo5nxq54OlCx/Z8AvFYAMp7JH17dxPE6wWxqfCnrliW15YMRXyVr1aIUbN0/eaJuDletd
-	G94U8spDmZEDNJpFBrU8pA1fXW/Q+x9hNQVA+EwcMQ36qGS0hthlDbENMAnNiVkqMraKU9xMiyU
-	0poS9obhaMLZ3pzLem5rpKwp9ayBHXFIYcZwglk9Htbi3lSUiwkLjQWZHBbXzMMw+WFWnKAMIw/
-	IDOUup+wSQOMlk7rqnoOj7dNJ09f+Y0CoqDD/NpDJyT4+2taVs6hUBzY4Q9Xwv+Oh8h94aJsYBE
-	JGnRpTCpf+JBopKdh57vCEnY0Tf0NX1f08kFT03QlR4DPMHP09G1vsP3G+TLSdPYBkKFFmoypSi
-	6ix8k=
-X-Google-Smtp-Source: AGHT+IHhhHbJ8hJGnY+jVzo5XBMGx1xaIAa5m44vk4uxyjS42YcaIHBNHmkiTntGZfiB3yhY5MXCRg==
-X-Received: by 2002:a17:90b:1e08:b0:32e:70f5:6988 with SMTP id 98e67ed59e1d1-339a6f84cd2mr5872201a91.32.1759385377284;
-        Wed, 01 Oct 2025 23:09:37 -0700 (PDT)
+        bh=8zmmvMMm35WfJWJCu/rbPWUzK6j6v7Igidp5p7E+6WY=;
+        b=A9QZgS3LNttCvYJQPtjWCyoBsYIMV70Kk2YeSbaFkrPkt9plfd4kGdy5Y9h2kuT591
+         FgrQxMErJMXNkiDAPZpEM2idx2C3lI3B4f/RPZrHGNviSY7DSR5iD4mVv5a59ax/mE2G
+         FMRTWkUYx3p/NfTy629/YIV7ScvHVfqqgoYXwd9fPXVlS9K5NcQDAJZApyVjA9TIXEsE
+         ZLuooq50jBABWosgQk6QXzuUSuWSZ+gYprfd7yVsuu8kvfk+FtQ+0PSiJDxQKxG5Hh70
+         0Coj9hSQfe/v9ZZdPxi00vABEqmXJ1f8ATvBr9a7w/qC/GFIcQhoaQYmiwJ62QhR1B0l
+         GJ/w==
+X-Forwarded-Encrypted: i=1; AJvYcCVGh5s6EzIdUhn1Wn7vV1t/kJLuaxPg8VKgz/ZZt1uUxIwPWCReU5tpejC+UumVJuEk+2wfMnkC6FRvMQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdL0DrMb0WwDuWkdbRfkCQc8NH/HXzVPmtW64nQRacgF7AcmR6
+	CTKgMTHlf66+V+noJXW7KuZQoOgUqHfdtpipfJ0KxzdzzgyMUAkfSAIkvLEctRqQIGU=
+X-Gm-Gg: ASbGncutGHNEp9g+f5do7vQvnR5KinFBB5mtxF1rOkN4GUp92GvzTAr9jDDn1Cw+LEX
+	gDbN743Q0TirKKiVUQcbsCriSlUvcAZomcN9CCyeVEVfGLIFaLCLh5ORlxiQliEuaEU8OQbKIkh
+	wqLYwqbrRLfj9C89G4GQC+zLMm12o1Zrji+262ZNcZC44VgbicuOgftV1akUd5MgjT+4/jMtNNd
+	OGvHN86GEYNCs6UgKgbN0xYUMx7P9obsBYWWUwVfC0OABz1YYniSHcDCz9V/kCTkCrrX9fGXgy7
+	Yu2iECIgx84CA5UxpTbHnk+dk4rs5ComA29QMObtEdJAzZ68HaOScrwNb05MAot8hcvzXAdltCw
+	c/u2uE3IM2uqHh53U/kgRcpreXdnj+NVT9Q49jwRxRPTv5KQD2UMadHimkrw97s3CV5JfCl0u05
+	EOFXM=
+X-Google-Smtp-Source: AGHT+IF+YSzJ58uViX8Nc9sdQwacWiEzaK5CydbflVdamOordFViOPRH4V5+hIAsR14420tWtxw0Bw==
+X-Received: by 2002:a05:6a21:3943:b0:243:78a:82c4 with SMTP id adf61e73a8af0-32a261f188amr2830964637.25.1759385370384;
+        Wed, 01 Oct 2025 23:09:30 -0700 (PDT)
 Received: from localhost.localdomain ([122.171.19.158])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6099f594afsm1205029a12.37.2025.10.01.23.09.30
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6099f594afsm1205029a12.37.2025.10.01.23.09.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Oct 2025 23:09:36 -0700 (PDT)
+        Wed, 01 Oct 2025 23:09:29 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -94,17 +94,16 @@ To: Rob Herring <robh@kernel.org>,
 	Greg KH <gregkh@linuxfoundation.org>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
 	Ian Rogers <irogers@google.com>
-Subject: [PATCH 11/11] MAINTAINERS: Add entry for RISC-V trace framework and drivers
-Date: Thu,  2 Oct 2025 11:37:32 +0530
-Message-ID: <20251002060732.100213-12-apatel@ventanamicro.com>
+Subject: [PATCH 10/11] perf tools: Initial support for RISC-V trace decoder
+Date: Thu,  2 Oct 2025 11:37:31 +0530
+Message-ID: <20251002060732.100213-11-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251002060732.100213-1-apatel@ventanamicro.com>
 References: <20251002060732.100213-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_070940_065341_6C6D74D2 
-X-CRM114-Status: UNSURE (   8.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251002_070937_415596_DCF55CBF 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,41 +115,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Anup Patel <anup@brainfault.org>, Adrian Hunter <adrian.hunter@intel.com>, linux-kernel@vger.kernel.org, Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>, Anup Patel <apatel@ventanamicro.com>, Mayuresh Chitale <mchitale@gmail.com>, Namhyung Kim <namhyung@kernel.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>, Liang Kan <kan.liang@linux.intel.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Anup Patel <anup@brainfault.org>, Adrian Hunter <adrian.hunter@intel.com>, linux-kernel@vger.kernel.org, Mayuresh Chitale <mchitale@ventanamicro.com>, Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>, Anup Patel <apatel@ventanamicro.com>, Mayuresh Chitale <mchitale@gmail.com>, Namhyung Kim <namhyung@kernel.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>, Liang Kan <kan.liang@linux.intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Mayuresh and myself as maintainers for RISC-V trace framework and drivers.
+From: Mayuresh Chitale <mchitale@ventanamicro.com>
 
+Add bare bones support for RISC-V trace decoder so that the data received
+from the hardware by the RISC-V trace perf driver can be written to the
+perf record output file.
+
+Co-developed-by: Anup Patel <apatel@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 ---
- MAINTAINERS | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ tools/perf/util/Build             |  1 +
+ tools/perf/util/auxtrace.c        |  3 +
+ tools/perf/util/rvtrace-decoder.c | 91 +++++++++++++++++++++++++++++++
+ tools/perf/util/rvtrace.h         |  2 +
+ 4 files changed, 97 insertions(+)
+ create mode 100644 tools/perf/util/rvtrace-decoder.c
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 969df0192fc1..898b51d3dd8a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21800,6 +21800,17 @@ F:	include/dt-bindings/power/thead,th1520-power.h
- F:	include/dt-bindings/reset/thead,th1520-reset.h
- F:	include/linux/firmware/thead/thead,th1520-aon.h
+diff --git a/tools/perf/util/Build b/tools/perf/util/Build
+index 4959e7a990e4..2305638283c4 100644
+--- a/tools/perf/util/Build
++++ b/tools/perf/util/Build
+@@ -142,6 +142,7 @@ perf-util-$(CONFIG_AUXTRACE) += cs-etm.o
+ perf-util-$(CONFIG_AUXTRACE) += cs-etm-decoder/
+ endif
+ perf-util-$(CONFIG_AUXTRACE) += cs-etm-base.o
++perf-util-$(CONFIG_AUXTRACE) += rvtrace-decoder.o
  
-+RISC-V TRACE FRAMEWORK AND DRIVERS
-+M:	Mayuresh Chitale <mchitale@gmail.com>
-+M:	Anup Patel <anup@brainfault.org>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
-+F:	drivers/hwtracing/rvtrace/*
-+F:	include/linux/rvtrace*
-+F:	tools/perf/arch/riscv/util/auxtrace.c
-+F:	tools/perf/util/rvtrace*
+ perf-util-y += parse-branch-options.o
+ perf-util-y += dump-insn.o
+diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
+index 735f6c360064..5ccb5f3d9af8 100644
+--- a/tools/perf/util/auxtrace.c
++++ b/tools/perf/util/auxtrace.c
+@@ -54,6 +54,7 @@
+ #include "arm-spe.h"
+ #include "hisi-ptt.h"
+ #include "s390-cpumsf.h"
++#include "rvtrace.h"
+ #include "util/mmap.h"
+ 
+ #include <linux/ctype.h>
+@@ -1394,6 +1395,8 @@ int perf_event__process_auxtrace_info(struct perf_session *session,
+ 		err = hisi_ptt_process_auxtrace_info(event, session);
+ 		break;
+ 	case PERF_AUXTRACE_RISCV_TRACE:
++		err = rvtrace__process_auxtrace_info(event, session);
++		break;
+ 	case PERF_AUXTRACE_UNKNOWN:
+ 	default:
+ 		return -EINVAL;
+diff --git a/tools/perf/util/rvtrace-decoder.c b/tools/perf/util/rvtrace-decoder.c
+new file mode 100644
+index 000000000000..58db5ca62c1a
+--- /dev/null
++++ b/tools/perf/util/rvtrace-decoder.c
+@@ -0,0 +1,91 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * RISC-V trace Decoder
++ */
 +
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
- M:	Jack Wang <jinpu.wang@ionos.com>
++#include <errno.h>
++#include <inttypes.h>
++#include "evlist.h"
++#include <internal/lib.h>
++#include "rvtrace.h"
++
++struct rvtrace_decoder {
++	struct auxtrace auxtrace;
++	u32 auxtrace_type;
++	struct perf_session *session;
++	struct machine *machine;
++	u32 pmu_type;
++};
++
++static int rvtrace_process_event(struct perf_session *session __maybe_unused,
++				 union perf_event *event __maybe_unused,
++				 struct perf_sample *sample __maybe_unused,
++				 const struct perf_tool *tool __maybe_unused)
++{
++	return 0;
++}
++
++static int rvtrace_process_auxtrace_event(struct perf_session *session __maybe_unused,
++					  union perf_event *event __maybe_unused,
++					  const struct perf_tool *tool __maybe_unused)
++{
++	return 0;
++}
++
++static int rvtrace_flush(struct perf_session *session __maybe_unused,
++			 const struct perf_tool *tool __maybe_unused)
++{
++	return 0;
++}
++
++static void rvtrace_free_events(struct perf_session *session __maybe_unused)
++{
++}
++
++static void rvtrace_free(struct perf_session *session)
++{
++	struct rvtrace_decoder *ptr = container_of(session->auxtrace, struct rvtrace_decoder,
++					    auxtrace);
++
++	session->auxtrace = NULL;
++	free(ptr);
++}
++
++static bool rvtrace_evsel_is_auxtrace(struct perf_session *session,
++				      struct evsel *evsel)
++{
++	struct rvtrace_decoder *ptr = container_of(session->auxtrace,
++						   struct rvtrace_decoder, auxtrace);
++
++	return evsel->core.attr.type == ptr->pmu_type;
++}
++
++int rvtrace__process_auxtrace_info(union perf_event *event,
++				   struct perf_session *session)
++{
++	struct perf_record_auxtrace_info *auxtrace_info = &event->auxtrace_info;
++	struct rvtrace_decoder *ptr;
++
++	if (auxtrace_info->header.size < RVTRACE_AUXTRACE_PRIV_SIZE +
++	    sizeof(struct perf_record_auxtrace_info))
++		return -EINVAL;
++
++	ptr = zalloc(sizeof(*ptr));
++	if (!ptr)
++		return -ENOMEM;
++
++	ptr->session = session;
++	ptr->machine = &session->machines.host;
++	ptr->auxtrace_type = auxtrace_info->type;
++	ptr->pmu_type = auxtrace_info->priv[0];
++
++	ptr->auxtrace.process_event = rvtrace_process_event;
++	ptr->auxtrace.process_auxtrace_event = rvtrace_process_auxtrace_event;
++	ptr->auxtrace.flush_events = rvtrace_flush;
++	ptr->auxtrace.free_events = rvtrace_free_events;
++	ptr->auxtrace.free = rvtrace_free;
++	ptr->auxtrace.evsel_is_auxtrace = rvtrace_evsel_is_auxtrace;
++	session->auxtrace = &ptr->auxtrace;
++
++	return 0;
++}
+diff --git a/tools/perf/util/rvtrace.h b/tools/perf/util/rvtrace.h
+index 93c041db8660..fdf2e5866c85 100644
+--- a/tools/perf/util/rvtrace.h
++++ b/tools/perf/util/rvtrace.h
+@@ -15,4 +15,6 @@
+ 
+ #define RVTRACE_AUXTRACE_PRIV_SIZE	sizeof(u64)
+ 
++int rvtrace__process_auxtrace_info(union perf_event *event, struct perf_session *session);
++struct auxtrace_record *rvtrace_record_init(int *err);
+ #endif
 -- 
 2.43.0
 
