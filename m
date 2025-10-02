@@ -4,114 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFCB2CAC5B8
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 16:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF63CCD184
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 17:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Edgkc/VRY7FBbu0p7eBTGk1k/bZ4zGXbp3FDDxnRzWg=; b=i1lFHOsxNXrbqsyXvEMXL9CBog
-	6e2H7E8bhIEz8iHwtrus6M0s1mKCYYZPLJcbfjebvso+UR+Aj/xCTB9tmptcb/OGNKkHT4zd3Ea+5
-	SyjpNZMn5PNgRe8p7A/vaqJsm7z1+QOFyQ6peugJwdMoIv/9sshyOBZ55hKpR3vrV7Bvgbz8/B7DU
-	7tbo1hCivr92xea6aB+qdCZVQbMSazW0v665sw8E2xj0MKggSpG0EbUfrEnIyK8TJqOA8fj2YuOR/
-	zWoobYp1ajdm/I9v1KdEtWzOAHummFfM5K/IMFGr8Dpwm8cAYdPYK44Se20+W3yi2W0X9pmCjpx8l
-	31plNo1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cQCbXuwWX2TlxrTCNBUiR7090bR+B0kEEkmI0C0nz94=; b=4In+LjEC1z2w+a
+	xxDk1Z/T+8GWfgq/gohwtPRCgiLxuXIouK0/5L5Rd/s2Jh59Vd+ZGhmxzR47rsVoKXTpKVxvSKrRH
+	OKzDLpC7l1ftfarI7XvTIUsfDKcItElbqAhJMOSgHPMiLp0+v4KjBhnrMO/WUW0HGBgLIvKx5/dpl
+	mgydGBRw17NE/LPqdK0Syuom2JEzsDpLC1qVRmyPNGhHZqj3SLKfIHMU+TF3koCdFRRVrzKLPmePb
+	7i4Vjx40cdBNrYPh3i5CJzR6GIP0Nm6bDRl7PYzfBhN6cWef8KgD/xcv+0BgNVZ9BD9TYgBUDdRVj
+	8a6WXqnqrEwnHsUBxVhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4MR9-0000000Ar9U-1aN4;
-	Thu, 02 Oct 2025 16:45:47 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1v4NL9-0000000AwCL-30Tn;
+	Thu, 02 Oct 2025 17:43:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4MR7-0000000Ar8q-0rzo
+	id 1v4NL8-0000000AwBb-37Ny
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Oct 2025 16:45:46 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-33082aed31dso1486454a91.3
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Oct 2025 09:45:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1759423544; x=1760028344; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1A9QR3g98F/jojxQcsQCrmr26ivi3VklZB9Uaf1MTlU=;
-        b=GqFTXhu7ycrzHl1oG8y/b9QshdoxG6dE0jbYae0CDSE219wmTx2Nkls6pI6hGH1ufH
-         BwEMbxVG02M6OxFeEofyQO0ZM4tvHYTd2vJMo7Az2auTadj2MmbxS2M9EigMzVcSqzVr
-         5n1USE0ODkt+HHbqsxk02IO2gcrXsnIs/Lr7ahAlFkngvp7nQmSQeWtEk75ES5Of7q2q
-         vg5gchvuRWSRsoy/UQ5C5wrWWYFowLcga4oL67liRiRQX7dRkdh5BHBmXOIP9ghIUYbH
-         b91Nqq/uBbDhJ6+2eEo4TfcNzUdylxOcgdNOGYj3LHWi9gRH78dDfexDAjlyTJSwbIwW
-         goDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759423544; x=1760028344;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1A9QR3g98F/jojxQcsQCrmr26ivi3VklZB9Uaf1MTlU=;
-        b=i23I/yHAMJThNrwLVBU1GQJnVwIfswF5nqZygXof2QVsdKL6DiTG+6mZK9x1vlevHE
-         mAX3ImhUSsibsX+grOcr7tVA+hSiYKLC/FZX1LJONvJ+enozQaI8bkbSqhXPDKy9jOR6
-         bmfwZFilPuq9hLArOS56AOJbd9OkJOfjNqTeu001nqlek/jkeUPaAPbE0HsUQCDIOWPL
-         pgsYNYuz6WV2lrfb3Mxaa4EFfJuaPp8f8wTG53MI1Sv10/FDY15alSkFuAqpZc2xnrqt
-         d5HIvVtFEOSpXc4IsZhpHxRn9rlFytuyQS6F7rINv75BjBvUTOrx9fVQFleeHqp6+ws7
-         CQvA==
-X-Forwarded-Encrypted: i=1; AJvYcCU57JgMsg0WeORZQGWu0dumJlsUr+vkInmLpMx8N9VmEcIwkQt2RV8g0ElRjK1fSKbJdOGSN0O7Pe5FzQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjhnEU3RYphJkcyvvpLQYb6VrzaDhbaavHv490PORTmFeqRLLn
-	53B/3E+ZmaErpStGkvMOY8SWxfWIWspvooSFWL4TQhJE58cP5SZhec4aGD/nuw7BboA=
-X-Gm-Gg: ASbGncst6Fi9LSsn+Y3y9q3Bi40CJs5u4EUJgm/dhq8sWnMy5ek7SPOcihTpxbDwY+e
-	xSsmdWHWiz2WGGGRUY0vp/OqGHIjLOL2/5ya2H7R37jWXM13kjwGAoFvyqsYVq3G8QHHth1wdQE
-	KllWBTg47cnrd8MGmj1eQB3RFUHLEF2YCAbY6Ao4I65GzBSC6ULLNgvUOPbb5/5oTG+DcepeLQD
-	yZwYYKAy5oxFPHzhClSma9c5q3AQkt6S0ZxvlI/W0/jhdWnGbmlH11CQ10Xeg6OOtQUbyCusVxH
-	rfvD+QoxsPdW7wkkFsVjhxuPIVf70xF/OZptPJVYBZYrW6NFigLnNp7fXa0JqzRQwuVZka5rODM
-	rV/23FKMwmXXfSPc8lgFTLqmMTt8RCiRvqAPgRgcn4qhnmHtObnc8/Jgr
-X-Google-Smtp-Source: AGHT+IGOeNAivntNqMaBDACXUIJXINgHBVnHmalDozgA9lIHXQF1UAZCwzUqmrzChLzk9pEqivj7cA==
-X-Received: by 2002:a17:90a:e70f:b0:32e:e186:726d with SMTP id 98e67ed59e1d1-339c27a1901mr8380a91.31.1759423544003;
-        Thu, 02 Oct 2025 09:45:44 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-339b4f3ceedsm2812742a91.18.2025.10.02.09.45.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Oct 2025 09:45:43 -0700 (PDT)
-Date: Thu, 2 Oct 2025 09:45:40 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Florian Weimer <fweimer@redhat.com>
-Cc: Charles Mirabile <cmirabil@redhat.com>, pjw@kernel.org,
-	Liam.Howlett@oracle.com, a.hindborg@kernel.org,
-	akpm@linux-foundation.org, alex.gaynor@gmail.com,
-	alexghiti@rivosinc.com, aliceryhl@google.com,
-	alistair.francis@wdc.com, andybnac@gmail.com, aou@eecs.berkeley.edu,
-	arnd@arndb.de, atishp@rivosinc.com, bjorn3_gh@protonmail.com,
-	boqun.feng@gmail.com, bp@alien8.de, brauner@kernel.org,
-	broonie@kernel.org, charlie@rivosinc.com, cleger@rivosinc.com,
-	conor+dt@kernel.org, conor@kernel.org, corbet@lwn.net,
-	dave.hansen@linux.intel.com, david@redhat.com,
-	devicetree@vger.kernel.org, ebiederm@xmission.com,
-	evan@rivosinc.com, gary@garyguo.net, hpa@zytor.com,
-	jannh@google.com, jim.shu@sifive.com, kees@kernel.org,
-	kito.cheng@sifive.com, krzk+dt@kernel.org,
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, lorenzo.stoakes@oracle.com,
-	lossin@kernel.org, mingo@redhat.com, ojeda@kernel.org,
-	oleg@redhat.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
-	peterz@infradead.org, richard.henderson@linaro.org,
-	rick.p.edgecombe@intel.com, robh@kernel.org,
-	rust-for-linux@vger.kernel.org, samitolvanen@google.com,
-	shuah@kernel.org, tglx@linutronix.de, tmgross@umich.edu,
-	vbabka@suse.cz, x86@kernel.org, zong.li@sifive.com
-Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
-Message-ID: <aN6sNFBzx8NPU3Th@debug.ba.rivosinc.com>
-References: <f953ee7b-91b3-f6f5-6955-b4a138f16dbc@kernel.org>
- <20250926192919.349578-1-cmirabil@redhat.com>
- <aNbwNN_st4bxwdwx@debug.ba.rivosinc.com>
- <CABe3_aE4+06Um2x3e1D=M6Z1uX4wX8OjdcT48FueXRp+=KD=-w@mail.gmail.com>
- <aNcAela5tln5KTUI@debug.ba.rivosinc.com>
- <lhu3484i9en.fsf@oldenburg.str.redhat.com>
- <aNxsWYYnj22G5xuX@debug.ba.rivosinc.com>
- <lhuwm5dh6hf.fsf@oldenburg.str.redhat.com>
+	Thu, 02 Oct 2025 17:43:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE1C8601FD;
+	Thu,  2 Oct 2025 17:43:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2DBDC4CEF4;
+	Thu,  2 Oct 2025 17:43:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759427017;
+	bh=Xqz5o+ZdJCPEwJsSHbsVWkehdw3RptKsEo6BDFHxa9I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o7X/wTr3NYgfOivRzqINdn9eHbE+mYwqJontKFsokLincUPL0yhN32HWvivnLf69a
+	 Qct+ql80DOtSXdLhH3IjgXJvbIErrsUiNvsobaacXze4smzyn/fArVuh102PL2iCwB
+	 hb4NBzlmnn67H8gFSFbMq0YgVrzA44LwIX/Kbs2GrG23CE8ayfg33SNCYBE4UHCmDr
+	 Y4rbFost6z3pLR7qngNPD1DBt82H4mEt2b+6jc5taiAF/XeiMYZnWN6vUK0q5jRlNy
+	 g/bXLGjLJI67SsP+0LapA//jcImbcqzPgzBGiRjxeY3/5g/GNgrPGbyxVHRaq1CWMy
+	 t9ubP3mp4DwYw==
+Date: Thu, 2 Oct 2025 14:43:34 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	James Clark <james.clark@linaro.org>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, llvm@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 0/8] perf build: Support building with Clang
+Message-ID: <aN65xrFGqwue6jCx@x1>
+References: <20250930-perf_build_android_ndk-v2-0-2ea440b7ef01@arm.com>
+ <aN044EY-Ds9-E6iz@x1>
+ <20251001152217.GQ7985@e132581.arm.com>
+ <aN1yNKxXLnMtQczW@x1>
+ <20251001183256.GS7985@e132581.arm.com>
+ <20251001202050.GT7985@e132581.arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <lhuwm5dh6hf.fsf@oldenburg.str.redhat.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_094545_396029_D5A01A43 
-X-CRM114-Status: GOOD (  12.88  )
+In-Reply-To: <20251001202050.GT7985@e132581.arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,62 +80,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 02, 2025 at 01:45:48PM +0200, Florian Weimer wrote:
->* Deepak Gupta:
->
->> On Tue, Sep 30, 2025 at 11:20:32AM +0200, Florian Weimer wrote:
->>>* Deepak Gupta:
->>>
->>>> In case of shadow stack, it similar situation. If enabled compiler
->>>> decides to insert sspush and sspopchk. They necessarily won't be
->>>> prologue or epilogue but somewhere in function body as deemed fit by
->>>> compiler, thus increasing the complexity of runtime patching.
->>>>
->>>> More so, here are wishing for kernel to do this patching for usermode
->>>> vDSO when there is no guarantee of such of rest of usermode (which if
->>>> was compiled with shadow stack would have faulted before vDSO's
->>>> sspush/sspopchk if ran on pre-zimop hardware)
->>>
->>>I think this capability is desirable so that you can use a distribution
->>>kernel during CFI userspace bringup.
->>
->> I didn't get it, can you elaborate more.
->>
->> Why having kernel carry two vDSO (one with shadow stack and one without) would
->> be required to for CFI userspace bringup?
->>
->> If Distro is compiling for RVA23 CONFIG_RISCV_USERCFI has to be selected yes,
->> kernel can have vDSO with shadow stack. Distro can light this option only when
->> its compiling entire distro for RVA23.
->
->I think it boils down to whether you want CFI bringup contributions from
->people who do not want to or cannot build their own custom RVA23
->kernels.
+On Wed, Oct 01, 2025 at 09:20:50PM +0100, Leo Yan wrote:
+> On Wed, Oct 01, 2025 at 07:32:56PM +0100, Leo Yan wrote:
+> 
+> [...]
+> 
+> > > + make 'ARCH=' 'CROSS_COMPILE=' 'EXTRA_CFLAGS=' -C tools/perf 'O=/tmp/build/perf' 'CC=clang'
+> > > make: Entering directory '/git/perf-6.17.0-rc6/tools/perf'
+> > >   BUILD:   Doing 'make -j28' parallel build
+> > > Makefile.config:494: *** No gnu/libc-version.h found, please install glibc-dev[el].  Stop.
+> 
+> It does not set correctly --target as x86_64-alpine-linux-musl if
+> distros are using musl libc.
+> 
+> Now running the container build for updated code.  Once pass test,
+> I will send new series.
 
-How will they contribute to CFI bringup without having a CFI compiled usersapce?
-If their userspace is compiled with shadow stack instructions and they can't take
-this userspace to old hardware else it'll start faulting as soon as control is
-given to userspace (first sspush or sspopcheck in userspace).
+Thanks for spotting the problem after taking the trouble of starting a
+container! Hopefully that will save time for other people trying to
+cross-build perf.
 
->
->Another use case would be running container images with CFI on a
->distribution kernel which supports pre-RVA23 hardware.
+Cheers,
 
-Container image with CFI will have glibc and ld (and all other userspace) also
-compiled with shadow stack instructions in it. As soon as you take this
-container image to a pre-RVA23 hardware, you won't even reach vDSO. It'll break
-much before that, unless kernel is taking a trap on all sspush/sspopchk
-instructions in prologue/epilogue of functions in userspace (glibc, ld, etc)
-
->
->Thanks,
->Florian
->
+- Arnaldo
 
 _______________________________________________
 linux-riscv mailing list
