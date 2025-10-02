@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1784ACCA470
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 01:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E66CCA471
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 03:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fgBiD62cXzm7g2sCl0XsRXd1IAYyePOc25q2efBS23E=; b=qF4Xi3112Nah4t
-	fmPt95qKj4rUw/06i4asws0aemi8Z+3W1M9I/Z+b7eVGvMBKiVFNVqbrSE0C31valt7CRettXhUqz
-	7tkKW3dE464iG58c+L0Adfy+0yzfNCy05jaWrnN0FrQapSyt76aawYcwoCC8Vi421vDY+3c9DZDDM
-	fQ1vv/PCSy2bClsCNWs1gjLXMPOZeB4VZ/ur2v76xXD4fi90vCbR0zdRYYpX/Arpxj6588rBeDIuj
-	TcECMxLubwGjCpJchUjBu5gVcLVNP7KyoxervPtam2tIcan/Qw0gr0L8tQzpjG1b16nY29o++22AS
-	OcCGlUXzLOwpcNn5dXOw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Cn3er5esdmnUCxF2HKeo8ms+XXN+NMVB0W3WyeORLBA=; b=Isyd+V8pg0OigU
+	n3CqhdpDpn19bioouK35fl+4m0Np7rsGYfFsVv02f6TNXam56aftKOkyaygIBCYDqMh01MdAhMVRY
+	BISYlIEt7gykgeMfcjh2gToWodPQqmgxucQ29OMuR4ElKCJlgGWh/Uk5RZevlhH5+iLKZPtkh5Phm
+	L64vbe/3Mp/KpD2lMY4RTuCnk4Umlu5NGTcZV98zXAwzpYrkPwUWmQuIruMLm8+IQQa+m9cqKafoK
+	pdGFMLa1L2bXKSHV1kXYGJEomtMOKQHthhSxpEHekaUowsBkCokBXo1UbJZ6oEzg/5dmfrcXRtuut
+	wo+v8LA7zl+4v+LtFi2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v48A0-00000009Prd-0mf9;
-	Thu, 02 Oct 2025 01:31:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v4A8s-00000009Xql-0h5s;
+	Thu, 02 Oct 2025 03:38:06 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v489y-00000009Pr9-1Jbk
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 Oct 2025 01:31:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B102F61FC8;
-	Thu,  2 Oct 2025 01:31:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC3AFC4CEF1;
-	Thu,  2 Oct 2025 01:31:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759368665;
-	bh=HedJW/nDt3ySfYEknVt9nC6mYxiOLbtjAAGaTegzmC0=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=TK3FBJ2Pi2XNFQq9wfiZrF7ao79pFnuUna+jNN0498YP7RF7HEsRgtaLhnbLS6q0r
-	 hpboNQUzFTc1MGKR12rpI9y0J3SKPMEvGY4NQP2HAaEN52crnjtGv1sLYtJ11tn06D
-	 YjPslPyB9QVE8rIkGcNSfhuH1JeIsqAvuPHJQJCtKrvmZN26/3HKrC8YiJacARUjj8
-	 V6YCCiLuRSwwsoaYDX6V7CF84x9nYW3hLryJkVq927C1YnZAvosV1PP8ZVooNIavsO
-	 KbKcZ0y91kn+zfApjzIAoO98WSPQus3zTdGW1z9FQYmNsSawQMOGbVSAh1XK8zb903
-	 ro8EdAaYMFEzw==
-Date: Wed, 1 Oct 2025 19:31:00 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>
-cc: Geert Uytterhoeven <geert+renesas@glider.be>, 
-    Michael Turquette <mturquette@baylibre.com>, 
-    Stephen Boyd <sboyd@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, 
-    Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-    Anup Patel <apatel@ventanamicro.com>, linux-clk@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: COMMON_CLK_RPMI should depend on RISCV
-In-Reply-To: <6555b47f-919b-b56c-4a76-352c904343c2@kernel.org>
-Message-ID: <82323d78-0111-aa0d-cafb-d0c04071c6ea@kernel.org>
-References: <ed37635b59b0765ed3dbed6ea33c562a40b9e287.1759243789.git.geert+renesas@glider.be> <6555b47f-919b-b56c-4a76-352c904343c2@kernel.org>
+	id 1v4A8o-00000009XnM-2WbW;
+	Thu, 02 Oct 2025 03:38:05 +0000
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 5923YIBN012646
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 2 Oct 2025 11:34:18 +0800 (+08)
+	(envelope-from ben717@andestech.com)
+Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Thu, 2 Oct 2025
+ 11:34:18 +0800
+From: Ben Zong-You Xie <ben717@andestech.com>
+To: 
+CC: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+        <liujingqi@lanxincomputing.com>, <kvm@vger.kernel.org>,
+        <kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <tim609@andestech.com>,
+        Hui Min Mina Chou
+	<minachou@andestech.com>,
+        Ben Zong-You Xie <ben717@andestech.com>
+Subject: [PATCH] RISC-V: KVM: flush VS-stage TLB after VCPU migration to prevent stale entries
+Date: Thu, 2 Oct 2025 11:34:02 +0800
+Message-ID: <20251002033402.610651-1-ben717@andestech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-Originating-IP: [10.0.15.183]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 5923YIBN012646
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251001_203802_958713_3A178F40 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,29 +68,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 1 Oct 2025, Paul Walmsley wrote:
-
-> On Tue, 30 Sep 2025, Geert Uytterhoeven wrote:
-> 
-> > And perhaps the "default RISCV" should be dropped, too?
-> 
-> Probably.  I guess we should just add this to the arch/riscv defconfig 
-> instead.  Let's wait on this one for a few days to see if anyone has any 
-> comments, and consider that change for v6.18-rc fixes.
-
-Sorry, this one got garbled on the way out.  I meant to say that we should 
-think about whether it makes sense to use a more fine-grained way to 
-enable this by default.
-
-
-- Paul
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogSHVpIE1pbiBNaW5hIENob3UgPG1pbmFjaG91QGFuZGVzdGVjaC5jb20+CgpJZiBtdWx0
+aXBsZSBWQ1BVcyBvZiB0aGUgc2FtZSBHdWVzdC9WTSBydW4gb24gdGhlIHNhbWUgSG9zdCBDUFUs
+CmhmZW5jZS52dm1hIG9ubHkgZmx1c2hlcyB0aGF0IEhvc3QgQ1BV4oCZcyBWUy1zdGFnZSBUTEIu
+IE90aGVyIEhvc3QgQ1BVcwptYXkgcmV0YWluIHN0YWxlIFZTLXN0YWdlIGVudHJpZXMuIFdoZW4g
+YSBWQ1BVIGxhdGVyIG1pZ3JhdGVzIHRvIGEKZGlmZmVyZW50IEhvc3QgQ1BVLCBpdCBjYW4gaGl0
+IHRoZXNlIHN0YWxlIEdWQSB0byBHUEEgbWFwcGluZ3MsIGNhdXNpbmcKdW5leHBlY3RlZCBmYXVs
+dHMgaW4gdGhlIEd1ZXN0LgoKVG8gZml4IHRoaXMsIGt2bV9yaXNjdl9nc3RhZ2Vfdm1pZF9zYW5p
+dGl6ZSgpIGlzIGV4dGVuZGVkIHRvIGZsdXNoIGJvdGgKRy1zdGFnZSBhbmQgVlMtc3RhZ2UgVExC
+cyB3aGVuZXZlciBhIFZDUFUgbWlncmF0ZXMgdG8gYSBkaWZmZXJlbnQgSG9zdCBDUFUuClRoaXMg
+ZW5zdXJlcyB0aGF0IG5vIHN0YWxlIFZTLXN0YWdlIG1hcHBpbmdzIHJlbWFpbiBhZnRlciBWQ1BV
+IG1pZ3JhdGlvbi4KCkZpeGVzOiBiNzliZjIwMjVkYmMgKCJSSVNDLVY6IEtWTTogUmVuYW1lIGFu
+ZCBtb3ZlIGt2bV9yaXNjdl9sb2NhbF90bGJfc2FuaXRpemUoKSIpClNpZ25lZC1vZmYtYnk6IEh1
+aSBNaW4gTWluYSBDaG91IDxtaW5hY2hvdUBhbmRlc3RlY2guY29tPgpTaWduZWQtb2ZmLWJ5OiBC
+ZW4gWm9uZy1Zb3UgWGllIDxiZW43MTdAYW5kZXN0ZWNoLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2t2
+bS92bWlkLmMgfCA2ICsrKysrKwogMSBmaWxlIGNoYW5nZWQsIDYgaW5zZXJ0aW9ucygrKQoKZGlm
+ZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZtaWQuYyBiL2FyY2gvcmlzY3Yva3ZtL3ZtaWQuYwpp
+bmRleCAzYjQyNmM4MDA0ODAuLjM4YzZmNTMyYTZmOCAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9r
+dm0vdm1pZC5jCisrKyBiL2FyY2gvcmlzY3Yva3ZtL3ZtaWQuYwpAQCAtMTQ2LDQgKzE0NiwxMCBA
+QCB2b2lkIGt2bV9yaXNjdl9nc3RhZ2Vfdm1pZF9zYW5pdGl6ZShzdHJ1Y3Qga3ZtX3ZjcHUgKnZj
+cHUpCiAKIAl2bWlkID0gUkVBRF9PTkNFKHZjcHUtPmt2bS0+YXJjaC52bWlkLnZtaWQpOwogCWt2
+bV9yaXNjdl9sb2NhbF9oZmVuY2VfZ3ZtYV92bWlkX2FsbCh2bWlkKTsKKworCS8qCisJICogRmx1
+c2ggVlMtc3RhZ2UgVExCcyBlbnRyeSBhZnRlciBWQ1BVIG1pZ3JhdGlvbiB0byBhdm9pZCB1c2lu
+ZworCSAqIHN0YWxlIGVudHJpZXMuCisJICovCisJa3ZtX3Jpc2N2X2xvY2FsX2hmZW5jZV92dm1h
+X2FsbCh2bWlkKTsKIH0KLS0gCjIuMzQuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
