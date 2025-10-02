@@ -4,52 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5BF4CAC5B0
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 06:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA4CCAC5B8
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 09:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z8nNNnRxxYoNK55Efclobl1KCAWYm0aw/y/tYmD83WY=; b=ueneWQ92lFYPYq
-	xV6MN45iHIQsDWwrSqrjDahBg3fTmKkeIY1PV7LmiJ8fgvtWPxswPPjUGvJRsjyHhpv0GYwybdZLQ
-	VvozRCwdAVGiEIuYBN0bfg7KeT6R1TVOGfHY9KkCjWk3lTLuxC4yGuhO9KG9wvBBGE0dtYoEn5OnV
-	Fa5XeWbDfS145oME6ZEdmvT0HfCz1c1+Ky79hPDd1lOjrNHdv8QKcWs5pyZB33NkoKMVkSO8yKO1i
-	NeUMT5+fBeDjSk9+V9PPmLdlNSGHIzC/tmM/N5PkD5SzL9B0W90I25PHO6JnIMu19aKsnRyqniYjh
-	sDCY9ovmpNVhPoZtbv6A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tZjOpr0vbTBm4jvcuWJaWpU8yxrtmP6yJtRrdF/CEwg=; b=0/7T/dCMam0xf6XKNpsd2URplo
+	RgXvZm3Y7nuqhPRXavUooHltXPfuS3QQOi3XPZlHVjWS6JpiOq9S1TjKDeEQvr6bRj7jg5yjdDAvy
+	FPcvi8IsYltRLeilEb84vSgJhupykWNGci0sUVLSkh+qhHCbAQYE6+XGXVSUbpdCUQc/6BFk2F6or
+	UGk/3XGnK2BekvbkeqLiNxQF3iAtdRpU2xj0An4Ry1uu3dMIg/6+xCY36Ir4CBRyz42xIB7USLJ63
+	U97Ncu9383lL5mk48aJOQIQuBglT3HitMzQqu0ufqVObDzo1o7OrckMPEM83Q/emyGopmA2KXwo0n
+	TUhsP+VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4D3M-00000009kXR-1bfS;
-	Thu, 02 Oct 2025 06:44:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v4FjM-0000000A9fd-3OQi;
+	Thu, 02 Oct 2025 09:36:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4D3K-00000009kXC-3jSu
+	id 1v4FjL-0000000A9er-0Jlm
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Oct 2025 06:44:34 +0000
+	Thu, 02 Oct 2025 09:36:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E957F61E36;
-	Thu,  2 Oct 2025 06:44:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 103B2C4CEF4;
-	Thu,  2 Oct 2025 06:44:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1759387473;
-	bh=JnBN7j5droh3H2pGNS2Yqug4bI9vWf9w2jtC9CcI0Rs=;
+	by sea.source.kernel.org (Postfix) with ESMTP id 48D8D44C6B;
+	Thu,  2 Oct 2025 09:36:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34A75C4CEF4;
+	Thu,  2 Oct 2025 09:36:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759397766;
+	bh=bolpaLjsSmPCM0rXF6ePFMhixKRVDli27uVWmbGLTdE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UG58CB2rWtiMXRchCHwWLofkmsXLn3fKVtWNW04+7L9eNEENg/qRLNowFt/vG/bys
-	 3HXtuDxQ1SRoqd+ysPhnEt6fgHCd+OulYKaYQCDquJ7AY+CZngGKkBZ70hzSWs67BA
-	 A9dHrIL04xDuCGqWZ5BGnqJ4rryPEuxYsAYKsM6c=
-Date: Thu, 2 Oct 2025 08:44:30 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH 00/11] Linux RISC-V trace framework and drivers
-Message-ID: <2025100255-catcall-drinkable-23f5@gregkh>
-References: <20251002060732.100213-1-apatel@ventanamicro.com>
- <2025100208-challenge-protrude-d6c3@gregkh>
- <CAK9=C2U9FV6crTL1G2X6tUM=RyRnPBm1dPeFc29n3vmrFTcfHw@mail.gmail.com>
+	b=TzLVSutpbF3K1sI4Tt8076iyPL/gyGCh7yBtkMzjgrnsBWmJQpentUbqnFoDpc/A1
+	 eFLuai0OaGQJDiJTl6u5yfsZgpRwOB9yT2YxnKC3c6UgtQSdWCELHC25L9kUHc560a
+	 lWfjpy3wjSQcxdkE+HO0Fyjyl1ntmkdq2ZrdvkEbzjr9/RJmZVqZ0TdEA6f1LxqpI6
+	 7Bywv7CxNYrFU1mx2dZnzy3TYV5r+vvAHAraRG2JZX8UfYJBNANR5F1Nc3p29aZasT
+	 3nZmLb/rdzTlb1MRgMmWzZmp/e11iqTF6r8qE83CXNYRFMSf/2IktLhQopisbEIg3K
+	 pCa1LGtND33RQ==
+Date: Thu, 2 Oct 2025 10:36:01 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rahul Pathak <rpathak@ventanamicro.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Anup Patel <apatel@ventanamicro.com>, linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: COMMON_CLK_RPMI should depend on RISCV
+Message-ID: <20251002-rubbing-nucleus-b353e09be786@spud>
+References: <ed37635b59b0765ed3dbed6ea33c562a40b9e287.1759243789.git.geert+renesas@glider.be>
+ <6555b47f-919b-b56c-4a76-352c904343c2@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK9=C2U9FV6crTL1G2X6tUM=RyRnPBm1dPeFc29n3vmrFTcfHw@mail.gmail.com>
+In-Reply-To: <6555b47f-919b-b56c-4a76-352c904343c2@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251002_023607_133153_B8299D24 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,37 +72,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Ian Rogers <irogers@google.com>, Atish Patra <atish.patra@linux.dev>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Liang Kan <kan.liang@linux.intel.com>, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Peter Zijlstra <peterz@infradead.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Mayuresh Chitale <mchitale@gmail.com>, Namhyung Kim <namhyung@kernel.org>, Ingo Molnar <mingo@redhat.com>, Adrian Hunter <adrian.hunter@intel.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jiri Olsa <jolsa@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6215924092568985944=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBPY3QgMDIsIDIwMjUgYXQgMTI6MDk6MjNQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90
-ZToKPiBPbiBUaHUsIE9jdCAyLCAyMDI1IGF0IDExOjU24oCvQU0gR3JlZyBLSCA8Z3JlZ2toQGxp
-bnV4Zm91bmRhdGlvbi5vcmc+IHdyb3RlOgo+ID4KPiA+IE9uIFRodSwgT2N0IDAyLCAyMDI1IGF0
-IDExOjM3OjIxQU0gKzA1MzAsIEFudXAgUGF0ZWwgd3JvdGU6Cj4gPiA+IFRoaXMgc2VyaWVzIGFk
-ZHMgaW5pdGlhbCBzdXBwb3J0IGZvciBSSVNDLVYgdHJhY2UgZnJhbWV3b3JrIGFuZCBkcml2ZXJz
-Lgo+ID4gPiBUaGUgUklTQy1WIHRyYWNlIHYxLjAgc3BlY2lmaWNhdGlvbiBpcyBhbHJlYWR5IHJh
-dGlmaWVkIGFuZCBjYW4gYmUgZm91bmQgYXQ6Cj4gPiA+IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNj
-di1ub24taXNhL2UtdHJhY2UtZW5jYXAvcmVsZWFzZXMvdGFnL3YxLjAuMC1yYXRpZmllZAo+ID4g
-PiBodHRwczovL2dpdGh1Yi5jb20vcmlzY3Ytbm9uLWlzYS90Zy1uZXh1cy10cmFjZS9yZWxlYXNl
-cy90YWcvMS4wX1JhdGlmaWVkCj4gPiA+Cj4gPiA+IFRoZSBSSVNDLVYgdHJhY2UgZnJhbWV3b3Jr
-IGFuZCBkcml2ZXJzIGFyZSBkZXNpZ25lZCB0byBiZSBhZ25vc3RpYyB0byB0aGUKPiA+ID4gdW5k
-ZXJseWluZyB0cmFjZSBwcm90b2NvbCBoZW5jZSBib3RoIFJJU0MtViBFLXRyYWNlIGFuZCBSSVND
-LVYgTi10cmFjZSBzaG91bGQKPiA+ID4gd29yayBmaW5lLiBUaGUgZGlzY292ZXJ5IG9mIHRyYWNl
-IHByb3RvY2wgcGFyYW1ldGVycyBhcmUgbGVmdCB0byB1c2VyLXNwYWNlCj4gPiA+IHRyYWNlIGRl
-Y29kZXIuCj4gPiA+Cj4gPiA+IEluIHRoZXIgZnV0dXJlLCB0aGVyZSB3aWxsIGJlIHN1YnNlcXVl
-bnQgc2VyaWVzIGFkZGluZzoKPiA+ID4gMSkgU3lzZnMgc3VwcG9ydAo+ID4KPiA+IHdoeSBkb2Vz
-ICJ0cmFjZSIgbmVlZCBzeXNmcyBzdXBwb3J0PyAgTm8gb3RoZXIgY3B1IHBsYXRmb3JtIHVzZXMg
-dGhhdAo+ID4gdG9kYXksIHNvIHdoeSBpcyBhIG5ldyB1c2VyL2tlcm5lbCBhcGkgbmVlZGVkPwo+
-IAo+IFdlIHNhdyB0cmFjZSBzdXBwb3J0IGZvciBvdGhlciBhcmNoaXRlY3R1cmVzIChlLmcuIEFS
-TSBjb3Jlc2lnaHQpIGFsbG93aW5nCj4gdHJhY2Ugc3RhcnQvc3RvcCB0aHJvdWdoIHN5c2ZzLiBJ
-ZiB0aGlzIGlzIGFuIG9ic29sZXRlIG9yIG5vdCBwcmVmZXJyZWQgYXBwcm9hY2gKPiB0aGVuIHdl
-IHdpbGwgZGVwcmlvcml0aXplIGFuZCBwb3NzaWJseSBuZXZlciBhZGQgaXQuCgpXaHkgaXMgdGhh
-dCBuZWVkZWQgZm9yIGNvcmVzaWdodCBhbmQgb3RoZXIgYXJjaGVzIGRvIG5vdCBuZWVkIGl0PwpQ
-ZXJoYXBzIGl0IHNob3VsZCBiZSBkZWxldGVkIGZyb20gdGhhdCBjb2RlYmFzZSBpbnN0ZWFkPwoK
-dGhhbmtzLAoKZ3JlZyBrLWgKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+
+--===============6215924092568985944==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="X3zY6r0kZPU8RzaL"
+Content-Disposition: inline
+
+
+--X3zY6r0kZPU8RzaL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Oct 01, 2025 at 07:15:56PM -0600, Paul Walmsley wrote:
+> On Tue, 30 Sep 2025, Geert Uytterhoeven wrote:
+>=20
+> > The RISC-V platform management interface (RPMI) is only available on
+> > RISC-V platforms.  Hence add a dependency on RISCV, to prevent asking
+> > the user about this driver when configuring a kernel for a different
+> > architecture.
+> >=20
+> > Fixes: 5ba9f520f41a33c9 ("clk: Add clock driver for the RISC-V RPMI clo=
+ck service group")
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+>=20
+> Thanks Geert for catching this.
+>=20
+> This patch is against unmerged patches in -next.  So I'll plan to add thi=
+s=20
+> to the PR that I plan to send to Linus tomorrow -- unless any of the=20
+> drivers/clk maintainers would prefer that I not.
+>=20
+> > And perhaps the "default RISCV" should be dropped, too?
+>=20
+> Probably.  I guess we should just add this to the arch/riscv defconfig=20
+> instead.  Let's wait on this one for a few days to see if anyone has any=
+=20
+> comments, and consider that change for v6.18-rc fixes.
+
+There's little point having "default RISCV" if it's only available on
+RISCV in the first place, may as well just be "default y" and be
+simpler.
+
+My 2c is that putting it in defconfig is barely worth doing, unless there
+are actual platforms that use it.
+Does QEMU provide a useful test for it that exercises the various code
+paths, that would make it worthwhile to have in defconfig Anup?
+
+--X3zY6r0kZPU8RzaL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaN5HbQAKCRB4tDGHoIJi
+0hCxAP9qMjBA9+QO8ktTeHc/pequI7z96SimmSjrHSVx09FE9AEA5DRhJFgRmgYs
+YN8wWBv7xA8cwGsr6+oBkTOSUoj1WQk=
+=YMaO
+-----END PGP SIGNATURE-----
+
+--X3zY6r0kZPU8RzaL--
+
+
+--===============6215924092568985944==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6215924092568985944==--
+
