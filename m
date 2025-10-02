@@ -4,53 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE6FCAC5B0
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 06:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E88A5CAC5B8
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 06:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bGE14rj6j7huDevriBNt9UlW9z7E0ynnYxbqh4RJfzI=; b=MVvDMLuczKTCXB
-	cONHoooUYaTF3OeNNdekm4JYOGX/XGuUyGLnnU+O2J7dV+FeVciMzW3oGpCmWbMfD9bIDuwXedYRx
-	Yd0+azohNfvppYZ10bB7bdzh8SHPW4NUp3xpFsZYCdO5ch28HXbxinB00IVV5tgA/amwYMUWQ/caE
-	+3/CC/CbpDwEKomYE65IITEJIqsJq8t45V8z0UzmrAbSFOqhgPo1SQZB8SNoYMommVSWl9uEFmTPU
-	RGVRwu6owCGqlHAcrlFfcGAWA+gLM+e5eFdnGEAUx/BPhTCX4zN5RjtSo6vgEdmeMn0fM6IV2FWtr
-	TnUd5IWOAjtKveGPuhRw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=lAn2FcxDCs8rGmHnJgQbewIxqtU0bg+LM1kqEgRZE0k=; b=Cxqde5mhbcTWY7U5JtIMHs3NmF
+	SYP07OdjDoA+gP8N81xBAKKhXQx6SksGkuSNemi3BgmpKMUfWnnLvc2sfXte+EvcbXeByF4RIqeeQ
+	5E5ZvAP16RtndSUZWWIeawJPr9PgkVY9Op27qUbbg39DUMXmmIZotj7b59TYekzdbxab/BFVC84S8
+	hOnma3I9zn6+es593hBMN3beK+TOA9IjJHJz/5OCSO1ZQ6cxTeXdaOf2UCJenhbMRPMGdO58A2W7o
+	6HpSV41K7uDdLn3NZR2JpYM1UdayGbtfpD72UgtzLr7YYvdBfZvyXzXXnTzpcvmwG7FfPG4OSR5yH
+	znJNbZgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4Cm8-00000009j7s-48Xe;
-	Thu, 02 Oct 2025 06:26:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v4CmY-00000009jBz-2Rvq;
+	Thu, 02 Oct 2025 06:27:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4Cm6-00000009j7S-3KAn
+	id 1v4CmX-00000009jBe-3tzR
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 02 Oct 2025 06:27:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=/oVxpHfJcCOWZT9AX4TZoRu0JCM6j/v7Akf+l5+CCgo=; b=DtsR/9H5BNLQoGpHbEXdprHPiL
+	a3Rtsmrm8L1RiZFzYpzTL8uc/iGQXLkXjoekPUP66gHiBQGCJxlUeuJaaZlAOVjge99i5xly6nd8R
+	xWUaouxjU4eGoF8WSyUe1dP3aUiSqLu7i/yh9PR1BmLec+ZQd3+stpirc+th621CMWNgXQJnFhpi3
+	owSSliDcZAQeoFPsExSri+xDTQCp/rG3vPNuD5C0N4kNkhfdnhkJQlwbaiHbq/ixfai0bDql5QdzD
+	uav5r3I2NIRXvwl31MPIKXPpBLxz51z1NRw+s2dBksGR47NsEGEyp8JST2Kiu5n25XnmJNjt+uAHd
+	cvviPuWw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v4CmU-0000000E5sh-23ig
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Oct 2025 06:26:48 +0000
+	Thu, 02 Oct 2025 06:27:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B45144439;
-	Thu,  2 Oct 2025 06:26:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61DD5C4CEF4;
-	Thu,  2 Oct 2025 06:26:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1759386404;
-	bh=IN5Xoo6ynmRa7LHQ4OoMu5qgHy4kkgfiKHhscIHLLGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c/AUu82YtjB+tKa0eWLCJZ23oK0HvGv4tnzg6Etc05laTDdawViQrxEzaLmmEuZXS
-	 xnl4e+rU9HzXQUaOvMV3muddBxo8wbHY36pm8skkpm1H69s+8iS3SRgS0RFa4kM6aM
-	 umt1+XXCVDs0R8Uv3740jkOnL1+37ACDfGdpKa0U=
-Date: Thu, 2 Oct 2025 08:26:42 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH 00/11] Linux RISC-V trace framework and drivers
-Message-ID: <2025100208-challenge-protrude-d6c3@gregkh>
-References: <20251002060732.100213-1-apatel@ventanamicro.com>
+	by sea.source.kernel.org (Postfix) with ESMTP id 1D2A344CFB
+	for <linux-riscv@lists.infradead.org>; Thu,  2 Oct 2025 06:27:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F07B2C4CEF9
+	for <linux-riscv@lists.infradead.org>; Thu,  2 Oct 2025 06:27:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759386427;
+	bh=1DhX8G4AmQCOmJ1vB9My4LM0gaN6w+0SUeKJUVPDlBI=;
+	h=References:In-Reply-To:From:Date:Subject:To:From;
+	b=MFeV6LPB7S6quC+osEFMIz0yFRZ/gPYadWDyGeegSIBhqa/mcJJSI1sh8lnLrMWh4
+	 uZi9WwqTqeDPQ2dJSyaMO43bul85r3waBDp/scEcHIVwCHy1a+fUFUwE0DUjOlbA7J
+	 71NfBh8duSA1duLGG6AaWPLArcZz1TdK1ESKL60i59hNVZzygShCM75J/6uhiJy+qt
+	 a/l/8HVo9sBHodLeS77/LLMxTa5cww4k2BB7BerGIPeLVTjOenZ7ggQvgybzdOQDRk
+	 +oArasp3JtUxEMthqLhenn7YnApOsS0XNiU7XJcywL01Mtei8FWeys4cVBFrhAAOzk
+	 zFbd/3heYZ8GQ==
+Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-b553412a19bso488395a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Oct 2025 23:27:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW4OerjMxn4Qcs6/4hUns7uNnTljl4TqFEAFcTp84BStMbzJXG6xcBmU0moiQvVUDCjqf8+GOb8zzDgSA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBg3wZ+l3VHU/vBR+1yxR4x3hJfW6dlWIpzdnx3TpBr0BNB9OB
+	s0v16hHHUQqp+BwhB9c8VvunKH2khYiOadAq7PkIRWV4RPtOIRk84qVkQWWnsUQ6cjs+wqCnSx6
+	SLpVAT1lYvdneBFb7AIBZ476I2LTb69k=
+X-Google-Smtp-Source: AGHT+IEBLYk86/uoWVqVDFVxsuuHAaYCqIcSDwfTNMYhCdYZvniopfSVQCUKi57uRCuIhyPS1zqvLHtO1RgzJgA/suw=
+X-Received: by 2002:a17:903:46ce:b0:266:2e6b:f592 with SMTP id
+ d9443c01a7336-28e7f2a3c2cmr78644685ad.25.1759386426550; Wed, 01 Oct 2025
+ 23:27:06 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251002060732.100213-1-apatel@ventanamicro.com>
+References: <54b49f7b-9232-44d7-9ae3-ecc1826f17d7@app.fastmail.com>
+ <d482931b-1779-4b49-9fa2-1c101bdf0929@app.fastmail.com> <CAHk-=wjsMPACg__N37EL8Sh=z1wkCpj+FQKpoVPXzyiVpm1i_w@mail.gmail.com>
+ <CAGE=qrpygJ4XgtzdnGACj-6KRiD8r57F4ogNYaA3LLMusBV9fg@mail.gmail.com>
+In-Reply-To: <CAGE=qrpygJ4XgtzdnGACj-6KRiD8r57F4ogNYaA3LLMusBV9fg@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Date: Thu, 2 Oct 2025 15:26:54 +0900
+X-Gmail-Original-Message-ID: <CAJKOXPcRw3teqahDc6RBCz8XvqLt2sHqxrOUxpA84RszcsnGFQ@mail.gmail.com>
+X-Gm-Features: AS18NWCWo6vnwjd-C2QP8ttuauCGBObIKlzBdGNND_qylV7g0Yxxc3FjzsZeoAs
+Message-ID: <CAJKOXPcRw3teqahDc6RBCz8XvqLt2sHqxrOUxpA84RszcsnGFQ@mail.gmail.com>
+Subject: Re: [GIT PULL 2/5] soc: dt changes for 6.18
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	soc@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_232646_880012_8797F069 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20251002_072711_061476_503E3F16 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,32 +98,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Ian Rogers <irogers@google.com>, Atish Patra <atish.patra@linux.dev>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Liang Kan <kan.liang@linux.intel.com>, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Peter Zijlstra <peterz@infradead.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Mayuresh Chitale <mchitale@gmail.com>, Namhyung Kim <namhyung@kernel.org>, Ingo Molnar <mingo@redhat.com>, Adrian Hunter <adrian.hunter@intel.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jiri Olsa <jolsa@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 02, 2025 at 11:37:21AM +0530, Anup Patel wrote:
-> This series adds initial support for RISC-V trace framework and drivers.
-> The RISC-V trace v1.0 specification is already ratified and can be found at:
-> https://github.com/riscv-non-isa/e-trace-encap/releases/tag/v1.0.0-ratified
-> https://github.com/riscv-non-isa/tg-nexus-trace/releases/tag/1.0_Ratified
-> 
-> The RISC-V trace framework and drivers are designed to be agnostic to the
-> underlying trace protocol hence both RISC-V E-trace and RISC-V N-trace should
-> work fine. The discovery of trace protocl parameters are left to user-space
-> trace decoder.
-> 
-> In ther future, there will be subsequent series adding:
-> 1) Sysfs support
+On Thu, 2 Oct 2025 at 15:04, Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+>
+> ---------- Forwarded message ---------
+> From: Linus Torvalds <torvalds@linux-foundation.org>
+> Date: Thu, 2 Oct 2025, 13:44
+> Subject: Re: [GIT PULL 2/5] soc: dt changes for 6.18
+> To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Cc: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>, <soc@lists.linux.dev>
+>
+>
+> On Wed, 1 Oct 2025 at 15:27, Arnd Bergmann <arnd@arndb.de> wrote:
+> >
+> >   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-dt-6.18
+>
+> Bah. I've merged this, but this causes build failures on arm64.
+>
+> I only noticed after already having pushed it out.
+>
+> > SeonGu Kang (1):
+> >       arm64: dts: axis: Add ARTPEC-8 Grizzly dts support
 
-why does "trace" need sysfs support?  No other cpu platform uses that
-today, so why is a new user/kernel api needed?
 
-thanks,
+I'm sorry, I should not have trusted contributors from Samsung that
+they know what they are doing and I think my CI misses allyesconfig on
+particular branches, because for-next branch did enable this symbol
+and it was tested by my CI. Also LKP tests each of my branches and
+didn't report this, I think.
 
-greg k-h
+Issue will be fixed with commit coming via clk tree - Stephen Boyd:
+https://lore.kernel.org/linux-samsung-soc/20250825114436.46882-2-ravi.patel@samsung.com/
+And git pull:
+https://lore.kernel.org/all/20250909183504.104261-2-krzysztof.kozlowski@linaro.org/
+
+I understand this won't fix bisectability.
+
+Arnd,
+Eventually you can just mark arch-artpec as broken just to fix your branches.
+
+Sorry for the mess, I'll extend my CI to check this in future.
 
 _______________________________________________
 linux-riscv mailing list
