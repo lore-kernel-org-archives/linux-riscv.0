@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF63CCD184
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 17:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BDECAC5B0
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 18:09:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cQCbXuwWX2TlxrTCNBUiR7090bR+B0kEEkmI0C0nz94=; b=4In+LjEC1z2w+a
-	xxDk1Z/T+8GWfgq/gohwtPRCgiLxuXIouK0/5L5Rd/s2Jh59Vd+ZGhmxzR47rsVoKXTpKVxvSKrRH
-	OKzDLpC7l1ftfarI7XvTIUsfDKcItElbqAhJMOSgHPMiLp0+v4KjBhnrMO/WUW0HGBgLIvKx5/dpl
-	mgydGBRw17NE/LPqdK0Syuom2JEzsDpLC1qVRmyPNGhHZqj3SLKfIHMU+TF3koCdFRRVrzKLPmePb
-	7i4Vjx40cdBNrYPh3i5CJzR6GIP0Nm6bDRl7PYzfBhN6cWef8KgD/xcv+0BgNVZ9BD9TYgBUDdRVj
-	8a6WXqnqrEwnHsUBxVhQ==;
+	List-Owner; bh=a0CuI1rlVQNzRpoatry+T/eRNXkDuez4VamCIsX2yE4=; b=ME9iMA6nEKGyMX
+	nbiD9ezURC3dcZxDVDYRJD6P+enpX+sFg6XZ3yxsx64bUWBvunE+azTxjs1G90QoCCftwkhngI6zC
+	4/9h+GPt13FcAk/FENwmWsohcbYu2QTC6qRWIEIYwHZudyMzLJLzA2NVkHtZth/q4Bj5xMAHvMVGj
+	WDygS3r/dmWDa6FApn2b3eOKSSA1gHJKOiYbVcZaCfxvkoebGOLIE4sYx8IkTWVATV0YJQLvWq5sk
+	VIM5UOR/esc7/XDYyugr4xIvP8PMJ9oavAySIPXjUoM0i4khPNo5l/QHGf4SB3/uPdI6JFaQu3bzX
+	njE3sUHFHS+4MQxeH2BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4NL9-0000000AwCL-30Tn;
-	Thu, 02 Oct 2025 17:43:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v4Nk5-0000000B0Tn-4AqS;
+	Thu, 02 Oct 2025 18:09:25 +0000
+Received: from outgoing-auth-1.mit.edu ([18.9.28.11] helo=outgoing.mit.edu)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4NL8-0000000AwBb-37Ny
+	id 1v4Nk4-0000000B0TQ-03Rj
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Oct 2025 17:43:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE1C8601FD;
-	Thu,  2 Oct 2025 17:43:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2DBDC4CEF4;
-	Thu,  2 Oct 2025 17:43:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759427017;
-	bh=Xqz5o+ZdJCPEwJsSHbsVWkehdw3RptKsEo6BDFHxa9I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o7X/wTr3NYgfOivRzqINdn9eHbE+mYwqJontKFsokLincUPL0yhN32HWvivnLf69a
-	 Qct+ql80DOtSXdLhH3IjgXJvbIErrsUiNvsobaacXze4smzyn/fArVuh102PL2iCwB
-	 hb4NBzlmnn67H8gFSFbMq0YgVrzA44LwIX/Kbs2GrG23CE8ayfg33SNCYBE4UHCmDr
-	 Y4rbFost6z3pLR7qngNPD1DBt82H4mEt2b+6jc5taiAF/XeiMYZnWN6vUK0q5jRlNy
-	 g/bXLGjLJI67SsP+0LapA//jcImbcqzPgzBGiRjxeY3/5g/GNgrPGbyxVHRaq1CWMy
-	 t9ubP3mp4DwYw==
-Date: Thu, 2 Oct 2025 14:43:34 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	James Clark <james.clark@linaro.org>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, llvm@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/8] perf build: Support building with Clang
-Message-ID: <aN65xrFGqwue6jCx@x1>
-References: <20250930-perf_build_android_ndk-v2-0-2ea440b7ef01@arm.com>
- <aN044EY-Ds9-E6iz@x1>
- <20251001152217.GQ7985@e132581.arm.com>
- <aN1yNKxXLnMtQczW@x1>
- <20251001183256.GS7985@e132581.arm.com>
- <20251001202050.GT7985@e132581.arm.com>
+	Thu, 02 Oct 2025 18:09:25 +0000
+Received: from trampoline.thunk.org (pool-173-48-113-189.bstnma.fios.verizon.net [173.48.113.189])
+	(authenticated bits=0)
+        (User authenticated as tytso@ATHENA.MIT.EDU)
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 592I8v8J032183
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 2 Oct 2025 14:08:58 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
+	t=1759428540; bh=azyzB4IWARU4Sm+tCHrW1KeNNkSgcOf/KRtTdLleI/8=;
+	h=Date:From:Subject:Message-ID:MIME-Version:Content-Type;
+	b=MjR4iaCFRxhcC8Eov3sP97hRfzDj45cFSTQXys99vQ1hEYIN95HJG6hHD6wduuAZo
+	 uFTLP/wS//CqdFc0sVvvUsqiOh40POgJLuxVOdfWCKstl0fqEu1TJB/B7FFvFaMPO2
+	 cwcgl3nkOkDNcTieqNLLDmdPyaZTnEr/ngXa6ZG8RuJlTEtzXp6NObC8XmyCaw2kmw
+	 NcHiVGECdGGkGKdSP741gd+Xiz7iPNc5AEFoB2eXHMQcyEg86X1BpgDdGWzukpT/gn
+	 ixnC3BuP/iw6viwYsI6KI4CmteqrHKcadlx9QIu54W/supqRWxUdvC1QMOSC55qX9R
+	 dobFeAUicW/kg==
+Received: by trampoline.thunk.org (Postfix, from userid 15806)
+	id 835F92E00D9; Thu, 02 Oct 2025 14:08:57 -0400 (EDT)
+Date: Thu, 2 Oct 2025 14:08:57 -0400
+From: "Theodore Ts'o" <tytso@mit.edu>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+        Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [GIT PULL] RISC-V updates for v6.18-rc1
+Message-ID: <20251002180857.GA354523@mit.edu>
+References: <2c804359-3d43-0fba-7173-a87f9aec4bd2@kernel.org>
+ <066d70c7-b0a7-45e5-9337-17901bc95664@codethink.co.uk>
+ <CAHk-=wgfpswvq0TypePyjv3dofO5YaUC_fSd_MjzY7jogCUnCg@mail.gmail.com>
+ <3c9d9f92-aaf8-4d4d-a2d9-8d6a410edc30@codethink.co.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251001202050.GT7985@e132581.arm.com>
+In-Reply-To: <3c9d9f92-aaf8-4d4d-a2d9-8d6a410edc30@codethink.co.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251002_110924_319248_8CB0C935 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +78,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 01, 2025 at 09:20:50PM +0100, Leo Yan wrote:
-> On Wed, Oct 01, 2025 at 07:32:56PM +0100, Leo Yan wrote:
+On Thu, Oct 02, 2025 at 01:48:47PM +0100, Ben Dooks wrote:
 > 
-> [...]
-> 
-> > > + make 'ARCH=' 'CROSS_COMPILE=' 'EXTRA_CFLAGS=' -C tools/perf 'O=/tmp/build/perf' 'CC=clang'
-> > > make: Entering directory '/git/perf-6.17.0-rc6/tools/perf'
-> > >   BUILD:   Doing 'make -j28' parallel build
-> > > Makefile.config:494: *** No gnu/libc-version.h found, please install glibc-dev[el].  Stop.
-> 
-> It does not set correctly --target as x86_64-alpine-linux-musl if
-> distros are using musl libc.
-> 
-> Now running the container build for updated code.  Once pass test,
-> I will send new series.
+> We first tackled big-endian support on ARM32 nearly 15 years ago, and
+> drawing on that experience, we saw value in doing the same work on RISC-V as
+> a way for newer engineers to gain hands-on experience contributing in the
+> open.
 
-Thanks for spotting the problem after taking the trouble of starting a
-container! Hopefully that will save time for other people trying to
-cross-build perf.
+Given the cost to the Linux kernel ecosystem as a whole, is giving
+newer engineers "practice" really worth it?  I'm not convinced it is.
 
-Cheers,
+> > RISC-V is enough of a mess with the millions of silly configuration
+> > issues already. Don't make it even worse.
+> 
+> This feels like the price you pay for making a flexible and free ecosystem
+> to build cores.
 
-- Arnaldo
+Just because the RISC-V ecosystem wants to have a flexible ecosystem
+doesn't mean that Linux kernel ecosystem is obliged to be just as
+flexible, no?
+
+					- Ted
 
 _______________________________________________
 linux-riscv mailing list
