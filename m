@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F337DCCA471
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 10:49:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F9F2CAC5B0
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 10:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=94X4zhoFIONF7LVsICmahDNxuFCHESl8Db7qXLziF30=; b=Wb90NZk3Ni+XZO
-	f1mhtpqQGAy255K2R192MQgebgiSs+dVL8EazG2nYWqhdMWbYCkWAlHfUeWQcF+vvHVQzpZgpQLSb
-	EaNpdRT84mpp/aE1HCk0EjYK/GHf67MsdMuqJL0cQJ+JK9M/Ry9KuhiAY63/79KhkOz4uvVS/xQSD
-	yjT9IHwxWXSdCK07Tb44jnpv7GbDCqKfr0GTpbiXNTHETv/gSPVnnhm32NgdZzTZYeoUime1cUFya
-	ntjaL6qSdBhBNRgHbNzpG793LQEr8rYVKBHuyf2jAcaC1t/Jy9urgTW/5qgfWAKUx1DThdFJL36OO
-	xUm1Cuj/32a/wYAXt7jw==;
+	List-Owner; bh=i7llI6rH5+na55Xlr1PnMm/vVZbSboOB/8JqfQsa4vM=; b=w9gjZldh5VtcvQ
+	UqAw44N7TlSI90bAkoxUps766CVTCzGLVNEHjkwpMo23W25lLQGgnlpNmPuhhcaiZPai7Xr0yISnv
+	sHJJjCVuhPfxdBeG3BZylDa1QKfaeAvdA5mGzf7nP3EM6JSzCPIhhwNBDvSnclC/xvinlgSwFDEGw
+	bOkt8XuJ8QbEtThvVc5fGU5p5DCqHT5mTQDA1j7O82P+9vsJ2wL2YoUWw90lwRc2pz10Euz/462gm
+	ukrnhbDFBhtOp/eohOZm3Bqy/yW/jDG7uqZyiDccvMVsIlM5qHuJh1WlwnXBR2odW+Q+x1QzkIV5x
+	mdSasTChKJ6LEEVSstMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4GsR-0000000AJD2-3TL7;
+	id 1v4GsR-0000000AJCy-2Hpx;
 	Thu, 02 Oct 2025 10:49:35 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4GsK-0000000AJ7b-3DaU
+	id 1v4GsK-0000000AJ7a-3DDP
 	for linux-riscv@lists.infradead.org;
 	Thu, 02 Oct 2025 10:49:34 +0000
 Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 592AkDt4068606
+	by Atcsqr.andestech.com with ESMTPS id 592AkEKl068633
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Oct 2025 18:46:13 +0800 (+08)
+	Thu, 2 Oct 2025 18:46:14 +0800 (+08)
 	(envelope-from randolph@andestech.com)
 Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS31.andestech.com
  (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Thu, 2 Oct 2025
- 18:46:13 +0800
+ 18:46:14 +0800
 From: Randolph Lin <randolph@andestech.com>
 To: <linux-kernel@vger.kernel.org>
 CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
@@ -47,9 +47,9 @@ CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
         <shradha.t@samsung.com>, <pjw@kernel.org>, <randolph.sklin@gmail.com>,
         <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
-Subject: [PATCH v5 2/5] dt-bindings: PCI: Add Andes QiLai PCIe support
-Date: Thu, 2 Oct 2025 18:45:55 +0800
-Message-ID: <20251002104558.4068668-3-randolph@andestech.com>
+Subject: [PATCH v5 5/5] MAINTAINERS: Add maintainers for Andes QiLai PCIe driver
+Date: Thu, 2 Oct 2025 18:45:58 +0800
+Message-ID: <20251002104558.4068668-6-randolph@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251002104558.4068668-1-randolph@andestech.com>
 References: <20251002104558.4068668-1-randolph@andestech.com>
@@ -57,10 +57,11 @@ MIME-Version: 1.0
 X-Originating-IP: [10.0.15.173]
 X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 592AkDt4068606
+X-MAIL: Atcsqr.andestech.com 592AkEKl068633
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_034929_115120_0F6E64A3 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20251002_034929_115012_17E65B01 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,118 +78,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the Andes QiLai PCIe node, which includes 3 Root Complexes.
-Only one example is required in the DTS bindings YAML file.
+Here add maintainer information for Andes QiLai PCIe driver.
 
 Signed-off-by: Randolph Lin <randolph@andestech.com>
 ---
- .../bindings/pci/andestech,qilai-pcie.yaml    | 97 +++++++++++++++++++
- 1 file changed, 97 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
+ MAINTAINERS | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml b/Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
-new file mode 100644
-index 000000000000..419468430e7e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
-@@ -0,0 +1,97 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/andestech,qilai-pcie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 49aace3381cd..6f6021863e7d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19401,6 +19401,13 @@ S:	Supported
+ F:	Documentation/devicetree/bindings/pci/altr,pcie-root-port.yaml
+ F:	drivers/pci/controller/pcie-altera.c
+ 
++PCI DRIVER FOR ANDES QILAI PCIE
++M:	Randolph Lin <randolph@andestech.com>
++L:	linux-pci@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
++F:	drivers/pci/controller/dwc/pcie-andes-qilai.c
 +
-+title: Andes QiLai PCIe host controller
-+
-+description:
-+  Andes QiLai PCIe host controller is based on the Synopsys DesignWare
-+  PCI core. It shares common features with the PCIe DesignWare core and
-+  inherits common properties defined in
-+  Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
-+
-+maintainers:
-+  - Randolph Lin <randolph@andestech.com>
-+
-+allOf:
-+  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-+
-+properties:
-+  compatible:
-+    const: andestech,qilai-pcie
-+
-+  reg:
-+    items:
-+      - description: Data Bus Interface (DBI) registers.
-+      - description: APB registers.
-+      - description: PCIe configuration space region.
-+
-+  reg-names:
-+    items:
-+      - const: dbi
-+      - const: apb
-+      - const: config
-+
-+  ranges:
-+    maxItems: 2
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  "#interrupt-cells":
-+    const: 1
-+
-+  interrupt-map: true
-+
-+required:
-+  - reg
-+  - reg-names
-+  - "#interrupt-cells"
-+  - interrupts
-+  - interrupt-names
-+  - interrupt-map-mask
-+  - interrupt-map
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      bus@80000000 {
-+        compatible = "simple-bus";
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        pcie@80000000 {
-+          compatible = "andestech,qilai-pcie";
-+          device_type = "pci";
-+          reg = <0x0 0x80000000 0x0 0x20000000>,
-+                <0x0 0x04000000 0x0 0x00001000>,
-+                <0x0 0x00000000 0x0 0x00010000>;
-+          reg-names = "dbi", "apb", "config";
-+
-+          linux,pci-domain = <0>;
-+          #address-cells = <3>;
-+          #size-cells = <2>;
-+          ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
-+                   <0x43000000 0x01 0x00000000 0x01 0x0000000 0x1f 0x00000000>;
-+
-+          #interrupt-cells = <1>;
-+          interrupts = <0xf>;
-+          interrupt-names = "msi";
-+          interrupt-parent = <&plic0>;
-+          interrupt-map-mask = <0 0 0 7>;
-+          interrupt-map = <0 0 0 1 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>,
-+                          <0 0 0 2 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>,
-+                          <0 0 0 3 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>,
-+                          <0 0 0 4 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>;
-+        };
-+      };
-+    };
+ PCI DRIVER FOR APPLIEDMICRO XGENE
+ M:	Toan Le <toan@os.amperecomputing.com>
+ L:	linux-pci@vger.kernel.org
 -- 
 2.34.1
 
