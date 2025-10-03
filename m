@@ -4,107 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC05CAC5B0
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Oct 2025 22:41:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75FDFCAC5B8
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Oct 2025 01:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:To:From:Date:MIME-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=wwpTLawJuDF+6e/wI20xM4OED2C5cdHOb5c/Tw2uMCk=; b=3KMlZ/J9s0tcPM9lyWMeRlJosT
-	/+vw2igc49UooEqp3NjZ0J+vLdRuFv5azyrxhe5jZuz7ic0oScEoIFOtPoEn7OWPcIHIwGOK3MqlA
-	L89R90kAPPWRhPlwziYbPNTHlJv6joNOcGYkYF75b9aRlv3vrY/uzyc0IW3WCaTHnuzcDFgv0tsOW
-	FFAReUw27vEyUOdZ4zTNZq4KaQqwchqmAD6ksul7Mz4ht4ohnHXDMshCT8uFR+PIjMB0xfr04V780
-	W7Fwf6pkeFOWwDT72+RTBlFOcBiVvH0YkSEfkUm4M27vslzFVKL5S3Cxi8YBtoKlJ4vZq/ff3OSMo
-	3YSGUXPA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n9qYsUoJE6c/4vZijuh5eGnnpqSkuWvLxUZjsUas2yU=; b=0eK1nr58UfrajT
+	LuNF45I3rJet+A/HgfdBH5pDH1UNkWkvLgGBV9Y/UBoEYa8Ogt+tpCGpxNlcRKKXHwXNtcuwKSg6y
+	YzcYWpmKQpqPITXUDIC4+AokLZb6DtQ4Y1AmkwIAfT8pEEv/GaCBkp1mMn1gnrPXYdFH+V8pnH5Nb
+	zooXViLI70y0BIbAdPsgBkLK//4kc93otoK2GShfeM/b1dnAVWoTxNcWhFhqlk8ndyxNcTQ39KloF
+	X6UDOV+pGwi7Nu7US3GKFXA8BZi++xQzJpGNcZSZA8kIMid+3zr94ChSLtAltXXdCBgNOZC7dpHCn
+	xU92wvLtxCKhJyFS51UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4RzF-0000000BMiV-3pbM;
-	Thu, 02 Oct 2025 22:41:21 +0000
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	id 1v4Uhp-0000000BVbl-3H0n;
+	Fri, 03 Oct 2025 01:35:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4RzC-0000000BMhl-1vAW;
-	Thu, 02 Oct 2025 22:41:20 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 994D07A007E;
-	Thu,  2 Oct 2025 18:41:14 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Thu, 02 Oct 2025 18:41:14 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1759444874;
-	 x=1759531274; bh=4hGlKaEF3owGaJz4O+b4FB/WpfLoASBvaTMeTYOloZc=; b=
-	rR2II8h5qGEQ+N3qrO28io3mSYbEZDNSzni4M3uFzc+SC3OxBkJMCLbsISCw8gRo
-	aW7K/HA7nJ62jDjk+OjEtSuVCoseyfkV2PlL1VM7U92QmC30zEB0so6jgtGVq5FU
-	UkwkTYZrV6Mk7OwFtasY/kz7eO49Z4wjCiSqUOSWg7YLxJyXvj9OYDKzK1gcTRBP
-	YFuQLK84PpiDOEJh0ruq9q5J6yTty1qcPCyPYmZ/5UBH23ZuoDh7tKMeg8qlfmqn
-	nQNMSAFSUzlwuwo/GHd39tdRF+tJOd2mIf8CstxtksHlrne5DNSDesTrQSOIIka6
-	cyyV/MLozU/JOG7vD11G7g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-transfer-encoding:content-type
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1759444874; x=1759531274; bh=4
-	hGlKaEF3owGaJz4O+b4FB/WpfLoASBvaTMeTYOloZc=; b=DHQCYoqVFUx85gU6v
-	slFj/IXlslxekzNbzX2t7cUTqGO6QdU8WtPxzXoF2czC3Egzb5qv938SuoB2+G3o
-	s3bE3Ftpp2KWlTljOf2cPRSNewo8R2JHWJoZwO8QFaMsiq1FVQOA+SIkYQ8m4VmE
-	YlRprSecGGmLx+QIBg/+CnwxqT5kL0QPnPRTgH6vsOIClrIQQyiTWJlLKiKMbRgl
-	pq6zjyheL/EI2oTfTLghrESZoZ1Shu5+pMHwrMwAB+Nr65/b/+2zD0ja+aStDU8S
-	dt+hn4YZhV23dBtKL/PMPboqncgL1r0PxCuxrPmRIhbcm19iAWl+9VQk6BgyXT0U
-	cE2+Q==
-X-ME-Sender: <xms:iv_eaORAfmyx-VrNY1qjojo2ry6eNu_jd6HzWbWeTYEjU_xDIhppBg>
-    <xme:iv_eaOlMzQUBukbXXyBPZaKmAtXPYb1i7cbcNBfyWplkCDXIrZliEB6nxxb7AaJY5
-    V44DQlJnaZH7DI3F_bTauG_PKU3CYtrNB1YEFh0e7pCG5y3rixDDX8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdekjedvgecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    epkeetgfeufefhkefhjeegffefteffveeuhfdvieejtdefvdetheeftdejudffvdehnecu
-    ffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurf
-    grrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphht
-    thhopeejpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehkrhiikheskhgvrhhnvg
-    hlrdhorhhgpdhrtghpthhtohepkhhriiihshiithhofhdrkhhoiihlohifshhkiheslhhi
-    nhgrrhhordhorhhgpdhrtghpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhunh
-    gurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlhes
-    lhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhrih
-    hstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhotges
-    lhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlh
-    esvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:iv_eaN1i_9MEdLYEaN5LmPLsLN4VdWQ5gzqyXtm4S2hdB3FI6ojE8Q>
-    <xmx:iv_eaJQ0iqhekBJG_ZNv4N7eyiZd6qivnqLNQ9d2MVElQqs6DFJQcQ>
-    <xmx:iv_eaOxYPZ981NcrRqq5DjAYYDp97i96adR2uvubuViawKp-w_Y7Tw>
-    <xmx:iv_eaBA1Vg93SANUa7SRpW7_2SDp8UR21x4gNm6WJd3zRTuGfCDkxw>
-    <xmx:iv_eaFi4-HVvRUCQzDfSfHm0IxXHeK_HBVcSXLPGriYfhV1o9UV624s2>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1C7B6700065; Thu,  2 Oct 2025 18:41:14 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1v4Uhn-0000000BVbP-0nQH
+	for linux-riscv@lists.infradead.org;
+	Fri, 03 Oct 2025 01:35:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C43948FFB;
+	Fri,  3 Oct 2025 01:35:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE84EC4CEF4;
+	Fri,  3 Oct 2025 01:35:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759455330;
+	bh=Rc0jCyqhwITy1zb5mT2jrVxBrzj0eHN3SwcodYrb+vs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VbR7WYX1w2sUsckCNEoeEsZXkzBgJmehVfrS5tks3VGq4KaG+52S/lNVMkU7kuIz3
+	 021EVPz9SfUanKh/B7g5xLntFBdNDgUhZc2kjY/KyL0uZSY4iYoE/Cdedo9HN3+jX3
+	 ahtbNMsYWzapeWKRHx27ZaPm04hGmAvB2qxhFx4Fq4OEH4PewNqd3SZpO3h+u927V0
+	 SwThOzyBloUR1/vo/Tw8bRhZ4cH+FpYO1qADmwEripz8KfKCNe6xRmvA3ufmhPntSm
+	 7oJGuLdXAx4od24nbP6dRHyw19okWFENXxgwzrFjyp648mclb9yqObWQPuLLtNgHg2
+	 FxAJFc6DGTahQ==
+Date: Thu, 2 Oct 2025 18:35:28 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Han Gao <rabenda.cn@gmail.com>
+Cc: devicetree@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] riscv: dts: thead: add xtheadvector to the th1520
+ devicetree
+Message-ID: <aN8oYBGfd9Y0vp0O@x1>
+References: <cover.1758228055.git.rabenda.cn@gmail.com>
+ <1ff3fb07b24fb375fcf9d3067aa50583f47c35fe.1758228055.git.rabenda.cn@gmail.com>
 MIME-Version: 1.0
-X-ThreadId: AXqMPTuZh4v7
-Date: Fri, 03 Oct 2025 00:40:53 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Linus Torvalds" <torvalds@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- soc@lists.linux.dev
-Message-Id: <a7fa4971-85a3-4435-8728-493acb68ed0d@app.fastmail.com>
-In-Reply-To: <CAJKOXPcRw3teqahDc6RBCz8XvqLt2sHqxrOUxpA84RszcsnGFQ@mail.gmail.com>
-References: <54b49f7b-9232-44d7-9ae3-ecc1826f17d7@app.fastmail.com>
- <d482931b-1779-4b49-9fa2-1c101bdf0929@app.fastmail.com>
- <CAHk-=wjsMPACg__N37EL8Sh=z1wkCpj+FQKpoVPXzyiVpm1i_w@mail.gmail.com>
- <CAGE=qrpygJ4XgtzdnGACj-6KRiD8r57F4ogNYaA3LLMusBV9fg@mail.gmail.com>
- <CAJKOXPcRw3teqahDc6RBCz8XvqLt2sHqxrOUxpA84RszcsnGFQ@mail.gmail.com>
-Subject: Re: [GIT PULL 2/5] soc: dt changes for 6.18
+Content-Disposition: inline
+In-Reply-To: <1ff3fb07b24fb375fcf9d3067aa50583f47c35fe.1758228055.git.rabenda.cn@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_154118_987928_1B3BA691 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20251002_183531_250532_20E78C5E 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,51 +83,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 2, 2025, at 08:26, Krzysztof Kozlowski wrote:
-> On Thu, 2 Oct 2025 at 15:04, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> wrote:
->> On Wed, 1 Oct 2025 at 15:27, Arnd Bergmann <arnd@arndb.de> wrote:
->> >
->> >   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-dt-6.18
->>
->> Bah. I've merged this, but this causes build failures on arm64.
->>
->> I only noticed after already having pushed it out.
->>
->> > SeonGu Kang (1):
->> >       arm64: dts: axis: Add ARTPEC-8 Grizzly dts support
->
->
-> I'm sorry, I should not have trusted contributors from Samsung that
-> they know what they are doing and I think my CI misses allyesconfig on
-> particular branches, because for-next branch did enable this symbol
-> and it was tested by my CI. Also LKP tests each of my branches and
-> didn't report this, I think.
+On Fri, Sep 19, 2025 at 04:44:47AM +0800, Han Gao wrote:
+> The th1520 support xtheadvector [1] so it can be included in the
+> devicetree. Also include vlenb for the cpu. And set vlenb=16 [2].
+> 
+> This can be tested by passing the "mitigations=off" kernel parameter.
+> 
+> Link: https://lore.kernel.org/linux-riscv/20241113-xtheadvector-v11-4-236c22791ef9@rivosinc.com/ [1]
+> Link: https://lore.kernel.org/linux-riscv/aCO44SAoS2kIP61r@ghost/ [2]
+> 
+> Signed-off-by: Han Gao <rabenda.cn@gmail.com>
 
-This one is on me really, I had the right tooling available and
-I had used it in the past, but I never ran it after I did the
-bulk of the merges in the past few weeks. There is always someone
-who misses a dependency in the DT updates and I rely on that
-check anyway to detect some types of incompatible binding updates
-and I have no excuse for not noticing it myself.
-
-We'll have to refine the process anyway when we start taking turns
-with the soc tree merges.
-
-> Issue will be fixed with commit coming via clk tree - Stephen Boyd:
-> https://lore.kernel.org/linux-samsung-soc/20250825114436.46882-2-ravi.patel@samsung.com/
-> And git pull:
-> https://lore.kernel.org/all/20250909183504.104261-2-krzysztof.kozlowski@linaro.org/
->
-> I understand this won't fix bisectability.
->
-> Arnd,
-> Eventually you can just mark arch-artpec as broken just to fix your branches.
-
-The missing commit is at the bottom of your branch, so I'm sending
-just that commit as a build fix, that seems easier than marking it
-as broken now and then later reverting that change.
-
-      Arnd
+Reviewed-by: Drew Fustini <fustini@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
