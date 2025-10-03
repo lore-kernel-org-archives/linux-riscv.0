@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFCECAC5B0
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Oct 2025 10:08:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D48E7CCA471
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Oct 2025 10:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GZ+XunWHpGKIrkCG3p/BK0v9cY7SDyl0jbINXQZEm4Y=; b=giRYV8NDXWjQL4
-	JTRgXIjcc4LNzD1OuMzWV6M6hrFdiSFrwTWjqksdmBryRha57bEfkahl0M251Qvy+EKfKdoafNK8N
-	vLe66N7rVYc+d4mjMsTXxUOURs3CW7WWH7eYqcoeRMSu2I3zH7vyGALTY7VgOa/ullj/+TtB44bqF
-	woXFCC8+0rlQ/OZbxggxhGpldv4Fw+xPYuoYz1RoElbe8i8FRAG+ZoSsqGVE2BFl2SrPS2kut5GTB
-	LHqBK8nFYMbdgaXp3AeAe7RpBfUbBqkuTP7JQxmVwZUqgAt3UVaFWvTIgxSy1QYuK7cyT5U2yS0gQ
-	5CyDajCF2DBizznuiR2w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TSNNAxb1zDhQuLVG/600+k/5FDMykOjTEEBo98NQouw=; b=uA1etXUVjTSUgQ
+	XCWwtxkOWGZdZLbGj8PXXQQem7OpF8iLe/pciAq3n4fOhZjVVj752ENQPBbjhyfkFiFxPIdGAPcVA
+	xU5GLAUyPVpzS9OOZJhs2m4pfmvsFOCgdUlf/EC80nyxGQe41lNM7RVlbhfO/rjuzSzUbw/2OKaAv
+	fpwMJL45XHL4wZMkAUhbJTEPD+3Q0lgwoWBHl7ENE3RxtxxaXefwhFoh5eyrcWgMIrJ2s8RlrMRtd
+	H46NzfXK24fWBAJDftqpWSGCXbC6l7XDXkx+XketDPqE6KD/Wi/mV+weBE/GKDTPFI8QkXfWyDrfe
+	aatMmj3HlOawUERmU5sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4chv-0000000C0aL-0j15;
-	Fri, 03 Oct 2025 10:08:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v4ci1-0000000C0c8-1x7L;
+	Fri, 03 Oct 2025 10:08:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4cht-0000000C0Zy-0S71
+	id 1v4ci0-0000000C0b3-0NsO
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Oct 2025 10:08:10 +0000
+	Fri, 03 Oct 2025 10:08:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B437E4414D;
-	Fri,  3 Oct 2025 10:08:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89427C4CEF5;
-	Fri,  3 Oct 2025 10:08:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4802561180;
+	Fri,  3 Oct 2025 10:08:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E607FC4CEF9;
+	Fri,  3 Oct 2025 10:08:11 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -49,14 +49,13 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH/RFC 0/2] of/irq: Fix root interrupt controller handling
-Date: Fri,  3 Oct 2025 12:07:47 +0200
-Message-ID: <cover.1759485668.git.geert+renesas@glider.be>
+Subject: [PATCH/RFC 1/2] of/irq: Ignore interrupt parent for nodes without interrupts
+Date: Fri,  3 Oct 2025 12:07:48 +0200
+Message-ID: <98e13934d06116d5c116bd2b2187842ec3a8c11a.1759485668.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1759485668.git.geert+renesas@glider.be>
+References: <cover.1759485668.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_030809_166371_2C5F6431 
-X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,53 +72,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-	Hi all,
+The Devicetree Specification states:
 
-On ARM, the main interrupt controller is typically the GIC, and one can
-safely put "interrupt-parent = <&gic>;" in the root node.  The GIC node
-has an interrupts property, but it points to itself, causing
-of_irq_init() to treat it as the root interrupt controller.
+    The root of the interrupt tree is determined when traversal of the
+    interrupt tree reaches an interrupt controller node without an
+    interrupts property and thus no explicit interrupt parent.
 
-On RISC-V, the main interrupt controller is typically the PLIC.
-However, one can not put "interrupt-parent = <&plic>;" in the root node,
-as that would cause a kernel panic ("No interrupt controller found").
-The main difference with ARM is that the PLIC is not the root interrupt
-controller: its interrupt parent is the RISC-V CPU or Hart-Level
-Interrupt Controller (HLIC).  The latter is the root interrupt
-controller, and despite having no interrupts property, it is currently
-not considered the root interrupt controller when an interrupt-parent
-property is present in the root node.
+However, of_irq_init() gratuitously assumes that a node without
+interrupts has an actual interrupt parent if it finds an
+interrupt-parent property higher up in the device tree.  Hence when such
+a property is present (e.g. in the root node), the root interrupt
+controller may not be detected as such, causing a panic:
 
-This series fixes the issue in of_irq_init(), and moves the
-"interrupt-parent = <&plic>;" for the RZ/Five (R9A07G043F) SoC from the
-soc node to the top node, like was done recently for the very similar
-RZ/G2UL (R9A07G043U) SoC[1].
+    OF: of_irq_init: children remain, but no parents
+    Kernel panic - not syncing: No interrupt controller found.
 
-Thanks for your comments!
+Commit e91033621d56e055 ("of/irq: Use interrupts-extended to find
+parent") already fixed a first part, by checking for the presence of an
+interrupts-extended property.  Fix the second part by only calling
+of_irq_find_parent() when an interrupts property is present.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-dts-for-v6.19&id=0070434f4a910179a23cd7ab812c33811f00b253)
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+ drivers/of/irq.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Geert Uytterhoeven (2):
-  of/irq: Ignore interrupt parent for nodes without interrupts
-  riscv: dts: renesas: r9a07g043f: Move interrupt-parent to top node
-
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 3 ++-
- drivers/of/irq.c                            | 2 +-
- 2 files changed, 3 insertions(+), 2 deletions(-)
-
+diff --git a/drivers/of/irq.c b/drivers/of/irq.c
+index c29f0bef7798ec02..f155054e297c989a 100644
+--- a/drivers/of/irq.c
++++ b/drivers/of/irq.c
+@@ -663,7 +663,7 @@ void __init of_irq_init(const struct of_device_id *matches)
+ 		 * are the same distance away from the root irq controller.
+ 		 */
+ 		desc->interrupt_parent = of_parse_phandle(np, "interrupts-extended", 0);
+-		if (!desc->interrupt_parent)
++		if (!desc->interrupt_parent && of_property_present(np, "interrupts"))
+ 			desc->interrupt_parent = of_irq_find_parent(np);
+ 		if (desc->interrupt_parent == np) {
+ 			of_node_put(desc->interrupt_parent);
 -- 
 2.43.0
 
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
