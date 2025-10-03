@@ -4,51 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB17CAC5B0
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Oct 2025 07:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFCECAC5B0
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Oct 2025 10:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/+N9xjV4r3Nj1WrlTQjJz5tAYNCoNzDb6kUoaCgfL7Q=; b=4F23FjhHVNs6hn
-	fENwhbJm+LPrRUUxeQjQ2WiimfIfhEiOET+cdu1lt0PwcRedtR6Cwe5aFU8NzSRdnuOkS93t0zoQ2
-	ZpTzsjP8aANuPWRz26vZq8uSB3ZWvnx7Lyqhof8jlV73yAXX9cbyXytVo29k+2cmxqZIyWH8RvEQo
-	m8WcT2hsn3Ro+P9AkiWxtbZ7gp85TyojvvLwoErY3mAfWCL339hgUQOMsqpmf52L+UkBd6Xk5+ejl
-	XPm42ktST8c5CYYHmfy+FFSG0YGwS34iwRsRMX4wlF/UokkGvZwI8pdSzDB3OrJC8ZNEjYZSsoxRM
-	rPvjnezxcBtTG0dg9iMw==;
+	List-Owner; bh=GZ+XunWHpGKIrkCG3p/BK0v9cY7SDyl0jbINXQZEm4Y=; b=giRYV8NDXWjQL4
+	JTRgXIjcc4LNzD1OuMzWV6M6hrFdiSFrwTWjqksdmBryRha57bEfkahl0M251Qvy+EKfKdoafNK8N
+	vLe66N7rVYc+d4mjMsTXxUOURs3CW7WWH7eYqcoeRMSu2I3zH7vyGALTY7VgOa/ullj/+TtB44bqF
+	woXFCC8+0rlQ/OZbxggxhGpldv4Fw+xPYuoYz1RoElbe8i8FRAG+ZoSsqGVE2BFl2SrPS2kut5GTB
+	LHqBK8nFYMbdgaXp3AeAe7RpBfUbBqkuTP7JQxmVwZUqgAt3UVaFWvTIgxSy1QYuK7cyT5U2yS0gQ
+	5CyDajCF2DBizznuiR2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4a4e-0000000Bnvq-0zew;
-	Fri, 03 Oct 2025 07:19:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v4chv-0000000C0aL-0j15;
+	Fri, 03 Oct 2025 10:08:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4a4c-0000000BnvW-0zl9
+	id 1v4cht-0000000C0Zy-0S71
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Oct 2025 07:19:26 +0000
+	Fri, 03 Oct 2025 10:08:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6148B601FF;
-	Fri,  3 Oct 2025 07:19:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6205C4CEF5;
-	Fri,  3 Oct 2025 07:19:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759475965;
-	bh=npL7ZxipwXBJqYe6tFFbbpWqtsI0lDGBpLw4bTD7F8c=;
-	h=Date:From:To:cc:Subject:From;
-	b=UCjWiseWJylfmkFB2mCIzgS3u4KKG2ABboUvSZnUhpI43SLpMl08UCoTnt0ad3Ymk
-	 MSV4jzOXEAhwpwotwrl1Hi+RywYNaJue23c1X8ADx/iBbXLjuVcpHZVVMJN7hsQPR8
-	 Fzi7N3x58dPu6rN4Uam/9224Aa/YDjGXnnNnqeg1IMw8X2MKFN86KZtsP5daI7TUIl
-	 3A8NTh0zeBzM5HxeKK2GOaQBaPcCE0a5ShaUgYf2UpnOc1vn3JiovZvTWJJd28u0rw
-	 rcPenAzkhy0iVatCk0uSsHNJ+5ToTxOgDaTwzirojom7Hg1B8T/HbScm4rvhM2Old8
-	 cA36qaSLNFKEw==
-Date: Fri, 3 Oct 2025 01:19:20 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V updates for the v6.18 merge window (part two)
-Message-ID: <9a4eb234-b19c-8051-472b-4bd793a9e252@kernel.org>
+	by sea.source.kernel.org (Postfix) with ESMTP id B437E4414D;
+	Fri,  3 Oct 2025 10:08:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89427C4CEF5;
+	Fri,  3 Oct 2025 10:08:03 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel@sholland.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Magnus Damm <magnus.damm@gmail.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH/RFC 0/2] of/irq: Fix root interrupt controller handling
+Date: Fri,  3 Oct 2025 12:07:47 +0200
+Message-ID: <cover.1759485668.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251003_030809_166371_2C5F6431 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,146 +73,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Linus,
+	Hi all,
 
-The following changes since commit 0b0ca959d20689fece038954bbf1d7b14c0b11c3:
+On ARM, the main interrupt controller is typically the GIC, and one can
+safely put "interrupt-parent = <&gic>;" in the root node.  The GIC node
+has an interrupts property, but it points to itself, causing
+of_irq_init() to treat it as the root interrupt controller.
 
-  riscv: errata: Fix the PAUSE Opcode for MIPS P8700 (2025-09-19 10:33:56 -0600)
+On RISC-V, the main interrupt controller is typically the PLIC.
+However, one can not put "interrupt-parent = <&plic>;" in the root node,
+as that would cause a kernel panic ("No interrupt controller found").
+The main difference with ARM is that the PLIC is not the root interrupt
+controller: its interrupt parent is the RISC-V CPU or Hart-Level
+Interrupt Controller (HLIC).  The latter is the root interrupt
+controller, and despite having no interrupts property, it is currently
+not considered the root interrupt controller when an interrupt-parent
+property is present in the root node.
 
-are available in the Git repository at:
+This series fixes the issue in of_irq_init(), and moves the
+"interrupt-parent = <&plic>;" for the RZ/Five (R9A07G043F) SoC from the
+soc node to the top node, like was done recently for the very similar
+RZ/G2UL (R9A07G043U) SoC[1].
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.18-mw2
+Thanks for your comments!
 
-for you to fetch changes up to 68247d45c045bb7dda923cf2c8d0937ce0e16394:
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-dts-for-v6.19&id=0070434f4a910179a23cd7ab812c33811f00b253)
 
-  clk: COMMON_CLK_RPMI should depend on RISCV (2025-10-01 19:07:43 -0600)
+Geert Uytterhoeven (2):
+  of/irq: Ignore interrupt parent for nodes without interrupts
+  riscv: dts: renesas: r9a07g043f: Move interrupt-parent to top node
 
-----------------------------------------------------------------
-RISC-V updates for the v6.18 merge window (part two)
+ arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 3 ++-
+ drivers/of/irq.c                            | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-Second set of RISC-V updates for the v6.18 merge window, consisting
-of:
+-- 
+2.43.0
 
-- Support for the RISC-V-standardized RPMI interface.
+Gr{oetje,eeting}s,
 
-  RPMI is a platform management communication mechanism between OSes
-  running on application processors, and a remote platform management
-  processor.  Similar to ARM SCMI, TI SCI, etc.  This includes irqchip,
-  mailbox, and clk changes.
+						Geert
 
-- Support for the RISC-V-standardized MPXY SBI extension.
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-  MPXY is a RISC-V-specific standard implementing a shared memory
-  mailbox between S-mode operating systems (e.g., Linux) and M-mode
-  firmware (e.g., OpenSBI).  It is part of this PR since one of its
-  use cases is to enable M-mode firmware to act as a single RPMI client
-  for all RPMI activity on a core (including S-mode RPMI activity).
-  Includes a mailbox driver.
-
-- Some ACPI-related updates to enable the use of RPMI and MPXY.
-
-- The addition of Linux-wide memcpy_{from,to}_le32() static inline
-  functions, for RPMI use.
-
-- An ACPI Kconfig change to enable boot logos on any ACPI-using
-  architecture (including RISC-V)
-
-- A RISC-V defconfig change to add GPIO keyboard and event device
-  support, for front panel shutdown or reboot buttons
-
-This PR also includes a recent, one-line Kconfig patch from Geert to
-keep non-RISC-V users from being asked about building the RPMI virtual
-clock driver when !COMPILE_TEST.  THere's nothing preventing
-non-RISC-V SoCs from implementing RPMI, but until some users show up,
-let's not annoy others with it.
-
-----------------------------------------------------------------
-Anup Patel (14):
-      dt-bindings: mailbox: Add bindings for RPMI shared memory transport
-      dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
-      RISC-V: Add defines for the SBI message proxy extension
-      mailbox: Add common header for RPMI messages sent via mailbox
-      mailbox: Allow controller specific mapping using fwnode
-      byteorder: Add memcpy_to_le32() and memcpy_from_le32()
-      mailbox: Add RISC-V SBI message proxy (MPXY) based mailbox driver
-      dt-bindings: clock: Add RPMI clock service message proxy bindings
-      dt-bindings: clock: Add RPMI clock service controller bindings
-      dt-bindings: Add RPMI system MSI message proxy bindings
-      dt-bindings: Add RPMI system MSI interrupt controller bindings
-      irqchip: Add driver for the RPMI system MSI service group
-      RISC-V: Enable GPIO keyboard and event device in RV64 defconfig
-      MAINTAINERS: Add entry for RISC-V RPMI and MPXY drivers
-
-Geert Uytterhoeven (1):
-      clk: COMMON_CLK_RPMI should depend on RISCV
-
-Heinrich Schuchardt (1):
-      ACPI: support BGRT table on RISC-V
-
-Rahul Pathak (1):
-      clk: Add clock driver for the RISC-V RPMI clock service group
-
-Sunil V L (9):
-      ACPI: property: Refactor acpi_fwnode_get_reference_args() to support nargs_prop
-      ACPI: Add support for nargs_prop in acpi_fwnode_get_reference_args()
-      ACPI: scan: Update honor list for RPMI System MSI
-      ACPI: RISC-V: Create interrupt controller list in sorted order
-      ACPI: RISC-V: Add support to update gsi range
-      ACPI: RISC-V: Add RPMI System MSI to GSI mapping
-      irqchip/irq-riscv-imsic-early: Export imsic_acpi_get_fwnode()
-      mailbox/riscv-sbi-mpxy: Add ACPI support
-      irqchip/riscv-rpmi-sysmsi: Add ACPI support
-
- .../bindings/clock/riscv,rpmi-clock.yaml           |   64 ++
- .../bindings/clock/riscv,rpmi-mpxy-clock.yaml      |   64 ++
- .../riscv,rpmi-mpxy-system-msi.yaml                |   67 ++
- .../riscv,rpmi-system-msi.yaml                     |   74 ++
- .../bindings/mailbox/riscv,rpmi-shmem-mbox.yaml    |  124 +++
- .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml      |   51 +
- MAINTAINERS                                        |   15 +
- arch/riscv/configs/defconfig                       |    2 +
- arch/riscv/include/asm/irq.h                       |    6 +
- arch/riscv/include/asm/sbi.h                       |   62 ++
- drivers/acpi/Kconfig                               |    2 +-
- drivers/acpi/property.c                            |  128 +--
- drivers/acpi/riscv/irq.c                           |   75 +-
- drivers/acpi/scan.c                                |    2 +
- drivers/base/property.c                            |    2 +-
- drivers/clk/Kconfig                                |    9 +
- drivers/clk/Makefile                               |    1 +
- drivers/clk/clk-rpmi.c                             |  620 ++++++++++++
- drivers/irqchip/Kconfig                            |    7 +
- drivers/irqchip/Makefile                           |    1 +
- drivers/irqchip/irq-riscv-imsic-early.c            |    2 +
- drivers/irqchip/irq-riscv-rpmi-sysmsi.c            |  328 +++++++
- drivers/mailbox/Kconfig                            |   11 +
- drivers/mailbox/Makefile                           |    2 +
- drivers/mailbox/mailbox.c                          |   65 +-
- drivers/mailbox/riscv-sbi-mpxy-mbox.c              | 1019 ++++++++++++++++++++
- include/linux/byteorder/generic.h                  |   16 +
- include/linux/mailbox/riscv-rpmi-message.h         |  243 +++++
- include/linux/mailbox_controller.h                 |    3 +
- 29 files changed, 2981 insertions(+), 84 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
- create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
- create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
- create mode 100644 drivers/clk/clk-rpmi.c
- create mode 100644 drivers/irqchip/irq-riscv-rpmi-sysmsi.c
- create mode 100644 drivers/mailbox/riscv-sbi-mpxy-mbox.c
- create mode 100644 include/linux/mailbox/riscv-rpmi-message.h
-
-    text	   data	    bss	     dec	    hex	filename
-12839941	6181502	 419253	19440696	128a438	vmlinux.rv64.orig
-12866875	6191482	 419269	19477626	129347a	vmlinux.rv64
-11788867	6000158	 404229	18193254	1159b66	vmlinux.rv64_nosmp.orig
-11800609	6005634	 404245	18210488	115deb8	vmlinux.rv64_nosmp
-11771062	4703702	 309629	16784393	1001c09	vmlinux.rv32.orig
-11794258	4711898	 309637	16815793	10096b1	vmlinux.rv32
- 2615066	 758584	 119048	 3492698	 354b5a	vmlinux.nommu_virt.orig
- 2615066	 758584	 119048	3 492698	 354b5a	vmlinux.nommu_virt
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
