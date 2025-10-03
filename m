@@ -4,110 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D98ACAC5B0
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Oct 2025 17:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9CDCCA471
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Oct 2025 21:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gx7zdLJyKFWMbJxTnr329Dr/MFzwdY0p2txn1C+lKbg=; b=o/+irWHS0vINUC
-	mAmCmYTdDeihVJbveu15sBnhyx1ldPYDtFux1sbuNFmb1/oe3uHcYRmKOIkBbXPM2T+Ybm1yqDKtX
-	UzXUijU79aELMTzK9Er01lk6ZWMMTS+bI7ZBRDxvX0OnO0gWMuFCNbMoEnNnduV33K9C5T0O68MMk
-	S0Leo4ELTWA6hmRLVEzKp7aF9tQp8T6GnPqLTk+71wN6+WhHvtxGrR/fvy6SRu6T1B2T07y6Y3zdT
-	YKAal1Vqr5bm6GxDl/afEN1Za5G4z78/dU+6l6wrgSTv9JI5Rmlo7Q/25KdY86pIVR/KCQW+hVh6r
-	T1JBY4rkYA15KOSwvP4Q==;
+	List-Owner; bh=9OhSFc8seKFl+PeCu43x6o8rlVF5zU/yPsqNDJHbFv4=; b=0OpLd3H/IGHxl9
+	lltC8JesD0oMnyM8H00S7MqR3f4NldY/gCqEgKul8VuhBO5stxpvX8QBi7Hf9OdD10O21BR+IahXH
+	adoxgQeQ0wTxNCFCSU2yEcTZG6NvKVYf4vIGaqjMYnw3tRwITaw08AHapBiqSU2Abo85v3oLzZI3W
+	KzQOjsk7zgkRe/PBZwNSOcFK4blVRROEvMmSo6j0V6UEbbAKjsK49i1VO1h2JogOpubIuRtBco0X8
+	Dh2HKz2I246u4W7BoN6WVqNh2oZWh3oq9zwo5Fnij0kmJ+sHgojc+7kOFmU9e5ydmbH+NfU+qydLC
+	XedN1FbZSnZDqcTb5gAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4jW1-0000000Cpee-2BPx;
-	Fri, 03 Oct 2025 17:24:21 +0000
-Received: from fra-out-013.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.178.132.221])
+	id 1v4n5r-0000000D8eH-3ROL;
+	Fri, 03 Oct 2025 21:13:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4jVx-0000000CpcB-3E3D;
-	Fri, 03 Oct 2025 17:24:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1759512257; x=1791048257;
-  h=message-id:date:mime-version:reply-to:subject:to:cc:
-   references:from:in-reply-to:content-transfer-encoding;
-  bh=eKU8SJ09O6RAdk9rzTuf+EPgBar7M5OPCHBeslmadhA=;
-  b=f5vI/2oSeIDW4VsIzPXPfIqF3OVeJuds+Yxo6bZqrUDE9e9/ktBky/3D
-   TbaQp/sT7GDkj/yq2uyWqTrUzNr5RkNv0z9gclkDtExkmDCPjgPh5LwLa
-   dfFnBu3qvJ6Tx3Hbk+HMt1w1847puEDWewVeT2tiG44LedTJr1jI+ER9q
-   Djxq/3rbigkLTAIp+Zm76M8g3Nf58imda/JdjDh0gUglPmlAg7sx9Y9Vc
-   BnofYvXSwmttXeqXpDNXtQcQPtVwkfzOJ0l08XdUy8V8wPp1aQgproTa6
-   VtnKy730PYDsakHokgzkB26aHN4ahlB7K6zq6IL0P3qiydVaheAIde9rq
-   A==;
-X-CSE-ConnectionGUID: /bGeMqI5QHGO7ZeMBtXCHg==
-X-CSE-MsgGUID: d1ZXsYzERHSwet8rfgRFpg==
-X-IronPort-AV: E=Sophos;i="6.18,313,1751241600"; 
-   d="scan'208";a="2975643"
-Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
-  by internal-fra-out-013.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2025 17:24:05 +0000
-Received: from EX19MTAEUC001.ant.amazon.com [54.240.197.225:5746]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.33.147:2525] with esmtp (Farcaster)
- id f44c7b7f-75fc-43b3-8033-16cf4d5d0ded; Fri, 3 Oct 2025 17:24:04 +0000 (UTC)
-X-Farcaster-Flow-ID: f44c7b7f-75fc-43b3-8033-16cf4d5d0ded
-Received: from EX19D022EUC002.ant.amazon.com (10.252.51.137) by
- EX19MTAEUC001.ant.amazon.com (10.252.51.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Fri, 3 Oct 2025 17:24:04 +0000
-Received: from [192.168.4.149] (10.106.83.12) by EX19D022EUC002.ant.amazon.com
- (10.252.51.137) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20; Fri, 3 Oct 2025
- 17:24:02 +0000
-Message-ID: <fc0bb268-07b7-41ef-9a82-791d381f56ac@amazon.com>
-Date: Fri, 3 Oct 2025 18:23:57 +0100
+	id 1v4n5q-0000000D8dw-174p
+	for linux-riscv@lists.infradead.org;
+	Fri, 03 Oct 2025 21:13:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2FDB849158;
+	Fri,  3 Oct 2025 21:13:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1E65C4CEF5;
+	Fri,  3 Oct 2025 21:13:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759526013;
+	bh=6g1nw5xllyollCqrM6iwZ/HICb+xwXiCDb44PYNQxNk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ugB/oof4ZAiP3PUpmJ01D3yHMaXXrS7wjyBwjfnTU/B98fNG00Be6C9ebdlYDaHrh
+	 f9bzkAawEdx8uVrj94ZIzxb/+wmyYGRzsK/isBr0SQcrpsDzETXG2wgWGd85w7+S2j
+	 01vAHTv048LMAaOBtWm7V3SGYHrvtc15imC5c9wQWThVKYiNZjhyNdRCoV8LAGNDUN
+	 F8Eb709HoOmvvG6SUTdoIGoazFpXS06RDhkdTAmhxNLGqce/pF4KPLJqlZ4xYyXtMb
+	 pdhpzuT6gJLSChvv/idVMq0Z4k/b3YY0Orf10QxbVdYzGJJwWlyz8QpLJHJyCM37VN
+	 8+5SwvroftWVw==
+Date: Fri, 3 Oct 2025 14:13:31 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Han Gao <rabenda.cn@gmail.com>
+Cc: devicetree@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] riscv: dts: thead: add more th1520 isa extension
+ support
+Message-ID: <aOA8e46KosVxuewV@x1>
+References: <cover.1758228055.git.rabenda.cn@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 15/34] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
- guest-specific backing memory
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	"Oliver Upton" <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
-	"Michael Ellerman" <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
-	"Paul Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson
-	<seanjc@google.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian
- Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)"
-	<willy@infradead.org>, "Andrew Morton" <akpm@linux-foundation.org>
-CC: <kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-mips@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <kvm-riscv@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, Xiaoyao Li
-	<xiaoyao.li@intel.com>, Xu Yilun <yilun.xu@intel.com>, Chao Peng
-	<chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, Jarkko Sakkinen
-	<jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, David Matlack
-	<dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata
-	<isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?= =?UTF-8?Q?n?=
-	<mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve
-	<vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, "Maciej
- Szmigiero" <mail@maciej.szmigiero.name>, David Hildenbrand
-	<david@redhat.com>, Quentin Perret <qperret@google.com>, Michael Roth
-	<michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, Liam Merwick
-	<liam.merwick@oracle.com>, "Isaku Yamahata" <isaku.yamahata@gmail.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20231105163040.14904-1-pbonzini@redhat.com>
- <20231105163040.14904-16-pbonzini@redhat.com>
-Content-Language: en-US
-From: Nikita Kalyazin <kalyazin@amazon.com>
-Autocrypt: addr=kalyazin@amazon.com; keydata=
- xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
- JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
- BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
- IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
- CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
- ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
- ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
- i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
-In-Reply-To: <20231105163040.14904-16-pbonzini@redhat.com>
-X-Originating-IP: [10.106.83.12]
-X-ClientProxiedBy: EX19D013EUA004.ant.amazon.com (10.252.50.48) To
- EX19D022EUC002.ant.amazon.com (10.252.51.137)
+Content-Disposition: inline
+In-Reply-To: <cover.1758228055.git.rabenda.cn@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_102418_630216_C24D3685 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20251003_141334_324342_41103820 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,64 +76,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: kalyazin@amazon.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 05/11/2023 16:30, Paolo Bonzini wrote:
-> From: Sean Christopherson <seanjc@google.com>
+On Fri, Sep 19, 2025 at 04:44:46AM +0800, Han Gao wrote:
+> Add xtheadvector & ziccrse & zfh for th1520
 > 
-> Introduce an ioctl(), KVM_CREATE_GUEST_MEMFD, to allow creating file-based
-> memory that is tied to a specific KVM virtual machine and whose primary
-> purpose is to serve guest memory.
+> Updated the commit message for the patchset
+> 
+> Thanks,
+> Han
+> 
+> ---
+> v1: https://lore.kernel.org/all/20250911184528.1512543-1-rabenda.cn@gmail.com/
+> 
+> Han Gao (3):
+>   riscv: dts: thead: add xtheadvector to the th1520 devicetree
+>   riscv: dts: thead: add ziccrse for th1520
+>   riscv: dts: thead: add zfh for th1520
+> 
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 28 +++++++++++++++++++--------
+>  1 file changed, 20 insertions(+), 8 deletions(-)
+> 
+> -- 
+> 2.47.3
+> 
 
-...
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index f1a575d39b3b..8f46d757a2c5 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
+I'll apply this to thead-dt-for-next once 6.18-rc1 is out and I can
+update the next branch to that.
 
-...
-
-> -static int check_memory_region_flags(const struct kvm_userspace_memory_region2 *mem)
-> +static int check_memory_region_flags(struct kvm *kvm,
-> +				     const struct kvm_userspace_memory_region2 *mem)
->   {
->   	u32 valid_flags = KVM_MEM_LOG_DIRTY_PAGES;
->   
-> +	if (kvm_arch_has_private_mem(kvm))
-> +		valid_flags |= KVM_MEM_GUEST_MEMFD;
-> +
-> +	/* Dirty logging private memory is not currently supported. */
-> +	if (mem->flags & KVM_MEM_GUEST_MEMFD)
-> +		valid_flags &= ~KVM_MEM_LOG_DIRTY_PAGES;
-
-I was wondering whether this restriction is still required at this stage 
-or can be lifted in cases where the guest memory is accessible by the 
-host.  Specifically, it would be useful to support differential memory 
-snapshots based on dirty page tracking in Firecracker [1] or in live 
-migration.  As an experiment, I removed the check and was able to 
-produce a diff snapshot and restore a Firecracker VM from it.
-
-[1] 
-https://github.com/firecracker-microvm/firecracker/blob/main/docs/snapshotting/snapshot-support.md#creating-diff-snapshots
-
-> +
->   #ifdef __KVM_HAVE_READONLY_MEM
->   	valid_flags |= KVM_MEM_READONLY;
->   #endif
-> @@ -2018,7 +2029,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
->   	int as_id, id;
->   	int r;
->   
-> -	r = check_memory_region_flags(mem);
-> +	r = check_memory_region_flags(kvm, mem);
->   	if (r)
->   		return r;
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
