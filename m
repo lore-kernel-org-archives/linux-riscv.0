@@ -4,70 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3770FCCA471
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Oct 2025 13:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D98ACAC5B0
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Oct 2025 17:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rmmXCU4BehU/wN3uauS7OeyfKd3l7LeGgUeDvGF2pNs=; b=YQnjzBMmeTAQ5g
-	f0LvKSsMl7bA/GHat5u+wkktU5RBgnHwW0R0YVyqN+tMb0ZJ8EgLFOFp7ouHy1IN4F7ETmFjGKONJ
-	e5UMQFJQHI83M9KzuZ9ZVjLdh2pUgec/eETWm1a3oxrGOAQ+EXfW0/pdhSEg4a01Ul6WYcVNW5RSH
-	nRfq0nrWDNFZ/T8C+rPIzpbQy/f2FF1aWO6D9pWlsDyNelH6wbBCSfdmB4xogXWU8U0yENRI99n/5
-	/GX8eiWSfp4byBSlvkagtPxIVGUwZU/OXjJ5TR09Y57GI86BJ+b9Cfq+JcoHTRYcgFbKROcQYA/rb
-	7ylOqsOqoEx16uHS/L8Q==;
+	List-Owner; bh=Gx7zdLJyKFWMbJxTnr329Dr/MFzwdY0p2txn1C+lKbg=; b=o/+irWHS0vINUC
+	mAmCmYTdDeihVJbveu15sBnhyx1ldPYDtFux1sbuNFmb1/oe3uHcYRmKOIkBbXPM2T+Ybm1yqDKtX
+	UzXUijU79aELMTzK9Er01lk6ZWMMTS+bI7ZBRDxvX0OnO0gWMuFCNbMoEnNnduV33K9C5T0O68MMk
+	S0Leo4ELTWA6hmRLVEzKp7aF9tQp8T6GnPqLTk+71wN6+WhHvtxGrR/fvy6SRu6T1B2T07y6Y3zdT
+	YKAal1Vqr5bm6GxDl/afEN1Za5G4z78/dU+6l6wrgSTv9JI5Rmlo7Q/25KdY86pIVR/KCQW+hVh6r
+	T1JBY4rkYA15KOSwvP4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4fuJ-0000000CPEm-3EdC;
-	Fri, 03 Oct 2025 13:33:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v4jW1-0000000Cpee-2BPx;
+	Fri, 03 Oct 2025 17:24:21 +0000
+Received: from fra-out-013.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.178.132.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4fuJ-0000000CPEa-1OEE
-	for linux-riscv@lists.infradead.org;
-	Fri, 03 Oct 2025 13:33:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 915B362157
-	for <linux-riscv@lists.infradead.org>; Fri,  3 Oct 2025 13:33:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FF86C4CEFB
-	for <linux-riscv@lists.infradead.org>; Fri,  3 Oct 2025 13:33:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759498390;
-	bh=C0IfBPyV7UBF2PDQ6o0zMb4JYo7b3LeT2lZxvzwA1zo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hgTfYbBj1Bf8IDVz126EWVCUWqOjd7ddVb6RNVV6y/wXj98nXkZlaTK970C+QRa5D
-	 aAsD17JkeksYxzGVhfK9RR6lJXqWU9AN2LXnU3eLYryX4pzKoU2QTTi5qDYjrcSe30
-	 ykOGkdZnP5JnoZAw/g2wMFIl1JfHgakD3d73aP0dgfLv5On1Erpq1CI8bwCH7T65ST
-	 Mdl9kZyQuBXz1kBs7mZ2QmjxRHUJs7N9DS445xMBCQrRZ/gXekLCKjoW5053LCU6oE
-	 dIwOk1NB72snQee0rSpRpBAt7FFJceP85+7R7Ize9rJISNfLYSiNi9H8mEn8n8Siq1
-	 OlCnotycrfmNA==
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-b3d50882cc2so447462066b.2
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Oct 2025 06:33:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWJjKjwg2HtdOpC1J1sToS329G//dDO0F1iNUwj+HfQDnocJS5qEdcWDD5phOsxSU/TccYteg0x5sWmLQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPfCEhB4WAxEUKKxhGZ5RSawakd1c74hQsvCpb5qum4fpQkHa4
-	GbxrRzE70GxIuzxX6DfecaeyfvDE9ZI1TmSzG8xtA+xin8b7l4w8NoqnZBVUQH9X+bKnX4NDA3j
-	LAtV8fgmhT8DrBfVxhtzP+H60qVG2jg==
-X-Google-Smtp-Source: AGHT+IGaUVVXIqhC9lovJbOg6iFmKgFvDhzHqwsGL+BfWqtS/NinqS+uML7tkmyQ2x8FtOpCPjCiO9PBD+v4XaQbRRE=
-X-Received: by 2002:a17:906:c146:b0:b04:5e64:d7cd with SMTP id
- a640c23a62f3a-b49c4cde217mr381764366b.46.1759498388819; Fri, 03 Oct 2025
- 06:33:08 -0700 (PDT)
+	id 1v4jVx-0000000CpcB-3E3D;
+	Fri, 03 Oct 2025 17:24:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1759512257; x=1791048257;
+  h=message-id:date:mime-version:reply-to:subject:to:cc:
+   references:from:in-reply-to:content-transfer-encoding;
+  bh=eKU8SJ09O6RAdk9rzTuf+EPgBar7M5OPCHBeslmadhA=;
+  b=f5vI/2oSeIDW4VsIzPXPfIqF3OVeJuds+Yxo6bZqrUDE9e9/ktBky/3D
+   TbaQp/sT7GDkj/yq2uyWqTrUzNr5RkNv0z9gclkDtExkmDCPjgPh5LwLa
+   dfFnBu3qvJ6Tx3Hbk+HMt1w1847puEDWewVeT2tiG44LedTJr1jI+ER9q
+   Djxq/3rbigkLTAIp+Zm76M8g3Nf58imda/JdjDh0gUglPmlAg7sx9Y9Vc
+   BnofYvXSwmttXeqXpDNXtQcQPtVwkfzOJ0l08XdUy8V8wPp1aQgproTa6
+   VtnKy730PYDsakHokgzkB26aHN4ahlB7K6zq6IL0P3qiydVaheAIde9rq
+   A==;
+X-CSE-ConnectionGUID: /bGeMqI5QHGO7ZeMBtXCHg==
+X-CSE-MsgGUID: d1ZXsYzERHSwet8rfgRFpg==
+X-IronPort-AV: E=Sophos;i="6.18,313,1751241600"; 
+   d="scan'208";a="2975643"
+Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
+  by internal-fra-out-013.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2025 17:24:05 +0000
+Received: from EX19MTAEUC001.ant.amazon.com [54.240.197.225:5746]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.33.147:2525] with esmtp (Farcaster)
+ id f44c7b7f-75fc-43b3-8033-16cf4d5d0ded; Fri, 3 Oct 2025 17:24:04 +0000 (UTC)
+X-Farcaster-Flow-ID: f44c7b7f-75fc-43b3-8033-16cf4d5d0ded
+Received: from EX19D022EUC002.ant.amazon.com (10.252.51.137) by
+ EX19MTAEUC001.ant.amazon.com (10.252.51.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Fri, 3 Oct 2025 17:24:04 +0000
+Received: from [192.168.4.149] (10.106.83.12) by EX19D022EUC002.ant.amazon.com
+ (10.252.51.137) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20; Fri, 3 Oct 2025
+ 17:24:02 +0000
+Message-ID: <fc0bb268-07b7-41ef-9a82-791d381f56ac@amazon.com>
+Date: Fri, 3 Oct 2025 18:23:57 +0100
 MIME-Version: 1.0
-References: <cover.1759485668.git.geert+renesas@glider.be> <98e13934d06116d5c116bd2b2187842ec3a8c11a.1759485668.git.geert+renesas@glider.be>
-In-Reply-To: <98e13934d06116d5c116bd2b2187842ec3a8c11a.1759485668.git.geert+renesas@glider.be>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 3 Oct 2025 08:32:57 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJACXgfgLBn4bpz9uG2zEsoH+FX+8wHmTSj2rLVV59=hg@mail.gmail.com>
-X-Gm-Features: AS18NWCJ1lihSi5v5QI8_-KXwh5QzGMdW1l0dkB9L36RcYjtaMnOS5EVXEekAWI
-Message-ID: <CAL_JsqJACXgfgLBn4bpz9uG2zEsoH+FX+8wHmTSj2rLVV59=hg@mail.gmail.com>
-Subject: Re: [PATCH/RFC 1/2] of/irq: Ignore interrupt parent for nodes without interrupts
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland <samuel@sholland.org>, Marc Zyngier <maz@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Magnus Damm <magnus.damm@gmail.com>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 15/34] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	"Oliver Upton" <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+	"Michael Ellerman" <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+	"Paul Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson
+	<seanjc@google.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian
+ Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)"
+	<willy@infradead.org>, "Andrew Morton" <akpm@linux-foundation.org>
+CC: <kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <linux-mips@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <kvm-riscv@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, Xiaoyao Li
+	<xiaoyao.li@intel.com>, Xu Yilun <yilun.xu@intel.com>, Chao Peng
+	<chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, Jarkko Sakkinen
+	<jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, David Matlack
+	<dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata
+	<isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?= =?UTF-8?Q?n?=
+	<mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve
+	<vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, "Maciej
+ Szmigiero" <mail@maciej.szmigiero.name>, David Hildenbrand
+	<david@redhat.com>, Quentin Perret <qperret@google.com>, Michael Roth
+	<michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, Liam Merwick
+	<liam.merwick@oracle.com>, "Isaku Yamahata" <isaku.yamahata@gmail.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20231105163040.14904-1-pbonzini@redhat.com>
+ <20231105163040.14904-16-pbonzini@redhat.com>
+Content-Language: en-US
+From: Nikita Kalyazin <kalyazin@amazon.com>
+Autocrypt: addr=kalyazin@amazon.com; keydata=
+ xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
+ JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
+ BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
+ IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
+ CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
+ ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
+ ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
+ i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
+In-Reply-To: <20231105163040.14904-16-pbonzini@redhat.com>
+X-Originating-IP: [10.106.83.12]
+X-ClientProxiedBy: EX19D013EUA004.ant.amazon.com (10.252.50.48) To
+ EX19D022EUC002.ant.amazon.com (10.252.51.137)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251003_102418_630216_C24D3685 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +119,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: kalyazin@amazon.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBPY3QgMywgMjAyNSBhdCA1OjA44oCvQU0gR2VlcnQgVXl0dGVyaG9ldmVuCjxnZWVy
-dCtyZW5lc2FzQGdsaWRlci5iZT4gd3JvdGU6Cj4KPiBUaGUgRGV2aWNldHJlZSBTcGVjaWZpY2F0
-aW9uIHN0YXRlczoKPgo+ICAgICBUaGUgcm9vdCBvZiB0aGUgaW50ZXJydXB0IHRyZWUgaXMgZGV0
-ZXJtaW5lZCB3aGVuIHRyYXZlcnNhbCBvZiB0aGUKPiAgICAgaW50ZXJydXB0IHRyZWUgcmVhY2hl
-cyBhbiBpbnRlcnJ1cHQgY29udHJvbGxlciBub2RlIHdpdGhvdXQgYW4KPiAgICAgaW50ZXJydXB0
-cyBwcm9wZXJ0eSBhbmQgdGh1cyBubyBleHBsaWNpdCBpbnRlcnJ1cHQgcGFyZW50Lgo+Cj4gSG93
-ZXZlciwgb2ZfaXJxX2luaXQoKSBncmF0dWl0b3VzbHkgYXNzdW1lcyB0aGF0IGEgbm9kZSB3aXRo
-b3V0Cj4gaW50ZXJydXB0cyBoYXMgYW4gYWN0dWFsIGludGVycnVwdCBwYXJlbnQgaWYgaXQgZmlu
-ZHMgYW4KPiBpbnRlcnJ1cHQtcGFyZW50IHByb3BlcnR5IGhpZ2hlciB1cCBpbiB0aGUgZGV2aWNl
-IHRyZWUuICBIZW5jZSB3aGVuIHN1Y2gKPiBhIHByb3BlcnR5IGlzIHByZXNlbnQgKGUuZy4gaW4g
-dGhlIHJvb3Qgbm9kZSksIHRoZSByb290IGludGVycnVwdAo+IGNvbnRyb2xsZXIgbWF5IG5vdCBi
-ZSBkZXRlY3RlZCBhcyBzdWNoLCBjYXVzaW5nIGEgcGFuaWM6Cj4KPiAgICAgT0Y6IG9mX2lycV9p
-bml0OiBjaGlsZHJlbiByZW1haW4sIGJ1dCBubyBwYXJlbnRzCj4gICAgIEtlcm5lbCBwYW5pYyAt
-IG5vdCBzeW5jaW5nOiBObyBpbnRlcnJ1cHQgY29udHJvbGxlciBmb3VuZC4KPgo+IENvbW1pdCBl
-OTEwMzM2MjFkNTZlMDU1ICgib2YvaXJxOiBVc2UgaW50ZXJydXB0cy1leHRlbmRlZCB0byBmaW5k
-Cj4gcGFyZW50IikgYWxyZWFkeSBmaXhlZCBhIGZpcnN0IHBhcnQsIGJ5IGNoZWNraW5nIGZvciB0
-aGUgcHJlc2VuY2Ugb2YgYW4KPiBpbnRlcnJ1cHRzLWV4dGVuZGVkIHByb3BlcnR5LiAgRml4IHRo
-ZSBzZWNvbmQgcGFydCBieSBvbmx5IGNhbGxpbmcKPiBvZl9pcnFfZmluZF9wYXJlbnQoKSB3aGVu
-IGFuIGludGVycnVwdHMgcHJvcGVydHkgaXMgcHJlc2VudC4KClNlZW1zIHJlYXNvbmFibGUuIFdo
-eSB0aGUgUkZDIHRhZz8KCk5vcm1hbGx5IEknZCB3b3JyeSBhYm91dCBzb21lIGFuY2llbnQgUFBD
-IG9yIFNwYXJjIHN5c3RlbSwgYnV0IHRoZXkKZG9uJ3QgdXNlIG9mX2lycV9pbml0KCkuCgpSb2IK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 05/11/2023 16:30, Paolo Bonzini wrote:
+> From: Sean Christopherson <seanjc@google.com>
+> 
+> Introduce an ioctl(), KVM_CREATE_GUEST_MEMFD, to allow creating file-based
+> memory that is tied to a specific KVM virtual machine and whose primary
+> purpose is to serve guest memory.
+
+...
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index f1a575d39b3b..8f46d757a2c5 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+
+...
+
+> -static int check_memory_region_flags(const struct kvm_userspace_memory_region2 *mem)
+> +static int check_memory_region_flags(struct kvm *kvm,
+> +				     const struct kvm_userspace_memory_region2 *mem)
+>   {
+>   	u32 valid_flags = KVM_MEM_LOG_DIRTY_PAGES;
+>   
+> +	if (kvm_arch_has_private_mem(kvm))
+> +		valid_flags |= KVM_MEM_GUEST_MEMFD;
+> +
+> +	/* Dirty logging private memory is not currently supported. */
+> +	if (mem->flags & KVM_MEM_GUEST_MEMFD)
+> +		valid_flags &= ~KVM_MEM_LOG_DIRTY_PAGES;
+
+I was wondering whether this restriction is still required at this stage 
+or can be lifted in cases where the guest memory is accessible by the 
+host.  Specifically, it would be useful to support differential memory 
+snapshots based on dirty page tracking in Firecracker [1] or in live 
+migration.  As an experiment, I removed the check and was able to 
+produce a diff snapshot and restore a Firecracker VM from it.
+
+[1] 
+https://github.com/firecracker-microvm/firecracker/blob/main/docs/snapshotting/snapshot-support.md#creating-diff-snapshots
+
+> +
+>   #ifdef __KVM_HAVE_READONLY_MEM
+>   	valid_flags |= KVM_MEM_READONLY;
+>   #endif
+> @@ -2018,7 +2029,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
+>   	int as_id, id;
+>   	int r;
+>   
+> -	r = check_memory_region_flags(mem);
+> +	r = check_memory_region_flags(kvm, mem);
+>   	if (r)
+>   		return r;
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
