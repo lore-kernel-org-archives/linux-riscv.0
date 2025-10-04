@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29367CCA471
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Oct 2025 22:57:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50170CCA471
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Oct 2025 02:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f4Uz2UtzEGcmNfZ2iN7/KyVCb1ZuEz4PzuFBWRqK/Sc=; b=K4ewMWB+x6mc6scVsc/Ci3tTn5
-	4EVyG2m/G2J3pLrloF0l6235VyaRDyj/hBwFLmz7oR8Q3Euqgg3l8d6NlXHnAHMqCqdPmjLewR0kT
-	OGLYZdyniy0swqP8bLS87YSz30+sTX1DWAe7CJBxNy23TZMMV07TKMNS/I/Cf+YP9VbpnTT1yB2u6
-	krrRHXV5X5wxt1Xr1H6Ney+OEQY0kFC3T8a4Kxmg0EcuiyR68Vtct3tPHCk3bUWB+i7Xt8Wbrs6me
-	ojel0ZnQWjBiYZnSpgslBo61dnDxLg2Qzw5URvd6bsTypkdMs1iOaZcUHCPbb+dMAYTvyM+/H0lHA
-	3zMHfqjg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OQ5BX4bP6W61faMdN80mdVI+gbL1YTWO1Tslt8PXCdg=; b=aCZDCRLH7mAqs/
+	Bd85yutUkRA/n+nbJYt6Ad53ellWJOf0wt303GGuVlWMwyhyh55Q+uKyf9W808LlxvTTDJgBZLXgC
+	nCV6jQX/4V8BQZ+MkQFYo7MFeYxO0xydJn8rLvQb51xiUqzhSu+aHjo/rUETh4bu/80DeL2AYLFgm
+	z8S6hsA00pq/SdACvZYevdM02XQ1kr7Ys0+7xoQMg0GG2nXPFOD47A6NpFZyvGkdsuYLU+o7lQtsp
+	sD4PeXrUJJ+rx/q+MjoPNVoBvJdpSSdd4fm9pcles7jORN+CbbKVnVBP4QXQiqVTX23XJsU4L74z/
+	b49M3wyJ9n2CAQ/OFKlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4oiS-0000000DFUv-1HIs;
-	Fri, 03 Oct 2025 22:57:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v4ruU-0000000DO1t-3EPi;
+	Sat, 04 Oct 2025 02:22:10 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4oiP-0000000DFUH-1hbd
+	id 1v4ruR-0000000DO1Y-2xNO
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Oct 2025 22:57:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A30843242;
-	Fri,  3 Oct 2025 22:57:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3E65C4CEF5;
-	Fri,  3 Oct 2025 22:57:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759532248;
-	bh=QlnUffNjLbcmqEw64x2x55MGPaaNVTMhAgdaSwOtFU0=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=kuZrqr3VFx4YNSicaWCcRbCoY4HQnuUCtSr5ZdtRryFOCgSRlD1pM9GIlqBBr3FC3
-	 e8AK5mzhO6yQnWpl2MztppA8v2dJJVTTsT8gH52beE+NpPn2lvaabZrPYv2Av689kc
-	 rXyAxReuEnl+IB9s+mi5dDyg5TvQ4ZbEH5s2Od6+Q/FaI/h9zgG2y66xva3MV8Ezoy
-	 xfwIWuT7GVmV93a7fc2ZvHYu6zq/aLZT/CRf0KbpFmSV9P3RO6fTs9MkQ6t+2bUWVE
-	 lKci0+LSh75RjoffLWeJXPaiK9yo3Vgk+jrvNIVqTy+wPCuwH/yKp9DgopUJRBiuSD
-	 KQVza0Yw4zRyg==
-Date: Fri, 3 Oct 2025 16:57:22 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-    linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
-    stable@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-    Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-    =?ISO-8859-15?Q?Bj=F6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-    Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-    Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-    Danilo Krummrich <dakr@kernel.org>, Kees Cook <kees@kernel.org>, 
-    Sami Tolvanen <samitolvanen@google.com>, 
-    Matthew Maurer <mmaurer@google.com>, 
-    "Peter Zijlstra (Intel)" <peterz@infradead.org>, 
-    linux-riscv@lists.infradead.org, rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v1] rust: cfi: only 64-bit arm and x86 support
- CFI_CLANG
-In-Reply-To: <20251003-viewing-residency-d4f849c6fbe6@spud>
-Message-ID: <71b9ca7a-3847-72d9-b9d1-c748f301450f@kernel.org>
-References: <20250908-distill-lint-1ae78bcf777c@spud> <CANiq72mw36RzCtNVax650fJ=+cYjuGNF722_Mn2Oy1FAvxWc8Q@mail.gmail.com> <20251003-viewing-residency-d4f849c6fbe6@spud>
+	Sat, 04 Oct 2025 02:22:09 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 7A9E626222;
+	Sat,  4 Oct 2025 04:22:02 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id L-mAlgRG7zDV; Sat,  4 Oct 2025 04:22:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1759544521; bh=kzhYlF7toSJUYLhb6Zjs2f+TE43JU+j0Ai5mwSU6n38=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cqlAqblRnzhq6/cP064tVaoFUxarJaXkP0yLySa8sYNPgz6z6SYKJidlwnZtewnIA
+	 qLK1FM++X1Rz+7cKIx59TfPCPTMh9fbKuG58Cl5YZ/QU0qfr4NZiQEbciQhsPjZZie
+	 jvEk6AD1y+A8znqWUWrAmmVG2zBY2I112w0LOJ9+LDPiNnkXPd4iCyflRYTuR6lh4a
+	 9kZ7UhXyChlPWBPSJHOwi8bH3P70W8h/yKmGuVEk1eZFe/8TSjNF3MA1tj/lVxURqU
+	 /++dUO20g/4qX9Beg0bmSEKHe7SiuP+4Kw3LQexE734gZaXjSr9ObmfANvODxGMWAD
+	 frPgVDe3rUqvw==
+Date: Sat, 4 Oct 2025 02:21:43 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Drew Fustini <fustini@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Michal Wilczynski <m.wilczynski@samsung.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
+	Han Gao <gaohan@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>,
+	linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
+Subject: Re: [PATCH v2 2/5] dt-bindings: reset: thead,th1520-reset: Add
+ controllers for more subsys
+Message-ID: <aOCEt7UGpSyWTury@pie>
+References: <20250915095331.53350-1-ziyao@disroot.org>
+ <20250915095331.53350-3-ziyao@disroot.org>
+ <aOBSOZzOAeelS6Gi@x1>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-567175886-1759532248=:870847"
+Content-Disposition: inline
+In-Reply-To: <aOBSOZzOAeelS6Gi@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_155729_463063_CE026425 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20251003_192208_285280_3C56F9DD 
+X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +80,142 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
-
---8323329-567175886-1759532248=:870847
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8BIT
-
-On Fri, 3 Oct 2025, Conor Dooley wrote:
-
-> On Mon, Sep 08, 2025 at 04:36:09PM +0200, Miguel Ojeda wrote:
-> > On Mon, Sep 8, 2025 at 3:13 PM Conor Dooley <conor@kernel.org> wrote:
-> > >
-> > > From: Conor Dooley <conor.dooley@microchip.com>
-> > >
-> > > The kernel uses the standard rustc targets for non-x86 targets, and out
-> > > of those only 64-bit arm's target has kcfi support enabled. For x86, the
-> > > custom 64-bit target enables kcfi.
+On Fri, Oct 03, 2025 at 03:46:17PM -0700, Drew Fustini wrote:
+> On Mon, Sep 15, 2025 at 09:53:28AM +0000, Yao Zi wrote:
+> > TH1520 SoC is divided into several subsystems, most of them have
+> > distinct reset controllers. Let's document reset controllers other than
+> > the one for VO subsystem and IDs for their reset signals.
+> > 
+> > Signed-off-by: Yao Zi <ziyao@disroot.org>
 > 
-> Hopefully someone can take it! I was hoping it'd be 6.18 material, can
-> someone grab it for fixes please?
+> Thanks for sending these patches.
+> 
+> > ---
+> >  .../bindings/reset/thead,th1520-reset.yaml    |   8 +-
+> >  .../dt-bindings/reset/thead,th1520-reset.h    | 216 ++++++++++++++++++
+> >  2 files changed, 223 insertions(+), 1 deletion(-)
+> > 
+> [snip]
+> > diff --git a/include/dt-bindings/reset/thead,th1520-reset.h b/include/dt-bindings/reset/thead,th1520-reset.h
+> > index e51d6314d131..68ac52ed69de 100644
+> > --- a/include/dt-bindings/reset/thead,th1520-reset.h
+> > +++ b/include/dt-bindings/reset/thead,th1520-reset.h
+> > @@ -7,6 +7,200 @@
+> >  #ifndef _DT_BINDINGS_TH1520_RESET_H
+> >  #define _DT_BINDINGS_TH1520_RESET_H
+> [snip]
+> > +/* DSP Subsystem */
+> > +#define TH1520_RESET_ID_X2X_DSP1	0
+> > +#define TH1520_RESET_ID_X2X_DSP0	1
+> > +#define TH1520_RESET_ID_X2X_SLAVE_DSP1	2
+> > +#define TH1520_RESET_ID_X2X_SLAVE_DSP0	3
+> > +#define TH1520_RESET_ID_DSP0_CORE	4
+> > +#define TH1520_RESET_ID_DSP0_DEBUG	5
+> > +#define TH1520_RESET_ID_DSP0_APB	6
+> > +#define TH1520_RESET_ID_DSP1_CORE	4
+> > +#define TH1520_RESET_ID_DSP1_DEBUG	5
+> > +#define TH1520_RESET_ID_DSP1_APB	6
+> > +#define TH1520_RESET_ID_DSPSYS_APB	7
+> > +#define TH1520_RESET_ID_AXI4_DSPSYS_SLV	8
+> > +#define TH1520_RESET_ID_AXI4_DSPSYS	9
+> > +#define TH1520_RESET_ID_AXI4_DSP_RS	10
+> 
+> This doesn't seem right. The numbers for each subsystem should not
+> repeat. Here the DSP0 and DSP1 items have the same numbers: 4, 5, 6.
+> 
+> This causes both clang and sparse to complain. I think you can just
+> change this so that TH1520_RESET_ID_DSP1_CORE is 7 and so on. The
+> indexes don't really have any concrete meaning other than how they are
+> used as unique keys.
 
-Will pick it up for early v6.18-rc fixes, thanks.
+You're correct, it's a copy-paste error, just like the one spotted in v1
+of the series...
 
+I'm not sure why either my GCC or sparse yielded no warning about them.
+Will figure it out and send v3 with this fixed. Much sorry for these
+stupid mistakes.
 
-- Paul
---8323329-567175886-1759532248=:870847
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Yao Zi
+
+> The warnings:
+> 
+>   AR      kernel/built-in.a
+>   CC      drivers/reset/reset-th1520.o
+> drivers/reset/reset-th1520.c:655:32: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
+>   655 |         [TH1520_RESET_ID_DSP1_CORE] = {
+>       |                                       ^
+>   656 |                 .bit = BIT(12),
+>       |                 ~~~~~~~~~~~~~~~
+>   657 |                 .reg = TH1520_DSPSYS_RST_CFG,
+>       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   658 |         },
+>       |         ~
+> drivers/reset/reset-th1520.c:643:32: note: previous initialization is here
+>   643 |         [TH1520_RESET_ID_DSP0_CORE] = {
+>       |                                       ^
+>   644 |                 .bit = BIT(8),
+>       |                 ~~~~~~~~~~~~~~
+>   645 |                 .reg = TH1520_DSPSYS_RST_CFG,
+>       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   646 |         },
+>       |         ~
+> drivers/reset/reset-th1520.c:659:33: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
+>   659 |         [TH1520_RESET_ID_DSP1_DEBUG] = {
+>       |                                        ^
+>   660 |                 .bit = BIT(13),
+>       |                 ~~~~~~~~~~~~~~~
+>   661 |                 .reg = TH1520_DSPSYS_RST_CFG,
+>       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   662 |         },
+>       |         ~
+> drivers/reset/reset-th1520.c:647:33: note: previous initialization is here
+>   647 |         [TH1520_RESET_ID_DSP0_DEBUG] = {
+>       |                                        ^
+>   648 |                 .bit = BIT(9),
+>       |                 ~~~~~~~~~~~~~~
+>   649 |                 .reg = TH1520_DSPSYS_RST_CFG,
+>       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   650 |         },
+>       |         ~
+> drivers/reset/reset-th1520.c:663:31: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
+>   663 |         [TH1520_RESET_ID_DSP1_APB] = {
+>       |                                      ^
+>   664 |                 .bit = BIT(14),
+>       |                 ~~~~~~~~~~~~~~~
+>   665 |                 .reg = TH1520_DSPSYS_RST_CFG,
+>       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   666 |         },
+>       |         ~
+> drivers/reset/reset-th1520.c:651:31: note: previous initialization is here
+>   651 |         [TH1520_RESET_ID_DSP0_APB] = {
+>       |                                      ^
+>   652 |                 .bit = BIT(10),
+>       |                 ~~~~~~~~~~~~~~~
+>   653 |                 .reg = TH1520_DSPSYS_RST_CFG,
+>       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   654 |         },
+>       |         ~
+> 3 warnings generated.
+>   CHECK   drivers/reset/reset-th1520.c
+> drivers/reset/reset-th1520.c:643:10: warning: Initializer entry defined twice
+> drivers/reset/reset-th1520.c:655:10:   also defined here
+> 
+> 
+> Thanks,
+> Drew
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-567175886-1759532248=:870847--
-
