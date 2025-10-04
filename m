@@ -4,71 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50170CCA471
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Oct 2025 02:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2534CAC5B0
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Oct 2025 03:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OQ5BX4bP6W61faMdN80mdVI+gbL1YTWO1Tslt8PXCdg=; b=aCZDCRLH7mAqs/
-	Bd85yutUkRA/n+nbJYt6Ad53ellWJOf0wt303GGuVlWMwyhyh55Q+uKyf9W808LlxvTTDJgBZLXgC
-	nCV6jQX/4V8BQZ+MkQFYo7MFeYxO0xydJn8rLvQb51xiUqzhSu+aHjo/rUETh4bu/80DeL2AYLFgm
-	z8S6hsA00pq/SdACvZYevdM02XQ1kr7Ys0+7xoQMg0GG2nXPFOD47A6NpFZyvGkdsuYLU+o7lQtsp
-	sD4PeXrUJJ+rx/q+MjoPNVoBvJdpSSdd4fm9pcles7jORN+CbbKVnVBP4QXQiqVTX23XJsU4L74z/
-	b49M3wyJ9n2CAQ/OFKlw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:MIME-Version:
+	Date:Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HVDe7w3TvrxZOXgaWjg61BezjhC+7QAtiOerlGbpxug=; b=lalkLP0ziDWLQyAghoJA4lYGon
+	MD/IfTAqb8Ke+kX2dt2RNWK4UP1zPD2SG79VquxsyLF8R4mbAIX1kjHD4hx9MO8lz5j7wIsAcM0Vy
+	6rK1xSSDQd2ypdj36TwFRiwpB/HVMWOYTEy3qHgKBaTwKFAF9IJOaG5TkrLIhGfVkcREz54dUIeVY
+	vU6uP1Km8XSjMieYPRrYVuWZCDUw0+cdTUmWMxR7qfvzNYHEgIOk7I2W81M3kIO9W19KYwiVZ6Xm8
+	448+WT3mmhuXjY9KgDHITD7XPrIx2YkCwI17+/rfYt8vhhoWZrqoZw/bWgaiPAnVADWQ9+etTa02l
+	1JqvytLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4ruU-0000000DO1t-3EPi;
-	Sat, 04 Oct 2025 02:22:10 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1v4t7K-0000000DQPj-0F6A;
+	Sat, 04 Oct 2025 03:39:30 +0000
+Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4ruR-0000000DO1Y-2xNO
+	id 1v4t7H-0000000DQPM-1P9M
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Oct 2025 02:22:09 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 7A9E626222;
-	Sat,  4 Oct 2025 04:22:02 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id L-mAlgRG7zDV; Sat,  4 Oct 2025 04:22:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1759544521; bh=kzhYlF7toSJUYLhb6Zjs2f+TE43JU+j0Ai5mwSU6n38=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cqlAqblRnzhq6/cP064tVaoFUxarJaXkP0yLySa8sYNPgz6z6SYKJidlwnZtewnIA
-	 qLK1FM++X1Rz+7cKIx59TfPCPTMh9fbKuG58Cl5YZ/QU0qfr4NZiQEbciQhsPjZZie
-	 jvEk6AD1y+A8znqWUWrAmmVG2zBY2I112w0LOJ9+LDPiNnkXPd4iCyflRYTuR6lh4a
-	 9kZ7UhXyChlPWBPSJHOwi8bH3P70W8h/yKmGuVEk1eZFe/8TSjNF3MA1tj/lVxURqU
-	 /++dUO20g/4qX9Beg0bmSEKHe7SiuP+4Kw3LQexE734gZaXjSr9ObmfANvODxGMWAD
-	 frPgVDe3rUqvw==
-Date: Sat, 4 Oct 2025 02:21:43 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Michal Wilczynski <m.wilczynski@samsung.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
-	Han Gao <gaohan@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>,
-	linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
-Subject: Re: [PATCH v2 2/5] dt-bindings: reset: thead,th1520-reset: Add
- controllers for more subsys
-Message-ID: <aOCEt7UGpSyWTury@pie>
-References: <20250915095331.53350-1-ziyao@disroot.org>
- <20250915095331.53350-3-ziyao@disroot.org>
- <aOBSOZzOAeelS6Gi@x1>
+	Sat, 04 Oct 2025 03:39:28 +0000
+Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-637dc2292cfso3286511d50.3
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Oct 2025 20:39:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759549166; x=1760153966; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=XJ9GrKZlJAkRDs8pcuNoL9OYf934YYPQgeZ31YeNojQ=;
+        b=WiNKjFh7sK9R77H7Gn73SaKYaym2vwwSQ3Ymkpp1eQrmaz+hBx7NKpLoua57k1YEOg
+         tS9NrSUUf1NJl+Dx3TV0k8WUm3gvnhKZWuUQvFo1OgCEA3Pq8vAZBJCMuIIrt7z33Ghh
+         JIpAx0QD8h8KSR8PbsxEAJlm220LAoOEt2Ul8bnsVdZbfUlIkwlXxgzIP+5QlNzm6nL7
+         Pv4twe6af0x+XW/PKCKHiTGhdy2kiQ4Z2kwuiQfBkL0P7qOWWG9MTq/360QkMIKp3f1+
+         BpffALZxoUtd8xBXdNhRStVuVHH3LO20/VFB8cTzQGo+XdsrlhwXEzhq2p1st8N+FnXB
+         Nntg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759549166; x=1760153966;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XJ9GrKZlJAkRDs8pcuNoL9OYf934YYPQgeZ31YeNojQ=;
+        b=bBFvFqGgXspDPxRwluQLiSFRLmTgvS0O5yCMYaVerTRC7MnZEf6aZ2raTg2bCB4YvS
+         O6xmxvZf0PtYWNTW72ddHsfi0fCqEOfOd4DxbVGam2x6QxCD07W22fL/1PIb7Kyqqx1V
+         lHDFzoUvztQgCRoY9tGL5TWPfvwROBE/NbskKwsLHuRlRIlYP7d5v/EZs941qPV0jM7R
+         jgHN1GY3QXwdCRk2BKZiAeak2qrnccCNVI6oavU7JemVh4tVkkFcVJDI5GLcHBjUJK2u
+         Glz3DwLnWT4d98dl8i+VUYSR8tdZo/77UFzRd2XBbaS3HZjnOIvwLFQeAzEir8gow4ux
+         +GSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWPpqf0CJea9W7ybwSihnZc+M7L6qotd1AGJgwb9RMnGFz64h7I25gKAkNo72XEpXXyNLZxS5oaAJfHYw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLEA9ZEL5xfHhnlvWVnmwSIgGf+arsRH2NM3T310gqmQxPhy5X
+	lPX9YmdhEHa8QpPyCh3yZrbTREM8ufE2evKBKJKdL7NlM6cTVeLU1K3a
+X-Gm-Gg: ASbGncv1JQ9LifFk41sNiTKCJINYFzlSxrIM1JyPDVTV58iJ5cfj6v9GqlwPl/kyM2K
+	fT9kM3PssgwlKJ6RKrTLox5dIQgOlQ6ttIhWaJppyH18htGf7jWEF8IcFcmCOCIoO9Xo3eJgU3l
+	RmCkbfEgjNMw3i1aOd9r6tPz4ttqrSvQat9+1TQ5tjTcF7odAcZgLpe/dsleU2nPZMBrdF7o/OY
+	jKv/E7pT186GEhy2H7ojOKYr515QS9NG9jSP04MDL732GoU9Td8nXsWWKFqftpE6SegE7Hi5sv/
+	bqdwjNliboJ2aAz/pwR6ZPmnHgAGJWCtFrKXFPpxHlPVi5AfbqE3fKIRsmekAgSvRDBde6dcJI/
+	C/0uRf/aZESBJsg9No7kX2AB3s50X4bBXM8D1x0FxZd7pqZbUpLWYCtKcSGD38Ick05tRLOTxUX
+	qS
+X-Google-Smtp-Source: AGHT+IEKZvWN4IhopDHTsskInMYzN0OVIkAxgqusRW8r17U6C+PiDNXpSR1wTVqdnpL2FZWd78muIg==
+X-Received: by 2002:a05:690c:4c0e:b0:749:d874:e66e with SMTP id 00721157ae682-77f945ef5c3mr72382767b3.24.1759549165127;
+        Fri, 03 Oct 2025 20:39:25 -0700 (PDT)
+Received: from [192.168.1.209] (74.211.99.176.16clouds.com. [74.211.99.176])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-63b846c9bcdsm2324131d50.31.2025.10.03.20.39.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 03 Oct 2025 20:39:24 -0700 (PDT)
+From: Asuna <spriteovo@gmail.com>
+X-Google-Original-From: Asuna <SpriteOvO@gmail.com>
+Message-ID: <b5efc638-ab7c-4639-ae7c-c0f8f8b4e765@gmail.com>
+Date: Sat, 4 Oct 2025 11:39:17 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aOBSOZzOAeelS6Gi@x1>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] RISC-V: re-enable gcc + rust builds
+To: Vivian Wang <wangruikang@iscas.ac.cn>, Miguel Ojeda <ojeda@kernel.org>,
+ Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Han Gao <rabenda.cn@gmail.com>, Jason Montleon <jmontleo@redhat.com>,
+ Conor Dooley <conor@kernel.org>
+Cc: rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kbuild@vger.kernel.org, llvm@lists.linux.dev
+References: <20250914-gcc-rust-v3-v3-1-34d4d5864144@gmail.com>
+ <73d55231-d1e5-400d-9446-1914a78c0db8@iscas.ac.cn>
+Content-Language: en-US
+In-Reply-To: <73d55231-d1e5-400d-9446-1914a78c0db8@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_192208_285280_3C56F9DD 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20251003_203927_386091_58845DF1 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,140 +112,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 03, 2025 at 03:46:17PM -0700, Drew Fustini wrote:
-> On Mon, Sep 15, 2025 at 09:53:28AM +0000, Yao Zi wrote:
-> > TH1520 SoC is divided into several subsystems, most of them have
-> > distinct reset controllers. Let's document reset controllers other than
-> > the one for VO subsystem and IDs for their reset signals.
-> > 
-> > Signed-off-by: Yao Zi <ziyao@disroot.org>
-> 
-> Thanks for sending these patches.
-> 
-> > ---
-> >  .../bindings/reset/thead,th1520-reset.yaml    |   8 +-
-> >  .../dt-bindings/reset/thead,th1520-reset.h    | 216 ++++++++++++++++++
-> >  2 files changed, 223 insertions(+), 1 deletion(-)
-> > 
-> [snip]
-> > diff --git a/include/dt-bindings/reset/thead,th1520-reset.h b/include/dt-bindings/reset/thead,th1520-reset.h
-> > index e51d6314d131..68ac52ed69de 100644
-> > --- a/include/dt-bindings/reset/thead,th1520-reset.h
-> > +++ b/include/dt-bindings/reset/thead,th1520-reset.h
-> > @@ -7,6 +7,200 @@
-> >  #ifndef _DT_BINDINGS_TH1520_RESET_H
-> >  #define _DT_BINDINGS_TH1520_RESET_H
-> [snip]
-> > +/* DSP Subsystem */
-> > +#define TH1520_RESET_ID_X2X_DSP1	0
-> > +#define TH1520_RESET_ID_X2X_DSP0	1
-> > +#define TH1520_RESET_ID_X2X_SLAVE_DSP1	2
-> > +#define TH1520_RESET_ID_X2X_SLAVE_DSP0	3
-> > +#define TH1520_RESET_ID_DSP0_CORE	4
-> > +#define TH1520_RESET_ID_DSP0_DEBUG	5
-> > +#define TH1520_RESET_ID_DSP0_APB	6
-> > +#define TH1520_RESET_ID_DSP1_CORE	4
-> > +#define TH1520_RESET_ID_DSP1_DEBUG	5
-> > +#define TH1520_RESET_ID_DSP1_APB	6
-> > +#define TH1520_RESET_ID_DSPSYS_APB	7
-> > +#define TH1520_RESET_ID_AXI4_DSPSYS_SLV	8
-> > +#define TH1520_RESET_ID_AXI4_DSPSYS	9
-> > +#define TH1520_RESET_ID_AXI4_DSP_RS	10
-> 
-> This doesn't seem right. The numbers for each subsystem should not
-> repeat. Here the DSP0 and DSP1 items have the same numbers: 4, 5, 6.
-> 
-> This causes both clang and sparse to complain. I think you can just
-> change this so that TH1520_RESET_ID_DSP1_CORE is 7 and so on. The
-> indexes don't really have any concrete meaning other than how they are
-> used as unique keys.
+On 9/19/25 1:20 PM, Vivian Wang wrote:
+> I think instead of testing libclang version, it would make more sense to
+> feature test if bindgen the binary supports these flags, like what we
+> already do with $(cc-option,...).
+>
+> Same for all the other version tests.
 
-You're correct, it's a copy-paste error, just like the one spotted in v1
-of the series...
-
-I'm not sure why either my GCC or sparse yielded no warning about them.
-Will figure it out and send v3 with this fixed. Much sorry for these
-stupid mistakes.
-
-Best regards,
-Yao Zi
-
-> The warnings:
-> 
->   AR      kernel/built-in.a
->   CC      drivers/reset/reset-th1520.o
-> drivers/reset/reset-th1520.c:655:32: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
->   655 |         [TH1520_RESET_ID_DSP1_CORE] = {
->       |                                       ^
->   656 |                 .bit = BIT(12),
->       |                 ~~~~~~~~~~~~~~~
->   657 |                 .reg = TH1520_DSPSYS_RST_CFG,
->       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->   658 |         },
->       |         ~
-> drivers/reset/reset-th1520.c:643:32: note: previous initialization is here
->   643 |         [TH1520_RESET_ID_DSP0_CORE] = {
->       |                                       ^
->   644 |                 .bit = BIT(8),
->       |                 ~~~~~~~~~~~~~~
->   645 |                 .reg = TH1520_DSPSYS_RST_CFG,
->       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->   646 |         },
->       |         ~
-> drivers/reset/reset-th1520.c:659:33: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
->   659 |         [TH1520_RESET_ID_DSP1_DEBUG] = {
->       |                                        ^
->   660 |                 .bit = BIT(13),
->       |                 ~~~~~~~~~~~~~~~
->   661 |                 .reg = TH1520_DSPSYS_RST_CFG,
->       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->   662 |         },
->       |         ~
-> drivers/reset/reset-th1520.c:647:33: note: previous initialization is here
->   647 |         [TH1520_RESET_ID_DSP0_DEBUG] = {
->       |                                        ^
->   648 |                 .bit = BIT(9),
->       |                 ~~~~~~~~~~~~~~
->   649 |                 .reg = TH1520_DSPSYS_RST_CFG,
->       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->   650 |         },
->       |         ~
-> drivers/reset/reset-th1520.c:663:31: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
->   663 |         [TH1520_RESET_ID_DSP1_APB] = {
->       |                                      ^
->   664 |                 .bit = BIT(14),
->       |                 ~~~~~~~~~~~~~~~
->   665 |                 .reg = TH1520_DSPSYS_RST_CFG,
->       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->   666 |         },
->       |         ~
-> drivers/reset/reset-th1520.c:651:31: note: previous initialization is here
->   651 |         [TH1520_RESET_ID_DSP0_APB] = {
->       |                                      ^
->   652 |                 .bit = BIT(10),
->       |                 ~~~~~~~~~~~~~~~
->   653 |                 .reg = TH1520_DSPSYS_RST_CFG,
->       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->   654 |         },
->       |         ~
-> 3 warnings generated.
->   CHECK   drivers/reset/reset-th1520.c
-> drivers/reset/reset-th1520.c:643:10: warning: Initializer entry defined twice
-> drivers/reset/reset-th1520.c:655:10:   also defined here
-> 
-> 
-> Thanks,
-> Drew
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+This is another direction worth trying, but unfortunately I probably 
+won't have time to refactor this patch towards that direction until the 
+end of the month. Sorry for that.
 
 _______________________________________________
 linux-riscv mailing list
