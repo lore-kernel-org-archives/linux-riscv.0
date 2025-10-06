@@ -4,103 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FDDACCA471
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 08:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42238CCA471
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 09:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IrEAtFjqscjVoRTdPfYAmLOCnRZOnyQOb2yz/JKnJCs=; b=LhVz+5DrcWlJ0/
-	BeQUS3CE1sFNVdUMfFwqjXObckxiyf9QecEo6df9dDFIS1g0d9gj1ivIijGMgIOGp6t3alkpRhin7
-	uci9Y2z3rzvnplYXvv/v1tBUuqpD12CrPrHRWv6txIgjtO2CXsy6jruSGjLdPPOp+gFhtHpBxDqXW
-	kW8TfyYF23x0II15vqTnmGwTtd1PWs8JFVyqT7CAGgn7dDELmKCXTP1CgAfTTDpv4TGmj/04vXy49
-	NeCHal/6CFGgvMeTWjn7UzmUq7B936Qan/rcMFPPJri0OBc4TXjbEWqRAzz/veJGR28LdOOxMvmp1
-	GkhoQG4V0BvfrdmYYR9A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8KkpXiO2JRP1Yi+Ny6ILdANAqsbrGwrG6lOg9bD1GHk=; b=aXWn85Gygqh8xD
+	5O2TK4h2dZeul7hLl5FvJpzE9SICAl6VV9OnRdiEWbaKLs0egmDyWaPAIHhkqdY13f4EM2x7Lnlqg
+	TifjkyqD/kfF1AdfCbRmgl/zC76Hb93tKXccS/+GkOZCBsqRi1GpuydEtgZcMxscfUp6MChwhgtQW
+	kvw1VErvBVX/rR5G3z5HffbETsb6nBr+yl/BvvQEv74netyVFMiOdifQtDW+y8LNVADRY4KGWiGG+
+	fRt2AeOQJPPhGNF/b5uJfWG2NDfmYqQjQakKIqpo+8D16GS2Zfpoyk5Tr3LNgLbMgZnLU004le9zW
+	0SSlPr4RtSDwsHeB0sPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5gJ4-0000000HAJK-1ANp;
-	Mon, 06 Oct 2025 08:10:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v5hfc-0000000HFjS-2wDc;
+	Mon, 06 Oct 2025 09:38:16 +0000
+Received: from zulu.geekplace.eu ([5.45.100.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5gJ3-0000000HAJE-1aVp
+	id 1v5hfZ-0000000HFis-2Gjt
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Oct 2025 08:10:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 91E6F603B6;
-	Mon,  6 Oct 2025 08:10:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63DA1C4CEF5;
-	Mon,  6 Oct 2025 08:10:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759738252;
-	bh=oTIhDkCwIM+9ZK5Yt+oN2PlT5Rae3WkdT7logVkhR1Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oKGWMH0KZJtsbAcJei006XfuUXtKczdbm3Xl5oqE8EjsnrK9Zx04ugriW9i2opzIr
-	 SIz2ZLRFkp1Iir6b6+LP+rFzrHBreyWfWSNbNc0lUyslslR7T/fdSKFV6d3SRnY4yI
-	 DfLg35YeN6WAm56dJxcazYtsQKg1KF5BfeHup2Myz5xNOpjkoeSM1as++n9EmpopnX
-	 grKAccYk38/uoI1S8jqAdBzHvKWcNW4d1j7d5TqX8UihstZe+A+xsKy1W1xa1bQYC7
-	 xWYggN/Et/9innfB9p5EEFEBgXQmT5zh8fFi+/d1tTJJIXFlLPmVsNslG1I9ya/cL2
-	 s+VXGXPk4f3Yg==
-Message-ID: <17eb5593-5057-4843-ac9e-42645605c320@kernel.org>
-Date: Mon, 6 Oct 2025 17:10:47 +0900
+	Mon, 06 Oct 2025 09:38:15 +0000
+Received: from neo-pc.sch (unknown [IPv6:2001:4091:a241:81e7:34fb:50ff:feac:591b])
+	by zulu.geekplace.eu (Postfix) with ESMTPA id 6C1A44A00BC;
+	Mon,  6 Oct 2025 11:38:05 +0200 (CEST)
+From: Florian Schmaus <flo@geekplace.eu>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Florian Schmaus <flo@geekplace.eu>
+Subject: [PATCH] riscv: entry: fix typo in comment 'instruciton' -> 'instruction'
+Date: Mon,  6 Oct 2025 11:37:42 +0200
+Message-ID: <20251006093742.53925-1-flo@geekplace.eu>
+X-Mailer: git-send-email 2.49.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: spi: add SpacemiT K1 SPI support
-To: Alex Elder <elder@riscstar.com>, broonie@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, dlan@gentoo.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, p.zabel@pengutronix.de, spacemit@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250917220724.288127-1-elder@riscstar.com>
- <20250917220724.288127-2-elder@riscstar.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250917220724.288127-2-elder@riscstar.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251006_023813_718382_37A87D0E 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,29 +63,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/09/2025 07:07, Alex Elder wrote:
-> +    #include <dt-bindings/clock/spacemit,k1-syscon.h>
-> +    spi3: spi@d401c000 {
-> +        compatible = "spacemit,k1-spi";
-> +        reg = <0xd401c000 0x30>;
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +        clocks = <&syscon_apbc CLK_SSP3>,
-> +                 <&syscon_apbc CLK_SSP3_BUS>;
-> +        clock-names = "core",
-> +                      "bus";
-> +        resets = <&syscon_apbc RESET_SSP3>;
-> +        interrupts-extended = <&plic 55>;
-> +        spacemit,k1-ssp-id = <3>;
-> +        dmas = <&pdma 20>,
-> +               <&pdma 19>;
-> +        dma-names = "rx",
-> +                    "tx";
-> +        status = "disabled";
-Please drop, status is not valid in the example.
+Signed-off-by: Florian Schmaus <flo@geekplace.eu>
+---
+ arch/riscv/kernel/entry.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Best regards,
-Krzysztof
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index d3d92a4becc7..9b9dec6893b8 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -455,7 +455,7 @@ SYM_DATA_START_LOCAL(excp_vect_table)
+ 	RISCV_PTR do_trap_ecall_s
+ 	RISCV_PTR do_trap_unknown
+ 	RISCV_PTR do_trap_ecall_m
+-	/* instruciton page fault */
++	/* instruction page fault */
+ 	ALT_PAGE_FAULT(RISCV_PTR do_page_fault)
+ 	RISCV_PTR do_page_fault   /* load page fault */
+ 	RISCV_PTR do_trap_unknown
+-- 
+2.49.1
+
 
 _______________________________________________
 linux-riscv mailing list
