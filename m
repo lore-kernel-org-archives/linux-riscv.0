@@ -4,41 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB2CCCA471
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 16:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B3E1CCA476
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 16:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MwCGwb3Aey4wp0vHLeDEHCerAWh9m1cRsa3OTKuf/Zc=; b=eQdzo+8dKG49tG
-	NyBC2fw1GnSojFX1I2LDezueWZH8A089YRjiHyuu1VnT5LkkaLDwhPSY4JPEhcmIjYgBKwk7/NK4W
-	Ud6xgdhRiDwioerMlY67GXShuIIkmj1yEWNAgaQrAHkDnAzjhBcRnFcf7NMK2Hhs7GtNC4IzxqU/4
-	HQGsea66W9iQhMqHXcBNx+10OvH/qTKWzZ1FiMg6tWG1Ly+dRo140+4I8hfKUN+xvPeHyNMisou0h
-	6yAyXqpLhoRNuUgYtsPnKtgTjFS2qFGZJVDUuzs7hxHjqxUeTovYC+mGRTx6uArTlaLSvI6mIFRQm
-	Zfo8Ijh+oPa2xlE/Da4A==;
+	List-Owner; bh=XAItFdKsdemNpBwNTLszWCjTNzzgdTaZdgKSOpPKLMk=; b=kmJpUWwZ4Im0kV
+	DdpS16OsY2aF9dGJ8ijC3sLixD9ejJ7fX3bELqCZP/oumH/d31gXw/pjotZjx6z3tI3vQXishgUFD
+	rljCJOG5O0dr/LbJQM9+RP6BhRWMtKzc5jnFWg1lJvWsDc5+//mMn4SscBixIBnbzQ63XGIFffsOY
+	EzJ+eFD4dNItTbBaTGY9Jdj+uLZp4lCRbcn7rvpwDJ+OSTfqD1B3cQfLzlmBVoO9h35DQksyP22Iz
+	g7+xtggLh0m7RIuS0QQuHZpgElUp4et2B2JlFnnu6bzM69HrZOn3qsDFFjG/v1r+r/Q/xAVYBZb2c
+	rB1MWY9XSkXNQ5arUJ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nyD-00000000NFE-1htG;
-	Mon, 06 Oct 2025 16:21:53 +0000
+	id 1v5ny5-00000000NC7-2AOF;
+	Mon, 06 Oct 2025 16:21:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nyB-00000000NET-1UWU
+	id 1v5ny2-00000000NB6-3q1o
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Oct 2025 16:21:52 +0000
+	Mon, 06 Oct 2025 16:21:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBEB51516;
-	Mon,  6 Oct 2025 09:21:42 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62E991515;
+	Mon,  6 Oct 2025 09:21:34 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 353C43F738;
-	Mon,  6 Oct 2025 09:21:48 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD8FE3F738;
+	Mon,  6 Oct 2025 09:21:39 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 06 Oct 2025 17:21:26 +0100
-Subject: [PATCH v3 4/9] perf build: Disable thread safety analysis for perl
- header
+Date: Mon, 06 Oct 2025 17:21:23 +0100
+Subject: [PATCH v3 1/9] tools build: Align warning options with perf
 MIME-Version: 1.0
-Message-Id: <20251006-perf_build_android_ndk-v3-4-4305590795b2@arm.com>
+Message-Id: <20251006-perf_build_android_ndk-v3-1-4305590795b2@arm.com>
 References: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
 In-Reply-To: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -54,16 +53,17 @@ Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
  llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759767696; l=3588;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759767696; l=1150;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=GGldtNXc0oaGS+19NwZcOJHDnYTkrkTDgLmVwE6QIUo=;
- b=BLRY4IQuw/VxHRszeUvciM005PXecD/Bpj2Ky9vCsY5uv8Ib9vT/VmGHqkK1GNR9GAJBP4QN8
- xANHFi217g6DS5VGu8aRy97l0WLYgW3InDhYVvxol2e1vlfLRqysy/y
+ bh=vNDVZkxHA2mAyiZ+UlvQxAZSagxQ4O7RbrAShEgaA5E=;
+ b=EG0tsFK21ZjPlI5l1dxxftTrHfPI06IJhl8UTXHnJqcTv7uneZdXX8HuPmYoCFAuTgNQH/Jbd
+ ldN3DDWgKNQDW0iT+I7sD7I9OkqAaQ4YKTIPQ9jmjywC8hwpFzZ8ALt
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_092151_484769_2FE7993D 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20251006_092143_002307_59F3E98C 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,65 +80,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When build with perl5, it reports error:
+The feature test programs are built without enabling '-Wall -Werror'
+options. As a result, a feature may appear to be available, but later
+building in perf can fail with stricter checks.
 
-    In file included from /usr/lib/perl5/5.42.0/x86_64-linux-thread-multi/CORE/perl.h:7933:
-    /usr/lib/perl5/5.42.0/x86_64-linux-thread-multi/CORE/inline.h:298:5: error:
-          mutex 'PL_env_mutex.lock' is not held on every path through
-          here [-Werror,-Wthread-safety-analysis]
-      298 |     ENV_UNLOCK;
-          |     ^
-    /usr/lib/perl5/5.42.0/x86_64-linux-thread-multi/CORE/perl.h:7091:31: note:
-          expanded from macro 'ENV_UNLOCK'
-     7091 | #  define ENV_UNLOCK          PERL_REENTRANT_UNLOCK("env"...
-          |                               ^
-    /usr/lib/perl5/5.42.0/x86_64-linux-thread-multi/CORE/perl.h:6465:7: note:
-          expanded from macro 'PERL_REENTRANT_UNLOCK'
-     6465 |     } STMT_END
-          |       ^
-    /usr/lib/perl5/5.42.0/x86_64-linux-thread-multi/CORE/perl.h:865:28: note:
-          expanded from macro 'STMT_END'
-      865 | #   define STMT_END     while (0)
-          |                                ^
+Make the feature test program use the same warning options as perf.
 
-The error is caused by perl header but not perf code, disable thread
-safety analysis if including the header.
-
-Though GCC does not support the thread safety analysis option, this
-negative warning flag is silently ignored by it.
-
+Fixes: 1925459b4d92 ("tools build: Fix feature Makefile issues with 'O='")
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/scripts/perl/Perf-Trace-Util/Build | 2 +-
- tools/perf/util/scripting-engines/Build       | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ tools/build/feature/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/tools/perf/scripts/perl/Perf-Trace-Util/Build b/tools/perf/scripts/perl/Perf-Trace-Util/Build
-index 9b0e5a8b5070f1a1640518fae75557f824ef21ee..01a1a0ed51aefd721b4bc7eba728c29a8ffcd551 100644
---- a/tools/perf/scripts/perl/Perf-Trace-Util/Build
-+++ b/tools/perf/scripts/perl/Perf-Trace-Util/Build
-@@ -2,7 +2,7 @@ perf-util-y += Context.o
+diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
+index b41a42818d8ac232ade78ecb41363d26ce2a9471..bd615a708a0aa89ddbe87401f04bd736e384a9c4 100644
+--- a/tools/build/feature/Makefile
++++ b/tools/build/feature/Makefile
+@@ -316,10 +316,10 @@ $(OUTPUT)test-libcapstone.bin:
+ 	$(BUILD) # -lcapstone provided by $(FEATURE_CHECK_LDFLAGS-libcapstone)
  
- CFLAGS_Context.o += $(PERL_EMBED_CCOPTS) -Wno-redundant-decls -Wno-strict-prototypes -Wno-bad-function-cast -Wno-declaration-after-statement -Wno-switch-enum
- CFLAGS_Context.o += -Wno-unused-parameter -Wno-nested-externs -Wno-undef
--CFLAGS_Context.o += -Wno-switch-default -Wno-shadow
-+CFLAGS_Context.o += -Wno-switch-default -Wno-shadow -Wno-thread-safety-analysis
+ $(OUTPUT)test-compile-32.bin:
+-	$(CC) -m32 -o $@ test-compile.c
++	$(CC) -m32 -Wall -Werror -o $@ test-compile.c
  
- ifeq ($(CC_NO_CLANG), 1)
-   CFLAGS_Context.o += -Wno-unused-command-line-argument
-diff --git a/tools/perf/util/scripting-engines/Build b/tools/perf/util/scripting-engines/Build
-index 2282fe3772f3bdc35056cb5e66efb3462dc1c2e3..24f087b0cd11b3e06a338c394dc2c650bc2c60b1 100644
---- a/tools/perf/util/scripting-engines/Build
-+++ b/tools/perf/util/scripting-engines/Build
-@@ -3,7 +3,7 @@ ifeq ($(CONFIG_LIBTRACEEVENT),y)
- endif
- perf-util-$(CONFIG_LIBPYTHON) += trace-event-python.o
+ $(OUTPUT)test-compile-x32.bin:
+-	$(CC) -mx32 -o $@ test-compile.c
++	$(CC) -mx32 -Wall -Werror -o $@ test-compile.c
  
--CFLAGS_trace-event-perl.o += $(PERL_EMBED_CCOPTS) -Wno-redundant-decls -Wno-strict-prototypes -Wno-unused-parameter -Wno-shadow -Wno-nested-externs -Wno-undef -Wno-switch-default -Wno-bad-function-cast -Wno-declaration-after-statement -Wno-switch-enum
-+CFLAGS_trace-event-perl.o += $(PERL_EMBED_CCOPTS) -Wno-redundant-decls -Wno-strict-prototypes -Wno-unused-parameter -Wno-shadow -Wno-nested-externs -Wno-undef -Wno-switch-default -Wno-bad-function-cast -Wno-declaration-after-statement -Wno-switch-enum -Wno-thread-safety-analysis
- 
- # -Wno-declaration-after-statement: The python headers have mixed code with declarations (decls after asserts, for instance)
- CFLAGS_trace-event-python.o += $(PYTHON_EMBED_CCOPTS) -Wno-redundant-decls -Wno-strict-prototypes -Wno-unused-parameter -Wno-shadow -Wno-deprecated-declarations -Wno-switch-enum -Wno-declaration-after-statement
+ $(OUTPUT)test-zlib.bin:
+ 	$(BUILD) -lz
 
 -- 
 2.34.1
