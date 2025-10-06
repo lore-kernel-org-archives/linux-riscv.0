@@ -4,65 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B347CAC5B8
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 16:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC794CAC5B8
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 16:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ThFTNxAdKA9xhyr07j3hz4CLTV+8+zV+AVhJTv2v2ac=; b=L9t46tWclbSn6x
-	7KXhskG7H8/ydkI43IFdlWxf5AZj5BtcQUDo2XhHj0r3cu0XRDTir+MOX0Y8Rrnk6ldnKlMevIWzC
-	O2ySc20WAjQuK56A0RE3Hai7POYW5msQ4Yx8gEiJXxwqN8CxbWQsEGBQftU9ZMTJ6M8Dmgi6D8S+s
-	4u/uXL6cuRW9+C21vhBWfyC0CBeVIUMxHAR0URREf+oVdI1fNHjfj1K7upL6tHh61kgGX7gGeR5M4
-	myBDSVYtVLGPKShDGKP/nLGnQNQVoW2xTpV6PWqH5IEKZXmPRCEqGRWUpK+kx1/z60Bh8gpnSS0s8
-	QojBFFLWfd6vJF2Kon2Q==;
+	List-Owner; bh=tgxS1Nwn5pyHKevNtQ10vGtuXK0yMAQPROVrbvLvWdo=; b=fmGQITJp+dKzsW
+	1f5QbVSPd1vY1XqeesqSvU/vufQuDZag1UfAEbak0TA7V3GVm+CSq6DCKdpVePIzX2lCihQ8b6qxm
+	rWWMnWrHC7szgcbpYMDUhU+p8QOTA1UQq1IixiN97NZyf+O9d+DotZu0vNRPGEr0wt0RHGOYD+0Mu
+	zF8QZSfJnHxAFJJlyaCPjIe0DIgvNjE7B5+i1ITqnKcehLN52zh0xJt+b2jbEqEwqRwmD+nWN0olG
+	tY2/G3+avqL4AYHejPTtBYwvsPxDDIKC3shWwOduZPBUAuKwmlCAnSmjWBamRqdfzPgSpBW1Y9Eh3
+	SDJnJhewgg5d9P67i5OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nyR-00000000NRV-43w7;
-	Mon, 06 Oct 2025 16:22:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nyP-00000000NNy-0gFP
+	id 1v5oA2-00000000Ph5-0DqF;
+	Mon, 06 Oct 2025 16:34:06 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v5oA0-00000000Pgh-1m84
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Oct 2025 16:22:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B47821515;
-	Mon,  6 Oct 2025 09:21:56 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2E0EA3F738;
-	Mon,  6 Oct 2025 09:22:02 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 06 Oct 2025 17:21:31 +0100
-Subject: [PATCH v3 9/9] perf docs: Document building with Clang
+	Mon, 06 Oct 2025 16:34:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759768404; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=cg8w3Yx8IggkB+zBhluhjMbMmUsvUcFTp8sS3UkaQyPYCI+kKozce/VxlfQIH2kNKZz+W0TluZmqZOpSaXRnxQ1cOJ+yTbkxSfzRBBXWK7yKp4QCfWtFhM78+uyDIvTeyLvbj/29T87jf7C50Lzs89v25R4fVUL1Zt1jFDtjdHM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1759768404; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=j89+y91SMmY2hlRzBk7eDWdVkd7Zq8mu43vpMSD6zW4=; 
+	b=OKZEpyRFbGh8q0dvfbB6gCs7d7Vv6TvpHKJTBq+scm1/FFn8ekZ3oBgww6Tj/9vsZYaLUX+J5ORw2je/Hbe9WmstHKtyUQhpA691sUYrAFmWGaCkO1wQFo5wRqRWOsm/ngVNOWtfN10LdPDfEjnfwdZ28oQg+xm0Qps0SKF0uHM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759768404;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=j89+y91SMmY2hlRzBk7eDWdVkd7Zq8mu43vpMSD6zW4=;
+	b=ZxUUdVw5ekZSbUQcOuicx0i81q5Ne2CN2GTkN+P9+TzORpuUWT48oYwY2qN3n94D
+	NcaPbfAOo1GJ1ROqgWm2oXT4ScJIuTwwGfYIVdUeTdyWAT3i3zgO0hg0BHNP0W5xJ6u
+	/iHwUj/UL1EtopJU9rpHyD7F403dOU4zyMjHpdppeZpt1fBST16KibUP+C29P59aY66
+	tUWF3wUtxCJar/Vz3YdCjqiuwPMibhErxftYJkse8jhGBp4fNBkccmNlPLudBVq9Og4
+	kyzbOaiIFCclZUOKKinsM2ZhcnNft0fz8xkk7N+UTQgkki+ficqGLYE0+kWNopyrpUa
+	77Vtb0vN1g==
+Received: by mx.zohomail.com with SMTPS id 1759768399312157.2926223095094;
+	Mon, 6 Oct 2025 09:33:19 -0700 (PDT)
+Message-ID: <c7d79542aedb6c074c4be21eaa15c71a53e87da4.camel@icenowy.me>
+Subject: Re: [PATCH v2 2/8] dt-bindings: display: add verisilicon,dc
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Christian Gmeiner <christian.gmeiner@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Lucas Stach <l.stach@pengutronix.de>, 
+ Russell King <linux+etnaviv@armlinux.org.uk>, moderated for non-subscribers
+ <etnaviv@lists.freedesktop.org>,  Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>, Guo
+ Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Michal Wilczynski
+ <m.wilczynski@samsung.com>, Han Gao <rabenda.cn@gmail.com>, Yao Zi
+ <ziyao@disroot.org>, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org
+Date: Tue, 07 Oct 2025 00:33:06 +0800
+In-Reply-To: <84566b33d0d08ad070c3aa8a01e07f3a0e3bff50.camel@icenowy.me>
+References: <20250921083446.790374-1-uwu@icenowy.me>
+	 <20250921083446.790374-3-uwu@icenowy.me>
+	 <20250922204349.GA1290045-robh@kernel.org>
+	 <1ac8c72206abf9f3e0a13e1fcf44be5c605f6372.camel@icenowy.me>
+	 <36040a0a40311cb1e871075f0c5ad175342ed5db.camel@icenowy.me>
+	 <CAH9NwWdx-Ut35RvhmNsdQbC4vfm3rH1VPN7H2uDBRsmsFjZU_Q@mail.gmail.com>
+	 <84566b33d0d08ad070c3aa8a01e07f3a0e3bff50.camel@icenowy.me>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-Message-Id: <20251006-perf_build_android_ndk-v3-9-4305590795b2@arm.com>
-References: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
-In-Reply-To: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, James Clark <james.clark@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759767696; l=5456;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=yLdtJoXXg2ZofvQ3tks4npYZRXDJBWfYweloxYQbePU=;
- b=iOckLph1iYJ9s0sP+7wDulOCeNPGoUWbOyJCvZQabdA+mLUluT6/cAYOwIPh8MUXieOr7dQU6
- as19EERlH8HBRcaFZMy35EzfKzaHWd+0dTajOdGQzKBnLH5E8RyD1wr
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_092205_292552_585C5F53 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20251006_093404_478022_21DD48C1 
+X-CRM114-Status: GOOD (  37.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,141 +98,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add example commands for building perf with Clang.
-
-Since recent Android NDK releases use Clang as the default compiler, a
-separate Android specific document is no longer needed; point to the
-general build documentation instead.
-
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- tools/perf/Documentation/Build.txt   | 15 +++++++
- tools/perf/Documentation/android.txt | 80 +++---------------------------------
- 2 files changed, 21 insertions(+), 74 deletions(-)
-
-diff --git a/tools/perf/Documentation/Build.txt b/tools/perf/Documentation/Build.txt
-index 83dc87c662b63ecc17553a15cc15a6b8d6f01d83..57b226e7fc2f8e849dfe58b3af31891f58dfd0af 100644
---- a/tools/perf/Documentation/Build.txt
-+++ b/tools/perf/Documentation/Build.txt
-@@ -99,3 +99,18 @@ configuration paths for cross building:
- In this case, the variable PKG_CONFIG_SYSROOT_DIR can be used alongside the
- variable PKG_CONFIG_LIBDIR or PKG_CONFIG_PATH to prepend the sysroot path to
- the library paths for cross compilation.
-+
-+5) Build with Clang
-+===================
-+By default, the makefile uses GCC as compiler. With specifying environment
-+variables HOSTCC, CC and CXX, it allows to build perf with Clang.
-+
-+Using Clang for a native build:
-+
-+  $ HOSTCC=clang CC=clang CXX=clang++ make -C tools/perf
-+
-+Specifying ARCH and CROSS_COMPILE for cross compilation:
-+
-+  $ HOSTCC=clang CC=clang CXX=clang++ \
-+    ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-+    make -C tools/perf
-diff --git a/tools/perf/Documentation/android.txt b/tools/perf/Documentation/android.txt
-index 24a59998fc91e814ad96f658d3481d88d798b60c..3f3cc7ac3d139c5517ec9458f13c06249c701429 100644
---- a/tools/perf/Documentation/android.txt
-+++ b/tools/perf/Documentation/android.txt
-@@ -1,78 +1,10 @@
- How to compile perf for Android
--=========================================
-+===============================
- 
--I. Set the Android NDK environment
--------------------------------------------------
-+There are two ways to build perf and run it on Android:
- 
--(a). Use the Android NDK
--------------------------------------------------
--1. You need to download and install the Android Native Development Kit (NDK).
--Set the NDK variable to point to the path where you installed the NDK:
--  export NDK=/path/to/android-ndk
-+- Method 1: Build perf with static linking. See Build.txt, section
-+  "4) Cross compilation" for how to build a static perf binary.
- 
--2. Set cross-compiling environment variables for NDK toolchain and sysroot.
--For arm:
--  export NDK_TOOLCHAIN=${NDK}/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-
--  export NDK_SYSROOT=${NDK}/platforms/android-24/arch-arm
--For x86:
--  export NDK_TOOLCHAIN=${NDK}/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/i686-linux-android-
--  export NDK_SYSROOT=${NDK}/platforms/android-24/arch-x86
--
--This method is only tested for Android NDK versions Revision 11b and later.
--perf uses some bionic enhancements that are not included in prior NDK versions.
--You can use method (b) described below instead.
--
--(b). Use the Android source tree
-------------------------------------------------
--1. Download the master branch of the Android source tree.
--Set the environment for the target you want using:
--  source build/envsetup.sh
--  lunch
--
--2. Build your own NDK sysroot to contain latest bionic changes and set the
--NDK sysroot environment variable.
--  cd ${ANDROID_BUILD_TOP}/ndk
--For arm:
--  ./build/tools/build-ndk-sysroot.sh --abi=arm
--  export NDK_SYSROOT=${ANDROID_BUILD_TOP}/ndk/build/platforms/android-3/arch-arm
--For x86:
--  ./build/tools/build-ndk-sysroot.sh --abi=x86
--  export NDK_SYSROOT=${ANDROID_BUILD_TOP}/ndk/build/platforms/android-3/arch-x86
--
--3. Set the NDK toolchain environment variable.
--For arm:
--  export NDK_TOOLCHAIN=${ANDROID_TOOLCHAIN}/arm-linux-androideabi-
--For x86:
--  export NDK_TOOLCHAIN=${ANDROID_TOOLCHAIN}/i686-linux-android-
--
--II. Compile perf for Android
--------------------------------------------------
--You need to run make with the NDK toolchain and sysroot defined above:
--For arm:
--  make WERROR=0 ARCH=arm CROSS_COMPILE=${NDK_TOOLCHAIN} EXTRA_CFLAGS="-pie --sysroot=${NDK_SYSROOT}"
--For x86:
--  make WERROR=0 ARCH=x86 CROSS_COMPILE=${NDK_TOOLCHAIN} EXTRA_CFLAGS="-pie --sysroot=${NDK_SYSROOT}"
--
--III. Install perf
-------------------------------------------------
--You need to connect to your Android device/emulator using adb.
--Install perf using:
--  adb push perf /data/perf
--
--If you also want to use perf-archive you need busybox tools for Android.
--For installing perf-archive, you first need to replace #!/bin/bash with #!/system/bin/sh:
--  sed 's/#!\/bin\/bash/#!\/system\/bin\/sh/g' perf-archive >> /tmp/perf-archive
--  chmod +x /tmp/perf-archive
--  adb push /tmp/perf-archive /data/perf-archive
--
--IV. Environment settings for running perf
--------------------------------------------------
--Some perf features need environment variables to run properly.
--You need to set these before running perf on the target:
--  adb shell
--  # PERF_PAGER=cat
--
--IV. Run perf
--------------------------------------------------
--Run perf on your device/emulator to which you previously connected using adb:
--  # ./data/perf
-+- Method 2: Download the Android NDK and use the bundled Clang to
-+  build perf. See Build.txt, section "5) Build with clang" for details.
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjUtMDktMjXmmJ/mnJ/lm5vnmoQgMTM6NTcgKzA4MDDvvIxJY2Vub3d5IFpoZW5n5YaZ
+6YGT77yaCj4g5ZyoIDIwMjUtMDktMjTmmJ/mnJ/kuInnmoQgMjA6MTUgKzAyMDDvvIxDaHJpc3Rp
+YW4gR21laW5lcuWGmemBk++8mgo+ID4gPiA+ID4gPiBWZXJpc2lsaWNvbiBoYXMgYSBzZXJpZXMg
+b2YgZGlzcGxheSBjb250cm9sbGVycyBwcmVmaXhlZAo+ID4gPiA+ID4gPiB3aXRoCj4gPiA+ID4g
+PiA+IERDCj4gPiA+ID4gPiA+IGFuZAo+ID4gPiA+ID4gPiB3aXRoIHNlbGYtaWRlbnRpZmljYXRp
+b24gZmFjaWxpdHkgbGlrZSB0aGVpciBHQyBzZXJpZXMKPiA+ID4gPiA+ID4gR1BVcy4KPiA+ID4g
+PiA+ID4gCj4gPiA+ID4gPiA+IEFkZCBhIGRldmljZSB0cmVlIGJpbmRpbmcgZm9yIGl0Lgo+ID4g
+PiA+ID4gPiAKPiA+ID4gPiA+ID4gRGVwZW5kcyBvbiB0aGUgc3BlY2lmaWMgREMgbW9kZWwsIGl0
+IGNhbiBoYXZlIGVpdGhlciBvbmUgb3IKPiA+ID4gPiA+ID4gdHdvCj4gPiA+ID4gPiA+IGRpc3Bs
+YXkKPiA+ID4gPiA+ID4gb3V0cHV0cywgYW5kIGVhY2ggZGlzcGxheSBvdXRwdXQgY291bGQgYmUg
+c2V0IHRvIERQSSBzaWduYWwKPiA+ID4gPiA+ID4gb3IKPiA+ID4gPiA+ID4gIkRQIgo+ID4gPiA+
+ID4gPiBzaWduYWwgKHdoaWNoIHNlZW1zIHRvIGJlIHNvbWUgcGxhaW4gcGFyYWxsZWwgYnVzIHRv
+IEhETUkKPiA+ID4gPiA+ID4gY29udHJvbGxlcnMpLgo+ID4gPiA+ID4gPiAKPiA+ID4gPiA+ID4g
+U2lnbmVkLW9mZi1ieTogSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4gPiA+ID4gPiA+
+IC0tLQo+ID4gPiA+ID4gPiBDaGFuZ2VzIGluIHYyOgo+ID4gPiA+ID4gPiAtIEZpeGVkIG1pc3Nw
+ZWx0ICJ2ZXJzaWxpY29uIiBpbiB0aXRsZS4KPiA+ID4gPiA+ID4gLSBNb3ZlZCBtaW5JdGVtcyBp
+biBjbG9jayBwcm9wZXJ0aWVzIHRvIGJlIGVhcmxpZXIgdGhhbgo+ID4gPiA+ID4gPiBpdGVtcy4K
+PiA+ID4gPiA+ID4gLSBSZS1hbGlnbmVkIG11bHRpLWxpbmUgY2xvY2tzIGFuZCByZXNldHMgaW4g
+ZXhhbXBsZS4KPiA+ID4gPiA+ID4gCj4gPiA+ID4gPiA+IMKgLi4uL2JpbmRpbmdzL2Rpc3BsYXkv
+dmVyaXNpbGljb24sZGMueWFtbMKgwqDCoMKgwqAgfCAxMjcKPiA+ID4gPiA+ID4gKysrKysrKysr
+KysrKysrKysrCj4gPiA+ID4gPiA+IMKgMSBmaWxlIGNoYW5nZWQsIDEyNyBpbnNlcnRpb25zKCsp
+Cj4gPiA+ID4gPiA+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0Cj4gPiA+ID4gPiA+IERvY3VtZW50YXRp
+b24vZGV2aWNldHJlZS9iaW5kaW5ncy9kaXNwbGF5L3ZlcmlzaWxpY29uLGRjLnlhCj4gPiA+ID4g
+PiA+IG1sCj4gPiA+ID4gPiA+IAo+ID4gPiA+ID4gPiBkaWZmIC0tZ2l0Cj4gPiA+ID4gPiA+IGEv
+RG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvdmVyaXNpbGljb24sZGMu
+Cj4gPiA+ID4gPiA+IHlhCj4gPiA+ID4gPiA+IG1sCj4gPiA+ID4gPiA+IGIvRG9jdW1lbnRhdGlv
+bi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvdmVyaXNpbGljb24sZGMuCj4gPiA+ID4gPiA+
+IHlhCj4gPiA+ID4gPiA+IG1sCj4gPiA+ID4gPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiA+
+ID4gPiA+IGluZGV4IDAwMDAwMDAwMDAwMDAuLjA3ZmVkYzRjN2NjMTMKPiA+ID4gPiA+ID4gLS0t
+IC9kZXYvbnVsbAo+ID4gPiA+ID4gPiArKysKPiA+ID4gPiA+ID4gYi9Eb2N1bWVudGF0aW9uL2Rl
+dmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS92ZXJpc2lsaWNvbixkYy4KPiA+ID4gPiA+ID4geWEK
+PiA+ID4gPiA+ID4gbWwKPiA+ID4gPiA+ID4gQEAgLTAsMCArMSwxMjcgQEAKPiA+ID4gPiA+ID4g
+KyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wIE9SIEJTRC0yLUNsYXVzZSkKPiA+
+ID4gPiA+ID4gKyVZQU1MIDEuMgo+ID4gPiA+ID4gPiArLS0tCj4gPiA+ID4gPiA+ICskaWQ6Cj4g
+PiA+ID4gPiA+IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9zY2hlbWFzL2Rpc3BsYXkvdmVyaXNpbGlj
+b24sZGMueWFtbCMKPiA+ID4gPiA+ID4gKyRzY2hlbWE6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9t
+ZXRhLXNjaGVtYXMvY29yZS55YW1sIwo+ID4gPiA+ID4gPiArCj4gPiA+ID4gPiA+ICt0aXRsZTog
+VmVyaXNpbGljb24gREMtc2VyaWVzIGRpc3BsYXkgY29udHJvbGxlcnMKPiA+ID4gPiA+ID4gKwo+
+ID4gPiA+ID4gPiArbWFpbnRhaW5lcnM6Cj4gPiA+ID4gPiA+ICvCoCAtIEljZW5vd3kgWmhlbmcg
+PHV3dUBpY2Vub3d5Lm1lPgo+ID4gPiA+ID4gPiArCj4gPiA+ID4gPiA+ICtwcm9wZXJ0aWVzOgo+
+ID4gPiA+ID4gPiArwqAgJG5vZGVuYW1lOgo+ID4gPiA+ID4gPiArwqDCoMKgIHBhdHRlcm46ICJe
+ZGlzcGxheUBbMC05YS1mXSskIgo+ID4gPiA+ID4gPiArCj4gPiA+ID4gPiA+ICvCoCBjb21wYXRp
+YmxlOgo+ID4gPiA+ID4gPiArwqDCoMKgIGNvbnN0OiB2ZXJpc2lsaWNvbixkYwo+ID4gPiA+ID4g
+Cj4gPiA+ID4gPiBUaGlzIG5lZWRzIGFuIFNvQyBzcGVjaWZpYyBjb21wYXRpYmxlLiBHZW5lcmFs
+bHkgbGljZW5zZWQgSVAKPiA+ID4gPiA+IGNvbXBhdGlibGVzCj4gPiA+ID4gPiBhcmUgdXNlbGVz
+cyBiZWNhdXNlIHRoZSBzcGVjcyBhcmVuJ3QgcHVibGljIGFuZCB0aGVyZSdzCj4gPiA+ID4gPiBh
+bHdheXMKPiA+ID4gPiA+IGludGVncmF0aW9uIHF1aXJrcy4KPiA+ID4gPiAKPiA+ID4gPiBUaGlz
+IG1pbWljcyB0aGUgR1BVIElQcyBieSB0aGUgc2FtZSB2ZW5kb3IsIHNlZQo+ID4gPiA+IGdwdS92
+aXZhbnRlLGdjLnlhbWwgLAo+ID4gPiA+IHdoaWNoIGNvbnRhaW4gdGhlIGV4YWN0IHNhbWUgc2V0
+IG9mIGlkZW50aWZpY2F0aW9uIHJlZ2lzdGVycwo+ID4gPiA+IChpbmNsdWRpbmcKPiA+ID4gPiBh
+ICJjdXN0b21lciBpZCIgb25lIHRoYXQgY2FuIGRpZmZlcmllbmF0ZSB0aGUgc2FtZSBjb25maWd1
+cmVkCj4gPiA+ID4gSVAKPiA+ID4gPiBvbgo+ID4gPiA+IFN0YXJGaXZlIEpINzExMCBhbmQgVC1I
+ZWFkIFRIMTUyMCkuCj4gPiA+ID4gCj4gPiA+ID4gSWYgd2UgY2FuIGdldCB2aXZhbnRlLGdjIHRv
+IHdvcmsgdy9vIFNvQyBzcGVjaWZpYyBjb21wYXRpYmxlLAo+ID4gPiA+IHRoZW4gd2UKPiA+ID4g
+PiBzaG91bGQgYmUgYWJsZSB0byBnZXQgdmVyaXNpbGljb24sZGMgdG8gd29yayB0b28uCj4gPiA+
+IAo+ID4gPiBXZWxsIG1heWJlIEkgc2hvdWxkIGFkZCBldG5hdml2IHBlb3BsZSB0byB0aGUgcmVj
+aXBpZW50IGxpc3QsIHRvCj4gPiA+IGFsbG93Cj4gPiA+IHRoZW0gdG8gdGVsbCB1cyB0aGUgbWFn
+aWMgYmVoaW5kIHZpdmFudGUsZ2MgLgo+ID4gPiAKPiA+IAo+ID4gVml2YW50ZSBHUFVzIGFyZSBz
+cGVjaWFsIGJlY2F1c2UgdGhleSBjb250YWluIHJlZ2lzdGVycyB0aGF0IGFsbG93Cj4gPiB0aGVt
+IHRvCj4gPiBiZSBmdWxseSBpZGVudGlmaWVkIC0gc2VlIGV0bmF2aXZfaHdfaWRlbnRpZnkoLi4p
+Lgo+ID4gCj4gPiBXZSBjYW4gcmVhZCBvdXQgdGhlIGZvbGxvd2luZyBpbmZvcm1hdGlvbjoKPiA+
+IMKgLSBtb2RlbAo+ID4gwqAtIHJldmlzaW9uCj4gPiDCoC0gcHJvZHVjdF9pZAo+ID4gwqAtIGN1
+c3RvbWVyX2lkCj4gPiDCoC0gZWNvX2lkCj4gCj4gV2VsbCBWZXJpc2lsaWNvbiBEQ3MgKHNvbWV0
+aW1lcyBhbHNvIGNhbGxlZCBWaXZhbnRlIERDcyBiZWNhdXNlCj4gVml2YW50ZQo+IGlzIG5vdyBw
+YXJ0IG9mIFZlcmlzaWxpY29uKSBleGNlcHQgRENOYW5vIGhhdmUgdGhlIHNhbWUgc2V0IG9mIElE
+Cj4gcmVnaXN0ZXJzIChJbiBmYWN0IHRoZSByZWdpc3RlcnMgYmVmb3JlIDB4MTUwMCBzZWVtIHRv
+IGhhdmUgbW9zdGx5Cj4gdGhlCj4gc2FtZSBtZWFuaW5nIHdpdGggR1BVcywgc2VlIFsxXSwgaGVy
+ZSB0aGUgcmVnaXN0ZXJzIGFyZSBldmVuIG5hbWVkCj4gR0N7LFJFR31feHh4KSwgc28gaXQncyB3
+aHkgSSBhc3N1bWUgInZlcmlzaWxpY29uLGRjIiB3aWxsIHdvcmsgaGVyZS4KPiAKPiBBbiBleGFt
+cGxlIG9mIGlkZW50aWZpY2F0aW9uIHJlZ2lzdGVycyByZWFkb3V0IG9uIFRIMTUxMCBpcyBzaG93
+bgo+IGJlbG93OiAodGhlIHJlZ2lzdGVyIG5hbWVzIGFyZSBmcm9tIGV0bmF2aXYgc3RhdGVfaGku
+eG1sKQo+IGBgYAo+IHJvb3RAbHBpNGE2NiBbIH4gXSAjIGJ1c3lib3ggZGV2bWVtIDB4ZmZlZjYw
+MDAyMCAjIE1PREVMwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiAweDAwMDA4MjAwCj4gcm9v
+dEBscGk0YTY2IFsgfiBdICMgYnVzeWJveCBkZXZtZW0gMHhmZmVmNjAwMDI0ICMgUkVWCj4gMHgw
+MDAwNTcyMAo+IHJvb3RAbHBpNGE2NiBbIH4gXSAjIGJ1c3lib3ggZGV2bWVtIDB4ZmZlZjYwMDAy
+OCAjIERBVEUKPiAweDIwMjEwMjAxCj4gcm9vdEBscGk0YTY2IFsgfiBdICMgYnVzeWJveCBkZXZt
+ZW0gMHhmZmVmNjAwMDJjICMgVElNRQo+IDB4MTExMzMwMDAKPiByb290QGxwaTRhNjYgWyB+IF0g
+IyBidXN5Ym94IGRldm1lbSAweGZmZWY2MDAwMzAgIyBDVVNUT01FUl9JRAo+IDB4MDAwMDAzMEEK
+PiByb290QGxwaTRhNjYgWyB+IF0gIyBidXN5Ym94IGRldm1lbSAweGZmZWY2MDAwYTggIyBQUk9E
+VUNUX0lECj4gMHgwMjA4MjAwMAo+IHJvb3RAbHBpNGE2NiBbIH4gXSAjIGJ1c3lib3ggZGV2bWVt
+IDB4ZmZlZjYwMDBlOCAjIEVDT19JRAo+IDB4MDAwMDAwMDAKPiBgYGAKPiAKClJvYiwKCklzIHRo
+aXMgYW4gYWNjZXB0YWJsZSBhbnN3ZXIgb2Ygbm90IGhhdmluZyBhIHZlbmRvci1zcGVjaWZpYwpj
+b21wYXRpYmxlPwoKSWYgaXQgaXNuJ3QsIEkgd2lsbCBhZGQgdmVuZG9yLXNwZWNpZmljIGNvbXBh
+dGlibGUgc3RyaW5ncyB0byB0aGUgbmV4dApyZXZpc2lvbiBvZiB0aGUgYmluZGluZywgYW5kIG1h
+eWJlIGFsc28gdHJ5IHRvIGFkZCB0aGVtIGZvciB2aXZhbnRlLGdjLgoKVGhhbmtzLApJY2Vub3d5
+Cgo+IEJ1dCBhcyBSb2IgcG9pbnRlZCBvdXQsIG1heWJlIGFjcXVpcmluZyBpbmZvcm1hdGlvbnMg
+ZnJvbSB0aGUgSURzCj4gY2Fubm90IHNvbHZlIGFsbCB0aGUgcHJvYmxlbSBvZiBpbnRlZ3JhdGlv
+biBxdWlya3M/IEFzIHRoZXNlIElEcyBhcmUKPiBhbHJlYWR5IGRldGVybWluZWQgd2hlbiBWZXJp
+c2lsaWNvbiBnZW5lcmF0ZXMgdGhlIFJUTCBmb3IgdGhlCj4gY3VzdG9tZXIsCj4gaXQncyBwb3Nz
+aWJsZSBmb3IgdGhlbSB0byByZXVzZSB0aGUgUlRMIHR3aWNlLCBtZXNzIHVwIHNvbWV0aGluZyBp
+bgo+IG9uZQo+IHNpbGljb24gYW5kIGhhdmUgdGhlIGlzc3VlcyBmaXhlZCBpbiBhbm90aGVyLgo+
+IAo+IFsxXQo+IGh0dHBzOi8vZ2l0aHViLmNvbS9taWxrdi1tZWdyZXovcm9ja29zLXUtYm9vdC9i
+bG9iL2M5MjIxY2YyZmE3N2QzOWMwYjI0MWFiNGIwMzBjNzA4ZTdlYmUyNzkvZHJpdmVycy92aWRl
+by9lc3dpbi9lc3dpbl9kY19yZWcuaAo+IAo+ID4gCj4gPiBUaGlzIGluZm9ybWF0aW9uLCBpbiBj
+b21iaW5hdGlvbiB3aXRoIGEgaGFyZHdhcmUgZGF0YWJhc2UgKGh3ZGIpIGluCj4gPiBrZXJuZWwv
+dXNlcnNwYWNlLCBpcyBlbm91Z2ggdG8gc3VwcG9ydCB0aGVzZSBHUFVzL05QVXMgYWNyb3NzCj4g
+PiBkaWZmZXJlbnQgU29DIHZlbmRvcnMuCj4gPiAKPiAKCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
