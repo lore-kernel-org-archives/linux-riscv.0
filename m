@@ -4,51 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200F3CCA470
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 21:22:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92822CCA472
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 21:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=30cD1GJwgNdKoNm1qxnSWh+gmsIoT9yYaTxa0UJD+OY=; b=hPLcIMhRXrRVzZ
-	P5YU84cDFDUIFRIrs5xMF4qQXCR6Ekdt3cJcQEYZByrDroxv8ky41EEdJAzYhREDhnd5fBE1aABwd
-	zARAxZJOiCHvcwLbyaRlUH+zqKi57SoNdlgVkvsKMO43yvZIHunt3+CSQEde8ut2C8Hx/BZ/8XYHU
-	pkH4UmIngAEe1xD795uLfvCLQPvcM8qNSnjmMyZ1WMduyuSx+jnFv2xr8Uk0738W4r7BvDR+2J/pq
-	SuWcdIQySJF3ps0At2YVxga1FCwxKPfmYWUsFtLWQDHGEJZWe2Jcl1PTuzyZPfmiTC1Zx8wOHGGw3
-	WEoNh0qNSZSLJtqrikyQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6qaP5gwguHqpGzSPMiqug4kxXPc9sHSerCy2yEh76og=; b=bVdXUNlD//DMs+
+	VTUJzNO4rZEkpRwKNbnzwsf47TSaCFmwbmhdoLwnu5SXJ9ojVteuOwYSLBS9pCHPavJIJJh9yu74I
+	Uyu3hijJ5XqppZzt1pistgzbewHYwuKTBXklSGA1XEMTPXws5eFuwM/ShZKmjRMXjJCqElh9s1yi4
+	osKkeJCZ0xVyr5JZBlxZDMg1VI0TvKtgHU8MCSb4b9+P3bzwWV/QXGkTc5ZDaYLLmlmNatsFqqsPc
+	gxp9VYXy6Exytjj13DvoD9byU2kCZkrN1L18iisfiE9dBLWHrM1m1q6vyGUajaQ+NWeB0jNlZ5uy7
+	XhScpVYxiV3nD//FhDug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5sef-00000000plh-2c8D;
-	Mon, 06 Oct 2025 21:22:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v5seW-00000000pdM-2Vca;
+	Mon, 06 Oct 2025 21:21:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5sec-00000000pi2-0Ih0
+	id 1v5seV-00000000pck-2vZU
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Oct 2025 21:22:00 +0000
+	Mon, 06 Oct 2025 21:21:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BD24545F8A;
-	Mon,  6 Oct 2025 21:21:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E895EC4CEF5;
-	Mon,  6 Oct 2025 21:21:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C6A2760365;
+	Mon,  6 Oct 2025 21:21:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB735C4CEF5;
+	Mon,  6 Oct 2025 21:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759785717;
-	bh=KaLZw6EnRFqDo1Q2vZRWuIPK9V6qjnWoh4bOBSt73+U=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=JtlKtv1wmeNw3UxPzsIp69DSuFSfRMYN/4neNXoDpRqyhzJZiZyaum758KpSm0/oN
-	 jh9CDMTymoroGfg06d2uXrXah3HEHSEtPJ9E/Mfbi3ieAX5YtAQCY8pogTDeFmcvhp
-	 DqlKjgxCT6QAVzK6F56ALzys22spnpY4uoMC8Eisj2FzBFRw60RTuMKwPTcny0D13g
-	 uzOi0cSHO4r1v4sV/tA8uSmKWYc7SA6fEc8/JfoWv1uHpsDMvV2u+B2tIg0i0TkThn
-	 1qeFTTD3EF6rcGeOhdeNe8URLgoWAUcUjdn+UsBlKmSXkBuodo0wCeFryYmRzrgerV
-	 mWmHfKI7ZfSrA==
+	s=k20201202; t=1759785710;
+	bh=7iJ32YGIikjrp2pA/xgAb9df77t5CNdRAnigY3veHVs=;
+	h=From:Subject:Date:To:Cc:From;
+	b=a51IRUo+m3fzUtlIqyu7hTsuI0Kotsc4avj1QeyZpLfi8el1ganISGiFgKnzlB5nh
+	 CagOQrcM+9xfVqCjukG9xSh8Y1GjtuJKxjRNpXJ7+jOKbs7kzg6qA3/Vfx4beQVRVU
+	 AuMQWhVYDp/uCQcs06JR20kYcLS8Nkqv2acD/Gx93gwE7853q8odmuhV8NKC26n0pu
+	 hnBExmqVdHC7DZfTo3wA7fNiBWBoxwHZ5ISVq2DbhDTBbSjfuAR8wJlFbyOaeXLE8/
+	 Ui0rXaBIrOU58Ib7R1+F3dsStYCyQTucV+FBhVAB19fCbtkFUmitkpBygT1R6/EiMo
+	 1hucKPNv2hjzg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 06 Oct 2025 14:21:48 -0700
-Subject: [PATCH v2 8/8] riscv: defconfig: Enable Tenstorrent SoCs
+Subject: [PATCH v2 0/8] RISC-V: Add support for Tenstorrent Blackhole SoC
+Date: Mon, 06 Oct 2025 14:21:40 -0700
+Message-Id: <20251006-tt-bh-dts-v2-0-ed90dc4b3e22@oss.tenstorrent.com>
 MIME-Version: 1.0
-Message-Id: <20251006-tt-bh-dts-v2-8-ed90dc4b3e22@oss.tenstorrent.com>
-References: <20251006-tt-bh-dts-v2-0-ed90dc4b3e22@oss.tenstorrent.com>
-In-Reply-To: <20251006-tt-bh-dts-v2-0-ed90dc4b3e22@oss.tenstorrent.com>
+X-B4-Tracking: v=1; b=H4sIAOUy5GgC/x3MQQqAIBBA0avIrBuwARd2lWhROuZsLFQiEO+et
+ Hzw+Q0KZ+ECi2qQ+ZEiVxqgSYGLezoZxQ8DaTLaksVa8Yjoa8HAZLzTs3E+wOjvzEHe/7VuvX+
+ MKOzZWwAAAA==
+X-Change-ID: 20250929-tt-bh-dts-fe25dc015cdf
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -65,10 +67,6 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, 
  Drew Fustini <dfustini@oss.tenstorrent.com>
 X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_142158_190498_49A800D2 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,30 +83,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Drew Fustini <dfustini@oss.tenstorrent.com>
+Enable support for the Tenstorrent Blackhole SoC in the Blackhole P100
+and P150 PCIe cards [1]. The Blackhole SoC contains four RISC-V CPU
+tiles consisting of 4x SiFive X280 cores. Each tile is capable of
+running an instance of Linux.
 
-Enable support for Tenstorrent SoCs in the default configuration.
+There is a public Linux-on-Blackhole project [2] that enables users to
+boot Linux on Blackhole PCIe cards. A boot script on the PCIe host
+loads the kernel image and the rootfs into DDR memory and then takes
+the X280 cores out of reset.
+
+All the low-level SoC initialization is handled by firmware [3] running
+on a separate management core in the Blackhole SoC. Linux on the X280
+cores does not need to deal with any clocks, reset, etc. The management
+core firmware also controls the PCIe EP functionality. The tt-kmd Linux
+kernel driver [4] on the PCIe host allows the host to interact with the
+DDR memory on the Blackhole PCIe card along with other tiles in the SoC
+accessible from the NoC [5].
+
+There is a virtual UART implemented in OpenSBI [6] that allows a console
+program on the PCIe host to communicate through shared memory with Linux
+running on the Blackhole. This does require CONFIG_HVC_RISCV_SBI which
+is currently hidden behind CONFIG_NONPORTABLE. I would like Blackhole to
+work with defconfig, so I'm looking into possible ways of solving the
+issue that caused HVC SBI to be guarded by NONPORTABLE [7].
+
+The public Linux-on-Blackhole project does also make use of virtio to
+provide networking and storage. However, this relies on changes in our
+downstream kernel branch [8], so I've removed those dt nodes from this
+upstream dts series. We hope to eventually leverage the virtio-msg spec
+to upstream the virtio functionality, too.
+
+I have also dropped the bootargs from this series. Instead, I will add
+the ability to fixup the dtb to the boot script on the host [9]. It does
+need 'console=hvc0' to ensure the full boot output appears in the
+console program on the host. I also dropped the pmem node from this
+series as I don't see any upstream users of pmem. I have been using pmem
+for the rootfs, so I'll update the boot script to add the pmem node and
+amend 'root=/dev/pmem0' in bootargs.
+
+TL;DR:
+The goal for upstreaming this rather minimal device tree in this series
+is to make it possible to boot mainline kernel builds. I attended the
+recent KernelCI workshop, and there are not currently many RISC-V boards
+doing boot tests. I think the Blackhole cards could help improve the
+situation once Blackhole is able to boot important trees like mainline
+and next. The HVC SBI console is sufficient for boot testing.
+
+[1] https://tenstorrent.com/hardware/blackhole
+[2] https://github.com/tenstorrent/tt-bh-linux
+[3] https://github.com/tenstorrent/tt-zephyr-platforms
+[4] https://github.com/tenstorrent/tt-kmd
+[5] https://github.com/tenstorrent/tt-isa-documentation/blob/main/BlackholeA0/
+[6] https://github.com/tenstorrent/opensbi/
+[7] https://lore.kernel.org/all/20240214153429.16484-2-palmer@rivosinc.com/
+[8] https://github.com/tenstorrent/linux/
+[9] https://github.com/tenstorrent/tt-bh-linux/blob/dfustini/kernelci/boot.py
+
+Changes in v2:
+ - Remove '-a0' from compatible strings as Rob advised silicon revisions
+   are not normally included in compatibles
+ - Add ARCH_TENSTORRENT to defconfig per Conor's suggestion
+ - Fix unit address for memory device tree node
+ - Remove legacy 'riscv,isa' property from cpu dt nodes
+ - Remove 'riscv,cboz-block-size' as the cores do not support Zicboz
+ - Link to v1: https://lore.kernel.org/linux-riscv/20250913-tt-bh-dts-v1-0-ddb0d6860fe5@tenstorrent.com/
+
+To: Paul Walmsley <paul.walmsley@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+To: Anup Patel <anup@brainfault.org>
+To: Arnd Bergmann <arnd@arndb.de>
+To: Joel Stanley <jms@oss.tenstorrent.com>
+To: Joel Stanley <joel@jms.id.au>
+To: Michael Neuling <mikey@neuling.org>
+To: Nicholas Piggin <npiggin@gmail.com>
+To: Michael Ellerman <mpe@kernel.org>
+To: Andy Gross <agross@kernel.org>
+To: Anirudh Srinivasan <asrinivasan@tenstorrent.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
 
 Signed-off-by: Drew Fustini <dfustini@oss.tenstorrent.com>
 ---
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Drew Fustini (8):
+      dt-bindings: vendor-prefixes: Add Tenstorrent AI ULC
+      dt-bindings: riscv: Add Tenstorrent Blackhole compatible
+      dt-bindings: riscv: cpus: Add SiFive X280 compatible
+      dt-bindings: timers: Add Tenstorrent Blackhole compatible
+      dt-bindings: interrupt-controller: Add Tenstorrent Blackhole compatible
+      riscv: dts: Add Tenstorrent Blackhole SoC PCIe cards
+      riscv: Kconfig.socs: Add ARCH_TENSTORRENT for Tenstorrent SoCs
+      riscv: defconfig: Enable Tenstorrent SoCs
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 7b5eed17611ad2260a28f9fe9985b88682eb1ebe..031d8f8f6e9d278eb802d195111f1cf9075b076d 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -29,6 +29,7 @@ CONFIG_ARCH_SOPHGO=y
- CONFIG_ARCH_SPACEMIT=y
- CONFIG_SOC_STARFIVE=y
- CONFIG_ARCH_SUNXI=y
-+CONFIG_ARCH_TENSTORRENT=y
- CONFIG_ARCH_THEAD=y
- CONFIG_ARCH_VIRT=y
- CONFIG_ARCH_CANAAN=y
+ .../interrupt-controller/sifive,plic-1.0.0.yaml    |   1 +
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
+ .../devicetree/bindings/riscv/tenstorrent.yaml     |  28 ++++++
+ .../devicetree/bindings/timer/sifive,clint.yaml    |   1 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ MAINTAINERS                                        |   9 ++
+ arch/riscv/Kconfig.socs                            |   8 ++
+ arch/riscv/boot/dts/Makefile                       |   1 +
+ arch/riscv/boot/dts/tenstorrent/Makefile           |   2 +
+ arch/riscv/boot/dts/tenstorrent/blackhole-card.dts |  14 +++
+ arch/riscv/boot/dts/tenstorrent/blackhole.dtsi     | 104 +++++++++++++++++++++
+ arch/riscv/configs/defconfig                       |   1 +
+ 12 files changed, 172 insertions(+)
+---
+base-commit: e5f0a698b34ed76002dc5cff3804a61c80233a7a
+change-id: 20250929-tt-bh-dts-fe25dc015cdf
 
+Best regards,
 -- 
-2.34.1
+Drew Fustini <dfustini@oss.tenstorrent.com>
 
 
 _______________________________________________
