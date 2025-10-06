@@ -4,110 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB877CAC5B8
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 07:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D694CAC5B8
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 07:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jv0VGV3fqBr8vE320C6WLCNfBBoVXrc3Mg/HYrlYaPk=; b=lL0mWa4fvPlvcO
-	HtjPQgl/zg0KrdULnTcgcuvqiIgTx2aJnwd5yeTcSJVI3Pci2LweZOowMU0ZFdwBC64zQ2o5xXl02
-	Y3LFb4kj/zwt++4L4AAq0ThHqSSFJWkLpDC2cRcveVroPsPPbKCHURqMNqvQKHZbdtPOZ1bALUBFz
-	tGoX9rJL4hwUnLdm/eTU7Uw2+orx+dmvxk3Vylbaaoi5k0dVl/1PdhUMhPgw21EfF/QKV82nAAg1V
-	cPbOutusN8mCIQyZ85MEecbX6q6qn5k7O1U57+5AHzserFZUajZ/lK4pSlFDfsiqFCHY+EugswJtT
-	3M2P6hkgY2P+GrbiW5zA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9v0kmJhoNivuzy5oz0ZtAumI5B63Pk7daDudNiKfOIo=; b=LuxfTVa40O1zUq
+	9z2BdK2X3eEVnPHE+zJZ/6APy3gGNt8JtxIf2Fo1zyekRy/AHacCdMws2uaxGU+Fz/O3FPHHfiMt/
+	T6eUt0CUsFDxcelWm7z37DW8Ie36D+0BpYimep9yXlzXEx0UK7oydqzIBqaYgmzp47uWAEzIbOiuw
+	vgUQeWYsHxK7IKmkDq3m+9MIpLbkPv/TfgfNQJzLiLe3BBl7oI+cAaFXFg2sCaD0zVdZzzeIp86nc
+	Yh2cpoyVefjbxrs9sptUxVzGDN2q9oJIDKY3w66GShJ/TMAu99dYt44QhKFsJ8Lfsa+GJekYASLIN
+	DNE16B+VyW+qifAP8xiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5fwB-0000000H7d2-2dZs;
-	Mon, 06 Oct 2025 07:47:15 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1v5g6k-0000000H9QC-1qiw;
+	Mon, 06 Oct 2025 07:58:10 +0000
+Received: from mail.proventix.pl ([51.195.118.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5fw8-0000000H7ac-3zpa
+	id 1v5g6h-0000000H9Ps-1hfw
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Oct 2025 07:47:14 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 3E60C1F789;
-	Mon,  6 Oct 2025 07:47:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1759736831; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d6WcUomcky3+OfsPwmndBuy/gNXAR26tz83h+OYXh7Q=;
-	b=RgNhWrlY3Ir5OwScroMliL+zQy2HgviYcmKPMWc2OOmejflHbC2ELBaMm4ybqg0RFCNUGQ
-	CyvHs4+xIikcRprX8EkdtKDY1Segl3RrJDs2C/WdIB5xr5knoZq96lVkpmfxTm/14cDDoq
-	4onzMoSbh4DU1IumdyXJb5JqnwOWxKo=
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1759736831; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d6WcUomcky3+OfsPwmndBuy/gNXAR26tz83h+OYXh7Q=;
-	b=RgNhWrlY3Ir5OwScroMliL+zQy2HgviYcmKPMWc2OOmejflHbC2ELBaMm4ybqg0RFCNUGQ
-	CyvHs4+xIikcRprX8EkdtKDY1Segl3RrJDs2C/WdIB5xr5knoZq96lVkpmfxTm/14cDDoq
-	4onzMoSbh4DU1IumdyXJb5JqnwOWxKo=
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id B509F13A7E;
-	Mon,  6 Oct 2025 07:47:10 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id CP6WKv5z42h7HgAAD6G6ig
-	(envelope-from <jgross@suse.com>); Mon, 06 Oct 2025 07:47:10 +0000
-From: Juergen Gross <jgross@suse.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	virtualization@lists.linux.dev,
-	x86@kernel.org
-Cc: Juergen Gross <jgross@suse.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Ajay Kaher <ajay.kaher@broadcom.com>,
-	Alexey Makhalov <alexey.makhalov@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: [PATCH v3 10/21] riscv/paravirt: Use common code for paravirt_steal_clock()
-Date: Mon,  6 Oct 2025 09:45:55 +0200
-Message-ID: <20251006074606.1266-11-jgross@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251006074606.1266-1-jgross@suse.com>
-References: <20251006074606.1266-1-jgross@suse.com>
+	Mon, 06 Oct 2025 07:58:08 +0000
+Received: by mail.proventix.pl (Postfix, from userid 1002)
+	id CC404A44F1; Mon,  6 Oct 2025 09:56:17 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=proventix.pl; s=mail;
+	t=1759737482; bh=jxb0oDMobd7GaIcoqojTSF8ZoNcoVg4kM8ohJkoHKb8=;
+	h=Date:From:To:Subject:From;
+	b=uHUKV84PyMze0CB1BuzlBbarBzAb++McTIbqRMaLGqNP96zIWDjdN3z5zaJtnBRHU
+	 ISJFYS/5km3ZftH2o8zUcb9xpjCVwKcRUKkQqubEIcXxYyvKAtiHuWVSFb8bMoU/hv
+	 MqADDtz/0NdHtMWT0gcSgWQP+x0yUvahxEUIoPmg+YC4JCAZgOJYKOLGPF5AxEiGU7
+	 Ag69F+xcsMqKluphYsY1lqFucHlINZjRnejZj0y+h3pOU0wM/LXH/qWcY7ITfwzDe9
+	 98cwY1oKPC4xeoDfRyszc7RKXcBVXlYy4/7txFswrZ1xiJ88/loJ5G8KJyITkBVRUf
+	 VgiW77qOFiUMQ==
+Received: by mail.proventix.pl for <linux-riscv@lists.infradead.org>; Mon,  6 Oct 2025 07:55:45 GMT
+Message-ID: <20251006084500-0.1.ob.3dfkj.0.mdcceewpan@proventix.pl>
+Date: Mon,  6 Oct 2025 07:55:45 GMT
+From: "Adrian Liszka" <adrian.liszka@proventix.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
+X-Mailer: mail.proventix.pl
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[14];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:mid,suse.com:email,infradead.org:email,imap1.dmz-prg2.suse.org:helo];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.com:s=susede1];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_004713_138771_98E651BC 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20251006_005807_746763_DB9E402C 
+X-CRM114-Status: UNSURE (   0.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,79 +61,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove the arch specific variant of paravirt_steal_clock() and use
-the common one instead.
-
-Signed-off-by: Juergen Gross <jgross@suse.com>
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/Kconfig                |  1 +
- arch/riscv/include/asm/paravirt.h | 10 ----------
- arch/riscv/kernel/paravirt.c      |  7 -------
- 3 files changed, 1 insertion(+), 17 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 0c6038dc5dfd..68edcf741134 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -1095,6 +1095,7 @@ config COMPAT
- config PARAVIRT
- 	bool "Enable paravirtualization code"
- 	depends on RISCV_SBI
-+	select HAVE_PV_STEAL_CLOCK_GEN
- 	help
- 	  This changes the kernel so it can modify itself when it is run
- 	  under a hypervisor, potentially improving performance significantly
-diff --git a/arch/riscv/include/asm/paravirt.h b/arch/riscv/include/asm/paravirt.h
-index 17e5e39c72c0..c49c55b266f3 100644
---- a/arch/riscv/include/asm/paravirt.h
-+++ b/arch/riscv/include/asm/paravirt.h
-@@ -3,16 +3,6 @@
- #define _ASM_RISCV_PARAVIRT_H
- 
- #ifdef CONFIG_PARAVIRT
--#include <linux/static_call_types.h>
--
--u64 dummy_steal_clock(int cpu);
--
--DECLARE_STATIC_CALL(pv_steal_clock, dummy_steal_clock);
--
--static inline u64 paravirt_steal_clock(int cpu)
--{
--	return static_call(pv_steal_clock)(cpu);
--}
- 
- int __init pv_time_init(void);
- 
-diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
-index d3c334f16172..5f56be79cd06 100644
---- a/arch/riscv/kernel/paravirt.c
-+++ b/arch/riscv/kernel/paravirt.c
-@@ -23,13 +23,6 @@
- #include <asm/paravirt.h>
- #include <asm/sbi.h>
- 
--static u64 native_steal_clock(int cpu)
--{
--	return 0;
--}
--
--DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
--
- static bool steal_acc = true;
- static int __init parse_no_stealacc(char *arg)
- {
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKQ3p5IGplc3QgbW/FvGxpd2/Fm8SHIG5hd2nEhXphbmlhIHdzcMOzxYJw
+cmFjeSB6IFBhxYRzdHdlbT8KClogY2jEmWNpxIUgcG9yb3ptYXdpYW0geiBvc29ixIUgemFqbXVq
+xIVjxIUgc2nEmSBkemlhxYJhbmlhbWkgendpxIV6YW55bWkgemUgc3ByemVkYcW8xIUuCgpQb21h
+Z2FteSBza3V0ZWN6bmllIHBvenlza2l3YcSHIG5vd3ljaCBrbGllbnTDs3cuCgpaYXByYXN6YW0g
+ZG8ga29udGFrdHUuCgoKWiBwb3pkcm93aWVuaWFtaQpBZHJpYW4gTGlzemthCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
