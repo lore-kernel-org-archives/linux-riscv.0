@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870ABCCD186
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E99CCD185
 	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 21:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t+ZLG8KdYiN0x/5nLOfLI9kMTu7qSLHScqcGu/eAm9Y=; b=IX3Y6hNIBIEKC9
-	o+LEPObVpXhJ44lrtY8mBK0mKCwX4EGIGOJcQ5Wr4c9eF97O+PFv2eCwL9K1O59PLtru15+gcYYQ8
-	8YCvqfihOUaTaODjY1a9HRuCFqI4QP/IE7vRvhZAlE3pEUUC2edelV7Oc61yDVblbcC3olM7hB5v7
-	1y8SA7Mp0HXK4sus/+5GgpGhh/t6gVYZwriX8anY78LEzExr93csDtovLA9SU1o0STTAPG38AWGUw
-	BwGiPFFHuCH9dDIvsIVX89APVTRo08o5qg6+mNA1U0xphRX38L9gnNOLCQI7ESt862Jicoy7BA4zI
-	m+/51oDRSuEU8JxpEYOQ==;
+	List-Owner; bh=yBg9ox+ZdhvUDeAizTAfv0eTWS/xrVEuoug6ykmoVlk=; b=WVwh0mOkQkYE2X
+	jhSXzO/vP1Plb31uKALohbRwItNgH30FBv3+6U4SqtEz/p7UheSqarvcyyT2O6jusNnDeAZcKYaeC
+	wNdZKuMCSYVqQJLrhg3/wMius2J+D4IE7mNUmfwY0iWi7bA6+bDPpGYIsgnYuW29x164xLIY4Klci
+	onEWVkM7PhJHX6+nxBgJOzi3nLUQkEk/5aDii6V3UFamiCroUv4eoN/Ck2TMI83ccca33jJt4w6Xu
+	AeslHih0XZv+FPb8pNLqO3CTKGEJ7E9ajKyHXofVepWq/L7SWB2aGL1g7JdTku2l5ity+l6ErBou7
+	3+yrw6Xdl2HDBKqVyuHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5sed-00000000pk1-0zff;
-	Mon, 06 Oct 2025 21:21:59 +0000
+	id 1v5sec-00000000pix-2ByQ;
+	Mon, 06 Oct 2025 21:21:58 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5seb-00000000phW-0mdX
+	id 1v5seZ-00000000pdz-1GTO
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Oct 2025 21:21:58 +0000
+	Mon, 06 Oct 2025 21:21:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEAF545F81;
-	Mon,  6 Oct 2025 21:21:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 165EEC113D0;
-	Mon,  6 Oct 2025 21:21:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C15E44162;
+	Mon,  6 Oct 2025 21:21:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 581C1C4CEF5;
+	Mon,  6 Oct 2025 21:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759785716;
-	bh=MV4imc3nxAbsHj6lhsk14sOp0mfBOvMYNKi6rHeS8I8=;
+	s=k20201202; t=1759785715;
+	bh=VVc1pawzmxk/CiU4x01IQ8kCJVDTfOVXRKwQpCmltm0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=snJ4lU9FrM9qLBzb9P+zAFZdkpSHQXUBCRGEQw23hW1ApW69bWqVZDvIBaixfAJax
-	 hboaV1v22a0FROvB4UT8g/g5LtV0zW3KHboXFCwoRsgiKp3Yp7EmDutsJ6vEG1SH74
-	 oj7zNb1jwLJ3a3StC+w9bq9lFnyr9bOskg32L9FU3DTP/3xuscSgFOLp13LJlz6vDh
-	 OLw8ZeBHBY8/lC1n+Ou1frEbwnYatTEFGk2BeKn1I0E1po90oaajNdxQJXh/hIO1Jg
-	 Ezsw/9mywresDYyPQSoBkJWgK3xVKp/vy+MghCJFCUFnnJiknMP/6ORIdVq39frEOe
-	 2yiSoAQMMwCKg==
+	b=PsiCNB8P0AYTWQoh6lYN/mHpLXEu9+Lq6cqw74glTtAngNeIQXQI7jqW97XnQP689
+	 ySBq9eHqxs6mJDGrrbSR7SbXpU9U9syA+ZqkiZOvEE+WcFyCBRvJ92IFfl5/php2bO
+	 9CEjSIgwIC5YoVb6+0SyTlQj9SjGHpYql2hSy5eOXVtJqNTIn25H7wsaWgefxmgn4z
+	 lupUtZt7IO88RXFT9xN+XsCzxVVN9KQBxbMOFepBA3KxLbkL/e05zT9bEJXj1/hAV8
+	 OSdW0g34dnMHKOBjwSvqOMroeTsKRCVeP9GUAReoZ3uBnlSaZQ8btd8H70xGiCQtbm
+	 btHipG4lJx5Hg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 06 Oct 2025 14:21:47 -0700
-Subject: [PATCH v2 7/8] riscv: Kconfig.socs: Add ARCH_TENSTORRENT for
- Tenstorrent SoCs
+Date: Mon, 06 Oct 2025 14:21:45 -0700
+Subject: [PATCH v2 5/8] dt-bindings: interrupt-controller: Add Tenstorrent
+ Blackhole compatible
 MIME-Version: 1.0
-Message-Id: <20251006-tt-bh-dts-v2-7-ed90dc4b3e22@oss.tenstorrent.com>
+Message-Id: <20251006-tt-bh-dts-v2-5-ed90dc4b3e22@oss.tenstorrent.com>
 References: <20251006-tt-bh-dts-v2-0-ed90dc4b3e22@oss.tenstorrent.com>
 In-Reply-To: <20251006-tt-bh-dts-v2-0-ed90dc4b3e22@oss.tenstorrent.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -67,8 +67,8 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Drew Fustini <dfustini@oss.tenstorrent.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_142157_252730_06E4D869 
-X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-CacheID: sfid-20251006_142155_412927_3EACEB05 
+X-CRM114-Status: UNSURE (   7.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,33 +88,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Drew Fustini <dfustini@oss.tenstorrent.com>
 
-Add Kconfig option ARCH_TENSTORRENT to enable support for SoCs like the
-Blackhole.
+Document compatible for the PLIC in the Tenstorrent Blackhole SoC.
 
 Signed-off-by: Drew Fustini <dfustini@oss.tenstorrent.com>
 ---
- arch/riscv/Kconfig.socs | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ .../devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml      | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 61ceae0aa27a6fa3a91da6a46becfd96da99fd09..61c83a9c9876e59a11662da778a4bba0709d3e95 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -57,6 +57,14 @@ config ARCH_SUNXI
- 	  This enables support for Allwinner sun20i platform hardware,
- 	  including boards based on the D1 and D1s SoCs.
- 
-+config ARCH_TENSTORRENT
-+	bool "Tenstorrent SoCs"
-+	help
-+	  This enables support for Tenstorrent SoC platforms.
-+	  Current support is for Blackhole P100 and P150 PCIe cards.
-+	  The Blackhole SoC contains four RISC-V CPU tiles each
-+	  consisting of 4x SiFive X280 cores.
-+
- config ARCH_THEAD
- 	bool "T-HEAD RISC-V SoCs"
- 	depends on MMU && !XIP_KERNEL
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index 5b827bc243011cda1fd45d739d34eca95c6e1ee2..61bb9a98b1f5544efdf1460ee3873aad1433ac41 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+@@ -63,6 +63,7 @@ properties:
+               - spacemit,k1-plic
+               - starfive,jh7100-plic
+               - starfive,jh7110-plic
++              - tenstorrent,blackhole-plic
+           - const: sifive,plic-1.0.0
+       - items:
+           - enum:
 
 -- 
 2.34.1
