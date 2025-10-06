@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06573CAC5B8
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 16:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 403CCCAC5B8
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 16:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PPJCI0Qvp3JJZBoYEAeTEtBFKRhXy5tkW9RaGlBFgic=; b=pV25DnhSHf0bx2
-	PoAjlOw1zfVQNOvtwtsSaFSiV7DwIDw8vUP4y57XmK44Jns03ULbjlBrP4jIT6vHjG99DwZRegIuW
-	Iwr5UUWBHnpajB067HnRbb49wnz7MBN6fl78ODg/UVWRpAR2e1OQ67cXrXaitHyJIzfcrsbHRuk9V
-	sxjhoEjoebIdjawBpI4EfqxihfXNdwHuys7uCzIEPruMQyWtiBaSsDPJC0cEH3X2lTQembb+I4x/Y
-	B9C1cYuPFxlBgOg+WPhEfRSdvT5FcTgYV6vD1fOasJyydrmtfDbFFU3I9r6FqpYei/aaO1OCD0xiH
-	UQb0HzkKC2rW40O330Wg==;
+	List-Owner; bh=k9G6Rdz2f+4We9Ixb0OXcT1i1FbxqzVgv6e4VJB9HhI=; b=SrI/V/xsHZoOE6
+	Ka0gjPbs2CcIRzYEFwbq3PxDRnUQ/ilwXqGsLDXmye15edzKKizqjuv8qQznAbYUMe0XMfkCjfHx1
+	0ZhpJ3Yco3c1WILJDUyLrATqb3cTqikZWxmV2od3juKDwTZ7vKgDWXH5W778A/1MnV640yCDMPXQC
+	ig1jNI8i1NWS50Rzc6k/lhfPhsV1iXIfdiYJ9fJGiwsbOlOFrV9A/1qG/bhZEwsuPhiN0ZZCOcK/v
+	TkA+wgmzQrzPleAuxfsex2iQNaDPGunwhroBEBnQpXoAClhQjYphwjHRkR2EAHGGmeMyjLd12i0SC
+	vBID+x2lWut/vHWDG3uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nyG-00000000NGH-2vtO;
-	Mon, 06 Oct 2025 16:21:56 +0000
+	id 1v5nyJ-00000000NIT-48dk;
+	Mon, 06 Oct 2025 16:21:59 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nyE-00000000NFV-0aQy
+	id 1v5nyH-00000000NGm-1kTd
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Oct 2025 16:21:55 +0000
+	Mon, 06 Oct 2025 16:21:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C0951515;
-	Mon,  6 Oct 2025 09:21:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58DB21516;
+	Mon,  6 Oct 2025 09:21:48 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02AA53F738;
-	Mon,  6 Oct 2025 09:21:50 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C43C33F738;
+	Mon,  6 Oct 2025 09:21:53 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 06 Oct 2025 17:21:27 +0100
-Subject: [PATCH v3 5/9] perf test coresight: Dismiss clang warning for
- memcpy thread
+Date: Mon, 06 Oct 2025 17:21:28 +0100
+Subject: [PATCH v3 6/9] perf test coresight: Dismiss clang warning for
+ thread loop
 MIME-Version: 1.0
-Message-Id: <20251006-perf_build_android_ndk-v3-5-4305590795b2@arm.com>
+Message-Id: <20251006-perf_build_android_ndk-v3-6-4305590795b2@arm.com>
 References: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
 In-Reply-To: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -54,16 +54,16 @@ Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
  llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759767696; l=1020;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759767696; l=2703;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=cmg2aP/OdJEbju4k0iOcFl8K9ZROTOnbUW84a1thBFk=;
- b=uHQMo7Q9IxLbGpqgA/8C9HLBkjOOSprcJgKLgZ0Rx/RpLjPxbpgqOxRJy38umCaRiVBKPyshL
- fVA3ZirxbPWD2sjpi1KrhEXlCKlB375nqcGzKzIXJ4ngH/ykqJcGEvh
+ bh=a3IPmV5jlnePssZURERzGDN5YmfphWeM3ATbsnwKAQg=;
+ b=OsSTrd6d//ZmcbwP7/iVL4/KlsaJyKeaLDALKKWQf+IycnhEC8MFr0EWMFuV+FtOy/8aUMlVK
+ XiDTqhxx8s0DHMhBJ9B15cITHrjjtS/ShJAyu37L2/Ngklwrhonzipy
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_092154_222039_7E61B500 
-X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-CacheID: sfid-20251006_092157_601320_C5261D43 
+X-CRM114-Status: UNSURE (   9.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,30 +83,57 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 clang-18.1.3 on Ubuntu 24.04.2 reports warning:
 
-  memcpy_thread.c:30:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
-     30 | }
-        | ^
+  thread_loop.c:41:23: warning: value size does not match register size specified by the constraint and modifier [-Wasm-operand-widths]
+     41 |                 : /* in */ [i] "r" (i), [len] "r" (len)
+        |                                     ^
+  thread_loop.c:37:8: note: use constraint modifier "w"
+     37 |                 "add %[i], %[i], #1\n"
+        |                      ^~~~
+        |                      %w[i]
+  thread_loop.c:41:23: warning: value size does not match register size specified by the constraint and modifier [-Wasm-operand-widths]
+     41 |                 : /* in */ [i] "r" (i), [len] "r" (len)
+        |                                     ^
+  thread_loop.c:37:14: note: use constraint modifier "w"
+     37 |                 "add %[i], %[i], #1\n"
+        |                            ^~~~
+        |                            %w[i]
+  thread_loop.c:41:23: warning: value size does not match register size specified by the constraint and modifier [-Wasm-operand-widths]
+     41 |                 : /* in */ [i] "r" (i), [len] "r" (len)
+        |                                     ^
+  thread_loop.c:38:8: note: use constraint modifier "w"
+     38 |                 "cmp %[i], %[len]\n"
+        |                      ^~~~
+        |                      %w[i]
+  thread_loop.c:41:38: warning: value size does not match register size specified by the constraint and modifier [-Wasm-operand-widths]
+     41 |                 : /* in */ [i] "r" (i), [len] "r" (len)
+        |                                                    ^
+  thread_loop.c:38:14: note: use constraint modifier "w"
+     38 |                 "cmp %[i], %[len]\n"
+        |                            ^~~~~~
+        |                            %w[len]
 
-Dismiss the warning with returning NULL from the thread function.
+Use the modifier "w" for 32-bit register access.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/tests/shell/coresight/memcpy_thread/memcpy_thread.c | 2 ++
- 1 file changed, 2 insertions(+)
+ tools/perf/tests/shell/coresight/thread_loop/thread_loop.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/tools/perf/tests/shell/coresight/memcpy_thread/memcpy_thread.c b/tools/perf/tests/shell/coresight/memcpy_thread/memcpy_thread.c
-index 5f886cd09e6b3a62b5690dade94f1f8cae3279d2..7e879217be30a86431989dbf1f36d2134ef259cc 100644
---- a/tools/perf/tests/shell/coresight/memcpy_thread/memcpy_thread.c
-+++ b/tools/perf/tests/shell/coresight/memcpy_thread/memcpy_thread.c
-@@ -27,6 +27,8 @@ static void *thrfn(void *arg)
+diff --git a/tools/perf/tests/shell/coresight/thread_loop/thread_loop.c b/tools/perf/tests/shell/coresight/thread_loop/thread_loop.c
+index e05a559253ca9d9366ad321d520349042fb07fca..86f3f548b00631682767665fc5e9d5b8551a3634 100644
+--- a/tools/perf/tests/shell/coresight/thread_loop/thread_loop.c
++++ b/tools/perf/tests/shell/coresight/thread_loop/thread_loop.c
+@@ -34,8 +34,8 @@ static void *thrfn(void *arg)
  	}
- 	for (i = 0; i < len; i++)
- 		memcpy(dst, src, a->size * 1024);
-+
-+	return NULL;
- }
- 
- static pthread_t new_thr(void *(*fn) (void *arg), void *arg)
+ 	asm volatile(
+ 		"loop:\n"
+-		"add %[i], %[i], #1\n"
+-		"cmp %[i], %[len]\n"
++		"add %w[i], %w[i], #1\n"
++		"cmp %w[i], %w[len]\n"
+ 		"blt loop\n"
+ 		: /* out */
+ 		: /* in */ [i] "r" (i), [len] "r" (len)
 
 -- 
 2.34.1
