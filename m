@@ -4,42 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CDACCA471
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 16:21:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B618CCA476
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Oct 2025 16:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vU/zw45OR+aBkDTZZZMwsS2Ac/qDdIDSavVbNTQi0MY=; b=3ukby1WMURoQsD
-	ZkBEuGeW+YJ5w188Y5Zglm9Nnkq3nytoR5ea3TzwGDXm1YhVht1ubUEQLSQ983U0iCwa2XmOuR57R
-	AylgkmFyIJnxuLmsmSs8x3t0lyMVcLmLZjTlLCVxmUsC3gv4oCiKg5Cm/nX8UJleevjZEal5mQhm3
-	uG7abNWflIAVs7Lhhr25YwUYJe0rwACDjNw1zmlZoxPpd0fpPZVwr/sa9DW1ftx7iBTL/a4Ia0y0H
-	yFXqHXVSLtRJKzzfsVoCS5kDr7qisCHG0FdwTVHc9cxT07fKnpKGWdEjmLXx6RST0oxdMmewjK37T
-	tOOYEFU7EgHbxqQD+edQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f8gGC5AZzPHXTJQTEJo5ID8BRI1Zk75h2d6GfZr309s=; b=K73dNdf1z30pTK
+	FXcOegK48wsaf3tYaGPike8fN367HItTg5380iZy1o6qO6NosjvQ6Tw6yN7cPWbTJTRhlPUu7SJro
+	y5hjlABA0W27Pu6B4aTjli3JNvmtMk3Yr1Q/TkYCqdbFeg3LgtpxpFPStZGdEIa3Ilblhc0xA+RMT
+	rdobhHOHLAAitx605esJIUx8b9Hb+UTDN5W3thTuDtjfbTTnyou92p84D1PKcuHQJE3D9mn3NAPBU
+	omOZqZ1NF0SKXHFRBuFZ7DAi7lwPT3HMFJG14MZlxLJdjH1Fr9NCxslGsDCukJxOhGe2gW3fjjW1r
+	09y1x+aEgqcyMkRhbbDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nyA-00000000NE1-0SYU;
-	Mon, 06 Oct 2025 16:21:50 +0000
+	id 1v5ny3-00000000NBe-45Lr;
+	Mon, 06 Oct 2025 16:21:43 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5ny8-00000000NDO-2bC9
+	id 1v5ny1-00000000N9s-0GmG
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Oct 2025 16:21:49 +0000
+	Mon, 06 Oct 2025 16:21:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F160C1515;
-	Mon,  6 Oct 2025 09:21:39 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 976051516;
+	Mon,  6 Oct 2025 09:21:31 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 684C33F738;
-	Mon,  6 Oct 2025 09:21:45 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0AE133F738;
+	Mon,  6 Oct 2025 09:21:36 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 06 Oct 2025 17:21:25 +0100
-Subject: [PATCH v3 3/9] perf build: Correct CROSS_ARCH for clang
+Subject: [PATCH v3 0/9] perf build: Support building with Clang
+Date: Mon, 06 Oct 2025 17:21:22 +0100
+Message-Id: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
 MIME-Version: 1.0
-Message-Id: <20251006-perf_build_android_ndk-v3-3-4305590795b2@arm.com>
-References: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
-In-Reply-To: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
+X-B4-Tracking: v=1; b=H4sIAILs42gC/3XNTQrCMBCG4auUrI3kp8HWlfcQKUlnaoM2KYkGp
+ fTupkXQTZfvB/PMRCIGi5Eci4kETDZa73LIXUHaXrsrUgu5iWBCsZorOmLoGvO0d2i0g+AtNA5
+ uVDFmlDSoq1qRfDwG7Oxrhc+X3L2NDx/e65/El/VLik0yccpoZaTSGgAltCcdhn3rB7KASfwhk
+ m0iIiMCdVkyc8CO8R8yz/MHpk3A6/8AAAA=
+X-Change-ID: 20250915-perf_build_android_ndk-500b53bea895
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
  Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
  Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
@@ -53,16 +56,16 @@ Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
  llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759767696; l=1923;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759767696; l=8424;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=m3SmlzRsMKVpO74OXfiVE3r/DuuiN/mWjDes/0cwih0=;
- b=P/jhnB+7EFmN27NsILJyvdp237PuNM9MUTeMFHprYYaxLA9gJqDTnVDbR8lhu5730vVdvjaG0
- /AvvxHOtS/eBQ59/Cb4kIikDOUVFG9H+euApMwSOZP2VL59wm5Fu2M4
+ bh=8Q7cwgPG2l22cdHPml+9mko6bkVk2uyGrrnIsI+emBo=;
+ b=era/Wn5yodUf8G/6eSt5+q27j9CLCLY4QnZQ3zTpwI0lPrBGffLBG0rYLftRJb9wkB2/uvw+k
+ NOmc48B2MXRDzsxyQxJ+4tepzbZRBFj9EPNrwY43ajZABV4QdLvNASB
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_092148_708865_AF10C9CD 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20251006_092141_187885_18CED169 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,48 +82,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Clang's -dumpmachine outputs "aarch64-unknown-linux-gnu", which does not
-match the MultiArch convention. This prevents the build system from
-detecting installed packages.
+This series adds support for building perf with Clang, following the
+discussion in [1]. Because the Android NDK uses Clang by default,
+enabling Clang builds naturally covers Android as well.
 
-Fix by stripping the trailing '-' from CROSS_COMPILE when setting
-CROSS_ARCH.
+The series is organized as follows:
 
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+  - Patches 1~2: Fix two bugs found with Clang.
+  - Patches 3~7: Correct CROSS_ARCH, Disable thread safety analysis for
+                 perl header, and dismiss Clang build warnings.
+  - Patches 8~9: Enable Clang in the Makefile and update the
+                 documentation.
+
+Testing:
+
+Tested with linux-tools-container-builds [2], which based on Arnaldo's
+build test container but with several fixes for cross building with
+Clang:
+
+  - All clang native builds on x86_64 have passed.
+  - The cross builds for arm64/mips/mips64/mipsel/riscv64 have passed.
+
+Only a pity thing is I cannot build successfully with clang for
+ubuntu:20.04-x-powerpc64el (in below log, it only builds with GCC).
+The cross config does not work well on Ubuntu 20.04 due to failure
+"No gnu/libc-version.h found, please install glibc-dev[el]". I confirmed
+that powerpc64el cross build can make success on Ubuntu 24.04, the
+failure on Ubuntu 20.04 should not be caused by perf build.
+
+  Subject: tools build test for http://localhost/perf/perf-6.17.0-rc6.tar.xz 
+
+     1   201.44 alpine:3.16                   : Ok   gcc (Alpine 11.2.1_git20220219) 11.2.1 20220219 , Alpine clang version 13.0.1 flex 2.6.4
+     2   154.82 alpine:3.17                   : Ok   gcc (Alpine 12.2.1_git20220924-r4) 12.2.1 20220924 , Alpine clang version 15.0.7 flex 2.6.4
+     3   136.07 alpine:3.18                   : Ok   gcc (Alpine 12.2.1_git20220924-r10) 12.2.1 20220924 , Alpine clang version 16.0.6 flex 2.6.4
+     4   150.21 alpine:3.19                   : Ok   gcc (Alpine 13.2.1_git20231014) 13.2.1 20231014 , Alpine clang version 17.0.5 flex 2.6.4
+     5   143.50 alpine:3.20                   : Ok   gcc (Alpine 13.2.1_git20240309) 13.2.1 20240309 , Alpine clang version 17.0.6 flex 2.6.4
+     6   146.08 amazonlinux:2023              : Ok   gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5) , clang version 15.0.7 (AWS 15.0.7-3.amzn2023.0.4) flex 2.6.4
+     7   147.19 amazonlinux:devel             : Ok   gcc (GCC) 11.3.1 20221121 (Red Hat 11.3.1-4) , clang version 15.0.6 (Amazon Linux 15.0.6-3.amzn2023.0.2) flex 2.6.4
+     8   117.92 debian:11                     : Ok   gcc (Debian 10.2.1-6) 10.2.1 20210110 , Debian clang version 13.0.1-6~deb11u1 flex 2.6.4
+     9   121.54 debian:12                     : Ok   gcc (Debian 12.2.0-14+deb12u1) 12.2.0 , Debian clang version 14.0.6 flex 2.6.4
+    10   128.64 debian:experimental           : Ok   gcc (Debian 15.2.0-4) 15.2.0 , Debian clang version 19.1.7 (7) flex 2.6.4
+    11    96.47 debian:experimental-x-arm64   : Ok   aarch64-linux-gnu-gcc (Debian 15.2.0-4) 15.2.0 , Debian clang version 19.1.7 (7) flex 2.6.4
+    12    72.89 debian:experimental-x-mips    : Ok   mips-linux-gnu-gcc (Debian 14.2.0-13) 14.2.0 , Debian clang version 19.1.7 (7) flex 2.6.4
+    13    73.31 debian:experimental-x-mips64  : Ok   mips64-linux-gnuabi64-gcc (Debian 14.2.0-13) 14.2.0 , Debian clang version 19.1.7 (7) flex 2.6.4
+    14    71.69 debian:experimental-x-mipsel  : Ok   mipsel-linux-gnu-gcc (Debian 14.2.0-13) 14.2.0 , Debian clang version 19.1.7 (7) flex 2.6.4
+    15   151.92 fedora:35                     : Ok   gcc (GCC) 11.3.1 20220421 (Red Hat 11.3.1-3) , clang version 13.0.1 (Fedora 13.0.1-1.fc35) flex 2.6.4
+    16   146.99 fedora:36                     : Ok   gcc (GCC) 12.2.1 20221121 (Red Hat 12.2.1-4) , clang version 14.0.5 (Fedora 14.0.5-2.fc36) flex 2.6.4
+    17   139.58 fedora:37                     : Ok   gcc (GCC) 12.3.1 20230508 (Red Hat 12.3.1-1) , clang version 15.0.7 (Fedora 15.0.7-2.fc37) flex 2.6.4
+    18   142.00 fedora:38                     : Ok   gcc (GCC) 13.2.1 20240316 (Red Hat 13.2.1-7) , clang version 16.0.6 (Fedora 16.0.6-4.fc38) flex 2.6.4
+    19   140.18 fedora:39                     : Ok   gcc (GCC) 13.3.1 20240913 (Red Hat 13.3.1-3) , clang version 17.0.6 (Fedora 17.0.6-2.fc39) flex 2.6.4
+    20   139.38 fedora:40                     : Ok   gcc (GCC) 14.2.1 20240912 (Red Hat 14.2.1-3) , clang version 18.1.8 (Fedora 18.1.8-2.fc40) flex 2.6.4
+    21   136.26 fedora:41                     : Ok   gcc (GCC) 14.3.1 20250808 (Red Hat 14.3.1-3) , clang version 19.1.7 (Fedora 19.1.7-5.fc41) flex 2.6.4
+    22   135.38 fedora:42                     : Ok   gcc (GCC) 15.2.1 20250808 (Red Hat 15.2.1-1) , clang version 20.1.8 (Fedora 20.1.8-4.fc42) flex 2.6.4
+    23   127.55 fedora:rawhide                : Ok   gcc (GCC) 15.2.1 20250924 (Red Hat 15.2.1-2) , clang version 21.1.2 (Fedora 21.1.2-1.fc44) flex 2.6.4
+    24   180.17 opensuse:15.4                 : Ok   gcc (SUSE Linux) 7.5.0 , clang version 15.0.7 flex 2.6.4
+    25   169.40 opensuse:15.5                 : Ok   gcc (SUSE Linux) 7.5.0 , clang version 15.0.7 flex 2.6.4
+    26   167.36 opensuse:15.6                 : Ok   gcc (SUSE Linux) 7.5.0 , clang version 17.0.6 flex 2.6.4
+    27   154.82 opensuse:tumbleweed           : Ok   gcc (SUSE Linux) 15.2.0 , clang version 21.1.2 flex 2.6.4
+    28   145.89 oraclelinux:8                 : Ok   gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-28.0.1) , clang version 19.1.7 ( 19.1.7-2.module+el8.10.0+90583+7e562d96) flex 2.6.1
+    29   139.68 oraclelinux:9                 : Ok   gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5.0.1) , clang version 19.1.7 ( 19.1.7-2.el9) flex 2.6.4
+    30    40.17 ubuntu:20.04                  : Ok   gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0  flex 2.6.4
+    31    20.83 ubuntu:20.04-x-powerpc64el    : Ok   powerpc64le-linux-gnu-gcc (Ubuntu 10.5.0-1ubuntu1~20.04) 10.5.0  flex 2.6.4
+    32   127.75 ubuntu:22.04                  : Ok   gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0 , Ubuntu clang version 14.0.0-1ubuntu1.1 flex 2.6.4
+    33    92.25 ubuntu:22.04-x-riscv64        : Ok   riscv64-linux-gnu-gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0 , Ubuntu clang version 14.0.0-1ubuntu1.1 flex 2.6.4
+    34   126.64 ubuntu:24.04                  : Ok   gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0 , Ubuntu clang version 18.1.3 (1ubuntu1) flex 2.6.4
+    35   130.95 ubuntu:25.04                  : Ok   gcc (Ubuntu 14.2.0-19ubuntu2) 14.2.0 , Ubuntu clang version 20.1.2 (0ubuntu1) flex 2.6.4
+
+[1] https://lore.kernel.org/linux-perf-users/20240715143342.52236-1-leo.yan@arm.com/
+[2] https://github.com/Leo-Yan/linux-tools-container-builds/tree/fix-riscv64-cross-build
+
 ---
- tools/build/feature/Makefile | 2 +-
- tools/perf/Makefile.perf     | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+Changes in v3:
+- Fixed build failure with musl lib.
+- Disabled thread safety analysis for perl head.
+- Link to v2: https://lore.kernel.org/r/20250930-perf_build_android_ndk-v2-0-2ea440b7ef01@arm.com
 
-diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
-index bd615a708a0aa89ddbe87401f04bd736e384a9c4..214ccaee69181cce1f8e736b85c8dc940efa6c19 100644
---- a/tools/build/feature/Makefile
-+++ b/tools/build/feature/Makefile
-@@ -94,7 +94,7 @@ else
-   # paths are used instead.
-   ifdef CROSS_COMPILE
-     ifeq ($(PKG_CONFIG_LIBDIR)$(PKG_CONFIG_PATH)$(PKG_CONFIG_SYSROOT_DIR),)
--      CROSS_ARCH = $(shell $(CC) -dumpmachine)
-+      CROSS_ARCH = $(notdir $(CROSS_COMPILE:%-=%))
-       PKG_CONFIG_LIBDIR := /usr/local/$(CROSS_ARCH)/lib/pkgconfig/
-       PKG_CONFIG_LIBDIR := $(PKG_CONFIG_LIBDIR):/usr/local/lib/$(CROSS_ARCH)/pkgconfig/
-       PKG_CONFIG_LIBDIR := $(PKG_CONFIG_LIBDIR):/usr/lib/$(CROSS_ARCH)/pkgconfig/
-diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index e2150acc2c13325f93a2d5cd4a60b4a6bfeedc94..47bc9d8a91df90535408c427909bcb3f7cd50970 100644
---- a/tools/perf/Makefile.perf
-+++ b/tools/perf/Makefile.perf
-@@ -194,7 +194,7 @@ else
-   # paths are used instead.
-   ifdef CROSS_COMPILE
-     ifeq ($(PKG_CONFIG_LIBDIR)$(PKG_CONFIG_PATH)$(PKG_CONFIG_SYSROOT_DIR),)
--      CROSS_ARCH = $(shell $(CC) -dumpmachine)
-+      CROSS_ARCH = $(notdir $(CROSS_COMPILE:%-=%))
-       PKG_CONFIG_LIBDIR := /usr/local/$(CROSS_ARCH)/lib/pkgconfig/
-       PKG_CONFIG_LIBDIR := $(PKG_CONFIG_LIBDIR):/usr/local/lib/$(CROSS_ARCH)/pkgconfig/
-       PKG_CONFIG_LIBDIR := $(PKG_CONFIG_LIBDIR):/usr/lib/$(CROSS_ARCH)/pkgconfig/
+Changes in v2:
+- Dropped the patch for dismissing warning in bpftool.
+- Refined the document. (Ian)
+- Link to v1: https://lore.kernel.org/r/20250925-perf_build_android_ndk-v1-0-8b35aadde3dc@arm.com
 
+---
+Leo Yan (9):
+      tools build: Align warning options with perf
+      perf python: split Clang options when invoking Popen
+      perf build: Correct CROSS_ARCH for clang
+      perf build: Disable thread safety analysis for perl header
+      perf test coresight: Dismiss clang warning for memcpy thread
+      perf test coresight: Dismiss clang warning for thread loop
+      perf test coresight: Dismiss clang warning for unroll loop thread
+      perf build: Support build with clang
+      perf docs: Document building with Clang
+
+ tools/build/feature/Makefile                       |  6 +-
+ tools/perf/Documentation/Build.txt                 | 15 ++++
+ tools/perf/Documentation/android.txt               | 80 ++--------------------
+ tools/perf/Makefile.config                         | 33 ++++++++-
+ tools/perf/Makefile.perf                           |  2 +-
+ tools/perf/scripts/perl/Perf-Trace-Util/Build      |  2 +-
+ .../shell/coresight/memcpy_thread/memcpy_thread.c  |  2 +
+ .../shell/coresight/thread_loop/thread_loop.c      |  4 +-
+ .../unroll_loop_thread/unroll_loop_thread.c        |  4 +-
+ tools/perf/util/scripting-engines/Build            |  2 +-
+ tools/perf/util/setup.py                           |  5 +-
+ 11 files changed, 70 insertions(+), 85 deletions(-)
+---
+base-commit: c17dda8013495d8132c976cbf349be9949d0fbd1
+change-id: 20250915-perf_build_android_ndk-500b53bea895
+
+Best regards,
 -- 
-2.34.1
+Leo Yan <leo.yan@arm.com>
 
 
 _______________________________________________
