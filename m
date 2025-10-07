@@ -4,85 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15274CCA470
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Oct 2025 16:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F802CCA476
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Oct 2025 18:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YebR/94dEHX/Ij+ITPuDbyU+33HI4IAyoQVnkxb5PIM=; b=NHzfLxe+QQ69Vj
-	rtoJh+5PeDpA7SYBv4+9GxcOEzZK+jYfyGs/ui0XhgBafYuZDQh9/b1NVYyXGtnnSMRow3yMeG/XA
-	TVzDh+GxAfTyj0SNxovnmzkJn1rWoQWGEElnqVCX0A59/+TzicxpXZswkfsc3beWXYNm64jd5fZLk
-	/9rJNXHzBEcAAMTyBH2SKZchv2N4yZe/1HW7lda14HnD7wpVNOyviyBSbngepAgAxoluRmhnPhnQR
-	wsyNu+OefVXCGls2hfG+5rpXYAeaMhQY4Zn9EqJvT0nFifrsoa6lw3C1AxL+yO+5CwjQIyP4a5SOJ
-	iYPq2L+G3qt2bXup0Enw==;
+	List-Owner; bh=V17NV4F6WW+datRWQBNDDTzPh4LhexNfg0JMG1pn69A=; b=B8kQxa1CDUTi7D
+	ejLcaW3VhHe8Qy/ev4yQoW2JVPfuKlLtped1HZTin19doyArpQW5rgAfgJX+ml3gmxwA+hPWu7y6K
+	e3uFO2sEp9ts3mChEyhyV5wO1xcidht6f89ChEbOwh1S/L7SDDWUeUGAmcj+BIeZf54zJekico6Xq
+	oxMnfO4d8X92In+glD05cHpYTBxPX6/XthwWnxAV5H39rOeBvn6wNzRz2uGlIWAnfznAABHvXn0N/
+	GsvIbePp6ANB4H2+aqOp59TVCGVCGwTAkudfGgcr4Kzs3IOQgqa2DEbL7XXCMJMbOd1GZrOSuf0zE
+	118BlDfut1Zh1FIhs1CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Atp-00000002RF5-2A6E;
-	Tue, 07 Oct 2025 16:50:53 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Atm-00000002REO-3cMn
+	id 1v6C5D-00000002X1Y-2poN;
+	Tue, 07 Oct 2025 18:06:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v6C5A-00000002X0y-3YCX
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Oct 2025 16:50:51 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-57b8fc6097fso8584201e87.1
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Oct 2025 09:50:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759855848; x=1760460648; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qeZ4XDgQ6DyKwKqrcoC8/9t0LHZzFxjwDccZTjHFTaQ=;
-        b=NnbAA2upv/+vPJVmmVMvxMpcm8OK7h103HFekKagN6hu0vUkTUOgwcHx1RlAhq3Ene
-         mR63xd2OsIQZTHMLyB2KTPgDACLJ3ctNR38hKK92BGUh33CkCd8rLipCsT2wqI0H8F3k
-         YqSz05J0X7aZ6HnjK7xT//5PkLRV0UyAxjSzErEmAMiHsogdLVskvMRLcV5Moecob9Su
-         XSThB3BJt/CWaUgMLs9c7E3Zfmaw14YV6QQa2s2GpK94IgOjMBuet/JjlHHrrLpfce9s
-         ifbjw7AhRYxSfSpHvc/Fn16S2oRXk8ykJ0ckHHxsOYbH776fkUjCgJChHBi+LPpu1XMD
-         36sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759855848; x=1760460648;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qeZ4XDgQ6DyKwKqrcoC8/9t0LHZzFxjwDccZTjHFTaQ=;
-        b=sQTNKkCPkGBkyLSyrvxkadUqDO2JA7NTaEaAgkEpS8e9KTzCVaR2FrxzIeKU40xb5D
-         YiJWgNFFKlb6245GohY9MDP8vThDAhtngfLQB/q6oagOha9da1fvQotDV8SN1BB//RsZ
-         N/EgeMw+i2H+ebLs0LS1SEfd/iI55sibOLBuDCPIqJJVXyiNYuPTZkfp4IPokc9FkK60
-         yZIEhy4N/LNGAHA/eTlEswXckqZAM2s6v2/8+cb2qkxWwb24OcjMmVRpBKjpQyxCzG+n
-         69TyS/Sk6jASLfemFlPfqu6d0NgfnigYxzsFFNv+7TO4lCFkVlG4xAuNufO4C5+ObH+B
-         HZxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVywZyoeVBq385xrAM30F9q1xtQF2i5d5ldDSn2DEL29y+Y9YK/6xqzephrAEk3IcDNbWbm8kIPpeLx3Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpLGZCmy5BqBeaL+SAZ7lQi/RR+SsJH3ryChNB5jMjZ/LM09Bj
-	jwJFGPyvyktM7f3MxC/19Cm3SPpan3wZHausbqEbJ+vVAl5oQCXLH/lqnKY3zcu/oJwb+As+jGb
-	45YXehqe9fJX885fnCMFxfCJCdcnEIX9OnUiG3xDQ
-X-Gm-Gg: ASbGnctjCec5RBmMa8wFwDc5f13P8nTTiW1fTtrHRGv6cJ2H7AVYPInGv4C6bRu3pdQ
-	QXlFkjAYOElz//ZZQScM2PJzRMgsEMpXhlY+NxtWmsvsN27g28POBXXRYyvnA3SesHFQ2JaZbXf
-	L1I6gARgcnPtJp+3K9nHSY4aR+093FAGQumiDVYlpr72XkPNolONTa9/1/GtOx9rpw+xcYiNZWH
-	FH99dpPKmgBYhzP/1DrOEstTGJXiCAH8B1mbQ==
-X-Google-Smtp-Source: AGHT+IGlJgwQGEf0vzt0iuMqZ0Q/3B5wNSB8RlWM05q8qkhQUfszu75UfeZenkZMb/XBGK6avKY5JjXuhw+68Fb/I/g=
-X-Received: by 2002:a05:6512:3f02:b0:58c:787c:5f05 with SMTP id
- 2adb3069b0e04-5906dd7ada3mr121303e87.52.1759855846077; Tue, 07 Oct 2025
- 09:50:46 -0700 (PDT)
+	Tue, 07 Oct 2025 18:06:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ED742106F;
+	Tue,  7 Oct 2025 11:06:29 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A8823F738;
+	Tue,  7 Oct 2025 11:06:37 -0700 (PDT)
+Date: Tue, 7 Oct 2025 19:06:35 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	James Clark <james.clark@linaro.org>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, llvm@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 0/9] perf build: Support building with Clang
+Message-ID: <20251007180635.GB77665@e132581.arm.com>
+References: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
+ <aOQPeqqFn0yxgC4h@x1>
 MIME-Version: 1.0
-References: <20250724213130.3374922-1-dmatlack@google.com> <CALzav=c0Wgcc60_dGJuYffS3f3vD9mpdSjFguaE00L1Zr-YcbA@mail.gmail.com>
- <aOVCmIu0Dv7vJ0M5@google.com>
-In-Reply-To: <aOVCmIu0Dv7vJ0M5@google.com>
-From: David Matlack <dmatlack@google.com>
-Date: Tue, 7 Oct 2025 09:50:18 -0700
-X-Gm-Features: AS18NWCMTjd5Ianir1w6T399jrV8GYXPXDvKsIysDv-DtdU6jZCzve4cer1YDyc
-Message-ID: <CALzav=dH4F0_pXTBSkQDMiog2Y-=7VVyHYUW4s01uySaLY=XKg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] KVM: selftests: Use $(SRCARCH) and share
- definition with top-level Makefile
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Muhammad Usama Anjum <usama.anjum@collabora.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <aOQPeqqFn0yxgC4h@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_095050_903400_92814368 
-X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-CacheID: sfid-20251007_110640_923271_0525847C 
+X-CRM114-Status: UNSURE (   8.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,18 +71,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBPY3QgNywgMjAyNSBhdCA5OjQw4oCvQU0gU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2Vh
-bmpjQGdvb2dsZS5jb20+IHdyb3RlOgo+IE9uIE1vbiwgU2VwIDE1LCAyMDI1LCBEYXZpZCBNYXRs
-YWNrIHdyb3RlOgo+ID4gR29vZ2xlJ3Mga2VybmVsIGJ1aWxkIHRvb2xzIHVuY29uZGl0aW9uYWxs
-eSBzZXQgQVJDSD14ODZfNjQgd2hlbgo+ID4gYnVpbGRpbmcgc2VsZnRlc3RzLCB3aGljaCBjYXVz
-ZXMgdGhlIEtWTSBzZWxmdGVzdHMgdG8gZmFpbCB0byBidWlsZC4KPgo+IEknbSBwcmV0dHkgc3Vy
-ZSB3ZSBjYW4gc2ltcGx5IG92ZXJyaWRlIHRoZSB1c2VyLiAgRG9lcyB0aGlzIGZpeCB0aGluZ3Mg
-b24geW91cgo+IGVuZD8KClllcywgdGhhdCBhbHNvIHdvcmtzLgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, Oct 06, 2025 at 03:50:34PM -0300, Arnaldo Carvalho de Melo wrote:
+
+[...]
+
+> I shed a tear ;-)
+> 
+> And thanks for fixing the ubuntu cross builds, I'll apply those patches
+> you made available thru github,
+> 
+> Thanks a lot!
+
+You are very welcome! And very appreciate you shared build container
+scripts, this would be a big benefit for CI test! (I have enabled the
+test on my local machine and works pretty well).
+
+Thanks,
+Leo
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
