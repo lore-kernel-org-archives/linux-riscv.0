@@ -4,113 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6903FCAC5B8
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Oct 2025 01:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFF2CCA471
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Oct 2025 02:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rtUObSYG0ZMVFaV+ohKs7K2Ldz89fEKjJeLPUVCz7Mg=; b=vJmtpXG2u8gyXj
-	M0jR0m8bHyjqpxB7Uo/WdziDaS2Xtn7q/vqjYtb6+OzL+yHvDnd80sK1P0DzDYNCfGQEpGM5kDZAH
-	h81MljKb1AS09KEDsdaXXSrmxBgdBAsjGNc5qau2cBAMJQkiXCCMtZcfd3lUXcRM4+WtdJ8rbRIc0
-	ZxYAw/6hMJh31WZRgVo/eEA/Z/ViepEpzbh2suYMEnU2UoqBwv+FsxMIQlrqi8Ada9IakN18Kl11V
-	314/U7Ya0eqxeYbsKNMEjpletVugnyrEkSDERzENh2VHBVOzN+OJhmkRv0rqgUKWKfnZjfAdHkkFt
-	9h92BaMNbtaCJBl5f67g==;
+	List-Owner; bh=XYNjhR23PXtzhja2HzUDHR0An5F/NNtZ03zgIn0ALGc=; b=FQuv5WW9yTjSyA
+	4bTpheWiFrsFAI3AIRnHlfjVF6snRQYprEjHAy3MUMR/CuM5+exrxeZgp/eKv8XRJUPWQrjxqh8WY
+	c2Ily0PYDucgSKTAHfdcdevFv1yGOBFMAXDfnHUR59fNwDw460CO6jJ1D6ShblRml9E0vwc6PiEoc
+	ECyinokg/kO12lTs43Ctk1E65r0gpUXgjL6WnkGG8CRQBSAKkZhVPtC8H0miwwvSbvRvr3BN+SS4l
+	Jk4cAV/EOdju/tbDuO1RF89fQ6wwrDBgB8gKaEa5CIafku213k+i2JJ0gvCmBHQiHdfv038khfhBo
+	OZLoVoIjkGT7AeyMv4/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5wNw-0000000178Y-2na3;
-	Tue, 07 Oct 2025 01:21:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v5xsD-00000001Be5-3hXC;
+	Tue, 07 Oct 2025 02:56:21 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5wNv-0000000178S-0xsu
+	id 1v5xsA-00000001Bdm-3P1e
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Oct 2025 01:20:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 66512611BF;
-	Tue,  7 Oct 2025 01:20:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CADCC4CEF5;
-	Tue,  7 Oct 2025 01:20:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759800058;
-	bh=z2OIZVGrfNYJFBLxaviY6hKGuzZEUsZaV7GBFKxpQ+Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RBAJOGogbZ3xnvquR7gtzxVmCQ4/WFAXOS+W7cbJJ6+BpgdAKQMm83B/vu3JRgg+t
-	 SvpklJY0bY/ip4cNjy/gnCt5kUA4tiyj0cjhBOFUQQUlwm0ztR5VOgeDid+NAd1cKt
-	 h6bgPf/Grx/A2QflsHE4ulmWw9CWV7v76zpMQM8WvT7lsTcDgkBjPZAQUqKu/Lxq7y
-	 REm39AmaRGoXVqQEdqUYknNluX82/CllOHhnMH86TAr0zAYSYNbT7hLTcqs2cFBkQH
-	 4Haa9M+Q4Y5+2m8zbBFaopoHebrkYOAEZA4TJzq/Gyo9Aa4tNM3sz5QkQqn4+R4q5V
-	 +fWuWcoIYpfzQ==
-Message-ID: <a05be32b-dc8f-444f-8c1c-2d49eb19536d@kernel.org>
-Date: Tue, 7 Oct 2025 10:20:43 +0900
+	Tue, 07 Oct 2025 02:56:20 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-635355713d9so6148000d50.3
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Oct 2025 19:56:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1759805777; x=1760410577; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=fuFAPKshWl//JiXRjMB35HbsTIfb2+26+cuu4EjKaKg=;
+        b=hYTl7sKhuewMd6uCyqYuP0NKFDi+6l7/HVJ/2BH5BLKIvcZNOgL18EWr8rDREoLcrS
+         +Qy+bh4HP3d/DueeE/fh4QxS8blmoZC2NUqkQ4hyRC3yO9LrJh4psN/3MYaMUW6Tb12N
+         sYtdlsZEAJNxyYkVIPxgToFkAMvsioqSPep8jvyKfiWgpBM5WXVJD4iuU2Xx7PmLbSkD
+         thkYu0XZ48vlavZB5mAohvlpe4MgqrMDsyu7PwixkSFxdt1/3VmZN3I6a8RUaGTTd5n4
+         M7NB4IM3s2p4dphrDyBExu56HssrbZAXVCaRX9P7TnI6U5tEGLIjHMZsvYXMYaQmlkC4
+         ipVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759805777; x=1760410577;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fuFAPKshWl//JiXRjMB35HbsTIfb2+26+cuu4EjKaKg=;
+        b=CC5NAd8+vWXC7nFfIuQf2Kj3Var7IUkoXHlCy5YRmbIrjy1qad6WTeQzUEY/x3b92X
+         6TBjyJ6eAD/LPlKlBaJVpL78yyXE6/gCUtaNthq03rdo0FkONfVjNX+A6q66xjVsvPY6
+         +ndCY5SK/8ZA/nCTF6b+sA2YsxoAHkHj4+/m/tBh1iBSPYJ7YKLVIa+PfP7CG7uFRji5
+         lRjgJHbDLzsubLelFKbZx89mOmB88gGEjTCEQ5GmARm4hVCHwmSzuSCFXWaI7QKV0odd
+         cSYY36wuXlFBITgfoJp9ggk+p8YiUq9xqUirpnlboJhl05+QA+kRQBgblZuORiScZMDe
+         c3pw==
+X-Forwarded-Encrypted: i=1; AJvYcCWxz1TsOprDqXbsSg17KpBPcKzk/RkB+/n0YpS0PZ61ZtRFSVpwBTX7jHzgkp6WPdW7VDr6hpODuY25PA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjifX1YfzFinRes5jm7/stsaXrLqZGnJke+HiWtpW76SWieLAW
+	OYVe0ShqyepMB1SEysheiAlbys/Xnlnbuotld0ptgHyPj2ERe5aYcGd5LJ9DqJcrM/7hylVT3B9
+	HzH9t+Sf1ZPmr+D6QDXb3hW7B+2cda3RovPWr3AXmhg==
+X-Gm-Gg: ASbGnctu4OtQVySFvSIqgb1tOwfAVzDgcz+gZC/xW/wxtDj2mAm7X9ooPPO6ghm7qTW
+	rGe79GrVlom+mLcfVRxRKWAIPJ8Y8EHuW08wc7vnOsLc0eJ/8DGPPE5ijGRRDit4wvljIhwHbI4
+	A6u99CJWx2a7OrQD52suLrfmSY9MJimbuYQP6E75ZjnCRvTf5c6280AtrkibqQN5oJH4bCJqZSj
+	odO5dBAIwuytWRC2Y26vnAB4t0v418=
+X-Google-Smtp-Source: AGHT+IGiL5ZbUyw4GIm1wEiPzbvi0bFG0G6zf6Qg7uBuzVV7lluUj++swICMyX/mIRT04h7owb9dsBoqFDjT19u1Wdo=
+X-Received: by 2002:a53:a090:0:b0:635:4ecd:75a5 with SMTP id
+ 956f58d0204a3-63b9a107b85mr10946438d50.51.1759805777473; Mon, 06 Oct 2025
+ 19:56:17 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/8] riscv: dts: Add Tenstorrent Blackhole SoC PCIe
- cards
-To: Drew Fustini <fustini@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Samuel Holland <samuel.holland@sifive.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Anup Patel <anup@brainfault.org>,
- Arnd Bergmann <arnd@arndb.de>, Joel Stanley <jms@oss.tenstorrent.com>,
- Joel Stanley <joel@jms.id.au>, Michael Neuling <mikey@neuling.org>,
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@kernel.org>,
- Andy Gross <agross@kernel.org>,
- Anirudh Srinivasan <asrinivasan@tenstorrent.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Drew Fustini <dfustini@oss.tenstorrent.com>
 References: <20251006-tt-bh-dts-v2-0-ed90dc4b3e22@oss.tenstorrent.com>
- <20251006-tt-bh-dts-v2-6-ed90dc4b3e22@oss.tenstorrent.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251006-tt-bh-dts-v2-6-ed90dc4b3e22@oss.tenstorrent.com>
+ <20251006-tt-bh-dts-v2-6-ed90dc4b3e22@oss.tenstorrent.com> <a05be32b-dc8f-444f-8c1c-2d49eb19536d@kernel.org>
+In-Reply-To: <a05be32b-dc8f-444f-8c1c-2d49eb19536d@kernel.org>
+From: Joel Stanley <jms@tenstorrent.com>
+Date: Tue, 7 Oct 2025 13:26:01 +1030
+X-Gm-Features: AS18NWDhncaNX_AgRBWrUJDmiFjfXWDY84NNzl_Nu5rdMYVHwC56fOAaV3Fa3Jw
+Message-ID: <CAM3sHeBweq285Mwqzwd7no3zwzoosRgsHkunnVkYSgHyh37eAw@mail.gmail.com>
+Subject: Re: [PATCH v2 6/8] riscv: dts: Add Tenstorrent Blackhole SoC PCIe cards
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Drew Fustini <fustini@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Samuel Holland <samuel.holland@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Anup Patel <anup@brainfault.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Joel Stanley <joel@jms.id.au>, Michael Neuling <mikey@neuling.org>, Nicholas Piggin <npiggin@gmail.com>, 
+	Michael Ellerman <mpe@kernel.org>, Andy Gross <agross@kernel.org>, 
+	Anirudh Srinivasan <asrinivasan@tenstorrent.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Drew Fustini <dfustini@oss.tenstorrent.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251006_195618_853785_0986E458 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,139 +104,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/10/2025 06:21, Drew Fustini wrote:
-> From: Drew Fustini <dfustini@oss.tenstorrent.com>
-> 
-> Add device tree source describing the Tenstorrent Blackhole SoC and the
-> Blackhole P100 and P150 PCIe cards. There are no differences between
-> the P100 and P150 cards from the perspective of an OS kernel like Linux
-> running on the X280 cores.
-> 
-> Link: https://github.com/tenstorrent/tt-isa-documentation/blob/main/BlackholeA0/
-> Signed-off-by: Drew Fustini <dfustini@oss.tenstorrent.com>
-> ---
->  MAINTAINERS                                        |   1 +
->  arch/riscv/boot/dts/Makefile                       |   1 +
->  arch/riscv/boot/dts/tenstorrent/Makefile           |   2 +
->  arch/riscv/boot/dts/tenstorrent/blackhole-card.dts |  14 +++
->  arch/riscv/boot/dts/tenstorrent/blackhole.dtsi     | 104 +++++++++++++++++++++
->  5 files changed, 122 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 125b5498c3bf8e689adc665fc6e975b05a484abf..b3a2a347f835da952c33b0faf09d560eb1285c32 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -21748,6 +21748,7 @@ L:	linux-riscv@lists.infradead.org
->  S:	Maintained
->  T:	git https://github.com/tenstorrent/linux.git
->  F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
-> +F:	arch/riscv/boot/dts/tenstorrent/
->  
->  RISC-V THEAD SoC SUPPORT
->  M:	Drew Fustini <fustini@kernel.org>
-> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-> index 3b99e91efa25be2d6ca5bc173342c24a72f87187..0624199867065dbb5eb62d660f950b4aa3a7abd7 100644
-> --- a/arch/riscv/boot/dts/Makefile
-> +++ b/arch/riscv/boot/dts/Makefile
-> @@ -8,4 +8,5 @@ subdir-y += sifive
->  subdir-y += sophgo
->  subdir-y += spacemit
->  subdir-y += starfive
-> +subdir-y += tenstorrent
->  subdir-y += thead
-> diff --git a/arch/riscv/boot/dts/tenstorrent/Makefile b/arch/riscv/boot/dts/tenstorrent/Makefile
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..2c81faaba46235821470b077392ebfebd37ef55a
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/tenstorrent/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_ARCH_TENSTORRENT) += blackhole-card.dtb
-> diff --git a/arch/riscv/boot/dts/tenstorrent/blackhole-card.dts b/arch/riscv/boot/dts/tenstorrent/blackhole-card.dts
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..c595f7eddcf860d18193d6b18eb4fd1c0c6c684d
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/tenstorrent/blackhole-card.dts
-> @@ -0,0 +1,14 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/dts-v1/;
-> +
-> +#include "blackhole.dtsi"
-> +
-> +/ {
-> +	model = "Tenstorrent Blackhole SoC PCIe card";
-> +	compatible = "tenstorrent,blackhole-card", "tenstorrent,blackhole";
-> +
-> +	memory@400030000000 {
-> +		device_type = "memory";
-> +		reg = <0x4000 0x30000000 0x1 0x00000000>;
-> +	};
-> +};
-> diff --git a/arch/riscv/boot/dts/tenstorrent/blackhole.dtsi b/arch/riscv/boot/dts/tenstorrent/blackhole.dtsi
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..dc6ac953c34b1efeec231b339251058fac5172d5
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/tenstorrent/blackhole.dtsi
-> @@ -0,0 +1,104 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +// Copyright 2025 Tenstorrent AI ULC
-> +/dts-v1/;
-> +
-> +/ {
-> +	compatible = "tenstorrent,blackhole";
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	cpus {
-> +		#address-cells = <0x1>;
-> +		#size-cells = <0x0>;
+On Tue, 7 Oct 2025 at 11:50, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> You should have at least serial or any other interface, otherwise I
+> don't see how this can be used at this stage.
 
-Cells are not hex. Please use decimal everywhere.
+If you read the cover letter it explains how it is used:
 
-> +		timebase-frequency = <50000000>;
-> +
-> +		cpu@0 {
-> +			compatible = "sifive,x280", "sifive,rocket0", "riscv";
-> +			device_type = "cpu";
-> +			reg = <0>;
-> +			mmu-type = "riscv,sv57";
-> +			riscv,isa-base = "rv64i";
-> +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicsr",
-> +					       "zifencei", "zfh", "zba", "zbb", "sscofpmf";
-
-Blank line
-
-> +			cpu0_intc: interrupt-controller {
-> +				compatible = "riscv,cpu-intc";
-> +				#interrupt-cells = <1>;
-> +				interrupt-controller;
-> +			};
-> +		};
-
-
-...
-
-> +
-> +		plic0: interrupt-controller@c000000 {
-> +			compatible = "tenstorrent,blackhole-plic", "sifive,plic-1.0.0";
-> +			reg = <0x0 0x0c000000 0x0 0x04000000>;
-> +			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>,
-> +					      <&cpu1_intc 11>, <&cpu1_intc 9>,
-> +					      <&cpu2_intc 11>, <&cpu2_intc 9>,
-> +					      <&cpu3_intc 11>, <&cpu3_intc 9>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <1>;
-> +			#address-cells = <0>;
-> +			riscv,ndev = <128>;
-
-
-
-You should have at least serial or any other interface, otherwise I
-don't see how this can be used at this stage.
-
-
-Best regards,
-Krzysztof
+ > The HVC SBI console is sufficient for boot testing.
 
 _______________________________________________
 linux-riscv mailing list
