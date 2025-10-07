@@ -4,99 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71992CCA476
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Oct 2025 07:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8911DCCA476
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Oct 2025 09:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z7L7JjMA5ea54YVqozBHcUFsCaGHBT5zEsekfNl09IE=; b=UrDvxukgdpvKB1
-	GvuzUbODC38Rrs1bsIsPDtv7R7j2tSjhQw3mhVBPJl4nGRZ4yEjFB8PXNXjAuzo3gXbnJ/1yh9azh
-	V0c1kM4hOxVUjGV1mdjgfIsEf0VLv61kwvIRo53JmLziYUTtbvWt5YA+e+Y4K/CMI1z9NJWjHebeb
-	W4JuaoiOFKt+4uDS+0kmaxyjU65VFSxele8ARCOgn8p6O3a+7cboV4zNmlST0oqmpr829/yPb5Ekf
-	hQONFujCZsJjfU3Ic0ZZHyQAJewYXQXnONEFx9Bjy5WXP5Sf1xNKijz62ur/LtkHZxHhBnzU7YPqr
-	gEaHNIO6eH9uTjWEt5jg==;
+	List-Owner; bh=QKHvHy7tUAHAVoQPbOIGGShCGMTnnhSjXUWKAiQwNpc=; b=cZOTND+ZTxG0W8
+	KidomZFzyyaXI43ChsI1HEtjkk+RGDcmQyGtwytcbEcgmAG2YUhjemYYNne3+PYBRriKvk4l0hC8I
+	t4Nvmsv38q3uzXNt1BlYeic24Sjm0ZnRuVGPgJXiyYB6CtzzbM9TSXpbx4YmdCd/ZpnFTj/tttAek
+	rntoXSJ7Wvy4shQtI3YSxJ7IECB8sEdEK6mj7aVPTm64N2u1cKW/+3cFfM9I2MHiQFXipY2CEDoUe
+	h+iQ+1r7dsLwTKzF1u/4bSYXy6Fq3Is3mbsLBQDiYFtt/Vpfhydf5vWDwyO5+C+MsPih/UfjIcrgF
+	naSqo6whgWcDQaOQgxAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v62TQ-00000001T2Y-0vSk;
-	Tue, 07 Oct 2025 07:51:04 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1v64RD-00000001knZ-1bvw;
+	Tue, 07 Oct 2025 09:56:55 +0000
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v62TM-00000001T1p-36Q4
+	id 1v64R9-00000001klS-37Wb
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Oct 2025 07:51:02 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-32ed19ce5a3so5609525a91.0
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Oct 2025 00:51:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759823460; x=1760428260; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dhnA09TQ8hNY3ByOHoJEkbXhSQQgNq2Hl9f2lCZ+3kA=;
-        b=Ejj0wl2k0AVM4JATZUhXxYes2iCRTG7y0GOihFuZGJdQLdkAcJlSZij78kCR8T9LcG
-         4s8JXBWsjdnN9l7hwiso0hF1IPv/r1dzCRGVykBGzjHbtzURJAraLtOz+Ss7VNb6lfvF
-         vZn95k35bKpBHG1hOjbICqaLCgw9T6oW4HK4yDx1bYL7Zcjyu+ehYCU9m2astm9MiG7f
-         CjF1voq8Rvg3gHjPddfLlviJ5LU2fCdw0NlOUzFUnNMFcTBQcr5UeQkLUtpDt7f+yYc+
-         Msjtg5EpjTnWqQOhj0to31zzJKRQRrrihktxrd/6///zlXvOGvnre/da2TSoQDiOz7/+
-         yB+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759823460; x=1760428260;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dhnA09TQ8hNY3ByOHoJEkbXhSQQgNq2Hl9f2lCZ+3kA=;
-        b=xDQGGop+SK5CwsrEITXGf10LVYZ8z/2xhPZLWEjWbFH9cOpzjDgyf1/JS2N8GBYGXc
-         pG6sjRlAZqKvoymN/7SYxQOi1GAm2Z9KJ0skTNwABp+xLYVxBj623WEowPa2nsJlHh+6
-         4HG4cC5Igi17yLxCIhEsl/m/NXXRpAd+m3HD7JMzv1RtPDctXghYDp/ZoxOVrr+HqPMb
-         O6LFz1xFPbA9sBgqj50cZ/XHPXPNS8khdQhRZ9P4LNds8qGdr5vizOiP53epfmTugmUi
-         BrLulOzi6k3446ozsUbSgdAN3sfDavsPO/TfdIf7suZvIv6CHXmOKS1xOShuLfs6HYfo
-         Uzcw==
-X-Forwarded-Encrypted: i=1; AJvYcCUmIBgEwRzn6iXWWYTsTbC3EcPpBSwN0ILgmUjRhKCTL8NvxPP0fSi5Hk3jc0UnKzfTXCglkfXdVfF+xg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywv4yHgAAQhzrkonHnqQJCp6d5goC6jrj2cvl6HHmboWfPoM7Jr
-	CYj50jzfYbg18y+SwYKJtPHIs3SPeE24Hw6NFL7gOTpHnaYO0R33015u
-X-Gm-Gg: ASbGncuTNelsjXsNVg3Fby/RT6+6QeP6uowjaOev7D5slp+aFDEIeHfsbaU+9G0+eTU
-	RBPBguqxR9IldzHx+ZivlBgTFy/1hZy2Zhq4lgSB5bDUTfEF5DyK7984WRzqBjv5o/n3u2SlKH7
-	waJdyx49bc7FKswJUEjHvXd0Y1UqVqt5NESgkeqdXuTiywqYG8sLqsHYAQbKkdOr8jtMuU1Tlp+
-	dj81bU8y+1x2kktlHMEs/xyOioLWLNHspbLvWA+xbu5byfv4JVDhvnuYxf/KHoSwYAOHL/8FQk+
-	SCnC9qSgyQvO7uZGMHay3NTO9ij5q0x9JoegGJZvJCvI5OFaFWMAeAIYiaQwp9ycAVVyO9TsNjo
-	BM9g+YZT5PVlXkT/5JREw6i1nHLLdMug4dCHhdpplhMiXAwPW
-X-Google-Smtp-Source: AGHT+IG905MGBQ32Ub4ShnX9AGf28crwYHhnuKiGoa/Yd7ia0xUTqXMWebVlHOFKhP/du1dc9C6gAw==
-X-Received: by 2002:a17:90b:1f89:b0:32e:96b1:fb70 with SMTP id 98e67ed59e1d1-339c2720c9fmr21575430a91.12.1759823459801;
-        Tue, 07 Oct 2025 00:50:59 -0700 (PDT)
-Received: from [192.168.0.13] ([172.92.174.155])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-339c4a68deasm13196357a91.25.2025.10.07.00.50.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Oct 2025 00:50:59 -0700 (PDT)
-Message-ID: <9422ba89-a6ba-4168-98a1-6d4275698430@gmail.com>
-Date: Tue, 7 Oct 2025 00:49:42 -0700
+	Tue, 07 Oct 2025 09:56:53 +0000
+Received: from [10.73.18.150] (static-68-235-38-18.cust.tzulo.com [68.235.38.18])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id BE002B220130;
+	Tue,  7 Oct 2025 11:56:43 +0200 (CEST)
+Message-ID: <24f6e545-5c56-4a20-9a1f-7ad2905165f3@freeshell.de>
+Date: Tue, 7 Oct 2025 02:56:41 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/11] rvtrace: Add trace ramsink driver
-To: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v2 2/2] riscv: dts: starfive: add DT for Orange Pi RV
+To: Icenowy Zheng <uwu@icenowy.me>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Greg KH <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Ian Rogers <irogers@google.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>,
- Peter Zijlstra <peterz@infradead.org>, Anup Patel <anup@brainfault.org>,
- Adrian Hunter <adrian.hunter@intel.com>, linux-kernel@vger.kernel.org,
- Mayuresh Chitale <mchitale@ventanamicro.com>, Ingo Molnar
- <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>,
- Mayuresh Chitale <mchitale@gmail.com>, Namhyung Kim <namhyung@kernel.org>,
- linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>,
- Liang Kan <kan.liang@linux.intel.com>
-References: <20251002060732.100213-1-apatel@ventanamicro.com>
- <20251002060732.100213-8-apatel@ventanamicro.com>
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
+ Michael Zhu <michael.zhu@starfivetech.com>,
+ Drew Fustini <drew@beagleboard.org>, Yao Zi <ziyao@disroot.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250930100318.2131968-1-uwu@icenowy.me>
+ <20250930100318.2131968-2-uwu@icenowy.me>
+ <579dad6b4ab0c981b8d51383af2db3a9f4394609.camel@icenowy.me>
+ <b8db0cdf-163e-416d-94b8-c9e1f10c8011@freeshell.de>
+ <2e6ce092996f2717bc274e1c82873c42b2ab18ce.camel@icenowy.me>
 Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20251002060732.100213-8-apatel@ventanamicro.com>
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <2e6ce092996f2717bc274e1c82873c42b2ab18ce.camel@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_005100_899729_8A765FC4 
-X-CRM114-Status: GOOD (  28.71  )
+X-CRM114-CacheID: sfid-20251007_025651_932331_0BA4BD98 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,270 +67,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/1/25 23:07, Anup Patel wrote:
-> From: Mayuresh Chitale <mchitale@ventanamicro.com>
-> 
-> Add initial implementation of RISC-V trace ramsink driver. The ramsink
-> is defined in the RISC-V Trace Control Interface specification.
-> 
-> Co-developed-by: Anup Patel <apatel@ventanamicro.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-> ---
->   drivers/hwtracing/rvtrace/Kconfig           |   8 +
->   drivers/hwtracing/rvtrace/Makefile          |   1 +
->   drivers/hwtracing/rvtrace/rvtrace-ramsink.c | 198 ++++++++++++++++++++
->   3 files changed, 207 insertions(+)
->   create mode 100644 drivers/hwtracing/rvtrace/rvtrace-ramsink.c
-> 
-> diff --git a/drivers/hwtracing/rvtrace/Kconfig b/drivers/hwtracing/rvtrace/Kconfig
-> index ba35c05f3f54..aef7e9989165 100644
-> --- a/drivers/hwtracing/rvtrace/Kconfig
-> +++ b/drivers/hwtracing/rvtrace/Kconfig
-> @@ -21,3 +21,11 @@ config RVTRACE_ENCODER
->   	default y
->   	help
->   	  This driver provides support for RISC-V Trace Encoder component.
-> +
-> +config RVTRACE_RAMSINK
-> +	tristate "RISC-V Trace Ramsink driver"
-> +	depends on RVTRACE
-> +	default y
-> +	help
-> +	  This driver provides support for Risc-V E-Trace Ramsink
-> +	  component.
-> diff --git a/drivers/hwtracing/rvtrace/Makefile b/drivers/hwtracing/rvtrace/Makefile
-> index f320693a1fc5..122e575da9fb 100644
-> --- a/drivers/hwtracing/rvtrace/Makefile
-> +++ b/drivers/hwtracing/rvtrace/Makefile
-> @@ -3,3 +3,4 @@
->   obj-$(CONFIG_RVTRACE) += rvtrace.o
->   rvtrace-y := rvtrace-core.o rvtrace-platform.o
->   obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
-> +obj-$(CONFIG_RVTRACE_RAMSINK) += rvtrace-ramsink.o
-> diff --git a/drivers/hwtracing/rvtrace/rvtrace-ramsink.c b/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
-> new file mode 100644
-> index 000000000000..7bd0cf1e4dfd
-> --- /dev/null
-> +++ b/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
-> @@ -0,0 +1,198 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2025 Ventana Micro Systems Inc.
-> + */
-> +
-> +#include <linux/device.h>
-> +#include <linux/io.h>
-> +#include <linux/of.h>
-> +#include <linux/of_graph.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/dma-mapping.h>
-> +#include <linux/rvtrace.h>
-> +#include <linux/types.h>
-> +#include <linux/sizes.h>
-> +
-> +#define RVTRACE_RAMSINK_STARTLOW_OFF		0x010
-> +#define RVTRACE_RAMSINK_STARTHIGH_OFF		0x014
-> +#define RVTRACE_RAMSINK_LIMITLOW_OFF		0x018
-> +#define RVTRACE_RAMSINK_LIMITHIGH_OFF		0x01c
-> +#define RVTRACE_RAMSINK_WPLOW_OFF		0x020
-> +#define RVTRACE_RAMSINK_WPHIGH_OFF		0x024
-> +#define RVTRACE_RAMSINK_RPLOW_OFF		0x028
-> +#define RVTRACE_RAMSINK_RPHIGH_OFF		0x02c
-> +
-> +struct rvtrace_ramsink_priv {
-> +	size_t size;
-> +	void *va;
-> +	dma_addr_t start;
-> +	dma_addr_t end;
-> +	/* WP from prev iteration */
-> +	dma_addr_t prev_head;
-> +};
-> +
-> +struct trace_buf {
-> +	void *base;
-> +	size_t size;
-> +	int cur, len;
-> +};
-> +
-> +static void tbuf_to_pbuf_copy(struct trace_buf *src, struct trace_buf *dst)
-> +{
-> +	int bytes_dst, bytes_src, bytes;
-> +	void *dst_addr, *src_addr;
-> +
-> +	while (src->size) {
-> +		src_addr = src->base + src->cur;
-> +		dst_addr = dst->base + dst->cur;
-> +
-> +		if (dst->len - dst->cur < src->size)
-> +			bytes_dst = dst->len - dst->cur;
-> +		else
-> +			bytes_dst = src->size;
-> +		if (src->len - src->cur < src->size)
-> +			bytes_src = src->len - src->cur;
-> +		else
-> +			bytes_src = src->size;
-> +		bytes = bytes_dst < bytes_src ? bytes_dst : bytes_src;
-> +		memcpy(dst_addr, src_addr, bytes);
-> +		dst->cur = (dst->cur + bytes) % dst->len;
-> +		src->cur = (src->cur + bytes) % src->len;
-> +		src->size -= bytes;
-> +	}
-> +}
-> +
-> +static size_t rvtrace_ramsink_copyto_auxbuf(struct rvtrace_component *comp,
-> +					    struct rvtrace_perf_auxbuf *buf)
-> +{
-> +	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
-> +	struct trace_buf src, dst;
-> +	u32 wp_low, wp_high;
-> +	u64 buf_cur_head;
-> +	size_t size;
-> +
-> +	wp_low = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_WPLOW_OFF);
-> +	wp_high = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_WPHIGH_OFF);
-> +	buf_cur_head = (u64)(wp_high) << 32 | wp_low;
-> +
-> +	if (buf_cur_head == priv->prev_head)
-> +		return 0;
-> +
-> +	dst.base = buf->base;
-> +	dst.len = buf->length;
-> +	dst.cur = buf->pos;
-> +	dst.size = 0;
-> +
-> +	src.base = priv->va;
-> +	src.len = priv->end - priv->start;
-> +	if (buf_cur_head > priv->prev_head) {
-> +		src.size = buf_cur_head - priv->prev_head;
-> +	} else {
-> +		src.size = priv->end - priv->prev_head;
-> +		src.size += buf_cur_head - priv->start;
-> +	}
-> +
-> +	src.cur = buf_cur_head - priv->start;
-> +	size = src.size;
-> +	tbuf_to_pbuf_copy(&src, &dst);
-> +	buf->pos = dst.cur;
-> +	priv->prev_head = buf_cur_head;
-> +
-> +	return size;
-> +}
-> +
-> +static int rvtrace_ramsink_setup(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_ramsink_priv *priv;
-> +
-> +	priv = devm_kzalloc(&comp->dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +	dev_set_drvdata(&comp->dev, priv);
-> +
-> +	priv->size = SZ_4M;
-Can we make this size dynamically determined? 4M seems inadequate. This is
-exceedingly so if the RAM sink is linked to a funnel, where you can have
-many harts dumping traces into this sink.
-
-> +	priv->va = dma_alloc_coherent(&comp->dev, priv->size, &priv->start, GFP_KERNEL);
-> +	if (!priv->va)
-> +		return -ENOMEM;
-> +	priv->end = priv->start + priv->size;
-> +	priv->prev_head = priv->start;
-> +
-> +	/* Setup ram sink addresses */
-> +	rvtrace_write32(comp->pdata, lower_32_bits(priv->start), RVTRACE_RAMSINK_STARTLOW_OFF);
-> +	rvtrace_write32(comp->pdata, upper_32_bits(priv->start), RVTRACE_RAMSINK_STARTHIGH_OFF);
-> +	rvtrace_write32(comp->pdata, lower_32_bits(priv->start), RVTRACE_RAMSINK_WPLOW_OFF);
-> +	rvtrace_write32(comp->pdata, upper_32_bits(priv->start), RVTRACE_RAMSINK_WPHIGH_OFF);
-> +	/* Limit address needs to be set to end - 4 so that HW doesn't cause an overflow. */> +	rvtrace_write32(comp->pdata, lower_32_bits(priv->end - 0x4), RVTRACE_RAMSINK_LIMITLOW_OFF);
-Should not hardcode 4 as the trace write width. Control Interface Spec
-chapter 7.1 has the proper instruction on how to probe for this width:
-
-"Not every value may be settable in trRamStart/Limit registers. Value
-  written may be trimmed (for example aligned on a particular 2^N boundary)
-  and a trace tool should verify values being written"
-
-> +	rvtrace_write32(comp->pdata, upper_32_bits(priv->end), RVTRACE_RAMSINK_LIMITHIGH_OFF);
-> +
-> +	return 0;
-> +}
-> +
-> +static void rvtrace_ramsink_cleanup(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
-> +
-> +	dma_free_coherent(&comp->dev, priv->size, priv->va, priv->start);
-> +}
-> +
-> +static int rvtrace_ramsink_probe(struct rvtrace_component *comp)
-> +{
-> +	int ret;
-> +
-> +	ret = rvtrace_ramsink_setup(comp);
-> +	if (ret)
-> +		return dev_err_probe(&comp->dev, ret, "failed to setup ramsink.\n");
-> +
-> +	ret = rvtrace_enable_component(comp);
-> +	if (ret)
-> +		return dev_err_probe(&comp->dev, ret, "failed to enable ramsink.\n");
-> +
-> +	return ret;
-> +}
-> +
-> +static void rvtrace_ramsink_remove(struct rvtrace_component *comp)
-> +{
-> +	int ret;
-> +
-> +	ret = rvtrace_disable_component(comp);
-> +	if (ret)
-> +		dev_err(&comp->dev, "failed to disable ramsink.\n");
-> +
-> +	rvtrace_ramsink_cleanup(comp);
-> +}
-> +
-> +static struct rvtrace_component_id rvtrace_ramsink_ids[] = {
-> +	{ .type = RVTRACE_COMPONENT_TYPE_RAMSINK,
-> +	  .version = rvtrace_component_mkversion(1, 0), },
-> +	{},
-> +};
-> +
-> +static struct rvtrace_driver rvtrace_ramsink_driver = {
-> +	.id_table = rvtrace_ramsink_ids,
-> +	.copyto_auxbuf = rvtrace_ramsink_copyto_auxbuf,
-> +	.probe = rvtrace_ramsink_probe,
-> +	.remove = rvtrace_ramsink_remove,
-> +	.driver = {
-> +		.name = "rvtrace-ramsink",
-> +	},
-> +};
-> +
-> +static int __init rvtrace_ramsink_init(void)
-> +{
-> +	return rvtrace_register_driver(&rvtrace_ramsink_driver);
-> +}
-> +
-> +static void __exit rvtrace_ramsink_exit(void)
-> +{
-> +	rvtrace_unregister_driver(&rvtrace_ramsink_driver);
-> +}
-> +
-> +module_init(rvtrace_ramsink_init);
-> +module_exit(rvtrace_ramsink_exit);
-> +
-> +/* Module information */
-> +MODULE_AUTHOR("Mayuresh Chitale <mchitale@ventanamicro.com>");
-> +MODULE_DESCRIPTION("RISC-V Trace Ramsink Driver");
-> +MODULE_LICENSE("GPL");
-
-Bo
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAxMC82LzI1IDAwOjM5LCBJY2Vub3d5IFpoZW5nIHdyb3RlOgo+IOWcqCAyMDI1LTEwLTA1
+5pif5pyf5pel55qEIDExOjQ3IC0wNzAw77yMRSBTaGF0dG935YaZ6YGT77yaCj4+IEhpIEljZW5v
+d3ksCj4+Cj4+IE9uIDkvMzAvMjUgMDg6NTEsIEljZW5vd3kgWmhlbmcgd3JvdGU6Cj4+PiDlnKgg
+MjAyNS0wOS0zMOaYn+acn+S6jOeahCAxODowMyArMDgwMO+8jEljZW5vd3kgWmhlbmflhpnpgZPv
+vJoKPj4+PiBPcmFuZ2UgUGkgUlYgaXMgYSBuZXdseSByZWxlYXNlZCBTQkMgd2l0aCBKSDcxMTAg
+U29DLCBzaW5nbGUgR2JFCj4+Pj4gcG9ydAo+Pj4+IChjb25uZWN0ZWQgdG8gSkg3MTEwIEdNQUMw
+IHZpYSBhIFlUODUzMSBQSFkpLCA0IFVTQiBwb3J0cyAodmlhIGEKPj4+PiBWTDgwNQo+Pj4+IFBD
+SWUgVVNCIGNvbnRyb2xsZXIgY29ubmVjdGVkIHRvIEpINzExMCBQQ0lFMCksIGEgTS4yIE0ta2V5
+IHNsb3QKPj4+PiAoY29ubmVjdGVkIHRvIEpINzExMCBQQ0lFMSksIGEgSERNSSB2aWRlbyBvdXRw
+dXQsIGEgMy41bW0gYXVkaW8KPj4+PiBvdXRwdXQKPj4+PiBhbmQgYSBtaWNyb1NEIHNsb3QuCj4+
+Pj4KPj4+PiBPdGhlciBPbmJvYXJkIHBlcmlwaGVyYWxzIGNvbnRhaW4gYSBTUEkgTk9SICh3aGlj
+aCBjb250YWlucyB0aGUKPj4+PiBVLQo+Pj4+IEJvb3QKPj4+PiBmaXJtd2FyZSksIGEgMjRjMDIg
+RUVQUk9NIHN0b3Jpbmcgc29tZSBTdGFyRml2ZS1zcGVjaWZpYwo+Pj4+IGluZm9ybWF0aW9uCj4+
+Pj4gKGZhY3RvcnkgcHJvZ3JhbW1lZCBhbmQgcmVhZCBvbmx5IGJ5IGRlZmF1bHQpIGFuZCBhbiBB
+bXBhayBBUDYyNTYKPj4+PiBTRElPCj4+Pj4gV2ktRmkgbW9kdWxlLgo+Pj4+Cj4+Pj4gU2lnbmVk
+LW9mZi1ieTogSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4+Pj4gLS0tCj4+Pj4gQ2hh
+bmdlcyBpbiB2MjoKPj4+PiAtIFByb3BlcnR5IG9yZGVyIGNoYW5nZSBtZW50aW9uZWQgaW4gdGhl
+IHJldmlldyBvZiB2MS4KPj4+PiAtIEFkZGVkIFdpLUZpIChhbG9uZyB3aXRoIHRoZSBhbHdheXMg
+b24gVkNDM1YzX1BDSUUgcmVndWxhdG9yLAo+Pj4+IHdoaWNoCj4+Pj4gaXMKPj4+PiDCoCB1c2Vk
+IHRvIHBvd2VyIHVwIFdJRklfM1YzKS4gVGhlIE9PQiBJUlEgaXMgc3RpbGwgbm90IHBvc3NpYmxl
+Cj4+Pj4gdG8KPj4+PiB1c2UKPj4+PiDCoCBiZWNhdXNlIG9mIHNvbWUgaW5jb21wYXRpYmlsaXR5
+IGJldHdlZW4gU3RhckZpdmUgcGluY3RybCBkcml2ZXIKPj4+PiBhbmQKPj4+PiDCoCBicmNtZm1h
+Yy4KPj4+PiAtIFJlbW92ZWQgdGhlIExFRCBiZWNhdXNlIGl0J3MgaW4gY29tbW9uIERUU0kuCj4+
+Pj4KPj4+PiDCoGFyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGXCoMKgwqDCoMKg
+wqDCoMKgIHzCoCAxICsKPj4+PiDCoC4uLi9ib290L2R0cy9zdGFyZml2ZS9qaDcxMTAtb3Jhbmdl
+cGktcnYuZHRzwqAgfCA4Nwo+Pj4+ICsrKysrKysrKysrKysrKysrKysKPj4+PiDCoDIgZmlsZXMg
+Y2hhbmdlZCwgODggaW5zZXJ0aW9ucygrKQo+Pj4+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gv
+cmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLW9yYW5nZXBpLQo+Pj4+IHJ2LmR0cwo+Pj4+
+Cj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUK
+Pj4+PiBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUKPj4+PiBpbmRleCBi
+M2JiMTJmNzhlN2Q1Li4yNGYxYTQ0ODI4MzUwIDEwMDY0NAo+Pj4+IC0tLSBhL2FyY2gvcmlzY3Yv
+Ym9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRz
+L3N0YXJmaXZlL01ha2VmaWxlCj4+Pj4gQEAgLTEwLDYgKzEwLDcgQEAgZHRiLSQoQ09ORklHX0FS
+Q0hfU1RBUkZJVkUpICs9IGpoNzEwMC1zdGFyZml2ZS0KPj4+PiB2aXNpb25maXZlLXYxLmR0Ygo+
+Pj4+IMKgCj4+Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkgKz0gamg3MTEwLWRlZXBj
+b21wdXRpbmctZm1sMTN2MDEuZHRiCj4+Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkg
+Kz0gamg3MTEwLW1pbGt2LW1hcnMuZHRiCj4+Pj4gK2R0Yi0kKENPTkZJR19BUkNIX1NUQVJGSVZF
+KSArPSBqaDcxMTAtb3JhbmdlcGktcnYuZHRiCj4+Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFS
+RklWRSkgKz0gamg3MTEwLXBpbmU2NC1zdGFyNjQuZHRiCj4+Pj4gwqBkdGItJChDT05GSUdfQVJD
+SF9TVEFSRklWRSkgKz0gamg3MTEwLXN0YXJmaXZlLXZpc2lvbmZpdmUtMi0KPj4+PiB2MS4yYS5k
+dGIKPj4+PiDCoGR0Yi0kKENPTkZJR19BUkNIX1NUQVJGSVZFKSArPSBqaDcxMTAtc3RhcmZpdmUt
+dmlzaW9uZml2ZS0yLQo+Pj4+IHYxLjNiLmR0Ygo+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2Jvb3QvZHRzL3N0YXJmaXZlL2poNzExMC1vcmFuZ2VwaS1ydi5kdHMKPj4+PiBiL2FyY2gvcmlz
+Y3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLW9yYW5nZXBpLXJ2LmR0cwo+Pj4+IG5ldyBmaWxl
+IG1vZGUgMTAwNjQ0Cj4+Pj4gaW5kZXggMDAwMDAwMDAwMDAwMC4uNWE5MTdiN2RiNmY3OAo+Pj4+
+IC0tLSAvZGV2L251bGwKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2po
+NzExMC1vcmFuZ2VwaS1ydi5kdHMKPj4+PiBAQCAtMCwwICsxLDg3IEBACj4+Pj4gKy8vIFNQRFgt
+TGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wIE9SIE1JVAo+Pj4+ICsvKgo+Pj4+ICsgKiBDb3B5
+cmlnaHQgKEMpIDIwMjUgSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4+Pj4gKyAqLwo+
+Pj4+ICsKPj4+PiArL2R0cy12MS87Cj4+Pj4gKyNpbmNsdWRlICJqaDcxMTAtY29tbW9uLmR0c2ki
+Cj4+Pj4gKwo+Pj4+ICsvIHsKPj4+PiArwqDCoMKgwqDCoMKgwqBtb2RlbCA9ICJYdW5sb25nIE9y
+YW5nZSBQaSBSViI7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJ4dW5sb25nLG9y
+YW5nZXBpLXJ2IiwgInN0YXJmaXZlLGpoNzExMCI7Cj4+Pj4gKwo+Pj4+ICvCoMKgwqDCoMKgwqDC
+oC8qIFRoaXMgcmVndWxhdG9yIGlzIGFsd2F5cyBvbiBieSBoYXJkd2FyZSAqLwo+Pj4+ICvCoMKg
+wqDCoMKgwqDCoHJlZ192Y2MzdjNfcGNpZTogcmVndWxhdG9yLXZjYzN2My1wY2llIHsKPj4+PiAr
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJyZWd1bGF0b3ItZml4
+ZWQiOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZWd1bGF0b3ItbmFtZSA9
+ICJ2Y2MzdjMtcGNpZSI7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJlZ3Vs
+YXRvci1taW4tbWljcm92b2x0ID0gPDMzMDAwMDA+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqByZWd1bGF0b3ItbWF4LW1pY3Jvdm9sdCA9IDwzMzAwMDAwPjsKPj4+PiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmVndWxhdG9yLWFsd2F5cy1vbjsKPj4+PiArwqDC
+oMKgwqDCoMKgwqB9Owo+Pj4+ICsKPj4+PiArwqDCoMKgwqDCoMKgwqB3aWZpX3B3cnNlcTogd2lm
+aS1wd3JzZXEgewo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBjb21wYXRpYmxl
+ID0gIm1tYy1wd3JzZXEtc2ltcGxlIjsKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgcmVzZXQtZ3Bpb3MgPSA8JnN5c2dwaW8gNjIgR1BJT19BQ1RJVkVfTE9XPjsKPj4+PiArwqDC
+oMKgwqDCoMKgwqB9Owo+Pj4+ICt9Owo+Pj4+ICsKPj4+PiArJmdtYWMwIHsKPj4+PiArwqDCoMKg
+wqDCoMKgwqBhc3NpZ25lZC1jbG9ja3MgPSA8JmFvbmNyZyBKSDcxMTBfQU9OQ0xLX0dNQUMwX1RY
+PjsKPj4+PiArwqDCoMKgwqDCoMKgwqBhc3NpZ25lZC1jbG9jay1wYXJlbnRzID0gPCZhb25jcmcK
+Pj4+PiBKSDcxMTBfQU9OQ0xLX0dNQUMwX1JNSUlfUlRYPjsKPj4+PiArwqDCoMKgwqDCoMKgwqBz
+dGFyZml2ZSx0eC11c2UtcmdtaWktY2xrOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJv
+a2F5IjsKPj4+PiArfTsKPj4+PiArCj4+Pj4gKyZtbWMwIHsKPj4+PiArwqDCoMKgwqDCoMKgwqAj
+YWRkcmVzcy1jZWxscyA9IDwxPjsKPj4+PiArwqDCoMKgwqDCoMKgwqAjc2l6ZS1jZWxscyA9IDww
+PjsKPj4+PiArwqDCoMKgwqDCoMKgwqBjYXAtc2QtaGlnaHNwZWVkOwo+Pj4+ICvCoMKgwqDCoMKg
+wqDCoG1tYy1wd3JzZXEgPSA8JndpZmlfcHdyc2VxPjsKPj4+PiArwqDCoMKgwqDCoMKgwqB2bW1j
+LXN1cHBseSA9IDwmcmVnX3ZjYzN2M19wY2llPjsKPj4+PiArwqDCoMKgwqDCoMKgwqB2cW1tYy1z
+dXBwbHkgPSA8JnZjY18zdjM+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJva2F5IjsK
+Pj4+PiArCj4+Pj4gK8KgwqDCoMKgwqDCoMKgYXA2MjU2OiB3aWZpQDEgewo+Pj4+ICvCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBjb21wYXRpYmxlID0gImJyY20sYmNtNDM0NTYtZm1hYyIs
+ICJicmNtLGJjbTQzMjktCj4+Pj4gZm1hYyI7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoHJlZyA9IDwxPjsKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLyog
+VE9ETzogb3V0LW9mLWJhbmQgSVJRIG9uIEdQSU8yMSAqLwo+Pj4+ICvCoMKgwqDCoMKgwqDCoH07
+Cj4+Pj4gK307Cj4+Pj4gKwo+Pgo+Pj4+ICsmbW1jMF9waW5zIHsKPj4+PiArwqDCoMKgwqDCoMKg
+wqAvKgo+Pj4+ICvCoMKgwqDCoMKgwqDCoCAqIEFzIHRoZSBNTUMwIGJ1cyBpcyB1c2VkIHRvIGNv
+bm5lY3QgYSBTRElPIFdpLUZpIGNhcmQKPj4+PiBpbnN0ZWFkIG9mCj4+Pj4gK8KgwqDCoMKgwqDC
+oMKgICogYW4gZU1NQyBjYXJkLCBhbmQgdGhlIGVNTUMgUlNUIGlzIHJlcHVycG9zZWQgdG8gYmUg
+YW4KPj4+PiBlbmFibGVtZW50Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgICogcGluIG9mIHRoZSBTRElP
+IFdpLUZpLCByZW1vdmUgaXQgZnJvbSB0aGUgcGluY3RybCBub2RlCj4+Pj4gYW5kCj4+Pj4gbWFu
+YWdlCj4+Pj4gK8KgwqDCoMKgwqDCoMKgICogaXQgYXMgYSBHUElPIGluc3RlYWQuCj4+Pj4gK8Kg
+wqDCoMKgwqDCoMKgICovCj4+Pj4gK8KgwqDCoMKgwqDCoMKgL2RlbGV0ZS1ub2RlLyByc3QtcGlu
+czsKPj4+PiArfTsKPj4+PiArCj4+Cj4+IExpc3RlZCBvbiB0aGUgc2NoZW1hdGljIFsxXSBhczoK
+Pj4gRGVmYXVsdCBmdW5jdGlvbiBTRElPMCBSU1RuIEdQSU82MiBmb3IgZU1NQzpKOQo+PiBIaWdo
+bGlnaHRlZCAobm9uLWRlZmF1bHQ/KSBmdW5jdGlvbiBHUElPNjIgRDE3IDw8IFdJRklfRU5fSF9H
+UElPNjIKPj4gV0lGSV9FTl9IX0dQSU82MiA+PiBXSUZJX1BXUkVOIChwaW4gMTIgV0xfUkVHX09O
+IG9mIG1vZHVsZSBBUDYyNTYpCj4+Cj4+IEkndmUgc2VudCBhIHBhdGNoIFsyXSB0byBwb3J0aW9u
+IG91dCBtbWMwIHJlc2V0IHBpbnMgZnJvbSBqaDcxMTAtCj4+IGNvbW1vbi5kdHNpCj4+Cj4+Pj4g
+KyZtbWMxIHsKPj4+PiArwqDCoMKgwqDCoMKgwqAvZGVsZXRlLXByb3BlcnR5LyBjZC1ncGlvczsK
+Pj4+PiArwqDCoMKgwqDCoMKgwqBicm9rZW4tY2Q7Cj4+Pgo+Pj4gV2VsbCBpdCdzIGZvdW5kIHRo
+YXQgdGhlIGNhcmQgZGV0ZWN0IGlzIHdvcmtpbmcsIGFsdGhvdWdoIHdpdGgKPj4+IGRpZmZlcmVu
+dCBwb2xhcml0eSB3aXRoIG90aGVyIGJvYXJkcy4KPj4+Cj4+PiBIZXJlIHNob3VsZCBiZToKPj4+
+IGBgYAo+Pj4gwqDCoMKgwqDCoMKgwqDCoGNkLWdwaW9zID0gPCZzeXNncGlvIDQxIEdQSU9fQUNU
+SVZFX0hJR0g+Owo+Pj4gYGBgCj4+Pgo+Pj4gV2lsbCBiZSBmaXhlZCBpbiB0aGUgbmV4dCByZXZp
+c2lvbi4KPj4KPj4gWWVzLCBsaXN0ZWQgb24gdGhlIHNjaGVtYXRpYyBbMV0gYXM6Cj4+IFNEIFNE
+SU8wIENEIEdQSU80MSBmb3IgTWljcm9TRDpKMTAKPj4KPj4gVGhlcmUgaXMgbm90IGEgbWVudGlv
+biBvZiBhY3RpdmUgaGlnaCBvciBhY3RpdmUgbG93IG9uIHRoZSBzY2hlbWF0aWMKPj4gbGFiZWws
+IGhvd2V2ZXIgdGhlcmUgaXMgbGlzdGVkIGEgMTBLb2htIHB1bGwtdXAgdG8gK1ZkZDEuODMzIGZv
+ciB0aGUKPj4gY2lyY3VpdCBkaWFncmFtIG9mIHRoZSBNaWNybyBTRCBDYXJkLiBUaGUgY2FyZCBo
+b2xkZXIgaXMgcmVmZXJlbmNlZAo+PiB0bwo+PiBncm91bmQgYW5kIGNvdWxkIHJlYXNvbmFibHkg
+YmUgTi9PIG9yIE4vQyBzd2l0Y2ggb3BlcmF0aW9uIGRlcGVuZGluZwo+PiBvbgo+PiB0aGUgZXhh
+Y3QgcGFydCBzZWxlY3RlZCBmb3IgbWFudWZhY3R1cmUuCj4+Cj4+Pgo+Pj4+ICt9Owo+Pj4+ICsK
+Pj4+PiArJnBjaWUwIHsKPj4+PiArwqDCoMKgwqDCoMKgwqBzdGF0dXMgPSAib2theSI7Cj4+Pj4g
+K307Cj4+Pj4gKwo+Pj4+ICsmcGNpZTEgewo+Pj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJv
+a2F5IjsKPj4+PiArfTsKPj4+PiArCj4+Cj4+Pj4gKyZwaHkwIHsKPj4+PiArwqDCoMKgwqDCoMKg
+wqByeC1pbnRlcm5hbC1kZWxheS1wcyA9IDwxNTAwPjsKPj4+PiArwqDCoMKgwqDCoMKgwqB0eC1p
+bnRlcm5hbC1kZWxheS1wcyA9IDwxNTAwPjsKPj4+PiArwqDCoMKgwqDCoMKgwqBtb3RvcmNvbW0s
+dHgtY2xrLWFkai1lbmFibGVkOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSx0eC1jbGst
+MTAtaW52ZXJ0ZWQ7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgbW90b3Jjb21tLHR4LWNsay0xMDAtaW52
+ZXJ0ZWQ7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgbW90b3Jjb21tLHR4LWNsay0xMDAwLWludmVydGVk
+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSxyeC1jbGstZHJ2LW1pY3JvYW1wID0gPDM5
+NzA+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSxyeC1kYXRhLWRydi1taWNyb2FtcCA9
+IDwyOTEwPjsKPj4+PiArfTsKPj4KPj4gJ21vdG9yY29tbSxyeCcgYmVmb3JlICdtb3RvcmNvbW0s
+dHgnIGluIGBMQU5HPUMgc29ydGAgb2YgdmVuZG9yLQo+PiBzcGVjaWZpYwo+PiBwcm9wZXJ0aWVz
+Lgo+Pgo+Pj4+ICsKPj4+PiArJnB3bWRhYyB7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgc3RhdHVzID0g
+Im9rYXkiOwo+Pj4+ICt9Owo+Pj4KPj4gQWRkaXRpb25hbCBub24tZGVmYXVsdCBHUElPIGFzIGxp
+c3RlZCBpbiB0aGUgT3JhbmdlIFBpIGRlc2lnbjoKPj4gR1BJTzIxIFdJRklfV0FLRV9IT1NUX0gg
+LyogZGVmYXVsdCB2ZjIgZnVuY3Rpb24gUENJRV9QV1JFTl9IX0dQSU8yMQo+PiAqLwo+PiBHUElP
+MjIgPj4gQlRfVUFSVF9SWEQgLyogZGVmYXVsdCB2ZjIgZnVuY3Rpb24gTUlQSV9QV1JfRU4gKi8K
+Pj4gR1BJTzIzIDw8IEJUX1VBUlRfVFhEIC8qIGRlZmF1bHQgdmYyIGZ1bmN0aW9uIExDRCBSRVNF
+VCAqLwo+PiBHUElPMjQgPDwgQlRfVUFSVF9DVFMgLyogZGVmYXVsdCB2ZjIgZnVuY3Rpb24gTUlQ
+SV9MQ0RfQkwgKi8KPj4gR1BJTzI1IDw8IEJUX1VBUlRfUlRTIC8qIGRlZmF1bHQgdmYyIGZ1bmN0
+aW9uIFRQX0RFVF9HUElPMjUgKi8KPj4gR1BJTzMwIDw8IEJUX0VOX0hfR1BJTzMwIC8qIGRlZmF1
+bHQgdmYyIGZ1bmN0aW9uIFRQX0lOVF9MICovCj4+IEdQSU8zMSA8PCBCVF9XQUtFX0dQSU8zMSAv
+KiBkZWZhdWx0IHZmMiBmdW5jdGlvbiBUUF9SU1RfTCAqLwo+Pgo+PiBPZiBhbGwgdGhlIGFib3Zl
+LCBHUElPMjEgaXMgZGVmaW5lZCBpbiBqaDcxMTAtY29tbW9uLmR0c2kKPj4gJnBjaWUxX3BpbnMv
+d2FrZS1waW5zIGFuZCBtYXkgbmVlZCBjb25zaWRlcmF0aW9uLgo+Pgo+PiBUaGVyZSBpcyBhIG5v
+dGUgYWJvdXQgIlBNSUNfUFdST04gYXMgS2V5IiBhbmQgc28gZG9lcyB0aGlzIGhhdmUgdGhlCj4+
+IG1lYW5pbmcgb2YgaXQgaXMgdXNlZCBhcyBhbiBpbnB1dCBkZXZpY2U/Cj4+Cj4+IEFsc28gbm90
+ZWQgaXMgdGhhdCB0aGUgVVNCIG92ZXItY3VycmVudCBjaXJjdWl0IGFwcGVhcnMgdG8gYmUKPj4g
+aW1wbGVtZW50ZWQsIGRpZmZlcmVudCB0aGFuIGJlaW5nIGFic2VudCBpbiBvdGhlciBWRjIgZGVz
+aWducy4KPj4KPj4gMToKPj4gaHR0cDovL3d3dy5vcmFuZ2VwaS5vcmcvaHRtbC9oYXJkV2FyZS9j
+b21wdXRlckFuZE1pY3JvY29udHJvbGxlcnMvc2VydmljZS1hbmQtc3VwcG9ydC9PcmFuZ2UtUGkt
+UlYuaHRtbAo+PiAyOgo+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjUxMDA1MTc0
+NDUwLjE5NDkxMTAtMS1lQGZyZWVzaGVsbC5kZS8KPj4KPj4gV2l0aCB0aGUgY2FyZCBkZXRlY3Qg
+ZGVzY3JpYmluZyBoYXJkd2FyZSBjb3JyZWN0ZWQsIGFuZCBjbGVhbiB1cCB0aGUKPj4gdmVuZG9y
+IHByb3BlcnR5IHNvcnQsIHRoZW4gcGxlYXNlIGNvbmZpcm0gaWYgeW91IHRoaW5rIEdQSU8yMSBp
+cwo+PiBkZXNjcmliZWQgY29ycmVjdGx5Lgo+IAo+IFdlbGwgeWVzLCBHUElPMjEgc2hvdWxkIGJl
+IHNwbGl0dGVkIGZyb20gUENJZSBwaW5jdHJsIGFuZCBhc3NpZ25lZCB0bwo+IGJlIHRoZSBvdXQt
+b2YtYmFuZCBJUlEgb2YgdGhlIFdpLUZpIG1vZHVsZS4gTXkgRFQgb21pdHMgdGhpcyBiZWNhdXNl
+Cj4gdGhlIGpoNzExMCBwaW5jdHJsIGRyaXZlciBpcyBjdXJyZW50bHkgbm90IGNvbXBhdGlibGUg
+d2l0aCBicmNtZm1hYwo+IG91dC1vZi1iYW5kIElSUSBjb2RlLgo+IAo+IFNob3VsZCBJIGFkZCAv
+ZGVsZXRlLW5vZGUvIGZvciBpdD8KPiAKPj4KPj4gQWNrZWQtYnk6IEUgU2hhdHRvdyA8ZUBmcmVl
+c2hlbGwuZGU+Cj4+Cj4gCgpObywgaXQgaXMgbm90IG5lZWRlZCB0byAvZGVsZXRlLW5vZGUvLiBB
+ZGQgc29tZSBub3RlIHRvIHRoZSBjb21taXQKbWVzc2FnZSB0aGF0IHRoZSBXaUZpL0J0IGZ1bmN0
+aW9uYWxpdHkgaXMgbm90IGNvbXBsZXRlIGZvciB0aGlzIHNlcmllcwpiZWNhdXNlIG9mIG91dC1v
+Zi1iYW5kIElSUSByZXF1aXJlbWVudC4KCkdQSU8yMSBpcyBhbHNvIGNoYW5nZWQgaW4gZHRzIGZv
+ciBEZWVwQ29tcHV0aW5nIEZyYW1ld29yayBMYXB0b3AgMTMgVjAxCmFuZCBzbyBpdCB3aWxsIG1h
+a2Ugc2Vuc2UgdG8gc3BsaXQgR1BJTzIxIG91dCBmcm9tIGpoNzExMC1jb21tb24uZHRzaSBpbgph
+IHNlcGFyYXRlIHBhdGNoLiBXZSBjYW4gcmV0dXJuIGFmdGVyIHRoZW4gdG8gdGhlIHRvcGljIG9m
+IHRoZSBBUDYyNTYgb24KT3JhbmdlIFBpIFJWIGFuZCBNaWxrLVYgTWFycyBDTS4KClRoYW5rIHlv
+dSB2ZXJ5IG11Y2gsCgotRQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
