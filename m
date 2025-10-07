@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3523FCCA470
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Oct 2025 07:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71992CCA476
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Oct 2025 07:51:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=isdnT73qGZaTBpkwTMAMc6F1J/U8IlANxISFmVuJcCU=; b=OQI0K8slJgcVwR
-	iEPd8MWqjGjO6T4szBrki1MJScn+8vNr36dmdKEfGHHMsWhwjHRg3OSo3JYNWB6uhcdU8Xr21w+qp
-	3cZonVfGrXdLQ8ppk+F+LQ+SdURQsreVv+DlOKv73QlbUjWnMtPJFtzIqG9J4Xkrf36afgTF5+1s0
-	w21M50viWj+YsC6LltxHQs831ILdl8Kw+36GlyVlojq1QdRmvByD5dnCFNtLmAO9AiB2qqp5a6Z5d
-	1SNbWM13pPPOUhpX596I2N6lhE19wU7+G7SS4TzrtsWTIIStWFCzBcoJWSvA9Pf1+VURIOl0EViRe
-	oymT4NpJK+vUzH9RKeaw==;
+	List-Owner; bh=z7L7JjMA5ea54YVqozBHcUFsCaGHBT5zEsekfNl09IE=; b=UrDvxukgdpvKB1
+	GvuzUbODC38Rrs1bsIsPDtv7R7j2tSjhQw3mhVBPJl4nGRZ4yEjFB8PXNXjAuzo3gXbnJ/1yh9azh
+	V0c1kM4hOxVUjGV1mdjgfIsEf0VLv61kwvIRo53JmLziYUTtbvWt5YA+e+Y4K/CMI1z9NJWjHebeb
+	W4JuaoiOFKt+4uDS+0kmaxyjU65VFSxele8ARCOgn8p6O3a+7cboV4zNmlST0oqmpr829/yPb5Ekf
+	hQONFujCZsJjfU3Ic0ZZHyQAJewYXQXnONEFx9Bjy5WXP5Sf1xNKijz62ur/LtkHZxHhBnzU7YPqr
+	gEaHNIO6eH9uTjWEt5jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v61qu-00000001Qq8-05TK;
-	Tue, 07 Oct 2025 07:11:16 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1v62TQ-00000001T2Y-0vSk;
+	Tue, 07 Oct 2025 07:51:04 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v61qq-00000001QpS-2ADO
+	id 1v62TM-00000001T1p-36Q4
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Oct 2025 07:11:14 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7835321bc98so5629007b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Oct 2025 00:11:11 -0700 (PDT)
+	Tue, 07 Oct 2025 07:51:02 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-32ed19ce5a3so5609525a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Oct 2025 00:51:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759821071; x=1760425871; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1759823460; x=1760428260; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=cz8Uq6JRWEUUJyfozPnxNFaDcuM+MyDcm3nmjddxu90=;
-        b=ZG0O+5QECsyhl3sSNNbMWL+TpuU69pa3XtHJmUhVL0S0tR9J7tfSax5J4VOCWdA4Q4
-         /70M8u/1zeKZ8AaWKPVw9IIsylM6ffESqhojKVTUxdcqn8tcKpEGPK3p9NHJ1cLWEuBU
-         iII1NgSOzeD5N3u9+tfc0A7qSK58wHgDOxWQLYOyNhFaB7m5U0vYi69fZDQ5ekfYAqgQ
-         sc4UlqZMOYnTaWDd202GimceDNcHtlKY2s7ykmgxreUfdcgUSoLo8K9CA88HKdJzvzky
-         I7YOvaZKxEiR1oKL1EbOrMzJZuajfZhWEqozhhzBmCc4xt0sfySuH3FBdh/DScXVGOcF
-         zb+A==
+        bh=dhnA09TQ8hNY3ByOHoJEkbXhSQQgNq2Hl9f2lCZ+3kA=;
+        b=Ejj0wl2k0AVM4JATZUhXxYes2iCRTG7y0GOihFuZGJdQLdkAcJlSZij78kCR8T9LcG
+         4s8JXBWsjdnN9l7hwiso0hF1IPv/r1dzCRGVykBGzjHbtzURJAraLtOz+Ss7VNb6lfvF
+         vZn95k35bKpBHG1hOjbICqaLCgw9T6oW4HK4yDx1bYL7Zcjyu+ehYCU9m2astm9MiG7f
+         CjF1voq8Rvg3gHjPddfLlviJ5LU2fCdw0NlOUzFUnNMFcTBQcr5UeQkLUtpDt7f+yYc+
+         Msjtg5EpjTnWqQOhj0to31zzJKRQRrrihktxrd/6///zlXvOGvnre/da2TSoQDiOz7/+
+         yB+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759821071; x=1760425871;
+        d=1e100.net; s=20230601; t=1759823460; x=1760428260;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cz8Uq6JRWEUUJyfozPnxNFaDcuM+MyDcm3nmjddxu90=;
-        b=pIPbBdRVhYFqPYahrLc9TmezmBPZwXk8AmdCQWU79R+u+d+qantZcFfxrC8NBh0gra
-         Z8jjWYicFwYcaOL6TE7VNbkQKWiiAKQiZmkE0xJwbSPm20DSTeo1BzTJnd/b7HYvZZUe
-         HJVLdQ9kfon+ejx3MH0wFBCJtVnIPn5SZTc2OwLEm7vmVO4plMc5wgxlFJtScpvtN0qm
-         oebLK+aqWE+s9nRL5zLwezeJaLotWPFVNj1ujGbXpcuqdaIsHBYaNSmkmIoFO5r6/cGU
-         NAd3/8c6VGnSqLEtH97NKcV3sEGSCLu25VhMZS0Uz792KwnG10299rx6Tj2aISK34/KT
-         BKtQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVyoBgdo3jdrwO5GK34JZ3A8VAWkWzMHDJaLRzvk0MzRwmN3rpXVJFKMTmHkj1k/4eTHZNLfPnMZUvxzg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNsOwjXcGkeAjbp9tHKX+e6820Sedt0AYlpP3ykYYFZHto1sTu
-	r0oRxFuWk9rzcUhu7l1Uc9OCKFngEoYyA9pcvL1Lv0EyJGA+Fc6VFLOx
-X-Gm-Gg: ASbGncugT0rHKfTS7RIujveC2YPjKMDqm2hwY2HdrseZIZTWZR0CjDZzPDZPLND//ZR
-	7Kp3gy2GQFztZ1M2RimuK/opY8UL9arhwF+2/P4G7bbCj1SKo7F6rUOTU/N8zhcGd5RTMWN02jG
-	GlGMcLV8lLSUCd8jOpd7MMRdH52Nm1/iiKOXlBqb+FZcWKLDpZlsaCjhG6jt14Ve/cE3LEZ3R+Z
-	lZqsJzNngR76ZP16How3aabvo0z/5sdjUNMWK8dk2HkbUYowNan2C32hliP3BXCEmRROTOPqsEy
-	BvPEkEQwfhn1vHJatmK2TuD+hVwftUZpaBcQPAqXNwQe54+44fSek3QCh8XUhRDYcRQwhkgSlXS
-	hffYqhpV6nlBKzvDOe7CU9p/AMh0AW09rcglBIrMyD3kzUFaR
-X-Google-Smtp-Source: AGHT+IHQPTeQxqIh3DmyDul63D0hdktzTIH+hAqRQcLBDO2L74AlzSZcN3PTvolNafM1O2PLFa55Ow==
-X-Received: by 2002:a05:6a20:6a08:b0:2ea:41f1:d53a with SMTP id adf61e73a8af0-32b620d9121mr18200629637.41.1759821071157;
-        Tue, 07 Oct 2025 00:11:11 -0700 (PDT)
+        bh=dhnA09TQ8hNY3ByOHoJEkbXhSQQgNq2Hl9f2lCZ+3kA=;
+        b=xDQGGop+SK5CwsrEITXGf10LVYZ8z/2xhPZLWEjWbFH9cOpzjDgyf1/JS2N8GBYGXc
+         pG6sjRlAZqKvoymN/7SYxQOi1GAm2Z9KJ0skTNwABp+xLYVxBj623WEowPa2nsJlHh+6
+         4HG4cC5Igi17yLxCIhEsl/m/NXXRpAd+m3HD7JMzv1RtPDctXghYDp/ZoxOVrr+HqPMb
+         O6LFz1xFPbA9sBgqj50cZ/XHPXPNS8khdQhRZ9P4LNds8qGdr5vizOiP53epfmTugmUi
+         BrLulOzi6k3446ozsUbSgdAN3sfDavsPO/TfdIf7suZvIv6CHXmOKS1xOShuLfs6HYfo
+         Uzcw==
+X-Forwarded-Encrypted: i=1; AJvYcCUmIBgEwRzn6iXWWYTsTbC3EcPpBSwN0ILgmUjRhKCTL8NvxPP0fSi5Hk3jc0UnKzfTXCglkfXdVfF+xg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywv4yHgAAQhzrkonHnqQJCp6d5goC6jrj2cvl6HHmboWfPoM7Jr
+	CYj50jzfYbg18y+SwYKJtPHIs3SPeE24Hw6NFL7gOTpHnaYO0R33015u
+X-Gm-Gg: ASbGncuTNelsjXsNVg3Fby/RT6+6QeP6uowjaOev7D5slp+aFDEIeHfsbaU+9G0+eTU
+	RBPBguqxR9IldzHx+ZivlBgTFy/1hZy2Zhq4lgSB5bDUTfEF5DyK7984WRzqBjv5o/n3u2SlKH7
+	waJdyx49bc7FKswJUEjHvXd0Y1UqVqt5NESgkeqdXuTiywqYG8sLqsHYAQbKkdOr8jtMuU1Tlp+
+	dj81bU8y+1x2kktlHMEs/xyOioLWLNHspbLvWA+xbu5byfv4JVDhvnuYxf/KHoSwYAOHL/8FQk+
+	SCnC9qSgyQvO7uZGMHay3NTO9ij5q0x9JoegGJZvJCvI5OFaFWMAeAIYiaQwp9ycAVVyO9TsNjo
+	BM9g+YZT5PVlXkT/5JREw6i1nHLLdMug4dCHhdpplhMiXAwPW
+X-Google-Smtp-Source: AGHT+IG905MGBQ32Ub4ShnX9AGf28crwYHhnuKiGoa/Yd7ia0xUTqXMWebVlHOFKhP/du1dc9C6gAw==
+X-Received: by 2002:a17:90b:1f89:b0:32e:96b1:fb70 with SMTP id 98e67ed59e1d1-339c2720c9fmr21575430a91.12.1759823459801;
+        Tue, 07 Oct 2025 00:50:59 -0700 (PDT)
 Received: from [192.168.0.13] ([172.92.174.155])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-78b01fb0548sm14737938b3a.27.2025.10.07.00.11.10
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-339c4a68deasm13196357a91.25.2025.10.07.00.50.58
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Oct 2025 00:11:10 -0700 (PDT)
-Message-ID: <793a00d6-a1ae-4928-a326-3d276a30bdbd@gmail.com>
-Date: Tue, 7 Oct 2025 00:09:50 -0700
+        Tue, 07 Oct 2025 00:50:59 -0700 (PDT)
+Message-ID: <9422ba89-a6ba-4168-98a1-6d4275698430@gmail.com>
+Date: Tue, 7 Oct 2025 00:49:42 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/11] rvtrace: Add trace encoder driver
+Subject: Re: [PATCH 07/11] rvtrace: Add trace ramsink driver
 To: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
@@ -90,13 +90,13 @@ Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>,
  Liang Kan <kan.liang@linux.intel.com>
 References: <20251002060732.100213-1-apatel@ventanamicro.com>
- <20251002060732.100213-6-apatel@ventanamicro.com>
+ <20251002060732.100213-8-apatel@ventanamicro.com>
 Content-Language: en-US
 From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20251002060732.100213-6-apatel@ventanamicro.com>
+In-Reply-To: <20251002060732.100213-8-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_001112_843146_68983E9F 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20251007_005100_899729_8A765FC4 
+X-CRM114-Status: GOOD (  28.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,49 +116,50 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 10/1/25 23:07, Anup Patel wrote:
 > From: Mayuresh Chitale <mchitale@ventanamicro.com>
 > 
-> Add initial implementation of RISC-V trace encoder driver. The encoder
+> Add initial implementation of RISC-V trace ramsink driver. The ramsink
 > is defined in the RISC-V Trace Control Interface specification.
 > 
 > Co-developed-by: Anup Patel <apatel@ventanamicro.com>
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 > ---
->   drivers/hwtracing/rvtrace/Kconfig           |   7 ++
+>   drivers/hwtracing/rvtrace/Kconfig           |   8 +
 >   drivers/hwtracing/rvtrace/Makefile          |   1 +
->   drivers/hwtracing/rvtrace/rvtrace-encoder.c | 107 ++++++++++++++++++++
->   3 files changed, 115 insertions(+)
->   create mode 100644 drivers/hwtracing/rvtrace/rvtrace-encoder.c
+>   drivers/hwtracing/rvtrace/rvtrace-ramsink.c | 198 ++++++++++++++++++++
+>   3 files changed, 207 insertions(+)
+>   create mode 100644 drivers/hwtracing/rvtrace/rvtrace-ramsink.c
 > 
 > diff --git a/drivers/hwtracing/rvtrace/Kconfig b/drivers/hwtracing/rvtrace/Kconfig
-> index f8f6feea1953..ba35c05f3f54 100644
+> index ba35c05f3f54..aef7e9989165 100644
 > --- a/drivers/hwtracing/rvtrace/Kconfig
 > +++ b/drivers/hwtracing/rvtrace/Kconfig
-> @@ -14,3 +14,10 @@ menuconfig RVTRACE
->   
->   	  To compile this driver as a module, choose M here: the module
->   	  will be called rvtrace.
+> @@ -21,3 +21,11 @@ config RVTRACE_ENCODER
+>   	default y
+>   	help
+>   	  This driver provides support for RISC-V Trace Encoder component.
 > +
-> +config RVTRACE_ENCODER
-> +	tristate "RISC-V Trace Encoder driver"
+> +config RVTRACE_RAMSINK
+> +	tristate "RISC-V Trace Ramsink driver"
 > +	depends on RVTRACE
 > +	default y
 > +	help
-> +	  This driver provides support for RISC-V Trace Encoder component.
+> +	  This driver provides support for Risc-V E-Trace Ramsink
+> +	  component.
 > diff --git a/drivers/hwtracing/rvtrace/Makefile b/drivers/hwtracing/rvtrace/Makefile
-> index 988525a379cf..f320693a1fc5 100644
+> index f320693a1fc5..122e575da9fb 100644
 > --- a/drivers/hwtracing/rvtrace/Makefile
 > +++ b/drivers/hwtracing/rvtrace/Makefile
-> @@ -2,3 +2,4 @@
->   
+> @@ -3,3 +3,4 @@
 >   obj-$(CONFIG_RVTRACE) += rvtrace.o
 >   rvtrace-y := rvtrace-core.o rvtrace-platform.o
-> +obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
-> diff --git a/drivers/hwtracing/rvtrace/rvtrace-encoder.c b/drivers/hwtracing/rvtrace/rvtrace-encoder.c
+>   obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
+> +obj-$(CONFIG_RVTRACE_RAMSINK) += rvtrace-ramsink.o
+> diff --git a/drivers/hwtracing/rvtrace/rvtrace-ramsink.c b/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
 > new file mode 100644
-> index 000000000000..45d1c5b12c51
+> index 000000000000..7bd0cf1e4dfd
 > --- /dev/null
-> +++ b/drivers/hwtracing/rvtrace/rvtrace-encoder.c
-> @@ -0,0 +1,107 @@
+> +++ b/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
+> @@ -0,0 +1,198 @@
 > +// SPDX-License-Identifier: GPL-2.0
 > +/*
 > + * Copyright (c) 2025 Ventana Micro Systems Inc.
@@ -170,108 +171,202 @@ On 10/1/25 23:07, Anup Patel wrote:
 > +#include <linux/of_graph.h>
 > +#include <linux/platform_device.h>
 > +#include <linux/property.h>
+> +#include <linux/dma-mapping.h>
 > +#include <linux/rvtrace.h>
 > +#include <linux/types.h>
+> +#include <linux/sizes.h>
 > +
-> +#define RVTRACE_COMPONENT_CTRL_ITRACE_MASK	0x1
-> +#define RVTRACE_COMPONENT_CTRL_ITRACE_SHIFT	2
-> +#define RVTRACE_COMPONENT_CTRL_INSTMODE_MASK	0x7
-> +#define RVTRACE_COMPONENT_CTRL_INSTMODE_SHIFT	4
+> +#define RVTRACE_RAMSINK_STARTLOW_OFF		0x010
+> +#define RVTRACE_RAMSINK_STARTHIGH_OFF		0x014
+> +#define RVTRACE_RAMSINK_LIMITLOW_OFF		0x018
+> +#define RVTRACE_RAMSINK_LIMITHIGH_OFF		0x01c
+> +#define RVTRACE_RAMSINK_WPLOW_OFF		0x020
+> +#define RVTRACE_RAMSINK_WPHIGH_OFF		0x024
+> +#define RVTRACE_RAMSINK_RPLOW_OFF		0x028
+> +#define RVTRACE_RAMSINK_RPHIGH_OFF		0x02c
 > +
-> +static int rvtrace_encoder_start(struct rvtrace_component *comp)
+> +struct rvtrace_ramsink_priv {
+> +	size_t size;
+> +	void *va;
+> +	dma_addr_t start;
+> +	dma_addr_t end;
+> +	/* WP from prev iteration */
+> +	dma_addr_t prev_head;
+> +};
+> +
+> +struct trace_buf {
+> +	void *base;
+> +	size_t size;
+> +	int cur, len;
+> +};
+> +
+> +static void tbuf_to_pbuf_copy(struct trace_buf *src, struct trace_buf *dst)
 > +{
-> +	u32 val;
+> +	int bytes_dst, bytes_src, bytes;
+> +	void *dst_addr, *src_addr;
 > +
-> +	val = rvtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	val |= BIT(RVTRACE_COMPONENT_CTRL_ITRACE_SHIFT);
-> +	rvtrace_write32(comp->pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	return rvtrace_poll_bit(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-> +				RVTRACE_COMPONENT_CTRL_ITRACE_SHIFT, 1,
-> +				comp->pdata->control_poll_timeout_usecs);
+> +	while (src->size) {
+> +		src_addr = src->base + src->cur;
+> +		dst_addr = dst->base + dst->cur;
+> +
+> +		if (dst->len - dst->cur < src->size)
+> +			bytes_dst = dst->len - dst->cur;
+> +		else
+> +			bytes_dst = src->size;
+> +		if (src->len - src->cur < src->size)
+> +			bytes_src = src->len - src->cur;
+> +		else
+> +			bytes_src = src->size;
+> +		bytes = bytes_dst < bytes_src ? bytes_dst : bytes_src;
+> +		memcpy(dst_addr, src_addr, bytes);
+> +		dst->cur = (dst->cur + bytes) % dst->len;
+> +		src->cur = (src->cur + bytes) % src->len;
+> +		src->size -= bytes;
+> +	}
 > +}
 > +
-> +static int rvtrace_encoder_stop(struct rvtrace_component *comp)
+> +static size_t rvtrace_ramsink_copyto_auxbuf(struct rvtrace_component *comp,
+> +					    struct rvtrace_perf_auxbuf *buf)
 > +{
-> +	u32 val;
+> +	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
+> +	struct trace_buf src, dst;
+> +	u32 wp_low, wp_high;
+> +	u64 buf_cur_head;
+> +	size_t size;
 > +
-> +	val = rvtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	val &= ~BIT(RVTRACE_COMPONENT_CTRL_ITRACE_SHIFT);
-> +	rvtrace_write32(comp->pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	return rvtrace_poll_bit(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-> +				RVTRACE_COMPONENT_CTRL_ITRACE_SHIFT, 0,
-> +				comp->pdata->control_poll_timeout_usecs);
+> +	wp_low = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_WPLOW_OFF);
+> +	wp_high = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_WPHIGH_OFF);
+> +	buf_cur_head = (u64)(wp_high) << 32 | wp_low;
+> +
+> +	if (buf_cur_head == priv->prev_head)
+> +		return 0;
+> +
+> +	dst.base = buf->base;
+> +	dst.len = buf->length;
+> +	dst.cur = buf->pos;
+> +	dst.size = 0;
+> +
+> +	src.base = priv->va;
+> +	src.len = priv->end - priv->start;
+> +	if (buf_cur_head > priv->prev_head) {
+> +		src.size = buf_cur_head - priv->prev_head;
+> +	} else {
+> +		src.size = priv->end - priv->prev_head;
+> +		src.size += buf_cur_head - priv->start;
+> +	}
+> +
+> +	src.cur = buf_cur_head - priv->start;
+> +	size = src.size;
+> +	tbuf_to_pbuf_copy(&src, &dst);
+> +	buf->pos = dst.cur;
+> +	priv->prev_head = buf_cur_head;
+> +
+> +	return size;
 > +}
 > +
-> +static void rvtrace_encoder_setmode(struct rvtrace_component *comp, u32 mode)
+> +static int rvtrace_ramsink_setup(struct rvtrace_component *comp)
 > +{
-> +	u32 val;
+> +	struct rvtrace_ramsink_priv *priv;
 > +
-> +	val = rvtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	val |= (mode << RVTRACE_COMPONENT_CTRL_INSTMODE_SHIFT);
-> +	rvtrace_write32(comp->pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +}
+> +	priv = devm_kzalloc(&comp->dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +	dev_set_drvdata(&comp->dev, priv);
 > +
-> +static int rvtrace_encoder_probe(struct rvtrace_component *comp)
-> +{
-> +	int ret;
+> +	priv->size = SZ_4M;
+Can we make this size dynamically determined? 4M seems inadequate. This is
+exceedingly so if the RAM sink is linked to a funnel, where you can have
+many harts dumping traces into this sink.
+
+> +	priv->va = dma_alloc_coherent(&comp->dev, priv->size, &priv->start, GFP_KERNEL);
+> +	if (!priv->va)
+> +		return -ENOMEM;
+> +	priv->end = priv->start + priv->size;
+> +	priv->prev_head = priv->start;
 > +
-> +	rvtrace_encoder_setmode(comp, 0x6);
-> +	ret = rvtrace_enable_component(comp);
-> +	if (ret)
-> +		return dev_err_probe(&comp->dev, ret, "failed to enable encoder.\n");
+> +	/* Setup ram sink addresses */
+> +	rvtrace_write32(comp->pdata, lower_32_bits(priv->start), RVTRACE_RAMSINK_STARTLOW_OFF);
+> +	rvtrace_write32(comp->pdata, upper_32_bits(priv->start), RVTRACE_RAMSINK_STARTHIGH_OFF);
+> +	rvtrace_write32(comp->pdata, lower_32_bits(priv->start), RVTRACE_RAMSINK_WPLOW_OFF);
+> +	rvtrace_write32(comp->pdata, upper_32_bits(priv->start), RVTRACE_RAMSINK_WPHIGH_OFF);
+> +	/* Limit address needs to be set to end - 4 so that HW doesn't cause an overflow. */> +	rvtrace_write32(comp->pdata, lower_32_bits(priv->end - 0x4), RVTRACE_RAMSINK_LIMITLOW_OFF);
+Should not hardcode 4 as the trace write width. Control Interface Spec
+chapter 7.1 has the proper instruction on how to probe for this width:
+
+"Not every value may be settable in trRamStart/Limit registers. Value
+  written may be trimmed (for example aligned on a particular 2^N boundary)
+  and a trace tool should verify values being written"
+
+> +	rvtrace_write32(comp->pdata, upper_32_bits(priv->end), RVTRACE_RAMSINK_LIMITHIGH_OFF);
 > +
 > +	return 0;
 > +}
-Trace components needs proper probing before use. Refer to Control Interface
-Spec: https://github.com/riscv-non-isa/tg-nexus-trace/releases/download/1.0_Ratified/RISC-V-Trace-Control-Interface.pdf
-Chapter 5. This versioning applies to all components, e.g., sinks/funnels...
-The driver should check the HW impl version with what it supports, and
-rejects registering the component(s) if not supported. Chapter 5. has more
-details.
-
 > +
-> +static void rvtrace_encoder_remove(struct rvtrace_component *comp)
+> +static void rvtrace_ramsink_cleanup(struct rvtrace_component *comp)
+> +{
+> +	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
+> +
+> +	dma_free_coherent(&comp->dev, priv->size, priv->va, priv->start);
+> +}
+> +
+> +static int rvtrace_ramsink_probe(struct rvtrace_component *comp)
+> +{
+> +	int ret;
+> +
+> +	ret = rvtrace_ramsink_setup(comp);
+> +	if (ret)
+> +		return dev_err_probe(&comp->dev, ret, "failed to setup ramsink.\n");
+> +
+> +	ret = rvtrace_enable_component(comp);
+> +	if (ret)
+> +		return dev_err_probe(&comp->dev, ret, "failed to enable ramsink.\n");
+> +
+> +	return ret;
+> +}
+> +
+> +static void rvtrace_ramsink_remove(struct rvtrace_component *comp)
 > +{
 > +	int ret;
 > +
 > +	ret = rvtrace_disable_component(comp);
 > +	if (ret)
-> +		dev_err(&comp->dev, "failed to disable encoder.\n");
+> +		dev_err(&comp->dev, "failed to disable ramsink.\n");
+> +
+> +	rvtrace_ramsink_cleanup(comp);
 > +}
 > +
-> +static struct rvtrace_component_id rvtrace_encoder_ids[] = {
-> +	{ .type = RVTRACE_COMPONENT_TYPE_ENCODER,
+> +static struct rvtrace_component_id rvtrace_ramsink_ids[] = {
+> +	{ .type = RVTRACE_COMPONENT_TYPE_RAMSINK,
 > +	  .version = rvtrace_component_mkversion(1, 0), },
 > +	{},
 > +};
 > +
-> +static struct rvtrace_driver rvtrace_encoder_driver = {
-> +	.id_table = rvtrace_encoder_ids,
-> +	.start = rvtrace_encoder_start,
-> +	.stop = rvtrace_encoder_stop,
-> +	.probe = rvtrace_encoder_probe,
-> +	.remove = rvtrace_encoder_remove,
+> +static struct rvtrace_driver rvtrace_ramsink_driver = {
+> +	.id_table = rvtrace_ramsink_ids,
+> +	.copyto_auxbuf = rvtrace_ramsink_copyto_auxbuf,
+> +	.probe = rvtrace_ramsink_probe,
+> +	.remove = rvtrace_ramsink_remove,
 > +	.driver = {
-> +		.name = "rvtrace-encoder",
+> +		.name = "rvtrace-ramsink",
 > +	},
 > +};
 > +
-> +static int __init rvtrace_encoder_init(void)
+> +static int __init rvtrace_ramsink_init(void)
 > +{
-> +	return rvtrace_register_driver(&rvtrace_encoder_driver);
+> +	return rvtrace_register_driver(&rvtrace_ramsink_driver);
 > +}
 > +
-> +static void __exit rvtrace_encoder_exit(void)
+> +static void __exit rvtrace_ramsink_exit(void)
 > +{
-> +	rvtrace_unregister_driver(&rvtrace_encoder_driver);
+> +	rvtrace_unregister_driver(&rvtrace_ramsink_driver);
 > +}
 > +
-> +module_init(rvtrace_encoder_init);
-> +module_exit(rvtrace_encoder_exit);
+> +module_init(rvtrace_ramsink_init);
+> +module_exit(rvtrace_ramsink_exit);
 > +
 > +/* Module information */
 > +MODULE_AUTHOR("Mayuresh Chitale <mchitale@ventanamicro.com>");
-> +MODULE_DESCRIPTION("RISC-V Trace Encoder Driver");
+> +MODULE_DESCRIPTION("RISC-V Trace Ramsink Driver");
 > +MODULE_LICENSE("GPL");
 
 Bo
