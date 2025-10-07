@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E5BCCD188
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 901F8CCD185
 	for <linux-riscv@archiver.kernel.org>; Tue,  7 Oct 2025 11:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q2nheoIUOMqDzK5y/D+05PRImkg9ERz8meO0T2meIzA=; b=WvIORYaDppMHhF
-	NchTkaxj2CdEB7d0IUZIV+fbTJqGahpY7NdsJ2SFxlHRZpKLdB+PXCgaEDSXef8cWj8Wksyxq72c1
-	6Jwb+bNrEwcE4wkr1ri07QWgeW0I2I1XHdM36Q4OQpXjftFq66IDeiYep5t9BpC7D3+bA3toZ6aoA
-	Mg/Mw6gvAybjbQWrxZWOxMntM9SMcx8lgm5I2XkDA3vOmDKrVLpEcHIcF9BCmxFAPFuzuxeP3immH
-	1VAVFka0yTBHReDI+9cAyMOSw3TsgRR1Dg8QbYADKDqfF0eD+EhTkodZAbDL1//jpcZqIG4oxSWpb
-	jSQbpnvuqt30f1315TTQ==;
+	List-Owner; bh=00qeJJUrzGwHWzHODFlFe4Bu9aJ7WUWnCjq8TYqoHQ4=; b=Iedh+XCdeUkHdk
+	Xbq0Ri+PwL7+LN2YQEBkNjU1gu/QsFMzLFz6onH+VEX5yC3j39Pd23DJvKfRcEN9wL5i/iZrzB/pR
+	mglWLO5Di/mTAu3M1pRjs94Zw7/VauKX2fFMk+GKHdwu98dn4SeKeO5xamci8Dd8ZzOOOSU3kKEIy
+	ZzNyWDpoMBEFx8/2z3l8eRDTxMk+TkJ7IjZG+ArLBUaQKXpIv0KXUrWknQq0Q3qdvfCPRZf4PqYXI
+	mDlKp1NFHaByBFQlAvCqojAMu3lOCTlcilvDv6OAvE1Y1JEH2+0no4unUxQj7fVZ+qTWYm2HwUZn3
+	JjZ4poKompopbmbVsBsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v66LH-00000001w35-1A4B;
-	Tue, 07 Oct 2025 11:58:55 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1v66LJ-00000001w5B-2RP0;
+	Tue, 07 Oct 2025 11:58:57 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v66LF-00000001w0m-1SsB
+	id 1v66LH-00000001w1e-01lx
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Oct 2025 11:58:54 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-57bd04f2e84so6962896e87.1
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Oct 2025 04:58:52 -0700 (PDT)
+	Tue, 07 Oct 2025 11:58:56 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-57d5ccd73dfso6726684e87.0
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Oct 2025 04:58:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759838331; x=1760443131; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1759838333; x=1760443133; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gLmsg/56sZrz4BdDAhOz8lvZvUVWtSQgVDQGJvDc9c8=;
-        b=EvHy7DP5IJdRtFFkWeiXw74IPKxIe7XpuzNxzQDWNIUsYxspECQ3sZWsGGEEpzMumm
-         wuBHa9Yg7BMsP853YkXPzNZihjY5BrApeP7+8UvmVMO8OTcBCQaRPbgebqjTiN9wERk3
-         OXA+Isfc932bGpwcPzxsxmG2jK5O8Sbs1fD2q/JmGDPEEYCGOmw2JKg3aAelAEttu6hq
-         tiDHMfuftwspySwpdwaJ9HQn4fJN7IcCOnFAC58OO12zR/p+GzH1ZBsUpg4y7Oz+dxbU
-         82EZdKQ03083rbp/C5zs2yRJSMYAbUsx+W7YqmPqzC9BryXRM/hVSCpUo9zeAojTtQtN
-         xXsw==
+        bh=DHT1PRp2JY0IGazIqjL1tLWH/amjUJ0aFr/0p5QGBFQ=;
+        b=iMxlt2Uk/E6O0I+IBNUJROpvSCJ6rD5vxJ5zOvJRjDEq/aFAZWVaj6e/I+GeUVyF5k
+         R5SADQR/7dZEq4JnmmBUO0/anc2uY31aC0glnYHnz4E6oQox2UBUdOtdPhU326r7faTa
+         UvjEkLu/jeNG0V093mxAl/A9u71+pet1C4ILY+YEeexfjaaogVaD29kYKfFia3QLhGkb
+         aIafd0k5HFNLtELdfk7r9OWuvQVan1klJRMc1H3tnltJfng56Pzc38RV8m9KFCK8It/F
+         g1LYzNPsh1ILmdRv+1lKTfU8s3LeYMzlxEkiH9L48oL2OtvhMT0ili0TP4NMaCkmOtC9
+         znVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759838331; x=1760443131;
+        d=1e100.net; s=20230601; t=1759838333; x=1760443133;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gLmsg/56sZrz4BdDAhOz8lvZvUVWtSQgVDQGJvDc9c8=;
-        b=NghX8zNuD21Qlb8cKvJfvCdcPSKvNi4CJK+12ocVmVK32KMixlUblIbfwDnVg0clXw
-         hGja2r82fuTAKgCInhgmvuLyv3Pqfm56ExZbVmMdLuU7iTYf21RXPxd1yHLOx612Yq/2
-         mHiGYcaA3gPXQOK8ePGt9eB4U6dyngBov1Bd+evDHngOcMQAqoIn32Sy7ovgbx0aBTGY
-         l7Nyo/Zm4jvoNG9UBAWVet4apFDBCrIJgY43EbO1D4DvQ18mPu85w0+mTp/g5sWI3sMD
-         fGyR75e7ObjJzbRXagSgaZixsEh0mCGC21wDjfqZNNqLPiBoaOiXfrZ7HvWyHbW52Rmj
-         K/vg==
-X-Gm-Message-State: AOJu0Yz5tEshvHzRvsIS2KQm2ktSfSoykpLbDPQlaHmGw8chAij2FA6j
-	AlqiEag7KWrqbssGiHsyf/19GdwD8HD79Y9rhHkEdlY50pbFzaEUPSejYGeSzWbj
-X-Gm-Gg: ASbGncsHcX4LezG/xqVpmmv1FNuY7bsWkIxarkfF30dYuw0rD8QZtbxbo5DysowXPC5
-	RhJCCv2cGBYke6SqSWBBmRGvgfK1iyVXPfMoCT2yvQgCFI71yFfUAUB3aZZaJJC3s0cZkxAMILc
-	i3JcPRmjLRe3eS6i3Dvvwv6L39plVv6n9zse+TtGlEyNFfDQCaV/K3Tpl0zfDn4iANH21QsK4i/
-	peKVHr8TMufZ0gplkeDDa0chO4JogYdjyNxTrebJNMuqIHoBMnv07dFnhfMfYSWMfPWmtn8ACH1
-	ne82J+UKjVsUoWAZcnjYmeKoza4lIobWUc5N0biucTxkK1mKMGy8BDYwCHjg+XGbqZ75i6Xz3Yg
-	S/jUyZcJzKNX6xG5VwtXUaQ/tbSWv7smhP5UMZw==
-X-Google-Smtp-Source: AGHT+IGfT8s7layBTVcGXA6YfBl09MAMt5tdhMpUSEGyHeuPqtgVVg9HtsIeoOOkz2owLe0BeMm1lQ==
-X-Received: by 2002:a05:6512:3e27:b0:55f:6db5:748d with SMTP id 2adb3069b0e04-58cb956b71amr5116109e87.4.1759838330577;
-        Tue, 07 Oct 2025 04:58:50 -0700 (PDT)
+        bh=DHT1PRp2JY0IGazIqjL1tLWH/amjUJ0aFr/0p5QGBFQ=;
+        b=c/baa1TpVyKRiVJEnNs4z2WklFGh1aqdS1BeQDxMgFjs/3XSwVSqbfuJTm4FdZ4Uq5
+         nr/VQPoFrG9hwbi+L7exRX8pdgqRZSk/UR4sMk8ZLhyW/IalXxYtVv9cJW8CDR/ah0d3
+         qNlZ1SMVkjY4eme3vWLdqRzwwO1XSKSi9jStoEHDaBMNEPk/dVbH+yMHNxiDXDpq7cH4
+         7i9uSg0tm8HMZLRHQTqDAJ1xNQztfB5BNWD2UACeRdAb46iQSqMQfP1EyV/KCgbAs/NS
+         UaavdWYjmR2XfdZaLK702ddozuDIVOPferbT/tEinuBwJUa9FY76nsbgylJ+yWY6yssH
+         AFOQ==
+X-Gm-Message-State: AOJu0Yxy9hCvWgtqD2Kh2E1DG7Z34oZpIrkgMPNyhnQUGPmd9yQK0nMm
+	qiKIbLOJ4HrcTxbmmUP+okNs9sQXU9TG8yIkw391lckOSOIC3/OMVaGcL4jr0b9n
+X-Gm-Gg: ASbGncueWpZasZSf0sUkF0Qe9/YzYrNVKTvQLKJtSOtchC50CbEGQkGpk2IZKPQY7tt
+	a2Ww7Iaffwpy1H0r5dJ1TXpUcK99k7htsUF9vCPIuvMosCEOOs0Cw18Qf40NAGxBF/ZG568IonH
+	RA2hALjT7lWcLz6eEI8YpTZyfl6c2ZSJMtbV3jvzyUdm8N72tscxWiCqM2QLFFs10yROofP9Gkd
+	nOcZWO4gwDpX87Ix+Z+OSfWrLovX8ciejlZ/sFieKE7p+GyPsSzYPmFHuF+76oKSv94xhrbAaDw
+	2jI2IdRe++pDOSkce8JRnK+T2ug8jmt9LzyGiUlrN3jXf0FhcimlrnWEz5zSx/EJgxTk3rE/c7L
+	Z+uoaSOwTt8lpVozmrH8rxWeSSAn9jIo7sdV6ZB0hLglWZU7T
+X-Google-Smtp-Source: AGHT+IEzN3zS6xGqVRO8VCU7zICi7Cd8TK0JwH77VbJyPE7udYDtblpgFcyovJkjgfD5sCBUy3Ty/w==
+X-Received: by 2002:ac2:4e0e:0:b0:570:daa5:de18 with SMTP id 2adb3069b0e04-58cbbbeee5dmr5043998e87.33.1759838332383;
+        Tue, 07 Oct 2025 04:58:52 -0700 (PDT)
 Received: from curiosity ([5.188.167.4])
-        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-58b011a8941sm6043339e87.114.2025.10.07.04.58.49
+        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-58b011a8941sm6043339e87.114.2025.10.07.04.58.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Oct 2025 04:58:49 -0700 (PDT)
+        Tue, 07 Oct 2025 04:58:51 -0700 (PDT)
 From: Sergey Matyukevich <geomatsi@gmail.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kselftest@vger.kernel.org
@@ -90,16 +90,16 @@ Cc: linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: [PATCH v2 4/6] riscv: vector: allow to force vector context save
-Date: Tue,  7 Oct 2025 14:58:20 +0300
-Message-ID: <20251007115840.2320557-5-geomatsi@gmail.com>
+Subject: [PATCH v2 5/6] selftests: riscv: verify initial vector state with ptrace
+Date: Tue,  7 Oct 2025 14:58:21 +0300
+Message-ID: <20251007115840.2320557-6-geomatsi@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251007115840.2320557-1-geomatsi@gmail.com>
 References: <20251007115840.2320557-1-geomatsi@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_045853_421084_66B2D906 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20251007_045855_082522_788B2CF5 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,93 +116,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When ptrace updates vector CSR registers for a traced process, the
-changes may not be immediately visible to the next ptrace operations
-due to vector context switch optimizations.
-
-The function 'riscv_v_vstate_save' saves context only if mstatus.VS is
-'dirty'. However mstatus.VS of the traced process context may remain
-'clean' between two breakpoints, if no vector instructions were executed
-between those two breakpoints. In this case the vector context will not
-be saved at the second breakpoint. As a result, the second ptrace may
-read stale vector CSR values.
-
-Fix this by introducing a TIF flag that forces vector context save on
-the next context switch, regardless of mstatus.VS state. Set this
-flag on ptrace oprations that modify vector CSR registers.
+Add a test case that attaches to a traced process immediately after its
+first vector instructions to verify the initial vector context state.
 
 Signed-off-by: Sergey Matyukevich <geomatsi@gmail.com>
 ---
- arch/riscv/include/asm/thread_info.h | 2 ++
- arch/riscv/include/asm/vector.h      | 3 +++
- arch/riscv/kernel/process.c          | 2 ++
- arch/riscv/kernel/ptrace.c           | 5 +++++
- 4 files changed, 12 insertions(+)
+ .../testing/selftests/riscv/vector/v_ptrace.c | 103 ++++++++++++++++++
+ 1 file changed, 103 insertions(+)
 
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 836d80dd2921..e05e9aa89c43 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -118,7 +118,9 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
- 
- #define TIF_32BIT			16	/* compat-mode 32bit process */
- #define TIF_RISCV_V_DEFER_RESTORE	17	/* restore Vector before returing to user */
-+#define TIF_RISCV_V_FORCE_SAVE		13	/* force Vector context save */
- 
- #define _TIF_RISCV_V_DEFER_RESTORE	BIT(TIF_RISCV_V_DEFER_RESTORE)
-+#define _TIF_RISCV_V_FORCE_SAVE		BIT(TIF_RISCV_V_FORCE_SAVE)
- 
- #endif /* _ASM_RISCV_THREAD_INFO_H */
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index b61786d43c20..d3770e13da93 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -370,6 +370,9 @@ static inline void __switch_to_vector(struct task_struct *prev,
- {
- 	struct pt_regs *regs;
- 
-+	if (test_and_clear_tsk_thread_flag(prev, TIF_RISCV_V_FORCE_SAVE))
-+		__riscv_v_vstate_dirty(task_pt_regs(prev));
-+
- 	if (riscv_preempt_v_started(prev)) {
- 		if (riscv_v_is_on()) {
- 			WARN_ON(prev->thread.riscv_v_flags & RISCV_V_CTX_DEPTH_MASK);
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 31a392993cb4..47959c55cefb 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -183,6 +183,7 @@ void flush_thread(void)
- 	kfree(current->thread.vstate.datap);
- 	memset(&current->thread.vstate, 0, sizeof(struct __riscv_v_ext_state));
- 	clear_tsk_thread_flag(current, TIF_RISCV_V_DEFER_RESTORE);
-+	clear_tsk_thread_flag(current, TIF_RISCV_V_FORCE_SAVE);
- #endif
- #ifdef CONFIG_RISCV_ISA_SUPM
- 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
-@@ -205,6 +206,7 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- 	memset(&dst->thread.vstate, 0, sizeof(struct __riscv_v_ext_state));
- 	memset(&dst->thread.kernel_vstate, 0, sizeof(struct __riscv_v_ext_state));
- 	clear_tsk_thread_flag(dst, TIF_RISCV_V_DEFER_RESTORE);
-+	clear_tsk_thread_flag(dst, TIF_RISCV_V_FORCE_SAVE);
- 
- 	return 0;
+diff --git a/tools/testing/selftests/riscv/vector/v_ptrace.c b/tools/testing/selftests/riscv/vector/v_ptrace.c
+index ccda8a4dc49b..f452e04629ea 100644
+--- a/tools/testing/selftests/riscv/vector/v_ptrace.c
++++ b/tools/testing/selftests/riscv/vector/v_ptrace.c
+@@ -196,4 +196,107 @@ TEST(ptrace_rvv_invalid_vtype)
+ 	}
  }
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index 906cf1197edc..569f756bef23 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -148,6 +148,11 @@ static int riscv_vr_set(struct task_struct *target,
- 	if (vstate->vlenb != ptrace_vstate.vlenb)
- 		return -EINVAL;
  
-+	if (vstate->vtype != ptrace_vstate.vtype ||
-+	    vstate->vcsr != ptrace_vstate.vcsr ||
-+	    vstate->vl != ptrace_vstate.vl)
-+		set_tsk_thread_flag(target, TIF_RISCV_V_FORCE_SAVE);
++TEST(ptrace_rvv_early_access)
++{
++	static volatile unsigned long vstart;
++	static volatile unsigned long vtype;
++	static volatile unsigned long vlenb;
++	static volatile unsigned long vcsr;
++	static volatile unsigned long vl;
++	pid_t pid;
 +
- 	vstate->vstart = ptrace_vstate.vstart;
- 	vstate->vl = ptrace_vstate.vl;
- 	vstate->vtype = ptrace_vstate.vtype;
++	if (!is_vector_supported())
++		SKIP(return, "Vector not supported");
++
++	chld_lock = 1;
++
++	pid = fork();
++
++	ASSERT_LE(0, pid)
++		TH_LOG("fork: %m");
++
++	if (pid == 0) {
++		while (chld_lock == 1)
++			asm volatile("" : : "g"(chld_lock) : "memory");
++
++		asm volatile("csrr %[vstart], vstart" : [vstart] "=r"(vstart));
++		asm volatile("csrr %[vl], vl" : [vl] "=r"(vl));
++		asm volatile("csrr %[vtype], vtype" : [vtype] "=r"(vtype));
++		asm volatile("csrr %[vcsr], vcsr" : [vcsr] "=r"(vcsr));
++		asm volatile("csrr %[vlenb], vlenb" : [vlenb] "=r"(vlenb));
++
++		asm volatile ("ebreak" : : : );
++	} else {
++		struct __riscv_v_regset_state *regset_data;
++		unsigned long vstart_csr;
++		unsigned long vl_csr;
++		unsigned long vtype_csr;
++		unsigned long vcsr_csr;
++		unsigned long vlenb_csr;
++		size_t regset_size;
++		struct iovec iov;
++		int status;
++
++		/* attach */
++
++		ASSERT_EQ(0, ptrace(PTRACE_ATTACH, pid, NULL, NULL));
++		ASSERT_EQ(pid, waitpid(pid, &status, 0));
++		ASSERT_TRUE(WIFSTOPPED(status));
++
++		/* unlock */
++
++		ASSERT_EQ(0, ptrace(PTRACE_POKEDATA, pid, &chld_lock, 0));
++
++		/* resume and wait for ebreak */
++
++		ASSERT_EQ(0, ptrace(PTRACE_CONT, pid, NULL, NULL));
++		ASSERT_EQ(pid, waitpid(pid, &status, 0));
++		ASSERT_TRUE(WIFSTOPPED(status));
++
++		/* read tracee vector csr regs using ptrace PEEKDATA */
++
++		errno = 0;
++		vstart_csr = ptrace(PTRACE_PEEKDATA, pid, &vstart, NULL);
++		ASSERT_FALSE((errno != 0) && (vstart_csr == -1));
++
++		errno = 0;
++		vl_csr = ptrace(PTRACE_PEEKDATA, pid, &vl, NULL);
++		ASSERT_FALSE((errno != 0) && (vl_csr == -1));
++
++		errno = 0;
++		vtype_csr = ptrace(PTRACE_PEEKDATA, pid, &vtype, NULL);
++		ASSERT_FALSE((errno != 0) && (vtype_csr == -1));
++
++		errno = 0;
++		vcsr_csr = ptrace(PTRACE_PEEKDATA, pid, &vcsr, NULL);
++		ASSERT_FALSE((errno != 0) && (vcsr_csr == -1));
++
++		errno = 0;
++		vlenb_csr = ptrace(PTRACE_PEEKDATA, pid, &vlenb, NULL);
++		ASSERT_FALSE((errno != 0) && (vlenb_csr == -1));
++
++		/* read tracee csr regs using ptrace GETREGSET */
++
++		regset_size = sizeof(*regset_data) + vlenb_csr * 32;
++		regset_data = calloc(1, regset_size);
++
++		iov.iov_base = regset_data;
++		iov.iov_len = regset_size;
++
++		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_RISCV_VECTOR, &iov));
++
++		/* compare */
++
++		EXPECT_EQ(vstart_csr, regset_data->vstart);
++		EXPECT_EQ(vtype_csr, regset_data->vtype);
++		EXPECT_EQ(vlenb_csr, regset_data->vlenb);
++		EXPECT_EQ(vcsr_csr, regset_data->vcsr);
++		EXPECT_EQ(vl_csr, regset_data->vl);
++
++		/* cleanup */
++
++		ASSERT_EQ(0, kill(pid, SIGKILL));
++	}
++}
++
+ TEST_HARNESS_MAIN
 -- 
 2.51.0
 
