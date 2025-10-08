@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3617ACCD184
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Oct 2025 17:51:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F67ACCA470
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Oct 2025 18:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XPGUq/de6/aJYmfWe9RnBCJxX7GuJ/AWq4BCQPecmbg=; b=BVwrZ4DHhC5j7x
-	lYnLajFgeZIf0+i1QJwe25oea9AYEwHtlk1h052tHo8PeauiNFFZSpQ/wkqjM/upKoK+6u9KXKpN7
-	44hokpVsZIsPpdr3ec852TuCUnf1BqLbMlIa9MjxzpUaBLbppk+xky196DfvSOqaygZhfBb3adzu7
-	d3+W/3WEBk/ETzBLRVy0088rcmlip6qkf/WF3n8IFJ1F+JAcoxjX+i2Kzck2ckNRmE6aPBRZX9vjz
-	mNZbrg9odmXwHE5X4TfVm7SGwQCJojV9GVtU6JBNJ0miqUrRt+oDACqwEf3IaTDfQ0LbNxSJI56dX
-	pb+sPEVMMUOjTDXEuALw==;
+	List-Owner; bh=BwI+PkZSM0KaRiEAgukasiY9/7j6sPYbs0AxcaxDukI=; b=zuIaDTnYBzh3T9
+	+JQBP4HnGZH7w2w68FdSTC77rYhoTJc6MvCsgcdVdOHoT74EVH2dNWr8t8q+xfv3XCGzJ8XFo+TZg
+	Sfi1s7urmP5CslMOqKhz5Mi3Sf8SMa8Bm7jrJ/eJNS4KIaJiqIF4LhR+8HkxcMUXOnpfU9EyH9VTT
+	Gp8B49X0YedzRb7gfW2Paazbn78M0a/n8nfg0Ndr62fe9e+iz57fzI6zGPemQV2NB3jZYvUjAzYZs
+	2FWsQvnWpwjW5Y5rCByOjSrbMm2viqy/+5tUpkL4/kK75rzf0uxApzjvGvEx4lTQAa7nxeHoPwuGE
+	kPZw+ZX3zZH3Ul5FeAtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6YJY-00000004P8j-2tEE;
-	Wed, 08 Oct 2025 17:51:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v6YVj-00000004RM4-42IW;
+	Wed, 08 Oct 2025 18:03:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6YJX-00000004P8J-1uY6
+	id 1v6YVi-00000004RL1-00sw
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Oct 2025 17:50:59 +0000
+	Wed, 08 Oct 2025 18:03:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2B0261148;
-	Wed,  8 Oct 2025 17:50:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D66A8C4CEE7;
-	Wed,  8 Oct 2025 17:50:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6909E4542D;
+	Wed,  8 Oct 2025 18:03:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8BEFC4CEE7;
+	Wed,  8 Oct 2025 18:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759945858;
-	bh=Da1eqrZCMQTfiA7GWCzrdL36EgR1rBWR0A1debnvh+4=;
+	s=k20201202; t=1759946612;
+	bh=bk9IcjsHAjzeJKGBFPktoeUaQP11TRdKWiSa2+VXBlQ=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=Rk5N31tXSG7Lp2JaTap0qUfFvs8YVYtXUVWw6RnBnjRcZAyBY3BkrvAu7UB6nWMIJ
-	 J6KOkhYHVddhUV9dd4BbNHgCTHNYq/6WOHYqyjJHga8bhFCcXJodrTUvYKStFuFlg1
-	 EQbgMQd21Ecwwlq8Q9cR91MACITK+u+U7COzWZ6NqViUfpmfrlBgHNYs85kTj59xRL
-	 YG77XzyPn7F4ppwUkg6oGdb9RfpPXI6Y5236eO1otbwr2WQ0J2kXdFmo0pcoohe+V+
-	 QXLbfeGdjz/eFuz/izGdKqNouK12Fd5DtV7z5DAUvWd1ZeEsDwblWaDSSStqlqnvGE
-	 lfGlxMPxXW9oQ==
-Date: Wed, 8 Oct 2025 11:50:53 -0600 (MDT)
+	b=dx+dIQQzzrPrjzc3YL4EPNcRyBiKa2njtZZ6BGwMFZQsLAGeHFOOMSRzuX+tAZQlA
+	 nSkCy+SBJI7Bv0G16kLyo6RTkSWn1jX07CeMox1sy4G+genE1WW7TUoEUFD7f13dBS
+	 BfAxs1KL9/ijVwN8RYg3K10xy4bYpZGqKC5T5kBkDCPw2h1NaqJsvhueO5+ByzabwM
+	 RwoXq3lLAGScv8s78GPON4iwa5CjinDj3/uqtNdXENvU0LIUSPsxbnQKIe53iCEckW
+	 /1x90dhBgwHiIVy/HdCsaq5xV0Jr5yhMYvx1/nGuXVg2mBKNtC2r2gk9UlmcNXrqOL
+	 ZjirW+A0OWOUw==
+Date: Wed, 8 Oct 2025 12:03:31 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Danil Skrebenkov <danil.skrebenkov@cloudbear.ru>
-cc: pjw@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Charlie Jenkins <charlie@rivosinc.com>, 
-    WangYuli <wangyuli@uniontech.com>, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] RISC-V: cpu-hotplug fix
-In-Reply-To: <20250919132849.31676-1-danil.skrebenkov@cloudbear.ru>
-Message-ID: <7bc8eb67-0a48-1756-c907-dae7751b4c98@kernel.org>
-References: <20250919132849.31676-1-danil.skrebenkov@cloudbear.ru>
+To: Florian Schmaus <flo@geekplace.eu>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: entry: fix typo in comment 'instruciton' ->
+ 'instruction'
+In-Reply-To: <20251006093742.53925-1-flo@geekplace.eu>
+Message-ID: <66981f70-e036-c6a9-3ea0-90b3bcdd4be6@kernel.org>
+References: <20251006093742.53925-1-flo@geekplace.eu>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251008_110334_082888_3352D288 
+X-CRM114-Status: UNSURE (   6.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,34 +74,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Sep 2025, Danil Skrebenkov wrote:
+On Mon, 6 Oct 2025, Florian Schmaus wrote:
 
-> openSBI v1.7 adds harts checks for ipi operations. Especially it
-> adds comparison between hmask passed as an argument from linux
-> and mask of online harts (from openSBI side). If they don't
-> fit each other the error occurs.
-> 
-> When cpu is offline, cpu_online_mask is explicitly cleared in
-> __cpu_disable. However, there is no explicit clearing of
-> mm_cpumask. mm_cpumask is used for rfence operations that
-> call openSBI RFENCE extension which uses ipi to remote harts.
-> If hart is offline there may be error if mask of linux is not
-> as mask of online harts in openSBI.
-> 
-> this patch adds explicit clearing of mm_cpumask for offline hart.
-> 
-> Signed-off-by: Danil Skrebenkov <danil.skrebenkov@cloudbear.ru>
+> Signed-off-by: Florian Schmaus <flo@geekplace.eu>
 
-Thanks, queued for early v6.18-rc after cleaning up the subject line to be 
-more descriptive:
+Please don't forget to run checkpatch.pl on your patches before sending 
+them; it would have caught the lack of a commit message.
 
-"RISC-V: clear hot-unplugged cores from all task mm_cpumasks to avoid 
-rfence errors"
+I wrote a one-line patch description and queued it for 
+early v6.18-rc; thanks.  
 
 
 - Paul
-
-
 
 _______________________________________________
 linux-riscv mailing list
