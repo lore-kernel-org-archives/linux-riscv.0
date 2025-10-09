@@ -4,186 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324D8CCA470
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 04:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B9ACCA470
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 05:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=KZawcaYybqAXT3XnFDmfUb6uSglKkddkfjVGJrwzMAs=; b=HCLdhKEck5lRDMPklNunWz0d8L
-	LIyIkH2QvqigS0XRvH1ldftBGT/qriS6YQPiIbMc/4uRfXyQe2RGipY9tNcvyXkTYGJyUYUbdZCpJ
-	buX8xdWEpWDFpe+KvCknPGT1UpNUFiNYQ1eRZNjmOlIOZPX4mRcp4dRZIhxxr7dZ3u3VILuKe9YJ7
-	iGzKUt50t+ua7jnn7SqnEyFQoXE80ckvNRSufOY5urms8d0hTEe+mGu8U+boqwHAiUzCEkill0SCQ
-	yzJQhvRuz/RjJ10zo6Pr47aRaQ0jUNOJu8O8977zl7EMieBm4R4L+XdcGGxuuFfnmWyWijz52lzbi
-	r2Phv9SA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mZg9G3DyWd/Z1A+eIw8Kpi3RloE82vqQbOdDPofSFtA=; b=NrKBGXkH80Tgvk
+	OEB0IsvtmqN2SIZz1N+Z5FGb/fiwcdWUTRvu843KIdxOFu9n++qA7xdWRBqU9hFV/p2gCkt9AqNpw
+	VuBnto3CtqioOfa4h+XPDX7/qVBREgu/QpmFuGspxuPEAI1sWvBbO2J9Uvxe8wD8Y1CrXghzVjVhb
+	lniaGVSTqPQWbOtRCVGrP7P382XIgf8KCctNFo4eEXtIQ7wGFCHBSN3uJZ1wVp/2FUaeMLU/8nAkP
+	u5S/DA9DzGbAGiYGyoZ0aS8EXmVp/Ug0QWlPVWKZXRmVpYKZIAiVWQLO+Zi+XUUDfDN9z63pCO3kj
+	kD5/GtqLzSi/fEjyc6tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6i9j-000000059py-12Jq;
-	Thu, 09 Oct 2025 04:21:31 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1v6ilq-00000005BZN-0Jsa;
+	Thu, 09 Oct 2025 05:00:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6i9h-000000059o2-2UHg;
-	Thu, 09 Oct 2025 04:21:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jgs3xYs2BEGarYrZED9NMzjEtR+1KFdbHtZJkh6OczvDjnfSFlZE7kVPTDmcys9C5VRwVRGmQZ9JdtP6TWISbZKFpFlwDjOCd+Ua/WXnF13Ke+t0bJUCaG57nae3Zt/C6SqCu3cErQgvrouEt3I1ZUFpikiYLTZ3jBhwSrBdvhNOdpMXMWUFq6aTgLYTLExdm9ixMzyoZRXYw1OfefOOIp/RhIxRbjVM//dPXDGUbhNjZoefmYI5SKWRr1TokWWo6TVapRqzOIyMYpK9iVydhjC5uR1vHmgiEsYngHi7kxlh2n4y3oDXNRP42zZL4+tSviqxtswMVKFxYPIE5ZFz3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9L3KIbazyGcaYK7/IBxNGZXoiyeDXpsA4ee8o3o3V+0=;
- b=Ok/SashdVy24ptqs/Cb1oWqrTAe9OSlnSFkIMVJV6f/CL3L/bMKE2CKlsUbtVKqSsP0UmeQEfCQrkR56/8EpFxnyzca97WNdt60znk5C5gkbiyagf0ahsbSI9hJsVU/pnXAOnXmWrm4XR6fk/3AqxReABH3EtESr8UgUjZa8+Dyi9WwvRcC7Jm5cK4R1KbvS5200a+hA55d7tWEQYJyUrFCvl7hEStnUN0/PS+2cQtxuJU/HcFG1mNjkkG1WP78af7LVA0i6Mer+bhwnNJxUPaO/wTQImBIwFGWPUOU5J2tcCNalRZUDAg9TG9I+KYvmf8yCG3waAPkz7lvTjCzJhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9L3KIbazyGcaYK7/IBxNGZXoiyeDXpsA4ee8o3o3V+0=;
- b=i1DSKjuBwuYdpm/BS7GQxFD90iw5IQVAUXN6UhsmlrBwoRIWjnWhc37FixOndU0yG+oFFQzTIGQUBBWuHiGUVijQmBm5qC1wfy2PdXvitcdhfkzMerNQCCio/c4yG9jGnwazBwlehTW3q7u2Tr2WOeY1Oj8tvM2wf5qRvhYOmf39sHC4zgPbg+JvlYCirinsqqJ70gSwpVVbIt+RoB9hw78p8O8E5+loirKuta4Hf6PP1HBPoo06IATTYJiPZ+2gQSlTNoCOvdD0plEe55kN7p0K0v+0C5Ec/A1c0Fov7Rq4i97yCAIA85YSV5QTG8avhdXDOH9Qg7p7OZtW63TMkA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH8PR12MB7277.namprd12.prod.outlook.com (2603:10b6:510:223::13)
- by CH3PR12MB8331.namprd12.prod.outlook.com (2603:10b6:610:12f::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.20; Thu, 9 Oct
- 2025 04:21:19 +0000
-Received: from PH8PR12MB7277.namprd12.prod.outlook.com
- ([fe80::3a4:70ea:ff05:1251]) by PH8PR12MB7277.namprd12.prod.outlook.com
- ([fe80::3a4:70ea:ff05:1251%7]) with mapi id 15.20.9203.009; Thu, 9 Oct 2025
- 04:21:19 +0000
-Message-ID: <fa2e262c-d732-48e3-9c59-6ed7c684572c@nvidia.com>
-Date: Thu, 9 Oct 2025 15:21:07 +1100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 06/35] mm/page_alloc: reject unreasonable
- folio/compound page sizes in alloc_contig_range_noprof()
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
- Zi Yan <ziy@nvidia.com>
-References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-7-david@redhat.com>
-Content-Language: en-US
-From: Balbir Singh <balbirs@nvidia.com>
-In-Reply-To: <20250821200701.1329277-7-david@redhat.com>
-X-ClientProxiedBy: BY3PR10CA0014.namprd10.prod.outlook.com
- (2603:10b6:a03:255::19) To PH8PR12MB7277.namprd12.prod.outlook.com
- (2603:10b6:510:223::13)
+	id 1v6ilo-00000005BZC-1Liy
+	for linux-riscv@lists.infradead.org;
+	Thu, 09 Oct 2025 05:00:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EBE5A620F4;
+	Thu,  9 Oct 2025 05:00:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1356BC4CEE7;
+	Thu,  9 Oct 2025 05:00:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1759986049;
+	bh=uM3x9ifdbeSCRTPz6Z1yuQ6p99Wfh//1kqt2rykLfTY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MLYUAy1qaDvimbkU8zp/wLU5+DeClg5nTcZ+dJQcbewZIbyH7eD+j+QJ6sfzO3jdW
+	 GYU1uhhcUcd+ehiqxvcabuPlWVrEh3zundBsH3ox0zlllO/i6IRb/RBXsTUEwBORvk
+	 sUiaddxl1xt9jrTMnqoAW88X1nYVBUQZzcUB4AYA=
+Date: Thu, 9 Oct 2025 07:00:46 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Subject: Re: [PATCH 6.6.y 0/2] riscv: mm: Backport of mmap hint address fixes
+Message-ID: <2025100920-riverbank-congress-c7ee@gregkh>
+References: <20251008-riscv-mmap-addr-space-6-6-v1-0-9f47574a520f@iscas.ac.cn>
+ <2025100812-raven-goes-4fd8@gregkh>
+ <187fe5a3-99b9-49b6-be49-3d4f6f1fb16b@iscas.ac.cn>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR12MB7277:EE_|CH3PR12MB8331:EE_
-X-MS-Office365-Filtering-Correlation-Id: f9f14261-b509-4115-1ab1-08de06eb4bc2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|366016|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?c2MyVVVyaUt2aEcwRkI1Z0MwQ3ZJME1LSU85TkVHT3JCSitTbklLZUdHOGxv?=
- =?utf-8?B?T0tBa00yK1AyOC9hSUp3VnFsM0xKL3J4dzZDUFYxUURveWZqYjVJS1EzeWIv?=
- =?utf-8?B?STRIWjFIZEtBV1J0MlAvWkZacHhRVXdUdUZ3SHFqQlFIb3N3eTlZQWxkbDFG?=
- =?utf-8?B?VjkrVkd5Yi9OSjJpOUVBc1BmbzIxUlp4enVwYXRqVlNDbHo3czQ1VUJTYlJR?=
- =?utf-8?B?aG5Wc3hhUmNyazN6T3dZVXA1WDZNcHo2a3AyMnBhV0ZoYmVpYWdGcndWV2M1?=
- =?utf-8?B?d3g1cmo0RXppdEdEbFZhNFZVNU9qNWl0eTBaN1V5dWhxQ3lJK3Byc2x1aWJN?=
- =?utf-8?B?Tm5VVFdid3BSTGFVNm9ndGZHRVdwbjhCM2V2VSs0NytvMGZFaEtBMjVLYUg4?=
- =?utf-8?B?SXhFQmlWY3NwTms0V1VYd2ZpaVVHUFY0VjRpc0Z0M3o3QUpBUXdtMzc0dXYr?=
- =?utf-8?B?T2psTWwrb2lRMWJBU2dlNXpVTXZxb2U2Q2tydEFjbU8wUUY0SFB3M3lVNmh5?=
- =?utf-8?B?bElDenlnU1RnY3RqRTg3QnRYcFhvdkt1SHZMdGtwNnkrVTRYejJQN211Zm9Y?=
- =?utf-8?B?Q2hPd0c3VEc1Z1VnYmJMb3BVSmEvVjVtdm5FaDRaTlVsZWdtdCt6MHRQMWNO?=
- =?utf-8?B?SVJienRKNDEvQXFzM0NpNGMzWWd3VVRuTVZ0ZmdUTDVHRkJjMkd5UkZodXkr?=
- =?utf-8?B?VmRITEtvSmJReGJGTlQzZTE0dWhwRkdORkw2WWFkYlJjK3FFaWdiNkxoWHRw?=
- =?utf-8?B?eTRwbmZWSDE3blQ1QW9iaTZQY3RaR2xHeWR2NHVxNTB6LzYxdXZiWXpDTnlu?=
- =?utf-8?B?bEdhUDBCVjdqTWpxaU9yeC9tZ3NuTXlpVDNER1g1U0t5RDFvSzdyaW9TYmhL?=
- =?utf-8?B?RTA2VzViWXlpR2s0dTFrWlNWVFdsc0JTZDVKT1h0MTZhTUUvbXV5WjJHUVky?=
- =?utf-8?B?R3F5SmlXbjhQVGlFOWphNloxanBCcFMxc0hXUFB0M0wxZVZleWtVYVExU1Mw?=
- =?utf-8?B?OW9KVTVZL3MrcmovMW9PR1h5Y3BQS2dpZmRNK3hHK1I5ZUpOMUx6bFdpU1k2?=
- =?utf-8?B?aHcxdVV3OEhDN1M1MEx2ZytRS3BhcnpNV2NEeEJKOXg1R3ErLzhaQkl5VGp0?=
- =?utf-8?B?dXdZMzNJK1ZDWUo1Rks4R21jcitROXJGN2xGYWxMWDVGdjE5WmtXeTdua2JJ?=
- =?utf-8?B?L3dyckd1NWk0dlpGTEE5L0p0T3NpZDZCMGtKNjQyUDkxdlNjWC80TEFhOXZK?=
- =?utf-8?B?RDM1MW5ubTUvMUYzb2hwU3A4RGZFczNKYllnYnJVQjQ2WTIvaFEvZEU2UU1N?=
- =?utf-8?B?SGl4YnF3R3cwUzBjWHJnbnJxZklBNTVyQlFXWUQ3UUUzVEw2cXJIOGFneVFk?=
- =?utf-8?B?Vzk4UmFnSDBYVDVOVXFpV2NlMndxRnNubldzaTYvVEg4ZmlVcHlybXFQekMw?=
- =?utf-8?B?M0FucnY3cDNlcVp3dFJGNk1LRWNyc01yUzJUblBQS09OUndpVWFrM29PdFJN?=
- =?utf-8?B?R1d5NmJiMDlSby94d1FHMzFsZ1RCMFZVMVNjM2tIL2twNUsvMEJoSTllMjFo?=
- =?utf-8?B?RDBydkE3RG5QQko2TXZjbjBiYjQ2UXlrRDRzcHdDcWdFanAwQVpGaElOVGVx?=
- =?utf-8?B?V284eHU2V2xjNXd0Um5RNGJrdFQwU2NXQlRaN1V4TGpIbXhEemZRVi9zY1dG?=
- =?utf-8?B?aVU0R1VGYlJlRlppTDRnRGRQOVMreHFtSStiajFWSklXeWhWWm1lcWJ3TTRr?=
- =?utf-8?B?MFFQL09IeTBCQm12dkRIVWhwMlgrdGwyTTB2Qlo1Z1VGNU51aDJYeTB5eDVy?=
- =?utf-8?B?WlBBVFBBZUY1eklKY2lQSm1BSGVrM0M1bHFHWUZ3NnQzVURJYStLT2dXTXpZ?=
- =?utf-8?B?L1EvRDBmZDNON1pBcElwVFhZNVcwRUtyNS9TRU9VbVpKUnBBTTBpQ1ZnR2lW?=
- =?utf-8?Q?dQaf4LoS1+Hclrh20eZ80Iuhp0qvZe8U?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR12MB7277.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(366016)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dm1yU3lCRTEyaEV3c2l3NVcwNWQ3eVpiTTQ3QzduQ01GUjVVMVlsL1NNSkZx?=
- =?utf-8?B?OFc2bDdoNG9xM3pOUGZOYU1oV2ZYY2pBS2IvVmJCcjRBWTVpdjZ1d3FOeDdO?=
- =?utf-8?B?dzY0SDRhb0JNNE9UbkcxTU5sRHhHZXFXM1R0MS9jTURpOXAxaFpZSFJtbEll?=
- =?utf-8?B?RG5RSGt6aHpYWjljdUtwVmc2VmMxeDhCcVgyemc4cWlpSGZpdGdCcUs3dzk2?=
- =?utf-8?B?WUgzZFFCVSs2VGhXZXNJNENLMncyTXoyWjlMTms3bktQSVJoaUVtbUQ1cGxr?=
- =?utf-8?B?NWI1aDRMaFpoSHMreEVrejFaZWVBVE4rRGV0Tk4vT3dTMEZUSlBxbDdJakl1?=
- =?utf-8?B?S0RvOWRYOFFwUnRwejY4VjBXUlIxR0QybGRYNWF5WUNiWnVDOUxTUDQ5VTBx?=
- =?utf-8?B?VWRkOXRiMTdIelBvdmE5enhsV2hNMVhQeTVaNG5HWFRKTEFIMUhxVmlIQklJ?=
- =?utf-8?B?bXhPdmJ0dVpIVDd1cndhN09KNmJQSkd3Ym5ubzIyR2JBSm1CbzBFajhTZXJm?=
- =?utf-8?B?T2p6eFBzQXl2by80SEJ2dnFyS2pWUG82bVR2TWJmM2JXL2xnWGZ0RU1RRW5R?=
- =?utf-8?B?Vkp2NytydTdWaVlkSWZvZmhUM2daSFlJSzFST2EyaW5ndnBkRFNQVy91T2xi?=
- =?utf-8?B?U0ZwM2h1aEdLSituVFhsb2YwQU1lTFhUS3F1WEN1ek0vMDE0QnI0Q2tna0di?=
- =?utf-8?B?RHNTais5SXNoWURCUmxmbmFzc3pmQ0JsV3VWS3pFQkc1WU5DZzR5WnVuWlhD?=
- =?utf-8?B?L0s5M293RERLa2lJYVFhVXhoOWNrRzNwek9kc0JnMWxZeUU3czBQRmpBcUpK?=
- =?utf-8?B?YU9nYUVGRytyVmMvSXljY0tEaE55Qm9qWTNoR2dzUkRNV0FteTZ2WjJuZkhE?=
- =?utf-8?B?L211cUx2Ri9sd1JPcmg3OVUyTWVveVZxaGFOSXQ3dmUrUE1xSmRQancwRCtC?=
- =?utf-8?B?L0RNVVNWV1lhaDQ1Z2RpSHprNC80cHJPTUt2cGpuVkJGYTdPbkZYWmNlWno4?=
- =?utf-8?B?U0RJMVF1SFF6TXRQaVBDQmN4TDdBMVFmN3VlcE02TVVsWWZFYUN2WWUwMzh2?=
- =?utf-8?B?eGlXdGt5QW9TWjliT3RwN2VrMm9pd09GVWxJZGV2ZE15bUdYRUc1a2tKN3dz?=
- =?utf-8?B?NDZSN2lmdkZwejhuakg1cFN2Sk5rRHZIR3FvVUJVcFVaTmxub1V6bE9kRnY5?=
- =?utf-8?B?TDhDa3ZFa1hvN1JYSmlld2JTbmtsOWJROWMvZHIxMzAralprbmgzRzV5UExm?=
- =?utf-8?B?U2Zwc3orWlluQ0x3NVh0MFZESnB4amo4aEJod2JoLzAwZUZnUFdXRG5RVW56?=
- =?utf-8?B?bEZ2d2Rja1RRWHNoMUtOaEZzNWRPTnlJNHVVQlUvcm5hRzZhbnF3UmQyVkdK?=
- =?utf-8?B?dG5nZ0NKdUlZWWtTRjFxUzhpT3hqV3NzU3dLNnRJZU45RFpYYWJEZkdIMmE3?=
- =?utf-8?B?UmRyQVdGMU4yTnppbXBzZjltcEJTK1lwM0FKc2Q0TWx3cElRWXdkTWQ4Qk1W?=
- =?utf-8?B?d0NEaDZ1QVd3NXRBRi9zRTd3Yk16SXJtbXBqVjRPVy9KZitpZEFWQ1E3SG5l?=
- =?utf-8?B?ZFRCQzBLeStmZy81dSs1V0twL3BwOVUrQWhOb0hPNkordWUwVDNMbkZwcXBj?=
- =?utf-8?B?aG8zd1NoKzd0L1pYN09oUkNrWFhWNHBJcEE2RlpVMHE5dDhVSlFQTGpFdkFs?=
- =?utf-8?B?VE1zSlhXTWVPYVFBTGhOZGMxVUZOUll1a2x0a3pESFFGVHFYNEdPN2hmTkZG?=
- =?utf-8?B?M08vamRuNUp0Nk9LYzg4UzZoTHhEbk5sOE1mNXF2ck1vTFpYRXB1NGpZeXd5?=
- =?utf-8?B?emtTdG9sRlNzMG82TFlzeGxiUVIxbHEwNzZ3cmFiSHZOTVhHalNKMENCUHE0?=
- =?utf-8?B?MHVZZkRnMjRFNlB2MDB4cFFQZ2p4K2tQeFd0aFdGVFpDK0d2SDVWb0pOUllj?=
- =?utf-8?B?c0w2dkFOTmxkcUlSNzZzVVN2cDZra0JkdWpaaEdHOVZYcEpSalk5cENuS2Rm?=
- =?utf-8?B?SGU2Ujk0cDZ4bTc4TGFjajhyN1d6WTJtV3RqUWNwQmZFcGd0aUp4N0diLy9E?=
- =?utf-8?B?eWY4RmpOb1Q1ekhDb0t3VVBPUEhnWTRxcGc1alRRUnROMWxuejF3cUl6VXEy?=
- =?utf-8?B?dzNlVFJ2OWRkamo5TjJJa3RzS2NqdUpveWp4RTZqSU0wTlloc1Jxc24zdEQ1?=
- =?utf-8?Q?bJtrBFWenpMTZbYy0A8lTcO7jqb2MYQcfdN6dfejNkVF?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f9f14261-b509-4115-1ab1-08de06eb4bc2
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR12MB7277.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2025 04:21:19.2847
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2AEpnwc3+BotgA52RYKTON3+f19b59Fiq4FHb018blzYByIslGcDS3XVhqxq/0dQHMAB9RdV2K5F61NyEpKODQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8331
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_212129_629348_1186927A 
-X-CRM114-Status: GOOD (  19.51  )
+Content-Disposition: inline
+In-Reply-To: <187fe5a3-99b9-49b6-be49-3d4f6f1fb16b@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,84 +61,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Inochi Amaoto <inochiama@gmail.com>, Han Gao <rabenda.cn@gmail.com>, Charlie Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org, stable@vger.kernel.org, Meng Zhuo <mengzhuo@iscas.ac.cn>, Yangyu Chen <cyy@cyyself.name>, Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org, Yao Zi <ziyao@disroot.org>
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/22/25 06:06, David Hildenbrand wrote:
-> Let's reject them early, which in turn makes folio_alloc_gigantic() reject
-> them properly.
-> 
-> To avoid converting from order to nr_pages, let's just add MAX_FOLIO_ORDER
-> and calculate MAX_FOLIO_NR_PAGES based on that.
-> 
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  include/linux/mm.h | 6 ++++--
->  mm/page_alloc.c    | 5 ++++-
->  2 files changed, 8 insertions(+), 3 deletions(-)
-> 
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index 00c8a54127d37..77737cbf2216a 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -2055,11 +2055,13 @@ static inline long folio_nr_pages(const struct folio *folio)
->  
->  /* Only hugetlbfs can allocate folios larger than MAX_ORDER */
->  #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
-> -#define MAX_FOLIO_NR_PAGES	(1UL << PUD_ORDER)
-> +#define MAX_FOLIO_ORDER		PUD_ORDER
+On Thu, Oct 09, 2025 at 12:19:46PM +0800, Vivian Wang wrote:
+> =
 
-Do we need to check for CONTIG_ALLOC as well with CONFIG_ARCH_HAS_GIGANTIC_PAGE?
+> On 10/8/25 18:20, Greg KH wrote:
+> > On Wed, Oct 08, 2025 at 03:50:15PM +0800, Vivian Wang wrote:
+> >> Backport of the two riscv mmap patches from master. In effect, these t=
+wo
+> >> patches removes arch_get_mmap_{base,end} for riscv.
+> > Why is this needed?  What bug does this fix?
+> =
 
->  #else
-> -#define MAX_FOLIO_NR_PAGES	MAX_ORDER_NR_PAGES
-> +#define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
->  #endif
->  
-> +#define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
-> +
->  /*
->   * compound_nr() returns the number of pages in this potentially compound
->   * page.  compound_nr() can be called on a tail page, and is defined to
-> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> index ca9e6b9633f79..1e6ae4c395b30 100644
-> --- a/mm/page_alloc.c
-> +++ b/mm/page_alloc.c
-> @@ -6833,6 +6833,7 @@ static int __alloc_contig_verify_gfp_mask(gfp_t gfp_mask, gfp_t *gfp_cc_mask)
->  int alloc_contig_range_noprof(unsigned long start, unsigned long end,
->  			      acr_flags_t alloc_flags, gfp_t gfp_mask)
->  {
-> +	const unsigned int order = ilog2(end - start);
+> The behavior of mmap hint address in current 6.6.y is broken when > 39
+> bits of virtual address is available (i.e. Sv48 or Sv57, having 48 and
+> 57 bits of VA available, respectively). The man-pages mmap(2) page
+> states, for the hint address [1]:
+> =
 
-Do we need a VM_WARN_ON(end < start)?
+> =A0 =A0 =A0 =A0If addr is NULL, then the kernel chooses the (page-aligned)
+> =A0 =A0 =A0 =A0address at which to create the mapping; this is the most p=
+ortable
+> =A0 =A0 =A0 =A0method of creating a new mapping.=A0 If addr is not NULL, =
+then the
+> =A0 =A0 =A0 =A0kernel takes it as a hint about where to place the mapping=
+; on
+> =A0 =A0 =A0 =A0Linux, the kernel will pick a nearby page boundary (but al=
+ways
+> =A0 =A0 =A0 =A0above or equal to the value specified by
+> =A0 =A0 =A0 =A0/proc/sys/vm/mmap_min_addr) and attempt to create the mapp=
+ing
+> =A0 =A0 =A0 =A0there.=A0 If another mapping already exists there, the ker=
+nel picks
+> =A0 =A0 =A0 =A0a new address that may or may not depend on the hint.=A0 T=
+he address
+> =A0 =A0 =A0 =A0of the new mapping is returned as the result of the call.
+> =
 
->  	unsigned long outer_start, outer_end;
->  	int ret = 0;
->  
-> @@ -6850,6 +6851,9 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
->  					    PB_ISOLATE_MODE_CMA_ALLOC :
->  					    PB_ISOLATE_MODE_OTHER;
->  
-> +	if (WARN_ON_ONCE((gfp_mask & __GFP_COMP) && order > MAX_FOLIO_ORDER))
-> +		return -EINVAL;
-> +
->  	gfp_mask = current_gfp_context(gfp_mask);
->  	if (__alloc_contig_verify_gfp_mask(gfp_mask, (gfp_t *)&cc.gfp_mask))
->  		return -EINVAL;
-> @@ -6947,7 +6951,6 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
->  			free_contig_range(end, outer_end - end);
->  	} else if (start == outer_start && end == outer_end && is_power_of_2(end - start)) {
->  		struct page *head = pfn_to_page(start);
-> -		int order = ilog2(end - start);
->  
->  		check_new_pages(head, order);
->  		prep_new_page(head, order, gfp_mask, 0);
+> Therefore, if a userspace program specifies a large hint address of e.g.
+> 1<<50, and both the kernel and the hardware supports it, it should be
+> used even if MAP_FIXED is not specified. This is also the behavior
+> implemented in x86_64, arm64, and, on a recent enough (> 6.10) kernel,
+> riscv64.
+> =
 
-Acked-by: Balbir Singh <balbirs@nvidia.com>
+> However, current 6.6.y for riscv64 implements a bizarre behavior, where
+> the hint address is treated as an upper bound instead. Therefore,
+> passing 1<<50 would actually return a VA in 48-bit space.
+> =
 
-Balbir
+> To reproduce, call mmap with arguments like:
+> =
+
+>        mmap(hint, 4096, PROT_READ, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
+> =
+
+> Comparison:
+> =
+
+> =A0 =A0 =A0 =A0 hint =3D 0x4000000000000 i.e. 1 << 50
+> =
+
+> =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 6.6.106=A0 =A0 =A0 =A0 =A0 =A0 =
+=A06.6.106 + patch
+> =A0 =A0 =A0 =A0 =A0 =A0 sv48=A0 =A0 0x7fff90223000=A0 =A0 =A0 0x7fff93b4e=
+000
+> =A0 =A0 =A0 =A0 =A0 =A0 sv57=A0 =A0 0x7fffb7d49000=A0 =A0 =A0 0x400000000=
+0000
+> =
+
+> When the hint is not used, the exact address is of course random, which
+> is expected. However, since the address 1<<50 is supported under Sv57,
+> it should be usable by mmap, but with current 6.6.y behavior it is not
+> used, and some other address from 48-bit space used instead.
+> =
+
+> There's not yet real riscv64 hardware with Sv57, but an analogous
+> problem arises on Sv48 with an address like 1<<40.
+
+As this issue has been fixed for many years now, why is it just showing
+up now?  Shouldn't you be using 6.12.y for new hardware?
+
+> One real userspace program that runs into this is the Go programming
+> language runtime with TSAN enabled. Excerpt from a test log [2], which
+> was run on an Eswin EIC7700x, which supports Sv48:
+> =
+
+> fatal error: too many address space collisions for -race mode
+> runtime stack:
+> runtime.throw({0x257eaa?, 0x4000000?})
+> =A0 =A0 /home/swarming/.swarming/w/ir/x/w/goroot/src/runtime/panic.go:124=
+6 +0x38 fp=3D0x7ffff84af758 sp=3D0x7ffff84af730 pc=3D0xc9310
+> runtime.(*mheap).sysAlloc(0x3e3c20, 0x81cc8?, 0x3f3e28, 0x3f3e50)
+> =A0 =A0 /home/swarming/.swarming/w/ir/x/w/goroot/src/runtime/malloc.go:79=
+9 +0x56c fp=3D0x7ffff84af7f8 sp=3D0x7ffff84af758 pc=3D0x67944
+> runtime.(*mheap).grow(0x3e3c20, 0x7fffb69fee00?)
+> =A0 =A0 /home/swarming/.swarming/w/ir/x/w/goroot/src/runtime/mheap.go:156=
+8 +0x9c fp=3D0x7ffff84af870 sp=3D0x7ffff84af7f8 pc=3D0x824c4
+> runtime.(*mheap).allocSpan(0x3e3c20, 0x1, 0x0, 0x10)
+> [...]
+> FAIL=A0 =A0 runtime/race=A0 =A0 0.285s
+> =
+
+> With TSAN enabled, the Go runtime allocates a lot of virtual address
+> space. As the message suggests, if the return value of mmap is not equal
+> to a non-zero hint, the runtime assumes that mmap is failing to allocate
+> the address because some other mapping is already there (in other words,
+> it assumes the man-pages documented behavior), and unmaps it and tries a
+> different address, until it tries too many times and gives up. This
+> means Go with TSAN fails to initialize on Sv48 and current 6.6.y.
+> =
+
+> (cc Meng Zhuo, in case of any questions about the Go runtime here.)
+> =
+
+> Patch 1 here addresses the above issue, but introduced regressions (see
+> replies in "Link"). Patch 2 addresses those regressions.
+
+Ok, that makes a bit more sense, but again, why is this just showing up
+now?  What changed to cause this to be noticed at and needed to be fixed
+at this moment in time and not before?
+
+thanks,
+
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
