@@ -4,90 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E962CCD187
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 08:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA8ECCD183
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 08:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jBcQqhUV7s5qkS4NP7wNC5ru/W/0wOwhYGYV59sXlCE=; b=y9bX7aX+tnUUhB
-	u5MMg1bL5un/Vdcr+qSSNp4YkzE9aeGzKT6ZKFBflbbyLZf5EQpJWyG5QOq0dcyKtnuGaRE3tEysT
-	pq67NRn4edB0vIgHIh5gRtv4jUbtOj8YFy1AgJRDO2E8Y7YOthfptR8P4U8K0hWJxTOYTfbPVP8wa
-	WHE4/6ZrVwSpPP9+YlIvHAA3kPYmA7CbZl3xEV/+aj+qk2/9lMirEvoCIi5Byy5ZEBVFC640Ha2Ug
-	fg/cV7OwN9Jyjy0HubFZjXrzuypo0J/5/KQqAusvwIDSXaaxApcaA8e6iveL9ug8G60Gf1QYNawrJ
-	gn+QD0G7QOMG2HOKY3MQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WIjTuWJgRDvEkAAj0ir4tD0uLviCDwadwq1aLDnBsA4=; b=3dR4WhvJLf06kf
+	J6plJBVOuqKTce6J9zzLR9foH4T73pbXas9T7wfYrKizTNXGw+FbwWfwI+gih2ppYpDNSWjQvLbZn
+	J8qGJA3eChktJzKxbMy5pt4LaZRSUqEbPt4w/CFyqzRZVzIWLJEz3ebR8WoZzKbOPuyGNDwlJfPjV
+	17SaTZKRj8fNFFkm1sLWkgEm7naPG7XhzecE9lVOHlOgdsCH6PKXwl96/UsYa/XD5fyqjbRGqzEB5
+	0F3omqPOj1666KFXgDyBvfTYFu3Oo/k4IVzEAv5WNxk3Ax2oCt5iz9J8T8O+FKVVlYMvTpZnIoByr
+	PkWRNlj2hfierLuVDclQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6lt9-00000005V3g-1tos;
-	Thu, 09 Oct 2025 08:20:39 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6lt6-00000005V2b-4BDj;
-	Thu, 09 Oct 2025 08:20:38 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cj2Td0Mj6z9sSL;
-	Thu,  9 Oct 2025 10:04:37 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id qQ36Dhni13kk; Thu,  9 Oct 2025 10:04:36 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cj2Tc5kJ8z9sSC;
-	Thu,  9 Oct 2025 10:04:36 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id A8FDF8B770;
-	Thu,  9 Oct 2025 10:04:36 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id CnXkw3FAfnqR; Thu,  9 Oct 2025 10:04:36 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id AE04F8B76D;
-	Thu,  9 Oct 2025 10:04:34 +0200 (CEST)
-Message-ID: <faf62f20-8844-42a0-a7a7-846d8ead0622@csgroup.eu>
-Date: Thu, 9 Oct 2025 10:04:34 +0200
+	id 1v6ltn-00000005VEj-3QMe;
+	Thu, 09 Oct 2025 08:21:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v6ltk-00000005VDf-3Nfh
+	for linux-riscv@lists.infradead.org;
+	Thu, 09 Oct 2025 08:21:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1759998074;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=uAS+qkMsvlrGMvDE3IZzNp7+IP/1UAMbFrv7U9a54xQ=;
+	b=QD+d1BFMGvQJqNbA7pbdzJ4OZy0aUNMk72OEYsJSmaJ8XJ0qxwobvUlTPR0HXS94K3i4R4
+	dGTP4T/LT2UB/881lQHSqZAEi4+AaK/Y0ww0An4rM2b16nZah57HY+ExEt/dLF03qNgIUS
+	z2Ke3+yU337S6CBV1mSaghDcLWvMzZg=
+Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
+ [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-676-Ly1kSF_-MbSR1Q-cqWUjAA-1; Thu, 09 Oct 2025 04:21:12 -0400
+X-MC-Unique: Ly1kSF_-MbSR1Q-cqWUjAA-1
+X-Mimecast-MFC-AGG-ID: Ly1kSF_-MbSR1Q-cqWUjAA_1759998072
+Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-b504dd6dbf1so48820466b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Oct 2025 01:21:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759998071; x=1760602871;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uAS+qkMsvlrGMvDE3IZzNp7+IP/1UAMbFrv7U9a54xQ=;
+        b=TYHP5NhtOA2m+pffZVlapy0/dF0owxQwEhf3qJTawWuD/dd56ixdiuaL7kBPjpMA4F
+         woHWnqg1F8cuGAiQ5nxgEKutymQBsEEECdBtyi/S9FVc7bNB78pcyWPFyip0WqiT7N/c
+         6w3NWyHcPYLxnOOcItUk0NSTkMxGfr9MUecxxNA716MGCXy0h1Do4+S9W02W2zWPumEZ
+         ZSasyntiVaf7fC/J6uSuQRgumR5OgL19ua08RYdXlf4z0uJXVramsd7hp6vwwiTRROyG
+         9B2YQIj+ip5h9u5/BQyJBQLJLBD4MjNbdyp1SZifN4S2ue5GnBYgnJ3sHKr5RTkEhVub
+         62lQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUqpigZTJNurCLt8B+sxZWA68W12bdcC66x35Psqdh3SDjHydI9yYGQDGVZ1UjqijRLDhO8UXad7XPmLQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwO3T6wRehznD1iShSimBdUfMEkbFo73qh0gCMjUecpqm7BY1ss
+	zynlTMjSEfoFtsVD2Flrzb/W7ScUDmNSoNNuRxn7Zj1Z+GmcpOWYLxw6AAh3Mlx/RlDoC2al530
+	zWl9f4tFXIiyb6HDTyZVeQeHovfNhc+uHIrgzGhnOYHzaw5Sfim92J45P24YCqFNUnN/T0w==
+X-Gm-Gg: ASbGnctE51WHgRsKBNDUKXG2JKaK11g/ttxUX5GvJnqeghi9nmv984OODD+eqDIXqAd
+	M58cuA/Xo45JP8vJxXjhWlOw0tstXxjAKbEU2FKqPOXm2B4/iWtZrR1C1rGPjBFEE8Y9lPBze5Y
+	CDhdglbYLrVmS5uWvCui19ti6ry55WEy4+hEq7BON2FkgpYvHpiW0R4tkxgWV1kahrbZVoM9yoI
+	mWZjEvyykmv6WmGjExH10fBJUPd5bJzr/UU5Px5BHsAY/697WJrnn6nqvqT13MeIx37iBds4uWc
+	AjYimOM/lMTaZauCq/7V/ifm6CpULgLd45FlXF/13o+YK8Jr8pt4
+X-Received: by 2002:a17:907:961b:b0:b0e:d477:4972 with SMTP id a640c23a62f3a-b50aa7a086amr745875966b.25.1759998071532;
+        Thu, 09 Oct 2025 01:21:11 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH2yb0GW1Dmb4of5uiYM3V2RwnL7r4BajO4YJiE5GftpOYhzsHAtgMNkDAR7AnfSfgfWS6gIw==
+X-Received: by 2002:a17:907:961b:b0:b0e:d477:4972 with SMTP id a640c23a62f3a-b50aa7a086amr745872566b.25.1759998071078;
+        Thu, 09 Oct 2025 01:21:11 -0700 (PDT)
+Received: from holism.redhat.com ([148.252.9.235])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b4869b4e27dsm1832988266b.70.2025.10.09.01.21.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Oct 2025 01:21:10 -0700 (PDT)
+From: Lucas Zampieri <lzampier@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Lucas Zampieri <lzampier@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Subject: [PATCH 0/3] Add UltraRISC DP1000 PLIC support
+Date: Thu,  9 Oct 2025 09:20:10 +0100
+Message-ID: <20251009082013.1331361-1-lzampier@redhat.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (bisected) [PATCH v2 08/37] mm/hugetlb: check for unreasonable
- folio sizes when registering hstate
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: Zi Yan <ziy@nvidia.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
- netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
- Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
- virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
- wireguard@lists.zx2c4.com, x86@kernel.org,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
-References: <20250901150359.867252-1-david@redhat.com>
- <20250901150359.867252-9-david@redhat.com>
- <3e043453-3f27-48ad-b987-cc39f523060a@csgroup.eu>
- <d3fc12d4-0b59-4b1f-bb5c-13189a01e13d@redhat.com>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <d3fc12d4-0b59-4b1f-bb5c-13189a01e13d@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: w61EcvUmGTOyc95IKuoZifarDSYOviHBp7r0XRQd8jY_1759998072
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_012037_189572_7C7964ED 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20251009_012116_915559_957292F6 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,53 +111,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpMZSAwOS8xMC8yMDI1IMOgIDA5OjIyLCBEYXZpZCBIaWxkZW5icmFuZCBhIMOpY3JpdMKgOgo+
-IE9uIDA5LjEwLjI1IDA5OjE0LCBDaHJpc3RvcGhlIExlcm95IHdyb3RlOgo+PiBIaSBEYXZpZCwK
-Pj4KPj4gTGUgMDEvMDkvMjAyNSDDoCAxNzowMywgRGF2aWQgSGlsZGVuYnJhbmQgYSDDqWNyaXTC
-oDoKPj4+IGRpZmYgLS1naXQgYS9tbS9odWdldGxiLmMgYi9tbS9odWdldGxiLmMKPj4+IGluZGV4
-IDFlNzc3Y2M1MWFkMDQuLmQzNTQyZTkyYTcxMmUgMTAwNjQ0Cj4+PiAtLS0gYS9tbS9odWdldGxi
-LmMKPj4+ICsrKyBiL21tL2h1Z2V0bGIuYwo+Pj4gQEAgLTQ2NTcsNiArNDY1Nyw3IEBAIHN0YXRp
-YyBpbnQgX19pbml0IGh1Z2V0bGJfaW5pdCh2b2lkKQo+Pj4gwqDCoMKgwqDCoMKgIEJVSUxEX0JV
-R19PTihzaXplb2ZfZmllbGQoc3RydWN0IHBhZ2UsIHByaXZhdGUpICogQklUU19QRVJfQllURSA8
-Cj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIF9fTlJfSFBBR0VGTEFHUyk7Cj4+PiAr
-wqDCoMKgIEJVSUxEX0JVR19PTl9JTlZBTElEKEhVR0VUTEJfUEFHRV9PUkRFUiA+IE1BWF9GT0xJ
-T19PUkRFUik7Cj4+PiDCoMKgwqDCoMKgwqAgaWYgKCFodWdlcGFnZXNfc3VwcG9ydGVkKCkpIHsK
-Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgIGlmIChodWdldGxiX21heF9oc3RhdGUgfHwgZGVmYXVs
-dF9oc3RhdGVfbWF4X2h1Z2VfcGFnZXMpCj4+PiBAQCAtNDc0MCw2ICs0NzQxLDcgQEAgdm9pZCBf
-X2luaXQgaHVnZXRsYl9hZGRfaHN0YXRlKHVuc2lnbmVkIGludCBvcmRlcikKPj4+IMKgwqDCoMKg
-wqDCoCB9Cj4+PiDCoMKgwqDCoMKgwqAgQlVHX09OKGh1Z2V0bGJfbWF4X2hzdGF0ZSA+PSBIVUdF
-X01BWF9IU1RBVEUpOwo+Pj4gwqDCoMKgwqDCoMKgIEJVR19PTihvcmRlciA8IG9yZGVyX2Jhc2Vf
-MihfX05SX1VTRURfU1VCUEFHRSkpOwo+Pj4gK8KgwqDCoCBXQVJOX09OKG9yZGVyID4gTUFYX0ZP
-TElPX09SREVSKTsKPj4+IMKgwqDCoMKgwqDCoCBoID0gJmhzdGF0ZXNbaHVnZXRsYl9tYXhfaHN0
-YXRlKytdOwo+Pj4gwqDCoMKgwqDCoMKgIF9fbXV0ZXhfaW5pdCgmaC0+cmVzaXplX2xvY2ssICJy
-ZXNpemUgbXV0ZXgiLCAmaC0+cmVzaXplX2tleSk7Cj4+PiDCoMKgwqDCoMKgwqAgaC0+b3JkZXIg
-PSBvcmRlcjsKPiAKPiBXZSBlbmQgdXAgcmVnaXN0ZXJpbmcgaHVnZXRsYiBmb2xpb3MgdGhhdCBh
-cmUgYmlnZ2VyIHRoYW4gCj4gTUFYX0ZPTElPX09SREVSLiBTbyB3ZSBoYXZlIHRvIGZpZ3VyZSBv
-dXQgaG93IGEgY29uZmlnIGNhbiB0cmlnZ2VyIHRoYXQgCj4gKGFuZCBpZiB3ZSBoYXZlIHRvIHN1
-cHBvcnQgdGhhdCkuCj4gCgpNQVhfRk9MSU9fT1JERVIgaXMgZGVmaW5lZCBhczoKCiNpZmRlZiBD
-T05GSUdfQVJDSF9IQVNfR0lHQU5USUNfUEFHRQojZGVmaW5lIE1BWF9GT0xJT19PUkRFUgkJUFVE
-X09SREVSCiNlbHNlCiNkZWZpbmUgTUFYX0ZPTElPX09SREVSCQlNQVhfUEFHRV9PUkRFUgojZW5k
-aWYKCk1BWF9QQUdFX09SREVSIGlzIHRoZSBsaW1pdCBmb3IgZHluYW1pYyBjcmVhdGlvbiBvZiBo
-dWdlcGFnZXMgdmlhIAovc3lzL2tlcm5lbC9tbS9odWdlcGFnZXMvIGJ1dCBiaWdnZXIgcGFnZXMg
-Y2FuIGJlIGNyZWF0ZWQgYXQgYm9vdHRpbWUgCndpdGgga2VybmVsIGJvb3QgcGFyYW1ldGVycyB3
-aXRob3V0IENPTkZJR19BUkNIX0hBU19HSUdBTlRJQ19QQUdFOgoKICAgaHVnZXBhZ2Vzej02NG0g
-aHVnZXBhZ2VzPTEgaHVnZXBhZ2Vzej0yNTZtIGh1Z2VwYWdlcz0xCgpHaXZlczoKCkh1Z2VUTEI6
-IHJlZ2lzdGVyZWQgMS4wMCBHaUIgcGFnZSBzaXplLCBwcmUtYWxsb2NhdGVkIDAgcGFnZXMKSHVn
-ZVRMQjogMCBLaUIgdm1lbW1hcCBjYW4gYmUgZnJlZWQgZm9yIGEgMS4wMCBHaUIgcGFnZQpIdWdl
-VExCOiByZWdpc3RlcmVkIDY0LjAgTWlCIHBhZ2Ugc2l6ZSwgcHJlLWFsbG9jYXRlZCAxIHBhZ2Vz
-Ckh1Z2VUTEI6IDAgS2lCIHZtZW1tYXAgY2FuIGJlIGZyZWVkIGZvciBhIDY0LjAgTWlCIHBhZ2UK
-SHVnZVRMQjogcmVnaXN0ZXJlZCAyNTYgTWlCIHBhZ2Ugc2l6ZSwgcHJlLWFsbG9jYXRlZCAxIHBh
-Z2VzCkh1Z2VUTEI6IDAgS2lCIHZtZW1tYXAgY2FuIGJlIGZyZWVkIGZvciBhIDI1NiBNaUIgcGFn
-ZQpIdWdlVExCOiByZWdpc3RlcmVkIDQuMDAgTWlCIHBhZ2Ugc2l6ZSwgcHJlLWFsbG9jYXRlZCAw
-IHBhZ2VzCkh1Z2VUTEI6IDAgS2lCIHZtZW1tYXAgY2FuIGJlIGZyZWVkIGZvciBhIDQuMDAgTWlC
-IHBhZ2UKSHVnZVRMQjogcmVnaXN0ZXJlZCAxNi4wIE1pQiBwYWdlIHNpemUsIHByZS1hbGxvY2F0
-ZWQgMCBwYWdlcwpIdWdlVExCOiAwIEtpQiB2bWVtbWFwIGNhbiBiZSBmcmVlZCBmb3IgYSAxNi4w
-IE1pQiBwYWdlCgoKQ2hyaXN0b3BoZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+This series adds support for the PLIC implementation in the UltraRISC
+DP1000 SoC. The DP1000 PLIC claim register has a hardware bug where
+reading it while multiple interrupts are pending can return the wrong
+interrupt ID. The workaround temporarily disables all interrupts except
+the first pending one before reading the claim register, then restores
+the previous state. This is implemented as PLIC_QUIRK_CLAIM_REGISTER,
+activated only for "ultrarisc,dp1000-plic" compatible strings.
+
+Charles Mirabile (2):
+  dt-bindings: interrupt-controller: add UltraRISC DP1000 PLIC
+  irqchip/plic: add support for UltraRISC DP1000 PLIC
+
+Lucas Zampieri (1):
+  dt-bindings: vendor-prefixes: add UltraRISC
+
+ .../devicetree/bindings/vendor-prefixes.yaml      |  2 +
+ .../interrupt-controller/sifive,plic-1.0.0.yaml    |  2 +
+ drivers/irqchip/irq-sifive-plic.c                  | 83 ++++++++++++++++++-
+ 3 files changed, 86 insertions(+), 1 deletion(-)
+
+--
+2.51.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
