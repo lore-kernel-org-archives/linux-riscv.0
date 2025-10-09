@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3620ACCD189
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 01:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBDDCCD187
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 01:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8TY/6jJTG9KzBN7S/GFq4kkPmB1AYDXhONvpkKoVp5k=; b=NR5S7C+6EMwfkI
-	GtxzFzo02Ck1MmtCJKGutJJFVr0B/xcCrqejzzNVHa16uqv+7Y3oFNrsjIP8pPMnd1VHOqDCBk6DY
-	XhtOQuNbRMv0yyZWobJ2WYs4KMOvzZpN+tUCgSNISGj16NjZEMM23ufUKpX8dqRmYJ4l7KcvlZJUP
-	puvH6l1edsmWC1VStmPDQRv2pQXQdBNDU7/nihw1+1kl1xaI4LlUw9eiG/xBsjnZ+rt6ok3eNyVHl
-	3Gq+wyxnMQMsxuPBDjwegIBIAUvGskiG0p3a06Df8Ev6qmhXW7y9xCuV+xAaPwgDkWYifKgr6iTNm
-	r5LY9emhydgL9WClTBOA==;
+	List-Owner; bh=cDd02b8jfUpNCMFuPmU6SSaboyJh9GIx+IRal2eRLX0=; b=ptNACO2GupwXOG
+	TsPFjzG146djVPGKerJ+bnDHriB8qLetI7Jt/xGB/ng9Z7ovlZMiYveRY7kn44n0RlJL2pQ7ZB6Bz
+	dewwzVl4CyIfjVO1Z8JCoQvrxLs6XdJ+dcJ03ud9NXgLoG7oxsZ7M9iyhtGlEDsSkd/K5OAfezUp8
+	8GU18nQgrHA5gG1S+JN6nnu1PT4IBgLBOZYVs5PplGLx65WuJVCj+zMdoIAkCi672tjfB0lbXoqLZ
+	FtBQJBnKdKpcUXcgrSOppAeTpt7eHpnoZzLDfKNZX2K07tTtKQHR91gn1KCVPFzM6Q9lopQl6BHJI
+	FeUbrVD2Knv17dJEUqSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6f7h-00000004uU6-2eHF;
-	Thu, 09 Oct 2025 01:07:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v6f7u-00000004ukn-2SGW;
+	Thu, 09 Oct 2025 01:07:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6f7e-00000004uS5-21hV
-	for linux-riscv@lists.infradead.org;
-	Thu, 09 Oct 2025 01:07:11 +0000
+	id 1v6f7p-00000004uar-2Lp7;
+	Thu, 09 Oct 2025 01:07:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C0FC44F8E;
-	Thu,  9 Oct 2025 01:07:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07299C4CEF5;
-	Thu,  9 Oct 2025 01:07:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 34AA9451CB;
+	Thu,  9 Oct 2025 01:07:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EFE9C4CEE7;
+	Thu,  9 Oct 2025 01:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759972030;
-	bh=8lLvrSOJdnG2+/1GjnzlTqFjSAwkMIFcfM7bGqMBkdo=;
+	s=k20201202; t=1759972041;
+	bh=gOZMzGofq4mPMi4a6FfMrSXrrYqWnEJSEe2U4H+HIxI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=UyZOPJwH3RjkXnLVgTJzxH5oVJpDqfmqP7LzmM+awC+tUq7Rt5vCg0abl7bSheIUJ
-	 Oq1je4fQcNzSpt7ogh4/UqwBvheY2RcpMkgO+tIhJ2H3sOlB+v56G5JgMYVcGJkKIb
-	 jWP0yl9+MPdvQ7wK8Ek9FeXfhsp8HFKey+1Y5A9Oq5oXtrQwJ07kavbrAJuiqy2NDN
-	 V9EY8zlrTmFiMOQCcyrtJqPDmaPyL1MzSqLxx0EDpCJP3TauSYXm6GAeYAeA1GqAtk
-	 66wb2AuVs5HwMXTXRApex6ApzJ7y7vHjVXrDQR0K9OzFQ1VFDQVCnYPlu7UxL5gJLV
-	 Q7r5J4Bfkkqdg==
+	b=rIX5UnrQuVtPUja4Kq/zNxiwyTbf5s+hCzHT8aH9/VUdnNlKWh8D4mSKFL/eXwlaD
+	 7z8+SEmVkcAfo9fmiSSyJ11EAUKKRJcwMVTb9iuWDWBwheam1F4EfrpnDWIzUjmitV
+	 mpUbtUtSbqOH/UnhpYe9i14SkLmyq3I1gfKlnnkK+sqgEdkc4pLZ6mWhV/a0ryPI+M
+	 cnqFIsiLX5CDpbNJvCwTuxPNZCjZR+B1mOV2TKr1ssRJwK/PuLD12JWWzuO1dLp+oX
+	 6de792lhNHw6SaLSFK1kZpeE0QJJFPFLV/HILKfJuySwcXVffLr7XVkoyczsYsHHIo
+	 /dSAJt7cVsj/Q==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADEE23A41017;
-	Thu,  9 Oct 2025 01:06:59 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADDA93A41017;
+	Thu,  9 Oct 2025 01:07:10 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 0/3] RISC-V: Add ACPI support for IOMMU
+Subject: Re: update kernel-doc for MEMBLOCK_RSRV_NOINIT (was: Re: [PATCH RFC
+ 10/35] mm/hugetlb: cleanup hugetlb_folio_init_tail_vmemmap())
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175997201849.3661959.13962135221127346845.git-patchwork-notify@kernel.org>
-Date: Thu, 09 Oct 2025 01:06:58 +0000
-References: <20250818045807.763922-1-sunilvl@ventanamicro.com>
-In-Reply-To: <20250818045807.763922-1-sunilvl@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-acpi@vger.kernel.org, iommu@lists.linux.dev, aou@eecs.berkeley.edu,
- tjeznach@rivosinc.com, alex@ghiti.fr, rafael@kernel.org,
- robin.murphy@arm.com, joro@8bytes.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, will@kernel.org, lenb@kernel.org
+Message-Id: <175997202925.3661959.5694356441030280085.git-patchwork-notify@kernel.org>
+Date: Thu, 09 Oct 2025 01:07:09 +0000
+References: <aKyWIriZ1bmnIrBW@kernel.org>
+In-Reply-To: <aKyWIriZ1bmnIrBW@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-riscv@lists.infradead.org, david@redhat.com, mpenttil@redhat.com,
+ linux-kernel@vger.kernel.org, glider@google.com, akpm@linux-foundation.org,
+ jackmanb@google.com, cl@gentwo.org, dennis@kernel.org, dvyukov@google.com,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org, jgg@nvidia.com,
+ axboe@kernel.dk, hannes@cmpxchg.org, jhubbard@nvidia.com,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org, Liam.Howlett@oracle.com,
+ torvalds@linux-foundation.org, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org,
+ lorenzo.stoakes@oracle.com, elver@google.com, m.szyprowski@samsung.com,
+ mhocko@suse.com, muchun.song@linux.dev, netdev@vger.kernel.org,
+ osalvador@suse.de, peterx@redhat.com, robin.murphy@arm.com,
+ surenb@google.com, tj@kernel.org, virtualization@lists.linux.dev,
+ vbabka@suse.cz, wireguard@lists.zx2c4.com, x86@kernel.org, ziy@nvidia.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_180710_540123_DF259064 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251008_180721_660629_B2D6E661 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +91,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
-by Joerg Roedel <joerg.roedel@amd.com>:
+This patch was applied to riscv/linux.git (for-next)
+by Mike Rapoport (Microsoft) <rppt@kernel.org>:
 
-On Mon, 18 Aug 2025 10:28:04 +0530 you wrote:
-> This series adds support for RISC-V IOMMU on ACPI based platforms.
-> RISC-V IO Mapping Table (RIMT) is a new static ACPI table [1] introduced
-> to communicate IOMMU information to the OS.
-> 
-> [1] - https://github.com/riscv-non-isa/riscv-acpi-rimt/releases/download/v1.0/rimt-spec.pdf
-> 
-> Changes since v5:
-> 	1) Rebased to 6.17-rc2
-> 	2) Fixed incorrect id_out assignment (Reported by Xianliang)
+On Mon, 25 Aug 2025 19:58:10 +0300 you wrote:
+> On Mon, Aug 25, 2025 at 06:23:48PM +0200, David Hildenbrand wrote:
+> >
+> > I don't quite understand the interaction with PG_Reserved and why anybody
+> > using this function should care.
+> >
+> > So maybe you can rephrase in a way that is easier to digest, and rather
+> > focuses on what callers of this function are supposed to do vs. have the
+> > liberty of not doing?
 > 
 > [...]
 
 Here is the summary with links:
-  - [v6,1/3] ACPI: RISC-V: Add support for RIMT
-    https://git.kernel.org/riscv/c/8f7729552582
-  - [v6,2/3] ACPI: scan: Add support for RISC-V in acpi_iommu_configure_id()
-    https://git.kernel.org/riscv/c/cbf4fbc484e1
-  - [v6,3/3] iommu/riscv: Add ACPI support
-    https://git.kernel.org/riscv/c/4f901b3dce57
+  - update kernel-doc for MEMBLOCK_RSRV_NOINIT (was: Re: [PATCH RFC 10/35] mm/hugetlb: cleanup hugetlb_folio_init_tail_vmemmap())
+    https://git.kernel.org/riscv/c/b3dcc9d1d806
 
 You are awesome, thank you!
 -- 
