@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A77CCA470
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 01:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66700CAC5BB
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 01:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CuHhfWs5WM46tjChgbk19WB4Xukb7Xay4pgo4o0O7Qg=; b=J05dbBoBmiDpZ/
-	h9+RU7CT4HAp4u+JrU5fVQIBAa+KmSSsxqe/b8hO62vNjYiorsSwoi5SqgdH90ftmQLz9RvLId9kS
-	N5I/MdaJyQGnK67exnC0qlMrbfJm6FLfVORIQzzsSzNNsSe6H5MTS+Wt4I8VvJ/Osll+c4hihD+dZ
-	9TJCEXESTgslqgANgA1GjRCiM+BA3R8Lz3JjcXZ3lpL1PfMKPZtwGr16vZ5r67iZL39vv+9NAG8ah
-	0zOGbR4jaRnoKaTikpcMLaU303Rh7qaDR/cTFALQtg/HTvu+LSwNjjd+lNSllyZr3HvgLMUbU7X2q
-	V46aQwKvYQQ5WW3ZjVZg==;
+	List-Owner; bh=CfS9TMlKyRAsCbXa144wukddEgRpPJmpBH56kjLjJz0=; b=OYo1iMLDK/aY+S
+	+dn9z2H477bMheRM19TKHKaxw+BdscTGSn7u6Y5+kLSeokyzwMn2Wui98ewl17WUGBe4CBb2U411Z
+	sRefF9QTO4gxNyKhJmIAkfnONRXt3lRu8IbXWqv4YBjRvUQhCQifK1gPjLiXbsFAEwcNhQMQ8+EgU
+	1EryGZDKNcD45ByhV5U3YIP/+GbTjUHJ3Q5+2CTmjfbSA4gJx3tL5R/oK85NtAF0t08Hke4v0/CLq
+	zAzyfoC47zBBOqz5XwV4dBZjdO4YRSPJsNkRwk0eGOm6U2LgrNThSjQHb4E62g7H6KjVML8/VsEXe
+	Ynr240d6ebZZhSAG/sPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6f7y-00000004ur9-1WgY;
-	Thu, 09 Oct 2025 01:07:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v6f7f-00000004uST-1jlX;
+	Thu, 09 Oct 2025 01:07:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6f7r-00000004uco-0H1o;
-	Thu, 09 Oct 2025 01:07:24 +0000
+	id 1v6f7c-00000004uRJ-2hkN;
+	Thu, 09 Oct 2025 01:07:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A8D1048A4E;
-	Thu,  9 Oct 2025 01:07:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89B32C4CEFE;
-	Thu,  9 Oct 2025 01:07:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B3A866212F;
+	Thu,  9 Oct 2025 01:07:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EE42C4CEF8;
+	Thu,  9 Oct 2025 01:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759972042;
-	bh=8SQsDQoloTxTr71LaWPc56p2Al3DqRO/PNTgELW/Rqg=;
+	s=k20201202; t=1759972027;
+	bh=VISjCl3028ZdolLBlNDZGd4lu4o1butuKMV03AtZBlw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=h5N8+h+/J1jXv++dgDIauQcFpu8xcohWpSqElhPUngssaN+blZLXv83TBTDJTGByB
-	 g7CPPClrkwY+JVC0iBk9rOOxYj84NzrZCifKBdPItESNFWSNwSB+DzF+LeX1k0dedr
-	 9lDqOe/SLCPLi5DhGQTPGuinUmeoaB7eMapsntqh3zKpF714QDX2b0uxUfpkHChyjf
-	 7aHz3/+xov5Bg/nYoRtH/OgSTlC1jrT1WlmHe2ynHJ9COHdLSsVfFxOdWH/OPVjFiS
-	 9wb2j/cIzqDsaTa1xmPgJZsjXHngKE4k6EEI10fcmkB4BCYRAovIkJ7ycYxsEmssWQ
-	 yNU3oH1T6Lu2w==
+	b=Z85MDq7bFHAVb7Rv7QvW4jT9Y15cPiI0WVlhCJV3Hb8KzH2ZYtKDIugmNBfAaGySd
+	 z5ewF5rNJ+Eg/0lDf4iQ7eqlYgIW0QFXYttqFueGd0EyH0q3YxGVMid01GmetPjhLw
+	 CLKH4BhiZk2QE9ZHGNcP1R+Uu7twuBVmXVU7JX+WU6Qkgezekw/tfTay9IqLn/03qv
+	 fGM0puNNPNlEwlNS8diIH3zKif6A6uWsftAXlyDWexxIsHVq/Ua4/nh1U3nC4uYics
+	 +WuF25l1nNqeg2I6RnH6RhbrrEuRMwXBeUzGy3elVssgawfAsHG1eRRK1qPPGapFZ4
+	 MDqB4RaRlBhng==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33DDE3A41017;
-	Thu,  9 Oct 2025 01:07:12 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB00C3A41017;
+	Thu,  9 Oct 2025 01:06:56 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v1 0/6] spi: Remove the use of dev_err_probe()
+Subject: Re: [PATCH 00/11] vdso: Various cleanups
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175997203075.3661959.13983624116098440178.git-patchwork-notify@kernel.org>
-Date: Thu, 09 Oct 2025 01:07:10 +0000
-References: <20250819092044.549464-1-zhao.xichao@vivo.com>
-In-Reply-To: <20250819092044.549464-1-zhao.xichao@vivo.com>
-To: Xichao Zhao <zhao.xichao@vivo.com>
-Cc: linux-riscv@lists.infradead.org, Raju.Rangoju@amd.com, broonie@kernel.org,
- sunny.luo@amlogic.com, xianwei.zhao@amlogic.com, conor.dooley@microchip.com,
- daire.mcnamara@microchip.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, daniel@zonque.org,
- haojian.zhuang@gmail.com, robert.jarzmik@free.fr, andi.shyti@kernel.org,
- tudor.ambarus@linaro.org, krzk@kernel.org, alim.akhtar@samsung.com,
- linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_180723_177099_0B7AD6BE 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <175997201575.3661959.11378704835584004005.git-patchwork-notify@kernel.org>
+Date: Thu, 09 Oct 2025 01:06:55 +0000
+References: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
+In-Reply-To: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
+To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, luto@kernel.org, tglx@linutronix.de,
+ vincenzo.frascino@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, namcao@linutronix.de,
+ linux@armlinux.org.uk, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ kernel@xen0n.name, tsbogend@alpha.franken.de, maddy@linux.ibm.com,
+ mpe@ellerman.id.au, npiggin@gmail.com, christophe.leroy@csgroup.eu,
+ hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+ borntraeger@linux.ibm.com, svens@linux.ibm.com, arnd@arndb.de,
+ brauner@kernel.org, shuah@kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux@rasmusvillemoes.dk
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,26 +85,43 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (for-next)
-by Mark Brown <broonie@kernel.org>:
+This series was applied to riscv/linux.git (for-next)
+by Thomas Gleixner <tglx@linutronix.de>:
 
-On Tue, 19 Aug 2025 17:20:37 +0800 you wrote:
-> The dev_err_probe() doesn't do anything when error is '-ENOMEM'. Therefore,
-> remove the useless call to dev_err_probe(), and just return the value instead.
+On Tue, 26 Aug 2025 08:17:03 +0200 you wrote:
+> Various cleanups to the generic vDSO infrastructure and a patch for ARM
+> which was never applied.
 > 
-> Xichao Zhao (6):
->   spi: spi_amd: Remove the use of dev_err_probe()
->   spi: SPISG: Remove the use of dev_err_probe()
->   spi: Remove the use of dev_err_probe()
->   spi: mt65xx: Remove the use of dev_err_probe()
->   spi: pxa2xx: Remove the use of dev_err_probe()
->   spi: s3c64xx: Remove the use of dev_err_probe()
+> This series has one trivial syntactic conflict with "dso/datastore: Allow
+> prefaulting by mlockall()" [0] and a semantic one with "sparc64: vdso:
+> Switch to generic vDSO library" [1], which still uses the removed
+> GENERIC_VDSO_DATA_STORE.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v1,3/6] spi: Remove the use of dev_err_probe()
-    https://git.kernel.org/riscv/c/2aade32d1ffc
+  - [01/11] vdso/datastore: Gate time data behind CONFIG_GENERIC_GETTIMEOFDAY
+    https://git.kernel.org/riscv/c/7c0c01a216e6
+  - [02/11] ARM: VDSO: remove cntvct_ok global variable
+    https://git.kernel.org/riscv/c/39f1ee1299c9
+  - [03/11] vdso: Move ENABLE_COMPAT_VDSO from core to arm64
+    https://git.kernel.org/riscv/c/7d298d25ce81
+  - [04/11] vdso/gettimeofday: Remove !CONFIG_TIME_NS stubs
+    https://git.kernel.org/riscv/c/f145d6bf8d59
+  - [05/11] time: Build generic update_vsyscall() only with generic time vDSO
+    https://git.kernel.org/riscv/c/ea1a1fa919a5
+  - [06/11] riscv: vdso: Untangle kconfig logic
+    https://git.kernel.org/riscv/c/eb3b66aab72c
+  - [07/11] vdso: Drop kconfig GENERIC_VDSO_32
+    https://git.kernel.org/riscv/c/278f1c933c3f
+  - [08/11] vdso: Drop kconfig GENERIC_COMPAT_VDSO
+    https://git.kernel.org/riscv/c/bb5bc7bfab06
+  - [09/11] vdso: Drop kconfig GENERIC_VDSO_DATA_STORE
+    https://git.kernel.org/riscv/c/7b338f6d4e3d
+  - [10/11] vdso: Drop kconfig GENERIC_VDSO_TIME_NS
+    https://git.kernel.org/riscv/c/bad53ae2dc42
+  - [11/11] vdso: Gate VDSO_GETRANDOM behind HAVE_GENERIC_VDSO
+    https://git.kernel.org/riscv/c/258b37c6e626
 
 You are awesome, thank you!
 -- 
