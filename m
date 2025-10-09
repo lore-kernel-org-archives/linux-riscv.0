@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505EBCCD189
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7069CCD185
 	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 01:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,55 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/LguuGsLNSW98QcFcLJF9Z/0EFzvO/eOwdKeJGvvj4Y=; b=bJLXKpZDI8ff9B
-	eWqr5R4WvBLgycpTzBVnnD88YAIAHUWrcOcmy+OXQ01U5E+9m9rqD4mVaBj6zA2e6/I/Y/VYeh3wb
-	ueQwPVLUL5cqY+oLRHHqmWOden9odhlVTlqTmlmCC9YxOo3pocmHFRpFa29raTs2GwsNTRLStuv+9
-	HpTXc9zomu4Z1aPEcPNCyobgkmVU/GmmbnwkuMt7xeWHBPxYaZ9coSzJBK/1Ld6E7b8Hmr0YHs1pf
-	PaXh13wsU1Gq4vm+NgKUiyIvdgIF7pUsc6Q7wgQ2KuExysrb08QYFl51plJ8yA+EJ8Z04Uo3saTH7
-	2lu7gCIHWjVbZokRIeZA==;
+	List-Owner; bh=SharC0WCZZ9vWEltkFbQVd+vzsNT4AiDcvpVvL/vhSs=; b=skXppTu8PcDQW5
+	XbzE1ACLR0b4GQ7/teGE/+H4QKoKSJnuUxHSa4JWgeOzEZiscA9kvPRo8bgYDrzTybFmXjzSVYNLV
+	HVnk21pHOpNa65/Mc9fcIFjy1WBW2btXFgPJnFEstvVPyz4wrJzZJHmTobM6h+GRQkKib2EnImLno
+	azZlyWpMm3XHO5slhEBpfShyc2CXPH8scHr4OZw+Jc3rWPdBatG+VR/ZzH4rvjW+5ciuRLusJrFH/
+	N9cPa01soOji5ITyEo8Mh6/xqPNm1w6qfboAz5tUF1TPcw71mOFMo6mWM1wvOz0J/gYb+rJOkwXhU
+	bslNZut2ynrDLQT6t27Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6f7l-00000004uX4-18lT;
-	Thu, 09 Oct 2025 01:07:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v6f7i-00000004uVB-42Jk;
+	Thu, 09 Oct 2025 01:07:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6f7h-00000004uTu-2oyE
+	id 1v6f7f-00000004uSs-47iH
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Oct 2025 01:07:15 +0000
+	Thu, 09 Oct 2025 01:07:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A07B48A2C;
-	Thu,  9 Oct 2025 01:07:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D04D1C2BCB4;
-	Thu,  9 Oct 2025 01:07:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ADD0A44EA4;
+	Thu,  9 Oct 2025 01:07:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AE13C4CEE7;
+	Thu,  9 Oct 2025 01:07:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759972032;
-	bh=DpWnKckSi1GoUQwHCRxOqqqXjZaYsYGRGLUY44Knqm4=;
+	s=k20201202; t=1759972031;
+	bh=gUKpBW4KllJ8CoUkDtY+/1hxh/FTHD8ZfTIsKaPto2M=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=CfdQ8hrvVK2vjG1jELAZ9XB/VzbYM3QSariwjEz75dikULWouQXl5O8qfLrk69lYK
-	 TGMNoWQKrhn01+aLWkmM40QZMGmJDATejJJ9bNLDhpsjTIL9JT2JpJN0tcR3ecnHAH
-	 NWiwQuw9q0dGeoCsNy7+ju0TShILGhg6y6bvv7muSrI668XhVeIDfr8vySWiG66Du6
-	 lSNLqTA0dl3ow6EQUCvasO8mvbjnV3DCqQtwU+B76U6U0uAZrXqPr1Kh4NGixICnK5
-	 jBaYEernq9xC8jEw37vCbJD/QrXA64IImcHpOHNtjthovQVnob32nMWDBchOEqCZZO
-	 XBOUxGjH1jRDQ==
+	b=r8qUEJcO3jnEk4AEiYY28zdkpGDHV2VM+kWqnOwRmihbEk2CYz5+e5Gj6nxa0V1Wj
+	 +6A3gj010/mMOlreXhP8GxlsFMxpVKEVQ0p3rHmtpC3g6+KpJerMpVJ5atk3851f70
+	 y8vgKiNpAH6aj8xqCZJ7s3fRcuioMBsh1BE0I5zxo2xTjp2G65rhAROGRSxX9SHPuc
+	 B4aR9UUmuxVKZ0klrFsM8By0HwnJqa/pA1saKNT4NMKb14RHQcsCdpJsPFWOFnpMS7
+	 OzxzB42kdW7kqCrEFuyJaQWDQOHRIhb7ME6vA6yu4efvIXfq5c3b2cd4Rf+KT4SLkB
+	 cKuDtu4wGX3jg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70DA53A41017;
-	Thu,  9 Oct 2025 01:07:02 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33D1F3A41017;
+	Thu,  9 Oct 2025 01:07:01 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4] iommu/riscv: prevent NULL deref in iova_to_phys
+Subject: Re: [PATCH bpf-next] riscv, bpf: Remove duplicated bpf_flush_icache()
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175997202124.3661959.1599667136766880381.git-patchwork-notify@kernel.org>
-Date: Thu, 09 Oct 2025 01:07:01 +0000
-References: <20250820072248.312-1-huangxianliang@lanxincomputing.com>
-In-Reply-To: <20250820072248.312-1-huangxianliang@lanxincomputing.com>
-To: XianLiang Huang <huangxianliang@lanxincomputing.com>
-Cc: linux-riscv@lists.infradead.org, tjeznach@rivosinc.com,
- markus.elfring@web.de, joro@8bytes.org, will@kernel.org,
- robin.murphy@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org
+Message-Id: <175997201975.3661959.14473142112064760286.git-patchwork-notify@kernel.org>
+Date: Thu, 09 Oct 2025 01:06:59 +0000
+References: <20250904105119.21861-1-hengqi.chen@gmail.com>
+In-Reply-To: <20250904105119.21861-1-hengqi.chen@gmail.com>
+To: Hengqi Chen <hengqi.chen@gmail.com>
+Cc: linux-riscv@lists.infradead.org, ast@kernel.org, daniel@iogearbox.net,
+ andrii@kernel.org, martin.lau@linux.dev, bjorn@kernel.org,
+ pulehui@huawei.com, puranjay@kernel.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_180713_765344_E72FB266 
-X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-CacheID: sfid-20251008_180712_044619_5FED1561 
+X-CRM114-Status: UNSURE (   9.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,21 +79,20 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (for-next)
-by Joerg Roedel <joerg.roedel@amd.com>:
+by Daniel Borkmann <daniel@iogearbox.net>:
 
-On Wed, 20 Aug 2025 15:22:48 +0800 you wrote:
-> The riscv_iommu_pte_fetch() function returns either NULL for
-> unmapped/never-mapped iova, or a valid leaf pte pointer that requires no
-> further validation.
+On Thu,  4 Sep 2025 10:51:18 +0000 you wrote:
+> The bpf_flush_icache() is done by bpf_arch_text_copy() already.
+> Remove the duplicated one in arch_prepare_bpf_trampoline().
 > 
-> riscv_iommu_iova_to_phys() failed to handle NULL returns. Prevent null pointer
-> dereference in riscv_iommu_iova_to_phys(), and remove the pte validation.
-> 
-> [...]
+> Signed-off-by: Hengqi Chen <hengqi.chen@gmail.com>
+> ---
+>  arch/riscv/net/bpf_jit_comp64.c | 1 -
+>  1 file changed, 1 deletion(-)
 
 Here is the summary with links:
-  - [v4] iommu/riscv: prevent NULL deref in iova_to_phys
-    https://git.kernel.org/riscv/c/99d4d1a07087
+  - [bpf-next] riscv, bpf: Remove duplicated bpf_flush_icache()
+    https://git.kernel.org/riscv/c/6798668ab195
 
 You are awesome, thank you!
 -- 
