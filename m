@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E620CAC5BB
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Oct 2025 20:37:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1642CCA470
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 01:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8y1VCs46UgE7uVgW0UPXvsj+yeTtY5DAI30QHKq7lrw=; b=hr4yHb4JuWVdBb
-	VkVhlzzMSYXC4XkBigsumgJ1KC9TUhDHUxkKQCgUSkHoowHjR8w67VTOjaByI0mr/0eXBy13ohWbP
-	b1A5T+5617+9Z2Vw3ZRtYGGErXmiiB79NZELGwTryknVSwV20aRqGKAEBkROes7RvKY64XU841SkO
-	iEvkeUzuY/083+CeDihITgDS/eWm750gnLIlxIjm76KkxRNeBxg7+tSTARfOpbnt/lGIraNK19YZd
-	jWw0qMeGc7XuOVLvoL8X/0Fd2hn4E9HSvIaJhM3/x4YcwC69S+5xZDYZMYweDnVR9gKdGkyQCzjEK
-	q1z85zUqg04kNgastypg==;
+	List-Owner; bh=O43dGpIUe8vE4CjbanMX8VlJM2XZKS3Nv1ejiw69HWQ=; b=L/I4KkyCEAiDUv
+	fMymZvmgKXD+n9+9s413cwXcihZkOOSsB5lofFt8un3uogBJ8os0tf/RWk54EMPOGFQ/m52NP7c9R
+	uyCDEBe2CIn5w7coP6Od0qlxfAjrCu8Khkx8o6DTKrW0CH9VaDmVlW6Hyp/d0JS1MQkIVP7m01p8j
+	EVG9kKsIez22vmWjM/m39cL0MseRi7PSwxLR1PiivhV54yYN9WnewBB9hWGmnF26cGpzuVgD+vtI+
+	Z5U5kwVn8MUoDtDeo6jmydxF8hK/+2nf6RRC94a+CPYtX3nVcjlgJwTodT/jx6B1lj8GIxhBvoAxK
+	VrCxSmKGxO9vJ0MYCrTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6auf-00000004e7v-0N1H;
-	Wed, 08 Oct 2025 20:37:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v6f7h-00000004uTj-1DPH;
+	Thu, 09 Oct 2025 01:07:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6auc-00000004e7Z-2yEm
-	for linux-riscv@lists.infradead.org;
-	Wed, 08 Oct 2025 20:37:27 +0000
+	id 1v6f7d-00000004uRn-2eHx;
+	Thu, 09 Oct 2025 01:07:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5471543A6A;
-	Wed,  8 Oct 2025 20:37:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CABBEC4CEE7;
-	Wed,  8 Oct 2025 20:37:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E03562142;
+	Thu,  9 Oct 2025 01:07:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB6FAC4CEE7;
+	Thu,  9 Oct 2025 01:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759955846;
-	bh=XXqi5wxOOkul2F2T5znn83YyVWjS0g4JydBYsqfGoBc=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=qwcdgFFHbfCdAPIXcMM/a3eT1QCszydsYTBd8ZvVL0GTGQEXnHf759lu2NITEiymA
-	 De0lF7qFiP1EsUOfveKouGDh6Lz/mMCcUxdvy3kB5CC8Z4ozURRqXuTc3Fn5g9kZv5
-	 Q6NlB6PYDiu3/vwytqgSI8yZ1uKPZ4x8CnS8T7igdRa7xm6ummorfLgA1h5LtHTsZF
-	 HacIdyejO2H53QcKrb6uPmmiCjcs2mO29/GppXHXxH8vGDYWsHSCafxvRViOucw+kV
-	 AAQ6s/88STBODTI50K9k2tFQOB+GVA/Wn8NfnaHU814RCO3o6MiDqi668oGeUULJo1
-	 9EUmPKolLEMtA==
-Date: Wed, 8 Oct 2025 14:37:22 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-cc: Paul Walmsley <pjw@kernel.org>, 
-    BillXiang <xiangwencheng@lanxincomputing.com>, 
-    linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] riscv: Move user-visible sbi ext ids to uapi
-In-Reply-To: <20251008-a966ea0e3d8bb6dbd85f6c6a@orel>
-Message-ID: <d9720a12-5efc-1be6-b4a7-7a8888b959a0@kernel.org>
-References: <20250917092129.1450686-1-xiangwencheng@lanxincomputing.com> <3bd01b1c-07e1-c545-8256-f83e3343247e@kernel.org> <20251008-a966ea0e3d8bb6dbd85f6c6a@orel>
+	s=k20201202; t=1759972028;
+	bh=1CdwuT+kYcmte8eivy456G2ecK75wHvT2qHam+/7tKI=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Cpsu6soKqutgxCtUfPezdkxx5CskZoUCgqzxXo1GLczYtT2CWVv8zYILvo1MH+poW
+	 8DhXILNkc/IhfRwPBJ7pkQy0hiD+DaTrCdzXG6qb0D0NXeOCimbRprobtFWuTn47ho
+	 tQbo9vk0bTVjq7sibNH0YszQlPI6Jcarcu66BF/sInizjAkBMDCmXfi46DTJc27HSW
+	 hcP8a7f9wEppJoIJVEDXf2evkRhdga2TKzVhWETk+l1nHvvhF8r7ZY2NaJEr80vbqL
+	 YSkN+7gJaSYfvUVuv4qhYaECiIXdJzyycgv5G4S97GOwlGR0oNXYlAJZEkpT9yJhuT
+	 hJ49LeKwxzDEw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70F473A41017;
+	Thu,  9 Oct 2025 01:06:58 +0000 (UTC)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_133726_786180_66F99108 
-X-CRM114-Status: GOOD (  11.90  )
+Subject: Re: [PATCH v6 0/8] Add SBI v3.0 PMU enhancements
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <175997201703.3661959.2204934721349838885.git-patchwork-notify@kernel.org>
+Date: Thu, 09 Oct 2025 01:06:57 +0000
+References: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
+In-Reply-To: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
+To: Atish Kumar Patra <atishp@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, will@kernel.org,
+ mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ mchitale@ventanamicro.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, seanjc@google.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,30 +73,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Drew,
+Hello:
 
-On Wed, 8 Oct 2025, Andrew Jones wrote:
+This series was applied to riscv/linux.git (for-next)
+by Anup Patel <anup@brainfault.org>:
 
-> On Wed, Oct 08, 2025 at 12:17:01PM -0600, Paul Walmsley wrote:
-> ...
-> > I do have some broader questions: is this patch really needed?  Is it 
-> > fixing anything that's broken?  These SBI constants aren't defined by the 
-> > kernel; they come from RISC-V standards.
+On Tue, 09 Sep 2025 00:03:19 -0700 you wrote:
+> SBI v3.0 specification[1] added two new improvements to the PMU chaper.
+> The SBI v3.0 specification is frozen and under public review phase as
+> per the RISC-V International guidelines.
 > 
-> Hi Paul,
+> 1. Added an additional get_event_info function to query event availablity
+> in bulk instead of individual SBI calls for each event. This helps in
+> improving the boot time.
 > 
-> You're right that we don't want this patch. I hadn't noticed that the same
-> patch was posted more than once or I would have nacked it here too. I
-> replied to the other posting[1] a couple weeks ago.
-> 
-> [1] https://lore.kernel.org/all/20250924-7e9764acec6722b5ef29ce7d@orel/
+> [...]
 
-Thanks for the heads up and for the early review.  Patchwork didn't pick 
-up the thread for whatever reason beyond the initial patch, and I didn't 
-bother to check the mail archive...
+Here is the summary with links:
+  - [v6,1/8] drivers/perf: riscv: Add SBI v3.0 flag
+    https://git.kernel.org/riscv/c/8c8d0f002b76
+  - [v6,2/8] drivers/perf: riscv: Add raw event v2 support
+    https://git.kernel.org/riscv/c/656ef2ea30a9
+  - [v6,3/8] RISC-V: KVM: Add support for Raw event v2
+    https://git.kernel.org/riscv/c/190b74154299
+  - [v6,4/8] drivers/perf: riscv: Implement PMU event info function
+    https://git.kernel.org/riscv/c/adffbd06d003
+  - [v6,5/8] drivers/perf: riscv: Export PMU event info function
+    https://git.kernel.org/riscv/c/880fcc329e24
+  - [v6,6/8] RISC-V: KVM: No need of explicit writable slot check
+    https://git.kernel.org/riscv/c/41f4d0cc331a
+  - [v6,7/8] RISC-V: KVM: Implement get event info function
+    https://git.kernel.org/riscv/c/e309fd113b9f
+  - [v6,8/8] RISC-V: KVM: Upgrade the supported SBI version to 3.0
+    https://git.kernel.org/riscv/c/dbdadd943a27
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
