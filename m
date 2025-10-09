@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0580CCD183
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 16:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7654CCD183
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 16:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cGVtWQOJaS/FrZiOkYEm3L0ybJhm25lGNtU/vXB1scE=; b=ug524UVzlr9lwb
-	EJH//XiReRej/qb1cYrIF7zLh/20X/RbfBVS2/4mHS1tvm4pC6FQzaWZzkV+UZ1rvj1i8+Rwk2UcD
-	SIZ/yFYGMy1vI0gn1wbYtnPEg3EyiTv5jXoUuXNEn+l481pQ50fE1BcsmmgvuElIsCSOGMSdeCknG
-	C3W1pI6dYs9sZVrQjROVDbB3u/hc0SoHeyGUPMSzegCxt+JmYZ/B8Ye70hKeannoF1+DjNeCvXwtP
-	LJxeYzeO3hshjijBu+YmR/tu3HMhAu37BP+ACoPsQOUc2ZFEkT3GkuQEg8hr+quGYxqv8GGVOMXt3
-	WpYxOMn+uLas/7gfpdAw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+MXZ/K/xeRCst/jCKpS2yBxzD1r2sUWnYQOlx4SVwlI=; b=xgUFmmi4O/5Q44Zhvm0SyMdjDk
+	ozW/hrySzwswOhfWML6ukVSNeelAMgUC5BbTCuceVRWg+s8zMqkw6tSpNkzD6iypTlDBMzASegQhW
+	bwnlPttFmRm6jlxMoFGQsQ/wSTqO42O9tOAtI8a3jKLo7gCUBLihF3xrwF9B9oRe8AobuwVRA2GxA
+	nkhGLKfd8mQbjtcKTQ20Pm67EtJTwC4lwenZ0qIjMB6T/HkLyG6NfwLdCi48PEZAy2taznj9Cl264
+	cgzqs7vyd1M1UF658Zx127ocJ4/+iAFcjGmu0uzYGCpZB6auLEysVTwubm5kPRoVKBEezBcnZRZ1N
+	DmUo/Myg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6tmc-00000006imc-0dvY;
-	Thu, 09 Oct 2025 16:46:26 +0000
-Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
+	id 1v6ttM-00000006jn0-2YyL;
+	Thu, 09 Oct 2025 16:53:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6tma-00000006im3-1lHy
+	id 1v6ttL-00000006jmS-032A
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Oct 2025 16:46:25 +0000
-Received: by mail-io1-xd29.google.com with SMTP id ca18e2360f4ac-91179e3fe34so67459039f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Oct 2025 09:46:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1760028383; x=1760633183; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=l69sAA+RqcMkjrNYYlZnvTMiAxsxuDk6BohwO3k0jM4=;
-        b=NRWAAUnVSGohrMbXs06E05ssBaj34Ngr2HPDitUgJf1s0fiwLsRXPUzQMoHk8tdSb9
-         qhGnTagKBUrTdjUOipdJjXKrh4fEixMYyHKPKgurbNPb8GGCkiaWqhYOwFZTE4WfN+7a
-         IRJFDHnl8ZDFVnIFPHd7wZuQg1l5TTD00lNtCgQRnOssmaFqBeZw0hLB6fLwGU9MwWWQ
-         jMoq6tU6/eoxXwWp+5dRh8r6+acXVdXq0uuECmJRbvxzTKDOr4PArbIRF6jzVlqIDQEQ
-         tgjBxOcRb+BatZfgFQpjMAqDgKuTkWzB02GWFdMA8IOra8r9eUxm4f5dcCrhebjdn8nM
-         QUnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760028383; x=1760633183;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l69sAA+RqcMkjrNYYlZnvTMiAxsxuDk6BohwO3k0jM4=;
-        b=ITJ4fTayf3vAZ3JQq7cbdbgiBG9XXzeqrPzBpm1JODFkvWDtlYoK6425trbAm3yrMP
-         81ctcPXa5UVjpTEZJF7yFYBpidR4xXdyr4Nok1/K6b+QD6SRvv5cHTAEDJ2IA2AjdJPj
-         jZXkDlQScxXzMHp4YNK6Slu0s3kqHGg/6nv/fwjYT29KkLTcPlywhDAOAk7YkIJf+qbK
-         XVF1jWC4RUm78QoFy8xkSHy0dGknZdTg1efi+z3a2ct8nvSODW0SQ/2JIn2YGkbgisTq
-         viqXWKa/3Y7Z1Fy//Wx8SMoxROZC6sPZYUE7UcvQPb0A3551/tKqvx36G2jUQITtvyss
-         00qQ==
-X-Gm-Message-State: AOJu0YwqV3tUUSGDwefYzMK9mq5z7GRHvr7K9QjtV1x2/cCNV62bJRC9
-	FULuLMVhmy7TgcCzCfWAro5+EHisF6FvB7Ai/xWFk5cYjoLeEqb4e8eSlW/373KF+X4=
-X-Gm-Gg: ASbGncusDZIgeH41him0SV5W/yXFZPNK2ZGriBvVZn0rG7D5IIDYAeSjUyhnY8PX9G6
-	u96mHK6WQP1tUm+GZeyvq+QyWP9L8AuaVs9zzdtVJVdJOLrFz20PTjHFgtcR8g3fotGtSdlAeF7
-	lQ5bgXRW6+ebwV1PXOiwFIeUAreI2dv9LvvNqmDTGR17fsRoVEJfgWVWAj2vlc8L0S+iFau0NvQ
-	akMyqnogsJ25m9Cldo5KQN8/E+2xPv/iXjPt/hDPxi7safAlhui/h/Lv39kqJfWSrQAXQl1jTS0
-	XenLFvRwvb94zZnr8+jjv7NWKWV3I03nzd96mNdAEF/lMjPmafljkauSBfV/lTv//7oju+dPnuu
-	CPhLEOuq0WaxIsOtFYoyclbG5SWXkNEdHLmrs3V468Zq+kSURKvs9Vx/BacU=
-X-Google-Smtp-Source: AGHT+IHb56VLYwDyYpisbd61rv4b/ynpgAfxpu83YRCwm5JW7AaildP7fCF4cs3XdphAf5nkTFwpyQ==
-X-Received: by 2002:a6b:e916:0:b0:8c3:e106:74c2 with SMTP id ca18e2360f4ac-93bc4119105mr1227233739f.5.1760028383330;
-        Thu, 09 Oct 2025 09:46:23 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-93e2594a558sm8145139f.7.2025.10.09.09.46.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Oct 2025 09:46:22 -0700 (PDT)
-Date: Thu, 9 Oct 2025 11:46:21 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	alexghiti@rivosinc.com, shuah@kernel.org, samuel.holland@sifive.com, evan@rivosinc.com, 
-	cleger@rivosinc.com, zihongyao@outlook.com, zhangyin2018@iscas.ac.cn, 
-	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Cyan Yang <cyan.yang@sifive.com>, Jesse Taube <jesse@rivosinc.com>, 
-	Yunhui Cui <cuiyunhui@bytedance.com>, Nam Cao <namcao@linutronix.de>, 
-	"open list:DOCUMENTATION" <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v2 3/4] docs: riscv: Document hwprobe for Zicbop
-Message-ID: <20251009-27aafc23cb2a92c1c9b324b2@orel>
-References: <20251009134318.23040-1-zihong.plct@isrc.iscas.ac.cn>
- <20251009134318.23040-4-zihong.plct@isrc.iscas.ac.cn>
+	Thu, 09 Oct 2025 16:53:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B1E6C48831;
+	Thu,  9 Oct 2025 16:53:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 246BDC4CEE7;
+	Thu,  9 Oct 2025 16:53:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760028802;
+	bh=s3EeI5Z56afA2rXL7zIjK2ku2OOzEBiB/kUemFUGtIY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eoF+m5hsCRlnJ3mziERlyxeSUZkpA+Uq3/wyy0nW6KS76Qfb+DLrB7hQ4iX52qBHG
+	 7tXtaxX24wHY/VwV9QKXc/FiB2EJAmz5u+VKW8IEu1dmCUNunglycXeDQVoaBd7VdY
+	 dJzXhEOr48fU7PwHGyMy45putihKE4EoaFAvtrOVJ7FYK/LOCIiXQ6QvJFljBV3dXC
+	 5lDb8tQRlWcItlQ+g9QOd+oI6bns4qp+WL2GQJP4+tUFU7s2GY/gsFpJdwkjJ4dKg3
+	 bRNiLY4RVfWd+P6Ud/EfIwhG4WBQO0oJk5VxwnQC113R7E1j57jp6id5eK7q0kVWcT
+	 FJMxRKP14E4TQ==
+Date: Thu, 9 Oct 2025 17:53:14 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, rostedt@goodmis.org, mhiramat@kernel.org,
+	mark.rutland@arm.com, peterz@infradead.org, jpoimboe@kernel.org,
+	jbaron@akamai.com, ardb@kernel.org, willy@infradead.org,
+	guoren@kernel.org, ziy@nvidia.com, akpm@linux-foundation.org,
+	bjorn@rivosinc.com, ajones@ventanamicro.com, parri.andrea@gmail.com,
+	cleger@rivosinc.com, yongxuan.wang@sifive.com, inochiama@gmail.com,
+	samuel.holland@sifive.com, charlie@rivosinc.com,
+	conor.dooley@microchip.com, yikming2222@gmail.com,
+	andybnac@gmail.com, yury.norov@gmail.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC] riscv: add support for Ziccid
+Message-ID: <20251009-secluded-writing-adefb1f71a72@spud>
+References: <20251009134514.8549-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251009134318.23040-4-zihong.plct@isrc.iscas.ac.cn>
+In-Reply-To: <20251009134514.8549-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_094624_483980_23C18088 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20251009_095323_091369_144966FE 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,58 +76,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1334615570432915947=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 09, 2025 at 09:41:53PM +0800, Yao Zihong wrote:
-> Update hwprobe.rst to include documentation of the new
-> :c:macro:`RISCV_HWPROBE_EXT_ZICBOP` and
-> :c:macro:`RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE`, following the same
-> style as the Zicbom and Zicboz entries.
-> 
-> The extension bit records support for the Zicbop extension, and
-> the block size key reports the block size in bytes.
-> 
-> Signed-off-by: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
-> ---
->  Documentation/arch/riscv/hwprobe.rst | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-> index 2f449c9b15bd..3b9c9d7e1409 100644
-> --- a/Documentation/arch/riscv/hwprobe.rst
-> +++ b/Documentation/arch/riscv/hwprobe.rst
-> @@ -275,6 +275,9 @@ The following keys are defined:
->         ratified in commit 49f49c842ff9 ("Update to Rafified state") of
->         riscv-zabha.
->  
-> +  * :c:macro:`RISCV_HWPROBE_EXT_ZICBOP`: The Zicbop extension is supported, as
-> +       ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
-> +
->  * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated.  Returns similar values to
->       :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF`, but the key was
->       mistakenly classified as a bitmask rather than a value.
-> @@ -369,4 +372,7 @@ The following keys are defined:
->  
->      * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFWMACCQQQ`: The Xsfvfwmaccqqq
->          vendor extension is supported in version 1.0 of Matrix Multiply Accumulate
-> -	Instruction Extensions Specification.
-> \ No newline at end of file
-> +	Instruction Extensions Specification.
-> +
-> +* :c:macro:`RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE`: An unsigned int which
-> +  represents the size of the Zicbop block in bytes.
-> \ No newline at end of file
 
-Please ensure this file has a newline so the last line doesn't have
-to change every time we add new keys.
+--===============1334615570432915947==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="nor471u/BfNy6yoJ"
+Content-Disposition: inline
 
-Thanks,
-drew
+
+--nor471u/BfNy6yoJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Oct 09, 2025 at 09:45:14PM +0800, Yunhui Cui wrote:
+> The Ziccid extension provides hardware synchronization between
+> Dcache and Icache. With this hardware support, there's no longer
+> a need to trigger remote hart execution of fence.i via IPI.
+>=20
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+
+Actual correctness aside, in an RFC should you really state why this is
+an RFC and not just a v1 patch. You're missing a dt-binding change
+that's required for new extensions, that you'll need for v2.
+
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 67b59699357da..2da82aa2dbf0a 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -540,6 +540,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
+>  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+>  	__RISCV_ISA_EXT_DATA(svvptc, RISCV_ISA_EXT_SVVPTC),
+> +	__RISCV_ISA_EXT_DATA(ziccid, RISCV_ISA_EXT_ZICCID),
+>  };
+
+The comment about this structure reads:
+/*
+ * The canonical order of ISA extension names in the ISA string is defined =
+in
+ * chapter 27 of the unprivileged specification.
+ *
+ * Ordinarily, for in-kernel data structures, this order is unimportant but
+ * isa_ext_arr defines the order of the ISA string in /proc/cpuinfo.
+ *
+ * The specification uses vague wording, such as should, when it comes to
+ * ordering, so for our purposes the following rules apply:
+ *
+ * 1. All multi-letter extensions must be separated from other extensions b=
+y an
+ *    underscore.
+ *
+ * 2. Additional standard extensions (starting with 'Z') must be sorted aft=
+er
+ *    single-letter extensions and before any higher-privileged extensions.
+ *
+ * 3. The first letter following the 'Z' conventionally indicates the most
+ *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
+ *    If multiple 'Z' extensions are named, they must be ordered first by
+ *    category, then alphabetically within a category.
+ *
+ * 3. Standard supervisor-level extensions (starting with 'S') must be list=
+ed
+ *    after standard unprivileged extensions.  If multiple supervisor-level
+ *    extensions are listed, they must be ordered alphabetically.
+ *
+ * 4. Standard machine-level extensions (starting with 'Zxm') must be listed
+ *    after any lower-privileged, standard extensions.  If multiple
+ *    machine-level extensions are listed, they must be ordered
+ *    alphabetically.
+ *
+ * 5. Non-standard extensions (starting with 'X') must be listed after all
+ *    standard extensions. If multiple non-standard extensions are listed, =
+they
+ *    must be ordered alphabetically.
+ *
+ * An example string following the order is:
+ *    rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
+ *
+ * New entries to this struct should follow the ordering rules described ab=
+ove.
+ */
+
+Cheers,
+Conor.
+
+--nor471u/BfNy6yoJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaOfoegAKCRB4tDGHoIJi
+0hdSAP4mmjzLQiGeP2lXFFu31PWRRLqRQHE8ipZDJS96deFWTQD+PwyH70gg9y03
+slIpEN0aUuJ9z2FpvqNH5MXCJurtAgE=
+=tcgM
+-----END PGP SIGNATURE-----
+
+--nor471u/BfNy6yoJ--
+
+
+--===============1334615570432915947==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1334615570432915947==--
+
