@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80BA1CCD185
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 01:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C8E3CCD187
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 01:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zGqcuV6huI0nPd9O1CAiw5Q5iv1rvfCSJi67R73GUNQ=; b=xWsaahxHGx72Gp
-	Aa9bbgAj0w5AWii9ben87QnBkD0nhotAxLJmhwcdJa02nedHyQSNbDvjgB0gQd4QdLmtmhVh7gzVS
-	PfOo/Z4REAeDoNKdgWQr/kUPQAyNScss/Zx2V+It92WX2Bu0owibovnIvHfJhmj93A886HkslEfLm
-	WrlSsj1KI0vQMkLsbtFDXGsIwhGETsODPseC+PWFQADn3ZwtAY8+taNJ5Ozy3dLK6INoZanr/5YWB
-	2qpC/3I70ScXnZ/5tQHnBmfyKA7FvDAiTvjElousf3gZOZsKh6Wbt8QF0Q7msToy1/bvpVDE6+aOx
-	EmHa5werXUGqLkQUlLOw==;
+	List-Owner; bh=3rlH1Qec08MB/4kwoMb1TIc7V2Iv5MmiZV0fMZB4GC4=; b=EjotzoXCipu36p
+	bXnZhuex9SneCLq8IdrSXldelPs4I+JT8jMM34MNP1tW8dexf9pljH+LX9G8qwFDsY5wPMID0PnJ2
+	hZDjQSAu1aSYzDAD9vxl8I5L3ojsSwJ8x/zw49FxiAZB1nO2yjMkfuBA9FKXT766q1NBMSM4fmhNX
+	FLxMkEzS/ifi1YoO/O5GgS6KdCbwHwihUfRk/Zm/GiC+UHKvhpOBzt1r/W0hDIWduTTWJvsOU0XSp
+	KQDs3TgALREFNqcK/Ox9+nzVNTtsKF8lms2njcQsckcCGrvBa1wgQfkymr7jwDLU5m6bZ4eATygGV
+	y5+cGfm3K3rD0daEh6yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6fw8-00000004zeb-027z;
-	Thu, 09 Oct 2025 01:59:20 +0000
+	id 1v6fw6-00000004zdK-2YiZ;
+	Thu, 09 Oct 2025 01:59:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6fw5-00000004zay-10fp
+	id 1v6fw4-00000004zaJ-1tEH
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 09 Oct 2025 01:59:17 +0000
+	Thu, 09 Oct 2025 01:59:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=CenIuzXpxApsKzkUyACEQ0jjKpKilW6kJlIT8GgEJGc=; b=TsJoB/kQVdvH69FI81CSe2eY+l
-	XKrMBugaEipdDDtrANxkr0/pBcJ5yySjR2/xNUInafGSTq2aFpSVMcd4olcXgp1+T24Ejw2Q9+e5L
-	aqfNrQqOSEgPScgrYKfYLqH6hFNtqzG60rBbpaJmGiA2N+ckbhvRtue+ysbx5GvX7FzPKKzEpyjE2
-	hoWyAbK/WoL1OjKHlqvByGHduuPJbYxmt2GAR8CGgz0mc/cnANi0JEjeeSsFfEmrfhASG5ZhUCAzA
-	nYccRAQwlxlZT4wyZ9HihoIf1SeiPsR8UCqt/eTSjuLmUzz0fymfZnkc8TqQ/b8YmCJKueJlaE31q
-	T23RNOyw==;
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	bh=9q1+NRseWKfUTLpTRf8HDVLHy+6zl45nVa2e8q797C8=; b=dA1Mg7FGv6XTWtcJTejzTfpAgf
+	WloTUvIeKjfNqDRxrqUMKQV/l6uDodR7dPmze61tvYzPr9vE4dw1MnqOcsGDI1hrHge+971/D4FB4
+	/C3gBxrbs/Hpaty/I+qIR4ljYTKN2PM17vzfJJnp+rSOYewfQyh7gDez0Ga91uL2In+NettLwok0/
+	AH18w+AUoK9AU/kwhSA6oSHHYA29omemLp9Xk/n0g1lSPAC2TZxgXxl2HGo3Zk8MnyLCIZctO+PqT
+	F5IqCWfCjsBMjylIxTOLROjDKNe4Bazkycao3O8sz6H2LwOaNLYQ3QhchxucbXXBFMNugeknBnWz5
+	fBNwC5fg==;
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6fvl-000000014FR-1FnM
+	id 1v6fvr-000000014Fs-4Aw0
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Oct 2025 01:59:14 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-28832ad6f64so4950055ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Oct 2025 18:58:56 -0700 (PDT)
+	Thu, 09 Oct 2025 01:59:13 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-27edcbbe7bfso5771875ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Oct 2025 18:59:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1759975135; x=1760579935; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1759975141; x=1760579941; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CenIuzXpxApsKzkUyACEQ0jjKpKilW6kJlIT8GgEJGc=;
-        b=MUaMOJYlh3NyzYTmzA+Mcsdxmuj0MKLSD26jTp3P1ZW4EjsafHt1AN+oQxh01EbUj2
-         3hd6UvAkWuR5Uo8fMA970N/LI/kd3QjKRzfyT3MQ5Pn3WgrHouaUAfenHaA5Opa5o2Hr
-         VD6pLkSwpQYI9wVX0m67sp1+UyGwSg6iNWYD3SZMI4mwVO1XaqaNiq3febn46zsfmZ9e
-         5tUUJQhwCYATriI+iIAtFZtZi+p5vA3fbgLXE39WE34LVUlQS1sluSreLjQvOlAUnlLv
-         NqIyxCRq41pKIHhm1fLwwAMO5N6i0lrk9vacTEpSsQNwiCgpNPJkx/yZoQZLN+KnraOt
-         Au3w==
+        bh=9q1+NRseWKfUTLpTRf8HDVLHy+6zl45nVa2e8q797C8=;
+        b=CJCHSGoaRKx5gAxBA73V0safZYojLNJblyHDRpxKEn7eWxl5zt+YKGgAHQ7IEEMHpL
+         hg8qnRHdBdpTaflVefmxmpyQiqrUTY9ZYR0S5ecUoXvHZL1ELMjWXMkQfcq+Fnk+fz+1
+         62ajWcoTlBgLtBmFvOlROb0PxJ1m4lIMktWiZaHRF4Hg2ha5Z+e6lH9B9vgjtSaNXICp
+         D5Yvq7mlaIzVm6bZeWBdU6R77hjRV10KIsezkGFRseYeQcaj1OjRdXOzYvNjVPkApXfi
+         3pB0WdqsCw+SXKR7Gt3P/eOCzrpHIr3hBbF1yCuXVBN7wvisolARSnd8BpgWnd0hHHhL
+         vlIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759975135; x=1760579935;
+        d=1e100.net; s=20230601; t=1759975141; x=1760579941;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CenIuzXpxApsKzkUyACEQ0jjKpKilW6kJlIT8GgEJGc=;
-        b=IphB1g0TDumLm5WDKo257V7zqFlJb/D2VXmS2ZbRLOFzyU0GZ0yJ1F62rgREMuDzJU
-         aAS8+ZqRA6p4L1l6bI3xKTBkkbad5lkF6l/MiVyCyGtErs7dOiURSVoKg+ZIrSaqSsUR
-         7AYvPvryA6HbiJZYnRmkr6a43l3DZrShfXc2U6UI28q0OhegEm2FiJX3Ee9jcUt2DSfc
-         l7sr8/24Fu+KGhte/lot0HEBCzSHbl0H8+f80lj2PRTrRA6avt7919dyeJr18kNSWSk8
-         Afl0JiLe16PsS4ZhcltOrhrTU60Qf5ZeZOu8dgmreLmzkfIcURojSsxtCD6HZ+C0EV17
-         3GtA==
-X-Forwarded-Encrypted: i=1; AJvYcCV6au1fjTxgIhdK19E93KZEs5ASv5wHqCIxJ/ALWibGz3zAr3v/JlxyPHPWDrnDMThFAbp4iWeYMfyAQA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7B3mvLpqqAfpS+A6GwVb4LFrXLfnsZcRXi6OD3MRZ64ym1iQp
-	iICmcB4fFXHC0rgSssZ6odQVvqPy4NkykcA8mB2DYGGGXcKxMFyRMZ4b1aVHGQ0zgac=
-X-Gm-Gg: ASbGnctT9EbfBb5pR2HFmCD2s4qG09SqhuAFgDw2S2QuKMWU9vddthqNlIiFr8k1XfA
-	Q/9z0zm6hs4UkLdrjHisBAerxXot2j+SjobN0fcqCPInGi8HLzsPc722mex9cSPEzlXLN5fwthO
-	xE2mlc/wkkU0Hmc8W5sF/OqaVfFjC0JFqGmk7GQ8cnpQGN5DCA0kbcnvvr7xSpCcSUpMY9FkLYQ
-	BcDG7esptyh/aSbTfQ8WlP0Eybu4pbCsPzEWzeZxRKNjzhJCkTYPMsKrf7SSSeZvoSy9LMzOPOO
-	MQngcnuIFxeZyMlz2k4IU09GoutRw6HceOtguPMOrZSQVwf42anJj/L6pFUW8I1kljI7utRj0i+
-	TjfchMm1ThkT4sbALMzhNN/JZy7PJMoOsqkd6dcByVbjrVPVbbMbnwdEeuKflFsY2pec/
-X-Google-Smtp-Source: AGHT+IE89szqaNtwL7rV4bj88ZY+SdoVTevQxbpQrOA8RfTnb5TmsiChXULlplUdtG27xkBnWYgvJg==
-X-Received: by 2002:a17:903:1b4b:b0:26d:353c:75cd with SMTP id d9443c01a7336-290272409c7mr75848955ad.21.1759975134617;
-        Wed, 08 Oct 2025 18:58:54 -0700 (PDT)
+        bh=9q1+NRseWKfUTLpTRf8HDVLHy+6zl45nVa2e8q797C8=;
+        b=eDZOobASixafdCgb5O0K6ELbCVHDvxL5CW8nG2hKGz3Z+iFRr/QEYAGehGY8ZeQWB5
+         dmGKvP6J7xwK3wleSIsdhGvra05RiYmW0Kxl6eSWqKbOCrAnFl9imCX8Ww8QDDsCMGl1
+         LW+i4LrlL9Q6CkUu+7e9KibvCA7m4r+wNYSEAlDp1xnfoY65dtpFHlGTTgmjozarUcHK
+         m+OYk7fib4fav3S5u/HPwyLWO0ayKcr3glM3d5aVWnhfe7AgshwQRJO2En1Heurle553
+         xVcWb/TRDCbllYrEEsGuR4QkjWXJHBEzuysCGyIQmHfN2G7OquR5UauTe4v7s4QhTWsm
+         rf3w==
+X-Forwarded-Encrypted: i=1; AJvYcCURQb95Ro+Jytaans5iEuAtfJAOm40q15XNnCbF1N/ONV7f7zJ1r9GsqnTfM+Zj3I41xw67HfY0wfVh2Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1UDV07aqXFIb/1shRsrjYIonQSBFoZE7NcYDYfsn7/sENqhIJ
+	o42dXN9sXYGNsO4ttDEubCWCQtmcfZOChU271TBUKBgXQu/m8nmb9nD4g/31GmljMls=
+X-Gm-Gg: ASbGncucV89+6UpbOuevkIVLZbIur+4wcIKFuc77sbQJoF/4UsI5DfQor5sXhp2+9mq
+	sdsrn//Yr7Z0e1OY77AZVj/64KtrOdby0U28G4r6AB2pu0XxFXa6WK4niT+CnSseI+SrAMNXkOy
+	DEeqqxhLnYQ7OJaKdlK4n4H7dCcc2Zd37zSe2HUHgD9cozWlBQHOnEMEiXQOzauq5BniX2ygrhs
+	QhfZz/EuOr9wzfY83SondQX49u8MArzzZ59RcOUDyLZbnq57Ja7Ui8ZDWV7H867XhVTx9/VwEc5
+	iOB9PS5LIUznaAhpaiBX5o2Ee+sSuu2W5ZtX/e2hBak3LoVY4zvjx3/Mga4MMyykGFTip8K6EsP
+	CZyXCxWD0nvap2meFcQjcWnj+sxsaoXa59hKWpyOzZRq7zdx68xeNoGx/oLRegLX0anGT
+X-Google-Smtp-Source: AGHT+IGHPU9/iVX5Ud8D5Es3cH4G+7xlgwuzFWFaCEYVHmYTlH0i4nMQlJ1VHDlSvFYfFYRC22It8g==
+X-Received: by 2002:a17:903:1a90:b0:269:d978:7ec0 with SMTP id d9443c01a7336-290272c19bdmr71839945ad.28.1759975140781;
+        Wed, 08 Oct 2025 18:59:00 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034de53f9sm11033585ad.14.2025.10.08.18.58.53
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034de53f9sm11033585ad.14.2025.10.08.18.58.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Oct 2025 18:58:54 -0700 (PDT)
+        Wed, 08 Oct 2025 18:59:00 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <pjw@kernel.org>,
@@ -98,16 +98,16 @@ Cc: devicetree@vger.kernel.org,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v2 11/18] riscv: mm: Fix up memory types when writing page tables
-Date: Wed,  8 Oct 2025 18:57:47 -0700
-Message-ID: <20251009015839.3460231-12-samuel.holland@sifive.com>
+Subject: [PATCH v2 16/18] riscv: mm: Use physical memory aliases to apply PMAs
+Date: Wed,  8 Oct 2025 18:57:52 -0700
+Message-ID: <20251009015839.3460231-17-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20251009015839.3460231-1-samuel.holland@sifive.com>
 References: <20251009015839.3460231-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_025906_023350_C8B6D571 
-X-CRM114-Status: GOOD (  26.31  )
+X-CRM114-CacheID: sfid-20251009_025906_470678_48E93D69 
+X-CRM114-Status: GOOD (  29.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,592 +124,540 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, Linux on RISC-V has three ways to specify the cacheability
-and ordering PMAs of a page:
- 1) Do nothing; assume the system is entirely cache-coherent and rely on
-    the hardware for any ordering requirements
- 2) Use the page table bits specified by Svpbmt
- 3) Use the page table bits specified by XTheadMae
+On some RISC-V platforms, RAM is mapped simultaneously to multiple
+physical address ranges, with each alias having a different set of
+statically-determined Physical Memory Attributes (PMAs). Software alters
+the PMAs for a particular page at runtime by selecting a PFN from among
+the aliases of that page's physical address.
 
-To support all three methods, the kernel dynamically determines the
-definitions of the _PAGE_NOCACHE and _PAGE_IO fields. However, this
-alone is not sufficient, as XTheadMae uses a nonzero memory type value
-for normal memory pages. So the kernel uses an additional alternative
-sequence (ALT_THEAD_PMA) to insert the correct memory type when
-generating page table entries.
+Implement this by transforming the PFN when writing page tables. If the
+memory type field is nonzero, replace the PFN with the corresponding PFN
+from the noncached alias. Similarly, when reading from the page tables,
+if the PFN is found in a noncached alias, replace it with the PFN from
+the normal memory alias, and insert _PAGE_NOCACHE.
 
-Some RISC-V platforms use a fourth method to specify the cacheability of
-a page of RAM: RAM is mapped to multiple physical address ranges, with
-each alias having a different set of statically-determined PMAs.
-Software selects the PMAs for a page by choosing the corresponding PFN
-from one of the available physical address ranges. Like for XTheadMae,
-this strategy also requires applying a transformation when writing page
-table entries. Since these physical memory aliases should be invisible
-to the rest of the kernel, the opposite transformation must be applied
-when reading page table entries.
+The rest of the kernel sees only PFNs from normal memory and
+_PAGE_MTMASK values as if Svpbmt was implemented.
 
-However, with this last method of specifying PMAs, there is no inherent
-way to indicate the cacheability of a page in the pgprot_t value, since
-the PFN itself determines cacheability. This implementation reuses the
-PTE bits from Svpbmt, as Svpbmt is the standard RISC-V extension, and
-thus ought to be the most common way to indicate per-page PMAs. Thus,
-the Svpbmt variant of _PAGE_NOCACHE and _PAGE_IO is made available even
-when the CPU does not support the extension.
-
-It turns out that with some clever bit manipulation, it is just as
-efficient to transform all three Svpbmt memory type values to the
-corresponding XTheadMae values, as it is to check for and insert the
-one XTheadMae memory type value for normal memory. Thus, we implement
-XTheadMae as a variant on top of Svpbmt. This allows the _PAGE_NOCACHE
-and _PAGE_IO definitions to be compile-time constants, and centralizes
-all memory type handling to a single set of alternative macros.
-
-However, there is a tradeoff for platforms relying on hardware for all
-memory type handling: the memory type PTE bits must now be masked off
-when writing page table entries, whereas previously no transformation
-was needed.
-
-As a side effect, since the inverse transformation is applied when
-reading back page table entries, this change fixes the reporting of the
-memory type bits from ptdump on platforms with XTheadMae.
+Memory alias pairs are determined from the devicetree. A Linux custom
+ISA extension is added to trigger the alternative patching, as
+alternatives must be linked to an extension or a vendor erratum, and
+this behavior is not associated with any particular processor vendor.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
 Changes in v2:
- - Keep Kconfig options for each PBMT variant separate/non-overlapping
- - Move fixup code sequences to set_pXX() and pXXp_get()
- - Only define ALT_UNFIX_MT in configurations that need it
- - Improve inline documentation of ALT_FIXUP_MT/ALT_UNFIX_MT
+ - Put new code behind a new Kconfig option RISCV_ISA_XLINUXMEMALIAS
+ - Document the calling convention of riscv_fixup/unfix_memory_alias()
+ - Do not transform !pte_present() (e.g. swap) PTEs
+ - Export riscv_fixup/unfix_memory_alias() to fix module compilation
 
- arch/riscv/include/asm/errata_list.h |  45 -------
- arch/riscv/include/asm/pgtable-32.h  |   3 +
- arch/riscv/include/asm/pgtable-64.h  | 171 ++++++++++++++++++++++-----
- arch/riscv/include/asm/pgtable.h     |  47 ++++----
- arch/riscv/mm/pgtable.c              |  14 +--
- arch/riscv/mm/ptdump.c               |  12 +-
- 6 files changed, 174 insertions(+), 118 deletions(-)
+ arch/riscv/Kconfig                    |  16 ++++
+ arch/riscv/include/asm/hwcap.h        |   1 +
+ arch/riscv/include/asm/pgtable-64.h   |  44 +++++++--
+ arch/riscv/include/asm/pgtable-bits.h |   5 +-
+ arch/riscv/include/asm/pgtable.h      |   8 ++
+ arch/riscv/kernel/cpufeature.c        |   6 ++
+ arch/riscv/kernel/setup.c             |   1 +
+ arch/riscv/mm/Makefile                |   1 +
+ arch/riscv/mm/memory-alias.S          | 123 ++++++++++++++++++++++++++
+ arch/riscv/mm/pgtable.c               |  91 +++++++++++++++++++
+ arch/riscv/mm/ptdump.c                |   6 +-
+ 11 files changed, 290 insertions(+), 12 deletions(-)
+ create mode 100644 arch/riscv/mm/memory-alias.S
 
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 6e426ed7919a4..56335eba899ea 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -59,51 +59,6 @@ asm(ALTERNATIVE("sfence.vma %0, %1", "sfence.vma", SIFIVE_VENDOR_ID,	\
- 		ERRATA_SIFIVE_CIP_1200, CONFIG_ERRATA_SIFIVE_CIP_1200)	\
- 		: : "r" (addr), "r" (asid) : "memory")
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 51dcd8eaa2435..72c60fa94c0d7 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -890,6 +890,22 @@ config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
+ 	  versions of clang and GCC to be passed to GAS, which has the same result
+ 	  as passing zicsr and zifencei to -march.
  
--/*
-- * _val is marked as "will be overwritten", so need to set it to 0
-- * in the default case.
-- */
--#define ALT_SVPBMT_SHIFT 61
--#define ALT_THEAD_MAE_SHIFT 59
--#define ALT_SVPBMT(_val, prot)						\
--asm(ALTERNATIVE_2("li %0, 0\t\nnop",					\
--		  "li %0, %1\t\nslli %0,%0,%3", 0,			\
--			RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,	\
--		  "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID,	\
--			ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)	\
--		: "=r"(_val)						\
--		: "I"(prot##_SVPBMT >> ALT_SVPBMT_SHIFT),		\
--		  "I"(prot##_THEAD >> ALT_THEAD_MAE_SHIFT),		\
--		  "I"(ALT_SVPBMT_SHIFT),				\
--		  "I"(ALT_THEAD_MAE_SHIFT))
--
--#ifdef CONFIG_ERRATA_THEAD_MAE
--/*
-- * IO/NOCACHE memory types are handled together with svpbmt,
-- * so on T-Head chips, check if no other memory type is set,
-- * and set the non-0 PMA type if applicable.
-- */
--#define ALT_THEAD_PMA(_val)						\
--asm volatile(ALTERNATIVE(						\
--	__nops(7),							\
--	"li      t3, %1\n\t"						\
--	"slli    t3, t3, %3\n\t"					\
--	"and     t3, %0, t3\n\t"					\
--	"bne     t3, zero, 2f\n\t"					\
--	"li      t3, %2\n\t"						\
--	"slli    t3, t3, %3\n\t"					\
--	"or      %0, %0, t3\n\t"					\
--	"2:",  THEAD_VENDOR_ID,						\
--		ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)		\
--	: "+r"(_val)							\
--	: "I"(_PAGE_MTMASK_THEAD >> ALT_THEAD_MAE_SHIFT),		\
--	  "I"(_PAGE_PMA_THEAD >> ALT_THEAD_MAE_SHIFT),			\
--	  "I"(ALT_THEAD_MAE_SHIFT)					\
--	: "t3")
--#else
--#define ALT_THEAD_PMA(_val)
--#endif
--
- #define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
- asm volatile(ALTERNATIVE(						\
- 	__nops(5),							\
-diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-index fa6c87015c480..90ef35a7c1a52 100644
---- a/arch/riscv/include/asm/pgtable-32.h
-+++ b/arch/riscv/include/asm/pgtable-32.h
-@@ -28,6 +28,9 @@
- #define _PAGE_IO		0
- #define _PAGE_MTMASK		0
- 
-+#define ALT_FIXUP_MT(_val)
-+#define ALT_UNFIX_MT(_val)
++config RISCV_ISA_XLINUXMEMALIAS
++	bool "Use physical memory aliases to emulate page-based memory types"
++	depends on 64BIT && MMU
++	depends on RISCV_ALTERNATIVE
++	default y
++	help
++	  Add support for the kernel to alter the Physical Memory Attributes
++	  (PMAs) of a page at runtime by selecting from among the aliases of
++	  that page in the physical address space.
 +
- static const __maybe_unused int pgtable_l4_enabled;
- static const __maybe_unused int pgtable_l5_enabled;
++	  On systems where physical memory aliases are present, this option
++	  is required in order to mark pages as non-cacheable for use with
++	  non-coherent DMA devices.
++
++	  If you don't know what to do here, say Y.
++
+ config FPU
+ 	bool "FPU support"
+ 	default y
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index affd63e11b0a3..6c6349fe15a77 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -107,6 +107,7 @@
+ #define RISCV_ISA_EXT_ZALRSC		98
+ #define RISCV_ISA_EXT_ZICBOP		99
  
++#define RISCV_ISA_EXT_XLINUXMEMALIAS	126
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ 
+ #define RISCV_ISA_EXT_MAX		128
 diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index d17382c0fbe59..5531752b608e4 100644
+index 60c2615e46724..34b6f4ef3aad8 100644
 --- a/arch/riscv/include/asm/pgtable-64.h
 +++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -8,7 +8,7 @@
- 
- #include <linux/bits.h>
- #include <linux/const.h>
--#include <asm/errata_list.h>
-+#include <asm/alternative-macros.h>
- 
- extern bool pgtable_l4_enabled;
- extern bool pgtable_l5_enabled;
-@@ -109,6 +109,8 @@ enum napot_cont_order {
+@@ -95,7 +95,8 @@ enum napot_cont_order {
  #define HUGE_MAX_HSTATE		2
  #endif
  
-+#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
-+
- /*
-  * [62:61] Svpbmt Memory Type definitions:
-  *
-@@ -117,53 +119,152 @@ enum napot_cont_order {
-  *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
-  *  11 - Rsvd   Reserved for future standard use
-  */
--#define _PAGE_NOCACHE_SVPBMT	(1UL << 61)
--#define _PAGE_IO_SVPBMT		(1UL << 62)
--#define _PAGE_MTMASK_SVPBMT	(_PAGE_NOCACHE_SVPBMT | _PAGE_IO_SVPBMT)
-+#define _PAGE_NOCACHE		(1UL << 61)
-+#define _PAGE_IO		(2UL << 61)
-+#define _PAGE_MTMASK		(3UL << 61)
+-#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
++#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_RISCV_ISA_XLINUXMEMALIAS) || \
++	defined(CONFIG_ERRATA_THEAD_MAE)
  
  /*
-+ * ALT_FIXUP_MT
+  * ALT_FIXUP_MT
+@@ -105,6 +106,9 @@ enum napot_cont_order {
+  *
+  * On systems that support Svpbmt, the memory type bits are left alone.
+  *
++ * On systems that support XLinuxMemalias, PTEs with a nonzero memory type have
++ * the memory type bits cleared and the PFN replaced with the matching alias.
 + *
-+ * On systems that do not support any form of page-based memory type
-+ * configuration, this code sequence clears the memory type bits in the PTE.
-+ *
-+ * On systems that support Svpbmt, the memory type bits are left alone.
-+ *
-+ * On systems that support XTheadMae, a Svpbmt memory type is transformed
-+ * into the corresponding XTheadMae memory type.
-+ *
-  * [63:59] T-Head Memory Type definitions:
-  * bit[63] SO - Strong Order
-  * bit[62] C - Cacheable
-  * bit[61] B - Bufferable
-  * bit[60] SH - Shareable
-  * bit[59] Sec - Trustable
-- * 00110 - NC   Weakly-ordered, Non-cacheable, Bufferable, Shareable, Non-trustable
-  * 01110 - PMA  Weakly-ordered, Cacheable, Bufferable, Shareable, Non-trustable
-+ * 00110 - NC   Weakly-ordered, Non-cacheable, Bufferable, Shareable, Non-trustable
-  * 10010 - IO   Strongly-ordered, Non-cacheable, Non-bufferable, Shareable, Non-trustable
-+ *
-+ * Pseudocode operating on bits [63:60]:
-+ *   t0 = mt << 1
-+ *   if (t0 == 0)
-+ *     t0 |= 2
-+ *   t0 ^= 0x5
-+ *   mt ^= t0
-+ */
-+
-+#define ALT_FIXUP_MT(_val)								\
-+	asm(ALTERNATIVE_2("addi	t0, zero, 0x3\n\t"					\
-+			  "slli	t0, t0, 61\n\t"						\
-+			  "not	t0, t0\n\t"						\
-+			  "and	%0, %0, t0\n\t"						\
+  * On systems that support XTheadMae, a Svpbmt memory type is transformed
+  * into the corresponding XTheadMae memory type.
+  *
+@@ -127,22 +131,35 @@ enum napot_cont_order {
+  */
+ 
+ #define ALT_FIXUP_MT(_val)								\
+-	asm(ALTERNATIVE_2("addi	t0, zero, 0x3\n\t"					\
++	asm(ALTERNATIVE_3("addi	t0, zero, 0x3\n\t"					\
+ 			  "slli	t0, t0, 61\n\t"						\
+ 			  "not	t0, t0\n\t"						\
+ 			  "and	%0, %0, t0\n\t"						\
+ 			  "nop\n\t"							\
+ 			  "nop\n\t"							\
 +			  "nop\n\t"							\
+ 			  "nop",							\
+-			  __nops(7),							\
++			  __nops(8),							\
+ 			  0, RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,		\
++			  "addi	t0, zero, 0x3\n\t"					\
++			  "slli	t0, t0, 61\n\t"						\
++			  "and	t0, %0, t0\n\t"						\
++			  "beqz	t0, 2f\n\t"						\
++			  "xor	t1, %0, t0\n\t"						\
++			  "1: auipc t0, %%pcrel_hi(riscv_fixup_memory_alias)\n\t"	\
++			  "jalr	t0, t0, %%pcrel_lo(1b)\n\t"				\
++			  "mv	%0, t1\n"						\
++			  "2:",								\
++			  0, RISCV_ISA_EXT_XLINUXMEMALIAS,				\
++				CONFIG_RISCV_ISA_XLINUXMEMALIAS,			\
+ 			  "srli	t0, %0, 59\n\t"						\
+ 			  "seqz	t1, t0\n\t"						\
+ 			  "slli	t1, t1, 1\n\t"						\
+ 			  "or	t0, t0, t1\n\t"						\
+ 			  "xori	t0, t0, 0x5\n\t"					\
+ 			  "slli	t0, t0, 60\n\t"						\
+-			  "xor	%0, %0, t0",						\
++			  "xor	%0, %0, t0\n\t"						\
++			  "nop",							\
+ 			  THEAD_VENDOR_ID, ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)	\
+ 			  : "+r" (_val) :: "t0", "t1")
+ 
+@@ -150,9 +167,9 @@ enum napot_cont_order {
+ 
+ #define ALT_FIXUP_MT(_val)
+ 
+-#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_ERRATA_THEAD_MAE */
++#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_RISCV_ISA_XLINUXMEMALIAS || CONFIG_ERRATA_THEAD_MAE */
+ 
+-#if defined(CONFIG_ERRATA_THEAD_MAE)
++#if defined(CONFIG_RISCV_ISA_XLINUXMEMALIAS) || defined(CONFIG_ERRATA_THEAD_MAE)
+ 
+ /*
+  * ALT_UNFIX_MT
+@@ -160,6 +177,9 @@ enum napot_cont_order {
+  * On systems that support Svpbmt, or do not support any form of page-based
+  * memory type configuration, the memory type bits are left alone.
+  *
++ * On systems that support XLinuxMemalias, PTEs with an aliased PFN have the
++ * matching memory type set and the PFN replaced with the normal memory alias.
++ *
+  * On systems that support XTheadMae, the XTheadMae memory type (or zero) is
+  * transformed back into the corresponding Svpbmt memory type.
+  *
+@@ -170,7 +190,15 @@ enum napot_cont_order {
+  */
+ 
+ #define ALT_UNFIX_MT(_val)								\
+-	asm(ALTERNATIVE(__nops(6),							\
++	asm(ALTERNATIVE_2(__nops(6),							\
++			  "mv	t1, %0\n\t"						\
++			  "1: auipc t0, %%pcrel_hi(riscv_unfix_memory_alias)\n\t"	\
++			  "jalr	t0, t0, %%pcrel_lo(1b)\n\t"				\
++			  "mv	%0, t1\n\t"						\
 +			  "nop\n\t"							\
 +			  "nop",							\
-+			  __nops(7),							\
-+			  0, RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,		\
-+			  "srli	t0, %0, 59\n\t"						\
-+			  "seqz	t1, t0\n\t"						\
-+			  "slli	t1, t1, 1\n\t"						\
-+			  "or	t0, t0, t1\n\t"						\
-+			  "xori	t0, t0, 0x5\n\t"					\
-+			  "slli	t0, t0, 60\n\t"						\
-+			  "xor	%0, %0, t0",						\
-+			  THEAD_VENDOR_ID, ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)	\
-+			  : "+r" (_val) :: "t0", "t1")
-+
-+#else
-+
-+#define _PAGE_NOCACHE		0
-+#define _PAGE_IO		0
-+#define _PAGE_MTMASK		0
-+
-+#define ALT_FIXUP_MT(_val)
-+
-+#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_ERRATA_THEAD_MAE */
-+
-+#if defined(CONFIG_ERRATA_THEAD_MAE)
-+
-+/*
-+ * ALT_UNFIX_MT
-+ *
-+ * On systems that support Svpbmt, or do not support any form of page-based
-+ * memory type configuration, the memory type bits are left alone.
-+ *
-+ * On systems that support XTheadMae, the XTheadMae memory type (or zero) is
-+ * transformed back into the corresponding Svpbmt memory type.
-+ *
-+ * Pseudocode operating on bits [63:60]:
-+ *   t0 = mt & 0xd
-+ *   t0 ^= t0 >> 1
-+ *   mt ^= t0
-  */
--#define _PAGE_PMA_THEAD		((1UL << 62) | (1UL << 61) | (1UL << 60))
--#define _PAGE_NOCACHE_THEAD	((1UL << 61) | (1UL << 60))
--#define _PAGE_IO_THEAD		((1UL << 63) | (1UL << 60))
--#define _PAGE_MTMASK_THEAD	(_PAGE_PMA_THEAD | _PAGE_IO_THEAD | (1UL << 59))
++			  0, RISCV_ISA_EXT_XLINUXMEMALIAS,				\
++				CONFIG_RISCV_ISA_XLINUXMEMALIAS,			\
+ 			  "srli	t0, %0, 60\n\t"						\
+ 			  "andi	t0, t0, 0xd\n\t"					\
+ 			  "srli	t1, t0, 1\n\t"						\
+@@ -234,7 +262,7 @@ static inline pgd_t pgdp_get(pgd_t *pgdp)
  
--static inline u64 riscv_page_mtmask(void)
-+#define ALT_UNFIX_MT(_val)								\
-+	asm(ALTERNATIVE(__nops(6),							\
-+			  "srli	t0, %0, 60\n\t"						\
-+			  "andi	t0, t0, 0xd\n\t"					\
-+			  "srli	t1, t0, 1\n\t"						\
-+			  "xor	t0, t0, t1\n\t"						\
-+			  "slli	t0, t0, 60\n\t"						\
-+			  "xor	%0, %0, t0",						\
-+			  THEAD_VENDOR_ID, ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)	\
-+			  : "+r" (_val) :: "t0", "t1")
-+
-+#define ptep_get ptep_get
-+static inline pte_t ptep_get(pte_t *ptep)
- {
--	u64 val;
-+	pte_t pte = READ_ONCE(*ptep);
+ #define ALT_UNFIX_MT(_val)
  
--	ALT_SVPBMT(val, _PAGE_MTMASK);
--	return val;
-+	ALT_UNFIX_MT(pte);
-+
-+	return pte;
- }
- 
--static inline u64 riscv_page_nocache(void)
-+#define pmdp_get pmdp_get
-+static inline pmd_t pmdp_get(pmd_t *pmdp)
- {
--	u64 val;
-+	pmd_t pmd = READ_ONCE(*pmdp);
-+
-+	ALT_UNFIX_MT(pmd);
- 
--	ALT_SVPBMT(val, _PAGE_NOCACHE);
--	return val;
-+	return pmd;
- }
- 
--static inline u64 riscv_page_io(void)
-+#define pudp_get pudp_get
-+static inline pud_t pudp_get(pud_t *pudp)
- {
--	u64 val;
-+	pud_t pud = READ_ONCE(*pudp);
-+
-+	ALT_UNFIX_MT(pud);
- 
--	ALT_SVPBMT(val, _PAGE_IO);
--	return val;
-+	return pud;
- }
- 
--#define _PAGE_NOCACHE		riscv_page_nocache()
--#define _PAGE_IO		riscv_page_io()
--#define _PAGE_MTMASK		riscv_page_mtmask()
-+#define p4dp_get p4dp_get
-+static inline p4d_t p4dp_get(p4d_t *p4dp)
-+{
-+	p4d_t p4d = READ_ONCE(*p4dp);
-+
-+	ALT_UNFIX_MT(p4d);
-+
-+	return p4d;
-+}
-+
-+#define pgdp_get pgdp_get
-+static inline pgd_t pgdp_get(pgd_t *pgdp)
-+{
-+	pgd_t pgd = READ_ONCE(*pgdp);
-+
-+	ALT_UNFIX_MT(pgd);
-+
-+	return pgd;
-+}
-+
-+#else
-+
-+#define ALT_UNFIX_MT(_val)
-+
-+#endif /* CONFIG_ERRATA_THEAD_MAE */
+-#endif /* CONFIG_ERRATA_THEAD_MAE */
++#endif /* CONFIG_RISCV_ISA_XLINUXMEMALIAS || CONFIG_ERRATA_THEAD_MAE */
  
  static inline int pud_present(pud_t pud)
  {
-@@ -193,6 +294,7 @@ static inline int pud_user(pud_t pud)
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index 18c50cbd78bf5..4586917b2d985 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -38,7 +38,8 @@
+ #define _PAGE_PFN_MASK		GENMASK(31, 10)
+ #endif /* CONFIG_64BIT */
  
- static inline void set_pud(pud_t *pudp, pud_t pud)
- {
-+	ALT_FIXUP_MT(pud);
- 	WRITE_ONCE(*pudp, pud);
- }
+-#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
++#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_RISCV_ISA_XLINUXMEMALIAS) || \
++	defined(CONFIG_ERRATA_THEAD_MAE)
+ /*
+  * [62:61] Svpbmt Memory Type definitions:
+  *
+@@ -54,7 +55,7 @@
+ #define _PAGE_NOCACHE		0
+ #define _PAGE_IO		0
+ #define _PAGE_MTMASK		0
+-#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_ERRATA_THEAD_MAE */
++#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_RISCV_ISA_XLINUXMEMALIAS || CONFIG_ERRATA_THEAD_MAE */
  
-@@ -243,11 +345,7 @@ static inline bool mm_pud_folded(struct mm_struct *mm)
- 
- static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
- {
--	unsigned long prot_val = pgprot_val(prot);
--
--	ALT_THEAD_PMA(prot_val);
--
--	return __pmd((pfn << _PAGE_PFN_SHIFT) | prot_val);
-+	return __pmd((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
- }
- 
- static inline unsigned long _pmd_pfn(pmd_t pmd)
-@@ -255,6 +353,9 @@ static inline unsigned long _pmd_pfn(pmd_t pmd)
- 	return __page_val_to_pfn(pmd_val(pmd));
- }
- 
-+#define pmd_offset_lockless(pudp, pud, address) \
-+	(pud_pgtable(pud) + pmd_index(address))
-+
- #define pmd_ERROR(e) \
- 	pr_err("%s:%d: bad pmd %016lx.\n", __FILE__, __LINE__, pmd_val(e))
- 
-@@ -266,6 +367,7 @@ static inline unsigned long _pmd_pfn(pmd_t pmd)
- 
- static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
- {
-+	ALT_FIXUP_MT(p4d);
- 	WRITE_ONCE(*p4dp, p4d);
- }
- 
-@@ -325,11 +427,15 @@ static inline struct page *p4d_page(p4d_t p4d)
- 
- #define pud_index(addr) (((addr) >> PUD_SHIFT) & (PTRS_PER_PUD - 1))
- 
-+#define pud_offset_lockless(p4dp, p4d, address) \
-+	(pgtable_l4_enabled ? p4d_pgtable(p4d) + pud_index(address) : (pud_t *)(p4dp))
-+
- #define pud_offset pud_offset
--pud_t *pud_offset(p4d_t *p4d, unsigned long address);
-+pud_t *pud_offset(p4d_t *p4dp, unsigned long address);
- 
- static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
- {
-+	ALT_FIXUP_MT(pgd);
- 	WRITE_ONCE(*pgdp, pgd);
- }
- 
-@@ -380,8 +486,11 @@ static inline struct page *pgd_page(pgd_t pgd)
- 
- #define p4d_index(addr) (((addr) >> P4D_SHIFT) & (PTRS_PER_P4D - 1))
- 
-+#define p4d_offset_lockless(pgdp, pgd, address) \
-+	(pgtable_l5_enabled ? pgd_pgtable(pgd) + p4d_index(address) : (p4d_t *)(pgdp))
-+
- #define p4d_offset p4d_offset
--p4d_t *p4d_offset(pgd_t *pgd, unsigned long address);
-+p4d_t *p4d_offset(pgd_t *pgdp, unsigned long address);
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- static inline pte_t pmd_pte(pmd_t pmd);
+ #ifdef CONFIG_RISCV_ISA_SVNAPOT
+ #define _PAGE_NAPOT_SHIFT	63
 diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 61de71a8ba978..03b5623f9107c 100644
+index 03b5623f9107c..f96b0bd043c6d 100644
 --- a/arch/riscv/include/asm/pgtable.h
 +++ b/arch/riscv/include/asm/pgtable.h
-@@ -252,6 +252,7 @@ static inline bool pmd_leaf(pmd_t pmd)
+@@ -1110,6 +1110,14 @@ extern u64 satp_mode;
+ void paging_init(void);
+ void misc_mem_init(void);
  
- static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
- {
-+	ALT_FIXUP_MT(pmd);
- 	WRITE_ONCE(*pmdp, pmd);
- }
- 
-@@ -262,11 +263,7 @@ static inline void pmd_clear(pmd_t *pmdp)
- 
- static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
- {
--	unsigned long prot_val = pgprot_val(prot);
--
--	ALT_THEAD_PMA(prot_val);
--
--	return __pgd((pfn << _PAGE_PFN_SHIFT) | prot_val);
-+	return __pgd((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
- }
- 
- static inline unsigned long _pgd_pfn(pgd_t pgd)
-@@ -342,11 +339,7 @@ static inline unsigned long pte_pfn(pte_t pte)
- /* Constructs a page table entry */
- static inline pte_t pfn_pte(unsigned long pfn, pgprot_t prot)
- {
--	unsigned long prot_val = pgprot_val(prot);
--
--	ALT_THEAD_PMA(prot_val);
--
--	return __pte((pfn << _PAGE_PFN_SHIFT) | prot_val);
-+	return __pte((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
- }
- 
- #define pte_pgprot pte_pgprot
-@@ -485,11 +478,7 @@ static inline int pmd_protnone(pmd_t pmd)
- /* Modify page protection bits */
- static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
- {
--	unsigned long newprot_val = pgprot_val(newprot);
--
--	ALT_THEAD_PMA(newprot_val);
--
--	return __pte((pte_val(pte) & _PAGE_CHG_MASK) | newprot_val);
-+	return __pte((pte_val(pte) & _PAGE_CHG_MASK) | pgprot_val(newprot));
- }
- 
- #define pgd_ERROR(e) \
-@@ -546,9 +535,10 @@ static inline int pte_same(pte_t pte_a, pte_t pte_b)
-  * a page table are directly modified.  Thus, the following hook is
-  * made available.
-  */
--static inline void set_pte(pte_t *ptep, pte_t pteval)
-+static inline void set_pte(pte_t *ptep, pte_t pte)
- {
--	WRITE_ONCE(*ptep, pteval);
-+	ALT_FIXUP_MT(pte);
-+	WRITE_ONCE(*ptep, pte);
- }
- 
- void flush_icache_pte(struct mm_struct *mm, pte_t pte);
-@@ -597,6 +587,7 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- {
- 	pte_t pte = __pte(atomic_long_xchg((atomic_long_t *)ptep, 0));
- 
-+	ALT_UNFIX_MT(pte);
- 	page_table_check_pte_clear(mm, pte);
- 
- 	return pte;
-@@ -866,6 +857,7 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- {
- 	pmd_t pmd = __pmd(atomic_long_xchg((atomic_long_t *)pmdp, 0));
- 
-+	ALT_UNFIX_MT(pmd);
- 	page_table_check_pmd_clear(mm, pmd);
- 
- 	return pmd;
-@@ -883,7 +875,11 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
- 				unsigned long address, pmd_t *pmdp, pmd_t pmd)
- {
- 	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
--	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
-+	ALT_FIXUP_MT(pmd);
-+	pmd = __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
-+	ALT_UNFIX_MT(pmd);
++#ifdef CONFIG_RISCV_ISA_XLINUXMEMALIAS
++bool __init riscv_have_memory_alias(void);
++void __init riscv_init_memory_alias(void);
++#else
++static inline bool riscv_have_memory_alias(void) { return false; }
++static inline void riscv_init_memory_alias(void) {}
++#endif /* CONFIG_RISCV_ISA_XLINUXMEMALIAS */
 +
-+	return pmd;
- }
+ /*
+  * ZERO_PAGE is a global shared page that is always zero,
+  * used for zero-mapped memory areas, etc.
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 743d53415572e..1449c43eab726 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -1093,6 +1093,12 @@ void __init riscv_fill_hwcap(void)
+ 		riscv_v_setup_vsize();
+ 	}
  
- #define pmdp_collapse_flush pmdp_collapse_flush
-@@ -952,14 +948,9 @@ static inline int pudp_test_and_clear_young(struct vm_area_struct *vma,
- static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long address,  pud_t *pudp)
- {
--#ifdef CONFIG_SMP
--	pud_t pud = __pud(xchg(&pudp->pud, 0));
--#else
--	pud_t pud = pudp_get(pudp);
--
--	pud_clear(pudp);
--#endif
-+	pud_t pud = __pud(atomic_long_xchg((atomic_long_t *)pudp, 0));
- 
-+	ALT_UNFIX_MT(pud);
- 	page_table_check_pud_clear(mm, pud);
- 
- 	return pud;
-@@ -982,7 +973,11 @@ static inline pud_t pudp_establish(struct vm_area_struct *vma,
- 				   unsigned long address, pud_t *pudp, pud_t pud)
- {
- 	page_table_check_pud_set(vma->vm_mm, pudp, pud);
--	return __pud(atomic_long_xchg((atomic_long_t *)pudp, pud_val(pud)));
-+	ALT_FIXUP_MT(pud);
-+	pud = __pud(atomic_long_xchg((atomic_long_t *)pudp, pud_val(pud)));
-+	ALT_UNFIX_MT(pud);
++	/* Vendor-independent alternatives require a bit in the ISA bitmap. */
++	if (riscv_have_memory_alias()) {
++		set_bit(RISCV_ISA_EXT_XLINUXMEMALIAS, riscv_isa);
++		pr_info("Using physical memory alias for noncached mappings\n");
++	}
 +
-+	return pud;
- }
+ 	memset(print_str, 0, sizeof(print_str));
+ 	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
+ 		if (riscv_isa[0] & BIT_MASK(i))
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index f90cce7a3acea..00569c4fef494 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -353,6 +353,7 @@ void __init setup_arch(char **cmdline_p)
+ 	}
  
- static inline pud_t pud_mkinvalid(pud_t pud)
+ 	riscv_init_cbo_blocksizes();
++	riscv_init_memory_alias();
+ 	riscv_fill_hwcap();
+ 	apply_boot_alternatives();
+ 	init_rt_signal_env();
+diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+index b916a68d324ad..b4d757226efbf 100644
+--- a/arch/riscv/mm/Makefile
++++ b/arch/riscv/mm/Makefile
+@@ -33,3 +33,4 @@ endif
+ obj-$(CONFIG_DEBUG_VIRTUAL) += physaddr.o
+ obj-$(CONFIG_RISCV_DMA_NONCOHERENT) += dma-noncoherent.o
+ obj-$(CONFIG_RISCV_NONSTANDARD_CACHE_OPS) += cache-ops.o
++obj-$(CONFIG_RISCV_ISA_XLINUXMEMALIAS) += memory-alias.o
+diff --git a/arch/riscv/mm/memory-alias.S b/arch/riscv/mm/memory-alias.S
+new file mode 100644
+index 0000000000000..e37b83d115911
+--- /dev/null
++++ b/arch/riscv/mm/memory-alias.S
+@@ -0,0 +1,123 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2024 SiFive
++ */
++
++#include <linux/bits.h>
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include <asm/pgtable.h>
++
++#define CACHED_BASE_OFFSET	(0 * RISCV_SZPTR)
++#define NONCACHED_BASE_OFFSET	(1 * RISCV_SZPTR)
++#define SIZE_OFFSET		(2 * RISCV_SZPTR)
++
++#define SIZEOF_PAIR		(4 * RISCV_SZPTR)
++
++/*
++ * Called from ALT_FIXUP_MT with a non-standard calling convention:
++ *	t0 => return address
++ *	t1 => page table entry
++ *	all other registers are callee-saved
++ */
++SYM_CODE_START(riscv_fixup_memory_alias)
++	addi	sp, sp, -4 * SZREG
++	REG_S	t2, (0 * SZREG)(sp)
++	REG_S	t3, (1 * SZREG)(sp)
++	REG_S	t4, (2 * SZREG)(sp)
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++	REG_S	t5, (3 * SZREG)(sp)
++
++	/* Save and mask off _PAGE_NAPOT if present. */
++	li	t5, _PAGE_NAPOT
++	and	t5, t1, t5
++	xor	t1, t1, t5
++#endif
++
++	/* Ignore !pte_present() PTEs, including swap PTEs. */
++	andi	t2, t1, (_PAGE_PRESENT | _PAGE_PROT_NONE)
++	beqz	t2, .Lfixup_end
++
++	lla	t2, memory_alias_pairs
++.Lfixup_loop:
++	REG_L	t3, SIZE_OFFSET(t2)
++	beqz	t3, .Lfixup_end
++	REG_L	t4, CACHED_BASE_OFFSET(t2)
++	sub	t4, t1, t4
++	bltu	t4, t3, .Lfixup_found
++	addi	t2, t2, SIZEOF_PAIR
++	j	.Lfixup_loop
++
++.Lfixup_found:
++	REG_L	t3, NONCACHED_BASE_OFFSET(t2)
++	add	t1, t3, t4
++
++.Lfixup_end:
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++	xor	t1, t1, t5
++
++	REG_L	t5, (3 * SZREG)(sp)
++#endif
++	REG_L	t4, (2 * SZREG)(sp)
++	REG_L	t3, (1 * SZREG)(sp)
++	REG_L	t2, (0 * SZREG)(sp)
++	addi	sp, sp, 4 * SZREG
++	jr	t0
++SYM_CODE_END(riscv_fixup_memory_alias)
++EXPORT_SYMBOL(riscv_fixup_memory_alias)
++
++/*
++ * Called from ALT_UNFIX_MT with a non-standard calling convention:
++ *	t0 => return address
++ *	t1 => page table entry
++ *	all other registers are callee-saved
++ */
++SYM_CODE_START(riscv_unfix_memory_alias)
++	addi	sp, sp, -4 * SZREG
++	REG_S	t2, (0 * SZREG)(sp)
++	REG_S	t3, (1 * SZREG)(sp)
++	REG_S	t4, (2 * SZREG)(sp)
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++	REG_S	t5, (3 * SZREG)(sp)
++
++	/* Save and mask off _PAGE_NAPOT if present. */
++	li	t5, _PAGE_NAPOT
++	and	t5, t1, t5
++	xor	t1, t1, t5
++#endif
++
++	/* Ignore !pte_present() PTEs, including swap PTEs. */
++	andi	t2, t1, (_PAGE_PRESENT | _PAGE_PROT_NONE)
++	beqz	t2, .Lunfix_end
++
++	lla	t2, memory_alias_pairs
++.Lunfix_loop:
++	REG_L	t3, SIZE_OFFSET(t2)
++	beqz	t3, .Lunfix_end
++	REG_L	t4, NONCACHED_BASE_OFFSET(t2)
++	sub	t4, t1, t4
++	bltu	t4, t3, .Lunfix_found
++	addi	t2, t2, SIZEOF_PAIR
++	j	.Lunfix_loop
++
++.Lunfix_found:
++	REG_L	t3, CACHED_BASE_OFFSET(t2)
++	add	t1, t3, t4
++
++	/* PFN was in the noncached alias, so mark it as such. */
++	li	t2, _PAGE_NOCACHE
++	or	t1, t1, t2
++
++.Lunfix_end:
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++	xor	t1, t1, t5
++
++	REG_L	t5, (3 * SZREG)(sp)
++#endif
++	REG_L	t4, (2 * SZREG)(sp)
++	REG_L	t3, (1 * SZREG)(sp)
++	REG_L	t2, (0 * SZREG)(sp)
++	addi	sp, sp, 4 * SZREG
++	jr	t0
++SYM_CODE_END(riscv_unfix_memory_alias)
++EXPORT_SYMBOL(riscv_unfix_memory_alias)
 diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-index c4b85a828797e..604744d6924f5 100644
+index 604744d6924f5..de79a2dc9926f 100644
 --- a/arch/riscv/mm/pgtable.c
 +++ b/arch/riscv/mm/pgtable.c
-@@ -42,20 +42,14 @@ int ptep_test_and_clear_young(struct vm_area_struct *vma,
- EXPORT_SYMBOL_GPL(ptep_test_and_clear_young);
+@@ -1,8 +1,12 @@
+ // SPDX-License-Identifier: GPL-2.0
  
- #ifdef CONFIG_64BIT
--pud_t *pud_offset(p4d_t *p4d, unsigned long address)
-+pud_t *pud_offset(p4d_t *p4dp, unsigned long address)
- {
--	if (pgtable_l4_enabled)
--		return p4d_pgtable(p4dp_get(p4d)) + pud_index(address);
--
--	return (pud_t *)p4d;
-+	return pud_offset_lockless(p4dp, p4dp_get(p4dp), address);
+ #include <asm/pgalloc.h>
++#include <dt-bindings/riscv/physical-memory.h>
++#include <linux/bitfield.h>
+ #include <linux/gfp.h>
+ #include <linux/kernel.h>
++#include <linux/memblock.h>
++#include <linux/of.h>
+ #include <linux/pgtable.h>
+ 
+ int ptep_set_access_flags(struct vm_area_struct *vma,
+@@ -160,3 +164,90 @@ pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
+ 	return old;
  }
- 
--p4d_t *p4d_offset(pgd_t *pgd, unsigned long address)
-+p4d_t *p4d_offset(pgd_t *pgdp, unsigned long address)
- {
--	if (pgtable_l5_enabled)
--		return pgd_pgtable(pgdp_get(pgd)) + p4d_index(address);
--
--	return (p4d_t *)pgd;
-+	return p4d_offset_lockless(pgdp, pgdp_get(pgdp), address);
- }
- #endif
- 
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
++
++#ifdef CONFIG_RISCV_ISA_XLINUXMEMALIAS
++struct memory_alias_pair {
++	unsigned long cached_base;
++	unsigned long noncached_base;
++	unsigned long size;
++	int index;
++} memory_alias_pairs[5];
++
++bool __init riscv_have_memory_alias(void)
++{
++	return memory_alias_pairs[0].size;
++}
++
++void __init riscv_init_memory_alias(void)
++{
++	int na = of_n_addr_cells(of_root);
++	int ns = of_n_size_cells(of_root);
++	int nc = na + ns + 2;
++	const __be32 *prop;
++	int pairs = 0;
++	int len;
++
++	prop = of_get_property(of_root, "riscv,physical-memory-regions", &len);
++	if (!prop)
++		return;
++
++	len /= sizeof(__be32);
++	for (int i = 0; len >= nc; i++, prop += nc, len -= nc) {
++		unsigned long base = of_read_ulong(prop, na);
++		unsigned long size = of_read_ulong(prop + na, ns);
++		unsigned long flags = be32_to_cpup(prop + na + ns);
++		struct memory_alias_pair *pair;
++		int alias;
++
++		/* We only care about non-coherent memory. */
++		if ((flags & PMA_ORDER_MASK) != PMA_ORDER_MEMORY || (flags & PMA_COHERENT))
++			continue;
++
++		/* The cacheable alias must be usable memory. */
++		if ((flags & PMA_CACHEABLE) &&
++		    !memblock_overlaps_region(&memblock.memory, base, size))
++			continue;
++
++		alias = FIELD_GET(PMR_ALIAS_MASK, flags);
++		if (alias) {
++			pair = NULL;
++			for (int j = 0; j < pairs; j++) {
++				if (alias == memory_alias_pairs[j].index) {
++					pair = &memory_alias_pairs[j];
++					break;
++				}
++			}
++			if (!pair)
++				continue;
++		} else {
++			/* Leave room for the null sentinel. */
++			if (pairs == ARRAY_SIZE(memory_alias_pairs) - 1)
++				continue;
++			pair = &memory_alias_pairs[pairs++];
++			pair->index = i;
++		}
++
++		/* Align the address and size with the page table PFN field. */
++		base >>= PAGE_SHIFT - _PAGE_PFN_SHIFT;
++		size >>= PAGE_SHIFT - _PAGE_PFN_SHIFT;
++
++		if (flags & PMA_CACHEABLE)
++			pair->cached_base = base;
++		else
++			pair->noncached_base = base;
++		pair->size = min_not_zero(pair->size, size);
++	}
++
++	/* Remove any unmatched pairs. */
++	for (int i = 0; i < pairs; i++) {
++		struct memory_alias_pair *pair = &memory_alias_pairs[i];
++
++		if (pair->cached_base && pair->noncached_base && pair->size)
++			continue;
++
++		for (int j = i + 1; j < pairs; j++)
++			memory_alias_pairs[j - 1] = memory_alias_pairs[j];
++		memory_alias_pairs[--pairs].size = 0;
++	}
++}
++#endif /* CONFIG_RISCV_ISA_XLINUXMEMALIAS */
 diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-index 6608162459ae0..ed57926ecd585 100644
+index ed57926ecd585..ba5f33a2c2178 100644
 --- a/arch/riscv/mm/ptdump.c
 +++ b/arch/riscv/mm/ptdump.c
-@@ -140,8 +140,8 @@ static const struct prot_bits pte_bits[] = {
+@@ -140,7 +140,8 @@ static const struct prot_bits pte_bits[] = {
  		.clear = ".",
  	}, {
  #endif
--#ifdef CONFIG_RISCV_ISA_SVPBMT
--		.mask = _PAGE_MTMASK_SVPBMT,
-+#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
-+		.mask = _PAGE_MTMASK,
+-#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
++#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_RISCV_ISA_XLINUXMEMALIAS) || \
++	defined(CONFIG_ERRATA_THEAD_MAE)
+ 		.mask = _PAGE_MTMASK,
  		.set = "MT(%s)",
  		.clear = "  ..  ",
- 	}, {
-@@ -216,11 +216,11 @@ static void dump_prot(struct pg_state *st)
+@@ -216,7 +217,8 @@ static void dump_prot(struct pg_state *st)
  		if (val) {
  			if (pte_bits[i].mask == _PAGE_SOFT)
  				sprintf(s, pte_bits[i].set, val >> 8);
--#ifdef CONFIG_RISCV_ISA_SVPBMT
--			else if (pte_bits[i].mask == _PAGE_MTMASK_SVPBMT) {
--				if (val == _PAGE_NOCACHE_SVPBMT)
-+#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
-+			else if (pte_bits[i].mask == _PAGE_MTMASK) {
-+				if (val == _PAGE_NOCACHE)
+-#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
++#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_RISCV_ISA_XLINUXMEMALIAS) || \
++	defined(CONFIG_ERRATA_THEAD_MAE)
+ 			else if (pte_bits[i].mask == _PAGE_MTMASK) {
+ 				if (val == _PAGE_NOCACHE)
  					sprintf(s, pte_bits[i].set, "NC");
--				else if (val == _PAGE_IO_SVPBMT)
-+				else if (val == _PAGE_IO)
- 					sprintf(s, pte_bits[i].set, "IO");
- 				else
- 					sprintf(s, pte_bits[i].set, "??");
 -- 
 2.47.2
 
