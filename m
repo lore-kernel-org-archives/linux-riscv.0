@@ -4,101 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA8ECCD183
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 08:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7A7CCA470
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Oct 2025 08:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WIjTuWJgRDvEkAAj0ir4tD0uLviCDwadwq1aLDnBsA4=; b=3dR4WhvJLf06kf
-	J6plJBVOuqKTce6J9zzLR9foH4T73pbXas9T7wfYrKizTNXGw+FbwWfwI+gih2ppYpDNSWjQvLbZn
-	J8qGJA3eChktJzKxbMy5pt4LaZRSUqEbPt4w/CFyqzRZVzIWLJEz3ebR8WoZzKbOPuyGNDwlJfPjV
-	17SaTZKRj8fNFFkm1sLWkgEm7naPG7XhzecE9lVOHlOgdsCH6PKXwl96/UsYa/XD5fyqjbRGqzEB5
-	0F3omqPOj1666KFXgDyBvfTYFu3Oo/k4IVzEAv5WNxk3Ax2oCt5iz9J8T8O+FKVVlYMvTpZnIoByr
-	PkWRNlj2hfierLuVDclQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jHZVuLJpiRrsxk5GxmKSvmajYML/vOkYMoO5yZAFKlA=; b=X9o1w0GjY2KRq5
+	bcKzJqARg3vp1YaLcPNL1U0prfN6mUghpBI+DxGGmGz6UxpG2xsbvt47RPHJWKC26ckYBp89lv/kx
+	3xnjwxDd7V6+elS+l0EGyUPWJbQJG56ia7Y7PH85i15rP68kGIWI/RsWRj+IemueR5c14q+BJ81K2
+	czDDWh3lDI42vgZHuNeg6M7XCriA+LngSAfdR1bTLniQskOG2uDQCEMxpeCPnViUJfSKuch6Yt0wQ
+	+oELNS3vSPMoZpiadaUghxkJpHYjAILuub4GlZ2is3krRZl39cb0McXAO0UU3tS2qwjde74VSrkGe
+	qQWHNyKruj0aPHh1qtIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6ltn-00000005VEj-3QMe;
-	Thu, 09 Oct 2025 08:21:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v6lu1-00000005VK4-0Uyu;
+	Thu, 09 Oct 2025 08:21:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6ltk-00000005VDf-3Nfh
+	id 1v6lty-00000005VIi-39gf
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Oct 2025 08:21:18 +0000
+	Thu, 09 Oct 2025 08:21:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1759998074;
+	s=mimecast20190719; t=1759998089;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=uAS+qkMsvlrGMvDE3IZzNp7+IP/1UAMbFrv7U9a54xQ=;
-	b=QD+d1BFMGvQJqNbA7pbdzJ4OZy0aUNMk72OEYsJSmaJ8XJ0qxwobvUlTPR0HXS94K3i4R4
-	dGTP4T/LT2UB/881lQHSqZAEi4+AaK/Y0ww0An4rM2b16nZah57HY+ExEt/dLF03qNgIUS
-	z2Ke3+yU337S6CBV1mSaghDcLWvMzZg=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=69ME3BFXEVp+2f1cKazmVJlzdaHKV1pAL9MxTHMgn2Q=;
+	b=ghcSf7S6B66nRclNlhXcF+m1J/U3KEIzW1cgCZnkXCnM45/KjI6NHbFZmnRdw5KXaUuEkr
+	pl0Cj0QMvfO04+MDhNe2SQIb0BcupKgSkQhQmfly/Otb2tgkyneW6EMni1ftPyFDC1iuN3
+	X6JaAEkuFj+0Kd2Edgfnd30yQzPcSAA=
+Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com
+ [209.85.218.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-676-Ly1kSF_-MbSR1Q-cqWUjAA-1; Thu, 09 Oct 2025 04:21:12 -0400
-X-MC-Unique: Ly1kSF_-MbSR1Q-cqWUjAA-1
-X-Mimecast-MFC-AGG-ID: Ly1kSF_-MbSR1Q-cqWUjAA_1759998072
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-b504dd6dbf1so48820466b.0
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Oct 2025 01:21:12 -0700 (PDT)
+ us-mta-641-gBUAycs0PP22hKAsmR4f9w-1; Thu, 09 Oct 2025 04:21:28 -0400
+X-MC-Unique: gBUAycs0PP22hKAsmR4f9w-1
+X-Mimecast-MFC-AGG-ID: gBUAycs0PP22hKAsmR4f9w_1759998087
+Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-b3d73e1ed87so82844366b.1
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Oct 2025 01:21:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759998071; x=1760602871;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uAS+qkMsvlrGMvDE3IZzNp7+IP/1UAMbFrv7U9a54xQ=;
-        b=TYHP5NhtOA2m+pffZVlapy0/dF0owxQwEhf3qJTawWuD/dd56ixdiuaL7kBPjpMA4F
-         woHWnqg1F8cuGAiQ5nxgEKutymQBsEEECdBtyi/S9FVc7bNB78pcyWPFyip0WqiT7N/c
-         6w3NWyHcPYLxnOOcItUk0NSTkMxGfr9MUecxxNA716MGCXy0h1Do4+S9W02W2zWPumEZ
-         ZSasyntiVaf7fC/J6uSuQRgumR5OgL19ua08RYdXlf4z0uJXVramsd7hp6vwwiTRROyG
-         9B2YQIj+ip5h9u5/BQyJBQLJLBD4MjNbdyp1SZifN4S2ue5GnBYgnJ3sHKr5RTkEhVub
-         62lQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUqpigZTJNurCLt8B+sxZWA68W12bdcC66x35Psqdh3SDjHydI9yYGQDGVZ1UjqijRLDhO8UXad7XPmLQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwO3T6wRehznD1iShSimBdUfMEkbFo73qh0gCMjUecpqm7BY1ss
-	zynlTMjSEfoFtsVD2Flrzb/W7ScUDmNSoNNuRxn7Zj1Z+GmcpOWYLxw6AAh3Mlx/RlDoC2al530
-	zWl9f4tFXIiyb6HDTyZVeQeHovfNhc+uHIrgzGhnOYHzaw5Sfim92J45P24YCqFNUnN/T0w==
-X-Gm-Gg: ASbGnctE51WHgRsKBNDUKXG2JKaK11g/ttxUX5GvJnqeghi9nmv984OODD+eqDIXqAd
-	M58cuA/Xo45JP8vJxXjhWlOw0tstXxjAKbEU2FKqPOXm2B4/iWtZrR1C1rGPjBFEE8Y9lPBze5Y
-	CDhdglbYLrVmS5uWvCui19ti6ry55WEy4+hEq7BON2FkgpYvHpiW0R4tkxgWV1kahrbZVoM9yoI
-	mWZjEvyykmv6WmGjExH10fBJUPd5bJzr/UU5Px5BHsAY/697WJrnn6nqvqT13MeIx37iBds4uWc
-	AjYimOM/lMTaZauCq/7V/ifm6CpULgLd45FlXF/13o+YK8Jr8pt4
-X-Received: by 2002:a17:907:961b:b0:b0e:d477:4972 with SMTP id a640c23a62f3a-b50aa7a086amr745875966b.25.1759998071532;
-        Thu, 09 Oct 2025 01:21:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH2yb0GW1Dmb4of5uiYM3V2RwnL7r4BajO4YJiE5GftpOYhzsHAtgMNkDAR7AnfSfgfWS6gIw==
-X-Received: by 2002:a17:907:961b:b0:b0e:d477:4972 with SMTP id a640c23a62f3a-b50aa7a086amr745872566b.25.1759998071078;
-        Thu, 09 Oct 2025 01:21:11 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759998087; x=1760602887;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=69ME3BFXEVp+2f1cKazmVJlzdaHKV1pAL9MxTHMgn2Q=;
+        b=e+mCZoIBnnsUM5WcA6k8hsXSwOZslxXm1+thtGMIdZgScGRZbBloJrweno+FUPOC6B
+         SlHtMwsKi+vaPHN6YAUhz2IvzOUlhLp5gXPQjtP7rBdqTo22b5xP8ltTidH2wlbrNkGn
+         q/CJpxVHORx25UTTr6oxA9UnydoPwIh2JBfORZ86Y9k8gz4m0TVglxgghQcG2FmeyQ0y
+         EehQ1tFOE0obnVI0vDZjW6g+GKm4Ye5qPoqzXpEMhq/nIdshxXJh8bW3NR9m87HKPLzp
+         6QsPbxRhn83vDk2JzMNQPzdD1+WckF4LDoOy8tM3liLWKORp7+SZx0u99QxtHkjzLq2y
+         lhyQ==
+X-Gm-Message-State: AOJu0YzTI/p6cbsvIgcfwcOuW79SoSMA46fvJzWb6dX9P8wXdfi9l7B5
+	Y8BFWEAOIeM5fRHaWcAkxq8QVoDKhPKdz4R/wYgLn5J3JuPw3xWDDWM5DToaw+c76bR8RPxVFqN
+	MT9QIESI9j6dFA5TccB3/DlOO1h6/yUf764m9Gft+E5MiWweRROE7+aALoOpIARrqzyNSkg==
+X-Gm-Gg: ASbGncvGoddzAH7OCW/AJyXVUdJLtKqULhF2CRAheKtUzFF7x2TWYV8nTEgUL2HqSy8
+	bRvopBc27cpLF5Ix9CDiqQ22dvsTo7OKwhsek9sSsw5GSD3/ruaRrB6rjRXMuqpskh5kfyu0isw
+	LqhghcvzS2fzd9VUlwUraO4mGs1HhW4Ofmqj+wEr/D/BzsPI7+KyTEk2kpo9hSCo33PGyhGOq6Q
+	psmCNpQYmVH4J4KsEVa4bn1gSqAiALfs0ZRBESLUpusTDhggLdwIa7+kzBwMTPf3Lzx0hlFNVYD
+	PqKZAYU53YuIToqsmcCGLHm99UDfmmrADs7dul/OWI+IwpuKi9oG
+X-Received: by 2002:a17:907:a4c4:b0:b2a:657:e733 with SMTP id a640c23a62f3a-b4f429f034cmr1151761466b.15.1759998087383;
+        Thu, 09 Oct 2025 01:21:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHVjMgqntPb0Ku3WrCmKlIFeEE9zkajxUeW2OCAErcWYVR5IHLUb+ylRoCc+fH0u/EYTD7qaQ==
+X-Received: by 2002:a17:907:a4c4:b0:b2a:657:e733 with SMTP id a640c23a62f3a-b4f429f034cmr1151758366b.15.1759998086937;
+        Thu, 09 Oct 2025 01:21:26 -0700 (PDT)
 Received: from holism.redhat.com ([148.252.9.235])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b4869b4e27dsm1832988266b.70.2025.10.09.01.21.10
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b4869b4e27dsm1832988266b.70.2025.10.09.01.21.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Oct 2025 01:21:10 -0700 (PDT)
+        Thu, 09 Oct 2025 01:21:26 -0700 (PDT)
 From: Lucas Zampieri <lzampier@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org,
 	Lucas Zampieri <lzampier@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH 0/3] Add UltraRISC DP1000 PLIC support
-Date: Thu,  9 Oct 2025 09:20:10 +0100
-Message-ID: <20251009082013.1331361-1-lzampier@redhat.com>
+	Conor Dooley <conor+dt@kernel.org>
+Subject: [PATCH 1/3] dt-bindings: vendor-prefixes: add UltraRISC
+Date: Thu,  9 Oct 2025 09:20:11 +0100
+Message-ID: <20251009082013.1331361-2-lzampier@redhat.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251009082013.1331361-1-lzampier@redhat.com>
+References: <20251009082013.1331361-1-lzampier@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: w61EcvUmGTOyc95IKuoZifarDSYOviHBp7r0XRQd8jY_1759998072
+X-Mimecast-MFC-PROC-ID: nOZjY9xAI0nPGt_QMQLAhfPmu_aVsPc-KP56IQV4Hjg_1759998087
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_012116_915559_957292F6 
-X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-CacheID: sfid-20251009_012130_861120_9EBA1680 
+X-CRM114-Status: UNSURE (   7.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,26 +112,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the PLIC implementation in the UltraRISC
-DP1000 SoC. The DP1000 PLIC claim register has a hardware bug where
-reading it while multiple interrupts are pending can return the wrong
-interrupt ID. The workaround temporarily disables all interrupts except
-the first pending one before reading the claim register, then restores
-the previous state. This is implemented as PLIC_QUIRK_CLAIM_REGISTER,
-activated only for "ultrarisc,dp1000-plic" compatible strings.
+Add vendor prefix for UltraRISC Technology Co., Ltd.
 
-Charles Mirabile (2):
-  dt-bindings: interrupt-controller: add UltraRISC DP1000 PLIC
-  irqchip/plic: add support for UltraRISC DP1000 PLIC
+Signed-off-by: Lucas Zampieri <lzampier@redhat.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Lucas Zampieri (1):
-  dt-bindings: vendor-prefixes: add UltraRISC
-
- .../devicetree/bindings/vendor-prefixes.yaml      |  2 +
- .../interrupt-controller/sifive,plic-1.0.0.yaml    |  2 +
- drivers/irqchip/irq-sifive-plic.c                  | 83 ++++++++++++++++++-
- 3 files changed, 86 insertions(+), 1 deletion(-)
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 123456789abc..234567890def 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1642,6 +1642,8 @@ patternProperties:
+     description: Universal Scientific Industrial Co., Ltd.
+   "^usr,.*":
+     description: U.S. Robotics Corporation
++  "^ultrarisc,.*":
++    description: UltraRISC Technology Co., Ltd.
+   "^ultratronik,.*":
+     description: Ultratronik GmbH
+   "^utoo,.*":
 --
 2.51.0
 
