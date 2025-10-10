@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA54CCCD184
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 02:27:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B83CCD184
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 02:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bhFAMUKkDU1l10+Imqv3aWTVmb+Zdj+Vq/3pByCRBPU=; b=OPadhESurncM2k
-	h11NOTrsQbGU0Y/9+sJ7NjZJda/qTPT4xXqXesn/emQBwxtI5/5QTUqE7045g/DgNfVBrMQocwuUg
-	f2OwwLT9N4GanqcBVtIzKK8c8WRfN8MEJGYIjqYL+M1jkhDfsqs9a4Ar+Yxe1O49j4uCdRq6pTsMJ
-	bC3/wAr0dwmMnqzF6K/gGeDX1mU96Q9g4obCZANxS2n3V2+1mqBc74tqtgNDhQ/E7cP8gG+ykO4tX
-	XouWU2yM5Q7eXDFhdFBWGxI00mI5ohrAJuR/TJdKLgFa/OIw/QEZ8zkgQckfV6pzhalh6KvCdoi8P
-	4mGUcZwpOaR47/2037tA==;
+	List-Owner; bh=5eM+Nf7mccMYHlcEfDq6gZ3AtYdiCR4i0vBxWc3q+dQ=; b=amBPRZ/Zh13zk1
+	tntkTZJrEZpEF1mewd37oQRLzwNKYnWhWK5R0ml3nZjUiCIg+Eg2jl3fuk4QplwH/km/hmPkDWxnN
+	mIq6MqQmbZYtjDeeVpHsT7esd2bEGnV3L1qrRz50g5Gx8UcmIcytIxyEHG7fTXh9zhBz8qhURyoQY
+	Etoyc8UjDaSm4pnxko4EMFhYUc6ivxtRVhMrEi5nWecCTr+K1Sdv7u081MQWuPsGkNYKkOKyzODFn
+	TjNiAujXOmSrvhuRqGPTxT/8eBgvqxHOQtNpfWOmxwg7lB514CmXfNhUGnlGosuYdl3AABQpY6Hag
+	Rocie1ooCTdWjGXj8ocA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v72qz-00000007UyX-2Aja;
-	Fri, 10 Oct 2025 02:27:33 +0000
+	id 1v72r1-00000007Uym-3TqX;
+	Fri, 10 Oct 2025 02:27:35 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v72qy-00000007UyA-17qi
+	id 1v72qz-00000007UyW-3Drc
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Oct 2025 02:27:32 +0000
+	Fri, 10 Oct 2025 02:27:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8633860274;
-	Fri, 10 Oct 2025 02:27:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CF31C4CEE7;
-	Fri, 10 Oct 2025 02:27:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 34EFE62496;
+	Fri, 10 Oct 2025 02:27:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9928C4CEE7;
+	Fri, 10 Oct 2025 02:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760063250;
-	bh=ac4VtTda8SJRSe7ya6qERv9chI6J5rNgon5I14QHQy0=;
+	s=k20201202; t=1760063252;
+	bh=CAvsAwjaWn/h2QM1s6i1PciEcb48b9O0RDgV9x92drI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=WNX0xmHvBiFXxv4mqNdaXwfKcAosh5PPPpszwfbWljExYKQ7ylm65jrdqKFPAfARV
-	 WM9X/9nWqGrxDcDCPKBpkE3xWWjPAezq18hjJOOKfimQ8ePlsdOO/FKTz6Ye9EaiLn
-	 uw+mnHVAnUogKtYbbi/WGlWSKdLR/MQD7JN/rzXsccDpd0w3U3gqwKLRvHr9+9Tv9j
-	 rOJ6wTM6G9FYWM0+ZYTA8O7xWieWYWSr694a9UYw9MQ2Cj9qPUw9K544EZkaKfD8tW
-	 RG3PiLSsUteZ/HPfrn0wkKake8vRSb6bMLAbdIfY9IH4923Lc2riE3YTEBUoNXNe3V
-	 i/hRDi5gBaU9w==
+	b=qzNjMqVoQ9XsQjbJt3m8Yj2kqXw7xRvVExRuwyxE1Plet9Zz3QsHIZEXQRJMJsLEU
+	 lpkV5/We1G/xDANaLw/UEe4ofEtLcNGxnRzDYaX1s68olfOxXDzWGJ18jzVNkPT/uU
+	 6TK8a+3iyofC7cc3RkVO7gtbe97wOilE0dRlGWT3//9X6R0sunE4iRCRX70tcfi2eQ
+	 8TbWYVyviI7EfWR8dGbS218JkYfK98sS1R3lUVKLP+JsTvg6vnsZeGTZmdiMzNhvFl
+	 noehEnnyhgciOmUZhYDrYofcOpT7mUkpVnbB7QB87a4Wj7BpqgjOxkYL/dPY8qAVE2
+	 itkAyxL9ysFbw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33E633A55FB5;
-	Fri, 10 Oct 2025 02:27:19 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE5B3A55FB5;
+	Fri, 10 Oct 2025 02:27:21 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 0/9] perf build: Support building with Clang
+Subject: Re: [PATCH] riscv: acpi: chose to boot from acpi then disable FDT
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176006323800.354358.6110592426551858799.git-patchwork-notify@kernel.org>
-Date: Fri, 10 Oct 2025 02:27:18 +0000
-References: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
-In-Reply-To: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org,
- jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
- nathan@kernel.org, nick.desaulniers+lkml@gmail.com, morbo@google.com,
- justinstitt@google.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, james.clark@linaro.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- llvm@lists.linux.dev
+Message-Id: <176006324074.354358.17217967414602352060.git-patchwork-notify@kernel.org>
+Date: Fri, 10 Oct 2025 02:27:20 +0000
+References: <20250910112401.552987-1-rabenda.cn@gmail.com>
+In-Reply-To: <20250910112401.552987-1-rabenda.cn@gmail.com>
+To: Han Gao <rabenda.cn@gmail.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ akpm@linux-foundation.org, rppt@kernel.org, andybnac@gmail.com,
+ guoweikang.kernel@gmail.com, visitorckw@gmail.com, bjorn@rivosinc.com,
+ sycamoremoon376@gmail.com, usamaarif642@gmail.com, yongxuan.wang@sifive.com,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +77,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Arnaldo Carvalho de Melo <acme@redhat.com>:
+This patch was applied to riscv/linux.git (fixes)
+by Paul Walmsley <pjw@kernel.org>:
 
-On Mon, 06 Oct 2025 17:21:22 +0100 you wrote:
-> This series adds support for building perf with Clang, following the
-> discussion in [1]. Because the Android NDK uses Clang by default,
-> enabling Clang builds naturally covers Android as well.
+On Wed, 10 Sep 2025 19:24:01 +0800 you wrote:
+> avoid errors caused by repeated driver initialization.
 > 
-> The series is organized as follows:
+> commit 3505f30fb6a9 ("ARM64 / ACPI: If we chose to boot from acpi then disable FDT")
 > 
->   - Patches 1~2: Fix two bugs found with Clang.
->   - Patches 3~7: Correct CROSS_ARCH, Disable thread safety analysis for
->                  perl header, and dismiss Clang build warnings.
->   - Patches 8~9: Enable Clang in the Makefile and update the
->                  documentation.
-> 
-> [...]
+> Signed-off-by: Han Gao <rabenda.cn@gmail.com>
+> ---
+>  arch/riscv/kernel/setup.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
 
 Here is the summary with links:
-  - [v3,1/9] tools build: Align warning options with perf
-    https://git.kernel.org/riscv/c/53d067feb8c4
-  - [v3,2/9] perf python: split Clang options when invoking Popen
-    https://git.kernel.org/riscv/c/c6a43bc3e8f6
-  - [v3,3/9] perf build: Correct CROSS_ARCH for clang
-    https://git.kernel.org/riscv/c/ed33e5e43c1e
-  - [v3,4/9] perf build: Disable thread safety analysis for perl header
-    https://git.kernel.org/riscv/c/e7e86d7697c6
-  - [v3,5/9] perf test coresight: Dismiss clang warning for memcpy thread
-    https://git.kernel.org/riscv/c/50b7e7082a3d
-  - [v3,6/9] perf test coresight: Dismiss clang warning for thread loop
-    https://git.kernel.org/riscv/c/244a1ac76a67
-  - [v3,7/9] perf test coresight: Dismiss clang warning for unroll loop thread
-    https://git.kernel.org/riscv/c/9ec46fc93803
-  - [v3,8/9] perf build: Support build with clang
-    https://git.kernel.org/riscv/c/4772e66cb45e
-  - [v3,9/9] perf docs: Document building with Clang
-    https://git.kernel.org/riscv/c/0a75ba3e842c
+  - riscv: acpi: chose to boot from acpi then disable FDT
+    https://git.kernel.org/riscv/c/69a8b62a7aa1
 
 You are awesome, thank you!
 -- 
