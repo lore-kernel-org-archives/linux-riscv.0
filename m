@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79129CCD184
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 02:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA54CCCD184
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 02:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gTS244HuyQfi0ET7CfUQmcCHSWwuPY/6ohebpiU9v/w=; b=uch2g5v943Y/za
-	iK+Yc5qpkuY+IHqN+UID8Zokb0Ujp7sT6MzPxECbslTwsQZzUUoB0fOXsV0w61mG5GE/OGl9juHIy
-	DNoNo52egI72DwG2iohozmDCs+3ARHguMJG1N+pDApHd54s7UH90UczLlZ/v3kEW5JEug9PnIftLR
-	GM5rLfYmvAx6I5c577JNR/p5BvyoffcOZxEzGX16zmKa6N04NG0upTim06Fsid+5OHiXFmbKNWohk
-	KrfjfLDl6x/2LS5ePT23xHMq3MCd0YMXMODF84oeohYJcn9MgOaZMveehBHwnRydqtcuKCsjbqYiK
-	jRYeY++419nt6IGmLJpQ==;
+	List-Owner; bh=bhFAMUKkDU1l10+Imqv3aWTVmb+Zdj+Vq/3pByCRBPU=; b=OPadhESurncM2k
+	h11NOTrsQbGU0Y/9+sJ7NjZJda/qTPT4xXqXesn/emQBwxtI5/5QTUqE7045g/DgNfVBrMQocwuUg
+	f2OwwLT9N4GanqcBVtIzKK8c8WRfN8MEJGYIjqYL+M1jkhDfsqs9a4Ar+Yxe1O49j4uCdRq6pTsMJ
+	bC3/wAr0dwmMnqzF6K/gGeDX1mU96Q9g4obCZANxS2n3V2+1mqBc74tqtgNDhQ/E7cP8gG+ykO4tX
+	XouWU2yM5Q7eXDFhdFBWGxI00mI5ohrAJuR/TJdKLgFa/OIw/QEZ8zkgQckfV6pzhalh6KvCdoi8P
+	4mGUcZwpOaR47/2037tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v72r2-00000007Uyy-0ZaK;
-	Fri, 10 Oct 2025 02:27:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v72qy-00000007UyB-34uB
-	for linux-riscv@lists.infradead.org;
+	id 1v72qz-00000007UyX-2Aja;
 	Fri, 10 Oct 2025 02:27:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v72qy-00000007UyA-17qi
+	for linux-riscv@lists.infradead.org;
+	Fri, 10 Oct 2025 02:27:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C22BD4368C;
-	Fri, 10 Oct 2025 02:27:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C23EC4AF09;
-	Fri, 10 Oct 2025 02:27:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8633860274;
+	Fri, 10 Oct 2025 02:27:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CF31C4CEE7;
+	Fri, 10 Oct 2025 02:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760063251;
-	bh=WdaR/Hhu12IphEu5iAM2TzbHpgJPVxeGQf1ik2Mps1A=;
+	s=k20201202; t=1760063250;
+	bh=ac4VtTda8SJRSe7ya6qERv9chI6J5rNgon5I14QHQy0=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=m6yDLkBHs3od5J9K+GT0WbgiCDCw/GjVUMAolgeUqyHnoYE2m44SIi4EcCOLisB5x
-	 40iIsHyNZlJy1YLlK/BtFrv8sJEzVjX3BJhOhjLiApHEKQFUDksBSvQtwM1+LpDqHb
-	 L8keqsNqZEhhopB3ht3LssiE8CJ0idh4SW7rDVvsfKI8bjgaFhoxuGvKq9BtSPyaz2
-	 s6Wb830DXwh3VNsJYUoV8Uz5/otF52IQOvVsm2CtXsLpACHJjotgxuAs87yvWJMgmz
-	 0LTqVIc9i9fbFy2hdxx0nyuRPqKsJb41F6ubtSl/7GwoPgOr/Ox3bCBVpmMkCwzcnV
-	 sTqZ4JfduI+gg==
+	b=WNX0xmHvBiFXxv4mqNdaXwfKcAosh5PPPpszwfbWljExYKQ7ylm65jrdqKFPAfARV
+	 WM9X/9nWqGrxDcDCPKBpkE3xWWjPAezq18hjJOOKfimQ8ePlsdOO/FKTz6Ye9EaiLn
+	 uw+mnHVAnUogKtYbbi/WGlWSKdLR/MQD7JN/rzXsccDpd0w3U3gqwKLRvHr9+9Tv9j
+	 rOJ6wTM6G9FYWM0+ZYTA8O7xWieWYWSr694a9UYw9MQ2Cj9qPUw9K544EZkaKfD8tW
+	 RG3PiLSsUteZ/HPfrn0wkKake8vRSb6bMLAbdIfY9IH4923Lc2riE3YTEBUoNXNe3V
+	 i/hRDi5gBaU9w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADC8E3A55FB5;
-	Fri, 10 Oct 2025 02:27:20 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33E633A55FB5;
+	Fri, 10 Oct 2025 02:27:19 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: kprobes: Fix probe address validation
+Subject: Re: [PATCH v3 0/9] perf build: Support building with Clang
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176006323925.354358.7825559946978649755.git-patchwork-notify@kernel.org>
-Date: Fri, 10 Oct 2025 02:27:19 +0000
-References: <6191817.lOV4Wx5bFT@fvogt-thinkpad>
-In-Reply-To: <6191817.lOV4Wx5bFT@fvogt-thinkpad>
-To: Fabian Vogt <fvogt@suse.de>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- guoren@kernel.org, marvin.friedrich@suse.com, alex@ghiti.fr,
- aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
- bjorn@kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_192732_795107_5F42803D 
-X-CRM114-Status: GOOD (  11.14  )
+Message-Id: <176006323800.354358.6110592426551858799.git-patchwork-notify@kernel.org>
+Date: Fri, 10 Oct 2025 02:27:18 +0000
+References: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
+In-Reply-To: <20251006-perf_build_android_ndk-v3-0-4305590795b2@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org,
+ jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
+ nathan@kernel.org, nick.desaulniers+lkml@gmail.com, morbo@google.com,
+ justinstitt@google.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, james.clark@linaro.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ llvm@lists.linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,24 +78,43 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Paul Walmsley <pjw@kernel.org>:
+This series was applied to riscv/linux.git (fixes)
+by Arnaldo Carvalho de Melo <acme@redhat.com>:
 
-On Wed, 10 Sep 2025 17:25:13 +0200 you wrote:
-> When adding a kprobe such as "p:probe/tcp_sendmsg _text+15392192",
-> arch_check_kprobe would start iterating all instructions starting from
-> _text until the probed address. Not only is this very inefficient, but
-> literal values in there (e.g. left by function patching) are
-> misinterpreted in a way that causes a desync.
+On Mon, 06 Oct 2025 17:21:22 +0100 you wrote:
+> This series adds support for building perf with Clang, following the
+> discussion in [1]. Because the Android NDK uses Clang by default,
+> enabling Clang builds naturally covers Android as well.
 > 
-> Fix this by doing it like x86: start the iteration at the closest
-> preceding symbol instead of the given starting point.
+> The series is organized as follows:
+> 
+>   - Patches 1~2: Fix two bugs found with Clang.
+>   - Patches 3~7: Correct CROSS_ARCH, Disable thread safety analysis for
+>                  perl header, and dismiss Clang build warnings.
+>   - Patches 8~9: Enable Clang in the Makefile and update the
+>                  documentation.
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: kprobes: Fix probe address validation
-    https://git.kernel.org/riscv/c/9e68bd803fac
+  - [v3,1/9] tools build: Align warning options with perf
+    https://git.kernel.org/riscv/c/53d067feb8c4
+  - [v3,2/9] perf python: split Clang options when invoking Popen
+    https://git.kernel.org/riscv/c/c6a43bc3e8f6
+  - [v3,3/9] perf build: Correct CROSS_ARCH for clang
+    https://git.kernel.org/riscv/c/ed33e5e43c1e
+  - [v3,4/9] perf build: Disable thread safety analysis for perl header
+    https://git.kernel.org/riscv/c/e7e86d7697c6
+  - [v3,5/9] perf test coresight: Dismiss clang warning for memcpy thread
+    https://git.kernel.org/riscv/c/50b7e7082a3d
+  - [v3,6/9] perf test coresight: Dismiss clang warning for thread loop
+    https://git.kernel.org/riscv/c/244a1ac76a67
+  - [v3,7/9] perf test coresight: Dismiss clang warning for unroll loop thread
+    https://git.kernel.org/riscv/c/9ec46fc93803
+  - [v3,8/9] perf build: Support build with clang
+    https://git.kernel.org/riscv/c/4772e66cb45e
+  - [v3,9/9] perf docs: Document building with Clang
+    https://git.kernel.org/riscv/c/0a75ba3e842c
 
 You are awesome, thank you!
 -- 
