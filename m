@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2997CCA476
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 06:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B12CCA476
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 06:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UO1oTRewG6hUyOLP+ZP+6GXwa9RewAzerM/iY8KKzc0=; b=V0UCZ0I7DPRuG5
-	Y7jbjQLhdqI+o0krwoiZQNcTH36vsTrUHP0d4hOZelPYxeE6sNdkKIqnBkJ6AoPwo07Tghf4DGSB+
-	JVlbVHFVaO0m27tjWX8KM1354cpnxRkf5ZTVqZTsoDzlGEyt1c45KZfMUaz9HwqCZUHyyRw2kejnQ
-	y7OV0UHTEHQa4QJXnZz0JANBsCK58cKrtd0Vd3R072b3GneDeEdSNIJ+ht8tXCzWex1afYXAi/Frh
-	DqsemYIPq5FjLZj6aMuEk/k1Flf+1OQ5xpYuO7ea5hTOSlnvEV4ND4g2gYc7p6umOddWhJx1va9zt
-	L8XE1WPeDWknlHFQoXWQ==;
+	List-Owner; bh=whp7Ee0t3Qz2wnQ1CMAcYz4YBwpBEG3GIiUFusKTHxU=; b=EleHlGkx9zYf+v
+	3+yLKTPUWwWmvm6J6h3tNKVGZQ/hxzgV2HI3mxrpDUnMk9r8e1COXA/ggA5ukb98XYzYpJwvXoY6Y
+	1QA0lEcrySMunKCEgnf8tPo/ps/ugAm6D8Pr7T+f4ksd7EZCmyRqclEEPFTaVHVAJO1z/JqSc5pt5
+	w1lgJzCZ0L/8JnwMwgvX1N3kroTBldCwHU6IDXlHlYnZY3fxBOuouWxAowcYtNn47IkqYqMAXLHUo
+	x2r3z9eHvXdh595adQ0bw7f3+hNQrjVXe5hfFtkciVGIEj25aa2aZuCE/OyaDaEcLypA+I63pwE/f
+	r4Nb9udY2D1q/kWf+cKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v76Ux-00000007lA5-2IFW;
-	Fri, 10 Oct 2025 06:21:03 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1v76Vc-00000007lFU-3lEX;
+	Fri, 10 Oct 2025 06:21:44 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v76Us-00000007l9Z-0awO
+	id 1v76VY-00000007lCP-3Vxz
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Oct 2025 06:21:02 +0000
-Received: from [192.168.0.104] (unknown [114.241.81.247])
-	by APP-05 (Coremail) with SMTP id zQCowAAHqhPCpehoLwxkDQ--.18166S2;
-	Fri, 10 Oct 2025 14:20:51 +0800 (CST)
-Message-ID: <f968ca77-6fc0-4485-a13a-2ed83a7e6617@iscas.ac.cn>
-Date: Fri, 10 Oct 2025 14:20:50 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Fri, 10 Oct 2025 06:21:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1760077223;
+	bh=fY5GWREGM1F0WN0Uk0IHs1MX+GE6gCX44IiriVQy/ls=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=ukVJIHkVPxjdc11XyPBgjnwxcF79PO5gB85SBVqZr4wV4t53/PL6NSK1jUZ6KyxHD
+	 KFhg/Mzh6f/0GwrEzj9fTvFM/H61pfC0eI4xq0IUMrFOPnxjVjBpEXDAmewa63IDEw
+	 OqYi0DhKm/PQHfAL0KrRsaRt/r8L4OMw68bCG+qo=
+X-QQ-mid: zesmtpgz4t1760077214t21b1d401
+X-QQ-Originating-IP: 1O0RQKLiP8/EwcUIGSXn7afoUGmd0envjFBUs20JX6E=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 10 Oct 2025 14:20:13 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2431771121863430806
+EX-QQ-RecipientCnt: 15
+Date: Fri, 10 Oct 2025 14:20:12 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Vivian Wang <wangruikang@iscas.ac.cn>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yangyu Chen <cyy@cyyself.name>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v2 5/5] riscv: dts: spacemit: add Ethernet support for
  MusePi Pro
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Yangyu Chen <cyy@cyyself.name>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Message-ID: <59657BBB86F7B678+aOilnA5Z-QL7xF9O@kernel.org>
 References: <20251010-k1-musepi-pro-dts-v2-0-6e1b491f6f3e@linux.spacemit.com>
  <20251010-k1-musepi-pro-dts-v2-5-6e1b491f6f3e@linux.spacemit.com>
  <a02aec9a-976a-4b63-86cb-126b8ae71185@iscas.ac.cn>
-Content-Language: en-US
+MIME-Version: 1.0
+Content-Disposition: inline
 In-Reply-To: <a02aec9a-976a-4b63-86cb-126b8ae71185@iscas.ac.cn>
-X-CM-TRANSID: zQCowAAHqhPCpehoLwxkDQ--.18166S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WF45WryxXr4UJr4kAFy3XFb_yoW8ZFy8pF
-	Z7uFZ3Gwn7Kr4SkrsIv3WDuF1rJa95Xa1YgasFkrn8JrsxXry5Cr93t3ZxKF1UZryrG340
-	vry8WayfuFs0vrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IU5IAp7UUUUU==
-X-Originating-IP: [114.241.81.247]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: OLsBWtCIHsg6BDQjHi6LbISIF+JRl9FZBdY2C826UFz8EAFADcLMWgWT
+	y3QWdEeF7FucvQNloE5F/up9z0MG2caLSvsOSrWVslfYqVydB4t2t2mrAr9KovPrDOSl98l
+	jLMeM05wRAVRD6xi2pnEn0cuSQYwiPq5HMGYm4VyNGAhoa/Q1ymZHCGuBl3ZfTu8KOOnoRB
+	BxmwJWOGANm9brXNMiwNHecU+4OFLYVlpK6RDxZZvX/72JrSWNTLx+9MDI9E9qYqKsl5hRF
+	f4/Bz9wzsx0EiIW4hxb34o0K3eweoA3klSlaIhwrqTe7t/6zx1+72ZTZU4MM5/KukqMlTfC
+	RQPjOnPqj5gMeWEd1jYjJXB+QggUI6FHcKncchU9sMzfsk6JjrHEes8+5mGBsXEayKbecDc
+	A2VMQ16+tO43yjtht+01MtryNJ8d58Ft7aG/v1HV3nZYnrOTp0TYpF0IGpq8g6+9tqsHfZy
+	OehqYwvgqhQdgODlHjmoMP3jPzm9yl++M4JW0LhuXFO8c/xN+afzAQrFUa8+SiLg3UqC/Cz
+	g+ql7ePPSBapntXswV/3rD6YrIyEK1nuIXhb/5oXEdAv2ih5Oo7Smu/5Tns74adcv3TxRMt
+	M/Ko+y63mHkQ4NZ2gpB7e8ieVr+rwDCoouCrOhnmSRK6CMpOr6FgyKQhH0h0n7HRthSY5iN
+	U0QDWTd1PKYoQPboErMGCP1DIJ0eOwMOXFM0l0CHJTrg0lSmdZn/iEjWfunyJZiRxwJQPvG
+	0DylASHX+f9+FYNbWQHH1cVxivqujITVVbi/Dv2hJmS2yv+DAu6DJ/Y4UL0wNXd096fIyhN
+	rk2BBOXHK7qgR9htyta3jmsfKv4eMoNhapgSgDB9mqzM0QCHI5wNQtyxCbPCXZ/feHIIucr
+	VuhzxBe6qd5r9fQxx7gFXr5IG4IBgwSnkDxgd7Z/Qo2neAJMMLSO5M7fDGD8x8WA5l13x71
+	+RdUMu+SeDzzt7VcoUx2NGqZamRLo93WQHz9uUr7xmNXNwmYiTM4DhORy+9UsUBHzrDro6Q
+	AMVs2WIWtpzFQbxKkUB4JlVdo2jLOvtlb/OPrNM9es7hNn74ep8WicXldYxB7z3Qm2FDTnc
+	hHSWJwGuFVn
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_232058_933908_FB03A96B 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20251009_232142_396142_AA160D0A 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +100,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDEwLzEwLzI1IDE0OjEzLCBWaXZpYW4gV2FuZyB3cm90ZToKPiBPbiAxMC8xMC8yNSAwOTo1
-NiwgVHJveSBNaXRjaGVsbCB3cm90ZToKPj4gTXVzZVBpIFBybyBmZWF0dXJlcyBhIHNpbmdsZSBS
-R01JSSBFdGhlcm5ldCBwb3J0IHdpdGgKPj4gUEhZIHJlc2V0IGNvbnRyb2xsZWQgYnkgR1BJTy4K
-Pj4KPj4gU2lnbmVkLW9mZi1ieTogVHJveSBNaXRjaGVsbCA8dHJveS5taXRjaGVsbEBsaW51eC5z
-cGFjZW1pdC5jb20+Cj4+IC0tLQo+PiAgYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1t
-dXNlcGktcHJvLmR0cyB8IDIzICsrKysrKysrKysrKysrKysrKysrKysrCj4+ICAxIGZpbGUgY2hh
-bmdlZCwgMjMgaW5zZXJ0aW9ucygrKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290
-L2R0cy9zcGFjZW1pdC9rMS1tdXNlcGktcHJvLmR0cyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3Bh
-Y2VtaXQvazEtbXVzZXBpLXByby5kdHMKPj4gaW5kZXggODlhMzU5MTQ3MTBiZmQxNWM2YWQyN2Nk
-OGQwZGU3Y2NmNjJlMjMwOS4uZTlhNTNkYzdhNDE3MTE3YzgyZjNlNDY3Njc3MjkwYmRhZWZmYzg0
-NSAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1tdXNlcGkt
-cHJvLmR0cwo+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLW11c2VwaS1w
-cm8uZHRzCj4+IEBAIC00Nyw2ICs0NywyOSBAQCAmcGRtYSB7Cj4+ICAJc3RhdHVzID0gIm9rYXki
-Owo+PiAgfTsKPj4gIAo+PiArJmV0aDAgewo+IEZvciBub2RlIG9yZGVycyBpbiBib2FyZCBEVFMg
-Zm9yIFNwYWNlbWlUIGRldmljZXMsIHVzdWFsbHkgd2UgZm9sbG93Cj4gbm9kZSBuYW1lIG9yZGVy
-IGJlY2F1c2UgdGhlcmUncyBubyB1bml0IGFkZHJlc3MgdG8gZ28gb2ZmIG9mIGhlcmUsIHNvCj4g
-Zm9yIHdoYXQgd2UgaGF2ZSBoZXJlIGl0IHNob3VsZCBiZSBlbW1jLCBldGgwLCBwZG1hLCB1YXJ0
-Lgo+Cj4gU2VlIGUuZy4gYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1iYW5hbmFwaS1m
-My5kdHMgYW5kIHByZXZpb3VzCj4gZGlzY3Vzc2lvbiBbMV0uCj4KPiBBbHNvLCBwZXJzb25hbGx5
-IEkgdGhpbmsgaXQgd291bGQgYmUgZmluZSB0byBqdXN0IGFkZCB0aGUgd2hvbGUKPiBrMS1tdXNl
-cGktcHJvLmR0cyBpbiB0aGUgc2FtZSBwYXRjaCBpbnN0ZWFkIG9mIHNwbGl0dGluZyBpdCB1cCBs
-aWtlCj4gdGhpcy4gSSBmZWVsIGl0IHdvdWxkIGJlIGVhc2llciB0byBtYW5hZ2UgdGhpcyB3YXku
-IEZvciBwcmV2aW91cyBkZXZpY2VzCj4gdGhlc2Ugbm9kZXMgaGF2ZSBiZWVuIGFkZGVkIHBpZWNl
-bWVhbCBtb3N0bHkgYmVjYXVzZSB0aGUgZHJpdmVycyB3ZXJlCj4gYmVpbmcgZGV2ZWxvcGVkIGlu
-IHBhcmFsbGVsLCBidXQgaWYgeW91J3JlIGdvaW5nIHRvIGJhc2UgdGhpcyBvbgo+IHY2LjE4LXJj
-MSB0aGVyZSBzaG91bGRuJ3QgYmUgZGVwZW5kZW5jeSBwcm9ibGVtcy4KLi4uIGFuZCBhbHNvIGFs
-bW9zdCBtaXNzZWQ6IHRoaXMgc2hvdWxkIGhhdmUgYW4gZXRoZXJuZXQwIGFsaWFzLiBJbiB0aGUK
-bW9zdCBjb21tb24gYm9vdCBmbG93IGl0J3MgcmVhZCBieSBVLUJvb3QgdG8gc2V0IG1hYy1hZGRy
-ZXNzIHNvIHRoYXQKYm90aCBVLUJvb3QgYW5kIExpbnV4IHVzZSB0aGUgc2FtZSBNQUMgYWRkcmVz
-cy4gVGhpcyBhbGxvd3MgVS1Cb290IHRvIGEKcGVyc2lzdGVudCBNQUMgYWRkcmVzcyByYXRoZXIg
-dGhhbiBoYXZpbmcgdG8gdXNlIGEgcmFuZG9tIG9uZS7CoMKgCj4gTWF5YmUgWWl4dW4gY2FuIGNo
-aW1lIGluIGFib3V0IHRoaXMgYXMgd2VsbC4KPgo+IFRoYW5rcywKPiBWaXZpYW4gImRyYW1mb3Jl
-dmVyIiBXYW5nCj4KPiBbMV06IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2L0NB
-SDFQQ01hMzVuNGRuSjk0LUVIR3JKeVUza3p0UVlPOF92MkNrRD1yaWQ0NjZ6djMrQUBtYWlsLmdt
-YWlsLmNvbQo+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On Fri, Oct 10, 2025 at 02:13:31PM +0800, Vivian Wang wrote:
+> 
+> On 10/10/25 09:56, Troy Mitchell wrote:
+> > MusePi Pro features a single RGMII Ethernet port with
+> > PHY reset controlled by GPIO.
+> >
+> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > ---
+> >  arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts | 23 +++++++++++++++++++++++
+> >  1 file changed, 23 insertions(+)
+> >
+> > diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+> > index 89a35914710bfd15c6ad27cd8d0de7ccf62e2309..e9a53dc7a417117c82f3e467677290bdaeffc845 100644
+> > --- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+> > +++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+> > @@ -47,6 +47,29 @@ &pdma {
+> >  	status = "okay";
+> >  };
+> >  
+> > +&eth0 {
+> 
+> For node orders in board DTS for SpacemiT devices, usually we follow
+> node name order because there's no unit address to go off of here, so
+> for what we have here it should be emmc, eth0, pdma, uart.
+> 
+> See e.g. arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts and previous
+> discussion [1].
+Thanks for you point out!
+
+> 
+> Also, personally I think it would be fine to just add the whole
+> k1-musepi-pro.dts in the same patch instead of splitting it up like
+> this. I feel it would be easier to manage this way. For previous devices
+> these nodes have been added piecemeal mostly because the drivers were
+> being developed in parallel, but if you're going to base this on
+> v6.18-rc1 there shouldn't be dependency problems.
+> 
+> Maybe Yixun can chime in about this as well.
+We have talked here [1]
+
+Personally, I think splitting them makes the commit history clearer.
+I'm happy to merge them if others also think it's more appropriate.
+
+Link: https://lore.kernel.org/linux-riscv/35C0EFBB84167959+aNj6K33fl7utuqcf@kernel.org/ [1]
+
+                          - Troy
+> 
+> Thanks,
+> Vivian "dramforever" Wang
+> 
+> [1]: https://lore.kernel.org/linux-riscv/CAH1PCMa35n4dnJ94-EHGrJyU3kztQYO8_v2CkD=rid466zv3+A@mail.gmail.com
+> 
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
