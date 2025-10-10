@@ -4,73 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDBE9CCD185
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 21:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8063CCD185
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 22:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4xexU+v0nGBCK3fEth0aGvxVWG4/pInTMKOINY7Sja8=; b=RftqOkpKd0yrRf
-	MS8s09ftBc/jQ+iOHRxNDWCgnKrSjJQCve1RFKDrL75Wy11+FGupRqkuOhSp3YhiHwCSVDUCkJhYJ
-	u7mZmgJQgm8/QNYno8xo+KhfKB+8b7Hco9MmhG9hjds4sj4nzeNdy9nLgvieTz0Zmx7US+gf3ZsqB
-	fjsXhBaXDi8SWEXCuQVAAO12/M6ivv7zweKXBBY50fpMmvtVcuD99RGJYJivE4V30Zg4HPisBbWyC
-	jBE8yOOm/+MNWfC6oWpwlsQrWjEOdPFcY7xKgqMgw5pvlmBrGPQapTXqlMFBU3m0KL1q86aMDv9av
-	XKZUaO2kiKqUaT5ob3vQ==;
+	List-Owner; bh=FJL1wc9jVDGl5miDEvfF5uojdB8T2yJMPNoEMpcA8kk=; b=31ZxVl2tIogWb0
+	yzd/jQTycGfLM8L3u33aAujCXgF8pHpH2iknkfkWXt1Go/TpMgn3QjNqVMAeRjLdUNrUDIse558m/
+	XV5FiBU7GvfTgZ2azHNjokmNJYsq3FtanP/nHOsgrHPn4fbN5PD7fM0wRhRzKeDG1bQst9VxBy87T
+	6BlRLGRBK6rBR2+iN/C547+vuwqc82tEf69HwlATLpDT92X6+fDmY6DGifsu8b/xb6XGrrnRKjgc/
+	phXiuPHMX6x/5YecetuunqjtrkKYE1AgRPwvQ2fhImn6gRaj2L6wxgmWVi5gXHwRytDqKIA9AUGM7
+	O2Kdi4WGd4zALCVCerlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7L5p-00000009R9Z-1mvA;
-	Fri, 10 Oct 2025 21:56:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v7LDD-00000009Rux-0S0n;
+	Fri, 10 Oct 2025 22:03:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7L5m-00000009R8n-3avP
+	id 1v7LDB-00000009Ruq-3qoR
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Oct 2025 21:56:04 +0000
+	Fri, 10 Oct 2025 22:03:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1DC5349D4C;
-	Fri, 10 Oct 2025 21:56:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3BB6C116B1;
-	Fri, 10 Oct 2025 21:56:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0B04660316;
+	Fri, 10 Oct 2025 22:03:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1628C4CEF1;
+	Fri, 10 Oct 2025 22:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760133362;
-	bh=t46kjDiMah/zekXRjDSdXOUOoGpyx+/Cr/l+MUXLY2g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JjIavNT6UwXft3fPGYaDZegvMKYz7k1JTExmOJxuY2GHFkxK3+P1IF43CEAgpsW8r
-	 B9vhEvi8TGbAcG2tlmWcIvRf0JDg5Da9goDcUmaqveQx1c8JPyqYojIXAHjpIRdKUR
-	 nsKDBzD/vYVXCxfJ1nin7+bADQwh1MO8lWoSqp6SVgbNhdDtMrZuIAT6wC0czf9rP1
-	 LJazopt5R6e0qzH9j1ETdj1Db2ig1vzyozO7zToh3qL2QUDQf52M13GMRfLqcZvkZA
-	 fGcsyhxLrid9YbehH7WfhnQOQb9udnaBlMsQf6BkC2ShRCY9S9dGNqX8+NB0SriV+O
-	 W2FnDW5kd7cGQ==
-Date: Fri, 10 Oct 2025 14:56:00 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Adrien Ricciardi <aricciardi@baylibre.com>,
-	James Morse <james.morse@arm.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>, guo.wenjia23@zte.com.cn,
-	liu.qingtao2@zte.com.cn, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [External] [PATCH v4 0/3] RISC-V: Detect Ssqosid extension and
- handle srmcfg CSR
-Message-ID: <aOmA8DNt/y+WxT97@x1>
-References: <20251007-ssqosid-v4-0-e8b57e59d812@kernel.org>
- <CAEEQ3w=3pte5=CR9-R3rmCGFZ9ErJ9YcWS9i=JwPUb1Ty3ipwQ@mail.gmail.com>
+	s=k20201202; t=1760133820;
+	bh=TgFISJ1MZntMoH1hi5iZjxgC0obKR62dALr/6ANzGz8=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=McUYnzHj2bdZ8y1YZNNvSmJSFS40sFQs0Ik94NPOkd3bzJ8THdtNU0tyOK4sPvOY2
+	 t2L5HBAdVvB62+UyF+GoepTKtMUUlCcHRtFvrzXjyXAOVlYZeQ8zt0dhCYoj8L/iRq
+	 JuTX3r8r61fEGs20wqnOXFBIj9ovLRyInJzCcZWKKUmjQwfOQlwePxNhtaPsp/8jrE
+	 VkB8T2vlytRiMdq0kZokU0Gp282qC6IzkPDrMKo+aPanLraEQI951P1pzT/QVIGgT2
+	 0UPwVcHzGiACFheo3XEsL9YD6LThSk5U979uowcFQ6ozVq+KGrgbdmOd9qp3AfYUUx
+	 cJY4AuVYgYBDw==
+Date: Fri, 10 Oct 2025 16:03:36 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Nam Cao <namcao@linutronix.de>
+cc: Thomas Huth <thuth@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: Add kprobes KUnit test
+In-Reply-To: <87v7l17e8g.fsf@yellow.woof>
+Message-ID: <e905cf0e-3ac3-46b3-5f9e-1356f8d2a222@kernel.org>
+References: <20250513151631.3520793-1-namcao@linutronix.de> <16b74b63-f223-4f0b-b6e5-31cea5e620b4@redhat.com> <87frc9h0lo.fsf@yellow.woof> <87v7l17e8g.fsf@yellow.woof>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAEEQ3w=3pte5=CR9-R3rmCGFZ9ErJ9YcWS9i=JwPUb1Ty3ipwQ@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_145602_952294_B07DA167 
-X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,45 +70,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 10, 2025 at 08:23:50PM +0800, yunhui cui wrote:
-> Hi Drew,
-[snip]
-> > I think it makes sense to first focus on the detection of Ssqosid and
-> > handling of srmcfg when switching tasks. It has been tested against a
-> > QEMU branch that implements Ssqosid and CBQRI [6]. A test driver [7]
-> > was used to set srmcfg for the current process. This allows switch_to
-> > to be tested without resctrl.
+On Mon, 29 Sep 2025, Nam Cao wrote:
+
+> Nam Cao <namcao@linutronix.de> writes:
+> > Thomas Huth <thuth@redhat.com> writes:
+> >> Could you maybe change that into "__ASSEMBLER__" instead of "__ASSEMBLY__" ? 
+> >> I'm currently trying to get rid of the latter in the kernel sources, see: 
+> >> https://lore.kernel.org/all/20250606070952.498274-1-thuth@redhat.com/
+> >
+> > It's been applied, it's up to riscv's maintainers how we should do this.
+> >
+> > I can send v3, or a follow-up patch.
+> >
+> > Or riscv maintainers can also squash that change into this patch, or
+> > into your patch.
+> >
+> > I'm fine with any options.
 > 
-> Could we consider submitting the entire QoS functionality as a single
-> integrated patchset (indicating the upstream branch that the patchset
-> is based on)? This should include the content from
-> https://lore.kernel.org/linux-riscv/20230419111111.477118-1-dfustini@baylibre.com/
+> Riscv pull request is already created. A follow-up patch it is then.
 
-Thanks for the feedback. I had thought that submitting Ssqosid
-separately would streamline the review of the parts that most affects
-existing arch/riscv code (like switch_to.h) before adding code for CBQRI
-and resctrl integration.
+I've queued the following for v6.18-rc. 
 
-But I have gotten similar feedback from another person too. I can post a
-complete series that adds Ssqosid and CBQRI support including the
-resctrl interface. I have a cbqri branch [1] on top of riscv/for-next.
-I need to clean up some of the code, and then I can send a series with
-ssqosid+cbqri.
+Thomas: have you considered updating checkpatch to scan for instances of 
+__ASSEMBLY__?  Might preempt these sorts of manual fixes going forward.
 
-That cbqri branch just has device tree support in order to demonstrate
-the resctrl functionality. However, I did also work on support for the
-ACPI RQSC table earlier this year for a proof of concept [2]. I have
-been thinking that I will hold back the ACPI support until after Ssqosid
-and CBQRI support is reviewed. It also depends on some improvements
-regarding the ACPI PPTT table that James Morse is currently working on for
-ARM MPAM support [3].
 
-Thanks,
-Drew
+- Paul
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/log/?h=b4/cbqri
-[2] https://lf-rise.atlassian.net/wiki/spaces/HOME/pages/433291272/ACPI+RQSC+Proof+of+Concept
-[3] https://lore.kernel.org/all/20250910204309.20751-1-james.morse@arm.com/
+From: Paul Walmsley <pjw@kernel.org>
+Date: Fri, 10 Oct 2025 15:50:24 -0600
+Subject: [PATCH] riscv: kprobes: convert one final __ASSEMBLY__ to
+ __ASSEMBLER__
+
+Per the reasoning in commit f811f58597ac ("riscv: Replace __ASSEMBLY__
+with __ASSEMBLER__ in non-uapi headers"), convert one last remaining
+instance of __ASSEMBLY__ in the arch/riscv kprobes code.  This entered
+the tree from patches that were sent before Thomas' changes; and when
+I reviewed the kprobes patches before queuing them, I missed this
+instance.
+
+Cc: Nam Cao <namcao@linutronix.dev>
+Cc: Thomas Huth <thuth@redhat.com>
+Link: https://lore.kernel.org/linux-riscv/16b74b63-f223-4f0b-b6e5-31cea5e620b4@redhat.com/
+Link: https://lore.kernel.org/linux-riscv/20250606070952.498274-1-thuth@redhat.com/
+Signed-off-by: Paul Walmsley <pjw@kernel.org>
+---
+ arch/riscv/kernel/tests/kprobes/test-kprobes.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes.h b/arch/riscv/kernel/tests/kprobes/test-kprobes.h
+index 3886ab491ecb..537f44aa9d3f 100644
+--- a/arch/riscv/kernel/tests/kprobes/test-kprobes.h
++++ b/arch/riscv/kernel/tests/kprobes/test-kprobes.h
+@@ -11,7 +11,7 @@
+ #define KPROBE_TEST_MAGIC_LOWER    0x0000babe
+ #define KPROBE_TEST_MAGIC_UPPER    0xcafe0000
+ 
+-#ifndef __ASSEMBLY__
++#ifndef __ASSEMBLER__
+ 
+ /* array of addresses to install kprobes */
+ extern void *test_kprobes_addresses[];
+@@ -19,6 +19,6 @@ extern void *test_kprobes_addresses[];
+ /* array of functions that return KPROBE_TEST_MAGIC */
+ extern long (*test_kprobes_functions[])(void);
+ 
+-#endif /* __ASSEMBLY__ */
++#endif /* __ASSEMBLER__ */
+ 
+ #endif /* TEST_KPROBES_H */
+-- 
+2.48.1
+
 
 _______________________________________________
 linux-riscv mailing list
