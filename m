@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC863CCD185
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 17:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FBF7CCA476
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 17:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UMtQjLRG2JzC1KPygebr1V3+gladv5+Wl3ub15enYjo=; b=VHbQAV8ZAEhA8R
-	V3B0rJdPWi9DAjaF7RI/bs2D/jaUTLcvsRouStnYUiBYIAmrM8MFpa+MDHMAnbnblx37p05rBuMiC
-	MYABnY/IOktiWoeCdxHdSkLbB+GBj0TeXSPSLwh4bXxUaXCfO/9khK5iLD9dbJ6741mnlue7GBaBi
-	Hjc0Z1g0qLG/3unP6m5W7fJ+JFOSK904lqZkgbGHAkWKfM2/GPAkhGnK2EwHSODuWrI74rDVqvF3C
-	24iin3S+WXK1BOLcH4vgL0n1DGLdts63fWuRl0y1YqHBtiBtnX0iCv8YL/erSeieJ1xMyCn4nuATV
-	oAuImp218iYa43I5bICw==;
+	List-Owner; bh=qZDSC3Vl2aw6s5Dv+1PAJ/mv6axEKtrESXCibW2ICho=; b=xDECuaG89OTHn2
+	EYMHKZ8ToYeBRjavAfXwVOC9wk9u65FxFoYBCByc3kzWBMbx7vweDAyU1QGgl/JgttpNIq1mILgDg
+	xdLhWSxt7zoSY1KIF9i9EitBhi/VU6wcKqU/RbdbogpFjWSS3mXfljNXbWx+LTIT4sEi5xHl7sANy
+	KErzQTqXeSkXM88R5vmMyXBOMi/b5faw7Z3rxsw0CtWe9nJneW6eQA/MgnlT9ayffGIKTS7nSFgTe
+	sOfkgakcRkgznDrpWJfn8B+GhCs9HC7zHOoBGZYfMg3R48cwUNyO5xuEFgXZTXFRXh5rlrPtG+ohm
+	R105TN3oZ6CkS2rlfXhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7GkR-000000092uX-3Ek2;
-	Fri, 10 Oct 2025 17:17:44 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1v7HE2-000000096En-3cg8;
+	Fri, 10 Oct 2025 17:48:18 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7GkP-000000092uA-3C0p
+	id 1v7HE0-000000096EG-2nAS
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Oct 2025 17:17:42 +0000
-Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-9298eba27c2so99564139f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Oct 2025 10:17:41 -0700 (PDT)
+	Fri, 10 Oct 2025 17:48:17 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-7970e8d1cfeso31366296d6.1
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Oct 2025 10:48:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1760116661; x=1760721461; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6G/IEc8eQi80LISFTxnAaN67mBaGX3+NUViuwGCrxp8=;
-        b=e7kh9UEMGC46dzpsZxP6kMXQfyZP/6Rup4HK2ILaAp8iEE/Wh37rI7w985IrUNG5oh
-         sZN4PX7VrNbHJrMQJvUuejFi+cpiyn7BEnahcLg3Z/rAB0Vxc/zsho0/GWMUq4BXxc+U
-         9/enoyul6yFZKhiNKh67OXAC+v2wI1WfOjtqZFMNngDnKPiD8XoIa6vtc8ce3DtXQWfD
-         0X3n5uLjZV6FYOsODcI62strV3WPzbvTfcS2g9QYu7b8SyXfmKvn0RSMZcdz/vByPZXj
-         bJV0psCXzJL8xLUBGun82YyvwPr4yE2qpbncIGN2pVqowSvvKnxkWb/L9kVHo0Kti2hS
-         3u5A==
+        d=gmail.com; s=20230601; t=1760118495; x=1760723295; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0HDKcRyh3PZKdHNMvnRZkTba9f0/5qU6T/Ayx2+vV5I=;
+        b=lPN4rpn6s44r0Qw9sPdVrpK0x7TLGhH7VGostvGFnIk2CTPB/3lJYt9ERv50urV7oG
+         0qKpkGffJ50BiQNEvYqku/fBy4+C2RphyHwCA17ugzu5iMQdt/MHm6Nqn5rNZZg3YsNh
+         OMc9+5Lz+3EFBzyu9pBYA3K2DepLkMCN/sKDaAYN5si/Che47Lc+JiJs+yfBEaRAqfrF
+         0aoggaLuEk7qxgVpcJzm7irICFrN0h2b4ih9Lb5zpmJUX+gHLNozULssegZRAjiiwu5T
+         TmRfQme/Xs2R1PBrBknVkomd1ldYChr9hOksifFG9kbDiZqHiIrr9edu5EtzS8fYcDK5
+         P90A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760116661; x=1760721461;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6G/IEc8eQi80LISFTxnAaN67mBaGX3+NUViuwGCrxp8=;
-        b=BlELRyMQyFMmz4rzmKyFKDslMWLB7Ps3K4T24dV21d+98HuyLwtfs5RKFWiwhK3Tgj
-         N+Wqrt9gwtgrRcPUx+YKOX7HqUqrsLNHWIv8xaPg+aOkiAH6nLpTmk16AP9IK3HiOl2g
-         Lda9lvdMBvHr5B1ZLu3m0xhFPH9r5R56n0try6xvgQY39p/ZQNHlLdAllKypc91qdtAP
-         leXl4ux4Du70dFVy56O8FJcwky+9I/cth+dWN4qCPaLdldSuR6XnqtdRclSwa/+hYuym
-         dQ3k5pdL9EGCZn91vK7fuToIkCI0bsjtwa9hQwBcbMoEGXdVv4FKi62VtB8P8OQLsgbZ
-         WDAw==
-X-Forwarded-Encrypted: i=1; AJvYcCXkcb1cG3n1DeXibXfTIxasneW8cMqxsH/t7amkJ04EXIlN97MLepSg9MY9mOLqbKWIsOZTPnXHXyecWA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaMSP8gZ2so9T8clgR2jUWIgiMp4JgL0tgAjd2/7biv/jFMmB5
-	FVCdqsyLKVZFonsV2p+tRn8fhvQW83aJ1Mn6LyJ8bd9uV5r+vpq7IyAodvICr5cC0ko=
-X-Gm-Gg: ASbGncvU8ogXHW2q4af8QUQJcJ3IH4VmTbktw3jb+dnCN6S7SwzWduhsVH7TAnYQyHa
-	eLDhVT0WhsNwbVPIY/6llvzWqmIuLtUXW52mRmAg3hGKpw9K7iKgNLOl8e8mA/VGAhJW1J/2yVb
-	o+0fc0XlTEXPqPH/CvYEDEdoqUSDefecCgoPQgOjQWKruswU9c9Z3c9u1AjLMkUDt5OywpSCGDM
-	40rG54UziLl99ckKa+sQhZQUimHw0cF1TCHE9dPa1UeEBVMO1TC75Nx4SlOMtR3fg7XQZb7W3Oj
-	jld7Z6REbT2UeUn5TBKelWtpeS9F8lBvLsYPnNTrzUpiKqdB2NBVqtbHJM20YdMAlL/+A2MxkNZ
-	Vab5xgSmOj0lC4fF+m0Yiz1SkJgxWkI72fcimldjPuJRNoAWMpGrcpzzfYQ==
-X-Google-Smtp-Source: AGHT+IFf3Dfk1VAV0Y7S/J8epFVv9DK6aEZ68GWSHSQhqH0ufWaX/0UhdYSoDg68NQQ/vOlVIsMBKA==
-X-Received: by 2002:a05:6e02:1a8f:b0:427:b642:235 with SMTP id e9e14a558f8ab-42f87374f3bmr135463955ab.10.1760116660354;
-        Fri, 10 Oct 2025 10:17:40 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.6.207])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-42f902962fbsm23231445ab.18.2025.10.10.10.17.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Oct 2025 10:17:39 -0700 (PDT)
-Message-ID: <126d2381-c913-4815-bd9f-b6e9fe3cf5d8@sifive.com>
-Date: Fri, 10 Oct 2025 12:17:38 -0500
+        d=1e100.net; s=20230601; t=1760118495; x=1760723295;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0HDKcRyh3PZKdHNMvnRZkTba9f0/5qU6T/Ayx2+vV5I=;
+        b=j9rM9ULZfc7j5G9YV1QYFZgHc1nAqVVWwTgBW5oI3tw3wHfFmDPJzZCAR9Fmg1sXoh
+         3iNebwKa1QRnMCuvLQjxUcdkrSjgUNMMFPsmgb1N4Z+97Reh5H3fqbhG2WfZ+CQHO3kb
+         F7ihuI1HtQVQEHVdq/bFmDX5Tl+3LXK/GAOItQTeagFaWBBFDYAn0NM7RBPTBaRIGl4k
+         u8bCbuOltBVgNwQdUEJ+xvwnwmQ0L7Kitm/d4LRxjpD8qh7vbLbObrPyTouLYuP8wyiF
+         QPQfgxCf4IzKEEs0ycaBH8o7uGRItkf9Y1kPGmNKvzbR6LYf6aDbyktnSvSWv8IY4Rcl
+         2STg==
+X-Forwarded-Encrypted: i=1; AJvYcCXo62mVE2ZEFOIsCW0almcqj+PZSY963KsUBzOe+0vGepLwwst4z+KoT5h4MFXI3bSoyHsnYjEcxHob+g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxblZX33ItwFgNW5AS06m9zSdvuTpkm1xpmk90n0AznfiWLunU7
+	g1fcJCVFGlpp1UO2efiwRiQzkYbiblm+Bl2VRZ6NEkQ4nlgWUNYi0mtY
+X-Gm-Gg: ASbGnctzWLsCuDm2k2kmE0dymo0AZ8lSC5G4FSIOCsCqB7oMbx7LHhGU25QUJ2hlFeO
+	wZIjPT9hPbG3fIWI97JSrw/zxO2445Y2VHl4ha79x/gAXV3HS1EWSams2Rqcln+PaDgAZs4thQF
+	/y/HPmpMb67jqkh+1QlHuitU0DavB6m/NAf9EfqCz44fH+fi7FKBnrqH5LK9AfVYYax4DHbpB2D
+	NY6DXhYtHdf8sAhEt4H8aOEiriHQXTPUSvPafifbZCLBdlHi71EvgeegApQ8Accqvmo1BZHL2e1
+	sTPCJ8BajW588hOf5WaKDXCLocUQRMiCMwWXVwdh1YBhO6rEXHNEM66IQCfRlbC5EL9NS2UvBUV
+	XxF+Ae5c3u4SMWzfz8MInxiDX9ompbyqkInI9LXFtwzYdz+nv
+X-Google-Smtp-Source: AGHT+IHt1fltqSOQNAwaJvgXJiJNUt/Iy268/HwGtU21DjWYu9BdYiR8Fuy0ro1CN7LEJs+CaTZBBA==
+X-Received: by 2002:ac8:5751:0:b0:4de:74f8:b2a4 with SMTP id d75a77b69052e-4e6ead7789cmr174443161cf.53.1760118494834;
+        Fri, 10 Oct 2025 10:48:14 -0700 (PDT)
+Received: from localhost ([12.22.141.131])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-87bc3574e7esm20215986d6.41.2025.10.10.10.48.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Oct 2025 10:48:14 -0700 (PDT)
+Date: Fri, 10 Oct 2025 13:48:12 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, rostedt@goodmis.org, mhiramat@kernel.org,
+	mark.rutland@arm.com, peterz@infradead.org, jpoimboe@kernel.org,
+	jbaron@akamai.com, ardb@kernel.org, willy@infradead.org,
+	guoren@kernel.org, ziy@nvidia.com, akpm@linux-foundation.org,
+	bjorn@rivosinc.com, ajones@ventanamicro.com, parri.andrea@gmail.com,
+	cleger@rivosinc.com, yongxuan.wang@sifive.com, inochiama@gmail.com,
+	samuel.holland@sifive.com, charlie@rivosinc.com,
+	conor.dooley@microchip.com, yikming2222@gmail.com,
+	andybnac@gmail.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC] riscv: add support for Ziccid
+Message-ID: <aOlG3Mb6_vN4uuA7@yury>
+References: <20251009134514.8549-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/18] riscv: Memory type control for platforms with
- physical memory aliases
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
- Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- David Hildenbrand <david@redhat.com>
-References: <20251009015839.3460231-1-samuel.holland@sifive.com>
- <20251009181559.7bfa3dce6cb7265822b2d5c5@linux-foundation.org>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-In-Reply-To: <20251009181559.7bfa3dce6cb7265822b2d5c5@linux-foundation.org>
+Content-Disposition: inline
+In-Reply-To: <20251009134514.8549-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_101741_835679_257F9DA6 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20251010_104816_736927_8FB4F707 
+X-CRM114-Status: GOOD (  26.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,57 +107,209 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-09 8:15 PM, Andrew Morton wrote:
-> On Wed,  8 Oct 2025 18:57:36 -0700 Samuel Holland <samuel.holland@sifive.com> wrote:
+On Thu, Oct 09, 2025 at 09:45:14PM +0800, Yunhui Cui wrote:
+> The Ziccid extension provides hardware synchronization between
+> Dcache and Icache. With this hardware support, there's no longer
+> a need to trigger remote hart execution of fence.i via IPI.
 > 
->> On some RISC-V platforms, including StarFive JH7100 and ESWIN EIC7700,
->> DRAM is mapped to multiple physical address ranges, with each alias
->> having a different set of statically-determined Physical Memory
->> Attributes (PMAs), such as cacheability. Software can alter the PMAs for
->> a page by selecting a PFN from the corresponding physical address range.
->> On these platforms, this is the only way to allocate noncached memory
->> for use with noncoherent DMA.
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> ---
+>  arch/riscv/include/asm/cacheflush.h |  4 ++--
+>  arch/riscv/include/asm/hwcap.h      |  1 +
+>  arch/riscv/include/asm/switch_to.h  | 10 ++++++++++
+>  arch/riscv/kernel/cpufeature.c      |  1 +
+>  arch/riscv/kernel/ftrace.c          |  2 +-
+>  arch/riscv/kernel/hibernate.c       |  2 +-
+>  arch/riscv/kernel/jump_label.c      |  2 +-
+>  arch/riscv/mm/cacheflush.c          | 16 ++++++++++++++--
+>  8 files changed, 31 insertions(+), 7 deletions(-)
 > 
-> Well that's weird.
-> 
->> --- a/mm/ptdump.c
->> +++ b/mm/ptdump.c
->> @@ -31,7 +31,7 @@ static int ptdump_pgd_entry(pgd_t *pgd, unsigned long addr,
->>  			    unsigned long next, struct mm_walk *walk)
->>  {
->>  	struct ptdump_state *st = walk->private;
->> -	pgd_t val = READ_ONCE(*pgd);
->> +	pgd_t val = pgdp_get(pgd);
->>  
->>  #if CONFIG_PGTABLE_LEVELS > 4 && \
->>  		(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
-> 
-> OK, but how are we to maintain this?  Will someone be running
-> grep/coccinelle/whatever on each kernel release?
-> 
-> Please give some thought to finding a way to break the build if someone
-> uses a plain dereference or a READ_ONCE().  Or add a checkpatch rule. 
-> Or something.  Let's not rely upon the whole world knowing about this.
+> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+> index 0092513c3376c..3a8cdf30bb4b1 100644
+> --- a/arch/riscv/include/asm/cacheflush.h
+> +++ b/arch/riscv/include/asm/cacheflush.h
+> @@ -68,7 +68,7 @@ static inline void flush_cache_vmap(unsigned long start, unsigned long end)
+>  
+>  #else /* CONFIG_SMP */
+>  
+> -void flush_icache_all(void);
+> +void flush_icache_all(bool force);
+>  void flush_icache_mm(struct mm_struct *mm, bool local);
+>  
+>  #endif /* CONFIG_SMP */
+> @@ -80,7 +80,7 @@ void flush_icache_mm(struct mm_struct *mm, bool local);
+>  #define flush_icache_range flush_icache_range
+>  static inline void flush_icache_range(unsigned long start, unsigned long end)
+>  {
+> -	flush_icache_all();
+> +	flush_icache_all(false);
+>  }
+>  
+>  extern unsigned int riscv_cbom_block_size;
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index affd63e11b0a3..ad97d8955b501 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -106,6 +106,7 @@
+>  #define RISCV_ISA_EXT_ZAAMO		97
+>  #define RISCV_ISA_EXT_ZALRSC		98
+>  #define RISCV_ISA_EXT_ZICBOP		99
+> +#define RISCV_ISA_EXT_ZICCID		100
+>  
+>  #define RISCV_ISA_EXT_XLINUXENVCFG	127
+>  
+> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+> index 0e71eb82f920c..b8a9e455efe9e 100644
+> --- a/arch/riscv/include/asm/switch_to.h
+> +++ b/arch/riscv/include/asm/switch_to.h
+> @@ -98,7 +98,17 @@ static inline bool switch_to_should_flush_icache(struct task_struct *task)
+>  	bool stale_thread = task->thread.force_icache_flush;
+>  	bool thread_migrated = smp_processor_id() != task->thread.prev_cpu;
+>  
+> +	asm goto(ALTERNATIVE("nop", "j %l[ziccid]", 0, RISCV_ISA_EXT_ZICCID, 1)
+> +		 : : : : ziccid);
+> +
 
-My initial plan was to add a script to scripts/coccinelle so `make coccicheck`
-would catch any new instances. This would require some way to avoid false
-positives in the few places where these pointers are safe to dereference (like
-the ptentp and pmdvalp mentioned in commit message), such as a separate typedef
-or a naming convention.
+Instead of opencoded 'asm goto', can you try the riscv_has_extension() here
+and everywhere?
 
-I had also explored using sparse to annotate pte_t and friends as noderef. This
-would require changes to the sparse tool to allow noderef to work with a
-non-pointer type (and get inherited by any pointers to that type), or else each
-pointer parameter/variable would need to be annotated in the source code
-(equivalent to __user). Neither seems ideal.
+	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZICCID))
+          	return thread_migrated && (stale_mm || stale_thread);
+        else
+        	return thread_migrated && stale_thread;
 
-I hadn't considered a checkpatch rule. That's probably the most straightforward
-solution, to warn on any instances of "\*(vmf(\.|->))?(pte|p[mu4g]d)p?", along
-with a coccinelle script that could be run occasionally.
+Thanks,
+Yury
+                
 
-Regards,
-Samuel
-
+>  	return thread_migrated && (stale_mm || stale_thread);
+> +
+> +ziccid:
+> +	/*
+> +	 * Process switching writes to SATP, which flushes the pipeline,
+> +	 * so only the thread scenario is considered.
+> +	 */
+> +	return thread_migrated && stale_thread;
+>  #else
+>  	return false;
+>  #endif
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 67b59699357da..2da82aa2dbf0a 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -540,6 +540,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+>  	__RISCV_ISA_EXT_DATA(svvptc, RISCV_ISA_EXT_SVVPTC),
+> +	__RISCV_ISA_EXT_DATA(ziccid, RISCV_ISA_EXT_ZICCID),
+>  };
+>  
+>  const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
+> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> index 8d18d6727f0fc..431448e818363 100644
+> --- a/arch/riscv/kernel/ftrace.c
+> +++ b/arch/riscv/kernel/ftrace.c
+> @@ -43,7 +43,7 @@ void arch_ftrace_update_code(int command)
+>  {
+>  	command |= FTRACE_MAY_SLEEP;
+>  	ftrace_modify_all_code(command);
+> -	flush_icache_all();
+> +	flush_icache_all(false);
+>  }
+>  
+>  static int __ftrace_modify_call(unsigned long source, unsigned long target, bool validate)
+> diff --git a/arch/riscv/kernel/hibernate.c b/arch/riscv/kernel/hibernate.c
+> index 671b686c01587..388f10e187bae 100644
+> --- a/arch/riscv/kernel/hibernate.c
+> +++ b/arch/riscv/kernel/hibernate.c
+> @@ -153,7 +153,7 @@ int swsusp_arch_suspend(void)
+>  	} else {
+>  		suspend_restore_csrs(hibernate_cpu_context);
+>  		flush_tlb_all();
+> -		flush_icache_all();
+> +		flush_icache_all(true);
+>  
+>  		/*
+>  		 * Tell the hibernation core that we've just restored the memory.
+> diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
+> index b4c1a6a3fbd28..680b29f4c09c4 100644
+> --- a/arch/riscv/kernel/jump_label.c
+> +++ b/arch/riscv/kernel/jump_label.c
+> @@ -51,5 +51,5 @@ bool arch_jump_label_transform_queue(struct jump_entry *entry,
+>  
+>  void arch_jump_label_transform_apply(void)
+>  {
+> -	flush_icache_all();
+> +	flush_icache_all(false);
+>  }
+> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> index d83a612464f6c..01f9f7a45e8d2 100644
+> --- a/arch/riscv/mm/cacheflush.c
+> +++ b/arch/riscv/mm/cacheflush.c
+> @@ -12,19 +12,24 @@
+>  #ifdef CONFIG_SMP
+>  
+>  #include <asm/sbi.h>
+> +#include <asm/alternative-macros.h>
+>  
+>  static void ipi_remote_fence_i(void *info)
+>  {
+>  	return local_flush_icache_all();
+>  }
+>  
+> -void flush_icache_all(void)
+> +void flush_icache_all(bool force)
+>  {
+>  	local_flush_icache_all();
+>  
+>  	if (num_online_cpus() < 2)
+>  		return;
+>  
+> +	if (!force)
+> +		asm goto(ALTERNATIVE("nop", "j %l[ziccid]", 0,
+> +			RISCV_ISA_EXT_ZICCID, 1)
+> +			: : : : ziccid);
+>  	/*
+>  	 * Make sure all previous writes to the D$ are ordered before making
+>  	 * the IPI. The RISC-V spec states that a hart must execute a data fence
+> @@ -41,6 +46,7 @@ void flush_icache_all(void)
+>  		sbi_remote_fence_i(NULL);
+>  	else
+>  		on_each_cpu(ipi_remote_fence_i, NULL, 1);
+> +ziccid:;
+>  }
+>  EXPORT_SYMBOL(flush_icache_all);
+>  
+> @@ -61,13 +67,17 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
+>  
+>  	preempt_disable();
+>  
+> +	local_flush_icache_all();
+> +
+> +	asm goto(ALTERNATIVE("nop", "j %l[ziccid]", 0, RISCV_ISA_EXT_ZICCID, 1)
+> +		 : : : : ziccid);
+> +
+>  	/* Mark every hart's icache as needing a flush for this MM. */
+>  	mask = &mm->context.icache_stale_mask;
+>  	cpumask_setall(mask);
+>  	/* Flush this hart's I$ now, and mark it as flushed. */
+>  	cpu = smp_processor_id();
+>  	cpumask_clear_cpu(cpu, mask);
+> -	local_flush_icache_all();
+>  
+>  	/*
+>  	 * Flush the I$ of other harts concurrently executing, and mark them as
+> @@ -91,6 +101,8 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
+>  		on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
+>  	}
+>  
+> +ziccid:;
+> +
+>  	preempt_enable();
+>  }
+>  
+> -- 
+> 2.39.5
 
 _______________________________________________
 linux-riscv mailing list
