@@ -4,101 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FBFCCA476
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 14:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27154CCD185
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 14:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=SiEr2REQCLx/3gnWMnsr20gDN5aTNkAn1U9+KC5bguQ=; b=Di0S+O9sWckujp42jd7eJodpaJ
-	jhTHvaRZ7+PwW53NfaiFY5BbsxF2/glz2qb1pMBqtYPz0bStLzRIP8MJzsLm53FojU1+OLIWn0BC7
-	PtBnq9/4uDDFH9rHHXCYULuVExPVwUf/Zzu1UJL3bqqgsvv9J4MgwSl48A6OaL/+DA0tO28pf1Wiv
-	GY1jEUagPOkif9NJtjTF9P6aEZuo9fHO0ulN36DKMwFbUYssQU22QDca9n2Usi4rbAeO6cIyeF1KN
-	6qs1MmslWy55GnruBWTr4AtNp0LtteqRRPN4SckUNZLDlgeOowMqKbPZqRVegy1psIbgl84uzyv5E
-	gUyyB3rQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aLKgu3YkrtLktUcsm/kWcP+AeoEGmJr3P0/a31/ltJ0=; b=1tf0sDu8ltrk+oSgrLR8ZziGFg
+	BApl0fm3tOFrI5FLCXFbTux/cvQ6U2IKwbCSOxsHJdpYhfIVrspy+xo6hoyi3qQMpIex//+90GnzO
+	70LZiCYLjfEF53uRVSr6Kmk36S3e4Y7BvdOWI8JJuhkxoaW+TFhyo0RnjvLuMQLJzJXEvzgcFzWlq
+	WKkysuiZXzVORD1Fyl3u/0rOEcZEgmzbcTkZq9fumc5KDjuJH9SFBNJlNpBzS6QCle46uNSHTjwZG
+	pzu+4Aw4Tzjl1QyvNsWw/TrMeBEynK6mbRpWvAJzgH4x0P/e3bzNtK0ExBVfSMepTa247DBvGHM/J
+	WDE/za7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7DyW-00000008fST-0DfZ;
-	Fri, 10 Oct 2025 14:20:04 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1v7ECz-00000008hZQ-2W6W;
+	Fri, 10 Oct 2025 14:35:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7DyS-00000008fRG-2Atr
+	id 1v7ECx-00000008hYn-2T5h
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Oct 2025 14:20:02 +0000
-Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id BE0D43F7D9
-	for <linux-riscv@lists.infradead.org>; Fri, 10 Oct 2025 14:19:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1760105996;
-	bh=wZFsc0cqoEjkO7gKnFRYSVcb3ZWZEOVIH/oA4k6SVYM=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=O2ZANWc1aJh9qDm0BsJ17JgUiBclSlvysh3FvJCtYCbKAykqYMx4tt7GvbmqcbuTQ
-	 I08kPRRWzquYvVguPF+Ng7X9YKiDMrfyAr4BN6bvnHa1+KJBRelWWTpSOs3/fmpKy3
-	 A7oxLH0dbkfuqCKjLJ8RZF17j/a9ZrthjXhgG9g9aYwWYGVfKdTwjQCEkOeKfRuoMH
-	 tKgW1bkMy5pXdJRRg4S2nXnfUTEN7nvSgguq/1yhrfel562fI5h0unJxAlHQP4jSox
-	 VoE8kGpEcTT0lxfNBEMGoLFccn2xxVm4Ty5LPN7roVeZ+L4E7GAqJRpkaaUQ8Ex343
-	 ozd7TRPEUW8QvR/WpzGHOTTCEo6x+piSNb0roDl45KR/Xzxsc1z2CfN128X7ACMctT
-	 Olh5pJ8o1QYlfwdz0ECBs3TWPRiydxdDLZYqrbhw9gd9PqIET1o2caVUXQgTFwITXs
-	 7ET6tcu8kD4Frlo1ixdDycqAVHYABReaUeQBHFVemA0NaO40ivLXganoRb1T4gBcdm
-	 7PC//u4zZmukDHipisZrbf7M6N0a1tOn0NCC4Bt1iV7QBDNyFGky8EwEriNnGevYPY
-	 dUxkzcaLhAuShSRpUCRBBQvFvZXqGRahL4r8PJEVrJR+JX71Qq0tySeT8MF3OowdMT
-	 OoSR9O3mgrf4NFT9WcKWR3sQ=
-Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-92ee22d4ba3so4493434241.1
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Oct 2025 07:19:56 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760105996; x=1760710796;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wZFsc0cqoEjkO7gKnFRYSVcb3ZWZEOVIH/oA4k6SVYM=;
-        b=tplBMp0ZfygyCpe34s63C+37KXiI3ZL875nRxwM5km7UEU667kWqVOJZMZWNrpwueJ
-         4Kl9F9/Ck3TMZdYJr06JrjmvK1Z9RJKbPuJ5GHZk3DTKg9fECHjmG0LN9hzeKiV8rwUH
-         oY4zO6k6aqijA+uuCW27GPqh7RgcD39149JPCnwe0ChpHe4Q2EkaYiDN/Dn1hBumS/NB
-         wSA/QTilvs+495DrysTR5IGaYC3TPJIK2AuTizAdLTIUlfpd832GYJqP/z7VnNcrLiKL
-         1VdiLsNzmmSHlcJXQahCMB2U3jDHaxcrS38wNa/FtqJm4ZnN6/SvbE4x4GXbjfZTz5qJ
-         aIAg==
-X-Forwarded-Encrypted: i=1; AJvYcCVKhUcjgU06rTdre9r+wYa5ab7ZBs7rorbkvcQBzRMC3L1Z294HVx3kedIF7ShlWrDXvGsFv2jqUEF+gA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyeijWlX+i0h9a8QhHsbFOAchdGCRHTn0PkZdHhCHhUGPNfUqg
-	Np5b9Qr2tbi/Ufcpki950+wveNJyA77ufJF2ULWwOzt0Hu7LtL/TJ6E/0NbXN/mbF/hxUdY+DWG
-	Wt5qHXjmRiBP0qNt+qeUrYKrCmBka6rH2d1yXKyXvjY/kQdty1F4RGK1BQ/Y5liQpjdhHSLECHx
-	CVL4+nsrsHgu7jp9HsruXnmn/aG54zTMlslJ7E2+yjykcFJadSUykXomko65/W
-X-Gm-Gg: ASbGncuoYL+atfGbnCe47uziQ4WqnArLxTTma5uorbMLWs5XUl5rI16ybUn60vuRlrc
-	cgRDQ9VjH6JoBPvEWS6Pta1UKcUKO1IbGWWZyT2iPtFqmikC7MeDzADftB1vPKCdr2PSJ4avGnr
-	DbcYtOjSiDm/YSrM+h1Bc=
-X-Received: by 2002:a05:6102:290a:b0:5d5:f8df:8eeb with SMTP id ada2fe7eead31-5d5f8df90b1mr2375359137.24.1760105995651;
-        Fri, 10 Oct 2025 07:19:55 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGtJ5BK2Kci2VugCpCugcyMp0MfaVnQs+KUCQn6J+Waq0JOsbp/jIivsCDhg0pl1qZjDL6SXhAjfxWgLCXGQEQ=
-X-Received: by 2002:a05:6102:290a:b0:5d5:f8df:8eeb with SMTP id
- ada2fe7eead31-5d5f8df90b1mr2375335137.24.1760105995272; Fri, 10 Oct 2025
- 07:19:55 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 10 Oct 2025 09:19:54 -0500
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 10 Oct 2025 09:19:54 -0500
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20251009015839.3460231-18-samuel.holland@sifive.com>
-References: <20251009015839.3460231-1-samuel.holland@sifive.com> <20251009015839.3460231-18-samuel.holland@sifive.com>
-Mime-Version: 1.0
-Date: Fri, 10 Oct 2025 09:19:54 -0500
-X-Gm-Features: AS18NWBjDcHrw1s8RwyRjhr8EvaCuZc8XkxMvBfhsZ2PsGnZOM9VUAkh7k1guZY
-Message-ID: <CAJM55Z_C_ce6wwCpNyGeozxBKW1krSrdzApvGumLn_p7K0hhYw@mail.gmail.com>
-Subject: Re: [PATCH v2 17/18] riscv: dts: starfive: jh7100: Use physical
- memory ranges for DMA
-To: Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Andrew Morton <akpm@linux-foundation.org>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+	Fri, 10 Oct 2025 14:35:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F412C417A1;
+	Fri, 10 Oct 2025 14:34:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E593C4CEFE;
+	Fri, 10 Oct 2025 14:34:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760106898;
+	bh=tX2MX2Rqu4g/qCApJ10pxKsv/9FWn2QhZo8crhSgRyQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZuM9idKyJ64Ns5XMFl5Nf1Vv7BWmSTuM0nOT1vs2jlozQ0nnbqG2FhNGe5ZvUyWkU
+	 cagctN2vf50FllgByHsqBwRz6pX68f5fZTw3X1ucoLdNlRbq5TmW2EbWI00snUX5/x
+	 YDtXzGGR+VBBSx0ITdgMtS1QGTbsUfvd21V7fai6qKRtvccTqvN+3I7ZIsex5dNU5i
+	 T136wKWYHqi3wYGGfPrfzhqqGbcnE8fvKqQG/uTiBTX7GYieJk8xxJB/9QJGhrf0/v
+	 ZOmcf25iSjh8pZKXS2ZIJUTOUQ9C4n66wliKl8SCKEcNRd42BfKp+U/ID3lVfjA9nv
+	 zqvWdC1wCmzxg==
+Date: Fri, 10 Oct 2025 15:34:54 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/5] dt-bindings: riscv: spacemit: add MusePi Pro board
+Message-ID: <20251010-headstand-gloomy-c7d702f978a9@spud>
+References: <20251010-k1-musepi-pro-dts-v2-0-6e1b491f6f3e@linux.spacemit.com>
+ <20251010-k1-musepi-pro-dts-v2-1-6e1b491f6f3e@linux.spacemit.com>
+MIME-Version: 1.0
+In-Reply-To: <20251010-k1-musepi-pro-dts-v2-1-6e1b491f6f3e@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_072000_812878_D32E24C4 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20251010_073459_667711_7910DA0F 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,153 +73,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3892907805975964209=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Samuel Holland wrote:
-> JH7100 provides a physical memory region which is a noncached alias of
-> normal cacheable DRAM. Now that Linux can apply PMAs by selecting
-> between aliases of a physical memory region, any page of DRAM can be
-> marked as noncached for use with DMA, and the preallocated DMA pool is
-> no longer needed. This allows portable kernels to boot on JH7100 boards.
->
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+
+--===============3892907805975964209==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="h8lD4lIYVpPgecKX"
+Content-Disposition: inline
+
+
+--h8lD4lIYVpPgecKX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Oct 10, 2025 at 09:56:30AM +0800, Troy Mitchell wrote:
+> Document the compatible string for the MusePi Pro [1]. It is a 1.8-inch
+> single board computer based on the SpacemiT K1/M1 RISC-V SoC [2].
+>=20
+> Here's a refined list of its core features for consideration:
+>   - SoC: SpacemiT M1/K1, 8-core 64-bit RISC-V with 2.0 TOPS AI power.
+>          This suggests potential for light AI/ML workloads on-device.
+>   - Memory: LPDDR4X @ 2400MT/s, available in 8GB & 16GB options.
+>             Sufficient for various workloads.
+>   - Storage: Onboard eMMC 5.1 (64GB/128GB options). M.2 M-Key for NVMe
+>              SSD (2230 size), and a microSD slot (UHS-II) for expansion.
+>              Good variety for boot and data.
+>   - Display: HDMI 1.4 (1080P@60Hz) and 2-lane MIPI DSI FPC (1080P@60Hz).
+>              Standard display options.
+>   - Connectivity: Onboard Wi-Fi 6 & Bluetooth 5.2. A single Gigabit
+>                   Ethernet port (RJ45). Given the stated markets,
+>                   this should cover basic networking.
+>   - USB: 4x USB 3.0 Type-A (host) and 1x USB 2.0 Type-C (device/OTG).
+>          Decent host capabilities.
+>   - Expansion: Full-size miniPCIe slot for assorted modules
+>                (4G/5G, wireless etc.). A second M.2 M-Key (2230) for more
+>                general PCIe devices (SSD, PCIe-to-SATA, comm boards).
+>   - GPIO: Standard 40-pin GPIO interface, as expected for an SBC.
+>   - MIPI: Includes 1x 4-lane MIPI CSI FPC and 2x MIPI DSI FPC interfaces
+>           for cameras and displays.
+>   - Clock: Onboard RTC with battery support.
+>=20
+> Link: https://developer.spacemit.com/documentation?token=3DYJtdwnvvViPVcm=
+koPDpcvwfVnrh&type=3Dpdf [1]
+> Link: https://www.spacemit.com/en/key-stone-k1 [2]
+>=20
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+pw-bot: not-applicable
+
 > ---
->
-> Changes in v2:
->  - Move the JH7100 DT changes from jh7100-common.dtsi to jh7100.dtsi
->  - Keep RISCV_DMA_NONCOHERENT and RISCV_NONSTANDARD_CACHE_OPS selected
->
->  arch/riscv/Kconfig.errata                     | 19 ---------------
->  arch/riscv/Kconfig.socs                       |  2 ++
->  .../boot/dts/starfive/jh7100-common.dtsi      | 24 -------------------
->  arch/riscv/boot/dts/starfive/jh7100.dtsi      |  4 ++++
->  4 files changed, 6 insertions(+), 43 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index e318119d570de..62700631a5c5d 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -53,25 +53,6 @@ config ERRATA_SIFIVE_CIP_1200
->
->  	  If you don't know what to do here, say "Y".
->
-> -config ERRATA_STARFIVE_JH7100
-> -	bool "StarFive JH7100 support"
-> -	depends on ARCH_STARFIVE
-> -	depends on !DMA_DIRECT_REMAP
-> -	depends on NONPORTABLE
-> -	select DMA_GLOBAL_POOL
-> -	select RISCV_DMA_NONCOHERENT
-> -	select RISCV_NONSTANDARD_CACHE_OPS
-> -	select SIFIVE_CCACHE
-> -	default n
-> -	help
-> -	  The StarFive JH7100 was a test chip for the JH7110 and has
-> -	  caches that are non-coherent with respect to peripheral DMAs.
-> -	  It was designed before the Zicbom extension so needs non-standard
-> -	  cache operations through the SiFive cache controller.
-> -
-> -	  Say "Y" if you want to support the BeagleV Starlight and/or
-> -	  StarFive VisionFive V1 boards.
-> -
->  config ERRATA_THEAD
->  	bool "T-HEAD errata"
->  	depends on RISCV_ALTERNATIVE
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 848e7149e4435..a8950206fb750 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -50,6 +50,8 @@ config SOC_STARFIVE
->  	bool "StarFive SoCs"
->  	select PINCTRL
->  	select RESET_CONTROLLER
-> +	select RISCV_DMA_NONCOHERENT
-> +	select RISCV_NONSTANDARD_CACHE_OPS
+> Changelog in v2:
+> - modify commit message
+> - Link to v1: https://lore.kernel.org/all/20250928-k1-musepi-pro-dts-v1-1=
+-5efcca0ce3ae@linux.spacemit.com/
+> ---
+>  Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Docu=
+mentation/devicetree/bindings/riscv/spacemit.yaml
+> index c56b62a6299ac24d3cdef7edcdfc407dc62a1846..52fe39296031f21d1c28c4f1e=
+a5ca9fe28caf45a 100644
+> --- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> @@ -22,6 +22,7 @@ properties:
+>            - enum:
+>                - bananapi,bpi-f3
+>                - milkv,jupiter
+> +              - spacemit,musepi-pro
+>                - xunlong,orangepi-rv2
+>            - const: spacemit,k1
+> =20
+>=20
+> --=20
+> 2.51.0
+>=20
+>=20
 
-Hi Samuel,
+--h8lD4lIYVpPgecKX
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks for working on this! I think you also need to select DMA_DIRECT_REMAP
-here, otherwise devices complain that they can't allocate coherent memory at
-all.
+-----BEGIN PGP SIGNATURE-----
 
-But even with that added it still doesn't work for me with 6.17 on the JH7100,
-the sdcard isn't initialized properly, and I haven't figured out why yet. I
-seem to remember your previous version did work though.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaOkZjgAKCRB4tDGHoIJi
+0lJbAQCI1n2tmq/PHDkU8WxwsDfOyXgh61XIyz27ArEkr9KRzgD/aJWVigJcDUU+
+bgAkMJ90tRNk6VJx28B6jm/5O7BqeQo=
+=rlWN
+-----END PGP SIGNATURE-----
 
-Plain 6.17:          https://esmil.dk/pma/upstream.txt
-6.17 + this series:  https://esmil.dk/pma/test.txt
+--h8lD4lIYVpPgecKX--
 
-The kernel config I'm using is available here:
-https://esmil.dk/pma/config.txt
 
-/Emil
-
->  	select ARM_AMBA
->  	help
->  	  This enables support for StarFive SoC platform hardware.
-> diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> index ae1a6aeb0aeaa..47d0cf55bfc02 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> @@ -42,30 +42,6 @@ led-ack {
->  		};
->  	};
->
-> -	reserved-memory {
-> -		#address-cells = <2>;
-> -		#size-cells = <2>;
-> -		ranges;
-> -
-> -		dma-reserved@fa000000 {
-> -			reg = <0x0 0xfa000000 0x0 0x1000000>;
-> -			no-map;
-> -		};
-> -
-> -		linux,dma@107a000000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x10 0x7a000000 0x0 0x1000000>;
-> -			no-map;
-> -			linux,dma-default;
-> -		};
-> -	};
-> -
-> -	soc {
-> -		dma-ranges = <0x00 0x80000000 0x00 0x80000000 0x00 0x7a000000>,
-> -			     <0x00 0xfa000000 0x10 0x7a000000 0x00 0x01000000>,
-> -			     <0x00 0xfb000000 0x00 0xfb000000 0x07 0x85000000>;
-> -	};
-> -
->  	wifi_pwrseq: wifi-pwrseq {
->  		compatible = "mmc-pwrseq-simple";
->  		reset-gpios = <&gpio 37 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> index 7de0732b8eabe..34ff65d65ac7e 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> @@ -7,11 +7,15 @@
->  /dts-v1/;
->  #include <dt-bindings/clock/starfive-jh7100.h>
->  #include <dt-bindings/reset/starfive-jh7100.h>
-> +#include <dt-bindings/riscv/physical-memory.h>
->
->  / {
->  	compatible = "starfive,jh7100";
->  	#address-cells = <2>;
->  	#size-cells = <2>;
-> +	riscv,physical-memory-regions =
-> +		<0x00 0x80000000 0x08 0x00000000 (PMA_RWXA | PMA_NONCOHERENT_MEMORY) 0x0>,
-> +		<0x10 0x00000000 0x08 0x00000000 (PMA_RWX | PMA_NONCACHEABLE_MEMORY | PMR_ALIAS(1)) 0x0>;
->
->  	cpus: cpus {
->  		#address-cells = <1>;
-> --
-> 2.47.2
->
+--===============3892907805975964209==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3892907805975964209==--
+
