@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A429CCA476
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 15:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A14ACCA476
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 15:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SnejxmOsuyXdS5eWu8Zqck2hus2WdOnem0UwJQxbFnY=; b=fKEqC8p3EE+cpr
-	8jkJkrnU74ziBIJVGwZFQukuos+2Z4PqXEQS21dDRcdSxC+KZB9Tcq0AtBYNFU02MPlL1O5j7ZIT0
-	xC0BIXiMN0lSn20IM3x9RJWGCEDc2DpDiQ5ag/fz+Guiyuw6BtsYgdumRCWjyGuDCe4OqCJ2IZjtQ
-	eZWN/zaINrwZyUeuhhSukIdbvUdwBDvtWcwTmQnT1OwmeP50nKjDrY4nUnWHOIHyniq4yv8BQw3hw
-	Zn50rgFLD8OA6swlL5QrbMOcG5pinbGpRY1Qa8ZQOwkyCaIeFZOGHONFMX3nERoraYZK7cOH6oTJf
-	ZCJ4ieyB5l4jR44L0lyg==;
+	List-Owner; bh=vc6nL7FtLp+pM+wwROhhq7xkOqlZf0K933hp5PQc7wU=; b=z6MCzk+tulVBtn
+	A+ThATtv33pRfYkXie9wcGzWGDTjBDSIvCVjiIWfFr9K0boXlYAGkjqyyNxLy9SIzpSSaT45e30kc
+	gbCHhl7K18Bhn5XT7mw11QEypnpkMx0Mn3r0yh/USCFEMKMGGNnjt2/vdAe60Lva81GMoaxw6a+7L
+	mxiBIjmaxVqgKJAZvBJT9vITAUF+uFa0Ynvvff021lnMps6mDrzrRyeIZcWAnXiBQFZGNsKQKbTeT
+	CXYk/wcfw+1THz9jF7EIY9LCq4e9QEzPaaUFttePn0DYXQjaRsTy7OwhPZkR268Cvb+I6FkJsndp3
+	LYfXa3wNLAZc8hIb0ihA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FHP-00000008rHU-3kCo;
-	Fri, 10 Oct 2025 15:43:39 +0000
+	id 1v7FHd-00000008rPC-3StK;
+	Fri, 10 Oct 2025 15:43:53 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FHO-00000008rGn-1ZcO
+	id 1v7FHc-00000008rNl-0eZJ
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 10 Oct 2025 15:43:38 +0000
+	Fri, 10 Oct 2025 15:43:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=IMfkEjR7bo9/GPZWUZrcsZpIJiAh+KjKI2oJCMzgHeQ=; b=UI/8YypUrF0TFzbnNyLX88p1dd
-	rNwtzcv3TWl8a6iZyzEQJcSnTKFm26ZV2ypIFdhHszB/ZgJUy/Kn56VOK0pKsZW1U7iioh5s1qkNS
-	VtS9NI9pieEEQPMqwVJjhjI37A5TaB+7IbGni2Zc82Hv/egstMaBXcgB9splT6pue2wmYrMYUMjr3
-	LoyW8UZoUzX22Z0vzJ5lIGj/OrzZyVVAqK3zGVQ+L1EvwZqKbK5+hwFamXR81i2DZZ7P78JCbtFTE
-	Dyeue/6rGToKXyaa4WQb0i4LtgEQ9+kx6be6fL/N4DamuEcogLQPaXyEfdOu5TyUwyt/g695T3arV
-	0Rx9xsbQ==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	bh=q5MmuDhyyCRvim2U70KrPJRnnsespTvM3TjOrkj7aIY=; b=SldTDo5/yUtBjftHSg1PSCTL9y
+	TIonvTTqfU2VBgHb1L3rxfrlVF4Mpm3EBFQEwd49yDOdColl4C7xZ4W4paMxcfcKCC/tu2pXPYU34
+	z2TzFmu9mxTYFhnzJMLq3uvY1/A4FKUOhbZnSbqyALDPtJ8OFoVm2kp/hYcHh4N7WqXJnk+Mxtn/o
+	S2Uh2ZYfW2S2mV7AMCS3wvskBdag7ua5Ly2YiNQsPqbceuk2bMy4MquLfYm93+TJtOLNlqyNorSuN
+	DYRzPxKNjRk0QVven8qlxMev/IrChvtYJAe8QZ84fekX3KaDIqr64vgm2r9sSqYdd4NfTM/26PW4l
+	kIegvYLQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FHL-00000002EaM-00h6
+	id 1v7FHZ-00000002Ees-1Eni
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Oct 2025 15:43:37 +0000
+	Fri, 10 Oct 2025 15:43:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760111013;
+	s=mimecast20190719; t=1760111028;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=IMfkEjR7bo9/GPZWUZrcsZpIJiAh+KjKI2oJCMzgHeQ=;
-	b=gB7waWE9Brqg6FEheRkUKHwNI2jrbe5sdfh6trNXxKh1UiImUc/XHVjN+t6AMwjUktzDFV
-	fw4KkVkhvH11hR8lSdmvMJpnGqi8Xh03Gaonh8WqsvLhRo3TM6c45iSApHdBvIdJzpIdTU
-	m81B0E1HpIKZTS7y5iQcJLYVnJWl4UE=
+	bh=q5MmuDhyyCRvim2U70KrPJRnnsespTvM3TjOrkj7aIY=;
+	b=Q/8cFWLCkH8CCQl0WQQ5Ta5dulMXZwNnDu/Bb/mumptaAGs2VdXdZNJfW5C2q2vCS7PVIZ
+	UwGXLkltqt6ukbn7FwT2jLvbfaIz97jdtN+0znAUzkLS4yvSt3Qx+ykiSoyIDNOnVjogXS
+	X9B7lWKmJPElHjueDpfyhzFhX1ixxa8=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760111014;
+	s=mimecast20190719; t=1760111028;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=IMfkEjR7bo9/GPZWUZrcsZpIJiAh+KjKI2oJCMzgHeQ=;
-	b=MfTK2FVTn6S2wBQ6tw6fU0VGivopE2NIhauHWVec6VpgxqrfQB5mgC05rPmeWZAhWlOh0f
-	X/+vLRg9dtgbsllb1inv+a78GyHJ8ZEBTBhV/TCWS3yZ5uuFFJfMoM5vBNXBCVByXbC5ze
-	e3k3YadJCnwMEJgfIn4liXwcBZ1g79k=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=q5MmuDhyyCRvim2U70KrPJRnnsespTvM3TjOrkj7aIY=;
+	b=Q/8cFWLCkH8CCQl0WQQ5Ta5dulMXZwNnDu/Bb/mumptaAGs2VdXdZNJfW5C2q2vCS7PVIZ
+	UwGXLkltqt6ukbn7FwT2jLvbfaIz97jdtN+0znAUzkLS4yvSt3Qx+ykiSoyIDNOnVjogXS
+	X9B7lWKmJPElHjueDpfyhzFhX1ixxa8=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-152-vxoZ-j2iObiDj7gk3pSmjA-1; Fri,
- 10 Oct 2025 11:43:29 -0400
-X-MC-Unique: vxoZ-j2iObiDj7gk3pSmjA-1
-X-Mimecast-MFC-AGG-ID: vxoZ-j2iObiDj7gk3pSmjA_1760111002
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-33-G9k2o7cPOD6yyJc_TP2uNg-1; Fri,
+ 10 Oct 2025 11:43:42 -0400
+X-MC-Unique: G9k2o7cPOD6yyJc_TP2uNg-1
+X-Mimecast-MFC-AGG-ID: G9k2o7cPOD6yyJc_TP2uNg_1760111018
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0C62319560AF;
-	Fri, 10 Oct 2025 15:43:22 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D9C4518002C8;
+	Fri, 10 Oct 2025 15:43:37 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.224.29])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DB64E1800578;
-	Fri, 10 Oct 2025 15:43:06 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9BC4218004D8;
+	Fri, 10 Oct 2025 15:43:22 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -88,8 +88,7 @@ To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-arch@vger.kernel.org,
 	linux-trace-kernel@vger.kernel.org
-Cc: Andrew Jones <ajones@ventanamicro.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
+Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Ingo Molnar <mingo@redhat.com>,
 	Borislav Petkov <bp@alien8.de>,
 	Dave Hansen <dave.hansen@linux.intel.com>,
@@ -127,16 +126,16 @@ Cc: Andrew Jones <ajones@ventanamicro.com>,
 	Marcelo Tosatti <mtosatti@redhat.com>,
 	Daniel Wagner <dwagner@suse.de>,
 	Petr Tesarik <ptesarik@suse.com>
-Subject: [PATCH v6 10/29] riscv/paravirt: Mark pv_steal_clock static call as __ro_after_init
-Date: Fri, 10 Oct 2025 17:38:20 +0200
-Message-ID: <20251010153839.151763-11-vschneid@redhat.com>
+Subject: [PATCH v6 11/29] loongarch/paravirt: Mark pv_steal_clock static call as __ro_after_init
+Date: Fri, 10 Oct 2025 17:38:21 +0200
+Message-ID: <20251010153839.151763-12-vschneid@redhat.com>
 In-Reply-To: <20251010153839.151763-1-vschneid@redhat.com>
 References: <20251010153839.151763-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_164335_368590_154E4C1C 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20251010_164349_468998_094CBA8A 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,7 +152,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The static call is only ever updated in:
+The static call is only ever updated in
 
   __init pv_time_init()
   __init xen_time_setup_guest()
@@ -161,16 +160,15 @@ The static call is only ever updated in:
 so mark it appropriately as __ro_after_init.
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/kernel/paravirt.c | 2 +-
+ arch/loongarch/kernel/paravirt.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
-index fa6b0339a65de..dfe8808016fd8 100644
---- a/arch/riscv/kernel/paravirt.c
-+++ b/arch/riscv/kernel/paravirt.c
-@@ -30,7 +30,7 @@ static u64 native_steal_clock(int cpu)
+diff --git a/arch/loongarch/kernel/paravirt.c b/arch/loongarch/kernel/paravirt.c
+index b1b51f920b231..9ec3f5c31fdab 100644
+--- a/arch/loongarch/kernel/paravirt.c
++++ b/arch/loongarch/kernel/paravirt.c
+@@ -19,7 +19,7 @@ static u64 native_steal_clock(int cpu)
  	return 0;
  }
  
@@ -178,7 +176,7 @@ index fa6b0339a65de..dfe8808016fd8 100644
 +DEFINE_STATIC_CALL_RO(pv_steal_clock, native_steal_clock);
  
  static bool steal_acc = true;
- static int __init parse_no_stealacc(char *arg)
+ 
 -- 
 2.51.0
 
