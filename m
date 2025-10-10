@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D4ECCA476
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 15:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F208CCA476
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 15:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sj2LBWtsO1F+4p6ZnMwZoEBKbrirFbmdoyAeqYOjIoM=; b=ZTyT2vEakV5A75
-	Cr5ANkHfD669ymHRNeDax+SaUWpD/RqJQ4Aghi9mbdLznS2AnZqGGQRbJUC4RArB3LAPlL79Fdw5L
-	/LnKb2EZQe7hYfbzHVeuIaknOgdHAg3qWEHaDoXEnnHKdx5qUCUBJlXquZvsORDlFfIHNdn2WvWC9
-	424Q+v/GIVRcnJo7ownlNJYA/il1jSNB96ofoy/PJZvMmKI5igl6YdW6pehW69iRKbjP/Y/u88kTS
-	C6K3NnecRWb8j+Qrf92ml4q6UQckWSLsEpfbIRu92WC9CgO7pKOqeqjz3AADGbsbwD/8951yopi4N
-	ftKlcPQ5tgvFRKKvq3+A==;
+	List-Owner; bh=PbXjHv4Zxziy8N9eXoJg6aFw/WowCESZHrTlluVHyD0=; b=FWUcbF+VE1D2P/
+	ayo51IcoT3Rk1C0ihNXWPgEmJVYtmB1GB8sGxZRk7RdtIAFNy6BXQCs1r6cZBlh4lFjDlZ2b1am4k
+	OJQla5rVyvKgrLnJhwLlQl21YIrMj3fiJLJsP8EFtF0KMHva2Shvdpgl0p9eqP2jAbR4gzYR2m09Y
+	BG1HfOPEg2lmXIhOmQjS0UaWxTu1YCxbjtjuFqWAhyxbvJjgsQfCeqWj8RsipizLumww6thZU05XZ
+	SbhjSNj3iztrqUmUotUEooxP5r527XbKZMmI0ha3paK5g7rUud8wCpGVQMvjI4jjIiE93t5/U/DMO
+	ohQC1LbdAUiF1G9FeXcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FFn-00000008qSk-2HYz;
-	Fri, 10 Oct 2025 15:41:59 +0000
+	id 1v7FG8-00000008qko-3KJN;
+	Fri, 10 Oct 2025 15:42:20 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FFl-00000008qQQ-02Bi
+	id 1v7FG4-00000008qgJ-3iTj
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Oct 2025 15:41:58 +0000
+	Fri, 10 Oct 2025 15:42:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760110916;
+	s=mimecast20190719; t=1760110936;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=W0yyCaz4IBzCuynoK7eJFq8qb8jjHV9aZwpbdt5Xpuk=;
-	b=hJYmnoIkBlzwg3K82CLB/NuwxiIrLriOD2O7X2AUyA4ESqn2i2EwkpKvy0xojFmgov8Z2+
-	K8no6cxDmXsv0q4mz1qHmjCCoa4vmeUPQ4QCtyoibqgs5OVmschfipusBHWJ5JAsMMpaNu
-	2FWPhzIN/w1QsV3tBZSeFMHTribWi1w=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=ypuA88VHIrtZCycTQvLRbp4fTjYOiPnVr/lgVBnkLI0=;
+	b=B3Vr2vS6nAXbVONWpr4UqCL1/GvhQxxh7bOr5jeu6s6g50A9c6+z7hpzix69arCvUeonf2
+	jrTwqdLRapbJeTXFncjEmhiJi0rR0vYChEcC6KEwT+PtqehOVHv7L/EgAHVK6iew9WsbRl
+	ON7etzPM3fshYMFZMo+FxKOUaub8lRU=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-553-qfwoRNR_OtK0oq5rP7Bzjg-1; Fri,
- 10 Oct 2025 11:41:52 -0400
-X-MC-Unique: qfwoRNR_OtK0oq5rP7Bzjg-1
-X-Mimecast-MFC-AGG-ID: qfwoRNR_OtK0oq5rP7Bzjg_1760110907
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-691-7bEM6FEUOcOziUsCCagKng-1; Fri,
+ 10 Oct 2025 11:42:10 -0400
+X-MC-Unique: 7bEM6FEUOcOziUsCCagKng-1
+X-Mimecast-MFC-AGG-ID: 7bEM6FEUOcOziUsCCagKng_1760110923
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 12AFE18002CF;
-	Fri, 10 Oct 2025 15:41:47 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5A5C2195609D;
+	Fri, 10 Oct 2025 15:42:03 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.224.29])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4B87518004D8;
-	Fri, 10 Oct 2025 15:41:31 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9EFB11800576;
+	Fri, 10 Oct 2025 15:41:47 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -63,8 +63,7 @@ To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-arch@vger.kernel.org,
 	linux-trace-kernel@vger.kernel.org
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Ingo Molnar <mingo@redhat.com>,
 	Borislav Petkov <bp@alien8.de>,
@@ -73,9 +72,10 @@ Cc: "Paul E. McKenney" <paulmck@kernel.org>,
 	Andy Lutomirski <luto@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	Arnd Bergmann <arnd@arndb.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
 	Jason Baron <jbaron@akamai.com>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Ard Biesheuvel <ardb@kernel.org>,
@@ -101,16 +101,16 @@ Cc: "Paul E. McKenney" <paulmck@kernel.org>,
 	Marcelo Tosatti <mtosatti@redhat.com>,
 	Daniel Wagner <dwagner@suse.de>,
 	Petr Tesarik <ptesarik@suse.com>
-Subject: [PATCH v6 04/29] rcutorture: Make TREE04 use CONFIG_RCU_DYNTICKS_TORTURE
-Date: Fri, 10 Oct 2025 17:38:14 +0200
-Message-ID: <20251010153839.151763-5-vschneid@redhat.com>
+Subject: [PATCH v6 05/29] jump_label: Add annotations for validating noinstr usage
+Date: Fri, 10 Oct 2025 17:38:15 +0200
+Message-ID: <20251010153839.151763-6-vschneid@redhat.com>
 In-Reply-To: <20251010153839.151763-1-vschneid@redhat.com>
 References: <20251010153839.151763-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_084157_116079_C4335561 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20251010_084217_047863_C8FA21DF 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,30 +127,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We now have an RCU_EXPERT config for testing small-sized RCU dynticks
-counter:  CONFIG_RCU_DYNTICKS_TORTURE.
+From: Josh Poimboeuf <jpoimboe@kernel.org>
 
-Modify scenario TREE04 to exercise to use this config in order to test a
-ridiculously small counter (2 bits).
+Deferring a code patching IPI is unsafe if the patched code is in a
+noinstr region.  In that case the text poke code must trigger an
+immediate IPI to all CPUs, which can rudely interrupt an isolated NO_HZ
+CPU running in userspace.
 
-Link: http://lore.kernel.org/r/4c2cb573-168f-4806-b1d9-164e8276e66a@paulmck-laptop
-Suggested-by: Paul E. McKenney <paulmck@kernel.org>
-Signed-off-by: Valentin Schneider <vschneid@redhat.com>
-Reviewed-by: Paul E. McKenney <paulmck@kernel.org>
-Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
+Some noinstr static branches may really need to be patched at runtime,
+despite the resulting disruption.  Add DEFINE_STATIC_KEY_*_NOINSTR()
+variants for those.  They don't do anything special yet; that will come
+later.
+
+Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/testing/selftests/rcutorture/configs/rcu/TREE04 | 1 +
- 1 file changed, 1 insertion(+)
+ include/linux/jump_label.h | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/tools/testing/selftests/rcutorture/configs/rcu/TREE04 b/tools/testing/selftests/rcutorture/configs/rcu/TREE04
-index dc4985064b3ad..67caf4276bb01 100644
---- a/tools/testing/selftests/rcutorture/configs/rcu/TREE04
-+++ b/tools/testing/selftests/rcutorture/configs/rcu/TREE04
-@@ -16,3 +16,4 @@ CONFIG_DEBUG_OBJECTS_RCU_HEAD=n
- CONFIG_RCU_EXPERT=y
- CONFIG_RCU_EQS_DEBUG=y
- CONFIG_RCU_LAZY=y
-+CONFIG_RCU_DYNTICKS_TORTURE=y
+diff --git a/include/linux/jump_label.h b/include/linux/jump_label.h
+index fdb79dd1ebd8c..c4f6240ff4d95 100644
+--- a/include/linux/jump_label.h
++++ b/include/linux/jump_label.h
+@@ -388,6 +388,23 @@ struct static_key_false {
+ #define DEFINE_STATIC_KEY_FALSE_RO(name)	\
+ 	struct static_key_false name __ro_after_init = STATIC_KEY_FALSE_INIT
+ 
++/*
++ * The _NOINSTR variants are used to tell objtool the static key is allowed to
++ * be used in noinstr code.
++ *
++ * They should almost never be used, as they prevent code patching IPIs from
++ * being deferred, which can be problematic for isolated NOHZ_FULL CPUs running
++ * in pure userspace.
++ *
++ * If using one of these _NOINSTR variants, please add a comment above the
++ * definition with the rationale.
++ */
++#define DEFINE_STATIC_KEY_TRUE_NOINSTR(name)					\
++	DEFINE_STATIC_KEY_TRUE(name)
++
++#define DEFINE_STATIC_KEY_FALSE_NOINSTR(name)					\
++	DEFINE_STATIC_KEY_FALSE(name)
++
+ #define DECLARE_STATIC_KEY_FALSE(name)	\
+ 	extern struct static_key_false name
+ 
 -- 
 2.51.0
 
