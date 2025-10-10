@@ -4,100 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44351CCA476
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 15:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE79CCD185
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Oct 2025 15:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=9eCBgU9dyN7Fnnk7p5aXt84DMg/t2QUtmbUIZC19e68=; b=KkCh4fc/Px0NXwiFgG857Lk3rP
-	Qo7CD1lCfT6Q0wPBDDC85ffu76xBiAAjim3+H4VvO9VNeq7ZPiKi26Tmt7sThLBhqpJ5Ixj/EtuiD
-	8Zh+mvNny/9ErxoruHdcGmp7TDyuKr1TRKtf/FK91i5CMBlKl09/Il966BlqN1BK+2LOmTb0Y+R7+
-	nAo3O/5G1prh315wliSsYSXKgVdLb4Zo+jLVh4qrkqeVwrgfANh4QdirQw3NsxU4hYPFOsGSdMjVN
-	synmoYuh6MLSvUAyu1MMnFow6BWOtxHae6TsMOZQTHMkGx6arg69qcpqr4nuK1kGK4EmN6sNvQLFK
-	1k/IP3tw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VPBS1r1Uk1bGlId476eChJ64WhMjedt0M6yrARJJPuE=; b=c+73/SfYQ94abl
+	Myc44uQkgf4j52vj6VnNyhS0dQXf25Oin8f41ki98qhHu6uP8naRQ/wjkN9MVpQZZEqa5cJS2La7Y
+	tgA8mnWW8ze8I6aL92B73ruLnFWN1gVdmb5O/cNDkNR1ohL5Sm1bQHe+2a/K95fSRBpNWt/zXm3PS
+	JqIE2CZK0J73f+mFzw9RL/PCRxYmSYvQS1KLRMB2BPJg3JUxNUkPfPaUuviWtH7ue3bNHzbBjzkq2
+	oBFWCjXJkop8dL9FgicA3PUTNqddNcEl3J8NJUsW1hGw4ETR9ADz9mNNpGMvQBEc22ukCj44TxiZR
+	UBtp9rRHBA4YkCoe7O5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Ehu-00000008mVM-1PV1;
-	Fri, 10 Oct 2025 15:06:58 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1v7FF0-00000008pvB-2Ivc;
+	Fri, 10 Oct 2025 15:41:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Ehq-00000008mUf-3NcG
+	id 1v7FEv-00000008ptq-2OkR
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Oct 2025 15:06:56 +0000
-Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	Fri, 10 Oct 2025 15:41:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1760110863;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Fyc/O040ioe2LeCss0F0AJFhQQxKnCcKYI13CFwyqX8=;
+	b=Qyig+yMEqRBUuRycBhAxXcy/gdJKczykbyvPvutMqeYSULwPF69XtdotXlrDPNEroPDYTn
+	C0ScRzB0YHXGQhZQwDImPqahBG+X6uh6JlLI/lBMb/QRFSXi4E8eL467ZexLBcq1QJ5pwW
+	gUOyCU0HTZq1Wmbvp5VFBPNywr0e8pk=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-322-pJcu7FHtPGSeetPSPwFhxw-1; Fri,
+ 10 Oct 2025 11:40:58 -0400
+X-MC-Unique: pJcu7FHtPGSeetPSPwFhxw-1
+X-Mimecast-MFC-AGG-ID: pJcu7FHtPGSeetPSPwFhxw_1760110846
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id A8CCE3F8E1
-	for <linux-riscv@lists.infradead.org>; Fri, 10 Oct 2025 15:06:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1760108812;
-	bh=/kPIzBIlnP8+1ybJlUvaj1s1A7p0aMMG8FHoaD+8GCA=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=mwE+XKU4pa8GPxmj5FWdid7worDG6AB6UwYsPv1OqCduJ95hgQ/Qz5ixSRrufpu73
-	 v4mzZBM9QDb5StkCwPtKyEBt9rOywnGnSU2kX37infTYP6LMVFqssKDEukVP/a/nNY
-	 v+ULuledndkETSpGf3HCU7qg3MQNc6X33XNe+fn8IhqbWI2jm/d2K9y13S0vZg4vQd
-	 EuOZTeUEMa5U4jomSx1M14zyUoPn0wFn3rmYtNDfSiUzDmbOSlcR6LYa5i28mmJbd8
-	 BnKjsDNptsxepQXnPAf0R2HEfk3W18R+dZIoe2jdBmSaNnFsAyXirl/g8c7+YlhIuA
-	 OaY4bGttBUWyw2+cfScle7aGMkvNVSmMaBRlSR0Lg1kZ5IT4xltXbgjotXRTP3HZ2f
-	 336eevoDpUZ8hDDImH3QsZ4m2YO61p6At3gde2tWBF9Iz1un4iNC9GHVqFNt8z9z1Q
-	 FvU4FAwPi1JpDVuMsxCAWm7cyCoPp4S6WgBEO4QkaXMCHPqWJrzXL68EaOfqgHGRjm
-	 TttcyPfDEx2qo/3llK9VUwN8WYwr6rESCux2bLvGVJmulEQplminYMbm5hYFAFPq6D
-	 rZB6ASVGA6FKDRW/POBWYjk9tzrmkPcFzSHYSTZEpwPnysw7Nf6YBla08mwNiQrO8H
-	 9NWmuvaxpcPU9/TBibHIGxX8=
-Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-59e1b6766c9so4923446137.1
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Oct 2025 08:06:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760108811; x=1760713611;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/kPIzBIlnP8+1ybJlUvaj1s1A7p0aMMG8FHoaD+8GCA=;
-        b=CdwECksDN5s9cUoYhiBbTIC9+zCvUS6U9lbDsulwY6OXnScK2HmpdZfoaEtG/+dRfN
-         uhmJAqIARaifbSGHEi6U0MyN0oo+qldFrj0ZNm52WlPfo0gWber1pxJoxLFfIKMVo7j4
-         LEZNT5jU+Gavf8ZzszHnMYa0Z2ue/eBYRReNmHwXUk5P2P0QU9o1QmfkBJ8fqsS0hqh5
-         8XQXcuykUnaymAzeYV0raelCipw+ZkU/qhBSghBah2gD72o/9cAqiX4eU2WLDEP9Ji/D
-         9gIlMOVgfq3o0bQ55tv7Wy2w2PifzUUilYALTNXPrfAb9KbYe9fUU7K1Mi9F45YjKaGo
-         Xttw==
-X-Forwarded-Encrypted: i=1; AJvYcCVI9WUvwsIPUSW4maL6UcwWYLwtcEMG6lrqfeuKFhQSxmV6weEkFRiJBJN9u0iNKciJ+3+VknvhGpdVpw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdswCfNNpgyRGY8gkKwFNI0Te99daNs0KoEoD8LFcZq3GtdUjc
-	AAh/v0a6ImxXAPHZavbUv7Qoiqch7fDz6MPnWnYRrrLRJYAtw02khlDtElFUsDWXGX1bSCL2u3k
-	qCyPjNqhYrip/a6XPdE99mXvTVlEHXkY/RGPxkHa34BLC+sa15jEO/CjKdZrZu4VdITR1MIaJNE
-	vImfqzWzRsSapBDvT7v24IQnnKsz6KJsY53dHnvadZtqSNKJIWqRtTB3McXdXm
-X-Gm-Gg: ASbGncvC+qe9On+He0ZkcvtJyFg+LRJCdLlzj0z4meCuR5yk/1Ym6xzp3CEvp4qwZvV
-	9N3mipxNwTlomAm/kT2+pG3iMYK+7C8byYfNIB+8J3EGBzvoZs5n+F9ws1oB86oTaWbmfoN6ZZo
-	Q757UrK/NE6AEeXgKzoh0=
-X-Received: by 2002:a05:6102:161f:b0:5a8:4256:1f14 with SMTP id ada2fe7eead31-5d5e23b356cmr5382836137.35.1760108811242;
-        Fri, 10 Oct 2025 08:06:51 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEGGxqoC9NIMUGHrVAplkcsAF8m0rf0JwIpMe7PyyU6GFTWwXti7Eg/qNqaS38xQ8bVTw0CwzCSy2BbFGw+jpI=
-X-Received: by 2002:a05:6102:161f:b0:5a8:4256:1f14 with SMTP id
- ada2fe7eead31-5d5e23b356cmr5382761137.35.1760108810640; Fri, 10 Oct 2025
- 08:06:50 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 10 Oct 2025 10:06:50 -0500
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 10 Oct 2025 10:06:50 -0500
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20251009015839.3460231-17-samuel.holland@sifive.com>
-References: <20251009015839.3460231-1-samuel.holland@sifive.com> <20251009015839.3460231-17-samuel.holland@sifive.com>
-Mime-Version: 1.0
-Date: Fri, 10 Oct 2025 10:06:50 -0500
-X-Gm-Features: AS18NWC85wr5LPFdQ30yGTpH1oaZISDOQtHh6ERozqIwMWLKZ5iEv8WG8yTbPdI
-Message-ID: <CAJM55Z9kRpc53s3Kip=U-CcDxAX0UZD5AbTBy_owU8xPEYH5MA@mail.gmail.com>
-Subject: Re: [PATCH v2 16/18] riscv: mm: Use physical memory aliases to apply PMAs
-To: Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Andrew Morton <akpm@linux-foundation.org>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 71FE31800576;
+	Fri, 10 Oct 2025 15:40:44 +0000 (UTC)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.224.29])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CD83E18004D8;
+	Fri, 10 Oct 2025 15:40:25 +0000 (UTC)
+From: Valentin Schneider <vschneid@redhat.com>
+To: linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	rcu@vger.kernel.org,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>,
+	Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>,
+	Petr Tesarik <ptesarik@suse.com>
+Subject: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a user->kernel transition
+Date: Fri, 10 Oct 2025 17:38:10 +0200
+Message-ID: <20251010153839.151763-1-vschneid@redhat.com>
+MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_080655_234501_5E56F3AB 
-X-CRM114-Status: GOOD (  37.35  )
+X-CRM114-CacheID: sfid-20251010_084105_755558_1CE8201E 
+X-CRM114-Status: GOOD (  28.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,548 +124,370 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Samuel Holland wrote:
-> On some RISC-V platforms, RAM is mapped simultaneously to multiple
-> physical address ranges, with each alias having a different set of
-> statically-determined Physical Memory Attributes (PMAs). Software alters
-> the PMAs for a particular page at runtime by selecting a PFN from among
-> the aliases of that page's physical address.
->
-> Implement this by transforming the PFN when writing page tables. If the
-> memory type field is nonzero, replace the PFN with the corresponding PFN
-> from the noncached alias. Similarly, when reading from the page tables,
-> if the PFN is found in a noncached alias, replace it with the PFN from
-> the normal memory alias, and insert _PAGE_NOCACHE.
->
-> The rest of the kernel sees only PFNs from normal memory and
-> _PAGE_MTMASK values as if Svpbmt was implemented.
->
-> Memory alias pairs are determined from the devicetree. A Linux custom
-> ISA extension is added to trigger the alternative patching, as
-> alternatives must be linked to an extension or a vendor erratum, and
-> this behavior is not associated with any particular processor vendor.
->
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
->
-> Changes in v2:
->  - Put new code behind a new Kconfig option RISCV_ISA_XLINUXMEMALIAS
->  - Document the calling convention of riscv_fixup/unfix_memory_alias()
->  - Do not transform !pte_present() (e.g. swap) PTEs
->  - Export riscv_fixup/unfix_memory_alias() to fix module compilation
->
->  arch/riscv/Kconfig                    |  16 ++++
->  arch/riscv/include/asm/hwcap.h        |   1 +
->  arch/riscv/include/asm/pgtable-64.h   |  44 +++++++--
->  arch/riscv/include/asm/pgtable-bits.h |   5 +-
->  arch/riscv/include/asm/pgtable.h      |   8 ++
->  arch/riscv/kernel/cpufeature.c        |   6 ++
->  arch/riscv/kernel/setup.c             |   1 +
->  arch/riscv/mm/Makefile                |   1 +
->  arch/riscv/mm/memory-alias.S          | 123 ++++++++++++++++++++++++++
->  arch/riscv/mm/pgtable.c               |  91 +++++++++++++++++++
->  arch/riscv/mm/ptdump.c                |   6 +-
->  11 files changed, 290 insertions(+), 12 deletions(-)
->  create mode 100644 arch/riscv/mm/memory-alias.S
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 51dcd8eaa2435..72c60fa94c0d7 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -890,6 +890,22 @@ config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
->  	  versions of clang and GCC to be passed to GAS, which has the same result
->  	  as passing zicsr and zifencei to -march.
->
-> +config RISCV_ISA_XLINUXMEMALIAS
-> +	bool "Use physical memory aliases to emulate page-based memory types"
-> +	depends on 64BIT && MMU
-> +	depends on RISCV_ALTERNATIVE
-> +	default y
-> +	help
-> +	  Add support for the kernel to alter the Physical Memory Attributes
-> +	  (PMAs) of a page at runtime by selecting from among the aliases of
-> +	  that page in the physical address space.
-> +
-> +	  On systems where physical memory aliases are present, this option
-> +	  is required in order to mark pages as non-cacheable for use with
-> +	  non-coherent DMA devices.
-> +
-> +	  If you don't know what to do here, say Y.
-> +
->  config FPU
->  	bool "FPU support"
->  	default y
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index affd63e11b0a3..6c6349fe15a77 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -107,6 +107,7 @@
->  #define RISCV_ISA_EXT_ZALRSC		98
->  #define RISCV_ISA_EXT_ZICBOP		99
->
-> +#define RISCV_ISA_EXT_XLINUXMEMALIAS	126
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
->
->  #define RISCV_ISA_EXT_MAX		128
-> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> index 60c2615e46724..34b6f4ef3aad8 100644
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -95,7 +95,8 @@ enum napot_cont_order {
->  #define HUGE_MAX_HSTATE		2
->  #endif
->
-> -#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
-> +#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_RISCV_ISA_XLINUXMEMALIAS) || \
-> +	defined(CONFIG_ERRATA_THEAD_MAE)
->
->  /*
->   * ALT_FIXUP_MT
-> @@ -105,6 +106,9 @@ enum napot_cont_order {
->   *
->   * On systems that support Svpbmt, the memory type bits are left alone.
->   *
-> + * On systems that support XLinuxMemalias, PTEs with a nonzero memory type have
-> + * the memory type bits cleared and the PFN replaced with the matching alias.
-> + *
->   * On systems that support XTheadMae, a Svpbmt memory type is transformed
->   * into the corresponding XTheadMae memory type.
->   *
-> @@ -127,22 +131,35 @@ enum napot_cont_order {
->   */
->
->  #define ALT_FIXUP_MT(_val)								\
-> -	asm(ALTERNATIVE_2("addi	t0, zero, 0x3\n\t"					\
-> +	asm(ALTERNATIVE_3("addi	t0, zero, 0x3\n\t"					\
->  			  "slli	t0, t0, 61\n\t"						\
->  			  "not	t0, t0\n\t"						\
->  			  "and	%0, %0, t0\n\t"						\
->  			  "nop\n\t"							\
->  			  "nop\n\t"							\
-> +			  "nop\n\t"							\
->  			  "nop",							\
-> -			  __nops(7),							\
-> +			  __nops(8),							\
->  			  0, RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,		\
-> +			  "addi	t0, zero, 0x3\n\t"					\
-> +			  "slli	t0, t0, 61\n\t"						\
-> +			  "and	t0, %0, t0\n\t"						\
-> +			  "beqz	t0, 2f\n\t"						\
-> +			  "xor	t1, %0, t0\n\t"						\
-> +			  "1: auipc t0, %%pcrel_hi(riscv_fixup_memory_alias)\n\t"	\
-> +			  "jalr	t0, t0, %%pcrel_lo(1b)\n\t"				\
-> +			  "mv	%0, t1\n"						\
-> +			  "2:",								\
-> +			  0, RISCV_ISA_EXT_XLINUXMEMALIAS,				\
-> +				CONFIG_RISCV_ISA_XLINUXMEMALIAS,			\
->  			  "srli	t0, %0, 59\n\t"						\
->  			  "seqz	t1, t0\n\t"						\
->  			  "slli	t1, t1, 1\n\t"						\
->  			  "or	t0, t0, t1\n\t"						\
->  			  "xori	t0, t0, 0x5\n\t"					\
->  			  "slli	t0, t0, 60\n\t"						\
-> -			  "xor	%0, %0, t0",						\
-> +			  "xor	%0, %0, t0\n\t"						\
-> +			  "nop",							\
->  			  THEAD_VENDOR_ID, ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)	\
->  			  : "+r" (_val) :: "t0", "t1")
->
-> @@ -150,9 +167,9 @@ enum napot_cont_order {
->
->  #define ALT_FIXUP_MT(_val)
->
-> -#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_ERRATA_THEAD_MAE */
-> +#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_RISCV_ISA_XLINUXMEMALIAS || CONFIG_ERRATA_THEAD_MAE */
->
-> -#if defined(CONFIG_ERRATA_THEAD_MAE)
-> +#if defined(CONFIG_RISCV_ISA_XLINUXMEMALIAS) || defined(CONFIG_ERRATA_THEAD_MAE)
->
->  /*
->   * ALT_UNFIX_MT
-> @@ -160,6 +177,9 @@ enum napot_cont_order {
->   * On systems that support Svpbmt, or do not support any form of page-based
->   * memory type configuration, the memory type bits are left alone.
->   *
-> + * On systems that support XLinuxMemalias, PTEs with an aliased PFN have the
-> + * matching memory type set and the PFN replaced with the normal memory alias.
-> + *
->   * On systems that support XTheadMae, the XTheadMae memory type (or zero) is
->   * transformed back into the corresponding Svpbmt memory type.
->   *
-> @@ -170,7 +190,15 @@ enum napot_cont_order {
->   */
->
->  #define ALT_UNFIX_MT(_val)								\
-> -	asm(ALTERNATIVE(__nops(6),							\
-> +	asm(ALTERNATIVE_2(__nops(6),							\
-> +			  "mv	t1, %0\n\t"						\
-> +			  "1: auipc t0, %%pcrel_hi(riscv_unfix_memory_alias)\n\t"	\
-> +			  "jalr	t0, t0, %%pcrel_lo(1b)\n\t"				\
-> +			  "mv	%0, t1\n\t"						\
-> +			  "nop\n\t"							\
-> +			  "nop",							\
-> +			  0, RISCV_ISA_EXT_XLINUXMEMALIAS,				\
-> +				CONFIG_RISCV_ISA_XLINUXMEMALIAS,			\
->  			  "srli	t0, %0, 60\n\t"						\
->  			  "andi	t0, t0, 0xd\n\t"					\
->  			  "srli	t1, t0, 1\n\t"						\
-> @@ -234,7 +262,7 @@ static inline pgd_t pgdp_get(pgd_t *pgdp)
->
->  #define ALT_UNFIX_MT(_val)
->
-> -#endif /* CONFIG_ERRATA_THEAD_MAE */
-> +#endif /* CONFIG_RISCV_ISA_XLINUXMEMALIAS || CONFIG_ERRATA_THEAD_MAE */
->
->  static inline int pud_present(pud_t pud)
->  {
-> diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-> index 18c50cbd78bf5..4586917b2d985 100644
-> --- a/arch/riscv/include/asm/pgtable-bits.h
-> +++ b/arch/riscv/include/asm/pgtable-bits.h
-> @@ -38,7 +38,8 @@
->  #define _PAGE_PFN_MASK		GENMASK(31, 10)
->  #endif /* CONFIG_64BIT */
->
-> -#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
-> +#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_RISCV_ISA_XLINUXMEMALIAS) || \
-> +	defined(CONFIG_ERRATA_THEAD_MAE)
->  /*
->   * [62:61] Svpbmt Memory Type definitions:
->   *
-> @@ -54,7 +55,7 @@
->  #define _PAGE_NOCACHE		0
->  #define _PAGE_IO		0
->  #define _PAGE_MTMASK		0
-> -#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_ERRATA_THEAD_MAE */
-> +#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_RISCV_ISA_XLINUXMEMALIAS || CONFIG_ERRATA_THEAD_MAE */
->
->  #ifdef CONFIG_RISCV_ISA_SVNAPOT
->  #define _PAGE_NAPOT_SHIFT	63
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 03b5623f9107c..f96b0bd043c6d 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -1110,6 +1110,14 @@ extern u64 satp_mode;
->  void paging_init(void);
->  void misc_mem_init(void);
->
-> +#ifdef CONFIG_RISCV_ISA_XLINUXMEMALIAS
-> +bool __init riscv_have_memory_alias(void);
-> +void __init riscv_init_memory_alias(void);
-> +#else
-> +static inline bool riscv_have_memory_alias(void) { return false; }
-> +static inline void riscv_init_memory_alias(void) {}
-> +#endif /* CONFIG_RISCV_ISA_XLINUXMEMALIAS */
-> +
->  /*
->   * ZERO_PAGE is a global shared page that is always zero,
->   * used for zero-mapped memory areas, etc.
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 743d53415572e..1449c43eab726 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -1093,6 +1093,12 @@ void __init riscv_fill_hwcap(void)
->  		riscv_v_setup_vsize();
->  	}
->
-> +	/* Vendor-independent alternatives require a bit in the ISA bitmap. */
-> +	if (riscv_have_memory_alias()) {
-> +		set_bit(RISCV_ISA_EXT_XLINUXMEMALIAS, riscv_isa);
-> +		pr_info("Using physical memory alias for noncached mappings\n");
-> +	}
-> +
->  	memset(print_str, 0, sizeof(print_str));
->  	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
->  		if (riscv_isa[0] & BIT_MASK(i))
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index f90cce7a3acea..00569c4fef494 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -353,6 +353,7 @@ void __init setup_arch(char **cmdline_p)
->  	}
->
->  	riscv_init_cbo_blocksizes();
-> +	riscv_init_memory_alias();
->  	riscv_fill_hwcap();
->  	apply_boot_alternatives();
->  	init_rt_signal_env();
-> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-> index b916a68d324ad..b4d757226efbf 100644
-> --- a/arch/riscv/mm/Makefile
-> +++ b/arch/riscv/mm/Makefile
-> @@ -33,3 +33,4 @@ endif
->  obj-$(CONFIG_DEBUG_VIRTUAL) += physaddr.o
->  obj-$(CONFIG_RISCV_DMA_NONCOHERENT) += dma-noncoherent.o
->  obj-$(CONFIG_RISCV_NONSTANDARD_CACHE_OPS) += cache-ops.o
-> +obj-$(CONFIG_RISCV_ISA_XLINUXMEMALIAS) += memory-alias.o
-> diff --git a/arch/riscv/mm/memory-alias.S b/arch/riscv/mm/memory-alias.S
-> new file mode 100644
-> index 0000000000000..e37b83d115911
-> --- /dev/null
-> +++ b/arch/riscv/mm/memory-alias.S
-> @@ -0,0 +1,123 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2024 SiFive
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/linkage.h>
-> +#include <asm/asm.h>
-> +#include <asm/pgtable.h>
-> +
-> +#define CACHED_BASE_OFFSET	(0 * RISCV_SZPTR)
-> +#define NONCACHED_BASE_OFFSET	(1 * RISCV_SZPTR)
-> +#define SIZE_OFFSET		(2 * RISCV_SZPTR)
-> +
-> +#define SIZEOF_PAIR		(4 * RISCV_SZPTR)
-> +
-> +/*
-> + * Called from ALT_FIXUP_MT with a non-standard calling convention:
-> + *	t0 => return address
-> + *	t1 => page table entry
-> + *	all other registers are callee-saved
-> + */
-> +SYM_CODE_START(riscv_fixup_memory_alias)
-> +	addi	sp, sp, -4 * SZREG
-> +	REG_S	t2, (0 * SZREG)(sp)
-> +	REG_S	t3, (1 * SZREG)(sp)
-> +	REG_S	t4, (2 * SZREG)(sp)
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +	REG_S	t5, (3 * SZREG)(sp)
-> +
-> +	/* Save and mask off _PAGE_NAPOT if present. */
-> +	li	t5, _PAGE_NAPOT
-> +	and	t5, t1, t5
-> +	xor	t1, t1, t5
-> +#endif
-> +
-> +	/* Ignore !pte_present() PTEs, including swap PTEs. */
-> +	andi	t2, t1, (_PAGE_PRESENT | _PAGE_PROT_NONE)
-> +	beqz	t2, .Lfixup_end
-> +
-> +	lla	t2, memory_alias_pairs
-> +.Lfixup_loop:
-> +	REG_L	t3, SIZE_OFFSET(t2)
-> +	beqz	t3, .Lfixup_end
-> +	REG_L	t4, CACHED_BASE_OFFSET(t2)
-> +	sub	t4, t1, t4
-> +	bltu	t4, t3, .Lfixup_found
-> +	addi	t2, t2, SIZEOF_PAIR
-> +	j	.Lfixup_loop
-> +
-> +.Lfixup_found:
-> +	REG_L	t3, NONCACHED_BASE_OFFSET(t2)
-> +	add	t1, t3, t4
-> +
-> +.Lfixup_end:
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +	xor	t1, t1, t5
-> +
-> +	REG_L	t5, (3 * SZREG)(sp)
-> +#endif
-> +	REG_L	t4, (2 * SZREG)(sp)
-> +	REG_L	t3, (1 * SZREG)(sp)
-> +	REG_L	t2, (0 * SZREG)(sp)
-> +	addi	sp, sp, 4 * SZREG
-> +	jr	t0
-> +SYM_CODE_END(riscv_fixup_memory_alias)
-> +EXPORT_SYMBOL(riscv_fixup_memory_alias)
-> +
-> +/*
-> + * Called from ALT_UNFIX_MT with a non-standard calling convention:
-> + *	t0 => return address
-> + *	t1 => page table entry
-> + *	all other registers are callee-saved
-> + */
-> +SYM_CODE_START(riscv_unfix_memory_alias)
-> +	addi	sp, sp, -4 * SZREG
-> +	REG_S	t2, (0 * SZREG)(sp)
-> +	REG_S	t3, (1 * SZREG)(sp)
-> +	REG_S	t4, (2 * SZREG)(sp)
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +	REG_S	t5, (3 * SZREG)(sp)
-> +
-> +	/* Save and mask off _PAGE_NAPOT if present. */
-> +	li	t5, _PAGE_NAPOT
-> +	and	t5, t1, t5
-> +	xor	t1, t1, t5
-> +#endif
-> +
-> +	/* Ignore !pte_present() PTEs, including swap PTEs. */
-> +	andi	t2, t1, (_PAGE_PRESENT | _PAGE_PROT_NONE)
-> +	beqz	t2, .Lunfix_end
-> +
-> +	lla	t2, memory_alias_pairs
-> +.Lunfix_loop:
-> +	REG_L	t3, SIZE_OFFSET(t2)
-> +	beqz	t3, .Lunfix_end
-> +	REG_L	t4, NONCACHED_BASE_OFFSET(t2)
-> +	sub	t4, t1, t4
-> +	bltu	t4, t3, .Lunfix_found
-> +	addi	t2, t2, SIZEOF_PAIR
-> +	j	.Lunfix_loop
-> +
-> +.Lunfix_found:
-> +	REG_L	t3, CACHED_BASE_OFFSET(t2)
-> +	add	t1, t3, t4
-> +
-> +	/* PFN was in the noncached alias, so mark it as such. */
-> +	li	t2, _PAGE_NOCACHE
-> +	or	t1, t1, t2
-> +
-> +.Lunfix_end:
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +	xor	t1, t1, t5
-> +
-> +	REG_L	t5, (3 * SZREG)(sp)
-> +#endif
-> +	REG_L	t4, (2 * SZREG)(sp)
-> +	REG_L	t3, (1 * SZREG)(sp)
-> +	REG_L	t2, (0 * SZREG)(sp)
-> +	addi	sp, sp, 4 * SZREG
-> +	jr	t0
-> +SYM_CODE_END(riscv_unfix_memory_alias)
-> +EXPORT_SYMBOL(riscv_unfix_memory_alias)
-> diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-> index 604744d6924f5..de79a2dc9926f 100644
-> --- a/arch/riscv/mm/pgtable.c
-> +++ b/arch/riscv/mm/pgtable.c
-> @@ -1,8 +1,12 @@
->  // SPDX-License-Identifier: GPL-2.0
->
->  #include <asm/pgalloc.h>
-> +#include <dt-bindings/riscv/physical-memory.h>
-> +#include <linux/bitfield.h>
->  #include <linux/gfp.h>
->  #include <linux/kernel.h>
-> +#include <linux/memblock.h>
-> +#include <linux/of.h>
->  #include <linux/pgtable.h>
->
->  int ptep_set_access_flags(struct vm_area_struct *vma,
-> @@ -160,3 +164,90 @@ pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
->  	return old;
->  }
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
-> +
-> +#ifdef CONFIG_RISCV_ISA_XLINUXMEMALIAS
-> +struct memory_alias_pair {
-> +	unsigned long cached_base;
-> +	unsigned long noncached_base;
-> +	unsigned long size;
-> +	int index;
-> +} memory_alias_pairs[5];
-> +
-> +bool __init riscv_have_memory_alias(void)
-> +{
-> +	return memory_alias_pairs[0].size;
-> +}
-> +
-> +void __init riscv_init_memory_alias(void)
-> +{
-> +	int na = of_n_addr_cells(of_root);
-> +	int ns = of_n_size_cells(of_root);
-> +	int nc = na + ns + 2;
-> +	const __be32 *prop;
-> +	int pairs = 0;
-> +	int len;
-> +
-> +	prop = of_get_property(of_root, "riscv,physical-memory-regions", &len);
-> +	if (!prop)
-> +		return;
-> +
-> +	len /= sizeof(__be32);
-> +	for (int i = 0; len >= nc; i++, prop += nc, len -= nc) {
-> +		unsigned long base = of_read_ulong(prop, na);
-> +		unsigned long size = of_read_ulong(prop + na, ns);
-> +		unsigned long flags = be32_to_cpup(prop + na + ns);
-> +		struct memory_alias_pair *pair;
-> +		int alias;
-> +
-> +		/* We only care about non-coherent memory. */
-> +		if ((flags & PMA_ORDER_MASK) != PMA_ORDER_MEMORY || (flags & PMA_COHERENT))
-> +			continue;
-> +
-> +		/* The cacheable alias must be usable memory. */
-> +		if ((flags & PMA_CACHEABLE) &&
-> +		    !memblock_overlaps_region(&memblock.memory, base, size))
-> +			continue;
-> +
-> +		alias = FIELD_GET(PMR_ALIAS_MASK, flags);
-> +		if (alias) {
-> +			pair = NULL;
-> +			for (int j = 0; j < pairs; j++) {
-> +				if (alias == memory_alias_pairs[j].index) {
-> +					pair = &memory_alias_pairs[j];
-> +					break;
-> +				}
-> +			}
-> +			if (!pair)
-> +				continue;
-> +		} else {
-> +			/* Leave room for the null sentinel. */
-> +			if (pairs == ARRAY_SIZE(memory_alias_pairs) - 1)
-> +				continue;
-> +			pair = &memory_alias_pairs[pairs++];
-> +			pair->index = i;
+Context
+=======
 
-I think this needs to be pair->index = i + 1, so PMA_ALIAS(1) can refer to the
-first entry (i = 0).
+We've observed within Red Hat that isolated, NOHZ_FULL CPUs running a
+pure-userspace application get regularly interrupted by IPIs sent from
+housekeeping CPUs. Those IPIs are caused by activity on the housekeeping CPUs
+leading to various on_each_cpu() calls, e.g.:
 
-> +		}
-> +
-> +		/* Align the address and size with the page table PFN field. */
-> +		base >>= PAGE_SHIFT - _PAGE_PFN_SHIFT;
-> +		size >>= PAGE_SHIFT - _PAGE_PFN_SHIFT;
-> +
-> +		if (flags & PMA_CACHEABLE)
-> +			pair->cached_base = base;
-> +		else
-> +			pair->noncached_base = base;
-> +		pair->size = min_not_zero(pair->size, size);
-> +	}
-> +
-> +	/* Remove any unmatched pairs. */
-> +	for (int i = 0; i < pairs; i++) {
-> +		struct memory_alias_pair *pair = &memory_alias_pairs[i];
-> +
-> +		if (pair->cached_base && pair->noncached_base && pair->size)
-> +			continue;
-> +
-> +		for (int j = i + 1; j < pairs; j++)
-> +			memory_alias_pairs[j - 1] = memory_alias_pairs[j];
-> +		memory_alias_pairs[--pairs].size = 0;
-> +	}
-> +}
-> +#endif /* CONFIG_RISCV_ISA_XLINUXMEMALIAS */
-> diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-> index ed57926ecd585..ba5f33a2c2178 100644
-> --- a/arch/riscv/mm/ptdump.c
-> +++ b/arch/riscv/mm/ptdump.c
-> @@ -140,7 +140,8 @@ static const struct prot_bits pte_bits[] = {
->  		.clear = ".",
->  	}, {
->  #endif
-> -#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
-> +#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_RISCV_ISA_XLINUXMEMALIAS) || \
-> +	defined(CONFIG_ERRATA_THEAD_MAE)
->  		.mask = _PAGE_MTMASK,
->  		.set = "MT(%s)",
->  		.clear = "  ..  ",
-> @@ -216,7 +217,8 @@ static void dump_prot(struct pg_state *st)
->  		if (val) {
->  			if (pte_bits[i].mask == _PAGE_SOFT)
->  				sprintf(s, pte_bits[i].set, val >> 8);
-> -#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
-> +#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_RISCV_ISA_XLINUXMEMALIAS) || \
-> +	defined(CONFIG_ERRATA_THEAD_MAE)
->  			else if (pte_bits[i].mask == _PAGE_MTMASK) {
->  				if (val == _PAGE_NOCACHE)
->  					sprintf(s, pte_bits[i].set, "NC");
-> --
-> 2.47.2
->
+  64359.052209596    NetworkManager       0    1405     smp_call_function_many_cond (cpu=0, func=do_kernel_range_flush)
+    smp_call_function_many_cond+0x1
+    smp_call_function+0x39
+    on_each_cpu+0x2a
+    flush_tlb_kernel_range+0x7b
+    __purge_vmap_area_lazy+0x70
+    _vm_unmap_aliases.part.42+0xdf
+    change_page_attr_set_clr+0x16a
+    set_memory_ro+0x26
+    bpf_int_jit_compile+0x2f9
+    bpf_prog_select_runtime+0xc6
+    bpf_prepare_filter+0x523
+    sk_attach_filter+0x13
+    sock_setsockopt+0x92c
+    __sys_setsockopt+0x16a
+    __x64_sys_setsockopt+0x20
+    do_syscall_64+0x87
+    entry_SYSCALL_64_after_hwframe+0x65
+
+The heart of this series is the thought that while we cannot remove NOHZ_FULL
+CPUs from the list of CPUs targeted by these IPIs, they may not have to execute
+the callbacks immediately. Anything that only affects kernelspace can wait
+until the next user->kernel transition, providing it can be executed "early
+enough" in the entry code.
+
+The original implementation is from Peter [1]. Nicolas then added kernel TLB
+invalidation deferral to that [2], and I picked it up from there.
+
+Deferral approach
+=================
+
+Storing each and every callback, like a secondary call_single_queue turned out
+to be a no-go: the whole point of deferral is to keep NOHZ_FULL CPUs in
+userspace for as long as possible - no signal of any form would be sent when
+deferring an IPI. This means that any form of queuing for deferred callbacks
+would end up as a convoluted memory leak.
+
+Deferred IPIs must thus be coalesced, which this series achieves by assigning
+IPIs a "type" and having a mapping of IPI type to callback, leveraged upon
+kernel entry.
+
+Kernel entry vs execution of the deferred operation
+===================================================
+
+This is what I've referred to as the "Danger Zone" during my LPC24 talk [4].
+
+There is a non-zero length of code that is executed upon kernel entry before the
+deferred operation can be itself executed (before we start getting into
+context_tracking.c proper), i.e.:
+
+  idtentry_func_foo()                <--- we're in the kernel
+    irqentry_enter()
+      irqentry_enter_from_user_mode()
+	enter_from_user_mode()
+	  [...]
+	    ct_kernel_enter_state()
+	      ct_work_flush()        <--- deferred operation is executed here
+
+This means one must take extra care to what can happen in the early entry code,
+and that <bad things> cannot happen. For instance, we really don't want to hit
+instructions that have been modified by a remote text_poke() while we're on our
+way to execute a deferred sync_core(). Patches doing the actual deferral have
+more detail on this.
+
+The annoying one: TLB flush deferral
+====================================
+
+While leveraging the context_tracking subsystem works for deferring things like
+kernel text synchronization, it falls apart when it comes to kernel range TLB
+flushes. Consider the following execution flow:
+
+  <userspace>
+  
+  !interrupt!
+
+  SWITCH_TO_KERNEL_CR3        <--- vmalloc range becomes accessible
+
+  idtentry_func_foo()
+    irqentry_enter()
+      irqentry_enter_from_user_mode()
+	enter_from_user_mode()
+	  [...]
+	    ct_kernel_enter_state()
+	      ct_work_flush() <--- deferred flush would be done here
+
+
+Since there is no sane way to assert no stale entry is accessed during
+kernel entry, any code executed between SWITCH_TO_KERNEL_CR3 and
+ct_work_flush() is at risk of accessing a stale entry.
+
+Dave had suggested hacking up something within SWITCH_TO_KERNEL_CR3 itself,
+which is what has been implemented in the new RFC patches.
+
+How bad is it?
+==============
+
+Code
+++++
+
+I'm happy that the COALESCE_TLBI asm code fits in ~half a screen,
+although it open-codes native_write_cr4() without the pinning logic.
+
+I hate the kernel_cr3_loaded signal; it's a kludgy context_tracking.state
+duplicate but I need *some* sort of signal to drive the TLB flush deferral and
+the context_tracking.state one is set too late in kernel entry. I couldn't
+find any fitting existing signals for this.
+
+I'm also unhappy to introduce two different IPI deferral mechanisms. I tried
+shoving the text_poke_sync() in KERNEL_SWITCH_CR3, but it got ugly(er) really
+fast. 
+
+Performance
++++++++++++
+
+Tested by measuring the duration of 10M `syscall(SYS_getpid)` calls on
+NOHZ_FULL CPUs, with rteval (hackbench + kernel compilation) running on the
+housekeeping CPUs:
+
+o Xeon E5-2699:   base avg 770ns,  patched avg 1340ns (74% increase)
+o Xeon E7-8890:   base avg 1040ns, patched avg 1320ns (27% increase)
+o Xeon Gold 6248: base avg 270ns,  patched avg 273ns  (.1% increase)
+
+I don't get that last one, I did spend a ridiculous amount of time making sure
+the flush was being executed, and AFAICT yes, it was. What I take out of this is
+that it can be a pretty massive increase in the entry overhead (for NOHZ_FULL
+CPUs), and that's something I want to hear thoughts on
+
+Noise
++++++
+
+Xeon E5-2699 system with SMToff, NOHZ_FULL, isolated CPUs.
+RHEL10 userspace.
+
+Workload is using rteval (kernel compilation + hackbench) on housekeeping CPUs
+and a dummy stay-in-userspace loop on the isolated CPUs. The main invocation is:
+
+$ trace-cmd record -e "ipi_send_cpumask" -f "cpumask & CPUS{$ISOL_CPUS}" \
+	           -e "ipi_send_cpu"     -f "cpu & CPUS{$ISOL_CPUS}" \
+		   rteval --onlyload --loads-cpulist=$HK_CPUS \
+		   --hackbench-runlowmem=True --duration=$DURATION
+
+This only records IPIs sent to isolated CPUs, so any event there is interference
+(with a bit of fuzz at the start/end of the workload when spawning the
+processes). All tests were done with a duration of 6 hours.
+
+v6.17
+o ~5400 IPIs received, so about ~200 interfering IPI per isolated CPU
+o About one interfering IPI just shy of every 2 minutes
+
+v6.17 + patches
+o Zilch!
+
+Patches
+=======
+
+o Patches 1-2 are standalone objtool cleanups.
+
+o Patches 3-4 add an RCU testing feature.
+
+o Patches 5-6 add infrastructure for annotating static keys and static calls
+  that may be used in noinstr code (courtesy of Josh).
+o Patches 7-20 use said annotations on relevant keys / calls.
+o Patch 21 enforces proper usage of said annotations (courtesy of Josh).
+
+o Patch 22 deals with detecting NOINSTR text in modules
+
+o Patches 23-24 deal with kernel text sync IPIs
+
+o Patches 25-29 deal with kernel range TLB flush IPIs
+
+Patches are also available at:
+https://gitlab.com/vschneid/linux.git -b redhat/isolirq/defer/v6
+
+Acknowledgements
+================
+
+Special thanks to:
+o Clark Williams for listening to my ramblings about this and throwing ideas my way
+o Josh Poimboeuf for all his help with everything objtool-related
+o Dave Hansen for patiently educating me about mm
+o All of the folks who attended various (too many?) talks about this and
+  provided precious feedback.  
+
+Links
+=====
+
+[1]: https://lore.kernel.org/all/20210929151723.162004989@infradead.org/
+[2]: https://github.com/vianpl/linux.git -b ct-work-defer-wip
+[3]: https://youtu.be/0vjE6fjoVVE
+[4]: https://lpc.events/event/18/contributions/1889/
+[5]: http://lore.kernel.org/r/eef09bdc-7546-462b-9ac0-661a44d2ceae@intel.com
+[6]: https://lore.kernel.org/lkml/20230620144618.125703-1-ypodemsk@redhat.com/
+
+Revisions
+=========
+
+v5 -> v6
+++++++++
+
+o Rebased onto v6.17
+o Small conflict fixes with cpu_buf_idle_clear smp_text_poke() renaming
+
+o Added the TLB flush craziness
+
+v4 -> v5
+++++++++
+
+o Rebased onto v6.15-rc3
+o Collected Reviewed-by
+
+o Annotated a few more static keys
+o Added proper checking of noinstr sections that are in loadable code such as
+  KVM early entry (Sean Christopherson)
+
+o Switched to checking for CT_RCU_WATCHING instead of CT_STATE_KERNEL or
+  CT_STATE_IDLE, which means deferral is now behaving sanely for IRQ/NMI
+  entry from idle (thanks to Frederic!)
+
+o Ditched the vmap TLB flush deferral (for now)  
+  
+
+RFCv3 -> v4
++++++++++++
+
+o Rebased onto v6.13-rc6
+
+o New objtool patches from Josh
+o More .noinstr static key/call patches
+o Static calls now handled as well (again thanks to Josh)
+
+o Fixed clearing the work bits on kernel exit
+o Messed with IRQ hitting an idle CPU vs context tracking
+o Various comment and naming cleanups
+
+o Made RCU_DYNTICKS_TORTURE depend on !COMPILE_TEST (PeterZ)
+o Fixed the CT_STATE_KERNEL check when setting a deferred work (Frederic)
+o Cleaned up the __flush_tlb_all() mess thanks to PeterZ
+
+RFCv2 -> RFCv3
+++++++++++++++
+
+o Rebased onto v6.12-rc6
+
+o Added objtool documentation for the new warning (Josh)
+o Added low-size RCU watching counter to TREE04 torture scenario (Paul)
+o Added FORCEFUL jump label and static key types
+o Added noinstr-compliant helpers for tlb flush deferral
+
+
+RFCv1 -> RFCv2
+++++++++++++++
+
+o Rebased onto v6.5-rc1
+
+o Updated the trace filter patches (Steven)
+
+o Fixed __ro_after_init keys used in modules (Peter)
+o Dropped the extra context_tracking atomic, squashed the new bits in the
+  existing .state field (Peter, Frederic)
+  
+o Added an RCU_EXPERT config for the RCU dynticks counter size, and added an
+  rcutorture case for a low-size counter (Paul) 
+
+o Fixed flush_tlb_kernel_range_deferrable() definition
+
+Josh Poimboeuf (3):
+  jump_label: Add annotations for validating noinstr usage
+  static_call: Add read-only-after-init static calls
+  objtool: Add noinstr validation for static branches/calls
+
+Valentin Schneider (26):
+  objtool: Make validate_call() recognize indirect calls to pv_ops[]
+  objtool: Flesh out warning related to pv_ops[] calls
+  rcu: Add a small-width RCU watching counter debug option
+  rcutorture: Make TREE04 use CONFIG_RCU_DYNTICKS_TORTURE
+  x86/paravirt: Mark pv_sched_clock static call as __ro_after_init
+  x86/idle: Mark x86_idle static call as __ro_after_init
+  x86/paravirt: Mark pv_steal_clock static call as __ro_after_init
+  riscv/paravirt: Mark pv_steal_clock static call as __ro_after_init
+  loongarch/paravirt: Mark pv_steal_clock static call as __ro_after_init
+  arm64/paravirt: Mark pv_steal_clock static call as __ro_after_init
+  arm/paravirt: Mark pv_steal_clock static call as __ro_after_init
+  perf/x86/amd: Mark perf_lopwr_cb static call as __ro_after_init
+  sched/clock: Mark sched_clock_running key as __ro_after_init
+  KVM: VMX: Mark __kvm_is_using_evmcs static key as __ro_after_init
+  x86/speculation/mds: Mark cpu_buf_idle_clear key as allowed in
+    .noinstr
+  sched/clock, x86: Mark __sched_clock_stable key as allowed in .noinstr
+  KVM: VMX: Mark vmx_l1d_should flush and vmx_l1d_flush_cond keys as
+    allowed in .noinstr
+  stackleack: Mark stack_erasing_bypass key as allowed in .noinstr
+  module: Add MOD_NOINSTR_TEXT mem_type
+  context-tracking: Introduce work deferral infrastructure
+  context_tracking,x86: Defer kernel text patching IPIs
+  x86/mm: Make INVPCID type macros available to assembly
+  x86/mm/pti: Introduce a kernel/user CR3 software signal
+  x86/mm/pti: Implement a TLB flush immediately after a switch to kernel
+    CR3
+  x86/mm, mm/vmalloc: Defer kernel TLB flush IPIs under
+    CONFIG_COALESCE_TLBI=y
+  x86/entry: Add an option to coalesce TLB flushes
+
+ arch/Kconfig                                  |   9 ++
+ arch/arm/kernel/paravirt.c                    |   2 +-
+ arch/arm64/kernel/paravirt.c                  |   2 +-
+ arch/loongarch/kernel/paravirt.c              |   2 +-
+ arch/riscv/kernel/paravirt.c                  |   2 +-
+ arch/x86/Kconfig                              |  18 +++
+ arch/x86/entry/calling.h                      |  36 ++++++
+ arch/x86/entry/syscall_64.c                   |   4 +
+ arch/x86/events/amd/brs.c                     |   2 +-
+ arch/x86/include/asm/context_tracking_work.h  |  18 +++
+ arch/x86/include/asm/invpcid.h                |  14 ++-
+ arch/x86/include/asm/text-patching.h          |   1 +
+ arch/x86/include/asm/tlbflush.h               |   6 +
+ arch/x86/kernel/alternative.c                 |  39 ++++++-
+ arch/x86/kernel/asm-offsets.c                 |   1 +
+ arch/x86/kernel/cpu/bugs.c                    |   2 +-
+ arch/x86/kernel/kprobes/core.c                |   4 +-
+ arch/x86/kernel/kprobes/opt.c                 |   4 +-
+ arch/x86/kernel/module.c                      |   2 +-
+ arch/x86/kernel/paravirt.c                    |   4 +-
+ arch/x86/kernel/process.c                     |   2 +-
+ arch/x86/kvm/vmx/vmx.c                        |  11 +-
+ arch/x86/kvm/vmx/vmx_onhyperv.c               |   2 +-
+ arch/x86/mm/tlb.c                             |  34 ++++--
+ include/asm-generic/sections.h                |  15 +++
+ include/linux/context_tracking.h              |  21 ++++
+ include/linux/context_tracking_state.h        |  54 +++++++--
+ include/linux/context_tracking_work.h         |  26 +++++
+ include/linux/jump_label.h                    |  30 ++++-
+ include/linux/module.h                        |   6 +-
+ include/linux/objtool.h                       |   7 ++
+ include/linux/static_call.h                   |  19 ++++
+ kernel/context_tracking.c                     |  69 +++++++++++-
+ kernel/kprobes.c                              |   8 +-
+ kernel/kstack_erase.c                         |   6 +-
+ kernel/module/main.c                          |  76 ++++++++++---
+ kernel/rcu/Kconfig.debug                      |  15 +++
+ kernel/sched/clock.c                          |   7 +-
+ kernel/time/Kconfig                           |   5 +
+ mm/vmalloc.c                                  |  34 +++++-
+ tools/objtool/Documentation/objtool.txt       |  34 ++++++
+ tools/objtool/check.c                         | 106 +++++++++++++++---
+ tools/objtool/include/objtool/check.h         |   1 +
+ tools/objtool/include/objtool/elf.h           |   1 +
+ tools/objtool/include/objtool/special.h       |   1 +
+ tools/objtool/special.c                       |  15 ++-
+ .../selftests/rcutorture/configs/rcu/TREE04   |   1 +
+ 47 files changed, 682 insertions(+), 96 deletions(-)
+ create mode 100644 arch/x86/include/asm/context_tracking_work.h
+ create mode 100644 include/linux/context_tracking_work.h
+
+--
+2.51.0
+
 
 _______________________________________________
 linux-riscv mailing list
