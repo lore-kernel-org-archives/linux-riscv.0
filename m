@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81608CCD183
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Oct 2025 08:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A948CCA476
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Oct 2025 11:28:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7Scb9Pr7uccbv8H1sNJcP0mdz9wzepPaiA3OT8/ulho=; b=sRXGE2i5PxiZq4
-	bAbKC2vIGcxgk/cpTWUDqYuTDMm692fr5yX7LND/zuGJ4SDW3rUiyDqgFtM4h2/nUTD5OmyjQZOIA
-	EiXW2RF2r7be+b1u9FqHhDDja5HKjeO3UQgjJ+CpZgA4LyH4COBk8JM4f9XfNJ37xMPeO5oaOOzhl
-	gstSBPha9VS1jVQAo+qJqRz7L16tvb6Fc/Od0yR09ax13S//NQNwRZ1rN5KhgaYA8y7ZxS8giZnU4
-	3JOTaiZDCwCeZKGWxoXG61aaTTFlqrJ0Np2FX7rDg+LUGQsLqytjcz/H+RekeLlrN1qLIgAm76ftv
-	0JlJlIOlur7iaUwC1NPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b8z4Kz4GULTRvGCgooae0nNytI+a6Ffc8Uyad1ILNHk=; b=SRaWofww6wWb9umqOvg6c12w5J
+	emNT6K2wfEwD1q0ES4nQGyFkkKj0dy1rJVwS8SDZUrfWdFeMhQUZXU4v2N0ti74eT9oB9zS7BApHZ
+	f+0uky88WUyVd6r6CFc78+fybgABFmgaWJ9WDBVj8kPLEjXPUruMApJQFi2+Q/n0VEdsAHZIwb34p
+	2QIe5ogTnrUl/NEBmo5mVF/ZSDkxPGucDDjWnk+a9vQIZ0DTYYYR4acVU9ty1zjPK3Gb6mOx5LWkM
+	/tDWr+r7+JOfCEZZmerfe732RiHV926B6awF8QV6hAlhfwv/lahZWYw9E6HNQl84Uin95TvckBz+F
+	Kuu0tvqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7V7s-00000009xc3-2M3d;
-	Sat, 11 Oct 2025 08:38:52 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1v7XmG-0000000A6cf-3fYa;
+	Sat, 11 Oct 2025 11:28:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7V7o-00000009xbZ-24uN
+	id 1v7XmF-0000000A6cW-1CiU
 	for linux-riscv@lists.infradead.org;
-	Sat, 11 Oct 2025 08:38:50 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 1AE7020EF2;
-	Sat, 11 Oct 2025 10:38:43 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id KfWdQL3U1iZv; Sat, 11 Oct 2025 10:38:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1760171915; bh=Xd8rdUfoPMg6QaScAWlW2FrpZAahiivHRi2Hl750VIs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GH8FXvrPy+0BGJjsWRtz+eW5+JgBvE1LO0VkIVxwueYQOj1iT3bX5umkqIWiHMNhg
-	 8ae4UZyh81KcaBb88gWGYK3RjrHLmDiohtVEcKnxGV8Xq4QZJRhtPO+PqyiMVsfUsX
-	 L1DtIgHC1WNjP54ZCzjFQqGrtD4Bf2KgT3cspnnQzH9p22uZOt+pYSXqAPwxqUFBmX
-	 dkPcQIeWe9RgX6z362LS97wRKEKIYblSNjcqsMLKziaYokV7AgWuCZZzIG2MBhASPK
-	 81YX1QdfbhxjzQ3azxu8+h6ptnJyRU4MgVyeSQL9AAf8XREHmpKF0sLzNI2Ktiw/Tu
-	 kwwWecrBEhb2Q==
-Date: Sat, 11 Oct 2025 08:38:22 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Paul Walmsley <pjw@kernel.org>, torvalds@linux-foundation.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>, Han Gao <rabenda.cn@gmail.com>
-Subject: Re: [GIT PULL] RISC-V updates for v6.18-rc1
-Message-ID: <aOoXYHaFe-R7ZySY@pie>
-References: <2c804359-3d43-0fba-7173-a87f9aec4bd2@kernel.org>
+	Sat, 11 Oct 2025 11:28:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4DA35603F8;
+	Sat, 11 Oct 2025 11:28:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54DAFC4CEF4;
+	Sat, 11 Oct 2025 11:28:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760182120;
+	bh=fFZME1Zq/TXDxklk7L6f3c4lY/X0+FFz/z5+NJU4maM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TWbg/PO6DKqYeIhDmuS9m2hcwXXkiKPyE8jwsI3vfAVuJDsE7Jx5Effz0U7JHvEJ3
+	 ckmJ9Ib7hyS/MX/clqQfP0zzVkOqYhAnjOOWUFFGCAOWkolsDFjGZbkoYptNSKaXZK
+	 sJ5ZAWl53+Cl5VOw4bhFlR9mqOuNj2v5ZLavQt1wr3qn1IN17dBtaaX1aFttVa+xul
+	 KrvnC2DG7uum+2d6s+iD7uuZNkCH5JG3Se+VgPvN9nJL/2UI993wRLLtNczDz5/GEf
+	 Zxf/LQ6BNpHI8WFbLFJJs1UL/edi6UCHmSJR+JNQ6oFInPASAG+AUoacQsVvrqYTy8
+	 mp8vTsFzu6NQg==
+Date: Sat, 11 Oct 2025 12:28:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Paul Walmsley <pjw@kernel.org>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Xiao Wang <xiao.w.wang@intel.com>,
+	Christoph =?iso-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>,
+	Vivian Wang <uwu@dram.page>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/5] riscv: Use __riscv_has_extension_{likely,unlikely}
+Message-ID: <20251011-buffing-never-4911edc10600@spud>
+References: <20251011-riscv-altn-helper-wip-v3-0-d40ddaa1985a@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <2c804359-3d43-0fba-7173-a87f9aec4bd2@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_013848_948915_059A0632 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251011-riscv-altn-helper-wip-v3-0-d40ddaa1985a@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,45 +72,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2213782795665941308=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paul, Palmer,
 
-On Mon, Sep 29, 2025 at 02:00:17AM -0600, Paul Walmsley wrote:
-> Linus,
-> 
-> The following changes since commit a03ee11b8f850bd008226c6d392da24163dfb56e:
-> 
->   riscv: Fix sparse warning about different address spaces (2025-09-05 15:33:52 -0600)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.18-mw1
-> 
-> for you to fetch changes up to 0b0ca959d20689fece038954bbf1d7b14c0b11c3:
-> 
->   riscv: errata: Fix the PAUSE Opcode for MIPS P8700 (2025-09-19 10:33:56 -0600)
+--===============2213782795665941308==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hJqoiJHTRSDkGTYh"
+Content-Disposition: inline
 
-...
 
-> Guo Ren (Alibaba DAMO Academy) (1):
->       riscv: Move vendor errata definitions to new header
+--hJqoiJHTRSDkGTYh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-As already noted by Han Gao[1], it seems the second patch of series
-"riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup"[2] is included in the
-pull request for 6.17-rc1, but not this one for 6.18-rc1. Is this
-expected?
+On Sat, Oct 11, 2025 at 07:35:42AM +0800, Vivian Wang wrote:
+> There are about a dozen uses of asm goto in arch/riscv just to select
+> between two code paths with the alternative mechanism. Convert them to
+> the existing helpers __riscv_has_extension_{likely,unlikely}.
+>=20
+> In each case, I have preserved the existing code's choice of asm goto
+> pattern while picking between "likely" and "unlikely", namely:
+>=20
+>   ALTERNATIVE("j %l[no]", "nop", ...)   -> "likely"
+>   ALTERNATIVE("nop", "j %l[yes]", ...)  -> "unlikely"
+>=20
+> Since the helpers are just implementations of these patterns, the
+> performance should be the same as before.
 
-Best regards,
-Yao Zi
+Can you explain why you're opting for the __ variant, instead of the one
+without __? They should do the same thing in your cases, and resolve to
+the alternative, since the non-alternative function call will be
+unreachable and the assert is compiletime. There's currently no users of
+the __ prefixed versions outside of other extension detection helpers, and
+I think it should probably be kept that way if possible.
 
-[1]: https://lore.kernel.org/all/CAAT7Ki9_Vm0+v9RHpa2w-Bg3agJy2Tp4d6+tcPJ=M7XX3GV-7Q@mail.gmail.com/
-[2]: https://lore.kernel.org/all/20250713155321.2064856-1-guoren@kernel.org/
+>=20
+> These patches are also available at:
+>=20
+> https://github.com/dramforever/linux/tree/riscv/altn-helper/v2
+>=20
+> ---
+> Changes in v3:
+> - Rebased on riscv for-next
+>   - Resolve conflict, use ALT_RISCV_PAUSE() in moved lines
+> - Link to v2: https://lore.kernel.org/r/20250821-riscv-altn-helper-wip-v2=
+-0-9586fa702f78@iscas.ac.cn
+>=20
+> Changes in v2:
+> - Cc'd authors who initially introduced the asm goto blocks
+> - Use existing __riscv_has_extension_{likely,unlikely} instead
+> - Remove bogus comment for Zbb being likely (checksum)
+> - Restructured patch to minimize diff (bitops, hweight, cmpxchg)
+> - Link to v1: https://lore.kernel.org/r/20250820-riscv-altn-helper-wip-v1=
+-0-c3c626c1f7e6@iscas.ac.cn
+>=20
+> ---
+> Vivian Wang (5):
+>       riscv: pgtable: Use __riscv_has_extension_unlikely
+>       riscv: checksum: Use __riscv_has_extension_likely
+>       riscv: hweight: Use __riscv_has_extension_likely
+>       riscv: bitops: Use __riscv_has_extension_likely
+>       riscv: cmpxchg: Use __riscv_has_extension_likely
+>=20
+>  arch/riscv/include/asm/arch_hweight.h | 24 ++++++----------
+>  arch/riscv/include/asm/bitops.h       | 32 ++++++---------------
+>  arch/riscv/include/asm/checksum.h     | 13 +++------
+>  arch/riscv/include/asm/cmpxchg.h      | 12 +++-----
+>  arch/riscv/include/asm/pgtable.h      | 15 +++++-----
+>  arch/riscv/lib/csum.c                 | 53 ++++++++---------------------=
+------
+>  arch/riscv/mm/pgtable.c               | 22 +++++++--------
+>  7 files changed, 53 insertions(+), 118 deletions(-)
+> ---
+> base-commit: cd5a0afbdf8033dc83786315d63f8b325bdba2fd
+> change-id: 20250820-riscv-altn-helper-wip-00af3a552c37
+>=20
+> Best regards,
+> --=20
+> Vivian "dramforever" Wang
+>=20
+
+--hJqoiJHTRSDkGTYh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaOo/XgAKCRB4tDGHoIJi
+0jvdAQCIqf7X54DcteMBhDN+nrmCddguGzCLjFJhHeX2dEqxsgD9FcS8maAfQ5mV
+37ddsRUOuxb+6L24yupPTTl++SiuvQ8=
+=7YcE
+-----END PGP SIGNATURE-----
+
+--hJqoiJHTRSDkGTYh--
+
+
+--===============2213782795665941308==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2213782795665941308==--
+
