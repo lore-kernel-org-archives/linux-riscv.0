@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C013CCD187
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Oct 2025 06:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C505CCD187
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Oct 2025 07:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HrGL6TXIHhY/31239JnwKPledRjuv3U0m7zmdJmV3cI=; b=MxvWxxAtr2QdG5
-	8LIvd7GxNbbzMmMvIbFT5iThzaGXiAup4rGU6brXAX7E2e739i7qxJeAyLn3tIgixQxthujutBNco
-	mwU2c7WtI+cB0WzuYwoNBYbALW2ORXoxQUZzeVGPRYFZ7YciwXoXScE0lKFhjHoPRCHN1Av/gWx2j
-	5aka8b2NT0HO4Se72DQrwFRz48Sq5Spf91raGadAm4TwiT6vFsbHqQGgED9haFLqUM0gM0Ec+ap9E
-	aDqwhxBz18Pz8flpVdz4/+Pdq67DKTDjFG0YGBSA/RpNNjXwz7gyMoSNemNC1bRH3WVEU8cmGpZtm
-	RqiLpRLa7mXlQ08VWxuA==;
+	List-Owner; bh=JGT6S2ut9+8EBobba4FjmxVKCXIoIGRrHmfulAHBWak=; b=iKDSqzi8TiVVqC
+	Ay3xeITljK0hay3PelPC+pdpUC+NkW4wwKYZ3zUWtdu203a2q/OWfduJ1g8PVQyQlmUDBLAyq5uK4
+	9ZbWhZU0QCgTJEXauBGfq4qxH+dL9pIq9WIk8dfwoE8FH115fwnPRcDKHciP42RqEF4gsdPTtI2GI
+	byM8HRW5mBaqyeJ/ydsB01ZmA7t850vmXzdDh6C1v0lknmPgk3Lue+W5mRPqH842ZKj6u5v4WtGfY
+	Zx4tEsUzRuMHc4cHDA08h9evXQym+MrsttoTDIQjAXzmkmHU+Nx07F3wOoGgNAepor90hFAzEmVjX
+	YMiYYs6dSyZa2GFvJuFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7pJG-0000000B76G-01yV;
-	Sun, 12 Oct 2025 06:11:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v7q3n-0000000B8Er-2eC7;
+	Sun, 12 Oct 2025 07:00:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7pJE-0000000B75v-0Vbw
+	id 1v7q3l-0000000B8EQ-2OwB
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Oct 2025 06:11:57 +0000
+	Sun, 12 Oct 2025 07:00:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BFD9D45AFC
-	for <linux-riscv@lists.infradead.org>; Sun, 12 Oct 2025 06:11:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99A20C16AAE
-	for <linux-riscv@lists.infradead.org>; Sun, 12 Oct 2025 06:11:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D1798602CE;
+	Sun, 12 Oct 2025 06:59:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7023C4CEE7;
+	Sun, 12 Oct 2025 06:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760249515;
-	bh=5ola3YDxnYdWqEmDLUEc5xfcVUT9cazJU910mw2Lbgs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=rzU84/YNrD2fWtDD/A8jNqlT+n3IknG2aNgbHc30iBGsUbymW8vDEQhzCFIN0qj5V
-	 WfJGTL4YjoEA8I+BPMe1Jw6AccxJjU1UgC6bnuylNFw4sEWDu0X6Q3M98FdXcBFBzj
-	 6SHJegyUA0VZjmnKoj1C8Un0FEoErYfRkM6pcuR6WMF1ULhkQrKx9AzK7qupKPE/WH
-	 JpHGZrNYSCGqZ9eEy9C5K28Dtf9xnxkCM0zQx7FPQsQPBmI/mgn7owmH2zmLsxfkoL
-	 hDmmByqEhiorgZIpgMy3LPLyYyTRRSdpOpavoT6jLBCGxxkPBWmJkMPy1MA8CHy0cD
-	 XVOFlbuPhneMQ==
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-46e29d65728so18651475e9.3
-        for <linux-riscv@lists.infradead.org>; Sat, 11 Oct 2025 23:11:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUXvLLGhORsqRlXGaiMxAJwhzKQLfKlSmWj6U9iyeBjEr2Vf0A4eEl4AaxmuvpGiLYWkHGsreCMU4F9iw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrYn5DxQhbK0umocEKo+97MF2mOiP5WW/8oZNlSSNk9a6Zs7O+
-	v3W+wOBWrEnWoTgVFZ8igpxHKShvtcRNIPJZ3PTLdKj2nNcO60jPiXMAhQtHvD6FhpoIuYoGVuv
-	pft02vsjZ9fjctwkuS1fJ9SljXxhQusM=
-X-Google-Smtp-Source: AGHT+IEKlteG9lfVBg9j7ASH6OTe/Dfj1NndFuZm+KdXyn0SVroBvLiRXYmPyV6peIPu9DVdV+AM6j/uCc8jUqMSTVQ=
-X-Received: by 2002:a05:600c:4506:b0:45b:8a0e:cda9 with SMTP id
- 5b1f17b1804b1-46fa9a8638dmr118651305e9.2.1760249514038; Sat, 11 Oct 2025
- 23:11:54 -0700 (PDT)
-MIME-Version: 1.0
-References: <20251011155746.1558731-1-guoren@kernel.org>
-In-Reply-To: <20251011155746.1558731-1-guoren@kernel.org>
+	s=k20201202; t=1760252397;
+	bh=77zuiySPdjhs3+W9heR5TXbrRLy69D4PruJGMHlXl6Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JtYjYXk98WWKuUcgi97iurAjpPu5twj1qiDE7i3aAPmL3t+Rv/G0KfNQD3lwlsOEq
+	 CRc3ZMkMxCwhxwxQQEDF3ih6xIA9mrFE01r1qp04Zt2Y+LpHXKs7eet2Zmw3pl2OT0
+	 HN0hxDqMycoeMtLd0c0Kc3c0T3seMGV1xYnlE3gbHU+tLPhwEeoIVwj0Io0Myv1OgW
+	 HZo4WkOIAxSa+jCb32bRyiBpeiC+LnHve/h3vj3DdUJeQrC601pw51qltBANpfwQmi
+	 OgVVryhbwgYcmQHECIIsFbs5Ne1lpuoeSXX8woDX///tQRlphSkR+9j3SOBOQEI5fu
+	 IySUmjf8uvx7w==
+Date: Sun, 12 Oct 2025 02:59:43 -0400
 From: Guo Ren <guoren@kernel.org>
-Date: Sun, 12 Oct 2025 14:11:42 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRfLzrqHoYrexS55AT3sjn5VbbNKf2WMEGWrw9ERRLYYA@mail.gmail.com>
-X-Gm-Features: AS18NWCt3-Wrv4mHE1rXWP8VmFtwVh1Eop_f8YJ4Ep4VwD8YYMjDGc5QM5wrH6o
-Message-ID: <CAJF2gTRfLzrqHoYrexS55AT3sjn5VbbNKf2WMEGWrw9ERRLYYA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Add pgprot_dmacoherent definition
-To: samuel.holland@sifive.com, david@redhat.com, yongxuan.wang@sifive.com, 
-	cuiyunhui@bytedance.com, luxu.kernel@bytedance.com
-Cc: paul.walmsley@sifive.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	palmer@dabbelt.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_231156_198926_DF295DC0 
-X-CRM114-Status: GOOD (  16.64  )
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup@brainfault.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org,
+	Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: [PATCH] RISC-V: Define pgprot_dmacoherent() for non-coherent
+ devices
+Message-ID: <aOtR39pl5xjyYHn1@gmail.com>
+References: <20250820152316.1012757-1-apatel@ventanamicro.com>
+ <aOtFpju/42kVkBsx@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <aOtFpju/42kVkBsx@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,49 +71,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QW51cCdzIHBhdGNoIGhhcyBzb2x2ZWQgdGhpczoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGlu
-dXgtcmlzY3YvMjAyNTA4MjAxNTIzMTYuMTAxMjc1Ny0xLWFwYXRlbEB2ZW50YW5hbWljcm8uY29t
-LwoKU28sIEkgYWJhbmRvbiB0aGlzIHBhdGNoLgoKT24gU2F0LCBPY3QgMTEsIDIwMjUgYXQgMTE6
-NTjigK9QTSA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gRnJvbTogIkd1byBSZW4gKEFs
-aWJhYmEgREFNTyBBY2FkZW15KSIgPGd1b3JlbkBrZXJuZWwub3JnPgo+Cj4gUklTQy1WIFN2cGJt
-dCBTdGFuZGFyZCBFeHRlbnNpb24gZm9yIFBhZ2UtQmFzZWQgTWVtb3J5IFR5cGVzCj4gZGVmaW5l
-cyB0aHJlZSBtb2RlczoKPgo+ICBNb2RlIHwgVmFsdWUgfCBSZXF1ZXN0ZWQgTWVtb3J5IEF0dHJp
-YnV0ZXMKPiAgUE1BICB8ICAgMCAgIHwgTm9uZQo+ICBOQyAgIHwgICAxICAgfCBOb24tY2FjaGVh
-YmxlLCBpZGVtcG90ZW50LCB3ZWFrbHktb3JkZXJlZCAoUlZXTU8pLAo+ICAgICAgIHwgICAgICAg
-fCBtYWluIG1lbW9yeQo+ICBJTyAgIHwgICAyICAgfCBOb24tY2FjaGVhYmxlLCBub24taWRlbXBv
-dGVudCwgc3Ryb25nbHktb3JkZXJlZAo+ICAgICAgIHwgICAgICAgfCAoSS9PIG9yZGVyaW5nKSwg
-SS9PCj4KPiBUaGUgcGdwcm90X2RtYWNvaGVyZW50IGRlZmF1bHQgdXNlcyB0aGUgSU8gbWVtb3J5
-IGF0dHJpYnV0ZSBpZiB0aGVyZQo+IGlzIG5vIGFzbSBkZWZpbml0aW9uLCBidXQgSU8gaXMgbm90
-IGZvciBtYWluIG1lbW9yeSBhY2NvcmRpbmcgdG8KPiBTdnBibXQgcnVsZXMuCj4KPiBUaGlzIGNv
-bW1pdCBjb3JyZWN0cyBwZ3Byb3RfZG1hY29oZXJlbnQgd2l0aCB0aGUgTkMgbWVtb3J5IGF0dHJp
-YnV0ZSwKPiB3aGljaCBzYXRpc2ZpZXMgcGVyZm9ybWFuY2UgaW1wcm92ZW1lbnQgYW5kIHByZXZl
-bnRzIHVzaW5nIHRoZSBJTwo+IGF0dHJpYnV0ZSB0byBhY2Nlc3MgbWFpbiBtZW1vcnkuCj4KPiBT
-aWduZWQtb2ZmLWJ5OiBHdW8gUmVuIChBbGliYWJhIERBTU8gQWNhZGVteSkgPGd1b3JlbkBrZXJu
-ZWwub3JnPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCB8IDkgKysr
-KysrKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCA5IGluc2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vcGd0YWJsZS5oCj4gaW5kZXggMjllOTk0YTlhZmI2Li4yYTg0NDc5ZGU4MWIgMTAwNjQ0Cj4g
-LS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKPiArKysgYi9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+IEBAIC02NTQsNiArNjU0LDE1IEBAIHN0YXRpYyBpbmxp
-bmUgcGdwcm90X3QgcGdwcm90X3dyaXRlY29tYmluZShwZ3Byb3RfdCBfcHJvdCkKPiAgICAgICAg
-IHJldHVybiBfX3BncHJvdChwcm90KTsKPiAgfQo+Cj4gKy8qCj4gKyAqIERNQSBhbGxvY2F0aW9u
-cyBmb3Igbm9uLWNvaGVyZW50IGRldmljZXMgdXNlIHdoYXQgdGhlIFJJU0MtViBhcmNoaXRlY3R1
-cmUKPiArICogY2FsbCAiTm9uLUNhY2hlYWJsZSIgbWVtb3J5IGF0dHJpYnV0ZSwgd2hpY2ggcGVy
-bWl0cyBpZGVtcG90ZW50LCB3ZWFrbHktb3JkZXJlZAo+ICsgKiAoUlZXTU8pLCBtYWluIG1lbW9y
-eS4gVGhpcyBpcyBkaWZmZXJlbnQgZnJvbSAiSS9PIiBtZW1vcnkgYXR0cmlidXRlIHdoaWNoIGlz
-Cj4gKyAqIGludGVuZGVkIGZvciBNTUlPIGFjY2VzcyB3aXRoIE5vbi1jYWNoZWFibGUsIG5vbi1p
-ZGVtcG90ZW50LCBzdHJvbmdseS1vcmRlcmVkCj4gKyAqIChJL08gb3JkZXJpbmcpLCBJL08gYXR0
-cmlidXRlcy4KPiArICovCj4gKyNkZWZpbmUgcGdwcm90X2RtYWNvaGVyZW50IHBncHJvdF93cml0
-ZWNvbWJpbmUKPiArCj4gIC8qCj4gICAqIEJvdGggU3ZhZGUgYW5kIFN2YWR1IGNvbnRyb2wgdGhl
-IGhhcmR3YXJlIGJlaGF2aW9yIHdoZW4gdGhlIFBURSBBL0QgYml0cyBuZWVkIHRvIGJlIHNldC4g
-QnkKPiAgICogZGVmYXVsdCB0aGUgTS1tb2RlIGZpcm13YXJlIGVuYWJsZXMgdGhlIGhhcmR3YXJl
-IHVwZGF0aW5nIHNjaGVtZSB3aGVuIG9ubHkgU3ZhZHUgaXMgcHJlc2VudCBpbgo+IC0tCj4gMi40
-MC4xCj4KCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sun, Oct 12, 2025 at 02:07:34AM -0400, Guo Ren wrote:
+> On Wed, Aug 20, 2025 at 08:53:16PM +0530, Anup Patel wrote:
+> > The pgprot_dmacoherent() is used when allocating memory for
+> > non-coherent devices and by default pgprot_dmacoherent() is
+> > same as pgprot_noncached() unless architecture overrides it.
+> > 
+> > Currently, there is no pgprot_dmacoherent() definition for
+> > RISC-V hence non-coherent device memory is being mapped as
+> > IO thereby making CPU access to such memory slow.
+> > 
+> > Define pgprot_dmacoherent() to be same as pgprot_writecombine()
+> > for RISC-V so that CPU access non-coherent device memory as
+> > NOCACHE which is better than accessing it as IO.
+> > 
+> > Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > ---
+> >  arch/riscv/include/asm/pgtable.h | 2 ++
+> >  1 file changed, 2 insertions(+)
+> > 
+> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > index 91697fbf1f90..00d8bdaf1e8d 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -653,6 +653,8 @@ static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
+> >  	return __pgprot(prot);
+> >  }
+> >  
+> > +#define pgprot_dmacoherent pgprot_writecombine
+> I missed this patch and sent out a duplicate one [1]. Maybe the comments
+> from [1] could be appended to this one.
+[1]: https://lore.kernel.org/linux-riscv/20251011155746.1558731-1-guoren@kernel.org/
+
+> 
+> Tested-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
+> 
+> > +
+> >  /*
+> >   * Both Svade and Svadu control the hardware behavior when the PTE A/D bits need to be set. By
+> >   * default the M-mode firmware enables the hardware updating scheme when only Svadu is present in
+> > -- 
+> > 2.43.0
+> > 
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> > 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
