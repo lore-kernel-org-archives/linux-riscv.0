@@ -4,60 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190B3CCD18D
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Oct 2025 14:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF4BCCD183
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Oct 2025 15:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQPWwiE1+6+hqS6b6SX7Qkiq78MjRZ3hVJd/EoYBTY0=; b=LlTfM+K3tJ16JQaPQLJzENdYW4
-	RJNUcTYwb+lXMorHZbyMAN8PeQi6v6fzSULHlZNZLeYXWHCOTWdg05YNhfiIi5Y+dOHxDaPj5DBBD
-	R3VGnA1FH1kTqMXOPdwbM4ADKM1Fw/VIcFBhUEJiM4o6dT1xF/rqTkpM1we7MQQSy1xKiyRw9a14S
-	jytmQDs0UgZU903q4Wu5xNzdUkCoDe1ib4+x4Jq7iTpmkTlMrpSpf/5ECdCdpINhviuZZdqIVo9Zf
-	YFBIfTW8tjSVHYY5zWed3AJs3cUAay8LTbB68XYqEOTMjUqb8pvOG9Se3lCrpxrpvXB94wAxhQSzj
-	p2p654vA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QY2FskvWcP37Vy4lA8ZSn5+MQqkIGa521x9gyyJsi6Y=; b=W1/1n7eEbd/XuM
+	b4fvn0GQeq5a9skEWEF9ucCtOUezvOikREA74Joi5BS1EuvbX/1AaYzzIwAxH5XpH27YHRYuyr12/
+	6OXZl/WCBOS53pE8V05oaizGKBTQxAFxC0Ks3whmCMvr8betuOGLiMu9tB6mo9frNCCDSfJnrzMuN
+	ZPVgz8ImZlQ5YyqlboGI7e5q4dYX5cd6za4/6i9uPJp2WvXTVHC6koyJmyFeHozWJjQpp1Ms4daLC
+	rPCm1d/OL4mz0AO+UMX69SOQ06o9SdQOM7Fkjx//J5oisjTZV1EPp6urvezGyKLedCZbh0p6HTvjQ
+	q0NAjAYOC0ghrKLFA8DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Jty-0000000DVXJ-1QIW;
-	Mon, 13 Oct 2025 14:51:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v8KaE-0000000Di2T-0l75;
+	Mon, 13 Oct 2025 15:35:34 +0000
+Received: from mail-il1-x144.google.com ([2607:f8b0:4864:20::144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Jtw-0000000DVWE-32Dj
+	id 1v8KaB-0000000DhzJ-2uKd
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Oct 2025 14:51:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B9C743777;
-	Mon, 13 Oct 2025 14:51:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5808C113D0;
-	Mon, 13 Oct 2025 14:51:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760367111;
-	bh=1f1R3hSRZT6UvLUu06F4HKhifFVAYk2MH31zzCMuaMQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SNBnyf5mQqInO6AKrseYPWAQUKjA7FwKTh0ngKwlfHCCDImzvVtQ7ZAKxefQkTBSq
-	 URAZHR47cIBC5F6FdoA++rPOEkvhrcqNSBdGwoPELMt23JLCayZaOaH7rtZ1uDjyUE
-	 IHbEIY+Z5g0jjr3s1g4LCK/kPDV+Vw5NCpoXMb8m4FoCjCANLcFaTXEp1xpBIu1bDi
-	 RNZYnDkvwNS5ZDuFmfbkbnXJDjVVVyCHTKfZ7KLRWT+6ME1i6KBa6lcojyTv1ayF6+
-	 VyRI57IJLFZjA5dZz1byAoXBK1YsA7WqEUP9Fhw+IEFoQoI3sjGxV69TqVpgfdn4+O
-	 fZWWUoxKrtT8Q==
-Date: Mon, 13 Oct 2025 15:51:47 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Ron Economos <re@w6rz.net>, bhelgaas@google.comk,
-	rishna.chundru@oss.qualcomm.com, mani@kernel.org,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv <linux-riscv@lists.infradead.org>
-Subject: Re: SiFive FU740 PCI driver fails on 6.18-rc1
-Message-ID: <20251013-blatancy-husband-ed9872a46e25@spud>
-References: <eac81c57-1164-4d74-a1b4-6f353c577731@w6rz.net>
- <bc7f397c-1739-465e-b195-e1a41c34504d@oss.qualcomm.com>
+	Mon, 13 Oct 2025 15:35:33 +0000
+Received: by mail-il1-x144.google.com with SMTP id e9e14a558f8ab-4242bb22132so43658045ab.3
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Oct 2025 08:35:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1760369731; x=1760974531; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nbeq8htIVJsgPcvnZy6FQgEdm/DTZPuXtXg2N0Ndwqo=;
+        b=1rw/BDVb1dSzyg03tqzARqKwDwIMXElDvsL0JVZffH9R4RlruKWQvgEAvTbGLFbZcK
+         XWrfxqng7rpA/NB0UXeQLUbO2WXmBn+1mBPlwUicE/o7KycPfy+HDXEfkVUtJ+Dsvzww
+         J9Fks8kkvGThSJF9aL/VUKxAUuKfrrGX4DV9SbSE3a7F/PzvNVvy1mzZNCLYMC6iRBG6
+         PICTd+40sf00xUisGWGA4PeGe20OdPhbYetIO39dGQ+itDfA6nYZTTuvU7eC7K2mY42y
+         uQTAHhxk5GiJppDQdi2umUiHFGaW4BB3Kv8mTtpqtcMT+tVleF2o2/79eC2S3Pv4UyAc
+         k/rw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760369731; x=1760974531;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nbeq8htIVJsgPcvnZy6FQgEdm/DTZPuXtXg2N0Ndwqo=;
+        b=CxE+xXnrmQfoh7AQEXD/IIh2D9K+Z4luzgtJV/4eZncPnXTaxoi5LeFvqowTOUIN+4
+         6RYViC+05K9Ix896O7jo8tk/UkRewQy+DtLtZkB6QtyI1kbDiS9oxFNrV6lQSXjpEF6M
+         Xc1eVl3qFu3PrYLbZt5Sudz7KJO3W6gsyQ9ev6tbdkMbRq3jTYQETiysc9S+zfK8DuPX
+         PixkfdHtHv7WuS6R2s89MtIVti135JtSawnoqcO7LMOy+lwyr+32aCVGH7fyFNrVWjTB
+         jjEqPMTfGDGOOQhL3z2rEook40QWNslonmXZicB2B6Ec75S3RatDmr5NJ/urUY5zI6+R
+         buJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUY2vsgpkHmD8PrjPrOO6uhLEk2KJPDQr2b/pXom5uxLvLh6YYKpHyY2BkQzkgWXMuptAtVPMC5xFZkLA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaNKSWC1DczKwISY5YhYqVex/8S62FaROWpcm1rPjZVput3jcw
+	hji0zfpKpR9/XTSnsCQ9t8FIn6TTcZIG7bEwQ52np4tWK3LxtMjLY3CdHxAR1Zhqsko=
+X-Gm-Gg: ASbGncsnUaX6gJUlEhwlxazhfe9l1oPsWQCAIQ3q8pUmupx7HXMa0zl8gyDz4aXzuqk
+	Q4ZiG52cr7n1Htx0yxExe75AIAaGJhKVFLm/kWwlDDgiti0ojmeworkFCus3CtTLMpO0IeC4mda
+	9FeksA/UupSse/qpr17eDdLa5R72EcBi8Kzdb31DP6V9QepWSQ1yt7aabgdTw3B7TUmqHEPlgtf
+	PV1o4vUIsH7k7CJTY/5xnNt5KalsFqMtw+HN6jcpnlQNhXQ9CmZtvEkm1kxpm4OW9YCAKVNtmc3
+	+eTXfxRsxUqVg1Aqzd8smxIj9Y+VVZLVIrPVQ1nnZ6j/S7bpqeveKD6jn9foSqrd1z38St53j/L
+	M1fYsocY3n3h1FsrOaKDN7fI3z0eCHvNPKDCSaAwIVG7OzRMKi8hW3kz99wN6+ctJnVrBd1Il/j
+	s6VZkMKpLq
+X-Google-Smtp-Source: AGHT+IGwhDgY1adEE+rYfro+kFlaDS5/FvDMA4RAEoQjxWvr5pWNWNsa0mX7bl3S4p/in4/RNtqUig==
+X-Received: by 2002:a05:6e02:1608:b0:42e:7a5d:d7d6 with SMTP id e9e14a558f8ab-42f87346ffcmr235225235ab.2.1760369730674;
+        Mon, 13 Oct 2025 08:35:30 -0700 (PDT)
+Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-58f6c49b522sm3910266173.1.2025.10.13.08.35.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Oct 2025 08:35:30 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	vkoul@kernel.org,
+	kishon@kernel.org
+Cc: dlan@gentoo.org,
+	guodong@riscstar.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	p.zabel@pengutronix.de,
+	christian.bruel@foss.st.com,
+	shradha.t@samsung.com,
+	krishna.chundru@oss.qualcomm.com,
+	qiang.yu@oss.qualcomm.com,
+	namcao@linutronix.de,
+	thippeswamy.havalige@amd.com,
+	inochiama@gmail.com,
+	devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/7] Introduce SpacemiT K1 PCIe phy and host controller
+Date: Mon, 13 Oct 2025 10:35:17 -0500
+Message-ID: <20251013153526.2276556-1-elder@riscstar.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-In-Reply-To: <bc7f397c-1739-465e-b195-e1a41c34504d@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_075152_802486_6767DC3B 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20251013_083531_843911_82ED9DD8 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,138 +118,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4229349586319337050=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series introduces a PHY driver and a PCIe driver to support PCIe
+on the SpacemiT K1 SoC.  The PCIe implementation is derived from a
+Synopsys DesignWare PCIe IP.  The PHY driver supports one combination
+PCIe/USB PHY as well as two PCIe-only PHYs.  The combo PHY port uses
+one PCIe lane, and the other two ports each have two lanes.  All PCIe
+ports operate at 5 GT/second.
 
---===============4229349586319337050==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Uueo13zjvdFAPZts"
-Content-Disposition: inline
+The PCIe PHYs must be configured using a value that can only be
+determined using the combo PHY, operating in PCIe mode.  To allow
+that PHY to be used for USB, the calibration step is performed by
+the PHY driver automatically at probe time.  Once this step is done,
+the PHY can be used for either PCIe or USB.
 
+Version 2 of this series incorporates suggestions made during the
+review of version 1.  Specific highlights are detailed below.
 
---Uueo13zjvdFAPZts
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+					-Alex
 
-On Mon, Oct 13, 2025 at 01:49:39PM +0530, Krishna Chaitanya Chundru wrote:
->=20
->=20
-> On 10/13/2025 12:44 PM, Ron Economos wrote:
-> > The SiFive FU740 PCI driver fails on the HiFive Unmatched board with
-> > Linux 6.18-rc1. The error message is:
-> >=20
-> > [=A0=A0=A0 3.166624] fu740-pcie e00000000.pcie: host bridge
-> > /soc/pcie@e00000000 ranges:
-> > [=A0=A0=A0 3.166706] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0=A0 IO
-> > 0x0060080000..0x006008ffff -> 0x0060080000
-> > [=A0=A0=A0 3.166767] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0 MEM
-> > 0x0060090000..0x007fffffff -> 0x0060090000
-> > [=A0=A0=A0 3.166805] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0 MEM
-> > 0x2000000000..0x3fffffffff -> 0x2000000000
-> > [=A0=A0=A0 3.166950] fu740-pcie e00000000.pcie: ECAM at [mem
-> > 0xdf0000000-0xdffffffff] for [bus 00-ff]
-> > [=A0=A0=A0 3.579500] fu740-pcie e00000000.pcie: No iATU regions found
-> > [=A0=A0=A0 3.579552] fu740-pcie e00000000.pcie: Failed to configure iAT=
-U in
-> > ECAM mode
-> > [=A0=A0=A0 3.579655] fu740-pcie e00000000.pcie: probe with driver fu740=
--pcie
-> > failed with error -22
-> >=20
-> > The normal message (on Linux 6.17.2) is:
-> >=20
-> > [=A0=A0=A0 3.381487] fu740-pcie e00000000.pcie: host bridge
-> > /soc/pcie@e00000000 ranges:
-> > [=A0=A0=A0 3.381584] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0=A0 IO
-> > 0x0060080000..0x006008ffff -> 0x0060080000
-> > [=A0=A0=A0 3.381682] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0 MEM
-> > 0x0060090000..0x007fffffff -> 0x0060090000
-> > [=A0=A0=A0 3.381724] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0 MEM
-> > 0x2000000000..0x3fffffffff -> 0x2000000000
-> > [=A0=A0=A0 3.484809] fu740-pcie e00000000.pcie: iATU: unroll T, 8 ob, 8=
- ib,
-> > align 4K, limit 4096G
-> > [=A0=A0=A0 3.683678] fu740-pcie e00000000.pcie: PCIe Gen.1 x8 link up
-> > [=A0=A0=A0 3.883674] fu740-pcie e00000000.pcie: PCIe Gen.3 x8 link up
-> > [=A0=A0=A0 3.987678] fu740-pcie e00000000.pcie: PCIe Gen.3 x8 link up
-> > [=A0=A0=A0 3.988164] fu740-pcie e00000000.pcie: PCI host bridge to bus =
-0000:00
-> >=20
-> > Reverting the following commits solves the issue.
-> >=20
-> > 0da48c5b2fa731b21bc523c82d927399a1e508b0 PCI: dwc: Support ECAM
-> > mechanism by enabling iATU 'CFG Shift Feature'
-> >=20
-> > 4660e50cf81800f82eeecf743ad1e3e97ab72190 PCI: qcom: Prepare for the DWC
-> > ECAM enablement
-> >=20
-> > f6fd357f7afbeb34a633e5688a23b9d7eb49d558 PCI: dwc: Prepare the driver
-> > for enabling ECAM mechanism using iATU 'CFG Shift Feature'
-> >=20
-> Hi Ron,
->=20
-> can you try with this change.
-> Looks like fu740-pcie driver has 256MB space of config space so dwc
-> driver is trying to enable ecam and seeing failures while enabling.
->=20
-> you can try two options 1 is to enable ecam if your hardware supports
-> it and other is to use native method like below.
+This series is available here:
+  https://github.com/riscstar/linux/tree/outgoing/pcie-v2
 
-> If you want to enable
-> ecam your config space should start with dbi address and should have
-> 256Mb aligned 256Mb memory of config space. Uf you want to enable ecam
-> and had this memory requirement fulfilled, try to change your devicetree
-> by starting config space with dbi start address and give it a try.
+Between version 1 and version 2:
+  - General
+    - VENDOR ID 0x201f is now registered with PCI SIG: "SpacemiT
+      (Hangzhou) Technology Co. Ltd"
+        https://pcisig.com/membership/member-companies?combine=201f
+    - The PCIe host compatible string is now "spacemit,k1-pcie"
+    - Reimplemented the PHY PLL as a clock registered with the
+      common clock framework, driven by an external oscillator
+    - Added the external oscillator clock to the PHY binding
+    - Renamed the PCIe driver source file "pcie-spacemit-k1.c"
+  - Kconfig
+    - Renamed the PCIe driver Kconfig option PCIE_SPACEMIT_K1
+    - The PCIe driver is now defined as tristate, not Boolean
+    - Updated the PCIe host Kconfig based on Bjorn H's feedback
+  - DT Bindings
+    - Corrected PCIe node ranges properties
+    - Replaced "interrupts-extended" property with just "interrupts"
+      in the PCIe host binding
+    - Named the single PCIe interrupt "msi" to clarify its purpose
+    - Added a new vpcie3v3-supply property for PCIe ports
+    - Renamed a syscon property to align with other SpacemiT bindings
+    - Removed labels and status properties in DT binding examples
+    - Added a '>' to DT binding descriptions to preserve formatting
+    - Consistently ended DT binding descriptions with no period
+    - Dropped ".yaml" from the PCIe host compatible string
+    - Dropped unneeded max-link-speed property from PCIe binding,
+      relying on the hardware default value instead
+    - No longer require the bus-ranges PCIe property; if not
+      provided, the default value used is exactly what's desired
+  - Code
+    - Renamed the symbols representing the PCI vendor and device IDs
+      to align with <linux/pci_ids.h>
+    - Use PCIE_T_PVPERL_MS rather than 100 to represent a standard
+      delay period.
+    - Use platform (not dev) driver-data access functions; assignment
+      is done only after the private structure is initialized
+    - Deleted some unneeded includes in the PCIe driver.
+    - Dropped error checking when operating on MMIO-backed regmaps
+    - Added a regmap_read() call in two places, to ensure a specified
+      delay occurs *after* the a MMIO write has reached its target.
+    - Used ARRAY_SIZE() (not a local variable value) in a few spots
+    - Now use readl_relaxed()/writel_relaxed() when operating on
+      the "link" I/O memory space in the PCIe driver
+    - Updated a few error messages for consistency
+    - No longer specify suppress_bind_attrs in the PCIe driver
+    - Now specify PCIe driver probe type as PROBE_PREFER_ASYNCHRONOUS
+  - Miscellany
+    - Subject on the PCIe host binding includes "pci", not "phy"
+    - Clarified that the DesignWare built-in MSI controller is used
+    - Use "PCIe gen2" terminology (rather than "PCIe v2")
+    - No longer use (void) cast to indicate ignored return values
 
-If it worked before your changes, but now does not, I am not going to
-accept a dts change to make it work again FYI.
-
->=20
-> diff --git a/drivers/pci/controller/dwc/pcie-fu740.c
-> b/drivers/pci/controller/dwc/pcie-fu740.c
-> index 66367252032b..b5e0f016a580 100644
-> --- a/drivers/pci/controller/dwc/pcie-fu740.c
-> +++ b/drivers/pci/controller/dwc/pcie-fu740.c
-> @@ -328,6 +328,8 @@ static int fu740_pcie_probe(struct platform_device
-> *pdev)
->=20
->         platform_set_drvdata(pdev, afp);
->=20
-> +       pci->pp.native_ecam =3D true;
-> +
->         return dw_pcie_host_init(&pci->pp);
->  }
->=20
-> - Krishna Chaitanya.
-> >=20
-
---Uueo13zjvdFAPZts
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaO0SAwAKCRB4tDGHoIJi
-0tgOAP9RGYYbZuhXkwHit4qJoD31YDcFt5XTMP7JPekrluQ8+QD+PyxF3Fa/gUrf
-kXHMSjfsVuDMxC4EupjKVUMjGexKmA0=
-=nnJc
------END PGP SIGNATURE-----
-
---Uueo13zjvdFAPZts--
+Here is version 1 of this series:
+  https://lore.kernel.org/lkml/20250813184701.2444372-1-elder@riscstar.com/
 
 
---===============4229349586319337050==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Alex Elder (7):
+  dt-bindings: phy: spacemit: add SpacemiT PCIe/combo PHY
+  dt-bindings: phy: spacemit: introduce PCIe PHY
+  dt-bindings: pci: spacemit: introduce PCIe host controller
+  phy: spacemit: introduce PCIe/combo PHY
+  PCI: spacemit: introduce SpacemiT PCIe host driver
+  riscv: dts: spacemit: add a PCIe regulator
+  riscv: dts: spacemit: PCIe and PHY-related updates
+
+ .../bindings/pci/spacemit,k1-pcie-host.yaml   | 156 ++++
+ .../bindings/phy/spacemit,k1-combo-phy.yaml   | 114 +++
+ .../bindings/phy/spacemit,k1-pcie-phy.yaml    |  59 ++
+ .../boot/dts/spacemit/k1-bananapi-f3.dts      |  38 +
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  |  33 +
+ arch/riscv/boot/dts/spacemit/k1.dtsi          | 151 ++++
+ drivers/pci/controller/dwc/Kconfig            |  10 +
+ drivers/pci/controller/dwc/Makefile           |   1 +
+ drivers/pci/controller/dwc/pcie-spacemit-k1.c | 319 +++++++++
+ drivers/phy/Kconfig                           |  11 +
+ drivers/phy/Makefile                          |   1 +
+ drivers/phy/phy-spacemit-k1-pcie.c            | 672 ++++++++++++++++++
+ 12 files changed, 1565 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
+ create mode 100644 Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
+ create mode 100644 Documentation/devicetree/bindings/phy/spacemit,k1-pcie-phy.yaml
+ create mode 100644 drivers/pci/controller/dwc/pcie-spacemit-k1.c
+ create mode 100644 drivers/phy/phy-spacemit-k1-pcie.c
+
+
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+-- 
+2.48.1
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4229349586319337050==--
-
