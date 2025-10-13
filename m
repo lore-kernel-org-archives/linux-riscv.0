@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB368CCD18D
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Oct 2025 17:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5D0CCD183
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Oct 2025 17:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bay4dyKFwdHYS6FfRrpuVmfIXLqaLVfzUSjkFYWgwcg=; b=mO26Zyvg2EVARz
-	chNFMDQ5S5QdXyXsK5CmaKstOJ2BJMpxJY0rI1HDECVl8FeZBz5teQF5iMu6jvTihTn6PDxehQyA1
-	jO98t1ErA5qx3O6tacT6pnpKG7vALskB1ag4xmJgSyZLDEeuolDeXJCWfEcRLZUdZfSsNYB4yIJMF
-	szfq0K6LasU7oUvLiis+LT9Qf/EFmPzgILe6qvx/ydLkbBL46TWoaGd1iGHYt38JE6c6mBuo978T6
-	On+3WYAfOMRUEJ85AtRcNPSGW6bM6dMz6p2P45BXh5bjEpJALtPOGF7zbX82QAbp4nsNRBIxcya1Y
-	gI5eIDSLmr2YDKywkIWQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Lm1hVYBOCTLnX6brzbpEf8Q4FkFikT4Rj29Xm22BXBQ=; b=3wsS0OIL+Ug0No
+	oKRtLxkIW3zlNzckKisrG6r0BxpMbMhELnhWsNLe6jYRZgIeQfytZSqgoX7jAG094M5MoA1jNC0Sr
+	xYF4JOUH1fH1tsCQ8hsS+Fzl2eDyt2WwP+iPJ7um1t5hxwiZABnLX5V0+9TuCnyKUvKVCZ7TtpxnA
+	jvoAvW3r5bNV6e2z9iiMsaLCdSXVfMcPHZQsm2EW3ac721alLxQscImB8CNtHCfdhecufDVARuyEg
+	V/5XsEa/OKRovOJw7+v4xzLR9yioFOtD4GslHmuRXXn0/6+cvDz99ZKFjsuGZLq/Aq+48Gud0V9N1
+	r/YEHT8o+N+Z0SQLM4Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8MXr-0000000E4Ag-2YMG;
-	Mon, 13 Oct 2025 17:41:15 +0000
-Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
+	id 1v8MeA-0000000E4l9-2z44;
+	Mon, 13 Oct 2025 17:47:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8MXp-0000000E4AG-207P
+	id 1v8Me9-0000000E4l0-2xR3
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Oct 2025 17:41:14 +0000
-Received: by mail-io1-xd2d.google.com with SMTP id ca18e2360f4ac-930a6c601b3so443249239f.3
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Oct 2025 10:41:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1760377272; x=1760982072; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=UltuTfLMWFwExhawJAiiHDqM2t3dFAy15foosSKHKoI=;
-        b=o+4G4NetJP4Kg4l4XjBfvRhsYHqJPio+3X47wyYVo2GQgrW97JTsaR29o6z//HIzn5
-         IGgAlocoYSB6pbjVM75PUGEavvc3zw2uIeUwPZhEAWir3DYTqRXnEb0IPvberBFTs/8G
-         Qzv39zHr0+2JuctEkbj0Od2VDMJ+DvZMM9/b1TCHfgOThcVI+LQsMT9UhI1GpZwAWlwD
-         iHe+Z5DQ3Zkpwqt6BsbEFT0Te/WBDIu8PjSoxi8uqzn8pluzWj3MuocRJBgQmJ8pN85j
-         K0zxQIpxWQ1xfHfD/iNisyl4HLzDqUAyTLuFvGNEEIK2iyHju8qnpHA6oagIaIVmb3UP
-         I15g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760377272; x=1760982072;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UltuTfLMWFwExhawJAiiHDqM2t3dFAy15foosSKHKoI=;
-        b=RJbkIod+J1kmXZAuToJjw5WCSe4/9dzJ1qNjFRi6NuECBUGYu1PZZZFPDoVvbaYwIM
-         xX0yVjBBregjo3T+MaP1SsRXIFOTCnLMq7Rx2CPwOM8+eEf03aIBEZEG1ronovgGN8y+
-         nnd2ElSSciT0U5hqCFdYDDpCzlM6FZf6mOc07NoGEfZdV9H4jeWv7jPIa+JdMbEvNlB/
-         +jFPyDAC6OhPIfapmyFipAZwU8pU1unJUbA58QnQ/nurNKM1hctkv3kMPHxtAnH0YSAO
-         eOK0CvjN/FnLwkpUX38qDui5ayxD9zDYPvOhH1sNrpY6rW+qNBBcA8vlgVFJaI3DlTOZ
-         AYAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUXpat/kVWZaP/yLQsaoZUiZ3+ek5nJkHz5Alx88Me3lS4uHlfXrLKojxnevmTVpWC5A/r12r/vsgkWvA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUDXkc6AUK87Gg75CIgoiOnTpdLBcUJK+jYZ16X1swZaWXY+fo
-	ek1t4ZKGpjiX7zQxaLBqKucRzVJZ4DKOOEYqUmh+8JDu+ihBLxat6u4qfUHHsns0viU=
-X-Gm-Gg: ASbGncsyX6sUv51uExLd2MaXbpoWuJWHLwvRVLenuVhN3hHCnYL4Mx2B2MqAZ7AlwLi
-	8L/qiTcFZsih1fkQMhoyBddiOJ+zUUf5te1Gl19qsjU7kQahGTLcgBW3okrpZrwiYf21SfdkGOO
-	20F6YlRYfHp0xkdz+KRXDDXmB2SFmWaLgKVH2c3847jebPRDDDEwJD9rOlS1yvt8h4Ogu91O71h
-	LHrHOMCHH6C5CYm2kqdmrr9XeXmTJA7QwsWWl4ZQVulsVhbMjGFypCRMZqqput5kQNhkm05Z68W
-	vO0B2ZTyqJ7Z58ENftDDHbNPzEgGW8o171u5oF69Q+vWKC+d0EKHjLXMlEnZhiExNo9Z2s7Rj70
-	ykK9AgYPWOalTuL6tRECK61YjEYb+PD6SD7/tfSDfqxw=
-X-Google-Smtp-Source: AGHT+IGksZJATtR9dICb9YFDLoYCnIOn9SbEaI89/f+xN2pNKg219Slp1yc0ndJtssXs/Ex7tkdSVw==
-X-Received: by 2002:a05:6602:740e:b0:887:638a:29b5 with SMTP id ca18e2360f4ac-93bd1975876mr2285945239f.9.1760377272238;
-        Mon, 13 Oct 2025 10:41:12 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-58f729ce111sm3807015173.58.2025.10.13.10.41.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Oct 2025 10:41:11 -0700 (PDT)
-Date: Mon, 13 Oct 2025 12:41:11 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
-Cc: alex@ghiti.fr, alexghiti@rivosinc.com, aou@eecs.berkeley.edu, 
-	cleger@rivosinc.com, evan@rivosinc.com, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	pjw@kernel.org, samuel.holland@sifive.com, shuah@kernel.org, 
-	zhangyin2018@iscas.ac.cn, zihongyao@outlook.com
-Subject: Re: [PATCH v2 4/4] selftests/riscv: Add Zicbop prefetch test
-Message-ID: <20251013-b0cf6d4c5952c56cd489eca9@orel>
-References: <20251009-49032bae395a1c26cbe80928@orel>
- <20251013161645.29357-1-zihong.plct@isrc.iscas.ac.cn>
+	Mon, 13 Oct 2025 17:47:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D338660282;
+	Mon, 13 Oct 2025 17:47:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADFB3C4CEE7;
+	Mon, 13 Oct 2025 17:47:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760377664;
+	bh=4ulKO/nNlIiLicDqkZpPpvf0e+rycqGoPn+RZv+JvMw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Q7ERShdNM6XntNbj6meJb2yfBnF8LsTnoPne937gDeIQk/nztBleaxW4aj8Z1tt51
+	 YzBjT2UBkT3oB9ZTz8hGPbiRfYlYrO+eudMq+L4XlaE3whyuDJfn31HiOBYPRBZyQ9
+	 2PHNH0M57krmaLf/okmumJAZERbgM/cq+TygqVs9qa9+QXMu5F2CUOuOcA9YgK3rmW
+	 bFLTrjHFj8qlloRwRzzuw20zphnUTrORgcwIYZDYXABO1oSpcg/OdI6FHzSkd7Cvj7
+	 KLkVw9rOne9ToM5mWJ/80RzmHProrzZXQSibvu7mt8CeSbQhKBozCWGt3pgcJSmMWi
+	 ZZ7hUL6ccqNoQ==
+From: Conor Dooley <conor@kernel.org>
+To: claudiu.beznea@tuxon.dev
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/9] Redo PolarFire SoC's mailbox/clock devicestrees and related code
+Date: Mon, 13 Oct 2025 18:45:32 +0100
+Message-ID: <20251013-album-bovine-faf9f5ebc5d4@spud>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251013161645.29357-1-zihong.plct@isrc.iscas.ac.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_104113_539350_6D21A55D 
-X-CRM114-Status: GOOD (  10.59  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6256; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=rkUkOvChnR2CrvTD3zqV7j5Mky8Pa7y5ASzMCn0aDOE=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDBlvrfab2FgyGteEZEr3H2xaIKg4ITPE7VSL2tbnjvyP2 p92HfrTUcrCIMbFICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIl86mJkWGO/v8royMt9Eg+U tjp/2X9rU67f/uCg6lleTzeU1RSbBDEyTD5c4cB25ulVlSk++aXtuf8yRBxCv087teGu6686Nr0 tzAA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,20 +76,145 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBPY3QgMTQsIDIwMjUgYXQgMTI6MTY6NDFBTSArMDgwMCwgWWFvIFppaG9uZyB3cm90
-ZToKPiBUaGFua3MgZm9yIHRoZSByZXZpZXcsIEnigJlsbCBmaXggdGhvc2UgaXNzdWVzIGluIHRo
-ZSBuZXh0IHJldmlzaW9uLgo+IAo+IEFsc28sIGRvIHlvdSB0aGluayBpdOKAmXMgd29ydGggcmVu
-YW1pbmcgY2JvLmMgdG8gc29tZXRoaW5nIG1vcmUgZ2VuZXJpYwo+IChsaWtlIHppY2JvLmMpLCBv
-ciBzaG91bGQgSSBrZWVwIHRoZSBjdXJyZW50IG5hbWUgZm9yIGNvbnNpc3RlbmN5PwoKVGhlIGNi
-byAoY2FjaGUtYmxvY2sgb3BlcmF0aW9ucykgbmFtZSByZXByZXNlbnRzIGFsbCB0aGUgY2JvLioK
-aW5zdHJ1Y3Rpb25zIGFuZCBhbGwgdGhlIHByZWZldGNoLiogaW5zdHJ1Y3Rpb25zLCBqdXN0IGFz
-IHNlY3Rpb24gMi4yCiJDYWNoZS1CbG9jayBPcGVyYXRpb25zIiBvZiB0aGUgQ01PIHNwZWMgaW50
-cm9kdWNlcyBhbGwgb2YgdGhlbSB1bmRlcgp0aGUgc2FtZSBoZWFkaW5nLgoKVGhhbmtzLApkcmV3
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Conor Dooley <conor.dooley@microchip.com>
+
+In v5 the only real change is that I removed the attempt at a common
+implementation of regmap-based divider/gate clocks. The series hasn't
+managed to receive feedback on my approach in 2025, despite sending
+several revisions and bumps, and it is blocking support for both new
+drivers (gpio interrupt support, pinctrl and hwmon off the top of my
+head) and a new platform so I have decided to strip out the attempt at
+making something common in exchange for something that can be merged
+through the clk-microchip tree without relying on feedback from the
+clock maintainers.
+
+Currently the driver uses the common gate and divider clocks, but the
+driver used to use its own custom clock types. Reprising this version of
+the code allows me to use regmap accessors in the driver without any
+wider impact, or attempting to create something that works for any other
+user. It has the advantage that it has already been tested in that prior
+for, and all that is done to the clock implementations is replacing
+readl()s and writel()s with their regmap equivalents.
+
+Hopefully this change has made it possible to merge the series,
+Conor.
+
+v5:
+- drop mfd patch applied by Lee
+- remove attempt at common regmap divider/gate clocks, and replace it
+  with a return to how the code used to look, before it started using
+  the non-regmap versions of the common divider/gate, with the
+  readl()/writel()s replaced by their regmap equivalents.
+
+v4:
+- unify both regmap clk implementations under one option
+- change map_offset to a u32, after Gabriel pointed out that u8 was
+  too restrictive.
+- remove locking from regmap portion of reset driver, relying on
+  inherent regmap lock
+
+v3 changes:
+- drop simple-mfd (for now) from syscon node
+
+v2 cover letter:
+
+Here's something that I've been mulling over for a while, since I
+started to understand how devicetree stuff was "meant" to be done.
+There'd been little reason to actually press forward with it, because it
+is fairly disruptive. I've finally opted to do it, because a user has
+come along with a hwmon driver that needs to access the same register
+region as the mailbox and the author is not keen on using the aux bus,
+and because I do not want the new pic64gx SoC that's based on PolarFire
+SoC to use bindings etc that I know to be incorrect.
+
+Given backwards compatibility needs to be maintained, this patch series
+isn't the prettiest thing I have ever written. The reset driver needs to
+retain support for the auxiliary bus, which looks a bit mess, but not
+much can be done there. The mailbox and clock drivers both have to have
+an "old probe" function to handle the old layout. Thankfully in the
+clock driver, regmap support can be used to identically
+handle both old and new devicetree formats - but using a regmap in the
+mailbox driver was only really possible for the new format, so the code
+there is unfortunately a bit of an if/else mess that I'm both not proud
+of, nor really sure is worth "improving".
+
+The series should be pretty splitable per subsystem, only the dts change
+has some sort of dependency, but I'll not be applying that till
+everything else is in Linus' tree, so that's not a big deal.
+
+I don't really want this stuff in stable, hence a lack of cc: stable
+anywhere here, since what's currently in the tree works fine for the
+currently supported hardware.
+
+AFAIK, the only other project affected here is U-Boot, which I have
+already modified to support the new format.
+
+I previously submitted this as an RFC, only to Lee and the dt list, in
+order to get some feedback on the syscon/mfd bindings:
+https://lore.kernel.org/all/20240815-shindig-bunny-fd42792d638a@spud/
+I'm not really going to bother with a proper changelog, since that was
+submitted with lots of WIP code to get answers to some questions. The
+main change was "removing" some of the child nodes of the syscons.
+
+And as a "real" series where discussion lead to me dropping use of the
+amlogic clk-regmap support:
+https://lore.kernel.org/linux-clk/20241002-private-unequal-33cfa6101338@spud/
+As a result of that, I've implemented what I think Stephen was asking
+for - but I'm not at all sure that it is..
+
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: pierre-henry.moussay@microchip.com
+CC: valentina.fernandezalanis@microchip.com
+CC: Michael Turquette <mturquette@baylibre.com>
+CC: Stephen Boyd <sboyd@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Philipp Zabel <p.zabel@pengutronix.de>
+CC: linux-riscv@lists.infradead.org
+CC: linux-clk@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+
+Conor Dooley (9):
+  dt-bindings: soc: microchip: document the simple-mfd syscon on
+    PolarFire SoC
+  soc: microchip: add mfd drivers for two syscon regions on PolarFire
+    SoC
+  reset: mpfs: add non-auxiliary bus probing
+  dt-bindings: clk: microchip: mpfs: remove first reg region
+  clk: microchip: mpfs: use regmap for clocks
+  riscv: dts: microchip: fix mailbox description
+  riscv: dts: microchip: convert clock and reset to use syscon
+  MAINTAINERS: add new soc drivers to Microchip RISC-V entry
+  MAINTAINERS: rename Microchip RISC-V entry
+
+ .../bindings/clock/microchip,mpfs-clkcfg.yaml |  36 ++-
+ .../microchip,mpfs-mss-top-sysreg.yaml        |  47 ++++
+ MAINTAINERS                                   |   4 +-
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  34 ++-
+ drivers/clk/microchip/Kconfig                 |   2 +
+ drivers/clk/microchip/clk-mpfs.c              | 250 +++++++++++++++---
+ drivers/reset/reset-mpfs.c                    |  83 ++++--
+ drivers/soc/microchip/Kconfig                 |  13 +
+ drivers/soc/microchip/Makefile                |   1 +
+ drivers/soc/microchip/mpfs-control-scb.c      |  45 ++++
+ drivers/soc/microchip/mpfs-mss-top-sysreg.c   |  48 ++++
+ 11 files changed, 480 insertions(+), 83 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
+ create mode 100644 drivers/soc/microchip/mpfs-control-scb.c
+ create mode 100644 drivers/soc/microchip/mpfs-mss-top-sysreg.c
+
+-- 
+2.51.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
