@@ -4,127 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E859CCA476
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Oct 2025 09:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B13CCA476
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Oct 2025 10:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lCihTEVy1OLPiZKh7hQ72ASXwGyi2PUkhPjJRRgxzcU=; b=34gMVSQmAkvNDi
-	vqB/7btfIw+w8nN97AeJ+7KvrWiu1vbCBqSgBUdZ+adxkp14YYJyE8LgwNEYE05Y9rtE5oEHAGg1I
-	zIb3GJtGoGvK4gIJfhMJnJdDkjBQ0tAGcXdzW8nxIWZ/m7IJ1TJZ8DobZ+rK19HQmYvf+uYpxW14y
-	21hkqDJDPJ9wWZSHB4ulXguxLMpZ91neyDAnV0LlHvU9SYsKZEUiRskx4deFzirSnuKB3B45eKFRo
-	rrQZGRZMr8n8gxz6q1iyg6qASlpyE7BmSu1qR9NdRW/bYg83RGUu4VkBJe1hDRTlf0AfCOVlD8QWs
-	YoWkQNS/NRFbQf71rNZQ==;
+	List-Owner; bh=XV+T51DBTDwUQdMlF1jqnzACOii4yCwoKZPNPSOL1bU=; b=BG6SHSjpaXNAJ6
+	RcZF0yW2DgiOl4klfIX9dViIcbtmrkvaIeqsZKHGsQvF/BibudFd6Ni66XRAZrAA/sSLAGUx0btYR
+	wOt5TrxZBsDDFk+mhHXdjBbxGCPC3ym14sjFCez9wxog0Fn/YtaVLuc11j6ej0xI9g1UjGnMJqv3N
+	B+GfVQ0XMl6mCj0jTiJrXvyAe1wnHbvIzmPqiac0F39CQ441a4Bdi+W0kW8345vl0tVS/dpmkE/P6
+	x6jegi3um1S6lNjupz4NtCVvTGlasPftcejGY6L+kk35R+bKJrXStzL+nB3WAV/1Q70BQU0XW7b1u
+	DjgPbI9ctvOogj4dHXPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8FLI-0000000CpUW-3s5O;
-	Mon, 13 Oct 2025 09:59:48 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1v8Fio-0000000CtsD-3QKA;
+	Mon, 13 Oct 2025 10:24:06 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8FLF-0000000CpTY-4AQc;
-	Mon, 13 Oct 2025 09:59:47 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59D2jFYk019492;
-	Mon, 13 Oct 2025 09:59:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=jBhMnJ
-	zS9Z83HawXd2RDjG6FUzPokDAbz28bCdes0uc=; b=EongFvxo6BXKZiclVAOOwL
-	AOYamchoR70Fn0GCwC6K6KhzPFG1WOTXVvUA7zuGzVyBMGj173W7bHlFEE5Ha69b
-	7Dyaz4PufpMn4vCEPnuD3QhY4/S9KKICmr3J9cMqON5TezlIgnFR5WMpKBZMn0r+
-	ePLsISL9KNaDLensRtoE9VU0J6Zj6uXvvqhTgobB96YEXnMg8wL93j7WMmXMSMqb
-	VppdkLhN7M7CkguOOJdc/sORjwM0SjIwVsYerhuk91pHRzGUeHF+kddMt+K1zdNz
-	crJ9mzQ8Q7xis9ZNCmnJuoe5zZSz6Ss10ZjacDkaTFG6jtfaku2TUUYtVE4TuKtA
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49qey8g7gr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Oct 2025 09:59:23 +0000 (GMT)
-Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 59D9uBsM025567;
-	Mon, 13 Oct 2025 09:59:22 GMT
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49qey8g7gm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Oct 2025 09:59:22 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59D7ONg6003928;
-	Mon, 13 Oct 2025 09:59:21 GMT
-Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 49r490vxee-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Oct 2025 09:59:21 +0000
-Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59D9xL5f12321512
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 13 Oct 2025 09:59:21 GMT
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1391D58043;
-	Mon, 13 Oct 2025 09:59:21 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 25AB65805D;
-	Mon, 13 Oct 2025 09:59:15 +0000 (GMT)
-Received: from [9.111.15.176] (unknown [9.111.15.176])
-	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 13 Oct 2025 09:59:14 +0000 (GMT)
-Message-ID: <ca1980887ae352811b922fca28965f5cd4639f97.camel@linux.ibm.com>
-Subject: Re: [PATCH v1 17/20] iommu/s390-iommu: Implement
- s390_iommu_domain_test_device
-From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, joro@8bytes.org, jgg@nvidia.com,
-        kevin.tian@intel.com
-Cc: suravee.suthikulpanit@amd.com, will@kernel.org, robin.murphy@arm.com,
-        sven@kernel.org, j@jannau.net, jean-philippe@linaro.org,
-        robin.clark@oss.qualcomm.com, dwmw2@infradead.org,
-        baolu.lu@linux.intel.com, yong.wu@mediatek.com, matthias.bgg@gmail.com,
-        angelogioacchino.delregno@collabora.com, tjeznach@rivosinc.com,
-        pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-        heiko@sntech.de, mjrosato@linux.ibm.com, wens@csie.org,
-        jernej.skrabec@gmail.com, samuel@sholland.org,
-        thierry.reding@gmail.com, jonathanh@nvidia.com, iommu@lists.linux.dev,
-        linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
-        virtualization@lists.linux.dev, patches@lists.linux.dev
-Date: Mon, 13 Oct 2025 11:59:14 +0200
-In-Reply-To: <792e825476efe58d14cc16cca18209a2b6088a4b.1760312725.git.nicolinc@nvidia.com>
-References: <cover.1760312725.git.nicolinc@nvidia.com>
-	 <792e825476efe58d14cc16cca18209a2b6088a4b.1760312725.git.nicolinc@nvidia.com>
-Autocrypt: addr=schnelle@linux.ibm.com; prefer-encrypt=mutual; keydata=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
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+	id 1v8Fil-0000000Ctrn-0nSE
+	for linux-riscv@lists.infradead.org;
+	Mon, 13 Oct 2025 10:24:06 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251013102359euoutp023e68355ce66384b62b7bb0a4107f899c~uBfGWzx0D2908829088euoutp02k
+	for <linux-riscv@lists.infradead.org>; Mon, 13 Oct 2025 10:23:59 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251013102359euoutp023e68355ce66384b62b7bb0a4107f899c~uBfGWzx0D2908829088euoutp02k
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1760351039;
+	bh=UnxQhZSRzfDFHS/D+zsLXL9vQESyx9y8MHFtVnINwB8=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=hczjRAc5sAsVVuqk7io4cMp5EeDgpCA4y2nrzojt/HHD6vfIIrHk/yXAXJFt/3sDP
+	 rJUiuJntpffugfk2DSER0bFeEBE0KItThToljffG4WPrxIqTMDv+KnQyXfbVjbJyH1
+	 QOZBhgKOxp9T50pE8M3yjrNrOx77ZgypB6bB+H/g=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20251013102358eucas1p2bf340beaea688bfc2ec0d85019598612~uBfFerfHD2166621666eucas1p2X;
+	Mon, 13 Oct 2025 10:23:58 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20251013102357eusmtip11cff881700a54a60ed0370ce2fe7b2be~uBfEVhpjC1713817138eusmtip1I;
+	Mon, 13 Oct 2025 10:23:57 +0000 (GMT)
+Message-ID: <bf7cf406-cf4c-415e-b70d-4ffc1f15835d@samsung.com>
+Date: Mon, 13 Oct 2025 12:23:57 +0200
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: NN1Ri8As_3unIKGQxOhzOqdABPZbGliV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxMSBTYWx0ZWRfX45iRCyF/SmFv
- cyiVovpS/6ywmKLxXcBh911mDAD1a/uE1ZJVHH+T4fqvvvXPLgRolkAfzOO+tyjaDLnEWQV8PdJ
- jS0/+OinbIirD1CVSTGTLrkWiDwPkkwkr2FJjbJp1LjnjkD82S13ZCVAs3RjcRfzSDQnFW5FpJA
- EWTJ5vXcjMRPcCOBJsK8j6rE5RRQwMbfjD+atUGZaTTJ91nYv81GBBzyYGnScyKR3dOo4qqYnW/
- os4utCq2Vs8j3b/mq+L4eiKocAiXmFpV6znl27PwFplis4+OPCqmLUYQA09S3RQxaxPBCw8+DQq
- xKYI0W9ufg3wQqtORL3Z8jp5od/JaXrRGdtKm2DSRarkvg/p9zNySmBmTrSxczOsjXxAsY4VCJ8
- khdZJE5p5+V8uWHZCdU8K2rIisdWOg==
-X-Proofpoint-GUID: WDeGIxavFBN_1amMctHLvXj_kQ_5X7Wg
-X-Authority-Analysis: v=2.4 cv=QZ5rf8bv c=1 sm=1 tr=0 ts=68eccd7b cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=Ikd4Dj_1AAAA:8 a=VnNF1IyMAAAA:8
- a=Vk_oO6w6bVgZBSUyZL0A:9 a=QEXdDO2ut3YA:10 a=DXsff8QfwkrTrK3sU8N1:22
- a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-13_03,2025-10-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 priorityscore=1501 phishscore=0 bulkscore=0 suspectscore=0
- spamscore=0 malwarescore=0 impostorscore=0 clxscore=1015 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510110011
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 0/7] Rust Abstractions for PWM subsystem with TH1520
+ PWM driver
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Miguel Ojeda
+	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng
+	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, Andreas
+	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, Trevor
+	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Guo Ren
+	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+	Ghiti <alex@ghiti.fr>, Marek Szyprowski <m.szyprowski@samsung.com>, Benno
+	Lossin <lossin@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+	Drew Fustini <fustini@kernel.org>, Daniel Almeida
+	<daniel.almeida@collabora.com>
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, Elle Rhumsaa <elle@weathered-steel.dev>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20250930-rust-next-pwm-working-fan-for-sending-v15-0-5661c3090877@samsung.com>
+X-CMS-MailID: 20251013102358eucas1p2bf340beaea688bfc2ec0d85019598612
+X-Msg-Generator: CA
+X-RootMTR: 20250930122729eucas1p2c4f1c07a4a504a59ba691b407a39420d
+X-EPHeader: CA
+X-CMS-RootMailID: 20250930122729eucas1p2c4f1c07a4a504a59ba691b407a39420d
+References: <CGME20250930122729eucas1p2c4f1c07a4a504a59ba691b407a39420d@eucas1p2.samsung.com>
+	<20250930-rust-next-pwm-working-fan-for-sending-v15-0-5661c3090877@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_025946_061581_458C1188 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20251013_032403_852861_30F3C02C 
+X-CRM114-Status: GOOD (  25.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,67 +99,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2025-10-12 at 17:05 -0700, Nicolin Chen wrote:
-> Move sanity and compatibility tests from the attach_dev callback to the
-> new test_dev callback function. The IOMMU core makes sure an attach_dev
-> call must be invoked after a successful test_dev call.
+
+
+On 9/30/25 14:20, Michal Wilczynski wrote:
+> This patch series introduces Rust support for the T-HEAD TH1520 PWM
+> controller and demonstrates its use for fan control on the Sipeed Lichee
+> Pi 4A board.
 > 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> The primary goal of this patch series is to introduce a basic set of
+> Rust abstractions for the Linux PWM subsystem. As a first user and
+> practical demonstration of these abstractions, the series also provides
+> a functional PWM driver for the T-HEAD TH1520 SoC. This allows control
+> of its PWM channels and ultimately enables temperature controlled fan
+> support for the Lichee Pi 4A board. This work aims to explore the use of
+> Rust for PWM drivers and lay a foundation for potential future Rust
+> based PWM drivers.
+> 
+> The core of this series is a new rust/kernel/pwm.rs module that provides
+> abstractions for writing PWM chip provider drivers in Rust. This has
+> been significantly reworked from v1 based on extensive feedback. The key
+> features of the new abstraction layer include:
+> 
+>  - Ownership and Lifetime Management: The pwm::Chip wrapper is managed
+>    by ARef, correctly tying its lifetime to its embedded struct device
+>    reference counter. Chip registration is handled by a pwm::Registration
+>    RAII guard, which guarantees that pwmchip_add is always paired with
+>    pwmchip_remove, preventing resource leaks.
+> 
+>  - Modern and Safe API: The PwmOps trait is now based on the modern
+>    waveform API (round_waveform_tohw, write_waveform, etc.) as recommended
+>    by the subsystem maintainer. It is generic over a driver's
+>    hardware specific data structure, moving all unsafe serialization logic
+>    into the abstraction layer and allowing drivers to be written in 100%
+>    safe Rust.
+> 
+>  - Ergonomics: The API provides safe, idiomatic wrappers for other PWM
+>    types (State, Args, Device, etc.) and uses standard kernel error
+>    handling patterns.
+> 
+> The series is structured as follows:
+>  - Expose static function pwmchip_release.
+>  - Rust PWM Abstractions: The new safe abstraction layer.
+>  - TH1520 PWM Driver: A new Rust driver for the TH1520 SoC, built on
+>    top of the new abstractions.
+>  - Device Tree Bindings & Nodes: The remaining patches add the necessary
+>    DT bindings and nodes for the TH1520 PWM controller, and the PWM fan
+>    configuration for the Lichee Pi 4A board.
+> 
+> Testing:
+> Tested on the TH1520 SoC. The fan works correctly. The duty/period
+> calculations are correct. Fan starts slow when the chip is not hot and
+> gradually increases the speed when PVT reports higher temperatures.
+> 
+> The patches doesn't contain any dependencies that are not currently in
+> the mainline kernel anymore.
+> 
 > ---
->  drivers/iommu/s390-iommu.c | 22 +++++++++++++++-------
->  1 file changed, 15 insertions(+), 7 deletions(-)
+> Changes in v15:
+> - Update the TH1520 driver; read the hardware state directly instead of
+>   using state, fix an integer overflow using saturating arithmetic, and
+>   add handling zero period edge cases.
+> - Add dbg prints, and also update them for using the preferred format
+>   for emiting a waveform.
+> - Remove the consumer side Args wrapper from the abstraction layer.
+> - Link to v14: https://lore.kernel.org/r/20250820-rust-next-pwm-working-fan-for-sending-v14-0-df2191621429@samsung.com
 > 
-> diff --git a/drivers/iommu/s390-iommu.c b/drivers/iommu/s390-iommu.c
-> index 366e47978ac07..3c6141a4a1faf 100644
-> --- a/drivers/iommu/s390-iommu.c
-> +++ b/drivers/iommu/s390-iommu.c
-> @@ -694,6 +694,20 @@ static int blocking_domain_attach_device(struct iommu_domain *domain,
->  	return 0;
->  }
->  
-> +static int s390_iommu_domain_test_device(struct iommu_domain *domain,
-> +					 struct device *dev, ioasid_t pasid,
-> +					 struct iommu_domain *old)
-> +{
-> +	struct zpci_dev *zdev = to_zpci_dev(dev);
-> +
-> +	if (!zdev)
-> +		return -ENODEV;
-> +	if (WARN_ON(domain->geometry.aperture_start > zdev->end_dma ||
-> +		    domain->geometry.aperture_end < zdev->start_dma))
-> +		return -EINVAL;
-> +	return 0;
-> +}
-> +
->  static int s390_iommu_attach_device(struct iommu_domain *domain,
->  				    struct device *dev,
->  				    struct iommu_domain *old)
-> @@ -704,13 +718,6 @@ static int s390_iommu_attach_device(struct iommu_domain *domain,
->  	u8 status;
->  	int cc;
->  
-> -	if (!zdev)
-> -		return -ENODEV;
-> -
-> -	if (WARN_ON(domain->geometry.aperture_start > zdev->end_dma ||
-> -		domain->geometry.aperture_end < zdev->start_dma))
-> -		return -EINVAL;
-> -
->  	blocking_domain_attach_device(&blocking_domain, dev);
->  
->  	/* If we fail now DMA remains blocked via blocking domain */
-> @@ -1177,6 +1184,7 @@ static struct iommu_domain blocking_domain = {
->  	.device_group = generic_device_group, \
->  	.get_resv_regions = s390_iommu_get_resv_regions, \
->  	.default_domain_ops = &(const struct iommu_domain_ops) { \
-> +		.test_dev	= s390_iommu_domain_test_device, \
->  		.attach_dev	= s390_iommu_attach_device, \
->  		.map_pages	= s390_iommu_map_pages, \
->  		.unmap_pages	= s390_iommu_unmap_pages, \
 
-Looks good to me, thanks!
+Hi Uwe,
+Would you like me to re-base on v6.18-rc1 ?
 
-Reviewed-by: Niklas Schnelle <schnelle@linux.ibm.com>
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
