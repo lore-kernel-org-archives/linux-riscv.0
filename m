@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70736CCD18A
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Oct 2025 00:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E90F4CCD184
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Oct 2025 00:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L5lcV5GS+0w7Y2V7H1zWnU3Tjn/R2H6PlQw9b2Vzvsk=; b=fwwWIRU6U+IyKZ
-	xiQg9/2OfUUEodKGP3PrSiEkXxUxUDjN6wSIvcM0YP4uPhS9qz2cSHofZ1YLvEjuEDdOFe3JbYfle
-	O/vt+s5L/28Nr+mD3Y9GgByBsR6j/so8ypwlPQZF2R8xqtz6MWgEReX6vPZFkRSEjgqMtdkwo1SnZ
-	UHZ54L58G/y+EGK/8GdPCTeM+4PT5nP8vmV/QKCScIp/AOP0W8rPfZRu391wKkKeOT61drcaG5X68
-	vI15+9p/iUBbAnWvyDAUmq9aZIEEvAde84yfgtUh3LK92l/nyXS4sNPejw0vzpE+1jy+BeESNhAWF
-	z0Fb8yqVAhbK/tFGZDVQ==;
+	List-Owner; bh=fkmVaoUsnFA/Qkvx5gnudWf5KdQtRfHpO8mZzGmcPWE=; b=UWfE1jLB4jpXcj
+	kKBT/w4sODRwyapZasbc5DJW0EVgYu2+sVxRUCOr5Ayz+GvMVUJpJyWZW6sWWNAb5YaE7QtdwGV1Y
+	JnNVeELxPAoHmxmJzum5GoJyIVA9aLsRnV9jebFHKrAo+voZYCwJ6rp+06geObm6cz1jOzsmqsjk9
+	e9cWfrle9DzOzlUnYZz9wRdLtXRu1qFHv2S24KRvkRqphJqXkKvJ55SseAXttozTNG84tXy20KFFP
+	r5ngFq31j4ywK5csl5p4tLo5w/V+EEDkTbjxbCxMnya0LsuarrXVUJwuXPlLFjGJoTBVt1rB6knPK
+	ueab96k6GGhaC0qT90wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v866H-0000000BvfI-3zfu;
-	Mon, 13 Oct 2025 00:07:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v866J-0000000BvjK-4BWT;
+	Mon, 13 Oct 2025 00:07:44 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v865E-0000000Btto-1QZQ;
+	id 1v865E-0000000BtuC-3CpJ;
 	Mon, 13 Oct 2025 00:06:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=L5v0tdio0rtxlLQ2VpG1h/+5eWhyMJ2ZieoNzIM35Wg=; b=DhA73oOZHF6/RZGXn+VqsDT1Kx
-	CelbcSrsyRp2WvKHB3DTYXN0QqZwxr6SYSlleIo54o0iW1g94U4gIvn0gi4j3gALb+6Y9Uoh/Evh2
-	udHLmGQ+HamJKc5kda+4SwDR23seVMG2D0h4+3L5kT7hN7xJ7Cds/XVw3RZPvz0XjJ+T4sF9u0HxP
-	5lZ/rdsBoC6YOAzW22h4AGZu9NVKW13mhi/VZmkmYnrlimHLEaWZ51Tr/hwHV/vOzNRJt3yyYXR0n
-	BVtO6sEKUxETovKURj65oKGV2E1x88Q+s4NKLS+LsCGCwuJhVRIzkQCsGioyHBxd/EX2eBGcE3DOM
-	YjzWKH2w==;
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v864x-00000003vWG-2lXm;
-	Mon, 13 Oct 2025 00:06:31 +0000
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=DWGKQwdXarsgZqBcDhfjyGfWCe043TnNGtHvVfgtb6U=; b=WgK7pNlsInNQ+BbZvcUDToRLGE
+	tswEEWxwfcEvSMJb3ByhT0LhB/u347Hf0va2H+a6NKFfRTO+b9aoZ3wJrhDLiqJabqpPfszabhuKa
+	jvizARv+DG0fHZOi+yYyYVkvTFaPwW+GKfVXizYvyZRMBDMaMdtOhFinsb/71/B5HeK1fswIt1izt
+	fDnIHgibDP7Dv8VsFmDkd37YNf38gsz11347VIhu/ehRSdRcU/glFR9YcwAfqbHW89uRZOkxfgQt7
+	yilquoUuZZQ0raFJ5zjJ7NS9WYvlfshr5O/vuBlR+wV3X2HQEqdK+L1H/CbYbGMXFRvGusQP+Sq3x
+	WJWbOnMA==;
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8659-0000000BExc-10G6;
+	Mon, 13 Oct 2025 00:06:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lC6hFb9UQc27EZ2MNbDBXXlWagloUKzAvePuEQ4DrYdIQMeHS4BJsyLggqxqh+NyTFuM4kceAtY9VLehj9HZYS5repF6ZoSX4lG7sF1letoU7KGM6aVamKsEhHoVzopfKrQkU0IZg3fitvsT/1N10WErlEshNXBcWJlfk6rTQc+xB0+U36GGdVhz2PEsO5z13pkah3icUG8SH7uY2oCp0JPLLywqfPQGv9pmW9LP+C9f5M4xpemDF0QEMt+YRXvsn5vvMj6Opr47CVAnhntZUR1VOChDhl+HZnD5EfYpJC309LwnLBhunNK8WOlg5zHM4xoPyKEa+gT3IDK4UL5Vhg==
+ b=YXgakykuBinN8SWpPnzoG9h3enORXjlObqMTpwz2RYBfkjPscZr0DFqZNtLUgRAIxWc0lhulLOvMOslmKYY3ylSuoBauSZyfzOHYApJx+nqKUDwwLvWqVcUP4z/qpP9L2FZl5HRDfTa2m/bocovBdygV3p2PFeBeZlxc64jmrHkPUD/mhz0NN6neUodv02X3kq9VJ7mQHCgqssm1ZsVtLLZW951UVUmw5m769erw+S+uUxXffHbSujWSS6j5v3MiPX0o9vdUhSArOI9qhlKhqboqXMG/IYF5QFnk1yRQX8cXTXEreEY7Gl+mRHDP1FKTNYzLxxp9MkuT0pWrhCep/A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L5v0tdio0rtxlLQ2VpG1h/+5eWhyMJ2ZieoNzIM35Wg=;
- b=a0wo/UfFPpUWF2KI7Cd3gLtdmqX6+c3ZsOdgYQJ3I1IBQoiHOMlq+3rqOvykRn5NN51sByLaScYcEBnHjKhnzqxmmyvsJDsa1QTIJMgCqwhbHV86rUgDBH1pqrCejS+wohf4OrJddu5QqJqSqaY9OaVSWkNYW/eSCm9rN4lFRy+pUkGgt4LCbNidH6HvykJuWQwGo9xrB/Pzh2VLAIkA2O4Wj53LwxaXv2wLOV27Bj6PC/WL7CdR9+g8MZSW4gIgh/aOEcO5zsxxGbqukUQj7imJGgoWdfxyv+n5d6BDAAWtOCJUH7a+mE8uQZ6OIRzacKytCXCmwVHA/FGlefx2eg==
+ bh=DWGKQwdXarsgZqBcDhfjyGfWCe043TnNGtHvVfgtb6U=;
+ b=GAki4aTWz4KlyWDtudPSLg9u26mZ6y9nnFuLm+hiCqwJ3sOyLLB6zPnSgJS0DmilkAJZmE7dVA1srZRGqWRcWzoU6vcc8xdCSnvtT4C4pWx6ktCV1WDPznVzT5nA0wqgSXp13ejBTr1VJwxu1BjdaYLVkLXoM9MmhA4nq1lRwSnFH3M3ItclB67iRPW0VKc6GFPdvXrBs1HNJCKpII9rNvFBjiw4+Hb5lKHrcjBZbE9oP2GMbeScvY603vsq/M1GnzDqoIqE62SmOgd9LiIJB21S8bPHCLd+Ln50CZnc2+0bsuJg5OEH63jvMuULSI46vOuv7c37PUZwuvJI8D+9uw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.160) smtp.rcpttodomain=8bytes.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -54,18 +54,17 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L5v0tdio0rtxlLQ2VpG1h/+5eWhyMJ2ZieoNzIM35Wg=;
- b=VehLefYR8RFrJm4Yqw64nYYC4vzus6G93HfEKVcORMreN4yKDVcGIwNYWl1p2nsic4tSH6EAi6GsxpkTPfaSyx6M3iG3A2yUi2puvw7J8//LyRJ+7Q1GVtHnNSRsmarAmYfNyDHwfNI1wfHIQWkkkDuus/Vij7L4sOKLCHjcxsCeXMBJXa7rDTaAuaxxe21Zj+EhEavj5YijllRiHo8owXBwRIInM/d3r3yWuxC5OAhbyoFzOBoGiUdVz79iVor6JuowVZxNh0gXBNSgti0FFRUTK/7xV6Ny8S9hPMW5vh7x3T7I/cix046Zi5KvD2GdrEa3od/tKN4V0LRIxa31wQ==
-Received: from PH7PR17CA0038.namprd17.prod.outlook.com (2603:10b6:510:323::17)
- by SA1PR12MB9003.namprd12.prod.outlook.com (2603:10b6:806:389::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.11; Mon, 13 Oct
- 2025 00:06:11 +0000
-Received: from CY4PEPF0000EE3E.namprd03.prod.outlook.com
- (2603:10b6:510:323:cafe::24) by PH7PR17CA0038.outlook.office365.com
- (2603:10b6:510:323::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9203.12 via Frontend Transport; Mon,
- 13 Oct 2025 00:06:06 +0000
+ bh=DWGKQwdXarsgZqBcDhfjyGfWCe043TnNGtHvVfgtb6U=;
+ b=OiABGYukCFw8bobJb/nW6sVZsWcLtRJznC40SENrisp9+1gdvtaV0ysnYbj7gfAYKCoKA1eyG7TX2+12sYOWNyUt9fDWlh57EMKo+2/l8YYWcJ2SxRnIm735rHzBjJJehx/Juioisq22W6xm+do+UhaJjVg+jBZL9/QbLcBWfa02lSGFS2nLdE345O7s7GQMvkPeDoq7l5O6mV0zvUSeTANmdkGtAueKd90su1F0mIJvMBz2u57rl76gyUGTw7fVfUYNodwGLrUuhWhtQjhodBh0ioDidl0rXrUfhAPBvPs4cGEMLUwMK62Ujn85idXP1QqUVjTie7qltd4Z+8onZw==
+Received: from DS7PR05CA0037.namprd05.prod.outlook.com (2603:10b6:8:2f::24) by
+ SA0PR12MB4383.namprd12.prod.outlook.com (2603:10b6:806:94::12) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9203.12; Mon, 13 Oct 2025 00:06:22 +0000
+Received: from CY4PEPF0000EE3B.namprd03.prod.outlook.com
+ (2603:10b6:8:2f:cafe::36) by DS7PR05CA0037.outlook.office365.com
+ (2603:10b6:8:2f::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9228.9 via Frontend Transport; Mon,
+ 13 Oct 2025 00:06:22 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -73,20 +72,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.117.160 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.117.160) by
- CY4PEPF0000EE3E.mail.protection.outlook.com (10.167.242.16) with Microsoft
+ CY4PEPF0000EE3B.mail.protection.outlook.com (10.167.242.14) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9228.7 via Frontend Transport; Mon, 13 Oct 2025 00:06:10 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ 15.20.9228.7 via Frontend Transport; Mon, 13 Oct 2025 00:06:21 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
  (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Sun, 12 Oct
- 2025 17:05:50 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 17:06:08 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 12 Oct
- 2025 17:05:49 -0700
+ 2025 17:06:08 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
  (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Sun, 12 Oct 2025 17:05:47 -0700
+ Transport; Sun, 12 Oct 2025 17:06:05 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <joro@8bytes.org>, <jgg@nvidia.com>, <kevin.tian@intel.com>
 CC: <suravee.suthikulpanit@amd.com>, <will@kernel.org>,
@@ -105,9 +104,9 @@ CC: <suravee.suthikulpanit@amd.com>, <will@kernel.org>,
 	<linux-s390@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
 	<linux-tegra@vger.kernel.org>, <virtualization@lists.linux.dev>,
 	<patches@lists.linux.dev>
-Subject: [PATCH v1 08/20] iommu/riscv: Implement riscv_iommu_test_paging_domain
-Date: Sun, 12 Oct 2025 17:05:05 -0700
-Message-ID: <77e60e630435ed5fcd755a09126c0bc2e85bf1ff.1760312725.git.nicolinc@nvidia.com>
+Subject: [PATCH v1 15/20] iommu/fsl_pamu_domain: Implement fsl_pamu_domain_test_device
+Date: Sun, 12 Oct 2025 17:05:12 -0700
+Message-ID: <a54211182e22db598b2a26f589e8f5f34ad78f98.1760312725.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1760312725.git.nicolinc@nvidia.com>
 References: <cover.1760312725.git.nicolinc@nvidia.com>
@@ -115,53 +114,52 @@ MIME-Version: 1.0
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3E:EE_|SA1PR12MB9003:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7becf227-8728-4d92-6f71-08de09ec50f7
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3B:EE_|SA0PR12MB4383:EE_
+X-MS-Office365-Filtering-Correlation-Id: 648676e8-fa86-4032-ba1c-08de09ec5787
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Qy2XFjOA+tR7kH9q/IARx/fpOo5BzZzfC8gz7gKRUi7to5qhWxKy8TC4HJLj?=
- =?us-ascii?Q?Z10hdLpj//GUw839wvaaSTtKCDk9xDjxsfPp/ZMPsl0hUbqq6SY993QN9hLA?=
- =?us-ascii?Q?ns70C028lh9s5msfHMzRyBWbSLWtJcbTp3n/28kGuZGcOYTLZAP+ZW5WfCSS?=
- =?us-ascii?Q?2KxlhyB/izxLLLrjB0hlxqHZMG1Bas9+FV7jUDaM8GOeysPkSpEADw+bVLiq?=
- =?us-ascii?Q?WX4CppyEYuoJiXnZjM2kbugV98+HulyS2Vk4uRLnPKikWvWUUAUsuwAvZ9kc?=
- =?us-ascii?Q?gDTg79YfVVhGgUPpwq1SlxWIC2CcLteLY0IGf0z6hgwLU/yPyN7nqFN1r03x?=
- =?us-ascii?Q?7S5t0qjnh7yDnipJCr1ZCGw2EPuvRjI9apUd8L+lq7Mt1qPEk+5e097ou2tO?=
- =?us-ascii?Q?zVP56mc6EIryboW3j0JgAZpGuQvoA//NOFq3lCI/xlKPJy+9et4FFWoWJKnI?=
- =?us-ascii?Q?jhzFety5ynp40rnG6Wu0KUiSWAzuUCtCPr7ahUfCfm7pT8Uaw4PzX+dLKW5K?=
- =?us-ascii?Q?fkFzLIBly0MFNNsWMjtsaQRNIoiM3ZbkVidxYnU2ArEXB4CULD1psN6Oj4ke?=
- =?us-ascii?Q?kBn9l0ydapILg0zXQobSdE0+cE+zkS0iuqJ7NSquFasdAVwRJKKSTuFrXw0P?=
- =?us-ascii?Q?AisuQt3AQ/cjL4TZT7Uf7YHbWz/jd3WUtfaRPfcAaFpN+PdEsWrz/M5rT0E+?=
- =?us-ascii?Q?lJl+EMG/VoGLTQBi6gIYpbIOgPZvnhZL7rm7+6qglHZC3FpD4Ha/aKyF8RUn?=
- =?us-ascii?Q?a/aS+fZULeSAQDZ0anyikE1V6Sbb4N5ABdizBUehbWmeIdoOTdUz7YzSgIMm?=
- =?us-ascii?Q?A3OyMYS+nvYemcP+IW38bc1dLVYiJlj+roISRSgaFVkqa62EWgnXpcpIXPtD?=
- =?us-ascii?Q?fdCtqYdiAHoCXUuSVwZV7q2i97ueX1cV9VXAVBXYZ2huPfa7sXDSbvoB+AjO?=
- =?us-ascii?Q?6P4If/qK7ZC0WUF4xxomBwAJ1ihzDfrHrkw/DlQ2GVotUm3EpDZZT1blCkOd?=
- =?us-ascii?Q?5V7IM225mThz7VdvkbVbbbmstamz3GxN0fo5L5j1CS4tlzwJZFu9hA9aral6?=
- =?us-ascii?Q?aTtJ7jmwHrc3nfzIQHBNcAcBzFhIhlg5MZ8aqNuH70tHozhjYmF/YXCzgqW+?=
- =?us-ascii?Q?iydzUQfuMC/lP9Zs+wblNCItIVc5OponzYe0B73wxVtIl/l7VyWAPxst5pVX?=
- =?us-ascii?Q?OFjblK3Io7CQb9bPkhScJ6ZUvqAfcXqOrXw2zKBPi4rQv2pOfQx3N3PlcAKw?=
- =?us-ascii?Q?DooKZkZN+o7levvMqTlXxEJQrfj13J10HPWuC6ZbBErqXzRDW0oabcRdo9fJ?=
- =?us-ascii?Q?HnbhyZvNuQ4t9YVt5TYNMOc1VDIEs0JpTUFgvBioljibg4jX/4skQSwEGxF6?=
- =?us-ascii?Q?q5nA7w8iMF+/casIjbo+lTOm1JX0Qhppi9MfdTDgG5yyNRWvFEeFTIw4ugx9?=
- =?us-ascii?Q?ca8DoEPFHtyH70Bb+zwu63Dl3K7kuZ3AqUkQbEVnKd3/t99/3JIXFxDwzL+o?=
- =?us-ascii?Q?ml8umwXZ6v+JebeSHrxcx3cc0Oo18VRnBHXjkyJUeakokHmIbDMup2pHLrnG?=
- =?us-ascii?Q?j4q+1SdyFvRHRNlv+gg=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cjKGuBkhvATy7P5wvlyqpU+4kWPsr++cvALZcrMgzZFimlnwyZAoFf7DoVU1?=
+ =?us-ascii?Q?n9WKfJ+5VYrquRHxkubNTRmPXX3d3zLgSFq4HJToRc8+gYIwZ4R2MDY9qgtW?=
+ =?us-ascii?Q?RbHZLIHFrNEH0filGdROHzuebd3IPj4CteKKu6HrBWlQUOXFOyrttXqvS78Y?=
+ =?us-ascii?Q?Z4VuexamY2f5z9X7bZeDSpyuocDebAS/bKVknqsHceDHl+GCgjht0AGEAeAp?=
+ =?us-ascii?Q?7bqbOdq8SKCuQuHPtpNcvk0vSTZh+W3bnJX+TRO3rKP53OQyPPdUq7A/orYF?=
+ =?us-ascii?Q?glCvvjGr6xI6XlzhKOFRhEtBjHUEIRyUIrGz0DR+FVJ9nUQH6zjZ7XhVikz+?=
+ =?us-ascii?Q?oieZ/USCvMMzbRKE4GkX3LT2OSgCz6Rv1nYHMfWHLV73qMAd1xu/2VDNwGBh?=
+ =?us-ascii?Q?w/iTuqvplwcTJRWc91yjT0qHT+98ro8ySCDF8F2epV/8Qz8V7rff2gJFiLm2?=
+ =?us-ascii?Q?ROeY8MrdozaOBJrzUnvi2ElmLwWzh3+cXbPS9CU05TikLidRtDuDtVyaD6qQ?=
+ =?us-ascii?Q?jgLMoF4P2HHTpZ72Yo9Hg441jGSCqNiCUA64pgSwugqLZKhsXMbg0E1m/AjL?=
+ =?us-ascii?Q?/aq/5QMacmv4COEkdFeUozKRKMaTbpDKxO7i61kS79Ub0Nhs8HizQcddC8YJ?=
+ =?us-ascii?Q?ymezPHGTYo0V39cbdnYPH5x6dHGGYdSfWMiggnFjD7YQECeRU25e71EAZrsA?=
+ =?us-ascii?Q?okaeBCSz7lmNmgy7EKiw8O7erFwUX3A+vGW65tYUcN8jmlgjOC3Z+YjXqUzt?=
+ =?us-ascii?Q?ztZ0jPEQNvieaviggQsSHY/GJnexdxaSfdkZohRdvtjtEa5QKc+//Ixwec5z?=
+ =?us-ascii?Q?9dfnRzU2Tw/Vz5uRPYCO8WqCpvtE3PXHTAXKTx5uL8hxtaWiJ2OsyIwnysIo?=
+ =?us-ascii?Q?6nMdSPPflOqIZ7tJ1IE/P0NLpPzIMHAYupGeFe/onUkKSH3yrzPIhif84WAk?=
+ =?us-ascii?Q?xDyqOXtV2GIS0j4Pj7Cs/ThUJGlfuiGFo2esz2Z3TrUJiwhlalvsP4xlsWZ3?=
+ =?us-ascii?Q?adcbIm9YZJQcxPSgNf8w5LwgEzeUfMwt519DbwgefB+1fwBDfaIYP0A9Jjxq?=
+ =?us-ascii?Q?c4yoG/Cm7JmDy+OhevmBynLv3uiVA7WjENz6kVTykXfwu0RrLNKCYTEVCel+?=
+ =?us-ascii?Q?RXuykEB125StESaw5ISxA7nkG+3axua1KK/odVa7WY9qo+B7imnW4u2AhRBO?=
+ =?us-ascii?Q?B4PESwZ52u9ZUk291nDrAv93bVS9jyo7Pi3mVi8ReL6lilbm175ZdwQFqEk8?=
+ =?us-ascii?Q?aZFCI0pu1czQBW3vP9akmPrN3wnlGV54lpkjdFn/3YMo2r5XyUqYQSf5fWSt?=
+ =?us-ascii?Q?p2xQCmyd+rfzIu4Rv9HaSwp/FhnUZZzPviBj4dIkwbN1UcAwu0XU2dK4O1zM?=
+ =?us-ascii?Q?+oC5hxqXJUBYeUHlbB1koPiw6ylT8RJVpKtFI3B00coxLeF3UQ1hJSo+uJP8?=
+ =?us-ascii?Q?X+WdLwZ1x8jWhzV0eC2NAj6TFsd4OR8zyIZzvXnKxZoIlqpln5lXNDCH4iv/?=
+ =?us-ascii?Q?XynDHplYZKI6sqARh8GZ2gRejhmupITntoarT9R1sKMQlWRjQ+PLjG5Q0y1e?=
+ =?us-ascii?Q?f9aMZ1I4Wuy69dqgyks=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014)(7416014);DIR:OUT;SFP:1101;
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2025 00:06:10.7766
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2025 00:06:21.7879
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7becf227-8728-4d92-6f71-08de09ec50f7
+X-MS-Exchange-CrossTenant-Network-Message-Id: 648676e8-fa86-4032-ba1c-08de09ec5787
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3E.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3B.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9003
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4383
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_010625_824808_640B109E 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251013_010632_546457_EA833043 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,50 +182,87 @@ call must be invoked after a successful test_dev call.
 
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/riscv/iommu.c | 16 +++++++++++++---
- 1 file changed, 13 insertions(+), 3 deletions(-)
+ drivers/iommu/fsl_pamu_domain.c | 50 +++++++++++++++++++++++++--------
+ 1 file changed, 38 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index d9429097a2b51..6613ece2c9f41 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1320,6 +1320,18 @@ static bool riscv_iommu_pt_supported(struct riscv_iommu_device *iommu, int pgd_m
- 	return false;
+diff --git a/drivers/iommu/fsl_pamu_domain.c b/drivers/iommu/fsl_pamu_domain.c
+index 9664ef9840d2c..fbdaa74936394 100644
+--- a/drivers/iommu/fsl_pamu_domain.c
++++ b/drivers/iommu/fsl_pamu_domain.c
+@@ -237,6 +237,43 @@ static int update_domain_stash(struct fsl_dma_domain *dma_domain, u32 val)
+ 	return ret;
  }
  
-+static int riscv_iommu_test_paging_domain(struct iommu_domain *iommu_domain,
-+					  struct device *dev, ioasid_t pasid,
-+					  struct iommu_domain *old)
++static int fsl_pamu_domain_test_device(struct iommu_domain *domain,
++				       struct device *dev, ioasid_t pasid,
++				       struct iommu_domain *old)
 +{
-+	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
-+	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
++	struct fsl_dma_domain *dma_domain = to_fsl_dma_domain(domain);
++	const u32 *liodn;
++	int len, i;
 +
-+	if (!riscv_iommu_pt_supported(iommu, domain->pgd_mode))
++	/* Use LIODN of the PCI controller while attaching a PCI device. */
++	if (dev_is_pci(dev)) {
++		/*
++		 * make dev point to pci controller device so we can get the
++		 * LIODN programmed by u-boot.
++		 */
++		dev = pci_bus_to_host(to_pci_dev(dev)->bus)->parent;
++	}
++
++	liodn = of_get_property(dev->of_node, "fsl,liodn", &len);
++	if (!liodn) {
++		pr_debug("missing fsl,liodn property at %pOF\n", dev->of_node);
 +		return -ENODEV;
++	}
++
++	guard(spin_lock_irqsave)(&dma_domain->domain_lock);
++
++	for (i = 0; i < len / sizeof(u32); i++) {
++		/* Ensure that LIODN value is valid */
++		if (liodn[i] < PAACE_NUMBER_ENTRIES)
++			continue;
++		pr_debug("Invalid liodn %d, attach device failed for %pOF\n",
++			 liodn[i], dev->of_node);
++		return -ENODEV;
++	}
++
 +	return 0;
 +}
 +
- static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
- 					    struct device *dev,
- 					    struct iommu_domain *old)
-@@ -1329,9 +1341,6 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
- 	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
- 	u64 fsc, ta;
+ static int fsl_pamu_attach_device(struct iommu_domain *domain,
+ 				  struct device *dev, struct iommu_domain *old)
+ {
+@@ -263,21 +300,9 @@ static int fsl_pamu_attach_device(struct iommu_domain *domain,
+ 	}
  
--	if (!riscv_iommu_pt_supported(iommu, domain->pgd_mode))
+ 	liodn = of_get_property(dev->of_node, "fsl,liodn", &len);
+-	if (!liodn) {
+-		pr_debug("missing fsl,liodn property at %pOF\n", dev->of_node);
 -		return -ENODEV;
--
- 	fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, domain->pgd_mode) |
- 	      FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, virt_to_pfn(domain->pgd_root));
- 	ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
-@@ -1348,6 +1357,7 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
- }
+-	}
  
- static const struct iommu_domain_ops riscv_iommu_paging_domain_ops = {
-+	.test_dev = riscv_iommu_test_paging_domain,
- 	.attach_dev = riscv_iommu_attach_paging_domain,
- 	.free = riscv_iommu_free_paging_domain,
- 	.map_pages = riscv_iommu_map_pages,
+ 	spin_lock_irqsave(&dma_domain->domain_lock, flags);
+ 	for (i = 0; i < len / sizeof(u32); i++) {
+-		/* Ensure that LIODN value is valid */
+-		if (liodn[i] >= PAACE_NUMBER_ENTRIES) {
+-			pr_debug("Invalid liodn %d, attach device failed for %pOF\n",
+-				 liodn[i], dev->of_node);
+-			ret = -ENODEV;
+-			break;
+-		}
+-
+ 		attach_device(dma_domain, liodn[i], dev);
+ 		ret = pamu_set_liodn(dma_domain, dev, liodn[i]);
+ 		if (ret)
+@@ -434,6 +459,7 @@ static const struct iommu_ops fsl_pamu_ops = {
+ 	.probe_device	= fsl_pamu_probe_device,
+ 	.device_group   = fsl_pamu_device_group,
+ 	.default_domain_ops = &(const struct iommu_domain_ops) {
++		.test_dev	= fsl_pamu_domain_test_device,
+ 		.attach_dev	= fsl_pamu_attach_device,
+ 		.iova_to_phys	= fsl_pamu_iova_to_phys,
+ 		.free		= fsl_pamu_domain_free,
 -- 
 2.43.0
 
