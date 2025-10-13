@@ -4,78 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70973CCD18D
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Oct 2025 14:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190B3CCD18D
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Oct 2025 14:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BpbvgqBv/z5KWmhrVVEzQk7+QZKVvWp1qta+Ry7m8iU=; b=3tO6pp2a2umoZ0
-	Zth6IBstajK0poJavjVaIbmwVyFjXLbrDIiL33M1vspjEnh7v1ngirj7CfrAzQL9yo1mfa24j1Uj6
-	vyq+OQPGhKoB/rJnRp4/QvDmLam7e+Szy+HjYICJFmOShTgJogLloYSRZ6Mr1JBRegQRsdcpCde0d
-	VRhlRE8l4Q51TxyT3DoOfW5BAtc0Zovw94Hf4hHH3SGdwKLeuYpd613uftNZ2jmkyozhmEyWO0zFR
-	UrHgnSQKamrFQPkLryJRFUhVYmhGyQeI9UVlpTWnFQTeSxspMmooR9fDM825FfhwcH6xX6S+KtJIj
-	lYHggFbwvn7RUEFOqCBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pQPWwiE1+6+hqS6b6SX7Qkiq78MjRZ3hVJd/EoYBTY0=; b=LlTfM+K3tJ16JQaPQLJzENdYW4
+	RJNUcTYwb+lXMorHZbyMAN8PeQi6v6fzSULHlZNZLeYXWHCOTWdg05YNhfiIi5Y+dOHxDaPj5DBBD
+	R3VGnA1FH1kTqMXOPdwbM4ADKM1Fw/VIcFBhUEJiM4o6dT1xF/rqTkpM1we7MQQSy1xKiyRw9a14S
+	jytmQDs0UgZU903q4Wu5xNzdUkCoDe1ib4+x4Jq7iTpmkTlMrpSpf/5ECdCdpINhviuZZdqIVo9Zf
+	YFBIfTW8tjSVHYY5zWed3AJs3cUAay8LTbB68XYqEOTMjUqb8pvOG9Se3lCrpxrpvXB94wAxhQSzj
+	p2p654vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Jfc-0000000DRxk-2dDk;
-	Mon, 13 Oct 2025 14:37:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v8Jty-0000000DVXJ-1QIW;
+	Mon, 13 Oct 2025 14:51:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Jfb-0000000DRxG-0rU6
+	id 1v8Jtw-0000000DVWE-32Dj
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Oct 2025 14:37:03 +0000
+	Mon, 13 Oct 2025 14:51:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A09806135B
-	for <linux-riscv@lists.infradead.org>; Mon, 13 Oct 2025 14:37:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E0D4C4CEE7
-	for <linux-riscv@lists.infradead.org>; Mon, 13 Oct 2025 14:37:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B9C743777;
+	Mon, 13 Oct 2025 14:51:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5808C113D0;
+	Mon, 13 Oct 2025 14:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760366222;
-	bh=PYNJouYZOnK80Bm/nJhe6SqANkwVgSKIenFusl8KFig=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Kukn3Z9Nzn2a5qoTTWwJ/2BFDGKq6Hd6Tyj77mRtqIMsChRoV1cxnS/z77xrFAS9k
-	 cy1DZbQFvPz+hBnECAVPg3R1xpsKtHqdJma1tUnQTElIHCBJsyUpX863yzITiXff8r
-	 lpeDt7yn8JTEw8cyTK9DA11L+pfaC5PtKGiLf2fuYEnZO8WtaLR+bXkKoTtCduyn/G
-	 U1eK1K/+BayvVHa4olVwlsDCDIRO3/Xp1ZoKj1RihdUp8oGunNXC3he2yXtcQxyj9Q
-	 zP1Yvvy/Td63mI2NJ+oO8kIfaltgxJlP+V5ZYAUHVJGn/usPYFHB+/lH7fUIoF3ZIC
-	 cV2yUCSycTDfQ==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-57da66e0dc9so4319239e87.0
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Oct 2025 07:37:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVykKQkH0kYMzKO6m9x2HgWlqX0QsTL3SE3D7+D6CoAmsAhx1iwvTKCQpphAtWq6HR6LqQ6yoctIxKpFw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5id81Qiy55QntAAZSZuxiiSQtYScViJC/cMcuCHhkHb2V6AIR
-	pOCyUK4SNFOhK/VZ0uH5nIeIqu2EMiA23izVGxiIpBzJdbBVL/oSi+pLJMMDmuOaeWessnkFjGK
-	bEcujxTBkSXt7aWNg/f/wR1K4oBJLYXs=
-X-Google-Smtp-Source: AGHT+IGEEOZ9VfTQ6ngkF8TFWCWZsUsks3HYpMtK+pRGdVEaBkbYcmJuOavvMnwfEbP13CKVvY+U//cKRiULxIVuvpc=
-X-Received: by 2002:a05:6512:3d23:b0:58b:189:871e with SMTP id
- 2adb3069b0e04-5906dc12463mr5914777e87.3.1760366220623; Mon, 13 Oct 2025
- 07:37:00 -0700 (PDT)
+	s=k20201202; t=1760367111;
+	bh=1f1R3hSRZT6UvLUu06F4HKhifFVAYk2MH31zzCMuaMQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SNBnyf5mQqInO6AKrseYPWAQUKjA7FwKTh0ngKwlfHCCDImzvVtQ7ZAKxefQkTBSq
+	 URAZHR47cIBC5F6FdoA++rPOEkvhrcqNSBdGwoPELMt23JLCayZaOaH7rtZ1uDjyUE
+	 IHbEIY+Z5g0jjr3s1g4LCK/kPDV+Vw5NCpoXMb8m4FoCjCANLcFaTXEp1xpBIu1bDi
+	 RNZYnDkvwNS5ZDuFmfbkbnXJDjVVVyCHTKfZ7KLRWT+6ME1i6KBa6lcojyTv1ayF6+
+	 VyRI57IJLFZjA5dZz1byAoXBK1YsA7WqEUP9Fhw+IEFoQoI3sjGxV69TqVpgfdn4+O
+	 fZWWUoxKrtT8Q==
+Date: Mon, 13 Oct 2025 15:51:47 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Ron Economos <re@w6rz.net>, bhelgaas@google.comk,
+	rishna.chundru@oss.qualcomm.com, mani@kernel.org,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv <linux-riscv@lists.infradead.org>
+Subject: Re: SiFive FU740 PCI driver fails on 6.18-rc1
+Message-ID: <20251013-blatancy-husband-ed9872a46e25@spud>
+References: <eac81c57-1164-4d74-a1b4-6f353c577731@w6rz.net>
+ <bc7f397c-1739-465e-b195-e1a41c34504d@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
- <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
- <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
- <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn> <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
- <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn> <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
- <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
- <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn> <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
- <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
- <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com> <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
-In-Reply-To: <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 13 Oct 2025 16:36:49 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
-X-Gm-Features: AS18NWAv9gA3fJmZoOCeAqGMe6vicknpLFzEFxHn_UczaDtdwwo0A8kcuivI9jM
-Message-ID: <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <bc7f397c-1739-465e-b195-e1a41c34504d@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251013_075152_802486_6767DC3B 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,120 +69,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============4229349586319337050=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAxMyBPY3QgMjAyNSBhdCAxNjowOSwgSHVhY2FpIENoZW4gPGNoZW5odWFjYWlAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBTYXQsIE9jdCAxMSwgMjAyNSBhdCAxMTo1OeKAr1BNIEFy
-ZCBCaWVzaGV1dmVsIDxhcmRiQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IE9uIFNhdCwgMTEg
-T2N0IDIwMjUgYXQgMDg6MDEsIEh1YWNhaSBDaGVuIDxjaGVuaHVhY2FpQGtlcm5lbC5vcmc+IHdy
-b3RlOgo+ID4gPgo+ID4gPiBPbiBTYXQsIE9jdCAxMSwgMjAyNSBhdCAxMDo0OOKAr1BNIEFyZCBC
-aWVzaGV1dmVsIDxhcmRiQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPiA+Cj4gPiA+ID4gT24gU2F0
-LCAxMSBPY3QgMjAyNSBhdCAwMDo0MywgSHVhY2FpIENoZW4gPGNoZW5odWFjYWlAa2VybmVsLm9y
-Zz4gd3JvdGU6Cj4gPiA+ID4gPgo+ID4gPiA+ID4gT24gU2F0LCBPY3QgMTEsIDIwMjUgYXQgMzoy
-OeKAr1BNIFRpZXpodSBZYW5nIDx5YW5ndGllemh1QGxvb25nc29uLmNuPiB3cm90ZToKPiA+ID4g
-PiA+ID4KPiA+ID4gPiA+ID4gT24gMjAyNS8xMC8xMSDkuIrljYgxMTo0MCwgQXJkIEJpZXNoZXV2
-ZWwgd3JvdGU6Cj4gPiA+ID4gPiA+ID4gT24gRnJpLCAxMCBPY3QgMjAyNSBhdCAxOTo1NCwgSHVh
-Y2FpIENoZW4gPGNoZW5odWFjYWlAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+ID4gPiA+ID4+Cj4g
-PiA+ID4gPiA+ID4+IE9uIFNhdCwgT2N0IDExLCAyMDI1IGF0IDk6MTPigK9BTSBUaWV6aHUgWWFu
-ZyA8eWFuZ3RpZXpodUBsb29uZ3Nvbi5jbj4gd3JvdGU6Cj4gPiA+ID4gPiA+ID4+Pgo+ID4gPiA+
-ID4gPiA+Pj4gT24gMjAyNS8xMC8xMSDkuIrljYgxMjoyNSwgQXJkIEJpZXNoZXV2ZWwgd3JvdGU6
-Cj4gPiA+ID4gPiA+ID4+PiAuLi4KPiA+ID4gPiA+ID4gPj4+PiBXaHkgZG8gd2UgbmVlZCBib3Ro
-ICgxKSBhbmQgKDIpPwo+ID4gPiA+ID4gPiA+Pj4KPiA+ID4gPiA+ID4gPj4+IE5vdCBib3RoLCBl
-aXRoZXIgKDEpIG9yICgyKS4KPiA+ID4gPiA+ID4gPj4+IFdoaWNoIG9uZSBkbyB5b3UgcHJlZmVy
-PyBPciBhbnkgb3RoZXIgc3VnZ2VzdGlvbnM/Cj4gPiA+ID4gPiA+ID4+Pgo+ID4gPiA+ID4gPiA+
-Pj4gVGFraW5nIGFsbCBvZiB0aGUgY29uc2lkZXJhdGlvbnMgaW4gYmFsYW5jZSwgd2Ugc2hvdWxk
-IGRlY2lkZQo+ID4gPiA+ID4gPiA+Pj4gd2hhdCBpcyB0aGUgcHJvcGVyIHdheS4KPiA+ID4gPiA+
-ID4gPj4gQXMgYSBzdW1tYXJ5LCB0aGVyZSBhcmUgdGhyZWUgbWV0aG9kczoKPiA+ID4gPiA+ID4g
-Pj4gKDEpIE9ubHkgbGluayBsaWJzdHViIHdpdGggdm1saW51eC5vIGR1cmluZyB0aGUgZmluYWwg
-dm1saW51eCBsaW5rLgo+ID4gPiA+ID4gPiA+PiAoMikgUmVtb3ZlIHRoZSBhdHRyaWJ1dGUgX19u
-b3JldHVybiBmb3IgcmVhbF9rZXJuZWxfZW50cnkoKSBhbmQgYWRkIHdoaWxlICgxKS4KPiA+ID4g
-PiA+ID4gPj4gKDMpIElnbm9yZSAiX19lZmlzdHViXyIgcHJlZml4IGluIG9ianRvb2wuCj4gPiA+
-ID4gPiA+ID4+Cj4gPiA+ID4gPiA+ID4+IEpvc2ggcHJlZmVycyBtZXRob2QgKDEpLCBJIHByZWZl
-ciBtZXRob2QgKDMpIGJ1dCBhbHNvIGFjY2VwdCBtZXRob2QKPiA+ID4gPiA+ID4gPj4gKDEpIGlm
-IGl0IGlzIG5vdCBvbmx5IHNwZWNpZmljIHRvIGxvb25nYXJjaC4KPiA+ID4gPiA+ID4gPj4KPiA+
-ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+IFRoaXMgaXMgYSBmYWxzZSBwb3NpdGl2ZSB3YXJuaW5n
-IGluIG9ianRvb2wsIHdoaWNoIGNvbXBsYWlucyBhYm91dCBhCj4gPiA+ID4gPiA+ID4gZnVuY3Rp
-b24gdGhhdCBmYWxscyB0aHJvdWdoLCBldmVuIHRob3VnaCB0aGF0IGNhbiBuZXZlciBoYXBwZW4g
-aW4KPiA+ID4gPiA+ID4gPiByZWFsaXR5Lgo+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gVG8g
-bWUsIGl0IGlzIG5vdCBhY2NlcHRhYmxlIHRvIG1vZGlmeSBob3cgdm1saW51eC5vIGlzIGNvbnN0
-cnVjdGVkCj4gPiA+ID4gPiA+ID4gYWxzbyBmb3Igb3RoZXIgYXJjaGl0ZWN0dXJlcywgaW4gb3Jk
-ZXIgdG8gaGlkZSBzb21lIG9mIGl0cyBjb25zdGl0dWVudAo+ID4gPiA+ID4gPiA+IHBhcnRzIGZy
-b20gb2JqdG9vbCwgd2hpY2ggZG8gbm90IHVzZSBvYmp0b29sIHRvIGJlZ2luIHdpdGguCj4gPiA+
-ID4gPiA+ID4KPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+IElmIHlvdSBhcmUgbm90IHdpbGxp
-bmcgdG8gZml4IG9ianRvb2wsIEkgc3VnZ2VzdCBmaXhpbmcgdGhlIGxvb25nYXJjaAo+ID4gPiA+
-ID4gPiA+IGNvZGUgbGlrZSB0aGlzOgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBUaGFuayB5b3Uu
-Cj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gLS0tIGEvZHJpdmVycy9maXJtd2FyZS9lZmkvbGli
-c3R1Yi9sb29uZ2FyY2guYwo+ID4gPiA+ID4gPiA+ICsrKyBiL2RyaXZlcnMvZmlybXdhcmUvZWZp
-L2xpYnN0dWIvbG9vbmdhcmNoLmMKPiA+ID4gPiA+ID4gPiBAQCAtMTAsNyArMTAsNyBAQAo+ID4g
-PiA+ID4gPiA+ICAgI2luY2x1ZGUgImVmaXN0dWIuaCIKPiA+ID4gPiA+ID4gPiAgICNpbmNsdWRl
-ICJsb29uZ2FyY2gtc3R1Yi5oIgo+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gLXR5cGVkZWYg
-dm9pZCBfX25vcmV0dXJuICgqa2VybmVsX2VudHJ5X3QpKGJvb2wgZWZpLCB1bnNpZ25lZCBsb25n
-IGNtZGxpbmUsCj4gPiA+ID4gPiA+ID4gK3R5cGVkZWYgdm9pZCAoKmtlcm5lbF9lbnRyeV90KShi
-b29sIGVmaSwgdW5zaWduZWQgbG9uZyBjbWRsaW5lLAo+ID4gPiA+ID4gPiA+ICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIHN5c3RhYik7Cj4g
-PiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiAgIGVmaV9zdGF0dXNfdCBjaGVja19wbGF0Zm9ybV9m
-ZWF0dXJlcyh2b2lkKQo+ID4gPiA+ID4gPiA+IEBAIC04MSw0ICs4MSw2IEBACj4gPiA+ID4gPiA+
-ID4KPiA+ID4gPiA+ID4gPiAgICAgICAgICByZWFsX2tlcm5lbF9lbnRyeSh0cnVlLCAodW5zaWdu
-ZWQgbG9uZyljbWRsaW5lX3B0ciwKPiA+ID4gPiA+ID4gPiAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAodW5zaWduZWQgbG9uZyllZmlfc3lzdGVtX3RhYmxlKTsKPiA+ID4gPiA+ID4gPiArCj4g
-PiA+ID4gPiA+ID4gKyAgICAgICByZXR1cm4gRUZJX0xPQURfRVJST1I7Cj4gPiA+ID4gPiA+ID4g
-ICB9Cj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IEkgdGVzdGVkIHRoZSBhYm92ZSBjaGFuZ2VzLCB0
-aGUgZmFsbHMgdGhyb3VnaCBvYmp0b29sIHdhcm5pbmcgY2FuCj4gPiA+ID4gPiA+IGJlIGZpeGVk
-IGJlY2F1c2UgZWZpX2Jvb3Rfa2VybmVsKCkgZW5kcyB3aXRoIGEgcmV0dXJuIGluc3RydWN0aW9u
-LAo+ID4gPiA+ID4gPiBJIHRoaW5rIHRoaXMgaXMgcmVhc29uYWJsZS4KPiA+ID4gPiA+ID4KPiA+
-ID4gPiA+ID4gZWZpX2Jvb3Rfa2VybmVsKCkgaGFzIGEgcmV0dXJuIHZhbHVlLCB0aGVyZSBhcmUg
-InJldHVybiBzdGF0dXMiIGluCj4gPiA+ID4gPiA+IG90aGVyIHBhcnRzIG9mIGVmaV9ib290X2tl
-cm5lbCgpLCBpdCBzaG91bGQgYWxzbyByZXR1cm4gYXQgdGhlIGVuZAo+ID4gPiA+ID4gPiBvZiBl
-ZmlfYm9vdF9rZXJuZWwoKSBpbiB0aGVvcnksIGFsdGhvdWdoIHdlIHNob3VsZCBuZXZlciBnZXQg
-aGVyZS4KPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gSWYgdGhlcmUgYXJlIG1vcmUgY29tbWVudHMs
-IHBsZWFzZSBsZXQgbWUga25vdy4KPiA+ID4gPiA+IEkgc3RpbGwgZG9uJ3Qgd2FudCBMb29uZ0Fy
-Y2ggdG8gYmUgYSBzcGVjaWFsIGNhc2UsIHdoaWNoIG1lYW5zCj4gPiA+ID4gPiBlZmlfYm9vdF9r
-ZXJuZWwoKSBpbiBmZHQuYywganVtcF9rZXJuZWxfZnVuYyBpbiByaXNjdi5jIGFuZAo+ID4gPiA+
-ID4gZW50ZXJfa2VybmVsIGluIGFybTY0LmMgc2hvdWxkIGFsc28gYmUgbW9kaWZpZWQuCj4gPiA+
-ID4gPgo+ID4gPiA+Cj4gPiA+ID4gWW91IGhhdmUgbWFkZSBMb29uZ0FyY2ggYSBzcGVjaWFsIGNh
-c2UgYnkgYWRkaW5nIG9ianRvb2wgc3VwcG9ydCwKPiA+ID4gPiB3aGljaCAgYXJtNjQgYW5kIFJJ
-U0MtViBkbyBub3QgaGF2ZS4KPiA+ID4gPgo+ID4gPiA+IFNvIE5BSyB0byBjaGFuZ2luZyBhcm02
-NCBhbmQgUklTQy1WIGFzIHdlbGwuCj4gPiA+IEhtbW0sIEkgd2FudCB0byBrbm93IHdoZXRoZXIg
-dGhpcyBwcm9ibGVtIGlzIGFuIG9ianRvb2wgaXNzdWUgb3IgYW4KPiA+ID4gZWZpc3R1YiBpc3N1
-ZSBpbiBlc3NlbmNlLiBJZiBpdCBpcyBhbiBvYmp0b29sIGlzc3VlLCB3ZSBzaG91bGQgZml4Cj4g
-PiA+IG9ianRvb2wgYW5kIGRvbid0IHRvdWNoIGVmaXN0dWIuIElmIGl0IGlzIGFuIGVmaXN0dWIg
-aXNzdWUsIHRoZW4gd2UKPiA+ID4gc2hvdWxkIG1vZGlmeSBlZmlzdHViIChidXQgbm90IHNwZWNp
-ZmljIHRvIExvb25nQXJjaCwgd2hlbiBSSVNDLVYgYW5kCj4gPiA+IEFSTTY0IGFkZCBvYmp0b29s
-IHRoZXkgd2lsbCBtZWV0IHRoZSBzYW1lIGlzc3VlKS4KPiA+ID4KPiA+Cj4gPiBJdCBpcyBhbiBv
-Ymp0b29sIGlzc3VlIGluIGVzc2VuY2UuCj4gPgo+ID4gVGhlIGdlbmVyYXRlZCBjb2RlIGxvb2tz
-IGxpa2UgdGhpcwo+ID4KPiA+IDkwMDAwMDAwMDE3NDMwODA6IGZmIGI3IGZlIDU3ICAgYmwgICAg
-ICAtMzMyIDxfX2VmaXN0dWJfa2VybmVsX2VudHJ5X2FkZHJlc3M+Cj4gPiA5MDAwMDAwMDAxNzQz
-MDg0OiAyNiAwMyBjMCAyOCAgIGxkLmQgICAgJGEyLCAkczIsIDAKPiA+IDkwMDAwMDAwMDE3NDMw
-ODg6IDg3IDAwIDE1IDAwICAgbW92ZSAgICAkYTMsICRhMAo+ID4gOTAwMDAwMDAwMTc0MzA4Yzog
-MDQgMDQgODAgMDMgICBvcmkgICAgICRhMCwgJHplcm8sIDEKPiA+IDkwMDAwMDAwMDE3NDMwOTA6
-IGM1IDAyIDE1IDAwICAgbW92ZSAgICAkYTEsICRmcAo+ID4gOTAwMDAwMDAwMTc0MzA5NDogZTEg
-MDAgMDAgNGMgICBqaXJsICAgICRyYSwgJGEzLCAwCj4gPgo+ID4gOTAwMDAwMDAwMTc0MzA5OCA8
-X19lZmlzdHViX2V4aXRfYm9vdF9mdW5jPjoKPiA+IDkwMDAwMDAwMDE3NDMwOTg6IDYzIGMwIGZm
-IDAyICAgYWRkaS5kICAkc3AsICRzcCwgLTE2Cj4gPgo+ID4gVGhlcmUgaXMgbm90aGluZyB3cm9u
-ZyB3aXRoIHRoaXMgY29kZSwgZ2l2ZW4gdGhhdCB0aGUgaW5kaXJlY3QgY2FsbCBpcwo+ID4gdG8g
-YSBfX25vcmV0dXJuIGZ1bmN0aW9uLCBhbmQgc28gdGhlIGZhY3QgdGhhdCBpdCBmYWxscyB0aHJv
-dWdoIGludG8KPiA+IF9fZWZpc3R1Yl9leGl0X2Jvb3RfZnVuYygpIGlzIG5vdCBhIHByb2JsZW0u
-Cj4gPgo+ID4gRXZlbiB0aG91Z2ggdGhlIGNvbXBpbGVyIGRvZXMgbm90aGluZyB3cm9uZyBoZXJl
-LCBpdCB3b3VsZCBiZSBuaWNlIGlmCj4gPiBpdCB3b3VsZCBlbWl0IHNvbWUga2luZCBvZiBVRCBv
-ciBCUksgaW5zdHJ1Y3Rpb24gYWZ0ZXIgc3VjaCBhIGNhbGwsIGlmCj4gPiBvbmx5IHRvIG1ha2Ug
-dGhlIGJhY2t0cmFjZSBtb3JlIHJlbGlhYmxlLiBCdXQgdGhlIGNvZGUgaXMgZmluZSwgYW5kCj4g
-PiBvYmp0b29sIHNpbXBseSBkb2VzIG5vdCBoYXZlIHRoZSBpbmZvcm1hdGlvbiBpdCBuZWVkcyB0
-byBkZXRlcm1pbmUKPiA+IHRoYXQgdGhlIGluZGlyZWN0IGNhbGwgaXMgb2YgYSB2YXJpZXR5IHRo
-YXQgbmV2ZXIgcmV0dXJucy4KPiBTbyB0aGUgYmVzdCB3YXkgaXMgdG8gZml4IHRoZSBvYmp0b29s
-Pwo+CgpJIHRoaW5rIHRoZSBiZXN0IHNvbHV0aW9uIGlzIHRvIGZpeCB0aGUgY29tcGlsZXIsIGFu
-ZCBlbnN1cmUgdGhhdCBjYWxsCmluc3RydWN0aW9ucyBhcmUgYWx3YXlzIGZvbGxvd2VkIGJ5IHNv
-bWUgdW5kZWZpbmVkIG9yIGRlYnVnL2JyZWFrCm9wY29kZS4gVGhpcyB3b3JrcyBhcm91bmQgdGhp
-cyBwcm9ibGVtLCBidXQgaXQgYWxzbyBlbnN1cmVzIHRoYXQgdGhlCnJldHVybiBhZGRyZXNzIGRv
-ZXMgbm90IHBvaW50IHRvIHRoZSB3cm9uZyBmdW5jdGlvbiwgd2hpY2ggbWF5IGNhdXNlCmNvbmZ1
-c2lvbiBpbiBiYWNrdHJhY2VzLgoKCj4gPgo+ID4gU28gSSBkb24ndCBtaW5kIGZpeGluZyBpdCBp
-biB0aGUgY29kZSwgYnV0IG9ubHkgZm9yIExvb25nQXJjaCwgZ2l2ZW4KPiA+IHRoYXQgdGhlIHBy
-b2JsZW0gZG9lcyBub3QgZXhpc3Qgb24gYXJtNjQgb3IgUklTQy1WLgo+IFlvdSBiZWxpZXZlIHRo
-aXMgcHJvYmxlbSB3b24ndCBleGlzdCBldmVuIGlmIHRoZXkgYWRkIG9ianRvb2wgc3VwcG9ydAo+
-IChiZWNhdXNlIHRoZWlyIG9ianRvb2wgd2lsbCBiZSBzYW5lKT8KPgoKSXQgZGVwZW5kcyBvbiB0
-aGUgY29tcGlsZXIuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+
+--===============4229349586319337050==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Uueo13zjvdFAPZts"
+Content-Disposition: inline
+
+
+--Uueo13zjvdFAPZts
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Oct 13, 2025 at 01:49:39PM +0530, Krishna Chaitanya Chundru wrote:
+>=20
+>=20
+> On 10/13/2025 12:44 PM, Ron Economos wrote:
+> > The SiFive FU740 PCI driver fails on the HiFive Unmatched board with
+> > Linux 6.18-rc1. The error message is:
+> >=20
+> > [=A0=A0=A0 3.166624] fu740-pcie e00000000.pcie: host bridge
+> > /soc/pcie@e00000000 ranges:
+> > [=A0=A0=A0 3.166706] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0=A0 IO
+> > 0x0060080000..0x006008ffff -> 0x0060080000
+> > [=A0=A0=A0 3.166767] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0 MEM
+> > 0x0060090000..0x007fffffff -> 0x0060090000
+> > [=A0=A0=A0 3.166805] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0 MEM
+> > 0x2000000000..0x3fffffffff -> 0x2000000000
+> > [=A0=A0=A0 3.166950] fu740-pcie e00000000.pcie: ECAM at [mem
+> > 0xdf0000000-0xdffffffff] for [bus 00-ff]
+> > [=A0=A0=A0 3.579500] fu740-pcie e00000000.pcie: No iATU regions found
+> > [=A0=A0=A0 3.579552] fu740-pcie e00000000.pcie: Failed to configure iAT=
+U in
+> > ECAM mode
+> > [=A0=A0=A0 3.579655] fu740-pcie e00000000.pcie: probe with driver fu740=
+-pcie
+> > failed with error -22
+> >=20
+> > The normal message (on Linux 6.17.2) is:
+> >=20
+> > [=A0=A0=A0 3.381487] fu740-pcie e00000000.pcie: host bridge
+> > /soc/pcie@e00000000 ranges:
+> > [=A0=A0=A0 3.381584] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0=A0 IO
+> > 0x0060080000..0x006008ffff -> 0x0060080000
+> > [=A0=A0=A0 3.381682] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0 MEM
+> > 0x0060090000..0x007fffffff -> 0x0060090000
+> > [=A0=A0=A0 3.381724] fu740-pcie e00000000.pcie:=A0=A0=A0=A0=A0 MEM
+> > 0x2000000000..0x3fffffffff -> 0x2000000000
+> > [=A0=A0=A0 3.484809] fu740-pcie e00000000.pcie: iATU: unroll T, 8 ob, 8=
+ ib,
+> > align 4K, limit 4096G
+> > [=A0=A0=A0 3.683678] fu740-pcie e00000000.pcie: PCIe Gen.1 x8 link up
+> > [=A0=A0=A0 3.883674] fu740-pcie e00000000.pcie: PCIe Gen.3 x8 link up
+> > [=A0=A0=A0 3.987678] fu740-pcie e00000000.pcie: PCIe Gen.3 x8 link up
+> > [=A0=A0=A0 3.988164] fu740-pcie e00000000.pcie: PCI host bridge to bus =
+0000:00
+> >=20
+> > Reverting the following commits solves the issue.
+> >=20
+> > 0da48c5b2fa731b21bc523c82d927399a1e508b0 PCI: dwc: Support ECAM
+> > mechanism by enabling iATU 'CFG Shift Feature'
+> >=20
+> > 4660e50cf81800f82eeecf743ad1e3e97ab72190 PCI: qcom: Prepare for the DWC
+> > ECAM enablement
+> >=20
+> > f6fd357f7afbeb34a633e5688a23b9d7eb49d558 PCI: dwc: Prepare the driver
+> > for enabling ECAM mechanism using iATU 'CFG Shift Feature'
+> >=20
+> Hi Ron,
+>=20
+> can you try with this change.
+> Looks like fu740-pcie driver has 256MB space of config space so dwc
+> driver is trying to enable ecam and seeing failures while enabling.
+>=20
+> you can try two options 1 is to enable ecam if your hardware supports
+> it and other is to use native method like below.
+
+> If you want to enable
+> ecam your config space should start with dbi address and should have
+> 256Mb aligned 256Mb memory of config space. Uf you want to enable ecam
+> and had this memory requirement fulfilled, try to change your devicetree
+> by starting config space with dbi start address and give it a try.
+
+If it worked before your changes, but now does not, I am not going to
+accept a dts change to make it work again FYI.
+
+>=20
+> diff --git a/drivers/pci/controller/dwc/pcie-fu740.c
+> b/drivers/pci/controller/dwc/pcie-fu740.c
+> index 66367252032b..b5e0f016a580 100644
+> --- a/drivers/pci/controller/dwc/pcie-fu740.c
+> +++ b/drivers/pci/controller/dwc/pcie-fu740.c
+> @@ -328,6 +328,8 @@ static int fu740_pcie_probe(struct platform_device
+> *pdev)
+>=20
+>         platform_set_drvdata(pdev, afp);
+>=20
+> +       pci->pp.native_ecam =3D true;
+> +
+>         return dw_pcie_host_init(&pci->pp);
+>  }
+>=20
+> - Krishna Chaitanya.
+> >=20
+
+--Uueo13zjvdFAPZts
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaO0SAwAKCRB4tDGHoIJi
+0tgOAP9RGYYbZuhXkwHit4qJoD31YDcFt5XTMP7JPekrluQ8+QD+PyxF3Fa/gUrf
+kXHMSjfsVuDMxC4EupjKVUMjGexKmA0=
+=nnJc
+-----END PGP SIGNATURE-----
+
+--Uueo13zjvdFAPZts--
+
+
+--===============4229349586319337050==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4229349586319337050==--
+
