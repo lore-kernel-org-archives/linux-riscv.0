@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61321CCD185
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 00:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BAFCCD185
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 01:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i4sSjzKhKleb9WTmJ585a+gUDxHPun1np4ejJwOJBjA=; b=KzXZ1S3HhScwzh
-	Gsm0pX7ff5D2X05Xm3IjLRxVCtWPjQIOt1/0ycIrwIgX/ieDHFARUZLjzsU07kfBZResxfP3/srLL
-	1bvFRIK2Qu/NN4O+QiUbto3mNWJszL8FUDyQn1GUt5WLW+cmQPUIZost1aQU5/c46gzQhbam4dmfF
-	UL5YiGJ0ov65K+wVCPHV21uORpOFoSgZKA36oufsCYwCQxcYaieIEELF8r0+9jQbwnjfTR91FBepS
-	0J9Njw1GHVM6Ko9H/4wDGwJlAnt6JlLwFVcBcSFcAqa2K31p70XnXBJFsu9af9c/mQLOqK5UFV09Q
-	ZvKQDUrVejwd8lZm5Piw==;
+	List-Owner; bh=tFuqcJ7Nf6mjTJCpgZqPBAtGMZ+7Km5VhkSJdWjs6CA=; b=oe4OPwjprLeLYO
+	e7xX0Z2H4ETyw7WPjPHphOKn6PcmBP6DZcPSJY5FW0fDf+CdDwL6rtGOx7ehjvZuBPGG5FoPlTX6O
+	pnJySWhCg50QiX7cSPMnpJX1X6DaYjZbVWYpGAaTJFCj6f3MG1gl3KLLAkKGLGPTwzGspzWiKHfM1
+	yAwYwu0GWLEHW7BDpX8ec2/Z5n37sdu0ps+UyXU10jnNjB8JUviuoY0IOIkfHdlghoe+fHGw62fXP
+	BilGJLepLWZzky3Vwsmv2x7orHLKPj18cYYKjbL9NpOb5vaRE8EaxPS5LGlL9ttzO8MvmqQtNrK2w
+	kh1rIxrkIIQRwo5xPM6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Sk2-0000000EpAH-2liE;
-	Tue, 14 Oct 2025 00:18:14 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1v8TaV-0000000Eryo-2Nhu;
+	Tue, 14 Oct 2025 01:12:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Sjz-0000000Ep9T-2tUw
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 00:18:13 +0000
-Received: from ofsar (unknown [116.232.147.32])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 1837A340E9A;
-	Tue, 14 Oct 2025 00:18:06 +0000 (UTC)
-From: Yixun Lan <dlan@gentoo.org>
-To: linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Aurelien Jarno <aurelien@aurel32.net>
-Cc: Yixun Lan <dlan@gentoo.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v3 0/3] riscv: dts: spacemit: add 24c02 eeprom on BPI-F3
-Date: Tue, 14 Oct 2025 08:18:00 +0800
-Message-ID: <176040093505.976672.8840719266527899813.b4-ty@gentoo.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250926175833.3048516-1-aurelien@aurel32.net>
-References: <20250926175833.3048516-1-aurelien@aurel32.net>
+	id 1v8TaS-0000000Erxd-05iO;
+	Tue, 14 Oct 2025 01:12:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C9AC645082;
+	Tue, 14 Oct 2025 01:12:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1278C4CEE7;
+	Tue, 14 Oct 2025 01:12:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760404342;
+	bh=v1eh061b6dkek5M9HJLBkji6LBvb2K8CkWCnfAVgFRU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=MvlkGI6Z2YTW1djrM0AQMX/ZnMuujXo3RFRqY6qbgf1EEsX2N1t830Khh849kvBzF
+	 5XsljbgJAS2NHJbFyF1cKlJhfnN1ZVZ/PAYxTTvdWTn0L1g/K0piBjFw/AzquP2mKp
+	 mHVJFtptmyIYe/JM+FEQvob7UIwecA+O9CFExGSCat4HrcwSbSokflIx2IqqWpXDni
+	 BGaDKMl0aXHjOHSUCQd1MSZTigEu3VtW5WFHx0pZQ+L4K+CunYhkS9tT99qBwuwm2J
+	 tEvNvig7VqXOi2COajpKaRKMotsvjloIm+Cnyb6meKSzOnr3W9jumwEB6nQ0uQwtHi
+	 U30g6rEx8OFoQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70DC6380A962;
+	Tue, 14 Oct 2025 01:12:09 +0000 (UTC)
 MIME-Version: 1.0
+Subject: Re: [PATCH 0/5] kcfi: Prepare for GCC support
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <176040432799.3390136.12370033021047300981.git-patchwork-notify@kernel.org>
+Date: Tue, 14 Oct 2025 01:12:07 +0000
+References: <20250825141316.work.967-kees@kernel.org>
+In-Reply-To: <20250825141316.work.967-kees@kernel.org>
+To: Kees Cook <kees@kernel.org>
+Cc: linux-riscv@lists.infradead.org, peterz@infradead.org,
+ samitolvanen@google.com, dwmw2@infradead.org, linus.walleij@linaro.org,
+ mark.rutland@arm.com, puranjay@kernel.org, corbet@lwn.net, nathan@kernel.org,
+ x86@kernel.org, linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev,
+ linux-hardening@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_171811_789942_00F94517 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251013_181224_076109_AEDFE35F 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,30 +77,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
-On Fri, 26 Sep 2025 19:54:36 +0200, Aurelien Jarno wrote:
-> The BPI-F3 board has a 24c02 eeprom connected to the i2c bus #2. It
-> holds board data. This patchset adds support for it.
+This series was applied to riscv/linux.git (for-next)
+by Peter Zijlstra <peterz@infradead.org>:
+
+On Mon, 25 Aug 2025 07:25:47 -0700 you wrote:
+> Hi,
 > 
-> Changes between version 2 and version 3:
+> With KCFI support in GCC coming[1], we need to make some (relatively
+> small) changes in the kernel to deal with it:
 > 
-> - Revert the name change for i2c2-0-cfg and i2c2-0-pins, the second cell
->   is not a function number, but an index.
+> - move __nocfi out of compilers-clang.h (so GCC can see it too)
+> - add cfi=debug so future Kees can find breakage easier
+> - remove problematic __noinitretpoline usage
+> - rename CONFIG_CFI_CLANG to CONFIG_CFI (otherwise is it quite confusing)
 > 
 > [...]
 
-Applied, thanks!
+Here is the summary with links:
+  - [1/5] compiler_types.h: Move __nocfi out of compiler-specific header
+    https://git.kernel.org/riscv/c/038c7dc66e27
+  - [2/5] x86/traps: Clarify KCFI instruction layout
+    https://git.kernel.org/riscv/c/628a15e0536a
+  - [3/5] x86/cfi: Add option for cfi=debug bootparam
+    (no matching commit)
+  - [4/5] x86/cfi: Remove __noinitretpoline and __noretpoline
+    https://git.kernel.org/riscv/c/0b815825b1b0
+  - [5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
+    (no matching commit)
 
-[1/3] riscv: dts: spacemit: enable the i2c2 adapter on BPI-F3
-      https://github.com/spacemit-com/linux/commit/dcca2287773b69201b756723e8d45b6b8ad81b34
-[2/3] riscv: dts: spacemit: add 24c02 eeprom on BPI-F3
-      https://github.com/spacemit-com/linux/commit/bfce75e2345fa1ecbf046e696994132f56d6db1c
-[3/3] riscv: dts: spacemit: add i2c aliases on BPI-F3
-      https://github.com/spacemit-com/linux/commit/859ce3828f0b462e991c24224390def4c8fea673
-
-Best regards,
+You are awesome, thank you!
 -- 
-Yixun Lan
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
