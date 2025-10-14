@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3BCCCD18D
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 03:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A17CCD185
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 03:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Db8YhVddGfmGVqSubO8c+q5qfKfbIznfjF97DYW95CE=; b=ZbrC+YPQio7+0+
-	/8Ecsoom8lOaTo7syToYiqZd7GCcm9N9s73YgjUMlFrdW97JuxWIEmJk/MugXGHKml4slV32ZANJe
-	6jJtk3LqJFU/b0er4r3vW/6/bvYCH4uBEQswslmB8CbYwW31LHMOkb8BlrTxC2FtT4H00XALItGE/
-	1jcX5A/3fiaIUDRt+/0n3OCp+qJX/RiAGC/eEWJ7QpNF7bfWfuJ5TawYqxXD04gHovHK8BeUssO+v
-	ybruUBnj73Jull7uUC4zr+GbQNbeOtWluEHqCVgYW2oQvz5CzIUPDf/DRme0zAdi4rOUxuhRT04CH
-	LMxTF7z8GyddN5qEI6SA==;
+	List-Owner; bh=ETDjVLiT0cPzd+qdTZfSKXGV+EgM/cDa0zC5KNLQ5FE=; b=GWYwS7LSJqFd3W
+	2TJwL6y2w/qqnw1QchTvNssrV8xH81td6r6rEK/4odXSKjHq3Bap5PRweAUxl8voEAMpVr7bwOEse
+	xqGgQ6wrv3jaqRcLtmuXtxpu8M8u8Ou8Z7Kh2ViR5XkvXkiZEw50rEE/lVaZXQUkQ2hzPy3eCqsuT
+	xuR/cEUda5KWWIOxehxtxGM8D+P9jj1/1sCwr9KGJb/iQQDhZnyjlaaKVUPB5iROIMmxir1/jwZIF
+	6XJaT27WvKoPFqGrdrGyerNEkGUEOtpdrwajG1JRBqfnPJkcyqJDQ6djK49fTV7ykwb8apRO94jAe
+	KIvkIaQbFdBl/OPRq0CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VSg-0000000F1Lk-2M27;
-	Tue, 14 Oct 2025 03:12:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v8VSY-0000000F1Ej-2CaM;
+	Tue, 14 Oct 2025 03:12:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VSc-0000000F1Ha-1Bza
+	id 1v8VSW-0000000F1EO-38Wt
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 03:12:27 +0000
+	Tue, 14 Oct 2025 03:12:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F39354886D;
-	Tue, 14 Oct 2025 03:12:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02DF7C116D0;
-	Tue, 14 Oct 2025 03:12:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1548E6214D;
+	Tue, 14 Oct 2025 03:12:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA5B6C4AF0B;
+	Tue, 14 Oct 2025 03:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760411545;
-	bh=DyOTgkiOX+xxSODVH7p8ZivJ8z1IhKgwy7RRwUpzEkc=;
+	s=k20201202; t=1760411539;
+	bh=Qxx7Nu/jiOa5nZTb2hgXdJjolteFiTKWPAx4vNdsclM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Vf300Fh8Gn1gX/9ACvdev9mO+38QsC94iA1HEP84CSvee+tQyudUfnsNbfBbenv9C
-	 1bBYfGvfjzTf5MnMm0VRlOFlo7cYYlXiDF6NDYPT8nbQbY4Ri6eeggwMy6bMrScu6N
-	 FQdVVZopLsOHcqzy6sgj2RS+Jlk8eLUxrlO9ZpToTi3mpTnmKo+H8pIEReuap/Fv9a
-	 w3lZ7xS5lrf7G2lyfs++8TwcZBevpd+xDL1KzS/gE0REcARrHvysZPyKqnwhbiquvD
-	 auQxq2nkKkZTv12298dkDtkuGh0NIVnxzw3V54yZ21bzlSOW7XsQflg1nOPVCAV3S3
-	 gK4qKbdm7rNdQ==
+	b=O2jdChqk8evemkiSOkmk55bFFAlQdcsvqKM2OoAlYIGGHt7+FluSCyMg8HXMAn3Dh
+	 giW0Olnan5P+IhT/mXSZSpUx5vMbnx0A++HcDceVZ8QrOc2/WiuGCiMumJnvStBAbT
+	 kqF7Tu3MtSRTPkUDDOwu30UHlBLsENDD0jZhsfXjvLh0mUKE763hBTyw6zEmn6DHwA
+	 ELaefHd8p913R83C6KHAtk5tqr3NgbjLaQ3TzxeRze5hPyhNijbTdQHcckC1nnlKa9
+	 ZxPARUdj54IJYBNr4M4n2dZQX+lXn/VR1e31MOkLpSGv2pP1nTHojL84/0l1/EZ9p+
+	 IFBPS4KadQrIg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 13 Oct 2025 20:11:59 -0700
-Subject: [PATCH v3 7/8] riscv: Kconfig.socs: Add ARCH_TENSTORRENT for
- Tenstorrent SoCs
+Date: Mon, 13 Oct 2025 20:11:53 -0700
+Subject: [PATCH v3 1/8] dt-bindings: vendor-prefixes: Add Tenstorrent AI
+ ULC
 MIME-Version: 1.0
-Message-Id: <20251013-tt-bh-dts-v3-7-9f058d4bbbda@oss.tenstorrent.com>
+Message-Id: <20251013-tt-bh-dts-v3-1-9f058d4bbbda@oss.tenstorrent.com>
 References: <20251013-tt-bh-dts-v3-0-9f058d4bbbda@oss.tenstorrent.com>
 In-Reply-To: <20251013-tt-bh-dts-v3-0-9f058d4bbbda@oss.tenstorrent.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -68,10 +68,6 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>
 X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_201226_362431_0A0BF55D 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +86,28 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Drew Fustini <dfustini@oss.tenstorrent.com>
 
-Add Kconfig option ARCH_TENSTORRENT to enable support for SoCs like the
-Blackhole.
+Document vendor prefix for Tenstorrent in DT bindings.
 
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: Joel Stanley <jms@oss.tenstorrent.com>
 Signed-off-by: Drew Fustini <dfustini@oss.tenstorrent.com>
 ---
- arch/riscv/Kconfig.socs | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 848e7149e4435ad3ca138b62bc3b3c8efb594a18..0b4d408aebfa5dc441abfb8e78153acc149951f0 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -63,6 +63,14 @@ config ARCH_SUNXI
- 	  This enables support for Allwinner sun20i platform hardware,
- 	  including boards based on the D1 and D1s SoCs.
- 
-+config ARCH_TENSTORRENT
-+	bool "Tenstorrent SoCs"
-+	help
-+	  This enables support for Tenstorrent SoC platforms.
-+	  Current support is for Blackhole P100 and P150 PCIe cards.
-+	  The Blackhole SoC contains four RISC-V CPU tiles each
-+	  consisting of 4x SiFive X280 cores.
-+
- config ARCH_THEAD
- 	bool "T-HEAD RISC-V SoCs"
- 	depends on MMU && !XIP_KERNEL
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index f1d1882009ba9e80127bae0151af157879fe3070..21921be22207683a9c1e2248d0de63dcde867648 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1610,6 +1610,8 @@ patternProperties:
+     description: Tempo Semiconductor
+   "^tenda,.*":
+     description: Shenzhen Tenda Technology Co., Ltd.
++  "^tenstorrent,.*":
++    description: Tenstorrent AI ULC
+   "^terasic,.*":
+     description: Terasic Inc.
+   "^tesla,.*":
 
 -- 
 2.34.1
