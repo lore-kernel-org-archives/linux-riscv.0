@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1A1CCD183
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 02:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C4ECCD185
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 03:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PJ5Anfh/H+Faez5jSXXpkS4QT0zPC7uiI2ogoMtIEoo=; b=oXkr0VHjhN8bpk
-	/i+2MX49Q5iGRngdlGVQHekk1VP8bIz3QjSnIOofHpxms9h1+axHzauSvyEf3M41fVK3AQTSlYa6l
-	Hpk9Ares7NdTZrm5213jVrafvfrVYWCsv7wKMVNqg8PZF8BJ8dAgoDrw8SM8ZiqpNcEsTUaB399We
-	bMxOv7buocWEbGVORDgHVM+f3vuPetENOZqmLmhOO3GVt/HNMTmD6nZhs2A10hBVOsSWOfJuarwZn
-	15HdpT//IpAIgReq+U23CLb/jTuMnyUZOKdOFldTpk5nYIEbVyWbUjXdoHuUwnEhrVRccMyoiQYhR
-	lItzDUYbU9qsHXorb1nQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=J9O+xQ4XITPLHOklELVaWY+gVeK19PID85AzE8HZBbI=; b=yq4lpX5ZsgtrWN
+	Yj8nBpHXoO8CyL4C3Z7s4q61YLrrnWLSjLe2MaXyT9FHEm2//JfERuA59titKSTHSsHsr7VRY4hT2
+	GAyH8ohOzEoNVpjdL4hdiG0Rw1IM8kF0OUL/K9ohBtFF5RYp5knd1vyrNVr6fWg5ijcApbcBtcOC6
+	2tupGAvYG9r30CLuVqjGg+26fpIEZvoxgf5o3XPwseZHh3r8RwGDjvmg3GyDKLnzfwzMdWqIhzkAj
+	A+8MxgQkeAgDtN8fXKf+c6YIeKfhUw/ZRU5fk4y2BEykSBG1y17JaL2gw86g0u35nolu1lXOk0qXn
+	v2sMBnYpRyIya/nqex7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VBR-0000000F0M8-2itM;
-	Tue, 14 Oct 2025 02:54:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v8VSY-0000000F1Ec-0zvI;
+	Tue, 14 Oct 2025 03:12:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VBO-0000000F0LY-2TsJ
+	id 1v8VSW-0000000F1ED-0CpQ
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 02:54:39 +0000
+	Tue, 14 Oct 2025 03:12:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 72A2343D13
-	for <linux-riscv@lists.infradead.org>; Tue, 14 Oct 2025 02:54:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FAF0C19421
-	for <linux-riscv@lists.infradead.org>; Tue, 14 Oct 2025 02:54:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0547862144;
+	Tue, 14 Oct 2025 03:12:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C13A6C4CEE7;
+	Tue, 14 Oct 2025 03:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760410477;
-	bh=rN1/JT8Vi4aFfkerDExWo+sW0UZtHdXnofYs4/tmwlM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=QZ5Vzk6p2MTP8SCkciTYMggN/6CyeSrKIPBjuysJ1w5nkg3Ts+53V/Xdso9KjDrdS
-	 TJ/TKe5YIK0H+E+BLBvlkj5aXEEIx3v7S6ZPTrAWIEhrYp12kJjZev016A/suGVDID
-	 Mv2+MujU7AsxiRr0Dho8XEkCWmDD5XWzXFzJdQWqqmUCtAhqREzQoyGqqQHi0f7gPD
-	 Mkl76+twKlUYOVkyQPDYspoCdvFxCu0oWOCoTbT8bDpvdP75jvYdixo9nNEROe8IIQ
-	 9QBOI5HfCnxGQiAYSIx8hRSOSHlxH6HBwHeNsnGPX+5PsINUsyfhKDq2mmcIoVIx9K
-	 6Aq7UCUeUXiPQ==
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-42420c7de22so2170228f8f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Oct 2025 19:54:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWYDe1qwjmeIEioOJoGNmxw/+kRNgfOPN+IjoL5dSR3zcoOUt24RfJYj4ZqLE9x6xRa309a8egR9lnrkg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFwAopyeSp6Ez5WSPabB8lRVUaZheHqd9I73YVoCEo6TD5Rhce
-	sSj154Xx32Fr7HRxJ6kMPAS2MkuKPnOT8Pk1Fav2coWoqmQqbpZSG6jCePVOuIBXMCt4K4g6SqW
-	SOTMopVBgDmu4+mLCO6/JLNZCtUAm7YU=
-X-Google-Smtp-Source: AGHT+IFeCe0m2jQpeupyU3ik9Z7IXPpZmM0qDJEXluDW3n2mFBlDM9cW5/QwsDQICNKkTsG8UM84eaA7ty8HCW1R4W4=
-X-Received: by 2002:a5d:588b:0:b0:3ee:1368:a8e9 with SMTP id
- ffacd0b85a97d-4266e7befe4mr15259028f8f.17.1760410475815; Mon, 13 Oct 2025
- 19:54:35 -0700 (PDT)
+	s=k20201202; t=1760411538;
+	bh=htQXNEJpyPT71ySOsA/9aztCBJVdemKlfxtoz019xMI=;
+	h=From:Subject:Date:To:Cc:From;
+	b=h1BPA/3gYGcwL3DLBL3R97cn8qUKgm6ajuGEnInh3IFdX4XnOak+q2DPLKOx+/QZ6
+	 Ydy569xCh7r0lzTaw1h8dyZ0wYGP6tsyMR7WoxlIVREgY2wxOJO4ydZHqCwxRIhdo/
+	 VnOXv4Uye9yFXxyyXBK3gLsSG9rdKibVEWr/qNQSscWu0l8SgmiwQrMKqHsblNRIbS
+	 rDiQd1pWUfHk1KHHd9yceeN+e8A+EL+3ewNIWQ4Sw8oyXPFyG6snkyRFLmopx4ATke
+	 JP/Yo6pix9X8yRCVgNo18gfxx5pL7dzUK39C7de0/iJc0WyehAiBuO8rty1mFZ+4Dm
+	 87B+LCzGFVFbg==
+From: Drew Fustini <fustini@kernel.org>
+Subject: [PATCH v3 0/8] RISC-V: Add support for Tenstorrent Blackhole SoC
+Date: Mon, 13 Oct 2025 20:11:52 -0700
+Message-Id: <20251013-tt-bh-dts-v3-0-9f058d4bbbda@oss.tenstorrent.com>
 MIME-Version: 1.0
-References: <20250911124448.1771-1-cp0613@linux.alibaba.com> <CAK9=C2VEKAy-pS8gy02E2AFifxBOmNPpgTodC+pyuU53Ts_0VA@mail.gmail.com>
-In-Reply-To: <CAK9=C2VEKAy-pS8gy02E2AFifxBOmNPpgTodC+pyuU53Ts_0VA@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 14 Oct 2025 10:54:23 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQNdRbB0JgAU8p1+13UEFKPF0BNfwzGavHz8DmzFJPF-A@mail.gmail.com>
-X-Gm-Features: AS18NWAzR9RYh2nljzQvD39lmWOwh-HTD5q8TNwK0Yt5xzls94DHmtPOTGj-s18
-Message-ID: <CAJF2gTQNdRbB0JgAU8p1+13UEFKPF0BNfwzGavHz8DmzFJPF-A@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/4] riscv: tarce: Implement riscv trace pmu driver
- and perf support
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	cp0613@linux.alibaba.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_195438_674543_AFA5FBB4 
-X-CRM114-Status: GOOD (  26.45  )
+X-B4-Tracking: v=1; b=H4sIAHi/7WgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDA0Nj3ZIS3aQM3ZSSYt2UxKTUtDSDtGSDRHMloPqCotS0zAqwWdGxtbU
+ Ag2SlrVsAAAA=
+X-Change-ID: 20251013-tt-bh-dts-dabeff0fc0a7
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Anup Patel <anup@brainfault.org>, 
+ Arnd Bergmann <arnd@arndb.de>, Joel Stanley <joel@jms.id.au>, 
+ Joel Stanley <jms@oss.tenstorrent.com>, 
+ Nicholas Piggin <npiggin@oss.tenstorrent.com>, 
+ Michael Neuling <mikey@neuling.org>, Michael Ellerman <mpe@kernel.org>, 
+ Andy Gross <agross@kernel.org>, 
+ Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
+ Drew Fustini <dfustini@oss.tenstorrent.com>, Paul Walmsley <pjw@kernel.org>, 
+ Albert Ou <aou@eecs.berkeley.edu>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,101 +80,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBPY3QgMTMsIDIwMjUgYXQgMTI6MjLigK9QTSBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVu
-dGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4KPiBIaSBHdW8sCj4KPiBPbiBUaHUsIFNlcCAxMSwgMjAy
-NSBhdCA2OjE14oCvUE0gPGNwMDYxM0BsaW51eC5hbGliYWJhLmNvbT4gd3JvdGU6Cj4gPgo+ID4g
-RnJvbTogQ2hlbiBQZWkgPGNwMDYxM0BsaW51eC5hbGliYWJhLmNvbT4KPiA+Cj4gPiBUaGUgUklT
-Qy1WIFRyYWNlIFNwZWNpZmljYXRpb24gZGVmaW5lcyBhIHN0YW5kYXJkaXplZCBmcmFtZXdvcmsg
-Zm9yCj4gPiBjYXB0dXJpbmcgYW5kIGFuYWx5emluZyB0aGUgZXhlY3V0aW9uIG9mIFJJU0MtViBw
-cm9jZXNzb3JzLiBJdHMgbWFpbgo+ID4gdXNlcyBpbmNsdWRlOiBpbnN0cnVjdGlvbiBhbmQgZGF0
-YSB0cmFjaW5nLCByZWFsLXRpbWUgZGVidWdnaW5nLCBldGMuCj4gPiBTaW1pbGFyIHRvIEludGVs
-LVBUIGFuZCBBUk0tQ29yZVNpZ2h0Lgo+ID4KPiA+IEFjY29yZGluZyB0byB0aGUgUklTQy1WIFRy
-YWNlIENvbnRyb2wgSW50ZXJmYWNlIHNwZWNpZmljYXRpb24gWzFdLgo+ID4gVGhlcmUgYXJlIHR3
-byBzdGFuZGFyZCBSSVNDLVYgdHJhY2UgcHJvdG9jb2xzIHdoaWNoIHdpbGwgdXRpbGl6ZQo+ID4g
-dGhpcyBSSVNDLVYgVHJhY2UgQ29udHJvbCBJbnRlcmZhY2U6Cj4gPiAtIFJJU0MtViBOLVRyYWNl
-IChOZXh1cy1iYXNlZCBUcmFjZSkgU3BlY2lmaWNhdGlvbgo+ID4gLSBFZmZpY2llbnQgVHJhY2Ug
-Zm9yIFJJU0MtViBTcGVjaWZpY2F0aW9uCj4gPiBTbywgdGhpcyBpcyBhIGNvbXBsZXRlIGd1aWRl
-bGluZSBmb3IgYW55IHN0YW5kYXJkIFJJU0MtViB0cmFjZQo+ID4gaW1wbGVtZW50YXRpb24uCj4g
-Pgo+ID4gVGhpcyBzZXJpZXMgb2YgcGF0Y2hlcyBpcyBtYWlubHkgdXNlZCB0byBzdGFydCByZWxh
-dGVkIHdvcmsgYW5kCj4gPiBjb21tdW5pY2F0aW9uLiBJdCBjb21wbGV0ZXMgdGhlIGZvbGxvd2lu
-ZyB0YXNrczoKPiA+IDEuIGR0LWJpbmRpbmdzIGNvbXBsZXRlcyB0aGUgYmFzaWMgZGVmaW5pdGlv
-biBvZiByaXNjdiB0cmFjZQo+ID4gICAgY29tcG9uZW50IHByb3BlcnRpZXMsIGJ1dCBpcyBzdGls
-bCBpbmNvbXBsZXRlLgo+ID4gMi4gSW1wbGVtZW50ZWQgdGhlIGJhc2ljIFJJU0MtViBUcmFjZSBQ
-TVUgZHJpdmVyLCBpbmNsdWRpbmcKPiA+ICAgIHN1cHBvcnQgZm9yIHRoZSBhdXggYnVmZmVyLgo+
-ID4gMy4gSW1wbGVtZW50ZWQgYmFzaWMgc3VwcG9ydCBmb3IgQVVYVFJBQ0UgaW50ZWdyYXRpb24g
-d2l0aCBwZXJmCj4gPiAgICB0b29scy4KPiA+Cj4gPiBUaGVyZSdzIHN0aWxsIG1vcmUgd29yayB0
-byBiZSBkb25lLCBzdWNoIGFzOgo+ID4gMS4gQ29tcGxldGUgUklTQy1WIFRyYWNlIFBNVSBpbXBs
-ZW1lbnRhdGlvbi4KPiA+IDIuIFRoZSBwZXJmLmRhdGEgZ2VuZXJhdGlvbiBhbmQgcGFyc2luZyBp
-bmNsdWRpbmcgQVVYVFJBQ0UgZXZlbnRzLgo+ID4gMy4gVGFraW5nIFJJU0MtViBOLVRyYWNlIGFz
-IGFuIGV4YW1wbGUsIGltcGxlbWVudCB0aGUgcGFyc2luZyBvZgo+ID4gICAgTmV4dXMgVHJhY2Ug
-ZGF0YSBmb3JtYXQsIGluY2x1ZGluZyBzdXBwb3J0IGZvciBwZXJmIHJlcG9ydCBhbmQKPiA+ICAg
-IHBlcmYgc2NyaXB0IGNvbW1hbmRzLgo+ID4gV2UgYXJlIHN0aWxsIHNvcnRpbmcgb3V0Lgo+ID4K
-PiA+IEFueSBjb21tZW50cyBvciBzdWdnZXN0aW9ucyBhcmUgd2VsY29tZS4KPiA+Cj4gPiBbMV0g
-aHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2LW5vbi1pc2EvdGctbmV4dXMtdHJhY2UuZ2l0Cj4gPgo+
-ID4gQ2hlbiBQZWkgKDQpOgo+ID4gICBkdC1iaW5kaW5nczogcmlzY3Y6IEFkZCB0cmFjZSBjb21w
-b25lbnRzIGRlc2NyaXB0aW9uCj4gPiAgIHJpc2N2OiBldmVudDogSW5pdGlhbCByaXNjdiB0cmFj
-ZSBkcml2ZXIgc3VwcG9ydAo+ID4gICB0b29sczogcGVyZjogU3VwcG9ydCBwZXJmIHJlY29yZCB3
-aXRoIGF1eCBidWZmZXIgZm9yIHJpc2N2IHRyYWNlCj4gPiAgIHJpc2N2OiB0cmFjZTogU3VwcG9y
-dCBzaW5rIHVzaW5nIGRtYSBidWZmZXIKPiA+Cj4gPiAgLi4uL3Jpc2N2L3RyYWNlL3Jpc2N2LHRy
-YWNlLGVuY29kZXIueWFtbCAgICAgIHwgIDQxICsrKwo+ID4gIC4uLi9yaXNjdi90cmFjZS9yaXNj
-dix0cmFjZSxmdW5uZWwueWFtbCAgICAgICB8ICA0NiArKysrCj4gPiAgLi4uL3Jpc2N2L3RyYWNl
-L3Jpc2N2LHRyYWNlLHNpbmsueWFtbCAgICAgICAgIHwgIDM3ICsrKwo+ID4gIGFyY2gvcmlzY3Yv
-S2J1aWxkICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgMSArCj4gPiAgYXJjaC9yaXNj
-di9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAyICsKPiA+ICBhcmNoL3Jp
-c2N2L2V2ZW50cy9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgfCAgMTEgKwo+ID4gIGFyY2gv
-cmlzY3YvZXZlbnRzL01ha2VmaWxlICAgICAgICAgICAgICAgICAgICB8ICAgMyArCj4gPiAgYXJj
-aC9yaXNjdi9ldmVudHMvcmlzY3ZfdHJhY2UuYyAgICAgICAgICAgICAgIHwgMjUzICsrKysrKysr
-KysrKysrKysrKwo+ID4gIGFyY2gvcmlzY3YvZXZlbnRzL3Jpc2N2X3RyYWNlLmggICAgICAgICAg
-ICAgICB8IDEzMyArKysrKysrKysKPiA+ICBhcmNoL3Jpc2N2L2V2ZW50cy9yaXNjdl90cmFjZV9l
-bmNvZGVyLmMgICAgICAgfCAxMDkgKysrKysrKysKPiA+ICBhcmNoL3Jpc2N2L2V2ZW50cy9yaXNj
-dl90cmFjZV9mdW5uZWwuYyAgICAgICAgfCAxNjAgKysrKysrKysrKysKPiA+ICBhcmNoL3Jpc2N2
-L2V2ZW50cy9yaXNjdl90cmFjZV9zaW5rLmMgICAgICAgICAgfCAxMDAgKysrKysrKwo+ID4gIHRv
-b2xzL3BlcmYvYXJjaC9yaXNjdi91dGlsL0J1aWxkICAgICAgICAgICAgICB8ICAgMyArCj4gPiAg
-dG9vbHMvcGVyZi9hcmNoL3Jpc2N2L3V0aWwvYXV4dHJhY2UuYyAgICAgICAgIHwgIDMzICsrKwo+
-ID4gIHRvb2xzL3BlcmYvYXJjaC9yaXNjdi91dGlsL3BtdS5jICAgICAgICAgICAgICB8ICAxOCAr
-Kwo+ID4gIHRvb2xzL3BlcmYvYXJjaC9yaXNjdi91dGlsL3Jpc2N2LXRyYWNlLmMgICAgICB8IDE4
-MyArKysrKysrKysrKysrCj4gPiAgdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L3V0aWwvdHNjLmMgICAg
-ICAgICAgICAgIHwgIDE1ICsrCj4gPiAgdG9vbHMvcGVyZi91dGlsL0J1aWxkICAgICAgICAgICAg
-ICAgICAgICAgICAgIHwgICAxICsKPiA+ICB0b29scy9wZXJmL3V0aWwvYXV4dHJhY2UuYyAgICAg
-ICAgICAgICAgICAgICAgfCAgIDQgKwo+ID4gIHRvb2xzL3BlcmYvdXRpbC9hdXh0cmFjZS5oICAg
-ICAgICAgICAgICAgICAgICB8ICAgMSArCj4gPiAgdG9vbHMvcGVyZi91dGlsL3Jpc2N2LXRyYWNl
-LmMgICAgICAgICAgICAgICAgIHwgMTYyICsrKysrKysrKysrCj4gPiAgdG9vbHMvcGVyZi91dGls
-L3Jpc2N2LXRyYWNlLmggICAgICAgICAgICAgICAgIHwgIDE4ICsrCj4gPiAgMjIgZmlsZXMgY2hh
-bmdlZCwgMTMzNCBpbnNlcnRpb25zKCspCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50
-YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi90cmFjZS9yaXNjdix0cmFjZSxlbmNvZGVy
-LnlhbWwKPiA+ICBjcmVhdGUgbW9kZSAxMDA2NDQgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
-bmRpbmdzL3Jpc2N2L3RyYWNlL3Jpc2N2LHRyYWNlLGZ1bm5lbC55YW1sCj4gPiAgY3JlYXRlIG1v
-ZGUgMTAwNjQ0IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi90cmFjZS9y
-aXNjdix0cmFjZSxzaW5rLnlhbWwKPiA+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9l
-dmVudHMvS2NvbmZpZwo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2V2ZW50cy9N
-YWtlZmlsZQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2V2ZW50cy9yaXNjdl90
-cmFjZS5jCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvZXZlbnRzL3Jpc2N2X3Ry
-YWNlLmgKPiA+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ldmVudHMvcmlzY3ZfdHJh
-Y2VfZW5jb2Rlci5jCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvZXZlbnRzL3Jp
-c2N2X3RyYWNlX2Z1bm5lbC5jCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvZXZl
-bnRzL3Jpc2N2X3RyYWNlX3NpbmsuYwo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJm
-L2FyY2gvcmlzY3YvdXRpbC9hdXh0cmFjZS5jCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xz
-L3BlcmYvYXJjaC9yaXNjdi91dGlsL3BtdS5jCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xz
-L3BlcmYvYXJjaC9yaXNjdi91dGlsL3Jpc2N2LXRyYWNlLmMKPiA+ICBjcmVhdGUgbW9kZSAxMDA2
-NDQgdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L3V0aWwvdHNjLmMKPiA+ICBjcmVhdGUgbW9kZSAxMDA2
-NDQgdG9vbHMvcGVyZi91dGlsL3Jpc2N2LXRyYWNlLmMKPiA+ICBjcmVhdGUgbW9kZSAxMDA2NDQg
-dG9vbHMvcGVyZi91dGlsL3Jpc2N2LXRyYWNlLmgKPiA+Cj4gPiAtLQo+Cj4gRmV3IG1vbnRocyBi
-YWNrIHdlIChWZW50YW5hKSBoYWQgaW5mb3JtZWQgZXZlcnlvbmUKPiB3aXRoaW4gUlZJIChwYXJ0
-aWN1bGFybHkgc2VsZi1ob3N0ZWQgdHJhY2UgVEcpIHRoYXQgd2UgYXJlCj4gd29ya2luZyBvbiBM
-aW51eCB0cmFjZSBmcmFtZXdvcmsgYW5kIGRyaXZlcnMgZm9yIHRoZSBSSVNDLVYKPiBjb21tdW5p
-dHkgWzFdLiBUaGVyZSBhcmUgYWxzbyBwdWJsaWNseSBhY2Nlc3NpYmxlIFJJU0UKPiBwcm9qZWN0
-IHBhZ2VzIGFscmVhZHkgYXZhaWxhYmxlIGZvciB0aGUgdHJhY2UgZWZmb3J0cyBbMl0uXApUaHgg
-Zm9yIHJlbWluZGluZywgSSB3b3VsZCByZXBseSBvbiBbMV0uCgo+Cj4gVGhpcyBpcyB5ZXQgYW5v
-dGhlciBpbnN0YW5jZSB3aGVyZSBvbmdvaW5nIGVmZm9ydHMgd2VyZQo+IHRvdGFsbHkgaWdub3Jl
-ZC4KPgo+IC0tCj4gQW51cAo+Cj4gWzFdIGh0dHBzOi8vbGlzdHMucmlzY3Yub3JnL2cvc2lnLWh5
-cGVydmlzb3JzL21lc3NhZ2UvNjQ4Cj4gWzJdIGh0dHBzOi8vbGYtcmlzZS5hdGxhc3NpYW4ubmV0
-L3dpa2kvc3BhY2VzL0hPTUUvcGFnZXMvODU5MTI1MS8yMDI1Ky0rS2VybmVsK2FuZCtWaXJ0dWFs
-aXphdGlvbitQcmlvcml0aWVzCgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Enable support for the Tenstorrent Blackhole SoC in the Blackhole P100
+and P150 PCIe cards [1]. The Blackhole SoC contains four RISC-V CPU
+tiles consisting of 4x SiFive X280 cores. Each tile is capable of
+running an instance of Linux.
+
+There is a public Linux-on-Blackhole project [2] that enables users to
+boot Linux on Blackhole PCIe cards. A boot script on the PCIe host
+loads the kernel image and the rootfs into DDR memory and then takes
+the X280 cores out of reset.
+
+All the low-level SoC initialization is handled by firmware [3] running
+on a separate management core in the Blackhole SoC. Linux on the X280
+cores does not need to deal with any clocks, reset, etc. The management
+core firmware also controls the PCIe EP functionality. The tt-kmd Linux
+kernel driver [4] on the PCIe host allows the host to interact with the
+DDR memory on the Blackhole PCIe card along with other tiles in the SoC
+accessible from the NoC [5].
+
+There is a virtual UART implemented in OpenSBI [6] that allows a console
+program on the PCIe host to communicate through shared memory with Linux
+running on the Blackhole. This does require CONFIG_HVC_RISCV_SBI which
+is currently hidden behind CONFIG_NONPORTABLE. I would like Blackhole to
+work with defconfig, so I'm looking into possible ways of solving the
+issue that caused HVC SBI to be guarded by NONPORTABLE [7].
+
+The public Linux-on-Blackhole project does also make use of virtio to
+provide networking and storage. However, this relies on changes in our
+downstream kernel branch [8], so I've removed those dt nodes from this
+upstream dts series. We hope to eventually leverage the virtio-msg spec
+to upstream the virtio functionality, too.
+
+The boot script [9] on the host adds 'console=hvc0' to bootargs which is
+needed to ensure the full boot output appears in the console program on
+the host. It also adds initrd for the rootfs.
+
+TL;DR:
+The goal for upstreaming this rather minimal device tree in this series
+is to make it possible to boot mainline kernel builds. I attended the
+recent KernelCI workshop, and there are not currently many RISC-V boards
+doing boot tests. I think the Blackhole cards could help improve the
+situation once Blackhole is able to boot important trees like mainline
+and next. The HVC SBI console is sufficient for boot testing.
+
+[1] https://tenstorrent.com/hardware/blackhole
+[2] https://github.com/tenstorrent/tt-bh-linux
+[3] https://github.com/tenstorrent/tt-zephyr-platforms
+[4] https://github.com/tenstorrent/tt-kmd
+[5] https://github.com/tenstorrent/tt-isa-documentation/blob/main/BlackholeA0/
+[6] https://github.com/tenstorrent/opensbi/
+[7] https://lore.kernel.org/all/20240214153429.16484-2-palmer@rivosinc.com/
+[8] https://github.com/tenstorrent/linux/
+[9] https://github.com/tenstorrent/tt-bh-linux/blob/main/boot.py
+
+Changes in v3:
+ - Update dts patch commit message to describe how HVC SBI is used for
+   the console output and thus no uart node is in the dts
+ - Change address-cells and size-cells to be in decimel instead of hex
+ - Add new line before interrupt-controller node inside of cpu nodes
+ - Simplify the 'model' property in blackhole-card.dts
+ - Add Rob's Acked-by: for clint and plic yaml patches
+ - Add Rb tags from Joel Stanley
+ - Rebase on v6.18-rc1
+ - Link to v2: https://lore.kernel.org/linux-riscv/20251006-tt-bh-dts-v2-0-ed90dc4b3e22@oss.tenstorrent.com/
+
+Changes in v2:
+ - Remove '-a0' from compatible strings as Rob advised silicon revisions
+   are not normally included in compatibles
+ - Add ARCH_TENSTORRENT to defconfig per Conor's suggestion
+ - Fix unit address for memory device tree node
+ - Remove legacy 'riscv,isa' property from cpu dt nodes
+ - Remove 'riscv,cboz-block-size' as the cores do not support Zicboz
+ - Link to v1: https://lore.kernel.org/linux-riscv/20250913-tt-bh-dts-v1-0-ddb0d6860fe5@tenstorrent.com/
+
+---
+Drew Fustini (8):
+      dt-bindings: vendor-prefixes: Add Tenstorrent AI ULC
+      dt-bindings: riscv: Add Tenstorrent Blackhole compatible
+      dt-bindings: riscv: cpus: Add SiFive X280 compatible
+      dt-bindings: timers: Add Tenstorrent Blackhole compatible
+      dt-bindings: interrupt-controller: Add Tenstorrent Blackhole compatible
+      riscv: dts: Add Tenstorrent Blackhole SoC PCIe cards
+      riscv: Kconfig.socs: Add ARCH_TENSTORRENT for Tenstorrent SoCs
+      riscv: defconfig: Enable Tenstorrent SoCs
+
+ .../interrupt-controller/sifive,plic-1.0.0.yaml    |   1 +
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
+ .../devicetree/bindings/riscv/tenstorrent.yaml     |  28 ++++++
+ .../devicetree/bindings/timer/sifive,clint.yaml    |   1 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ MAINTAINERS                                        |   9 ++
+ arch/riscv/Kconfig.socs                            |   8 ++
+ arch/riscv/boot/dts/Makefile                       |   1 +
+ arch/riscv/boot/dts/tenstorrent/Makefile           |   2 +
+ arch/riscv/boot/dts/tenstorrent/blackhole-card.dts |  14 +++
+ arch/riscv/boot/dts/tenstorrent/blackhole.dtsi     | 108 +++++++++++++++++++++
+ arch/riscv/configs/defconfig                       |   1 +
+ 12 files changed, 176 insertions(+)
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251013-tt-bh-dts-dabeff0fc0a7
+
+Best regards,
+-- 
+Drew Fustini <dfustini@oss.tenstorrent.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
