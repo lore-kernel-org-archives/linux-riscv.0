@@ -4,99 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5DDCCD184
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 13:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B44D0CCD184
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 13:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2DBtSQW0sfz2iD4frbXuqAOzz69gZDyKGmU9ANTcO2I=; b=JOK4xtGlg8IhzH
-	Is5SkgkAXz1LMQys5so9FHQEAYrlzl8LYV/h4lsHnZlZ7+sNaPK8bqNWwmtAU2AwZ1vVvJBZ3bTJP
-	/UZsylR5+18PzI6/CrSEYZ3cJqkGYfO4KKB8xZgnq7UVFOjp0kFCzwvMtIfaBRAfcSYRvb3Z+syBl
-	6K4dORqQYD0v4ZP2d963OTjJXSYBHCq177U53xZ1yMoyYX2aOBPSODBLdlYNo/vCLJQIUjHRnwZT6
-	MSHsxkoFAMQZse50kReFDO6MrBIpHpv5sbYAt9jbOanUfR3GFZ7T/Cmkga10o2eulino0Jzm4QH3I
-	ayoykALUQvcqn71OoSIg==;
+	List-Owner; bh=uKE7/sI2zy5pX+uVaMA4wUg8qXorDENEpUREgmShhRU=; b=2aM3jvgZiH7e1o
+	9VXZj+zE/cvUrw3uQ9CMduQzAgNvXpZSESRfBK9NHeMOqyxWDWEvB7Wiqp+qqQhB1nDbehFfD+JUM
+	fV7hq/42X4Z5AGM1FTcqfDG11MHTwhH388nq9qYZvo7qUYBuOct0thmqhD1fMh/nR8lCWaba7JJQN
+	pt3SlNnUWbFef0cnbUYJdZkazfyQtm0gE6/ND5+eW/xBvETQ1uJb4KHnpPZw9d9/XPPcRhC7o4phY
+	aaVdb10VqxBqb4rDxD0a+QilW880McR/vr1kdw6a3TUHD7qbYoGermCzLN+kyzfOSfDUTjb3hCT6I
+	AYGcoMi/5nbIETEHfYwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ey1-0000000GShw-0ckR;
-	Tue, 14 Oct 2025 13:21:29 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1v8f30-0000000GTXq-2Bm9;
+	Tue, 14 Oct 2025 13:26:38 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8exx-0000000GSgK-3cNO
+	id 1v8f2t-0000000GTS1-1NMN
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 13:21:27 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2697899a202so42040215ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Oct 2025 06:21:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1760448085; x=1761052885; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DksyJIp4tcKqureXkHFAt6jH/Gz5hXdtIRAW/xwjAb8=;
-        b=Ec9/mzYaooSVP/uApkvqXe+qdNbxn8bY9A8PWWc2PQga47gAXDfhyczI7PZQKmzaX8
-         xV3m4Kxi4tUVKp1X9yzph8TDswyBEqFtTL+tFEVhJ33KTMLRno9vqy09s/PT7X4B84lZ
-         4SdZvmWIPAIgeoDJAd8Q++Cer6Pk7HCYHAW4lS6qxoCOHijHdq4dtQLvICjzqLN4bhWM
-         d46y0PbCRhhKfvKwaqqFW3hxZiKDMAUL9IqkACs3kzB2tfJE1EIHm44FOTHtCjZQPVMu
-         Kl8FASX/gnS6KjmPNaanUKtyiIKDwrwarNj+Y6r828QoC8WMoaROfGUPsZAIN2tpYBU2
-         XbtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760448085; x=1761052885;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DksyJIp4tcKqureXkHFAt6jH/Gz5hXdtIRAW/xwjAb8=;
-        b=Hr8ZwmOUIZVgjgtFOgqOALgkyUskL2kkJyAT1fTsTMEXu/SUuy0WuR8gHgHjyrGI6F
-         +hIFnReAXofKlQ37MhmzGBjlsB2SANqWoQi7od4JJtj6gsYYeOHWdvjufZwfHnc1TCO2
-         Eaag+I0OynVzE0eHYZJO/OY2BiZId2dnCb/feCkbl7dXW6FtAJtdGnIM7qchqBroHBPN
-         vXbCBIG0LQM30CSkSz2cakS+kl6jAQF2u1YsuyFlggOLU9MuWViPbGuw8B3f/FXsj6zW
-         0Ynu2/7aXYInFmzthLC4gYtnww3WgprACLp9/ZwATwfEfqge2lUBFlsJ6DzL0TMXoce9
-         Guog==
-X-Forwarded-Encrypted: i=1; AJvYcCV6gShWLC44OYNLBIJrDZuFnrRmLLv0VLj4vi/cIHl8xzIlFUdimWL8qMik+Sw4IU5eo5BXF/DWMdTpIA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/JnUDuHMGyoxn8PSbizO26IOCNByo0fvfWWvP/HU7+Y2SF0QY
-	vfEjc4+a85ID17xN5BJhj1g/YLff9MngpMpsPhZo7w2gBnLmzsIDj8PpH6Z/Phq7IDM=
-X-Gm-Gg: ASbGncuVgIukDMp/v7+T1IcTmDSMuzpBYZ3txTqUfsLaODQYk9XJB2yw6bEPrcaADFp
-	8alMUfgwur11J89c8Kel49pHpu7y0x6hUnyPiFmr6Nc9sDHuKEWDTAQDGw9IucmxxZaaTOsfRpF
-	ozEOOJbZbOSay6F3L6hJqwOx0girDPUw109qMukzZ52sPOiQVuRay/1ArIGzWC2b5HU34lIFLgl
-	Jz74sITlI9UaypR82aHb3/neB+TmsxR2wwPNNOOAdqlAcrqgGx95zV9GzbL9Nm07ggcZTrl659V
-	Ox8O/MDNmv/jfhy7fdz/hxj8prGexsva1Vwc+FYSJ1dic44ei7aW5UCSfmyWyhJabF8fWFQvpTZ
-	gw5X+7QlHswVMa+mAYTChwTAcUTFwXE0kQMl2ZRcaJT0fWPVloZrGaoZzAKN/o8OXV0vB1N6/
-X-Google-Smtp-Source: AGHT+IGwebx1boYxEpf6P+mBpk5aFk0EQxxdDY6lc4FvX5l2uj1RjCC5fi/lwymPmxge/NGIBj3n0Q==
-X-Received: by 2002:a17:902:e952:b0:26c:4085:e3ef with SMTP id d9443c01a7336-29027f234aemr274358875ad.21.1760448084765;
-        Tue, 14 Oct 2025 06:21:24 -0700 (PDT)
-Received: from localhost.localdomain ([122.171.20.65])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034de6f08sm164387635ad.26.2025.10.14.06.21.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 06:21:24 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Len Brown <lenb@kernel.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-acpi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Nutty Liu <nutty.liu@hotmail.com>
-Subject: [PATCH v3 1/1] RISC-V: Add common csr_read_num() and csr_write_num() functions
-Date: Tue, 14 Oct 2025 18:51:06 +0530
-Message-ID: <20251014132106.181155-2-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251014132106.181155-1-apatel@ventanamicro.com>
-References: <20251014132106.181155-1-apatel@ventanamicro.com>
+	Tue, 14 Oct 2025 13:26:37 +0000
+Received: from Atcsqr.andestech.com (localhost [127.0.0.2] (may be forged))
+	by Atcsqr.andestech.com with ESMTP id 59EC8pep062812
+	for <linux-riscv@lists.infradead.org>; Tue, 14 Oct 2025 20:08:51 +0800 (+08)
+	(envelope-from randolph@andestech.com)
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 59EC3wiG060884
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 14 Oct 2025 20:03:58 +0800 (+08)
+	(envelope-from randolph@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Tue, 14 Oct 2025
+ 20:03:58 +0800
+From: Randolph Lin <randolph@andestech.com>
+To: <linux-kernel@vger.kernel.org>
+CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <jingoohan1@gmail.com>,
+        <mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <alex@ghiti.fr>, <aou@eecs.berkeley.edu>,
+        <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+        <ben717@andestech.com>, <inochiama@gmail.com>,
+        <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
+        <shradha.t@samsung.com>, <pjw@kernel.org>, <randolph.sklin@gmail.com>,
+        <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
+Subject: [PATCH v8 4/5] PCI: andes: Add Andes QiLai SoC PCIe host driver support
+Date: Tue, 14 Oct 2025 20:03:48 +0800
+Message-ID: <20251014120349.656553-5-randolph@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251014120349.656553-1-randolph@andestech.com>
+References: <20251014120349.656553-1-randolph@andestech.com>
 MIME-Version: 1.0
+X-Originating-IP: [10.0.15.173]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 59EC8pep062812
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_062125_918914_0D2ABBA1 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20251014_062631_752229_C5288112 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,339 +81,301 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In RISC-V, there is no CSR read/write instruction which takes CSR
-number via register so add common csr_read_num() and csr_write_num()
-functions which allow accessing certain CSRs by passing CSR number
-as parameter. These common functions will be first used by the
-ACPI CPPC driver and RISC-V PMU driver.
+Add driver support for DesignWare based PCIe controller in Andes
+QiLai SoC. The driver only supports the Root Complex mode.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
-Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+Signed-off-by: Randolph Lin <randolph@andestech.com>
 ---
- arch/riscv/include/asm/csr.h |   3 +
- arch/riscv/kernel/Makefile   |   1 +
- arch/riscv/kernel/csr.c      | 165 +++++++++++++++++++++++++++++++++++
- drivers/acpi/riscv/cppc.c    |  17 ++--
- drivers/perf/riscv_pmu.c     |  54 ++----------
- 5 files changed, 184 insertions(+), 56 deletions(-)
- create mode 100644 arch/riscv/kernel/csr.c
+ drivers/pci/controller/dwc/Kconfig            |  13 +
+ drivers/pci/controller/dwc/Makefile           |   1 +
+ drivers/pci/controller/dwc/pcie-andes-qilai.c | 240 ++++++++++++++++++
+ 3 files changed, 254 insertions(+)
+ create mode 100644 drivers/pci/controller/dwc/pcie-andes-qilai.c
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 4a37a98398ad..46e1fcd82fd0 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -575,6 +575,9 @@
- 			      : "memory");			\
- })
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+index 349d4657393c..09ce40640e2f 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -61,6 +61,19 @@ config PCI_MESON
+ 	  and therefore the driver re-uses the DesignWare core functions to
+ 	  implement the driver.
  
-+extern unsigned long csr_read_num(unsigned long csr_num, int *out_err);
-+extern void csr_write_num(unsigned long csr_num, unsigned long val, int *out_err);
++config PCIE_ANDES_QILAI
++	tristate "Andes QiLai PCIe controller"
++	depends on ARCH_ANDES || COMPILE_TEST
++	depends on PCI_MSI
++	select PCIE_DW_HOST
++	help
++	  Say Y here to enable PCIe controller support on Andes QiLai SoCs,
++	  which operate in Root Complex mode. The Andes QiLai SoC PCIe
++	  controller is based on DesignWare IP (5.97a version) and therefore
++	  the driver re-uses the DesignWare core functions to implement the
++	  driver. The Andes QiLai SoC features three Root Complexes, each
++	  operating on PCIe 4.0.
 +
- #endif /* __ASSEMBLER__ */
+ config PCIE_ARTPEC6
+ 	bool
  
- #endif /* _ASM_RISCV_CSR_H */
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index f60fce69b725..a75e79192531 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -50,6 +50,7 @@ obj-y	+= soc.o
- obj-$(CONFIG_RISCV_ALTERNATIVE) += alternative.o
- obj-y	+= cpu.o
- obj-y	+= cpufeature.o
-+obj-y	+= csr.o
- obj-y	+= entry.o
- obj-y	+= irq.o
- obj-y	+= process.o
-diff --git a/arch/riscv/kernel/csr.c b/arch/riscv/kernel/csr.c
+diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+index 7ae28f3b0fb3..5d3ec2d26275 100644
+--- a/drivers/pci/controller/dwc/Makefile
++++ b/drivers/pci/controller/dwc/Makefile
+@@ -5,6 +5,7 @@ obj-$(CONFIG_PCIE_DW_HOST) += pcie-designware-host.o
+ obj-$(CONFIG_PCIE_DW_EP) += pcie-designware-ep.o
+ obj-$(CONFIG_PCIE_DW_PLAT) += pcie-designware-plat.o
+ obj-$(CONFIG_PCIE_AMD_MDB) += pcie-amd-mdb.o
++obj-$(CONFIG_PCIE_ANDES_QILAI) += pcie-andes-qilai.o
+ obj-$(CONFIG_PCIE_BT1) += pcie-bt1.o
+ obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
+ obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
+diff --git a/drivers/pci/controller/dwc/pcie-andes-qilai.c b/drivers/pci/controller/dwc/pcie-andes-qilai.c
 new file mode 100644
-index 000000000000..e96b129c1a99
+index 000000000000..0b9f9604c0f7
 --- /dev/null
-+++ b/arch/riscv/kernel/csr.c
-@@ -0,0 +1,165 @@
++++ b/drivers/pci/controller/dwc/pcie-andes-qilai.c
+@@ -0,0 +1,240 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Copyright (c) 2025 Ventana Micro Systems Inc.
++ * Driver for the PCIe Controller in QiLai from Andes
++ *
++ * Copyright (C) 2025 Andes Technology Corporation
 + */
 +
-+#include <linux/err.h>
-+#include <linux/export.h>
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/pci.h>
++#include <linux/platform_device.h>
 +#include <linux/types.h>
-+#include <asm/csr.h>
 +
-+#define CSR_CUSTOM0_U_RW_BASE		0x800
-+#define CSR_CUSTOM0_U_RW_COUNT		0x100
++#include "pcie-designware.h"
 +
-+#define CSR_CUSTOM1_U_RO_BASE		0xCC0
-+#define CSR_CUSTOM1_U_RO_COUNT		0x040
++#define PCIE_INTR_CONTROL1			0x15c
++#define PCIE_MSI_CTRL_INT_EN			BIT(28)
 +
-+#define CSR_CUSTOM2_S_RW_BASE		0x5C0
-+#define CSR_CUSTOM2_S_RW_COUNT		0x040
++#define PCIE_LOGIC_COHERENCY_CONTROL3		0x8e8
 +
-+#define CSR_CUSTOM3_S_RW_BASE		0x9C0
-+#define CSR_CUSTOM3_S_RW_COUNT		0x040
++/*
++ * Refer to Table A4-5 (Memory type encoding) in the
++ * AMBA AXI and ACE Protocol Specification.
++ *
++ * The selected value corresponds to the Memory type field:
++ * "Write-back, Read and Write-allocate".
++ *
++ * The last three rows in the table A4-5 in
++ * AMBA AXI and ACE Protocol Specification:
++ * ARCACHE        AWCACHE        Memory type
++ * ------------------------------------------------------------------
++ * 1111 (0111)    0111           Write-back Read-allocate
++ * 1011           1111 (1011)    Write-back Write-allocate
++ * 1111           1111           Write-back Read and Write-allocate (selected)
++ */
++#define IOCP_ARCACHE				0b1111
++#define IOCP_AWCACHE				0b1111
 +
-+#define CSR_CUSTOM4_S_RO_BASE		0xDC0
-+#define CSR_CUSTOM4_S_RO_COUNT		0x040
++#define PCIE_CFG_MSTR_ARCACHE_MODE		GENMASK(6, 3)
++#define PCIE_CFG_MSTR_AWCACHE_MODE		GENMASK(14, 11)
++#define PCIE_CFG_MSTR_ARCACHE_VALUE		GENMASK(22, 19)
++#define PCIE_CFG_MSTR_AWCACHE_VALUE		GENMASK(30, 27)
 +
-+#define CSR_CUSTOM5_HS_RW_BASE		0x6C0
-+#define CSR_CUSTOM5_HS_RW_COUNT		0x040
++#define PCIE_GEN_CONTROL2			0x54
++#define PCIE_CFG_LTSSM_EN			BIT(0)
 +
-+#define CSR_CUSTOM6_HS_RW_BASE		0xAC0
-+#define CSR_CUSTOM6_HS_RW_COUNT		0x040
++#define PCIE_REGS_PCIE_SII_PM_STATE		0xc0
++#define SMLH_LINK_UP				BIT(6)
++#define RDLH_LINK_UP				BIT(7)
++#define PCIE_REGS_PCIE_SII_LINK_UP		(SMLH_LINK_UP | RDLH_LINK_UP)
 +
-+#define CSR_CUSTOM7_HS_RO_BASE		0xEC0
-+#define CSR_CUSTOM7_HS_RO_COUNT		0x040
++struct qilai_pcie {
++	struct dw_pcie pci;
++	void __iomem *apb_base;
++};
 +
-+#define CSR_CUSTOM8_M_RW_BASE		0x7C0
-+#define CSR_CUSTOM8_M_RW_COUNT		0x040
++#define to_qilai_pcie(_pci) container_of(_pci, struct qilai_pcie, pci)
 +
-+#define CSR_CUSTOM9_M_RW_BASE		0xBC0
-+#define CSR_CUSTOM9_M_RW_COUNT		0x040
-+
-+#define CSR_CUSTOM10_M_RO_BASE		0xFC0
-+#define CSR_CUSTOM10_M_RO_COUNT		0x040
-+
-+unsigned long csr_read_num(unsigned long csr_num, int *out_err)
++static bool qilai_pcie_link_up(struct dw_pcie *pci)
 +{
-+#define switchcase_csr_read(__csr_num)				\
-+	case (__csr_num):					\
-+		return csr_read(__csr_num)
-+#define switchcase_csr_read_2(__csr_num)			\
-+	switchcase_csr_read(__csr_num + 0);			\
-+	switchcase_csr_read(__csr_num + 1)
-+#define switchcase_csr_read_4(__csr_num)			\
-+	switchcase_csr_read_2(__csr_num + 0);			\
-+	switchcase_csr_read_2(__csr_num + 2)
-+#define switchcase_csr_read_8(__csr_num)			\
-+	switchcase_csr_read_4(__csr_num + 0);			\
-+	switchcase_csr_read_4(__csr_num + 4)
-+#define switchcase_csr_read_16(__csr_num)			\
-+	switchcase_csr_read_8(__csr_num + 0);			\
-+	switchcase_csr_read_8(__csr_num + 8)
-+#define switchcase_csr_read_32(__csr_num)			\
-+	switchcase_csr_read_16(__csr_num + 0);			\
-+	switchcase_csr_read_16(__csr_num + 16)
-+#define switchcase_csr_read_64(__csr_num)			\
-+	switchcase_csr_read_32(__csr_num + 0);			\
-+	switchcase_csr_read_32(__csr_num + 32)
-+#define switchcase_csr_read_128(__csr_num)			\
-+	switchcase_csr_read_64(__csr_num + 0);			\
-+	switchcase_csr_read_64(__csr_num + 64)
-+#define switchcase_csr_read_256(__csr_num)			\
-+	switchcase_csr_read_128(__csr_num + 0);			\
-+	switchcase_csr_read_128(__csr_num + 128)
++	struct qilai_pcie *pcie = to_qilai_pcie(pci);
++	u32 val;
 +
-+	*out_err = 0;
-+	switch (csr_num) {
-+	switchcase_csr_read_32(CSR_CYCLE);
-+	switchcase_csr_read_32(CSR_CYCLEH);
-+	switchcase_csr_read_256(CSR_CUSTOM0_U_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM1_U_RO_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM2_S_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM3_S_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM4_S_RO_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM5_HS_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM6_HS_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM7_HS_RO_BASE);
-+#ifdef CONFIG_RISCV_M_MODE
-+	switchcase_csr_read_64(CSR_CUSTOM8_M_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM9_M_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM10_M_RO_BASE);
-+#endif
-+	default:
-+		*out_err = -EINVAL;
-+		break;
++	/* Read smlh & rdlh link up by checking debug port */
++	val = readl(pcie->apb_base + PCIE_REGS_PCIE_SII_PM_STATE);
++
++	return (val & PCIE_REGS_PCIE_SII_LINK_UP) == PCIE_REGS_PCIE_SII_LINK_UP;
++}
++
++static int qilai_pcie_start_link(struct dw_pcie *pci)
++{
++	struct qilai_pcie *pcie = to_qilai_pcie(pci);
++	u32 val;
++
++	val = readl(pcie->apb_base + PCIE_GEN_CONTROL2);
++	val |= PCIE_CFG_LTSSM_EN;
++	writel(val, pcie->apb_base + PCIE_GEN_CONTROL2);
++
++	return 0;
++}
++
++static const struct dw_pcie_ops qilai_pcie_ops = {
++	.link_up = qilai_pcie_link_up,
++	.start_link = qilai_pcie_start_link,
++};
++
++/*
++ * Setup the Qilai PCIe IOCP (IO Coherence Port) Read/Write Behaviors to the
++ * Write-Back, Read and Write Allocate mode.
++ *
++ * The IOCP HW target is SoC last-level cache (L2 Cache), which serves as the
++ * system cache. The IOCP HW helps maintain cache monitoring, ensuring that
++ * the device can snoop data from/to the cache.
++ */
++static void qilai_pcie_iocp_cache_setup(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	u32 val;
++
++	dw_pcie_dbi_ro_wr_en(pci);
++
++	dw_pcie_read(pci->dbi_base + PCIE_LOGIC_COHERENCY_CONTROL3,
++		     sizeof(val), &val);
++	FIELD_MODIFY(PCIE_CFG_MSTR_ARCACHE_MODE, &val, IOCP_ARCACHE);
++	FIELD_MODIFY(PCIE_CFG_MSTR_AWCACHE_MODE, &val, IOCP_AWCACHE);
++	FIELD_MODIFY(PCIE_CFG_MSTR_ARCACHE_VALUE, &val, IOCP_ARCACHE);
++	FIELD_MODIFY(PCIE_CFG_MSTR_AWCACHE_VALUE, &val, IOCP_AWCACHE);
++	dw_pcie_write(pci->dbi_base + PCIE_LOGIC_COHERENCY_CONTROL3,
++		      sizeof(val), val);
++
++	dw_pcie_dbi_ro_wr_dis(pci);
++}
++
++static void qilai_pcie_enable_msi(struct qilai_pcie *pcie)
++{
++	u32 val;
++
++	val = readl(pcie->apb_base + PCIE_INTR_CONTROL1);
++	val |= PCIE_MSI_CTRL_INT_EN;
++	writel(val, pcie->apb_base + PCIE_INTR_CONTROL1);
++}
++
++/*
++ * The QiLai SoC PCIe controller's outbound iATU region supports
++ * a maximum size of SZ_4G - 1. To prevent programming failures,
++ * only consider bridge->windows with sizes within this limit.
++ *
++ * To ensure compatibility with most endpoint devices, at least
++ * one memory region must be mapped within the 32-bits address space.
++ */
++static int qilai_pcie_host_fix_ob_iatu_count(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct device *dev = pci->dev;
++	struct resource_entry *entry;
++	/* Reserved 1 ob iATU for config space */
++	int count = 1;
++	bool ranges_32bits = false;
++	u64 pci_addr;
++	u64 size;
++
++	resource_list_for_each_entry(entry, &pp->bridge->windows) {
++		if (resource_type(entry->res) != IORESOURCE_MEM)
++			continue;
++
++		size = resource_size(entry->res);
++		if (size < SZ_4G)
++			count++;
++
++		pci_addr = entry->res->start - entry->offset;
++		if (pci_addr < SZ_4G)
++			ranges_32bits = true;
++	}
++
++	if (!ranges_32bits) {
++		dev_err(dev, "Bridge window must contain 32-bits address\n");
++		return -EINVAL;
++	}
++
++	pci->num_ob_windows = count;
++
++	return 0;
++}
++
++static int qilai_pcie_host_init(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct qilai_pcie *pcie = to_qilai_pcie(pci);
++
++	qilai_pcie_enable_msi(pcie);
++
++	return qilai_pcie_host_fix_ob_iatu_count(pp);
++}
++
++static void qilai_pcie_host_post_init(struct dw_pcie_rp *pp)
++{
++	qilai_pcie_iocp_cache_setup(pp);
++}
++
++static const struct dw_pcie_host_ops qilai_pcie_host_ops = {
++	.init = qilai_pcie_host_init,
++	.post_init = qilai_pcie_host_post_init,
++};
++
++static int qilai_pcie_probe(struct platform_device *pdev)
++{
++	struct qilai_pcie *pcie;
++	struct dw_pcie *pci;
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	pcie = devm_kzalloc(&pdev->dev, sizeof(*pcie), GFP_KERNEL);
++	if (!pcie)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, pcie);
++
++	pci = &pcie->pci;
++	pcie->pci.dev = dev;
++	pcie->pci.ops = &qilai_pcie_ops;
++	pcie->pci.pp.ops = &qilai_pcie_host_ops;
++	pci->use_parent_dt_ranges = true;
++
++	dw_pcie_cap_set(&pcie->pci, REQ_RES);
++
++	pcie->apb_base = devm_platform_ioremap_resource_byname(pdev, "apb");
++	if (IS_ERR(pcie->apb_base))
++		return PTR_ERR(pcie->apb_base);
++
++	ret = dw_pcie_host_init(&pcie->pci.pp);
++	if (ret) {
++		dev_err_probe(dev, ret, "Failed to initialize PCIe host\n");
++		return ret;
 +	}
 +
 +	return 0;
-+#undef switchcase_csr_read_256
-+#undef switchcase_csr_read_128
-+#undef switchcase_csr_read_64
-+#undef switchcase_csr_read_32
-+#undef switchcase_csr_read_16
-+#undef switchcase_csr_read_8
-+#undef switchcase_csr_read_4
-+#undef switchcase_csr_read_2
-+#undef switchcase_csr_read
 +}
-+EXPORT_SYMBOL_GPL(csr_read_num);
 +
-+void csr_write_num(unsigned long csr_num, unsigned long val, int *out_err)
-+{
-+#define switchcase_csr_write(__csr_num, __val)			\
-+	case (__csr_num):					\
-+		csr_write(__csr_num, __val);			\
-+		break
-+#define switchcase_csr_write_2(__csr_num, __val)		\
-+	switchcase_csr_write(__csr_num + 0, __val);		\
-+	switchcase_csr_write(__csr_num + 1, __val)
-+#define switchcase_csr_write_4(__csr_num, __val)		\
-+	switchcase_csr_write_2(__csr_num + 0, __val);		\
-+	switchcase_csr_write_2(__csr_num + 2, __val)
-+#define switchcase_csr_write_8(__csr_num, __val)		\
-+	switchcase_csr_write_4(__csr_num + 0, __val);		\
-+	switchcase_csr_write_4(__csr_num + 4, __val)
-+#define switchcase_csr_write_16(__csr_num, __val)		\
-+	switchcase_csr_write_8(__csr_num + 0, __val);		\
-+	switchcase_csr_write_8(__csr_num + 8, __val)
-+#define switchcase_csr_write_32(__csr_num, __val)		\
-+	switchcase_csr_write_16(__csr_num + 0, __val);		\
-+	switchcase_csr_write_16(__csr_num + 16, __val)
-+#define switchcase_csr_write_64(__csr_num, __val)		\
-+	switchcase_csr_write_32(__csr_num + 0, __val);		\
-+	switchcase_csr_write_32(__csr_num + 32, __val)
-+#define switchcase_csr_write_128(__csr_num, __val)		\
-+	switchcase_csr_write_64(__csr_num + 0, __val);		\
-+	switchcase_csr_write_64(__csr_num + 64, __val)
-+#define switchcase_csr_write_256(__csr_num, __val)		\
-+	switchcase_csr_write_128(__csr_num + 0, __val);		\
-+	switchcase_csr_write_128(__csr_num + 128, __val)
++static const struct of_device_id qilai_pcie_of_match[] = {
++	{ .compatible = "andestech,qilai-pcie" },
++	{},
++};
++MODULE_DEVICE_TABLE(of, qilai_pcie_of_match);
 +
-+	*out_err = 0;
-+	switch (csr_num) {
-+	switchcase_csr_write_256(CSR_CUSTOM0_U_RW_BASE, val);
-+	switchcase_csr_write_64(CSR_CUSTOM2_S_RW_BASE, val);
-+	switchcase_csr_write_64(CSR_CUSTOM3_S_RW_BASE, val);
-+	switchcase_csr_write_64(CSR_CUSTOM5_HS_RW_BASE, val);
-+	switchcase_csr_write_64(CSR_CUSTOM6_HS_RW_BASE, val);
-+#ifdef CONFIG_RISCV_M_MODE
-+	switchcase_csr_write_64(CSR_CUSTOM8_M_RW_BASE, val);
-+	switchcase_csr_write_64(CSR_CUSTOM9_M_RW_BASE, val);
-+#endif
-+	default:
-+		*out_err = -EINVAL;
-+		break;
-+	}
-+#undef switchcase_csr_write_256
-+#undef switchcase_csr_write_128
-+#undef switchcase_csr_write_64
-+#undef switchcase_csr_write_32
-+#undef switchcase_csr_write_16
-+#undef switchcase_csr_write_8
-+#undef switchcase_csr_write_4
-+#undef switchcase_csr_write_2
-+#undef switchcase_csr_write
-+}
-+EXPORT_SYMBOL_GPL(csr_write_num);
-diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
-index 42c1a9052470..fe491937ed25 100644
---- a/drivers/acpi/riscv/cppc.c
-+++ b/drivers/acpi/riscv/cppc.c
-@@ -65,24 +65,19 @@ static void sbi_cppc_write(void *write_data)
- static void cppc_ffh_csr_read(void *read_data)
- {
- 	struct sbi_cppc_data *data = (struct sbi_cppc_data *)read_data;
-+	int err;
- 
--	switch (data->reg) {
--	/* Support only TIME CSR for now */
--	case CSR_TIME:
--		data->ret.value = csr_read(CSR_TIME);
--		data->ret.error = 0;
--		break;
--	default:
--		data->ret.error = -EINVAL;
--		break;
--	}
-+	data->ret.value = csr_read_num(data->reg, &err);
-+	data->ret.error = err;
- }
- 
- static void cppc_ffh_csr_write(void *write_data)
- {
- 	struct sbi_cppc_data *data = (struct sbi_cppc_data *)write_data;
-+	int err;
- 
--	data->ret.error = -EINVAL;
-+	csr_write_num(data->reg, data->val, &err);
-+	data->ret.error = err;
- }
- 
- /*
-diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-index 7644147d50b4..b41f353ba964 100644
---- a/drivers/perf/riscv_pmu.c
-+++ b/drivers/perf/riscv_pmu.c
-@@ -16,6 +16,7 @@
- #include <linux/smp.h>
- #include <linux/sched_clock.h>
- 
-+#include <asm/csr.h>
- #include <asm/sbi.h>
- 
- static bool riscv_perf_user_access(struct perf_event *event)
-@@ -88,58 +89,21 @@ void arch_perf_update_userpage(struct perf_event *event,
- 	userpg->cap_user_time_short = 1;
- }
- 
--static unsigned long csr_read_num(int csr_num)
--{
--#define switchcase_csr_read(__csr_num, __val)		{\
--	case __csr_num:					\
--		__val = csr_read(__csr_num);		\
--		break; }
--#define switchcase_csr_read_2(__csr_num, __val)		{\
--	switchcase_csr_read(__csr_num + 0, __val)	 \
--	switchcase_csr_read(__csr_num + 1, __val)}
--#define switchcase_csr_read_4(__csr_num, __val)		{\
--	switchcase_csr_read_2(__csr_num + 0, __val)	 \
--	switchcase_csr_read_2(__csr_num + 2, __val)}
--#define switchcase_csr_read_8(__csr_num, __val)		{\
--	switchcase_csr_read_4(__csr_num + 0, __val)	 \
--	switchcase_csr_read_4(__csr_num + 4, __val)}
--#define switchcase_csr_read_16(__csr_num, __val)	{\
--	switchcase_csr_read_8(__csr_num + 0, __val)	 \
--	switchcase_csr_read_8(__csr_num + 8, __val)}
--#define switchcase_csr_read_32(__csr_num, __val)	{\
--	switchcase_csr_read_16(__csr_num + 0, __val)	 \
--	switchcase_csr_read_16(__csr_num + 16, __val)}
--
--	unsigned long ret = 0;
--
--	switch (csr_num) {
--	switchcase_csr_read_32(CSR_CYCLE, ret)
--	switchcase_csr_read_32(CSR_CYCLEH, ret)
--	default :
--		break;
--	}
--
--	return ret;
--#undef switchcase_csr_read_32
--#undef switchcase_csr_read_16
--#undef switchcase_csr_read_8
--#undef switchcase_csr_read_4
--#undef switchcase_csr_read_2
--#undef switchcase_csr_read
--}
--
- /*
-  * Read the CSR of a corresponding counter.
-  */
- unsigned long riscv_pmu_ctr_read_csr(unsigned long csr)
- {
--	if (csr < CSR_CYCLE || csr > CSR_HPMCOUNTER31H ||
--	   (csr > CSR_HPMCOUNTER31 && csr < CSR_CYCLEH)) {
--		pr_err("Invalid performance counter csr %lx\n", csr);
--		return -EINVAL;
-+	unsigned long val;
-+	int rc;
++static struct platform_driver qilai_pcie_driver = {
++	.probe = qilai_pcie_probe,
++	.driver = {
++		.name	= "qilai-pcie",
++		.of_match_table = qilai_pcie_of_match,
++		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
++	},
++};
 +
-+	val = csr_read_num(csr, &rc);
-+	if (rc) {
-+		pr_err("Failed to read performance counter csr %lx (error %d)\n", csr, rc);
-+		return rc;
- 	}
- 
--	return csr_read_num(csr);
-+	return val;
- }
- 
- u64 riscv_pmu_ctr_get_width_mask(struct perf_event *event)
++builtin_platform_driver(qilai_pcie_driver);
++
++MODULE_AUTHOR("Randolph Lin <randolph@andestech.com>");
++MODULE_DESCRIPTION("Andes Qilai PCIe driver");
++MODULE_LICENSE("GPL");
 -- 
-2.43.0
+2.34.1
 
 
 _______________________________________________
