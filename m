@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD6BCCD187
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 09:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B73CCD187
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 09:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BgWK7CNHID9ODwak+mEDDuI07M7LtkEbc/MEfIzqVCM=; b=GxXoepc2zEnoie2XnYZWPvaT+4
-	kqd2bA+MG7v62bYGKUmbLLf75PN0yViwE88sY5ar6PJGBkZyOxQGwKaNbPn4WNdKm7nXSilCXlTnL
-	ld3u8rvvn5Opg/X36B+hlsMQO9ezO5eLEYGt/3YX0tQj7R0+8KN7mh5UGN0D549A1/YJ9qEtmNu+W
-	5MkGUtQR4tNYz+u02+K/X/XiPaSS19P01H6fQMb1/Tpyd5DLESxIEFC0kgG0D1RZ3Cuni7ze06uaG
-	bwGMpKL5dl0dAm1VV1uNfBhn9wOjyw0MRjrts3zw2BYHaLpKKl+7SFl/tiJjnz9YtarjWvbRfJEXJ
-	9rvB8Aww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0cf5iHsL+f0vvSAIDoWgm9i5i5D86iFBxUAN2bRfb3I=; b=n9f/K7N7fxI5uv
+	dMWLwIul1pWvnkFhwRdYqTgIWpZULEab530mV2GopeHTTf+jWFBTa/EXuIaYSa1tGUrfOK6CS0LJ7
+	1ELkTxisQiCGAb/bpXrQblonWemnpd1bOKwKBE4YyYNtmzZBTbtQxevvKzcU+aBT/kIOhFyH4rk5d
+	YS6b66FDAsuu/JnPOSYqj2hOwQg6cN36R/GZl31av9DclS/8gik+izisibvfyhn5r2FueKZi9qPKb
+	6bUlJlJCi6O7VQPgEnjc5oCHCDzJsc8nYWbb531NKc5hwvcAHi8ns/Mr/2FTQrMUihdE0uBXsJRwQ
+	BaCJIVPG3JYeydWSH3fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8b7J-0000000FiiS-21oZ;
-	Tue, 14 Oct 2025 09:14:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v8b7T-0000000FimY-3H9D;
+	Tue, 14 Oct 2025 09:14:59 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8b7H-0000000Fii5-0iFd
+	id 1v8b7P-0000000Fiip-3G0M
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 09:14:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD13D45086;
-	Tue, 14 Oct 2025 09:14:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FD61C4CEE7;
-	Tue, 14 Oct 2025 09:14:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760433286;
-	bh=IBkCqz1KQ1uX83QuJ3HllJmulH8qpC3R2cWzYAaQB/g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mKZxf22Qjtehf9Ju4hs4d1ZMls1QVC7xp1pg19tXZDUQGb2nMv21rX7z/REtSlZnn
-	 wdhZGctfOsCWA9ciC70TZNp9kr+a2rqxnEMKifOapN7x5EA3zolq/NQnJkZAJppQRs
-	 vN+2MI68O+Z6k7v8gSxVxBKjmzOynSflXzuDdH+Tp/pMAWfSXRKg9ML0HHI9XoLDo0
-	 gLZ+wE46cDHUuqsOuymef9yyVINznxtQIgzfjCc7kwee4kkI9zQ7A4k7a9BqOfRAKZ
-	 1KUsGf4Pkc3K2Bf7aET6QtHfXzDY8krzRLjehgxV2AakTlYjkVjMWbmoVDXqpa6YtG
-	 I1P5+AKe9VnHg==
-Date: Tue, 14 Oct 2025 10:14:41 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v2 17/18] riscv: dts: starfive: jh7100: Use physical
- memory ranges for DMA
-Message-ID: <20251014-unsocial-composer-880ea10cc1d1@spud>
-References: <20251009015839.3460231-1-samuel.holland@sifive.com>
- <20251009015839.3460231-18-samuel.holland@sifive.com>
+	Tue, 14 Oct 2025 09:14:58 +0000
+Received: from [192.168.0.100] (unknown [114.241.81.247])
+	by APP-01 (Coremail) with SMTP id qwCowACX76FpFO5oM4pjDg--.33359S2;
+	Tue, 14 Oct 2025 17:14:17 +0800 (CST)
+Message-ID: <6b7c3c90-d3bd-4d75-9cc0-74d3945fbdfd@iscas.ac.cn>
+Date: Tue, 14 Oct 2025 17:14:17 +0800
 MIME-Version: 1.0
-In-Reply-To: <20251009015839.3460231-18-samuel.holland@sifive.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] irqchip/plic: add support for UltraRISC DP1000
+ PLIC
+To: Conor Dooley <conor@kernel.org>, Lucas Zampieri <lzampier@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Charles Mirabile <cmirabil@redhat.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Vivian Wang <dramforever@live.com>,
+ linux-riscv@lists.infradead.org, Zhang Xincheng <zhangxincheng@ultrarisc.com>
+References: <20251013111539.2206477-1-lzampier@redhat.com>
+ <20251013111539.2206477-4-lzampier@redhat.com>
+ <20251013-trimness-stainless-48343053f204@spud>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20251013-trimness-stainless-48343053f204@spud>
+X-CM-TRANSID: qwCowACX76FpFO5oM4pjDg--.33359S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ur4UGrWDur4xtw4xtw4xJFb_yoW8AFWxpF
+	WDKa4vyF4kKFyIvw4Igay0yFyfCr4xtayYkr95Ww40k345ZF1xXrWxKa45ZF9I9r1kX3W2
+	kr4Fk3srua47ZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4
+	vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
+	xwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
+	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x07j0fOwUUUUU=
+X-Originating-IP: [114.241.81.247]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_021447_250544_E0A997F9 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20251014_021456_178348_963EA04B 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,180 +83,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5981549486865683847=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5981549486865683847==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kExO0No+kM/nXpTw"
-Content-Disposition: inline
-
-
---kExO0No+kM/nXpTw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Oct 08, 2025 at 06:57:53PM -0700, Samuel Holland wrote:
-> JH7100 provides a physical memory region which is a noncached alias of
-> normal cacheable DRAM. Now that Linux can apply PMAs by selecting
-> between aliases of a physical memory region, any page of DRAM can be
-> marked as noncached for use with DMA, and the preallocated DMA pool is
-> no longer needed. This allows portable kernels to boot on JH7100 boards.
->=20
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
->=20
-> Changes in v2:
->  - Move the JH7100 DT changes from jh7100-common.dtsi to jh7100.dtsi
->  - Keep RISCV_DMA_NONCOHERENT and RISCV_NONSTANDARD_CACHE_OPS selected
->=20
->  arch/riscv/Kconfig.errata                     | 19 ---------------
->  arch/riscv/Kconfig.socs                       |  2 ++
->  .../boot/dts/starfive/jh7100-common.dtsi      | 24 -------------------
->  arch/riscv/boot/dts/starfive/jh7100.dtsi      |  4 ++++
->  4 files changed, 6 insertions(+), 43 deletions(-)
->=20
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index e318119d570de..62700631a5c5d 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -53,25 +53,6 @@ config ERRATA_SIFIVE_CIP_1200
-> =20
->  	  If you don't know what to do here, say "Y".
-> =20
-> -config ERRATA_STARFIVE_JH7100
-> -	bool "StarFive JH7100 support"
-> -	depends on ARCH_STARFIVE
-> -	depends on !DMA_DIRECT_REMAP
-> -	depends on NONPORTABLE
-> -	select DMA_GLOBAL_POOL
-> -	select RISCV_DMA_NONCOHERENT
-> -	select RISCV_NONSTANDARD_CACHE_OPS
-> -	select SIFIVE_CCACHE
-> -	default n
-> -	help
-> -	  The StarFive JH7100 was a test chip for the JH7110 and has
-> -	  caches that are non-coherent with respect to peripheral DMAs.
-> -	  It was designed before the Zicbom extension so needs non-standard
-> -	  cache operations through the SiFive cache controller.
-> -
-> -	  Say "Y" if you want to support the BeagleV Starlight and/or
-> -	  StarFive VisionFive V1 boards.
-
-Hmm, removing this is going to break old devicetrees, right? Shouldn't we
-just keep this with a wording change stating that it has been replaced,
-rather than removing it right away?
-
-Cheers,
-Conor.
-
-> -
->  config ERRATA_THEAD
->  	bool "T-HEAD errata"
->  	depends on RISCV_ALTERNATIVE
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 848e7149e4435..a8950206fb750 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -50,6 +50,8 @@ config SOC_STARFIVE
->  	bool "StarFive SoCs"
->  	select PINCTRL
->  	select RESET_CONTROLLER
-> +	select RISCV_DMA_NONCOHERENT
-> +	select RISCV_NONSTANDARD_CACHE_OPS
->  	select ARM_AMBA
->  	help
->  	  This enables support for StarFive SoC platform hardware.
-> diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv=
-/boot/dts/starfive/jh7100-common.dtsi
-> index ae1a6aeb0aeaa..47d0cf55bfc02 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> @@ -42,30 +42,6 @@ led-ack {
->  		};
->  	};
-> =20
-> -	reserved-memory {
-> -		#address-cells =3D <2>;
-> -		#size-cells =3D <2>;
-> -		ranges;
-> -
-> -		dma-reserved@fa000000 {
-> -			reg =3D <0x0 0xfa000000 0x0 0x1000000>;
-> -			no-map;
-> -		};
-> -
-> -		linux,dma@107a000000 {
-> -			compatible =3D "shared-dma-pool";
-> -			reg =3D <0x10 0x7a000000 0x0 0x1000000>;
-> -			no-map;
-> -			linux,dma-default;
-> -		};
-> -	};
-> -
-> -	soc {
-> -		dma-ranges =3D <0x00 0x80000000 0x00 0x80000000 0x00 0x7a000000>,
-> -			     <0x00 0xfa000000 0x10 0x7a000000 0x00 0x01000000>,
-> -			     <0x00 0xfb000000 0x00 0xfb000000 0x07 0x85000000>;
-> -	};
-> -
->  	wifi_pwrseq: wifi-pwrseq {
->  		compatible =3D "mmc-pwrseq-simple";
->  		reset-gpios =3D <&gpio 37 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/d=
-ts/starfive/jh7100.dtsi
-> index 7de0732b8eabe..34ff65d65ac7e 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> @@ -7,11 +7,15 @@
->  /dts-v1/;
->  #include <dt-bindings/clock/starfive-jh7100.h>
->  #include <dt-bindings/reset/starfive-jh7100.h>
-> +#include <dt-bindings/riscv/physical-memory.h>
-> =20
->  / {
->  	compatible =3D "starfive,jh7100";
->  	#address-cells =3D <2>;
->  	#size-cells =3D <2>;
-> +	riscv,physical-memory-regions =3D
-> +		<0x00 0x80000000 0x08 0x00000000 (PMA_RWXA | PMA_NONCOHERENT_MEMORY) 0=
-x0>,
-> +		<0x10 0x00000000 0x08 0x00000000 (PMA_RWX | PMA_NONCACHEABLE_MEMORY | =
-PMR_ALIAS(1)) 0x0>;
-> =20
->  	cpus: cpus {
->  		#address-cells =3D <1>;
-> --=20
-> 2.47.2
->=20
-
---kExO0No+kM/nXpTw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaO4UgQAKCRB4tDGHoIJi
-0uKUAQD80+kPIuFiDo0jFL5AOngNkEUr28ECrOoIkr5OlYN8UgEAh9hDrsZWp8fb
-oE38JjdP0xJl6Q+HfnlMtSej1XDlZws=
-=jxde
------END PGP SIGNATURE-----
-
---kExO0No+kM/nXpTw--
-
-
---===============5981549486865683847==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5981549486865683847==--
-
+SGkgQ29ub3IsCgpPbiAxMC8xNC8yNSAwMjozMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+IE9uIE1v
+biwgT2N0IDEzLCAyMDI1IGF0IDEyOjE1OjM4UE0gKzAxMDAsIEx1Y2FzIFphbXBpZXJpIHdyb3Rl
+Ogo+PiBGcm9tOiBDaGFybGVzIE1pcmFiaWxlIDxjbWlyYWJpbEByZWRoYXQuY29tPgo+Pgo+PiBB
+ZGQgYSBuZXcgY29tcGF0aWJsZSBmb3IgdGhlIHBsaWMgZm91bmQgaW4gVWx0cmFSSVNDIERQMTAw
+MCB3aXRoIGEgcXVpcmsgdG8KPj4gd29yayBhcm91bmQgYSBrbm93biBoYXJkd2FyZSBidWcgd2l0
+aCBJUlEgY2xhaW1pbmcuCj4+Cj4+IFdoZW4gY2xhaW1pbmcgYW4gaW50ZXJydXB0IG9uIHRoZSBE
+UDEwMDAgUExJQyBhbGwgb3RoZXIgaW50ZXJydXB0cyBtdXN0IGJlCj4+IGRpc2FibGVkIGJlZm9y
+ZSB0aGUgY2xhaW0gcmVnaXN0ZXIgaXMgYWNjZXNzZWQgdG8gcHJldmVudCBpbmNvcnJlY3QKPj4g
+aGFuZGxpbmcgb2YgdGhlIGludGVycnVwdC4KPj4KPj4gV2hlbiB0aGUgUExJQ19RVUlSS19DTEFJ
+TV9SRUdJU1RFUiBpcyBwcmVzZW50LCBkdXJpbmcgcGxpY19oYW5kbGVfaXJxCj4+IHRoZSBlbmFi
+bGUgc3RhdGUgb2YgYWxsIGludGVycnVwdHMgaXMgc2F2ZWQgYW5kIHRoZW4gYWxsIGludGVycnVw
+dHMKPj4gZXhjZXB0IGZvciB0aGUgZmlyc3QgcGVuZGluZyBvbmUgYXJlIGRpc2FibGVkIGJlZm9y
+ZSByZWFkaW5nIHRoZSBjbGFpbQo+PiByZWdpc3Rlci4gVGhlIGludGVycnVwdHMgYXJlIHRoZW4g
+cmVzdG9yZWQgYmVmb3JlIGZ1cnRoZXIgcHJvY2Vzc2luZyBvZgo+PiB0aGUgY2xhaW1lZCBpbnRl
+cnJ1cHQgY29udGludWVzLgo+Pgo+PiBUaGUgZHJpdmVyIG1hdGNoZXMgb24gInVsdHJhcmlzYyxj
+cDEwMC1wbGljIiB0byBhcHBseSB0aGUgcXVpcmsgdG8gYWxsCj4+IFNvQ3MgdXNpbmcgVVItQ1Ax
+MDAgY29yZXMsIHJlZ2FyZGxlc3Mgb2YgdGhlIHNwZWNpZmljIFNvQyBpbXBsZW1lbnRhdGlvbi4K
+PiBXaHkgaXMgdGhhdD8gSSBleHBlY3QgdGhhdCB5b3UncmUgZG9pbmcgdGhhdCBpbnRlbnRpb25h
+bGx5IGdpdmVuIHRoZQo+IHVsdHJhcmlzYyBlbXBsb3llZSBsaXN0ZWQgYXMgYSBjby1kZXZlbG9w
+ZXIsIGJ1dCB3aXRoIG9ubHkgb25lIFNvQyB1c2luZwo+IHRoaXMgSVAgY29yZSBpdCBzZWVtcyBw
+b3NzaWJsZSB0aGF0IHRoaXMgYnVnIGluIHRoZSBoYXJkd2FyZSBjb3VsZCBiZQo+IGZpeGVkIGZv
+ciBvdGhlciBTb0NzIHRoYXQgYXJlIGJ1aWx0IHVzaW5nIHRoaXMgSVAgY29yZS4KPiBJcyB0aGVy
+ZSBhIHBsYW4gdG8sIGZvciBleGFtcGxlLCBjaGFuZ2UgdGhlIGNvcmUgdmVyc2lvbiB0byBVUi1D
+UDEwMQo+IHdoZW4gdGhlIGJ1ZyBpcyBmaXhlZD8KCkkgb3JpZ2luYWxseSBwcm9wb3NlZCB0byBt
+YXRjaCBvbiB1bHRyYXJpc2MsY3AxMDAtcGxpYyB1bmRlciB0aGUKYXNzdW1wdGlvbiB0aGF0IGl0
+IHdvdWxkIGJlIHRoZSBjYXNlLgoKRnVydGhlcm1vcmUsIGl0IGlzIG15IHVuZGVyc3RhbmRpbmcg
+dGhhdCBpZiB0aGUgYnVnIGlzIGZpeGVkIGluLCBzYXksClVSLURQMTAwMSwgdGhlbiB0aGUgUExJ
+QyBub2RlIGNhbiBzaW1wbHkgYmUKCsKgIMKgIGNvbXBhdGlibGUgPSAidWx0cmFyaXNjLGRwMTAw
+MS1wbGljIiwgInNpZml2ZSxwbGljLTEuMC4wIjsKCkkgbWVhbnQgbXkgcmVwbHkgdGhhdCBJIGhh
+ZCBhc3N1bWVkIHRoaXMgYnVnIHdhcyBhc3NvY2lhdGVkIHdpdGggdGhlClVSLUNQMTAwIGNvcmUs
+IGJ1dCBJIHNob3VsZCBoYXZlIHN0YXRlZCBzbyBtb3JlIGNsZWFybHkuwqAKClZpdmlhbiAiZHJh
+bWZvcmV2ZXIiIFdhbmcKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
