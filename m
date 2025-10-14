@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7578CCD18D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA38CCCD190
 	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 03:12:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U7bM9teD6qj3A8UExXc4S5kTyF3OosmoNbwObp4qfO0=; b=bGJg267U4laV9C
-	UqSC/ghhUFQQNvdgHSPlnhW2SoWQikqXFZ8hqp0+lqas6K9HVc+8FCyL2PbqY1o8xrAmJ2T3BqygQ
-	NfVP4qa5B+u2I7UQXW1Ia/ibgfk1gRd/+m+kmz+VNqjDuB19irZQnQSnnQj44TdnaIIbLnccP1WKg
-	m69aSzPW9EWlHIMeMPe4djtJvWSJvbH+7kM9pf5RXS/TgNKnI4zSPygcJeYhnzTlmNEHfQWba1sfs
-	Bh5Sk7pne1wIiQmfvN5K/9nSrI06ZNOj+UyqoBkJXKNUrlPqE9gvzPUxuF3srXbBRHkMyn1G32BVN
-	0AY37fxS1rXcY/RSHraw==;
+	List-Owner; bh=8SmlAUsCjjtARU0UWL3CyV4zwOz3iGqmq72i2zyxNLI=; b=pjIyncc/nGaG2I
+	kP5wljZ94ID/3pV8IyyhrXg5cTuSbaij2nMB//IkhaXUaIAt5LFsuCZm9XvVVDxY+XP5QPAUiE/Bc
+	9DtpJFKK8op6U0rS0ndmU+eVyQiS+HFCgI6jGgKyfYVpLLAyn0+kZ25k3BJUIu1bQfX1gEtX7TAkC
+	Xw+yF7KOjn6gXCJnDu3uMFir3TKRw/KmPuhKUkRHmrDqsw02E+B63BIARc9+JM5uwI3wRYuGFkqcx
+	szugnl5xLl5iwYzNKlJWaEawAw5+A5Dia72edy+avQ99jp2iQd0Ciel9sXOowYyC2IjUROCJuEZ9C
+	ehOFSozRYkMoWcWBNiVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VSb-0000000F1GP-0PHG;
+	id 1v8VSb-0000000F1H8-1kzG;
 	Tue, 14 Oct 2025 03:12:25 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VSZ-0000000F1Eb-0ejy
+	id 1v8VSZ-0000000F1Er-1ULQ
 	for linux-riscv@lists.infradead.org;
 	Tue, 14 Oct 2025 03:12:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D59FF45C1F;
+	by sea.source.kernel.org (Postfix) with ESMTP id DFD1A48749;
+	Tue, 14 Oct 2025 03:12:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0FE1C4CEE7;
 	Tue, 14 Oct 2025 03:12:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9398C19422;
-	Tue, 14 Oct 2025 03:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760411541;
-	bh=Wl8ZTHg5stOwe+WQ7WFdplzC0h58N4FuSj3zEehF9Xg=;
+	s=k20201202; t=1760411542;
+	bh=j9X472dW2iFwpfv+A20bQZEA0DzSW/GeyjVodG/znv4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qkbHR7kTwiXYWvQ/fqj9y5/T2xFH11ApqwV3le2acP+rBlVlsz6yhj3XtmZ2BqTVY
-	 inL5VcNcNrveffFMR0sYm32gZgr+MW9TtSilPvPoS++y5WlRM0caIxQD0y0ndeAVtL
-	 muBruj/y6CEVxVgAXwu4ZHGommIVioG0YkJTmlKjO+C9gV910eoZ4vv8tY2FGSD+KA
-	 L2Pe/RtUuJOURIWlaE5vXfPDIlU4pcelXSprDdhNvd+7CyZyQJw/er8QRzTd7NvjMQ
-	 PPHO5dp1f5HJHbtQawmcz7CpNAirurNb5hspUPmYXkEzHMmiiG2e2s/IAG5g5NnJEh
-	 zD0skIu+s1RIQ==
+	b=FBSMJhPF4vCsfUMw2aLk4D33i8Emf8p2R3njahEelGM9lmjKgWXjWqcZ0qZxL6wMH
+	 DjFHwDiSqYS6EyxyaL8HTQnJTyT4j3S6B35LLXOrP9qsgvEyIUBdEp6kH0Nerae392
+	 mCdU2KV4yGYz5N4KPriQfKMpyp+ga3Ung+QKLiGQc5Q63v8inO5LbjjUH9M/AB0nR+
+	 FlP1yPVXcFauS6SfcgJDoGJsicAPdtqKlT0xMJQ8Rbben/ZrQbZegUiNN9wag4Yb2g
+	 i9ZG3jWac2X+2kWbjHPp0OpOiML3O88PPsuQn1jKNarr6tpwCyl01nz/mId80Olrdq
+	 t/shfZbMLcZZQ==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 13 Oct 2025 20:11:55 -0700
-Subject: [PATCH v3 3/8] dt-bindings: riscv: cpus: Add SiFive X280
+Date: Mon, 13 Oct 2025 20:11:56 -0700
+Subject: [PATCH v3 4/8] dt-bindings: timers: Add Tenstorrent Blackhole
  compatible
 MIME-Version: 1.0
-Message-Id: <20251013-tt-bh-dts-v3-3-9f058d4bbbda@oss.tenstorrent.com>
+Message-Id: <20251013-tt-bh-dts-v3-4-9f058d4bbbda@oss.tenstorrent.com>
 References: <20251013-tt-bh-dts-v3-0-9f058d4bbbda@oss.tenstorrent.com>
 In-Reply-To: <20251013-tt-bh-dts-v3-0-9f058d4bbbda@oss.tenstorrent.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -69,8 +69,8 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_201223_219821_07D19839 
-X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-CacheID: sfid-20251013_201223_439603_100092A6 
+X-CRM114-Status: UNSURE (   7.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,27 +90,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Drew Fustini <dfustini@oss.tenstorrent.com>
 
-Document compatible for the SiFive X280 RISC-V core.
+Document clint compatible for the Tenstorrent Blackhole SoC.
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: Joel Stanley <jms@oss.tenstorrent.com>
 Signed-off-by: Drew Fustini <dfustini@oss.tenstorrent.com>
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 153d0dac57fb39d39219e138792f4cb831cb88dc..afb8533f6a081bd9b91e13e30185f99ec2d5dc3b 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -70,6 +70,7 @@ properties:
-           - enum:
-               - sifive,e51
-               - sifive,u54-mc
-+              - sifive,x280
-           - const: sifive,rocket0
-           - const: riscv
-       - const: riscv    # Simulator only
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index d85a1a088b35dabc0aa202475b926302705c4cf1..0d3b8dc362ba7e8d0ca6d0cea692ceddc5e1f89e 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -36,6 +36,7 @@ properties:
+               - starfive,jh7100-clint   # StarFive JH7100
+               - starfive,jh7110-clint   # StarFive JH7110
+               - starfive,jh8100-clint   # StarFive JH8100
++              - tenstorrent,blackhole-clint # Tenstorrent Blackhole
+           - const: sifive,clint0        # SiFive CLINT v0 IP block
+       - items:
+           - {}
 
 -- 
 2.34.1
