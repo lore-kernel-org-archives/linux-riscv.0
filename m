@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BAFCCD185
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 01:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3850CCD183
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 01:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tFuqcJ7Nf6mjTJCpgZqPBAtGMZ+7Km5VhkSJdWjs6CA=; b=oe4OPwjprLeLYO
-	e7xX0Z2H4ETyw7WPjPHphOKn6PcmBP6DZcPSJY5FW0fDf+CdDwL6rtGOx7ehjvZuBPGG5FoPlTX6O
-	pnJySWhCg50QiX7cSPMnpJX1X6DaYjZbVWYpGAaTJFCj6f3MG1gl3KLLAkKGLGPTwzGspzWiKHfM1
-	yAwYwu0GWLEHW7BDpX8ec2/Z5n37sdu0ps+UyXU10jnNjB8JUviuoY0IOIkfHdlghoe+fHGw62fXP
-	BilGJLepLWZzky3Vwsmv2x7orHLKPj18cYYKjbL9NpOb5vaRE8EaxPS5LGlL9ttzO8MvmqQtNrK2w
-	kh1rIxrkIIQRwo5xPM6g==;
+	List-Owner; bh=+cJg6yKufG4blWZC+3eEVxwMhktAOJqVXUDVYocWKXw=; b=EmcM+uRlMell2i
+	5rloHFduKC6Bqs7a80xa6u2q2IK1FAGquUrre1iuOrsxgyw2hEs6E15K3D1/kXCiaALPwK2PhBd1/
+	Nj//Y1JaVWnMG/BpJE8yWEXrKSwPVub9r0c7fDBxuIJfXXKxsbznFSuqI+PyGaN01N9QVKdTTcs70
+	6BiVKGlFbBVKZslKN7Rjv+VeDQmI1D9whF0OfXW0cFhnXd9te7lD7DhDXQayUbylbyPOjp+G9zQjn
+	UsMCKz9ja4chD6D/e8Q/nlWSZHEKGmDdUV2lA03rAVl9HkZdiD5kNPoH3DA8HZErMADJaCEoGunza
+	kEH5AhItgPKUpMgo4FNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8TaV-0000000Eryo-2Nhu;
-	Tue, 14 Oct 2025 01:12:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8Te9-0000000Esti-0jvk;
+	Tue, 14 Oct 2025 01:16:13 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8TaS-0000000Erxd-05iO;
-	Tue, 14 Oct 2025 01:12:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9AC645082;
-	Tue, 14 Oct 2025 01:12:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1278C4CEE7;
-	Tue, 14 Oct 2025 01:12:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760404342;
-	bh=v1eh061b6dkek5M9HJLBkji6LBvb2K8CkWCnfAVgFRU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=MvlkGI6Z2YTW1djrM0AQMX/ZnMuujXo3RFRqY6qbgf1EEsX2N1t830Khh849kvBzF
-	 5XsljbgJAS2NHJbFyF1cKlJhfnN1ZVZ/PAYxTTvdWTn0L1g/K0piBjFw/AzquP2mKp
-	 mHVJFtptmyIYe/JM+FEQvob7UIwecA+O9CFExGSCat4HrcwSbSokflIx2IqqWpXDni
-	 BGaDKMl0aXHjOHSUCQd1MSZTigEu3VtW5WFHx0pZQ+L4K+CunYhkS9tT99qBwuwm2J
-	 tEvNvig7VqXOi2COajpKaRKMotsvjloIm+Cnyb6meKSzOnr3W9jumwEB6nQ0uQwtHi
-	 U30g6rEx8OFoQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70DC6380A962;
-	Tue, 14 Oct 2025 01:12:09 +0000 (UTC)
+	id 1v8Te3-0000000Eskw-0Ank
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Oct 2025 01:16:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1760404508;
+	bh=yPaqLTFJBou/8d1hMyxh74PBxgkDsYMEzO+87OROHB0=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=gIQahV4nYcfZPXN831GaW2evLz/LB7hnbHbG35YusVe/IIjQKN+6jldM+xEJ9HjNU
+	 WrJ3WUxFP99enmzNu6uVKrHoI2o5m/dn6mw5Z3Jy0M+azu1kmtIjNbhBU85+cJojJo
+	 mqAkyobyz/G5tJLewoGfZtyvMVzl+1SkNl5UtoGI=
+X-QQ-mid: esmtpgz13t1760404499t2e911499
+X-QQ-Originating-IP: o0PzaMQ5hTsLiEQfnYn0/i0z9Av6u2RRMSRj69aXyEU=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 14 Oct 2025 09:14:57 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1259685802699772283
+EX-QQ-RecipientCnt: 16
+Date: Tue, 14 Oct 2025 09:14:57 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Mark Brown <broonie@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Jinmei Wei <weijinmei@linux.spacemit.com>
+Subject: Re: [PATCH v4 2/2] ASoC: spacemit: add i2s support for K1 SoC
+Message-ID: <775044E19528DA5A+aO2kEerOWeY8ad0h@kernel.org>
+References: <20250921-k1-i2s-v4-0-4f819f50e468@linux.spacemit.com>
+ <20250921-k1-i2s-v4-2-4f819f50e468@linux.spacemit.com>
+ <d1d965c4-f0f4-4b09-b5c3-5925d5f7ce1b@sirena.org.uk>
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/5] kcfi: Prepare for GCC support
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176040432799.3390136.12370033021047300981.git-patchwork-notify@kernel.org>
-Date: Tue, 14 Oct 2025 01:12:07 +0000
-References: <20250825141316.work.967-kees@kernel.org>
-In-Reply-To: <20250825141316.work.967-kees@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: linux-riscv@lists.infradead.org, peterz@infradead.org,
- samitolvanen@google.com, dwmw2@infradead.org, linus.walleij@linaro.org,
- mark.rutland@arm.com, puranjay@kernel.org, corbet@lwn.net, nathan@kernel.org,
- x86@kernel.org, linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev,
- linux-hardening@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <d1d965c4-f0f4-4b09-b5c3-5925d5f7ce1b@sirena.org.uk>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: OFWsfmE1GYcucjtZg+KEjRlCsj0y/80SVScxcqo55Hl6k5plK2uYiE0e
+	UmmSczndIIISYCroAAZfA1qLkfBtwrgwxq9OJv5L7tXsZRdPi6XKVQcVD9EghKXXfUTVYkO
+	WybVF9Hv1dX+kGiJex2PyHnyew6kKxHh5IKGUuse8CvbwOkjJWe8H3Eazezl9tZvTn6urp+
+	0V3TiCPDh6iX76ZcI2mtgY1+f1VHdJ2hPsurji0OUB2/XeHVIlx+pF9huFPmSwO2ybR3KnV
+	8nhf03Qa6SZvf/GLZYRo96hXRfvYBFWB6u0hIYNJlX9Gcw2qNmgNY491iEjHJV5MeKJ/qsl
+	v/UwM6AXjHHEU0PFWLYaQPpFA/luOoUoZ7ij4cmQCFfSdpKNMqkwIPqJOvnAogPK68tUOTd
+	thtmZlqpurHYUrfP6VqOhYdKR7TH3akptlludkELnKi56Xljl59ixwnw3Vbso3iux5l0z/A
+	G7Tsa/O/GjQtPwa0d4lAK+SDEhrWEKsNWzyjtT3wx5whuL+UGejBfwEN/0tImC1RDovHBJk
+	kLydjegjIXVU42sH+gf7VNiLaQg82KAr50JdokvTE4c4Jm1uG5kKqJAbQYybjzkSq8E75aH
+	ToZAuaGP9onKFZ89UVkmCQu3UXi+ojDa0Aq1py7Xcm7urC3RapGsNnkL/ko4kxfs+8MoVhG
+	Ec19cuPeHskjfMwrd/s68TyBZe8+RupJe+nqM11bX36qVKtzxThgEkZtRitlAS5pxdEQK2D
+	DqZkVdvFjWxBgYGc2UJRCnMchydHHPo32/62kOq+knDZF9bWofFZ5kGYwPYYXSy09S96+jj
+	sWnszEejE8l7TI9Z+G+HRQf3MKOKnVCxvE7PKjqAK52/FzRIQAPxms7aevGWT7LzxJCcoSC
+	/StrcXgL3elcPh3dlbysTxCYkPSCNer7zxQT+k/TgYjXIddabgHs7N4vnUJcIgz5zEAG2qP
+	s8dWyRbAJvvaVhXEVPaO3UzoW54sIqyx3uSD2aLnBIYSmMKnNpIDYEfiy7Iu+8oRkv0926w
+	gsBrX5ctnGNRPAlpQz4KIYYKgANhBPxNiwqAohFdVqjGKfmJMuEcjRiFmfrclspdKC0vbTs
+	w==
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_181224_076109_AEDFE35F 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20251013_181608_240988_03E0BBAA 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,49 +99,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (for-next)
-by Peter Zijlstra <peterz@infradead.org>:
-
-On Mon, 25 Aug 2025 07:25:47 -0700 you wrote:
-> Hi,
-> 
-> With KCFI support in GCC coming[1], we need to make some (relatively
-> small) changes in the kernel to deal with it:
-> 
-> - move __nocfi out of compilers-clang.h (so GCC can see it too)
-> - add cfi=debug so future Kees can find breakage easier
-> - remove problematic __noinitretpoline usage
-> - rename CONFIG_CFI_CLANG to CONFIG_CFI (otherwise is it quite confusing)
-> 
-> [...]
-
-Here is the summary with links:
-  - [1/5] compiler_types.h: Move __nocfi out of compiler-specific header
-    https://git.kernel.org/riscv/c/038c7dc66e27
-  - [2/5] x86/traps: Clarify KCFI instruction layout
-    https://git.kernel.org/riscv/c/628a15e0536a
-  - [3/5] x86/cfi: Add option for cfi=debug bootparam
-    (no matching commit)
-  - [4/5] x86/cfi: Remove __noinitretpoline and __noretpoline
-    https://git.kernel.org/riscv/c/0b815825b1b0
-  - [5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
-    (no matching commit)
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBPY3QgMTMsIDIwMjUgYXQgMDE6MDU6NThQTSArMDEwMCwgTWFyayBCcm93biB3cm90
+ZToKPiBPbiBTdW4sIFNlcCAyMSwgMjAyNSBhdCAwNDo1MjoxN1BNICswODAwLCBUcm95IE1pdGNo
+ZWxsIHdyb3RlOgo+IAo+ID4gKwljYXNlIFNORF9TT0NfREFJRk1UX0RTUF9BOgo+ID4gKwljYXNl
+IFNORF9TT0NfREFJRk1UX0RTUF9COgo+ID4gKwkJc25kX3BjbV9od19jb25zdHJhaW50X21pbm1h
+eChzdWJzdHJlYW0tPnJ1bnRpbWUsCj4gPiArCQkJCQkgICAgIFNORFJWX1BDTV9IV19QQVJBTV9D
+SEFOTkVMUywKPiA+ICsJCQkJCSAgICAgMSwgMSk7Cj4gPiArCQlzbmRfcGNtX2h3X2NvbnN0cmFp
+bnRfbWFzazY0KHN1YnN0cmVhbS0+cnVudGltZSwKPiA+ICsJCQkJCSAgICAgU05EUlZfUENNX0hX
+X1BBUkFNX0ZPUk1BVCwKPiA+ICsJCQkJCSAgICAgU05EUlZfUENNX0ZNVEJJVF9TMzJfTEUpOwo+
+ID4gKwkJYnJlYWs7Cj4gCj4gVGhlIGhhbmRsaW5nIGZvciBvbmUgb2YgdGhlc2UgaXMgYnVnZ3ks
+IERTUCBBIGFuZCBCIGFyZSBkaXN0aW5jdCBtb2Rlcwo+IGJ1dCB0aHJvdWdob3V0IHRoZSBkcml2
+ZXIgdGhleSdyZSBoYW5kbGVkIGlkZW50aWNhbGx5IEFGQUlDVC4KVGhhbmtzISBJbmRlZWQsIHRo
+aXMgYnVnIHdhcyBpbnRyb2R1Y2VkIGluIHRoaXMgdmVyc2lvbi4KSeKAmWxsIGZpeCBpdCBhbmQg
+c2VuZCB2NSBBU0FQLgoKICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0gVHJveQoKCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
