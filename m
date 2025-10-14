@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0608DCCD187
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 11:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D81DBCCD187
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 11:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=892VGjfxPgZUls+l7yxXUUPlg/nQJac1RTR3DcH1XE0=; b=qoLA5lb1g6BVyx
-	ZrwKGchLKF+fGz0Fa/Wti0mIampW+V5KpBjgM05mszRfOmFx4JDBCWTzH8/IXFeoznTp9ndf4rffD
-	e3pAXvLCbeIDo3T0hgXvGs04lWV59Vo8dq5Re7LI4BbB6w7TjsZxle/2eI92kDG8LK+q9/5M4RHxW
-	0wzqkipUppcKQrWa8d7jXHqsxeQjfKGnCAFSbICoTxQqDibUj4E1Ot1WzSFf4E0/D624sk16vQ02Z
-	QyL+KgzS3xn9lc+zKl76Qvx0FNFXBDrEAH4x00kO0BWGFnYV4qssLmqMWXQUQK4cEo1BtGZkXDnVL
-	cjMctWD5oaeEMJNT+8tQ==;
+	List-Owner; bh=pVvtT2oLGuxW1Bgc++7vVGJS4MzLMsyOGs/Pd5KXYgY=; b=wBA3nQqsLBCZxm
+	vSpOsPq835p8sg6OY7onMjXYSyEjphqqX8VfoDDMYnlWSsxNr8vF7y6qzEa6iv7+/akQUl7gMUZQz
+	qGCXrXuNCLi7dFpgrEN584L2+fMFnZiJ5y38U8n6l84D8YKI9PL8b6xjm5T3Yercm6f6xXrP/56K6
+	LGPFaFznJhS299fJtL+DtvgiQRFy5rDkl1vWcSOcC+AedbOZiW4MsifwrfpDEPPGbIIGVM4js80Bm
+	tNVU83Se/J5Z6JWB05dg/ReLg+jR0oYrHdQc5h/w8loF5GDM4HR7K74Z6SmT37SBRw47HyaYW5mcc
+	5fraosyaOVMOKnsJr/Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8co2-0000000G0GO-38eR;
-	Tue, 14 Oct 2025 11:03:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v8d4i-0000000G4OL-2cQ7;
+	Tue, 14 Oct 2025 11:20:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8cnz-0000000G0Dn-1Uyi
+	id 1v8d4f-0000000G4N2-0Bb4
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 11:03:01 +0000
+	Tue, 14 Oct 2025 11:20:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760439777;
+	s=mimecast20190719; t=1760440811;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=s2r/L8/q4C9e2I164NDxUGdYhK/0nvlG6dMGzaNBqVg=;
-	b=e83mDdrqUjDTuwZOBUhrBr3TEQ/TkIV8qTEniGUfnpBREMz0qkkI/uMbWOP4Dgm+hIdaNX
-	3moPEZQkkSVDIOsXJulDC95g9GeF0uOMCE/NtlX2T1xrFCJhz6UsRK8B9MFTOQy6Nw9qvD
-	X4lXGxiqvUIynZmtSwM0Hy9XFEWA4EI=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=Imuve1iPcSxB4uVU/yFQsIzQ6zKzpq/61jJo3KbkM2Y=;
+	b=JLtaCswHk/AW7ow1AFK8jpTTCTDmRdtWf4uRPQp+yJ+Cxgn9K2tK3EJ3EGx3Yxyuv5VOvW
+	8MeIBKkAvdUbrmjYWsS33vur/yPGKfntdccd+N0/n4Jaz5s7kZS2eR6PLLvt3t0j3RlMxC
+	JICyHnc66knRbsr4oO8lRpKs7rDX7So=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-22-7G9Y65g5M_qQ3ue6nw0fsA-1; Tue, 14 Oct 2025 07:02:56 -0400
-X-MC-Unique: 7G9Y65g5M_qQ3ue6nw0fsA-1
-X-Mimecast-MFC-AGG-ID: 7G9Y65g5M_qQ3ue6nw0fsA_1760439775
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-46e2c11b94cso38997155e9.3
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Oct 2025 04:02:55 -0700 (PDT)
+ us-mta-135-Fo7bA9XbNW6yyZuLYma5vw-1; Tue, 14 Oct 2025 07:20:09 -0400
+X-MC-Unique: Fo7bA9XbNW6yyZuLYma5vw-1
+X-Mimecast-MFC-AGG-ID: Fo7bA9XbNW6yyZuLYma5vw_1760440808
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-46e2c11b94cso39118625e9.3
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Oct 2025 04:20:09 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760439774; x=1761044574;
+        d=1e100.net; s=20230601; t=1760440808; x=1761045608;
         h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=s2r/L8/q4C9e2I164NDxUGdYhK/0nvlG6dMGzaNBqVg=;
-        b=tRBBtSKD1XsYrt5+vL9YdQwEJVtGCkpQ9q59KoTx7fJuKrL7fvZj9qCIk1VHYRIwwo
-         dZUBfQ8WVFi7pX69cldikGEyL8EaTuqRLk5jW1OkqJoS2Nat4sudEJJ9RRv/nVktdahF
-         GHcgdfzses3TP5APMiPm0wUqe/27UuPoteShmIw88F2AQ3y45SH5nvQBU0sdcD5LXKaf
-         bxae/cedoCCZ2WoyAPRdgWdS+4/a1VeGYlCWCSn6ck/OLq3/OTJr5Ns32PgsSJPnxPpH
-         K5JVFT4ukeZiVJL/WPpfOiuEudB0TP1vvt33ajCLg6zxZti366f/K4zvPacxiRNM5rTA
-         wckQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX6OphyljCAOH5cVw1TsWsp0pBfmzZoTBkKbh0shwLN0lu54tFYqId+RHpYJtjX9LrO/wxMhmx3GDWeOA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUnT6jtJ2RSfjj9GvHqvR2LC1O11jz1UB0FNvJnosWNJv+Ki3C
-	GWijnpNRVB1HyqCqPnun7elLpvZDwMnBci1uC76MaCRx+G/0BB9Ren4yrmeeP//l0/WyI39uc5y
-	NnqiT1HqRO4zyUmvej9gNXLHmosSJhkAZCNAhBzW3GkcZs3Q3JY0126gQgNHf/UIVJK+DTQ==
-X-Gm-Gg: ASbGncv8pATJb0dSBfeR78VP2Km6yzY7DxKYjFXpNWg3o6pBNGGfY97RL7YYaF6e8tL
-	52rK23Ecq3GvXaBbyEGRBdIRxGueeu3WVbFkZRtP4uHranDJ67lXMa56esr7af2NS40jisM9idJ
-	JKmxDWG5PBMmHbo0VCFnyYMwyhbRVcQi3yrSdYia1ofL7KF4siL+YGpx4xxilVoJBfitxUkeyzw
-	LsvjEwXBzT3Nn2nQRKtSql8nFFQ/FiUrfPU0xED803WrcvwSTzccUWB8pcSw8/QPwC18QdSMo6j
-	FQK9ltYzzYJpXO53cRZWrtiBErKun8mTYsfUShs4Bv1h4OuS4C++MbCSqdojvD5xTiGGHK5LN3U
-	uDAY/tk/pcgcDfo36vQQyJyh1sg==
-X-Received: by 2002:a05:600c:4752:b0:46e:3dad:31ea with SMTP id 5b1f17b1804b1-46fa9af8fb0mr181929495e9.17.1760439774571;
-        Tue, 14 Oct 2025 04:02:54 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGCodl08uTX0ubswP5nTiGxebtIpD1Qw4JnrqS3e+W7M5qhx4w6eQs0AuIjitoXX5t0l6/vwQ==
-X-Received: by 2002:a05:600c:4752:b0:46e:3dad:31ea with SMTP id 5b1f17b1804b1-46fa9af8fb0mr181928825e9.17.1760439774097;
-        Tue, 14 Oct 2025 04:02:54 -0700 (PDT)
+        bh=Imuve1iPcSxB4uVU/yFQsIzQ6zKzpq/61jJo3KbkM2Y=;
+        b=ckLe2DpoUu1OS3cyFrmWvFiC/0uxyevsmx2V8TUZ/I6S9gh2BEI6USpZeMHzEXLXNR
+         0kO32BeAorTlCNDns0I97SixTvJHsQHVLDp43Rg/+VmXRozOlXDenbiWJaoDTfM5yDnB
+         4I0CnifSm+bAK0ThmvLd6L7gyZcd9XNNJ15rsnOVj6ba669rJ3xaWiOXzqu60UJ90HG1
+         hCsAraxKpIB0DW5VAqrOYYTkEWIHDa9dpp3cGDC+3Jw3qaJLuB1icrSZMqaSb4svkieu
+         k9fDnCJaO9VZ0O3wf/+B0JT652YzT2g+B/+zke9QEuN+bKfdcfcc5xZdKZV+JPAYDNft
+         vZLw==
+X-Forwarded-Encrypted: i=1; AJvYcCXVn422v5w0wLZDGNXBSOkf8MYhIAT0T99fN25sVTD3wH3O2tc8ARrsh23OITEaHz6sUEhQ2WVwDF9Vmg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzgth+onv4f7vUrMpPTNP0AEtBUeJ/vkODEAQEK35ttRY1Zk6/g
+	gQYj+fYLDrxzMY3YE4wWy9zLGIq5HGhA5zh3O7dCvMiTqA14mBj66Je/ulo0mwHGe8wC3Yj29hL
+	eNsEdgt7lAxyrOKsE34As28RO5HTooynE52fDCJjRU+1h/cp4MsMHwBpzayFZr241K5yuXQ==
+X-Gm-Gg: ASbGncsYLgxZVuNo6WBb2EyIij18FPTjPkug+nAdVDa+5lFi2rYk2Ij+O8/TXYI5dKB
+	cbGm05WByUc7179LSxdFx3AaXaaAbioIA746JzNiNcSmjKJYgcIYL344GImmyWBKDfAOJe8QPAK
+	rMjUE/7CZCpRIiwBPcEAn2cSB1/xRMlL81oj6NTW3IYBZfS+exRQrNReGKSR0CiM8jW5LBYQ1sb
+	LyLp/eIdD4Xi8BzVx2AYVwTbBY1vaI2DlLlAnrzkbfrSM4hoJWlntjL6nzzm9plzGd6XTt1jQG+
+	TrC4a29t+yxwy/OLvzSzj50ZeF2aEHbjI4AAj916WbL3TaLka/cy2RmhYWtXg73oXVTvRvrG7LD
+	ha38B6Ui+YQUjQKdIYQpqwFJipw==
+X-Received: by 2002:a05:600c:37c9:b0:46e:477a:f3dd with SMTP id 5b1f17b1804b1-46fa9b1b18emr175576585e9.36.1760440808233;
+        Tue, 14 Oct 2025 04:20:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGPNHhJVacE21hOu+c1s40cKBm99NOdKTbqBsl6lzaW/V++U98Y1cwp6CoRkBLGlZny7BSyXQ==
+X-Received: by 2002:a05:600c:37c9:b0:46e:477a:f3dd with SMTP id 5b1f17b1804b1-46fa9b1b18emr175576075e9.36.1760440807708;
+        Tue, 14 Oct 2025 04:20:07 -0700 (PDT)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426f2f72e18sm1737515f8f.0.2025.10.14.04.02.51
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fb492e6ddsm265506695e9.0.2025.10.14.04.20.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 04:02:52 -0700 (PDT)
+        Tue, 14 Oct 2025 04:20:07 -0700 (PDT)
 From: Valentin Schneider <vschneid@redhat.com>
 To: Sean Christopherson <seanjc@google.com>
 Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
  x86@kernel.org, linux-arm-kernel@lists.infradead.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Josh
- Poimboeuf <jpoimboe@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave
- Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo Bonzini
+ linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H.
+ Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
+ <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
  <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
  <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason
  Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard
@@ -101,21 +101,21 @@ Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
  <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
  Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
  Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 19/29] KVM: VMX: Mark vmx_l1d_should flush and
- vmx_l1d_flush_cond keys as allowed in .noinstr
-In-Reply-To: <aO2S3oZwOW_UgAci@google.com>
+Subject: Re: [PATCH v6 16/29] KVM: VMX: Mark __kvm_is_using_evmcs static key
+ as __ro_after_init
+In-Reply-To: <aO2TKOY5JV9OoRUg@google.com>
 References: <20251010153839.151763-1-vschneid@redhat.com>
- <20251010153839.151763-20-vschneid@redhat.com>
- <aO2S3oZwOW_UgAci@google.com>
-Date: Tue, 14 Oct 2025 13:02:50 +0200
-Message-ID: <xhsmhwm4xpwyt.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <20251010153839.151763-17-vschneid@redhat.com>
+ <aO2TKOY5JV9OoRUg@google.com>
+Date: Tue, 14 Oct 2025 13:20:05 +0200
+Message-ID: <xhsmhtt01pw62.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9Ew_D8MUDH-uM7y9EK5peDPWm1AkFB876qja4rQkEHM_1760439775
+X-Mimecast-MFC-PROC-ID: zf2FtXDV0W4IzEZekyBiIyW88-SqUN1IfvSsfYYVrQ0_1760440808
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_040259_457555_B29414F6 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20251014_042013_160045_FA95998D 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,48 +132,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/10/25 17:01, Sean Christopherson wrote:
+On 13/10/25 17:02, Sean Christopherson wrote:
 > On Fri, Oct 10, 2025, Valentin Schneider wrote:
->> Later commits will cause objtool to warn about static keys being used in
->> .noinstr sections in order to safely defer instruction patching IPIs
->> targeted at NOHZ_FULL CPUs.
+>> The static key is only ever enabled in
 >>
->> These keys are used in .noinstr code, and can be modified at runtime
->> (/proc/kernel/vmx* write). However it is not expected that they will be
->> flipped during latency-sensitive operations, and thus shouldn't be a source
->> of interference wrt the text patching IPI.
+>>   __init hv_init_evmcs()
 >>
->> Mark it to let objtool know not to warn about it.
+>> so mark it appropriately as __ro_after_init.
+>>
+>> Reported-by: Sean Christopherson <seanjc@google.com>
+>> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+>> ---
 >
-> Can you elaborate in the changelog on what will happen if the key is toggle?
-> IIUC, smp_text_poke_batch_finish() will force IPIs if noinstr code is being
-> patched.
-
-Right!
-
-> Even just a small footnote like this:
+> Acked-by: Sean Christopherson <seanjc@google.com>
 >
->   Note, smp_text_poke_batch_finish() never defers IPIs if noinstr code is
->   being patched, i.e. this is purely about silencing objtool warnings.
->
-> to make it clear that there's no bug/race being introduced.
+> Holler if you want me to grab this for 6.19.  I assume the plan is to try and
+> take the whole series through tip?
 
-Good point. How about:
-
-"""
-Later commits will cause objtool to warn about static keys being used in
-.noinstr sections in order to safely defer instruction patching IPIs
-targeted at NOHZ_FULL CPUs.
-
-The VMX keys are used in .noinstr code, and can be modified at runtime
-(/proc/kernel/vmx* write). However it is not expected that they will be
-flipped during latency-sensitive operations, and thus shouldn't be a source
-of interference for NOHZ_FULL CPUs wrt the text patching IPI.
-
-Note, smp_text_poke_batch_finish() never defers IPIs if noinstr code is
-being patched, i.e. this is purely to tell objtool we're okay with updates
-to that key causing IPIs and to silence the associated objtool warning.
-"""
+Thanks! At the very least getting all the __ro_after_init patches in would
+be good since they're standalone, I'll wait a bit to see how this goes :)
 
 
 _______________________________________________
