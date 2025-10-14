@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6D2CCD195
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A433CCD194
 	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 13:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,27 +12,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hJsjeCbsEE/JcNLMebh/io0Ek7s/wmVTVT8AyDktSfo=; b=flgCuPBJJM1qeY
-	dFw21vdOUby7oPVVThdECrtzi1s/EuxB3XfGcLHmd9zZZRF4pxr1dsN+Zjzw18aOCOE/j2/2YNGS+
-	QkY2IxWc0TUJ+QmY7DjXL/jrrjFYWQ8c7+z6/CmhM/EFn7wOqvwPuCU8EaP9AKteUCiLdax/GILW8
-	pBDeEOIrZvr4+3nn/CvngJiJaDEkU9Cw6YXjLb0Xv/BI7itGAeV+ExTHvcefJAVpLuYfwqVsTzazt
-	z85MuDC04j3tB+APg1lQv7J0CUfYSgiJ0xj7e2xjPofgqUhJ+OEKKV9rUz23dNUtTDrVteJKRQVr+
-	zjmATZxe1DBfLgICongQ==;
+	List-Owner; bh=uSqBufoeL4ka45hRSXxkwoJXg5W/T/2qgZPbCSOyYAg=; b=fwxkwHYbKAd/ju
+	40QySJ5V06XPoW98DeUgSD8OOHYud//WSi6xMxysr97fdWdRzsocGcBesw/5Bj7SZWi37061Y1eWf
+	gRiDFd72NnOyxFWUmcPWOsrbIAUVzIrEgrO2E3rpAOxPJlgtKAKHpJNcDgNs0iaY4l9O9UGTOKVe/
+	PLDRS1bYapPGb5u1r+OhQt7YN0Govn0q3wAnVYenJV1DvgVpVooz5B0xQPf2OtdGEGR4EeCvAWG8p
+	KONuiy9wJhaCKwd+xzIo61++g0wflNcP+GV3BF6YlRzE6GBTZDXLXFm6zpG4ZibnEDzmdT3Rhb/UJ
+	HdQu7eCKNxm5X/Gv4Umg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8f3A-0000000GTbQ-0kyM;
-	Tue, 14 Oct 2025 13:26:48 +0000
+	id 1v8f3E-0000000GTdJ-29d3;
+	Tue, 14 Oct 2025 13:26:52 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8f38-0000000GTZu-0PpF
+	id 1v8f3B-0000000GTb4-1ZYi
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 13:26:47 +0000
+	Tue, 14 Oct 2025 13:26:50 +0000
 Received: from Atcsqr.andestech.com (localhost [127.0.0.2] (may be forged))
-	by Atcsqr.andestech.com with ESMTP id 59EC8pv1062815
+	by Atcsqr.andestech.com with ESMTP id 59EC8phc062816
 	for <linux-riscv@lists.infradead.org>; Tue, 14 Oct 2025 20:08:51 +0800 (+08)
 	(envelope-from randolph@andestech.com)
 Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 59EC3wVo060867
+	by Atcsqr.andestech.com with ESMTPS id 59EC3wu5060889
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Tue, 14 Oct 2025 20:03:58 +0800 (+08)
 	(envelope-from randolph@andestech.com)
@@ -51,9 +51,9 @@ CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
         <shradha.t@samsung.com>, <pjw@kernel.org>, <randolph.sklin@gmail.com>,
         <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
-Subject: [PATCH v8 3/5] riscv: dts: andes: Add PCIe node into the QiLai SoC
-Date: Tue, 14 Oct 2025 20:03:47 +0800
-Message-ID: <20251014120349.656553-4-randolph@andestech.com>
+Subject: [PATCH v8 5/5] MAINTAINERS: Add maintainers for Andes QiLai PCIe driver
+Date: Tue, 14 Oct 2025 20:03:49 +0800
+Message-ID: <20251014120349.656553-6-randolph@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251014120349.656553-1-randolph@andestech.com>
 References: <20251014120349.656553-1-randolph@andestech.com>
@@ -61,10 +61,10 @@ MIME-Version: 1.0
 X-Originating-IP: [10.0.15.173]
 X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 59EC8pv1062815
+X-MAIL: Atcsqr.andestech.com 59EC8phc062816
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_062646_473842_DCDB9995 
-X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-CacheID: sfid-20251014_062649_811495_AB32821A 
+X-CRM114-Status: UNSURE (   7.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,129 +82,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the Andes QiLai PCIe node, which includes 3 Root Complexes.
+Here add maintainer information for Andes QiLai PCIe driver.
 
 Signed-off-by: Randolph Lin <randolph@andestech.com>
 ---
- arch/riscv/boot/dts/andes/qilai.dtsi | 106 +++++++++++++++++++++++++++
- 1 file changed, 106 insertions(+)
+ MAINTAINERS | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/andes/qilai.dtsi b/arch/riscv/boot/dts/andes/qilai.dtsi
-index de3de32f8c39..afa7b75a7e7a 100644
---- a/arch/riscv/boot/dts/andes/qilai.dtsi
-+++ b/arch/riscv/boot/dts/andes/qilai.dtsi
-@@ -182,5 +182,111 @@ uart0: serial@30300000 {
- 			reg-io-width = <4>;
- 			no-loopback-test;
- 		};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 46126ce2f968..fb1d4daafe44 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19591,6 +19591,13 @@ S:	Supported
+ F:	Documentation/devicetree/bindings/pci/altr,pcie-root-port.yaml
+ F:	drivers/pci/controller/pcie-altera.c
+ 
++PCI DRIVER FOR ANDES QILAI PCIE
++M:	Randolph Lin <randolph@andestech.com>
++L:	linux-pci@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
++F:	drivers/pci/controller/dwc/pcie-andes-qilai.c
 +
-+		bus@80000000 {
-+			compatible = "simple-bus";
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
-+			ranges = <0x00 0x80000000 0x00 0x80000000 0x00 0x20000000>,
-+				 <0x00 0x04000000 0x00 0x04000000 0x00 0x00001000>,
-+				 <0x00 0x00000000 0x20 0x00000000 0x20 0x00000000>;
-+
-+			pcie@80000000 {
-+				compatible = "andestech,qilai-pcie";
-+				device_type = "pci";
-+				reg = <0x00 0x80000000 0x00 0x20000000>, /* DBI registers */
-+				      <0x00 0x04000000 0x00 0x00001000>, /* APB registers */
-+				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
-+				reg-names = "dbi", "apb", "config";
-+
-+				linux,pci-domain = <0>;
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x00 0xf0000000>,
-+					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x1f 0x00000000>;
-+
-+				#interrupt-cells = <1>;
-+				interrupts = <0xf 0x4>;
-+				interrupt-names = "msi";
-+				interrupt-parent = <&plic>;
-+				interrupt-map-mask = <0 0 0 0>;
-+				interrupt-map = <0 0 0 1 &plic 0xf 0x4>,
-+						<0 0 0 2 &plic 0xf 0x4>,
-+						<0 0 0 3 &plic 0xf 0x4>,
-+						<0 0 0 4 &plic 0xf 0x4>;
-+			};
-+		};
-+
-+		bus@a0000000 {
-+			compatible = "simple-bus";
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
-+			ranges = <0x00 0xa0000000 0x00 0xa0000000 0x00 0x20000000>,
-+				 <0x00 0x04001000 0x00 0x04001000 0x00 0x00001000>,
-+				 <0x00 0x00000000 0x10 0x00000000 0x08 0x00000000>;
-+
-+			pcie@a0000000 {
-+				compatible = "andestech,qilai-pcie";
-+				device_type = "pci";
-+				reg = <0x00 0xa0000000 0x00 0x20000000>, /* DBI registers */
-+				      <0x00 0x04001000 0x00 0x00001000>, /* APB registers */
-+				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
-+				reg-names = "dbi", "apb", "config";
-+
-+				linux,pci-domain = <1>;
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
-+					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x7 0x00000000>;
-+
-+				#interrupt-cells = <1>;
-+				interrupts = <0xe 0x4>;
-+				interrupt-names = "msi";
-+				interrupt-parent = <&plic>;
-+				interrupt-map-mask = <0 0 0 0>;
-+				interrupt-map = <0 0 0 1 &plic 0xe 0x4>,
-+						<0 0 0 2 &plic 0xe 0x4>,
-+						<0 0 0 3 &plic 0xe 0x4>,
-+						<0 0 0 4 &plic 0xe 0x4>;
-+			};
-+		};
-+
-+		bus@c0000000 {
-+			compatible = "simple-bus";
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			dma-ranges = <0x44 0x00000000 0x04 0x00000000 0x04 0x00000000>;
-+			ranges = <0x00 0xc0000000 0x00 0xc0000000 0x00 0x20000000>,
-+				 <0x00 0x04002000 0x00 0x04002000 0x00 0x00001000>,
-+				 <0x00 0x00000000 0x18 0x00000000 0x08 0x00000000>;
-+
-+			pcie@c0000000 {
-+				compatible = "andestech,qilai-pcie";
-+				device_type = "pci";
-+				reg = <0x00 0xc0000000 0x00 0x20000000>, /* DBI registers */
-+				      <0x00 0x04002000 0x00 0x00001000>, /* APB registers */
-+				      <0x00 0x00000000 0x00 0x00010000>; /* Configuration registers */
-+				reg-names = "dbi", "apb", "config";
-+
-+				linux,pci-domain = <2>;
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
-+					 <0x43000000 0x01 0x00000000 0x01 0x00000000 0x7 0x00000000>;
-+
-+				#interrupt-cells = <1>;
-+				interrupts = <0xd 0x4>;
-+				interrupt-names = "msi";
-+				interrupt-parent = <&plic>;
-+				interrupt-map-mask = <0 0 0 0>;
-+				interrupt-map = <0 0 0 1 &plic 0xd 0x4>,
-+						<0 0 0 2 &plic 0xd 0x4>,
-+						<0 0 0 3 &plic 0xd 0x4>,
-+						<0 0 0 4 &plic 0xd 0x4>;
-+			};
-+		};
-+
- 	};
- };
+ PCI DRIVER FOR APPLIEDMICRO XGENE
+ M:	Toan Le <toan@os.amperecomputing.com>
+ L:	linux-pci@vger.kernel.org
 -- 
 2.34.1
 
