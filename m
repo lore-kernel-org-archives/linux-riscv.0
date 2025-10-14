@@ -4,104 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0890ECCD184
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 13:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E21CACCD184
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 13:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XIRGh7p7ZkpgvVcI+/bAQAyo/1QlOx/OD5FYR+oL1SM=; b=pSxOGZqXr8+O9Y
-	4ZI4aN5/wWaxnpaXCicZ40ki0VozO3YJhvbtXs3Q7kngxeCpmOZG8gNOLgfrDYsA8HQNDGzIU0itQ
-	ZXOxYTJm7V749+unz8ojpDuiRuInDl3Wxwt+uqf1h++RYzBDAYGsAtWPe37d9TaDNiTmnCPCRIVFq
-	Cip0NnLnbgJTt0TpM8GaSl9VgO26NxNzPqS/+Lev7bxvQVbXxYyMMvOWViRhTCtpTGagXukGAEfPZ
-	qE78i4wDIFui4+i8vEG0mQCtpBbxmDSVEJvjT1UIrAMCOo5DCDjEU1tpaGYXh3z+IBzSPJal5yP8m
-	DiJVZpVBpoJsg3SegmnQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XU/T5bwcTycWRcmp0cghLyvLuv0Hmx7iieVMC3frYEM=; b=JBhMMULSqtF7uf
+	LBuvJ8ZWWgVtMuZqpAzl6bxNswuJwiC6pkNofi/LMRD5I/FFsKM7bBm9/pFeXj6u+sdYzrwWeSVoZ
+	WDq+3fMxd8NeFMYNJmc1lLM3FarOpEG+Uq009PAKXoyoRRU+KsyNiHc4uEYkqNlXqsgzbZym9ux8J
+	w3HDxdX3SYiR4uXIEFNNkZ/xI320z0/8k+oFUHc3JYl1CSkHTldm5l78TlGtHHNZnQrJ+Uj47P6dy
+	9ShQrzCuto8JJQq7HIbiEfPx04ff4I/3zoPQgSFrOQNxYwMOh7rmdxidBOPthZGuM1I66h+QCQwQg
+	7ItTjEPc7r2dZCER9g7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ej7-0000000GOBh-3RtM;
-	Tue, 14 Oct 2025 13:06:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v8enr-0000000GPsY-3mLm;
+	Tue, 14 Oct 2025 13:10:59 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ej5-0000000GO89-2nAR
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 14 Oct 2025 13:06:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=P3cczBZg1hsuy3VQFI6BicmC+DtK7KqMRuLTbCsjnP4=; b=D7lWhIlvOEs25C++JLi3HeRlPQ
-	RRFJS4waIVOpi5eMBfe/y+UELVOmHnlYoSzOJvLjKX4vw4fI/DtMYee6240GPrRwZ3LzIrznaCxY2
-	4bRBhf6odWNnt+0mzlkOgKNIrTLiTa67qIsuOiwtO2/cCR5NO/vkl3Zqs/j4LJZBLPIaDQaBUBjQo
-	iR0Yo6afgSoyiC4XN4h6RESmaS2wBzqXsnCe7MNgYYM2jPneMcLviVMtc7nFb1uuv6j2VcOsLCmEn
-	KGRDrSR6qFsXdFDuGyfBPraOdBUpWyRpFpT8ZO7H7aPTYtzzFINgZyk6FVICoBYiRo4lCcfnYERj8
-	mPLAWp4Q==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ej0-00000005AZ2-20VS
+	id 1v8eno-0000000GPpx-40nJ
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 13:06:02 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760447155;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P3cczBZg1hsuy3VQFI6BicmC+DtK7KqMRuLTbCsjnP4=;
-	b=zwMEM9rRsQ90GXTSdrweLrU/7N3K+yghbYemcwg2uPHlqNF4j0cCpvgXjHX+0YTJHZKeOJ
-	AV7HOIPkmXmNzu6g0EfsZnhSDogez7ExUFpFIQjBIUmkwgedkM3DGW224OvDuv52AIiZH9
-	uKRl9o2EZd7M+RCB5zTZ1f+xyZnAR5GiJLRFHzfR4cP0emlAiibCVqzSAHClyND3Pp/2iM
-	yKs65bATUduM7f//XMj8XYH2ahgPRCn5m0VbgHU6FK+5oevGvM7717IdBgoO7SM8ZQYHJC
-	HSnF8eolELUmKlBeYbD2mXYIfape+3JtKdL1CAPjIYMe4jiWJN0qV2kseLuxsg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760447155;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P3cczBZg1hsuy3VQFI6BicmC+DtK7KqMRuLTbCsjnP4=;
-	b=W4M1n9ep7+/iLbuSo+Li8obSVodl7csZ5v1BhDxO5sXkVBj5QToSOlVQNP3+geRfZJcBNk
-	80JSyHmdyZFC2oAA==
-Date: Tue, 14 Oct 2025 15:05:25 +0200
-Subject: [PATCH v2 10/10] kbuild: simplify CC_CAN_LINK
+	Tue, 14 Oct 2025 13:10:58 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 6AE6522BF5;
+	Tue, 14 Oct 2025 15:10:54 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id 4JnGNg-KN5pZ; Tue, 14 Oct 2025 15:10:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1760447453; bh=SnHE+KYEHYlkFQ1P6HZQnLB2xV8QwDDqPT4rwxwlJ6I=;
+	h=From:To:Cc:Subject:Date;
+	b=MzaNRXInIU7n2CLfs0Q63SN1pA0bzrgbHPLGdxUwBtuQE50Unl5MFqC1beR0aBI97
+	 7zN9/3SRr6cLvYDN9fb9l3VrercwRqWpFJJ2M01BfQdzBAV3JhJP0BoooPnBXu66RH
+	 V9feFn5KKkZTMaFl01skCvUFYmkTOie6f5hlZHMQfFtE8jr3JfqOdcgY1jWgwFRDAv
+	 vtwgau6IOjbWhbKB2X9+I99g1FR6uEN4DixGMDUlteF6R241nWaqagNc0WQVaZTwO/
+	 G6GJOyPaLVjcLKH4Npo/K5z0AnbVasQ+4bjwNYi7d5oBWY1a7NBliAaNYc1DeZXHQG
+	 XOrLTvg73lQvw==
+From: Yao Zi <ziyao@disroot.org>
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Subject: [PATCH v3 0/5] Add reset controllers for other TH1520 subsystems
+Date: Tue, 14 Oct 2025 13:10:27 +0000
+Message-ID: <20251014131032.49616-1-ziyao@disroot.org>
 MIME-Version: 1.0
-Message-Id: <20251014-kbuild-userprogs-bits-v2-10-faeec46e887a@linutronix.de>
-References: <20251014-kbuild-userprogs-bits-v2-0-faeec46e887a@linutronix.de>
-In-Reply-To: <20251014-kbuild-userprogs-bits-v2-0-faeec46e887a@linutronix.de>
-To: Nathan Chancellor <nathan@kernel.org>, 
- Nicolas Schier <nicolas.schier@linux.dev>, Nicolas Schier <nsc@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- "David S. Miller" <davem@davemloft.net>, 
- Andreas Larsson <andreas@gaisler.com>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Masahiro Yamada <masahiroy@kernel.org>, linux-riscv@lists.infradead.org, 
- linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760447149; l=1868;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=3tMmqGYPXW1+sizcvYuquIc8pIXvr2WxMOGAl2JNK7w=;
- b=NFH6jl0rxMrCvmdRLauKbjBZxs9geVFFRlVKeBozgXilXJgY1Mju4UC/ys+/hGi5CHjYmw4ka
- Wd0jRrV874oD4xRqVjBpgkRZJoGweQQIsS5fVbRbcN//KQqo62xtX6e
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_140600_567588_33AA06B2 
-X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-CacheID: sfid-20251014_061057_410661_9D575732 
+X-CRM114-Status: UNSURE (   9.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,43 +75,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org, Yao Zi <ziyao@disroot.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWxsIGFyY2hpdGVjdHVyZXMgc3VwcG9ydGluZyBtdWx0aXBsZSBBQklzIGhhdmUgYmVlbiBtaWdy
-YXRlZCB0bwpBUkNIX0NDX0NBTl9MSU5LLiBUaGUgcmVtYWluaW5nIG9uZXMgZG8gbm90IHJlcXVp
-cmUgYW55IHNwZWNpYWwgZmxhZywKc28gc2ltcGxpZnkgdGhlIGxvZ2ljLgoKU2lnbmVkLW9mZi1i
-eTogVGhvbWFzIFdlacOfc2NodWggPHRob21hcy53ZWlzc3NjaHVoQGxpbnV0cm9uaXguZGU+Ci0t
-LQogTWFrZWZpbGUgICAgIHwgMTEgKysrLS0tLS0tLS0KIGluaXQvS2NvbmZpZyB8ICAzICstLQog
-MiBmaWxlcyBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKyksIDEwIGRlbGV0aW9ucygtKQoKZGlmZiAt
-LWdpdCBhL01ha2VmaWxlIGIvTWFrZWZpbGUKaW5kZXggMjZlNWJjYTUzNGUyNzAzNGMzNTU5Mzli
-Y2E0YzkwZGI0MzVlY2RiZC4uMWI3ZGE5ZjEwYjg4ZjFhMzc0YWUzNDQ3N2U1NjIxYjRkZDI3YzAx
-NyAxMDA2NDQKLS0tIGEvTWFrZWZpbGUKKysrIGIvTWFrZWZpbGUKQEAgLTExMzcsMTcgKzExMzcs
-MTIgQEAgZW5kaWYKICMgQWxpZ24gdGhlIGFyY2hpdGVjdHVyZSBvZiB1c2Vyc3BhY2UgcHJvZ3Jh
-bXMgd2l0aCB0aGUga2VybmVsCiBVU0VSRkxBR1NfRlJPTV9LRVJORUwgOj0gLS10YXJnZXQ9JQog
-Ci1pZmRlZiBDT05GSUdfQVJDSF9VU0VSUFJPR1NfQ0ZMQUdTCi1LQlVJTERfVVNFUkNGTEFHUyAr
-PSAkKENPTkZJR19BUkNIX1VTRVJGTEFHUykKLUtCVUlMRF9VU0VSTERGTEFHUyArPSAkKENPTkZJ
-R19BUkNIX1VTRVJGTEFHUykKLWVsc2UKLSMgSWYgbm90IG92ZXJyaWRkZW4gYWxzbyBpbmhlcml0
-IHRoZSBiaXQgc2l6ZQotVVNFUkZMQUdTX0ZST01fS0VSTkVMICs9IC1tMzIgLW02NAotZW5kaWYK
-LQogS0JVSUxEX1VTRVJDRkxBR1MgICs9ICQoZmlsdGVyICQoVVNFUkZMQUdTX0ZST01fS0VSTkVM
-KSwgJChLQlVJTERfQ1BQRkxBR1MpICQoS0JVSUxEX0NGTEFHUykpCiBLQlVJTERfVVNFUkxERkxB
-R1MgKz0gJChmaWx0ZXIgJChVU0VSRkxBR1NfRlJPTV9LRVJORUwpLCAkKEtCVUlMRF9DUFBGTEFH
-UykgJChLQlVJTERfQ0ZMQUdTKSkKIAorS0JVSUxEX1VTRVJDRkxBR1MgKz0gJChDT05GSUdfQVJD
-SF9VU0VSRkxBR1MpCitLQlVJTERfVVNFUkxERkxBR1MgKz0gJChDT05GSUdfQVJDSF9VU0VSRkxB
-R1MpCisKICMgdXNlcnNwYWNlIHByb2dyYW1zIGFyZSBsaW5rZWQgdmlhIHRoZSBjb21waWxlciwg
-dXNlIHRoZSBjb3JyZWN0IGxpbmtlcgogaWZkZWYgQ09ORklHX0NDX0lTX0NMQU5HCiBLQlVJTERf
-VVNFUkxERkxBR1MgKz0gLS1sZC1wYXRoPSQoTEQpCmRpZmYgLS1naXQgYS9pbml0L0tjb25maWcg
-Yi9pbml0L0tjb25maWcKaW5kZXggNGEyYWUzY2ZiZjI2NTI1YTYwOTM2ZDliMjlhNzRlZjQzMTli
-YTNhNS4uYTAxMjc1OThmMmYyNWZmYjU1ZGJiOGEwNjkxYjBhYTY4MTM4ZmM2OSAxMDA2NDQKLS0t
-IGEvaW5pdC9LY29uZmlnCisrKyBiL2luaXQvS2NvbmZpZwpAQCAtODgsOCArODgsNyBAQCBjb25m
-aWcgQVJDSF9IQVNfQ0NfQ0FOX0xJTksKIGNvbmZpZyBDQ19DQU5fTElOSwogCWJvb2wKIAlkZWZh
-dWx0IEFSQ0hfQ0NfQ0FOX0xJTksgaWYgQVJDSF9IQVNfQ0NfQ0FOX0xJTksKLQlkZWZhdWx0ICQo
-Y2NfY2FuX2xpbmtfdXNlciwkKG02NC1mbGFnKSkgaWYgNjRCSVQKLQlkZWZhdWx0ICQoY2NfY2Fu
-X2xpbmtfdXNlciwkKG0zMi1mbGFnKSkKKwlkZWZhdWx0ICQoY2NfY2FuX2xpbmtfdXNlcikKIAog
-IyBGaXhlZCBpbiBHQ0MgMTQsIDEzLjMsIDEyLjQgYW5kIDExLjUKICMgaHR0cHM6Ly9nY2MuZ251
-Lm9yZy9idWd6aWxsYS9zaG93X2J1Zy5jZ2k/aWQ9MTEzOTIxCgotLSAKMi41MS4wCgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+TH1520 SoC is split into several subsystems, and each of them comes with
+distinct reset controllers. We've already had the one for VO subsystem
+documented as "thead,th1520-reset" and supported, and this series adds
+support for others, including AO, VI, MISC, AP, DSP and VO.
+
+For TH1520_RESET_ID_{NPU,WDT0,WDT1}, these're reset signals that have
+been introduced along with support for the VO reset controller. However,
+registers in control of these resets don't stay in the VO reset region,
+instead they're AP-subsystem resets, thus the original ABI is
+problematic. I remove them in PATCH 1 and reintroduce them in PATCH 2.
+
+Note the reset controller for AO subsystem is marked as "reserved" in
+devicetree since AON firmware may make use of it and access in Linux
+side may cause races.
+
+This series is based on next-20251013, thanks for your time and review.
+
+Changed from v2
+- Collect review tags
+- Fix duplicated dt-binding IDs for DSP-subsystem resets
+- Link to v2: https://lore.kernel.org/all/20250915095331.53350-1-ziyao@disroot.org/
+
+Changed from v1
+- Make a separate patch for the ABI-breaking change of
+  TH1520_RESET_ID_{NPU,WDT0,WDT1}
+- Fix the duplicated dt-binding IDs
+- Sort compatibles/reset-signal definitions in alphabetical order in
+  the driver
+- Sort dt-binding IDs in alphabetical order by subsystem names
+- Link to v1: https://lore.kernel.org/all/20250901042320.22865-1-ziyao@disroot.org/
+
+Yao Zi (5):
+  dt-bindings: reset: thead,th1520-reset: Remove non-VO-subsystem resets
+  dt-bindings: reset: thead,th1520-reset: Add controllers for more
+    subsys
+  reset: th1520: Prepare for supporting multiple controllers
+  reset: th1520: Support reset controllers in more subsystems
+  riscv: dts: thead: Add reset controllers of more subsystems for TH1520
+
+ .../bindings/reset/thead,th1520-reset.yaml    |   8 +-
+ arch/riscv/boot/dts/thead/th1520.dtsi         |  37 +
+ drivers/reset/reset-th1520.c                  | 835 +++++++++++++++++-
+ .../dt-bindings/reset/thead,th1520-reset.h    | 219 ++++-
+ 4 files changed, 1083 insertions(+), 16 deletions(-)
+
+-- 
+2.50.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
