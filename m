@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E71CCD183
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 00:03:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61321CCD185
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 00:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=+XyCphmP3kAv+70q5aet6+WXYbrOQxdVlKgtOa23Zgo=; b=dTEQv6rxXsYKBaSt5uz+IACGlA
-	Ma6u15LMHxvBaXBTCB/wU7EU5r/LDBio2L6uqF9p9lJQ500AzAl7ZleQxJpqK3w4wZ8YeXshAd4hK
-	MPW5SDE7XWVLVg5oHDxlquHn6aaXzyU0972yCgo6qCpPH3WK01+zYTNHeYLAUxy4MteiU7XM/M4Bm
-	MGWrmogw6UhhmNXaYX/hkuo3ZVps7mO8GX8AAQbIo23ShOpDtYKNeU1mIVwXEBB1Fawg2BDgPwWPy
-	UGptnKaxn8GJK1VDM+B59ap8Vel2iLsBgr9QcYPRgMe5bL2JN0eahl857lH1jp09mW1ZxYjQZtVil
-	2WsMqO6A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=i4sSjzKhKleb9WTmJ585a+gUDxHPun1np4ejJwOJBjA=; b=KzXZ1S3HhScwzh
+	Gsm0pX7ff5D2X05Xm3IjLRxVCtWPjQIOt1/0ycIrwIgX/ieDHFARUZLjzsU07kfBZResxfP3/srLL
+	1bvFRIK2Qu/NN4O+QiUbto3mNWJszL8FUDyQn1GUt5WLW+cmQPUIZost1aQU5/c46gzQhbam4dmfF
+	UL5YiGJ0ov65K+wVCPHV21uORpOFoSgZKA36oufsCYwCQxcYaieIEELF8r0+9jQbwnjfTR91FBepS
+	0J9Njw1GHVM6Ko9H/4wDGwJlAnt6JlLwFVcBcSFcAqa2K31p70XnXBJFsu9af9c/mQLOqK5UFV09Q
+	ZvKQDUrVejwd8lZm5Piw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8SVC-0000000Eo8F-1AHA;
-	Tue, 14 Oct 2025 00:02:54 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1v8Sk2-0000000EpAH-2liE;
+	Tue, 14 Oct 2025 00:18:14 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8SV9-0000000Eo6h-20eg
+	id 1v8Sjz-0000000Ep9T-2tUw
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 00:02:53 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32ec67fcb88so8158784a91.3
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Oct 2025 17:02:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760400170; x=1761004970; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gbMLU0DBTTE4ZUI3tpJtNUcx/FkgYHD5aLH5yKQ0ecU=;
-        b=wY6OcDhyiJ6wfd1LeAESA7WvDRtXZdFky0wtR9GIr1zqmcvf5f+KToUixS0/nmwPkT
-         hZYif4+Zfq7w2fmU7U5EGWXkQHHPpj2Zgh196ogjUtdbUizLxbvuvMBhiEWroumPtdCO
-         0r+8aDEiEqSvpy5DWTZ422ojNwuIRBFzLDk1+klm6LK7ggf0hU6Wsd6b70YcLnrYjWve
-         6FrJgesMAPkYSipj115S4cIDTa2Efzzv8iYKx7GExN3MFh57nxFFYlgZrpMMEw8//muh
-         8hNvVE7Dg47e6mmouia063zJFg+BtmLhaPNcQofsi8LvmqjX//VtxJNnNL9VMWmzhLHJ
-         urAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760400170; x=1761004970;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gbMLU0DBTTE4ZUI3tpJtNUcx/FkgYHD5aLH5yKQ0ecU=;
-        b=kfh0y/WDCtBlY4wCo7NTVsTB+ncHCsdqyEAypmuA+WJF0XWj2+e8EbQVSLSMeXy/kR
-         4mdBs0KF1Co8P0vURNLWY0mvtzKyr8F/yI3fi+k+ljqcm3TR2Oj1wvFNIBUT34+71J9M
-         tcQsjklOP3hMouippnl6arapq8HQfDS69jpasSN9qzbW3XGqC3ZvtJsNsRIwxZWbBca5
-         CPosCdZeOC2cNApcuQZCZs5TdAu9TPRv85puC1wIy8DMrOWqbgWOPfc1BtTy7+kmmsDZ
-         7SEnObo/+56cpJdTX9MYc5HOoWRcqSmcriGHzZg9uM0pdfP/xaARnVKmGybvN5cVymYH
-         mozQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUv+VBDG1PkfcMXIg/IZFYcjqrXCOSzydGi79LF2LwqXZe1oBgnXHMcAVjuc+QvRO9AEuqxU2PwvcoS/w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyS1M51CYmP7RFSvTYj9Nilxl2T/4Ymd4h9qkAy/cU0O/qiiojL
-	CDWydOddb1A7J7XRfsDjgCbGMUwv6RNVLMzdpzLA6QGtUQ1mA52U5HI1ZlaPyDDVvLqwozxA+gT
-	TMU09fQ==
-X-Google-Smtp-Source: AGHT+IFj7XEk3dTkPnLos5082VprjEOkbmDHEla6HA+8/jfX0ozELV9F0rEtoGCDSVNCkEzGlN6/hN7WXyk=
-X-Received: from pjzm8.prod.google.com ([2002:a17:90b:688:b0:33b:51fe:1a75])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4c89:b0:321:9366:5865
- with SMTP id 98e67ed59e1d1-33b513b4afemr31472790a91.33.1760400170137; Mon, 13
- Oct 2025 17:02:50 -0700 (PDT)
-Date: Mon, 13 Oct 2025 17:02:48 -0700
-In-Reply-To: <20251010153839.151763-17-vschneid@redhat.com>
-Mime-Version: 1.0
-References: <20251010153839.151763-1-vschneid@redhat.com> <20251010153839.151763-17-vschneid@redhat.com>
-Message-ID: <aO2TKOY5JV9OoRUg@google.com>
-Subject: Re: [PATCH v6 16/29] KVM: VMX: Mark __kvm_is_using_evmcs static key
- as __ro_after_init
-From: Sean Christopherson <seanjc@google.com>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org, 
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Frederic Weisbecker <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Jason Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
-	"David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, 
-	Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, 
-	Juri Lelli <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, 
-	Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>, 
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+	Tue, 14 Oct 2025 00:18:13 +0000
+Received: from ofsar (unknown [116.232.147.32])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 1837A340E9A;
+	Tue, 14 Oct 2025 00:18:06 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+To: linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Aurelien Jarno <aurelien@aurel32.net>
+Cc: Yixun Lan <dlan@gentoo.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH v3 0/3] riscv: dts: spacemit: add 24c02 eeprom on BPI-F3
+Date: Tue, 14 Oct 2025 08:18:00 +0800
+Message-ID: <176040093505.976672.8840719266527899813.b4-ty@gentoo.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250926175833.3048516-1-aurelien@aurel32.net>
+References: <20250926175833.3048516-1-aurelien@aurel32.net>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_170251_514708_4DCF35D0 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20251013_171811_789942_00F94517 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,21 +75,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 10, 2025, Valentin Schneider wrote:
-> The static key is only ever enabled in
-> 
->   __init hv_init_evmcs()
-> 
-> so mark it appropriately as __ro_after_init.
-> 
-> Reported-by: Sean Christopherson <seanjc@google.com>
-> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
-> ---
 
-Acked-by: Sean Christopherson <seanjc@google.com>
+On Fri, 26 Sep 2025 19:54:36 +0200, Aurelien Jarno wrote:
+> The BPI-F3 board has a 24c02 eeprom connected to the i2c bus #2. It
+> holds board data. This patchset adds support for it.
+> 
+> Changes between version 2 and version 3:
+> 
+> - Revert the name change for i2c2-0-cfg and i2c2-0-pins, the second cell
+>   is not a function number, but an index.
+> 
+> [...]
 
-Holler if you want me to grab this for 6.19.  I assume the plan is to try and
-take the whole series through tip?
+Applied, thanks!
+
+[1/3] riscv: dts: spacemit: enable the i2c2 adapter on BPI-F3
+      https://github.com/spacemit-com/linux/commit/dcca2287773b69201b756723e8d45b6b8ad81b34
+[2/3] riscv: dts: spacemit: add 24c02 eeprom on BPI-F3
+      https://github.com/spacemit-com/linux/commit/bfce75e2345fa1ecbf046e696994132f56d6db1c
+[3/3] riscv: dts: spacemit: add i2c aliases on BPI-F3
+      https://github.com/spacemit-com/linux/commit/859ce3828f0b462e991c24224390def4c8fea673
+
+Best regards,
+-- 
+Yixun Lan
+
 
 _______________________________________________
 linux-riscv mailing list
