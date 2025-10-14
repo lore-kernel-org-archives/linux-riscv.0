@@ -4,45 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8BE0CCD184
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 13:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ADE2CCD192
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 13:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uFukQeQ73fC/6AVXAzc12Zv1Ad5xw9yHVMXetmqb1Kk=; b=l8nJ9Cd9blUYf9
-	iXhPZeUyZ3RSQ2rPw9YHjm4OA90FIc5UvtbK6BUlNFrCycrMk0PbjALzWTG0tuJWyw0+/oRgIO7kj
-	kbT1ykq+VyvUSsNfycj80mK/rashvKt8pK0RpFQudyMfIC7J5kboTYjci7Z92yUGYzHB+aIFzMMQZ
-	dxC0mM/CSirEFWHvlDMIfbB2LXXSS3C45M9DKvviHmKdEcmxezOAJ/l6OQIeXzZftNQRe0NrzavLY
-	IiMzTClv1cWWnIz26YkymDxOdkDpiGyyKHs50XDU6GZnH84MX6W3ZhHiK3BGI0+i045Ch2fkXyeOE
-	tjNII7W97GwBC3oO9HQg==;
+	List-Owner; bh=/F9LRpt+prK8YXFiFJzurHBlH9GocW2olxvlIGqL6Gg=; b=RZFu36qi6RyiGf
+	iKmy+iMfSlhCx6teUjoK2ZwJN/IjMZZwRBvoIr8AHL1yZqQHj+0RaDTiHqs1wAVEJ/VL4bSpVElXO
+	oem4Fmud4U8OYaZbsc6WhlRiqA2rUtXRfrhAzOJcxvp+cRr1h06olk3QePzGxfO3Amp+EndUxRqiC
+	dI9mLy0muwiYcH41PHk0x0hU6qGyI1QEWGVXXFAFuinR/+D1h8/MmtIyZW4xqBTgZvtXbr+d+AgOU
+	OlsFhEGfHUBOcWe2yD47e4xJ0Q3fZVE7r3QKmo0gMsEPF6kyllUTJahAYcgkq6tc5wJcQf2bE9hRO
+	2FCwaptjipKfbO2N297Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8epE-0000000GQYQ-0r4D;
-	Tue, 14 Oct 2025 13:12:24 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1v8epR-0000000GQgd-2iix;
+	Tue, 14 Oct 2025 13:12:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8epC-0000000GQWX-0q7d
+	id 1v8epQ-0000000GQfd-3cJx
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 14 Oct 2025 13:12:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=E+1h4P1M4gX4cbdmv6LTDW77HuzlATs4TzjVcsCm2l4=; b=nFR3qgApVacMywpuZ5AX2Z7IOA
+	Ehli7Ys5iMbbHemgxty0dchr8yWGsxZ3zLtuxGkjbIJiG7HBUVKcRUEWQganJTpPZM80Yc4lPjVLv
+	+pkSPPWYKTOQyA0nu66hyDfTR++DghS4O9wvqWeuWyBYUoWLYbfD/jwoEJ5xpudzX5yy7grDmATOQ
+	A7TQcMbC2ur1a6xmWA93M2vyDXhXaE3zNaSktCVxzw8oOgcbWT8OzsQRec0VQMpe6e0UQGbgzxONh
+	rw1OO+4YLwdf+JpB/OdT6VwAZvy1qmII9bux7koNnU5R7L/bBk4QbT8nMFSrEoINC3QKyCJo4XJ87
+	UOfLR06Q==;
+Received: from layka.disroot.org ([178.21.23.139])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8epI-00000005BQz-3AhZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 13:12:23 +0000
+	Tue, 14 Oct 2025 13:12:35 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id A0D2E25920;
-	Tue, 14 Oct 2025 15:12:20 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 004DE261A5;
+	Tue, 14 Oct 2025 15:12:28 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id Vf-9nPX07fYb; Tue, 14 Oct 2025 15:12:19 +0200 (CEST)
+ id lJtEv08OE0WU; Tue, 14 Oct 2025 15:12:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1760447539; bh=wMfyu2mJ32RXn85J3zGKswXTVynVcyfYpa47hNhoBNw=;
+	t=1760447547; bh=NkbKzHG706iJdJxu5vSJY3qj2jEFX8Hh23r4tuIRyO0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Bc2tYWakSk29UFt7ODRBhso2GMM7a/0IQuQNBsi61qHVMLL57Nwa5IWPiXcpqo/bA
-	 dp/VCMIK2V7QlQnyF9xuDZD/Ysj7PdRDCbCkFSwhWdqwnTGDrUO5KSHKAD+BGBEM2O
-	 zb4xT58P2siPL2TO27cNU4abGj5dKudnSDdQT0q0LxkIVYh/BNpUtRAG5xanDxnuYf
-	 5gbb9UpKU0BomA3oNDf4/GmfePXL0yM0TWM+BVJwoii2qO+jOnqpsl/+7CtMg0Ecja
-	 MsaKRY2cg3NiaVz6DYdivhZuMrBbWTfUv5vFcHerV0ruxejj2ZJFmwLcY8rZT10D4y
-	 oqTmzhgsB2UbA==
+	b=hoRak8wu9H2nqhtk5pU+JvHIL3pPfYf6CeFTSYQeWQ7AZWZ4rWq9TaBJwHvtacbch
+	 9ezlEXuVL0vfgulyZD2b2BsIdJagDdC37bknlRiaS+xM0uZDu1QCQQc6x+PPNCI6Jp
+	 JtLrBPkG9LMWKLvotsr0JcuVyPNALqIDGfcmdslKjSRdKerbq3DVZ0Qvj6eZIOxBA9
+	 Wf5DkSxIhbmK39glWHDdTT33LUo/IOF7dq5fmBKM6Z+y8bRh1a0ffvYo1ORExcZpv3
+	 wOaIq59xTCJM7fmlJ9jTlW6mmguvTBO9LVeBQXEG3OhU2ww8Rut6ui94Lkyg40JH9U
+	 B+5iBuAD0AofA==
 From: Yao Zi <ziyao@disroot.org>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -56,15 +71,15 @@ To: Drew Fustini <fustini@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH v3 4/5] reset: th1520: Support reset controllers in more subsystems
-Date: Tue, 14 Oct 2025 13:10:31 +0000
-Message-ID: <20251014131032.49616-5-ziyao@disroot.org>
+Subject: [PATCH v3 5/5] riscv: dts: thead: Add reset controllers of more subsystems for TH1520
+Date: Tue, 14 Oct 2025 13:10:32 +0000
+Message-ID: <20251014131032.49616-6-ziyao@disroot.org>
 In-Reply-To: <20251014131032.49616-1-ziyao@disroot.org>
 References: <20251014131032.49616-1-ziyao@disroot.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_061222_524035_AB9146C9 
-X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-CacheID: sfid-20251014_141232_003113_4FBC7A2C 
+X-CRM114-Status: UNSURE (   7.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,848 +98,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce reset controllers for AP, MISC, VI, VP and DSP subsystems and
-add their reset signal mappings.
+Describe reset controllers for VI, MISC, AP, DSP and AO subsystems. The
+one for AO subsystem is marked as reserved, since it may be used by AON
+firmware.
 
 Signed-off-by: Yao Zi <ziyao@disroot.org>
 ---
- drivers/reset/reset-th1520.c | 793 +++++++++++++++++++++++++++++++++++
- 1 file changed, 793 insertions(+)
+ arch/riscv/boot/dts/thead/th1520.dtsi | 37 +++++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
-diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.c
-index 2b65a95ed021..fd32e991c4cb 100644
---- a/drivers/reset/reset-th1520.c
-+++ b/drivers/reset/reset-th1520.c
-@@ -11,6 +11,85 @@
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index e680d1a7c821..15d64eaea89f 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -277,6 +277,12 @@ clint: timer@ffdc000000 {
+ 					      <&cpu3_intc 3>, <&cpu3_intc 7>;
+ 		};
  
- #include <dt-bindings/reset/thead,th1520-reset.h>
++		rst_vi: reset-controller@ffe4040100 {
++			compatible = "thead,th1520-reset-vi";
++			reg = <0xff 0xe4040100 0x0 0x8>;
++			#reset-cells = <1>;
++		};
++
+ 		spi0: spi@ffe700c000 {
+ 			compatible = "thead,th1520-spi", "snps,dw-apb-ssi";
+ 			reg = <0xff 0xe700c000 0x0 0x1000>;
+@@ -502,6 +508,18 @@ uart2: serial@ffec010000 {
+ 			status = "disabled";
+ 		};
  
-+ /* register offset in RSTGEN_R */
-+#define TH1520_BROM_RST_CFG		0x0
-+#define TH1520_C910_RST_CFG		0x4
-+#define TH1520_CHIP_DBG_RST_CFG		0xc
-+#define TH1520_AXI4_CPUSYS2_RST_CFG	0x10
-+#define TH1520_X2H_CPUSYS_RST_CFG	0x18
-+#define TH1520_AHB2_CPUSYS_RST_CFG	0x1c
-+#define TH1520_APB3_CPUSYS_RST_CFG	0x20
-+#define TH1520_MBOX0_RST_CFG		0x24
-+#define TH1520_MBOX1_RST_CFG		0x28
-+#define TH1520_MBOX2_RST_CFG		0x2c
-+#define TH1520_MBOX3_RST_CFG		0x30
-+#define TH1520_WDT0_RST_CFG		0x34
-+#define TH1520_WDT1_RST_CFG		0x38
-+#define TH1520_TIMER0_RST_CFG		0x3c
-+#define TH1520_TIMER1_RST_CFG		0x40
-+#define TH1520_PERISYS_AHB_RST_CFG	0x44
-+#define TH1520_PERISYS_APB1_RST_CFG	0x48
-+#define TH1520_PERISYS_APB2_RST_CFG	0x4c
-+#define TH1520_GMAC0_RST_CFG		0x68
-+#define TH1520_UART0_RST_CFG		0x70
-+#define TH1520_UART1_RST_CFG		0x74
-+#define TH1520_UART2_RST_CFG		0x78
-+#define TH1520_UART3_RST_CFG		0x7c
-+#define TH1520_UART4_RST_CFG		0x80
-+#define TH1520_UART5_RST_CFG		0x84
-+#define TH1520_QSPI0_RST_CFG		0x8c
-+#define TH1520_QSPI1_RST_CFG		0x90
-+#define TH1520_SPI_RST_CFG		0x94
-+#define TH1520_I2C0_RST_CFG		0x98
-+#define TH1520_I2C1_RST_CFG		0x9c
-+#define TH1520_I2C2_RST_CFG		0xa0
-+#define TH1520_I2C3_RST_CFG		0xa4
-+#define TH1520_I2C4_RST_CFG		0xa8
-+#define TH1520_I2C5_RST_CFG		0xac
-+#define TH1520_GPIO0_RST_CFG		0xb0
-+#define TH1520_GPIO1_RST_CFG		0xb4
-+#define TH1520_GPIO2_RST_CFG		0xb8
-+#define TH1520_PWM_RST_CFG		0xc0
-+#define TH1520_PADCTRL0_APSYS_RST_CFG	0xc4
-+#define TH1520_CPU2PERI_X2H_RST_CFG	0xcc
-+#define TH1520_CPU2AON_X2H_RST_CFG	0xe4
-+#define TH1520_AON2CPU_A2X_RST_CFG	0xfc
-+#define TH1520_NPUSYS_AXI_RST_CFG	0x128
-+#define TH1520_CPU2VP_X2P_RST_CFG	0x12c
-+#define TH1520_CPU2VI_X2H_RST_CFG	0x138
-+#define TH1520_BMU_C910_RST_CFG		0x148
-+#define TH1520_DMAC_CPUSYS_RST_CFG	0x14c
-+#define TH1520_SPINLOCK_RST_CFG		0x178
-+#define TH1520_CFG2TEE_X2H_RST_CFG	0x188
-+#define TH1520_DSMART_RST_CFG		0x18c
-+#define TH1520_GPIO3_RST_CFG		0x1a8
-+#define TH1520_I2S_RST_CFG		0x1ac
-+#define TH1520_IMG_NNA_RST_CFG		0x1b0
-+#define TH1520_PERI_APB3_RST_CFG	0x1dc
-+#define TH1520_VP_SUBSYS_RST_CFG	0x1ec
-+#define TH1520_PERISYS_APB4_RST_CFG	0x1f8
-+#define TH1520_GMAC1_RST_CFG		0x204
-+#define TH1520_GMAC_AXI_RST_CFG		0x208
-+#define TH1520_PADCTRL1_APSYS_RST_CFG	0x20c
-+#define TH1520_VOSYS_AXI_RST_CFG	0x210
-+#define TH1520_VOSYS_X2X_RST_CFG	0x214
-+#define TH1520_MISC2VP_X2X_RST_CFG	0x218
-+#define TH1520_SUBSYS_RST_CFG		0x220
++		rst_misc: reset-controller@ffec02c000 {
++			compatible = "thead,th1520-reset-misc";
++			reg = <0xff 0xec02c000 0x0 0x18>;
++			#reset-cells = <1>;
++		};
 +
-+ /* register offset in DSP_REGMAP */
-+#define TH1520_DSPSYS_RST_CFG		0x0
++		rst_vp: reset-controller@ffecc30000 {
++			compatible = "thead,th1520-reset-vp";
++			reg = <0xff 0xecc30000 0x0 0x14>;
++			#reset-cells = <1>;
++		};
 +
-+ /* register offset in MISCSYS_REGMAP */
-+#define TH1520_EMMC_RST_CFG		0x0
-+#define TH1520_MISCSYS_AXI_RST_CFG	0x8
-+#define TH1520_SDIO0_RST_CFG		0xc
-+#define TH1520_SDIO1_RST_CFG		0x10
-+#define TH1520_USB3_DRD_RST_CFG		0x14
-+
-+ /* register offset in VISYS_REGMAP */
-+#define TH1520_VISYS_RST_CFG		0x0
-+#define TH1520_VISYS_2_RST_CFG		0x4
-+
-  /* register offset in VOSYS_REGMAP */
- #define TH1520_GPU_RST_CFG		0x0
- #define TH1520_GPU_RST_CFG_MASK		GENMASK(1, 0)
-@@ -18,6 +97,8 @@
- #define TH1520_DSI0_RST_CFG		0x8
- #define TH1520_DSI1_RST_CFG		0xc
- #define TH1520_HDMI_RST_CFG		0x14
-+#define TH1520_AXI4_VO_DW_AXI_RST_CFG	0x18
-+#define TH1520_X2H_X4_VOSYS_DW_RST_CFG	0x20
+ 		clk: clock-controller@ffef010000 {
+ 			compatible = "thead,th1520-clk-ap";
+ 			reg = <0xff 0xef010000 0x0 0x1000>;
+@@ -509,6 +527,18 @@ clk: clock-controller@ffef010000 {
+ 			#clock-cells = <1>;
+ 		};
  
- /* register values */
- #define TH1520_GPU_SW_GPU_RST		BIT(0)
-@@ -29,6 +110,13 @@
- #define TH1520_HDMI_SW_MAIN_RST		BIT(0)
- #define TH1520_HDMI_SW_PRST		BIT(1)
++		rst_ap: reset-controller@ffef014000 {
++			compatible = "thead,th1520-reset-ap";
++			reg = <0xff 0xef014000 0x0 0x1000>;
++			#reset-cells = <1>;
++		};
++
++		rst_dsp: reset-controller@ffef040028 {
++			compatible = "thead,th1520-reset-dsp";
++			reg = <0xff 0xef040028 0x0 0x4>;
++			#reset-cells = <1>;
++		};
++
+ 		gpu: gpu@ffef400000 {
+ 			compatible = "thead,th1520-gpu", "img,img-bxm-4-64",
+ 				     "img,img-rogue";
+@@ -681,6 +711,13 @@ aogpio: gpio-controller@0 {
+ 			};
+ 		};
  
-+ /* register offset in VPSYS_REGMAP */
-+#define TH1520_AXIBUS_RST_CFG		0x0
-+#define TH1520_FCE_RST_CFG		0x4
-+#define TH1520_G2D_RST_CFG		0x8
-+#define TH1520_VDEC_RST_CFG		0xc
-+#define TH1520_VENC_RST_CFG		0x10
++		rst_ao: reset-controller@fffff44000 {
++			compatible = "thead,th1520-reset-ao";
++			reg = <0xff 0xfff44000 0x0 0x2000>;
++			#reset-cells = <1>;
++			status = "reserved";
++		};
 +
- struct th1520_reset_map {
- 	u32 bit;
- 	u32 reg;
-@@ -82,6 +170,681 @@ static const struct th1520_reset_map th1520_resets[] = {
- 		.bit = TH1520_HDMI_SW_PRST,
- 		.reg = TH1520_HDMI_RST_CFG,
- 	},
-+	[TH1520_RESET_ID_VOAXI] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_AXI4_VO_DW_AXI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VOAXI_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_AXI4_VO_DW_AXI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_X2H_DPU_AXI] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_X2H_X4_VOSYS_DW_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_X2H_DPU_AHB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_X2H_X4_VOSYS_DW_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_X2H_DPU1_AXI] = {
-+		.bit = BIT(2),
-+		.reg = TH1520_X2H_X4_VOSYS_DW_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_X2H_DPU1_AHB] = {
-+		.bit = BIT(3),
-+		.reg = TH1520_X2H_X4_VOSYS_DW_RST_CFG,
-+	},
-+};
-+
-+static const struct th1520_reset_map th1520_ap_resets[] = {
-+	[TH1520_RESET_ID_BROM] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_BROM_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_C910_TOP] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_C910_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_NPU] =  {
-+		.bit = BIT(0),
-+		.reg = TH1520_IMG_NNA_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_WDT0] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_WDT0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_WDT1] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_WDT1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_C910_C0] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_C910_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_C910_C1] = {
-+		.bit = BIT(2),
-+		.reg = TH1520_C910_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_C910_C2] = {
-+		.bit = BIT(3),
-+		.reg = TH1520_C910_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_C910_C3] = {
-+		.bit = BIT(4),
-+		.reg = TH1520_C910_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_CHIP_DBG_CORE] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_CHIP_DBG_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_CHIP_DBG_AXI] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_CHIP_DBG_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_AXI4_CPUSYS2_AXI] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_AXI4_CPUSYS2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_AXI4_CPUSYS2_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_AXI4_CPUSYS2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_X2H_CPUSYS] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_X2H_CPUSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_AHB2_CPUSYS] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_AHB2_CPUSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_APB3_CPUSYS] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_APB3_CPUSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_MBOX0_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_MBOX0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_MBOX1_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_MBOX1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_MBOX2_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_MBOX2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_MBOX3_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_MBOX3_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_TIMER0_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_TIMER0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_TIMER0_CORE] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_TIMER0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_TIMER1_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_TIMER1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_TIMER1_CORE] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_TIMER1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PERISYS_AHB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_PERISYS_AHB_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PERISYS_APB1] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_PERISYS_APB1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PERISYS_APB2] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_PERISYS_APB2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GMAC0_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_GMAC0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GMAC0_AHB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_GMAC0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GMAC0_CLKGEN] = {
-+		.bit = BIT(2),
-+		.reg = TH1520_GMAC0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GMAC0_AXI] = {
-+		.bit = BIT(3),
-+		.reg = TH1520_GMAC0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART0_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_UART0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART0_IF] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_UART0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART1_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_UART1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART1_IF] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_UART1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART2_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_UART2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART2_IF] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_UART2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART3_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_UART3_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART3_IF] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_UART3_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART4_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_UART4_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART4_IF] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_UART4_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART5_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_UART5_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_UART5_IF] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_UART5_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_QSPI0_IF] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_QSPI0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_QSPI0_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_QSPI0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_QSPI1_IF] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_QSPI1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_QSPI1_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_QSPI1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_SPI_IF] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_SPI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_SPI_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_SPI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C0_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_I2C0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C0_CORE] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_I2C0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C1_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_I2C1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C1_CORE] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_I2C1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C2_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_I2C2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C2_CORE] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_I2C2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C3_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_I2C3_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C3_CORE] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_I2C3_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C4_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_I2C4_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C4_CORE] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_I2C4_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C5_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_I2C5_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_I2C5_CORE] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_I2C5_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GPIO0_DB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_GPIO0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GPIO0_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_GPIO0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GPIO1_DB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_GPIO1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GPIO1_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_GPIO1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GPIO2_DB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_GPIO2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GPIO2_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_GPIO2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PWM_COUNTER] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_PWM_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PWM_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_PWM_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PADCTRL0_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_PADCTRL0_APSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_CPU2PERI_X2H] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_CPU2PERI_X2H_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_CPU2AON_X2H] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_CPU2AON_X2H_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_AON2CPU_A2X] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_AON2CPU_A2X_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_NPUSYS_AXI] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_NPUSYS_AXI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_NPUSYS_AXI_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_NPUSYS_AXI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_CPU2VP_X2P] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_CPU2VP_X2P_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_CPU2VI_X2H] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_CPU2VI_X2H_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_BMU_AXI] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_BMU_C910_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_BMU_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_BMU_C910_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DMAC_CPUSYS_AXI] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_DMAC_CPUSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DMAC_CPUSYS_AHB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_DMAC_CPUSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_SPINLOCK] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_SPINLOCK_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_CFG2TEE] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_CFG2TEE_X2H_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSMART] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_DSMART_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GPIO3_DB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_GPIO3_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GPIO3_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_GPIO3_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PERI_I2S] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_I2S_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PERI_APB3] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_PERI_APB3_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PERI2PERI1_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_PERI_APB3_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VPSYS_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_VP_SUBSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PERISYS_APB4] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_PERISYS_APB4_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GMAC1_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_GMAC1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GMAC1_AHB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_GMAC1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GMAC1_CLKGEN] = {
-+		.bit = BIT(2),
-+		.reg = TH1520_GMAC1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GMAC1_AXI] = {
-+		.bit = BIT(3),
-+		.reg = TH1520_GMAC1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GMAC_AXI] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_GMAC_AXI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_GMAC_AXI_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_GMAC_AXI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_PADCTRL1_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_PADCTRL1_APSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VOSYS_AXI] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_VOSYS_AXI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VOSYS_AXI_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_VOSYS_AXI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VOSYS_AXI_X2X] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_VOSYS_X2X_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_MISC2VP_X2X] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_MISC2VP_X2X_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSPSYS] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_SUBSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VISYS] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_SUBSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VOSYS] = {
-+		.bit = BIT(2),
-+		.reg = TH1520_SUBSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VPSYS] = {
-+		.bit = BIT(3),
-+		.reg = TH1520_SUBSYS_RST_CFG,
-+	},
-+};
-+
-+static const struct th1520_reset_map th1520_dsp_resets[] = {
-+	[TH1520_RESET_ID_X2X_DSP1] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_X2X_DSP0] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_X2X_SLAVE_DSP1] = {
-+		.bit = BIT(2),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_X2X_SLAVE_DSP0] = {
-+		.bit = BIT(3),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSP0_CORE] = {
-+		.bit = BIT(8),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSP0_DEBUG] = {
-+		.bit = BIT(9),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSP0_APB] = {
-+		.bit = BIT(10),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSP1_CORE] = {
-+		.bit = BIT(12),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSP1_DEBUG] = {
-+		.bit = BIT(13),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSP1_APB] = {
-+		.bit = BIT(14),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSPSYS_APB] = {
-+		.bit = BIT(16),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_AXI4_DSPSYS_SLV] = {
-+		.bit = BIT(20),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_AXI4_DSPSYS] = {
-+		.bit = BIT(24),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_AXI4_DSP_RS] = {
-+		.bit = BIT(26),
-+		.reg = TH1520_DSPSYS_RST_CFG,
-+	},
-+};
-+
-+static const struct th1520_reset_map th1520_misc_resets[] = {
-+	[TH1520_RESET_ID_EMMC_SDIO_CLKGEN] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_EMMC_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_EMMC] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_EMMC_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_MISCSYS_AXI] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_MISCSYS_AXI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_MISCSYS_AXI_APB] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_MISCSYS_AXI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_SDIO0] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_SDIO0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_SDIO1] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_SDIO1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_USB3_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_USB3_DRD_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_USB3_PHY] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_USB3_DRD_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_USB3_VCC] = {
-+		.bit = BIT(2),
-+		.reg = TH1520_USB3_DRD_RST_CFG,
-+	},
-+};
-+
-+static const struct th1520_reset_map th1520_vi_resets[] = {
-+	[TH1520_RESET_ID_ISP0] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_VISYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_ISP1] = {
-+		.bit = BIT(4),
-+		.reg = TH1520_VISYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_CSI0_APB] = {
-+		.bit = BIT(16),
-+		.reg = TH1520_VISYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_CSI1_APB] = {
-+		.bit = BIT(17),
-+		.reg = TH1520_VISYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_CSI2_APB] = {
-+		.bit = BIT(18),
-+		.reg = TH1520_VISYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_MIPI_FIFO] = {
-+		.bit = BIT(20),
-+		.reg = TH1520_VISYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_ISP_VENC_APB] = {
-+		.bit = BIT(24),
-+		.reg = TH1520_VISYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VIPRE_APB] = {
-+		.bit = BIT(28),
-+		.reg = TH1520_VISYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VIPRE_AXI] = {
-+		.bit = BIT(29),
-+		.reg = TH1520_VISYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DW200_APB] = {
-+		.bit = BIT(31),
-+		.reg = TH1520_VISYS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VISYS3_AXI] = {
-+		.bit = BIT(8),
-+		.reg = TH1520_VISYS_2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VISYS2_AXI] = {
-+		.bit = BIT(9),
-+		.reg = TH1520_VISYS_2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VISYS1_AXI] = {
-+		.bit = BIT(10),
-+		.reg = TH1520_VISYS_2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VISYS_AXI] = {
-+		.bit = BIT(12),
-+		.reg = TH1520_VISYS_2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VISYS_APB] = {
-+		.bit = BIT(16),
-+		.reg = TH1520_VISYS_2_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_ISP_VENC_AXI] = {
-+		.bit = BIT(20),
-+		.reg = TH1520_VISYS_2_RST_CFG,
-+	},
-+};
-+
-+static const struct th1520_reset_map th1520_vp_resets[] = {
-+	[TH1520_RESET_ID_VPSYS_AXI_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_AXIBUS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VPSYS_AXI] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_AXIBUS_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_FCE_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_FCE_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_FCE_CORE] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_FCE_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_FCE_X2X_MASTER] = {
-+		.bit = BIT(4),
-+		.reg = TH1520_FCE_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_FCE_X2X_SLAVE] = {
-+		.bit = BIT(5),
-+		.reg = TH1520_FCE_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_G2D_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_G2D_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_G2D_ACLK] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_G2D_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_G2D_CORE] = {
-+		.bit = BIT(2),
-+		.reg = TH1520_G2D_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VDEC_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_VDEC_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VDEC_ACLK] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_VDEC_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VDEC_CORE] = {
-+		.bit = BIT(2),
-+		.reg = TH1520_VDEC_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VENC_APB] = {
-+		.bit = BIT(0),
-+		.reg = TH1520_VENC_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_VENC_CORE] = {
-+		.bit = BIT(1),
-+		.reg = TH1520_VENC_RST_CFG,
-+	},
- };
- 
- static inline struct th1520_reset_priv *
-@@ -170,8 +933,38 @@ static const struct th1520_reset_data th1520_reset_data = {
- 	.num = ARRAY_SIZE(th1520_resets),
- };
- 
-+static const struct th1520_reset_data th1520_ap_reset_data = {
-+	.resets = th1520_ap_resets,
-+	.num = ARRAY_SIZE(th1520_ap_resets),
-+};
-+
-+static const struct th1520_reset_data th1520_dsp_reset_data = {
-+	.resets = th1520_dsp_resets,
-+	.num = ARRAY_SIZE(th1520_dsp_resets),
-+};
-+
-+static const struct th1520_reset_data th1520_misc_reset_data = {
-+	.resets = th1520_misc_resets,
-+	.num = ARRAY_SIZE(th1520_misc_resets),
-+};
-+
-+static const struct th1520_reset_data th1520_vi_reset_data = {
-+	.resets = th1520_vi_resets,
-+	.num = ARRAY_SIZE(th1520_vi_resets),
-+};
-+
-+static const struct th1520_reset_data th1520_vp_reset_data = {
-+	.resets = th1520_vp_resets,
-+	.num = ARRAY_SIZE(th1520_vp_resets),
-+};
-+
- static const struct of_device_id th1520_reset_match[] = {
- 	{ .compatible = "thead,th1520-reset", .data = &th1520_reset_data },
-+	{ .compatible = "thead,th1520-reset-ap", .data = &th1520_ap_reset_data },
-+	{ .compatible = "thead,th1520-reset-dsp", .data = &th1520_dsp_reset_data },
-+	{ .compatible = "thead,th1520-reset-misc", .data = &th1520_misc_reset_data },
-+	{ .compatible = "thead,th1520-reset-vi", .data = &th1520_vi_reset_data },
-+	{ .compatible = "thead,th1520-reset-vp", .data = &th1520_vp_reset_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, th1520_reset_match);
+ 		padctrl_aosys: pinctrl@fffff4a000 {
+ 			compatible = "thead,th1520-pinctrl";
+ 			reg = <0xff 0xfff4a000 0x0 0x2000>;
 -- 
 2.50.1
 
