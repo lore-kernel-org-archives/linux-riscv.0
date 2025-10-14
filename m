@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A17CCD185
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF0CCCD190
 	for <linux-riscv@archiver.kernel.org>; Tue, 14 Oct 2025 03:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ETDjVLiT0cPzd+qdTZfSKXGV+EgM/cDa0zC5KNLQ5FE=; b=GWYwS7LSJqFd3W
-	2TJwL6y2w/qqnw1QchTvNssrV8xH81td6r6rEK/4odXSKjHq3Bap5PRweAUxl8voEAMpVr7bwOEse
-	xqGgQ6wrv3jaqRcLtmuXtxpu8M8u8Ou8Z7Kh2ViR5XkvXkiZEw50rEE/lVaZXQUkQ2hzPy3eCqsuT
-	xuR/cEUda5KWWIOxehxtxGM8D+P9jj1/1sCwr9KGJb/iQQDhZnyjlaaKVUPB5iROIMmxir1/jwZIF
-	6XJaT27WvKoPFqGrdrGyerNEkGUEOtpdrwajG1JRBqfnPJkcyqJDQ6djK49fTV7ykwb8apRO94jAe
-	KIvkIaQbFdBl/OPRq0CQ==;
+	List-Owner; bh=opc/hfxzrzh2liH3DwHdqKFcsnepHidTiboZOv2wXaI=; b=ECAQFXgwHlwryM
+	w+7GZxMPXWqJVxDjCPqNDf90+7f5Cu0sjae01dyp5Dna5B9y30QFgLt/0Iloi0CPcp+SS4cTJsjnm
+	2ntG+xAeodjZMQ0g3MTncwCdjR0Q7azE4fhLoNI9lLWyZzzznUxN+XoZLoxqh3MnGuLA7hEPjVdOR
+	Qwnu87uFFHsJL6qto3eo46Q/agygXrY0Yfvvb2iMVdgWxtziNLYf3VowqF5MO5aIIFZWIUWHaDIhc
+	KB8GAwiUBpwLQbqK2autKFQHXoOLvBJmDkieTRZaYGJFQtch22MgSUsPiahmH/z2XVl6zDlX3PaDn
+	1pi2DPDwBPzRiDLyr9pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VSY-0000000F1Ej-2CaM;
-	Tue, 14 Oct 2025 03:12:22 +0000
+	id 1v8VSg-0000000F1MN-3k1v;
+	Tue, 14 Oct 2025 03:12:31 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VSW-0000000F1EO-38Wt
+	id 1v8VSd-0000000F1IT-3U4O
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Oct 2025 03:12:20 +0000
+	Tue, 14 Oct 2025 03:12:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1548E6214D;
-	Tue, 14 Oct 2025 03:12:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA5B6C4AF0B;
-	Tue, 14 Oct 2025 03:12:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3AFD86215A;
+	Tue, 14 Oct 2025 03:12:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08CE0C16AAE;
+	Tue, 14 Oct 2025 03:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760411539;
-	bh=Qxx7Nu/jiOa5nZTb2hgXdJjolteFiTKWPAx4vNdsclM=;
+	s=k20201202; t=1760411546;
+	bh=nV2p0fpU6/3+kXwweayj2niuZrElPFfqUNZw9N2j1qE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=O2jdChqk8evemkiSOkmk55bFFAlQdcsvqKM2OoAlYIGGHt7+FluSCyMg8HXMAn3Dh
-	 giW0Olnan5P+IhT/mXSZSpUx5vMbnx0A++HcDceVZ8QrOc2/WiuGCiMumJnvStBAbT
-	 kqF7Tu3MtSRTPkUDDOwu30UHlBLsENDD0jZhsfXjvLh0mUKE763hBTyw6zEmn6DHwA
-	 ELaefHd8p913R83C6KHAtk5tqr3NgbjLaQ3TzxeRze5hPyhNijbTdQHcckC1nnlKa9
-	 ZxPARUdj54IJYBNr4M4n2dZQX+lXn/VR1e31MOkLpSGv2pP1nTHojL84/0l1/EZ9p+
-	 IFBPS4KadQrIg==
+	b=SmmWUMjip7JnHtECL30mUNkNSEPLXytoEw6OHD0CEvRv23fyoCvpnXII/A2iP8hz6
+	 IREn4A9AtbohAZNmgxsQvGuP094lqjGk0R5lNp2YHIE2DQ2mAOFxEkuoeC9/5qDMPR
+	 MP7aP765yWUoukTnBPIXoIgIVq0kUn1tOV3Bys+XPCGuEJ4tIoS2uxPE8PwyY1Wf4C
+	 8oC04Rh76lhEBEzQLAc7hn1utiQJNujz92q88OGZci438EsEUsbbP0ketq9zJuoLNn
+	 X3ssHKefSS1k6AkDR1QHbeRGr414zrE6LnByAKCZJT/RLSyOjXAtcewPK0GGFfXH5Q
+	 YrJxb5+6kjVBQ==
 From: Drew Fustini <fustini@kernel.org>
-Date: Mon, 13 Oct 2025 20:11:53 -0700
-Subject: [PATCH v3 1/8] dt-bindings: vendor-prefixes: Add Tenstorrent AI
- ULC
+Date: Mon, 13 Oct 2025 20:12:00 -0700
+Subject: [PATCH v3 8/8] riscv: defconfig: Enable Tenstorrent SoCs
 MIME-Version: 1.0
-Message-Id: <20251013-tt-bh-dts-v3-1-9f058d4bbbda@oss.tenstorrent.com>
+Message-Id: <20251013-tt-bh-dts-v3-8-9f058d4bbbda@oss.tenstorrent.com>
 References: <20251013-tt-bh-dts-v3-0-9f058d4bbbda@oss.tenstorrent.com>
 In-Reply-To: <20251013-tt-bh-dts-v3-0-9f058d4bbbda@oss.tenstorrent.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -86,28 +85,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Drew Fustini <dfustini@oss.tenstorrent.com>
 
-Document vendor prefix for Tenstorrent in DT bindings.
+Enable support for Tenstorrent SoCs in the default configuration.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: Joel Stanley <jms@oss.tenstorrent.com>
 Signed-off-by: Drew Fustini <dfustini@oss.tenstorrent.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index f1d1882009ba9e80127bae0151af157879fe3070..21921be22207683a9c1e2248d0de63dcde867648 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1610,6 +1610,8 @@ patternProperties:
-     description: Tempo Semiconductor
-   "^tenda,.*":
-     description: Shenzhen Tenda Technology Co., Ltd.
-+  "^tenstorrent,.*":
-+    description: Tenstorrent AI ULC
-   "^terasic,.*":
-     description: Terasic Inc.
-   "^tesla,.*":
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index fc2725cbca1879c181d179a3d59ac3a0ce206061..95d5230c00274893df0502174037fec348d700c7 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -29,6 +29,7 @@ CONFIG_ARCH_SOPHGO=y
+ CONFIG_ARCH_SPACEMIT=y
+ CONFIG_SOC_STARFIVE=y
+ CONFIG_ARCH_SUNXI=y
++CONFIG_ARCH_TENSTORRENT=y
+ CONFIG_ARCH_THEAD=y
+ CONFIG_ARCH_VIRT=y
+ CONFIG_ARCH_CANAAN=y
 
 -- 
 2.34.1
