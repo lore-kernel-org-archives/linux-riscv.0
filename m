@@ -4,88 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FBFCCD192
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 14:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02722CCD185
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 14:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N0zlnoOeqFPKp8hNTCYhlFC9RXgz2VzfdKc5edbj5ys=; b=M7BZQAxnYr3r7p
-	Auc3Ah9FUduVBC5ovKasFFsjALKQioxLnUVyTN8n1jesvrcBFdWtzmEfT2X/yIWvai3s0dWQMUN7N
-	QruEV3PyT91Lz1TnWuO3KB/eGU8F+e53v2iZXb/pmQEP0nTSdg5BX5wNviRMQ39Guq/ypZ0D5U5ry
-	NXnIrq7WfFlNI+jpt2n8kaLvApow4wbeaRpgC6VTr/F6wzlSPbeCXDsIqLOVVAqcTMi5cicr9T3pp
-	UkWWj7SXei0Cp00ySMyrMcHbNrvVL2Xe2uLZlC2EtSG3F1xu1eImeLQFjUoUZR3+AP7zB8YNX3PpQ
-	T1NHebeI3nZKOPmJSwaA==;
+	List-Owner; bh=y0CHGcPYTRD7ySKFcqFji7xddSAaoTElMWw/aYiVlmo=; b=k09ez/eM4ioeHA
+	3E9J4GdodYmN0V4cJutySRB5P5gWjdAyBAySLTXuol5bpHWkBd7bCaK9eS8S3x5o8Y+rnG/fzqy1d
+	k33qDHcWNn8Wv4XQ7M8W9kHYQe85J9O06uY1N3GG4rDxJNDmblKCL8nnylkPFRFBsh2R8Aj9V8XNp
+	qZSu+zeY/RJh6F1fQ9bEJ4jAdytTs2b7TyCrEYJdaHFhpnxZPDmg3bxpd06h17/SE8iH5SsDQBwfR
+	46COFmowZNxn0exDno0S2voLT9q5Xg3WJRIhnSOrBSg0Gkf/7JmI02Tb1eN4lpJS1yTsrLU3Eq1Ew
+	UN5kijjADK0/wCdp5+DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92os-00000001xTE-0wLv;
-	Wed, 15 Oct 2025 14:49:38 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1v92rW-00000001xpS-41Gq;
+	Wed, 15 Oct 2025 14:52:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92oq-00000001xSs-2rkw
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Oct 2025 14:49:37 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-33226dc4fc9so6067561a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Oct 2025 07:49:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760539775; x=1761144575; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ugr7IgQEch7CkBgCAdZs0bbGqpAGoYyvZ+rvrv51b08=;
-        b=K30f1xW1J7GtnEJdQIkXaszlkh88XnsdUfqdNa8koTn2dENII9Fdg+uOdaLNn5Ie7V
-         XpbgTBjcmex2656to7jXPg6rJwOxOO+qmtuRg89dncDdnPukSLjugwmq0XhCZzjaYJuU
-         Jg2Q+0DV8+51MhNeyaaH++hdUvq+bG7jw9pKg6J+EtEibfwHfuAeUswyqbYg0oMOcb2R
-         5kPmynl5Vk4H07f+DM7AyPu70YcSwqUg8qlPZVPzFvxZ4bo4/ufei4yxmP24lQDkqsyV
-         xSmMV29zsKoL7YGU9mLSEA9ze3AW801WQ44NIwABIXye2FUv9EGTwu1uKmgDL1tJmLmC
-         lFow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760539775; x=1761144575;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ugr7IgQEch7CkBgCAdZs0bbGqpAGoYyvZ+rvrv51b08=;
-        b=toDvfHHYkmKPWSuZdm1ki1MUDiKoDy76CoOdIqIxk9LPRo8UjrDIpSBKm8zhiqeGFA
-         tJ24Jb0QqguRdsooR2Lyp149yhJ+ZeBCCQM/28i8AgeC3G7nKrMmWMXG5rJW56UXNL1u
-         ne/Xu0Sxx8qZpvnK3x0uVvlLSgoAHU7h0uEl3HkhnhVqwkXx8u2jkLByCxNKGsNxCrYB
-         iEBPx5+4uRADZwWJbPUl14WNfIHgB5rrWNf4YmUtMTg8s2chIC0ltb5G2DwxAkT7CPlB
-         6dvjrk01oTC+71FPDNl8II6iyI/ZQN6BT2xMT1IvCZTyJnP/kpY8W4AyQbMH/48UBsA7
-         A4IA==
-X-Forwarded-Encrypted: i=1; AJvYcCXxQQpL267oWEE77dR2O00TNbBPU/t1RraV66pnGH3w4Bs+Xlf6sxwUNnY2zR3GZZ24GPVUExnJ0YJCxA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPoCJz6HXfIraIVT/08TObcQXjXHurd1WKw2ijvjGB6dEWUnVE
-	IrIZ6RqJ4Q3op5ikpZHPmH26gzLp8bFtml4aJ5ofmhURvHG6ZBCNsWJdswC4tZovO/B4mgvVDcS
-	AbGpYPzU9eI/VBFgWDGiddCv2rl6TQGg=
-X-Gm-Gg: ASbGncs5EZgQhxGkUwTu83CHsgalv5XQtbUZNdXaB354Ug5SVA2BYHo+gO1VPQgb930
-	LXyuwOIpnIJ5B2aTrB0adiQV1ioVibw9JBfuAfp46LE4w6s4u1tt4hZUUqsIkIbd3QF5WJNQ/u3
-	Rj1LcJsdkw9GPk7OkRtZidfQuzmoYcOz4l8HYXltQ4Y+q0cmZa+huLYBFD21qb45enly+6BNZ0q
-	QEbAi9872kxNIAad/dZbQ+ZPbYzb1y6wfAp3w==
-X-Google-Smtp-Source: AGHT+IE69LKH/NE6WW9KYSfgI5K8eXDRrZSpNwn7Zg+fzj0drMI9U+jkzmrowvG1UrutOgnm3kdrLWQIhWCejBy9GBI=
-X-Received: by 2002:a17:90b:3ec5:b0:334:29f0:a7e4 with SMTP id
- 98e67ed59e1d1-33b5138e32cmr36496555a91.21.1760539775424; Wed, 15 Oct 2025
- 07:49:35 -0700 (PDT)
+	id 1v92rT-00000001xob-34fZ;
+	Wed, 15 Oct 2025 14:52:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B14443689;
+	Wed, 15 Oct 2025 14:52:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F48AC4CEF8;
+	Wed, 15 Oct 2025 14:52:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760539939;
+	bh=ADw0XbUINFXw+99thMlJyEEKMXz1G33Y6Fyz/udOs7A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=riF91sarHuoK7t4am2+p5dxxUbrgULuYBx2SVwAhxTpeD1NYtB46wNTalCGGwGWtq
+	 iHehp0VZnF2Ufr7jLAGIAUtAvlIFvJJa/4tuGo91bGJW4oYsm3B2uy8XWD+244DvCH
+	 k0ST8OCUPYfPGyFRe5boeRN1qFELPWzIXSWbsA+dRgf5o3t/9hB635UTAwt2RbPioF
+	 yZXJqHqdBaB4x2KSdwbzTH21133KVuVRbeGdsKpqMDdF4RO+5OJZgSzFl2+CZthuXX
+	 Caal7DGqDslWIEWXwJSuXV+kntKZi8z5IYayeXfNHvp6JjWA/6kA9jvXUqY7qVvzsN
+	 iFttDi/Vu7gGA==
+Date: Wed, 15 Oct 2025 09:52:17 -0500
+From: Rob Herring <robh@kernel.org>
+To: Alex Elder <elder@riscstar.com>
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	vkoul@kernel.org, kishon@kernel.org, dlan@gentoo.org,
+	guodong@riscstar.com, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
+	christian.bruel@foss.st.com, shradha.t@samsung.com,
+	krishna.chundru@oss.qualcomm.com, qiang.yu@oss.qualcomm.com,
+	namcao@linutronix.de, thippeswamy.havalige@amd.com,
+	inochiama@gmail.com, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-phy@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/7] dt-bindings: phy: spacemit: add SpacemiT
+ PCIe/combo PHY
+Message-ID: <20251015145217.GA3554740-robh@kernel.org>
+References: <20251013153526.2276556-1-elder@riscstar.com>
+ <20251013153526.2276556-2-elder@riscstar.com>
 MIME-Version: 1.0
-References: <20250912195339.20635-1-yana2bsh@gmail.com> <20250912131722.74658ec0@kernel.org>
-In-Reply-To: <20250912131722.74658ec0@kernel.org>
-From: =?UTF-8?B?0K/QvdCwINCR0LDRiNC70YvQutC+0LLQsA==?= <yana2bsh@gmail.com>
-Date: Wed, 15 Oct 2025 17:49:22 +0300
-X-Gm-Features: AS18NWC8jphTpk8XmfrNi0U2OyQEvZMStTycvFUqIt8mxiSBHWFeGjYnyBqSIBA
-Message-ID: <CAEP49o+-=HeW4NgB5a0H6gM9tPJg=oNeUA1iCbXq_1qZPPaGnA@mail.gmail.com>
-Subject: Re: [PATCH 6.1 00/15] genetlink: Test Netlink subsystem of Linux v6.1
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Paolo Abeni <pabeni@redhat.com>, Shuah Khan <shuah@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, linux-kernel@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, bpf@vger.kernel.org, llvm@lists.linux.dev, 
-	lvc-project@linuxtesting.org
+Content-Disposition: inline
+In-Reply-To: <20251013153526.2276556-2-elder@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_074936_748343_67BF5C4C 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_075219_814997_45F5D94B 
+X-CRM114-Status: GOOD (  26.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,32 +78,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIG1vdGl2YXRpb24gZm9yIHRoaXMgd29yayBpcyB0byBpbXByb3ZlIHRoZSB0ZXN0IGNvdmVy
-YWdlIGFuZApyZWxpYWJpbGl0eSBvZiB0aGUgTmV0bGluayBzdWJzeXN0ZW0sIHNwZWNpZmljYWxs
-eSBmb3IgdGhlIGNvcmUKYWZfbmV0bGluay5jIGFuZCBnZW5ldGxpbmsuYyBjb21wb25lbnRzLiBX
-aGlsZSB0aGUgc3Vic3lzdGVtIGlzCmNyaXRpY2FsIGZvciBrZXJuZWwtdXNlcnNwYWNlIGNvbW11
-bmljYXRpb24sIGl0cyBjb3ZlcmFnZSBieSB0aGUKZXhpc3Rpbmcgc2VsZnRlc3RzIGlzIHF1aXRl
-IGxpbWl0ZWQuCgpUbyBxdWFudGlmeSB0aGUgaW1wcm92ZW1lbnQsIHRoZXNlIG5ldyBzZWxmdGVz
-dHMgYWNoaWV2ZSB0aGUgZm9sbG93aW5nCmxpbmUgY292ZXJhZ2UgKGFzIG1lYXN1cmVkIGJ5IGdj
-b3YpOgotIG5ldC9uZXRsaW5rL2FmX25ldGxpbmsuYzogODQuMCUKLSBuZXQvbmV0bGluay9nZW5l
-dGxpbmsuYzogODguOCUKCkludGVncmF0aW5nIHRoZXNlIHRlc3RzIGludG8gdGhlIHVwc3RyZWFt
-IHN1aXRlIHdpbGwgcHJvdmlkZSBsb25nLXRlcm0Kc3RhYmlsaXR5IGFuZCBtYWtlIGl0IHNhZmVy
-IHRvIHJlZmFjdG9yIG9yIGFkZCBuZXcgZmVhdHVyZXMgdG8gdGhlCk5ldGxpbmsgY29yZSBpbiB0
-aGUgZnV0dXJlLgoK0L/RgiwgMTIg0YHQtdC90YIuIDIwMjXigK/Qsy4g0LIgMjM6MTcsIEpha3Vi
-IEtpY2luc2tpIDxrdWJhQGtlcm5lbC5vcmc+OgoKCtC/0YIsIDEyINGB0LXQvdGCLiAyMDI14oCv
-0LMuINCyIDIzOjE3LCBKYWt1YiBLaWNpbnNraSA8a3ViYUBrZXJuZWwub3JnPjoKPgo+IE9uIEZy
-aSwgMTIgU2VwIDIwMjUgMjI6NTM6MjMgKzAzMDAgWWFuYSBCYXNobHlrb3ZhIHdyb3RlOgo+ID4g
-VGhpcyBzZXJpZXMgYWRkcyBjb21wcmVoZW5zaXZlIHRlc3RpbmcgaW5mcmFzdHJ1Y3R1cmUgZm9y
-IE5ldGxpbmsKPiA+IGFuZCBHZW5lcmljIE5ldGxpbmsKPiA+Cj4gPiBUaGUgaW1wbGVtZW50YXRp
-b24gaW5jbHVkZXMgYm90aCBrZXJuZWwgbW9kdWxlIGFuZCB1c2Vyc3BhY2UgdGVzdHMgdG8KPiA+
-IHZlcmlmeSBjb3JyZWN0IEdlbmVyaWMgTmV0bGluayBhbmQgTmV0bGluayBiZWhhdmlvcnMgdW5k
-ZXIKPiA+IHZhcmlvdXMgY29uZGl0aW9ucy4KPgo+IFdoYXQgaXMgdGhlIG1vdGl2YXRpb24gZm9y
-IHRoaXMgd29yaz8KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Mon, Oct 13, 2025 at 10:35:18AM -0500, Alex Elder wrote:
+> Add the Device Tree binding for the PCIe/USB 3.0 combo PHY found in
+> the SpacemiT K1 SoC.  This is one of three PCIe PHYs, and is unusual
+> in that only the combo PHY can perform a calibration step needed to
+> determine settings used by the other two PCIe PHYs.
+> 
+> Calibration must be done with the combo PHY in PCIe mode, and to allow
+> this to occur independent of the eventual use for the PHY (PCIe or USB)
+> some PCIe-related properties must be supplied: clocks; resets; and a
+> syscon phandle.
+> 
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
+> v2: - Added '>' to the description, and reworded it a bit
+>     - Added an external oscillator clock, "refclk"
+>     - Renamed the "global" reset to be "phy"
+>     - Renamed a phandle property to be "spacemit,apmu"
+>     - Dropped the label and status property from the example
+> 
+>  .../bindings/phy/spacemit,k1-combo-phy.yaml   | 114 ++++++++++++++++++
+>  1 file changed, 114 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
+> new file mode 100644
+> index 0000000000000..6e2f401b0ac27
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
+> @@ -0,0 +1,114 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/spacemit,k1-combo-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: SpacemiT K1 PCIe/USB3 Combo PHY
+> +
+> +maintainers:
+> +  - Alex Elder <elder@riscstar.com>
+> +
+> +description: >
+> +  Of the three PHYs on the SpacemiT K1 SoC capable of being used for
+> +  PCIe, one is a combo PHY that can also be configured for use by a
+> +  USB 3 controller.  Using PCIe or USB 3 is a board design decision.
+> +
+> +  The combo PHY is also the only PCIe PHY that is able to determine
+> +  PCIe calibration values to use, and this must be determined before
+> +  the other two PCIe PHYs can be used.  This calibration must be
+> +  performed with the combo PHY in PCIe mode, and is this is done
+> +  when the combo PHY is probed.
+> +
+> +  The combo PHY uses an external oscillator as a reference clock.
+> +  During normal operation, the PCIe or USB port driver is responsible
+> +  for ensuring all other clocks needed by a PHY are enabled, and all
+> +  resets affecting the PHY are deasserted.  However, for the combo
+> +  PHY to perform calibration independent of whether it's later used
+> +  for PCIe or USB, all PCIe mode clocks and resets must be defined.
+> +
+> +properties:
+> +  compatible:
+> +    const: spacemit,k1-combo-phy
+> +
+> +  reg:
+> +    items:
+> +      - description: PHY control registers
+> +
+> +  clocks:
+> +    items:
+> +      - description: External oscillator used by the PHY PLL
+> +      - description: DWC PCIe Data Bus Interface (DBI) clock
+> +      - description: DWC PCIe application AXI-bus Master interface clock
+> +      - description: DWC PCIe application AXI-bus slave interface clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: refclk
+> +      - const: dbi
+> +      - const: mstr
+> +      - const: slv
+> +
+> +  resets:
+> +    items:
+> +      - description: DWC PCIe Data Bus Interface (DBI) reset
+> +      - description: DWC PCIe application AXI-bus Master interface reset
+> +      - description: DWC PCIe application AXI-bus slave interface reset
+> +      - description: PHY reset; must be deasserted for PHY to function
+> +
+> +  reset-names:
+> +    items:
+> +      - const: dbi
+> +      - const: mstr
+> +      - const: slv
+> +      - const: phy
+
+I think phy should be first as that's the main one to the phy and the 
+others are somewhat questionable. Otherwise,
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
