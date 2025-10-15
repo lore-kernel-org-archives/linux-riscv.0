@@ -4,120 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E760CCD192
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 13:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D3E1CCD192
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 13:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ccIbBMdO1KhC7bqqAH5ntABIcq3pCvhNh1+GbXvML6M=; b=HM/PmtWg0MhhwP
-	gaOamzUI0DuVvYfa/Ha77YmbQS+9IY0sCrO88PMmI3V8k5brZk4j8FPJAvI7Kj2W71voyjzUupu/j
-	sL+YI+t8BOTaw3GZEelga9+RtfJZzMwMP7zXyJWhYSHp4HK1HCMelffxI+zfnZTg5iASJiH0m0DQE
-	wY8iL6zoeNk+Tg1d7WY2Nfvmd/tO30Z0RX0OSmqmVIiuUdOxMGZgWlZ0p06/fXAeXX7F1GAnTiVJv
-	rid3CMKycgy9R4DlL1BGsyrcoSVz0TWF4hmRtybvJs50n6EFNQpCLaOcD24ckKEwy31eBwYlFwljT
-	CG5nIDcPdn/5FwSyU1ig==;
+	List-Owner; bh=573K9S2rgDkaXqdhmbteGC+Lki+jHrP3UlHV+50oPJw=; b=P9YIpH2Y1Eyauo
+	jWbfrRDDPPePQmN5t9Gtw3dx4gxDFtYl2Qqm9/2C7VlZavOtpkvJofBFB3bSJRlZW8NnE8rIJ7ZWm
+	NpZOoeu8xSEfiCkH+zGaYR1Fne7wYwcZRDrLHgvyMCU5rTcGBN3I8EWfmriODR3O/Xs2HpA6rtnsm
+	gBqv0vQ8tWDUqhKXWC6NUUsAOXp9B7sGHR8tIoyiuswcc+dTyXlTngjEsBW7mz8V66wEWhqZacyNH
+	Lf69TUSW6mGNz4Ny/viXSmKQhTFcjpKg1N25FmKFUhtD07MlM6LT7NTEioMofBMyMn5qQEVn6ZVi7
+	+fMlCTr/A6DrKtHmKczQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v91Mh-00000001gTB-3Fh2;
-	Wed, 15 Oct 2025 13:16:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v91lF-00000001jGh-07dY;
+	Wed, 15 Oct 2025 13:41:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v91Me-00000001gRJ-19GF
+	id 1v91lD-00000001jGY-1TT5
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Oct 2025 13:16:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760534181;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yD6dvIl7J8wWJkas/YONpCBWDBu3WvjIWx4zsxh951U=;
-	b=P1tYJ83609pOBgeSTOaTE97f8Wk758C9IAb31UCbzwRXXIZRNeZhrIvaQxN7iYyX+R4SsF
-	T+xkSvFUq0tGPbj4oD9vFLndWvNgph5l06LicKonAH31MhNfBSJp87dlb+NynoXewV7C5n
-	1lC2UmVR9TtjsRiRqqiRAE0/bHoih0U=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-208-GvSXeA63MM-TM7zDBtvMcg-1; Wed, 15 Oct 2025 09:16:18 -0400
-X-MC-Unique: GvSXeA63MM-TM7zDBtvMcg-1
-X-Mimecast-MFC-AGG-ID: GvSXeA63MM-TM7zDBtvMcg_1760534177
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3ecdfe971abso5361216f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Oct 2025 06:16:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760534177; x=1761138977;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yD6dvIl7J8wWJkas/YONpCBWDBu3WvjIWx4zsxh951U=;
-        b=GvwObOrcjiCmb/d6EIvE5lhfMw6Gw0gox/HvSHDZNahlnuDFeDpw+SOQu2NVLGSGhX
-         YIE0QRxgp8F9jVcdV7rKUA0t9cgxm5M+3DroaamSfBbchf2OBPiV0G/Oi6o4uvD7MJNe
-         cHOPRqMXvCXq6u3xaXp5Q+a9FwXTZ5cx00VzMm9Dta69W3VJAGdoKYCTVi2Iv4MwukSW
-         JGRWRPIfrAT1fijB8HMd7scMORyjVhO0tHmnA4nDAps1YQ4PCB5L0iXHO9V3RxkoZ7Mw
-         /cvhT7RWrXFPbfJMNtb4KYXQtuWPWGEm1GOniqfkWpLKd4WW4GSjpCXM/RhPVsK4C2Vf
-         c5nw==
-X-Forwarded-Encrypted: i=1; AJvYcCVEitos9JUSuKkW1PNfBtGgJcedPeeTxPnDZyLl4DhPN5bHU6j/9Us5CwkZZXIgnMXLoAC+/vuD7Uv6Cw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfM45iozGn9LDK0OzgxmbuyaAVI0YDilD5fQI75W8MSVJn/t6S
-	FjDb3qdOateTD79prryikFP0uk4cwz5+kZt7DvEBvWIJgFJAJ4VPUFPJHe4/TIoLZdWkcjS4dUL
-	Qxnet2jmvP2VYVk9t6Qgwi/TGwkPltl7PnSiJ1i/pAb+XUZ9VO3X55GlvmhqcYwJa35vdWw==
-X-Gm-Gg: ASbGncveQkSgbGs4mkKVlfvUo0YbRZE2HZdPvngP8zUTNI9QiiIq0mp653gsMb3uXw/
-	Axyh/utUWyNBcKUUht8vZufLvlwVoGek9ro6tO4GjPNemtiRD8qKRZPoULOLm1OH8Y7K2FvN+Sr
-	qzSFzQuFm2KpTIVSGiTXRFTQAGulyZ65s9GxZiY4fe+0Yw5R/uyb5PVsNnH9Xsg6hDWE3dlBbtH
-	C59JjVUu+XUEoXFe/+KWCdpFm35k72WzetWukqxyu/+eEf3pM8NDUHNM0R0RBYUD7ddMUF6FgRH
-	anNMsSXhGuX9czfv+b+y5fVpfV0buTyQzkUiwfAPu+ET8S1y/G1B5WvOsl6Py0XmVf7tVPnjqzv
-	xYyQl9t9nVPWsnBidjxcYp0qgxA==
-X-Received: by 2002:a05:6000:248a:b0:3f2:dc6e:6a89 with SMTP id ffacd0b85a97d-4266e8e4c29mr18416318f8f.57.1760534177101;
-        Wed, 15 Oct 2025 06:16:17 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHcUjf8Yi428dP9FWOn2X364zzJqp12CDvIxSjruyz4UDGZF5I3K12BFelQ7PlgEZWXYUZIhg==
-X-Received: by 2002:a05:6000:248a:b0:3f2:dc6e:6a89 with SMTP id ffacd0b85a97d-4266e8e4c29mr18416272f8f.57.1760534176503;
-        Wed, 15 Oct 2025 06:16:16 -0700 (PDT)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426ce57ccb1sm28976327f8f.8.2025.10.15.06.16.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Oct 2025 06:16:15 -0700 (PDT)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H.
- Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
- <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
- <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason
- Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard
- Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
- "David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay
- <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
- Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
- Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>,
- Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>, Jann Horn
- <jannh@google.com>, Dan Carpenter <dan.carpenter@linaro.org>, Oleg
- Nesterov <oleg@redhat.com>, Clark
- Williams <williams@redhat.com>, Yair Podemsky <ypodemsk@redhat.com>,
- Marcelo Tosatti <mtosatti@redhat.com>, Daniel Wagner <dwagner@suse.de>,
- Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
- user->kernel transition
-In-Reply-To: <xhsmhzf9tld2r.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <aO5I2WGtXqSPYFmH@jlelli-thinkpadt14gen4.remote.csb>
- <xhsmhzf9tld2r.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
-Date: Wed, 15 Oct 2025 15:16:13 +0200
-Message-ID: <xhsmhwm4wl2zm.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	Wed, 15 Oct 2025 13:41:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 94091625DE;
+	Wed, 15 Oct 2025 13:41:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 174D8C116C6;
+	Wed, 15 Oct 2025 13:41:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760535706;
+	bh=8Tz8/kXqpMNiULuP0/E6Rg1I5xQIyPrkfUQdjOvtY4g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qgho6UNDGSzmVjh8u6zRS71JzTXSqZDIVq6ENT+PnLraaBPb+eznD1zErKl8Ki2Or
+	 6O/8uTr4Es9MUcb7YkdpaVArrvI6k15i03Ig2N7e5iGEda2C1tBKwwyeFv4P1V0d75
+	 KlOECk+y3HMnhB9UoLfl74I0Q4Hu0q+wRjJTj74aG+tPBg6k0x41Zquhj42YCeI/Io
+	 MtscByVFmq2Euom+pRyYMFbnGvwCySlassHULb75c/D6ddyqEK83OF8s9AYL1lxTOe
+	 2eBinkHGlttD77fJr9tSQthj4l3kU+rTozPDLRzFx/VQSe+81CzBXw8ffcIUTgsEVl
+	 oAYrTgOLHGftQ==
+Date: Wed, 15 Oct 2025 08:41:44 -0500
+From: Rob Herring <robh@kernel.org>
+To: Longbin Li <looong.bin@gmail.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Yixun Lan <dlan@gentoo.org>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Ze Huang <huangze@whut.edu.cn>, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 1/3] dt-bindings: soc: sophgo: add TOP syscon for
+ CV18XX/SG200X series SoC
+Message-ID: <20251015134144.GA3265377-robh@kernel.org>
+References: <20251012022555.6240-1-looong.bin@gmail.com>
+ <20251012022555.6240-2-looong.bin@gmail.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: loBRJ9FKHpET4t27Gc_9IplhGpRo0lYA1aikxqCcBPw_1760534177
-X-Mimecast-Originator: redhat.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_061624_412164_0F4D54E0 
-X-CRM114-Status: GOOD (  16.36  )
+Content-Disposition: inline
+In-Reply-To: <20251012022555.6240-2-looong.bin@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,46 +76,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTQvMTAvMjUgMTc6MjYsIFZhbGVudGluIFNjaG5laWRlciB3cm90ZToKPiBPbiAxNC8xMC8y
-NSAxNDo1OCwgSnVyaSBMZWxsaSB3cm90ZToKPj4+IE5vaXNlCj4+PiArKysrKwo+Pj4KPj4+IFhl
-b24gRTUtMjY5OSBzeXN0ZW0gd2l0aCBTTVRvZmYsIE5PSFpfRlVMTCwgaXNvbGF0ZWQgQ1BVcy4K
-Pj4+IFJIRUwxMCB1c2Vyc3BhY2UuCj4+Pgo+Pj4gV29ya2xvYWQgaXMgdXNpbmcgcnRldmFsIChr
-ZXJuZWwgY29tcGlsYXRpb24gKyBoYWNrYmVuY2gpIG9uIGhvdXNla2VlcGluZyBDUFVzCj4+PiBh
-bmQgYSBkdW1teSBzdGF5LWluLXVzZXJzcGFjZSBsb29wIG9uIHRoZSBpc29sYXRlZCBDUFVzLiBU
-aGUgbWFpbiBpbnZvY2F0aW9uIGlzOgo+Pj4KPj4+ICQgdHJhY2UtY21kIHJlY29yZCAtZSAiaXBp
-X3NlbmRfY3B1bWFzayIgLWYgImNwdW1hc2sgJiBDUFVTeyRJU09MX0NQVVN9IiBcCj4+PiAgICAg
-ICAgICAgICAgICAgLWUgImlwaV9zZW5kX2NwdSIgICAgIC1mICJjcHUgJiBDUFVTeyRJU09MX0NQ
-VVN9IiBcCj4+PiAgICAgICAgICAgICAgICAgcnRldmFsIC0tb25seWxvYWQgLS1sb2Fkcy1jcHVs
-aXN0PSRIS19DUFVTIFwKPj4+ICAgICAgICAgICAgICAgICAtLWhhY2tiZW5jaC1ydW5sb3dtZW09
-VHJ1ZSAtLWR1cmF0aW9uPSREVVJBVElPTgo+Pj4KPj4+IFRoaXMgb25seSByZWNvcmRzIElQSXMg
-c2VudCB0byBpc29sYXRlZCBDUFVzLCBzbyBhbnkgZXZlbnQgdGhlcmUgaXMgaW50ZXJmZXJlbmNl
-Cj4+PiAod2l0aCBhIGJpdCBvZiBmdXp6IGF0IHRoZSBzdGFydC9lbmQgb2YgdGhlIHdvcmtsb2Fk
-IHdoZW4gc3Bhd25pbmcgdGhlCj4+PiBwcm9jZXNzZXMpLiBBbGwgdGVzdHMgd2VyZSBkb25lIHdp
-dGggYSBkdXJhdGlvbiBvZiA2IGhvdXJzLgo+Pj4KPj4+IHY2LjE3Cj4+PiBvIH41NDAwIElQSXMg
-cmVjZWl2ZWQsIHNvIGFib3V0IH4yMDAgaW50ZXJmZXJpbmcgSVBJIHBlciBpc29sYXRlZCBDUFUK
-Pj4+IG8gQWJvdXQgb25lIGludGVyZmVyaW5nIElQSSBqdXN0IHNoeSBvZiBldmVyeSAyIG1pbnV0
-ZXMKPj4+Cj4+PiB2Ni4xNyArIHBhdGNoZXMKPj4+IG8gWmlsY2ghCj4+Cj4+IE5pY2UuIDopCj4+
-Cj4+IEFib3V0IHBlcmZvcm1hbmNlLCBjYW4gd2UgYXNzdW1lIGhvdXNla2VlcGluZyBDUFVzIGFy
-ZSBub3QgYWZmZWN0ZWQgYnkKPj4gdGhlIGNoYW5nZSAodGhleSBkb24ndCBzZWVtIHRvIHVzZSB0
-aGUgdHJpY2sgYW55d2F5KSBvciBkbyB3ZSB3YW50L25lZWQKPj4gdG8gY29sbGVjdCBzb21lIG51
-bWJlcnMgb24gdGhlbSBhcyB3ZWxsIGp1c3QgaW4gY2FzZSAobWF5YmUgbW9yZQo+PiB0aHJvdWdo
-cHV0IG9yaWVudGVkKT8KPj4KPgo+IFNvIGZvciB0aGUgdGV4dF9wb2tlIElQSSB5ZXMsIGJlY2F1
-c2UgdGhpcyBpcyBhbGwgZG9uZSB0aHJvdWdoCj4gY29udGV4dF90cmFja2luZyB3aGljaCBkb2Vz
-bid0IGltcGx5IGhvdXNla2VlcGluZyBDUFVzLgo+Cj4gRm9yIHRoZSBUTEIgZmx1c2ggZmFmZiB0
-aGUgSEsgQ1BVcyBnZXQgdHdvIGV4dHJhIHdyaXRlcyBwZXIga2VybmVsIGVudHJ5Cj4gY3ljbGUg
-KG9uZSBhdCBlbnRyeSBhbmQgb25lIGF0IGV4aXQsIGZvciB0aGF0IHN0dXBpZCBzaWduYWwpIHdo
-aWNoIEkgZXhwZWN0Cj4gdG8gYmUgbm90aWNlYWJsZSBidXQgc21hbGwtaXNoLiBJIGNhbiBkZWZp
-bml0ZWx5IGdvIGFuZCBtZWFzdXJlIHRoYXQuCj4KCk9uIHRoYXQgc2FtZSBYZW9uIEU1LTI2OTkg
-c3lzdGVtIHdpdGggdGhlIHNhbWUgdHVuaW5nLCB0aGUgYXZlcmFnZSB0aW1lCnRha2VuIGZvciAz
-MDBNIGdldHRpZCBzeXNjYWxscyBvbiBob3VzZWtlZXBpbmcgQ1BVcyBpcwogIHY2LjE3OiAgICAg
-ICAgICA2OTguNjRucyDCsSAyLjM1bnMKICB2Ni4xNyArIHNlcmllczogNzAyLjYwbnMgwrEgMy40
-M25zCgpTbyBub3RpY2VhYmxlICh+LjYlIHdvcnNlKSBidXQgbm90IGhvcnJpYmxlPwoKPj4gVGhh
-bmtzLAo+PiBKdXJpCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Sun, Oct 12, 2025 at 10:25:52AM +0800, Longbin Li wrote:
+> The Sophgo CV1800/SG2000 SoC top misc system controller provides register
+> access to configure related modules. It includes a usb2 phy and a dma
+> multiplexer.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Signed-off-by: Longbin Li <looong.bin@gmail.com>
+> ---
+>  .../soc/sophgo/sophgo,cv1800b-top-syscon.yaml | 59 +++++++++++++++++++
+>  1 file changed, 59 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top-syscon.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top-syscon.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top-syscon.yaml
+> new file mode 100644
+> index 000000000000..d1993f2156b4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top-syscon.yaml
+> @@ -0,0 +1,59 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,cv1800b-top-syscon.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo CV18XX/SG200X SoC top system controller
+> +
+> +maintainers:
+> +  - Inochi Amaoto <inochiama@outlook.com>
+> +
+> +description:
+> +  The Sophgo CV18XX/SG200X SoC top misc system controller provides
+> +  register access to configure related modules.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: sophgo,cv1800b-top-syscon
+> +          - const: syscon
+> +          - const: simple-mfd
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 1
+
+Also need 'ranges'
+
+> +
+> +patternProperties:
+> +  "dma-router@154":
+
+This allows 'foodma-router@154bar'. It's not a pattern as-is, but 
+generally we don't put fixed unit-addresses into the schema. So instead, 
+should be "^dma-router@[0-9a-f]+$".
+
+> +    $ref: /schemas/dma/sophgo,cv1800b-dmamux.yaml#
+> +    unevaluatedProperties: false
+> +
+> +  "phy@48":
+
+And similar here.
+
+> +    $ref: /schemas/phy/sophgo,cv1800b-usb2-phy.yaml#
+> +    unevaluatedProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    syscon@3000000 {
+> +      compatible = "sophgo,cv1800b-top-syscon", "syscon", "simple-mfd";
+> +      reg = <0x03000000 0x1000>;
+> +      #address-cells = <1>;
+> +      #size-cells = <1>;
+
+Please make the example complete with child nodes.
+
+> +    };
+> +
+> +...
+> --
+> 2.51.0
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
