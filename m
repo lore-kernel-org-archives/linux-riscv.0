@@ -4,67 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2997ECCD185
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 15:05:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D50CCD194
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 16:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s4gwo0+X7qFMLKybNpxRKZhbs5MQxj440LhSL0QThxE=; b=oU8n41HoKc6cXj
-	41/hoEkVybJmn/XGbxfAMboggeaOV16L0kd+opPeh2QHq9iiE7jYf+agHbxOlyHAXFckzxxT+qsvM
-	spiTS+EYu8cM9LJ1n2FKmfXRbxCXRENm1xWerD+fUF/Q302qWWkr8zvA1aSv6zT9woaDBmYW9HTMt
-	SPpKn8PK9ubuFjWwD6IiH5JuOm9Gt7VL0l6rtjId2AHTXufjVB39C7WAEHw9sPiBHgQBBRpwLM04z
-	30EK8HVJo3fbIhY+2MyVvw75yzfPoNjVltgK12qeMRBn0e71jnxY8Soew2erk7fj255PigGWda2qy
-	kI8NsveCkK1b9VNuzWZg==;
+	List-Owner; bh=u7zni1CG0VQ3kG1CFTzGN+Vqm+iw5XLem5nvgoo4lxU=; b=x/4fg9opSgkohf
+	ZNyBWsb2X6TL3QwmG5pGA5cgc7/Vo38LXi6QvqlwTDvJoCOGhTbNMDMtBo2tL69T0hmKU00d4qhxl
+	ZhbTJa9YCNEbFTMpk9Q2zbJyVR4u6ZmmiueloEz8+9U4o47Jjk5vee2fL1zMv56GcnmoLRZCXbZ/W
+	8jWG0m1DxJqrda1PL9hLS3MeMLJSXm60lUbU/79MgLgE36wTEpuiEjzutkr56vHvV0GiiRKJAbBa7
+	aS6+K9EuGIZJFWU1a+2pYx00R+Yg9VO83fQbF33lq2qOVqTRi7wy2YXnBKgR51Oq9RuQV7Ta33KTw
+	XSn7p+T/8hij4cFdKskw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v933p-000000022BW-0ngh;
-	Wed, 15 Oct 2025 15:05:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v93zb-00000002Crp-3Mr6;
+	Wed, 15 Oct 2025 16:04:47 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v933m-000000022Ap-0c08
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Oct 2025 15:05:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B1124459D;
-	Wed, 15 Oct 2025 15:05:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 842CFC4CEF8;
-	Wed, 15 Oct 2025 15:05:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760540701;
-	bh=Wdbu91UHG7NXXe6k08cBk3T/+pvUqlyl9VvW3phwgNc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=aYGsImU3Per5JLsRWKEDgSU53GVias3oxkv3lcMOJyTF2/c5lzyw2mtJxaYSCavuH
-	 wbaCEkmbUtHKcgzV8+Rd9HkAU542mDJJNLVv7ZLIwh7hHX65uxF02j6/qf+HBCWCr5
-	 a3SDnYLcIaJLj3CG8shPVh1uDD9PGHxB0uwfo6dsz01FKRPCdWlYOJ5Fr2Ur+oEy8m
-	 HzxrY4ov7Z1kbMBdW2sPJBcEDJVajDnhRpxhR69uKn2pllOAh6ktBWAQvIYb8QmygG
-	 i9hUEjmhdzalFSGO5bNoADPFDFBTlJjew3xdACovDj0EokV3my/h3MUgQn0EZN/yiO
-	 mzmbfLOBm1LVw==
-Date: Wed, 15 Oct 2025 08:04:59 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: =?UTF-8?B?0K/QvdCwINCR0LDRiNC70YvQutC+0LLQsA==?= <yana2bsh@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Shuah Khan
- <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Nathan
- Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
- Tom Rix <trix@redhat.com>, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-riscv@lists.infradead.org, bpf@vger.kernel.org, llvm@lists.linux.dev,
- lvc-project@linuxtesting.org
-Subject: Re: [PATCH 6.1 00/15] genetlink: Test Netlink subsystem of Linux
- v6.1
-Message-ID: <20251015080459.6e681582@kernel.org>
-In-Reply-To: <CAEP49o+-=HeW4NgB5a0H6gM9tPJg=oNeUA1iCbXq_1qZPPaGnA@mail.gmail.com>
-References: <20250912195339.20635-1-yana2bsh@gmail.com>
-	<20250912131722.74658ec0@kernel.org>
-	<CAEP49o+-=HeW4NgB5a0H6gM9tPJg=oNeUA1iCbXq_1qZPPaGnA@mail.gmail.com>
+	id 1v93zZ-00000002Cr9-2CNF;
+	Wed, 15 Oct 2025 16:04:46 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59FDhs4b001980;
+	Wed, 15 Oct 2025 16:02:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=5opmQQ
+	rcs+iQAYIWBtfey0J/RoSdwtl4mYe2y0r2Ztg=; b=DTMYRDGbbruCsK1hiGXePi
+	NbuXJV52I8gbDdNY9W5EKuZLmSAQBDEHUcH2r6peMBVF2Oh/kCdqsMc6mxNJQeGk
+	Aw/B6GpRKQu9tbPPJPJ5RcRbuXlQxkNIz3azQRk3KPsJdXHGfHlzxPt5XjgVOFvx
+	BQ0/nhlzIIbQQbXnf7MtSdlfo00TmjjfcvDlThYf6U71fY5o3fDsIjTJh+vcOdIU
+	dYavP4hNgCW5L+atWQrgXhGeac0cJhNwANNxfuvecdQnBk3x2YFd+dKpK2iMiVYX
+	HZrFxNrwGZjChtL00YRH1UN34CxwbVQLSiBfOUaLpbw6E+d0LxTAOcF+Z6tH/v8Q
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49rfp80e96-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 15 Oct 2025 16:02:30 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 59FFxv93008767;
+	Wed, 15 Oct 2025 16:02:29 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49rfp80e90-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 15 Oct 2025 16:02:29 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59FDu6dv003626;
+	Wed, 15 Oct 2025 16:02:27 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 49r1xy1a38-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 15 Oct 2025 16:02:27 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59FG2Pc631261170
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 15 Oct 2025 16:02:25 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3D48E200E6;
+	Wed, 15 Oct 2025 16:02:25 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 34465200DB;
+	Wed, 15 Oct 2025 16:02:11 +0000 (GMT)
+Received: from [9.124.218.242] (unknown [9.124.218.242])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 15 Oct 2025 16:02:10 +0000 (GMT)
+Message-ID: <9901f2e8-653e-42f4-9344-03b2f70846bb@linux.ibm.com>
+Date: Wed, 15 Oct 2025 21:32:10 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 05/21] paravirt: Remove asm/paravirt_api_clock.h
+To: Juergen Gross <jgross@suse.com>
+Cc: Ajay Kaher <ajay.kaher@broadcom.com>,
+        Alexey Makhalov <alexey.makhalov@broadcom.com>,
+        Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+        Russell King
+ <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "H. Peter Anvin" <hpa@zytor.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Juri Lelli <juri.lelli@redhat.com>,
+        Vincent Guittot <vincent.guittot@linaro.org>,
+        Dietmar Eggemann <dietmar.eggemann@arm.com>,
+        Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+        Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        x86@kernel.org, virtualization@lists.linux.dev,
+        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org
+References: <20251006074606.1266-1-jgross@suse.com>
+ <20251006074606.1266-6-jgross@suse.com>
+Content-Language: en-US
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+In-Reply-To: <20251006074606.1266-6-jgross@suse.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 9ZUK4UeNEA3M63-5xIUdjnNRJmI9KQSO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDEyMDA4NCBTYWx0ZWRfX90a/KFqHOFA4
+ 3LTXuANmdsGxWyQx7Ukevm3RyFSkQJ9pXc2oVr8K5uv/q7SJflj3vhk6rgQPg5a2e4JMHRcokhT
+ E+w6CfzUtDgCzNqO7x7Qz0iPi2Udyp1mB5qOlV79KYdYo8wEkzexJTGI0NvxBMb9zp2anqktjy6
+ x7dXmTESXxwuIWmKuQwlY9VJQdv5AweqVNhod++KR+c5UndqULhfyI4H+V7In+JTOm9GWN4E92e
+ bZgooNZopePk7kVmv+pt2VQaWzIRRgwHx3+Ivefade+IPstSVao1M49g8pQuFBZku8ozOWBjVco
+ XGxbdE4m67DWVP6wWkyIRV4aUp8gC4N6DdEGT4oMISQu4RWJ20yslN8ham/g8aBzCSTrxBcUSHp
+ 17smtvjqfZzcfkxRb2PzijiKsYbetw==
+X-Proofpoint-GUID: dV8tQT4HDH7j4wsc4MFx6qXJyZuneU1L
+X-Authority-Analysis: v=2.4 cv=af5sXBot c=1 sm=1 tr=0 ts=68efc596 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=iox4zFpeAAAA:8 a=JfrnYn6hAAAA:8 a=VnNF1IyMAAAA:8 a=RR7mTWzPQ-4l2d7n_HwA:9
+ a=QEXdDO2ut3YA:10 a=WzC6qhA0u3u7Ye7llzcV:22 a=1CNFftbPRP8L7MoqJWF3:22
+ a=DXsff8QfwkrTrK3sU8N1:22 a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-15_06,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0
+ bulkscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510120084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_080502_229696_7A443526 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20251015_090445_561172_01D36B00 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +148,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAxNSBPY3QgMjAyNSAxNzo0OToyMiArMDMwMCDQr9C90LAg0JHQsNGI0LvRi9C60L7Q
-stCwIHdyb3RlOgo+IFRoZSBtb3RpdmF0aW9uIGZvciB0aGlzIHdvcmsgaXMgdG8gaW1wcm92ZSB0
-aGUgdGVzdCBjb3ZlcmFnZSBhbmQKPiByZWxpYWJpbGl0eSBvZiB0aGUgTmV0bGluayBzdWJzeXN0
-ZW0sIHNwZWNpZmljYWxseSBmb3IgdGhlIGNvcmUKPiBhZl9uZXRsaW5rLmMgYW5kIGdlbmV0bGlu
-ay5jIGNvbXBvbmVudHMuIFdoaWxlIHRoZSBzdWJzeXN0ZW0gaXMKPiBjcml0aWNhbCBmb3Iga2Vy
-bmVsLXVzZXJzcGFjZSBjb21tdW5pY2F0aW9uLCBpdHMgY292ZXJhZ2UgYnkgdGhlCj4gZXhpc3Rp
-bmcgc2VsZnRlc3RzIGlzIHF1aXRlIGxpbWl0ZWQuCj4gCj4gVG8gcXVhbnRpZnkgdGhlIGltcHJv
-dmVtZW50LCB0aGVzZSBuZXcgc2VsZnRlc3RzIGFjaGlldmUgdGhlIGZvbGxvd2luZwo+IGxpbmUg
-Y292ZXJhZ2UgKGFzIG1lYXN1cmVkIGJ5IGdjb3YpOgo+IC0gbmV0L25ldGxpbmsvYWZfbmV0bGlu
-ay5jOiA4NC4wJQo+IC0gbmV0L25ldGxpbmsvZ2VuZXRsaW5rLmM6IDg4LjglCgpGb3Igd2hhdCBp
-dCdzIHdvcnRoIHN5emJvdCBoYXM6CgogICAgYWZfbmV0bGluay5jICA5MSUKICAgIGdlbmV0bGlu
-ay5jICAgNjglCgpXaXRob3V0IGEgbGluZSBvZiBjb2RlIGFkZGVkIHRvIHRoZSBrZXJuZWwuIE9m
-IGNvdXJzZSBpdCdzIG5vdApmdW5jdGlvbmFsIHRlc3RpbmcuCgo+IEludGVncmF0aW5nIHRoZXNl
-IHRlc3RzIGludG8gdGhlIHVwc3RyZWFtIHN1aXRlIHdpbGwgcHJvdmlkZSBsb25nLXRlcm0KPiBz
-dGFiaWxpdHkgYW5kIG1ha2UgaXQgc2FmZXIgdG8gcmVmYWN0b3Igb3IgYWRkIG5ldyBmZWF0dXJl
-cyB0byB0aGUKPiBOZXRsaW5rIGNvcmUgaW4gdGhlIGZ1dHVyZS4KCkhhcHB5IHRvIGhlYXIgZnJv
-bSBvdGhlcnMgaWYgdGhleSBkaXNhZ3JlZSBidXQgd2hhdCBrZXJuZWwgdGVzdHMgZ2V0Cm1lcmdl
-ZCBpbnRvIHRoZSB0cmVlIGlzIHByZXR0eSBzdWJqZWN0aXZlLiBEbyB3ZSBoYXZlIGEgbG90IG9m
-IGJ1Z3MgCmluIGdlbmV0bGluaz8gQXJlIHlvdSBwbGFubmluZyB0byBkbyBtYWpvciBkZXZlbG9w
-bWVudCBpbiB0aGlzIGFyZWEKYW5kIHdhbnQgdG8gY2F0Y2ggcmVncmVzc2lvbnM/IElmIHRoZSBh
-bnN3ZXJzIHRvIGJvdGggb2YgdGhvc2UgcXVlc3Rpb25zCmlzICJubyIgSU1ITyB0aGlzIDdrTG9D
-IGlzIG5vdCB3b3J0aCBjYXJyeWluZyBpbiB0aGUgdHJlZS4KCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 10/6/25 1:15 PM, Juergen Gross wrote:
+> All architectures supporting CONFIG_PARAVIRT share the same contents
+> of asm/paravirt_api_clock.h:
+> 
+>    #include <asm/paravirt.h>
+> 
+> So remove all incarnations of asm/paravirt_api_clock.h and remove the
+> only place where it is included, as there asm/paravirt.h is included
+> anyway.
+> 
+> Signed-off-by: Juergen Gross <jgross@suse.com>
+> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> ---
+>   arch/arm/include/asm/paravirt_api_clock.h       | 1 -
+>   arch/arm64/include/asm/paravirt_api_clock.h     | 1 -
+>   arch/loongarch/include/asm/paravirt_api_clock.h | 1 -
+>   arch/powerpc/include/asm/paravirt_api_clock.h   | 2 --
+>   arch/riscv/include/asm/paravirt_api_clock.h     | 1 -
+>   arch/x86/include/asm/paravirt_api_clock.h       | 1 -
+>   kernel/sched/sched.h                            | 1 -
+>   7 files changed, 8 deletions(-)
+>   delete mode 100644 arch/arm/include/asm/paravirt_api_clock.h
+>   delete mode 100644 arch/arm64/include/asm/paravirt_api_clock.h
+>   delete mode 100644 arch/loongarch/include/asm/paravirt_api_clock.h
+>   delete mode 100644 arch/powerpc/include/asm/paravirt_api_clock.h
+>   delete mode 100644 arch/riscv/include/asm/paravirt_api_clock.h
+>   delete mode 100644 arch/x86/include/asm/paravirt_api_clock.h
+> 
+
+For powerpc, scheduler bits
+
+Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
