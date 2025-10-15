@@ -4,132 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4EFCCD194
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 14:29:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF59FCCD192
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 14:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sHqq+N/UhNpHNr0y0BbzpDkM9WyInKFId89vr4ze7/s=; b=1mIssWwhvLXPir
-	+iAK0CUCJbxjCZ2yAPLR8Dsskr21TSYYB1urzKogw31Jqm0YkTs/YSBAE9J7CDBm1j14GDBZ8fWQg
-	2gE7kN2TK3xlxmvbT7z8UQKCJOmH5j/czi/vOoZCKTbqiHhbtXNsPSL3sh/W5kX+hbUAan0/pdq11
-	unl2kGkTxZLe0X34qpj9spEsTfbkJk71ybN9V1j0pxwtSPNAIEeRha9oaLCmXohI4xZQaWB9FeRhV
-	ijZnm8vK2rQNxc2aJIq/PBYcAtws9fVhOdR2GoFJzS0fwtHT+5HnrJ8lHLdh/lEJewrzWWWsDvUDM
-	hYf6KWujUq1Q/W3R7vxw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=smJ+9JSE8ZL9jW06I3AP5/4wbNxi6UCjxnJ51ItYfYY=; b=kZ+UU4iCAnHME5
+	nuiF8p/Tl8Lt6QpY0g1uxlevj0eDKuwBwXoShqB8M9EI3UBKVlz2Nd6wtC9k/EwGjPn4fkCohho6/
+	d7GLP6o5qlrpOGmGyPwaMaN7RcAmbY7i0alymjlW3OFijtnWEkm+vkBivfBRP3qTrHowjXNu2u6kP
+	Pbu7B5aw3hwXp7eJZyfUjpvuzAX2IUYEiXYmX+oEx7mqCeqTQd+ZShNHgYxLD2Sm+olyfSeQa/7iq
+	aj9+tUJFRHF7OiX4jp/XViMPlGKdbEHS0xNSLY16erDRTaGbmL7h72M8oDXJXwxBn4ic3eZpJr9ax
+	PY4pFac70rsGTc3wIV8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92Uf-00000001sRn-1G3d;
-	Wed, 15 Oct 2025 14:28:45 +0000
+	id 1v92XB-00000001tP2-2WHT;
+	Wed, 15 Oct 2025 14:31:21 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92Uc-00000001sPf-1tRn
+	id 1v92X9-00000001tOL-1Ol3
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Oct 2025 14:28:43 +0000
+	Wed, 15 Oct 2025 14:31:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760538521;
+	s=mimecast20190719; t=1760538678;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jgeXfG5LCk279qOJi22HRVqctybfIOuy71nuUr9PHL0=;
-	b=Mk8kywQE1BwA49/a/CYGqyLprUSx3HWYyCGag6vZTAFfPBNy9QYhztuUeIuXB62g/usua+
-	o7qQGT1neejFp0IqLzBBeO//V5uVx6WmfDsEgRRZKKgToMM4fMRp4EyIsWXBvKqHJtA02g
-	5xRj5Qr/VaRPA/MxAzRfxp9OwnNXV3A=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=J5M2mmh4Ds9HKwtTLyTklITpPz82TYqRilJSnlAqd+M=;
+	b=a2U3sNES2qtSSOTKlew8PYEqf+H+7ZjvCqo/ee0fvhjl87zdRh4KB+o8Zah+gbtA99vDCp
+	4dhwxQ5d9CPzDp867clLDYWCLc0phBmM6VFJwN3EyvoVUu5MwaT78beyLOpPxD17v6/ObY
+	gPEqG3vrFyy5oCSFuGWX+0UboFa04xE=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-373-08hAE6gBPDSFcmsJbLKL_w-1; Wed, 15 Oct 2025 10:28:37 -0400
-X-MC-Unique: 08hAE6gBPDSFcmsJbLKL_w-1
-X-Mimecast-MFC-AGG-ID: 08hAE6gBPDSFcmsJbLKL_w_1760538517
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-46e3a049abaso46585605e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Oct 2025 07:28:37 -0700 (PDT)
+ us-mta-615-EsZU7MtEOX6pBcCJUjo-Lg-1; Wed, 15 Oct 2025 10:31:16 -0400
+X-MC-Unique: EsZU7MtEOX6pBcCJUjo-Lg-1
+X-Mimecast-MFC-AGG-ID: EsZU7MtEOX6pBcCJUjo-Lg_1760538675
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3f42b54d159so6616496f8f.2
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Oct 2025 07:31:15 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760538516; x=1761143316;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jgeXfG5LCk279qOJi22HRVqctybfIOuy71nuUr9PHL0=;
-        b=mhZIOv/UOSyW7/xgLwXwSf9/KR8Lq0Qzt9VNpmzwRfm3RyRO5NJYzSJWEt6Bsdp51y
-         1EIRe7zzP3s+TiSnjvbcuCNm+a3YaaQEjzaNwzNBCxEI8l3FSywmTRBIiDO4AcCHJbOa
-         X4HfrY6F0mKFyAXM6V7sN1UE0R+dh0EjVnT5Tn3FCrMv3wr2+rtIssqhGci1UMkVPW4B
-         HwBmnN4UqMfyFKghtoikAgNjFIb8NfLLRu6NehmXJYAsrjJUjIs0aUK1yq2i7F+Zin+0
-         Ym2/b0EWOgPlKY8jCdyYCyXHb9UdsE9Y/plkBpCcCfJrZCSPeYped6eL6gZUDlS6u4bw
-         XD9A==
-X-Forwarded-Encrypted: i=1; AJvYcCVNGc5Q98llJi+Qa4zCM4I4t6sGhQSyfto5cIsvabGskiaSSfT7bQR5oYRmT06mPjiuUnL4T/I0U4bqNA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhqzkdkcPrseza2GowMLCIdl1XLi59ioEMnWVNdehp8qfOLgL8
-	XzZR6PE3/5jFRXBMGvAZ7h421wuMmoyT8nbVmU5BuDEJK79TQ7UgiPANBn5gn88eOScYplYxFW9
-	pLiPm+4zHjbCmZWDyp6LUP3yKEidw6e6zp+nhrINGq2+3gtCBqM7taeYgWcvjy8GDlPxFKQ==
-X-Gm-Gg: ASbGnctNc4BEf4Y1HL3qNMa0Hz6wLDoIhnD84C97PmKuuAcdBMDJFoSBWjC8SGpMu4G
-	rxvmqd2P4kj5/MCr9kHLqazTZCWeAfaMG7/Rq+LSNqa5fJjeqbgKZ4jnk1+GCuwrIyOcmVUPEqn
-	4a4MMjAiQBWMLns8NExlTKtytkFOfXD03HQJgo6tlYD7WLKibo7XDxD25Bi+Pz28Wew5Fr0yJMi
-	63sT0W8Pe/Uvk7i4DprKA1Ch/C5gfZRvDNBU/ysoKLkB8fbUgtZFC4AQBTWAynK+URHJpeiKYR3
-	FyShS0XvJHljNJezp38nkJNT5ZZSYcjp37e7wX45Qkk+W57/kJzgdSz2l8KRnAmqOXLy9YTi
-X-Received: by 2002:a05:600d:4346:b0:471:9b5:6fd3 with SMTP id 5b1f17b1804b1-47109b57585mr1427135e9.0.1760538516607;
-        Wed, 15 Oct 2025 07:28:36 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGzbrALSQ0Dm6MxbRBonwa/fKtFwvctLkCr56cdjw1iTmex8obFsv5mNCQ28ZCIBWNfB2voXw==
-X-Received: by 2002:a05:600d:4346:b0:471:9b5:6fd3 with SMTP id 5b1f17b1804b1-47109b57585mr1426975e9.0.1760538516058;
-        Wed, 15 Oct 2025 07:28:36 -0700 (PDT)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([176.206.13.103])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47101be0c5bsm48687275e9.1.2025.10.15.07.28.34
+        d=1e100.net; s=20230601; t=1760538674; x=1761143474;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=J5M2mmh4Ds9HKwtTLyTklITpPz82TYqRilJSnlAqd+M=;
+        b=Nv08CjdM/5PMJuUAov2YrGt5lEFTEes0tMTAiEjKB/uyz2Vby+jhomIswusdHpZwJJ
+         xVDNRRGx7Oh6udYeyZDlJ998lN8ji4nfHeKzfb5bZ4v8r9oUrcuMTJhHjuOkwMnIjeMi
+         QaT1u2RdeaayKLhNzTe7WkYLK/LQ+B+8m0iCGbeFhwDhkSg7qWgELDrkavoQ3Vrv933m
+         W/gTczp4Nbx4M/un3IANWd3Xo9oNAuyUu6AroT94BF4vLieorotE+zCIbzikIlv5YWPP
+         3GyuH48MYbIRMIj+bg6eGqHDd8MUY6+jpQ+5LEAxUBlVyrXOnLvUlFf/D9bemM2vZhdb
+         YKIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVSvjXOImhX2MOUWPE8h8N6FK/ssKO50xD2RPA7YOBWaZvdyGunkG/+jvJJJPeMFFxUaSi4GmZwLrlWlg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvF3lg80G3ttZIZwhvkz+Ke59EmwwtMVcV707N9bDt04A1ktTw
+	Tu8pov0HHUBv5LHmw9tsDnLDlPd5Jdyas7YyrM657GZYy2f7IpFxIBpPR5oLL07InCo8j+OpmXX
+	gDL4eltWZxhdKVCiSopNrHRdpqRHleXZFxvKavhbvn1VymYrZJRtZAjIK+79Nk1im4UxTYw==
+X-Gm-Gg: ASbGncuyZX7kknMuhAm5ThduJh/FKpK3ouWocKPCs/fCqJ9moFzEKOx5TElXRfPe9aC
+	9+lZyTMllqI9PSSQoH8ye+HHbpUHDIhPwS6dqO/ZFtGLAh8TRoqGtjhehPZ0unc9NiHxdESBSL9
+	QwANPdYv5lL75DAcx3G3tWJfxgweLpZWp7kNTSYxJloa2k1GWB5abwLEV+94MiCX0iuJKiBD64z
+	xmZ4mxPmx1fPjnufzX3XBGBUiZc6ArCoC73+YLjkZxUcR5UWnlfBoggDIdbRsmcVl73KWGT0T/l
+	PE8c1rERJRdUL7+JBre8KT/Rtmi6yPmMdUwnCwAKd5XVjkPykTT8yTQ=
+X-Received: by 2002:a05:6000:608:b0:3ee:1125:fb6d with SMTP id ffacd0b85a97d-4266e7ced08mr14869587f8f.9.1760538674474;
+        Wed, 15 Oct 2025 07:31:14 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEmA242wjCu8aNX4QT+rftauK8lKZ1A4bt1SE1thTeCnke23rZ0LcaSiVmzhHvTvt87sNNPuw==
+X-Received: by 2002:a05:6000:608:b0:3ee:1125:fb6d with SMTP id ffacd0b85a97d-4266e7ced08mr14869567f8f.9.1760538674014;
+        Wed, 15 Oct 2025 07:31:14 -0700 (PDT)
+Received: from holism.lzampier.com ([2a06:5900:814a:ab00:c1c7:2e09:633d:e94e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47101c02377sm32617005e9.6.2025.10.15.07.31.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Oct 2025 07:28:35 -0700 (PDT)
-Date: Wed, 15 Oct 2025 16:28:32 +0200
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+        Wed, 15 Oct 2025 07:31:13 -0700 (PDT)
+From: Lucas Zampieri <lzampier@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: Lucas Zampieri <lzampier@redhat.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
- user->kernel transition
-Message-ID: <aO-vkAAk4FCdnLZu@jlelli-thinkpadt14gen4.remote.csb>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <aO5I2WGtXqSPYFmH@jlelli-thinkpadt14gen4.remote.csb>
- <xhsmhzf9tld2r.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <xhsmhwm4wl2zm.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Vivian Wang <dramforever@live.com>,
+	Charles Mirabile <cmirabil@redhat.com>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 0/3] Add UltraRISC DP1000 PLIC support
+Date: Wed, 15 Oct 2025 15:31:04 +0100
+Message-ID: <20251015143108.441291-1-lzampier@redhat.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-In-Reply-To: <xhsmhwm4wl2zm.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: UucgOBSNWYir5HdsaO4SOz8vjHhBRaEh707XRyViGe8_1760538517
+X-Mimecast-MFC-PROC-ID: WnU1SLyv7NiYbtMaILI7Gryr7Y-4HWF_fSuXgeqjwWg_1760538675
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_072842_558064_DC8889DE 
-X-CRM114-Status: GOOD (  22.60  )
+X-CRM114-CacheID: sfid-20251015_073119_464742_86BAB516 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,72 +112,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/10/25 15:16, Valentin Schneider wrote:
-> On 14/10/25 17:26, Valentin Schneider wrote:
-> > On 14/10/25 14:58, Juri Lelli wrote:
-> >>> Noise
-> >>> +++++
-> >>>
-> >>> Xeon E5-2699 system with SMToff, NOHZ_FULL, isolated CPUs.
-> >>> RHEL10 userspace.
-> >>>
-> >>> Workload is using rteval (kernel compilation + hackbench) on housekee=
-ping CPUs
-> >>> and a dummy stay-in-userspace loop on the isolated CPUs. The main inv=
-ocation is:
-> >>>
-> >>> $ trace-cmd record -e "ipi_send_cpumask" -f "cpumask & CPUS{$ISOL_CPU=
-S}" \
-> >>>                 -e "ipi_send_cpu"     -f "cpu & CPUS{$ISOL_CPUS}" \
-> >>>                 rteval --onlyload --loads-cpulist=3D$HK_CPUS \
-> >>>                 --hackbench-runlowmem=3DTrue --duration=3D$DURATION
-> >>>
-> >>> This only records IPIs sent to isolated CPUs, so any event there is i=
-nterference
-> >>> (with a bit of fuzz at the start/end of the workload when spawning the
-> >>> processes). All tests were done with a duration of 6 hours.
-> >>>
-> >>> v6.17
-> >>> o ~5400 IPIs received, so about ~200 interfering IPI per isolated CPU
-> >>> o About one interfering IPI just shy of every 2 minutes
-> >>>
-> >>> v6.17 + patches
-> >>> o Zilch!
-> >>
-> >> Nice. :)
-> >>
-> >> About performance, can we assume housekeeping CPUs are not affected by
-> >> the change (they don't seem to use the trick anyway) or do we want/need
-> >> to collect some numbers on them as well just in case (maybe more
-> >> throughput oriented)?
-> >>
-> >
-> > So for the text_poke IPI yes, because this is all done through
-> > context_tracking which doesn't imply housekeeping CPUs.
-> >
-> > For the TLB flush faff the HK CPUs get two extra writes per kernel entry
-> > cycle (one at entry and one at exit, for that stupid signal) which I ex=
-pect
-> > to be noticeable but small-ish. I can definitely go and measure that.
-> >
-> =
+This series adds support for the PLIC implementation in the UltraRISC
+DP1000 SoC. The UR-CP100 cores used in the DP1000 have a hardware bug in
+their PLIC claim register where reading it while multiple interrupts are
+pending can return the wrong interrupt ID. The workaround temporarily
+disables all interrupts except the first pending one before reading the
+claim register, then restores the previous state.
 
-> On that same Xeon E5-2699 system with the same tuning, the average time
-> taken for 300M gettid syscalls on housekeeping CPUs is
->   v6.17:          698.64ns =B1 2.35ns
->   v6.17 + series: 702.60ns =B1 3.43ns
-> =
+The driver matches on "ultrarisc,cp100-plic" (CPU core compatible), allowing
+the quirk to apply to all SoCs using UR-CP100 cores (currently DP1000,
+potentially future SoCs).
 
-> So noticeable (~.6% worse) but not horrible?
+Charles Mirabile (2):
+  dt-bindings: interrupt-controller: add UltraRISC DP1000 PLIC
+  irqchip/plic: add support for UltraRISC DP1000 PLIC
 
-Yeah, seems reasonable.
+Lucas Zampieri (1):
+  dt-bindings: vendor-prefixes: add UltraRISC
 
-Thanks for collecting numbers!
+Changes in v4:
+- 0002: Simplified commit message to focus on hardware bug (feedback from Conor Dooley)
+- 0002: Added Conor's Acked-by
+- 0003: Renamed PLIC_QUIRK_CLAIM_REGISTER to PLIC_QUIRK_CP100_CLAIM_REGISTER_ERRATUM
+  to be more specific (feedback from Samuel Holland)
+- 0003: Added Samuel's Acked-by
+
+Changes in v3:
+- 0002: Updated commit message to clarify that DP1000 is an SoC and CP100
+  is a core (feedback from Conor Dooley)
+- 0003: Renamed dp1000_* functions to cp100_* and updated commit message to
+  clarify the hardware bug is in the UR-CP100 core implementation, not
+  specific to the DP1000 SoC
+- 0003: Moved quirk check out of hot interrupt path by creating separate
+  plic_handle_irq_cp100() function and selecting handler at probe time
+- 0003: Use existing handler->enable_save[] array instead of stack allocation
+- 0003: Use readl_relaxed()/writel_relaxed() for better performance
+
+Changes in v2:
+- 0002: Changed compatible string pattern to SoC+core: ultrarisc,dp1000-plic
+  with ultrarisc,cp100-plic fallback (suggested by Krzysztof and Vivian)
+- 0003: Driver now matches on ultrarisc,cp100-plic (core) instead of dp1000 (SoC)
+- All patches: Added submitter Signed-off-by to complete DCO chain
+
+ .../sifive,plic-1.0.0.yaml                    |  3 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |  2 +
+ drivers/irqchip/irq-sifive-plic.c             | 94 ++++++++++++++++++-
+ 3 files changed, 98 insertions(+), 1 deletion(-)
+
+-- 
+2.51.0
 
 
 _______________________________________________
