@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF59FCCD192
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 14:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 066F1CCD192
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 14:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=smJ+9JSE8ZL9jW06I3AP5/4wbNxi6UCjxnJ51ItYfYY=; b=kZ+UU4iCAnHME5
-	nuiF8p/Tl8Lt6QpY0g1uxlevj0eDKuwBwXoShqB8M9EI3UBKVlz2Nd6wtC9k/EwGjPn4fkCohho6/
-	d7GLP6o5qlrpOGmGyPwaMaN7RcAmbY7i0alymjlW3OFijtnWEkm+vkBivfBRP3qTrHowjXNu2u6kP
-	Pbu7B5aw3hwXp7eJZyfUjpvuzAX2IUYEiXYmX+oEx7mqCeqTQd+ZShNHgYxLD2Sm+olyfSeQa/7iq
-	aj9+tUJFRHF7OiX4jp/XViMPlGKdbEHS0xNSLY16erDRTaGbmL7h72M8oDXJXwxBn4ic3eZpJr9ax
-	PY4pFac70rsGTc3wIV8Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hrZTX8O/mF9ssTUZbrQq2vmv/5oZpMzzd0jt+OrrlE0=; b=12HM5vObKxVqTj
+	YXlJDnztzJd1qRA+y2muE6pRyfkEAmg4svP5igdeAcqzxMOG9SD1JPTwcpfOZrLlIqH4Z4x7H16dd
+	5Db0SLPnNyn1eQHtfYVjhdVIu8xFrvK+I22BdhvC2ROY7aHi4NkRKH5GiHPT8eDj7pfir7vmJ9Hru
+	7siXu6fc8WRqtY2hATLNfgWPaQVRkpWvhXIR9G8T7RJMkPuxGjPrhgRrUTFAYoh4zp2GZTJUVqvMD
+	7gBlc3OTYaTm8VRgZtui9Evh4U1YDislkHgbi9BO/45A/lu6QCoigg/p3rbV96+f6xGTUT+jV3wx5
+	Wm1ooU8aR97LuVmqUxUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92XB-00000001tP2-2WHT;
-	Wed, 15 Oct 2025 14:31:21 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v92XE-00000001tQp-3kP0;
+	Wed, 15 Oct 2025 14:31:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92X9-00000001tOL-1Ol3
+	id 1v92XC-00000001tP6-1nvP
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Oct 2025 14:31:20 +0000
+	Wed, 15 Oct 2025 14:31:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760538678;
+	s=mimecast20190719; t=1760538681;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=J5M2mmh4Ds9HKwtTLyTklITpPz82TYqRilJSnlAqd+M=;
-	b=a2U3sNES2qtSSOTKlew8PYEqf+H+7ZjvCqo/ee0fvhjl87zdRh4KB+o8Zah+gbtA99vDCp
-	4dhwxQ5d9CPzDp867clLDYWCLc0phBmM6VFJwN3EyvoVUu5MwaT78beyLOpPxD17v6/ObY
-	gPEqG3vrFyy5oCSFuGWX+0UboFa04xE=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iSXzVZNzjEJV0QCm7fFsQIpGaaXg5MfSXavQS0cQlLY=;
+	b=A1j/QUMHwQeM4lM/Q7qC7Mr6TgQ6F+oH1qo31TfQ8H97CKUCCZRLgP46JxfDqHpIlJXBYX
+	USOOcc5OAu50cJQmuw4w/3pz74QX3dpIBD57U+Zv691iTxBboyJ9CCpkgTUUEd8KfcvmpI
+	pGU+8QJHHPmvJhI6nIUIXyHIRwvEmvE=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-615-EsZU7MtEOX6pBcCJUjo-Lg-1; Wed, 15 Oct 2025 10:31:16 -0400
-X-MC-Unique: EsZU7MtEOX6pBcCJUjo-Lg-1
-X-Mimecast-MFC-AGG-ID: EsZU7MtEOX6pBcCJUjo-Lg_1760538675
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3f42b54d159so6616496f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Oct 2025 07:31:15 -0700 (PDT)
+ us-mta-668-BleYYO3gN1KVnMG9k0w_6g-1; Wed, 15 Oct 2025 10:31:19 -0400
+X-MC-Unique: BleYYO3gN1KVnMG9k0w_6g-1
+X-Mimecast-MFC-AGG-ID: BleYYO3gN1KVnMG9k0w_6g_1760538678
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-401dbafbcfaso5717639f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Oct 2025 07:31:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760538674; x=1761143474;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=J5M2mmh4Ds9HKwtTLyTklITpPz82TYqRilJSnlAqd+M=;
-        b=Nv08CjdM/5PMJuUAov2YrGt5lEFTEes0tMTAiEjKB/uyz2Vby+jhomIswusdHpZwJJ
-         xVDNRRGx7Oh6udYeyZDlJ998lN8ji4nfHeKzfb5bZ4v8r9oUrcuMTJhHjuOkwMnIjeMi
-         QaT1u2RdeaayKLhNzTe7WkYLK/LQ+B+8m0iCGbeFhwDhkSg7qWgELDrkavoQ3Vrv933m
-         W/gTczp4Nbx4M/un3IANWd3Xo9oNAuyUu6AroT94BF4vLieorotE+zCIbzikIlv5YWPP
-         3GyuH48MYbIRMIj+bg6eGqHDd8MUY6+jpQ+5LEAxUBlVyrXOnLvUlFf/D9bemM2vZhdb
-         YKIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVSvjXOImhX2MOUWPE8h8N6FK/ssKO50xD2RPA7YOBWaZvdyGunkG/+jvJJJPeMFFxUaSi4GmZwLrlWlg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvF3lg80G3ttZIZwhvkz+Ke59EmwwtMVcV707N9bDt04A1ktTw
-	Tu8pov0HHUBv5LHmw9tsDnLDlPd5Jdyas7YyrM657GZYy2f7IpFxIBpPR5oLL07InCo8j+OpmXX
-	gDL4eltWZxhdKVCiSopNrHRdpqRHleXZFxvKavhbvn1VymYrZJRtZAjIK+79Nk1im4UxTYw==
-X-Gm-Gg: ASbGncuyZX7kknMuhAm5ThduJh/FKpK3ouWocKPCs/fCqJ9moFzEKOx5TElXRfPe9aC
-	9+lZyTMllqI9PSSQoH8ye+HHbpUHDIhPwS6dqO/ZFtGLAh8TRoqGtjhehPZ0unc9NiHxdESBSL9
-	QwANPdYv5lL75DAcx3G3tWJfxgweLpZWp7kNTSYxJloa2k1GWB5abwLEV+94MiCX0iuJKiBD64z
-	xmZ4mxPmx1fPjnufzX3XBGBUiZc6ArCoC73+YLjkZxUcR5UWnlfBoggDIdbRsmcVl73KWGT0T/l
-	PE8c1rERJRdUL7+JBre8KT/Rtmi6yPmMdUwnCwAKd5XVjkPykTT8yTQ=
-X-Received: by 2002:a05:6000:608:b0:3ee:1125:fb6d with SMTP id ffacd0b85a97d-4266e7ced08mr14869587f8f.9.1760538674474;
-        Wed, 15 Oct 2025 07:31:14 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEmA242wjCu8aNX4QT+rftauK8lKZ1A4bt1SE1thTeCnke23rZ0LcaSiVmzhHvTvt87sNNPuw==
-X-Received: by 2002:a05:6000:608:b0:3ee:1125:fb6d with SMTP id ffacd0b85a97d-4266e7ced08mr14869567f8f.9.1760538674014;
-        Wed, 15 Oct 2025 07:31:14 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760538678; x=1761143478;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iSXzVZNzjEJV0QCm7fFsQIpGaaXg5MfSXavQS0cQlLY=;
+        b=TmyOvjIRFtdyG6Hf0cpwiBS2VMnpMn9gSw5mDmL3gsq+rgY31SfM3sgo/tMH2RXv+I
+         wGXwadHUYzaC5E50Oqn5IZsjTIa7VHrmjcyI/QOPyceG3QQ0KhNIpmMSwDO7r0rUYm/k
+         LKfMndCCCY7+wd7aMEx7AGgv7tvoeIXFX8FMmJbw2t/yaaRuNrL0S1hs13tSvr3FKIRy
+         BDllSE68vEG1Bphb4m0T+UlXaXwsRK5XhnQABcsJOiIyLyIxn5nyq/mHfdTAlowDuItO
+         BmKzKCgX32Kj07YASem1C9ZOv82xmPNpFH3/YkHC3sa66Iwm3q5D0yN3m5MIWSAOABNG
+         iy0g==
+X-Forwarded-Encrypted: i=1; AJvYcCWBtzEWapTpyG3GQZ+IGuDR2Ow//E+RfKVMI7ff7VDII5d+g77IykxpPVbnAfh8cYxftvMBxWt4QkCjbg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQgpUa3ZDFJzlVSxofyiqB7klu+vJXLy9D8IG1TkgYCtk9r4Ks
+	DSZlflyOlvwHUNFgzPq7L3glHbAI5j4PfCHp+CNnalYFXWaom86Rx5UY5NKtlidcUSHtNpCm/tp
+	jf6atnLHNIhGzoys7qt3TCeVimLjAb3hAJaGxUhguPIv92Xul3270KEo7xEBv0qeMWe3LMg==
+X-Gm-Gg: ASbGncuFtDBQWkC64nF9fdzuAADrBQBX/mg6dAAPfGluuUFsPvM1wkrmARiKrfv3L8Y
+	Q1bVLhPzW5DA+WZi4dwcI/FxiugrMtzPmbflatTVer7W8uukdJ7pb+vzHU8r8SAyvFbMgmcS3tT
+	8yinr76sxO/dAkobBzV/N3JxjYzhPmnuI1OVrJt+mTs/1OC/batmmkaugPww+WCkNazAuC2hx2f
+	WxjjUpLfCs2Giegof8n+V1cu2F7a3lmrcBgGvrT9O4kNvbXPJKYPQRfVuqcYiDtYWguWI298eJ8
+	YTOVLUt3Wve7ZY7nD0xydXYQekBDB2KeS6MnuKTf98DVp93rSaSjIac=
+X-Received: by 2002:a05:600d:11:b0:46f:b43a:aedf with SMTP id 5b1f17b1804b1-46fb43aaf25mr108180825e9.38.1760538677942;
+        Wed, 15 Oct 2025 07:31:17 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG683Uu0GDZc9bo630j+NWQaTw6T0Q6n9Za7jgl4kwN5Wnz8kfYe9OZzC9Ddj1aZld04KGuRA==
+X-Received: by 2002:a05:600d:11:b0:46f:b43a:aedf with SMTP id 5b1f17b1804b1-46fb43aaf25mr108180605e9.38.1760538677489;
+        Wed, 15 Oct 2025 07:31:17 -0700 (PDT)
 Received: from holism.lzampier.com ([2a06:5900:814a:ab00:c1c7:2e09:633d:e94e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47101c02377sm32617005e9.6.2025.10.15.07.31.13
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47101c02377sm32617005e9.6.2025.10.15.07.31.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Oct 2025 07:31:13 -0700 (PDT)
+        Wed, 15 Oct 2025 07:31:17 -0700 (PDT)
 From: Lucas Zampieri <lzampier@redhat.com>
 To: linux-kernel@vger.kernel.org
-Cc: Lucas Zampieri <lzampier@redhat.com>,
+Cc: Charles Mirabile <cmirabil@redhat.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -87,20 +88,24 @@ Cc: Lucas Zampieri <lzampier@redhat.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Vivian Wang <dramforever@live.com>,
-	Charles Mirabile <cmirabil@redhat.com>,
 	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 0/3] Add UltraRISC DP1000 PLIC support
-Date: Wed, 15 Oct 2025 15:31:04 +0100
-Message-ID: <20251015143108.441291-1-lzampier@redhat.com>
+	linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Lucas Zampieri <lzampier@redhat.com>
+Subject: [PATCH v4 2/3] dt-bindings: interrupt-controller: add UltraRISC DP1000 PLIC
+Date: Wed, 15 Oct 2025 15:31:06 +0100
+Message-ID: <20251015143108.441291-3-lzampier@redhat.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251015143108.441291-1-lzampier@redhat.com>
+References: <20251015143108.441291-1-lzampier@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: WnU1SLyv7NiYbtMaILI7Gryr7Y-4HWF_fSuXgeqjwWg_1760538675
+X-Mimecast-MFC-PROC-ID: ygC_yOB09wvdqc5blGv0h0oNKXD9tpjzYGBBsu1L77M_1760538678
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_073119_464742_86BAB516 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20251015_073122_539945_849727CF 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,53 +122,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the PLIC implementation in the UltraRISC
-DP1000 SoC. The UR-CP100 cores used in the DP1000 have a hardware bug in
-their PLIC claim register where reading it while multiple interrupts are
-pending can return the wrong interrupt ID. The workaround temporarily
-disables all interrupts except the first pending one before reading the
-claim register, then restores the previous state.
+From: Charles Mirabile <cmirabil@redhat.com>
 
-The driver matches on "ultrarisc,cp100-plic" (CPU core compatible), allowing
-the quirk to apply to all SoCs using UR-CP100 cores (currently DP1000,
-potentially future SoCs).
+Add compatible strings for the PLIC found in UltraRISC DP1000 SoC.
 
-Charles Mirabile (2):
-  dt-bindings: interrupt-controller: add UltraRISC DP1000 PLIC
-  irqchip/plic: add support for UltraRISC DP1000 PLIC
+The PLIC is part of the UR-CP100 core and has a hardware bug requiring
+a workaround.
 
-Lucas Zampieri (1):
-  dt-bindings: vendor-prefixes: add UltraRISC
+Signed-off-by: Charles Mirabile <cmirabil@redhat.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Lucas Zampieri <lzampier@redhat.com>
+---
+ .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml       | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Changes in v4:
-- 0002: Simplified commit message to focus on hardware bug (feedback from Conor Dooley)
-- 0002: Added Conor's Acked-by
-- 0003: Renamed PLIC_QUIRK_CLAIM_REGISTER to PLIC_QUIRK_CP100_CLAIM_REGISTER_ERRATUM
-  to be more specific (feedback from Samuel Holland)
-- 0003: Added Samuel's Acked-by
-
-Changes in v3:
-- 0002: Updated commit message to clarify that DP1000 is an SoC and CP100
-  is a core (feedback from Conor Dooley)
-- 0003: Renamed dp1000_* functions to cp100_* and updated commit message to
-  clarify the hardware bug is in the UR-CP100 core implementation, not
-  specific to the DP1000 SoC
-- 0003: Moved quirk check out of hot interrupt path by creating separate
-  plic_handle_irq_cp100() function and selecting handler at probe time
-- 0003: Use existing handler->enable_save[] array instead of stack allocation
-- 0003: Use readl_relaxed()/writel_relaxed() for better performance
-
-Changes in v2:
-- 0002: Changed compatible string pattern to SoC+core: ultrarisc,dp1000-plic
-  with ultrarisc,cp100-plic fallback (suggested by Krzysztof and Vivian)
-- 0003: Driver now matches on ultrarisc,cp100-plic (core) instead of dp1000 (SoC)
-- All patches: Added submitter Signed-off-by to complete DCO chain
-
- .../sifive,plic-1.0.0.yaml                    |  3 +
- .../devicetree/bindings/vendor-prefixes.yaml  |  2 +
- drivers/irqchip/irq-sifive-plic.c             | 94 ++++++++++++++++++-
- 3 files changed, 98 insertions(+), 1 deletion(-)
-
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index 5b827bc24301..34591d64cca3 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+@@ -74,6 +74,9 @@ properties:
+               - sophgo,sg2044-plic
+               - thead,th1520-plic
+           - const: thead,c900-plic
++      - items:
++          - const: ultrarisc,dp1000-plic
++          - const: ultrarisc,cp100-plic
+       - items:
+           - const: sifive,plic-1.0.0
+           - const: riscv,plic0
 -- 
 2.51.0
 
