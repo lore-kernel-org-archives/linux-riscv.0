@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9D9CCD18E
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 06:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B442CCD185
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 06:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VzrVt8ZJrgrW3D+FU7UkwpM3YABRIb51kaxpwuWVJfc=; b=e0bs7hHWzpJI61
-	oNJ2t3dQKIoeo+wBBScB/ZdfiM29Bb0JrM/Pfk5OevDIS/U8hz+tOyiVzsas1jV46NH4rxz78N7a9
-	ZoKcIHwkZr+mcL1PJWBzkUUgBLy8EtN8V29ED/+jpXg1I1hM2lIZLdaHcoe38n9u4s2DG33Ywjcyv
-	gVNwYYuNZBSslR+dpFGiDPktevqjquK74t7WFtMD6iq/hIRkjVu92Md2hbEUhmFSd9NBkfA2VkVuw
-	/XG3Sz1SF4LM4lncIzuyhT70M+tq8S9+W9iDvm/dtutpcJ3FEtY1zMembV6LsB/pQ3U6sZGKoYVv0
-	E7o0JeqO7UUJOO4r+QVw==;
+	List-Owner; bh=LPd0RtB8YLcJzdQ872Ap0S6WHMewOEWuRPDmsY1umaA=; b=lQLZsokSC67nMP
+	LSGrsiDRVvVELVDb7HMTcAQ+cImFCl+Zvhio+uWi8PtlWYRBHe5WpyzIlHS+yqHYIhfDO8NgExq43
+	PHqvQ93OzFuKLHbNBJoLParkcZSJVQQtFNe90yzksOvkEGKO8I4MCXtc26u9HiiDHp+8iPkQ2B8V1
+	DUhCGcnfczCRDhL6yX2OifFBpkIxwOtRHZ6/z7hscHnjR1rKbQIB/Of/3cqeMiTGPJyB76wd956+Y
+	nKTD/JVAD3nV3w3LuJOoajIO/vnwJiTgmgHKqghvAz2Lv9GTbgnZKPymr2WOHHq9/AIyiVZaZoSVG
+	BIJvJbdm0+G5G12BpgQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8urA-00000000ZWG-0u5M;
-	Wed, 15 Oct 2025 06:19:28 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
+	id 1v8url-00000000ZoI-2VgT;
+	Wed, 15 Oct 2025 06:20:05 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ur7-00000000ZKA-1Roh
+	id 1v8urf-00000000Zal-3MZj
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Oct 2025 06:19:26 +0000
-X-QQ-mid: zesmtpsz3t1760509123t05cff719
-X-QQ-Originating-IP: nNfNQXy1/5EgLTlbfFU/BpAhqpvUPauMUCH0BNThics=
+	Wed, 15 Oct 2025 06:20:04 +0000
+X-QQ-mid: esmtpgz10t1760509149tb52a1c72
+X-QQ-Originating-IP: CKHnewHYWDo1Yrf4J42jLvNSa3NYNzjq2GE7A4/LC2k=
 Received: from GPU-Server-A6000.. ( [202.201.1.132])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 15 Oct 2025 14:18:40 +0800 (CST)
+	id ; Wed, 15 Oct 2025 14:19:06 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 17077304549723306376
+X-BIZMAIL-ID: 4224186876999705222
 EX-QQ-RecipientCnt: 14
 From: Yuan Tan <tanyuan@tinylab.org>
 To: arnd@arndb.de,
@@ -51,35 +51,35 @@ Cc: linux-arch@vger.kernel.org,
 	ronbogo@outlook.com,
 	z1652074432@gmail.com,
 	lx24@stu.ynu.edu.cn
-Subject: [PATCH v2 4/8] riscv: enable HAVE_TRIM_UNUSED_SYSCALLS when toolchain supports DCE
-Date: Wed, 15 Oct 2025 14:18:31 +0800
-Message-ID: <DFBC1E41A1103B87+997a9aedbe0a9a779d0a463bcbfd13eb677d5f0a.1760463245.git.tanyuan@tinylab.org>
+Subject: [PATCH v2 5/8] kconfig: add CONFIG_PUSHSECTION_WITH_RELOC for relocation support
+Date: Wed, 15 Oct 2025 14:18:58 +0800
+Message-ID: <31FE3D0D64425B42+b7172d7ef4e6fa3ee3ed543a44dbc5e467df4da4.1760463245.git.tanyuan@tinylab.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1760463245.git.tanyuan@tinylab.org>
 References: <cover.1760463245.git.tanyuan@tinylab.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
-X-QQ-XMAILINFO: Mpv6PNPPUmDu01OaIjV3/c9lP/+9l92EgFL6Up0MEq9OBV1ly0d0GAZH
-	nMBUt4qG6xMxRFmM0labnaCvSycP58RZy71c1VR+/Neqs2+z6gtDCKo4ElOvtZFriDOUOiU
-	pWCTMo3t6a/bdbCCOayMAqcWFK3G17PRM0WgvjpgXcMQw2t6xsn8foLu1Zr3lAr3eqXGACx
-	3+DnSDxjJvzkUW4epJJQvjjXaW3BLN6ICtTb0f+W05/qN4wPsWs6UObMPvyTgDUBgVKuS/h
-	9xzpk63Xnb6mR9UnpEwFXyqrzwybdECyAxC3ftAXIcF84kdFm80kgKDXVepDNWaWxxEALP1
-	flaI7ouj1yZ5cbeYc6xysCRZWtEu7tU1+rUXa7cN7HsAyAXN+zQYOqJuuVeYpm7X7KY36/n
-	5FckXbcHJGAx9wZalHQqecJ05JzY/1bJ0sj1FQNy4bH9m+0ejTGoUcVaztIft/TltR0xYha
-	24c97saY0zCwDjkPylGdHFn92swxaCcTeNSiTc7gQQTxk0b0P2Y9rC6X+n1oW26lWejroqf
-	ItMJcyMGaJkPJxLaaAlNKLeugvcNiRQaIkGawGFD4u9EmHQZzQ8hS1qdlF6CKCBxeZ/oQMr
-	/Wx9fqLKyuoxP9rAY7IbbL2Bvuhe7POTkyXDm7YTAymFahHiDsJNokghcvCIp2eUxlgkD25
-	RWI6V0pYw9iUjihkvGMZT7e3XTwZOPAUveuXHNwuBIjwQzaUHnxGjmRxHSmk2bNv1XEREsy
-	gok1SDmW3LTBeHOZB8AURCYvJgijz5cM5e/kU+A37nuHLROrS679XRcxqzHvf8syGBipHsl
-	GEAgzLFEh5+TX9oaub1gTZ+1NCnXM3xAXGPK8PQGvhOzjBXOrp7HD5W7gixHMfQ1mqnEDVX
-	buvtHwEJAWDgqvhn/P3zFk67YlnmgO/xTJpePEsIK+dCpnR3IODlo9hMAU5Je6sonJ2eij2
-	CGOLMid/TdK5Rzg/BLhBG32sP6j5x912TfLZxTUwJI1LFAA==
-X-QQ-XMRINFO: OJlEh3abS6gXi5NWrXbD0WI=
+Feedback-ID: esmtpgz:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
+X-QQ-XMAILINFO: MkywfizRgtI7gl6IUHbV9gFmZd4DmX1fyKYw3bvZTZGFcLta7XLFnmuO
+	luHsGcJmx4Rk4weyNjkWX32AFAjU8Mv+oRr5KuvhvRd4VjPuO9aJNDZVMXD/0FDoE7T9ieu
+	ckqa/OlSFD2TzqCVgJw/SnD+5BLFzd1QbvApRWAOtAUEgsRNY+rK3ebyyj5Qj44fTObTcMg
+	GVma8Rzyb3Dx2Y3feMtzAxDwyoPwY7dZWpr4CijAVQz1h3db6XkE2bF4gelqZ0vAR4QOkWW
+	I3Yz03KEHq0NcqIrmr6rpVv5Iis0dZI3/pHwBtDpHe+n0FQd5yGNWshSHsTni5j+IRWOl6s
+	kw88TMAp4kgW4oy0OcShTCnLCzxbVT+c4gWe7XT/9cviPBGr5vSe2tEY9YiZQvVKg9R8Z9S
+	57IKuv9soTALxOMobxppWdTGz8d/fj+ixwWDLtcPgchOoyqFPp1IHW5EwDEaofoGsRIxX8X
+	qJvCkXiiBImhukOr/cXk9aS7zR2C22BGzacPoQn5M3bGYOuwYmWrQqzKuGGz+ByYxxiF2j7
+	LX3+4h3gEWyhpHlx36E0N4aJtgiXX3eUmf2IMdAeQQkobn5kBoN8DiC3Y7eQsE7FIcgrrJI
+	VLMkfkGGV5xdlXYAh/B6ZAYnLjfGH58MR2JNC/tOI9WjMXNPeIFFmirMFDXIam/l0uyM7Qz
+	OAQlOxcWCOoodiajGfGWu7uw1U1xkl1XDqlmnmkLMRdMt6N5ijoEUurHDCl4Eikr2zt/uG+
+	db5Mk6l7/2+WKFge20r4xSZLeVxTJbEIbM2ch7vDBHF8JbGA/tLIFcETz6NoPDdU2l8TTwi
+	cLVMzTg5mPtp4qM0JeiFRWLgTIUREHTqubySPmy+Ccavxdp43931halU6ne+Ri4fPyuG/A4
+	jHR+tqw9EriRxrMcpzB9ey31nfMe18wpahEytpI/qSklrmUh0lyggtgiuHdSOTuQqO3Qvoc
+	iylIE+xt06n1p7P/2N/foI36u5g++Ia1yjR8=
+X-QQ-XMRINFO: OW8WShJdN8S2cMc/fs8JwkE=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_231925_875720_390EE8D2 
-X-CRM114-Status: UNSURE (   7.22  )
+X-CRM114-CacheID: sfid-20251014_232000_318064_8E6D9612 
+X-CRM114-Status: UNSURE (   8.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,37 +97,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Yuhang Zheng <z1652074432@gmail.com>
+If the assembler supports the '.reloc' directive with 'BFD_RELOC_NONE', we
+can establish a reference between a section created by '.pushsection' and
+its caller function by emitting a relocation in the caller.
 
-Enable HAVE_TRIM_UNUSED_SYSCALLS on RISC-V when the toolchain supports dead
-code and data elimination.
+Known toolchain minimums:
+- GNU binutils (gas) >= 2.26
+- LLVM integrated assembler (IAS) >= 13.0.0
 
-This allows the unused syscalls and related code to be trimmed at link time
-based on the list of actually used syscalls.
+All assemblers meeting the kernel's minimum toolchain requirements already
+support it.
 
-While this enables per-syscall elimination, some syscall entries still
-cannot be fully discarded due to sections that are force-kept by the
-linker, such as ex_table, bug_table, jump_table, and .alternative.
-
-Signed-off-by: Yuhang Zheng <z1652074432@gmail.com>
 Signed-off-by: Yuan Tan <tanyuan@tinylab.org>
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+Signed-off-by: Peihan Liu <ronbogo@outlook.com>
 ---
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+ init/Kconfig | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 0c6038dc5dfd..697050ac8c62 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -198,6 +198,7 @@ config RISCV
- 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
- 	select HAVE_STACKPROTECTOR
- 	select HAVE_SYSCALL_TRACEPOINTS
-+	select HAVE_TRIM_UNUSED_SYSCALLS
- 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
- 	select IRQ_DOMAIN
- 	select IRQ_FORCED_THREADING
+diff --git a/init/Kconfig b/init/Kconfig
+index 2c6f86c44d96..3d1cf32d5407 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -1631,6 +1631,10 @@ config HAVE_PCSPKR_PLATFORM
+ config HAVE_TRIM_UNUSED_SYSCALLS
+ 	bool
+ 
++config AS_HAS_BFD_RELOC_NONE
++	bool
++	def_bool $(as-instr,.reloc .$(comma) BFD_RELOC_NONE$(comma))
++
+ menuconfig EXPERT
+ 	bool "Configure standard kernel features (expert users)"
+ 	# Unhide debug options, to make the on-by-default options visible
+@@ -1965,6 +1969,18 @@ config USED_SYSCALLS
+ 
+ 	  If unsure, please disable TRIM_UNUSED_SYSCALLS.
+ 
++config PUSHSECTION_WITH_RELOC
++	bool "Trim more syscalls"
++	depends on TRIM_UNUSED_SYSCALLS && AS_HAS_BFD_RELOC_NONE
++	default y
++	help
++	  Enable building relocation-based references between sections created
++	  by '.pushsection' and their caller functions when the assembler
++	  supports the '.reloc' directive.
++
++	  This allows the linker to establish proper dependencies, remove the
++	  need for KEEP().
++
+ config KALLSYMS
+ 	bool "Load all symbols for debugging/ksymoops" if EXPERT
+ 	default y
 -- 
 2.43.0
 
