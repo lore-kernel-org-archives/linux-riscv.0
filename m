@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D07FCCD19F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD994CCD1A1
 	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 19:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,64 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rjfzcywdA9q0l7L3Ebqqifq2HQxVosuB/dx2gFkO0ig=; b=CzalYS1Cx2nMM+
-	dsr1FwMOyJUZAhCvdwfxxJuoxtgA1EYLfX7tNItZhHDLR3x8l+2U7nSWMklE6eI4xrXLI6Lru6O9p
-	WCHpPIcuT5PIygmwV6zNMcTa4sMeBhfNJJ0HLXIrXbS1wMwYpG2V4CaE1JIsYSk3iWob4aD4YZCKi
-	wWLwXqCqEYBS3eImXrnOYNpfeD95HRYP5cUaT4q+9BaEvno2yQuVhKpSQPQZbVGzJwxlFdqfU/St0
-	V4Ay4M+9bUT0ty0a7DZYRUkFzBJoAaLnHwz+3xzk6nmA1PkPr3tN2H2t482GmxK4opowUoDpspCQV
-	v6n+x72dqySN98npaQlw==;
+	List-Owner; bh=kT2vQ7rOWNN5LGleS1MtrUQDiaanV2iftleFMVgyZNg=; b=QYadh1KVBf55Mb
+	MjYHyf1JflhjckcyeId2ADhn4dYQvCDU4CEi0OFaK9mfw0DvClu4VJbeexpd+Sdfd37IyXV0y7gNu
+	5Tj6hSFZKqGw4dpgGKMNyLiFP0nBDZtc9N9T8CEIuNDBXDRweLe+X3bXsPZNn9akimGhr8GMMjCaA
+	/x643oEnOdObzuBCYzGk7hvhW/InQ47BHevrPD9q1bwzWjyEn9LKjMhP7Lfl0TwMWDQlgKaL8EQTI
+	Ip8U2JATtZZm9X9FkXBLOMZPIKyckbiAL8xGTz5JtEkuJ7UrOo8o7nmgRMmB4bzJROb7qXXjvOM6f
+	DmgZntK1QmewfuHu2oSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v97cd-00000002ngi-1cof;
-	Wed, 15 Oct 2025 19:57:19 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1v97ce-00000002nhV-2ymS;
+	Wed, 15 Oct 2025 19:57:20 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v97ca-00000002neu-3KoZ
+	id 1v97cb-00000002nfG-3kCI
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Oct 2025 19:57:17 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-781206cce18so1468131b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Oct 2025 12:57:16 -0700 (PDT)
+	Wed, 15 Oct 2025 19:57:19 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-782a77b5ec7so10754b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Oct 2025 12:57:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1760558236; x=1761163036; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1760558237; x=1761163037; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2XXJNRa+a1EmBL15srEVpdMPkO8sE1KKJAIBSS6n0KY=;
-        b=SsfWUt7HSGq/b2jOPqyWE7lEcijYutMg1V6ETX9nFNkwWgGU4QcxdY4Y1tirfw+Kqy
-         GdNo90rlnn6mTS+eUsyKNcTUUkp4jVy7gpR1e3i2pIhu5+ASAuVfM0nslNgLWiWH+p27
-         3mo0xWU0jVlY6lU3kPUkzv8LVnOe5SWzCG4eMpOWsK8cDpA9CN2+F91A93VOlzO2t3GL
-         oLdQdsm27bjpJ7SAsk91k+k6h7NTvTWn7B2tQXopK71ts+vJ+0FJw86m2RJefdt1AyCP
-         FBgxQEuvNyVpLCkae06dtD97VkVMWo+RgDNE1KW24JQFOiLDBdHMb9viZ6AwKPIZ3m9u
-         rx7g==
+        bh=P1cXGjl5LALpTkEmKF1wH+9n+RdSexytoXIs7SXyiuk=;
+        b=boM6vOWVK3KUgvKBFH9tYiUeJT03+ysb6OZlJud329peD2cWnlqwLflV3SqzXMS0YJ
+         NlmUuh6aGXwUd+/ICPzVrWmEHEClBYYS/uHDdP7Baz64Jaiw3oYMG6/M2d9A5BkAaaCj
+         w4nheM0sI3F8T4PSDTJy6xao4qgPDUNIqPNNinBWaOC5YF2oG41/Xl+tIUyAORme5WZa
+         JqnKFfsKEYOSSv12Gnl5jlSJH74LObOiESLR6lfI8CNgmcnpNA1oyUHosyBDmNv7Ag+C
+         4IZ+FhTST1x/HoOmVfvxuCQV/z3nMYa9YKcoYRyUCMG4G30NvIGCdu89vTX43wNpVZLF
+         OYsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760558236; x=1761163036;
+        d=1e100.net; s=20230601; t=1760558237; x=1761163037;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2XXJNRa+a1EmBL15srEVpdMPkO8sE1KKJAIBSS6n0KY=;
-        b=OA7nQSlxiZnZ3jOc6OIT5wfiwzPZN1TNyxDlrp0E8l5sUOXGPIW9zyOKOJSIWgtv37
-         R1naQDC9owlJFEAyqRuklSwZG1VpFkXF1ZHBo5PJbofQgpXABD532Vnk2SaS7IJxGm26
-         FI84x0qKxictLknhaoW+uQ8k7hsUyZ6gzaYkQ5FRlQQpyHMlZeuOHSdhss+A3t8h1S7E
-         NF9R0nL1xu7bG3xwOeXb1/67Vaw3jaYUvN2NykUuXOAMlqyrUCYKHcAv1+l1PT6dq8hi
-         R7ptL9kktWMJfDk5cZ3Uwkk6CmDgsQVjN8A/kcp7uOoABpXn22rYnB6t+zMOPV7gcyCx
-         VeXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUGYGWta1Qrp1qU3l9InT1xGOt1q5//T7LCvrL2JAl/MjbTvnqRxBMUpM03db8DiXsFCWQwWC6GDY0CBw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3ijE9155ZgwdNjaCcXruFRDdCBBaXrONOy7VHw3Rnd8Fmydgb
-	PqfUusLmZtdRyIBx/dVF47pBn0Q7FcXHPBvlSlVaCiDelxS5cEaeS8IBEWRf+e/oxBk=
-X-Gm-Gg: ASbGnctfQtulJaY5kinRX25JEs2NoV5PtPcg6YOFtczXDw3MkIYun99ScInjIcNm5VR
-	+nVot+z1mSoFfbZZ0x5XfP0ChONVMbuvAurniLli2Om/+tGas6xEvAeDIC7RepWzDK6/I5hPeUp
-	mrkgLYgXu3orAS8OPIMJCfdygD4oG5O3KHzc+Stnk9rOsM036hrsY+GhW5GmzdefULTYGBtcGXb
-	iEHmU77FmYfmboKBdvC957aUy+4oIRj47nCHuuhHQbWf9W7a1o3D7ysD8tKsCzu45jaoW3HxSOr
-	ATQ+EOlltQM1P68RjT/Y6gxnleSJQmbEag0YsNOIzZD1p6F9FBJ+fqmuuvpdaOIVCino2emyFFn
-	mQv6LQdb2KESkwXCP++1b9xpaOgovnt0bq4y0Dxg2k1unXxUy/C/MsX/Npx7lo4oEICPR+Wvgbw
+        bh=P1cXGjl5LALpTkEmKF1wH+9n+RdSexytoXIs7SXyiuk=;
+        b=rh7vLHN2cz1moRHIx7ZL6lBteFINcDb+ft0elY5TcadA/e2iuoBQj9hD9tTX+qiSg9
+         9sE2gBj35q/PcPwaLhpNW2p2hIa7ZZEe8aZiNNuulnvZYE2zJM/kHyv/+mTKw26H+OGT
+         4s0SgkihvVuLmGqO3+b9A1g3h9G8O/mAuT/egJ30GOVkzkBdOJkPmk/89CKhQYEhI4Yp
+         H2MpSjd0hCQCrulfydekqybZ207nJlnOOlDAmNLO5dfUGnRBxEWEaDfR/z80qc6P8C/H
+         UAnF/7Bx0kepXGdUZuOzcO0e+nEL0+WTP0dGhOfVfuDwjq1avqq0mFgcsQTj/v/R2Izz
+         1vXw==
+X-Forwarded-Encrypted: i=1; AJvYcCWn+MXOcBMre6hpcxLJo0o6veOV4MRUch3syCuI+OWbynAP/gJC9EDBbZQtxXpke0/H3KZYk9romXqW/Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWnWIxzo/HQdsMXm8IP2N/KhdZtcBbiKyuewAJmKe3RaUI6Px8
+	DXWnusjptpzHbx2s4nUZtjj31BUIbz+v8QvxTOkBWOYxaK2rhukfk8IuRXHb7XtIMpY=
+X-Gm-Gg: ASbGncv3ThEIqbW5V/D9mqZJPhvoSdqRQq5neYMlqh0uryISiydeZbVzlbXt1rK6nls
+	AFqzBAfheiPH9mbLrYKC3eZWTTqDDkSZ4IwWO0a53v4ldkWZM7gYxCofbZBuckeZ8jkfAQV9+Z/
+	x3YzMOSrhwXncJ4Dz0XYixFLEcMqDE6dFRutYxkzcNdhGz1WR5rcyaqXfW0kkMnoxPZMRuPr1pr
+	dl9OD4REQjA8mIYElp2nFAQXxTo+xFc6SWQ/4lrsSHBs1yX6NUJMuJrFSwARPhBg5JEkHwCOAiL
+	KwKSa/frBivM/7F/nbbGYiudeJBjgYXijqYzgvr7YCav2WvghcF4mJ94RROh6ALaJpXDP+mIPBb
+	pXwP2XbVKtua/SsDBSLs7S58QYapeeFic+z7Am5Qrey2V5UHaXay3ml+tVhF+xmqBPtnI2T+s2Q
 	==
-X-Google-Smtp-Source: AGHT+IFYzvKYJ39wIxnM+7RE1dPFgDr4+Lj3QmztieH+Js7P0YTUrQYUELqiUNF31KEmW0OEISH7cA==
-X-Received: by 2002:a05:6a20:42a3:b0:32b:8022:15 with SMTP id adf61e73a8af0-33495c20923mr1630846637.3.1760558236034;
-        Wed, 15 Oct 2025 12:57:16 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFLZrPjORuUwaeRdJWDWHubXFyOAKctiPm3J2eMbE7qpSS37pMYp1CngUyq68x7ODSrNq0gxQ==
+X-Received: by 2002:a05:6a21:9993:b0:2e4:9004:530c with SMTP id adf61e73a8af0-32da8206d98mr40544884637.17.1760558237119;
+        Wed, 15 Oct 2025 12:57:17 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992b06075fsm20151322b3a.17.2025.10.15.12.57.15
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992b06075fsm20151322b3a.17.2025.10.15.12.57.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Oct 2025 12:57:15 -0700 (PDT)
+        Wed, 15 Oct 2025 12:57:16 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Anup Patel <anup@brainfault.org>,
 	Thomas Gleixner <tglx@linutronix.de>
@@ -80,16 +80,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <pjw@kernel.org>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH 2/4] irqchip/riscv-imsic: Embed the vector array in lpriv
-Date: Wed, 15 Oct 2025 12:55:13 -0700
-Message-ID: <20251015195712.3813004-3-samuel.holland@sifive.com>
+Subject: [PATCH 3/4] irqchip/riscv-imsic: Inline imsic_vector_from_local_id()
+Date: Wed, 15 Oct 2025 12:55:14 -0700
+Message-ID: <20251015195712.3813004-4-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20251015195712.3813004-1-samuel.holland@sifive.com>
 References: <20251015195712.3813004-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_125716_840215_7743CBC2 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20251015_125717_939050_A4B7BD0B 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,64 +106,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reduce pointer chasing and the number of allocations by using a flexible
-array member for the vector array instead of a separate allocation.
+This function is only called from one place, which is in the IRQ
+handling hot path. Inline it to improve code generation and to take
+advantage of this_cpu operations. lpriv and imsic->base_domain can
+never be NULL because irq_set_chained_handler() is called after they
+are allocated.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
- drivers/irqchip/irq-riscv-imsic-state.c | 10 ++--------
- drivers/irqchip/irq-riscv-imsic-state.h |  2 +-
- 2 files changed, 3 insertions(+), 9 deletions(-)
+ drivers/irqchip/irq-riscv-imsic-early.c | 11 +++--------
+ drivers/irqchip/irq-riscv-imsic-state.c | 10 ----------
+ drivers/irqchip/irq-riscv-imsic-state.h |  2 --
+ 3 files changed, 3 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-index dc95ad856d80..9a499efdebe3 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.c
-+++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -487,7 +487,6 @@ static void __init imsic_local_cleanup(void)
- 		lpriv = per_cpu_ptr(imsic->lpriv, cpu);
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index 2c4c682627b8..6bac67cc0b6d 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -91,9 +91,8 @@ static int __init imsic_ipi_domain_init(void) { return 0; }
+  */
+ static void imsic_handle_irq(struct irq_desc *desc)
+ {
++	struct imsic_local_priv *lpriv = this_cpu_ptr(imsic->lpriv);
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+-	int cpu = smp_processor_id();
+-	struct imsic_vector *vec;
+ 	unsigned long local_id;
  
- 		bitmap_free(lpriv->dirty_bitmap);
--		kfree(lpriv->vectors);
+ 	/*
+@@ -113,16 +112,12 @@ static void imsic_handle_irq(struct irq_desc *desc)
+ 			continue;
+ 		}
+ 
+-		if (unlikely(!imsic->base_domain))
+-			continue;
+-
+-		vec = imsic_vector_from_local_id(cpu, local_id);
+-		if (!vec) {
++		if (unlikely(local_id > imsic->global.nr_ids)) {
+ 			pr_warn_ratelimited("vector not found for local ID 0x%lx\n", local_id);
+ 			continue;
+ 		}
+ 
+-		generic_handle_irq(vec->irq);
++		generic_handle_irq(lpriv->vectors[local_id].irq);
  	}
  
- 	free_percpu(imsic->lpriv);
-@@ -501,7 +500,8 @@ static int __init imsic_local_init(void)
- 	int cpu, i;
- 
- 	/* Allocate per-CPU private state */
--	imsic->lpriv = alloc_percpu(typeof(*imsic->lpriv));
-+	imsic->lpriv = __alloc_percpu(struct_size(imsic->lpriv, vectors, global->nr_ids + 1),
-+				      __alignof__(*imsic->lpriv));
- 	if (!imsic->lpriv)
- 		return -ENOMEM;
- 
-@@ -521,12 +521,6 @@ static int __init imsic_local_init(void)
- 		timer_setup(&lpriv->timer, imsic_local_timer_callback, TIMER_PINNED);
+ 	chained_irq_exit(chip, desc);
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+index 9a499efdebe3..385368052d5c 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.c
++++ b/drivers/irqchip/irq-riscv-imsic-state.c
+@@ -434,16 +434,6 @@ void imsic_vector_debug_show_summary(struct seq_file *m, int ind)
+ }
  #endif
  
--		/* Allocate vector array */
--		lpriv->vectors = kcalloc(global->nr_ids + 1, sizeof(*lpriv->vectors),
--					 GFP_KERNEL);
--		if (!lpriv->vectors)
--			goto fail_local_cleanup;
+-struct imsic_vector *imsic_vector_from_local_id(unsigned int cpu, unsigned int local_id)
+-{
+-	struct imsic_local_priv *lpriv = per_cpu_ptr(imsic->lpriv, cpu);
 -
- 		/* Setup vector array */
- 		for (i = 0; i <= global->nr_ids; i++) {
- 			vec = &lpriv->vectors[i];
+-	if (!lpriv || imsic->global.nr_ids < local_id)
+-		return NULL;
+-
+-	return &lpriv->vectors[local_id];
+-}
+-
+ struct imsic_vector *imsic_vector_alloc(unsigned int irq, const struct cpumask *mask)
+ {
+ 	struct imsic_vector *vec = NULL;
 diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
-index 57f951952b0c..196457f1bbca 100644
+index 196457f1bbca..6332501dcbd8 100644
 --- a/drivers/irqchip/irq-riscv-imsic-state.h
 +++ b/drivers/irqchip/irq-riscv-imsic-state.h
-@@ -40,7 +40,7 @@ struct imsic_local_priv {
- #endif
+@@ -95,8 +95,6 @@ static inline struct imsic_vector *imsic_vector_get_move(struct imsic_vector *ve
+ void imsic_vector_force_move_cleanup(struct imsic_vector *vec);
+ void imsic_vector_move(struct imsic_vector *old_vec, struct imsic_vector *new_vec);
  
- 	/* Local vector table */
--	struct imsic_vector			*vectors;
-+	struct imsic_vector			vectors[];
- };
+-struct imsic_vector *imsic_vector_from_local_id(unsigned int cpu, unsigned int local_id);
+-
+ struct imsic_vector *imsic_vector_alloc(unsigned int irq, const struct cpumask *mask);
+ void imsic_vector_free(struct imsic_vector *vector);
  
- struct imsic_priv {
 -- 
 2.47.2
 
