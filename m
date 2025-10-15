@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF4DCCD18E
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 06:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9D9CCD18E
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 06:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4w2Gl3nSBIvhfr0CNJdDtlE02vO6Z9GskoE1ObkTa3E=; b=BwWgWGIlyAcvG+
-	e/n8CPqGaWY35166YxEa70I4TBxBrHgH5H7eUrUD4N3VdUCEBM8BuRCg4YoOdjQNoCy5hw9D5N9qc
-	Re8blNJL2P683xeeTLxb00N+lMFNTt8u1/Mi9g5rjqOZCX5C88isoEFXEMlqfsHCOYFWymKbGpO+X
-	aZKgg3nwEE1abGXjgEUFttsD1pr6/cpHuSjpPvhauSlVF7JnaSou40dUtBzvCgt7JSnu91CYR++Qv
-	AopH6smqh7/jdp1cDJQ3e19t6KO/t3LfKSNvOf1jlyFhXOqEbSDfVj1xW4C3rrXXjy5kAXkwf7ifg
-	FtSupXap0L1NHYZKlefA==;
+	List-Owner; bh=VzrVt8ZJrgrW3D+FU7UkwpM3YABRIb51kaxpwuWVJfc=; b=e0bs7hHWzpJI61
+	oNJ2t3dQKIoeo+wBBScB/ZdfiM29Bb0JrM/Pfk5OevDIS/U8hz+tOyiVzsas1jV46NH4rxz78N7a9
+	ZoKcIHwkZr+mcL1PJWBzkUUgBLy8EtN8V29ED/+jpXg1I1hM2lIZLdaHcoe38n9u4s2DG33Ywjcyv
+	gVNwYYuNZBSslR+dpFGiDPktevqjquK74t7WFtMD6iq/hIRkjVu92Md2hbEUhmFSd9NBkfA2VkVuw
+	/XG3Sz1SF4LM4lncIzuyhT70M+tq8S9+W9iDvm/dtutpcJ3FEtY1zMembV6LsB/pQ3U6sZGKoYVv0
+	E7o0JeqO7UUJOO4r+QVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8uqt-00000000ZOb-3i5a;
-	Wed, 15 Oct 2025 06:19:11 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1v8urA-00000000ZWG-0u5M;
+	Wed, 15 Oct 2025 06:19:28 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8uqq-00000000ZEB-1kjW
+	id 1v8ur7-00000000ZKA-1Roh
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Oct 2025 06:19:10 +0000
-X-QQ-mid: esmtpsz20t1760509100tc191fae6
-X-QQ-Originating-IP: AGYyXmsCBRc5yqg5sROqL2InOJpb5Xugb1zpPXUPvFI=
+	Wed, 15 Oct 2025 06:19:26 +0000
+X-QQ-mid: zesmtpsz3t1760509123t05cff719
+X-QQ-Originating-IP: nNfNQXy1/5EgLTlbfFU/BpAhqpvUPauMUCH0BNThics=
 Received: from GPU-Server-A6000.. ( [202.201.1.132])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 15 Oct 2025 14:18:17 +0800 (CST)
+	id ; Wed, 15 Oct 2025 14:18:40 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 715155269882244565
+X-BIZMAIL-ID: 17077304549723306376
 EX-QQ-RecipientCnt: 14
 From: Yuan Tan <tanyuan@tinylab.org>
 To: arnd@arndb.de,
@@ -51,36 +51,35 @@ Cc: linux-arch@vger.kernel.org,
 	ronbogo@outlook.com,
 	z1652074432@gmail.com,
 	lx24@stu.ynu.edu.cn
-Subject: [PATCH v2 3/8] scripts/Makefile.asm-headers: pass USED_SYSCALLS to syscalltbl.sh
-Date: Wed, 15 Oct 2025 14:18:08 +0800
-Message-ID: <C997B2D86EB526D5+4bc4efa1739f38c14463918474e8bfb3d8071041.1760463245.git.tanyuan@tinylab.org>
+Subject: [PATCH v2 4/8] riscv: enable HAVE_TRIM_UNUSED_SYSCALLS when toolchain supports DCE
+Date: Wed, 15 Oct 2025 14:18:31 +0800
+Message-ID: <DFBC1E41A1103B87+997a9aedbe0a9a779d0a463bcbfd13eb677d5f0a.1760463245.git.tanyuan@tinylab.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1760463245.git.tanyuan@tinylab.org>
 References: <cover.1760463245.git.tanyuan@tinylab.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
-X-QQ-XMAILINFO: MN7J+qOXnZ1LpZYwKidf3Gnb83k4SfJRp4UnTaf4xQKBqQ843xSjSHx4
-	fbgQ0wzdK3EpKTf3GtIMU5Wr/HNkvioktxPY7ciWGEUM2IMje3AFOBB4tjR4iWQXtljZOSK
-	Kl8l8OYMUDH9KfGD+SBwM2bboN3QcfuMIL7FRa2FaHsd9o6W7ezlwk+KFhaLR9zPxf3JimC
-	2grKf+klY/i0n/BZ96ZcI6K938tqjrNJ0EJmvqvOxg6sTY3fM8tR6490SFce6LQoDGEUhCq
-	hQ9GFjba6dl0Ar6+yNHzFyN5GbkF9ufBt3qdcyneLWL9x2N+yHews7lvv0+JNnot4yVBs26
-	UOd2V9iGylIv92DsMsddNJvlqNta6KDMIQj0vghl2SCy1sqLIOVfCrl5OaCZhqTUbRai4Me
-	SmNk1MnQ714ZjKQ+aiP2E3kA7E2inECn9XA9JxMFDAVrk+ceQBq0j8KERYxm95QP7Iu/I4X
-	rVV9fKXVUf49AmH7FWbuxK7oj8Jmt1cAE/6vktjjPwaJcp+Y5nCjoMz8Wj/JpX9K+VkHvis
-	pWkwqShvGRPwFM3+aH2rDwTVHJD8VSc+/CnGPuRmG6p9jj3gpD2iQPQCXcYT+Hv6VQOCj/l
-	KDK63HG0508JRtpR3xYpQB51ZkFHrUgSaILuXqqvJGrHSzPId9RiDUeFCEGgtVdiiaDPIc+
-	/ckVEnXDDe9bLD2RuRSAnFyIah2dxCyRLGigjDUlwTZjKoYHKMZPDO1Ou67j0phgxhVFa5U
-	uHZe7JShwmEMWkWGigbajEiGXQTNmOsexp/kPNCmNUWWrzs4r3JL/jSFFBjMKlLVHU8TMKx
-	nvQPhvlxsPtboTo0iXscEPx614EHc2/A39CWmu/4G0NjbFZsltyjItmF2IKSt+rw+bh054l
-	u7LE/fbOBwTKVKVCgiYi9doQkmC6u6k24UX4yLfna/4dw5b859Bg0k3Hav13h44vBkKKmsy
-	zlKhGrG4FnQjN/rlr0tRhzV3LgaAaBLlXVAgi7qvnTCRvcDqf4SDcdk0906ZMQwZB/mLoz3
-	o1l4Ys9NE3aRScZYPnyU02N+P84ZnaHkG9Utz8iA==
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+Feedback-ID: zesmtpsz:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
+X-QQ-XMAILINFO: Mpv6PNPPUmDu01OaIjV3/c9lP/+9l92EgFL6Up0MEq9OBV1ly0d0GAZH
+	nMBUt4qG6xMxRFmM0labnaCvSycP58RZy71c1VR+/Neqs2+z6gtDCKo4ElOvtZFriDOUOiU
+	pWCTMo3t6a/bdbCCOayMAqcWFK3G17PRM0WgvjpgXcMQw2t6xsn8foLu1Zr3lAr3eqXGACx
+	3+DnSDxjJvzkUW4epJJQvjjXaW3BLN6ICtTb0f+W05/qN4wPsWs6UObMPvyTgDUBgVKuS/h
+	9xzpk63Xnb6mR9UnpEwFXyqrzwybdECyAxC3ftAXIcF84kdFm80kgKDXVepDNWaWxxEALP1
+	flaI7ouj1yZ5cbeYc6xysCRZWtEu7tU1+rUXa7cN7HsAyAXN+zQYOqJuuVeYpm7X7KY36/n
+	5FckXbcHJGAx9wZalHQqecJ05JzY/1bJ0sj1FQNy4bH9m+0ejTGoUcVaztIft/TltR0xYha
+	24c97saY0zCwDjkPylGdHFn92swxaCcTeNSiTc7gQQTxk0b0P2Y9rC6X+n1oW26lWejroqf
+	ItMJcyMGaJkPJxLaaAlNKLeugvcNiRQaIkGawGFD4u9EmHQZzQ8hS1qdlF6CKCBxeZ/oQMr
+	/Wx9fqLKyuoxP9rAY7IbbL2Bvuhe7POTkyXDm7YTAymFahHiDsJNokghcvCIp2eUxlgkD25
+	RWI6V0pYw9iUjihkvGMZT7e3XTwZOPAUveuXHNwuBIjwQzaUHnxGjmRxHSmk2bNv1XEREsy
+	gok1SDmW3LTBeHOZB8AURCYvJgijz5cM5e/kU+A37nuHLROrS679XRcxqzHvf8syGBipHsl
+	GEAgzLFEh5+TX9oaub1gTZ+1NCnXM3xAXGPK8PQGvhOzjBXOrp7HD5W7gixHMfQ1mqnEDVX
+	buvtHwEJAWDgqvhn/P3zFk67YlnmgO/xTJpePEsIK+dCpnR3IODlo9hMAU5Je6sonJ2eij2
+	CGOLMid/TdK5Rzg/BLhBG32sP6j5x912TfLZxTUwJI1LFAA==
+X-QQ-XMRINFO: OJlEh3abS6gXi5NWrXbD0WI=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_231909_295274_9655912C 
-X-CRM114-Status: UNSURE (   6.10  )
+X-CRM114-CacheID: sfid-20251014_231925_875720_390EE8D2 
+X-CRM114-Status: UNSURE (   7.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,38 +99,35 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Yuhang Zheng <z1652074432@gmail.com>
 
-Include auto.conf in asm-headers and pass CONFIG_USED_SYSCALLS to
-syscalltbl.sh when CONFIG_TRIM_UNUSED_SYSCALLS is enabled.
+Enable HAVE_TRIM_UNUSED_SYSCALLS on RISC-V when the toolchain supports dead
+code and data elimination.
+
+This allows the unused syscalls and related code to be trimmed at link time
+based on the list of actually used syscalls.
+
+While this enables per-syscall elimination, some syscall entries still
+cannot be fully discarded due to sections that are force-kept by the
+linker, such as ex_table, bug_table, jump_table, and .alternative.
 
 Signed-off-by: Yuhang Zheng <z1652074432@gmail.com>
 Signed-off-by: Yuan Tan <tanyuan@tinylab.org>
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- scripts/Makefile.asm-headers | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/scripts/Makefile.asm-headers b/scripts/Makefile.asm-headers
-index 8a4856e74180..0ae82c6a2a15 100644
---- a/scripts/Makefile.asm-headers
-+++ b/scripts/Makefile.asm-headers
-@@ -13,6 +13,8 @@
- PHONY := all
- all:
- 
-+include $(objtree)/include/config/auto.conf
-+
- src := $(srctree)/$(subst /generated,,$(obj))
- 
- syscall_abis_32  += common,32
-@@ -68,6 +70,8 @@ quiet_cmd_systbl = SYSTBL  $@
-       cmd_systbl = $(CONFIG_SHELL) $(systbl) \
- 		   $(if $(systbl-args-$*),$(systbl-args-$*),$(systbl-args)) \
- 		   --abis $(subst $(space),$(comma),$(strip $(syscall_abis_$*))) \
-+		   $(if $(CONFIG_TRIM_UNUSED_SYSCALLS), \
-+		   --used-syscalls=$(subst $(space),$(comma),$(strip $(CONFIG_USED_SYSCALLS)))) \
- 		   $< $@
- 
- all: $(generic-y) $(syscall-y)
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 0c6038dc5dfd..697050ac8c62 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -198,6 +198,7 @@ config RISCV
+ 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
+ 	select HAVE_STACKPROTECTOR
+ 	select HAVE_SYSCALL_TRACEPOINTS
++	select HAVE_TRIM_UNUSED_SYSCALLS
+ 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
+ 	select IRQ_DOMAIN
+ 	select IRQ_FORCED_THREADING
 -- 
 2.43.0
 
