@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EB8CCD185
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 06:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EFE3CCD18E
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Oct 2025 06:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8AuF3sVSPQEjxYidbcO1BfhDN2VAgPcLnooS8Fzn1qs=; b=2FEd7nHRQoGjJV
-	1yEM4gVU6Vr9sptznx0zXdSX6QrBd+M7SlCnIxGgzgC6A08WnbFhTk94lbZeJgSUo8SlF0jiFCKmF
-	6aQhLCJSEYImBQ+VWB/nK0elt4KNvF3lttcf68CeRKeRl8j/R8CJaQE7eMxpEx+gTWy4WLNUM+oIm
-	mdKh6yv1s3VMY4g7+XheVQxZk89gr27cCJgbiRhzPYSPy86cDL96L7tUekCda6si7nXx/tBnb9MhR
-	lYJPpvBjmaGjafCVylUPmJNsxVEJIDvc77IknMpEp0wlt8WrQij/Hs57FyOF3uciToYPlsvN/bexW
-	KTPK0qQDDorohp2U1fGA==;
+	List-Owner; bh=VcxLbiVSj/wHARGDkpco8Vyt5mU3jYZ1qsOXufTZOY0=; b=ginP4jPM0G1slC
+	lwp1v+8vFU4q5+N+E3CxEv9IzYu87op8ta9zo4g5n7HDcInwmI77GNVwaDiXxKaCExSqgZ5mup9U6
+	yKMuievjXsByCTakXlypv1ehLqoUAfJo15rxbgnelaSyq770cKYwMBlzuaaRhvPFnJZJj9cz/Te8y
+	58jTnEFvNZ9md8N4yo2vQZJMGD+sA4kRrWp/+DPFFozB0q4uacoy/EU7XllWUIUdWyylI+NLg3bg0
+	bxBkF97rFiAs4VdQMBhDcrJOck/99Z4aEFLD/Am+0PL9ON9UFbTFe1vXtD4/etOefkULtc7ULEskd
+	IZiIufeRVqvxxw4uOTUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8uuz-00000000ae5-3Bd8;
-	Wed, 15 Oct 2025 06:23:25 +0000
-Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	id 1v8uvO-00000000ajx-0Ic2;
+	Wed, 15 Oct 2025 06:23:50 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8uuw-00000000aZ0-3DOR
+	id 1v8uvK-00000000ae3-3FwA
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Oct 2025 06:23:24 +0000
-X-QQ-mid: esmtpsz17t1760509347t6c7396dc
-X-QQ-Originating-IP: +rvgJOymfhQGSFW+gyMHV9XEE53HaMbisGq3cCwjcu8=
+	Wed, 15 Oct 2025 06:23:48 +0000
+X-QQ-mid: esmtpsz19t1760509371td6f1d5ef
+X-QQ-Originating-IP: MUaYd5o57zoY0W6wIrPI4YBjDwhi9ENIo8kee4n+TZM=
 Received: from GPU-Server-A6000.. ( [202.201.1.132])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 15 Oct 2025 14:22:24 +0800 (CST)
+	id ; Wed, 15 Oct 2025 14:22:48 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 14340811432135975756
+X-BIZMAIL-ID: 6832363004775497478
 EX-QQ-RecipientCnt: 14
 From: Yuan Tan <tanyuan@tinylab.org>
 To: arnd@arndb.de,
@@ -51,36 +51,36 @@ Cc: linux-arch@vger.kernel.org,
 	ronbogo@outlook.com,
 	z1652074432@gmail.com,
 	lx24@stu.ynu.edu.cn
-Subject: [PATCH v2 7/8] vmlinux.lds.h: support conditional KEEP() in linker script
-Date: Wed, 15 Oct 2025 14:22:15 +0800
-Message-ID: <8BFF520DF61C1BB6+096017ae9362c21b090c1f3c97bbd0fdf305bd27.1760463245.git.tanyuan@tinylab.org>
+Subject: [PATCH v2 8/8] riscv: use PUSHSECTION in ex_table, jump_table, bug_table and alternatives
+Date: Wed, 15 Oct 2025 14:22:39 +0800
+Message-ID: <22B977FCB8434D8A+8905ca92f19047804ba693f7cd3b2ef1e2721bad.1760463245.git.tanyuan@tinylab.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1760463245.git.tanyuan@tinylab.org>
 References: <cover.1760463245.git.tanyuan@tinylab.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
-X-QQ-XMAILINFO: MyirvGjpKb1jdp298dlRfLmn+nbhEczkj6ZLOKa2DAhtqOK96soFsuPw
-	KAqB/9oS27tYnWz9f2RTJIXuxj17H1envL6I09Ui8Ph603WM54p3wOUFun8ztMV5IweTLWD
-	B/gTO3QxAON7LbZqsDbEWboqcQcZi0ce6tLugF81A2eJjezbBBhu0oKXMGC1EZ4k2HuJCoD
-	KhCe5TcF6NW3SqGGpWImKhhyPrSPsQsQ+LDX00kLDyKMaOx7vtUA7f8aPDKXIxU0iRFdM8B
-	d79UFU56muabpxQMAblM5jo81KJIpGBWOE6Ywt9pseeUd1Bmi60EGsTtTpr0SFtIbHcdwL4
-	uMzbWlPwlj3U3MB3+5n19Wxq8v0UMwGpDoX5rDa2PCMGKPFL3kPxZj252SNNQW2iuHfVmOj
-	xMP7p7Fw4d1A69+B6m+fSTaI1u4lW4aojvclhoTDuD2Q9kKywqG3pv/b+jR5NQqG1NqMCAc
-	fllNA04l3og57zAPpvziRGOhA9QyVwwZjWT4thUxYkQF9RU3ZfXoT3xIxsy+SdeQwu7Vrh0
-	2s4Ssxy8ZAhqKAKYDjkjds50THGtR1xsVABsvoOXFbNubhszxOznAcDN2ceK3xwoAeGlZis
-	M+sTttGCMq1HE+mC5sDiZI8XyVHNXVAEDTAOQ/2eKX6Yj9QgjgYcxYcuq6sdLoJn4OqbPk5
-	R29DODxEj2lzP3FGDwYhcKUUO4RV8hsVUg1mI+OzMT4OErzrqV7R3oxHrwFWcaylB/I9n1k
-	GsChY/J7EQelCRm2IrmE482sBsLfqWORgciaNhY/jQ2p6G1EUdOU+8KVCELW9EWcXh+qdAQ
-	HrkyUoNRJysImnsBhPQ3ZJc/e8OyBYxd3F21ZsErNiJw7uDQG4MWvMOzHTU+Ue8Mxv+sS+P
-	P9b+1E/Ed90w13XbJ4jabDSvV5SBlAtjbMRQv58dLNPNuXYSC0+lFYkSTOwT6adXXWX1ATU
-	fG6asPYfbXMPT103mClG0s6M0bcpPWRoT9HiCX7mXefBdlKpip46bWVjgHqYq+loq46hWNl
-	hNMlILbryjIKPHmu56
-X-QQ-XMRINFO: MYTJVxP1dBxwZFBmm3GDYp0=
+X-QQ-XMAILINFO: OZiGlmjmGvyhm8XwKSZjejE2w2AJd1XT2qIO4ynT4Q9Dl8pkGcdYDe7j
+	7n0zDhkb1yAMlVHWWSABnrSSKVAWeIqoJ1SoXInDMX6oQaE52ehrlqX4TlEMF1vQ4KDkiIf
+	8/10wRaoWROJCRE3JFtikuA3LK300eNmtL9+VJBZBAiIqKd2sHQvYNfmNDK6Oua/2AAouuM
+	GbJmxPb/Ra33LapAkAmC1+RfFK+xsBIvuPdzS4tS/rrlkqAKAVsvpV2QRUspN9JUABeaZjK
+	BC70j1V2O3uqoWFmc8osnYG/7lhVK5L0yEcUsZS5asL2yoFx31D+Vk5Rd0B2zHaAD6fthkj
+	LErUxR8sfpHWDi02sW/MieLmTTE98h11qhTpNr0/hEJnCRWKofysSKHWm5KvoGPhsxv5VV1
+	49nqQtWhJkf4Rx1e3lqB26ZwsH4hHGwSY8gUA/q1wUTNcEoH7kmGnz6thTvn1zJ4c6L/u6G
+	2VwDQLsbl6t6BPcG0ylMGjSHzRydHgjOFyAYKxy9cUJVvwvcPDR2G4qt1Beq1eZevhShUna
+	/vK4fx6bw49Vp5z+a1O3CnONSM4su08yL6saCSvKYIMfOaEHe6Y0gSL7DTB63J4p69qBvTQ
+	m4zFwUq8bpiOIjg4TbqF+QmNCwtBbrIb9zCOVIHik/rRW5f4g8qVhb4b5Nxe49o+DWr1PbY
+	6LHvwLrBfCS2kTKmbSg5fTeKcbh8/hu4T9yhqeJ9gOIGPo46TcAf/LMM3rlVUCI5BRR6+/7
+	yDGuKCGmA+9+fpKdSiO+ck5d86BQ5Dj8w4ZqPvbqVei0UiA7gvwhDz7Ul5XLSUZY0hGlPM7
+	HySeSQqlHA+OoCQaa4TXVGtbOd9PCrh0/nMSQN/wrSLFW/7dxC7ekIUbqlrVYj7KUS70HiJ
+	fIHDI5NtfLx2oYNRZd24DtaoTy9M1poMHU8t3yipK3ClJtb1sZS5VU9Xot2qlaXfp5763TY
+	xXYm6LtV/OE4Brz8ETGH77Hvbafxpg9XAivWUYGM2m7AQyhvgwavz+v37
+X-QQ-XMRINFO: Mgo7HCA7/T7wHQuXcPxwuSA=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_232323_187464_BC174682 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20251014_232347_372434_2E7B5465 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,85 +92,173 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SW50cm9kdWNlIGEgY29uZGl0aW9uYWwgS0VFUCgpIGhlbHBlciwgQ09ORF9LRUVQKCksIHRoYXQg
-YWxsb3dzIGEKc2VjdGlvbiB0byBiZSBrZXB0IG9ubHkgaWYgYSBjb3JyZXNwb25kaW5nIE5PS0VF
-UF88c2VjPiBtYWNybyBpcyBub3QKZGVmaW5lZC4gVGhpcyBwcm92aWRlcyBhIGZpbmVyLWdyYWlu
-ZWQgbWVjaGFuaXNtIHRvIGNvbnRyb2wgd2hpY2gKc2VjdGlvbnMgYXJlIHByb3RlY3RlZCBmcm9t
-IGdhcmJhZ2UgY29sbGVjdGlvbi4KClRyYWRpdGlvbmFsbHksIG1hbnkgc2VjdGlvbnMg4oCUIGZv
-ciBleGFtcGxlLCB0aGUgZXhjZXB0aW9uIHRhYmxlIGFuZCBqdW1wCnRhYmxlIOKAlCBhcmUgY3Jl
-YXRlZCBieSAucHVzaHNlY3Rpb24gYW5kIHdyYXBwZWQgd2l0aCBLRUVQKCkgaW4Kdm1saW51eC5s
-ZHMuaCB0byBwcmV2ZW50IHRoZW0gZnJvbSBiZWluZyBkaXNjYXJkZWQgYnkgdGhlIGxpbmtlciwg
-ZXZlbiB3aGVuCnRoZXkgYXJlIG5vdCBhY3R1YWxseSByZWZlcmVuY2VkLiBUaGlzIGNhbiBibG9j
-ayBkZWFkIGNvZGUgYW5kIGRhdGEKZWxpbWluYXRpb24gKERDRSkgd2hlbiB0aGUgc2VjdGlvbiBp
-cyBrbm93biB0byBiZSBzYWZlIHRvIGRyb3AuCgpXaXRoIENPTkRfS0VFUCgpLCBhcmNoaXRlY3R1
-cmVzIG9yIHN1YnN5c3RlbXMgY2FuIHNhZmVseSByZW1vdmUgdGhlIEtFRVAoKQppbiBjYXNlcyB3
-aGVyZSB0aGUgc2VjdGlvbiBjYW4gYmUgc2FmZWx5IGdhcmJhZ2UtY29sbGVjdGVkLgoKVGhlIGlt
-cGxlbWVudGF0aW9uIGFkZHM6CiAgLSBfX0tFRVBfQUNUXzAoKSAvIF9fS0VFUF9BQ1RfMSgpIGhl
-bHBlcnMgZm9yIG1hY3JvIGV4cGFuc2lvbgogIC0gQlNFQ19NQUlOKCkgdG8gaGFuZGxlIHBvc3Np
-YmxlIHN1Yi1zZWN0aW9uIHBhdHRlcm5zLCBzdWNoIGFzCiAgICBfX2V4X3RhYmxlLjE4CiAgLSBD
-T05EX0tFRVAoKSBtYWNybywgd2hpY2ggd3JhcHMgS0VFUCgpIGNvbmRpdGlvbmFsbHkgYmFzZWQg
-b24KICAgIF9faXNfZGVmaW5lZChOT0tFRVBfPHNlYz4pCgpFeGFtcGxlIHVzYWdlOgoKQ09ORF9L
-RUVQKGFsdGVybmF0aXZlLCAqKC5hbHRlcm5hdGl2ZSopKQoKQWRkaXRpb25hbGx5LCBtb3ZlIHRo
-ZSBfX19QQVNURSgpL19fUEFTVEUoKSBkZWZpbml0aW9ucyBpbgppbmNsdWRlL2xpbnV4L2NvbXBp
-bGVyX3R5cGVzLmggb3V0IGZyb20gdW5kZXIgdGhlICcjaWZuZGVmIF9fQVNTRU1CTFlfXycKZ3Vh
-cmQgc28gdGhhdCB0aGV5IGFyZSB2aXNpYmxlIHRvIGFzc2VtYmx5LgoKTm8gZnVuY3Rpb25hbCBj
-aGFuZ2UgdW5sZXNzIE5PS0VFUF88c2VjPiBpcyBkZWZpbmVkLgoKU2lnbmVkLW9mZi1ieTogWXVh
-biBUYW4gPHRhbnl1YW5AdGlueWxhYi5vcmc+ClNpZ25lZC1vZmYtYnk6IFpoYW5namluIFd1IDxm
-YWxjb25AdGlueWxhYi5vcmc+ClNpZ25lZC1vZmYtYnk6IFBlaWhhbiBMaXUgPHJvbmJvZ29Ab3V0
-bG9vay5jb20+Ci0tLQogaW5jbHVkZS9hc20tZ2VuZXJpYy92bWxpbnV4Lmxkcy5oIHwgMTIgKysr
-KysrKysrKy0tCiBpbmNsdWRlL2xpbnV4L2NvbXBpbGVyX3R5cGVzLmggICAgfCAgOCArKysrLS0t
-LQogMiBmaWxlcyBjaGFuZ2VkLCAxNCBpbnNlcnRpb25zKCspLCA2IGRlbGV0aW9ucygtKQoKZGlm
-ZiAtLWdpdCBhL2luY2x1ZGUvYXNtLWdlbmVyaWMvdm1saW51eC5sZHMuaCBiL2luY2x1ZGUvYXNt
-LWdlbmVyaWMvdm1saW51eC5sZHMuaAppbmRleCA4YTlhMmU3MzJhNjUuLjhiYjQxMWFjZTg2MyAx
-MDA2NDQKLS0tIGEvaW5jbHVkZS9hc20tZ2VuZXJpYy92bWxpbnV4Lmxkcy5oCisrKyBiL2luY2x1
-ZGUvYXNtLWdlbmVyaWMvdm1saW51eC5sZHMuaApAQCAtNTEsNiArNTEsNyBAQAogICovCiAKICNp
-bmNsdWRlIDxhc20tZ2VuZXJpYy9jb2RldGFnLmxkcy5oPgorI2luY2x1ZGUgPGxpbnV4L2NvbXBp
-bGVyX3R5cGVzLmg+CiAKICNpZm5kZWYgTE9BRF9PRkZTRVQKICNkZWZpbmUgTE9BRF9PRkZTRVQg
-MApAQCAtMTEzLDE0ICsxMTQsMjEgQEAgZGVmaW5lZChDT05GSUdfQVVUT0ZET19DTEFORykgfHwg
-ZGVmaW5lZChDT05GSUdfUFJPUEVMTEVSX0NMQU5HKQogI2RlZmluZSBST0RBVEFfTUFJTiAucm9k
-YXRhIC5yb2RhdGEuWzAtOWEtekEtWl9dKiAucm9kYXRhLi5MKgogI2RlZmluZSBCU1NfTUFJTiAu
-YnNzIC5ic3MuWzAtOWEtekEtWl9dKiAuYnNzLi5MKiAuYnNzLi5jb21wb3VuZGxpdGVyYWwqCiAj
-ZGVmaW5lIFNCU1NfTUFJTiAuc2JzcyAuc2Jzcy5bMC05YS16QS1aX10qCisjZGVmaW5lIEJTRUNf
-TUFJTihzZWMpIHNlYyBzZWMjIy5bMC05YS16QS1aX10qCiAjZWxzZQogI2RlZmluZSBEQVRBX01B
-SU4gLmRhdGEgLmRhdGEucmVsIC5kYXRhLnJlbC5sb2NhbAogI2RlZmluZSBTREFUQV9NQUlOIC5z
-ZGF0YQogI2RlZmluZSBST0RBVEFfTUFJTiAucm9kYXRhCiAjZGVmaW5lIEJTU19NQUlOIC5ic3MK
-ICNkZWZpbmUgU0JTU19NQUlOIC5zYnNzCisjZGVmaW5lIEJTRUNfTUFJTihzZWMpIHNlYwogI2Vu
-ZGlmCiAKKyNkZWZpbmUgX19LRUVQX0FDVF8wKHNlYykgS0VFUChzZWMpCisjZGVmaW5lIF9fS0VF
-UF9BQ1RfMShzZWMpIHNlYworCisjZGVmaW5lIENPTkRfS0VFUChzZWMsIGxpc3QpIF9fUEFTVEUo
-X19LRUVQX0FDVF8sIF9faXNfZGVmaW5lZChOT0tFRVBfIyNzZWMpKShsaXN0KQorCiAvKgogICog
-R0NDIDQuNSBhbmQgbGF0ZXIgaGF2ZSBhIDMyIGJ5dGVzIHNlY3Rpb24gYWxpZ25tZW50IGZvciBz
-dHJ1Y3R1cmVzLgogICogRXhjZXB0IEdDQyA0LjksIHRoYXQgZmVlbHMgdGhlIG5lZWQgdG8gYWxp
-Z24gb24gNjQgYnl0ZXMuCkBAIC0xOTYsMTIgKzIwNCwxMiBAQCBkZWZpbmVkKENPTkZJR19BVVRP
-RkRPX0NMQU5HKSB8fCBkZWZpbmVkKENPTkZJR19QUk9QRUxMRVJfQ0xBTkcpCiAKICNkZWZpbmUg
-Qk9VTkRFRF9TRUNUSU9OX1BSRV9MQUJFTChfc2VjXywgX2xhYmVsXywgX0JFR0lOXywgX0VORF8p
-CVwKIAlfQkVHSU5fIyNfbGFiZWxfID0gLjsJCQkJCQlcCi0JS0VFUCgqKF9zZWNfKSkJCQkJCQkJ
-XAorCUNPTkRfS0VFUChfc2VjXywgKihCU0VDX01BSU4oX3NlY18pKSkJCQkJXAogCV9FTkRfIyNf
-bGFiZWxfID0gLjsKIAogI2RlZmluZSBCT1VOREVEX1NFQ1RJT05fUE9TVF9MQUJFTChfc2VjXywg
-X2xhYmVsXywgX0JFR0lOXywgX0VORF8pCVwKIAlfbGFiZWxfIyNfQkVHSU5fID0gLjsJCQkJCQlc
-Ci0JS0VFUCgqKF9zZWNfKSkJCQkJCQkJXAorCUNPTkRfS0VFUChfc2VjXywgKihCU0VDX01BSU4o
-X3NlY18pKSkJCQkJXAogCV9sYWJlbF8jI19FTkRfID0gLjsKIAogI2RlZmluZSBCT1VOREVEX1NF
-Q1RJT05fQlkoX3NlY18sIF9sYWJlbF8pCQkJCVwKZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgv
-Y29tcGlsZXJfdHlwZXMuaCBiL2luY2x1ZGUvbGludXgvY29tcGlsZXJfdHlwZXMuaAppbmRleCA1
-OTI4OGEyYzFhZDIuLjY4MGJhNGFmYmU3ZCAxMDA2NDQKLS0tIGEvaW5jbHVkZS9saW51eC9jb21w
-aWxlcl90eXBlcy5oCisrKyBiL2luY2x1ZGUvbGludXgvY29tcGlsZXJfdHlwZXMuaApAQCAtNzks
-MTAgKzc5LDYgQEAgc3RhdGljIGlubGluZSB2b2lkIF9fY2hrX2lvX3B0cihjb25zdCB2b2xhdGls
-ZSB2b2lkIF9faW9tZW0gKnB0cikgeyB9CiAjIGRlZmluZSBfX2J1aWx0aW5fd2FybmluZyh4LCB5
-Li4uKSAoMSkKICNlbmRpZiAvKiBfX0NIRUNLRVJfXyAqLwogCi0vKiBJbmRpcmVjdCBtYWNyb3Mg
-cmVxdWlyZWQgZm9yIGV4cGFuZGVkIGFyZ3VtZW50IHBhc3RpbmcsIGVnLiBfX0xJTkVfXy4gKi8K
-LSNkZWZpbmUgX19fUEFTVEUoYSxiKSBhIyNiCi0jZGVmaW5lIF9fUEFTVEUoYSxiKSBfX19QQVNU
-RShhLGIpCi0KICNpZmRlZiBfX0tFUk5FTF9fCiAKIC8qIEF0dHJpYnV0ZXMgKi8KQEAgLTQyNSw2
-ICs0MjEsMTAgQEAgc3RydWN0IGZ0cmFjZV9saWtlbHlfZGF0YSB7CiAKICNlbmRpZiAvKiBfX0FT
-U0VNQkxZX18gKi8KIAorLyogSW5kaXJlY3QgbWFjcm9zIHJlcXVpcmVkIGZvciBleHBhbmRlZCBh
-cmd1bWVudCBwYXN0aW5nLCBlZy4gX19MSU5FX18uICovCisjZGVmaW5lIF9fX1BBU1RFKGEsIGIp
-IGEjI2IKKyNkZWZpbmUgX19QQVNURShhLCBiKSBfX19QQVNURShhLCBiKQorCiAvKgogICogVGhl
-IGJlbG93IHN5bWJvbHMgbWF5IGJlIGRlZmluZWQgZm9yIG9uZSBvciBtb3JlLCBidXQgbm90IEFM
-TCwgb2YgdGhlIGFib3ZlCiAgKiBjb21waWxlcnMuIFdlIGRvbid0IGNvbnNpZGVyIHRoYXQgdG8g
-YmUgYW4gZXJyb3IsIHNvIHNldCB0aGVtIHRvIG5vdGhpbmcuCi0tIAoyLjQzLjAKCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Replace plain .pushsection with the new PUSHSECTION macro for __ex_table,
+__bug_table, __jump_table, and .alternative on RISC-V.
+
+PUSHSECTION establishes proper references between the caller and the
+generated sections, allowing --gc-sections to recognize their dependencies
+correctly. This avoids the need for KEEP() and prevents dependency
+inversion where unused sections keep others alive.
+
+With this change, CONFIG_TRIM_UNUSED_SYSCALLS can correctly discard unused
+syscalls together with their exception tables.
+
+This update takes effect only when built with an assembler that supports
+BFD_RELOC_NONE, and falls back to the existing behavior otherwise.
+
+Signed-off-by: Yuan Tan <tanyuan@tinylab.org>
+Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+Signed-off-by: Peihan Liu <ronbogo@outlook.com>
+---
+ arch/riscv/include/asm/alternative-macros.h |  8 +++++---
+ arch/riscv/include/asm/asm-extable.h        | 10 ++++++----
+ arch/riscv/include/asm/bug.h                |  2 +-
+ arch/riscv/include/asm/jump_label.h         |  3 ++-
+ arch/riscv/kernel/vmlinux.lds.S             |  9 ++++++++-
+ 5 files changed, 22 insertions(+), 10 deletions(-)
+
+diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+index 9619bd5c8eba..dd24c3e1117b 100644
+--- a/arch/riscv/include/asm/alternative-macros.h
++++ b/arch/riscv/include/asm/alternative-macros.h
+@@ -2,9 +2,11 @@
+ #ifndef __ASM_ALTERNATIVE_MACROS_H
+ #define __ASM_ALTERNATIVE_MACROS_H
+ 
++#include <linux/compiler.h>
++
+ #ifdef CONFIG_RISCV_ALTERNATIVE
+ 
+-#ifdef __ASSEMBLER__
++#ifdef __ASSEMBLY__
+ 
+ .macro ALT_ENTRY oldptr newptr vendor_id patch_id new_len
+ 	.4byte \oldptr - .
+@@ -16,7 +18,7 @@
+ 
+ .macro ALT_NEW_CONTENT vendor_id, patch_id, enable = 1, new_c
+ 	.if \enable
+-	.pushsection .alternative, "a"
++	PUSHSECTION .alternative, "a"
+ 	ALT_ENTRY 886b, 888f, \vendor_id, \patch_id, 889f - 888f
+ 	.popsection
+ 	.subsection 1
+@@ -67,7 +69,7 @@
+ 
+ #define ALT_NEW_CONTENT(vendor_id, patch_id, enable, new_c)		\
+ 	".if " __stringify(enable) " == 1\n"				\
+-	".pushsection .alternative, \"a\"\n"				\
++	PUSHSECTION(.alternative, "a")					\
+ 	ALT_ENTRY("886b", "888f", __stringify(vendor_id), __stringify(patch_id), "889f - 888f") \
+ 	".popsection\n"							\
+ 	".subsection 1\n"						\
+diff --git a/arch/riscv/include/asm/asm-extable.h b/arch/riscv/include/asm/asm-extable.h
+index 37d425d7a762..24eb29f2ef82 100644
+--- a/arch/riscv/include/asm/asm-extable.h
++++ b/arch/riscv/include/asm/asm-extable.h
+@@ -2,6 +2,8 @@
+ #ifndef __ASM_ASM_EXTABLE_H
+ #define __ASM_ASM_EXTABLE_H
+ 
++#include <linux/compiler.h>
++
+ #define EX_TYPE_NONE			0
+ #define EX_TYPE_FIXUP			1
+ #define EX_TYPE_BPF			2
+@@ -10,10 +12,10 @@
+ 
+ #ifdef CONFIG_MMU
+ 
+-#ifdef __ASSEMBLER__
++#ifdef __ASSEMBLY__
+ 
+ #define __ASM_EXTABLE_RAW(insn, fixup, type, data)	\
+-	.pushsection	__ex_table, "a";		\
++	PUSHSECTION __ex_table, "a";			\
+ 	.balign		4;				\
+ 	.long		((insn) - .);			\
+ 	.long		((fixup) - .);			\
+@@ -31,8 +33,8 @@
+ #include <linux/stringify.h>
+ #include <asm/gpr-num.h>
+ 
+-#define __ASM_EXTABLE_RAW(insn, fixup, type, data)	\
+-	".pushsection	__ex_table, \"a\"\n"		\
++#define __ASM_EXTABLE_RAW(insn, fixup, type, data)      \
++	PUSHSECTION(__ex_table, "a")			\
+ 	".balign	4\n"				\
+ 	".long		((" insn ") - .)\n"		\
+ 	".long		((" fixup ") - .)\n"		\
+diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
+index 4c03e20ad11f..855860c34209 100644
+--- a/arch/riscv/include/asm/bug.h
++++ b/arch/riscv/include/asm/bug.h
+@@ -54,7 +54,7 @@ typedef u32 bug_insn_t;
+ #define ARCH_WARN_ASM(file, line, flags, size)			\
+ 		"1:\n\t"					\
+ 			"ebreak\n"				\
+-			".pushsection __bug_table,\"aw\"\n\t"	\
++			PUSHSECTION(__bug_table, "aw")          \
+ 		"2:\n\t"					\
+ 		__BUG_ENTRY(file, line, flags) "\n\t"		\
+ 			".org 2b + " size "\n\t"                \
+diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
+index 3ab5f2e3212b..1134a9bc95a7 100644
+--- a/arch/riscv/include/asm/jump_label.h
++++ b/arch/riscv/include/asm/jump_label.h
+@@ -11,13 +11,14 @@
+ 
+ #include <linux/types.h>
+ #include <asm/asm.h>
++#include <linux/compiler.h>
+ 
+ #define HAVE_JUMP_LABEL_BATCH
+ 
+ #define JUMP_LABEL_NOP_SIZE 4
+ 
+ #define JUMP_TABLE_ENTRY(key, label)			\
+-	".pushsection	__jump_table, \"aw\"	\n\t"	\
++	PUSHSECTION(__jump_table, "aw")	                \
+ 	".align		" RISCV_LGPTR "		\n\t"	\
+ 	".long		1b - ., " label " - .	\n\t"	\
+ 	"" RISCV_PTR "	" key " - .		\n\t"	\
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index 61bd5ba6680a..e6d117047226 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -7,6 +7,13 @@
+ #define RO_EXCEPTION_TABLE_ALIGN	4
+ #define RUNTIME_DISCARD_EXIT
+ 
++#ifdef CONFIG_PUSHSECTION_WITH_RELOC
++#define NOKEEP___jump_table 1
++#define NOKEEP___ex_table 1
++#define NOKEEP___bug_table 1
++#define NOKEEP_alternative 1
++#endif
++
+ #ifdef CONFIG_XIP_KERNEL
+ #include "vmlinux-xip.lds.S"
+ #else
+@@ -117,7 +124,7 @@ SECTIONS
+ 	. = ALIGN(8);
+ 	.alternative : {
+ 		__alt_start = .;
+-		KEEP(*(.alternative))
++		COND_KEEP(alternative, *(.alternative*))
+ 		__alt_end = .;
+ 	}
+ 	__init_end = .;
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
