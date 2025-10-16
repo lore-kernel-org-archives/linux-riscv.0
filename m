@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DD8CCD183
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 11:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EF98CCD19A
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 11:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qr5WvHuonQmYBveBZcjioc0XiBL8UecGMogO4+HYhYo=; b=ECMPN/gw8pYZat
-	dHLWociKk+VQyP6UXS6P8lkKul8uNX8GD7HW8vffBia1SjldaD1zFRTaArI/alk+QcRCWvVXSAUbX
-	9Ci77lvLpVIJOdHkyb6EOKv5Re8Qs9QsDx+B++6BeM0uPb5G80xmrwU4m4T6PkZ3sKqFlxBhbbFjE
-	EQ7UwCVbZG4UaYvWA9CASyuC4BZtHQDL7pofjFbkmGtuyEffDJNT8ZE7L0ORDUsJ7CsPxksZ0UZuC
-	Tp23Idzmu3il9+Sa5t+orqJ1WXD4GvACO+mB0MEmeJpTghLzdidgpqYcbVWhRrrAocmDgLvXfSgVB
-	VnsaKRmz9xxNz7aJZqhQ==;
+	List-Owner; bh=xXgLjHJnrUgTk2+djBVOJOEVthSWKrOHBnZl4K7ITsU=; b=of4ziyZLK8T/sD
+	o7Pwzv9+kRuBuV2/iGM38aR0HzkQMhv5/5C2j0swx42eAxW8K/F65LxBR7JCX1UprAtU/eYhv/wNZ
+	65w0JCGhB7UYAR4RtYhP2PHxUmr2bXyRrbFUnDKCPS8VrwDVl8p+l28Y0Rm4B3xbMMHM6vNalsToz
+	YwmqK1UOUrRrAs9o8RlZVVOUlPff0M3eyI/7HpCJTACb3uki8Ts3QX9mROdI7PI1QnPXgRQW1NkMV
+	RxjI2K36lHHTs63AqQ8BLfODyABOwxfa8q7AqDa8YEYpz0bajAZgdAIIVWejoBnT7QSYJc70cJ8H5
+	TzME8lpYnjOyqIqUp4Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Lyo-00000004XNx-3JCF;
-	Thu, 16 Oct 2025 11:17:10 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1v9MEX-00000004aYZ-00vQ;
+	Thu, 16 Oct 2025 11:33:25 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Lyn-00000004XMx-188l
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 16 Oct 2025 11:17:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ZYlnRbR85BMI5xfmS2JQ4t6NckrSBoGG/E3T6d+H0Bk=; b=axQTpyFbgELqsU5vcbq2Vb8zKk
-	sy9VLb8rdr2P6HhIWF9/Q5WRCq161hR+YyJbdnh0h7eQ3eZWGTCmLBZivHigIGXwsS1kqhE1eonfy
-	u5B4YGR5T0FZh9j9q9fi3dYxTXd9y5E7Ghe9JwkfzIxrbiarUIjna9Aem58pl8Zb/bYEz7oplOJ9T
-	Bl3l6xPpibMbLetGEf4jVJzEgP7+hYiC1C7a9il6oUm0kw2gIU9uzuvtOOEXIuzQFKP6El0/AD1Bc
-	51RNMWR/GABnC47XoooX+QfRYztDCPe5TcSxZB7jI9Bwfm5U45z1zZTIWydDQK+y3buhcRAJPleQJ
-	dG13cWug==;
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Ly8-00000001vtY-1jKC
-	for linux-riscv@lists.infradead.org;
-	Thu, 16 Oct 2025 11:16:41 +0000
-Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 59GBCfS4020808
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 16 Oct 2025 19:12:41 +0800 (+08)
-	(envelope-from randolph@andestech.com)
-Received: from swlinux02 (10.0.15.183) by ATCPCS31.andestech.com (10.0.1.89)
- with Microsoft SMTP Server id 14.3.498.0; Thu, 16 Oct 2025 19:12:41 +0800
-Date: Thu, 16 Oct 2025 19:12:36 +0800
-From: Randolph Lin <randolph@andestech.com>
-To: Niklas Cassel <cassel@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <jingoohan1@gmail.com>, <mani@kernel.org>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alex@ghiti.fr>,
-        <aou@eecs.berkeley.edu>, <palmer@dabbelt.com>,
-        <paul.walmsley@sifive.com>, <ben717@andestech.com>,
-        <inochiama@gmail.com>, <thippeswamy.havalige@amd.com>,
-        <namcao@linutronix.de>, <shradha.t@samsung.com>, <pjw@kernel.org>,
-        <randolph.sklin@gmail.com>, <tim609@andestech.com>
-Subject: Re: [PATCH v6 1/5] PCI: dwc: Allow adjusting the number of ob/ib
- windows in glue driver
-Message-ID: <aPDTJKwmpxolGEyj@swlinux02>
-References: <20251003023527.3284787-1-randolph@andestech.com>
- <20251003023527.3284787-2-randolph@andestech.com>
- <aO4bWRqX_4rXud25@ryzen>
+	id 1v9MET-00000004aWU-0DO5;
+	Thu, 16 Oct 2025 11:33:22 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=I8/Q9I7t7Qi4x/ZrI5Kaz0t842MDdUKD3sBtEPlbIMk=;
+	b=S9aEoxshqgJ1DGVDyxEs704Lhfm/eP0YArwn6D7TVeJAzSaVZleG2UL/AteUOOOW1+p0/dpR1
+	RIEMjxyngwhUFbMkJMvey91qwrJiQwRo+BFSLN3X0uTmdncij78NRBLOfh7FmW61eP/8lMha7Rq
+	yhIYbwtgEzbjRnQW1uMkw60=
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4cnQmj57QwzLlVc;
+	Thu, 16 Oct 2025 19:32:53 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id A4CE61A0188;
+	Thu, 16 Oct 2025 19:33:14 +0800 (CST)
+Received: from huawei.com (10.50.87.63) by kwepemr500001.china.huawei.com
+ (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 16 Oct
+ 2025 19:33:13 +0800
+From: Yin Tirui <yintirui@huawei.com>
+To: <akpm@linux-foundation.org>, <david@redhat.com>,
+	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <vbabka@suse.cz>,
+	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, <ziy@nvidia.com>,
+	<baolin.wang@linux.alibaba.com>, <npache@redhat.com>, <ryan.roberts@arm.com>,
+	<dev.jain@arm.com>, <baohua@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <anshuman.khandual@arm.com>,
+	<yangyicong@hisilicon.com>, <ardb@kernel.org>, <willy@infradead.org>,
+	<apopple@nvidia.com>, <samuel.holland@sifive.com>,
+	<luxu.kernel@bytedance.com>, <abrestic@rivosinc.com>,
+	<yongxuan.wang@sifive.com>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>
+CC: <wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>,
+	<yintirui@huawei.com>
+Subject: [PATCH RFC 2/2] mm: add PMD-level huge page support for remap_pfn_range()
+Date: Thu, 16 Oct 2025 19:27:04 +0800
+Message-ID: <20251016112704.179280-3-yintirui@huawei.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251016112704.179280-1-yintirui@huawei.com>
+References: <20251016112704.179280-1-yintirui@huawei.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aO4bWRqX_4rXud25@ryzen>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Originating-IP: [10.0.15.183]
-X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 59GBCfS4020808
+X-Originating-IP: [10.50.87.63]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_121630_199561_E9F14202 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20251016_043321_667932_17F8E954 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,104 +88,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Niklas,
+Add PMD-level huge page support to remap_pfn_range(), automatically
+creating huge mappings when prerequisites are satisfied (size, alignment,
+architecture support, etc.) and falling back to normal page mappings
+otherwise.
 
-On Tue, Oct 14, 2025 at 11:43:53AM +0200, Niklas Cassel wrote:
-> [EXTERNAL MAIL]
-> 
-> On Fri, Oct 03, 2025 at 10:35:23AM +0800, Randolph Lin wrote:
-> > The number of ob/ib windows is determined through write-read loops
-> > on registers in the core driver. Some glue drivers need to adjust
-> > the number of ob/ib windows to meet specific requirements,such as
-> 
-> Missing space after comma.
-> 
-> 
+Implement special huge PMD splitting by utilizing the pgtable deposit/
+withdraw mechanism. When splitting is needed, the deposited pgtable is
+withdrawn and populated with individual PTEs created from the original
+huge mapping, using pte_clrhuge() to clear huge page attributes.
 
-Thanks a lot. I will fix it in the next patch.
+Update arch_needs_pgtable_deposit() to return true when PMD pfnmap
+support is enabled, ensuring proper pgtable management for huge
+pfnmap operations.
 
-> > hardware limitations. This change allows the glue driver to adjust
-> > the number of ob/ib windows to satisfy platform-specific constraints.
-> > The glue driver may adjust the number of ob/ib windows, but the values
-> > must stay within hardware limits.
-> 
-> Could we please get a better explaination than "satisfy platform-specific
-> constraints" ?
-> 
+Signed-off-by: Yin Tirui <yintirui@huawei.com>
+---
+ include/linux/pgtable.h |  6 +++++-
+ mm/huge_memory.c        | 26 +++++++++++++++++++-------
+ mm/memory.c             | 40 ++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 64 insertions(+), 8 deletions(-)
 
-Due to this SoC design, only iATU regions with mapped addresses within the
-32-bits address range need to be programmed. However, this SoC has a design
-limitation in which the maximum region size supported by a single iATU
-entry is restricted to 4 GB, as it is based on a 32-bits address region.
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 25a7257052ff..9ae015cb67a0 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -1025,7 +1025,11 @@ extern pgtable_t pgtable_trans_huge_withdraw(struct mm_struct *mm, pmd_t *pmdp);
+ #endif
+ 
+ #ifndef arch_needs_pgtable_deposit
+-#define arch_needs_pgtable_deposit() (false)
++#define arch_needs_pgtable_deposit arch_needs_pgtable_deposit
++static inline bool arch_needs_pgtable_deposit(void)
++{
++	return IS_ENABLED(CONFIG_ARCH_SUPPORTS_PMD_PFNMAP);
++}
+ #endif
+ 
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 9c38a95e9f09..b5eecd8fc1bf 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -2857,14 +2857,26 @@ static void __split_huge_pmd_locked(struct vm_area_struct *vma, pmd_t *pmd,
+ 
+ 	if (!vma_is_anonymous(vma)) {
+ 		old_pmd = pmdp_huge_clear_flush(vma, haddr, pmd);
+-		/*
+-		 * We are going to unmap this huge page. So
+-		 * just go ahead and zap it
+-		 */
+-		if (arch_needs_pgtable_deposit())
+-			zap_deposited_table(mm, pmd);
+-		if (!vma_is_dax(vma) && vma_is_special_huge(vma))
++		if (!vma_is_dax(vma) && vma_is_special_huge(vma)) {
++			pte_t entry;
++
++			pgtable = pgtable_trans_huge_withdraw(mm, pmd);
++			if (unlikely(!pgtable))
++				return;
++			pmd_populate(mm, &_pmd, pgtable);
++			pte = pte_offset_map(&_pmd, haddr);
++			entry = pte_clrhuge(pfn_pte(pmd_pfn(old_pmd), pmd_pgprot(old_pmd)));
++			set_ptes(mm, haddr, pte, entry, HPAGE_PMD_NR);
++			pte_unmap(pte);
++
++			smp_wmb(); /* make pte visible before pmd */
++			pmd_populate(mm, pmd, pgtable);
+ 			return;
++		} else if (arch_needs_pgtable_deposit()) {
++			/* Zap for the non-special mappings. */
++			zap_deposited_table(mm, pmd);
++		}
++
+ 		if (unlikely(is_pmd_migration_entry(old_pmd))) {
+ 			swp_entry_t entry;
+ 
+diff --git a/mm/memory.c b/mm/memory.c
+index 0ba4f6b71847..4e8f2248a86f 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -2705,6 +2705,40 @@ static int remap_pte_range(struct mm_struct *mm, pmd_t *pmd,
+ 	return err;
+ }
+ 
++#ifdef CONFIG_ARCH_SUPPORTS_PMD_PFNMAP
++static int remap_try_huge_pmd(struct mm_struct *mm, pmd_t *pmd,
++			unsigned long addr, unsigned long end,
++			unsigned long pfn, pgprot_t prot)
++{
++	pgtable_t pgtable;
++	spinlock_t *ptl;
++
++	if ((end - addr) != PMD_SIZE)
++		return 0;
++
++	if (!IS_ALIGNED(addr, PMD_SIZE))
++		return 0;
++
++	if (!IS_ALIGNED(pfn, HPAGE_PMD_NR))
++		return 0;
++
++	if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
++		return 0;
++
++	pgtable = pte_alloc_one(mm);
++	if (unlikely(!pgtable))
++		return 0;
++
++	mm_inc_nr_ptes(mm);
++	ptl = pmd_lock(mm, pmd);
++	set_pmd_at(mm, addr, pmd, pmd_mkspecial(pmd_mkhuge(pfn_pmd(pfn, prot))));
++	pgtable_trans_huge_deposit(mm, pmd, pgtable);
++	spin_unlock(ptl);
++
++	return 1;
++}
++#endif
++
+ static inline int remap_pmd_range(struct mm_struct *mm, pud_t *pud,
+ 			unsigned long addr, unsigned long end,
+ 			unsigned long pfn, pgprot_t prot)
+@@ -2720,6 +2754,12 @@ static inline int remap_pmd_range(struct mm_struct *mm, pud_t *pud,
+ 	VM_BUG_ON(pmd_trans_huge(*pmd));
+ 	do {
+ 		next = pmd_addr_end(addr, end);
++#ifdef CONFIG_ARCH_SUPPORTS_PMD_PFNMAP
++		if (remap_try_huge_pmd(mm, pmd, addr, next,
++				pfn + (addr >> PAGE_SHIFT), prot)) {
++			continue;
++		}
++#endif
+ 		err = remap_pte_range(mm, pmd, addr, next,
+ 				pfn + (addr >> PAGE_SHIFT), prot);
+ 		if (err)
+-- 
+2.43.0
 
-For most EP devices, we can only define one entry in the "ranges" property
-of the devicetree that maps an address within the 32-bit range,
-as shown below:
-	ranges = <0x02000000 0x0 0x10000000 0x0 0x10000000 0x0 0xf0000000>;
-
-For EP devices that require 64-bits address mapping (e.g., GPUs), BAR
-resources cannot be assigned.
-To support such devices, an additional entry for 64-bits address mapping is
-required, as shown below:
-	ranges = <0x02000000 0x0 0x10000000 0x0 0x10000000 0x0 0xf0000000>,
-		 <0x43000000 0x1 0x00000000 0x1 0x00000000 0x7 0x00000000>;
-
-In the current common implementation, all ranges entries are programmed to
-the iATU. However, the size of entry for 64-bit address mapping exceeds the
-maximum region size that a single iATU entry can support. As a result, an
-error is reported during iATU programming, showing that the size of 64-bit
-address entry exceeds the region limit.
-
-In this SoC design, 64-bit addresses are hard-wired and can skip iATU
-programming. Thus, the driver needs to recount the "ranges" entries whose
-size fits within the 4GB platform limit.
-
-There are four scenarios:
-32-bits address, size < 4GB: program to iATU
-64-bits address, size < 4GB: program to iATU
-32-bits address, size > 4GB: assuming this condition does not exist
-64-bits address, size > 4GB: skip case
-
-We will recount how many outbound windows will be programmed to the iATU; 
-this is why we need to adjust the number of entries programmed to the iATU.
-
-> Your PCIe controller is synthesized with a certain number of {in,out}bound
-> windows, and I assume that dw_pcie_iatu_detect() correctly detects the number
-> of {in,out}bound windows, and initializes num_ob_windows/num_ib_windows
-> accordingly.
-> 
-> So, is the problem that because of some errata, you cannot use all the
-> {in,out}bound windows of the iATU?
->
-
-Similar to the erratum, all inbound and outbound windows remain functional,
-as long as each iATU entry complies with the 4 GB size constraint.
-
-> Because it is hard to understand what kind of "hardware limit" that would
-> cause your SoC to not be able to use all the available {in,out}bound windows.
-> 
-> Because it is simply a mapping in the iATU (internal Address Translation Unit).
-> 
-> In fact, in many cases, e.g. the NVMe EPF driver, then number of {in,out}bound
-> windows is a major limiting factor of how many outstanding I/Os you can have,
-> so usually, you really want to be able to use the maximum that the hardware
-> supports.
-> 
-> 
-> TL;DR: to modify this common code, I think your reasoning has to be more
-> detailed.
-> 
-
-I will include additional explanations along with the application scenarios of
-this SoC, and refactor the commit message.
-
-> 
-> 
-> Kind regards,
-> Niklas
-
-Sincerely,
-Randolph
 
 _______________________________________________
 linux-riscv mailing list
