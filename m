@@ -4,54 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C89D3CCD199
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA2BCCD19A
 	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 13:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:MIME-Version:
+	Message-Id:Date:Subject:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aXr8eFAqNb9lfusYMNoQK3usKImCu5ADsra7iqBVGJU=; b=pNolUk4y7ANULq
-	fqRqqSJOkQvyJJKeMlVYFFwQxFPEU9JueGEQDD9uB6gb3u9g0swIskTP6GHp/iNmCpUBkqzGSO4dW
-	WJOhPndj4z3kKLSGO5PeRi5c79jsdCOJcjQtHz6CC+tX7AT3FV97qbO4Qp9kTV6jX2LKteOr+2SvZ
-	3gCaNySCFzeXuqv8ynZ2IeDLJkPKr3zAsJgWaQq+PfPieS6KA6hHQDJ2iZtZ5VBIfxWHDsa37YAxH
-	bb+BXu+UXMX9mncDYE1CCyUQsVH3fcWu1fyHVoF+Ru/43yK3n5Nhap1EgJ6Cy40T/dGkj1PEyUkVq
-	HgFX9E4dw4V4mk8ndEBw==;
+	In-Reply-To:List-Owner; bh=t3FPVkqUNM3vDX6SBoTjULxbio7pAKmvAd/1C7jT6sE=; b=r+
+	MFr1JlQ4LCG3MzlfISpsMDws/aYay2P+XLXy0RagIZKQgkpUvgeWpwq+DRLuu1DhiP58ev8eaxI16
+	SReXpokBIdNUxnMEpI+C8Bg/ZYTOFBdn5WFxFLKbZU388GuCVruIBSWdGNiqQa49drCGyaMQWm4S4
+	3DqLqgOtFk0Wjx1ouDhjP7/lyYatdBoya3lXUZ2sqR6ypXlFRWyOU4OTDkB9jLmaM/HWVYw9b4dz4
+	ITyz1e7MqEZ5vK9lSF5c7G3gw5s5FxCqBUcBXgAfLsnGPZCy7lousRpN9QBESS1NHzhghaQo6EHlp
+	q4cKRXnBZp2jCvoG3ILayg8YM/Clb4bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9OBW-00000004tLF-1Diz;
+	id 1v9OBW-00000004tLw-3stC;
 	Thu, 16 Oct 2025 13:38:26 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9OBR-00000004tIf-35FG
+	id 1v9OBR-00000004tIc-35AP
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Oct 2025 13:38:24 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251016133818euoutp01fbef3c571b5f4e7f47bc95f20f1cf768~u-EnXIl6e0418504185euoutp01I
-	for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 13:38:18 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251016133818euoutp01fbef3c571b5f4e7f47bc95f20f1cf768~u-EnXIl6e0418504185euoutp01I
+	Thu, 16 Oct 2025 13:38:25 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251016133816euoutp02a2d4b819a8e0b69f58e27d8ced51d15b~u-EluRzeO2420524205euoutp02E
+	for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 13:38:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251016133816euoutp02a2d4b819a8e0b69f58e27d8ced51d15b~u-EluRzeO2420524205euoutp02E
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1760621898;
-	bh=5NdA4UIjY+CPEqi/4nTsJb9LgGjoLEpFa1PTeLAFS3w=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=jAVo1uoZQXepXIQlsuSC1errQk20wf+uB29Vd60uxT/62FP5SSl9lh98UyI5/1cMu
-	 j+P1RkNLnjr71ZoJGC2peGb4dzbt2ITh40vskAvRIUgBFulLxxoZDVo5L70RpYErw4
-	 jiUUcj841eS8UukyULAG5dB9hPVUq7mR5/jlga/A=
+	s=mail20170921; t=1760621896;
+	bh=iUgDzpCzbHn/AU26BPfxwktnpQZxWvNmSIWBX9cHIPo=;
+	h=From:Subject:Date:To:Cc:References:From;
+	b=uRBX4uff72DyBwO8J4jQZ9gyTtf6rJV72QMzQNVEYuQhaTaK7Iv4Ntd1lqvXT4E1S
+	 mPybqfXLUj53biGZfOskfk7FDUQ7v0o7pYmfaCXsMFcVpwsvbWPuJ6Y0I6AQwZfXv9
+	 fqSUxHop4n6bgw+EQWZlwYwWeOK1dPKleAGLj/Tc=
 Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251016133817eucas1p1cbf94e071419dbaaa52a13afa1dc155b~u-Emzrr7o2689226892eucas1p1F;
-	Thu, 16 Oct 2025 13:38:17 +0000 (GMT)
+	20251016133814eucas1p199cb62658c016e84e34d525e7c87f16e~u-EjxfuRp1288912889eucas1p1X;
+	Thu, 16 Oct 2025 13:38:14 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251016133816eusmtip252598a608252463c9a648d5a914d08d7~u-ElsXOiS1688716887eusmtip2O;
-	Thu, 16 Oct 2025 13:38:16 +0000 (GMT)
+	20251016133813eusmtip2edbf4d88938928a0f4c12d8e36fdde92~u-Eik4c951688716887eusmtip2N;
+	Thu, 16 Oct 2025 13:38:13 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Thu, 16 Oct 2025 15:38:02 +0200
-Subject: [PATCH v16 2/7] rust: pwm: Add Kconfig and basic data structures
+Subject: [PATCH v16 0/7] Rust Abstractions for PWM subsystem with TH1520 PWM
+ driver
+Date: Thu, 16 Oct 2025 15:38:00 +0200
+Message-Id: <20251016-rust-next-pwm-working-fan-for-sending-v16-0-a5df2405d2bd@samsung.com>
 MIME-Version: 1.0
-Message-Id: <20251016-rust-next-pwm-working-fan-for-sending-v16-2-a5df2405d2bd@samsung.com>
-In-Reply-To: <20251016-rust-next-pwm-working-fan-for-sending-v16-0-a5df2405d2bd@samsung.com>
+X-B4-Tracking: v=1; b=H4sIADj18GgC/5XUTW7bMBAF4KsEWpfFzPA/q96jyIIiOY5QWEok2
+	3Fg+O6l0gIhIi2YJbn4hiDem1u35HnIS/f4cOvmfBmWYRrLAc2Phy4+h/GQxZDKRUdAGjQpMZ+
+	Xkxjz9SRe3o7ibZr/DONBcBgFT7NY8pjWs9YUEiXs0cuuWC9z5uH6Mej3Uzk/D8tpmt8/5l5wv
+	f3uhAsKEH0qQzR4xWx/LeG4nMfDzzgdu3XGhT5dg9DqUnGtlpm81owIW1fWrm11ZXExxuCUjYY
+	9b11Vu67VVcUNJpBj6k1yYevqyiXZ6uriQgwkbXkwybx1zadrAVtdU1yyCF4SGzb91rW1S62uL
+	a6xmaVnxkR+67rabc6ZK67XmLVyFD2nretr17S6vriKeh0iIWDcyS9CDTcHrUQdRIKoI0tFAGp
+	Hripn26uBa+e8dKQClgjnuCNTLbe/eW2dArYyZQ4Z9uSqdq79m3HtnfHQG+NLpXuzI1fFc9T+G
+	2vzEhN6NIRqL3FYVc/LdnntnjYGowQPzn7Jxv3fQp3z67ks7NP/rXq//wV2XuCrzgUAAA==
+X-Change-ID: 20250524-rust-next-pwm-working-fan-for-sending-552ad2d1b193
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
 	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
@@ -69,18 +78,18 @@ To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	<lossin@kernel.org>, Drew Fustini <fustini@kernel.org>
 Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
 	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, Elle Rhumsaa <elle@weathered-steel.dev>
+	devicetree@vger.kernel.org, Elle Rhumsaa <elle@weathered-steel.dev>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20251016133817eucas1p1cbf94e071419dbaaa52a13afa1dc155b
+X-CMS-MailID: 20251016133814eucas1p199cb62658c016e84e34d525e7c87f16e
 X-Msg-Generator: CA
-X-RootMTR: 20251016133817eucas1p1cbf94e071419dbaaa52a13afa1dc155b
+X-RootMTR: 20251016133814eucas1p199cb62658c016e84e34d525e7c87f16e
 X-EPHeader: CA
-X-CMS-RootMailID: 20251016133817eucas1p1cbf94e071419dbaaa52a13afa1dc155b
-References: <20251016-rust-next-pwm-working-fan-for-sending-v16-0-a5df2405d2bd@samsung.com>
-	<CGME20251016133817eucas1p1cbf94e071419dbaaa52a13afa1dc155b@eucas1p1.samsung.com>
+X-CMS-RootMailID: 20251016133814eucas1p199cb62658c016e84e34d525e7c87f16e
+References: <CGME20251016133814eucas1p199cb62658c016e84e34d525e7c87f16e@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_063822_373568_4D00FC02 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20251016_063822_386427_2D8B934B 
+X-CRM114-Status: GOOD (  38.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,153 +101,276 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SW50cm9kdWNlIHRoZSBmb3VuZGF0aW9uYWwgc3VwcG9ydCBmb3IgUFdNIGFic3RyYWN0aW9ucyBp
-biBSdXN0LgoKVGhpcyBjb21taXQgYWRkcyB0aGUgYFJVU1RfUFdNX0FCU1RSQUNUSU9OU2AgS2Nv
-bmZpZyBvcHRpb24gdG8gZW5hYmxlCnRoZSBmZWF0dXJlLCBhbG9uZyB3aXRoIHRoZSBuZWNlc3Nh
-cnkgYnVpbGQtc3lzdGVtIHN1cHBvcnQgYW5kIEMKaGVscGVycy4KCkl0IGFsc28gaW50cm9kdWNl
-cyB0aGUgZmlyc3Qgc2V0IG9mIHNhZmUgd3JhcHBlcnMgZm9yIHRoZSBQV00Kc3Vic3lzdGVtLCBj
-b3ZlcmluZyB0aGUgYmFzaWMgZGF0YSBjYXJyeWluZyBDIHN0cnVjdHMgYW5kIGVudW1zOgotIGBQ
-b2xhcml0eWA6IEEgc2FmZSB3cmFwcGVyIGZvciBgZW51bSBwd21fcG9sYXJpdHlgLgotIGBXYXZl
-Zm9ybWA6IEEgd3JhcHBlciBmb3IgYHN0cnVjdCBwd21fd2F2ZWZvcm1gLgotIGBTdGF0ZWA6IEEg
-d3JhcHBlciBmb3IgYHN0cnVjdCBwd21fc3RhdGVgLgoKVGhlc2UgdHlwZXMgcHJvdmlkZSBtZW1v
-cnkgc2FmZSwgaWRpb21hdGljIFJ1c3QgcmVwcmVzZW50YXRpb25zIG9mIHRoZQpjb3JlIFBXTSBk
-YXRhIHN0cnVjdHVyZXMgYW5kIGZvcm0gdGhlIGJ1aWxkaW5nIGJsb2NrcyBmb3IgdGhlCmFic3Ry
-YWN0aW9ucyB0aGF0IHdpbGwgZm9sbG93LgoKVGVzdGVkLWJ5OiBEcmV3IEZ1c3RpbmkgPGZ1c3Rp
-bmlAa2VybmVsLm9yZz4KUmV2aWV3ZWQtYnk6IERhbmllbCBBbG1laWRhIDxkYW5pZWwuYWxtZWlk
-YUBjb2xsYWJvcmEuY29tPgpSZXZpZXdlZC1ieTogRWxsZSBSaHVtc2FhIDxlbGxlQHdlYXRoZXJl
-ZC1zdGVlbC5kZXY+ClNpZ25lZC1vZmYtYnk6IE1pY2hhbCBXaWxjenluc2tpIDxtLndpbGN6eW5z
-a2lAc2Ftc3VuZy5jb20+Ci0tLQogTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICB8ICAg
-OCArKysrCiBkcml2ZXJzL3B3bS9LY29uZmlnICAgICAgICAgICAgIHwgIDEyICsrKysrCiBydXN0
-L2JpbmRpbmdzL2JpbmRpbmdzX2hlbHBlci5oIHwgICAxICsKIHJ1c3QvaGVscGVycy9oZWxwZXJz
-LmMgICAgICAgICAgfCAgIDEgKwogcnVzdC9oZWxwZXJzL3B3bS5jICAgICAgICAgICAgICB8ICAy
-MCArKysrKysrKwogcnVzdC9rZXJuZWwvbGliLnJzICAgICAgICAgICAgICB8ICAgMiArCiBydXN0
-L2tlcm5lbC9wd20ucnMgICAgICAgICAgICAgIHwgMTAyICsrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysKIDcgZmlsZXMgY2hhbmdlZCwgMTQ2IGluc2VydGlvbnMoKykKCmRp
-ZmYgLS1naXQgYS9NQUlOVEFJTkVSUyBiL01BSU5UQUlORVJTCmluZGV4IDQ2MTI2Y2UyZjk2OGU0
-ZjkyNjAyNjNmMTU3NGVlMjlmNWZmMGRlMWMuLmIwMWEwMTYzNzNjODVmYjE4NzllODk0OGNlZGZj
-NGUyZWJjMzkxNWYgMTAwNjQ0Ci0tLSBhL01BSU5UQUlORVJTCisrKyBiL01BSU5UQUlORVJTCkBA
-IC0yMDc2Myw2ICsyMDc2MywxNCBAQCBGOglpbmNsdWRlL2xpbnV4L3B3bS5oCiBGOglpbmNsdWRl
-L2xpbnV4L3B3bV9iYWNrbGlnaHQuaAogSzoJcHdtXyhjb25maWd8YXBwbHlfbWlnaHRfc2xlZXB8
-YXBwbHlfYXRvbWljfG9wcykKIAorUFdNIFNVQlNZU1RFTSBCSU5ESU5HUyBbUlVTVF0KK006CU1p
-Y2hhbCBXaWxjenluc2tpIDxtLndpbGN6eW5za2lAc2Ftc3VuZy5jb20+CitMOglsaW51eC1wd21A
-dmdlci5rZXJuZWwub3JnCitMOglydXN0LWZvci1saW51eEB2Z2VyLmtlcm5lbC5vcmcKK1M6CU1h
-aW50YWluZWQKK0Y6CXJ1c3QvaGVscGVycy9wd20uYworRjoJcnVzdC9rZXJuZWwvcHdtLnJzCisK
-IFBYQSBHUElPIERSSVZFUgogTToJUm9iZXJ0IEphcnptaWsgPHJvYmVydC5qYXJ6bWlrQGZyZWUu
-ZnI+CiBMOglsaW51eC1ncGlvQHZnZXIua2VybmVsLm9yZwpkaWZmIC0tZ2l0IGEvZHJpdmVycy9w
-d20vS2NvbmZpZyBiL2RyaXZlcnMvcHdtL0tjb25maWcKaW5kZXggYzJmZDNmNGI2MmQ5ZWE0MjJh
-NTFhNzNmYTg3ZGM3YTczNzAzZWJhZi4uZDg3YzQ1MjEyNjhjMThlMWQxMWNlZDhjOGM3MmVjNzlh
-YmM2N2IyMiAxMDA2NDQKLS0tIGEvZHJpdmVycy9wd20vS2NvbmZpZworKysgYi9kcml2ZXJzL3B3
-bS9LY29uZmlnCkBAIC04MTksNCArODE5LDE2IEBAIGNvbmZpZyBQV01fWElMSU5YCiAJICBUbyBj
-b21waWxlIHRoaXMgZHJpdmVyIGFzIGEgbW9kdWxlLCBjaG9vc2UgTSBoZXJlOiB0aGUgbW9kdWxl
-CiAJICB3aWxsIGJlIGNhbGxlZCBwd20teGlsaW54LgogCisgY29uZmlnIFJVU1RfUFdNX0FCU1RS
-QUNUSU9OUworCWJvb2wKKwlkZXBlbmRzIG9uIFJVU1QKKwloZWxwCisJICBUaGlzIG9wdGlvbiBl
-bmFibGVzIHRoZSBzYWZlIFJ1c3QgYWJzdHJhY3Rpb24gbGF5ZXIgZm9yIHRoZSBQV00KKwkgIHN1
-YnN5c3RlbS4gSXQgcHJvdmlkZXMgaWRpb21hdGljIHdyYXBwZXJzIGFuZCB0cmFpdHMgbmVjZXNz
-YXJ5IGZvcgorCSAgd3JpdGluZyBQV00gY29udHJvbGxlciBkcml2ZXJzIGluIFJ1c3QuCisKKwkg
-IFRoZSBhYnN0cmFjdGlvbnMgaGFuZGxlIHJlc291cmNlIG1hbmFnZW1lbnQgKGxpa2UgbWVtb3J5
-IGFuZCByZWZlcmVuY2UKKwkgIGNvdW50aW5nKSBhbmQgcHJvdmlkZSBzYWZlIGludGVyZmFjZXMg
-dG8gdGhlIHVuZGVybHlpbmcgQyBjb3JlLAorCSAgYWxsb3dpbmcgZHJpdmVyIGxvZ2ljIHRvIGJl
-IHdyaXR0ZW4gaW4gc2FmZSBSdXN0LgorCiBlbmRpZgpkaWZmIC0tZ2l0IGEvcnVzdC9iaW5kaW5n
-cy9iaW5kaW5nc19oZWxwZXIuaCBiL3J1c3QvYmluZGluZ3MvYmluZGluZ3NfaGVscGVyLmgKaW5k
-ZXggMmU0M2M2NjYzNWEyYzlmMzFiZDk5Yjk4MTdiZDJkNmFiODlmYmNmMi4uNzBiMTFmYzYzMzhj
-NGYzOGI4NTQ0MTlhYjViYzQ0YWZlNDkwNTY3OCAxMDA2NDQKLS0tIGEvcnVzdC9iaW5kaW5ncy9i
-aW5kaW5nc19oZWxwZXIuaAorKysgYi9ydXN0L2JpbmRpbmdzL2JpbmRpbmdzX2hlbHBlci5oCkBA
-IC03Miw2ICs3Miw3IEBACiAjaW5jbHVkZSA8bGludXgvcG1fb3BwLmg+CiAjaW5jbHVkZSA8bGlu
-dXgvcG9sbC5oPgogI2luY2x1ZGUgPGxpbnV4L3Byb3BlcnR5Lmg+CisjaW5jbHVkZSA8bGludXgv
-cHdtLmg+CiAjaW5jbHVkZSA8bGludXgvcmFuZG9tLmg+CiAjaW5jbHVkZSA8bGludXgvcmVmY291
-bnQuaD4KICNpbmNsdWRlIDxsaW51eC9yZWd1bGF0b3IvY29uc3VtZXIuaD4KZGlmZiAtLWdpdCBh
-L3J1c3QvaGVscGVycy9oZWxwZXJzLmMgYi9ydXN0L2hlbHBlcnMvaGVscGVycy5jCmluZGV4IDU1
-MWRhNmM5YjUwNjRjMzI0ZDZmNjJiYWZjZWM2NzJjNmM2ZjViZWUuLjAxNGYyMGRmOTE0ODIyMDgw
-OWVhMmI4ZGNmZTk3NzZiMGZlMjE0ZDMgMTAwNjQ0Ci0tLSBhL3J1c3QvaGVscGVycy9oZWxwZXJz
-LmMKKysrIGIvcnVzdC9oZWxwZXJzL2hlbHBlcnMuYwpAQCAtNDMsNiArNDMsNyBAQAogI2luY2x1
-ZGUgInBvbGwuYyIKICNpbmNsdWRlICJwcm9jZXNzb3IuYyIKICNpbmNsdWRlICJwcm9wZXJ0eS5j
-IgorI2luY2x1ZGUgInB3bS5jIgogI2luY2x1ZGUgInJidHJlZS5jIgogI2luY2x1ZGUgInJjdS5j
-IgogI2luY2x1ZGUgInJlZmNvdW50LmMiCmRpZmYgLS1naXQgYS9ydXN0L2hlbHBlcnMvcHdtLmMg
-Yi9ydXN0L2hlbHBlcnMvcHdtLmMKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAw
-MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMC4uZDc1YzU4ODg2MzY4NWQzOTkwYjUyNWJi
-MWI4NGFhNGJjMzVhYzM5NwotLS0gL2Rldi9udWxsCisrKyBiL3J1c3QvaGVscGVycy9wd20uYwpA
-QCAtMCwwICsxLDIwIEBACisvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAorLy8g
-Q29weXJpZ2h0IChjKSAyMDI1IFNhbXN1bmcgRWxlY3Ryb25pY3MgQ28uLCBMdGQuCisvLyBBdXRo
-b3I6IE1pY2hhbCBXaWxjenluc2tpIDxtLndpbGN6eW5za2lAc2Ftc3VuZy5jb20+CisKKyNpbmNs
-dWRlIDxsaW51eC9wd20uaD4KKworc3RydWN0IGRldmljZSAqcnVzdF9oZWxwZXJfcHdtY2hpcF9w
-YXJlbnQoY29uc3Qgc3RydWN0IHB3bV9jaGlwICpjaGlwKQoreworCXJldHVybiBwd21jaGlwX3Bh
-cmVudChjaGlwKTsKK30KKwordm9pZCAqcnVzdF9oZWxwZXJfcHdtY2hpcF9nZXRfZHJ2ZGF0YShz
-dHJ1Y3QgcHdtX2NoaXAgKmNoaXApCit7CisJcmV0dXJuIHB3bWNoaXBfZ2V0X2RydmRhdGEoY2hp
-cCk7Cit9CisKK3ZvaWQgcnVzdF9oZWxwZXJfcHdtY2hpcF9zZXRfZHJ2ZGF0YShzdHJ1Y3QgcHdt
-X2NoaXAgKmNoaXAsIHZvaWQgKmRhdGEpCit7CisJcHdtY2hpcF9zZXRfZHJ2ZGF0YShjaGlwLCBk
-YXRhKTsKK30KZGlmZiAtLWdpdCBhL3J1c3Qva2VybmVsL2xpYi5ycyBiL3J1c3Qva2VybmVsL2xp
-Yi5ycwppbmRleCAzZGQ3YmViZTc4ODgyYTkzMmY1NGYzMDU4NjRkNWYzNzJhN2NkNjk1Li42OGM3
-MWQ4ODhmZGI4NDE4MzU2OTEyMGYwNjczYzBmOTgzZDBlYzliIDEwMDY0NAotLS0gYS9ydXN0L2tl
-cm5lbC9saWIucnMKKysrIGIvcnVzdC9rZXJuZWwvbGliLnJzCkBAIC0xMjksNiArMTI5LDggQEAK
-IHB1YiBtb2Qgc2VxX2ZpbGU7CiBwdWIgbW9kIHNpemVzOwogbW9kIHN0YXRpY19hc3NlcnQ7Cisj
-W2NmZyhDT05GSUdfUlVTVF9QV01fQUJTVFJBQ1RJT05TKV0KK3B1YiBtb2QgcHdtOwogI1tkb2Mo
-aGlkZGVuKV0KIHB1YiBtb2Qgc3RkX3ZlbmRvcjsKIHB1YiBtb2Qgc3RyOwpkaWZmIC0tZ2l0IGEv
-cnVzdC9rZXJuZWwvcHdtLnJzIGIvcnVzdC9rZXJuZWwvcHdtLnJzCm5ldyBmaWxlIG1vZGUgMTAw
-NjQ0CmluZGV4IDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAuLmJlYWJm
-MDA4NmEyZjFiZWVhMDFlMGIwYTlmNjU0MGM2MDFmNzdhNDkKLS0tIC9kZXYvbnVsbAorKysgYi9y
-dXN0L2tlcm5lbC9wd20ucnMKQEAgLTAsMCArMSwxMDIgQEAKKy8vIFNQRFgtTGljZW5zZS1JZGVu
-dGlmaWVyOiBHUEwtMi4wCisvLyBDb3B5cmlnaHQgKGMpIDIwMjUgU2Ftc3VuZyBFbGVjdHJvbmlj
-cyBDby4sIEx0ZC4KKy8vIEF1dGhvcjogTWljaGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5bnNraUBz
-YW1zdW5nLmNvbT4KKworLy8hIFBXTSBzdWJzeXN0ZW0gYWJzdHJhY3Rpb25zLgorLy8hCisvLyEg
-QyBoZWFkZXI6IFtgaW5jbHVkZS9saW51eC9wd20uaGBdKHNyY3RyZWUvaW5jbHVkZS9saW51eC9w
-d20uaCkuCisKK3VzZSBjcmF0ZTo6eworICAgIGJpbmRpbmdzLAorICAgIHByZWx1ZGU6OiosCisg
-ICAgdHlwZXM6Ok9wYXF1ZSwKK307Cit1c2UgY29yZTo6Y29udmVydDo6VHJ5RnJvbTsKKworLy8v
-IFBXTSBwb2xhcml0eS4gTWlycm9ycyBbYGVudW0gcHdtX3BvbGFyaXR5YF0oc3JjdHJlZS9pbmNs
-dWRlL2xpbnV4L3B3bS5oKS4KKyNbZGVyaXZlKENvcHksIENsb25lLCBEZWJ1ZywgUGFydGlhbEVx
-LCBFcSldCitwdWIgZW51bSBQb2xhcml0eSB7CisgICAgLy8vIE5vcm1hbCBwb2xhcml0eSAoZHV0
-eSBjeWNsZSBkZWZpbmVzIHRoZSBoaWdoIHBlcmlvZCBvZiB0aGUgc2lnbmFsKS4KKyAgICBOb3Jt
-YWwsCisKKyAgICAvLy8gSW52ZXJzZWQgcG9sYXJpdHkgKGR1dHkgY3ljbGUgZGVmaW5lcyB0aGUg
-bG93IHBlcmlvZCBvZiB0aGUgc2lnbmFsKS4KKyAgICBJbnZlcnNlZCwKK30KKworaW1wbCBUcnlG
-cm9tPGJpbmRpbmdzOjpwd21fcG9sYXJpdHk+IGZvciBQb2xhcml0eSB7CisgICAgdHlwZSBFcnJv
-ciA9IEVycm9yOworCisgICAgZm4gdHJ5X2Zyb20ocG9sYXJpdHk6IGJpbmRpbmdzOjpwd21fcG9s
-YXJpdHkpIC0+IFJlc3VsdDxTZWxmLCBFcnJvcj4geworICAgICAgICBtYXRjaCBwb2xhcml0eSB7
-CisgICAgICAgICAgICBiaW5kaW5nczo6cHdtX3BvbGFyaXR5X1BXTV9QT0xBUklUWV9OT1JNQUwg
-PT4gT2soUG9sYXJpdHk6Ok5vcm1hbCksCisgICAgICAgICAgICBiaW5kaW5nczo6cHdtX3BvbGFy
-aXR5X1BXTV9QT0xBUklUWV9JTlZFUlNFRCA9PiBPayhQb2xhcml0eTo6SW52ZXJzZWQpLAorICAg
-ICAgICAgICAgXyA9PiBFcnIoRUlOVkFMKSwKKyAgICAgICAgfQorICAgIH0KK30KKworaW1wbCBG
-cm9tPFBvbGFyaXR5PiBmb3IgYmluZGluZ3M6OnB3bV9wb2xhcml0eSB7CisgICAgZm4gZnJvbShw
-b2xhcml0eTogUG9sYXJpdHkpIC0+IFNlbGYgeworICAgICAgICBtYXRjaCBwb2xhcml0eSB7Cisg
-ICAgICAgICAgICBQb2xhcml0eTo6Tm9ybWFsID0+IGJpbmRpbmdzOjpwd21fcG9sYXJpdHlfUFdN
-X1BPTEFSSVRZX05PUk1BTCwKKyAgICAgICAgICAgIFBvbGFyaXR5OjpJbnZlcnNlZCA9PiBiaW5k
-aW5nczo6cHdtX3BvbGFyaXR5X1BXTV9QT0xBUklUWV9JTlZFUlNFRCwKKyAgICAgICAgfQorICAg
-IH0KK30KKworLy8vIFJlcHJlc2VudHMgYSBQV00gd2F2ZWZvcm0gY29uZmlndXJhdGlvbi4KKy8v
-LyBNaXJyb3JzIHN0cnVjdCBbYHN0cnVjdCBwd21fd2F2ZWZvcm1gXShzcmN0cmVlL2luY2x1ZGUv
-bGludXgvcHdtLmgpLgorI1tkZXJpdmUoQ29weSwgQ2xvbmUsIERlYnVnLCBEZWZhdWx0LCBQYXJ0
-aWFsRXEsIEVxKV0KK3B1YiBzdHJ1Y3QgV2F2ZWZvcm0geworICAgIC8vLyBUb3RhbCBkdXJhdGlv
-biBvZiBvbmUgY29tcGxldGUgUFdNIGN5Y2xlLCBpbiBuYW5vc2Vjb25kcy4KKyAgICBwdWIgcGVy
-aW9kX2xlbmd0aF9uczogdTY0LAorCisgICAgLy8vIER1dHktY3ljbGUgYWN0aXZlIHRpbWUsIGlu
-IG5hbm9zZWNvbmRzLgorICAgIC8vLworICAgIC8vLyBGb3IgYSB0eXBpY2FsIG5vcm1hbCBwb2xh
-cml0eSBjb25maWd1cmF0aW9uIChhY3RpdmUtaGlnaCkgdGhpcyBpcyB0aGUKKyAgICAvLy8gaGln
-aCB0aW1lIG9mIHRoZSBzaWduYWwuCisgICAgcHViIGR1dHlfbGVuZ3RoX25zOiB1NjQsCisKKyAg
-ICAvLy8gRHV0eS1jeWNsZSBzdGFydCBvZmZzZXQsIGluIG5hbm9zZWNvbmRzLgorICAgIC8vLwor
-ICAgIC8vLyBEZWxheSBmcm9tIHRoZSBiZWdpbm5pbmcgb2YgdGhlIHBlcmlvZCB0byB0aGUgZmly
-c3QgYWN0aXZlIGVkZ2UuCisgICAgLy8vIEluIG1vc3Qgc2ltcGxlIFBXTSBzZXR1cHMgdGhpcyBp
-cyBgMGAsIHNvIHRoZSBkdXR5IGN5Y2xlIHN0YXJ0cworICAgIC8vLyBpbW1lZGlhdGVseSBhdCBl
-YWNoIHBlcmlvZOKAmXMgc3RhcnQuCisgICAgcHViIGR1dHlfb2Zmc2V0X25zOiB1NjQsCit9CisK
-K2ltcGwgRnJvbTxiaW5kaW5nczo6cHdtX3dhdmVmb3JtPiBmb3IgV2F2ZWZvcm0geworICAgIGZu
-IGZyb20od2Y6IGJpbmRpbmdzOjpwd21fd2F2ZWZvcm0pIC0+IFNlbGYgeworICAgICAgICBXYXZl
-Zm9ybSB7CisgICAgICAgICAgICBwZXJpb2RfbGVuZ3RoX25zOiB3Zi5wZXJpb2RfbGVuZ3RoX25z
-LAorICAgICAgICAgICAgZHV0eV9sZW5ndGhfbnM6IHdmLmR1dHlfbGVuZ3RoX25zLAorICAgICAg
-ICAgICAgZHV0eV9vZmZzZXRfbnM6IHdmLmR1dHlfb2Zmc2V0X25zLAorICAgICAgICB9CisgICAg
-fQorfQorCitpbXBsIEZyb208V2F2ZWZvcm0+IGZvciBiaW5kaW5nczo6cHdtX3dhdmVmb3JtIHsK
-KyAgICBmbiBmcm9tKHdmOiBXYXZlZm9ybSkgLT4gU2VsZiB7CisgICAgICAgIGJpbmRpbmdzOjpw
-d21fd2F2ZWZvcm0geworICAgICAgICAgICAgcGVyaW9kX2xlbmd0aF9uczogd2YucGVyaW9kX2xl
-bmd0aF9ucywKKyAgICAgICAgICAgIGR1dHlfbGVuZ3RoX25zOiB3Zi5kdXR5X2xlbmd0aF9ucywK
-KyAgICAgICAgICAgIGR1dHlfb2Zmc2V0X25zOiB3Zi5kdXR5X29mZnNldF9ucywKKyAgICAgICAg
-fQorICAgIH0KK30KKworLy8vIFdyYXBwZXIgZm9yIFBXTSBzdGF0ZSBbYHN0cnVjdCBwd21fc3Rh
-dGVgXShzcmN0cmVlL2luY2x1ZGUvbGludXgvcHdtLmgpLgorI1tyZXByKHRyYW5zcGFyZW50KV0K
-K3B1YiBzdHJ1Y3QgU3RhdGUoYmluZGluZ3M6OnB3bV9zdGF0ZSk7CisKK2ltcGwgU3RhdGUgewor
-ICAgIC8vLyBDcmVhdGVzIGEgYFN0YXRlYCB3cmFwcGVyIGJ5IHRha2luZyBvd25lcnNoaXAgb2Yg
-YSBDIGBwd21fc3RhdGVgIHZhbHVlLgorICAgIHB1YihjcmF0ZSkgZm4gZnJvbV9jKGNfc3RhdGU6
-IGJpbmRpbmdzOjpwd21fc3RhdGUpIC0+IFNlbGYgeworICAgICAgICBTdGF0ZShjX3N0YXRlKQor
-ICAgIH0KKworICAgIC8vLyBSZXR1cm5zIGB0cnVlYCBpZiB0aGUgUFdNIHNpZ25hbCBpcyBlbmFi
-bGVkLgorICAgIHB1YiBmbiBlbmFibGVkKCZzZWxmKSAtPiBib29sIHsKKyAgICAgICAgc2VsZi4w
-LmVuYWJsZWQKKyAgICB9Cit9CgotLSAKMi4zNC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This patch series introduces Rust support for the T-HEAD TH1520 PWM
+controller and demonstrates its use for fan control on the Sipeed Lichee
+Pi 4A board.
+
+The primary goal of this patch series is to introduce a basic set of
+Rust abstractions for the Linux PWM subsystem. As a first user and
+practical demonstration of these abstractions, the series also provides
+a functional PWM driver for the T-HEAD TH1520 SoC. This allows control
+of its PWM channels and ultimately enables temperature controlled fan
+support for the Lichee Pi 4A board. This work aims to explore the use of
+Rust for PWM drivers and lay a foundation for potential future Rust
+based PWM drivers.
+
+The core of this series is a new rust/kernel/pwm.rs module that provides
+abstractions for writing PWM chip provider drivers in Rust. This has
+been significantly reworked from v1 based on extensive feedback. The key
+features of the new abstraction layer include:
+
+ - Ownership and Lifetime Management: The pwm::Chip wrapper is managed
+   by ARef, correctly tying its lifetime to its embedded struct device
+   reference counter. Chip registration is handled by a pwm::Registration
+   RAII guard, which guarantees that pwmchip_add is always paired with
+   pwmchip_remove, preventing resource leaks.
+
+ - Modern and Safe API: The PwmOps trait is now based on the modern
+   waveform API (round_waveform_tohw, write_waveform, etc.) as recommended
+   by the subsystem maintainer. It is generic over a driver's
+   hardware specific data structure, moving all unsafe serialization logic
+   into the abstraction layer and allowing drivers to be written in 100%
+   safe Rust.
+
+ - Ergonomics: The API provides safe, idiomatic wrappers for other PWM
+   types (State, Device, etc.) and uses standard kernel error
+   handling patterns.
+
+The series is structured as follows:
+ - Expose static function pwmchip_release.
+ - Rust PWM Abstractions: The new safe abstraction layer.
+ - TH1520 PWM Driver: A new Rust driver for the TH1520 SoC, built on
+   top of the new abstractions.
+ - Device Tree Bindings & Nodes: The remaining patches add the necessary
+   DT bindings and nodes for the TH1520 PWM controller, and the PWM fan
+   configuration for the Lichee Pi 4A board.
+
+Testing:
+Tested on the TH1520 SoC. The fan works correctly. The duty/period
+calculations are correct. Fan starts slow when the chip is not hot and
+gradually increases the speed when PVT reports higher temperatures.
+
+The patches doesn't contain any dependencies that are not currently in
+the mainline kernel anymore.
+
+---
+Changes in v16:
+- Re-base on top of 6.18-rc1.
+- Make RUST_PWM_ABSTRACTIONS an invisible Kconfig option and remove the
+  redundant depends on PWM=y.
+- Handle period requests that are too small by rounding up to 1 cycle,
+  rather than disabling the PWM.
+- Correctly report a status of 1 to indicate when the period has been
+  rounded up.
+- Change the error code for an unsupported high clock rate from ERANGE
+  to EINVAL for consistency.
+- Link to v15: https://lore.kernel.org/r/20250930-rust-next-pwm-working-fan-for-sending-v15-0-5661c3090877@samsung.com
+
+Changes in v15:
+- Update the TH1520 driver; read the hardware state directly instead of
+  using state, fix an integer overflow using saturating arithmetic, and
+  add handling zero period edge cases.
+- Add dbg prints, and also update them for using the preferred format
+  for emiting a waveform.
+- Remove the consumer side Args wrapper from the abstraction layer.
+- Link to v14: https://lore.kernel.org/r/20250820-rust-next-pwm-working-fan-for-sending-v14-0-df2191621429@samsung.com
+
+Changes in v14:
+- Re-base on top of 6.17-rc1.
+- Cosmetic change in label function.
+- Link to v13: https://lore.kernel.org/r/20250806-rust-next-pwm-working-fan-for-sending-v13-0-690b669295b6@samsung.com
+
+Changes in v13:
+- Re-add the T-HEAD TH1520 PWM driver and its device tree bindings, as
+  Iomem series got merged into mainline kernel.
+- Fix Args struct to be consistent with State - no Opaque needed for
+  copies.
+- Replace tuple retur type in the PwmOps trait with dedicated struct
+  for improved clarity.
+- Use build_assert for WfHw size, as it doesn't have to be runtime
+  check.
+- Various cosmetic changes.
+- Link to v12: https://lore.kernel.org/r/20250717-rust-next-pwm-working-fan-for-sending-v12-0-40f73defae0c@samsung.com
+
+Changes in v12:
+ - Reworked the PWM abstractions to use the subclassing pattern as
+   suggested by reviewers.
+ - pwm::Chip and its driver data are now allocated in a single, contiguous
+   memory block via pwmchip_alloc() sizeof_priv argument.
+ - Chip::new() now uses the pin init API to construct the driver data
+   in place, removing the need for a separate allocation.
+ - The  PwmOps trait is now implemented directly by the driver data struct
+   itself, removing the DrvData associated type and the ForeignOwnable
+   trait.
+ - The custom release handler has been updated to call drop_in_place on the driver
+   data, ensuring destructors are run correctly before the underlying
+   memory is freed.
+ - Moved the pwmchip_release prototype in the C header to a separate
+   section to clarify it is for FFI use only, as requested.
+ - Added a Prerequisite-patch-id trailer to the cover letter to declare
+   the dependency on the PWM_WFHWSIZE patch.
+
+- Link to v11: https://lore.kernel.org/r/20250710-rust-next-pwm-working-fan-for-sending-v11-0-93824a16f9ec@samsung.com
+
+Changes in v11:
+- Dropped driver and DT commits, as they don't compile based on publicly
+  known commit.
+- Re-based on top of pwm/for-next.
+- Reverted back to devres::Devres::new_foreign_owned, as pwm/for-next
+  doesn't contain 'register' re-factor, which is present in linux-next,
+  queued for the next merge window. The conflict is trivial, simply
+  change 'new_foreign_owned' -> 'register'.
+- Added list to MAINTAINERS entry as requested.
+- Link to v10: https://lore.kernel.org/r/20250707-rust-next-pwm-working-fan-for-sending-v10-0-d0c5cf342004@samsung.com
+
+Changes in v10:
+ - Exported the C pwmchip_release function and called it from the custom
+   Rust release_callback to fix a memory leak of the pwm_chip struct.
+ - Removed the PwmOps::free callback, as it is not needed for idiomatic
+   Rust resource management.
+ - Removed the redundant is_null check for drvdata in the release handler,
+   as the Rust API guarantees a valid pointer is always provided.
+
+- Link to v9: https://lore.kernel.org/r/20250706-rust-next-pwm-working-fan-for-sending-v9-0-42b5ac2101c7@samsung.com
+
+Changes in v9:
+ - Encapsulated vtable setup in Chip::new(): The Chip::new() function is
+   now generic over the PwmOps implementation. This allows it to create and
+   assign the vtable internally, which simplifies the public API by
+   removing the ops_vtable parameter from Registration::register().
+ - Fixed memory leak with a release handler: A custom release_callback is
+   now assigned to the embedded struct device's release hook. This
+   guarantees that driver specific data is always freed when the chip is
+   destroyed, even if registration fails.
+ - The PwmOpsVTable is now defined as a const associated item to ensure
+   it has a 'static lifetime.
+ - Combined introductory commits: The Device, Chip, and PwmOps abstractions
+   are now introduced in a single commit. This was necessary to resolve the
+   circular dependencies between them and present a clean, compilable unit
+   for review.
+
+- Link to v8: https://lore.kernel.org/r/20250704-rust-next-pwm-working-fan-for-sending-v8-0-951e5482c9fd@samsung.com
+
+Changes in v8:
+ - Dropped already accepted commit, re-based on top of linux-next
+ - Reworked the Chip and PwmOps APIs to address the drvdata() type-safety
+   comment. Chip is now generic, and PwmOps uses an associated type
+   to provide compile-time guarantees.
+ - Added a parent device sanity check to Registration::register().
+ - Updated drvdata() to return the idiomatic T::Borrowed<'_>.
+ - added temporary unsafe blocks in the driver, as the current
+   abstraction for Clk is neiter Safe nor Sync. I think eventually
+   proper abstraction for Clk will be added as in a current state it's
+   not very useful.
+
+- Link to v7: https://lore.kernel.org/r/20250702-rust-next-pwm-working-fan-for-sending-v7-0-67ef39ff1d29@samsung.com
+
+Changes in v7:
+- Made parent_device function private and moved casts to Device<Bound>
+  there as well.
+- Link to v6: https://lore.kernel.org/r/20250701-rust-next-pwm-working-fan-for-sending-v6-0-2710932f6f6b@samsung.com
+
+Changes in v6:
+ - Re-based on top of linux-next, dropped two already accepted commits.
+ - After re-basing the IoMem dependent patchset stopped working,
+   reworked it to use similar API like the PCI subsystem (I think it
+   will end up the same). Re-worked the driver for it as well.
+ - Remove the apply and get_state callbacks, and most of the State as
+   well, as the old way of implementing drivers should not be possible
+   in Rust. Left only enabled(), since it's useful for my driver.
+ - Removed the public set_drvdata() method from pwm::Chip
+ - Moved WFHWSIZE to the public include/linux/pwm.h header and renamed it
+   to PWM_WFHWSIZE, allowing bindgen to create safe FFI bindings.
+ - Corrected the ns_to_cycles integer calculation in the TH1520 driver to
+   handle overflow correctly.
+ - Updated the Kconfig entry for the TH1520 driver to select the Rust
+   abstractions for a better user experience.
+
+- Link to v5: https://lore.kernel.org/r/20250623-rust-next-pwm-working-fan-for-sending-v5-0-0ca23747c23e@samsung.com
+
+Changes in v5:
+- Reworked `pwm::Chip` creation to take driver data directly, which
+  allowed making the `chip.drvdata()` accessor infallible
+- added missing `pwm.c` file lost during the commit split (sorry !)
+- Link to v4: https://lore.kernel.org/r/20250618-rust-next-pwm-working-fan-for-sending-v4-0-a6a28f2b6d8a@samsung.com
+
+Changes in v4:
+ - Reworked the pwm::Registration API to use the devres framework,
+   addressing lifetime issue.
+ - Corrected the PwmOps trait and its callbacks to use immutable references
+   (&Chip, &Device) for improved safety.
+ - Applied various code style and naming cleanups based on feedback
+
+- Link to v3: https://lore.kernel.org/r/20250617-rust-next-pwm-working-fan-for-sending-v3-0-1cca847c6f9f@samsung.com
+
+Changes in v3:
+ - Addressed feedback from Uwe by making multiple changes to the TH1520
+   driver and the abstraction layer.
+ - Split the core PWM abstractions into three focused commits to ease
+   review per Benno request.
+ - Confirmed the driver now works correctly with CONFIG_PWM_DEBUG enabled
+   by implementing the full waveform API, which correctly reads the
+   hardware state.
+ - Refactored the Rust code to build cleanly with
+   CONFIG_RUST_BUILD_ASSERT_ALLOW=n, primarily by using the try_* family of
+   functions for IoMem access.
+ - Included several cosmetic changes and cleanups to the abstractions
+   per Miguel review.
+
+- Link to v2: https://lore.kernel.org/r/20250610-rust-next-pwm-working-fan-for-sending-v2-0-753e2955f110@samsung.com
+
+Changes in v2:
+ - Reworked the PWM abstraction layer based on extensive feedback.
+ - Replaced initial devm allocation with a proper ARef<Chip> lifetime model
+   using AlwaysRefCounted.
+ - Implemented a Registration RAII guard to ensure safe chip add/remove.
+ - Migrated the PwmOps trait from the legacy .apply callback to the modern
+   waveform API.
+ - Refactored the TH1520 driver to use the new, safer abstractions.
+ - Added a patch to mark essential bus clocks as CLK_IGNORE_UNUSED to fix
+   boot hangs when the PWM and thermal sensors are enabled.
+- Link to v1: https://lore.kernel.org/r/20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com
+
+---
+Michal Wilczynski (7):
+      pwm: Export `pwmchip_release` for external use
+      rust: pwm: Add Kconfig and basic data structures
+      rust: pwm: Add complete abstraction layer
+      pwm: Add Rust driver for T-HEAD TH1520 SoC
+      dt-bindings: pwm: thead: Add T-HEAD TH1520 PWM controller
+      riscv: dts: thead: Add PWM controller node
+      riscv: dts: thead: Add PWM fan and thermal control
+
+ .../devicetree/bindings/pwm/thead,th1520-pwm.yaml  |  48 ++
+ MAINTAINERS                                        |  10 +
+ arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts  |  67 ++
+ arch/riscv/boot/dts/thead/th1520.dtsi              |   7 +
+ drivers/pwm/Kconfig                                |  23 +
+ drivers/pwm/Makefile                               |   1 +
+ drivers/pwm/core.c                                 |   3 +-
+ drivers/pwm/pwm_th1520.rs                          | 378 ++++++++++
+ include/linux/pwm.h                                |   6 +
+ rust/bindings/bindings_helper.h                    |   1 +
+ rust/helpers/helpers.c                             |   1 +
+ rust/helpers/pwm.c                                 |  20 +
+ rust/kernel/lib.rs                                 |   2 +
+ rust/kernel/pwm.rs                                 | 762 +++++++++++++++++++++
+ 14 files changed, 1328 insertions(+), 1 deletion(-)
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20250524-rust-next-pwm-working-fan-for-sending-552ad2d1b193
+
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
