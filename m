@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41765CCD183
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 10:02:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D96FCCD183
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 10:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FlDIuEZQ0pKfjUXsu0yvIqsQmoguyTFE/FB8n0jRoOE=; b=oR9hWz8bjthzi4
-	eVVvxjbyYW4H8fOw3ru4QVL39GR+VcziB4vDxlIpGK8pCRyyDm0rxc1xG5NM76Yf1h0S1MqAbS0+u
-	DbxlavueDO/naDDoJd6FnTdA6LHc198xQK0AyXEgJpG6eiFpgTkgWfMubjy71RB+kpPE+/oyX9fDR
-	tb2qNFuB/ujwr1YY+VxQ8eTWuDjSZbzCZTlEokWd2357l0HwNpqOA15zra94wwhFrRqyBweOVQV9E
-	exIVvyEG0N38/KdlZS7CnBoaI+/RJs/6JjoV0EW44Y37rk72u/t2HL506cvMw8SDhJ8Z6OMWm1cMX
-	JLnVCjrdyYCCa8uE6sbQ==;
+	List-Owner; bh=k3QPahmRa0nUBeh4kdjqzDJyNsw5OKZCJRCxjWlWonA=; b=EOEllwh9ETB5hh
+	tys19XCVl/Sm0O+GpavRnAgD71Cm/vZFkgo+esIoBrDt+ij6cXIxVEdwwE/KRclz4cYNaxVUjnQoX
+	G5dfj4Sprp+zTeBWSCTa1H9DQYfrK/7yyePisEkUOMBYFq+fSpxUmgV5PTinRKzpTHVgqiQUIdiCk
+	Ai8/0m9Po5ohAZ+iGKa/yJerUaxDo0hPd3NSySKxO14H+w7flrqV8GnJFbsg0oZ+L0KvgoKe6kVNe
+	fkUKqrD/236DD46X7HLY+kwRh0qpLVZBQAHwhXALRl4MCdQD+G1maREfyP4qfXp5NZRcvh13zIcPa
+	zk+4mlSJAtJ3POhKDONA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Ko4-00000004JQN-0xd1;
-	Thu, 16 Oct 2025 10:02:00 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1v9L28-00000004O5Q-1Cm8;
+	Thu, 16 Oct 2025 10:16:32 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Ko1-00000004JPy-299a
+	id 1v9L25-00000004O4k-41RD
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Oct 2025 10:01:58 +0000
+	Thu, 16 Oct 2025 10:16:31 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760608914;
+	s=2020; t=1760609788;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PDeWvfL0Yyl8v4f6ecg6l9WJt9/NhYirIKkwErXjMzM=;
-	b=C9hzE/CnqBaasqAFCYuDPVH3pbX8GmLjumEf+rwtEW10/GGgJcGb64IDCdnSXahjzJ1Bcv
-	Ldzyqc1RtjWrd6TXX+7K6nlfIePUOB2W7YHIvWRWh6uBYrg+XtnOr6pqI364XFRBq9MHAi
-	2sTCsZg1ryKXqQSUbLFycP/dR6ceMSMZSpcT8sgnIVfnIwwf+EPj7uqwwTdmrUGYK8Nazl
-	S2SXCRUJqq4mefTGqUedWBLDdYeSQ5WCAp16z1dDsr9xdzCVCKQnuPpb3a1HywV6A2Pmzn
-	CR5Wa8eLp241JNeW+jd+dUYrOfRlGHjpMJFGWQsvHZbypBFw5R8Xar60G77EaA==
+	bh=TLL69dJksF4/iqPmPUgAV5VYqtWXMBbCiNFdjNIo33A=;
+	b=4dyf4keGlON8LSBC1aKpcUUuL7XHEVITligizH+whmze2T1S9YiS2D6lI5s+/gLeIWR+Ah
+	2ZvutviDhrj2QYaki5VnTWq9WyAVwapLiVFaqxATBh3L/m2E1ihklhIKGi144T0EXKix2C
+	oQbaxy9NojKDXswd7xxV+KFCr6e4+WtJc/oXCYHxht1AmCjh7NXJP6B6C85s5AXv6vKidQ
+	sxL9j4vlNzXONRtdmWcoynupVyIKDsrh3VK2xxETQMpmgK7096cCoIIyrviDRMVa9jDArH
+	D1H/x+S15p6l6MhcgrXNkB0oq/YW2StHHvaUm/wdDaSnsUNWHPGtTMdbVfqx6Q==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760608914;
+	s=2020e; t=1760609788;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PDeWvfL0Yyl8v4f6ecg6l9WJt9/NhYirIKkwErXjMzM=;
-	b=Te3nuhzPs7a2+HiG1/4JZ8YshOJPg+QJXZMmqkNWfOIRteiGE88LShyNMdHuM9ZfOtgrE7
-	9rSduVKyiixm0qDg==
-To: Samuel Holland <samuel.holland@sifive.com>, Anup Patel
- <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org,
- Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, Paul
- Walmsley <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH 4/4] irqchip/riscv-imsic: Remove irq_desc lookup from
- hot path
-In-Reply-To: <20251015195712.3813004-5-samuel.holland@sifive.com>
-References: <20251015195712.3813004-1-samuel.holland@sifive.com>
- <20251015195712.3813004-5-samuel.holland@sifive.com>
-Date: Thu, 16 Oct 2025 12:01:53 +0200
-Message-ID: <87v7kf17xq.ffs@tglx>
+	bh=TLL69dJksF4/iqPmPUgAV5VYqtWXMBbCiNFdjNIo33A=;
+	b=m97xrjB9cTEobIoToBzhJ5TnfbY2K7rA/p04sZvWEmK5R41wJb0EJV+mN6bY2YtAI0RRug
+	rUMF1tse33kTVWDA==
+To: Lucas Zampieri <lzampier@redhat.com>, linux-kernel@vger.kernel.org
+Cc: Charles Mirabile <cmirabil@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Samuel
+ Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Vivian
+ Wang <dramforever@live.com>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Zhang Xincheng
+ <zhangxincheng@ultrarisc.com>, Lucas Zampieri <lzampier@redhat.com>
+Subject: Re: [PATCH v5 3/3] irqchip/plic: add support for UltraRISC DP1000 PLIC
+In-Reply-To: <20251016084301.27670-4-lzampier@redhat.com>
+References: <20251016084301.27670-1-lzampier@redhat.com>
+ <20251016084301.27670-4-lzampier@redhat.com>
+Date: Thu, 16 Oct 2025 12:16:26 +0200
+Message-ID: <87sefj179h.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_030157_709522_216B902B 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20251016_031630_204422_58B13F8E 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,54 +83,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15 2025 at 12:55, Samuel Holland wrote:
-> The IMSIC driver uses the IRQ matrix allocator, so there is an arbitrary
-> mapping from the per-CPU interrupt identity to the global irq number. As
-> a result, the driver maintains a table of vectors so it can look up the
-> virq number during interrupt handling. The driver uses the virq for one
-> main purpose: it gets passed to generic_handle_irq(), which then uses it
-> to look up the irq_desc in the sparse_irqs tree.
->
-> Taking inspiration from the loongarch AVEC irqchip driver, skip the tree
+On Thu, Oct 16 2025 at 09:42, Lucas Zampieri wrote:
+> @@ -430,6 +516,8 @@ static const struct of_device_id plic_match[] = {
+      ^^^^^^^^^^^^
+How on earth did you manage to screw up the hunk header?
 
-which got the idea from x86 :)
+Applying: irqchip/plic: Add support for UltraRISC DP1000 PLIC
+error: corrupt patch at line 116
 
-> -struct imsic_vector *imsic_vector_alloc(unsigned int irq, const struct cpumask *mask)
-> +struct imsic_vector *imsic_vector_alloc(struct irq_desc *desc, const struct cpumask *mask)
->  {
->  	struct imsic_vector *vec = NULL;
->  	struct imsic_local_priv *lpriv;
-> @@ -450,7 +451,7 @@ struct imsic_vector *imsic_vector_alloc(unsigned int irq, const struct cpumask *
+>  	  .data = (const void *)BIT(PLIC_QUIRK_EDGE_INTERRUPT) },
+>  	{ .compatible = "thead,c900-plic",
+>  	  .data = (const void *)BIT(PLIC_QUIRK_EDGE_INTERRUPT) },
+> +	{ .compatible = "ultrarisc,cp100-plic",
+> +	  .data = (const void *)BIT(PLIC_QUIRK_CP100_CLAIM_REGISTER_ERRATUM) },
+>  	{}
+>  };
 >  
->  	lpriv = per_cpu_ptr(imsic->lpriv, cpu);
->  	vec = &lpriv->vectors[local_id];
-> -	vec->irq = irq;
-> +	vec->desc = desc;
->  	vec->enable = false;
->  	vec->move_next = NULL;
->  	vec->move_prev = NULL;
-> @@ -463,7 +464,7 @@ void imsic_vector_free(struct imsic_vector *vec)
->  	unsigned long flags;
->  
->  	raw_spin_lock_irqsave(&imsic->matrix_lock, flags);
-> -	vec->irq = 0;
-> +	vec->desc = NULL;
->  	irq_matrix_free(imsic->matrix, vec->cpu, vec->local_id, false);
->  	raw_spin_unlock_irqrestore(&imsic->matrix_lock, flags);
+> @@ -664,12 +752,16 @@ static int plic_probe(struct fwnode_handle *fwnode)
+     ^^^^^^^^^^^^^^^
+Ditto here.
 
-This is only correct when it is guaranteed that the interrupt can't be
-raised in the CPU _before_ a interrupt allocation completed throughout
-the hierarchy and _after_ the freeing hierarchy walk started. Otherwise
-this might end up accessing a half initialized or half torn down
-descriptor.
+I fixed it up manually. Please be more careful next time.
 
-If it is, then please add a comment describing it. If not then you need
-to implement the activate/deactivate callbacks for your interrupt domain
-and do the store/clear of vec->desc there.
-
-Thanks,
-
-        tglx
 
 _______________________________________________
 linux-riscv mailing list
