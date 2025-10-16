@@ -4,108 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC66CCD194
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 08:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B5BCCD194
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 09:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BARHDWUx8SaN/qbXZpMccT3CacMGVf3tzcb/tMJDqrQ=; b=c0fWB8L412IsOU
-	vPNPSp1ow/XQuuDVxHhjqNmmkTFdi0RqknialiDHznLUdtsK1LviGPheEatY67YoZMz9DsQs9GA6e
-	T2xfeE4aae2V7FDXMjQ5yIyjdeHNLs7gy29meBVFda9rvQKsxdHG3hGjv0O2iI5NJKBbEo9VtL44u
-	pkvstHXGWzY98PtKxUsL2Rxm2LYS/DcMVVZgkJTgjD3Akj5UMgMdrV5JsOTWXamPwU11B35fybVEa
-	+DkAihxqzivSsoanuLFLw0As+i8cE3YcRI8ZhAMITse/m4cLkr7nXVAzIkqyaaqo2u//HIMhiimXz
-	6KAxI6u2+ArHBnf2HMOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=HSLnE5V2RgnqcX2z4fUDgn9iOVLZ6V2hL9eUzgrH2hw=; b=C58
+	VaSG58tRu+SfiLueKDPwO1mZZ1IBmG3LoTeqnQZXffVG1IH39+RGtqo0CIKGpsbUlrrrCTlRV8FNp
+	nUP1Jg3JkXC97JUm3juQsXV7dySYafNCPJT0XL0vcNMx3glJ0Y8pU//Ogc7602gZw53U6yFCGKnGk
+	PI0FY1/tRQD9jbfq9Ou+7C1OmXhgAWqkPxcmoWiPeHTiydoOuGHBxUUEY1NIeNBsysLu30uZmYZoN
+	MyNUB8z+pLVDMRiBo6foT7XXvbSOb3nI+QtPWPH2GfB8Yv6JX8kV/1gHqtlgV1aIC28qccWaXiJKV
+	sIj35SVCAMZ1kjqWA/rRnLnWx0wl1mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Joz-000000044pN-1iPU;
-	Thu, 16 Oct 2025 08:58:53 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1v9K2e-000000048zU-3Nob;
+	Thu, 16 Oct 2025 09:13:00 +0000
+Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Jov-000000044mx-27eR
+	id 1v9K2c-000000048yF-0DJK
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Oct 2025 08:58:51 +0000
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id BC6853F75A
-	for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 08:58:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1760605125;
-	bh=9ahU9OdbDocKDvc07Qj5/lY6cHzOHOb3fbgPU7Jnmq4=;
-	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type;
-	b=JWJmEZrSnJ0mV185qI++hJWrjx8MeXGxPnUeRk+YgrvGB1kt45EcfucATu+EkZKqK
-	 gPo8yOpY9osDmhkc3/wQpBSowHSVAN+AB8CDW3Inb1S6J04egw+ZVYlG3v4uUJQr8n
-	 RCVy0nBFx+3GcPAN7bnmcUKwE7iBILceiP2t7FMhKsEN4l9vRuJ+7KpECasVlxcV6p
-	 FJAYtjkxvipFRQ4v8ew96M/myhiQAaN4IOVQQLUc2FAv9nx82IqxIdsR+7A4Vfm3FK
-	 H6T3gLYDw3wgeokHDqxx8HmWH59i+araBlrvpE1ThsJERdv7l+ThQHgTtV4nM6UoUF
-	 3U4cpG/32p2Qjg0IstmtbaPO6TLsDk9timnmewYwgBdXRnyZOCBk6+MB2ue/m3jmqs
-	 Wzn3DSCMXkbrFoilp+usD27lobu0nIPdO9Q75NUN/9S7NCZ10ZzcSk3BhDAuMUthws
-	 ad9vw3sufE5hMB0nvMWUM5iJknlQ1418A0A+3jE2NcxAxlBoeVK3Byg1wuaZzlIwJw
-	 ddTqclhRnYlWiDPPDiabUThQi9LHWVmgxYukKsgNIO/lXPaXsYXqr+kwXTxh1br8UJ
-	 MQXEruBj4sZatLLAHhmP7Qjkx/1JWpvdqZjoLoDYNP3yurJ4oAt8vaKGQKmtmyT/CE
-	 3QxSQ1O9IcqenQ6b5ZbSPCc8=
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-470fd49f185so5032145e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 01:58:45 -0700 (PDT)
+	Thu, 16 Oct 2025 09:12:59 +0000
+Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-38627e78203so312052fac.0
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 02:12:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760605976; x=1761210776; darn=lists.infradead.org;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=dy4LI72X5M+MuvyXzIBRU1PdeSk9XBJhqjZ4dH7N3+A=;
+        b=XNa7iX7Id3mltjW+v23AVhWitoe+N/Fu6Krad3yQZuVea0n/QOrrr1aXIv5/kgEr30
+         Ssnkn/ATjDBSt3VwT4cQDVT6qwYH+bvVkQkWdE6jHE9x1BcjY5IFJabTC7MTOWM+gw1t
+         732y6QV0Pu3Tz/7sB4hXjY/PU2Km6uBSLnmMyJzPR3R07V3WHnRnwgbtwCTjv2N0uuoH
+         1AmC4Tlkj5Eho78EywahnSVGltwRpL23U1/uXdYox7XzEwqj+Eg4cTO0oXKVpMLavOuJ
+         YvK07da+C5pfnJNs53qiEUvz2M0Ql2m0U7kbD78qDvLb6h01Owz/gL1+H84ekVjW4Yar
+         6H2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760605124; x=1761209924;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9ahU9OdbDocKDvc07Qj5/lY6cHzOHOb3fbgPU7Jnmq4=;
-        b=NX6Y0rAPGLDPTf+IbtRzpVEc8BOIAVs1gO25qEhyrevwvsyUa3RJyrBLJZTqGVwZGJ
-         b3IYQpU5FNwaJN9VqZvFa57Ul/Gj3RC1oWLps7M+7GJNTEMLZgPiXR1mnaUOppOcVFfW
-         ZK7rvDKn91957vPBM9sckY8EcsMURBrkLjDkY3adcIuro+hMclH/Zn+O+pnixf3rEUgZ
-         mZGeepEcAs4kbEa19l7MLf3v54I+/vECupQtKcUkRbMGJciZd89NRMZjn/d6kkKMOZbw
-         mW9mrMaDwdgfPrs2cRyl8zu+XCIJlx6ZRwPtzbS9RbcO13iwVHBLmgpYEns+JnZ1kwGu
-         kBUg==
-X-Forwarded-Encrypted: i=1; AJvYcCV3k08tVoBA/Y95lfMHCgSEX6hkzqMw5A7wI6arRF3QbAJrYGzelr45p9f+RI7h9JB79HPCLADH0vYERw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuQVzdA6eACXPBbp7HTOrNoSzRPkg5gA6frrYQw7nfYhggXLR+
-	Uoid6nKh4l8P872d0XvILCjnR8KfDp0bG2pIR8QF8249Nf5yYgLvM20K8MFqb4vB5NZuuMvb9wn
-	agCMlD8MT3K1q3Xfhw9/lUuDxnD6Y9m/k9iQlKEH8xTUkgO5hLOMCG3G00aA2+CGpyZ8p1bacdZ
-	gFskj4zgmShw==
-X-Gm-Gg: ASbGncuz4PC+Ud77FfZUwz3QzcLtnfk6DmF0xpGDbN5dXD/qgmuaLPhkmuSttPMGvGx
-	Q7eSaxmBe7Mim4fBYqAKwJLhqFXVfKcSCClF3q2XfcRBRV9QtDdPMUo05t3TORYr1SbAu1B6cij
-	u9jL9oUhgBrT0HRRql3Zo7GxJed2pnYzf2i/d3Xr16/KH+VMBpMUaABybuhUkJvIlmrKGhZYzLd
-	/swe4bFJ4xgPSRyTuzf+MZVyal8h2gopiEFE9sFY77f6gs2MvLcLdWXldbxasnLsS+FlLVNG8OT
-	botm00ltxglO2rX2OC0jnCvWs/N5GWUodztePzLp32PVvRSrtVAXTSYVM3rn5hDT8ye8HT30bLr
-	NT+hBARQ3GRB95Z7PMwrRoEsuG7xQL3DVQNIRYRmuq4kRBjE9mugDHwhlY0H9/5Zf+Mmahg1/
-X-Received: by 2002:a05:600c:548d:b0:46e:49fd:5e30 with SMTP id 5b1f17b1804b1-46fa9a8f4e3mr242027575e9.6.1760605123703;
-        Thu, 16 Oct 2025 01:58:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFascJJzEL6t6HgTISBwE+c0s63Iq7ev5oNUTb431XUwDd7m3F5ONlxv+Pvfs4GHfcbeXxcPg==
-X-Received: by 2002:a05:600c:548d:b0:46e:49fd:5e30 with SMTP id 5b1f17b1804b1-46fa9a8f4e3mr242027245e9.6.1760605123256;
-        Thu, 16 Oct 2025 01:58:43 -0700 (PDT)
-Received: from [192.168.103.116] (ip-005-147-080-091.um06.pools.vodafone-ip.de. [5.147.80.91])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-471144d1765sm18286875e9.17.2025.10.16.01.58.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Oct 2025 01:58:42 -0700 (PDT)
-Message-ID: <a4c5e7fd-a37d-4729-ad58-81523f813fb3@canonical.com>
-Date: Thu, 16 Oct 2025 10:58:41 +0200
+        d=1e100.net; s=20230601; t=1760605976; x=1761210776;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=dy4LI72X5M+MuvyXzIBRU1PdeSk9XBJhqjZ4dH7N3+A=;
+        b=Ad+wp39l71oGloH5Prr1Te1MTyPkSaNq8gSeVaWdCdZ0fi92NkM2Hcd0QLljKrGX42
+         hCulBtMLPMzwr6jI7Jh4pMzJNwkfBks+/UJOgJNjRYWS+yAoj6k2dSOkhvH7mzRkhm2q
+         kJOh3LYFfEReM7OyQNux/Zos7rvIJHESQdoW+xbNCVAzmAEeSB6MOBlPrUDx3/HjFOWI
+         hf/VTZy82jexwwFVMF7VFgyklZXjDGC4QVeoghAlzzgj07coQRgnsJcy/BUxw99qQNNT
+         /KWSuCyaTBWxoagsJ9d0mB5atbkBqKua4ZYwIkWOpY1FM6u2sXUSsd2qn23sB+oq1pOL
+         oSGg==
+X-Gm-Message-State: AOJu0YxnTmnxD6tetz3JmRpC74K9AD0ruh7uZC5b1kbuSoI9JMnRyxJW
+	V0ZXWYLZOFmusxc+P4Hglf+5VmO8b5tVQKsExdqDriWOtFpuGlNckOleFh6Yf4AHN2NcwJTQKrN
+	qaDF/zt8zAxKpaV9C3q8N4vjEtu+NNmlgmJpN
+X-Gm-Gg: ASbGnct6C1lW5vXdGpdW36BY4W5PscyBTRlwmV36iinPoWohPGFEccuvRiovEooK89W
+	H6JwdCWXbFDWewgQioPnk68RNRqFiNzuBEpJ7cIyjzfC2zls/CZ+s4KJxG3wx9qaIJ46ioB4xwY
+	ggOsT1NuLNkUIz3LxAfVUh35B+EPDm2nPz7H0Aa3Rh9Z1WqjpugJWvsfrRxLb3w8/euRuvlPJLO
+	rqjWX+r2Blf+rMunflL0Q644o25gJWSOY7c9+3rFTsDU23hIQi3emSFRANdyu1BAOOyHVfBaCnI
+	B5+/jVa4YgEf+65TUdcvpYTC7g==
+X-Google-Smtp-Source: AGHT+IHfYpaDwbZicHiKXMwiEdTDiYPjCUL8oMAPlA3iukvSjByLOjP1KViIlQWUfEfwTsqBbfQbhxijoyuuRP6KxVI=
+X-Received: by 2002:a05:6870:4688:b0:395:b63a:520a with SMTP id
+ 586e51a60fabf-3c0f6d3d4e5mr15094463fac.22.1760605976500; Thu, 16 Oct 2025
+ 02:12:56 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/7] dt-bindings: PCI: starfive,jh7110-pcie: Add
- enable-gpios property
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J . Wysocki"
- <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- E Shattow <e@freeshell.de>, Paul Walmsley <pjw@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>
-References: <20251016080054.12484-1-hal.feng@starfivetech.com>
- <20251016080054.12484-3-hal.feng@starfivetech.com>
-Content-Language: en-US
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <20251016080054.12484-3-hal.feng@starfivetech.com>
+From: Chunyan Zhang <zhang.lyra@gmail.com>
+Date: Thu, 16 Oct 2025 17:12:20 +0800
+X-Gm-Features: AS18NWDBnnTJr-RaCzpBeJW6Pe-tjeTQo9kyzhNbqEpulebVD7iGbdjXceFntUE
+Message-ID: <CAAfSe-uGLQ5fC31BggZ73P1vp5YckvntOy5CH_MGD3S+cp_TtQ@mail.gmail.com>
+Subject: Impact of RISC-V C Extension on Linux Kernel Size
+To: linux-riscv@lists.infradead.org, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_015850_284855_7A391E30 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20251016_021258_094914_1E5FD7F8 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,47 +86,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/16/25 10:00, Hal Feng wrote:
-> Add enable-gpios property for controlling the PCI bus device power.
-> This property had been supported in the driver but not added in the
-> dt-bindings.
-> 
-> Fixes: 22fe32239770 ("dt-bindings: PCI: Add StarFive JH7110 PCIe controller")
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->   .../devicetree/bindings/pci/starfive,jh7110-pcie.yaml         | 4 ++++
->   1 file changed, 4 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-> index 5f432452c815..f254c7111837 100644
-> --- a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-> @@ -60,6 +60,10 @@ properties:
->       description:
->         The phandle to System Register Controller syscon node.
->   
-> +  enable-gpios:
-> +    description: GPIO used to enable the PCI bus device power
-> +    maxItems: 1
-> +
+Hi,
 
-Shouldn't we try to keep the entries alphabetically ordered?
+I was recently asked how much the RISC-V C extensions can shrink the
+Linux kernel size. I looked it up online and could only roughly
+predict a 25% reduction in theory. But I couldn't find more specific
+data on the Linux kernel program. So I compiled a few kernel images
+with or without RISC-V C extension and would like to share the data
+and analysis. Maybe someone will also be interested.
 
-Otherwise looks good.
+The kernel version is v6.18-rc1, toolchain is
+riscv64-glibc-ubuntu-22.04-gcc-nightly-2025.09.28-nightly.
 
-Best regards
+Compile with C extension is the default, so to disable C extension on
+riscv64, I hacked two Makefiles like below:
 
-Heinrich
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index ecf2fcce2d92..e51810608695 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -61,7 +61,6 @@ endif
+ riscv-march-$(CONFIG_ARCH_RV32I)       := rv32ima
+ riscv-march-$(CONFIG_ARCH_RV64I)       := rv64ima
+ riscv-march-$(CONFIG_FPU)              := $(riscv-march-y)fd
+-riscv-march-$(CONFIG_RISCV_ISA_C)      := $(riscv-march-y)c
+ riscv-march-$(CONFIG_RISCV_ISA_V)      := $(riscv-march-y)v
 
->     perst-gpios:
->       description: GPIO controlled connection to PERST# signal
->       maxItems: 1
+ ifneq ($(CONFIG_RISCV_ISA_C),y)
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index f60fce69b725..0c93c397fed0 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -46,6 +46,7 @@ endif
+ always-$(KBUILD_BUILTIN) += vmlinux.lds
 
+ obj-y  += head.o
++AFLAGS_head.o  += -march=rv64gc
+ obj-y  += soc.o
+ obj-$(CONFIG_RISCV_ALTERNATIVE) += alternative.o
+ obj-y  += cpu.o
+
+
+First with C extension (default):
+
+    $ make defconfig
+    $ time make vmlinux -j32
+       real 4m27.219s
+       user 57m28.761s
+       sys 5m19.494s
+    $ size vmlinux
+        text     data     bss       dec      hex  filename
+    13294359  6288266  423589  20006214  1314546  vmlinux
+
+Without C extension:
+
+    $ make clean
+    $ time make vmlinux -j32
+       real 4m34.450s
+       user 58m52.848s
+       sys 5m25.042s
+    $ size vmlinux
+        text     data     bss       dec      hex  filename
+    17728589  6288586  423589  24440764  174efbc  vmlinux
+
+Build time for both is close, and we can get 25% and 18% for text
+section and vmlinux size reduction respectively with C extension
+support.
+
+I also get performance test results with perf on Pioneer Board, which
+is running kernel 6.6.111,
+
+With C extension,
+
+Performance counter stats for 'netperf' (3 runs):
+
+          9,966.81 msec task-clock                       #    0.995
+CPUs utilized               ( +-  0.04% )
+               780      context-switches                 #   78.260
+/sec                        ( +-  1.74% )
+                35      cpu-migrations                   #    3.512
+/sec                        ( +-  3.30% )
+               121      page-faults                      #   12.140
+/sec                        ( +-  5.86% )
+    19,924,390,238      cycles                           #    1.999
+GHz                         ( +-  0.04% )
+     7,681,821,013      instructions                     #    0.39
+insn per cycle              ( +-  0.88% )
+                 0      branches                         #    0.000
+/sec
+                 0      branch-misses
+
+          10.01376 +- 0.00290 seconds time elapsed  ( +-  0.03% )
+
+Without C extension,
+
+Performance counter stats for 'netperf' (3 runs):
+
+          9,967.98 msec task-clock                       #    0.995
+CPUs utilized               ( +-  0.02% )
+               772      context-switches                 #   77.448
+/sec                        ( +-  1.78% )
+                33      cpu-migrations                   #    3.311
+/sec                        ( +-  4.63% )
+               126      page-faults                      #   12.640
+/sec                        ( +-  2.12% )
+    19,925,181,546      cycles                           #    1.999
+GHz                         ( +-  0.02% )
+     6,639,648,698      instructions                     #    0.33
+insn per cycle              ( +-  0.96% )
+                 0      branches                         #    0.000
+/sec
+                 0      branch-misses
+
+          10.01589 +- 0.00309 seconds time elapsed  ( +-  0.03% )
+
+IPC from 0.33 (without C) to 0.39 (with C), IPC is improved by 18%.
+
+Thanks,
+Chunyan
 
 _______________________________________________
 linux-riscv mailing list
