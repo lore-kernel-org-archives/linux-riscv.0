@@ -4,91 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26446CCD194
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 09:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1132ACCD194
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 09:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zyRgRSwjgUzlQluaUGmf23hhsE4suUq/SREmbmSlldM=; b=c9bco5Sodk8Z1Y
-	m9HMnKlvyhLZj7OQPy9iiBCaDtbyXNFs7JKtQS9V2z6XZ4J3pdY83Hn3S9R1HFJwhl7xkrg+FlDUo
-	ayc8mpqFo0oBJupWCIGlbfQFPkdn4Kx14tURwxMoWWdzW3XkwUJ+rsL+GoZakTjlTsmS/diR9a2DI
-	z8jvn887MKLZeaco4kXJU5u2r0lQnwMxYOauAFkj5hqsSQnteMdkMojPXnCpEEXrDERatLvK+J9DS
-	MMNYHsfmukQQcAOa40BDyI24IKPClZwpQt9ztfO83ztoIFOsqPDOezLWWn8N5OBkG0Wm7Ngen0sgX
-	fxo5TLLPMjVZWd8gYJAg==;
+	List-Owner; bh=YyubwY1dzUpffBm3bd9rQ6X9M3ZO6cbtHuz4PTOeBTk=; b=kxT9D6LO/bOTcP
+	VV1Gbq4kuB2VroOJjg13pJjCiEEzGyp2mYQd9KHTnwcJduUT3V3mqKbTK0BD6324T0ycPF1T7cLXr
+	I4Man8SCqZlKl6uUQqsgWCemNPvCxl9giPgJRBjDDmjcsxM/TGtoh37/yEBPiFQN+t8Nsrtk806of
+	hTUUFOjDDYAoXnYYR5ETnEbnCx0LOWKRIZkmsdtF/qd46V8osX+sbJ5Rrvwra6x7hAl3O9zDoGMaD
+	CZDRu21otPV2pdR6hvjWJjwYM9qA+/M/HPFkVK//afoIaLswjYLNKk+8G+0TmvowYRpgVEbSNSIoG
+	+xMw1xx8dZIf60iQSLhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9K9q-00000004Agn-0Btt;
-	Thu, 16 Oct 2025 09:20:26 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1v9KDi-00000004BGB-2VK5;
+	Thu, 16 Oct 2025 09:24:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9K9m-00000004AfD-3wWr
+	id 1v9KDg-00000004BFo-3JDh
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 16 Oct 2025 09:24:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Jj5YDavVXV4rN07jSdQ2E7BNofwSc+9mwEIbSMC3ewc=; b=nyA8REnzE2CvNNOTiMUjOWsQmH
+	SPcv/R+/Ij0Ne1/mODkhmv81uFVNVgPcpfoND8k25S8yPpLNQwyTQZZ8cRDjJ5mdi7f8daSwx4PNl
+	frabryrbTZp1+mYrJWgsNmQWNSX7A88wMmlnSG5EzNipoRHkcNWm5YGnTUJ8pQIAiKNlANal4c2dc
+	laZLRsAAIOvdWxzCpDevmYBMB8kDQj7U7Ea/8NuyfmeQ3JAIxOfPSY8Jkw23u0ClDYtYmN/qBwHBD
+	jHqXnXxH7w98/jhZ92U479ABUURq8rq/at45/DpxWCiMe7ZtTWBPMk0Ei0WKH8oWjzLKIny/uW0db
+	ksC6qWJA==;
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9KDc-00000006d5c-3XGF
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Oct 2025 09:20:24 +0000
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	Thu, 16 Oct 2025 09:24:23 +0000
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com [209.85.221.71])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 107B33F72D
-	for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 09:20:19 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id F07563F72D
+	for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 09:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1760606419;
-	bh=OJ0lJAET4g4vdkI+q0D39xN1UQb7n+ShPw3yodFDk1I=;
+	s=20251003; t=1760606656;
+	bh=Jj5YDavVXV4rN07jSdQ2E7BNofwSc+9mwEIbSMC3ewc=;
 	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
 	 In-Reply-To:Content-Type;
-	b=LK7n//8DFwcsHAjVmYZh+l6OS0t6kSvL6IhJTGD53XmQqpZ0//9tzw0GUaSA/LS8+
-	 h+/nCFGhNkzYOvGjX1aKScLgKL/qGDo1ZjE5hG6T14Srl4PhqvF1y7PPlOrvo+a7zv
-	 mjBc1SCsA9/9sbsxiu6Uov5+k4FONBbcisgxILu91bQyruAOwKUeMW6sSLmMiF4/U4
-	 lvX9PlLs45YhPnEJIf1FmEbrk4jtbQ1jvROsLXLZknIM8KAFPNfX0UOSo0KXUhWX7z
-	 6uuQIukGRjRZ4rd9z9XCx235kUPpSfavT/SLN4uI/5hBJqDdvWEzYfm5lKXRlEMbX+
-	 JI3KgdlQYfkhDPFXQkYrJNBuTuuzdZHJ6JYoKwyA85GlK10sLJxda0uEZ0k3lNwoJB
-	 I0NKx1e1AeGIEJMbXPfxPftd0/2AnzCFMtDxC6Q5ows6hSErDICW7hsLTKNG0P2OEg
-	 XKB/ub3Jaz4LR1wHIQ8ZG0e27wtbKY0dDmtQdy24ScsvMljSUI5P8mzQyKwNDBBOwu
-	 UuvwghxM/T7cGtlc8eYnMbH6zLEvfHXqqum/KWhxnAB6+QSBEG1+STb5LKaR1q7YT+
-	 ywRhW+SmH3f9ONtuzbeJ78qjNLBx7ezeWnfWvwQmoQdNyeEm3xSaXMSPdDZr9HPGZz
-	 Q7HkrrjMJjUkzMt6Xjs6HSIE=
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-46e39567579so2959535e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 02:20:19 -0700 (PDT)
+	b=jWkhGFrtSSAohz9qa6Wk6lajLiJUbkPBFFxQfaIeL83NZzh1QA0lDIiJqUYN4+Khv
+	 cVc9f3gtUiBvCCFDEKt6oNQIYHogCjIxNn7umTehQ8ykiaB+8wVrh8Ear3sqJfxqEp
+	 e3QMQGgG3rjexWY86z+SBCdcxO5AjNmoaxeBTwautqCtZ14I17cEnHIeRU7WgJWOWt
+	 WBTPZ9Yr5o0uvraU07RRQ0pqLfQobWUxIPIXsO7s6b6zOcrXT01Ux6HlwLjgcJ3/pL
+	 ewa/L7+HklVdmW+fT32s6YsVJKNuWyfTpzHKjn33fADfynbs55ppCAkHHbCKVYXlFy
+	 HQNfkvDE59qpxPUvuXl+A4tOAILB0SvWrc6Pw1UvuSD9mPZg+/kymVI1JDmJME7Dtu
+	 9t/52rq3tfAAm8YjXCkaU3K0DsJe9NRQdG68gaG9E0aRi1QI4Z3g/qkcEfq+2Yt2y3
+	 GiIKmU1JUk2sVsQyDje2OmUpW/r7IOp2UFhXq1t2rP2lXwnPoCz2qmuKbZiqJWIlBD
+	 4hPy8rycCv9ik/wFyLR2dXcYS3WPL/pI8Bnjf0ADl//O6oyxctGAfsZ5gE0xu5R90j
+	 QG9xZK4Rul8Aqssa0ksTecltC+g+d9Bc6BmkXjsd0c7AEhTdujpFgxP39JvE2FSFuw
+	 GyrygkdbnMJQXu4HjqNzFkpo=
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-42558f501adso293075f8f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 02:24:16 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760606418; x=1761211218;
+        d=1e100.net; s=20230601; t=1760606655; x=1761211455;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OJ0lJAET4g4vdkI+q0D39xN1UQb7n+ShPw3yodFDk1I=;
-        b=BbTxNsZJfqH3Ohz//PWD+wMctSvLv2jgBNJo6QOit39EVW04hxufIBOhF6CPn06LtH
-         BE+7HKLM/nEGF1FZYydRAxjqVsdAldcvY9Tmtc8WZToliLI9fXIYBF5UGBLaJtBrkyuz
-         hCQrpCeBWaid/+1Ry7uyTdp3V5IR9odrtba12LB7KUDyw8X+MtLvawUeGX9wIbrXng2u
-         HBBdOnHzILZTmtUWgx28Au/GmcUQ8e4j65y6rh56D2RHDHKIkU9FKzbpa81+DJ80hW9F
-         tWOUYAE2iDE187hsf0/jj4JbbhferLbY6aX+R60ux++gx4MfZmvpVb0ElNdEBmJwSmw+
-         uTQw==
-X-Forwarded-Encrypted: i=1; AJvYcCUP4AFj9cGzog7fL/KteEyl7ZIqeITRm12YF9OOfkIjdNyMOSC+f5wnPWIWxdo6ZHECRmfBbOfLuGeJeA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiGk9qllOHPcyT8Iaw3qUwDSWpyDDhkeuw00nEJB8zFbeBUZmY
-	CzYbdGQ1hOrBIjBPbSaaqJVRouZ9HCzBAkwPh57F7x2jRC2LszMKVp5cHrap09L7W9YO/bD4LPe
-	JGl4trUoGQ2EVObzpU/GWzzfhpM/QljRTf6ACeGPw45Fiz2jZRQ9AkSd/5GunAX4OwAZQPDLQQ9
-	JwG0viGp/PIQ==
-X-Gm-Gg: ASbGncsMJdZtY+6Y8CKG96k5/J42Sn009Ww6VxkRhyFCKR24rk7CbSy5p5jgqfUHIpv
-	DC8wH9jfqFu7Hi3SP/5HY0aOgk/76kZjzF7g6KaY4sR5z0mH0h8T3jS/ZVsJEFavIdDFssTvYUu
-	Scw7jAGegDPNH6wxXlXYWrZ51IlRs9Ki5dhsHSFPGwtujQrE6mT8Zh7zP/L+CRh14NLN46AfBFQ
-	DRKdgyRGMdmdahg5iPcvZ4si+ueWCdX+WmMMnORbbocTYdZLdJA4o7GHLtaSE/EXwjQPB5NwSOR
-	umEKkfPp1cBQb1bnVRh8EHLXf1zH27Kq+vmOCS8hdFjxGIYhDrNUgNSDkZHK7MpPsJZpRTo79QH
-	8rqyfP5BBOLhqqgaRI0W6pIxrUpbWMPB5d/IzLro02vDXWbk1/chL+EmCoe4C3kO6Dln9CB/J
-X-Received: by 2002:a05:6000:2486:b0:427:38b:cbc5 with SMTP id ffacd0b85a97d-427038bcbc9mr260380f8f.46.1760606418627;
-        Thu, 16 Oct 2025 02:20:18 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHWHxnhRr0zKaTqXSmx48RroXO5zvyasty5TJo0MiU49h1Rjj308rIrfJTyIkIDwj6SkbzYYA==
-X-Received: by 2002:a05:6000:2486:b0:427:38b:cbc5 with SMTP id ffacd0b85a97d-427038bcbc9mr260346f8f.46.1760606418226;
-        Thu, 16 Oct 2025 02:20:18 -0700 (PDT)
+        bh=Jj5YDavVXV4rN07jSdQ2E7BNofwSc+9mwEIbSMC3ewc=;
+        b=d8rjZtm7+egMmOYczCA8j0TrX1a6GW5SOx/6gjWGwj+v1elV6UFHfNwVVpJyc08vFp
+         iBYobQjCl8FO7O5fnT+X4sz2p4NmAIndBS35AvxJ7N54qXL8CBErJYPvUz9I5zKDzKGf
+         DrL13OCgTF7+E04YQqXfTrWO+3WSSRLyNgR1hopXSQyA+yfIR9xXhH0KOrNcfSVVGM+B
+         L6VFmNXIBXEkLvBu18m9wlzdfuEJ5UMJWzrxQ9ncNEm4z+Ypeed7dVO4xiaIV4P7OK5r
+         sLXuePjF0s7bHZUOkltanuZ2DkN0TmKL33S0nADoAtcUadF98FBeshG6I7UT1oW7yA/K
+         W0AQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVMDUgCoGj6MmVyYFgtReXgqWcA49O/DQ1XDOv73vXOOb0r6UQexD8fjBAtTdJrj0LVDGcHl/FN8OZOUA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5+OBI9HIBsADX5EBEWFh9KhOmMCZ/2l0PUepk0CNdkl3+0ozl
+	ouLd0rXfHswFAtUEotXyXD9L8Hl3cusEIeSBvumhYqILyTunKtc6F0/8zP5LP1Luz6rIfnWafel
+	Gdlum2Q3kEpJWaRSmqsDxNIWQ9/b8a006WS09rKB2ti6zyqVVtDVce5wpt0TKwKb+5YorSTvQy1
+	V6JJXBkys27A==
+X-Gm-Gg: ASbGncs4xfqxKCMvzv+JhDgKLyyHpOChkyy1RIw84zdKSOoA5IVopPoyZoUxPMW1mjG
+	ddQvhPU65q8M3RxRvSN9EO7emEypf8Z8B1TkkD8VXv10FfVBtxvE01j5lJFm3LtJ2jCUDNRK3Ap
+	ALFljlmYF770DYQ5Nsn6Ngl+lfmkIibXVcDUUPuv02zvluH6cRWFEYHQBTygWuuHIqr5ehi2gN1
+	BZd0Fyxnbnu8AXXDN/0Ly+yunRXP3qK0r3Fd6EawmPN2MbYNL1rTLYDwH1QU01/lVA96zVrbkuh
+	3MMOLYSTDrvUXCme+K/WcMULzhL/H48Y1BS7HiU4+DV6OhlvT5RZFGbR96Ana0BNChM+rg3U9Vo
+	+NZMwkVeidi3Y1xXGKCVpBEIY+CoJVYzPNGoaNDugZCj1BrX0wiDctj6UBKALCz65j5EtWscL
+X-Received: by 2002:a05:6000:4305:b0:3c8:d236:26bd with SMTP id ffacd0b85a97d-42666ac2ce9mr21148706f8f.11.1760606654869;
+        Thu, 16 Oct 2025 02:24:14 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEcbBGP+l5exuqbqvAtjI14viHyp0QSM9sOIa9CsXS1ysxI1h4z19klvDWfmi0DQ1uixQfYDg==
+X-Received: by 2002:a05:6000:4305:b0:3c8:d236:26bd with SMTP id ffacd0b85a97d-42666ac2ce9mr21148675f8f.11.1760606654414;
+        Thu, 16 Oct 2025 02:24:14 -0700 (PDT)
 Received: from [192.168.103.116] (ip-005-147-080-091.um06.pools.vodafone-ip.de. [5.147.80.91])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426ce5e8207sm32742853f8f.47.2025.10.16.02.20.17
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426ce57cce5sm34412027f8f.1.2025.10.16.02.24.13
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Oct 2025 02:20:17 -0700 (PDT)
-Message-ID: <48c20b5e-ad6e-425c-857c-79f76742456d@canonical.com>
-Date: Thu, 16 Oct 2025 11:20:16 +0200
+        Thu, 16 Oct 2025 02:24:13 -0700 (PDT)
+Message-ID: <64772268-54a1-4495-a901-bfd0e4b06f78@canonical.com>
+Date: Thu, 16 Oct 2025 11:24:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/7] cpufreq: dt-platdev: Add JH7110S SOC to the
- allowlist
+Subject: Re: [PATCH v1 3/7] dt-bindings: riscv: Add StarFive JH7110S SoC and
+ VisionFive 2 Lite board
 To: Hal Feng <hal.feng@starfivetech.com>
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
@@ -99,13 +114,13 @@ Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  E Shattow <e@freeshell.de>, Paul Walmsley <pjw@kernel.org>,
  Albert Ou <aou@eecs.berkeley.edu>
 References: <20251016080054.12484-1-hal.feng@starfivetech.com>
- <20251016080054.12484-2-hal.feng@starfivetech.com>
+ <20251016080054.12484-4-hal.feng@starfivetech.com>
 Content-Language: en-US
 From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <20251016080054.12484-2-hal.feng@starfivetech.com>
+In-Reply-To: <20251016080054.12484-4-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_022023_196963_795AF57A 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20251016_102421_402280_E6000570 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,29 +138,42 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 10/16/25 10:00, Hal Feng wrote:
-> Add the compatible strings for supporting the generic
-> cpufreq driver on the StarFive JH7110S SoC.
+> Add device tree bindings for the StarFive JH7110S SoC
+> and the VisionFive 2 Lite board equipped with it.
+> 
+> JH7110S SoC is an industrial SoC which can run at -40~85 degrees centigrade
+> and up to 1.25GHz. Its CPU cores and peripherals are the same as
+> those of the JH7110 SoC.
+> 
+> VisionFive 2 Lite boards have SD card version (default) and eMMC version,
+> which are called "VisionFive 2 Lite" and "VisionFive 2 Lite eMMC"
+> respectively.
 > 
 > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 
 Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
 
 > ---
->   drivers/cpufreq/cpufreq-dt-platdev.c | 1 +
->   1 file changed, 1 insertion(+)
+>   Documentation/devicetree/bindings/riscv/starfive.yaml | 6 ++++++
+>   1 file changed, 6 insertions(+)
 > 
-> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
-> index cd1816a12bb9..dc11b62399ad 100644
-> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
-> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
-> @@ -87,6 +87,7 @@ static const struct of_device_id allowlist[] __initconst = {
->   	{ .compatible = "st-ericsson,u9540", },
+> diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+> index 04510341a71e..797d9956b949 100644
+> --- a/Documentation/devicetree/bindings/riscv/starfive.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+> @@ -35,6 +35,12 @@ properties:
+>                 - starfive,visionfive-2-v1.3b
+>             - const: starfive,jh7110
 >   
->   	{ .compatible = "starfive,jh7110", },
-> +	{ .compatible = "starfive,jh7110s", },
+> +      - items:
+> +          - enum:
+> +              - starfive,visionfive-2-lite
+> +              - starfive,visionfive-2-lite-emmc
+> +          - const: starfive,jh7110s
+> +
+>   additionalProperties: true
 >   
->   	{ .compatible = "ti,omap2", },
->   	{ .compatible = "ti,omap4", },
+>   ...
 
 
 _______________________________________________
