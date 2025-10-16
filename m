@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451F0CCD183
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 16:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D21CCD199
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 16:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	In-Reply-To:Date:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NVeoDyvq0iMe0XNnIKIi5bvxIdPT5FBJo4o6U7TDZsI=; b=c4rpoPozEYPjI/
-	A7u7cHMw3P/ifOtI3C5TwAC7Rw0rQmvvqQXsSEumTr4h35XFYoabyBB6o1yohcR5Iwb0TbKZWsQT1
-	csT+3auqbeMOb/ldoIv6a/Qia+BY6c421i+LZp4aeCbJN9MQC6mP0gI+d0tRMwUyQbTWXrnb+A6vB
-	z4TCW392fINHBSSpaqRCEWmdZm+WYLcx6IaaLeRL9VfK1SVSJpG5qTVI5g/2VNg4uX+zee5wJ79wQ
-	79TYuxc7DFTUPlvNhP4u7TyddphN2+v1DVXNnF1gZCUf0s4Pf8gh3CSG1S9CY+qevBHT/I8VaHJB7
-	hC0+qZ3lmgE1KojbieVg==;
+	References:List-Owner; bh=dxc+vAsd2mxGlPtWQnbd3JjFvq6mgYusEyRn+RB2uVQ=; b=DG7
+	YNcLRGeVMQOyIH1NANzvuqJc6KiGTmXivBPq5z075IhHrQMlw/KcJcpgrCUIxeAlL73/G/sQMtfld
+	710dxeFNZgwMU2cEUb6drvoko2huH8IC15gN2E4ebuciC9Y4qu1o73LUREl3ihPtqXaB6UfTfPH4H
+	bA4+ByafFX1omTKmGT8wa+xefh3DCyR/jQcDJveMulxl2gMBiX4/GJA/jyvaf4yxB7tr15qIIrhRL
+	OxVBFlhOXzmYIa+olVgv+JEpXbsC2NZJA/a4+AwNgFA2tGNZdY+9/TY/gve15LY6UdZbMvoClBWAp
+	A9OMavPBQ1wJ4gnkJdIJO8iLEsWDwKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Qac-00000005NP0-3n7Q;
-	Thu, 16 Oct 2025 16:12:30 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1v9Qlj-00000005Pty-1KWA;
+	Thu, 16 Oct 2025 16:23:59 +0000
+Received: from mail-io1-f70.google.com ([209.85.166.70])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Qab-00000005NO6-0R4Z
+	id 1v9Qlg-00000005Pst-1GTz
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Oct 2025 16:12:30 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760631147;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EimfC5YBQZ0kq/Gz52aWdB6vLjbMGcafw2nhUU8MVtE=;
-	b=ZRO9mP/8ehCkUpZqmBe1rgk54JZHc29ccwtTz5j954OrVqClG6R+uVRDYkbJp7hC1gdJJZ
-	y5PEOhujG1srTiKm+IOooIdhhs0kUZTBg4no06GdwWfYS9c5mWtbD/4Vm5ajrzxPau/bM9
-	9V1jlggPXINSOLbxqr8l4O4HJFubXNqMmKD9mxQ4/xIWvOz1XaQ+GtxT9E4rcZGj2ur6Ob
-	wSufpZsQHWCSIZlhRNhxoBXc712/TuEeRpyRjjoavVOhCa2rUqh8BW7FCpL+7ZOryAWmxx
-	AoFp07wqU0/WHcI9Qum/mmpesYmxTEZ1yG++4KX20YvDIBCM3mP0+nBORDZNSA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760631147;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EimfC5YBQZ0kq/Gz52aWdB6vLjbMGcafw2nhUU8MVtE=;
-	b=f4I884pQCh72NrW5bcmy4HgTPvI5ho0GNW8nxlBno/OTw1sTWSsWqoRojjYlPDOcm2wPbr
-	9w2ELHaEq06LBtBw==
-To: Charles Mirabile <cmirabil@redhat.com>
-Cc: Lucas Zampieri <lzampier@redhat.com>, linux-kernel@vger.kernel.org, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>, Vivian Wang <dramforever@live.com>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, Zhang
- Xincheng <zhangxincheng@ultrarisc.com>
-Subject: Re: [PATCH v5 3/3] irqchip/plic: add support for UltraRISC DP1000 PLIC
-In-Reply-To: <CABe3_aGj68qM1bNZ3LExbexO=9FO4RzJxhUy2T+HKK1qZfBmtw@mail.gmail.com>
-References: <20251016084301.27670-1-lzampier@redhat.com>
- <20251016084301.27670-4-lzampier@redhat.com> <87plan0yvd.ffs@tglx>
- <CABe3_aGj68qM1bNZ3LExbexO=9FO4RzJxhUy2T+HKK1qZfBmtw@mail.gmail.com>
-Date: Thu, 16 Oct 2025 18:12:25 +0200
-Message-ID: <87ms5q25cm.ffs@tglx>
+	Thu, 16 Oct 2025 16:23:57 +0000
+Received: by mail-io1-f70.google.com with SMTP id ca18e2360f4ac-93bc56ebb0aso228372539f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 09:23:55 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760631835; x=1761236635;
+        h=cc:to:from:subject:message-id:in-reply-to:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=uH9ncuVNWrmpKccRdCmFgVg8gN7Sa+FrJMkcgErOzbI=;
+        b=P627eODSBl5fftSohpEQHuX/yNqB668kGSeCHmcNxE+mwK2xNIeEL/WuxdTMoHa3a+
+         OsruIw3//QipWgF4AR+FsgQFTModde4wcruMx7CdjMVnQKM5+xkoVD5mZUIgvP5k+45U
+         xevvhkKewWva595sNAlbyuldRzLIz90XRtFnQW/1nG7j1fGMASGARNmfqvMk0FzrGHDe
+         NJghNGtcPPA9LF8Csd+x1vRbfLjx+om9jY4neqDUIJamDN4SG7LB44ZWISHp95CgxTFs
+         m0w5HOJjhyQzizPTYfw7XVX8+bMShIS57pSyB3VoQpW99TmgnQyt6wm4m4EbN+PLSHTw
+         Ofxw==
+X-Forwarded-Encrypted: i=1; AJvYcCX1ZmKxjLNSMQ8J5lxi5SDFLhm3OX1z+xhrHgqNTanxYwxoy0WG3WF9QxHrUdZWCmboDvOItWRv/wgSxw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxs+/BIVpJ4MmAX9bUM7tzYGxvhd+AyIuhAJkB9I91Xude4IL+H
+	feloCGejYVyZ9B0J2LZHBo5GuW2OE7nPa1u1GxfMhMxvRaJy0Cnp9WFL/ljVlNWML2RUKTArdiC
+	z3Nv6K2VapBXKz0xoyOEk94X1YdYW6tSBPHM38NxO9wo1P0ZzYU81XiYaO3c=
+X-Google-Smtp-Source: AGHT+IF0mVeBbeh6pgt7i0/MkOWl7EBWMggnxuS/B6V6XUo6s2UTse3jty2HFSlMCH44YjluTZGifEjNeS3+6UR8CA7xp8eCe2kH
 MIME-Version: 1.0
+X-Received: by 2002:a05:6e02:148d:b0:430:b167:3604 with SMTP id
+ e9e14a558f8ab-430c5209bafmr12878615ab.4.1760631834789; Thu, 16 Oct 2025
+ 09:23:54 -0700 (PDT)
+Date: Thu, 16 Oct 2025 09:23:54 -0700
+In-Reply-To: <20251016112704.179280-1-yintirui@huawei.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <68f11c1a.050a0220.91a22.0411.GAE@google.com>
+Subject: [syzbot ci] Re: mm: add huge pfnmap support for remap_pfn_range()
+From: syzbot ci <syzbot+ci290b7e46a3349a6e@syzkaller.appspotmail.com>
+To: abrestic@rivosinc.com, akpm@linux-foundation.org, alex@ghiti.fr, 
+	anshuman.khandual@arm.com, aou@eecs.berkeley.edu, apopple@nvidia.com, 
+	ardb@kernel.org, baohua@kernel.org, baolin.wang@linux.alibaba.com, 
+	catalin.marinas@arm.com, chenjun102@huawei.com, david@redhat.com, 
+	dev.jain@arm.com, liam.howlett@oracle.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	lorenzo.stoakes@oracle.com, luxu.kernel@bytedance.com, mhocko@suse.com, 
+	npache@redhat.com, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	rppt@kernel.org, ryan.roberts@arm.com, samuel.holland@sifive.com, 
+	surenb@google.com, vbabka@suse.cz, wangkefeng.wang@huawei.com, 
+	will@kernel.org, willy@infradead.org, yangyicong@hisilicon.com, 
+	yintirui@huawei.com, yongxuan.wang@sifive.com, ziy@nvidia.com
+Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_091229_285434_EAD9308C 
-X-CRM114-Status: GOOD (  34.40  )
+X-CRM114-CacheID: sfid-20251016_092356_347320_23A66E60 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,85 +85,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBPY3QgMTYgMjAyNSBhdCAxMTo1NCwgQ2hhcmxlcyBNaXJhYmlsZSB3cm90ZToKPiBP
-biBUaHUsIE9jdCAxNiwgMjAyNSBhdCA5OjE34oCvQU0gVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGxp
-bnV0cm9uaXguZGU+IHdyb3RlOgo+PiA+ICtzdGF0aWMgaXJxX2h3X251bWJlcl90IGNwMTAwX2dl
-dF9od2lycShzdHJ1Y3QgcGxpY19oYW5kbGVyICpoYW5kbGVyLAo+PiA+ICsgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgdm9pZCBfX2lvbWVtICpjbGFpbSkKPj4gPiArewo+PiA+
-ICsgICAgIGludCBucl9pcnFfZ3JvdXBzID0gRElWX1JPVU5EX1VQKGhhbmRsZXItPnByaXYtPm5y
-X2lycXMsIDMyKTsKPj4gPiArICAgICB2b2lkIF9faW9tZW0gKnBlbmRpbmcgPSBoYW5kbGVyLT5w
-cml2LT5yZWdzICsgUEVORElOR19CQVNFOwo+PiA+ICsgICAgIHZvaWQgX19pb21lbSAqZW5hYmxl
-ID0gaGFuZGxlci0+ZW5hYmxlX2Jhc2U7Cj4+ID4gKyAgICAgaXJxX2h3X251bWJlcl90IGh3aXJx
-ID0gMDsKPj4gPiArICAgICBpbnQgaTsKPj4gPiArCj4+ID4gKyAgICAgZ3VhcmQocmF3X3NwaW5s
-b2NrKSgmaGFuZGxlci0+ZW5hYmxlX2xvY2spOwo+PiA+ICsKPj4gPiArICAgICAvKiBTYXZlIGN1
-cnJlbnQgaW50ZXJydXB0IGVuYWJsZSBzdGF0ZSAqLwo+PiA+ICsgICAgIGZvciAoaSA9IDA7IGkg
-PCBucl9pcnFfZ3JvdXBzOyBpKyspCj4+ID4gKyAgICAgICAgICAgICBoYW5kbGVyLT5lbmFibGVf
-c2F2ZVtpXSA9IHJlYWRsX3JlbGF4ZWQoZW5hYmxlICsgaSAqIHNpemVvZih1MzIpKTsKPj4KPj4g
-VGhpcyBpcyB0cnVseSB0aGUgbW9zdCBpbmVmZmljaWVudCB3YXkgdG8gc29sdmUgdGhhdCBwcm9i
-bGVtLiBUaGUgZW5hYmxlCj4+IHJlZ2lzdGVycyBhcmUgbW9kaWZpZWQgd2l0aCBlbmFibGVkX2xv
-Y2sgaGVsZCwgc28geW91IGNhbiBqdXN0IGNhY2hlIHRoZQo+PiB2YWx1ZSBpbiBwbGljX2hhbmRs
-ZXI6OmVuYWJsZWRfc2F2ZSBhbmQgYXZvaWQgdGhpcyByZWFkIGxvb3AgY29tcGxldGVseS4KPj4g
-QWZ0ZXIgY2xhaW1pbmcgdGhlIGludGVycnVwdCB5b3UgcmVzdG9yZSBmcm9tIHRoYXQgY2FjaGUs
-IG5vPwo+Cj4gWW91IG1lYW4gdG91Y2ggdGhlIG90aGVyIGZ1bmN0aW9ucyB3aGVyZSB0aGUgZW5h
-YmxlIGJpdHMgYXJlIG1vZGlmaWVkCj4gdG8ga2VlcCB0aGUgY2FjaGUgaW4gc3luYyBzbyB0aGF0
-IHdlIGRvbid0IG5lZWQgdG8gZG8gdGhpcyByZWFkIGxvb3AKPiBhbmQgY2FuIGhhdmUgYSBwcm9w
-ZXIgc2V0IG9mIHZhbHVlcyBjYWNoZWQ/Cj4KPiBNeSBjb25jZXJuIGlzIHRoYXQgdGhpcyBvYnZp
-b3VzbHkgaGFzIGFuIGltcGFjdCBvbiBvdGhlciBwbGF0Zm9ybXMKPiB3aGljaCBkbyBub3QgaGF2
-ZSB0aGlzIHF1aXJrIHNpbmNlIGtlZXBpbmcgdGhlIGNhY2hlIGluIHN5bmMgd291bGQgZ2V0Cj4g
-cHVzaGVkIGFsbCB0aHJvdWdob3V0IHRoZSBkcml2ZXIuCgpUaGUgaXJxX2VuYWJsZSgpL2Rpc2Fi
-bGUoKSBjYWxsYmFja3MgYXJlIG5vdCByZWFsbHkgaG90cGF0aCBhbmQgY2FjaGluZwp0aGUgYml0
-IGluIHBsaWNfdG9nZ2xlKCkgb3Igc3VjaCBpcyBqdXN0IG5vdCBtZWFzdXJhYmxlIG92ZXJoZWFk
-CmNvbXBhcmVkIHRvIHRoZSByZWdpc3RlciBhY2Nlc3MuCgo+PiBOb3cgZm9yIHRoZSBzZWFyY2gg
-YW5kIGRpc2FibGUgbWVjaGFuaXNtLiBPZiBjb3Vyc2UgeW91IG5lZWQgdG8gc2VhcmNoCj4+IGZv
-ciB0aCBwZW5kaW5nIGludGVycnVwdCBmaXJzdCwgYnV0IHRoZW4geW91IGNhbiBtYWtlIHRoYXQg
-bWFza2luZyBsb29wCj4+IHZlcnkgc2ltcGxlIGJ5IGhhdmluZyBhIHBsaWNfaGFuZGxlcjo6ZW5h
-YmxlZF9jbGVhcltdIGFycmF5IHdoaWNoIGlzCj4+IHplcm9lZCBvbiBpbml0aWFsaXphdGlvbjoK
-Pj4KPj4gICAgICAgICB1bnNpZ25lZCBsb25nIHBlbmRpbmcgPSAwOwo+Pgo+PiAgICAgICAgIGZv
-ciAoZ3JvdXAgPSAwOyAhcGVuZGluZyAmJiBncm91cCA8IG5yX2lycV9ncm91cHM7IGdyb3VwKysp
-IHsKPj4gICAgICAgICAgICAgICAgIHBlbmRpbmcgPSBoYW5kbGVyLT5lbmFibGVkX3NhdmVbaV07
-Cj4+ICAgICAgICAgICAgICAgICBwZW5kaW5nID0mIHJlYWRsX3JlbGF4ZWQocGVuZGluZyArIGdy
-b3VwICogc2l6ZW9mKHUzMikpOwo+PiAgICAgICAgIH0KPj4gICAgICAgICBpZiAoIXBlbmRpbmcp
-Cj4+ICAgICAgICAgICAgICAgICByZXR1cm4gZmFsc2U7Cj4+Cj4+ICAgICAgICAgYml0ID0gZmZz
-KHBlbmRpbmcpIC0gMTsKPj4gICAgICAgICBoYW5kbGVyLT5lbmFibGVkX2NsZWFyW2dyb3VwXSB8
-PSBCSVQoYml0KTsKPj4gICAgICAgICBmb3IgKGludCBpID0gMDsgaSA8IG5yX2lycV9ncm91cHM7
-IGkrKykKPj4gICAgICAgICAgICAgICAgIHdyaXRlbF9yZWxheGVkKGhhbmRsZXItPmVuYWJsZWRf
-Y2xlYXJbaV0sIGVuYWJsZSArIGkgKiBzaXplb2YodTMyKSk7Cj4+ICAgICAgICAgaGFuZGxlci0+
-ZW5hYmxlZF9jbGVhcltncm91cF0gPSAwOwo+Pgo+PiBObz8KPgo+IFN1cmUgdGhhdCB3b3VsZCBh
-bHNvIHdvcmssIGJ1dCB3aHkgYXJlIHdlIHVzaW5nIGZmcyAoc2xvdykgb25seSB0bwo+IHNoaWZ0
-IHRoZSByZXN1bHQgYmFjayB0byBtYWtlIGEgbmV3IG1hc2sgd2hlbiAoeCAmIC14KSBpcyBmYXN0
-ZXIgYW5kCj4gc2tpcHMgdGhlIGludGVybWVkaWF0ZSBzdGVwIGRlbGl2ZXJpbmcgaW1tZWRpYXRl
-bHkgdGhlIG1hc2sgb2YgdGhlCj4gbG93ZXN0IGJpdC4KCkJlY2F1c2UgSSBkaWQgbm90IHNwZW5k
-IHRpbWUgdGhpbmtpbmcgYWJvdXQgaXQuIAoKPiBBcyBmb3IgbWFraW5nIGFub3RoZXIgY2FjaGlu
-ZyBhcnJheSwgSSBndWVzcywgYnV0IGFnYWluIHRoYXQgaXMganVzdCBhCj4gdGltZSB2cyBzcGFj
-ZSB0cmFkZSBvZmYgd2l0aCBpdHMgb3duIGludmFyaWFudHMgdG8gbWFpbnRhaW4gdGhhdCB3b3Vs
-ZAo+IGFsc28gaW1wYWN0IG90aGVyIHBsYXRmb3Jtcy4KCkl0J3MgYSBwb2ludGVyIGluIHN0cnVj
-dCBwbGljX2hhbmRsZXIgKG9yIHdoYXRldmVyIGl0J3MgbmFtZWQpIGFuZCB5b3UKY2FuIGFsbG9j
-YXRlIGl0IHdoZW4gdGhlIHF1aXJrIGlzIHJlcXVpcmVkLiBUaGUgcG9pbnRlciBpcyBkZWZpbml0
-ZWx5Cm5vdCBhIGJ1cmRlbiBmb3IgYW55b25lIGVsc2UuCgo+PiBJcyB0aGUgZGV2aWNlIEIgaW50
-ZXJydXB0IHByZXNlcnZlZCBpbiB0aGUgaW50ZXJydXB0IGNoaXAgYW5kIGFjdHVhbGx5Cj4+IHJh
-aXNlZCB3aGVuIHRoZSBpbnRlcnJ1cHQgZW5hYmxlIGJpdCBpcyByZXN0b3JlZCBvciBpcyBpdCBs
-b3N0Pwo+Cj4gSSBhbSBub3Qgc3VyZSBob3cgdG8gdmVyaWZ5IHRoaXMgb3RoZXIgdGhhbiB0byB0
-ZWxsIHlvdSB0aGF0IHdpdGhvdXQKPiB0aGlzIHF1aXJrIChpLmUuIHRyeWluZyB0byB1c2Ugbm9y
-bWFsIHBsaWMgYmVoYXZpb3IpIHRoZSBkZXZpY2UgZG9lcwo+IG5vdCB3b3JrLCBidXQgd2l0aCB0
-aGlzIHF1aXJrIEkgY2FuIGJvb3QgdG8gYSBkZXNrdG9wIHdpdGggYSBwY2llCj4gZ3JhcGhpY3Mg
-Y2FyZCBhbmQgc3RvcmFnZSwgdXNlIG5ldHdvcmtpbmcgZXRjIHRoYXQgYWxsIG9idmlvdXNseQo+
-IGRlcGVuZCBvbiB0aGUgY29ycmVjdCBmdW5jdGlvbmluZyBvZiB0aGUgaW50ZXJydXB0IGNvbnRy
-b2xsZXIuCj4KPiBNeSByZWFkaW5nIG9mIHRoZSBzcGVjIGZvciBQTElDIGFsc28gc3VnZ2VzdHMg
-KGJ1dCBkb2VzIG5vdCBleHBsaWNpdGx5Cj4gY29uZmlybSkgdGhhdCB0aGUgcGVuZGluZyBiaXRz
-IGZ1bmN0aW9uIGlycmVzcGVjdGl2ZSBvZiB0aGUgc3RhdGUgb2YKPiB0aGUgY29ycmVzcG9uZGlu
-ZyBlbmFibGUgYml0OiAiQSBwZW5kaW5nIGJpdCBpbiB0aGUgUExJQyBjb3JlIGNhbiBiZQo+IGNs
-ZWFyZWQgYnkgc2V0dGluZyB0aGUgYXNzb2NpYXRlZCBlbmFibGUgYml0IHRoZW4gcGVyZm9ybWlu
-ZyBhIGNsYWltLiIKPiAocGFnZSAxNCBwbGljIHNwZWMgMS4wLjAgWzFdKS4KPgo+IFRoaXMgc2Vu
-dGVuY2UgaW1wbGllcyB0byBtZSB0aGF0IGl0IGlzIHBvc3NpYmxlIGZvciBhIHBlbmRpbmcgYml0
-IHRvCj4gYmUgc2V0IGV2ZW4gdGhvdWdoIHRoZSBjb3JyZXNwb25kaW5nIGVuYWJsZSBiaXQgaXMg
-bm90LCB3aGljaCBsZW5kcwo+IGNyZWRlbmNlIHRvIHRoZSBpZGVhIHRoYXQgdGhlIHBlbmRpbmcg
-Yml0cyBvcGVyYXRlIGluZGVwZW5kZW50bHkuCgpMb29rcyBsaWtlIHRoYXQuIFBsZWFzZSBhZGQg
-YSBjb21tZW50IHRvIHRoYXQgZWZmZWN0IHRoZW4uCgpUaGFua3MsCgogICAgICAgIHRnbHgKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+syzbot ci has tested the following series
+
+[v2] mm: add huge pfnmap support for remap_pfn_range()
+https://lore.kernel.org/all/20251016112704.179280-1-yintirui@huawei.com
+* [PATCH RFC 1/2] pgtable: add pte_clrhuge() implementation for arm64 and riscv
+* [PATCH RFC 2/2] mm: add PMD-level huge page support for remap_pfn_range()
+
+and found the following issue:
+stack segment fault in pgtable_trans_huge_withdraw
+
+Full report is available here:
+https://ci.syzbot.org/series/d04c2914-0d99-4132-89d4-899e22abf904
+
+***
+
+stack segment fault in pgtable_trans_huge_withdraw
+
+tree:      torvalds
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux
+base:      3a8660878839faadb4f1a6dd72c3179c1df56787
+arch:      amd64
+compiler:  Debian clang version 20.1.8 (++20250708063551+0c9f909b7976-1~exp1~20250708183702.136), Debian LLD 20.1.8
+config:    https://ci.syzbot.org/builds/9d7864e5-ad3a-4c0d-b21d-86cfc476792e/config
+C repro:   https://ci.syzbot.org/findings/b9fca361-413d-4db1-b8b2-1849cd2c50dd/c_repro
+syz repro: https://ci.syzbot.org/findings/b9fca361-413d-4db1-b8b2-1849cd2c50dd/syz_repro
+
+Oops: stack segment: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 5968 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:pgtable_trans_huge_withdraw+0x115/0x310 mm/pgtable-generic.c:188
+Code: c3 10 48 89 d8 48 c1 e8 03 42 80 3c 28 00 74 08 48 89 df e8 9d e9 13 00 48 8b 03 48 89 04 24 4c 8d 78 08 4c 89 fd 48 c1 ed 03 <42> 80 7c 2d 00 00 74 08 4c 89 ff e8 7b e9 13 00 49 8b 07 48 8d 48
+RSP: 0018:ffffc90003717300 EFLAGS: 00010202
+RAX: 0000000000000000 RBX: ffffea00044848d0 RCX: ffff88816c890000
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000001 R08: ffff88816db66a23 R09: 1ffff1102db6cd44
+R10: dffffc0000000000 R11: ffffed102db6cd45 R12: ffff888112123000
+R13: dffffc0000000000 R14: ffff888112123000 R15: 0000000000000008
+FS:  000055556cb5f500(0000) GS:ffff88818e70c000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 00000001102a4000 CR4: 00000000000006f0
+Call Trace:
+ <TASK>
+ zap_deposited_table mm/huge_memory.c:2169 [inline]
+ zap_huge_pmd+0xa25/0xf50 mm/huge_memory.c:2197
+ zap_pmd_range mm/memory.c:1926 [inline]
+ zap_pud_range mm/memory.c:1975 [inline]
+ zap_p4d_range mm/memory.c:1996 [inline]
+ unmap_page_range+0x9fe/0x4370 mm/memory.c:2017
+ unmap_single_vma mm/memory.c:2060 [inline]
+ unmap_vmas+0x399/0x580 mm/memory.c:2104
+ exit_mmap+0x240/0xb40 mm/mmap.c:1280
+ __mmput+0x118/0x430 kernel/fork.c:1133
+ copy_process+0x2910/0x3c00 kernel/fork.c:2460
+ kernel_clone+0x21e/0x840 kernel/fork.c:2609
+ __do_sys_clone kernel/fork.c:2750 [inline]
+ __se_sys_clone kernel/fork.c:2734 [inline]
+ __x64_sys_clone+0x18b/0x1e0 kernel/fork.c:2734
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xfa/0xfa0 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f946958eec9
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc41c94258 EFLAGS: 00000206 ORIG_RAX: 0000000000000038
+RAX: ffffffffffffffda RBX: 00007f94697e5fa0 RCX: 00007f946958eec9
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000002001000
+RBP: 00007f9469611f91 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000000000000
+R13: 00007f94697e5fa0 R14: 00007f94697e5fa0 R15: 0000000000000006
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:pgtable_trans_huge_withdraw+0x115/0x310 mm/pgtable-generic.c:188
+Code: c3 10 48 89 d8 48 c1 e8 03 42 80 3c 28 00 74 08 48 89 df e8 9d e9 13 00 48 8b 03 48 89 04 24 4c 8d 78 08 4c 89 fd 48 c1 ed 03 <42> 80 7c 2d 00 00 74 08 4c 89 ff e8 7b e9 13 00 49 8b 07 48 8d 48
+RSP: 0018:ffffc90003717300 EFLAGS: 00010202
+RAX: 0000000000000000 RBX: ffffea00044848d0 RCX: ffff88816c890000
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000001 R08: ffff88816db66a23 R09: 1ffff1102db6cd44
+R10: dffffc0000000000 R11: ffffed102db6cd45 R12: ffff888112123000
+R13: dffffc0000000000 R14: ffff888112123000 R15: 0000000000000008
+FS:  000055556cb5f500(0000) GS:ffff88818e70c000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 00000001102a4000 CR4: 00000000000006f0
+----------------
+Code disassembly (best guess):
+   0:	c3                   	ret
+   1:	10 48 89             	adc    %cl,-0x77(%rax)
+   4:	d8 48 c1             	fmuls  -0x3f(%rax)
+   7:	e8 03 42 80 3c       	call   0x3c80420f
+   c:	28 00                	sub    %al,(%rax)
+   e:	74 08                	je     0x18
+  10:	48 89 df             	mov    %rbx,%rdi
+  13:	e8 9d e9 13 00       	call   0x13e9b5
+  18:	48 8b 03             	mov    (%rbx),%rax
+  1b:	48 89 04 24          	mov    %rax,(%rsp)
+  1f:	4c 8d 78 08          	lea    0x8(%rax),%r15
+  23:	4c 89 fd             	mov    %r15,%rbp
+  26:	48 c1 ed 03          	shr    $0x3,%rbp
+* 2a:	42 80 7c 2d 00 00    	cmpb   $0x0,0x0(%rbp,%r13,1) <-- trapping instruction
+  30:	74 08                	je     0x3a
+  32:	4c 89 ff             	mov    %r15,%rdi
+  35:	e8 7b e9 13 00       	call   0x13e9b5
+  3a:	49 8b 07             	mov    (%r15),%rax
+  3d:	48                   	rex.W
+  3e:	8d                   	.byte 0x8d
+  3f:	48                   	rex.W
+
+
+***
+
+If these findings have caused you to resend the series or submit a
+separate fix, please add the following tag to your commit message:
+  Tested-by: syzbot@syzkaller.appspotmail.com
+
+---
+This report is generated by a bot. It may contain errors.
+syzbot ci engineers can be reached at syzkaller@googlegroups.com.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
