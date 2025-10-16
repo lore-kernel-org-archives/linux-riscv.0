@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A44CCD193
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 00:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F69CCD185
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 00:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AgHTyLI77lykIwwZ7lG2Dchy8ZidFicotsi3WWaFr7I=; b=ZESXOagkM+zFtr
-	TWPZeeioY451CoDwV3b2GN+N82QnDhmHccEZ+W2ONfRFfGgGWeBkuibnu/CJ4AJoYX31eijR37qSR
-	m5jWqCopXHVs1sHH7yRpqHGq4MuPk4mmAz+2zjJid9PgLdAdcqaV9wuM6nOqEMOtqLmsBnjbNAzf/
-	H0UKAdvLjkVhEe3d4cyvNQ7taCEir57gMTCFgtZ68vMv42j3m3KMs0V/DbYobjM8ZRWic8wfVj3IL
-	6J1DFAtLDpDoXr+n+9qULFWoStcr243CQIf85bqWiBlABn/NFPXe8kAM9OkKjS+mkiWYQl/r0OaKL
-	Rz8MPnSzjwRAwKGgYOFQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OFPKVcGEIPf2Tbcv20R5CAx5bJ6/QlWKLTu1Q4FnOfY=; b=Sve37tBvpgFqmF
+	MLzNoxSTkqGHqMt/RGq5dYZJ/6A/dCLcb2WHkWm+V+U2dg23WzBTAysuDPuTTB97m1DsT5jxKlUeC
+	vtl3KT90lOkon/fB2t+z+C0hVLlRfDJ/UYX0Yshd7vqebnE2wZV66Iy++GJ++oC3RmXSRvID1Ot9q
+	MG+3cZMj1ZSfuLCCwWSFnfUF3K1nflvilCtbp4WQuaokxcjk9pBe+iL0N652BPGetcutR/RVYxSII
+	YZWvCvsiVB0owjjlX1NFnt+cMmXTLHlpDcV/+JpVfawwnXS8MYyHL+ozarLQQtTs9NkpWkqAVwokT
+	3I0NJfYhC8L17BEQS+0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9BU1-000000037H2-38So;
-	Thu, 16 Oct 2025 00:04:41 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1v9BgF-000000038Ms-2tHb;
+	Thu, 16 Oct 2025 00:17:20 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9BTx-000000037Fz-3yVT;
-	Thu, 16 Oct 2025 00:04:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760573078; x=1792109078;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=+JrivgWyUgg+pmx0+52mYBdTXkR4tEzcKUO0ehqXf7s=;
-  b=QvcBuq3wY1Cl1T1klhEt90xTeZT/mspknFP/SmDDRGi8sYmv4bF+n/d8
-   R2PDDAI7bLHb8BFyWwQ/E4z/5tChdE1frjPOIuYj3+3oqNMl0tx+gQLqw
-   Qz91cfrAcCo1O+V0PI7mcF0GFFiajcFuTeSvhVoAyjoWdrpNHoeR7w31j
-   ShlrDu+FGFRBtrxorrioQc6v8XfxZ1+bjnFlJXKDquqa/AJITR08TmMFq
-   +MDxHNtgcHGj5Ol7kZN1RvN4FcrpWYoZkZBA7FJtV4JOqa6DfzLG59JfE
-   kHZsH3xTZHHnY7jOvFYlC0wCvB3NkzCP1M1hqbU58LTTOZ31Oxz20pWXu
-   g==;
-X-CSE-ConnectionGUID: 5+fpaFsxQcqkAsuhKs9DJQ==
-X-CSE-MsgGUID: LTFRNXMiT2ypeKIU8bRbug==
-X-IronPort-AV: E=McAfee;i="6800,10657,11583"; a="85377194"
-X-IronPort-AV: E=Sophos;i="6.19,232,1754982000"; 
-   d="scan'208";a="85377194"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 17:04:36 -0700
-X-CSE-ConnectionGUID: R752COMtRQqyVd5oHvt9WQ==
-X-CSE-MsgGUID: 3PO6qZFiQTmjq3l7JbpGAA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,232,1754982000"; 
-   d="scan'208";a="182097810"
-Received: from unknown (HELO [10.238.2.75]) ([10.238.2.75])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 17:04:29 -0700
-Message-ID: <ea123839-80fd-4555-8da2-adbd060a2082@linux.intel.com>
-Date: Thu, 16 Oct 2025 08:04:26 +0800
+	id 1v9BgD-000000038M4-0fjP
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Oct 2025 00:17:18 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-b6093f8f71dso59617a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Oct 2025 17:17:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1760573836; x=1761178636; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bwptj4G5KoYvNAhjikL6LhizMbH7cKsoQglRkksgDsw=;
+        b=QpXI75rgVyrbeDoQk9EVgYONBF/7hQeKw12z/iiVqkq2OEOvCtmLmNxXSG3RROoEtK
+         uVST0R24gAR1oVzotvJASWFvPcEUk8lYeWQe3W0mMDQNdEoJ2NLxmOMuxxFy1hpFCzYF
+         9Pt7AZRsAYxo85wFnrtYgenImXxo8f18UcxnXYq0Zi+XWvwckoaaEhs8fTlo4gQJHblo
+         15hg+HGo9AGsfEEeGDA3cM0fIRskVBl9MLrQTnYG+30f92mHkW3sfD5PWdG0DWRdgPvl
+         pAa0yHMoxSzOvMtCD/4rj/laDkOVzUKpzY4emX0TH3o7iA+HgXhd4A7hS20jzeqGkNGy
+         niSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760573836; x=1761178636;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bwptj4G5KoYvNAhjikL6LhizMbH7cKsoQglRkksgDsw=;
+        b=MepvOl8ZMmhbBdM5nIYm7h+LCe0EWfP0gCJE0Ilyd4g1mGg0riROZ1AW/lb7X/E9v8
+         5hCQmEfP2+WXgo67Z/t5ZJA6ttQn3MggHVfE7qQI9AssoIyDUmqMwyO1nid8qSaWjEZr
+         bzggz+mNf5OW2hwqTCQHNpuaUXnWgVRjBHWK03VhJjif1rcRxbCF5v7qsrb953HzxVuz
+         46ryZyO5bL7D7AGDa8PUb+UYQWZjBDraEJuXuZidv2Us0jL5u0tiiZXGoaso6Ec7VMZx
+         4fhXDiD/dzAETJ8ryau3Ct0tGudTz6lddekbdL/Hpkv0dtOWefA1ffxYBPA3Y1sIBkBz
+         Ypgw==
+X-Forwarded-Encrypted: i=1; AJvYcCW4j3cxruDld2HvBkxD1uigDApD0I0w9fEfzAF+xVebP9sZWKwdYDJ4R5tusxp6Ned6yh2bkcymRv/gUA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx04C0Yj1NKEThkyWJKl5PaTGHFaC5FYkAiNCu9Vcis3LnxYGey
+	mtuLwB1Vlhkq9dHEJmJ1i0AjQGOYz06ppZLpt86gqSAdvdeshtvHGh3FuUjo/c7xtEg=
+X-Gm-Gg: ASbGnctmhLhLOFv9MK2vbH6GYHkPA9YLLD0NnFgRbNmS/LcMK2Dyq55fq2X1mRqVHVY
+	2IfqII5z8TzSRvnkMa1zbV9mjjMaH+nKU+5oul1X0shHu16O5rUHSktNUDChy5Yc/p2YpqqtpjD
+	XrReWx5J/jylaXrzDOOTyytvrtdXozS3E8BMWG9Ca3yo0cnWo67cW1siix1+kM/6sXO8tAGuYDc
+	R1dSoDvGI3fHlMX+lp1xDVo+CL5GoFPZoqLmUpbeDAZQ0s7PT000q2jC+barDiDaY6TcFDVdjL+
+	Bt2Yq3UKAS9/Iee6yIYJdsOvaZ4h++PhpmXzRy0cp1lvWiq3zjQEOF6iYA6JZ7hXiQ0AwU3G3Po
+	BiDGHHGf4H4zmrEcwfcalayYBg2mqpcTo/qBefAhhvOlg/ORN+0CmBq4KmEnwQQb/cd1a4GjMeY
+	uOaxBnC+YzrbrkaiaSsw1Afw==
+X-Google-Smtp-Source: AGHT+IF8Txz7jrNpsSTJjE/JSeJk6k3fgDPYMzVbvQKqjcn0cbcXxdsvxtPavIzWrNBmcH4D/9ElyQ==
+X-Received: by 2002:a17:903:2381:b0:275:c1e7:c7e with SMTP id d9443c01a7336-29027356a08mr313186275ad.4.1760573836372;
+        Wed, 15 Oct 2025 17:17:16 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29099afbdb5sm8484645ad.104.2025.10.15.17.17.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Oct 2025 17:17:15 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] RISC-V: KVM: Fix check for local interrupts on riscv32
+Date: Wed, 15 Oct 2025 17:17:09 -0700
+Message-ID: <20251016001714.3889380-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 32/44] KVM: x86/pmu: Disable interception of select PMU
- MSRs for mediated vPMUs
-To: Sean Christopherson <seanjc@google.com>
-Cc: Sandipan Das <sandidas@amd.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
- Mingwei Zhang <mizhang@google.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Sandipan Das <sandipan.das@amd.com>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <20250806195706.1650976-33-seanjc@google.com>
- <f896966e-8925-4b4f-8f0d-f1ae8aa197f7@amd.com> <aN1vfykNs8Dmv_g0@google.com>
- <0276af52-c697-46c3-9db8-9284adb6beee@linux.intel.com>
- <aO_slNn8X1A84sI-@google.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <aO_slNn8X1A84sI-@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_170438_147848_61786440 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20251015_171717_225616_54B6FF4F 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,45 +102,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDEwLzE2LzIwMjUgMjo0OCBBTSwgU2VhbiBDaHJpc3RvcGhlcnNvbiB3cm90ZToKPiBPbiBU
-aHUsIE9jdCAwOSwgMjAyNSwgRGFwZW5nIE1pIHdyb3RlOgo+PiBPbiAxMC8yLzIwMjUgMjoxNCBB
-TSwgU2VhbiBDaHJpc3RvcGhlcnNvbiB3cm90ZToKPj4+IE9uIEZyaSwgU2VwIDI2LCAyMDI1LCBT
-YW5kaXBhbiBEYXMgd3JvdGU6Cj4+Pj4gT24gOC83LzIwMjUgMToyNiBBTSwgU2VhbiBDaHJpc3Rv
-cGhlcnNvbiB3cm90ZToKPj4+Pj4gKwlyZXR1cm4ga3ZtX25lZWRfcGVyZl9nbG9iYWxfY3RybF9p
-bnRlcmNlcHQodmNwdSkgfHwKPj4+Pj4gIAkgICAgICAgcG11LT5jb3VudGVyX2JpdG1hc2tbS1ZN
-X1BNQ19HUF0gIT0gKEJJVF9VTEwoa3ZtX2hvc3RfcG11LmJpdF93aWR0aF9ncCkgLSAxKSB8fAo+
-Pj4+PiAgCSAgICAgICBwbXUtPmNvdW50ZXJfYml0bWFza1tLVk1fUE1DX0ZJWEVEXSAhPSAoQklU
-X1VMTChrdm1faG9zdF9wbXUuYml0X3dpZHRoX2ZpeGVkKSAtIDEpOwo+Pj4+PiAgfQo+Pj4+IFRo
-ZXJlIGlzIGEgY2FzZSBmb3IgQU1EIHByb2Nlc3NvcnMgd2hlcmUgdGhlIGdsb2JhbCBNU1JzIGFy
-ZSBhYnNlbnQgaW4gdGhlIGd1ZXN0Cj4+Pj4gYnV0IHRoZSBndWVzdCBzdGlsbCB1c2VzIHRoZSBz
-YW1lIG51bWJlciBvZiBjb3VudGVycyBhcyB3aGF0IGlzIGFkdmVydGlzZWQgYnkgdGhlCj4+Pj4g
-aG9zdCBjYXBhYmlsaXRpZXMuIFNvIFJEUE1DIGludGVyY2VwdGlvbiBpcyBub3QgbmVjZXNzYXJ5
-IGZvciBhbGwgY2FzZXMgd2hlcmUKPj4+PiBnbG9iYWwgY29udHJvbCBpcyB1bmF2YWlsYWJsZS5v
-Cj4+PiBIbW0sIEkgdGhpbmsgSW50ZWwgd291bGQgYmUgdGhlIHNhbWU/ICBBaCwgbm8sIGJlY2F1
-c2UgdGhlIGhvc3Qgd2lsbCBoYXZlIGZpeGVkCj4+PiBjb3VudGVycywgYnV0IHRoZSBndWVzdCB3
-aWxsIG5vdC4gIEhvd2V2ZXIsIHRoYXQncyBub3QgZGlyZWN0bHkgcmVsYXRlZCB0bwo+Pj4ga3Zt
-X3BtdV9oYXNfcGVyZl9nbG9iYWxfY3RybCgpLCBzbyBJIHRoaW5rIHRoaXMgd291bGQgYmUgY29y
-cmVjdD8KPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC94ODYva3ZtL3BtdS5jIGIvYXJjaC94ODYv
-a3ZtL3BtdS5jCj4+PiBpbmRleCA0NDE0ZDA3MGM0ZjkuLjRjNWIyNzEyZWU0YyAxMDA2NDQKPj4+
-IC0tLSBhL2FyY2gveDg2L2t2bS9wbXUuYwo+Pj4gKysrIGIvYXJjaC94ODYva3ZtL3BtdS5jCj4+
-PiBAQCAtNzQ0LDE2ICs3NDQsMTMgQEAgaW50IGt2bV9wbXVfcmRwbWMoc3RydWN0IGt2bV92Y3B1
-ICp2Y3B1LCB1bnNpZ25lZCBpZHgsIHU2NCAqZGF0YSkKPj4+ICAgICAgICAgcmV0dXJuIDA7Cj4+
-PiAgfQo+Pj4gIAo+Pj4gLWJvb2wga3ZtX25lZWRfcGVyZl9nbG9iYWxfY3RybF9pbnRlcmNlcHQo
-c3RydWN0IGt2bV92Y3B1ICp2Y3B1KQo+Pj4gK3N0YXRpYyBib29sIGt2bV9uZWVkX3BtY19pbnRl
-cmNlcHQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQo+PiBUaGUgZnVuY3Rpb24gbmFtZSBrdm1fbmVl
-ZF9wbWNfaW50ZXJjZXB0KCkgc2VlbXMgYSBsaXR0bGUgYml0IG1pc2xlYWRpbmcKPj4gYW5kIG1h
-a2UgdXNlcnMgdGhpbmsgdGhpcyBmdW5jdGlvbiBpcyB1c2VkIHRvIGNoZWNrIGlmIGEgY2VydGFp
-biBQTUMgaXMKPj4gaW50ZXJjZXB0ZWQuIE1heWJlIHdlIGNhbiByZW5hbWUgdGhlIGZ1bmN0aW9u
-IHRvwqBrdm1fbmVlZF9nbG9iYWxfaW50ZXJjZXB0KCkuCj4gWWVhaCwgSSBkb24ndCBsb3ZlIGt2
-bV9uZWVkX3BtY19pbnRlcmNlcHQoKSBlaXRoZXIuICBCdXQga3ZtX25lZWRfZ2xvYmFsX2ludGVy
-Y2VwdCgpCj4gZmVlbHMgdG9vIGNsb3NlIHRvIGt2bV9uZWVkX3BlcmZfZ2xvYmFsX2N0cmxfaW50
-ZXJjZXB0KCkuCj4KPiBNYXliZSBzb21ldGhpbmcgbGlrZSBrdm1fbmVlZF9hbnlfcG1jX2ludGVy
-Y2VwdCgpPwoKSXQgc291bmRzIGdvb2QgdG8gbWUuIFRoYW5rcy4KCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+To set all 64 bits in the mask on a 32-bit system, the constant must
+have type `unsigned long long`.
+
+Fixes: 6b1e8ba4bac4 ("RISC-V: KVM: Use bitmap for irqs_pending and irqs_pending_mask")
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
+
+ arch/riscv/kvm/vcpu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index bccb919ca615..5ce35aba6069 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -212,7 +212,7 @@ int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
+ 
+ int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu)
+ {
+-	return (kvm_riscv_vcpu_has_interrupts(vcpu, -1UL) &&
++	return (kvm_riscv_vcpu_has_interrupts(vcpu, -1ULL) &&
+ 		!kvm_riscv_vcpu_stopped(vcpu) && !vcpu->arch.pause);
+ }
+ 
+-- 
+2.47.2
+
+base-commit: 5a6f65d1502551f84c158789e5d89299c78907c7
+branch: up/kvm-aia-fix
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
