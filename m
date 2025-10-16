@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EB2CCD193
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 01:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065ADCCD183
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 03:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pGMWVw7IBEVyahulFaLT7NUOHnhu8RxrHgcR08csCwk=; b=j4ILffj7b3gTny
-	Se3toND860Ahkn6XbGtRoAEw8bUosoe3T9sO6c/edqK1ZN9syZ7BOVLZoN8dvKOu54G8xpQ8HAecG
-	ZZ87TO0YU0yGr5Qz/eqSR1mvh4VNsFss8++Ywb09gIFg6B/JRMVw2x6enzOB386ZoSeXpkRbVQtEt
-	v9eeR++RZUBFwz2llcU6F81FZMIR9R4/sG+u4RPqNkqbYyP2ShJxbFLWRtTrSc3dwpEusEKgYYVbL
-	WJMPKVAtg7LzLrAzX5oH1ERINCxahYui097HDQ9X0VoGFDMm8rzVs5rfolv+t5PwZ9u17rWV3QvzU
-	xbJC/cFCFzjUCkTdoTug==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZYzEcgLhLBc/MpclbC8yxuTaaDXqCFI7/PbYbZ4sgyU=; b=pOCB2cUBCabA/v
+	57eE4RjPcpCCkRsn9iuNlM+cBsStYHHZD/aOn2ZjDH8TYrMX/5eUOTcBSUFvlSpZZeuy0UMguQQRu
+	oxivqTqJ4iddcQ2YMRg7LwGIPma1/DYtnn/Snn2r2I9KorN6Cb9BVIR3+bpFdDkUp0Ic2XaFZHd67
+	NFCeIigijI48HH7I+kQ69sjzYSqn2HmXrAxVI8bldEN1CQzCDmtJsdUB7UzOEELw7JHQK6hPfVKlI
+	CX8SlouxuIoUistxlWtoteMJChEBvREIolE5sYUZ1Ll+zYRvtAKBln1uaN1LKfWEj4Li+9ejHsqo1
+	FenCGYtCqoWN1PZW2Wlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Clv-00000003D2b-408X;
-	Thu, 16 Oct 2025 01:27:15 +0000
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+	id 1v9EXM-00000003Lyk-1Qc6;
+	Thu, 16 Oct 2025 03:20:20 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Clr-00000003D25-2JNW;
-	Thu, 16 Oct 2025 01:27:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1760578027; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=mWoWxsGAtDp0EV2ifeUAQMZcSWDLqLKjj7ZtzpCtdDQ=;
-	b=Tcl4ZAr2SsNOYvabpVtobWXXNk385ww+QCryGBt/uk0p7u5t98byX3abVhi5c6PPAhmOkdoTdKmQUlUpil7CyqyrUDHVG/2Rxx0LQT590tipMUh8WX/A7x3ylCr/hU0TcTMIS1F2Aib5AVQKfCP+vSJa2wfI/Q3ItOr31tX2WZk=
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WqIKtva_1760578023 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 16 Oct 2025 09:27:04 +0800
-From: fangyu.yu@linux.alibaba.com
-To: anup@brainfault.org,
-	atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	liujingqi@lanxincomputing.com
-Cc: guoren@kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [PATCH] RISC-V: KVM: Read HGEIP CSR on the correct cpu
-Date: Thu, 16 Oct 2025 09:26:59 +0800
-Message-Id: <20251016012659.82998-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	id 1v9EXK-00000003LyL-1Q7C
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Oct 2025 03:20:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1760584818; x=1792120818;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=oJedM1hfflEhgwLqf5S3MX4Pn/jZeroyYU1P+4AZNqc=;
+  b=MkfBDlLVvByLZe8fnyQpPL6U4C84NW15jDUQY5sUbib8IBEwo0DdMpMy
+   CT6PbLoFbsKinHk9MsCfVbNOwqPDpRak4fWZADq5T0/B5hXRDWAtzzIQ/
+   FuRrnrEsgGiCNV1C+1a8OCGdJNK6MNxvjlwLeIy8OQQDGMl5mnRCkT1ws
+   koLHgnxNSF4w4Bk7yTwC31b1v/2pP8IVARZ0hoFwx4wqHQlZX+V/+oWdN
+   ZfA+ckGKb8pM4BMTGFwRv6DetBQpF0ePota+WneOEUFVLUVjwFL4x5P74
+   LDvto6JKxjw4J8VTpbgsqADjbGoV0x5/cDRzcFGByLHSzrViOTAuCF6QA
+   g==;
+X-CSE-ConnectionGUID: ceRzAt3MTMO8AZUI9fzOug==
+X-CSE-MsgGUID: 500kwn7ZSt2baQT0rVMFdA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11583"; a="61975919"
+X-IronPort-AV: E=Sophos;i="6.19,233,1754982000"; 
+   d="scan'208";a="61975919"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 20:20:12 -0700
+X-CSE-ConnectionGUID: JL9FhEcsTBm7GRTC6cDx6w==
+X-CSE-MsgGUID: AiVFevBAQIGYUNZ1OFLBKQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,233,1754982000"; 
+   d="scan'208";a="181470823"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa006.jf.intel.com with ESMTP; 15 Oct 2025 20:20:08 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v9EUl-0004Pv-1C;
+	Thu, 16 Oct 2025 03:18:34 +0000
+Date: Thu, 16 Oct 2025 11:14:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yuan Tan <tanyuan@tinylab.org>, arnd@arndb.de, masahiroy@kernel.org,
+	nathan@kernel.org, palmer@dabbelt.com, linux-kbuild@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	i@maskray.me, tanyuan@tinylab.org, falcon@tinylab.org,
+	ronbogo@outlook.com, z1652074432@gmail.com, lx24@stu.ynu.edu.cn
+Subject: Re: [PATCH v2 6/8] compiler.h: introduce PUSHSECTION macro to
+ establish proper references
+Message-ID: <202510161119.Qau82x7Z-lkp@intel.com>
+References: <40854460DE090346+c30007da67d26ae0e8651732f32a8ede4926db14.1760463245.git.tanyuan@tinylab.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <40854460DE090346+c30007da67d26ae0e8651732f32a8ede4926db14.1760463245.git.tanyuan@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_182712_075457_C5D0DA5A 
-X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-CacheID: sfid-20251015_202018_601993_60FF8DEE 
+X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,46 +94,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Hi Yuan,
 
-When executing kvm_riscv_vcpu_aia_has_interrupts, the vCPU may have
-migrated and the IMSIC VS-file have not been updated yet, currently
-the HGEIP CSR should be read from the imsic->vsfile_cpu ( the pCPU
-before migration ) via on_each_cpu_mask, but this will trigger an
-IPI call and repeated IPI within a period of time is expensive in
-a many-core systems.
+kernel test robot noticed the following build errors:
 
-Just let the vCPU execute and update the correct IMSIC VS-file via
-kvm_riscv_vcpu_aia_imsic_update may be a simple solution.
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on arnd-asm-generic/master linus/master v6.18-rc1 next-20251015]
+[cannot apply to masahiroy-kbuild/for-next masahiroy-kbuild/fixes]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Fixes: 4cec89db80ba ("RISC-V: KVM: Move HGEI[E|P] CSR access to IMSIC virtualization")
-Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
----
- arch/riscv/kvm/aia_imsic.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+url:    https://github.com/intel-lab-lkp/linux/commits/Yuan-Tan/scripts-syscalltbl-sh-add-optional-used-syscalls-argument-for-syscall-trimming/20251015-181934
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/40854460DE090346%2Bc30007da67d26ae0e8651732f32a8ede4926db14.1760463245.git.tanyuan%40tinylab.org
+patch subject: [PATCH v2 6/8] compiler.h: introduce PUSHSECTION macro to establish proper references
+config: arm-randconfig-001-20251016 (https://download.01.org/0day-ci/archive/20251016/202510161119.Qau82x7Z-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 39f292ffa13d7ca0d1edff27ac8fd55024bb4d19)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251016/202510161119.Qau82x7Z-lkp@intel.com/reproduce)
 
-diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index fda0346f0ea1..168c02ad0a78 100644
---- a/arch/riscv/kvm/aia_imsic.c
-+++ b/arch/riscv/kvm/aia_imsic.c
-@@ -689,8 +689,12 @@ bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu)
- 	 */
- 
- 	read_lock_irqsave(&imsic->vsfile_lock, flags);
--	if (imsic->vsfile_cpu > -1)
--		ret = !!(csr_read(CSR_HGEIP) & BIT(imsic->vsfile_hgei));
-+	if (imsic->vsfile_cpu > -1) {
-+		if (imsic->vsfile_cpu != smp_processor_id())
-+			ret = true;
-+		else
-+			ret = !!(csr_read(CSR_HGEIP) & BIT(imsic->vsfile_hgei));
-+	}
- 	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
- 
- 	return ret;
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510161119.Qau82x7Z-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> ld.lld: error: ./arch/arm/kernel/vmlinux.lds:1: unknown directive: .macro
+   >>> .macro _PUSHSECTION label:req, section:req, args:vararg
+   >>> ^
+
 -- 
-2.50.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
