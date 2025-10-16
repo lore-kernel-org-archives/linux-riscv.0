@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D21CCD199
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 16:24:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AADCCD183
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 16:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	In-Reply-To:Date:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=dxc+vAsd2mxGlPtWQnbd3JjFvq6mgYusEyRn+RB2uVQ=; b=DG7
-	YNcLRGeVMQOyIH1NANzvuqJc6KiGTmXivBPq5z075IhHrQMlw/KcJcpgrCUIxeAlL73/G/sQMtfld
-	710dxeFNZgwMU2cEUb6drvoko2huH8IC15gN2E4ebuciC9Y4qu1o73LUREl3ihPtqXaB6UfTfPH4H
-	bA4+ByafFX1omTKmGT8wa+xefh3DCyR/jQcDJveMulxl2gMBiX4/GJA/jyvaf4yxB7tr15qIIrhRL
-	OxVBFlhOXzmYIa+olVgv+JEpXbsC2NZJA/a4+AwNgFA2tGNZdY+9/TY/gve15LY6UdZbMvoClBWAp
-	A9OMavPBQ1wJ4gnkJdIJO8iLEsWDwKA==;
+	List-Owner; bh=7M0+qG7etexLkOh4lsWrQyhO9aL/AgWg8Hlie91R1I0=; b=mLIJr+yzUPubWp
+	1C/SDDOkwkO+iCHaEceinitdFhOLeDpuOjmgalsWMQbkV7eUjMlh39+gt1ZBuCEja+tk+NXw6m6Tv
+	RDNbz3HnPki54Y74yFDCG/m/ITHfb+HitAghIDv553OYtP5o1co6hAcilbRehVSG2c0u5aOdvL6zG
+	a6uIlosTJTdZ8hRW4Y1jisHWiXx1AvxT5zHpVD3b/wiGtXdyc5IiW7StENCISPgJ+4tYIii+NrAvt
+	Ek1IcClCoOdmEVqrRAfh13kWwHb/oxziYMDJdXgwrvTQxLn2152meEbsFrkeOwCK8Q3+BKn+mugye
+	P6Mxh8rmEQPlWDfMnJpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Qlj-00000005Pty-1KWA;
-	Thu, 16 Oct 2025 16:23:59 +0000
-Received: from mail-io1-f70.google.com ([209.85.166.70])
+	id 1v9R9U-00000005TBN-3rDr;
+	Thu, 16 Oct 2025 16:48:32 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Qlg-00000005Pst-1GTz
-	for linux-riscv@lists.infradead.org;
-	Thu, 16 Oct 2025 16:23:57 +0000
-Received: by mail-io1-f70.google.com with SMTP id ca18e2360f4ac-93bc56ebb0aso228372539f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 09:23:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760631835; x=1761236635;
-        h=cc:to:from:subject:message-id:in-reply-to:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uH9ncuVNWrmpKccRdCmFgVg8gN7Sa+FrJMkcgErOzbI=;
-        b=P627eODSBl5fftSohpEQHuX/yNqB668kGSeCHmcNxE+mwK2xNIeEL/WuxdTMoHa3a+
-         OsruIw3//QipWgF4AR+FsgQFTModde4wcruMx7CdjMVnQKM5+xkoVD5mZUIgvP5k+45U
-         xevvhkKewWva595sNAlbyuldRzLIz90XRtFnQW/1nG7j1fGMASGARNmfqvMk0FzrGHDe
-         NJghNGtcPPA9LF8Csd+x1vRbfLjx+om9jY4neqDUIJamDN4SG7LB44ZWISHp95CgxTFs
-         m0w5HOJjhyQzizPTYfw7XVX8+bMShIS57pSyB3VoQpW99TmgnQyt6wm4m4EbN+PLSHTw
-         Ofxw==
-X-Forwarded-Encrypted: i=1; AJvYcCX1ZmKxjLNSMQ8J5lxi5SDFLhm3OX1z+xhrHgqNTanxYwxoy0WG3WF9QxHrUdZWCmboDvOItWRv/wgSxw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxs+/BIVpJ4MmAX9bUM7tzYGxvhd+AyIuhAJkB9I91Xude4IL+H
-	feloCGejYVyZ9B0J2LZHBo5GuW2OE7nPa1u1GxfMhMxvRaJy0Cnp9WFL/ljVlNWML2RUKTArdiC
-	z3Nv6K2VapBXKz0xoyOEk94X1YdYW6tSBPHM38NxO9wo1P0ZzYU81XiYaO3c=
-X-Google-Smtp-Source: AGHT+IF0mVeBbeh6pgt7i0/MkOWl7EBWMggnxuS/B6V6XUo6s2UTse3jty2HFSlMCH44YjluTZGifEjNeS3+6UR8CA7xp8eCe2kH
+	id 1v9R9Q-00000005T9R-1ioo;
+	Thu, 16 Oct 2025 16:48:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=9gkcy8583TeLV+YV4+SJjwY1l2WxECBbWEM4z0wYrI4=; b=uKWAdTtm22MCASRx16KB/LNFAI
+	y9lpVvkGpyXHDK1VhdEMRj0gfNoBJ4SNB6t0Gm+tuBq1gJUba/367H91NN0eHs9zW9goPY5pfxTTE
+	d3hAMWFzXA60K6GKe1hoFlgwewXfReNTkCr9/m4hC7x/zV8+govNCNdzkrMMilDhQYjIzc8or2AgU
+	AR05K4SNxWhpQy2BhetpTnmHDD94HWownXfaH3SYXkhnQEmoRxzCURvoMsudoAS0dCEpLo4QbHiVj
+	My+V5THMgMACXr/HcPNS8MI3Mh2xRRQHvORUdYxOwbQwKBr8ta4FnOQcqLJv39m2cLuYYk3vseIg7
+	IyEqeKNw==;
+Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1v9R8v-0098Vp-05;
+	Thu, 16 Oct 2025 18:47:57 +0200
+Date: Thu, 16 Oct 2025 18:47:56 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Alex Elder <elder@riscstar.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, vkoul@kernel.org, kishon@kernel.org,
+	dlan@gentoo.org, guodong@riscstar.com, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	p.zabel@pengutronix.de, christian.bruel@foss.st.com,
+	shradha.t@samsung.com, krishna.chundru@oss.qualcomm.com,
+	qiang.yu@oss.qualcomm.com, namcao@linutronix.de,
+	thippeswamy.havalige@amd.com, inochiama@gmail.com,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/7] Introduce SpacemiT K1 PCIe phy and host controller
+Message-ID: <aPEhvFD8TzVtqE2n@aurel32.net>
+Mail-Followup-To: Alex Elder <elder@riscstar.com>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	vkoul@kernel.org, kishon@kernel.org, dlan@gentoo.org,
+	guodong@riscstar.com, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
+	christian.bruel@foss.st.com, shradha.t@samsung.com,
+	krishna.chundru@oss.qualcomm.com, qiang.yu@oss.qualcomm.com,
+	namcao@linutronix.de, thippeswamy.havalige@amd.com,
+	inochiama@gmail.com, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-phy@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+References: <20251013153526.2276556-1-elder@riscstar.com>
 MIME-Version: 1.0
-X-Received: by 2002:a05:6e02:148d:b0:430:b167:3604 with SMTP id
- e9e14a558f8ab-430c5209bafmr12878615ab.4.1760631834789; Thu, 16 Oct 2025
- 09:23:54 -0700 (PDT)
-Date: Thu, 16 Oct 2025 09:23:54 -0700
-In-Reply-To: <20251016112704.179280-1-yintirui@huawei.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <68f11c1a.050a0220.91a22.0411.GAE@google.com>
-Subject: [syzbot ci] Re: mm: add huge pfnmap support for remap_pfn_range()
-From: syzbot ci <syzbot+ci290b7e46a3349a6e@syzkaller.appspotmail.com>
-To: abrestic@rivosinc.com, akpm@linux-foundation.org, alex@ghiti.fr, 
-	anshuman.khandual@arm.com, aou@eecs.berkeley.edu, apopple@nvidia.com, 
-	ardb@kernel.org, baohua@kernel.org, baolin.wang@linux.alibaba.com, 
-	catalin.marinas@arm.com, chenjun102@huawei.com, david@redhat.com, 
-	dev.jain@arm.com, liam.howlett@oracle.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
-	lorenzo.stoakes@oracle.com, luxu.kernel@bytedance.com, mhocko@suse.com, 
-	npache@redhat.com, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	rppt@kernel.org, ryan.roberts@arm.com, samuel.holland@sifive.com, 
-	surenb@google.com, vbabka@suse.cz, wangkefeng.wang@huawei.com, 
-	will@kernel.org, willy@infradead.org, yangyicong@hisilicon.com, 
-	yintirui@huawei.com, yongxuan.wang@sifive.com, ziy@nvidia.com
-Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
+Content-Disposition: inline
+In-Reply-To: <20251013153526.2276556-1-elder@riscstar.com>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_092356_347320_23A66E60 
-X-CRM114-Status: UNSURE (   7.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251016_094828_900276_D7B1C205 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,122 +96,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-syzbot ci has tested the following series
+Hi Alex,
 
-[v2] mm: add huge pfnmap support for remap_pfn_range()
-https://lore.kernel.org/all/20251016112704.179280-1-yintirui@huawei.com
-* [PATCH RFC 1/2] pgtable: add pte_clrhuge() implementation for arm64 and riscv
-* [PATCH RFC 2/2] mm: add PMD-level huge page support for remap_pfn_range()
+On 2025-10-13 10:35, Alex Elder wrote:
+> This series introduces a PHY driver and a PCIe driver to support PCIe
+> on the SpacemiT K1 SoC.  The PCIe implementation is derived from a
+> Synopsys DesignWare PCIe IP.  The PHY driver supports one combination
+> PCIe/USB PHY as well as two PCIe-only PHYs.  The combo PHY port uses
+> one PCIe lane, and the other two ports each have two lanes.  All PCIe
+> ports operate at 5 GT/second.
+> 
+> The PCIe PHYs must be configured using a value that can only be
+> determined using the combo PHY, operating in PCIe mode.  To allow
+> that PHY to be used for USB, the calibration step is performed by
+> the PHY driver automatically at probe time.  Once this step is done,
+> the PHY can be used for either PCIe or USB.
+> 
+> Version 2 of this series incorporates suggestions made during the
+> review of version 1.  Specific highlights are detailed below.
 
-and found the following issue:
-stack segment fault in pgtable_trans_huge_withdraw
+With the issues mentioned in patch 4 fixed, this patchset works fine for 
+me. That said I had to disable ASPM by passing pcie_aspm=off on the 
+command line, as it is now enabled by default since 6.18-rc1 [1]. At 
+this stage, I am not sure if it is an issue with my NVME drive or an 
+issue with the controller.
 
-Full report is available here:
-https://ci.syzbot.org/series/d04c2914-0d99-4132-89d4-899e22abf904
+Regards
+Aurelien
 
-***
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f3ac2ff14834a0aa056ee3ae0e4b8c641c579961
 
-stack segment fault in pgtable_trans_huge_withdraw
-
-tree:      torvalds
-URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux
-base:      3a8660878839faadb4f1a6dd72c3179c1df56787
-arch:      amd64
-compiler:  Debian clang version 20.1.8 (++20250708063551+0c9f909b7976-1~exp1~20250708183702.136), Debian LLD 20.1.8
-config:    https://ci.syzbot.org/builds/9d7864e5-ad3a-4c0d-b21d-86cfc476792e/config
-C repro:   https://ci.syzbot.org/findings/b9fca361-413d-4db1-b8b2-1849cd2c50dd/c_repro
-syz repro: https://ci.syzbot.org/findings/b9fca361-413d-4db1-b8b2-1849cd2c50dd/syz_repro
-
-Oops: stack segment: 0000 [#1] SMP KASAN PTI
-CPU: 0 UID: 0 PID: 5968 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
-RIP: 0010:pgtable_trans_huge_withdraw+0x115/0x310 mm/pgtable-generic.c:188
-Code: c3 10 48 89 d8 48 c1 e8 03 42 80 3c 28 00 74 08 48 89 df e8 9d e9 13 00 48 8b 03 48 89 04 24 4c 8d 78 08 4c 89 fd 48 c1 ed 03 <42> 80 7c 2d 00 00 74 08 4c 89 ff e8 7b e9 13 00 49 8b 07 48 8d 48
-RSP: 0018:ffffc90003717300 EFLAGS: 00010202
-RAX: 0000000000000000 RBX: ffffea00044848d0 RCX: ffff88816c890000
-RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
-RBP: 0000000000000001 R08: ffff88816db66a23 R09: 1ffff1102db6cd44
-R10: dffffc0000000000 R11: ffffed102db6cd45 R12: ffff888112123000
-R13: dffffc0000000000 R14: ffff888112123000 R15: 0000000000000008
-FS:  000055556cb5f500(0000) GS:ffff88818e70c000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 0000000000000000 CR3: 00000001102a4000 CR4: 00000000000006f0
-Call Trace:
- <TASK>
- zap_deposited_table mm/huge_memory.c:2169 [inline]
- zap_huge_pmd+0xa25/0xf50 mm/huge_memory.c:2197
- zap_pmd_range mm/memory.c:1926 [inline]
- zap_pud_range mm/memory.c:1975 [inline]
- zap_p4d_range mm/memory.c:1996 [inline]
- unmap_page_range+0x9fe/0x4370 mm/memory.c:2017
- unmap_single_vma mm/memory.c:2060 [inline]
- unmap_vmas+0x399/0x580 mm/memory.c:2104
- exit_mmap+0x240/0xb40 mm/mmap.c:1280
- __mmput+0x118/0x430 kernel/fork.c:1133
- copy_process+0x2910/0x3c00 kernel/fork.c:2460
- kernel_clone+0x21e/0x840 kernel/fork.c:2609
- __do_sys_clone kernel/fork.c:2750 [inline]
- __se_sys_clone kernel/fork.c:2734 [inline]
- __x64_sys_clone+0x18b/0x1e0 kernel/fork.c:2734
- do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
- do_syscall_64+0xfa/0xfa0 arch/x86/entry/syscall_64.c:94
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f946958eec9
-Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007ffc41c94258 EFLAGS: 00000206 ORIG_RAX: 0000000000000038
-RAX: ffffffffffffffda RBX: 00007f94697e5fa0 RCX: 00007f946958eec9
-RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000002001000
-RBP: 00007f9469611f91 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000206 R12: 0000000000000000
-R13: 00007f94697e5fa0 R14: 00007f94697e5fa0 R15: 0000000000000006
- </TASK>
-Modules linked in:
----[ end trace 0000000000000000 ]---
-RIP: 0010:pgtable_trans_huge_withdraw+0x115/0x310 mm/pgtable-generic.c:188
-Code: c3 10 48 89 d8 48 c1 e8 03 42 80 3c 28 00 74 08 48 89 df e8 9d e9 13 00 48 8b 03 48 89 04 24 4c 8d 78 08 4c 89 fd 48 c1 ed 03 <42> 80 7c 2d 00 00 74 08 4c 89 ff e8 7b e9 13 00 49 8b 07 48 8d 48
-RSP: 0018:ffffc90003717300 EFLAGS: 00010202
-RAX: 0000000000000000 RBX: ffffea00044848d0 RCX: ffff88816c890000
-RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
-RBP: 0000000000000001 R08: ffff88816db66a23 R09: 1ffff1102db6cd44
-R10: dffffc0000000000 R11: ffffed102db6cd45 R12: ffff888112123000
-R13: dffffc0000000000 R14: ffff888112123000 R15: 0000000000000008
-FS:  000055556cb5f500(0000) GS:ffff88818e70c000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 0000000000000000 CR3: 00000001102a4000 CR4: 00000000000006f0
-----------------
-Code disassembly (best guess):
-   0:	c3                   	ret
-   1:	10 48 89             	adc    %cl,-0x77(%rax)
-   4:	d8 48 c1             	fmuls  -0x3f(%rax)
-   7:	e8 03 42 80 3c       	call   0x3c80420f
-   c:	28 00                	sub    %al,(%rax)
-   e:	74 08                	je     0x18
-  10:	48 89 df             	mov    %rbx,%rdi
-  13:	e8 9d e9 13 00       	call   0x13e9b5
-  18:	48 8b 03             	mov    (%rbx),%rax
-  1b:	48 89 04 24          	mov    %rax,(%rsp)
-  1f:	4c 8d 78 08          	lea    0x8(%rax),%r15
-  23:	4c 89 fd             	mov    %r15,%rbp
-  26:	48 c1 ed 03          	shr    $0x3,%rbp
-* 2a:	42 80 7c 2d 00 00    	cmpb   $0x0,0x0(%rbp,%r13,1) <-- trapping instruction
-  30:	74 08                	je     0x3a
-  32:	4c 89 ff             	mov    %r15,%rdi
-  35:	e8 7b e9 13 00       	call   0x13e9b5
-  3a:	49 8b 07             	mov    (%r15),%rax
-  3d:	48                   	rex.W
-  3e:	8d                   	.byte 0x8d
-  3f:	48                   	rex.W
-
-
-***
-
-If these findings have caused you to resend the series or submit a
-separate fix, please add the following tag to your commit message:
-  Tested-by: syzbot@syzkaller.appspotmail.com
-
----
-This report is generated by a bot. It may contain errors.
-syzbot ci engineers can be reached at syzkaller@googlegroups.com.
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
