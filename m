@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D27CCD199
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 15:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D9D2CCD199
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 15:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0K3yZ4+711DMLKIWox0IJjwjeumw3k1BtLND5yUMKuA=; b=x091sWyohFLaot
-	2oucQ1Bnc+TNQsEr2Tyiu0WWPqAn7JFsoF6YVtSMYP/FwzRjDh6TJ98u4yJu6w/ID0HlmcOEEucE8
-	jIS9sSCGlAjBI0nUOM1rnRGoAWXxR1RMbu5FbZ4ImxXVEQgmYm0vULYoPZdGJ8Qkr+TFePjg+pe0+
-	gC72IlEc5cO0/zbOhKovOxp7YAWafugkFoFI3J4Pg/ZYffnOe68nKYak8p3gFScRvM+gLNGkJYhdB
-	4r12tqZaSBhrIsxlHB/j4rOEFNxppBPEncVP+2ppa2qCjGV7KUwID0VXaPbLREck/ojwsWVt+EkHQ
-	rMuguESitC/WXcBSRBhA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OjzycDVRr1NwpSZJSVceYVrbhdZ1lnhi/peW5sZsEV0=; b=WpPQ43h8ZTJXcpVjRPNTRdugdL
+	SfAYQeIpukYK7Qq3hxOxZrVXqDgCghU9oevyBpNmtnwCVlJW7gTpelLYujyc1IoRvTfKB7nA2Zh2I
+	jhrBRBJBtrJx1vJtyl5eOKse8t3qUcdR+tz1Tdf9ia5sYCwOIYCdiHXTdiIpv99U4gK7pRJUodUVR
+	ATIPPw129RYULkM6MVVNpbQ3Fl/0Q5fg8e/xE+4Hg0cKJX1mytAK3oLH316B9ixSlMvA5RK3o/wGn
+	c1bPKPRgckmWiX44N0gunrI59bIsN0zZPa0t5qN3kmDJRFceVNhiFKB3BF6+dDbqjyEpt10R6buHs
+	uBnhLirw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9QEI-00000005G9t-36tk;
-	Thu, 16 Oct 2025 15:49:26 +0000
+	id 1v9QGT-00000005GhC-13w1;
+	Thu, 16 Oct 2025 15:51:41 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9QEG-00000005G99-1a40;
-	Thu, 16 Oct 2025 15:49:24 +0000
+	id 1v9QGR-00000005GgP-1D4M
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Oct 2025 15:51:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B2B4660444;
-	Thu, 16 Oct 2025 15:49:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B5BDC4CEF1;
-	Thu, 16 Oct 2025 15:49:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A23546402A;
+	Thu, 16 Oct 2025 15:51:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80F3AC4CEF1;
+	Thu, 16 Oct 2025 15:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760629763;
-	bh=SA4GVw/nGNJf/qOm9uwEhfvgtPwILVcT7iMh4Nomboc=;
+	s=k20201202; t=1760629898;
+	bh=oq62L0QEd7GMpJS9eO2BskgBIJhoVEYg5AjMxl/aOgk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EYon15nTC1mf/Qvey0ODWWWDCuKPTr+/B27xSXjLWRwifGlrhDcQOgJhEMNqsjziR
-	 eDOiocYrPuTcMiBDfhqjwhqH9hA4sSLXWykN43T5M+Ix8ShIiM79qj+AJGvyo089PX
-	 stOi4BAdKthV2JSsl7fMI1yYGo8J8o5uuKi2kihDTXySBmt0eIJajJLrWVbK7+0jGA
-	 qzWWj00vhlfquMHu8Cdg4TiwBuaginpMBQHcctPHlbwBi42bVHU/M//wtdNHb3AEXf
-	 ReNHOGVbu4I8xxDFWQXcYZtcer8mhUYow8CFKTXY+Y181eNS51IOOuYu5LidalJ0HF
-	 AIpnRMtBHrx4w==
-Date: Thu, 16 Oct 2025 08:49:20 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Huacai Chen <chenhuacai@kernel.org>, 
-	Tiezhu Yang <yangtiezhu@loongson.cn>, loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-Message-ID: <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
-References: <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
- <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn>
- <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
- <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
- <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
- <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
- <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
- <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
- <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
+	b=QyU80uoGG5kkW2++eUWu/SaamQze8xl4dWD0p4gadFBX6zlV4xiC2kRdqhSN8KTfv
+	 0tzoGlONFV2sfqft42lulCb0CBRRddTlq8P5aUovib+1Ymmmiulw+sKKtZHw26Kljh
+	 BwbYybapIwG+terlVH+cN/sa/Muyl5xe8dacgFlN21nP2UssMMuTOf1/1o8P3RZWSq
+	 X2+NBTgvg7WFQ7+uMTXf+dshmkgqbkW5MHLsKxF+UF/IRDjXOjkuXHMfQb71Vk3GDq
+	 YnoRWAke6Va5ytrbKmO57fhyMWVEV5FiC77Yw/GinFZmKGJmYi4bIdtRK2QYFpEEjM
+	 y2XkgdeRysKyQ==
+Date: Thu, 16 Oct 2025 16:51:33 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Cc: Hal Feng <hal.feng@starfivetech.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	E Shattow <e@freeshell.de>, Paul Walmsley <pjw@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v1 2/7] dt-bindings: PCI: starfive,jh7110-pcie: Add
+ enable-gpios property
+Message-ID: <20251016-countable-probing-062cd0504baf@spud>
+References: <20251016080054.12484-1-hal.feng@starfivetech.com>
+ <20251016080054.12484-3-hal.feng@starfivetech.com>
+ <a4c5e7fd-a37d-4729-ad58-81523f813fb3@canonical.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
+In-Reply-To: <a4c5e7fd-a37d-4729-ad58-81523f813fb3@canonical.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +74,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4527172213382279235=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 16, 2025 at 04:52:20PM +0200, Ard Biesheuvel wrote:
-> On Tue, 14 Oct 2025 at 18:47, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> > The idea is that libstub code doesn't belong in vmlinux.o because it's
-> > not a part of the kernel proper, and doesn't need to be validated or
-> > modified by objtool for any reason.
-> >
-> 
-> I don't see a reason to change this on architectures that a) do not
-> use objtool and b) link the EFI stub into vmlinux. If LoongArch wants
-> to change this, that is fine, but that still does not mean it needs to
-> change on other architectures too.
-> 
-> EFI related boot errors are a nightmare to debug, and I will be the
-> one getting the reports when this regresses arm64 on hardware that 2
-> people on the planet have access to.
 
-The idea was to have more consistency, so vmlinux.o never has libstub,
-regardless of arch, but that's your call.
+--===============4527172213382279235==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0gGGbfbrsf7Gc4JG"
+Content-Disposition: inline
 
-I'd still propose we keep the KBUILD_VMLINUX_LIBS_PRELINK mechanism to
-allow other arches to opt in as needed.
 
-And that variable might even be useful for other cases (x86 startup
-code?)
+--0gGGbfbrsf7Gc4JG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Josh
+On Thu, Oct 16, 2025 at 10:58:41AM +0200, Heinrich Schuchardt wrote:
+> On 10/16/25 10:00, Hal Feng wrote:
+> > Add enable-gpios property for controlling the PCI bus device power.
+> > This property had been supported in the driver but not added in the
+> > dt-bindings.
+> >=20
+> > Fixes: 22fe32239770 ("dt-bindings: PCI: Add StarFive JH7110 PCIe contro=
+ller")
+> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> > ---
+> >   .../devicetree/bindings/pci/starfive,jh7110-pcie.yaml         | 4 ++++
+> >   1 file changed, 4 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie=
+=2Eyaml b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+> > index 5f432452c815..f254c7111837 100644
+> > --- a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+> > +++ b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+> > @@ -60,6 +60,10 @@ properties:
+> >       description:
+> >         The phandle to System Register Controller syscon node.
+> > +  enable-gpios:
+> > +    description: GPIO used to enable the PCI bus device power
+> > +    maxItems: 1
+> > +
+>=20
+> Shouldn't we try to keep the entries alphabetically ordered?
+
+Grouping the two gpios together also has some value. I don't think it's
+particularly important which way it is done.
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+>=20
+> Otherwise looks good.
+>=20
+> Best regards
+>=20
+> Heinrich
+>=20
+> >     perst-gpios:
+> >       description: GPIO controlled connection to PERST# signal
+> >       maxItems: 1
+>=20
+>=20
+
+--0gGGbfbrsf7Gc4JG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPEUhQAKCRB4tDGHoIJi
+0kHnAP91tU6Elbe7EoQ06v9wFqPRkrxkwtDTP1VqY/ANSWwhiQD+IXGZb8bDIsQY
+1ijBK46Ge9swvJk32RZqngcbnhRZ+A8=
+=rpz9
+-----END PGP SIGNATURE-----
+
+--0gGGbfbrsf7Gc4JG--
+
+
+--===============4527172213382279235==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4527172213382279235==--
+
