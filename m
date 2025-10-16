@@ -4,96 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2562FCCD199
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 22:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D32CCD183
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Oct 2025 22:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H6SfN3fNBs1aCfGthtoaBIl1jJUd++xR9nR7nH9VFIs=; b=RIndiR62I/l9N1
-	uLZMxEJbZQn6b/CDf86+AV93RzMSvXr3iUPXqcF+ipdlev4XLSrEHX/hAj3s3dlZIf/nzzr6XIGJk
-	eGHbiKkV5UT1/c90Zd5Uuek+lHlHwBYqaB9PwQMDQ+HTlPYz0eZ8L5G0O+noEkGnhZ6amMlU3qkoV
-	YXmOOB4csavtVDL+pLEGHdME0P2Weckxu5tJ5gd29eaaNTC7U8rZkj9U3UaeozIMORZQn9/XW3mlV
-	CJT/LgFsOvYR/cD5K0Mr4ph4GhPViGcT9Kb8RCzt4eN3dF/gQICU+jCqjEFBQ/QSbrPNU/7jFkyFz
-	EgGPG7a7rS9s21oRY7MQ==;
+	List-Owner; bh=Qgzr6OPQUhQ3kZ5PoevDRBE6lbVaFMj/tf36i2Qp5/4=; b=TDLALB8obomxeP
+	eX11JUuFYfXGm/dl9TUP8erP/YoXGQmy1btsRxPOW9yYHWGIn1DLD/7msY1vuUX1uLOwGWOrdwTCY
+	FlC9aPv2hst38/iOqBbUJI/6kvnh0Nlj3yrjA156jAajzh/8DAZJ2rQ2ygynq7TlREpRLjT15y30d
+	MiEqMWzMyFJ9+/lhYSaLw9iMM4gS4jVw9PCHIlquqrUBUs70G4yGHAd9WjwoDeO+MbItkDtWFAG0x
+	NOaDUg3UoH1yW7XB5XYMyAOPxmW80VyeCbjz8HdC+wduTMwfBB9fkHJzg+9l4YuenBtU58+RGq+Rs
+	j5jwhaJfJROS/yJtIrMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9W2Q-000000061kj-2wmn;
-	Thu, 16 Oct 2025 22:01:34 +0000
-Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
+	id 1v9Wss-000000066Eh-3yhT;
+	Thu, 16 Oct 2025 22:55:46 +0000
+Received: from freeshell.de ([116.202.128.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9W2N-000000061kO-07hp
+	id 1v9Wsp-000000066D0-40WP
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Oct 2025 22:01:32 +0000
-Received: by mail-io1-xd33.google.com with SMTP id ca18e2360f4ac-930a6c601b3so111438439f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 15:01:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1760652090; x=1761256890; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dMl38ifpHYx95j3NO3+X1dV6A44ciq5yhWKFujz48Ms=;
-        b=M0Ks2/f4ZvAd6gcYXTUb3rr1JBXErJYZY6Zh1B7b9e2Uyt25hRcR278jTrRrv3Wt/p
-         yQSuZd+CMOEGGtFow8ksv+hqf5pOSFcvT2gXeXWwM+rOXNQOTIJcXxBqg0RSDLeOCi7l
-         tfbQk+GoSuPJb4WX7S87nB3TXuLcALa3AY2lCfyGqraoJ5UelT/Y5CEIwW/f4ZD6mXWE
-         qZwZwn7KLO+hyK2k8HnEQRyubcB5p0mqMj2x4uEDWgVFgLRfPRcjRMR32O+Mg3AUM/Ni
-         AVp1LQOlsIww5EBPXVdLZLORC3jC60D3do+uCE6Zw41uTg0Rv63x0GcqJM2V8NLcIso8
-         Zyxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760652090; x=1761256890;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dMl38ifpHYx95j3NO3+X1dV6A44ciq5yhWKFujz48Ms=;
-        b=dAJ+Gn92PwQaujAvdDB5AJaCObu5auMAfRNQts57RJZB7SWPxDz1ApgIIcSR48THvk
-         RPK083Uji87DYXgjKCiu7+OlqcvQmPdTjweNF40EkxANbDlS/aU7Jugi/wG/vHC91lwz
-         z3PG4PPbHYpJ8EEkXoQQBz6/U7GeSV9z/sxjNTIwmGdov+OLbhVPW7k10qS7UFae0k11
-         rPhxdzvETdkGcwW1Q6DDt12yUK+WOIuLmG7iLT/j7Gx1qXSeB2ThovelD/uGW+LHULPv
-         btqIWnYNPhBMDT0FdSorCVQxwJX8qRO6LJEm7UJv9YaMW9nmB0xmg3fX1XGE1ZgJbU+J
-         ZIaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXO143oolgC91O4jo7N/4VtXZXtYcSMi0QBz0dRpQIfiavknGL+DBXx3PIep4xzkMB4KhISmxof3yH2PA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZPwFnx33nfwgacrrW4W4SgK8TXzHhRAwsL8LzvDvv8l6Qm9yS
-	6pnYlS4xwiFcSsw5ofnbYvmX44v1uq24GjV6L6tyEkNP0geKk2E9lnl42eDDsbPFSJ8=
-X-Gm-Gg: ASbGncuSV5Z9rrCWyLhEeJQqdc5xnPAFYzD6i5xQPCmZm85KdFrR43DcuO8/rD1QALX
-	eVRPhtp6NwSzuVq0jBd4hmwHAUctIvChNdMELZRkg0akihlR3q+Od92TUq3Dlt8eA7e12yV1oP6
-	lTy7mwcLnWSrYbi5gO84/mKH4CAvzBzXJxerJyllNgeXeoRqI6jiApYdDROXSIQISKxMqMQnkFw
-	ZRKeLx/uyTwbgQDV9Rr/QzSMRMisJflh+FGeIWmL2Uf/+x9QeMEMY79g9/X/PvnshvCZ1X51amM
-	LyaJhe8VUMDU7b8Jn3htfjhL9lWCq57IgpeiNKeXajFQpLMoCWVD3mxSBxO8CnGhNrq8bk5unCp
-	loNl0lqf1KGEZNFAurWdHrq4wnOK8cndCU+njqmadGcis7OwOyIkqSWCJ+1jyYl5RMppRqCt3GW
-	mu3A1Z+bHZFRN9CPVEIlLnGLWujL4=
-X-Google-Smtp-Source: AGHT+IEpHdQzMerjWdBXorJoGsR/H2Zsez6Tl7azsD2lDQq/RwaDAfjdaA+AF4wBT4wi6aeIVjSUPQ==
-X-Received: by 2002:a05:6e02:2291:b0:42f:9187:f6e0 with SMTP id e9e14a558f8ab-430c5270233mr29240445ab.13.1760652089394;
-        Thu, 16 Oct 2025 15:01:29 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.6.207])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-430b512c03esm16138215ab.25.2025.10.16.15.01.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Oct 2025 15:01:28 -0700 (PDT)
-Message-ID: <95a777a7-4998-4451-b271-8450a5b674bb@sifive.com>
-Date: Thu, 16 Oct 2025 17:01:25 -0500
+	Thu, 16 Oct 2025 22:55:45 +0000
+Received: from [192.168.2.54] (unknown [98.97.26.134])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id 0CF13B22042C;
+	Fri, 17 Oct 2025 00:55:34 +0200 (CEST)
+Message-ID: <7e31b240-2ffa-4946-af85-aaa45fe35199@freeshell.de>
+Date: Thu, 16 Oct 2025 15:55:32 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/3] irqchip/plic: add support for UltraRISC DP1000
- PLIC
-To: Bo Gan <ganboing@gmail.com>, Lucas Zampieri <lzampier@redhat.com>
-Cc: Charles Mirabile <cmirabil@redhat.com>,
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Vivian Wang <dramforever@live.com>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- Zhang Xincheng <zhangxincheng@ultrarisc.com>, linux-kernel@vger.kernel.org
-References: <20251016084301.27670-1-lzampier@redhat.com>
- <20251016084301.27670-4-lzampier@redhat.com>
- <831744c6-ba89-4029-a035-9a70c3f57465@gmail.com>
-From: Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH v1 4/7] riscv: dts: starfive: jh7110-common: Move out some
+ nodes to the board dts
+To: Hal Feng <hal.feng@starfivetech.com>, Conor Dooley <conor+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J . Wysocki"
+ <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251016080054.12484-1-hal.feng@starfivetech.com>
+ <20251016080054.12484-5-hal.feng@starfivetech.com>
 Content-Language: en-US
-In-Reply-To: <831744c6-ba89-4029-a035-9a70c3f57465@gmail.com>
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <20251016080054.12484-5-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_150131_246935_815E21D8 
-X-CRM114-Status: GOOD (  43.04  )
+X-CRM114-CacheID: sfid-20251016_155544_162253_498A00B5 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,183 +65,459 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQm8sCgpPbiAyMDI1LTEwLTE2IDQ6MjggUE0sIEJvIEdhbiB3cm90ZToKPiBIaSBMdWNhcywg
-Q2hhcmxlcywKPiAKPiBJIGp1c3QgcmVhbGl6ZWQgeW91ciBsYXN0IHJlcGx5IGFuZCBzb3JyeSBh
-Ym91dCB0aGUgbWVzc3kgZm9ybWF0dGluZy4KPiBQbGVhc2UgZGlzcmVnYXJkIHRoZSBwcmV2aW91
-cyBvbmUgZnJvbSBtZSBhbmQgdXNlIHRoaXMgb25lLgo+IAo+IE9uIDEwLzE2LzI1IDAxOjQyLCBM
-dWNhcyBaYW1waWVyaSB3cm90ZToKPj4gRnJvbTogQ2hhcmxlcyBNaXJhYmlsZSA8Y21pcmFiaWxA
-cmVkaGF0LmNvbT4KPj4KPj4gQWRkIGEgbmV3IGNvbXBhdGlibGUgZm9yIHRoZSBwbGljIGZvdW5k
-IGluIFVsdHJhUklTQyBEUDEwMDAgd2l0aCBhIHF1aXJrIHRvCj4+IHdvcmsgYXJvdW5kIGEga25v
-d24gaGFyZHdhcmUgYnVnIHdpdGggSVJRIGNsYWltaW5nIGluIHRoZSBVUi1DUDEwMCBjb3Jlcy4K
-Pj4KPj4gV2hlbiBjbGFpbWluZyBhbiBpbnRlcnJ1cHQgb24gVVItQ1AxMDAgY29yZXMsIGFsbCBv
-dGhlciBpbnRlcnJ1cHRzIG11c3QgYmUKPj4gZGlzYWJsZWQgYmVmb3JlIHRoZSBjbGFpbSByZWdp
-c3RlciBpcyBhY2Nlc3NlZCB0byBwcmV2ZW50IGluY29ycmVjdAo+PiBoYW5kbGluZyBvZiB0aGUg
-aW50ZXJydXB0LiBUaGlzIGlzIGEgaGFyZHdhcmUgYnVnIGluIHRoZSBDUDEwMCBjb3JlCj4+IGlt
-cGxlbWVudGF0aW9uLCBub3Qgc3BlY2lmaWMgdG8gdGhlIERQMTAwMCBTb0MuCj4+Cj4+IFdoZW4g
-dGhlIFBMSUNfUVVJUktfQ1AxMDBfQ0xBSU1fUkVHSVNURVJfRVJSQVRVTSBmbGFnIGlzIHByZXNl
-bnQsIGEgc3BlY2lhbGl6ZWQKPj4gaGFuZGxlciAocGxpY19oYW5kbGVfaXJxX2NwMTAwKSBzYXZl
-cyB0aGUgZW5hYmxlIHN0YXRlIG9mIGFsbCBpbnRlcnJ1cHRzLAo+PiBkaXNhYmxlcyBhbGwgaW50
-ZXJydXB0cyBleGNlcHQgZm9yIHRoZSBmaXJzdCBwZW5kaW5nIG9uZSBiZWZvcmUgcmVhZGluZyB0
-aGUKPj4gY2xhaW0gcmVnaXN0ZXIsIGFuZCB0aGVuIHJlc3RvcmVzIHRoZSBpbnRlcnJ1cHRzIGJl
-Zm9yZSBmdXJ0aGVyIHByb2Nlc3Npbmcgb2YKPj4gdGhlIGNsYWltZWQgaW50ZXJydXB0IGNvbnRp
-bnVlcy4KPj4KPj4gVGhlIGRyaXZlciBtYXRjaGVzIG9uICJ1bHRyYXJpc2MsY3AxMDAtcGxpYyIg
-dG8gYXBwbHkgdGhlIHF1aXJrIHRvIGFsbAo+PiBTb0NzIHVzaW5nIFVSLUNQMTAwIGNvcmVzLCBy
-ZWdhcmRsZXNzIG9mIHRoZSBzcGVjaWZpYyBTb0MgaW1wbGVtZW50YXRpb24uCj4+IFRoaXMgaGFz
-IG5vIGltcGFjdCBvbiBvdGhlciBwbGF0Zm9ybXMuCj4+Cj4+IENvLWRldmVsb3BlZC1ieTogWmhh
-bmcgWGluY2hlbmcgPHpoYW5neGluY2hlbmdAdWx0cmFyaXNjLmNvbT4KPj4gU2lnbmVkLW9mZi1i
-eTogWmhhbmcgWGluY2hlbmcgPHpoYW5neGluY2hlbmdAdWx0cmFyaXNjLmNvbT4KPj4gU2lnbmVk
-LW9mZi1ieTogQ2hhcmxlcyBNaXJhYmlsZSA8Y21pcmFiaWxAcmVkaGF0LmNvbT4KPj4gQWNrZWQt
-Ynk6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWwuaG9sbGFuZEBzaWZpdmUuY29tPgo+PiBTaWduZWQt
-b2ZmLWJ5OiBMdWNhcyBaYW1waWVyaSA8bHphbXBpZXJAcmVkaGF0LmNvbT4KPj4gLS0tCj4+IMKg
-IGRyaXZlcnMvaXJxY2hpcC9pcnEtc2lmaXZlLXBsaWMuYyB8IDk0ICsrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKy0KPj4gwqAgMSBmaWxlIGNoYW5nZWQsIDkzIGluc2VydGlvbnMoKyksIDEg
-ZGVsZXRpb24oLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtc2lmaXZl
-LXBsaWMuYyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtc2lmaXZlLQo+PiBwbGljLmMKPj4gaW5kZXgg
-YmY2OWE0ODAyYjcxLi4wNDI4ZTlmMzQyM2QgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvaXJxY2hp
-cC9pcnEtc2lmaXZlLXBsaWMuYwo+PiArKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXNpZml2ZS1w
-bGljLmMKPj4gQEAgLTQ5LDYgKzQ5LDggQEAKPj4gwqAgI2RlZmluZSBDT05URVhUX0VOQUJMRV9C
-QVNFwqDCoMKgwqDCoMKgwqAgMHgyMDAwCj4+IMKgICNkZWZpbmXCoMKgwqDCoCBDT05URVhUX0VO
-QUJMRV9TSVpFwqDCoMKgwqDCoMKgwqAgMHg4MAo+PiDCoCArI2RlZmluZSBQRU5ESU5HX0JBU0XC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDEwMDAKPj4gKwo+PiDCoCAv
-Kgo+PiDCoMKgICogRWFjaCBoYXJ0IGNvbnRleHQgaGFzIGEgc2V0IG9mIGNvbnRyb2wgcmVnaXN0
-ZXJzIGFzc29jaWF0ZWQgd2l0aCBpdC7CoCBSaWdodAo+PiDCoMKgICogbm93IHRoZXJlJ3Mgb25s
-eSB0d286IGEgc291cmNlIHByaW9yaXR5IHRocmVzaG9sZCBvdmVyIHdoaWNoIHRoZSBoYXJ0IHdp
-bGwKPj4gQEAgLTYzLDYgKzY1LDcgQEAKPj4gwqAgI2RlZmluZcKgwqDCoCBQTElDX0VOQUJMRV9U
-SFJFU0hPTETCoMKgwqDCoMKgwqDCoCAwCj4+IMKgIMKgICNkZWZpbmUgUExJQ19RVUlSS19FREdF
-X0lOVEVSUlVQVMKgwqDCoCAwCj4+ICsjZGVmaW5lIFBMSUNfUVVJUktfQ1AxMDBfQ0xBSU1fUkVH
-SVNURVJfRVJSQVRVTcKgwqDCoCAxCj4+IMKgIMKgIHN0cnVjdCBwbGljX3ByaXYgewo+PiDCoMKg
-wqDCoMKgIHN0cnVjdCBmd25vZGVfaGFuZGxlICpmd25vZGU7Cj4+IEBAIC0zOTQsNiArMzk3LDg5
-IEBAIHN0YXRpYyB2b2lkIHBsaWNfaGFuZGxlX2lycShzdHJ1Y3QgaXJxX2Rlc2MgKmRlc2MpCj4+
-IMKgwqDCoMKgwqAgY2hhaW5lZF9pcnFfZXhpdChjaGlwLCBkZXNjKTsKPj4gwqAgfQo+PiDCoCAr
-c3RhdGljIGJvb2wgY3AxMDBfaXNvbGF0ZV9wZW5kaW5nX2lycShpbnQgbnJfaXJxX2dyb3Vwcywg
-dTMyIGllW10sCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCB2b2lkIF9faW9tZW0gKnBlbmRpbmcsCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCB2b2lkIF9faW9tZW0gKmVuYWJsZSkKPj4gK3sKPj4gK8KgwqDCoCB1
-MzIgcGVuZGluZ19pcnFzID0gMDsKPj4gK8KgwqDCoCBpbnQgaSwgajsKPj4gKwo+PiArwqDCoMKg
-IC8qIExvb2sgZm9yIGZpcnN0IHBlbmRpbmcgaW50ZXJydXB0ICovCj4+ICvCoMKgwqAgZm9yIChp
-ID0gMDsgaSA8IG5yX2lycV9ncm91cHM7IGkrKykgewo+PiArwqDCoMKgwqDCoMKgwqAgcGVuZGlu
-Z19pcnFzID0gaWVbaV0gJiByZWFkbF9yZWxheGVkKHBlbmRpbmcgKyBpICogc2l6ZW9mKHUzMikp
-Owo+PiArwqDCoMKgwqDCoMKgwqAgaWYgKHBlbmRpbmdfaXJxcykKPj4gK8KgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgYnJlYWs7Cj4gCj4gTm8gbmVlZCB0byBzdGFydCBmcm9tIGdyb3VwIDAuIE9ubHkg
-cmVhZGwgb24gdGhlIGdyb3VwIHdpdGggaWVbaV0gIT0gMAo+IAo+PiArwqDCoMKgIH0KPj4gKwo+
-PiArwqDCoMKgIGlmICghcGVuZGluZ19pcnFzKQo+PiArwqDCoMKgwqDCoMKgwqAgcmV0dXJuIGZh
-bHNlOwo+PiArCj4+ICvCoMKgwqAgLyogRGlzYWJsZSBhbGwgaW50ZXJydXB0cyBidXQgdGhlIGZp
-cnN0IHBlbmRpbmcgb25lICovCj4+ICvCoMKgwqAgZm9yIChqID0gMDsgaiA8IG5yX2lycV9ncm91
-cHM7IGorKykgewo+PiArwqDCoMKgwqDCoMKgwqAgdTMyIG5ld19tYXNrID0gMDsKPj4gKwo+PiAr
-wqDCoMKgwqDCoMKgwqAgaWYgKGogPT0gaSkgewo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAv
-KiBFeHRyYWN0IG1hc2sgd2l0aCBsb3dlc3Qgc2V0IGJpdCAqLwo+PiArwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCBuZXdfbWFzayA9IChwZW5kaW5nX2lycXMgJiAtcGVuZGluZ19pcnFzKTsKPj4gK8Kg
-wqDCoMKgwqDCoMKgIH0KPj4gKwo+PiArwqDCoMKgwqDCoMKgwqAgd3JpdGVsX3JlbGF4ZWQobmV3
-X21hc2ssIGVuYWJsZSArIGogKiBzaXplb2YodTMyKSk7Cj4gCj4gCj4gVGhlcmUncyBubyBuZWVk
-IHRvIHdyaXRlIHRoZSByZWdpc3RlciBpZiB0aGUgdmFsdWUgaXNuJ3QgY2hhbmdpbmcuIFlvdSBj
-YW4KPiBjaGVjayBuZXdfbWFzayB3aXRoIHRoZSB2YWx1ZSBpbiBpZVtdLgo+IAo+PiArwqDCoMKg
-IH0KPj4gKwo+PiArwqDCoMKgIHJldHVybiB0cnVlOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgaXJx
-X2h3X251bWJlcl90IGNwMTAwX2dldF9od2lycShzdHJ1Y3QgcGxpY19oYW5kbGVyICpoYW5kbGVy
-LAo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdm9pZCBfX2lvbWVt
-ICpjbGFpbSkKPj4gK3sKPj4gK8KgwqDCoCBpbnQgbnJfaXJxX2dyb3VwcyA9IERJVl9ST1VORF9V
-UChoYW5kbGVyLT5wcml2LT5ucl9pcnFzLCAzMik7Cj4+ICvCoMKgwqAgdm9pZCBfX2lvbWVtICpw
-ZW5kaW5nID0gaGFuZGxlci0+cHJpdi0+cmVncyArIFBFTkRJTkdfQkFTRTsKPj4gK8KgwqDCoCB2
-b2lkIF9faW9tZW0gKmVuYWJsZSA9IGhhbmRsZXItPmVuYWJsZV9iYXNlOwo+PiArwqDCoMKgIGly
-cV9od19udW1iZXJfdCBod2lycSA9IDA7Cj4+ICvCoMKgwqAgaW50IGk7Cj4+ICsKPj4gK8KgwqDC
-oCBndWFyZChyYXdfc3BpbmxvY2spKCZoYW5kbGVyLT5lbmFibGVfbG9jayk7Cj4+ICsKPj4gK8Kg
-wqDCoCAvKiBTYXZlIGN1cnJlbnQgaW50ZXJydXB0IGVuYWJsZSBzdGF0ZSAqLwo+PiArwqDCoMKg
-IGZvciAoaSA9IDA7IGkgPCBucl9pcnFfZ3JvdXBzOyBpKyspCj4+ICvCoMKgwqDCoMKgwqDCoCBo
-YW5kbGVyLT5lbmFibGVfc2F2ZVtpXSA9IHJlYWRsX3JlbGF4ZWQoZW5hYmxlICsgaSAqIHNpemVv
-Zih1MzIpKTsKPiAKPiAKPiBJIHNlZSB0aGF0IHlvdSBzdGFydCB0byB1c2UgaGFuZGxlci0+ZW5h
-YmxlX3NhdmUgdG8gdHJhY2sgSFcgaW4gdGhlIGxhc3QgcmVwbHkuCj4gSSdtIGFib3V0IHRvIHN1
-Z2dlc3QgdGhhdC4gUGxlYXNlIHNlbmQgb3V0IGEgbmV3IHBhdGNoLCBzbyBwZW9wbGUgY2FuIHBy
-b3Blcmx5Cj4gcmV2aWV3IGl0LiBUaGVyZSdzIGNoYW5nZSB0byBjb21tb24gY29kZSBwYXRoLgo+
-IAo+PiArCj4+ICvCoMKgwqAgaWYgKCFjcDEwMF9pc29sYXRlX3BlbmRpbmdfaXJxKG5yX2lycV9n
-cm91cHMsIGhhbmRsZXItPmVuYWJsZV9zYXZlLAo+PiBwZW5kaW5nLCBlbmFibGUpKQo+PiArwqDC
-oMKgwqDCoMKgwqAgcmV0dXJuIDA7Cj4+ICsKPj4gK8KgwqDCoCBod2lycSA9IHJlYWRsKGNsYWlt
-KTsKPiAKPiBQb3NzaWJseSBtaXNzaW5nIGEgaW8gYmFycmllci4gcmVhZGwgaXNuJ3QgZ29pbmcg
-dG8gZW5mb3JjZSB0aGUgb3JkZXJpbmcgb2YKPiByZWFkbC93cml0ZWxfcmVsYXhlZCBhYm92ZSBh
-bmQgaXRzZWxmLiBUaGVyZSBjb3VsZCBiZSBvdGhlciBiYXJyaWVycyBtaXNzaW5nLgo+IFBsZWFz
-ZSBjaGVjay4KClRoZXJlIGlzIG5vIG1pc3NpbmcgYmFycmllci4gTGludXggcmVxdWlyZXMgdGhl
-IGhhcmR3YXJlIHRvIGVuZm9yY2UgdGhpcwpvcmRlcmluZy4gU2VlIHRoZSBjb21tZW50IGluIGFz
-bS9tbWlvLmg6CgovKgogKiBSZWxheGVkIEkvTyBtZW1vcnkgYWNjZXNzIHByaW1pdGl2ZXMuIFRo
-ZXNlIGZvbGxvdyB0aGUgRGV2aWNlIG1lbW9yeQogKiBvcmRlcmluZyBydWxlcyBidXQgZG8gbm90
-IGd1YXJhbnRlZSBhbnkgb3JkZXJpbmcgcmVsYXRpdmUgdG8gTm9ybWFsIG1lbW9yeQogKiBhY2Nl
-c3Nlcy4gIFRoZXNlIGFyZSBkZWZpbmVkIHRvIG9yZGVyIHRoZSBpbmRpY2F0ZWQgYWNjZXNzIChl
-aXRoZXIgYSByZWFkIG9yCiAqIHdyaXRlKSB3aXRoIGFsbCBvdGhlciBJL08gbWVtb3J5IGFjY2Vz
-c2VzIHRvIHRoZSBzYW1lIHBlcmlwaGVyYWwuIFNpbmNlIHRoZQogKiBwbGF0Zm9ybSBzcGVjaWZp
-Y2F0aW9uIGRlZmluZXMgdGhhdCBhbGwgSS9PIHJlZ2lvbnMgYXJlIHN0cm9uZ2x5IG9yZGVyZWQg
-b24KICogY2hhbm5lbCAwLCBubyBleHBsaWNpdCBmZW5jZXMgYXJlIHJlcXVpcmVkIHRvIGVuZm9y
-Y2UgdGhpcyBvcmRlcmluZy4KICovCgp3aGVyZSAic3Ryb25nbHkgb3JkZXJlZCIgaXMgZGVmaW5l
-ZCBieSB0aGUgcHJpdmlsZWdlZCBJU0E6ICJhY2Nlc3NlcyB0byBhbiBJL08KcmVnaW9uIHdpdGgg
-c3Ryb25nIG9yZGVyaW5nIGFyZSBnZW5lcmFsbHkgb2JzZXJ2ZWQgYnkgb3RoZXIgaGFydHMgYW5k
-IGJ1cwptYXN0ZXJpbmcgZGV2aWNlcyBpbiBwcm9ncmFtIG9yZGVyLiIKCkJhcnJpZXJzIGFyZSBv
-bmx5IG5lZWRlZCBpZiB0aGVyZSBhcmUgb3JkZXJpbmcgcmVxdWlyZW1lbnRzIGJldHdlZW4gSS9P
-IGFjY2Vzc2VzCnRvIG11bHRpcGxlIE1NSU8gcmVnaW9ucywgb3IgYmV0d2VlbiBJL08gYW5kIG5v
-cm1hbCBtZW1vcnkgKGUuZy4gbG9ja3MgYW5kIERNQSkuCgpSZWdhcmRzLApTYW11ZWwKCj4+ICsK
-Pj4gK8KgwqDCoCAvKiBSZXN0b3JlIHByZXZpb3VzIHN0YXRlICovCj4+ICvCoMKgwqAgZm9yIChp
-ID0gMDsgaSA8IG5yX2lycV9ncm91cHM7IGkrKykKPj4gK8KgwqDCoMKgwqDCoMKgIHdyaXRlbF9y
-ZWxheGVkKGhhbmRsZXItPmVuYWJsZV9zYXZlW2ldLCBlbmFibGUgKyBpICogc2l6ZW9mKHUzMikp
-Owo+PiArCj4+ICvCoMKgwqAgcmV0dXJuIGh3aXJxOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgdm9p
-ZCBwbGljX2hhbmRsZV9pcnFfY3AxMDAoc3RydWN0IGlycV9kZXNjICpkZXNjKQo+PiArewo+PiAr
-wqDCoMKgIHN0cnVjdCBwbGljX2hhbmRsZXIgKmhhbmRsZXIgPSB0aGlzX2NwdV9wdHIoJnBsaWNf
-aGFuZGxlcnMpOwo+PiArwqDCoMKgIHN0cnVjdCBpcnFfY2hpcCAqY2hpcCA9IGlycV9kZXNjX2dl
-dF9jaGlwKGRlc2MpOwo+PiArwqDCoMKgIHZvaWQgX19pb21lbSAqY2xhaW0gPSBoYW5kbGVyLT5o
-YXJ0X2Jhc2UgKyBDT05URVhUX0NMQUlNOwo+PiArwqDCoMKgIGlycV9od19udW1iZXJfdCBod2ly
-cTsKPj4gKwo+PiArwqDCoMKgIFdBUk5fT05fT05DRSghaGFuZGxlci0+cHJlc2VudCk7Cj4+ICsK
-Pj4gK8KgwqDCoCBjaGFpbmVkX2lycV9lbnRlcihjaGlwLCBkZXNjKTsKPj4gKwo+PiArwqDCoMKg
-IHdoaWxlICgoaHdpcnEgPSBjcDEwMF9nZXRfaHdpcnEoaGFuZGxlciwgY2xhaW0pKSkgewo+PiAr
-wqDCoMKgwqDCoMKgwqAgaW50IGVyciA9IGdlbmVyaWNfaGFuZGxlX2RvbWFpbl9pcnEoaGFuZGxl
-ci0+cHJpdi0+aXJxZG9tYWluLCBod2lycSk7Cj4+ICsKPj4gK8KgwqDCoMKgwqDCoMKgIGlmICh1
-bmxpa2VseShlcnIpKSB7Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHByX3dhcm5fcmF0ZWxp
-bWl0ZWQoIiVwZndQOiBjYW4ndCBmaW5kIG1hcHBpbmcgZm9yIGh3aXJxICVsdVxuIiwKPj4gK8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaGFuZGxlci0+cHJp
-di0+Zndub2RlLCBod2lycSk7Cj4+ICvCoMKgwqDCoMKgwqDCoCB9Cj4+ICvCoMKgwqAgfQo+PiAr
-Cj4+ICvCoMKgwqAgY2hhaW5lZF9pcnFfZXhpdChjaGlwLCBkZXNjKTsKPj4gK30KPj4gKwo+PiDC
-oCBzdGF0aWMgdm9pZCBwbGljX3NldF90aHJlc2hvbGQoc3RydWN0IHBsaWNfaGFuZGxlciAqaGFu
-ZGxlciwgdTMyIHRocmVzaG9sZCkKPj4gwqAgewo+PiDCoMKgwqDCoMKgIC8qIHByaW9yaXR5IG11
-c3QgYmUgPiB0aHJlc2hvbGQgdG8gdHJpZ2dlciBhbiBpbnRlcnJ1cHQgKi8KPj4gQEAgLTQzMCw2
-ICs1MTYsOCBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9pZCBwbGljX21hdGNoW10g
-PSB7Cj4+IMKgwqDCoMKgwqDCoMKgIC5kYXRhID0gKGNvbnN0IHZvaWQgKilCSVQoUExJQ19RVUlS
-S19FREdFX0lOVEVSUlVQVCkgfSwKPj4gwqDCoMKgwqDCoCB7IC5jb21wYXRpYmxlID0gInRoZWFk
-LGM5MDAtcGxpYyIsCj4+IMKgwqDCoMKgwqDCoMKgIC5kYXRhID0gKGNvbnN0IHZvaWQgKilCSVQo
-UExJQ19RVUlSS19FREdFX0lOVEVSUlVQVCkgfSwKPj4gK8KgwqDCoCB7IC5jb21wYXRpYmxlID0g
-InVsdHJhcmlzYyxjcDEwMC1wbGljIiwKPj4gK8KgwqDCoMKgwqAgLmRhdGEgPSAoY29uc3Qgdm9p
-ZCAqKUJJVChQTElDX1FVSVJLX0NQMTAwX0NMQUlNX1JFR0lTVEVSX0VSUkFUVU0pIH0sCj4+IMKg
-wqDCoMKgwqAge30KPj4gwqAgfTsKPj4gwqAgQEAgLTY2NCwxMiArNzUyLDE2IEBAIHN0YXRpYyBp
-bnQgcGxpY19wcm9iZShzdHJ1Y3QgZndub2RlX2hhbmRsZSAqZndub2RlKQo+PiDCoMKgwqDCoMKg
-wqDCoMKgwqAgfQo+PiDCoCDCoMKgwqDCoMKgwqDCoMKgwqAgaWYgKGdsb2JhbF9zZXR1cCkgewo+
-PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB2b2lkICgqaGFuZGxlcl9mbikoc3RydWN0IGlycV9k
-ZXNjICopID0gcGxpY19oYW5kbGVfaXJxOwo+PiArCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IGlmICh0ZXN0X2JpdChQTElDX1FVSVJLX0NQMTAwX0NMQUlNX1JFR0lTVEVSX0VSUkFUVU0sICZo
-YW5kbGVyLQo+PiA+cHJpdi0+cGxpY19xdWlya3MpKQo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIGhhbmRsZXJfZm4gPSBwbGljX2hhbmRsZV9pcnFfY3AxMDA7Cj4+ICsKPj4gwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLyogRmluZCBwYXJlbnQgZG9tYWluIGFuZCByZWdpc3Rl
-ciBjaGFpbmVkIGhhbmRsZXIgKi8KPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZG9tYWlu
-ID0gaXJxX2ZpbmRfbWF0Y2hpbmdfZndub2RlKHJpc2N2X2dldF9pbnRjX2h3bm9kZSgpLAo+PiBE
-T01BSU5fQlVTX0FOWSk7Cj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGlmIChkb21haW4p
-Cj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcGxpY19wYXJlbnRfaXJxID0g
-aXJxX2NyZWF0ZV9tYXBwaW5nKGRvbWFpbiwgUlZfSVJRX0VYVCk7Cj4+IMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIGlmIChwbGljX3BhcmVudF9pcnEpCj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgaXJxX3NldF9jaGFpbmVkX2hhbmRsZXIocGxpY19wYXJlbnRfaXJxLCBwbGlj
-X2hhbmRsZV9pcnEpOwo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGlycV9zZXRf
-Y2hhaW5lZF9oYW5kbGVyKHBsaWNfcGFyZW50X2lycSwgaGFuZGxlcl9mbik7Cj4+IMKgIMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNwdWhwX3NldHVwX3N0YXRlKENQVUhQX0FQX0lSUV9TSUZJ
-VkVfUExJQ19TVEFSVElORywKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCAiaXJxY2hpcC9zaWZpdmUvcGxpYzpzdGFydGluZyIsCj4gCj4gTXkgcmF0aW9u
-YWxlIG9mIHRoZSBhYm92ZSBjb21tZW50cyBpcyB0byBhY2hpZXZlIG1pbmltYWwgb3ZlcmhlYWQg
-d2l0aCB0aGlzCj4gInJlYWQgcGVuZGluZ1tdIC0+IGRpc2FibGUgSUVbXSAtPiBjbGFpbSAtPiBl
-bmFibGUgSUVbXSIgYXBwcm9hY2guIEluIGdlbmVyYWwsCj4gdGhlIGZld2VyIGludGVycnVwdHMg
-ZW5hYmxlZCBvbiBhIGhhcnQsIHRoZSBsb3dlciB0aGUgb3ZlcmhlYWQuIElmIHRoZXJlJ3Mgb25s
-eQo+IDEgaW50ZXJydXB0IGVuYWJsZWQgZm9yIGEgZ2l2ZSBoYXJ0LCB0aGVuIHRoZXJlJ3MgemVy
-byByZWFkaW5nL3dyaXRpbmcgb2YgSUVbXSwKPiBhbmQgeW91IGNhbiBmdXJ0aGVyIG9wdGltaXpl
-IGF3YXkgdGhlIHJlYWRpbmcgb2YgcGVuZGluZyByZWdpc3Rlci4KPiAKPiBJJ2QgaW1hZ2luZSB0
-aGF0IGlmIHRoZSB1c2VyIHRydWx5IHdhbnQgdG8gYXZvaWQgdGhlIG92ZXJoZWFkIG9mIHRoaXMg
-cXVpcmssCj4gdGhleSBjYW4gY2hvc2UgdG8gc3ByZWFkIG91dCB0aGUgaXJxIGdyb3VwcyBvbnRv
-IGRpZmZlcmVudCBoYXJ0cyB0byBhbGxldmlhdGUKPiB0aGUgc2xvdyBkb3duLCBvciBiZXR0ZXIg
-aXNvbGF0ZSBhIHNpbmdsZSBpcnEgdG8gYSBnaXZlbiBoYXJ0LCBhbmQgd2Ugc2hvdWxkCj4gbWFr
-ZSBpdCBwb3NzaWJsZS4KPiAKPiBGZWVsIGZyZWUgdG8gcG9pbnQgb3V0IGFueSBvZiBteSBtaXN1
-bmRlcnN0YW5kaW5ncy4KPiAKPiBCbwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+
+
+On 10/16/25 01:00, Hal Feng wrote:
+> Some node in this file are not used by the upcoming VisionFive 2 Lite
+> board. Move them to the board dts to prepare for adding the new
+> VisionFive 2 Lite device tree.
+> 
+> Reviewed-by: E Shattow <e@freeshell.de>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  .../boot/dts/starfive/jh7110-common.dtsi      | 19 --------
+>  .../jh7110-deepcomputing-fml13v01.dts         | 46 +++++++++++++++++++
+>  .../boot/dts/starfive/jh7110-milkv-mars.dts   | 46 +++++++++++++++++++
+>  .../dts/starfive/jh7110-milkv-marscm-emmc.dts |  9 ++++
+>  .../dts/starfive/jh7110-milkv-marscm-lite.dts |  1 +
+>  .../dts/starfive/jh7110-milkv-marscm.dtsi     | 32 +++++++++++++
+>  .../dts/starfive/jh7110-pine64-star64.dts     | 46 +++++++++++++++++++
+>  .../jh7110-starfive-visionfive-2.dtsi         | 43 +++++++++++++++++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 16 -------
+>  9 files changed, 223 insertions(+), 35 deletions(-)
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> index 5dc15e48b74b..8cfe8033305d 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> @@ -281,14 +281,8 @@ &mmc0 {
+>  	assigned-clock-rates = <50000000>;
+>  	bus-width = <8>;
+>  	bootph-pre-ram;
+> -	cap-mmc-highspeed;
+> -	mmc-ddr-1_8v;
+> -	mmc-hs200-1_8v;
+> -	cap-mmc-hw-reset;
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&mmc0_pins>;
+> -	vmmc-supply = <&vcc_3v3>;
+> -	vqmmc-supply = <&emmc_vdd>;
+>  	status = "okay";
+>  };
+>  
+> @@ -298,8 +292,6 @@ &mmc1 {
+>  	assigned-clock-rates = <50000000>;
+>  	bus-width = <4>;
+>  	bootph-pre-ram;
+> -	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> -	disable-wp;
+>  	cap-sd-highspeed;
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&mmc1_pins>;
+> @@ -444,17 +436,6 @@ GPOEN_SYS_I2C6_DATA,
+>  	};
+>  
+>  	mmc0_pins: mmc0-0 {
+> -		 rst-pins {
+> -			pinmux = <GPIOMUX(62, GPOUT_SYS_SDIO0_RST,
+> -					      GPOEN_ENABLE,
+> -					      GPI_NONE)>;
+> -			bias-pull-up;
+> -			drive-strength = <12>;
+> -			input-disable;
+> -			input-schmitt-disable;
+> -			slew-rate = <0>;
+> -		};
+> -
+>  		mmc-pins {
+>  			pinmux = <PINMUX(PAD_SD0_CLK, 0)>,
+>  				 <PINMUX(PAD_SD0_CMD, 0)>,
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts b/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
+> index f2857d021d68..7535d62201f1 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
+> @@ -11,6 +11,52 @@ / {
+>  	compatible = "deepcomputing,fml13v01", "starfive,jh7110";
+>  };
+>  
+> +&cpu_opp {
+> +	opp-375000000 {
+> +		opp-hz = /bits/ 64 <375000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-500000000 {
+> +		opp-hz = /bits/ 64 <500000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-750000000 {
+> +		opp-hz = /bits/ 64 <750000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-1500000000 {
+> +		opp-hz = /bits/ 64 <1500000000>;
+> +		opp-microvolt = <1040000>;
+> +	};
+> +};
+> +
+> +&mmc0 {
+> +	cap-mmc-highspeed;
+> +	cap-mmc-hw-reset;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&emmc_vdd>;
+> +};
+> +
+> +&mmc0_pins {
+> +	rst-pins {
+> +		pinmux = <GPIOMUX(62, GPOUT_SYS_SDIO0_RST,
+> +				      GPOEN_ENABLE,
+> +				      GPI_NONE)>;
+> +		bias-pull-up;
+> +		drive-strength = <12>;
+> +		input-disable;
+> +		input-schmitt-disable;
+> +		slew-rate = <0>;
+> +	};
+> +};
+> +
+> +&mmc1 {
+> +	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> +	disable-wp;
+> +};
+> +
+>  &pcie1 {
+>  	perst-gpios = <&sysgpio 21 GPIO_ACTIVE_LOW>;
+>  	phys = <&pciephy1>;
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
+> index fdaf6b4557da..c2e7a91e460a 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
+> @@ -11,6 +11,25 @@ / {
+>  	compatible = "milkv,mars", "starfive,jh7110";
+>  };
+>  
+> +&cpu_opp {
+> +	opp-375000000 {
+> +		opp-hz = /bits/ 64 <375000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-500000000 {
+> +		opp-hz = /bits/ 64 <500000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-750000000 {
+> +		opp-hz = /bits/ 64 <750000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-1500000000 {
+> +		opp-hz = /bits/ 64 <1500000000>;
+> +		opp-microvolt = <1040000>;
+> +	};
+> +};
+> +
+>  &gmac0 {
+>  	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
+>  	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
+> @@ -22,6 +41,33 @@ &i2c0 {
+>  	status = "okay";
+>  };
+>  
+> +&mmc0 {
+> +	cap-mmc-highspeed;
+> +	cap-mmc-hw-reset;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&emmc_vdd>;
+> +};
+> +
+> +&mmc0_pins {
+> +	rst-pins {
+> +		pinmux = <GPIOMUX(62, GPOUT_SYS_SDIO0_RST,
+> +				      GPOEN_ENABLE,
+> +				      GPI_NONE)>;
+> +		bias-pull-up;
+> +		drive-strength = <12>;
+> +		input-disable;
+> +		input-schmitt-disable;
+> +		slew-rate = <0>;
+> +	};
+> +};
+> +
+> +&mmc1 {
+> +	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> +	disable-wp;
+> +};
+> +
+>  &pcie0 {
+>  	status = "okay";
+>  };
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-emmc.dts b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-emmc.dts
+> index e568537af2c4..ce95496263af 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-emmc.dts
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-emmc.dts
+> @@ -10,3 +10,12 @@ / {
+>  	model = "Milk-V Mars CM";
+>  	compatible = "milkv,marscm-emmc", "starfive,jh7110";
+>  };
+> +
+> +&mmc0 {
+> +	cap-mmc-highspeed;
+> +	cap-mmc-hw-reset;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&emmc_vdd>;
+> +};
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
+> index 6c40d0ec4011..63aa94d65ab5 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
+> @@ -14,6 +14,7 @@ / {
+>  &mmc0 {
+>  	bus-width = <4>;
+>  	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> +	disable-wp;
+>  };
+>  
+>  &mmc0_pins {
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi
+> index 25b70af564ee..af01d3abde2f 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm.dtsi
+> @@ -21,6 +21,25 @@ sdio_pwrseq: sdio-pwrseq {
+>  	};
+>  };
+>  
+> +&cpu_opp {
+> +	opp-375000000 {
+> +		opp-hz = /bits/ 64 <375000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-500000000 {
+> +		opp-hz = /bits/ 64 <500000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-750000000 {
+> +		opp-hz = /bits/ 64 <750000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-1500000000 {
+> +		opp-hz = /bits/ 64 <1500000000>;
+> +		opp-microvolt = <1040000>;
+> +	};
+> +};
+> +
+>  &gmac0 {
+>  	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
+>  	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
+> @@ -40,6 +59,19 @@ &i2c6 {
+>  	status = "disabled";
+>  };
+>  
+> +&mmc0_pins {
+> +	rst-pins {
+> +		pinmux = <GPIOMUX(62, GPOUT_SYS_SDIO0_RST,
+> +				      GPOEN_ENABLE,
+> +				      GPI_NONE)>;
+> +		bias-pull-up;
+> +		drive-strength = <12>;
+> +		input-disable;
+> +		input-schmitt-disable;
+> +		slew-rate = <0>;
+> +	};
+> +};
+> +
+>  &mmc1 {
+>  	#address-cells = <1>;
+>  	#size-cells = <0>;
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts b/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
+> index 31e825be2065..6faf3826c5c3 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
+> @@ -14,6 +14,25 @@ aliases {
+>  	};
+>  };
+>  
+> +&cpu_opp {
+> +	opp-375000000 {
+> +		opp-hz = /bits/ 64 <375000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-500000000 {
+> +		opp-hz = /bits/ 64 <500000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-750000000 {
+> +		opp-hz = /bits/ 64 <750000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-1500000000 {
+> +		opp-hz = /bits/ 64 <1500000000>;
+> +		opp-microvolt = <1040000>;
+> +	};
+> +};
+> +
+>  &gmac0 {
+>  	starfive,tx-use-rgmii-clk;
+>  	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
+> @@ -44,6 +63,33 @@ &i2c0 {
+>  	status = "okay";
+>  };
+>  
+> +&mmc0 {
+> +	cap-mmc-highspeed;
+> +	cap-mmc-hw-reset;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&emmc_vdd>;
+> +};
+> +
+> +&mmc0_pins {
+> +	rst-pins {
+> +		pinmux = <GPIOMUX(62, GPOUT_SYS_SDIO0_RST,
+> +				      GPOEN_ENABLE,
+> +				      GPI_NONE)>;
+> +		bias-pull-up;
+> +		drive-strength = <12>;
+> +		input-disable;
+> +		input-schmitt-disable;
+> +		slew-rate = <0>;
+> +	};
+> +};
+> +
+> +&mmc1 {
+> +	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> +	disable-wp;
+> +};
+> +
+>  &pcie1 {
+>  	status = "okay";
+>  };
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> index 5f14afb2c24d..9cd79fe30d19 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -13,6 +13,25 @@ aliases {
+>  	};
+>  };
+>  
+> +&cpu_opp {
+> +	opp-375000000 {
+> +		opp-hz = /bits/ 64 <375000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-500000000 {
+> +		opp-hz = /bits/ 64 <500000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-750000000 {
+> +		opp-hz = /bits/ 64 <750000000>;
+> +		opp-microvolt = <800000>;
+> +	};
+> +	opp-1500000000 {
+> +		opp-hz = /bits/ 64 <1500000000>;
+> +		opp-microvolt = <1040000>;
+> +	};
+> +};
+> +
+>  &gmac0 {
+>  	status = "okay";
+>  };
+> @@ -38,9 +57,33 @@ &i2c0 {
+>  };
+>  
+>  &mmc0 {
+> +	cap-mmc-highspeed;
+> +	cap-mmc-hw-reset;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&emmc_vdd>;
+>  	non-removable;
+>  };
+>  
+> +&mmc0_pins {
+> +	rst-pins {
+> +		pinmux = <GPIOMUX(62, GPOUT_SYS_SDIO0_RST,
+> +				      GPOEN_ENABLE,
+> +				      GPI_NONE)>;
+> +		bias-pull-up;
+> +		drive-strength = <12>;
+> +		input-disable;
+> +		input-schmitt-disable;
+> +		slew-rate = <0>;
+> +	};
+> +};
+> +
+> +&mmc1 {
+> +	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> +	disable-wp;
+> +};
+> +
+>  &pcie0 {
+>  	status = "okay";
+>  };
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index 6e56e9d20bb0..a380d3dabedd 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -205,22 +205,6 @@ core4 {
+>  	cpu_opp: opp-table-0 {
+>  			compatible = "operating-points-v2";
+>  			opp-shared;
+> -			opp-375000000 {
+> -					opp-hz = /bits/ 64 <375000000>;
+> -					opp-microvolt = <800000>;
+> -			};
+> -			opp-500000000 {
+> -					opp-hz = /bits/ 64 <500000000>;
+> -					opp-microvolt = <800000>;
+> -			};
+> -			opp-750000000 {
+> -					opp-hz = /bits/ 64 <750000000>;
+> -					opp-microvolt = <800000>;
+> -			};
+> -			opp-1500000000 {
+> -					opp-hz = /bits/ 64 <1500000000>;
+> -					opp-microvolt = <1040000>;
+> -			};
+>  	};
+>  
+>  	thermal-zones {
+
+Emil, for your consideration:
+
+jh711x.dtsi  (formerly jh7110.dtsi)
+
+jh711x-common.dtsi (formerly jh7110-common.dtsi, cut opp table and paste
+to jh7110-common.dtsi, cut out mmc definitions pasted elsewhere either
+to "mmc{0,1}-card, mmc{0,1}-emmc, mmc{0,1}-sdio" dtsi snippets or
+duplicated to board files)
+
+jh7110-common.dtsi (includes jh711x-common.dtsi, adds opp table)
+
+jh7110s-common.dtsi (includes jh711x-common.dtsi, adds opp table)
+
+This makes sense to me having two additional dtsi files of the CPU
+operating power points (on what is apparently binned silicon) to
+maintain for supporting 8+ boards. The decision to split or not split
+out the mmc/sdio configuration into common dtsi snippets is less clear
+to me, but we do have examples now of all the uses (card, eMMC, SDIO) on
+each of the ports mmc0 mmc1 so it might have some benefit; for sure
+keeping these assumptions about mmc0 mmc1 functionality in the one
+'-common.dtsi' is an obstacle to adding sdio module configurations.
+
+-E
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
