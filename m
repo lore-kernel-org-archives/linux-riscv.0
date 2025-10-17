@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C15CCD19A
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 10:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FB4CCD19A
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 11:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/G05iZ57eus/jrDJcM+1lcEtTw4ixMbl3EnHAQZLSEw=; b=F0CJCZJLFn19iA
-	kpgIu/WB/RHbBFhN6z0tiENz5xFTAsH3fu9NcWCQPd9jb6FAAHAW2Owmcel2kgp17FMGbekiMLHRm
-	2z8jt7JN4S8S2E0vOLVdXRL5ZrPRBju/x+14JU2V06HjwK6wNHG3EfEFvNwLL3RbdEED3buVjOL7a
-	NxiynohMCutotriRbuAFRsKGEae4qfaly70pZcNPz/hTSEJ73aOqNqk3XlfiyQ1F8JcjaEJC2AZhO
-	RpHv2iqMIWJvktBuT1SwzHUabvXD43KffsrcpAwb4FO5bTis0hYQZa6DVWnzAInC8//7lkCy2BtaX
-	36s2QzXkiuMspsvNN1mA==;
+	List-Owner; bh=VkN/3XwGgguqHZknAUaq7YqRByr+QrTKxzY5kvwN15c=; b=a1/gDrKISBIwW1
+	drTHNSGEJ+z7E1rDy8E7iGKPvaHsfspGRtQ2LRBywknEBi9NmPqZQsGTB6MOaX8IzfUoGhYdza56r
+	w1Xn53fEZWMx7SoDeghFVkEn6zO19CM2BeTlf7t9qPi1RgqG4SB32HlbpFtrQaRMrLq2CahiblIjj
+	moH42Ngf5G4VzHxrLiUjRPE/prIs9xH9/dD+mIpEAX/HLoYkp2HiETJNLlw+j3VnxnBkIXX8CQtTi
+	kaSJgxEDKMAUItIkEy8WYPSweroR8VcEgxtvCWj4UTcZqggkR1AfuEdlEkbZctO8crpM2KcZs0yha
+	q4agd1gdTVTyEkMUJrFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9i4F-00000007a7N-26oA;
-	Fri, 17 Oct 2025 10:52:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v9iCI-00000007bdd-2tIe;
+	Fri, 17 Oct 2025 11:00:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9i4D-00000007a6g-1feM;
-	Fri, 17 Oct 2025 10:52:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	Message-ID:In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XK6rShI1laVwxqZnNYg1sUJOrdVDcwamBttA7hfuCSM=; b=ZSHoi1ZmZFAYauZNSr39pwzWLf
-	tVIYL3Ax7MAJ/cPTgSTcN3bgKRKu8vlGWsao3hXgM7sVi3oi1QqVA8zDKi1gww56VbiLvvG02OGLR
-	wi0cWM04yeqzDf8IN2ms5leZQSI4paJj8C/ZpVk7SkM23UCexcs2Ne6kyVr8ljQNfjQUeb8f+gguS
-	59Al/72ox0vk5oNWGH7nlwE6Xic3PGvwVySdmS1DhtqUOV5ZUhr4IPnCqap7IWfFuyrQ3SF2mjebl
-	QLiziMJJGBSF3jY4Z9wXtMaFzcE3ReY6UholKZUAvyIPM7I5BJM2V6JWLVx8MRFnW8vtiw909INXO
-	WDCp8D5w==;
-Received: from mail3-relais-sop.national.inria.fr ([192.134.164.104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9i44-00000007Ur0-33fp;
-	Fri, 17 Oct 2025 10:52:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=date:from:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=XK6rShI1laVwxqZnNYg1sUJOrdVDcwamBttA7hfuCSM=;
-  b=tn4aYz9lmkDrc4N/iK2W/dM81CNjYMahGWFcq4rSfyrAOMJ30S0qvU5x
-   DDrS1DB49dy9J+mDsmpdTC6EmQpk42hAVCNU91tBng/7RP3/kJKfUQYys
-   dvZSuay+w3oYltOCgaKnt47F1KY4PVI6Z3oE5kX432CUOCAhWVjp27mxF
-   g=;
-X-CSE-ConnectionGUID: TVVds0QUR5GM1FOFhwN2PA==
-X-CSE-MsgGUID: 9dq6U7JzTjaJHe2aNq8FFA==
-Authentication-Results: mail3-relais-sop.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=julia.lawall@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.19,236,1754949600"; 
-   d="scan'208";a="128490637"
-Received: from bb116-15-226-202.singnet.com.sg (HELO hadrien) ([116.15.226.202])
-  by mail3-relais-sop.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Oct 2025 12:51:38 +0200
-Date: Fri, 17 Oct 2025 18:51:31 +0800 (+08)
-From: Julia Lawall <julia.lawall@inria.fr>
-To: Thomas Gleixner <tglx@linutronix.de>
-cc: LKML <linux-kernel@vger.kernel.org>, Julia Lawall <Julia.Lawall@inria.fr>, 
-    Nicolas Palix <nicolas.palix@imag.fr>, kernel test robot <lkp@intel.com>, 
-    Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-    Linus Torvalds <torvalds@linux-foundation.org>, x86@kernel.org, 
-    Madhavan Srinivasan <maddy@linux.ibm.com>, 
-    Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-    Christophe Leroy <christophe.leroy@csgroup.eu>, 
-    linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-    Heiko Carstens <hca@linux.ibm.com>, 
-    Christian Borntraeger <borntraeger@linux.ibm.com>, 
-    Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, 
-    Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-    Andrew Cooper <andrew.cooper3@citrix.com>, 
-    Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>, 
-    Davidlohr Bueso <dave@stgolabs.net>, 
-    =?ISO-8859-15?Q?Andr=E9_Almeida?= <andrealmeid@igalia.com>, 
-    Alexander Viro <viro@zeniv.linux.org.uk>, 
-    Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-    linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V3 09/12] [RFC] coccinelle: misc: Add scoped_masked_$MODE_access()
- checker script
-In-Reply-To: <20251017093030.378863263@linutronix.de>
-Message-ID: <46ea566b-6c42-a73-31da-ba15ed82aaf@inria.fr>
-References: <20251017085938.150569636@linutronix.de> <20251017093030.378863263@linutronix.de>
+	id 1v9iCH-00000007bdG-0QPm
+	for linux-riscv@lists.infradead.org;
+	Fri, 17 Oct 2025 11:00:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 11FC6603E6
+	for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 11:00:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B39F2C4AF09
+	for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 11:00:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760698831;
+	bh=0qKoqeZEFFOD2RlWkl69ruJZbnMDtQNF0IQVriRGDxI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=EWvUWl5nqTu29sldpT18woB5mT2hLN7XcQmiPTwyYqdXHu+jnVksMP04uDJo2FWId
+	 4waqpD0TRzeyYRxJyOG+KEvd5B4kPr3T4CVxPDayI/eVuAIa7DeXuZSrik+8eZN7v4
+	 LOuqUX8hLZGgrZq0E+I+Ne/tD7zeWxatENHTNaQT6XhXdB9sD/ewxDfqRU3BdtbZdG
+	 QPZMDM+rejO5ZkUON1ph6fVZPVRUKL2HLcUQ/mDGUCK/bLV5XfIqQh99SGJsRbcg3Y
+	 4ahOPJqRncQedXOEULxkPrZ+OpZ+tWNuIZLVsrXnJIW3z5j28FogNDbN/BmUf7rz89
+	 mpc1xYLK4W6Xg==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-57d8ff3944dso2149299e87.3
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 04:00:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVSAoZ/FOCb8g+Uq8bWqMycX/Ofq0yWpLPPtkSp548Nc39tuB2d+a4vI9qvvGK4sivnuFgwDpfIyOAzUg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzloeGS2EmLwbaPbQ+n/7SLNW4qN0+gqxol1h7uIl5+wfSHd/Z8
+	YxNiI/rsSodX61+OU3vWHNlppsb/ivkyZ7Dsj+hlPo7A0qYHVi4FwOTsOmj32Bq+kXeLDHG4lY/
+	7fRLDkx9sweWb8WIu0L+cVGq1CtR8cDo=
+X-Google-Smtp-Source: AGHT+IHxN2kS3odkWkazx6Kii1GVS0Wt6GhSEw2kpURhNsBRjiYw7sCxVK13poY4URZHjBG3Xbuf2j46mmtwgrQHRjc=
+X-Received: by 2002:a05:6512:3b24:b0:57b:8a82:1dcf with SMTP id
+ 2adb3069b0e04-591d84fd0c5mr1144213e87.18.1760698830068; Fri, 17 Oct 2025
+ 04:00:30 -0700 (PDT)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_115205_776780_162B25EA 
-X-CRM114-Status: GOOD (  20.47  )
+References: <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
+ <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn> <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
+ <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
+ <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
+ <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
+ <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
+ <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
+ <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
+ <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com> <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
+In-Reply-To: <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 17 Oct 2025 13:00:17 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
+X-Gm-Features: AS18NWCIYrjb5KW9LhHY0tpEoyBeBcU1fB0oUJiskEYiezDhT-2dTfp0F9THCv4
+Message-ID: <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: Huacai Chen <chenhuacai@kernel.org>, Tiezhu Yang <yangtiezhu@loongson.cn>, 
+	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,153 +90,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On Fri, 17 Oct 2025, Thomas Gleixner wrote:
-
-> A common mistake in user access code is that the wrong access mode is
-> selected for starting the user access section. As most architectures map
-> Read and Write modes to ReadWrite this goes often unnoticed for quite some
-> time.
+On Thu, 16 Oct 2025 at 17:49, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
 >
-> Aside of that the scoped user access mechanism requires that the same
-> pointer is used for the actual accessor macros that was handed in to start
-> the scope because the pointer can be modified by the scope begin mechanism
-> if the architecture supports masking.
+> On Thu, Oct 16, 2025 at 04:52:20PM +0200, Ard Biesheuvel wrote:
+> > On Tue, 14 Oct 2025 at 18:47, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+> > > The idea is that libstub code doesn't belong in vmlinux.o because it's
+> > > not a part of the kernel proper, and doesn't need to be validated or
+> > > modified by objtool for any reason.
+> > >
+> >
+> > I don't see a reason to change this on architectures that a) do not
+> > use objtool and b) link the EFI stub into vmlinux. If LoongArch wants
+> > to change this, that is fine, but that still does not mean it needs to
+> > change on other architectures too.
+> >
+> > EFI related boot errors are a nightmare to debug, and I will be the
+> > one getting the reports when this regresses arm64 on hardware that 2
+> > people on the planet have access to.
 >
-> Add a basic (and incomplete) coccinelle script to check for the common
-> issues. The error output is:
+> The idea was to have more consistency, so vmlinux.o never has libstub,
+> regardless of arch, but that's your call.
 >
-> kernel/futex/futex.h:303:2-17: ERROR: Invalid pointer for unsafe_put_user(p) in scoped_masked_user_write_access(to)
-> kernel/futex/futex.h:292:2-17: ERROR: Invalid access mode unsafe_get_user() in scoped_masked_user_write_access()
->
-> Not-Yet-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Julia Lawall <Julia.Lawall@inria.fr>
-> Cc: Nicolas Palix <nicolas.palix@imag.fr>
-> ---
->  scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++++++++++++++++++++
->  1 file changed, 108 insertions(+)
->
-> --- /dev/null
-> +++ b/scripts/coccinelle/misc/scoped_uaccess.cocci
-> @@ -0,0 +1,108 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/// Validate scoped_masked_user*access() scopes
-> +///
-> +// Confidence: Zero
-> +// Options: --no-includes --include-headers
-> +
-> +virtual context
-> +virtual report
-> +virtual org
-> +
-> +@initialize:python@
-> +@@
-> +
-> +scopemap = {
-> +  'scoped_masked_user_read_access_size'  : 'scoped_masked_user_read_access',
-> +  'scoped_masked_user_write_access_size' : 'scoped_masked_user_write_access',
-> +  'scoped_masked_user_rw_access_size'    : 'scoped_masked_user_rw_access',
-> +}
-> +
-> +# Most common accessors. Incomplete list
-> +noaccessmap = {
-> +  'scoped_masked_user_read_access'       : ('unsafe_put_user', 'unsafe_copy_to_user'),
-> +  'scoped_masked_user_write_access'      : ('unsafe_get_user', 'unsafe_copy_from_user'),
-> +}
-> +
-> +# Most common accessors. Incomplete list
-> +ptrmap = {
-> +  'unsafe_put_user'			 : 1,
-> +  'unsafe_get_user'			 : 1,
-> +  'unsafe_copy_to_user'		 	 : 0,
-> +  'unsafe_copy_from_user'		 : 0,
-> +}
-> +
-> +print_mode = None
-> +
-> +def pr_err(pos, msg):
-> +   if print_mode == 'R':
-> +      coccilib.report.print_report(pos[0], msg)
-> +   elif print_mode == 'O':
-> +      cocci.print_main(msg, pos)
-> +
-> +@r0 depends on report || org@
-> +iterator name scoped_masked_user_read_access,
-> +	      scoped_masked_user_read_access_size,
-> +	      scoped_masked_user_write_access,
-> +	      scoped_masked_user_write_access_size,
-> +	      scoped_masked_user_rw_access,
-> +	      scoped_masked_user_rw_access_size;
-> +iterator scope;
-> +statement S;
-> +@@
-> +
-> +(
-> +(
-> +scoped_masked_user_read_access(...) S
-> +|
-> +scoped_masked_user_read_access_size(...) S
-> +|
-> +scoped_masked_user_write_access(...) S
-> +|
-> +scoped_masked_user_write_access_size(...) S
-> +|
-> +scoped_masked_user_rw_access(...) S
-> +|
-> +scoped_masked_user_rw_access_size(...) S
-> +)
-> +&
-> +scope(...) S
-> +)
-> +
-> +@script:python depends on r0 && report@
-> +@@
-> +print_mode = 'R'
-> +
-> +@script:python depends on r0 && org@
-> +@@
-> +print_mode = 'O'
-> +
-> +@r1@
-> +expression sp, a0, a1;
-> +iterator r0.scope;
-> +identifier ac;
-> +position p;
-> +@@
-> +
-> +  scope(sp,...) {
-> +    <+...
-> +    ac@p(a0, a1, ...);
-> +    ...+>
-> +  }
 
-This will be more efficient and equally useful with <... ...>
-Using + requires that there is at least one match, which has a cost.
+The code in libstub ends up in .init.text, which will be mapped
+executable during boot on architectures that incorporate it into
+vmlinux.
 
-julia
+If objtool validation is never needed for such code, on the basis that
+it is not actually called even though it is present, then I think that
+is fine.
 
+For the other architectures, I don't have any objections in principle,
+I'm just being cautious due to the regression risk.
 
-> +
-> +@script:python@
-> +pos << r1.p;
-> +scope << r0.scope;
-> +ac << r1.ac;
-> +sp << r1.sp;
-> +a0 << r1.a0;
-> +a1 << r1.a1;
-> +@@
-> +
-> +scope = scopemap.get(scope, scope)
-> +if ac in noaccessmap.get(scope, []):
-> +   pr_err(pos, 'ERROR: Invalid access mode %s() in %s()' %(ac, scope))
-> +
-> +if ac in ptrmap:
-> +   ap = (a0, a1)[ptrmap[ac]]
-> +   if sp != ap.lstrip('&').split('->')[0].strip():
-> +      pr_err(pos, 'ERROR: Invalid pointer for %s(%s) in %s(%s)' %(ac, ap, scope, sp))
+> I'd still propose we keep the KBUILD_VMLINUX_LIBS_PRELINK mechanism to
+> allow other arches to opt in as needed.
 >
+
+Again, no objection in principle. To me, it just seems a lot of churn
+just to avoid having to teach objtool about indirect calls to noreturn
+functions.
+
+> And that variable might even be useful for other cases (x86 startup
+> code?)
 >
+
+Not all x86 startup code is in .init.text; some of it sticks around
+and is still used at runtime. I reckon that implies that objtool
+validation will remain needed for that, no?
 
 _______________________________________________
 linux-riscv mailing list
