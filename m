@@ -4,107 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5EDCCD183
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 00:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B0E2CCD199
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 03:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D7pcyEBvw4HIKr8bvG1gJO/lU2fo6/48RRPtx24agkA=; b=ljgNcPow9tRZAU
-	9I0cVGGEd8T/mtkSL/O/eNK8RD30nHkFhNABAYzEgWfiwqnKBPpLiSF2xPfl5UHmAF0el8YzHQDRv
-	QvrSXUH9RIHLGi8XjHcu1aolDRGU0CLl/rACrozb2Z/8cpU6sBWqJyxhdzhedo3JGUHMdu+kPH3II
-	W9/hRFYRKe8bi9Z3MLQko5cm/000v/pX/7hu3GLekCA9AI5QJb4lkUuepJTix29SxpGq3588B/RkL
-	Sy5VbMfA1/cd+3Y+NlpFMs0Kfvl44jzec1PBMzQ3Y2k6qjQkFCoMiSV2uXTsRBrtQYqB1xVK2DCIZ
-	/E72pnCAH7Go2EAMMQKg==;
+	List-Owner; bh=+oynrUr2hh1lo1RNSwQd7ntE6iGxx9SeLs3THaun+Co=; b=AhNi4WNcfwtSv1
+	FDacNWXc03GQVUgIjSg58t8Zap3lTDBbfDDLqvMWato+C+Xt99eXQYwCl9wz6N3dTueT9M7mh/mRB
+	DwdUMNeOKHTXiA2reURNdY5384l/WVrzfaOMs8k6Ms+S8hhYCMehqozVLgP8ofkWBfqD8bRLdYxTY
+	bFcrZ7G0CBmKP9VZYJfpwJVh6xEw3fUIwdex48mXD5b/DqBFdp8ef+h5v2/c2Pnu3pcs69q2pyE64
+	h8E2z7WoYdZ0TqnJtBDkwUU0yHHV90fg1UX1YOxEEpcEL/m3bMy6H33e9RKcQcKwkRyZtS3qdMRDE
+	K8bUhc+AOt//3xTssy1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YR4-00000006G89-070R;
-	Fri, 17 Oct 2025 00:35:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v9ayL-00000006S6J-21VX;
+	Fri, 17 Oct 2025 03:17:41 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YPy-00000006E5D-351I
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 17 Oct 2025 00:34:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=YenbGRez6bu/UEaTbB8eZbtDNA5csFA4mZUF4JnZu9w=; b=QnZPlcSg8ZsUpKhtLLmaJ2yze+
-	xN23u9Bzopzq1HqqH0UX9VwWCUhYWUGPDUjQ1/5v0Z0nZBzGUg/WaREvaNRc2OkFHcuFu32Ou0fka
-	X+8K7ZRQPDyzDL4tMBCUYGjeLRjwOXPxuQOh8bV3dspACLq0Fuwiu4otdHtquMSpK3i7LFchPuiHq
-	gJ550gpxaOWUhcJgPTOZ8O3dutf5dvvqI6OLJ/v8Q9kC/4pwppTbNKRdQohWuC9bMSS6237+bPSKj
-	PWGID0a/Vrkv52hR1h3b2aZu3IArdDyd5wVf2YIXWYu/2AB/PYI9/02G5MZIKQbrKznKLZdeirGBo
-	9ETjvLTA==;
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YPA-000000078HZ-2rR5
+	id 1v9ayH-00000006S1j-2qzJ
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 00:33:49 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-28a5b8b12bbso28797185ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 17:33:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760661189; x=1761265989; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=YenbGRez6bu/UEaTbB8eZbtDNA5csFA4mZUF4JnZu9w=;
-        b=HttfWQmFgE9GuQnXOq3SdSpoyNL6bG83qZvQZmrwjjE9yOF8l5YiGpFIxR/KDgbBp6
-         HPuTHb5K3PWax0Thxq42unCBEoGx6+01FgV+6dImjdxJpZrtBl5Uf3L9mWx2ee1QSxTP
-         yppR0X2wqRK1Kx5bnjFaL16ejHt+JBQQdWrwMuJISoafJPaDdlOlnx5Y5srsOv6Ms8Me
-         +mGtgtaI9U3VtRWzWQoCv0HiNY/l/m43S3kv0EPaaiYImSltrh5wxRduSj5K20yoaNaO
-         7kv3G8prTHAaDvGF7DQ8Wtwua59lnrcjRPkW9mH8Eo6D6maTo3eU9eaDA7SnNgEoO4sO
-         mM3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760661189; x=1761265989;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YenbGRez6bu/UEaTbB8eZbtDNA5csFA4mZUF4JnZu9w=;
-        b=elbySAUvxLbE/PNJw4zw2U0MX20+oPPHNpggAG+YTBeyNdXuhPpFYmJR0bS0wL9/ix
-         2QUNrcXmJAuBSM5mqRltqeqUMWjZ1TOdNqTTmF7zoeo6lUHyqQmHjT+FlJsQeFiZThbz
-         SJ4v5jvbDjQa5oWaCSqpzXb1j5eycvgAQxy0844QXF/Zdj1F8J758lL0UUoRrVib8Bxr
-         ofVu1SCbFuEnLdW6dRP9r+78NdYv1IeIeoyFomlMFQPJ6yWdfw1l+O6io87DVTVGpab9
-         Pdi4By73KqfEgCPFwCyP0fJ/oeAVSWFof3dFFglG10tlMoPoNKHKpathPlHi0F6Y2Iyx
-         6FMg==
-X-Forwarded-Encrypted: i=1; AJvYcCUtMxzPxOvuByBREJmmcgDCtpn8CR90yuJJIboaG7iUxiX83dA4Z8EgQjNA7Drupp3kkTRUWOgHIR4Cnw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrP5x8jW0aLltvlwMeRat4chHC+FY0PfEtDcUgJJ3qyDvF/jah
-	5RgvlwUlPp6lX3r67TmZvx/orZuSrzNtOv5cOCmLbSS7SqCOdxeaoKyrexAKEMbKGqGnaYMgMHy
-	0jlEqsg==
-X-Google-Smtp-Source: AGHT+IFzwgrTUpyTLmlR4n7vLZlT3Ntvx3uZ2AlOGbeNdkR1Pz/L5L7m7JolYZt52l8hjag9eabuD/ERTOw=
-X-Received: from pjbpf6.prod.google.com ([2002:a17:90b:1d86:b0:33b:5907:81cb])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:19f0:b0:286:d3c5:4d15
- with SMTP id d9443c01a7336-290cb947798mr22501395ad.36.1760661189400; Thu, 16
- Oct 2025 17:33:09 -0700 (PDT)
-Date: Thu, 16 Oct 2025 17:32:30 -0700
-In-Reply-To: <20251017003244.186495-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com>
-X-Mailer: git-send-email 2.51.0.858.gf9c4a03a3a-goog
-Message-ID: <20251017003244.186495-13-seanjc@google.com>
-Subject: [PATCH v3 12/25] KVM: TDX: Use atomic64_dec_return() instead of a
- poor equivalent
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>, 
-	Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>, 
-	Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Binbin Wu <binbin.wu@linux.intel.com>
+	Fri, 17 Oct 2025 03:17:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1760671001;
+	bh=cqj5dJBJ9v3TLxs+M5clPf0OMBPu+aIIFKjwsP6WivE=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=u8XfPnlo4oYmCgmwMnp+72KLAXux2gkzwO8NqP9RrlnaKLR6bTli3hS0Dd+2w2Ku5
+	 vlFgskQKNHtffhl4Xgv2n8es5Az9kjLyqTUtNTrumB7Z9iawQmDoidKlwaR7qnbbqJ
+	 K7zrc626a5J/Htwd9shXL7EUHlF+e5bnuajgNk/Q=
+X-QQ-mid: esmtpsz20t1760670993t2cb792c3
+X-QQ-Originating-IP: JLuDV7bloHEqGYnbxaY6YIrvKILYNIlU7Cr0nVxw5KE=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 17 Oct 2025 11:16:30 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3831780666694282224
+EX-QQ-RecipientCnt: 16
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Fri, 17 Oct 2025 11:16:18 +0800
+Subject: [PATCH v5 2/2] ASoC: spacemit: add i2s support for K1 SoC
+MIME-Version: 1.0
+Message-Id: <20251017-k1-i2s-v5-2-401ae3775fcd@linux.spacemit.com>
+References: <20251017-k1-i2s-v5-0-401ae3775fcd@linux.spacemit.com>
+In-Reply-To: <20251017-k1-i2s-v5-0-401ae3775fcd@linux.spacemit.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Jinmei Wei <weijinmei@linux.spacemit.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760670980; l=16427;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=EDEsIcdv1JmDZdZcxGFxjkqpEQ3hQAy33qJweuXOxcw=;
+ b=aHqX/t7W8jouFGyJ4AhWpNAnyLxpeMXQeQNgKMgHlw7io83PmBrTIT68SsYspizveBde9ve7Y
+ cazOM5bZhn5ATMhAZ65iw82uwPpuGYD3b0BRgn8DP6Ubdx4QEzAKs8b
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NP79For4BReYCwq5j3KKxAl3UXOhwmMAPoJRPeHfADnA8gpO+tncTMkH
+	mt0vKuR689rq60JO9MOeY6WlTCOUa/VzGgOC81k43w8pNXRrwgT9RntXkF4bCIhnvNSw+nN
+	VaytxyswCiop1k5e7S6QhxGKIryrnLU9Yt+Sfb6TiOz1XnbvBgz+gFAgSzPV+OzJhIN/e71
+	m3eCuUhYYQkmqroOTu1dthBOT9ZFoWA62IpMPFakah2cwi4rb8RS72GflAa5J+HcsL50HKq
+	mCdLner9z/mbJUX41RCzFpPhuLEhMgERXXIIlC0KI0CdpDB6yx/R8DEYIid8v9Svhz2yVza
+	G2Bz56zusHcZKr7NUpnkFc+hH/yhFd1UgVKlgBq3ZbyYe9MJGl+eBmxe1+nz+VJW/VV5YpB
+	VCiSZgoXLQ8ieDcNjzwOB/jHbasaglnJDs30RBX6/MNsouUZhHOKiezPWLjqVkgeP2YmJEU
+	0sQH13pE/XUYwNppUUe95X7kabUrYBqAVPW86SRYDloMOQ/idBzZCnTTwvMJGCVVSyaLVKg
+	/4uAq1U/6EUH5JeV377h7GyBrpQWJ4m+FD0k7wjMaT1BCtfxbvkXO+gY5zsZP5Wb86xUGTV
+	ZHeEJVHYIw9trW47tYzB7SwX8EqfmpBvBHi5S32iSJBx6wwu2W4wnd2C+2KZ/iVqtsWpV63
+	AyofxFWRvdzqxAPzmPnSQ28D1I3MF7fiwzc5MsXgwGdR0Jze0CsOIRFiRyU5OpfZ7ORWHMF
+	fN5Drhqb8L3bee6j18gCH+IwYFUR0KKlmjluhKRRW8um31+jWOOLn/pPDsr9tSp++2cmtLe
+	hsJCvcnsYUS7Wptb76gxJllvs9D5XB2zkMGuZERX94ojEJ8DKAoYCygeQRLduGGRidLpUwg
+	1NvgN9Pq8LfroGGXYjBiMMxvw4TNNneiOaaGpXPuEUtlx2LeI+kBbf2lWhDkdYyJ7JgYjik
+	abp7R94wAzZiKId9X0CoMmqurRHgmPAaTVGLu5IVW8t4B+KoHLAMTt7Gz8fBiR11AqDGqTm
+	UV4jKFe27ZYlwSJnoCINAqwVlx/DLs3xMvZSdzqs3VRUFFX/W1xV3IPvSIQeLjUNsn+zeHO
+	wOr6FDmjN5dK+kovLQWQUTcQuFRip1C/J1tp1pVzWL+/RPj8xLp5TVnPf6rigmnXA==
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_013326_022588_5A8C6565 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20251016_201738_107452_E29C8E0C 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,58 +103,549 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use atomic64_dec_return() when decrementing the number of "pre-mapped"
-S-EPT pages to ensure that the count can't go negative without KVM
-noticing.  In theory, checking for '0' and then decrementing in a separate
-operation could miss a 0=>-1 transition.  In practice, such a condition is
-impossible because nr_premapped is protected by slots_lock, i.e. doesn't
-actually need to be an atomic (that wart will be addressed shortly).
+Add ASoC platform driver for the SpacemiT K1 SoC full-duplex I2S
+controller.
 
-Don't bother trying to keep the count non-negative, as the KVM_BUG_ON()
-ensures the VM is dead, i.e. there's no point in trying to limp along.
-
-Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-Reviewed-by: Ira Weiny <ira.weiny@intel.com>
-Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
+Co-developer: Jinmei Wei <weijinmei@linux.spacemit.com>
+Signed-off-by: Jinmei Wei <weijinmei@linux.spacemit.com>
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ sound/soc/Kconfig           |   1 +
+ sound/soc/Makefile          |   1 +
+ sound/soc/spacemit/Kconfig  |  16 ++
+ sound/soc/spacemit/Makefile |   5 +
+ sound/soc/spacemit/k1_i2s.c | 458 ++++++++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 481 insertions(+)
 
-diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index 220989a1e085..6c0adc1b3bd5 100644
---- a/arch/x86/kvm/vmx/tdx.c
-+++ b/arch/x86/kvm/vmx/tdx.c
-@@ -1722,10 +1722,9 @@ static int tdx_sept_zap_private_spte(struct kvm *kvm, gfn_t gfn,
- 		tdx_no_vcpus_enter_stop(kvm);
- 	}
- 	if (tdx_is_sept_zap_err_due_to_premap(kvm_tdx, err, entry, level)) {
--		if (KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm))
-+		if (KVM_BUG_ON(atomic64_dec_return(&kvm_tdx->nr_premapped) < 0, kvm))
- 			return -EIO;
- 
--		atomic64_dec(&kvm_tdx->nr_premapped);
- 		return 0;
- 	}
- 
-@@ -3157,8 +3156,7 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
- 		goto out;
- 	}
- 
--	if (!KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm))
--		atomic64_dec(&kvm_tdx->nr_premapped);
-+	KVM_BUG_ON(atomic64_dec_return(&kvm_tdx->nr_premapped) < 0, kvm);
- 
- 	if (arg->flags & KVM_TDX_MEASURE_MEMORY_REGION) {
- 		for (i = 0; i < PAGE_SIZE; i += TDX_EXTENDMR_CHUNKSIZE) {
+diff --git a/sound/soc/Kconfig b/sound/soc/Kconfig
+index ce74818bd7152dbe110b9fff7d908b0ddf34a9f5..36e0d443ba0ebe584ffe797c378c838f448ffcb9 100644
+--- a/sound/soc/Kconfig
++++ b/sound/soc/Kconfig
+@@ -127,6 +127,7 @@ source "sound/soc/renesas/Kconfig"
+ source "sound/soc/rockchip/Kconfig"
+ source "sound/soc/samsung/Kconfig"
+ source "sound/soc/sdca/Kconfig"
++source "sound/soc/spacemit/Kconfig"
+ source "sound/soc/spear/Kconfig"
+ source "sound/soc/sprd/Kconfig"
+ source "sound/soc/starfive/Kconfig"
+diff --git a/sound/soc/Makefile b/sound/soc/Makefile
+index 462322c38aa42d4c394736239de0317d5918d5a7..8c0480e6484e75eb0b6db306630ba77d259ba8e3 100644
+--- a/sound/soc/Makefile
++++ b/sound/soc/Makefile
+@@ -70,6 +70,7 @@ obj-$(CONFIG_SND_SOC)	+= rockchip/
+ obj-$(CONFIG_SND_SOC)	+= samsung/
+ obj-$(CONFIG_SND_SOC)	+= sdca/
+ obj-$(CONFIG_SND_SOC)	+= sof/
++obj-$(CONFIG_SND_SOC)	+= spacemit/
+ obj-$(CONFIG_SND_SOC)	+= spear/
+ obj-$(CONFIG_SND_SOC)	+= sprd/
+ obj-$(CONFIG_SND_SOC)	+= starfive/
+diff --git a/sound/soc/spacemit/Kconfig b/sound/soc/spacemit/Kconfig
+new file mode 100644
+index 0000000000000000000000000000000000000000..2179f94f3f179c54cd06e6ced5523ed3f5225cf4
+--- /dev/null
++++ b/sound/soc/spacemit/Kconfig
+@@ -0,0 +1,16 @@
++# SPDX-License-Identifier: GPL-2.0-only
++menu "SpacemiT"
++	depends on COMPILE_TEST || ARCH_SPACEMIT
++	depends on HAVE_CLK
++
++config SND_SOC_K1_I2S
++	tristate "K1 I2S Device Driver"
++	select SND_SOC_GENERIC_DMAENGINE_PCM
++	select CMA
++	select DMA_CMA
++	help
++	  Say Y or M if you want to add support for I2S driver for
++	  K1 I2S controller. The device supports up to maximum of
++	  2 channels each for play and record.
++
++endmenu
+diff --git a/sound/soc/spacemit/Makefile b/sound/soc/spacemit/Makefile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9069de8ef89c84db8cc7d3a4d3b154fff9bd7aff
+--- /dev/null
++++ b/sound/soc/spacemit/Makefile
+@@ -0,0 +1,5 @@
++# SPDX-License-Identifier: GPL-2.0
++# K1 Platform Support
++snd-soc-k1-i2s-y := k1_i2s.o
++
++obj-$(CONFIG_SND_SOC_K1_I2S) += snd-soc-k1-i2s.o
+diff --git a/sound/soc/spacemit/k1_i2s.c b/sound/soc/spacemit/k1_i2s.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..abc439b53e3d4358570df2e69e636bf54820d9ce
+--- /dev/null
++++ b/sound/soc/spacemit/k1_i2s.c
+@@ -0,0 +1,458 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (c) 2025 Troy Mitchell <troy.mitchell@linux.spacemit.com> */
++
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/reset.h>
++#include <sound/dmaengine_pcm.h>
++#include <sound/pcm.h>
++#include <sound/pcm_params.h>
++
++#define SSCR			0x00	/* SPI/I2S top control register */
++#define SSFCR			0x04	/* SPI/I2S FIFO control register */
++#define SSINTEN			0x08	/* SPI/I2S interrupt enable register */
++#define SSDATR			0x10	/* SPI/I2S data register */
++#define SSPSP			0x18	/* SPI/I2S programmable serial protocol control register */
++#define SSRWT			0x24	/* SPI/I2S root control register */
++
++/* SPI/I2S Work data size, register bits value 0~31 indicated data size 1~32 bits */
++#define SSCR_FIELD_DSS		GENMASK(9, 5)
++#define SSCR_DW_8BYTE		FIELD_PREP(SSCR_FIELD_DSS, 0x7)
++#define SSCR_DW_16BYTE		FIELD_PREP(SSCR_FIELD_DSS, 0xf)
++#define SSCR_DW_18BYTE		FIELD_PREP(SSCR_FIELD_DSS, 0x11)
++#define SSCR_DW_32BYTE		FIELD_PREP(SSCR_FIELD_DSS, 0x1f)
++
++#define SSCR_SSE		BIT(0)		/* SPI/I2S Enable */
++#define SSCR_FRF_PSP		GENMASK(2, 1)	/* Frame Format*/
++#define SSCR_TRAIL		BIT(13)		/* Trailing Byte */
++
++#define SSFCR_FIELD_TFT		GENMASK(3, 0)   /* TXFIFO Trigger Threshold */
++#define SSFCR_FIELD_RFT		GENMASK(8, 5)   /* RXFIFO Trigger Threshold */
++#define SSFCR_TSRE		BIT(10)		/* Transmit Service Request Enable */
++#define SSFCR_RSRE		BIT(11)		/* Receive Service Request Enable */
++
++#define SSPSP_FSRT		BIT(3)		/* Frame Sync Relative Timing Bit */
++#define SSPSP_SFRMP		BIT(4)		/* Serial Frame Polarity */
++#define SSPSP_FIELD_SFRMWDTH	GENMASK(17, 12)	/* Serial Frame Width field  */
++
++#define SSRWT_RWOT		BIT(0)		/* Receive Without Transmit */
++
++#define SPACEMIT_PCM_RATES	(SNDRV_PCM_RATE_8000 | SNDRV_PCM_RATE_16000 | \
++				SNDRV_PCM_RATE_48000)
++#define SPACEMIT_PCM_FORMATS	(SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S32_LE)
++
++#define SPACEMIT_I2S_PERIOD_SIZE 1024
++
++struct spacemit_i2s_dev {
++	struct device *dev;
++
++	void __iomem *base;
++
++	struct reset_control *reset;
++
++	struct clk *sysclk;
++	struct clk *bclk;
++	struct clk *sspa_clk;
++
++	struct snd_dmaengine_dai_dma_data capture_dma_data;
++	struct snd_dmaengine_dai_dma_data playback_dma_data;
++
++	bool has_capture;
++	bool has_playback;
++
++	int dai_fmt;
++
++	int started_count;
++};
++
++static const struct snd_pcm_hardware spacemit_pcm_hardware = {
++	.info		  = SNDRV_PCM_INFO_INTERLEAVED |
++			    SNDRV_PCM_INFO_BATCH,
++	.formats          = SPACEMIT_PCM_FORMATS,
++	.rates		  = SPACEMIT_PCM_RATES,
++	.rate_min         = SNDRV_PCM_RATE_8000,
++	.rate_max         = SNDRV_PCM_RATE_192000,
++	.channels_min     = 1,
++	.channels_max     = 2,
++	.buffer_bytes_max = SPACEMIT_I2S_PERIOD_SIZE * 4 * 4,
++	.period_bytes_min = SPACEMIT_I2S_PERIOD_SIZE * 2,
++	.period_bytes_max = SPACEMIT_I2S_PERIOD_SIZE * 4,
++	.periods_min	  = 2,
++	.periods_max	  = 4,
++};
++
++static const struct snd_dmaengine_pcm_config spacemit_dmaengine_pcm_config = {
++	.pcm_hardware = &spacemit_pcm_hardware,
++	.prepare_slave_config = snd_dmaengine_pcm_prepare_slave_config,
++	.chan_names = {"tx", "rx"},
++	.prealloc_buffer_size = 32 * 1024,
++};
++
++static void spacemit_i2s_init(struct spacemit_i2s_dev *i2s)
++{
++	u32 sscr_val, sspsp_val, ssfcr_val, ssrwt_val;
++
++	sscr_val = SSCR_TRAIL | SSCR_FRF_PSP;
++	ssfcr_val = FIELD_PREP(SSFCR_FIELD_TFT, 5) |
++		    FIELD_PREP(SSFCR_FIELD_RFT, 5) |
++		    SSFCR_RSRE | SSFCR_TSRE;
++	ssrwt_val = SSRWT_RWOT;
++	sspsp_val = SSPSP_SFRMP;
++
++	writel(sscr_val, i2s->base + SSCR);
++	writel(ssfcr_val, i2s->base + SSFCR);
++	writel(sspsp_val, i2s->base + SSPSP);
++	writel(ssrwt_val, i2s->base + SSRWT);
++	writel(0, i2s->base + SSINTEN);
++}
++
++static int spacemit_i2s_hw_params(struct snd_pcm_substream *substream,
++				  struct snd_pcm_hw_params *params,
++				  struct snd_soc_dai *dai)
++{
++	struct spacemit_i2s_dev *i2s = snd_soc_dai_get_drvdata(dai);
++	struct snd_dmaengine_dai_dma_data *dma_data;
++	u32 data_width, data_bits;
++	unsigned long bclk_rate;
++	u32 val;
++	int ret;
++
++	val = readl(i2s->base + SSCR);
++	if (val & SSCR_SSE)
++		return 0;
++
++	dma_data = &i2s->playback_dma_data;
++
++	if (substream->stream == SNDRV_PCM_STREAM_CAPTURE)
++		dma_data = &i2s->capture_dma_data;
++
++	switch (params_format(params)) {
++	case SNDRV_PCM_FORMAT_S8:
++		data_bits = 8;
++		data_width = SSCR_DW_8BYTE;
++		dma_data->maxburst = 8;
++		dma_data->addr_width = DMA_SLAVE_BUSWIDTH_1_BYTE;
++		break;
++	case SNDRV_PCM_FORMAT_S16_LE:
++		data_bits = 16;
++		data_width = SSCR_DW_16BYTE;
++		dma_data->maxburst = 16;
++		dma_data->addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
++		break;
++	case SNDRV_PCM_FORMAT_S32_LE:
++		data_bits = 32;
++		data_width = SSCR_DW_32BYTE;
++		dma_data->maxburst = 32;
++		dma_data->addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
++		break;
++	default:
++		dev_dbg(i2s->dev, "unexpected data width type");
++		return -EINVAL;
++	}
++
++	switch (i2s->dai_fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
++	case SND_SOC_DAIFMT_I2S:
++		if (data_bits == 16) {
++			data_width = SSCR_DW_32BYTE;
++			dma_data->maxburst = 32;
++			dma_data->addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
++		}
++
++		snd_pcm_hw_constraint_minmax(substream->runtime,
++					     SNDRV_PCM_HW_PARAM_CHANNELS,
++					     1, 2);
++		snd_pcm_hw_constraint_mask64(substream->runtime,
++					     SNDRV_PCM_HW_PARAM_FORMAT,
++					     SNDRV_PCM_FMTBIT_S16_LE);
++		break;
++	case SND_SOC_DAIFMT_DSP_A:
++	case SND_SOC_DAIFMT_DSP_B:
++		snd_pcm_hw_constraint_minmax(substream->runtime,
++					     SNDRV_PCM_HW_PARAM_CHANNELS,
++					     1, 1);
++		snd_pcm_hw_constraint_mask64(substream->runtime,
++					     SNDRV_PCM_HW_PARAM_FORMAT,
++					     SNDRV_PCM_FMTBIT_S32_LE);
++		break;
++	default:
++		dev_dbg(i2s->dev, "unexpected format type");
++		return -EINVAL;
++
++	}
++
++	val = readl(i2s->base + SSCR);
++	val &= ~SSCR_DW_32BYTE;
++	val |= data_width;
++	writel(val, i2s->base + SSCR);
++
++	bclk_rate = params_channels(params) *
++		    params_rate(params) *
++		    data_bits;
++
++	ret = clk_set_rate(i2s->bclk, bclk_rate);
++	if (ret)
++		return ret;
++
++	return clk_set_rate(i2s->sspa_clk, bclk_rate);
++}
++
++static int spacemit_i2s_set_sysclk(struct snd_soc_dai *cpu_dai, int clk_id,
++				   unsigned int freq, int dir)
++{
++	struct spacemit_i2s_dev *i2s = dev_get_drvdata(cpu_dai->dev);
++
++	if (freq == 0)
++		return 0;
++
++	return clk_set_rate(i2s->sysclk, freq);
++}
++
++static int spacemit_i2s_set_fmt(struct snd_soc_dai *cpu_dai,
++				unsigned int fmt)
++{
++	struct spacemit_i2s_dev *i2s = dev_get_drvdata(cpu_dai->dev);
++	u32 sspsp_val;
++
++	sspsp_val = readl(i2s->base + SSPSP);
++	sspsp_val &= ~SSPSP_FIELD_SFRMWDTH;
++	sspsp_val |= SSPSP_FSRT;
++
++	i2s->dai_fmt = fmt;
++
++	switch (fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
++	case SND_SOC_DAIFMT_I2S:
++		sspsp_val |= FIELD_PREP(SSPSP_FIELD_SFRMWDTH, 0x10);
++		break;
++	case SND_SOC_DAIFMT_DSP_B:
++		/* DSP_B: next frame asserted after previous frame end, so clear FSRT */
++		sspsp_val &= ~SSPSP_FSRT;
++		fallthrough;
++	case SND_SOC_DAIFMT_DSP_A:
++		sspsp_val |= FIELD_PREP(SSPSP_FIELD_SFRMWDTH, 0x1);
++		break;
++	default:
++		dev_dbg(i2s->dev, "unexpected format type");
++		return -EINVAL;
++	}
++
++	writel(sspsp_val, i2s->base + SSPSP);
++
++	return 0;
++}
++
++static int spacemit_i2s_trigger(struct snd_pcm_substream *substream,
++				int cmd, struct snd_soc_dai *dai)
++{
++	struct spacemit_i2s_dev *i2s = snd_soc_dai_get_drvdata(dai);
++	u32 val;
++
++	switch (cmd) {
++	case SNDRV_PCM_TRIGGER_START:
++	case SNDRV_PCM_TRIGGER_RESUME:
++	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
++		if (!i2s->started_count) {
++			val = readl(i2s->base + SSCR);
++			val |= SSCR_SSE;
++			writel(val, i2s->base + SSCR);
++		}
++		i2s->started_count++;
++		break;
++	case SNDRV_PCM_TRIGGER_STOP:
++	case SNDRV_PCM_TRIGGER_SUSPEND:
++	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
++		if (i2s->started_count)
++			i2s->started_count--;
++
++		if (!i2s->started_count) {
++			val = readl(i2s->base + SSCR);
++			val &= ~SSCR_SSE;
++			writel(val, i2s->base + SSCR);
++		}
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static int spacemit_i2s_dai_probe(struct snd_soc_dai *dai)
++{
++	struct spacemit_i2s_dev *i2s = snd_soc_dai_get_drvdata(dai);
++
++	snd_soc_dai_init_dma_data(dai,
++				  i2s->has_playback ? &i2s->playback_dma_data : NULL,
++				  i2s->has_capture ? &i2s->capture_dma_data : NULL);
++
++	reset_control_deassert(i2s->reset);
++
++	spacemit_i2s_init(i2s);
++
++	return 0;
++}
++
++static int spacemit_i2s_dai_remove(struct snd_soc_dai *dai)
++{
++	struct spacemit_i2s_dev *i2s = snd_soc_dai_get_drvdata(dai);
++
++	reset_control_assert(i2s->reset);
++
++	return 0;
++}
++
++static const struct snd_soc_dai_ops spacemit_i2s_dai_ops = {
++	.probe = spacemit_i2s_dai_probe,
++	.remove = spacemit_i2s_dai_remove,
++	.hw_params = spacemit_i2s_hw_params,
++	.set_sysclk = spacemit_i2s_set_sysclk,
++	.set_fmt = spacemit_i2s_set_fmt,
++	.trigger = spacemit_i2s_trigger,
++};
++
++static struct snd_soc_dai_driver spacemit_i2s_dai = {
++	.ops = &spacemit_i2s_dai_ops,
++	.playback = {
++		.channels_min = 1,
++		.channels_max = 2,
++		.rates = SPACEMIT_PCM_RATES,
++		.rate_min = SNDRV_PCM_RATE_8000,
++		.rate_max = SNDRV_PCM_RATE_48000,
++		.formats = SPACEMIT_PCM_FORMATS,
++	},
++	.capture = {
++		.channels_min = 1,
++		.channels_max = 2,
++		.rates = SPACEMIT_PCM_RATES,
++		.rate_min = SNDRV_PCM_RATE_8000,
++		.rate_max = SNDRV_PCM_RATE_48000,
++		.formats = SPACEMIT_PCM_FORMATS,
++	},
++	.symmetric_rate = 1,
++};
++
++static int spacemit_i2s_init_dai(struct spacemit_i2s_dev *i2s,
++				 struct snd_soc_dai_driver **dp,
++				 dma_addr_t addr)
++{
++	struct device_node *node = i2s->dev->of_node;
++	struct snd_soc_dai_driver *dai;
++	struct property *dma_names;
++	const char *dma_name;
++
++	of_property_for_each_string(node, "dma-names", dma_names, dma_name) {
++		if (!strcmp(dma_name, "tx"))
++			i2s->has_playback = true;
++		if (!strcmp(dma_name, "rx"))
++			i2s->has_capture = true;
++	}
++
++	dai = devm_kmemdup(i2s->dev, &spacemit_i2s_dai,
++			   sizeof(*dai), GFP_KERNEL);
++	if (!dai)
++		return -ENOMEM;
++
++	if (i2s->has_playback) {
++		dai->playback.stream_name = "Playback";
++		dai->playback.channels_min = 1;
++		dai->playback.channels_max = 2;
++		dai->playback.rates = SPACEMIT_PCM_RATES;
++		dai->playback.formats = SPACEMIT_PCM_FORMATS;
++
++		i2s->playback_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
++		i2s->playback_dma_data.maxburst = 32;
++		i2s->playback_dma_data.addr = addr;
++	}
++
++	if (i2s->has_capture) {
++		dai->capture.stream_name = "Capture";
++		dai->capture.channels_min = 1;
++		dai->capture.channels_max = 2;
++		dai->capture.rates = SPACEMIT_PCM_RATES;
++		dai->capture.formats = SPACEMIT_PCM_FORMATS;
++
++		i2s->capture_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
++		i2s->capture_dma_data.maxburst = 32;
++		i2s->capture_dma_data.addr = addr;
++	}
++
++	if (dp)
++		*dp = dai;
++
++	return 0;
++}
++
++static const struct snd_soc_component_driver spacemit_i2s_component = {
++	.name = "i2s-k1",
++	.legacy_dai_naming = 1,
++};
++
++static int spacemit_i2s_probe(struct platform_device *pdev)
++{
++	struct snd_soc_dai_driver *dai;
++	struct spacemit_i2s_dev *i2s;
++	struct resource *res;
++	struct clk *clk;
++	int ret;
++
++	i2s = devm_kzalloc(&pdev->dev, sizeof(*i2s), GFP_KERNEL);
++	if (!i2s)
++		return -ENOMEM;
++
++	i2s->dev = &pdev->dev;
++
++	i2s->sysclk = devm_clk_get_enabled(i2s->dev, "sysclk");
++	if (IS_ERR(i2s->sysclk))
++		return dev_err_probe(i2s->dev, PTR_ERR(i2s->sysclk),
++				     "failed to enable sysbase clock\n");
++
++	i2s->bclk = devm_clk_get_enabled(i2s->dev, "bclk");
++	if (IS_ERR(i2s->bclk))
++		return dev_err_probe(i2s->dev, PTR_ERR(i2s->bclk), "failed to enable bit clock\n");
++
++	clk = devm_clk_get_enabled(i2s->dev, "sspa_bus");
++	if (IS_ERR(clk))
++		return dev_err_probe(i2s->dev, PTR_ERR(clk), "failed to enable sspa_bus clock\n");
++
++	i2s->sspa_clk = devm_clk_get_enabled(i2s->dev, "sspa");
++	if (IS_ERR(clk))
++		return dev_err_probe(i2s->dev, PTR_ERR(clk), "failed to enable sspa clock\n");
++
++	i2s->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
++	if (IS_ERR(i2s->base))
++		return dev_err_probe(i2s->dev, PTR_ERR(i2s->base), "failed to map registers\n");
++
++	i2s->reset = devm_reset_control_get_exclusive(&pdev->dev, NULL);
++	if (IS_ERR(i2s->reset))
++		return dev_err_probe(i2s->dev, PTR_ERR(i2s->reset),
++				     "failed to get reset control");
++
++	dev_set_drvdata(i2s->dev, i2s);
++
++	spacemit_i2s_init_dai(i2s, &dai, res->start + SSDATR);
++
++	ret = devm_snd_soc_register_component(i2s->dev,
++					      &spacemit_i2s_component,
++					      dai, 1);
++	if (ret)
++		return dev_err_probe(i2s->dev, ret, "failed to register component");
++
++	return devm_snd_dmaengine_pcm_register(&pdev->dev, &spacemit_dmaengine_pcm_config, 0);
++}
++
++static const struct of_device_id spacemit_i2s_of_match[] = {
++	{ .compatible = "spacemit,k1-i2s", },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, spacemit_i2s_of_match);
++
++static struct platform_driver spacemit_i2s_driver = {
++	.probe = spacemit_i2s_probe,
++	.driver = {
++		.name = "i2s-k1",
++		.of_match_table = spacemit_i2s_of_match,
++	},
++};
++module_platform_driver(spacemit_i2s_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("I2S bus driver for SpacemiT K1 SoC");
+
 -- 
-2.51.0.858.gf9c4a03a3a-goog
+2.51.0
 
 
 _______________________________________________
