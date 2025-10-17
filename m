@@ -4,116 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285A8CCD195
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 10:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D581CCCD195
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 10:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:
-	In-Reply-To:Message-ID:Subject:Cc:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=AzWE14sW1xIy8OrmN4X/mATx2RQr5H3rYCZwOT+RQ1o=; b=oeCJzGr9gs94fgtA0CfNEa0Uw3
-	muK6eSOSngJkfc7dg5ircO6FTxhWigYjOttggNjS/6rqyPvxkWeZ2/OJIvOjAXVfgm9hZGecZC1pk
-	20ZVC2MpczJwJe04eWuntVGN+7qoeu/YP0T6410Aqxmko//GjyaSkqU7CjtTWgwHi7+U9jFshX0i2
-	u08dlsAhucOi2noah/yW/zk0Mno+cqYIxnb9lkq7x0E0iuQJKxILFEg7mE/1vLkppoxSm7LNxqhsi
-	JtvFXDU8VsQ9chL1n6fhAydnJICePf+C6KaBznNPYaSw/xxd9Xu8vI1MviN/kN5HYa8ZCnPyQ+4o+
-	6D6brB9g==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Date:cc:Subject:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=c5IwrLeh/iOSNwEbMvGvKez8Op38J3uBtNisAs2PMTU=; b=BB4RMxrbtmWEYi
+	DMgqIzNY+vD2ID+8ipskAqgVZJnigaBUwMj+D+K8PAi15hPgPvkrX1Qb+AZN/uayiXW4R3vXn/cly
+	QJKFM15LZIhz7LNxAK7rIYpys1G3nt0jvkZGv4l9ZAp4EWTeA6qkPk5HHo2XmXOw7GOTJP9sbkMrS
+	hf3cZv7YQgauHQH7mynAVEyf/FaqgoUoHfR+yhUfE0tDK/5bsZN4lyo4mL+nfrV8YrzVm3VyZ5D8Y
+	UrCmb/8r7U048WkPt0qd2D9JMd4/RxfihFxGPN9PLzuwin+PxQxX2Qb5LFW/tgcuc9qFYCrOcA5L8
+	AYgTLHVsDdMN1s1VJlvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hIE-00000007Osr-0uAO;
-	Fri, 17 Oct 2025 10:02:38 +0000
-Received: from cyan.elm.relay.mailchannels.net ([23.83.212.47])
+	id 1v9hOP-00000007Rvp-0Ufv;
+	Fri, 17 Oct 2025 10:09:01 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hIB-00000007Oqy-1sJF
-	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 10:02:36 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 266F06C1FA2;
-	Fri, 17 Oct 2025 10:02:34 +0000 (UTC)
-Received: from fr-int-smtpout18.hostinger.io (trex-green-5.trex.outbound.svc.cluster.local [100.116.100.136])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 18B856C2079;
-	Fri, 17 Oct 2025 10:02:31 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1760695353; a=rsa-sha256;
-	cv=none;
-	b=47EyyEKQnI0TgEXkP+KaoKBRVN3THrt1Hw2+4i/c9A0be8OOMacShCS5IcJRnwo3gO1SEy
-	j5wxGjhpufJZ0EzzphVR0rFL/NHwHBTPr68nkEk3TLiHjIwIGyqAP0Y5wTdx+wgfbJ6+mW
-	poMNQa7KQMKmL022lvxvpf8U8sfB9fj1mZAmVzRw0wL0YmeUBDS/nW7Kleo0z3T/FDmtlJ
-	25kaTH/vlTvk/Ns30IwNFKTD3XtOkgHCep2cJSQMiv7L5p8DBghKwwBnUtr3FrSagHEkSF
-	cEIENGwLh7Z9xhjhuJFTfKj45H9KdlMGFw2jMfnFRw1Dw1/z/aHv6OG0I1KflQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1760695353;
+	id 1v9hOM-00000007Rt5-128C;
+	Fri, 17 Oct 2025 10:08:59 +0000
+Message-ID: <20251017085938.150569636@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1760695735;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=INLfLanNrxPT8zZfl4wJScpkqHE8+TQnHHl9RjngRPU=;
-	b=pcqnvVptgS4/Pat+gdc00QGJR2YyQk3kS4DnaufmLm05GSJQ+upSdE04buWQxnM06y2x6l
-	jf6b8Qa/k7x5G6mtiqQoFgT5n8CNXQ5paiFUkBmmp449AseRu4BZ9MHe86M0AnEG8ouBdw
-	XsytIsJh+pEdoRR53+OBlitXSPwd/oYkOCMrBIviuAW4gBULTWbrGBa+q15aRlVcjVjuth
-	qEvpNS0DmUZw+NnrSH1/ef0yKwbULo9eRnjCPI8WpooPUZ5AasHJb0MXEkjuMLUAcHSfRY
-	HVqzQVh76LfDC93EJBAHkxrqPDt55/exZxspMjxcAoSat59dMBOW/RJSKH4vpg==
-ARC-Authentication-Results: i=1;
-	rspamd-645b74df65-b2gqj;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Thoughtful-Zesty: 4925f2f243cb1525_1760695353949_1738770027
-X-MC-Loop-Signature: 1760695353948:450799911
-X-MC-Ingress-Time: 1760695353948
-Received: from fr-int-smtpout18.hostinger.io (fr-int-smtpout18.hostinger.io
- [148.222.54.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.116.100.136 (trex/7.1.3);
-	Fri, 17 Oct 2025 10:02:33 +0000
-Received: from localhost.localdomain (unknown [IPv6:2001:861:4450:d360:2f55:e31:2877:ead4])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4cp0jt6bm4z1yVn;
-	Fri, 17 Oct 2025 10:02:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1760695347;
+	 to:to:cc:cc; bh=sQjHTAU2ANvy0R8z2gg1idxWUOVjpB50pHnvfHruLTk=;
+	b=Eko32jphl7W3Xb+zGpZ6phPdMdJwxHmnxeLrIJj9qdJitAWXAuSbzoODtPZR1exPSq4jMr
+	Xn7ZTH6KgwcOGALTdCL47R8+MFa4jiWK8UogHGnp9QeK4hbWrSPeVPSRc3y9z6FMLcfPGe
+	KbL4vt6K04JVr8neOXAHUbizdH9XNtossRpzFH+fjRoWAjYd4ZAa2/eiSueqkaHZBNR5/Y
+	WgMiXtDNsPUyxQGr8DumDuVWYTMwSZ2IlWZkWq/cFKVncN/jALJBcLTV8IeVbKMcArrHJ2
+	eizyzm/gJ8rGmf9GDpZ/1JOEQhlypSXGiWokxNij3wWrwzykELy0t6VKFNZubQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1760695735;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=INLfLanNrxPT8zZfl4wJScpkqHE8+TQnHHl9RjngRPU=;
-	b=dquGaOQJ50FuM7nM1sHO4ZKdjfqy1yDixC7SDNjV6UsVxpz11jxtBIYTccQGNTzanQ6jQg
-	BGjF4WVVOIbCSjETaOXvEvnwsBFU+Ob5gISMMpgEHxtQBmXgJRc29M2Mu9/tdu3P3q+d+J
-	79WJ1Rkd56ApYmlmwMSUbfpLwDL2xANQrgqvA3hMKu2ubY7dR5Od0Fi/jhV8MqM+Z4NqDa
-	JA7cBUwHePhqsm7OtGJg3Wibk4HTbKdCcTygPnA+Xla52qQ5caHaNLQFbgh8yRvFOX9PTb
-	SJp3CDvrZ6W0ZgbEGMD3ZnrcEc9wj382BSfTP3WNMldys70E0hvJpKO0k/6w9g==
-From: michael.opdenacker@rootcommit.com
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Yixun Lan <dlan@gentoo.org>
-Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	netdev@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] net: spacemit: compile k1_emac driver as built-in by default
-Message-ID: <20251017100106.3180482-3-michael.opdenacker@rootcommit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251017100106.3180482-1-michael.opdenacker@rootcommit.com>
-References: <20251017100106.3180482-1-michael.opdenacker@rootcommit.com>
-MIME-Version: 1.0
-Date: Fri, 17 Oct 2025 10:02:26 +0000 (UTC)
-X-CM-Envelope: MS4xfE6wcYjsPboHb55vSh1fH6aAWNprdRcSXrdFEIWCopkxczg0fg2oi4JZPXzc17U5fumSNVpTQ8GaIZON2ODWTprzV/SxzxeWxfEWpBdLQlVustMLg1B4 2E0aVkcpL22tFkCW+q4brCQZgjglw8+hW8ijuQ3LjCEHFFNj/MLKvibvf12FqDvdjs7+hGGLstgVYb7ndMW6Tc4U5/PK6tOv8tFM/vEDLVETlLQXgGPIY0qS tMULin+Mbyl2H0Ew/sba+/10YOYSa11413QPUJbvsZIW75r4f1a1fv5ybKbR0maxYoVPICqBcLbM32/WeTXJ1dApTQ6m7VGpvkYrPg+c1Kn9lo0Bt79/7jlM jcteHgroEZ5+ATgAnxmL0a4qDakovt8sGmr0Elzn3WPwqbNX8O8iKaA3o1zltND/hHL0db6jBCiIKTlwCsVwtNnpI11j6eLz3Phb4D9O7AVnWd4pGoHUxDv8 zwPKO2q1g0VD8zjs1aFIIiAWCXNGMbhNTdVvftsqS04neH4yUtvS516o93DY8YSmd+kWiVoq1mBTLcSXCXaoTMS9Af/DwfBv7Bt53WGVj1Kc3D9aUosUiFBr V83j3WnUctOYwGQah0sySMk0lM0ZuqxUSb2OOOVH7j2LYw==
-X-CM-Analysis: v=2.4 cv=Lflu6Sfi c=1 sm=1 tr=0 ts=68f21433 a=/5xBaVTRis1tCxhfvtIJdg==:617 a=xqWC_Br6kY4A:10 a=d70CFdQeAAAA:8 a=WyZDyWQnYPSBde5YxlwA:9 a=NcxpMcIZDGm-g932nG_k:22
-X-AuthUser: michael.opdenacker@rootcommit.com
+	 to:to:cc:cc; bh=sQjHTAU2ANvy0R8z2gg1idxWUOVjpB50pHnvfHruLTk=;
+	b=jvhhlE5ZDsXkGj4CvFqtuuX6HrygY+mr5PHtByDjb6j+LIqTh5z4fS9wp9QqAIwAio4UlZ
+	gHuITp9EO2Np+kAA==
+From: Thomas Gleixner <tglx@linutronix.de>
+To: LKML <linux-kernel@vger.kernel.org>
+Subject: [patch V3 00/12] uaccess: Provide and use scopes for user masked
+ access
+cc: kernel test robot <lkp@intel.com>,
+ Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ x86@kernel.org,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ linuxppc-dev@lists.ozlabs.org,
+ Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org,
+ Heiko Carstens <hca@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ linux-s390@vger.kernel.org,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Cooper <andrew.cooper3@citrix.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>,
+ Nicolas Palix <nicolas.palix@imag.fr>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>,
+ Jan Kara <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org
+Date: Fri, 17 Oct 2025 12:08:54 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_030235_785193_E7E963A1 
-X-CRM114-Status: UNSURE (   7.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251017_030858_454523_E9BAF2B0 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,34 +90,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+This is a follow up on the V2 feedback:
 
-Supports booting boards on NFS filesystems, without going
-through an initramfs.
+   https://lore.kernel.org/20250916163004.674341701@linutronix.de
 
-Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+The main concern over the V2 implementation was the requirement to have
+the code within the macro itself.
+
+The main reason for that was the issue with ASM GOTO within a auto cleanup
+scope. Clang refuses to build when the ASM GOTO label is outside of the
+scope and GCC silently miscompiles the code and misses the cleanup.
+
+After some back and forth discussion Linus suggested to put the local label
+workaround into the user access functions themself.
+
+The second reason for having this construct was to make the potential
+modification of the pointer (when the architecture supports masking) scope
+local, as that preserves the original pointer for the failure path.
+
+Andrew thankfully pointed me to nested for() loops and after some head
+scratching I managed to get all of it hidden in that construct.
+
+So now the scoped access looks like this:
+
+	scoped_masked_user_read_access(ptr, efault) {
+	        // @ptr is aliased. An eventual mask modification is scope local
+		unsafe_get_user(val, ptr, efault);
+		...
+	}
+	return 0;
+efault:
+        // @ptr is unmodified
+	do_stuff(ptr);
+	return -EFAULT;
+
+
+Changes vs. V2:
+
+    - Fix the unsigned long long pointer issue in ARM get_user() -
+      Christophe, Russell
+
+    - Provide a generic workaround for the ASM GOTO issue and convert the
+      affected architecture code over - Linus
+
+    - Reimplement the scoped cleanup magic with nested for() loops - Andrew
+
+    - Provide variants with size provided by the caller - Mathieu
+
+    - Add get/put_user_masked() helpers for single read/write access
+
+    - Fixup the usage in futex, x86. select
+
+    - A clumsy attempt to implement a coccinelle checker which catches
+      access mismatches, e.g. unsafe_put_user() inside a
+      scoped_masked_user_read_access() region. That needs more thought and
+      more coccinelle foo and is just there for discussion.
+
+The series is based on v6.18-rc1 and also available from git:
+
+    git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git uaccess/masked
+
+Thanks,
+
+	tglx
 ---
- drivers/net/ethernet/spacemit/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thomas Gleixner (12):
+      ARM: uaccess: Implement missing __get_user_asm_dword()
+      uaccess: Provide ASM GOTO safe wrappers for unsafe_*_user()
+      x86/uaccess: Use unsafe wrappers for ASM GOTO
+      powerpc/uaccess: Use unsafe wrappers for ASM GOTO
+      riscv/uaccess: Use unsafe wrappers for ASM GOTO
+      s390/uaccess: Use unsafe wrappers for ASM GOTO
+      uaccess: Provide scoped masked user access regions
+      uaccess: Provide put/get_user_masked()
+      coccinelle: misc: Add scoped_masked_$MODE_access() checker script
+      futex: Convert to scoped masked user access
+      x86/futex: Convert to scoped masked user access
+      select: Convert to scoped masked user access
 
-diff --git a/drivers/net/ethernet/spacemit/Kconfig b/drivers/net/ethernet/spacemit/Kconfig
-index 85ef61a9b4ef..7fe1b2a308d1 100644
---- a/drivers/net/ethernet/spacemit/Kconfig
-+++ b/drivers/net/ethernet/spacemit/Kconfig
-@@ -18,7 +18,7 @@ config SPACEMIT_K1_EMAC
- 	depends on ARCH_SPACEMIT || COMPILE_TEST
- 	depends on MFD_SYSCON
- 	depends on OF
--	default m if ARCH_SPACEMIT
-+	default y if ARCH_SPACEMIT
- 	select PHYLIB
- 	help
- 	  This driver supports the Ethernet MAC in the SpacemiT K1 SoC.
+---
+ arch/arm/include/asm/uaccess.h               |   26 ++
+ arch/powerpc/include/asm/uaccess.h           |    8 
+ arch/riscv/include/asm/uaccess.h             |    8 
+ arch/s390/include/asm/uaccess.h              |    4 
+ arch/x86/include/asm/futex.h                 |   75 ++----
+ arch/x86/include/asm/uaccess.h               |   12 -
+ fs/select.c                                  |   12 -
+ include/linux/uaccess.h                      |  313 ++++++++++++++++++++++++++-
+ kernel/futex/futex.h                         |   37 ---
+ scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++
+ 10 files changed, 497 insertions(+), 106 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
