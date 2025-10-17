@@ -4,96 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5F9CCD195
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 16:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3007ECCD199
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 16:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nBJjyWmVnXUrt9LM4dNQNLqteZogx0SVazdMs4PYrj8=; b=fIHuLLrkgzoG077hDAxrgDa4uO
-	T19uf180iAU5vBzFjcFTJ2C7GZ/+dTF+sfCY+xxOwIAm1mXNejb54XkI74Cs/Gf9HLSowDOVQf5vZ
-	375Qn88BNp5TV7J4q1HMKSQoeCRPcj2wOvs8wFcqkXwEMJBxrCgu9MN93Qw1cl0AKUEukuww6UAzl
-	9ZWLci3xcJDFYmPROF1Tss8qbngdTDehm5SBuDhpULIRiZ+j3zHGkhzovwI1MP4YPfPqaPp0roI/u
-	wIRCEovXKZ6ltZg2R4ePQ28YSNy/vH7em9UKKElrKQw+FXx27Xi3wtfhB0jBF1wZfDDOEpYzE3ADP
-	QY8AUOvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GRA1ymbetURtNIRWikilDzD/14siaVnbDKT1GYmSw4o=; b=ZdaDq0sd9Ekm+V
+	fnmGEQi39VP/YU/4D61aHi3XFqTOnXzfW3xFKA1IwXJmCAkTVoSW4la6TgLkMOAtE+lH0eFUYMfzF
+	0DSYIW1DotWgOfr8u55nz1K/OTHpDwzTDWLPhGQMdWQMPXboBihjCZhl/CTXBrNxWs3E7CqMxZmm6
+	pNUg79EtMkF9cPeNe4MlzRsfLFYLC2vac8bjZl5hhWtCcib94q89j8tmalYe4xQhlo9qegTKKRkDh
+	f4nDsax9f442cprCtne6zyTHtUUeieAh+/8eaIy4Yh/V31/xWMbX272ovnlxeJ237ewHS935+Wrxa
+	105wzObFANq9zPf2iyXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9nCd-00000008QIX-3cWb;
-	Fri, 17 Oct 2025 16:21:15 +0000
-Received: from mail-io1-f67.google.com ([209.85.166.67])
+	id 1v9nDb-00000008QlX-0HWq;
+	Fri, 17 Oct 2025 16:22:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9nCa-00000008QFX-0GJy
-	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 16:21:14 +0000
-Received: by mail-io1-f67.google.com with SMTP id ca18e2360f4ac-93e7ece3025so29835939f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 09:21:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1760718071; x=1761322871; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=a7+Wio6b8w1yNg9Tem9uVrRYlYIL3Mf5C/3BZyCBdIc=;
-        b=X3AKmOCj9sv/ZwxYaRWq7p8zyUkCa9hpv0ZXJge9ckNy19blo0bCWmWxI601ZeaWZ9
-         kdQEBEf1ujZc5zVivhQtntWbGj7H38mVm07YAPyfZqQuz2U9VG7EM6g09tNlPjifsY6b
-         96LfmutdzxwD2ukIE6Xm5K5tbSWRNUcu+4MMKzQG2mL0EB/4rH7u8amCk6ILsJNiIgQc
-         QdrL1bajJc1n5ViuqWqP/4Zj9IflP2N6LwcCTtntAfWhpP5IDSp41BbT1rbq4pcpkEj3
-         V8pYGXZBW8tScq/tcQN75RiUDRe7y/DKBudznBws84DkSRb7mPdlhLTW4QurxQxF7TnX
-         hQPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760718071; x=1761322871;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=a7+Wio6b8w1yNg9Tem9uVrRYlYIL3Mf5C/3BZyCBdIc=;
-        b=MuLTuL+qRBey4lToc3cGreVIL6ORTNYGH9Qac16RlBE5rzsVSji3nSrc09ph6Z40aY
-         Leu3X6G07ljXwhMTkRk/rG6tZEN4oZf510h4yEHd6Q/A5Dm08WT6pb6AngxUDjU2K3VV
-         tPYs+2pKAtp4ZXqDBsB3e4CtKbjIe6UyWAJHPPNariGIRebT7BmFPYwfBrQFr1fbkbBe
-         rT2MQJTioBa3xGpa1mFnbL6bQbS7Ftu2M8Vhs7Lv5hukjk+lNr7TwBKwBj5cqF5jCCvl
-         yL2of1j/26CF2ipJ//Px0zVeeMzd5M2Y0M9ezy9ROYGu39Es6jjXUUpD6cqq+kyfG9Cg
-         Q3cw==
-X-Forwarded-Encrypted: i=1; AJvYcCU5PzXQG61PALSitREd6k9sZEUM3H3T9XP5qV9agawnE8KU+OUWqITDvOd3fMRuGsIPPIbdDGN3HMrP+g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVvoSbNUqj9vNUZduwMUSn0By/ea4JRhtHFxDirCvIHGvoTy2F
-	LNQ6DrObb6238awA47AQBdIBCGM4JKwGQHq6b6MSm1HeyDnCnzsamXd6Aty9zS7KaK0=
-X-Gm-Gg: ASbGnctxuFCzsB8AKV13TPGprcwhKsSUAVgRbXcYiHr+b3i/MDCZdsVqvsOFulDa+59
-	Fq01+LTYRhFPRPefmFAz7vMjh/NmLLYVp+0ZucZdt3Ubc38XQdsbikofkRr6+3GX1N06N9dFiio
-	pdvhOTOa/trqbC4eNALsIVmpE1hBMdgR+dbvucfErG9MbYGyN7wCxyYtVCWEGkXQ4FMAu/vv8Ay
-	Y6loAAY7b6ez68l7mL5Uvi103xRGlgM4tIX42EkzZwD6Ad7WN3hc7VA3Kt7eRk9b9+4rX7hJ9jK
-	HvnVjhCoReGEcaldmAhj/GEjlHm3pepsaqfJlFJ1+l9tFpFMRAvsEZNlJa++dMPBHxbS1qp8ZeE
-	1BFazP7KQQh1UOHs1JI6YOBNzTsa9G94jB8UqUaW0nnfaflWe6BNSeAy0AU0D0bm50loVtsCAzZ
-	3sbwvc3jF0ZEFwK+ilhAYq6fWS5+YFWZ1W+krgjtY=
-X-Google-Smtp-Source: AGHT+IEIgP2oHx8F177Q7uZqnuNLPeZz2b0M8yBXR1aqrI1laVD3XEel+UPyfoDNXtqbVVX4QNo+pg==
-X-Received: by 2002:a05:6e02:440b:10b0:430:bf84:e94c with SMTP id e9e14a558f8ab-430bf84e9e5mr60046655ab.13.1760718070850;
-        Fri, 17 Oct 2025 09:21:10 -0700 (PDT)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5a8a97b92b1sm10677173.68.2025.10.17.09.21.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Oct 2025 09:21:10 -0700 (PDT)
-Message-ID: <92ee253f-bf6a-481a-acc2-daf26d268395@riscstar.com>
-Date: Fri, 17 Oct 2025 11:21:08 -0500
+	id 1v9nDZ-00000008QkX-0Yms;
+	Fri, 17 Oct 2025 16:22:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8FAD7647A2;
+	Fri, 17 Oct 2025 16:22:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A9A4C4CEFE;
+	Fri, 17 Oct 2025 16:22:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760718132;
+	bh=dUE+qwx9KS/o4m0cuTqkDviPcdL6D1GZOXcU+S70UqQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U7u7yxDR47N75dqaU5iqxA/ViwyQdnTpY061XQ8ZPA+Kql9Xyytv4wzviuzMQKLNC
+	 rV4ae4KDL+38dhq7eqT8oW+VJraLT6MVgmMFwZwRO6GRUtEcec17Fi2/gAj3NDvmKn
+	 sa73LQEyyShEA4XVO2RXcvNyD6qvjxoh5a1kTmkAI5yFr8/MgX6jCdOdGqMsv4At6p
+	 P98yRGESydIR1yXiedNtvD8UzMfAXy1WsGNlPVVEy36iHqm0paFr5MlNP950ETL1X6
+	 iYWaY2352KQeyrhpYmbDi6eL6GWNWWY9COkL+SpfdmvW5ErgQ9yMDb5sXvq6U6QvDK
+	 kZ2+7aPxWZ69Q==
+Date: Fri, 17 Oct 2025 09:22:09 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Huacai Chen <chenhuacai@kernel.org>, 
+	Tiezhu Yang <yangtiezhu@loongson.cn>, loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+Message-ID: <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
+References: <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
+ <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
+ <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
+ <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
+ <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
+ <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
+ <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
+ <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
+ <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
+ <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/7] Introduce SpacemiT K1 PCIe phy and host controller
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
- mani@kernel.org, vkoul@kernel.org, kishon@kernel.org, dlan@gentoo.org,
- guodong@riscstar.com, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
- christian.bruel@foss.st.com, shradha.t@samsung.com,
- krishna.chundru@oss.qualcomm.com, qiang.yu@oss.qualcomm.com,
- namcao@linutronix.de, thippeswamy.havalige@amd.com, inochiama@gmail.com,
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-phy@lists.infradead.org, spacemit@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251013153526.2276556-1-elder@riscstar.com>
- <aPEhvFD8TzVtqE2n@aurel32.net>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <aPEhvFD8TzVtqE2n@aurel32.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_092112_320174_0CB45489 
-X-CRM114-Status: GOOD (  20.30  )
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,76 +74,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/16/25 11:47 AM, Aurelien Jarno wrote:
-> Hi Alex,
+On Fri, Oct 17, 2025 at 01:00:17PM +0200, Ard Biesheuvel wrote:
+> On Thu, 16 Oct 2025 at 17:49, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+> >
+> > On Thu, Oct 16, 2025 at 04:52:20PM +0200, Ard Biesheuvel wrote:
+> > > On Tue, 14 Oct 2025 at 18:47, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+> > > > The idea is that libstub code doesn't belong in vmlinux.o because it's
+> > > > not a part of the kernel proper, and doesn't need to be validated or
+> > > > modified by objtool for any reason.
+> > > >
+> > >
+> > > I don't see a reason to change this on architectures that a) do not
+> > > use objtool and b) link the EFI stub into vmlinux. If LoongArch wants
+> > > to change this, that is fine, but that still does not mean it needs to
+> > > change on other architectures too.
+> > >
+> > > EFI related boot errors are a nightmare to debug, and I will be the
+> > > one getting the reports when this regresses arm64 on hardware that 2
+> > > people on the planet have access to.
+> >
+> > The idea was to have more consistency, so vmlinux.o never has libstub,
+> > regardless of arch, but that's your call.
+> >
 > 
-> On 2025-10-13 10:35, Alex Elder wrote:
->> This series introduces a PHY driver and a PCIe driver to support PCIe
->> on the SpacemiT K1 SoC.  The PCIe implementation is derived from a
->> Synopsys DesignWare PCIe IP.  The PHY driver supports one combination
->> PCIe/USB PHY as well as two PCIe-only PHYs.  The combo PHY port uses
->> one PCIe lane, and the other two ports each have two lanes.  All PCIe
->> ports operate at 5 GT/second.
->>
->> The PCIe PHYs must be configured using a value that can only be
->> determined using the combo PHY, operating in PCIe mode.  To allow
->> that PHY to be used for USB, the calibration step is performed by
->> the PHY driver automatically at probe time.  Once this step is done,
->> the PHY can be used for either PCIe or USB.
->>
->> Version 2 of this series incorporates suggestions made during the
->> review of version 1.  Specific highlights are detailed below.
+> The code in libstub ends up in .init.text, which will be mapped
+> executable during boot on architectures that incorporate it into
+> vmlinux.
 > 
-> With the issues mentioned in patch 4 fixed, this patchset works fine for
-> me. That said I had to disable ASPM by passing pcie_aspm=off on the
-> command line, as it is now enabled by default since 6.18-rc1 [1]. At
-> this stage, I am not sure if it is an issue with my NVME drive or an
-> issue with the controller.
-
-Can you describe what symptoms you had that required you to pass
-"pcie_aspm=off" on the kernel command line?
-
-I see these lines in my boot log related to ASPM (and added by
-the commit you link to), for both pcie1 and pcie2:
-
-   pci 0000:01:00.0: ASPM: DT platform, enabling L0s-up L0s-dw L1 AS
-PM-L1.1 ASPM-L1.2 PCI-PM-L1.1 PCI-PM-L1.2
-   pci 0000:01:00.0: ASPM: DT platform, enabling ClockPM
-
-   . . .
-
-   nvme nvme0: pci function 0000:01:00.0
-   nvme 0000:01:00.0: enabling device (0000 -> 0002)
-   nvme nvme0: allocated 64 MiB host memory buffer (16 segments).
-   nvme nvme0: 8/0/0 default/read/poll queues
-    nvme0n1: p1
-
-My NVMe drive on pcie1 works correctly.
-   https://www.crucial.com/ssd/p3/CT1000P3SSD8
-
-   root@bananapif3:~# df /a
-   Filesystem     1K-blocks     Used Available Use% Mounted on
-   /dev/nvme0n1p1 960302804 32063304 879385040   4% /a
-   root@bananapif3:~#
-
-I basically want to know if there's something I should do with this
-driver to address this.  (Mani, can you explain?)
-
-Thank you.
-
-					-Alex
-
-> Regards
-> Aurelien
+> If objtool validation is never needed for such code, on the basis that
+> it is not actually called even though it is present, then I think that
+> is fine.
 > 
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f3ac2ff14834a0aa056ee3ae0e4b8c641c579961
+> For the other architectures, I don't have any objections in principle,
+> I'm just being cautious due to the regression risk.
 > 
+> > I'd still propose we keep the KBUILD_VMLINUX_LIBS_PRELINK mechanism to
+> > allow other arches to opt in as needed.
+> >
+> 
+> Again, no objection in principle. To me, it just seems a lot of churn
+> just to avoid having to teach objtool about indirect calls to noreturn
+> functions.
 
+Well, one of these days we will need to do that with some kind of
+compiler -fannotate-noreturn feature or plugin or whatever, but this was
+more about "why are we validating libstub code anyway, it doesn't seem
+necessary and x86 doesn't do it, so lets make them consistent".
+
+> > And that variable might even be useful for other cases (x86 startup
+> > code?)
+> >
+> 
+> Not all x86 startup code is in .init.text; some of it sticks around
+> and is still used at runtime. I reckon that implies that objtool
+> validation will remain needed for that, no?
+
+I wasn't aware of that, in that case I guess the x86 startup code
+belongs in vmlinux.o, or at least the runtime portions of it.
+
+-- 
+Josh
 
 _______________________________________________
 linux-riscv mailing list
