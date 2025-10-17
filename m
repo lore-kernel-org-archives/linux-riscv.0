@@ -4,52 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14E19CCD195
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 10:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73271CCD1A2
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 10:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=85oxZF9AXx0M4HcvdekfOgzggogSn4O+eI8KkgzeGI4=; b=WB2tiNsx8pA6mA
-	Y+vTtIGHg0dxVBqgV/jpRtJu9dcBrCfAuQ0LDuBJf/Fr7pJ8FiqbItEiliMrSO4TMLaSCwWH+tUuJ
-	bQrxP9OEfV2SEI7CaNfi4v0RJEHQSN+2QZel7NUiOjIUETUmmWZml+Fl1ns4AWj3JUDqtT9mm/tWJ
-	rd29vWTsdVMHGsAEdM3Yco1mEhtHR4CYJXUnb2rCMrQV00gdxy/zxwXKDbjIa9CIHtDIOb40R38DR
-	WlEMYkvVH3ka7cbPUU576eTn1gRbWBuWpiRgFKaC3WSetF+OQRC8A4YJj5lHHxAEjHZtV0sdxsdUX
-	Z0kxM/26ultu1mp7LHrg==;
+	List-Owner; bh=O3L+uCELykSS28nnFQojyVpobrifDqnu6q/Icl00MtQ=; b=eiMkZfsrSFdne4
+	GelcKkgeB6vGVnYhhKrTf92kxJn9ZH9qfRJ42HD5UoIRWgeb2zp77F+ex9FNrXjfnq9XI0zZ4URO6
+	dN23HLb1ugQ27k9mA0r7droNd2RIbr70ifU36hrU4lL+4pmL10vqMZb4MJmKQNn21mY6+4S+QSgkS
+	KlV9VaNxrJPwoJ0sVKyPzg+vwnmLNGWRe11ggrcbtW+rXMZ6IK6KNpixcC6RVfIHw0C2F6m53p6Mu
+	mpp/yFvMmY8e/G3uWoxOAWnc6QIFCMYRNg0PENfqhYciDTBO1s2Ky1rlQpgV+9Ho944D+hQs92SOF
+	Nxzzb0rsZUWBUHlmgeZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hOn-00000007SUq-1oNy;
-	Fri, 17 Oct 2025 10:09:25 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1v9hOu-00000007SfZ-1JiN;
+	Fri, 17 Oct 2025 10:09:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hOf-00000007SEV-22DO;
+	id 1v9hOj-00000007SM3-0kAy;
+	Fri, 17 Oct 2025 10:09:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
+	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
+	bh=eAYIGd5fXsjzeJJB6qw0P3j1iV5OhzS8DCs61XHs+jU=; b=ADyVNoMfDorjwIvKMddwuQd0L3
+	o5pht6DpzZahoXYcike2ds4Ns4qZtc2RrCkOcc1rPr1j5HjcpdfBdLUQX9mzVPR8ucO9o8Ou1N7a/
+	FeO8GrM530MtVwATbBKKRsrznou34iKIzy+Oisjo7x0xKNHaoJ7zMuvw19SzyKuVabhGc6+P0W1ab
+	127v3A9UkRvB8cuAn4WtgpMAVKIMQkPCTanKGi2ll6oc8Lowv8uwIWXZpbykvsvgBO1u1NpMl0NF0
+	BJwSLOzKwNEOkx45aW9wRDhppdPcIF2JJ5s8lvS3WD+PKnqDxOijqL0k5bkrNEyfYfGl27Imv2b7m
+	URMhlR3g==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9hOe-00000007Rpt-0tAm;
 	Fri, 17 Oct 2025 10:09:19 +0000
-Message-ID: <20251017093030.443142844@linutronix.de>
+Message-ID: <20251017093030.378863263@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760695755;
+	s=2020; t=1760695753;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=kgiZQ2LHnoAuUeU4bAPUZQG9DpHKgtV5g2vXbnxY3WU=;
-	b=mpkjILJoMW+NxL7mj7Gkt8KfTdP8hlJpo2Od+7iroOPr22g6zAYrA6yUvqMmBvxNsIgubm
-	CvGY3j5HuJ+GKdxHiPMjY9rCQ53bXOmVeodjH//fzeLUVju5Bb6VUVR8AgiWuur7rbvdkV
-	gxn/pTETiDGuMBDkvtMVlTJDHVlPeeW33L6tqfdVc7PoE4GjPdtSjlMNaKd52hrDg2+tL7
-	wUV768CPkGumlygCkw7AUUe6cdpax17aJuyAMZOir0K0ahKMAwQCDdK6KEUtEhAAp3+WlU
-	17Zuy6C9rKn8fIYmyOjnpI4ODlq+tUAt8V9oX846q250RQEpr3Ctvv7+PvRq8w==
+	 references:references; bh=eAYIGd5fXsjzeJJB6qw0P3j1iV5OhzS8DCs61XHs+jU=;
+	b=hta58kDNqoHEEa2fr4giEnDSVUkRAytH2cY/ek52tlnq3qWRDJ1K/krbS6McjLr93cNBLF
+	jxOOuv3MuMs81dQjLKsp+HxNpsnTgQ/AV2HiNeFCNCOEMA5TyQDBQVDNKRi0p4vmte/Iai
+	WI2zvCG2Lc8rTZzJwcobqA4uqJnd7maiACqPzHL4rChOYJNt1asJ1L2zIRm3uzq/0RMLy6
+	A8wP+wL5pOyhN/8vXVVelN3NXYs+3rSq6QISL6DP0WxsINkHDR0UUbMorXnQDZ6tuIIGZ5
+	6Pq6J6Lq/6Tl5eVFMQX8rlfddlnMhm/nPPww+gOl4tJKaR40xGv4tlBz/FwRNg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760695755;
+	s=2020e; t=1760695753;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=kgiZQ2LHnoAuUeU4bAPUZQG9DpHKgtV5g2vXbnxY3WU=;
-	b=tdhXCPyA4ZEVvsSHbhYKGj01qPJmkWPTgxxpK9M9rn0Kr9sE2FveZ1mXCHtQvUnuVlAgry
-	ZcvdOvRAb0kTDZAw==
+	 references:references; bh=eAYIGd5fXsjzeJJB6qw0P3j1iV5OhzS8DCs61XHs+jU=;
+	b=Y3LLmuFYZAakAFXAg95cIJVuHw48NRZZoUaiDyUbz89qP5xShyqzhFoiUg+TySC0spPGJK
+	LkNvBVMjv0fTtoBA==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>,
- Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>,
- =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
+Cc: Julia Lawall <Julia.Lawall@inria.fr>,
+ Nicolas Palix <nicolas.palix@imag.fr>,
  kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
@@ -69,19 +81,22 @@ Cc: Peter Zijlstra <peterz@infradead.org>,
  linux-s390@vger.kernel.org,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  Andrew Cooper <andrew.cooper3@citrix.com>,
- Julia Lawall <Julia.Lawall@inria.fr>,
- Nicolas Palix <nicolas.palix@imag.fr>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
  Alexander Viro <viro@zeniv.linux.org.uk>,
  Christian Brauner <brauner@kernel.org>,
  Jan Kara <jack@suse.cz>,
  linux-fsdevel@vger.kernel.org
-Subject: [patch V3 10/12] futex: Convert to scoped masked user access
+Subject: [patch V3 09/12] [RFC] coccinelle: misc: Add
+ scoped_masked_$MODE_access() checker script
 References: <20251017085938.150569636@linutronix.de>
 MIME-Version: 1.0
-Date: Fri, 17 Oct 2025 12:09:14 +0200 (CEST)
+Date: Fri, 17 Oct 2025 12:09:12 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_030917_840540_FF935973 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20251017_110916_659066_D644AE6D 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,52 +108,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGxpbnV0cm9uaXguZGU+CgpSZXBsYWNlIHRoZSBv
-cGVuIGNvZGVkIGltcGxlbWVudGF0aW9uIHdpdGggdGhlIG5ldyBnZXQvcHV0X3VzZXJfbWFza2Vk
-KCkKaGVscGVycy4KCk5vIGZ1bmN0aW9uYWwgY2hhbmdlIGludGVuZGVkCgpTaWduZWQtb2ZmLWJ5
-OiBUaG9tYXMgR2xlaXhuZXIgPHRnbHhAbGludXRyb25peC5kZT4KQ2M6IFBldGVyIFppamxzdHJh
-IDxwZXRlcnpAaW5mcmFkZWFkLm9yZz4KQ2M6IERhcnJlbiBIYXJ0IDxkdmhhcnRAaW5mcmFkZWFk
-Lm9yZz4KQ2M6IERhdmlkbG9ociBCdWVzbyA8ZGF2ZUBzdGdvbGFicy5uZXQ+CkNjOiAiQW5kcsOp
-IEFsbWVpZGEiIDxhbmRyZWFsbWVpZEBpZ2FsaWEuY29tPgotLS0KVjM6IEFkYXB0IHRvIHNjb3Bl
-IGNoYW5nZXMKVjI6IENvbnZlcnQgdG8gc2NvcGVkIHZhcmlhbnQKLS0tCiBrZXJuZWwvZnV0ZXgv
-ZnV0ZXguaCB8ICAgMzcgKystLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogMSBm
-aWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMzUgZGVsZXRpb25zKC0pCi0tLQotLS0gYS9r
-ZXJuZWwvZnV0ZXgvZnV0ZXguaAorKysgYi9rZXJuZWwvZnV0ZXgvZnV0ZXguaApAQCAtMjg1LDQ4
-ICsyODUsMTUgQEAgc3RhdGljIGlubGluZSBpbnQgZnV0ZXhfY21weGNoZ192YWx1ZV9sbwogICog
-VGhpcyBkb2VzIGEgcGxhaW4gYXRvbWljIHVzZXIgc3BhY2UgcmVhZCwgYW5kIHRoZSB1c2VyIHBv
-aW50ZXIgaGFzCiAgKiBhbHJlYWR5IGJlZW4gdmVyaWZpZWQgZWFybGllciBieSBnZXRfZnV0ZXhf
-a2V5KCkgdG8gYmUgYm90aCBhbGlnbmVkCiAgKiBhbmQgYWN0dWFsbHkgaW4gdXNlciBzcGFjZSwg
-anVzdCBsaWtlIGZ1dGV4X2F0b21pY19jbXB4Y2hnX2luYXRvbWljKCkuCi0gKgotICogV2Ugc3Rp
-bGwgd2FudCB0byBhdm9pZCBhbnkgc3BlY3VsYXRpb24sIGFuZCB3aGlsZSBfX2dldF91c2VyKCkg
-aXMKLSAqIHRoZSB0cmFkaXRpb25hbCBtb2RlbCBmb3IgdGhpcywgaXQncyBhY3R1YWxseSBzbG93
-ZXIgdGhhbiBkb2luZwotICogdGhpcyBtYW51YWxseSB0aGVzZSBkYXlzLgotICoKLSAqIFdlIGNv
-dWxkIGp1c3QgaGF2ZSBhIHBlci1hcmNoaXRlY3R1cmUgc3BlY2lhbCBmdW5jdGlvbiBmb3IgaXQs
-Ci0gKiB0aGUgc2FtZSB3YXkgd2UgZG8gZnV0ZXhfYXRvbWljX2NtcHhjaGdfaW5hdG9taWMoKSwg
-YnV0IHJhdGhlcgotICogdGhhbiBmb3JjZSBldmVyeWJvZHkgdG8gZG8gdGhhdCwgd3JpdGUgaXQg
-b3V0IGxvbmctaGFuZCB1c2luZwotICogdGhlIGxvdy1sZXZlbCB1c2VyLWFjY2VzcyBpbmZyYXN0
-cnVjdHVyZS4KLSAqCi0gKiBUaGlzIGxvb2tzIGEgYml0IG92ZXJraWxsLCBidXQgZ2VuZXJhbGx5
-IGp1c3QgcmVzdWx0cyBpbiBhIGNvdXBsZQotICogb2YgaW5zdHJ1Y3Rpb25zLgogICovCiBzdGF0
-aWMgX19hbHdheXNfaW5saW5lIGludCBmdXRleF9nZXRfdmFsdWUodTMyICpkZXN0LCB1MzIgX191
-c2VyICpmcm9tKQogewotCXUzMiB2YWw7Ci0KLQlpZiAoY2FuX2RvX21hc2tlZF91c2VyX2FjY2Vz
-cygpKQotCQlmcm9tID0gbWFza2VkX3VzZXJfYWNjZXNzX2JlZ2luKGZyb20pOwotCWVsc2UgaWYg
-KCF1c2VyX3JlYWRfYWNjZXNzX2JlZ2luKGZyb20sIHNpemVvZigqZnJvbSkpKQotCQlyZXR1cm4g
-LUVGQVVMVDsKLQl1bnNhZmVfZ2V0X3VzZXIodmFsLCBmcm9tLCBFZmF1bHQpOwotCXVzZXJfcmVh
-ZF9hY2Nlc3NfZW5kKCk7Ci0JKmRlc3QgPSB2YWw7Ci0JcmV0dXJuIDA7Ci1FZmF1bHQ6Ci0JdXNl
-cl9yZWFkX2FjY2Vzc19lbmQoKTsKLQlyZXR1cm4gLUVGQVVMVDsKKwlyZXR1cm4gZ2V0X3VzZXJf
-bWFza2VkKCpkZXN0LCBmcm9tKSA/IDAgOiAtRUZBVUxUOwogfQogCiBzdGF0aWMgX19hbHdheXNf
-aW5saW5lIGludCBmdXRleF9wdXRfdmFsdWUodTMyIHZhbCwgdTMyIF9fdXNlciAqdG8pCiB7Ci0J
-aWYgKGNhbl9kb19tYXNrZWRfdXNlcl9hY2Nlc3MoKSkKLQkJdG8gPSBtYXNrZWRfdXNlcl9hY2Nl
-c3NfYmVnaW4odG8pOwotCWVsc2UgaWYgKCF1c2VyX3dyaXRlX2FjY2Vzc19iZWdpbih0bywgc2l6
-ZW9mKCp0bykpKQotCQlyZXR1cm4gLUVGQVVMVDsKLQl1bnNhZmVfcHV0X3VzZXIodmFsLCB0bywg
-RWZhdWx0KTsKLQl1c2VyX3dyaXRlX2FjY2Vzc19lbmQoKTsKLQlyZXR1cm4gMDsKLUVmYXVsdDoK
-LQl1c2VyX3dyaXRlX2FjY2Vzc19lbmQoKTsKLQlyZXR1cm4gLUVGQVVMVDsKKwlyZXR1cm4gcHV0
-X3VzZXJfbWFza2VkKHZhbCwgdG8pID8gMCA6IC1FRkFVTFQ7CiB9CiAKIHN0YXRpYyBpbmxpbmUg
-aW50IGZ1dGV4X2dldF92YWx1ZV9sb2NrZWQodTMyICpkZXN0LCB1MzIgX191c2VyICpmcm9tKQoK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+A common mistake in user access code is that the wrong access mode is
+selected for starting the user access section. As most architectures map
+Read and Write modes to ReadWrite this goes often unnoticed for quite some
+time.
+
+Aside of that the scoped user access mechanism requires that the same
+pointer is used for the actual accessor macros that was handed in to start
+the scope because the pointer can be modified by the scope begin mechanism
+if the architecture supports masking.
+
+Add a basic (and incomplete) coccinelle script to check for the common
+issues. The error output is:
+
+kernel/futex/futex.h:303:2-17: ERROR: Invalid pointer for unsafe_put_user(p) in scoped_masked_user_write_access(to)
+kernel/futex/futex.h:292:2-17: ERROR: Invalid access mode unsafe_get_user() in scoped_masked_user_write_access()
+
+Not-Yet-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: Julia Lawall <Julia.Lawall@inria.fr>
+Cc: Nicolas Palix <nicolas.palix@imag.fr>
+---
+ scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++++++++++++++++++++
+ 1 file changed, 108 insertions(+)
+
+--- /dev/null
++++ b/scripts/coccinelle/misc/scoped_uaccess.cocci
+@@ -0,0 +1,108 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/// Validate scoped_masked_user*access() scopes
++///
++// Confidence: Zero
++// Options: --no-includes --include-headers
++
++virtual context
++virtual report
++virtual org
++
++@initialize:python@
++@@
++
++scopemap = {
++  'scoped_masked_user_read_access_size'  : 'scoped_masked_user_read_access',
++  'scoped_masked_user_write_access_size' : 'scoped_masked_user_write_access',
++  'scoped_masked_user_rw_access_size'    : 'scoped_masked_user_rw_access',
++}
++
++# Most common accessors. Incomplete list
++noaccessmap = {
++  'scoped_masked_user_read_access'       : ('unsafe_put_user', 'unsafe_copy_to_user'),
++  'scoped_masked_user_write_access'      : ('unsafe_get_user', 'unsafe_copy_from_user'),
++}
++
++# Most common accessors. Incomplete list
++ptrmap = {
++  'unsafe_put_user'			 : 1,
++  'unsafe_get_user'			 : 1,
++  'unsafe_copy_to_user'		 	 : 0,
++  'unsafe_copy_from_user'		 : 0,
++}
++
++print_mode = None
++
++def pr_err(pos, msg):
++   if print_mode == 'R':
++      coccilib.report.print_report(pos[0], msg)
++   elif print_mode == 'O':
++      cocci.print_main(msg, pos)
++
++@r0 depends on report || org@
++iterator name scoped_masked_user_read_access,
++	      scoped_masked_user_read_access_size,
++	      scoped_masked_user_write_access,
++	      scoped_masked_user_write_access_size,
++	      scoped_masked_user_rw_access,
++	      scoped_masked_user_rw_access_size;
++iterator scope;
++statement S;
++@@
++
++(
++(
++scoped_masked_user_read_access(...) S
++|
++scoped_masked_user_read_access_size(...) S
++|
++scoped_masked_user_write_access(...) S
++|
++scoped_masked_user_write_access_size(...) S
++|
++scoped_masked_user_rw_access(...) S
++|
++scoped_masked_user_rw_access_size(...) S
++)
++&
++scope(...) S
++)
++
++@script:python depends on r0 && report@
++@@
++print_mode = 'R'
++
++@script:python depends on r0 && org@
++@@
++print_mode = 'O'
++
++@r1@
++expression sp, a0, a1;
++iterator r0.scope;
++identifier ac;
++position p;
++@@
++
++  scope(sp,...) {
++    <+...
++    ac@p(a0, a1, ...);
++    ...+>
++  }
++
++@script:python@
++pos << r1.p;
++scope << r0.scope;
++ac << r1.ac;
++sp << r1.sp;
++a0 << r1.a0;
++a1 << r1.a1;
++@@
++
++scope = scopemap.get(scope, scope)
++if ac in noaccessmap.get(scope, []):
++   pr_err(pos, 'ERROR: Invalid access mode %s() in %s()' %(ac, scope))
++
++if ac in ptrmap:
++   ap = (a0, a1)[ptrmap[ac]]
++   if sp != ap.lstrip('&').split('->')[0].strip():
++      pr_err(pos, 'ERROR: Invalid pointer for %s(%s) in %s(%s)' %(ac, ap, scope, sp))
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
