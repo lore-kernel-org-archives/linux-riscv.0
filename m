@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C742CCCD184
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 05:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA153CCD199
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 05:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KGXuM1ZFrKLIOQMp++y2xEVcQpmkZqETSgOvux06mMc=; b=Ouytl6+GPHGOsS
-	8rd4+eQLgAdrRHbB0YbyfJJG8cKA+bsXPQjSNuAuQtcK5ijnfmcN+YgO3qqVqySuA+wgh9CcJW6C+
-	jrdF2IlAhFxpCRSvsQMWV8FyZwGl7DJJSwANbpte4sZSD1brtVBbKCDtmJcThLoAasyoaYxd3y3lE
-	GryMFO5360NX2ewDTidYDcIA2PYM+r9psow4BAbwlh4gHUXtOxdRx7skZaKSmDZp91G2QuaDAcDP1
-	ej2Aiqan/pyWMkkDYyLQ8NWTveiQyR1BiiRvMUUkmnjIkLJKiCuhoy9waiw11oNBTpqIJxn/8WXl+
-	U8ODcUONZWhpw07vbWKw==;
+	List-Owner; bh=tdQ6K5qXhEUmqv3OH1EF4PTMDFkB6PyNVHpXDbUQ0Do=; b=nhRBB6LQCE5jjQ
+	Kb3UYdypBvBovzxPUdaSlhUVdaWFu0GRCxPFn590T/2ghylba6uNk6jYXjvZ0glG78MgHkcNyqppJ
+	x0geVO/PONxsE04x5tUYGmKMQ2+MSRJI9weWR8WbOEja1o1mzQwsRGbrG57QcVruL1i2lq64wWseM
+	Nl9MbX2NpAv15IrYdqE++LojS4goWa9JQ/ze1fBf/U2L+x3YE18c0qXU4PgBISpgOgBu0KPRVeAj6
+	oETbMsP1/j2RYpoxl8/Ce8Rvc/QKiB+I2/CCWFOraKp21wBokPk+Zn3DHqxPEwsN66mi1GYjk97lY
+	2NV0jJBHrEwBVvDWiSbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ciD-00000006aF5-0fC1;
-	Fri, 17 Oct 2025 05:09:09 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1v9dPs-00000006fOi-2Xfp;
+	Fri, 17 Oct 2025 05:54:16 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ciA-00000006aEU-38jy
+	id 1v9dPp-00000006fIr-1mk7
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 05:09:07 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-782bfd0a977so1220079b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 22:09:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760677745; x=1761282545; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kQ55DkM8tzaRgU5i+eke6Xg0gqLmGe9Gfxt+VQ9ObUk=;
-        b=b8pv8AgsGAEBmb5g9jl2SK6+1vinbkWyGC7dYB15v6n8M2jNdjMzRCBjy3JtJdmN4r
-         PPgoifvH5Kp3ERmkf4n6/0jDfnWNgHPTWgcWRRyvb9VJtk2uH/odv1Yz660sAd2x9w6P
-         L29i5hMcgyyJ3+JPwGz6gR4/NL8SfqzjWRJeNAa6tW7W5lZqtcEMpaqbmDIgWfwttHwn
-         RGCvsJ7FG9LM5NIXQQnwcWRlaQQFJTyh62xdSvWJUyFi2amTMBGhEICs4EaxSTcyEUYP
-         IXKurz1xFVL9ASzzJ+iCOuhpFgnrw0mgulaEFcdCuLzjDpqwaHktmY3UCLqzTr1vQoTI
-         u2/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760677745; x=1761282545;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kQ55DkM8tzaRgU5i+eke6Xg0gqLmGe9Gfxt+VQ9ObUk=;
-        b=NnKKhLskWJl7Y3p5GTufVIE+i1PWVfhZ/9ij8GRvuMZ8f5OgPGmES/HUEGSsagQ1CR
-         3FW8PX/nyMPhHdlzRe6ml1MqpazwH4v84f9e5ujT1oVj2Gag5pYUSc2gyOChXUB3bQUD
-         3M5ilSsOwlPPNkBZBd+afRs0Tta6o7stZOH1HHocryuPKSzojf6gaL6+Zl1WbBkq+LB5
-         0YLYMfaNKzleJtVHg9bGDxlkRRbFnZqWN6x8VdfJjcbf+dD3FtTk/mE1rzTwklKOyL5X
-         bdH4NQdZ5rZFwQiiEBKhabLNWFqoLBqOqvdoPzh/dU30ybvm+7dAifvVJqTsIMtdZugT
-         YIRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXHOPYDht2Vj7HXi7SRJUEo3+5wFMV5bBEYCwb6ZV3T8TP4plze/wkzTbuKNmzwmzZQutlwn47jgIKhfg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzMyPUuB75ey8z/oF4Fo0FUjHyoE7hfA4Jb80Jkkov0+TnVmCl
-	zdwMYgEvz6C6P3QnkfqRxkmU57A4DpmXnl/W9VXc17vjBkcM6eWNrpIsakJTwuqJJTU=
-X-Gm-Gg: ASbGncshq+lHty7gzHbYfBAlfRZvo1EK2dQucBek51T1e/piDqQ+9GCKeqkzpKbITxB
-	Hejqgu7OXB8WouulQwRI6bA0FKlRuG41yshkn9s9of6rgKoqL2ujdM5rjuzuIj7qrRxFZXudEEb
-	nPYtcJcgbUQ91vptGQxDv9BPBkYuXmeeeI16d+5Ws5n8iyuiI8xnbwxqNDKD9Rmn+DZ3UqX4SGE
-	5QKk9RzTjYfeEBq/Wp1arIv8P+BeTOb3mJNplw5HZpHUB7lsQIKw/x9al5KDYenNIZBPcbx4w+g
-	K9us9oWl3VbDXysTvwAPhXVyMv+pcrqgF/AA9KWkiUSXqtGeHVtPpB15ELQi9HJw2nV5+w2BzI+
-	cqIFEvnp8FJE3cSNCQNvgGbxx23MH880uD+Pe+NvoNqglg0vksDg94jl09JUW5Gi0+QKNJhphT1
-	Se4w==
-X-Google-Smtp-Source: AGHT+IGVLyzmj++RqMMVihtjmmGd1jHdy2DiGxYxK8sK9GSZnnLKdl9JAGdP0GHlJpy4pu/1751zZA==
-X-Received: by 2002:a05:6a21:99a4:b0:334:a784:304a with SMTP id adf61e73a8af0-334a8609160mr3483247637.33.1760677745414;
-        Thu, 16 Oct 2025 22:09:05 -0700 (PDT)
-Received: from localhost ([122.172.87.183])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0e3f89sm23882072b3a.66.2025.10.16.22.09.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Oct 2025 22:09:04 -0700 (PDT)
-Date: Fri, 17 Oct 2025 10:39:02 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, E Shattow <e@freeshell.de>, Paul Walmsley <pjw@kernel.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/7] cpufreq: dt-platdev: Add JH7110S SOC to the
- allowlist
-Message-ID: <jurnfpufll4twv2hfp2dv6qk6d3gr7gfmek5czigb5bcon636q@opb6hrdb424p>
-References: <20251016080054.12484-1-hal.feng@starfivetech.com>
- <20251016080054.12484-2-hal.feng@starfivetech.com>
+	Fri, 17 Oct 2025 05:54:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1760680397;
+	bh=XsTLhqCdKDoQzfpCqi+OYz0Cka5ZsvI3BAFjhZzu0Ys=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=OvMH3xFKGWJZPiukGVPBFGevGjxpMBLeHnPeiTtLA6vH6BSQ2WFxvAT3GmSjQnBjZ
+	 /GUGuFaO46pKxYautnqoDP5186VpSiBFu8d2fGqZRw7NBQqbrA5Y0T0et5FoS8rqFL
+	 T7F85WDR69a0LiSUBzU73aBF2kaTKAomemnbaYys=
+X-QQ-mid: zesmtpgz7t1760680395t7c42356c
+X-QQ-Originating-IP: i/pMjErODknrB2ZwyCDEP9eFiO76Pcsvza8xazFbIfg=
+Received: from = ( [14.123.253.52])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 17 Oct 2025 13:53:12 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 6053374135582174828
+EX-QQ-RecipientCnt: 15
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Fri, 17 Oct 2025 13:52:25 +0800
+Subject: [PATCH v3 1/2] dt-bindings: riscv: spacemit: add MusePi Pro board
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251016080054.12484-2-hal.feng@starfivetech.com>
+Message-Id: <20251017-k1-musepi-pro-dts-v3-1-40b05491699f@linux.spacemit.com>
+References: <20251017-k1-musepi-pro-dts-v3-0-40b05491699f@linux.spacemit.com>
+In-Reply-To: <20251017-k1-musepi-pro-dts-v3-0-40b05491699f@linux.spacemit.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Yangyu Chen <cyy@cyyself.name>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760680388; l=2753;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=ggfldOZp6UqSPiWVLfdG2BN5nof3l2DKdbnArSTVoxw=;
+ b=U91dtEZUz4Wvsoh2IA6c9a85w7dKye38+YtHxSDPuOKC8QvVm9TXO2U0mCS71DhTLBIt1isSJ
+ jsL0vTMT/zvBq5td0hDVIFsVQkfiuJrU6oJx6kR/3mDJzpZxd6+wgxY
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NSCZCmIek7U1Bc3VkrgR4EhOwCyxErPV94II61O7tZB4XWpfdp0Ec6R4
+	I2vrs4rppgp7SWEhG+GQwAJRx6+QzLGcoC86gXCAR2MB+7XhfrgBxZnk5+QyIXjkrgElFFE
+	kRatMkTPTMCN0OppfLZYO4IOXmVi8Z8UKFQnR63CUmBTqt2lfbKSYPKF+G7g9tQX7118qMj
+	3jwzJBIFnnbYRIWzcap3JWFpjacUVVambUYPujI1PJfor2EksYlU1RO1cTCQrcPEFA+V7xl
+	I4tWqk4pBpXN4mlRRRweXHS4nwHBwhIn9FP3CSHSiiSE//5wGIxxvZ5r6stcPbkAzSkGdTJ
+	QuAlRVfckhSZsVIYWpPPY7Gar4pDFQhJrpSqiKY7jeJkTuGyuKLEuHlzXxTWYVpwTN/iClB
+	TPhYbElC1vqRLkfRvYkbZuPirXlmX8bmBxyidr3KdGZp+WW5kuMDYqMNCLgT8izTyIyaTR3
+	+ShvnSmM/IwhLbGKx/25puTa/xJxcQhjwGCyQECCe9cAjrbpE3d9lOt8ZCWfNuOu+eehjkd
+	DONqp1996XV2G/uVvUiGA1Qs+Zoyq1wxGJg87mUdDMBRA0pXR6i69HiolFGGVB4dv0gGZWW
+	vdOViPhVQfeeHCsD6ZPguDN5wxzFzdcKElUWVwWwQ7hU0FRNhrw+geNHVwYZ5OiNCczYBZi
+	WGiz5g+pWYh0qXgARuEZ6TuKR9Nq19PSJSyV+MrIv5enUycTqgfvmnsBLTT3HunXji5cDWh
+	eRkgR+UbxfzKgih8s2uUt4HtG7KrhFm6oJU9WujmbUwZ1cLEYWTKHZnY8nQzA6K8jFUPoeE
+	zcyDNtRkrKwNsvl8/lpq/D8xwBdyD1xhhtbH/1gLjhXbZpi52vQ0fgX9YVxXRB6LO5Y8csS
+	+QDJ0w0nSx5NrewBO4t0bkL/w3FRDhpL4Gtlp+j2RHEZAK9PsS7pClFPhKj4QWlZy/TWssg
+	S6nMWP/IJdaScQ0GAoUmpaf0D9vrEhgVkc68UABO+A0al5g6lYXD/KHjZJHQFpx0yuOvgYM
+	qMNEGKndANSH/7jCFo06fSoJhkptFD0tiICHJ5CNV6c0SOCFo9sN15Z18G4LQ8UixdhIOcW
+	NU7ixOYreT5aI3fow6V4zlNVsEXIpLt572Kyvo1FFxV57OMgwAY+Fifo0i6QYMk3OgtKD5u
+	eI4ZapgPOhN6zoe3zBGYbgkueYkXvTF4IC7w
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_220906_809229_95AD239D 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20251016_225414_031863_3C27C959 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,32 +109,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 16-10-25, 16:00, Hal Feng wrote:
-> Add the compatible strings for supporting the generic
-> cpufreq driver on the StarFive JH7110S SoC.
-> 
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  drivers/cpufreq/cpufreq-dt-platdev.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
-> index cd1816a12bb9..dc11b62399ad 100644
-> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
-> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
-> @@ -87,6 +87,7 @@ static const struct of_device_id allowlist[] __initconst = {
->  	{ .compatible = "st-ericsson,u9540", },
->  
->  	{ .compatible = "starfive,jh7110", },
-> +	{ .compatible = "starfive,jh7110s", },
->  
->  	{ .compatible = "ti,omap2", },
->  	{ .compatible = "ti,omap4", },
+Document the compatible string for the MusePi Pro [1]. It is a 1.8-inch
+single board computer based on the SpacemiT K1/M1 RISC-V SoC [2].
 
-Applied. Thanks.
+Here's a refined list of its core features for consideration:
+  - SoC: SpacemiT M1/K1, 8-core 64-bit RISC-V with 2.0 TOPS AI power.
+         This suggests potential for light AI/ML workloads on-device.
+  - Memory: LPDDR4X @ 2400MT/s, available in 8GB & 16GB options.
+            Sufficient for various workloads.
+  - Storage: Onboard eMMC 5.1 (64GB/128GB options). M.2 M-Key for NVMe
+             SSD (2230 size), and a microSD slot (UHS-II) for expansion.
+             Good variety for boot and data.
+  - Display: HDMI 1.4 (1080P@60Hz) and 2-lane MIPI DSI FPC (1080P@60Hz).
+             Standard display options.
+  - Connectivity: Onboard Wi-Fi 6 & Bluetooth 5.2. A single Gigabit
+                  Ethernet port (RJ45). Given the stated markets,
+                  this should cover basic networking.
+  - USB: 4x USB 3.0 Type-A (host) and 1x USB 2.0 Type-C (device/OTG).
+         Decent host capabilities.
+  - Expansion: Full-size miniPCIe slot for assorted modules
+               (4G/5G, wireless etc.). A second M.2 M-Key (2230) for more
+               general PCIe devices (SSD, PCIe-to-SATA, comm boards).
+  - GPIO: Standard 40-pin GPIO interface, as expected for an SBC.
+  - MIPI: Includes 1x 4-lane MIPI CSI FPC and 2x MIPI DSI FPC interfaces
+          for cameras and displays.
+  - Clock: Onboard RTC with battery support.
+
+Link: https://developer.spacemit.com/documentation?token=YJtdwnvvViPVcmkoPDpcvwfVnrh&type=pdf [1]
+Link: https://www.spacemit.com/en/key-stone-k1 [2]
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+Changelog in v3:
+- nothing
+- Link to v2: https://lore.kernel.org/all/20251010-k1-musepi-pro-dts-v2-1-6e1b491f6f3e@linux.spacemit.com/
+
+Changelog in v2:
+- modify commit message
+- Link to v1: https://lore.kernel.org/all/20250928-k1-musepi-pro-dts-v1-1-5efcca0ce3ae@linux.spacemit.com/
+---
+ Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+index c56b62a6299ac24d3cdef7edcdfc407dc62a1846..52fe39296031f21d1c28c4f1ea5ca9fe28caf45a 100644
+--- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
++++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+@@ -22,6 +22,7 @@ properties:
+           - enum:
+               - bananapi,bpi-f3
+               - milkv,jupiter
++              - spacemit,musepi-pro
+               - xunlong,orangepi-rv2
+           - const: spacemit,k1
+ 
 
 -- 
-viresh
+2.51.0
+
 
 _______________________________________________
 linux-riscv mailing list
