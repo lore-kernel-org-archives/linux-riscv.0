@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9477CCD199
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 19:08:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 139AFCCD1A7
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 19:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R82CxBjCXcqB3AQYkg2MLkWBj1lecC42kL8BLQGmNoA=; b=Dw9BGCbdUzn5DX
-	JeFl9/XxWyJipEp9yN6+Y96FMPb2U60HCBolhhLbBniRo3sZzcDevBfAduUuGjnGPqoONlsZR3ycd
-	3aMsBINs1VEs+gyzOvFFQMWAmCguULeuOQ5R6CORkQNcSmIRq/2mDQTErqB03bcfa/AbubT8X8Rpn
-	3Jpyx4se7ARPr3FhqjvvoCPzFL+j50BMybcOJix3RhzvN6kUMWYtKUyz/G13VNUyYQJ3S6C+Dy4YL
-	C+OdVymmXgvMlc5uwFgbjrY3RF4knFNMD5nHtt9xVCSir1O8wmlzjqiwG6KmoPEQAhfnsrkvh7D3U
-	ZZW4uXtyJs151yY2V0Bg==;
+	List-Owner; bh=Nu8JAUQ/Xe0iRAMpV73v77ffaL0F6mTlRCOxZDov7bs=; b=jInQYHryhPgQNX
+	wh7QJlzh7/WzyvLe07Vzxwvpuf5wg6+xPQh3guLeXgjXW6JYU2aZIf6yjuXTMh4/2BUdFxOHHDHo2
+	hmDGiRUrH7ojRhCFi/hgriW68JtvDfcs7aS7aiQbltSKTBRlLZiIEDYYKOLf2INHZ9qfHx2GStxu+
+	9CHTXuMJFy5humcmVFwn6T+ByqhlB3yFlsyjht/l3PtQafJKO142Y3voa6pxQ1E11li7TS3YdWzUP
+	G+uHipEdys9RVaRMMMLX/NZ98zq/Px3h91BfpTBaVxNMzfYTyAHnFoZ7Hy63DUqj4w7EbMW4GcTBp
+	/CyLv2LCX4S2eYGLWQuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9pny-00000008o2L-0SQi;
-	Fri, 17 Oct 2025 19:07:58 +0000
-Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
+	id 1v9pnq-00000008nvA-0wgB;
+	Fri, 17 Oct 2025 19:07:50 +0000
+Received: from mail-il1-x144.google.com ([2607:f8b0:4864:20::144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9pnv-00000008nzW-0GJE
+	id 1v9pnn-00000008nsg-0xxQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 19:07:56 +0000
-Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-430aeaffeaeso9726505ab.3
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 12:07:54 -0700 (PDT)
+	Fri, 17 Oct 2025 19:07:48 +0000
+Received: by mail-il1-x144.google.com with SMTP id e9e14a558f8ab-430ca4647c7so4053005ab.3
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 12:07:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1760728074; x=1761332874; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1760728066; x=1761332866; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jVuMJueWnAkYuh5TQkXI6Y6hYDpxc+wPv4az6s1+IXE=;
-        b=zn4HWFHzzaHm8RMUBfC1dnGOcCU0OCupE8TYt7Jllv3tsRNv6t6vqsCSJW9SHRIaBe
-         YzjKuCJPdqDbaCvwNHcXK2zd5dfy+QGDCHCNgFeS1lEX42c5gLnBNpAjzl1qaiI0h1XH
-         5OQhhqZZZWLvYsWw/HdG5Ie/mZnkQYztvlR+CzdiYQ0rx4AKM8NaxJZTdLEMBKb9aHiu
-         QAFbA77GZs4YEm6duC7r0L3p5V9WOYWvVLde/e4s4F3CqIeZCMlttyosu+gU3SlWPyru
-         WBgWPczHZT7DubmdVBb/yK2XYAPzvYxWigABrSvjXpeutZToX7+MqCIGsk8CzrTswjxe
-         wDvg==
+        bh=nnj3ndeUMae3NyNArAGupVHJsLP7DcySgmrwpRjKSkM=;
+        b=YZfAQSeuPnFwi8DS41BUhx6SQo5Kmp9qBqgiCLq63yApl0N4/ge2Q79+tt3v9tQc17
+         oR23tIs8BgpsLH6liHnlSR2H1wLXrlMuOlXSaWZ/UsD+5ndsTB5Bmp9H4mjtSDJ3bvdg
+         RRH03RPceqD7CyFbacidI6vdlw9BrbVE0Sm8kh8iSCe7usOKatNgdxneuykce0CdbQ/0
+         nsXUHUttX1tJVzJOsAb5fsz9GktDSOgcRiFAVk30bQRUygX0dOcVFSrmfLAcvmwl+UZN
+         eq0BLn8a9CD+UUu9PxcvIKNLRr5DOYWZj5HqIX7CefSDNUjTwEL/2JGn/MQjXkLxVDjv
+         7Ctw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760728074; x=1761332874;
+        d=1e100.net; s=20230601; t=1760728066; x=1761332866;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=jVuMJueWnAkYuh5TQkXI6Y6hYDpxc+wPv4az6s1+IXE=;
-        b=s/5kA/LTU+5ooX1d0s7BHVy4lCxVVEstr8oB9U+IOMEsvJSfPFcTbtqujWyrLCtUyv
-         p2rMNeYNRQ+tKpkdn8wWwc2mnRSKvPCOaIIZTqGPCQqUwoc/oRXMhKmO4xA2tENUtzzn
-         GjlVaEpxJQnfFYhQ0s01dwjiMNaAdoh0laVfZ3Gsgl9fGUIii8lW3qIpt1JHcMOBbZsd
-         Lr1xwww7nuUeQpLHNFazBlLXs19TqQ8WMNbqBojRVAvVjlumMadNRJ7AmmCw2uYprZHX
-         /MoqrKK7FRCCW+ohG/bweBkk492rstZUy3kHeK6QVJep7Kcw0ykkuBilurrO/xqzddjn
-         AjLA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/Ikk22krph43soS5w5l9AolWUuTbtCwplM51QuNPzgWzqyx8fHVE/ovXwABL8DgMIlM9H3iBgYvzA8A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzw5LKaQlj9kvoDlL3Jl6vxN3t4nYQozo1Hrqk7nu+YojcfVLCo
-	v0kvR+AaUl7VxFklEFSafmMkhBrGIUH9b4jgkIimtWNSRaunfKGge/sc8JoF1U2BnPY=
-X-Gm-Gg: ASbGncubLcQILMKM6LLsQl2qmqhu9TYhJM98Ae8NMG79XUYZVltwMyaEtzfDVRIlP2o
-	JBHVKAqqiK5ClqdpqXtrzsFgRhldXpOH/TVGNQ/UcJVLjceU7eVRxzeA7oAv11sN5dLDH5nFS6H
-	GVqY4ID9atX1pC4JdOvxMP8LtTmWG7KaIiWslXdb47nU437ro2xoSttQkaLJwoNrmH1uxwLoXje
-	YFEh3oIcoqyd9TuK0YDrul6s/UmRIbq2VqWIbkbU163g2AByJROE8GTZzh8nLaceyUn3DbhFMma
-	IM89gsceIbHfi8Y4Fn3PrsLMRnB6APdUs8rr4mzz+w2mi4JRw1MiZLF+VHaKhLb4ckqtsONCEXZ
-	3xXMQbUOhTYIbd9VgVOpFt5n6+V9qDdAhnAAxWZPaRchNtlj3HAVFEdZnY0zXFK+Qn3rsA7X0k4
-	0idaUdar9+8pbJ7gVcETIP7glqTdmucMIdS5rOYOK8bH3LMSYQN8boRw==
-X-Google-Smtp-Source: AGHT+IES/rfKhlvARUhnX0tfzUfrV5BOC+gvOxLXp1w4hAUg6/0iisUNrZFn1K7mYG1Jq6GYnw5WKw==
-X-Received: by 2002:a92:cd83:0:b0:430:ae8b:d2d8 with SMTP id e9e14a558f8ab-430c526926cmr72010455ab.15.1760728074017;
-        Fri, 17 Oct 2025 12:07:54 -0700 (PDT)
+        bh=nnj3ndeUMae3NyNArAGupVHJsLP7DcySgmrwpRjKSkM=;
+        b=SmLQEMQGfbYXrdcINILzRaicO5QBDPQhGsfRzEnPRQmrbLcfKt13nsD+AJx9ulXxAR
+         w2iKQohNNg7rchYdTgTDQmQGl/gGk45uQMJ448u0mlysbP/zGdxdGs11DLfosBirFfGa
+         cy85WuRvwJQqqk8wvRMvcsj552xHE4C1NLaDfAI+GUZT3WSqP/z9DxNWrakuKq5mRPNZ
+         PEXSCZCuMtQAVG9YGxd7LLQGPT+1HN9qZ1dvS6V7Ex8ofqIlSwd4UxtyDRf00Hvjz8Se
+         JplG8m7ZbxKL1MWQ/LELS1yk9vhvFxksydrz5+K9beFCON6b0xbTY0OIsdFGLMRuyRfH
+         UdRA==
+X-Forwarded-Encrypted: i=1; AJvYcCV89j0ULlGiU+x/J/sNi2Wm1j+A/8gAQBRdgvav69qaPc0q7wHdHGI+8DvCytZkNrk7FI9HwbUIuX71nQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNGkUnnl84ZCjhkYi0VYj1+SWClR20GJdN3SHPxWDAJ1XRvlME
+	kIOUOlGVxnv20Xe7gKdwAvJx4HbjO/YzhkwS5PBKcpp1p2jbFiAvxoBPpKN9cjntYH0=
+X-Gm-Gg: ASbGnctugB4/HOTyowtfWOtuq8wfnn9MDKajxjbJjm1W2K8W7AQi5Gv9F4SFRRSKjhV
+	hNqERuLZXG6x+kThiyB2p4Upa8QYxZ00YQOqLoR37+zPmFet0obvKq8nIjEtwW+TFfqyJ8fZ6Uj
+	XeiyO81k4UTDvl3lLcYj85S88EXy9P2a8Vhk4zjZB4OEMr5YVLgFdONFKp8OPhBccroe68mpKeq
+	zpBq43O69V8p1u0Tz8h9LTGu9KXkn5yOItLsHr8qgBt7B3FCEIR9sPOr580YlYd1J8CqhHtPAP9
+	k+g2A8L/5SRjwuM5uqjIxgLh/hK8sTuRPt1kkeS+OfF0Z+ikrXnoY+68JDFgShp/eGHa25ZRA5T
+	nKm8vc4fRiKCJ1QbCw2VtYOchYtuAxIeFL5NPjLb/dqWPRsD1HrxagpBesODpqt68wfoFq883a5
+	wgB+aA5D+OigXPx2EOEmU5ecb0fw789lsGSXDBASLUcEmxV00e59Kmog==
+X-Google-Smtp-Source: AGHT+IHytZYPq3sSfMjOZfFYHMcFE2wOrzrpGR8N8DWI8WbrnQAptaEbQ6cEghvzh0pSWjDXYscmQg==
+X-Received: by 2002:a92:ca4d:0:b0:430:b05a:ecc3 with SMTP id e9e14a558f8ab-430c525f528mr67642975ab.9.1760728065914;
+        Fri, 17 Oct 2025 12:07:45 -0700 (PDT)
 Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5a8a9768b98sm153462173.46.2025.10.17.12.07.52
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5a8a9768b98sm153462173.46.2025.10.17.12.07.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Oct 2025 12:07:53 -0700 (PDT)
+        Fri, 17 Oct 2025 12:07:45 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
-To: dlan@gentoo.org,
-	robh@kernel.org,
+To: robh@kernel.org,
 	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
+	conor+dt@kernel.org,
+	vkoul@kernel.org,
+	kishon@kernel.org
+Cc: dlan@gentoo.org,
 	guodong@riscstar.com,
 	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
+	linux-phy@lists.infradead.org,
 	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 7/7] riscv: dts: spacemit: PCIe and PHY-related updates
-Date: Fri, 17 Oct 2025 14:07:39 -0500
-Message-ID: <20251017190740.306780-8-elder@riscstar.com>
+Subject: [PATCH v3 1/7] dt-bindings: phy: spacemit: add SpacemiT PCIe/combo PHY
+Date: Fri, 17 Oct 2025 14:07:33 -0500
+Message-ID: <20251017190740.306780-2-elder@riscstar.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20251017190740.306780-1-elder@riscstar.com>
 References: <20251017190740.306780-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_120755_124720_7B209CAE 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20251017_120747_275728_E7BA1FC9 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,286 +109,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define PCIe and PHY-related Device Tree nodes for the SpacemiT K1 SoC.
+Add the Device Tree binding for the PCIe/USB 3.0 combo PHY found in
+the SpacemiT K1 SoC.  This is one of three PCIe PHYs, and is unusual
+in that only the combo PHY can perform a calibration step needed to
+determine settings used by the other two PCIe PHYs.
 
-Enable the combo PHY and the two PCIe-only PHYs on the Banana Pi BPI-F3
-board.  The combo PHY is used for USB on this board, and that will be
-enabled when USB 3 support is accepted.
+Calibration must be done with the combo PHY in PCIe mode, and to allow
+this to occur independent of the eventual use for the PHY (PCIe or USB)
+some PCIe-related properties must be supplied: clocks; resets; and a
+syscon phandle.
 
-The combo PHY must perform a calibration step to determine configuration
-values used by the PCIe-only PHYs.  As a result, it must be enabled if
-either of the other two PHYs is enabled.
-
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Alex Elder <elder@riscstar.com>
 ---
- .../boot/dts/spacemit/k1-bananapi-f3.dts      |  30 ++++
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  |  33 ++++
- arch/riscv/boot/dts/spacemit/k1.dtsi          | 146 ++++++++++++++++++
- 3 files changed, 209 insertions(+)
+v3: - Added Reviewed-by from Rob Herring
+    - The "phy" reset is listed first
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 046ad441b7b4e..6d566780aed9d 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -40,6 +40,12 @@ pcie_vcc_3v3: pcie-vcc3v3 {
- 	};
- };
- 
-+&combo_phy {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie0_3_cfg>;
-+	status = "okay";
-+};
+ .../bindings/phy/spacemit,k1-combo-phy.yaml   | 114 ++++++++++++++++++
+ 1 file changed, 114 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
+
+diff --git a/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
+new file mode 100644
+index 0000000000000..b59476cd78b57
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
+@@ -0,0 +1,114 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/spacemit,k1-combo-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- &emmc {
- 	bus-width = <8>;
- 	mmc-hs400-1_8v;
-@@ -100,6 +106,30 @@ &pdma {
- 	status = "okay";
- };
- 
-+&pcie1_phy {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie1_3_cfg>;
-+	status = "okay";
-+};
++title: SpacemiT K1 PCIe/USB3 Combo PHY
 +
-+&pcie2_phy {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie2_4_cfg>;
-+	status = "okay";
-+};
++maintainers:
++  - Alex Elder <elder@riscstar.com>
 +
-+&pcie1 {
-+	phys = <&pcie1_phy>;
-+	vpcie3v3-supply = <&pcie_vcc_3v3>;
-+	status = "okay";
-+};
++description: >
++  Of the three PHYs on the SpacemiT K1 SoC capable of being used for
++  PCIe, one is a combo PHY that can also be configured for use by a
++  USB 3 controller.  Using PCIe or USB 3 is a board design decision.
 +
-+&pcie2 {
-+	phys = <&pcie2_phy>;
-+	vpcie3v3-supply = <&pcie_vcc_3v3>;
-+	status = "okay";
-+};
++  The combo PHY is also the only PCIe PHY that is able to determine
++  PCIe calibration values to use, and this must be determined before
++  the other two PCIe PHYs can be used.  This calibration must be
++  performed with the combo PHY in PCIe mode, and is this is done
++  when the combo PHY is probed.
 +
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_2_cfg>;
-diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-index aff19c86d5ff3..5bacb6aff23f8 100644
---- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-@@ -69,6 +69,39 @@ uart0-2-pins {
- 		};
- 	};
- 
-+	pcie0_3_cfg: pcie0-3-cfg {
-+		pcie0-3-pins {
-+			pinmux = <K1_PADCONF(54, 3)>,	/* PERST# */
-+				 <K1_PADCONF(55, 3)>,	/* WAKE# */
-+				 <K1_PADCONF(53, 3)>;	/* CLKREQ# */
++  The combo PHY uses an external oscillator as a reference clock.
++  During normal operation, the PCIe or USB port driver is responsible
++  for ensuring all other clocks needed by a PHY are enabled, and all
++  resets affecting the PHY are deasserted.  However, for the combo
++  PHY to perform calibration independent of whether it's later used
++  for PCIe or USB, all PCIe mode clocks and resets must be defined.
 +
-+			bias-pull-up = <0>;
-+			drive-strength = <21>;
-+		};
-+	};
++properties:
++  compatible:
++    const: spacemit,k1-combo-phy
 +
-+	pcie1_3_cfg: pcie1-3-cfg {
-+		pcie1-3-pins {
-+			pinmux = <K1_PADCONF(59, 4)>,	/* PERST# */
-+				 <K1_PADCONF(60, 4)>,	/* WAKE# */
-+				 <K1_PADCONF(61, 4)>;	/* CLKREQ# */
++  reg:
++    items:
++      - description: PHY control registers
 +
-+			bias-pull-up = <0>;
-+			drive-strength = <21>;
-+		};
-+	};
++  clocks:
++    items:
++      - description: External oscillator used by the PHY PLL
++      - description: DWC PCIe Data Bus Interface (DBI) clock
++      - description: DWC PCIe application AXI-bus Master interface clock
++      - description: DWC PCIe application AXI-bus slave interface clock
 +
-+	pcie2_4_cfg: pcie2-4-cfg {
-+		pcie2-4-pins {
-+			pinmux = <K1_PADCONF(62, 4)>,	/* PERST# */
-+				 <K1_PADCONF(112, 3)>,	/* WAKE# */
-+				 <K1_PADCONF(117, 4)>;	/* CLKREQ# */
++  clock-names:
++    items:
++      - const: refclk
++      - const: dbi
++      - const: mstr
++      - const: slv
 +
-+			bias-pull-up = <0>;
-+			drive-strength = <21>;
-+		};
-+	};
++  resets:
++    items:
++      - description: PHY reset; remains deasserted after initialization
++      - description: DWC PCIe Data Bus Interface (DBI) reset
++      - description: DWC PCIe application AXI-bus Master interface reset
++      - description: DWC PCIe application AXI-bus slave interface reset
 +
- 	pwm14_1_cfg: pwm14-1-cfg {
- 		pwm14-1-pins {
- 			pinmux = <K1_PADCONF(44, 4)>;
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 6cdcd80a7c83b..214216fdecd32 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -4,6 +4,7 @@
-  */
- 
- #include <dt-bindings/clock/spacemit,k1-syscon.h>
-+#include <dt-bindings/phy/phy.h>
- 
- /dts-v1/;
- / {
-@@ -358,6 +359,52 @@ syscon_rcpu2: system-controller@c0888000 {
- 			#reset-cells = <1>;
- 		};
- 
-+		combo_phy: phy@c0b10000 {
-+			compatible = "spacemit,k1-combo-phy";
-+			reg = <0x0 0xc0b10000 0x0 0x1000>;
-+			clocks = <&vctcxo_24m>,
-+				 <&syscon_apmu CLK_PCIE0_DBI>,
-+				 <&syscon_apmu CLK_PCIE0_MASTER>,
-+				 <&syscon_apmu CLK_PCIE0_SLAVE>;
-+			clock-names = "refclk",
-+				      "dbi",
-+				      "mstr",
-+				      "slv";
-+			resets = <&syscon_apmu RESET_PCIE0_GLOBAL>,
-+				 <&syscon_apmu RESET_PCIE0_DBI>,
-+				 <&syscon_apmu RESET_PCIE0_MASTER>,
-+				 <&syscon_apmu RESET_PCIE0_SLAVE>;
-+			reset-names = "phy",
-+				      "dbi",
-+				      "mstr",
-+				      "slv";
-+			#phy-cells = <1>;
-+			spacemit,apmu = <&syscon_apmu>;
-+			status = "disabled";
-+		};
++  reset-names:
++    items:
++      - const: phy
++      - const: dbi
++      - const: mstr
++      - const: slv
 +
-+		pcie1_phy: phy@c0c10000 {
-+			compatible = "spacemit,k1-pcie-phy";
-+			reg = <0x0 0xc0c10000 0x0 0x1000>;
-+			clocks = <&vctcxo_24m>;
-+			clock-names = "refclk";
-+			resets = <&syscon_apmu RESET_PCIE1_GLOBAL>;
-+			reset-names = "phy";
-+			#phy-cells = <0>;
-+			status = "disabled";
-+		};
++  spacemit,apmu:
++    description:
++      A phandle that refers to the APMU system controller, whose
++      regmap is used in setting the mode
++    $ref: /schemas/types.yaml#/definitions/phandle
 +
-+		pcie2_phy: phy@c0d10000 {
-+			compatible = "spacemit,k1-pcie-phy";
-+			reg = <0x0 0xc0d10000 0x0 0x1000>;
-+			clocks = <&vctcxo_24m>;
-+			clock-names = "refclk";
-+			resets = <&syscon_apmu RESET_PCIE2_GLOBAL>;
-+			reset-names = "phy";
-+			#phy-cells = <0>;
-+			status = "disabled";
-+		};
++  "#phy-cells":
++    const: 1
++    description:
++      The argument value (PHY_TYPE_PCIE or PHY_TYPE_USB3) determines
++      whether the PHY operates in PCIe or USB3 mode.
 +
- 		syscon_apbc: system-controller@d4015000 {
- 			compatible = "spacemit,k1-syscon-apbc";
- 			reg = <0x0 0xd4015000 0x0 0x1000>;
-@@ -847,6 +894,105 @@ pcie-bus {
- 			#size-cells = <2>;
- 			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
- 				     <0x0 0xb8000000 0x1 0x38000000 0x3 0x48000000>;
-+			pcie0: pcie@ca000000 {
-+				compatible = "spacemit,k1-pcie";
-+				reg = <0x0 0xca000000 0x0 0x00001000>,
-+				      <0x0 0xca300000 0x0 0x0001ff24>,
-+				      <0x0 0x8f000000 0x0 0x00002000>,
-+				      <0x0 0xc0b20000 0x0 0x00001000>;
-+				reg-names = "dbi",
-+					    "atu",
-+					    "config",
-+					    "link";
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges = <0x01000000 0x0 0x00000000 0x0 0x8f002000 0x0 0x00100000>,
-+					 <0x02000000 0x0 0x80000000 0x0 0x80000000 0x0 0x0f000000>;
-+				interrupts = <141>;
-+				interrupt-names = "msi";
-+				clocks = <&syscon_apmu CLK_PCIE0_DBI>,
-+					 <&syscon_apmu CLK_PCIE0_MASTER>,
-+					 <&syscon_apmu CLK_PCIE0_SLAVE>;
-+				clock-names = "dbi",
-+					      "mstr",
-+					      "slv";
-+				resets = <&syscon_apmu RESET_PCIE0_DBI>,
-+					 <&syscon_apmu RESET_PCIE0_MASTER>,
-+					 <&syscon_apmu RESET_PCIE0_SLAVE>;
-+				reset-names = "dbi",
-+					      "mstr",
-+					      "slv";
-+				device_type = "pci";
-+				spacemit,apmu = <&syscon_apmu 0x03cc>;
-+				status = "disabled";
-+			};
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - spacemit,apmu
++  - "#phy-cells"
 +
-+			pcie1: pcie@ca400000 {
-+				compatible = "spacemit,k1-pcie";
-+				reg = <0x0 0xca400000 0x0 0x00001000>,
-+				      <0x0 0xca700000 0x0 0x0001ff24>,
-+				      <0x0 0x9f000000 0x0 0x00002000>,
-+				      <0x0 0xc0c20000 0x0 0x00001000>;
-+				reg-names = "dbi",
-+					    "atu",
-+					    "config",
-+					    "link";
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges = <0x01000000 0x0 0x00000000 0x0 0x9f002000 0x0 0x00100000>,
-+					 <0x02000000 0x0 0x90000000 0x0 0x90000000 0x0 0x0f000000>;
-+				interrupts = <142>;
-+				interrupt-names = "msi";
-+				clocks = <&syscon_apmu CLK_PCIE1_DBI>,
-+					 <&syscon_apmu CLK_PCIE1_MASTER>,
-+					 <&syscon_apmu CLK_PCIE1_SLAVE>;
-+				clock-names = "dbi",
-+					      "mstr",
-+					      "slv";
-+				resets = <&syscon_apmu RESET_PCIE1_DBI>,
-+					 <&syscon_apmu RESET_PCIE1_MASTER>,
-+					 <&syscon_apmu RESET_PCIE1_SLAVE>;
-+				reset-names = "dbi",
-+					      "mstr",
-+					      "slv";
-+				device_type = "pci";
-+				spacemit,apmu = <&syscon_apmu 0x3d4>;
-+				status = "disabled";
-+			};
++additionalProperties: false
 +
-+			pcie2: pcie@ca800000 {
-+				compatible = "spacemit,k1-pcie";
-+				reg = <0x0 0xca800000 0x0 0x00001000>,
-+				      <0x0 0xcab00000 0x0 0x0001ff24>,
-+				      <0x0 0xb7000000 0x0 0x00002000>,
-+				      <0x0 0xc0d20000 0x0 0x00001000>;
-+				reg-names = "dbi",
-+					    "atu",
-+					    "config",
-+					    "link";
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges = <0x01000000 0x0 0x00000000 0x0 0xb7002000 0x0 0x00100000>,
-+					 <0x42000000 0x0 0xa0000000 0x0 0xa0000000 0x0 0x10000000>,
-+					 <0x02000000 0x0 0xb0000000 0x0 0xb0000000 0x0 0x07000000>;
-+				interrupts = <143>;
-+				interrupt-names = "msi";
-+				clocks = <&syscon_apmu CLK_PCIE2_DBI>,
-+					 <&syscon_apmu CLK_PCIE2_MASTER>,
-+					 <&syscon_apmu CLK_PCIE2_SLAVE>;
-+				clock-names = "dbi",
-+					      "mstr",
-+					      "slv";
-+				resets = <&syscon_apmu RESET_PCIE2_DBI>,
-+					 <&syscon_apmu RESET_PCIE2_MASTER>,
-+					 <&syscon_apmu RESET_PCIE2_SLAVE>;
-+				reset-names = "dbi",
-+					      "mstr",
-+					      "slv";
-+				device_type = "pci";
-+				spacemit,apmu = <&syscon_apmu 0x3dc>;
-+				status = "disabled";
-+			};
- 		};
- 
- 		storage-bus {
++examples:
++  - |
++    #include <dt-bindings/clock/spacemit,k1-syscon.h>
++    phy@c0b10000 {
++        compatible = "spacemit,k1-combo-phy";
++        reg = <0xc0b10000 0x1000>;
++        clocks = <&vctcxo_24m>,
++                 <&syscon_apmu CLK_PCIE0_DBI>,
++                 <&syscon_apmu CLK_PCIE0_MASTER>,
++                 <&syscon_apmu CLK_PCIE0_SLAVE>;
++        clock-names = "refclk",
++                      "dbi",
++                      "mstr",
++                      "slv";
++        resets = <&syscon_apmu RESET_PCIE0_GLOBAL>,
++                 <&syscon_apmu RESET_PCIE0_DBI>,
++                 <&syscon_apmu RESET_PCIE0_MASTER>,
++                 <&syscon_apmu RESET_PCIE0_SLAVE>;
++        reset-names = "phy",
++                      "dbi",
++                      "mstr",
++                      "slv";
++        spacemit,apmu = <&syscon_apmu>;
++        #phy-cells = <1>;
++    };
 -- 
 2.48.1
 
