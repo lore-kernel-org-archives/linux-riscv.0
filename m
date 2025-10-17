@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D27FCCD199
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 16:27:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E23CCD199
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 16:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c8xYkQNPLJ0NylzXxbzY7GWdbXTNYGY8/lpwEj5EKBA=; b=XOONEKqlTDngL4
-	+rlo7+deUjf3DGZJyRADWkJzrYnXTPzb9fwBTPo30dhx2P15KqcRawAT0NSqm0uETOnFe72pZUnyp
-	YfOBgWD5Ayzz3hqdIix4DWy6QKdSgeRtnJVrUbb9LwTXCD3f2wBCeoGPJFucvpu3hsIhQKiO5GGgx
-	ZdJKvNAzfwgPX2MTTsHhAHp9GYUOeDfADmWzEtbzvyUzLSv3ezI3zAf1qXFvGNa+nRyjIye4rSYZW
-	vo4D9ck9cKQlIc6rr633pVax3z48gqfGvfzWS6/eHhBtZaqqu5VUmNfKE3/1XruABvePmI1LNVIjT
-	6oy1/Pdl3vNiJu+wE7lg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ty+6JVcb2Y+AJydTel2zIySvd5oEPjIl1gAOH7HYSyI=; b=GGZNJOuTUp1w0d
+	HKL0J51A9eOCKvi33r0MYUs8vxFnG9ECBNQFGk10f/fpYQd45fh0w7kNJv8mATQIeaMoRKGupBB1b
+	u5GY9ARvr7RUrVfqhlD/L7gq59/kxu4AMt4fr5aNKBavAT32lAttEpf5O/VTdy8an/2rflWSdK3lY
+	k3hxeZKC95A/OxENuKDwKUxRbdGe1XIHSfLX3ZmlM8ok3RXJmpYfii3Y3WkhC/2Qqiq+IMrQ6De6x
+	HIZuZu5zAjQAabjkgXKIvTKnZEmFHNeO9CAMwvDVvLmoZcgIgCMN0r8bJxiO7k0ZzLFb0dvXQAIYe
+	nGSbXiBN8Bzx9ruyFUew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9nIG-00000008RYr-0fqE;
-	Fri, 17 Oct 2025 16:27:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v9njv-00000008WP3-2zPB;
+	Fri, 17 Oct 2025 16:55:39 +0000
+Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9nIE-00000008RYF-1ox9
+	id 1v9njs-00000008WOH-4B1X
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 16:27:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DEA486052C
-	for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 16:27:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D98CC16AAE
-	for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 16:27:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760718420;
-	bh=8VfD/406RwiCMgcEBlvmZiOjcE4YxqTzVMxVhrToZ+M=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=iWOhR5wZY5f4efgdHeBk9A0dCweP+3u1cQnDOe2XVZwcc1wRwNCTgP/muD5ig6YcP
-	 PeF6kjDvfnWbEfT5Aej7wdpfEekT7xq1bn9oLTWuTYWoAz2SKh1hLKa5tlSRsQUVNk
-	 NF1mw4a0MyQTVXmD2FCkRGr2+OBu8mD123o8LfVZNKkPTGSlEmACDAKqPDgrC+8vXG
-	 ENluhb/p+wEIWaz8MidGKvNhHnC20oz8qC8FloBAzkon9MlZTFBZcRXzEtmoiot9Y7
-	 fDnd71OoDxAcnUFT/gUy2tUPCRPbA+ra60G0elSXDyAKhgqi0ET42t6dYLePSCgzzS
-	 MdZA9zt3hW+vw==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-57bd482dfd2so2090826e87.2
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 09:27:00 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW6/cZVxbj4O4Lrws6A+FDO/QGt/MXO2gLfm6WpFd9NLX75OQ4TgirOTE9Zrw1EmbT5G8Q8uRcurEjDLg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBPThSl3DXh+EiEar3SNAbgRVVTtWwGQsjOs4v760p9UQIeMsw
-	whZVPajUQ7qb58rsTsQ/5Tg+w2hdVvP1PdwdYuKr0OqL6fEbAGT9jYeHbLn2l0NZaCUQ4EDhOdR
-	PLSwJhI7XhZRbbDqKRfH1qu0DLc34D0c=
-X-Google-Smtp-Source: AGHT+IFprw8czhfbQksqvWLP33iOCV9x+wGKMsbvBVEwL3PGVUpyMkEAQwIKJCflJAogYYqB0NgG9EMzSKWajs6p15M=
-X-Received: by 2002:a05:6512:2c03:b0:591:c202:45db with SMTP id
- 2adb3069b0e04-591d8546902mr1595944e87.39.1760718418870; Fri, 17 Oct 2025
- 09:26:58 -0700 (PDT)
+	Fri, 17 Oct 2025 16:55:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:
+	References; bh=S26scI1RaRDhZbQ8e/uTT22q3DQniQvBR99tKB2Z1BU=; b=bc073HTx+Pdu60
+	36xiqzgMIXTwO7P4NUIAm75N96JZsjouxMrm23CLvyPileUwPa3nGaUsVin1+kn6AublQHVLqcjZE
+	vuduAozQ+rIk5MMI+211g7UpiarvLk2t4wPcPX+Ewql/jgNyFlkZl7/RwYtZjAo0OVT3CYGti7OsB
+	uozFZV/xGA1Df7xnxH0nPugCeuh/hsZcQVeq0IqBN9vK16JEWUEYQevYrnSkgAMc6s2shiIlemqyB
+	4NysmWAproUii+TTYcgK53WQk2RRTJYmqv8qsLSMhHh968OJWoyuGmgPBrY1FZGVsppti0uHgVaFn
+	GCgVhaI79GMmBkU8crfg==;
+Received: from [167.98.27.226] (helo=rainbowdash)
+	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1v9njl-005deO-9V; Fri, 17 Oct 2025 17:55:29 +0100
+Received: from ben by rainbowdash with local (Exim 4.98.2)
+	(envelope-from <ben@rainbowdash>)
+	id 1v9njl-00000002wbk-06cr;
+	Fri, 17 Oct 2025 17:55:29 +0100
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: linux-riscv@lists.infradead.org
+Cc: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	ajones@ventanamicro.com,
+	Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH] riscv: asm: use .insn for making custom instructioons
+Date: Fri, 17 Oct 2025 17:55:27 +0100
+Message-Id: <20251017165527.701934-1-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
 MIME-Version: 1.0
-References: <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
- <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
- <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
- <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
- <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
- <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
- <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
- <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
- <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com> <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
-In-Reply-To: <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 17 Oct 2025 18:26:47 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
-X-Gm-Features: AS18NWDwz4zbZmQW5XvAmIIWD850b5AgZUuR52rVREJ1ppW8ezbZ6L0AdbIPLIo
-Message-ID: <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Huacai Chen <chenhuacai@kernel.org>, Tiezhu Yang <yangtiezhu@loongson.cn>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_095537_140780_5805478D 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,75 +75,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Oct 2025 at 18:22, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
->
-> On Fri, Oct 17, 2025 at 01:00:17PM +0200, Ard Biesheuvel wrote:
-> > On Thu, 16 Oct 2025 at 17:49, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> > >
-> > > On Thu, Oct 16, 2025 at 04:52:20PM +0200, Ard Biesheuvel wrote:
-> > > > On Tue, 14 Oct 2025 at 18:47, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> > > > > The idea is that libstub code doesn't belong in vmlinux.o because it's
-> > > > > not a part of the kernel proper, and doesn't need to be validated or
-> > > > > modified by objtool for any reason.
-> > > > >
-> > > >
-> > > > I don't see a reason to change this on architectures that a) do not
-> > > > use objtool and b) link the EFI stub into vmlinux. If LoongArch wants
-> > > > to change this, that is fine, but that still does not mean it needs to
-> > > > change on other architectures too.
-> > > >
-> > > > EFI related boot errors are a nightmare to debug, and I will be the
-> > > > one getting the reports when this regresses arm64 on hardware that 2
-> > > > people on the planet have access to.
-> > >
-> > > The idea was to have more consistency, so vmlinux.o never has libstub,
-> > > regardless of arch, but that's your call.
-> > >
-> >
-> > The code in libstub ends up in .init.text, which will be mapped
-> > executable during boot on architectures that incorporate it into
-> > vmlinux.
-> >
-> > If objtool validation is never needed for such code, on the basis that
-> > it is not actually called even though it is present, then I think that
-> > is fine.
-> >
-> > For the other architectures, I don't have any objections in principle,
-> > I'm just being cautious due to the regression risk.
-> >
-> > > I'd still propose we keep the KBUILD_VMLINUX_LIBS_PRELINK mechanism to
-> > > allow other arches to opt in as needed.
-> > >
-> >
-> > Again, no objection in principle. To me, it just seems a lot of churn
-> > just to avoid having to teach objtool about indirect calls to noreturn
-> > functions.
->
-> Well, one of these days we will need to do that with some kind of
-> compiler -fannotate-noreturn feature or plugin or whatever, but this was
-> more about "why are we validating libstub code anyway, it doesn't seem
-> necessary and x86 doesn't do it, so lets make them consistent".
->
+Using .word breaks with big endian builds, making something which
+is not a valid or worse an instruction or pair that does something
+which is not intended.
 
-Sure. So objtool validation is not needed even if the code is
-incorporated into vmlinux, and therefore mapped executable at boot?
-I.e., objtool does not check for gadgets or other things that may be
-problematic even if they are never called directly from reachable
-code?
+It would seem sensible to add an ASM_INSN() wrapper for anyone to
+use for hand assembly of instructions.
 
-> > > And that variable might even be useful for other cases (x86 startup
-> > > code?)
-> > >
-> >
-> > Not all x86 startup code is in .init.text; some of it sticks around
-> > and is still used at runtime. I reckon that implies that objtool
-> > validation will remain needed for that, no?
->
-> I wasn't aware of that, in that case I guess the x86 startup code
-> belongs in vmlinux.o, or at least the runtime portions of it.
->
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+ arch/riscv/include/asm/asm.h      | 6 ++++++
+ arch/riscv/include/asm/insn-def.h | 8 ++++----
+ 2 files changed, 10 insertions(+), 4 deletions(-)
 
-OK thanks for confirming.
+diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
+index 8bd2a11382a3..c92f0ff51ffa 100644
+--- a/arch/riscv/include/asm/asm.h
++++ b/arch/riscv/include/asm/asm.h
+@@ -12,6 +12,12 @@
+ #define __ASM_STR(x)	#x
+ #endif
+ 
++#ifndef CONFIG_AS_HAS_INSN
++#define ASM_INSN(__x) ".4byte " __x
++#else
++#define ASM_INSN(__x) ".insn " __x
++#endif
++
+ #if __riscv_xlen == 64
+ #define __REG_SEL(a, b)	__ASM_STR(a)
+ #elif __riscv_xlen == 32
+diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
+index c9cfcea52cbb..35b5024db0fc 100644
+--- a/arch/riscv/include/asm/insn-def.h
++++ b/arch/riscv/include/asm/insn-def.h
+@@ -256,10 +256,10 @@
+ 	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3),		\
+ 	       SIMM12((offset) & 0xfe0), RS1(base))
+ 
+-#define RISCV_PAUSE	".4byte 0x100000f"
+-#define ZAWRS_WRS_NTO	".4byte 0x00d00073"
+-#define ZAWRS_WRS_STO	".4byte 0x01d00073"
+-#define RISCV_NOP4	".4byte 0x00000013"
++#define RISCV_PAUSE	ASM_INSN("0x100000f")
++#define ZAWRS_WRS_NTO	ASM_INSN("0x00d00073")
++#define ZAWRS_WRS_STO	ASM_INSN("0x01d00073")
++#define RISCV_NOP4	ASM_INSN("0x00000013")
+ 
+ #define RISCV_INSN_NOP4	_AC(0x00000013, U)
+ 
+-- 
+2.37.2.352.g3c44437643
+
 
 _______________________________________________
 linux-riscv mailing list
