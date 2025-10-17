@@ -4,57 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0FDCCD195
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 10:09:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA53CCD1A2
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 10:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=50tEc9Awq05WUzJMJgwd/UdGrg5s/f2lQLw/ws7BEE0=; b=KCCuTCIBXrh0bO
-	0OsM+w0ImOrcVLFed4v8Dua/701AdljaFXkidtHVu7H1rWo8oBucJjfdO0q9lDhSutoliiS8raLlm
-	ETvjMk2lixRK+e0JM4w03elWWuoFi65/MK7h8m+cRf4iW5gHKW6Ttb62eKiS8wNU8onKhwTqtEcOR
-	VB5DjYT8R6IMaViBs6Qi5ROg4+gWAAsCgNUyZCIKSPSKY94vUMJ9SAwWzvhH7AKWZqxyVGFy9MCt+
-	ZLr/u9AuAaU4DghYcLpclQl8ch1TmmzeGNmWJiNKv0seNpzu29qiVf4pBBEEIrYR1SS3iTvwUBqAs
-	e1mb5Mz+/CiaZtgPfv7w==;
+	List-Owner; bh=JM8FEm7IZu3l5l8Lp38TD7h5Lknm1wqXu280EcPtVxk=; b=G+ajnO3s6abmgi
+	x0cZrUsZf96T2VzEBo2sJLw8+ktKTvkAO4QnWuhhfHonzWHJFVbnjHsHs+GgmMHoTMUNQqv7baTRS
+	8UJTrc5y6Hhqh2T/8UDBIVoikjDdxZJBdcTFyXMUUr5MkK9LJP73jzPKLkClZvTJaHPcTvrPsvCpD
+	rYrfeztgZe8TtO5OqMiGdxO5vhLAUds/tYnKD35e55rcGYv0NAVwa3bSZR3stIq3XhFBugzS3kQBD
+	a4CEiea5np/prBuIyLI60ZbdqJu6L1LP3uA3AbONLGnFl68mEa+ZIYeWWdLSMFI/I1RAtGeRBSf8l
+	kFQS1ME+ZEmozweXNS0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hOv-00000007Shu-3S4t;
-	Fri, 17 Oct 2025 10:09:33 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1v9hOz-00000007Soe-3uRG;
+	Fri, 17 Oct 2025 10:09:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hOj-00000007SKN-0EfK;
+	id 1v9hOm-00000007SRb-1XRb;
+	Fri, 17 Oct 2025 10:09:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
+	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
+	bh=imtHkr/s1EgDhFpHdqDFKeA7fLJRHDRNr716F17Aia0=; b=mxE/KCSor7Q0fJSUSJ5GFsyCBn
+	acdbyIJ8Qs39dlNQQwVjiei+rAZDrd+rZ+iYQjtGI0LOXiMnz6L55IKex+hwLNYMKNNjRgztmNQD5
+	qFtnxL2w8PvLRHvwQABeYOCX22LoOO1NzvOh1q9RAEQDijGFR/PIzbVyvxP6vGRRZU/Ez3oWEBn4j
+	gAyfeLfIA2aBHcPVa3P0jsABdILyIful1XsTVFTHuSKsCvELsDFasRjmM1y292Xy2JehO/N7B9sgG
+	QnElJ26+zK5RoL8EIOPsamRhHVEHAIs8K9i3aS9cM9N8X67XvOgb3MeaVu5bXgbGYpNhpC2siSfpn
+	9o9OmuBA==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9hOh-00000007Rqg-3qOW;
 	Fri, 17 Oct 2025 10:09:22 +0000
-Message-ID: <20251017093030.570048808@linutronix.de>
+Message-ID: <20251017093030.506939239@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760695759;
+	s=2020; t=1760695757;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=pR7+HoSAZ5DPHGbJNIgf4IBT7k17Ap8Nygw2CprMOJk=;
-	b=C9k9phXBv3eSc0l2GIAi2J0FDFvKBMovIjwdFiDy0e0i1kEvIzJQWQtsVykSYWQA3zjanX
-	qK3FqAmeA4xpyNd7UTfXnUV56EjTSIUeQtC9nFHZEArPQ/fbOm6glmVPTvfaVQoaS64AGl
-	c0H5PbeukmuOWNI3zg7uznrWybvjBa9ctDylchNsPz63c2AcGkhbqt2XawHnh2gquvGOiY
-	QZ6/TwVeXt4VR/n2CM0osByZwoQCPo5GbmlRV84rc5i3dXEBh5eUrp9liWqkWxgX8mlObi
-	ABikS60oKdGSbS6eP+JMOOnnRu35rw9ZacukDYaMdGK1k0mW/MewxBrep5VpHQ==
+	 references:references; bh=imtHkr/s1EgDhFpHdqDFKeA7fLJRHDRNr716F17Aia0=;
+	b=IxmzYTBfKeP9PdlygwW7c3ZP9RsEre+9I9Ey2tCdF2r4gM5hRSxvZOgB2ZLVGOdPGXmKU1
+	+c28eI+CQpneZgUdj/lriB9ag5dTOGtuqXD15nxa5UXlpIpMczCKiocdjT0TVrERWiHUyx
+	B1W1XHif/HWSLsDJ1nx87OhoXNRPlg8O5YXz2UGSMHh3EdLm4J1Uj7udO1S/MhoJ2JUuwm
+	YRwTS4vWjwKj+jetDYmTFxWTdSdvwVOj336LD4FgupH+XPVMUYSslfG3wlPbFb8EhUw/kW
+	9X4Sd0io6pZfWY+0dDBIBCP78dmmq/qY+yUiuFO6HoBDI1YBYics9RbbUuLpQA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760695759;
+	s=2020e; t=1760695757;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=pR7+HoSAZ5DPHGbJNIgf4IBT7k17Ap8Nygw2CprMOJk=;
-	b=NqCfqZvIshq24z2AZVleQwm35Sz2Df1iT0581FbObZM20gQEQEv4ZdvC1q1Mdnah93RMie
-	jPyBo6i+7usluCDg==
+	 references:references; bh=imtHkr/s1EgDhFpHdqDFKeA7fLJRHDRNr716F17Aia0=;
+	b=tXLovSJd0rwq2r5yozTcKThhOnpAdq0BuaTsusGQM16gqfWgKUw8QGS1yKgXpz/pjSKgCv
+	yXO1lDz+ddt6kiAA==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>,
- Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org,
+Cc: x86@kernel.org,
  kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
  Linus Torvalds <torvalds@linux-foundation.org>,
- x86@kernel.org,
  Madhavan Srinivasan <maddy@linux.ibm.com>,
  Michael Ellerman <mpe@ellerman.id.au>,
  Nicholas Piggin <npiggin@gmail.com>,
@@ -74,14 +84,18 @@ Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  Peter Zijlstra <peterz@infradead.org>,
  Darren Hart <dvhart@infradead.org>,
  Davidlohr Bueso <dave@stgolabs.net>,
- =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>
-Subject: [patch V3 12/12] select: Convert to scoped masked user access
+ =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>,
+ Jan Kara <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org
+Subject: [patch V3 11/12] x86/futex: Convert to scoped masked user access
 References: <20251017085938.150569636@linutronix.de>
 MIME-Version: 1.0
-Date: Fri, 17 Oct 2025 12:09:18 +0200 (CEST)
+Date: Fri, 17 Oct 2025 12:09:16 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_030921_285623_B0A64EFE 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20251017_110920_359834_71CE5A31 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,48 +112,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gleixner <tglx@linutronix.de>
-
 Replace the open coded implementation with the scoped masked user access
-guard.
+guards
 
 No functional change intended.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>
-Cc: Christian Brauner <brauner@kernel.org>
-Cc: Jan Kara <jack@suse.cz>
-Cc: linux-fsdevel@vger.kernel.org
+Cc: x86@kernel.org
 ---
-V3: Adopt to scope changes
+V3: Adapt to scope changes
+V2: Convert to scoped masked access
+    Use RW access functions - Christophe
 ---
- fs/select.c |   12 ++++--------
- 1 file changed, 4 insertions(+), 8 deletions(-)
+ arch/x86/include/asm/futex.h |   75 ++++++++++++++++++-------------------------
+ 1 file changed, 33 insertions(+), 42 deletions(-)
 ---
---- a/fs/select.c
-+++ b/fs/select.c
-@@ -776,17 +776,13 @@ static inline int get_sigset_argpack(str
+--- a/arch/x86/include/asm/futex.h
++++ b/arch/x86/include/asm/futex.h
+@@ -46,38 +46,31 @@ do {								\
+ } while(0)
+ 
+ static __always_inline int arch_futex_atomic_op_inuser(int op, int oparg, int *oval,
+-		u32 __user *uaddr)
++						       u32 __user *uaddr)
  {
- 	// the path is hot enough for overhead of copy_from_user() to matter
- 	if (from) {
--		if (can_do_masked_user_access())
--			from = masked_user_access_begin(from);
--		else if (!user_read_access_begin(from, sizeof(*from)))
--			return -EFAULT;
--		unsafe_get_user(to->p, &from->p, Efault);
--		unsafe_get_user(to->size, &from->size, Efault);
--		user_read_access_end();
-+		scoped_masked_user_rw_access(from, Efault) {
-+			unsafe_get_user(to->p, &from->p, Efault);
-+			unsafe_get_user(to->size, &from->size, Efault);
+-	if (can_do_masked_user_access())
+-		uaddr = masked_user_access_begin(uaddr);
+-	else if (!user_access_begin(uaddr, sizeof(u32)))
+-		return -EFAULT;
+-
+-	switch (op) {
+-	case FUTEX_OP_SET:
+-		unsafe_atomic_op1("xchgl %0, %2", oval, uaddr, oparg, Efault);
+-		break;
+-	case FUTEX_OP_ADD:
+-		unsafe_atomic_op1(LOCK_PREFIX "xaddl %0, %2", oval,
+-				   uaddr, oparg, Efault);
+-		break;
+-	case FUTEX_OP_OR:
+-		unsafe_atomic_op2("orl %4, %3", oval, uaddr, oparg, Efault);
+-		break;
+-	case FUTEX_OP_ANDN:
+-		unsafe_atomic_op2("andl %4, %3", oval, uaddr, ~oparg, Efault);
+-		break;
+-	case FUTEX_OP_XOR:
+-		unsafe_atomic_op2("xorl %4, %3", oval, uaddr, oparg, Efault);
+-		break;
+-	default:
+-		user_access_end();
+-		return -ENOSYS;
++	scoped_masked_user_rw_access(uaddr, Efault) {
++		switch (op) {
++		case FUTEX_OP_SET:
++			unsafe_atomic_op1("xchgl %0, %2", oval, uaddr, oparg, Efault);
++			break;
++		case FUTEX_OP_ADD:
++			unsafe_atomic_op1(LOCK_PREFIX "xaddl %0, %2", oval, uaddr, oparg, Efault);
++			break;
++		case FUTEX_OP_OR:
++			unsafe_atomic_op2("orl %4, %3", oval, uaddr, oparg, Efault);
++			break;
++		case FUTEX_OP_ANDN:
++			unsafe_atomic_op2("andl %4, %3", oval, uaddr, ~oparg, Efault);
++			break;
++		case FUTEX_OP_XOR:
++			unsafe_atomic_op2("xorl %4, %3", oval, uaddr, oparg, Efault);
++			break;
++		default:
++			return -ENOSYS;
 +		}
  	}
+-	user_access_end();
  	return 0;
  Efault:
--	user_read_access_end();
+-	user_access_end();
  	return -EFAULT;
  }
  
+@@ -86,21 +79,19 @@ static inline int futex_atomic_cmpxchg_i
+ {
+ 	int ret = 0;
+ 
+-	if (can_do_masked_user_access())
+-		uaddr = masked_user_access_begin(uaddr);
+-	else if (!user_access_begin(uaddr, sizeof(u32)))
+-		return -EFAULT;
+-	asm volatile("\n"
+-		"1:\t" LOCK_PREFIX "cmpxchgl %3, %2\n"
+-		"2:\n"
+-		_ASM_EXTABLE_TYPE_REG(1b, 2b, EX_TYPE_EFAULT_REG, %0) \
+-		: "+r" (ret), "=a" (oldval), "+m" (*uaddr)
+-		: "r" (newval), "1" (oldval)
+-		: "memory"
+-	);
+-	user_access_end();
+-	*uval = oldval;
++	scoped_masked_user_rw_access(uaddr, Efault) {
++		asm volatile("\n"
++			     "1:\t" LOCK_PREFIX "cmpxchgl %3, %2\n"
++			     "2:\n"
++			     _ASM_EXTABLE_TYPE_REG(1b, 2b, EX_TYPE_EFAULT_REG, %0) \
++			     : "+r" (ret), "=a" (oldval), "+m" (*uaddr)
++			     : "r" (newval), "1" (oldval)
++			     : "memory");
++		*uval = oldval;
++	}
+ 	return ret;
++Efault:
++	return -EFAULT;
+ }
+ 
+ #endif
 
 
 _______________________________________________
