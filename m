@@ -4,116 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9801ECCD199
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 15:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA16CCD195
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 15:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1EegqknloYG/eTqpPEf/HWD2rVmHEJikO7TnrqO4OnE=; b=ud7UhuNjhLE9yL8c9tvyTc2qCg
-	OeZCV0NNPgmZqI75Jg+1vbJx64l60FFy/0vB6qg2/n1ZV7ashP9LLB1zw32oBkVMQ74bYMcgGdYyk
-	K8vHYgBaq2HTio/emra/74vn47wzzE30muKQzxII8Qp5YQElLP/KRqmiCKJpbOwcq75SZ0B6oH2ZS
-	A59a9l764+BGGZstGqdmTr0Vyp1jcfKmFPukGKbvAJfbbO3ke8EBhynG17ZlOg5TPwk97IBrzsicz
-	v7TTg66YHUPy6AgEuDGBmTi9rWLMsjFdwZFIJj/YDurFWCCCdxY3GuS06CwCAYCvavvve1S+F32Jt
-	nIwat8pg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RwY8GmhtQ+WKZjVrAq+rOo8ZdtM9xUepYMt9G6Tu6+Q=; b=iEwD7dlVxvSG+p
+	XN8KgBF7aTllq4ZOESoHCw9Qexfua12JfQUJYMpAaTET3DWc0EK5QFB/Qg2bScdfLu1Y6Tfhr/NLD
+	yvnQ4uDyXcV0hy5o8cMBgBS1Umi/j9f18GAnhR9ayhOU+kl0qvPXSsEnNKEG6/geVP+LAPShCdLXS
+	KrlxYDggNQAm7AFjKzmW27rjRp3Cc97Dr6NnqEDKelh4ETFTy8v9i6G0Cz8VTK6MMS+AI+vo8nnOs
+	OyQzIfFXXAWiRupul9foKTpjenf9dVyQuj6gT02WLwbzwLZ1BEcbdRkNlE1l1D80LheZIYyTgdgjs
+	cNb9SME6Ou/MKR1/NdcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mmT-00000008Kvc-20oU;
-	Fri, 17 Oct 2025 15:54:13 +0000
-Received: from earwig.ash.relay.mailchannels.net ([23.83.222.54])
+	id 1v9mrq-00000008LiM-0SLP;
+	Fri, 17 Oct 2025 15:59:46 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mmP-00000008Kv8-1zgG
+	id 1v9mrl-00000008Lei-3mVD
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 15:54:11 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id CFFCB701A01;
-	Fri, 17 Oct 2025 15:54:07 +0000 (UTC)
-Received: from fr-int-smtpout25.hostinger.io (100-117-132-18.trex-nlb.outbound.svc.cluster.local [100.117.132.18])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 602B2701AEE;
-	Fri, 17 Oct 2025 15:54:01 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1760716443; a=rsa-sha256;
-	cv=none;
-	b=qsbdjJATkXL3pVbVt/nMJLo5Bik+gXYtmu8SG5torvU5Tu6ofvZlAEbLTQVm/ZAPJihpg/
-	Kh1MAJNzfUVOr9EF8kPOutx7SZhy6lYppkxmnTtZrIiV4+bYK4/8CTVsxSnLPnrZmn85Kg
-	fc06Cs2ZWSzBQ3/tKfcTp/EhtaVa1o+3w6dk8vS+OvninEBCmu7GaQ5/pFpDSpyLpYR9id
-	gwJ8fu4L7sz2zvx4WI/VDi3E/qOZ1YBMTURVorMV/vYgjZUx9Dj78YB5ItXVyIlHMP2JmL
-	9HYQEjlirZIpGb+wIqnZ2er0gNW002stlHtcritUDc3nRV48a/qQan6AVmd0ew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1760716443;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=F1FFVJG2rkiUWHHF25ZM11yfG5to6mYY/Am7bSXow1w=;
-	b=g4gw5xwKjwzE6nyJqxtt98VD+XSdfMX7m/AsaUhBACTkHpYj8rO73kL7pTTlLm/sIMAfUu
-	haDL87tDSS4JdTaHg8W0DL8uNQaIqhCAw+KsE0gA+N659ADCbK/5MBHu03lZR7QK13XjGG
-	Imj+q82dRNCureS635wjDw3XaL5/vzM/zO+QTBk7jK/NkJqfJee/7RCMrZFHafwOtIl+Yv
-	I9NxOU+wJcV6Y0iEWW6EE1GcCgG67qX3z4qLRgee1qoxGK0ACL49RO2JMxW9mYknvZNKTl
-	/fMcPq9zTeu8YXfhS4tV6LxV6AGfC5XU4fg71EPAcyYDKXoSDGzJ1W7mj/tkKQ==
-ARC-Authentication-Results: i=1;
-	rspamd-fbfbcbd77-nmt89;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Interest-Invention: 3d5ae642033bbe25_1760716447513_1362389868
-X-MC-Loop-Signature: 1760716447513:724433826
-X-MC-Ingress-Time: 1760716447513
-Received: from fr-int-smtpout25.hostinger.io (fr-int-smtpout25.hostinger.io
- [148.222.54.38])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.117.132.18 (trex/7.1.3);
-	Fri, 17 Oct 2025 15:54:07 +0000
-Received: from [IPV6:2a04:cec0:1210:4d12:deca:bae:eaaa:c8e1] (unknown [IPv6:2a04:cec0:1210:4d12:deca:bae:eaaa:c8e1])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4cp8WD3ntHz1y05;
-	Fri, 17 Oct 2025 15:53:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1760716436;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=F1FFVJG2rkiUWHHF25ZM11yfG5to6mYY/Am7bSXow1w=;
-	b=M02/l1LY/12rIEeTpPcENXTumRGFuqsL03PFKuftuURXv6DClseDI47zTy3+8tKFYpqX76
-	0VQ+9rEgw9PJ80bZ6PXcrTECo7oheathXmj/GV5FNt1UdrXei+fwZyOGqP7trZEtz5UtPg
-	+MEvXjkixRqTRa8juNpu1Uj1/6ZTgGToTH6xRG3B+nEyor5laOstctdf9zuGndOFyWZ9zI
-	nBv/jGpMxCHcw/A0nw0cwpSVSJeklLbd+XGM4tvdOGrnWBvO7aVjuprKWyvdZ3QXicsfqZ
-	1cDKdlfl8i77exoN6n3JgzRQQynSb0za7ZTrTpe99LVXbTRZ08WIq1I3M2WDHA==
-Message-ID: <63b2056f-3d5a-4fca-8600-526619c33647@rootcommit.com>
+	Fri, 17 Oct 2025 15:59:43 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-78f3bfe3f69so1957707b3a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 08:59:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1760716781; x=1761321581; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8w5xDGLO7hW3hS92oDJ9fb7AKUAHlmH+03Jt/Z8OfK8=;
+        b=QV8Af3fn5a1nejJmJ/gfb/Uaav/9EB1MKtIRnjn1c2mBmgwfQkcqd75tfgiMhPAlgA
+         LtPf4i+fM2tjcJOKX5uTvuASD20fzC2ARZTKqDXml9pr3hl7K4p89jsEBXETYJYBGEKN
+         BP1X6rUGd8N8AXpK0cekq5phEUkfr6f/5AhERK3WS5SenHhOljQW7oHxG02RjLgC1nfZ
+         7s8m7vYc1SF4x1TQlaTvL9oAAcLF3+BglSGEnco8ZLi5+0dGQIb05K4szIJgIhSQsgrU
+         IiR+oKSa0taiC1D8kTcvpPNWCtQS8t9tXsUStpVAJN2CwVL7pXvclSrj5BEFUEsOtDiQ
+         di0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760716781; x=1761321581;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8w5xDGLO7hW3hS92oDJ9fb7AKUAHlmH+03Jt/Z8OfK8=;
+        b=aw/SxXp5EAtppLRj5VnuyodXVvz83YykDlHqFCfIxpHnBq4ValdvWLHQtCBu6iBkzh
+         sUbh69xqLaGBawO9QO+I95ARth2r6y0eqWjaLsa+sqNHDh1J9+B+Wm13oH6CAN2k7ozt
+         bHBSOVC70c81bS9r1KJUfJBQY2l7MWal1Ws6feBJHBf58Ifqo605BNFCXsfm5UCaJc+O
+         p6M/6OCPX0jrA3yZfRYbPoYh0/jKTafBIINGkTVY35+58eaPh/AGKoSpyD5HbC8q3op2
+         VBIoz+MxwGITbZiiXIZTwnB8A+2dIK/GjYYXTMvV3c6lPUrVIJ5fbaJ1++aYqLwlWFnp
+         ExZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXwpL3vlbnJSWQwx5u9MJ7Xrxy0w4r35Ycrcu2uRc5ZledqqvJ+2fFVnaOOPsP5V5PufgnAKvX97xQmiA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxx6Z7n7ZmA35CeB+hSS+r90Kv9yLS1cXTfqaeig5jbNoF6tV4T
+	/SHq5SC+7BycpB2a+qvr89hIv60mVqXphWYinZHltDXtyRPPF5NSL82+KFff621xAVE=
+X-Gm-Gg: ASbGncuckSGGBs+fZde452cAhYFgjVqtsNegRyAm30eqKYdFhINJP6O6eJTrTkCT6mR
+	12XNaYPBhGRRBrfuK+U5TOpHbr7oJWvG9nUwptSQ+AdDEf9u3PS1mtb4+2NWyTENmDyXtY2BR1b
+	QEaI9LWljFf4A8y8jPROWLYwK7euzGbWdP4oDB3PjNVADEaxV+WTdZ5Zkg8BSOZt2edEUeJoHR+
+	FkeCao6J2xcZetkLgJaE7ABuSA+gbTX7M9Lr1Y7takGPCaAecY965AVzjY7HVKqt8if73qClpPX
+	Pr+SG2u5OBeQT0CU646oE29cvsxk8kZbYQMqn2qv+a8PzASgGEtbD9jh+mlcNLP4EhljDBK+4p1
+	DPIizddqCoLJtCHSqqhlcOzSVk6xJo3CkrHNGxQ4xR8kzVYm+9p4QqMuAwE/5RYsY42LmuU9XEQ
+	cY33cEAAKwRXivmFwCElD2xkRnlRNSpF7m
+X-Google-Smtp-Source: AGHT+IHNbVvYJz+rYfwfI4m+3NraggPiuTL6qpx95XEifxO4NBe/kLmHp3qJst7WcfaiUNvQG99/Qw==
+X-Received: by 2002:a05:6a21:71c7:b0:334:b734:eed2 with SMTP id adf61e73a8af0-334b734eeedmr685727637.42.1760716780898;
+        Fri, 17 Oct 2025 08:59:40 -0700 (PDT)
+Received: from localhost.localdomain ([122.171.18.129])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6a7669392csm151067a12.18.2025.10.17.08.59.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Oct 2025 08:59:40 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Atish Patra <atish.patra@linux.dev>,
+	Andrew Jones <ajones@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH 1/4] RISC-V: KVM: Convert kvm_riscv_vcpu_sbi_forward() into extension handler
+Date: Fri, 17 Oct 2025 21:29:22 +0530
+Message-ID: <20251017155925.361560-2-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251017155925.361560-1-apatel@ventanamicro.com>
+References: <20251017155925.361560-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] net: spacemit: compile k1_emac driver as built-in by
- default
-To: Emil Renner Berthing <emil.renner.berthing@gmail.com>
-References: <20251017100106.3180482-1-michael.opdenacker@rootcommit.com>
- <20251017100106.3180482-3-michael.opdenacker@rootcommit.com>
- <CANBLGcykz77U_V4CqE7PHvtgmeXiKFo0FXy-sHHiAoZ11HnCjw@mail.gmail.com>
-Content-Language: en-US
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Organization: Root Commit
-In-Reply-To: <CANBLGcykz77U_V4CqE7PHvtgmeXiKFo0FXy-sHHiAoZ11HnCjw@mail.gmail.com>
-Date: Fri, 17 Oct 2025 15:53:44 +0000 (UTC)
-X-CM-Envelope: MS4xfJ9c+Oq6a3xe99yK0EZhAMCEV7n/+Vax87LhLieg7XqJbgnwD5VAarvVM6KCvSMEmHfg5nOc41whlY3NxSYXoCQkRdIalh/pIn9x4gRAnk2Vd/w3J8BV 8+BlmotPVSRFAlCM3amjVpsZDKN8a23XE54m+J0PIowDjfBLXfR3OqPUGpYZ22o82HoMUyBKYEHM7VrcD71CbfiI6NOfPwSjECGCMKOJuX9clYXphkEndH1Z eoGXu3YZ3bxT2XtWKFqBEs98FkRZJ06rdzLtGRjr4gm+JGc5RiDmXaoXlB3MEz8YGpHITKjDURU2tmd0ItVXr6X8MUmf+5nE79861gwIB+T3EiJaqZOUudJK seV2l5MgJbNyPQct/KpUFvoXH1Sl8E9QNpvv5FONjRUe2eRU5UwVlyVCs4FvEWhLkDRpt+qeFz/7h+EkakPaY+VXyOaw88ZKQrvsYPJqGLK8YAtfqTbVC1Ib vjwDhNt1oy05D7dSd6ATeNJq+J4ZkjhuTQ/X39dTk/RBULT9vp2Sd1LLEqUq5s9HgNe9m9V3f6HoKCbLjjTnKIbYMIvNl2x/zlo0Lx9bh6LfBIM1Xr6YBcbl sHL3rf5OblNYUUzdBgPjA00wJPod2kKc1EtqH75mcsrGHnxOLsN5rVnyqi8XlABvjXynwRIjg3GatUnAFHqF8TPyi6U6lAuZBhG12SDE6I/zdjECvGr3ONjI KEdcxt7c/TM=
-X-CM-Analysis: v=2.4 cv=GbNFnhXL c=1 sm=1 tr=0 ts=68f26694 a=HZifvgWxdiUQ9LBJ2kG+mw==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=6my-HHL3l342PdgWGDoA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
-X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_085410_208118_69BB7934 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251017_085941_949328_9D5EF694 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,38 +106,179 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Emil
+All uses of kvm_riscv_vcpu_sbi_forward() also updates retdata->uexit so
+to further reduce code duplication move retdata->uexit assignment to
+kvm_riscv_vcpu_sbi_forward() and convert it into SBI extension handler.
 
-Thanks for the review!
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/include/asm/kvm_vcpu_sbi.h |  4 +++-
+ arch/riscv/kvm/vcpu_sbi.c             |  6 +++++-
+ arch/riscv/kvm/vcpu_sbi_base.c        | 20 +++-----------------
+ arch/riscv/kvm/vcpu_sbi_replace.c     | 27 +--------------------------
+ arch/riscv/kvm/vcpu_sbi_system.c      |  4 +---
+ arch/riscv/kvm/vcpu_sbi_v01.c         |  3 +--
+ 6 files changed, 14 insertions(+), 50 deletions(-)
 
-On 10/17/25 17:33, Emil Renner Berthing wrote:
-> On Fri, 17 Oct 2025 at 12:03, <michael.opdenacker@rootcommit.com> wrote:
->> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
->>
->> Supports booting boards on NFS filesystems, without going
->> through an initramfs.
-> Please don't do this. If we build in every ethernet driver that might
-> be used to boot from NFS we'll end up with almost every driver
-> built-in and huge kernels. If you need this there is nothing
-> preventing you from building the driver in, but please don't bloat
-> defconfig kernels for everyone else.
-
-Understood. You have a point. It's not really a problem to customize 
-kernel configuration for each board as you said.
-So, please forget this particular patch :)
-Cheers
-Michael.
-
+diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+index 3497489e04db..446f4a8eb3cd 100644
+--- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
++++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+@@ -69,7 +69,9 @@ struct kvm_vcpu_sbi_extension {
+ 			     unsigned long reg_size, const void *reg_val);
+ };
+ 
+-void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run);
++int kvm_riscv_vcpu_sbi_forward_handler(struct kvm_vcpu *vcpu,
++				       struct kvm_run *run,
++				       struct kvm_vcpu_sbi_return *retdata);
+ void kvm_riscv_vcpu_sbi_system_reset(struct kvm_vcpu *vcpu,
+ 				     struct kvm_run *run,
+ 				     u32 type, u64 flags);
+diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+index 1b13623380e1..fd4106c276d8 100644
+--- a/arch/riscv/kvm/vcpu_sbi.c
++++ b/arch/riscv/kvm/vcpu_sbi.c
+@@ -120,7 +120,9 @@ static bool riscv_vcpu_supports_sbi_ext(struct kvm_vcpu *vcpu, int idx)
+ 	return sext && scontext->ext_status[sext->ext_idx] != KVM_RISCV_SBI_EXT_STATUS_UNAVAILABLE;
+ }
+ 
+-void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
++int kvm_riscv_vcpu_sbi_forward_handler(struct kvm_vcpu *vcpu,
++				       struct kvm_run *run,
++				       struct kvm_vcpu_sbi_return *retdata)
+ {
+ 	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
+ 
+@@ -137,6 +139,8 @@ void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
+ 	run->riscv_sbi.args[5] = cp->a5;
+ 	run->riscv_sbi.ret[0] = SBI_ERR_NOT_SUPPORTED;
+ 	run->riscv_sbi.ret[1] = 0;
++	retdata->uexit = true;
++	return 0;
+ }
+ 
+ void kvm_riscv_vcpu_sbi_system_reset(struct kvm_vcpu *vcpu,
+diff --git a/arch/riscv/kvm/vcpu_sbi_base.c b/arch/riscv/kvm/vcpu_sbi_base.c
+index 5bc570b984f4..ca489f2dfbdf 100644
+--- a/arch/riscv/kvm/vcpu_sbi_base.c
++++ b/arch/riscv/kvm/vcpu_sbi_base.c
+@@ -41,8 +41,7 @@ static int kvm_sbi_ext_base_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			 * For experimental/vendor extensions
+ 			 * forward it to the userspace
+ 			 */
+-			kvm_riscv_vcpu_sbi_forward(vcpu, run);
+-			retdata->uexit = true;
++			return kvm_riscv_vcpu_sbi_forward_handler(vcpu, run, retdata);
+ 		} else {
+ 			sbi_ext = kvm_vcpu_sbi_find_ext(vcpu, cp->a0);
+ 			*out_val = sbi_ext && sbi_ext->probe ?
+@@ -72,27 +71,14 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_base = {
+ 	.handler = kvm_sbi_ext_base_handler,
+ };
+ 
+-static int kvm_sbi_ext_forward_handler(struct kvm_vcpu *vcpu,
+-				       struct kvm_run *run,
+-				       struct kvm_vcpu_sbi_return *retdata)
+-{
+-	/*
+-	 * Both SBI experimental and vendor extensions are
+-	 * unconditionally forwarded to userspace.
+-	 */
+-	kvm_riscv_vcpu_sbi_forward(vcpu, run);
+-	retdata->uexit = true;
+-	return 0;
+-}
+-
+ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental = {
+ 	.extid_start = SBI_EXT_EXPERIMENTAL_START,
+ 	.extid_end = SBI_EXT_EXPERIMENTAL_END,
+-	.handler = kvm_sbi_ext_forward_handler,
++	.handler = kvm_riscv_vcpu_sbi_forward_handler,
+ };
+ 
+ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor = {
+ 	.extid_start = SBI_EXT_VENDOR_START,
+ 	.extid_end = SBI_EXT_VENDOR_END,
+-	.handler = kvm_sbi_ext_forward_handler,
++	.handler = kvm_riscv_vcpu_sbi_forward_handler,
+ };
+diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
+index b490ed1428a6..2c456e26f6ca 100644
+--- a/arch/riscv/kvm/vcpu_sbi_replace.c
++++ b/arch/riscv/kvm/vcpu_sbi_replace.c
+@@ -186,34 +186,9 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst = {
+ 	.handler = kvm_sbi_ext_srst_handler,
+ };
+ 
+-static int kvm_sbi_ext_dbcn_handler(struct kvm_vcpu *vcpu,
+-				    struct kvm_run *run,
+-				    struct kvm_vcpu_sbi_return *retdata)
+-{
+-	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
+-	unsigned long funcid = cp->a6;
+-
+-	switch (funcid) {
+-	case SBI_EXT_DBCN_CONSOLE_WRITE:
+-	case SBI_EXT_DBCN_CONSOLE_READ:
+-	case SBI_EXT_DBCN_CONSOLE_WRITE_BYTE:
+-		/*
+-		 * The SBI debug console functions are unconditionally
+-		 * forwarded to the userspace.
+-		 */
+-		kvm_riscv_vcpu_sbi_forward(vcpu, run);
+-		retdata->uexit = true;
+-		break;
+-	default:
+-		retdata->err_val = SBI_ERR_NOT_SUPPORTED;
+-	}
+-
+-	return 0;
+-}
+-
+ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_dbcn = {
+ 	.extid_start = SBI_EXT_DBCN,
+ 	.extid_end = SBI_EXT_DBCN,
+ 	.default_disabled = true,
+-	.handler = kvm_sbi_ext_dbcn_handler,
++	.handler = kvm_riscv_vcpu_sbi_forward_handler,
+ };
+diff --git a/arch/riscv/kvm/vcpu_sbi_system.c b/arch/riscv/kvm/vcpu_sbi_system.c
+index 359be90b0fc5..c6f7e609ac79 100644
+--- a/arch/riscv/kvm/vcpu_sbi_system.c
++++ b/arch/riscv/kvm/vcpu_sbi_system.c
+@@ -47,9 +47,7 @@ static int kvm_sbi_ext_susp_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		kvm_riscv_vcpu_sbi_request_reset(vcpu, cp->a1, cp->a2);
+ 
+ 		/* userspace provides the suspend implementation */
+-		kvm_riscv_vcpu_sbi_forward(vcpu, run);
+-		retdata->uexit = true;
+-		break;
++		return kvm_riscv_vcpu_sbi_forward_handler(vcpu, run, retdata);
+ 	default:
+ 		retdata->err_val = SBI_ERR_NOT_SUPPORTED;
+ 		break;
+diff --git a/arch/riscv/kvm/vcpu_sbi_v01.c b/arch/riscv/kvm/vcpu_sbi_v01.c
+index 368dfddd23d9..188d5ea5b3b8 100644
+--- a/arch/riscv/kvm/vcpu_sbi_v01.c
++++ b/arch/riscv/kvm/vcpu_sbi_v01.c
+@@ -32,8 +32,7 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		 * The CONSOLE_GETCHAR/CONSOLE_PUTCHAR SBI calls cannot be
+ 		 * handled in kernel so we forward these to user-space
+ 		 */
+-		kvm_riscv_vcpu_sbi_forward(vcpu, run);
+-		retdata->uexit = true;
++		ret = kvm_riscv_vcpu_sbi_forward_handler(vcpu, run, retdata);
+ 		break;
+ 	case SBI_EXT_0_1_SET_TIMER:
+ #if __riscv_xlen == 32
 -- 
-Michael Opdenacker
-Root Commit
-Embedded Linux Training and Consulting
-https://rootcommit.com
+2.43.0
 
 
 _______________________________________________
