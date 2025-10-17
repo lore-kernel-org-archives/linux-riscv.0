@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B82FECCD183
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 00:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7136CCD199
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 00:33:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PXZ8aII2nYgeBokmWwpvNDp10qoKSUPYjhsf4It3cz4=; b=GYT+7kn/bQcLU3
-	KUwgm4bnjxXksXTMsNTh/ewVDHCDV0zrARj0aCxb3bWTATGZf1a9a2evWx+ICpym2MAncT9KDWcRp
-	1vVcqKYUGNkaT+wg3Ti5PIeQcVV5jw8USz4diqMZI18jDbl8q7rwrQSNoB4joHM1AzAe7CfMVCs0A
-	B1q13Rywe9iNVNuuzXMgCFH5DhV1KHrnyOdX29LM4eUA09WYiwn7hVCfl6cMA5kKqIxudRMHOpOKw
-	MrE9TuiyJOmX8W4ASzLlVb9RQPgS245ex/mRkUPWM/j5iQi63LroRD5/iXbbX1w9L1dkg7/115rQL
-	ItnmsSWxwbl1ggLy5wVw==;
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QzJzu9VLJz9K70QPBnd9PE9JM7cw1Ir4+dFJWPBBCjI=; b=Bi932850j9JnH+
+	EqDdWrXLL0c3nKUBrF/CcffZUiQhvuzaqXdjdpMD/ryAMVVf3fxWQCH99oAB/z84LEc8YEO/o8nOQ
+	/P6/tRJhxgZw4o7V2cs19cUHZFeejRTbSscndaa72UULXtf51SrqForCkAlNgTH3x9wptcmz+mHlR
+	xdE8BoAvxtvQVuHlqULhwSKXk2lawZgKzTq9bWaVb9DmhXhKLHMk4HT1XODYlAR/LsjZfE96ybU8R
+	B45YMHHRxXyAf7rodOS7H+E52ToMQ5EwnRl78lMo8ynrmfXynUsXe2iwAbDkXEVTf+tO9SfSkQpqJ
+	oh3HnY2op5h58iISdjWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YOr-00000006CWu-0zSS;
-	Fri, 17 Oct 2025 00:32:53 +0000
+	id 1v9YOz-00000006CiQ-37uM;
+	Fri, 17 Oct 2025 00:33:01 +0000
 Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YOn-00000006CUg-45Ol
+	id 1v9YOs-00000006CXn-3JFS
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 00:32:51 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32eb18b5659so1155800a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 17:32:48 -0700 (PDT)
+	Fri, 17 Oct 2025 00:32:56 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32eb18b5659so1155865a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 17:32:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760661168; x=1761265968; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IUhhIOZQl1LmuwLSXSpqUy/3rFv/MJFTCRm/41SsmT4=;
-        b=xwoGGUOaxlI1IKi0AmlXkS5ODeCF6zzEbc5ePI3f2lj+aU+M9WvVL3HNNHJZqqgA8u
-         BgZ1i7L1BrH10hEG6Ry+KDoxGzEVazQm8TLdl+gONj7dpGdXgxiMsszUwU4hdaGrgGyW
-         y9ch9EPftCIFeC9jgLKWTj26ieUVkAtkRSMRcSdtzE90gK1mlfb/W45fQrPvoHthYgmx
-         TDNFS3PX6YwXxpakvEYDgohdhG/GiQlCSh//vHUi9QtC6lHGT7Ws2OFdtx+aedXMIeg/
-         ypfuSGIJuaZ72E96e/zfVv3jiMDdTn7dmrqMULghwc2PYTtKTXquKtKjpBNm2eK9jg1O
-         vNBw==
+        d=google.com; s=20230601; t=1760661174; x=1761265974; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=ufVneY39YrbdCfRZpp0jVK1n9RSn66wnVA9SJtGGBdY=;
+        b=4oa6caSMum2WHT2zMG3xhhyI3dNcRr8cDPoC20Ij26eNiFw28CZibjrprKTlm6MKe5
+         POttPdnydUnKx5yqKvgRAZdQGxc2DcC6isz+c75l9gHqGxKHqWxzO2oS6qmcrJzgqOvK
+         p+blFmKjfF157bQ/sqZkxQf61/3CoqikYQxe6AWy9yjd4DuO/eqvR1zvD9Gt2dIG93mV
+         NzBgf5IXDwCi9IsHNYJTNxwk12CUBeY/jW5svIUe2ZgUzzbcUQJJzBcmlNfg2RXRjj9O
+         LiJ0haW04bt3YRqyGI7Ji7e5el68eSOi9qfn87Y4XInxgMA1HlOKArcGrDiZC9BFclm/
+         E5xA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760661168; x=1761265968;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IUhhIOZQl1LmuwLSXSpqUy/3rFv/MJFTCRm/41SsmT4=;
-        b=Ovym8fweFNMEwISb+PnjtylxdeM0rPBYQvcH+Ss4G0k6IVdyloClnWjJtk6ALeCO3q
-         Cm8VKTxvP6RRsY/CErwgH5ZsB1wkdGtlecjqx6GnGzdYs58NA33Ewy4O+IkplJcNwPNe
-         n58qCp2Q0Ym5P7TMPMeQ0+jiPyqDh2P5CcCEOgboQrH6Gn1tsGrvOeVaPkdCz3cAUi8O
-         n7aN4wWCsN1TV42Juudysp+5oyFiisDnAiTNlHv5cZ5s9MGOhtQwSKx0OMYffgQKuaTC
-         Btq2PgsVYqa/K0Va/HgP4ipJXVz1LJDpZGtpvfcJqkBFMF9U5t1jzbVpuoeOgMfZHijE
-         Ojyw==
-X-Forwarded-Encrypted: i=1; AJvYcCW4cNrbljNFuurlgQJpg5sDJjgtmS5JFHGyaaHUW1FU2fS9QPbXF4jfQqAW1kFWOYci4gqkqNmc6J2q0Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxS4NACTxAQc0Vmt1MiXwjPM+p1lv9wpjByA6p4nPP+ATkxIdjm
-	x+gXl/B2LXuvsJ2jx3KTtxOpJfWKYcvbetTVcqlNr9vb6D8PbKZftKftqAPFnyxtUqW9G3sYRML
-	ltyg27Q==
-X-Google-Smtp-Source: AGHT+IGuHGQyD51mVtQEohHO8NdP+zAwWbn/b6u+mCKYmFM3Ij1iHsaMWgJCqF8QAg/mESpyN5uCXlDFqHE=
-X-Received: from pjblk6.prod.google.com ([2002:a17:90b:33c6:b0:33b:51fe:1a74])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4a81:b0:32e:ddbc:9bd6
- with SMTP id 98e67ed59e1d1-33bcf8f9431mr1768955a91.27.1760661168259; Thu, 16
- Oct 2025 17:32:48 -0700 (PDT)
-Date: Thu, 16 Oct 2025 17:32:18 -0700
+        d=1e100.net; s=20230601; t=1760661174; x=1761265974;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ufVneY39YrbdCfRZpp0jVK1n9RSn66wnVA9SJtGGBdY=;
+        b=kbby6Marknm2uiIcx6VpLBYR4eBSK9UySv6WPoi33PQKRZx9TUfHqP57v/no1utLJj
+         0dxhmlZJiPU4h2DnCfoIKdwtvla6p5zcM2g4PHtS98oTr0bRvFWOZdYUBVlS915yhj5/
+         OTxMtYMNUmuZXReOLsAyyd10tCWoLVCHbNjcXq3hw5VMiIVsZDXo6QUwlPpoutk5OQ5n
+         q9wOfY2LzuuSP3LOmDbxPP06g/GUCiJHYSOpl6wHpBnWPr3fpgqn80pwT834llG0KHjP
+         7aDOY4PKMBY/exP21pIu3Uzb9VfpR/oOPkcqG0CeBPLKhqHk/OVkLPpuLU0cOxTUobpB
+         +kzA==
+X-Forwarded-Encrypted: i=1; AJvYcCUdhLHvTUe2kHdqznCLq4hoN6z767fcfNYPcApCPD6mxXZ7oxwd+snJD2DeZzVVN3Rxr9boVK/V25PkVw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlfSEe2eq0vxUSBNXwN/KVllBU7JJVY9oEvzC3Lop4aeRrStz7
+	6P7zKFTQ2udvB9WZCZa15ZitdaQq+N9YC2pT8UFE9eD/dBnaS7dDwyevXWMC5sqJEkT4A6w33oS
+	3jyZ1ig==
+X-Google-Smtp-Source: AGHT+IGBsD40M1TCHpceHuTvrzQu31EsWCpow7sShvAnQiEKP0H9VSo9B6k/+Ftt8wsphMd8FgX3xhZLFrA=
+X-Received: from pjop7.prod.google.com ([2002:a17:90a:9307:b0:33b:aa58:175c])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2fd0:b0:32d:601d:f718
+ with SMTP id 98e67ed59e1d1-33bcf8f9c16mr1675095a91.31.1760661173675; Thu, 16
+ Oct 2025 17:32:53 -0700 (PDT)
+Date: Thu, 16 Oct 2025 17:32:21 -0700
+In-Reply-To: <20251017003244.186495-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20251017003244.186495-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.858.gf9c4a03a3a-goog
-Message-ID: <20251017003244.186495-1-seanjc@google.com>
-Subject: [PATCH v3 00/25] KVM: x86/mmu: TDX post-populate cleanups
+Message-ID: <20251017003244.186495-4-seanjc@google.com>
+Subject: [PATCH v3 03/25] KVM: TDX: Drop PROVE_MMU=y sanity check on
+ to-be-populated mappings
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -84,8 +88,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
 	Binbin Wu <binbin.wu@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_173250_061653_EE97F9D0 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20251016_173254_882167_135DDD40 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,115 +107,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Non-x86 folks, patches 1 and 2 are likely the only thing of interest here.
-They make kvm_arch_vcpu_async_ioctl() mandatory and then rename it to
-kvm_arch_vcpu_unlocked_ioctl().  Hopefully they're boring?
+Drop TDX's sanity check that a mirror EPT mapping isn't zapped between
+creating said mapping and doing TDH.MEM.PAGE.ADD, as the check is
+simultaneously superfluous and incomplete.  Per commit 2608f1057601
+("KVM: x86/tdp_mmu: Add a helper function to walk down the TDP MMU"), the
+justification for introducing kvm_tdp_mmu_gpa_is_mapped() was to check
+that the target gfn was pre-populated, with a link that points to this
+snippet:
 
-As for the x86 side...
+ : > One small question:
+ : >
+ : > What if the memory region passed to KVM_TDX_INIT_MEM_REGION hasn't been pre-
+ : > populated?  If we want to make KVM_TDX_INIT_MEM_REGION work with these regions,
+ : > then we still need to do the real map.  Or we can make KVM_TDX_INIT_MEM_REGION
+ : > return error when it finds the region hasn't been pre-populated?
+ :
+ : Return an error.  I don't love the idea of bleeding so many TDX details into
+ : userspace, but I'm pretty sure that ship sailed a long, long time ago.
 
-Clean up the TDX post-populate paths (and many tangentially related paths) to
-address locking issues between gmem and TDX's post-populate hook[*], and
-within KVM itself (KVM doesn't ensure full mutual exclusivity between paths
-that for all intents and purposes the TDX-Module requires to be serialized).
+But that justification makes little sense for the final code, as the check
+on nr_premapped after TDH.MEM.PAGE.ADD will detect and return an error if
+KVM attempted to zap a S-EPT entry (tdx_sept_zap_private_spte() will fail
+on TDH.MEM.RANGE.BLOCK due lack of a valid S-EPT entry).  And as evidenced
+by the "is mapped?" code being guarded with CONFIG_KVM_PROVE_MMU=y, KVM is
+NOT relying on the check for general correctness.
 
-Compile tested only again on my end, but Rick and Yan took v2 for a spin, so I
-dropped the RFC.
+The sanity check is also incomplete in the sense that mmu_lock is dropped
+between the check and TDH.MEM.PAGE.ADD, i.e. will only detect KVM bugs that
+zap SPTEs in a very specific window (note, this also applies to the check
+on nr_premapped).
 
-[*] http://lore.kernel.org/all/aG_pLUlHdYIZ2luh@google.com
+Removing the sanity check will allow removing kvm_tdp_mmu_gpa_is_mapped(),
+which has no business being exposed to vendor code, and more importantly
+will pave the way for eliminating the "pre-map" approach entirely in favor
+of doing TDH.MEM.PAGE.ADD under mmu_lock.
 
-v3:
- - Collect more reviews.
- - Add the async_ioctl() => unlocked_ioctl() patches, and use the "unlocked"
-   variant in the TDX vCPU sub-ioctls so they can take kvm->lock outside of
-   vcpu->mutex.
- - Add a patch to document that vcpu->mutex is taken *outside* kvm->slots_lock.
- - Add the tdx_vm_state_guard CLASS() to take kvm->lock, all vcpu->mutex locks,
-   and kvm->slots_lock, in order to make tdx_td_init(), tdx_td_finalize(),
-   tdx_vcpu_init_mem_region(), and tdx_vcpu_init() mutually exclusive with
-   each other, and mutually exclusvie with basically anything that can result
-   in contending one of the TDX-Module locks (can't remember which one).
- - Refine the changelog for the "Drop PROVE_MMU=y" patch. [Binbin]
+Reviewed-by: Ira Weiny <ira.weiny@intel.com>
+Reviewed-by: Kai Huang <kai.huang@intel.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/vmx/tdx.c | 14 --------------
+ 1 file changed, 14 deletions(-)
 
-v2:
- - Collect a few reviews (and ignore some because the patches went away).
-   [Rick, Kai, Ira]
- - Move TDH_MEM_PAGE_ADD under mmu_lock and drop nr_premapped. [Yan, Rick]
- - Force max_level = PG_LEVEL_4K straightaway. [Yan]
- - s/kvm_tdp_prefault_page/kvm_tdp_page_prefault. [Rick]
- - Use Yan's version of "Say no to pinning!".  [Yan, Rick]
- - Tidy up helpers and macros to reduce boilerplate and copy+pate code, and
-   to eliminate redundant/dead code (e.g. KVM_BUG_ON() the same error
-   multiple times).
- - KVM_BUG_ON() if TDH_MR_EXTEND fails (I convinced myself it can't).
-
-v1: https://lore.kernel.org/all/20250827000522.4022426-1-seanjc@google.com
-
-Sean Christopherson (23):
-  KVM: Make support for kvm_arch_vcpu_async_ioctl() mandatory
-  KVM: Rename kvm_arch_vcpu_async_ioctl() to
-    kvm_arch_vcpu_unlocked_ioctl()
-  KVM: TDX: Drop PROVE_MMU=y sanity check on to-be-populated mappings
-  KVM: x86/mmu: Add dedicated API to map guest_memfd pfn into TDP MMU
-  Revert "KVM: x86/tdp_mmu: Add a helper function to walk down the TDP
-    MMU"
-  KVM: x86/mmu: Rename kvm_tdp_map_page() to kvm_tdp_page_prefault()
-  KVM: TDX: Return -EIO, not -EINVAL, on a KVM_BUG_ON() condition
-  KVM: TDX: Fold tdx_sept_drop_private_spte() into
-    tdx_sept_remove_private_spte()
-  KVM: x86/mmu: Drop the return code from
-    kvm_x86_ops.remove_external_spte()
-  KVM: TDX: Avoid a double-KVM_BUG_ON() in tdx_sept_zap_private_spte()
-  KVM: TDX: Use atomic64_dec_return() instead of a poor equivalent
-  KVM: TDX: Fold tdx_mem_page_record_premap_cnt() into its sole caller
-  KVM: TDX: Bug the VM if extended the initial measurement fails
-  KVM: TDX: ADD pages to the TD image while populating mirror EPT
-    entries
-  KVM: TDX: Fold tdx_sept_zap_private_spte() into
-    tdx_sept_remove_private_spte()
-  KVM: TDX: Combine KVM_BUG_ON + pr_tdx_error() into TDX_BUG_ON()
-  KVM: TDX: Derive error argument names from the local variable names
-  KVM: TDX: Assert that mmu_lock is held for write when removing S-EPT
-    entries
-  KVM: TDX: Add macro to retry SEAMCALLs when forcing vCPUs out of guest
-  KVM: TDX: Add tdx_get_cmd() helper to get and validate sub-ioctl
-    command
-  KVM: TDX: Convert INIT_MEM_REGION and INIT_VCPU to "unlocked" vCPU
-    ioctl
-  KVM: TDX: Use guard() to acquire kvm->lock in tdx_vm_ioctl()
-  KVM: TDX: Guard VM state transitions with "all" the locks
-
-Yan Zhao (2):
-  KVM: TDX: Drop superfluous page pinning in S-EPT management
-  KVM: TDX: Fix list_add corruption during vcpu_load()
-
- arch/arm64/kvm/arm.c               |   6 +
- arch/loongarch/kvm/Kconfig         |   1 -
- arch/loongarch/kvm/vcpu.c          |   4 +-
- arch/mips/kvm/Kconfig              |   1 -
- arch/mips/kvm/mips.c               |   4 +-
- arch/powerpc/kvm/Kconfig           |   1 -
- arch/powerpc/kvm/powerpc.c         |   4 +-
- arch/riscv/kvm/Kconfig             |   1 -
- arch/riscv/kvm/vcpu.c              |   4 +-
- arch/s390/kvm/Kconfig              |   1 -
- arch/s390/kvm/kvm-s390.c           |   4 +-
- arch/x86/include/asm/kvm-x86-ops.h |   1 +
- arch/x86/include/asm/kvm_host.h    |   5 +-
- arch/x86/kvm/mmu.h                 |   3 +-
- arch/x86/kvm/mmu/mmu.c             |  66 ++-
- arch/x86/kvm/mmu/tdp_mmu.c         |  45 +-
- arch/x86/kvm/vmx/main.c            |   9 +
- arch/x86/kvm/vmx/tdx.c             | 638 ++++++++++++++---------------
- arch/x86/kvm/vmx/tdx.h             |   8 +-
- arch/x86/kvm/vmx/x86_ops.h         |   1 +
- arch/x86/kvm/x86.c                 |  13 +
- include/linux/kvm_host.h           |  14 +-
- virt/kvm/Kconfig                   |   3 -
- virt/kvm/kvm_main.c                |   6 +-
- 24 files changed, 422 insertions(+), 421 deletions(-)
-
-
-base-commit: f222788458c8a7753d43befef2769cd282dc008e
+diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+index 326db9b9c567..4c3014befe9f 100644
+--- a/arch/x86/kvm/vmx/tdx.c
++++ b/arch/x86/kvm/vmx/tdx.c
+@@ -3181,20 +3181,6 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+ 	if (ret < 0)
+ 		goto out;
+ 
+-	/*
+-	 * The private mem cannot be zapped after kvm_tdp_map_page()
+-	 * because all paths are covered by slots_lock and the
+-	 * filemap invalidate lock.  Check that they are indeed enough.
+-	 */
+-	if (IS_ENABLED(CONFIG_KVM_PROVE_MMU)) {
+-		scoped_guard(read_lock, &kvm->mmu_lock) {
+-			if (KVM_BUG_ON(!kvm_tdp_mmu_gpa_is_mapped(vcpu, gpa), kvm)) {
+-				ret = -EIO;
+-				goto out;
+-			}
+-		}
+-	}
+-
+ 	ret = 0;
+ 	err = tdh_mem_page_add(&kvm_tdx->td, gpa, pfn_to_page(pfn),
+ 			       src_page, &entry, &level_state);
 -- 
 2.51.0.858.gf9c4a03a3a-goog
 
