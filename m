@@ -4,181 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B5ACCD19A
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 11:08:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8305ACCD19A
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 11:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Qnk/D//LMA1Ryu2XnCkHNgUcmKauq0o0s86nIIJYw6I=; b=V4+Vs8gUiP3PcVPMU7L3SFJByy
-	WCcnEAndWR44pcFVyxmB3yiM9PIRVARVw4qi7ETJQWTJJ5xs+TGV1jNxu4OCK1MPctmBgFBLjBBvD
-	a5iAbbPFFm6LvREnoktSj2EHupqRHDoFO3AZ+hrg8yNyekvrBwfrvwUP9t7Vj7WNQSFdUDCxack2e
-	xR5ZYWRa5bvR8MHfeEJv5JjaRIFDrkPQ2KypI8LMtQzGjID8yK2iB/O0ixbqx6VPN0Xat0rK21DIF
-	JYzS7p7Fiuvrls53s60nMzYkIfwe6fwAwa20bsWRfpdNJIwSpHI2xs3Un0Kg8bLBDLxCdAs3COlEw
-	SRgZ15WA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uVr5AjB+vHOy79iUW/LVZHuCetnMHzYgK0xIRJznIEs=; b=oz5JXh0VP0JD6z
+	x1kBMn6MDcluDCKFiIRsFytmvPBL3rtYgWlfUXadMMQ3iaVNUIa50PVUiWi5wBF3Ozfm7gXGBGP/5
+	+TMm+aGww387jcIPw4FUxKno2A8FCxwY3PFqW1sZvmgaAu0Hl0JhbMI75pynmpYiG7oLqBXaTMFmz
+	EaTnszRDo1qhRNMzF2N3iqS7FsUJ7UcKRz1PA97SIQ2L38HlzBQci0+x/ESCN7Ho0sMsxsQzFjO6k
+	TIsZSI6Jkxv2MEHCIskbWCjFD7klWod4xy4xUVen7XrrLm6sweYRGQdWyb1Pnn14u4mR1qva318h5
+	mrVqpq0sXftYcQVSe/5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iKC-00000007cu1-3wfC;
-	Fri, 17 Oct 2025 11:08:44 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1v9iNw-00000007dWU-326s;
+	Fri, 17 Oct 2025 11:12:36 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iK9-00000007csG-2VcR;
-	Fri, 17 Oct 2025 11:08:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YhPZ5I96OBp9ved34BdkDlyIB1wde4txK5BvkXglwzcjnjbXh/lyS7vlPyoQxFf25HYq/ndYfEHvjLZBeW0bfup5EwJtS2v/ptTY8qNVc1dTK/IExn+qMLruDDZCqGmYG+zeCgDpJ/zCRyJSmSMf6rIWqHIsVNMPV+PIXmcqpVCigm/pDCntytDShTRH/nM/4loqbIW0PypWpwpe3UPEGNUbw/NkegcGgfkBYOYckLkixyzcX+b52TOX82p/By0Ri6V/bGqJdxW/BRNrCqkeBYyjccrdVlmD/YGuW2kr5s56PHkEMkJUd1zCZaZMrKZQJEi9Y2r9wBP6QDhhNBUfBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=flaioFGGLRITp6YlwyC7arKkUabJsWgtkcQzqeCnzVA=;
- b=yACdDpAR1004GwHFHhikhKJtNxWpYXr1uK6Fr+3JvkwuQgBkkB+EnXUVIaf1xEryfxwJveHjtQTrA981MepGTwNMPWIdvwQ4jdc5sX3s26e5GfBEAyfCNMyk0ZDESYThWTEV7r855jI0XlG5AWJVtsBELOpxpRD+GNbht5AlIYbVqQnGkAAw38ivZxE7vr/uNF0/DD+AcwavWcRQr0tgRrPM/M/vOeJ2eLcjCN1Wvdsz+eHTV73Cn65O87AT8UZSx3bd2/jcgRyeJCIC5SIpUKdrjtK5RC15RwYHexZD0yQj4mGefhs7Xu70g8OXMpUrX1jZymL0XQ6GJWoGQAl9Sg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=citrix.com; dmarc=pass action=none header.from=citrix.com;
- dkim=pass header.d=citrix.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=citrix.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=flaioFGGLRITp6YlwyC7arKkUabJsWgtkcQzqeCnzVA=;
- b=lIkG/ehUkV1cjvtRI1eo/Bo9rwjdLrPr8aG6fBNflVMYRBCACWFovcREZ2tajfbCaR+VUvgm1o3ztcSb4piTlp2cvbTs+ibn//8trp2cB2ciJ5Av7ejg4mV3704xB8AetuJNs0/5Qk7i964YrVikLprqw52bsgwYYaohZgVYAFw=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=citrix.com;
-Received: from DM4PR03MB7015.namprd03.prod.outlook.com (2603:10b6:8:42::8) by
- MN6PR03MB7597.namprd03.prod.outlook.com (2603:10b6:208:4f3::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.13; Fri, 17 Oct
- 2025 11:08:31 +0000
-Received: from DM4PR03MB7015.namprd03.prod.outlook.com
- ([fe80::e21:7aa4:b1ef:a1f9]) by DM4PR03MB7015.namprd03.prod.outlook.com
- ([fe80::e21:7aa4:b1ef:a1f9%3]) with mapi id 15.20.9228.011; Fri, 17 Oct 2025
- 11:08:31 +0000
-Message-ID: <adba2f37-85fc-45fa-b93b-9b86ab3493f3@citrix.com>
-Date: Fri, 17 Oct 2025 12:08:24 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
- regions
-To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
- Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
- <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org
+	id 1v9iNt-00000007dV4-3kBq;
+	Fri, 17 Oct 2025 11:12:35 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1760699551;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8r7krmsVbg9LZSGZHAhgtzNazujSLkD3B3g7V5NcBwY=;
+	b=dwf9SVgx1Zm1Pjequ3PR4+DL9xU+zQkUKo/qkUoLgcEfT5hWjmoO+A9ILNUIdfH3PCBjcm
+	kjHuIgzpSkUwpYij4l2LrTCRzQ2kOF14XCm2thcKmeyb4xvWKLv4pS9XDX+TSJMhsmM3xZ
+	uJd47j3quh7ZP3eF0SSZHcrgy0w23wDuwgQVoKuxn37DVakJ9pvBRscWEovVvfQBQMLfzo
+	ZDoCCebSSI7JLCizkNXDwjf37GRsNaYiN4YTYgmYyBOmkYv+luhDR3r613BYkEG6UQ4xEp
+	iYq38/MAPfL1wPgY02WJkbXSgs57Re0RYgWYpTOXPn8w5sJohJ8UT9mds3BzsQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1760699551;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8r7krmsVbg9LZSGZHAhgtzNazujSLkD3B3g7V5NcBwY=;
+	b=26gxJBd+HlY8L8NbIT72iVZHqcHJxgQgi0oCm2WnVTtFtLjxOCcaf7Awkdf4HoaO1nfGV0
+	R6vqEwqGMtDc68AQ==
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Alexander Viro
+ <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
+ Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org, kernel test robot
+ <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, Linus Torvalds
+ <torvalds@linux-foundation.org>, x86@kernel.org, Madhavan Srinivasan
+ <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
+ Piggin <npiggin@gmail.com>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, linuxppc-dev@lists.ozlabs.org, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+ <svens@linux.ibm.com>, linux-s390@vger.kernel.org, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Andrew Cooper
+ <andrew.cooper3@citrix.com>, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
+ Palix <nicolas.palix@imag.fr>, Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>, =?utf-8?Q?Andr=C3=A9?= Almeida
+ <andrealmeid@igalia.com>
+Subject: Re: [patch V3 12/12] select: Convert to scoped masked user access
+In-Reply-To: <20251017103554.GY4067720@noisy.programming.kicks-ass.net>
 References: <20251017085938.150569636@linutronix.de>
- <20251017093030.253004391@linutronix.de>
-Content-Language: en-GB
-From: Andrew Cooper <andrew.cooper@citrix.com>
-In-Reply-To: <20251017093030.253004391@linutronix.de>
-X-ClientProxiedBy: LO2P265CA0437.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:e::17) To DM4PR03MB7015.namprd03.prod.outlook.com
- (2603:10b6:8:42::8)
+ <20251017093030.570048808@linutronix.de>
+ <20251017103554.GY4067720@noisy.programming.kicks-ass.net>
+Date: Fri, 17 Oct 2025 13:12:29 +0200
+Message-ID: <874irx234y.ffs@tglx>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR03MB7015:EE_|MN6PR03MB7597:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7b755d4d-b1a5-4d57-ba2f-08de0d6d819d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Vk0yeU9ic2lFNDJoZkZNeGM1T2RWRnVFM2U0S2NnbU52ell1WVhUQjN2dTFx?=
- =?utf-8?B?RDZyWkljdjhkTkJpTFl5OTdTenhLckUrbElyanNVU1lETmxwclA1M1ZldUh0?=
- =?utf-8?B?VVhLSS93OS9ZYThXaWZCSlV3eHpyMlNEa3dFRG00ZXBLTU5yMWlscHQxRTdC?=
- =?utf-8?B?UFhrRExBQm1UbUVMemxZSXgrKzZoL3hBM3B1MUpjRXNpOS9LSUZaMnIwMHhK?=
- =?utf-8?B?N1d2N1c4cnlXOG1YeU9YWXJMalVQUjdkQW5pblF3YzhjSmROSS90NFVoQTJW?=
- =?utf-8?B?VWl5Tm9hazNXSnRsb1FqTEVmcHlRZGowWHpMMHRNams0Z1hlbXVHb0RvZ3Vm?=
- =?utf-8?B?L2w4RzFkUURuemtwbUdTRithZ0Y4MDUyc01mSWI4aHJXblREMWpFVnhva3NI?=
- =?utf-8?B?RG1lTHNDZnBLYTNFelZLZ3Nnb1IrRWcvb2Z0dWZhZzg1UDNlaG5ibG9RU3ho?=
- =?utf-8?B?K1JVUk0wdmVBK1ZadFM4LzNyTVBESEpVWlI1TTVYdFhaOENZZFZreGRsUEl0?=
- =?utf-8?B?d3hQbTIwdXhkRCtuOUlhei94U05WOVZzTHpVWFA4RGRrM2VMQmpYdE1PbFBw?=
- =?utf-8?B?KzNhbGRieUJmQ3BLa2MwZ0VSTUFkKzJoUURkajBUZENIWTdXNmZhRjkzVWVh?=
- =?utf-8?B?UE55TzQ1UGhYK2pPZVliUlI1dWh2S3M3cFBRNm0vQ2FnOEEwRFRCcGNmZVd5?=
- =?utf-8?B?QU83Qmx2dnh3bjYyVEQ4eWdDcFUweDkxdnFEV25jZldDRGwwSDFoLzNuZTJR?=
- =?utf-8?B?QjlrV2pFNWkwYlNPMVVvbGpGYmx3K2hsOEJLbUQ0ckY0VHk1bnZZWUpYOXhG?=
- =?utf-8?B?Vlg2VkpleUVIbDNlWURNRTVEaGdydjNQODcyQXdudHB5aDBnM3QzQ05Ka1p6?=
- =?utf-8?B?OHlZNHptcWJlVmVsaHRJSGljYnl2K1RVYklxOU14TWd5eXFWWENRMUdvYnRT?=
- =?utf-8?B?YkkwdHhlNGwrMFVwSytJc1BQak5FUzhtWVpMWTl4SWZZWGRiTGZxZnZoekRo?=
- =?utf-8?B?M1hiNFE5cWhJNGhXUldGY0NKdXJkRENaWVVEeFJmd3FjVDNYWUdKV29tYkFB?=
- =?utf-8?B?TjVTY0d3M3NCcnluUXFMWWJXTjU4UTNSeTZwdzdpaWpSc0RqR2s2WGx5b0cx?=
- =?utf-8?B?Zktkbi9QNFhXVWhhU1AyWkI3dk9CNTFUcFUxcmJFdnh2OGpQbkVObGZ2OGNm?=
- =?utf-8?B?bHNuaHpndGpPU0dRbEZsUmQ3cmZ0K2xwOWRyQVJIWm1qaWIwSmlVN21QVmtG?=
- =?utf-8?B?ZDRlakQ0YlNNNzdpWXFWSE16cm1tWHlQUEZHblc5ZUx3T0R5VmRQbU1tOFlQ?=
- =?utf-8?B?Q0lLMXZNMGRyQnNIZ2NYWTkyN1N5MUFnOEdXWkZkdStlZzNKM2xMazNETmRN?=
- =?utf-8?B?NDd6YmNTOGJXckVuVFEyWXRIbmwyajlMK0R3NGJXVXdQREZUU0lsMVE4bElC?=
- =?utf-8?B?bWh0eUkwWE1iUVdBM3lpVXZFdTdMb1RuWUp3NHFNeDFCU2RHc05UQk8yQVFq?=
- =?utf-8?B?K0NMd2F0K2YyQngxbXNNRjBhYVBrWFBud05WclJQQWFvMjI4WUY5RkNPVlRy?=
- =?utf-8?B?UzA2aG5CeUROY2REa256ZDFheEJhN1NncnZBQTgvNjZHT2RCT3h5Qkx0clpF?=
- =?utf-8?B?Tm1heXRYSDFobVhWczFxbnVtT1pOT3daSkxCbEVKdVNNK2FBdnFoaTFYSGx2?=
- =?utf-8?B?MURXSXFkaW1hRTVFaUw1UzJ5S3RTeUZvd05QSW5GYlM0TEpjQmxwVFlVaXd5?=
- =?utf-8?B?RkEvdkwxNS81VUI4VlVoK3I1WlNzVm9QSVl0MFhGdU1pNUNLanJwTC9jblhO?=
- =?utf-8?B?dEpVZEc1ZnZoWHJsN0NTRlBZZ00vcWZMZjcwdW1Xa2hxdkNRTzdnbTZMVHRh?=
- =?utf-8?B?RUQ5cGZjVUsrQ3VRWkM0bWVRSnlRL2MxUEJ6YnN0T1NZVy9QMmNLSCsrdUJC?=
- =?utf-8?Q?8Qvis0ZlTqZYLk1Jibi1yUaO5pAlwqm+?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR03MB7015.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VmxtOFZXeHV6eXk4N0xmeDNBR1RjT3JsUmt3WXNyTGxvckFWaVpFdTAwODF5?=
- =?utf-8?B?Z0hWYW9pYk5zbjNDUEJLSkpHYnR6YkZNWnliT1VSSVZrd2NjWFhyUWl4RkNi?=
- =?utf-8?B?QUZBWEpnNnBpRjZBVEhxdlZ1RnJvVENOcWJhdndmalJWT2M0TXlIUnljS2Uy?=
- =?utf-8?B?K2VnWnNDTUVRYmRzeGhvRTVReUlIdGs5bEdoaEVWZ0hOWTY0eWhsQ1YyN09x?=
- =?utf-8?B?QjRKYVFHdXV5STkvdXpBRGVGTm1mWFNIeTR2R3Y0R1NXSlRWR1V1dEUyaUY4?=
- =?utf-8?B?ZGFpS1o0UXBMcU9FUE5ocjVHT1dISjl1T3B0OGxYL3dNNlU3VUpXN3ZWT1FW?=
- =?utf-8?B?S3NIc2dFUlpPWHlDWjlXdGRjTWtrNEdQRUdUSnZIRlNCSlZ6SmtSdGNnd0U2?=
- =?utf-8?B?UXNTVTk1YmY3WS9GWCtzMklzaVRhTnA4a2R6bzlkeS9RSWhzNWZWTm9GeFdz?=
- =?utf-8?B?bUpwMmszR0MydjFUWTRobGhMRWFTZlpEL1hzM1ZUa3IxL0ltcndtYjhManpU?=
- =?utf-8?B?RWg5bGxrYmJOVzZkNnpNaEFieWo2bFM1bGZVTCtmTlNIU0wvR0Fpbm9iVm1B?=
- =?utf-8?B?MG15ejRMQ2FOajlIOTJPR1E0VW1xN1RiQXRQRnhFbTM3M2hBbGJ2TUNiOFdn?=
- =?utf-8?B?YllvY1hoZ05uNFlXUEd4bVZkQUpwaU8rN3hOVG5xVVAxQXZwSXhPL2NEZm0v?=
- =?utf-8?B?NVRRRmU2anVQRnlhT1lWZUZmQks5aWk4WDhteEJscmM5Q1pzMTVPdGc5WWtQ?=
- =?utf-8?B?RU9PUjlQdVhGUWwwQW5FVkE2K0dENnhGOEtFbGdzWk8xYmhkYVhqV2NUY2Q2?=
- =?utf-8?B?Y1VpZU12d3JBdktnNDh5ZVptSi85M3krSExXbnNaN05JTVZaZHhnaXRvNlVG?=
- =?utf-8?B?YWVEYVRpMThyNW5uWUQrS05qNGxYMitGZU1Vb2dXNTROTmRPY0l2TGZIUEhQ?=
- =?utf-8?B?eGdJanpCdzIrOGlWNGxaWVZzbUFHbjUrVW8xOGRwSHdWeXRCSzl3MFlNTTVv?=
- =?utf-8?B?blRmcTducnZrdy91eHV2SlgwaGlzbVNqMkNoVU1jWlNLT1ZRVkd2Nm1KT2pQ?=
- =?utf-8?B?bjB3Y1BzbzVJZ0l3c3R3dE5sS2tMTmNTWDVjeWIwSEcvNlc1czJhaHR4bE5F?=
- =?utf-8?B?dHRWU0E3L2s2V0tSVW9VRDJEOEZRYXRHSXFoSnBvMi9hN2I1ZVRocGJLbzIz?=
- =?utf-8?B?OVhZV3huMnJYdWFZY2t2dVh2QzZ0UkhBY0xBWmFzQ3VBaWt5SUtZTUs0cXQ4?=
- =?utf-8?B?MmZ2OHEyOWtRVFFBZDIrTmo2bUQ4Y1p6clpWWUY2OTZDRFdGWGFlcDdTc2pG?=
- =?utf-8?B?Nk9tWkRIeitPdUlnVDFHQTM2QklsNXJhTUk5QTJ4QnZmYXZKRUtQeUNYcGhy?=
- =?utf-8?B?a1pKYjRPQ3k0aHc2MldmVnFmOW9ySlhVUmg0REExWnVXK21pNnhrNTBPaWFo?=
- =?utf-8?B?ejUvOFc3TmpGU2pzUjVadlU2SFhPUlJhL3ZBQnVWYktPYlg4TXhpMzdYTjdj?=
- =?utf-8?B?T1dLT0txNzdzdmlUREJGdDdDaHBtRmw2bytCekhZYU5jTzFrQ0VMcXJjNzdH?=
- =?utf-8?B?TzZZVHJ5SjEzdGpnZlpEL3FjNUZhVGRneXdMZW8rcGtSV2o1VEVrT3lBbzcw?=
- =?utf-8?B?REZhQktadUxhdHQ2N3Y2anE0ZGNlNFBMUnhyWWtkQmloVGlVZUpQaURqcVVB?=
- =?utf-8?B?bDllZ2tKZGNlYjU4Sm9hVTlWNFlxbmtMZHNrRVphOTJwd1JwSGdGUDRseGtX?=
- =?utf-8?B?TklhaC91VlZjeHExdStOcUIzck9NTXY1Snd0NVdhZlREWDczTkUyek5zUjY3?=
- =?utf-8?B?WGhUMnozQW9NbHRyNXBqdWNORjIvUmY1WHBrdFJDdU1UUm51ZERsRUJacDRW?=
- =?utf-8?B?ZUNWbm93bUt1RWtnbndOS205NzdHVncvY00vR2ZmM0tIakIvcFFZejQ2Q0RP?=
- =?utf-8?B?V0dOeE5CVmJJTklHUVQ0UUJwdEFmd0RxTFVnNFY0aU1weGZOUDUyaTcvTmlC?=
- =?utf-8?B?YjN5MEkwZG1taWJ5OHlZZ3cyVVRFdFhvT3FTSEx6ODdpY2k5OUNiUWMrUjh3?=
- =?utf-8?B?OEhFMGd0R2tpN3ZEWEtIeitpL1JvdlprUDFnQ0RQVUpIaEdwTldqTTN2VnEw?=
- =?utf-8?B?a25ueFl4L3M0R1hKZlNlTHBYTkZCWDdsa0hya2hiNlpDL3VOd2MwUmFxeUhV?=
- =?utf-8?B?eWc9PQ==?=
-X-OriginatorOrg: citrix.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7b755d4d-b1a5-4d57-ba2f-08de0d6d819d
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR03MB7015.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 11:08:31.3491
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 335836de-42ef-43a2-b145-348c2ee9ca5b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xGRGZJUUkXn+NWSng3vx1fqf75cW3qGfT8mys30BgvHntJB1sOVS7kOvh0DytOuI34g7pkl+dbUH8gckv4Hz0CZgyD0O1oon8OcLa8SXIPk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR03MB7597
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_040841_660117_D70C54D6 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20251017_041234_066777_9D3E57CF 
+X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,37 +88,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTcvMTAvMjAyNSAxMTowOSBhbSwgVGhvbWFzIEdsZWl4bmVyIHdyb3RlOgo+IC0tLSBhL2lu
-Y2x1ZGUvbGludXgvdWFjY2Vzcy5oCj4gKysrIGIvaW5jbHVkZS9saW51eC91YWNjZXNzLmgKPiAr
-I2RlZmluZSBfX3Njb3BlZF9tYXNrZWRfdXNlcl9hY2Nlc3MoX21vZGUsIF91cHRyLCBfc2l6ZSwg
-X2VsYmwpCQkJCQlcCj4gK2ZvciAoYm9vbCBfX19fc3RvcCA9IGZhbHNlOyAhX19fX3N0b3A7IF9f
-X19zdG9wID0gdHJ1ZSkJCQkJCQlcCj4gKwlmb3IgKHR5cGVvZigoX3VwdHIpKSBfdG1wcHRyID0g
-X19zY29wZWRfdXNlcl9hY2Nlc3NfYmVnaW4oX21vZGUsIF91cHRyLCBfc2l6ZSwgX2VsYmwpOwlc
-Cj4gKwkgICAgICFfX19fc3RvcDsgX19fX3N0b3AgPSB0cnVlKQkJCQkJCQlcCj4gKwkJZm9yIChD
-TEFTUyhtYXNrZWRfdXNlcl8jI19tb2RlIyNfYWNjZXNzLCBzY29wZSkgKF90bXBwdHIpOyAhX19f
-X3N0b3A7CQlcCj4gKwkJICAgICBfX19fc3RvcCA9IHRydWUpCQkJCQlcCj4gKwkJCS8qIEZvcmNl
-IG1vZGlmaWVkIHBvaW50ZXIgdXNhZ2Ugd2l0aGluIHRoZSBzY29wZSAqLwkJCVwKPiArCQkJZm9y
-IChjb25zdCB0eXBlb2YoKF91cHRyKSkgX3VwdHIgPSBfdG1wcHRyOyAhX19fX3N0b3A7IF9fX19z
-dG9wID0gdHJ1ZSkJXAo+ICsJCQkJaWYgKDEpCj4gKwoKVHJ1bHkgYSB0aGluZyBvZiBiZWF1dHku
-wqAgQXQgbGVhc3QgdGhlIGVuZCB1c2VyIGV4cGVyaWVuY2UgaXMgbmljZS4KCk9uZSB0aGluZyB0
-byBiZSBhd2FyZSBvZiBpcyB0aGF0OgoKwqDCoMKgIHNjb3BlZF9tYXNrZWRfdXNlcl9yd19hY2Nl
-c3MocHRyLCBlZmF1bHQpIHsKwqDCoMKgwqDCoMKgwqAgdW5zYWZlX2dldF91c2VyKHJ2YWwsICZw
-dHItPnJ2YWwsIGVmYXVsdCk7CsKgwqDCoMKgwqDCoMKgIHVuc2FmZV9wdXRfdXNlcih3dmFsLCAm
-cHRyLT53dmFsLCBlZmF1bHQpOwrCoMKgwqAgfSBlbHNlIHsKwqDCoMKgIMKgwqDCoCAvLyB1bnJl
-YWNoYWJsZQrCoMKgwqAgfQoKd2lsbCBjb21waWxlLsKgIEluc3RlYWQsIEkgdGhpbmsgeW91IHdh
-bnQgdGhlIGZpbmFsIGxpbmUgb2YgdGhlIG1hY3JvIHRvCmJlICJpZiAoMCkge30gZWxzZSIgdG8g
-cHJldmVudCB0aGlzLgoKCldoaWxlIHdlJ3JlIG9uIHRoZSBzdWJqZWN0LCBjYW4gd2UgZmluZCBz
-b21lIEMgc3RhbmRhcmRzIHBlb3BsZSB0byBsb2JieS4KCkMyWSBoYXMgYSBwcm9wb3NhbCB0byBp
-bnRyb2R1Y2UgImlmIChpbnQgZm9vID0iIHN5bnRheCB0byBnZW5lcmFsaXNlIHRoZQpmb3IoKSBs
-b29wIHNwZWNpYWwgY2FzZS7CoCBDYW4gd2UgcGxlYXNlIHNlZSBhYm91dCBmaXhpbmcgdGhlIHJl
-c3RyaWN0aW9uCm9mIG9ubHkgYWxsb3dpbmcgYSBzaW5nbGUgdHlwZSBwZXIgbG9vcD/CoMKgIFRo
-aXMgZXhhbXBsZSBjb3VsZCBiZSBhCnNpbmdsZSBsb29wIGlmIGl0IHdlcmVuJ3QgZm9yIHRoYXQg
-cmVzdHJpY3Rpb24uCgpUaGFua3MsCgp+QW5kcmV3CgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Oct 17 2025 at 12:35, Peter Zijlstra wrote:
+> On Fri, Oct 17, 2025 at 12:09:18PM +0200, Thomas Gleixner wrote:
+>> -		unsafe_get_user(to->p, &from->p, Efault);
+>> -		unsafe_get_user(to->size, &from->size, Efault);
+>> -		user_read_access_end();
+>> +		scoped_masked_user_rw_access(from, Efault) {
+>
+> Should this not be: scoped_masked_user_read_access() ?
+
+Of course. The wonders of copy & pasta ....
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
