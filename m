@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB843CCD19F
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 14:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 621F4CCD199
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 14:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qEJyaJwQiUT6B4sk5sDdDyRXLhwCexVBWEWQGdiKbKw=; b=jYAN7DDzMRyGP6
-	6vFYj+LxCCbxUjls+ehxfiN2ZvI23P+uYCefeIzomsoGj7+DHsATSqPmj8pd/W+iPvVyWUpNzCIKl
-	F9cqUuESmFZvjpTH8Rwx0dVmzKgQInhAQpempbOhVGuB/QNoqXMAOZYkzEjDMq49pFY9fjZDsQIxY
-	3rPlgCSdk34KaCNOPLIamv2N1JhwsnyoW19qAk96MvsaSre0ANO7dq4Y/gxxV84oYQ5Ir1MbOzmm+
-	sKvAKLVh+IXn4F94YU/7bK9GwDhrazW50xwEuMozi8UkaxyXhS75SCm1of1VWjLvV13LXgfOAc3Hz
-	sFJHvsnxgn0Pxl0U75HQ==;
+	List-Owner; bh=gtBgktBx8eK0hWkgfcaMCU5WR0VCgYTGw3PyYBrwO7s=; b=yg5Sr2rgMMULFp
+	V9UuSMjLSF3+c9x4/TrSCOM76uxiO4wg50blpR462LXHnwresgXTtwOXaNpKW3rxgCXdEJCHDL4NA
+	BJZ0u60Sag5MHgX9C9QQxrwzSC159upZbRhcj3eUiBwj39QbvaCnvgVAAzQU+lAVZz88h+Vp2CqIa
+	zya1gwqYsuXsSojIZHbCnHrs/d31rWlBVKMchD/m7wu6m+wyOFe6RDw/HD1OH6ahYOr7oR79QeFL8
+	QoRoVB2y0dnUDT6ZZYHYUalsFtGUxfH/RU+f2ciSaPaebiSqQraZEs2HgnhEb5mTGApB0Ry5Z3cAC
+	6ECp/KOqxu58FMcd3OZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9lmn-0000000899N-0uuX;
-	Fri, 17 Oct 2025 14:50:29 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1v9ltx-00000008Atm-3DHV;
+	Fri, 17 Oct 2025 14:57:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9lmj-0000000897e-3vS6
+	id 1v9ltw-00000008AtG-1rCT
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 14:50:27 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1760712623;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=O16vK/VHkqg7/QCOruoqlgzueSxhXKWOlNBJuxSfE5c=;
-	b=d4Te4amsd1c9e88q5m/2fV+sud/YEiJlkx2xmoaAA3pytgNHvQpRLw+45Kouy2VEIU9mkr
-	WkR0KdLQoenPJ2vHObpy+kLLjIEKGoVrpmyJu0vXCzNRFD1Cv1MaiVv4pru9v3s3jcUorb
-	P9rs8slO78QPEDOJqcDlRgaBKSrk7qg=
-From: Ze Huang <huang.ze@linux.dev>
-Date: Fri, 17 Oct 2025 22:49:52 +0800
-Subject: [PATCH v6 1/2] dt-bindings: phy: spacemit: add K1 USB2 PHY
+	Fri, 17 Oct 2025 14:57:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8CCE8643D9;
+	Fri, 17 Oct 2025 14:57:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2B84C4CEE7;
+	Fri, 17 Oct 2025 14:57:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1760713071;
+	bh=yyXdbqmVBwCJBAnDFJ6uojdAFVjK3BND7ZL/z25OXiw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KlAO6bDXr0YEqUbd3vX7IqaM68TdJ5EHbXO1NaZf6BBEbusVCGtxyY9rO1BSqYdE5
+	 BWRw53ySzQ7x3gYfiEc/Q/0kRewETZyJ6FTMoff2Gd/4Osgp1QAIBuyNuSMyoH1NBB
+	 x9R3jRIFBDTr0A1q20lgTD3NzBMisr+KrKOb7+eM=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Leo Yan <leo.yan@arm.com>,
+	Ian Rogers <irogers@google.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.1 037/168] tools build: Align warning options with perf
+Date: Fri, 17 Oct 2025 16:51:56 +0200
+Message-ID: <20251017145130.385519209@linuxfoundation.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251017145129.000176255@linuxfoundation.org>
+References: <20251017145129.000176255@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Message-Id: <20251017-k1-usb2phy-v6-1-7cf9ea2477a1@linux.dev>
-References: <20251017-k1-usb2phy-v6-0-7cf9ea2477a1@linux.dev>
-In-Reply-To: <20251017-k1-usb2phy-v6-0-7cf9ea2477a1@linux.dev>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Ze Huang <huang.ze@linux.dev>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Ze Huang <huangze@whut.edu.cn>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760712608; l=1362;
- i=huang.ze@linux.dev; s=20250705; h=from:subject:message-id;
- bh=QaF1KmAvkgTx8GRFlS00uZ3xWQHECjSqx1iwWdJGuFY=;
- b=i0RY7Jh3VwMSAi2s0DN34uEHzrLrLfQG7SZHg27/0ezqCPa2EgzbenWEuSX6xOXX9Wn15+Gve
- NBibTeBTig6AGOWAy+YBJ5sppuEKU38s1SK4Ercs0MICN/QRvYEiVwQ
-X-Developer-Key: i=huang.ze@linux.dev; a=ed25519;
- pk=Kzc4PMu5PTo8eZZQ5xmTNL9jeXcQ9Wml0cs+vlQpBkg=
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_075026_415516_A4654373 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,63 +90,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for USB2 PHY found on SpacemiT K1 SoC.
+6.1-stable review patch.  If anyone has any objections, please let me know.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Ze Huang <huang.ze@linux.dev>
+------------------
+
+From: Leo Yan <leo.yan@arm.com>
+
+[ Upstream commit 53d067feb8c4f16d1f24ce3f4df4450bb18c555f ]
+
+The feature test programs are built without enabling '-Wall -Werror'
+options. As a result, a feature may appear to be available, but later
+building in perf can fail with stricter checks.
+
+Make the feature test program use the same warning options as perf.
+
+Fixes: 1925459b4d92 ("tools build: Fix feature Makefile issues with 'O='")
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+Reviewed-by: Ian Rogers <irogers@google.com>
+Link: https://lore.kernel.org/r/20251006-perf_build_android_ndk-v3-1-4305590795b2@arm.com
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+Cc: Justin Stitt <justinstitt@google.com>
+Cc: Bill Wendling <morbo@google.com>
+Cc: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Jiri Olsa <jolsa@kernel.org>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>
+Cc: James Clark <james.clark@linaro.org>
+Cc: linux-riscv@lists.infradead.org
+Cc: llvm@lists.linux.dev
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-perf-users@vger.kernel.org
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- .../devicetree/bindings/phy/spacemit,usb2-phy.yaml | 40 ++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
+ tools/build/feature/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
-new file mode 100644
-index 000000000000..43eaca90d88c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/spacemit,usb2-phy.yaml
-@@ -0,0 +1,40 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/phy/spacemit,usb2-phy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SpacemiT K1 SoC USB 2.0 PHY
-+
-+maintainers:
-+  - Ze Huang <huang.ze@linux.dev>
-+
-+properties:
-+  compatible:
-+    const: spacemit,k1-usb2-phy
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  "#phy-cells":
-+    const: 0
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - "#phy-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    usb-phy@c09c0000 {
-+        compatible = "spacemit,k1-usb2-phy";
-+        reg = <0xc09c0000 0x200>;
-+        clocks = <&syscon_apmu 15>;
-+        #phy-cells = <0>;
-+    };
-
+diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
+index 690fe97be1904..1b7886cbbb65a 100644
+--- a/tools/build/feature/Makefile
++++ b/tools/build/feature/Makefile
+@@ -282,10 +282,10 @@ $(OUTPUT)test-libbabeltrace.bin:
+ 	$(BUILD) # -lbabeltrace provided by $(FEATURE_CHECK_LDFLAGS-libbabeltrace)
+ 
+ $(OUTPUT)test-compile-32.bin:
+-	$(CC) -m32 -o $@ test-compile.c
++	$(CC) -m32 -Wall -Werror -o $@ test-compile.c
+ 
+ $(OUTPUT)test-compile-x32.bin:
+-	$(CC) -mx32 -o $@ test-compile.c
++	$(CC) -mx32 -Wall -Werror -o $@ test-compile.c
+ 
+ $(OUTPUT)test-zlib.bin:
+ 	$(BUILD) -lz
 -- 
-2.51.1.dirty
+2.51.0
+
+
 
 
 _______________________________________________
