@@ -4,94 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D93CCD19F
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 15:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9801ECCD199
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 15:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q5wghcJj4W34eSQ5HRbvftQK6tn1ZkGhrOXTjB5ENn8=; b=l7kpoBP3cWDj9B
-	wJ4wxLYW7vyxeX/jCFhowMTSlpXey95U2xj+pRo7TFUAIrzHdLwKuvC8fh2InZi08q8uxIQuCuaIK
-	ZgnXiQGLZIPbdsYCoJNTQicyAM1OBSGkIkulD1/vxjgqpN1NCVaJIMe7rSpVJ3lBbAsHAl78BRYkD
-	Rt6pZBO6sHiClvdUkFRyFpGFUh0U2LGi43dmS0tJH/Pl6s6g/64u8bqUo949qC9tZipZVH/D5cCcT
-	t86ZaZ4/iP3zVJ4owuhgJZzr/e2YoSCJMs7ga6dZR+oHk7qFThx1subYc+RR3Q2XECQjQeas9sM7s
-	9bWZPqLsrKYZ3NubGa4A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1EegqknloYG/eTqpPEf/HWD2rVmHEJikO7TnrqO4OnE=; b=ud7UhuNjhLE9yL8c9tvyTc2qCg
+	OeZCV0NNPgmZqI75Jg+1vbJx64l60FFy/0vB6qg2/n1ZV7ashP9LLB1zw32oBkVMQ74bYMcgGdYyk
+	K8vHYgBaq2HTio/emra/74vn47wzzE30muKQzxII8Qp5YQElLP/KRqmiCKJpbOwcq75SZ0B6oH2ZS
+	A59a9l764+BGGZstGqdmTr0Vyp1jcfKmFPukGKbvAJfbbO3ke8EBhynG17ZlOg5TPwk97IBrzsicz
+	v7TTg66YHUPy6AgEuDGBmTi9rWLMsjFdwZFIJj/YDurFWCCCdxY3GuS06CwCAYCvavvve1S+F32Jt
+	nIwat8pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mkU-00000008Kj3-3lGG;
-	Fri, 17 Oct 2025 15:52:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v9mmT-00000008Kvc-20oU;
+	Fri, 17 Oct 2025 15:54:13 +0000
+Received: from earwig.ash.relay.mailchannels.net ([23.83.222.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mkU-00000008Kih-0CQM
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 17 Oct 2025 15:52:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=pIG61GxOB4f+willlOFgoEXV7HX79IGhQTc5DPiOLec=; b=ftLl6BoijPp0tofNT/vo0XMdiL
-	eHo8newRojEYe3J1yuVk2p75YTgZZlQ5IhOlNNJPX/AEiwIzb9QeqO9CaO5HovAR2JKboOnmfMKJG
-	dR7t+1H2YJHQZCn8H4iw6VxsPVLpaCBFRq+uR/e1vEdBj1hpTTQg4da/TEqVF/77i8uekaq3NaM+X
-	XLmJIWJc0gL4r3Brw+/ZKcNxffU8McQkg2buh2S9vXXm94YXXkomO0dIKqLA9OGS4Fh7uEtmVSRJa
-	MV9mLLs3U7RP2VHZKyTYJ2NuBVvYJ/vpavs1zR/I111zyhwb04m+l+v61xxb4kcTmWdjWjx+yH4Kz
-	HVj6CAmQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mkQ-00000007hmd-33mc
+	id 1v9mmP-00000008Kv8-1zgG
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 15:52:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0EFB74B885;
-	Fri, 17 Oct 2025 15:52:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5444CC116B1;
-	Fri, 17 Oct 2025 15:52:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1760716324;
-	bh=exOzAKYyZqWdz3l/rN4xuKsrpx1NjgptUR/yfAc9w/0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oLE88u86G77oJrcRTZwIecPAKmfrB6e9/tRB1tYMLffW9mPUH4RJqJ1WVwaSJFkXt
-	 nGPmwQs1QjumTeLc1rs0NjnkmhRfKwU4pxwRTW2JFYpTibuLzbogPnUT9sXgSExHoQ
-	 1CyvTft/pwR1LmSoVXthVo4ck0GfuE2xx2a1NW9I=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Leo Yan <leo.yan@arm.com>,
-	Ian Rogers <irogers@google.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.15 152/276] tools build: Align warning options with perf
-Date: Fri, 17 Oct 2025 16:54:05 +0200
-Message-ID: <20251017145148.027432958@linuxfoundation.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251017145142.382145055@linuxfoundation.org>
-References: <20251017145142.382145055@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	Fri, 17 Oct 2025 15:54:11 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id CFFCB701A01;
+	Fri, 17 Oct 2025 15:54:07 +0000 (UTC)
+Received: from fr-int-smtpout25.hostinger.io (100-117-132-18.trex-nlb.outbound.svc.cluster.local [100.117.132.18])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 602B2701AEE;
+	Fri, 17 Oct 2025 15:54:01 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1760716443; a=rsa-sha256;
+	cv=none;
+	b=qsbdjJATkXL3pVbVt/nMJLo5Bik+gXYtmu8SG5torvU5Tu6ofvZlAEbLTQVm/ZAPJihpg/
+	Kh1MAJNzfUVOr9EF8kPOutx7SZhy6lYppkxmnTtZrIiV4+bYK4/8CTVsxSnLPnrZmn85Kg
+	fc06Cs2ZWSzBQ3/tKfcTp/EhtaVa1o+3w6dk8vS+OvninEBCmu7GaQ5/pFpDSpyLpYR9id
+	gwJ8fu4L7sz2zvx4WI/VDi3E/qOZ1YBMTURVorMV/vYgjZUx9Dj78YB5ItXVyIlHMP2JmL
+	9HYQEjlirZIpGb+wIqnZ2er0gNW002stlHtcritUDc3nRV48a/qQan6AVmd0ew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1760716443;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=F1FFVJG2rkiUWHHF25ZM11yfG5to6mYY/Am7bSXow1w=;
+	b=g4gw5xwKjwzE6nyJqxtt98VD+XSdfMX7m/AsaUhBACTkHpYj8rO73kL7pTTlLm/sIMAfUu
+	haDL87tDSS4JdTaHg8W0DL8uNQaIqhCAw+KsE0gA+N659ADCbK/5MBHu03lZR7QK13XjGG
+	Imj+q82dRNCureS635wjDw3XaL5/vzM/zO+QTBk7jK/NkJqfJee/7RCMrZFHafwOtIl+Yv
+	I9NxOU+wJcV6Y0iEWW6EE1GcCgG67qX3z4qLRgee1qoxGK0ACL49RO2JMxW9mYknvZNKTl
+	/fMcPq9zTeu8YXfhS4tV6LxV6AGfC5XU4fg71EPAcyYDKXoSDGzJ1W7mj/tkKQ==
+ARC-Authentication-Results: i=1;
+	rspamd-fbfbcbd77-nmt89;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Interest-Invention: 3d5ae642033bbe25_1760716447513_1362389868
+X-MC-Loop-Signature: 1760716447513:724433826
+X-MC-Ingress-Time: 1760716447513
+Received: from fr-int-smtpout25.hostinger.io (fr-int-smtpout25.hostinger.io
+ [148.222.54.38])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.117.132.18 (trex/7.1.3);
+	Fri, 17 Oct 2025 15:54:07 +0000
+Received: from [IPV6:2a04:cec0:1210:4d12:deca:bae:eaaa:c8e1] (unknown [IPv6:2a04:cec0:1210:4d12:deca:bae:eaaa:c8e1])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4cp8WD3ntHz1y05;
+	Fri, 17 Oct 2025 15:53:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1760716436;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=F1FFVJG2rkiUWHHF25ZM11yfG5to6mYY/Am7bSXow1w=;
+	b=M02/l1LY/12rIEeTpPcENXTumRGFuqsL03PFKuftuURXv6DClseDI47zTy3+8tKFYpqX76
+	0VQ+9rEgw9PJ80bZ6PXcrTECo7oheathXmj/GV5FNt1UdrXei+fwZyOGqP7trZEtz5UtPg
+	+MEvXjkixRqTRa8juNpu1Uj1/6ZTgGToTH6xRG3B+nEyor5laOstctdf9zuGndOFyWZ9zI
+	nBv/jGpMxCHcw/A0nw0cwpSVSJeklLbd+XGM4tvdOGrnWBvO7aVjuprKWyvdZ3QXicsfqZ
+	1cDKdlfl8i77exoN6n3JgzRQQynSb0za7ZTrTpe99LVXbTRZ08WIq1I3M2WDHA==
+Message-ID: <63b2056f-3d5a-4fca-8600-526619c33647@rootcommit.com>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@rootcommit.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Yixun Lan <dlan@gentoo.org>, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] net: spacemit: compile k1_emac driver as built-in by
+ default
+To: Emil Renner Berthing <emil.renner.berthing@gmail.com>
+References: <20251017100106.3180482-1-michael.opdenacker@rootcommit.com>
+ <20251017100106.3180482-3-michael.opdenacker@rootcommit.com>
+ <CANBLGcykz77U_V4CqE7PHvtgmeXiKFo0FXy-sHHiAoZ11HnCjw@mail.gmail.com>
+Content-Language: en-US
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Organization: Root Commit
+In-Reply-To: <CANBLGcykz77U_V4CqE7PHvtgmeXiKFo0FXy-sHHiAoZ11HnCjw@mail.gmail.com>
+Date: Fri, 17 Oct 2025 15:53:44 +0000 (UTC)
+X-CM-Envelope: MS4xfJ9c+Oq6a3xe99yK0EZhAMCEV7n/+Vax87LhLieg7XqJbgnwD5VAarvVM6KCvSMEmHfg5nOc41whlY3NxSYXoCQkRdIalh/pIn9x4gRAnk2Vd/w3J8BV 8+BlmotPVSRFAlCM3amjVpsZDKN8a23XE54m+J0PIowDjfBLXfR3OqPUGpYZ22o82HoMUyBKYEHM7VrcD71CbfiI6NOfPwSjECGCMKOJuX9clYXphkEndH1Z eoGXu3YZ3bxT2XtWKFqBEs98FkRZJ06rdzLtGRjr4gm+JGc5RiDmXaoXlB3MEz8YGpHITKjDURU2tmd0ItVXr6X8MUmf+5nE79861gwIB+T3EiJaqZOUudJK seV2l5MgJbNyPQct/KpUFvoXH1Sl8E9QNpvv5FONjRUe2eRU5UwVlyVCs4FvEWhLkDRpt+qeFz/7h+EkakPaY+VXyOaw88ZKQrvsYPJqGLK8YAtfqTbVC1Ib vjwDhNt1oy05D7dSd6ATeNJq+J4ZkjhuTQ/X39dTk/RBULT9vp2Sd1LLEqUq5s9HgNe9m9V3f6HoKCbLjjTnKIbYMIvNl2x/zlo0Lx9bh6LfBIM1Xr6YBcbl sHL3rf5OblNYUUzdBgPjA00wJPod2kKc1EtqH75mcsrGHnxOLsN5rVnyqi8XlABvjXynwRIjg3GatUnAFHqF8TPyi6U6lAuZBhG12SDE6I/zdjECvGr3ONjI KEdcxt7c/TM=
+X-CM-Analysis: v=2.4 cv=GbNFnhXL c=1 sm=1 tr=0 ts=68f26694 a=HZifvgWxdiUQ9LBJ2kG+mw==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=6my-HHL3l342PdgWGDoA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_165207_194211_BD09EF68 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20251017_085410_208118_69BB7934 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,73 +125,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5.15-stable review patch.  If anyone has any objections, please let me know.
+Hi Emil
 
-------------------
+Thanks for the review!
 
-From: Leo Yan <leo.yan@arm.com>
+On 10/17/25 17:33, Emil Renner Berthing wrote:
+> On Fri, 17 Oct 2025 at 12:03, <michael.opdenacker@rootcommit.com> wrote:
+>> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+>>
+>> Supports booting boards on NFS filesystems, without going
+>> through an initramfs.
+> Please don't do this. If we build in every ethernet driver that might
+> be used to boot from NFS we'll end up with almost every driver
+> built-in and huge kernels. If you need this there is nothing
+> preventing you from building the driver in, but please don't bloat
+> defconfig kernels for everyone else.
 
-[ Upstream commit 53d067feb8c4f16d1f24ce3f4df4450bb18c555f ]
+Understood. You have a point. It's not really a problem to customize 
+kernel configuration for each board as you said.
+So, please forget this particular patch :)
+Cheers
+Michael.
 
-The feature test programs are built without enabling '-Wall -Werror'
-options. As a result, a feature may appear to be available, but later
-building in perf can fail with stricter checks.
-
-Make the feature test program use the same warning options as perf.
-
-Fixes: 1925459b4d92 ("tools build: Fix feature Makefile issues with 'O='")
-Signed-off-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Ian Rogers <irogers@google.com>
-Link: https://lore.kernel.org/r/20251006-perf_build_android_ndk-v3-1-4305590795b2@arm.com
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
-Cc: Justin Stitt <justinstitt@google.com>
-Cc: Bill Wendling <morbo@google.com>
-Cc: Adrian Hunter <adrian.hunter@intel.com>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Jiri Olsa <jolsa@kernel.org>
-Cc: Namhyung Kim <namhyung@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>
-Cc: James Clark <james.clark@linaro.org>
-Cc: linux-riscv@lists.infradead.org
-Cc: llvm@lists.linux.dev
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-perf-users@vger.kernel.org
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/build/feature/Makefile | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
-index aa3b0d75e44b7..37aa85a81e0a0 100644
---- a/tools/build/feature/Makefile
-+++ b/tools/build/feature/Makefile
-@@ -268,10 +268,10 @@ $(OUTPUT)test-libbabeltrace.bin:
- 	$(BUILD) # -lbabeltrace provided by $(FEATURE_CHECK_LDFLAGS-libbabeltrace)
- 
- $(OUTPUT)test-compile-32.bin:
--	$(CC) -m32 -o $@ test-compile.c
-+	$(CC) -m32 -Wall -Werror -o $@ test-compile.c
- 
- $(OUTPUT)test-compile-x32.bin:
--	$(CC) -mx32 -o $@ test-compile.c
-+	$(CC) -mx32 -Wall -Werror -o $@ test-compile.c
- 
- $(OUTPUT)test-zlib.bin:
- 	$(BUILD) -lz
 -- 
-2.51.0
-
-
+Michael Opdenacker
+Root Commit
+Embedded Linux Training and Consulting
+https://rootcommit.com
 
 
 _______________________________________________
