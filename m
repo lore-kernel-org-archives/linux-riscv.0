@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17347CCD199
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 00:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5EDCCD183
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 00:35:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xWkHx1wXE1hFhv73Tz3qOZmr97tW+npgsa2gYOd1A5M=; b=pedG0YhEQNpgTI
-	2a49YS5f/Pkz04Wbh14LGE932M0Rj0OW7prQHigKewC3hHOl4XVpfZYZQrhHm8hkfnZioq92ra746
-	hA9LL7Rle8y1D4gHGVxfh/yNYuk7b6hsDYTu6Ao6XxzsUWpuq5iVO5hTb8K77wNp/1m4Nh0tlV+NY
-	vEMastDOEzxti2+6dOKTl/FpXSpyVjY9eL3y9KuF9XqCe/78SvfLGNwmAh3pvUmmkrDYdHSg7cEK6
-	rjE8LUosFs1bhNFgWi6DcQ84HWUN6sPj8g9VbYTwB0iP1GgMHElp23gOE4BZmtPBgh+wqYDosz/Aq
-	6JUL+e1IqkjhmYW8Zpfw==;
+	List-Owner; bh=D7pcyEBvw4HIKr8bvG1gJO/lU2fo6/48RRPtx24agkA=; b=ljgNcPow9tRZAU
+	9I0cVGGEd8T/mtkSL/O/eNK8RD30nHkFhNABAYzEgWfiwqnKBPpLiSF2xPfl5UHmAF0el8YzHQDRv
+	QvrSXUH9RIHLGi8XjHcu1aolDRGU0CLl/rACrozb2Z/8cpU6sBWqJyxhdzhedo3JGUHMdu+kPH3II
+	W9/hRFYRKe8bi9Z3MLQko5cm/000v/pX/7hu3GLekCA9AI5QJb4lkUuepJTix29SxpGq3588B/RkL
+	Sy5VbMfA1/cd+3Y+NlpFMs0Kfvl44jzec1PBMzQ3Y2k6qjQkFCoMiSV2uXTsRBrtQYqB1xVK2DCIZ
+	/E72pnCAH7Go2EAMMQKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YQz-00000006FzY-3wYK;
-	Fri, 17 Oct 2025 00:35:05 +0000
+	id 1v9YR4-00000006G89-070R;
+	Fri, 17 Oct 2025 00:35:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YPw-00000006E2L-2EDK
+	id 1v9YPy-00000006E5D-351I
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 17 Oct 2025 00:34:00 +0000
+	Fri, 17 Oct 2025 00:34:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=tdDvnnMBi79Itp61RxW2nV56QIHnitcyrtTO64NTOt8=; b=KtZOCGqyfLp9RvrpsS4dn7AY8H
-	LpWueXQfwrEiUnKyaYNXAISJprC75pkBI7ZmcwwPYLQh/M2Y8qum8I1Y4vcC9Zoifgeom2vim+SDz
-	k75rUXMuRMlpXCdP96Rcst8nuFmrxVl08TED0peYJLHPjwkd9+tnCxYbfGBdcqVXuYwAKKU7eerCB
-	8/ZR79AIuaa/cVsBy9Bjm0+PY7Zt4cZiHbsdsghlwhrtzC76LasZaKfQLmLYHQ+LWHaOwBgV7xVMd
-	Q7wphwCyjg/ofXBulqnmHi4eFTiR8oYT2nJsVjJEf3dqrr3U0p0R8WAa20gQWcpYkJVGJ87lpPxQj
-	sc4Hqxxw==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	bh=YenbGRez6bu/UEaTbB8eZbtDNA5csFA4mZUF4JnZu9w=; b=QnZPlcSg8ZsUpKhtLLmaJ2yze+
+	xN23u9Bzopzq1HqqH0UX9VwWCUhYWUGPDUjQ1/5v0Z0nZBzGUg/WaREvaNRc2OkFHcuFu32Ou0fka
+	X+8K7ZRQPDyzDL4tMBCUYGjeLRjwOXPxuQOh8bV3dspACLq0Fuwiu4otdHtquMSpK3i7LFchPuiHq
+	gJ550gpxaOWUhcJgPTOZ8O3dutf5dvvqI6OLJ/v8Q9kC/4pwppTbNKRdQohWuC9bMSS6237+bPSKj
+	PWGID0a/Vrkv52hR1h3b2aZu3IArdDyd5wVf2YIXWYu/2AB/PYI9/02G5MZIKQbrKznKLZdeirGBo
+	9ETjvLTA==;
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YPG-000000078Hg-1GVd
+	id 1v9YPA-000000078HZ-2rR5
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 00:33:52 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-339ee7532b9so2861427a91.3
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 17:33:13 -0700 (PDT)
+	Fri, 17 Oct 2025 00:33:49 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-28a5b8b12bbso28797185ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Oct 2025 17:33:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760661191; x=1761265991; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1760661189; x=1761265989; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=tdDvnnMBi79Itp61RxW2nV56QIHnitcyrtTO64NTOt8=;
-        b=ga+9WLH5HG7ItnAGHXcmpHcFVOOFb99e00cmVi6aGZHHZ3x/3dqdZQdY96pVAdsVyH
-         vlTZNc++kLVjoeeNAmG7+dMCsmZDwe/D0VgVsQNERFS9/+Wl7/0OJ2w3iKAtryBIBaCa
-         VKYuxhyTCoWmkXC8t9hW04fgs1wOosNuhdmy7YQJqnQseYQspZZB+42nYim3nCYqEua8
-         xKxhNtJVWT73D2kSFzkjfpMJuUUowvq2//1ReCJic/yRo6U/oEr/7YrFPPaD3t6D/x27
-         lMbZAPTOOjTTiISnY84Df9T5m61H0feEqafZb2HSgEM2mRUKHo8+lhzBH6ycuk1PS4aG
-         AOkg==
+        bh=YenbGRez6bu/UEaTbB8eZbtDNA5csFA4mZUF4JnZu9w=;
+        b=HttfWQmFgE9GuQnXOq3SdSpoyNL6bG83qZvQZmrwjjE9yOF8l5YiGpFIxR/KDgbBp6
+         HPuTHb5K3PWax0Thxq42unCBEoGx6+01FgV+6dImjdxJpZrtBl5Uf3L9mWx2ee1QSxTP
+         yppR0X2wqRK1Kx5bnjFaL16ejHt+JBQQdWrwMuJISoafJPaDdlOlnx5Y5srsOv6Ms8Me
+         +mGtgtaI9U3VtRWzWQoCv0HiNY/l/m43S3kv0EPaaiYImSltrh5wxRduSj5K20yoaNaO
+         7kv3G8prTHAaDvGF7DQ8Wtwua59lnrcjRPkW9mH8Eo6D6maTo3eU9eaDA7SnNgEoO4sO
+         mM3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760661191; x=1761265991;
+        d=1e100.net; s=20230601; t=1760661189; x=1761265989;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=tdDvnnMBi79Itp61RxW2nV56QIHnitcyrtTO64NTOt8=;
-        b=hbVaGAMLEzv5gLy7HLcDbKYp4DybmBBQiylYb7K1aVvqFzZp+Vi0S9Vj18PCw3W/aT
-         j8ER40D9ib+Le77OlfLYKgom9zb3pYcSq0+6AqLTbf4iGM2Klpnjq9i0GzNc8RPdlHuA
-         75IUWRCJJH3UZL3YqWl05Aoj88FdwWE/CkVhy1V9nbP/YiGToqvrWGuj3VPdyCfx/UAw
-         jwibGygsXyiECRP0GwN0GJrqQINlB3A03qLml4KkeigrF4nDJcDB4nwFbzJMNLSNaTvL
-         UbfvvY9VatR8UsM8A4Y0ber11QlJdYKe5lL/g+UM0JJVYD0zsPxoBLTcGO5ZC22QVXDT
-         S/xg==
-X-Forwarded-Encrypted: i=1; AJvYcCVjmmPAXBHnubU74RiEOvRpPN+SXMu0drtyLUKznlkBMVOZ5pzWp9I/u98s6sNMfNncO6dqLepXxmTwlA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJZcOyH85VPImByPM7pjpaKAQL97V8X4SGPurJjKq9mNh16KvH
-	Vh3CpZ+y2uiHb8hGXfO2rUf1G3IBvp0nLLrvpUrju1haITGN5XNRYYvtKeW4IXqarkOKq/PESKw
-	1+NK2Qg==
-X-Google-Smtp-Source: AGHT+IFjbvhuJBf5rM9mXEGAaRcwet/6S3ph7hsVNQrCN7ddhA3ec/NJFjzeh48C6n1kB16/mom5cp7HTgE=
-X-Received: from pjso17.prod.google.com ([2002:a17:90a:c091:b0:32e:3830:65f2])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1dc4:b0:330:6f13:53fc
- with SMTP id 98e67ed59e1d1-33bcf8f870bmr1842078a91.27.1760661191207; Thu, 16
- Oct 2025 17:33:11 -0700 (PDT)
-Date: Thu, 16 Oct 2025 17:32:31 -0700
+        bh=YenbGRez6bu/UEaTbB8eZbtDNA5csFA4mZUF4JnZu9w=;
+        b=elbySAUvxLbE/PNJw4zw2U0MX20+oPPHNpggAG+YTBeyNdXuhPpFYmJR0bS0wL9/ix
+         2QUNrcXmJAuBSM5mqRltqeqUMWjZ1TOdNqTTmF7zoeo6lUHyqQmHjT+FlJsQeFiZThbz
+         SJ4v5jvbDjQa5oWaCSqpzXb1j5eycvgAQxy0844QXF/Zdj1F8J758lL0UUoRrVib8Bxr
+         ofVu1SCbFuEnLdW6dRP9r+78NdYv1IeIeoyFomlMFQPJ6yWdfw1l+O6io87DVTVGpab9
+         Pdi4By73KqfEgCPFwCyP0fJ/oeAVSWFof3dFFglG10tlMoPoNKHKpathPlHi0F6Y2Iyx
+         6FMg==
+X-Forwarded-Encrypted: i=1; AJvYcCUtMxzPxOvuByBREJmmcgDCtpn8CR90yuJJIboaG7iUxiX83dA4Z8EgQjNA7Drupp3kkTRUWOgHIR4Cnw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrP5x8jW0aLltvlwMeRat4chHC+FY0PfEtDcUgJJ3qyDvF/jah
+	5RgvlwUlPp6lX3r67TmZvx/orZuSrzNtOv5cOCmLbSS7SqCOdxeaoKyrexAKEMbKGqGnaYMgMHy
+	0jlEqsg==
+X-Google-Smtp-Source: AGHT+IFzwgrTUpyTLmlR4n7vLZlT3Ntvx3uZ2AlOGbeNdkR1Pz/L5L7m7JolYZt52l8hjag9eabuD/ERTOw=
+X-Received: from pjbpf6.prod.google.com ([2002:a17:90b:1d86:b0:33b:5907:81cb])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:19f0:b0:286:d3c5:4d15
+ with SMTP id d9443c01a7336-290cb947798mr22501395ad.36.1760661189400; Thu, 16
+ Oct 2025 17:33:09 -0700 (PDT)
+Date: Thu, 16 Oct 2025 17:32:30 -0700
 In-Reply-To: <20251017003244.186495-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251017003244.186495-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.858.gf9c4a03a3a-goog
-Message-ID: <20251017003244.186495-14-seanjc@google.com>
-Subject: [PATCH v3 13/25] KVM: TDX: Fold tdx_mem_page_record_premap_cnt() into
- its sole caller
+Message-ID: <20251017003244.186495-13-seanjc@google.com>
+Subject: [PATCH v3 12/25] KVM: TDX: Use atomic64_dec_return() instead of a
+ poor equivalent
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -103,8 +103,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
 	Binbin Wu <binbin.wu@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_013338_361826_1E32F0D3 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20251017_013326_022588_5A8C6565 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,94 +122,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fold tdx_mem_page_record_premap_cnt() into tdx_sept_set_private_spte() as
-providing a one-off helper for effectively three lines of code is at best a
-wash, and splitting the code makes the comment for smp_rmb()  _extremely_
-confusing as the comment talks about reading kvm->arch.pre_fault_allowed
-before kvm_tdx->state, but the immediately visible code does the exact
-opposite.
+Use atomic64_dec_return() when decrementing the number of "pre-mapped"
+S-EPT pages to ensure that the count can't go negative without KVM
+noticing.  In theory, checking for '0' and then decrementing in a separate
+operation could miss a 0=>-1 transition.  In practice, such a condition is
+impossible because nr_premapped is protected by slots_lock, i.e. doesn't
+actually need to be an atomic (that wart will be addressed shortly).
 
-Opportunistically rewrite the comments to more explicitly explain who is
-checking what, as well as _why_ the ordering matters.
-
-No functional change intended.
+Don't bother trying to keep the count non-negative, as the KVM_BUG_ON()
+ensures the VM is dead, i.e. there's no point in trying to limp along.
 
 Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+Reviewed-by: Ira Weiny <ira.weiny@intel.com>
+Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 49 ++++++++++++++++++------------------------
- 1 file changed, 21 insertions(+), 28 deletions(-)
+ arch/x86/kvm/vmx/tdx.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index 6c0adc1b3bd5..c37591730cc5 100644
+index 220989a1e085..6c0adc1b3bd5 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -1605,29 +1605,6 @@ static int tdx_mem_page_aug(struct kvm *kvm, gfn_t gfn,
- 	return 0;
- }
+@@ -1722,10 +1722,9 @@ static int tdx_sept_zap_private_spte(struct kvm *kvm, gfn_t gfn,
+ 		tdx_no_vcpus_enter_stop(kvm);
+ 	}
+ 	if (tdx_is_sept_zap_err_due_to_premap(kvm_tdx, err, entry, level)) {
+-		if (KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm))
++		if (KVM_BUG_ON(atomic64_dec_return(&kvm_tdx->nr_premapped) < 0, kvm))
+ 			return -EIO;
  
--/*
-- * KVM_TDX_INIT_MEM_REGION calls kvm_gmem_populate() to map guest pages; the
-- * callback tdx_gmem_post_populate() then maps pages into private memory.
-- * through the a seamcall TDH.MEM.PAGE.ADD().  The SEAMCALL also requires the
-- * private EPT structures for the page to have been built before, which is
-- * done via kvm_tdp_map_page(). nr_premapped counts the number of pages that
-- * were added to the EPT structures but not added with TDH.MEM.PAGE.ADD().
-- * The counter has to be zero on KVM_TDX_FINALIZE_VM, to ensure that there
-- * are no half-initialized shared EPT pages.
-- */
--static int tdx_mem_page_record_premap_cnt(struct kvm *kvm, gfn_t gfn,
--					  enum pg_level level, kvm_pfn_t pfn)
--{
--	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
--
--	if (KVM_BUG_ON(kvm->arch.pre_fault_allowed, kvm))
--		return -EIO;
--
--	/* nr_premapped will be decreased when tdh_mem_page_add() is called. */
--	atomic64_inc(&kvm_tdx->nr_premapped);
--	return 0;
--}
--
- static int tdx_sept_set_private_spte(struct kvm *kvm, gfn_t gfn,
- 				     enum pg_level level, kvm_pfn_t pfn)
- {
-@@ -1638,14 +1615,30 @@ static int tdx_sept_set_private_spte(struct kvm *kvm, gfn_t gfn,
- 		return -EIO;
+-		atomic64_dec(&kvm_tdx->nr_premapped);
+ 		return 0;
+ 	}
  
- 	/*
--	 * Read 'pre_fault_allowed' before 'kvm_tdx->state'; see matching
--	 * barrier in tdx_td_finalize().
-+	 * Ensure pre_fault_allowed is read by kvm_arch_vcpu_pre_fault_memory()
-+	 * before kvm_tdx->state.  Userspace must not be allowed to pre-fault
-+	 * arbitrary memory until the initial memory image is finalized.  Pairs
-+	 * with the smp_wmb() in tdx_td_finalize().
- 	 */
- 	smp_rmb();
--	if (likely(kvm_tdx->state == TD_STATE_RUNNABLE))
--		return tdx_mem_page_aug(kvm, gfn, level, pfn);
+@@ -3157,8 +3156,7 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+ 		goto out;
+ 	}
  
--	return tdx_mem_page_record_premap_cnt(kvm, gfn, level, pfn);
-+	/*
-+	 * If the TD isn't finalized/runnable, then userspace is initializing
-+	 * the VM image via KVM_TDX_INIT_MEM_REGION.  Increment the number of
-+	 * pages that need to be mapped and initialized via TDH.MEM.PAGE.ADD.
-+	 * KVM_TDX_FINALIZE_VM checks the counter to ensure all mapped pages
-+	 * have been added to the image, to prevent running the TD with a
-+	 * valid mapping in the mirror EPT, but not in the S-EPT.
-+	 */
-+	if (unlikely(kvm_tdx->state != TD_STATE_RUNNABLE)) {
-+		if (KVM_BUG_ON(kvm->arch.pre_fault_allowed, kvm))
-+			return -EIO;
-+
-+		atomic64_inc(&kvm_tdx->nr_premapped);
-+		return 0;
-+	}
-+
-+	return tdx_mem_page_aug(kvm, gfn, level, pfn);
- }
+-	if (!KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm))
+-		atomic64_dec(&kvm_tdx->nr_premapped);
++	KVM_BUG_ON(atomic64_dec_return(&kvm_tdx->nr_premapped) < 0, kvm);
  
- static int tdx_sept_link_private_spt(struct kvm *kvm, gfn_t gfn,
+ 	if (arg->flags & KVM_TDX_MEASURE_MEMORY_REGION) {
+ 		for (i = 0; i < PAGE_SIZE; i += TDX_EXTENDMR_CHUNKSIZE) {
 -- 
 2.51.0.858.gf9c4a03a3a-goog
 
