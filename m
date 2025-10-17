@@ -4,84 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 564E3CCD199
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 18:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987BACCD195
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 19:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=atzL94Ow63iZOZgKRXuC+HWghoyJUxvtWgObceVtV14=; b=38cqulYQvnotP1
-	XyCAgA48pcwNzRtcS8WIF1eRMXYKtzADcUl1oORqc1Xi4/jGHE2QanXColsdIwvuTYbEdOxZeDbL4
-	9QbsiUMbR9/DqgdNNiKe0OA9yyGcw/iPTOUumqoQL/mRmKAuAphZs6gPqGKVS6pFeYZQPljMbSHuu
-	i5ic9HOJ4AijpgdK68jnBuf3iZ94KL3FB4TBw/0UDiUrfxLoQEniZ1eQyC1AKzPjbeEYK8sjuFLen
-	97mUXmN5GMUeDtY77/kwsxbJDxXBotFsDFyqbgxT3S65Xuw5qzCXLImV1262dAK0ryB/BxpMwIzyE
-	SAIgA7xWrzDTdoNi0bfg==;
+	List-Owner; bh=AM48TJ/3803L0EF0z0PUaqynJxo9cZ8ZaHvDrVpLTks=; b=WC1MbZ4MjG1S68
+	L56oTU7WMwFXRCpZD5wc/s1MvjhS56CJIPLGhR17ZjC9RTvP6TmRDVlGlHlq0HOKRBJieNHuxhKvP
+	Enhp+OdKQwECQ93o/RS2R9K7MNIpjRi8Vm3xXW37yyc6ANLFnLMCuQEJ56Wy0h7G/gNhJiAnLb0Up
+	K3cHE+diqgit9KmVCgnGPkfmDpgsbRl04l1HzbRiXcUqvayk2vIZX2Dxec1cqIrqq8MCHrq5oovSU
+	TNTPVVTIQMgLFIu3+JMaqBunCOps9tYaorloQswyK9yqOqwwS24IjqHERABsEiow+4BT2oV3P9Wdl
+	T92iBaYg+AHlcYcHTd0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9pAY-00000008gVJ-3Hd0;
-	Fri, 17 Oct 2025 18:27:14 +0000
-Received: from mail-io1-xd34.google.com ([2607:f8b0:4864:20::d34])
+	id 1v9pns-00000008nx2-0Hz3;
+	Fri, 17 Oct 2025 19:07:52 +0000
+Received: from mail-il1-x141.google.com ([2607:f8b0:4864:20::141])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9pAW-00000008gUs-2hVV
+	id 1v9pno-00000008ntE-0sBb
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 18:27:13 +0000
-Received: by mail-io1-xd34.google.com with SMTP id ca18e2360f4ac-93e7ece3025so35256939f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 11:27:12 -0700 (PDT)
+	Fri, 17 Oct 2025 19:07:49 +0000
+Received: by mail-il1-x141.google.com with SMTP id e9e14a558f8ab-430b621ec08so19158785ab.0
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Oct 2025 12:07:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1760725632; x=1761330432; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pNxjbIp2uda5WQ4pTQ8EgPO5FziDgnqGNc1U0Yv3L2U=;
-        b=arQE3YsKbDhAhuSqDi9EH3Y5H5r2BN63qAMGcFvaa1pkow/8DXJdQZL3FJdyXBU1il
-         LuvleMIs5fJurZvbfJNjjYwZZfyCS4ikaHAW2m0dNOlEqxXERxqIHkcJ/LatAWu/QgDd
-         cJ7NS7J0UQS0yuKarQLPps5qysj8tVmfiVEMkhzVtSpnO8Dcj2zkX4iIq37l5WrkrxmW
-         RCDRBZc/ME3yB1idYrgy1zS3+qbRn5f9aRUA0wMv+71OTSLj67Z/Jx0rLxa8+Ck4I6ZY
-         +UxbQUuCyzAInkIEcXM85xTAlix8I5+dnCwkUatejAaI9GFJX7Ex2uwX7PFV8rg9PNwH
-         Zpow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760725632; x=1761330432;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1760728067; x=1761332867; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pNxjbIp2uda5WQ4pTQ8EgPO5FziDgnqGNc1U0Yv3L2U=;
-        b=BPgyV3R+BVhLskmS4rR9zASlXMm9Yg2uTq0QISXqXviDWin1KzaA+rs2OiRQgylSlg
-         7xp3d7mMKezgLcBQPho55t9/iIVwwfGls36rt9KV+12tpsADDle9KR8IhRiHqYFcmD14
-         cli7rPcDMqVO+egTSHD7fcK12TJmJzyORNWM3fOap7bSchj8hxtcEKNNR7w0eVqei7wz
-         Mtfs/5VT9M8MDBpJW5TC7ZRU2LTdoVZ0mR4opCH+Y6xQQZC3V+5RVQCQHvzgOh7yFjVU
-         CUzMwKXcLk1koFG2nBnpX25EchG1NXrLTxh2mi5+YH7h4/0rYN1Aw1IG6HzDHL4qOjzQ
-         MKmw==
-X-Gm-Message-State: AOJu0YzEmkMK9W7tm1D6kGGEb+tuYh19sFwaPN37Hr2NbOJ2qGWJTgej
-	yUXBQomvdVXfdeFoDefAzJfs7U6BWKe26L05TBccFUjvTad61n3wvETcYETBarFGQho=
-X-Gm-Gg: ASbGncubDef+4RjvzPlnTZsCYhl3UiCOL5MIaK8d+4KZU2eWfKwPkFqnf4PAhF/O4y7
-	fVEwCaHbwkIEp1gGgI9q0a7ek4PpPP5E9ltyrA8fuLfCU5QYjqj4A5o/hqyrQkFyCdGMJDwEPk/
-	92Q4Aph8PKWrnQUFhRCOGOpoRw6jn3vhgOk+jAXDGYEBhAT5SvkyWk6kk/TFWWPmgM5pHVe9cgt
-	87abGfTJUH0yGz2QeO2rzhUZFiHC74z2YLcid2jbw5x3L07RAYZTN9QaCJFAwp6DJLw+v5V85YX
-	dwYARc6y7ReeJhu/7tVv5reA5DBvsaQStXdOt2GUFTmVWcMa10KEBSR4X626YJ4PDIlDYNilO8a
-	/KPJE7O5EB+7e82GHycT1i0kTd+SQoqP/QNUkDqvcpP6sT8nNUZIf+DxCg9wF4w6hVtNipQmUI+
-	FLeqZ+ssyJ7uSu
-X-Google-Smtp-Source: AGHT+IG/l5DfNJjWVnOVGnQMrkwv1D/4nxp5BRhHYfzVn7XZlm5jmughQqdYk4b72q/3SoSKXekE7w==
-X-Received: by 2002:a05:6602:60c3:b0:887:690b:2594 with SMTP id ca18e2360f4ac-93e7543d9e2mr881639139f.5.1760725631532;
-        Fri, 17 Oct 2025 11:27:11 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-93e866f5e59sm13795939f.23.2025.10.17.11.27.10
+        bh=H/3BQdd3vn0d3oIHDdjobMfykMV90YiIp5S1jVARxr8=;
+        b=NwjtQAvc27cS4D71DFiMlVu9JNgsJfNKFZ74mYfkciN3k3SmVZAUQi5OjRWjac+tyJ
+         /jDNhTOiFfjh+E1kDIr6VNX/Y0JkRefAzBsHNC4f42BMwN7yeUWn15cNBqvMGAVM8NIX
+         a6QiHgCBZqQw+VaM+914ohTZFv/5mA12RRYvRkyeMfQhlTVkVRIcqDoWCq/i59lWT++Q
+         IPnGz/cvRFkQU1nYe2mo1Px2LvvW2jlRwJ1QPKuN+YCP7UHwam1XwjxvSmX5jTLFL5bo
+         EFYYpeZ6oq26xNrSnjzQ6hvN9XWmuiqz9Io96b4pGPyg1g+bK8S6Cxs/WMk7T3E0AsAS
+         NvFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760728067; x=1761332867;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=H/3BQdd3vn0d3oIHDdjobMfykMV90YiIp5S1jVARxr8=;
+        b=jm3Dv/uZyJtZgFS5xWOTYJd/McLhtiPsy//TxSdGIoNxSJwdFFmxSuxyqtdn8jJhtV
+         MDw1eI0rnZ2uaJEYyBQtNCQ/tsc1vMutQOgXCi48v5V7EGp+E7FFCswd4SIMRdOyLkkJ
+         yzPckYMcMXWYJ3ojY2xEjXwgCP20br432GjtmUujzZOwgKt++VgW+Ut2NUIkp88xL9qY
+         kkd2j+VJCPrenspf1nFpoxDOED4RlbPJojv22on9GxwVgVjtsV2KmmV/2gvR2JqWsnD/
+         xlt8t58hhGaJTnL8XWhQWO2Hsy773AIy0pixDCa6HsPTLG0ZELggYMJFCSZqWVmQMxWy
+         Tzyg==
+X-Forwarded-Encrypted: i=1; AJvYcCWqXWe3PRzQyY6891osD9ah1I1DRTy90EPH0wp0++pcSAyg69uxDUNZWaDCkqTovHjcexwbBF0x39pDiQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw93QWdhC90lAIZ5GMjbrc4yikZNNqK1cuu6qCTfQzTDX8dMwqB
+	ALMte6PO+FVRL+t6Nf+MyK29IaRXCc5XQsGDuCGKqz8jXT+mQCEHxfxTq3mW3Y0WbVo=
+X-Gm-Gg: ASbGnctfB19KciBPl775Dp5UH2GgHljJ1UwTEygL3DFrQ9n5virjbIPF2LavnSEwdZx
+	HzCatK5MHagOMk/rvXmfKodvC1U9HINfO2FKE+5CLYbONs/dAPXujUB+X1yOQGH+aBVmQ3huOAx
+	2JNYuThlljxK34/Bh1jNH/FXpgx18A5UYdTUyN01sB6Ng3igVDvIyAcv2ZHTPApm3N3E3SyAeP9
+	rqwP7maYjuuxTpOKWG0IM2FjXQvPSuotCPbliMdjZ/UbZL8g8gpk66zhsZUV7k472xJODbQ9IFV
+	tao46lhoiqPYo+8Wa6JzTFHR2WbC/JeFJrdT3jdRfSBGRAmGu+ICRhkLZNVvvj53Tr6TzEuTwgQ
+	ealP5KoU8XQY0Ko7sgoW2wRON4ik61YK9N8X2/yJs0hN+ie6jzsfRI2SJThLQspZRy/gfAz1wPI
+	DBLP+Xv8cltW55+q30/+vDt5GxfEDsRj1ilHmtAYRizyyt4HNz6c+QVQ==
+X-Google-Smtp-Source: AGHT+IHRtsRSfhWCT9BQG3DcVkrpn6NA7ODycaChUBpFYwB1ZdnsTh8SKsqwMx76IAkXTipom5mlHA==
+X-Received: by 2002:a05:6e02:148d:b0:430:b167:3604 with SMTP id e9e14a558f8ab-430c5209bafmr76757915ab.4.1760728067217;
+        Fri, 17 Oct 2025 12:07:47 -0700 (PDT)
+Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5a8a9768b98sm153462173.46.2025.10.17.12.07.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Oct 2025 11:27:11 -0700 (PDT)
-Date: Fri, 17 Oct 2025 13:27:10 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu
-Subject: Re: [PATCH] riscv: asm: use .insn for making custom instructioons
-Message-ID: <20251017-cc34e15526ff6f64e4dbdfcb@orel>
-References: <20251017165527.701934-1-ben.dooks@codethink.co.uk>
+        Fri, 17 Oct 2025 12:07:46 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: vkoul@kernel.org,
+	kishon@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: ziyao@disroot.org,
+	dlan@gentoo.org,
+	guodong@riscstar.com,
+	devicetree@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 2/7] dt-bindings: phy: spacemit: introduce PCIe PHY
+Date: Fri, 17 Oct 2025 14:07:34 -0500
+Message-ID: <20251017190740.306780-3-elder@riscstar.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20251017190740.306780-1-elder@riscstar.com>
+References: <20251017190740.306780-1-elder@riscstar.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251017165527.701934-1-ben.dooks@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_112712_686944_6C56D10C 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20251017_120748_255608_8C157194 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,72 +110,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 05:55:27PM +0100, Ben Dooks wrote:
-> Using .word breaks with big endian builds, making something which
-> is not a valid or worse an instruction or pair that does something
-> which is not intended.
+Add the Device Tree binding for two PCIe PHYs present on the SpacemiT
+K1 SoC.  These PHYs are dependent on a separate combo PHY, which
+determines at probe time the calibration values used by the PCIe-only
+PHYs.
 
-The motivation is no longer for big endian and, since big endian
-doesn't require AS_HAS_INSN, is never really could be without adding
-that dependency. The commit message should be changed to point out
-that we want to use .insn when possible because it provides validation
-and allows mapping symbols to identify the words as instructions.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Alex Elder <elder@riscstar.com>
+---
+v3: - Added Reviewed-by from Rob Herring
+    - A "phy" reset is now required
 
-> 
-> It would seem sensible to add an ASM_INSN() wrapper for anyone to
-> use for hand assembly of instructions.
+ .../bindings/phy/spacemit,k1-pcie-phy.yaml    | 71 +++++++++++++++++++
+ 1 file changed, 71 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/spacemit,k1-pcie-phy.yaml
 
-This sentence isn't necessary.
+diff --git a/Documentation/devicetree/bindings/phy/spacemit,k1-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,k1-pcie-phy.yaml
+new file mode 100644
+index 0000000000000..019b28349be75
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/spacemit,k1-pcie-phy.yaml
+@@ -0,0 +1,71 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/spacemit,k1-pcie-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K1 PCIe PHY
++
++maintainers:
++  - Alex Elder <elder@riscstar.com>
++
++description: >
++  Two PHYs on the SpacemiT K1 SoC used for only for PCIe.  These
++  PHYs must be configured using calibration values that are
++  determined by a third "combo PHY".  The combo PHY determines
++  these calibration values during probe so they can be used for
++  the two PCIe-only PHYs.
++
++  The PHY uses an external oscillator as a reference clock.  During
++  normal operation, the PCIe host driver is responsible for ensuring
++  all other clocks needed by a PHY are enabled, and all resets
++  affecting the PHY are deasserted.
++
++properties:
++  compatible:
++    const: spacemit,k1-pcie-phy
++
++  reg:
++    items:
++      - description: PHY control registers
++
++  clocks:
++    items:
++      - description: External oscillator used by the PHY PLL
++
++  clock-names:
++    const: refclk
++
++  resets:
++    items:
++      - description: PHY reset; remains deasserted after initialization
++
++  reset-names:
++    const: phy
++
++  "#phy-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - "#phy-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/spacemit,k1-syscon.h>
++    phy@c0c10000 {
++        compatible = "spacemit,k1-pcie-phy";
++        reg = <0xc0c10000 0x1000>;
++        clocks = <&vctcxo_24m>;
++        clock-names = "refclk";
++        resets = <&syscon_apmu RESET_PCIE1_GLOBAL>;
++        reset-names = "phy";
++        #phy-cells = <0>;
++    };
+-- 
+2.48.1
 
-> 
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-> ---
->  arch/riscv/include/asm/asm.h      | 6 ++++++
->  arch/riscv/include/asm/insn-def.h | 8 ++++----
->  2 files changed, 10 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-> index 8bd2a11382a3..c92f0ff51ffa 100644
-> --- a/arch/riscv/include/asm/asm.h
-> +++ b/arch/riscv/include/asm/asm.h
-> @@ -12,6 +12,12 @@
->  #define __ASM_STR(x)	#x
->  #endif
->  
-> +#ifndef CONFIG_AS_HAS_INSN
-> +#define ASM_INSN(__x) ".4byte " __x
-> +#else
-> +#define ASM_INSN(__x) ".insn " __x
-> +#endif
-> +
->  #if __riscv_xlen == 64
->  #define __REG_SEL(a, b)	__ASM_STR(a)
->  #elif __riscv_xlen == 32
-> diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-> index c9cfcea52cbb..35b5024db0fc 100644
-> --- a/arch/riscv/include/asm/insn-def.h
-> +++ b/arch/riscv/include/asm/insn-def.h
-> @@ -256,10 +256,10 @@
->  	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3),		\
->  	       SIMM12((offset) & 0xfe0), RS1(base))
->  
-> -#define RISCV_PAUSE	".4byte 0x100000f"
-> -#define ZAWRS_WRS_NTO	".4byte 0x00d00073"
-> -#define ZAWRS_WRS_STO	".4byte 0x01d00073"
-> -#define RISCV_NOP4	".4byte 0x00000013"
-> +#define RISCV_PAUSE	ASM_INSN("0x100000f")
-> +#define ZAWRS_WRS_NTO	ASM_INSN("0x00d00073")
-> +#define ZAWRS_WRS_STO	ASM_INSN("0x01d00073")
-> +#define RISCV_NOP4	ASM_INSN("0x00000013")
->  
->  #define RISCV_INSN_NOP4	_AC(0x00000013, U)
-
-Other than the commit message changes, the patch looks good.
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
