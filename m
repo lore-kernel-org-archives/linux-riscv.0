@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 621F4CCD199
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 14:58:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C73CECCD195
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 15:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gtBgktBx8eK0hWkgfcaMCU5WR0VCgYTGw3PyYBrwO7s=; b=yg5Sr2rgMMULFp
-	V9UuSMjLSF3+c9x4/TrSCOM76uxiO4wg50blpR462LXHnwresgXTtwOXaNpKW3rxgCXdEJCHDL4NA
-	BJZ0u60Sag5MHgX9C9QQxrwzSC159upZbRhcj3eUiBwj39QbvaCnvgVAAzQU+lAVZz88h+Vp2CqIa
-	zya1gwqYsuXsSojIZHbCnHrs/d31rWlBVKMchD/m7wu6m+wyOFe6RDw/HD1OH6ahYOr7oR79QeFL8
-	QoRoVB2y0dnUDT6ZZYHYUalsFtGUxfH/RU+f2ciSaPaebiSqQraZEs2HgnhEb5mTGApB0Ry5Z3cAC
-	6ECp/KOqxu58FMcd3OZw==;
+	List-Owner; bh=SxM+b48ZyzGiKgSt38e5r+d4pML4ozMoZWYEy50X3N8=; b=Q23B35sIGYMtuC
+	H5mgxfKswxc3QWBCFBboM14jWcpyF/PVbQ55Z7wNxV5+vDgfhSid2LiRepm2pVC5vc0g7HgmzdXg2
+	IBoFloEyKOywblUHWIH4C/62d3zKG1sw93EtYwtlC4pesZutGvUCpTyGSG40RxvH/WLoLoxVHWO2z
+	quavPCiStO8N18rE2XqNHkn82haVCShDIua2t6lTvFOn+/k3VMXxXCiunmQkS5Z9vjQE1GTCFlLZp
+	XA29PhiM6krEjzofN6BaUr7HItvg3IkXsTdLS6hRfdJspArFvVwa6dCk/ITvqLMNGCohpdvf3QRq4
+	xM1rF+8jg4amzkuQhm4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ltx-00000008Atm-3DHV;
-	Fri, 17 Oct 2025 14:57:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v9m1t-00000008Cym-1krN;
+	Fri, 17 Oct 2025 15:06:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ltw-00000008AtG-1rCT
+	id 1v9m1r-00000008CyL-1Brj
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 14:57:52 +0000
+	Fri, 17 Oct 2025 15:06:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CCE8643D9;
-	Fri, 17 Oct 2025 14:57:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2B84C4CEE7;
-	Fri, 17 Oct 2025 14:57:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E23934176E;
+	Fri, 17 Oct 2025 15:06:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 438D7C4CEE7;
+	Fri, 17 Oct 2025 15:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1760713071;
-	bh=yyXdbqmVBwCJBAnDFJ6uojdAFVjK3BND7ZL/z25OXiw=;
+	s=korg; t=1760713562;
+	bh=aXYiaW60kEXBJHbhpm7wTDTpf+hS7fd/uW32fo4VVJE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KlAO6bDXr0YEqUbd3vX7IqaM68TdJ5EHbXO1NaZf6BBEbusVCGtxyY9rO1BSqYdE5
-	 BWRw53ySzQ7x3gYfiEc/Q/0kRewETZyJ6FTMoff2Gd/4Osgp1QAIBuyNuSMyoH1NBB
-	 x9R3jRIFBDTr0A1q20lgTD3NzBMisr+KrKOb7+eM=
+	b=XuSKZPyukqnjuHC6kaqdVOeDM0IG1PRcjGOIfbTnwBthzWLoglC5cD/GtsAtUh2bJ
+	 iUCZhqQJlUbmLmc9Aqo0IsgnLoC6TllgKe53w+hZl0CzgxDddSDYr+/6ySjFP8TGGw
+	 NSU/FRN7cyV7dY54P/P7LNtV2f07CO9CORHWJ6os=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: stable@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -64,16 +64,19 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-perf-users@vger.kernel.org,
 	Arnaldo Carvalho de Melo <acme@redhat.com>,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.1 037/168] tools build: Align warning options with perf
-Date: Fri, 17 Oct 2025 16:51:56 +0200
-Message-ID: <20251017145130.385519209@linuxfoundation.org>
+Subject: [PATCH 6.6 039/201] tools build: Align warning options with perf
+Date: Fri, 17 Oct 2025 16:51:40 +0200
+Message-ID: <20251017145136.181864974@linuxfoundation.org>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251017145129.000176255@linuxfoundation.org>
-References: <20251017145129.000176255@linuxfoundation.org>
+In-Reply-To: <20251017145134.710337454@linuxfoundation.org>
+References: <20251017145134.710337454@linuxfoundation.org>
 User-Agent: quilt/0.69
 X-stable: review
 X-Patchwork-Hint: ignore
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_080603_359906_F29B35DA 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,7 +93,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-6.1-stable review patch.  If anyone has any objections, please let me know.
+6.6-stable review patch.  If anyone has any objections, please let me know.
 
 ------------------
 
@@ -132,10 +135,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
-index 690fe97be1904..1b7886cbbb65a 100644
+index 4f869fff28fe4..17e03236e3461 100644
 --- a/tools/build/feature/Makefile
 +++ b/tools/build/feature/Makefile
-@@ -282,10 +282,10 @@ $(OUTPUT)test-libbabeltrace.bin:
+@@ -306,10 +306,10 @@ $(OUTPUT)test-libbabeltrace.bin:
  	$(BUILD) # -lbabeltrace provided by $(FEATURE_CHECK_LDFLAGS-libbabeltrace)
  
  $(OUTPUT)test-compile-32.bin:
