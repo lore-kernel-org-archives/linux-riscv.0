@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B26CCD193
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 03:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1369FCCD184
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 04:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K1rka+tuUIkpUCOi1fbIFYSHJbczz9IAoeYxBL1EH2I=; b=Dt3BsM/GrTirUL
-	yDMsyeupMKFNZHkelqzhn7hHoaUNjKMULLQlMcyEFxqa4z4jqvYWu2eDINi4+JSfJDTNdK3KZa4Zt
-	vbpsSYyLLi3HfL7vQJr4ZeszuM/qMx+XzA/DaoOiI/8AYQhGTt8HbKNGYh35MQRghHhnWU/qINe25
-	frdvmQZDJhkbC6MPoDRAjlaa1DMeToYRBdR9/XnqQdd6UfWJSof+hZlDNR4ZkCfTmZx6fhFNMhZbf
-	keJYYrZLUcwyMfmjt2eaFWCZdrQboeWaWZ42pKPbXs0D6n3G7r/xDUVYEYsSGyMKa8YwoG6jE1bQi
-	Q2svJUX8czcG10LEqwZA==;
+	List-Owner; bh=GxCCb4l8OT8SsG7IR+xGqmY5SUH0RiazBx1yeBoZAXQ=; b=Va9FRhA56N069B
+	feg/aqZ9n8FcItjhczRULARkQorrhnPsC5PAUfXnJTisj18/F94xJQAiKzaYU2NMXO9LfN3/o8ZF5
+	a8VxmO1DrOIDZcRwCJH4pYOcPComGJl2GHCobiwgydW6IVK3+Znnv8sEk3b0rHPs7sKPLpGMc7R/p
+	syAi2koZnW9eRrYC5gBH3Z8ao8yLuvBILDiDkEViMRSw6zv4cFTfS2zp66+0wYW/MayfQCGCkkHxV
+	cjG0MZcS7rtSL3CtqAQ7emRhk9AnaeawtsYhMjmZBG5CJw8+QWWjzo+Fk83e8+OvvEuGSB6DtvH+N
+	oOdFA9xr8tpAbAbajVGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9y63-00000009T7r-1lve;
-	Sat, 18 Oct 2025 03:59:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v9yWQ-00000009Uec-0oC9;
+	Sat, 18 Oct 2025 04:26:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9y60-00000009T7N-2E4Y;
-	Sat, 18 Oct 2025 03:59:09 +0000
+	id 1v9yWO-00000009UeV-3LnZ
+	for linux-riscv@lists.infradead.org;
+	Sat, 18 Oct 2025 04:26:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 225F941B3C;
-	Sat, 18 Oct 2025 03:59:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E640C4CEF8;
-	Sat, 18 Oct 2025 03:59:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C99F6601D3;
+	Sat, 18 Oct 2025 04:26:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04702C4CEF8;
+	Sat, 18 Oct 2025 04:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760759947;
-	bh=EU6U5Z1y6eCiRh+fXNU8O/thPLmzUksR4n4H3faDx18=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=krIfENMfuFjiHhOD9R6DJZJbEI9qyq58vTH4tVORoQRTS2pGY5lkJEIZDY6cO/JsF
-	 7rV4qf/QB3xJavBLHP0t1tOOd2ijiKeeH7r5PBJer2K+56mKaBeK4gxS6ShjW6W321
-	 VkvkNEiUhE+GJg+MsRokLA9CNBFgs7U0v7KF5BOur/qWmLZ7DKTce6BLHyqQ3UmI3d
-	 h3G0koy5DXW63vce1vAszW8CD0JUM4rwNfwwIrL7aT81malR9QIBv5/P/aZVWwdmzB
-	 yRQW1/nRqFaZ64tNvz5lQ6FqKOjnXl5DoM5YdsFKHtq3AqF25dzypI1i46AMW/sKZH
-	 62a7C0hJMLpqQ==
-Date: Fri, 17 Oct 2025 21:59:03 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Trevor Woerner <twoerner@gmail.com>
-cc: linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-    linux-aspeed@lists.ozlabs.org, linux-arm-msm@vger.kernel.org, 
-    openbmc@lists.ozlabs.org, linux-hexagon@vger.kernel.org, 
-    loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
-    linux-stm32@st-md-mailman.stormreply.com, linux-mips@vger.kernel.org, 
-    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-    linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org, 
-    sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] defconfig: cleanup orphaned CONFIG_SCHED_DEBUG
-In-Reply-To: <20250828103828.33255-1-twoerner@gmail.com>
-Message-ID: <e88ab2ff-dc16-dab7-0ff3-702f093563ce@kernel.org>
-References: <20250828103828.33255-1-twoerner@gmail.com>
+	s=k20201202; t=1760761583;
+	bh=MEgE0QRPhEEuk7tndh1iLlixQzBm8L9kEqydt7lrUeA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WW4OQ5KKq/YUAx14hKAI1n6M84ZVfX7iqRTeZxivffvfBhaEKvGsHOzXsd81bxgwx
+	 wsYxP4LAg9+QiY7xRo74GmxKOi1O0edebdmFhxb/Iw2HYC+LqNMQC/MM4AmZCsP59h
+	 ADdGIV6f+SeLwqeWgGlaC9pQCzTaT3mIiGkJ1+dE3t9/pDBgiyNBY5R/nUTDMGXVSK
+	 5+5bVQiCGCcnZxHhEAbWWz8abifKYN/GTIYYH5xjWKVT2p9yedgtdfN1Leu3bP/d6a
+	 uvoKC/Gz03/2mKhg5TZhcyLUjLyJPbdhfv1PGTzD3x4/+uYEMajSkDerulS+OeNtLG
+	 f5zlfIAEvYVRw==
+Date: Fri, 17 Oct 2025 21:26:21 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Han Gao <rabenda.cn@gmail.com>
+Cc: devicetree@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] riscv: dts: thead: add more th1520 isa extension
+ support
+Message-ID: <aPMW7ZNjVjy/8Izk@x1>
+References: <cover.1758228055.git.rabenda.cn@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_205908_589235_C948DA5D 
-X-CRM114-Status: UNSURE (   6.29  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <cover.1758228055.git.rabenda.cn@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +78,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Aug 2025, Trevor Woerner wrote:
-
-> In commit b52173065e0a ("sched/debug: Remove CONFIG_SCHED_DEBUG") this
-> Kconfig option was removed since CONFIG_SCHED_DEBUG was made unconditional
-> by patches preceding it.
+On Fri, Sep 19, 2025 at 04:44:46AM +0800, Han Gao wrote:
+> Add xtheadvector & ziccrse & zfh for th1520
 > 
-> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
+> Updated the commit message for the patchset
+> 
+> Thanks,
+> Han
+> 
 > ---
+> v1: https://lore.kernel.org/all/20250911184528.1512543-1-rabenda.cn@gmail.com/
+> 
+> Han Gao (3):
+>   riscv: dts: thead: add xtheadvector to the th1520 devicetree
+>   riscv: dts: thead: add ziccrse for th1520
+>   riscv: dts: thead: add zfh for th1520
+> 
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 28 +++++++++++++++++++--------
+>  1 file changed, 20 insertions(+), 8 deletions(-)
+> 
+> -- 
+> 2.47.3
+> 
 
-[ ... ]
+Applied to thead-dt-for-next, thanks!
 
->  arch/riscv/configs/nommu_k210_defconfig        | 1 -
->  arch/riscv/configs/nommu_k210_sdcard_defconfig | 1 -
->  arch/riscv/configs/nommu_virt_defconfig        | 1 -
+[1/3] riscv: dts: thead: add xtheadvector to the th1520 devicetree
+      commit aef6dc006696c20ccc58c4c0235a14e7b4b317a0
+[2/3] riscv: dts: thead: add ziccrse for th1520
+      commit bcc3b9c5de5e2a03ede1a8133c05255927d744d6
+[3/3] riscv: dts: thead: add zfh for th1520
+      commit fac4be7b3d49ae7e32d8ae523343d7fe790772f9
 
-[ ... ]
 
-Acked-by: Paul Walmsley <pjw@kernel.org>  # for arch/riscv
-
-
-- Paul
+-Drew
 
 _______________________________________________
 linux-riscv mailing list
