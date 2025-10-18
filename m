@@ -4,62 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF94CCD1AA
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 16:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC5DACCD1A5
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 16:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nzEjsWNherBs99vDgOw637foyXASYrZAmYwGg5syKF0=; b=NQK9TxKP41yCup
-	QdWb9CPuxsYANnH9UpVVtJeq5NFer1BVZkvJZtkuP7Ymi4a30McSsPmHbfO4l3O+3x0Eq+sloXTZs
-	P6JCVc+61e4cHbdL0LpLsBXPrZbScGH2hjJck7zJZMc2wGH0sjKEYDciuLGW3Xr3QA7Xrw75eh1nf
-	LJ/Zou1zsqQoBmpkcwR2DsPs7u+mP5hpnWxrtTKkEbcyGQnpjjxZfkRX803gXEEW2qxnKUQWGkECS
-	t7gtWGrT9DCmK7oUHzOxKtZF9GaT/EgqLnW/C20UgQHSpKaUeDYifkvv+l4tn0T2HDoad/utvhvOU
-	09axNc3/im4WG2TOwkIg==;
+	List-Owner; bh=gZB/Zj8ynkDjzERfFgSBC/TT20uV+ITtoY8TmX51pFI=; b=uT5KtecOKfaWsY
+	o/k5dLmoQc3l7wvH66c47+P6tbYxPt16F/apWAfUAZKgjeAhau60KNhZpQyZxy5HjxzlkbA76ugmI
+	S+1f8hFKo7uqWvjllxXtKVlW2nVN8ZLuiKx/cJbk6U4mwYxjDHsryjLaL/yCfBNYvkXf4kR6Y4hyH
+	v2RI/p11ucJRKo7tkKVvsXM6NEhCFpDMy27FV9+T4CbCYogz26pP3jsHkZnLJsDjQe6qb0w9VQC88
+	kpPwcKENGmmQON/kQ28N8nblb68z2J11yCqC0QVdhqkg2K5fKpov2UxKkzTiaXoLHfEhVxweGOQw1
+	jKi1N1xIbbVn/iMQiiAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA9NU-0000000A78a-1tAh;
-	Sat, 18 Oct 2025 16:01:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vA9NQ-0000000A76i-3YpY;
+	Sat, 18 Oct 2025 16:01:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA9NR-0000000A76y-1I5H
+	id 1vA9NO-0000000A75R-2Ln1
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 Oct 2025 16:01:54 +0000
+	Sat, 18 Oct 2025 16:01:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F3B5E47A8D;
-	Sat, 18 Oct 2025 16:01:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3B7DC113D0;
-	Sat, 18 Oct 2025 16:01:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0160F61160;
+	Sat, 18 Oct 2025 16:01:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4182C4CEF8;
+	Sat, 18 Oct 2025 16:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760803312;
-	bh=lLadhCwqOLJRn4OyFyRaasmCVbJKXcR31WhZ+tQbsJE=;
+	s=k20201202; t=1760803309;
+	bh=W6ogpD1KM+CMWbUs+G23MEoyLhb/J95Jle+AQgCTx9o=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=bhy7gmjuYCl3k2qycHStnMR7Kz6A/tV6FoFM99CM5lnZsVkb62xdrYH+ikrSEfGgY
-	 aHgAsJCMlGNVEUuxjnOnvZnOa6g+XTKxZME/YA489aDA0lRr2X7q6Iwcb6xWaMRjuW
-	 hVBT6+AYPYyLNJK5eK+p08IGvdfCwJOsHeWfcd8kPb8nBMJ6ERqlV7YXIFUPYQ8flQ
-	 dj5sPQpoUzOxEXm38QPojA6uur8/rNQQ3BmMc3RgO4gI5p1Xm5wru6cVBw3DctKkPL
-	 yizQJ+QIck7YRkGHq8lLAb3WkBStuw5+0cyvHRv/DXSEFVNmpuS+Po6UG1hslpzVDo
-	 R0jCws6Fo2lYA==
+	b=jfn+9k8/hxqjb8D2Yl+EGbqrb4rxtTIb404ltItB5hepMdx6jxesJ8mOx3YrxXuVY
+	 Eib02ct1YKFuH+o+VhSv/fMUheC3xIVppe38jl9n0xpQdqRkmC6+ZVtjcMPigLjSe7
+	 6SLOLd2Lhf5Lafwphi+I4Iq7c7IfCC940rz+z3SP4KLdnPxpLg1p0925PyTPYl0maw
+	 wMp9sxQtzHg6rmeJ3AXTGJPPfPZkGeT8PHWmWNBRXoaYUzFEW9oMYrvCoHbUX3I24/
+	 nLkWw/AUzSRiLhv0mMkik+n/7GJbtm6cozcunJh986oe20jxjOGQKx5gnQdQZJDUZQ
+	 YwrkstN0ejpXw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33D3439EFBB7;
-	Sat, 18 Oct 2025 16:01:37 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33D2B39EFBB7;
+	Sat, 18 Oct 2025 16:01:34 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] RISC-V: Don't print details of CPUs disabled in DT
+Subject: Re: [PATCH] RISC-V: Define pgprot_dmacoherent() for non-coherent
+ devices
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176080329574.3028979.687307160089751894.git-patchwork-notify@kernel.org>
-Date: Sat, 18 Oct 2025 16:01:35 +0000
-References: <20251014163009.182381-1-apatel@ventanamicro.com>
-In-Reply-To: <20251014163009.182381-1-apatel@ventanamicro.com>
+Message-Id: <176080329274.3028979.8344603968685020251.git-patchwork-notify@kernel.org>
+Date: Sat, 18 Oct 2025 16:01:32 +0000
+References: <20250820152316.1012757-1-apatel@ventanamicro.com>
+In-Reply-To: <20250820152316.1012757-1-apatel@ventanamicro.com>
 To: Anup Patel <apatel@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, alex@ghiti.fr, atish.patra@linux.dev,
- ajones@ventanamicro.com, anup@brainfault.org, linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_090153_370509_8B601830 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,6 +65,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: alex@ghiti.fr, rafael@kernel.org, anup@brainfault.org, atish.patra@linux.dev, linux-kernel@vger.kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, ajones@ventanamicro.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -81,19 +76,20 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Paul Walmsley <pjw@kernel.org>:
 
-On Tue, 14 Oct 2025 22:00:09 +0530 you wrote:
-> Early boot stages may disable CPU DT nodes for unavailable
-> CPUs based on SKU, pinstraps, eFuse, etc. Currently, the
-> riscv_early_of_processor_hartid() prints details of a CPU
-> if it is disabled in DT which has no value and gives a
-> false impression to the users that there some issue with
-> the CPU.
+On Wed, 20 Aug 2025 20:53:16 +0530 you wrote:
+> The pgprot_dmacoherent() is used when allocating memory for
+> non-coherent devices and by default pgprot_dmacoherent() is
+> same as pgprot_noncached() unless architecture overrides it.
+> 
+> Currently, there is no pgprot_dmacoherent() definition for
+> RISC-V hence non-coherent device memory is being mapped as
+> IO thereby making CPU access to such memory slow.
 > 
 > [...]
 
 Here is the summary with links:
-  - RISC-V: Don't print details of CPUs disabled in DT
-    https://git.kernel.org/riscv/c/d2721bb165b3
+  - RISC-V: Define pgprot_dmacoherent() for non-coherent devices
+    https://git.kernel.org/riscv/c/ca525d53f994
 
 You are awesome, thank you!
 -- 
