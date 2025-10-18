@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE97BCCD199
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Oct 2025 23:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26523CCD184
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 03:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xUrZPKYLECqJXtPoWM/Fzy9g6u0EvwCenLrJMLN8uVM=; b=qDmkdBUrASgwra
-	DqayDH2EGij5rdrnE1jaeC9yStGyp1HMChRAWNwXm5qQgqoIvh0mS2tt6s32Nl8HkELNciUKHtmbq
-	CdZuAvOMng2xgHmUoQDVNpushWbo17afXq9vQpltftrKWjVVcla1wznPwbZ8zO7ZZDxwARVePGgG/
-	lvfoAH3DixzZOYeRLoYbRfQLwoV4MI6PvvdQ96hXONFMQP1A5HQDckUQbzo/4uQPArlZOIKnDvcj7
-	dK8DhKgqGheRXVJq31Xmm0e0VlVvQrvH1r3HFsg/rWafn3Q5AQ5tPaqsOhE46Fol/1dnMbK7OSVTI
-	ssaOaqYP8fL/OIoB3epQ==;
+	List-Owner; bh=A7za+dGz+1+R1GPg1SyUh4PWzx+ub5OZ3qfuejVi3Fk=; b=eUya3tzJfhY+TW
+	t1pCBoFeTFvR6mqVmp7nDS1K10LQyWO725FXCNQszgxegjEB3809hXRZJ5QggLFKJyU8+ipQn+FbV
+	WmpYV1knZ9oCe506cclHaGXnIEHJPXBZOyCGL0ZUZdSb5LrEoYzGxAF08vP+DjVugvbkkAt06m50b
+	IxqYIKKqdd23dxvDJ0ScGyHkKl3NgD8V3o9MEYZDtB6P9YhjQZexzvIVFDUrztsM4R1sZF/J+f6lw
+	YpsnW7EaD4q1TlaODuUWNgJ+Owp2tHPJr7oJFeAVUD+4fIFg/DfPdHZm76GBybIos+XyUTgSr7NPD
+	wOU3aQlz22ATPg1w7JZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9tXa-00000009AC8-1UjR;
-	Fri, 17 Oct 2025 23:07:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v9xNQ-00000009R1Z-22Y8;
+	Sat, 18 Oct 2025 03:13:04 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9tXZ-00000009AC1-0VaY
-	for linux-riscv@lists.infradead.org;
-	Fri, 17 Oct 2025 23:07:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CEF76058C;
-	Fri, 17 Oct 2025 23:07:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CAFAC4CEE7;
-	Fri, 17 Oct 2025 23:07:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760742436;
-	bh=mUv1hB7hSxDM2HNM3x990sJvp7BySywC6rGZb569+S0=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=LXe2vwHHbG1rrrIzhCg11tyT/+A/AoQn8Fike0su0o9WDNqcsEcxYO8B39ua9YuBV
-	 pC0m1By3xl9k+eeYR7XEt6hOrTzi7q/Mebse7BGKgecoPdiEBMcqncXMn2Bro+3j9/
-	 f3aW9JMvO6GNqm9j66YQz2Y/VC59RiqojVb9dldsTHrGNxJTsrR2W2egcpPCEKwp5e
-	 4609rOTvUERtYNnrG4koibP9jBbgT8XdWbp7tYO9B5jcnHGb0Wv0IC65LmzY3pfu3U
-	 3t9pg2o0LqkvVY0YVlmMNm0B3fay+nK/yEAiQQs9BtADLoRCcbOMTcOOMonqZkOwbs
-	 FAaND2QejHI/g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB37039EFA5D;
-	Fri, 17 Oct 2025 23:07:00 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V updates for v6.18-rc2
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <f21ca0d7-dd9f-3dc9-34ca-c1444702370a@kernel.org>
-References: <f21ca0d7-dd9f-3dc9-34ca-c1444702370a@kernel.org>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <f21ca0d7-dd9f-3dc9-34ca-c1444702370a@kernel.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linux-6.18-rc2
-X-PR-Tracked-Commit-Id: 852947be66b826c3d0ba328e19a3559fdf7ac726
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: fe69107ec7d8b946ab413cfe118984dac8f1a0d8
-Message-Id: <176074241954.2817248.3901691578387543892.pr-tracker-bot@kernel.org>
-Date: Fri, 17 Oct 2025 23:06:59 +0000
-To: Paul Walmsley <pjw@kernel.org>
-Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	id 1v9xNN-00000009Qzs-3ReE;
+	Sat, 18 Oct 2025 03:13:03 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=6JLd3+7eItXpa6oD4S9fDPBUWfNqHNd7yVeROhoYzhk=;
+	b=khUUExDvT3R13J+zlBDtTRqcrQXBaFr90ZDcRlnEcMH/93u0p26NoIbqZWt53NL4czY+SQBdo
+	/OxEI0osb2yjgBCfCnle2Lszklq7b1TG2qRs3Ddkv2OFUvMv1V1DKYJFPSvhpEzZnt+OXMf3+KZ
+	xaS7JvFzR4Tfv6rrLRXuY2U=
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4cpRZM2kr5zmV6y;
+	Sat, 18 Oct 2025 11:12:27 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4C2671A016C;
+	Sat, 18 Oct 2025 11:12:49 +0800 (CST)
+Received: from [10.174.179.35] (10.174.179.35) by
+ kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 18 Oct 2025 11:12:47 +0800
+Message-ID: <c91878d6-f645-4fc0-abd3-f1ba4aef47cd@huawei.com>
+Date: Sat, 18 Oct 2025 11:12:47 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 1/2] pgtable: add pte_clrhuge() implementation for
+ arm64 and riscv
+To: Matthew Wilcox <willy@infradead.org>
+CC: <akpm@linux-foundation.org>, <david@redhat.com>,
+	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <vbabka@suse.cz>,
+	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, <ziy@nvidia.com>,
+	<baolin.wang@linux.alibaba.com>, <npache@redhat.com>, <ryan.roberts@arm.com>,
+	<dev.jain@arm.com>, <baohua@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <anshuman.khandual@arm.com>,
+	<yangyicong@hisilicon.com>, <ardb@kernel.org>, <apopple@nvidia.com>,
+	<samuel.holland@sifive.com>, <luxu.kernel@bytedance.com>,
+	<abrestic@rivosinc.com>, <yongxuan.wang@sifive.com>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <wangkefeng.wang@huawei.com>,
+	<chenjun102@huawei.com>
+References: <20251016112704.179280-1-yintirui@huawei.com>
+ <20251016112704.179280-2-yintirui@huawei.com>
+ <aPE36PlriswJWSKD@casper.infradead.org>
+From: Yin Tirui <yintirui@huawei.com>
+In-Reply-To: <aPE36PlriswJWSKD@casper.infradead.org>
+X-Originating-IP: [10.174.179.35]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_201302_043851_4EF42FEB 
+X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,24 +86,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 17 Oct 2025 01:37:24 -0600 (MDT):
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linux-6.18-rc2
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/fe69107ec7d8b946ab413cfe118984dac8f1a0d8
+On 10/17/2025 2:22 AM, Matthew Wilcox wrote:
+> On Thu, Oct 16, 2025 at 07:27:03PM +0800, Yin Tirui wrote:
+>> Add pte_clrhuge() helper function for architectures that enable
+>> ARCH_SUPPORTS_HUGE_PFNMAP to clear huge page attributes from PTE
+>> entries.
+> 
+> I really would prefer to see pte_clrhuge() removed first.  Otherwise
+> this just goes onto the long list of "somebody should clean this up some
+> day" and nobody ever will.
+> 
 
-Thank you!
-
+Understood. I'm working on it.
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Best regards,
+Yin Tirui
+
 
 _______________________________________________
 linux-riscv mailing list
