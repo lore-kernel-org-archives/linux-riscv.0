@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F2BECCD184
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 06:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB815CCD195
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 15:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=k+PuqFYxYbqRQlq7b0gWSH+bi97zbXm4yrDYof6UntY=; b=09dfyoh5duK448
-	15JANPcWbl8UHRsPsSVyoKwb2V9t0J8PQBlrsw1cVykGUVBy3eojBugnTpYLbdEXPAt8PT26WJPyP
-	g/K4SMyHdw4y2m/UzxtzuLb1BCKerW0Cxkp0yAAJ/zZelJnsPINFjARLf/wGoUbC0JFSze02pw+gN
-	Nr/3eZmEXN6fp9xtYNqKzzYbAYcc6qC0C6aiZuz+gsNPYuUVoqFJe2wSOParbXA26CZRmCCye3bEU
-	p/BYYuPxNDaxieOOKotJNw3t7GCtCNXxZgro5MywhazSUstjoDNxHJerNrM5z2Wh0H5dcBMRSyzP5
-	CPA5RsA8hTsCfTYS91tQ==;
+	List-Owner; bh=FUfDmzefhEhJd8Qw0kiWpPTmXUhO95WjkSFnDT3O2qM=; b=328tTNtC92KvzB
+	ktAznMFbRj/lXrlLReGL4KDMXGA/GNPvnD0gTBK1L2SvrKxrHTNQ6CEo4CqdVFaxeBjFWP0EPC4U+
+	Iy303JnSKS/sN46uVch1s7cww3OP8Dup/4vA7jPFQyfUB8ULASwrYq+RZ5xYRiTdVoCPIKcWFIlHh
+	IW9rOSHynCj+c0g/4MzniEat89NqbAcppBt0BMqCkJoDQgk2PA4sW9fNQ/qHEYXZHxaK9y8F5TL+J
+	n49JdjUuNugIyowZRV3YnR5CiRSyCcaKCYbTMd24Ktu0ahck/FNhdaRuuXr95Qeto8WMzM7MM7Uag
+	h9ciih9NJ87L6yqbT6yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA0TH-00000009biq-2nHU;
-	Sat, 18 Oct 2025 06:31:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vA8up-0000000A5Nc-0aSY;
+	Sat, 18 Oct 2025 15:32:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA0TG-00000009bii-0PQX
+	id 1vA8uo-0000000A5NR-230o
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 Oct 2025 06:31:18 +0000
+	Sat, 18 Oct 2025 15:32:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA8B26026B;
-	Sat, 18 Oct 2025 06:31:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56658C4CEF8;
-	Sat, 18 Oct 2025 06:31:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 51DB361127;
+	Sat, 18 Oct 2025 15:32:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC5AFC116C6;
+	Sat, 18 Oct 2025 15:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760769075;
-	bh=Pe18bSnJttdBMJWFp8aOXL+hPDJB6fNIKludDZ/2qTI=;
+	s=k20201202; t=1760801536;
+	bh=9672cgfaFWFjA9Pp1F1cX3P694dbW7annGqIuGStn7w=;
 	h=Date:From:To:cc:Subject:From;
-	b=m94Qr+LgKNtIBl3EJ0s6214Ppzej5/R0s/13iJh8oszsKHZpk74lUN+/Y4ajGGZmd
-	 Sm0x8V5w++K2gyZxzD8bzMtwUuteNq+6QoLhlWvbt6SWVnzluVC9zbeuAsAbkdG2Qf
-	 hcRSGz2XRLyi7ExlVhCDmj8/3sMU7SzFZ+BdKxzh5ES5VgAb1I1f1x0313fzsyhM2j
-	 y/0A+/qB0hGSajZKTEYR0k+ONkUsfNMV3hwVQ6Bab4mTEK+w5fUkGNGVKr/B9ns1YG
-	 ssxWNB7hFHelsF00NWjVkI23GxPNV+GDfMYmUk7CNX/QYnENiteMCojOXiFmIMIE6G
-	 duNR4a4/7RhRA==
-Date: Sat, 18 Oct 2025 00:31:11 -0600 (MDT)
+	b=JjXHJuV7bDQm1g2NZJu5SPy67wjq0yoyhhAsh5WsI03yosFRCwPnd2g1T2jaP4QzC
+	 C0kPxq6k43B/YlM2O0bmjlAV8ZOl/aOzuc+/cCSZt11kJaNVs3Hb4Gp2pjSYDT5cRf
+	 8p3ygUMwqT3XidptmSSdaVFkwo2Kppzxx4jTxzqh7dwnmq1Rr78Lh7ONAYrQwbdqDl
+	 +MeS5E/PWmFJkkawMpp3+XI+psWKcFQuxDZmGCfRQdWzphkxKm+6CpT9O5quwsCwKP
+	 qLpJGGalpOwFRkZAH/YpQNnbr47vccOU+o+/ifZRYEar3R48BTZc7PgR33XhmII8XE
+	 xHUjACw0SmbHw==
+Date: Sat, 18 Oct 2025 09:32:12 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: linux-riscv@lists.infradead.org
-cc: Charlie Jenkins <charlie@rivosinc.com>
-Subject: [PATCH] riscv: cpufeature: avoid uninitialized variable in
- has_thead_homogeneous_vlenb()
-Message-ID: <22674afb-2fe8-2a83-1818-4c37bd554579@kernel.org>
+cc: Evan Green <evan@rivosinc.com>
+Subject: [PATCH] riscv: hwprobe: avoid uninitialized variable use in
+ hwprobe_arch_id()
+Message-ID: <cf5a13ec-19d0-9862-059b-943f36107bf3@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -66,40 +66,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In has_thead_homogeneous_vlenb(), smatch detected that the vlenb variable 
-could be used while uninitialized.  It appears that this could happen if 
-no CPUs described in DT have the "thead,vlenb" property.
+Resolve this smatch warning:
 
-Fix by initializing vlenb to 0, which will keep thead_vlenb_of set to 0 
-(as it was statically initialized).  This in turn will cause 
-riscv_v_setup_vsize() to fall back to CSR probing - the desired result if 
-thead,vlenb isn't provided in the DT data.
+  arch/riscv/kernel/sys_hwprobe.c:50 hwprobe_arch_id() error: uninitialized symbol 'cpu_id'.
 
-While here, fix a nearby comment typo.
+This could happen if hwprobe_arch_id() was called with a key ID of
+something other than MVENDORID, MIMPID, and MARCHID.  This does not
+happen in the current codebase.  The only caller of hwprobe_arch_id()
+is a function that only passes one of those three key IDs.
 
-Cc: stable@vger.kernel.org
-Cc: Charlie Jenkins <charlie@rivosinc.com>
-Fixes: 377be47f90e41 ("riscv: vector: Use vlenb from DT for thead")
+For the sake of reducing static analyzer warning noise, and in the
+unlikely event that hwprobe_arch_id() is someday called with some
+other key ID, validate hwprobe_arch_id()'s input to ensure that
+'cpu_id' is always initialized before use.
+
+Fixes: ea3de9ce8aa280 ("RISC-V: Add a syscall for HW probing")
+Cc: Evan Green <evan@rivosinc.com>
 Signed-off-by: Paul Walmsley <pjw@kernel.org>
 ---
- arch/riscv/kernel/cpufeature.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/kernel/sys_hwprobe.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 67b59699357d..72ca768f4e91 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -932,9 +932,9 @@ static int has_thead_homogeneous_vlenb(void)
- {
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index bc87bb9725fd..199d13f86f31 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -31,6 +31,11 @@ static void hwprobe_arch_id(struct riscv_hwprobe *pair,
+ 	bool first = true;
  	int cpu;
- 	u32 prev_vlenb = 0;
--	u32 vlenb;
-+	u32 vlenb = 0;
  
--	/* Ignore thead,vlenb property if xtheavector is not enabled in the kernel */
-+	/* Ignore thead,vlenb property if xtheadvector is not enabled in the kernel */
- 	if (!IS_ENABLED(CONFIG_RISCV_ISA_XTHEADVECTOR))
- 		return 0;
++	if (pair->key != RISCV_HWPROBE_KEY_MVENDORID &&
++	    pair->key != RISCV_HWPROBE_KEY_MIMPID &&
++	    pair->key != RISCV_HWPROBE_KEY_MARCHID)
++		goto out;
++
+ 	for_each_cpu(cpu, cpus) {
+ 		u64 cpu_id;
+ 
+@@ -61,6 +66,7 @@ static void hwprobe_arch_id(struct riscv_hwprobe *pair,
+ 		}
+ 	}
+ 
++out:
+ 	pair->value = id;
+ }
  
 -- 
 2.48.1
