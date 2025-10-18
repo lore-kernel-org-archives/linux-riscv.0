@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2867CCD193
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 16:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 116EECCD195
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 16:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vea2lcTEafpNV2Ee/QvOoJufVOG3YznteKQQ41VRfF4=; b=vfUBXQf3GuQvHt
-	ESmI4kS3saHtx7ULJvx9FaftyFh1zo7eWRdI/czAKSjqWynPkrD0b7SAaIp404Ztx+/J7NMUwHB4z
-	xmLCHiRvSNwypr7I/kViMOtscrfqLHFqH7my9CR394FjEl4RBBvCAHC96un/rYQ0f9Qyt12/UgzaX
-	wK/nuJkrW2y9iwQ+wPXEfj2hJ6adzGBTf0nM9cKeTASsHTgj3EBl6pozY7tllTJmEyhURZr83fqj+
-	y9MVQsRX/Ap7+FtzE5Q8kfNPS0Fvf15Etb3XWQMvltlYthEzJ07Lh+s3NvQdgiWVHrsl5GoNfcGjf
-	yEb2O5HAJHcDXEUVD/zQ==;
+	List-Owner; bh=vumR79U+iAwzKMXxD3O9k4aFr0LH+rc9lSDw2Hjm3E4=; b=jjCtk4oi9iYwMW
+	jTHBNNml5RsI4IoGIXGHZnzGYPLg+IDcXU7nDLJMMy6KONsg/GffZmyjV4WI9xrKFLloNTcC8U2Wy
+	mvNCR+GmE8mgwE5+9SiBfIXPjTiA6YwfUVUrmgguD0uCMGOLnyLPwL74tAg2PiBFdEuGdjbzbBfmt
+	5VaXieVOwhs4cAeFxajFHl7/vaPmv6UyBTiz2YIFP6qi9VTZk0+oa+x2J4AtjX/VivCb3aZ1eXs84
+	/PFzbeSUEfGV8tAiCVSOxC4+7xZv1230VuUbOjHiVZ6C6xE6IKaOFe3exeMBc3GMW/ioo/KibWIob
+	PPUwIXKM2Aw0IwbL70nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA9NO-0000000A75S-0p43;
-	Sat, 18 Oct 2025 16:01:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vA9NQ-0000000A76K-2A2D;
+	Sat, 18 Oct 2025 16:01:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA9NL-0000000A74s-23jm
+	id 1vA9NN-0000000A75G-0idE
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 Oct 2025 16:01:48 +0000
+	Sat, 18 Oct 2025 16:01:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F0C29459BE;
-	Sat, 18 Oct 2025 16:01:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA949C4CEF8;
-	Sat, 18 Oct 2025 16:01:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C6C461154;
+	Sat, 18 Oct 2025 16:01:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B270C4CEF8;
+	Sat, 18 Oct 2025 16:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760803306;
-	bh=xdGzVFaydhp9qU3Eq9iqFsHM3rixK5o6FO97hISarJU=;
+	s=k20201202; t=1760803308;
+	bh=u/syW8Wz8ABWTw3mp7UlY9VWdvRASbfj7TUbwfSB4jQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Ivk5aZFwr1PqelJFYqIiLan7RNwSpRgCvimVwLWbZPPSsTaynAydgtRg34dHe4JoM
-	 0OwpoyJB7yuUIYJLSmWXNSbyyOhMIMM+afBQjI9TNZ0Kel5Ib5t9m9Gi6yAUHVZtH/
-	 ezkYhR4FTfzPvoS7yuW8naeqhECKHkctRYhNUnrmxGTTG8DzBhUgdq+aDW5yjs8C7F
-	 dZvke3PXtXRdttUu8eP5CmfNmGrSOU+Mo/K43UQ6EyEcn/1U4zJXV7pQbNARwTuVF3
-	 nr+8I/7k/xyHQj4W2ceUCFZuZZIylEYp+KtAa7xwF1aaFT+vAlwhS8HHptl7Z/iK5o
-	 nY9GmDEUs1ZEQ==
+	b=RwXqchKvN++6LJ8SxvtqfDUt+hFjpitkBtY5GiIbpO6ItDvb6LSoI28GhUd1Krkwo
+	 OI1qYUwLSa0oT49UHwy+v74fz1VofqxaaBJ9wRSlo3It8XccsfDep5/Mf+3df3ejUJ
+	 CWNYPCVstUzz82gtoO9wOSmI1Jx7iVH6X1P0bR/pTShaA1JjQQFhx2VtMHEjVeDxjO
+	 wBIj6G+9xxINb2+aKs1v+Q4Nel7y5aHSPeKTbCQMT65TAI7AFznPTLzgTJ8eKeGksD
+	 DENxYFIHRv4M5k9hZhuiLaYFj2Mbc9nkjheB6BEwDkQf00WEH8csEqswmoRU4UzJbL
+	 Y3BG/0xpGYYvg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33E1C39EFBB7;
-	Sat, 18 Oct 2025 16:01:31 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADD8839EFBB7;
+	Sat, 18 Oct 2025 16:01:32 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] ACPI: RIMT: Fix unused function warnings when
- CONFIG_IOMMU_API is disabled
+Subject: Re: [PATCH] riscv: mm: Define MAX_POSSIBLE_PHYSMEM_BITS for zsmalloc
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176080328974.3028979.2139175941358455786.git-patchwork-notify@kernel.org>
-Date: Sat, 18 Oct 2025 16:01:29 +0000
-References: <20251013181947.261759-1-sunilvl@ventanamicro.com>
-In-Reply-To: <20251013181947.261759-1-sunilvl@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
- linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, lkp@intel.com,
- alex@ghiti.fr, rafael@kernel.org, joerg.roedel@amd.com, palmer@dabbelt.com,
- anup@brainfault.org, pjw@kernel.org, lenb@kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_090147_547191_892D7E17 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <176080329124.3028979.1869728422063945538.git-patchwork-notify@kernel.org>
+Date: Sat, 18 Oct 2025 16:01:31 +0000
+References: <20251015233327.3885003-1-samuel.holland@sifive.com>
+In-Reply-To: <20251015233327.3885003-1-samuel.holland@sifive.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, apopple@nvidia.com,
+ akpm@linux-foundation.org, willy@infradead.org, will@kernel.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,19 +78,19 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Paul Walmsley <pjw@kernel.org>:
 
-On Mon, 13 Oct 2025 23:49:47 +0530 you wrote:
-> When CONFIG_IOMMU_API is disabled, some functions defined outside its
-> conditional scope become unused, triggering compiler warnings reported
-> by the kernel test robot.
+On Wed, 15 Oct 2025 16:33:24 -0700 you wrote:
+> This definition is used by zsmalloc to optimize memory allocation. On
+> riscv64, it is the same as MAX_PHYSMEM_BITS from asm/sparsemem.h, but
+> that definition depends on CONFIG_SPARSEMEM. The correct definition is
+> already provided for riscv32.
 > 
-> Move these function definitions inside the #ifdef CONFIG_IOMMU_API block
-> to prevent unused function warnings when the configuration is disabled.
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - ACPI: RIMT: Fix unused function warnings when CONFIG_IOMMU_API is disabled
-    https://git.kernel.org/riscv/c/e7b969cbe302
+  - riscv: mm: Define MAX_POSSIBLE_PHYSMEM_BITS for zsmalloc
+    https://git.kernel.org/riscv/c/5898fc01ff34
 
 You are awesome, thank you!
 -- 
