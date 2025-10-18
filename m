@@ -4,64 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1369FCCD184
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 04:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB6AFCCD184
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Oct 2025 04:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GxCCb4l8OT8SsG7IR+xGqmY5SUH0RiazBx1yeBoZAXQ=; b=Va9FRhA56N069B
-	feg/aqZ9n8FcItjhczRULARkQorrhnPsC5PAUfXnJTisj18/F94xJQAiKzaYU2NMXO9LfN3/o8ZF5
-	a8VxmO1DrOIDZcRwCJH4pYOcPComGJl2GHCobiwgydW6IVK3+Znnv8sEk3b0rHPs7sKPLpGMc7R/p
-	syAi2koZnW9eRrYC5gBH3Z8ao8yLuvBILDiDkEViMRSw6zv4cFTfS2zp66+0wYW/MayfQCGCkkHxV
-	cjG0MZcS7rtSL3CtqAQ7emRhk9AnaeawtsYhMjmZBG5CJw8+QWWjzo+Fk83e8+OvvEuGSB6DtvH+N
-	oOdFA9xr8tpAbAbajVGQ==;
+	List-Owner; bh=AHh4FTZwMGWYngpidwwGNZIRtar955rUivMwkMyQX4A=; b=z95QffOPSp5V/t
+	0Ij8ERwgPVzb5gD7rzaxujHacjmA9J7OuSm6Rpj5g5Fqm85G4ZRT1tdpqxBpu3RPcAasA+6AV/kCy
+	t9GcfyoDSQaWOfE0oTE9VqhJ0NgppSGttJzaz8ghYIWLwU7iAHIHHB91ZNvl4mBVuEoUCqSpp1gex
+	HEnRCRkhLhaaii/MiYAGZpZR2vo8VCGuWbl/NvALXWCQidJdXwdgS3AogaJsRskmucek8R9Oi7sBJ
+	bLP2S740HyqjHgYbbhYL7fppifYRs4iQjSEVMWT7QbHDNulI5PFKWquFvF0OstLoFUPUeeUvESX8n
+	Z28VVsc8nJ2WBRUxq+Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9yWQ-00000009Uec-0oC9;
-	Sat, 18 Oct 2025 04:26:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9yWO-00000009UeV-3LnZ
+	id 1v9ytq-00000009XNX-2Qqy;
+	Sat, 18 Oct 2025 04:50:38 +0000
+Received: from angie.orcam.me.uk ([2001:4190:8020::34])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9yto-00000009XMe-07mA
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 Oct 2025 04:26:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C99F6601D3;
-	Sat, 18 Oct 2025 04:26:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04702C4CEF8;
-	Sat, 18 Oct 2025 04:26:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760761583;
-	bh=MEgE0QRPhEEuk7tndh1iLlixQzBm8L9kEqydt7lrUeA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WW4OQ5KKq/YUAx14hKAI1n6M84ZVfX7iqRTeZxivffvfBhaEKvGsHOzXsd81bxgwx
-	 wsYxP4LAg9+QiY7xRo74GmxKOi1O0edebdmFhxb/Iw2HYC+LqNMQC/MM4AmZCsP59h
-	 ADdGIV6f+SeLwqeWgGlaC9pQCzTaT3mIiGkJ1+dE3t9/pDBgiyNBY5R/nUTDMGXVSK
-	 5+5bVQiCGCcnZxHhEAbWWz8abifKYN/GTIYYH5xjWKVT2p9yedgtdfN1Leu3bP/d6a
-	 uvoKC/Gz03/2mKhg5TZhcyLUjLyJPbdhfv1PGTzD3x4/+uYEMajSkDerulS+OeNtLG
-	 f5zlfIAEvYVRw==
-Date: Fri, 17 Oct 2025 21:26:21 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Han Gao <rabenda.cn@gmail.com>
-Cc: devicetree@vger.kernel.org, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] riscv: dts: thead: add more th1520 isa extension
- support
-Message-ID: <aPMW7ZNjVjy/8Izk@x1>
-References: <cover.1758228055.git.rabenda.cn@gmail.com>
+	Sat, 18 Oct 2025 04:50:37 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+	id 6996792009C; Sat, 18 Oct 2025 06:50:30 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by angie.orcam.me.uk (Postfix) with ESMTP id 5EFDC92009B;
+	Sat, 18 Oct 2025 05:50:30 +0100 (BST)
+Date: Sat, 18 Oct 2025 05:50:30 +0100 (BST)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+cc: linux-riscv@lists.infradead.org, pjw@kernel.org, 
+    Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, 
+    ajones@ventanamicro.com
+Subject: Re: [PATCH] riscv: asm: use .insn for making custom instructioons
+In-Reply-To: <20251017165527.701934-1-ben.dooks@codethink.co.uk>
+Message-ID: <alpine.DEB.2.21.2510180543430.39634@angie.orcam.me.uk>
+References: <20251017165527.701934-1-ben.dooks@codethink.co.uk>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1758228055.git.rabenda.cn@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_215036_251773_57FBED10 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +64,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 19, 2025 at 04:44:46AM +0800, Han Gao wrote:
-> Add xtheadvector & ziccrse & zfh for th1520
-> 
-> Updated the commit message for the patchset
-> 
-> Thanks,
-> Han
-> 
-> ---
-> v1: https://lore.kernel.org/all/20250911184528.1512543-1-rabenda.cn@gmail.com/
-> 
-> Han Gao (3):
->   riscv: dts: thead: add xtheadvector to the th1520 devicetree
->   riscv: dts: thead: add ziccrse for th1520
->   riscv: dts: thead: add zfh for th1520
-> 
->  arch/riscv/boot/dts/thead/th1520.dtsi | 28 +++++++++++++++++++--------
->  1 file changed, 20 insertions(+), 8 deletions(-)
-> 
-> -- 
-> 2.47.3
-> 
+On Fri, 17 Oct 2025, Ben Dooks wrote:
 
-Applied to thead-dt-for-next, thanks!
+> diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
+> index 8bd2a11382a3..c92f0ff51ffa 100644
+> --- a/arch/riscv/include/asm/asm.h
+> +++ b/arch/riscv/include/asm/asm.h
+> @@ -12,6 +12,12 @@
+>  #define __ASM_STR(x)	#x
+>  #endif
+>  
+> +#ifndef CONFIG_AS_HAS_INSN
+> +#define ASM_INSN(__x) ".4byte " __x
+> +#else
+> +#define ASM_INSN(__x) ".insn " __x
+> +#endif
 
-[1/3] riscv: dts: thead: add xtheadvector to the th1520 devicetree
-      commit aef6dc006696c20ccc58c4c0235a14e7b4b317a0
-[2/3] riscv: dts: thead: add ziccrse for th1520
-      commit bcc3b9c5de5e2a03ede1a8133c05255927d744d6
-[3/3] riscv: dts: thead: add zfh for th1520
-      commit fac4be7b3d49ae7e32d8ae523343d7fe790772f9
+ FWIW writing code such that double negation applies to the else clause 
+makes conditionals harder to parse by humans (it's !!CONFIG_AS_HAS_INSN 
+effectively here).  Would you mind rewriting it as:
 
+#ifdef CONFIG_AS_HAS_INSN
+#define ASM_INSN(__x) ".insn " __x
+#else
+#define ASM_INSN(__x) ".4byte " __x
+#endif
 
--Drew
+or has there been a particular reason you chose the proposed form?
+
+  Maciej
 
 _______________________________________________
 linux-riscv mailing list
