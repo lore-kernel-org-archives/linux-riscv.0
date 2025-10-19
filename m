@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51AECCCD184
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Oct 2025 14:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79320CCD195
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Oct 2025 16:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oC1V1GENx1Fu7FZ+fU2ZoXm0J2FB3+0yTHk3wElFfNQ=; b=ZattnHMhIazKjZ
-	SrKWdvdjMUs5TKAqz038cKSZBVb6qpqcgHMBEN18hhmD2Z7KT6OIXuadtUow/D6PgFWKP7aQ6ff14
-	8h+X12M+SI4KlchERPx0e51auTWRkPpPuynMi/egDcQgs8lX3+VIJJM8HnS83efIBASy90hyX6qOC
-	8P5rHg97wCaMSNCw0hQ/odxlosMDfH0346JPlLNQ+lvRjDKxtIyLd1eznpt+riobxZYDyQWWyq8b2
-	q/0IaqZa+peMkkrEHSw9Rj882y/Hep7bFQUeOWAorDTg2e5WmSKoJAhU6oIaDip2mD0UMhtsPXS5T
-	iz8rv1gYkBB9A50eWrww==;
+	List-Owner; bh=DG8Rv2AkhjE0yj0wUjBGxmKsOVWjSpIzrJguuHzzV8w=; b=D1dFOOqJYnOitq
+	n2wDLhZDoNYW8cmqoB+1VCUoatrG3T2NtK2tWgrCi0Ted9vSZmeFr4lQoe675T/+TJJObLmVnAwyr
+	kHOyxApGZPl+wLVPuZYHOF5Rp44U/Fdoj3KmWdA/FvBgPRishaDn3ekosOhWd9vLni7c/zI9nomeJ
+	DBPFi2uu8ourF2OJqOYc1aT5139aDF3xpNhlQvnLLuOEzdbgjxeqzZ4DP9SGRZE43sspm/X+HJ84U
+	xrDQXXZINvk6d3lJ5wuQ+r4As8TOG4mBWLFioIpWu13KPnI0CutlunX4B/Ggcd/qfLO7KYftaVMrt
+	NuKWcoFHs5hlff8go3fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAU4M-0000000B3VR-3ObM;
-	Sun, 19 Oct 2025 14:07:34 +0000
-Received: from mail-108-mta82.mxroute.com ([136.175.108.82])
+	id 1vAWDk-0000000BCEE-0Q8e;
+	Sun, 19 Oct 2025 16:25:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAU4J-0000000B3Ue-26Om
-	for linux-riscv@lists.infradead.org;
-	Sun, 19 Oct 2025 14:07:33 +0000
-Received: from filter006.mxroute.com ([140.82.40.27] filter006.mxroute.com)
- (Authenticated sender: mN4UYu2MZsgR)
- by mail-108-mta82.mxroute.com (ZoneMTA) with ESMTPSA id 199fccbd41f000c217.005
- for <linux-riscv@lists.infradead.org>
- (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
- Sun, 19 Oct 2025 14:07:20 +0000
-X-Zone-Loop: 87b350792e71e503dc1da7267bc91a62473d2a00fd15
-X-Originating-IP: [140.82.40.27]
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=josie.lol;
-	s=x; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Date:
-	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID; bh=I5RRsJW7XpZuyNBeXBTBqrOkEelaownoQQBDEYaX6f4=; b=E9CGrU
-	Lu0NY226G8P7NHYpq/fZRxuKhXJsooFPsw+Iqc96Aw3hdVyCROh3OYOXKpskEMHrK6p1cuOcni05Y
-	b88S0jj6OL1eRvSQddJ1PCIMc9Az36U00MWSl8FdDQm5N6Vt4C4Zr9mhfxTiSJYsn+Fxp/IV38pV5
-	8r7O2ZjHSWrUzonOQ/JDSc0gIgbxpCq7P/XClC5VHdLCKWnHusRpqggGKQt9gwApn9V+gzPUF+ZUx
-	pLB9QrB65dRu+hnICBw3QxW4vyIXfz0Nb8j8bp6hoAgU6hpBC7b0+Be6BNBwshIOf2wdtGo3pyX1/
-	OgmC+bJ6BU5Hj1iz3b7rBD2u0Irg==;
-From: Josephine Pfeiffer <hi@josie.lol>
-To: pjw@kernel.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] riscv: ptdump: use seq_puts() in pt_dump_seq_puts() macro
-Date: Sun, 19 Oct 2025 16:07:11 +0200
-Message-ID: <20251019140711.63664-1-hi@josie.lol>
-In-Reply-To: <2eaeaa69-b2cf-3a3a-0239-2aefcaa836aa@kernel.org>
-References: <2eaeaa69-b2cf-3a3a-0239-2aefcaa836aa@kernel.org>
+	id 1vAWDg-0000000BCDU-3FdU;
+	Sun, 19 Oct 2025 16:25:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C9C944476;
+	Sun, 19 Oct 2025 16:25:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7610C4CEE7;
+	Sun, 19 Oct 2025 16:25:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760891119;
+	bh=AqeDRU1eKSmQXUiCZ7pwi0Bd8BGGXBM48O4Ou5Xs+sw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F2EokHRLd68kZBeDRRdhxJ1rDW2elFlh8EnkyaTJnHSCfqkoujh7BohpZc68H407D
+	 6bUXmBrNoq7Ww0jTMF1QQwGeMEpfXz0BrGd0k+T8PJbgWDRrKfDcnhwumf2RRZV3Tp
+	 M1nqa0cZRI89OYqyvuvRWeFwctcqJgDf9nK43gHk2G3mRl3usq7ey6ziFEp5oxVwef
+	 8ha/lyEniLuE2fegL9ApZJO+lst38G6OUrwAE6O/NFZ/Mz1YaBFZd+ociss1pkQv9d
+	 0MzWPAoBwoLUZ5+ACw5ohULeXVrjB6+3sdA7UiNPKC79wDn4zGf7+6LA7UKkZ5vUk5
+	 GbYsQCDUj5ADg==
+Date: Sun, 19 Oct 2025 09:23:46 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Askar Safin <safinaskar@gmail.com>
+Cc: ardb@kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, sparclinux@vger.kernel.org,
+	x86@kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v4 15/19] lib/crc32: make crc32c() go directly to lib
+Message-ID: <20251019162346.GB1604@sol>
+References: <20241202010844.144356-16-ebiggers@kernel.org>
+ <20251019060845.553414-1-safinaskar@gmail.com>
+ <CAPnZJGAb7AM4p=HdsDhYcANCzD8=gpGjuP4wYfr2utLp3WMSNQ@mail.gmail.com>
 MIME-Version: 1.0
-X-Authenticated-Id: hi@josie.lol
+Content-Disposition: inline
+In-Reply-To: <CAPnZJGAb7AM4p=HdsDhYcANCzD8=gpGjuP4wYfr2utLp3WMSNQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_070731_634941_C6D9CE63 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20251019_092520_876965_13F3EC67 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,80 +75,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 18 Oct 2025, Paul Walmsley wrote:
-
-> Hard to accept that it's a performance issue.  But I think you're right
-> that generating a newline should be done with seq_puts().
-
-Fair point. I'll drop that from the commit message.
-
-> A better fix would seem to be to just get rid of pt_dump_seq_puts().  It's
-> only used once in arch/riscv.
->
-> Taking a broader view, both pt_dump_seq_puts() and pt_dump_seq_printf()
-> look completely pointless.  Is there any argument for keeping them?
-
-Good question. I investigated the git history and current usage:
-
-The macros were introduced in commit ae5d1cf358a5 ("arm64: dump: Make the
-page table dumping seq_file optional") to support passing NULL for the
-seq_file parameter. This is used by ptdump_check_wx() for CONFIG_DEBUG_WX,
-where the kernel walks page tables to check for writable+executable pages
-without outputting anything to userspace.
-
-All four architectures use this pattern in ptdump_check_wx():
-
-  arch/arm64/mm/ptdump.c:341:         .seq = NULL,
-  arch/arm/mm/dump.c:456:             .seq = NULL,
-  arch/riscv/mm/ptdump.c:378:         .seq = NULL,
-  arch/s390/mm/dump_pagetables.c:197: .seq = NULL,
-
-However, you're right that the utility of these macros varies:
-
-Usage of pt_dump_seq_puts():
-- arm64: 1 use
-- ARM: 0 uses
-- riscv: 1 use
-- s390: 3 uses
-
-Note: ARM defines pt_dump_seq_puts() but never uses it - that macro
-could be removed entirely.
-
-Usage of pt_dump_seq_printf():
-- arm64: 6 uses
-- ARM: 7 uses
-- riscv: 6 uses
-- s390: 5 uses
-
-For RISC-V specifically, I agree the single use of pt_dump_seq_puts()
-could be replaced with an inline conditional. For pt_dump_seq_printf(),
-the macro does save some repetition (6 uses vs 1 macro definition).
-
-pt_dump_seq_printf() could also be questioned - removing it means 20+
-inline conditionals across all architectures. I focused on the minimal
-fix, but happy to tackle the larger refactor if preferred.
-
-Would you prefer:
-
-Option A) Remove pt_dump_seq_puts() entirely from riscv and replace the
-single use with:
-  if (st->seq)
-    seq_puts(st->seq, "\n");
-
-Option B) Keep the macro for consistency with other architectures, but
-fix the bug
-
-I'm happy to send a v2 with either approach. If Option A, I could also
-propose similar cleanups for arm64 (1 use) as a follow-up.
-
-Thanks for the review!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBPY3QgMTksIDIwMjUgYXQgMTE6MTA6MjVBTSArMDMwMCwgQXNrYXIgU2FmaW4gd3Jv
+dGU6Cj4gT24gU3VuLCBPY3QgMTksIDIwMjUgYXQgOTowOeKAr0FNIEFza2FyIFNhZmluIDxzYWZp
+bmFza2FyQGdtYWlsLmNvbT4gd3JvdGU6Cj4gPgo+ID4gRXJpYyBCaWdnZXJzIDxlYmlnZ2Vyc0Br
+ZXJuZWwub3JnPjoKPiA+ID4gTm93IHRoYXQgdGhlIGxvd2VyIGxldmVsIF9fY3JjMzJjX2xlKCkg
+bGlicmFyeSBmdW5jdGlvbiBpcyBvcHRpbWl6ZWQgZm9yCj4gPgo+ID4gVGhpcyBwYXRjaCAoaS4g
+ZS4gMzhhOWE1MTIxYzNiICgibGliL2NyYzMyOiBtYWtlIGNyYzMyYygpIGdvIGRpcmVjdGx5IHRv
+IGxpYiIpKQo+ID4gc29sdmVzIGFjdHVhbCBidWcgSSBmb3VuZCBpbiBwcmFjdGljZS4gU28sIHBs
+ZWFzZSwgYmFja3BvcnQgaXQKPiA+IHRvIHN0YWJsZSBrZXJuZWxzLgo+IAo+IE9vcHMuIEkganVz
+dCBub3RpY2VkIHRoYXQgdGhpcyBwYXRjaCByZW1vdmVzIG1vZHVsZSAibGliY3JjMzJjIi4KPiBB
+bmQgdGhpcyBicmVha3MgYnVpbGQgZm9yIERlYmlhbiBrZXJuZWwgdjYuMTIuNDguCj4gUHJldmlv
+dXNseSBJIHRlc3RlZCBtaW5pbWFsIGJ1aWxkIHVzaW5nICJtYWtlIGxvY2FsbW9kY29uZmlnIi4K
+PiBOb3cgSSB0cmllZCBmdWxsIGJ1aWxkIG9mIERlYmlhbiBrZXJuZWwgdXNpbmcgImRwa2ctYnVp
+bGRwYWNrYWdlIi4KPiBBbmQgaXQgZmFpbGVkLCBiZWNhdXNlIHNvbWUgb2YgRGViaWFuIGZpbGVz
+IHJlZmVyZW5jZSAibGliY3JjMzJjIiwKPiB3aGljaCBpcyBub3QgYXZhaWxhYmxlLgo+IAo+IFNv
+LCBwbGVhc2UsIGRvbid0IGJhY2twb3J0IHRoaXMgcGF0Y2ggdG8gc3RhYmxlIGtlcm5lbHMuCj4g
+SSdtIHNvcnJ5LgoKUmlnaHQsIHRoaXMgY29tbWl0IHNpbXBsaWZpZWQgdGhlIENSQyBsaWJyYXJ5
+IGRlc2lnbiBieSByZW1vdmluZyB0aGUKbGliY3JjMzJjIG1vZHVsZS4gIGluaXRyYW1mcyBidWls
+ZCBzY3JpcHRzIHRoYXQgaGFyZC1jb2RlZCB0aGUgYWRkaXRpb24Kb2YgbGliY3JjMzJjLmtvIGlu
+dG8gdGhlIHJhbWRpc2sgKHdoaWNoIEkgZG9uJ3QgdGhpbmsgd2FzIGV2ZXIgbmVjZXNzYXJ5Cmlu
+IHRoZSBmaXJzdCBwbGFjZSwgdGhvdWdoIGl0IGRpZCB1c2VkIHRvIGJlIHVzZWZ1bCB0byBoYXJk
+LWNvZGUgc29tZSBvZgp0aGUgKm90aGVyKiBDUkMgbW9kdWxlcyBsaWtlIGNyYzMyYy1pbnRlbCkg
+aGFkIHRvIGJlIHVwZGF0ZWQgdG8gcmVtb3ZlCml0LiAgSXQgbG9va3MgbGlrZSBEZWJpYW4gZGlk
+IGluZGVlZCBkbyB0aGF0LCBhbmQgdGhleSB1cGRhdGVkIGl0IGluCmh0dHBzOi8vc2Fsc2EuZGVi
+aWFuLm9yZy9rZXJuZWwtdGVhbS9saW51eC8tL2NvbW1pdC82YzI0MmM2NDdmODRiZmRiZGMyMmE2
+YTc1OGZhNTlkYTRlOTQxYTEwIzEyNTFmOTQwMGE4NTQ4NWQyNzVlMTcwOTc1ODM1MGFhMDk4NzA5
+YTgKCkFzIGZvciB5b3VyIG9yaWdpbmFsIHByb2JsZW0sIEknZCBnbGFkIHRvIHNlZSB0aGF0IHRo
+ZSBzaW1wbGlmaWVkIGRlc2lnbgppcyBwcmV2ZW50aW5nIHByb2JsZW1zLiAgVGhlcmUncyBhbiBp
+c3N1ZSB3aXRoIGJhY2twb3J0aW5nIHRoaXMgY29tbWl0CmFsb25lLCB0aG91Z2guICBUaGlzIHdh
+cyBwYXRjaCAxNSBvZiBhIDE5LXBhdGNoIHNlcmllcyBmb3IgYSBnb29kCnJlYXNvbjogdGhlIENS
+Qy0zMkMgaW1wbGVtZW50YXRpb24gaW4gbGliLyB3YXNuJ3QgYXJjaGl0ZWN0dXJlLW9wdGltaXpl
+ZAp1bnRpbCBhZnRlciBwYXRjaGVzIDEtMTQgb2YgdGhpcyBzZXJpZXMuICBCYWNrcG9ydGluZyB0
+aGlzIGNvbW1pdCBhbG9uZQp3b3VsZCBtYWtlIGNyYzMyYygpIG5vIGxvbmdlciB1dGlsaXplIGFy
+Y2hpdGVjdHVyZS1vcHRpbWl6ZWQgY29kZS4KCk5vdywgaXQgYWxyZWFkeSBkaWRuJ3QgZG8gc28g
+cmVsaWFibHkgKGFuZCB0aGlzIHBhdGNoIHNlcmllcyBmaXhlZAp0aGF0KS4gIEhvd2V2ZXIsIGJh
+Y2twb3J0aW5nIHRoaXMgY29tbWl0IGFsb25lIHdvdWxkIG1ha2UgaXQgbmV2ZXIgZG8Kc28uICBT
+byBpdCB3b3VsZCByZWdyZXNzIHBlcmZvcm1hbmNlIGluIHNvbWUgY2FzZXMuCgpTaW5jZSB0aGUg
+ZXJyb3JzIHlvdSdyZSBhY3R1YWxseSBnZXR0aW5nIGFyZToKCiAgICBbICAgMTkuNjE5NzMxXSBJ
+bnZhbGlkIEVMRiBoZWFkZXIgbWFnaWM6ICE9IEVMRgogICAgbW9kcHJvYmU6IGNhbid0IGxvYWQg
+bW9kdWxlIGxpYmNyYzMyYyAoa2VybmVsL2xpYi9saWJjcmMzMmMua28ueHopOiB1bmtub3duIHN5
+bWJvbCBpbiBtb2R1bGUsIG9yIHVua25vd24gcGFyYW1ldGVyCgpJIGRvIGhhdmUgdG8gd29uZGVy
+IGlmIHRoaXMgaXMgYWN0dWFsbHkgYSBidXN5Ym94IGJ1ZyBvcgptaXNjb25maWd1cmF0aW9uLCB3
+aGVyZSBpdCdzIHBhc3NpbmcgYSBjb21wcmVzc2VkIG1vZHVsZSB0byB0aGUga2VybmVsCndpdGhv
+dXQgZGVjb21wcmVzc2luZyBpdD8gIEFuZCByZW1vdmluZyB0aGUgbW9kdWxlIGp1c3QgaGlkIHRo
+ZSBwcm9ibGVtLgoKLSBFcmljCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
