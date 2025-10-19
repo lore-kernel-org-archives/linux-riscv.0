@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 580DECCD184
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Oct 2025 06:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC7DCCD195
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Oct 2025 08:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mIBWza8k4hVag4Ndx1TX/dAyGmbtiqJoH7jlA3gWwoE=; b=i48igoegaqH3nv
-	HevzwK6JZiMMaiqpqM5NYWfKmIC+zI2r39X6HI5+53leLfOaWlxpGOQWHI8T0BvLp0sa3orbqyooR
-	9BKJ7tGJNQuS8XfyjtdcED2TYgCs+J6SuoJl6luViwVj1thVwDKcO2cfDXFNLCyzDHgshNlB6HeE8
-	3SXCG9wQuznVsQz49IC9tcOGn+NnJSQyykSOYLRwJ+DBFoCSGPrQSBGr79Se+8/mxfdCi1vWMNY+c
-	u9ehYXjwFVJpZ1CBEP48Y5RnNcVmFNh4hZaQIGugBuMTE80OaPKVeh0aPyRGnr6K1YeNxTwW3d+GG
-	MZLhQgBj1lmUAUOBvrGw==;
+	List-Owner; bh=iN9rgHx0sPwPzrdimZoArhA7E+ZgU0x0c1AK1DDlVx0=; b=EClzOfgM63bKtN
+	JHsmcd6beWWw7G8IV6ovcLim3pgI/gKY2WZ1rISzK6SoxZc8qu3iugEDrxS8kLlbonUVBPuahxbXZ
+	jmCjD8jQMIRtRb4rWXeC2RQ9hMwpxltnzgaE324kmwUFaliBaLIaqXQx2OIMgBh844lBaMUM7aP6s
+	13kJVSjH8cBTHrFfGnoybkE1B5/DEwvCq1WtCc14juzkBbiK0SGLPpWWPTM4n4aW7TArSTViF0aQx
+	4edvfho8a5VBoMw4Ai0M1jXYvOsUZmg6ykG0mfoDIVEavcgL/kgOy9XhN3dJFuciY9bYTFY4f7RXF
+	KosuunuK+QbTBiQhCWwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vANFk-0000000AlF0-3VKg;
-	Sun, 19 Oct 2025 06:50:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vAOVP-0000000AoJd-13cR;
+	Sun, 19 Oct 2025 08:11:07 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vANFi-0000000AlDE-0ICZ
+	id 1vAOVK-0000000AoIq-1gNt
 	for linux-riscv@lists.infradead.org;
-	Sun, 19 Oct 2025 06:50:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A755140A5D;
-	Sun, 19 Oct 2025 06:50:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57F25C4CEE7;
-	Sun, 19 Oct 2025 06:50:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760856630;
-	bh=EdgpjTa5vPTpdpYEzLk3B3e9bf5d6qYFWAfS+EwNqnE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Cl0KoSN24WldfEYSRSfu5lozmGJAVE9xioGE6C+PBBseYSuE/7hgf2KbKvxu1nAfq
-	 +AnxTaK9VaE7xdn62r2Zk9oFnNMs7lSpecdggsfr9Z5mfbyraggVUnrWZwla30ASHd
-	 TTQUKVBXbjDXmyKfOdXMojvKQKorenot/jpefXad8wpoUyJQ/gWBwcSUSTx6MlFUkq
-	 O4BqR0RMnSAfMnvUpkN7wKJhQIsaUmfqwAekVS20NwyN/940rzzKb69Mu6Ni7vQrxn
-	 4PzVEO7y+ixH5H5iambi/6vum/20jOqyGoZB3A2tTRPyBtt8DjbzWrov4g4xwvEbN2
-	 ljhF5KLlm27vA==
-Date: Sun, 19 Oct 2025 02:50:21 -0400
-From: Guo Ren <guoren@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	x86@kernel.org, linux-alpha@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, llvm@lists.linux.dev,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH 03/17] csky: Add __attribute_const__ to ffs()-family
- implementations
-Message-ID: <aPSKLRnWUAVSGQjF@gmail.com>
-References: <20250804163910.work.929-kees@kernel.org>
- <20250804164417.1612371-3-kees@kernel.org>
+	Sun, 19 Oct 2025 08:11:04 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-781421f5bf5so36686507b3.3
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Oct 2025 01:11:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760861461; x=1761466261; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0JD5EhU3dMvt2TzDGGngYx4VWjKCENlPlTrXXievwr0=;
+        b=DRbr6tJmyVy134flu/law9VA2jMwuYUc+ZCnFOoZ6LjDoXQ7Dr7NT+knztI3D/37m+
+         csOEPkG3JblE5/NpCz5KFr3+Tf/91zS8dl0mG1hctcRN+DGCwiio1tldcFrqShSV2wTq
+         YVZ4XmjXlbVZlwM7nFERTogm0nWaC6uI9uYI2FO67Yxn3lxRbTPPO6EIeRuE0h0FwO57
+         arX0cNZgbnsmQwjBYGtlocMzMQayHcLAa7MH6A+hOhYsjltUHQGPTiEMYXerSo4ttEp9
+         scba6C74MP8AsNxMtXxCJvB2Usu0Zc1/rH7SNS4tqZfHXt9zIz8/m76XDreLCbZyJnUA
+         ILvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760861461; x=1761466261;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0JD5EhU3dMvt2TzDGGngYx4VWjKCENlPlTrXXievwr0=;
+        b=oGQ2OaYCQFeSC1PFjWL1QzHYX0ztTQDzU3G1R5BkE0Mbs6ttP0xO1ZLo9a2xUqv3tC
+         1Nf7B9Dx2O5LLHcgeUGkyom/BD21hefDjtKWncFB8jDPXOUNhJ78V56aMqRtaC+v146Q
+         BfwHJuh87FKGNO7bl0+bENp327HCk1Z1hoQzLb0CqFARqHx8Ivd5Y+GGMWx8VmlZOhGs
+         pIhnoy+IxevFg4LroWehOLW5kCGKCn7WaTk+IZuiiiPvzqv0hhDyRkLH//s/WmigIJ3r
+         Byx2ve/7tBYo+BODuFlaVkfwUIFsvf6m8jx+ZqP/jNfR0lLe8VNmxYmZWrbASQbsgmWb
+         TzZw==
+X-Forwarded-Encrypted: i=1; AJvYcCVHqGzjVtPYFg62n8k2Q0GfYOHx30OpVlSlsfFaEUEazaZLMCpO/LlGeEyPV0o3enu6Y7PW+SrrMv9J3Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yym16e2dF81E5Kc8MEoHHAIMUPyq8NYHzytcSJcomfDr+Bfx3of
+	kt4gQtVjb6AZpt81NI330MrxkIMrJtjCeEob9Es0Zme7MQLh8rxv3AA2WCnHQ14lK5J1ZEWo47y
+	F4Jf5ubiH15uibqItOphDE2sjVoujMKY=
+X-Gm-Gg: ASbGncs/2FzqDO3EdIyz5vdG+SxvaGHxwPnRdyByGGigNreyM3nOK1WnPxjSLhAX0gI
+	HeVoI66s64vGmFM93ldJimjgg5WPIRWkjIqODNpbowgnx8Ro86LIAKnLTqA1CK2B7S7v9/6NPwN
+	BNvUcyg6uzWM8+BPwP2oinOEi7RlDYUCstlQJ+AvJwaDxUPtazsiQbve535y3ixSYLZMaNCveF8
+	JDR+NOfS07+ayAg4XqL+CjDrwzYy9IFlQkZh+R8n70JAKybRK9ABuKI1wKs73rzFOkBRu2A0uk=
+X-Google-Smtp-Source: AGHT+IEDp/usYEtVSaz10lwwm2/rh8YYcBuxag2F0nuBjSfSMoio/EijPl9t2f1PGKCDHr/mRoxnx6oC2CKJ7h3r2Ic=
+X-Received: by 2002:a05:690c:31e:b0:782:9037:1491 with SMTP id
+ 00721157ae682-7837780ba2dmr109813007b3.42.1760861461100; Sun, 19 Oct 2025
+ 01:11:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250804164417.1612371-3-kees@kernel.org>
+References: <20241202010844.144356-16-ebiggers@kernel.org> <20251019060845.553414-1-safinaskar@gmail.com>
+In-Reply-To: <20251019060845.553414-1-safinaskar@gmail.com>
+From: Askar Safin <safinaskar@gmail.com>
+Date: Sun, 19 Oct 2025 11:10:25 +0300
+X-Gm-Features: AS18NWAhDVf2aU8hB0qWERPwO9zi-ils_dPukaoQchmqqRauvEb3B93Zz-69KFg
+Message-ID: <CAPnZJGAb7AM4p=HdsDhYcANCzD8=gpGjuP4wYfr2utLp3WMSNQ@mail.gmail.com>
+Subject: Re: [PATCH v4 15/19] lib/crc32: make crc32c() go directly to lib
+To: ebiggers@kernel.org
+Cc: ardb@kernel.org, linux-arch@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
+	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, 
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_235050_170008_68D53364 
-X-CRM114-Status: GOOD (  18.28  )
+X-CRM114-CacheID: sfid-20251019_011102_460052_0049D0AB 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,84 +96,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 04, 2025 at 09:43:59AM -0700, Kees Cook wrote:
-> While tracking down a problem where constant expressions used by
-> BUILD_BUG_ON() suddenly stopped working[1], we found that an added static
-> initializer was convincing the compiler that it couldn't track the state
-> of the prior statically initialized value. Tracing this down found that
-> ffs() was used in the initializer macro, but since it wasn't marked with
-> __attribute__const__, the compiler had to assume the function might
-> change variable states as a side-effect (which is not true for ffs(),
-> which provides deterministic math results).
-> 
-> Add missing __attribute_const__ annotations to C-SKY's implementations of
-> ffs(), __ffs(), fls(), and __fls() functions. These are pure mathematical
-> functions that always return the same result for the same input with no
-> side effects, making them eligible for compiler optimization.
-LGTM.
-
-Acked-by: Guo Ren <guoren@kernel.org>
-
-> 
-> Build tested ARCH=csky defconfig with GCC csky-linux 15.1.0.
-> 
-> Link: https://github.com/KSPP/linux/issues/364 [1]
-> Signed-off-by: Kees Cook <kees@kernel.org>
-> ---
->  arch/csky/include/asm/bitops.h | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/csky/include/asm/bitops.h b/arch/csky/include/asm/bitops.h
-> index 72e1b2aa29a0..80d67eee6e86 100644
-> --- a/arch/csky/include/asm/bitops.h
-> +++ b/arch/csky/include/asm/bitops.h
-> @@ -9,7 +9,7 @@
->  /*
->   * asm-generic/bitops/ffs.h
->   */
-> -static inline int ffs(int x)
-> +static inline __attribute_const__ int ffs(int x)
->  {
->  	if (!x)
->  		return 0;
-> @@ -26,7 +26,7 @@ static inline int ffs(int x)
->  /*
->   * asm-generic/bitops/__ffs.h
->   */
-> -static __always_inline unsigned long __ffs(unsigned long x)
-> +static __always_inline __attribute_const__ unsigned long __ffs(unsigned long x)
->  {
->  	asm volatile (
->  		"brev %0\n"
-> @@ -39,7 +39,7 @@ static __always_inline unsigned long __ffs(unsigned long x)
->  /*
->   * asm-generic/bitops/fls.h
->   */
-> -static __always_inline int fls(unsigned int x)
-> +static __always_inline __attribute_const__ int fls(unsigned int x)
->  {
->  	asm volatile(
->  		"ff1 %0\n"
-> @@ -52,7 +52,7 @@ static __always_inline int fls(unsigned int x)
->  /*
->   * asm-generic/bitops/__fls.h
->   */
-> -static __always_inline unsigned long __fls(unsigned long x)
-> +static __always_inline __attribute_const__ unsigned long __fls(unsigned long x)
->  {
->  	return fls(x) - 1;
->  }
-> -- 
-> 2.34.1
-> 
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBPY3QgMTksIDIwMjUgYXQgOTowOeKAr0FNIEFza2FyIFNhZmluIDxzYWZpbmFza2Fy
+QGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBFcmljIEJpZ2dlcnMgPGViaWdnZXJzQGtlcm5lbC5vcmc+
+Ogo+ID4gTm93IHRoYXQgdGhlIGxvd2VyIGxldmVsIF9fY3JjMzJjX2xlKCkgbGlicmFyeSBmdW5j
+dGlvbiBpcyBvcHRpbWl6ZWQgZm9yCj4KPiBUaGlzIHBhdGNoIChpLiBlLiAzOGE5YTUxMjFjM2Ig
+KCJsaWIvY3JjMzI6IG1ha2UgY3JjMzJjKCkgZ28gZGlyZWN0bHkgdG8gbGliIikpCj4gc29sdmVz
+IGFjdHVhbCBidWcgSSBmb3VuZCBpbiBwcmFjdGljZS4gU28sIHBsZWFzZSwgYmFja3BvcnQgaXQK
+PiB0byBzdGFibGUga2VybmVscy4KCk9vcHMuIEkganVzdCBub3RpY2VkIHRoYXQgdGhpcyBwYXRj
+aCByZW1vdmVzIG1vZHVsZSAibGliY3JjMzJjIi4KQW5kIHRoaXMgYnJlYWtzIGJ1aWxkIGZvciBE
+ZWJpYW4ga2VybmVsIHY2LjEyLjQ4LgpQcmV2aW91c2x5IEkgdGVzdGVkIG1pbmltYWwgYnVpbGQg
+dXNpbmcgIm1ha2UgbG9jYWxtb2Rjb25maWciLgpOb3cgSSB0cmllZCBmdWxsIGJ1aWxkIG9mIERl
+YmlhbiBrZXJuZWwgdXNpbmcgImRwa2ctYnVpbGRwYWNrYWdlIi4KQW5kIGl0IGZhaWxlZCwgYmVj
+YXVzZSBzb21lIG9mIERlYmlhbiBmaWxlcyByZWZlcmVuY2UgImxpYmNyYzMyYyIsCndoaWNoIGlz
+IG5vdCBhdmFpbGFibGUuCgpTbywgcGxlYXNlLCBkb24ndCBiYWNrcG9ydCB0aGlzIHBhdGNoIHRv
+IHN0YWJsZSBrZXJuZWxzLgpJJ20gc29ycnkuCgoKCi0tIApBc2thciBTYWZpbgoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
