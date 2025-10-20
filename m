@@ -4,92 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590C1CCD184
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 02:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E14CFCCD195
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 03:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=en1UUv1Dj66AUxySs3gZuxOi1yi+YyrRBiDsYdEE3sU=; b=b4Tv8jP+8+KPoT
-	GxrS0+6pf9ejgcWgRC4TrOGdeofYsSCYWweA4VwEaGm/uh9nfjWSZiCoL0ojpXf352ev6xeaUTbMx
-	iq3wUm7fm3BJXSdi8ZMw163tEzjtRViSojnMQiXCT79KrNqeJHd9WKF6v4xfYSlNtflV1z1xLI+xt
-	QPFRo1+LJjTjZ8D6co5aegrqXb+Tqb04KOs5CPvYFMijRauzXUFiqS3VBlXav17Mgrq0p3U+GcKj+
-	K7cbmjceCwnwM0ZmKTXeP8f8gBV3o5v1a7QCxSWLzdxoZxzMxcr0Pq/pH8BczZVhsW805vvFzQkR+
-	4XWnMis1sMaWwR+Gfehw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=g3cFdetLhcrEUL1R84nvONdJ3Yn054EpHM881+cmQo8=; b=I1ceX5f/Yp+t27
+	wD6d+FcU2kpSJNI+l5NP8L7AgCWWzVgKn4jc6Nim7Ulcb8mbcvcAFCMV5PIjHndLqqVoTt7U1FYJ7
+	ClRyAEex2WXPgoTE9LxK5r6tAnVsvfNDfH6q0Zgj1LkcN7ejOjkwYJaIOX4AzRlAgajOglo0LEu0k
+	WNfvespReWmbCPg0iWIQxcEKcjm17ZfVvVnDUj9i34FtdClyd7UuW+hf8syUk7g4FHG5m5X5L3EW7
+	CKMyPp79sXTNJk4oZlKlI/TVKLMDyo4WTF3ZveSgaX1mrJBYkAhTuPhgB2yHV94nBkeHD2vssreE3
+	k1ZP0Af5JYcr0m9cg4hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAfXC-0000000BhSY-0rEM;
-	Mon, 20 Oct 2025 02:22:06 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1vAgdx-0000000BmZh-0ELA;
+	Mon, 20 Oct 2025 03:33:09 +0000
+Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAfX9-0000000BhQw-1PCl
+	id 1vAgdu-0000000BmZL-1Eeu
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 02:22:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1760926855;
-	bh=bsEnjHoM06iVNxKJujvN5KqKt3gikmfLFHIz5VO2vUY=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=q9vXr2nZzwyf1HaUynq2ukl7+FQF4ejUeQm/Ikn7LPDaYw1hxLTEx2YYRTzH71oNo
-	 wXfAmaWUOGk6A/FdfymCczElyreI7lGvdPB62BWrm1idhN7j+b//OGgoeCB6kHGFT9
-	 LKAKP68ybQMKtuZj1kmF3h/VE9AtxlWLOd/wvawQ=
-X-QQ-mid: zesmtpsz4t1760926846tf33a5c17
-X-QQ-Originating-IP: 34Afq1jEbXgyQF21XpjRvyPm0b5xHTb1ciTJuNmoGVM=
-Received: from = ( [14.123.254.135])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 20 Oct 2025 10:20:45 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11458405615915761153
-EX-QQ-RecipientCnt: 14
-Date: Mon, 20 Oct 2025 10:20:44 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Yixun Lan <dlan@gentoo.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] riscv: dts: spacemit: add MusePi Pro board device
- tree
-Message-ID: <28DCD6FACACACFCE+aPWcfFSvEsFfw4AD@kernel.org>
-References: <20251017-k1-musepi-pro-dts-v3-0-40b05491699f@linux.spacemit.com>
- <20251017-k1-musepi-pro-dts-v3-2-40b05491699f@linux.spacemit.com>
- <20251020015204-GYF1506524@gentoo.org>
- <52A7E982E5B11F53+aPWYHMbImTxJy7pJ@kernel.org>
- <20251020021846-GYG1506524@gentoo.org>
+	Mon, 20 Oct 2025 03:33:07 +0000
+Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7c0e357ab51so3336486a34.2
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Oct 2025 20:33:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760931185; x=1761535985; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TM+5sZf5OooBDgSucBoXLeOFjPqmBCLK+QVbvsF8E6w=;
+        b=CfGoLPaCuPCLzsdV1XA2nKPgUh7EGgN0ynXkcij6f+d/Qk3w6VgdaIHLMW/jJEk7ax
+         Y2UlxEcYeEY14d9wKJ6FkcdbWhkNyQ1yBb0gBFiUMLbxo/ddUE57FrtKto8euO39gXhK
+         dTqss1Iy3GUmOwTk/FnUPgS5VO5cTl7+49tQ4fs5GN+OrdYdqyaC9l0MW7ol+CVnTIKp
+         qGVUWvbw/YDBevQmNRCFOsCrSbbuMf3SQd/rQiE4Ee9EfzcPS3KQpmkNPOnwF9/02dID
+         MzbefFYsaBtqkeeMyWMZk00BowniM0qTM8+r7nzK52lMxnLHHw2ESXWM8zr+myaHV06H
+         M3hA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760931185; x=1761535985;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TM+5sZf5OooBDgSucBoXLeOFjPqmBCLK+QVbvsF8E6w=;
+        b=AYvClD8aSjsZlzzriZidvmKyg7UZJjn3Es94CvXvownF1ydgkTkUfQBr0j1DC4ptHD
+         8d0imguxBZQM1pCS1XryE3H2c231p/DQMjVbj3fBpAaN3OOdXhXCg1w1z7l9DwtmGzlA
+         8c4G/KmldMe/KY7cCp98Gcy/UYfAga7WNCxyjTktSKQEQL+ge91gBT7UwAsceGLRaj3Q
+         fi6+hInBH77IqjgPL704FZhb7+4cx+mY8DkUMQe3jxaCXk3lwiN+pYpCV7Oh9U2bY5/B
+         5nI2YITk0Zq1HHB8PA1SsXpO8cFL1bu4eadoVbVr/EZHLXS/nNip/Jlo5Gx+qPeY73GF
+         Yj2A==
+X-Forwarded-Encrypted: i=1; AJvYcCVNr96O4jiLaS+bHquEjn+Uy+JajNQKAfDyWFyHd/vlATdaaqWx0a4hXRJlmH0f4zw8ZJKapfHZMN8ATw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxC9x6rkaoHJRcKLCuP4DfUAVQwCxuKbWQQ92huYT2TucnX9Fn
+	lSnYxE+F+La5G2iOT5bHrzf1DzhdJ/AS0axp+UK0y20xSb1p5VvScM07
+X-Gm-Gg: ASbGnctNcU9Ek9KG2Za8XPnZNyAKgiZE1i+USJs0FY/QoPLXlM/GYzMNlwAx7NZyBTC
+	WZDOwr+CLVoVGIStVfwTGx93rOpXZ9+cIHKZObsUQhI0Jh+IlaBBb4LSrSZ0TWHKjxATYWoSmrq
+	3SN+t2bOsYFsUdkOh4+H8BzSCpfgxNr5uPPuJmfRarAz0aO2h8MP96Pq8uskoVRPlKZ3SjMfrh8
+	t317anJ/0U2uTRfRTg9+4B7c9AXPYNia57Ec5vwrXSMwYBjRrkGjfhWqdynllqzJzXLGFBXel40
+	7BBdeAQk+Qykb+DOwkP53eFkG5UH7hKjYuB4NptDWxCfo/RnTpDnl+xhRGtsa0cXC2cvh3Htthj
+	6Q6ot9pfjRvb9vPAhXJElg6XgLRhiGnKoesaQDLb98Sm3V+9klOaWx33ZKjK5Fll3keKSjLdsAC
+	GmIBrNDu2UTg==
+X-Google-Smtp-Source: AGHT+IHSXRKU0H/Tj60xds+NdCJx8dzbIdYpjnBVmyNb0yUakAI7tZidFBFo9vJrXoitO39gS81lLQ==
+X-Received: by 2002:a05:6830:3895:b0:7c2:7b5e:8cb2 with SMTP id 46e09a7af769-7c27cc4be1emr4547628a34.30.1760931184891;
+        Sun, 19 Oct 2025 20:33:04 -0700 (PDT)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7c28890e24bsm2244146a34.23.2025.10.19.20.33.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Oct 2025 20:33:04 -0700 (PDT)
+From: Chen Wang <unicornxw@gmail.com>
+To: u.kleine-koenig@baylibre.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	unicorn_wang@outlook.com,
+	conor+dt@kernel.org,
+	rabenda.cn@gmail.com,
+	inochiama@gmail.com,
+	krzk+dt@kernel.org,
+	mani@kernel.org,
+	liujingqi@lanxincomputing.com,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robh@kernel.org,
+	tglx@linutronix.de,
+	sycamoremoon376@gmail.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	sophgo@lists.linux.dev,
+	chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	fengchun.li@sophgo.com
+Subject: [PATCH 0/4] Add PCIe support in DTS for Sophgo SG2042 SoC
+Date: Mon, 20 Oct 2025 11:32:55 +0800
+Message-Id: <cover.1760929111.git.unicorn_wang@outlook.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251020021846-GYG1506524@gentoo.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OQhZ3T0tjf0aflwSfNotEEsE5cmD2yfFFm5SnUpoY11nFjNaIhRuFsoY
-	zLszG50LpQVw5oNu/r/3opa6eVYYx0V1zGFn96opRDgM5FfEsDWgxFEPZWXCk3+/8mhZu5P
-	RCaaJRZ+GEyKLkhw/TW7Wc+VjyxsKN/ONcBo3DL/RWSnFQd/UmejnLsoq4/q4UKNJkI80Xj
-	hCyG8rpi3Y13btPU870Z58Q59xOnGf6A2TVfLbKMJvpx/BKXmLhCoySKSU/nhNW6tUyNYZe
-	PyEkKveuudMLZ0bSOTExW1llvLMLYa+Ao/Qs8rI5FfaPFSSyyWbW6Nkb6XelNVBZ6+kPvKd
-	f3+oiIQT9j2BCO+zCPOGeVL12oPovyxHU/9YcDJf1gqMfG6yadugZxdPHW1zUESRvo08f/X
-	lm87ooGlFKtBNp8pvFg0Gooootkg7L4fe79sQ9Kboei8c8Rk5+9Xxe7Se2jPDiJRb8P8I4t
-	hw+vbMYrFO+LDToXK+h2HqO5ZF3pqTIkHk9TXvsAN6ZD6NdbFKhy7L6LC0nfZn137MyP4d1
-	xN/5LUh3/2o60kVaUMWLXxLk0kcVcqkRBqy9NorWEbzEIkRLizB9b6Zr3eSABgbKwNRPbOr
-	RslENobjimSWo3gYYwcSLEBjb++0BzArwyevbHE4G6dCaQyl2wEovPawgbN8ROHXWwozqqo
-	JOFSPdg4ANCzYHN6W0xQszuZEmJCQpdXXdTwYwWwJMrrwHjhxYE/uJzIxFeerzdc5Tu9X/G
-	3Uqw5bfplLA+eqzOiUHNEGVUH8WUXTPQsuzVZ7TjEb9vxDcxHMd3dRLAQC0X2pVQUgjPrpn
-	Q28vbGEoS7Qsm+RNApbhOF5DJuQyhKqMWbASH6rYO6WANkv2ay6b5nWXzoyNyZE7+7QWIG/
-	HC00eFzaMdf6+r4jtUG+FAVycdlzMZR7tXna1vGncnblW1rW8GvMvJIn+ez7R6d/04P8+qj
-	+YDlPq1LSvLX8xULLu33+vglOa5PErphcCu+C5gAadzpwRQE190EIa3kbo8qvr79QY58+ui
-	yPE8ulLwjRn4jtj7hTx2VzlihpWVa5xFGpdmPi40mHHVrTIRQ2n6tAVUJTrR/XusByjtkuc
-	KiCgeCcPLORZof4d66Zi64l1O3OzKCsOw==
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_192203_934726_A49A1005 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20251019_203306_339536_3A9B8D50 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,27 +111,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBPY3QgMjAsIDIwMjUgYXQgMTA6MTg6NDZBTSArMDgwMCwgWWl4dW4gTGFuIHdyb3Rl
-Ogo+IEhpIFRyb3ksCj4gT24gMTA6MDIgTW9uIDIwIE9jdCAgICAgLCBUcm95IE1pdGNoZWxsIHdy
-b3RlOgo+ID4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtbXVzZXBp
-LXByby5kdHMKPiA+ID4gPiBAQCAtMCwwICsxLDc4IEBACj4gPiA+ID4gKy8vIFNQRFgtTGljZW5z
-ZS1JZGVudGlmaWVyOiAoR1BMLTIuMCBPUiBNSVQpCj4gPiA+ID4gKy8qCj4gPiA+ID4gKyAqIENv
-cHlyaWdodCAoQykgMjAyNCBZYW5neXUgQ2hlbiA8Y3l5QGN5eXNlbGYubmFtZT4KPiA+ID4gLi4K
-PiA+ID4gPiArICogQ29weXJpZ2h0IChDKSAyMDI1IFRyb3kgTWl0Y2hlbGwgPHRyb3kubWl0Y2hl
-bGxAbGludXguc3BhY2VtaXQuY29tPgo+ID4gPiB0aGlzIGlzbid0IGEgYmlnIHByb2JsZW0sIGJ1
-dCBJIHRoaW5rIGl0IHdvdWxkIGJlIGJldHRlciB0byB1c2UgU3BhY2VtaVQKPiA+ID4gQ29ycCdz
-IENvcHlyaWdodCwgdG8gcmVmbGVjdCB5b3UncmUgbm90IGRvaW5nIGFzIGluZGl2aWR1YWwgY29u
-dHJpYnV0b3IuLgo+ID4gSSB1bmRlcnN0YW5kLiBTaW5jZSBJIG9yaWdpbmFsbHkgd3JvdGUgYW5k
-IG5vdyBtYWludGFpbiB0aGlzIERUUywKPiAuLgo+ID4gd291bGQgaXQgc3RpbGwgYmUgYWNjZXB0
-YWJsZSB0byBpbmNsdWRlIG15IG93biBjb3B5cmlnaHQgbGluZSBhbG9uZyB3aXRoIFNwYWNlbWlU
-4oCZcz8KPiBJIHRoaW5rIHRoaXMgaXMgZ29vZApUaGFua3MgZm9yIHlvdXIgY29uZmlybWF0aW9p
-bi4gSSB3aWxsIHVwZGF0ZSB0aGUgY29weXJpZ2h0IGxpbmUuCgogICAgICAgICAgICAgICAgICAg
-IC0gVHJveQo+IAo+IC0tIAo+IFlpeHVuIExhbiAoZGxhbikKPiAKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Chen Wang <unicorn_wang@outlook.com>
+
+This new patch set is a continuation of the previous patchset
+"[PATCH v3 0/7] Add PCIe support to Sophgo SG2042 SoC" [1].
+
+The drivers and bindings have already been merged into the kernel
+mainline, and this patchset will focus on submitting the remaining
+DTS changes into the mainline.
+
+This patchset is based on v6.18-rc1 and the only changes since v3
+is a fix to address the comments from Manivannan Sadhasivam to make
+sure PCI address of the I/O port to start from 0.
+
+Link: https://lore.kernel.org/linux-riscv/cover.1757643388.git.unicorn_wang@outlook.com/ [1]
+
+Chen Wang (4):
+  riscv: sophgo: dts: add PCIe controllers for SG2042
+  riscv: sophgo: dts: enable PCIe for PioneerBox
+  riscv: sophgo: dts: enable PCIe for SG2042_EVB_V1.X
+  riscv: sophgo: dts: enable PCIe for SG2042_EVB_V2.0
+
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts  | 12 +++
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts  | 12 +++
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  | 12 +++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        | 88 +++++++++++++++++++
+ 4 files changed, 124 insertions(+)
+
+
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
