@@ -4,94 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4443CCD184
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 01:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B19CCD195
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 01:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bvjNVgaBNki6jWR0HuoWBoKWco3VFSGrAE3U5tdOQ5s=; b=khbbtKPY3sCbgKQhPwNdxHvENb
-	VoKops/SnTPciDEBfJAa8vjVc+uZ3VCpEkON6oxdk9QkX4otZ4eV5aCCIa6xOLvLXuYxKkH2orJ3b
-	yQiiYq/GVGeVx+scc6MIgx9OV7+ZKgDErrktk78NnTo2aUWyRkymIcM+GF1Ef423QdwT/xr30SalG
-	tRZ5xBm0x8jA9ILR1PP0repPOx5GWc30r+Dc6q9g66Nhbi1qyijNgdTJjcosSnq5vWLt1IEgomsAN
-	iEs+3eJVe0Iap5FkD63XDwUSazu5qU5eaHbB7ayWtsW7pK/ekUgSGCSihn1pg1eU7SyCxzDhqYa1l
-	PcpNCltA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Z+LAxp0UtYR4sUaL6Elf9sZ/WP2gmjmaJyW9bWsocxM=; b=XawMesmQRQYPn6
+	wV11+Jq6maTLuALjGP5aBHdgWWLx0ALEZNdGK5A0ppsFgYEgw+WQh/15kXwkWz/e1c5OHoFi83U5I
+	ya6nammXU+nHQSdWbK1i3ymagTO1WIke0Mv43QlaRVYylADupEyIxAR40jRtSdPjpeIyoMMlwmZ51
+	VU3A+pe8k2oNr3cetSla/zwdlZq7DkbjlgOktyURV6aDFpblRbOMNk+K/CoEqf0sykukjVEMvkQib
+	9sRBf/Kqbh56q5+zL3Nn2gKfZ65wsvsGJJPcfVFjyf0e3IJHujC22adx5lu7zTWUuXljkTSXbv4HB
+	McpTFzsb/et/qjvOJ1kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAedK-0000000BcdR-3FNc;
-	Mon, 20 Oct 2025 01:24:25 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vAeu6-0000000BeFX-3rj4;
+	Mon, 20 Oct 2025 01:41:42 +0000
+Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAedJ-0000000Bccw-0QP1;
-	Mon, 20 Oct 2025 01:24:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=v7X4C2h2L+kGvezMXwy4G6A4IXMrDu2HuF/hi0zlsSI=; b=iAB05hyz20YbLiT5UtEbBAKdRh
-	cy+zWr2u3pXI+xrtyhE/BHjD/wZury6z+a9tv+WthOpzs0hZa2dwvhe6tqnuCuoGIon73ksw9c3Xh
-	/ENopiRDaK6UeSe2h/x9QY/5JdKaXW/lbUb0wpJ6lzfoKGVxFh+yF8Uzr9U9vWRYtCDEc2Si69vI+
-	FYZ/EbyGceWeKboXfA2pTSASoT65h3OS1JV6gIXR98JVk9qynHHyGynj+2z+qXKlvqyiaw+w9TKXb
-	O0iCSr0JGdG0cPkH+cdF4iuUlTy0wnYoHXR+B4szK6FeCx7gtVNQUbSIJa6s34TlTwjorYgNJphWF
-	Ii3ygGuA==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAedD-0000000AlBm-0p1y;
-	Mon, 20 Oct 2025 01:24:19 +0000
-Received: from loongson.cn (unknown [113.200.148.30])
-	by gateway (Coremail) with SMTP id _____8CxHvAyj_Vo0BkYAA--.51782S3;
-	Mon, 20 Oct 2025 09:24:02 +0800 (CST)
-Received: from [10.130.10.66] (unknown [113.200.148.30])
-	by front1 (Coremail) with SMTP id qMiowJCxdOQyj_Vo+iH3AA--.20492S3;
-	Mon, 20 Oct 2025 09:24:02 +0800 (CST)
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Josh Poimboeuf <jpoimboe@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
-Cc: Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
- <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
- <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
- <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
- <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
- <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
- <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
- <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
- <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
- <jxfb5a2c2qber623l2gwewirwod54bbgfnvt7t7f3jah2ea33g@2uyhy3auzmpx>
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-Message-ID: <d9f3352a-1c1f-464a-a8fd-741cd96b5f8e@loongson.cn>
-Date: Mon, 20 Oct 2025 09:24:01 +0800
-User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
+	id 1vAeu3-0000000BeF9-0eKi
+	for linux-riscv@lists.infradead.org;
+	Mon, 20 Oct 2025 01:41:41 +0000
+Received: from localhost (unknown [116.232.147.23])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 664F0341540;
+	Mon, 20 Oct 2025 01:41:36 +0000 (UTC)
+Date: Mon, 20 Oct 2025 09:41:32 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: spacemit: add MusePi Pro board
+Message-ID: <20251020014132-GYE1506524@gentoo.org>
+References: <20251017-k1-musepi-pro-dts-v3-0-40b05491699f@linux.spacemit.com>
+ <20251017-k1-musepi-pro-dts-v3-1-40b05491699f@linux.spacemit.com>
 MIME-Version: 1.0
-In-Reply-To: <jxfb5a2c2qber623l2gwewirwod54bbgfnvt7t7f3jah2ea33g@2uyhy3auzmpx>
-Content-Language: en-US
-X-CM-TRANSID: qMiowJCxdOQyj_Vo+iH3AA--.20492S3
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
-	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
-	BjDU0xBIdaVrnRJUUUv2b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26c
-	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r106r15M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
-	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxV
-	AFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x02
-	67AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6x
-	ACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E
-	87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7I2V7IY0V
-	AS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s02
-	6c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw
-	0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvE
-	c7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
-	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7I
-	U8czVUUUUUU==
+Content-Disposition: inline
+In-Reply-To: <20251017-k1-musepi-pro-dts-v3-1-40b05491699f@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_022416_969343_B10714FA 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251019_184139_781452_078C6020 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,20 +67,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSm9zaCwgQXJkIGFuZCBIdWFjYWksCgpPbiAyMDI1LzEwLzE4IOS4iuWNiDE6MDUsIEpvc2gg
-UG9pbWJvZXVmIHdyb3RlOgoKLi4uCgo+IEJ1dCBJSVVDLCB0aGUgbGlic3R1YiBjb2RlIHJ1bnMg
-KnZlcnkqIGVhcmx5LCBhbmQgd291bGRuJ3Qgc2hvdyB1cCBpbiBhCj4gc3RhY2sgdHJhY2UgYW55
-d2F5LCBiZWNhdXNlIHRoZXJlIGFyZSBubyB0cmFjZXMgb2YgaXQgb24gdGhlIHN0YWNrIG9uY2UK
-PiBpdCBicmFuY2hlcyB0byBoZWFkLlMgY29kZSAod2hpY2ggZG9lc24ndCBzYXZlIHRoZSBsaW5r
-IHJlZ2lzdGVyKS4KClRoYW5rcyBmb3IgeW91ciBkaXNjdXNzaW9ucy4KCkFyZSB5b3UgT0sgd2l0
-aCB0aGlzIGN1cnJlbnQgcGF0Y2g/Ck9yIHNob3VsZCBJIHVwZGF0ZSB0aGlzIHBhdGNoIHRvIHJl
-bW92ZSB0aGUgY2hhbmdlcyBvZiBhcm02NCBhbmQgcmlzY3Y/Ck9yIGFueSBvdGhlciBzdWdnZXN0
-aW9ucz8KClRoYW5rcywKVGllemh1CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+Hi Troy,
+
+On 13:52 Fri 17 Oct     , Troy Mitchell wrote:
+> Document the compatible string for the MusePi Pro [1]. It is a 1.8-inch
+> single board computer based on the SpacemiT K1/M1 RISC-V SoC [2].
+> 
+> Here's a refined list of its core features for consideration:
+>   - SoC: SpacemiT M1/K1, 8-core 64-bit RISC-V with 2.0 TOPS AI power.
+..
+>          This suggests potential for light AI/ML workloads on-device.
+drop these additional marketing info, just give neutral technical description
+>   - Memory: LPDDR4X @ 2400MT/s, available in 8GB & 16GB options.
+
+..
+>             Sufficient for various workloads.
+ditto
+>   - Storage: Onboard eMMC 5.1 (64GB/128GB options). M.2 M-Key for NVMe
+>              SSD (2230 size), and a microSD slot (UHS-II) for expansion.
+..
+>              Good variety for boot and data.
+ditto
+>   - Display: HDMI 1.4 (1080P@60Hz) and 2-lane MIPI DSI FPC (1080P@60Hz).
+..
+>              Standard display options.
+ditto, please check more bellow yourself..
+
+>   - Connectivity: Onboard Wi-Fi 6 & Bluetooth 5.2. A single Gigabit
+>                   Ethernet port (RJ45). Given the stated markets,
+>                   this should cover basic networking.
+>   - USB: 4x USB 3.0 Type-A (host) and 1x USB 2.0 Type-C (device/OTG).
+>          Decent host capabilities.
+>   - Expansion: Full-size miniPCIe slot for assorted modules
+>                (4G/5G, wireless etc.). A second M.2 M-Key (2230) for more
+>                general PCIe devices (SSD, PCIe-to-SATA, comm boards).
+>   - GPIO: Standard 40-pin GPIO interface, as expected for an SBC.
+>   - MIPI: Includes 1x 4-lane MIPI CSI FPC and 2x MIPI DSI FPC interfaces
+>           for cameras and displays.
+>   - Clock: Onboard RTC with battery support.
+> 
+> Link: https://developer.spacemit.com/documentation?token=YJtdwnvvViPVcmkoPDpcvwfVnrh&type=pdf [1]
+> Link: https://www.spacemit.com/en/key-stone-k1 [2]
+> 
+no blank line here
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> ---
+> Changelog in v3:
+> - nothing
+> - Link to v2: https://lore.kernel.org/all/20251010-k1-musepi-pro-dts-v2-1-6e1b491f6f3e@linux.spacemit.com/
+> 
+> Changelog in v2:
+> - modify commit message
+> - Link to v1: https://lore.kernel.org/all/20250928-k1-musepi-pro-dts-v1-1-5efcca0ce3ae@linux.spacemit.com/
+> ---
+>  Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> index c56b62a6299ac24d3cdef7edcdfc407dc62a1846..52fe39296031f21d1c28c4f1ea5ca9fe28caf45a 100644
+> --- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> @@ -22,6 +22,7 @@ properties:
+>            - enum:
+>                - bananapi,bpi-f3
+>                - milkv,jupiter
+> +              - spacemit,musepi-pro
+>                - xunlong,orangepi-rv2
+>            - const: spacemit,k1
+>  
+> 
+> -- 
+> 2.51.0
+> 
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
