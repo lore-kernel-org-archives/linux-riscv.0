@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88BD5CCD199
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 18:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C73CCD199
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 18:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cP2yfawiqNq/4DGP47U5WoCBGFiHA8wHubkDe/A7NB8=; b=JiKhEtBZwRrheU
-	fIQbs+0RX2UBc7Mb4/XjR38XTUH4ET2jnwv2Y7wCeksfVH9TKdm7sZ1ofE4B5oyQMJS94scPvtFdn
-	FPkXf5OVgxnZVjrcws8wxfuBz/aiZL0eTanKPMRF8ZzPqzNAQ/S1yMXpRK9HyEGOJcMbzMolKzR2k
-	LwN1R0YE8S02gLW/TCusyWTt1FuDh2zBRz2fqh3wHakba3gMU8F8vpLs6JlMB8Pc5Drbhq7TMXteZ
-	NnVKWfiA7O5bNdXknVxGrA90ynB8mxOWW0KxoSo+WBO28j9S+HttPM7B+6H+bOlbOpYzucK7qPDro
-	Nn5pfaoLSmQ2T1YH1QCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BdMTK07RP1tI+2eK1lTellC4SIMu5hCP+r+EpK/Zne0=; b=uZO5q6wSbGeFjpn8aXTFx3MAG5
+	ikIkiVcLY+KfwWrx0TC+hh20tgyIszGgfckbLWgd3PMJe6paeGL5Xtja3gnFnzI5yE8cBhxajAI3Z
+	FVjICDOd6YcyunK4+KyzVpXPSWNl73bzpz7wP80jOrf+6Fuek3CAR6xuaRtUfl5bIoKw59BfL2GnM
+	hlvg4GSGxqH10cimzesw0mTrVYY72E1kfbhg0o3mokUwMe4HXCgL1XvJcuddDxo8Eq2NkrWX43MJN
+	O1WmV5wo/A5zseAhl2r14qO6DrzzMnf5/mdBgXB4oV3hSazIYgAHh/kpg9EfSMI0z0tgENi05lkpK
+	HGg1vqPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAuTB-0000000Ebnh-2E0e;
-	Mon, 20 Oct 2025 18:18:57 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1vAuaY-0000000EcX9-2Osm;
+	Mon, 20 Oct 2025 18:26:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAuT8-0000000EbnB-3qas
+	id 1vAuaW-0000000EcWm-0mNw
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 18:18:56 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-76e2ea933b7so4220178b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Oct 2025 11:18:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1760984334; x=1761589134; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=J3wXXjw9bzD6MPVLbQ5doCpWIDPvan0gGJzfGLwRl50=;
-        b=J4WndqYjb8T82ac+oXrgcNBKC8VwBEN+LsLXjH+2Dso6amDzU26V9Lzs1IiqCRkY03
-         ZU6dVqjrm5/efku/dfemcf9U+0YcO/+e9eBeFEy7B6/t7S0MARtPxJoS6g4oDcxcx7Cp
-         V6Omv7zwny+jP9KRz3TcJsDxyForiqVMtl8RvDcrRSB4fapC8/cnAJbXrGZJJiM3H70J
-         neTUakL9wDK5NHEvVNtNEWee17oclgpSc9sdyo0t0nJl0QI5KBSRxLslKqIbhW1SkTIv
-         lb1tHjsM4Ib9LHAox5ScTUobqZczgGHTSbQpHeKJUZeQFPii4XwoOoRj+57QvQAeV4K8
-         H7vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760984334; x=1761589134;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=J3wXXjw9bzD6MPVLbQ5doCpWIDPvan0gGJzfGLwRl50=;
-        b=Hrymb5bRMsjxkP5c6ZSctEePrN5t3Y2gbZXBoqZrrnFyWnarnK3ttrPs9np0hUrUCp
-         bGFTORInvtvR7rnfdCqb7cFxCCTqVtNiEQ6wVq7yyzGegbSyqqvpSsQ7vbd3xmjwXh2a
-         GbEjJqfwHNk4qzcXbMaWO+Iiw+taeyw0YxMyDGZXMOsXivVkpSKq0km/Q1J1SaRYXfFQ
-         mZicf19TlmkcyucKgGOtvsJsAjQuVdRLTN5wVjfE+upWtVY0Q3gXnErceEY8hmJy7kuC
-         otgQXuPEWud7jq/RjAkU49Vs4VQhp8hD1ZjFi5Px234f2cEkBSKQHw4pUMNokTc8uCiI
-         3DTQ==
-X-Gm-Message-State: AOJu0YyQ+CkxooqEu6Ks8Rq/e2pblPLi7XM4qnK2Y1kv+GvEPs4lNKVz
-	INCq4xeRwnZt8yzvCMkcUwE2FbOPPND6Dq029Gi0qFs4HBdhDbLM9XC2NWspcyHTZfI=
-X-Gm-Gg: ASbGncsJJwLoO9+U7EJpd2kmqWiwH2Mi/IYIdeutSy3jY1XHRMLfWBWI3vAU52M4R2I
-	DwbYFe0p/QzsMA2KshdvfC5BEArMFkrTkNjiHZkpBiOi9L+gMLMBHxH0uBNO+XfAqLBh8g2/v3K
-	M0ALb2sPc0KskQK9KGUsCZNNByvMImA8cMNI2jhA0oCMYqLMgPu5yLpEg2pZnoFLTyTgih6+uPG
-	/ry54E91KFGj0T0ZHeD059ARVd3kdyTgt8lkpestR7ayIYX9zTXEJnfMt8Iuono2GmBnocP2X7l
-	TBa30fSLK8k++WmprUNtTfPqO+H+ceoXZ6MvaiEUtmLJ1k2ZVNuj6hU1mW5RbQflXb1fxj/IOZR
-	a1looBUjRGBQWaosf/tdWtLafQw0QAi3UsD9PGCVhiar19X0V7XRDgsn3FgcSueJHDn5lM9RCAn
-	T42ATgCBkk7PWwn77cN6Ft
-X-Google-Smtp-Source: AGHT+IGTvGMOz93bZ6gvLfbDW2Z5HUTn/LhD3gZSIqP3hEuhNTUpAhz52wVhznRHxX8oqUHCbXBsgg==
-X-Received: by 2002:a17:90a:d406:b0:32d:e027:9b26 with SMTP id 98e67ed59e1d1-33bc9d1a8e6mr20155181a91.13.1760984333589;
-        Mon, 20 Oct 2025 11:18:53 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33d5df93591sm8775752a91.17.2025.10.20.11.18.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Oct 2025 11:18:53 -0700 (PDT)
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Mon, 20 Oct 2025 11:18:52 -0700
-Subject: [PATCH RFC] arch/riscv: add proc status (proc/<pid>/status)
+	Mon, 20 Oct 2025 18:26:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DB7BE45B4F;
+	Mon, 20 Oct 2025 18:26:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E79D7C113D0;
+	Mon, 20 Oct 2025 18:26:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760984791;
+	bh=UhEuqXmpACp9+BKJqoedP1MDXtc1UXLJvMj+JY5pTyE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TWuJm3dMrAYII/skw3p/IlUTy7oPL9I0uiKPAhPQ2VzN0siguzaAr74GidlJjPVy+
+	 Kyvu1GcQE+6dBcjjzPwT7S39Votqvpj0GgU9FmrtWZBLxvvS6KOg4JoxgsECu9bizU
+	 HatC7VsRRuoQYspXdNEPNLSQI5eSzox/LRoPsQmXTWxkvbDJ0vtea7tkt5NNfLZlxl
+	 uy1kOeee6cGXzEgBtD5CNjg1fNJ5S03kXkWO2TPbVFr//TGv0khXQFqWtu25O490PY
+	 a+sPDmO7WXmP0eOVDO3bNEBzRsXyvWFdoiV6LLIXxhNgZcGC5Iixpp8T7jFXLObhhh
+	 gbbbDBw82yoFA==
+Date: Mon, 20 Oct 2025 19:26:17 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Alex Elder <elder@riscstar.com>
+Cc: Conor Dooley <conor@kernel.org>, han.xu@nxp.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, dlan@gentoo.org,
+	guodong@riscstar.com, devicetree@vger.kernel.org,
+	linux-spi@vger.kernel.org, imx@lists.linux.dev,
+	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/8] dt-bindings: spi: fsl-qspi: support SpacemiT K1
+Message-ID: <710c36f2-3551-4738-a965-f1564416348c@sirena.org.uk>
+References: <20251020165152.666221-1-elder@riscstar.com>
+ <20251020165152.666221-3-elder@riscstar.com>
+ <20251020-blinked-primary-2b69cf37e9fe@spud>
+ <b28d71c4-d632-4ee5-8c4b-270649fca882@riscstar.com>
 MIME-Version: 1.0
-Message-Id: <20251020-proc_status-v1-1-59d2c8ccd4f0@rivosinc.com>
-X-B4-Tracking: v=1; b=H4sIAAt99mgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDA0Nz3YKi/OT44pLEktJi3ZQ0w8TUlGQL02TzZCWgjoKi1LTMCrBp0Up
- Bbs5KsbW1ABchsmtiAAAA
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kito.cheng@sifive.com, charlie@rivosinc.com, atishp@rivosinc.com, 
- alexghiti@rivosinc.com, cleger@rivosinc.com, zong.li@sifive.com, 
- heinrich.schuchardt@canonical.com, valentin.haudiquet@canonical.com, 
- jesse.huang@sifive.com, Deepak Gupta <debug@rivosinc.com>
-X-Mailer: b4 0.13.0
+In-Reply-To: <b28d71c4-d632-4ee5-8c4b-270649fca882@riscstar.com>
+X-Cookie: I doubt, therefore I might be.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_111854_964138_F5EC5CC6 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20251020_112632_242940_22DEE7F9 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,165 +74,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4426006858971298397=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-x86 has proc/<pid>/status to see various runtime characteristics
-of running task. Implement same for riscv. This patch implements
-status for shadow stack and landing pad state.
 
-Signed-off-by: Deepak Gupta <debug@rivosinc.com>
----
-This is just a one patch but sending it as RFC with cover letter to seek
-feedback. x86 has `arch_proc_pid_thread_features` to enumerate status of
-arch thread specific features on runtime. This can be done using prctl
-as well but from quick/script perspective `cat /proc/<pid>/status` is more
-desirable. In this patch, simply `arch_proc_pid_thread_features` is implemented
-for riscv which queries shadow stack and landing pad state and reports back.
-Thus it is dependent on riscv user cfi enabling series.
+--===============4426006858971298397==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="1I0XRDn4R0XgPcRQ"
+Content-Disposition: inline
 
-If this patch itself is self-standing and good enough, I can roll this patch
-as part of riscv user cfi enabling series.
 
-OR
+--1I0XRDn4R0XgPcRQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-If there is ask for other riscv thread specific features that could be
-enumerated in similar fashion, we will need it to be done as separate series
-(with `thread_features` added to `thread_info`)
+On Mon, Oct 20, 2025 at 01:06:46PM -0500, Alex Elder wrote:
+> On 10/20/25 12:39 PM, Conor Dooley wrote:
 
-Example output below.
+> > > +          - spacemit,k1-qspi
 
-Name:   cat
-Umask:  0022
-State:  R (running)
-Tgid:   133
-Ngid:   0
-Pid:    133
-PPid:   129
-TracerPid:      0
-Uid:    0       0       0       0
-Gid:    0       0       0       0
-FDSize: 256
-Groups: 0 10
-NStgid: 133
-NSpid:  133
-NSpgid: 133
-NSsid:  129
-Kthread:        0
-VmPeak:    10788 kB
-VmSize:    10788 kB
-VmLck:         0 kB
-VmPin:         0 kB
-VmHWM:      1400 kB
-VmRSS:      1400 kB
-RssAnon:             116 kB
-RssFile:            1284 kB
-RssShmem:              0 kB
-VmData:       92 kB
-VmStk:      8324 kB
-VmExe:         4 kB
-VmLib:      2312 kB
-VmPTE:        40 kB
-VmSwap:        0 kB
-HugetlbPages:          0 kB
-CoreDumping:    0
-THP_enabled:    0
-untag_mask:     0xffffffffffffffff
-Threads:        1
-SigQ:   0/31771
-SigPnd: 0000000000000000
-ShdPnd: 0000000000000000
-SigBlk: 0000000000000000
-SigIgn: 0000000000000000
-SigCgt: 0000000000000000
-CapInh: 0000000000000000
-CapPrm: 000001ffffffffff
-CapEff: 000001ffffffffff
-CapBnd: 000001ffffffffff
-CapAmb: 0000000000000000
-NoNewPrivs:     0
-Seccomp:        0
-Seccomp_filters:        0
-Speculation_Store_Bypass:       unknown
-SpeculationIndirectBranch:      unsupported
-Cpus_allowed:   3
-Cpus_allowed_list:      0-1
-Mems_allowed:   1
-Mems_allowed_list:      0
-voluntary_ctxt_switches:        0
-nonvoluntary_ctxt_switches:     3
-riscv_thread_features:  shstk_enabled lpad_enabled
-riscv_thread_features_locked:   shstk_unlocked lpad_unlocked
----
- arch/riscv/kernel/Makefile     |  1 +
- arch/riscv/kernel/cpu/Makefile |  1 +
- arch/riscv/kernel/cpu/proc.c   | 28 ++++++++++++++++++++++++++++
- 3 files changed, 30 insertions(+)
+> > Are the newly added resets mandatory for the spacemit platform?
 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index f60fce69b725..b32c11667d81 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -71,6 +71,7 @@ obj-y	+= vendor_extensions.o
- obj-y	+= vendor_extensions/
- obj-y	+= probes/
- obj-y	+= tests/
-+obj-y	+= cpu/
- obj-$(CONFIG_MMU) += vdso.o vdso/
- 
- obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
-diff --git a/arch/riscv/kernel/cpu/Makefile b/arch/riscv/kernel/cpu/Makefile
-new file mode 100644
-index 000000000000..2b474fb49afe
---- /dev/null
-+++ b/arch/riscv/kernel/cpu/Makefile
-@@ -0,0 +1 @@
-+obj-$(CONFIG_PROC_FS)			+= proc.o
-diff --git a/arch/riscv/kernel/cpu/proc.c b/arch/riscv/kernel/cpu/proc.c
-new file mode 100644
-index 000000000000..4661190c43d1
---- /dev/null
-+++ b/arch/riscv/kernel/cpu/proc.c
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/smp.h>
-+#include <linux/timex.h>
-+#include <linux/string.h>
-+#include <linux/seq_file.h>
-+#include <linux/cpufreq.h>
-+#include <linux/proc_fs.h>
-+#include <asm/usercfi.h>
-+
-+#ifdef CONFIG_RISCV_USER_CFI
-+
-+void arch_proc_pid_thread_features(struct seq_file *m, struct task_struct *task)
-+{
-+	seq_puts(m, "riscv_thread_features:\t");
-+	if (is_shstk_enabled(task))
-+		seq_puts(m, "shstk_enabled ");
-+
-+	if (is_indir_lp_enabled(task))
-+		seq_puts(m, "lpad_enabled ");
-+
-+	seq_putc(m, '\n');
-+
-+	seq_puts(m, "riscv_thread_features_locked:\t");
-+	is_shstk_locked(task) ? seq_puts(m, "shstk_locked ") : seq_puts(m, "shstk_unlocked ");
-+	is_indir_lp_locked(task) ? seq_puts(m, "lpad_locked ") : seq_puts(m, "lpad_unlocked ");
-+	seq_putc(m, '\n');
-+}
-+#endif /* CONFIG_RISCV_USER_CFI */
+> This is interesting.  I never even tried it without specifying them.
 
----
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-change-id: 20251017-proc_status-df1aedc85c7c
---
-- debug
+> I just tried it, and at least on my system QSPI functioned without
+> defining these resets.  I will ask SpacemiT about this.  If they are
+> not needed I will omit the first patch (which added optional resets),
+> and won't use them.
 
+It might be safer to describe them, otherwise things are vulnerable to
+issues like the bootloader not leaving things in a predictable state.
+
+--1I0XRDn4R0XgPcRQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmj2fsgACgkQJNaLcl1U
+h9CK3wf9GM9lu076QzbbHfDafjhtsrnlltUssWfJoUgfejWm+v92kvQuJeSJHBDk
+/JMRLFe5T3zA0orRcegrs3BleAWhIhn9HqanLLCg9l/4nVqimJD/UbDj8zyKrPxD
+9uHpITAxRzkVNEO7LevpxKk0uXnBNweZ2uTjl+ZFJbR6ECOu1b6/4xifiJPX2MM6
+QO4iDWxZKpfPO4YixpI8kbR3f0+Lf9MtkXciYEyT1gY41jUPzQWyprpp46RISYl1
+UN0q3/gbogtU5ks2C9siT9SNZxTD/WQCMl9+nm6MkE579TyhPYAz9822qo8/cys1
+H3EixL1NAJ5gK51lVXMyOwLDwPzbWA==
+=j9iT
+-----END PGP SIGNATURE-----
+
+--1I0XRDn4R0XgPcRQ--
+
+
+--===============4426006858971298397==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4426006858971298397==--
+
