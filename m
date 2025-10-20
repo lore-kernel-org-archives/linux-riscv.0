@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47C1CCD199
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 10:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B12CCD199
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 10:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=amH8+8EqtGJKDMNmpTF/i6Fj1B61oU9jLcADyEiOqvU=; b=0RADwXc48HkZms
-	DWr5oqzqrejeZVGszb5dAvxwbc2QbJb3VKb3ws8D0xvVjoohmhTMTiZOaHQUhxeAVf2kLSFG38u9i
-	uC3oaIdIRv+Kkm+kA4mWmU1fVkwSp3UyKmkLCxgJNVvnG3KUPwUN7VqAG0nsstpfsJecWioMdNP9x
-	Fo50qNSfMyRINyporFHt+gCXDsIpgmxNnas4PVRF8xHBDZJUPAa9Fn2Vjjd9xqdjukvxHOU3SfkN0
-	DL8+BxhKWZZVgWXQfbchaEk8H+48QX+50K76qwjZ9sUpohTS8eTi74e49MLsMH3scV4D4qaPil/RA
-	uIbfdhpO5y6ubjwaux9w==;
+	List-Owner; bh=f/95Bja68xWsTgKSzt6qQKpnK4wj0uBtPtt2z4KqDJU=; b=M5lZ3ThU3+eLsj
+	K1Z/Y2W3eaG04lQYM0AHicyC/DQ7HphTcraLxnA10Kr2v13eIQCbT3VMwrotf7x5t9lNtEIRt396n
+	oMiemY4KH236uSNK2hdEkYu6hpDB3nU2ImBKRbhB0gJFOebkRNKz5TJwrur6kfSittIvgv8IhX+KJ
+	6qBrOLjYe8+kh6KxO4Dy4iiGjJtOGA/nO0/c3g9xVPv57zYooe1urDdNHubYRrm+uqcjGW8axnY53
+	vvf44M3XlO0qwn5KMiBlOf/IoPWc49KMsRsAeFRxYBLskoJLQ6eNyUk6aKtCyfm+aw/ELZtQGEJL7
+	gH4uADLzqj8WOiuFZByw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmlc-0000000CjaQ-1NHW;
-	Mon, 20 Oct 2025 10:05:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vAmlh-0000000CjgK-37YU;
+	Mon, 20 Oct 2025 10:05:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmlY-0000000CjVZ-2eyk
+	id 1vAmlf-0000000CjdR-0RpR
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 10:05:26 +0000
+	Mon, 20 Oct 2025 10:05:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3C16540148;
-	Mon, 20 Oct 2025 10:05:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5735C4CEF9;
-	Mon, 20 Oct 2025 10:05:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A10D940148;
+	Mon, 20 Oct 2025 10:05:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5F3BC4CEF9;
+	Mon, 20 Oct 2025 10:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760954724;
-	bh=LEJa4nVNw8tfsdDCMXntw7FGau+RHUPD4op9UMRn+z0=;
+	s=k20201202; t=1760954730;
+	bh=8tGrFsR0anpE4IvRHZT6yPflfZKkSecpoAYpwRf29Lw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=W6syjB+FtK58rE3gEot5TWnxDuMpO2oulrhpGYHskT6blC6WcpHWBVtxS6HGFGIs9
-	 XCdvbA0o10C9JejVwPGOxThdPKO5A2DVw49/4kJOUbJre05DP8LX2FG3m3y0TOt7Em
-	 dPIxH+OHQ09P6ZV69x3jZSAEj3HMwJk44u62BMP0o2AFC38i1iVzUw+Bb3LTrtqV5U
-	 GLX6klcHYjh7PSvmLrSFlbeKywFYLDBmZKZyiIrebl+0H2RA7d7aiziXguNjFNTmZs
-	 R2l7Z8ix8Dwgl98obnjGXwfRUE+4lgSA3+GLRSdO0Y7MwGJazLULY3+PXWg6CLWLmp
-	 rzIJvqkDqNziA==
-Message-ID: <c6d9434f-5c7b-4b65-acc4-fb07af9dd89d@kernel.org>
-Date: Mon, 20 Oct 2025 12:05:18 +0200
+	b=Qfms3DWNOkcbID/0HWG+ijKXAS7PW6X8MaxeWYaPPVJzH28rFjKRaIZABfiH9zqoW
+	 wa14Mb4RDqtOSI+xXSvTrxrNAXVpi2xP1fkSqnfYU0XC7Avj3ugj1CTNCz6EWol/1H
+	 J9TlLlyMKvQXzk6x8YMeCAJ57EITUwMEW2nBQ3CNJe1XF/VVVpsvW2Y9XXemZl/wHx
+	 08aSRU/x5LMcpKk7V2XyUa86xLupYIKvs46OwSQVQ6DrfeFva1S6wxYT1fQO+Jlj/0
+	 wYuyiQOIM/ljpZKJ/OM5I1wvwspk4HOuoRbzCjRQNBLyUEyCtEXY/qgzI+gxPWI0SD
+	 yHMZMtD4BgXDA==
+Message-ID: <f1e4907b-b75f-4f1d-81dc-19a3b5189673@kernel.org>
+Date: Mon, 20 Oct 2025 12:05:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: soc: sophgo: add TOP syscon for
- CV18XX/SG200X series SoC
+Subject: Re: [PATCH v2 2/3] riscv: dts: sophgo: Add syscon node for cv18xx
 To: Longbin Li <looong.bin@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
@@ -60,7 +59,7 @@ To: Longbin Li <looong.bin@gmail.com>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20251020083838.67522-1-looong.bin@gmail.com>
- <20251020083838.67522-2-looong.bin@gmail.com>
+ <20251020083838.67522-3-looong.bin@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,10 +105,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251020083838.67522-2-looong.bin@gmail.com>
+In-Reply-To: <20251020083838.67522-3-looong.bin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_030524_719924_37CE9490 
-X-CRM114-Status: UNSURE (   5.85  )
+X-CRM114-CacheID: sfid-20251020_030531_202329_F7893388 
+X-CRM114-Status: UNSURE (   4.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,9 +127,7 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 20/10/2025 10:38, Longbin Li wrote:
-> The Sophgo CV1800/SG2000 SoC top misc system controller provides register
-> access to configure related modules. It includes a usb2 phy and a dma
-> multiplexer.
+> Add top syscon node and all subdevice nodes for cv18xx series SoC.
 > 
 > Co-authored-by: Inochi Amaoto <inochiama@gmail.com>
 
