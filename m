@@ -4,39 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578DBCCD184
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 02:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590C1CCD184
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 02:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iGQvsk/RUGry3UxGcokGiG3OPdjdBKvHtR6HTB7NjY4=; b=fMqB06F0x/mg83
-	8kXiYRNb3iDd7nxNAAPC8B7JuqgWQYvPo2QT1c1VEwZYWGrucoyomFOXJbd7mLmISeDsK+XMChxtd
-	p/riaKHm5rSDWKQ+GuL2VD8BHBlwBGo92eBCAGPmNlhnXBAMJUO56O12eTq8QBEeaOPDF4iL7ElPF
-	CcZpKScl2I8FY/WjtN3YKC/2qBCXaY1bjbDT4i1kLBtOdu9bsDkmPHQxl5SgpaafsgcDWXqpXNeRs
-	SVYc0ncF3DVbQxoq+fCt9FDzKH420ij1g+FWKtGDZ2Mhimj9lYl3HVJKVMseHc9Ly3qWK6GRQoS7f
-	ISwDUU/uIbwnc6LnD6cQ==;
+	List-Owner; bh=en1UUv1Dj66AUxySs3gZuxOi1yi+YyrRBiDsYdEE3sU=; b=b4Tv8jP+8+KPoT
+	GxrS0+6pf9ejgcWgRC4TrOGdeofYsSCYWweA4VwEaGm/uh9nfjWSZiCoL0ojpXf352ev6xeaUTbMx
+	iq3wUm7fm3BJXSdi8ZMw163tEzjtRViSojnMQiXCT79KrNqeJHd9WKF6v4xfYSlNtflV1z1xLI+xt
+	QPFRo1+LJjTjZ8D6co5aegrqXb+Tqb04KOs5CPvYFMijRauzXUFiqS3VBlXav17Mgrq0p3U+GcKj+
+	K7cbmjceCwnwM0ZmKTXeP8f8gBV3o5v1a7QCxSWLzdxoZxzMxcr0Pq/pH8BczZVhsW805vvFzQkR+
+	4XWnMis1sMaWwR+Gfehw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAfU9-0000000BhB6-2VVk;
-	Mon, 20 Oct 2025 02:18:57 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1vAfXC-0000000BhSY-0rEM;
+	Mon, 20 Oct 2025 02:22:06 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAfU5-0000000BhAh-1FAj
+	id 1vAfX9-0000000BhQw-1PCl
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 02:18:56 +0000
-Received: from localhost (unknown [116.232.147.23])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id DFB15341ED2;
-	Mon, 20 Oct 2025 02:18:50 +0000 (UTC)
-Date: Mon, 20 Oct 2025 10:18:46 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+	Mon, 20 Oct 2025 02:22:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1760926855;
+	bh=bsEnjHoM06iVNxKJujvN5KqKt3gikmfLFHIz5VO2vUY=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=q9vXr2nZzwyf1HaUynq2ukl7+FQF4ejUeQm/Ikn7LPDaYw1hxLTEx2YYRTzH71oNo
+	 wXfAmaWUOGk6A/FdfymCczElyreI7lGvdPB62BWrm1idhN7j+b//OGgoeCB6kHGFT9
+	 LKAKP68ybQMKtuZj1kmF3h/VE9AtxlWLOd/wvawQ=
+X-QQ-mid: zesmtpsz4t1760926846tf33a5c17
+X-QQ-Originating-IP: 34Afq1jEbXgyQF21XpjRvyPm0b5xHTb1ciTJuNmoGVM=
+Received: from = ( [14.123.254.135])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 20 Oct 2025 10:20:45 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11458405615915761153
+EX-QQ-RecipientCnt: 14
+Date: Mon, 20 Oct 2025 10:20:44 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Yixun Lan <dlan@gentoo.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -47,17 +57,39 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v3 2/2] riscv: dts: spacemit: add MusePi Pro board device
  tree
-Message-ID: <20251020021846-GYG1506524@gentoo.org>
+Message-ID: <28DCD6FACACACFCE+aPWcfFSvEsFfw4AD@kernel.org>
 References: <20251017-k1-musepi-pro-dts-v3-0-40b05491699f@linux.spacemit.com>
  <20251017-k1-musepi-pro-dts-v3-2-40b05491699f@linux.spacemit.com>
  <20251020015204-GYF1506524@gentoo.org>
  <52A7E982E5B11F53+aPWYHMbImTxJy7pJ@kernel.org>
+ <20251020021846-GYG1506524@gentoo.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <52A7E982E5B11F53+aPWYHMbImTxJy7pJ@kernel.org>
+In-Reply-To: <20251020021846-GYG1506524@gentoo.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OQhZ3T0tjf0aflwSfNotEEsE5cmD2yfFFm5SnUpoY11nFjNaIhRuFsoY
+	zLszG50LpQVw5oNu/r/3opa6eVYYx0V1zGFn96opRDgM5FfEsDWgxFEPZWXCk3+/8mhZu5P
+	RCaaJRZ+GEyKLkhw/TW7Wc+VjyxsKN/ONcBo3DL/RWSnFQd/UmejnLsoq4/q4UKNJkI80Xj
+	hCyG8rpi3Y13btPU870Z58Q59xOnGf6A2TVfLbKMJvpx/BKXmLhCoySKSU/nhNW6tUyNYZe
+	PyEkKveuudMLZ0bSOTExW1llvLMLYa+Ao/Qs8rI5FfaPFSSyyWbW6Nkb6XelNVBZ6+kPvKd
+	f3+oiIQT9j2BCO+zCPOGeVL12oPovyxHU/9YcDJf1gqMfG6yadugZxdPHW1zUESRvo08f/X
+	lm87ooGlFKtBNp8pvFg0Gooootkg7L4fe79sQ9Kboei8c8Rk5+9Xxe7Se2jPDiJRb8P8I4t
+	hw+vbMYrFO+LDToXK+h2HqO5ZF3pqTIkHk9TXvsAN6ZD6NdbFKhy7L6LC0nfZn137MyP4d1
+	xN/5LUh3/2o60kVaUMWLXxLk0kcVcqkRBqy9NorWEbzEIkRLizB9b6Zr3eSABgbKwNRPbOr
+	RslENobjimSWo3gYYwcSLEBjb++0BzArwyevbHE4G6dCaQyl2wEovPawgbN8ROHXWwozqqo
+	JOFSPdg4ANCzYHN6W0xQszuZEmJCQpdXXdTwYwWwJMrrwHjhxYE/uJzIxFeerzdc5Tu9X/G
+	3Uqw5bfplLA+eqzOiUHNEGVUH8WUXTPQsuzVZ7TjEb9vxDcxHMd3dRLAQC0X2pVQUgjPrpn
+	Q28vbGEoS7Qsm+RNApbhOF5DJuQyhKqMWbASH6rYO6WANkv2ay6b5nWXzoyNyZE7+7QWIG/
+	HC00eFzaMdf6+r4jtUG+FAVycdlzMZR7tXna1vGncnblW1rW8GvMvJIn+ez7R6d/04P8+qj
+	+YDlPq1LSvLX8xULLu33+vglOa5PErphcCu+C5gAadzpwRQE190EIa3kbo8qvr79QY58+ui
+	yPE8ulLwjRn4jtj7hTx2VzlihpWVa5xFGpdmPi40mHHVrTIRQ2n6tAVUJTrR/XusByjtkuc
+	KiCgeCcPLORZof4d66Zi64l1O3OzKCsOw==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_191855_334747_DAACC7DD 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20251019_192203_934726_A49A1005 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,19 +106,22 @@ Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVHJveSwKT24gMTA6MDIgTW9uIDIwIE9jdCAgICAgLCBUcm95IE1pdGNoZWxsIHdyb3RlOgo+
-ID4gPiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLW11c2VwaS1wcm8uZHRz
-Cj4gPiA+IEBAIC0wLDAgKzEsNzggQEAKPiA+ID4gKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVy
-OiAoR1BMLTIuMCBPUiBNSVQpCj4gPiA+ICsvKgo+ID4gPiArICogQ29weXJpZ2h0IChDKSAyMDI0
-IFlhbmd5dSBDaGVuIDxjeXlAY3l5c2VsZi5uYW1lPgo+ID4gLi4KPiA+ID4gKyAqIENvcHlyaWdo
-dCAoQykgMjAyNSBUcm95IE1pdGNoZWxsIDx0cm95Lm1pdGNoZWxsQGxpbnV4LnNwYWNlbWl0LmNv
-bT4KPiA+IHRoaXMgaXNuJ3QgYSBiaWcgcHJvYmxlbSwgYnV0IEkgdGhpbmsgaXQgd291bGQgYmUg
-YmV0dGVyIHRvIHVzZSBTcGFjZW1pVAo+ID4gQ29ycCdzIENvcHlyaWdodCwgdG8gcmVmbGVjdCB5
-b3UncmUgbm90IGRvaW5nIGFzIGluZGl2aWR1YWwgY29udHJpYnV0b3IuLgo+IEkgdW5kZXJzdGFu
-ZC4gU2luY2UgSSBvcmlnaW5hbGx5IHdyb3RlIGFuZCBub3cgbWFpbnRhaW4gdGhpcyBEVFMsCi4u
-Cj4gd291bGQgaXQgc3RpbGwgYmUgYWNjZXB0YWJsZSB0byBpbmNsdWRlIG15IG93biBjb3B5cmln
-aHQgbGluZSBhbG9uZyB3aXRoIFNwYWNlbWlU4oCZcz8KSSB0aGluayB0aGlzIGlzIGdvb2QKCi0t
-IApZaXh1biBMYW4gKGRsYW4pCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+T24gTW9uLCBPY3QgMjAsIDIwMjUgYXQgMTA6MTg6NDZBTSArMDgwMCwgWWl4dW4gTGFuIHdyb3Rl
+Ogo+IEhpIFRyb3ksCj4gT24gMTA6MDIgTW9uIDIwIE9jdCAgICAgLCBUcm95IE1pdGNoZWxsIHdy
+b3RlOgo+ID4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtbXVzZXBp
+LXByby5kdHMKPiA+ID4gPiBAQCAtMCwwICsxLDc4IEBACj4gPiA+ID4gKy8vIFNQRFgtTGljZW5z
+ZS1JZGVudGlmaWVyOiAoR1BMLTIuMCBPUiBNSVQpCj4gPiA+ID4gKy8qCj4gPiA+ID4gKyAqIENv
+cHlyaWdodCAoQykgMjAyNCBZYW5neXUgQ2hlbiA8Y3l5QGN5eXNlbGYubmFtZT4KPiA+ID4gLi4K
+PiA+ID4gPiArICogQ29weXJpZ2h0IChDKSAyMDI1IFRyb3kgTWl0Y2hlbGwgPHRyb3kubWl0Y2hl
+bGxAbGludXguc3BhY2VtaXQuY29tPgo+ID4gPiB0aGlzIGlzbid0IGEgYmlnIHByb2JsZW0sIGJ1
+dCBJIHRoaW5rIGl0IHdvdWxkIGJlIGJldHRlciB0byB1c2UgU3BhY2VtaVQKPiA+ID4gQ29ycCdz
+IENvcHlyaWdodCwgdG8gcmVmbGVjdCB5b3UncmUgbm90IGRvaW5nIGFzIGluZGl2aWR1YWwgY29u
+dHJpYnV0b3IuLgo+ID4gSSB1bmRlcnN0YW5kLiBTaW5jZSBJIG9yaWdpbmFsbHkgd3JvdGUgYW5k
+IG5vdyBtYWludGFpbiB0aGlzIERUUywKPiAuLgo+ID4gd291bGQgaXQgc3RpbGwgYmUgYWNjZXB0
+YWJsZSB0byBpbmNsdWRlIG15IG93biBjb3B5cmlnaHQgbGluZSBhbG9uZyB3aXRoIFNwYWNlbWlU
+4oCZcz8KPiBJIHRoaW5rIHRoaXMgaXMgZ29vZApUaGFua3MgZm9yIHlvdXIgY29uZmlybWF0aW9p
+bi4gSSB3aWxsIHVwZGF0ZSB0aGUgY29weXJpZ2h0IGxpbmUuCgogICAgICAgICAgICAgICAgICAg
+IC0gVHJveQo+IAo+IC0tIAo+IFlpeHVuIExhbiAoZGxhbikKPiAKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
