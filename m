@@ -4,65 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C73CCD199
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 18:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4A6CCD199
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 18:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdMTK07RP1tI+2eK1lTellC4SIMu5hCP+r+EpK/Zne0=; b=uZO5q6wSbGeFjpn8aXTFx3MAG5
-	ikIkiVcLY+KfwWrx0TC+hh20tgyIszGgfckbLWgd3PMJe6paeGL5Xtja3gnFnzI5yE8cBhxajAI3Z
-	FVjICDOd6YcyunK4+KyzVpXPSWNl73bzpz7wP80jOrf+6Fuek3CAR6xuaRtUfl5bIoKw59BfL2GnM
-	hlvg4GSGxqH10cimzesw0mTrVYY72E1kfbhg0o3mokUwMe4HXCgL1XvJcuddDxo8Eq2NkrWX43MJN
-	O1WmV5wo/A5zseAhl2r14qO6DrzzMnf5/mdBgXB4oV3hSazIYgAHh/kpg9EfSMI0z0tgENi05lkpK
-	HGg1vqPQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=K0XNpbG2cswhE2lGR6zQQpgy8uPMuGQIIr3UJCuBQfg=; b=jVe4G6uEu9O1ps
+	rw1v46v4eVXOrdFCFZ4+5Ma+/oOGZCCUZgdkVZsAgy8tkMjX4SuYRsMwHEOIWTOqNPbUcu+7koNpj
+	XIEqAVT5/zZrbxv5HhDYh7pcQ/5TXVeApZAfzM/HAgFPZSHIj7nX49Xqlpg3sAwIESta05KtJ/uJy
+	Tjg22oARxjedwlDghnKx9exnLj5EfRSRhZDXgw1/SYYcRQ4I66I54TbKyc1sFIDKSqZOBkgDTA834
+	cOUp8aU55nYSgvKyozxlcL0UxV18pioQeDE3PvJGMJjKxdBUHYiT/Aosy8FBKVw9sWTEBQDEzpSTE
+	QcOfFKhrY0AU+4Zp1PlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAuaY-0000000EcX9-2Osm;
-	Mon, 20 Oct 2025 18:26:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vAubC-0000000EchY-1mCR;
+	Mon, 20 Oct 2025 18:27:14 +0000
+Received: from mail-eastus2azon11011041.outbound.protection.outlook.com ([52.101.57.41] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAuaW-0000000EcWm-0mNw
-	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 18:26:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DB7BE45B4F;
-	Mon, 20 Oct 2025 18:26:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E79D7C113D0;
-	Mon, 20 Oct 2025 18:26:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760984791;
-	bh=UhEuqXmpACp9+BKJqoedP1MDXtc1UXLJvMj+JY5pTyE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TWuJm3dMrAYII/skw3p/IlUTy7oPL9I0uiKPAhPQ2VzN0siguzaAr74GidlJjPVy+
-	 Kyvu1GcQE+6dBcjjzPwT7S39Votqvpj0GgU9FmrtWZBLxvvS6KOg4JoxgsECu9bizU
-	 HatC7VsRRuoQYspXdNEPNLSQI5eSzox/LRoPsQmXTWxkvbDJ0vtea7tkt5NNfLZlxl
-	 uy1kOeee6cGXzEgBtD5CNjg1fNJ5S03kXkWO2TPbVFr//TGv0khXQFqWtu25O490PY
-	 a+sPDmO7WXmP0eOVDO3bNEBzRsXyvWFdoiV6LLIXxhNgZcGC5Iixpp8T7jFXLObhhh
-	 gbbbDBw82yoFA==
-Date: Mon, 20 Oct 2025 19:26:17 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: Conor Dooley <conor@kernel.org>, han.xu@nxp.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, dlan@gentoo.org,
-	guodong@riscstar.com, devicetree@vger.kernel.org,
-	linux-spi@vger.kernel.org, imx@lists.linux.dev,
-	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/8] dt-bindings: spi: fsl-qspi: support SpacemiT K1
-Message-ID: <710c36f2-3551-4738-a965-f1564416348c@sirena.org.uk>
-References: <20251020165152.666221-1-elder@riscstar.com>
- <20251020165152.666221-3-elder@riscstar.com>
- <20251020-blinked-primary-2b69cf37e9fe@spud>
- <b28d71c4-d632-4ee5-8c4b-270649fca882@riscstar.com>
+	id 1vAub7-0000000EcgK-3fnz;
+	Mon, 20 Oct 2025 18:27:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lamqZ095nZhO4Evd/JaTuzCi3U+iB7KOlK4xaoL6QRr3iTzNXtAsS3+57uHyvOPiPxNTeQJO8g0bofn3e72GzOHF5Fm9AmsNG5+bPAiDMWZagaeaqaLlMQcNCu/mK1i6XSIDU/eJgbAz0s7XnT+DKatZEkA8s+36/UkuCN5IsnHlj8rdarvSJswG/FWNqHNM/YIQS5eHUaifPYljOPEaLTp1/NshMCGuC1myVP/Kvu7W0awwBccqGkoHIuFqcCCvvQME5NMrcmbvrlyPrpDZLyOvhHgDai7glQ0gOnGHgHs3RXUf6HRRhvkA/x1AF4C2S1ahJchCkWwkhF9eFEalAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ka1ehX/ULp6R2p9om9Tx9WVmBwl3XFYMyRzTYwhGKQQ=;
+ b=k15pJK7SkJQDPS7ogKf7C0906C2LA0oQq5J69f0xcaCC7U6hxWa6d9Kd1Adsw203u03y4dipbF8wypTnClPjiKBNXLenVMxTNoSl6ZAN2yOO4ix+wMxfqO3gIqgoftQvrJQqB+sCpPvZCljTKfKv4xvkzZlqqvtYu3ooVFZJzWtdQj2oxJ08uMgFZGbU/88BcrXmp4lN+GSgjIf6X09keom51ZtjXfIiRVT3bE4Mn4MXZPTOex1hlaMNOrqcmXWyGZiBkU23VMiWuzxxUAQWO6u/SLoS69IbC9kcn5Q9dI2/F0i9bryo1G29Gm8DG0ZyPJr1+HzzvcfZAViyJ4yOOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ka1ehX/ULp6R2p9om9Tx9WVmBwl3XFYMyRzTYwhGKQQ=;
+ b=mFU42XZCxQrNBN0gHYjOW8P8rHFvGs/bLU63ngxy3S4hYfaCRQeABA6Db7JX9UuF4VBqsoYoWoZ9D8kpfjGLenixmiXiLwUAmqwBeLofl7LiFCipi7D2FbbBSr4tlOekEDmNN4ouQSOnuzqDHKNtCpGDhqd5tx7EpiO8gj7UqY60/0Ng0XOzcjjquGxIQyEC/JkJQI7TebrUweHM/wrlTmmxLjEumjJjA2NQjcCCyFasB99YPBhLvt7tLpRrPbdXQJV8eO0s6bzNB2WaV4DPVslc/8OtH2EasuMWpvTaYmNj2bVC2Gv0u90lBF5B/ZGingqPQy4Ut85GClX//UFbjA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
+ by BN3PR12MB9572.namprd12.prod.outlook.com (2603:10b6:408:2ca::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.16; Mon, 20 Oct
+ 2025 18:27:02 +0000
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9228.015; Mon, 20 Oct 2025
+ 18:27:02 +0000
+Date: Mon, 20 Oct 2025 15:27:01 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: joro@8bytes.org, kevin.tian@intel.com, suravee.suthikulpanit@amd.com,
+	will@kernel.org, robin.murphy@arm.com, sven@kernel.org,
+	j@jannau.net, robin.clark@oss.qualcomm.com,
+	m.szyprowski@samsung.com, krzk@kernel.org, dwmw2@infradead.org,
+	baolu.lu@linux.intel.com, yong.wu@mediatek.com,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	tjeznach@rivosinc.com, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, heiko@sntech.de, schnelle@linux.ibm.com,
+	mjrosato@linux.ibm.com, orsonzhai@gmail.com,
+	baolin.wang@linux.alibaba.com, wens@csie.org,
+	jernej.skrabec@gmail.com, samuel@sholland.org,
+	thierry.reding@gmail.com, jonathanh@nvidia.com,
+	jean-philippe@linaro.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+	virtualization@lists.linux.dev, patches@lists.linux.dev
+Subject: Re: [PATCH v1 2/6] iommu/arm-smmu-v3: Set release_domain to
+ arm_smmu_blocked_domain
+Message-ID: <20251020182701.GB316284@nvidia.com>
+References: <cover.1760312540.git.nicolinc@nvidia.com>
+ <cb0cd5a2d8b68dfd77cf9b94168254f3ae62d8ac.1760312540.git.nicolinc@nvidia.com>
+Content-Disposition: inline
+In-Reply-To: <cb0cd5a2d8b68dfd77cf9b94168254f3ae62d8ac.1760312540.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0419.namprd13.prod.outlook.com
+ (2603:10b6:208:2c2::34) To MN2PR12MB3613.namprd12.prod.outlook.com
+ (2603:10b6:208:c1::17)
 MIME-Version: 1.0
-In-Reply-To: <b28d71c4-d632-4ee5-8c4b-270649fca882@riscstar.com>
-X-Cookie: I doubt, therefore I might be.
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|BN3PR12MB9572:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4dd90db2-0288-484b-8e97-08de100643ac
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DgqXNnnZmx8ZK315+bVCgNHswDJjySQP8ybiBqtEOJljaTnx/YQCK9DrN0ZJ?=
+ =?us-ascii?Q?R+69sBiXo9ti1Ler7qOabrNHQpssR/XM9oollgSUSzeZ4V5+3Gu3Zbksef2b?=
+ =?us-ascii?Q?/UTkmcU+CxaxOfC22e4dPqEtLMzunSvDO0HzhnW9ECkie5x5h9egYz6SLYif?=
+ =?us-ascii?Q?IueZruNtEH+BfvrIUEZvR8yGwbORbQKfxWNgM/fRLIGwgeMDgUTV8Oam3xmI?=
+ =?us-ascii?Q?liACSyJmJyqdNhf9hxH1pjKwpVU2Jx+7gcuPHiKoX6t1DuSoN7SWF/6egCPf?=
+ =?us-ascii?Q?jGniMCltUFTfiK5P83nvEPCGh+2q1A/NWBByx3HH4wusEBd/jZsp1V8QHPaI?=
+ =?us-ascii?Q?PsEJfMfnvIGvYAawlXv9ATX1b1f2+im3w4aBppvnKVZAoKygCFMwK5QZF6tg?=
+ =?us-ascii?Q?Ca8FPp4ltwGWgAZKtSxyzA4qihDXce5J+N0CqSnOOPwTf6VuCAWZhUoep6Tn?=
+ =?us-ascii?Q?7EAZOiv3kW8pUg/Jq/3/FUZ+DhYnSqfdQ4GUV8rWxPiU7i8zJUZqQD4Ch11Y?=
+ =?us-ascii?Q?sAQ+v94dSMxRV91VxUiOw/cZep94UnDxwWLEfk7X0GAd6cUXKqEwudSSW5iB?=
+ =?us-ascii?Q?ahfmTdWJ7+Ievh6doaDClMwmIoQ5z7XehMldQQ8U7/owAu4+TEZD9cPhkTfD?=
+ =?us-ascii?Q?WLjDuTtnT29KkfG0Ra8x3qlqdRKowZMzEA3GHpQQO5uRe6AMU6TJ7KfQ1TNg?=
+ =?us-ascii?Q?LNVeKsA4zkJkD6KeGowqWynW5GYFUpRX+jqfwXi/xVdRiQog1no/mGTYKUjD?=
+ =?us-ascii?Q?Z7r3NUBlhqlU+B5k2rSj1yDm6Qfw8T0i6Vl+1xIevBL//vL3S9dAOkK/zfS6?=
+ =?us-ascii?Q?saOghe+sn2xQ6a1eJDTUvbridMJUcdmONMjdJL/L0Rg4Ikh55/jkeUlxG9OM?=
+ =?us-ascii?Q?TxVh9ASZyXEjWKitb+JKt2ekYlPNMdRzAh+ofFBQuQh7Zy9r9Ofj/2F9SXbR?=
+ =?us-ascii?Q?bqJMQs/BQQVeETG6tkW/iOQpr1TMtSQ/09oNixRWTK8yiSHEhGp7gMM8kvbL?=
+ =?us-ascii?Q?0xF6xvy6oZaIAUyzdilLCgb8FzmutJhrCB36zKeBltREGN1puj8a+dlfweQQ?=
+ =?us-ascii?Q?t4vGBEgdZq7p4P8m5JEuChyTaEpIlBplk/vA28ekAeh12+7zL2sxn6DRky4k?=
+ =?us-ascii?Q?MUtIaKg9rpXLGjsfr8mS9KuXRGD8JQM1KVg5mB8zoOUPLxQhg1Gy/MRMPum0?=
+ =?us-ascii?Q?juC6BqJMl0RETdIpsdux8i0wXQPZoAdRNBZA4NTmzm6iE3rJt/WAqDg3nvAL?=
+ =?us-ascii?Q?uOe+jF11nlVm9x2hosjHlDcEkJhXEjbiTdh5RHH09SYV/RY2ngEZ2Vp3xp+b?=
+ =?us-ascii?Q?E57sxOYl0rfC6OR4LiEe20h2Po2mcuWIp9h6LZdddrWeRvG3DZhXumlzbiaP?=
+ =?us-ascii?Q?C21s0aNKxKTTAoeIOMOvphWvw1rzzUk6U+ih9AmEMZFYIEDr2rdWXKc4zxra?=
+ =?us-ascii?Q?tVjCmkvRusimDZ7p9TiP3ddwZl44547x?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PRjWaNO321moGMEqzf0V9g621SYMvyo3zkwcjwYiFfVEDT+ynsgIAxq85OoT?=
+ =?us-ascii?Q?E0pn1ACWZ+icsDDzCgatTepIc1e/XI51rIhpARZmlh0qdCCc6GIQmdcsz++U?=
+ =?us-ascii?Q?Cd3PxGf7TbzXa4+r1UouJiLnD64H+lhCAXxuSPLqSssXITYHuWKkk7rUX16R?=
+ =?us-ascii?Q?J0O4brPhsFKktbUXYphnYHyVqb4WHJKf2FS4SY24a+D+tj8K/8M4TycPuyAK?=
+ =?us-ascii?Q?CTwUaroIZAK7UHE897omM/uIQSnpaQW2TuhgVu5S96HVfVI3Hm/+L+5F3f9k?=
+ =?us-ascii?Q?JFNdgq/ixC4Gr9nPHtApRSp4KLXc85E4U8hCnMOM26azlpE0qN2yJWLxtT8D?=
+ =?us-ascii?Q?dZo0Atd/S7JaP5sDK0b3QMkgwyh+EnkiSZKkbF5pjkYEek8Um/qzY33850Oi?=
+ =?us-ascii?Q?LKdFeAbhV6rFE/5AsIDgV2YMfJGLcoKqvc+sOi6wgc2lq2Ws6JIv3De8+fW+?=
+ =?us-ascii?Q?W002zLnJ+5FPlMhxBMP641D3LZhzbbS048bFf1wPCjwoN0GtH+FW0r26kgh2?=
+ =?us-ascii?Q?+C9/UzoXQ9Nlw7V5ex+Zx1AfCkV8hoW7fNTeLkfnaZGrhAO143XDZ7JFUrcM?=
+ =?us-ascii?Q?nChaEEb+LHVR3xfHJOE9rrBIALfUK7H+tq38H9O0jrv8Sp1oRyuk8jR+Rhmx?=
+ =?us-ascii?Q?fsnDrpy6wpbm/4dgiopEbd0ppdfvVwNrRtOXMcdRWFz1V1+mIQFf44Y87WrG?=
+ =?us-ascii?Q?YKafL0SHla2d5OMTrF7RUBiZjb/1DWD4+9UPg+168kUg0nnorz9JgsvtlofM?=
+ =?us-ascii?Q?4fMzHjmhYxQnzjuFdY1UnAmtRAucLcK4O8v7Edcwhtq2CwepCjY3ZhzODrKN?=
+ =?us-ascii?Q?ZkiBicvwtsJiJctG23NgN8/KtqxRGKX4T9ExyITTo1atVQDZSbVyK55dVb29?=
+ =?us-ascii?Q?PHSqSb1MRVKpAEeCHsllgtv0I1RkvYfyuIGaYPK+lRKh/Mxrien1Ig+aRaYE?=
+ =?us-ascii?Q?IX3GfUxzlMJiDj4qLoDDI+/zrNSBe3m1tZbb4rOLP8V3+cy0ltXHwImP6VNl?=
+ =?us-ascii?Q?wbpnJxshRPCA8oKf17psBRaTVB6yLbuULzNdhyjBVnDxf3gxMJOA7cH0OY8h?=
+ =?us-ascii?Q?PRmwTgLB9Pf1rCf28yk83E7QAToQxwLEQYBi9KX2OpXlCq+mmay426W9crr9?=
+ =?us-ascii?Q?VaQU+Hx0ibQ0JilfV/13Ph30WizV4nZX8W0OzKyF48n/yq7AQE8Y6e+ZxMaf?=
+ =?us-ascii?Q?mXKGOlMa7caUiWy4Czii5XG1XTofxR0tgL5kd/SkuKVtsMv6RXhXyeR5MkzY?=
+ =?us-ascii?Q?Ha6JsyLMuC6+7Xi+Zi7651+RtDdddTTsZPh8ZmGWHgxBnE0xL2Kk9GPoK8YB?=
+ =?us-ascii?Q?NoEcAeo9x5VbuclA7ssxVJjWSOmMBflqXM59yVnndB0MXzSBaPFj7DxmI35W?=
+ =?us-ascii?Q?80e6N5vUHe9t9P1HtGKddWaVIjVt2nj2eoMiRkyc0pkCL9dNolHDumd1/LFx?=
+ =?us-ascii?Q?yUeWwO/SjPUrNiBvC4Yf4EazHWSwePbWz2aITOYIhaTYCUCKlqDPIQ8wyEwm?=
+ =?us-ascii?Q?yTclYP6FlqoVvJa0lCSLBwDmrIEWom2jsuGCrYUZwBUvBnxklGawXd4AmM1A?=
+ =?us-ascii?Q?IFOZXe3qmsyLMkMjg+KV2TLPB3NlpQLMqZq7X2l/?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4dd90db2-0288-484b-8e97-08de100643ac
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2025 18:27:02.6184
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2t4yV6wLKfObk3l4ZbJ/COpqZ9q0eCJVwuRhGmAihL635kezxO/HFjSXAG7vf9WT
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN3PR12MB9572
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_112632_242940_22DEE7F9 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20251020_112709_912035_468B49F4 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,66 +172,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4426006858971298397=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sun, Oct 12, 2025 at 04:57:38PM -0700, Nicolin Chen wrote:
+> Since the core now takes care of the require_direct case for the release
+> domain, simply use that via the release_domain op.
+> 
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 7 +------
+>  1 file changed, 1 insertion(+), 6 deletions(-)
 
---===============4426006858971298397==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1I0XRDn4R0XgPcRQ"
-Content-Disposition: inline
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-
---1I0XRDn4R0XgPcRQ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Mon, Oct 20, 2025 at 01:06:46PM -0500, Alex Elder wrote:
-> On 10/20/25 12:39 PM, Conor Dooley wrote:
-
-> > > +          - spacemit,k1-qspi
-
-> > Are the newly added resets mandatory for the spacemit platform?
-
-> This is interesting.  I never even tried it without specifying them.
-
-> I just tried it, and at least on my system QSPI functioned without
-> defining these resets.  I will ask SpacemiT about this.  If they are
-> not needed I will omit the first patch (which added optional resets),
-> and won't use them.
-
-It might be safer to describe them, otherwise things are vulnerable to
-issues like the bootloader not leaving things in a predictable state.
-
---1I0XRDn4R0XgPcRQ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmj2fsgACgkQJNaLcl1U
-h9CK3wf9GM9lu076QzbbHfDafjhtsrnlltUssWfJoUgfejWm+v92kvQuJeSJHBDk
-/JMRLFe5T3zA0orRcegrs3BleAWhIhn9HqanLLCg9l/4nVqimJD/UbDj8zyKrPxD
-9uHpITAxRzkVNEO7LevpxKk0uXnBNweZ2uTjl+ZFJbR6ECOu1b6/4xifiJPX2MM6
-QO4iDWxZKpfPO4YixpI8kbR3f0+Lf9MtkXciYEyT1gY41jUPzQWyprpp46RISYl1
-UN0q3/gbogtU5ks2C9siT9SNZxTD/WQCMl9+nm6MkE579TyhPYAz9822qo8/cys1
-H3EixL1NAJ5gK51lVXMyOwLDwPzbWA==
-=j9iT
------END PGP SIGNATURE-----
-
---1I0XRDn4R0XgPcRQ--
-
-
---===============4426006858971298397==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Jason
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4426006858971298397==--
-
