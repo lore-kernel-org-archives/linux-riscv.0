@@ -4,104 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270CCCCD193
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 09:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A3FCCD193
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 10:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kn4YuRL5RHW0jyVyei455U/WjH/Ye+z+UfePRdBLaFQ=; b=hVbuXKjM9r2jsS
-	BnLj6qtWaHcywBnk9sn/bxQ7ugKtpqI/uGf65gPmzHSGI516r31QBTy2COy369Lj6nYHjes7P8sLU
-	HTODN94N7OxnYiEkm59RxUqJTF1yTGNI/mnP8qWJBePwNxaM8cwSlFbbgJbie0EaWWs9rYOz+J7iL
-	R9WcIDFS/T9tfD43YXmFw1Z1A2dp5rtCSw2vgZCo+8uIyNOFHCRaNVB2ZIk0oP3aEV1eESiCmDyOk
-	M5Rcpx+txajCfMkztypcHpfF0DdBVpNzksoriwf9wp0S//JTTwidr0dI716X4i5VO9tVzW4siSRf8
-	/VBJPzkxGOW+D45h20jA==;
+	List-Owner; bh=6DKawl85y8e5yMRHTWaDVRREZ561gtK3TXYocRay5o0=; b=T4YHh6Hi1brHWz
+	Xwgh4IiGplrPY1YrwC90VRvlPYx659Tnu41qdZwUOvieuTpRVokPLzj/4Hl/3FviRgmv8/LMsE80J
+	29+oE4iQ2DTCcY+1FDnCstrLFOlTG+u0U9eRDvLK4Ta2PkHtx6Lfd/N4V5O8lFx5muzaieP5HTBnx
+	fYsyKKOfUS6ALHXaIKkZgYsg3FXdcVBFb4fE8FthcJ+XREAyJwgz3U2w8sknjyeLQOuYn3SCX+hFK
+	pGHzwDpdZrKb8aPzeQ5RFQ/AeK8UmzXsS6RkPmHAMC3kIz7IrJejUvAL7zFRZfOBid1BbSVhDq9jd
+	wWjjnN+3SYbu77qKuHUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmbp-0000000CfjC-1WbA;
-	Mon, 20 Oct 2025 09:55:21 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1vAmke-0000000CiXX-3fnx;
+	Mon, 20 Oct 2025 10:04:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmbm-0000000Cfi6-1xfO
+	id 1vAmkd-0000000CiWl-23yw
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 09:55:19 +0000
-Received: from mail-vs1-f71.google.com (mail-vs1-f71.google.com [209.85.217.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 390D23F596
-	for <linux-riscv@lists.infradead.org>; Mon, 20 Oct 2025 09:55:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1760954112;
-	bh=mEBranLPBa0mzFLmxRJ9fx9ZSptWmlBhnJV3QiXyr/c=;
-	h=MIME-Version:In-Reply-To:References:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=GPnV7rh/dePfS0J50Fc0Z4tT3PWiNoALYZOmqlmwpsE7kTC7+JLZdGnlRkHZACdmK
-	 gPGvl777plLiTKZleZrukEfx2LMdbjkhWsxVxqXvgmgOJLA3THwM8wt7e5u7yMrFdg
-	 AiDa1JS6RCymOFQSdhXtCqgM5Atula4LZDEhnZT9gFG6xyxusaO8Pr+Xv1tSxGdKDa
-	 rvBYqBIdRRt0sX/U8MvQxARw5oXcUTTAFVji3y9Rbrsp7kFnlXIMUjPkKGnX9lhWMQ
-	 ITV+R6TgoCnAQft3waRpfeCOZPZybMU000c73ebmCb+qlLf6g1DZ/HMQ530V6IGydD
-	 lfC6qmiT6ICf4JWduJ579SqqbN7wJ2MpOgG1uwLzEzjsz3AOc2vgLkAmeh/TZRmQgS
-	 +4CIe/U1WXsNKSapdVn7bzf87OR+5U4WJzPLHpNey0Ru2X/J+6a2vbtbbBYkVzmFW5
-	 bzujJYBx5FiuUlXhCJjioHPOv94xjjpeT7lH/6+OxC5tGWl9by8lCS58CfTpIIRcjH
-	 Ktn2RvRzUcuCB8wH82WeINzACHjb5jp7iNtv4sHUrO2sqan1N/bMeluOBhFGhlzexL
-	 +dshKWXCQ6emtdot8ttdXM+4jfMIml2qcvsP/gAWxmWDWulQCgN5XUjPOAGLcgg58R
-	 urERqNaGd+IPIODJsSHkIGMs=
-Received: by mail-vs1-f71.google.com with SMTP id ada2fe7eead31-5a176319aafso8111938137.1
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Oct 2025 02:55:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760954110; x=1761558910;
-        h=cc:to:subject:message-id:date:user-agent:from:references
-         :in-reply-to:mime-version:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mEBranLPBa0mzFLmxRJ9fx9ZSptWmlBhnJV3QiXyr/c=;
-        b=okUzG2fGTFiBtPkd1ja7hLb+ZROO3FzEW6H6DLedVLQccmIKgCnfrZdN/ZCMsimilE
-         S7c2C0ug2TvwP2a6Q0ZL1vJaUx8paCsRbY1MgB5hgaiXJjNwKoXZNaPUJcNtzeOp/ADT
-         G9AzMp/oc26vLWQVDRi3YRFkZTyePgVyf+IF7K/XZ/ndesnM6tuuR7a2OIeFqbuq9IGz
-         ZF+ynDydK8qcRXXGEUHks6ljlOH+XPXrEODUMBheSKKu7o79a82Nn/DG2ex1sVr8uzsp
-         +jdKtopBNIyzMe/EJpjDmc9rrhI/4KXGE8FNWlUw/3A/8GqW74xNEtdrJBqZugIJCsXN
-         Pnsg==
-X-Forwarded-Encrypted: i=1; AJvYcCUhDvUFSDRYX5MgVp6ZuEZB2Ity9/3GHyz9oHNaeutxv71bSi7Ja+DF6mvWdDzhKkNxct8aXjZGMAKXrw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCx/OGMXmIp7RtoJPMkfkIr5VRRzrlp6zS4u0Jn87TkUL09wvC
-	5OYX2iQo1CJVqxDNPbEd5eyaMnF8xHTzzxkihfSPRTzAL0Of+qJyAsoF96jwvD8BAJDOlMDN4xv
-	4nR9534hq6jY3s1FkEML3LNjyDFz0R5YzCdn3WqIinxj7UILsus/aWGASaRZUEfI0M9Uzz7N3El
-	sbh/JxFLYYloeiQUy2K95oZ4RJ8F33yfcYSQTnJ63b1bpi65u9wkNMJKquyzER
-X-Gm-Gg: ASbGncs2z5Y0Y0k0vUYtzXi44d0/HLMlQu6/ZxdnLlqrMJBCxfUHx1j/4Lpw2iUcnK7
-	IwoSApM+8lfHNxyZ12NkQ8yIBLrM6iAhl99sLpSAxPq7lKaj+vdXrGsp7VIbOEZnCaCbym4HKcW
-	XDcXr+DMIW106mqjPabPzxh2eOE9sJTwydKvrYGl0HRfgSYduo4A8ONg3xNtiNhZaPLBC+hDBRQ
-	gE2JFBEsSlD0sGT
-X-Received: by 2002:a05:6102:2c8a:b0:5ca:714b:2dcd with SMTP id ada2fe7eead31-5d7ce77b197mr5090708137.10.1760954110387;
-        Mon, 20 Oct 2025 02:55:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE8U9dwM6qULSdCBv1qTum4Bp6zRtcLVxnBY4adzvxZNg4OxsHj3q1MDPNwZUFy1CWdBXERfTMV4CjpVWjcmns=
-X-Received: by 2002:a05:6102:2c8a:b0:5ca:714b:2dcd with SMTP id
- ada2fe7eead31-5d7ce77b197mr5090696137.10.1760954110055; Mon, 20 Oct 2025
- 02:55:10 -0700 (PDT)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 20 Oct 2025 04:55:09 -0500
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 20 Oct 2025 04:55:09 -0500
+	Mon, 20 Oct 2025 10:04:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C2CE761D0C;
+	Mon, 20 Oct 2025 10:04:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5681C4CEF9;
+	Mon, 20 Oct 2025 10:04:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760954652;
+	bh=O7CSLXdkG96nqjZPq+FkyyDWvL5sJW9UxsJ3bE5vHCg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=s59ugeqc7TgNCHMzuBRi161/pOXpZrL9EhC2iGEoH5/DtfaD0SGPWHWbcY4jibWgC
+	 rWw4FE//CWAnAJPLyn9D4v6vVJoY8577pLovc8ru1avvyz8TUEvxiNt1arcu7xhMqL
+	 luReNlC0C+ZblwiGnqsjnf8SFNRGaUzu04JRjt/GDI/HOApVAo8ZvkZ+16AOoSbHDe
+	 3W7J+f99yWz3sPLR4LMJX2TO7fQq+Fodqbq9UrJhv2HWQRJRl8Ecgiwd0A/+jLvAwp
+	 4HEPwqnGOAlLqLRI47g2PNViZdx5/9bo+uzuPGtZKtwIk0no9JLOK+NH0kxNdKO8Fn
+	 iXiOKLvEDr/4w==
+Message-ID: <62bb4f8d-ffbb-4529-ab0a-70fd8c77078d@kernel.org>
+Date: Mon, 20 Oct 2025 12:04:06 +0200
 MIME-Version: 1.0
-In-Reply-To: <aPXAyeDC7YXAketm@aurel32.net>
-References: <20251019191519.3898095-1-aurelien@aurel32.net>
- <20251019191519.3898095-2-aurelien@aurel32.net> <CANBLGczi3GeaC4aWECV8NS-zqSHgRa-5onynz9fGsZeN8qgysg@mail.gmail.com>
- <aPXAyeDC7YXAketm@aurel32.net>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-User-Agent: alot/0.0.0
-Date: Mon, 20 Oct 2025 04:55:09 -0500
-X-Gm-Features: AS18NWArKI2YauisXr79VuYk9B-KtJdQQBJvjv4Xg4AX0iHaDUW4DU_PmGIO6p4
-Message-ID: <CAJM55Z_BzfRo5aKf2VrneTymSizwDQq6OfMK_LNgyoGjp43K8Q@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] driver: reset: spacemit-p1: add driver for poweroff/reboot
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>, 
-	Sebastian Reichel <sre@kernel.org>, Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
-	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-pm@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_025518_698639_FEE7E38B 
-X-CRM114-Status: GOOD (  17.55  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/3] riscv: sophgo: add top syscon device for cv18xx
+To: Longbin Li <looong.bin@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Ze Huang <huangze@whut.edu.cn>
+Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20251020083838.67522-1-looong.bin@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251020083838.67522-1-looong.bin@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,43 +121,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Aurelien Jarno (2025-10-20 06:55:37)
-> Hi Emil,
->
-> On 2025-10-19 22:53, Emil Renner Berthing wrote:
-> > On Sun, 19 Oct 2025 at 22:34, Aurelien Jarno <aurelien@aurel32.net> wrote:
-> > > diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-> > > index 8248895ca9038..063202923d95d 100644
-> > > --- a/drivers/power/reset/Kconfig
-> > > +++ b/drivers/power/reset/Kconfig
-> > > @@ -283,6 +283,15 @@ config POWER_RESET_KEYSTONE
-> > >         help
-> > >           Reboot support for the KEYSTONE SoCs.
-> > >
-> > > +config POWER_RESET_SPACEMIT_P1
-> > > +       bool "SpacemiT P1 poweroff and reset driver"
-> >
-> > The driver code looks to be written to work as a module, but here it
-> > says "bool" not "tristate".
->
-> I have just tested to build it as a module, and it indeed works that
-> way. I'll change that to tristate in the next version.
->
-> > > +       depends on ARCH_SPACEMIT || COMPILE_TEST
-> > > +       select MFD_SPACEMIT_P1
-> > > +       default ARCH_SPACEMIT
-> >
-> > If it does work as a module I'd prefer "default m" here.
->
-> Do you mean "default m" or "default m if ARCH_SPACEMIT"?
+On 20/10/2025 10:38, Longbin Li wrote:
+> Add top syscon device bindings related DTS change for CV1800.
+> 
+> ---
+> 
+> Changes in v2:
+> 
+>   - Add ranges property.
+>   - Use proper regex in patternProperties.
+>   - Add complete example including child nodes.
+> 
+> Changes in v1:
+> 
+>   - https://lore.kernel.org/all/20251012022555.6240-1-looong.bin@gmail.com/
+> 
+> Changed by RFC:
+> 
+>   - https://lore.kernel.org/all/20250611082452.1218817-1-inochiama@gmail.com/
 
-Just "default m" should be fine since the driver already depends on
-ARCH_SPACEMIT, but the 2nd version is more explicit.
 
-A quick grep doesn't show an overwhelming majority of one over the other, so I
-guess it's up to the maintainers.
+So this is v3, not v2. We do not count from 0, -1 or -2 (of you have
+three RFCs). Please start using b4, so you will get it right. Otherwise
+how can we compare versions between v1 and RFC? Try yourself with `b4 diff`.
 
-/Emil
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
