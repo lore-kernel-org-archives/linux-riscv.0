@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1F2CCD193
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 17:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5466CCD199
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 17:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qA9qRqK3Ik9zAtMxDvwubnCbhz1+xYaJfNaIhP2ebmE=; b=HHswfmAYt7kcufdCSmzEp97BG+
-	vxUQ3VZs0eqBnKiFT4JMdbABVcoC2AejOCRNjWyp1jlR2vLwK5QQLRJd45TInYzKMr8YJW1OE/s70
-	4dYWxigp0sC9jfCb4dRyXSJQvn+ifL/yyMCWUcEBXoB5PI3ClDLm7GeWv754Py6sMLmpsBnrJSIqu
-	2aIP2LyW0axQ5RjPuIq3+ijOppBCHs3rFQTPBId080TWsQzvQLbLITb70VD2VBRr9TXxKgYVmHNLz
-	EaIK+Luz0SrkbfdjQJb0TOzEUvHd7nWtPveTAreJ9/cX0UZi0qUeLQeiLzfo7WtVE78lPaQznYrnH
-	ISoQelsw==;
+	bh=5Muy58PbLd6ZNcBzWx4C+olVPFBUIWnP7bFeZnIHHpQ=; b=CfCDdYRyPhTWIHxnwrJyuoWkAu
+	ZzHTelG1HNcdzlqAJHYl8xZR6mHwDnNWBzdFUxd2OamSN8k+fVUJv2DmUDb4JRXVcZ9P5IsN1DLxm
+	yU3vbX2o8T1hu3Q+HWRhA7UXVGXd6iynVu2EPuVbW9sZsixqf06HzC2P10V3XZ58wE1C2Ik2qbf9p
+	5ZPYLdtf+KbdoviTPLkOyScAE+i/t37mrmmYGfVNyodnGGWF0LqASREQE5dfb2NbsIXikNdLyyMDy
+	hTvmMeu4nI9VLpHjfsGfxm2fga4FPX6XsLUGZDzIU4ymazOQpGfAtD+jdMkffh1niyJfR5M+SrivV
+	CJVJMGqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtr5-0000000EW7c-004c;
-	Mon, 20 Oct 2025 17:39:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vAtsu-0000000EWTG-3mev;
+	Mon, 20 Oct 2025 17:41:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtr1-0000000EW68-3KYL
+	id 1vAtst-0000000EWT8-1UW5
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 17:39:33 +0000
+	Mon, 20 Oct 2025 17:41:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25F4A489BB;
-	Mon, 20 Oct 2025 17:39:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60184C4CEF9;
-	Mon, 20 Oct 2025 17:39:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AFBF2600AC;
+	Mon, 20 Oct 2025 17:41:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B99DAC4CEF9;
+	Mon, 20 Oct 2025 17:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760981971;
-	bh=CrfF6HDbxJVfeklUuZ9rurUFTFP0Q4f+NGC+Mm7jVfQ=;
+	s=k20201202; t=1760982086;
+	bh=0shQKZ6LMkY7eu+foeqCzGr2kMlEmfoaK6oMFy9Q3fk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KMFgLSI1CEJqgyck8ld6dGNIEh9MmHVPLcVhTlTJaO8N1dKogXE0y8tJlggrMaE2e
-	 Ibvzjir7DwlIJ4ACY6wMlRCPKB0cN+EI92VvA/6SVbe8wty59wquEgi2md4bCtTtYr
-	 oQs462VGImx0oeeajqhQCTAYgunYyr/fzah/wu8T3TGqwn9GNLkMtl9BaamWcwWY4M
-	 /NkD2fLKOvBswkbgCQhPzk5Rvi1uIRUCW2x/VDlPc2iy+iuGc1sYSokO7rvGyZZ3yR
-	 ZiB/sg105ruiKfWi4z6jKbBB8YNIxwAOEPjEStCGkhI8qjz5ZgZTkAaI/dyEZS8wpm
-	 Gcz55/aUitH3w==
-Date: Mon, 20 Oct 2025 18:39:26 +0100
+	b=De1mxxBddZqMNleN87F+pQxQO9G//qIlPV7tFewpeYUIjnWrJvbkgzf5+ZE6H2uPl
+	 HsKeowTy6HQIWgilMsO/ACqB+7Q7qcUi03DvuN3BKf5rHM0AE2kx0mTzqQgukoG5Df
+	 G0aCfX3EtwRjEy0ckL46C4eVjqpJ8hBU035OmuvibVjrgcTyJQWpdyNoe7RMiVGY3s
+	 QddLVA9H1YWfE9N4zNdxP/D3ai5zdXIPbHqP8dTQ3caEsDCHyeQ0uWZG8E2Hqk2hWb
+	 F68SASIw7WIPsQM/y+XvSnSZ77lu3wuwNSBx2+zAHM9WYfYkcSy/8k1lzb8UpCN2L1
+	 DwDWjoLvxVURQ==
+Date: Mon, 20 Oct 2025 18:41:21 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Alex Elder <elder@riscstar.com>
 Cc: han.xu@nxp.com, broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
@@ -51,14 +51,11 @@ Cc: han.xu@nxp.com, broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
 	imx@lists.linux.dev, spacemit@lists.linux.dev,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH 2/8] dt-bindings: spi: fsl-qspi: support SpacemiT K1
-Message-ID: <20251020-blinked-primary-2b69cf37e9fe@spud>
+Message-ID: <20251020-utility-remedial-4b4dfc716409@spud>
 References: <20251020165152.666221-1-elder@riscstar.com>
  <20251020165152.666221-3-elder@riscstar.com>
 MIME-Version: 1.0
 In-Reply-To: <20251020165152.666221-3-elder@riscstar.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_103931_849868_FFBBFA13 
-X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,24 +67,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0361572352292379682=="
+Content-Type: multipart/mixed; boundary="===============8930846785890484759=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0361572352292379682==
+--===============8930846785890484759==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="h9bnZ0Qvvq6hacya"
+	protocol="application/pgp-signature"; boundary="EtcE87axyRT4niT6"
 Content-Disposition: inline
 
 
---h9bnZ0Qvvq6hacya
+--EtcE87axyRT4niT6
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
 On Mon, Oct 20, 2025 at 11:51:45AM -0500, Alex Elder wrote:
 > Add the SpacemiT K1 SoC QSPI IP to the list of supported hardware.
+
+Also, you should really explain why this spacemit device is the first
+one to be in what's been an fsl-specific binding for now in the commit
+message.
+pw-bot: changes-requested
+
 >=20
 > Signed-off-by: Alex Elder <elder@riscstar.com>
 > ---
@@ -104,9 +107,6 @@ b/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
 >            - fsl,ls1021a-qspi
 >            - fsl,ls2080a-qspi
 > +          - spacemit,k1-qspi
-
-Are the newly added resets mandatory for the spacemit platform?
-
 >        - items:
 >            - enum:
 >                - fsl,ls1043a-qspi
@@ -114,21 +114,21 @@ Are the newly added resets mandatory for the spacemit platform?
 > 2.48.1
 >=20
 
---h9bnZ0Qvvq6hacya
+--EtcE87axyRT4niT6
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPZzzgAKCRB4tDGHoIJi
-0kswAP9b+/liNkMQCp6Ke+y5UQUGUAbD7vBZB+rfyvxgqBNLcwD/Tv29tJBXshLX
-kh3QQ3TDjVtGX4xd3SvbxGWnXDGO3Qk=
-=idEQ
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPZ0QQAKCRB4tDGHoIJi
+0jw3AP9fIzYzUtEKSJLqkolLXPEWaL3paAWpO+XlKFabuMCkVQEAj6t4t3UyUduk
+YQnlq9gBr5tZn+FNWIUYFR5JDC/WXww=
+=0LUZ
 -----END PGP SIGNATURE-----
 
---h9bnZ0Qvvq6hacya--
+--EtcE87axyRT4niT6--
 
 
---===============0361572352292379682==
+--===============8930846785890484759==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -139,5 +139,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0361572352292379682==--
+--===============8930846785890484759==--
 
