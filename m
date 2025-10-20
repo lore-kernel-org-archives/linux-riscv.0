@@ -4,92 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64342CCD199
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 18:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A09B8CCD199
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 18:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8Um83afHTG4r05HAt6JyyHmWqSQm0NsjWtgNCf3cORg=; b=w2s6fE8ZRFXmcA
-	g01Bn2hPfsrPFzXlLWLLDxCdnvxazlGP/9s/GJBlzwAvWSx16y0jMb8bg76kc7PhRFZ6VrEKPskv6
-	W9HBxqpJ8mZlVIJA4jbvIrGsLLFTNay5UVGaAZSoNP1ONm+6T2TNweVD2/XQ0JJbn57brjp5Cu95b
-	pg0tDrKDjyLdxT7TPqrBBhCOyfUtImVKH13cPOzTjcBUzJX61MOtgqVSBjLIrfld2qxVsJQ/soLnS
-	YORqmUsk3C9KNYNgJayBYLD800YJUBYCBfi+jMVSp5eckEWTAlJPmQsV/VxkwQgwR+n4968QbUjm3
-	UVtY1Wk0EOZNO4muicrg==;
+	List-Owner; bh=pfTHZmaEERXbSvwrXIG5sX56Kxb5tKv97YZ8npcX2mQ=; b=Uwb2bHzO5JDhva
+	B/wDH0xCs7F9t5skOUdyDbn0rbqe43EXtwx7EyfRpsSOkWFljDHlvEA++IWl7zhHPttjMPki/prbC
+	UbmQL4mnXfPsrj0pMp+6nPPg7zNTWmyVXvdhN6TO9g1id46DtPb15xPa5CboO/xxLtg8RSfUc1dH8
+	XUIjzs3R4t6xeLeKqPSrVlm497QxRjFT8eIKKb2B2jBtudNjTSBSVxx4BHP7W+MSQOQCqAcp36jrS
+	RfjmbvTve+x4iRzMf/qNTRmZyCmq3ctKonH9Cr9Ed1u8t9DAx7dclcnYjZyN4I1YKWjbMzRGw4Yii
+	CKUtOnqNpYc1Uh04GnvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAuHY-0000000EaMY-40Ij;
-	Mon, 20 Oct 2025 18:06:56 +0000
-Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
+	id 1vAuS4-0000000Ebhg-0e4s;
+	Mon, 20 Oct 2025 18:17:48 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAuHU-0000000EaL1-49Wf
+	id 1vAuS1-0000000EbhK-33k5
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 18:06:54 +0000
-Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-93e8834d80aso107729939f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Oct 2025 11:06:52 -0700 (PDT)
+	Mon, 20 Oct 2025 18:17:47 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b660019ac2aso588057266b.3
+        for <linux-riscv@lists.infradead.org>; Mon, 20 Oct 2025 11:17:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1760983612; x=1761588412; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oXBtLkkB0DB8TY2tig01PgEU/TWly7nbkJIcjJq9f9I=;
-        b=CMOjITnOM8+8R2GuvcFLkEx1Pyd5hRc2JN2/tpe6K9q7OIJJlcMRkHn7sxc9ik62WA
-         S1em+HAlLjdBEhbfFOt3Yxt3DOdqeUgpny/qeqhZVLc+G0r+0KKnCVxXvThXvjFVGJfL
-         1C9jS7jR/FM7jnn0m99URYqDk9dim0KyZRGUwGSvT0SrgdGozrqDH4Pw/KRI1F239IIq
-         /4fRHnmcdSFDrBcZqdOM8bqRl9lK/nTys2c5Ve+8x5ffd6FLoJ+pqu78vcX2WEqbQYdN
-         3T8aTFXM7fklzC7MMC462ZusqtX5cYPPzl2N+PRrUCdc7a6meNRtxRoSXkrW2zAug++Y
-         QGVg==
+        d=rivosinc.com; s=google; t=1760984263; x=1761589063; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+UXXcTo7pL8FwdLQ65iPxxNc1MmWR0vs1OAODGrVg5s=;
+        b=OGQLwQDkL7lcl7ZgzJNO7KXp1flRz7hrgFOvKhiKYVtRGgYyT/KZICzho0dvdu6aV+
+         iKEiIfaitRTYG/R2Eq104/dI44CxQ7H/EVuGcYBSp6BVILXmVX9x5b9WC3cvQ2Fw12le
+         fGdWKmBtGdGQQI/LOt36Bsa1CcIJ22ZYLZa5nFckwUFW+/wo6v5PvWl9e7o9KLPFamR5
+         8ou5/o5nxSaiu2FxoIAWLnsRysMCi4PADzd8GA35W9xloYPoB3OqmMxMV/fotC+c5SUQ
+         OMsG9v4K1M83cjcRTrfHq6fF2jSFs3vQNmR2JWM+1i+cOD4AOn4NVYwLqTnEC2lJNV5t
+         1fZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760983612; x=1761588412;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oXBtLkkB0DB8TY2tig01PgEU/TWly7nbkJIcjJq9f9I=;
-        b=b1T5u1wkp31k2hS++HsUm19UWxXygU6AtxmKySzyfd7zElVXmocuCpMVNV4rAEdxgD
-         Dp6S/FWNEH/w/CEMsMEXcgDbJqcr9vMwwFyX7xHFcQz0TwvKeefuCF9ojEriv8UQl1z6
-         vu+bYIj9qYNNvBU1TqiN328QihyaOrQ/Yk9nLpekXffvevJQzlS7T5RNfNO78S7wLPuw
-         xeNmokkY/11dkwrMxs3Dl4SWpeAgAJqP7dwPa6jYWSLNe4KqIERcZwSQLrgJsuH0LPFi
-         y/HuhHAf8VgzyoO3huqBUPLbQfADoRUN/iwAjNvWird8T0ba5p0+XXS3MdjDPq1Drsvs
-         qi4g==
-X-Forwarded-Encrypted: i=1; AJvYcCWKWgd46hudFDb8Zd4bo5RajG7ZnjKpYNXhgd2m42pXvTC0gHtPJ9gmqMogRu+R3AACN8i495jSD7M2XQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzf7HwrTeTQIJ3Ovc5kN8ge7QhgpGbg2XOQ8LQfXyZuaopC5c4m
-	p6nSk/I2+GF+oLb05frnHYl84ElLpQBlkSJk9Yq7ADHzDRw81Sa+5BfD/+oCvqmlS9Q=
-X-Gm-Gg: ASbGncvV13sj7eQREtEINDywbDTtES/jJkg0UiIYbjKmH1NCbxGieDcHD2sfpTKxFez
-	RHD6sze+6mi4c9QucoipatZCCCz4V9HUfeEJfAvjOGXG+I0CY1BI+QlFZi0N5LkhIpVQ/8LwiyM
-	HNf82pqadNesoKXNNAwkncOfVzrbSygY/Ci6IjY4mbFxSPIR6+TDVj4m5ba0eMmBxWaS4OIRce9
-	fK6lZguuOZNuOy5766CBqrjYBuNasdOLOBSGTzuLXQahtajjdi1AmNeevFVX07yWQKVbSIW3OIq
-	QXCJHlr5ETdfXg4HseUNMx3M6gvDv60r9QZuU6G6AEIoknel6oYL6c/X+et3U94xE8HhuAAEctb
-	gEX9N9NHz8xbXrjTT+1bMwXwCfSWm8nuwEMZkVzRSe89o40VCj9dAvsMPT7/MROOO8X58ovzTtP
-	OicsP1WhsSw0ZJjP9JrARkL6Q7MM3VlJzGdHs7nrlA+dPSKYGyVQ==
-X-Google-Smtp-Source: AGHT+IGevb4egGjj6KWxQP35Nq0zUYSUBGNvYU6Luo+078jNAKiHY5b+2d/guD5dVmi2NJ4AhRB7Qg==
-X-Received: by 2002:a05:6e02:190c:b0:430:bf84:e941 with SMTP id e9e14a558f8ab-430c51ecf81mr209120355ab.3.1760983612156;
-        Mon, 20 Oct 2025 11:06:52 -0700 (PDT)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5a8a961e88csm3172542173.15.2025.10.20.11.06.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 11:06:51 -0700 (PDT)
-Message-ID: <08d99fcd-4d0c-4d81-a314-7e1a8bfaa64c@riscstar.com>
-Date: Mon, 20 Oct 2025 13:06:50 -0500
+        d=1e100.net; s=20230601; t=1760984263; x=1761589063;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+UXXcTo7pL8FwdLQ65iPxxNc1MmWR0vs1OAODGrVg5s=;
+        b=uzJumZDnBJOv+dDdRlhP9iXBcIfUpxP78fOlht5mk8+ZDKnZ4yrtKpP40OHev7U3nU
+         Jl7msLBNlaqRp7uiLf3nasb+bpx17cEK0WN5WMFMEazApm+xg1EXcPtWMrq2nkczzeSQ
+         bDCRXZabgw/R3ALJLWeLwsrAg1OH5ROl4UY7GI0mlLgNh4hOaG7aT8rm5/cEuYkzQJ1e
+         kV/+PfZ2R7OAAWwGHC3S79kxtHRbv+jXUCJoKSkAQCmY2pkRPtuO5p28AJqIO5fNtmHj
+         R7q1YuBKMhF4zx9jpy6rM2TLq+zoXRWw/EY6ZHcA9PcbtRc4W72bZfodmbHSn0wRu4nr
+         z4/g==
+X-Gm-Message-State: AOJu0YwwPkwt6EtVaqEXkwL4bwsx1M5p3OoQ50sGf5ihGogMmY6FxyCi
+	Ieqj8I1H+StiPeqP1t3eVw6K8ugxgHRZb0sSaUub7agD4uGDjHWKRjTkL37S86NLaVTwbk6F1em
+	i2/zLVmb5gmK4nnvG7wPbJN+WCiLNE5PPhRbcScJ8wsJ0AhaktKPI
+X-Gm-Gg: ASbGnct8QFbCsWAbYHoQXwlUZn1oP3Fyva14DfRI23wc+R5GIjhwRt5OrI1ZtBYQ2sK
+	WWLEk8kSFkKXVuIo6EoKo285DGjNso83RVrLu8aDKozMpJC2evqfpTWOcoXeUkiUo1SBkpc2oxq
+	wPAhWLOPgrGAcmHDKb/yi1T1Z5BXkpqDOpdvRoah39KvrnrxquVigCQxsIyb7nKmZqdEsh04Jg5
+	LVrOnXPSj2gqyhV3woeFYT4gJixmmOUKqB+qXWwoW93DF87khTAK8kAzhA1xbyeHVUOnw==
+X-Google-Smtp-Source: AGHT+IE2YX2MuyqDCpADnZtzGiOKWQ5b8+e2b63WAsVNIvj3nVcKo/cbPm6L3qfNz9F3rs5HfaKJIMicSN1A2TOvLhU=
+X-Received: by 2002:a17:907:2686:b0:b41:873d:e218 with SMTP id
+ a640c23a62f3a-b64730451abmr1549689766b.14.1760984263574; Mon, 20 Oct 2025
+ 11:17:43 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/8] dt-bindings: spi: fsl-qspi: support SpacemiT K1
-To: Conor Dooley <conor@kernel.org>
-Cc: han.xu@nxp.com, broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, dlan@gentoo.org, guodong@riscstar.com,
- devicetree@vger.kernel.org, linux-spi@vger.kernel.org, imx@lists.linux.dev,
- spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251020165152.666221-1-elder@riscstar.com>
- <20251020165152.666221-3-elder@riscstar.com>
- <20251020-utility-remedial-4b4dfc716409@spud>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20251020-utility-remedial-4b4dfc716409@spud>
+References: <cf5a13ec-19d0-9862-059b-943f36107bf3@kernel.org>
+In-Reply-To: <cf5a13ec-19d0-9862-059b-943f36107bf3@kernel.org>
+From: Evan Green <evan@rivosinc.com>
+Date: Mon, 20 Oct 2025 11:17:07 -0700
+X-Gm-Features: AS18NWBNpKo72nAY38NedTed4Hihs0U7r6IFP45uNtYvMxh_aFQJiZ7l3bXQnLw
+Message-ID: <CALs-HsutifN4N9sOoc3=pepJjMpH+YmRMXySamhESUVvzO8ThQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: hwprobe: avoid uninitialized variable use in hwprobe_arch_id()
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_110653_056488_E44C36AD 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20251020_111745_938538_43289410 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,52 +88,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/20/25 12:41 PM, Conor Dooley wrote:
-> On Mon, Oct 20, 2025 at 11:51:45AM -0500, Alex Elder wrote:
->> Add the SpacemiT K1 SoC QSPI IP to the list of supported hardware.
-> 
-> Also, you should really explain why this spacemit device is the first
-> one to be in what's been an fsl-specific binding for now in the commit
-> message.
-
-I'm not sure how much of an explanation you're looking for, but
-yes, I agree with you, it stands out that it's the first one, so
-I at least should have acknowledged that.  I'll add something
-here in the next version.
-
-					-Alex
-
-> pw-bot: changes-requested
-> 
->>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->>   Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml b/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
->> index 0315a13fe319a..5bbda4bc33350 100644
->> --- a/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
->> +++ b/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
->> @@ -22,6 +22,7 @@ properties:
->>             - fsl,imx6ul-qspi
->>             - fsl,ls1021a-qspi
->>             - fsl,ls2080a-qspi
->> +          - spacemit,k1-qspi
->>         - items:
->>             - enum:
->>                 - fsl,ls1043a-qspi
->> -- 
->> 2.48.1
->>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBPY3QgMTgsIDIwMjUgYXQgODozMuKAr0FNIFBhdWwgV2FsbXNsZXkgPHBqd0BrZXJu
+ZWwub3JnPiB3cm90ZToKPgo+IFJlc29sdmUgdGhpcyBzbWF0Y2ggd2FybmluZzoKPgo+ICAgYXJj
+aC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYzo1MCBod3Byb2JlX2FyY2hfaWQoKSBlcnJvcjog
+dW5pbml0aWFsaXplZCBzeW1ib2wgJ2NwdV9pZCcuCj4KPiBUaGlzIGNvdWxkIGhhcHBlbiBpZiBo
+d3Byb2JlX2FyY2hfaWQoKSB3YXMgY2FsbGVkIHdpdGggYSBrZXkgSUQgb2YKPiBzb21ldGhpbmcg
+b3RoZXIgdGhhbiBNVkVORE9SSUQsIE1JTVBJRCwgYW5kIE1BUkNISUQuICBUaGlzIGRvZXMgbm90
+Cj4gaGFwcGVuIGluIHRoZSBjdXJyZW50IGNvZGViYXNlLiAgVGhlIG9ubHkgY2FsbGVyIG9mIGh3
+cHJvYmVfYXJjaF9pZCgpCj4gaXMgYSBmdW5jdGlvbiB0aGF0IG9ubHkgcGFzc2VzIG9uZSBvZiB0
+aG9zZSB0aHJlZSBrZXkgSURzLgo+Cj4gRm9yIHRoZSBzYWtlIG9mIHJlZHVjaW5nIHN0YXRpYyBh
+bmFseXplciB3YXJuaW5nIG5vaXNlLCBhbmQgaW4gdGhlCj4gdW5saWtlbHkgZXZlbnQgdGhhdCBo
+d3Byb2JlX2FyY2hfaWQoKSBpcyBzb21lZGF5IGNhbGxlZCB3aXRoIHNvbWUKPiBvdGhlciBrZXkg
+SUQsIHZhbGlkYXRlIGh3cHJvYmVfYXJjaF9pZCgpJ3MgaW5wdXQgdG8gZW5zdXJlIHRoYXQKPiAn
+Y3B1X2lkJyBpcyBhbHdheXMgaW5pdGlhbGl6ZWQgYmVmb3JlIHVzZS4KPgo+IEZpeGVzOiBlYTNk
+ZTljZThhYTI4MCAoIlJJU0MtVjogQWRkIGEgc3lzY2FsbCBmb3IgSFcgcHJvYmluZyIpCj4gQ2M6
+IEV2YW4gR3JlZW4gPGV2YW5Acml2b3NpbmMuY29tPgo+IFNpZ25lZC1vZmYtYnk6IFBhdWwgV2Fs
+bXNsZXkgPHBqd0BrZXJuZWwub3JnPgoKUmV2aWV3ZWQtYnk6IEV2YW4gR3JlZW4gPGV2YW5Acml2
+b3NpbmMuY29tPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
