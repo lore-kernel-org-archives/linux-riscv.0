@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A3FCCD193
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 10:04:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47C1CCD199
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 10:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6DKawl85y8e5yMRHTWaDVRREZ561gtK3TXYocRay5o0=; b=T4YHh6Hi1brHWz
-	Xwgh4IiGplrPY1YrwC90VRvlPYx659Tnu41qdZwUOvieuTpRVokPLzj/4Hl/3FviRgmv8/LMsE80J
-	29+oE4iQ2DTCcY+1FDnCstrLFOlTG+u0U9eRDvLK4Ta2PkHtx6Lfd/N4V5O8lFx5muzaieP5HTBnx
-	fYsyKKOfUS6ALHXaIKkZgYsg3FXdcVBFb4fE8FthcJ+XREAyJwgz3U2w8sknjyeLQOuYn3SCX+hFK
-	pGHzwDpdZrKb8aPzeQ5RFQ/AeK8UmzXsS6RkPmHAMC3kIz7IrJejUvAL7zFRZfOBid1BbSVhDq9jd
-	wWjjnN+3SYbu77qKuHUw==;
+	List-Owner; bh=amH8+8EqtGJKDMNmpTF/i6Fj1B61oU9jLcADyEiOqvU=; b=0RADwXc48HkZms
+	DWr5oqzqrejeZVGszb5dAvxwbc2QbJb3VKb3ws8D0xvVjoohmhTMTiZOaHQUhxeAVf2kLSFG38u9i
+	uC3oaIdIRv+Kkm+kA4mWmU1fVkwSp3UyKmkLCxgJNVvnG3KUPwUN7VqAG0nsstpfsJecWioMdNP9x
+	Fo50qNSfMyRINyporFHt+gCXDsIpgmxNnas4PVRF8xHBDZJUPAa9Fn2Vjjd9xqdjukvxHOU3SfkN0
+	DL8+BxhKWZZVgWXQfbchaEk8H+48QX+50K76qwjZ9sUpohTS8eTi74e49MLsMH3scV4D4qaPil/RA
+	uIbfdhpO5y6ubjwaux9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmke-0000000CiXX-3fnx;
-	Mon, 20 Oct 2025 10:04:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vAmlc-0000000CjaQ-1NHW;
+	Mon, 20 Oct 2025 10:05:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmkd-0000000CiWl-23yw
+	id 1vAmlY-0000000CjVZ-2eyk
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 10:04:27 +0000
+	Mon, 20 Oct 2025 10:05:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2CE761D0C;
-	Mon, 20 Oct 2025 10:04:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5681C4CEF9;
-	Mon, 20 Oct 2025 10:04:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C16540148;
+	Mon, 20 Oct 2025 10:05:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5735C4CEF9;
+	Mon, 20 Oct 2025 10:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760954652;
-	bh=O7CSLXdkG96nqjZPq+FkyyDWvL5sJW9UxsJ3bE5vHCg=;
+	s=k20201202; t=1760954724;
+	bh=LEJa4nVNw8tfsdDCMXntw7FGau+RHUPD4op9UMRn+z0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=s59ugeqc7TgNCHMzuBRi161/pOXpZrL9EhC2iGEoH5/DtfaD0SGPWHWbcY4jibWgC
-	 rWw4FE//CWAnAJPLyn9D4v6vVJoY8577pLovc8ru1avvyz8TUEvxiNt1arcu7xhMqL
-	 luReNlC0C+ZblwiGnqsjnf8SFNRGaUzu04JRjt/GDI/HOApVAo8ZvkZ+16AOoSbHDe
-	 3W7J+f99yWz3sPLR4LMJX2TO7fQq+Fodqbq9UrJhv2HWQRJRl8Ecgiwd0A/+jLvAwp
-	 4HEPwqnGOAlLqLRI47g2PNViZdx5/9bo+uzuPGtZKtwIk0no9JLOK+NH0kxNdKO8Fn
-	 iXiOKLvEDr/4w==
-Message-ID: <62bb4f8d-ffbb-4529-ab0a-70fd8c77078d@kernel.org>
-Date: Mon, 20 Oct 2025 12:04:06 +0200
+	b=W6syjB+FtK58rE3gEot5TWnxDuMpO2oulrhpGYHskT6blC6WcpHWBVtxS6HGFGIs9
+	 XCdvbA0o10C9JejVwPGOxThdPKO5A2DVw49/4kJOUbJre05DP8LX2FG3m3y0TOt7Em
+	 dPIxH+OHQ09P6ZV69x3jZSAEj3HMwJk44u62BMP0o2AFC38i1iVzUw+Bb3LTrtqV5U
+	 GLX6klcHYjh7PSvmLrSFlbeKywFYLDBmZKZyiIrebl+0H2RA7d7aiziXguNjFNTmZs
+	 R2l7Z8ix8Dwgl98obnjGXwfRUE+4lgSA3+GLRSdO0Y7MwGJazLULY3+PXWg6CLWLmp
+	 rzIJvqkDqNziA==
+Message-ID: <c6d9434f-5c7b-4b65-acc4-fb07af9dd89d@kernel.org>
+Date: Mon, 20 Oct 2025 12:05:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] riscv: sophgo: add top syscon device for cv18xx
+Subject: Re: [PATCH v2 1/3] dt-bindings: soc: sophgo: add TOP syscon for
+ CV18XX/SG200X series SoC
 To: Longbin Li <looong.bin@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
@@ -59,6 +60,7 @@ To: Longbin Li <looong.bin@gmail.com>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20251020083838.67522-1-looong.bin@gmail.com>
+ <20251020083838.67522-2-looong.bin@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +106,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251020083838.67522-1-looong.bin@gmail.com>
+In-Reply-To: <20251020083838.67522-2-looong.bin@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251020_030524_719924_37CE9490 
+X-CRM114-Status: UNSURE (   5.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,28 +128,15 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 20/10/2025 10:38, Longbin Li wrote:
-> Add top syscon device bindings related DTS change for CV1800.
+> The Sophgo CV1800/SG2000 SoC top misc system controller provides register
+> access to configure related modules. It includes a usb2 phy and a dma
+> multiplexer.
 > 
-> ---
-> 
-> Changes in v2:
-> 
->   - Add ranges property.
->   - Use proper regex in patternProperties.
->   - Add complete example including child nodes.
-> 
-> Changes in v1:
-> 
->   - https://lore.kernel.org/all/20251012022555.6240-1-looong.bin@gmail.com/
-> 
-> Changed by RFC:
-> 
->   - https://lore.kernel.org/all/20250611082452.1218817-1-inochiama@gmail.com/
+> Co-authored-by: Inochi Amaoto <inochiama@gmail.com>
 
+There is no such tag. Also incomplete DCO.
 
-So this is v3, not v2. We do not count from 0, -1 or -2 (of you have
-three RFCs). Please start using b4, so you will get it right. Otherwise
-how can we compare versions between v1 and RFC? Try yourself with `b4 diff`.
+Read carefully submitting patches.
 
 Best regards,
 Krzysztof
