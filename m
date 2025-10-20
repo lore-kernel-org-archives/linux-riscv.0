@@ -4,73 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5C3CCD1A5
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 09:10:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE383CCD199
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 09:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rGINwk/j2FuUpKnNI1yBzmhHzihCWFDKp50pPtqciqY=; b=0CWIDQS1jlbJVC
-	8+Oo1S7G5Xm/9eSNsfzV2FBGDieSfhtDPyGreyn6zTKF82UiMGYLXDsiUlCLoEO40Y63qcTfuotJ0
-	SV+4vDlC2/d0JGEMohgnp4I1kA/dgVykonHhfABctkwmxD3IAmqsnNLjunBOsFISuIoHjFNIuHwJS
-	m+g1H7pUP/10B16ynMai71qGEXCrSUvKcX92TXIrpNEJ//SXG8h6oHSF6QuqUyIFLJCIUdp98Paz+
-	1W41W3/4OnK97e9VazUr+FXnG7/lURLY7Cx2J3RGEahui98d801+RfYuhT0lEdT8xxahE9qnH9s97
-	6hQ9rlvX2Ra0hA68oqVg==;
+	List-Owner; bh=PfmvFs63fp0uIjNjrj6Fh20id008hzbTWmByP+V0nM0=; b=BTjslY0cquQqIZ
+	/3BYj96V3A5n9e89kFaDvW5QnRy3OVpmVZU0vZWaZpZxYzfcmy7I6a2qhvQcL0NDlC+MCDU9gg4oJ
+	VwDq0dbTEGPsuIHkAZwZJWit21LhfjhKhTYrvOIObfZi2CQOP0xCedqwJFQUPfPDP55OHw39wYqmT
+	BmTbAFFpwQAYoLRj6ybwifR1IPZW1KSEUJc5M7bt0yTRw2C4SacpL/BfBlED+f1nRfK2qRsweJTUw
+	sihuZjb0tqFwwoP6Lg5zPVEBHD55jfy6qmki7JVCIMEYBQUy2/xvgGfQLQgLUkmK7r19G2WwAgs7c
+	4N0QM3Kgs6Lrls6oHstg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAluF-0000000CWTA-1xza;
-	Mon, 20 Oct 2025 09:10:19 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vAmCP-0000000CaW2-1wau;
+	Mon, 20 Oct 2025 09:29:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAlu8-0000000CWO9-124x
+	id 1vAmCN-0000000CaVL-2kMr
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 09:10:14 +0000
-Received: from [127.0.0.2] (unknown [114.241.85.109])
-	by APP-03 (Coremail) with SMTP id rQCowAD3RoFo_PVo4mflEQ--.23190S5;
-	Mon, 20 Oct 2025 17:10:01 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Mon, 20 Oct 2025 17:09:58 +0800
-Subject: [PATCH v4 3/5] riscv: hweight: Use riscv_has_extension_likely
+	Mon, 20 Oct 2025 09:29:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E023761D15;
+	Mon, 20 Oct 2025 09:28:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23F17C4CEF9;
+	Mon, 20 Oct 2025 09:28:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760952528;
+	bh=zUL6wY6nUkFC7RGRQqooEtBqgzEkwxUZ3UEDi7LPXlk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HRhRdzVcMB61IB7i+p7RSXbRZlUCKKayYcJwSONs+XbN4XoXG/ee4IREKqIoxdShg
+	 eLEgFxXzkCoOcTA6DT+0ugxnjH45NcB+U8AP+ouCyjqJqZZD4jrTGEhnt5jyqi2OIy
+	 lKmOwMNQwNSx5o9FmVIGJZ02lJfEMBln6Mk32N+Pu6LP3LgcmI2V1Ltcb6g4Pke+8Y
+	 dd9v0HkBiblXFkoSJox3HGDrdP8I/r915gxMOmFg63dIIHmfNV0mRW0RPeQqgwEhtq
+	 iJ2Cr3nwYFY/zxgFhPYfsFFxuR9o3kgDJyf26j0jPBPSJ/28pWyN33VqkctenYdaTB
+	 +1NazHpe3VGKg==
+Date: Mon, 20 Oct 2025 11:28:45 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Yixun Lan <dlan@gentoo.org>, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v4] i2c: spacemit: configure ILCR for accurate SCL
+ frequency
+Message-ID: <t26pyjnmzj62oczwuje2bbscowj22pdge2ef3tcktwmhzpsq47@7odo2ccvc52a>
+References: <20251017-k1-i2c-ilcr-v4-1-eed4903ecdb9@linux.spacemit.com>
 MIME-Version: 1.0
-Message-Id: <20251020-riscv-altn-helper-wip-v4-3-ef941c87669a@iscas.ac.cn>
-References: <20251020-riscv-altn-helper-wip-v4-0-ef941c87669a@iscas.ac.cn>
-In-Reply-To: <20251020-riscv-altn-helper-wip-v4-0-ef941c87669a@iscas.ac.cn>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Yury Norov <yury.norov@gmail.com>, 
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, Paul Walmsley <pjw@kernel.org>
-Cc: Charlie Jenkins <charlie@rivosinc.com>, 
- Xiao Wang <xiao.w.wang@intel.com>, 
- =?utf-8?q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
- Vivian Wang <wangruikang@iscas.ac.cn>, Vivian Wang <uwu@dram.page>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-CM-TRANSID: rQCowAD3RoFo_PVo4mflEQ--.23190S5
-X-Coremail-Antispam: 1UD129KBjvJXoW7AF43ArW3Jr45KF4fJr4xJFb_yoW8tw4rpF
-	4Iy393GFWDKa18uF9Iyr1kZF4rZan3G347GrW3u3yxXFyjy3yYyrn8KFn8Cr98tFyvv3WS
-	vFW3A343u3W2vaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1l
-	e2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI
-	8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwAC
-	jcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0x
-	kIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_
-	Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1V
-	AY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAI
-	cVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
-	AIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2
-	KfnxnUUI43ZEXa7VU1sYFtUUUUU==
-X-Originating-IP: [114.241.85.109]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_021012_685424_DB4D6AED 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20251017-k1-i2c-ilcr-v4-1-eed4903ecdb9@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,77 +70,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use riscv_has_extension_likely() to check for RISCV_ISA_EXT_ZBB,
-replacing the use of asm goto with ALTERNATIVE.
+Hi Troy,
 
-The "likely" variant is used to match the behavior of the original
-implementation using ALTERNATIVE("j %l[legacy]", "nop", ...).
+On Fri, Oct 17, 2025 at 03:27:39PM +0800, Troy Mitchell wrote:
+> The SpacemiT I2C controller's SCL (Serial Clock Line) frequency for
+> master mode operations is determined by the ILCR (I2C Load Count Register).
+> Previously, the driver relied on the hardware's reset default
+> values for this register.
+> 
+> The hardware's default ILCR values (SLV=0x156, FLV=0x5d) yield SCL
+> frequencies lower than intended. For example, with the default
+> 31.5 MHz input clock, these default settings result in an SCL
+> frequency of approximately 93 kHz (standard mode) when targeting 100 kHz,
+> and approximately 338 kHz (fast mode) when targeting 400 kHz.
+> These frequencies are below the 100 kHz/400 kHz nominal speeds.
+> 
+> This patch integrates the SCL frequency management into
+> the Common Clock Framework (CCF). Specifically, the ILCR register,
+> which acts as a frequency divider for the SCL clock, is now registered
+> as a managed clock (scl_clk) within the CCF.
+> 
+> This patch also cleans up unnecessary whitespace
+> in the included header files.
+> 
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
----
- arch/riscv/include/asm/arch_hweight.h | 24 ++++++++----------------
- 1 file changed, 8 insertions(+), 16 deletions(-)
+merged to i2c/i2c-host.
 
-diff --git a/arch/riscv/include/asm/arch_hweight.h b/arch/riscv/include/asm/arch_hweight.h
-index 0e7cdbbec8ef..f3c0831beefc 100644
---- a/arch/riscv/include/asm/arch_hweight.h
-+++ b/arch/riscv/include/asm/arch_hweight.h
-@@ -19,10 +19,10 @@
- 
- static __always_inline unsigned int __arch_hweight32(unsigned int w)
- {
--#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
--	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
--				      RISCV_ISA_EXT_ZBB, 1)
--			  : : : : legacy);
-+	if (!(IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-+	      IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB) &&
-+	      riscv_has_extension_likely(RISCV_ISA_EXT_ZBB)))
-+		return __sw_hweight32(w);
- 
- 	asm (".option push\n"
- 	     ".option arch,+zbb\n"
-@@ -31,10 +31,6 @@ static __always_inline unsigned int __arch_hweight32(unsigned int w)
- 	     : "=r" (w) : "r" (w) :);
- 
- 	return w;
--
--legacy:
--#endif
--	return __sw_hweight32(w);
- }
- 
- static inline unsigned int __arch_hweight16(unsigned int w)
-@@ -50,10 +46,10 @@ static inline unsigned int __arch_hweight8(unsigned int w)
- #if BITS_PER_LONG == 64
- static __always_inline unsigned long __arch_hweight64(__u64 w)
- {
--#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
--	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
--				      RISCV_ISA_EXT_ZBB, 1)
--			  : : : : legacy);
-+	if (!(IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-+	      IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB) &&
-+	      riscv_has_extension_likely(RISCV_ISA_EXT_ZBB)))
-+		return __sw_hweight64(w);
- 
- 	asm (".option push\n"
- 	     ".option arch,+zbb\n"
-@@ -62,10 +58,6 @@ static __always_inline unsigned long __arch_hweight64(__u64 w)
- 	     : "=r" (w) : "r" (w) :);
- 
- 	return w;
--
--legacy:
--#endif
--	return __sw_hweight64(w);
- }
- #else /* BITS_PER_LONG == 64 */
- static inline unsigned long __arch_hweight64(__u64 w)
+Thanks Yixun for your reviews here.
 
--- 
-2.51.0
-
+Andi
 
 _______________________________________________
 linux-riscv mailing list
