@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32BCCCD193
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 09:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE2A9CCD193
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 09:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Htmib5ackO+cOJM//1XjzYxrT7V6vYwdwUAaXRF/m10=; b=mASlAvGT56z4W1
-	LJUFQWUB18A3/WUl04X3l81mhZ58tfOhnouf6dA91++KX4KkvEaPNRHnyJwNDJmGlzpAJpxeNO5Od
-	vCFgN0cLVLz5fz5FLotN/mOa0tKNWIKHsp5rxCosWB3AbZcwU7aoSMgNYO9RhNOC99IX217JSo7tK
-	+VOBldI5mNch70i835EKZIHWNC2+ziXG/MnVa5nf2LGRDdTr2j7Bu/qDfkNspnsfwwn7UsQIYXLYR
-	AvHayVDwDpktyDG63d5bTwWEXImkJkXyOPjL3skVhOCe07VDzKhqlWOv7NSaj0E7aPo9a1C8wwXMM
-	SzGPvWQz710EFy5lE8fg==;
+	List-Owner; bh=9258iTVo8GSpjRCH9oaF4ar7spVbeM2cBjwG+2a81O0=; b=Ay3jdcjYQRp5oo
+	FsELQzt7pzs7Q9LRo9eSwuq6HmdJ7IqlTAQYAF0mtf2gIIfFB1u9CidjAXEkr3Sd7xboFGiXWxfW9
+	Z6wvodeZglAx4tY+Q7GapHHPu7Gy1fBUatdt3rRBnqpQXUoroh+k+XWhzb5VujnYSZZcTbRd3RKG3
+	oVFjCmra+gpL2nzvPY7/3vVrX3ypz9x3QHtps9m5AhtG2n2czdEX8M+UqE/d4xLm4Revt1bGBxVyI
+	miO1oFKnT6GAQQqhG32CgS1AfqCg1+zEe5UXmcl5ccXhweunZ88gMjKGbyg+OqOhF86S5Iw5Lg8yv
+	FoU+xwsHtApmg/WkD9eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAlu9-0000000CWPm-3yhT;
-	Mon, 20 Oct 2025 09:10:13 +0000
+	id 1vAluE-0000000CWRp-2O0n;
+	Mon, 20 Oct 2025 09:10:18 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAlu6-0000000CWO3-2QMR
+	id 1vAlu6-0000000CWO1-2PRn
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 09:10:12 +0000
+	Mon, 20 Oct 2025 09:10:13 +0000
 Received: from [127.0.0.2] (unknown [114.241.85.109])
-	by APP-03 (Coremail) with SMTP id rQCowAD3RoFo_PVo4mflEQ--.23190S6;
+	by APP-03 (Coremail) with SMTP id rQCowAD3RoFo_PVo4mflEQ--.23190S7;
 	Mon, 20 Oct 2025 17:10:01 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Mon, 20 Oct 2025 17:09:59 +0800
-Subject: [PATCH v4 4/5] riscv: bitops: Use riscv_has_extension_likely
+Date: Mon, 20 Oct 2025 17:10:00 +0800
+Subject: [PATCH v4 5/5] riscv: cmpxchg: Use riscv_has_extension_likely
 MIME-Version: 1.0
-Message-Id: <20251020-riscv-altn-helper-wip-v4-4-ef941c87669a@iscas.ac.cn>
+Message-Id: <20251020-riscv-altn-helper-wip-v4-5-ef941c87669a@iscas.ac.cn>
 References: <20251020-riscv-altn-helper-wip-v4-0-ef941c87669a@iscas.ac.cn>
 In-Reply-To: <20251020-riscv-altn-helper-wip-v4-0-ef941c87669a@iscas.ac.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -47,10 +47,10 @@ Cc: Charlie Jenkins <charlie@rivosinc.com>,
  Vivian Wang <wangruikang@iscas.ac.cn>, Vivian Wang <uwu@dram.page>, 
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-CM-TRANSID: rQCowAD3RoFo_PVo4mflEQ--.23190S6
-X-Coremail-Antispam: 1UD129KBjvJXoWxGrW8Kw1rtFWrCw1DCrWDtwb_yoW5AF4xpr
-	97K347JFWDta45uFZFyryfXF4ruw47G3yfGryS9FykAFyUA39a9r90k3WFkr15AFWvga47
-	Zr4UJ3sxWa1UXw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: rQCowAD3RoFo_PVo4mflEQ--.23190S7
+X-Coremail-Antispam: 1UD129KBjvJXoWrtFyktrWfJw4fKw47GFW3Jrb_yoW8Jr1rpr
+	Z3Cr1jkayDCw4xZ3Zayr9xXa18Xa93K3W3CrW093y8XFWUArWfAr90va4a9r1UJFZ2qw1j
+	vF4rGr93Z3W7trJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUma14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
 	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
@@ -68,8 +68,8 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxGrW8Kw1rtFWrCw1DCrWDtwb_yoW5AF4xpr
 X-Originating-IP: [114.241.85.109]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_021011_502654_A805208C 
-X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-CacheID: sfid-20251020_021011_506769_719E6B2F 
+X-CRM114-Status: UNSURE (   9.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,109 +87,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use riscv_has_extension_likely() to check for RISCV_ISA_EXT_ZBB,
+Use riscv_has_extension_likely() to check for RISCV_ISA_EXT_ZAWRS,
 replacing the use of asm goto with ALTERNATIVE.
 
 The "likely" variant is used to match the behavior of the original
-implementation using ALTERNATIVE("j %l[legacy]", "nop", ...).
+implementation using ALTERNATIVE("j %l[no_zawrs]", "nop", ...).
 
 Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 ---
- arch/riscv/include/asm/bitops.h | 32 ++++++++------------------------
- 1 file changed, 8 insertions(+), 24 deletions(-)
+ arch/riscv/include/asm/cmpxchg.h | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
-index 77880677b06e..238092125c11 100644
---- a/arch/riscv/include/asm/bitops.h
-+++ b/arch/riscv/include/asm/bitops.h
-@@ -47,9 +47,8 @@
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 122e1485d39a..8712cf9c69dc 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -373,9 +373,10 @@ static __always_inline void __cmpwait(volatile void *ptr,
+ 	u32 *__ptr32b;
+ 	ulong __s, __val, __mask;
  
- static __always_inline __attribute_const__ unsigned long variable__ffs(unsigned long word)
- {
--	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
--				      RISCV_ISA_EXT_ZBB, 1)
--			  : : : : legacy);
-+	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
-+		return generic___ffs(word);
+-	asm goto(ALTERNATIVE("j %l[no_zawrs]", "nop",
+-			     0, RISCV_ISA_EXT_ZAWRS, 1)
+-		 : : : : no_zawrs);
++	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZAWRS)) {
++		ALT_RISCV_PAUSE();
++		return;
++	}
  
- 	asm volatile (".option push\n"
- 		      ".option arch,+zbb\n"
-@@ -58,9 +57,6 @@ static __always_inline __attribute_const__ unsigned long variable__ffs(unsigned
- 		      : "=r" (word) : "r" (word) :);
- 
- 	return word;
+ 	switch (size) {
+ 	case 1:
+@@ -437,11 +438,6 @@ static __always_inline void __cmpwait(volatile void *ptr,
+ 	default:
+ 		BUILD_BUG();
+ 	}
 -
--legacy:
--	return generic___ffs(word);
+-	return;
+-
+-no_zawrs:
+-	ALT_RISCV_PAUSE();
  }
  
- /**
-@@ -76,9 +72,8 @@ static __always_inline __attribute_const__ unsigned long variable__ffs(unsigned
- 
- static __always_inline __attribute_const__ unsigned long variable__fls(unsigned long word)
- {
--	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
--				      RISCV_ISA_EXT_ZBB, 1)
--			  : : : : legacy);
-+	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
-+		return generic___fls(word);
- 
- 	asm volatile (".option push\n"
- 		      ".option arch,+zbb\n"
-@@ -87,9 +82,6 @@ static __always_inline __attribute_const__ unsigned long variable__fls(unsigned
- 		      : "=r" (word) : "r" (word) :);
- 
- 	return BITS_PER_LONG - 1 - word;
--
--legacy:
--	return generic___fls(word);
- }
- 
- /**
-@@ -105,9 +97,8 @@ static __always_inline __attribute_const__ unsigned long variable__fls(unsigned
- 
- static __always_inline __attribute_const__ int variable_ffs(int x)
- {
--	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
--				      RISCV_ISA_EXT_ZBB, 1)
--			  : : : : legacy);
-+	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
-+		return generic_ffs(x);
- 
- 	if (!x)
- 		return 0;
-@@ -119,9 +110,6 @@ static __always_inline __attribute_const__ int variable_ffs(int x)
- 		      : "=r" (x) : "r" (x) :);
- 
- 	return x + 1;
--
--legacy:
--	return generic_ffs(x);
- }
- 
- /**
-@@ -137,9 +125,8 @@ static __always_inline __attribute_const__ int variable_ffs(int x)
- 
- static __always_inline int variable_fls(unsigned int x)
- {
--	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
--				      RISCV_ISA_EXT_ZBB, 1)
--			  : : : : legacy);
-+	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
-+		return generic_fls(x);
- 
- 	if (!x)
- 		return 0;
-@@ -151,9 +138,6 @@ static __always_inline int variable_fls(unsigned int x)
- 		      : "=r" (x) : "r" (x) :);
- 
- 	return 32 - x;
--
--legacy:
--	return generic_fls(x);
- }
- 
- /**
+ #define __cmpwait_relaxed(ptr, val) \
 
 -- 
 2.51.0
