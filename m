@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CCAECCD184
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 03:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE6ECCCD184
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 03:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=18Rk6f+60Pz7fqnPxowM5kKR7gB8GaC0yJxPF0mENTk=; b=oofckpfd2fyNay
-	hh+COyjDPqjPaP4wpy/iyu0D63OcxKGYSqh/4y8XtghatXmThtN9evu9q1POS6G07m//okV9HK0/8
-	yO5aCjMdhhIAU3ZVdLG2Npv6VPVImQgCosRKPbHe6VmiLSUM39odJ5rnGBQrISwOR2p9VQcqtkxSR
-	cHu9XmWwGiVyWpTklfgSunHbUEURrXeWLJ+fPtfIrQeuqeT9M8OCth0j48TWHqsJXDCVD07yeNGO5
-	AEWt5cU/MfXEwDaUI6G51vo5KaUI/A+VTK8zv0WunyfL54Qe7ZVn8tLIjlSEY4Oo15yZLQzVUHpN+
-	xP6NFTm7yKXeoW4lM26Q==;
+	List-Owner; bh=PY4JrwDTDHrVX3ywWguN2+S8pZXCnyOlCMCIPg1SjUc=; b=qDEBg2j7nZRuZJ
+	eFpqpxbGkwMdb9JR8v0IIckkeEwDsKHuoFwIXU8u7s4WnIz0fKjgpIDB0dM3yl1YNgkFXrUSAVOXY
+	IPhZz7Gfark19F6AdX2N/P1VKs88VTV2y9nx0pmU2DIQuXi/rnKW0BiB7P+hkse9+AXt//bgoHXik
+	/8kRBkniNRooWS2BlgMDiHnnS4xlHoRvHcSvrUQ6ZuxeJac4EgxIB7eazvL7xR1nFiohdBkFPeKqF
+	vDVCdG12YGThSQZ9Za62TJQHnC7PR8i4PIh6mXzecqeZyv+NQrtsHrCZ5BE72r52O9aG9bShDni5m
+	J05TZ8nKoT630dKtRDHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAgeh-0000000Bmga-1hU9;
-	Mon, 20 Oct 2025 03:33:55 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1vAgf4-0000000Bmod-30ea;
+	Mon, 20 Oct 2025 03:34:18 +0000
+Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAgef-0000000BmgA-21C5
+	id 1vAgf2-0000000BmnH-1Fsk
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 03:33:54 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7c284d4867eso788751a34.3
-        for <linux-riscv@lists.infradead.org>; Sun, 19 Oct 2025 20:33:53 -0700 (PDT)
+	Mon, 20 Oct 2025 03:34:17 +0000
+Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-3729f8eaa10so582616fac.3
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Oct 2025 20:34:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760931232; x=1761536032; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1760931255; x=1761536055; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=eE+2izhbixPNMGObc2mrhI1AAWPZUT7zIjDQJxZtTJQ=;
-        b=AluSb9FCRBvvV5iDapMciraK3cIbqiABqwVz3QXSksuMItmaFlkH5J78cTx4Qg8WUY
-         shtqRBIhH62gn1bwJKnFVDi+hwIw3KcOl+03hCYNnEH1ScaEovgzFTyRRHbUFD60ENAX
-         YBMLc9S+Uz3sOZginDUYLAYlC2EL0IuPcR9gjprR8wcuOlrzDj+sjb3O1zl7TBPDkvSm
-         FmeDpIP1M7QJevEZqAZgbU0CNHPrqiY3gSeftiqFNpmdS/sU2kpkDPpq9OHPGONZuoWo
-         XhVThHxC13NVEvZcnhqg/o3eF94aAMJA+vylB5VUaZwPFVY57oFhhubNEVbOc0s8e1Xe
-         zqyQ==
+        bh=7rSqoF1bhRIMRZ/Ngttka/3cr36QgYmwYc1FwmVj14E=;
+        b=OTbfPwnUlSmf6NxzJdFYm08wslWxZ+PTeEsNwashsxMyUOc4FMUMCvUP8lmpHcjv38
+         oueVJerCkJlXoeQUQGsZWBdH2Rg7l8Wvvyy21J/z1rFh6xAGhDfp5mX0YYaf8Gv55iJ+
+         I0kfZOD/OrdVj2FvG5oB3wQ2ifoTM2oYW9qqg2Oa90WoX9LKbg/MxwKXO4w8puvBw7Jz
+         NkNuFNkXjE+g4+Cov1tAf0P7AJIB59ycQJpfgntB8ytGGyEKp26CuuIhL9PBSiHvLMwK
+         HZXjz9VpKMGZn6P0sdqNBuQ6L8Y+mhbGpNgyYxaKqLHaR0VrbmzjuSBpLHkhvZ1/iQjO
+         Qpdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760931232; x=1761536032;
+        d=1e100.net; s=20230601; t=1760931255; x=1761536055;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=eE+2izhbixPNMGObc2mrhI1AAWPZUT7zIjDQJxZtTJQ=;
-        b=ajl6WGoLHxSmJs/6wih1I6xRQnYUMpK3ofR0vWbnRPYiaGrIfiWlwILEsP46mHkaA6
-         bHlSAwc937t1/xt6FJ/iMDe/RsEwt1rWMDkiaBj9IFR5qzpXMOW01zl5Be5RUNZxVXaa
-         HOOa/aSmkGSYKhvxLwqEJblLkrICew2Uk9/BRXkr8eJO38ehKX7obJDWljl+DrPitdic
-         q4cwYPJHCdKNHIwtqAkFO0MOo3F/qc7L7x1xFxpY0VNFj6iNwRdevnIWWAqlg1BJJNRT
-         nEmE1Q3m2PIweS//8Ib5P/PlsxdUdSJARdZVpY9Qa4qTzAIcUVfj6dYBR+R5P7R7PgVE
-         5ttQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUoyo4DYx447OOPxfOnED7T9EZ/l5+liZUHmxbKwcL37m6rXjEu/DDHyFGB7Yg07IGpUexcmjJa3DJPzQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwftvoHB+kGxbpXktuVwDWrMygDEUOLP1p5TByit7vOFB6y9xk8
-	CNZAgF1TW/DIedgPfc12XrgL+l1x7ppF82w8I+KyxZtMmhO9yjVZlFVy
-X-Gm-Gg: ASbGncvUDNrIkxHD3IbqP7Fcf7RozXIJ/dQ+yOc1dgNNZmiYASTd98vBPlOEcOsC/g+
-	+5ms949MkQeNa8VRtDae6SO4aMpw8XRgLV0KKiaPTItk6bR+J1X5DSd8K4VMpE5htSNhhxxjY0m
-	X/nAV4EF2GhMq3pleDuvrMWlxW4RNUN/BTiU2w+EUWkSPVpZtpTSN6wJNgJuuSu8XKwel9XLF1s
-	4bQQOBy/1zafuEY+jpol3U6zQnJ6nEIXhD+w+gMlabUVpUoOT99BpnDbtaKh5LFC0ichywk2nq2
-	KKTQLdTU5S1E2vpJeGXPFncxCYpuhFFkTfCrwDwXyb3Qban6C5gfEDeqXUlNdqwn1v39qN6mgOI
-	Fi2mkzNcynj7ezQvta7hhLz1furCMAigKmLTnL/Oo+0oG++tDGva5qRKwY3RY83PvC4TSSsNVvh
-	8e5ea7pmYQaoiZDlhjHXdQ
-X-Google-Smtp-Source: AGHT+IH7yi/yFmj7siKHMPw+MkU92NW4tigcvPRgjiSI1spL5Vh8ashM0eVWC/cROlPfU+WidZl7yA==
-X-Received: by 2002:a05:6808:1a23:b0:443:a224:8f98 with SMTP id 5614622812f47-443a3179d1amr4879888b6e.61.1760931232450;
-        Sun, 19 Oct 2025 20:33:52 -0700 (PDT)
+        bh=7rSqoF1bhRIMRZ/Ngttka/3cr36QgYmwYc1FwmVj14E=;
+        b=vEOyzehsz7A8MjXxaU/lWMsE0IJ1yO+ExRjiBLZ4pSAQ0jAhdvOgFaBJOC9Qhh3jJB
+         nz2adq26apRm/GIaBgDXMJDm00bp2bpIaxQkAUpP2OzdgrpGRd1mNsZAjaUqAVlWwiS5
+         MsqwE55xA6y9sKcRcWszEhn1UV1iKr1nwlSiWrE+2ds82nmTSYP+/fJn7hktvP4Y/jKS
+         4yxMbNzBm/gJGW8+tOrFvmm33f9xp2QRUE4CDsa6+O+Fg8xFC5w5N++n3HzPIg1yOrOv
+         fkP1dyRkM8QdpUf30EZsrYmNorBcJvGNW+3EohgrZynjxfDkSf35jmID+mVkcRFuEgDf
+         ptMg==
+X-Forwarded-Encrypted: i=1; AJvYcCUoaZPjPqgxSwXVpBAlXZhb0GYpPJflVmwJ1aBuw3n6gct94XTqVnPxba+o4G7zSJXEzn8y92VDGaqHjw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyV4SjIVQ7LAInidU4hs92thOsuDgUfXlW0Yhf3Xn7wY5Hj/qPB
+	LpSlRzOKLHKpgd6JEvSH8yDScxh1Qwn17uYDfKjhPLVHx+d8gWBBoM6j
+X-Gm-Gg: ASbGncv8JLk4Nu3/qCZawU2KBNJWJsmwg8qiAzsIWgakVwPsc5Fcyn7p5WlBUFtAHLF
+	hOTGNlZA50f1nW0sfjh6dTyfvzpbB7DCUCaFb3bUo3GEJ6NaT5qu93VtSKZ+BkRpL5xJZGf+yUb
+	wO5EK6YQZCsFWBIvmvfdgJ6IqDBShepz8kjaDI0m9G8DkOX6bre/MCF4Vg9WJ7G/b/9AcwoYGCh
+	Ykf6WRoPDfKUjYZ6/fBh11+LiBxAskwvQ1rztyNKutAN4TFqtn7sCrxbWxQwcnTZAAoJleqbGHC
+	LQROGrigLxjy4IHUGFwL0RlJBDlV7XCqr+elvVaWaruFY9x1QRwAeHTeRlVJBEMflGf9NSXEXA9
+	ax8r5+1x4y1TzclpOoy1vZFQ4pctK2O+sYL84ScT0zMVXr3QF/DOHIryNfESxOlionWbeT/140j
+	66fO8Z94tDoZlcVNwTBbNt
+X-Google-Smtp-Source: AGHT+IE9q9Mk98lP6hBRl0yUU492JUXYJJQ2DgdO+Y4L3lDypf5RtaLyuDaSNhzNdoqOYTgHdrMLwA==
+X-Received: by 2002:a05:6870:2b12:b0:331:9036:6151 with SMTP id 586e51a60fabf-3c98cf43502mr5122705fac.4.1760931255070;
+        Sun, 19 Oct 2025 20:34:15 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-443df628a35sm1586544b6e.22.2025.10.19.20.33.49
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-3c9aefc51c7sm1878073fac.8.2025.10.19.20.34.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Oct 2025 20:33:51 -0700 (PDT)
+        Sun, 19 Oct 2025 20:34:13 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 To: u.kleine-koenig@baylibre.com,
 	aou@eecs.berkeley.edu,
@@ -93,16 +93,16 @@ To: u.kleine-koenig@baylibre.com,
 	chao.wei@sophgo.com,
 	xiaoguang.xing@sophgo.com,
 	fengchun.li@sophgo.com
-Subject: [PATCH 1/4] riscv: sophgo: dts: add PCIe controllers for SG2042
-Date: Mon, 20 Oct 2025 11:33:43 +0800
-Message-Id: <b34d819cd763482e0ecbc5c5ea721f0101d1f844.1760929111.git.unicorn_wang@outlook.com>
+Subject: [PATCH 2/4] riscv: sophgo: dts: enable PCIe for PioneerBox
+Date: Mon, 20 Oct 2025 11:34:05 +0800
+Message-Id: <ec474c5eefb79626dd6a4d65454da9109aaf2f4d.1760929111.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1760929111.git.unicorn_wang@outlook.com>
 References: <cover.1760929111.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_203353_528619_8A802A60 
-X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-CacheID: sfid-20251019_203416_337006_0455B1C8 
+X-CRM114-Status: UNSURE (   7.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,116 +122,36 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Add PCIe controller nodes in DTS for Sophgo SG2042.
-Default they are disabled.
+Enable PCIe controllers for PioneerBox, which uses SG2042 SoC.
 
-Acked-by: Manivannan Sadhasivam <mani@kernel.org>
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Signed-off-by: Han Gao <rabenda.cn@gmail.com>
 Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- arch/riscv/boot/dts/sophgo/sg2042.dtsi | 88 ++++++++++++++++++++++++++
- 1 file changed, 88 insertions(+)
+ arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-index c5e49709b308..85d8b89cf9fc 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-@@ -240,6 +240,94 @@ clkgen: clock-controller@7030012000 {
- 			#clock-cells = <1>;
- 		};
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+index ef3a602172b1..c4d5f8d7d4ad 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
++++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+@@ -128,6 +128,18 @@ uart0-rx-pins {
+ 	};
+ };
  
-+		pcie_rc0: pcie@7060000000 {
-+			compatible = "sophgo,sg2042-pcie-host";
-+			device_type = "pci";
-+			reg = <0x70 0x60000000  0x0 0x00800000>,
-+			      <0x40 0x00000000  0x0 0x00001000>;
-+			reg-names = "reg", "cfg";
-+			linux,pci-domain = <0>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges = <0x01000000 0x0  0x00000000  0x40 0xc0000000  0x0 0x00400000>,
-+				 <0x42000000 0x0  0xd0000000  0x40 0xd0000000  0x0 0x10000000>,
-+				 <0x02000000 0x0  0xe0000000  0x40 0xe0000000  0x0 0x20000000>,
-+				 <0x43000000 0x42 0x00000000  0x42 0x00000000  0x2 0x00000000>,
-+				 <0x03000000 0x41 0x00000000  0x41 0x00000000  0x1 0x00000000>;
-+			bus-range = <0x0 0xff>;
-+			vendor-id = <0x1f1c>;
-+			device-id = <0x2042>;
-+			cdns,no-bar-match-nbits = <48>;
-+			msi-parent = <&msi>;
-+			status = "disabled";
-+		};
++&pcie_rc0 {
++	status = "okay";
++};
 +
-+		pcie_rc1: pcie@7060800000 {
-+			compatible = "sophgo,sg2042-pcie-host";
-+			device_type = "pci";
-+			reg = <0x70 0x60800000  0x0 0x00800000>,
-+			      <0x44 0x00000000  0x0 0x00001000>;
-+			reg-names = "reg", "cfg";
-+			linux,pci-domain = <1>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges = <0x01000000 0x0  0x00000000  0x44 0xc0400000  0x0 0x00400000>,
-+				 <0x42000000 0x0  0xd0000000  0x44 0xd0000000  0x0 0x10000000>,
-+				 <0x02000000 0x0  0xe0000000  0x44 0xe0000000  0x0 0x20000000>,
-+				 <0x43000000 0x46 0x00000000  0x46 0x00000000  0x2 0x00000000>,
-+				 <0x03000000 0x45 0x00000000  0x45 0x00000000  0x1 0x00000000>;
-+			bus-range = <0x0 0xff>;
-+			vendor-id = <0x1f1c>;
-+			device-id = <0x2042>;
-+			cdns,no-bar-match-nbits = <48>;
-+			msi-parent = <&msi>;
-+			status = "disabled";
-+		};
++&pcie_rc2 {
++	status = "okay";
++};
 +
-+		pcie_rc2: pcie@7062000000 {
-+			compatible = "sophgo,sg2042-pcie-host";
-+			device_type = "pci";
-+			reg = <0x70 0x62000000  0x0 0x00800000>,
-+			      <0x48 0x00000000  0x0 0x00001000>;
-+			reg-names = "reg", "cfg";
-+			linux,pci-domain = <2>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges = <0x01000000 0x0  0x00000000  0x48 0xc0800000  0x0 0x00400000>,
-+				 <0x42000000 0x0  0xd0000000  0x48 0xd0000000  0x0 0x10000000>,
-+				 <0x02000000 0x0  0xe0000000  0x48 0xe0000000  0x0 0x20000000>,
-+				 <0x03000000 0x49 0x00000000  0x49 0x00000000  0x1 0x00000000>,
-+				 <0x43000000 0x4a 0x00000000  0x4a 0x00000000  0x2 0x00000000>;
-+			bus-range = <0x0 0xff>;
-+			vendor-id = <0x1f1c>;
-+			device-id = <0x2042>;
-+			cdns,no-bar-match-nbits = <48>;
-+			msi-parent = <&msi>;
-+			status = "disabled";
-+		};
++&pcie_rc3 {
++	status = "okay";
++};
 +
-+		pcie_rc3: pcie@7062800000 {
-+			compatible = "sophgo,sg2042-pcie-host";
-+			device_type = "pci";
-+			reg = <0x70 0x62800000  0x0 0x00800000>,
-+			      <0x4c 0x00000000  0x0 0x00001000>;
-+			reg-names = "reg", "cfg";
-+			linux,pci-domain = <3>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges = <0x01000000 0x0  0x00000000  0x4c 0xc0c00000  0x0 0x00400000>,
-+				 <0x42000000 0x0  0xf8000000  0x4c 0xf8000000  0x0 0x04000000>,
-+				 <0x02000000 0x0  0xfc000000  0x4c 0xfc000000  0x0 0x04000000>,
-+				 <0x43000000 0x4e 0x00000000  0x4e 0x00000000  0x2 0x00000000>,
-+				 <0x03000000 0x4d 0x00000000  0x4d 0x00000000  0x1 0x00000000>;
-+			bus-range = <0x0 0xff>;
-+			vendor-id = <0x1f1c>;
-+			device-id = <0x2042>;
-+			cdns,no-bar-match-nbits = <48>;
-+			msi-parent = <&msi>;
-+			status = "disabled";
-+		};
-+
- 		clint_mswi: interrupt-controller@7094000000 {
- 			compatible = "sophgo,sg2042-aclint-mswi", "thead,c900-aclint-mswi";
- 			reg = <0x00000070 0x94000000 0x00000000 0x00004000>;
+ &sd {
+ 	pinctrl-0 = <&sd_cfg>;
+ 	pinctrl-names = "default";
 -- 
 2.34.1
 
