@@ -4,112 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B12CCD199
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 10:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AC8ACCD199
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 11:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f/95Bja68xWsTgKSzt6qQKpnK4wj0uBtPtt2z4KqDJU=; b=M5lZ3ThU3+eLsj
-	K1Z/Y2W3eaG04lQYM0AHicyC/DQ7HphTcraLxnA10Kr2v13eIQCbT3VMwrotf7x5t9lNtEIRt396n
-	oMiemY4KH236uSNK2hdEkYu6hpDB3nU2ImBKRbhB0gJFOebkRNKz5TJwrur6kfSittIvgv8IhX+KJ
-	6qBrOLjYe8+kh6KxO4Dy4iiGjJtOGA/nO0/c3g9xVPv57zYooe1urDdNHubYRrm+uqcjGW8axnY53
-	vvf44M3XlO0qwn5KMiBlOf/IoPWc49KMsRsAeFRxYBLskoJLQ6eNyUk6aKtCyfm+aw/ELZtQGEJL7
-	gH4uADLzqj8WOiuFZByw==;
+	List-Owner; bh=wJlqSsvJ3yPGdJZibDBy83U1Ats27lqOmmx9QrmL+KE=; b=GcRkBpVr8AmOZc
+	LoCmutgQ9dDVK4xcMZS714LxGMDsWeb8rFZSAmK2oEIUN/gABzTivlJZiLH92Tdm6l5mKwrQnn/kw
+	Nmfw/xRkGoTrrCU5pUTDIQI8d8J5XsiFtR5e1XypWpafDwrPmuI9/kC9KLDDckaAB5ZhaYApLGjAB
+	DJbpLMGLNGLTcq0hEBlRsSHsjuLs5swT16XhlldwmHKWL9Y7SMAXEeV6pvueOHpQpwsumTFwbG23Y
+	pTqI34V6Vgb0w2YuklzMvo5GLWZi/WmntBK/7tjuZc+PzR20ZtxVv7+WVZH+SIO2z9yx97e6cyfyv
+	blhBfbYCBIBmr9C7vv2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmlh-0000000CjgK-37YU;
-	Mon, 20 Oct 2025 10:05:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vAngl-0000000CzWq-1eqj;
+	Mon, 20 Oct 2025 11:04:31 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmlf-0000000CjdR-0RpR
+	id 1vAngj-0000000CzUE-0Uec
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 10:05:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A10D940148;
-	Mon, 20 Oct 2025 10:05:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5F3BC4CEF9;
-	Mon, 20 Oct 2025 10:05:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760954730;
-	bh=8tGrFsR0anpE4IvRHZT6yPflfZKkSecpoAYpwRf29Lw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Qfms3DWNOkcbID/0HWG+ijKXAS7PW6X8MaxeWYaPPVJzH28rFjKRaIZABfiH9zqoW
-	 wa14Mb4RDqtOSI+xXSvTrxrNAXVpi2xP1fkSqnfYU0XC7Avj3ugj1CTNCz6EWol/1H
-	 J9TlLlyMKvQXzk6x8YMeCAJ57EITUwMEW2nBQ3CNJe1XF/VVVpsvW2Y9XXemZl/wHx
-	 08aSRU/x5LMcpKk7V2XyUa86xLupYIKvs46OwSQVQ6DrfeFva1S6wxYT1fQO+Jlj/0
-	 wYuyiQOIM/ljpZKJ/OM5I1wvwspk4HOuoRbzCjRQNBLyUEyCtEXY/qgzI+gxPWI0SD
-	 yHMZMtD4BgXDA==
-Message-ID: <f1e4907b-b75f-4f1d-81dc-19a3b5189673@kernel.org>
-Date: Mon, 20 Oct 2025 12:05:26 +0200
+	Mon, 20 Oct 2025 11:04:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Reply-To; bh=F2rEsTAgxjGpezCDajMh94r4nDEKpQQN1wHXqhyXm+o=; b=IXMUnkuCJKMNl52x
+	yvTAaj5IZHhFVsSR7EMAmwDMzI0cxsN4pl2euTK/WMguaHdASKFJNYI15o80MWedIEtFukUlw6HID
+	Hf7rkjBXt+mtj9xCw4IWwNEovAIetEadWusAiCLv7ekLekrkJBUldtaX/r0MU7YAeVanH4YtZpDET
+	Yww9EmxxRGfwd8xUCQrIzM42L4HCxFodhVVfou0qb43aSwI0Fn/DE/PjAX3ay6TMql7AjSQ5Sg+gi
+	IpXOasypr6+becZ3o44/vOEoIOQETgtvwyCOb1rj4QX+6cobjFFozHX4NRUI1mrLeGAzcHlQvcyBb
+	nIOjHCM3FR0XXW7cgw==;
+Received: from [167.98.27.226] (helo=[10.35.6.194])
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1vAngY-00GxSU-LN; Mon, 20 Oct 2025 12:04:18 +0100
+Message-ID: <e353132b-1795-4cc9-87e2-fc24a7ae457a@codethink.co.uk>
+Date: Mon, 20 Oct 2025 12:04:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] riscv: dts: sophgo: Add syscon node for cv18xx
-To: Longbin Li <looong.bin@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+Subject: Re: [PATCH 05/18] riscv: asm: use .insn for making custom
+ instructioons
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, -linux-kernel@vger.kernel.org,
  Alexandre Ghiti <alex@ghiti.fr>,
- Alexander Sverdlin <alexander.sverdlin@gmail.com>,
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
- Ze Huang <huangze@whut.edu.cn>
-Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20251020083838.67522-1-looong.bin@gmail.com>
- <20251020083838.67522-3-looong.bin@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251020083838.67522-3-looong.bin@gmail.com>
+ Javier Jardon <javier.jardon@codethink.co.uk>, Ben Dooks
+ <bjdooks@gmail.com>, Lawrence Hunter <lawrence.hunter@codethink.co.uk>,
+ Roan Richmod <roan.richmond@codethink.co.uk>, Sam Grove <sgrove@mips.com>,
+ Chao-ying Fu <cfu@mips.com>, Mukunda Aprameya <maprameya@mips.com>,
+ Umesh Kalappa <ukalappa@mips.com>,
+ Djordje Todorovic <djordje.todorovic@htecgroup.com>,
+ Kurt Martin <kmartin@mips.com>, allikarjuna Gouda <mgouda@mips.com>,
+ Vaibhav Chauthmal <vchauthmal@mips.com>, wapnil Agrawal <sagrawal@mips.com>
+References: <20250822165248.289802-1-ben.dooks@codethink.co.uk>
+ <20250822165248.289802-6-ben.dooks@codethink.co.uk>
+ <20251002-8cb00cce2a2bc7274b3ad503@orel>
+ <20251002-c06f1cdf287f9e00c3674942@orel>
+Content-Language: en-GB
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <20251002-c06f1cdf287f9e00c3674942@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_030531_202329_F7893388 
-X-CRM114-Status: UNSURE (   4.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251020_040429_285851_CF5A9D54 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,22 +80,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/10/2025 10:38, Longbin Li wrote:
-> Add top syscon node and all subdevice nodes for cv18xx series SoC.
+On 02/10/2025 15:51, Andrew Jones wrote:
+> On Thu, Oct 02, 2025 at 09:45:05AM -0500, Andrew Jones wrote:
+>> On Fri, Aug 22, 2025 at 05:52:35PM +0100, Ben Dooks wrote:
+>>> Using .word breaks with big endian builds, making something which
+>>> is not a valid or worse an instruction or pair that does something
+>>> which is not intended.
+>>>
+>>> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+>>> ---
+>>>   arch/riscv/include/asm/insn-def.h | 7 +++++++
+>>>   1 file changed, 7 insertions(+)
+>>>
+>>> diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
+>>> index d5adbaec1d01..2a3019bc1a3b 100644
+>>> --- a/arch/riscv/include/asm/insn-def.h
+>>> +++ b/arch/riscv/include/asm/insn-def.h
+>>> @@ -256,10 +256,17 @@
+>>>   	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3),		\
+>>>   	       SIMM12((offset) & 0xfe0), RS1(base))
+>>>   
+>>> +#ifndef CONFIG_AS_HAS_INSN
+>>>   #define RISCV_PAUSE	".4byte 0x100000f"
+>>>   #define ZAWRS_WRS_NTO	".4byte 0x00d00073"
+>>>   #define ZAWRS_WRS_STO	".4byte 0x01d00073"
+>>>   #define RISCV_NOP4	".4byte 0x00000013"
+>>> +#else
+>>> +#define RISCV_PAUSE	".insn 0x100000f"
+>>> +#define ZAWRS_WRS_NTO	".insn 0x00d00073"
+>>> +#define ZAWRS_WRS_STO	".insn 0x01d00073"
+>>> +#define RISCV_NOP4	".insn 0x00000013"
+>>> +#endif
+>>
+>> I agree we should use .insn when possible because it provides validation
+>> and allows mapping symbols to identify the words as instructions. So ack
+>> to the change, but without adding a depends on AS_HAS_INSN to the riscv
+>> CPU_BIG_ENDIAN config, then the commit message should drop the reference
+>> to big endian for its motivation.
+>>
 > 
-> Co-authored-by: Inochi Amaoto <inochiama@gmail.com>
+> And Patch14 of this series looks good, but it should be squashed into this
+> one.
+> 
+> Thanks,
+> drew
+> 
 
-There is no such tag. Also incomplete DCO.
+ok, thanks.
 
-Read carefully submitting patches.
+-- 
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
 
-Best regards,
-Krzysztof
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
