@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B19CCD195
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 01:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A2F5CCD184
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 01:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z+LAxp0UtYR4sUaL6Elf9sZ/WP2gmjmaJyW9bWsocxM=; b=XawMesmQRQYPn6
-	wV11+Jq6maTLuALjGP5aBHdgWWLx0ALEZNdGK5A0ppsFgYEgw+WQh/15kXwkWz/e1c5OHoFi83U5I
-	ya6nammXU+nHQSdWbK1i3ymagTO1WIke0Mv43QlaRVYylADupEyIxAR40jRtSdPjpeIyoMMlwmZ51
-	VU3A+pe8k2oNr3cetSla/zwdlZq7DkbjlgOktyURV6aDFpblRbOMNk+K/CoEqf0sykukjVEMvkQib
-	9sRBf/Kqbh56q5+zL3Nn2gKfZ65wsvsGJJPcfVFjyf0e3IJHujC22adx5lu7zTWUuXljkTSXbv4HB
-	McpTFzsb/et/qjvOJ1kg==;
+	List-Owner; bh=VZjJlM+Y3B1gRprMuodeAM45VFZeiCmg5D22dWb83iI=; b=lIPO4/ptHHKRtP
+	K+z5uMvvtlyTDCvFRTqIuzuTFGc5fJDZAtLzM3SZrauDSNAjh+uxN9Y+KkZ9Z3OnLmMFF9Zp1enem
+	GbW89QXuAM5JMm0lJb1bXFSeD4OmM7e+NYJp12x1VB/OM+Vuab4jk49DanZnnpuwvKvti+ADZ/oz/
+	ARJAKOI1xt91+ONi8AqDjjrKIr9PFSCudGyNuG2i6UWnRMVIvJZ2H1lC1cTQjmEodS3S2Em/YS4MB
+	PZfp5aRQyRfkh88SV+shiTf69SbiQLY2RpTWeihTb85qRBxJgSyww+b93vlQb4JKALZTFDX5daJOq
+	M9oQ8+eGpymQQogoVCbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAeu6-0000000BeFX-3rj4;
-	Mon, 20 Oct 2025 01:41:42 +0000
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1vAf4H-0000000BegF-0WSh;
+	Mon, 20 Oct 2025 01:52:13 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAeu3-0000000BeF9-0eKi
+	id 1vAf4F-0000000Befu-0ozQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 01:41:41 +0000
+	Mon, 20 Oct 2025 01:52:12 +0000
 Received: from localhost (unknown [116.232.147.23])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 664F0341540;
-	Mon, 20 Oct 2025 01:41:36 +0000 (UTC)
-Date: Mon, 20 Oct 2025 09:41:32 +0800
+	by smtp.gentoo.org (Postfix) with ESMTPSA id F010A341F00;
+	Mon, 20 Oct 2025 01:52:08 +0000 (UTC)
+Date: Mon, 20 Oct 2025 09:52:04 +0800
 From: Yixun Lan <dlan@gentoo.org>
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -44,18 +44,18 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: spacemit: add MusePi Pro board
-Message-ID: <20251020014132-GYE1506524@gentoo.org>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] riscv: dts: spacemit: add MusePi Pro board device
+ tree
+Message-ID: <20251020015204-GYF1506524@gentoo.org>
 References: <20251017-k1-musepi-pro-dts-v3-0-40b05491699f@linux.spacemit.com>
- <20251017-k1-musepi-pro-dts-v3-1-40b05491699f@linux.spacemit.com>
+ <20251017-k1-musepi-pro-dts-v3-2-40b05491699f@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251017-k1-musepi-pro-dts-v3-1-40b05491699f@linux.spacemit.com>
+In-Reply-To: <20251017-k1-musepi-pro-dts-v3-2-40b05491699f@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_184139_781452_078C6020 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20251019_185211_273612_722CB520 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,89 +67,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
-
-On 13:52 Fri 17 Oct     , Troy Mitchell wrote:
-> Document the compatible string for the MusePi Pro [1]. It is a 1.8-inch
-> single board computer based on the SpacemiT K1/M1 RISC-V SoC [2].
-> 
-> Here's a refined list of its core features for consideration:
->   - SoC: SpacemiT M1/K1, 8-core 64-bit RISC-V with 2.0 TOPS AI power.
-..
->          This suggests potential for light AI/ML workloads on-device.
-drop these additional marketing info, just give neutral technical description
->   - Memory: LPDDR4X @ 2400MT/s, available in 8GB & 16GB options.
-
-..
->             Sufficient for various workloads.
-ditto
->   - Storage: Onboard eMMC 5.1 (64GB/128GB options). M.2 M-Key for NVMe
->              SSD (2230 size), and a microSD slot (UHS-II) for expansion.
-..
->              Good variety for boot and data.
-ditto
->   - Display: HDMI 1.4 (1080P@60Hz) and 2-lane MIPI DSI FPC (1080P@60Hz).
-..
->              Standard display options.
-ditto, please check more bellow yourself..
-
->   - Connectivity: Onboard Wi-Fi 6 & Bluetooth 5.2. A single Gigabit
->                   Ethernet port (RJ45). Given the stated markets,
->                   this should cover basic networking.
->   - USB: 4x USB 3.0 Type-A (host) and 1x USB 2.0 Type-C (device/OTG).
->          Decent host capabilities.
->   - Expansion: Full-size miniPCIe slot for assorted modules
->                (4G/5G, wireless etc.). A second M.2 M-Key (2230) for more
->                general PCIe devices (SSD, PCIe-to-SATA, comm boards).
->   - GPIO: Standard 40-pin GPIO interface, as expected for an SBC.
->   - MIPI: Includes 1x 4-lane MIPI CSI FPC and 2x MIPI DSI FPC interfaces
->           for cameras and displays.
->   - Clock: Onboard RTC with battery support.
-> 
-> Link: https://developer.spacemit.com/documentation?token=YJtdwnvvViPVcmkoPDpcvwfVnrh&type=pdf [1]
-> Link: https://www.spacemit.com/en/key-stone-k1 [2]
-> 
-no blank line here
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
-> Changelog in v3:
-> - nothing
-> - Link to v2: https://lore.kernel.org/all/20251010-k1-musepi-pro-dts-v2-1-6e1b491f6f3e@linux.spacemit.com/
-> 
-> Changelog in v2:
-> - modify commit message
-> - Link to v1: https://lore.kernel.org/all/20250928-k1-musepi-pro-dts-v1-1-5efcca0ce3ae@linux.spacemit.com/
-> ---
->  Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-> index c56b62a6299ac24d3cdef7edcdfc407dc62a1846..52fe39296031f21d1c28c4f1ea5ca9fe28caf45a 100644
-> --- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-> @@ -22,6 +22,7 @@ properties:
->            - enum:
->                - bananapi,bpi-f3
->                - milkv,jupiter
-> +              - spacemit,musepi-pro
->                - xunlong,orangepi-rv2
->            - const: spacemit,k1
->  
-> 
-> -- 
-> 2.51.0
-> 
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgVHJveSwKCk9uIDEzOjUyIEZyaSAxNyBPY3QgICAgICwgVHJveSBNaXRjaGVsbCB3cm90ZToK
+PiBBZGQgaW5pdGlhbCBkZXZpY2UgdHJlZSBzdXBwb3J0IGZvciB0aGUgTXVzZVBpIFBybyBib2Fy
+ZCBbMV0uCj4gVGhlIGJvYXJkIGlzIHVzaW5nIHRoZSBTcGFjZW1pVCBLMS9NMSBTb0MuCj4gCj4g
+VGhlIGRldmljZSB0cmVlIGlzIGFkYXB0ZWQgZnJvbSB0aGUgU3BhY2VtaVQgdmVuZG9yIHRyZWUg
+WzJdLgo+IAo+IEhlcmUncyBhIHJlZmluZWQgbGlzdCBvZiBpdHMgY29yZSBmZWF0dXJlcyBmb3Ig
+Y29uc2lkZXJhdGlvbjoKPiAgIC0gU29DOiBTcGFjZW1pVCBNMS9LMSwgOC1jb3JlIDY0LWJpdCBS
+SVNDLVYgd2l0aCAyLjAgVE9QUyBBSSBwb3dlci4KPiAgICAgICAgICBUaGlzIHN1Z2dlc3RzIHBv
+dGVudGlhbCBmb3IgbGlnaHQgQUkvTUwgd29ya2xvYWRzIG9uLWRldmljZS4KPiAgIC0gTWVtb3J5
+OiBMUEREUjRYIEAgMjQwME1UL3MsIGF2YWlsYWJsZSBpbiA4R0IgJiAxNkdCIG9wdGlvbnMuCj4g
+ICAgICAgICAgICAgU3VmZmljaWVudCBmb3IgdmFyaW91cyB3b3JrbG9hZHMuCj4gICAtIFN0b3Jh
+Z2U6IE9uYm9hcmQgZU1NQyA1LjEgKDY0R0IvMTI4R0Igb3B0aW9ucykuIE0uMiBNLUtleSBmb3Ig
+TlZNZQo+ICAgICAgICAgICAgICBTU0QgKDIyMzAgc2l6ZSksIGFuZCBhIG1pY3JvU0Qgc2xvdCAo
+VUhTLUlJKSBmb3IgZXhwYW5zaW9uLgo+ICAgICAgICAgICAgICBHb29kIHZhcmlldHkgZm9yIGJv
+b3QgYW5kIGRhdGEuCj4gICAtIERpc3BsYXk6IEhETUkgMS40ICgxMDgwUEA2MEh6KSBhbmQgMi1s
+YW5lIE1JUEkgRFNJIEZQQyAoMTA4MFBANjBIeikuCj4gICAgICAgICAgICAgIFN0YW5kYXJkIGRp
+c3BsYXkgb3B0aW9ucy4KPiAgIC0gQ29ubmVjdGl2aXR5OiBPbmJvYXJkIFdpLUZpIDYgJiBCbHVl
+dG9vdGggNS4yLiBBIHNpbmdsZSBHaWdhYml0Cj4gICAgICAgICAgICAgICAgICAgRXRoZXJuZXQg
+cG9ydCAoUko0NSkuIEdpdmVuIHRoZSBzdGF0ZWQgbWFya2V0cywKPiAgICAgICAgICAgICAgICAg
+ICB0aGlzIHNob3VsZCBjb3ZlciBiYXNpYyBuZXR3b3JraW5nLgo+ICAgLSBVU0I6IDR4IFVTQiAz
+LjAgVHlwZS1BIChob3N0KSBhbmQgMXggVVNCIDIuMCBUeXBlLUMgKGRldmljZS9PVEcpLgo+ICAg
+ICAgICAgIERlY2VudCBob3N0IGNhcGFiaWxpdGllcy4KPiAgIC0gRXhwYW5zaW9uOiBGdWxsLXNp
+emUgbWluaVBDSWUgc2xvdCBmb3IgYXNzb3J0ZWQgbW9kdWxlcwo+ICAgICAgICAgICAgICAgICg0
+Ry81Rywgd2lyZWxlc3MgZXRjLikuIEEgc2Vjb25kIE0uMiBNLUtleSAoMjIzMCkgZm9yIG1vcmUK
+PiAgICAgICAgICAgICAgICBnZW5lcmFsIFBDSWUgZGV2aWNlcyAoU1NELCBQQ0llLXRvLVNBVEEs
+IGNvbW0gYm9hcmRzKS4KPiAgIC0gR1BJTzogU3RhbmRhcmQgNDAtcGluIEdQSU8gaW50ZXJmYWNl
+LCBhcyBleHBlY3RlZCBmb3IgYW4gU0JDLgo+ICAgLSBNSVBJOiBJbmNsdWRlcyAxeCA0LWxhbmUg
+TUlQSSBDU0kgRlBDIGFuZCAyeCBNSVBJIERTSSBGUEMgaW50ZXJmYWNlcwo+ICAgICAgICAgICBm
+b3IgY2FtZXJhcyBhbmQgZGlzcGxheXMuCj4gICAtIENsb2NrOiBPbmJvYXJkIFJUQyB3aXRoIGJh
+dHRlcnkgc3VwcG9ydC4KSSB0aGluayB5b3UndmUgYWxyZWFkeSBnYXZlIGFuIG92ZXJhbGwgZGVz
+Y3JpcHRpb24gZm9yIE11c2VQaSBib2FyZCBpbgpwYXRjaCBbMS8yXSB3aGljaCBpcyBzdWZmaWNp
+ZW50LCBpbiB0aGlzIHBhdGNoIHlvdSBjb3VsZCBiZXR0ZXIgZm9jdXMgb24Kd2hhdCBpdCBhY3R1
+YWxseSBkb25lIGhlcmU/IGVuYWJsaW5nIG1tYywgZXRoZXJuZXQsIGxlZCwgcGRtYSwgdWFydC4u
+Cgo+IAo+IFRoaXMgbWluaW1hbCBkZXZpY2UgdHJlZSBlbmFibGVzIGJvb3RpbmcgaW50byBhIHNl
+cmlhbCBjb25zb2xlIHdpdGggVUFSVAo+IG91dHB1dCBhbmQgYSBibGlua2luZyBMRUQuCj4gCj4g
+TGluazogaHR0cHM6Ly9kZXZlbG9wZXIuc3BhY2VtaXQuY29tL2RvY3VtZW50YXRpb24/dG9rZW49
+WUp0ZHdudnZWaVBWY21rb1BEcGN2d2ZWbnJoJnR5cGU9cGRmIFsxXQo+IExpbms6IGh0dHBzOi8v
+Z2l0ZWUuY29tL2JpYW5idS1saW51eC9saW51eC02LjYvYmxvYi9rMS1ibC12Mi4yLnkvYXJjaC9y
+aXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS14X01VU0UtUGktUHJvLmR0cyBbMl0KPiAKZGl0dG8K
+PiBTaWduZWQtb2ZmLWJ5OiBUcm95IE1pdGNoZWxsIDx0cm95Lm1pdGNoZWxsQGxpbnV4LnNwYWNl
+bWl0LmNvbT4KPiAtLS0KPiBDaGFuZ2Vsb2cgaW4gdjM6Cj4gLSBzb3J0IGR0cyBub2RlCj4gLSBh
+ZGQgZXRoZXJuZXQgYWxpYXMKPiAtIGFkZCBlbW1jLCBwZG1hLCBhbmQgZXRoMCBub2RlIChhIHNx
+dWFzaCBvZiBwYXRjaGVzIDPigJM1IGZyb20gdjIpCj4gLSBMaW5rIHRvIHYyOiBodHRwczovL2xv
+cmUua2VybmVsLm9yZy9hbGwvMjAyNTEwMTAtazEtbXVzZXBpLXByby1kdHMtdjItMi02ZTFiNDkx
+ZjZmM2VAbGludXguc3BhY2VtaXQuY29tLwo+IAo+IENoYW5nZWxvZyBpbiB2MjoKPiAtIG1vZGlm
+eSBjb21taXQgbWVzc2FnZQo+IC0gc3dhcCBwaW5jdHJsLW5hbWVzIGFuZCBwaW5jdHJsLTAgcHJv
+cGVydGllcyBpbiB1YXJ0MCBub2RlCj4gLSByZW5hbWUgbW9kZWw6ICJNdXNlUGkgUHJvIiAtPiAi
+U3BhY2VtaVQgTXVzZVBpIFBybyIKPiAtIGtlZXAgdGhlIGR0Yi0kKENPTkZJR19BUkNIX1NQQUNF
+TUlUKSBlbnRyaWVzIGluIGFscGhhYmV0aWNhbCBvcmRlcgo+IC0gTGluayB0byB2MTogaHR0cHM6
+Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwOTI4LWsxLW11c2VwaS1wcm8tZHRzLXYxLTItNWVm
+Y2NhMGNlM2FlQGxpbnV4LnNwYWNlbWl0LmNvbS8KPiAtLS0KPiAgYXJjaC9yaXNjdi9ib290L2R0
+cy9zcGFjZW1pdC9NYWtlZmlsZSAgICAgICAgICB8ICAxICsKPiAgYXJjaC9yaXNjdi9ib290L2R0
+cy9zcGFjZW1pdC9rMS1tdXNlcGktcHJvLmR0cyB8IDc4ICsrKysrKysrKysrKysrKysrKysrKysr
+KysrCj4gIDIgZmlsZXMgY2hhbmdlZCwgNzkgaW5zZXJ0aW9ucygrKQo+IAo+IGRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L01ha2VmaWxlIGIvYXJjaC9yaXNjdi9ib290
+L2R0cy9zcGFjZW1pdC9NYWtlZmlsZQo+IGluZGV4IDE1MjgzMjY0NDg3MDYyNGQ4ZmQ3NzY4NGVm
+MzNhZGRiNDJiMGJhZjMuLjk0MmVjYjM4YmVhMDM0ZWY1ZmJmMmNlZjc0ZTY4MmVlMGI2YWQ4ZjQg
+MTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9NYWtlZmlsZQo+ICsr
+KyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvTWFrZWZpbGUKPiBAQCAtMSw0ICsxLDUg
+QEAKPiAgIyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+ICBkdGItJChDT05GSUdf
+QVJDSF9TUEFDRU1JVCkgKz0gazEtYmFuYW5hcGktZjMuZHRiCj4gIGR0Yi0kKENPTkZJR19BUkNI
+X1NQQUNFTUlUKSArPSBrMS1taWxrdi1qdXBpdGVyLmR0Ygo+ICtkdGItJChDT05GSUdfQVJDSF9T
+UEFDRU1JVCkgKz0gazEtbXVzZXBpLXByby5kdGIKPiAgZHRiLSQoQ09ORklHX0FSQ0hfU1BBQ0VN
+SVQpICs9IGsxLW9yYW5nZXBpLXJ2Mi5kdGIKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290
+L2R0cy9zcGFjZW1pdC9rMS1tdXNlcGktcHJvLmR0cyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3Bh
+Y2VtaXQvazEtbXVzZXBpLXByby5kdHMKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAw
+MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAuLjU5MGM5YmRiZGZkYTRkNmRk
+ZDk3YTk2ZTEwZmNhZWYwYTc1ZjMzOTAKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvYXJjaC9yaXNj
+di9ib290L2R0cy9zcGFjZW1pdC9rMS1tdXNlcGktcHJvLmR0cwo+IEBAIC0wLDAgKzEsNzggQEAK
+PiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wIE9SIE1JVCkKPiArLyoKPiAr
+ICogQ29weXJpZ2h0IChDKSAyMDI0IFlhbmd5dSBDaGVuIDxjeXlAY3l5c2VsZi5uYW1lPgouLgo+
+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMjUgVHJveSBNaXRjaGVsbCA8dHJveS5taXRjaGVsbEBsaW51
+eC5zcGFjZW1pdC5jb20+CnRoaXMgaXNuJ3QgYSBiaWcgcHJvYmxlbSwgYnV0IEkgdGhpbmsgaXQg
+d291bGQgYmUgYmV0dGVyIHRvIHVzZSBTcGFjZW1pVApDb3JwJ3MgQ29weXJpZ2h0LCB0byByZWZs
+ZWN0IHlvdSdyZSBub3QgZG9pbmcgYXMgaW5kaXZpZHVhbCBjb250cmlidXRvci4uCj4gKyAqLwo+
+ICsKPiArL2R0cy12MS87Cj4gKwo+ICsjaW5jbHVkZSAiazEuZHRzaSIKPiArI2luY2x1ZGUgImsx
+LXBpbmN0cmwuZHRzaSIKPiArCj4gKy8gewo+ICsJbW9kZWwgPSAiU3BhY2VtaVQgTXVzZVBpIFBy
+byI7Cj4gKwljb21wYXRpYmxlID0gInNwYWNlbWl0LG11c2VwaS1wcm8iLCAic3BhY2VtaXQsazEi
+Owo+ICsKPiArCWFsaWFzZXMgewo+ICsJCWV0aGVybmV0MCA9ICZldGgwOwo+ICsJCXNlcmlhbDAg
+PSAmdWFydDA7Cj4gKwl9Owo+ICsKPiArCWNob3NlbiB7Cj4gKwkJc3Rkb3V0LXBhdGggPSAic2Vy
+aWFsMCI7Cj4gKwl9Owo+ICsKPiArCWxlZHMgewo+ICsJCWNvbXBhdGlibGUgPSAiZ3Bpby1sZWRz
+IjsKPiArCj4gKwkJbGVkMSB7Cj4gKwkJCWxhYmVsID0gInN5cy1sZWQiOwo+ICsJCQlncGlvcyA9
+IDwmZ3BpbyBLMV9HUElPKDk2KSBHUElPX0FDVElWRV9ISUdIPjsKPiArCQkJbGludXgsZGVmYXVs
+dC10cmlnZ2VyID0gImhlYXJ0YmVhdCI7Cj4gKwkJCWRlZmF1bHQtc3RhdGUgPSAib24iOwo+ICsJ
+CX07Cj4gKwl9Owo+ICt9Owo+ICsKPiArJmVtbWMgewo+ICsJYnVzLXdpZHRoID0gPDg+Owo+ICsJ
+bW1jLWhzNDAwLTFfOHY7Cj4gKwltbWMtaHM0MDAtZW5oYW5jZWQtc3Ryb2JlOwo+ICsJbm9uLXJl
+bW92YWJsZTsKPiArCW5vLXNkOwo+ICsJbm8tc2RpbzsKPiArCXN0YXR1cyA9ICJva2F5IjsKPiAr
+fTsKPiArCj4gKyZldGgwIHsKPiArCXBoeS1oYW5kbGUgPSA8JnJnbWlpMD47Cj4gKwlwaHktbW9k
+ZSA9ICJyZ21paS1pZCI7Cj4gKwlwaW5jdHJsLTAgPSA8JmdtYWMwX2NmZz47Cj4gKwlwaW5jdHJs
+LW5hbWVzID0gImRlZmF1bHQiOwo+ICsJcngtaW50ZXJuYWwtZGVsYXktcHMgPSA8MD47Cj4gKwl0
+eC1pbnRlcm5hbC1kZWxheS1wcyA9IDwwPjsKPiArCXN0YXR1cyA9ICJva2F5IjsKPiArCj4gKwlt
+ZGlvLWJ1cyB7Cj4gKwkJI2FkZHJlc3MtY2VsbHMgPSA8MHgxPjsKPiArCQkjc2l6ZS1jZWxscyA9
+IDwweDA+Owo+ICsKPiArCQlyZXNldC1ncGlvcyA9IDwmZ3BpbyBLMV9HUElPKDExMCkgR1BJT19B
+Q1RJVkVfTE9XPjsKPiArCQlyZXNldC1kZWxheS11cyA9IDwxMDAwMD47Cj4gKwkJcmVzZXQtcG9z
+dC1kZWxheS11cyA9IDwxMDAwMDA+Owo+ICsKPiArCQlyZ21paTA6IHBoeUAxIHsKPiArCQkJcmVn
+ID0gPDB4MT47Cj4gKwkJfTsKPiArCX07Cj4gK307Cj4gKwo+ICsmcGRtYSB7Cj4gKwlzdGF0dXMg
+PSAib2theSI7Cj4gK307Cj4gKwo+ICsmdWFydDAgewo+ICsJcGluY3RybC0wID0gPCZ1YXJ0MF8y
+X2NmZz47Cj4gKwlwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+ICsJc3RhdHVzID0gIm9rYXki
+Owo+ICt9Owo+IAo+IC0tIAo+IDIuNTEuMAo+IAoKLS0gCllpeHVuIExhbiAoZGxhbikKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
