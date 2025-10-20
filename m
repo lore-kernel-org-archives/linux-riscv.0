@@ -4,88 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD822CCD199
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 04:26:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37FAFCCD193
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Oct 2025 04:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P6GfO83N5gaQAZ9dCMQd78EwlaN8Bx510bJt16yjtyU=; b=1B0CfVQnflD/Kp
-	Mlqm2Q0EATlg1Ij68kSsnKEIfoTvyECPZkEykLk1J5KcHETbcKq325VfXavrq7qamTG5jR6N/aiY2
-	8VYVtBQSqpMQJeJgYf9SXXUxYwcznyL/JnGdE8LzRT+pzaJcAE0BYfntrSP0QJY6NKPDwWjBcxzs2
-	EqoFKc+lfWCA8p3G5jn7FzRQZadShwO5BllN8QUnpxLOg3ZZYvjvxfUGqDX51UX+EucNF+QRjGfaq
-	vCF8qczkrJExeaeCJfxFjBA3OdQBCwPphHMLEmUOZ7BBWNb1hjHf01x6f0ApxpxvJEePrw/A5Ospz
-	Cf8lBcqTG9bWLFpAfyrQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=x7P5+ZjyB3bpCz8TAuELRZtEbegA3dXwX9qFB6R6aI8=; b=LE3JamfywWy0ZJ
+	vkDYdu0GIwrSQfDNDH2p3Rbo7BnhoKbzOwYKjEwQvxAqcmc465Ax0UVHdHsoopK1nUU5pvZEmMMSg
+	zfrDM+zsW8wuqgYDyYc9om5V+7wT317Wto0QD5NVa9AFHRr8kPihF+Ci4m8hAGArKTtPSSbnlhONj
+	4715vZuMbAffLhepXMdAdG7SDwF+qcQdUNyj8tBWZw9RuOJwOSxbvRGpPCqas+D6JtmfLtoVHutS8
+	lOyxpRYwiEJHvbGNXoq50B3oDCrGJmpEngUX3I9V/nWGgdP5yxyVA0hb/jMv0OEcQbd257ylutG40
+	2YqsxeeJb0SS7uUSupjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAhSx-0000000BqtB-13M0;
-	Mon, 20 Oct 2025 04:25:51 +0000
+	id 1vAhWM-0000000BrUP-2f4T;
+	Mon, 20 Oct 2025 04:29:22 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAhSw-0000000BqsU-0fO1
+	id 1vAhWL-0000000BrTY-32Dq
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 20 Oct 2025 04:25:50 +0000
+	Mon, 20 Oct 2025 04:29:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=nvb+N79+1rz+7OJYvNB/1WfSxRwqST+oSw7w/swSoZg=; b=MEQGK47HeZS0p5tmQlVkVJ97LZ
-	sCVzlpciXvBwB/Ro7joPKKlfskqsNi8S/FuOts4rNdfT2h+g7muk0jyVPTpL0hpa9hNCxxHheMy9p
-	+TRzblftUTVxpSamCtikJXbGJ9ZpIh/tG9VP2DLnB9tll8V9l5qx0+AcUBjropt0gSk9oj09B4vk7
-	IokrrCDbmp9s9zz3nN9JoQ5YNSfVB0A02ybg5XkjG2iyDrSM2/QLYo2UK56jhMSuBl4yquIC9telH
-	GuGBUsBgUAkFu5srWy/RYF8eeFM61pUqDXxvnl9PmoNG0XiAFgGyhYelg0YrhIQzFBZtU5LaJdwg5
-	clYvobYw==;
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=K/wZtJxRjsPgsFT1TZQP06vJqUDEl57iCFv88CuZkP4=; b=VbceOQxb/JafRgGEVO1guBCMOG
+	afKtJ+u7sf0FStK7qxsGjXhKcknx/eKfTR4LypzyTRYz/yKf8GaK9G7Op/KMyQ9is90PRZoZaH31j
+	FIUcagv22M+ERCHh6heK7kxsQC/FLdAh22NG4XuUxnw9yzzlYn4JjC6DCFGEwJey0bM5Qj0861nlG
+	BIfXf3YEM25L60ctl1tWU2FumLOyleeMMDwZAdKcV9+U6AQ82fyEkuU03nvI+C1605QuZ3gTnP4ir
+	U+KIfoTp0uyYAJoBZE/JltQ0BD1luA8uEKtTefh5DqWKIEkniNvA2mKdWWJMf/VljSjjjtBkXJRfb
+	47mQASYw==;
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAhSs-00000009VBM-2caK
+	id 1vAhWI-00000009VR3-36cl
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Oct 2025 04:25:48 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-26a0a694ea8so28750685ad.3
-        for <linux-riscv@lists.infradead.org>; Sun, 19 Oct 2025 21:25:46 -0700 (PDT)
+	Mon, 20 Oct 2025 04:29:20 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b679450ecb6so2883089a12.2
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Oct 2025 21:29:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1760934345; x=1761539145; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nvb+N79+1rz+7OJYvNB/1WfSxRwqST+oSw7w/swSoZg=;
-        b=ai8bWfWrMUG8zhvfpo8AcZ+VhwcvHIt8pa6j2rgK8yk0qK67h+4UyjYXv7osM2XXT6
-         LWNaNnk0Jh/It5BPCIu5YV3cLqnMznrcKp50ZKIYBaJ+B00dVYtMOkp/A+h0fP59rDZt
-         4JVxasPqO/wIHlPlYwW/CkIYuLmpYD6KL4Z9SvOsd6sBsLV3+PBc8H8g8wqWmCtXj57J
-         E5ArviX0GXbkJDAFgccOwkyCP+Q8yLLjKjaHMWXVVWiTa5sDFgNH7P9u7/aa3iSrhpak
-         vuUM7U3xXE5b+u7xoc2MmLHo/yuqpmTvNTIqdhpwlmyuHMP8Gmg/+1ZHIZSw4UHqmWeO
-         5Tsw==
+        d=bytedance.com; s=google; t=1760934557; x=1761539357; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=K/wZtJxRjsPgsFT1TZQP06vJqUDEl57iCFv88CuZkP4=;
+        b=jg6W5qEqtOdlvN/gpLi39gyCPrjTl5KiS+40Zr6cGdT5Gm3gspQBHSKc9V6y3o+ad4
+         YgpR0/9GWOY5hPtT5qenll539l0ugIwi1c+z9rnkyVoihe37vj5eDGKCnPa9CB55k/Uv
+         uFPZtXcDx5asHpIFQPHlrjgzGr1HAals10hokA6YeHLlYmKROAewGS7rI28W/1/ZP4PK
+         zNfq3RNiifBE2DTqqr5wK/wdGIAdeqaKFs7QZM29RbUUg+ZcYOQop35mmYTvYax2SwHY
+         ZHe3Q+Jc2gQAIhy/puk+mZWszI73JUhV76CUB4b0viUoYMXF3am8ElNRkbm7vw4lwxiK
+         IZ8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760934345; x=1761539145;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nvb+N79+1rz+7OJYvNB/1WfSxRwqST+oSw7w/swSoZg=;
-        b=UjsxBZpaxtRtxBfHakhf1xnO1giyhouW5Ymm8eEo+FEn2RcGc6kNn0LH4H/x3oxDDX
-         DFqehrMK8aPZi7vqg5WJ7+xE0Q32HrqezQakPyRUUeVjiPMxM8UvbABgi8zOdQxFq3T7
-         SspmlKKZdkhVYvtCrF1DobnKe4cP3OR1SK/piURQOzg6NYQVEc066UY2YcrVyclPWdrk
-         4y7bu7/KGu23q757rPwuetH7MJXef5aWxRehoEtopUQBjo6bqeouSAn8KslmbDVF4dHs
-         A+fuyceKgBjTWetsRKaECL1Bh6o3fZD20tsBPal19SZr1h8KptrGQ8+IYt5cWSscFemm
-         pKUg==
-X-Forwarded-Encrypted: i=1; AJvYcCVHk+9eJBOZgD1nxVX++SufUFtbv98fTXWdPwhHZHl7eF3QUrt8bycAaKbmrDz/1Q6gWLyH5RYnnC/WHA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxk7PhEi7Kgkm+NHpowZbAyl+qpaS3zzsYH9zXqbv7n2j8y1vSM
-	SA8NYBh+7nFOmsS64dbCdvglc+4YIzQhrG8RtQYmX8QW5kIPyQaPro+T6pZAPeAOmYI=
-X-Gm-Gg: ASbGncvMAJE2BxZfTIhUgrI0oFEKJtTUv4b1ma5afCmrLV0YCa9TRg153Uk3Ls3s7Xk
-	WGsvFyg/lkSuqeu/m/tvd1663/SJiYHpX4wINuYexqD4a60cKCPCiKnntwKOt4xj/zIU0BpVssf
-	p6j/Ta5sX9PPkXvI7a5mTvmr2i12xRARzrNEIHUhSalKkDV4yT82EwkP/RldA5rSSzzNI/JevD4
-	358mbSGuKGBbsmXgP7xoqQqyKfxWJg+zs2HK0XmtP0o9PWdetlmX+TZkYEtm5nuzHxkFu0igvL4
-	IKqGmBxlRu4HJ2RCWvopKgFQSMtJLiy1YxtVH/rozyVJAT+SwO3aEtKtqOA0BNBV29OdZNBHxu8
-	3nhmCWRCgc5tOhU85pA0A6g/snIeBCnayo+7EMC1fwuBqIjz/iAU6/6IcpJaOTzgihC8mbocqaD
-	NS2CYJJx/uSpKcFxHoZCbL+bgcX+9jtscRZ17hnTzM7ix5Av/AvFjiEwwnmkGN81amnKS9jmUMv
-	A==
-X-Google-Smtp-Source: AGHT+IH0j6CDe697/Hu2JYLa69TXmwS2tLcGClfdWod/OVynSzlnBv0UTOF6Th9AWlAgJGMUHpIxww==
-X-Received: by 2002:a17:903:3c24:b0:269:8f2d:5221 with SMTP id d9443c01a7336-290c9c89cd4mr136224525ad.9.1760934344799;
-        Sun, 19 Oct 2025 21:25:44 -0700 (PDT)
-Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29246ec20a4sm68319325ad.7.2025.10.19.21.25.36
+        d=1e100.net; s=20230601; t=1760934557; x=1761539357;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=K/wZtJxRjsPgsFT1TZQP06vJqUDEl57iCFv88CuZkP4=;
+        b=WZ2KFm+Y+WzRC86JEQ1Lx/8N9s0h8tIy9oV8UBPw5bb8Z7t+usoH3KkaYRiiw/iOIh
+         U8eIEySEUOcl1WfszTWm47Ef3VxYmeFa/Xun2M8i4FiYP6GkOQsYKUNpR3LosSTiucbb
+         r4StZd9dxBIo3OwL8dZpYyR3OS/iVyzzXujmiU0ZONNNS6JT2wozB52TyadERzPRYSk+
+         nTl4qw+ar6OLZgfze+vCIUZ3FG7U3BGfcPA/0U/ipder76OuErIyRefHYpsG373k52HE
+         tWqtgHeEz2FLsANbH/SIU/ICZEUjqEb6ChwQwtS7mf8ai7ebSLulfI112/TRC12itI7B
+         NjUA==
+X-Forwarded-Encrypted: i=1; AJvYcCU9dYiCdy+FwtSVKPimPtEfdBcSTY14wUz2LTJnOYQ+mGOKrsc6Xm9jtTMHT/JBAYvao9Mi5GioKg3nmQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLasKuU34wpWadulekHZMb5GwFrxfJWvoFmOAYxs/ZFT7Us4YB
+	rBoeGYucNtCSIju8082OePTRZov3Kr7s6tf5bmuD3YJwWrNaZ1ZlCdzMe5kyM47VREA=
+X-Gm-Gg: ASbGncvC3EFHXP0NQiUHummPT6kHQOBlKUZXxqmBvLRA0wqrG5dtwGLbjDyJT0sKb2c
+	QDRskTx6ruZXHdbSfJVrEW+sX6GcMOEnlnmUY8VFtjJ+Q7bWZwfTrQVAwmp6U4nfvBANKsBMHGW
+	13yKP49MeZ0GI+6aXcBZUxO5KDUQXqKLTbGdHLBz3/zNiBUXY0irUWBpey5EKkZEAPmw12oUthN
+	ZDZxGj2ykmZPsM07WzJ2EX3Q8mYnrMBuh9lLDCKyWM+ijnx8RusOdrv+qOt/+1w/QPh838QBrOY
+	Y9amSkNv6yERdCbxIfIEpYH6olaP8/I7R+MuggDCw54GL+etmR5XSRxeh0TwYBwk2T045jEXdYR
+	TKGLutDmVFTkjZRdu0iP7rLfZdLM6sSGTYK3hGb6XJE7f0vJWaOiPzWUrnqhoezfRwMDutZrsEu
+	aomCZjZl/Wk6egtxcuxu6UoPyJGiASfVjKk2+RAHS8hdAYM0er7F6cnyUo7wsTYBg=
+X-Google-Smtp-Source: AGHT+IFpyzb2lc+FEvYmYTlRzjGRaKAbU2/1KopbwUla+EaFbZIWmZ4VSEnrtlloLabkn4dzpBObsg==
+X-Received: by 2002:a17:902:e5cf:b0:290:9576:d6ef with SMTP id d9443c01a7336-290cba423b1mr160239305ad.54.1760934556712;
+        Sun, 19 Oct 2025 21:29:16 -0700 (PDT)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.57])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6a76b35dadsm6932872a12.26.2025.10.19.21.29.08
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 19 Oct 2025 21:25:44 -0700 (PDT)
+        Sun, 19 Oct 2025 21:29:16 -0700 (PDT)
 From: Xu Lu <luxu.kernel@bytedance.com>
 To: corbet@lwn.net,
 	paul.walmsley@sifive.com,
@@ -118,16 +116,14 @@ Cc: linux-doc@vger.kernel.org,
 	joe@perches.com,
 	lukas.bulwahn@gmail.com,
 	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH v4 09/10] RISC-V: KVM: Allow Zalasr extensions for Guest/VM
-Date: Mon, 20 Oct 2025 12:24:56 +0800
-Message-ID: <20251020042457.30915-5-luxu.kernel@bytedance.com>
+Subject: [PATCH v4 10/10] RISC-V: KVM: selftests: Add Zalasr extensions to get-reg-list test
+Date: Mon, 20 Oct 2025 12:29:04 +0800
+Message-ID: <20251020042904.32096-1-luxu.kernel@bytedance.com>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251020042457.30915-1-luxu.kernel@bytedance.com>
-References: <20251020042457.30915-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_052546_952406_D3441BB3 
-X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-CacheID: sfid-20251020_052918_982841_4D9F99A1 
+X-CRM114-Status: UNSURE (   7.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -145,47 +141,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extend the KVM ISA extension ONE_REG interface to allow KVM user space
-to detect and enable Zalasr extensions for Guest/VM.
+The KVM RISC-V allows Zalasr extensions for Guest/VM so add these
+extensions to get-reg-list test.
 
 Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
- arch/riscv/include/uapi/asm/kvm.h | 1 +
- arch/riscv/kvm/vcpu_onereg.c      | 2 ++
- 2 files changed, 3 insertions(+)
+ tools/testing/selftests/kvm/riscv/get-reg-list.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index ef27d4289da11..4fbc32ef888fa 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -185,6 +185,7 @@ enum KVM_RISCV_ISA_EXT_ID {
- 	KVM_RISCV_ISA_EXT_ZICCRSE,
- 	KVM_RISCV_ISA_EXT_ZAAMO,
- 	KVM_RISCV_ISA_EXT_ZALRSC,
-+	KVM_RISCV_ISA_EXT_ZALASR,
- 	KVM_RISCV_ISA_EXT_MAX,
- };
- 
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index cce6a38ea54f2..6ae5f9859f25b 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -50,6 +50,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
- 	KVM_ISA_EXT_ARR(ZAAMO),
- 	KVM_ISA_EXT_ARR(ZABHA),
- 	KVM_ISA_EXT_ARR(ZACAS),
-+	KVM_ISA_EXT_ARR(ZALASR),
- 	KVM_ISA_EXT_ARR(ZALRSC),
- 	KVM_ISA_EXT_ARR(ZAWRS),
- 	KVM_ISA_EXT_ARR(ZBA),
-@@ -184,6 +185,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
- 	case KVM_RISCV_ISA_EXT_ZAAMO:
- 	case KVM_RISCV_ISA_EXT_ZABHA:
- 	case KVM_RISCV_ISA_EXT_ZACAS:
-+	case KVM_RISCV_ISA_EXT_ZALASR:
- 	case KVM_RISCV_ISA_EXT_ZALRSC:
- 	case KVM_RISCV_ISA_EXT_ZAWRS:
- 	case KVM_RISCV_ISA_EXT_ZBA:
+diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
+index a0b7dabb50406..3020e37f621ba 100644
+--- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
++++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
+@@ -65,6 +65,7 @@ bool filter_reg(__u64 reg)
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZAAMO:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZABHA:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZACAS:
++	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZALASR:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZALRSC:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZAWRS:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBA:
+@@ -517,6 +518,7 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
+ 		KVM_ISA_EXT_ARR(ZAAMO),
+ 		KVM_ISA_EXT_ARR(ZABHA),
+ 		KVM_ISA_EXT_ARR(ZACAS),
++		KVM_ISA_EXT_ARR(ZALASR),
+ 		KVM_ISA_EXT_ARR(ZALRSC),
+ 		KVM_ISA_EXT_ARR(ZAWRS),
+ 		KVM_ISA_EXT_ARR(ZBA),
+@@ -1112,6 +1114,7 @@ KVM_ISA_EXT_SIMPLE_CONFIG(svvptc, SVVPTC);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zaamo, ZAAMO);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zabha, ZABHA);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zacas, ZACAS);
++KVM_ISA_EXT_SIMPLE_CONFIG(zalasr, ZALASR);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zalrsc, ZALRSC);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zawrs, ZAWRS);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zba, ZBA);
+@@ -1187,6 +1190,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
+ 	&config_zabha,
+ 	&config_zacas,
+ 	&config_zalrsc,
++	&config_zalasr,
+ 	&config_zawrs,
+ 	&config_zba,
+ 	&config_zbb,
 -- 
 2.20.1
 
