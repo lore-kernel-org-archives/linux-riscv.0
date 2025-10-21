@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C97C0CCD184
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 17:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB1F3CCD1A7
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 17:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=3vL+zJ2u5X8QkbNvifA138GU7kUKHRrdeuY9gzeyXAA=; b=xCV6aRyaJ+Cib+
-	YUvipz2yem4bG2CFWUkCNBLxFQvLwJpmTE2TfxGeRytJ2qenOaVQpW6oGNAsYLyxbQxYOFPTbkwo9
-	q2ooJUzzUINnTxkCWVEgUzXpCFAgnc9YfZM5iODm9YzBve2EpM8EpGWMhXY2PG+MnXkhP5udMiMeQ
-	gfa0apXBC29Fy8STg6bqTqFyJ/yWG9fOneBoa9Ta907p2l0RWDWeqUE+1TE4LWes/7OrmU3ofjfcZ
-	16Qs64LPUdl365ykTro4wZFR2y1PYHLfTT3c2Upu+Nli7HHtxOOjVhF0rd/MbnSCu4pWP8uplH76O
-	BhwIJtVcEQMX/zla33vA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RY+ZkwRJRItY1h7sijTEsHFVqH6hGoQMKORz+aldHJM=; b=KQkxHpPo+dWVjY
+	iUiuSTOBH85Z/MGY3CRCBhFfRKjPCDZ2DFeuCrCXFEc4OKZrP23VPzPXdrN63ZibUNGCuymcYxz2R
+	5BSBqVb/1LTevqJmWjcB2Slvhc+jBvUg8XAAcdAcKh1xCsl0Gpq57dCUFZDx4RMJ+NpJ64t3JG4rz
+	84GMwzJBWET0qV5H9IDK+6jejEzHZDXMPBT1bPOkjsnpO/Svu8bTQduQ+7v3QjNdhO7rnOVaJo5IV
+	HIPwFJWMF+CInCDAHgDDBTORvjcPpF9ckz5CtpOoYhTYcLqqNcdvwiipovdxMYzZZ7xo5vrLQUYlJ
+	NMgb5wCSPMQIBHmTG8EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBFnU-00000000Bfw-2vR5;
-	Tue, 21 Oct 2025 17:05:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBG0o-00000000DCP-1dwH;
+	Tue, 21 Oct 2025 17:19:06 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBFnT-00000000BfV-07mK
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Oct 2025 17:05:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B3906257E;
-	Tue, 21 Oct 2025 17:05:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A2BEC4CEF1;
-	Tue, 21 Oct 2025 17:05:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761066317;
-	bh=nTdwv3Rks8hDE9igPxkMOcHeAQ1oHeXXF17Qtt8UWNo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=BfuC1iWzEwI9u9n3LOJLbQ9s2OOkABW/X5O5BnhDVairX7hiGIwwWZR016oUFlwhd
-	 fLc9xJixm03Nir31F+8FRS2DqKVHlOaKQoMiET30k8XwvAI9JuvZQQlw6Suz9KFJDQ
-	 ox4zVMwDHa3Rit7JDT8rwHqFrFE2t7TbqFaIFpnPm5fDtgU+imc8VUidXrarKuoXkR
-	 ALUwTwN4+BKPW31Ig46yCYPeG5IKzsXqLPLqkDUKMQ/vfEEH0WkdhZDguNgR5ZfI7A
-	 JX7fkvUJzy58mZr5oCilgJPOLWAjHKSuzubpSWTJ22XmZl+JWxkIBF7kI/eJqMo0FQ
-	 K4d13AKGqsNnA==
-Date: Tue, 21 Oct 2025 12:05:16 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Randolph Lin <randolph@andestech.com>
-Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org, alex@ghiti.fr,
-	aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
-	ben717@andestech.com, inochiama@gmail.com,
-	thippeswamy.havalige@amd.com, namcao@linutronix.de,
-	shradha.t@samsung.com, pjw@kernel.org, randolph.sklin@gmail.com,
-	tim609@andestech.com
-Subject: Re: [PATCH v8 4/5] PCI: andes: Add Andes QiLai SoC PCIe host driver
- support
-Message-ID: <20251021170516.GA1193376@bhelgaas>
+	id 1vBG0l-00000000DB6-3QHb;
+	Tue, 21 Oct 2025 17:19:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=GiBz0AD+U5higfP54JTIWbURN7LMLdXTQYQaOgJ+Bl0=; b=sH0HieRSdZyPzGqjC4vCbXfpKm
+	yJYGFutbqau5ccJh8yltYVSlMxcWDKcGbOGU4jJV41RHFabFrviYfBHkfbfgHkEhT65jW/+WtN/BL
+	/JZBkhTiW1CQiN61+JYIPfkeX6l7+16NHnxi9t5Stb5JTGZE+MLm2+Spsne7Sf5XZhUrTnDMLwfSB
+	ubssjtmD6B6nzIu2WKaMg7Ara+KYNFOyr8oi0Rk2NLElQQamfPbvsKOYiPJIpjTB+WhyawvIwepF1
+	MyB4q32gQfgNBHsGLOaN8szWOf/1dB+Wy+JdaoUCsRYypGjKRUX6jnpoN3m9m1Qod3sGovfmn720/
+	OZ4MifGg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBG0e-0000000DsZ0-2xKs;
+	Tue, 21 Oct 2025 17:18:58 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id F40E13031AF; Tue, 21 Oct 2025 16:44:35 +0200 (CEST)
+Date: Tue, 21 Oct 2025 16:44:35 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: David Laight <david.laight.linux@gmail.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	kernel test robot <lkp@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
+ regions
+Message-ID: <20251021144435.GG4067720@noisy.programming.kicks-ass.net>
+References: <20251017085938.150569636@linutronix.de>
+ <20251017093030.253004391@linutronix.de>
+ <20251020192859.640d7f0a@pumpkin>
+ <877bwoz5sp.ffs@tglx>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251014120349.656553-5-randolph@andestech.com>
+In-Reply-To: <877bwoz5sp.ffs@tglx>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,67 +95,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 08:03:48PM +0800, Randolph Lin wrote:
-> Add driver support for DesignWare based PCIe controller in Andes
-> QiLai SoC. The driver only supports the Root Complex mode.
+On Tue, Oct 21, 2025 at 04:29:58PM +0200, Thomas Gleixner wrote:
 
-> + * Setup the Qilai PCIe IOCP (IO Coherence Port) Read/Write Behaviors to the
-> + * Write-Back, Read and Write Allocate mode.
+> So simply naming it scoped_user_$MODE_access() is probably the least
+> confusing of all.
 
-s/Setup/Set up/
-s/Qilai/QiLai/
-
-> + * The QiLai SoC PCIe controller's outbound iATU region supports
-> + * a maximum size of SZ_4G - 1. To prevent programming failures,
-> + * only consider bridge->windows with sizes within this limit.
-> + *
-> + * To ensure compatibility with most endpoint devices, at least
-> + * one memory region must be mapped within the 32-bits address space.
-> + */
-> +static int qilai_pcie_host_fix_ob_iatu_count(struct dw_pcie_rp *pp)
-> +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct device *dev = pci->dev;
-> +	struct resource_entry *entry;
-> +	/* Reserved 1 ob iATU for config space */
-> +	int count = 1;
-> +	bool ranges_32bits = false;
-> +	u64 pci_addr;
-> +	u64 size;
-> +
-> +	resource_list_for_each_entry(entry, &pp->bridge->windows) {
-> +		if (resource_type(entry->res) != IORESOURCE_MEM)
-> +			continue;
-> +
-> +		size = resource_size(entry->res);
-> +		if (size < SZ_4G)
-> +			count++;
-> +
-> +		pci_addr = entry->res->start - entry->offset;
-> +		if (pci_addr < SZ_4G)
-> +			ranges_32bits = true;
-> +	}
-> +
-> +	if (!ranges_32bits) {
-> +		dev_err(dev, "Bridge window must contain 32-bits address\n");
-> +		return -EINVAL;
-
-Is this really a PCI host controller driver probe failure?  I assume
-there are devices that only have 64-bit BARs and could work fine
-without a 32-bit window?
-
-If a device requires a 32-bit BAR, and the PCI core can't assign such
-an address, and gracefully decline to enable a device where we
-couldn't assign the BAR, I think that would be preferable and would
-identify the specific device that doesn't work.
-
-> +	}
-> +
-> +	pci->num_ob_windows = count;
-> +
-> +	return 0;
-> +}
-
+Yeah, that makes sense.
 
 _______________________________________________
 linux-riscv mailing list
