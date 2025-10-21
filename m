@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 837EACCD184
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 11:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A279CCD1A7
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 13:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2fY0Uw+b5hZCixcTGNObpIofxBPl9LGVCXRajRhjcIg=; b=fR0Oeq/SLLH4K5
-	+zOt405w1ywPLQyrvbMqJkC6SbkO9uD3VR44q4mZ3OyST51YdR1CoCoU9RLYmAZKOIOhBWmpgHemE
-	ZJwQ5pizt65aU55pdxd02yvaOhvCtwlZqVBNtUHoUve1idUhXTg/BofN71t1eUX9jdGXAIqyZ+/q+
-	yYCfhPjMAZEyFXUd86yfIpyxlxQAlR8KKbwFipfnaTS9kehiOgMn+xYg+m6D85Q3hJRym7rjcjtGn
-	koBSnobCz9afLhVBRBDpppam4K8jQv1rED0AzQe31OcaUcrQ68FJrkgkwPnUdH2HK2EFOp9USUv+r
-	DScc+7TUfrlmsgl9tqfg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0Tz60xr4Vf12kKfxm2DniVANLq93dmqHdVz0QuWFkH0=; b=qtinDBX69sGx2G
+	Z0s5mDsMWm+I53wcJK5RibjupfKQB7pFH+JGV8oyjMstYs103n2zphxqcUhbfQaC/fJCmrGdFC+ws
+	ZYLGoOIEAMXf5kvYn88CnfkhVqlU5i6jwLwyDrgH8LTceCACGUHqNRIKXKyCz8+H2tYrxs25IYaUe
+	oFbKolA96gdZxV3cBjT/U0f689lq9+11PqS5sek/Cgsk97uxqwjzzCMZHWMVy7Yiol+6QrP17U9tP
+	maqfMw57N8QkeTknBlnGDKT6aR5VA9J9HYsJ8BHJ1Bwku7MZkz38r+6MSs05bsy3+BgUmjuuI2AQV
+	vgXuBlJsb6XEFZycI0QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBAwj-0000000Gqg5-3Cyb;
-	Tue, 21 Oct 2025 11:54:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vBCRU-0000000H9cj-2a9b;
+	Tue, 21 Oct 2025 13:30:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBAwh-0000000GqfY-3o9T
+	id 1vBCRR-0000000H9cF-1oHO
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Oct 2025 11:54:31 +0000
+	Tue, 21 Oct 2025 13:30:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4DE6A623DD;
-	Tue, 21 Oct 2025 11:54:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C460C4CEF1;
-	Tue, 21 Oct 2025 11:54:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D22224343D;
+	Tue, 21 Oct 2025 13:30:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F2ACC4CEF1;
+	Tue, 21 Oct 2025 13:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761047657;
-	bh=uPZbpRtuUAGL7PXaUrKempyAjExOsq+OSZosdwkFDXc=;
-	h=Date:From:To:Cc:Subject:From;
-	b=fN7l/pOj403MC/dOkqseufxCFbACPUg2lwxHFfFY5q4H9hqfuUlOPralnu4qGlMMP
-	 Yf8Y6gbDYv9gPMQoRJ+k9QtKGb8F1Zdy1ulks5cy7QOoLoCxpNKNSByBzSeWkrjs9s
-	 nTo5xpLi2DVSdgNtHyuhWGX5dVw8ZIfxUBLhicyM40KnkflGnvoaF22dt91B67OW94
-	 /PAeI2BPwTb971P1Xtu3W6F1BNiRBRMAnsyHk5Bt5ZWXBSLJguxpjl8giNlKonIKyw
-	 JvlHTZIGU3TX0MZs4EwizUxBkS1y5D2s+fJdv91HHCuriJ9KAep61/OM30zoj4kEYf
-	 vMOmklZ5sV+PA==
-Date: Tue, 21 Oct 2025 12:54:10 +0100
-From: "Gustavo A. R. Silva" <gustavoars@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Yixun Lan <dlan@gentoo.org>
-Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH][next] net: spacemit: Avoid -Wflex-array-member-not-at-end
- warnings
-Message-ID: <aPd0YjO-oP60Lgvj@kspp>
+	s=k20201202; t=1761053420;
+	bh=TYwNPmQgCPJl15/tu+lF46PWA2zAyxHpdfqlwEfJl4Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PrCDX60SgwFPULyfPpayppmJ0fqejs4Do7UsqATkShfhF5rxG1k4uEylrzMJm+m3B
+	 1l688jkyk/D8vvN+0J1fS70ZtplBnD7m/I/eLqBJ1mCaNYoIW9Np7Q+/p4NEBekV4c
+	 +D9gWhjlve317aEJdKadfeUwvydjCYfXsMNssAnL5q3ECMvINcKZW8poc5bO5oioT4
+	 TE/n9HHwauOHVcE31U4zSyp8hmg2zM6RqXKViYYX8nq/pL+3ePslNhzfY4bK1jHtQ7
+	 MOrTN4U3P0C07h+IgOj5nJMhJKYljKbxG+ESXMcFBVrwlOqu9gmfve50I89KsCxQ4C
+	 zcE7dmx7mfG7A==
+Date: Tue, 21 Oct 2025 08:30:18 -0500
+From: Rob Herring <robh@kernel.org>
+To: Randolph Lin <randolph@andestech.com>
+Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alex@ghiti.fr, aou@eecs.berkeley.edu,
+	palmer@dabbelt.com, paul.walmsley@sifive.com, ben717@andestech.com,
+	inochiama@gmail.com, thippeswamy.havalige@amd.com,
+	namcao@linutronix.de, shradha.t@samsung.com, pjw@kernel.org,
+	randolph.sklin@gmail.com, tim609@andestech.com
+Subject: Re: [PATCH v8 2/5] dt-bindings: PCI: Add Andes QiLai PCIe support
+Message-ID: <20251021133018.GA13337-robh@kernel.org>
+References: <20251014120349.656553-1-randolph@andestech.com>
+ <20251014120349.656553-3-randolph@andestech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
+In-Reply-To: <20251014120349.656553-3-randolph@andestech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251021_063022_517233_C8F6933A 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,62 +80,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
--Wflex-array-member-not-at-end was introduced in GCC-14, and we are
-getting ready to enable it, globally.
+On Tue, Oct 14, 2025 at 08:03:46PM +0800, Randolph Lin wrote:
+> Add the Andes QiLai PCIe node, which includes 3 Root Complexes.
+> Only one example is required in the DTS bindings YAML file.
+> 
+> Signed-off-by: Randolph Lin <randolph@andestech.com>
+> ---
+>  .../bindings/pci/andestech,qilai-pcie.yaml    | 84 +++++++++++++++++++
+>  1 file changed, 84 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml b/Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
+> new file mode 100644
+> index 000000000000..ca444e4766ec
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
+> @@ -0,0 +1,84 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/andestech,qilai-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Andes QiLai PCIe host controller
+> +
+> +description:
+> +  Andes QiLai PCIe host controller is based on the Synopsys DesignWare
+> +  PCI core. It shares common features with the PCIe DesignWare core and
+> +  inherits common properties defined in
+> +  Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
 
-Use regular arrays instead of flexible-array members (they're not
-really needed in this case) in a couple of unions, and fix the
-following warnings:
+Drop the 2nd sentence as the schema says the same thing with the $ref.
 
-      1 drivers/net/ethernet/spacemit/k1_emac.c:122:42: warning: structure containing a flexible array member is not at the end of another structure [-Wflex-array-member-not-at-end]
-      1 drivers/net/ethernet/spacemit/k1_emac.c:122:32: warning: structure containing a flexible array member is not at the end of another structure [-Wflex-array-member-not-at-end]
-      1 drivers/net/ethernet/spacemit/k1_emac.c:121:42: warning: structure containing a flexible array member is not at the end of another structure [-Wflex-array-member-not-at-end]
-      1 drivers/net/ethernet/spacemit/k1_emac.c:121:32: warning: structure containing a flexible array member is not at the end of another structure [-Wflex-array-member-not-at-end]
+> +
+> +maintainers:
+> +  - Randolph Lin <randolph@andestech.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: andestech,qilai-pcie
+> +
+> +  reg:
+> +    items:
+> +      - description: Data Bus Interface (DBI) registers.
+> +      - description: APB registers.
+> +      - description: PCIe configuration space region.
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: apb
+> +      - const: config
+> +
+> +  ranges:
+> +    maxItems: 2
+> +
+> +  interrupts:
+> +    maxItems: 1
 
-Signed-off-by: Gustavo A. R. Silva <gustavoars@kernel.org>
----
- drivers/net/ethernet/spacemit/k1_emac.h | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+interrupt-names:
+  const: msi
 
-diff --git a/drivers/net/ethernet/spacemit/k1_emac.h b/drivers/net/ethernet/spacemit/k1_emac.h
-index 5a09e946a276..577efe66573e 100644
---- a/drivers/net/ethernet/spacemit/k1_emac.h
-+++ b/drivers/net/ethernet/spacemit/k1_emac.h
-@@ -363,7 +363,7 @@ struct emac_desc {
- /* Keep stats in this order, index used for accessing hardware */
- 
- union emac_hw_tx_stats {
--	struct {
-+	struct individual_tx_stats {
- 		u64 tx_ok_pkts;
- 		u64 tx_total_pkts;
- 		u64 tx_ok_bytes;
-@@ -378,11 +378,11 @@ union emac_hw_tx_stats {
- 		u64 tx_pause_pkts;
- 	} stats;
- 
--	DECLARE_FLEX_ARRAY(u64, array);
-+	u64 array[sizeof(struct individual_tx_stats) / sizeof(u64)];
- };
- 
- union emac_hw_rx_stats {
--	struct {
-+	struct individual_rx_stats {
- 		u64 rx_ok_pkts;
- 		u64 rx_total_pkts;
- 		u64 rx_crc_err_pkts;
-@@ -410,7 +410,7 @@ union emac_hw_rx_stats {
- 		u64 rx_truncate_fifo_full_pkts;
- 	} stats;
- 
--	DECLARE_FLEX_ARRAY(u64, array);
-+	u64 array[sizeof(struct individual_rx_stats) / sizeof(u64)];
- };
- 
- #endif /* _K1_EMAC_H_ */
--- 
-2.43.0
-
+> +
+> +required:
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - interrupt-names
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    soc {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      pcie@80000000 {
+> +        compatible = "andestech,qilai-pcie";
+> +        device_type = "pci";
+> +        reg = <0x0 0x80000000 0x0 0x20000000>,
+> +              <0x0 0x04000000 0x0 0x00001000>,
+> +              <0x0 0x00000000 0x0 0x00010000>;
+> +        reg-names = "dbi", "apb", "config";
+> +
+> +        linux,pci-domain = <0>;
+> +        #address-cells = <3>;
+> +        #size-cells = <2>;
+> +        ranges = <0x02000000 0x00 0x10000000 0x00 0x10000000 0x0 0xf0000000>,
+> +                 <0x43000000 0x01 0x00000000 0x01 0x0000000 0x1f 0x00000000>;
+> +
+> +        #interrupt-cells = <1>;
+> +        interrupts = <0xf>;
+> +        interrupt-names = "msi";
+> +        interrupt-parent = <&plic0>;
+> +        interrupt-map-mask = <0 0 0 7>;
+> +        interrupt-map = <0 0 0 1 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 2 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 3 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 4 &plic0 0xf IRQ_TYPE_LEVEL_HIGH>;
+> +      };
+> +    };
+> +...
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
