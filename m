@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939A3CCD1AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 19:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1E3CCD1A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 20:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JyHv8ITmpCbT55V5/wi0t+PYjYQqzUYmfPCz9x91PsY=; b=NwVbP19rfgAJyj
-	WEKnpWH3SDrQT7PHM+Fu9BmT4xP9I8DHqBjko0TMrC9yDfOKdmbFHAUw6+yTF0QhrXnbhg/Dr7Cbl
-	cMZjIK4VFLzAAoD4Xsw5iBWWFMBqlLChGYZEqiVstNchkcJojeV7T4pd7i2UJ1lejZMRQl36kzxv7
-	yomjF8iHhhTHlOrsc1ARfsScMbrz9KccfipKWlUal3eilk+oSxtpVWwXr987RSShtZAveE9Gq69sj
-	tXN3ltd2eThNa4OFMqJN6S6TCKTMVHQVz4FVnQJhvBvRujsVMhsZpN4rj4GxOp6/UqRjDA+HLAOQY
-	Gjzzrn7wGWd3fZkCK3BA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Pnk004dgBpabcMpu5dniHU8InjGi1FinnsgPMxoTMCI=; b=EwIntPbIi50O7Y
+	u8M76oWQ1pTtWHRDXSHbnABC83kqIGx2j6VVwnhU7V7/YcHA6LZDRc0NzylY7ISiKSTMrMufM1Ak6
+	SNcXJkJELnLqYmgPM/WR+dbgWYlvTEGWWtqDYgqzqaYSgeqCSFeXIkm6OYuE0Q6VX/Zab0ovmhIvV
+	/lgjcKKGzO8w41xfnJk/QkRLMlbyZWLaVU8RK0blVJoH6z1BjEVIolWX593KhwI5OQ5PSx6nTYb6+
+	vlYFW/HjR/MNeSoMgOYPQf2xBKTjDUDZZPDcLzIS+kCG42X/hbqqBIwQ1+uO1Ai5S+L4gTFAy1qnH
+	i8yjRKrEz0cNjXO2b9VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBHya-00000000Tbc-1RUG;
-	Tue, 21 Oct 2025 19:24:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vBIlY-00000000ZFS-3GES;
+	Tue, 21 Oct 2025 20:15:33 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBHyY-00000000TbP-1zUy
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 21 Oct 2025 19:24:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=DJKT2QONZCH3kce1x0l6r7O/vjQeswEDBGtYmqkrZlY=; b=qRJJvLiSDPnWdeTco8FMIa0FQv
-	yqIC87sEkEvk0jZ48koKW+JEhdN9lOMCbY58at90p6CQtM6nbQLmk2VjBCP+dTTHf7aPJZ/3kVQzw
-	jNRkV/7QM3iE4jNz7oCnpY0ydeBI0i720H6k7+ZqpkLjtX2cFipkp0Dqh4a4ppPAQ+28y01MSvAAD
-	pyZiekynI+2YDUJX0nMcd61+QYYxLxmxoEuKGBv+fXSaMq1Z9QO7/hCpzyJFYJfjA4uvWs7bOUMBo
-	tztmID9jy4NKb+xUDAPOc4yV+yKPHE1w7r2laMNYkmUkpVyDUz8BBqzx0CLZkBqzKVwK0pU6g4Im9
-	wQ0I9h8g==;
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBGLn-000000000nQ-2kYU
+	id 1vBIlU-00000000Z9z-0r0K
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Oct 2025 17:40:51 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251021183604euoutp019317dc710b860a3aaae802f8760d0ce0~wlXB_NQGs1388713887euoutp01t
-	for <linux-riscv@lists.infradead.org>; Tue, 21 Oct 2025 18:36:04 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251021183604euoutp019317dc710b860a3aaae802f8760d0ce0~wlXB_NQGs1388713887euoutp01t
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1761071764;
-	bh=DJKT2QONZCH3kce1x0l6r7O/vjQeswEDBGtYmqkrZlY=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=t1jEoHh2mGultn0vKqMDg4pjoB4gyhpPLw3irgvnbrDmkih1wF3yYeKKQiTfK0DGW
-	 qSO9uIGJxwPWPJpI8wyDwqNjlboO3IYD8OOdZRr/68o7hCIIM/uLNEPW26/iq1D8VU
-	 89Rpcj9y37qOg+WGhfXUqe372alAX/YZt9qCceos=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251021183604eucas1p128aae1b63df44b4dfd26abe2a3d3cd11~wlXB09V7V0437104371eucas1p17;
-	Tue, 21 Oct 2025 18:36:04 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20251021183603eusmtip1fd1f79b260b6cc623515b24c5eae6a9e~wlXBTN8bd2983529835eusmtip1y;
-	Tue, 21 Oct 2025 18:36:03 +0000 (GMT)
-Message-ID: <e8a0782a-4e63-45a6-85c8-e3113b1f391a@samsung.com>
-Date: Tue, 21 Oct 2025 20:36:03 +0200
+	Tue, 21 Oct 2025 20:15:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
+	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
+	bh=iGv5cQ4tDQC4OnHLXP1B80nBSWV3CERfpohMOjbHNOQ=; b=D//A0xT2/1UIkf7F9CG+95nRRj
+	EZmHdFcDtas3rfE5DBd/mL5Lp9Jt7runiyXKLTaXZwb71MN9vPDD7Kw73QNirxu9yqUT67X5Z6UPO
+	S65iJJ2HGUH1Pa/S8l9JlaMMpaQ+YRLlu1mp1Jw8ByDOzjC1kJQD3uLSdUSB3AQ21NMb3j2Cq29rB
+	GQ5PRInJp3W8aqI6twuyA+wrllqMtIZziOkRUvpNXVrmXczAJDpVTldd/SscFu4l4w+J69Fh/Hcwh
+	z3AxbB+hyZccIeB7k65cW0dUN3hryHWbBbDvp8NjYvXg2lZa2GALv68Kgtnlg3vh4U2Fzz+kd1E7e
+	noM65mxQ==;
+Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1vBIl7-00GWo7-1b;
+	Tue, 21 Oct 2025 22:15:05 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org,
+	Lee Jones <lee@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Yixun Lan <dlan@gentoo.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE:Keyword:riscv),
+	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit)
+Cc: Aurelien Jarno <aurelien@aurel32.net>,
+	linux-pm@vger.kernel.org (open list:SYSTEM RESET/SHUTDOWN DRIVERS),
+	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
+	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
+Subject: [PATCH v3 0/2] driver: reset: spacemit-p1: add driver for poweroff/reboot
+Date: Tue, 21 Oct 2025 22:11:58 +0200
+Message-ID: <20251021201451.1013640-1-aurelien@aurel32.net>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mailbox: th1520: fix clock imbalance on probe failure
-To: Johan Hovold <johan@kernel.org>, Drew Fustini <fustini@kernel.org>, Guo
-	Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Jassi Brar
-	<jassisinghbrar@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20251017055414.7753-1-johan@kernel.org>
-X-CMS-MailID: 20251021183604eucas1p128aae1b63df44b4dfd26abe2a3d3cd11
-X-Msg-Generator: CA
-X-RootMTR: 20251017055521eucas1p1344f04a5012eb6981315cf160ffc1ec6
-X-EPHeader: CA
-X-CMS-RootMailID: 20251017055521eucas1p1344f04a5012eb6981315cf160ffc1ec6
-References: <CGME20251017055521eucas1p1344f04a5012eb6981315cf160ffc1ec6@eucas1p1.samsung.com>
-	<20251017055414.7753-1-johan@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_184048_411994_4557368D 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20251021_131528_611182_327B0D7F 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +83,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This adds poweroff/reboot support for the SpacemiT P1 PMIC chip, which is
+commonly paired with the SpacemiT K1 SoC.
 
+Note: For reliable operation, this driver depends on a this patch that adds
+atomic transfer support to the SpacemiT I2C controller driver:
+https://lore.kernel.org/spacemit/20251009-k1-i2c-atomic-v4-1-a89367870286@linux.spacemit.com/
 
-On 10/17/25 07:54, Johan Hovold wrote:
-> The purpose of the devm_add_action_or_reset() helper is to call the
-> action function in case adding an action ever fails so drop the clock
-> disable from the error path to avoid disabling the clocks twice.
-> 
-> Fixes: 5d4d263e1c6b ("mailbox: Introduce support for T-head TH1520 Mailbox driver")
-> Cc: Michal Wilczynski <m.wilczynski@samsung.com>
-> Signed-off-by: Johan Hovold <johan@kernel.org>
-> ---
->  drivers/mailbox/mailbox-th1520.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
-> 
-> diff --git a/drivers/mailbox/mailbox-th1520.c b/drivers/mailbox/mailbox-th1520.c
-> index a6b2aa9ae952..626957c2e435 100644
-> --- a/drivers/mailbox/mailbox-th1520.c
-> +++ b/drivers/mailbox/mailbox-th1520.c
-> @@ -435,10 +435,8 @@ static int th1520_mbox_probe(struct platform_device *pdev)
->  	}
->  
->  	ret = devm_add_action_or_reset(dev, th1520_disable_clk, priv);
-> -	if (ret) {
-> -		clk_bulk_disable_unprepare(ARRAY_SIZE(priv->clocks), priv->clocks);
-> +	if (ret)
->  		return ret;
-> -	}
->  
->  	/*
->  	 * The address mappings in the device tree align precisely with those
+Changes between version 2 and version 3:
+- Allow building as a module
+- Remove outdated Acked-by and Tested-by
+- Collect Reviewed-by
 
-Hi,
-Thanks for your fix. I believe it is correct as devm_add_action_or_reset
-will call th1520_disable_clk on failure, like you noticed.
+Here is version 2 of this series:
+  https://lore.kernel.org/spacemit/20251019191519.3898095-1-aurelien@aurel32.net/    
 
-Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
+Changes between version 1 and version 2:
+- Rebase onto v6.18-rc1
+- Use dev_err_probe() to simplify the code
+- Fix indentation of patch 1
+- Collect Acked-by and Tested-by
 
-Best regards,
+Here is version 1 of this series:
+  https://lore.kernel.org/spacemit/20250927220824.1267318-1-aurelien@aurel32.net/
+  
+
+Aurelien Jarno (2):
+  driver: reset: spacemit-p1: add driver for poweroff/reboot
+  mfd: simple-mfd-i2c: add a reboot cell for the SpacemiT P1 chip
+
+ drivers/mfd/simple-mfd-i2c.c             |  1 +
+ drivers/power/reset/Kconfig              |  9 +++
+ drivers/power/reset/Makefile             |  1 +
+ drivers/power/reset/spacemit-p1-reboot.c | 88 ++++++++++++++++++++++++
+ 4 files changed, 99 insertions(+)
+ create mode 100644 drivers/power/reset/spacemit-p1-reboot.c
+
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+2.47.2
+
 
 _______________________________________________
 linux-riscv mailing list
