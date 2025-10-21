@@ -4,88 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89EB2CCD1AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 23:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0AA0CCD1A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 23:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IGqsIquOUOaIKSfhdt5wsjW1HyCmkahGgOSIw5Mi0YY=; b=bTCBreCGdx8iMn
-	FLW7qSFgEf2Uk/p8UwNIuhOjCDunPmfncwICwcvT8m8qp5xaQLzqMupbF3Mciug6RncnMWIZlNTdk
-	8Y0PdWyGBPfikp2K+0/+4F7SZt+ckANFhqEG1HTCykaqttB9LUk3Wxk01fDyRiB9omSgzMYFLcoB9
-	vrwpt8bfJ6YL9bqf0YZ5lwhMTMqPXsZq3MbhvabyxaCwRD3C10ZGzbi7pjMsLnKGodmFH31YEmXrw
-	ZFrXq+VJIPhPyF8VAZl/Zw7v0QrXit3+bLWtssCNlwAKmQpxm6KhybdLd5dCxXLIaD4o72ngPT5OI
-	bMs3K9kQu2O2vID6D3Yg==;
+	List-Owner; bh=ovpaVJhViHMnK5/CyV+fL/xq+nMLbmauQL1KHT2Cyrg=; b=JKBRpdVm9UYulq
+	5cIWg9o6vcf2StPb03AQtdZh/XjJCq0AYDaWxG4CzweIb05ocNYKEi2Vz6tJRyISOA1B0uy3xcgnE
+	47i6tJCcW/dw8RIOjD6nhpfpaFJNqbCnQfyvfjruZLD/cZY7WyZcmOMik3TGbBreA5uiKS/+tG7+o
+	CXAmnkV38EHNCqRY29uvmZRmk2pAIKuWkpZ7yKEaKVo+lVSQH5YifdQG9NZSj5Cz31GGEZLITMj0X
+	FMAAit2oKUv9xi9BOy0B6anL2+aVtAcEsQU1z+RlI1nzfz3eBYZKp+abe08TgHLlOFUt114vGklbP
+	2Z8owWj+QL7/0o+C8gnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBLqP-00000000voe-1zi6;
-	Tue, 21 Oct 2025 23:32:45 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1vBLss-00000000w4u-01bt;
+	Tue, 21 Oct 2025 23:35:18 +0000
+Received: from freeshell.de ([116.202.128.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBLqM-00000000voA-1k47
+	id 1vBLso-00000000w4K-3ZdA
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Oct 2025 23:32:43 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7a265a02477so222649b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Oct 2025 16:32:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1761089561; x=1761694361; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=f3SoQg6qUy/7R1NB2YZ8xX742KWcwmoU6IRF+Yny0HQ=;
-        b=kPGwVh+0Qhs7ud2pPVNijvmRTt6e/Jtji4YIooKJZJz0EF75Eot2ITXwdep9ikpwJZ
-         jD42Wi7Co9nmkHE/3CPtpyLtK5BrbPmKz9HZeZfTyu/2kw1vAHP/NvoqFqbsKrwDJL2q
-         rd4F6VDYEeFMzvCyjo243Xn+6or+WzJJXpirDSRwVwR+Mj4aUF+dR92vOI75gz9Ku5/P
-         iskg1ZH77ICOfFql1lki3L5kM3bZPf20h/cUu4rxxrgkR4fVzcr9qWb5SZAYMk8zEmT/
-         G3wo1t5GsXMQuCEKiEpI0x0JKUiopAQKX/aOmGP+Vgf0DxBnVV7M/vQeej/kHH379teL
-         pHHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761089561; x=1761694361;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f3SoQg6qUy/7R1NB2YZ8xX742KWcwmoU6IRF+Yny0HQ=;
-        b=IZE/Cl+Q/uudxN/aRVB44wHwS2+TP2zWA5FLrmzeo8z5rWkPKzP5nFJxYuyrxYzRPY
-         wI1bU6VjofSIiuSAn//DnVQCutFOYfQnsh7/trGt4sFX6PYKLI7NjeiAmBtFnelrIyl3
-         CRUYGWc2hyim63xJn/STgyY9tl5JNtGKbBXZYqx2r6UEyg8bc89ZKT1IMIgWlPRGaMo2
-         vJe0fzdENDokxl6ra0mZnKTNWYdSAxYfkYJx64kFfThC31C6D8Ke0POUbDaZCUBh99dl
-         mDhd9xy75mAJg0Y1TZpZ2c64nRxBpk9+RfJAo0+Z3Sv1ghR+fcRemiOLsSJ5oH2V6hll
-         PVqA==
-X-Forwarded-Encrypted: i=1; AJvYcCWC//YLz9ZX8A3dYWfsUxMwb9zWfsOF8tL6VDmxvSzdcRGre71S9tEkCFTR/teYo6wSHJJPsVmO8YNRow==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKWt1VP2hk2LtCVn02JplImb7YssC3oYwtFrJ0wPSGN0hgZQ98
-	TiDcJ7EjxBt0HOS8dXkFaQ9Lm63H4Lk1abEbJU7OBgT3fThIIrWTYEhHlIER45fIDAE=
-X-Gm-Gg: ASbGnctIFVD+v/3pR8W57zK0C1+mZ5DnAt96e5w4exTl7Z+CnLUXWfJeMopaWFC4vf9
-	P4EqIkUiHE4M7C5ynS7Er598eWlPofE5CX37Jkds1HyLXqcQNEC8NfPQNu0W6EtTZHa/FKerHpa
-	vdiKejiqCri+OK1tEAfv4v+AXzrV/WtbjO59YUW9rILUuJTJdujA24MdxioGCrHpRLtrcojSOK2
-	a5w0CgjX8dFkai14PiH2QqeZn5F2RTwq0t3VgZcZzpZEE+ZHbUKLBoEj97J98mguTZpB9Zt9DNk
-	7akX/26Lzp8UR26hAlS4C2l+ycevYc/8S7rFXYjDKpXGNuIwGBs/e9tFNFHuu+EO6lC6/mPMQTj
-	TH6Q85z5rpzKjFmTAvAcu2yxGb/qgvcU6i8zxbVrH1dZ5DzkJL7tm6gQ48wV6Urmcl5zrzLPQpj
-	E1+j0X15RAVxW8
-X-Google-Smtp-Source: AGHT+IH03kcA+/FfdgqJXUp6O1wg52OQMz/iAFdL9ej2bbR8YwvepRUXUpSaIHOJ/xd6jmJ3hdD2jw==
-X-Received: by 2002:a05:6a20:918a:b0:32b:71e9:81ae with SMTP id adf61e73a8af0-334a850dcc4mr24086859637.8.1761089561537;
-        Tue, 21 Oct 2025 16:32:41 -0700 (PDT)
-Received: from localhost ([208.115.86.133])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6a76b33a27sm11434964a12.25.2025.10.21.16.32.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Oct 2025 16:32:41 -0700 (PDT)
-Date: Tue, 21 Oct 2025 16:32:40 -0700
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
-Cc: alex@ghiti.fr, alexghiti@rivosinc.com, aou@eecs.berkeley.edu, 
-	cleger@rivosinc.com, evan@rivosinc.com, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org, samuel.holland@sifive.com, 
-	shuah@kernel.org, zhangyin2018@iscas.ac.cn, zihongyao@outlook.com
-Subject: Re: [PATCH v3 2/2] selftests/riscv: Add Zicbop prefetch test
-Message-ID: <20251021-01a9b77e3d88543581f1a7fb@orel>
-References: <20251020152924.64551-1-zihong.plct@isrc.iscas.ac.cn>
- <20251020153721.71842-1-zihong.plct@isrc.iscas.ac.cn>
+	Tue, 21 Oct 2025 23:35:16 +0000
+Received: from [192.168.2.54] (unknown [216.234.200.240])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id E38E5B220DAA;
+	Wed, 22 Oct 2025 01:35:03 +0200 (CEST)
+Message-ID: <cbb18fb1-200f-40b4-89a1-c29522fdaae5@freeshell.de>
+Date: Tue, 21 Oct 2025 16:35:02 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251020153721.71842-1-zihong.plct@isrc.iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] riscv: dts: starfive: add DT for Orange Pi RV
+To: Icenowy Zheng <uwu@icenowy.me>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
+ Michael Zhu <michael.zhu@starfivetech.com>,
+ Drew Fustini <drew@beagleboard.org>, Yao Zi <ziyao@disroot.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250930100318.2131968-1-uwu@icenowy.me>
+ <20250930100318.2131968-2-uwu@icenowy.me>
+ <579dad6b4ab0c981b8d51383af2db3a9f4394609.camel@icenowy.me>
+ <b8db0cdf-163e-416d-94b8-c9e1f10c8011@freeshell.de>
+ <2e6ce092996f2717bc274e1c82873c42b2ab18ce.camel@icenowy.me>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <2e6ce092996f2717bc274e1c82873c42b2ab18ce.camel@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_163242_474063_8CCF101E 
-X-CRM114-Status: GOOD (  28.89  )
+X-CRM114-CacheID: sfid-20251021_163515_074141_39F3D457 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,364 +67,167 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20, 2025 at 11:37:20PM +0800, Yao Zihong wrote:
-> Add selftest to cbo.c to verify Zicbop extension behavior.
-> 
-> The test checks:
-> - That hwprobe correctly reports Zicbop presence and block size.
-> - That prefetch instructions execute without exception on valid and NULL
->   addresses when Zicbop is present.
-> - That prefetch.{i,r,w} do not trigger SIGILL even when Zicbop is absent,
->   since Zicbop instructions are defined as hints.
-> 
-> Signed-off-by: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
-> ---
->  tools/testing/selftests/riscv/hwprobe/cbo.c | 188 +++++++++++++++++---
->  1 file changed, 159 insertions(+), 29 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/riscv/hwprobe/cbo.c b/tools/testing/selftests/riscv/hwprobe/cbo.c
-> index 5e96ef785d0d..163228e3f2c7 100644
-> --- a/tools/testing/selftests/riscv/hwprobe/cbo.c
-> +++ b/tools/testing/selftests/riscv/hwprobe/cbo.c
-> @@ -15,24 +15,30 @@
->  #include <linux/compiler.h>
->  #include <linux/kernel.h>
->  #include <asm/ucontext.h>
-> +#include <getopt.h>
->  
->  #include "hwprobe.h"
->  #include "../../kselftest.h"
->  
->  #define MK_CBO(fn) le32_bswap((uint32_t)(fn) << 20 | 10 << 15 | 2 << 12 | 0 << 7 | 15)
-> +#define MK_PREFETCH(fn) \
-> +	le32_bswap(0 << 25 | (uint32_t)(fn) << 20 | 10 << 15 | 6 << 12 | 0 << 7 | 19)
->  
->  static char mem[4096] __aligned(4096) = { [0 ... 4095] = 0xa5 };
->  
-> -static bool illegal_insn;
-> +static bool got_fault;
->  
->  static void sigill_handler(int sig, siginfo_t *info, void *context)
->  {
->  	unsigned long *regs = (unsigned long *)&((ucontext_t *)context)->uc_mcontext;
->  	uint32_t insn = *(uint32_t *)regs[0];
->  
-> -	assert(insn == MK_CBO(regs[11]));
-> +	if (regs[12] == 0)
-> +		assert(insn == MK_CBO(regs[11]));
-> +	else
-> +		assert(insn == MK_PREFETCH(regs[11]));
->  
-> -	illegal_insn = true;
-> +	got_fault = true;
->  	regs[0] += 4;
->  }
->  
-> @@ -41,43 +47,75 @@ static void sigill_handler(int sig, siginfo_t *info, void *context)
->  	asm volatile(								\
->  	"mv	a0, %0\n"							\
->  	"li	a1, %1\n"							\
-> +	"li	a2, 0\n"							\
->  	".4byte	%2\n"								\
-> -	: : "r" (base), "i" (fn), "i" (MK_CBO(fn)) : "a0", "a1", "memory");	\
-> +	: : "r" (base), "i" (fn), "i" (MK_CBO(fn)) : "a0", "a1", "a2", "memory");	\
-> +})
-> +
-> +#define prefetch_insn(base, fn)							\
-> +({										\
-> +	asm volatile(								\
-> +	"mv	a0, %0\n"							\
-> +	"li	a1, %1\n"							\
-> +	"li	a2, 1\n"							\
-> +	".4byte	%2\n"								\
-> +	: : "r" (base), "i" (fn), "i" (MK_PREFETCH(fn)) : "a0", "a1", "a2");\
->  })
->  
->  static void cbo_inval(char *base) { cbo_insn(base, 0); }
->  static void cbo_clean(char *base) { cbo_insn(base, 1); }
->  static void cbo_flush(char *base) { cbo_insn(base, 2); }
->  static void cbo_zero(char *base)  { cbo_insn(base, 4); }
-> +static void prefetch_i(char *base) { prefetch_insn(base, 0); }
-> +static void prefetch_r(char *base) { prefetch_insn(base, 1); }
-> +static void prefetch_w(char *base) { prefetch_insn(base, 3); }
-> +
-> +static void test_no_zicbop(void *arg)
-> +{
-> +	/* Zicbop prefetch.* are HINT instructions. */
-> +	ksft_print_msg("Testing Zicbop instructions\n");
-> +
-> +	got_fault = false;
-> +	prefetch_i(&mem[0]);
-> +	ksft_test_result(!got_fault, "No prefetch.i\n");
-> +
-> +	got_fault = false;
-> +	prefetch_r(&mem[0]);
-> +	ksft_test_result(!got_fault, "No prefetch.r\n");
-> +
-> +	got_fault = false;
-> +	prefetch_w(&mem[0]);
-> +	ksft_test_result(!got_fault, "No prefetch.w\n");
-> +}
->  
->  static void test_no_cbo_inval(void *arg)
->  {
->  	ksft_print_msg("Testing cbo.inval instruction remain privileged\n");
-> -	illegal_insn = false;
-> +	got_fault = false;
->  	cbo_inval(&mem[0]);
-> -	ksft_test_result(illegal_insn, "No cbo.inval\n");
-> +	ksft_test_result(got_fault, "No cbo.inval\n");
->  }
->  
->  static void test_no_zicbom(void *arg)
->  {
->  	ksft_print_msg("Testing Zicbom instructions remain privileged\n");
->  
-> -	illegal_insn = false;
-> +	got_fault = false;
->  	cbo_clean(&mem[0]);
-> -	ksft_test_result(illegal_insn, "No cbo.clean\n");
-> +	ksft_test_result(got_fault, "No cbo.clean\n");
->  
-> -	illegal_insn = false;
-> +	got_fault = false;
->  	cbo_flush(&mem[0]);
-> -	ksft_test_result(illegal_insn, "No cbo.flush\n");
-> +	ksft_test_result(got_fault, "No cbo.flush\n");
->  }
->  
->  static void test_no_zicboz(void *arg)
->  {
->  	ksft_print_msg("No Zicboz, testing cbo.zero remains privileged\n");
->  
-> -	illegal_insn = false;
-> +	got_fault = false;
->  	cbo_zero(&mem[0]);
-> -	ksft_test_result(illegal_insn, "No cbo.zero\n");
-> +	ksft_test_result(got_fault, "No cbo.zero\n");
->  }
->  
->  static bool is_power_of_2(__u64 n)
-> @@ -85,6 +123,34 @@ static bool is_power_of_2(__u64 n)
->  	return n != 0 && (n & (n - 1)) == 0;
->  }
->  
-> +static void test_zicbop(void *arg)
-> +{
-> +	struct riscv_hwprobe pair = {
-> +		.key = RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE,
-> +	};
-> +	cpu_set_t *cpus = (cpu_set_t *)arg;
-> +	__u64 block_size;
-> +	long rc;
-> +
-> +	rc = riscv_hwprobe(&pair, 1, sizeof(cpu_set_t), (unsigned long *)cpus, 0);
-> +	block_size = pair.value;
-> +	ksft_test_result(rc == 0 && pair.key == RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE &&
-> +			 is_power_of_2(block_size), "Zicbop block size\n");
-> +	ksft_print_msg("Zicbop block size: %llu\n", block_size);
-> +
-> +	got_fault = false;
-> +	prefetch_i(&mem[0]);
-> +	prefetch_r(&mem[0]);
-> +	prefetch_w(&mem[0]);
-> +	ksft_test_result(!got_fault, "Zicbop prefetch.* on valid address\n");
-> +
-> +	got_fault = false;
-> +	prefetch_i(NULL);
-> +	prefetch_r(NULL);
-> +	prefetch_w(NULL);
-> +	ksft_test_result(!got_fault, "Zicbop prefetch.* on NULL\n");
-> +}
-> +
->  static void test_zicbom(void *arg)
->  {
->  	struct riscv_hwprobe pair = {
-> @@ -100,13 +166,13 @@ static void test_zicbom(void *arg)
->  			 is_power_of_2(block_size), "Zicbom block size\n");
->  	ksft_print_msg("Zicbom block size: %llu\n", block_size);
->  
-> -	illegal_insn = false;
-> +	got_fault = false;
->  	cbo_clean(&mem[block_size]);
-> -	ksft_test_result(!illegal_insn, "cbo.clean\n");
-> +	ksft_test_result(!got_fault, "cbo.clean\n");
->  
-> -	illegal_insn = false;
-> +	got_fault = false;
->  	cbo_flush(&mem[block_size]);
-> -	ksft_test_result(!illegal_insn, "cbo.flush\n");
-> +	ksft_test_result(!got_fault, "cbo.flush\n");
->  }
->  
->  static void test_zicboz(void *arg)
-> @@ -125,11 +191,11 @@ static void test_zicboz(void *arg)
->  			 is_power_of_2(block_size), "Zicboz block size\n");
->  	ksft_print_msg("Zicboz block size: %llu\n", block_size);
->  
-> -	illegal_insn = false;
-> +	got_fault = false;
->  	cbo_zero(&mem[block_size]);
-> -	ksft_test_result(!illegal_insn, "cbo.zero\n");
-> +	ksft_test_result(!got_fault, "cbo.zero\n");
->  
-> -	if (illegal_insn || !is_power_of_2(block_size)) {
-> +	if (got_fault || !is_power_of_2(block_size)) {
->  		ksft_test_result_skip("cbo.zero check\n");
->  		return;
->  	}
-> @@ -148,7 +214,7 @@ static void test_zicboz(void *arg)
->  			if (mem[i * block_size + j] != expected) {
->  				ksft_test_result_fail("cbo.zero check\n");
->  				ksft_print_msg("cbo.zero check: mem[%llu] != 0x%x\n",
-> -					       i * block_size + j, expected);
-> +						   i * block_size + j, expected);
-
-Undesired reformatting
-
->  				return;
->  			}
->  		}
-> @@ -177,7 +243,19 @@ static void check_no_zicbo_cpus(cpu_set_t *cpus, __u64 cbo)
->  		rc = riscv_hwprobe(&pair, 1, sizeof(cpu_set_t), (unsigned long *)&one_cpu, 0);
->  		assert(rc == 0 && pair.key == RISCV_HWPROBE_KEY_IMA_EXT_0);
->  
-> -		cbostr = cbo == RISCV_HWPROBE_EXT_ZICBOZ ? "Zicboz" : "Zicbom";
-> +		switch (cbo) {
-> +		case RISCV_HWPROBE_EXT_ZICBOZ:
-> +			cbostr = "Zicboz";
-> +			break;
-> +		case RISCV_HWPROBE_EXT_ZICBOM:
-> +			cbostr = "Zicbom";
-> +			break;
-> +		case RISCV_HWPROBE_EXT_ZICBOP:
-> +			cbostr = "Zicbop";
-> +			break;
-> +		default:
-> +			ksft_exit_fail_msg("Internal error: invalid cbo %llu\n", cbo);
-> +		}
->  
->  		if (pair.value & cbo)
->  			ksft_exit_fail_msg("%s is only present on a subset of harts.\n"
-> @@ -194,6 +272,8 @@ enum {
->  	TEST_ZICBOM,
->  	TEST_NO_ZICBOM,
->  	TEST_NO_CBO_INVAL,
-> +	TEST_ZICBOP,
-> +	TEST_NO_ZICBOP
->  };
->  
->  static struct test_info {
-> @@ -206,27 +286,70 @@ static struct test_info {
->  	[TEST_ZICBOM]		= { .nr_tests = 3, test_zicbom },
->  	[TEST_NO_ZICBOM]	= { .nr_tests = 2, test_no_zicbom },
->  	[TEST_NO_CBO_INVAL]	= { .nr_tests = 1, test_no_cbo_inval },
-> +	[TEST_ZICBOP]		= { .nr_tests = 3, test_zicbop },
-> +	[TEST_NO_ZICBOP]	= { .nr_tests = 3, test_no_zicbop },
->  };
->  
-> -int main(int argc, char **argv)
-> +static const struct option long_opts[] = {
-> +	{"sigill", no_argument, 0, 'i'},
-> +	{"sigsegv", no_argument, 0, 's'},
-> +	{"sigbus", no_argument, 0, 'b'},
-> +	{0, 0, 0, 0}
-> +};
-> +
-> +static void install_sigaction(int argc, char **argv)
->  {
-> +	int rc, opt, long_index;
-> +	bool sigill;
-> +
->  	struct sigaction act = {
->  		.sa_sigaction = &sigill_handler,
->  		.sa_flags = SA_SIGINFO,
->  	};
-> +
-> +	long_index = 0;
-> +	sigill = false;
-> +
-> +	while ((opt = getopt_long(argc, argv, "isb", long_opts, &long_index)) != -1) {
-> +		switch (opt) {
-> +		case 'i':
-> +			rc = sigaction(SIGILL, &act, NULL);
-> +			assert(rc == 0);
-> +			sigill = true;
-> +			break;
-> +		case 's':
-> +			rc = sigaction(SIGSEGV, &act, NULL);
-> +			assert(rc == 0);
-> +			break;
-> +		case 'b':
-> +			rc = sigaction(SIGBUS, &act, NULL);
-> +			assert(rc == 0);
-> +			break;
-
-Should we just unconditionally register handlers for SIGSEGV and SIGBUS?
-
-> +		case '?':
-> +			fprintf(stderr, "Unknown option or missing arg\n");
-> +			exit(1);
-> +		default:
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (sigill) {
-> +		tests[TEST_NO_ZICBOZ].enabled = true;
-> +		tests[TEST_NO_ZICBOM].enabled = true;
-> +		tests[TEST_NO_CBO_INVAL].enabled = true;
-> +		tests[TEST_NO_ZICBOP].enabled = true;
-> +	}
-> +}
-> +
-> +int main(int argc, char **argv)
-> +{
->  	struct riscv_hwprobe pair;
->  	unsigned int plan = 0;
->  	cpu_set_t cpus;
->  	long rc;
->  	int i;
->  
-> -	if (argc > 1 && !strcmp(argv[1], "--sigill")) {
-> -		rc = sigaction(SIGILL, &act, NULL);
-> -		assert(rc == 0);
-> -		tests[TEST_NO_ZICBOZ].enabled = true;
-> -		tests[TEST_NO_ZICBOM].enabled = true;
-> -		tests[TEST_NO_CBO_INVAL].enabled = true;
-> -	}
-> +	install_sigaction(argc, argv);
->  
->  	rc = sched_getaffinity(0, sizeof(cpu_set_t), &cpus);
->  	assert(rc == 0);
-> @@ -253,6 +376,13 @@ int main(int argc, char **argv)
->  		check_no_zicbo_cpus(&cpus, RISCV_HWPROBE_EXT_ZICBOM);
->  	}
->  
-> +	if (pair.value & RISCV_HWPROBE_EXT_ZICBOP) {
-> +		tests[TEST_ZICBOP].enabled = true;
-> +		tests[TEST_NO_ZICBOP].enabled = false;
-> +	} else {
-> +		check_no_zicbo_cpus(&cpus, RISCV_HWPROBE_EXT_ZICBOP);
-> +	}
-> +
->  	for (i = 0; i < ARRAY_SIZE(tests); ++i)
->  		plan += tests[i].enabled ? tests[i].nr_tests : 0;
->  
-> -- 
-> 2.47.2
->
-
-Otherwise
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAxMC82LzI1IDAwOjM5LCBJY2Vub3d5IFpoZW5nIHdyb3RlOgo+IOWcqCAyMDI1LTEwLTA1
+5pif5pyf5pel55qEIDExOjQ3IC0wNzAw77yMRSBTaGF0dG935YaZ6YGT77yaCj4+IEhpIEljZW5v
+d3ksCj4+Cj4+IE9uIDkvMzAvMjUgMDg6NTEsIEljZW5vd3kgWmhlbmcgd3JvdGU6Cj4+PiDlnKgg
+MjAyNS0wOS0zMOaYn+acn+S6jOeahCAxODowMyArMDgwMO+8jEljZW5vd3kgWmhlbmflhpnpgZPv
+vJoKPj4+PiBPcmFuZ2UgUGkgUlYgaXMgYSBuZXdseSByZWxlYXNlZCBTQkMgd2l0aCBKSDcxMTAg
+U29DLCBzaW5nbGUgR2JFCj4+Pj4gcG9ydAo+Pj4+IChjb25uZWN0ZWQgdG8gSkg3MTEwIEdNQUMw
+IHZpYSBhIFlUODUzMSBQSFkpLCA0IFVTQiBwb3J0cyAodmlhIGEKPj4+PiBWTDgwNQo+Pj4+IFBD
+SWUgVVNCIGNvbnRyb2xsZXIgY29ubmVjdGVkIHRvIEpINzExMCBQQ0lFMCksIGEgTS4yIE0ta2V5
+IHNsb3QKPj4+PiAoY29ubmVjdGVkIHRvIEpINzExMCBQQ0lFMSksIGEgSERNSSB2aWRlbyBvdXRw
+dXQsIGEgMy41bW0gYXVkaW8KPj4+PiBvdXRwdXQKPj4+PiBhbmQgYSBtaWNyb1NEIHNsb3QuCj4+
+Pj4KPj4+PiBPdGhlciBPbmJvYXJkIHBlcmlwaGVyYWxzIGNvbnRhaW4gYSBTUEkgTk9SICh3aGlj
+aCBjb250YWlucyB0aGUKPj4+PiBVLQo+Pj4+IEJvb3QKPj4+PiBmaXJtd2FyZSksIGEgMjRjMDIg
+RUVQUk9NIHN0b3Jpbmcgc29tZSBTdGFyRml2ZS1zcGVjaWZpYwo+Pj4+IGluZm9ybWF0aW9uCj4+
+Pj4gKGZhY3RvcnkgcHJvZ3JhbW1lZCBhbmQgcmVhZCBvbmx5IGJ5IGRlZmF1bHQpIGFuZCBhbiBB
+bXBhayBBUDYyNTYKPj4+PiBTRElPCj4+Pj4gV2ktRmkgbW9kdWxlLgo+Pj4+Cj4+Pj4gU2lnbmVk
+LW9mZi1ieTogSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4+Pj4gLS0tCj4+Pj4gQ2hh
+bmdlcyBpbiB2MjoKPj4+PiAtIFByb3BlcnR5IG9yZGVyIGNoYW5nZSBtZW50aW9uZWQgaW4gdGhl
+IHJldmlldyBvZiB2MS4KPj4+PiAtIEFkZGVkIFdpLUZpIChhbG9uZyB3aXRoIHRoZSBhbHdheXMg
+b24gVkNDM1YzX1BDSUUgcmVndWxhdG9yLAo+Pj4+IHdoaWNoCj4+Pj4gaXMKPj4+PiDCoCB1c2Vk
+IHRvIHBvd2VyIHVwIFdJRklfM1YzKS4gVGhlIE9PQiBJUlEgaXMgc3RpbGwgbm90IHBvc3NpYmxl
+Cj4+Pj4gdG8KPj4+PiB1c2UKPj4+PiDCoCBiZWNhdXNlIG9mIHNvbWUgaW5jb21wYXRpYmlsaXR5
+IGJldHdlZW4gU3RhckZpdmUgcGluY3RybCBkcml2ZXIKPj4+PiBhbmQKPj4+PiDCoCBicmNtZm1h
+Yy4KPj4+PiAtIFJlbW92ZWQgdGhlIExFRCBiZWNhdXNlIGl0J3MgaW4gY29tbW9uIERUU0kuCj4+
+Pj4KPj4+PiDCoGFyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGXCoMKgwqDCoMKg
+wqDCoMKgIHzCoCAxICsKPj4+PiDCoC4uLi9ib290L2R0cy9zdGFyZml2ZS9qaDcxMTAtb3Jhbmdl
+cGktcnYuZHRzwqAgfCA4Nwo+Pj4+ICsrKysrKysrKysrKysrKysrKysKPj4+PiDCoDIgZmlsZXMg
+Y2hhbmdlZCwgODggaW5zZXJ0aW9ucygrKQo+Pj4+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gv
+cmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLW9yYW5nZXBpLQo+Pj4+IHJ2LmR0cwo+Pj4+
+Cj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUK
+Pj4+PiBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUKPj4+PiBpbmRleCBi
+M2JiMTJmNzhlN2Q1Li4yNGYxYTQ0ODI4MzUwIDEwMDY0NAo+Pj4+IC0tLSBhL2FyY2gvcmlzY3Yv
+Ym9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRz
+L3N0YXJmaXZlL01ha2VmaWxlCj4+Pj4gQEAgLTEwLDYgKzEwLDcgQEAgZHRiLSQoQ09ORklHX0FS
+Q0hfU1RBUkZJVkUpICs9IGpoNzEwMC1zdGFyZml2ZS0KPj4+PiB2aXNpb25maXZlLXYxLmR0Ygo+
+Pj4+IMKgCj4+Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkgKz0gamg3MTEwLWRlZXBj
+b21wdXRpbmctZm1sMTN2MDEuZHRiCj4+Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkg
+Kz0gamg3MTEwLW1pbGt2LW1hcnMuZHRiCj4+Pj4gK2R0Yi0kKENPTkZJR19BUkNIX1NUQVJGSVZF
+KSArPSBqaDcxMTAtb3JhbmdlcGktcnYuZHRiCj4+Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFS
+RklWRSkgKz0gamg3MTEwLXBpbmU2NC1zdGFyNjQuZHRiCj4+Pj4gwqBkdGItJChDT05GSUdfQVJD
+SF9TVEFSRklWRSkgKz0gamg3MTEwLXN0YXJmaXZlLXZpc2lvbmZpdmUtMi0KPj4+PiB2MS4yYS5k
+dGIKPj4+PiDCoGR0Yi0kKENPTkZJR19BUkNIX1NUQVJGSVZFKSArPSBqaDcxMTAtc3RhcmZpdmUt
+dmlzaW9uZml2ZS0yLQo+Pj4+IHYxLjNiLmR0Ygo+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2Jvb3QvZHRzL3N0YXJmaXZlL2poNzExMC1vcmFuZ2VwaS1ydi5kdHMKPj4+PiBiL2FyY2gvcmlz
+Y3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLW9yYW5nZXBpLXJ2LmR0cwo+Pj4+IG5ldyBmaWxl
+IG1vZGUgMTAwNjQ0Cj4+Pj4gaW5kZXggMDAwMDAwMDAwMDAwMC4uNWE5MTdiN2RiNmY3OAo+Pj4+
+IC0tLSAvZGV2L251bGwKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2po
+NzExMC1vcmFuZ2VwaS1ydi5kdHMKPj4+PiBAQCAtMCwwICsxLDg3IEBACj4+Pj4gKy8vIFNQRFgt
+TGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wIE9SIE1JVAo+Pj4+ICsvKgo+Pj4+ICsgKiBDb3B5
+cmlnaHQgKEMpIDIwMjUgSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4+Pj4gKyAqLwo+
+Pj4+ICsKPj4+PiArL2R0cy12MS87Cj4+Pj4gKyNpbmNsdWRlICJqaDcxMTAtY29tbW9uLmR0c2ki
+Cj4+Pj4gKwo+Pj4+ICsvIHsKPj4+PiArwqDCoMKgwqDCoMKgwqBtb2RlbCA9ICJYdW5sb25nIE9y
+YW5nZSBQaSBSViI7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJ4dW5sb25nLG9y
+YW5nZXBpLXJ2IiwgInN0YXJmaXZlLGpoNzExMCI7Cj4+Pj4gKwo+Pj4+ICvCoMKgwqDCoMKgwqDC
+oC8qIFRoaXMgcmVndWxhdG9yIGlzIGFsd2F5cyBvbiBieSBoYXJkd2FyZSAqLwo+Pj4+ICvCoMKg
+wqDCoMKgwqDCoHJlZ192Y2MzdjNfcGNpZTogcmVndWxhdG9yLXZjYzN2My1wY2llIHsKPj4+PiAr
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJyZWd1bGF0b3ItZml4
+ZWQiOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZWd1bGF0b3ItbmFtZSA9
+ICJ2Y2MzdjMtcGNpZSI7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJlZ3Vs
+YXRvci1taW4tbWljcm92b2x0ID0gPDMzMDAwMDA+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqByZWd1bGF0b3ItbWF4LW1pY3Jvdm9sdCA9IDwzMzAwMDAwPjsKPj4+PiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmVndWxhdG9yLWFsd2F5cy1vbjsKPj4+PiArwqDC
+oMKgwqDCoMKgwqB9Owo+Pj4+ICsKPj4+PiArwqDCoMKgwqDCoMKgwqB3aWZpX3B3cnNlcTogd2lm
+aS1wd3JzZXEgewo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBjb21wYXRpYmxl
+ID0gIm1tYy1wd3JzZXEtc2ltcGxlIjsKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgcmVzZXQtZ3Bpb3MgPSA8JnN5c2dwaW8gNjIgR1BJT19BQ1RJVkVfTE9XPjsKPj4+PiArwqDC
+oMKgwqDCoMKgwqB9Owo+Pj4+ICt9Owo+Pj4+ICsKPj4+PiArJmdtYWMwIHsKPj4+PiArwqDCoMKg
+wqDCoMKgwqBhc3NpZ25lZC1jbG9ja3MgPSA8JmFvbmNyZyBKSDcxMTBfQU9OQ0xLX0dNQUMwX1RY
+PjsKPj4+PiArwqDCoMKgwqDCoMKgwqBhc3NpZ25lZC1jbG9jay1wYXJlbnRzID0gPCZhb25jcmcK
+Pj4+PiBKSDcxMTBfQU9OQ0xLX0dNQUMwX1JNSUlfUlRYPjsKPj4+PiArwqDCoMKgwqDCoMKgwqBz
+dGFyZml2ZSx0eC11c2UtcmdtaWktY2xrOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJv
+a2F5IjsKPj4+PiArfTsKPj4+PiArCj4+Pj4gKyZtbWMwIHsKPj4+PiArwqDCoMKgwqDCoMKgwqAj
+YWRkcmVzcy1jZWxscyA9IDwxPjsKPj4+PiArwqDCoMKgwqDCoMKgwqAjc2l6ZS1jZWxscyA9IDww
+PjsKPj4+PiArwqDCoMKgwqDCoMKgwqBjYXAtc2QtaGlnaHNwZWVkOwo+Pj4+ICvCoMKgwqDCoMKg
+wqDCoG1tYy1wd3JzZXEgPSA8JndpZmlfcHdyc2VxPjsKPj4+PiArwqDCoMKgwqDCoMKgwqB2bW1j
+LXN1cHBseSA9IDwmcmVnX3ZjYzN2M19wY2llPjsKPj4+PiArwqDCoMKgwqDCoMKgwqB2cW1tYy1z
+dXBwbHkgPSA8JnZjY18zdjM+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJva2F5IjsK
+Pj4+PiArCj4+Pj4gK8KgwqDCoMKgwqDCoMKgYXA2MjU2OiB3aWZpQDEgewo+Pj4+ICvCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBjb21wYXRpYmxlID0gImJyY20sYmNtNDM0NTYtZm1hYyIs
+ICJicmNtLGJjbTQzMjktCj4+Pj4gZm1hYyI7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoHJlZyA9IDwxPjsKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLyog
+VE9ETzogb3V0LW9mLWJhbmQgSVJRIG9uIEdQSU8yMSAqLwo+Pj4+ICvCoMKgwqDCoMKgwqDCoH07
+Cj4+Pj4gK307Cj4+Pj4gKwo+Pgo+Pj4+ICsmbW1jMF9waW5zIHsKPj4+PiArwqDCoMKgwqDCoMKg
+wqAvKgo+Pj4+ICvCoMKgwqDCoMKgwqDCoCAqIEFzIHRoZSBNTUMwIGJ1cyBpcyB1c2VkIHRvIGNv
+bm5lY3QgYSBTRElPIFdpLUZpIGNhcmQKPj4+PiBpbnN0ZWFkIG9mCj4+Pj4gK8KgwqDCoMKgwqDC
+oMKgICogYW4gZU1NQyBjYXJkLCBhbmQgdGhlIGVNTUMgUlNUIGlzIHJlcHVycG9zZWQgdG8gYmUg
+YW4KPj4+PiBlbmFibGVtZW50Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgICogcGluIG9mIHRoZSBTRElP
+IFdpLUZpLCByZW1vdmUgaXQgZnJvbSB0aGUgcGluY3RybCBub2RlCj4+Pj4gYW5kCj4+Pj4gbWFu
+YWdlCj4+Pj4gK8KgwqDCoMKgwqDCoMKgICogaXQgYXMgYSBHUElPIGluc3RlYWQuCj4+Pj4gK8Kg
+wqDCoMKgwqDCoMKgICovCj4+Pj4gK8KgwqDCoMKgwqDCoMKgL2RlbGV0ZS1ub2RlLyByc3QtcGlu
+czsKPj4+PiArfTsKPj4+PiArCj4+Cj4+IExpc3RlZCBvbiB0aGUgc2NoZW1hdGljIFsxXSBhczoK
+Pj4gRGVmYXVsdCBmdW5jdGlvbiBTRElPMCBSU1RuIEdQSU82MiBmb3IgZU1NQzpKOQo+PiBIaWdo
+bGlnaHRlZCAobm9uLWRlZmF1bHQ/KSBmdW5jdGlvbiBHUElPNjIgRDE3IDw8IFdJRklfRU5fSF9H
+UElPNjIKPj4gV0lGSV9FTl9IX0dQSU82MiA+PiBXSUZJX1BXUkVOIChwaW4gMTIgV0xfUkVHX09O
+IG9mIG1vZHVsZSBBUDYyNTYpCj4+Cj4+IEkndmUgc2VudCBhIHBhdGNoIFsyXSB0byBwb3J0aW9u
+IG91dCBtbWMwIHJlc2V0IHBpbnMgZnJvbSBqaDcxMTAtCj4+IGNvbW1vbi5kdHNpCj4+Cj4+Pj4g
+KyZtbWMxIHsKPj4+PiArwqDCoMKgwqDCoMKgwqAvZGVsZXRlLXByb3BlcnR5LyBjZC1ncGlvczsK
+Pj4+PiArwqDCoMKgwqDCoMKgwqBicm9rZW4tY2Q7Cj4+Pgo+Pj4gV2VsbCBpdCdzIGZvdW5kIHRo
+YXQgdGhlIGNhcmQgZGV0ZWN0IGlzIHdvcmtpbmcsIGFsdGhvdWdoIHdpdGgKPj4+IGRpZmZlcmVu
+dCBwb2xhcml0eSB3aXRoIG90aGVyIGJvYXJkcy4KPj4+Cj4+PiBIZXJlIHNob3VsZCBiZToKPj4+
+IGBgYAo+Pj4gwqDCoMKgwqDCoMKgwqDCoGNkLWdwaW9zID0gPCZzeXNncGlvIDQxIEdQSU9fQUNU
+SVZFX0hJR0g+Owo+Pj4gYGBgCj4+Pgo+Pj4gV2lsbCBiZSBmaXhlZCBpbiB0aGUgbmV4dCByZXZp
+c2lvbi4KPj4KPj4gWWVzLCBsaXN0ZWQgb24gdGhlIHNjaGVtYXRpYyBbMV0gYXM6Cj4+IFNEIFNE
+SU8wIENEIEdQSU80MSBmb3IgTWljcm9TRDpKMTAKPj4KPj4gVGhlcmUgaXMgbm90IGEgbWVudGlv
+biBvZiBhY3RpdmUgaGlnaCBvciBhY3RpdmUgbG93IG9uIHRoZSBzY2hlbWF0aWMKPj4gbGFiZWws
+IGhvd2V2ZXIgdGhlcmUgaXMgbGlzdGVkIGEgMTBLb2htIHB1bGwtdXAgdG8gK1ZkZDEuODMzIGZv
+ciB0aGUKPj4gY2lyY3VpdCBkaWFncmFtIG9mIHRoZSBNaWNybyBTRCBDYXJkLiBUaGUgY2FyZCBo
+b2xkZXIgaXMgcmVmZXJlbmNlZAo+PiB0bwo+PiBncm91bmQgYW5kIGNvdWxkIHJlYXNvbmFibHkg
+YmUgTi9PIG9yIE4vQyBzd2l0Y2ggb3BlcmF0aW9uIGRlcGVuZGluZwo+PiBvbgo+PiB0aGUgZXhh
+Y3QgcGFydCBzZWxlY3RlZCBmb3IgbWFudWZhY3R1cmUuCj4+Cj4+Pgo+Pj4+ICt9Owo+Pj4+ICsK
+Pj4+PiArJnBjaWUwIHsKPj4+PiArwqDCoMKgwqDCoMKgwqBzdGF0dXMgPSAib2theSI7Cj4+Pj4g
+K307Cj4+Pj4gKwo+Pj4+ICsmcGNpZTEgewo+Pj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJv
+a2F5IjsKPj4+PiArfTsKPj4+PiArCj4+Cj4+Pj4gKyZwaHkwIHsKPj4+PiArwqDCoMKgwqDCoMKg
+wqByeC1pbnRlcm5hbC1kZWxheS1wcyA9IDwxNTAwPjsKPj4+PiArwqDCoMKgwqDCoMKgwqB0eC1p
+bnRlcm5hbC1kZWxheS1wcyA9IDwxNTAwPjsKPj4+PiArwqDCoMKgwqDCoMKgwqBtb3RvcmNvbW0s
+dHgtY2xrLWFkai1lbmFibGVkOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSx0eC1jbGst
+MTAtaW52ZXJ0ZWQ7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgbW90b3Jjb21tLHR4LWNsay0xMDAtaW52
+ZXJ0ZWQ7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgbW90b3Jjb21tLHR4LWNsay0xMDAwLWludmVydGVk
+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSxyeC1jbGstZHJ2LW1pY3JvYW1wID0gPDM5
+NzA+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSxyeC1kYXRhLWRydi1taWNyb2FtcCA9
+IDwyOTEwPjsKPj4+PiArfTsKPj4KPj4gJ21vdG9yY29tbSxyeCcgYmVmb3JlICdtb3RvcmNvbW0s
+dHgnIGluIGBMQU5HPUMgc29ydGAgb2YgdmVuZG9yLQo+PiBzcGVjaWZpYwo+PiBwcm9wZXJ0aWVz
+Lgo+Pgo+Pj4+ICsKPj4+PiArJnB3bWRhYyB7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgc3RhdHVzID0g
+Im9rYXkiOwo+Pj4+ICt9Owo+Pj4KPj4gQWRkaXRpb25hbCBub24tZGVmYXVsdCBHUElPIGFzIGxp
+c3RlZCBpbiB0aGUgT3JhbmdlIFBpIGRlc2lnbjoKPj4gR1BJTzIxIFdJRklfV0FLRV9IT1NUX0gg
+LyogZGVmYXVsdCB2ZjIgZnVuY3Rpb24gUENJRV9QV1JFTl9IX0dQSU8yMQo+PiAqLwo+PiBHUElP
+MjIgPj4gQlRfVUFSVF9SWEQgLyogZGVmYXVsdCB2ZjIgZnVuY3Rpb24gTUlQSV9QV1JfRU4gKi8K
+Pj4gR1BJTzIzIDw8IEJUX1VBUlRfVFhEIC8qIGRlZmF1bHQgdmYyIGZ1bmN0aW9uIExDRCBSRVNF
+VCAqLwo+PiBHUElPMjQgPDwgQlRfVUFSVF9DVFMgLyogZGVmYXVsdCB2ZjIgZnVuY3Rpb24gTUlQ
+SV9MQ0RfQkwgKi8KPj4gR1BJTzI1IDw8IEJUX1VBUlRfUlRTIC8qIGRlZmF1bHQgdmYyIGZ1bmN0
+aW9uIFRQX0RFVF9HUElPMjUgKi8KPj4gR1BJTzMwIDw8IEJUX0VOX0hfR1BJTzMwIC8qIGRlZmF1
+bHQgdmYyIGZ1bmN0aW9uIFRQX0lOVF9MICovCj4+IEdQSU8zMSA8PCBCVF9XQUtFX0dQSU8zMSAv
+KiBkZWZhdWx0IHZmMiBmdW5jdGlvbiBUUF9SU1RfTCAqLwo+Pgo+PiBPZiBhbGwgdGhlIGFib3Zl
+LCBHUElPMjEgaXMgZGVmaW5lZCBpbiBqaDcxMTAtY29tbW9uLmR0c2kKPj4gJnBjaWUxX3BpbnMv
+d2FrZS1waW5zIGFuZCBtYXkgbmVlZCBjb25zaWRlcmF0aW9uLgo+Pgo+PiBUaGVyZSBpcyBhIG5v
+dGUgYWJvdXQgIlBNSUNfUFdST04gYXMgS2V5IiBhbmQgc28gZG9lcyB0aGlzIGhhdmUgdGhlCj4+
+IG1lYW5pbmcgb2YgaXQgaXMgdXNlZCBhcyBhbiBpbnB1dCBkZXZpY2U/Cj4+Cj4+IEFsc28gbm90
+ZWQgaXMgdGhhdCB0aGUgVVNCIG92ZXItY3VycmVudCBjaXJjdWl0IGFwcGVhcnMgdG8gYmUKPj4g
+aW1wbGVtZW50ZWQsIGRpZmZlcmVudCB0aGFuIGJlaW5nIGFic2VudCBpbiBvdGhlciBWRjIgZGVz
+aWducy4KPj4KPj4gMToKPj4gaHR0cDovL3d3dy5vcmFuZ2VwaS5vcmcvaHRtbC9oYXJkV2FyZS9j
+b21wdXRlckFuZE1pY3JvY29udHJvbGxlcnMvc2VydmljZS1hbmQtc3VwcG9ydC9PcmFuZ2UtUGkt
+UlYuaHRtbAo+PiAyOgo+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjUxMDA1MTc0
+NDUwLjE5NDkxMTAtMS1lQGZyZWVzaGVsbC5kZS8KPj4KPj4gV2l0aCB0aGUgY2FyZCBkZXRlY3Qg
+ZGVzY3JpYmluZyBoYXJkd2FyZSBjb3JyZWN0ZWQsIGFuZCBjbGVhbiB1cCB0aGUKPj4gdmVuZG9y
+IHByb3BlcnR5IHNvcnQsIHRoZW4gcGxlYXNlIGNvbmZpcm0gaWYgeW91IHRoaW5rIEdQSU8yMSBp
+cwo+PiBkZXNjcmliZWQgY29ycmVjdGx5Lgo+IAo+IFdlbGwgeWVzLCBHUElPMjEgc2hvdWxkIGJl
+IHNwbGl0dGVkIGZyb20gUENJZSBwaW5jdHJsIGFuZCBhc3NpZ25lZCB0bwo+IGJlIHRoZSBvdXQt
+b2YtYmFuZCBJUlEgb2YgdGhlIFdpLUZpIG1vZHVsZS4gTXkgRFQgb21pdHMgdGhpcyBiZWNhdXNl
+Cj4gdGhlIGpoNzExMCBwaW5jdHJsIGRyaXZlciBpcyBjdXJyZW50bHkgbm90IGNvbXBhdGlibGUg
+d2l0aCBicmNtZm1hYwo+IG91dC1vZi1iYW5kIElSUSBjb2RlLgo+IAo+IFNob3VsZCBJIGFkZCAv
+ZGVsZXRlLW5vZGUvIGZvciBpdD8KPiAKCk5vLCBhbmQgdGhhbmsgeW91IGZvciB0aGUgY29uZmly
+bWF0aW9uLiBUaGlzIHNwZWNpYWwgY2hhbmdlIGZvciBHUElPMjEKY2FuIGJlIHNvbWV0aGluZyBm
+b3IgZnV0dXJlIGZpeC9lbmhhbmNlbWVudC4gVGhlICJkdHM6IHN0YXJmaXZlOgpqaDcxMTAtY29t
+bW9uOiBzcGxpdCBvdXQgbW1jMCByZXNldCBwaW5zIGZyb20gY29tbW9uIGludG8gYm9hcmRzIiBw
+YXRjaApoYXMgbGFuZGVkIGluIHJpc2N2LWR0LWZvci1uZXh0IHNvIGl0IGlzIGdvb2Qgbm93IHRv
+IGFkZHJlc3MgdGhlIG90aGVyCnJldmlldyBjb21tZW50cyBhbmQgc2VuZCB2My4KCj4+Cj4+IEFj
+a2VkLWJ5OiBFIFNoYXR0b3cgPGVAZnJlZXNoZWxsLmRlPgo+Pgo+IAoKLUUKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
