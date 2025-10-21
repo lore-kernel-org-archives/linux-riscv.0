@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0330CCD184
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 15:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B85CCD184
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 15:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XbK6/iPbxJ+PwLL/R1C58wTzrhxCwffCwVxlVyIWdMQ=; b=qkmia4J0ifh8X5
-	KMe8QOSiiqg7JyHJ1OHP2yneGw8Hv5FeJeTPd7RnR9nkE11BVJERk1lVqejsL3CKuU4UNPlrnrC55
-	RYwmwLx7ia6TT1pSWr52DoIzJsaJ5njFzKhZgBPfaaOzrfbIAPALkpd2yoIA80PVXC8VrIqLXZa3d
-	nnsDwvOoM4ElYJrc+crpwnmN5SdbAXucT0QySAKDm8UzZq19Lf4NqkyFURqc8GqOJB5XCxi4rEvrs
-	0ci5vs7V1ejBv4uVjkVE9HhI9GvK0De6V+8uMw9Iu5d9Nb/UJvNDb1ndW0ZDR+SgZFBX21Q7WhNRo
-	lcEsSyviyadbZovLPOwQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tzReaDn21CT6TJw+sCLPduA7fps2RcejnZzfhOM+7RE=; b=nawKEdHcPcOdB3
+	69Ja8F+RaFJ8cw9bGGn/jGVbbqxQdaVUZn0AHk13/eJmoVv76YTqEj4dSy9HNQjmrLqHvz8M2Znbq
+	/c5Oio72F53WF8av2COu21ZtFwPPwy2Ul0FCCllOBHIYbb2dcFRx0MHR5VH7yqTvBSlLphdqqKSh0
+	5kOAzyzj51tBngCNj0ONvCLMJrSkc88zelEi68X6vX+6YrgrFR6Ca49gb1VACXQJNXlFzULm8Ylae
+	VVIQ09P/7IFZELWQD5WTeXr1s4dpioLc77IfusY+XrZR74Bg21t3ltHdRhtXxM93KQ56srpZjfJ6l
+	GtiwHQQCckw8q8sNqUiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBERw-0000000HYdH-2JFR;
-	Tue, 21 Oct 2025 15:39:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vBEYm-0000000HZzN-362W;
+	Tue, 21 Oct 2025 15:46:04 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBERv-0000000HYcw-0zQQ
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Oct 2025 15:38:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F244601A5;
-	Tue, 21 Oct 2025 15:38:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AFB3C4CEF1;
-	Tue, 21 Oct 2025 15:38:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761061137;
-	bh=XLeQYak413CtBI3jcHC674M9UA1GVPE1UqJrMh7w2Ns=;
-	h=From:To:Cc:Subject:Date:From;
-	b=V7piabgI1bWhCF95A9brwFN0p4hcGLyPsPXALNZjPWF1E6zNXVvwTcCYr2FldeE/D
-	 gLsoGdsOdmJo4ySXSqpTTQNZj5mmnyBB5+0EAXkLH8SCa/Bu5KuLi+OZnWd6oFacUZ
-	 IejZzvSQgBKh0xL8kABVHI8NDmjeI1Vhr7o944CEj3YW6SpbRT14ccjXkKs0V2CMqV
-	 by/fWEXqZhtYKU0H3H3DAYxbykSqlxoENYobVy3IVv1rcQTsS0xzxgiReSlEEj0p8Y
-	 IMy2gVqGTwMO62l4J/5oiFiGcsGzignqQc1ZWSbFhEmP9wMcuX4uCkAG+v85TrDZGv
-	 0gK0JUW1KP2CA==
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	stable@vger.kernel.org,
-	Valentina.FernandezAlanis@microchip.com,
-	Cyril.Jean@microchip.com,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Jamie Gibbons <jamie.gibbons@microchip.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] riscv: dts: microchip: remove BeagleV Fire fabric.dtsi
-Date: Tue, 21 Oct 2025 16:38:37 +0100
-Message-ID: <20251021-dastardly-washbowl-b8c4ec1745db@spud>
-X-Mailer: git-send-email 2.51.0
+	id 1vBEYi-0000000HZx7-3nPp;
+	Tue, 21 Oct 2025 15:46:02 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1761061557;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bwrcsQ4E69ewTeWtqAZ5emGZEvWIYhFcDibNTG0FA/U=;
+	b=AimhTbm/MmiU0oRMAd3uF686t3hr81Y5owQjwPt+t/EQgCKBa69nmulwgBV69DAgmeOiLs
+	0dBlFvHe0CuIkLHWUhiL1t/BqksXKeOpRZ/JKO0XZ3uhW83aU/uvkv0aGEtMB3NqQYbo8T
+	c1a/8lfSam1pX5DGvhcfkGXmV4x32lsZ332bnVFLI1XCKFZjiwp6KgAVuCMJQhQZ/BG1+3
+	zi05GK9tLktBwlzF4YW3WSZoTogjkHwXyP3B8Tirr/2VvmwbsYu+mDsX55tIF2MT64MPBm
+	xLwiGchu4C52oZGHU6/XiSveriXXJanvaLMtB2ia9NFfIw4m6RTH0hIsSxsIxw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1761061557;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bwrcsQ4E69ewTeWtqAZ5emGZEvWIYhFcDibNTG0FA/U=;
+	b=cvRNsdPSRZnlZAgeJWkp3R95tMpoJ7F1qDZZCErTmzw+alSEUX9RVLzo8yFL18BIEiQxRa
+	dsntvmwnLjX8G6Dg==
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: David Laight <david.laight.linux@gmail.com>, LKML
+ <linux-kernel@vger.kernel.org>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Andrew Cooper
+ <andrew.cooper3@citrix.com>, kernel test robot <lkp@intel.com>, Russell
+ King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
+ Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Heiko
+ Carstens <hca@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ linux-s390@vger.kernel.org, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
+ Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>,
+ Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ =?utf-8?Q?Andr=C3=A9?= Almeida <andrealmeid@igalia.com>, Alexander Viro
+ <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
+ Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
+ regions
+In-Reply-To: <CAHk-=wgE-dAHPzrZ7RxwZNdqw8u-5w1HGQUWAWQ0rMDCJORfCw@mail.gmail.com>
+References: <20251017085938.150569636@linutronix.de>
+ <20251017093030.253004391@linutronix.de> <20251020192859.640d7f0a@pumpkin>
+ <877bwoz5sp.ffs@tglx>
+ <CAHk-=wgE-dAHPzrZ7RxwZNdqw8u-5w1HGQUWAWQ0rMDCJORfCw@mail.gmail.com>
+Date: Tue, 21 Oct 2025 17:45:56 +0200
+Message-ID: <871pmwz2a3.ffs@tglx>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4872; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=tyhyGYHv/CwA3yfRKyi9p1HyzXfeQhJxBatLuQlCYLs=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDBnfV/zpXPZYImjSnd01gmdzeFWtpt/7+tpx8dHLPrdbb 8868aZFo6OUhUGMi0FWTJEl8XZfi9T6Py47nHvewsxhZQIZwsDFKQATcZjG8N9pjtpyhUmnlOJm 9c2bHdxpWNX2I6vg7kLv5JZ37ye8++TP8Fd4RtVRv2tpqgXX1Mo0RNr0sgPYTNe9Pln2PFLf55+ CJD8A
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251021_084601_081773_55F702A3 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,149 +94,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Tue, Oct 21 2025 at 05:06, Linus Torvalds wrote:
+> On Tue, 21 Oct 2025 at 04:30, Thomas Gleixner <tglx@linutronix.de> wrote:
+>>
+>> On Mon, Oct 20 2025 at 19:28, David Laight wrote:
+>> >
+>> > (I don't like the word 'masked' at all, not sure where it came from.
+>>
+>> It's what Linus named it and I did not think about the name much so far.
+>
+> The original implementation was a mask application, so it made sense
+> at the time.
+>
+> We could still change it since there aren't that many users, but I'm
+> not sure what would be a better name...
 
-At the time of adding the fabric.dtsi for the BeagleV Fire, we thought
-that the fabric nodes in the Beagle supplied images were stable. They
-are not, which has lead to nodes present in the devicetree that are not
-in the programmed FPGA images. This is obviously problematic, and these
-nodes must be removed.
+I couldn't come up with something sensible for the architecture side.
 
-CC: stable@vger.kernel.org
-Fixes: 3f41368fbfe1 ("riscv: dts: microchip: add an initial devicetree for the BeagleV Fire")
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
---
-CC: Valentina.FernandezAlanis@microchip.com
-CC: Cyril.Jean@microchip.com
-CC: Conor Dooley <conor@kernel.org>
-CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: Rob Herring <robh@kernel.org>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>
-CC: Jamie Gibbons <jamie.gibbons@microchip.com>
-CC: linux-riscv@lists.infradead.org
-CC: devicetree@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
----
- .../microchip/mpfs-beaglev-fire-fabric.dtsi   | 82 -------------------
- .../boot/dts/microchip/mpfs-beaglev-fire.dts  |  5 --
- 2 files changed, 87 deletions(-)
- delete mode 100644 arch/riscv/boot/dts/microchip/mpfs-beaglev-fire-fabric.dtsi
+But for the scope guards I think the simple scoped_user_$MODE_access()
+is fine as for the usage site it's just a user access, no?
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire-fabric.dtsi
-deleted file mode 100644
-index e153eaf9b90e..000000000000
---- a/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire-fabric.dtsi
-+++ /dev/null
-@@ -1,82 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--
--/ {
--	fabric_clk3: fabric-clk3 {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <50000000>;
--	};
--
--	fabric_clk1: fabric-clk1 {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <125000000>;
--	};
--
--	fabric-bus@40000000 {
--		compatible = "simple-bus";
--		#address-cells = <2>;
--		#size-cells = <2>;
--		ranges = <0x0 0x40000000 0x0 0x40000000 0x0 0x20000000>, /* FIC3-FAB */
--			 <0x0 0x60000000 0x0 0x60000000 0x0 0x20000000>, /* FIC0, LO */
--			 <0x0 0xe0000000 0x0 0xe0000000 0x0 0x20000000>, /* FIC1, LO */
--			 <0x20 0x0 0x20 0x0 0x10 0x0>, /* FIC0,HI */
--			 <0x30 0x0 0x30 0x0 0x10 0x0>; /* FIC1,HI */
--
--		cape_gpios_p8: gpio@41100000 {
--			compatible = "microchip,coregpio-rtl-v3";
--			reg = <0x0 0x41100000 0x0 0x1000>;
--			clocks = <&fabric_clk3>;
--			gpio-controller;
--			#gpio-cells = <2>;
--			ngpios = <16>;
--			gpio-line-names = "P8_PIN31", "P8_PIN32", "P8_PIN33", "P8_PIN34",
--					  "P8_PIN35", "P8_PIN36", "P8_PIN37", "P8_PIN38",
--					  "P8_PIN39", "P8_PIN40", "P8_PIN41", "P8_PIN42",
--					  "P8_PIN43", "P8_PIN44", "P8_PIN45", "P8_PIN46";
--		};
--
--		cape_gpios_p9: gpio@41200000 {
--			compatible = "microchip,coregpio-rtl-v3";
--			reg = <0x0 0x41200000 0x0 0x1000>;
--			clocks = <&fabric_clk3>;
--			gpio-controller;
--			#gpio-cells = <2>;
--			ngpios = <20>;
--			gpio-line-names = "P9_PIN11", "P9_PIN12", "P9_PIN13", "P9_PIN14",
--					  "P9_PIN15", "P9_PIN16", "P9_PIN17", "P9_PIN18",
--					  "P9_PIN21", "P9_PIN22", "P9_PIN23", "P9_PIN24",
--					  "P9_PIN25", "P9_PIN26", "P9_PIN27", "P9_PIN28",
--					  "P9_PIN29", "P9_PIN31", "P9_PIN41", "P9_PIN42";
--		};
--
--		hsi_gpios: gpio@44000000 {
--			compatible = "microchip,coregpio-rtl-v3";
--			reg = <0x0 0x44000000 0x0 0x1000>;
--			clocks = <&fabric_clk3>;
--			gpio-controller;
--			#gpio-cells = <2>;
--			ngpios = <20>;
--			gpio-line-names = "B0_HSIO70N", "B0_HSIO71N", "B0_HSIO83N",
--					  "B0_HSIO73N_C2P_CLKN", "B0_HSIO70P", "B0_HSIO71P",
--					  "B0_HSIO83P", "B0_HSIO73N_C2P_CLKP", "XCVR1_RX_VALID",
--					  "XCVR1_LOCK", "XCVR1_ERROR", "XCVR2_RX_VALID",
--					  "XCVR2_LOCK", "XCVR2_ERROR", "XCVR3_RX_VALID",
--					  "XCVR3_LOCK", "XCVR3_ERROR", "XCVR_0B_REF_CLK_PLL_LOCK",
--					  "XCVR_0C_REF_CLK_PLL_LOCK", "B0_HSIO81N";
--		};
--	};
--
--	refclk_ccc: cccrefclk {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--	};
--};
--
--&ccc_nw {
--	clocks = <&refclk_ccc>, <&refclk_ccc>, <&refclk_ccc>, <&refclk_ccc>,
--		 <&refclk_ccc>, <&refclk_ccc>;
--	clock-names = "pll0_ref0", "pll0_ref1", "pll1_ref0", "pll1_ref1",
--		      "dll0_ref", "dll1_ref";
--	status = "okay";
--};
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts b/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
-index 47cf693beb68..aae239d79162 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
-@@ -5,7 +5,6 @@
- 
- #include <dt-bindings/gpio/gpio.h>
- #include "mpfs.dtsi"
--#include "mpfs-beaglev-fire-fabric.dtsi"
- 
- /* Clock frequency (in Hz) of MTIMER */
- #define MTIMER_FREQ		1000000
-@@ -183,10 +182,6 @@ &refclk {
- 	clock-frequency = <125000000>;
- };
- 
--&refclk_ccc {
--	clock-frequency = <50000000>;
--};
--
- &rtc {
- 	status = "okay";
- };
--- 
-2.51.0
+the scope magic resolves either to the "masked" variant or to the
+regular user_access_begin() + speculation barrier depending on
+architecture support. But that's under the hood an implementation detail
+of the scope...() macros.
 
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
