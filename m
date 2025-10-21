@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB48CCD184
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 16:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C97C0CCD184
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 17:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=R/yNQbqAevgR+ajBix9kqLb2vE3NiG1d9SLAORs5Qzc=; b=mK3RAqv9INgVqNr2hwto9Xh8wI
-	5WKEbItyUZgvA8rfnd1n8XJa0unuTEbyEaLerS3b5CLDNhDUVQSOWLeWvXPFaYxHaCuL1++r0Q2Rj
-	XZuRmW4ia4qtZiSORa04BxW2sTMpOuv5RTrTSXxuHEB97vDK+n5EoB0ZFYRQy4T8CALrxh5+50gxS
-	gbrL0rkMw5KedrtUcYnK3mCDu2y4xF2tBybzc9MNPoLXklEj5KWl3s8zddPmneVkH/LYOcHsMuQPi
-	jSna9IbAuRlZIWxOm5UrftIvZs/nTM7g79dVhfPl7pz5E/QIAA+6m87vlQE22KB37pn33iE92UMSu
-	IFjKPoiw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=3vL+zJ2u5X8QkbNvifA138GU7kUKHRrdeuY9gzeyXAA=; b=xCV6aRyaJ+Cib+
+	YUvipz2yem4bG2CFWUkCNBLxFQvLwJpmTE2TfxGeRytJ2qenOaVQpW6oGNAsYLyxbQxYOFPTbkwo9
+	q2ooJUzzUINnTxkCWVEgUzXpCFAgnc9YfZM5iODm9YzBve2EpM8EpGWMhXY2PG+MnXkhP5udMiMeQ
+	gfa0apXBC29Fy8STg6bqTqFyJ/yWG9fOneBoa9Ta907p2l0RWDWeqUE+1TE4LWes/7OrmU3ofjfcZ
+	16Qs64LPUdl365ykTro4wZFR2y1PYHLfTT3c2Upu+Nli7HHtxOOjVhF0rd/MbnSCu4pWP8uplH76O
+	BhwIJtVcEQMX/zla33vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBFes-00000000AeD-1qJf;
-	Tue, 21 Oct 2025 16:56:26 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1vBFnU-00000000Bfw-2vR5;
+	Tue, 21 Oct 2025 17:05:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBFeo-00000000AcO-3l7w
+	id 1vBFnT-00000000BfV-07mK
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Oct 2025 16:56:24 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b55118e2d01so3828477a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Oct 2025 09:56:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761065781; x=1761670581; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QUj6Jzqtl7pAwgzbknudC50aTFamgZNMeXgKkiBAGZE=;
-        b=M09Ic7L3EXTJomsPutM35QBkir6X7cyP+8irAAyksRHaxK+cRdAYS1HdGVczkSXIim
-         ExhRkrw1QfyHFGUweVcKblhccGB24mBEeb1TVHdfmPWZX547JLAv5axjcru5fk7MjOHA
-         IYGYWjx6CCXLPNI78yOOQ7QIMsK0LZwxIzdoBA8A20LKWylO4aAVHwg4/vKM72PHClVs
-         KEVmfxNoQgo/QjAEftgAmJcYlS+7mW90YfyFne+dglikYs3+3u5XfK/Y/1112giztTm4
-         viSRjgtNzx+d7gF4lFJdJdjBVoDSl4tdcJDb3FBH+yXbBRnykz/Sm+gj0k049CEd3SQn
-         ZOqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761065781; x=1761670581;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QUj6Jzqtl7pAwgzbknudC50aTFamgZNMeXgKkiBAGZE=;
-        b=vuT+9Wy6qaUKt7o2pHN+EjaMrkU7YMJxX1Q+yXervZkObGgrwEory7mH8eSBSs3JVX
-         Q7nbv74wVKV4DexV8OffqL7a0U+e87oFlBMRl2OxXAMkvBYMEJKtXf+Jb5HfdTX1LngV
-         w5y/2gMVcSkiWu7UEiwmBoWi5RU+A5rgQuKPxbpBmNW8PIHIQmZEzsEG1y9W0m2YML93
-         1bgv+FpSganRfrzphZ0GV6B0PMf8A1Ff8KhcrzAjEPmZJ9C9XZAMldMe/EEfQ6iuHAKk
-         Y9gbUPku9/66WaFTdrFis+xaHWvW9k2q4B9Wu1xYpjJaDJdBw+CJPTuMbBMP7fUdrkhQ
-         s7Qw==
-X-Forwarded-Encrypted: i=1; AJvYcCUYsZn0sFIFwYRY0b2QCeZqs8R84c4w0olOQuailaXXAF5MGHh43pxxD/0qcG+qhuUmlmC3hK+tvG8tIw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYLN8MwUvhPNYSNlzAmSUCu4VWxjjK/AcmR7vUKodoVfTMf0QH
-	fdpitrsyP//ThDJSHQwK/ipRRwmGcZ6yNNVr5AJwXjXkCPpVssvEqAx8cj5iKn8JThc3XusZqwa
-	aj9nvpA==
-X-Google-Smtp-Source: AGHT+IGOqKmUzCbfjGYr8B2jY/C1mdIZnvxK8+ss+AVkwVotQdjiGEd+3SJ7VfMTaFoQGYSh7+8f99sR5n0=
-X-Received: from pjre3.prod.google.com ([2002:a17:90a:b383:b0:33b:51fe:1a75])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e88e:b0:250:1c22:e78
- with SMTP id d9443c01a7336-290c9c89c9amr235880025ad.1.1761065780727; Tue, 21
- Oct 2025 09:56:20 -0700 (PDT)
-Date: Tue, 21 Oct 2025 09:56:19 -0700
-In-Reply-To: <d0b369c65e33518d57a40a70c0d13f70bd64db47.camel@intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-24-seanjc@google.com>
- <d0b369c65e33518d57a40a70c0d13f70bd64db47.camel@intel.com>
-Message-ID: <aPe7M1aUPwqDmQbY@google.com>
-Subject: Re: [PATCH v3 23/25] KVM: TDX: Use guard() to acquire kvm->lock in tdx_vm_ioctl()
-From: Sean Christopherson <seanjc@google.com>
-To: Rick P Edgecombe <rick.p.edgecombe@intel.com>
-Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>, 
-	"maz@kernel.org" <maz@kernel.org>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, 
-	"pjw@kernel.org" <pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
-	"kas@kernel.org" <kas@kernel.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>, 
-	"pbonzini@redhat.com" <pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>, 
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, 
-	"zhaotianrui@loongson.cn" <zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>, 
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, Kai Huang <kai.huang@intel.com>, 
-	Yan Y Zhao <yan.y.zhao@intel.com>, "michael.roth@amd.com" <michael.roth@amd.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, 
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>, 
-	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	Vishal Annapurve <vannapurve@google.com>, 
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, 
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_095622_937867_BE74457C 
-X-CRM114-Status: GOOD (  10.17  )
+	Tue, 21 Oct 2025 17:05:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B3906257E;
+	Tue, 21 Oct 2025 17:05:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A2BEC4CEF1;
+	Tue, 21 Oct 2025 17:05:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761066317;
+	bh=nTdwv3Rks8hDE9igPxkMOcHeAQ1oHeXXF17Qtt8UWNo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=BfuC1iWzEwI9u9n3LOJLbQ9s2OOkABW/X5O5BnhDVairX7hiGIwwWZR016oUFlwhd
+	 fLc9xJixm03Nir31F+8FRS2DqKVHlOaKQoMiET30k8XwvAI9JuvZQQlw6Suz9KFJDQ
+	 ox4zVMwDHa3Rit7JDT8rwHqFrFE2t7TbqFaIFpnPm5fDtgU+imc8VUidXrarKuoXkR
+	 ALUwTwN4+BKPW31Ig46yCYPeG5IKzsXqLPLqkDUKMQ/vfEEH0WkdhZDguNgR5ZfI7A
+	 JX7fkvUJzy58mZr5oCilgJPOLWAjHKSuzubpSWTJ22XmZl+JWxkIBF7kI/eJqMo0FQ
+	 K4d13AKGqsNnA==
+Date: Tue, 21 Oct 2025 12:05:16 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Randolph Lin <randolph@andestech.com>
+Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alex@ghiti.fr,
+	aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
+	ben717@andestech.com, inochiama@gmail.com,
+	thippeswamy.havalige@amd.com, namcao@linutronix.de,
+	shradha.t@samsung.com, pjw@kernel.org, randolph.sklin@gmail.com,
+	tim609@andestech.com
+Subject: Re: [PATCH v8 4/5] PCI: andes: Add Andes QiLai SoC PCIe host driver
+ support
+Message-ID: <20251021170516.GA1193376@bhelgaas>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20251014120349.656553-5-randolph@andestech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +77,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025, Rick P Edgecombe wrote:
-> On Thu, 2025-10-16 at 17:32 -0700, Sean Christopherson wrote:
-> > Use guard() in tdx_vm_ioctl() to tidy up the code a small amount, but more
-> > importantly to minimize the diff of a future change, which will use
-> > guard-like semantics to acquire and release multiple locks.
-> > 
-> > No functional change intended.
-> 
-> There is a tiny functional change. In the default case it no longer re-copies
-> the struct back to userspace.
+On Tue, Oct 14, 2025 at 08:03:48PM +0800, Randolph Lin wrote:
+> Add driver support for DesignWare based PCIe controller in Andes
+> QiLai SoC. The driver only supports the Root Complex mode.
 
-No?  The default case doesn't copy the struct back even before this patch, it
-explicitly skips the copy_to_user().
+> + * Setup the Qilai PCIe IOCP (IO Coherence Port) Read/Write Behaviors to the
+> + * Write-Back, Read and Write Allocate mode.
 
-	mutex_lock(&kvm->lock);
+s/Setup/Set up/
+s/Qilai/QiLai/
 
-	switch (tdx_cmd.id) {
-	case KVM_TDX_CAPABILITIES:
-		r = tdx_get_capabilities(&tdx_cmd);
-		break;
-	case KVM_TDX_INIT_VM:
-		r = tdx_td_init(kvm, &tdx_cmd);
-		break;
-	case KVM_TDX_FINALIZE_VM:
-		r = tdx_td_finalize(kvm, &tdx_cmd);
-		break;
-	default:
-		r = -EINVAL;
-		goto out;  <====================
-	}
+> + * The QiLai SoC PCIe controller's outbound iATU region supports
+> + * a maximum size of SZ_4G - 1. To prevent programming failures,
+> + * only consider bridge->windows with sizes within this limit.
+> + *
+> + * To ensure compatibility with most endpoint devices, at least
+> + * one memory region must be mapped within the 32-bits address space.
+> + */
+> +static int qilai_pcie_host_fix_ob_iatu_count(struct dw_pcie_rp *pp)
+> +{
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	struct device *dev = pci->dev;
+> +	struct resource_entry *entry;
+> +	/* Reserved 1 ob iATU for config space */
+> +	int count = 1;
+> +	bool ranges_32bits = false;
+> +	u64 pci_addr;
+> +	u64 size;
+> +
+> +	resource_list_for_each_entry(entry, &pp->bridge->windows) {
+> +		if (resource_type(entry->res) != IORESOURCE_MEM)
+> +			continue;
+> +
+> +		size = resource_size(entry->res);
+> +		if (size < SZ_4G)
+> +			count++;
+> +
+> +		pci_addr = entry->res->start - entry->offset;
+> +		if (pci_addr < SZ_4G)
+> +			ranges_32bits = true;
+> +	}
+> +
+> +	if (!ranges_32bits) {
+> +		dev_err(dev, "Bridge window must contain 32-bits address\n");
+> +		return -EINVAL;
 
-	if (copy_to_user(argp, &tdx_cmd, sizeof(struct kvm_tdx_cmd)))
-		r = -EFAULT;
+Is this really a PCI host controller driver probe failure?  I assume
+there are devices that only have 64-bit BARs and could work fine
+without a 32-bit window?
 
-out:
-	mutex_unlock(&kvm->lock);
-	return r;
+If a device requires a 32-bit BAR, and the PCI core can't assign such
+an address, and gracefully decline to enable a device where we
+couldn't assign the BAR, I think that would be preferable and would
+identify the specific device that doesn't work.
+
+> +	}
+> +
+> +	pci->num_ob_windows = count;
+> +
+> +	return 0;
+> +}
+
 
 _______________________________________________
 linux-riscv mailing list
