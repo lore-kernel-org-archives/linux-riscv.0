@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C73BECCD184
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 09:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF64FCCD184
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 09:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NWS7vW73xr/rVzdOmLh9gCeDx4M+shqXS91E5cZjRGI=; b=Wr8t6SOOea6KLU
-	NMOypp3MSDXqWeoyFG/klN4pHrTJmAIHJiMP3NBnnX9lQjDaSiJB1l2QwLVkEY97cnR5KVTV4feaJ
-	kSSHhpWMvUbhbY5fuAPMmyisxJU4ySzgarzEBeR79SInxRaflsEv0WdLH6x5EnIPWRBNBPo8KYl9l
-	vLHYL8tHunNaL8J0XOsjjY1YczO9nqFeq1ynD0PQMyTzd8KPT++iSJp6Ba1f8d/0AZ9T7pZx0+TQC
-	uOaniVpeDQieeWzHd8rekBL4oB4XnkJjHdzApf3z7d6aGBBMMR+TgWQWPduKX08OfXmRX88rF2jJF
-	S8Df6JFeFLkiciWuWAxw==;
+	List-Owner; bh=bbFui/qdHKqqk75vQxs+VDqQtCoA4tKG53+V32MKA0o=; b=GRxQcC/tEPzEC7
+	PpU1ONdJeWtmPNlTEGHmZ8mwzitVqJ/sqAvrlWuFoucolpxrRO1iJlBuQvwh0EoFVzTOHcsBeybdv
+	Sy/vZUSB+OXJeeXBXiit+QKA9mVTSdCM1dNq0U7aGakDZ34hooip27rV8GGrDqxZTJk4kaF45fr6z
+	2C2TB8eDqRL7CLHuk0AvRYt4jAtLxNTVJTqXfhHJzK0vhUBGwW5ZOW54TJcn0+tg1rG0xELwg10SH
+	fulPXqyiM8FxPEboQ3KEQAHgouI1uTitu7RPp2e1p+Hi12bmuu3FUAhnyEVwl4HZqq3rT5fmqSelK
+	rr49dPEtPHHY9I7lJL8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB8xt-0000000GWNY-13rN;
-	Tue, 21 Oct 2025 09:47:37 +0000
+	id 1vB8yJ-0000000GWV8-2Lea;
+	Tue, 21 Oct 2025 09:48:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB8xr-0000000GWNI-30g1
+	id 1vB8yI-0000000GWUn-0Eio
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 21 Oct 2025 09:47:35 +0000
+	Tue, 21 Oct 2025 09:48:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=CUl4Oz1AaENiLJK0HdSL1flO7p1OM/HO2y+DaZArucw=; b=Nec7en7PHoZa5660hKbcm1qxa8
-	reUJZyLmeNA7q/SILMPX3nRcUuryczxLD35/CXqIEwK85bS/nal/82acC+zBjzUL0xV+2EFaHUDY1
-	HWAN+zIPTys7wP8pFJEjRNbS2JMyUyWi9sVo0ROWR0wDsG5IPtL1G2F4xVgnTdHEULCa0TF2Gbrgu
-	8tVvEpL7pWw0wZB1gdpmltV3qMqAS6UGkt8Ad2q3kM4eAwt3eyrXD9H2CO6E0ryI6udVTsJGqMl2E
-	JMVsXQoKW5KGDn6k+0wPAPmx6CSNbAeivYQJIzu4StIKB30H1gXhWJ18vQBM57cfMJsxyU+coahOz
-	fc+4gDtQ==;
+	bh=hqiQC5ayX+JN5fxtyr14jM4MC4pfQMFMI0LCqJastRo=; b=W6bCfv3PBBN0xnpivmo0AnRGVX
+	hWQH/JpONF5QmEMxri+kjRdD2WCIpPK6/w/VzOEVgx6Q4FC4boXECvM2NhWAcnK7nZrXjPe2HMTxE
+	XElukuhsirzfv1I6tSjJ8Plq+nh47u8Zv6QVEYROIshbCjtBuJ8K84C0GybV4Jv2gB1OdeNS1bHI/
+	br3zqiwu/lBI2v1PciUBGM0M6A856tOWkTUFAGSDfz/A3ncWpIsmSfCJzxrU4qLPIJDWwVYPM2HaC
+	BJbv82k3ZNT8fw8dwLZs/D/vbjpeTZL9shywt1fsnPFb+g8SGc1vo7QobhcuPKl2UKLe1xrMR+bJR
+	q1myXKgg==;
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB84m-00000000dV3-1Fcj
+	id 1vB856-00000000dWS-0f7F
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Oct 2025 08:51:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761039943; cv=none; 
+	Tue, 21 Oct 2025 08:52:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761039961; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=TDfUGAfYpRcT0urFw9+bzmbLLer4gRTlbNQjslKH4C4uYZCQsMnsLiXhUGWd3VvKbhjax7QtGWaP7UsyrccIdpbYGcRpvKSVAoG+1AH57saR0NPpiqFkKyRZUfHHPN87f/21M68oXf7VLI2mJqbnMZ3IgcOUwqnmsdmA50Twa3o=
+	b=P/EFRnhemYf+Fm4Fglh30csavqYDo3TiJIUspKpafk3m6JyEEwBsgr9GVwFY7bFBR1jcOabPfgvV/LRUo6w6SpQ+m8Ir/kjxdksG8MZ3Mju/PG85sEz4zla3OJjxTvo9CDiKuOzI6WfRNZw4fc2V7e89jc0AoYMySCpcaJCVGrk=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761039943; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=CUl4Oz1AaENiLJK0HdSL1flO7p1OM/HO2y+DaZArucw=; 
-	b=Sos5YwWOuUVA+P/vcU/k1y7RDhfa09AeHxTLTLgFAFySMBajsZt3lv5P/zqDI3oQMfdiHs3HGVkrtOgqtnyo0+VLEvujh2sMgISEaxRwhoVYK3pGPvTtYJrldrTvMlG7kVGgv7NfqRcuwdHfcY9a/E+EhQrGCxOwIEFGdcKFfNA=
+	t=1761039961; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=hqiQC5ayX+JN5fxtyr14jM4MC4pfQMFMI0LCqJastRo=; 
+	b=RPAtb8tKgaFEM41mD4ke34oWrQd3M3dmwM9rwpD7aHn2DChJKgy+JNiOr1/NhrGkGJkTid+0g8E50pUfsJTD2bLIIQOey2COm586NCM26UPiAvgdrA+h/CaW+zl13wvuatm3L4GnEIoVBXFp5L7y1VvtG+NHCxMVsy+PNK2YUxM=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761039943;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761039961;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=CUl4Oz1AaENiLJK0HdSL1flO7p1OM/HO2y+DaZArucw=;
-	b=XqeRRzht9vIjZG8W62JOtVxgaxTApwHwwKO/nUoFQp1ON0T2VWanLPsN6fZh9mHP
-	hjVM5oiNuyH+7CQpYc6M1a5a0XyCrqVhfd29IE+IP/nz0bhil217lYG5VG7b3BViQ4Z
-	WP5pC5EkM/vo2XbfwbaTLHjSsB2jrqI6Piw/ur/o=
-Received: by mx.zohomail.com with SMTPS id 1761039941047323.07553784607876;
-	Tue, 21 Oct 2025 02:45:41 -0700 (PDT)
+	bh=hqiQC5ayX+JN5fxtyr14jM4MC4pfQMFMI0LCqJastRo=;
+	b=GbWDWsfv6Ftb35C/7s4NJ9NiGsB9nLl1TWrAfOeICsiQA4qR1qjnGPnJGQNvUY7n
+	I8ehy4ufUCQFQ1SGVLZ+dxuuE05B3cpIV7poLCkszO8JRxaa2fQBpwZkOctA9hDAMCk
+	wspT+yJiO10mwtMJdAFGWZij8NyIGPeroAFnFgEY=
+Received: by mx.zohomail.com with SMTPS id 1761039959167749.4138204173319;
+	Tue, 21 Oct 2025 02:45:59 -0700 (PDT)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Tue, 21 Oct 2025 17:41:44 +0800
-Subject: [PATCH v3 09/13] irqchip/aclint-sswi: Add Nuclei UX900 support
+Date: Tue, 21 Oct 2025 17:41:46 +0800
+Subject: [PATCH v3 11/13] riscv: dts: Add initial Anlogic DR1V90 SoC device
+ tree
 MIME-Version: 1.0
-Message-Id: <20251021-dr1v90-basic-dt-v3-9-5478db4f664a@pigmoral.tech>
+Message-Id: <20251021-dr1v90-basic-dt-v3-11-5478db4f664a@pigmoral.tech>
 References: <20251021-dr1v90-basic-dt-v3-0-5478db4f664a@pigmoral.tech>
 In-Reply-To: <20251021-dr1v90-basic-dt-v3-0-5478db4f664a@pigmoral.tech>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -83,20 +84,20 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
  linux-riscv@lists.infradead.org, Inochi Amaoto <inochiama@outlook.com>, 
- sophgo@lists.linux.dev, linux-serial@vger.kernel.org
+ sophgo@lists.linux.dev, linux-serial@vger.kernel.org, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761039846; l=1059;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761039846; l=4796;
  i=junhui.liu@pigmoral.tech; s=20250910; h=from:subject:message-id;
- bh=aL8VQaPRJAjxauni7+ank2K5a+1YkvZipzoMxURVk3A=;
- b=t89Ai7cypoy3Jeymaxc7PSarsJr/Zf3m7GyW+zepjdaWbL1sFwJacXsafuIBH0i4nzOLUhRdu
- MfnJR8Q/uo0CBuWeCUy7ZisosK7sRWa4yNDIyuTc1aineA4eP3K5Abe
+ bh=RDVWZeAxgz1alDJPsqpgTVocpV8c0UxJ9gg4n/HME6s=;
+ b=2DvHOsMqdF+wdj5Cz+HgdyjhVfgbbd4sID/wYYDvXeI4GxcnrBDmQF3VrnJanLFjClkIPhteZ
+ lBrt1aD6kxFDEC3imTux8KP9x5HoCMuyomffiSaxHQRjoFf08wMF/P9
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
  pk=cgATWSU1KfGWmdwNmkPyHGnWgofhqqhE8Vts58wyxe4=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_095106_987701_61516D4D 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251021_095107_677678_B1DA2BB8 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,28 +114,151 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reuse the generic ACLINT SSWI probe for Nuclei UX900 since it is
-compliant with the ACLINT specification.
+DR1V90 is a FPSoC from Anlogic, which features a RISC-V core as the PS
+part and 94,464 LUTs for the PL part.
 
+The PS part integrates a Nuclei UX900 RISC-V core with 32KB L1 icache
+and 32KB L1 dcache. It also provides two "snps,dw-apb-uart" compatible
+UART controllers.
+
+Some basic information of the processor can be obtained by running a
+simple application from nuclei-sdk [1]:
+
+-----Nuclei RISC-V CPU Configuration Information-----
+         MARCHID: 0xc900
+          MIMPID: 0x20300
+             ISA: RV64 A B C D F I M P S U
+            MCFG: TEE ECC ECLIC PLIC PPI ILM DLM ICACHE DCACHE IREGION No-Safety-Mechanism DLEN=VLEN/2
+             ILM: 256 KB has-ecc
+             DLM: 256 KB has-ecc
+          ICACHE: 32 KB(set=256,way=2,lsize=64,ecc=1)
+          DCACHE: 32 KB(set=256,way=2,lsize=64,ecc=1)
+             TLB: MainTLB(set=32,way=2,entry=1,ecc=1) ITLB(entry=8) DTLB(entry=8)
+         IREGION: 0x68000000 128 MB
+                  Unit        Size        Address
+                  INFO        64KB        0x68000000
+                  DEBUG       64KB        0x68010000
+                  ECLIC       64KB        0x68020000
+                  TIMER       64KB        0x68030000
+                  PLIC        64MB        0x6c000000
+     INFO-Detail:
+                  mpasize : 0
+             PPI: 0xf8000000 128 MB
+-----End of Nuclei CPU INFO-----
+
+Link: https://github.com/Nuclei-Software/nuclei-sdk/blob/master/application/baremetal/cpuinfo/main.c [1]
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
- drivers/irqchip/irq-aclint-sswi.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/riscv/boot/dts/anlogic/dr1v90.dtsi | 100 ++++++++++++++++++++++++++++++++
+ 1 file changed, 100 insertions(+)
 
-diff --git a/drivers/irqchip/irq-aclint-sswi.c b/drivers/irqchip/irq-aclint-sswi.c
-index 93e28e9f281f64da4568be37dc57b414354c3f56..fee30f3bc5ac252b236078bf13df8c04e7327eaf 100644
---- a/drivers/irqchip/irq-aclint-sswi.c
-+++ b/drivers/irqchip/irq-aclint-sswi.c
-@@ -175,7 +175,8 @@ static int __init generic_aclint_sswi_early_probe(struct device_node *node,
- {
- 	return generic_aclint_sswi_probe(&node->fwnode);
- }
--IRQCHIP_DECLARE(generic_aclint_sswi, "mips,p8700-aclint-sswi", generic_aclint_sswi_early_probe);
-+IRQCHIP_DECLARE(mips_p8700_sswi, "mips,p8700-aclint-sswi", generic_aclint_sswi_early_probe);
-+IRQCHIP_DECLARE(nuclei_ux900_sswi, "nuclei,ux900-aclint-sswi", generic_aclint_sswi_early_probe);
- 
- /* THEAD variant */
- #define THEAD_C9XX_CSR_SXSTATUS			0x5c0
+diff --git a/arch/riscv/boot/dts/anlogic/dr1v90.dtsi b/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..a5d0765ade3231ece0afbe8835d95cd918a44ad9
+--- /dev/null
++++ b/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
+@@ -0,0 +1,100 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2025 Junhui Liu <junhui.liu@pigmoral.tech>
++ */
++
++/dts-v1/;
++/ {
++	#address-cells = <2>;
++	#size-cells = <2>;
++	model = "Anlogic DR1V90";
++	compatible = "anlogic,dr1v90";
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <800000000>;
++
++		cpu@0 {
++			compatible = "nuclei,ux900", "riscv";
++			d-cache-block-size = <64>;
++			d-cache-sets = <256>;
++			d-cache-size = <32768>;
++			device_type = "cpu";
++			i-cache-block-size = <64>;
++			i-cache-sets = <256>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			reg = <0>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zba", "zbb", "zbc",
++					       "zbkc", "zbs", "zicntr", "zicsr", "zifencei",
++					       "zihintpause", "zihpm";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++	};
++
++	soc {
++		compatible = "simple-bus";
++		interrupt-parent = <&plic>;
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		aclint_mswi: interrupt-controller@68031000 {
++			compatible = "anlogic,dr1v90-aclint-mswi", "nuclei,ux900-aclint-mswi";
++			reg = <0x0 0x68031000 0x0 0x4000>;
++			interrupts-extended = <&cpu0_intc 3>;
++		};
++
++		aclint_mtimer: timer@68035000 {
++			compatible = "anlogic,dr1v90-aclint-mtimer", "nuclei,ux900-aclint-mtimer";
++			reg = <0x0 0x68035000 0x0 0x8000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu0_intc 7>;
++		};
++
++		aclint_sswi: interrupt-controller@6803d000 {
++			compatible = "anlogic,dr1v90-aclint-sswi", "nuclei,ux900-aclint-sswi";
++			reg = <0x0 0x6803d000 0x0 0x3000>;
++			#interrupt-cells = <0>;
++			interrupt-controller;
++			interrupts-extended = <&cpu0_intc 1>;
++		};
++
++		plic: interrupt-controller@6c000000 {
++			compatible = "anlogic,dr1v90-plic", "sifive,plic-1.0.0";
++			reg = <0x0 0x6c000000 0x0 0x4000000>;
++			#address-cells = <0>;
++			#interrupt-cells = <1>;
++			interrupt-controller;
++			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++			riscv,ndev = <150>;
++		};
++
++		uart0: serial@f8400000 {
++			compatible = "anlogic,dr1v90-uart", "snps,dw-apb-uart";
++			reg = <0x0 0xf8400000 0x0 0x1000>;
++			clock-frequency = <50000000>;
++			interrupts = <71>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart1: serial@f8401000 {
++			compatible = "anlogic,dr1v90-uart", "snps,dw-apb-uart";
++			reg = <0x0 0xf8401000 0x0 0x1000>;
++			clock-frequency = <50000000>;
++			interrupts = <72>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++	};
++};
 
 -- 
 2.51.1
