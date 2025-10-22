@@ -4,58 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B7E4CCD1A5
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 00:49:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CCCECCD1BD
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 00:49:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EozbdL2ZGAH6g/fwTaEIV637PWNrFJEj1Or4DieBC00=; b=uAh+D0Ux3FTFNH
-	NOhkoe3VLzWbM5zJ5TuSlFHz6jh6G9AdJuM4cVP67FUAXqYvHsTyrQKryZISzHbEYm7060Ezf1qwA
-	H2VirdZLusPZkos/oo+wvD34PnaFNYw2cUMdNdA+GYVlivjyqXRXNP6sOpEMyWKDm3QhIjLKCRfvm
-	TXZM74vvnG1lTWca/gdNeY7DI6rnRWPY7l3t8uZID9tJBbU1fGPi6Hjtfl2id/HkLA04TQfh3I2Xn
-	pLbMY4A5n0IbECaLdV0POh3wzoTrlRbtxAQEiOePmF5j1uR0wHdmEJjc13s7vxJhb6m92AYjCOw9y
-	p0EDuE5Euv34KIP4n5fw==;
+	List-Owner; bh=ZmzD7oJj8ub5suy5fKy+fFmO3MVbEa4aJdh+n/h8c1E=; b=gTpLFOAI1SlIf8
+	VrN/nq2FB0AHXtlMb9T3JKutmBNEIaXyIZAIsHl3VNLPNbYBXjpShmJl1xqhLKdLLHytv35IKc4z7
+	U+9JVcR4+JVVqxGw1UqUak8LcJjaWorDTp3AZ42RF6MDtF4YgqVJG7abS7iZTsJECM6ad8PrCU+vy
+	Z+T70LA+QqUuQIRRqNj11bGn4k2OtDJUplNiku4w8F6xtUGTdOBZ9xCQ8Zhq+h1EdQGUBOjsDmEAM
+	rxO9qiorpEtd6v1HmWfFQ6NdHFi8y5X17Nc70d9g6rjiOrHQoRcU4Ea2Qhch9mn/B6jE82lpt1f+A
+	NGOrig++GFwlsBX3xk9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBN1t-0000000153S-3UBl;
-	Wed, 22 Oct 2025 00:48:41 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1vBN20-0000000154j-0XGE;
+	Wed, 22 Oct 2025 00:48:48 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBN1r-00000001535-0OC7
+	id 1vBN1x-00000001544-47WD
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Oct 2025 00:48:40 +0000
-Received: from localhost (unknown [116.232.147.23])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 203E434106A;
-	Wed, 22 Oct 2025 00:48:34 +0000 (UTC)
-Date: Wed, 22 Oct 2025 08:48:30 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
-	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
-Subject: Re: [PATCH v3 1/2] driver: reset: spacemit-p1: add driver for
- poweroff/reboot
-Message-ID: <20251022004830-GYB1522542@gentoo.org>
-References: <20251021201451.1013640-1-aurelien@aurel32.net>
- <20251021201451.1013640-2-aurelien@aurel32.net>
+	Wed, 22 Oct 2025 00:48:47 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-7810289cd4bso5968722b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Oct 2025 17:48:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761094125; x=1761698925; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WpwLRNrV83QpBzzvqKFmuh/MORhamr8seHZpCFbDI/k=;
+        b=bLgr7qJGnbumOrxgeSIAWTVtR92iC3TGAxSjPb1P6n8xc693de+7oVr2Y41as0KvH1
+         rASdpAu6ayuIGSg2A74BUKDik0A880Aga+ap98uC/7k+n3NuePH9GGkVjwmMX5ytYMaH
+         BahskO9VyJKy6zEdj3N+aMuK9bzVDhVPjbQp82yycuF+scS6O8YJu0V/gStOe1mpRk/S
+         WsgvjPAHzoElE1B/jAgf+ESvzDeBcpHEZMnbj6V/bDwNQIJv5BHsgd5W8TfGZ2XuxdGM
+         xpmQqFouOu0UAaJxNyMxoFBlrr2GrrPhFMctAptX5DqlVKkOilKrd+s5ROSr1B9vmI4r
+         IYMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761094125; x=1761698925;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WpwLRNrV83QpBzzvqKFmuh/MORhamr8seHZpCFbDI/k=;
+        b=iSCy0waGc04WGwcaJayA1IaUzk/CqtKkDRVy3frC+Cjts9pMiQBbFyN8JLotYcc0J2
+         uxOVIa5YjTZb+wMQYP9SeptTBv7hBUA6FAokQzUz8XMH7Rn3mXL+YCBJ6Hd/CT8+ab6M
+         jmqf4Y344PRn2GkQHnKdvUBrPjOI1lgIG+LPTz09D3wtBe4dwE2o/jmMWBLjT7zC2hsh
+         Kr3HHn6EXp/B6c3Bq+nMdzYvRqUvsGpcIX7Lh+NPxmFoN0koQ2u7bQLtatnFcFZcuT6e
+         ydnDO11LJ7DOB2VPg1bEmtmwYNr+p2Cp9/AELfLu1JYam6/h3vnjcAs5odV8PCl6LIhy
+         lY3w==
+X-Gm-Message-State: AOJu0Yw85ovvXyq1zXfffer5DSGu/NyJcUI09v9xAFELI0LPvTX7b5yR
+	wu23xteAfZHkFfp7/jNhdrgg6LboiC81Y/QFmRpk9sFjbs6V97bijLmX
+X-Gm-Gg: ASbGncu1pSUnQXEwd3ZljgwrJuP5ZZidSgVT1fauqpl0lE753sJqPLzUyk10vwUS55Z
+	GgnhPw+Isy+zQlDyy5ti0dYt6S+1qkgESAhpd7XqjSxr6LQt424TPT2s/AhsbaBxm5yz4fWGnBN
+	JR/oPuuMfWeY7RhvvgwYbk4EBUsmolpOOtHYikm5xTRfikv6+WUsENDXP+8KsgESqPL173//Re5
+	HZErVKaE3H0rggLJfor2wvCIeWoeV1FoM0y8AKtr4Bh9YgyApTbjy43sQ4gUASGd5WvkAD6zpTK
+	07G2gu0zCS93ksUQkY+S/rCmlvDQEVzzYBgcVBgB+zMXh/RCPsJAK12Ahnlueq5x7wUEI1Ux7i7
+	Lofsfxot5aebfvl/RPzR7IDKb1LVXvxP2YMIW8ae9zJl88cFAyDcQP4Aenm01FaW6mG51OE8XqX
+	k=
+X-Google-Smtp-Source: AGHT+IF24ChetCW9CoKabWAzNvhbTnSK3MzmoX44gomg+ux4PGDg+A4t+y/Pa4mmCa5vznWef7GAIQ==
+X-Received: by 2002:a05:6a20:958f:b0:334:8335:9d87 with SMTP id adf61e73a8af0-334a856e41amr26332793637.19.1761094124970;
+        Tue, 21 Oct 2025 17:48:44 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6a76b69e68sm11229683a12.36.2025.10.21.17.48.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Oct 2025 17:48:44 -0700 (PDT)
+Date: Wed, 22 Oct 2025 08:47:51 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Vivian Wang <wangruikang@iscas.ac.cn>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Nam Cao <namcao@linutronix.de>
+Subject: Re: [PATCH 0/2] riscv: tests: Make RISCV_KPROBES_KUNIT tristate
+Message-ID: <umhjzrkzfe75mbtjeo7bsbziprvxicxrionbmumynhqrtut6hf@wt7hwbhi6cac>
+References: <20251020-riscv-kunit-kconfig-fix-6-18-v1-0-d773b5d5ce48@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251021201451.1013640-2-aurelien@aurel32.net>
+In-Reply-To: <20251020-riscv-kunit-kconfig-fix-6-18-v1-0-d773b5d5ce48@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_174839_162072_77879CAC 
-X-CRM114-Status: GOOD (  31.85  )
+X-CRM114-CacheID: sfid-20251021_174846_024431_5D726DE2 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,185 +93,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org, Yao Zi <ziyao@disroot.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aurelien,
-
-On 22:11 Tue 21 Oct     , Aurelien Jarno wrote:
-> This driver implements poweroff/reboot support for the SpacemiT P1 PMIC
-> chip, which is commonly paired with the SpacemiT K1 SoC.
+On Mon, Oct 20, 2025 at 08:23:54PM +0800, Vivian Wang wrote:
+> Fix an allmodconfig warning on v6.18-rc1:
 > 
-> The SpacemiT P1 support is implemented as a MFD driver, so the access is
-> done directly through the regmap interface. Reboot or poweroff is
-> triggered by setting a specific bit in a control register, which is
-> automatically cleared by the hardware afterwards.
+>     WARNING: 3 bad relocations
+>     ffffffff81e24118 R_RISCV_64        kunit_unary_assert_format
+>     ffffffff81e24a60 R_RISCV_64        kunit_binary_assert_format
+>     ffffffff81e269d0 R_RISCV_JUMP_SLOT  __kunit_do_failed_assertion
 > 
-> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-> Reviewed-by: Yixun Lan <dlan@gentoo.org>
+> While we're at it, rename the test to remove the word "test", in order
+> to conform to the style guide.
+> 
 > ---
-> v3:
->  - Allow building as a module
->  - Remove outdated Acked-by and Tested-by
->  - Collect Reviewed-by
+> Vivian Wang (2):
+>       riscv: tests: Rename kprobes_test_riscv to kprobes_riscv
+>       riscv: tests: Make RISCV_KPROBES_KUNIT tristate
 > 
->  drivers/power/reset/Kconfig              |  9 +++
->  drivers/power/reset/Makefile             |  1 +
->  drivers/power/reset/spacemit-p1-reboot.c | 88 ++++++++++++++++++++++++
->  3 files changed, 98 insertions(+)
->  create mode 100644 drivers/power/reset/spacemit-p1-reboot.c
+>  arch/riscv/kernel/tests/Kconfig.debug          | 2 +-
+>  arch/riscv/kernel/tests/kprobes/Makefile       | 4 +++-
+>  arch/riscv/kernel/tests/kprobes/test-kprobes.c | 5 ++++-
+>  3 files changed, 8 insertions(+), 3 deletions(-)
+> ---
+> base-commit: cb6649f6217c0331b885cf787f1d175963e2a1d2
+> change-id: 20251020-riscv-kunit-kconfig-fix-6-18-01fc6eba6613
 > 
-> diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-> index 8248895ca9038..6577d73edbda4 100644
-> --- a/drivers/power/reset/Kconfig
-> +++ b/drivers/power/reset/Kconfig
-> @@ -283,6 +283,15 @@ config POWER_RESET_KEYSTONE
->  	help
->  	  Reboot support for the KEYSTONE SoCs.
->  
-> +config POWER_RESET_SPACEMIT_P1
-> +	tristate "SpacemiT P1 poweroff and reset driver"
-> +	depends on ARCH_SPACEMIT || COMPILE_TEST
-..
-> +	select MFD_SPACEMIT_P1
-I'd suggest to use "depends on" instead of "select", the reason is that
-using "select" will sometimes ignore the dependency, considering
-the reset driver here is tightly coupled with P1, so I think it's 
-reasonable to switch to use "depends on", also refer below link
-
-https://lxr.linux.no/#linux+v6.7.1/Documentation/kbuild/kconfig-language.rst#L144
-
-        select should be used with care. select will force
-        a symbol to a value without visiting the dependencies.
-        By abusing select you are able to select a symbol FOO even
-        if FOO depends on BAR that is not set.
-        In general use select only for non-visible symbols
-        (no prompts anywhere) and for symbols with no dependencies.
-        That will limit the usefulness but on the other hand avoid
-        the illegal configurations all over.
-
-> +	default m
-> +	help
-> +	  This driver supports power-off and reset operations for the SpacemiT
-> +	  P1 PMIC.
-> +
->  config POWER_RESET_SYSCON
->  	bool "Generic SYSCON regmap reset driver"
->  	depends on OF
-> diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
-> index 51da87e05ce76..0e4ae6f6b5c55 100644
-> --- a/drivers/power/reset/Makefile
-> +++ b/drivers/power/reset/Makefile
-> @@ -24,6 +24,7 @@ obj-$(CONFIG_POWER_RESET_LTC2952) += ltc2952-poweroff.o
->  obj-$(CONFIG_POWER_RESET_QNAP) += qnap-poweroff.o
->  obj-$(CONFIG_POWER_RESET_REGULATOR) += regulator-poweroff.o
->  obj-$(CONFIG_POWER_RESET_RESTART) += restart-poweroff.o
-> +obj-$(CONFIG_POWER_RESET_SPACEMIT_P1) += spacemit-p1-reboot.o
->  obj-$(CONFIG_POWER_RESET_ST) += st-poweroff.o
->  obj-$(CONFIG_POWER_RESET_TH1520_AON) += th1520-aon-reboot.o
->  obj-$(CONFIG_POWER_RESET_TORADEX_EC) += tdx-ec-poweroff.o
-> diff --git a/drivers/power/reset/spacemit-p1-reboot.c b/drivers/power/reset/spacemit-p1-reboot.c
-> new file mode 100644
-> index 0000000000000..9ec3d1fff8f3d
-> --- /dev/null
-> +++ b/drivers/power/reset/spacemit-p1-reboot.c
-> @@ -0,0 +1,88 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2025 by Aurelien Jarno
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/reboot.h>
-> +
-> +/* Power Control Register 2 */
-> +#define PWR_CTRL2		0x7e
-> +#define PWR_CTRL2_SHUTDOWN	BIT(2)	/* Shutdown request */
-> +#define PWR_CTRL2_RST		BIT(1)	/* Reset request */
-> +
-> +static int spacemit_p1_pwroff_handler(struct sys_off_data *data)
-> +{
-> +	struct regmap *regmap = data->cb_data;
-> +	int ret;
-> +
-> +	/* Put the PMIC into shutdown state */
-> +	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_SHUTDOWN);
-> +	if (ret) {
-> +		dev_err(data->dev, "shutdown failed: %d\n", ret);
-> +		return notifier_from_errno(ret);
-> +	}
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static int spacemit_p1_restart_handler(struct sys_off_data *data)
-> +{
-> +	struct regmap *regmap = data->cb_data;
-> +	int ret;
-> +
-> +	/* Put the PMIC into reset state */
-> +	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_RST);
-> +	if (ret) {
-> +		dev_err(data->dev, "restart failed: %d\n", ret);
-> +		return notifier_from_errno(ret);
-> +	}
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static int spacemit_p1_reboot_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct regmap *regmap;
-> +	int ret;
-> +
-> +	regmap = dev_get_regmap(dev->parent, NULL);
-> +	if (!regmap)
-> +		return -ENODEV;
-> +
-> +	ret = devm_register_power_off_handler(dev, &spacemit_p1_pwroff_handler,
-> +					      regmap);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				     "Failed to register power off handler\n");
-> +
-> +	ret = devm_register_restart_handler(dev, spacemit_p1_restart_handler,
-> +					    regmap);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				     "Failed to register restart handler\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct platform_device_id spacemit_p1_reboot_id_table[] = {
-> +	{ "spacemit-p1-reboot", },
-> +	{ /* sentinel */ },
-> +};
-> +MODULE_DEVICE_TABLE(platform, spacemit_p1_reboot_id_table);
-> +
-> +static struct platform_driver spacemit_p1_reboot_driver = {
-> +	.driver = {
-> +		.name = "spacemit-p1-reboot",
-> +	},
-> +	.probe = spacemit_p1_reboot_probe,
-> +	.id_table = spacemit_p1_reboot_id_table,
-> +};
-> +module_platform_driver(spacemit_p1_reboot_driver);
-> +
-> +MODULE_DESCRIPTION("SpacemiT P1 reboot/poweroff driver");
-> +MODULE_LICENSE("GPL");
+> Best regards,
 > -- 
-> 2.47.2
+> Vivian "dramforever" Wang
 > 
 
--- 
-Yixun Lan (dlan)
+Tested with allmodconfig
+
+Tested-by: Inochi Amaoto <inochiama@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
