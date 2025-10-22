@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A44ECCF9E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 12:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3776CCD1AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 12:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=wParQup0tSmruE7Jk3NwGsc927m1sghBsRoLwG99t0M=; b=bovEMvjH3SLcQ7
-	YIN82XDs3Olp4SVBDTAAhXYLpufmwzsXQKxDSnEXhg3IlPnL/sd6iFe1qyoF+ZB3fArVvP2MNkAmF
-	imNdRfLyCy8/tRYJbI+DmjzhP1JT4F3uf95qoIED7pe95PN1EpCT9SLzt5BISbfXXmoRDjvjsTVjA
-	Cdab5hZYi6TYFcAOgtIf1x6I7E7EXurJo0k3sOugdkFvZ+kLKg+1TMA9RcV2np/MdxRQhyXHECd0S
-	tGeuE1jftt+SpYyPBPTilB9iAwK5g7Y1Q1FszXZ4GspPyaFkRN0IPJuAd+Lijj/WlEDoD4975TJvb
-	va9+rhTdmYrrO8pTxeJA==;
+	List-Owner; bh=NXF6SGeyG7lqoKGA+wkhA4+BbnJoWuCEcMzSteO4Zzs=; b=GYiefYxHRBcON+
+	CXTs5oig0M1cVCowNGTqBEWg16nFrG6ZnIeJK/8OEbYkxA4SNV3IOBq/Js8XSWjXBzoZgLMDkpjj8
+	pDHE574Yg+uC9qgn7upgYih6f/glZv2hWsdT7834P38s4xnfGRK7WmyznelkY1sCrHVY1/sPRqli/
+	nbzSpDdJrXfC/10fRKxgk3hbKKuHSgwITGVlhAAJwmZ+jDW5aw5dZoSBePPJGn7a3liju/lpcOZNY
+	CiNtAPN7DoIMD87McRH5dGQOM9OWlacczmuMPKwfI1SWOuqFdcBvuM5N7VvD+eOW8Xjqo/1h3viRI
+	zJ9bFRC1qpEgi1/LVXxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYI5-00000002rJW-3BVo;
-	Wed, 22 Oct 2025 12:50:09 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vBYIK-00000002rWf-2Yfd;
+	Wed, 22 Oct 2025 12:50:24 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYHD-00000002qOt-0TH0;
-	Wed, 22 Oct 2025 12:49:22 +0000
-Message-ID: <20251022103112.419590507@linutronix.de>
+	id 1vBYHG-00000002qTF-07D9;
+	Wed, 22 Oct 2025 12:49:23 +0000
+Message-ID: <20251022103112.539017094@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761137353;
+	s=2020; t=1761137356;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=lccNRRk780OLOrvRTmsIIfoLd+zwTDZxXhd+4kcSfCA=;
-	b=kSNLvhZHcJTcvSj8XCd+k+HYD9K4T7yCINmy83VEZBK84m3WfK/bM45mfZ5F0pkI6uuJu0
-	oytRSuCMIOKuePJ3eBS98GD4Y8yR0+mSEW1CFZInDFQFQGtQ6aybIQf+lGATl+mCkVjvAS
-	Bv9uqeqEjKipDkPqb8YRk0E0bTCt4ULyXEgYj11AP66+iaO0pej0K5kqDozoGdnp3g6kIE
-	QADjIdbC4Rb2fXcGo7OGvJ4afzmSSZCRuG2WSJvRB6gDLxIxDlS+byoXg3jYsPtCPt3tXy
-	mz5W6+lpGnVsjOfQuAHbg7HE8LLFTei08BImHMANYVlHxFwey+pKUDBBTnKG3g==
+	 references:references; bh=uuF1PbflRL7G3epzTRJvFK2AzVPBYAY82eKYUINaU84=;
+	b=sE058jY4nU6VsrYvJYJGWz0GnmS2zddKt81kyGurkLnKI3lTj4IAfwcC7vb0GQE2MKAIC9
+	06bYY0LlPsompS+ICNa3F0PddkENSI1sjP6uhPMX8hRgmC4QtXBo0vzsziPIKkEfKLUxRz
+	e78CSOuQNN3Z0MNphVxMCQu15iLvF0NdT6dFANIPGRsh1693eM6rjQmEsxH7SYRE9EXGNs
+	aJ1tZ74jsYpp+Dr7L+Q4UvLxfDGI4CvODwLqZcPoIb4kFWxVKbAkhaHmpA/QT/7i7q48Gk
+	i6f0dFKptvOHQUJs1yizaeIwBhEXcT5MWnhDxQOY/prkjd4IGXRTuOAeBOIfPQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761137353;
+	s=2020e; t=1761137356;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=lccNRRk780OLOrvRTmsIIfoLd+zwTDZxXhd+4kcSfCA=;
-	b=jBvd0+8wGhqi9YLp+G44n5XgyHsh8eF5MQnWzMNg30j3PgApN0ylxUrS8tq8eAgva7Gr6V
-	RLwP5H6AG5silIDQ==
+	 references:references; bh=uuF1PbflRL7G3epzTRJvFK2AzVPBYAY82eKYUINaU84=;
+	b=LCpBggbX1O1nqs3aE6YLPbmxhfEEsetgCmtO5LHIcdjPiL9+7YVxy6NLO1LLLCxGKuvIYc
+	NMSIIhJLPzxbI5Dw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Julia Lawall <Julia.Lawall@inria.fr>,
- Nicolas Palix <nicolas.palix@imag.fr>,
+Cc: x86@kernel.org,
  kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
  Linus Torvalds <torvalds@linux-foundation.org>,
- x86@kernel.org,
  Madhavan Srinivasan <maddy@linux.ibm.com>,
  Michael Ellerman <mpe@ellerman.id.au>,
  Nicholas Piggin <npiggin@gmail.com>,
@@ -68,6 +66,8 @@ Cc: Julia Lawall <Julia.Lawall@inria.fr>,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  Andrew Cooper <andrew.cooper3@citrix.com>,
  David Laight <david.laight.linux@gmail.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>,
+ Nicolas Palix <nicolas.palix@imag.fr>,
  Peter Zijlstra <peterz@infradead.org>,
  Darren Hart <dvhart@infradead.org>,
  Davidlohr Bueso <dave@stgolabs.net>,
@@ -76,14 +76,13 @@ Cc: Julia Lawall <Julia.Lawall@inria.fr>,
  Christian Brauner <brauner@kernel.org>,
  Jan Kara <jack@suse.cz>,
  linux-fsdevel@vger.kernel.org
-Subject: [patch V4 09/12] [RFC] coccinelle: misc: Add scoped_$MODE_access()
- checker script
+Subject: [patch V4 11/12] x86/futex: Convert to scoped user access
 References: <20251022102427.400699796@linutronix.de>
 MIME-Version: 1.0
-Date: Wed, 22 Oct 2025 14:49:13 +0200 (CEST)
+Date: Wed, 22 Oct 2025 14:49:15 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_054915_343311_062DC32A 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20251022_054921_094850_1CA2A2AA 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,140 +99,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A common mistake in user access code is that the wrong access mode is
-selected for starting the user access section. As most architectures map
-Read and Write modes to ReadWrite this goes often unnoticed for quite some
-time.
+Replace the open coded implementation with the scoped user access
+guards
 
-Aside of that the scoped user access mechanism requires that the same
-pointer is used for the actual accessor macros that was handed in to start
-the scope because the pointer can be modified by the scope begin mechanism
-if the architecture supports masking.
+No functional change intended.
 
-Add a basic (and incomplete) coccinelle script to check for the common
-issues. The error output is:
-
-kernel/futex/futex.h:303:2-17: ERROR: Invalid pointer for unsafe_put_user(p) in scoped_user_write_access(to)
-kernel/futex/futex.h:292:2-17: ERROR: Invalid access mode unsafe_get_user() in scoped_user_write_access()
-
-Not-Yet-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Cc: Julia Lawall <Julia.Lawall@inria.fr>
-Cc: Nicolas Palix <nicolas.palix@imag.fr>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: x86@kernel.org
 ---
- scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++++++++++++++++++++
- 1 file changed, 108 insertions(+)
-
---- /dev/null
-+++ b/scripts/coccinelle/misc/scoped_uaccess.cocci
-@@ -0,0 +1,108 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/// Validate scoped_masked_user*access() scopes
-+///
-+// Confidence: Zero
-+// Options: --no-includes --include-headers
-+
-+virtual context
-+virtual report
-+virtual org
-+
-+@initialize:python@
-+@@
-+
-+scopemap = {
-+  'scoped_user_read_access_size'  : 'scoped_user_read_access',
-+  'scoped_user_write_access_size' : 'scoped_user_write_access',
-+  'scoped_user_rw_access_size'    : 'scoped_user_rw_access',
-+}
-+
-+# Most common accessors. Incomplete list
-+noaccessmap = {
-+  'scoped_user_read_access'       : ('unsafe_put_user', 'unsafe_copy_to_user'),
-+  'scoped_user_write_access'      : ('unsafe_get_user', 'unsafe_copy_from_user'),
-+}
-+
-+# Most common accessors. Incomplete list
-+ptrmap = {
-+  'unsafe_put_user'			 : 1,
-+  'unsafe_get_user'			 : 1,
-+  'unsafe_copy_to_user'		 	 : 0,
-+  'unsafe_copy_from_user'		 : 0,
-+}
-+
-+print_mode = None
-+
-+def pr_err(pos, msg):
-+   if print_mode == 'R':
-+      coccilib.report.print_report(pos[0], msg)
-+   elif print_mode == 'O':
-+      cocci.print_main(msg, pos)
-+
-+@r0 depends on report || org@
-+iterator name scoped_user_read_access,
-+	      scoped_user_read_access_size,
-+	      scoped_user_write_access,
-+	      scoped_user_write_access_size,
-+	      scoped_user_rw_access,
-+	      scoped_user_rw_access_size;
-+iterator scope;
-+statement S;
-+@@
-+
-+(
-+(
-+scoped_user_read_access(...) S
-+|
-+scoped_user_read_access_size(...) S
-+|
-+scoped_user_write_access(...) S
-+|
-+scoped_user_write_access_size(...) S
-+|
-+scoped_user_rw_access(...) S
-+|
-+scoped_user_rw_access_size(...) S
-+)
-+&
-+scope(...) S
-+)
-+
-+@script:python depends on r0 && report@
-+@@
-+print_mode = 'R'
-+
-+@script:python depends on r0 && org@
-+@@
-+print_mode = 'O'
-+
-+@r1@
-+expression sp, a0, a1;
-+iterator r0.scope;
-+identifier ac;
-+position p;
-+@@
-+
-+  scope(sp,...) {
-+    <...
-+    ac@p(a0, a1, ...);
-+    ...>
-+  }
-+
-+@script:python@
-+pos << r1.p;
-+scope << r0.scope;
-+ac << r1.ac;
-+sp << r1.sp;
-+a0 << r1.a0;
-+a1 << r1.a1;
-+@@
-+
-+scope = scopemap.get(scope, scope)
-+if ac in noaccessmap.get(scope, []):
-+   pr_err(pos, 'ERROR: Invalid access mode %s() in %s()' %(ac, scope))
-+
-+if ac in ptrmap:
-+   ap = (a0, a1)[ptrmap[ac]]
-+   if sp != ap.lstrip('&').split('->')[0].strip():
-+      pr_err(pos, 'ERROR: Invalid pointer for %s(%s) in %s(%s)' %(ac, ap, scope, sp))
+V4: Rename once more
+    Use asm_inline - Andrew
+V3: Adapt to scope changes
+V2: Convert to scoped masked access
+    Use RW access functions - Christophe
+---
+ arch/x86/include/asm/futex.h |   75 ++++++++++++++++++-------------------------
+ 1 file changed, 33 insertions(+), 42 deletions(-)
+---
+--- a/arch/x86/include/asm/futex.h
++++ b/arch/x86/include/asm/futex.h
+@@ -46,38 +46,31 @@ do {								\
+ } while(0)
+ 
+ static __always_inline int arch_futex_atomic_op_inuser(int op, int oparg, int *oval,
+-		u32 __user *uaddr)
++						       u32 __user *uaddr)
+ {
+-	if (can_do_masked_user_access())
+-		uaddr = masked_user_access_begin(uaddr);
+-	else if (!user_access_begin(uaddr, sizeof(u32)))
+-		return -EFAULT;
+-
+-	switch (op) {
+-	case FUTEX_OP_SET:
+-		unsafe_atomic_op1("xchgl %0, %2", oval, uaddr, oparg, Efault);
+-		break;
+-	case FUTEX_OP_ADD:
+-		unsafe_atomic_op1(LOCK_PREFIX "xaddl %0, %2", oval,
+-				   uaddr, oparg, Efault);
+-		break;
+-	case FUTEX_OP_OR:
+-		unsafe_atomic_op2("orl %4, %3", oval, uaddr, oparg, Efault);
+-		break;
+-	case FUTEX_OP_ANDN:
+-		unsafe_atomic_op2("andl %4, %3", oval, uaddr, ~oparg, Efault);
+-		break;
+-	case FUTEX_OP_XOR:
+-		unsafe_atomic_op2("xorl %4, %3", oval, uaddr, oparg, Efault);
+-		break;
+-	default:
+-		user_access_end();
+-		return -ENOSYS;
++	scoped_user_rw_access(uaddr, Efault) {
++		switch (op) {
++		case FUTEX_OP_SET:
++			unsafe_atomic_op1("xchgl %0, %2", oval, uaddr, oparg, Efault);
++			break;
++		case FUTEX_OP_ADD:
++			unsafe_atomic_op1(LOCK_PREFIX "xaddl %0, %2", oval, uaddr, oparg, Efault);
++			break;
++		case FUTEX_OP_OR:
++			unsafe_atomic_op2("orl %4, %3", oval, uaddr, oparg, Efault);
++			break;
++		case FUTEX_OP_ANDN:
++			unsafe_atomic_op2("andl %4, %3", oval, uaddr, ~oparg, Efault);
++			break;
++		case FUTEX_OP_XOR:
++			unsafe_atomic_op2("xorl %4, %3", oval, uaddr, oparg, Efault);
++			break;
++		default:
++			return -ENOSYS;
++		}
+ 	}
+-	user_access_end();
+ 	return 0;
+ Efault:
+-	user_access_end();
+ 	return -EFAULT;
+ }
+ 
+@@ -86,21 +79,19 @@ static inline int futex_atomic_cmpxchg_i
+ {
+ 	int ret = 0;
+ 
+-	if (can_do_masked_user_access())
+-		uaddr = masked_user_access_begin(uaddr);
+-	else if (!user_access_begin(uaddr, sizeof(u32)))
+-		return -EFAULT;
+-	asm volatile("\n"
+-		"1:\t" LOCK_PREFIX "cmpxchgl %3, %2\n"
+-		"2:\n"
+-		_ASM_EXTABLE_TYPE_REG(1b, 2b, EX_TYPE_EFAULT_REG, %0) \
+-		: "+r" (ret), "=a" (oldval), "+m" (*uaddr)
+-		: "r" (newval), "1" (oldval)
+-		: "memory"
+-	);
+-	user_access_end();
+-	*uval = oldval;
++	scoped_user_rw_access(uaddr, Efault) {
++		asm_inline volatile("\n"
++				    "1:\t" LOCK_PREFIX "cmpxchgl %3, %2\n"
++				    "2:\n"
++				    _ASM_EXTABLE_TYPE_REG(1b, 2b, EX_TYPE_EFAULT_REG, %0)
++				    : "+r" (ret), "=a" (oldval), "+m" (*uaddr)
++				    : "r" (newval), "1" (oldval)
++				    : "memory");
++		*uval = oldval;
++	}
+ 	return ret;
++Efault:
++	return -EFAULT;
+ }
+ 
+ #endif
 
 
 _______________________________________________
