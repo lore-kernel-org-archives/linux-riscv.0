@@ -4,91 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95384CCD1BB
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 19:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754D0CCD1AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 20:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:
+	In-Reply-To:Message-ID:Subject:Cc:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=/wOVu9Dovbm/ueba6IEk4dKqtzMJcUPddIS41HGikbI=; b=EWzIyaz0AaU/uuBU71AznEP3Hm
-	O2uvBV1g1gmLDPOCk89ewNtGeGRvr2jtZZ7kSafmV1PKT+dP3KpXQpozjHbAgE5u0QCaNpnYpnbGi
-	c7Bu6J+0C4L3VpWjTj+DfPYaB5Ibz2stVqYuD2ZCVVCAg0FZLwqtmdf7JyjTINX9S7elhFq+9U+dJ
-	rdhdhZ1S1ojrQ6QqUGMlLyo0rk17vh3iAHe43cfVfXrP/5UPRuvQwvMgC2tuGgCVhVyksF6xVaSSK
-	GoFoQfwdFVbf2L56js3MtVyVbvMqOHzlJTEbxRh/n2M3uiafEhnEyTg2QAv4Viuyc7rEWDrYk13Ym
-	czZOD6qw==;
+	bh=sx7mdVPd1cojIMfsjaIYSBHJy4SqcUCKvtsK3xnWs8c=; b=pJAvpdhErneNykw18q6ht6YFL1
+	0GZhdYEP+b912TWOVJH54oG40cCnTmljMfEQKZHVJyWiofTHns9DS4eK6qCALeAnFml1mi4Z0M4c7
+	zw+TcY0Q8opYTxrDKr90svHn33bDfSRnRqECn6QSFRp7V6OzKn89oaeA/SixvU+QiE+vsovREkQhr
+	vSb3ZLJPy9wGFtAtspAy3HmeHKxAMrxVFNvFMLnfyYsu5hocTX/gSEL/9dY083nFdbgY9zCitzW4+
+	fWNk5qyCFjulPK8reXDQL0xV/Oqe+tOimonUGhOdtRVyqhKAw2ohjyuiBGaccd1wh5cRvF95MuT2+
+	kMlaHp3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBeCZ-000000045jG-2Com;
-	Wed, 22 Oct 2025 19:08:51 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1vBfIG-00000004EHa-3phU;
+	Wed, 22 Oct 2025 20:18:48 +0000
+Received: from dog.birch.relay.mailchannels.net ([23.83.209.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBeCW-000000045hC-3SGn
+	id 1vBfID-00000004EFt-3xov
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Oct 2025 19:08:50 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-7810e5a22f3so14683256b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Oct 2025 12:08:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761160127; x=1761764927; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wREzy7rE27X1qKmfXOWprRl7YFBX8aFkFx3LWlFCsNc=;
-        b=HXoKXPd4l5qSR0ItKfvY5LIc5Rr021zoJKEixb1FpwfIKGmxPZRR5bipukq24bvTMQ
-         azVx1VQWSa/QNvm66Yggs9/1OR5kvGwG6sn79tQsiIBdJqPdA8uHax8wqEaEj97IdCQO
-         JBeWcJRG7vZFuoBc7sa+5bI2we0raBOWLYQHIzfDgTMJMF4FaJucizE1nOIcwZLxlzer
-         8ImACy9Au89ghqGOWwVRP/ORLNr1QKh8YJv1aMbvsGEduXbENu/ZWhq0VJVYCfv4/vST
-         edaH83yTdU2Qf8tC4CDfjhPX1xCaPZizsIDJBqKUEoTtKRb33lsOtHpsZNEhVMLUV5x/
-         BoYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761160127; x=1761764927;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wREzy7rE27X1qKmfXOWprRl7YFBX8aFkFx3LWlFCsNc=;
-        b=ESpGZAUt0e1gM44ufnJ62NEa2sqEci3ptVIOi2fGx2FRHcuPvCSP3gHPxopxcLWug4
-         it7mdu41Y8OTf0xCM6X2uVvfMKQ/QkgVooBvrZZrVV0onwKiJV0uJ1ahv4nt2RPOkL6w
-         +c4YIwHyv84tWJ2SuOtKba9VW24IIqIgeLGCoRmvBcM5p046jd3s3hzJAu5/2yxqk0FH
-         Q3EuReAcqbJXE5/PFc2ZC/5tO1fO+YiLoKRbEdmmXWptGzk8gqD1WR1/KUbBJ/Ai5WIx
-         wLwuOUWbGJx9Yb9vL6j+bZgI2vKThm+f1dQnZgUR8pvl93rFl2EgVjRDwFC5yU0rZzxw
-         /z2w==
-X-Forwarded-Encrypted: i=1; AJvYcCUyUUz8pD9lJ1JlHP9eWQQfvvuW+LrAsuunMq6O4GR2StlCVkicv+7EuK/Bko8pUnOfk+vQ2DkXbVi1Ew==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4i+l5ca0kQyuDUdr16dWWcN+qmLTFNiqicOdFaAtBMimgjuC8
-	KBaEnxmYx3AAJYb+cf24rH7DEcdugxe6w6zGOBBuuv7gdOGJM6s7G20dgBrlrzTPGYZBbjt9HeO
-	uMH+3ow==
-X-Google-Smtp-Source: AGHT+IG7bMbvOV7PjecaO9CgeAeXZcwC+wb3hcO8vOg4iH6Jor9tS/5vQmEcVRzTkSnVuCY2g2HzBv4NWV8=
-X-Received: from pjbpc16.prod.google.com ([2002:a17:90b:3b90:b0:330:9870:9f18])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6300:218a:b0:2e5:c9ee:96fa
- with SMTP id adf61e73a8af0-334a861743bmr28027967637.34.1761160127099; Wed, 22
- Oct 2025 12:08:47 -0700 (PDT)
-Date: Wed, 22 Oct 2025 12:08:45 -0700
-In-Reply-To: <aPiZ2DEQ6qW5r5rY@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-11-seanjc@google.com>
- <aPiZ2DEQ6qW5r5rY@yzhao56-desk.sh.intel.com>
-Message-ID: <aPkrvWcm3JF9WlVd@google.com>
-Subject: Re: [PATCH v3 10/25] KVM: x86/mmu: Drop the return code from kvm_x86_ops.remove_external_spte()
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Michael Roth <michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Binbin Wu <binbin.wu@linux.intel.com>
+	Wed, 22 Oct 2025 20:18:47 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 1DE54504741;
+	Wed, 22 Oct 2025 20:18:44 +0000 (UTC)
+Received: from de-fra-smtpout8.hostinger.io (trex-green-8.trex.outbound.svc.cluster.local [100.119.46.77])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 3128D504387;
+	Wed, 22 Oct 2025 20:18:40 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1761164322; a=rsa-sha256;
+	cv=none;
+	b=fZRTbeimbofalQJevaIU6n7DSoH/UDeTEDkhUOdYfuK8SIv59HBf5y5aS/WfYK0I25gbGU
+	kkP3pWrxSdx+gn9pQO6/dAI+9blO8oLpZPsjV5132YhCZIrSzf6w+KqR+2KaZpoqilWxQR
+	ilYSnbnnVXo56x3KM4rdmzZ+qL+PfkbABTEJ+0I3h2WJX2wOXJIXj4VWyx6hUqexpbe6YN
+	ms0aJLsuy9efsu1GIShTTAFSB0FjREuXKlBEiWWemN6RJWPxv8JAHKFSSYhO7fj0waZg/Q
+	hhEkMt+eKwj2DpvME65UfVc6Nxjz5HSiqDipyFaJiIu+qW8qGRpGb8PbpJNBCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1761164322;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=IayKEbkgWGAXICgQmVJqimgGp6s7RC6SqFcIxOt/Cow=;
+	b=FnHvNLOMIlql2R11ue51TSmmidHa5h0ThuOZc/nywYolO9YNTZshsJ98M5hBnz8eacr7ZV
+	hOIhg1h9uMsmIRI6emyNgy2dn6xHF1noDTrjc3vCbRvN/pIi/bqPZEm5hztWs8RJKOb5lS
+	bdQKoyfhjJXHPKA7aaHZo+A32wvF7BzXty9TL+V3QE5+ATZ4AOeQM7H2b56weCE6ykYdM3
+	Si9YnRNXfnZ6bRsjHsMIHhH44angePUbrRwrJYHCVLKET08B5VxE5+ARVSiCA/lG6W8mIJ
+	syEONKthqkosSzxwb6FfwlPP6zmFH/S6QVWd+/mG5TbDKr0AkdVJqz5fTsLgLg==
+ARC-Authentication-Results: i=1;
+	rspamd-5b5956c7c7-6m7zr;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Stupid-Glossy: 3697a34139ab00ff_1761164322787_986877117
+X-MC-Loop-Signature: 1761164322787:3907238689
+X-MC-Ingress-Time: 1761164322786
+Received: from de-fra-smtpout8.hostinger.io (de-fra-smtpout8.hostinger.io
+ [148.222.55.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.119.46.77 (trex/7.1.3);
+	Wed, 22 Oct 2025 20:18:42 +0000
+Received: from localhost.localdomain (unknown [IPv6:2001:861:4450:d360:df8b:aa61:9538:1b7a])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4csL8Z0V1Rz3wnP;
+	Wed, 22 Oct 2025 20:18:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1761164318;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IayKEbkgWGAXICgQmVJqimgGp6s7RC6SqFcIxOt/Cow=;
+	b=Kf8y/zWb70UHVm7PhYkkqtKGBci4td1IQyy8rLRFk34n+tQQyzD1Y8Nk6O7aiU74+O5F8J
+	jtI6jQb3H+IrnbcCvVZVm3eEuiggpIx+TVo1aIzc5VJRGPpGvfSXrW2T88eUs3Q7vLouQk
+	ceh1/o5OWAksDOsyXKV3Z1vMAmmAdjZ7jPoz+l8EWFem92WLV53CvZqSU5WeCDy/UrLAKd
+	wAvRVPF3sqTUx6xIssHMKT3N1ptmi8chCckceRPbHwCppca2sF5fZyKr/7n3lAQLeJcolF
+	KYsepLzn/5F4zuxQtlYRnjLTr1qc2ipWFFefuy1wp+eECA0oFJasrMH4NiKZhQ==
+From: michael.opdenacker@rootcommit.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Emil Renner Berthing <emil.renner.berthing@gmail.com>,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/1] riscv: dts: spacemit: add Ethernet and PDMA to OrangePi RV2
+Message-ID: <20251022201807.1474789-2-michael.opdenacker@rootcommit.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251022201807.1474789-1-michael.opdenacker@rootcommit.com>
+References: <20251022201807.1474789-1-michael.opdenacker@rootcommit.com>
+MIME-Version: 1.0
+Date: Wed, 22 Oct 2025 20:18:38 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=ALriHGRn c=1 sm=1 tr=0 ts=68f93c1e a=XzW6OEp4kASjoDH3AA+DzQ==:617 a=xqWC_Br6kY4A:10 a=d70CFdQeAAAA:8 a=pGLkceISAAAA:8 a=7mOBRU54AAAA:8 a=1xgkj7NNNoY4BsVt7o0A:9 a=NcxpMcIZDGm-g932nG_k:22 a=wa9RWnbW_A1YIeRBVszw:22
+X-CM-Envelope: MS4xfGgxslif6O+Km/CHVW7/ZxUgv9CSVGJfZLtGrXoovb8+BntLcTRR5LVAzRa44v9R1NEGR77x0lGcuIfonmZQtsNkKFw9pZ07aoQRDYYQ267P353g2Z3s essj0wyMJJAZWdkRt3XEPjzznD1CrjOjXd9xkbsPTDnlPIUJrp7qeQE2OuYbp+s0PAmkgXMus06bNhMTEI4rYrTtT1UD+gfDG4GLNsA/9HB+xAumA+zlBGnj 0pFfln1wo/xRRyOIxL4APgjx8bRWTzRubCp6TK10Nhe+IlANWXxnixY/1IGlopuOLz4iJIoIweJjY3l9cMjr/8b8O+3CnpP2ZQQHm4b6MugxCf2FzydNLk8y jiDJ2QpFYFctrrTIPU2DAHQgoQ19Di7viOHWWrOctnjhXOlvsS5QPAVG4CM9d6u3S+J13+V3aJwnk5KKXHWICKSnB2ORQ5oDEhwSH1OOYeisX19fEaMilM7O DeyNtv6D6cbBOFb4GDm0sdv3zsQM0FVFypLFCvH/5+pJaOupY1/LxkfzaTbyAEU/IheCqi6Nb9q98fcTHn9JJVw6Zm2be2fEkWvHdA4ElZaYuENFB2xEGzZu /APf52Ent9eSp58QX2Lbp7GaaOy0lh/WlGeEAOme7Y5shq0aXYed0o9FyvXXBAlUk0x/H8fRuug0A4zAy2lpw9pgE45mRaH1YDnTY0+/OuQMd/fw88jPTuAB taSEjj9l6xkYsJ8cO3fzl5PEu01W/8WoNsoyL2AAoVYoMbXtk9ocd4cejrq5Fgy+9sVfxvt1l3U=
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_120848_858214_67433191 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20251022_131846_273983_94B39397 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,41 +134,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025, Yan Zhao wrote:
-> On Thu, Oct 16, 2025 at 05:32:28PM -0700, Sean Christopherson wrote:
-> > Opportunistically pass the spte instead of the pfn, as the API is clearly
-> > about removing an spte.
-> >From my perspective, "remove_external_spte" means removing an external SPTE (not
-> a mirror SPTE). So passing in pfn_for_gfn seems reasonable as well.
-> 
-> Additionally, passing in the pfn eliminates potential concerns about incorrect
-> spte content.
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
 
-No, it just makes bugs harder to debug.  E.g. it doesn't magically guarantee the
-@pfn matches the pfn that was mapped into the S-EPT.
+The OrangePi RV2 board ships two RGMII ethernet ports.
+Each has an external Motorcomm YT8531C PHY attached, the PHY uses GPIO
+for reset pin control.
 
-> > diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-> > index 48598d017d6f..7e92aebd07e8 100644
-> > --- a/arch/x86/include/asm/kvm_host.h
-> > +++ b/arch/x86/include/asm/kvm_host.h
-> > @@ -1855,8 +1855,8 @@ struct kvm_x86_ops {
-> >  				 void *external_spt);
-> >  
-> >  	/* Update external page table from spte getting removed, and flush TLB. */
-> > -	int (*remove_external_spte)(struct kvm *kvm, gfn_t gfn, enum pg_level level,
-> > -				    kvm_pfn_t pfn_for_gfn);
-> > +	void (*remove_external_spte)(struct kvm *kvm, gfn_t gfn, enum pg_level level,
-> > +				     u64 spte);
+Enable PDMA for the SpacemiT K1-based SoC in the OrangePi RV2 board.
 
-Thinking more about what "spte" actually tracks, I think I'll rename it to
-"mirror_spte".
+Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+CC: Emil Renner Berthing <emil.renner.berthing@gmail.com>
+CC: Yixun Lan <dlan@gentoo.org>
+CC: Vivian Wang <wangruikang@iscas.ac.cn>
+---
+ .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 52 +++++++++++++++++++
+ 1 file changed, 52 insertions(+)
 
-> Also update set_external_spte?
-
-Ooh, yeah, good call.  And we can use the mirror_spte information to assert that
-KVM expects full RWX permissions, e.g. that we aren't creation a security hole by
-letting the guest write memory that KVM thinks is read-only (extreme paranoia,
-more for documentation purposes).
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+index 337240ebb7b7..41dc8e35e6eb 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+@@ -15,6 +15,8 @@ / {
+ 
+ 	aliases {
+ 		serial0 = &uart0;
++		ethernet0 = &eth0;
++		ethernet1 = &eth1;
+ 	};
+ 
+ 	chosen {
+@@ -33,6 +35,56 @@ led1 {
+ 	};
+ };
+ 
++&eth0 {
++	phy-handle = <&rgmii0>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac0_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <0>;
++	status = "okay";
++
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++
++		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
++
++		rgmii0: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
++
++&eth1 {
++	phy-handle = <&rgmii1>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac1_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <250>;
++	status = "okay";
++
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++
++		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
++
++		rgmii1: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
++
++&pdma {
++	status = "okay";
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_2_cfg>;
 
 _______________________________________________
 linux-riscv mailing list
