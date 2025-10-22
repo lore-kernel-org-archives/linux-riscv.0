@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C79FCCD1BE
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 05:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB924CCD1BE
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 05:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ygPWu66+rdCA6yBWN1TVVdr4fCTcAKPb20t6vEyHldM=; b=b2b8XgngIhT2Dq
-	Z/YqehrqMkqZYg1eBPgHzCxzdXhYEGF9X2Js1gIIVft+rLp/JkS1wV1RyE4KJ42A4yz6OmxLOhBV6
-	OiR+wnvHoPY1huk47K8ebpXx3YrnJvlVNQ9i7hLNUc/1ScglwRin5ogQmtMrYUfHU/+i+IFPwaS1n
-	Kp9X49F1Inghc/zh/cFaf1Gl9x9kftXTiZoqVd8EKjYS6W0/ZeojLIbtV/XM30JUEWE0vPtmPbnKG
-	XN7RSlxaDIiFtEIM5yntoObhIvxFUcWYc95j7SPtJCcpJq2MJeUKZrT1DscH2McRgThC6ecTVtQ3O
-	hkJ9QC0ld2TsLc3fWSxA==;
+	List-Owner; bh=oePiYP5F5TPrwTVok0k3ejZ8AecUIilPbDPI9NLDw+Q=; b=a7FFKTCSOSSr7A
+	U6aDaBrHQZ8KuCJ3qz5IV4jsDkuOD7aMJriPCqrI4NZbkUXjIl0jx7EIq7s1adLzLFiaFL4gZRP+8
+	WNMRJv4wcqoKchOygxUkSwcVmQBDlXeIGe6R4B13+uXIbF39E6U14MLD3yAyTHR7tPd9GGtlMzsOI
+	ri9VeRaSJxknT6zLE5T6XtbQrNCEhgyvbPG/bH3kLexWWgDu+o7cZ0+QuRws8OWeIuYBaJvbsXZu6
+	UFKaeK0cSuJdHuloBx5AUaVQy+nYnCUumg7g1Uci1d7UFuUD8Iluw9BpWHD6D3sSkG2B1Uu1Bcon6
+	Ow6TVSPjJuBa6dw2UStA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBRpx-00000001aXo-0iOI;
-	Wed, 22 Oct 2025 05:56:41 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1vBRqW-00000001aiZ-2Owd;
+	Wed, 22 Oct 2025 05:57:16 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBRpr-00000001aWb-3ZF4;
-	Wed, 22 Oct 2025 05:56:38 +0000
+	id 1vBRqQ-00000001agZ-2xSY;
+	Wed, 22 Oct 2025 05:57:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761112596; x=1792648596;
+  t=1761112631; x=1792648631;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=e0BNSEe8+JWm79ZsctEdZVSTDEu6ZAcAN5FVm7Wus1E=;
-  b=fq9beKtZpSZ9xtF+1HtgOxXkuuxjT4aQcwDE1euEyeV7Srf9KEC3+Wkp
-   N2HU5onhiIKNBycmOWo333J71u/xv0N8gUnRtNJokKeVJyn2u9b5JWOrf
-   ULvKNp+Snf9bPgTr3OWDqvyYHcqC5iju7Jx/zzBdGeelzj2gMGSPOuyiT
-   ySstzO4fXUxfPN7+M50NCYJ38POiG4+gc5+rLVt+Uf0P7itDQDwvV0izU
-   YXrXf86y0I/2f9OJccsLMHRs3VavY0uDXlJAxJ93CTcZBVQGz8006BBC8
-   PJ79/mKqSTUkt+PxuqCH5vQLdHmaFJEGOut9fksw+TVkHc0ihel32Ny9s
-   w==;
-X-CSE-ConnectionGUID: KO1MkNg5StudS2cBFr9/Kg==
-X-CSE-MsgGUID: Qtq9cOyETvmYA96MBm7amA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="65866356"
+  bh=Oq4fzkS01zCv2I4qOypTEqukIE12MkuzMGCj+rV1CCw=;
+  b=E7Jfqqcdu7VQT1dxrFmwMMNAG5K7CoSj6nOrzt4x7aIA+SIH9WASa5dI
+   i1AP78MKcZ87csLhzI+funJzjC1R+n7awfOxP2gYyMUNU5k7rgJeaoXVB
+   wpzZ9yfNenup1BpwBpvRAcoDhSzIBCK1Mv+q0Mi3bF1clrloQOrP/k1Is
+   4csnRM4NjzKFLc4rvl4RRjtrGgtf/Oq3nTGydaLfxZKovYO6Mk+b90t5s
+   5Tfw9lBgIXzkp9TYnhE/1rZ8st4YLBIfEoGkS2L7mKs/TBQGyySTzMzi5
+   4WixOG036XIQOZ7TvC27lkSBtBke8uDHVqoQeSmNEfGfvVnRYzBuLN6z0
+   A==;
+X-CSE-ConnectionGUID: kxnOYL+oTt2GAusw+D3Yfw==
+X-CSE-MsgGUID: Zid8ajUNTge+Ts5R8O3QVw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63146729"
 X-IronPort-AV: E=Sophos;i="6.19,246,1754982000"; 
-   d="scan'208";a="65866356"
+   d="scan'208";a="63146729"
 Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2025 22:56:35 -0700
-X-CSE-ConnectionGUID: oEyBARVoRTqxmx9FX15Ezg==
-X-CSE-MsgGUID: iu37FNdWT/WUX/u/fUlTIQ==
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2025 22:57:11 -0700
+X-CSE-ConnectionGUID: jQ221r4UTleoxdP+jV1Nkg==
+X-CSE-MsgGUID: d9hLZVuOTp+rHjN7swLSrg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,246,1754982000"; 
-   d="scan'208";a="184184586"
+   d="scan'208";a="184184728"
 Received: from yinghaoj-desk.ccr.corp.intel.com (HELO [10.238.1.225]) ([10.238.1.225])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2025 22:56:28 -0700
-Message-ID: <7aa86887-b499-4618-b174-96cb0cd17d24@linux.intel.com>
-Date: Wed, 22 Oct 2025 13:56:26 +0800
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2025 22:57:02 -0700
+Message-ID: <bfe00290-6ab3-4c09-b0bf-46bb7af09d60@linux.intel.com>
+Date: Wed, 22 Oct 2025 13:57:00 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 05/25] Revert "KVM: x86/tdp_mmu: Add a helper function
- to walk down the TDP MMU"
+Subject: Re: [PATCH v3 06/25] KVM: x86/mmu: Rename kvm_tdp_map_page() to
+ kvm_tdp_page_prefault()
 To: Sean Christopherson <seanjc@google.com>
 Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
  Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
@@ -80,13 +80,13 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
  Rick Edgecombe <rick.p.edgecombe@intel.com>,
  Ackerley Tng <ackerleytng@google.com>
 References: <20251017003244.186495-1-seanjc@google.com>
- <20251017003244.186495-6-seanjc@google.com>
+ <20251017003244.186495-7-seanjc@google.com>
 Content-Language: en-US
 From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20251017003244.186495-6-seanjc@google.com>
+In-Reply-To: <20251017003244.186495-7-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_225635_925834_8C88B1FD 
-X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-CacheID: sfid-20251021_225710_798287_9C538B38 
+X-CRM114-Status: UNSURE (   5.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,11 +107,10 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 10/17/2025 8:32 AM, Sean Christopherson wrote:
-> Remove the helper and exports that were added to allow TDX code to reuse
-> kvm_tdp_map_page() for its gmem post-populate flow now that a dedicated
-> TDP MMU API is provided to install a mapping given a gfn+pfn pair.
+> Rename kvm_tdp_map_page() to kvm_tdp_page_prefault() now that it's used
+> only by kvm_arch_vcpu_pre_fault_memory().
 >
-> This reverts commit 2608f105760115e94a03efd9f12f8fbfd1f9af4b.
+> No functional change intended.
 >
 > Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
