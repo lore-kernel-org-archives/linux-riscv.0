@@ -4,104 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C056CCD1AB
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 15:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733EBCCD1AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 16:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dyHC+g1++9r6M8NobhtRJOA5JGfhN1nijItrLjQU17c=; b=1nmNIUKVsAKmVP
-	H52HAOcgQzT0dFikD15zPeIK1VPkWAs4vapxxx6AVC63a2Rs817CNdhkkTtdUuAXlfV0xezILk1bo
-	OA2L176s7jU9s00GzclOIOVkkkxOFCi7m/rHAuF5LGlVx9lLZvTVV9zaRjJbqCPbTl2NkeFLQtww2
-	1BWEZ905yDJkT9MBlbH8nu8p+W6uREoce/9soeT2gJIC5DmyOm6SPYK6qfYUDNV7lHpHn/TDqbrQg
-	ENqfD4v4cz2weBZNlNt4IyyewnWCnAqs86xAESDdleHM0YC/xpIxUci4613EZ5Bi3iZh6O1asNSsb
-	gXXxrhmcKPB3vn5oOVNQ==;
+	List-Owner; bh=1vVK5PPUS35/UHdx3iBaVvv2tCFBx7PjAq/cNCK6KEY=; b=YrbjUHnp/NA7R5
+	/kRWnK/9WZryt+Wi8s9IBEQQNhgzrJFbpV8BNblSk2yql6GTWKvmYJvZTPJA/N73SfQWZAkA8K3BP
+	ZEQ5eR0oWxEuw8KA/7/BB/PSvSaveKTIIy/iY/1+E0MVTT8k3MaFAcUXQIJE0j2dw3A+O+U/8N/pa
+	clNqp2ToMjtilp8vVWVNbDkQKI5L/ywLUDIEk7xHhq3V7tVRsFuxzUStitTJDPRJ935z+QrfFLUZe
+	1n80NnfTHAF2uR5hy2SiR2gyiSVX+iaTl1V2e8TbKRlj7TwQkhJtD/RRuBl5GWFWjwVzCRITQpB08
+	ZBOCG/pqas87zeCm25gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBag1-00000003NT1-2vGJ;
-	Wed, 22 Oct 2025 15:23:01 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1vBc1I-00000003fEV-2o85;
+	Wed, 22 Oct 2025 16:49:04 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBafw-00000003NRM-32jr
+	id 1vBc1D-00000003fCr-3ZnR
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Oct 2025 15:22:58 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b4aed12cea3so1162523866b.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Oct 2025 08:22:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1761146575; x=1761751375; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y8Ks3283lFKT/3or/kKLaFk/rSeUKOKq+L7qyJbrS/M=;
-        b=AVNGbhXMRVN7mS/QsnicTVgUAnIwh+J7TwGJVgPZhwSfnPRtQqBShx0LucxdzVKKYZ
-         K/V/6JGc9ZAPIDD1ufO8rE56n4HWnb39z2IUgFAKs2ENYFBJ+EjKfWRjOXaaO4rCTBOj
-         SQILCfpFi6jlAvyBptx4Dzhaui6JOzKCOwteE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761146575; x=1761751375;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Y8Ks3283lFKT/3or/kKLaFk/rSeUKOKq+L7qyJbrS/M=;
-        b=VOst5JroDTL7MP1j8RGhrMMMabkcAsaWOTOBTQYop2GFGHBbwEeExgDnOhL/I6Kp8t
-         +ASwY/ruQ2zJzjR400iwkS53Bot+DvUwlvjf/RLQDMCNozRMGwlr3Dise48x/fyHgB5Y
-         WAWkZsjkF0sYOBqn1jSclBGeVbpI86aOSfAfUIx1k4+NrxYf8kKKcuLp3PbGKzvbgWv0
-         KOQ77YGuxgVQuB7AamP97lfiaj81oQ6JTEOqZSHWQfMPbPgRKH8gsU4CZRTmakQ8Lu+Y
-         /CNZ6NoHLaWmFxoLmg5eNVHAjlByzlnjnfFqbK45AG1kjAcvdI5Sztk2Ef4YntkeUEdB
-         tb4A==
-X-Forwarded-Encrypted: i=1; AJvYcCV/c9nwAZocpDZwxg80y0O0reNQGlk4ILQs3pLEqVHTvfynRMCWp42xFQmGICn7snKQp++k46MXZxRpWg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZF+R60iT37DbFox0pCCJ2v7roOQ5Sfync2I4E+7hGh61EDtyq
-	0JP1sl89/LK47Qnao6kx0/TMaOWZCI/AV5IkrQe9fbF5dZ3Cp6kUSgtk4QRuy+2ZCpix+dawbrr
-	ifPSS9fM=
-X-Gm-Gg: ASbGnctQUjGZv4EbFwGnXokabetkb1Wy0CmBFydChMOyOH6wDX51xj/TNh/TVMaOjl3
-	OBsCjthDepTPj5p4NKl8RyTt+5DUvBlhBQwnNwrQC5CXxmWLNRv+4ARjJspOt1P3BtOjLaphDgm
-	w2bRg8P2Q4QzR1aWnGxVp8TtY8RYV7oZyhVQyoAQpB6LGhqMqctZ2fXqIqE+4VvE/OaiYMByDgL
-	Esszg1Vh0X2dvMCb7+slYKH0FJwP2cRWItwtc8sBYQ9cI80Xt/xiTgtxPUM5jY6w+5Ouhy+V/qW
-	7ytpWwEePqaNK56mKInw7vK1F5jylXN/GgDA+zd/0LgDTkDl/hhaMd5BO5TpTbZIC1RHaud0Y9d
-	3hR3NsX3HBcZleOnbP03DAv/KuPHoTWU6y8Bp4HFXy0OdrJdpjGBo7DXp/GWrrOPDg8dmx35aRz
-	ywgV+nykC9v/il61MryUO/vwY08/0BfeY1nOkmzsLFMyyRjx1lCA==
-X-Google-Smtp-Source: AGHT+IGub2SZuMDr32Vc658UJItdcyqnN8DDtG8Eh91Pl1MhwvmQWto5Bs2hbHRyYoV8CZSyaTGzMg==
-X-Received: by 2002:a05:6402:3492:b0:633:8787:6052 with SMTP id 4fb4d7f45d1cf-63c1f6b0b6emr20468156a12.21.1761146574681;
-        Wed, 22 Oct 2025 08:22:54 -0700 (PDT)
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com. [209.85.208.44])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63c48ab560esm12092090a12.12.2025.10.22.08.22.54
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Oct 2025 08:22:54 -0700 (PDT)
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-63c1a0d6315so12685698a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Oct 2025 08:22:54 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUwZn+4KwJiees+ekWlYUJ4OQ8IKEAa70yqkarvkNH6G0Ji5EOhlVQJI8eDHSo9CNomgXa8464Socxa2g==@lists.infradead.org
-X-Received: by 2002:a17:906:c144:b0:b04:48b5:6e8a with SMTP id
- a640c23a62f3a-b6472d5d715mr2448051866b.7.1761146216891; Wed, 22 Oct 2025
- 08:16:56 -0700 (PDT)
+	Wed, 22 Oct 2025 16:49:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=1nnTTQGLKpg2Y4zlHS/zCgkMJs42TpDEsJXY1zhm+kM=; b=NtR8svfECruwcJup56bQs5SOZR
+	GSG9JZvkRgw08/1tQ7KRuGSchIL8sCR1vKcjUnjjdfOYgJn9mJmS8T2l8weWJxj1JrPcQaMr0dom9
+	rW/zi599vslZV7xW0lPrZnyZ/KIGZsFnKzThIXlB7gtYUcvCRhsul4lqlNfIoFCFm7HDxBi6ed2tJ
+	0B9kuB3OPw0jwENFYVqp5XMvqqhpC4nTIlWT9CNIKNFlhG0U+rndTeod+7MZSe6Ku/FE+CnXQgk29
+	zlivSvW3jiyH5mV+2MYtrBvFGDPRIsWizpmAQwMQeae9ezHZvjrkAZ5kS39/KJL6uSMhlnzv9JtI3
+	+yI5AVcg==;
+Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1vBc11-000AgZ-0O;
+	Wed, 22 Oct 2025 18:48:47 +0200
+Date: Wed, 22 Oct 2025 18:48:45 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org,
+	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+Subject: Re: [PATCH v3 1/2] driver: reset: spacemit-p1: add driver for
+ poweroff/reboot
+Message-ID: <aPkK7aEHhxKScoCN@aurel32.net>
+Mail-Followup-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org,
+	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+References: <20251021201451.1013640-1-aurelien@aurel32.net>
+ <20251021201451.1013640-2-aurelien@aurel32.net>
+ <20251022004830-GYB1522542@gentoo.org>
+ <aPhtd0j6iBpqiGUQ@aurel32.net>
+ <52468F28CD7B50FD+aPhurJD4HTXqIGDT@kernel.org>
 MIME-Version: 1.0
-References: <20251022102427.400699796@linutronix.de> <20251022103112.478876605@linutronix.de>
-In-Reply-To: <20251022103112.478876605@linutronix.de>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 22 Oct 2025 05:16:40 -1000
-X-Gmail-Original-Message-ID: <CAHk-=wgLAJuJ8SP8NiSGbXJQMdxiPkBN32EvAy9R8kCnva4dfg@mail.gmail.com>
-X-Gm-Features: AS18NWAqLsXEY6bsEV3yJ0KWUZmBC6kMtZXzbsnMf3ubAyGEsrR55YgMKptZqjM
-Message-ID: <CAHk-=wgLAJuJ8SP8NiSGbXJQMdxiPkBN32EvAy9R8kCnva4dfg@mail.gmail.com>
-Subject: Re: [patch V4 10/12] futex: Convert to scoped user access
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
-	kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>, 
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-	Heiko Carstens <hca@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Andrew Cooper <andrew.cooper3@citrix.com>, 
-	David Laight <david.laight.linux@gmail.com>, Julia Lawall <Julia.Lawall@inria.fr>, 
-	Nicolas Palix <nicolas.palix@imag.fr>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <52468F28CD7B50FD+aPhurJD4HTXqIGDT@kernel.org>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_082257_341787_2F4C3246 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20251022_094900_321674_BAABC6CF 
+X-CRM114-Status: GOOD (  27.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,30 +92,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Oct 2025 at 02:49, Thomas Gleixner <tglx@linutronix.de> wrote:
->
-> From: Thomas Gleixner <tglx@linutronix.de>
->
-> Replace the open coded implementation with the new get/put_user_scoped()
-> helpers.
+On 2025-10-22 13:42, Troy Mitchell wrote:
+> > > > diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+> > > > index 8248895ca9038..6577d73edbda4 100644
+> > > > --- a/drivers/power/reset/Kconfig
+> > > > +++ b/drivers/power/reset/Kconfig
+> > > > @@ -283,6 +283,15 @@ config POWER_RESET_KEYSTONE
+> > > >  	help
+> > > >  	  Reboot support for the KEYSTONE SoCs.
+> > > >  
+> > > > +config POWER_RESET_SPACEMIT_P1
+> > > > +	tristate "SpacemiT P1 poweroff and reset driver"
+> > > > +	depends on ARCH_SPACEMIT || COMPILE_TEST
+> > > ..
+> > > > +	select MFD_SPACEMIT_P1
+> > > I'd suggest to use "depends on" instead of "select", the reason is that
+> > > using "select" will sometimes ignore the dependency, considering
+> > > the reset driver here is tightly coupled with P1, so I think it's 
+> > > reasonable to switch to use "depends on", also refer below link
+> > > 
+> > > https://lxr.linux.no/#linux+v6.7.1/Documentation/kbuild/kconfig-language.rst#L144
+> > > 
+> > >         select should be used with care. select will force
+> > >         a symbol to a value without visiting the dependencies.
+> > >         By abusing select you are able to select a symbol FOO even
+> > >         if FOO depends on BAR that is not set.
+> > >         In general use select only for non-visible symbols
+> > >         (no prompts anywhere) and for symbols with no dependencies.
+> > >         That will limit the usefulness but on the other hand avoid
+> > >         the illegal configurations all over.
+> > 
+> > Thanks for the pointer, I'll fix that in the next version. I used 
+> > REGULATOR_SPACEMIT_P1 and RTC_DRV_SPACEMIT_P1 as examples, they'll also 
+> > need to be fixed.
+> Yes, I have said here[1].
+> Do you want to fix that? If you don't have time, I can do it.
 
-Well, "scoped" here makes no sense in the name, since it isn't scoped
-in any way, it just uses the scoped helpers.
+For the reboot patch series, I'll do that in the v4, but I would 
+appreciate if you can do it for the PMIC and RTC drivers. I guess it can 
+be a patch series with the first patch being the one you already posted.
 
-I also wonder if we should just get rid of the futex_get/put_value()
-macros entirely. I did those masked user access things them long ago
-because that code used "__get_user()" and "__put_user()", and I was
-removing those helpers and making it match the pattern elsewhere, but
-I do wonder if there is any advantage left to them all.
+> > Note also that without the select, a default value has to be added to 
+> > MFD_SPACEMIT_P1. 
+> Yes, I will add it in my patch. Thanks.
 
-On x86, just using "get_user()" and "put_user()" should work fine now.
-Yes, they check the address, but these days *those* helpers use that
-masked user address trick too, so there is no real cost to it.
+Thanks.
 
-The only cost would be the out-of-line function call, I think. Maybe
-that is a sufficiently big cost here.
+Regards
+Aurelien
 
-             Linus
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
