@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0AA0CCD1A5
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Oct 2025 23:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B7E4CCD1A5
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 00:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ovpaVJhViHMnK5/CyV+fL/xq+nMLbmauQL1KHT2Cyrg=; b=JKBRpdVm9UYulq
-	5cIWg9o6vcf2StPb03AQtdZh/XjJCq0AYDaWxG4CzweIb05ocNYKEi2Vz6tJRyISOA1B0uy3xcgnE
-	47i6tJCcW/dw8RIOjD6nhpfpaFJNqbCnQfyvfjruZLD/cZY7WyZcmOMik3TGbBreA5uiKS/+tG7+o
-	CXAmnkV38EHNCqRY29uvmZRmk2pAIKuWkpZ7yKEaKVo+lVSQH5YifdQG9NZSj5Cz31GGEZLITMj0X
-	FMAAit2oKUv9xi9BOy0B6anL2+aVtAcEsQU1z+RlI1nzfz3eBYZKp+abe08TgHLlOFUt114vGklbP
-	2Z8owWj+QL7/0o+C8gnQ==;
+	List-Owner; bh=EozbdL2ZGAH6g/fwTaEIV637PWNrFJEj1Or4DieBC00=; b=uAh+D0Ux3FTFNH
+	NOhkoe3VLzWbM5zJ5TuSlFHz6jh6G9AdJuM4cVP67FUAXqYvHsTyrQKryZISzHbEYm7060Ezf1qwA
+	H2VirdZLusPZkos/oo+wvD34PnaFNYw2cUMdNdA+GYVlivjyqXRXNP6sOpEMyWKDm3QhIjLKCRfvm
+	TXZM74vvnG1lTWca/gdNeY7DI6rnRWPY7l3t8uZID9tJBbU1fGPi6Hjtfl2id/HkLA04TQfh3I2Xn
+	pLbMY4A5n0IbECaLdV0POh3wzoTrlRbtxAQEiOePmF5j1uR0wHdmEJjc13s7vxJhb6m92AYjCOw9y
+	p0EDuE5Euv34KIP4n5fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBLss-00000000w4u-01bt;
-	Tue, 21 Oct 2025 23:35:18 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1vBN1t-0000000153S-3UBl;
+	Wed, 22 Oct 2025 00:48:41 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBLso-00000000w4K-3ZdA
+	id 1vBN1r-00000001535-0OC7
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Oct 2025 23:35:16 +0000
-Received: from [192.168.2.54] (unknown [216.234.200.240])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id E38E5B220DAA;
-	Wed, 22 Oct 2025 01:35:03 +0200 (CEST)
-Message-ID: <cbb18fb1-200f-40b4-89a1-c29522fdaae5@freeshell.de>
-Date: Tue, 21 Oct 2025 16:35:02 -0700
+	Wed, 22 Oct 2025 00:48:40 +0000
+Received: from localhost (unknown [116.232.147.23])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 203E434106A;
+	Wed, 22 Oct 2025 00:48:34 +0000 (UTC)
+Date: Wed, 22 Oct 2025 08:48:30 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+Subject: Re: [PATCH v3 1/2] driver: reset: spacemit-p1: add driver for
+ poweroff/reboot
+Message-ID: <20251022004830-GYB1522542@gentoo.org>
+References: <20251021201451.1013640-1-aurelien@aurel32.net>
+ <20251021201451.1013640-2-aurelien@aurel32.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] riscv: dts: starfive: add DT for Orange Pi RV
-To: Icenowy Zheng <uwu@icenowy.me>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
- Michael Zhu <michael.zhu@starfivetech.com>,
- Drew Fustini <drew@beagleboard.org>, Yao Zi <ziyao@disroot.org>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250930100318.2131968-1-uwu@icenowy.me>
- <20250930100318.2131968-2-uwu@icenowy.me>
- <579dad6b4ab0c981b8d51383af2db3a9f4394609.camel@icenowy.me>
- <b8db0cdf-163e-416d-94b8-c9e1f10c8011@freeshell.de>
- <2e6ce092996f2717bc274e1c82873c42b2ab18ce.camel@icenowy.me>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <2e6ce092996f2717bc274e1c82873c42b2ab18ce.camel@icenowy.me>
+Content-Disposition: inline
+In-Reply-To: <20251021201451.1013640-2-aurelien@aurel32.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_163515_074141_39F3D457 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20251021_174839_162072_77879CAC 
+X-CRM114-Status: GOOD (  31.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,167 +67,187 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAxMC82LzI1IDAwOjM5LCBJY2Vub3d5IFpoZW5nIHdyb3RlOgo+IOWcqCAyMDI1LTEwLTA1
-5pif5pyf5pel55qEIDExOjQ3IC0wNzAw77yMRSBTaGF0dG935YaZ6YGT77yaCj4+IEhpIEljZW5v
-d3ksCj4+Cj4+IE9uIDkvMzAvMjUgMDg6NTEsIEljZW5vd3kgWmhlbmcgd3JvdGU6Cj4+PiDlnKgg
-MjAyNS0wOS0zMOaYn+acn+S6jOeahCAxODowMyArMDgwMO+8jEljZW5vd3kgWmhlbmflhpnpgZPv
-vJoKPj4+PiBPcmFuZ2UgUGkgUlYgaXMgYSBuZXdseSByZWxlYXNlZCBTQkMgd2l0aCBKSDcxMTAg
-U29DLCBzaW5nbGUgR2JFCj4+Pj4gcG9ydAo+Pj4+IChjb25uZWN0ZWQgdG8gSkg3MTEwIEdNQUMw
-IHZpYSBhIFlUODUzMSBQSFkpLCA0IFVTQiBwb3J0cyAodmlhIGEKPj4+PiBWTDgwNQo+Pj4+IFBD
-SWUgVVNCIGNvbnRyb2xsZXIgY29ubmVjdGVkIHRvIEpINzExMCBQQ0lFMCksIGEgTS4yIE0ta2V5
-IHNsb3QKPj4+PiAoY29ubmVjdGVkIHRvIEpINzExMCBQQ0lFMSksIGEgSERNSSB2aWRlbyBvdXRw
-dXQsIGEgMy41bW0gYXVkaW8KPj4+PiBvdXRwdXQKPj4+PiBhbmQgYSBtaWNyb1NEIHNsb3QuCj4+
-Pj4KPj4+PiBPdGhlciBPbmJvYXJkIHBlcmlwaGVyYWxzIGNvbnRhaW4gYSBTUEkgTk9SICh3aGlj
-aCBjb250YWlucyB0aGUKPj4+PiBVLQo+Pj4+IEJvb3QKPj4+PiBmaXJtd2FyZSksIGEgMjRjMDIg
-RUVQUk9NIHN0b3Jpbmcgc29tZSBTdGFyRml2ZS1zcGVjaWZpYwo+Pj4+IGluZm9ybWF0aW9uCj4+
-Pj4gKGZhY3RvcnkgcHJvZ3JhbW1lZCBhbmQgcmVhZCBvbmx5IGJ5IGRlZmF1bHQpIGFuZCBhbiBB
-bXBhayBBUDYyNTYKPj4+PiBTRElPCj4+Pj4gV2ktRmkgbW9kdWxlLgo+Pj4+Cj4+Pj4gU2lnbmVk
-LW9mZi1ieTogSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4+Pj4gLS0tCj4+Pj4gQ2hh
-bmdlcyBpbiB2MjoKPj4+PiAtIFByb3BlcnR5IG9yZGVyIGNoYW5nZSBtZW50aW9uZWQgaW4gdGhl
-IHJldmlldyBvZiB2MS4KPj4+PiAtIEFkZGVkIFdpLUZpIChhbG9uZyB3aXRoIHRoZSBhbHdheXMg
-b24gVkNDM1YzX1BDSUUgcmVndWxhdG9yLAo+Pj4+IHdoaWNoCj4+Pj4gaXMKPj4+PiDCoCB1c2Vk
-IHRvIHBvd2VyIHVwIFdJRklfM1YzKS4gVGhlIE9PQiBJUlEgaXMgc3RpbGwgbm90IHBvc3NpYmxl
-Cj4+Pj4gdG8KPj4+PiB1c2UKPj4+PiDCoCBiZWNhdXNlIG9mIHNvbWUgaW5jb21wYXRpYmlsaXR5
-IGJldHdlZW4gU3RhckZpdmUgcGluY3RybCBkcml2ZXIKPj4+PiBhbmQKPj4+PiDCoCBicmNtZm1h
-Yy4KPj4+PiAtIFJlbW92ZWQgdGhlIExFRCBiZWNhdXNlIGl0J3MgaW4gY29tbW9uIERUU0kuCj4+
-Pj4KPj4+PiDCoGFyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGXCoMKgwqDCoMKg
-wqDCoMKgIHzCoCAxICsKPj4+PiDCoC4uLi9ib290L2R0cy9zdGFyZml2ZS9qaDcxMTAtb3Jhbmdl
-cGktcnYuZHRzwqAgfCA4Nwo+Pj4+ICsrKysrKysrKysrKysrKysrKysKPj4+PiDCoDIgZmlsZXMg
-Y2hhbmdlZCwgODggaW5zZXJ0aW9ucygrKQo+Pj4+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gv
-cmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLW9yYW5nZXBpLQo+Pj4+IHJ2LmR0cwo+Pj4+
-Cj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUK
-Pj4+PiBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUKPj4+PiBpbmRleCBi
-M2JiMTJmNzhlN2Q1Li4yNGYxYTQ0ODI4MzUwIDEwMDY0NAo+Pj4+IC0tLSBhL2FyY2gvcmlzY3Yv
-Ym9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRz
-L3N0YXJmaXZlL01ha2VmaWxlCj4+Pj4gQEAgLTEwLDYgKzEwLDcgQEAgZHRiLSQoQ09ORklHX0FS
-Q0hfU1RBUkZJVkUpICs9IGpoNzEwMC1zdGFyZml2ZS0KPj4+PiB2aXNpb25maXZlLXYxLmR0Ygo+
-Pj4+IMKgCj4+Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkgKz0gamg3MTEwLWRlZXBj
-b21wdXRpbmctZm1sMTN2MDEuZHRiCj4+Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkg
-Kz0gamg3MTEwLW1pbGt2LW1hcnMuZHRiCj4+Pj4gK2R0Yi0kKENPTkZJR19BUkNIX1NUQVJGSVZF
-KSArPSBqaDcxMTAtb3JhbmdlcGktcnYuZHRiCj4+Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFS
-RklWRSkgKz0gamg3MTEwLXBpbmU2NC1zdGFyNjQuZHRiCj4+Pj4gwqBkdGItJChDT05GSUdfQVJD
-SF9TVEFSRklWRSkgKz0gamg3MTEwLXN0YXJmaXZlLXZpc2lvbmZpdmUtMi0KPj4+PiB2MS4yYS5k
-dGIKPj4+PiDCoGR0Yi0kKENPTkZJR19BUkNIX1NUQVJGSVZFKSArPSBqaDcxMTAtc3RhcmZpdmUt
-dmlzaW9uZml2ZS0yLQo+Pj4+IHYxLjNiLmR0Ygo+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2Jvb3QvZHRzL3N0YXJmaXZlL2poNzExMC1vcmFuZ2VwaS1ydi5kdHMKPj4+PiBiL2FyY2gvcmlz
-Y3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLW9yYW5nZXBpLXJ2LmR0cwo+Pj4+IG5ldyBmaWxl
-IG1vZGUgMTAwNjQ0Cj4+Pj4gaW5kZXggMDAwMDAwMDAwMDAwMC4uNWE5MTdiN2RiNmY3OAo+Pj4+
-IC0tLSAvZGV2L251bGwKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2po
-NzExMC1vcmFuZ2VwaS1ydi5kdHMKPj4+PiBAQCAtMCwwICsxLDg3IEBACj4+Pj4gKy8vIFNQRFgt
-TGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wIE9SIE1JVAo+Pj4+ICsvKgo+Pj4+ICsgKiBDb3B5
-cmlnaHQgKEMpIDIwMjUgSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4+Pj4gKyAqLwo+
-Pj4+ICsKPj4+PiArL2R0cy12MS87Cj4+Pj4gKyNpbmNsdWRlICJqaDcxMTAtY29tbW9uLmR0c2ki
-Cj4+Pj4gKwo+Pj4+ICsvIHsKPj4+PiArwqDCoMKgwqDCoMKgwqBtb2RlbCA9ICJYdW5sb25nIE9y
-YW5nZSBQaSBSViI7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJ4dW5sb25nLG9y
-YW5nZXBpLXJ2IiwgInN0YXJmaXZlLGpoNzExMCI7Cj4+Pj4gKwo+Pj4+ICvCoMKgwqDCoMKgwqDC
-oC8qIFRoaXMgcmVndWxhdG9yIGlzIGFsd2F5cyBvbiBieSBoYXJkd2FyZSAqLwo+Pj4+ICvCoMKg
-wqDCoMKgwqDCoHJlZ192Y2MzdjNfcGNpZTogcmVndWxhdG9yLXZjYzN2My1wY2llIHsKPj4+PiAr
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJyZWd1bGF0b3ItZml4
-ZWQiOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZWd1bGF0b3ItbmFtZSA9
-ICJ2Y2MzdjMtcGNpZSI7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJlZ3Vs
-YXRvci1taW4tbWljcm92b2x0ID0gPDMzMDAwMDA+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqByZWd1bGF0b3ItbWF4LW1pY3Jvdm9sdCA9IDwzMzAwMDAwPjsKPj4+PiArwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmVndWxhdG9yLWFsd2F5cy1vbjsKPj4+PiArwqDC
-oMKgwqDCoMKgwqB9Owo+Pj4+ICsKPj4+PiArwqDCoMKgwqDCoMKgwqB3aWZpX3B3cnNlcTogd2lm
-aS1wd3JzZXEgewo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBjb21wYXRpYmxl
-ID0gIm1tYy1wd3JzZXEtc2ltcGxlIjsKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgcmVzZXQtZ3Bpb3MgPSA8JnN5c2dwaW8gNjIgR1BJT19BQ1RJVkVfTE9XPjsKPj4+PiArwqDC
-oMKgwqDCoMKgwqB9Owo+Pj4+ICt9Owo+Pj4+ICsKPj4+PiArJmdtYWMwIHsKPj4+PiArwqDCoMKg
-wqDCoMKgwqBhc3NpZ25lZC1jbG9ja3MgPSA8JmFvbmNyZyBKSDcxMTBfQU9OQ0xLX0dNQUMwX1RY
-PjsKPj4+PiArwqDCoMKgwqDCoMKgwqBhc3NpZ25lZC1jbG9jay1wYXJlbnRzID0gPCZhb25jcmcK
-Pj4+PiBKSDcxMTBfQU9OQ0xLX0dNQUMwX1JNSUlfUlRYPjsKPj4+PiArwqDCoMKgwqDCoMKgwqBz
-dGFyZml2ZSx0eC11c2UtcmdtaWktY2xrOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJv
-a2F5IjsKPj4+PiArfTsKPj4+PiArCj4+Pj4gKyZtbWMwIHsKPj4+PiArwqDCoMKgwqDCoMKgwqAj
-YWRkcmVzcy1jZWxscyA9IDwxPjsKPj4+PiArwqDCoMKgwqDCoMKgwqAjc2l6ZS1jZWxscyA9IDww
-PjsKPj4+PiArwqDCoMKgwqDCoMKgwqBjYXAtc2QtaGlnaHNwZWVkOwo+Pj4+ICvCoMKgwqDCoMKg
-wqDCoG1tYy1wd3JzZXEgPSA8JndpZmlfcHdyc2VxPjsKPj4+PiArwqDCoMKgwqDCoMKgwqB2bW1j
-LXN1cHBseSA9IDwmcmVnX3ZjYzN2M19wY2llPjsKPj4+PiArwqDCoMKgwqDCoMKgwqB2cW1tYy1z
-dXBwbHkgPSA8JnZjY18zdjM+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJva2F5IjsK
-Pj4+PiArCj4+Pj4gK8KgwqDCoMKgwqDCoMKgYXA2MjU2OiB3aWZpQDEgewo+Pj4+ICvCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBjb21wYXRpYmxlID0gImJyY20sYmNtNDM0NTYtZm1hYyIs
-ICJicmNtLGJjbTQzMjktCj4+Pj4gZm1hYyI7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoHJlZyA9IDwxPjsKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLyog
-VE9ETzogb3V0LW9mLWJhbmQgSVJRIG9uIEdQSU8yMSAqLwo+Pj4+ICvCoMKgwqDCoMKgwqDCoH07
-Cj4+Pj4gK307Cj4+Pj4gKwo+Pgo+Pj4+ICsmbW1jMF9waW5zIHsKPj4+PiArwqDCoMKgwqDCoMKg
-wqAvKgo+Pj4+ICvCoMKgwqDCoMKgwqDCoCAqIEFzIHRoZSBNTUMwIGJ1cyBpcyB1c2VkIHRvIGNv
-bm5lY3QgYSBTRElPIFdpLUZpIGNhcmQKPj4+PiBpbnN0ZWFkIG9mCj4+Pj4gK8KgwqDCoMKgwqDC
-oMKgICogYW4gZU1NQyBjYXJkLCBhbmQgdGhlIGVNTUMgUlNUIGlzIHJlcHVycG9zZWQgdG8gYmUg
-YW4KPj4+PiBlbmFibGVtZW50Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgICogcGluIG9mIHRoZSBTRElP
-IFdpLUZpLCByZW1vdmUgaXQgZnJvbSB0aGUgcGluY3RybCBub2RlCj4+Pj4gYW5kCj4+Pj4gbWFu
-YWdlCj4+Pj4gK8KgwqDCoMKgwqDCoMKgICogaXQgYXMgYSBHUElPIGluc3RlYWQuCj4+Pj4gK8Kg
-wqDCoMKgwqDCoMKgICovCj4+Pj4gK8KgwqDCoMKgwqDCoMKgL2RlbGV0ZS1ub2RlLyByc3QtcGlu
-czsKPj4+PiArfTsKPj4+PiArCj4+Cj4+IExpc3RlZCBvbiB0aGUgc2NoZW1hdGljIFsxXSBhczoK
-Pj4gRGVmYXVsdCBmdW5jdGlvbiBTRElPMCBSU1RuIEdQSU82MiBmb3IgZU1NQzpKOQo+PiBIaWdo
-bGlnaHRlZCAobm9uLWRlZmF1bHQ/KSBmdW5jdGlvbiBHUElPNjIgRDE3IDw8IFdJRklfRU5fSF9H
-UElPNjIKPj4gV0lGSV9FTl9IX0dQSU82MiA+PiBXSUZJX1BXUkVOIChwaW4gMTIgV0xfUkVHX09O
-IG9mIG1vZHVsZSBBUDYyNTYpCj4+Cj4+IEkndmUgc2VudCBhIHBhdGNoIFsyXSB0byBwb3J0aW9u
-IG91dCBtbWMwIHJlc2V0IHBpbnMgZnJvbSBqaDcxMTAtCj4+IGNvbW1vbi5kdHNpCj4+Cj4+Pj4g
-KyZtbWMxIHsKPj4+PiArwqDCoMKgwqDCoMKgwqAvZGVsZXRlLXByb3BlcnR5LyBjZC1ncGlvczsK
-Pj4+PiArwqDCoMKgwqDCoMKgwqBicm9rZW4tY2Q7Cj4+Pgo+Pj4gV2VsbCBpdCdzIGZvdW5kIHRo
-YXQgdGhlIGNhcmQgZGV0ZWN0IGlzIHdvcmtpbmcsIGFsdGhvdWdoIHdpdGgKPj4+IGRpZmZlcmVu
-dCBwb2xhcml0eSB3aXRoIG90aGVyIGJvYXJkcy4KPj4+Cj4+PiBIZXJlIHNob3VsZCBiZToKPj4+
-IGBgYAo+Pj4gwqDCoMKgwqDCoMKgwqDCoGNkLWdwaW9zID0gPCZzeXNncGlvIDQxIEdQSU9fQUNU
-SVZFX0hJR0g+Owo+Pj4gYGBgCj4+Pgo+Pj4gV2lsbCBiZSBmaXhlZCBpbiB0aGUgbmV4dCByZXZp
-c2lvbi4KPj4KPj4gWWVzLCBsaXN0ZWQgb24gdGhlIHNjaGVtYXRpYyBbMV0gYXM6Cj4+IFNEIFNE
-SU8wIENEIEdQSU80MSBmb3IgTWljcm9TRDpKMTAKPj4KPj4gVGhlcmUgaXMgbm90IGEgbWVudGlv
-biBvZiBhY3RpdmUgaGlnaCBvciBhY3RpdmUgbG93IG9uIHRoZSBzY2hlbWF0aWMKPj4gbGFiZWws
-IGhvd2V2ZXIgdGhlcmUgaXMgbGlzdGVkIGEgMTBLb2htIHB1bGwtdXAgdG8gK1ZkZDEuODMzIGZv
-ciB0aGUKPj4gY2lyY3VpdCBkaWFncmFtIG9mIHRoZSBNaWNybyBTRCBDYXJkLiBUaGUgY2FyZCBo
-b2xkZXIgaXMgcmVmZXJlbmNlZAo+PiB0bwo+PiBncm91bmQgYW5kIGNvdWxkIHJlYXNvbmFibHkg
-YmUgTi9PIG9yIE4vQyBzd2l0Y2ggb3BlcmF0aW9uIGRlcGVuZGluZwo+PiBvbgo+PiB0aGUgZXhh
-Y3QgcGFydCBzZWxlY3RlZCBmb3IgbWFudWZhY3R1cmUuCj4+Cj4+Pgo+Pj4+ICt9Owo+Pj4+ICsK
-Pj4+PiArJnBjaWUwIHsKPj4+PiArwqDCoMKgwqDCoMKgwqBzdGF0dXMgPSAib2theSI7Cj4+Pj4g
-K307Cj4+Pj4gKwo+Pj4+ICsmcGNpZTEgewo+Pj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJv
-a2F5IjsKPj4+PiArfTsKPj4+PiArCj4+Cj4+Pj4gKyZwaHkwIHsKPj4+PiArwqDCoMKgwqDCoMKg
-wqByeC1pbnRlcm5hbC1kZWxheS1wcyA9IDwxNTAwPjsKPj4+PiArwqDCoMKgwqDCoMKgwqB0eC1p
-bnRlcm5hbC1kZWxheS1wcyA9IDwxNTAwPjsKPj4+PiArwqDCoMKgwqDCoMKgwqBtb3RvcmNvbW0s
-dHgtY2xrLWFkai1lbmFibGVkOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSx0eC1jbGst
-MTAtaW52ZXJ0ZWQ7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgbW90b3Jjb21tLHR4LWNsay0xMDAtaW52
-ZXJ0ZWQ7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgbW90b3Jjb21tLHR4LWNsay0xMDAwLWludmVydGVk
-Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSxyeC1jbGstZHJ2LW1pY3JvYW1wID0gPDM5
-NzA+Owo+Pj4+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSxyeC1kYXRhLWRydi1taWNyb2FtcCA9
-IDwyOTEwPjsKPj4+PiArfTsKPj4KPj4gJ21vdG9yY29tbSxyeCcgYmVmb3JlICdtb3RvcmNvbW0s
-dHgnIGluIGBMQU5HPUMgc29ydGAgb2YgdmVuZG9yLQo+PiBzcGVjaWZpYwo+PiBwcm9wZXJ0aWVz
-Lgo+Pgo+Pj4+ICsKPj4+PiArJnB3bWRhYyB7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgc3RhdHVzID0g
-Im9rYXkiOwo+Pj4+ICt9Owo+Pj4KPj4gQWRkaXRpb25hbCBub24tZGVmYXVsdCBHUElPIGFzIGxp
-c3RlZCBpbiB0aGUgT3JhbmdlIFBpIGRlc2lnbjoKPj4gR1BJTzIxIFdJRklfV0FLRV9IT1NUX0gg
-LyogZGVmYXVsdCB2ZjIgZnVuY3Rpb24gUENJRV9QV1JFTl9IX0dQSU8yMQo+PiAqLwo+PiBHUElP
-MjIgPj4gQlRfVUFSVF9SWEQgLyogZGVmYXVsdCB2ZjIgZnVuY3Rpb24gTUlQSV9QV1JfRU4gKi8K
-Pj4gR1BJTzIzIDw8IEJUX1VBUlRfVFhEIC8qIGRlZmF1bHQgdmYyIGZ1bmN0aW9uIExDRCBSRVNF
-VCAqLwo+PiBHUElPMjQgPDwgQlRfVUFSVF9DVFMgLyogZGVmYXVsdCB2ZjIgZnVuY3Rpb24gTUlQ
-SV9MQ0RfQkwgKi8KPj4gR1BJTzI1IDw8IEJUX1VBUlRfUlRTIC8qIGRlZmF1bHQgdmYyIGZ1bmN0
-aW9uIFRQX0RFVF9HUElPMjUgKi8KPj4gR1BJTzMwIDw8IEJUX0VOX0hfR1BJTzMwIC8qIGRlZmF1
-bHQgdmYyIGZ1bmN0aW9uIFRQX0lOVF9MICovCj4+IEdQSU8zMSA8PCBCVF9XQUtFX0dQSU8zMSAv
-KiBkZWZhdWx0IHZmMiBmdW5jdGlvbiBUUF9SU1RfTCAqLwo+Pgo+PiBPZiBhbGwgdGhlIGFib3Zl
-LCBHUElPMjEgaXMgZGVmaW5lZCBpbiBqaDcxMTAtY29tbW9uLmR0c2kKPj4gJnBjaWUxX3BpbnMv
-d2FrZS1waW5zIGFuZCBtYXkgbmVlZCBjb25zaWRlcmF0aW9uLgo+Pgo+PiBUaGVyZSBpcyBhIG5v
-dGUgYWJvdXQgIlBNSUNfUFdST04gYXMgS2V5IiBhbmQgc28gZG9lcyB0aGlzIGhhdmUgdGhlCj4+
-IG1lYW5pbmcgb2YgaXQgaXMgdXNlZCBhcyBhbiBpbnB1dCBkZXZpY2U/Cj4+Cj4+IEFsc28gbm90
-ZWQgaXMgdGhhdCB0aGUgVVNCIG92ZXItY3VycmVudCBjaXJjdWl0IGFwcGVhcnMgdG8gYmUKPj4g
-aW1wbGVtZW50ZWQsIGRpZmZlcmVudCB0aGFuIGJlaW5nIGFic2VudCBpbiBvdGhlciBWRjIgZGVz
-aWducy4KPj4KPj4gMToKPj4gaHR0cDovL3d3dy5vcmFuZ2VwaS5vcmcvaHRtbC9oYXJkV2FyZS9j
-b21wdXRlckFuZE1pY3JvY29udHJvbGxlcnMvc2VydmljZS1hbmQtc3VwcG9ydC9PcmFuZ2UtUGkt
-UlYuaHRtbAo+PiAyOgo+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjUxMDA1MTc0
-NDUwLjE5NDkxMTAtMS1lQGZyZWVzaGVsbC5kZS8KPj4KPj4gV2l0aCB0aGUgY2FyZCBkZXRlY3Qg
-ZGVzY3JpYmluZyBoYXJkd2FyZSBjb3JyZWN0ZWQsIGFuZCBjbGVhbiB1cCB0aGUKPj4gdmVuZG9y
-IHByb3BlcnR5IHNvcnQsIHRoZW4gcGxlYXNlIGNvbmZpcm0gaWYgeW91IHRoaW5rIEdQSU8yMSBp
-cwo+PiBkZXNjcmliZWQgY29ycmVjdGx5Lgo+IAo+IFdlbGwgeWVzLCBHUElPMjEgc2hvdWxkIGJl
-IHNwbGl0dGVkIGZyb20gUENJZSBwaW5jdHJsIGFuZCBhc3NpZ25lZCB0bwo+IGJlIHRoZSBvdXQt
-b2YtYmFuZCBJUlEgb2YgdGhlIFdpLUZpIG1vZHVsZS4gTXkgRFQgb21pdHMgdGhpcyBiZWNhdXNl
-Cj4gdGhlIGpoNzExMCBwaW5jdHJsIGRyaXZlciBpcyBjdXJyZW50bHkgbm90IGNvbXBhdGlibGUg
-d2l0aCBicmNtZm1hYwo+IG91dC1vZi1iYW5kIElSUSBjb2RlLgo+IAo+IFNob3VsZCBJIGFkZCAv
-ZGVsZXRlLW5vZGUvIGZvciBpdD8KPiAKCk5vLCBhbmQgdGhhbmsgeW91IGZvciB0aGUgY29uZmly
-bWF0aW9uLiBUaGlzIHNwZWNpYWwgY2hhbmdlIGZvciBHUElPMjEKY2FuIGJlIHNvbWV0aGluZyBm
-b3IgZnV0dXJlIGZpeC9lbmhhbmNlbWVudC4gVGhlICJkdHM6IHN0YXJmaXZlOgpqaDcxMTAtY29t
-bW9uOiBzcGxpdCBvdXQgbW1jMCByZXNldCBwaW5zIGZyb20gY29tbW9uIGludG8gYm9hcmRzIiBw
-YXRjaApoYXMgbGFuZGVkIGluIHJpc2N2LWR0LWZvci1uZXh0IHNvIGl0IGlzIGdvb2Qgbm93IHRv
-IGFkZHJlc3MgdGhlIG90aGVyCnJldmlldyBjb21tZW50cyBhbmQgc2VuZCB2My4KCj4+Cj4+IEFj
-a2VkLWJ5OiBFIFNoYXR0b3cgPGVAZnJlZXNoZWxsLmRlPgo+Pgo+IAoKLUUKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Aurelien,
+
+On 22:11 Tue 21 Oct     , Aurelien Jarno wrote:
+> This driver implements poweroff/reboot support for the SpacemiT P1 PMIC
+> chip, which is commonly paired with the SpacemiT K1 SoC.
+> 
+> The SpacemiT P1 support is implemented as a MFD driver, so the access is
+> done directly through the regmap interface. Reboot or poweroff is
+> triggered by setting a specific bit in a control register, which is
+> automatically cleared by the hardware afterwards.
+> 
+> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> Reviewed-by: Yixun Lan <dlan@gentoo.org>
+> ---
+> v3:
+>  - Allow building as a module
+>  - Remove outdated Acked-by and Tested-by
+>  - Collect Reviewed-by
+> 
+>  drivers/power/reset/Kconfig              |  9 +++
+>  drivers/power/reset/Makefile             |  1 +
+>  drivers/power/reset/spacemit-p1-reboot.c | 88 ++++++++++++++++++++++++
+>  3 files changed, 98 insertions(+)
+>  create mode 100644 drivers/power/reset/spacemit-p1-reboot.c
+> 
+> diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+> index 8248895ca9038..6577d73edbda4 100644
+> --- a/drivers/power/reset/Kconfig
+> +++ b/drivers/power/reset/Kconfig
+> @@ -283,6 +283,15 @@ config POWER_RESET_KEYSTONE
+>  	help
+>  	  Reboot support for the KEYSTONE SoCs.
+>  
+> +config POWER_RESET_SPACEMIT_P1
+> +	tristate "SpacemiT P1 poweroff and reset driver"
+> +	depends on ARCH_SPACEMIT || COMPILE_TEST
+..
+> +	select MFD_SPACEMIT_P1
+I'd suggest to use "depends on" instead of "select", the reason is that
+using "select" will sometimes ignore the dependency, considering
+the reset driver here is tightly coupled with P1, so I think it's 
+reasonable to switch to use "depends on", also refer below link
+
+https://lxr.linux.no/#linux+v6.7.1/Documentation/kbuild/kconfig-language.rst#L144
+
+        select should be used with care. select will force
+        a symbol to a value without visiting the dependencies.
+        By abusing select you are able to select a symbol FOO even
+        if FOO depends on BAR that is not set.
+        In general use select only for non-visible symbols
+        (no prompts anywhere) and for symbols with no dependencies.
+        That will limit the usefulness but on the other hand avoid
+        the illegal configurations all over.
+
+> +	default m
+> +	help
+> +	  This driver supports power-off and reset operations for the SpacemiT
+> +	  P1 PMIC.
+> +
+>  config POWER_RESET_SYSCON
+>  	bool "Generic SYSCON regmap reset driver"
+>  	depends on OF
+> diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
+> index 51da87e05ce76..0e4ae6f6b5c55 100644
+> --- a/drivers/power/reset/Makefile
+> +++ b/drivers/power/reset/Makefile
+> @@ -24,6 +24,7 @@ obj-$(CONFIG_POWER_RESET_LTC2952) += ltc2952-poweroff.o
+>  obj-$(CONFIG_POWER_RESET_QNAP) += qnap-poweroff.o
+>  obj-$(CONFIG_POWER_RESET_REGULATOR) += regulator-poweroff.o
+>  obj-$(CONFIG_POWER_RESET_RESTART) += restart-poweroff.o
+> +obj-$(CONFIG_POWER_RESET_SPACEMIT_P1) += spacemit-p1-reboot.o
+>  obj-$(CONFIG_POWER_RESET_ST) += st-poweroff.o
+>  obj-$(CONFIG_POWER_RESET_TH1520_AON) += th1520-aon-reboot.o
+>  obj-$(CONFIG_POWER_RESET_TORADEX_EC) += tdx-ec-poweroff.o
+> diff --git a/drivers/power/reset/spacemit-p1-reboot.c b/drivers/power/reset/spacemit-p1-reboot.c
+> new file mode 100644
+> index 0000000000000..9ec3d1fff8f3d
+> --- /dev/null
+> +++ b/drivers/power/reset/spacemit-p1-reboot.c
+> @@ -0,0 +1,88 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2025 by Aurelien Jarno
+> + */
+> +
+> +#include <linux/bits.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/reboot.h>
+> +
+> +/* Power Control Register 2 */
+> +#define PWR_CTRL2		0x7e
+> +#define PWR_CTRL2_SHUTDOWN	BIT(2)	/* Shutdown request */
+> +#define PWR_CTRL2_RST		BIT(1)	/* Reset request */
+> +
+> +static int spacemit_p1_pwroff_handler(struct sys_off_data *data)
+> +{
+> +	struct regmap *regmap = data->cb_data;
+> +	int ret;
+> +
+> +	/* Put the PMIC into shutdown state */
+> +	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_SHUTDOWN);
+> +	if (ret) {
+> +		dev_err(data->dev, "shutdown failed: %d\n", ret);
+> +		return notifier_from_errno(ret);
+> +	}
+> +
+> +	return NOTIFY_DONE;
+> +}
+> +
+> +static int spacemit_p1_restart_handler(struct sys_off_data *data)
+> +{
+> +	struct regmap *regmap = data->cb_data;
+> +	int ret;
+> +
+> +	/* Put the PMIC into reset state */
+> +	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_RST);
+> +	if (ret) {
+> +		dev_err(data->dev, "restart failed: %d\n", ret);
+> +		return notifier_from_errno(ret);
+> +	}
+> +
+> +	return NOTIFY_DONE;
+> +}
+> +
+> +static int spacemit_p1_reboot_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct regmap *regmap;
+> +	int ret;
+> +
+> +	regmap = dev_get_regmap(dev->parent, NULL);
+> +	if (!regmap)
+> +		return -ENODEV;
+> +
+> +	ret = devm_register_power_off_handler(dev, &spacemit_p1_pwroff_handler,
+> +					      regmap);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "Failed to register power off handler\n");
+> +
+> +	ret = devm_register_restart_handler(dev, spacemit_p1_restart_handler,
+> +					    regmap);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "Failed to register restart handler\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct platform_device_id spacemit_p1_reboot_id_table[] = {
+> +	{ "spacemit-p1-reboot", },
+> +	{ /* sentinel */ },
+> +};
+> +MODULE_DEVICE_TABLE(platform, spacemit_p1_reboot_id_table);
+> +
+> +static struct platform_driver spacemit_p1_reboot_driver = {
+> +	.driver = {
+> +		.name = "spacemit-p1-reboot",
+> +	},
+> +	.probe = spacemit_p1_reboot_probe,
+> +	.id_table = spacemit_p1_reboot_id_table,
+> +};
+> +module_platform_driver(spacemit_p1_reboot_driver);
+> +
+> +MODULE_DESCRIPTION("SpacemiT P1 reboot/poweroff driver");
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.47.2
+> 
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
