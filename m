@@ -4,78 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733EBCCD1AB
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 16:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDAA4CCD1AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 18:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1vVK5PPUS35/UHdx3iBaVvv2tCFBx7PjAq/cNCK6KEY=; b=YrbjUHnp/NA7R5
-	/kRWnK/9WZryt+Wi8s9IBEQQNhgzrJFbpV8BNblSk2yql6GTWKvmYJvZTPJA/N73SfQWZAkA8K3BP
-	ZEQ5eR0oWxEuw8KA/7/BB/PSvSaveKTIIy/iY/1+E0MVTT8k3MaFAcUXQIJE0j2dw3A+O+U/8N/pa
-	clNqp2ToMjtilp8vVWVNbDkQKI5L/ywLUDIEk7xHhq3V7tVRsFuxzUStitTJDPRJ935z+QrfFLUZe
-	1n80NnfTHAF2uR5hy2SiR2gyiSVX+iaTl1V2e8TbKRlj7TwQkhJtD/RRuBl5GWFWjwVzCRITQpB08
-	ZBOCG/pqas87zeCm25gQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=fxiQM/RwiCFLZPYrn2NUh7IFA6OuJW2+2lEwk7mZUNw=; b=WhXD+wfxEMr8+DW7Sw7fYVsQ10
+	fvLO9raf7NeY7L6Al6mtwLmvsD5DAzejXo4iEfvx8AlvjA33fCxhkzK9VJshlr3dn71TTZgCZm+Wt
+	13Ca3dydPOfa2ri0glUtsyFdugxDzuRdhQ2b9B/Xf0XMYCBZtBQWgMB+e6KvCEOC5K+QS0mxLHozP
+	HS3Zlfw1PwCS4+Wn+yjnOyrO7jxpzZ4AKFCUtsQzZlJzkVFtswyC/hMYP37HgK5k/U1cxnukOz1LJ
+	WhzKVh9b7zK4DgOQakMgwXBBCjA9nPnPYK16tocIPmX54fe3zHreKBFt/xL+/pWKxZcrmKmpyZryz
+	ys1ZbV+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBc1I-00000003fEV-2o85;
-	Wed, 22 Oct 2025 16:49:04 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1vBdKS-00000003wo8-1Qmz;
+	Wed, 22 Oct 2025 18:12:56 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBc1D-00000003fCr-3ZnR
+	id 1vBdKO-00000003wln-3nGi
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Oct 2025 16:49:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=1nnTTQGLKpg2Y4zlHS/zCgkMJs42TpDEsJXY1zhm+kM=; b=NtR8svfECruwcJup56bQs5SOZR
-	GSG9JZvkRgw08/1tQ7KRuGSchIL8sCR1vKcjUnjjdfOYgJn9mJmS8T2l8weWJxj1JrPcQaMr0dom9
-	rW/zi599vslZV7xW0lPrZnyZ/KIGZsFnKzThIXlB7gtYUcvCRhsul4lqlNfIoFCFm7HDxBi6ed2tJ
-	0B9kuB3OPw0jwENFYVqp5XMvqqhpC4nTIlWT9CNIKNFlhG0U+rndTeod+7MZSe6Ku/FE+CnXQgk29
-	zlivSvW3jiyH5mV+2MYtrBvFGDPRIsWizpmAQwMQeae9ezHZvjrkAZ5kS39/KJL6uSMhlnzv9JtI3
-	+yI5AVcg==;
-Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
-	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1vBc11-000AgZ-0O;
-	Wed, 22 Oct 2025 18:48:47 +0200
-Date: Wed, 22 Oct 2025 18:48:45 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org,
-	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
-	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
-Subject: Re: [PATCH v3 1/2] driver: reset: spacemit-p1: add driver for
- poweroff/reboot
-Message-ID: <aPkK7aEHhxKScoCN@aurel32.net>
-Mail-Followup-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org,
-	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
-	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
-References: <20251021201451.1013640-1-aurelien@aurel32.net>
- <20251021201451.1013640-2-aurelien@aurel32.net>
- <20251022004830-GYB1522542@gentoo.org>
- <aPhtd0j6iBpqiGUQ@aurel32.net>
- <52468F28CD7B50FD+aPhurJD4HTXqIGDT@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <52468F28CD7B50FD+aPhurJD4HTXqIGDT@kernel.org>
-User-Agent: Mutt/2.2.13 (2024-03-09)
+	Wed, 22 Oct 2025 18:12:55 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-33d75897745so3562787a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Oct 2025 11:12:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761156772; x=1761761572; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=V5F7t24lC7jgleOK3FW+MwSMdfYKm48DJa8i0z/06to=;
+        b=OSxUoyDN0kW6a6lXdRyz97FRP1lGJBpSuIhofUkhy9fEk6adXLXEYeIZGDU4+mWvoK
+         sxJqkbPCq2j1QFhdmgiaa/oJxt/Ck+LpoTObPCxOo+CAdOCAeLFxdkM6PALZUlp1xbZd
+         slIpsbTZa48pVIz3epSlsghOPoi8lCL34t9mvYpWftciz4GMOHZxO5ux1WnJ+vxt7H+w
+         9Br+2nhsQCH+8Jw/KizTptP3/sc6HXiI0pjumgSeUWDJOUOTit+cdkQU0vaTw2RRyQhq
+         l8XWVjqGxsJtmglmGyVy8D+R7crknRqOQ/QltascGd0HUD6RY4NQi8ZxKbRj2IFxef7a
+         FF6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761156772; x=1761761572;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=V5F7t24lC7jgleOK3FW+MwSMdfYKm48DJa8i0z/06to=;
+        b=G2QP/0EZQSbhTxc2Nk18pAs/Gj5Pz0Z25JGwY1LGgY7hqVIPTnZFYDITz4IhI1r64R
+         iP8n/pvYfqqlMgueVQqw2fqhfTumMREe6sLORYp8grtmHe80Sw0gZ9x+CijRekRL8nMs
+         r2TkkRUc6Os37S4VyiHm6z0ed31C8X0/1643Xpnz6/REpvlSqtvXWh/Uev3TPe3PaWjB
+         18ZRwLjRm1DLptvupKZdPhn80jagX/reuwTUwS4Bo7eqbUPSv2ZEAI/n6A/7Z9hHNEKj
+         Ei6AJMtdDO9DoMPrVptD7VvshIkgx/AyPiJTfbSyy9ucX9O7XPld3mvcUDNNgcD72uf9
+         aZrg==
+X-Forwarded-Encrypted: i=1; AJvYcCXFznrDUa6g3nMs+42m0Pn3vKlKwyDyNUBuH/W3vNM40rbsAt9Vv/9vmtWeW7H1IL+x1AGT91zq3j0ZwA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZZbFe6OVGMgv3ZpNtl5Ck9f91zyUUjTONmCGFVXZRvybicaOj
+	PjyQEr6H4JP5Fqwi0rrxNU8BUQm142IYDgftLDG0kLusKUB5toDX6duhf6Kc/oQsfnzgNR6prWo
+	bF18Z8w==
+X-Google-Smtp-Source: AGHT+IFAZr0wpbGx7b8wp6kFow05WwkzX+gl9q/tJGKoWGxIdF2WxHsL5OqcbuH+85tLuHrz8145UQS6wJM=
+X-Received: from pjbnm19.prod.google.com ([2002:a17:90b:19d3:b0:33d:cdb9:9adf])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3f8d:b0:33b:be31:8193
+ with SMTP id 98e67ed59e1d1-33bcf85d59dmr30647063a91.6.1761156768896; Wed, 22
+ Oct 2025 11:12:48 -0700 (PDT)
+Date: Wed, 22 Oct 2025 11:12:47 -0700
+In-Reply-To: <aPiQYBoDlUmrQxEw@yzhao56-desk.sh.intel.com>
+Mime-Version: 1.0
+References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-5-seanjc@google.com>
+ <aPcG3LMA0qX5H5YI@yzhao56-desk.sh.intel.com> <aPe2pDYSpVFxDRWv@google.com> <aPiQYBoDlUmrQxEw@yzhao56-desk.sh.intel.com>
+Message-ID: <aPken0s-0MfdSd5o@google.com>
+Subject: Re: [PATCH v3 04/25] KVM: x86/mmu: Add dedicated API to map
+ guest_memfd pfn into TDP MMU
+From: Sean Christopherson <seanjc@google.com>
+To: Yan Zhao <yan.y.zhao@intel.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
+	Michael Roth <michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Binbin Wu <binbin.wu@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_094900_321674_BAABC6CF 
-X-CRM114-Status: GOOD (  27.29  )
+X-CRM114-CacheID: sfid-20251022_111252_946702_22B17A50 
+X-CRM114-Status: GOOD (  29.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,58 +106,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-22 13:42, Troy Mitchell wrote:
-> > > > diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-> > > > index 8248895ca9038..6577d73edbda4 100644
-> > > > --- a/drivers/power/reset/Kconfig
-> > > > +++ b/drivers/power/reset/Kconfig
-> > > > @@ -283,6 +283,15 @@ config POWER_RESET_KEYSTONE
-> > > >  	help
-> > > >  	  Reboot support for the KEYSTONE SoCs.
+On Wed, Oct 22, 2025, Yan Zhao wrote:
+> On Tue, Oct 21, 2025 at 09:36:52AM -0700, Sean Christopherson wrote:
+> > On Tue, Oct 21, 2025, Yan Zhao wrote:
+> > > On Thu, Oct 16, 2025 at 05:32:22PM -0700, Sean Christopherson wrote:
+> > > > diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+> > > > index 18d69d48bc55..ba5cca825a7f 100644
+> > > > --- a/arch/x86/kvm/mmu/mmu.c
+> > > > +++ b/arch/x86/kvm/mmu/mmu.c
+> > > > @@ -5014,6 +5014,65 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
+> > > >  	return min(range->size, end - range->gpa);
+> > > >  }
 > > > >  
-> > > > +config POWER_RESET_SPACEMIT_P1
-> > > > +	tristate "SpacemiT P1 poweroff and reset driver"
-> > > > +	depends on ARCH_SPACEMIT || COMPILE_TEST
-> > > ..
-> > > > +	select MFD_SPACEMIT_P1
-> > > I'd suggest to use "depends on" instead of "select", the reason is that
-> > > using "select" will sometimes ignore the dependency, considering
-> > > the reset driver here is tightly coupled with P1, so I think it's 
-> > > reasonable to switch to use "depends on", also refer below link
-> > > 
-> > > https://lxr.linux.no/#linux+v6.7.1/Documentation/kbuild/kconfig-language.rst#L144
-> > > 
-> > >         select should be used with care. select will force
-> > >         a symbol to a value without visiting the dependencies.
-> > >         By abusing select you are able to select a symbol FOO even
-> > >         if FOO depends on BAR that is not set.
-> > >         In general use select only for non-visible symbols
-> > >         (no prompts anywhere) and for symbols with no dependencies.
-> > >         That will limit the usefulness but on the other hand avoid
-> > >         the illegal configurations all over.
+> > > > +int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
+> > > > +{
+> > > > +	struct kvm_page_fault fault = {
+> > > > +		.addr = gfn_to_gpa(gfn),
+> > > > +		.error_code = PFERR_GUEST_FINAL_MASK | PFERR_PRIVATE_ACCESS,
+> > > > +		.prefetch = true,
+> > > > +		.is_tdp = true,
+> > > > +		.nx_huge_page_workaround_enabled = is_nx_huge_page_enabled(vcpu->kvm),
+> > > > +
+> > > > +		.max_level = PG_LEVEL_4K,
+> > > > +		.req_level = PG_LEVEL_4K,
+> > > > +		.goal_level = PG_LEVEL_4K,
+> > > > +		.is_private = true,
+> > > > +
+> > > > +		.gfn = gfn,
+> > > > +		.slot = kvm_vcpu_gfn_to_memslot(vcpu, gfn),
+> > > > +		.pfn = pfn,
+> > > > +		.map_writable = true,
+> > > > +	};
+> > > > +	struct kvm *kvm = vcpu->kvm;
+> > > > +	int r;
+> > > > +
+> > > > +	lockdep_assert_held(&kvm->slots_lock);
+> > > Do we need to assert that filemap_invalidate_lock() is held as well?
 > > 
-> > Thanks for the pointer, I'll fix that in the next version. I used 
-> > REGULATOR_SPACEMIT_P1 and RTC_DRV_SPACEMIT_P1 as examples, they'll also 
-> > need to be fixed.
-> Yes, I have said here[1].
-> Do you want to fix that? If you don't have time, I can do it.
+> > Hrm, a lockdep assertion would be nice to have, but it's obviously not strictly
+> > necessary, and I'm not sure it's worth the cost.  To safely assert, KVM would need
+> Not sure. Maybe just add a comment?
+> But even with kvm_assert_gmem_invalidate_lock_held() and
+> lockdep_assert_held(&kvm->slots_lock), it seems that
+> kvm_tdp_mmu_map_private_pfn() still can't guarantee that the pfn is not stale.
 
-For the reboot patch series, I'll do that in the v4, but I would 
-appreciate if you can do it for the PMIC and RTC drivers. I guess it can 
-be a patch series with the first patch being the one you already posted.
+At some point we have to assume correctness.  E.g. one could also argue that
+holding every locking in the universe still doesn't ensure the pfn is fresh,
+because theoretically guest_memfd could violate the locking scheme.
 
-> > Note also that without the select, a default value has to be added to 
-> > MFD_SPACEMIT_P1. 
-> Yes, I will add it in my patch. Thanks.
+Aha!  And to further harden and document this code, this API can be gated on
+CONFIG_KVM_GUEST_MEMFD=y, as pointed out by the amazing-as-always test bot:
 
-Thanks.
+https://lore.kernel.org/all/202510221928.ikBXHGCf-lkp@intel.com
 
-Regards
-Aurelien
+We could go a step further and gate it on CONFIG_KVM_INTEL_TDX=y, but I don't
+like that idea as I think it'd would be a net negative in terms of documenation,
+compared to checking CONFIG_KVM_GUEST_MEMFD.  And in general I don't want to set
+a precedent of ifdef-ing common x86 based on what vendor code _currently_ needs
+an API.
 
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+> e.g., if hypothetically those locks were released and re-acquired after getting
+> the pfn.
+> 
+> > to first assert that the file refcount is elevated, e.g. to guard against
+> > guest_memfd _really_ screwing up and not grabbing a reference to the underlying
+> > file.
+> > 
+> > E.g. it'd have to be something like this:
+> > 
+> > diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+> > index 94d7f32a03b6..5d46b2ac0292 100644
+> > --- a/arch/x86/kvm/mmu/mmu.c
+> > +++ b/arch/x86/kvm/mmu/mmu.c
+> > @@ -5014,6 +5014,18 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
+> >         return min(range->size, end - range->gpa);
+> >  }
+> >  
+> > +static void kvm_assert_gmem_invalidate_lock_held(struct kvm_memory_slot *slot)
+> > +{
+> > +#ifdef CONFIG_PROVE_LOCKING
+> > +       if (WARN_ON_ONCE(!kvm_slot_has_gmem(slot)) ||
+> > +           WARN_ON_ONCE(!slot->gmem.file) ||
+> > +           WARN_ON_ONCE(!file_count(slot->gmem.file)))
+> > +               return;
+> > +
+> > +       lockdep_assert_held(file_inode(&slot->gmem.file)->i_mapping->invalidate_lock));
+> 	  lockdep_assert_held(&file_inode(slot->gmem.file)->i_mapping->invalidate_lock);
+> > +#endif
+> > +}
+> > +
+> >  int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
+> >  {
+> >         struct kvm_page_fault fault = {
+> > @@ -5038,6 +5050,8 @@ int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
+> >  
+> >         lockdep_assert_held(&kvm->slots_lock);
+> >  
+> > +       kvm_assert_gmem_invalidate_lock_held(fault.slot);
+> > +
+> >         if (KVM_BUG_ON(!tdp_mmu_enabled, kvm))
+> >                 return -EIO;
+> > --
+> > 
+> > Which I suppose isn't that terrible?
+> Is it good if we test is_page_fault_stale()? e.g.,
+
+No, because it can only get false positives, e.g. if an mmu_notifier invalidation
+on shared, non-guest_memfd memory.  Though a sanity check would be nice to have;
+I believe we can simply do:
+
+diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
+index c5734ca5c17d..440fd8f80397 100644
+--- a/arch/x86/kvm/mmu/tdp_mmu.c
++++ b/arch/x86/kvm/mmu/tdp_mmu.c
+@@ -1273,6 +1273,8 @@ int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+        struct kvm_mmu_page *sp;
+        int ret = RET_PF_RETRY;
+ 
++       KVM_MMU_WARN_ON(!root || root->role.invalid);
++
+        kvm_mmu_hugepage_adjust(vcpu, fault);
+ 
+        trace_kvm_mmu_spte_requested(fault);
 
 _______________________________________________
 linux-riscv mailing list
