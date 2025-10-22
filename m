@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A49C2CCD195
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 04:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99003CCD1AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 04:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zcH3VtVk20dLBPykjl1pH67ZHy66UhCmkJ9cxA6Q6bw=; b=zshbYnQa6hDtDr
-	VgqF0QE8i7NUbNFXYxgEFfxZV4f/9mYX+lodPzhCdIqhvY9iTONgnKs38yxIvcSyCjIByXhQJ/VQw
-	aGCcKr5oZbOnrUesm+sJY857HgpSmxNYPq1PGylBkmqYuMra58qBildvwqc7+iPJr4jpD3z+ylsF0
-	htEutk+fO1LlDsll6aFkxa36z+0TILpRLVvUkZ737pcICTw57bUsivVTAUUtPP1QCfL7LPFxyRAzs
-	bn+pOh6EjdA8LrOsuTHkfKMEOHhmmOT8wbYTEybxViKSk3K1mdoD798j2WC92LHMOECKYoQws5Pah
-	onMMfZLMWM692AGsQwRA==;
+	List-Owner; bh=WQoJCJgAFLpU8F4gqaOkCaIo0NWNNDTekD/Fhpe8zm4=; b=rumMVuH1Qt7tid
+	lPOcYxDxPP59L4agJ8ofcDw2EywkGgn3Lk5xTsfdWUH9x766xW2pZZi/N9ZoQLUyMSaj2VQKLBIoK
+	iWD2tDNNM7znkdcwmYq7F3YPun4CF2pKaFk0U2Pxn2DqNhGQ0HRqp5jsL7qGFU0gYlKM2MyP4LP3w
+	Y2hah4nunb+wIK9BBaLeybIvsFqrxbDCEGsFJrs4ywVP1PiDY7r0hsKdzJZsQM7no5+irwgvThTDm
+	5RN3ppM0q/bmgtp61TbBKwWV/Bd3JzjeRd0BE3+AdrJ7ueFKUg4b4ovTwicrYWse5c0IylWAj55Sl
+	3RiF0/iYTYgzkGiaZ4rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBQYQ-00000001RCa-0Ow2;
-	Wed, 22 Oct 2025 04:34:30 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1vBQYT-00000001RFW-1r6b;
+	Wed, 22 Oct 2025 04:34:33 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBQYN-00000001RB1-42x2
+	id 1vBQYQ-00000001RCg-2Rxf
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Oct 2025 04:34:29 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b58445361e8so490674a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Oct 2025 21:34:27 -0700 (PDT)
+	Wed, 22 Oct 2025 04:34:31 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b5515eaefceso5223382a12.2
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Oct 2025 21:34:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761107667; x=1761712467; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761107670; x=1761712470; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=r07oRrpAm0dALdqxQgRoSXIP8i4Uf1rUZOTVIHgHy6w=;
-        b=gII1dtojj81xB9W1tTwjhbGp7JF691OiFjaxKgEHGgyQ/E8PbPgnr+AZn2XmfpJRbD
-         P+9AZogD74JOfRkyMoadPYU1vIukT/2PiwOXqIySRwKCyCx85IQpAhf0/jpgAkV7d0Sc
-         ZP3vHfutCJdUaPUrNh4X8bky8yzlhJmXFhYcSLb0rjfE/TXtKdjcrpTRflakzYS0waYZ
-         l+6GrK0iMIYbVHg2YtEAMreY19ReODWW7zDULu6fAzY5jOibdKLiN/jNCdizugtos+E7
-         pkC2JoXeE5tZLZdw41a4m7UaYnIRk8CkpcdfPK2Do20tp8zuwKMbKu10cxaDQmo/Ba8M
-         g0bw==
+        bh=FDiGuotIxX46vya9PSPOnNWB7duItx5Jd361PWPn4+w=;
+        b=hZ/SdW+hG8J0Yj3PRMJvDzU7YMZDfN7ih/R0HEvsEOQw0/9eK+LNRt/lBsFFImKenR
+         3xxi8XfBp2kJ04VB7Es1dGzTTUyAbDb1aXYbRpru/9B2aG4WX0tTkE7I16fdHd3FVBx+
+         ZLmbBaKKqWIvQhgGFfXRt/eaecWA4q2QTByOLzhhfPGmGmRTF7rzcNMU4pReuIABWccj
+         VhM+obVw7or0HbkPWvG0a/0Flw1bZVT+QzaP0ERBWhIJNbcFtKjqnNlgl86TKzOTB7Mv
+         8ivHFoFqsJuatoVhCCdE9BJV2z/NGEGCBazty2Sb1sSN5bh4Z1OWhSnwkMvcTfFV0UKD
+         hZFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761107667; x=1761712467;
+        d=1e100.net; s=20230601; t=1761107670; x=1761712470;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=r07oRrpAm0dALdqxQgRoSXIP8i4Uf1rUZOTVIHgHy6w=;
-        b=EZaXnrlqPMOKXHpVZECInBQCOLMopOSHZr17CMFnXrLQ72SUSDLWaWHnsNNhKLtYoI
-         Ci2wsS2gX41hpH6INkQIGYZG4/uRl0M5QlDll2LBFhqMPsuaf32WI8uuqHQo4jcEVA0f
-         ZleCF7JMFyy4F9J0wxKGFgtx/yi6R9OnAHySzJu12c65EsrLFFnruxedR7XynRcbZ8+e
-         2uSBUG7Ek3HmbGJ13Z5/DWkP7CIWu0+QTVH2w5j0iuZVHIpH/ZE+ml2Hahx9iWCVQRi3
-         YuSw0GLIGrvIDCIbEuz5s/B+GPYN32XH2s4vxRcBmRuL4qm/W092W5V3cl2H8s87HGBS
-         4O7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUTYmvu1pXW2EnZzioqxMRkeg42pQNPPxDYOkoO1aRiknmrb4coZBSK+9Me9qh4VwIAsZZ0Wthce3OsEA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxb8zigA8/PTVEIl2s1Nlpzq2DVoaQPlG/cIi6u9YMavccE0uO3
-	sIz5r8evg1O9880NvK/lCE1EvtH9HlQDcCQZ+AGqizH04KxNxCQP+ChzUnQZ+TYodJ4=
-X-Gm-Gg: ASbGncs2vAjQEhv3DEdSQnCUHJnY/mLq3/Z4dvyEYYTA05Z56mSfqgNvMGTNRD8lacc
-	7D3MQsvknLDIhFRogzLH81fuf9kint/bjyjt7QL2j8wExH3+67SuheC+nKQfPubFNWOwyUtiEet
-	inIUWFFnjTYJAmlP2kAHil8eJCMG68E74X+vAdJASE7xa4c1qNk351ehe9SRrcNQG8YkTA2rT2c
-	WOpjFZLhW6mzP1B/0VaLEriixAq93FIkaPdFhh52YuqwOowo08ujA3p//K454v+LDrvTPxXM3om
-	6mIdG9OXvpOG2dCSp+pI/fj5vnR9RduQAfXIpklorTSz4UnuoRPM//8nhQ84R3LXiZRLiY+ht3q
-	Q0KZP7Ybc3jNj8+jTsCfNH69BxtvSE/5PMUnOCYZKBfvDhdCRg/DFwGN/89g39pb+rg8r6sYaFi
-	nTqbt0c4jnv7il
-X-Google-Smtp-Source: AGHT+IEXbwpYqOJzdRZX+yeVCW+HRgEFHEhSfhpnfqLc9E63Y9hId0Tl9GklX8WzGZZ/QxYr9McgUg==
-X-Received: by 2002:a17:903:17cb:b0:292:9ac7:2608 with SMTP id d9443c01a7336-2935e02e491mr1133385ad.8.1761107667134;
-        Tue, 21 Oct 2025 21:34:27 -0700 (PDT)
+        bh=FDiGuotIxX46vya9PSPOnNWB7duItx5Jd361PWPn4+w=;
+        b=rTfQVVQLYg4NrG1e0H5WbunZ9gveHk2QywWtUEAPZitb544dBi2XyRvbRLT7nNYdeu
+         0kzm6aWYxmozbpIQKHSeLcfzm3zCeBbOUsnkVtodcsRYNHSBSUB8qCNkvZOpLEQTnFgy
+         jECsbQZ3ELua48ihuwZSBS/ywmrXuDbHKTa3lHMlN0oR/WDojo6Ph02Epc89ffpQHOcl
+         XZd/o1m5NkpMskTXxlR3++UTE8bQq5a9U8vlw91xbAKATsolTO5AKZC1k1i4ETxnNHQf
+         2wgR0JrrTTMbt3GCR/wa6FGi5WQTFFABrvYtEdBTrZ5VrTQyn1tI4iDQZdUS2RQd/x+q
+         VOkw==
+X-Forwarded-Encrypted: i=1; AJvYcCVhsBPiWiGfRxiTFXn7uuJhmAeSbn9maPRbZqehHg4y+amx7DwZWzxqGy11rZjTQ33dLFfRZlHESAp+ZA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdbyhHpTxr/u3FYwpigUmTkEonGgslccuxwJ0mnpc2Bsn313tc
+	4rtw5SibF0Rcd8HB2T2x6uSQuWpwwwNVU35KLOzlo9lC4ypb1GRx50vwSYP47FO6gY0=
+X-Gm-Gg: ASbGnctPHXN6uzi3WeKQ6wzzNGT/QlkDkD+Nt5wsQEzZ0LKq9pujLPXwrWv9EdelLpq
+	x9nCLs9biuvbHqM6mhvhqwoudiMpr+q64ukIKloJ6Ruy+u3QwCQsBHIUlkvGiTsJSnzQJ1c33It
+	Gx6v/L0XDTYg9OX/KCLGHjaEGsMoMUs3UE43GvPj6y+f+ldSCNHf9rjOYGbko72ZD7cvv9rlSfS
+	PrfiUJd1KWC7dxtBl405FaJb1Qz9by6Gx5HeyqqSKW7an4V+tJ1SRq0/rWecPPPvKjnb0gqN8Dr
+	1iMseiTyuLCgXFuK4YFkDUnrv7QF85zTCTGLn4500H7LrWIdUp2HiMOnhA0kBFvXdLpNSNFeDwS
+	MqizdFBvjucl0EpxUExOl5BRzleTnXFT90BQF7le7bq0jdVhwfQEPd+4VD77t/zMK8Deuowx7af
+	qJb/VehYe4TbaRVHHwnp5eGJN5de1ahBqaVg==
+X-Google-Smtp-Source: AGHT+IFAmBZDikILCClmp+7vVKcnj+i3LKl9ZiDVNdmnt9krXWJ4kKo97aK6dBcsuheQDKRB7IIDbw==
+X-Received: by 2002:a17:902:e784:b0:292:39b4:e785 with SMTP id d9443c01a7336-29239b4e9cemr216223575ad.26.1761107669783;
+        Tue, 21 Oct 2025 21:34:29 -0700 (PDT)
 Received: from [10.211.55.5] ([4.28.11.157])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-292471fe4cdsm126257025ad.97.2025.10.21.21.34.26
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-292471fe4cdsm126257025ad.97.2025.10.21.21.34.28
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Oct 2025 21:34:26 -0700 (PDT)
-Message-ID: <06af60b7-7ef7-451c-babd-e612a356013c@riscstar.com>
-Date: Tue, 21 Oct 2025 23:34:26 -0500
+        Tue, 21 Oct 2025 21:34:29 -0700 (PDT)
+Message-ID: <91bd83c0-c721-41aa-9716-a750b73c7e41@riscstar.com>
+Date: Tue, 21 Oct 2025 23:34:28 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/8] spi: fsl-qspi: allot 1KB per chip
+Subject: Re: [PATCH 6/8] spi: fsl-qspi: support the SpacemiT K1 SoC
 To: Frank Li <Frank.li@nxp.com>
 Cc: han.xu@nxp.com, broonie@kernel.org, dlan@gentoo.org,
  guodong@riscstar.com, linux-spi@vger.kernel.org, imx@lists.linux.dev,
  spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <20251020165152.666221-1-elder@riscstar.com>
- <20251020165152.666221-6-elder@riscstar.com>
- <aPaLibm+oVKSDbL9@lizhi-Precision-Tower-5810>
+ <20251020165152.666221-7-elder@riscstar.com>
+ <aPaML32I0Ao1xhpX@lizhi-Precision-Tower-5810>
 Content-Language: en-US
 From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <aPaLibm+oVKSDbL9@lizhi-Precision-Tower-5810>
+In-Reply-To: <aPaML32I0Ao1xhpX@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_213428_020303_8178E396 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20251021_213430_645784_79C33C86 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,79 +105,73 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/20/25 2:20 PM, Frank Li wrote:
-> On Mon, Oct 20, 2025 at 11:51:48AM -0500, Alex Elder wrote:
->> In fsl_qspi_default_setup(), four registers define the size
->> of blocks of data to written to each of four chips that
->> comprise SPI NOR flash storage.  They are currently defined
->> to be the same as the AHB buffer size (which is always 1KB).
+On 10/20/25 2:23 PM, Frank Li wrote:
+> On Mon, Oct 20, 2025 at 11:51:49AM -0500, Alex Elder wrote:
+>> Allow the SPI_FSL_QUADSPI Kconfig option to be selected if
+>> ARCH_SPACEMIT enabled.
 >>
->> The SpacemiT QSPI has an AHB buffer size of 512 bytes, but
->> requires these four sizes to be multiples of 1024 bytes.
-> 
-> I think it'd better to add field at fsl_qspi_devtype_data, like
-> sfa_size.
-
-OK.
-
-> sz = q->devtype_data->sfa_size ? q->devtype_data->sfa_size : q->devtype_data->ahb_buf_size.
-
-Why not just set sfa_size always then?
-
-Anyway my biggest concern on this was what to call it.  What
-does "sfa" stand for?
-
-I'll do it the way you suggest for v2.
-
-Thanks.
-
-					-Alex
-
-
-> 
-> qspi_writel(q, addr_offset + 1 * sz, base + QUADSPI_SFA1AD);
-> ...
-> 
-> Frank
->>
->> Rather than add a new quirk to support this scenario, just
->> define the four sizes to be 1KB rather than being dependent
->> on the AHB buffer size.
+>> Add support for the SpacemiT K1 SoC in the Freescale QSPI driver
+>> by defining the device type data for its QSPI implementation.
 >>
 >> Signed-off-by: Alex Elder <elder@riscstar.com>
 >> ---
->>   drivers/spi/spi-fsl-qspi.c | 17 +++++++----------
->>   1 file changed, 7 insertions(+), 10 deletions(-)
+>>   drivers/spi/Kconfig        |  3 ++-
+>>   drivers/spi/spi-fsl-qspi.c | 10 ++++++++++
+>>   2 files changed, 12 insertions(+), 1 deletion(-)
 >>
+>> diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
+>> index 4d8f00c850c14..2e3d8bd06ceb2 100644
+>> --- a/drivers/spi/Kconfig
+>> +++ b/drivers/spi/Kconfig
+>> @@ -435,7 +435,8 @@ config SPI_FSL_LPSPI
+>>
+>>   config SPI_FSL_QUADSPI
+>>   	tristate "Freescale QSPI controller"
+>> -	depends on ARCH_MXC || SOC_LS1021A || ARCH_LAYERSCAPE || COMPILE_TEST
+>> +	depends on ARCH_MXC || SOC_LS1021A || ARCH_LAYERSCAPE || \
+>> +			ARCH_SPACEMIT || COMPILE_TEST
+> 		   ^
+> 		   align to here
+
+OK.  I was mimicking what I saw on the only other instances of
+a continued line in the file, SPI_BCM_QSPI.
+
+					-Alex
+
+> 
+> Frank
+> 
+>>   	depends on HAS_IOMEM
+>>   	help
+>>   	  This enables support for the Quad SPI controller in master mode.
 >> diff --git a/drivers/spi/spi-fsl-qspi.c b/drivers/spi/spi-fsl-qspi.c
->> index 703a7df394c00..9ecb756b33dba 100644
+>> index 9ecb756b33dba..f4f9cf127d3fe 100644
 >> --- a/drivers/spi/spi-fsl-qspi.c
 >> +++ b/drivers/spi/spi-fsl-qspi.c
->> @@ -795,17 +795,14 @@ static int fsl_qspi_default_setup(struct fsl_qspi *q)
->>   	 * In HW there can be a maximum of four chips on two buses with
->>   	 * two chip selects on each bus. We use four chip selects in SW
->>   	 * to differentiate between the four chips.
->> -	 * We use ahb_buf_size for each chip and set SFA1AD, SFA2AD, SFB1AD,
->> -	 * SFB2AD accordingly.
->> +	 *
->> +	 * We use 1K for each chip and set SFA1AD, SFA2AD, SFB1AD, SFB2AD
->> +	 * accordingly.
->>   	 */
->> -	qspi_writel(q, q->devtype_data->ahb_buf_size + addr_offset,
->> -		    base + QUADSPI_SFA1AD);
->> -	qspi_writel(q, q->devtype_data->ahb_buf_size * 2 + addr_offset,
->> -		    base + QUADSPI_SFA2AD);
->> -	qspi_writel(q, q->devtype_data->ahb_buf_size * 3 + addr_offset,
->> -		    base + QUADSPI_SFB1AD);
->> -	qspi_writel(q, q->devtype_data->ahb_buf_size * 4 + addr_offset,
->> -		    base + QUADSPI_SFB2AD);
->> +	qspi_writel(q, addr_offset + 1 * SZ_1K, base + QUADSPI_SFA1AD);
->> +	qspi_writel(q, addr_offset + 2 * SZ_1K, base + QUADSPI_SFA2AD);
->> +	qspi_writel(q, addr_offset + 3 * SZ_1K, base + QUADSPI_SFB1AD);
->> +	qspi_writel(q, addr_offset + 4 * SZ_1K, base + QUADSPI_SFB2AD);
+>> @@ -267,6 +267,15 @@ static const struct fsl_qspi_devtype_data ls2080a_data = {
+>>   	.little_endian = true,
+>>   };
 >>
->>   	q->selected = -1;
->>
+>> +static const struct fsl_qspi_devtype_data spacemit_k1_data = {
+>> +	.rxfifo = SZ_128,
+>> +	.txfifo = SZ_256,
+>> +	.ahb_buf_size = SZ_512,
+>> +	.invalid_mstrid = QUADSPI_BUFXCR_INVALID_MSTRID,
+>> +	.quirks = QUADSPI_QUIRK_TKT253890 | QUADSPI_QUIRK_NO_CLK_DISABLE,
+>> +	.little_endian = true,
+>> +};
+>> +
+>>   struct fsl_qspi {
+>>   	void __iomem *iobase;
+>>   	void __iomem *ahb_addr;
+>> @@ -998,6 +1007,7 @@ static const struct of_device_id fsl_qspi_dt_ids[] = {
+>>   	{ .compatible = "fsl,imx6ul-qspi", .data = &imx6ul_data, },
+>>   	{ .compatible = "fsl,ls1021a-qspi", .data = &ls1021a_data, },
+>>   	{ .compatible = "fsl,ls2080a-qspi", .data = &ls2080a_data, },
+>> +	{ .compatible = "spacemit,k1-qspi", .data = &spacemit_k1_data, },
+>>   	{ /* sentinel */ }
+>>   };
+>>   MODULE_DEVICE_TABLE(of, fsl_qspi_dt_ids);
 >> --
 >> 2.48.1
 >>
