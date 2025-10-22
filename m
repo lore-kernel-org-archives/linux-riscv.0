@@ -4,94 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE73CCD1AB
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 04:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EF3CCD1AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 04:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zy0CYs26GEMvdPsAFwwOa06UKTmNbmSuRA3P4x6SWJQ=; b=HBGcTyP1Uajb73
-	ueUpoA3THpI78nIjE9RX9nXAS/RGSFata97FqKIZfAqON9/sIOwRRh+Gbj5Pt6QIvohpXxj395CDP
-	5jrro/6d87m9N8ljpnc6/xNtmiS9UMP4LD0uzHhtGcrNom7XwzLe4W8ZL7Tce4vRLbxXrQz6QGSPN
-	AoAZX10KDRxyxm7ukutREsRxz7zdxfMwt6bpJmRlZuPkNyVzMv1LlSZm+A/LaocFs3Y9x36yj9CEh
-	iF7wsyG20TN6yEEPHzoJBBs48RimB3awncTdk4bdLLINV0lVaRzlXb2S+Hx/z/2kBW6vWCYBRk284
-	H1eSw9IT6E/9utSvBdpA==;
+	List-Owner; bh=c9T/TjzbzokBC2eBDazasC4PK/axeuXvy3XVzLpRBmQ=; b=t9NE4d4RRliEgm
+	ESDRjClTdaIPiE7lROBt6+LazmNratnWKXy8naoCTUX321OM8flqOtMpBf7RTAw3cqEgOOlc028Xw
+	yt5Vt/7yzThHWQrKvBgf6+4KX1rfWhUMbEm8M0OY9JG6Edgxc/5qfljTbLHh7zFMx737wu4KMNjlQ
+	NFPv0DtUMQ0vyU6uOxAxTHPAAxVxOjpYR7DJFRt87Sx0s2ZXrjugmnQuvebERMiW6RPkqTi6ONAxX
+	/p7h2efStrDTqwnqgfSMlVXHnzsSHWe2ValXPjdQJSbEPtYCvb0Rg1bnBB+ObMF7bd5CMebov7DTl
+	vXlGmw+MvAWYmOesVNHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBQYG-00000001R8X-0i0r;
-	Wed, 22 Oct 2025 04:34:20 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1vBQYK-00000001R9g-1zfU;
+	Wed, 22 Oct 2025 04:34:24 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBQYD-00000001R8B-47iN
+	id 1vBQYI-00000001R8w-27ei
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Oct 2025 04:34:19 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-290d14e5c9aso60568045ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Oct 2025 21:34:17 -0700 (PDT)
+	Wed, 22 Oct 2025 04:34:23 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-26d0fbe238bso46739015ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Oct 2025 21:34:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761107657; x=1761712457; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761107662; x=1761712462; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=ppwCPMx8V2Sf6deae1nCYy7pnPOnc4IDjA11Y0/2goo=;
-        b=WPcd7nhSoqW+cCWvAloLN+jb+mMotRM217hM2dg1murfxUbNkPglIR5roucePPfMhv
-         j63//86ccoD7k6Nh78Qc8iMBX7S86lhvcF8AYcVRjM54GsVr1EuFnsb+7wg6L1koTiJq
-         PUw8z1+28vcuQqeSuRA8V9fuKtlw00WomSNZ+btWP1uH1sSKHl9lnOlJ/+0O63xt/1zM
-         C2TAz6ZZivhzP3UvcuQbm+HiBZuxMmi+gDE2FR4p9Jo5488fcZCMt/5pXOp+cgF/ZVAI
-         xP74eFPxAquw8fXC56v3PMR5bgklTjYEJLK99Hg8G5m2pXERII/+FL8Yn9z2BBENb4PU
-         zJIQ==
+        bh=FXV9nPTtzRS7GB0GpGCBfWyozkzIjx5wpujc/niwppI=;
+        b=p3qDfl3cFvJInJoDFioWFo7yr/rQoV7q636VcFR2eLuDdc6FZEeqeGq3jYO6hKW7gh
+         Ce3PYTn2KJfhaQB4I9WniAtwU5eq+L/deX+l64Did56rH6A6GNnajNpo1UX5xGPp1pQ+
+         alAeNo2BvNhmmgHfW7px32HG7EhAdLleoqFto88303ecGZ9aATr3KuQUc8FbNNh4VJqM
+         /Z+caTlgjOmHmJlwNDl13rDUkT9y8mQPW2RfTiR9pEXfGC7zj2xS4W5pxODM7BIK/+u5
+         zWOcJlvpedV8b/n2/IFXt6H5MoM1N16g6BB1hU/eYwqk9fLhDyNDV7b5BNpA4wDgXXD5
+         qroA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761107657; x=1761712457;
+        d=1e100.net; s=20230601; t=1761107662; x=1761712462;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ppwCPMx8V2Sf6deae1nCYy7pnPOnc4IDjA11Y0/2goo=;
-        b=hqkg1ssrP15YKFgjFLyYqihd9YZFU1OuO7f2hsEgi+cSagvNGX2yToKLwXxf67ICdw
-         mAefFzzMWnNNQ7YOkabtdS9LdlZHxAEyFWalKUnThSaRnOdMIDjI+ATk5qq7jr4gknCk
-         vs+w6GWt78VGrNGqIbU1qkWpAbHv5RRLP4UhAT1vz034JntFLu3QoBOs9MXmicgdOk9K
-         1W6RZ2pcKZZpp2R+bfsIHqbp0Ik9E6hqNiq7TfS32RTELLuRO6BSbmG+voKOIloe5lVm
-         rendlxK0oSlVA2xGoeARjQ1ZlIwJZgoFkkRiCsRjH+5qT8BSenyxK2hQbz4xXpcVl+hT
-         pFtw==
-X-Forwarded-Encrypted: i=1; AJvYcCXfz4j6fpD4E0ikpik+r9+I5+frUs9NawAHeYcFC9fo2C6iYsEmXq4FKH9e1Wjz8Xk37PeuXcYb6Dt4/w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeyytybqCyxOr1YxKW/ABEedU4DfZXivYZV7Jqu1vYgKtSBibM
-	0p00YXWELYN1UrLJYxOaxi+UBMg5N/WGf2qXDCJFwt3fcWYoZq6dPPf+ScGdlMMU2jI=
-X-Gm-Gg: ASbGncthHB8CeSuE13bDASq9Sym8J1xVgyudO96Uco+uacr9yO7kWYNcOshmj6Gc+wy
-	zkewulHZE7W6Cmfw8qccgUgid/5BCmmfvSa39WSMbR2Jl71vtvgHgwk5813G0HLjThP+RdoGRmP
-	qhLrIfSLSWuEboSmkzUlCSbRqeNf3UCncL/i1s71g9KjpSSQLOeJPrg6E5RqXxQHD+zpZTwwhTy
-	22mzm42lDnuZ1K1tEwA89RVezsrR+IoMvBZqEF0b3R3ySfgBq3/3UoBp13iI2bgfv5/9sXnoi7I
-	qA94O7MpVPQsJCzdMFIQK7HqChBR9J0jSTTJ+Tk0Qq6o4nIKErF9nvejGRleU1lIhEuG3cdJ6pH
-	im4YTU/hz8ifORGzp2Cg1LPMnVWMIRXQ3oBS6THunR6tgvkarsF7TwYnkzZdIad2313Cm6uDc6Q
-	bFWTS1ynBVWnMe
-X-Google-Smtp-Source: AGHT+IGRbL8alcY98vwlpMmB68/E/fiZ8vvTYnBqywFldOw2mBZIi0C45CU+Ljv9QC55tUOEBjim+g==
-X-Received: by 2002:a17:903:1d1:b0:290:2a14:2ed5 with SMTP id d9443c01a7336-290c9c89fd2mr213302675ad.4.1761107657244;
-        Tue, 21 Oct 2025 21:34:17 -0700 (PDT)
+        bh=FXV9nPTtzRS7GB0GpGCBfWyozkzIjx5wpujc/niwppI=;
+        b=WMbC1K/x05VlFgUChmQINuePu+yaYcCIgfW3H/6iKdgcTKKZXYVagCbr8TEy04Q35j
+         E+71xPo+/xD1vwOZaKdeqaVhrIL2XZeivxbVvY1y+SKtcLQGpMqfNNT5dsYv+O5SXcd+
+         CuPVsaKHz66iHKm6LVP5wlRNxizOkRRZJeS8cTB5yGixf1n/Zc3aiY0Yg6QvDqqnYT+z
+         iiPNsV7IaZ2HmFdromSN9/07hXltLnhnhFCn8UwMKnzaI4pjBMCU7pT8WjJmHRf9GPa0
+         a8xseyy3IoJQur+6x/zccT09VGC+W1ZoUfbfHUq/1RFMsomLZrHHPgax/BeX6V+vgcNw
+         hetw==
+X-Forwarded-Encrypted: i=1; AJvYcCU3hNup2D19Kb++1MU74PR0a2kqtCdSDYLU0fTiDa9BCL1H4j1TO3y9uLsgFpdyHyScDD6YMn0Giit0Rw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSaoOZZoBgCBrVr4NbeUL1ePiyNIzwdQCf1kiO52/NI2bhh4T5
+	fRGxkyP27L86pVpAEGik7ykuh41AvBvx1GAB4ciLnCch1TL2yQ+DuLHTZYaJy8jOYSM=
+X-Gm-Gg: ASbGnctBAQ7r7VieDOjEPumKsB3NQN/DKo/9Re/AZvPILfBKWaJ9GoGn7HcvzUgHq8J
+	EceIgIHPNNzmtwlxcOhIe8t/9Ljb4cD+H6VTXOCVkD/RMgapUJ1zxcWhC8Mebvbb3uplNdjfa+y
+	ii5U0oEXTIAetMv5KjEK2wxOXB7kTLzO0iMnU3VL/G5zRIocNIVRIFDf7btJWkZAstNMdCD5dCV
+	ECAX7F3gp5uUNTV2/pBEa8m0rI1OpcdNrvo0nFloxpq8TbbtA4xEo9kg8K4RgYDZ0QXRSI+XJM5
+	YUqHun65rkztczHJe+OWbHG2+AFlVt0v2tOvYZXz0O9i8ccGci/T6AzDo213IxkrkngTanIJECq
+	zyJWNbb6DhAb9evfnp8y0gzEUyZKFwccqSoeNs9QMv665ljQYsxfY4diU2Tx6eXynI6xIJ5PJTV
+	U24c95TpMcNntN
+X-Google-Smtp-Source: AGHT+IGMxMq8ODA384WIjA22NE56jXOrifm3A5Z150bOKY/fGOgxvMMpMNK8BhQcEf3SEUsHJhYpWg==
+X-Received: by 2002:a17:903:298d:b0:267:87be:505e with SMTP id d9443c01a7336-290c9cbc185mr219746635ad.23.1761107661774;
+        Tue, 21 Oct 2025 21:34:21 -0700 (PDT)
 Received: from [10.211.55.5] ([4.28.11.157])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-292471fe4cdsm126257025ad.97.2025.10.21.21.34.16
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-292471fe4cdsm126257025ad.97.2025.10.21.21.34.20
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Oct 2025 21:34:16 -0700 (PDT)
-Message-ID: <ba01b2a5-a04b-4a6a-9257-09f38f2ba5ef@riscstar.com>
-Date: Tue, 21 Oct 2025 23:34:15 -0500
+        Tue, 21 Oct 2025 21:34:21 -0700 (PDT)
+Message-ID: <c93c1319-2f1f-4303-bb4b-751979f58149@riscstar.com>
+Date: Tue, 21 Oct 2025 23:34:20 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/8] dt-bindings: spi: fsl-qspi: support SpacemiT K1
-To: Conor Dooley <conor@kernel.org>, Mark Brown <broonie@kernel.org>
-Cc: han.xu@nxp.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- dlan@gentoo.org, guodong@riscstar.com, devicetree@vger.kernel.org,
- linux-spi@vger.kernel.org, imx@lists.linux.dev, spacemit@lists.linux.dev,
+Subject: Re: [PATCH 3/8] spi: fsl-qspi: add optional reset support
+To: Frank Li <Frank.li@nxp.com>
+Cc: han.xu@nxp.com, broonie@kernel.org, p.zabel@pengutronix.de,
+ dlan@gentoo.org, guodong@riscstar.com, linux-spi@vger.kernel.org,
+ imx@lists.linux.dev, spacemit@lists.linux.dev,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20251020165152.666221-1-elder@riscstar.com>
- <20251020165152.666221-3-elder@riscstar.com>
- <20251020-blinked-primary-2b69cf37e9fe@spud>
- <b28d71c4-d632-4ee5-8c4b-270649fca882@riscstar.com>
- <710c36f2-3551-4738-a965-f1564416348c@sirena.org.uk>
- <20251020-florist-campus-a397bf94d129@spud>
+ <20251020165152.666221-4-elder@riscstar.com>
+ <aPaIezCu/gXxJC01@lizhi-Precision-Tower-5810>
 Content-Language: en-US
 From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20251020-florist-campus-a397bf94d129@spud>
+In-Reply-To: <aPaIezCu/gXxJC01@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_213418_051518_47EB5426 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20251021_213422_564361_AAFF2C7F 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,37 +105,84 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/20/25 1:39 PM, Conor Dooley wrote:
-> On Mon, Oct 20, 2025 at 07:26:17PM +0100, Mark Brown wrote:
->> On Mon, Oct 20, 2025 at 01:06:46PM -0500, Alex Elder wrote:
->>> On 10/20/25 12:39 PM, Conor Dooley wrote:
->>
->>>>> +          - spacemit,k1-qspi
->>
->>>> Are the newly added resets mandatory for the spacemit platform?
->>
->>> This is interesting.  I never even tried it without specifying them.
->>
->>> I just tried it, and at least on my system QSPI functioned without
->>> defining these resets.  I will ask SpacemiT about this.  If they are
->>> not needed I will omit the first patch (which added optional resets),
->>> and won't use them.
->>
->> It might be safer to describe them, otherwise things are vulnerable to
->> issues like the bootloader not leaving things in a predictable state.
+On 10/20/25 2:07 PM, Frank Li wrote:
+> On Mon, Oct 20, 2025 at 11:51:46AM -0500, Alex Elder wrote:
+>> Add support for one or more optional exclusive resets.  These
+>> simply need to be deasserted at probe time, and can remain that
+>> way for the life of the device.
 > 
-> Yeah, if a linux driver requires that a bootloader set up a clock or
-> de-assert a reset etc, then the binding should mark them required since,
-> as you say, a bootloader change might do away with that de-assertion.
-> Additionally, the stage doing that de-assertion etc could be U-Boot
-> or barebox, which import devicetrees from Linux, so making sure that
-> the resets are present has that benefit too.
+> Nit: please wrap at 75 chars
 
-OK, so the resets property (added in patch 1) will stay.  It will
-be defined such that it is an optional property, and only when the
-compatible string includes "spacemit,k1-qspi".
+You're saying wrap at *longer* lengths, right?  If not, please
+clarify.  I'll update in v2.
+
+Thanks for the  review.
 
 					-Alex
+
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> 
+>>
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>> ---
+>>   drivers/spi/spi-fsl-qspi.c | 12 ++++++++++++
+>>   1 file changed, 12 insertions(+)
+>>
+>> diff --git a/drivers/spi/spi-fsl-qspi.c b/drivers/spi/spi-fsl-qspi.c
+>> index c887abb028d77..1e27647dd2a09 100644
+>> --- a/drivers/spi/spi-fsl-qspi.c
+>> +++ b/drivers/spi/spi-fsl-qspi.c
+>> @@ -36,6 +36,7 @@
+>>   #include <linux/of.h>
+>>   #include <linux/platform_device.h>
+>>   #include <linux/pm_qos.h>
+>> +#include <linux/reset.h>
+>>   #include <linux/sizes.h>
+>>
+>>   #include <linux/spi/spi.h>
+>> @@ -267,6 +268,7 @@ struct fsl_qspi {
+>>   	const struct fsl_qspi_devtype_data *devtype_data;
+>>   	struct mutex lock;
+>>   	struct completion c;
+>> +	struct reset_control *resets;
+>>   	struct clk *clk, *clk_en;
+>>   	struct pm_qos_request pm_qos_req;
+>>   	struct device *dev;
+>> @@ -857,6 +859,8 @@ static void fsl_qspi_cleanup(void *data)
+>>   {
+>>   	struct fsl_qspi *q = data;
+>>
+>> +	reset_control_assert(q->resets);
+>> +
+>>   	fsl_qspi_clk_disable_unprep(q);
+>>
+>>   	mutex_destroy(&q->lock);
+>> @@ -902,6 +906,10 @@ static int fsl_qspi_probe(struct platform_device *pdev)
+>>   	if (!q->ahb_addr)
+>>   		return -ENOMEM;
+>>
+>> +	q->resets = devm_reset_control_array_get_optional_exclusive(dev);
+>> +	if (IS_ERR(q->resets))
+>> +		return PTR_ERR(q->resets);
+>> +
+>>   	/* find the clocks */
+>>   	q->clk_en = devm_clk_get(dev, "qspi_en");
+>>   	if (IS_ERR(q->clk_en))
+>> @@ -923,6 +931,10 @@ static int fsl_qspi_probe(struct platform_device *pdev)
+>>   	if (ret)
+>>   		return ret;
+>>
+>> +	ret = reset_control_deassert(q->resets);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>>   	/* find the irq */
+>>   	ret = platform_get_irq(pdev, 0);
+>>   	if (ret < 0)
+>> --
+>> 2.48.1
+>>
+
 
 _______________________________________________
 linux-riscv mailing list
