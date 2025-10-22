@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56293CCD1A5
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 03:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1813BCCD195
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Oct 2025 04:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7VXskhKYLbfTcw9UzPmBqpULSvVhVgE7kHAQxIw1b2g=; b=n9JoLDm3jYN8ga
-	vvCdNiQmgVF2bYgkZhXdGZ8za7mB+JqtBXXyDJUtUIrY4KxXrZ+WGWoTXkqhNCsWiWZycamaO+bic
-	38yTMAIzdVpxsP75u4tqyLqSpjspOjZ7Prr7wQZ+ePxwAE6X3A4WHEXoEbfFFIk3Pb+qggCZA6xFA
-	vasUU93RE7jzLx4E8dyr8kLP7mdWjlrJTqnk4KDRh64MkrhEjiLy0eDlv9eiTBB7QRNS0aDjby88A
-	bOdd2tl9dH+caFHh/6rOTRyxq4MKfMtdZt+fDEzPM+GC5ANm6pD+N5tciO5G3vJgKskF2tb866xZp
-	44p0wooFfqJCft/p4BCg==;
+	List-Owner; bh=HoeiYjiI3iWarZn0yOE8UouZUUpTAIHFCKV/20vT+lY=; b=ToqoqtdIRaGoO9
+	u7Y8teXcXoQKvx/bc9CinsGFk0lV3AlFsGW+vbLvv0UxKgy8Lf/0v4HQpf2MpRqyD7hwDng5vql0x
+	OFZpl+lTlWiAZwPNaIrWD2LIAnsIwJaui0KkyfHBU2G5+TcVfkJh9xjTp+9Wh1ow8FTF4Jjsd671s
+	xNn15TLHIINQMkAxstqh9pfjGGhIn0DDuScP3RQnFM3NDsCfN2+B7dfBFD6a3S1wJKHyJws+ZX0L2
+	TKKdXPC/FJZZD+PTScTgwHI9BNJYDq8NmD7Y/73UTU0t2qBed5WVCGBEyKSDK8pWdp4l8Je/hxiYg
+	1yP6+Pr3AOvhgmbLyCkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBPKW-00000001IvG-3UZy;
-	Wed, 22 Oct 2025 03:16:04 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1vBQUl-00000001QqK-2fUM;
+	Wed, 22 Oct 2025 04:30:43 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBPKR-00000001Ito-0ybU;
-	Wed, 22 Oct 2025 03:16:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761102959; x=1792638959;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=C4vq3UaKFDwToRnrsRh+czOcOkuL3mJDA1+8OYAo9rg=;
-  b=Ku9U8g7e1/guC7DjGv8MdApsuMrRXyvnlKKEcGvSi5KSKPp624YlIgD0
-   cT8x1OURcakRkZ35iiaO/vFBbPQLQNRU8ac6IFQ4U1IIuVMORdAkjP+k3
-   NNnx5TlwyCL2XZ1Y+fY5wDbIXPGRRpE5nsGLHjZuCrn1dtDBipgnot2VV
-   KWClcuTpLLt3IVbS/MS6ZPhhnetB/GfwyPfYtplrN0viMw/VRJEpQgQs8
-   89dXAuZUSJJzV6UUnQRnOXvdt7BzeMTJn+X3qFcT6SMH8A9foflvWA8l5
-   FIu57nRfPhPZc85+TF5VATqhQxslc89y2DBPSI0Ls/ZPY/aHX0dQohkQ0
-   g==;
-X-CSE-ConnectionGUID: 0RdbvCkiQBuXWoae8ibSQw==
-X-CSE-MsgGUID: 36Yt0q9+Twmj2TZLHK/YMw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="67105122"
-X-IronPort-AV: E=Sophos;i="6.19,246,1754982000"; 
-   d="scan'208";a="67105122"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2025 20:15:55 -0700
-X-CSE-ConnectionGUID: rS/w9ShoRTOr0LOxJ5xyUg==
-X-CSE-MsgGUID: oNdfq1G9T4yNJ67V9X9aAw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,246,1754982000"; 
-   d="scan'208";a="184159739"
-Received: from yinghaoj-desk.ccr.corp.intel.com (HELO [10.238.1.225]) ([10.238.1.225])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2025 20:15:49 -0700
-Message-ID: <eb6a2ca0-84eb-4770-8300-cd8892eae6ad@linux.intel.com>
-Date: Wed, 22 Oct 2025 11:15:46 +0800
+	id 1vBQUj-00000001Qps-0G6m
+	for linux-riscv@lists.infradead.org;
+	Wed, 22 Oct 2025 04:30:42 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-33db8fde85cso2952189a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Oct 2025 21:30:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761107440; x=1761712240; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nTcnGjhUhb8jKzTF6L7XczC6QFzv26Nhm3lCxckjhLU=;
+        b=XutLH8R9btF1xlTaOUoqt24vwXu7zMGbl8oTSuCHT6N9iqHdV5TsQ2oY25Be6RHi/J
+         7aUBweSzQqqyWwnkn1L++IN6N+K4ZR4p4/lGyzYRGfHhKemIvaZj8TVBow+UQIUYrk8Z
+         L+zO80mobgXe4UFxsxiKiHIftfJLOEQFIUHxUkQ6zojx4aul7VIwKLiBcCPrSxdonA+J
+         3wyibSdfjdF+nhD+aYc6lVt6TVGXqDZg7Lrb10nN0AZc4qLpUc3vzERxm3mtrLiqF2qB
+         axmbV8Vf5zvo6ezO1VUW9wzfUDF6D65fCqKjcLuydiH8+siaMrZTJAYUduHB5Pduo9+9
+         +luQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761107440; x=1761712240;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nTcnGjhUhb8jKzTF6L7XczC6QFzv26Nhm3lCxckjhLU=;
+        b=wa5FRTQFxhuCjgBQ7rAA9Qa+1GofT3+aN7YksxdPVsGFwNf5QyKc95egyPFAPmgnPQ
+         gPMAVA9hLY4H1w5qxMnapgVwh6bmAaN8YheovEvnqTZwc9Cx8e6SWnt5jPlrVUFPr8k4
+         ZpPYe0XDvpTXnsiHC2KLXm/aVBlw4ewhP8DPjnlC0aSqKcpIkWv5ZM0xQITFRIuaEs0T
+         6qHbii+FdBrA1fL3Aqbe7pXhv5HA0p+7wrrfuKitZUn0CEcUVGYqqbOGBjTTCteeSCIr
+         iFBJAxSpQtQPS09p9EK2tSVeao4jtA1Uqn04Ll/zPGkCHhUwQWvAJIdz3kXC2KMqXKr6
+         bAKg==
+X-Forwarded-Encrypted: i=1; AJvYcCUT2G5xetZ0PykcHGM1cTrldEYr762QPP1wv7E936++vPRkOY5tDdWBvAF47iyx9ogGBqqdOoZ96fDNNA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCAsHW33gA5+aDS3B17cj63SOjnnQycXzdaB+/oKajs7z34yo7
+	PaSa5isnjRbtep6hOeCje5pwDvrKd/QEBDZjwEZ+rN72DH0p4lh20hz8Amai05xXAsc=
+X-Gm-Gg: ASbGnctquJwONcbDK5GMuMWf72e3MJL5u+a6IY4u9Yfd+VKPgA+7NpY28ERMXYYb2ml
+	dmxJv6k7hA5M9+SQQG1HART1wPuK77xVwhdwaZNCybuEvKEkZO9rtUtnGGX5hA6THUYh4jxX3Np
+	e4HgJ7CHEJI4pzeYjJUfDMGWnBOa6uC2sPb+v/mZj71g5J2QVXci+oCP5rOgMwr3EYbcNwKdIBh
+	GXiU05IZBFIkuqi8Yzzxak1gi2HhzseF7+lDaCk2buMqwnf+iLUBYJuDs49xRBcTkQwlawSZhgC
+	ibwsCa8vWImdl9gQ4/q7zpFOnKUhUi5ZF721QtN8KL4rWUAXHZw8DoQfy2qMEvd00hSB3sT0J9E
+	0quQttyWDK0CiCM34aNU1cvrUuR+283/aRmbnaQHi+GbRD1CZJ0oEMyesYEgh0761YXGrr8JcsR
+	AXSlxYNZnUDr3wReL7HfXSYjs=
+X-Google-Smtp-Source: AGHT+IHCvLgZS4hGuZBkDCjjiv46qhxkjKqpH5V3aq6Xzke+jWUJSrYYnDrBe5cM1LQ8ndK7Tc07Cg==
+X-Received: by 2002:a17:90b:3fc4:b0:33b:b453:c8f0 with SMTP id 98e67ed59e1d1-33bcf8f9008mr23774051a91.25.1761107439935;
+        Tue, 21 Oct 2025 21:30:39 -0700 (PDT)
+Received: from [10.211.55.5] ([4.28.11.157])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33e223f11e1sm1236623a91.12.2025.10.21.21.30.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Oct 2025 21:30:39 -0700 (PDT)
+Message-ID: <965a6f1f-37de-4029-ba16-cfd2de7895ed@riscstar.com>
+Date: Tue, 21 Oct 2025 23:30:37 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 03/25] KVM: TDX: Drop PROVE_MMU=y sanity check on
- to-be-populated mappings
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
- Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>,
- Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ackerley Tng <ackerleytng@google.com>
-References: <20251017003244.186495-1-seanjc@google.com>
- <20251017003244.186495-4-seanjc@google.com>
+Subject: Re: [PATCH] mfd: simple-mfd-i2c: remove select I2C_K1
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, kernel test robot <lkp@intel.com>
+References: <20251022-p1-kconfig-fix-v1-1-c142d51e1b08@linux.spacemit.com>
 Content-Language: en-US
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20251017003244.186495-4-seanjc@google.com>
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20251022-p1-kconfig-fix-v1-1-c142d51e1b08@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_201559_318852_28C5CD9C 
-X-CRM114-Status: GOOD (  29.29  )
+X-CRM114-CacheID: sfid-20251021_213041_378258_3C01A794 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,79 +102,47 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 10/21/25 8:58 PM, Troy Mitchell wrote:
+> select will force a symbol to a specific value without considering
+> its dependencies. As a result, the i2c-k1 driver will fail to build
+> when OF or COMMON_CLK are disabled.
 
+Should config I2C_K1 depend on COMMON_CLK then?
 
-On 10/17/2025 8:32 AM, Sean Christopherson wrote:
-> Drop TDX's sanity check that a mirror EPT mapping isn't zapped between
-> creating said mapping and doing TDH.MEM.PAGE.ADD, as the check is
-> simultaneously superfluous and incomplete.  Per commit 2608f1057601
-> ("KVM: x86/tdp_mmu: Add a helper function to walk down the TDP MMU"), the
-> justification for introducing kvm_tdp_mmu_gpa_is_mapped() was to check
-> that the target gfn was pre-populated, with a link that points to this
-> snippet:
->
->   : > One small question:
->   : >
->   : > What if the memory region passed to KVM_TDX_INIT_MEM_REGION hasn't been pre-
->   : > populated?  If we want to make KVM_TDX_INIT_MEM_REGION work with these regions,
->   : > then we still need to do the real map.  Or we can make KVM_TDX_INIT_MEM_REGION
->   : > return error when it finds the region hasn't been pre-populated?
->   :
->   : Return an error.  I don't love the idea of bleeding so many TDX details into
->   : userspace, but I'm pretty sure that ship sailed a long, long time ago.
->
-> But that justification makes little sense for the final code, as the check
-> on nr_premapped after TDH.MEM.PAGE.ADD will detect and return an error if
-> KVM attempted to zap a S-EPT entry (tdx_sept_zap_private_spte() will fail
-> on TDH.MEM.RANGE.BLOCK due lack of a valid S-EPT entry).  And as evidenced
-> by the "is mapped?" code being guarded with CONFIG_KVM_PROVE_MMU=y, KVM is
-> NOT relying on the check for general correctness.
->
-> The sanity check is also incomplete in the sense that mmu_lock is dropped
-> between the check and TDH.MEM.PAGE.ADD, i.e. will only detect KVM bugs that
-> zap SPTEs in a very specific window (note, this also applies to the check
-> on nr_premapped).
->
-> Removing the sanity check will allow removing kvm_tdp_mmu_gpa_is_mapped(),
-> which has no business being exposed to vendor code, and more importantly
-> will pave the way for eliminating the "pre-map" approach entirely in favor
-> of doing TDH.MEM.PAGE.ADD under mmu_lock.
->
-> Reviewed-by: Ira Weiny <ira.weiny@intel.com>
-> Reviewed-by: Kai Huang <kai.huang@intel.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+But you're right, the selecting config should ensure the
+dependencies of the selected one are satisfied.
 
-Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
+> The reason for removing I2C_K1 instead of adding a depends on condition
+> is to keep the possibility for other SoCs to use this PMIC.
 
+Acked-by: Alex Elder <elder@riscstar.com>
+
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202510211523.sSEVqPUQ-lkp@intel.com/
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > ---
->   arch/x86/kvm/vmx/tdx.c | 14 --------------
->   1 file changed, 14 deletions(-)
->
-> diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-> index 326db9b9c567..4c3014befe9f 100644
-> --- a/arch/x86/kvm/vmx/tdx.c
-> +++ b/arch/x86/kvm/vmx/tdx.c
-> @@ -3181,20 +3181,6 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
->   	if (ret < 0)
->   		goto out;
->   
-> -	/*
-> -	 * The private mem cannot be zapped after kvm_tdp_map_page()
-> -	 * because all paths are covered by slots_lock and the
-> -	 * filemap invalidate lock.  Check that they are indeed enough.
-> -	 */
-> -	if (IS_ENABLED(CONFIG_KVM_PROVE_MMU)) {
-> -		scoped_guard(read_lock, &kvm->mmu_lock) {
-> -			if (KVM_BUG_ON(!kvm_tdp_mmu_gpa_is_mapped(vcpu, gpa), kvm)) {
-> -				ret = -EIO;
-> -				goto out;
-> -			}
-> -		}
-> -	}
-> -
->   	ret = 0;
->   	err = tdh_mem_page_add(&kvm_tdx->td, gpa, pfn_to_page(pfn),
->   			       src_page, &entry, &level_state);
+>   drivers/mfd/Kconfig | 1 -
+>   1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> index 6cec1858947bf7ab5ee78beb730c95dabcb43a98..ea367c7e97f116d7585411fff5ba6bcd36882524 100644
+> --- a/drivers/mfd/Kconfig
+> +++ b/drivers/mfd/Kconfig
+> @@ -1258,7 +1258,6 @@ config MFD_SPACEMIT_P1
+>   	tristate "SpacemiT P1 PMIC"
+>   	depends on ARCH_SPACEMIT || COMPILE_TEST
+>   	depends on I2C
+> -	select I2C_K1
+>   	select MFD_SIMPLE_MFD_I2C
+>   	help
+>   	  This option supports the I2C-based SpacemiT P1 PMIC, which
+> 
+> ---
+> base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+> change-id: 20251021-p1-kconfig-fix-6d2b59d03b8f
+> 
+> Best regards,
 
 
 _______________________________________________
