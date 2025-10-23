@@ -4,76 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 579EDCCD193
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 17:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14017CCD193
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 18:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pudcUvjKwtXv55Iu7ReWLta++iNl4i2JLf3gMxhfRhg=; b=U5yqMfIOcz52DI
-	MFUh56hTXyPBJGRit0NXqdyH7CR9Lust2tyQqIDR+leQG0c2YGMIw5bz8vp8UAOgqN15oLUHaPHZ6
-	lJc2lfrdslUITOu9pUkt5uZW7J0/LYdb1Mg8x6Qr/HFDJpmzw1bzofj4KdWCMZtk0kmHDds+fL9tz
-	0rJ8TUufsfl4lhnVp6J9NMflq0/8Wfwk9KavqWS6XCwb1XF8z9y/xTgx2+sAEjXfaAj5JYG79Vpei
-	ZHddKPDbA93rrwKx1zdx3rC+TAg+O9AHdhY8I0lcNvk8kcLx/MlPpFXR2vH6PHXDMwglhDdUziCQO
-	uygiGWwgXo3CM4zUL11A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ltOXPQDH6lZy4EWGfEbiEx532fsjlnnq8kWBQMIdSfo=; b=GjDQjtb1hPEhJb
+	pTMzBV3W4JyBwmcYBS4YGnpyc+pK/KhqjdLNZ0RZxhyHItzMw7pWd+hZsCNNHpLqlnsOQxIpJHKHJ
+	sG84ZYJEpvZwHiOt7wN2T0yrFJ4lOCBwyqF/SL95JaLT7w8iMsK5p4lyanRJBoEr1pgyxrOJk61lM
+	uaesTYH+1aN78Msu/vZgV/Lg5oYfwUc4HqjdcCLElrw4DXz3gLJ8u0IAdqZu7AKpJpqooAaR5D3rd
+	tgFkHUb72Y4D/wr4NYV6PW4kXUZ5fQnLCsAUInw5wBRFcQVNCAmNnlopk9vk4cKBSGsIZqV5I2i9g
+	gk4S0+4hyF02os8S4Dew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBzJ3-000000076A4-1aPv;
-	Thu, 23 Oct 2025 17:40:57 +0000
+	id 1vBzbD-000000078F7-0zFm;
+	Thu, 23 Oct 2025 17:59:43 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBzJ0-0000000769N-03oa
+	id 1vBzb9-000000078Bq-3mId
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 23 Oct 2025 17:40:55 +0000
+	Thu, 23 Oct 2025 17:59:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=NA76Bs2vV3kegFpbjpPniVtFvOex2OmFuZqQa4tHwrY=; b=chFjAT2pdzFpcAAbT5iaeC8u7v
-	tvszUfhaQdikiyaW2hrD/6VYzCQz7NbS1t66r6v+jt800ZzKQcy5u2YLpgelLjedFV5vDv0xfB+3F
-	WpEj4lQLbuij8AjvO+XMI2cuddDQGM9C5XxykZrXg0X47o6hJ3s0XR1O/y1IJnvdbjYDwTWdz/+vG
-	p+Y2J/Goprp0/aFMp/BX1Mx5BwCWPGvewr4TLGP12V9oynAO4DH2kPjkLih5g6U9Ri2oCRJ44WL9K
-	hFXplHsTHlnDzMUhavK5jYDCF20zeZHZsWx46PJDv4cynYZ7NPWucteUCxymZ45LYzqg+Yi4lSlfM
-	RC6eFcjw==;
-Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=n4A20c4iE5OCTLQsbFf/dnrtJtYgptzbIxA7b1V4Ehw=; b=qy3XRnFeusg4xX4Jx0M2KeExJC
+	e3fF30Hm/NRNv2m53wXUhzNLSjyRYLd7zpMTvdCCO36U3SUx661Ca849VM4Ia1VHWpECOspYgmQcd
+	Z4kX68O4jtst6bN+PMSr72h+vI4fhz+pdrBnwu2ZYz9CBQyc1ZGOSa17TC7+05FsU6rgBJP53aqTy
+	QSakm9fxe3b6DRtmpxdRaBKVriy8Gb2W12FMJZUzioW/N433x3pUmh7k6x4L/0155dTuOKOQBUbv7
+	GtkOBtrRg29AhQr+/anWGj/NOdC1GwFvJRKF0lGAzLa1dQYfOdoGfOEeP3D+wiZn9ZNZZVMsQEdmx
+	4tYUpdFQ==;
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vByRI-00000001YRi-18AW
+	id 1vByjS-00000001ZSe-1F0p
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Oct 2025 16:45:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:
-	References; bh=NA76Bs2vV3kegFpbjpPniVtFvOex2OmFuZqQa4tHwrY=; b=ZbNGFdgsBv7QvD
-	ahg0Px0icgIXqx1E8iFm2l0TUNoOglu915mPGbq0c9CXvHXjYVTXTabF5BxiEhNlEqaTy76Jmc/pr
-	6vlUyNqEA2ZzB9Gyu8wNLFy6XsQziA7773oXD3r5guiaMF/cI6cdGKFqvYAR6qCv5qB58GmyaBhGm
-	0K/LeNdQ0MNePU1SHd3ORIISS2U/zmfOw4wtD25Pko1rOsVrfUD/t1cs4LlxAL5qPOaIUl4Z+olU3
-	QGdTT26Q+0z+CG2swLQXATqOqIGsGm7uv3fgS6KqdDg0K31DkQztzxeCsXEvHeyQMDE3MKzbJdgw1
-	a3vG9k/uV9Jzb4lUrgsA==;
-Received: from [63.135.74.212] (helo=rainbowdash)
-	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1vBzIq-000xhU-NI; Thu, 23 Oct 2025 18:40:44 +0100
-Received: from ben by rainbowdash with local (Exim 4.98.2)
-	(envelope-from <ben@rainbowdash>)
-	id 1vBzIp-00000004LyM-3xi7;
-	Thu, 23 Oct 2025 18:40:43 +0100
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-To: linux-riscv@lists.infradead.org
-Cc: pjw@kernel.org,
+	Thu, 23 Oct 2025 17:04:12 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-33bda2306c5so1161531a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Oct 2025 10:59:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761242375; x=1761847175; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=n4A20c4iE5OCTLQsbFf/dnrtJtYgptzbIxA7b1V4Ehw=;
+        b=z6zM0ra1hCfiXiRj2JYFdVIEDQZ+XACRQ3kItjSHALTMsFxseQRUsaxGOT8XYz2Wu5
+         Hz9Q7sZsYScjHcIapEPeFxQtAs0rD/2MSTVAkH0w77EDSRk6AGETjzyq1zc66DEY2Pkg
+         szjJ4I5z0B+sG95/1wSaOWp/PEwWbdnoMLeCt/SbrEVYD/RqAcCh/Mxqjc5xOrtlVuKM
+         Rbd/0cE4bnbXIe1Eqkbm5Y421ILyXPI1plc99fQ77VZIC+N3WUUlqlTKpRTp1gJ+4v+I
+         GoN4yGoVhGPdqCiKYFYWoSXD7ifhcB4cIWdGqNm2+UrZhyt/3ZxjLvFyXdCvzrZAmZU/
+         O1VQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761242375; x=1761847175;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=n4A20c4iE5OCTLQsbFf/dnrtJtYgptzbIxA7b1V4Ehw=;
+        b=UtKkk3KoIkab849MhosycjzgpRGB2odb06zSNDRElqhUCLD2bEXfTQWkb7kmNiOi6z
+         YEyK0HYfTE/aDfzLstwFYHqMfTFYVNT+3W1rwbJTVzgF6VwPqk9ETFHrJ9TrGGl8KhP+
+         MSBoQ61uDT0tsDy1M0Int7wz5rwVAeHSI5Sle3WzDONGXBvu0+8PruvdJUYUUKfldf2C
+         DjFG92dcw0wk21RSd+UXD/eeu8xl6Q6/FTGRXUBO4RaGtWXWjh4avTZyvf8PwMOXY7AA
+         7TXnVeOCsgld6gWNVdwp/kGH7IptaX93klNq9IW8XBcslEofCaVnQ0H/MAFjfPTcM+Uf
+         5IPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVvJ9Mu8fTqQHrC1zwtsK0FH5CV0foczMA+BJ3dugZJR8U8KYVUIvyjxnd1TeuIWM0RO9Yilz/d+OkLOA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvZU1UNZnqjAgFDE+b+iBSKtLZ4JWzMEpexp0Vbsct8cIs1jT7
+	yVK7kb1uumC78S0IRDD3QsAa7nubHkyOeC2jUUpmRxy9kXlBqyTf1pAF/qmr68hrt60=
+X-Gm-Gg: ASbGnctALFJFtsnx02+ltEQEr3FA2zLcO/5NDUACqnC28cJR+c7IG8Jud172GQ1KQr9
+	mDaaDqs4WMea8w2cAd+F5skIQoShT1XBddOmsrWeCEFh/gCStyetyxVpJbwLtwjCJxEPO/1JUw0
+	GRHO+5ZL38+fG9kkZ1B5HWyNo/YfgIjuygJjguwQVAY+y4ibmNJ4Icm3OzLSybQq+QlBrM3cxib
+	SdiHVC3rGa0SHiQzlBc3fibHSQBlnwa6RJ66Hp3BzTH3lC/sAoUWcZin/w40Kt1J6k+daZIGfyd
+	i6y+joT5mzBZIZAwFWWrgTNFOk64Q7KAC5l/7kqb3cMLmNCp9/sotzZr9W95OYIQtwybV6/VDTw
+	WsVbP1XjvV6XyWK+LYxegk1G6jNUfZ2qa2VDV8uCUpcAWMavp7J5t0gLmWq/IDDOLNAlxinJNl/
+	GhGkiVw2LX0JdXo1bJ0VTs+ovfTQ46L84Dvw==
+X-Google-Smtp-Source: AGHT+IE97/1pEPN/LuV4xxuaKmjoVVAInH5LYa39rU238Esh33gdeg6v8zj+rsYvlz1t0Nfc0Ga6dw==
+X-Received: by 2002:a17:90b:28c4:b0:327:c0c6:8829 with SMTP id 98e67ed59e1d1-33bcf8e4f50mr32926807a91.24.1761242375280;
+        Thu, 23 Oct 2025 10:59:35 -0700 (PDT)
+Received: from zoltan.localdomain ([208.115.86.150])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33e223d1265sm6447431a91.3.2025.10.23.10.59.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Oct 2025 10:59:34 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: pjw@kernel.org,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
-	ajones@ventanamicro.com,
-	macro@orcam.me.uk,
-	Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [PATCH v2] riscv: asm: use .insn for making custom instructioons
-Date: Thu, 23 Oct 2025 18:40:40 +0100
-Message-Id: <20251023174040.1037765-1-ben.dooks@codethink.co.uk>
-X-Mailer: git-send-email 2.37.2.352.g3c44437643
+	alex@ghiti.fr,
+	conor.dooley@microchip.com,
+	dlan@gentoo.org
+Cc: Frank.li@nxp.com,
+	guodong@riscstar.com,
+	fustini@kernel.org,
+	geert+renesas@glider.be,
+	cyy@cyyself.name,
+	heylenay@4d2.org,
+	apatel@ventanamicro.com,
+	joel@jms.id.au,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 9/9] riscv: defconfig: enable SPI_FSL_QUADSPI as a module
+Date: Thu, 23 Oct 2025 12:59:21 -0500
+Message-ID: <20251023175922.528868-10-elder@riscstar.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251023175922.528868-1-elder@riscstar.com>
+References: <20251023175922.528868-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_174524_382816_9D2BF25C 
-X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-CacheID: sfid-20251023_180410_556906_24456E72 
+X-CRM114-Status: UNSURE (   8.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,82 +129,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The assembler has .insn for building custom instructions
-now, so remove the .4byte which also ensures the output
-is marked as an instruction and not as data (which may
-confuse both debuggers and anything else that relies on
-this sort of marking)
+The SpacemiT K1 SoC QSPI IP uses the Freescale driver.  Enable it as a
+module in the default kernel configuration for RISC-V.
 
-Add an ASM_INSN_I() wrapper in asm.h to allow the selecting
-of how this is output so older assemblers are still good.
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+Signed-off-by: Alex Elder <elder@riscstar.com>
 ---
-v2:
-  - fixed #ifndef v #ifdef
-  - added custom MIPS instructions too
-  -
----
- arch/riscv/include/asm/asm.h                    | 6 ++++++
- arch/riscv/include/asm/insn-def.h               | 8 ++++----
- arch/riscv/include/asm/vendor_extensions/mips.h | 6 +++---
- 3 files changed, 13 insertions(+), 7 deletions(-)
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-index 8bd2a11382a3..2d97436999ca 100644
---- a/arch/riscv/include/asm/asm.h
-+++ b/arch/riscv/include/asm/asm.h
-@@ -12,6 +12,12 @@
- #define __ASM_STR(x)	#x
- #endif
- 
-+#ifdef CONFIG_AS_HAS_INSN
-+#define ASM_INSN_I(__x) ".insn " __x
-+#else
-+#define ASM_INSN_I(__x) ".4byte " __x
-+#endif
-+
- #if __riscv_xlen == 64
- #define __REG_SEL(a, b)	__ASM_STR(a)
- #elif __riscv_xlen == 32
-diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-index c9cfcea52cbb..a7860e6b908d 100644
---- a/arch/riscv/include/asm/insn-def.h
-+++ b/arch/riscv/include/asm/insn-def.h
-@@ -256,10 +256,10 @@
- 	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3),		\
- 	       SIMM12((offset) & 0xfe0), RS1(base))
- 
--#define RISCV_PAUSE	".4byte 0x100000f"
--#define ZAWRS_WRS_NTO	".4byte 0x00d00073"
--#define ZAWRS_WRS_STO	".4byte 0x01d00073"
--#define RISCV_NOP4	".4byte 0x00000013"
-+#define RISCV_PAUSE	ASM_INSN_I("0x100000f")
-+#define ZAWRS_WRS_NTO	ASM_INSN_I("0x00d00073")
-+#define ZAWRS_WRS_STO	ASM_INSN_I("0x01d00073")
-+#define RISCV_NOP4	ASM_INSN(_U"0x00000013")
- 
- #define RISCV_INSN_NOP4	_AC(0x00000013, U)
- 
-diff --git a/arch/riscv/include/asm/vendor_extensions/mips.h b/arch/riscv/include/asm/vendor_extensions/mips.h
-index ea8ca747d691..bcdce3ef3869 100644
---- a/arch/riscv/include/asm/vendor_extensions/mips.h
-+++ b/arch/riscv/include/asm/vendor_extensions/mips.h
-@@ -30,8 +30,8 @@ extern struct riscv_isa_vendor_ext_data_list riscv_isa_vendor_ext_list_mips;
-  * allowing any subsequent instructions to fetch.
-  */
- 
--#define MIPS_PAUSE	".4byte 0x00501013\n\t"
--#define MIPS_EHB	".4byte 0x00301013\n\t"
--#define MIPS_IHB	".4byte 0x00101013\n\t"
-+#define MIPS_PAUSE	ASM_INSN_I("0x00501013\n\t")
-+#define MIPS_EHB	ASM_INSN_I(".4byte 0x00301013\n\t")
-+#define MIPS_IHB	ASM_INSN_I(".4byte 0x00101013\n\t")
- 
- #endif // _ASM_RISCV_VENDOR_EXTENSIONS_MIPS_H
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index fc2725cbca187..48afe30d42e88 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -158,6 +158,7 @@ CONFIG_I2C_DESIGNWARE_CORE=y
+ CONFIG_I2C_MV64XXX=m
+ CONFIG_SPI=y
+ CONFIG_SPI_CADENCE_QUADSPI=m
++CONFIG_SPI_FSL_QUADSPI=m
+ CONFIG_SPI_PL022=m
+ CONFIG_SPI_SIFIVE=y
+ CONFIG_SPI_SUN6I=y
 -- 
-2.37.2.352.g3c44437643
+2.43.0
 
 
 _______________________________________________
