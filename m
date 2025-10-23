@@ -4,67 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8948FCCF9E5
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 12:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D075CCD1BF
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 13:26:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LsTP2OPD5jfhwunJOVmfqTisve+m6wK4BD4KTa+SwTE=; b=DNXEUVbS5kE7jy
-	gPa07K9AyDvDxO0rW4bwcSjs49erTd6LjqUDrYA7HZninNCNWBhsdF8CmtFYjI06VD58CftdYXK52
-	FxnIh/Sffh3ID9ANH+2pF9zRdAq5wC0jle1ttnly7HyXvJRxNBhgHYiaVTijGaFI9f+tqf/P6fyPw
-	y/O5ctdBPbVIJEVdhlQSqKGwu1c7FXCRlV17OvKngllTJrM5rJ+Y0J9L0B7Rh9tQe3Fbpby9s9zaP
-	8w1SQu2m0bVM38ge7A97TinWnGlHE3qMsVK31e9//hO7/ugTkctylpd0vJhXDCeiYmnzJol+AI1qT
-	zXJnnHPdkJVLvkPIoOiA==;
+	List-Owner; bh=pX9U0onxIUOReY06kdtEWG8FMGLqLXZzNxzZivA4kAM=; b=hBZCJWfnMui7kh
+	q4snmk6mtGkBPS0I+eWwSeOqM5mfIuhF4u42cedcwNvgztmENaH9i0Qz9YdW/GUHU7k5bpohr7Erh
+	+Ra3aL8dd5L/8ylJkS+FBXeaTY9i+zDGkTdIezsPlX/jnaF9Oe4m12BKyiLkbo6Dd1QQ1PGPYZalV
+	cLnrL802qCuRBFlxA00HvCrWJ/yYDfEtKnPahxjsTA8rf2JQ4iGemcW78yHg1hlMqV+2+V/KN1x3A
+	+85oUM06NWMF9noDWM2HRgWmjZ/qMsrQK7SZbyo2sPGWvN3dBq2KSVmnMIjxeEwTXipYrqHHq2xrW
+	u92jbjjsyRxSWzK1jvEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuMq-00000006Eay-2G09;
-	Thu, 23 Oct 2025 12:24:32 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1vBvK6-00000006MsS-22yW;
+	Thu, 23 Oct 2025 13:25:46 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuMo-00000006EYn-1pwS
+	id 1vBvK4-00000006MpZ-0oSu
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Oct 2025 12:24:31 +0000
-Received: from Atcsqr.andestech.com (localhost [127.0.0.2] (may be forged))
-	by Atcsqr.andestech.com with ESMTP id 59NCCtpW043242
-	for <linux-riscv@lists.infradead.org>; Thu, 23 Oct 2025 20:12:55 +0800 (+08)
-	(envelope-from randolph@andestech.com)
-Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 59NC9hvQ039377
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 23 Oct 2025 20:09:43 +0800 (+08)
-	(envelope-from randolph@andestech.com)
-Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS31.andestech.com
- (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Thu, 23 Oct 2025
- 20:09:43 +0800
-From: Randolph Lin <randolph@andestech.com>
-To: <linux-kernel@vger.kernel.org>
-CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <jingoohan1@gmail.com>,
-        <mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <alex@ghiti.fr>, <aou@eecs.berkeley.edu>,
-        <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
-        <ben717@andestech.com>, <inochiama@gmail.com>,
-        <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
-        <shradha.t@samsung.com>, <pjw@kernel.org>, <randolph.sklin@gmail.com>,
-        <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
-Subject: [PATCH v9 3/4] PCI: andes: Add Andes QiLai SoC PCIe host driver support
-Date: Thu, 23 Oct 2025 20:09:32 +0800
-Message-ID: <20251023120933.2427946-4-randolph@andestech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251023120933.2427946-1-randolph@andestech.com>
-References: <20251023120933.2427946-1-randolph@andestech.com>
+	Thu, 23 Oct 2025 13:25:45 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b608df6d2a0so694679a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Oct 2025 06:25:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1761225943; x=1761830743; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=njWxpRWfJB7aZ6YZP/EJ8dyU7DPEUOfUxx+ytpaopVc=;
+        b=OdA8+0LvCebWEI/EsaxSiUTHRUlCbEoJ1Wpe629iYu+BTXp6gMbVoLh3EB2Sx147FD
+         b6wTFUPLaUbtExmbmx2mauyoEhVwx0lq2Ylhlqj+HD1qb3Ui/OnGQPmNnCQSH7a7vBU9
+         Wd9sgYgr3fqXFOXsX7KTAfODtfmw2scWzeOhP22ZRnEhgZiXSlI2b+aPm0hQVT0wc0CE
+         LVV5ctwcyI+IwAvWbgCasuE/b3kJtxDXfUs8JNExXDMoaPbMOVGnjmzqF1aybvNUsMpw
+         PULUntZUrwr0+fe8moHfSVxO5+TObITLRUTliGq7/IDePeWAjYWIhe/OBw9s0GE096Ko
+         Kx+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761225943; x=1761830743;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=njWxpRWfJB7aZ6YZP/EJ8dyU7DPEUOfUxx+ytpaopVc=;
+        b=DcGmLWQmPOwj4U/Ts+vqLIubolHoNp02tqG18SoId092xKWv5g5qLdbsqIMcnWhk38
+         FW0guok6ZyRiG4acLdO74pubeDZPK+9cveeuQ2agN0xGkbOSHxgKsfReD2y5QhG9jPai
+         E67TYvuDMxomJJ2hQeBrvR7znjo13qqBIAfy2Fpue7PHDnVcqS43XNgHz35fVwwHWjfY
+         4dd28xjLIb8rgERC9V9HpsFb8PStjnu8/aiZWaD3EuLHPX9JdhfKKGDJvK52GEd636Fp
+         ikRsjUShVl93aOMRM2kG3BY/AxAJaglFm8DxLIraoSomLJ/cKCO1pbZMz77WVJ5SN5Pj
+         BzGA==
+X-Forwarded-Encrypted: i=1; AJvYcCWhjMdP8oUJj/u2EkPaAQOQdD6MyZIZYVd5ZDUMADsZVTDv+RMf2tn0+JVTJruAlbGSPlNYO3wnmj3uow==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWqzAwzABFozqlzyulHrrFhcIP2WADSMtPo29UA9LMkREYlEF5
+	JPQyRr/hcc2v4xtZSMG/FS4ZTWChAFTU5dQTS3/JFLV7+FiAFYGcyjimFdhLiDzAmmI=
+X-Gm-Gg: ASbGncuw4K75ICcF2QcE7x27+grqR/3mA+pGQbJi7ICLHschvTt3OgdUFOiRPUuAd0Z
+	HNv/GfpFOeZtU1Vc8vUNj5tu3Z7jrF886lRFxb7ElSyG4dfU0Jm4V0A5oE/KxRswqXpmvpU/Xoa
+	n/F4TDnlRYYPB39l6fDi56f2SRD7cJCGXNGmwJKjC3rGusdXbiqy6h6JEqRzDKhqQPhA7TD+U25
+	UQrgTvz5lsvWKPtxEdDpE6FyDgSostU8eKsIqeAtqzybTziMKqc8SPZpngCawCyGEtYDNvxQThf
+	GEcB2FYbwtRgUIGvo3g/x77zaaYvuv5KjfJPgI2UE/e/pk6BumgR5OAQlpErjCIe1v0EHobS+no
+	it8nmx3wE3WJSm8NAuHDrEmgVn9BS9CbSg3IzaL7r8kCMRDUBJFFt6crPPoax4rpamYSRxA2hHC
+	QU3qdBsEuaCQ==
+X-Google-Smtp-Source: AGHT+IFvP4Q1thZhdrlkQ+O5ai3McG5WbONbV5748++FuQG+JO3GJT99MXV1Kz1R345XNoIb4pOrLQ==
+X-Received: by 2002:a17:902:f691:b0:290:a32b:909b with SMTP id d9443c01a7336-290cbb49987mr324468245ad.44.1761225943304;
+        Thu, 23 Oct 2025 06:25:43 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2946e23e4b3sm23432035ad.103.2025.10.23.06.25.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Oct 2025 06:25:42 -0700 (PDT)
+From: Deepak Gupta <debug@rivosinc.com>
+Date: Thu, 23 Oct 2025 06:25:32 -0700
+Subject: [PATCH v22 03/28] riscv: zicfiss / zicfilp enumeration
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.173]
-X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 59NCCtpW043242
+Message-Id: <20251023-v5_user_cfi_series-v22-3-1d53ce35d8fd@rivosinc.com>
+References: <20251023-v5_user_cfi_series-v22-0-1d53ce35d8fd@rivosinc.com>
+In-Reply-To: <20251023-v5_user_cfi_series-v22-0-1d53ce35d8fd@rivosinc.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+ Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>, Benno Lossin <lossin@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
+ rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
+ Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_052430_812881_38D5F752 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20251023_062544_264922_C34B90EA 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,259 +128,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add driver support for DesignWare based PCIe controller in Andes
-QiLai SoC. The driver only supports the Root Complex mode.
+This patch adds support for detecting zicfiss and zicfilp. zicfiss and
+zicfilp stands for unprivleged integer spec extension for shadow stack
+and branch tracking on indirect branches, respectively.
 
-Signed-off-by: Randolph Lin <randolph@andestech.com>
+This patch looks for zicfiss and zicfilp in device tree and accordinlgy
+lights up bit in cpu feature bitmap. Furthermore this patch adds detection
+utility functions to return whether shadow stack or landing pads are
+supported by cpu.
+
+Reviewed-by: Zong Li <zong.li@sifive.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- drivers/pci/controller/dwc/Kconfig            |  13 ++
- drivers/pci/controller/dwc/Makefile           |   1 +
- drivers/pci/controller/dwc/pcie-andes-qilai.c | 198 ++++++++++++++++++
- 3 files changed, 212 insertions(+)
- create mode 100644 drivers/pci/controller/dwc/pcie-andes-qilai.c
+ arch/riscv/include/asm/cpufeature.h | 12 ++++++++++++
+ arch/riscv/include/asm/hwcap.h      |  2 ++
+ arch/riscv/kernel/cpufeature.c      | 22 ++++++++++++++++++++++
+ 3 files changed, 36 insertions(+)
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index 349d4657393c..09ce40640e2f 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -61,6 +61,19 @@ config PCI_MESON
- 	  and therefore the driver re-uses the DesignWare core functions to
- 	  implement the driver.
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index fbd0e4306c93..481f483ebf15 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -150,4 +150,16 @@ static __always_inline bool riscv_cpu_has_extension_unlikely(int cpu, const unsi
+ 	return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
+ }
  
-+config PCIE_ANDES_QILAI
-+	tristate "Andes QiLai PCIe controller"
-+	depends on ARCH_ANDES || COMPILE_TEST
-+	depends on PCI_MSI
-+	select PCIE_DW_HOST
-+	help
-+	  Say Y here to enable PCIe controller support on Andes QiLai SoCs,
-+	  which operate in Root Complex mode. The Andes QiLai SoC PCIe
-+	  controller is based on DesignWare IP (5.97a version) and therefore
-+	  the driver re-uses the DesignWare core functions to implement the
-+	  driver. The Andes QiLai SoC features three Root Complexes, each
-+	  operating on PCIe 4.0.
++static inline bool cpu_supports_shadow_stack(void)
++{
++	return (IS_ENABLED(CONFIG_RISCV_USER_CFI) &&
++		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFISS));
++}
 +
- config PCIE_ARTPEC6
- 	bool
++static inline bool cpu_supports_indirect_br_lp_instr(void)
++{
++	return (IS_ENABLED(CONFIG_RISCV_USER_CFI) &&
++		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFILP));
++}
++
+ #endif
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index affd63e11b0a..7c4619a6d70d 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -106,6 +106,8 @@
+ #define RISCV_ISA_EXT_ZAAMO		97
+ #define RISCV_ISA_EXT_ZALRSC		98
+ #define RISCV_ISA_EXT_ZICBOP		99
++#define RISCV_ISA_EXT_ZICFILP		100
++#define RISCV_ISA_EXT_ZICFISS		101
  
-diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
-index 7ae28f3b0fb3..5d3ec2d26275 100644
---- a/drivers/pci/controller/dwc/Makefile
-+++ b/drivers/pci/controller/dwc/Makefile
-@@ -5,6 +5,7 @@ obj-$(CONFIG_PCIE_DW_HOST) += pcie-designware-host.o
- obj-$(CONFIG_PCIE_DW_EP) += pcie-designware-ep.o
- obj-$(CONFIG_PCIE_DW_PLAT) += pcie-designware-plat.o
- obj-$(CONFIG_PCIE_AMD_MDB) += pcie-amd-mdb.o
-+obj-$(CONFIG_PCIE_ANDES_QILAI) += pcie-andes-qilai.o
- obj-$(CONFIG_PCIE_BT1) += pcie-bt1.o
- obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
- obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
-diff --git a/drivers/pci/controller/dwc/pcie-andes-qilai.c b/drivers/pci/controller/dwc/pcie-andes-qilai.c
-new file mode 100644
-index 000000000000..daa0281abd24
---- /dev/null
-+++ b/drivers/pci/controller/dwc/pcie-andes-qilai.c
-@@ -0,0 +1,198 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for the PCIe Controller in QiLai from Andes
-+ *
-+ * Copyright (C) 2025 Andes Technology Corporation
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/pci.h>
-+#include <linux/platform_device.h>
-+#include <linux/types.h>
-+
-+#include "pcie-designware.h"
-+
-+#define PCIE_INTR_CONTROL1			0x15c
-+#define PCIE_MSI_CTRL_INT_EN			BIT(28)
-+
-+#define PCIE_LOGIC_COHERENCY_CONTROL3		0x8e8
-+
-+/*
-+ * Refer to Table A4-5 (Memory type encoding) in the
-+ * AMBA AXI and ACE Protocol Specification.
-+ *
-+ * The selected value corresponds to the Memory type field:
-+ * "Write-back, Read and Write-allocate".
-+ *
-+ * The last three rows in the table A4-5 in
-+ * AMBA AXI and ACE Protocol Specification:
-+ * ARCACHE        AWCACHE        Memory type
-+ * ------------------------------------------------------------------
-+ * 1111 (0111)    0111           Write-back Read-allocate
-+ * 1011           1111 (1011)    Write-back Write-allocate
-+ * 1111           1111           Write-back Read and Write-allocate (selected)
-+ */
-+#define IOCP_ARCACHE				0b1111
-+#define IOCP_AWCACHE				0b1111
-+
-+#define PCIE_CFG_MSTR_ARCACHE_MODE		GENMASK(6, 3)
-+#define PCIE_CFG_MSTR_AWCACHE_MODE		GENMASK(14, 11)
-+#define PCIE_CFG_MSTR_ARCACHE_VALUE		GENMASK(22, 19)
-+#define PCIE_CFG_MSTR_AWCACHE_VALUE		GENMASK(30, 27)
-+
-+#define PCIE_GEN_CONTROL2			0x54
-+#define PCIE_CFG_LTSSM_EN			BIT(0)
-+
-+#define PCIE_REGS_PCIE_SII_PM_STATE		0xc0
-+#define SMLH_LINK_UP				BIT(6)
-+#define RDLH_LINK_UP				BIT(7)
-+#define PCIE_REGS_PCIE_SII_LINK_UP		(SMLH_LINK_UP | RDLH_LINK_UP)
-+
-+struct qilai_pcie {
-+	struct dw_pcie pci;
-+	void __iomem *apb_base;
-+};
-+
-+#define to_qilai_pcie(_pci) container_of(_pci, struct qilai_pcie, pci)
-+
-+static bool qilai_pcie_link_up(struct dw_pcie *pci)
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 67b59699357d..5a1a194e1180 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -274,6 +274,24 @@ static int riscv_ext_svadu_validate(const struct riscv_isa_ext_data *data,
+ 	return 0;
+ }
+ 
++static int riscv_cfilp_validate(const struct riscv_isa_ext_data *data,
++			      const unsigned long *isa_bitmap)
 +{
-+	struct qilai_pcie *pcie = to_qilai_pcie(pci);
-+	u32 val;
-+
-+	/* Read smlh & rdlh link up by checking debug port */
-+	val = readl(pcie->apb_base + PCIE_REGS_PCIE_SII_PM_STATE);
-+
-+	return (val & PCIE_REGS_PCIE_SII_LINK_UP) == PCIE_REGS_PCIE_SII_LINK_UP;
-+}
-+
-+static int qilai_pcie_start_link(struct dw_pcie *pci)
-+{
-+	struct qilai_pcie *pcie = to_qilai_pcie(pci);
-+	u32 val;
-+
-+	val = readl(pcie->apb_base + PCIE_GEN_CONTROL2);
-+	val |= PCIE_CFG_LTSSM_EN;
-+	writel(val, pcie->apb_base + PCIE_GEN_CONTROL2);
++	if (!IS_ENABLED(CONFIG_RISCV_USER_CFI))
++		return -EINVAL;
 +
 +	return 0;
 +}
 +
-+static const struct dw_pcie_ops qilai_pcie_ops = {
-+	.link_up = qilai_pcie_link_up,
-+	.start_link = qilai_pcie_start_link,
-+};
-+
-+/*
-+ * Set up the QiLai PCIe IOCP (IO Coherence Port) Read/Write Behaviors to the
-+ * Write-Back, Read and Write Allocate mode.
-+ *
-+ * The IOCP HW target is SoC last-level cache (L2 Cache), which serves as the
-+ * system cache. The IOCP HW helps maintain cache monitoring, ensuring that
-+ * the device can snoop data from/to the cache.
-+ */
-+static void qilai_pcie_iocp_cache_setup(struct dw_pcie_rp *pp)
++static int riscv_cfiss_validate(const struct riscv_isa_ext_data *data,
++			      const unsigned long *isa_bitmap)
 +{
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	u32 val;
-+
-+	dw_pcie_dbi_ro_wr_en(pci);
-+
-+	dw_pcie_read(pci->dbi_base + PCIE_LOGIC_COHERENCY_CONTROL3,
-+		     sizeof(val), &val);
-+	FIELD_MODIFY(PCIE_CFG_MSTR_ARCACHE_MODE, &val, IOCP_ARCACHE);
-+	FIELD_MODIFY(PCIE_CFG_MSTR_AWCACHE_MODE, &val, IOCP_AWCACHE);
-+	FIELD_MODIFY(PCIE_CFG_MSTR_ARCACHE_VALUE, &val, IOCP_ARCACHE);
-+	FIELD_MODIFY(PCIE_CFG_MSTR_AWCACHE_VALUE, &val, IOCP_AWCACHE);
-+	dw_pcie_write(pci->dbi_base + PCIE_LOGIC_COHERENCY_CONTROL3,
-+		      sizeof(val), val);
-+
-+	dw_pcie_dbi_ro_wr_dis(pci);
-+}
-+
-+static void qilai_pcie_enable_msi(struct qilai_pcie *pcie)
-+{
-+	u32 val;
-+
-+	val = readl(pcie->apb_base + PCIE_INTR_CONTROL1);
-+	val |= PCIE_MSI_CTRL_INT_EN;
-+	writel(val, pcie->apb_base + PCIE_INTR_CONTROL1);
-+}
-+
-+static int qilai_pcie_host_init(struct dw_pcie_rp *pp)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct qilai_pcie *pcie = to_qilai_pcie(pci);
-+
-+	qilai_pcie_enable_msi(pcie);
++	if (!IS_ENABLED(CONFIG_RISCV_USER_CFI))
++		return -EINVAL;
 +
 +	return 0;
 +}
 +
-+static void qilai_pcie_host_post_init(struct dw_pcie_rp *pp)
-+{
-+	qilai_pcie_iocp_cache_setup(pp);
-+}
-+
-+static const struct dw_pcie_host_ops qilai_pcie_host_ops = {
-+	.init = qilai_pcie_host_init,
-+	.post_init = qilai_pcie_host_post_init,
-+};
-+
-+static int qilai_pcie_probe(struct platform_device *pdev)
-+{
-+	struct qilai_pcie *pcie;
-+	struct dw_pcie *pci;
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	pcie = devm_kzalloc(&pdev->dev, sizeof(*pcie), GFP_KERNEL);
-+	if (!pcie)
-+		return -ENOMEM;
-+
-+	platform_set_drvdata(pdev, pcie);
-+
-+	pci = &pcie->pci;
-+	pcie->pci.dev = dev;
-+	pcie->pci.ops = &qilai_pcie_ops;
-+	pcie->pci.pp.ops = &qilai_pcie_host_ops;
-+	pci->use_parent_dt_ranges = true;
-+
-+	dw_pcie_cap_set(&pcie->pci, REQ_RES);
-+
-+	pcie->apb_base = devm_platform_ioremap_resource_byname(pdev, "apb");
-+	if (IS_ERR(pcie->apb_base))
-+		return PTR_ERR(pcie->apb_base);
-+
-+	ret = dw_pcie_host_init(&pcie->pci.pp);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Failed to initialize PCIe host\n");
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id qilai_pcie_of_match[] = {
-+	{ .compatible = "andestech,qilai-pcie" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, qilai_pcie_of_match);
-+
-+static struct platform_driver qilai_pcie_driver = {
-+	.probe = qilai_pcie_probe,
-+	.driver = {
-+		.name	= "qilai-pcie",
-+		.of_match_table = qilai_pcie_of_match,
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-+	},
-+};
-+
-+builtin_platform_driver(qilai_pcie_driver);
-+
-+MODULE_AUTHOR("Randolph Lin <randolph@andestech.com>");
-+MODULE_DESCRIPTION("Andes QiLai PCIe driver");
-+MODULE_LICENSE("GPL");
+ static const unsigned int riscv_a_exts[] = {
+ 	RISCV_ISA_EXT_ZAAMO,
+ 	RISCV_ISA_EXT_ZALRSC,
+@@ -461,6 +479,10 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA_VALIDATE(zicbop, RISCV_ISA_EXT_ZICBOP, riscv_ext_zicbop_validate),
+ 	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicboz, RISCV_ISA_EXT_ZICBOZ, riscv_xlinuxenvcfg_exts, riscv_ext_zicboz_validate),
+ 	__RISCV_ISA_EXT_DATA(ziccrse, RISCV_ISA_EXT_ZICCRSE),
++	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicfilp, RISCV_ISA_EXT_ZICFILP, riscv_xlinuxenvcfg_exts,
++					  riscv_cfilp_validate),
++	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicfiss, RISCV_ISA_EXT_ZICFISS, riscv_xlinuxenvcfg_exts,
++					  riscv_cfiss_validate),
+ 	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
+ 	__RISCV_ISA_EXT_DATA(zicond, RISCV_ISA_EXT_ZICOND),
+ 	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
+
 -- 
-2.34.1
+2.43.0
 
 
 _______________________________________________
