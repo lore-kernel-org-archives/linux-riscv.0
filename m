@@ -4,100 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B330CCD1BC
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 08:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D875CCD1BC
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 09:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ET5VsIjZ9hau0ymHA6iAo58o320NcHn6NFidrEYVIaY=; b=2TGntdt/V/K673
-	AMJuCggmhCA+BVe6gxqRgnxRjL7OU8fNqCDPve7kNGxuZXrT3iCEx/U3I6oD0K52hs/JduM7mMUeT
-	7sHZmDpxN73sPHq7sRUMyClECzeO/f//RCzQzQDCzWsLfI07eHxpmHNEDQ2Ky6Quc74DVh8p3WKNf
-	+1/kcRvBp0hJnXL6dldoSUfptXSV+ojQ20lPJUDAw+r93madNG1iLsUsnDKADdEj4cPGsbl/j2x9U
-	7Z7w8tSGfCsbnruls1RISljFC9mHyKveMYqk5ZybjtI1iZbg9qlThXrqtE3/fJ5MRqNMCdRl+dRPo
-	/TaqLN3N8BLmj5oEMLPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KgWZQ6bEf+U8wUJZ42uXy6Q1Ftdga5umVVheo3TjP3A=; b=TWU5faVq4txfLFvVJAjOSKSZD4
+	QGUSa6LCeLCiDSy4Znk1DEj4lcXPXaVeoumNd64qi8rcNMtT8qQKWbDEbf7k7nbnucdMSVpetrjAC
+	GbSO6iAicEQF/gQx6H0tQYj+nVFDbnyrsyxK4g0V76kBnXSDgQLK1ujCbUxx/ry1z9EqLL+i3kpnm
+	ddgr3/4E9AV3PXtfQscKroP0madIbsxItbRBB1qJ4v6PTTCBgLkD63kP4mMSHUaiWLkZBamzDcFB3
+	VxMZCAXzt+9kJgM67/8J7wtuNERch8iKMyRELYAASILoVDPVdJX2HzdxR4GOCnp11F3bkQJm6c2Kx
+	F/KaWZvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqhB-00000005YIQ-3J4c;
-	Thu, 23 Oct 2025 08:29:17 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vBrMd-00000005edQ-44cU;
+	Thu, 23 Oct 2025 09:12:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqh8-00000005YGm-2Xkj
+	id 1vBrMb-00000005ecR-3H2K
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Oct 2025 08:29:15 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-47117e75258so3665595e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Oct 2025 01:29:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761208153; x=1761812953; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8217/lDsma24nzsoVUl8HcI8eQcrK7yDi+gF+9xDXDs=;
-        b=lrLblffOugnHMSyPnRaobFLUA0ok0eqaNHangL/WfJ1jyO+nkq+OuAyCRBIvWDSjMb
-         +Ux7xHEgVp95oc70ZuYe8zKpgI43T1oIOJXBAKlRAas6+XaczRJZWshjeai+p+wXFRQb
-         5wNaUXj8Jgefbo29zDFqcSK8YaEJq0YToS8slPFTIiTAMNQ3DtdGzEVN88vyfNTDfby5
-         gDtUSKel9d6BY9CPen9EBoGp/EjdZ9wQ/NUsgFOESJ+y7PzLUhSFwZlemJPfTAh5iOMJ
-         R58d/ZatTK88a4eov1oG5KHX69u+QCTwWzTZgBF1HCqpVK3YfMvD+VjEA4fT112wFzlR
-         PO9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761208153; x=1761812953;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8217/lDsma24nzsoVUl8HcI8eQcrK7yDi+gF+9xDXDs=;
-        b=s/KWYQMqNw3CQsbD6+xCG57AcXFpG4IGfPiDlRIoBIZHt+5tR4XbNooGzYKYC2ecbq
-         zbYmkeNG4QiNCK2WVdfEvDPgNPXCU2GRzjJfiI9jOytjK1sD+sIYqrcfapXNwXEsmMzb
-         wuZWq31wXe1QARvWl0B5LBlCXp7XUGdGgKzKsEDj3AJqinMM2Xsa2caWcz99tjlRjtbd
-         vQc/Lw1FvSkx5ebqHE3K3FtZy9uZJC++xnhJWDp51/mew7rZ4ghdBNIV1K7pIWfWTy2Y
-         fGYyC6XMjaTKvAu+aSXWc5oTqcEOr/shQ08Cw7gdhrnsCBaZhkTQlUB6e1uukgGAKQkW
-         Lujg==
-X-Forwarded-Encrypted: i=1; AJvYcCW3gmVOzl9hhO1J/ZydSxmcITQf+yVpu5hQBIzJb95D0dBknEq0WchBI6vxnSUIZkef84S8GegfLdinZw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxY5rRSLf5pUwg7QvloMlvY5E/BFK4lexk0g9c2egx1Ml6uQfV
-	JNiiRb/juBMLuaLlpzLFjz5m55bNSAJ5WsTyQ3YC131/m4lEBd/9GSZW
-X-Gm-Gg: ASbGncvBWjF2z+y1KxlZ7rv7RM7Gb4we9Neat0sAqGBaKUM49Wsg6P0nCj8Z1UfiAJG
-	TeiA3C+xJnAGtJUq21zlwd/cWCwbyngGJMP4twvWm932J/6V9p9y+P+Y2klL5vT5CX/+BwqdJza
-	ff0k75ANAZ9LQLVTv+6bhDvgD5nktKy/PGTZ2lotee2kaezrbN4hLXmTXtfKCkQjQwoO8r/VYZs
-	FUNPxj+cHZD9a4jSZHr6inu8f5EhNsBpHfo6LOpE/NIRQrGG4F42GzCVUAj05BOUf2bslRfgOAO
-	2vQP7ccTke/pgLLOSHb/2DHtjWKtLWK9qJ6N50XzY8dDclVTpkShUQ0yDOzfkairZphxWj+9/Yb
-	5jMzJMACQ/iI9nfNMiSB5q7IryCBApQvxGliIhhJS41kLVeFpwCx6pPOI/b4Ianebb+mXkF+GE1
-	K6pEElcke8QnM4yk4QiEWOlGTX9jxLbmx/9OdhkB8Mo70XFDoyPtY/
-X-Google-Smtp-Source: AGHT+IHSgtH949jpIYqvryVHE7ahULmbxvweEBq1Xh1WJbPJkG9goEBlMqfaTmrq4Q942DJtzk78Aw==
-X-Received: by 2002:a05:600c:8b35:b0:471:1b25:f9ff with SMTP id 5b1f17b1804b1-475cb065415mr10429885e9.39.1761208152472;
-        Thu, 23 Oct 2025 01:29:12 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475caf4642fsm23356135e9.17.2025.10.23.01.29.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Oct 2025 01:29:12 -0700 (PDT)
-Date: Thu, 23 Oct 2025 09:29:10 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Kuniyuki Iwashima <kuniyu@google.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Madhavan
- Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert
- Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, Jens Axboe <axboe@kernel.dk>, Christian
- Brauner <brauner@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Alexandre Ghiti
- <alex@ghiti.fr>, "H. Peter Anvin" <hpa@zytor.com>, Eric Dumazet
- <edumazet@google.com>, Kuniyuki Iwashima <kuni1840@gmail.com>,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/2] uaccess: Add __user_write_access_begin().
-Message-ID: <20251023092910.2ed9cf15@pumpkin>
-In-Reply-To: <CAHk-=wjXGvUnmN5ZL3nhj_J0cbiVfeHsM9Z54A55rgHRUaVOfA@mail.gmail.com>
-References: <20251023000535.2897002-1-kuniyu@google.com>
-	<20251023000535.2897002-2-kuniyu@google.com>
-	<CAHk-=wjXGvUnmN5ZL3nhj_J0cbiVfeHsM9Z54A55rgHRUaVOfA@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Thu, 23 Oct 2025 09:12:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 629DE452ED;
+	Thu, 23 Oct 2025 09:12:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E09BC4CEE7;
+	Thu, 23 Oct 2025 09:12:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761210725;
+	bh=4fQns59QMA3pai7ttXXV7GO218fuxTEHJzSTkeLaOGQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RhXEyOTw+Nv0PVa1o3YFTeWUCdbHCgKh6zEBhmXkZKML+wiA+jidi6IpfvNu5N68g
+	 TxHEYYUSNZnLmD2cj/nBirivk2DaLWkO6RSBh1vjJaRJdjvmqkQiCKPSqxuE4qt67j
+	 Dapwxx1Xw3bePtz51R441Du2xHZMmOQ04QpMi9vrKJBA5m8BIbpwVFMGuCFM9AuI+4
+	 rNedVDfDAWPLSXJS+V9rNuWuOHts8wsFtRVV43Ql08Quhg2X5YbkP/P4IIr0fOnyHo
+	 ZGKbK6BQCiUulrW7bu+t8qttLuzzaX6ILOOTHJCy9oprUUo1ITCdrW71x9knp8XIn4
+	 tW2MxbddPK5hA==
+Date: Thu, 23 Oct 2025 10:12:00 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/9] soc: microchip: add mfd drivers for two syscon
+ regions on PolarFire SoC
+Message-ID: <20251023-lard-browbeat-daade890b4df@spud>
+References: <20251013-album-bovine-faf9f5ebc5d4@spud>
+ <20251013-patient-matrimony-6162c8f92e2e@spud>
+ <41dbea85-8aa1-4034-8106-e28c37e398b8@tuxon.dev>
 MIME-Version: 1.0
+In-Reply-To: <41dbea85-8aa1-4034-8106-e28c37e398b8@tuxon.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_012914_663827_79B2E36E 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20251023_021205_855853_E25BAA3C 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,45 +77,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2834964712447262869=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Oct 2025 19:37:27 -1000
-Linus Torvalds <torvalds@linux-foundation.org> wrote:
 
-> On Wed, 22 Oct 2025 at 14:05, Kuniyuki Iwashima <kuniyu@google.com> wrote:
-> >
-> > unsafe_put_user() can be used to save a stac/clac pair, but
-> > masked_user_access_begin() or user_access_begin() introduces
-> > an unnecessary address masking or access_ok().
-> >
-> > Add a low-level helper for such a use case.  
-> 
-> I really suspect that you cannot actually measure the cost of the
-> extra masking, and would be much happier if you just used a regular
-> "user_access_begin()" (perhaps the "user_write_access_begin()"
-> variant).
+--===============2834964712447262869==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="KI7GN8NHbpEH6S+z"
+Content-Disposition: inline
 
-Or wait for scoped_user_write_access() to get committed and then use that.
 
-	David
+--KI7GN8NHbpEH6S+z
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> The masking is very cheap - literally just a couple of ALU
-> instructions. And unless you can actually measure some real advantage
-> of avoiding it, let's not add another helper to this area.
-> 
-> We spent a fair amount of time undoing years of "__get_user()" and
-> "__put_user()" cases that didn't actually help, and sometimes only
-> made it hard to see where the actual user pointer validation was done.
-> 
->                Linus
-> 
+On Thu, Oct 23, 2025 at 07:04:33AM +0300, Claudiu Beznea wrote:
+> On 10/13/25 20:45, Conor Dooley wrote:
 
+> > +}
+> > +
+> > +static const struct of_device_id mpfs_control_scb_of_match[] =3D {
+> > +	{.compatible =3D "microchip,mpfs-control-scb", },
+>=20
+> This looks un-documented.
+
+It is actually documented, this stuff all took so long to get done that
+parts got applied piecemeal along the way, including any of the MFD
+bits.
+
+I'll fix these things up separately, cos I already applied the first two
+patches here and just squash it in.
+
+--KI7GN8NHbpEH6S+z
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPnxYAAKCRB4tDGHoIJi
+0rJYAQCgpkpqZSL7x7t82+VYX7l3XaRLUIGDEYkTvHJp0wOEVAD/RFe9FOMiRRhm
+r3FYvXwt1EoKcNCFEZiNkhB9BkaO5Ag=
+=Eqsv
+-----END PGP SIGNATURE-----
+
+--KI7GN8NHbpEH6S+z--
+
+
+--===============2834964712447262869==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2834964712447262869==--
+
