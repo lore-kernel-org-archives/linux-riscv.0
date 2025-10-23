@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 824DCCCF9E6
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 12:24:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8948FCCF9E5
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 12:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uJCdBwK/ETEq5tXBPIJDCgJNfzjLRGGmw21JCaZ8tJc=; b=S6L/56kvBrsad9
-	WMfHrcaO6SyiozLhSi0saDS0wWVp4dilr91bwv6ZuSU7dIpuZaSBi0PloquRg4QIOC5mioOR7MjEQ
-	oDBjtYzmeqaetQzz3rN8HMFWhlg8rdsU0xcq/d4HshPqaBxdsxtREMbJa8HkBUCah4MekmEr2AyHZ
-	7s2Yg74gvLVhIU6Zpo2zXsUh5sAPmJHFljkoDoUSTUrakh85rdH9G3IPichxUbMJtJeHHJ+0anIFN
-	CuQ8gRjkWlee08384WEzYFpet6FItCZXWVdFAXbuLd2h7eHh9JY8iEbCz9Tv+lBZog7QnkRv+lC0Q
-	Y762HNc+IRCFxVoNaVYw==;
+	List-Owner; bh=LsTP2OPD5jfhwunJOVmfqTisve+m6wK4BD4KTa+SwTE=; b=DNXEUVbS5kE7jy
+	gPa07K9AyDvDxO0rW4bwcSjs49erTd6LjqUDrYA7HZninNCNWBhsdF8CmtFYjI06VD58CftdYXK52
+	FxnIh/Sffh3ID9ANH+2pF9zRdAq5wC0jle1ttnly7HyXvJRxNBhgHYiaVTijGaFI9f+tqf/P6fyPw
+	y/O5ctdBPbVIJEVdhlQSqKGwu1c7FXCRlV17OvKngllTJrM5rJ+Y0J9L0B7Rh9tQe3Fbpby9s9zaP
+	8w1SQu2m0bVM38ge7A97TinWnGlHE3qMsVK31e9//hO7/ugTkctylpd0vJhXDCeiYmnzJol+AI1qT
+	zXJnnHPdkJVLvkPIoOiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuMu-00000006Eds-3UyQ;
-	Thu, 23 Oct 2025 12:24:36 +0000
+	id 1vBuMq-00000006Eay-2G09;
+	Thu, 23 Oct 2025 12:24:32 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuMs-00000006Eb4-083Q
+	id 1vBuMo-00000006EYn-1pwS
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Oct 2025 12:24:36 +0000
+	Thu, 23 Oct 2025 12:24:31 +0000
 Received: from Atcsqr.andestech.com (localhost [127.0.0.2] (may be forged))
-	by Atcsqr.andestech.com with ESMTP id 59NCCtcW043243
+	by Atcsqr.andestech.com with ESMTP id 59NCCtpW043242
 	for <linux-riscv@lists.infradead.org>; Thu, 23 Oct 2025 20:12:55 +0800 (+08)
 	(envelope-from randolph@andestech.com)
 Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 59NC9hWC039378
+	by Atcsqr.andestech.com with ESMTPS id 59NC9hvQ039377
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Thu, 23 Oct 2025 20:09:43 +0800 (+08)
 	(envelope-from randolph@andestech.com)
@@ -51,9 +51,9 @@ CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
         <shradha.t@samsung.com>, <pjw@kernel.org>, <randolph.sklin@gmail.com>,
         <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
-Subject: [PATCH v9 4/4] MAINTAINERS: Add maintainers for Andes QiLai PCIe driver
-Date: Thu, 23 Oct 2025 20:09:33 +0800
-Message-ID: <20251023120933.2427946-5-randolph@andestech.com>
+Subject: [PATCH v9 3/4] PCI: andes: Add Andes QiLai SoC PCIe host driver support
+Date: Thu, 23 Oct 2025 20:09:32 +0800
+Message-ID: <20251023120933.2427946-4-randolph@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251023120933.2427946-1-randolph@andestech.com>
 References: <20251023120933.2427946-1-randolph@andestech.com>
@@ -61,11 +61,10 @@ MIME-Version: 1.0
 X-Originating-IP: [10.0.15.173]
 X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 59NCCtcW043243
+X-MAIL: Atcsqr.andestech.com 59NCCtpW043242
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_052434_400736_6D009E69 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251023_052430_812881_38D5F752 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +81,257 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Here add maintainer information for Andes QiLai PCIe driver.
+Add driver support for DesignWare based PCIe controller in Andes
+QiLai SoC. The driver only supports the Root Complex mode.
 
 Signed-off-by: Randolph Lin <randolph@andestech.com>
 ---
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/pci/controller/dwc/Kconfig            |  13 ++
+ drivers/pci/controller/dwc/Makefile           |   1 +
+ drivers/pci/controller/dwc/pcie-andes-qilai.c | 198 ++++++++++++++++++
+ 3 files changed, 212 insertions(+)
+ create mode 100644 drivers/pci/controller/dwc/pcie-andes-qilai.c
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 25463fa36508..d21af8c3da0f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19603,6 +19603,13 @@ S:	Supported
- F:	Documentation/devicetree/bindings/pci/altr,pcie-root-port.yaml
- F:	drivers/pci/controller/pcie-altera.c
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+index 349d4657393c..09ce40640e2f 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -61,6 +61,19 @@ config PCI_MESON
+ 	  and therefore the driver re-uses the DesignWare core functions to
+ 	  implement the driver.
  
-+PCI DRIVER FOR ANDES QILAI PCIE
-+M:	Randolph Lin <randolph@andestech.com>
-+L:	linux-pci@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
-+F:	drivers/pci/controller/dwc/pcie-andes-qilai.c
++config PCIE_ANDES_QILAI
++	tristate "Andes QiLai PCIe controller"
++	depends on ARCH_ANDES || COMPILE_TEST
++	depends on PCI_MSI
++	select PCIE_DW_HOST
++	help
++	  Say Y here to enable PCIe controller support on Andes QiLai SoCs,
++	  which operate in Root Complex mode. The Andes QiLai SoC PCIe
++	  controller is based on DesignWare IP (5.97a version) and therefore
++	  the driver re-uses the DesignWare core functions to implement the
++	  driver. The Andes QiLai SoC features three Root Complexes, each
++	  operating on PCIe 4.0.
 +
- PCI DRIVER FOR APPLIEDMICRO XGENE
- M:	Toan Le <toan@os.amperecomputing.com>
- L:	linux-pci@vger.kernel.org
+ config PCIE_ARTPEC6
+ 	bool
+ 
+diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+index 7ae28f3b0fb3..5d3ec2d26275 100644
+--- a/drivers/pci/controller/dwc/Makefile
++++ b/drivers/pci/controller/dwc/Makefile
+@@ -5,6 +5,7 @@ obj-$(CONFIG_PCIE_DW_HOST) += pcie-designware-host.o
+ obj-$(CONFIG_PCIE_DW_EP) += pcie-designware-ep.o
+ obj-$(CONFIG_PCIE_DW_PLAT) += pcie-designware-plat.o
+ obj-$(CONFIG_PCIE_AMD_MDB) += pcie-amd-mdb.o
++obj-$(CONFIG_PCIE_ANDES_QILAI) += pcie-andes-qilai.o
+ obj-$(CONFIG_PCIE_BT1) += pcie-bt1.o
+ obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
+ obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
+diff --git a/drivers/pci/controller/dwc/pcie-andes-qilai.c b/drivers/pci/controller/dwc/pcie-andes-qilai.c
+new file mode 100644
+index 000000000000..daa0281abd24
+--- /dev/null
++++ b/drivers/pci/controller/dwc/pcie-andes-qilai.c
+@@ -0,0 +1,198 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Driver for the PCIe Controller in QiLai from Andes
++ *
++ * Copyright (C) 2025 Andes Technology Corporation
++ */
++
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/pci.h>
++#include <linux/platform_device.h>
++#include <linux/types.h>
++
++#include "pcie-designware.h"
++
++#define PCIE_INTR_CONTROL1			0x15c
++#define PCIE_MSI_CTRL_INT_EN			BIT(28)
++
++#define PCIE_LOGIC_COHERENCY_CONTROL3		0x8e8
++
++/*
++ * Refer to Table A4-5 (Memory type encoding) in the
++ * AMBA AXI and ACE Protocol Specification.
++ *
++ * The selected value corresponds to the Memory type field:
++ * "Write-back, Read and Write-allocate".
++ *
++ * The last three rows in the table A4-5 in
++ * AMBA AXI and ACE Protocol Specification:
++ * ARCACHE        AWCACHE        Memory type
++ * ------------------------------------------------------------------
++ * 1111 (0111)    0111           Write-back Read-allocate
++ * 1011           1111 (1011)    Write-back Write-allocate
++ * 1111           1111           Write-back Read and Write-allocate (selected)
++ */
++#define IOCP_ARCACHE				0b1111
++#define IOCP_AWCACHE				0b1111
++
++#define PCIE_CFG_MSTR_ARCACHE_MODE		GENMASK(6, 3)
++#define PCIE_CFG_MSTR_AWCACHE_MODE		GENMASK(14, 11)
++#define PCIE_CFG_MSTR_ARCACHE_VALUE		GENMASK(22, 19)
++#define PCIE_CFG_MSTR_AWCACHE_VALUE		GENMASK(30, 27)
++
++#define PCIE_GEN_CONTROL2			0x54
++#define PCIE_CFG_LTSSM_EN			BIT(0)
++
++#define PCIE_REGS_PCIE_SII_PM_STATE		0xc0
++#define SMLH_LINK_UP				BIT(6)
++#define RDLH_LINK_UP				BIT(7)
++#define PCIE_REGS_PCIE_SII_LINK_UP		(SMLH_LINK_UP | RDLH_LINK_UP)
++
++struct qilai_pcie {
++	struct dw_pcie pci;
++	void __iomem *apb_base;
++};
++
++#define to_qilai_pcie(_pci) container_of(_pci, struct qilai_pcie, pci)
++
++static bool qilai_pcie_link_up(struct dw_pcie *pci)
++{
++	struct qilai_pcie *pcie = to_qilai_pcie(pci);
++	u32 val;
++
++	/* Read smlh & rdlh link up by checking debug port */
++	val = readl(pcie->apb_base + PCIE_REGS_PCIE_SII_PM_STATE);
++
++	return (val & PCIE_REGS_PCIE_SII_LINK_UP) == PCIE_REGS_PCIE_SII_LINK_UP;
++}
++
++static int qilai_pcie_start_link(struct dw_pcie *pci)
++{
++	struct qilai_pcie *pcie = to_qilai_pcie(pci);
++	u32 val;
++
++	val = readl(pcie->apb_base + PCIE_GEN_CONTROL2);
++	val |= PCIE_CFG_LTSSM_EN;
++	writel(val, pcie->apb_base + PCIE_GEN_CONTROL2);
++
++	return 0;
++}
++
++static const struct dw_pcie_ops qilai_pcie_ops = {
++	.link_up = qilai_pcie_link_up,
++	.start_link = qilai_pcie_start_link,
++};
++
++/*
++ * Set up the QiLai PCIe IOCP (IO Coherence Port) Read/Write Behaviors to the
++ * Write-Back, Read and Write Allocate mode.
++ *
++ * The IOCP HW target is SoC last-level cache (L2 Cache), which serves as the
++ * system cache. The IOCP HW helps maintain cache monitoring, ensuring that
++ * the device can snoop data from/to the cache.
++ */
++static void qilai_pcie_iocp_cache_setup(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	u32 val;
++
++	dw_pcie_dbi_ro_wr_en(pci);
++
++	dw_pcie_read(pci->dbi_base + PCIE_LOGIC_COHERENCY_CONTROL3,
++		     sizeof(val), &val);
++	FIELD_MODIFY(PCIE_CFG_MSTR_ARCACHE_MODE, &val, IOCP_ARCACHE);
++	FIELD_MODIFY(PCIE_CFG_MSTR_AWCACHE_MODE, &val, IOCP_AWCACHE);
++	FIELD_MODIFY(PCIE_CFG_MSTR_ARCACHE_VALUE, &val, IOCP_ARCACHE);
++	FIELD_MODIFY(PCIE_CFG_MSTR_AWCACHE_VALUE, &val, IOCP_AWCACHE);
++	dw_pcie_write(pci->dbi_base + PCIE_LOGIC_COHERENCY_CONTROL3,
++		      sizeof(val), val);
++
++	dw_pcie_dbi_ro_wr_dis(pci);
++}
++
++static void qilai_pcie_enable_msi(struct qilai_pcie *pcie)
++{
++	u32 val;
++
++	val = readl(pcie->apb_base + PCIE_INTR_CONTROL1);
++	val |= PCIE_MSI_CTRL_INT_EN;
++	writel(val, pcie->apb_base + PCIE_INTR_CONTROL1);
++}
++
++static int qilai_pcie_host_init(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct qilai_pcie *pcie = to_qilai_pcie(pci);
++
++	qilai_pcie_enable_msi(pcie);
++
++	return 0;
++}
++
++static void qilai_pcie_host_post_init(struct dw_pcie_rp *pp)
++{
++	qilai_pcie_iocp_cache_setup(pp);
++}
++
++static const struct dw_pcie_host_ops qilai_pcie_host_ops = {
++	.init = qilai_pcie_host_init,
++	.post_init = qilai_pcie_host_post_init,
++};
++
++static int qilai_pcie_probe(struct platform_device *pdev)
++{
++	struct qilai_pcie *pcie;
++	struct dw_pcie *pci;
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	pcie = devm_kzalloc(&pdev->dev, sizeof(*pcie), GFP_KERNEL);
++	if (!pcie)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, pcie);
++
++	pci = &pcie->pci;
++	pcie->pci.dev = dev;
++	pcie->pci.ops = &qilai_pcie_ops;
++	pcie->pci.pp.ops = &qilai_pcie_host_ops;
++	pci->use_parent_dt_ranges = true;
++
++	dw_pcie_cap_set(&pcie->pci, REQ_RES);
++
++	pcie->apb_base = devm_platform_ioremap_resource_byname(pdev, "apb");
++	if (IS_ERR(pcie->apb_base))
++		return PTR_ERR(pcie->apb_base);
++
++	ret = dw_pcie_host_init(&pcie->pci.pp);
++	if (ret) {
++		dev_err_probe(dev, ret, "Failed to initialize PCIe host\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static const struct of_device_id qilai_pcie_of_match[] = {
++	{ .compatible = "andestech,qilai-pcie" },
++	{},
++};
++MODULE_DEVICE_TABLE(of, qilai_pcie_of_match);
++
++static struct platform_driver qilai_pcie_driver = {
++	.probe = qilai_pcie_probe,
++	.driver = {
++		.name	= "qilai-pcie",
++		.of_match_table = qilai_pcie_of_match,
++		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
++	},
++};
++
++builtin_platform_driver(qilai_pcie_driver);
++
++MODULE_AUTHOR("Randolph Lin <randolph@andestech.com>");
++MODULE_DESCRIPTION("Andes QiLai PCIe driver");
++MODULE_LICENSE("GPL");
 -- 
 2.34.1
 
