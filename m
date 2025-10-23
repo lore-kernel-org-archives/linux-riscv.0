@@ -4,106 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29870CCF9E2
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 14:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FE4CCD1BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 15:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2XYB87F7T9ILYbAUPtjITQ5xn7UZIyu12PWMcoDdnQc=; b=a/4RTqZpCGjaVZ
-	15bgR1fY3xOLO3r1cMMA8WsKppZtF63AfFeIVeau0Xx92XbZ7TlQl5ksWdF8KBLu9LVl1apE3jIQ6
-	WqohRCWGYU8S89t/9Cj7TpYKoxbBtz6BIFwcKp6nDVQyzSJxQCneEBvJi6wlp+RDtX+XopiqLxgzH
-	Mp1YwMS+H12WZmrjlcoFENVC7vNoO8M4RkVXM3l9Y9jyw2C4yLS5tFV6dFLYaZ1l2hqcTLDYyXeYe
-	vRvlr1/nBtJenPPrcoVzGtRLNJskgbtD9jr8ZLCfZU3Qb7kXjzYH5XbAqyhRKT58X/h3IaXV5bZSv
-	7JNYoYjwi9/KMjLyvxZg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=XiZu50CVCGAqSa/+0IGcuRmQu/4+b7Ncxtbzhy3Iuj0=; b=WbNC6uEbOEqt8sjVNZPdxSLbN3
+	sa7ZNCuEY5fzqneaCEful2mQWZuj/GaPzITs21H1rgyAuMK1sXvKflPswGEAX1sH9YSM7afTUzChs
+	M533W8Gb5qftHGS75vugmFrA4iwZunkLRdebwa5Y9U1svGwBnOhxUmQaLBXDM4WdF1hPdv8Q2tNMd
+	pg6tVOEOaBXipb2YnBiBhJfIkdUlP27UKxQ5NoAqficZIOoKfqBbarNrQEtX4DH9NFKRBdsjeouBA
+	rI87d4amWTWcC/BSZWvdIM6I9ypyW3MMsfxsS37bkENs3CoYoPsRExLMrQ9bcE1y5Vp9wBpf/+4Dz
+	uKgc4iLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwWQ-00000006d8Y-2grQ;
-	Thu, 23 Oct 2025 14:42:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vBwnO-00000006fwj-3Gx1;
+	Thu, 23 Oct 2025 15:00:06 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwWN-00000006d6z-3g7h
+	id 1vBwnJ-00000006frg-0sy3
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Oct 2025 14:42:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761230549;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IFicMu98gfAcT9m3j73eRKJRP9V5+Hez4KBiO4yt0/Q=;
-	b=S5PXgpVwbNZoqR+HzzsVzaj4dcI1OoOof+wBM9vz7quhJrYtYBeD19JTZ8jdjJ79XnK78z
-	y3tcYJtMRljtpPyj8C4zJ8ClEQUM2BgvBi9kCOfLOTSh28qvwzqbdi5K8OisCN4T0vjXpz
-	+l4cXC3yxBYEXexgzpCuATbqCigrUs4=
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
- [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-418-5bbT2wYZMlizb6aC0XXIaQ-1; Thu, 23 Oct 2025 10:42:28 -0400
-X-MC-Unique: 5bbT2wYZMlizb6aC0XXIaQ-1
-X-Mimecast-MFC-AGG-ID: 5bbT2wYZMlizb6aC0XXIaQ_1761230547
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-78f28554393so19961316d6.0
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Oct 2025 07:42:28 -0700 (PDT)
+	Thu, 23 Oct 2025 15:00:02 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-33bdd0479a9so1063396a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Oct 2025 08:00:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761231600; x=1761836400; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DsY3zzD8XUrRiTLyLBawfwaQI9/sErmot+/rfYHcY0U=;
+        b=pUu7C0wm8usAkABHUsEGECuCRq2+KlQkIzDXul1G9xEE83cE9f8Gm3pvHjxL4dDTzu
+         jPNA7VzZvkDX/LtNDA/fupJGU08+2RRSolNnTuKwjuW1D7dLltNo2HGAyUam3U7Fa9/L
+         DjyY6GoqDnyF1b8GzJ83aLOetFQSfmC/qjjT1pSWE7l1cpFyYM9Q3no6BVCD5EmWa2lI
+         2hW+5tFi/ZBHY0yr1vhYPTr7J3yS1e47Mkg0X1iMFL5DlzDCq/eohNoDNqseFKgZ+Fa1
+         dd84uuRNX2DRI7QbnyyhZkH/Lyi3/D4NFay2NNOcOuyPlRxobkbOAYQjMboxM0lMzxFj
+         ZJkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761230547; x=1761835347;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IFicMu98gfAcT9m3j73eRKJRP9V5+Hez4KBiO4yt0/Q=;
-        b=mN+MrgcfD4JSKKz9IY3f6Xprn/fZOxR/I6ytdL8dGZNX+sC2kofyCnvj5t6SmOlEa1
-         zS8XQfRSksIgqs43fcT5ec4vTNbZDEMt6MQfXIQx7KurlbSUkr/U9lDSm6oPwA3dbES6
-         N3SKbZv4c16tPcDeR+FbuOYMqlzGdFeqHb7ojMnnHXiWA5hul+/AecPaM/bFIOA9Repi
-         eEfzPNIfKrBlQTCmWz1OvWFPOHlr/680yE8PUdOkpaoWIenwwVdnsBcjaslziVObrMhk
-         m782OD6/P5Mgpkv0+eIMGDjVRlncPfIbXQkqzeGPGETTrTOy8pt3xADRLsuYmq2W0Tgd
-         uPwA==
-X-Forwarded-Encrypted: i=1; AJvYcCWY2S6rDfOw3GmKUETLYVSWte4HtqHFXmgECk/sHA3ZG4YDOQFV25oXf5wW5GGNOzZrbwZJJ7Y6Izxmkw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9eBiPRM2nY4h4APTE3EMMCDU8kq/Atez5dXExjO2A+awIJLz6
-	UiA7L6s4DSBLFfqT08KZP3eWyRefPir4igK+BohFvp7Om4+CCejtE0dABcgjCfEFqqOSR2Jmdx9
-	SOrmW+eMoVkL1aeO73BK9Gk8Sq+5XMxiZgKIdHiYvvy7rdGog7jAwiHNjzBu8y4+YWHsEfg==
-X-Gm-Gg: ASbGncs0pPM7Px2lvejdPbMEBxMiBsG68vflrppNLNCmfTKnxzn6bMJb65mFQntHnsk
-	Zmk3HRADUiuY7F3P8ap6RK5dgA273WFwxI4X17FRXhTuLc48JWrxXzWb8hZof/YxJaSvSMAQnG5
-	F/FNoGzobNsPbFqObcJpHzlAXg72naEP9YIIABe1+s4jvcGwpLp5oDGiZWCBQEvfJunP1Z1labu
-	ucjhr/cSlOYMK/tckhakMti0MSj9DoI+SR6X8PBRpJ0rXVb9gVQqtKtzYbi5K/8rC+oTkoPu8ai
-	3sWK0KW38FEEKkijFZvkiS3VEDNeFvlY6ER8YEN46EDoS+7zyBvM0sdJR4S5B6gaHjw7dTH53md
-	EyWGkFVde+0lqVmZWFLbyLau5wSveDjxd9Bg9AkbvfKG4SYDPX3zTy7Bld0yqhcTIFA==
-X-Received: by 2002:a05:6214:5289:b0:797:1a0d:cdd3 with SMTP id 6a1803df08f44-87c2057312dmr353179216d6.19.1761230547690;
-        Thu, 23 Oct 2025 07:42:27 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGHoA7a6YUkbzjRlWZlCvM1CpjEdcBUEk6K50Ddg8gNV5roej8uXfTpBfwhxN8OmaIZYnha0A==
-X-Received: by 2002:a05:6214:5289:b0:797:1a0d:cdd3 with SMTP id 6a1803df08f44-87c2057312dmr353178766d6.19.1761230547171;
-        Thu, 23 Oct 2025 07:42:27 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-87f9e824cc2sm16169526d6.61.2025.10.23.07.42.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Oct 2025 07:42:25 -0700 (PDT)
-Date: Thu, 23 Oct 2025 10:42:23 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Conor Dooley <conor@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 5/9] clk: microchip: mpfs: use regmap for clocks
-Message-ID: <aPo-z9QOIqd9kxS7@redhat.com>
-References: <20251013-album-bovine-faf9f5ebc5d4@spud>
- <20251013-undercook-flatfoot-70dca974cd19@spud>
- <ab443375-524d-4e6c-a640-7e580c2d0c64@tuxon.dev>
-MIME-Version: 1.0
-In-Reply-To: <ab443375-524d-4e6c-a640-7e580c2d0c64@tuxon.dev>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: EuhRnCo-5TUhNAbAiGCkeTCEmaLYOoGWdvdHh85M0wA_1761230547
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+        d=1e100.net; s=20230601; t=1761231600; x=1761836400;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DsY3zzD8XUrRiTLyLBawfwaQI9/sErmot+/rfYHcY0U=;
+        b=Ct1LaWx9Zo39zAhFPyA+63IBAYqlRbfLQDGxqMcoYg2xFIpu7Q+c7VJl2ilskF96EP
+         +9bGJsZBd8utrxu31ZzyOZOVEF7F5FX6Qlh0+ExPBHJRPGOiOpmzJOfJa60ErCbzyvVx
+         4CpyaDyEqNj3e+va78QFMl5It3sAp8XeZ2gebxPwH3f18Vi4p0AAZpK4bexdLdvamBS6
+         YKmSPm4haOHvSbcgY77bsiPu7dBO8FN6DgitsKweIqIB+2/aBbYvmd9bpCQXPcG/B9NM
+         0DqfDW7iLVFT8A6rzJa9STzjVv6d8NSTDwDT663ONWpz4qDgibIK0E2BTZ9yEa+GFxat
+         6oEA==
+X-Forwarded-Encrypted: i=1; AJvYcCVZzPlQ8Oh99jOO3EB/BwGhRB56temQR8yWRBcE1q3M5WQKRc8pulRx7oXvw8xC813AymuWYNZZlcM0Nw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5yo6ybuo9cNp/hINBNibzwAdzMgRBjRipVR+QIPUdGCyXTJ2g
+	1B5ztJ2gjTKN3YBLK+nAuWi1ZF7K8+pC1g5Ie2snfFdkay+7Y4Kg9mKaLLBYytzp0LvDwCV6Irr
+	luPOyTw==
+X-Google-Smtp-Source: AGHT+IGIKST/5gTXkhLeNb6+zo5OEJ6E7Tz0ILKzp1TDg+5uVro2JJ+z5T3UkH4GmCDPjUQAuY2o81CumRA=
+X-Received: from pjbsp15.prod.google.com ([2002:a17:90b:52cf:b0:330:a006:a384])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5291:b0:32e:859:c79
+ with SMTP id 98e67ed59e1d1-33bcec1ab25mr31136898a91.0.1761231599767; Thu, 23
+ Oct 2025 07:59:59 -0700 (PDT)
+Date: Thu, 23 Oct 2025 07:59:58 -0700
+In-Reply-To: <28136b62074550826efa3f57b1f7be07f571abdc.camel@intel.com>
+Mime-Version: 1.0
+References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-10-seanjc@google.com>
+ <28136b62074550826efa3f57b1f7be07f571abdc.camel@intel.com>
+Message-ID: <aPpC7mt3CwWuhv1p@google.com>
+Subject: Re: [PATCH v3 09/25] KVM: TDX: Fold tdx_sept_drop_private_spte() into tdx_sept_remove_private_spte()
+From: Sean Christopherson <seanjc@google.com>
+To: Kai Huang <kai.huang@intel.com>
+Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>, 
+	"maz@kernel.org" <maz@kernel.org>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, 
+	"pjw@kernel.org" <pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
+	"kas@kernel.org" <kas@kernel.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>, 
+	"pbonzini@redhat.com" <pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>, 
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, 
+	"zhaotianrui@loongson.cn" <zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>, 
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, Yan Y Zhao <yan.y.zhao@intel.com>, 
+	"michael.roth@amd.com" <michael.roth@amd.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, 
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
+	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>, 
+	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, Vishal Annapurve <vannapurve@google.com>, 
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
+	Rick P Edgecombe <rick.p.edgecombe@intel.com>, 
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_074231_980556_71CEFCAD 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20251023_080001_258870_36D4CF56 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,23 +110,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 07:06:01AM +0300, Claudiu Beznea wrote:
-> On 10/13/25 20:45, Conor Dooley wrote:
-> > +static const struct clk_ops mpfs_clk_cfg_ops = {
-> > +	.recalc_rate = mpfs_cfg_clk_recalc_rate,
-> > +	.round_rate = mpfs_cfg_clk_round_rate,
-> .round_rate is now considered deprecated. Brian (added to cc) tried to
-> remove all its users.
+On Thu, Oct 23, 2025, Kai Huang wrote:
+> On Thu, 2025-10-16 at 17:32 -0700, Sean Christopherson wrote:
+> > Fold tdx_sept_drop_private_spte() into tdx_sept_remove_private_spte() to
+> > avoid having to differnatiate between "zap", "drop", and "remove", and to
+> 		  ^
+> 		  differentiate
 > 
-> .determine_rate() should be used now.
+> Nit: it's a wee bit confusing that you mentioned "zap", because after this
+> patch tdx_sept_zap_private_spte() is still there.  But it may be only me
+> feeling that way.
 
-Thanks for referencing that. I'm still waiting for a few remaining
-patches outside of drivers/clk to be merged. Hopefully I'm able to get
-these merged for v6.19. Then I'll be able to post the patches to
-actually remove round_rate from the clk core for v6.20.
+Hmm, yeah, I agree that's a confusing/misleading.  How about this?
 
-Brian
-
+  KVM: TDX: Fold tdx_sept_drop_private_spte() into tdx_sept_remove_private_spte()
+  
+  Fold tdx_sept_drop_private_spte() into tdx_sept_remove_private_spte() as a
+  step towards having "remove" be the only and only function that deals with
+  removing/zapping/dropping a SPTE, e.g. to avoid having to differentiate
+  between "zap", "drop", and "remove".  Eliminating the "drop" helper also
+  gets rid of what is effectively dead code due to redundant checks, e.g. on
+  an HKID being assigned.
+  
+  No functional change intended.
 
 _______________________________________________
 linux-riscv mailing list
