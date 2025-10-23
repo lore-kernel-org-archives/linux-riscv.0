@@ -4,83 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EED3CCD1BC
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 06:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518E7CCD193
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 07:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=87XDFCe76XPr9+AOy+IBvsk0jaTxeW4yq0ZDnckIASw=; b=nmTLBYT5fvGC9rzyF5NdKig2sd
-	rWjvhQiY8eCLvCpZ2h2ESxn1/RUvKWE/3ZeDFL5BR3hrjLq/UJyWMjtS0zXcL9JgL1RfaNAnfwSEV
-	Ib17dkNpZb1IfEi/uRQOeIR+u8Tn9H6rosoE9n45Lf12hkwWAokGj5cFoSowvf2sS8+owtOdKBMRu
-	LjRalBjD+CDY+j8UY1wC6jV4rs3CIs+NCJdcv7GQhVR6pP75e5De+PNsAnSBYgo1o4Jzn7KgQ1KVe
-	YQJp4jvFEK56ZV5AbQhjV2gf3IVDLJ4ZJKEFNl0caPEqkX8P4NWGKnP/1s6UdKGQUb/DO7NZ8H9oL
-	a4sEfwww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=f6pBhrUxWDsx2N2xeflP6rJKL8VmqZAqDR6sPYvG0Jw=; b=IyKQ8PfIr73UV3
+	82OktDHhDh8aLzDV1cG7NX7DaMK90pVfUbZ+kLwk6xHTWn4Ze52r0nO9M2o/N2IsU0l+c/jKWLlL8
+	Ne8Fm/SMHxNM/xnbgwoPXT8bc4crlQevUTLkdDWPKhdcqXX+g54pGbIL5KMCJC3byRmw311ojPnbe
+	EWgLgnPPuehb3If38wKWtIQT7vAY0Z3vsI7+IQszEj72qa7+GPDgb2BhO6eJWX5w6SH1huiSq0V0i
+	00LUUR893kalJ87TbDT92ttRlgHXB7kMl1pRWXGev8HR8oV7StEYljxLqFCumsYwkSPMJHOpQ3VIu
+	fm2lyA29AwnRgz5PAoYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBpEH-00000005GTz-3jm3;
-	Thu, 23 Oct 2025 06:55:21 +0000
-Received: from mail.loongson.cn ([114.242.206.163])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBpED-00000005GQ5-3Zfi;
-	Thu, 23 Oct 2025 06:55:20 +0000
-Received: from loongson.cn (unknown [113.200.148.30])
-	by gateway (Coremail) with SMTP id _____8Cxf9NM0floVqQZAA--.54990S3;
-	Thu, 23 Oct 2025 14:55:09 +0800 (CST)
-Received: from [10.130.10.66] (unknown [113.200.148.30])
-	by front1 (Coremail) with SMTP id qMiowJAxusBK0flovcYCAQ--.20792S3;
-	Thu, 23 Oct 2025 14:55:07 +0800 (CST)
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
- loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org,
- linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
- <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
- <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
- <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
- <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
- <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
- <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
- <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
- <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
- <jxfb5a2c2qber623l2gwewirwod54bbgfnvt7t7f3jah2ea33g@2uyhy3auzmpx>
- <d9f3352a-1c1f-464a-a8fd-741cd96b5f8e@loongson.cn>
- <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com>
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-Message-ID: <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn>
-Date: Thu, 23 Oct 2025 14:55:05 +0800
-User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
+	id 1vBplX-00000005Mpx-1ODk;
+	Thu, 23 Oct 2025 07:29:43 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBplT-00000005MkM-2lqG
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Oct 2025 07:29:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1761204521;
+	bh=H6QZKjoMtGBy7I0nkn1HtRcweYYIKHGgR3xO60z4zbs=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=j2Ukcafq0en9Bl9QbnZVQ3oZMlYKi67/yiMF8piuSgmk/Ml67+HqWDFf7RsZOeHAh
+	 cYvg7gOPsc21soUq3SFLKWc1utvbtcfW37IKejUl0jMAZRnDBR4FucDcWfUey+qfsv
+	 N2wLH92FL/N0adj1Xz8F+cdnVB8EwxqgGzlsQkCs=
+X-QQ-mid: zesmtpgz4t1761204518t0d7a9e4d
+X-QQ-Originating-IP: LnN7Cm0YinMJ+d/RpIL+6LqoDO37Lx78zyP6Ulb1mOE=
+Received: from = ( [221.4.210.170])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 23 Oct 2025 15:28:36 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3060325782525358583
+EX-QQ-RecipientCnt: 16
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Thu, 23 Oct 2025 15:28:29 +0800
+Subject: [PATCH v4 1/2] dt-bindings: riscv: spacemit: add MusePi Pro board
 MIME-Version: 1.0
-In-Reply-To: <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com>
-Content-Language: en-US
-X-CM-TRANSID: qMiowJAxusBK0flovcYCAQ--.20792S3
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj9xXoW7XF4xZF48Kw18Gw1DJFy8Xrc_yoWfArX_ur
-	Wxuwn7Cr4kGFyaya1DKwn8XFsxXw4UCFW5A3yjqryj93sxtrW7Cr48urn7ZF1DGF4kZrZx
-	tFWv93y3Cr1v9osvyTuYvTs0mTUanT9S1TB71UUUUUJqnTZGkaVYY2UrUUUUj1kv1TuYvT
-	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
-	cSsGvfJTRUUUbDxYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E6xAIw20EY4v20x
-	vaj40_Wr0E3s1l1IIY67AEw4v_Jrv_JF1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8JVWxJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0
-	oVCq3wAaw2AFwI0_Jrv_JF1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa02
-	0Ex4CE44I27wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1l
-	Yx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCYjI
-	0SjxkI62AI1cAE67vIY487MxkF7I0En4kS14v26r126r1DMxAIw28IcxkI7VAKI48JMxC2
-	0s026xCaFVCjc4AY6r1j6r4UMxCIbckI1I0E14v26r1Y6r17MI8I3I0E5I8CrVAFwI0_Jr
-	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0E
-	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJV
-	W8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAI
-	cVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxUc9a9UUUUU
+Message-Id: <20251023-k1-musepi-pro-dts-v4-1-01836303e10f@linux.spacemit.com>
+References: <20251023-k1-musepi-pro-dts-v4-0-01836303e10f@linux.spacemit.com>
+In-Reply-To: <20251023-k1-musepi-pro-dts-v4-0-01836303e10f@linux.spacemit.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Yangyu Chen <cyy@cyyself.name>, 
+ Paul Walmsley <pjw@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761204512; l=2335;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=E+A7wuUeuxnJYXGw4LkRQNLqLgFKjZDXDasWjCBR6aY=;
+ b=+yTZnxXcZwl7axhHvCa3Cmh92C1T5/aAVSBdTsyjuP8AKY0oOhPMc0GPiPzYV1QUD9x/DURd9
+ KWieK8hvmfMA5kM75FlXIZmDRsnXbc6T0HvZxBJ93ZIfH3pp0qv8fKi
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: M0yfee4XSTXKPO+6mqAUbIb6dbz1ajTzhJnfaqmWdS7XZme1AGjaB/tk
+	OhH3AfM3F6M0cfShTO9FZXdc+DO2m4HXpQGawIGG2oJLUBoNmKNeJqkxLYKOgtvxSMLPnko
+	VS/WSd6hvgkBm8vl4cVRkcS3ckpU9gPJh4RaKIWK2lSjVKhNhDJouWE3tlnLY+ulCxu2DQF
+	49VUkW+d5+GYw/76z7aNBHLy9qK0x7VSZlvf60+NQPIxZAzO11FRFJmJ4Yy6ZuP5F/Ra4KT
+	QOx9NpCf5EJYvKy/JQ1VWI3gWVDaFiSqWu54Ti+eUvqt38UgwMHPhqisfPRw6B1NLDgm0Wz
+	/Pusby6ZZ2sFqBHrQAiuLtIdOOR6DZ6tSnxPQ8UH4WQLiPXM/PrgY9pLOBI7+iNMpeKj4nU
+	jvjQ+NJpDJmKnSYqqVjlzCZhY8UjigTxRRaPhl+oRKBmmRfQiSHDSJzrIwhI+QCdwJZlSNq
+	DW4g2pKlURFjfbvNDtvXEJPyMzNJ6tNeAHaeR/fJiBk7MXG4UbTqPQI4AqFs0BGTHv1Kimd
+	0GkHasDehu93dRO8Kc5W8feKHoXdmUw/UI+X/rBJtbzk3J5/T/QzFcuDMFVXlCXCGHxUPas
+	qEOALn6BaatmCwefpMR2E413G/fh09kIjAP6cfTiM0BhsIXAbPbZ3ycwFvgljsT4Sp6SjeT
+	ixiQ/f9UUZ3rSiNvjp8YD2u+9tp1P+G2xQioKvXvmdturgUjfx7rxYBTP2H3G/6XYXwbd8s
+	szHyXpFCREskRcynpLfNBfxyqpR15McXkhHbhq4REiLzJVznjH5+d2GZuNgOJbA2mduQhcC
+	Dno136L/jAZHS+UyURuzfkDQMJ/BMYzivnWpH0p4PzQQfDBFN2dg2ExMmZQpnjBAsJjdM0K
+	qNIXhoG5A5QlmT/3l6Z2D5aTqVn5IBbb5dtb/EkXb+gXcC+4UiL12a9RkcnDOvTogt0oFOo
+	RFuAAs74iU50aLgdw1WehQsvFpBcyqv6KwfKvxrDhfmord1smt9YD6VF+nLyEmju94pmlSQ
+	cERwkd7+p8cvlRGiO3lImX9EmV8PNR4UnFKEjVEsNM3uhG1WP6mn3VHky1YjIdrfPH5oqyt
+	3kYWiVAkCxB1ApSbTv+CXtf7dNDNCI+UUcyYN4VhAqWDF7yD8GhHslKg++c1Kxho6S13B1X
+	lx9Qy6I8vDNR9vA+SzfXNsyJ9A==
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_235518_242970_2ACDF428 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20251023_002940_580970_20861C37 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,27 +105,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSm9zaCBhbmQgQXJkLAoKT24gMjAyNS8xMC8yMCDkuIvljYgyOjU1LCBIdWFjYWkgQ2hlbiB3
-cm90ZToKPiBPbiBNb24sIE9jdCAyMCwgMjAyNSBhdCA5OjI04oCvQU0gVGllemh1IFlhbmcgPHlh
-bmd0aWV6aHVAbG9vbmdzb24uY24+IHdyb3RlOgo+Pgo+PiBIaSBKb3NoLCBBcmQgYW5kIEh1YWNh
-aSwKPj4KPj4gT24gMjAyNS8xMC8xOCDkuIrljYgxOjA1LCBKb3NoIFBvaW1ib2V1ZiB3cm90ZToK
-Pj4KPj4gLi4uCj4+Cj4+PiBCdXQgSUlVQywgdGhlIGxpYnN0dWIgY29kZSBydW5zICp2ZXJ5KiBl
-YXJseSwgYW5kIHdvdWxkbid0IHNob3cgdXAgaW4gYQo+Pj4gc3RhY2sgdHJhY2UgYW55d2F5LCBi
-ZWNhdXNlIHRoZXJlIGFyZSBubyB0cmFjZXMgb2YgaXQgb24gdGhlIHN0YWNrIG9uY2UKPj4+IGl0
-IGJyYW5jaGVzIHRvIGhlYWQuUyBjb2RlICh3aGljaCBkb2Vzbid0IHNhdmUgdGhlIGxpbmsgcmVn
-aXN0ZXIpLgo+Pgo+PiBUaGFua3MgZm9yIHlvdXIgZGlzY3Vzc2lvbnMuCj4+Cj4+IEFyZSB5b3Ug
-T0sgd2l0aCB0aGlzIGN1cnJlbnQgcGF0Y2g/Cj4gRm9yIG1lIHRoZSBjdXJyZW50IHBhdGNoIGlz
-IGp1c3QgT0suCgpXZSBoYXZlIGRpc2N1c3NlZCB0aGlzIGEgZmV3IHRpbWVzIGJ1dCB0aGVyZSBp
-cyBhbG1vc3Qgbm8gY29uc2Vuc3VzCm9mIHdoYXQgc2hvdWxkIGhhcHBlbiBuZXh0IGFuZCBub3Ro
-aW5nIGNoYW5nZXMuCgpDb3VsZCB5b3UgcGxlYXNlIGdpdmUgbWUgYSBjbGVhciByZXBseT8gVGhl
-biBJIGNhbiBtYWtlIHByb2dyZXNzIGZvcgp0aGUgZm9sbG93aW5nIHNlcmllczoKCmh0dHBzOi8v
-bG9yZS5rZXJuZWwub3JnL2xvb25nYXJjaC8yMDI1MDkxNzExMjcxNi4yNDQxNS0xLXlhbmd0aWV6
-aHVAbG9vbmdzb24uY24vCgpUaGFua3MsClRpZXpodQoKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Document the compatible string for the MusePi Pro [1]. It is a 1.8-inch
+single board computer based on the SpacemiT K1/M1 RISC-V SoC [2].
+
+Here's a refined list of its core features:
+  - SoC: SpacemiT M1/K1, 8-core 64-bit RISC-V.
+  - Memory: LPDDR4X @ 2400MT/s, available in 8GB & 16GB options.
+  - Storage: Onboard eMMC 5.1 (64GB/128GB options), M.2 M-Key for NVMe
+             SSD (2230 size), and a microSD slot (UHS-II) for expansion.
+  - Display: HDMI 1.4 (1080P@60Hz) and 2-lane MIPI DSI FPC (1080P@60Hz).
+  - Connectivity: Onboard Wi-Fi 6 & Bluetooth 5.2, single Gigabit Ethernet
+                  port (RJ45).
+  - USB: 4x USB 3.0 Type-A (host) and 1x USB 2.0 Type-C (device/OTG).
+  - Expansion: Full-size miniPCIe slot and a second M.2 M-Key (2230).
+  - GPIO: Standard 40-pin GPIO interface.
+  - MIPI: 1x 4-lane MIPI CSI FPC and 2x MIPI DSI FPC interfaces.
+  - Clock: Onboard RTC with battery support.
+
+Link: https://developer.spacemit.com/documentation?token=YJtdwnvvViPVcmkoPDpcvwfVnrh&type=pdf [1]
+Link: https://www.spacemit.com/en/key-stone-k1 [2]
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+Changelog in v4:
+- modify commit message
+- Link to v3: https://lore.kernel.org/all/20251017-k1-musepi-pro-dts-v3-1-40b05491699f@linux.spacemit.com/
+
+Changelog in v3:
+- nothing
+- Link to v2: https://lore.kernel.org/all/20251010-k1-musepi-pro-dts-v2-1-6e1b491f6f3e@linux.spacemit.com/
+
+Changelog in v2:
+- modify commit message
+- Link to v1: https://lore.kernel.org/all/20250928-k1-musepi-pro-dts-v1-1-5efcca0ce3ae@linux.spacemit.com/
+---
+ Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+index c56b62a6299ac24d3cdef7edcdfc407dc62a1846..52fe39296031f21d1c28c4f1ea5ca9fe28caf45a 100644
+--- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
++++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+@@ -22,6 +22,7 @@ properties:
+           - enum:
+               - bananapi,bpi-f3
+               - milkv,jupiter
++              - spacemit,musepi-pro
+               - xunlong,orangepi-rv2
+           - const: spacemit,k1
+ 
+
+-- 
+2.51.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
