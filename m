@@ -4,227 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3582CCD1BC
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 10:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC40ACCD1BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 10:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6goo74i2oEkvT6+lWXyhVbVFRHljEZgfLaqduDd1rRM=; b=dVN+afDvmd2Mrs
-	yUXOeNMWwkteI+4n/SdlER2q5Mqd59KRPvxKSPf9o373M/Tb0RtdFxDXjeAT9n5kjpAEAEZbokHVq
-	AljIGnvG0/cmPY2JRgyxhUiw/tPyBeeKg6edsJ8sT16HuJEmc8PJYMgxn+LfAp/Gyu2/GjD0ViCG+
-	YPrRQ6cRYYeGUIUCY8aANLGDAyqoVgsfxQmR6VA8VYicruGtwRp5Z6kjhAkRtAI4ElsF51HyhOVrC
-	dIQJuyUEaDtArHzMHr1RD2rE4noS8cdTSSuAiKV2woGJS/kBwtvPAVJ/iW8veBkHZM9jFg+V11ke2
-	uGABqBGmZPbEs+evBLsA==;
+	List-Owner; bh=1wn5GTuzcmzF9CnuxeutLahs6DDXxdbQF2rRvN4f0Dk=; b=idf0UHbRFTgydG
+	YCVXSFHmYB7Nmj1/PPuBvc5OL+tU+gmWKKpuCwsBXVVq/YTVtQjgfSl4v8rGMwQm0as6zZJNwIWGH
+	hTkXjC4ERzBfc8jl1hXVRpwgs8lr0wKlcv5ryAW+G5H6uVfRWg6rWcvaD6Eo/iUW32x5XeVBvqmHT
+	+FcQe2HbDoa5jIpIZFgqttNiJkX4PJ0QL2LY3GBagLu18NnLVih6ueEzwHPMMlXrUh01J99rwJmFF
+	MLKuj9BH1GOyY7hb1QfWmXlLcfC8XJoO9gkt9MxpuG8q+WX663AHZW4salZDUlLo9MXUI3k5LvrbQ
+	uL5Dhi5NlWRALuuNmeVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsaQ-00000005t7B-2mug;
-	Thu, 23 Oct 2025 10:30:26 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vBseL-00000005vGg-2yCb;
+	Thu, 23 Oct 2025 10:34:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsaM-00000005t5T-3OE0;
-	Thu, 23 Oct 2025 10:30:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761215423; x=1792751423;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=r9awAYsiu9/wABGon29grvFjMQTFKocdXM8qsqZB4kY=;
-  b=PB6stxyFM+lfaV1uMrcCYB2nwHn6CWqT3KveD9bmSKFQSYn8tXa0nEx1
-   SFeUtkdOVjNkmVPIN5mijhF+dBVjRzrkcNygjUEMKj8GhHokucRmqvWCL
-   E5HhPYz1G0kArmYRhMUUuARVRwr9+rY5FhV6CMS+vmy9itzOp8g3U7clo
-   OEVD6PLgJgbu22+CDR6cGuZo+Hh3nZ5YkKA2K68aMzUBU2l7njBpMvVHt
-   0mOhRUTnw7S6Ha3L8s5XBAd/35HZaDnYZhOHWEZhsovUrz2Eff9BIF91U
-   p5yn0dGWk3AA4EeH1MxvLpLp4OJS5aujDcX8uAw7gd6dVdxMOBOlPICeW
-   Q==;
-X-CSE-ConnectionGUID: cVz9SYB8T5W/yBz6piWcjg==
-X-CSE-MsgGUID: Cv0JunDvSx2bdal6wndfXw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63274377"
-X-IronPort-AV: E=Sophos;i="6.19,249,1754982000"; 
-   d="scan'208";a="63274377"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 03:30:23 -0700
-X-CSE-ConnectionGUID: WnJjAlTMQfO4BTOdQ+oZHA==
-X-CSE-MsgGUID: lcv4mrADS+2NG56SvhXxQQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,249,1754982000"; 
-   d="scan'208";a="189255163"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 03:30:22 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Thu, 23 Oct 2025 03:30:22 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27 via Frontend Transport; Thu, 23 Oct 2025 03:30:22 -0700
-Received: from CY3PR05CU001.outbound.protection.outlook.com (40.93.201.1) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Thu, 23 Oct 2025 03:30:21 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ITE8Xjz6ZmLUOhrAl9XNH03bUoc8yLknxBjGKYPsftsEjBX5r4YDt1WwGuT8271ba+j6Xf56lMIkGYzzuaGrIOWX+g+V1EpOlpbsWanLWX1ibHxfOlaOFRBulnCmw7soL3QsGOqKiXEcSFqm7K6M4urc1Ixxcxz53wRgj2LzacM011r4eY00bqDBk1WGGOPnR3hZRDMU3sgT8xLwHnWOb+7Q5NerqPHadt0jrZxuSG+qbWRWTNlUvKXbgbWbF8I0/FVjQvDRHa5mPoMWIV2HM7BTRlNP43BZhqSAaAhVC0e40k0r4WfmQdb6EWAKFX5BOUjSdb3U7WEYYnvdeqkFQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r9awAYsiu9/wABGon29grvFjMQTFKocdXM8qsqZB4kY=;
- b=y+a3OsGHFtwRnL8ykHvnP1L6w4DcvBtv+k5SvufQLhemPBqmWv3Fql68+baUejKOFt/zOYNCFzGWPa1uoa6nX/of42TbI9P0bN7e/Y0BQSHeyfHjG2MMOJ7C+8VIXphXL1clnFKvLI10iX3rsWGura52zJanoeYbBAr6wCU2yq+sGxahOD+dXCsAWCXciP4NLq8/XCVa8IoVZhe1SzWbO83KdimX1o2Y3VJlBHtErxwNT143m5TAxqcm5xa/Mv66Q3VFDzAAyXK4Fq0Zy68K9aJyGQmcyN7O/zON2ZjYSq/6WUUdeUBbotZSxzgFDQmJ9S72vr9wRQ2oSWMYVYxQPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BL1PR11MB5525.namprd11.prod.outlook.com (2603:10b6:208:31f::10)
- by SJ0PR11MB5150.namprd11.prod.outlook.com (2603:10b6:a03:2d4::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Thu, 23 Oct
- 2025 10:30:19 +0000
-Received: from BL1PR11MB5525.namprd11.prod.outlook.com
- ([fe80::1a2f:c489:24a5:da66]) by BL1PR11MB5525.namprd11.prod.outlook.com
- ([fe80::1a2f:c489:24a5:da66%6]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
- 10:30:19 +0000
-From: "Huang, Kai" <kai.huang@intel.com>
-To: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com"
-	<frankja@linux.ibm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "pjw@kernel.org"
-	<pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"kas@kernel.org" <kas@kernel.org>, "seanjc@google.com" <seanjc@google.com>,
-	"maobibo@loongson.cn" <maobibo@loongson.cn>, "pbonzini@redhat.com"
-	<pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com"
-	<imbrenda@linux.ibm.com>, "zhaotianrui@loongson.cn"
-	<zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>
-CC: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, "Zhao, Yan Y" <yan.y.zhao@intel.com>,
-	"michael.roth@amd.com" <michael.roth@amd.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Weiny, Ira" <ira.weiny@intel.com>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>,
-	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm-riscv@lists.infradead.org"
-	<kvm-riscv@lists.infradead.org>, "Annapurve, Vishal" <vannapurve@google.com>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, "Edgecombe,
- Rick P" <rick.p.edgecombe@intel.com>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
-Subject: Re: [PATCH v3 05/25] Revert "KVM: x86/tdp_mmu: Add a helper function
- to walk down the TDP MMU"
-Thread-Topic: [PATCH v3 05/25] Revert "KVM: x86/tdp_mmu: Add a helper function
- to walk down the TDP MMU"
-Thread-Index: AQHcPv2cWamolJ3kgkumajqyHzUuybTPkhAA
-Date: Thu, 23 Oct 2025 10:30:19 +0000
-Message-ID: <dd731d3a96f2e506a5784b6db02dd4dedc80488d.camel@intel.com>
-References: <20251017003244.186495-1-seanjc@google.com>
-	 <20251017003244.186495-6-seanjc@google.com>
-In-Reply-To: <20251017003244.186495-6-seanjc@google.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BL1PR11MB5525:EE_|SJ0PR11MB5150:EE_
-x-ms-office365-filtering-correlation-id: 15ed6cd9-0e28-4339-a8ed-08de121f2a0e
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|921020|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?Nmc1VHd3UWxpTWlEWnNENlYwMmNhejhRd3FDYWtuck9uWWw5cGdnaWlXTGZz?=
- =?utf-8?B?SkxXcTdMd004WU5JT2VrSm9VOXVOTnVsU3o4bjNBMDdnWGVrc2xVRHNvNG4w?=
- =?utf-8?B?KzZ4d3VzQmUxdjNpYzlkejdWdU10V3lBa0lWNDhNZWhhRk9JQi81M2tQODIw?=
- =?utf-8?B?N1NCbXNNdE85c2xWVzhudFZJUWxLSUpFMTRoRkN3UmRSc20wMHIzQW5OVlMw?=
- =?utf-8?B?WUx0UkpNRE1tY2k0cE1PT25vVFlZZTA5Q2FIMmhGM2JsWHBicHp3WmxhTHhl?=
- =?utf-8?B?d1gxUXllWkVaMzdRVWxrUGtGSjlBNVZDY0JlUzlWREQ4YWcvLzlLTHJTb1B2?=
- =?utf-8?B?TFNCbThBK1VicXJnWlBVQmlsb0pqNWsvWGlRZHp6elk5WmpQRFViYlhncVE3?=
- =?utf-8?B?akprTzZtL05ySkpsVVBIeTdkVjU3UFN4aEFpZHU3emZkSWFPQ2gyU0c2aGgv?=
- =?utf-8?B?ZHRaVlF0SkVSRDdaRE13M09lRno1c2JrMjFnRjJUMXFuUHRudjVhYWQ2RFVs?=
- =?utf-8?B?SUtURlo3YjZPZEZ0c0pLWTZZN2JiTUVGUVUycTRuWi8vTHl1dHF0TGJ6cFRO?=
- =?utf-8?B?ZEloVTJXTDRFSVFESWVsOFF0YVN5SDQ5Nml0ejV6eUJQelBQKzY1NUZ2MUJP?=
- =?utf-8?B?U1MxVmY4TE5iVHBRUnl2ZE1mRzBGQWE3eUYva0xncVMzd0x6S3RPK0ZkbVlD?=
- =?utf-8?B?THpEZE1wRWFESHpIazlFblVhbTArZldyL3BHU0pFVWRRYzhGeE1NUmdZQzds?=
- =?utf-8?B?VHI2MEs5dUQxajhnWkhPNHROOEIwbUtmbzdRM1Fick9xcFI5K0ZqeHlNY3pr?=
- =?utf-8?B?RityK2xVcnZhaXdnaXp6aEZOcFNGTVllMUFEQldRRmJ6YkE5NlJBNDE1RVJN?=
- =?utf-8?B?WkRUaXF6ZnZTQjRGVWNJUldnaWQ0Y1hNMkxCOG9jQ1pxaVhpV0swdnBPZ1E5?=
- =?utf-8?B?STVHNTBkQVlJNVdSTUdiOGFsMHRaZXAvS0hxdTAwZkh3V3hEMjUyaXA5TXhT?=
- =?utf-8?B?QkRxSXFKanJxRStNYjBRR2RDVlExWWV2N2UwOFZQTmlWWU9qVWp1YkZieUVk?=
- =?utf-8?B?cnBHVU4rV2dBL0RrMHQ2YXp6OHZwc1RUTU16Q3lwZ095Z3FyUU5SczRWMDRB?=
- =?utf-8?B?Y3VqR01haFl6bGRFNS9jRGpkajJ2cittTFduZytPWFJRUmlZYlZ1WmpoMmVF?=
- =?utf-8?B?eEZHbFlTd1FxWlA2MHJkbStGeDRsNlFVUC9MaUZHYlAyMUxqZGxKaUZFRys2?=
- =?utf-8?B?VU1YMEg1RDcvY2RMc1dZSWJ6M0VHNytjSkY2b1o4VXBTOFJzalRrTDJINmhL?=
- =?utf-8?B?QlRvL3dzZjFxeUt2R0RWK2FkdllRRnkxeU9ybHpRU3RzbzZxTEVnWUhZSGdD?=
- =?utf-8?B?dmJhZm9uTlBzWnhLTXhaSTZOTlFUZEQ4ZUxHci9HZS8vN3MrL0plbzE2R1k2?=
- =?utf-8?B?TVIxV2VxRWNlR2VUT2Jod3FxSm1mUnN6dUw5U1kyVWpkN2VpN3MrQUVBTDda?=
- =?utf-8?B?RXhNSGRUMDlQLyttNExCQ20rNnRSdFgzV2JweGRtc0lwVFJnWXZPM0Q4NUZa?=
- =?utf-8?B?R0VUV2J4Y3FXVFRIa0phbjBqMk04TDBudXJEQnlMbjllY2dkTnZvM21WZ1Bm?=
- =?utf-8?B?UUZlK3NlRnBwRDNJTmp5RFdIbjFvOElDbmdlVmgwalI3NCtWZ2dWUzZ4QmR4?=
- =?utf-8?B?WDVaTlhRV3NDNGVOUUdHcEZhRTl6YVQxSXEvRG55aXVzNWExaEhLNHVqcmhw?=
- =?utf-8?B?SXE1OGI0czQ0RTJWUjQ3ekdxbEQ0VURXOWcxaUVTKzdmTEF4blE5czVMZVc0?=
- =?utf-8?B?ZkU1RUJBQnVaRzhnaWIxZWVvdE5wZ1ZNU3RybTh5Vk1ZaDJrRUZlTlE4MWJY?=
- =?utf-8?B?YkNkVnlpL1BUVVFObTdmT1lNZWZCZnlwdDRjeW5kcVA2bW5ocGE3Y0p1NjVB?=
- =?utf-8?B?clJJUlVJbDRXTnRQMzhKeTNBYmZlTWs3ak5KbUQvL2RaQ3ViVG5kUk9sUmZ6?=
- =?utf-8?B?Z21BMzlmUE8raU0wdmtRNi83ekJQN2VaUFpFejhlY0FYbEVyekdGNm9BSGxs?=
- =?utf-8?B?dXVNRlNCYTBZRkFlQVg5UkNVV1dmOUFGSFcxUT09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR11MB5525.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(921020)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NnhsNGUwQnFKaW9NZ1ZEV3o1NlBYZ0UzOUFvNGg4MitEbWJwb2l0OW1KUzlj?=
- =?utf-8?B?MEhMVXJ4NWFBZ2w5SE85SEN4QndZeUJsZFRCcGJoaWtNTHNscVNGV24rRWdS?=
- =?utf-8?B?MVo1WjJBbUZaQS9TcFVkbFc0cFh1M3pvQlJYL3FQRlI2djN6d2MxZTFhb0ha?=
- =?utf-8?B?cnd1ZFVqZWFwb3A2T3JIZlpuUHNqU2lXeU12NGpUVnVidG04WkUrNFNnL2Jk?=
- =?utf-8?B?eHpTb0JyOVBxMVd6ZEVWb3hwMEpsMzBwcGpDdFpZU0R0RmRsWitaSUJCdVhR?=
- =?utf-8?B?eEdCS09UUEcwdjFreExsOHZvN1JTZXE5QWd3SER0VDk0RHViWEhDaER0MGV3?=
- =?utf-8?B?alB5ZmQyMTQrK1BIYlF6RmFTZ01kREc2WGtKVEh0RWw0Y2EyZzllM2pON3d4?=
- =?utf-8?B?MnlueTVlNmxjamdiODRDV25mZHhreXBMa3dhc1RFYlBMK09FOUoxdjdxZURv?=
- =?utf-8?B?WUxqOUtGWXVDYVIweHRkSW9sQlZVWW0zRXorT0d3VFR0aUUydFRzUWIxc29U?=
- =?utf-8?B?RVZRMWNvNUdCU0ZsclI4WjFqRjdDcUNpS0VPa0JDcUJRRzh6SFRTZFM0VXFk?=
- =?utf-8?B?cGlqSmR2K3hBNGZQc2F6NjF4WjVOaHpreFJHNXdCdzRINktNd0dpVkpyRndE?=
- =?utf-8?B?YWwwT2pqVWZRNi91a2kwSGFXM25PYzBWSUZMU0hZNlNlbXNiNG4xV3FoSEZW?=
- =?utf-8?B?VC83aW5UUGJEUWl2SDVUK0Nwa2JwQWhYNkxoaXFteTFCYWFMWHZWS1BrakFG?=
- =?utf-8?B?Y3BMOWo3SVNFZ1FOaURqSTBsUXh6TDU4QldteFB3MDkvaVh5RjZ3UnRkZnho?=
- =?utf-8?B?ZzZaMEw1TEdXNW5ralBWRG5vWVdyUndwZnJLMEk5MFJSOFJDaklvNkxDVE44?=
- =?utf-8?B?bVQrZG1KbmwwYndUQjErTCsvNyt0MUM0NmJ3S0dJeThLSUhaSEEwOEx4MDRK?=
- =?utf-8?B?ZlU2WkM0MG5lYm5vMnQ4b2wxUXVSbmtaanQxQnRDRnFOeWQvTmxtdndyRzZ5?=
- =?utf-8?B?RzlzOHI1VnQ1U1dIV3UvWGVkTExkcWswUGJuWmxJMXhRVjNjcDZKQTBwM0VP?=
- =?utf-8?B?b2EwRlBQTVNuU1VhTG1qN0NBKzd0WE5tVGtRZ25NVzduaXZhNjFROGd4Ukg1?=
- =?utf-8?B?NW54bExmYmZZMUd1Vm5hNktHTXBseUp5N2Mxc045V1BHYWtUTWFwMXluaTFs?=
- =?utf-8?B?NU1kM0xkSWJoWEt1emxFL28yRTlKQkxNelNOeUNFbkp4eE50a01maFdFeTV1?=
- =?utf-8?B?TDhYYXlnSi9UeVBoY0pldXpIZjgvbXZXbllWSFZKaUovU0dDdjU3NHhlOEVH?=
- =?utf-8?B?bGJUVmJpVDYxQzVSa2t6KytwR1lzRm1tNHBkVFU5UHdBNU1SMEgxdXVmMENk?=
- =?utf-8?B?ZU1Jczhpa1lqcDdid21weUo4Vk5keHZaSk1tcngwQzRucVBONFNaYjRtNXJT?=
- =?utf-8?B?ZjdVNXdFRlFRbXZBaHpUc0Y2czcrQmhHb0hEQWJyUzlGcm5xQXNoTmZuRTU2?=
- =?utf-8?B?cEF1ZUJPZG8rYXNTeUFWcVB6RkRQYjVNQWpPOEZaSTJWWGd2TnJLYXRHTzla?=
- =?utf-8?B?RlBucHFaUTZnSWRuRHNOSHZNMGZmaFkzd0ZBS1YwNGt2OFZKdnJwVlFjUEdF?=
- =?utf-8?B?K0NHWDI1aXZvNk95eEEydmxmdDhFVHJ1RWU1SkhIOW9sMXFmTEpNcTkxMkpY?=
- =?utf-8?B?UG9hdkYxVWNiYzdQTnFnSE5Md0w1Q3hXK1RNUjE5V1YydHMwTU5RK3FoVlky?=
- =?utf-8?B?ME9kaThFN0N1Y3hncTlqcVVwQmdmUEJsNjRKUDJuRTYxb1hzTDZkVmtkaXNx?=
- =?utf-8?B?TENHRXZ0VDVlUUJqNEl3ZEVrYi9jaStpRjBRN2k0aTJHUXdJenFUNU1ZN0pv?=
- =?utf-8?B?My9ibkxJOURDNkU3eFVlM0RQU2NtK05rcnBsTmRMTG5LYmpoNWQ4ZXRDSjE5?=
- =?utf-8?B?Y3FleG55dG1QQ0VSYzNnaG5kcVoyNTZaWFB3UmEvRG9DMlVTWE5KQWh6NjMy?=
- =?utf-8?B?ODB1VG9FVkpVWlIzcEQyYTZEQk1WVGVtYTVMeWI2R2h3cmRpcWRTcGk3UTEv?=
- =?utf-8?B?Wk1QZEg4K0pCcDJKNVgvS1FWRUFVNkpNdlUySXlwMFlHQ1JEN3p4WUx1RFpW?=
- =?utf-8?Q?T4O99eAXttbhh6/Ksg7JeFxYM?=
-Content-ID: <51820BFE6638F94D9EB3790058EBE9B8@namprd11.prod.outlook.com>
+	id 1vBseJ-00000005vFW-3biV
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Oct 2025 10:34:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2240E43607;
+	Thu, 23 Oct 2025 10:34:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D2D2C4CEE7;
+	Thu, 23 Oct 2025 10:34:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761215667;
+	bh=EvgrZI+rymOOfZUCPqItc1VU/vONGS0OSWFKI/tUzDs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uRI5o5CEuyLF8Dsw/NHSiQH641JTHFRjyjRHMeLd6Ltw3N/WUcoXgM9nnD5zSct3L
+	 +m1/CsyFgl0kAZeWmYT4WZVkOCsUe4OHX8G+c+f0GK+vmdra6BvwuoRmsTqaO4zK/7
+	 l5jZ/+Lj1gu4cxqy6wfpwkhByYY2ax6WflUUzg4ihhcJgiHmJ8rtTVCR8247axtNrI
+	 MC/AQ9p31JRcxevANJ5y0lskvzJW3DtGUdHntQ+tUhok2yvKWaHsv4RwfUnpUAbpFD
+	 4G76lppLtXr4SBngcinr0W1lMWdAfBk0WndUTVk26yzEAFMuAUeShMgJKsoOsA+w4S
+	 dW3FN/qYIMDtA==
+Date: Thu, 23 Oct 2025 12:34:23 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Yixun Lan <dlan@gentoo.org>, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v4] i2c: spacemit: configure ILCR for accurate SCL
+ frequency
+Message-ID: <lr77avehdf3skwd5o2yur4hvbxhyx2spzve3wpo733l74ppjcx@mn34escjt542>
+References: <20251017-k1-i2c-ilcr-v4-1-eed4903ecdb9@linux.spacemit.com>
+ <t26pyjnmzj62oczwuje2bbscowj22pdge2ef3tcktwmhzpsq47@7odo2ccvc52a>
+ <sdhkjmi5l2m4ua4zqkwkecbihul5bc2dbmitudwfd57y66mdht@6ipjfyz7dtmx>
+ <748544ABF6A72D31+aPg31PBvHDkBALoa@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR11MB5525.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 15ed6cd9-0e28-4339-a8ed-08de121f2a0e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Oct 2025 10:30:19.1700
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: +4YkwKSAIp40KMtMIZzt6GSAJGFvL7SJLS8K3lmQ6fGJKIbS+LG7GDA99FWfBi2HmVGEPcV/R86lQKcv+IsQmA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB5150
-X-OriginatorOrg: intel.com
+Content-Disposition: inline
+In-Reply-To: <748544ABF6A72D31+aPg31PBvHDkBALoa@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_033022_886526_26CAD4FC 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251023_033427_936624_250A1F7E 
+X-CRM114-Status: GOOD (  23.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -241,18 +76,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-10-16 at 17:32 -0700, Sean Christopherson wrote:
-> Remove the helper and exports that were added to allow TDX code to reuse
-> kvm_tdp_map_page() for its gmem post-populate flow now that a dedicated
-> TDP MMU API is provided to install a mapping given a gfn+pfn pair.
-> 
-> This reverts commit 2608f105760115e94a03efd9f12f8fbfd1f9af4b.
-> 
-> Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> 
+Hi Troy,
 
-Reviewed-by: Kai Huang <kai.huang@intel.com>
+On Wed, Oct 22, 2025 at 09:48:04AM +0800, Troy Mitchell wrote:
+> On Tue, Oct 21, 2025 at 06:03:34PM +0200, Andi Shyti wrote:
+> > On Mon, Oct 20, 2025 at 11:28:45AM +0200, Andi Shyti wrote:
+> > > On Fri, Oct 17, 2025 at 03:27:39PM +0800, Troy Mitchell wrote:
+> > > > The SpacemiT I2C controller's SCL (Serial Clock Line) frequency for
+> > > > master mode operations is determined by the ILCR (I2C Load Count Register).
+> > > > Previously, the driver relied on the hardware's reset default
+> > > > values for this register.
+> > > > 
+> > > > The hardware's default ILCR values (SLV=0x156, FLV=0x5d) yield SCL
+> > > > frequencies lower than intended. For example, with the default
+> > > > 31.5 MHz input clock, these default settings result in an SCL
+> > > > frequency of approximately 93 kHz (standard mode) when targeting 100 kHz,
+> > > > and approximately 338 kHz (fast mode) when targeting 400 kHz.
+> > > > These frequencies are below the 100 kHz/400 kHz nominal speeds.
+> > > > 
+> > > > This patch integrates the SCL frequency management into
+> > > > the Common Clock Framework (CCF). Specifically, the ILCR register,
+> > > > which acts as a frequency divider for the SCL clock, is now registered
+> > > > as a managed clock (scl_clk) within the CCF.
+> > > > 
+> > > > This patch also cleans up unnecessary whitespace
+> > > > in the included header files.
+> > > > 
+> > > > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > > 
+> > > merged to i2c/i2c-host.
+> > 
+> > I'm sorry, because of the report from LKP(*) I reverted your
+> > patch. I2C_K1 is selected by MFD_SPACEMIT_P1, so that we get the
+> > following warning:
+> > 
+> >   WARNING: unmet direct dependencies detected for I2C_K1
+> > 
+> > and compile I2C_K1 without COMMON_CLK. Please, fix it and
+> > resubmit the patch.
+> Yes, I noticed that too. The issue is introduced by PMIC driver(P1)
+> instead of I2C.
+> Should I resubmit this patch right after sending the fix,
+> or wait until the fix gets merged first?
+
+I have reverted the patch. Please send them both in the same
+series, where the first patch is the "fix" (or preparation to
+this patch) and then this patch.
+
+Thanks,
+Andi
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
