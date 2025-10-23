@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED502CCD1AB
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 03:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72379CCD193
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 03:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Cs9G50K9vECp4e4BZ9nZnu9NWapOuBr/K7FO3pe/Vcg=; b=CvyKOAFtiue+6a
-	pyZ3l2HekOQ3vJvOClGQeCrwwo+YrzO3AMUBiJlaLoJQ40LwuFzDr9ZZ9PzMD8IXmlG8oWgzLHE0C
-	aXgTaHC0nJ+q+WZu7De2t9S9oP5x4uWFQk26LeWBGOaRifis4VjWX4NRD3i3LvzoCpbDQYyrhyZuf
-	gnSkVSbC0ZxOCKiIWBDRmQ6esEk0J6Z69K0zzE6Un1cuQR9Kmoh7spQEGYLKsmLYkuE88t0OhMRfw
-	H/pQEzcmm7v5glgKjr5+FfiKUTVUfOVrxg/2/aB5finzaA1B3z/OuO36WfRRzTHm5FHSW+/NRyBS0
-	sixbtsIt+WK6B+3RVZQQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dUnyQyMZS3cmHm//Kj1GyT9/uw45RYDiO6NiHpD+FXE=; b=3RIcW34RpTeiiq
+	GAKpZqwGP2Z7L8ja2PAkMTVS9pvesHqW4uaTgb75hvxChfiE96Cb7Cg7rZjU0WAJ4APn/Ap4ZvS5N
+	xRCY5dnb5iyy3pbfg8A3um+vCEm7tSnxP9yr6a6u2wkbAcvF4QauPC68YplzgZXk3LbZOH6GXTAJf
+	1YZHB25hMKLJi7UqhoYViHLb2HYg3CCFYD6qPjngMlI9iUcPNSGN4c9ee5MRoFvOU+ZLvoDOWraGw
+	EV5MrSXRpKzvdjpWnphOYEulf6I2meY2CvTLDbQ6tpSvAIq3nqUIkOcumOMKUk1Q/RDq7ZtVGNfy8
+	Nq3MZ7FbIukVzjKqJaxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBm0e-00000004vXG-3WEH;
-	Thu, 23 Oct 2025 03:29:04 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1vBmHc-00000004ySm-33Vr;
+	Thu, 23 Oct 2025 03:46:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBm0X-00000004vTl-3p3x;
-	Thu, 23 Oct 2025 03:29:03 +0000
-Received: from mail.andestech.com (ATCPCS34.andestech.com [10.0.1.134])
-	by Atcsqr.andestech.com with ESMTPS id 59N3Q4Bw097416
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=OK);
-	Thu, 23 Oct 2025 11:26:04 +0800 (+08)
-	(envelope-from minachou@andestech.com)
-Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS34.andestech.com
- (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 23 Oct
- 2025 11:26:04 +0800
-From: Hui Min Mina Chou <minachou@andestech.com>
-To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
-        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
-CC: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <tim609@andestech.com>, <minachou@andestech.com>,
-        <ben717@andestech.com>, <az70021@gmail.com>,
-        =?UTF-8?q?Radim=20Kr=C4=8Dm=C3=A1=C5=99?=
-	<rkrcmar@ventanamicro.com>
-Subject: [PATCH v3] RISC-V: KVM: flush VS-stage TLB after VCPU migration to prevent stale entries
-Date: Thu, 23 Oct 2025 11:25:17 +0800
-Message-ID: <20251023032517.2527193-1-minachou@andestech.com>
-X-Mailer: git-send-email 2.34.1
+	id 1vBmHa-00000004yRi-1vjo
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Oct 2025 03:46:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E45C603AB;
+	Thu, 23 Oct 2025 03:46:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D987C4CEE7;
+	Thu, 23 Oct 2025 03:46:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761191193;
+	bh=R6+qGnRv0D3b1rTURFdmpfihKe/n286445pssQyi9dk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=M2+LWGJDAQKDoiCkT+PJ1a+IEtri8Ae8qctAsQ+HJyt7QfFpCRLqVxDyr7JuTL3I+
+	 l7bdCxfuZ27baZiUqoSNGpBpQsQLKpCDkGsUNMVZwmuZY8ixhwvRDKd3tGSJVv7+Bz
+	 Xcl3yUsoQLzDeroBVifD6oTCtC6y61bsqDmoJdC6y0GFNGBnEv4igbJLkQHDPjo8uL
+	 wqi7pVcNWWHRtP05TZVu8rCdSKv563dKmOi23kNRaoP11Ub9nKdN5/bTkU6/bh7v9s
+	 xVyP5ncxnlwfnrPpqxjF5/B+0z8opd7AXy+DITE3OV1DYcgd0BUJ/NefY/qPmlW6hQ
+	 2DQ2NTW39cqyg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33D1B3809A04;
+	Thu, 23 Oct 2025 03:46:15 +0000 (UTC)
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.183]
-X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
- ATCPCS34.andestech.com (10.0.1.134)
-X-DKIM-Results: atcpcs34.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 59N3Q4Bw097416
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_202858_303775_7C8A5BC2 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [PATCH][next] net: spacemit: Avoid -Wflex-array-member-not-at-end
+ warnings
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176119117374.2145463.16472197208570713304.git-patchwork-notify@kernel.org>
+Date: Thu, 23 Oct 2025 03:46:13 +0000
+References: <aPd0YjO-oP60Lgvj@kspp>
+In-Reply-To: <aPd0YjO-oP60Lgvj@kspp>
+To: Gustavo A. R. Silva <gustavoars@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, dlan@gentoo.org, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,64 +69,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogSHVpIE1pbiBNaW5hIENob3UgPG1pbmFjaG91QGFuZGVzdGVjaC5jb20+CgpJZiBtdWx0
-aXBsZSBWQ1BVcyBvZiB0aGUgc2FtZSBHdWVzdC9WTSBydW4gb24gdGhlIHNhbWUgSG9zdCBDUFUs
-CmhmZW5jZS52dm1hIG9ubHkgZmx1c2hlcyB0aGF0IEhvc3QgQ1BV4oCZcyBWUy1zdGFnZSBUTEIu
-IE90aGVyIEhvc3QgQ1BVcwptYXkgcmV0YWluIHN0YWxlIFZTLXN0YWdlIGVudHJpZXMuIFdoZW4g
-YSBWQ1BVIGxhdGVyIG1pZ3JhdGVzIHRvIGEKZGlmZmVyZW50IEhvc3QgQ1BVLCBpdCBjYW4gaGl0
-IHRoZXNlIHN0YWxlIEdWQSB0byBHUEEgbWFwcGluZ3MsIGNhdXNpbmcKdW5leHBlY3RlZCBmYXVs
-dHMgaW4gdGhlIEd1ZXN0LgoKVG8gZml4IHRoaXMsIGt2bV9yaXNjdl9nc3RhZ2Vfdm1pZF9zYW5p
-dGl6ZSgpIGlzIGV4dGVuZGVkIHRvIGZsdXNoIGJvdGgKRy1zdGFnZSBhbmQgVlMtc3RhZ2UgVExC
-cyB3aGVuZXZlciBhIFZDUFUgbWlncmF0ZXMgdG8gYSBkaWZmZXJlbnQgSG9zdCBDUFUuClRoaXMg
-ZW5zdXJlcyB0aGF0IG5vIHN0YWxlIFZTLXN0YWdlIG1hcHBpbmdzIHJlbWFpbiBhZnRlciBWQ1BV
-IG1pZ3JhdGlvbi4KCkZpeGVzOiA5MmU0NTA1MDdkNTYgKCJSSVNDLVY6IEtWTTogQ2xlYW51cCBz
-dGFsZSBUTEIgZW50cmllcyB3aGVuIGhvc3QgQ1BVIGNoYW5nZXMiKQpTaWduZWQtb2ZmLWJ5OiBI
-dWkgTWluIE1pbmEgQ2hvdSA8bWluYWNob3VAYW5kZXN0ZWNoLmNvbT4KU2lnbmVkLW9mZi1ieTog
-QmVuIFpvbmctWW91IFhpZSA8YmVuNzE3QGFuZGVzdGVjaC5jb20+ClJldmlld2VkLWJ5OiBSYWRp
-bSBLcsSNbcOhxZkgPHJrcmNtYXJAdmVudGFuYW1pY3JvLmNvbT4KLS0tCnYzOgotIFJlc29sdmVk
-IGJ1aWxkIHdhcm5pbmc7IHVwZGF0ZWQgaGVhZGVyIGRlY2xhcmF0aW9uIGFuZCBjYWxsIHNpZGUg
-dG8KICBrdm1fcmlzY3ZfbG9jYWxfdGxiX3Nhbml0aXplCgp2MjoKLSBVcGRhdGVkIEZpeGVzIGNv
-bW1pdCB0byA5MmU0NTA1MDdkNTYKLSBSZW5hbWVkIGZ1bmN0aW9uIHRvIGt2bV9yaXNjdl9sb2Nh
-bF90bGJfc2FuaXRpemUKCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92bWlkLmggfCAyICst
-CiBhcmNoL3Jpc2N2L2t2bS92Y3B1LmMgICAgICAgICAgICAgfCAyICstCiBhcmNoL3Jpc2N2L2t2
-bS92bWlkLmMgICAgICAgICAgICAgfCA4ICsrKysrKystCiAzIGZpbGVzIGNoYW5nZWQsIDkgaW5z
-ZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2t2bV92bWlkLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92bWlkLmgKaW5k
-ZXggYWI5OGUxNDM0ZmI3Li43NWZiNmU4NzJjY2QgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20va3ZtX3ZtaWQuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92bWlk
-LmgKQEAgLTIyLDYgKzIyLDYgQEAgdW5zaWduZWQgbG9uZyBrdm1fcmlzY3ZfZ3N0YWdlX3ZtaWRf
-Yml0cyh2b2lkKTsKIGludCBrdm1fcmlzY3ZfZ3N0YWdlX3ZtaWRfaW5pdChzdHJ1Y3Qga3ZtICpr
-dm0pOwogYm9vbCBrdm1fcmlzY3ZfZ3N0YWdlX3ZtaWRfdmVyX2NoYW5nZWQoc3RydWN0IGt2bV92
-bWlkICp2bWlkKTsKIHZvaWQga3ZtX3Jpc2N2X2dzdGFnZV92bWlkX3VwZGF0ZShzdHJ1Y3Qga3Zt
-X3ZjcHUgKnZjcHUpOwotdm9pZCBrdm1fcmlzY3ZfZ3N0YWdlX3ZtaWRfc2FuaXRpemUoc3RydWN0
-IGt2bV92Y3B1ICp2Y3B1KTsKK3ZvaWQga3ZtX3Jpc2N2X2xvY2FsX3RsYl9zYW5pdGl6ZShzdHJ1
-Y3Qga3ZtX3ZjcHUgKnZjcHUpOwogCiAjZW5kaWYKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3Zt
-L3ZjcHUuYyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYwppbmRleCAzZWJjZmZmYWE5NzguLjc5NjIx
-OGU0YTQ2MiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rdm0vdmNwdS5jCisrKyBiL2FyY2gvcmlz
-Y3Yva3ZtL3ZjcHUuYwpAQCAtOTY4LDcgKzk2OCw3IEBAIGludCBrdm1fYXJjaF92Y3B1X2lvY3Rs
-X3J1bihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCiAJCSAqIE5vdGU6IFRoaXMgc2hvdWxkIGJlIGRv
-bmUgYWZ0ZXIgRy1zdGFnZSBWTUlEIGhhcyBiZWVuCiAJCSAqIHVwZGF0ZWQgdXNpbmcga3ZtX3Jp
-c2N2X2dzdGFnZV92bWlkX3Zlcl9jaGFuZ2VkKCkKIAkJICovCi0JCWt2bV9yaXNjdl9nc3RhZ2Vf
-dm1pZF9zYW5pdGl6ZSh2Y3B1KTsKKwkJa3ZtX3Jpc2N2X2xvY2FsX3RsYl9zYW5pdGl6ZSh2Y3B1
-KTsKIAogCQl0cmFjZV9rdm1fZW50cnkodmNwdSk7CiAKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-a3ZtL3ZtaWQuYyBiL2FyY2gvcmlzY3Yva3ZtL3ZtaWQuYwppbmRleCAzYjQyNmM4MDA0ODAuLjYz
-MjNmNTM4M2QzNiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rdm0vdm1pZC5jCisrKyBiL2FyY2gv
-cmlzY3Yva3ZtL3ZtaWQuYwpAQCAtMTI1LDcgKzEyNSw3IEBAIHZvaWQga3ZtX3Jpc2N2X2dzdGFn
-ZV92bWlkX3VwZGF0ZShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCiAJCWt2bV9tYWtlX3JlcXVlc3Qo
-S1ZNX1JFUV9VUERBVEVfSEdBVFAsIHYpOwogfQogCi12b2lkIGt2bV9yaXNjdl9nc3RhZ2Vfdm1p
-ZF9zYW5pdGl6ZShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCit2b2lkIGt2bV9yaXNjdl9sb2NhbF90
-bGJfc2FuaXRpemUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQogewogCXVuc2lnbmVkIGxvbmcgdm1p
-ZDsKIApAQCAtMTQ2LDQgKzE0NiwxMCBAQCB2b2lkIGt2bV9yaXNjdl9nc3RhZ2Vfdm1pZF9zYW5p
-dGl6ZShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCiAKIAl2bWlkID0gUkVBRF9PTkNFKHZjcHUtPmt2
-bS0+YXJjaC52bWlkLnZtaWQpOwogCWt2bV9yaXNjdl9sb2NhbF9oZmVuY2VfZ3ZtYV92bWlkX2Fs
-bCh2bWlkKTsKKworCS8qCisJICogRmx1c2ggVlMtc3RhZ2UgVExCcyBlbnRyeSBhZnRlciBWQ1BV
-IG1pZ3JhdGlvbiB0byBhdm9pZCB1c2luZworCSAqIHN0YWxlIGVudHJpZXMuCisJICovCisJa3Zt
-X3Jpc2N2X2xvY2FsX2hmZW5jZV92dm1hX2FsbCh2bWlkKTsKIH0KLS0gCjIuMzQuMQoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hello:
+
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Tue, 21 Oct 2025 12:54:10 +0100 you wrote:
+> -Wflex-array-member-not-at-end was introduced in GCC-14, and we are
+> getting ready to enable it, globally.
+> 
+> Use regular arrays instead of flexible-array members (they're not
+> really needed in this case) in a couple of unions, and fix the
+> following warnings:
+> 
+> [...]
+
+Here is the summary with links:
+  - [next] net: spacemit: Avoid -Wflex-array-member-not-at-end warnings
+    https://git.kernel.org/netdev/net-next/c/10e0378f05d2
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
