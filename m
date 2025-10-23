@@ -4,62 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0628CCD193
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 20:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 462D9CCD1BF
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 21:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=D8jDrBhBgwOwjtIWMKg3Htjwep3h+q0nHAB0qltlb60=; b=XXxnctz3CvX/Lq
-	aNxg12qnz5MW0qruBCeaY9IsKStTbheoc72SCofe64dh3CvjsuRAJpUyWZYSZWraeYS/ncbSr1Opx
-	RMzqoPtLQMv9/vCETi1F+qG4KwYHf44RJflG45qVVuVOxxp1TtgBgvncyuNWVeZWD4vuha5quWAci
-	23kFKedF7SA4OVXf/g84gHI+DmBnfa6mr06mSmf3TXknC0tWrLFb0LS7IVuoxcX6h0f+C0DCkRsYS
-	drcCl5K/AMFZQXXaz5X3D+XrJ9wLeogH9IjiLqQPW2o0l9Mo9ZmnoLqV0AUeflVNb04qbNEYnNVsD
-	UJPVvSugK6a5YdViaQdQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=J8BE/zrsOcxnpt1o1CwqsFdk96yshXeKSsLFwYO3z20=; b=AkBDaWWtcfQNse
+	5XqTPn33W/wno4D55UmB1ZA1CTM6cwvkCeXYMPno0HntMs79eO5UxvXLnih6WE5m9jZ6iTdheexjo
+	aQVF9+eRNGfmf7SDGep8LujFS33y5uJINLafTyBQjhaQYMojV5VWC3bdEO9ilfeYomuF08BjWAprC
+	A7wuLlYPCGQZDnusqoFxdp9RM6jLTsoyjsFuHgatzmS/CmI7G0Egit10vgGNsoeRyW+rguCY2uHnU
+	gry4vfYz/Ub9aUB8T9nZSIAGU1d4QpGPubbTtKtgWuZmvfBgkvdkyZ7hZr8RuiTANrG9+rykLQWFG
+	2oH0F4dJy+cfRAiu+EKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC2C0-00000007YaN-0q2D;
-	Thu, 23 Oct 2025 20:45:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vC2eC-00000007cfZ-1VQw;
+	Thu, 23 Oct 2025 21:15:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC2By-00000007Ya2-2MGj
+	id 1vC2eA-00000007cfF-3fTb
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 23 Oct 2025 21:14:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=z6sEiHIDuaPc1r9BapkeRLwxlBj8uKP+Q15MeH29iBY=; b=lnOU+B7TlZ2WrLmZYn7ahzJvx2
+	iimPjo6MrAV/0EX/+LhsDsoQvrz0ANXJO/03uBtWUn0U7kbaDFUdBlTkh1Wh307eH+ELEpB/nRPtP
+	HSwlTPTLiBgOtrUWVbUAn4ALNqEH61JfNShCK2EVE2jPKpQF8mNhbAmLeRNwlfiRy68imN3a3Tw5q
+	ipRmbiOKnAqrFTKtZg+s7xfJ3kXBGOT8RQZ2Z7DpEJ2TwBN2uLM1oelhZbQ6iCTnr9CV1dgPE6gEp
+	qQ5i32j/sJHTy454Zlni5sw0jq30rIDmspcz76lSWGEM0XSPNYzpZc65XsU89WCp7FU4cbDhHn7dP
+	/YBVYYBw==;
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vC1mT-00000001lT3-0LaM
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Oct 2025 20:45:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 95BD660052;
-	Thu, 23 Oct 2025 20:45:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1926BC4CEE7;
-	Thu, 23 Oct 2025 20:45:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761252349;
-	bh=+mP1pvM4InKqRlScVcASL4W4+e15L6r0Y16hTzd6U1Q=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=b8HF2r44gXjOpem75sfXsYhOVaAy6VyKAljZ399LBb2twmYVfDx7uL/hUCTfw1zjj
-	 MfjbryAd3zg3FyQcyj1O+cXHG5lIPySMBFIAySExphNI2nR0jCTzB5HUuNBtj76Ipa
-	 mB5NjR4icOf+S4KUtw7g+CczAwqSB/dQ5VuHXxjcZvTjfc4wWvJtaaVnEPBPYeIlBf
-	 7PvEVrr75ifXzP/VsVpZ0P9VPbmv0Z3RKTDm6mKKZlljgk+1T1tC1WT33j/Uq6ethn
-	 U0smBQGcpEkc3kwr2HdOIa5ESoa59PqXw4GGpejuaZmhXLbVf7TO8OLDLQnKZBzckb
-	 8JGCLVT8B0+AQ==
-Date: Thu, 23 Oct 2025 15:45:47 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Randolph Lin <randolph@andestech.com>
-Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	jingoohan1@gmail.com, mani@kernel.org, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org, alex@ghiti.fr,
-	aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
-	ben717@andestech.com, inochiama@gmail.com,
-	thippeswamy.havalige@amd.com, namcao@linutronix.de,
-	shradha.t@samsung.com, pjw@kernel.org, randolph.sklin@gmail.com,
-	tim609@andestech.com
-Subject: Re: [PATCH v9 0/4] Add support for Andes Qilai SoC PCIe controller
-Message-ID: <20251023204547.GA1314904@bhelgaas>
+	Thu, 23 Oct 2025 20:19:30 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-428564f8d16so728113f8f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Oct 2025 14:14:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761254093; x=1761858893; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=z6sEiHIDuaPc1r9BapkeRLwxlBj8uKP+Q15MeH29iBY=;
+        b=AOiSM1X3ScYZBNIeIckcc/m0pZJsuSlGDyEMWzRijc5O11NQzzkfnJjJ9JTR0oRios
+         6wsP+ZxuWMz0l/fXY8e+9GmxB9Z8JpthjUMwfC6fLoDA+6sMz2isCwgL8SFImSy45dBJ
+         6HLFTBkB0JTGAh8ZKCReDcIH+vyiT6Ok0DLjZOsHxlyboCH5lHH5gj6+9NOtSJLqBN0U
+         5mlCRWZrFSm2vkFeO070J9adbb/U1PV8mpCK8+YytzqfUdhjeOTq8vf8LAE+kD560OQa
+         fPyTR3fuDQe0VX6AqAwoLJSkk9PFszz35ksQpQjNPAJasELMifJmOO9ySFX5rf3rzKEH
+         5Vaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761254093; x=1761858893;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=z6sEiHIDuaPc1r9BapkeRLwxlBj8uKP+Q15MeH29iBY=;
+        b=I5oNzPCSkedM/bQwDROP48XspCec6+q7OKx/+B6DCD0GEr9Bme1vR9FTd98I28MdT5
+         a0oYf3O24kA8agdawd7EplQfnN9N1vyrd6WR2Vnc9Hi6tBYEvJl78DbWW33hRkdeheS9
+         s7lX2pyyXZY5312fSQxB7SybsVDCnJCPe6E9wqNjLtdmpFOCKX1avZZLrpW4dz+FuDyQ
+         oY3Cd5kPFSFD++r1u/SyF8P4DiXWk3zcY9rbYXR8dDIYiiC/BiIT8Az3K5x/qNQAlXvo
+         FHTPdXzLBCXCVkrZ2W1VmLoT4RwMB+upmIx9P1V/oVRI/CQB6MA3zjebkW84mL909sSf
+         +fVg==
+X-Forwarded-Encrypted: i=1; AJvYcCVhT+XmUb1wSOQbkGH/NUp+FDla+pgXPOa5hoQStN4bMTVXokaw1KZLMhLALhe2BYZMTt6QG3/dgrWbaw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/skLSk9Aa0abozEjwaf109n0B0u30k7osC62z00oaglAz5XfO
+	b7OHvPmouS6NWgLXsaaB0mHLAVR7SQVHsWbq7j91aXR3KSwwxQMR8U+R
+X-Gm-Gg: ASbGnct0a2SCvEzQEBc8CHJs/UPenqAKo7rVIjvjzsIaxvNHAaYbERfm8uXNjTbZEjA
+	vsEqgrmIeD81KY382YHUl6plLOoIX7wvzKe+RAf68MqQs+jVOrBBg1X9g8oO7Dea2ASImqHXoex
+	ZjKhBVG6SaRzF8Ag9isYTLrpbetQovj8NE3wm6HupuZ15tZgwXv+F2++TEWOFXfwzwXoQxicRib
+	6QAeiIJWx7Us2K6ZSX+s6f5lh1u1PtWZ0pvmi7XqUnX7SCVTOOHKXRQOf9EP/BqcWd/3Lv1kn2+
+	BHkJRPXyKQo36igG82WcNQbkyaaVqFh0LLHf5+x+1dHw6jxNIqoLjZ2VdxALtNIgzJ/wRFV01fl
+	dI5lKcrlS2CKD2/1CfRQO7UzZjO+L0nkH1rXEbQRGCnuU85rH9UAaBn+MtGhMFSmaGC3egoYaji
+	R7R9amBomwRabeP2A2iPV5jw+i/zyvnn5zQfyMdS27ug==
+X-Google-Smtp-Source: AGHT+IGk8eEDWy3Lb1qhGeYZ8N0urG/YCIu8xY7+WZCUmyVKdYxjr9Zc6A6l5BFcgm2g7Vw9SfAVXA==
+X-Received: by 2002:a05:6000:1446:b0:427:374:d91e with SMTP id ffacd0b85a97d-4298f545550mr248975f8f.11.1761254093423;
+        Thu, 23 Oct 2025 14:14:53 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429897ff3f5sm5951290f8f.22.2025.10.23.14.14.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Oct 2025 14:14:53 -0700 (PDT)
+Date: Thu, 23 Oct 2025 22:14:50 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, LKML
+ <linux-kernel@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>, kernel test robot
+ <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org, Madhavan Srinivasan
+ <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
+ Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
+ linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Heiko
+ Carstens <hca@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ linux-s390@vger.kernel.org, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Andrew Cooper
+ <andrew.cooper3@citrix.com>, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
+ Palix <nicolas.palix@imag.fr>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V4 10/12] futex: Convert to scoped user access
+Message-ID: <20251023221450.1303003d@pumpkin>
+In-Reply-To: <CAHk-=wjoQvKpfB4X0ftqM0P0kzaZxor7C1JBC5PrLPY-ca=fnA@mail.gmail.com>
+References: <20251022102427.400699796@linutronix.de>
+	<20251022103112.478876605@linutronix.de>
+	<CAHk-=wgLAJuJ8SP8NiSGbXJQMdxiPkBN32EvAy9R8kCnva4dfg@mail.gmail.com>
+	<873479xxtu.ffs@tglx>
+	<CAHk-=wjoQvKpfB4X0ftqM0P0kzaZxor7C1JBC5PrLPY-ca=fnA@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251023120933.2427946-1-randolph@andestech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251023_211929_229877_60BD1E81 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,41 +135,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 08:09:29PM +0800, Randolph Lin wrote:
-> Add support for Andes Qilai SoC PCIe controller
+On Thu, 23 Oct 2025 09:26:12 -1000
+Linus Torvalds <torvalds@linux-foundation.org> wrote:
+
+> On Thu, 23 Oct 2025 at 08:44, Thomas Gleixner <tglx@linutronix.de> wrote:
+> >
+> > But as you said out-of-line function call it occured to me that these
+> > helpers might be just named get/put_user_inline(). Hmm?  
 > 
-> These patches introduce driver support for the PCIe controller on the
-> Andes Qilai SoC.
+> Yeah, with a comment that clearly says "you need to have actual
+> performance numbers for why this needs to be inlined" for people to
+> use it.
 
-> Randolph Lin (4):
->   dt-bindings: PCI: Add Andes QiLai PCIe support
->   riscv: dts: andes: Add PCIe node into the QiLai SoC
->   PCI: andes: Add Andes QiLai SoC PCIe host driver support
->   MAINTAINERS: Add maintainers for Andes QiLai PCIe driver
+Avoiding an extra clac/stac pair for two accesses might be enough.
+But for a single access it might be hard to justify.
 
-I wonder if you should use "qilai" instead of "andes" as the tag,
-e.g.,
+(Even if 'return' instructions are horribly painful.
+Although anyone chasing performance is probably using a local system
+and just disables all that 'stuff'.)
 
-  riscv: dts: qilai: Add ...
-  PCI: qilai: Add Andes QiLai ...
-
-in case Andes ever makes another SoC with a different product name.
-
-No need to repost for this; just let us know your thoughts.
-
->  .../bindings/pci/andestech,qilai-pcie.yaml    |  86 ++++++++
->  MAINTAINERS                                   |   7 +
->  arch/riscv/boot/dts/andes/qilai.dtsi          | 106 ++++++++++
->  drivers/pci/controller/dwc/Kconfig            |  13 ++
->  drivers/pci/controller/dwc/Makefile           |   1 +
->  drivers/pci/controller/dwc/pcie-andes-qilai.c | 198 ++++++++++++++++++
->  6 files changed, 411 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
->  create mode 100644 drivers/pci/controller/dwc/pcie-andes-qilai.c
 > 
-> -- 
-> 2.34.1
-> 
+>            Linus
+
 
 _______________________________________________
 linux-riscv mailing list
