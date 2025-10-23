@@ -4,56 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB6F6CCD1BC
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 11:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BB1CCD1BC
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 12:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eTi9egJT06DW9zWfcz8WUV+G4eNCDFxudGILH8Y/P0w=; b=XIAgfXve6o72gv
-	NNaSzh85WzRdpVHhuNUFCyZE5PCgOA1tkvlD5dqSPtFdQ6edJLBvK5OxcBarJqxI3S+sCoWDys+tj
-	AN5NqKTAY+/UbXLrq7+qfeS+zP6oRcU8YC0PbBnb+AJW2qZSWtl2Kih7BspzSvxyS69mESzhZifM4
-	fpc2dqI7tWR4fWatpJe4bGzMUX0QO2YfaiXbndmI2KEj47EiiQgX4ehyeeaOp1jpONNAEVW+uls6q
-	ey1vGgz2U9t0Y3rg1xwi3SOanpf98oLqIIRgWySvUTUWEAQC6/9LtjUMJOTJL032fpwIjV7Nw6Niq
-	xpifLOXkYSWD73yVjSTw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Q8sbtodGWUT6Oj/wT4xvSZZZxe+6QH5xo+hDRvx9hD0=; b=EG4gLJLTtOpqLc
+	G4lgqY34MpF1glhzJiBahlpZAwcdVW/YAWUpICDk/RbROXfEpvaTUgI1rcQa/ifFCAw+M+BBcU05L
+	ODnJmaTPch0DJjagfJOpxv97ZC68+BC+zHHv3bY9dw4c+TcfPMoPlrAAiPkpb63hRhi4pq4WkdDBa
+	gkZPThdyVUM58YW1XiXtxUHd3MurheBSILqPsnMYeUjiGlpXzoxlOZ/CoJDrywKpBsn6MGo0rToPH
+	NdD96iR5ai8Prp9ti5Ib4ST3AbnRaLFSJXifpIQwLcOsp72K0RW10kKPW9Ljrla05GsALeeITmVNe
+	jyj9dxbDJAA/PC15E3ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBttQ-000000069RO-3rlY;
-	Thu, 23 Oct 2025 11:54:08 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1vBuMj-00000006EXq-3xuS;
+	Thu, 23 Oct 2025 12:24:25 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBttO-000000069QQ-0AIa
+	id 1vBuMh-00000006EWn-1LOe
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Oct 2025 11:54:07 +0000
-Received: from [192.168.2.54] (unknown [143.105.117.17])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 5C752B220A1E;
-	Thu, 23 Oct 2025 13:53:56 +0200 (CEST)
-Message-ID: <eaa5347b-af52-4de3-be58-f7b932c8fe01@freeshell.de>
-Date: Thu, 23 Oct 2025 04:53:53 -0700
+	Thu, 23 Oct 2025 12:24:24 +0000
+Received: from Atcsqr.andestech.com (localhost [127.0.0.2] (may be forged))
+	by Atcsqr.andestech.com with ESMTP id 59NCCt40043245
+	for <linux-riscv@lists.infradead.org>; Thu, 23 Oct 2025 20:12:55 +0800 (+08)
+	(envelope-from randolph@andestech.com)
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 59NC9fwl039374
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 23 Oct 2025 20:09:41 +0800 (+08)
+	(envelope-from randolph@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Thu, 23 Oct 2025
+ 20:09:41 +0800
+From: Randolph Lin <randolph@andestech.com>
+To: <linux-kernel@vger.kernel.org>
+CC: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <jingoohan1@gmail.com>,
+        <mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <alex@ghiti.fr>, <aou@eecs.berkeley.edu>,
+        <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+        <ben717@andestech.com>, <inochiama@gmail.com>,
+        <thippeswamy.havalige@amd.com>, <namcao@linutronix.de>,
+        <shradha.t@samsung.com>, <pjw@kernel.org>, <randolph.sklin@gmail.com>,
+        <tim609@andestech.com>, Randolph Lin <randolph@andestech.com>
+Subject: [PATCH v9 0/4] Add support for Andes Qilai SoC PCIe controller
+Date: Thu, 23 Oct 2025 20:09:29 +0800
+Message-ID: <20251023120933.2427946-1-randolph@andestech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] riscv: dts: spacemit: add MusePi Pro board device
- tree
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Yangyu Chen <cyy@cyyself.name>,
- Paul Walmsley <pjw@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20251023-k1-musepi-pro-dts-v4-0-01836303e10f@linux.spacemit.com>
- <20251023-k1-musepi-pro-dts-v4-2-01836303e10f@linux.spacemit.com>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <20251023-k1-musepi-pro-dts-v4-2-01836303e10f@linux.spacemit.com>
+X-Originating-IP: [10.0.15.173]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 59NCCt40043245
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_045406_229100_E2422EBD 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20251023_052423_682659_8BA72254 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,86 +74,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTAvMjMvMjUgMDA6MjgsIFRyb3kgTWl0Y2hlbGwgd3JvdGU6Cj4gQWRkIGluaXRpYWwgZGV2
-aWNlIHRyZWUgc3VwcG9ydCBmb3IgdGhlIE11c2VQaSBQcm8gYm9hcmQgWzFdLgo+IFRoZSBib2Fy
-ZCBpcyB1c2luZyB0aGUgU3BhY2VtaVQgSzEvTTEgU29DLgo+IAo+IFRoaXMgZGV2aWNlIHRyZWUg
-aXMgYWRhcHRlZCBmcm9tIHRoZSBTcGFjZW1pVCB2ZW5kb3IgdHJlZSBbMl0gYW5kCj4gZW5hYmxl
-cyBiYXNpYyBib2FyZCBmdW5jdGlvbmFsaXR5LCBpbmNsdWRpbmcgVUFSVCBjb25zb2xlLCBMRUQs
-IGVNTUMsCj4gRXRoZXJuZXQsIGFuZCBQRE1BLgo+IAo+IExpbms6IGh0dHBzOi8vZGV2ZWxvcGVy
-LnNwYWNlbWl0LmNvbS9kb2N1bWVudGF0aW9uP3Rva2VuPVlKdGR3bnZ2VmlQVmNta29QRHBjdndm
-Vm5yaCZ0eXBlPXBkZiBbMV0KPiBMaW5rOiBodHRwczovL2dpdGVlLmNvbS9iaWFuYnUtbGludXgv
-bGludXgtNi42L2Jsb2IvazEtYmwtdjIuMi55L2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQv
-azEteF9NVVNFLVBpLVByby5kdHMgWzJdCj4gU2lnbmVkLW9mZi1ieTogVHJveSBNaXRjaGVsbCA8
-dHJveS5taXRjaGVsbEBsaW51eC5zcGFjZW1pdC5jb20+Cj4gLS0tCj4gQ2hhbmdlbG9nIGluIHY0
-Ogo+IC0gbW9kaWZ5IGNvbW1pdCBtZXNzYWdlCj4gLSBhZGQgU3BhY2VtaVQgY29weXJpZ2h0Cj4g
-LSBMaW5rIHRvIHYzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNTEwMTctazEtbXVz
-ZXBpLXByby1kdHMtdjMtMi00MGIwNTQ5MTY5OWZAbGludXguc3BhY2VtaXQuY29tLwo+IAo+IENo
-YW5nZWxvZyBpbiB2MzoKPiAtIHNvcnQgZHRzIG5vZGUKPiAtIGFkZCBldGhlcm5ldCBhbGlhcwo+
-IC0gYWRkIGVtbWMsIHBkbWEsIGFuZCBldGgwIG5vZGUgKGEgc3F1YXNoIG9mIHBhdGNoZXMgM+KA
-kzUgZnJvbSB2MikKPiAtIExpbmsgdG8gdjI6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8y
-MDI1MTAxMC1rMS1tdXNlcGktcHJvLWR0cy12Mi0yLTZlMWI0OTFmNmYzZUBsaW51eC5zcGFjZW1p
-dC5jb20vCj4gCj4gQ2hhbmdlbG9nIGluIHYyOgo+IC0gbW9kaWZ5IGNvbW1pdCBtZXNzYWdlCj4g
-LSBzd2FwIHBpbmN0cmwtbmFtZXMgYW5kIHBpbmN0cmwtMCBwcm9wZXJ0aWVzIGluIHVhcnQwIG5v
-ZGUKPiAtIHJlbmFtZSBtb2RlbDogIk11c2VQaSBQcm8iIC0+ICJTcGFjZW1pVCBNdXNlUGkgUHJv
-Igo+IC0ga2VlcCB0aGUgZHRiLSQoQ09ORklHX0FSQ0hfU1BBQ0VNSVQpIGVudHJpZXMgaW4gYWxw
-aGFiZXRpY2FsIG9yZGVyCj4gLSBMaW5rIHRvIHYxOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9h
-bGwvMjAyNTA5MjgtazEtbXVzZXBpLXByby1kdHMtdjEtMi01ZWZjY2EwY2UzYWVAbGludXguc3Bh
-Y2VtaXQuY29tLwo+IC0tLQo+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L01ha2VmaWxl
-ICAgICAgICAgIHwgIDEgKwo+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLW11c2Vw
-aS1wcm8uZHRzIHwgNzkgKysrKysrKysrKysrKysrKysrKysrKysrKysKPiAgMiBmaWxlcyBjaGFu
-Z2VkLCA4MCBpbnNlcnRpb25zKCspCj4gCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9k
-dHMvc3BhY2VtaXQvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L01ha2Vm
-aWxlCj4gaW5kZXggMTUyODMyNjQ0ODcwNjI0ZDhmZDc3Njg0ZWYzM2FkZGI0MmIwYmFmMy4uOTQy
-ZWNiMzhiZWEwMzRlZjVmYmYyY2VmNzRlNjgyZWUwYjZhZDhmNCAxMDA2NDQKPiAtLS0gYS9hcmNo
-L3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L01ha2VmaWxlCj4gKysrIGIvYXJjaC9yaXNjdi9ib290
-L2R0cy9zcGFjZW1pdC9NYWtlZmlsZQo+IEBAIC0xLDQgKzEsNSBAQAo+ICAjIFNQRFgtTGljZW5z
-ZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4gIGR0Yi0kKENPTkZJR19BUkNIX1NQQUNFTUlUKSArPSBr
-MS1iYW5hbmFwaS1mMy5kdGIKPiAgZHRiLSQoQ09ORklHX0FSQ0hfU1BBQ0VNSVQpICs9IGsxLW1p
-bGt2LWp1cGl0ZXIuZHRiCj4gK2R0Yi0kKENPTkZJR19BUkNIX1NQQUNFTUlUKSArPSBrMS1tdXNl
-cGktcHJvLmR0Ygo+ICBkdGItJChDT05GSUdfQVJDSF9TUEFDRU1JVCkgKz0gazEtb3JhbmdlcGkt
-cnYyLmR0Ygo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLW11
-c2VwaS1wcm8uZHRzIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1tdXNlcGktcHJv
-LmR0cwo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwMDAwMDAwMDAw
-MDAwMDAwMDAwMDAwMDAwMDAwMC4uMjllMzMzYjY3MGNmMGE1YzRlZDg1MjY2ODQ2MGRiNDc1Yjlj
-NDRjYgo+IC0tLSAvZGV2L251bGwKPiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0
-L2sxLW11c2VwaS1wcm8uZHRzCj4gQEAgLTAsMCArMSw3OSBAQAo+ICsvLyBTUERYLUxpY2Vuc2Ut
-SWRlbnRpZmllcjogKEdQTC0yLjAgT1IgTUlUKQo+ICsvKgo+ICsgKiBDb3B5cmlnaHQgKEMpIDIw
-MjQgWWFuZ3l1IENoZW4gPGN5eUBjeXlzZWxmLm5hbWU+Cj4gKyAqIENvcHlyaWdodCAoQykgMjAy
-NSBTcGFjZW1pVCwgSW5jCj4gKyAqIENvcHlyaWdodCAoQykgMjAyNSBUcm95IE1pdGNoZWxsIDx0
-cm95Lm1pdGNoZWxsQGxpbnV4LnNwYWNlbWl0LmNvbT4KPiArICovCj4gKwo+ICsvZHRzLXYxLzsK
-PiArCj4gKyNpbmNsdWRlICJrMS5kdHNpIgo+ICsjaW5jbHVkZSAiazEtcGluY3RybC5kdHNpIgo+
-ICsKPiArLyB7Cj4gKwltb2RlbCA9ICJTcGFjZW1pVCBNdXNlUGkgUHJvIjsKPiArCWNvbXBhdGli
-bGUgPSAic3BhY2VtaXQsbXVzZXBpLXBybyIsICJzcGFjZW1pdCxrMSI7Cj4gKwo+ICsJYWxpYXNl
-cyB7Cj4gKwkJZXRoZXJuZXQwID0gJmV0aDA7Cj4gKwkJc2VyaWFsMCA9ICZ1YXJ0MDsKPiArCX07
-Cj4gKwo+ICsJY2hvc2VuIHsKPiArCQlzdGRvdXQtcGF0aCA9ICJzZXJpYWwwIjsKPiArCX07Cj4g
-Kwo+ICsJbGVkcyB7Cj4gKwkJY29tcGF0aWJsZSA9ICJncGlvLWxlZHMiOwo+ICsKPiArCQlsZWQx
-IHsKPiArCQkJbGFiZWwgPSAic3lzLWxlZCI7Cj4gKwkJCWdwaW9zID0gPCZncGlvIEsxX0dQSU8o
-OTYpIEdQSU9fQUNUSVZFX0hJR0g+Owo+ICsJCQlsaW51eCxkZWZhdWx0LXRyaWdnZXIgPSAiaGVh
-cnRiZWF0IjsKPiArCQkJZGVmYXVsdC1zdGF0ZSA9ICJvbiI7Cj4gKwkJfTsKPiArCX07Cj4gK307
-Cj4gKwo+ICsmZW1tYyB7Cj4gKwlidXMtd2lkdGggPSA8OD47Cj4gKwltbWMtaHM0MDAtMV84djsK
-PiArCW1tYy1oczQwMC1lbmhhbmNlZC1zdHJvYmU7Cj4gKwlub24tcmVtb3ZhYmxlOwo+ICsJbm8t
-c2Q7Cj4gKwluby1zZGlvOwoKSSBkb3VidCB2ZXJ5IG11Y2ggdGhhdCAnbm8tc2QnIG9yICduby1z
-ZGlvJyBhcmUgYXBwcm9wcmlhdGUgaGVyZS4gVGhlc2UKYXJlIG5vdCBnZW5lcmFsIHByb3BlcnRp
-ZXMsIHRoZXkgYXJlIHVzZWZ1bCBvbmx5IGZvciBzcGVjaWZpYwp3b3JrYXJvdW5kcyBvZiBoYXJk
-d2FyZSB0aGF0IHJlYWN0cyBiYWRseSB0byBjb21tYW5kcy4gSXMgdGhlIGhhcmR3YXJlCmJyb2tl
-biB0aGF0IGl0IG5lZWRzIHRoZXNlIHByb3BlcnRpZXM/CgotRQoKPiArCXN0YXR1cyA9ICJva2F5
-IjsKPiArfTsKPiArCj4gKyZldGgwIHsKPiArCXBoeS1oYW5kbGUgPSA8JnJnbWlpMD47Cj4gKwlw
-aHktbW9kZSA9ICJyZ21paS1pZCI7Cj4gKwlwaW5jdHJsLTAgPSA8JmdtYWMwX2NmZz47Cj4gKwlw
-aW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+ICsJcngtaW50ZXJuYWwtZGVsYXktcHMgPSA8MD47
-Cj4gKwl0eC1pbnRlcm5hbC1kZWxheS1wcyA9IDwwPjsKPiArCXN0YXR1cyA9ICJva2F5IjsKPiAr
-Cj4gKwltZGlvLWJ1cyB7Cj4gKwkJI2FkZHJlc3MtY2VsbHMgPSA8MHgxPjsKPiArCQkjc2l6ZS1j
-ZWxscyA9IDwweDA+Owo+ICsKPiArCQlyZXNldC1ncGlvcyA9IDwmZ3BpbyBLMV9HUElPKDExMCkg
-R1BJT19BQ1RJVkVfTE9XPjsKPiArCQlyZXNldC1kZWxheS11cyA9IDwxMDAwMD47Cj4gKwkJcmVz
-ZXQtcG9zdC1kZWxheS11cyA9IDwxMDAwMDA+Owo+ICsKPiArCQlyZ21paTA6IHBoeUAxIHsKPiAr
-CQkJcmVnID0gPDB4MT47Cj4gKwkJfTsKPiArCX07Cj4gK307Cj4gKwo+ICsmcGRtYSB7Cj4gKwlz
-dGF0dXMgPSAib2theSI7Cj4gK307Cj4gKwo+ICsmdWFydDAgewo+ICsJcGluY3RybC0wID0gPCZ1
-YXJ0MF8yX2NmZz47Cj4gKwlwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+ICsJc3RhdHVzID0g
-Im9rYXkiOwo+ICt9Owo+IAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+Add support for Andes Qilai SoC PCIe controller
+
+These patches introduce driver support for the PCIe controller on the
+Andes Qilai SoC.
+
+Signed-off-by: Randolph Lin <randolph@andestech.com>
+
+---
+Changes in v9:
+- Drop the patch that adjusts the number of OB/IB windows.
+- Made minor adjustments based on the reviewer's suggestions.
+
+Changes in v8:
+- Fix the compile error reported by the kernel test robot.
+
+Changes in v7:
+- Remove unnecessary nodes and property in DTS bindings
+
+Changes in v6:
+- Fix typo in the logic for adjusting the number of OB/IB windows
+
+Changes in v5:
+- Add support to adjust the number of OB/IB windows in the glue driver.
+- Fix the number of OB windows in the Qilai PCIe driver.
+- Remove meaningless properties from the device tree.
+- Made minor adjustments based on the reviewer's suggestions.
+
+Changes in v4:
+- Add .post_init callback for enabling IOCP cache.  
+- Sort by vender name in Kconfig 
+- Using PROBE_PREFER_ASYNCHRONOUS as default probe type.
+- Made minor adjustments based on the reviewer's suggestions.
+
+Changes in v3:
+- Remove outbound ATU address range validation callback and logic.
+- Add logic to skip failed outbound iATU configuration and continue.
+- Using PROBE_PREFER_ASYNCHRONOUS as default probe type.
+- Made minor adjustments based on the reviewer's suggestions.
+
+Changes in v2:
+- Remove the patch that adds the dma-ranges property to the SoC node.
+- Add dma-ranges to the PCIe parent node bus node.
+- Refactor and rename outbound ATU address range validation callback and logic.
+- Use parent_bus_offset instead of cpu_addr_fixup().
+- Using PROBE_DEFAULT_STRATEGY as default probe type.
+- Made minor adjustments based on the reviewer's suggestions.
+
+Randolph Lin (4):
+  dt-bindings: PCI: Add Andes QiLai PCIe support
+  riscv: dts: andes: Add PCIe node into the QiLai SoC
+  PCI: andes: Add Andes QiLai SoC PCIe host driver support
+  MAINTAINERS: Add maintainers for Andes QiLai PCIe driver
+
+ .../bindings/pci/andestech,qilai-pcie.yaml    |  86 ++++++++
+ MAINTAINERS                                   |   7 +
+ arch/riscv/boot/dts/andes/qilai.dtsi          | 106 ++++++++++
+ drivers/pci/controller/dwc/Kconfig            |  13 ++
+ drivers/pci/controller/dwc/Makefile           |   1 +
+ drivers/pci/controller/dwc/pcie-andes-qilai.c | 198 ++++++++++++++++++
+ 6 files changed, 411 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
+ create mode 100644 drivers/pci/controller/dwc/pcie-andes-qilai.c
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
