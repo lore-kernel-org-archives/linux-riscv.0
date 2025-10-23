@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8FDCCD1AB
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 00:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 670A6CCD1BF
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 00:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,79 +13,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=a4ESmTU3EGTqbcl3zcQ6iDeU1tTmBwUzPT1bSUO6/sQ=; b=kEZlNRRopHkpyCYrnQ+0NlDg06
-	OLoczEnEhLVVD22v+oWhCTgNdo5Z9NNQO6zBxhnlbNPV6MjzOMlAtIyAbA5ps4HpbWEimHpV3wxUt
-	mnWihoAO9lzBZhn4IkATNYt/mavA5HELKZ9WD0FcjAatzcPWpfg2YYXHGm6lHaoGVkqztK317q++b
-	bwXSDbr4OlW50voKPCPEBdFhBnMe+Ii1ZGm3tgHXekKWDa+SH+eQetDqPzaWwVH+HQjTG2wtg2Tmj
-	1quyujzG+HLBtNzCzPWwCX32wwIWum2Y00MKl4YGFOIKoNGMDHEEfqEXj+NZbmrCzzF/542bweYRO
-	39YcTOcQ==;
+	bh=Bz6FqRQ/P+1he4wLcaPS3AVX+zBnKDykCnedPWU/8aw=; b=rGuX7TpBTOpAmeyoXcyQ+p3olS
+	rugiSpifUx+Y5GInP/RFO+UJSwol4mwA9mp9S/YNiZ/Iy0Yo+1DpkCP7ABZc5BVMgWeoJTcfUDFes
+	tTlILTUNo87yDSABCypGzoaP9/w8v6qhMIZBhvdbmxqoRIWy7jZevZ8SjWIWSxbV78cdHGVVn0vIh
+	fHOxZyKdl4tTMoj0Iln0tQI5E3BSfx+Kxdl3uWJdrl8w3xbiQcXf2M3LJ7QeOjtQD/vS2Kgoh0d0T
+	hwsRl/9yNByGG0uuQ1ZzB4KP+wlAWl/JvPB8eDmgYHdp5hYDUqGp9JfJCr3nLMX3A/8npThE/fGhI
+	nmL6wVEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBipx-00000004d3h-1JgY;
-	Thu, 23 Oct 2025 00:05:49 +0000
+	id 1vBipu-00000004d2V-3jL8;
+	Thu, 23 Oct 2025 00:05:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBipv-00000004d2W-2UMr
+	id 1vBipu-00000004d27-1D8U
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 23 Oct 2025 00:05:47 +0000
+	Thu, 23 Oct 2025 00:05:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=lzZENSWUwrBhAA1CxL4i/AxbZEWI19mQXc700MJvOfI=; b=j/5zBLue1pJHdvOSiXcjwDclE1
-	O4gP+tIdtUpuwuxj0ulot7SMGje33U36meOHvM/NOzj6Rm9SnM5DaXyaZy86qv2O0y+uFk2h14t4l
-	xBVoDhbDwY2i/IEMyyD1VIEy5p5GJUFqqPiqJdS/t0fBaQ33JRJ1a4csP/27FXuYy+/MWxCrv7SRf
-	QbGLXLDQICKgNytUDWxqjzZjdcfAL0Z6Ou0BVVp+dIWbOZApuW55vA+9w22fr82ckRUA+ezT7uHF6
-	SmXfrYJCd3ZKbStKV2fb/S3d8oRGpHkxM62m7IotcEn5WJbGLcuMSgT0NthbTqLiOcwQGKcZx7tci
-	0+O/152A==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=W/MB8s8c3Ez/o0yr7eHWLvYpTDaL3lC15NeH1OZAOxs=; b=O+Fndi6Ifklvwigq2INTCJlcA7
+	gfr9vESM7AnCncYme+LFggWTQ0ipo6VCuLQtQns+L8nM1Y4dSRWxtxTyF9NAnsRuPSXp1vYZ4eHd9
+	jsdKwPYzHSWBN0IbytupIRIeQCB/KIyxBKdxMoSelf5EMBIqURPuQcRhtRptJoJle6zAATlDsmbmQ
+	o2vZwzVvW87OIGlNfWmTO901gLYTeks2Uvm8G1YfJEi/pZRAtxiRoqNbuASKj1EIn2ox0/dnhhJu9
+	clIjPLg76kwPzp0sf1bgnpc43me8R61h9NCmwBNMNRxckbTYK5YpxW9A1Ba3M1wJgijI2F/5zmyO+
+	JdWLp0kg==;
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBhyB-00000000vke-1szn
+	id 1vBhyA-00000000vk0-1Th3
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Oct 2025 23:10:18 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-33be4db19cfso423123a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Oct 2025 17:05:42 -0700 (PDT)
+	Wed, 22 Oct 2025 23:10:17 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b6ce25bea3eso80668a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Oct 2025 17:05:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761177941; x=1761782741; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lzZENSWUwrBhAA1CxL4i/AxbZEWI19mQXc700MJvOfI=;
-        b=B08GLFdpUb36vLNEWdJ+7T9UxKWH1XSRXgmRKpl2ZIIT6wg/rt17WmrFkSsePlUIzK
-         YalxCr9G6e6hP9SuoJwViLsMcpR4aIPBayZffmMejCBLZtkDxRDHQn+YTAOCKqz57QqL
-         gZ90da9RHoGyR7Ecf2pHQZUoVIpLq/8frpjNX0mLPq2o1l6ysPDQZV1kaJyPVRiOgxfs
-         7H+zx2RvwTlVl5MH2asGMaa33By0Yrxvv2fFoANtU7zMF2rn+g5fk0lUcbyRDcMzGgIA
-         IDV9eemyo062TR8/T3i3HhJw8t9uzcv50tDLeU+N+yGGEZFTMQ2ylSejAcJXzww0ZkhV
-         LHoA==
+        d=google.com; s=20230601; t=1761177939; x=1761782739; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=W/MB8s8c3Ez/o0yr7eHWLvYpTDaL3lC15NeH1OZAOxs=;
+        b=ZJBGNjiXo9SlTXlPYyVGpxOFRAxbC4kUK1D9LAxdoIZtW2WQdtfYiuJ7kwGkAVyzks
+         jHPzshZxj+OfBQ/8e5hbHOGOEx+XEJwABcQl8RD3PAZQo+Jj/d3h0ZSDLx/VUp6XD3R8
+         mx0U9r93IvKG70v22Uv7cX/w8WH4djJxqnHp+c14WhnMPxk+kMhbptBItmeK3peczR2D
+         i1IYOT1zp4ztZYAUuwNAoJ8WX6hiXgvsS7N5pOfWV0jFhvtRFHnNE6l7ZYcaU2OhjuB4
+         MAQcPGQ8mK+W5Y7+u9i/gDTTNfB6l6YHaVTC2NKrcpw/stLgEV5yVJkX8wylKS/eB0jE
+         kA4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761177941; x=1761782741;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=lzZENSWUwrBhAA1CxL4i/AxbZEWI19mQXc700MJvOfI=;
-        b=EFYOC6sOjmGzggJyALgZ5umFq1F54fJ7Wh6FugnqyiZKP5IAOSiNrnoeQxvAImO5Wt
-         NORZnMp01XGdEJXR6AeQJf8UmkVBFJ8QTuJYHoPCZJWeBWi4KeQPq2xTzo5QM5XUYgEH
-         NCVp5NHOVQ0xgQu3ONh2RPJOQjZ3T0vLrg9dSmxjzYw+EmHnq+rTCHnsVaQ2Rip1/kXG
-         jPm9HIW3fnjR2z2FziTbIdra5Xn64Wxki+gGW13A0H3XnbKECELfEvXXWBPcERpSMPZt
-         CF/+3Qr/i2DY44Hz9RWU0lXsoQI+WeWmyV9K27iH4Veescj6fkep/fMWC0XM5nkDKmU6
-         5EbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXbwzhFFrFEjX5K0h5d8wn7mrJP9AkFlrISz9ySDILpfE+aE4F3aMkuGwc+E7vYuJoWR8bR0w3kguRR1Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+7sjv3EpTVoeAt5S+e2K56Li+cstyIB3PkJRYKaLTpVNLFHod
-	WuGohK9MwW1cPs51bZS1A0FA00JVPDRondyhT7ied2MIiwQgyu4dd3dEoXPJRZP/258n3PYCY+3
-	b3rsWUA==
-X-Google-Smtp-Source: AGHT+IGd6U9IlxxZkQUE9in6Tsw30xR2bnzy7O0+0w49jme5smP7pCaW5imecIRz7OgZNwNV7y77C8X4JZs=
-X-Received: from pjbco18.prod.google.com ([2002:a17:90a:fe92:b0:33b:51fe:1a83])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4c05:b0:339:ec9c:b275
- with SMTP id 98e67ed59e1d1-33bcf84e181mr33310671a91.6.1761177941265; Wed, 22
- Oct 2025 17:05:41 -0700 (PDT)
-Date: Thu, 23 Oct 2025 00:04:44 +0000
+        d=1e100.net; s=20230601; t=1761177939; x=1761782739;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=W/MB8s8c3Ez/o0yr7eHWLvYpTDaL3lC15NeH1OZAOxs=;
+        b=CTxCVPqSMATHxNzXKTkEnPHB2EpRPr73q76YaELN9F/QiLKiZq5UuqbxbXLfmg/2JU
+         a/3fjldab8pliqbrcKpHlZquBv1xM1uUjzMF/ZiPx9pkV1ZsgmM4aYFqO/dSHERKAoKU
+         TMYxd0mkL8q0MmhZuhGSr2bC85KixSb+KkMCuaZDLIsnYAhOsvHZNEIkMY6rKHiZfZWc
+         JKmHzA6j5IpisZLklPhmqaYbfz1AJb6BpTMUs+wo5oPtnnEi3uGTsXpFiADupZFR0TR7
+         2ucgheHaHCa7SKQAW+cNc6iZ4Rzkr+74hwnfhwHHEkgm6WQAQi847HJeUsIOO2gPzGzA
+         3PNg==
+X-Forwarded-Encrypted: i=1; AJvYcCUbn7GyiBLqn9/uHFBF0GmlU8aMRTZIoDxtWyt+RWGe+zjR8qo41F7F4OAEYXFmSEk6YVNB6cCS6XZjqQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgscYZwty2ubt5LU1Q6lClj+3EMWXKqKXO0hn+PCRkF07SmMAI
+	J9QidUxuiwKcgKJ5DclkiKagUw99MW4FE0iXpOo5wri3Du5kJHPByiG0rZ8Std56dpsakD2emLs
+	eMHzhFw==
+X-Google-Smtp-Source: AGHT+IHd943MEU/q3sfmeNkNkm5n04WovhTQk4e5Fqu5kHZgqjXBaWuFFpabxZxMuUt+TzoW6CCUrGaxrt8=
+X-Received: from pjbgk8.prod.google.com ([2002:a17:90b:1188:b0:32e:a549:83e3])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:4b0d:b0:250:643e:c947
+ with SMTP id d9443c01a7336-290ca30e401mr284211495ad.28.1761177939351; Wed, 22
+ Oct 2025 17:05:39 -0700 (PDT)
+Date: Thu, 23 Oct 2025 00:04:43 +0000
 In-Reply-To: <20251023000535.2897002-1-kuniyu@google.com>
 Mime-Version: 1.0
 References: <20251023000535.2897002-1-kuniyu@google.com>
 X-Mailer: git-send-email 2.51.1.814.gb8fa24458f-goog
-Message-ID: <20251023000535.2897002-3-kuniyu@google.com>
-Subject: [PATCH v1 2/2] epoll: Use __user_write_access_begin() and
- unsafe_put_user() in epoll_put_uevent().
+Message-ID: <20251023000535.2897002-2-kuniyu@google.com>
+Subject: [PATCH v1 1/2] uaccess: Add __user_write_access_begin().
 From: Kuniyuki Iwashima <kuniyu@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, 
@@ -99,8 +96,8 @@ Cc: Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgr
 	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_001015_581413_58EEA178 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20251023_001015_182967_7E4D391E 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,51 +109,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ZXBvbGxfcHV0X3VldmVudCgpIGNhbGxzIF9fcHV0X3VzZXIoKSB0d2ljZSwgd2hpY2ggYXJlIGlu
-bGluZWQKdG8gdHdvIGNhbGxzIG9mIG91dC1vZi1saW5lIGZ1bmN0aW9ucywgX19wdXRfdXNlcl9u
-b2NoZWNrXzQoKQphbmQgX19wdXRfdXNlcl9ub2NoZWNrXzgoKS4KCkJvdGggZnVuY3Rpb25zIHdy
-YXAgbW92IHdpdGggYSBzdGFjL2NsYWMgcGFpciwgd2hpY2ggaXMgZXhwZW5zaXZlCm9uIGFuIEFN
-RCBFUFlDIDdCMTIgNjQtQ29yZSBQcm9jZXNzb3IgcGxhdGZvcm0uCgogIF9fcHV0X3VzZXJfbm9j
-aGVja180ICAvcHJvYy9rY29yZSBbUGVyY2VudDogbG9jYWwgcGVyaW9kXQogIFBlcmNlbnQg4pSC
-CiAgICA4OS45MSDilIIgICAgICBzdGFjCiAgICAgMC4xOSDilIIgICAgICBtb3YgICVlYXgsKCVy
-Y3gpCiAgICAgMC4xNSDilIIgICAgICB4b3IgICVlY3gsJWVjeAogICAgIDkuNjkg4pSCICAgICAg
-Y2xhYwogICAgIDAuMDYg4pSCICAgIOKGkCByZXRxCgpUaGlzIHdhcyByZW1hcmthYmxlIHdoaWxl
-IHRlc3RpbmcgbmVwZXIvdGNwX3JyIHdpdGggMTAwMCBmbG93cyBwZXIKdGhyZWFkLgoKICBPdmVy
-aGVhZCAgU2hhcmVkIE8gIFN5bWJvbAogICAgMTAuMDglICBba2VybmVsXSAgW2tdIF9jb3B5X3Rv
-X2l0ZXIKICAgICA3LjEyJSAgW2tlcm5lbF0gIFtrXSBpcDZfb3V0cHV0CiAgICAgNi40MCUgIFtr
-ZXJuZWxdICBba10gc29ja19wb2xsCiAgICAgNS43MSUgIFtrZXJuZWxdICBba10gbW92ZV9hZGRy
-X3RvX3VzZXIKICAgICA0LjM5JSAgW2tlcm5lbF0gIFtrXSBfX3B1dF91c2VyX25vY2hlY2tfNAog
-ICAgIC4uLgogICAgIDEuMDYlICBba2VybmVsXSAgW2tdIGVwX3RyeV9zZW5kX2V2ZW50cwogICAg
-IC4uLiAgICAgICAgICAgICAgICAgIF4tIGVwb2xsX3B1dF91ZXZlbnQoKSB3YXMgaW5saW5lZAog
-ICAgIDAuNzglICBba2VybmVsXSAgW2tdIF9fcHV0X3VzZXJfbm9jaGVja184CgpVc2UgX191c2Vy
-X3dyaXRlX2FjY2Vzc19iZWdpbigpIGFuZCB1bnNhZmVfcHV0X3VzZXIoKSBpbgplcG9sbF9wdXRf
-dWV2ZW50KCkuCgpXZSBzZWUgMSUgaW1wcm92ZW1lbnQgb24gdGNwX3JyIHRocm91Z2hwdXQgYnkg
-anVzdCBzYXZpbmcgYSBzaW5nbGUKc3RhYy9jbGFjIHBhaXIuCgpBbm90aGVyIG9wdGlvbiB3b3Vs
-ZCBiZSB0byB1c2UgY2FuX2RvX21hc2tlZF91c2VyX2FjY2VzcygpCmFuZCBtYXNrZWRfdXNlcl9h
-Y2Nlc3NfYmVnaW4oKSwgYnV0IHdlIHNhdyB+NSUgcmVncmVzc2lvbiB3aXRoCnVubmVjZXNzYXJ5
-IDMgb3BlcmF0aW9ucyBmb3IgYWRkcmVzcyBtYXNraW5nLCB3aGljaCBpcyBhbHJlYWR5CmNoZWNr
-ZWQgYnkgZXBfY2hlY2tfcGFyYW1zKCkuCgpTdWdnZXN0ZWQtYnk6IEVyaWMgRHVtYXpldCA8ZWR1
-bWF6ZXRAZ29vZ2xlLmNvbT4KU2lnbmVkLW9mZi1ieTogS3VuaXl1a2kgSXdhc2hpbWEgPGt1bml5
-dUBnb29nbGUuY29tPgotLS0KIGluY2x1ZGUvbGludXgvZXZlbnRwb2xsLmggfCAxMyArKysrKysr
-Ky0tLS0tCiAxIGZpbGUgY2hhbmdlZCwgOCBpbnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQoK
-ZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvZXZlbnRwb2xsLmggYi9pbmNsdWRlL2xpbnV4L2V2
-ZW50cG9sbC5oCmluZGV4IGNjYjQ3OGViMTc0Yi4uZWZjMGFhMmQ0OTZmIDEwMDY0NAotLS0gYS9p
-bmNsdWRlL2xpbnV4L2V2ZW50cG9sbC5oCisrKyBiL2luY2x1ZGUvbGludXgvZXZlbnRwb2xsLmgK
-QEAgLTgyLDExICs4MiwxNCBAQCBzdGF0aWMgaW5saW5lIHN0cnVjdCBlcG9sbF9ldmVudCBfX3Vz
-ZXIgKgogZXBvbGxfcHV0X3VldmVudChfX3BvbGxfdCByZXZlbnRzLCBfX3U2NCBkYXRhLAogCQkg
-c3RydWN0IGVwb2xsX2V2ZW50IF9fdXNlciAqdWV2ZW50KQogewotCWlmIChfX3B1dF91c2VyKHJl
-dmVudHMsICZ1ZXZlbnQtPmV2ZW50cykgfHwKLQkgICAgX19wdXRfdXNlcihkYXRhLCAmdWV2ZW50
-LT5kYXRhKSkKLQkJcmV0dXJuIE5VTEw7Ci0KLQlyZXR1cm4gdWV2ZW50KzE7CisJX191c2VyX3dy
-aXRlX2FjY2Vzc19iZWdpbih1ZXZlbnQsIHNpemVvZigqdWV2ZW50KSk7CisJdW5zYWZlX3B1dF91
-c2VyKHJldmVudHMsICZ1ZXZlbnQtPmV2ZW50cywgZWZhdWx0KTsKKwl1bnNhZmVfcHV0X3VzZXIo
-ZGF0YSwgJnVldmVudC0+ZGF0YSwgZWZhdWx0KTsKKwl1c2VyX2FjY2Vzc19lbmQoKTsKKwlyZXR1
-cm4gdWV2ZW50ICsgMTsKK2VmYXVsdDoKKwl1c2VyX2FjY2Vzc19lbmQoKTsKKwlyZXR1cm4gTlVM
-TDsKIH0KICNlbmRpZgogCi0tIAoyLjUxLjEuODE0LmdiOGZhMjQ0NThmLWdvb2cKCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+In epoll_wait(2), ep_check_params() performs a bulk check for
+the passed user address:
+
+  if (!access_ok(evs, maxevents * sizeof(struct epoll_event)))
+
+And later, epoll_put_uevent() uses __put_user() twice to copy
+2 data into the region.
+
+unsafe_put_user() can be used to save a stac/clac pair, but
+masked_user_access_begin() or user_access_begin() introduces
+an unnecessary address masking or access_ok().
+
+Add a low-level helper for such a use case.
+
+Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+---
+ arch/arm64/include/asm/uaccess.h   |  1 +
+ arch/powerpc/include/asm/uaccess.h | 13 ++++++++++---
+ arch/riscv/include/asm/uaccess.h   |  1 +
+ arch/x86/include/asm/uaccess.h     |  1 +
+ include/linux/uaccess.h            |  1 +
+ 5 files changed, 14 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
+index 1aa4ecb73429..30726ce182cb 100644
+--- a/arch/arm64/include/asm/uaccess.h
++++ b/arch/arm64/include/asm/uaccess.h
+@@ -422,6 +422,7 @@ static __must_check __always_inline bool user_access_begin(const void __user *pt
+ }
+ #define user_access_begin(a,b)	user_access_begin(a,b)
+ #define user_access_end()	uaccess_ttbr0_disable()
++#define __user_write_access_begin(a,b)	uaccess_ttbr0_enable()
+ #define unsafe_put_user(x, ptr, label) \
+ 	__raw_put_mem("sttr", x, uaccess_mask_ptr(ptr), label, U)
+ #define unsafe_get_user(x, ptr, label) \
+diff --git a/arch/powerpc/include/asm/uaccess.h b/arch/powerpc/include/asm/uaccess.h
+index 4f5a46a77fa2..910bf469128d 100644
+--- a/arch/powerpc/include/asm/uaccess.h
++++ b/arch/powerpc/include/asm/uaccess.h
+@@ -437,15 +437,22 @@ user_read_access_begin(const void __user *ptr, size_t len)
+ #define user_read_access_begin	user_read_access_begin
+ #define user_read_access_end		prevent_current_read_from_user
+ 
++static __always_inline void
++__user_write_access_begin(const void __user *ptr, size_t len)
++{
++	might_fault();
++
++	allow_write_to_user((void __user *)ptr, len);
++}
++#define __user_write_access_begin	__user_write_access_begin
++
+ static __must_check __always_inline bool
+ user_write_access_begin(const void __user *ptr, size_t len)
+ {
+ 	if (unlikely(!access_ok(ptr, len)))
+ 		return false;
+ 
+-	might_fault();
+-
+-	allow_write_to_user((void __user *)ptr, len);
++	__user_write_access_begin(ptr, len);
+ 	return true;
+ }
+ #define user_write_access_begin	user_write_access_begin
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index f5f4f7f85543..9adc8f0dd1c8 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -452,6 +452,7 @@ static __must_check __always_inline bool user_access_begin(const void __user *pt
+ }
+ #define user_access_begin user_access_begin
+ #define user_access_end __disable_user_access
++#define __user_write_access_begin(a,b) __enable_user_access()
+ 
+ static inline unsigned long user_access_save(void) { return 0UL; }
+ static inline void user_access_restore(unsigned long enabled) { }
+diff --git a/arch/x86/include/asm/uaccess.h b/arch/x86/include/asm/uaccess.h
+index 91a3fb8ae7ff..23edbaef9f71 100644
+--- a/arch/x86/include/asm/uaccess.h
++++ b/arch/x86/include/asm/uaccess.h
+@@ -524,6 +524,7 @@ static __must_check __always_inline bool user_access_begin(const void __user *pt
+ }
+ #define user_access_begin(a,b)	user_access_begin(a,b)
+ #define user_access_end()	__uaccess_end()
++#define __user_write_access_begin(a,b)	__uaccess_begin()
+ 
+ #define user_access_save()	smap_save()
+ #define user_access_restore(x)	smap_restore(x)
+diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
+index 1beb5b395d81..a6e32784e6cd 100644
+--- a/include/linux/uaccess.h
++++ b/include/linux/uaccess.h
+@@ -552,6 +552,7 @@ do {							\
+ #ifndef user_access_begin
+ #define user_access_begin(ptr,len) access_ok(ptr, len)
+ #define user_access_end() do { } while (0)
++#define __user_write_access_begin(ptr,len) do { } while (0)
+ #define unsafe_op_wrap(op, err) do { if (unlikely(op)) goto err; } while (0)
+ #define unsafe_get_user(x,p,e) unsafe_op_wrap(__get_user(x,p),e)
+ #define unsafe_put_user(x,p,e) unsafe_op_wrap(__put_user(x,p),e)
+-- 
+2.51.1.814.gb8fa24458f-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
