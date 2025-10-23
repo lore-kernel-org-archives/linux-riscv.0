@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0538CCD1BC
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 18:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E58CCD193
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Oct 2025 18:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xHK4u33/EOsnEwDRb71WGT5Nm+AKfDVKmK+PnY9ppeY=; b=wNkJF+TrmIrc3I
-	NvO5xfq7IriDn8d5+N0gOvnCJcQFnBIMBGaA/4CFKQPiYJnB5EuqhosPYAZr9TnxbMQgGEK6jvElu
-	+kmI2zDbSdAxdDNWiN1d/17t1EGBpe3dxXB0WgPWPxHnfXD2ABXL09cha3GAnbpLRbu7aslpeev8T
-	vJSTLnR6ExVbO1Wu2EOSQg2ePkQnVyDTTILyRhX9vNxDXx1mEBxwBN4ogHcMmXWxkloLVnCvEzYel
-	ee+MkKWREPbnPSVsu0rmAqsVUrQVWiKdc+I2/kTJafFA/rbkceATxMkt1rD2AaLV5NbPzmqoENT2O
-	ZSuGUAqi05AXLC+GHWQQ==;
+	List-Owner; bh=jlbT+VokmCviveMhN3mY8lzqL1S7GjrfBWG4rXwOS1E=; b=dYl2hQH3zLLtqt
+	ONfUqGMmokVHsEY6XoGsk56qdzJTavlp8By5AsREVC99VFD8Qra35ED9RkoPz3Rq0mnRrSujRVAhr
+	Ne1X76d3Wv4fRJwH8XZOQxovfoNQRu0/NRGMMFu+5vedLUl5Dl4cjoVU5jhB4D9xdGZe8LQghS8Yq
+	pQPEK+dM7KkKiJbIOcankCIx/wCDGW5TzpX1tDkOO85ZM6lj5qO4LNBvwz5xqkgt7On9QslzB1syz
+	DetxlNxqxk2jOoVklXp5lMS5wPgAuYOJDek0r9FnrAaNKKQ66XSaiSrf07hV9fJUZvBvyiXVhypLh
+	DAGadOB/y3P5evUq9IWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBzvn-00000007BXB-48If;
-	Thu, 23 Oct 2025 18:20:59 +0000
+	id 1vBzvs-00000007Ba4-2aHr;
+	Thu, 23 Oct 2025 18:21:04 +0000
 Received: from mail-westcentralusazon11013000.outbound.protection.outlook.com ([40.93.201.0] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBzvl-00000007BVt-2J4l
+	id 1vBzvo-00000007BVt-2O18
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Oct 2025 18:20:58 +0000
+	Thu, 23 Oct 2025 18:21:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gzPGwDSZk+y/aeKekSUfPOUQbpN6stah7fCMj9X2eJkfdwwe58CZRxX0O7lN4TF2HUPpxIhbGJfh5ybkYDNA2T40gzZSqBWLSVcMs6Z9TZrmj68OtZL7ubOdzehSdjGcuyEGYYNfRQvb/T5/ITRBhjPNMwfDJZCkWY6exLXUXeZzZ9rfBlsT/eUN1CJJ6W2ghncxpK1Wbo6ssxniFhUihd3F8nyIXwDT/gs4fDFfvsXxt5t9yOIbjgT5C4ajWAnpqS+R6uzeUYOVr0TXCul5u07NcF/7PAhJBEnancLR61uZy9G8jbdg9q9l6Qx40loVurwBIi95DBqZ7fsKi9Yd1g==
+ b=fAspTx78zglV3znqBWKsTQgFM/82YkSv34AGqrj4HM7sT2FsHha81uLtrYOLb+AjbewgYwC5fsZNE+HLE96b10xaVEf9s9FtF1DiW37jtWYKxuUe8+RBJ2EnZV1rQG4s7kynmQRvq9UJ8zVCvY51x9paE6lXm8zNb81VhqMGFnTtdTQ2FnqZeVw4bl5ofwKfvcVezqV9Qx03Qrpc7E0FIPX+FEBQb0h6XL2jAoMSsYjHe14vwQMiWhDgU9ekx4UvohiYgiXkBFKJBmHllXaaB3v1f6ngY2F2pFMVBqqmuPtgS1nIRVCjdljzLOhbs/RDxTFNqm7XCOs7TSvRydzssg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g8ifrfoQL5AbwMqMdRwJwMdA1nr7miRmXJHuqu5G0uA=;
- b=jZjCludiwfffMGNQF6zGSIsxON/4bvbAT9X3+OcnpFEDt5cZH/tmHdOvJvxiD8LBqY0LWcPz0H2SqygH5Rvxpr65xbVezwL5YtyZTU4IPVoqbZdd8BFCz4YIRZJTOAucn2zIVpkpGMiTFxswEpeP8UVXBJQMReUtC4yDC/N7VYHUCu1CaXnbHHEWmVMLp4H8hGIytlJraX8HpTc+uAyaumDb4fzUiRy+rVWrAO67zST9VDBDWlJE51rvwxwNMUhnPU5FtvqgTv8jRxz8OjVn7hbU3SVU0nwMbZnrHZKzxtvNRAzk0xU2eLaURpxD9qLJETrHkMNDO0WIMP8pN0enWg==
+ bh=uFDuc74MVknN44uX7vo3y8KFNJDlc7WqUl2Ezs7OHDs=;
+ b=Mbf8nLZ5ttHM9qOxmaHwV8S81KhN/k9eDUAEAtP8S3wpb8XeM4GGjTqpo5jezSzYseu4F4vA5h7C8LjInzOcivoG77xkmWCnbHiNS7a1SxLnMmrX7dqDIFMFawDu7hV9yAg3+dBMCH5XqfPfdxriFy0tecLMa+i6ohMfaPEau6Puc1PDZlnPfmcLf/tQ3lrWmEyYZ5zlI/F4YBScAxy3R1bfhj4ZJeeq+Wph/PaMhDFulsp9i6ikAy01zRd7Mo7Sl1DNbpZnP3N5+zSNZmI4u1mKcHxzzBucXD9CTJMBXiUGmElVQRjVjx71VmZNZP0SKOlkgXsKlrZEI12ZhT5eUw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g8ifrfoQL5AbwMqMdRwJwMdA1nr7miRmXJHuqu5G0uA=;
- b=udsd9N4M9j3UVWPgfPOQu4XJV7aS8z6q+fwGE7tklZOrbF2JAdTEyJNBUKlyq+rbYbS7SmR8RQN3dXjaVhVGTje/9SiLgoo/NuD64WBaVOd9NOUPyZiQWmOZOSFPuRaKtC85xuTBUNmxkUbsX0SFzazX8un+usPX98jJ3niObbaZ5ZVFVCUXJFDBZ8N+uogG3YH7rYG/GJ+FG9FMATiRQcfUWQph6p3X2MFsvuA0gAY61b4KxoOYKc+YVBGuABWprSoFB0kUIEoyO7HnYDZMHd1loGNWX+0ClvvmXvaUgTdoysi6g0hCnW2xpZpqhgFm7QKUpI9g82RS51IzXQ60qg==
+ bh=uFDuc74MVknN44uX7vo3y8KFNJDlc7WqUl2Ezs7OHDs=;
+ b=ZdqwviqUd7+epcyxNdwjypM3pB9gK0VUU7tjwY/FOaFxTid6J7hQ0J8h0WcWcurj863L2drf4SYRrijYvUqaWTi0vPTKT3YS0TMhm+E13sJ7COZEzyJKwylZ2J1Qm0y9WrSct4vUOo4+hCBzfQKXkqbgj034hoJfi+q0vDkWhwyS+19vAGhnt+77z8c4geXL5SGSUTGsm5fQHa1Dmh5KnUBxV1Zv+P/wSmTzYHzLvLg4ekJUn8fqL+6E4TCOZz8Pyt6NFLbZknT+Bu300sSGiNcCDm4z5kbL/X1oSV9354Bq2O5HgUW7SBgXSsJOEE4Y8HT67WwxxL2564tCjZyH/Q==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
  by CY5PR12MB6106.namprd12.prod.outlook.com (2603:10b6:930:29::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Thu, 23 Oct
- 2025 18:20:50 +0000
+ 2025 18:20:53 +0000
 Received: from MN2PR12MB3613.namprd12.prod.outlook.com
  ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
  ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
- 18:20:49 +0000
+ 18:20:52 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alexandre Ghiti <alex@ghiti.fr>,
 	Anup Patel <anup@brainfault.org>,
@@ -82,90 +82,90 @@ Cc: Alexey Kardashevskiy <aik@amd.com>,
 	Michael Roth <michael.roth@amd.com>,
 	Pasha Tatashin <pasha.tatashin@soleen.com>,
 	patches@lists.linux.dev
-Subject: [PATCH v7 08/15] iommupt: Add read_and_clear_dirty op
-Date: Thu, 23 Oct 2025 15:20:38 -0300
-Message-ID: <8-v7-ab019a8791e2+175b8-iommu_pt_jgg@nvidia.com>
+Subject: [PATCH v7 05/15] iommupt: Add iova_to_phys op
+Date: Thu, 23 Oct 2025 15:20:35 -0300
+Message-ID: <5-v7-ab019a8791e2+175b8-iommu_pt_jgg@nvidia.com>
 In-Reply-To: <0-v7-ab019a8791e2+175b8-iommu_pt_jgg@nvidia.com>
 References: 
-X-ClientProxiedBy: BY1P220CA0008.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59d::16) To MN2PR12MB3613.namprd12.prod.outlook.com
+X-ClientProxiedBy: BY3PR03CA0018.namprd03.prod.outlook.com
+ (2603:10b6:a03:39a::23) To MN2PR12MB3613.namprd12.prod.outlook.com
  (2603:10b6:208:c1::17)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|CY5PR12MB6106:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7632c1ce-1f1f-44b7-e82f-08de1260e3b7
+X-MS-Office365-Filtering-Correlation-Id: e7d13cb2-96f7-4126-6be5-08de1260e38b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?c+lIiBtqdFhNOZjASbu2vfvcvxXyLph3q89vz6+T1LgT5YCf3lWsGdOYjr9G?=
- =?us-ascii?Q?cQr2NBvFXQJKs24AOtPbU7Ehgj47uKreXODeNFn6OzJilJNE+XtfO8S2M8e6?=
- =?us-ascii?Q?jmFTLFFss6TfnUgKj4RhH2v4QErT0LepkNFn0oIKlH5RTpoLHNdAbzgV+JoN?=
- =?us-ascii?Q?z3B7A4Xd1vOHV7KGFQxg/Imu1wQ2MhAD9Hp2jlzmH46nherX4+1PmTTXt4K0?=
- =?us-ascii?Q?6m6NFUR0JGOwGeo/ePWNypTy7QKXlNWyhnJSq6qLS7c/noi3E7w8HkNeIyTC?=
- =?us-ascii?Q?G8O7OSsGW15sds7UsZhAuPP9p6euWk/rV6fPut9VUE+jvjXzVtxBMFH4u750?=
- =?us-ascii?Q?gJBbM94y97ozTKZ8kW6fMMEZsYqBPlp55QyQq7FK8nib8HGxo6z9JfIBJf21?=
- =?us-ascii?Q?MZk2rlAZjZ8PqCraWH9gVSR0gHegdDAR/pzpxhZp5ixCVSpuRGa+wgV5iCl2?=
- =?us-ascii?Q?f8DyfKXIJTem83OQmVJA+20fedzCGj1SS5XxViG8fcUigCxGAAWrpK8khaHL?=
- =?us-ascii?Q?ixLQSkhjOmokCndCAo1wOk3ihaw68Qb+iId3Wk6BcBa3ncgk2DuAU3dBpleC?=
- =?us-ascii?Q?pHSPL3Z1eyzixyFI+GUiEGQJz79yoJh70LcSMswuyIHdIKImhQi3LuRkoxuZ?=
- =?us-ascii?Q?/ViiABmq7y1e+hEcGsplgqzAxbB9W5AL4s1nhW5JLjRrprvdOsHbkgZnLJXy?=
- =?us-ascii?Q?HF9HLXpG55uwMBGB8sWQ5VD3pw/J5R/DFH+ei0YG95e/X+Q76KG9mQc6133h?=
- =?us-ascii?Q?KfQXcsFww+io/BQl3VGnNEzfx5NkyQ54+F13L2faHzjGqIrKFbbbre4hkK72?=
- =?us-ascii?Q?nZI+U4P0Sst+cfm81qDudDSch5YrKd/CexD7DrADHbmLTI7YzXh7sDnnqw74?=
- =?us-ascii?Q?XArmYAwSbJcj2CQUK9Q8iQKinsQaohvuQ7oMbj+DJ0yZ4jHD79xwZ1qJRH4s?=
- =?us-ascii?Q?/b0+rXXdc9NAAM74sPt1XEmuNtAj0DFtskpaAsso29TEEcYFagFSHjs0CJwa?=
- =?us-ascii?Q?xXKwTlFh87+Ur4n2oyKZg9dUCvfzMxk3zB0JYba9QoZzBkK/yVexxxUYCQ7o?=
- =?us-ascii?Q?9I2iOuJYvp30a+2kLo2VBXyn9ftCmEVXB0Vsgw3bmW+PkG6erGDpJcTNKyXS?=
- =?us-ascii?Q?yfwPHEqroCknfgSlrwJ9sy3YBO6H/++JEH7s8P7oRmB9uwctwf4eaPQCzcoM?=
- =?us-ascii?Q?Mw304Q/j/i+flNKzFGSjz8+900AB8RNCVSdkKk3Od/fRjh8u0PO5YXjNX8xp?=
- =?us-ascii?Q?I/K2ACdC1oOuaBajOfcAYniCD8/TK6kfcZt/mPRjSjChGfNblgMghIzIzGuZ?=
- =?us-ascii?Q?KLhuWkbEOK3/ih1YSoHCsCir/t1WB7JjagmMx7gSWE2a1A+p5hkdWYkA0EZP?=
- =?us-ascii?Q?ybuTWfj7v0FDwIfwg4IqeZA2WC82CKGOv7VARgeWd8EwweEjArwBNsrHyZh3?=
- =?us-ascii?Q?fqOX8JwUloTsyiD86J8obgtUi62DNvS3jSDwWuSRet3qmHayp/nhNqa95ZHS?=
- =?us-ascii?Q?YBOBPzwqU9gUcys=3D?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/OFSDQ3z2A9wj3CnICcixYAEtFaAqJVZD205KRbGmxyEzFEiXqwrUWVYo9dm?=
+ =?us-ascii?Q?/MdZFXt3om3U+JX7LmtxX6qo8b8CC9x2T/Bk3a7cmcqadyq62ufSBfUaDSh+?=
+ =?us-ascii?Q?VQnfRQCcydu77VmUUZr/EBXGoTf4AW3ySZ8YKciX/cxgn0rnWGqCTcBHeoAq?=
+ =?us-ascii?Q?W6jB5+4KnTIcpnYX9IdyHjVpYHuM1l0FXEt8ONofXIKoB/43k1X8FliwU1Av?=
+ =?us-ascii?Q?L67b3nTNMMH5j+j9P57CdqvgX0G/mFkOHFn7FR4PJN77kRN2HZYmOc0KZuTg?=
+ =?us-ascii?Q?/aaNjYWaD4FblkJodmTehZS+RHI1PCEdlwNNtembzpqF5vaoFZ/aHCwTYE46?=
+ =?us-ascii?Q?CDitqBAC8Yv7oedPU5WhAUTZj6IE5I73tdd94jhh+GYnAbb9NZCEDDBwk4ie?=
+ =?us-ascii?Q?SJkrQItgBQ5gzV5Nd2xGAsurQtAQSqtvykY67ELcM5lzeQZ7tGvN+RssygGq?=
+ =?us-ascii?Q?w68Av58yqj7DxlgarIsPb5VOhZU8A2sr4m7shOPxRkne+H7JZIjDu9JhgnYV?=
+ =?us-ascii?Q?55dDjSCT/K2S6PyoReaeQ/G2yIMPc9/HeXDXe4XxoS2pCS5YbHc/hgl4vyJz?=
+ =?us-ascii?Q?uXRL5TPQvSRbvqYqDATCE017JKF18FKBc9u7MORlXE6JYWMXtEZBGQG1zNR3?=
+ =?us-ascii?Q?CKG8kgZ5+YgM86uyqjSnkbKa8caKQGhbV3BuNPUxgp4PnvjXI0fL7qT3gF/8?=
+ =?us-ascii?Q?vW+p6eqREqVdYm4Du14XK7jphm3ATepqoPfH/tugCtF3XLPPAo1VjdzycD58?=
+ =?us-ascii?Q?l6hud2fL/HqfTKS7B4s7nyqwT3nPh+9idoulBuCyiYNK28smVOkiKJWFEAsG?=
+ =?us-ascii?Q?6MC/DIPeO+2MdH2odWf5A6ISG21V5QQEeXmkoCgielXy1RKUMjFPWUR1/TL2?=
+ =?us-ascii?Q?g+T8IRkIlZuTw34BSvQilioO7purlk/49B4++zBEqBALSvkOO8MLxNOpj9TR?=
+ =?us-ascii?Q?zDwnq2Vf0Q0u4JGcWwy125LBdS5laWGeUXmxB6BXY/AL3XzhJ2MwZ0NwH8P8?=
+ =?us-ascii?Q?VAnH3G9wuCY/g6OcO5l1re6d7Uc+qm7w/6Ahnn20ulG28H10D0bu2xcn3TaU?=
+ =?us-ascii?Q?mPUBqqbxyPMKF4TdrAFe7iBclOUxj2PzEcDH05RHwIlw1lelJ1cw6k1J82Zx?=
+ =?us-ascii?Q?B+KCij0pb08o52OzQ4wCuyqRrGsQtkEDG6G8RTZ6Q/hGdovZ83nZ9J9eiLe6?=
+ =?us-ascii?Q?/ZOk48DwRKxXDEVCfPyrGp1INDP5u68K6oyXiJkkAMjDCK4SzkW9P4IRyeOS?=
+ =?us-ascii?Q?f3+r8mrp/j3SCYuZAB6NB4BDldRSRSB4CYqe5D01UrMutwjyJ+I3+yLWXRB1?=
+ =?us-ascii?Q?lSV9zDmdNEnCv+UKD21l2mrQlfj0X+J6O/z2niNlXnSV7K0LIdM1/H9j3j4T?=
+ =?us-ascii?Q?MvMuN3ji6CiSAKGxvT1XSdELtsfuaDXciqUaCNmgNe7ri/bGadmFYRaUMXeU?=
+ =?us-ascii?Q?be2FFMHCD89zaKVjkZTrvijpTcFKR8GK26TAcpyjqVoQtnnalOOXDGA174D6?=
+ =?us-ascii?Q?dN89iZl6VEKDHDE=3D?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?a2SqyA5msRMHpJn9xzB4i8yVy2Ivfk2srJ5ZxRIsK0zbEAj/uuIR+qlHxMPu?=
- =?us-ascii?Q?Etx1JisMj9DeQofCe0jAmmjFKb/en0y/gudKSwDp3Fboo973tVQxKRlTRQqD?=
- =?us-ascii?Q?iGIdGl9urLJqW5QKSVXnq2bzSOFkLnslYoJ9l3uwonl/UxZ11WHjV8eO6xMG?=
- =?us-ascii?Q?k8nU1GuYAoIBCxyFOrFCn8/X+ojYzRijhaaKU26wpDqeAe4TwAUh4/S8UcUK?=
- =?us-ascii?Q?vZxvz146TQYo4m6SR6kh4JPpt12hj+eoWTCxnYIjUaDRMlBwAUWFaN+p32kH?=
- =?us-ascii?Q?Jjr7GygI2Bv6jeD/wbQgC8mn6w3hqI1tG/K6DHXYhPLsOJeOvD7R9xnwm3JA?=
- =?us-ascii?Q?V9T4VTo88Ndu7/6JrA/IyZbWWmF74YzBk3DjkxPU54pwWsgYbhSaVhzkaMs0?=
- =?us-ascii?Q?QCd8LPSwwhT1VJvGpROTgMEvX+KxssFQ3XHTd1fWgjESe/YoMdmIvMOSzZBy?=
- =?us-ascii?Q?qr62IjZXgfuBHr7mcYUjbP1nbfKDBvMD/f54YdCATw5oOK57UIu7XJc5yCal?=
- =?us-ascii?Q?0EahDCDKSbN9+ApmP6BcX0R9GKRWsvyaStzS4KxmMlwE/SNTlbQ4NeXkolbD?=
- =?us-ascii?Q?cptqAS1zsJXINcvf9JSjL5Cgj6tCmkDaDf+Uki8xmzC8qQ7IDyiggWR7W4Bn?=
- =?us-ascii?Q?QzZX/1Xy9yogwNSZVSQJ1D1KfoBrvEZYiKRLx0jSQbIQOJdp7Nbujvz1VCdS?=
- =?us-ascii?Q?JRteIanB7jZNMVvJskSo+xhormjl4IiTs+zOOFXo6HQ/v+8YM4cKgwaFhWq/?=
- =?us-ascii?Q?wC1mcSsqoQGiNuTQcpxAquaY1WZs0PB7zhyO/Mv5tKHJo+WuytWuYHtlqZ5r?=
- =?us-ascii?Q?Au8ZPHcFJsbRKE9cZDikx5NhVxhQcISdv8TkJZuM2Ae1iqfBWsIxWgQ5zYma?=
- =?us-ascii?Q?TgGZ9xFt4UYJL9hstLWaJ7JN0cnPxgDkCIZSu3WDt4LuOdboFDRGY+Lbos7j?=
- =?us-ascii?Q?ckrnG6SgeowOJ3FloUja9GmrXT4+Lh2BvGu7OJf+kO22GjDwHpwxT833pyCG?=
- =?us-ascii?Q?HkdT4jTRi3mMKFIitfdsGQO0staYeqbyBnZMrmO7R/JIYxdS1jIhqspT+3fl?=
- =?us-ascii?Q?EuWN5GPMtRN+Zw/EGexAWXbMx+eUYVggzw1fsg4y5hLbD3CZBhU++/hnp+qL?=
- =?us-ascii?Q?IUr0aKxnRkTIeCXOIkO3wlJD3+MrUFDof8dSkNXnyXpbNefG/gxNmccF0mXx?=
- =?us-ascii?Q?hcjdFCsJAfaIm4G0tBbB1mG2HVimDB/0s3KHKn6Re/xYa3z4n87hy6S8SFzC?=
- =?us-ascii?Q?fDdP6F7ChCNMkBHE3S1pQB4ur0ie8s7UIEcCthkAjJjZk6l6smstfB07c2gC?=
- =?us-ascii?Q?CmjmsVPPxkdndMRVzejFyeDweWY3bEa3Asv0FnjgXirEVV7W6lO8q9FqpmCb?=
- =?us-ascii?Q?BfS6r3PTrp3WoQ4w+7FMBvD6t8W2bOoJ0YlNU3Cgj60cxcQ3+HscDeWmna6F?=
- =?us-ascii?Q?SKVje819G0q4RowmfokZFC/kNUb2OrPXeexculDeldTMkL8/N31IORRs45w0?=
- =?us-ascii?Q?7ijZNZj7nGHy00jV+B9jsO00z29HeY85TXR0hKR4WOyfnFCSTQPzVHyVF/2y?=
- =?us-ascii?Q?OoM+xfuyOeJZJ+gtLRhycpGWsemB7i8XdG4+DFq6?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jVAXXIsLXtQ08XLq/KcrdjwE/IR4BmCcPAxEtYLFm0C1q4qy/MdjJC6Px+Fi?=
+ =?us-ascii?Q?EGrafy2Me88OoWhoFO+Oroz/Mg6ZAO3Xpm0No9Hr8l6wRC6gTtdxH4/tLO3N?=
+ =?us-ascii?Q?tCj/vnWfbwFYMbchceh/j9AuYOvP8N39ek1cRIOGB9qpNe4ziP8K1mBkcee/?=
+ =?us-ascii?Q?7PzKLjGmaaKXUxkVwGakyCRmT2kSAE1Nriu3/NTPTPTeL9VEMuycjqGxgWTO?=
+ =?us-ascii?Q?yxoIQCPujBemEMrWSVgpqVkCLWUMBlNMDou9Tt1CwJ2uHFYiS0Qja5tZVlAH?=
+ =?us-ascii?Q?AspyGBiYh7wK9VnieL6zPt35WUvovFR08S9xu+CxUcG8xyF/+4N2jWVaWHAA?=
+ =?us-ascii?Q?GL8LLtZurg/n7lIT0DniaDqEHV95Vc+g4lDrZTwmVkESfY70V6FPb8WG1Jbv?=
+ =?us-ascii?Q?xPTsWsyg2HIq2yGwGqkdHp/2gR1iJS/N1Afy2lL1+ePKA8476sMBeE2WfsKB?=
+ =?us-ascii?Q?7ewOBwfCrP5IZ+Jj/Vk5CbUH6GbXwnlazO4Li+98gj1Jtb5RALamJlkW7Dxt?=
+ =?us-ascii?Q?lJi4+ybgC+6hOoKbtpqDnJK7m7ryJvkLIgpBKXQ6zXO3y0t7EVNKB0QdJd5p?=
+ =?us-ascii?Q?Lae1Mmkel7Y33iwL3FKEshyC76V6YsWSraz8SAa/pAXJ3jNypOujkFZ+FGIQ?=
+ =?us-ascii?Q?pWIpFifiAyZhBWnNM0YUZiRKIS34tdum0ummSOTpTEP2T/+PPap4I9grfWVo?=
+ =?us-ascii?Q?NciNXSCFVoGaULzMR7lFgsSf15kRYOM8fboTZEwB+2AbOxhcuJhCNKwrT0Da?=
+ =?us-ascii?Q?e4qkfY3hty1r5j3vnkZAFs0k2QF5NY1xcexnQ+IVtByyZ6ctQW9gyYjOW82G?=
+ =?us-ascii?Q?5CPYkgRQgTq8yC+TPj5l61N42M9bb13x6a3e+a2B/3JGv/zuvOfwf/Q27DRR?=
+ =?us-ascii?Q?wQriDAln0doh7s/CG2MuMDvL2U6RvLmFvLUVj9Dz+3jtu7mfpDql3j7WCYFq?=
+ =?us-ascii?Q?3YEaZeZNN4UyHCmPL/HkS0/dI/UU/orQkB7VNIIA4njqQ4H8qw9LcS8Csc+A?=
+ =?us-ascii?Q?W+jdPj+f04CbM7am+Sffkuq1vSKpUJfRMZbs9JMqWXAmOhkUwhwAPWsVDNAf?=
+ =?us-ascii?Q?t8MbDe4M+3k6Td+9Sthsu+v7RFetUnFhmLL8lEL7jyOgRe1D6PYSJatw/8Dr?=
+ =?us-ascii?Q?TseP8dY6vSHIhCarzWonU+fvG0wGFXTpCC9UE98UtVQDCZ5TaCTfTBVAW2qc?=
+ =?us-ascii?Q?g6ee7+4zgUd72aGyfL4Lg9FO9K943QJwj3w0tC/gBu1i9yKSZ3LdMxZr/Qbd?=
+ =?us-ascii?Q?BV3Qme02oKTdPm/RpRD+P/bTepHqSA3j2KXjSlih00CHQub3+83BzOnvaXmq?=
+ =?us-ascii?Q?diNthb0onCMUEjeUM96zkmw4Y5KE39IwIIuoe+8p1ZFHr0Zr7aTXV1W3kEc5?=
+ =?us-ascii?Q?abg4m2lC4nbz7laj7W5l/OWphbYrjkH1mqksqzC1rgfToOSgHWSFGze8IvJA?=
+ =?us-ascii?Q?X7/L6HvsOlQBXhUnZzEHsA283OaggtzHk5prWEOoUpxOzBHbkDUy/2lVSE5g?=
+ =?us-ascii?Q?EfK9qNvtsAAPBgxkGlJKyMsONGNyPkiLjB+oKogCZv+bH8JHGhhcWKeWrtqN?=
+ =?us-ascii?Q?tx3gsxQijSyfkpqOwtYUrGYjeQx/fxDB4+ZMFkAF?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7632c1ce-1f1f-44b7-e82f-08de1260e3b7
+X-MS-Exchange-CrossTenant-Network-Message-Id: e7d13cb2-96f7-4126-6be5-08de1260e38b
 X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2025 18:20:49.4128
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2025 18:20:49.8281
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XCTUyRkwK+t8tyMm4x7HR4Y1PeL1N4Rk8y/a2te5II8Atq8St7H0yX5Jgu7QeVT2
+X-MS-Exchange-CrossTenant-UserPrincipalName: vngwu2aPtk+4/i7eOPNdKCiyZ+zz1qmthjpciwyajvax3mkhlHy/9z5kxE25vPSk
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_112057_654649_61B8C5FB 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20251023_112100_610996_1E39766F 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,174 +182,172 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-IOMMU HW now supports updating a dirty bit in an entry when a DMA writes
-to the entry's VA range. iommufd has a uAPI to read and clear the dirty
-bits from the tables.
+iova_to_phys is a performance path for the DMA API and iommufd, implement
+it using an unrolled get_user_pages() like function waterfall scheme.
 
-This is a trivial recursive descent algorithm to read and optionally clear
-the dirty bits. The format needs a function to tell if a contiguous entry
-is dirty, and a function to clear a contiguous entry back to clean.
+The implementation itself is fairly trivial.
 
 Tested-by: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>
 Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- drivers/iommu/generic_pt/iommu_pt.h | 104 ++++++++++++++++++++++++++++
- include/linux/generic_pt/iommu.h    |   6 ++
- 2 files changed, 110 insertions(+)
+ drivers/iommu/generic_pt/iommu_pt.h | 105 ++++++++++++++++++++++++++++
+ include/linux/generic_pt/iommu.h    |  19 +++--
+ 2 files changed, 119 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/iommu/generic_pt/iommu_pt.h b/drivers/iommu/generic_pt/iommu_pt.h
-index f32e81509f4f09..448c5796d4a861 100644
+index 564f2d3a6e11e1..5ff1b887928a46 100644
 --- a/drivers/iommu/generic_pt/iommu_pt.h
 +++ b/drivers/iommu/generic_pt/iommu_pt.h
-@@ -162,6 +162,108 @@ phys_addr_t DOMAIN_NS(iova_to_phys)(struct iommu_domain *domain,
- }
- EXPORT_SYMBOL_NS_GPL(DOMAIN_NS(iova_to_phys), "GENERIC_PT_IOMMU");
+@@ -17,6 +17,111 @@
  
-+struct pt_iommu_dirty_args {
-+	struct iommu_dirty_bitmap *dirty;
-+	unsigned int flags;
-+};
-+
-+static void record_dirty(struct pt_state *pts,
-+			 struct pt_iommu_dirty_args *dirty,
-+			 unsigned int num_contig_lg2)
+ #define DOMAIN_NS(op) CONCATENATE(CONCATENATE(pt_iommu_, PTPFX), op)
+ 
++static int make_range_ul(struct pt_common *common, struct pt_range *range,
++			 unsigned long iova, unsigned long len)
 +{
-+	pt_vaddr_t dirty_len;
++	unsigned long last;
 +
-+	if (num_contig_lg2 != ilog2(1)) {
-+		unsigned int index = pts->index;
-+		unsigned int end_index = log2_set_mod_max_t(
-+			unsigned int, pts->index, num_contig_lg2);
++	if (unlikely(len == 0))
++		return -EINVAL;
 +
-+		/* Adjust for being contained inside a contiguous page */
-+		end_index = min(end_index, pts->end_index);
-+		dirty_len = (end_index - index) *
-+				log2_to_int(pt_table_item_lg2sz(pts));
-+	} else {
-+		dirty_len = log2_to_int(pt_table_item_lg2sz(pts));
-+	}
++	if (check_add_overflow(iova, len - 1, &last))
++		return -EOVERFLOW;
 +
-+	if (dirty->dirty->bitmap)
-+		iova_bitmap_set(dirty->dirty->bitmap, pts->range->va,
-+				dirty_len);
-+
-+	if (!(dirty->flags & IOMMU_DIRTY_NO_CLEAR)) {
-+		pt_entry_make_write_clean(pts);
-+		iommu_iotlb_gather_add_range(dirty->dirty->gather,
-+					     pts->range->va, dirty_len);
-+	}
-+}
-+
-+static inline int __read_and_clear_dirty(struct pt_range *range, void *arg,
-+					 unsigned int level,
-+					 struct pt_table_p *table)
-+{
-+	struct pt_state pts = pt_init(range, level, table);
-+	struct pt_iommu_dirty_args *dirty = arg;
-+	int ret;
-+
-+	for_each_pt_level_entry(&pts) {
-+		if (pts.type == PT_ENTRY_TABLE) {
-+			ret = pt_descend(&pts, arg, __read_and_clear_dirty);
-+			if (ret)
-+				return ret;
-+			continue;
-+		}
-+		if (pts.type == PT_ENTRY_OA && pt_entry_is_write_dirty(&pts))
-+			record_dirty(&pts, dirty,
-+				     pt_entry_num_contig_lg2(&pts));
++	*range = pt_make_range(common, iova, last);
++	if (sizeof(iova) > sizeof(range->va)) {
++		if (unlikely(range->va != iova || range->last_va != last))
++			return -EOVERFLOW;
 +	}
 +	return 0;
 +}
 +
++static __maybe_unused int make_range_u64(struct pt_common *common,
++					 struct pt_range *range, u64 iova,
++					 u64 len)
++{
++	if (unlikely(iova > ULONG_MAX || len > ULONG_MAX))
++		return -EOVERFLOW;
++	return make_range_ul(common, range, iova, len);
++}
++
++/*
++ * Some APIs use unsigned long, while othersuse dma_addr_t as the type. Dispatch
++ * to the correct validation based on the type.
++ */
++#define make_range_no_check(common, range, iova, len)                   \
++	({                                                              \
++		int ret;                                                \
++		if (sizeof(iova) > sizeof(unsigned long) ||             \
++		    sizeof(len) > sizeof(unsigned long))                \
++			ret = make_range_u64(common, range, iova, len); \
++		else                                                    \
++			ret = make_range_ul(common, range, iova, len);  \
++		ret;                                                    \
++	})
++
++#define make_range(common, range, iova, len)                             \
++	({                                                               \
++		int ret = make_range_no_check(common, range, iova, len); \
++		if (!ret)                                                \
++			ret = pt_check_range(range);                     \
++		ret;                                                     \
++	})
++
++static __always_inline int __do_iova_to_phys(struct pt_range *range, void *arg,
++					     unsigned int level,
++					     struct pt_table_p *table,
++					     pt_level_fn_t descend_fn)
++{
++	struct pt_state pts = pt_init(range, level, table);
++	pt_oaddr_t *res = arg;
++
++	switch (pt_load_single_entry(&pts)) {
++	case PT_ENTRY_EMPTY:
++		return -ENOENT;
++	case PT_ENTRY_TABLE:
++		return pt_descend(&pts, arg, descend_fn);
++	case PT_ENTRY_OA:
++		*res = pt_entry_oa_exact(&pts);
++		return 0;
++	}
++	return -ENOENT;
++}
++PT_MAKE_LEVELS(__iova_to_phys, __do_iova_to_phys);
++
 +/**
-+ * read_and_clear_dirty() - Manipulate the HW set write dirty state
-+ * @domain: Domain to manipulate
-+ * @iova: IO virtual address to start
-+ * @size: Length of the IOVA
-+ * @flags: A bitmap of IOMMU_DIRTY_NO_CLEAR
-+ * @dirty: Place to store the dirty bits
++ * iova_to_phys() - Return the output address for the given IOVA
++ * @iommu_table: Table to query
++ * @iova: IO virtual address to query
 + *
-+ * Iterate over all the entries in the mapped range and record their write dirty
-+ * status in iommu_dirty_bitmap. If IOMMU_DIRTY_NO_CLEAR is not specified then
-+ * the entries will be left dirty, otherwise they are returned to being not
-+ * write dirty.
++ * Determine the output address from the given IOVA. @iova may have any
++ * alignment, the returned physical will be adjusted with any sub page offset.
 + *
 + * Context: The caller must hold a read range lock that includes @iova.
 + *
-+ * Returns: -ERRNO on failure, 0 on success.
++ * Return: 0 if there is no translation for the given iova.
 + */
-+int DOMAIN_NS(read_and_clear_dirty)(struct iommu_domain *domain,
-+				    unsigned long iova, size_t size,
-+				    unsigned long flags,
-+				    struct iommu_dirty_bitmap *dirty)
++phys_addr_t DOMAIN_NS(iova_to_phys)(struct iommu_domain *domain,
++				    dma_addr_t iova)
 +{
 +	struct pt_iommu *iommu_table =
 +		container_of(domain, struct pt_iommu, domain);
-+	struct pt_iommu_dirty_args dirty_args = {
-+		.dirty = dirty,
-+		.flags = flags,
-+	};
 +	struct pt_range range;
++	pt_oaddr_t res;
 +	int ret;
 +
-+#if !IS_ENABLED(CONFIG_IOMMUFD_DRIVER) || !defined(pt_entry_is_write_dirty)
-+	return -EOPNOTSUPP;
-+#endif
-+
-+	ret = make_range(common_from_iommu(iommu_table), &range, iova, size);
++	ret = make_range(common_from_iommu(iommu_table), &range, iova, 1);
 +	if (ret)
 +		return ret;
 +
-+	ret = pt_walk_range(&range, __read_and_clear_dirty, &dirty_args);
-+	PT_WARN_ON(ret);
-+	return ret;
++	ret = pt_walk_range(&range, __iova_to_phys, &res);
++	/* PHYS_ADDR_MAX would be a better error code */
++	if (ret)
++		return 0;
++	return res;
 +}
-+EXPORT_SYMBOL_NS_GPL(DOMAIN_NS(read_and_clear_dirty), "GENERIC_PT_IOMMU");
++EXPORT_SYMBOL_NS_GPL(DOMAIN_NS(iova_to_phys), "GENERIC_PT_IOMMU");
 +
  struct pt_iommu_collect_args {
  	struct iommu_pages_list free_list;
- 	/* Fail if any OAs are within the range */
-@@ -1015,5 +1117,7 @@ EXPORT_SYMBOL_NS_GPL(pt_iommu_hw_info, "GENERIC_PT_IOMMU");
- MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("IOMMU Page table implementation for " __stringify(PTPFX_RAW));
- MODULE_IMPORT_NS("GENERIC_PT");
-+/* For iommu_dirty_bitmap_record() */
-+MODULE_IMPORT_NS("IOMMUFD");
- 
- #endif  /* __GENERIC_PT_IOMMU_PT_H */
+ };
 diff --git a/include/linux/generic_pt/iommu.h b/include/linux/generic_pt/iommu.h
-index 0d59423024d57f..03a906fbe12a83 100644
+index dc731fe003d153..5622856e199881 100644
 --- a/include/linux/generic_pt/iommu.h
 +++ b/include/linux/generic_pt/iommu.h
-@@ -12,6 +12,7 @@
- struct iommu_iotlb_gather;
- struct pt_iommu_ops;
- struct pt_iommu_driver_ops;
-+struct iommu_dirty_bitmap;
+@@ -116,11 +116,13 @@ struct pt_iommu_cfg {
+ };
  
- /**
-  * DOC: IOMMU Radix Page Table
-@@ -182,6 +183,9 @@ struct pt_iommu_cfg {
- 		struct iommu_domain *domain, unsigned long iova,               \
- 		size_t pgsize, size_t pgcount,                                 \
- 		struct iommu_iotlb_gather *iotlb_gather);                      \
-+	int pt_iommu_##fmt##_read_and_clear_dirty(                             \
-+		struct iommu_domain *domain, unsigned long iova, size_t size,  \
-+		unsigned long flags, struct iommu_dirty_bitmap *dirty);        \
- 	int pt_iommu_##fmt##_init(struct pt_iommu_##fmt *table,                \
- 				  const struct pt_iommu_##fmt##_cfg *cfg,      \
- 				  gfp_t gfp);                                  \
-@@ -202,6 +206,8 @@ struct pt_iommu_cfg {
- 	.iova_to_phys = &pt_iommu_##fmt##_iova_to_phys, \
- 	.map_pages = &pt_iommu_##fmt##_map_pages,       \
- 	.unmap_pages = &pt_iommu_##fmt##_unmap_pages
-+#define IOMMU_PT_DIRTY_OPS(fmt) \
-+	.read_and_clear_dirty = &pt_iommu_##fmt##_read_and_clear_dirty
+ /* Generate the exported function signatures from iommu_pt.h */
+-#define IOMMU_PROTOTYPES(fmt)                                             \
+-	int pt_iommu_##fmt##_init(struct pt_iommu_##fmt *table,           \
+-				  const struct pt_iommu_##fmt##_cfg *cfg, \
+-				  gfp_t gfp);                             \
+-	void pt_iommu_##fmt##_hw_info(struct pt_iommu_##fmt *table,       \
++#define IOMMU_PROTOTYPES(fmt)                                                  \
++	phys_addr_t pt_iommu_##fmt##_iova_to_phys(struct iommu_domain *domain, \
++						  dma_addr_t iova);            \
++	int pt_iommu_##fmt##_init(struct pt_iommu_##fmt *table,                \
++				  const struct pt_iommu_##fmt##_cfg *cfg,      \
++				  gfp_t gfp);                                  \
++	void pt_iommu_##fmt##_hw_info(struct pt_iommu_##fmt *table,            \
+ 				      struct pt_iommu_##fmt##_hw_info *info)
+ #define IOMMU_FORMAT(fmt, member)       \
+ 	struct pt_iommu_##fmt {         \
+@@ -129,6 +131,13 @@ struct pt_iommu_cfg {
+ 	};                              \
+ 	IOMMU_PROTOTYPES(fmt)
  
++/*
++ * A driver uses IOMMU_PT_DOMAIN_OPS to populate the iommu_domain_ops for the
++ * iommu_pt
++ */
++#define IOMMU_PT_DOMAIN_OPS(fmt) \
++	.iova_to_phys = &pt_iommu_##fmt##_iova_to_phys,
++
  /*
   * The driver should setup its domain struct like
+  *	union {
 -- 
 2.43.0
 
