@@ -4,74 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB2BFCCF9E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 14:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC89CCF9E3
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 14:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qDiNV+OcFDPsY4h2fyplQmfh4Aj/4J0sMwM4Hh7ZKUc=; b=tgucboh1YKmbtq
-	F9ORrhg7TM32QizeTBN24yEKlGnAZYQyqrKXUoAtikzF7iF/7Xjv2g/54LQjAFlqD+Hshg7C7sSEC
-	xkaol/3sAJXCXgON5q7pBhvIz6EOsQyELMFgdH65TT3VCfX43Gkxz60Ti5maREk8Rgu21E+HbpHh2
-	v4vVcuocSibJ0lUQO7QJWluV5+2SwFGY1uhpCo3Bjruax8Z+Yogf4fqps8df2TOrPsYlP9nPADyFg
-	FyeQG47sF0QCm6On7um4ZsAGQokcg6IGldqum+678UYRBcoyL/H7LThu3b8GyV2F/00S7ZQaxLMIR
-	zQpXMKAcFJCGvDRyGNQg==;
+	List-Owner; bh=wg1apSkCDvSs+ZkZefo4zACCgeM2x6SAZ1WZyiXR3ik=; b=rcrBfEU6OkWLJJ
+	kG9P71twS9JQxpr+1xVooZXaA0iMKDbtj7nEA8e9DW7tcfxCQ+eNxy1A91NkLklg5so/9MnJfnBvt
+	DGdq9OfTJJS1aAjsYkt0YkD+s3XKNEz0gtASHtzuobU6ue30iCe+KBa5Ksw/EMxbWo9wJmODTrzFf
+	SjUPbq/wlXprj8/74pAzHBAHccR0x3cgRPk5cTeJ/0JsogV39jspCvJ16cx5Q61LvnNaSv2rJyCXy
+	lH3+tKs9he1HbeqS6IBxp0FF0ra1xI89QgY/K+VRPINXBnpggr70AXGbNVzu50ITThONK/k6b4dcN
+	U8/tMbBsHsNzKs/sAG5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIYG-00000009dEx-2L7n;
-	Fri, 24 Oct 2025 14:13:56 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1vCIf6-00000009eAt-0SqC;
+	Fri, 24 Oct 2025 14:21:00 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIYE-00000009dD9-0AhI
+	id 1vCIf1-00000009e7I-32bV
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 14:13:55 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-428564f8d16so1165883f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 07:13:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761315232; x=1761920032; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DVsA5NUMk7Er151JpLhnqPMBBeiJc/C7dvaqVJvIrmc=;
-        b=zCXzRiZ0MOCPUzkRywF6tN/P8AapsHdtZUoO0+cH8BlAzt1pWr+kSMww1jQTZG2XWz
-         kJ+PsK0VXfV8jwUsmWF1yN4QlCgoumKM33by6TzaNFG/YtQmPBAEXLKmoMoQaiGkewbx
-         Xx7N+bhBLVF15AocNpXDJ2WRJcJpbctui/dr6PLsb+xxxnHTRSMJAE3hJHYCMp9RZhEf
-         G/oc4DvBcEQkdIuCSDSFAmUsKyFjdmtuW/srcDj1uPXMe5FIdbR3rem3vorTo2Xaoy92
-         REXWtI4IjmYlrdGE5jQ796/zTkozoONZ1NWx/o9JualVbCCZnOqEkczKuzrpXziQNbiY
-         k4vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761315232; x=1761920032;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DVsA5NUMk7Er151JpLhnqPMBBeiJc/C7dvaqVJvIrmc=;
-        b=PeIAbeo0tnz7hTbOuFfw0GD3uCWvgdmDoLwrRua/4BKYWmrVnUVoG9+vC3O7gSZayb
-         gBW3S9MOA7dCUCPtl0xRE0lDjsRDTwTRJadyEIEhi0NottvRREsFtlM0z+ZuHtYllQ1M
-         x2MCuCSi1ZITIjVX8JE3lts6T9Iy9u00WAW1OXnXh5OVffeJCwSDnmt30fDbBhX6+SJ8
-         LuuTlfnIADQ73AIhI5t5nwHA3TyUGskwe+UFE2ZamwhOVPo4UkvqCdD4dXLtGaJAXuIT
-         DsNSoauaSWhvFpAs4ack6QuD1UsjJUR/YmjnLuYUOKSl1LYmgfpa/CqcwpbHUY10h8LI
-         C5vA==
-X-Forwarded-Encrypted: i=1; AJvYcCUs3OXrBMheIFx8p9tv7JYaJUvfr82UEYSO43ehreJKEb1JYJUm246NYEzYEiKLLOmTmfG9vB181HHNHA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRUTi4imZniBRGeg2NBbluxlIxadBIk6PSfmtI8fHggYZDOPb0
-	n+YJacGfVsHZ8asE5P+FYKLPOHgGCdkY0Smbe3ecxKi2wFcpMm5TVo9b6r/8hDjkwCg=
-X-Gm-Gg: ASbGnctCZTMr7A1MhM8lY25ITb+wWpAKL26Pj5mu4GZ2rppecaDahbRmpe3OaRCGy4T
-	enQSJEIWxxSfkc+CcPumh/rlQGOdh/dI5/4ECgtVh3D69Wy8mHfeViO5SHjpY/VA93ALqAktYi+
-	lmhJ330PApWTS7IK4D+ON1Ui9mPMW7B6y6nqFVuZ3cM7K1Spxeng+2pMV4FKCi8bnsmpT0q7Hcf
-	baKkqmjUUn6avHcs6XStvgnOzHwhZTqKI1JoZpYqXakzYHKfWrwpRok9OQTxA7CwQ94+8g6Amgg
-	mRYe8tUsToM0vrSq/vyH2ecJFDpWn5QGvowzH+TCd1GhB3LHpSF5yX1FcruS21vgVKsGyYp/aMN
-	EQeOOpQd8dhfk7I3KMck8dUK48j0YuC5VpM4+JJS18OF7ISk8sDBhZkyIo1M9XkeKa0YTSYcAZf
-	mx6PfUS0QtYgMJ1Y97
-X-Google-Smtp-Source: AGHT+IGOwSSq4cPlqfVI2+cQc4DNxAbP8ipcdaug6FB/HIUIzgkN8w1ERIrzCxdii8Zp8hIOBEEMaQ==
-X-Received: by 2002:a05:6000:2912:b0:3e8:f67:894f with SMTP id ffacd0b85a97d-4298f582512mr2780216f8f.26.1761315231940;
-        Fri, 24 Oct 2025 07:13:51 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4298b996aaasm7851320f8f.3.2025.10.24.07.13.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 07:13:51 -0700 (PDT)
-Date: Fri, 24 Oct 2025 17:13:48 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+	Fri, 24 Oct 2025 14:20:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1761315598;
+	bh=ylc6GQ1hJ0TbYatd4EtuuHeOUs0jEjk+TPTEgYS83so=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=DCjiPUx5wGt/K8UzRKTjKNF/PWL+nVF1aojEuBoFritg726dk5GpZuYyM76qo0niw
+	 VVui7FIGOhdHAuItmLgRPx6/ldGLuw3gZY4r8StFwzbIIpDjt/WqC10ZI2wWBNd8I6
+	 64Tnu6BwYF8S/UuqTqRMCOXqQJZEgsqD7JhTsj+c=
+X-QQ-mid: zesmtpip3t1761315596td6aca7a1
+X-QQ-Originating-IP: zR/JaMMb0y/zEHR3rB1xAYJP1BB3pKKuVq6gci5Q7OE=
+Received: from = ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 24 Oct 2025 22:19:54 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8195043091810859412
+EX-QQ-RecipientCnt: 11
+Date: Fri, 24 Oct 2025 22:19:53 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
 	Yixun Lan <dlan@gentoo.org>, linux-sound@vger.kernel.org,
@@ -79,15 +54,36 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH] ASoC: spacemit: add failure check for
  spacemit_i2s_init_dai()
-Message-ID: <aPuJnJIeupM1PV09@stanley.mountain>
+Message-ID: <5446E6EB4FCF412B+aPuLCQcV8hMlBLjk@troy-wujie14pro-arch>
 References: <20251024-fix-k1-i2s-dai-mem-v1-1-15f5f1ec294a@linux.spacemit.com>
+ <aPuJnJIeupM1PV09@stanley.mountain>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251024-fix-k1-i2s-dai-mem-v1-1-15f5f1ec294a@linux.spacemit.com>
+In-Reply-To: <aPuJnJIeupM1PV09@stanley.mountain>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NgaheRY97EnbcGSBrTOOlFa+KwSlGtxw10Jq71kMZuYIdRS6LNEqMaaf
+	EeljPIi+JR24Nqd5PDYIXRkGtm2j6ZFVM30Ul/ab9p6HHreA2OYXNMdpGtXxYBml6kU1Nc3
+	lwIw8LjisRod3PNYXD6O5ffC/cyqZ8uWbeJmVkLIwQyT+hGVZ37ZK4qubHuud3jbw3oa9c3
+	q58ooSBMdy9G/oPkBqJfBUuPQ1ObSf+/0vEg+GgYGiUNHH2d5AIKAlZbrpeMmXZz1t+imal
+	5vG5W1dUf1vO4g3pTJMFgaDrhTT2jILCOqF879g1p0/7yQlOAmfVwYMlMXN2++u9HCBx913
+	rS0swhCtdh7n+Ed1VPFjknIHYNWcGC63LiOgUu0R0sZ860h+chx2dLxomUGPmHv+katCdsY
+	yVgZbx8rtAubGNfox40E63+qUKDs1o3/UR7/31/Affl0JlAwnKe4NvM2J7gkAfhmrLjAA57
+	ByaQH9Ozcusks38hAMYCcy3xq6Prd0UzrpFvFh5Y8CjMZvX8XW616YyalJ/l9I0c85Nw8uJ
+	hvwOtF9KOli5kEVq8sd6YSLWiW453SmGanKkocBwRRl2faPE6mmsJD+8g2nPl00ExTleMYg
+	B7ShjIQ50Lw06e08Swr4Ci7fK5SezCZEuqeZrwtEacp0Z91lh774me9nZ5M6bTSejdxG3pl
+	Hgnys2xp+TKhM/rORb9sCxs5Yx0CPs1HnZvRQ/ipVPvObrk9nZrtYsYixA/HJQAA2RwlALD
+	tE5infnf0IIM/bFkdPF1vjaES8SzHMSGSzpCZvGV+aTwy35BrBJgbki1vuYUjzkEKpGG65P
+	0gc2f+qXxUb/PhRLE5+HitQhDXMiXIholbYxpd0RGyF5vO3249XGqPkNRbhaMGGJBxqpblk
+	bt18arbbYMzOt/K1tXJEIoyfic96HSAM4lrurRkmB5V80RVCa3RBdBA9naM4P6DnvuRlvD+
+	qIxmeXVP1Yqv92CBRXZCJVVjWVmBPEsHabFMmOiOcogi0TiIGVKzpq1zr8SRkicgoronKFz
+	q/gaawER/Bxjk4mWDTclqM6M/tV4/v0LB70aSa/AByjNhSNmpqdwLdIzwI7S9oPFCoDSGlC
+	BHM5GOdJ5KBT+7d1qGV/avJmB+9tslQ4g==
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_071354_111888_0E1763B1 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_072056_686798_AE3E8704 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,28 +100,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025 at 09:11:01PM +0800, Troy Mitchell wrote:
-> Add error handling when memory allocation for dai fails in
-> spacemit_i2s_init_dai() call.
+On Fri, Oct 24, 2025 at 05:13:48PM +0300, Dan Carpenter wrote:
+> On Fri, Oct 24, 2025 at 09:11:01PM +0800, Troy Mitchell wrote:
+> > Add error handling when memory allocation for dai fails in
+> > spacemit_i2s_init_dai() call.
+> > 
+> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+> > ---
+> > Dan reported here [1].
+> > 
+> > Link: https://lore.kernel.org/all/aPtiNCZ_KBezL2Dr@stanley.mountain/#t [1]
 > 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
-> Dan reported here [1].
+> Thanks, Troy
 > 
-> Link: https://lore.kernel.org/all/aPtiNCZ_KBezL2Dr@stanley.mountain/#t [1]
+> Normally we would say this needs a Fixes tag and the Link: should be a
+> Closes: tag.  It would be easy to make the argument that the
+> allocation won't fail in real life so a Fixes tag isn't appropriate.  But
+> actually it's simpler to add the tag...
+I see. Thanks!
 
-Thanks, Troy
+Should I send v2 with Fixes tag now,
+or would it be better to wait a bit?
 
-Normally we would say this needs a Fixes tag and the Link: should be a
-Closes: tag.  It would be easy to make the argument that the
-allocation won't fail in real life so a Fixes tag isn't appropriate.  But
-actually it's simpler to add the tag...
-
-regards,
-dan carpenter
-
-
+                - Troy
 
 _______________________________________________
 linux-riscv mailing list
