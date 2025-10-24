@@ -4,122 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889A2CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 14:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC1ACCF9E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 14:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RK1PRCHx1+/9mezR7uC/Zd8VMOzpLTaIPmabdZhNIa8=; b=GX4RsdxEhcHTrD
-	oZE23LXqg0WMxyLXGNmreUKRUGrqyyTip/2N/kv6CPjG68Lae1uHMGtmryIiEqfBsYMwO5revoq8l
-	aet6qZsK/s2sHJpGGj4NhxypssAHf6xcmQWLe63gLEWjf8tRHpGxuXjf7regdZB1pLhJ8fjxLbFK3
-	L0r12xAAizYmml7eMAsCHR5yPAKEhaQ6j+Hcj2+txDsSo/xk6HA1j6DsNsCJOhrjPHuWVPo03f/eG
-	JRoMzJNNGOzT376ud4akA40189CJaaDOuty2Q+yjJeoVkNVigOK7iMTyOcpoYYI65QX2NnpoFxhlc
-	edvtmianrY/2tivT+CRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FqysC2VPsgzU4lXDRX+GV3FEvsy3MN4XOphySp8kKtA=; b=o+fk+Zq2YdbtnV6sIukejDLnA7
+	zs6xNWor8vzK9oCQG6OC1gU/+8tiT6fYmWGVXo9YD/EFwdQT34dq0R1O+4mUAO8rj4S0Gghduy9lr
+	gXJc0p7mtUWC3nVTkpKSRi09uKREZv8p47rqz8DHmpzcIyQ1ylL0vhcbTuRuYx3M4jQszAIfz6/v/
+	HAAp/vxyP1AlatvNJ9lR5QbUW59LpUIfGiEfTo9n13davFhKU0f3B/9e3r2RQgQWLzzaTGBZnaaAW
+	VIzfbqcdBu2h287cHSZ8OMskgBw8RjqUixUc4gNLhGkWU2kDiwdyxzf4g6NCzY/r5fITlPndJSS/B
+	fs/8sslQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIQW-00000009c5C-0kBq;
-	Fri, 24 Oct 2025 14:05:56 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1vCIUO-00000009cbu-1Rmm;
+	Fri, 24 Oct 2025 14:09:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIQS-00000009c4W-31XZ;
-	Fri, 24 Oct 2025 14:05:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761314752; x=1792850752;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=WoimfDSkoiRGXr+VziBQJvHHKgL57NRpG6O9qXGaAE0=;
-  b=JMT1pQam6eiN6VbssX9M49TbKDnTRtn5sNIqONIhYmqU1VtHPM24Wdio
-   d1dGc1cMUMFCOWFI8AW2KlWbKdYndm9jmuu1tx7+0co9igkp438UMcJwE
-   DJ/JVIJalcvFMv3kfIAhjprfMlBYF6Qw+8kHV7gg+X0Dce1QN6aTXY5cT
-   zPDOs+P+uvDfniT9tBJIjvjBytK0RLJFYx5DXF0us0GCNETGpu5oXBvyZ
-   mCE0zc/vbdoY50fsBptGQNX1WtyL2ntvOWD2+63t0gp//eW/58c46mX0X
-   Afv0kreP8MK+7nGxZv++FltcDRdfyX/hwP9j5pUNKwgqmkzGJMrn7LcVZ
-   w==;
-X-CSE-ConnectionGUID: da03AWznQLioGMU5oLIEzA==
-X-CSE-MsgGUID: RZlFnRP0TiWaTQxy/ROhCg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63199488"
-X-IronPort-AV: E=Sophos;i="6.19,252,1754982000"; 
-   d="scan'208";a="63199488"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 07:05:52 -0700
-X-CSE-ConnectionGUID: LEfpDIHESSiaqwLNEzO8aQ==
-X-CSE-MsgGUID: wbSold2QTOiiflfqUdPudA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,252,1754982000"; 
-   d="scan'208";a="208083206"
-Received: from spandruv-desk1.amr.corp.intel.com (HELO [10.125.109.24]) ([10.125.109.24])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 07:05:51 -0700
-Message-ID: <ea7552f1-842c-4bb8-b19e-0410bf18c305@intel.com>
-Date: Fri, 24 Oct 2025 07:05:50 -0700
+	id 1vCIUL-00000009cbZ-2M8c
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Oct 2025 14:09:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 46C8044B33;
+	Fri, 24 Oct 2025 14:09:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9255EC4CEF1;
+	Fri, 24 Oct 2025 14:09:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761314993;
+	bh=qEnNl4yAb28piqxRvBDsROmZ5MOV09FzzL0cqQOOLgU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OdB13bXm15bW8P4kG+yyeBVSDJMp30yf5dz0qvSutbcf+82PO6jgm69hKRwpcOweG
+	 XDllLkMdF44QQH9QAoIh6/ZB7wGDBP/TFZ73itifaGkr+T/Rpvqg3fL98RnHv4xgmX
+	 kFoPJWBcr3QfBq1eY1ZJO53o+OYWdWEuNTIkP4N9vms89VxF1vaQZWaSVLX2yAUBH8
+	 MtdWWlC9gXNSHeF5vEs8KRGyce2aB/qvk/INGHwKeNE4TC8Diec89ExuLIbVYxOvSm
+	 ATapuCnGUWVpXB18xcpeeIIKXjVlUQ9YLINfJoHltzohyjhBTRTpg1h3HFZ1sD70S4
+	 wLc1/qYBgVQBg==
+Date: Fri, 24 Oct 2025 16:09:50 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Benno Lossin <lossin@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Drew Fustini <fustini@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	Elle Rhumsaa <elle@weathered-steel.dev>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v16 0/7] Rust Abstractions for PWM subsystem with TH1520
+ PWM driver
+Message-ID: <p5addblaeofj6xdbgmvrknoozrxh75lsle6uqh4g2qku745ayw@uls3uoftpmuw>
+References: <CGME20251016133814eucas1p199cb62658c016e84e34d525e7c87f16e@eucas1p1.samsung.com>
+ <20251016-rust-next-pwm-working-fan-for-sending-v16-0-a5df2405d2bd@samsung.com>
+ <3f9ab01c-470e-48b5-a309-71325ecc4906@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] epoll: Use __user_write_access_begin() and
- unsafe_put_user() in epoll_put_uevent().
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, axboe@kernel.dk, bp@alien8.de,
- brauner@kernel.org, catalin.marinas@arm.com, christophe.leroy@csgroup.eu,
- dave.hansen@linux.intel.com, edumazet@google.com, hpa@zytor.com,
- kuni1840@gmail.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mingo@redhat.com,
- mpe@ellerman.id.au, npiggin@gmail.com, palmer@dabbelt.com, pjw@kernel.org,
- tglx@linutronix.de, torvalds@linux-foundation.org, will@kernel.org,
- x86@kernel.org
-References: <0bfa4895-727b-407b-90d2-7d54b9bd4910@intel.com>
- <20251024051653.66329-1-kuniyu@google.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20251024051653.66329-1-kuniyu@google.com>
+In-Reply-To: <3f9ab01c-470e-48b5-a309-71325ecc4906@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_070552_801225_5E2536BE 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20251024_070953_637529_95C24278 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,54 +81,162 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5153818350817725094=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/23/25 22:16, Kuniyuki Iwashima wrote:
->> This makes me nervous. The access_ok() check is quite a distance away.
->> I'd kinda want to see some performance numbers before doing this. Is
->> removing a single access_ok() even measurable?
-> I noticed I made a typo in commit message, s/tcp_rr/udp_rr/.
-> 
-> epoll_put_uevent() can be called multiple times in a single
-> epoll_wait(), and we can see 1.7% more pps on UDP even when
-> 1 thread has 1000 sockets only:
-> 
-> server: $ udp_rr --nolog -6 -F 1000 -T 1 -l 3600
-> client: $ udp_rr --nolog -6 -F 1000 -T 256 -l 3600 -c -H $SERVER
-> server: $ nstat > /dev/null; sleep 10; nstat | grep -i udp
-> 
-> Without patch (2 stac/clac):
-> Udp6InDatagrams                 2205209            0.0
-> 
-> With patch (1 stac/clac):
-> Udp6InDatagrams                 2242602            0.0
 
-I'm totally with you about removing a stac/clac:
+--===============5153818350817725094==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="s5lrbho5664iqhra"
+Content-Disposition: inline
 
-	https://lore.kernel.org/lkml/20250228203722.CAEB63AC@davehans-spike.ostc.intel.com/
 
-The thing I'm worried about is having the access_ok() so distant
-from the unsafe_put_user(). I'm wondering if this:
+--s5lrbho5664iqhra
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v16 0/7] Rust Abstractions for PWM subsystem with TH1520
+ PWM driver
+MIME-Version: 1.0
 
--	__user_write_access_begin(uevent, sizeof(*uevent));
-+	if (!user_write_access_begin(uevent, sizeof(*uevent))
-+		return NULL;
-	unsafe_put_user(revents, &uevent->events, efault);
-	unsafe_put_user(data, &uevent->data, efault);
-	user_access_end();
+Hello Michael,
 
-is measurably slower than what was in your series. If it is
-not measurably slower, then the series gets simpler because it
-does not need to refactor user_write_access_begin(). It also ends
-up more obviously correct because the access check is closer to
-the unsafe_put_user() calls.
+On Wed, Oct 22, 2025 at 10:34:42AM +0200, Michal Wilczynski wrote:
+> Since you mentioned last time that you were happy with the code, would
+> you please consider picking up this series for linux-next? It would be
+> great to get it in for wider testing to ensure everything is solid.
 
-Also, the extra access_ok() is *much* cheaper than stac/clac.
+I took another look, and just being able to compile and understanding
+very little Rust, I came up with:
+
+diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
+index 79fbb13cd47f..c8f9f5b61bfa 100644
+--- a/rust/kernel/pwm.rs
++++ b/rust/kernel/pwm.rs
+@@ -15,38 +15,7 @@
+     prelude::*,
+     types::{ARef, AlwaysRefCounted, Opaque},
+ };
+-use core::{convert::TryFrom, marker::PhantomData, ptr::NonNull};
++use core::{marker::PhantomData, ptr::NonNull};
+-
+-/// PWM polarity. Mirrors [`enum pwm_polarity`](srctree/include/linux/pwm.=
+h).
+-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+-pub enum Polarity {
+-    /// Normal polarity (duty cycle defines the high period of the signal).
+-    Normal,
+-
+-    /// Inversed polarity (duty cycle defines the low period of the signal=
+).
+-    Inversed,
+-}
+-
+-impl TryFrom<bindings::pwm_polarity> for Polarity {
+-    type Error =3D Error;
+-
+-    fn try_from(polarity: bindings::pwm_polarity) -> Result<Self, Error> {
+-        match polarity {
+-            bindings::pwm_polarity_PWM_POLARITY_NORMAL =3D> Ok(Polarity::N=
+ormal),
+-            bindings::pwm_polarity_PWM_POLARITY_INVERSED =3D> Ok(Polarity:=
+:Inversed),
+-            _ =3D> Err(EINVAL),
+-        }
+-    }
+-}
+-
+-impl From<Polarity> for bindings::pwm_polarity {
+-    fn from(polarity: Polarity) -> Self {
+-        match polarity {
+-            Polarity::Normal =3D> bindings::pwm_polarity_PWM_POLARITY_NORM=
+AL,
+-            Polarity::Inversed =3D> bindings::pwm_polarity_PWM_POLARITY_IN=
+VERSED,
+-        }
+-    }
+-}
+=20
+ /// Represents a PWM waveform configuration.
+ /// Mirrors struct [`struct pwm_waveform`](srctree/include/linux/pwm.h).
+@@ -89,22 +58,6 @@ fn from(wf: Waveform) -> Self {
+     }
+ }
+=20
+-/// Wrapper for PWM state [`struct pwm_state`](srctree/include/linux/pwm.h=
+).
+-#[repr(transparent)]
+-pub struct State(bindings::pwm_state);
+-
+-impl State {
+-    /// Creates a `State` wrapper by taking ownership of a C `pwm_state` v=
+alue.
+-    pub(crate) fn from_c(c_state: bindings::pwm_state) -> Self {
+-        State(c_state)
+-    }
+-
+-    /// Returns `true` if the PWM signal is enabled.
+-    pub fn enabled(&self) -> bool {
+-        self.0.enabled
+-    }
+-}
+-
+ /// Describes the outcome of a `round_waveform` operation.
+ #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+ pub enum RoundingOutcome {
+@@ -164,13 +117,6 @@ pub fn label(&self) -> Option<&CStr> {
+         Some(unsafe { CStr::from_char_ptr(label_ptr) })
+     }
+=20
+-    /// Gets a copy of the current state of this PWM device.
+-    pub fn state(&self) -> State {
+-        // SAFETY: `self.as_raw()` gives a valid pointer. `(*self.as_raw()=
+).state`
+-        // is a valid `pwm_state` struct. `State::from_c` copies this data.
+-        State::from_c(unsafe { (*self.as_raw()).state })
+-    }
+-
+     /// Sets the PWM waveform configuration and enables the PWM signal.
+     pub fn set_waveform(&self, wf: &Waveform, exact: bool) -> Result {
+         let c_wf =3D bindings::pwm_waveform::from(*wf);
+
+Does that make sense?
+
+I consider applying your series and put the above space on top, to
+create my first Rust patch :-)
+
+Best regards
+Uwe
+
+--s5lrbho5664iqhra
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmj7iJ8ACgkQj4D7WH0S
+/k6hYQgAhlp1k8GnQOshRf5MFOCWXtHvmPFyzN7GPGmVJw3NHwuKc4Gzrp7Y+B7Q
+ZMh/RD1laNttxYcKljd1THglHWTj49XvkzVVLw1sZ6V+iMYJefsYGQuWl60Y/pJV
+AW3tZtwOl0ea7cS1kyif7QvpobCTQVlIfs/mE2z5BxGvNPJIHFR/bW3a1m0hzjyM
+Nz3s4s5LKStwW1EZVpFVaW9YBTvlsbuPdOK+KbeoITs3FQW4+wpRGk5Cm8qNFbAe
+LaK06/87BrDvVpkHCuBNRwOGDucMxjf1CaQ4Ap/QZ/Pc0yh6ha46yv4YLxPDJwuu
+q+rdvj7mq0Y3w4nlQi9Ui0FUKQadkg==
+=trqv
+-----END PGP SIGNATURE-----
+
+--s5lrbho5664iqhra--
+
+
+--===============5153818350817725094==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5153818350817725094==--
+
