@@ -4,72 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC1ACCF9E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 14:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB2BFCCF9E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 14:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FqysC2VPsgzU4lXDRX+GV3FEvsy3MN4XOphySp8kKtA=; b=o+fk+Zq2YdbtnV6sIukejDLnA7
-	zs6xNWor8vzK9oCQG6OC1gU/+8tiT6fYmWGVXo9YD/EFwdQT34dq0R1O+4mUAO8rj4S0Gghduy9lr
-	gXJc0p7mtUWC3nVTkpKSRi09uKREZv8p47rqz8DHmpzcIyQ1ylL0vhcbTuRuYx3M4jQszAIfz6/v/
-	HAAp/vxyP1AlatvNJ9lR5QbUW59LpUIfGiEfTo9n13davFhKU0f3B/9e3r2RQgQWLzzaTGBZnaaAW
-	VIzfbqcdBu2h287cHSZ8OMskgBw8RjqUixUc4gNLhGkWU2kDiwdyxzf4g6NCzY/r5fITlPndJSS/B
-	fs/8sslQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qDiNV+OcFDPsY4h2fyplQmfh4Aj/4J0sMwM4Hh7ZKUc=; b=tgucboh1YKmbtq
+	F9ORrhg7TM32QizeTBN24yEKlGnAZYQyqrKXUoAtikzF7iF/7Xjv2g/54LQjAFlqD+Hshg7C7sSEC
+	xkaol/3sAJXCXgON5q7pBhvIz6EOsQyELMFgdH65TT3VCfX43Gkxz60Ti5maREk8Rgu21E+HbpHh2
+	v4vVcuocSibJ0lUQO7QJWluV5+2SwFGY1uhpCo3Bjruax8Z+Yogf4fqps8df2TOrPsYlP9nPADyFg
+	FyeQG47sF0QCm6On7um4ZsAGQokcg6IGldqum+678UYRBcoyL/H7LThu3b8GyV2F/00S7ZQaxLMIR
+	zQpXMKAcFJCGvDRyGNQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIUO-00000009cbu-1Rmm;
-	Fri, 24 Oct 2025 14:09:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vCIYG-00000009dEx-2L7n;
+	Fri, 24 Oct 2025 14:13:56 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIUL-00000009cbZ-2M8c
+	id 1vCIYE-00000009dD9-0AhI
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 14:09:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46C8044B33;
-	Fri, 24 Oct 2025 14:09:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9255EC4CEF1;
-	Fri, 24 Oct 2025 14:09:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761314993;
-	bh=qEnNl4yAb28piqxRvBDsROmZ5MOV09FzzL0cqQOOLgU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OdB13bXm15bW8P4kG+yyeBVSDJMp30yf5dz0qvSutbcf+82PO6jgm69hKRwpcOweG
-	 XDllLkMdF44QQH9QAoIh6/ZB7wGDBP/TFZ73itifaGkr+T/Rpvqg3fL98RnHv4xgmX
-	 kFoPJWBcr3QfBq1eY1ZJO53o+OYWdWEuNTIkP4N9vms89VxF1vaQZWaSVLX2yAUBH8
-	 MtdWWlC9gXNSHeF5vEs8KRGyce2aB/qvk/INGHwKeNE4TC8Diec89ExuLIbVYxOvSm
-	 ATapuCnGUWVpXB18xcpeeIIKXjVlUQ9YLINfJoHltzohyjhBTRTpg1h3HFZ1sD70S4
-	 wLc1/qYBgVQBg==
-Date: Fri, 24 Oct 2025 16:09:50 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Benno Lossin <lossin@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Drew Fustini <fustini@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	Elle Rhumsaa <elle@weathered-steel.dev>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v16 0/7] Rust Abstractions for PWM subsystem with TH1520
- PWM driver
-Message-ID: <p5addblaeofj6xdbgmvrknoozrxh75lsle6uqh4g2qku745ayw@uls3uoftpmuw>
-References: <CGME20251016133814eucas1p199cb62658c016e84e34d525e7c87f16e@eucas1p1.samsung.com>
- <20251016-rust-next-pwm-working-fan-for-sending-v16-0-a5df2405d2bd@samsung.com>
- <3f9ab01c-470e-48b5-a309-71325ecc4906@samsung.com>
+	Fri, 24 Oct 2025 14:13:55 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-428564f8d16so1165883f8f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 07:13:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761315232; x=1761920032; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DVsA5NUMk7Er151JpLhnqPMBBeiJc/C7dvaqVJvIrmc=;
+        b=zCXzRiZ0MOCPUzkRywF6tN/P8AapsHdtZUoO0+cH8BlAzt1pWr+kSMww1jQTZG2XWz
+         kJ+PsK0VXfV8jwUsmWF1yN4QlCgoumKM33by6TzaNFG/YtQmPBAEXLKmoMoQaiGkewbx
+         Xx7N+bhBLVF15AocNpXDJ2WRJcJpbctui/dr6PLsb+xxxnHTRSMJAE3hJHYCMp9RZhEf
+         G/oc4DvBcEQkdIuCSDSFAmUsKyFjdmtuW/srcDj1uPXMe5FIdbR3rem3vorTo2Xaoy92
+         REXWtI4IjmYlrdGE5jQ796/zTkozoONZ1NWx/o9JualVbCCZnOqEkczKuzrpXziQNbiY
+         k4vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761315232; x=1761920032;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DVsA5NUMk7Er151JpLhnqPMBBeiJc/C7dvaqVJvIrmc=;
+        b=PeIAbeo0tnz7hTbOuFfw0GD3uCWvgdmDoLwrRua/4BKYWmrVnUVoG9+vC3O7gSZayb
+         gBW3S9MOA7dCUCPtl0xRE0lDjsRDTwTRJadyEIEhi0NottvRREsFtlM0z+ZuHtYllQ1M
+         x2MCuCSi1ZITIjVX8JE3lts6T9Iy9u00WAW1OXnXh5OVffeJCwSDnmt30fDbBhX6+SJ8
+         LuuTlfnIADQ73AIhI5t5nwHA3TyUGskwe+UFE2ZamwhOVPo4UkvqCdD4dXLtGaJAXuIT
+         DsNSoauaSWhvFpAs4ack6QuD1UsjJUR/YmjnLuYUOKSl1LYmgfpa/CqcwpbHUY10h8LI
+         C5vA==
+X-Forwarded-Encrypted: i=1; AJvYcCUs3OXrBMheIFx8p9tv7JYaJUvfr82UEYSO43ehreJKEb1JYJUm246NYEzYEiKLLOmTmfG9vB181HHNHA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRUTi4imZniBRGeg2NBbluxlIxadBIk6PSfmtI8fHggYZDOPb0
+	n+YJacGfVsHZ8asE5P+FYKLPOHgGCdkY0Smbe3ecxKi2wFcpMm5TVo9b6r/8hDjkwCg=
+X-Gm-Gg: ASbGnctCZTMr7A1MhM8lY25ITb+wWpAKL26Pj5mu4GZ2rppecaDahbRmpe3OaRCGy4T
+	enQSJEIWxxSfkc+CcPumh/rlQGOdh/dI5/4ECgtVh3D69Wy8mHfeViO5SHjpY/VA93ALqAktYi+
+	lmhJ330PApWTS7IK4D+ON1Ui9mPMW7B6y6nqFVuZ3cM7K1Spxeng+2pMV4FKCi8bnsmpT0q7Hcf
+	baKkqmjUUn6avHcs6XStvgnOzHwhZTqKI1JoZpYqXakzYHKfWrwpRok9OQTxA7CwQ94+8g6Amgg
+	mRYe8tUsToM0vrSq/vyH2ecJFDpWn5QGvowzH+TCd1GhB3LHpSF5yX1FcruS21vgVKsGyYp/aMN
+	EQeOOpQd8dhfk7I3KMck8dUK48j0YuC5VpM4+JJS18OF7ISk8sDBhZkyIo1M9XkeKa0YTSYcAZf
+	mx6PfUS0QtYgMJ1Y97
+X-Google-Smtp-Source: AGHT+IGOwSSq4cPlqfVI2+cQc4DNxAbP8ipcdaug6FB/HIUIzgkN8w1ERIrzCxdii8Zp8hIOBEEMaQ==
+X-Received: by 2002:a05:6000:2912:b0:3e8:f67:894f with SMTP id ffacd0b85a97d-4298f582512mr2780216f8f.26.1761315231940;
+        Fri, 24 Oct 2025 07:13:51 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4298b996aaasm7851320f8f.3.2025.10.24.07.13.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Oct 2025 07:13:51 -0700 (PDT)
+Date: Fri, 24 Oct 2025 17:13:48 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Yixun Lan <dlan@gentoo.org>, linux-sound@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ASoC: spacemit: add failure check for
+ spacemit_i2s_init_dai()
+Message-ID: <aPuJnJIeupM1PV09@stanley.mountain>
+References: <20251024-fix-k1-i2s-dai-mem-v1-1-15f5f1ec294a@linux.spacemit.com>
 MIME-Version: 1.0
-In-Reply-To: <3f9ab01c-470e-48b5-a309-71325ecc4906@samsung.com>
+Content-Disposition: inline
+In-Reply-To: <20251024-fix-k1-i2s-dai-mem-v1-1-15f5f1ec294a@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_070953_637529_95C24278 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20251024_071354_111888_0E1763B1 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,162 +99,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5153818350817725094=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Oct 24, 2025 at 09:11:01PM +0800, Troy Mitchell wrote:
+> Add error handling when memory allocation for dai fails in
+> spacemit_i2s_init_dai() call.
+> 
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
+> Dan reported here [1].
+> 
+> Link: https://lore.kernel.org/all/aPtiNCZ_KBezL2Dr@stanley.mountain/#t [1]
 
---===============5153818350817725094==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="s5lrbho5664iqhra"
-Content-Disposition: inline
+Thanks, Troy
 
+Normally we would say this needs a Fixes tag and the Link: should be a
+Closes: tag.  It would be easy to make the argument that the
+allocation won't fail in real life so a Fixes tag isn't appropriate.  But
+actually it's simpler to add the tag...
 
---s5lrbho5664iqhra
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v16 0/7] Rust Abstractions for PWM subsystem with TH1520
- PWM driver
-MIME-Version: 1.0
-
-Hello Michael,
-
-On Wed, Oct 22, 2025 at 10:34:42AM +0200, Michal Wilczynski wrote:
-> Since you mentioned last time that you were happy with the code, would
-> you please consider picking up this series for linux-next? It would be
-> great to get it in for wider testing to ensure everything is solid.
-
-I took another look, and just being able to compile and understanding
-very little Rust, I came up with:
-
-diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
-index 79fbb13cd47f..c8f9f5b61bfa 100644
---- a/rust/kernel/pwm.rs
-+++ b/rust/kernel/pwm.rs
-@@ -15,38 +15,7 @@
-     prelude::*,
-     types::{ARef, AlwaysRefCounted, Opaque},
- };
--use core::{convert::TryFrom, marker::PhantomData, ptr::NonNull};
-+use core::{marker::PhantomData, ptr::NonNull};
--
--/// PWM polarity. Mirrors [`enum pwm_polarity`](srctree/include/linux/pwm.=
-h).
--#[derive(Copy, Clone, Debug, PartialEq, Eq)]
--pub enum Polarity {
--    /// Normal polarity (duty cycle defines the high period of the signal).
--    Normal,
--
--    /// Inversed polarity (duty cycle defines the low period of the signal=
-).
--    Inversed,
--}
--
--impl TryFrom<bindings::pwm_polarity> for Polarity {
--    type Error =3D Error;
--
--    fn try_from(polarity: bindings::pwm_polarity) -> Result<Self, Error> {
--        match polarity {
--            bindings::pwm_polarity_PWM_POLARITY_NORMAL =3D> Ok(Polarity::N=
-ormal),
--            bindings::pwm_polarity_PWM_POLARITY_INVERSED =3D> Ok(Polarity:=
-:Inversed),
--            _ =3D> Err(EINVAL),
--        }
--    }
--}
--
--impl From<Polarity> for bindings::pwm_polarity {
--    fn from(polarity: Polarity) -> Self {
--        match polarity {
--            Polarity::Normal =3D> bindings::pwm_polarity_PWM_POLARITY_NORM=
-AL,
--            Polarity::Inversed =3D> bindings::pwm_polarity_PWM_POLARITY_IN=
-VERSED,
--        }
--    }
--}
-=20
- /// Represents a PWM waveform configuration.
- /// Mirrors struct [`struct pwm_waveform`](srctree/include/linux/pwm.h).
-@@ -89,22 +58,6 @@ fn from(wf: Waveform) -> Self {
-     }
- }
-=20
--/// Wrapper for PWM state [`struct pwm_state`](srctree/include/linux/pwm.h=
-).
--#[repr(transparent)]
--pub struct State(bindings::pwm_state);
--
--impl State {
--    /// Creates a `State` wrapper by taking ownership of a C `pwm_state` v=
-alue.
--    pub(crate) fn from_c(c_state: bindings::pwm_state) -> Self {
--        State(c_state)
--    }
--
--    /// Returns `true` if the PWM signal is enabled.
--    pub fn enabled(&self) -> bool {
--        self.0.enabled
--    }
--}
--
- /// Describes the outcome of a `round_waveform` operation.
- #[derive(Debug, Clone, Copy, PartialEq, Eq)]
- pub enum RoundingOutcome {
-@@ -164,13 +117,6 @@ pub fn label(&self) -> Option<&CStr> {
-         Some(unsafe { CStr::from_char_ptr(label_ptr) })
-     }
-=20
--    /// Gets a copy of the current state of this PWM device.
--    pub fn state(&self) -> State {
--        // SAFETY: `self.as_raw()` gives a valid pointer. `(*self.as_raw()=
-).state`
--        // is a valid `pwm_state` struct. `State::from_c` copies this data.
--        State::from_c(unsafe { (*self.as_raw()).state })
--    }
--
-     /// Sets the PWM waveform configuration and enables the PWM signal.
-     pub fn set_waveform(&self, wf: &Waveform, exact: bool) -> Result {
-         let c_wf =3D bindings::pwm_waveform::from(*wf);
-
-Does that make sense?
-
-I consider applying your series and put the above space on top, to
-create my first Rust patch :-)
-
-Best regards
-Uwe
-
---s5lrbho5664iqhra
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmj7iJ8ACgkQj4D7WH0S
-/k6hYQgAhlp1k8GnQOshRf5MFOCWXtHvmPFyzN7GPGmVJw3NHwuKc4Gzrp7Y+B7Q
-ZMh/RD1laNttxYcKljd1THglHWTj49XvkzVVLw1sZ6V+iMYJefsYGQuWl60Y/pJV
-AW3tZtwOl0ea7cS1kyif7QvpobCTQVlIfs/mE2z5BxGvNPJIHFR/bW3a1m0hzjyM
-Nz3s4s5LKStwW1EZVpFVaW9YBTvlsbuPdOK+KbeoITs3FQW4+wpRGk5Cm8qNFbAe
-LaK06/87BrDvVpkHCuBNRwOGDucMxjf1CaQ4Ap/QZ/Pc0yh6ha46yv4YLxPDJwuu
-q+rdvj7mq0Y3w4nlQi9Ui0FUKQadkg==
-=trqv
------END PGP SIGNATURE-----
-
---s5lrbho5664iqhra--
+regards,
+dan carpenter
 
 
---===============5153818350817725094==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5153818350817725094==--
-
