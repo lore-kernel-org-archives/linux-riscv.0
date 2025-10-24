@@ -4,61 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B72CCD1BF
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 02:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDCE9CCD1BF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 03:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2AFHPt9dk0Os5p547yvr+e6YoHIrMDZ41xjvN+Q+XYI=; b=YNKxAqvoFDC5ScdBpuf06uE3a2
-	teTbTTg3IDgsI8wMTaxhTLD57+JWOF2klYEBcTUJG4TUSCXwKwmMLpcM8HGqBphA4SzbOISMQu9KY
-	QzxU9CQsF3irbuSUuoSS+qRn+nLmIkFt9gP4fc6WkdeoOD3akK0jorag8AqYaurWv1Ve68duFv6f3
-	dahRz7+rRhKSePlwn4mn0OdtNWzw3+ZE6S6kpyvrnyVvaG2txD1ns7UhbvSw8vL4RX1GaKtiz3e2i
-	XfSaOzi9fVQ9k141B9H9UTsFVVk1L+NiZMPfirhreJ5kKnnl0Hy+bQqtuPmi8O4vfEowxIbLKQcLz
-	YjvsYYsA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bHw2pvtA+++rhvqALCIlGWZJ3kkmnk4wu8QyM23taXM=; b=zp+4n3EhpxGvut
+	WKL+Jh0+vcLXxZIH2EvGQuDOGOcthGHJk4WAJ7kuOnJt9fNHtjJKppv6vHNzHCk9lF0qqavMkUHBl
+	QtA+Pv6SQSV1ZgzvBK6/uoMtPoZEgL7HepyzB5rb/OhkIRRI04Qd0Zr8wrE1vhDhqHOILunDPlw2M
+	NIyN40FhZX1oVVYB8KLTDTg1ZTdU1cjkihSFoD4RCzWo7+cHeYmXi9dr2gfmNmcW0CfGvahWGGGa0
+	wSfIfSax36I9JOChAntticDuzxJSkOJUDoSwTDrkIVWXuMT1yD2XVKSeilD8aeiuEdxbnK9sfPlVT
+	4YEltZaNrcar4xVXFEmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC7wn-000000085Na-3noo;
-	Fri, 24 Oct 2025 02:54:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vC87u-00000008784-0wZD;
+	Fri, 24 Oct 2025 03:06:02 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC7wl-000000085N7-204D
+	id 1vC87q-0000000877f-3aME
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 02:54:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E7D243E86;
-	Fri, 24 Oct 2025 02:54:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A8D8C4CEE7;
-	Fri, 24 Oct 2025 02:54:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761274470;
-	bh=l7Kt54esXuy6cW4NMDoL5L7OAAPO8XqbVG+dMVCBp+E=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=Pus6z7Hnt6+Il3SwthVqHOZDDC3GtvdSOcNTbT6k3s6naQxBmZJOubRVwEsVI7CyK
-	 WwHiawimzzXy3DVXjWEmkdcXxxXFqrn999N7ZI7H7HyjKq02A/GMxhgXOCnCZJmk6z
-	 n0KQA75orlACk89OVqeKuc9lAqR/aV5z7KDU7VlujFKQrYvsCQ0yNNsW0ubE+/dkF3
-	 Q95Z1EikX6S25ZDXSZcCR+A3vCCid8FV15jt8fgkkJkDGG2/esvjgOVP2IRhT85kQT
-	 xLf8nCNxFa7R1KdtwJeYAsF/Ch82aRUhnb3IW53Sv3a/CSExnMp6NddZCW55ctlM7h
-	 AW4w3QXaTcjfQ==
-Date: Thu, 23 Oct 2025 20:54:13 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Rob Herring <robh@kernel.org>
-cc: Paul Walmsley <pjw@kernel.org>, Guenter Roeck <linux@roeck-us.net>, 
-    Saravana Kannan <saravanak@google.com>, devicetree@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-    Han Gao <rabenda.cn@gmail.com>
-Subject: Re: [PATCH] of: Skip devicetree kunit tests when RISCV+ACPI doesn't
- populate root node
-In-Reply-To: <CAL_JsqJjiB3h+hzstXSbnyFy+U39GgtT=rcb4r+QDv=uL54H8g@mail.gmail.com>
-Message-ID: <1260cd8c-2904-1a21-d7ad-ba9b82f67797@kernel.org>
-References: <20251023160415.705294-1-linux@roeck-us.net> <2bef32d0-2c35-c93d-08a8-71966c1212f2@kernel.org> <CAL_JsqJjiB3h+hzstXSbnyFy+U39GgtT=rcb4r+QDv=uL54H8g@mail.gmail.com>
+	Fri, 24 Oct 2025 03:06:00 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-27d3540a43fso14952845ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Oct 2025 20:05:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761275157; x=1761879957; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4EzmryWBAlOE+6PvafZLTL8RGcukfyVnYUGcNucBOXE=;
+        b=iJeg/WjKXpbT4fQ6myl/WHSs8Tbkkyo8bUd15ftJ0FjC4wdf2iThrlG/EvAID/g4rR
+         13AuhHAzPGTGglD+MIaNh1GZ96erlNC9LzP8XiIXtrDGVwbTqF8clQ0H/fg0AVM4qotP
+         bJcAv4gaY0nCedK5vLWUPXjeL7qs+k+GbfBSLYorHhPKh084mKRFq6DGY5/daN7xqeeW
+         aeTCABidFcgKbUbpjtu6vyGL/5EhWq3ZBH0NbrXS8a6/jtuh6sFMWzs4wdoS2MftfzwL
+         1XHI0gRB8DV1Qt1yiIrZYKZ8o6lZ1vbxkJOcX0RNXSKi746q2ZUM9CruIoquYAVhC7vB
+         CVFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761275157; x=1761879957;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4EzmryWBAlOE+6PvafZLTL8RGcukfyVnYUGcNucBOXE=;
+        b=dAG3TXhOWLIFtOkp8Q0q50XQ5LR2jUnI5QKJxs/Vzi5WjdM+3l4rvLpHvQ0mnmVAI/
+         9XhnAABlaxvyho8ycouw+kvyjqDV42lenmNs+LEcdJft9f3JaM+5eHX2yjS/S/LUw2NP
+         vLtcigaW/gSSkAueeSO5sWiWwT+Ffh+wG72Bemt3iymYYinPtYaLIoVMa05SkWtKlDe1
+         52kUIHk4iUft3HajZ6TBlunNn13QNit0DwWlYoc5DFUegE5isMBkh8zhcPv88ayGL7OC
+         UuFhsCv7d3rGi9Ocyjgs2eSHUuHKcFJONrs2HnTiy/t344pYXNAHXCikkjb26ZFC+1om
+         Ccpw==
+X-Forwarded-Encrypted: i=1; AJvYcCVX7pfawAZv4wimPb2m5tZRma74JZGqwNKf0QhMO1VEh0iTzf3o2rhzgqBSODcg6cCrksydMJTzhuCrLw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAAy2cuyL9VQ4wIOMg1Begez9E88+hU40P0VgBZvTIUWwFK5/W
+	a/reoVWlX2zFSUwmZUr7tf9xQqOuTd28QJieRAG9SGarsKfV6lbNU7V/
+X-Gm-Gg: ASbGncsAMH/AHozWCqxfkPx2Qyo9ucgoXho6dyx3DxktydvYdOgyKB717n1hewPvzt8
+	U33J/g88IOjc7y8elF72+d/6RVwv+Wl26DWkbflv9lOirDAcT/dOdqx0OO5aJureeavBbWeAtsP
+	C1pv9BBpeUd4cmEOK0XKmctZm7oAKxcOVsAmvTbbzBr++llblZ4N+wRj93KGs2yrxcjhPcEgL7c
+	fcMMf5Jw2/1B3ZwrXHCGzN5XZ7OKVVjCrItt7YqDYWFWrjnGGoR0dM5bF50T7wzZbhx3TRbCWx7
+	qbYmZZnRXGUut063VEOsqu4RHrjS82OM5D0CBHFwlAoscl2Y+/ZJ2DFzFbfdCqR4EM0RNMOi/WR
+	nOxdXCIEO9wB7irczUqcA6nxuj4sg4jh5qPxRlB7gzJlyrqP7lzNq2cxE810c4CtPYnJhKvm5RV
+	S4rgUoGmHB8dQcVdMMKwd7yrS1Pf0=
+X-Google-Smtp-Source: AGHT+IF8b4avL0/1iLczBKXPJIE+YBOYlfAMVKvJQQ45ng5xpwwuuzbCszJkZUGkuxOMXW5DM24w0Q==
+X-Received: by 2002:a17:903:298c:b0:27e:eabd:4b41 with SMTP id d9443c01a7336-290c9c89eabmr329227425ad.7.1761275157084;
+        Thu, 23 Oct 2025 20:05:57 -0700 (PDT)
+Received: from localhost.localdomain ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6cf4bb86cbsm3574172a12.7.2025.10.23.20.05.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Oct 2025 20:05:56 -0700 (PDT)
+From: Longbin Li <looong.bin@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Yu Yuan <yu.yuan@sjtu.edu.cn>,
+	Ze Huang <huangze@whut.edu.cn>
+Cc: Longbin Li <looong.bin@gmail.com>,
+	devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 0/3] riscv: sophgo: add top syscon device for cv18xx
+Date: Fri, 24 Oct 2025 11:05:13 +0800
+Message-ID: <20251024030528.25511-1-looong.bin@gmail.com>
+X-Mailer: git-send-email 2.51.1.dirty
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-935726058-1761274469=:3901516"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_195431_537642_A3285695 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20251023_200558_915229_E8EE7296 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,69 +107,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Add top syscon device bindings related DTS change for CV1800.
 
---8323329-935726058-1761274469=:3901516
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8BIT
+---
+Changes from v3:
+  - https://lore.kernel.org/all/20251020083838.67522-1-looong.bin@gmail.com/
+  - Corrected Co-developed-by information in commit message.
+  - Fixed patch version number.
 
-On Thu, 23 Oct 2025, Rob Herring wrote:
+Changes from v2:
+  - https://lore.kernel.org/all/20251012022555.6240-1-looong.bin@gmail.com/
+  - Add ranges property.
+  - Use proper regex in patternProperties.
+  - Add complete example including child nodes.
 
-> On Thu, Oct 23, 2025 at 11:48 AM Paul Walmsley <pjw@kernel.org> wrote:
-> >
-> > On Thu, 23 Oct 2025, Guenter Roeck wrote:
-> >
-> > > Starting with commit 69a8b62a7aa1 ("riscv: acpi: avoid errors caused by
-> > > probing DT devices when ACPI is used"), riscv images no longer populate
-> > > devicetree if ACPI is enabled. This causes unit tests to fail which require
-> > > the root node to be set.
-> > >
-> > >   # Subtest: of_dtb
-> > >   # module: of_test
-> > >   1..2
-> > >   # of_dtb_root_node_found_by_path: EXPECTATION FAILED at drivers/of/of_test.c:21
-> > >   Expected np is not null, but is
-> > >   # of_dtb_root_node_found_by_path: pass:0 fail:1 skip:0 total:1
-> > >   not ok 1 of_dtb_root_node_found_by_path
-> > >   # of_dtb_root_node_populates_of_root: EXPECTATION FAILED at drivers/of/of_test.c:31
-> > >   Expected of_root is not null, but is
-> > >   # of_dtb_root_node_populates_of_root: pass:0 fail:1 skip:0 total:1
-> > >   not ok 2 of_dtb_root_node_populates_of_root
-> > >
-> > > Skip those tests for RISCV if the root node is not populated.
-> > >
-> > > Fixes: 69a8b62a7aa1 ("riscv: acpi: avoid errors caused by probing DT devices when ACPI is used")
-> > > Cc: Han Gao <rabenda.cn@gmail.com>
-> > > Cc: Paul Walmsley <pjw@kernel.org>
-> > > Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-> >
-> > Reviewed-by: Paul Walmsley <pjw@kernel.org>  # arch/riscv
-> 
-> FWIW, the fixed commit will also prevent enabling features like this
-> series[1] enables. Arm64 is still disabled ATM because of disagreement
-> with the arm64 maintainers, so that can was kicked down the road. It
-> would be better to not disable this and address the issues as they
-> happen rather than breaking people down the road.
+Changed by RFC:
+  - https://lore.kernel.org/all/20250611082452.1218817-1-inochiama@gmail.com/
 
-Thanks for the context, Rob.  Can you share a pointer to the ARM64 
-disagreement thread(s) (either publicly or privately)?  
+---
 
+Longbin Li (3):
+  dt-bindings: soc: sophgo: add TOP syscon for CV18XX/SG200X series SoC
+  riscv: dts: sophgo: Add syscon node for cv18xx
+  riscv: dts: sophgo: Add USB support for cv18xx
 
-- Paul
---8323329-935726058-1761274469=:3901516
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+ .../soc/sophgo/sophgo,cv1800b-top-syscon.yaml | 81 +++++++++++++++++++
+ .../boot/dts/sophgo/cv1800b-milkv-duo.dts     |  5 ++
+ arch/riscv/boot/dts/sophgo/cv180x.dtsi        | 42 ++++++++++
+ .../boot/dts/sophgo/cv1812h-huashan-pi.dts    |  5 ++
+ .../dts/sophgo/sg2002-licheerv-nano-b.dts     |  5 ++
+ 5 files changed, 138 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top-syscon.yaml
+
+--
+2.51.0
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-935726058-1761274469=:3901516--
-
