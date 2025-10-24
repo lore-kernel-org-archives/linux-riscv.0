@@ -4,97 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D8CBCCD1BF
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 14:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D307CCD1BF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 15:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zXsYdgjP+37EqEszdeY1AeYB5FoNinFwVYr7Q+TouvA=; b=tFzkp1pgklZT9l
-	7+zl9ZWzJ32aKlWKhHt/euVwuqwTGYH/aTuide+mJY9U/FFABLXY5PardNMuBY58Au+oOFAQVwCsd
-	ewQTviA4j1vjHtvezJLbjFNZy/cEtuWjraDW1HIRNd22Upyt+HpAonAObHoP8szQsjHhgHy1sF1yf
-	OAzyND2nXNuRz8pFrI/Z+wAAsfjrAykKrmHEs+oYNSUxSQ3hi+8UfM5FP8tMMYHvCWjeSa6qifJxl
-	bALyIzFyAGwXNxApGFbSCOhr4w//ZCKuC47zciV+MpcrbJ/Q1ZD9QrqqT/pjFUnC+loyW3g2Rh8e3
-	6tFyw0kwi2VsfZVuD5ZQ==;
+	List-Owner; bh=qZpta77Fk23+Rw/jX8PbWe0rowkuR/kyu2TaNNaVXko=; b=t+/9DUmilw+eLG
+	Qew8qQBKLrJDr/lS1t2SmnGJEVynS1xQnplclWyVxz5G9jghVXiJGZO/LK86OFdJ7cjfF9fJP89R3
+	F2d8rE2YJX4KHHgMurxPg0mBgVB+dHTj1+NRMZ3XRHAIhCjv+K1rOG2FBknXMw/LzddxTFRXh2MM6
+	qKsLbFNhadnLur++K0JisZVElkFQyeiNZ8+hzp847+f31SWJpHpr8rkxytvhiqmF4mfYTLcjKCrm7
+	V4Mhx5KiTyYlUvz4A5rhakGpRH6X0J+VpFGwzS7TScJaV3jA2CTyJYeg5AcXyv4lleYEpvragZL0n
+	Fqd5rAqgXC4jFx9lbwJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCJ4e-00000009hW5-3mqd;
-	Fri, 24 Oct 2025 14:47:24 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vCJfO-00000009ntG-3b6f;
+	Fri, 24 Oct 2025 15:25:22 +0000
+Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCJ4c-00000009hUR-2ozA
+	id 1vCJfL-00000009nrd-37WU
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 14:47:23 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-47106fc51faso26655515e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 07:47:22 -0700 (PDT)
+	Fri, 24 Oct 2025 15:25:21 +0000
+Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-430cd27de3eso9923215ab.1
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 08:25:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761317241; x=1761922041; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1761319519; x=1761924319; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JU+wnuo2Z/1XtZ6g63nPnwv0VWCw8ghGKwTmMdWFqpg=;
-        b=UvSky8xDQrQvkOuQ19bRryibQcuZtF9FFmn65yfaQZiIWv7FggceOuPQbQTYzNnE3W
-         IYT3SZ+jBulRzPaETjcTx3bxQyxPy/BJ8gPAXlqFImJ5hrR0rrKXQK5nBlPbLNw0vK2v
-         rF0xeaPI2CQFClo58rncpqJ5NRykcETYbM+nmWdfo76uJCtEtgHyFT6lwMi3EITVrva+
-         clEig3Jb9ysX93VkXwOSI7KPdsdm2vObBpekZgLYA5VQGLBwSmu6skGD/g4ZP/kvhE/H
-         T1a8SIp2SUSgQ941rFOyN/sgkOpODpkCIiUDXEgQ1RLErkA+0Z5joo3XmRZ49gsXj2XP
-         56cQ==
+        bh=yd271BqGjeS+iBsD8ybvx85gmJGIuP9wFhL3YHDZT0o=;
+        b=QNl7TfswIEYjqLKQOaAZeo5wNlfwmSLZB6k/BejnqrajduJCjHmQ3Z67qDmbXtykGs
+         Wf/SPQi9b4+HDGhKUUfDE84Yyz7J844OuKr0pOks5mPi7h3szM62in+J84OJnd0R2aHI
+         gcs3L8cyRlFOcewwv4xhscH/VtP51coGJfOJ1mQMTEF73d1xYT/zpAlVvDwVFlq65rI5
+         0xMlSLdR5l2lRJYWXWSDLK6FceqYxXzLaAgEk9up1ejKJVILgOHApMB4RG133J2l7IBJ
+         khJ68YutjgdTYTKB3jAzHtk+8xce/lqL8/46Pt1sC/OlxsOOEM0djv6unJEkW6ZT/1Ny
+         1mSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761317241; x=1761922041;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1761319519; x=1761924319;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JU+wnuo2Z/1XtZ6g63nPnwv0VWCw8ghGKwTmMdWFqpg=;
-        b=b8IoW+rdeLnkLPWvGCXnb/sX/g30ncCVe7ci9w5yAGKYHpcX4BT87HpgXnil0jUi83
-         H4aGew+AFn3LAg5WnA7d4mXaeA/tsNhkQDSjRH1Hhk1O25WGvcuv1+OJP480BswGW7RA
-         yeFhe2AFYlrPvGfgqSvGdrSr/QJ1NodZbgFFgKkztnLt9EXbnhSS6PHcS2Xfw6eCnxGU
-         zn5oe4sWec+IdNOrzfGP3G/j60VU2WUWzVJah1sPs/tejQzHR55oNK0ox8iJpBPKRKBr
-         eC+IuPBSAcn6UAMj12V3sPTwqQJWLYN9mZNL6FWCZokTpkkaTbb7dMwd9hNXa6BWTr00
-         YkNg==
-X-Forwarded-Encrypted: i=1; AJvYcCXXNeCOL+Cn5iDjmZqFwZCi4i3pw0B4YXJVFxx2NcWzuclw+pYpoT43n1oRkq2Wb11+aQQquZYHATSXyw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTf8S5blFsXofFrSryIS+kGLm5UK9YZhySyBDsBFjQKPFvf4Wa
-	KHY78eRvs+0tAQdhkiA6t3OBf3sFqlPiygvGHd3z6E3NbVpX32oasiJd
-X-Gm-Gg: ASbGnct3dG/YAVh3vsZ8gn1DISN/vhmb+Fl5RUuLh6UuXS2QMqFvZfkDlKJGEsKLklO
-	Fb7VghPzmSdbDN8lw6Kchfi9Ds00xwBsvb3AQcbArbQSpolYtEsQbKffJoQT1507kLJjEP4c0KB
-	aZiAtuANHzsOIEwzPqMmB5YI2iEF36hxc/77iC9kb/kUB7YnFTBD9tBz7Fe1S5yWvj8TgRlC2Ws
-	nj3AhzzgnwCHSR1w0ivMhL2wHrPmMxu76qcW7LeB3O+sGwi5v8b4RVpXGjdX2TBeGoV3OCZCHml
-	0JWPerc0cm/IJFcJUhNbU3JRitQ9azqRwAQ8njK/SE42KybrTCGFLp0QRu+sgmMaUEFCIVCvCFg
-	1lgmPdcEQXI6yYklEiXA1JA4r4Qnd46J3MyuPDgh8ck+QX2+gHPUqUJi2bZFlfZZQptpIJzUNoH
-	TddBMAldJy1Axxe6KdXT6j17IY49S5k6VA417/J2oPrkGqT4lsnePT
-X-Google-Smtp-Source: AGHT+IHTEaO13+9fHR05oni62pNnB6SFZLHntJBdSUcQjV2Scfibpu0XNA7qJvhSpMY2WZf1fNFglQ==
-X-Received: by 2002:a5d:584f:0:b0:428:52d8:9680 with SMTP id ffacd0b85a97d-42852d89820mr8617704f8f.18.1761317240510;
-        Fri, 24 Oct 2025 07:47:20 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429932cbbb0sm514747f8f.35.2025.10.24.07.47.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 07:47:19 -0700 (PDT)
-Date: Fri, 24 Oct 2025 15:47:15 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Kuniyuki Iwashima <kuniyu@google.com>, alex@ghiti.fr,
- aou@eecs.berkeley.edu, axboe@kernel.dk, bp@alien8.de, brauner@kernel.org,
- catalin.marinas@arm.com, christophe.leroy@csgroup.eu,
- dave.hansen@linux.intel.com, edumazet@google.com, hpa@zytor.com,
- kuni1840@gmail.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mingo@redhat.com,
- mpe@ellerman.id.au, npiggin@gmail.com, palmer@dabbelt.com, pjw@kernel.org,
- tglx@linutronix.de, torvalds@linux-foundation.org, will@kernel.org,
- x86@kernel.org
-Subject: Re: [PATCH v1 2/2] epoll: Use __user_write_access_begin() and
- unsafe_put_user() in epoll_put_uevent().
-Message-ID: <20251024154715.577258ef@pumpkin>
-In-Reply-To: <ea7552f1-842c-4bb8-b19e-0410bf18c305@intel.com>
-References: <0bfa4895-727b-407b-90d2-7d54b9bd4910@intel.com>
-	<20251024051653.66329-1-kuniyu@google.com>
-	<ea7552f1-842c-4bb8-b19e-0410bf18c305@intel.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        bh=yd271BqGjeS+iBsD8ybvx85gmJGIuP9wFhL3YHDZT0o=;
+        b=GOgki7uDSD9bbQJML3+7lCDDKO995oLpX8FwaPvu3+pIU5h4Fhw2yUOG/JWx/x25Rn
+         m36HWPhiOhSR1pFVCVVyo5+ndA4qn3Dly/kbYkmO9OKJrpLtTv5d4bNc1CpigN0Xheje
+         e8CHIF5Y1mJl5Ba+jRd4Qg+BREc3Saor1aaoBMw409Xr07e3i+tKgp3h7vJO0AA0aJzY
+         wl+2cFARkQgCT61bPBN8yumLq9i60uaFpmpqcNVLi6wCGotVIQ21itC05RDjO0l1OgDh
+         z1GkfokNixIU1jIT2bgsXy/UmQ+7U2cG1Z+DhsWo81rNdZWoiBfHOYzZZr8LbjlytxE+
+         jJHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXBWjKAyhSttcR4lVwIktqClW0epOXMHQC0Gv1GWlOPIkcrhvnDpj3neM/kOPrnsm3BjngUNs/sEixXxw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzs1/J9XxbglKWTIHFiGl2MGux5lozShN6s7gjyPUC+gkJLdvJP
+	3i1r3shH17mIh4x1v+LDt1EOnf+BCIpJYUXTF70n5NovtLsFD9TrQ0Cg0bAG6hcjSweiqXetVR5
+	ze/kT9iuW+Aaqa1duBhnknxvHC5zXojqBodFCPZCqZg==
+X-Gm-Gg: ASbGncuNGpWETBeAqZwqaZhj1HIQGhYJ95wliCh5jv+QHb9LL3YqnerqlaNyKfCrkIl
+	+dJ8b7rMkOpJDFns0G6vSHlK0+NXV8Q+BOZr4iap0ElTOHnFEJSFAyP+3YqOPVqAOj7VRoDUyEr
+	iOHmr3n7rUNxA6oVIXvnX/GfNYq4WfDA9BrxeyfH4xgvmmRAFmBHkZmx75B7SQl9CwfGKNPdPhq
+	gC3BEoVyMiZ4AcpQgZagyQ6Z3CQ+V3xg8HvwMVGyo/zq2iYyeJYRI+u8LC1z+NwYNB6R0CfBkg9
+	7XfYElVr5o+hNDv9Tg==
+X-Google-Smtp-Source: AGHT+IG1wtHjPkEbu0FQUk92/3c0w05Y3QVim5/4mMrB0XZ9bClwOntryLQ8t33SRrMWa1kUgX8toMC4K2lDPbh1b2U=
+X-Received: by 2002:a05:6e02:1fc6:b0:42e:2c30:285f with SMTP id
+ e9e14a558f8ab-430c527dc63mr348454435ab.19.1761319518490; Fri, 24 Oct 2025
+ 08:25:18 -0700 (PDT)
 MIME-Version: 1.0
+References: <CAAhSdy1fCCdciZLqmoeWDG_QoOHDi9j0_ZZKYkpGJmWrf14Q-g@mail.gmail.com>
+ <20251024133116.73803-1-fangyu.yu@linux.alibaba.com>
+In-Reply-To: <20251024133116.73803-1-fangyu.yu@linux.alibaba.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 24 Oct 2025 20:55:06 +0530
+X-Gm-Features: AWmQ_bnQnnLktl5ci8mf6nQS2KPthEIzOPC5pFpxmUA9i0pi75M3qXGuzrrlyiI
+Message-ID: <CAAhSdy3E7-uC=pwU3c93bj3_xykPnLUcDXgKJtJ0KYeL91tijw@mail.gmail.com>
+Subject: Re: Re: [PATCH] RISC-V: KVM: Remove automatic I/O mapping for VM_PFNMAP
+To: fangyu.yu@linux.alibaba.com
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, atish.patra@linux.dev, 
+	guoren@kernel.org, jiangyifei@huawei.com, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, pbonzini@redhat.com, 
+	pjw@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_074722_720856_457FEC51 
-X-CRM114-Status: GOOD (  21.97  )
+X-CRM114-CacheID: sfid-20251024_082519_957883_7B0CF07C 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,78 +95,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Oct 2025 07:05:50 -0700
-Dave Hansen <dave.hansen@intel.com> wrote:
-
-> On 10/23/25 22:16, Kuniyuki Iwashima wrote:
-> >> This makes me nervous. The access_ok() check is quite a distance away.
-> >> I'd kinda want to see some performance numbers before doing this. Is
-> >> removing a single access_ok() even measurable?  
-> > I noticed I made a typo in commit message, s/tcp_rr/udp_rr/.
-> > 
-> > epoll_put_uevent() can be called multiple times in a single
-> > epoll_wait(), and we can see 1.7% more pps on UDP even when
-> > 1 thread has 1000 sockets only:
-> > 
-> > server: $ udp_rr --nolog -6 -F 1000 -T 1 -l 3600
-> > client: $ udp_rr --nolog -6 -F 1000 -T 256 -l 3600 -c -H $SERVER
-> > server: $ nstat > /dev/null; sleep 10; nstat | grep -i udp
-> > 
-> > Without patch (2 stac/clac):
-> > Udp6InDatagrams                 2205209            0.0
-> > 
-> > With patch (1 stac/clac):
-> > Udp6InDatagrams                 2242602            0.0  
-> 
-> I'm totally with you about removing a stac/clac:
-> 
-> 	https://lore.kernel.org/lkml/20250228203722.CAEB63AC@davehans-spike.ostc.intel.com/
-> 
-> The thing I'm worried about is having the access_ok() so distant
-> from the unsafe_put_user(). I'm wondering if this:
-> 
-> -	__user_write_access_begin(uevent, sizeof(*uevent));
-> +	if (!user_write_access_begin(uevent, sizeof(*uevent))
-> +		return NULL;
-> 	unsafe_put_user(revents, &uevent->events, efault);
-> 	unsafe_put_user(data, &uevent->data, efault);
-> 	user_access_end();
-> 
-> is measurably slower than what was in your series. If it is
-> not measurably slower, then the series gets simpler because it
-> does not need to refactor user_write_access_begin(). It also ends
-> up more obviously correct because the access check is closer to
-> the unsafe_put_user() calls.
-> 
-> Also, the extra access_ok() is *much* cheaper than stac/clac.
-
-access_ok() does contain a conditional branch
-- just waiting for the misprediction penalty (say 20 clocks).
-OTOH you shouldn't get that more that twice for the loop.
-
-I'm pretty sure access_ok() itself contains an lfence - needed for reads.
-But that ought to be absent from user_write_access_begin().
-
-The 'masked' version uses alu operations (on x86-64) and don't need
-lfence (or anything else) and don't contain a mispredictable branch.
-They should be faster than the above - unless the code has serious
-register pressure and too much gets spilled to stack.
-
-The timings may also depend on the cpu you are using.
-I'm sure I remember some of the very recent ones having much faster
-stac/clac and/or lfence.
-
-	David
-
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBPY3QgMjQsIDIwMjUgYXQgNzowMeKAr1BNIDxmYW5neXUueXVAbGludXguYWxpYmFi
+YS5jb20+IHdyb3RlOgo+Cj4gPj4gRnJvbTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXguYWxp
+YmFiYS5jb20+Cj4gPj4KPiA+PiBBcyBvZiBjb21taXQgYWFjNmRiNzVhOWZjICgidmZpby9wY2k6
+IFVzZSB1bm1hcF9tYXBwaW5nX3JhbmdlKCkiKSwKPiA+PiB2bV9wZ29mZiBtYXkgbm8gbG9uZ2Vy
+IGd1YXJhbnRlZWQgdG8gaG9sZCB0aGUgUEZOIGZvciBWTV9QRk5NQVAKPiA+PiByZWdpb25zLiBV
+c2luZyB2bWEtPnZtX3Bnb2ZmIHRvIGRlcml2ZSB0aGUgSFBBIGhlcmUgbWF5IHRoZXJlZm9yZQo+
+ID4+IHByb2R1Y2UgaW5jb3JyZWN0IG1hcHBpbmdzLgo+ID4+Cj4gPj4gSW5zdGVhZCwgSS9PIG1h
+cHBpbmdzIGZvciBzdWNoIHJlZ2lvbnMgY2FuIGJlIGVzdGFibGlzaGVkIG9uLWRlbWFuZAo+ID4+
+IGR1cmluZyBnLXN0YWdlIHBhZ2UgZmF1bHRzLCBtYWtpbmcgdGhlIHVwZnJvbnQgaW9yZW1hcCBp
+biB0aGlzIHBhdGgKPiA+PiBpcyB1bm5lY2Vzc2FyeS4KPiA+Pgo+ID4+IEZpeGVzOiA5ZDA1YzFm
+ZWU4MzcgKCJSSVNDLVY6IEtWTTogSW1wbGVtZW50IHN0YWdlMiBwYWdlIHRhYmxlIHByb2dyYW1t
+aW5nIikKPiA+PiBTaWduZWQtb2ZmLWJ5OiBGYW5neXUgWXUgPGZhbmd5dS55dUBsaW51eC5hbGli
+YWJhLmNvbT4KPiA+Cj4gPkxHVE0uCj4gPgo+ID5RdWV1ZWQgaXQgYXMgZml4IGZvciBMaW51eC02
+LjE4Cj4gPgo+ID5SZXZpZXdlZC1ieTogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4K
+PiA+Cj4gPlRoYW5rcywKPiA+QW51cAo+ID4KPgo+IEhpIEFudXA6Cj4KPiBUaGFua3MgZm9yIHRo
+ZSByZXZpZXcuCj4KPiBQbGVhc2Ugbm90ZSB0aGF0IHRoaXMgcGF0Y2ggaGFzIHR3byBidWlsZCB3
+YXJuaW5ncywgYW5kIEkgaGF2ZSBmaXhlZAo+IG9uIHBhdGNoIFYyOgo+IGh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjUxMDIxMTQyMTMxLjc4Nzk2LTEtZmFuZ3l1Lnl1QGxp
+bnV4LmFsaWJhYmEuY29tLwo+CgpDYW4geW91IHNlbmQgYSBzZXBhcmF0ZSBwYXRjaCB3aXRoIEZp
+eGVzIHRhZyB0byB0aGlzIHBhdGNoPwoKWW91IGNhbiBiYXNlIHRoZSBwYXRjaCBvbiByaXNjdl9r
+dm1fbmV4dCBicmFuY2ggYXQ6Cmh0dHBzOi8vZ2l0aHViLmNvbS9rdm0tcmlzY3YvbGludXguZ2l0
+CgpSZWdhcmRzLApBbnVwCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
