@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2905CCCF9E3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6905CCF9E0
 	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 19:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,64 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D3WkibKT+UqFWuQpHs3tOLJ+RjbadsUzhX4Ys+OhDjE=; b=W1uaXPHEm1zGli
-	F8E17FIwzIwtT31NEgTaghx+f725mdCG3usgD0IzstPEsUzNLdKA9codC/ZTFND+sYCsIrafLidvX
-	EQgxLlbMYfYgFeaDJJ0yb5fRlDoTq2wMx/HoQ7sN7KtBdxdAlPPoTXdbnzth+sSgCl/9bkpJdWfkT
-	7ykYY0xnubnkynL7ZmWDGVAkoaAGHiWBQmKLUlQWvau5zp+QY5xZlc3HQeaelQ60RkdHt9uf0qxuE
-	DUgJEbL10o8hMmuqJfM0pk+4AXkY17PKSUkdWI7IibK7Gr/sesFVSZbEDnuJyAqQtdhmTNRrDe4ZL
-	n+koBzjsKMq3LBZY4Ieg==;
+	List-Owner; bh=EwnWaadRdy/5yqmDuYok0p8nSiKSQVozXnnSp9+KCaQ=; b=4oF3io8lVImbHp
+	MffioAOu0YZZgEv9fn6Yy7h2ReySQlaNhhEHoV38V8EdQYeEOh7/1PQUNPSUIcQKrYIJ0VAIA3Eu2
+	9XroWrm3x0ZO0iSBsxMV2IouBN2qlxSRu3EORbTntfQGMXKjq+9YUvbOCwZgTeN8IfLez0Mao5bZb
+	VsizMlCEpnh5Aw1Eb3e2YmTE8Y1EnAtGLgH8hSO4hsDSQOFxCEngw3zCeYiSIdNx0SoeQVIgmE1n/
+	DIB7FW9ZjgFWft+amWkn+v/p5sIYqNUjKtB/93vhij5XSQbIdQTuQIv5JylH7gcTWTXsqQ6JhUvQK
+	eXC/GZk23LnFhicSbFIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCNGc-0000000AL7K-3cWv;
-	Fri, 24 Oct 2025 19:16:02 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1vCNGh-0000000ALBC-28F9;
+	Fri, 24 Oct 2025 19:16:07 +0000
+Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCNGa-0000000AL4x-2DKN
+	id 1vCNGc-0000000AL6C-2rIg
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 19:16:01 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-9435969137aso2232039f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 12:16:00 -0700 (PDT)
+	Fri, 24 Oct 2025 19:16:03 +0000
+Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-430d7638d27so24082535ab.3
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 12:16:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761333359; x=1761938159; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761333362; x=1761938162; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=whAVJxDDZqUJMj7E4dlz8n3sScKT3peLB8arm+VC5HI=;
-        b=kK4Kb2ahNsjd569gmxzxz6Rhg5NWZlGI79uOi+oAz+VCgitQkA/ShS5igYdaGnGguD
-         OUDKke6WhwLRtw9z8s+RwNfQQQCz7h9iTkTkfhjiIrBcHWXkgydqgTjUbSr8ijfm4zav
-         rnJZL81+xelgQFekhCJGtIDrSXBJVoLR/bG+MvAaloAPuVjP2BeR0stvB1KFoKZ/yiwG
-         tMG4UcLfQA3EFppR7tu86iRamYyT8+/01WiWMMnpTBqTdSknSzmass4gV+fiPWBUBIYo
-         3TsmWCikbOYexD/JH6qhYSd3KQhj23NaRvHdMuNF3c3piNJTWJnV+J7fcdLKQ/tEyhc4
-         4z0Q==
+        bh=c9XwB4LXCLiaym4oip8K88EQHxoBTQxTfCvmH5+Ipi8=;
+        b=zCBDXWcbYYShzGJcU8/khgd1HVM8zQ7q56WgYFLiWfhq9NDozPjEVsYNIMePQnSP1O
+         Ay4HVdW51v5vQLx34EHH/dvrRE98XpfrVfnW3FFh5pMKkeNdr8FisAAmKGsMS5k+68oE
+         S/gUN45ZofEyirO23ZHybr4B+kHwACGsDkcFfUmG6bP+6px7qqTQKamhpauRpIpNXq8A
+         jaQeGJ0wW8SNZSwUqBc0zowY+hggkNnfPp1A94Bp2/x0JLcKmf59veE2KHGooGBA8Lls
+         XYyQROoRp4sm9joSr33VfmvVTcArLORIkWBk2Am6DUYBykKtfAD2XcVExV1/RgUOHadM
+         Nj8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761333359; x=1761938159;
+        d=1e100.net; s=20230601; t=1761333362; x=1761938162;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=whAVJxDDZqUJMj7E4dlz8n3sScKT3peLB8arm+VC5HI=;
-        b=ce1Si0PNmPLOsQIbdil0YkdRm8pHkncJm3O+TyI7SM6iqXsYycFQinJPGt7oDqcL3s
-         vapf5q/hGxuUMnwf8vAUDTXde6ercC4kZQC8FioLxHyuupp8b7VnlxoVcfKcjTuSiQ+k
-         7FcbsEoE2OiRQHxSmPJ4qDnLLqXHZUfDGdDH8aFKZkNrcctWplYobaass8yaolHrpIVp
-         fhg6IeiOMqcHsn/rAd2olf2lz4cXfKoP6c6mXuIz8zQ4372H/ybYYoJsZrLSU8RolNVv
-         /jTqFW+wDxjGGY1BYpsge0Vif7CoS1hSGykIlvPb96dC3knesXgq+tWuvxnLsYqDHvfH
-         PMmA==
-X-Forwarded-Encrypted: i=1; AJvYcCXEIh5VDWnbOglufMC2fZSr27RyoCkrmGFFTO2oHrHz6oz7VmU5Vh3IcYd5mZhY5HsqVfB81hhns68W8Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHlzgBXppLiA6t0jHVjZp/cYgRHpZaBz19D5jFwx92IHNNA8GY
-	WDyip2ADbsv3xCdCHltgaVEIDf4vkz+gYP8fXa4AjI6CivU95rR+0/NIVyAdc/PBcco=
-X-Gm-Gg: ASbGnctqDgY4HvZ1rVwjBZRlcE4KCT1Vzq2t+eboRORwS50XH8eiqnNnpR8RDP9TfRC
-	vTPfJUBy4j8mjejdQb1sgN0lUTpEbNPcGD5rQV8eMPeFNNev4yJ4fxuTzZoPPAxEs9fn+Nn2TOP
-	HRtrXA3vOn0mfkpnFzmPfTJ3zrYRmS1Ob4GIBRYjiX9g99gUeDloSuKp8HaVzfuopypVrTJbQiA
-	gEfKLtvWTBK/CBHviD/wmxOce/5KWc8/2yBRZfnMrJQIvWMXs0ivxwTTHJYChJYETVarVJuoGso
-	aoiG7cbTxzmzXt2eKb3gYzGTsWvxVfdwXZSGx1JshcHLf46H9cIcJEPSM/iSLsqK4mo0fOHHRoy
-	YTA20mQuZpskiwI54KGPLZGcZ16QyiD6QdRtA9SCosQRX+NPWar3h0YnLsrtgCNUtzH7Oz9hLMk
-	8IzteFo7/M3m83JxO3Jh2IRFYw/f1RrVioTh+p030l72K41cxHa8teUA==
-X-Google-Smtp-Source: AGHT+IHX2zRIoMsUD/QzZWZVb8zmLNqKBEZdZKIdnvVZGFa0ldz9lbQJW3juwmiEnXtXUSBt9XGehw==
-X-Received: by 2002:a05:6e02:b2b:b0:430:bcef:e0a8 with SMTP id e9e14a558f8ab-430c529fb9amr413408425ab.28.1761333359510;
-        Fri, 24 Oct 2025 12:15:59 -0700 (PDT)
+        bh=c9XwB4LXCLiaym4oip8K88EQHxoBTQxTfCvmH5+Ipi8=;
+        b=c1HoSyTn1UH0iV8DC51dEpeZkZGwUYU+BT4r50zLbmIYh4Kk+ikJWFk1BSOqq52Acu
+         L+z7mTqPzyGQ4gi3dKX8zKq3Ps3+0O5Gh+W40pRV6CGLU0rU3+VVG+o63umGJ4V5ucpS
+         s22YByVpHZZ6y+pyQ157NebVyF0R/ZFVs1vJ0DlHPJLBI+aK0WSWOPRVvee1NxzMTBGX
+         ZjHY1u2P0jolPThr3aO2TXBkovSHW03LFXY7paEVzw1c82uDaBI5jHMeTfSfzaeJsLUn
+         TpRTblvcBgvUPQicirnY5p9YpUpFR+k+p2YOhAC5hmS2fxeB237sPcYYP3cLoVwFht1O
+         Ss7w==
+X-Forwarded-Encrypted: i=1; AJvYcCXvEqa52SII/C/vtdN6GHw1UJmzNv5Kzk0cn7Ql9PQknP5fBVeVp9E+xag+cDV2yw+FrQVX/Vu8pUOCmQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGAAgG3c1Ol1q8gWoLCE9P/ilJFTPkkrHz9thHXcKTPUxKklqj
+	3TinTB6S8J2+yBhvh/2+d0jT48eopMFB4gGpOW3d5YjrxhpUp2wKFkuNeU3eso0fRGA=
+X-Gm-Gg: ASbGnct3emdn3sSEs4soi+iIUZ75XeRtjNqj9jDLUsO5DyFDkxMXi9wMo2MdN4I5B21
+	DK7bqTfa2cpfow1LTn1204IMAplWrrfHBDGJGKYc8lRcKyyglVw2QXDrCgPs2fe/Nko/7E3ICM6
+	bkiCbuEFbx5iofrl65ylyd0jAeaisj5hGWLDKSE2sg7SCc7f+8JHcZ+tQzLtT/BSo8N+cEBLxUt
+	69n7Ct6+bKfwzLyKcC7X2Im/AXQwxflx/hQC6UN1ALNyEws2DrsBpv4C2vxSxhYCI5WUWdIms6w
+	wJrCxUMkdStzMFTHsv9MEvJZFWYoexFmL6O5yUSzlC31Ytag0P0mLjfzMgXiTWDBoy+KdBjbMoC
+	NndL2HbOmcxZLybFpKy0u+bxmDDy9uHMvQ13uB50eKq2NxLFevMQVVwOYHYH72q57FYoCkzW7WU
+	1wFz1IuCOq4jQMn7EMhRduvSQBuyAGrN2d2Uaulo6VWio=
+X-Google-Smtp-Source: AGHT+IGDjCZrbwlwcYCrEqEaKTTyt1rgAZl540PN69Agvv1E5bOXHHhIHceJWXZ0grnxWP0ubmH72w==
+X-Received: by 2002:a05:6e02:3712:b0:430:ccc7:68f1 with SMTP id e9e14a558f8ab-431ebf6dc57mr41093245ab.28.1761333361639;
+        Fri, 24 Oct 2025 12:16:01 -0700 (PDT)
 Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5abb7fdb7c7sm2427824173.44.2025.10.24.12.15.58
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5abb7fdb7c7sm2427824173.44.2025.10.24.12.16.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 12:15:59 -0700 (PDT)
+        Fri, 24 Oct 2025 12:16:01 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: han.xu@nxp.com,
 	broonie@kernel.org
@@ -80,18 +80,18 @@ Cc: dlan@gentoo.org,
 	imx@lists.linux.dev,
 	spacemit@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/9] spi: fsl-qspi: switch predicates to bool
-Date: Fri, 24 Oct 2025 14:15:44 -0500
-Message-ID: <20251024191550.194946-5-elder@riscstar.com>
+	linux-kernel@vger.kernel.org,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v3 6/9] spi: fsl-qspi: introduce sfa_size devtype data
+Date: Fri, 24 Oct 2025 14:15:46 -0500
+Message-ID: <20251024191550.194946-7-elder@riscstar.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20251024191550.194946-1-elder@riscstar.com>
 References: <20251024191550.194946-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_121600_572614_8C759D69 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_121602_752433_CF7CE366 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,64 +108,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Change all the needs_*() functions so they are no longer inline, and return
-bool rather than int.
+In fsl_qspi_default_setup(), four registers define the size of blocks of
+data to written to each of four chips that comprise SPI NOR flash storage.
+They are currently defined to be the same as the AHB buffer size.
 
+The SpacemiT QSPI has an AHB buffer size of 512 bytes, but requires these
+four sizes to be multiples of 1024 bytes.
+
+Define a new field sfa_size in the fsl_qspi_devtype_data structure that, if
+non-zero, will be used instead of the AHB buffer size to define the size of
+these chip regions.
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Alex Elder <elder@riscstar.com>
 ---
- drivers/spi/spi-fsl-qspi.c | 22 +++++++++++-----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+v3: - The variable used in fsl_qspi_default_setup() is now "sfa_size"
+    - Changed the subject line
+
+ drivers/spi/spi-fsl-qspi.c | 22 ++++++++++++----------
+ 1 file changed, 12 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/spi/spi-fsl-qspi.c b/drivers/spi/spi-fsl-qspi.c
-index 1e27647dd2a09..1944e63169d36 100644
+index 2c030dd6facc7..46a3187b33548 100644
 --- a/drivers/spi/spi-fsl-qspi.c
 +++ b/drivers/spi/spi-fsl-qspi.c
-@@ -276,34 +276,34 @@ struct fsl_qspi {
- 	u32 memmap_phy;
+@@ -207,6 +207,7 @@ struct fsl_qspi_devtype_data {
+ 	unsigned int txfifo;
+ 	int invalid_mstrid;
+ 	unsigned int ahb_buf_size;
++	unsigned int sfa_size;
+ 	unsigned int quirks;
+ 	bool little_endian;
  };
- 
--static inline int needs_swap_endian(struct fsl_qspi *q)
-+static bool needs_swap_endian(struct fsl_qspi *q)
+@@ -737,6 +738,7 @@ static int fsl_qspi_default_setup(struct fsl_qspi *q)
  {
--	return q->devtype_data->quirks & QUADSPI_QUIRK_SWAP_ENDIAN;
-+	return !!(q->devtype_data->quirks & QUADSPI_QUIRK_SWAP_ENDIAN);
- }
+ 	void __iomem *base = q->iobase;
+ 	u32 reg, addr_offset = 0;
++	u32 sfa_size;
+ 	int ret;
  
--static inline int needs_4x_clock(struct fsl_qspi *q)
-+static bool needs_4x_clock(struct fsl_qspi *q)
- {
--	return q->devtype_data->quirks & QUADSPI_QUIRK_4X_INT_CLK;
-+	return !!(q->devtype_data->quirks & QUADSPI_QUIRK_4X_INT_CLK);
- }
+ 	/* disable and unprepare clock to avoid glitch pass to controller */
+@@ -795,17 +797,17 @@ static int fsl_qspi_default_setup(struct fsl_qspi *q)
+ 	 * In HW there can be a maximum of four chips on two buses with
+ 	 * two chip selects on each bus. We use four chip selects in SW
+ 	 * to differentiate between the four chips.
+-	 * We use ahb_buf_size for each chip and set SFA1AD, SFA2AD, SFB1AD,
+-	 * SFB2AD accordingly.
++	 *
++	 * By default we write the AHB buffer size to each chip, but
++	 * a different size can be specified with devtype_data->sfa_size.
++	 * The SFA1AD, SFA2AD, SFB1AD, and SFB2AD registers define the
++	 * top (end) of these four regions.
+ 	 */
+-	qspi_writel(q, q->devtype_data->ahb_buf_size + addr_offset,
+-		    base + QUADSPI_SFA1AD);
+-	qspi_writel(q, q->devtype_data->ahb_buf_size * 2 + addr_offset,
+-		    base + QUADSPI_SFA2AD);
+-	qspi_writel(q, q->devtype_data->ahb_buf_size * 3 + addr_offset,
+-		    base + QUADSPI_SFB1AD);
+-	qspi_writel(q, q->devtype_data->ahb_buf_size * 4 + addr_offset,
+-		    base + QUADSPI_SFB2AD);
++	sfa_size = q->devtype_data->sfa_size ? : q->devtype_data->ahb_buf_size;
++	qspi_writel(q, addr_offset + 1 * sfa_size, base + QUADSPI_SFA1AD);
++	qspi_writel(q, addr_offset + 2 * sfa_size, base + QUADSPI_SFA2AD);
++	qspi_writel(q, addr_offset + 3 * sfa_size, base + QUADSPI_SFB1AD);
++	qspi_writel(q, addr_offset + 4 * sfa_size, base + QUADSPI_SFB2AD);
  
--static inline int needs_fill_txfifo(struct fsl_qspi *q)
-+static bool needs_fill_txfifo(struct fsl_qspi *q)
- {
--	return q->devtype_data->quirks & QUADSPI_QUIRK_TKT253890;
-+	return !!(q->devtype_data->quirks & QUADSPI_QUIRK_TKT253890);
- }
+ 	q->selected = -1;
  
--static inline int needs_wakeup_wait_mode(struct fsl_qspi *q)
-+static bool needs_wakeup_wait_mode(struct fsl_qspi *q)
- {
--	return q->devtype_data->quirks & QUADSPI_QUIRK_TKT245618;
-+	return !!(q->devtype_data->quirks & QUADSPI_QUIRK_TKT245618);
- }
- 
--static inline int needs_amba_base_offset(struct fsl_qspi *q)
-+static bool needs_amba_base_offset(struct fsl_qspi *q)
- {
- 	return !(q->devtype_data->quirks & QUADSPI_QUIRK_BASE_INTERNAL);
- }
- 
--static inline int needs_tdh_setting(struct fsl_qspi *q)
-+static bool needs_tdh_setting(struct fsl_qspi *q)
- {
--	return q->devtype_data->quirks & QUADSPI_QUIRK_USE_TDH_SETTING;
-+	return !!(q->devtype_data->quirks & QUADSPI_QUIRK_USE_TDH_SETTING);
- }
- 
- /*
 -- 
 2.48.1
 
