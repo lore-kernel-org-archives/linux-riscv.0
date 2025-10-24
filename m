@@ -4,100 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2932CCF9E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 19:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8DABCCF9E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 19:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w/x9o++0I60pExkrwXNue3BMxtE2zmSPJv7Az6pFMSo=; b=g9YLPN8AUKeHLp
-	4FsSet+fc66rkrF6CsBTl8sVEDDSNo0Mta9zxj3WXzS17+cL8r01T2ED1f1tqldtX7oQ0RIERKbMl
-	jgme1AanZIl7Fm6gJ57iCJtGd+BONzoYk6F8/y8ZMeHqUROpHrhQQSpQMK7uDGNq0Oh4eG9ThK3Zp
-	QMa5kll+paoe6qRc99jh/awDagQ1JHRaWCAPFaQV156VLpsSO9oRvuA79Mq7FfOs8AIyEn1dZ0Q/O
-	t0Ss/IZ/EuCbPTH1c7RdSQWJ3SW2Xxy3D1YehzIozWuawJkMOmn3buKg1f2eudFLJ1eBV2O3My8I0
-	Wx4/aQ7O2OnB5wxDTGKg==;
+	List-Owner; bh=QxDzjDvAMoAZirbcoYjQzLoUnOHxHzzYuF8hEBAWAsE=; b=qX6LaYiuV07XIU
+	KAPRIIMsy39wZ3J/g3PY8YnwFAvyf/S2owa/xLjR7vda8syfFIYBFHhN563HN0qafuafD42unksc3
+	rA9YmBn90ItvWonDp29khDfObOhLOO6M/sHrG3Ey/3MYfn+AHOjY4PQKbarSHIo5ZLUkqu4WQX4qg
+	EFQopDnuKlmqaGsnFi3Hi+dhQd3xmMxtesOXDzrUl3JYqZKME5HuX7k9pdKXs238sk6XtiEgLZToW
+	H5wzCtALeaqpDYpeVg7QbpsLLED6f/NDnZgzxXMf/co5UtiQI+jcLa5a3q9X1OqSjMDArPuuUFz2R
+	LpyhmohTZe0CeXgqo4rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCNGk-0000000ALF9-2OhC;
-	Fri, 24 Oct 2025 19:16:10 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1vCNhz-0000000AOhi-1WVr;
+	Fri, 24 Oct 2025 19:44:19 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCNGg-0000000ALAB-2Y2V
-	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 19:16:07 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-92aee734585so104377139f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 12:16:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761333366; x=1761938166; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RqAg+X5UevD0Vc5aVJRCRg1w9Ar1312tYZnooFCReg4=;
-        b=kXqv0a74X6ppH4PzcKICiVY+odFT9AbY6LjhT3gASH0xworp1xj6EIG4spR5X2knyL
-         JvIdSvSBqYADARz3juNS+zNWVSmP7w+fUrHonLsab1otQxE1VqIaQzanpln1dLx4dMv5
-         51Xw6AYsFCr6+V8b7WKnywLSBo7zrEwBj0iONVECSvSMx5LEzfKw8QopRXJuIlfJX0SG
-         nbEzdOGxHUlxPbDMvEtwQa7U7GyBmY8o1Xi52Ft1K0xHnQDspLVLCjK+qWHJK7otxTP6
-         qKf9fFVNOiz6m/J0i4/8psn9DE2O2VyUb9IfgIAW/7lg8z7aZUyQZDk6/yiLEPcY0HMI
-         QHbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761333366; x=1761938166;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RqAg+X5UevD0Vc5aVJRCRg1w9Ar1312tYZnooFCReg4=;
-        b=nliA2BWAkrzLeh8vzm39s+vi6Vr6k4gpt9x8tdqIh2jd3KHpykqObiq4GZVSFGCwhb
-         xbI0wnopMBmoSD+Vm+nhbZVkbjsifSjKBth+ndukCoB+rAEGIvdwmvpieOA4R1yHsnzi
-         mNhoEPaMMVCh7gZFHTnQmFlODbfQlZ6tcMxy3W47S3aSxEQXCU2fTijPfH7xvKhrfqhf
-         sLlCctWJSD10ryNE2FeZ5YCsKJK6MVMhlvSMfK3IgrAGb3meVqdTyIcdmy7QX/wEdGGm
-         VSfQZjmBTqUTsJLXtivHrtQHBRNtvA4gCGGa+zNg3npF07fCJ6L/x4yoG7KqzCraptCM
-         oDVg==
-X-Forwarded-Encrypted: i=1; AJvYcCVbHvpTBjcRcy7/ra7AqC3kU9HLKZY0Z3TWU/IE+2my4N3rZb05bercxTgIZWGPuH689XBGhoCnRW3q7A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7DxgRkX5OgsQ1fl2FA9Rd+wGlsD2vKpG61/Scq6shdGEEa2qr
-	LdmL0bfFtWq0fX1B1PWwxh9wkqwa0vfe2YlfffT+Tv/l2iN6mIpidSYEVSQqEaGkDYk=
-X-Gm-Gg: ASbGncuQDYAyqkiBXtl0V6B8AIe60B6p1wMEvOkf+ndlopdoyR0GYatk4bjTn5jdx/k
-	/m7VHrPNz7XHaSw7DP0YTZmrDOjGfytRJOxIL7B14kqCdgyWdJmf5COIpZrWsKGobATZPX6LsdM
-	c0QMBvzRskQVxO7PhnhGDsU2WFX+ASXaSpXyT8fsHUpGmYyAGNadi2qFvW63/ab+MDz9lQ+voma
-	G+mXTUccmuLFAJHLrsmazEqUSRRCdLszU35uof2DG6pHo4RXdCQbRPs7o8I0nTP0qfXQ/sKFqV2
-	sIXULBbwryCHth469xW+fbbUKzBCH6mTjocRZsQknx1D5DZHLJ07Z6ApzwoIK+tGurtyWZIE3o9
-	64sx8Cs7lkhra+rBOhFgqIM7rUSFmAZho9xtbPe5gy+VJe8PepOWRoKjpg3v/3By0Jshyd8c8ll
-	HlmWMWZB4rRP1VD5TRukujQ8upE8dgxvIawNIqamFGIEk=
-X-Google-Smtp-Source: AGHT+IH0HEa/fKZomSiQ3WIIsMrU8mAuEWxrS7c1HtLkD8Jfco189Px8SbGm7/QbmcudIijpZWQVBA==
-X-Received: by 2002:a05:6e02:3e06:b0:430:b147:3b70 with SMTP id e9e14a558f8ab-430c524ce8amr390406425ab.6.1761333365763;
-        Fri, 24 Oct 2025 12:16:05 -0700 (PDT)
-Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5abb7fdb7c7sm2427824173.44.2025.10.24.12.16.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 12:16:04 -0700 (PDT)
-From: Alex Elder <elder@riscstar.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	conor.dooley@microchip.com,
-	dlan@gentoo.org
-Cc: Frank.li@nxp.com,
-	guodong@riscstar.com,
-	fustini@kernel.org,
-	geert+renesas@glider.be,
-	cyy@cyyself.name,
-	heylenay@4d2.org,
-	apatel@ventanamicro.com,
-	joel@jms.id.au,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 9/9] riscv: defconfig: enable SPI_FSL_QUADSPI as a module
-Date: Fri, 24 Oct 2025 14:15:49 -0500
-Message-ID: <20251024191550.194946-10-elder@riscstar.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20251024191550.194946-1-elder@riscstar.com>
-References: <20251024191550.194946-1-elder@riscstar.com>
+	id 1vCNhw-0000000AOfG-2II2;
+	Fri, 24 Oct 2025 19:44:17 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1761335051;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=j1tfRYGYM66U+KpSa00BpGxDI+hyT7SSps99obN09Nw=;
+	b=mV9PV9ddpcoU02So0SXkS4ZFsu2V7qAr7LEgSfPB2WToEgUpusnbyDadgwVWZmbRTkyXGp
+	xvX0UNKOV52ySDi0s+OUqSFEjqwtQ3Fp3XT2KXtNj7xH/noSieu7qQOSb0twLqPsuQdu52
+	W2PSv38g55SZ107p2MYvIYFIfSG0AV4Ewb0llS3O3Q67LebNBdkvyw1t5kOWxeQINrrY8B
+	C8rRWxdkMOnEatj0FnKC2APzd3PznfAfj8C8OdFbrVF6/FaJX2T9wcnIwKDGZ3u/WFdrfc
+	nyEjip3DXjmNs4Vo88BJmJaGYic+FCBz4AXwhPL0pYDclJkETSnxhof/6+A92g==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1761335051;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=j1tfRYGYM66U+KpSa00BpGxDI+hyT7SSps99obN09Nw=;
+	b=XOTtBc1YJh7Jq5lFhBgh4lK2u78F4KjnvZsO7hd4iln28ghgXC9efMVHBaCCiM8FiD7nn2
+	aO4ycaAyDVrtNpDg==
+To: Xie Yuanbin <qq570070308@gmail.com>, linux@armlinux.org.uk,
+ mathieu.desnoyers@efficios.com, paulmck@kernel.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+ borntraeger@linux.ibm.com, svens@linux.ibm.com, davem@davemloft.net,
+ andreas@gaisler.com, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, luto@kernel.org,
+ peterz@infradead.org, acme@kernel.org, namhyung@kernel.org,
+ mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+ jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
+ anna-maria@linutronix.de, frederic@kernel.org, juri.lelli@redhat.com,
+ vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
+ bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
+ qq570070308@gmail.com, thuth@redhat.com, riel@surriel.com,
+ akpm@linux-foundation.org, david@redhat.com, lorenzo.stoakes@oracle.com,
+ segher@kernel.crashing.org, ryan.roberts@arm.com,
+ max.kellermann@ionos.com, urezki@gmail.com, nysal@linux.ibm.com
+Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, will@kernel.org
+Subject: Re: [PATCH 3/3] Set the subfunctions called by finish_task_switch
+ to be inline
+In-Reply-To: <20251024183541.68955-2-qq570070308@gmail.com>
+References: <20251024182628.68921-1-qq570070308@gmail.com>
+ <20251024183541.68955-1-qq570070308@gmail.com>
+ <20251024183541.68955-2-qq570070308@gmail.com>
+Date: Fri, 24 Oct 2025 21:44:10 +0200
+Message-ID: <87placw0dx.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_121606_646364_8EE24FA6 
-X-CRM114-Status: UNSURE (   7.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_124416_720346_6DAF203D 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,28 +95,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SpacemiT K1 SoC QSPI IP uses the Freescale driver.  Enable it as a
-module in the default kernel configuration for RISC-V.
+On Sat, Oct 25 2025 at 02:35, Xie Yuanbin wrote:
+>  #ifndef MODULE
+>  #define finish_arch_post_lock_switch \
+>  	finish_arch_post_lock_switch
+> -static inline void finish_arch_post_lock_switch(void)
+> +static __always_inline void finish_arch_post_lock_switch_ainline(void)
+>  {
+>  	struct mm_struct *mm = current->mm;
+>  
+>  	if (mm && mm->context.switch_pending) {
+>  		/*
+>  		 * Preemption must be disabled during cpu_switch_mm() as we
+>  		 * have some stateful cache flush implementations. Check
+>  		 * switch_pending again in case we were preempted and the
+>  		 * switch to this mm was already done.
+>  		 */
+>  		preempt_disable();
+>  		if (mm->context.switch_pending) {
+>  			mm->context.switch_pending = 0;
+>  			cpu_switch_mm(mm->pgd, mm);
+>  		}
+>  		preempt_enable_no_resched();
+>  	}
+>  }
+> +static inline void finish_arch_post_lock_switch(void)
+> +{
+> +	finish_arch_post_lock_switch_ainline();
 
-Signed-off-by: Alex Elder <elder@riscstar.com>
----
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+What is exactly the point of this indirection. Why can't you just mark
+finish_arch_post_lock_switch() __always_inline and be done with it?
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index fc2725cbca187..48afe30d42e88 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -158,6 +158,7 @@ CONFIG_I2C_DESIGNWARE_CORE=y
- CONFIG_I2C_MV64XXX=m
- CONFIG_SPI=y
- CONFIG_SPI_CADENCE_QUADSPI=m
-+CONFIG_SPI_FSL_QUADSPI=m
- CONFIG_SPI_PL022=m
- CONFIG_SPI_SIFIVE=y
- CONFIG_SPI_SUN6I=y
--- 
-2.48.1
 
 
 _______________________________________________
