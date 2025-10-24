@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C8CCCF9E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 18:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91BDCCD1BF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 18:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VvbddJ30sbDlBGuxU0YPTrqY/7g8ta/1vua/vHPiFwo=; b=GeYsmKAdO0xZFb
-	P+ON2LTitTXPxQs8fiVWLk1nu1LweBzs04KGrozMUPskM2btI9anHgWk9zOBy28c91H1oJNi30XEz
-	6imiMeoV836ZE9YFZkMGhncERtC7ihluV/AyIQdVmwjYpJL/rqvh/CsaaiZmwLPA9I5hVJ2MF/x44
-	4+5CZEwm8TH5bQ0Isqb3BoM0kZ9eo1Gmw/lLaY9+T1Bh6xvjYrrknAifgL+H6xIjAKnE3Lr83Ww9w
-	Cji1GGBRRqwpvKFTRnn6rAZuSwEIhmk1+KweL4Y14amJPXpTqNMlHFdaCcwLH7xchnAOKsKf7Myl3
-	Ej2U3DOU3evGbguPyzDA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Veqe+ahYrIWC9K0dxyiwhhXraLdstOcjIx3YiUAH5dc=; b=ZnOfmtyHn0eVKc
+	iUNLn5QXQ+H2uugg6z4DuVpT3PMtHzI6F/7RG4gKfYEVeanEQUh2kdpNkrDF0zou63Tqhs0mFO/nu
+	uaJBpMF4KMmFadqzPNIahwix+Rt7AjP/e2N+u12kEWqapQOvnQ0iFQxUghfJfVQSvL7lF16NWUtKI
+	854o3/Ptd1SLVp+Y/ZX3/Ct+uMAzFS75uMgE3hrIvfZ67TAHEBlI2LKzk/A2tKvI25F1QBTNX+dZg
+	UJ6LfjI8dZY5QMfixdcdoCIerwkFG/Gcav8o8JI6R82vEngyRUBNontprYbAOl56wlyo+vEWyVxxA
+	kxPmMGgse538xCUDRXUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCMVJ-0000000AGXp-1Eh7;
-	Fri, 24 Oct 2025 18:27:09 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vCMVw-0000000AGiW-1Vji;
+	Fri, 24 Oct 2025 18:27:48 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCMVF-0000000AGVy-3WQH
+	id 1vCMVu-0000000AGhE-15bd
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 18:27:08 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7a265a02477so1870178b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 11:27:05 -0700 (PDT)
+	Fri, 24 Oct 2025 18:27:47 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7a2852819a8so1083266b3a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 11:27:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761330425; x=1761935225; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=SAS7HLWyE203ant0NTxx4AzsxmUZdwyOFbiZtXWA1Xo=;
-        b=J/VPCurMtCpqrEJmWkv+eiHO5mmuxs7fWi5I6h1448Es/O+rVEYShFnU0x3m5UeUYs
-         rYprXWyqnHwuTLPTxwM+WmsIdyYrJ2J6yQe3twDhpPCjZhTLDwbmsdDfJVrzwpGa9JzU
-         bV2+JhyUvtXyYm/SVizK7py/978UyT2zFznw5BPgMW8z1oktowMR5EGYSrCX9muc1BC3
-         noE9st9D5OVSXs6DPV+90W+KZVq4AtDi7aE2u2wdwXDf7vs939UWEu+9OjLbT0wwEYBb
-         4VRbxEBqiMUP4uC+vcFhL0e9w20I0ubhLGZrzJlFyZ5697oHK7gQoPKWi45TY82Lksn4
-         5xew==
+        d=gmail.com; s=20230601; t=1761330465; x=1761935265; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=w+FNd1iv84yj9fXEgDPRihJMKjMARO1OEmBeQEKgFEI=;
+        b=iO0inii+E6CV9moWdCWKUjnnhNk85x0kyF/Z7GV0RNmxKlbwN25jgyCpdOIKtm2N5b
+         2DBthXg/XXW4DSKSio3iibYc2awTKOEEekgKMuGFvTRlBV2NqgrEUDPnh2hTEgh9XNgK
+         HFWdE+JFXLrDdNM8UBztyWKd+cYQR/rqJFItGlfWelWw7BcH3T1c/MYxpP04uZVn4/Fr
+         SY+dMrBO7Z6v8vBFy26Wf358qbXWgwsWLl9Qyo+WSTdnbct6+34cCW/fJ8ph7pmYryy8
+         l4BkcxlC5WIm+/r5MujIGOPPRZaLQdMfe+9YvKkenp4wDXeZ/n8D9C7angXrJS0zDffj
+         7okw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761330425; x=1761935225;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SAS7HLWyE203ant0NTxx4AzsxmUZdwyOFbiZtXWA1Xo=;
-        b=qL8noHtg16l8Ov/Li4HLdB3lzqUWfmG9ZeZftXb1UpzQI7XClmNqtxxvN6cuIpAA9T
-         xTB/aO/305w8/vAt32J7xjJQJZ1CM76MRCqfNEPomRmX9UDJA+2uxdxOyl9LdcOobEYP
-         /GRP23Yam8chv1QwWOqa4urYcxlbPtFvbCXyJOl7g9oWUF8KCfrS33Y/z6OweFtAeo4I
-         BwJBfvfRzTXU9meklaugz/4ITOApw+ORnMmXE4pDXWZD9fStL9UYU4VXC48PC95r00Md
-         iHnzu4kuToXiDgA067FkIjJzxIAGo8kw9EGDWaAcMhk6uwwbnlj9tyum4rKLYiwhhrGV
-         2WIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVIUdGYY3H0yG4878oYT1P8xMQ5MYSA/5/8yMKacUJBtLdpn4rIpCaAvVx9/R1RrTYxqs+knw9jTbNVyA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxNb5JOtUC7DJVE2tcyLR9z2HZ4l5xxy6+d2FKkDVLeDJVfJLo
-	/+hPXlNud76nK84E2kcYQ3OOcJSqWja6m2pma08rJ/ifhGU+rEJs3PBQ
-X-Gm-Gg: ASbGnctWy4Xm9Ik4yuEqMh/Id2XjFnCvIBdmOxySnpr4Yrqc0wYq1wk6Awm7JYInil2
-	1whJ4arg49uX2lM2oyzsmwUhE7OBE9FLkMdMJ+StXbcNJWy5Y7Y6Qoq59fRWeyzQm+CnR1/IzNd
-	H1fs+Q5a26x7jLe3j0/lfLqkRqBV28YgdVjumfNXRsxSECHrXR/BWOp5jx0HqNFu7PtMzCF8E4C
-	Y9WRHEp0pEj67/xSRznPHCjwnKWP4MDOFc3gkWCE5qdzxohKxR/NMDjrK2QWgNrerqzAbWgziRZ
-	zX9ysHzJ9DxowqS/WRPG+Yi15kBTCv/qVFJZTux6YK6nNO/rAwAuro67nAaXCS9VgTL+r3J1ywh
-	VyRMAN+L6g03Ti3kIzmk4GzWENbsPJX9spJ1rGlkWq1O4Q0CCReYKrdiDp5ey4Up+3p7PixRUyI
-	VhWr+0OSFufLIUnUvFATWr
-X-Google-Smtp-Source: AGHT+IFGe6oRjXPNPGl24FfDVvabdUA/zgNZ4jI5ptDLqD482exk92jQbNg3NAgkHLmfva10Udnmhw==
-X-Received: by 2002:a05:6a00:2d06:b0:781:2272:b704 with SMTP id d2e1a72fcca58-7a286765aacmr3785072b3a.5.1761330424441;
-        Fri, 24 Oct 2025 11:27:04 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761330465; x=1761935265;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=w+FNd1iv84yj9fXEgDPRihJMKjMARO1OEmBeQEKgFEI=;
+        b=YkoBNiTVO4NuECwtGgsxq0MItN2sn2WnBlyNsWPLqYeX0n7yUJXDjUm6OSm8KIc1JS
+         v7BRf1xgMV/HQyUdylfLp2Qwuh8mz36ixNVyJco0qmGMc5+kdXlUb5FmJuP1NxXuvCA1
+         dsZS/sdTPGOceNXun8j927OnnxNLALytCWQioKKDyvZsWwvwxIsFdzrxI5fGO7ommnc/
+         yNOF8RKsFb/FU/EzzKLMHp/p3Q3+jS5u8pJ1Y0bLFY8sGqgOkeeXzm0G9fnNd/NLZhLM
+         5vUBD8uxjDZiO4Hkr/bFQiFM+Yd6ed4q6KblQn14th/t4Dpm1ve/y7qpbuMpbuqBktZ5
+         3XNA==
+X-Forwarded-Encrypted: i=1; AJvYcCXRRurEma7825z+gzS0VtCNktx1fJXNynkqvSbvZwvhQyisrhOQNQGO3NjAzQq+BhDfwWTA+TEFxOrApg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YycS3CrVP7f/TI95V04plZbV6f5tt4lIF5Fx0yO5sruJaHHoFbI
+	8DnSymD9WsNUUjb91WotNKdD6GbqQuEJirRasJWm4kvfhJXyx5aYbs1G
+X-Gm-Gg: ASbGncuu5kARIq98n5dWuuHHe16kOzM1ZEkeIptwdP8ftf5r3nc2sDkc3nNmZTpsb5p
+	6taT7D+U33LEsR7+KmOLPAipIuvqqpLUQPgMrAGgnMNTEMcKEqz5FWkb2I+F6INR5g9N9Gfxtxq
+	6GT/4fiE1zJha3JTup+1HxWUAcbO1+wcuW5fJMWnDTPcOAMyVVN9G/ZcsNYBylo+ywK8aMBTYb9
+	3VjnJ7oGXasUWhFlTl5vnW5On/gy+TTlG93TcrzZzPFUKVMpoWzWIccMDEP873610k8KoodZ7PB
+	32IiqV5O1q9Qo+FA1LK1Khs+8mu1upPDl6i5Yd9gitFDrWEJUKS5lKva27bboabN8aX96DPkvtf
+	RN1Cg8kFWYSOsqWOfhfeXcLYxDc+NAfT5GT/nChtpI5031baWamDqkFRflVqh/rMKCVFJkC3ih4
+	MR58Ew1qXZIrJQffTN9+ph4m8ecek4HXM=
+X-Google-Smtp-Source: AGHT+IHxEMLf7S4GtVSLpARiG/DBE2cBNDG4VltRWQgt5C51d+t0JTe3Qon0GX6lpPUzY6KiH2TeSQ==
+X-Received: by 2002:a05:6a21:2d89:b0:339:352b:1aea with SMTP id adf61e73a8af0-33c5fbaaaf2mr10877285637.3.1761330465233;
+        Fri, 24 Oct 2025 11:27:45 -0700 (PDT)
 Received: from DESKTOP-8TIG9K0.localdomain ([119.28.20.50])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a274ac3158sm6616572b3a.32.2025.10.24.11.26.43
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a274ac3158sm6616572b3a.32.2025.10.24.11.27.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 11:27:04 -0700 (PDT)
+        Fri, 24 Oct 2025 11:27:44 -0700 (PDT)
 From: Xie Yuanbin <qq570070308@gmail.com>
 To: linux@armlinux.org.uk,
 	mathieu.desnoyers@efficios.com,
@@ -126,14 +127,16 @@ Cc: x86@kernel.org,
 	sparclinux@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	will@kernel.org
-Subject: [PATCH 0/3] Optimize code generation during context switching
-Date: Sat, 25 Oct 2025 02:26:25 +0800
-Message-ID: <20251024182628.68921-1-qq570070308@gmail.com>
+Subject: [PATCH 1/3] Change enter_lazy_tlb to inline on x86
+Date: Sat, 25 Oct 2025 02:26:26 +0800
+Message-ID: <20251024182628.68921-2-qq570070308@gmail.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251024182628.68921-1-qq570070308@gmail.com>
+References: <20251024182628.68921-1-qq570070308@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_112706_570325_8CC7DC34 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20251024_112746_312084_3D2006F9 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,69 +153,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The purpose of this series of patches is to optimize the performance of
-context switching. It does not change the code logic, but only modifies
-the inline attributes of some functions.
+This function is very short, and is called in the context switching,
+so it is called very frequently.
 
-The original reason for writing this patch is that, when debugging a
-schedule performance problem, I discovered that the finish_task_switch
-function was not inlined, even in the O2 level optimization. This may
-affect performance for the following reasons:
-1. It is in the context switching code, and is called frequently.
-2. Because of the modern CPU mitigations for vulnerabilities, inside
-switch_mm, the instruction pipeline and cache may be cleared, and the
-branch and cache miss may increase. finish_task_switch is right after
-that, so this may cause greater performance degradation.
-3. The __schedule function has __sched attribute, which makes it be
-placed in the ".sched.text" section, while finish_task_switch does not,
-which causes their distance to be very far in binary, aggravating the
-above performance degradation.
+Change it to inline function on x86 to improve performance, just like
+its code in other architectures
 
-I also noticed that on x86, enter_lazy_tlb func is not inlined. It's very
-short, and since the cpu_tlbstate and cpu_tlbstate_shared variables are
-global, it can be completely inline. In fact, the implementation of this
-function on other architectures is inline.
+Signed-off-by: Xie Yuanbin <qq570070308@gmail.com>
+---
+ arch/x86/include/asm/mmu_context.h | 22 +++++++++++++++++++++-
+ arch/x86/mm/tlb.c                  | 21 ---------------------
+ 2 files changed, 21 insertions(+), 22 deletions(-)
 
-This series of patches mainly does the following things:
-1. Change enter_lazy_tlb to inline on x86.
-2. Let the finish_task_switch function be called inline during context
-switching.
-3. Set the subfunctions called by finish_task_switch to be inline:
-When finish_task_switch is changed to an inline func, the number of calls
-to the subfunctions(which called by finish_task_switch) in this
-translation unit increases due to the inline expansion of the
-finish_task_switch function.
-For example, the finish_lock_switch function originally had only one
-calling point in core.o (in finish_task_switch func), but because the
-finish_task_switch was inlined, the calling points become two.
-Due to compiler optimization strategies,
-these subfunctions may transition from inline functions to non inline
-functions, which can actually lead to performance degradation.
-So I modify some subfunctions of finish_task_stwitch to be always inline
-to prevent degradation.
-These functions are either very short or are only called once in the
-entire kernel, so they do not have a big impact on the size.
-
-This series of patches does not find any impact on the size of the
-bzImage image (using Os to build).
-
-Xie Yuanbin (3):
- arch/arm/include/asm/mmu_context.h      |  6 +++++-
- arch/riscv/include/asm/sync_core.h      |  2 +-
- arch/s390/include/asm/mmu_context.h     |  6 +++++-
- arch/sparc/include/asm/mmu_context_64.h |  6 +++++-
- arch/x86/include/asm/mmu_context.h      | 22 +++++++++++++++++++++-
- arch/x86/include/asm/sync_core.h        |  2 +-
- arch/x86/mm/tlb.c                       | 21 ---------------------
- include/linux/perf_event.h              |  2 +-
- include/linux/sched/mm.h                | 10 +++++-----
- include/linux/tick.h                    |  4 ++--
- include/linux/vtime.h                   |  8 ++++----
- kernel/sched/core.c                     | 20 +++++++++++++-------
- 12 files changed, 63 insertions(+), 46 deletions(-)
-
+diff --git a/arch/x86/include/asm/mmu_context.h b/arch/x86/include/asm/mmu_context.h
+index 73bf3b1b44e8..30e68c5ef798 100644
+--- a/arch/x86/include/asm/mmu_context.h
++++ b/arch/x86/include/asm/mmu_context.h
+@@ -129,22 +129,42 @@ static inline unsigned long mm_lam_cr3_mask(struct mm_struct *mm)
+ 
+ static inline void dup_lam(struct mm_struct *oldmm, struct mm_struct *mm)
+ {
+ }
+ 
+ static inline void mm_reset_untag_mask(struct mm_struct *mm)
+ {
+ }
+ #endif
+ 
++/*
++ * Please ignore the name of this function.  It should be called
++ * switch_to_kernel_thread().
++ *
++ * enter_lazy_tlb() is a hint from the scheduler that we are entering a
++ * kernel thread or other context without an mm.  Acceptable implementations
++ * include doing nothing whatsoever, switching to init_mm, or various clever
++ * lazy tricks to try to minimize TLB flushes.
++ *
++ * The scheduler reserves the right to call enter_lazy_tlb() several times
++ * in a row.  It will notify us that we're going back to a real mm by
++ * calling switch_mm_irqs_off().
++ */
+ #define enter_lazy_tlb enter_lazy_tlb
+-extern void enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk);
++static __always_inline void enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk)
++{
++	if (this_cpu_read(cpu_tlbstate.loaded_mm) == &init_mm)
++		return;
++
++	this_cpu_write(cpu_tlbstate_shared.is_lazy, true);
++}
++
+ 
+ #define mm_init_global_asid mm_init_global_asid
+ extern void mm_init_global_asid(struct mm_struct *mm);
+ 
+ extern void mm_free_global_asid(struct mm_struct *mm);
+ 
+ /*
+  * Init a new mm.  Used on mm copies, like at fork()
+  * and on mm's that are brand-new, like at execve().
+  */
+diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
+index 5d221709353e..cb715e8e75e4 100644
+--- a/arch/x86/mm/tlb.c
++++ b/arch/x86/mm/tlb.c
+@@ -963,41 +963,20 @@ void switch_mm_irqs_off(struct mm_struct *unused, struct mm_struct *next,
+ 	this_cpu_write(cpu_tlbstate.loaded_mm, next);
+ 	this_cpu_write(cpu_tlbstate.loaded_mm_asid, ns.asid);
+ 	cpu_tlbstate_update_lam(new_lam, mm_untag_mask(next));
+ 
+ 	if (next != prev) {
+ 		cr4_update_pce_mm(next);
+ 		switch_ldt(prev, next);
+ 	}
+ }
+ 
+-/*
+- * Please ignore the name of this function.  It should be called
+- * switch_to_kernel_thread().
+- *
+- * enter_lazy_tlb() is a hint from the scheduler that we are entering a
+- * kernel thread or other context without an mm.  Acceptable implementations
+- * include doing nothing whatsoever, switching to init_mm, or various clever
+- * lazy tricks to try to minimize TLB flushes.
+- *
+- * The scheduler reserves the right to call enter_lazy_tlb() several times
+- * in a row.  It will notify us that we're going back to a real mm by
+- * calling switch_mm_irqs_off().
+- */
+-void enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk)
+-{
+-	if (this_cpu_read(cpu_tlbstate.loaded_mm) == &init_mm)
+-		return;
+-
+-	this_cpu_write(cpu_tlbstate_shared.is_lazy, true);
+-}
+-
+ /*
+  * Using a temporary mm allows to set temporary mappings that are not accessible
+  * by other CPUs. Such mappings are needed to perform sensitive memory writes
+  * that override the kernel memory protections (e.g., W^X), without exposing the
+  * temporary page-table mappings that are required for these write operations to
+  * other CPUs. Using a temporary mm also allows to avoid TLB shootdowns when the
+  * mapping is torn down.  Temporary mms can also be used for EFI runtime service
+  * calls or similar functionality.
+  *
+  * It is illegal to schedule while using a temporary mm -- the context switch
 -- 
 2.51.0
+
 
 _______________________________________________
 linux-riscv mailing list
