@@ -4,103 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C565CCF9E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 20:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3BBECCD1BF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 21:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gCsok8nc0GlJ4qgNIYiU0De/M/K3e3J+gYzOC0DXslk=; b=gRKVL51yiRN/Gc
-	G8mRLti27XNTV4dUSCo5YJVd1c11xtG08towh1BgGGH6t7D/GXBegdtpSW5YDg1HoldlLL1zygwZa
-	VCxf2L8CB8Bg/eLEd8yTOTWND0zlbXaxuGl/bzfoxGnjvousD1+Rs5+V6jO8cmbtyejAQK+CSgOzz
-	Ugd71HcJw9nQWt6lIM/QayoZuSKnh4PEpmmLKl9HYFyLagVp2lI2FC5Ppdv0NvVFm8vUpqCBUaQFa
-	5K+256h2zD11zjtlnW9EV7t5zEMwVK/sDnBGdH6CNxG0pbJY3a/W6VBf81/6Yo0EaSidRwBYGKxPr
-	DWiVZcUCKEGqD6zHfM0g==;
+	List-Owner; bh=jKsCCfSUIvpYrXPbe3NuaTu9XuO/4SxoSJCbKk5skvA=; b=T9EwLpQfs2XQzH
+	RfHZOAUY0uzWWQzMi611zRrakuoDApHmCZvDpUJggrpITuZQQRxCzHb+IHnGNXbbjDS3X3ZVINGL3
+	MTrlMImuMGlfRZMFktDg/KGQjkIKFKVyoK9JbKagj1VlDZDPSkdPlWKNl0kyF3O3Uv8YQMTjZYNww
+	Jb9ozWrpb4GJ2o+2Ev+St5nRhmwM/iSmR6WW3h5UBhmCRKB0iESNWlbpi/Kq9AUW0txvuJbdCDCAI
+	jATXt4sQV/VU9iTKkcmkT/u94VisDYGt1nhZHcs6fObYWQ8KZXsRcsVtfGQPBkqpGv0001beZQlUH
+	OTR+znwlITrdeeSbKaiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCOD4-0000000ARY0-3nWw;
-	Fri, 24 Oct 2025 20:16:26 +0000
-Received: from shelob.surriel.com ([96.67.55.147])
+	id 1vCPFz-0000000AXeS-1OQM;
+	Fri, 24 Oct 2025 21:23:31 +0000
+Received: from mail-northeuropeazon11012033.outbound.protection.outlook.com ([52.101.66.33] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCOD2-0000000ARWL-0PJk;
-	Fri, 24 Oct 2025 20:16:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
-	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=tqPX8RIzyW6k8iQG5uq/xHVvyyym1A6Z+YPgBJAhrnw=; b=DON9QBSdIIC6MDwKtU7xmml3kR
-	eVyZ6cFpO1CT9m1WxZKrna65At7/mhta/jnDDgt57jLzYpoTBTBU3sl85GKdV1ZOJ6cJ5gsRBROa/
-	bYsZyWHyXxSndU1OMRt497qbN/d047EE8Nni/L+spuWg+98Ztapehhk8hUk96yGoBvy4eqELM68eL
-	mtTFduhuKIMKrTm0eoBmdXKsszBendnTiIYPct4VCgqyRF9xoldhyfsxn0vR84OcoQYrWDxS7WXDZ
-	aCozudIW+2R4u3NnccyR2QNiIFXFQiT0vBGjcyTaGuUvpx2wYB7Y13i2VhfTUGufhgLaOHEeZgSYr
-	VQGkWgEA==;
-Received: from fangorn.home.surriel.com ([10.0.13.7])
-	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.97.1)
-	(envelope-from <riel@surriel.com>)
-	id 1vCOB4-000000000Om-3Ub7;
-	Fri, 24 Oct 2025 16:14:22 -0400
-Message-ID: <a461ddd3adc2a4c53cd44b34fc58cf3cf0fae41e.camel@surriel.com>
-Subject: Re: [PATCH 1/3] Change enter_lazy_tlb to inline on x86
-From: Rik van Riel <riel@surriel.com>
-To: Xie Yuanbin <qq570070308@gmail.com>, linux@armlinux.org.uk, 
-	mathieu.desnoyers@efficios.com, paulmck@kernel.org, pjw@kernel.org, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- hca@linux.ibm.com, 	gor@linux.ibm.com, agordeev@linux.ibm.com,
- borntraeger@linux.ibm.com, 	svens@linux.ibm.com, davem@davemloft.net,
- andreas@gaisler.com, tglx@linutronix.de, 	mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, 	luto@kernel.org,
- peterz@infradead.org, acme@kernel.org, namhyung@kernel.org, 
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- 	irogers@google.com, adrian.hunter@intel.com, anna-maria@linutronix.de, 
-	frederic@kernel.org, juri.lelli@redhat.com, vincent.guittot@linaro.org, 
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
- mgorman@suse.de, 	vschneid@redhat.com, thuth@redhat.com,
- akpm@linux-foundation.org, david@redhat.com, 	lorenzo.stoakes@oracle.com,
- segher@kernel.crashing.org, ryan.roberts@arm.com, 
-	max.kellermann@ionos.com, urezki@gmail.com, nysal@linux.ibm.com
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, will@kernel.org
-Date: Fri, 24 Oct 2025 16:14:22 -0400
-In-Reply-To: <20251024182628.68921-2-qq570070308@gmail.com>
-References: <20251024182628.68921-1-qq570070308@gmail.com>
-	 <20251024182628.68921-2-qq570070308@gmail.com>
-Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
- keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
- eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
- Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
- lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
- dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
- mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
- gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
- r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
- WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
- 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
- Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
- +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
- g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
- KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
- fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
- 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
- G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
- okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
- TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
- cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
- omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
- QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
- c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
-User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
+	id 1vCPFw-0000000AXdS-1Qof
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Oct 2025 21:23:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XpMiv1CF3mEvYNw//pubaukbJgOaSfIOMkP8EZXV2adw8gKaLCTdqaaSVvCxWYYOK3TH0lA9tCVLbgRoNr3Sm0WCjuOYFzXLMBz02VfgdRmfJB9fqlymK8rvMVrRl4px8CETHcbuqGM7cQ1cnT2QHBm3mUUtsTqzb7TxPfaM/U6OU2QaK89AhyUyZQPkZFMaEZQTeWGtv7v8Xb0gNtO+cFd9Q2lqMGG/Asdc1xlS4CYcR0oTsW+U6DI69/qtgBhMqsudpB95+xzqQgviS7jI5yvUkgoJ9XI+FviplrZ84fZse4HyIh60qzIlaJTO26pnMq1776wMB4DuBktZ4QpGjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9PBes6iBaybeUrTOuP8mfojMQcAlgv33kILG+c6PHZg=;
+ b=mAsxMaMtOmmCS+af68Cj4DJeq811+YvNCIFS4yk5uuEauaRKyNJCSlmiP60WOVauE7DBXf/mkeykXoJOlMSgFb10x9unIIQUTEaBzs9nbtlT85e8l7rQeHRWGEeXR5FP4aw6u/p0Hva/17o7fOMP7PLLsIuaKC1ddAnCXyx+26GoYJnHUOA7xoDbhIOdrcb7VtJh6Z8G/XsmkllfXJHbiX7wJGwcCq9cTH9kQFRYdKkl1Hr8/DqyYUcmALn3eyAH/bw/fQDy2/YCWghBKKs/oL7CVSJglb9JefvxE61DZBGOe7RoDaI/EGsr7lvSylEdfK94MX9zOn8bHb3AVB6u1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9PBes6iBaybeUrTOuP8mfojMQcAlgv33kILG+c6PHZg=;
+ b=aoNNbUVcgBdqxu8l0s8h0OpgmcqHZtPo9587KJibXodqkaH2ZY8z3d/rkVaoCGEAzgB7FkSHpNO47RHmOLAaAGXrH7cDQhE1s7Wn9dEku0C52xkVddHi8mm+zIVbZ+DYA+WyfgXx0rzwNpM9CyylcdW1y7cWPSeu4clcp/NWO07JBI53KAvCqxJbl1RswO24leOs4MQNNTTUI5HTwIJ3ayJuUEIkxer+Sav1uDSB8W3AQc1eUproeRIPpMwxDewVQ6kyhL0yKqH5Kt83JZG3zlseKjHFIlofyyYe+G8W60V3ELQxiUYBCqGulNvscKhkYjvDIdobiL9xNU2wNm1cAg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by AS8PR04MB8465.eurprd04.prod.outlook.com (2603:10a6:20b:348::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
+ 2025 21:23:21 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9253.011; Fri, 24 Oct 2025
+ 21:23:21 +0000
+Date: Fri, 24 Oct 2025 17:23:11 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Alex Elder <elder@riscstar.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	han.xu@nxp.com, broonie@kernel.org, dlan@gentoo.org,
+	guodong@riscstar.com, linux-spi@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v3 2/9] dt-bindings: spi: fsl-qspi: add optional resets
+Message-ID: <aPvuPyEg0RtZWudL@lizhi-Precision-Tower-5810>
+References: <20251024191550.194946-1-elder@riscstar.com>
+ <20251024191550.194946-3-elder@riscstar.com>
+Content-Disposition: inline
+In-Reply-To: <20251024191550.194946-3-elder@riscstar.com>
+X-ClientProxiedBy: SJ0PR03CA0297.namprd03.prod.outlook.com
+ (2603:10b6:a03:39e::32) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS8PR04MB8465:EE_
+X-MS-Office365-Filtering-Correlation-Id: d3646669-fceb-4acf-a779-08de13438e89
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|19092799006|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ldfCkn+Wwad/RThjOMx0GmxCFw6RyviG0W8ZwoE52oso7MvwoxTAo7Slsgk9?=
+ =?us-ascii?Q?LVNltlAGFTMDwUWob9pImbKYG51Mzm1n07ApGDIiQm2A4p/XtNlT34r9iRPq?=
+ =?us-ascii?Q?mnflLIKGTlv7QEVjOj2OAWuiM5IiuKthY9cWmgcS4DpUZ9RJ2UtQeRrXhmqI?=
+ =?us-ascii?Q?PxXHJsQwviteCiWLlbxp124YbfZLGKpSB0rOUEahVUo/z+tnGv+JZxdffKfG?=
+ =?us-ascii?Q?8JD+59tO6MMt5CHE85WzRnhncBUUA/zULn/xlsyyTi3GkePGdqT3ttVrJKxA?=
+ =?us-ascii?Q?dC7g6tpp5rd/3Y6xrLA9nOOG1dDB3V7/bd/f/3DX+zdjic5QB3jME144ascP?=
+ =?us-ascii?Q?J/vE1wpFm09kRQJFDLixEH5b7QQfe8hTGkStGwql/MKHRY8JEK80dN3JiixE?=
+ =?us-ascii?Q?EIWC56BSxdQ53tIrv71e23lnR+VbFZZDQiow/6A3xbykTTOj2pgkOsP85jJm?=
+ =?us-ascii?Q?j+xWESHvxubnTE/a1nPczUt9H58IowoaR3GE/X0uR12+fNcSeE8RCGV7C0ON?=
+ =?us-ascii?Q?5Na5Q7Usgp/yyt6Wt+bVtp3P52c3MTQfgJn9VRZIOOL/LbkkYnmqWP9OTYO1?=
+ =?us-ascii?Q?A2AMpMaIWZpZMXP2dJpNRxyAVLwBLFAMX9jGNILY6gI6o9dgCUihdTQemuYc?=
+ =?us-ascii?Q?ZzWq/IKqj+phuyZysPsEaobSPiuowE5fR4J/iqj4sgMeQ6itWIK3GyOFUT1w?=
+ =?us-ascii?Q?DyZMOnw3BcSp16PZMPLyT40TsNXDCZsvd7kczTpuiCOrjGf/1bgmRuQ9/VLt?=
+ =?us-ascii?Q?z7IM4kuRHR8UcqI2HUsgkSAtKtaLHjGnnUSCbXQuJtBgsvGCZ5s1P4EJf60B?=
+ =?us-ascii?Q?abdk3TyhaHsND3NkNg5+mCK0Cg1ogTH00J3rU+bBG2fvXENUio/j5L3YSB8u?=
+ =?us-ascii?Q?m1Moj9EkMTDWUtN05FNv8Lzzn3lz3ueC7UErRNqJXv7wBoKVH9du/ubJPkss?=
+ =?us-ascii?Q?eVKk+TyJQdbMVhbs6JzqnIl8OHV39YYbl4hwIO2NErqW6J3ACC5bWrvlNF0r?=
+ =?us-ascii?Q?/1JoaWEUtSNYa0b6kNrgYXvJ9yBiySiPfeVQygjONhEeAWnECs8VJO0jt7I9?=
+ =?us-ascii?Q?tPrF3MzC7VOg6heQt80CtlchPPdXmi3wCgtSPbsgxFLuhlxDJHcwCI4RcJPx?=
+ =?us-ascii?Q?QMgACskg2npZgFrnyC5TwnubF/ltXtZSVoek0V61O0jmK3YxbV9wwqiuGCHy?=
+ =?us-ascii?Q?EpXMJWz2cfekIB3yXyExe0mTcwAL02h55KFabCZsPz3V45yuXgNNJnum4Cys?=
+ =?us-ascii?Q?67HLRMBEJKlBSaMN0CWEZu/iKRFj7ctQeW3QFKeHEd9yBuq8S/x5JNVWrHxC?=
+ =?us-ascii?Q?6Sil+FAIcIi3z7p7NN9HLQmPOIs3VTQCsEfUJl/gsDTjfnxCDTEbKBvqD5Yl?=
+ =?us-ascii?Q?t7tGBWQgCM9ZAUtI2ZR7dv0Jz+zr3R17TPLwtewXSM7TXKMe8axTsN16C2v8?=
+ =?us-ascii?Q?ggzNj8pTO4hMHaaOggI4lYYkk5wfQ7caGDY0gFW/HJI/fRlWo3EeAGr4kJlT?=
+ =?us-ascii?Q?AdmfSOu0oTW7bEZpz4/RZ18fmZ8GCTz0DmTX?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uQmymX65mpF4gtH+ILVAbrPZUg6Oxi+iVusQQa1EYoijo/ifpmHXHSXeBsfj?=
+ =?us-ascii?Q?uV+cEKIo//B9q5Uo4PaoPav4wTjcW/x/gfYbGPoCES31N+ZeBA2LXCZqp+84?=
+ =?us-ascii?Q?OJMlnJTUeIOzm99OXrE4xK5kMK22/Ql547MlG+NuLFVQTA30C/P5IBU1KJvm?=
+ =?us-ascii?Q?C5f74HD2WYJ7p3btsIa+G6cpjCa4dgZJczCbRTVaSs9S6VQKey2MY0O8wRjj?=
+ =?us-ascii?Q?fwSx9LFpkadi8J1Iozux28gJKRywjiri58ekPjgwTuvS1bJUBdjZC3I75rST?=
+ =?us-ascii?Q?uLIi5XP5PFb2ctCUKQ3oatTo09KSAbpf34jL0JZ8gxCdkApMLbmBB16fXlEC?=
+ =?us-ascii?Q?x3qlO5uK9MWNtOhyWjr4b2owLRSL84ExjX6mnMI/R/0nUACvswBUL/oNNzoo?=
+ =?us-ascii?Q?yYCo1ad85+5SeKWKDtH925yYiVreKP/zRkk/41R4c5OhNvjzOXlctpT9MjUU?=
+ =?us-ascii?Q?p8uTY9PKyf2nXDqy+92a85Xc/TP0s2ESHO6B6aun7p7LsUJweeK8T/xC+x2d?=
+ =?us-ascii?Q?7UslIEblg7eSwNAFjmMhLHbEoPNLEIoHu1kri5BtUjHigaLrq5bXTySvhlTq?=
+ =?us-ascii?Q?VRipThBaRAmGzjKLeq4F4/ikgn0f6ejZuToHwjnZ1BFFkUf3ggpEP4gStBJ1?=
+ =?us-ascii?Q?yksShtuopgLavB9gvZ03cNP2J7XKYy2t6hM0DF3IRLQk4jdgWS6SqGl9cWgs?=
+ =?us-ascii?Q?YQiLe0uefvKhJsgqVq/jcbBSpbiERvh9lVWS5rrU2Ov90ghcTf6bgnqQMOGn?=
+ =?us-ascii?Q?C+whRyXTKxTWP/MpHGWVX7JGbHdAHRRhJtfvahyccthzyzHXGqJkHyL4j/LS?=
+ =?us-ascii?Q?9wTAzq2Nkocywra2FOjHGBvut4bJtGwX9I8v2pUc+S1qUBi2h21fSLCRDW5U?=
+ =?us-ascii?Q?PK6KuWN+2oa/iVTwrlClgnI49U+dIjc6iuUEosGDq/crL2alOw+YoQ3zxYOr?=
+ =?us-ascii?Q?/Y526x7suFZOOw4dHSKiYBVPEUIH7fzORnSi393GMEn4zSP5ChG9qUEKXBxG?=
+ =?us-ascii?Q?/RJRhznQMViSezIWq5KqKJX+/Lt0J6FzKY27TKcTCw/PQi4KEuogaoqGynWn?=
+ =?us-ascii?Q?tYIG7xeDv9OzeECQdRLEBKCWLUV6HPpPqNA1LjbwiujDHiVRnrMCNc73S3mv?=
+ =?us-ascii?Q?FDvaCAzaMpGDY9cIhFcb5zgmb0c1FQcs1j78R09AqCmnYmiecPIlkgSkhvYR?=
+ =?us-ascii?Q?JJpiE2FnaQJPXbQLHsYCjkC4m1V2gz0GViFKY49AIYJj9mGTzsgbuUlVMYKO?=
+ =?us-ascii?Q?ebFvMKwT4BeI+oCMmJo0StD8pVqQcyaTyNDdqBnJrAgoqDRZ8CqNCQCg0ZGw?=
+ =?us-ascii?Q?urY1Zo4UxMp00RtfypB3xZ/N87w4OIdUMls1tg3ivzXTW4a1SygfcavALq75?=
+ =?us-ascii?Q?sNgCQMTi0DZlJaCcI7Kz1Mh6v5mmWIgvsjoKxTfm/lrZVgMJnSI+lXGkFQQo?=
+ =?us-ascii?Q?6RwIXuyzPq6vobS441S+7Vst+in4QxJLPTZEWtk8zENAQkK6OqfNIT3lWnNA?=
+ =?us-ascii?Q?+A2kvWOs8mF++Zz0tWklS17/RX0ce9/68H5S0kuweQARJnfyW2/9MTyRQuPF?=
+ =?us-ascii?Q?ZrwNoo+kAxqcKGAl1ps=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3646669-fceb-4acf-a779-08de13438e89
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 21:23:21.0487
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4nSE40DW2+Nfi0R1sY2XuZMrJ14KcejLfhBtBfqw6H5YjXqSRc8tKypT1V2jJtBgS8Oz3XQ5vbe7fMFQdAwUzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8465
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_131624_337010_6ED0D8E6 
-X-CRM114-Status: UNSURE (   5.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_142328_405158_1AE06EB1 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,23 +163,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2025-10-25 at 02:26 +0800, Xie Yuanbin wrote:
-> This function is very short, and is called in the context switching,
-> so it is called very frequently.
-> 
-> Change it to inline function on x86 to improve performance, just like
-> its code in other architectures
-> 
-> Signed-off-by: Xie Yuanbin <qq570070308@gmail.com>
+On Fri, Oct 24, 2025 at 02:15:42PM -0500, Alex Elder wrote:
+> Allow two resets to be defined to support the SpacemiT K1 SoC QSPI IP.
+>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
+> v3: - The reset property conditional is now under allOf
+>
+>  .../devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml  | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml b/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
+> index 5e6aff1bc2ed3..46e5db25fb107 100644
+> --- a/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
+> +++ b/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
+> @@ -11,6 +11,15 @@ maintainers:
+>
+>  allOf:
+>    - $ref: spi-controller.yaml#
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          not:
+> +            contains:
+> +              const: spacemit,k1-qspi
+> +    then:
+> +      properties:
+> +        resets: false
 
-Might as well inline it into what I remember
-being its only caller.
+I am fine here now. If have next version, move it after required. More
+if-else may be added in future.
 
-Reviewed-by: Rik van Riel <riel@surriel.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-
--- 
-All Rights Reversed.
+>
+>  properties:
+>    compatible:
+> @@ -55,6 +64,11 @@ properties:
+>        - const: qspi_en
+>        - const: qspi
+>
+> +  resets:
+> +    items:
+> +      - description: SoC QSPI reset
+> +      - description: SoC QSPI bus reset
+> +
+>  required:
+>    - compatible
+>    - reg
+> --
+> 2.48.1
+>
 
 _______________________________________________
 linux-riscv mailing list
