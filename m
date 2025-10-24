@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E72CCD1AB
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 08:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 398F6CCD1A5
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 08:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e/BDxunE1K/lN+NVpwqbj0cADFcfjpLUTPyang5eJSU=; b=y2bpBvLfObutPr
-	fX1v9KtXPslFnCnX8PzV8Vg7TJnrK0Owpbt8DLrmXTaQN5Oi8dEPfHL+P2EvKMSvkJjLm0DsMxu21
-	vTCpupucnhSJlb9az//yyPOfiOxvShUUHI98jBvEkyipUvnOoCZfg4RJdobXBXJBaS8pqXMbxmyWt
-	3dtMvtpdViux6HjMpiobKyKtveh039JQobqRK7En31nORrD5CSmnA7FXfnlmBAHQxAEEKoE2tP7WQ
-	c7rNyron8mNXLNRtYaMrRsT8fkPACo4WS4LgyUlrX5NP/aRBCu52jgqHMNzI7cISJcdHd9cCTSZTm
-	egVxZ9fbGLT2GyLBwuKg==;
+	List-Owner; bh=13LKUo8S8arNNFtPZfiLoDPMoWm647JDMwyTIIMzL2g=; b=dP9aH/C60glhgA
+	KyjNwn3IPKCSwl5jJVeGdXV7o5CDal1uOwDd7ccf821yN4iONgdsMDFemZWJdtxC6UT5OM3RmjbHV
+	nnLITFuunmi0zRqwgQPXFZF1WeUZRNOxZkND0BJxfR+3OZiAzSuR6TuhneIMhF1jLg3SKT/mJmbPz
+	YaOBWDz57EiwFtCia5n8v708b9bUgqJFp12kLswZ0qnlAwyUhYyOBikHZNk5jAlL0XfKAW5/rb0+V
+	CE0UgZOnk5qt1/3vgqKBSVMY4Dku91BcvlVeOK5AqY6b/Piaxz7sklZ6i13hqDyUCajhaKHqk5499
+	FYTU2YbGMkGTKWk8lamA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDIO-00000008jmP-3UFu;
-	Fri, 24 Oct 2025 08:37:12 +0000
+	id 1vCDIP-00000008jml-0gPn;
+	Fri, 24 Oct 2025 08:37:13 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDIL-00000008jjt-0vV0
+	id 1vCDIM-00000008jkt-2kfP
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 08:37:10 +0000
+	Fri, 24 Oct 2025 08:37:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761295028;
+	s=mimecast20190719; t=1761295029;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7g4pB/ckzo2nT8cxJ/9GjBhmxVVtiakBTxXeOu6fIr0=;
-	b=OhjEwEe5fndsM9v4dHFniWcAhZStHG9PoWyHSEmoSODnwxVVWkyGYt/t9QIdrGOUq0Voem
-	PFDcDVFzE/mrkAD+ktsMJrsZLFJ4Qq3w18xmxjj9dQZoOtrCM+gio9rYxcgnsp/vpUOglO
-	2SHkaHqiNtL3NSdMnYxg04cpn0fylL8=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=5IT49IQx4naO1r1BdT6bWbCUaLMDI3v7xXAjUka+ohY=;
+	b=fEElAK+a+dVgudEnwFoY9h6BHE3MmNCUGyXGgpYsIDraj781LxcbuNx+/vvD7aQUKd3OCN
+	zW+IyNb8x5GSOy4OYUvjvJStM5kTR7CDixpYH5ZkjwvNPYqR2EvM+rA74TAnnVoamfSm9w
+	iDmypShvvkO8zCX3sUvSOg3OJE0aOL0=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-387-HHx1wQX-Psmo1C5hyRXw8Q-1; Fri, 24 Oct 2025 04:37:06 -0400
-X-MC-Unique: HHx1wQX-Psmo1C5hyRXw8Q-1
-X-Mimecast-MFC-AGG-ID: HHx1wQX-Psmo1C5hyRXw8Q_1761295025
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-47114d373d5so13630455e9.1
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 01:37:06 -0700 (PDT)
+ us-mta-397-6IFefVyOMP6rOmqtYkvSpQ-1; Fri, 24 Oct 2025 04:37:08 -0400
+X-MC-Unique: 6IFefVyOMP6rOmqtYkvSpQ-1
+X-Mimecast-MFC-AGG-ID: 6IFefVyOMP6rOmqtYkvSpQ_1761295027
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-47108163eeaso9189705e9.3
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 01:37:07 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761295025; x=1761899825;
+        d=1e100.net; s=20230601; t=1761295027; x=1761899827;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7g4pB/ckzo2nT8cxJ/9GjBhmxVVtiakBTxXeOu6fIr0=;
-        b=py+uRs7AZSbdFE+fyvfYzli/KDH7+TLRInNL5mib3vrygKBJ0+ylowjuF/pjyCI/47
-         MHmbSmMAry1Vi0fQn8nISJq+vckcpvrtF5WHjYULioCk1RVBgYqExwahWxa8U6xRWRH/
-         aIcnzyhHW6VKHMwWsUWHQNcGuBOOrIqSmz9vCQuNmAjdp3ycNHPEHQoGLvPxPeEgAihI
-         5NoBzf3DE8xFULJgG3HM9u3LC72yFXMZk5ARmtZEmD+eWY4HIaiEqFTgj6RPD3y7AXKb
-         6jRTaLzhZUIRSQNhDrubSB1EG/YGma3/V6WkLOykWxRXG4ivRFaVqBAOxTGgbn58xZmY
-         +7CA==
-X-Forwarded-Encrypted: i=1; AJvYcCXCODZ0DSDns1OC4batful7U6Hx+lXh/WPEngNwFVOoEEULvB4BGAbUFI4uL8S9mzPXFf1YeBR3IabHYA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2HOcQgMbjo+J+wH2fuERuXUHhv5hFK/fSF4EPMuHfiw/WOvVB
-	lvXOaHvCFeW+Uv0NgXXaIGjFpSQz6Srusk6nANaLUB+ySxuq6tNZUOl6aiFu3uFkn/TerNu5paY
-	q0uu14lK4+rWOjvXROQt/OSfD1FPYW+C0KguFzXcSQ89GBwX+aD2XqbzoY5SYfz0WaB/eVA==
-X-Gm-Gg: ASbGncvxOqi2WQszuhGHa5beeGtdW9iOHMIHI2LPnz/8kcM1thdwSUn0E/MwAoo4DyG
-	0JSR4Vl/iPRl/Y3006CfHnxMfsL1OPJfG6JvQZW96YQVtODAZgVH5YJTpRkqp80MT380kI7mJSC
-	ydIzIDNW/n+gCYeOyv6teEC1HVFSHbBwPzJekvlbHM1GJYSovs/i6RYj6vWphl/2OboG9AWXzBw
-	jDOa76UKFpcInt+UinyzE27EyThIa9VPxn96fCfUEWfv1QIAcabUfIi6oe5P30sS9qMVw6a2JL5
-	obuoh+grecFTdZo5NDvYQpGCZ4kGvvOtRl3OcmH+Vidfhod7fD/Xxp4meG0+w+e4K+yXFpdOFZz
-	ylk8rGAc8
-X-Received: by 2002:a05:600c:540c:b0:46e:46c8:edac with SMTP id 5b1f17b1804b1-471178a6f9emr188687415e9.11.1761295025443;
-        Fri, 24 Oct 2025 01:37:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFiPue6isAM3o8JvoJrHWMiOPf245L3GHD9ByxXO2p2tubIKm8/8NW9BN4YedrYR2Oo1SzNPQ==
-X-Received: by 2002:a05:600c:540c:b0:46e:46c8:edac with SMTP id 5b1f17b1804b1-471178a6f9emr188686995e9.11.1761295025004;
-        Fri, 24 Oct 2025 01:37:05 -0700 (PDT)
+        bh=5IT49IQx4naO1r1BdT6bWbCUaLMDI3v7xXAjUka+ohY=;
+        b=kydkVXxIuBhgVl/jiC+0Ofn7cRbSLK75H8SGu77sKsH2QIRfUL2s6eEAA0bNOKUCkf
+         s1NpsLvFTlTST7Wa3qfh/ZjxI/GtW4n7+sSP16mO1vjRVKFydvKYNloe0FIZXieqI1AE
+         cBjQPThvWH5A0iTidECZl8cosRNYUR0DIyStqekDHMdGlYRU8zUVV/G6EAH2w6KK7lev
+         s+1zPEwMLK6SKe+Nya21aDA1r9KgIGASJqjq1YEvH1bqJSbPJlY0TjQbJtw0QC1/Pcu3
+         ZtUytes6hktnxo2ZbMb3vYkh+cosZY1gWfzBGISS0cQ7dsbLmTfDs+pNeUt8kp5BbSsW
+         5VLA==
+X-Forwarded-Encrypted: i=1; AJvYcCUCpUHuxtwDKn1HXIjF+RirlNoRDlmS1aLrPoMS4yFGzwBi/tNH2oynKrKevpEgG6OwmP3yIoKGiQ4WEQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YytcxOIEOe6SSmlufIeopxkKh7eKV1fO/sdi773gDnoP7MeDirK
+	tVliN3uPBrlDGkZSeKZge0MKms6DYWz7ofAHZISrOFf5ZyJXCBgQ73EO8qBIGqfCDjjEViYGpDT
+	zvwV6Fo/TfedBXZWXWVtvsvjRrCIa4tZYDCI+PMOGnNXrAeHNM5k3rIj+K14Yp/oRzZsBTw==
+X-Gm-Gg: ASbGnct9EgKISsDgouOe+JoikPWmbTl21VJZ0UfUfZlLuDrJ9ke5NChSZ+ARlNH3KFX
+	MnkPIlTbK1KffyEyuavl1pzjT83SHfgwmoUrd6y21xcK6olaFcEgT0zZLSVMyDHvkDmYf1Kc2cA
+	yAneUDPFG7ujee31YxH8IMIJFLQGsK4TkLaO9oZPP5tIqWTwb6GWlUmiUeT/OoJ0MjpaD8ZDT7d
+	eu6GV84N2BCUyvjM+UWyr7eSLIi6STMhdYNkrgeROOv+Ys8vME/G6pQm2j6zITwh2BO2IagGZaz
+	ZsuB/hTIYrAw1j6NFutWqqD0/0hUTBzHEZ2rwtoEmnyXxqDKDoc2Wmv8xe6dQPDBXrFAKFW7gyX
+	aKuWCo7UW
+X-Received: by 2002:a05:600c:154b:b0:46f:b42e:edcd with SMTP id 5b1f17b1804b1-47117925d59mr167079985e9.38.1761295026812;
+        Fri, 24 Oct 2025 01:37:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHABp1V97kl04EvJJ7E4Ix+e6A0Tpy/3SLGTAbnd7bu3MUfhtp6cG5IYxmZlmc9oJMTlIO6zw==
+X-Received: by 2002:a05:600c:154b:b0:46f:b42e:edcd with SMTP id 5b1f17b1804b1-47117925d59mr167079575e9.38.1761295026379;
+        Fri, 24 Oct 2025 01:37:06 -0700 (PDT)
 Received: from holism.lzampier.com ([148.252.9.235])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429897e77dasm8111636f8f.2.2025.10.24.01.37.04
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429897e77dasm8111636f8f.2.2025.10.24.01.37.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 01:37:04 -0700 (PDT)
+        Fri, 24 Oct 2025 01:37:05 -0700 (PDT)
 From: Lucas Zampieri <lzampier@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: Charles Mirabile <cmirabil@redhat.com>,
@@ -91,20 +91,21 @@ Cc: Charles Mirabile <cmirabil@redhat.com>,
 	Vivian Wang <dramforever@live.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
+	Zhang Xincheng <zhangxincheng@ultrarisc.com>,
 	Lucas Zampieri <lzampier@redhat.com>
-Subject: [PATCH v6 3/4] irqchip/plic: enable optimization of interrupt enable state
-Date: Fri, 24 Oct 2025 09:36:42 +0100
-Message-ID: <20251024083647.475239-4-lzampier@redhat.com>
+Subject: [PATCH v6 4/4] irqchip/plic: add support for UltraRISC DP1000 PLIC
+Date: Fri, 24 Oct 2025 09:36:43 +0100
+Message-ID: <20251024083647.475239-5-lzampier@redhat.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251024083647.475239-1-lzampier@redhat.com>
 References: <20251024083647.475239-1-lzampier@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 7TMK_WsjAGXudXYevGSm8xNHHie1nA7Q7LxbuD4JEkE_1761295025
+X-Mimecast-MFC-PROC-ID: I_bAQxrqUPMGQ3lP3AJjMGk8dglvCrIi8ckF_h4YwH4_1761295027
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_013709_333682_5A69F123 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20251024_013710_769277_3F35D256 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,101 +124,198 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Charles Mirabile <cmirabil@redhat.com>
 
-Optimize the PLIC driver by maintaining the interrupt enable state in
-the handler's enable_save array during normal operation rather than only
-during suspend/resume. This eliminates the need to read enable registers
-during suspend and makes the enable state immediately available for
-other optimizations.
+Add a new compatible for the plic found in UltraRISC DP1000 with a quirk to
+work around a known hardware bug with IRQ claiming in the UR-CP100 cores.
 
-Modify __plic_toggle() to take a handler pointer instead of enable_base,
-allowing it to update both the hardware registers and the cached
-enable_save state atomically within the existing enable_lock protection.
+When claiming an interrupt on UR-CP100 cores, all other interrupts must be
+disabled before the claim register is accessed to prevent incorrect
+handling of the interrupt. This is a hardware bug in the CP100 core
+implementation, not specific to the DP1000 SoC.
 
-Remove the suspend-time enable register reading since enable_save now
-always reflects the current state.
+When the PLIC_QUIRK_CP100_CLAIM_REGISTER_ERRATUM flag is present, a
+specialized handler (plic_handle_irq_cp100) saves the enable state of all
+interrupts, disables all interrupts except for the first pending one before
+reading the claim register, and then restores the interrupts before further
+processing of the claimed interrupt continues.
 
+This implementation leverages the enable_save optimization from the
+previous patch, which maintains the current interrupt enable state in
+memory, avoiding additional register reads during the workaround.
+
+The driver matches on "ultrarisc,cp100-plic" to apply the quirk to all
+SoCs using UR-CP100 cores, regardless of the specific SoC implementation.
+This has no impact on other platforms.
+
+Co-developed-by: Zhang Xincheng <zhangxincheng@ultrarisc.com>
+Signed-off-by: Zhang Xincheng <zhangxincheng@ultrarisc.com>
 Signed-off-by: Charles Mirabile <cmirabil@redhat.com>
+Acked-by: Samuel Holland <samuel.holland@sifive.com>
 Signed-off-by: Lucas Zampieri <lzampier@redhat.com>
 ---
- drivers/irqchip/irq-sifive-plic.c | 36 +++++++++++--------------------
- 1 file changed, 13 insertions(+), 23 deletions(-)
+ drivers/irqchip/irq-sifive-plic.c | 116 +++++++++++++++++++++++++++++-
+ 1 file changed, 115 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index cbd7697bc1481..d518a8b468742 100644
+index d518a8b468742..786be200248f9 100644
 --- a/drivers/irqchip/irq-sifive-plic.c
 +++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -94,15 +94,22 @@ static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
- 
- static int plic_irq_set_type(struct irq_data *d, unsigned int type);
- 
--static void __plic_toggle(void __iomem *enable_base, int hwirq, int enable)
-+static void __plic_toggle(struct plic_handler *handler, int hwirq, int enable)
- {
--	u32 __iomem *reg = enable_base + (hwirq / 32) * sizeof(u32);
-+	u32 __iomem *base = handler->enable_base;
- 	u32 hwirq_mask = 1 << (hwirq % 32);
-+	int group = hwirq / 32;
-+	u32 value;
-+
-+	value = readl(base + group);
- 
- 	if (enable)
--		writel(readl(reg) | hwirq_mask, reg);
-+		value |= hwirq_mask;
- 	else
--		writel(readl(reg) & ~hwirq_mask, reg);
-+		value &= ~hwirq_mask;
-+
-+	handler->enable_save[group] = value;
-+	writel(value, base + group);
- }
- 
- static void plic_toggle(struct plic_handler *handler, int hwirq, int enable)
-@@ -110,7 +117,7 @@ static void plic_toggle(struct plic_handler *handler, int hwirq, int enable)
- 	unsigned long flags;
- 
- 	raw_spin_lock_irqsave(&handler->enable_lock, flags);
--	__plic_toggle(handler->enable_base, hwirq, enable);
-+	__plic_toggle(handler, hwirq, enable);
- 	raw_spin_unlock_irqrestore(&handler->enable_lock, flags);
- }
- 
-@@ -247,33 +254,16 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type)
- 
- static int plic_irq_suspend(void)
- {
--	unsigned int i, cpu;
--	unsigned long flags;
--	u32 __iomem *reg;
- 	struct plic_priv *priv;
- 
- 	priv = per_cpu_ptr(&plic_handlers, smp_processor_id())->priv;
- 
- 	/* irq ID 0 is reserved */
--	for (i = 1; i < priv->nr_irqs; i++) {
-+	for (unsigned int i = 1; i < priv->nr_irqs; i++) {
- 		__assign_bit(i, priv->prio_save,
- 			     readl(priv->regs + PRIORITY_BASE + i * PRIORITY_PER_ID));
- 	}
- 
--	for_each_present_cpu(cpu) {
--		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
--
--		if (!handler->present)
--			continue;
--
--		raw_spin_lock_irqsave(&handler->enable_lock, flags);
--		for (i = 0; i < DIV_ROUND_UP(priv->nr_irqs, 32); i++) {
--			reg = handler->enable_base + i * sizeof(u32);
--			handler->enable_save[i] = readl(reg);
--		}
--		raw_spin_unlock_irqrestore(&handler->enable_lock, flags);
--	}
--
- 	return 0;
- }
+@@ -49,6 +49,8 @@
+ #define CONTEXT_ENABLE_BASE		0x2000
+ #define     CONTEXT_ENABLE_SIZE		0x80
 
---
++#define PENDING_BASE                    0x1000
++
+ /*
+  * Each hart context has a set of control registers associated with it.  Right
+  * now there's only two: a source priority threshold over which the hart will
+@@ -63,6 +65,7 @@
+ #define	PLIC_ENABLE_THRESHOLD		0
+
+ #define PLIC_QUIRK_EDGE_INTERRUPT	0
++#define PLIC_QUIRK_CP100_CLAIM_REGISTER_ERRATUM	1
+
+ struct plic_priv {
+ 	struct fwnode_handle *fwnode;
+@@ -388,6 +391,110 @@ static void plic_handle_irq(struct irq_desc *desc)
+ 	chained_irq_exit(chip, desc);
+ }
+ 
++static u32 cp100_isolate_pending_irq(int nr_irq_groups, u32 ie[],
++				      u32 __iomem *pending,
++				      u32 __iomem *enable)
++{
++	u32 pending_irqs = 0;
++	int i, j;
++
++	/* Look for first pending interrupt */
++	for (i = 0; i < nr_irq_groups; i++) {
++		/* Any pending interrupts would be annihilated, so skip checking them */
++		if (!ie[i])
++			continue;
++
++		pending_irqs = ie[i] & readl_relaxed(pending + i);
++
++		if (pending_irqs)
++			break;
++	}
++
++	if (!pending_irqs)
++		return 0;
++
++	/* Isolate lowest set bit*/
++	pending_irqs &= -pending_irqs;
++
++	/* Disable all interrupts but the first pending one */
++	for (j = 0; j < nr_irq_groups; j++) {
++		u32 new_mask = j == i ? pending_irqs : 0;
++
++		/* If the new mask does not differ, skip writing it */
++		if (new_mask == ie[j])
++			continue;
++
++		writel_relaxed(new_mask, enable + j);
++	}
++
++	return pending_irqs;
++}
++
++static irq_hw_number_t cp100_get_hwirq(struct plic_handler *handler,
++					void __iomem *claim)
++{
++	int nr_irq_groups = DIV_ROUND_UP(handler->priv->nr_irqs, 32);
++	u32 __iomem *pending = handler->priv->regs + PENDING_BASE;
++	u32 __iomem *enable = handler->enable_base;
++	irq_hw_number_t hwirq = 0;
++	u32 iso_mask;
++	int i;
++
++	guard(raw_spinlock)(&handler->enable_lock);
++
++	/* Existing enable state is already cached in enable_save */
++	iso_mask = cp100_isolate_pending_irq(nr_irq_groups, handler->enable_save, pending, enable);
++
++	if (!iso_mask)
++		return 0;
++
++	/*
++	 * Interrupts delievered to hardware still become pending, but only
++	 * interrupts that are both pending and enabled can be claimed.
++	 * Clearing enable bit for all interrupts but the first pending one
++	 * avoids hardware bug that occurs during read from claim register
++	 * with more than one eligible interrupt.
++	 */
++	hwirq = readl(claim);
++
++	/* Restore previous state */
++	for (i = 0; i < nr_irq_groups; i++) {
++		u32 stored = handler->enable_save[i];
++		u32 written = i == hwirq / 32 ? iso_mask : 0;
++
++		/* If we did not need to change the mask, no need to change it back */
++		if (stored == written)
++			continue;
++
++		writel_relaxed(stored, enable + i);
++	}
++
++	return hwirq;
++}
++
++static void plic_handle_irq_cp100(struct irq_desc *desc)
++{
++	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
++	struct irq_chip *chip = irq_desc_get_chip(desc);
++	void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
++	irq_hw_number_t hwirq;
++
++	WARN_ON_ONCE(!handler->present);
++
++	chained_irq_enter(chip, desc);
++
++	while ((hwirq = cp100_get_hwirq(handler, claim))) {
++		int err = generic_handle_domain_irq(handler->priv->irqdomain, hwirq);
++
++		if (unlikely(err)) {
++			pr_warn_ratelimited("%pfwP: can't find mapping for hwirq %lu\n",
++					    handler->priv->fwnode, hwirq);
++		}
++	}
++
++	chained_irq_exit(chip, desc);
++}
++
+ static void plic_set_threshold(struct plic_handler *handler, u32 threshold)
+ {
+ 	/* priority must be > threshold to trigger an interrupt */
+@@ -424,6 +531,8 @@ static const struct of_device_id plic_match[] = {
+ 	  .data = (const void *)BIT(PLIC_QUIRK_EDGE_INTERRUPT) },
+ 	{ .compatible = "thead,c900-plic",
+ 	  .data = (const void *)BIT(PLIC_QUIRK_EDGE_INTERRUPT) },
++	{ .compatible = "ultrarisc,cp100-plic",
++	  .data = (const void *)BIT(PLIC_QUIRK_CP100_CLAIM_REGISTER_ERRATUM) },
+ 	{}
+ };
+ 
+@@ -658,12 +767,17 @@ static int plic_probe(struct fwnode_handle *fwnode)
+ 		}
+
+ 		if (global_setup) {
++			void (*handler_fn)(struct irq_desc *) = plic_handle_irq;
++
++			if (test_bit(PLIC_QUIRK_CP100_CLAIM_REGISTER_ERRATUM, &handler->priv->plic_quirks))
++				handler_fn = plic_handle_irq_cp100;
++
+ 			/* Find parent domain and register chained handler */
+ 			domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(), DOMAIN_BUS_ANY);
+ 			if (domain)
+ 				plic_parent_irq = irq_create_mapping(domain, RV_IRQ_EXT);
+ 			if (plic_parent_irq)
+-				irq_set_chained_handler(plic_parent_irq, plic_handle_irq);
++				irq_set_chained_handler(plic_parent_irq, handler_fn);
+
+ 			cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
+ 					  "irqchip/sifive/plic:starting",
+-- 
 2.51.0
 
 
