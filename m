@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 792CCCCD1BF
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 19:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2932CCF9E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 19:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tqHE+R9H4Wryf2ne4nKGzXKJb04UZPUBDe6rKSDcsvw=; b=ZctLhDfQiss+nU
-	7C32ds1/4mlXMU1nNL7UEUJToQ66vehgoJQ9psQgoCwa7xclxErzw/bAtQWPiv0frfPy1dTTYTkJP
-	Ga60pnuVCB5YTrkvWWQ6jwJz7uNbtG/GPgcEO1Fq8NdzDPQz3G3s6Fx1KDdT+JqDGfYxxaUKCtd36
-	4t7absgCj9ldEXE0IIwtrCpDu/e/Zzaa/PuYUpbIOGlw5wm0x7lErI+NnMQURko3jlg5qA8UkZpXL
-	XFlDCtvvN8Y1nJBKOiOin47IEKbL/IZ+YSJF32EeELB9Ls3svO/8+p8wh92eN/plVKNKQcR/xK1EG
-	MUdgY35ZK0e6FM+7tSjw==;
+	List-Owner; bh=w/x9o++0I60pExkrwXNue3BMxtE2zmSPJv7Az6pFMSo=; b=g9YLPN8AUKeHLp
+	4FsSet+fc66rkrF6CsBTl8sVEDDSNo0Mta9zxj3WXzS17+cL8r01T2ED1f1tqldtX7oQ0RIERKbMl
+	jgme1AanZIl7Fm6gJ57iCJtGd+BONzoYk6F8/y8ZMeHqUROpHrhQQSpQMK7uDGNq0Oh4eG9ThK3Zp
+	QMa5kll+paoe6qRc99jh/awDagQ1JHRaWCAPFaQV156VLpsSO9oRvuA79Mq7FfOs8AIyEn1dZ0Q/O
+	t0Ss/IZ/EuCbPTH1c7RdSQWJ3SW2Xxy3D1YehzIozWuawJkMOmn3buKg1f2eudFLJ1eBV2O3My8I0
+	Wx4/aQ7O2OnB5wxDTGKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCNGZ-0000000AL4t-3ih2;
-	Fri, 24 Oct 2025 19:15:59 +0000
-Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	id 1vCNGk-0000000ALF9-2OhC;
+	Fri, 24 Oct 2025 19:16:10 +0000
+Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCNGX-0000000AL3q-0tkR
+	id 1vCNGg-0000000ALAB-2Y2V
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 19:15:58 +0000
-Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-940d7cd5045so103257339f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 12:15:56 -0700 (PDT)
+	Fri, 24 Oct 2025 19:16:07 +0000
+Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-92aee734585so104377139f.3
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 12:16:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761333356; x=1761938156; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761333366; x=1761938166; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lOGEEJh/33D603wteGhrxPA31YJMUwUVVAtQyDoqnvQ=;
-        b=cEeuFNR7GTRFxkSNKMWLL9eVYTafz/XtKeMOPoFIlvldlREmm86n3etS0ryMLFxtBm
-         DVTfBcGl8ncYRZP8GUzYD7cSgI7craKoxNBjYujcpi1UUtP6pGRIi7ji9+2khP19WZSP
-         JbyzBpgduYtmMmBEoCZ+9NjEggq6xeEUa0uUWgF8cAj44kFzS/+04Enzxg+MErIKeTzk
-         vQkds35Ip0INrYP9HOMSw7LPHQ7eAn2KLVQFNOqgncqSelsU6aiVEu/4EOjCF/5qVoBb
-         c/E6IXi+h3gPMb5SqpJKHavzY9OTvgF1XzDWKQtGou6oDvzmvKTvBjR48x1G6dsNRI4c
-         UxZg==
+        bh=RqAg+X5UevD0Vc5aVJRCRg1w9Ar1312tYZnooFCReg4=;
+        b=kXqv0a74X6ppH4PzcKICiVY+odFT9AbY6LjhT3gASH0xworp1xj6EIG4spR5X2knyL
+         JvIdSvSBqYADARz3juNS+zNWVSmP7w+fUrHonLsab1otQxE1VqIaQzanpln1dLx4dMv5
+         51Xw6AYsFCr6+V8b7WKnywLSBo7zrEwBj0iONVECSvSMx5LEzfKw8QopRXJuIlfJX0SG
+         nbEzdOGxHUlxPbDMvEtwQa7U7GyBmY8o1Xi52Ft1K0xHnQDspLVLCjK+qWHJK7otxTP6
+         qKf9fFVNOiz6m/J0i4/8psn9DE2O2VyUb9IfgIAW/7lg8z7aZUyQZDk6/yiLEPcY0HMI
+         QHbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761333356; x=1761938156;
+        d=1e100.net; s=20230601; t=1761333366; x=1761938166;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lOGEEJh/33D603wteGhrxPA31YJMUwUVVAtQyDoqnvQ=;
-        b=hU8Vc7Y2T2CFNNwG5gT16hs0r9tRdNmlL5RCe62gPyAT1IZLQfZz3z/IURQerGDhAQ
-         mgcgGX6aPZzuxzK5FiEI5A4CA16XgZ5cOyPQT73K5Ob5Dz3tcpYOT06YKycFAoxnLNJ6
-         93P8J6qV14X6BQLlGg1gmvHeeRGj5BTDRs5SWq/gNFx6gArmEp1qYqppSuSjHq3omBKL
-         j7gUvDYgWrHEAevX3BlsyPxPJzFQRFr214i8s3CqVLsbr3I+YMPsLOy5plwOSKg8DZAx
-         HpFMFA8nByi7DgGu2v1cIk+TCYogmIplSE4T+yuHMiAYNN3TBacu/zNajnvrm1/n9otq
-         b1LQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVcTlpNuIEqhlHvkxmlBqECt7LWyI204TDy18VKLOgg2KfTZplu1FTQRhsCPt5KyvgYnIQ7H/KtOmqXqg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz45pQ7EGEb6EsYNzAMSWJQMO2f8d96/aSap9rx6YgQDBulInqS
-	oBNwYXntxt6Y9GVFxrL4QjY1P6VzQZAdAt7jdF1DMsiK07/GMot/a+8rU8qG10NuNwE=
-X-Gm-Gg: ASbGnct0+7L3QlUs2Qf4hh5+vOqDkruIZJ7cMNcI0Hkypst6AbH/UMYe6HpRU/LEdgJ
-	+wkIti3jVkzgq4+DXI8DlOMfhFLFCcRFwro1FEEBGBV53vBXFqD73YUDvRAifoLvGVDJGdQUC5d
-	jqV9+am4YQDM8/7LVfcWst0Wm1ZdSxBjoF4B3m1AA/BXbiz1rCCkMT5kzN9OEiWV3ho8sNOPrQw
-	VWVn5x8IrqjOhgDkUWp8tTJkZAIUzrjq7iyCuRwyOZBjeeBq7BDDEoLf4ajhDsH6R5MkwIzG9NL
-	7+kvsUHmApm9GNtPRy3sxRa8MGbdeZ/LkFrp35/IzejTBYpTT1EeTtA85sdsfKVemF3zt9vtznm
-	VXBOwZN6oACAY8d+C4LVJm3FuJwAESQ8ko1Y3XESaT78MnU7OuyJON4EShpSq81RTOp8tbAflqt
-	7aB+yodJLgwLbfHqQqiNs2kHeVEZYgXSvzzZvUmh29tLdvkrtku0s3vw==
-X-Google-Smtp-Source: AGHT+IFDogyL6cWcfQwc3FAklbFwL0iLqDuDqQppxCvEgv6jdMEMsj7R+FgIMqftII9RxRpxH7qsMg==
-X-Received: by 2002:a05:6e02:3f04:b0:430:c49d:750c with SMTP id e9e14a558f8ab-431ebed79admr44368525ab.27.1761333356161;
-        Fri, 24 Oct 2025 12:15:56 -0700 (PDT)
+        bh=RqAg+X5UevD0Vc5aVJRCRg1w9Ar1312tYZnooFCReg4=;
+        b=nliA2BWAkrzLeh8vzm39s+vi6Vr6k4gpt9x8tdqIh2jd3KHpykqObiq4GZVSFGCwhb
+         xbI0wnopMBmoSD+Vm+nhbZVkbjsifSjKBth+ndukCoB+rAEGIvdwmvpieOA4R1yHsnzi
+         mNhoEPaMMVCh7gZFHTnQmFlODbfQlZ6tcMxy3W47S3aSxEQXCU2fTijPfH7xvKhrfqhf
+         sLlCctWJSD10ryNE2FeZ5YCsKJK6MVMhlvSMfK3IgrAGb3meVqdTyIcdmy7QX/wEdGGm
+         VSfQZjmBTqUTsJLXtivHrtQHBRNtvA4gCGGa+zNg3npF07fCJ6L/x4yoG7KqzCraptCM
+         oDVg==
+X-Forwarded-Encrypted: i=1; AJvYcCVbHvpTBjcRcy7/ra7AqC3kU9HLKZY0Z3TWU/IE+2my4N3rZb05bercxTgIZWGPuH689XBGhoCnRW3q7A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7DxgRkX5OgsQ1fl2FA9Rd+wGlsD2vKpG61/Scq6shdGEEa2qr
+	LdmL0bfFtWq0fX1B1PWwxh9wkqwa0vfe2YlfffT+Tv/l2iN6mIpidSYEVSQqEaGkDYk=
+X-Gm-Gg: ASbGncuQDYAyqkiBXtl0V6B8AIe60B6p1wMEvOkf+ndlopdoyR0GYatk4bjTn5jdx/k
+	/m7VHrPNz7XHaSw7DP0YTZmrDOjGfytRJOxIL7B14kqCdgyWdJmf5COIpZrWsKGobATZPX6LsdM
+	c0QMBvzRskQVxO7PhnhGDsU2WFX+ASXaSpXyT8fsHUpGmYyAGNadi2qFvW63/ab+MDz9lQ+voma
+	G+mXTUccmuLFAJHLrsmazEqUSRRCdLszU35uof2DG6pHo4RXdCQbRPs7o8I0nTP0qfXQ/sKFqV2
+	sIXULBbwryCHth469xW+fbbUKzBCH6mTjocRZsQknx1D5DZHLJ07Z6ApzwoIK+tGurtyWZIE3o9
+	64sx8Cs7lkhra+rBOhFgqIM7rUSFmAZho9xtbPe5gy+VJe8PepOWRoKjpg3v/3By0Jshyd8c8ll
+	HlmWMWZB4rRP1VD5TRukujQ8upE8dgxvIawNIqamFGIEk=
+X-Google-Smtp-Source: AGHT+IH0HEa/fKZomSiQ3WIIsMrU8mAuEWxrS7c1HtLkD8Jfco189Px8SbGm7/QbmcudIijpZWQVBA==
+X-Received: by 2002:a05:6e02:3e06:b0:430:b147:3b70 with SMTP id e9e14a558f8ab-430c524ce8amr390406425ab.6.1761333365763;
+        Fri, 24 Oct 2025 12:16:05 -0700 (PDT)
 Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5abb7fdb7c7sm2427824173.44.2025.10.24.12.15.55
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5abb7fdb7c7sm2427824173.44.2025.10.24.12.16.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 12:15:55 -0700 (PDT)
+        Fri, 24 Oct 2025 12:16:04 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	han.xu@nxp.com,
-	broonie@kernel.org
-Cc: dlan@gentoo.org,
-	Frank.li@nxp.com,
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	conor.dooley@microchip.com,
+	dlan@gentoo.org
+Cc: Frank.li@nxp.com,
 	guodong@riscstar.com,
-	devicetree@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	imx@lists.linux.dev,
-	spacemit@lists.linux.dev,
+	fustini@kernel.org,
+	geert+renesas@glider.be,
+	cyy@cyyself.name,
+	heylenay@4d2.org,
+	apatel@ventanamicro.com,
+	joel@jms.id.au,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v3 1/9] dt-bindings: spi: fsl-qspi: support SpacemiT K1
-Date: Fri, 24 Oct 2025 14:15:41 -0500
-Message-ID: <20251024191550.194946-2-elder@riscstar.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 9/9] riscv: defconfig: enable SPI_FSL_QUADSPI as a module
+Date: Fri, 24 Oct 2025 14:15:49 -0500
+Message-ID: <20251024191550.194946-10-elder@riscstar.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20251024191550.194946-1-elder@riscstar.com>
 References: <20251024191550.194946-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_121557_274932_B3DCEAA9 
-X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-CacheID: sfid-20251024_121606_646364_8EE24FA6 
+X-CRM114-Status: UNSURE (   7.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,32 +114,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the SpacemiT K1 SoC QSPI IP to the list of supported hardware.  This
-is the first non-Freescale device represented here.  It has a nearly
-identidal register set, and this binding correctly describes the hardware.
+The SpacemiT K1 SoC QSPI IP uses the Freescale driver.  Enable it as a
+module in the default kernel configuration for RISC-V.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Alex Elder <elder@riscstar.com>
 ---
-v3: - Added Acked-by from Conor Dooley
-    - Added Reviewed-by from Frank Li
-
- Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml | 1 +
+ arch/riscv/configs/defconfig | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml b/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
-index f2dd20370dbb3..5e6aff1bc2ed3 100644
---- a/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
-+++ b/Documentation/devicetree/bindings/spi/fsl,spi-fsl-qspi.yaml
-@@ -22,6 +22,7 @@ properties:
-           - fsl,imx6ul-qspi
-           - fsl,ls1021a-qspi
-           - fsl,ls2080a-qspi
-+          - spacemit,k1-qspi
-       - items:
-           - enum:
-               - fsl,ls1043a-qspi
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index fc2725cbca187..48afe30d42e88 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -158,6 +158,7 @@ CONFIG_I2C_DESIGNWARE_CORE=y
+ CONFIG_I2C_MV64XXX=m
+ CONFIG_SPI=y
+ CONFIG_SPI_CADENCE_QUADSPI=m
++CONFIG_SPI_FSL_QUADSPI=m
+ CONFIG_SPI_PL022=m
+ CONFIG_SPI_SIFIVE=y
+ CONFIG_SPI_SUN6I=y
 -- 
 2.48.1
 
