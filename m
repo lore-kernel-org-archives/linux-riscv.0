@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8429CCCF9E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 16:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09375CCD1BF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 16:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=SPFSsxo+gM9RMBxMiLxdKxKjkSfnA/GzVmc0ZjXErJI=; b=2kzWVwbZtSupEm7QFGomukqwNB
-	DnrXN4/tOTiyECZ56VL1o6KiCyP0nj+Z5Y0ISxSh/2mbd9XTy9P2UjNV5uoApTdCvXtf/E+olGyy0
-	gc4n29F1PbaV+WEcYFZpJVbEqfxwau+3vO5kyaaWIjHWVB5KBYwiXZU61+E0AaoMkPPiObZ6bBlEo
-	P+nA7DtdypE7hrYolxqHDwpgLB3/6TglWEfQNOhT+vwxeSEwKU/MpC1hneYmp3T8998gJ42Dtf1s0
-	m5krkzF0aGmS7FoszJoYXXIndZsbBIK0D8LOYuQSudAZEKuPHAkUGOc976TVQTXVdiKEzuu57gchr
-	GMCf3mVQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f1wO/j1km/U0dKlSpQOgQ7w8Z0iFFmv/HG9MKDsEMjs=; b=qQ0oOrgUp8zUX4wQbv9O/KqNMc
+	+TNLa4489gzhvhwlP6FFSvQ6dv879nPWgNd20YbFLnuiQZzjVt9RECDYIluCG9maz9JiFsrYzuFYP
+	7Wu6m80PnFaTsa8OVPOKpKm673bU/R5aDeul1crzJjRX8UvW2LwpIzMOwhLXhPWM7PvudAsyI0OuO
+	0m8hEczLHLz1F0FdWS3W55Hq5QFLeyC9YTgd+QAPNnX1uRwvJ2rcu22PvGKl/mZlgAfZWNh2DzoaA
+	rhZInqxtF6FRDC2X1/2te0iFLuXaX6wPMKcreISfgCnfggzEIgaNP8CisREZ/OMhqfUqkMdhWD4gI
+	Ss40GDoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCKlX-00000009zZv-0Oik;
-	Fri, 24 Oct 2025 16:35:47 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1vCKvc-0000000A0jw-1Hr2;
+	Fri, 24 Oct 2025 16:46:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCKlV-00000009zZ5-2ntY
+	id 1vCKvZ-0000000A0ix-3UE9
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 16:35:46 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-290c9724deeso20914105ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 09:35:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761323744; x=1761928544; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cu0gmfEAQ+U9vhoL2h/iCeG4Q5kdgS/ChdUsj5vfglQ=;
-        b=n6wRqoYVp2wZI8y7HVTFemsH/sm7lQyMOG/U6IQLFHJZYYahUwiyiDAFaroe4u5YtH
-         z1q6XJVbpu2G0EnXFfRebj87AWobSFSybQHYiWEpcmCRC4wyX13ubZEBbKJuf+vSAN7G
-         PQFvqlZGOmkokTQPkP2oXihgfjoNkzR2hBYz6Cf525kBPGWc+BDicRncDxh90Dah7m6J
-         eDzILFO1BPYvwv3nXCLL9FzlzK7bbBVqGgIWnXElOWsznVBPQ9/BRVIwt+3f6lBr1N/z
-         FgyxzlPWlafGUFaAzeZotV4J36XqfPvE/KbqQp9GYg3L6pVFMssKLjs33897ec2l4pmb
-         7TWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761323744; x=1761928544;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cu0gmfEAQ+U9vhoL2h/iCeG4Q5kdgS/ChdUsj5vfglQ=;
-        b=ZY4XJBs2LRCiEgsAkOH0WKZVksycpDjKo7ueoRANo8sp8GunCNUN9UCa/aMn1Jwsei
-         lMhBECpXcIgXGdsL+JzDnNWMIkeIeGXvmNubLQ9uNnh/BcIQMZLv5hjhk6GkM/NCtyxR
-         /pYCkQhzEf7IhkqeIfeUBakMO2CXJgclAPaEZ661hdZpZxXrFuN7vYucOdLGSYuuYjHU
-         WMzorg9xO0u5Q9NFtu6brODQY78cBQHVqdToVT94W5iPmzzvkFEnGVTxAPi77Dl0mODE
-         SGQ5724SvyVuLP9G2BWPyOzMhnjO45W5DaZlGqPHRWvdLcyFODGZp8d9upJ8C0Y6qEow
-         g6qA==
-X-Forwarded-Encrypted: i=1; AJvYcCXcoCSDvo6ibUiy/6KVp9fU3qSU10iQH8at9eYbLI8dQRX8vRntYOhE/66FhaXTkq2P3tZd34CbYUaOfg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxstt30a0KnEfuGXUI6wjiJuI6yAjfzVajHfdUDgevFfhH4hMlk
-	SNtVTYtRvkifDWSwmi7z99aePDBQpA2UrPRmc65R5z1+QsUIhspQ4iIdijpjQHfNfMbruYdrqgY
-	38xIo1Q==
-X-Google-Smtp-Source: AGHT+IHEqEX/8GwSPDTtO9R4g/+ZtFO0C94Pe4ULgHF/AbXONvqtNga/vyT3hE3hD5zVd0KE3EnoXL2eWbI=
-X-Received: from pjyj8.prod.google.com ([2002:a17:90a:e608:b0:33b:51fe:1a8b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:db05:b0:24e:3cf2:2450
- with SMTP id d9443c01a7336-290c9c8a5e6mr368813165ad.2.1761323744332; Fri, 24
- Oct 2025 09:35:44 -0700 (PDT)
-Date: Fri, 24 Oct 2025 09:35:43 -0700
-In-Reply-To: <442f5488e4a66f6a1517082df3d2ae47316be010.camel@intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-15-seanjc@google.com>
- <442f5488e4a66f6a1517082df3d2ae47316be010.camel@intel.com>
-Message-ID: <aPuq33-qEJsDhdgG@google.com>
-Subject: Re: [PATCH v3 14/25] KVM: TDX: Bug the VM if extended the initial
- measurement fails
-From: Sean Christopherson <seanjc@google.com>
-To: Kai Huang <kai.huang@intel.com>
-Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>, 
-	"maz@kernel.org" <maz@kernel.org>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, 
-	"pjw@kernel.org" <pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
-	"kas@kernel.org" <kas@kernel.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>, 
-	"pbonzini@redhat.com" <pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>, 
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, 
-	"zhaotianrui@loongson.cn" <zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>, 
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, Yan Y Zhao <yan.y.zhao@intel.com>, 
-	"michael.roth@amd.com" <michael.roth@amd.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, 
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>, 
-	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, Vishal Annapurve <vannapurve@google.com>, 
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
-	Rick P Edgecombe <rick.p.edgecombe@intel.com>, 
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
+	Fri, 24 Oct 2025 16:46:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3827043846;
+	Fri, 24 Oct 2025 16:46:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E56CCC4CEF1;
+	Fri, 24 Oct 2025 16:46:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761324369;
+	bh=oH2uo8kUvZvaWDuaKBK5Ia3tKQOcMF+N8RlJE5fLuNI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NSwD/cs5L6f5qlBmgfQodcXn4hEKJOQyLYx6LmkIVGt9zRcacVOreE4uvk+9JlYxy
+	 pI6L5HJGt8wvzSJsvZ+UvEXsT2TFskHEQdHqxw8N/C6uQc5AyusqbRW/xtFuyCMn1R
+	 Oj3GqElZImOxVsQIhDCVkwk6yHrcaae6BtwQXWVPR46rxaDM54P09G6/WNGEUSBB7Y
+	 skUG3IZ2D38fTg0Jh3ky+KQjIAx/p31peSkUJiuupbYsgq88vJxT2SDqMYr7Ig78xx
+	 02Hq7NA1FvUwDT1DXDVmyvxkbwBhuxhALAS0pFa9OAS3BSwB/bKtYGJSw1NTmJk2Jt
+	 H+lv1Je1X2+Fw==
+Date: Fri, 24 Oct 2025 17:46:03 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Longbin Li <looong.bin@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Yu Yuan <yu.yuan@sjtu.edu.cn>, Ze Huang <huangze@whut.edu.cn>,
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: soc: sophgo: add TOP syscon for
+ CV18XX/SG200X series SoC
+Message-ID: <20251024-hangout-designing-33e96c0d35fc@spud>
+References: <20251024030528.25511-1-looong.bin@gmail.com>
+ <20251024030528.25511-2-looong.bin@gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <20251024030528.25511-2-looong.bin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_093545_706668_0E671B68 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20251024_094609_931887_67A94933 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,44 +76,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6472163287880964072=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025, Kai Huang wrote:
-> On Thu, 2025-10-16 at 17:32 -0700, Sean Christopherson wrote:
-> > WARN and terminate the VM if TDH_MR_EXTEND fails, as extending the
-> > measurement should fail if and only if there is a KVM bug, or if the S-EPT
-> > mapping is invalid, and it should be impossible for the S-EPT mappings to
-> > be removed between kvm_tdp_mmu_map_private_pfn() and tdh_mr_extend().
-> > 
-> > Holding slots_lock prevents zaps due to memslot updates,
-> > filemap_invalidate_lock() prevents zaps due to guest_memfd PUNCH_HOLE,
-> > and all usage of kvm_zap_gfn_range() is mutually exclusive with S-EPT
-> > entries that can be used for the initial image.  The call from sev.c is
-> > obviously mutually exclusive, TDX disallows KVM_X86_QUIRK_IGNORE_GUEST_PAT
-> > so same goes for kvm_noncoherent_dma_assignment_start_or_stop, and while
-> > __kvm_set_or_clear_apicv_inhibit() can likely be tripped while building the
-> > image, the APIC page has its own non-guest_memfd memslot and so can't be
-> > used for the initial image, which means that too is mutually exclusive.
-> > 
-> > Opportunistically switch to "goto" to jump around the measurement code,
-> > partly to make it clear that KVM needs to bail entirely if extending the
-> > measurement fails, partly in anticipation of reworking how and when
-> > TDH_MEM_PAGE_ADD is done.
-> > 
-> > Fixes: d789fa6efac9 ("KVM: TDX: Handle vCPU dissociation")
-> 
-> So IIUC this patch only adds a KVM_BUG_ON() when TDH.MR.EXTEND fails.  How
-> does this fix anything?
 
-Hmm, yeah, I'll drop the Fixes.  It made more sense when I thought it was
-impossible for tdh_mr_extend() to fail, as returning an error and not explicitly
-terminating the VM was "wrong".  But I agree it does far more harm than good,
-even when relocated to the end of the series.
+--===============6472163287880964072==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="OpamxSOV8OwCADjJ"
+Content-Disposition: inline
+
+
+--OpamxSOV8OwCADjJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Oct 24, 2025 at 11:05:14AM +0800, Longbin Li wrote:
+> The Sophgo CV1800/SG2000 SoC top misc system controller provides register
+
+Please remind me how it works, sg2000 is just a rebadge and really this
+just refers to one device?
+
+> access to configure related modules. It includes a usb2 phy and a dma
+> multiplexer.
+>=20
+> Co-developed-by: Inochi Amaoto <inochiama@gmail.com>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Signed-off-by: Longbin Li <looong.bin@gmail.com>
+> ---
+>  .../soc/sophgo/sophgo,cv1800b-top-syscon.yaml | 81 +++++++++++++++++++
+>  1 file changed, 81 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,c=
+v1800b-top-syscon.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-=
+top-syscon.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv180=
+0b-top-syscon.yaml
+> new file mode 100644
+> index 000000000000..d044ca661fa2
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top-sys=
+con.yaml
+> @@ -0,0 +1,81 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,cv1800b-top-syscon.=
+yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo CV18XX/SG200X SoC top system controller
+> +
+> +maintainers:
+> +  - Inochi Amaoto <inochiama@outlook.com>
+> +
+> +description:
+> +  The Sophgo CV18XX/SG200X SoC top misc system controller provides
+> +  register access to configure related modules.
+
+Here and in the title you have Xs, are those placeholder or is this
+going into cv180x.dtsi and going to be used on multiple devices?
+
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: sophgo,cv1800b-top-syscon
+> +          - const: syscon
+> +          - const: simple-mfd
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 1
+> +
+> +  ranges: true
+
+Do you actually use ranges?
+
+> +patternProperties:
+> +  "dma-router@[0-9a-f]+$":
+
+Do these actually appear at variable addresses, or is it always 48 for
+the phy and 53 for the dma router?
+
+> +    $ref: /schemas/dma/sophgo,cv1800b-dmamux.yaml#
+> +    unevaluatedProperties: false
+> +
+> +  "phy@[0-9a-f]+$":
+> +    $ref: /schemas/phy/sophgo,cv1800b-usb2-phy.yaml#
+> +    unevaluatedProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/sophgo,cv1800.h>
+> +
+> +    syscon@3000000 {
+> +      compatible =3D "sophgo,cv1800b-top-syscon", "syscon", "simple-mfd";
+> +      reg =3D <0x03000000 0x1000>;
+> +      #address-cells =3D <1>;
+> +      #size-cells =3D <1>;
+> +
+> +      usbphy: phy@48 {
+
+Drop the labels off of these two, since they're unused in the example.
+
+> +        compatible =3D "sophgo,cv1800b-usb2-phy";
+> +        reg =3D <0x48 0x4>;
+> +        #phy-cells =3D <0>;
+> +        clocks =3D <&clk CLK_USB_125M>,
+> +                 <&clk CLK_USB_33K>,
+> +                 <&clk CLK_USB_12M>;
+> +        clock-names =3D "app", "stb", "lpm";
+> +        resets =3D <&rst 58>;
+> +      };
+> +
+> +      dmamux: dma-router@154 {
+> +        compatible =3D "sophgo,cv1800b-dmamux";
+> +        reg =3D <0x154 0x8>, <0x298 0x4>;
+> +        #dma-cells =3D <2>;
+> +        dma-masters =3D <&dmac>;
+> +      };
+> +    };
+> +
+> +...
+> --
+> 2.51.0
+
+--OpamxSOV8OwCADjJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPutSwAKCRB4tDGHoIJi
+0trzAP4nfQ6/Wxgh8wcGJdVXjTM5fYSSjyHVynWRqnuELKsrCQD+NmT3Mi9bgtxf
+nLsFD4E3jkFuEsA2OafNMSd9+ubbNw8=
+=pezZ
+-----END PGP SIGNATURE-----
+
+--OpamxSOV8OwCADjJ--
+
+
+--===============6472163287880964072==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6472163287880964072==--
+
