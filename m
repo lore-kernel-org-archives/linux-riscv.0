@@ -4,81 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8DABCCF9E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 19:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C565CCF9E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 20:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QxDzjDvAMoAZirbcoYjQzLoUnOHxHzzYuF8hEBAWAsE=; b=qX6LaYiuV07XIU
-	KAPRIIMsy39wZ3J/g3PY8YnwFAvyf/S2owa/xLjR7vda8syfFIYBFHhN563HN0qafuafD42unksc3
-	rA9YmBn90ItvWonDp29khDfObOhLOO6M/sHrG3Ey/3MYfn+AHOjY4PQKbarSHIo5ZLUkqu4WQX4qg
-	EFQopDnuKlmqaGsnFi3Hi+dhQd3xmMxtesOXDzrUl3JYqZKME5HuX7k9pdKXs238sk6XtiEgLZToW
-	H5wzCtALeaqpDYpeVg7QbpsLLED6f/NDnZgzxXMf/co5UtiQI+jcLa5a3q9X1OqSjMDArPuuUFz2R
-	LpyhmohTZe0CeXgqo4rQ==;
+	List-Owner; bh=gCsok8nc0GlJ4qgNIYiU0De/M/K3e3J+gYzOC0DXslk=; b=gRKVL51yiRN/Gc
+	G8mRLti27XNTV4dUSCo5YJVd1c11xtG08towh1BgGGH6t7D/GXBegdtpSW5YDg1HoldlLL1zygwZa
+	VCxf2L8CB8Bg/eLEd8yTOTWND0zlbXaxuGl/bzfoxGnjvousD1+Rs5+V6jO8cmbtyejAQK+CSgOzz
+	Ugd71HcJw9nQWt6lIM/QayoZuSKnh4PEpmmLKl9HYFyLagVp2lI2FC5Ppdv0NvVFm8vUpqCBUaQFa
+	5K+256h2zD11zjtlnW9EV7t5zEMwVK/sDnBGdH6CNxG0pbJY3a/W6VBf81/6Yo0EaSidRwBYGKxPr
+	DWiVZcUCKEGqD6zHfM0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCNhz-0000000AOhi-1WVr;
-	Fri, 24 Oct 2025 19:44:19 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vCOD4-0000000ARY0-3nWw;
+	Fri, 24 Oct 2025 20:16:26 +0000
+Received: from shelob.surriel.com ([96.67.55.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCNhw-0000000AOfG-2II2;
-	Fri, 24 Oct 2025 19:44:17 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761335051;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=j1tfRYGYM66U+KpSa00BpGxDI+hyT7SSps99obN09Nw=;
-	b=mV9PV9ddpcoU02So0SXkS4ZFsu2V7qAr7LEgSfPB2WToEgUpusnbyDadgwVWZmbRTkyXGp
-	xvX0UNKOV52ySDi0s+OUqSFEjqwtQ3Fp3XT2KXtNj7xH/noSieu7qQOSb0twLqPsuQdu52
-	W2PSv38g55SZ107p2MYvIYFIfSG0AV4Ewb0llS3O3Q67LebNBdkvyw1t5kOWxeQINrrY8B
-	C8rRWxdkMOnEatj0FnKC2APzd3PznfAfj8C8OdFbrVF6/FaJX2T9wcnIwKDGZ3u/WFdrfc
-	nyEjip3DXjmNs4Vo88BJmJaGYic+FCBz4AXwhPL0pYDclJkETSnxhof/6+A92g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761335051;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=j1tfRYGYM66U+KpSa00BpGxDI+hyT7SSps99obN09Nw=;
-	b=XOTtBc1YJh7Jq5lFhBgh4lK2u78F4KjnvZsO7hd4iln28ghgXC9efMVHBaCCiM8FiD7nn2
-	aO4ycaAyDVrtNpDg==
-To: Xie Yuanbin <qq570070308@gmail.com>, linux@armlinux.org.uk,
- mathieu.desnoyers@efficios.com, paulmck@kernel.org, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
- borntraeger@linux.ibm.com, svens@linux.ibm.com, davem@davemloft.net,
- andreas@gaisler.com, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, luto@kernel.org,
- peterz@infradead.org, acme@kernel.org, namhyung@kernel.org,
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
- jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
- anna-maria@linutronix.de, frederic@kernel.org, juri.lelli@redhat.com,
- vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
- bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
- qq570070308@gmail.com, thuth@redhat.com, riel@surriel.com,
- akpm@linux-foundation.org, david@redhat.com, lorenzo.stoakes@oracle.com,
- segher@kernel.crashing.org, ryan.roberts@arm.com,
- max.kellermann@ionos.com, urezki@gmail.com, nysal@linux.ibm.com
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-perf-users@vger.kernel.org, will@kernel.org
-Subject: Re: [PATCH 3/3] Set the subfunctions called by finish_task_switch
- to be inline
-In-Reply-To: <20251024183541.68955-2-qq570070308@gmail.com>
+	id 1vCOD2-0000000ARWL-0PJk;
+	Fri, 24 Oct 2025 20:16:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
+	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=tqPX8RIzyW6k8iQG5uq/xHVvyyym1A6Z+YPgBJAhrnw=; b=DON9QBSdIIC6MDwKtU7xmml3kR
+	eVyZ6cFpO1CT9m1WxZKrna65At7/mhta/jnDDgt57jLzYpoTBTBU3sl85GKdV1ZOJ6cJ5gsRBROa/
+	bYsZyWHyXxSndU1OMRt497qbN/d047EE8Nni/L+spuWg+98Ztapehhk8hUk96yGoBvy4eqELM68eL
+	mtTFduhuKIMKrTm0eoBmdXKsszBendnTiIYPct4VCgqyRF9xoldhyfsxn0vR84OcoQYrWDxS7WXDZ
+	aCozudIW+2R4u3NnccyR2QNiIFXFQiT0vBGjcyTaGuUvpx2wYB7Y13i2VhfTUGufhgLaOHEeZgSYr
+	VQGkWgEA==;
+Received: from fangorn.home.surriel.com ([10.0.13.7])
+	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.97.1)
+	(envelope-from <riel@surriel.com>)
+	id 1vCOB4-000000000Om-3Ub7;
+	Fri, 24 Oct 2025 16:14:22 -0400
+Message-ID: <a461ddd3adc2a4c53cd44b34fc58cf3cf0fae41e.camel@surriel.com>
+Subject: Re: [PATCH 1/3] Change enter_lazy_tlb to inline on x86
+From: Rik van Riel <riel@surriel.com>
+To: Xie Yuanbin <qq570070308@gmail.com>, linux@armlinux.org.uk, 
+	mathieu.desnoyers@efficios.com, paulmck@kernel.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ hca@linux.ibm.com, 	gor@linux.ibm.com, agordeev@linux.ibm.com,
+ borntraeger@linux.ibm.com, 	svens@linux.ibm.com, davem@davemloft.net,
+ andreas@gaisler.com, tglx@linutronix.de, 	mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, 	luto@kernel.org,
+ peterz@infradead.org, acme@kernel.org, namhyung@kernel.org, 
+	mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+ 	irogers@google.com, adrian.hunter@intel.com, anna-maria@linutronix.de, 
+	frederic@kernel.org, juri.lelli@redhat.com, vincent.guittot@linaro.org, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+ mgorman@suse.de, 	vschneid@redhat.com, thuth@redhat.com,
+ akpm@linux-foundation.org, david@redhat.com, 	lorenzo.stoakes@oracle.com,
+ segher@kernel.crashing.org, ryan.roberts@arm.com, 
+	max.kellermann@ionos.com, urezki@gmail.com, nysal@linux.ibm.com
+Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, will@kernel.org
+Date: Fri, 24 Oct 2025 16:14:22 -0400
+In-Reply-To: <20251024182628.68921-2-qq570070308@gmail.com>
 References: <20251024182628.68921-1-qq570070308@gmail.com>
- <20251024183541.68955-1-qq570070308@gmail.com>
- <20251024183541.68955-2-qq570070308@gmail.com>
-Date: Fri, 24 Oct 2025 21:44:10 +0200
-Message-ID: <87placw0dx.ffs@tglx>
+	 <20251024182628.68921-2-qq570070308@gmail.com>
+Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
+ keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
+ eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
+ Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
+ lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
+ dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
+ mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
+ gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
+ r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
+ WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
+ 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
+ Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
+ +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
+ g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
+ KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
+ fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
+ 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
+ G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
+ okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
+ TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
+ cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
+ omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
+ QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
+ c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_124416_720346_6DAF203D 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20251024_131624_337010_6ED0D8E6 
+X-CRM114-Status: UNSURE (   5.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,38 +117,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 25 2025 at 02:35, Xie Yuanbin wrote:
->  #ifndef MODULE
->  #define finish_arch_post_lock_switch \
->  	finish_arch_post_lock_switch
-> -static inline void finish_arch_post_lock_switch(void)
-> +static __always_inline void finish_arch_post_lock_switch_ainline(void)
->  {
->  	struct mm_struct *mm = current->mm;
->  
->  	if (mm && mm->context.switch_pending) {
->  		/*
->  		 * Preemption must be disabled during cpu_switch_mm() as we
->  		 * have some stateful cache flush implementations. Check
->  		 * switch_pending again in case we were preempted and the
->  		 * switch to this mm was already done.
->  		 */
->  		preempt_disable();
->  		if (mm->context.switch_pending) {
->  			mm->context.switch_pending = 0;
->  			cpu_switch_mm(mm->pgd, mm);
->  		}
->  		preempt_enable_no_resched();
->  	}
->  }
-> +static inline void finish_arch_post_lock_switch(void)
-> +{
-> +	finish_arch_post_lock_switch_ainline();
+On Sat, 2025-10-25 at 02:26 +0800, Xie Yuanbin wrote:
+> This function is very short, and is called in the context switching,
+> so it is called very frequently.
+> 
+> Change it to inline function on x86 to improve performance, just like
+> its code in other architectures
+> 
+> Signed-off-by: Xie Yuanbin <qq570070308@gmail.com>
 
-What is exactly the point of this indirection. Why can't you just mark
-finish_arch_post_lock_switch() __always_inline and be done with it?
+Might as well inline it into what I remember
+being its only caller.
+
+Reviewed-by: Rik van Riel <riel@surriel.com>
 
 
+-- 
+All Rights Reversed.
 
 _______________________________________________
 linux-riscv mailing list
