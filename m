@@ -4,64 +4,196 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 994A9CCD1AB
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 10:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45CD9CCF9E3
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Oct 2025 10:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NIi9ySOBa4cjz0eOQyISE1TKVsQn1A55v/fn+5xwhwY=; b=W0uciX6lGHSdKHaXcHJ0w5cYhE
-	7T2FS8gK0yEUTWKlVaIPxhu34V7yI3MBCt2abs43DyFRmzbZwnlWZwUV0rkro0cWQmoeJmaZBzQrh
-	Dmaum2w2wutJvcTSukMzQo7LoV1LsystFnies0R9G8jO4DTWtDMfYiv8g/fOJhzZ8Mu2pKk9gr8Df
-	NI2KCPbFKSOZ7zVueXobYVde/c0+L0yOHQqPCP4As027Fv7HZgoJL2WLqxTyoYbJnr+Mc+Z7Cc7k6
-	fmMcA20HwtJuuUJl/qUdgntfC0kRG5CRFtEpqGMd5xzubKW5jX9pDQiTKjAr2tyKcTjfJLroWgX7g
-	oP7PKzUw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:Message-ID:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kHotXy3eQbY7dMQLKV7KyU7coFnClk1Rhzn1EE8EKAQ=; b=chZd0oQ2Wl2fqd
+	tf49rzrPgweTWpv1XRocWRJKmEcE1x/hfivRAqhv+pRGR9jwFhYjhzEYYwEZo4xpNB5FaSpzIjXEG
+	l9aYu3ZRZM3+sW/GaO9fYmPwdVwUuth7w2+UsXNmompzSiXBvI51lKx+7rZ9yS98WZDoJ24FZvTeV
+	sUXk1ajBiErCmHSghpSef2DUc9SzIZCnZLp4tqFZpTsW/saSwBXP99PgnZ+JHyl4+kxxCDMiW2C0f
+	Ye4J4VaD3JvTIymEbZ4mhM3P26QhNPNcEqn1kRCVo/cttSCYnFm3hmooJh61k4I50Va4QVmT01z4Q
+	H8I5zRE4HWLFX3QLQKNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCEhT-00000008yEm-0WgV;
-	Fri, 24 Oct 2025 10:07:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vCEhu-00000008yNr-32oD;
+	Fri, 24 Oct 2025 10:07:39 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCEhR-00000008yEf-1qh9
-	for linux-riscv@lists.infradead.org;
-	Fri, 24 Oct 2025 10:07:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CD1A960051;
-	Fri, 24 Oct 2025 10:07:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D68D6C4CEF5;
-	Fri, 24 Oct 2025 10:07:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761300428;
-	bh=mAvyMZkDKEDQzM0cbfFWpMpv34LC/VLxM5Txgp0+6eo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CcZskTxTuVZTuy3uofRPvFha3nbGrmDbzJJteid6JGgVpeGmvo36leJYLYmH73zj0
-	 wMc9mt5Jkxr/3Cwzswxak9gdaC3byg2lztBpPDHu3zi6vu3hzJVUGlQVngrMLxuZlX
-	 rM9cbLDkS7lBtf2z8+rv/POmkY1RydtVhIPRIPF/PoVSSrJTH8r+09A15qUYjhdzec
-	 Sinm1jN797NhM6lSrqf8wOv8WLJ83S+fy+vHDP4WmQcxe9/R6NSGu/s9rd0tN8UdAY
-	 tgBpd7yn1lnFlENN+9ZUrXop7JsPhLwwwretliTcI/jLwrLvjM+4PBIEXCcwt/4iNY
-	 7ONb1IoC40XyA==
-Date: Fri, 24 Oct 2025 11:07:03 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/9] reset: mpfs: add non-auxiliary bus probing
-Message-ID: <20251024-void-esteemed-832b3bf5b965@spud>
-References: <20251013-album-bovine-faf9f5ebc5d4@spud>
- <20251013-crane-utilize-cff9298291a4@spud>
- <60544429-3eeb-41df-b42c-613da651b4a1@tuxon.dev>
+	id 1vCEhs-00000008yMa-0sdv;
+	Fri, 24 Oct 2025 10:07:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761300456; x=1792836456;
+  h=date:from:to:cc:subject:message-id:reply-to:references:
+   in-reply-to:mime-version;
+  bh=i3dkJLtQerKfNbYjc1BRFDFl5q4wMbTJkqtQ8qnPsQw=;
+  b=AWrcB8pjs398l99nXkZpDXqAxvv0eQzltf8F9zP2/W5BMxUvpIkZuaBN
+   G1kzb9fQ/AVN0lYFqXhp/bhTNhaMvQQOAn8u3SOhwAXJJpnIUKmcEJflT
+   5veP00z+EEuMmrnXH75PBN0j7RaCe+b4cqLeANyTMAhkzLDd4DyDibSx0
+   p0qq9B0iyuX1wZNvAiLpKRKtTPC+FtMnUwqFYpqLh9Wfgk8eDekIbTjpr
+   DU6kYqQtPc8UclrkojeWFLRPFbf3Zalx8gMTNVL34Z0ejdbscxyRIN9GM
+   HVbpxeGURv0K4sHFVRAIdcNEOdlJfLSlGGYwbH+TyF/osVZ+uvMILjzA5
+   g==;
+X-CSE-ConnectionGUID: WeAG64idSKWZCChHhNHm6Q==
+X-CSE-MsgGUID: oaGk4cX0TR2HPc8cU1HukQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63522947"
+X-IronPort-AV: E=Sophos;i="6.19,252,1754982000"; 
+   d="scan'208";a="63522947"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 03:07:36 -0700
+X-CSE-ConnectionGUID: fNSfAazaR46kpB4vrtowJA==
+X-CSE-MsgGUID: CAzT8JVFTuSI/+nuUUYKdg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,252,1754982000"; 
+   d="scan'208";a="184289341"
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 03:07:35 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Fri, 24 Oct 2025 03:07:34 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Fri, 24 Oct 2025 03:07:34 -0700
+Received: from DM1PR04CU001.outbound.protection.outlook.com (52.101.61.1) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Fri, 24 Oct 2025 03:07:34 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b/vFXNfXwu09nl3A4Cu8E85fJGt1bgH4FuJ8UMdkBWGfLqXmQIksP0lmRoBTP5OeDnIYNzhP46opDAL8jmCHMQp9TYUdtheJn4yFN6MSA/TDrXGG2IubL+iAcVt/mo2DlhV4xK2KWH+CL/2B/0wDK8KvoNV+vXFlWOrHsxn6WB6cixYzLMcgMXIn9U5u3qoqKxhgYaUvBrPzzYNCL/4zyPOSrQ/nSjnfb15ozCG3iYOHxCxaJyhsXIBLwhP1uj9tPKpewf0H/jzfQJz7skhAbA356IRYJ8aOyo5LmFpUMLH0xm8mIV4cPHdDXFr+f0TryOD9K8Lh+/7jtsFpY4QF7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1X132Cfvn42L46oXRmhSZoTI30skrHVdWbLzV3eDUac=;
+ b=UZneRoyfN9kZPWPFAcWcpDJ4NDqgjtywYsCdffFWOnl1s2OwA4iYxX9+4MaH7DAaje78CS9CiIPaFmyTZ4Etgm++GA/IGfjXm7jIX86928RuKF6DwRchx7iN03mGKpxxgVV0C2JZPgmbKNrZ7hgbtINPmr5R9Lj7vssYdXON1yXKFyRiJGVTzDQLDQ1AOeSsYEjUuIYXD2Ibr4nY0xlVBmzH/B9zkYaheSatrH5HFUEtR5JRNWqgqUHTG9JXTBQuVy5Ji4ViKeFjAg4x8QlpsRdZePnp580dX3LdqKAC2faMuCCmh6jwlNWRBqRkn6ROQY4Q1L+31gPL1Dx4R9BPug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
+ BY1PR11MB8079.namprd11.prod.outlook.com (2603:10b6:a03:52e::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
+ 2025 10:07:25 +0000
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca%6]) with mapi id 15.20.9253.011; Fri, 24 Oct 2025
+ 10:07:25 +0000
+Date: Fri, 24 Oct 2025 18:05:56 +0800
+From: Yan Zhao <yan.y.zhao@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
+	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
+	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, "Kirill A.
+ Shutemov" <kas@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<x86@kernel.org>, <linux-coco@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, Kai Huang
+	<kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>, Vishal Annapurve
+	<vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Ackerley Tng <ackerleytng@google.com>, Binbin Wu <binbin.wu@linux.intel.com>
+Subject: Re: [PATCH v3 19/25] KVM: TDX: Assert that mmu_lock is held for
+ write when removing S-EPT entries
+Message-ID: <aPtPhGcE3nqtMDNK@yzhao56-desk.sh.intel.com>
+References: <20251017003244.186495-1-seanjc@google.com>
+ <20251017003244.186495-20-seanjc@google.com>
+ <aPnbIDxGlcAyI9vy@yzhao56-desk.sh.intel.com>
+ <aPpGPF8McvI3-OO7@google.com>
+Content-Disposition: inline
+In-Reply-To: <aPpGPF8McvI3-OO7@google.com>
+X-ClientProxiedBy: SI2PR02CA0042.apcprd02.prod.outlook.com
+ (2603:1096:4:196::19) To DS7PR11MB5966.namprd11.prod.outlook.com
+ (2603:10b6:8:71::6)
 MIME-Version: 1.0
-In-Reply-To: <60544429-3eeb-41df-b42c-613da651b4a1@tuxon.dev>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|BY1PR11MB8079:EE_
+X-MS-Office365-Filtering-Correlation-Id: 04e7e64f-80ce-4090-b6e8-08de12e5212b
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LyrEcY/BufKQmK5xX9M9O1GutqmFLx0DsawrPlgrl7b5MdSOD6tzFzNrXLxW?=
+ =?us-ascii?Q?eDy1Tz+nsm9jPsYcLaVN+brIkhxW/6RDYg8GVojUwD8I1x/FAFPVspc2EzUe?=
+ =?us-ascii?Q?Igo28PY/lLfyGv+iTKI5G0QqPBYx7UhShCv+1JtelTrjBm4wkRr868jZpBn8?=
+ =?us-ascii?Q?focQoLybD/cBQZfNHgQ+RaLkui8qJqU8cN3ncIzRxAsmrGn1M7t+J8FoN6ds?=
+ =?us-ascii?Q?zvkNgI1Tno2mappj5VKlXIiDtCs1hRblwePC+ilCV661lnNl6iwl/ZksLEXU?=
+ =?us-ascii?Q?/LERw/jFpowpAAMXo5rGMZg4r6lLWUG/hHvvJ51uhJwzJsfpXLzVJD1Fp99o?=
+ =?us-ascii?Q?XOK/v3YNQNBXmEbDQlBYaGx/4GgC7N5TJNJIHexbyw3d2BOLOoirFkus/ptp?=
+ =?us-ascii?Q?fJH53KI3HS/6mGW+yFueONhFXmvxqgeRhYxn51/8srtnGp5X5TDBWeh9aC8M?=
+ =?us-ascii?Q?PU3JHTI5JpWBAUPUxmNuEXBgugliDOmPwxjcHRiIVvt5bDR1i1hVUpz4sO6s?=
+ =?us-ascii?Q?eB67iaIcQW0dyRvL4UDU9yCVVNvXHr7D0h1iFkgv7y2NcsKZ7F4ua98gu46b?=
+ =?us-ascii?Q?s6VwHzEbZPN/RvtpsHn+QkOCQCRkWsMSzzFHhyaq6djZZVZCugyM8vFE4X8Q?=
+ =?us-ascii?Q?eg2cw4b2lxg1/2niPt26bDI7Yjfeh2XJ5TvqsD4zg0wq0oH2GR2r+ObqT/ZL?=
+ =?us-ascii?Q?CKyDMEh4CF5sZii/VoGU50xdDz0tLU6YdBUuFE2KiYAHgoBzSM7grXwwjYEy?=
+ =?us-ascii?Q?wnzUxkisgJSO+PIZKNDYBRachgUPEYBrXC6Ow7trVQYNi2jX/pQUrldu8hnf?=
+ =?us-ascii?Q?crbD7KG7KIJSxZeHqw8dKKATJ12Whmov35VPZmRN3LfKo13fioamXKzze0AD?=
+ =?us-ascii?Q?fWm+F5hwVvn5XT+MxhsYsiwDs4fMkcUgPC9D3OEcM9oKihjgN/PaWeuKVn4m?=
+ =?us-ascii?Q?0d1KeqUzaeeGTcra/C68RV/6Z6EToz4l0ZpCcMRN9CeZ4OSc3K7nuJsdkeKp?=
+ =?us-ascii?Q?SIUvz3sIfJn2INI+0qYToOBJCLSLKv7K7qFzVO6G8RazqtaLVz/ADf7vc7Rl?=
+ =?us-ascii?Q?5ggD9RSVW6VFp5a/1IqnQCzozsMipv7cYsgQVoWNC8JT9BNr6A16q3RqP2Hk?=
+ =?us-ascii?Q?u1kpKj2W+nh6IL6vkv+fSdRnekaDz5KI5CmStis5eHbP5FZ/yOuP+lx31dJq?=
+ =?us-ascii?Q?CMutej8jDoGIZ7L+Wdf5o84HkXlT/bYUcwTCl5qcfaO1D7DPxpOLtoScgdU3?=
+ =?us-ascii?Q?22kwbgP0PM9v56qC9/UkBxLf3MMsjVIdb39NPKnbXhyWr5rVtkgKHZ59OX1p?=
+ =?us-ascii?Q?gxMKDk+L4NOphUSWrCd80hob6JS2ePIAjXEjuclzDYzwag2y9glkctBXQWq0?=
+ =?us-ascii?Q?vtwzByHmW2UHALK6dlFVjeRpLc3Kg2ZT1uGE00RjQOzxu+RrE/nWdfHbSvmt?=
+ =?us-ascii?Q?SocEA/tqrFqZwNr85GtBlYUPWKDs0N1d?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JF5+wICiIL0K1HykthAcb+48rf8uMWUl05Z915ayGDLcQgeQz+BcUQo9TxGw?=
+ =?us-ascii?Q?a483dGCJQlc0AoxSL0Cn7ZRO0QrZrWILsknuxlIU7emXg/TPA4sy0EYdrn6o?=
+ =?us-ascii?Q?TXJD4WARTiWDvyuucyLF2igU6rq8RZj8M0lE0nX7eaPEf37rAziRswaUjnSQ?=
+ =?us-ascii?Q?Kkmqp8JBydho0/Ydq5SZl0HwaJL9Jtke5Q1OluGAJCjookg1CsiDyyOwJzVC?=
+ =?us-ascii?Q?AaTCMAJozy8AHx5vpoSl+Cf4eOn41PSkznRfuEAF8nmPLgRr3fqWuD0zahK4?=
+ =?us-ascii?Q?8J3CWWPy5O0WPdx7Z7l/2Xt9OAXObw94keNEvbnTRssdOPTj+EQCh7r27a2I?=
+ =?us-ascii?Q?Kx8QeqrIhXv3ZUuUHnxjm7ZPKR0KXzIZJjseAYeWFIVFl3pMV4CINMPwZYPP?=
+ =?us-ascii?Q?LVo88FmWbi916qpRO3ilvEZQMzn1OMkN7YHyHI+qtEof/tzgk1q0FQajj/yk?=
+ =?us-ascii?Q?zVFdMxtlwDuQgQO457NSS4sHt2dbh7u4Szb0RRB+DTOzbYdwQCaMp76QW3K5?=
+ =?us-ascii?Q?+wmnLIeHcr46ye9zZoJf/jmme0ogiT52BW3Pjxk84EE9dZ9rqla54qeGjMdF?=
+ =?us-ascii?Q?uarRNkksHfLOfnbfUrji0FRxaKNWA0J619FnE5MwvE+gKADiYKkyh5w28pNV?=
+ =?us-ascii?Q?V8XfDhYQcUKQiLfR/KpZ1WBPS/lOfxEvxhMozo7tnNDmbKQMWgVQ1YT9OR/b?=
+ =?us-ascii?Q?PxPk4Un5Pw6azxqSLHu0RM2R/ZFVMraC96w325vSlkLuluvxibjTcREzXpSX?=
+ =?us-ascii?Q?GMz1Sb0hQaWphvSyv1kklXtEZWZvvm1EUeYLNnN+XFYlzOs0mgXgudARsFE+?=
+ =?us-ascii?Q?1KYovyYbLauAeT2hMIOvv8cfJhzFOBlg24Iqerf4iEGfVQzHphYBkAPhizxV?=
+ =?us-ascii?Q?8XnfONJWLdqltxvIj0z78IpgS+qpzCaIhWLS3ZbTrYZU6K5G8InpQGw2fvOa?=
+ =?us-ascii?Q?rATklF8++yGB9v90vhRYZAVBZBodVZp0qswbrwwrx4lLK2t6RlcWQufxjrXu?=
+ =?us-ascii?Q?4DJcoceLlFBG0xENn78VJ2xaWTOxqf8KASVRhmJZvNJ0E0ClEcpEamop+WAw?=
+ =?us-ascii?Q?rHUPj5GSdGgiN5kDO0SeEdHTKDjwn5bC0Y7zc6QtImFrSJg7cN4yVRpd02cC?=
+ =?us-ascii?Q?YYgQ81o5rumGHn2YY176kLFKc6SCGJYEc59j81luNYjxMjYR79F8kX2kSqoY?=
+ =?us-ascii?Q?GylBtwW3zpcqqo94/PWBbHUWjT/ZivVfAjhab/AWemQDy0eFyOVADcn66eu3?=
+ =?us-ascii?Q?uuLEGZLjjavhX6L5eiLAf8bSGffH77Q2qy26wTwyrHkMFpL090E8lE1kkqLI?=
+ =?us-ascii?Q?1xiBYfjWiYZfHlRZpc6qx9ZL9xcaWOvIog0ScT0b8xmyWsCo7SrerYlDrlIE?=
+ =?us-ascii?Q?8I5arL/18OWm7TIDxJAYWjRT6rkRh7mxFYV2bwkUVlJSBpDzGyyHhaWrVqnx?=
+ =?us-ascii?Q?LqHqs+FsgCfVJ5L1xsnmFAt77E9ZvwaI+CpRiTzYO+0pKpkNibpnu06xkZG+?=
+ =?us-ascii?Q?uzfsx1+KUgy8pxCYmWIzDMY1wnbkqIrHTe/tIJJ1GGeAN41veHDd1csQj0pR?=
+ =?us-ascii?Q?2Gn+6quwKKEAO4GH6cGKipWO4HSvAJjw6pzIcjtY?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04e7e64f-80ce-4090-b6e8-08de12e5212b
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 10:07:25.0373
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nWkTrEBqAYH6ib/s+pLOFV2g+/dhacD3ZJcEpl1/4aZ73Vq0VVSeTc5MiafrbYB9ZdCuXbfvrTfNq9eApgrBpA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR11MB8079
+X-OriginatorOrg: intel.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251024_030736_322443_B5C0CAC1 
+X-CRM114-Status: GOOD (  28.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,97 +205,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2401518080605281576=="
+Reply-To: Yan Zhao <yan.y.zhao@intel.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 23, 2025 at 08:14:04AM -0700, Sean Christopherson wrote:
+> On Thu, Oct 23, 2025, Yan Zhao wrote:
+> > On Thu, Oct 16, 2025 at 05:32:37PM -0700, Sean Christopherson wrote:
+> > > Unconditionally assert that mmu_lock is held for write when removing S-EPT
+> > > entries, not just when removing S-EPT entries triggers certain conditions,
+> > > e.g. needs to do TDH_MEM_TRACK or kick vCPUs out of the guest.
+> > > Conditionally asserting implies that it's safe to hold mmu_lock for read
+> > > when those paths aren't hit, which is simply not true, as KVM doesn't
+> > > support removing S-EPT entries under read-lock.
+> > > 
+> > > Only two paths lead to remove_external_spte(), and both paths asserts that
+> > > mmu_lock is held for write (tdp_mmu_set_spte() via lockdep, and
+> > > handle_removed_pt() via KVM_BUG_ON()).
+> > > 
+> > > Deliberately leave lockdep assertions in the "no vCPUs" helpers to document
+> > > that wait_for_sept_zap is guarded by holding mmu_lock for write.
+> > > 
+> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > > ---
+> > >  arch/x86/kvm/vmx/tdx.c | 4 ++--
+> > >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > > 
+> > > diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+> > > index e517ad3d5f4f..f6782b0ffa98 100644
+> > > --- a/arch/x86/kvm/vmx/tdx.c
+> > > +++ b/arch/x86/kvm/vmx/tdx.c
+> > > @@ -1711,8 +1711,6 @@ static void tdx_track(struct kvm *kvm)
+> > >  	if (unlikely(kvm_tdx->state != TD_STATE_RUNNABLE))
+> > >  		return;
+> > >  
+> > > -	lockdep_assert_held_write(&kvm->mmu_lock);
+> > Could we also deliberately leave lockdep assertion for tdx_track()?
+> 
+> Can do.
+> 
+> > This is because if we allow removing S-EPT entries while holding mmu_lock for
+> > read in future, tdx_track() needs to be protected by a separate spinlock to
+> > ensure serialization of tdh_mem_track() and vCPUs kick-off (kicking off vCPUs
+> > must follow each tdh_mem_track() to unblock the next tdh_mem_track()).
+> 
+> Does this look/sound right?
+LGTM. Thanks!
 
---===============2401518080605281576==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tXetbUU2Jb29E84+"
-Content-Disposition: inline
-
-
---tXetbUU2Jb29E84+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Oct 23, 2025 at 07:06:48AM +0300, Claudiu Beznea wrote:
-> Hi, Conor,
->=20
-> On 10/13/25 20:45, Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > While the auxiliary bus was a nice bandaid, and meant that re-writing
-> > the representation of the clock regions in devicetree was not required,
-> > it has run its course. The "mss_top_sysreg" region that contains the
-> > clock and reset regions, also contains pinctrl and an interrupt
-> > controller, so the time has come rewrite the devicetree and probe the
-> > reset controller from an mfd devicetree node, rather than implement
-> > those drivers using the auxiliary bus. Wanting to avoid propagating this
-> > naive/incorrect description of the hardware to the new pic64gx SoC is a
-> > major motivating factor here.
-> >=20
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> > v4:
-> > - Only use driver specific lock for non-regmap writes
-> >=20
-> > v2:
-> > - Implement the request to use regmap_update_bits(). I found that I then
-> >   hated the read/write helpers since they were just bloat, so I ripped
-> >   them out. I replaced the regular spin_lock_irqsave() stuff with a
-> >   guard(spinlock_irqsave), since that's a simpler way of handling the t=
-wo
-> >   different paths through such a trivial pair of functions.
-> > ---
-> >  drivers/reset/reset-mpfs.c | 83 ++++++++++++++++++++++++++++++--------
-> >  1 file changed, 66 insertions(+), 17 deletions(-)
-> >=20
-> > diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
-> > index f6fa10e03ea8..8e5ed4deecf3 100644
-> > --- a/drivers/reset/reset-mpfs.c
-> > +++ b/drivers/reset/reset-mpfs.c
-> > @@ -7,13 +7,16 @@
-> >   *
-> >   */
-> >  #include <linux/auxiliary_bus.h>
-> > +#include <linux/cleanup.h>
-> >  #include <linux/delay.h>
-> >  #include <linux/io.h>
-> > +#include <linux/mfd/syscon.h>
->=20
-> Should you add a depends on MFD_SYSCON ?
-
-Perhaps, but it's a NOP. This driver depends on the clock driver, which
-does have a depends on MFD_SYSCON. I'll add it, but makes no difference
-to either the build or functionality.
-
---tXetbUU2Jb29E84+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPtPxwAKCRB4tDGHoIJi
-0uinAQDqJ3CDE8D9ZdZAqPBDpFO+5LryRbw842V3DiYnWn1NWAD8DNk95ic8DX2M
-KR1ygcP7Fu/7AD8lobFc4LKzSL1XSg4=
-=L2vi
------END PGP SIGNATURE-----
-
---tXetbUU2Jb29E84+--
-
-
---===============2401518080605281576==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> From: Sean Christopherson <seanjc@google.com>
+> Date: Thu, 28 Aug 2025 17:06:17 -0700
+> Subject: [PATCH] KVM: TDX: Assert that mmu_lock is held for write when
+>  removing S-EPT entries
+> 
+> Unconditionally assert that mmu_lock is held for write when removing S-EPT
+> entries, not just when removing S-EPT entries triggers certain conditions,
+> e.g. needs to do TDH_MEM_TRACK or kick vCPUs out of the guest.
+> Conditionally asserting implies that it's safe to hold mmu_lock for read
+> when those paths aren't hit, which is simply not true, as KVM doesn't
+> support removing S-EPT entries under read-lock.
+> 
+> Only two paths lead to remove_external_spte(), and both paths asserts that
+> mmu_lock is held for write (tdp_mmu_set_spte() via lockdep, and
+> handle_removed_pt() via KVM_BUG_ON()).
+> 
+> Deliberately leave lockdep assertions in the "no vCPUs" helpers to document
+> that wait_for_sept_zap is guarded by holding mmu_lock for write, and keep
+> the conditional assert in tdx_track() as well, but with a comment to help
+> explain why holding mmu_lock for write matters (above and beyond why
+> tdx_sept_remove_private_spte()'s requirements).
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/vmx/tdx.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+> index dca9e2561270..899051c64faa 100644
+> --- a/arch/x86/kvm/vmx/tdx.c
+> +++ b/arch/x86/kvm/vmx/tdx.c
+> @@ -1715,6 +1715,11 @@ static void tdx_track(struct kvm *kvm)
+>  	if (unlikely(kvm_tdx->state != TD_STATE_RUNNABLE))
+>  		return;
+>  
+> +	/*
+> +	 * The full sequence of TDH.MEM.TRACK and forcing vCPUs out of guest
+> +	 * mode must be serialized, as TDH.MEM.TRACK will fail if the previous
+> +	 * tracking epoch hasn't completed.
+> +	*/
+>  	lockdep_assert_held_write(&kvm->mmu_lock);
+>  
+>  	err = tdh_mem_track(&kvm_tdx->td);
+> @@ -1762,6 +1767,8 @@ static void tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
+>  	gpa_t gpa = gfn_to_gpa(gfn);
+>  	u64 err, entry, level_state;
+>  
+> +	lockdep_assert_held_write(&kvm->mmu_lock);
+> +
+>  	/*
+>  	 * HKID is released after all private pages have been removed, and set
+>  	 * before any might be populated. Warn if zapping is attempted when
+> 
+> base-commit: 69564844a116861ebea4396894005c8b4e48f870
+> --
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2401518080605281576==--
-
