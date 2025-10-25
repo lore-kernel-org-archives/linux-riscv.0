@@ -4,93 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B771CCD1BF
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Oct 2025 02:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A8ACCD1BF
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Oct 2025 07:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IVm0jRDlRfdPzKrGWnOJ1+fJ8H2Q165gtsec1JTuTaY=; b=MV3GKmRoGyYikV
-	miraL2HcgcNOspsn8ZhmL7O+ZMmPbBN4ONo19GLOmbAkorbrYEHzuFPj5fgovKOdPCCC8fH8wowrH
-	gG23hDjh6HNdCbBqmzX1PuFOG2KZml1gq53LHoshhE3YqONI1nf33evm8UcTEQnZhaof2AOn4dutU
-	/kt/g7SCNkESb6N1k+rIAfROYYuYT8K5xDt79v5EEjo3xhMuUy3xtZqPdcW0I+VNHih9avuW/tOkR
-	XZt210uRsZ5+tT7undfVjV1oslY+5t3JMEpxGjLHZiGsP9tKV0yB3AKsznTZdvfwGEQQpgTv6HLb/
-	H/tc6y/e7Dt8sbDbWeVw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6NrJQJG7BG1jUhPLghLErQG5YOfaxpYN2/cqLrYWrqA=; b=wcxQ/ZFVZJzDsP
+	+ZeyRJDxyD5wdtzg9KN3wS5a3f5GnJS21I8DGsw2PjObooRQYK0lHlkvBrqorFMpmCHpB0n3EkWve
+	vFTVCQOaw00U1OLaxT+Qi3Z6I7aF92Ns9XubkBMRM53Pbu3EVhuu1Gi+9y5oTMg/tuwos55oiSTRb
+	cMFogKGQPgeaFxIlYwHCpWerKY+ejghP0KXcqPb/YIsb+TYLsaa4Cf8KtxWLw766qUwl4PED04Zu0
+	Oe17kVJw84+l3w6a/gw9Vio5xqNprGz0q6My3AbIvodkg4IMuH7Zq2unKj4cSlcV0g2Uuu3ZqWVHL
+	aJPr4lcwPGpTgCZaLWlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCU00-0000000Aq1Z-14l9;
-	Sat, 25 Oct 2025 02:27:20 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1vCYKD-0000000B2wz-1ZH0;
+	Sat, 25 Oct 2025 07:04:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCTzx-0000000Aq1C-1KzJ
+	id 1vCYKB-0000000B2wT-2csB
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Oct 2025 02:27:18 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-290dc63fabbso26492575ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Oct 2025 19:27:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761359236; x=1761964036; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=m5g8OWVuVjsbahwY/Qa7JcyvpPlQfkEr7235nxaCt5s=;
-        b=mWAl1raNsD9b2TquzfDChR/WRW6tndzk7htXZJGpK9fu8Zml/Ze3bfKDHaX7hHWU2b
-         9BFhsOhHUk4rpQUQE2pmLe/uEA7SbTXyY3fGcGY4I+Bbh8h9YqeEiwoXN0IKxbzPagGT
-         fr7JKgUHPaBdMVXWZSpgduMD1crdrn10vEYmpxfzsJR3llxeQwWmi1gTGOk1p8HcMvvX
-         8PEOiq4UMJoJeqvVJ5lUUqwcj0fqk8mGv7GtHDLSArjjCtNk2zCduUpCXmc+rEG3bHiH
-         XhXqS7wCR2dZMYmPMt4HNkjp5nPAk3bLSAxGlktTTMmti5tQWaxRZETGn27wgtYBhYHx
-         0ZyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761359236; x=1761964036;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=m5g8OWVuVjsbahwY/Qa7JcyvpPlQfkEr7235nxaCt5s=;
-        b=UQe0g6fE399l9bGScjr6rz/+RaT4wA9vX/IZRsPa9wQkURBOwQgrEZSQtcHDZyUrON
-         vL1CiMaydRx+7Hugs4qMfC6fzRy+sVikUD19eoqqRNtZRH1den5R2bLzzEmldf+akWx2
-         IX8Wi8tXoJ1hgNvlik+46McPUIP6E9YALi9ZQj+x6z+84uVvRfGbVBD6lMpqDkB8q2mV
-         x8LCb47TRQShFqYmAtSWuB1jJn7/4h0rGMQ9repth80TkHE+7duu3u2Oe+5t9yVbRDMq
-         rORJMBAY5Othv+xUkaQ8lU1/SHV8a0oKzNFwJgYcCSHkESm0TkU8dT8jmDPIRDsksWLz
-         NUVA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtSzRjOQrLkqMJq/asYAPcliEIqMKsevx6oKX6+OGuklM1YU8LbqDOu+p0AR0LDFbgCYZAFvjsHDqoTg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGMjmcMSGh3I56DYrj9S1tetb+4MgZxQX9G+VYpMknVJLLzKvs
-	W6HSw8VG4oJPYA5EkXUtdXKikSiXVXIO5ew90o26g/jR276DmaVaZ5cc
-X-Gm-Gg: ASbGncv6KOiZ80EJm9IFG3VHgpqBcyTm3ilGjFJl2lXUsGaQZX0aozicLfESsaCu8Wf
-	16+lJadfl02AVSg6UIuWs/8rqA/Z/fmjMSChrlT5g6QaazQB0s2oA5/xafq1cKJfEZXd0dQzM1M
-	cAeg1ZGBLi2WqsAPkB6DZnp5f9A0MBrwpGfRSYJlFqbkdav0ZgC26AL22Qg3LPUQw6HrPL2dt5Y
-	JvWEVJdJt0+8jDSxl4ielNAmIl26aEzOASjFv5rDc9Suj7QYdT2TfxK6zpF082VQYiXhu9A56/7
-	4rQIi0sOFZTe8hmslNzHsupSMAN7q6r/VreLAn1fqqdr6qzTWvPyE1aDvOu0euQT/4Vwwh79QMc
-	hMgRsAUs1c/XKtSR02y2bXZ4xj3ORoaPwA9izN5WwW2qeMsVUNNUz3zcjXGJkx3z2NsjnBhbtvx
-	Ngh1O7n45pE5oxTweu7aA0PA==
-X-Google-Smtp-Source: AGHT+IFfj8dcaPyoJUnBwrQrbEjc0tKnxl0fbsVgVFk4QvGgEAOydtQrbEdriDic6wnAsYVeECy3eg==
-X-Received: by 2002:a17:903:1c2:b0:270:ced4:911a with SMTP id d9443c01a7336-2946de4071amr99308125ad.9.1761359236031;
-        Fri, 24 Oct 2025 19:27:16 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d23334sm6685145ad.52.2025.10.24.19.27.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 19:27:15 -0700 (PDT)
-Date: Sat, 25 Oct 2025 10:27:13 +0800
-From: Longbin Li <looong.bin@gmail.com>
-To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	Yu Yuan <yu.yuan@sjtu.edu.cn>, Ze Huang <huangze@whut.edu.cn>, devicetree@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 1/3] dt-bindings: soc: sophgo: add TOP syscon for
- CV18XX/SG200X series SoC
-Message-ID: <oymxspgopaqja63nipufgzn6kpobkdopemfaw3azhom3ikvk5f@e7cg4lq64j2o>
-References: <20251024030528.25511-1-looong.bin@gmail.com>
- <20251024030528.25511-2-looong.bin@gmail.com>
- <20251024-hangout-designing-33e96c0d35fc@spud>
+	Sat, 25 Oct 2025 07:04:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BD50260194;
+	Sat, 25 Oct 2025 07:04:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 328A2C4CEF5;
+	Sat, 25 Oct 2025 07:04:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761375866;
+	bh=xXZGzgAFhPqm4rFWZKlguHzsT8Q2QsAf9zp9FqHsRdM=;
+	h=Date:From:To:cc:Subject:From;
+	b=demwg70VrcRhtgYzj5IQuvqEn79ZY+bb14OkpTv4N8M0U0JlbD+SGbzlRx1XgE+Je
+	 DrbJOVo3zIosbYSF+IXqOb9/LXoCvN/zlYZYaACBtHkML8ULgds9d2L3K6SVfZakBg
+	 6wavHzCZAs3Irva2Oy/bZ0b7ZD5NDdQHfPRfiESwnNNLKCh0KpPD2HPMhV6E46p/DQ
+	 zOlUUuwjfYR4ZZ8GRSYuAA6AtxDUsDIP590D/Mju8EY8vcxTLyaWs6HkuH85RDNBwJ
+	 v+B2127zi4JRSRkmF/uD6TfrQiCwb9LaOGRTe3L8MnFHBQF/qMlqngOffHW/MRXZL9
+	 C9b+haSyEr1vQ==
+Date: Sat, 25 Oct 2025 01:04:21 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: torvalds@linux-foundation.org
+cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] RISC-V updates for v6.18-rc3
+Message-ID: <27fed8ce-11d7-cd8c-b0e2-b89b11fa3c5a@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251024-hangout-designing-33e96c0d35fc@spud>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_192717_380631_004B1A27 
-X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,76 +65,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025 at 05:46:03PM +0100, Conor Dooley wrote:
+Linus,
 
-> > ...
-> > +
-> > +properties:
-> > +  compatible:
-> > +    oneOf:
-> > +      - items:
-> > +          - const: sophgo,cv1800b-top-syscon
-> > +          - const: syscon
-> > +          - const: simple-mfd
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  "#address-cells":
-> > +    const: 1
-> > +
-> > +  "#size-cells":
-> > +    const: 1
-> > +
-> > +  ranges: true
-> 
-> Do you actually use ranges?
-> 
-> > +patternProperties:
-> > +  "dma-router@[0-9a-f]+$":
-> 
-> Do these actually appear at variable addresses, or is it always 48 for
-> the phy and 53 for the dma router?
-> 
-> > +    $ref: /schemas/dma/sophgo,cv1800b-dmamux.yaml#
-> > +    unevaluatedProperties: false
-> > +
-> > +  "phy@[0-9a-f]+$":
-> > +    $ref: /schemas/phy/sophgo,cv1800b-usb2-phy.yaml#
-> > +    unevaluatedProperties: false
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - "#address-cells"
-> > +  - "#size-cells"
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/sophgo,cv1800.h>
-> > +
-> > +    syscon@3000000 {
-> > +      compatible = "sophgo,cv1800b-top-syscon", "syscon", "simple-mfd";
-> > +      reg = <0x03000000 0x1000>;
-> > +      #address-cells = <1>;
-> > +      #size-cells = <1>;
-> > +
-> > +      usbphy: phy@48 {
-> 
-> Drop the labels off of these two, since they're unused in the example.
-> 
+The following changes since commit fe69107ec7d8b946ab413cfe118984dac8f1a0d8:
 
-Hi,
+  Merge tag 'riscv-for-linux-6.18-rc2' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (2025-10-17 12:59:31 -1000)
 
-Thanks for the review.
+are available in the Git repository at:
 
-There are a couple of different opinions here.
-Could you please help confirm which approach is preferred here?
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.18-rc3
 
-This is Rob's reply:
-https://lore.kernel.org/all/20251015134144.GA3265377-robh@kernel.org/
+for you to fetch changes up to b7776a802f2f80139f96530a489dd00fd7089eda:
+
+  riscv: hwprobe: avoid uninitialized variable use in hwprobe_arch_id() (2025-10-18 09:36:36 -0600)
+
+
+- Paul
+
+----------------------------------------------------------------
+RISC-V updates for v6.18-rc3
+
+Several RISC-V fixes for v6.18-rc3:
+
+- Close a race during boot between userspace vDSO usage and some
+  late-initialized vDSO data
+
+- Improve performance on systems with non-CPU-cache-coherent
+  DMA-capable peripherals by enabling write combining on
+  pgprot_dmacoherent() allocations
+
+- Add human-readable detail for RISC-V IPI tracing
+
+- Provide more information to zsmalloc on 64-bit RISC-V to improve
+  allocation
+
+- Silence useless boot messages about CPUs that have been disabled in
+  DT
+
+- Resolve some compiler and smatch warnings and remove a redundant macro
+
+----------------------------------------------------------------
+Anup Patel (2):
+      RISC-V: Define pgprot_dmacoherent() for non-coherent devices
+      RISC-V: Don't print details of CPUs disabled in DT
+
+Jingwei Wang (1):
+      riscv: hwprobe: Fix stale vDSO data for late-initialized keys at boot
+
+Paul Walmsley (3):
+      riscv: add a forward declaration for cpuinfo_op
+      riscv: cpufeature: avoid uninitialized variable in has_thead_homogeneous_vlenb()
+      riscv: hwprobe: avoid uninitialized variable use in hwprobe_arch_id()
+
+Samuel Holland (3):
+      riscv: Register IPI IRQs with unique names
+      riscv: mm: Define MAX_POSSIBLE_PHYSMEM_BITS for zsmalloc
+      riscv: Remove the PER_CPU_OFFSET_SHIFT macro
+
+Sunil V L (1):
+      ACPI: RIMT: Fix unused function warnings when CONFIG_IOMMU_API is disabled
+
+ arch/riscv/include/asm/asm.h               |   8 +-
+ arch/riscv/include/asm/cpufeature.h        |   2 +
+ arch/riscv/include/asm/hwprobe.h           |   7 ++
+ arch/riscv/include/asm/pgtable-64.h        |   2 +
+ arch/riscv/include/asm/pgtable.h           |   2 +
+ arch/riscv/include/asm/vdso/arch_data.h    |   6 ++
+ arch/riscv/kernel/cpu.c                    |   4 +-
+ arch/riscv/kernel/cpufeature.c             |   4 +-
+ arch/riscv/kernel/smp.c                    |  24 +++---
+ arch/riscv/kernel/sys_hwprobe.c            |  76 +++++++++++++++---
+ arch/riscv/kernel/unaligned_access_speed.c |   9 ++-
+ arch/riscv/kernel/vdso/hwprobe.c           |   2 +-
+ drivers/acpi/riscv/rimt.c                  | 122 ++++++++++++++---------------
+ 13 files changed, 168 insertions(+), 100 deletions(-)
+
+
+vmlinux size differences (from 6f3b6e91f720):
+
+text  data  bss   dec   hex  filename                             
++140  +152    .  +292  +124  vmlinux.defconfig.gcc-15             
++144  +120    .  +264  +108  vmlinux.nosmp_defconfig.gcc-15       
+ +76  +160    .  +236   +ec  vmlinux.rv32_defconfig.gcc-15        
++168   +88    .  +256  +100  vmlinux.rv32_nosmp_defconfig.gcc-15  
+ +76   +16    .   +92   +5c  vmlinux.nommu_virt_defconfig.gcc-15  
++140  +152    .  +292  +124  vmlinux.defconfig.gcc-14             
++144  +120    .  +264  +108  vmlinux.nosmp_defconfig.gcc-14       
+ +76  +160    .  +236   +ec  vmlinux.rv32_defconfig.gcc-14        
++168   +88    .  +256  +100  vmlinux.rv32_nosmp_defconfig.gcc-14  
+ +76   +16    .   +92   +5c  vmlinux.nommu_virt_defconfig.gcc-14  
++356   +84    .  +440  +1b8  vmlinux.defconfig.clang-20           
++340  +116    .  +456  +1c8  vmlinux.nosmp_defconfig.clang-20     
++400   +80    .  +480  +1e0  vmlinux.rv32_defconfig.clang-20      
++376  +112    .  +488  +1e8  vmlinux.rv32_nosmp_defconfig.clang-20
+ +48   +80    .  +128   +80  vmlinux.nommu_virt_defconfig.clang-20
++328  +116    .  +444  +1bc  vmlinux.defconfig.clang-19           
++344   +76    .  +420  +1a4  vmlinux.nosmp_defconfig.clang-19     
++424   +84    .  +508  +1fc  vmlinux.rv32_defconfig.clang-19      
++396   +76    .  +472  +1d8  vmlinux.rv32_nosmp_defconfig.clang-19
+ +60   +16    .   +76   +4c  vmlinux.nommu_virt_defconfig.clang-19
+-100   +80    .   -20   -14  vmlinux.allnoconfig.gcc-14           
+   x     x    x     x     x  vmlinux.allmodconfig.gcc-14
 
 _______________________________________________
 linux-riscv mailing list
