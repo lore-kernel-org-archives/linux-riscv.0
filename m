@@ -4,139 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE4FFCCF9E3
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Oct 2025 18:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66ED0CCF9E9
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Oct 2025 18:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I1BAkimQtgbHEB4albcnyg4vqMlIdOIxQ921Y3gS8+Q=; b=S5WOSiWVtZ3A42
-	usk4ZYoYkP0DsF9tOIgM1SxOYcNnrRQX3moiLK+BxT64cb62gX95Kohdwg0LO0+Tl7kULtYNeiIfi
-	9YLRrSg5/fyzritNFXNhioVRREm6m5wq0lL31cNwNT8IurK+ai6h/zCgg9WHPTvXm8btdPrQ3NoV1
-	c/nf3QpZaSsT1gm5YjpNctyWo449oLXcid4ueMrCL6s6JbthRU6s2n61XpHJOBQGvXfL1d50Cxips
-	fSBDqVW95HwKeEp8wwjKbxHPEYmzca4+zN7V30jhR19Gbho5jk8iYE7e8VexxMh/X//HZy214Wb8B
-	q9veZZT546iHWGKuZEEw==;
+	List-Owner; bh=W4kg0bERgtKPtFPV31Y4V1vc0y2iGysrjnRtvZ1zFAI=; b=v0EaUBJuX1sveR
+	krm5LlgLNJ+dLJ8J3o6UKTIOxmE976ZsRunjEqc35VOffQvcUv5gJpE3eS+yOSiabPEL13jVb/+yt
+	fYl41wiyZqlQjsAHUY4Js4YwihMy+pzzxW3CCvoABJVmW5wFrRZa/RYDVMETp20HJDo+vaLSwAVt9
+	rTmo4cWKAJaPkuQ5peSZqHcyxNQW7oVOQBbbw6hY+WetV3FnOahjZhz8xDP4ufCF6mtloTNxXE99X
+	lSZ29dn6y80JuFxNZ1wFqm7YRqAc2IwMRWFDIVsmdGPXGZehx9J5YXFfPWsJ/3OdSq8Bffhnnjuc+
+	nIFUzkEdCp2YJWpV/ZwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCitC-0000000Bcy1-0GDZ;
-	Sat, 25 Oct 2025 18:21:18 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1vCjMi-0000000Bdxh-3HSV;
+	Sat, 25 Oct 2025 18:51:48 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCit9-0000000BcxK-188l
+	id 1vCjMg-0000000Bdwy-1cbZ
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Oct 2025 18:21:16 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-33082c95fd0so3352038a91.1
-        for <linux-riscv@lists.infradead.org>; Sat, 25 Oct 2025 11:21:14 -0700 (PDT)
+	Sat, 25 Oct 2025 18:51:47 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-7811a02316bso2344414b3a.3
+        for <linux-riscv@lists.infradead.org>; Sat, 25 Oct 2025 11:51:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761416474; x=1762021274; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761418305; x=1762023105; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MH14/MnMcHfYPrdUmbrPExznn7x87YgaxQDndo6vh/4=;
-        b=nWJXZwtAt2jkddDtjQmbFaHRPdYtmpKqzhs6x9AmmQxkMDNdE3QGKcnzRzyPzthTj8
-         A+leTpNNa3Y8Zcs7r4VKWX0iLqUFeULTG55/Lr+Dahjb5T4hro92eqL8KMlBhWFs4VRq
-         tjOj7TxPKoR/S/aJpr6Pnlliua5Ys3PcmUEOZpfvnjCiL+c32Pv5SAv8kR9QcPwk9wqX
-         1So8KnEZtktnTNKXRryFlFoj2IDGIu5eiHsShX3D3nUcxrGDQwWZFQwvXJ0Q4CYKrhcR
-         uoRVDGmVI9D1mno1bY9dJ3wISvG1WCJ21UyK0lQEsioKiIHnNy5uY3ujubqxu2W+jrPw
-         L3wA==
+        bh=bIE1dNWJNDWO8or3nwiGA7qbCcPQuWvlUWlsOjJvHas=;
+        b=d0J5CT9NnjWZ158hD0tL6/7aCuK3tC8JQPffWwhQGlNTd6lilBCufrUC/HYFiBpjDi
+         3eGgjXGQg1G7i+7KBW6X1pMBQ+EdUgpIoM5VDiRqFf0nlwB0gBd2rv/zkU//kaVT/zdz
+         TnHsuC30v8bWBz7Fz6+vpu9awtVXb2tNtm2wGwlmsibcsoIX4Ay+Id8s4RIfVgBFvsuW
+         x76BBd6YiLAaLQ7TenP5Ft95tCwF6oyqgGQerPlt8VlVa6SUKUh7XCiJAF1jsp8VoeHn
+         7jefCPOns/5JPXTfXyW5HBZu3hjOR+d+dUlKitpLNFRA6AFGEavxd5wOA+EdGudfRYZN
+         pOOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761416474; x=1762021274;
+        d=1e100.net; s=20230601; t=1761418305; x=1762023105;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MH14/MnMcHfYPrdUmbrPExznn7x87YgaxQDndo6vh/4=;
-        b=ObmKoJdbr/0Doo8jEmOFfCFIZcZ+garMct6ajEGLleOrBnDUCZnfZdAXHCqbdy9lVX
-         Jpo1s7NQAzVY2nbIK8yrMHJYLTPfbbLxKLbGBVOg9HTeazQ0jzGLdkwl4hkzN+1ExgbG
-         JmqKuvY5p5lXpZo0NC2g0CK2H5mX4C1Y9bwfAfvwrIqP0N/Ka9mpqWRNywU5mozwSrTV
-         PHIeB+lqeQNcKggeXvwG43SicRH0GJppkBVaEFAt3A5h/sRg2lK4vS0tSc97oijyNp/N
-         8VKqsFK4+lt0C0BWVeBkRkUy7Pq3Lv84lo8Rqw6bD+3dkYpVwD/tuTvE/YyXBNNFrGRR
-         P+RA==
-X-Forwarded-Encrypted: i=1; AJvYcCWvmcNv1UfFtFShpU66UOUkkoZm3XNOWfxCVR1vatOMC8vBMZVFBrTnUfFyMPY5vrEf4KJuvGkyWzjeeg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYA9TFyNxd19Ph0SXn42b5oAzYKgPny1g6X8dAaGWN6r3I4Cvr
-	WLJArnfTBvE9h9HoBlqb+bF3JCWfiWLu0fjWDj4RP5qo7O+VODT43sTI
-X-Gm-Gg: ASbGncvnwvlwgsFrLHCWKhax6AXnAnYL3XtVCSKJDX12dcaWnZZkk6QdiAjV40PFTT9
-	iOHqrXqT9pnKMQDh6FXYgb+Ehyrnuhin6iFePVjqlHDQ821aZ4+Na7b8q4DZ/Rule71ixk02XfP
-	MsZ1y5E8F4bEIQ6Nrck6lJNEq2G5p3I5wtyVZ3jHdCmYP+R4M+NwlphBP7ZZ2xLpW7enEvGclq1
-	aqNpvamJmwK+ZBYsK6TF/p2375OBWIYg3S/D4hSLbTENvB8uPmuslEV4qal3ewbPWty+G+vKvvP
-	XS+41efpqr1TDinc3ve+bF+ArHkSPYXb7R7V6p8Qcf7xrd/zPVBzV6BrpS4ipKOMy6kQzvA3Jzi
-	zYhHFHhQp7mHs+JNgvqNqD/2C+e5nmXEQreVlrEtNRLMaJp7uItYmPrt1Oj0qvRUYvQbz5Z8fk5
-	y6ce/k9Uu0TOPNVqOe8ex6
-X-Google-Smtp-Source: AGHT+IEsUSXlYbD6I629dWvXZvj4cEZuKoZGpxoERZCztC74qj4lgbg/Yxnib/SOWntPtHtuSob5TA==
-X-Received: by 2002:a17:902:ea11:b0:27e:ea82:5ce8 with SMTP id d9443c01a7336-2948b97429emr78955375ad.14.1761416474192;
-        Sat, 25 Oct 2025 11:21:14 -0700 (PDT)
+        bh=bIE1dNWJNDWO8or3nwiGA7qbCcPQuWvlUWlsOjJvHas=;
+        b=cWo/u7sOhTdCJvU4E7ERhL18GRhUc2GnlYlssngNoQX0QBAs+fg9ZKf5GHnMho0Q5H
+         in8KXDR0+bZZO+0ciVRjlrcZduug8vNjtO6hzAhnrvWk+7zk/509L1h+DitNhIzsLXhd
+         4ECFIZ5NCNIJw1Uxv6XXmD6AN+HAFvgjKfShXcZ70pkPX0Dr74KX9kvkC6nZ5h4RYNON
+         wQLIF310RWymjubUdrKLacjwzEGUsdYLwZC3Emcf4aQpQnkgNMyUeOvTlv7Qnun1sZ8e
+         6BTvf2m9h+rbYjNmT0Ian1uPyzgVU8Dg9oK9Zcc8MEprbKnN/TIml8p+Wg6gM1uvAQhJ
+         kGKg==
+X-Forwarded-Encrypted: i=1; AJvYcCWzG1pl4F3E1ssoaxqkdLSJUZRTCFbqBlnIQoe9jEVZpLiupmnq4dZmvgAbq5E9tAiSbOcIsYOpiM/pbw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlqsOR8uWkSPB0BiCjvy1Jg+D/2G4/canaBd2RtMvu4+04Q1We
+	4zeuCc1BcCSbcXld2bkpWKeqiqfHy0OOkvE3Hc+eMNPD6FDHyXQsPb+w
+X-Gm-Gg: ASbGncs0Cf4ap8p4qJq849EwKU75aTqLCCNbJtsG1jCGrteFqYtj6uUGbUHSgFJj0ga
+	uSLNoBg8xne7Fyltl/xv9P0m2L0LU+5Jan6+TZjFPJOg48PYPVWF6BfPpRBGcD8wGfKGarj/mg2
+	0OEEuNtaY2bpdXoccPUIkyx89HRae5UVhx86gIww7FX+qrBC/64ibAAeJLAdabOXXIb67wr0DtT
+	CZESwewq0r5hUUR3BnnV51xY1Q1sELKicR75ggCBw0OpxQ0wCOEB0/NzKdUwMe9AqceGmd9wlIr
+	a/n+PSqueV//Bt8UaT+shnAIxCDqJxdTLtfNZ1wC9ynQXnkgJc4Fl5GKNhubHnUmLut577DHGxT
+	XxlCt9E1PCKCASAKnVwymLh8X/E3cOvb+6aqEU+hQzxSW0t99U5wYYWY5twx4JgksJLVo3zfeA3
+	gpjghf3sUTFOkAFHtXJXwq
+X-Google-Smtp-Source: AGHT+IFA/PpMad08k18p5dz1XblACJuseYn3XTA1biqGFVkwzh9uXMt+aH7CWADiafyloVKa8I/K9Q==
+X-Received: by 2002:a05:6a00:94e3:b0:7a2:8343:1b1 with SMTP id d2e1a72fcca58-7a283430981mr9276736b3a.17.1761418304909;
+        Sat, 25 Oct 2025 11:51:44 -0700 (PDT)
 Received: from DESKTOP-8TIG9K0.localdomain ([119.28.20.50])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498e4113fsm29127285ad.90.2025.10.25.11.21.00
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a41402e554sm2897425b3a.18.2025.10.25.11.51.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 25 Oct 2025 11:21:13 -0700 (PDT)
+        Sat, 25 Oct 2025 11:51:44 -0700 (PDT)
 From: Xie Yuanbin <qq570070308@gmail.com>
-To: peterz@infradead.org,
-	linux@armlinux.org.uk,
-	mathieu.desnoyers@efficios.com,
-	paulmck@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	hca@linux.ibm.com,
-	gor@linux.ibm.com,
-	agordeev@linux.ibm.com,
-	borntraeger@linux.ibm.com,
-	svens@linux.ibm.com,
-	davem@davemloft.net,
-	andreas@gaisler.com,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	luto@kernel.org,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
+To: tglx@linutronix.de
+Cc: acme@kernel.org,
 	adrian.hunter@intel.com,
-	anna-maria@linutronix.de,
-	frederic@kernel.org,
-	juri.lelli@redhat.com,
-	vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	qq570070308@gmail.com,
-	thuth@redhat.com,
-	riel@surriel.com,
+	agordeev@linux.ibm.com,
 	akpm@linux-foundation.org,
+	alex@ghiti.fr,
+	alexander.shishkin@linux.intel.com,
+	andreas@gaisler.com,
+	anna-maria@linutronix.de,
+	aou@eecs.berkeley.edu,
+	borntraeger@linux.ibm.com,
+	bp@alien8.de,
+	bsegall@google.com,
+	dave.hansen@linux.intel.com,
+	davem@davemloft.net,
 	david@redhat.com,
-	lorenzo.stoakes@oracle.com,
-	segher@kernel.crashing.org,
-	ryan.roberts@arm.com,
-	max.kellermann@ionos.com,
-	urezki@gmail.com,
-	nysal@linux.ibm.com
-Cc: x86@kernel.org,
+	dietmar.eggemann@arm.com,
+	frederic@kernel.org,
+	gor@linux.ibm.com,
+	hca@linux.ibm.com,
+	hpa@zytor.com,
+	irogers@google.com,
+	jolsa@kernel.org,
+	juri.lelli@redhat.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
+	linux@armlinux.org.uk,
+	lorenzo.stoakes@oracle.com,
+	luto@kernel.org,
+	mark.rutland@arm.com,
+	mathieu.desnoyers@efficios.com,
+	max.kellermann@ionos.com,
+	mgorman@suse.de,
+	mingo@redhat.com,
+	namhyung@kernel.org,
+	nysal@linux.ibm.com,
+	palmer@dabbelt.com,
+	paulmck@kernel.org,
+	peterz@infradead.org,
+	pjw@kernel.org,
+	qq570070308@gmail.com,
+	riel@surriel.com,
+	rostedt@goodmis.org,
+	ryan.roberts@arm.com,
+	segher@kernel.crashing.org,
 	sparclinux@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	will@kernel.org
-Subject: Re: [PATCH 0/3] Optimize code generation during context
-Date: Sun, 26 Oct 2025 02:20:53 +0800
-Message-ID: <20251025182053.6634-1-qq570070308@gmail.com>
+	svens@linux.ibm.com,
+	thuth@redhat.com,
+	urezki@gmail.com,
+	vincent.guittot@linaro.org,
+	vschneid@redhat.com,
+	will@kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH 3/3] Set the subfunctions called by finish_task_switch to be inline
+Date: Sun, 26 Oct 2025 02:51:20 +0800
+Message-ID: <20251025185120.6760-1-qq570070308@gmail.com>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251025122659.GA2352457@noisy.programming.kicks-ass.net>
-References: <20251025122659.GA2352457@noisy.programming.kicks-ass.net>
+In-Reply-To: <87placw0dx.ffs@tglx>
+References: <87placw0dx.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_112115_330585_2D03CC5D 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20251025_115146_417790_0AB49106 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,73 +153,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 25 Oct 2025 14:26:59 +0200, Peter Zijlstra wrote:
-> Not sure what compiler you're running, but it is on the one random
-> compile I just checked.
+On Fri, 24 Oct 2025 21:44:10 +0200, Thomas Gleixner wrote:
+> What is exactly the point of this indirection. Why can't you just mark
+> finish_arch_post_lock_switch() __always_inline and be done with it?
 
-I'm using gcc 15.2 and clang 22 now, Neither of them inlines
-finish_task_switch function, even at O2 optimization level.
+In this patch, I've added an always inline version of the function,
+finish_arch_post_lock_switch_ainline. The original function,
+finish_arch_post_lock_switch, retains its original inline attribute.
 
-> you have no performance numbers included or any other justification for
-> any of this ugly.
+The reason for this is that this function is called not only during
+context switches but also from other code, and I don't want to affect
+those parts. In fact, with Os/Oz-level optimizations, if this function
+is called multiple times within one .c file, it will most likely not be
+inlined, even if it's marked as inline.
 
-I apologize for this. I originally discovered this missed optimization
-when I was debugging a scheduling performance issue. I was using the
-company's equipment and could only observe macro business performance
-data, but not the specific scheduling time consuming data.
-Today I did some testing using my own devices,
-the testing logic is as follows:
-```
--	return finish_task_switch(prev);
-+	start_time = rdtsc();
-+	barrier();
-+	rq = finish_task_switch(prev);
-+	barrier();
-+	end_time = rdtsc;
-+	return rq;
-```
+Context switching is a hot code, I hope it will be always inlined here to
+improve performance. In other places, if it is not a performance-critical
+function, then it can be not inlined to gain codesize benefits.
 
-The test data is as follows:
-1. mitigations Off, without patches: 13.5 - 13.7
-2. mitigations Off, with patches: 13.5 - 13.7
-3. mitigations On, without patches: 23.3 - 23.6
-4. mitigations On, with patches: 16.6 - 16.8
-
-Some config:
-PREEMPT=n
-DEBUG_PREEMPT=n
-NO_HZ_FULL=n
-NO_HZ_IDLE=y
-STACKPROTECTOR_STRONG=y
-
-On my device, these patches have very little effect when mitigations off,
-but the improvement was still very noticeable when the mitigation was on.
-I suspect this is because I'm using a recent Ryzen CPU with a very
-powerful instruction cache and branch prediction capabilities, so without
-considering the Spectre vulnerability, inlining is less effective.
-However, on embedded devices with small instruction caches, these patches
-should still be effective even with mitigations off.
-
->> 3. The __schedule function has __sched attribute, which makes it be
->> placed in the ".sched.text" section, while finish_task_switch does not,
->> which causes their distance to be very far in binary, aggravating the
->> above performance degradation.
->
-> How? If it doesn't get inlined it will be a direct call, in which case
-> the prefetcher should have no trouble.
-
-Placing related functions and data close together in the binary is a
-common compiler optimization. For example, the cold and hot attributes
-will place codes in ".text.hot" and ".text.cold" sections. This reduces
-cache misses for instruction and data caches.
-
-The current code adds the __sched attribute to the __schedule function
-(placing it into ".text.sched" section), but not to finish_task_switch,
-causing them to be very far apart in the binary.
-If the __schedule function didn't have the __sched attribute, both would
-be in the .text section of the sched.o translation unit.
-Thus, the __sched attribute in the __schedule function actually causes a
-degradation, and inlining finish_task_switch can alleviate this problem.
+Look at your opinions. I have no objection to setting
+finish_arch_post_lock_switch directly to __always_inline.
 
 Xie Yuanbin
 
