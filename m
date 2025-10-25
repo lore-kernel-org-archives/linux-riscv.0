@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B01CCF9E5
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Oct 2025 21:07:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E93ACCD1BF
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Oct 2025 21:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pLSyQqjVgyD/jJGRWlFvt+6H0A3mV+yFmJsD4zzbyS0=; b=cXr7QEWgVGQQd6
-	LF6ZSHxCpnASSKoD9/kKUtHM1NgUmHeAZqn3iDzdLIREkViM+tBvay9vfoWuob3esqj/pvWbwRIEq
-	WTK/hLhxe0SOUFTw+ReEVMYbL6v15KHeje6q78IjOVBmi3fGLnndmYj2mNDH5CRFqDpc4zOUXo8iF
-	I7v8WTDxvqRxunCLUzvhW3/6o1k/Mpwsxmj9sHPPQgSss1ZpJo2w3OWmoAYp15V7qaQu1Sh2Tm8cj
-	5AafAJz2yXudr5Oetbf5/ELeB6xTHWWO9n0V2rM7z1fN0fVkCNYSiQ2SgjTdCQFBF88IQQaYCOBYG
-	NPZqfItJtQKOMtOQ4dQg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=d87UP4etv9COOdUM5JmXC5qhTnDQO3MAQWS+ol+r1Pg=; b=z9FrELhSeHfsXz
+	B2wB5FelgcSP+7ctIMcIwV84o2B0AnY2zUrpmf5mRJXT9Y+FnCAws6+mqD0edF/1zcnAyP1xhl8Df
+	DPE1Qc+ntTul1o8dWMuy0zkH2S29FPqD4F51kazKnf5IjmPEUWfYcym31cTQlyXHEaafPB2dihzat
+	39IOwPJuo+eNRCh78eIQogi3bKie3b+lmihRGTAjk5/25QXA3UigPyJ8dDBy1ock+CsByduDlJQMa
+	pZTxXUntedFJjpe6+z8GaC6bvF22ZJrqxZSYZyJopqpjK+maScijc/JdXeK2M6y1fm2N9JHb2D55/
+	zzwyHA0atdUT/joUjnNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vClTj-0000000Bl6d-3fwm;
-	Sat, 25 Oct 2025 21:07:11 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1vClTo-0000000Bl7q-1xaV;
+	Sat, 25 Oct 2025 21:07:16 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vClTh-0000000Bl5p-1BYI
+	id 1vClTl-0000000Bl6c-0kXT
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Oct 2025 21:07:10 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-592fb80c2faso3120785e87.2
-        for <linux-riscv@lists.infradead.org>; Sat, 25 Oct 2025 14:07:08 -0700 (PDT)
+	Sat, 25 Oct 2025 21:07:14 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-592f22b1e49so3028565e87.0
+        for <linux-riscv@lists.infradead.org>; Sat, 25 Oct 2025 14:07:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761426425; x=1762031225; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xrTy/fULfWQ/AuOkkZeBntBWMGO07F8iRNTCWK3FE8U=;
-        b=O17tjyzaqpGdlzWa36/6UEyEN04IcL8WzQ3nL0h55f7c7jbId5SmK6QUG9T70NhEWk
-         IxiuLCig3JVXqJZopAUzaydHSRI4LMGdz4IeEY/rxo0EE1dvTddbyxopEeYmOE8ByFMG
-         mgvEkcKWM07wpg6PCMnrYeLT/8IDEoWkWiJNu95bTcxAi+0WWgdtIWTAKYcdpHZUEsmz
-         mzowqrwPEXOnUQ/aX/HxlSxn3RvuUgmTGHNL3Jwn+RZ6Vsl1Tof6bF4dgG6BMgyDFCov
-         dyAkJxnVeV7RUYGXjfQMlXYKVuFmQ628DwHXLXXKHvkk0HJp/IWvosaJLmVa4FqoJoxo
-         Rp9Q==
+        d=gmail.com; s=20230601; t=1761426431; x=1762031231; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KOKLEyEqhroRvoLq2wOrgCP0+QeKumxXjJG7yF7kNYg=;
+        b=YAO6Lya7+qtmRP+c4h+IfYCM7DXO8OWaNJWJ4H9nzjPgAg39DKgAP2vtNuCnOUpY23
+         zwBMDvfN/dwnO7VGHh3Dcsv4R3KiUZbkCqn3RW4ekn3MFr73q6fKsmVla1/NIb+ATT+e
+         wMud68M/LOIhXJVbjvphkvzDqfa8pdoTduE2Mx9T7fFp/XAqhGKuqUwdqEGr8lnMHxIz
+         OWNX7Yosxj7M3qdqOeCSw4VOzIuHzxA6LpDLuXAGxg+yPVLzTsdIsQmYn8G2CuCu39rj
+         RWscGxG9IVQq4gsQuxAPlu+xJNgm4Qxy5kE6wm7kBV2hMcKz1j7zIlU5TuykQJE1AwG8
+         FAgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761426425; x=1762031225;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xrTy/fULfWQ/AuOkkZeBntBWMGO07F8iRNTCWK3FE8U=;
-        b=wSpAvbvzQiGj3P9m87pL/1qVXzgQST1JrHC1Twnj3xxouk6kRIb75R49rx/UHUO8hG
-         iF8k+7cEDgz++1jwhl5+g4A+73I3MRiy3FktNtUgiBnZUP5hqgBSKMaaRzTNQuoidsbR
-         lA2aKUI34WXu12/L6orGEJSJi+ZEj7JvUurWituBmWGyzVbPUdnKuFZm0zVvIxcyl6nR
-         2gyy16DWFmAeGYr+CNWabju7plB36BjAxxbYWtoFRGP1kVtTYnycFEZL9LIl5sgiGZd+
-         bdrnBZYFpV8k1lFwd6qjpH54MINKBTXcG1165Dd1HKrwMzxqZ96EMOHHuOrr4rdQYVJW
-         8b/Q==
-X-Gm-Message-State: AOJu0YzUNAbd3lvA6FVunTEfAiu2dj5XmatWX292LLdclW9LGMaxqD/d
-	0N39w72XnTPbQiV4BfVPxGkbi1Ae3WAGjY4AN/dumNcbxWwfRMwMkKh2dMOnxTYMp7Q=
-X-Gm-Gg: ASbGnctBd/IHrHuj3ZIo67/Ew/aQcLQLCCUz4T/r2lfon3GXw86CGZrsJnaFe1iwzdg
-	NWEjk+ZnQD13hD5YFtzrxT4rjPfwk9EeDnG3RH1uGoQ8V+P7VqKXUuXNHJK4rP7KHMIhQu26Htk
-	ZG+2rpBkrMX4XMz+UnLN09uJYquF1eJlNtoFUpwNRjQ6cDj2dehsWpsDLlOrg8yAk07dDHgz50b
-	rmPhK/QnLiDsbl0smf8nsnwMKCY+qZRuTLBJQktX3mgBJLZ/Y3SwN/KoqX3+Q7u9kLB2Ce79Qle
-	agxhIKrMqIadGgbzNNWWMu8o0hPm/QKB73kyeLmgUdGcWLwr2bAXuUIZuiOxiVBWi0TWxKPVKXJ
-	fFgG9YvArrDLhGbwLTGkR82txY0kxRpc7BhpUSSt2BAt9pKdn5vHN7UrNBNNbpMaDsmA=
-X-Google-Smtp-Source: AGHT+IGVmkvQikvMTRY2P+CBsoQX/dtGCo+IL2vMn6AXhs8QRoo32mt2Gun7dSC5qD6SHJZx3Jm6ZA==
-X-Received: by 2002:a05:6512:3da6:b0:592:f7b7:2f6b with SMTP id 2adb3069b0e04-592f7b73090mr3904766e87.4.1761426425215;
-        Sat, 25 Oct 2025 14:07:05 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761426431; x=1762031231;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KOKLEyEqhroRvoLq2wOrgCP0+QeKumxXjJG7yF7kNYg=;
+        b=LJz4qaTBmuK07UlNsYY20G/D598rugnmWPJv45VDE01Hhv8qqxA0prrHOH31bTVwWb
+         6cS2rXiMkTsouke3IWT4aBoJ4RmhT+Nnsej44RxvD9L69sghhFDM8TsIgaJ3TIIaaNo9
+         iiQgwBQgyDVm3+wyR6DEn9a1mYC6EiX1m3BrJuI+TDS7A4LDpFUK7kyTgwttCCWHBRI6
+         l19VHde5voVSVifiDmAUUFNnhVKJLHVrN09tiltbNgUxjxfrl0az/XffNj/dxPitEh94
+         KNLTzE8U2DCysjsekQv22By6GzFFZC7PUzmwMnfO0KxufNDO7JniVvdKIsYQbgwrqPkJ
+         wcZA==
+X-Gm-Message-State: AOJu0YyEQkwNLs2UfJoaJhqL30Xh7ZgWoEugTliei5B5PvpN+57aMoL8
+	XVBI2j682cbTccZ8sWZTUJvzuTsJAzx8ZIxG9XxTK+b1T1e8eTUaOrh+bkeoLdwUSRg=
+X-Gm-Gg: ASbGncuMl0IJpScoSf3kHpOfZ7/AaHsdnWOdU8oDkitcR4HeVkdTkuChFAdPqsHf2dV
+	7FYnmoopX7Z82u2ZCqIMO9NNPhxlF6l2pFGkYE5AA1KMzTIsDxLEOvSPuIJrym8QODp7eo+qnJ9
+	AEkioEkbK2l5W0ANfw1dMuNjfDZAwc3tdt1cT0OnCxFiaofc8MCgZXEvGqHd1GoAswB7hdi7dz9
+	IgjyKNjizdYdnU9xXEIOdD3VGDN7AB5i8ubU5FXaJ+zDD4X2wB6U+WN83NJ0KjR6JyErxeEt1HJ
+	VZWuMR9mIM4nDlAUaLkcEw6/CvMCtMNDS+KXd+a7f+g2tBXoBsZmCRxe762bnq0INKDbsLXgGN5
+	9nk7F3WjfTJWsNxCAsw+3/zuHto+oJuDjxGYXchP+oQz2LYsEWyfkScVYe1fm04VVIvk=
+X-Google-Smtp-Source: AGHT+IF1PY8CjKZBltkRiaMjAPbsy0y2I5sExlfobv+KioSsAE6i9yPd2n/v6imAUn4q9skXUbuNAQ==
+X-Received: by 2002:a05:6512:1581:b0:591:c93c:cf6a with SMTP id 2adb3069b0e04-591d84cf7a9mr11591651e87.4.1761426430511;
+        Sat, 25 Oct 2025 14:07:10 -0700 (PDT)
 Received: from curiosity ([5.188.167.4])
-        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-59301f840dfsm953644e87.104.2025.10.25.14.07.01
+        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-59301f840dfsm953644e87.104.2025.10.25.14.07.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 25 Oct 2025 14:07:03 -0700 (PDT)
+        Sat, 25 Oct 2025 14:07:08 -0700 (PDT)
 From: Sergey Matyukevich <geomatsi@gmail.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -85,15 +86,18 @@ Cc: Paul Walmsley <pjw@kernel.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
 	Heiko Stuebner <heiko@sntech.de>,
-	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: [PATCH v3 0/9] riscv: vector: misc ptrace fixes for debug use-cases
-Date: Sun, 26 Oct 2025 00:06:33 +0300
-Message-ID: <20251025210655.43099-1-geomatsi@gmail.com>
+	Sergey Matyukevich <geomatsi@gmail.com>,
+	Ilya Mamay <mmamayka01@gmail.com>
+Subject: [PATCH v3 2/9] riscv: ptrace: return ENODATA for inactive vector extension
+Date: Sun, 26 Oct 2025 00:06:35 +0300
+Message-ID: <20251025210655.43099-3-geomatsi@gmail.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251025210655.43099-1-geomatsi@gmail.com>
+References: <20251025210655.43099-1-geomatsi@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_140709_362066_6B4C8BB5 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20251025_140713_235253_AB0DF224 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,66 +114,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series suggests fixes for several corner cases in the RISC-V
-vector ptrace implementation:
+From: Ilya Mamay <mmamayka01@gmail.com>
 
-- init vector context with proper vlenb, to avoid reading zero vlenb
-  by an early attached debugger
+Currently, ptrace returns EINVAL when the vector extension is supported
+but not yet activated for the traced process. This error code is not
+always appropriate since the ptrace arguments may be valid.
 
-- follow gdbserver expectations and return ENODATA instead of EINVAL
-  if vector extension is supported but not yet activated for the
-  traced process
+Debug tools like gdbserver expect ENODATA when the requested register
+set is not active, e.g. see [1]. This expectation seems to be more
+appropriate, so modify the vector ptrace implementation to return:
+- EINVAL when V extension is not supported
+- ENODATA when V extension is supported but not active
 
-- validate input vector csr registers in ptrace, to maintain an accurate
-  view of the tracee's vector context across multiple halt/resume
-  debug cycles
+[1] https://github.com/bminor/binutils-gdb/blob/637f25e88675fa47e47f9cc5e2cf37384836b8a2/gdbserver/linux-low.cc#L5020
 
-For detailed description see the appropriate commit messages. A new test
-suite v_ptrace is added into the tools/testing/selftests/riscv/vector
-to verify some of the vector ptrace functionality and corner cases.
-
-Previous versions:
-- v2: https://lore.kernel.org/linux-riscv/20250821173957.563472-1-geomatsi@gmail.com/T/#u
-- v1: https://lore.kernel.org/linux-riscv/20251007115840.2320557-1-geomatsi@gmail.com/T/#u
-
-Changes in v3:
-Address the review comments by Andy Chiu and rework the approach:
-- drop forced vector context save entirely
-- perform strict validation of vector csr regs in ptrace
-
-Changes in v2:
-- add thread_info flag to allow to force vector context save
-- force vector context save after vector ptrace to ensure valid vector
-  context in the next ptrace operations
-- force vector context save on the first context switch after vector
-  context init to get proper vlenb
-
+Signed-off-by: Ilya Mamay <mmamayka01@gmail.com>
 ---
+ arch/riscv/kernel/ptrace.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-Ilya Mamay (1):
-  riscv: ptrace: return ENODATA for inactive vector extension
-
-Sergey Matyukevich (8):
-  selftests: riscv: test ptrace vector interface
-  selftests: riscv: verify initial vector state with ptrace
-  riscv: vector: init vector context with proper vlenb
-  riscv: csr: define vector registers elements
-  riscv: ptrace: validate input vector csr registers
-  selftests: riscv: verify ptrace rejects invalid vector csr inputs
-  selftests: riscv: verify ptrace accepts valid vector csr values
-  selftests: riscv: verify syscalls discard vector context
-
- arch/riscv/include/asm/csr.h                  |  11 +
- arch/riscv/kernel/ptrace.c                    |  72 +-
- arch/riscv/kernel/vector.c                    |  12 +-
- .../testing/selftests/riscv/vector/.gitignore |   1 +
- tools/testing/selftests/riscv/vector/Makefile |   5 +-
- .../testing/selftests/riscv/vector/v_ptrace.c | 737 ++++++++++++++++++
- 6 files changed, 830 insertions(+), 8 deletions(-)
- create mode 100644 tools/testing/selftests/riscv/vector/v_ptrace.c
-
-
-base-commit: 72761a7e31225971d0b29d9195e0ffa986b77867
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index 8e86305831ea..906cf1197edc 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -95,9 +95,12 @@ static int riscv_vr_get(struct task_struct *target,
+ 	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
+ 	struct __riscv_v_regset_state ptrace_vstate;
+ 
+-	if (!riscv_v_vstate_query(task_pt_regs(target)))
++	if (!has_vector())
+ 		return -EINVAL;
+ 
++	if (!riscv_v_vstate_query(task_pt_regs(target)))
++		return -ENODATA;
++
+ 	/*
+ 	 * Ensure the vector registers have been saved to the memory before
+ 	 * copying them to membuf.
+@@ -130,9 +133,12 @@ static int riscv_vr_set(struct task_struct *target,
+ 	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
+ 	struct __riscv_v_regset_state ptrace_vstate;
+ 
+-	if (!riscv_v_vstate_query(task_pt_regs(target)))
++	if (!has_vector())
+ 		return -EINVAL;
+ 
++	if (!riscv_v_vstate_query(task_pt_regs(target)))
++		return -ENODATA;
++
+ 	/* Copy rest of the vstate except datap */
+ 	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &ptrace_vstate, 0,
+ 				 sizeof(struct __riscv_v_regset_state));
 -- 
 2.51.0
 
