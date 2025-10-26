@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D559CCF9E9
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Oct 2025 21:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B80CCF9E5
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Oct 2025 21:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rRbiB/weD/Ko85zL7URtDFl08tXT9p5VR9GQjf30Cd8=; b=1i6hvj2QqP1mTk
-	3PuobtYCxiENTiWUY8BXMfyqnNsNCwei9hQ743/LcPjB1ropEJHu0Y5EXyRzvr0gDF9BMaNGl3ECX
-	Xzs+mLXATV83TV1eot1VUXPd4RIFal8QeqQ6NYO7N3eLHb3l9uUx0LI+19v20grYPwAiMdfIyFcvs
-	7HoXr2PLRpsP9cwZbQFGRQU7THh2rEi1cCEJwu9tWwAZwBPIQvv7swJWDQ/+I0hUlWqaFRoe4UE3u
-	25rrwgiFcL+lv94mJ9btuY02g6CslArxD0bKSImZi7PoQxsSDV13k4dYieqj86/LWdZTbEyjNOJmn
-	7rssFdVolPcS4KYzHbGw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M5m1pYt/fYH6fyzHcjs4tlp22E2hXhh/X/pFsEehJrM=; b=TFgZdjtw8amlbcNHQgAWvMRTWs
+	+PKL9vbEWEf++UgL6cakhOUXKgEjn4UrkbK0yXoTdg0k11ZsJimjC0kE7/BN4StsCjSZaHVgrOtY+
+	LEFPKTBHilP/HMh8+6txg/GIIyVGYJN1mj/sEu4mOv1bIo4IzddT/ZvB0qh+dOOeiXgJNQ1k5cQ/5
+	gSacCU6XYtazVaTlux07B5HeBHowYJYd3kGsTm6xou/V0+OREl9H+mK4HbGL/7oVoHkpzFnyvjPzf
+	4CtoAsHIapfT+VtmyEIiO3UzIcTkaV/vxl8XgZJhUhWsI0Pu1CvhdzIECe10jD9CXJLDEwLrrnpXO
+	Y/GInqmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD8WZ-0000000CmAp-1KJZ;
-	Sun, 26 Oct 2025 21:43:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vD8XD-0000000CmKN-3ebt;
+	Sun, 26 Oct 2025 21:44:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD8WX-0000000CmAJ-3EmJ
+	id 1vD8XD-0000000CmK9-0Kgv
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 Oct 2025 21:43:37 +0000
+	Sun, 26 Oct 2025 21:44:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A87316022F;
-	Sun, 26 Oct 2025 21:43:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BCD7C4CEE7;
-	Sun, 26 Oct 2025 21:43:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 784906040D;
+	Sun, 26 Oct 2025 21:44:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0191CC4CEE7;
+	Sun, 26 Oct 2025 21:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761515016;
-	bh=0JsaR/gVfYuPh5Cfn/iC3pjbAktuSznePf9ABPRGJoE=;
+	s=k20201202; t=1761515058;
+	bh=R0wcc8nBYPNtNsZgoclsUuWvcDYQ/fWNcQurv3oEFFM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d+NgH+oqZEUs+k6eqHk7nYMsw2921LBoEq0/LJGGHdFyVe8fLSFVy697koLHqTEQv
-	 AXQ4W9s1fkcIBKPAHtDUfJWy5cz+sXl7QtnOyEK1HVxi/m5AeFbY3kwXWWdUdpkLDq
-	 NDLj3zOP057NFRZsrmhmKm5p3oA7AiHFt2nPK3g4Gw+lg/gowPJCn9Xgt40KwdqaCH
-	 JLMFGF7RpXEMQaoLok8Xg0408WFQx5HqMDmS4htXz8qlyETbHosen6C73Flr6WQ0FZ
-	 lhmqrDEd4AzMZ1DMsBWis0Mu+weoGYLfkYZCDA8LyrRVt7R4EJ5BNk5G8QhEzwUJUP
-	 6K7BB2Lw5QHrg==
-Date: Sun, 26 Oct 2025 16:43:34 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-kernel@vger.kernel.org,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, sophgo@lists.linux.dev,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Palmer Dabbelt <palmer@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-serial@vger.kernel.org,
+	b=n4I8beub56lCXDtQIIagRhZqCf1bllEDpY3pxIA5Dcbx7FonZGyEcgla/0yTWVv8N
+	 8BqIY+tucyymuIdV2DPISSxzeeXVFrwQ6QjiXiUE35LcDNXWn8Lw9XowOdA17NVbdr
+	 6Wtmkd9zZs4MCmQr3U1b+o6KLW2N1769htiwx+YuEc25ish0S2nx/yBUw4239n4WRO
+	 7V+B6Gnr8vlewOifX/Rhi5YKOcnQxTe14oHdnJW7CZtzPX/PUgo6Rz/ugjqrRSs+N1
+	 89S1fmoI2Rb37fl4yUG/7OaCCSyoSYn5jv01asHXGeUW54TmI797JQ20loFvabHJQN
+	 PJ1h/DoOtDzsA==
+Date: Sun, 26 Oct 2025 21:44:12 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Longbin Li <looong.bin@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v3 07/13] dt-bindings: timer: Add Anlogic DR1V90 ACLINT
- MTIMER
-Message-ID: <176151501212.2988871.10069420018987162888.robh@kernel.org>
-References: <20251021-dr1v90-basic-dt-v3-0-5478db4f664a@pigmoral.tech>
- <20251021-dr1v90-basic-dt-v3-7-5478db4f664a@pigmoral.tech>
+	Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Yu Yuan <yu.yuan@sjtu.edu.cn>, Ze Huang <huangze@whut.edu.cn>,
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: soc: sophgo: add TOP syscon for
+ CV18XX/SG200X series SoC
+Message-ID: <20251026-registrar-impart-0f714e11e410@spud>
+References: <20251024030528.25511-1-looong.bin@gmail.com>
+ <20251024030528.25511-2-looong.bin@gmail.com>
+ <20251024-hangout-designing-33e96c0d35fc@spud>
+ <oymxspgopaqja63nipufgzn6kpobkdopemfaw3azhom3ikvk5f@e7cg4lq64j2o>
+ <20251025-shakable-jujitsu-3a5e9c8895a5@spud>
+ <ugmphokne6ssc7ou7apvbldxg7xxk24wp5jrzdasjiplnu6gfy@ebbuxnjqlsw4>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251021-dr1v90-basic-dt-v3-7-5478db4f664a@pigmoral.tech>
+In-Reply-To: <ugmphokne6ssc7ou7apvbldxg7xxk24wp5jrzdasjiplnu6gfy@ebbuxnjqlsw4>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,26 +77,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0634275400819810611=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 21 Oct 2025 17:41:42 +0800, Junhui Liu wrote:
-> Add MTIMER support for Anlogic DR1V90 SoC, which uses Nuclei UX900 with
-> a TIMER unit compliant with the ACLINT specification.
-> 
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->  .../bindings/timer/thead,c900-aclint-mtimer.yaml        | 17 +++++++++++------
->  1 file changed, 11 insertions(+), 6 deletions(-)
-> 
+--===============0634275400819810611==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rdoDAXfg92n9Nn02"
+Content-Disposition: inline
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
+--rdoDAXfg92n9Nn02
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Rob, Longbin,
+
+On Sun, Oct 26, 2025 at 05:47:32PM +0800, Longbin Li wrote:
+> On Sat, Oct 25, 2025 at 01:44:00PM +0100, Conor Dooley wrote:
+> > On Sat, Oct 25, 2025 at 10:27:13AM +0800, Longbin Li wrote:
+> > > On Fri, Oct 24, 2025 at 05:46:03PM +0100, Conor Dooley wrote:
+> > >=20
+> > > > > ...
+> > > > > +
+> > > > > +properties:
+> > > > > +  compatible:
+> > > > > +    oneOf:
+> > > > > +      - items:
+> > > > > +          - const: sophgo,cv1800b-top-syscon
+> > > > > +          - const: syscon
+> > > > > +          - const: simple-mfd
+> > > > > +
+> > > > > +  reg:
+> > > > > +    maxItems: 1
+> > > > > +
+> > > > > +  "#address-cells":
+> > > > > +    const: 1
+> > > > > +
+> > > > > +  "#size-cells":
+> > > > > +    const: 1
+> > > > > +
+> > > > > +  ranges: true
+> > > >=20
+> > > > Do you actually use ranges?
+> > > >=20
+>=20
+> Actually, I do not use it.
+> I added it following Rob's suggestion in
+> https://lore.kernel.org/all/20251015134144.GA3265377-robh@kernel.org/.
+> Should I drop it or not?
+
+I don't know why he suggested it, if it is not being used. Rob?
+
+--rdoDAXfg92n9Nn02
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaP6WKQAKCRB4tDGHoIJi
+0ineAQCnx3f0EpPMqkkkFJY8iwI9lwZHPviAEyjHA0s0o85JLgEA7KvXDig05rNH
+efVLx5OW3aA366PJ2D35x3+QPI785go=
+=H40P
+-----END PGP SIGNATURE-----
+
+--rdoDAXfg92n9Nn02--
+
+
+--===============0634275400819810611==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0634275400819810611==--
+
