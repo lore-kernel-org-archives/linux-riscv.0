@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BB7CCF9E5
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Oct 2025 11:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8C5CCF9E5
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Oct 2025 11:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNiilrsZHZiawCGVMejGYTumS9kEoWyeE/QPoGrOmos=; b=N1udb4TYRFKwmtvzxQSqyQYWDT
-	ithoFhfRv+L5hs/UiG99BS88fRW6vy6cV/4e/M12WYWb2j+xY9eNwyoDdLXDbu3/T4T5o7Gf3tNdL
-	3m7/3nli+yltk4FzAb0DxUcOrS2U9JST0Fnhxjs27i6/QdIl74cXZ5QTcKFC8yw24RAbQHQvpsqJG
-	YEFfsBpTRCVeKaFpsZhZ+uh52aXVQZmFmF9wXJt31fMFcw3mJHLdYoKSNaXoIhl0TqtY1HbpPm4B/
-	i2aLIBYtsDZ6TdPnDfLpELzCJCbGT88bVehDUPlw9kXFjAppvtpVY0dng3oKt1x2cAk0Lrzi6YWcp
-	p2WQoqIw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6Ft/Z9Z8jccgak67FA6BIY4zfBgwUSua6ttPoG3MsH0=; b=l6sNo9Kf+FKch+
+	afZaiOHlL0e2IUTP/HSIZUjEvElPxMA+YcldREc6ezujQVas7/WvjLMQXhMneUx30Kmb6eYqRvg+t
+	97c6MW6LnpHdIS8NJITQmE/zpvWO0ofCSgBAoW4e1yepXQQQxfTSZAFdsYFZ/0U6OlJjQfT3y4HPA
+	rlQIsT3Z3SIQhYrVvAI6x6n6Cf9yCEmbAl+3j7JdW27jNPEr/htG9Z8sm4GvxE/KJmLlvQGeVgDC0
+	UhUp/OfgIbpfKdfE3gV7EjSXnvpsHSb80MAhTIKsQ0eYCXbcYmVKoYHa6xaW26puNp//BpX23wD7A
+	KmpGA+msiujaiXtfUmVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCyih-0000000CGti-1Zqt;
-	Sun, 26 Oct 2025 11:15:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vCynJ-0000000CH8y-1V0X;
+	Sun, 26 Oct 2025 11:20:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCyig-0000000CGtc-1m2m
+	id 1vCynH-0000000CH8h-1irP
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 Oct 2025 11:15:30 +0000
+	Sun, 26 Oct 2025 11:20:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0172C60203;
-	Sun, 26 Oct 2025 11:15:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D85FEC4CEE7;
-	Sun, 26 Oct 2025 11:15:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 820616021A
+	for <linux-riscv@lists.infradead.org>; Sun, 26 Oct 2025 11:20:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31873C116B1
+	for <linux-riscv@lists.infradead.org>; Sun, 26 Oct 2025 11:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761477328;
-	bh=HTruYLUWVQCfi6SQXupL+CrOSj/QbB/ZlLpAIxMdvc0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V73ECIo6/qSjkcuLQGkEL6W2kesEMvM5bq9FRp1XGZVv8NiaM51qu6ldc7Qa7vdvc
-	 QJVQt9rj0VGjJ3Gy3dSKM/SEQYNY2ZVaFbdLfK5gSkqtH/e31tfIa2Rts5siCzxzY2
-	 ++KB+9gshe03RFO46IUNzIOpfNKG0z9tBnh15KrhE15ArshgIv8VfX2wL6hfdn1agY
-	 kmtYZdQIUfFd0OlrGuGHovyiPNsn4FBP+UVcqgaB78lsKFzT5RHt7KeltqIFW5L/w5
-	 d4NJwYQAuy/80sybUdG1hW3Tkm1eeo6/OMK4nyehaVTtqfQnPdokN35ICwjgd2KVLs
-	 Dwqb+gBXVPLBA==
-Date: Sun, 26 Oct 2025 04:14:50 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, Elle Rhumsaa <elle@weathered-steel.dev>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v16 0/7] Rust Abstractions for PWM subsystem with TH1520
- PWM driver
-Message-ID: <aP4CqqOL7xEyFZ0w@gen8>
-References: <CGME20251016133814eucas1p199cb62658c016e84e34d525e7c87f16e@eucas1p1.samsung.com>
- <20251016-rust-next-pwm-working-fan-for-sending-v16-0-a5df2405d2bd@samsung.com>
- <47ut33rck4xoh3d7d6t3d7twqag3u7eusbruc2i2veqf2umpga@ipamilvshysw>
+	s=k20201202; t=1761477614;
+	bh=WXhSsOHYlSratjyBUfDoyHGZ/FPtXvc0lOg0vqlrD54=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ZO0l5rCuPbIC/tMs2ZuC773iICJte/FhCsKJGvRLh/ebR5CG5S+VTY5XG4cXYGP6M
+	 Z/s0dV9b87BHLomxqE3D5UB8YqEJDQMLXCjNhmL9oHg2FyALdelP52uznyqeTRAPMp
+	 oBp5OEhpNRTOVFxf+2szgNMIw5nni1QkLzPtSsAco9J85vpSxJJ18yQu3skkx9ZV48
+	 TeqeJWzUOU+ddhJvY63n21A1GJ/mL1Kp2KEUzUAQcILa1EYMOUZ9Xd4Ih7IKIH87W4
+	 1ZcaMZsEhxOSBXmCN8UXXzR3oP/5iDBxJi5ii6DwIowMZaDj+Q9cssR22TrvUoAcqe
+	 0vAyEzYFx5uSA==
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-63c4b41b38cso7987139a12.3
+        for <linux-riscv@lists.infradead.org>; Sun, 26 Oct 2025 04:20:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVH/bYg2rlJw2Lam/ZTprZCpI98i0Z40gXVVJXzWJJmLqe0QNYlBWpKPyNxxtSmM/qCDaovH2b4B1CUdQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPEBExmrxVVVSJZKX0FsZPN8ANIJxZCDOFGy9elWVfFGACbozH
+	Vce1ps3dSNW5WYMTqlgDpl/9TMJsQ9ICw3l9PJf0YU6ctWokOz+coOX0kR5oRDg9VDXkBTSPaFo
+	ivwM5xvIZe5dyv1SGjR1xG01Km1bEGis=
+X-Google-Smtp-Source: AGHT+IHSStRGe85V7TfWyZyzfF6Ya5hjYUTpONErQ3HLd1kUDYooXBrzJ4vLF95pyPPlWOudi0MNIFeRATeAXFEtvLQ=
+X-Received: by 2002:a05:6402:2554:b0:63e:2d46:cc5d with SMTP id
+ 4fb4d7f45d1cf-63e3dff1673mr10711788a12.7.1761477612710; Sun, 26 Oct 2025
+ 04:20:12 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <47ut33rck4xoh3d7d6t3d7twqag3u7eusbruc2i2veqf2umpga@ipamilvshysw>
+References: <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
+ <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
+ <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
+ <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
+ <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
+ <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
+ <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
+ <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
+ <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
+ <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
+ <jxfb5a2c2qber623l2gwewirwod54bbgfnvt7t7f3jah2ea33g@2uyhy3auzmpx>
+ <d9f3352a-1c1f-464a-a8fd-741cd96b5f8e@loongson.cn> <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com>
+ <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn> <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com>
+ <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
+In-Reply-To: <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Sun, 26 Oct 2025 19:20:04 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bnx7p3KGFn8w4CVpWUGoGvdUyYRdpas7DP247MZLQ7EzDz5RnfRwoldkjM
+Message-ID: <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com>
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +90,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7741580569581465090=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7741580569581465090==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Hu0VeUTprsM8C7Nl"
-Content-Disposition: inline
-
-
---Hu0VeUTprsM8C7Nl
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Oct 25, 2025 at 02:26:31PM +0200, Uwe Kleine-K=F6nig wrote:
-> Hello,
->=20
-> On Thu, Oct 16, 2025 at 03:38:00PM +0200, Michal Wilczynski wrote:
-> > Michal Wilczynski (7):
-> >       pwm: Export `pwmchip_release` for external use
-> >       rust: pwm: Add Kconfig and basic data structures
-> >       rust: pwm: Add complete abstraction layer
-> >       pwm: Add Rust driver for T-HEAD TH1520 SoC
-> >       dt-bindings: pwm: thead: Add T-HEAD TH1520 PWM controller
-> >       riscv: dts: thead: Add PWM controller node
-> >       riscv: dts: thead: Add PWM fan and thermal control
->=20
-> I applied patches #1-#5 to
->=20
-> 	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/f=
-or-next
->=20
-> . If I should take the riscv dts changes, too, please tell me.
-
-I can take them through my thead-dt-for-next branch.
-
-Thanks,
-Drew
-
---Hu0VeUTprsM8C7Nl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCaP4CpAAKCRDb7CzD2Six
-DFmwAP0XV04YlT43vkUJmO2Q22KkuSgNzqJMOqSjgRNYzlZG8AEA3UwESVtDL40X
-5JE1LibqO78mAkoeDlA3Gy1lXXPr8AE=
-=4yF3
------END PGP SIGNATURE-----
-
---Hu0VeUTprsM8C7Nl--
-
-
---===============7741580569581465090==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7741580569581465090==--
-
+T24gVGh1LCBPY3QgMjMsIDIwMjUgYXQgNDowN+KAr1BNIEFyZCBCaWVzaGV1dmVsIDxhcmRiQGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVGh1LCAyMyBPY3QgMjAyNSBhdCAxMDowMSwgSHVhY2Fp
+IENoZW4gPGNoZW5odWFjYWlAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gT24gVGh1LCBPY3Qg
+MjMsIDIwMjUgYXQgMjo1NeKAr1BNIFRpZXpodSBZYW5nIDx5YW5ndGllemh1QGxvb25nc29uLmNu
+PiB3cm90ZToKPiA+ID4KPiA+ID4gSGkgSm9zaCBhbmQgQXJkLAo+ID4gPgo+ID4gPiBPbiAyMDI1
+LzEwLzIwIOS4i+WNiDI6NTUsIEh1YWNhaSBDaGVuIHdyb3RlOgo+ID4gPiA+IE9uIE1vbiwgT2N0
+IDIwLCAyMDI1IGF0IDk6MjTigK9BTSBUaWV6aHUgWWFuZyA8eWFuZ3RpZXpodUBsb29uZ3Nvbi5j
+bj4gd3JvdGU6Cj4gPiA+ID4+Cj4gPiA+ID4+IEhpIEpvc2gsIEFyZCBhbmQgSHVhY2FpLAo+ID4g
+PiA+Pgo+ID4gPiA+PiBPbiAyMDI1LzEwLzE4IOS4iuWNiDE6MDUsIEpvc2ggUG9pbWJvZXVmIHdy
+b3RlOgo+ID4gPiA+Pgo+ID4gPiA+PiAuLi4KPiA+ID4gPj4KPiA+ID4gPj4+IEJ1dCBJSVVDLCB0
+aGUgbGlic3R1YiBjb2RlIHJ1bnMgKnZlcnkqIGVhcmx5LCBhbmQgd291bGRuJ3Qgc2hvdyB1cCBp
+biBhCj4gPiA+ID4+PiBzdGFjayB0cmFjZSBhbnl3YXksIGJlY2F1c2UgdGhlcmUgYXJlIG5vIHRy
+YWNlcyBvZiBpdCBvbiB0aGUgc3RhY2sgb25jZQo+ID4gPiA+Pj4gaXQgYnJhbmNoZXMgdG8gaGVh
+ZC5TIGNvZGUgKHdoaWNoIGRvZXNuJ3Qgc2F2ZSB0aGUgbGluayByZWdpc3RlcikuCj4gPiA+ID4+
+Cj4gPiA+ID4+IFRoYW5rcyBmb3IgeW91ciBkaXNjdXNzaW9ucy4KPiA+ID4gPj4KPiA+ID4gPj4g
+QXJlIHlvdSBPSyB3aXRoIHRoaXMgY3VycmVudCBwYXRjaD8KPiA+ID4gPiBGb3IgbWUgdGhlIGN1
+cnJlbnQgcGF0Y2ggaXMganVzdCBPSy4KPiA+ID4KPiA+ID4gV2UgaGF2ZSBkaXNjdXNzZWQgdGhp
+cyBhIGZldyB0aW1lcyBidXQgdGhlcmUgaXMgYWxtb3N0IG5vIGNvbnNlbnN1cwo+ID4gPiBvZiB3
+aGF0IHNob3VsZCBoYXBwZW4gbmV4dCBhbmQgbm90aGluZyBjaGFuZ2VzLgo+ID4gPgo+ID4gPiBD
+b3VsZCB5b3UgcGxlYXNlIGdpdmUgbWUgYSBjbGVhciByZXBseT8gVGhlbiBJIGNhbiBtYWtlIHBy
+b2dyZXNzIGZvcgo+ID4gPiB0aGUgZm9sbG93aW5nIHNlcmllczoKPiA+ID4KPiA+ID4gaHR0cHM6
+Ly9sb3JlLmtlcm5lbC5vcmcvbG9vbmdhcmNoLzIwMjUwOTE3MTEyNzE2LjI0NDE1LTEteWFuZ3Rp
+ZXpodUBsb29uZ3Nvbi5jbi8KPiA+IEZvciBtZSwgdGhpcyBwYXRjaCBpcyBPSywgaWdub3JlIF9f
+ZWZpc3R1Yl8gcHJlZml4IGluIG9ianRvb2wgaXMgYWxzbwo+ID4gT0sgWzFdLiBCdXQgSSBjYW5u
+b3QgYWNjZXB0IHRoZSB3YXkgdGhhdCBtb2RpZnlpbmcgdGhlIGVmaXN0dWIgcGFydAo+ID4gb25s
+eSBmb3IgTG9vbmdBcmNoLgo+ID4KPiA+IENsZWFyIGVub3VnaD8KPiA+Cj4KPiBMb29uZ0FyY2gg
+aXMgdGhlIG9ubHkgYXJjaGl0ZWN0dXJlIHdoaWNoIGhhcyB0aGUgcHJvYmxlbSwgc28gSSBkb24n
+dAo+IHNlZSBhIHJlYXNvbiB0byBtb2RpZnkgb3RoZXIgYXJjaGl0ZWN0dXJlcy4KRnJvbSB5b3Vy
+IHJlcGx5IEkgdGhpbmsgdGhlIGVmaXN0dWIgY29kZSBpcyBjb21wbGV0ZWx5IHJpZ2h0LCBidXQK
+b2JqdG9vbCBjYW5ub3QgaGFuZGxlIHRoZSAibm9yZXR1cm4iIGZ1bmN0aW9uIHBvaW50ZXIuIEFu
+ZCB0aGlzIHBhdGNoCmlzIGEgd29ya2Fyb3VuZCByYXRoZXIgdGhhbiBhIHByb3BlciBmaXggKHNv
+IHlvdSBkb24ndCB3YW50IHRvIHRvdWNoCm90aGVyIGFyY2hpdGVjdHVyZXMpLCByaWdodD8KCgpI
+dWFjYWkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
