@@ -4,96 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E689CCD193
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Oct 2025 09:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BB7CCF9E5
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Oct 2025 11:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w941CGQvuk1hXQg1RH9q7H5HO10JD9fTcX3mqvhOu5Q=; b=uCMjUASFYorNky
-	BchXuUCgTfb1AIUf5Q1o43hiA/K159ydcXf9OqfQzxGRiVQ8xHvq5TJipz1MYY4pRL/aetw+QDM+U
-	3gi1AMOKrAGOzUiFj3wBBqIEXzpKFgMlEww1L/G+6nZmBUlf7q/Os/87WYGfxL7cSBeqL3uFdQJA8
-	hl0nGEwMc7BU33QHCp8aXThQ/O1gV8laNx/Tn8gGhVTe7aBkMBhSplMaWVmoNmBDS68KBqu20IcXt
-	bE+KMG0M9Of45Ao7ec+dmukU30/aYTehIYRzlQNv/Bsf+Ndi6OMk/Wam0SsDSiVw2J2zPtNgudCB1
-	vSgSGsTNBvcPUk3Bl2iA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HNiilrsZHZiawCGVMejGYTumS9kEoWyeE/QPoGrOmos=; b=N1udb4TYRFKwmtvzxQSqyQYWDT
+	ithoFhfRv+L5hs/UiG99BS88fRW6vy6cV/4e/M12WYWb2j+xY9eNwyoDdLXDbu3/T4T5o7Gf3tNdL
+	3m7/3nli+yltk4FzAb0DxUcOrS2U9JST0Fnhxjs27i6/QdIl74cXZ5QTcKFC8yw24RAbQHQvpsqJG
+	YEFfsBpTRCVeKaFpsZhZ+uh52aXVQZmFmF9wXJt31fMFcw3mJHLdYoKSNaXoIhl0TqtY1HbpPm4B/
+	i2aLIBYtsDZ6TdPnDfLpELzCJCbGT88bVehDUPlw9kXFjAppvtpVY0dng3oKt1x2cAk0Lrzi6YWcp
+	p2WQoqIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCxLg-0000000CDt9-3sRS;
-	Sun, 26 Oct 2025 09:47:40 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1vCyih-0000000CGti-1Zqt;
+	Sun, 26 Oct 2025 11:15:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCxLd-0000000CDsJ-42E5
+	id 1vCyig-0000000CGtc-1m2m
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 Oct 2025 09:47:39 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-33d463e79ddso4516264a91.0
-        for <linux-riscv@lists.infradead.org>; Sun, 26 Oct 2025 02:47:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761472057; x=1762076857; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=C91HvAQxwR7B1bhgRZq1EXx7cSrqAYa22OF4JmCWXOg=;
-        b=WG1C3dXSVXNGMSA0SUjY5xjPKJ1UF07KftoqfjdJ7Ps9U20SKseZ1P6NgMaLtqRI+P
-         50gxjFY7lfn9FS0QPT3F1XDrz8s1KaFHqkPDZtPfSX8T4OqCcaUGY/XQH5/wElvb2BtB
-         x3f74Hyho9fD3WAfI5QO7C5a5TQrVg8vHPuh4Sw3KjWxUdmhAEsiBV25QkRm9Ov/dMaI
-         OaMNTMCVWsPAOUv2msmtoG0U5mLxOAGeLhWBTZutNpZgt1RqC1cqIbNpqoDkdpx7HNB/
-         YY0vjxLJ/CImmKLGBiODZZ3c4NU8kOAFiyAy7o/ilqNWaB1kLyjY0vFXYdtHxdEVabvv
-         lTiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761472057; x=1762076857;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C91HvAQxwR7B1bhgRZq1EXx7cSrqAYa22OF4JmCWXOg=;
-        b=m1agGM+dUhTI1A1RS+iTca1xMKFBGoi73Dm/zDRq8F5+0qjArcG+0bItwxgPABhqcD
-         ibOWMz5s+L5EeVbAmb4aQphRBemtTynAgq2x2HfluitCAv5fR4riq9CSRd8yVKF2F+2D
-         6ZhMLuDkXeYTZfTNiA0J812tgZ9XohpL2ctAqyEEQWX/N28trF9qaUle5ZO/Vjenf63z
-         mbCY351rCWYEe8D/UJF4iwUboOVZ5V7R6F14t6nrlxUyF9qbFMLRYT5aTTq1hjlJwR12
-         DWE+JoAJ580W1KY8HjHpc7+ejBLwVYV/KDDsisFT4izfwTx57y6HF3ebSAKp13V6U13O
-         Iipw==
-X-Forwarded-Encrypted: i=1; AJvYcCWj9DPDoGC4DhWyRB6Wxp+6l8hBOEIKDQNOuNCLgEXOzb/MUPjJG+j6ie0dzFGywv0+Aibqii1HTxJyKw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxHqliJdztECPt9TM94HFBKvScBllz6N7NBO4cKAoJQ+gxxIyl
-	827FHO52Ts/Xsm/6Us28pK49fL30tE87R1JF4QCF8c95Uc/m2b/uCO7G
-X-Gm-Gg: ASbGnctuTpqVUGA0OE0Su3iPNJYmBxEKfg4R4hF94mUHrPtQkYcEcVwoRk5WFhiJBF9
-	qtE53/jCa5VIGY5SyfZkcewXH0K/0rgJZUJg1V0VVD0bN+p2GTtcdJ0KR47XCRizD0HTBeJef6S
-	3FNobUSyAUKhokzJ+c8zk/jbgnl+N7QctOIdK871UtaYSDTna73IYmvKjiR+gIlVuylHdXgwSeE
-	hhSrFYKLcHbmRbMZwHuXYFpC2iVe31c9G9WgJ4qZQd+FnYqLLsCnlF7YdpAXdBn3lu8hg0Mljve
-	Aq7tjndoHEofB81EOHJ7BfBuBWRbmA2zuJiHXuiHo165AbVtrNNAFRdI2OrfWp6PUwrlKyCKPSg
-	mV2WZ6Hz2hxoPVciYuDcOLz3Y4c0UFCEs4tP15AWxSU2WSpAdlRgBUIenF9WrHrIvwmDxmO5P0V
-	8j
-X-Google-Smtp-Source: AGHT+IGBtA0xQBuD4uogDvjIhQK7Qhr4z8CGsMy+ULWwP1OFvRuXkY87KrHlWUr9Efn6GjJx6fmMdw==
-X-Received: by 2002:a17:90b:3e43:b0:32e:7270:9499 with SMTP id 98e67ed59e1d1-33bcec297c9mr40598008a91.0.1761472056734;
-        Sun, 26 Oct 2025 02:47:36 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33fed807dbasm4802556a91.12.2025.10.26.02.47.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Oct 2025 02:47:36 -0700 (PDT)
-Date: Sun, 26 Oct 2025 17:47:32 +0800
-From: Longbin Li <looong.bin@gmail.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>, Yu Yuan <yu.yuan@sjtu.edu.cn>, Ze Huang <huangze@whut.edu.cn>, 
-	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 1/3] dt-bindings: soc: sophgo: add TOP syscon for
- CV18XX/SG200X series SoC
-Message-ID: <ugmphokne6ssc7ou7apvbldxg7xxk24wp5jrzdasjiplnu6gfy@ebbuxnjqlsw4>
-References: <20251024030528.25511-1-looong.bin@gmail.com>
- <20251024030528.25511-2-looong.bin@gmail.com>
- <20251024-hangout-designing-33e96c0d35fc@spud>
- <oymxspgopaqja63nipufgzn6kpobkdopemfaw3azhom3ikvk5f@e7cg4lq64j2o>
- <20251025-shakable-jujitsu-3a5e9c8895a5@spud>
+	Sun, 26 Oct 2025 11:15:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0172C60203;
+	Sun, 26 Oct 2025 11:15:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D85FEC4CEE7;
+	Sun, 26 Oct 2025 11:15:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761477328;
+	bh=HTruYLUWVQCfi6SQXupL+CrOSj/QbB/ZlLpAIxMdvc0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V73ECIo6/qSjkcuLQGkEL6W2kesEMvM5bq9FRp1XGZVv8NiaM51qu6ldc7Qa7vdvc
+	 QJVQt9rj0VGjJ3Gy3dSKM/SEQYNY2ZVaFbdLfK5gSkqtH/e31tfIa2Rts5siCzxzY2
+	 ++KB+9gshe03RFO46IUNzIOpfNKG0z9tBnh15KrhE15ArshgIv8VfX2wL6hfdn1agY
+	 kmtYZdQIUfFd0OlrGuGHovyiPNsn4FBP+UVcqgaB78lsKFzT5RHt7KeltqIFW5L/w5
+	 d4NJwYQAuy/80sybUdG1hW3Tkm1eeo6/OMK4nyehaVTtqfQnPdokN35ICwjgd2KVLs
+	 Dwqb+gBXVPLBA==
+Date: Sun, 26 Oct 2025 04:14:50 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, Elle Rhumsaa <elle@weathered-steel.dev>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v16 0/7] Rust Abstractions for PWM subsystem with TH1520
+ PWM driver
+Message-ID: <aP4CqqOL7xEyFZ0w@gen8>
+References: <CGME20251016133814eucas1p199cb62658c016e84e34d525e7c87f16e@eucas1p1.samsung.com>
+ <20251016-rust-next-pwm-working-fan-for-sending-v16-0-a5df2405d2bd@samsung.com>
+ <47ut33rck4xoh3d7d6t3d7twqag3u7eusbruc2i2veqf2umpga@ipamilvshysw>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251025-shakable-jujitsu-3a5e9c8895a5@spud>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_024738_005797_DA0D97B4 
-X-CRM114-Status: GOOD (  24.09  )
+In-Reply-To: <47ut33rck4xoh3d7d6t3d7twqag3u7eusbruc2i2veqf2umpga@ipamilvshysw>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,101 +86,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7741580569581465090=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 25, 2025 at 01:44:00PM +0100, Conor Dooley wrote:
-> On Sat, Oct 25, 2025 at 10:27:13AM +0800, Longbin Li wrote:
-> > On Fri, Oct 24, 2025 at 05:46:03PM +0100, Conor Dooley wrote:
-> > 
-> > > > ...
-> > > > +
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    oneOf:
-> > > > +      - items:
-> > > > +          - const: sophgo,cv1800b-top-syscon
-> > > > +          - const: syscon
-> > > > +          - const: simple-mfd
-> > > > +
-> > > > +  reg:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  "#address-cells":
-> > > > +    const: 1
-> > > > +
-> > > > +  "#size-cells":
-> > > > +    const: 1
-> > > > +
-> > > > +  ranges: true
-> > > 
-> > > Do you actually use ranges?
-> > > 
 
-Actually, I do not use it.
-I added it following Rob's suggestion in
-https://lore.kernel.org/all/20251015134144.GA3265377-robh@kernel.org/.
-Should I drop it or not?
+--===============7741580569581465090==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Hu0VeUTprsM8C7Nl"
+Content-Disposition: inline
 
-> > > > +patternProperties:
-> > > > +  "dma-router@[0-9a-f]+$":
-> > > 
-> > > Do these actually appear at variable addresses, or is it always 48 for
-> > > the phy and 53 for the dma router?
-> > > 
-> > > > +    $ref: /schemas/dma/sophgo,cv1800b-dmamux.yaml#
-> > > > +    unevaluatedProperties: false
-> > > > +
-> > > > +  "phy@[0-9a-f]+$":
-> > > > +    $ref: /schemas/phy/sophgo,cv1800b-usb2-phy.yaml#
-> > > > +    unevaluatedProperties: false
-> > > > +
-> > > > +required:
-> > > > +  - compatible
-> > > > +  - reg
-> > > > +  - "#address-cells"
-> > > > +  - "#size-cells"
-> > > > +
-> > > > +additionalProperties: false
-> > > > +
-> > > > +examples:
-> > > > +  - |
-> > > > +    #include <dt-bindings/clock/sophgo,cv1800.h>
-> > > > +
-> > > > +    syscon@3000000 {
-> > > > +      compatible = "sophgo,cv1800b-top-syscon", "syscon", "simple-mfd";
-> > > > +      reg = <0x03000000 0x1000>;
-> > > > +      #address-cells = <1>;
-> > > > +      #size-cells = <1>;
-> > > > +
-> > > > +      usbphy: phy@48 {
-> > > 
-> > > Drop the labels off of these two, since they're unused in the example.
-> > > 
-> > 
-> > Hi,
-> > 
-> > Thanks for the review.
-> > 
-> > There are a couple of different opinions here.
-> > Could you please help confirm which approach is preferred here?
-> > 
-> > This is Rob's reply:
-> > https://lore.kernel.org/all/20251015134144.GA3265377-robh@kernel.org/
-> 
-> I don't think that Rob and I disgree about the example, having child
-> nodes is good, having the label on them is what I don't want.
-> 
-> Re: the child node patterns, I was not looking for a return to what Rob
-> didn't like, but rather a move to just making them normal properties
-> rather than a pattern, if there's only one possible address.
 
-Thanks!
-I will drop the lable and move the child nodes to normal properties.
+--Hu0VeUTprsM8C7Nl
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, Oct 25, 2025 at 02:26:31PM +0200, Uwe Kleine-K=F6nig wrote:
+> Hello,
+>=20
+> On Thu, Oct 16, 2025 at 03:38:00PM +0200, Michal Wilczynski wrote:
+> > Michal Wilczynski (7):
+> >       pwm: Export `pwmchip_release` for external use
+> >       rust: pwm: Add Kconfig and basic data structures
+> >       rust: pwm: Add complete abstraction layer
+> >       pwm: Add Rust driver for T-HEAD TH1520 SoC
+> >       dt-bindings: pwm: thead: Add T-HEAD TH1520 PWM controller
+> >       riscv: dts: thead: Add PWM controller node
+> >       riscv: dts: thead: Add PWM fan and thermal control
+>=20
+> I applied patches #1-#5 to
+>=20
+> 	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/f=
+or-next
+>=20
+> . If I should take the riscv dts changes, too, please tell me.
+
+I can take them through my thead-dt-for-next branch.
+
+Thanks,
+Drew
+
+--Hu0VeUTprsM8C7Nl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCaP4CpAAKCRDb7CzD2Six
+DFmwAP0XV04YlT43vkUJmO2Q22KkuSgNzqJMOqSjgRNYzlZG8AEA3UwESVtDL40X
+5JE1LibqO78mAkoeDlA3Gy1lXXPr8AE=
+=4yF3
+-----END PGP SIGNATURE-----
+
+--Hu0VeUTprsM8C7Nl--
+
+
+--===============7741580569581465090==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7741580569581465090==--
+
