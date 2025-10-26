@@ -4,100 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C10CCF9E9
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Oct 2025 21:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E0EACCF9E5
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Oct 2025 00:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XUF9ZdNczvjhZ9PM5a7Pr96MQON0Q18TXT5j9CLDX1s=; b=S878Ukxgpgs0B1
-	y/R+YJdQ5hNuuqKfIDlzTaFlTA5wfz/qYbXR1W21vcOO2OAC5enlitUlEh6YNRQMe6p/FYuAV37oX
-	VmQEgr/jgdNeqE8Ot1NGtzR8k7d3LRRY1baVc9fWne4sqdpZj2Mn4as4gp08uNQdzIFU46+JM0yDx
-	iYWTfeg0cU8MXsu5qO2GJf90pvs4ytbMrrFsPil+sJKh20eAUnXTSpalq82MifnWG8/pe4JnhaHVU
-	5Uveeuc6BqARdwpXs9nxk4/I+V7scrznK7IRNyE99USdG2jzedHgziAyki5igE3flDhWNk/Wmr/al
-	2WeDw7d+nd7g30fPOgcw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mykTlvpV6CN+/BbTIZnQAYKtq9Rk2wKgnSgMnSXO2SY=; b=LDBORU2e5jefcl9MUi4qndDe7E
+	HT4IfVebed6Y5rGJieOFucBgqjySrTGCn9b3uPrhcqCk4ZyUaXX6bYSGQtgUsaU6JanD7JCHZu2QP
+	2+DbBOPXZDbQCpCmL2bs2k8N8fvNkFsrCbDrbMFEiiZAUU/YLO5loO/k6eBW7KfbcfoBtmr7Ukggj
+	QgEdvtWrRzDWnKqEb0tTFjRUo2U1maXAewQjo3GcDYRczsFLOfry4oBHYq5iPiZq+KpkItWm7dw+R
+	AWq6gG68y2hhUAvXQqpa9FpM5Q1orLJ+S4fLPCBnY4X9QVwAF4JY747mY1VpqcyEF/qjItmPKosFx
+	VKqZkLgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vClU6-0000000BlJb-2R6m;
-	Sat, 25 Oct 2025 21:07:34 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1vCog7-0000000Bsdj-0Gdo;
+	Sun, 26 Oct 2025 00:32:11 +0000
+Received: from mail-southindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d408::] helo=MA0PR01CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vClU4-0000000BlHA-2euE
+	id 1vCog4-0000000BsdN-2LmK
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Oct 2025 21:07:33 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-592fb80c2faso3121101e87.2
-        for <linux-riscv@lists.infradead.org>; Sat, 25 Oct 2025 14:07:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761426450; x=1762031250; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JFxB+FMNooBfOd2zLjcq46e2Dj/CD31Cyo7lUKy84vI=;
-        b=QUSKp+Zq+A392e6QxZphSC2I7ZcaRG5UXI6dkWAykKBXNsyZDWGJZGVayR9ErkfLam
-         lpQRPMIs3NiUmTTcWhYPAQDx8h2lagIquyGB6Grzv2i/4xIuY7cEQYX6x8PsrlkgWEDO
-         nsrS+u8PcLibZmXWtA5KhwtHrJ29hTAqU1HDnLGU5F0POdw0KOq6Ftobke3V24QbYYtF
-         Ke8dSsqRedbpnse1bzoJttEDJe6iblgCcQ6kRBC96KRZdMy/Rl+o28DId0Dwgi/aKF21
-         KpNNxlG570OgVUpSIUBfqj9NkVmvxJQyNHCOCIZ8blLBJ3TFPPrezdrn5HQOB2lo1HDA
-         Zncw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761426450; x=1762031250;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JFxB+FMNooBfOd2zLjcq46e2Dj/CD31Cyo7lUKy84vI=;
-        b=r2IoDWMQCrdJ1ttl8P0Q6nTY4p64np5kgHNaq/RGirHEWNQ4Vmhyk8/w30r231UFTi
-         qYAWB40RyPu0OPdVUqZa1Vk8N/ScdIFp/fKwL7Qy9ez0RxLZUeWeWvlvuaskDrT3aoz/
-         vhoVVKh3VzunO7VZxKJS6piIqYszdev+WVLgc4fzVU5mewdlkFxii29aN46cSStsn3ou
-         damrSvAmASouzjWPmbBaSx6Z5FwZIEaJ7tz/qFfkgSRv0YR9AxTAn5OOAOJ8R7HX7ULE
-         ggSlhqBjQlCQK4NwG7ssrRwHf/FMtFjx6jzXwgODV0t2xFyYYc1mQEs7aUz5POtABUML
-         el6A==
-X-Gm-Message-State: AOJu0YxPEfKg8qwsnfzPODGcUK2891tFuq7QcVCLyUHIXqOIjTyn1uKc
-	eRXXhtbiDW9J5VHISkdKdV2wXPCFLYOofZPiSH++1UiaRSeRBMF0sRQfp5HA3gsXCs0=
-X-Gm-Gg: ASbGnctTX4VanferWfhegP5Qj+U46Hv5pDhzBGhq2mPP03DVbFs4VauHInPJpr6CRHE
-	nTbOKRegGRCvmvDrZ2AOAv5QzVbARyRSkpfmVA9WvyIHQ0VQKZ3hyxp3u4ziEhiyUNMlS5a4s1q
-	gfamk8HnKZ3YmL8nqHX9BFmdx0yBVAjAdr2yPwdhwWZkWFkNquPXVUSLJixkd6onHZsw743AK+k
-	fw7swNkSDi74fxbxDtilwk0U5e+k61elBPBtLTEDZmCw9WqQu494y801tTUIx/S47zdrcmgSl+o
-	p5N7SDL0COvPb5mAX5NfYJWM61VKkN/OX3FDbktmH9CGApbSWSL537kHO2tthaF2ny6dhenxe1/
-	XTuFBaNmQGaExi9AangI1rOB/iq/WUTakOvyBbyLpbXq+Yk9nrnsTz+TTaryvMXj52/YpUR2biV
-	eyIw==
-X-Google-Smtp-Source: AGHT+IGWWrc4WdF7FX7lRQrDMuhwqAOXh5C+jquwBNySEwQCE3G1DQMT0DRSQnyd9anBGi35RkN5AQ==
-X-Received: by 2002:a05:6512:308d:b0:571:8fad:ecee with SMTP id 2adb3069b0e04-591d850c0efmr10901687e87.21.1761426449935;
-        Sat, 25 Oct 2025 14:07:29 -0700 (PDT)
-Received: from curiosity ([5.188.167.4])
-        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-59301f840dfsm953644e87.104.2025.10.25.14.07.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 25 Oct 2025 14:07:29 -0700 (PDT)
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Thomas Huth <thuth@redhat.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Joel Granados <joel.granados@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: [PATCH v3 9/9] selftests: riscv: verify syscalls discard vector context
-Date: Sun, 26 Oct 2025 00:06:42 +0300
-Message-ID: <20251025210655.43099-10-geomatsi@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251025210655.43099-1-geomatsi@gmail.com>
-References: <20251025210655.43099-1-geomatsi@gmail.com>
+	Sun, 26 Oct 2025 00:32:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yCAvJKuaevzIvaK47u7kZ6nYqxzvA65cYJk/+3zRrKqi6V0oB8Ptr4Iq3Z8yghFiJfm9xj9LI3Ld7wicNDyN+TEUliGirV+qBdPJX1VzrWqOLd5CBFKPNCQDZQpFfUynKwqLSIDl+KNBRhQafNvljJY78Um3MFVdhhhUOAALwNCA0uYV/aUB1pBz5ydPC8EieBrFsBBxLk0qVJCe1uaL9WCRMZh4zKROU8brvICNMwJIWkP1XHGtVYGIr5D1dU6pGagUhwdb8ptbyVM+5tsR/0S7egFCbVZSzi5I8cGMX8udFliUmZKFHvh+DHX1S2xRjwSiYW9dGIYKu/Epzp33DA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mPVIv2sJHt9D9xFei0UQWhAB8AVftGHc3OcRi6tXNO8=;
+ b=fjbbgHhE4jm9JWwnEjb9dAYUEodd6ev+wOJssMtlptUUp5TfwwHCM/Z1xfrpv7hrWvWLQ9JCGlE5oHhT2Tn3TG6G1nrOKs2ZsaEpx/sbvrE3PtDt0Wl5DGKfemdaYWbzhIPWhf8tbsTSYEdfccMvebrGf9gmi1uBUo+iW5MefbPil6Alt6P5DXHBTRLmmJa8sxmL6dFpjeX8Q6XKVQZLJ2maFUhh23Zp1LhDCh8v9KT+oGogoDObe5xflwuzs9V3dLl9oq34OIJYCiVxDAUFfM13AZAA3GgXog5EhTLX8LUiLRbRXoLGKSNFEDZ3aafy/+bZcgMMNSu07aFU42tcag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mPVIv2sJHt9D9xFei0UQWhAB8AVftGHc3OcRi6tXNO8=;
+ b=TmuypHo3qrKp9/7yzAMtyURfpEk3wiQhPkxpBTWbsziSmnBI6ZqG8rGFePaTmqMAjc/mNe2NY9LdazgZRMiCAzR/C/R/gXqzAkn7TF4EQ7rISsnEootv2yFTN5zqBb1vXHUL7kxnIun/g17XHKRmrh7eluPR40ULDFODUxMxRCCm+NytK8MCL6CbWOubvD1FJTBVrVNrVuBq8cSOZT0yJOmke3YFWM4gz2fQ97zI8y2P3XSlAlr06LVRKzYPZ50SF2UK/BKPkUWDv0BG/HnGg7xoJ9qf1aFwFWwDzllojKRgOMrWlV+BQWOF265GIYzzlVYy7asA+bhsnENEwaBcCg==
+Received: from PN6PR01MB11717.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:2f1::8)
+ by PN0PR01MB9120.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:160::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.16; Sun, 26 Oct
+ 2025 00:31:55 +0000
+Received: from PN6PR01MB11717.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::2e35:fc95:ee3:bf0f]) by PN6PR01MB11717.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::2e35:fc95:ee3:bf0f%6]) with mapi id 15.20.9253.013; Sun, 26 Oct 2025
+ 00:31:54 +0000
+Message-ID: <PN6PR01MB1171739409EDE88BC4453D09AFEFFA@PN6PR01MB11717.INDPRD01.PROD.OUTLOOK.COM>
+Date: Sun, 26 Oct 2025 08:31:49 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Add PCIe support in DTS for Sophgo SG2042 SoC
+To: Han Gao <rabenda.cn@gmail.com>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicornxw@gmail.com>, u.kleine-koenig@baylibre.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, conor+dt@kernel.org,
+ inochiama@gmail.com, krzk+dt@kernel.org, mani@kernel.org,
+ liujingqi@lanxincomputing.com, palmer@dabbelt.com, pjw@kernel.org,
+ robh@kernel.org, tglx@linutronix.de, sycamoremoon376@gmail.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, sophgo@lists.linux.dev,
+ chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com
+References: <cover.1760929111.git.unicorn_wang@outlook.com>
+ <PN6PR01MB1171791524E2BC1C227E342F6FEF5A@PN6PR01MB11717.INDPRD01.PROD.OUTLOOK.COM>
+ <CAAT7Ki_4nkKM1-D_8ybwusxTTsR=Lf09v8Cx6QDWfuy8KLtbBg@mail.gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <CAAT7Ki_4nkKM1-D_8ybwusxTTsR=Lf09v8Cx6QDWfuy8KLtbBg@mail.gmail.com>
+X-ClientProxiedBy: SI2PR01CA0042.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::23) To PN6PR01MB11717.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:2f1::8)
+X-Microsoft-Original-Message-ID: <f5257198-2f89-4987-82f7-7173b4a9ce71@outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN6PR01MB11717:EE_|PN0PR01MB9120:EE_
+X-MS-Office365-Filtering-Correlation-Id: 82953710-e301-45c9-710d-08de14271034
+X-Microsoft-Antispam: BCL:0;ARA:14566002|19110799012|461199028|6090799003|5072599009|23021999003|15080799012|8060799015|3412199025|440099028|41105399003|40105399003|52005399003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?S1k3VGQvbzNzeVVVbGxsdjd5T3A5UmNtSlJaQ1JhYU5GSVZUM1o1QzhoRDFC?=
+ =?utf-8?B?bzhzWUNOcUFVZWJCYTIzMS9EYTZLSStkZ0dOS3F4N3labS9kOVVleHRYaFk4?=
+ =?utf-8?B?WlZIbC9KWHgyWllxRnI1b0UzY1BuS3pzVlhVeXFaay9SUTlzMmdNVWYyNnF5?=
+ =?utf-8?B?K1ZWOVJ6VHo1U0kvZXk5Q0hyTXF1Y2x3LytraDRjQjV3aDZ4YzZsK2psaG9L?=
+ =?utf-8?B?NHU4c01EN25meklpM3poZDMzTGgzY1VyZWhONzhzOFl1TW9XVlMydDRtV1FV?=
+ =?utf-8?B?RGVZSlV3QkZYTFJ0MThaRk53cDdURVVKNUUzcHpzdm9JUUdMcGIzd2txWU5L?=
+ =?utf-8?B?RTd6OTZJUGMxUTJ1VlZmSml6cGk5NUZYek5BQXBGRFhxNXpGZm5ycEdMOFpY?=
+ =?utf-8?B?anR4QlZadGNmemJEVzR5bUJxZ2lkbXJhM29sa21YSk84MmQ2K3VoVGZqT042?=
+ =?utf-8?B?dVVhRis2Tk82OFh6VWRRV1BhcDhuMEYzanEycm14UDZ0Um5KalV1ZktuYi9y?=
+ =?utf-8?B?S3NUWjdheDZMSmttR290c3RsSVd3SHVXQ1FjWnRKaVlZVENCK3NDSXMyVis3?=
+ =?utf-8?B?dHlKSU9BMGlyc3NVYThvMFUxTnBvbVlRdS9CZU5EanlRVnpieXFraE9pbG9Z?=
+ =?utf-8?B?K0xlZkNnbWxpM2duNEsrMnUyL2QwbTNZNER3dEZ3ZGtNSE5SalJtRUhtc3Nx?=
+ =?utf-8?B?dGt4ajAzdHpFSHppWHBQRFRRb29TMG5VOW96MHlPeUFRQVlWNnJjKyt3UE5U?=
+ =?utf-8?B?SzNQbFNUZlBlQWZreThVWEZRaVIwVjQ5Uks3ZFFUS0ZlVVJBL3VVVE0vSW1x?=
+ =?utf-8?B?dkZ3ZzNFRExkbmNNNFRzczB4WThsN3pDbG9STHlJUjFMU0dhNVBGbmt0Zi9w?=
+ =?utf-8?B?MVR5OVFVd0ZiNnNJQk1uZGJLM1lqeGFEV2I5T09kSGs2SUNWam9TVk5yNGtr?=
+ =?utf-8?B?QWdQbGdBaVlYZWZyaFpoeURZS040ODdQanBsV1FLR25lQktQZVhUTUJtMXNh?=
+ =?utf-8?B?bS9oZExkSzZZU3VKV0lnV3E0WmNja3dBekFLcm1aTHF6ODc3N0xUbEFvQlBM?=
+ =?utf-8?B?bUp0cFhwTHYxbGpyU3JzMjJlZVdrTkVGaEJCWDI5Y0hGeEFleHdHYUM4K0FS?=
+ =?utf-8?B?WjYvbFJHd2k5RXZCMXdPTG1HSkpiV3VrL2VVRExSWXo5ajZkcURlc0srN1hL?=
+ =?utf-8?B?aE8yNzd5YkVzd1IxWEtWeUpaVnFtMWhNaGlKd2dqd2VlckZuTFR2dUk2ZzRn?=
+ =?utf-8?B?S3lOZjhFMjByQUp2a2NnaXE1cExKR2hNVWJmNjVXYURVUHRrRHJMQVcrb01p?=
+ =?utf-8?B?STRYa09zZm1tM0pYWHV1T2lvK1psbFVLbnpCY004OVVOTkJvYjZ2Zm5Pa01m?=
+ =?utf-8?B?cHpmMWFaaWRpTmIybnhiSEdXMmJ2VE4vbUNNQ2V1LzgxK2FJaHZhTkpsUnBW?=
+ =?utf-8?B?Y1lNL1FwaTd6czBJK2kzUks1YzM3d3k5WXVjc0JCRWZJQVlFbkpGcFFYMUdL?=
+ =?utf-8?B?TW5ZVUNsTktlR3lXUTk1VVZ1U1BRbW5IMzFzQTJjTHlGenIwTmxBY3JWV3d5?=
+ =?utf-8?B?aE55aDFPVWQ5MUVhV1RxTXF2MGZHemtZdnJmbzZqbkkyblkzNEV5bXpwOGpa?=
+ =?utf-8?Q?wCylneLYx3G/rB5iZ1Ld6urz8VL+eabLKmt2MMlwngys=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dy82eFNZR3IvNVF4aGJmVTZxZmp5cmdJV1hIQWQ4c2ZpMVFzeFdlbTVsR1Vm?=
+ =?utf-8?B?YTR5YXBtWVNsdEswckFpMzhZUHNTZlpBY0lVbzgva2xwZVBIMVdNTkM5MUdo?=
+ =?utf-8?B?VlZFSXVlSWdFZWY2VXM5WXVIekZiU2FkWmdkZUFsRmppcjUzN2FRVXJBNUJp?=
+ =?utf-8?B?aXBxWTY3aWttWG5OMUpDQ2MySlFvbFc4U29mQ2hmTnFWSDNSam5VMHU1ZkYv?=
+ =?utf-8?B?L3hIZXZtcmpNZzBabjNvK2p0Mk5TOXMwcnAzN1pReWNSYThOdnFWWEpYelBk?=
+ =?utf-8?B?TTlHVUw3ckpxOXV6b21aTkJHeEVlanJzUFVqbXV2ZzdqZGZIN3FkSXM2eW4r?=
+ =?utf-8?B?K0Izc0piNGFkVzBnSmozUnNQZlY0bjBHTzM3d0RMa1lLMFpBemFKeHg2alhy?=
+ =?utf-8?B?U3pheERJeENzQ2VicTlXcGhKejZ4TkhrdjhtK3dVeklHeDY0SWUwdlNXQnpX?=
+ =?utf-8?B?dkQvQTYybGRnMnZtOTRpQ0czTThMYjhDVTlGRkw5cmR4alFzT0hTRUI4UzlN?=
+ =?utf-8?B?TjByclpkdHFCZU91aXpRTFRuTGs0K3phMDh0Z1I0dk5nUzlsR1FVby9KS0hm?=
+ =?utf-8?B?eDV2UDMyaHdUa1lWdTRQMTFVd005R01CVTNnWGFxOHdoQ01LR1liMlpNL3dD?=
+ =?utf-8?B?aGFOd3NSbWlXQUpTQkxyT29aK2NXN21Mb0s0ZjBFaVpEeHBuOGYvY08xNy90?=
+ =?utf-8?B?SHlWbnlYTEpNRVk3VTAyT2JNRytQWGFZY1JSU3dneFY3R0M2THpLZDZ5bjVX?=
+ =?utf-8?B?dUFYL1BmQ0FHeFlGRnVuTEZQMFhIeTgxdUwzYy9RWEhoaUpPQSsxMnMyajg2?=
+ =?utf-8?B?VnJPQUJvVkIrYlZTQXpScVlaclpBRDlRQVE3akFrQ0drRFRSRlBVb1FFOEZS?=
+ =?utf-8?B?Y3dCdFpOMDFJbERMYWFJa295Z2k1Sjloc2NDL2doYVRVSjgrUnByV2xRK21F?=
+ =?utf-8?B?TFRhMDQ0a0pvWkVDY3VVRmhwQ1RCNExpVUxtc2V0SkZQVndpZW51ODZIWHpn?=
+ =?utf-8?B?eEt2bEpZRUorYXZUNXp4M0pPZE5UcWgvcVhVTXkvR1NzT3lyQ2xtb3UySlQv?=
+ =?utf-8?B?aTRpOC9RR1FOd2RaTmRwdUlJMFBzZlJZbUI0MEFxUnZJeUFxMXVzVlRHQ0Vt?=
+ =?utf-8?B?eU9TeW9FeDdKa2FDa2FhY1dEM3BpTkdsMjZQaGQxVEJTUkNQeHJ1ZHVkZXRr?=
+ =?utf-8?B?UXRjUkx5TDE5TnRkRmVJNmZSeHZJVk5rN2hFMXZMQ3VTR0FoSU0velgwQ0tK?=
+ =?utf-8?B?b3YxSSs5Q2ordXZsU0VQZjlPbkVlUC9KbVBiV1I4RDEyei9NTVZlVWZCd0xO?=
+ =?utf-8?B?ZS9lVkhsWG1Wajl0Uy9iR1QxRUNqRjFySWdsRnd0TVlEbmVER3lmakNIOHF6?=
+ =?utf-8?B?M1g2UWJ3aWdWSWowSXRLcWNzdUNFU1RyenVXeHRUQUs0MCszZTZ1T285OGFS?=
+ =?utf-8?B?clFZdFE4bXlhN0htMGV4N01DNFF1OWZVZnFGS1IzRjNZMlZEaVBTa2xtb01U?=
+ =?utf-8?B?d3A1R1FYM0JPWHdPSFRhQWUvTm9WMEZsY2Z2WXovc09GOVVDOHp2N3ZpTFdi?=
+ =?utf-8?B?RmZYRlY2eTRPNDZESGhPQklWSFhDVGZGQjF1NVJJNUN4S1dVVzFiRHdlYU1E?=
+ =?utf-8?B?QTJ3ZlpGeHRJeHZnWkhHTmp2SUJvYXBjejVaeGN4WVdBNW1iS1d3MnUxeHF3?=
+ =?utf-8?B?N2RhY21aeEl6allrQjZOd2dOTUp6cXVPSmFSTFFic29tdEEwUjNZT2c1QU1B?=
+ =?utf-8?Q?j2JWWkRaophmV4xdxP6cuLlfRAyYI9RIKt+j3dP?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 82953710-e301-45c9-710d-08de14271034
+X-MS-Exchange-CrossTenant-AuthSource: PN6PR01MB11717.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2025 00:31:54.4872
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0PR01MB9120
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251025_140732_690895_63C5D169 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20251025_173208_645650_F623D3CD 
+X-CRM114-Status: UNSURE (   2.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,134 +162,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a test to v_ptrace test suite to verify that vector csr registers
-are clobbered on syscalls.
 
-Signed-off-by: Sergey Matyukevich <geomatsi@gmail.com>
----
- .../testing/selftests/riscv/vector/v_ptrace.c | 102 ++++++++++++++++++
- 1 file changed, 102 insertions(+)
+On 10/25/2025 7:58 PM, Han Gao wrote:
+[......]
+>>> base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+> EVB1.X/2.0 can be started normally.
 
-diff --git a/tools/testing/selftests/riscv/vector/v_ptrace.c b/tools/testing/selftests/riscv/vector/v_ptrace.c
-index 7e8fdebded07..51a7cc71b2be 100644
---- a/tools/testing/selftests/riscv/vector/v_ptrace.c
-+++ b/tools/testing/selftests/riscv/vector/v_ptrace.c
-@@ -183,6 +183,108 @@ TEST(ptrace_v_early_debug)
- 	}
- }
- 
-+TEST(ptrace_v_syscall_clobbering)
-+{
-+	unsigned long vlenb;
-+	pid_t pid;
-+
-+	if (!is_vector_supported())
-+		SKIP(return, "Vector not supported");
-+
-+	asm volatile("csrr %[vlenb], vlenb" : [vlenb] "=r"(vlenb));
-+
-+	chld_lock = 1;
-+	pid = fork();
-+	ASSERT_LE(0, pid)
-+		TH_LOG("fork: %m");
-+
-+	if (pid == 0) {
-+		while (chld_lock == 1)
-+			asm volatile("" : : "g"(chld_lock) : "memory");
-+
-+		asm(".option arch, +zve32x\n");
-+		asm(".option arch, +c\n");
-+		asm volatile("vsetvli x0, x0, e8, m8, tu, mu\n");
-+
-+		while (1) {
-+			asm volatile ("c.ebreak");
-+			sleep(0);
-+		}
-+	} else {
-+		struct __riscv_v_regset_state *regset_data;
-+		struct user_regs_struct regs;
-+		size_t regset_size;
-+		struct iovec iov;
-+		int status;
-+
-+		/* attach */
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_ATTACH, pid, NULL, NULL));
-+		ASSERT_EQ(pid, waitpid(pid, &status, 0));
-+		ASSERT_TRUE(WIFSTOPPED(status));
-+
-+		/* unlock */
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_POKEDATA, pid, &chld_lock, 0));
-+
-+		/* resume and wait for the 1st c.ebreak */
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_CONT, pid, NULL, NULL));
-+		ASSERT_EQ(pid, waitpid(pid, &status, 0));
-+		ASSERT_TRUE(WIFSTOPPED(status));
-+
-+		/* read tracee vector csr regs using ptrace GETREGSET */
-+
-+		regset_size = sizeof(*regset_data) + vlenb * 32;
-+		regset_data = calloc(1, regset_size);
-+
-+		iov.iov_base = regset_data;
-+		iov.iov_len = regset_size;
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_RISCV_VECTOR, &iov));
-+
-+		/* verify initial vsetvli x0, x0, e8, m8, tu, mu settings */
-+
-+		EXPECT_EQ(3UL, regset_data->vtype);
-+		EXPECT_EQ(0UL, regset_data->vstart);
-+		EXPECT_EQ(16UL, regset_data->vlenb);
-+		EXPECT_EQ(0UL, regset_data->vcsr);
-+		EXPECT_EQ(0UL, regset_data->vl);
-+
-+		/* skip 1st c.ebreak, then resume and wait for the 2nd c.ebreak */
-+
-+		iov.iov_base = &regs;
-+		iov.iov_len = sizeof(regs);
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_PRSTATUS, &iov));
-+		regs.pc += 2;
-+		ASSERT_EQ(0, ptrace(PTRACE_SETREGSET, pid, NT_PRSTATUS, &iov));
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_CONT, pid, NULL, NULL));
-+		ASSERT_EQ(pid, waitpid(pid, &status, 0));
-+		ASSERT_TRUE(WIFSTOPPED(status));
-+
-+		/* read tracee vtype using ptrace GETREGSET */
-+
-+		iov.iov_base = regset_data;
-+		iov.iov_len = regset_size;
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_RISCV_VECTOR, &iov));
-+
-+		/* verify that V state is illegal after syscall */
-+
-+		EXPECT_EQ((1UL << (__riscv_xlen - 1)), regset_data->vtype);
-+		EXPECT_EQ(vlenb, regset_data->vlenb);
-+		EXPECT_EQ(0UL, regset_data->vstart);
-+		EXPECT_EQ(0UL, regset_data->vcsr);
-+		EXPECT_EQ(0UL, regset_data->vl);
-+
-+		/* cleanup */
-+
-+		ASSERT_EQ(0, kill(pid, SIGKILL));
-+	}
-+}
-+
- FIXTURE(v_csr_invalid)
- {
- };
--- 
-2.51.0
+Thank you, Han.
+
+Inochi, please add "Tested-by: Han Gao <rabenda.cn@gmail.com>" when you 
+pick this patchset for next.
+
+Regards,
+
+Chen
 
 
 _______________________________________________
