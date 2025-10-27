@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F0E0CCF9EA
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 13:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07307CCF9EA
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 13:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eDks47wEOaXOttMNyyBHMq+TKVN5+AP4x/ISo889l1g=; b=NMyTjbrp9WLtY+
-	rLu1NR42zoQx95awlK/4D2xcl6dvTVUksgmNs5oJVtjbokz+Kp7pM9gcJFl8op4P7qrQfftXKNiri
-	d9YBbsAzsT2z2kidBHK+HJC2UWYS3g/BIWtS7olGojSKvEjYYc+3IV3Gf7z+62WrhTYOD5t8+T2B1
-	pRbzjviIEnuNPBWROwGa6gMdMAOA1cKD8iofP8DMX0kGlftNYRGaI5I1I+SKI6WoVVG6pJ4tGx7I1
-	CqwMtOo2xus94clvXzX2YWekJDwyy8DI4pXW1OsS4V0EwVguGjwLpSOjp973Um+YaM4++ASY0aGKt
-	6PLe4QOqbfvGSL0hseEQ==;
+	List-Owner; bh=1hBc+eS6zDi9YEHYLkyxBvCG7koTDKlNlL8BHatyfpE=; b=sDy02mkSaHD6mr
+	M0AtiqC8p77vSntDP30NMKvWR/ohXCDONdjS+oAIRtsyYODNQT3H2smRv6DDQla8YgsR4Ptc1tZtw
+	dwrnkBco8/01fdPM0b5wfUPjB6ogfOd9DWkRbCqu8FyEvXlrwxoVFyIXqs+NBQMXwl9trbnlpqxFl
+	HatqE/F58C7/pzx3L/5D1hHVxmIBcc4zFwQJN3NcPl1J8hw3z0yAiogKsVti5CO/JDcB/nOdydbfV
+	imVLk6bV4ZX0aKXQyV28fQX/K6DChrIWAFXuBF7rnS2/JqTevJ7guZ38m73G1qmW0bJYhlWcto7Ki
+	wssilWAAeg8WziFon5bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNNF-0000000E3of-1vk4;
-	Mon, 27 Oct 2025 13:35:01 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vDNNM-0000000E3rv-3Cwj;
+	Mon, 27 Oct 2025 13:35:09 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNND-0000000E3mk-2Rgp
+	id 1vDNNK-0000000E3qo-2MG1
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Oct 2025 13:35:00 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2697899a202so39341395ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Oct 2025 06:34:59 -0700 (PDT)
+	Mon, 27 Oct 2025 13:35:07 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2897522a1dfso41421245ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Oct 2025 06:35:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1761572099; x=1762176899; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1761572106; x=1762176906; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=F2tpoOA+Gs0GcQeB3g/zAgXC64WCGfPZHVizPT/nBl4=;
-        b=Px+eyUp/sBhcMjeNd99Ww/72cXDa/kpvLoI6hYo7G/xyoHj9HIf6nJFdiyis3sL+d7
-         I4yVNIuFrDOsQNgb0e7xuJAl/oG7I3hzvSelvPJMLggIagnSvJh/Sp+uTIgQd857xakn
-         r69xuX981BQljMxXIWymWCP9NeU3RR2C8jRK1K694NwHz1e86Ls+ihiabiCmjFYnB7PJ
-         9mSGSHF5ibOp5s5C0ZVx6D6DZ1TlZ2Z0/FjGqE2634zkM1yh3HedCYChxF9KPjV5OK41
-         b7ILlg3nzjpjniaq/+DLMNE2l5XkhJcYMktVq2E8Cn9/HT9UCs66IHtA9ds8ibQyJANY
-         VEIw==
+        bh=Gf2byQo5fmxHvlqt1fW/n5vtPohTmPg2uYhy1tIBWrE=;
+        b=fpd5LrJ6/ih2bThHyo0Yu3dGVQcEMJcqp3V6L74CGnVNo080Hpx2iFfKnBneIznxkG
+         Ef6/KCIyQ84s/IlmiaVyyNMsNtlnt6QmSPg6o0ILEgceXtCAkm1EhRaRiJaKUE+Q/a3Z
+         ewMmRm6XdivVepESEjaDpGkyeFmovUnek/9bmd1EybTAkf1kM4cGGrncQ0f19nPR/sCp
+         fdjJsOD7WM9+sQMd2L0msOCzkRL+uBFstKibCPGRjCpzUBHuBfXvT0/1ga49LSPGxO9F
+         bGhBbq98POeUgfHd0/cggYw/i03RH0tZBqiXdwgYqzNfbW9rZzrdQyJUnb6wUqUm63YP
+         jsDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761572099; x=1762176899;
+        d=1e100.net; s=20230601; t=1761572106; x=1762176906;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=F2tpoOA+Gs0GcQeB3g/zAgXC64WCGfPZHVizPT/nBl4=;
-        b=pU+hH+D4zU6KB/J2YVt70kkAQC8WIjoORLp/Qs+6KxSPKuHT9cgNAZJKTM+c1kWG5c
-         H3x3cAQzjuSqvjTQxRM16yq879CuwuNJMeLD6c1PQe8S2DddkysWlaQ0+m/490Oy5+2B
-         fQY63M/r0ffkwzdYFpLSlvuvg5tBBhorgAyuY3kuzJXKY1aQXQAM8ho6l99syzdZrssB
-         +vDeYxgzPhLkuiVrNHhtdXoo3saUuxuUshAGssVY8ToDGJT398j1MIp6BP76ooC5sJRA
-         qAMcWHaMOJXPFO9E3sIPKkXxePgQ1KZ5meGKBHiL41haY29yHYat8QeSqXHM7YrY+I27
-         NCQA==
-X-Forwarded-Encrypted: i=1; AJvYcCWPX39SXvKxzAo5jr2js0PqbJXI2RBfhfEw0cZCLN9JfW6H3/Ny/XHwvTjKKYg5cSHhlU/XXJtDDniRbg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1d6Pb15BpqqmGC9BawbR12KRNIjlFM4+F3UTlXCICBIOfl95n
-	z5BWaJ0PoV5bhlmHHbsB+lbHakHFltuIE8XFSX2+gc/8lXDEdaFfyUKOo1F7LLuFrPg=
-X-Gm-Gg: ASbGncs2YB06GUsex4HJ1fC35LdodGCSF4xqoukcPGVo8vaaAPjZCgWUFsgTqmih2qu
-	DhETDWEs3UejqAuXSYoEsh4HOkBy21zts+ytu1+VDVMCLPmc4tovZDcjzoWRGsh4yQoru2SuMDB
-	GB9x3TgcwsLObiT5UVgyjOoCQ6/kXvhe9ySjXLOxFuHvmBHULhPBdJZxJFWL8gDHPsW54jhYjm1
-	gizASPP64/5V6FAoLYFhJhxWJdkUSt6L/I1ANbAeZXiBBhPHMB9NuuCh4cFUqYNb2L4mbYemmXi
-	ohocjM2hOq+ySkyesQh4vqGnmWZOccNRHQIAQcH7TFXySK7Y0d0iWxs6vQ7gUdNQgYtvmxjrILN
-	y8gtWqBdej9NqacHwFFU7OLPE8xt2c2P/sNuqW8qy9fZ1pw6ZkDgd6IEcXOErsO4EDQgjfVTQHR
-	sZi1+mEL6ugdEIfJ8Gh38b9edBQUyUBD8c0kW1f/3yn1mDDATEiJwSX3k=
-X-Google-Smtp-Source: AGHT+IGyC7d4gEQa/irJWDsd6pG/6nY8eBmVQxw1YuZC3U55Ay9+08PmeEB9dusslzwWoy4UiH9GOA==
-X-Received: by 2002:a17:903:4b04:b0:271:9b0e:54ca with SMTP id d9443c01a7336-29489db2210mr142833545ad.13.1761572098543;
-        Mon, 27 Oct 2025 06:34:58 -0700 (PDT)
+        bh=Gf2byQo5fmxHvlqt1fW/n5vtPohTmPg2uYhy1tIBWrE=;
+        b=e1dUsRtyr0xKsaHnNj02USudf/NLxGNwbKocSESs/cPSe9abh4zUVK9VfdLiAkQx/q
+         VydkQrXOZv9+qBhZdkNBhtCiJMr8hL0n0YjwWTGvOV7wPviymnzd0jY4cFYI8AhZSWqD
+         U9t9DTwPvdpu4XIuSrIakTCYc92Py8LiWKcV3Xe2uQS8os1tdhzGTL1feSbLxcoLGdpN
+         u7kuvbZJR7BDE0V34FKSKgCbZWhfzjTt0zBuvu1tOLKCCCcSAAFIcbSAu60vMf+pS7sJ
+         ijnnTmM12WTNcMr+TdsDVMqm98mQfZRYT6Hqw+9W7mTtDpaXVJDyazF9u11+S+LOM+GM
+         s+cg==
+X-Forwarded-Encrypted: i=1; AJvYcCWfp8tV7jV0RscMTii+tNT2On6PxAV4yqlsJc4OEXXI2RF9ujEv3MuYTHDw6YDfd6oC+lY/rxDmclYMLg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJ+9xAreJyPgcBpj9lRcMG0Q+mZ3eGOy+cmvAayJ5cFRkS+PKT
+	kXoJst5TK65+6aJXJZi1lMdQ/gtScxNpYaTjk7qjxysJZHXrv3GixP+ub2rcLGNcUYg=
+X-Gm-Gg: ASbGnctfZaGRpR+gGGaS8wnoNEdCACpPIlNhr8Y4mwp3uKuFKDXpVsMiy7Dl90NrXIX
+	os4eE/FtZZx7dYXzVCgAHSzjn3NY5hFD4upZ0mdU5Jp5gOzizihZat9KrgC/XHxzHBCjQF2nOZo
+	YYlGYxHyC51uUjnOwUITmGzNDK3zgpdLKltcGOUG3IhFaKImbgtcuz0WtutFzeSmf20uoJeyqgf
+	+Zu2JxI8cFF6ZA4gyIFaYIm/3FZIALNMitbbipc1WphlYi3PTQDSNG5TfeHVda88r2aqb0dn1UC
+	mtQKa6iCMnHuGM0Y4JPE6bs4DBNWE8VPIJyXFVT4UHaDHHb5kcvE3zpnziFUhDpwoULbx3keoI2
+	3h6bZGkhAYNjnirfYkY18c5doptdeTS60s1Z/OAvcFvxwYMs2JHnidaZmsGJEnP1qKYpcZjxYSg
+	pa0WOprYG47cZUgsfK4dmN+k16F6c2gr0luAaZKvVRfJ2l
+X-Google-Smtp-Source: AGHT+IEkSEsG4Ebc/jr5wleheQlZJY/QTQo5NA62FtFuEAV5bE/VX+mMzdF9/JFM2TWcUbWDoospuw==
+X-Received: by 2002:a17:903:2f88:b0:267:a5df:9b07 with SMTP id d9443c01a7336-2946de3ea9cmr168514315ad.12.1761572105420;
+        Mon, 27 Oct 2025 06:35:05 -0700 (PDT)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d42558sm82144935ad.69.2025.10.27.06.34.52
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d42558sm82144935ad.69.2025.10.27.06.34.58
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 27 Oct 2025 06:34:58 -0700 (PDT)
+        Mon, 27 Oct 2025 06:35:05 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -91,16 +91,16 @@ To: paul.walmsley@sifive.com,
 	valentina.fernandezalanis@microchip.com,
 	jassisinghbrar@gmail.com,
 	conor.dooley@microchip.com
-Subject: [PATCH 2/3] riscv: crash: move IPI crash handling logic to crash.c
-Date: Mon, 27 Oct 2025 21:34:30 +0800
-Message-Id: <20251027133431.15321-3-cuiyunhui@bytedance.com>
+Subject: [PATCH 3/3] riscv: crash: use NMI to stop the CPU
+Date: Mon, 27 Oct 2025 21:34:31 +0800
+Message-Id: <20251027133431.15321-4-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <20251027133431.15321-1-cuiyunhui@bytedance.com>
 References: <20251027133431.15321-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_063459_636111_62CEDCEB 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20251027_063506_606489_4C30496D 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,305 +117,233 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move IPI crash handling code from smp.c to a new crash.c to
-separate concerns and improve code organization, no functional change.
+NMI is more robust than IPI for stopping CPUs during crashes,
+especially with interrupts disabled. Add SBI_SSE_EVENT_LOCAL_CRASH_NMI
+eventid to implement NMI for stopping CPUs.
 
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- arch/riscv/include/asm/crash.h | 16 ++++++
- arch/riscv/include/asm/smp.h   | 14 +++++
- arch/riscv/kernel/Makefile     |  2 +-
- arch/riscv/kernel/crash.c      | 84 +++++++++++++++++++++++++++++
- arch/riscv/kernel/smp.c        | 99 +---------------------------------
- 5 files changed, 117 insertions(+), 98 deletions(-)
- create mode 100644 arch/riscv/include/asm/crash.h
- create mode 100644 arch/riscv/kernel/crash.c
+ arch/riscv/include/asm/crash.h   |  1 +
+ arch/riscv/include/asm/sbi.h     |  1 +
+ arch/riscv/kernel/crash.c        | 31 +++++++++++++-
+ drivers/firmware/riscv/sse_nmi.c | 71 +++++++++++++++++++++++++++++++-
+ include/linux/sse_nmi.h          |  8 ++++
+ 5 files changed, 109 insertions(+), 3 deletions(-)
+ create mode 100644 include/linux/sse_nmi.h
 
 diff --git a/arch/riscv/include/asm/crash.h b/arch/riscv/include/asm/crash.h
-new file mode 100644
-index 0000000000000..b64df919277d4
---- /dev/null
+index b64df919277d4..5076f297cbc15 100644
+--- a/arch/riscv/include/asm/crash.h
 +++ b/arch/riscv/include/asm/crash.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+
-+#ifndef _ASM_RISC_V_CRASH_H
-+#define _ASM_RISC_V_CRASH_H
-+
-+#ifdef CONFIG_KEXEC_CORE
-+void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs);
-+#else
-+static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
-+{
-+	unreachable();
-+}
-+#endif
-+
-+#endif
-+
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index 7ac80e9f22889..ffd7f6f8d25aa 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -12,6 +12,18 @@
+@@ -5,6 +5,7 @@
  
- #define INVALID_HARTID ULONG_MAX
+ #ifdef CONFIG_KEXEC_CORE
+ void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs);
++void cpu_crash_stop(unsigned int cpu, struct pt_regs *regs);
+ #else
+ static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
+ {
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 52d3fdf2d4cc1..65cce85237879 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -487,6 +487,7 @@ enum sbi_sse_attr_id {
+ #define SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS	0x00108000
+ #define SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED	0xffff0000
+ #define SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI		0xffff0001
++#define SBI_SSE_EVENT_LOCAL_CRASH_NMI		0xffff0002
+ #define SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED	0xffff8000
  
-+enum ipi_message_type {
-+	IPI_RESCHEDULE,
-+	IPI_CALL_FUNC,
-+	IPI_CPU_STOP,
-+	IPI_CPU_CRASH_STOP,
-+	IPI_IRQ_WORK,
-+	IPI_TIMER,
-+	IPI_CPU_BACKTRACE,
-+	IPI_KGDB_ROUNDUP,
-+	IPI_MAX
-+};
-+
- struct seq_file;
- extern unsigned long boot_cpu_hartid;
- 
-@@ -51,6 +63,8 @@ bool riscv_ipi_have_virq_range(void);
- /* Set the IPI interrupt numbers for arch (called by irqchip drivers) */
- void riscv_ipi_set_virq_range(int virq, int nr);
- 
-+void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op);
-+
- /* Check other CPUs stop or not */
- bool smp_crash_stop_failed(void);
- 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 16637e01a6b34..f0fd655b113d3 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -107,7 +107,7 @@ endif
- obj-$(CONFIG_HOTPLUG_CPU)	+= cpu-hotplug.o
- obj-$(CONFIG_PARAVIRT)		+= paravirt.o
- obj-$(CONFIG_KGDB)		+= kgdb.o
--obj-$(CONFIG_KEXEC_CORE)	+= kexec_relocate.o crash_save_regs.o machine_kexec.o
-+obj-$(CONFIG_KEXEC_CORE)	+= kexec_relocate.o crash_save_regs.o machine_kexec.o crash.o
- obj-$(CONFIG_KEXEC_FILE)	+= kexec_elf.o kexec_image.o machine_kexec_file.o
- obj-$(CONFIG_CRASH_DUMP)	+= crash_dump.o
- obj-$(CONFIG_VMCORE_INFO)	+= vmcore_info.o
+ #define SBI_SSE_EVENT_PLATFORM		BIT(14)
 diff --git a/arch/riscv/kernel/crash.c b/arch/riscv/kernel/crash.c
-new file mode 100644
-index 0000000000000..12598bbc2df04
---- /dev/null
+index 12598bbc2df04..9f3f0becfdd95 100644
+--- a/arch/riscv/kernel/crash.c
 +++ b/arch/riscv/kernel/crash.c
-@@ -0,0 +1,84 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+
-+#include <linux/cpu.h>
-+#include <linux/delay.h>
-+#include <linux/kexec.h>
-+#include <linux/smp.h>
-+#include <linux/sched.h>
-+
-+#include <asm/cpu_ops.h>
-+
-+static atomic_t waiting_for_crash_ipi = ATOMIC_INIT(0);
-+
-+inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
-+{
-+	crash_save_cpu(regs, cpu);
-+
-+	atomic_dec(&waiting_for_crash_ipi);
-+
-+	local_irq_disable();
-+
-+#ifdef CONFIG_HOTPLUG_CPU
-+	if (cpu_has_hotplug(cpu))
-+		cpu_ops->cpu_stop();
-+#endif
-+
-+	for (;;)
-+		wait_for_interrupt();
-+}
-+
-+/*
-+ * The number of CPUs online, not counting this CPU (which may not be
-+ * fully online and so not counted in num_online_cpus()).
-+ */
-+static inline unsigned int num_other_online_cpus(void)
-+{
-+	unsigned int this_cpu_online = cpu_online(smp_processor_id());
-+
-+	return num_online_cpus() - this_cpu_online;
-+}
-+
-+void crash_smp_send_stop(void)
-+{
-+	static int cpus_stopped;
-+	cpumask_t mask;
-+	unsigned long timeout;
-+
-+	/*
-+	 * This function can be called twice in panic path, but obviously
-+	 * we execute this only once.
-+	 */
-+	if (cpus_stopped)
-+		return;
-+
-+	cpus_stopped = 1;
-+
-+	/*
-+	 * If this cpu is the only one alive at this point in time, online or
-+	 * not, there are no stop messages to be sent around, so just back out.
-+	 */
-+	if (num_other_online_cpus() == 0)
-+		return;
-+
-+	cpumask_copy(&mask, cpu_online_mask);
-+	cpumask_clear_cpu(smp_processor_id(), &mask);
-+
-+	atomic_set(&waiting_for_crash_ipi, num_other_online_cpus());
-+
-+	pr_crit("SMP: stopping secondary CPUs\n");
-+	send_ipi_mask(&mask, IPI_CPU_CRASH_STOP);
-+
-+	/* Wait up to one second for other CPUs to stop */
-+	timeout = USEC_PER_SEC;
-+	while ((atomic_read(&waiting_for_crash_ipi) > 0) && timeout--)
-+		udelay(1);
-+
-+	if (atomic_read(&waiting_for_crash_ipi) > 0)
-+		pr_warn("SMP: failed to stop secondary CPUs %*pbl\n",
-+			cpumask_pr_args(&mask));
-+}
-+
-+bool smp_crash_stop_failed(void)
-+{
-+	return (atomic_read(&waiting_for_crash_ipi) > 0);
-+}
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index e650dec448176..c4191b15b3547 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -24,22 +24,11 @@
- #include <linux/irq_work.h>
- #include <linux/nmi.h>
+@@ -3,14 +3,16 @@
+ #include <linux/cpu.h>
+ #include <linux/delay.h>
+ #include <linux/kexec.h>
++#include <linux/sse_nmi.h>
+ #include <linux/smp.h>
+ #include <linux/sched.h>
  
 +#include <asm/crash.h>
- #include <asm/tlbflush.h>
- #include <asm/cacheflush.h>
  #include <asm/cpu_ops.h>
  
--enum ipi_message_type {
--	IPI_RESCHEDULE,
--	IPI_CALL_FUNC,
--	IPI_CPU_STOP,
--	IPI_CPU_CRASH_STOP,
--	IPI_IRQ_WORK,
--	IPI_TIMER,
--	IPI_CPU_BACKTRACE,
--	IPI_KGDB_ROUNDUP,
--	IPI_MAX
--};
--
- unsigned long __cpuid_to_hartid_map[NR_CPUS] __ro_after_init = {
- 	[0 ... NR_CPUS-1] = INVALID_HARTID
- };
-@@ -75,33 +64,7 @@ static void ipi_stop(void)
+ static atomic_t waiting_for_crash_ipi = ATOMIC_INIT(0);
+ 
+-inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
++void cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
+ {
+ 	crash_save_cpu(regs, cpu);
+ 
+@@ -27,6 +29,11 @@ inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
  		wait_for_interrupt();
  }
  
--#ifdef CONFIG_KEXEC_CORE
--static atomic_t waiting_for_crash_ipi = ATOMIC_INIT(0);
--
--static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
--{
--	crash_save_cpu(regs, cpu);
--
--	atomic_dec(&waiting_for_crash_ipi);
--
--	local_irq_disable();
--
--#ifdef CONFIG_HOTPLUG_CPU
--	if (cpu_has_hotplug(cpu))
--		cpu_ops->cpu_stop();
--#endif
--
--	for(;;)
--		wait_for_interrupt();
--}
--#else
--static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
--{
--	unreachable();
--}
--#endif
--
--static void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op)
-+void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op)
- {
- 	__ipi_send_mask(ipi_desc[op], mask);
- }
-@@ -276,64 +239,6 @@ void smp_send_stop(void)
- 			   cpumask_pr_args(cpu_online_mask));
++inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
++{
++	cpu_crash_stop(cpu, regs);
++}
++
+ /*
+  * The number of CPUs online, not counting this CPU (which may not be
+  * fully online and so not counted in num_online_cpus()).
+@@ -38,6 +45,24 @@ static inline unsigned int num_other_online_cpus(void)
+ 	return num_online_cpus() - this_cpu_online;
  }
  
--#ifdef CONFIG_KEXEC_CORE
--/*
-- * The number of CPUs online, not counting this CPU (which may not be
-- * fully online and so not counted in num_online_cpus()).
-- */
--static inline unsigned int num_other_online_cpus(void)
--{
--	unsigned int this_cpu_online = cpu_online(smp_processor_id());
--
--	return num_online_cpus() - this_cpu_online;
--}
--
--void crash_smp_send_stop(void)
--{
--	static int cpus_stopped;
--	cpumask_t mask;
--	unsigned long timeout;
--
--	/*
--	 * This function can be called twice in panic path, but obviously
--	 * we execute this only once.
--	 */
--	if (cpus_stopped)
--		return;
--
--	cpus_stopped = 1;
--
--	/*
--	 * If this cpu is the only one alive at this point in time, online or
--	 * not, there are no stop messages to be sent around, so just back out.
--	 */
--	if (num_other_online_cpus() == 0)
--		return;
--
--	cpumask_copy(&mask, cpu_online_mask);
--	cpumask_clear_cpu(smp_processor_id(), &mask);
--
--	atomic_set(&waiting_for_crash_ipi, num_other_online_cpus());
--
--	pr_crit("SMP: stopping secondary CPUs\n");
--	send_ipi_mask(&mask, IPI_CPU_CRASH_STOP);
--
--	/* Wait up to one second for other CPUs to stop */
--	timeout = USEC_PER_SEC;
--	while ((atomic_read(&waiting_for_crash_ipi) > 0) && timeout--)
--		udelay(1);
--
--	if (atomic_read(&waiting_for_crash_ipi) > 0)
--		pr_warn("SMP: failed to stop secondary CPUs %*pbl\n",
--			cpumask_pr_args(&mask));
--}
--
--bool smp_crash_stop_failed(void)
--{
--	return (atomic_read(&waiting_for_crash_ipi) > 0);
--}
--#endif
--
- void arch_smp_send_reschedule(int cpu)
++#ifdef CONFIG_RISCV_SSE_NMI
++static int send_nmi_stop_cpu(cpumask_t *mask)
++{
++	unsigned int cpu;
++	int ret = 0;
++
++	for_each_cpu(cpu, mask)
++		ret += carsh_nmi_stop_cpu(cpu);
++
++	return ret;
++}
++#else
++static inline int send_nmi_stop_cpu(cpumask_t *mask)
++{
++	return -EOPNOTSUPP;
++}
++#endif
++
+ void crash_smp_send_stop(void)
  {
- 	send_ipi_single(cpu, IPI_RESCHEDULE);
+ 	static int cpus_stopped;
+@@ -66,7 +91,9 @@ void crash_smp_send_stop(void)
+ 	atomic_set(&waiting_for_crash_ipi, num_other_online_cpus());
+ 
+ 	pr_crit("SMP: stopping secondary CPUs\n");
+-	send_ipi_mask(&mask, IPI_CPU_CRASH_STOP);
++
++	if (send_nmi_stop_cpu(&mask))
++		send_ipi_mask(&mask, IPI_CPU_CRASH_STOP);
+ 
+ 	/* Wait up to one second for other CPUs to stop */
+ 	timeout = USEC_PER_SEC;
+diff --git a/drivers/firmware/riscv/sse_nmi.c b/drivers/firmware/riscv/sse_nmi.c
+index 2c1eaea2bbabc..152d787075345 100644
+--- a/drivers/firmware/riscv/sse_nmi.c
++++ b/drivers/firmware/riscv/sse_nmi.c
+@@ -4,13 +4,16 @@
+ 
+ #include <linux/nmi.h>
+ #include <linux/riscv_sbi_sse.h>
++#include <linux/sse_nmi.h>
+ #include <linux/sysctl.h>
+ 
++#include <asm/crash.h>
+ #include <asm/irq_regs.h>
+ #include <asm/sbi.h>
+ 
+ int unknown_nmi_panic;
+ static struct sse_event *unknown_nmi_evt;
++static struct sse_event *crash_nmi_evt;
+ static struct ctl_table_header *unknown_nmi_sysctl_header;
+ 
+ static int __init setup_unknown_nmi_panic(char *str)
+@@ -32,6 +35,12 @@ const struct ctl_table unknown_nmi_table[] = {
+ 	},
+ };
+ 
++static inline struct sbiret sbi_sse_ecall(int fid, unsigned long arg0,
++					  unsigned long arg1)
++{
++	return sbi_ecall(SBI_EXT_SSE, fid, arg0, arg1, 0, 0, 0, 0);
++}
++
+ static int unknown_nmi_handler(u32 evt, void *arg, struct pt_regs *regs)
+ {
+ 	pr_emerg("NMI received for unknown on CPU %d.\n", smp_processor_id());
+@@ -73,9 +82,69 @@ static int unknown_nmi_init(void)
+ 	return ret;
+ }
+ 
++#ifdef CONFIG_KEXEC_CORE
++int carsh_nmi_stop_cpu(unsigned int cpu)
++{
++	unsigned int hart_id = cpuid_to_hartid_map(cpu);
++	u32 evt = SBI_SSE_EVENT_LOCAL_CRASH_NMI;
++	struct sbiret ret;
++
++	ret = sbi_sse_ecall(SBI_SSE_EVENT_INJECT, evt, hart_id);
++	if (ret.error) {
++		pr_err("Failed to signal event %x, error %ld\n", evt, ret.error);
++		return sbi_err_map_linux_errno(ret.error);
++	}
++
++	return 0;
++}
++
++static int crash_nmi_handler(u32 evt, void *arg, struct pt_regs *regs)
++{
++	cpu_crash_stop(smp_processor_id(), regs);
++
++	return 0;
++}
++
++static int crash_nmi_init(void)
++{
++	int ret;
++
++	crash_nmi_evt = sse_event_register(SBI_SSE_EVENT_LOCAL_CRASH_NMI, 0,
++				 crash_nmi_handler, NULL);
++	if (IS_ERR(crash_nmi_evt))
++		return PTR_ERR(crash_nmi_evt);
++
++	ret = sse_event_enable(crash_nmi_evt);
++	if (ret) {
++		sse_event_unregister(crash_nmi_evt);
++		return ret;
++	}
++
++	pr_info("Using SSE for crash NMI event delivery\n");
++
++	return 0;
++}
++#endif
++
+ static int __init sse_nmi_init(void)
+ {
+-	return unknown_nmi_init();
++	int ret;
++
++	ret = unknown_nmi_init();
++	if (ret) {
++		pr_err("Unknown_nmi_init failed with error %d\n", ret);
++		return ret;
++	}
++
++#ifdef CONFIG_KEXEC_CORE
++	ret = crash_nmi_init();
++	if (ret) {
++		pr_err("Crash_nmi_init failed with error %d\n", ret);
++		return ret;
++	}
++#endif
++
++	return 0;
+ }
+ 
+ late_initcall(sse_nmi_init);
+diff --git a/include/linux/sse_nmi.h b/include/linux/sse_nmi.h
+new file mode 100644
+index 0000000000000..548a348ac0a46
+--- /dev/null
++++ b/include/linux/sse_nmi.h
+@@ -0,0 +1,8 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __LINUX_RISCV_SSE_NMI_H
++#define __LINUX_RISCV_SSE_NMI_H
++
++int carsh_nmi_stop_cpu(unsigned int cpu);
++
++#endif
 -- 
 2.39.5
 
