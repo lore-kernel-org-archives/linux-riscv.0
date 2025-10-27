@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C6BCCF9EA
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 10:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B98CCF9E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 10:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/mQGIaNqOQtZ+nyXhQG6BwvgRhQYYW1xBP9DLqzQkz0=; b=ZNIxFeK63PGdcJ
-	wvONQY1R61iQa4ueHQxaY+Sq37nICup6AkiYLA7gqaL73E6CEF//TcA/2Sgmgw6+5EkdRAisNwogK
-	7RgTTripNB9rqfj9s1RlWvcje4iaI3syzqtfokYAaLr39+HM6/sOS1dSCdZ9nSz2p7zwchgZlvtmm
-	CVoXA8IJhH/GggmZmInl4ku5sxRCl5z/MPXo+DuTex1G64NhK8y16uCU6xjvbID+kOF0PZxJH1equ
-	G00Vw3/kYrcPYas6OoxylkXDyJ17q+vN6oQWmIiAltrklc59xYM82Q7JtVisiztRcZ+YSCR5l3y9k
-	IlYcgSPV3koWLcjXH3HA==;
+	List-Owner; bh=Zh2TG5V13AMadA8SC6NkxKsrOSBd7ZkQc850/vTvCu8=; b=kJbxdliUHQ8WBi
+	CZHdgDSO7EgoVjiNE7I7iTYSWY1E5mD7jvVFkN9SAfCM7l5ZvEqrMr/nzEL2bIqmyHkyPI21cH2b/
+	Lx9+6Mp445+BEgoG9++vchXKStGgSOu42IkRTt6U4nb6aEja5JtoWeKrENDky7d/QCDVPdgm9TvM4
+	QubUgeVC4GTJFPLnhU9SGI9odWvpTuKeulsKZzsFWSsKOFjHBAlMHctWCbn+xp7/ULvPAUoX0ePuy
+	rN6Nk8X3DwMF6V3F/lMYu6A8iNr7AMyPXDJngVCBRWbuWTgis9jdWmvjcqiidD2Wo5zF6xhqFleV9
+	Pzlgbf+tlYc0Veavse0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDKP4-0000000DeVF-3VoY;
-	Mon, 27 Oct 2025 10:24:42 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1vDKWC-0000000DfIL-0yk5;
+	Mon, 27 Oct 2025 10:32:04 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDKP1-0000000DeU9-1Jpz
+	id 1vDKWA-0000000DfHt-1eE1
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Oct 2025 10:24:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=LNaVRs2nb2TCpZYcKwloTHzyssBQhUNg2F8D04En2RM=; b=hZjW6izf5L5wREd13n0lMqkcRE
-	H2U7GyJB5y/eTg21mhb7eRy57Npj8PhsoX5y6y/9cKnbeV/edYmpGuCWkVQL8I02ejHV9yC1Hn78I
-	WO/nEJIjbAJf+vM/Wy3yFr5KUtqZNX+40RfXh28TgkBGDh9KEUdOFtncOjNXTFsh/DP/nRS8XvTP2
-	zdZwGbf4PDmwQP8+6i9+XOhg30PD4oJxYa8O9QJmclDczhHw1yxjGk/9ZYQsFJyqStpnjWTwkw7cm
-	IfzZlQdgMyx+5DloRIsJs6xyk40yOcrDt2pU9OvZzjQb5BU12AhGE7koBMqSEjkTB01xRO57vRw8n
-	XT9eNOUg==;
-Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
-	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1vDKOk-006ms6-1Y;
-	Mon, 27 Oct 2025 11:24:22 +0100
-Date: Mon, 27 Oct 2025 11:24:21 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Alex Elder <elder@riscstar.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, linux-kernel@vger.kernel.org,
+	Mon, 27 Oct 2025 10:32:03 +0000
+Received: from localhost (unknown [116.232.147.23])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id BEF7E341A11;
+	Mon, 27 Oct 2025 10:31:58 +0000 (UTC)
+Date: Mon, 27 Oct 2025 18:31:47 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Andreas Schwab <schwab@suse.de>, Yao Zi <ziyao@disroot.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Aurelien Jarno <aurelien@aurel32.net>, linux-kernel@vger.kernel.org,
+	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-i2c@vger.kernel.org, linux-rtc@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH v2 0/4] fix the SpacemiT P1 Kconfig and resend the K1 I2C
- ILCR patch.
-Message-ID: <aP9IVckJT-k2_O4K@aurel32.net>
-Mail-Followup-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Alex Elder <elder@riscstar.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-i2c@vger.kernel.org, linux-rtc@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-References: <20251027-p1-kconfig-fix-v2-0-49688f30bae8@linux.spacemit.com>
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] driver: reset: spacemit-p1: add driver for
+ poweroff/reboot
+Message-ID: <20251027103147-GYA1541054@gentoo.org>
+References: <20251026224424.1891541-1-aurelien@aurel32.net>
+ <20251026224424.1891541-2-aurelien@aurel32.net>
+ <A73D83A7055D782E+aP7lAdAk66slv6l7@kernel.org>
+ <aP8QHwsYDlbQxQJo@pie>
+ <mvmh5vk67in.fsf@suse.de>
+ <aP86TltQ2uqeK6FY@pie>
+ <CAJM55Z9w0pnFmVjJKJNMs1iqOxoL=YpkBu0L7NuUZ_0ipMtQAQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251027-p1-kconfig-fix-v2-0-49688f30bae8@linux.spacemit.com>
-User-Agent: Mutt/2.2.13 (2024-03-09)
+In-Reply-To: <CAJM55Z9w0pnFmVjJKJNMs1iqOxoL=YpkBu0L7NuUZ_0ipMtQAQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_032439_805875_D52BE990 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20251027_033202_482885_4A450CC7 
+X-CRM114-Status: GOOD (  25.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,33 +77,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi 
 
-On 2025-10-27 13:48, Troy Mitchell wrote:
-> Since P1 Kconfig directly selects K1_I2C, after the I2C ILCR patch was
-> merged, the driver would fail [1] when COMMON_CLK was not selected.
+On 03:17 Mon 27 Oct     , Emil Renner Berthing wrote:
+> Quoting Yao Zi (2025-10-27 10:24:30)
+> > On Mon, Oct 27, 2025 at 10:03:44AM +0100, Andreas Schwab wrote:
+> > > On Okt 27 2025, Yao Zi wrote:
+> > > > On Mon, Oct 27, 2025 at 11:20:33AM +0800, Troy Mitchell wrote:
+> > > >> On Sun, Oct 26, 2025 at 11:41:14PM +0100, Aurelien Jarno wrote:
+> > > >> > diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+> > > >> > index 8248895ca9038..61c16f3d5abc7 100644
+> > > >> > --- a/drivers/power/reset/Kconfig
+> > > >> > +++ b/drivers/power/reset/Kconfig
+> > > >> > @@ -283,6 +283,15 @@ config POWER_RESET_KEYSTONE
+> > > >> >          help
+> > > >> >            Reboot support for the KEYSTONE SoCs.
+> > > >> >
+> > > >> > +config POWER_RESET_SPACEMIT_P1
+> > > >> > +        tristate "SpacemiT P1 poweroff and reset driver"
+> > > >> > +        depends on ARCH_SPACEMIT || COMPILE_TEST
+> > > >> > +        depends on MFD_SPACEMIT_P1
+> > > >> > +        default m
+> > > >> default m if ARCH_SPACEMIT? Or default ARCH_SPACEMIT?
+> > > >> I believe that reboot and shutdown are actually essential functionalities,
+> > > >> so it might make more sense: default ARCH_SPACEMIT?
+> > > >
+> > > > I don't think there's anything preventing it to be built as module by
+> > > > default: even though it's "essential", it's unnecessary during kernel
+> > > > and userspace startup, thus I see no reason to build it in the image.
+> > >
+> > > Wouldn't it be needed in a reboot-on-panic situation?
+> >
+> > Oops, yeah, I missed this stuff. Seems systemd automatic boot assessment
+> > could switch to another boot option if one fails to boot. And if it's
+> > caused by a (very early) kernel panic, then reboot support does play a
+> > part here.
 > 
-> This series fixes the P1 Kconfig and resends the I2C ILCR patch(This
-> patch has reverted by maintainer [2]). In addition, the Kconfig for
-> P1's two subdevices, regulator and RTC, has been updated to use
-> 'depends on MFD_SPACEMIT_P1' instead of 'select'.
+> But if systemd is running then you've at least got as far as the initramfs,
+> and have the module available. So I don't see the problem.
 > 
-> Link: https://lore.kernel.org/oe-kbuild-all/202510202150.2qXd8e7Y-lkp@intel.com/ [1]
-> Link: https://lore.kernel.org/all/sdhkjmi5l2m4ua4zqkwkecbihul5bc2dbmitudwfd57y66mdht@6ipjfyz7dtmx/ [2]
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+In rare case, if got kernel panic before load this module, then we
+should really fix it instead.. Besides, there is no restriction to prevent
+user to make this driver as built-in, right?
 
-I think this series misses a patch to add a default value for 
-MFD_SPACEMIT_P1. Otherwise it doesn't make sense to define a default 
-value for the ones depending on it (RTC_DRV_SPACEMIT_P1, 
-REGULATOR_SPACEMIT_P1).
-
-Regards
-Aurelien
-
+So I think this isn't really a big problem either
 -- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
