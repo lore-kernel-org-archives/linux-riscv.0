@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC1FECCF9ED
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 06:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFD4CCF9EB
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 07:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EvGDjro1Chf3VRH95Mbt6eOyxBL+ePrdLt1GLPqvO2U=; b=dapEFnGocO4FNH
-	Tn/2I+LTFSZANpDI/siYXZuRZ0E76sTBzxqu0iJZg7LyV1NpMqjjYTeIi6WZjJl/nCi7qaYCWZPyp
-	tfyQtnUpevrF00r6qF/NXn8RUjIoyzxhUftOhobtZvHy/Wb54f4rtJnyhzQMlMxy9ji2bIxqANzJM
-	FlEW8f9Yu/A1yRDjNRZrB/v/f0hk1tNwKxh8eIEzZWXA3FBe+4ViL4NxTeIxVUPF96dIi+X17+B4v
-	j1KG0szyJmKiYpWkUDyBRMReI3ZGfpiJ/u3jj78VHFlUmdpLDEX9Ohq+6Zm7nWF2vBveX4WTEZ4Wq
-	WHine/RG4wX4y7qiJ2Ng==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6FujhrY6GhU3ih4UuJBME5ggG8JTKS4X+TskFeXCpUw=; b=23tb1RwK+B1Xjc
+	8E2+monulyQ5vkKdSOgJDrT45ItDa6ndW8r7xbrKhcOkVXPOe633bv2qDXkM7GU7XEZEB0DX3OYUg
+	rtrgEZz+BK/1CHvnFxLjXTnHE06BqUjTmY1mWjBHFn1pLDF80cfgSdvc8UMWlQRvORe3ph5Uwu2/n
+	bCFjyhAGBaYVvrWIYBT9a3Gs96qyoa5PTdey7gDnpH9WPBTY9/D/Ic58w/WUhS4ReM9P1mWNJ6bAb
+	uxWM/jaJeo6NG55ix3mzplgHU9F9HDpu82J+2g13AWg7Xi0Z6vzIlQV+dNomdfYIWQw17cHH/jK8Z
+	Vl/dWE7e1QoZoB8kVkrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDGfJ-0000000DBtg-40Gy;
-	Mon, 27 Oct 2025 06:25:14 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1vDHHc-0000000DFVg-0FGj;
+	Mon, 27 Oct 2025 07:04:48 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDGfH-0000000DBrs-1BSW
+	id 1vDHHZ-0000000DFUU-0Nv9
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Oct 2025 06:25:13 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id C81EF26165;
-	Mon, 27 Oct 2025 07:25:06 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id QZHsxAfypXtY; Mon, 27 Oct 2025 07:25:05 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1761546305; bh=stTFyfLVGp+W4whQthMtW+Y9CwBF66g3n0AdFiL433g=;
-	h=Date:From:To:Subject:References:In-Reply-To;
-	b=DzGTbIhkjVGAqaFY4Ckdcddadvv49E1vqrO3HCLuc17+5EW3y4lck5lJ0QMwwyeWb
-	 1/a5SzmCzazKSvbinwNw6Qkqo/a8h5RCLSdDD+1ODTI8k6bMrCQpNDuNFjdIQEvi+2
-	 dijh5UfWJvrauNDSLHI95xhtqxWF3OZ9ZbLGsik27ffWxLfvqWSs3Byz7TiPeRF00X
-	 vq3dJbLBu5FzMGaHOYJaIQrvcAWRRrMZPpnRbFQB/YEizkSE9b61vHY2kkm+twXGQ3
-	 jHIf8wCIN2ETtw82N7mS7irlxSeYgPUk2zrEDFyB4gnTDnJ0vG5jxlm8KJ6WhkN+R4
-	 nfZtQYaoe8h1Q==
-Date: Mon, 27 Oct 2025 06:24:31 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Aurelien Jarno <aurelien@aurel32.net>, linux-kernel@vger.kernel.org,
-	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
-	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
-Subject: Re: [PATCH v4 1/2] driver: reset: spacemit-p1: add driver for
- poweroff/reboot
-Message-ID: <aP8QHwsYDlbQxQJo@pie>
-References: <20251026224424.1891541-1-aurelien@aurel32.net>
- <20251026224424.1891541-2-aurelien@aurel32.net>
- <A73D83A7055D782E+aP7lAdAk66slv6l7@kernel.org>
+	Mon, 27 Oct 2025 07:04:47 +0000
+X-QQ-mid: zesmtpsz9t1761548586tdf6a05ae
+X-QQ-Originating-IP: SnvZo6rZqu1HMv/YMlq3zJ3p0SQy28vtuoi/p8hkNJ8=
+Received: from = ( [183.48.247.177])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 27 Oct 2025 15:03:04 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 993538249610758676
+X-QQ-CSender: troy.mitchell@linux.spacemit.com
+From: Troy Mitchell <troy.mitchell@linux.dev>
+Date: Mon, 27 Oct 2025 15:03:00 +0800
+Subject: [PATCH v2] riscv/plic: assign context ID based on hartid
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <A73D83A7055D782E+aP7lAdAk66slv6l7@kernel.org>
+Message-Id: <20251027-fix-plic-amp-v2-1-f077b9439112@linux.dev>
+X-B4-Tracking: v=1; b=H4sIACMZ/2gC/3WMyw7CIBBFf6WZtWOA1Aeu+h+mCwpTO0mlBJTUN
+ Py72L3Lc2/O2SBRZEpwazaIlDnx4iuoQwN2Mv5ByK4yKKFOUiiBI68YZrZongEvanC61WdtTQt
+ VCZHqv+fufeWJ02uJn72e5W/9E8oSJToaSRmtzXAV3cz+vR4dZehLKV9DIY8fqAAAAA==
+X-Change-ID: 20251020-fix-plic-amp-72bd94969ca4
+To: Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Troy Mitchell <troy.mitchell@linux.dev>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761548584; l=4685;
+ i=troy.mitchell@linux.dev; s=20250710; h=from:subject:message-id;
+ bh=qGU9eKrvAy6sRhh2qF+2G1/qW4tdEsW+NXohAD0wJBk=;
+ b=QVobr7HfSoGD5b6Tn4MJQ1V02hpGGfuq5xC5UmOXs1nE/R7aokxfR3oT8kPnTydcs5YV0Sstq
+ IpuJabINtSYCvVzTmMGjUIMYw1QIplZ5vQaxGYPEzvu6K4dgZ4jiuI9
+X-Developer-Key: i=troy.mitchell@linux.dev; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MExkIg7Bfu69me4zLr5MwX8PeHib5G93/iGwuQEtw41iVS237tUMs31+
+	Gl6cnsEPQc8MTu6VOKMMGZfWtnXGB0GCOFnuHPOKw8oAsgSX9BG0qrLyItntqcerjuC2Ozi
+	O9AxionRuTj9RLRUg3/pcOeXYjZdhfaXL3fn0lTeZeJN2UVbdOxv7qnBnpMaNkchvmBVkvj
+	YVOqqWFDkqEjOMcmP3kJxv5ZHyDM8vS6RS87EGUl5wx2NzXpSyJYYHMml63NI3u3p14CPG5
+	+ov54eO9f0EB2TMpl5kVqEvumBdf8vkjbehW3kW4Ekf3E6nfoTf/kuGAx9ycu62IztSXTCy
+	fERvys0QRsVpTjaxWcy80iV1XFnP25EPcDbxeMPekCtpDTNZ6RAM5pdX4WuEhj9twL7O0Vz
+	6FGi5QCnbQiZpdNoVTq93SoR9BvWQmHErgbEe4Zhx7IPd+skhRvwe/gfmqqUcqQUSiKJwFi
+	GSzRnK5/iPDGrfrrbEs1lhGensUcx/VOM+GyTLiAQk6n4GnEQykG3rEzoh7xhlXuI3mWilN
+	LO83CO5hRfsL+4yh1+0dlBUHL3OSv/yxc4fadN4uAYmHHBpUbTwc0YJtTLqW9roBWunipoR
+	MFhntPEBaaxB6vTB1BbiF5pBhdmA3mRMzIuCsjCbLaaq6U39yzyS/6c8XOdQIL0GfhXvXFd
+	ta21yXiX/XDCtsto2FdF99/bBMp9v4QlYr/wrkVurXUyMCNfbmJu2LfqwpeqrHzpnTWccMJ
+	6Usd4+yg4eFHynFTB2uD7XCeM8mMOjJwaV95gZWyMn8ksOyR3cO0QlKnVSxsgy03To2qbVj
+	aMa5+YWZ89c+aZGZdNBQO96gDOkJWGDUTYztD+l9qIWwnnRfb7GcnFG60cIa3H05ea+AGV2
+	F7Zg+QcZ/mozs8e/t8HKwy8WuNKgYNjWTq1QPwYhsrz7QV21U4c73Cax2MTUR8S30LZHDEk
+	CAmQo1V8QWCHYm/3ecGJvjHx5ahyniZRsDlbcwh8WvqbunBoXBJmNYcyE0bEL000/bk3bU2
+	TMDkiw7bxnmSQzF2lHVOE4xheR9qyIk3I6cTzwuhHRnAexMOQSQ2JGriVy8KdPDbSQje6oh
+	9jGyINl8ZY4638b2zTGgMjbrWbN317XlA==
+X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_232511_772611_DDCF1441 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20251027_000445_642096_E4A0B68C 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,70 +99,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 11:20:33AM +0800, Troy Mitchell wrote:
-> On Sun, Oct 26, 2025 at 11:41:14PM +0100, Aurelien Jarno wrote:
-> > This driver implements poweroff/reboot support for the SpacemiT P1 PMIC
-> > chip, which is commonly paired with the SpacemiT K1 SoC.
-> > 
-> > The SpacemiT P1 support is implemented as a MFD driver, so the access is
-> > done directly through the regmap interface. Reboot or poweroff is
-> > triggered by setting a specific bit in a control register, which is
-> > automatically cleared by the hardware afterwards.
-> > 
-> > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-> > ---
-> > v2:
-> >  - Replace the "select" by a "depends on"
-> >  - Remove outdated Reviewed-by
-> > 
-> >  drivers/power/reset/Kconfig              |  9 +++
-> >  drivers/power/reset/Makefile             |  1 +
-> >  drivers/power/reset/spacemit-p1-reboot.c | 88 ++++++++++++++++++++++++
-> >  3 files changed, 98 insertions(+)
-> >  create mode 100644 drivers/power/reset/spacemit-p1-reboot.c
-> > 
-> > diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-> > index 8248895ca9038..61c16f3d5abc7 100644
-> > --- a/drivers/power/reset/Kconfig
-> > +++ b/drivers/power/reset/Kconfig
-> > @@ -283,6 +283,15 @@ config POWER_RESET_KEYSTONE
-> >  	help
-> >  	  Reboot support for the KEYSTONE SoCs.
-> >  
-> > +config POWER_RESET_SPACEMIT_P1
-> > +	tristate "SpacemiT P1 poweroff and reset driver"
-> > +	depends on ARCH_SPACEMIT || COMPILE_TEST
-> > +	depends on MFD_SPACEMIT_P1
-> > +	default m
-> default m if ARCH_SPACEMIT? Or default ARCH_SPACEMIT?
-> I believe that reboot and shutdown are actually essential functionalities,
-> so it might make more sense: default ARCH_SPACEMIT?
+The PLIC driver for OF-based platforms currently assigns 'context_id = i'
+within the context loop. This implies an assumption that all harts are
+numbered contiguously starting from 0.
 
-I don't think there's anything preventing it to be built as module by
-default: even though it's "essential", it's unnecessary during kernel
-and userspace startup, thus I see no reason to build it in the image.
+In Asymmetric Multi-Processing (AMP) systems, where Linux might boot on
+a non-zero hart ID (e.g., hart4), while other harts (e.g., hart0) are
+running a different OS, this assumption is violated. This can lead to
+ different system inadvertently sharing the same
+PLIC enable_base register. Consequently, this causes configuration
+conflicts and incorrect interrupt handling.
 
-Building it as module by default shrinks the kernel image, which most
-distributions are willing to see, thus helps distro maintainers to
-maintain the configuration.
+Assign the PLIC context ID based on the actual hart ID provided by the
+OF node. This ensures that each hart context maps to a unique enable
+region within the PLIC, thereby resolving conflicts in AMP setups. This
+change preserves the correct behavior on Symmetric Multi-Processing (SMP)
+and Uniprocessor (UP) systems.
 
-The default value has been discussed in v2 of the series[1], where Emil,
-Yixun have expressed preference on "default m". So do I here.
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+---
+Changelog in v2:
+- add comments
+- modify commit message
+- use `context_id` instead of `i` when skip contexts other than external
+  interrupts for our privilege level
+- Link to v1: https://lore.kernel.org/r/20251020-fix-plic-amp-v1-1-defe2a99ab80@linux.dev
+---
+ drivers/irqchip/irq-sifive-plic.c | 26 ++++++++++++++------------
+ 1 file changed, 14 insertions(+), 12 deletions(-)
 
->                                       - Troy
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index cbd7697bc14819cbe3b77096b26901b605491f75..2289eb2f77bbd0da460d22ad3ffcd3e7ef2bde40 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -487,18 +487,18 @@ static int plic_parse_nr_irqs_and_contexts(struct fwnode_handle *fwnode,
+ }
+ 
+ static int plic_parse_context_parent(struct fwnode_handle *fwnode, u32 context,
+-				     u32 *parent_hwirq, int *parent_cpu, u32 id)
++				     u32 *parent_hwirq, int *parent_cpu, u32 id,
++				     unsigned long *hartid)
+ {
+ 	struct of_phandle_args parent;
+-	unsigned long hartid;
+ 	int rc;
+ 
+ 	if (!is_of_node(fwnode)) {
+-		hartid = acpi_rintc_ext_parent_to_hartid(id, context);
+-		if (hartid == INVALID_HARTID)
++		*hartid = acpi_rintc_ext_parent_to_hartid(id, context);
++		if (*hartid == INVALID_HARTID)
+ 			return -EINVAL;
+ 
+-		*parent_cpu = riscv_hartid_to_cpuid(hartid);
++		*parent_cpu = riscv_hartid_to_cpuid(*hartid);
+ 		*parent_hwirq = RV_IRQ_EXT;
+ 		return 0;
+ 	}
+@@ -507,19 +507,19 @@ static int plic_parse_context_parent(struct fwnode_handle *fwnode, u32 context,
+ 	if (rc)
+ 		return rc;
+ 
+-	rc = riscv_of_parent_hartid(parent.np, &hartid);
++	rc = riscv_of_parent_hartid(parent.np, hartid);
+ 	if (rc)
+ 		return rc;
+ 
+ 	*parent_hwirq = parent.args[0];
+-	*parent_cpu = riscv_hartid_to_cpuid(hartid);
++	*parent_cpu = riscv_hartid_to_cpuid(*hartid);
+ 	return 0;
+ }
+ 
+ static int plic_probe(struct fwnode_handle *fwnode)
+ {
+ 	int error = 0, nr_contexts, nr_handlers = 0, cpu, i;
+-	unsigned long plic_quirks = 0;
++	unsigned long plic_quirks = 0, hartid;
+ 	struct plic_handler *handler;
+ 	u32 nr_irqs, parent_hwirq;
+ 	struct plic_priv *priv;
+@@ -569,14 +569,15 @@ static int plic_probe(struct fwnode_handle *fwnode)
+ 
+ 	for (i = 0; i < nr_contexts; i++) {
+ 		error = plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu,
+-						  priv->acpi_plic_id);
++						  priv->acpi_plic_id, &hartid);
+ 		if (error) {
+ 			pr_warn("%pfwP: hwirq for context%d not found\n", fwnode, i);
+ 			continue;
+ 		}
+ 
+ 		if (is_of_node(fwnode)) {
+-			context_id = i;
++			/* each hart has two contexts: M-mode and S-mode */
++			context_id = hartid * 2 + i % 2;
+ 		} else {
+ 			context_id = acpi_rintc_get_plic_context(priv->acpi_plic_id, i);
+ 			if (context_id == INVALID_CONTEXT) {
+@@ -594,7 +595,7 @@ static int plic_probe(struct fwnode_handle *fwnode)
+ 			if (IS_ENABLED(CONFIG_RISCV_M_MODE)) {
+ 				void __iomem *enable_base = priv->regs +
+ 					CONTEXT_ENABLE_BASE +
+-					i * CONTEXT_ENABLE_SIZE;
++					context_id * CONTEXT_ENABLE_SIZE;
+ 
+ 				for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+ 					__plic_toggle(enable_base, hwirq, 0);
+@@ -694,7 +695,8 @@ static int plic_probe(struct fwnode_handle *fwnode)
+ 
+ fail_cleanup_contexts:
+ 	for (i = 0; i < nr_contexts; i++) {
+-		if (plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu, priv->acpi_plic_id))
++		if (plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu,
++					      priv->acpi_plic_id, &hartid))
+ 			continue;
+ 		if (parent_hwirq != RV_IRQ_EXT || cpu < 0)
+ 			continue;
 
-Regards,
-Yao Zi
+---
+base-commit: fdbc36b17e9f2fa24c940959e39df90f53ccce2b
+change-id: 20251020-fix-plic-amp-72bd94969ca4
 
-[1]: https://lore.kernel.org/spacemit/aPXAyeDC7YXAketm@aurel32.net/
+Best regards,
+-- 
+Troy Mitchell <troy.mitchell@linux.dev>
 
-> > +	help
-> > +	  This driver supports power-off and reset operations for the SpacemiT
-> > +	  P1 PMIC.
-> > +
-> >  config POWER_RESET_SYSCON
-> >  	bool "Generic SYSCON regmap reset driver"
-> >  	depends on OF
 
 _______________________________________________
 linux-riscv mailing list
