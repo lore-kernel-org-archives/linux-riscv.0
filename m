@@ -4,85 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFD4CCF9EB
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 07:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965C4CCF9E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 07:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6FujhrY6GhU3ih4UuJBME5ggG8JTKS4X+TskFeXCpUw=; b=23tb1RwK+B1Xjc
-	8E2+monulyQ5vkKdSOgJDrT45ItDa6ndW8r7xbrKhcOkVXPOe633bv2qDXkM7GU7XEZEB0DX3OYUg
-	rtrgEZz+BK/1CHvnFxLjXTnHE06BqUjTmY1mWjBHFn1pLDF80cfgSdvc8UMWlQRvORe3ph5Uwu2/n
-	bCFjyhAGBaYVvrWIYBT9a3Gs96qyoa5PTdey7gDnpH9WPBTY9/D/Ic58w/WUhS4ReM9P1mWNJ6bAb
-	uxWM/jaJeo6NG55ix3mzplgHU9F9HDpu82J+2g13AWg7Xi0Z6vzIlQV+dNomdfYIWQw17cHH/jK8Z
-	Vl/dWE7e1QoZoB8kVkrQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=YfEj+O7bkIkI3zNrJjEMdZMobmTvYvaFdmr6qffNHHg=; b=O6jRdftCSnAzIpJ+bb3qKu9qLw
+	kq3IHAmofew199zW4Mf7XRJPviNHJZHcLtO2oEmy3S/c40h50PATH+xJL2zl5XS0yaZPTw+TMnfja
+	SzNyw21jkMloRwM5q4qlryBK4/kTphWXVX0+6slZurgkWd0D999yvsucaX4047nObBn7EgOXDfujL
+	qCWl/pJCpv++FbzNmUqLGa7mN/ncOEku5dsDcgeL8B2LFIkfPvOXXDGUM2nvCMsiudJM2g9lqgVUK
+	IYWr2QZPKJ6iHFqtpjH/Y50OVWNt20LiSNXl+Zqvo54Z6DK6pGo2k4MZfX+MqTme3r/3Q3//a94gf
+	zo8/CxyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDHHc-0000000DFVg-0FGj;
-	Mon, 27 Oct 2025 07:04:48 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
+	id 1vDI6P-0000000DJX9-10oM;
+	Mon, 27 Oct 2025 07:57:17 +0000
+Received: from mail-westus2azon11010036.outbound.protection.outlook.com ([52.101.46.36] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDHHZ-0000000DFUU-0Nv9
+	id 1vDI6M-0000000DJW6-0SFB
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Oct 2025 07:04:47 +0000
-X-QQ-mid: zesmtpsz9t1761548586tdf6a05ae
-X-QQ-Originating-IP: SnvZo6rZqu1HMv/YMlq3zJ3p0SQy28vtuoi/p8hkNJ8=
-Received: from = ( [183.48.247.177])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 27 Oct 2025 15:03:04 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 993538249610758676
-X-QQ-CSender: troy.mitchell@linux.spacemit.com
-From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Mon, 27 Oct 2025 15:03:00 +0800
-Subject: [PATCH v2] riscv/plic: assign context ID based on hartid
-MIME-Version: 1.0
-Message-Id: <20251027-fix-plic-amp-v2-1-f077b9439112@linux.dev>
-X-B4-Tracking: v=1; b=H4sIACMZ/2gC/3WMyw7CIBBFf6WZtWOA1Aeu+h+mCwpTO0mlBJTUN
- Py72L3Lc2/O2SBRZEpwazaIlDnx4iuoQwN2Mv5ByK4yKKFOUiiBI68YZrZongEvanC61WdtTQt
- VCZHqv+fufeWJ02uJn72e5W/9E8oSJToaSRmtzXAV3cz+vR4dZehLKV9DIY8fqAAAAA==
-X-Change-ID: 20251020-fix-plic-amp-72bd94969ca4
-To: Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <pjw@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Mon, 27 Oct 2025 07:57:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bLof7EOYUEan314eh2S9H7/pzsjGFXlU4FeO59kVeS80C5F6bZpcBTyxpV7vfNwblohJwE3jKNChHeqz8MEj7S3jeS3WB3XzhbD2X3hgnNhKNc0Eqzpo50ROB8fQIyMbLtjOQSXAkrGEABxic9xgAZ8Cs+/XISlLuxl1y6eRhipS/qwGV3IktjRjyMAPguEjR9XcUkbFsGMDHrDd+ICXmxdvmb6HQnorJ+jSca6HipAJ0BxB8hxbvoN10gy9P3+E00cvOqC0eZbmZijoCrElJRTvA/jFCnwTvJvRCWZKrqcbwEJnypa/9gPuD800+a/njaUP+/VtuvsDdaj7SnGR7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qno9+APPqy23oBcZ4d/YricwSA/pHWOans9ByyMOCqo=;
+ b=FmHCw4Imypi9NYersIpTtk49hfuuhKFvuqUfHNQ1cswGm+r2BFIjQpKJz2oI597I7aShiuJ9cEE5wghOlC/7bxlnzB+zbeOusJuBn+YKwjpdIxwwJ3Np4A/c6ckUD6Jyep5hF1dRmmeGcO/uGGxnR+vr8rHLE1v9RDF88n8PliFCPvV6VIJhLlo5pRx+MMGDyu2QbpsWUXz7CHnjD3aSM2mjP5X07L7DU0HmPkOLaCdDsbBDZCJA1kOA5z2jC6g7PJCLW4sIvSvHHXppDZ52K+AlY92XcUHfFf4COXgmF+6EH3fhyQXSdJIjNTLJsYzP+KqJezM06P+pL8I7U1Uzgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qno9+APPqy23oBcZ4d/YricwSA/pHWOans9ByyMOCqo=;
+ b=SgEMFB0NzEDYqbhR16wlh9KM63Y64/9ad9ZqdmplBqKFT/GF5rdgSN1NjLqonke+EaCrk5DXtluM0eCoBsRX7qnkXMTtsCt1KMxOs30PVIOtiXI4KF8WOhZ3pwrb8R8SJR7PbVHX+ZUFuFIX3+qSFsZPm39n/x7B3YDfnzIFyxM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SJ0PR12MB5673.namprd12.prod.outlook.com (2603:10b6:a03:42b::13)
+ by CH1PPFC596BECF8.namprd12.prod.outlook.com (2603:10b6:61f:fc00::621) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.18; Mon, 27 Oct
+ 2025 07:57:06 +0000
+Received: from SJ0PR12MB5673.namprd12.prod.outlook.com
+ ([fe80::ec7a:dd71:9d6c:3062]) by SJ0PR12MB5673.namprd12.prod.outlook.com
+ ([fe80::ec7a:dd71:9d6c:3062%4]) with mapi id 15.20.9253.017; Mon, 27 Oct 2025
+ 07:57:06 +0000
+Message-ID: <dff6216d-b4a4-4d5d-89e3-e393dc018dec@amd.com>
+Date: Mon, 27 Oct 2025 08:56:58 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] drm/ttm: add pgprot handling for RISC-V
+To: Icenowy Zheng <uwu@icenowy.me>, Huang Rui <ray.huang@amd.com>,
+ Matthew Auld <matthew.auld@intel.com>,
+ Matthew Brost <matthew.brost@intel.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Troy Mitchell <troy.mitchell@linux.dev>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761548584; l=4685;
- i=troy.mitchell@linux.dev; s=20250710; h=from:subject:message-id;
- bh=qGU9eKrvAy6sRhh2qF+2G1/qW4tdEsW+NXohAD0wJBk=;
- b=QVobr7HfSoGD5b6Tn4MJQ1V02hpGGfuq5xC5UmOXs1nE/R7aokxfR3oT8kPnTydcs5YV0Sstq
- IpuJabINtSYCvVzTmMGjUIMYw1QIplZ5vQaxGYPEzvu6K4dgZ4jiuI9
-X-Developer-Key: i=troy.mitchell@linux.dev; a=ed25519;
- pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MExkIg7Bfu69me4zLr5MwX8PeHib5G93/iGwuQEtw41iVS237tUMs31+
-	Gl6cnsEPQc8MTu6VOKMMGZfWtnXGB0GCOFnuHPOKw8oAsgSX9BG0qrLyItntqcerjuC2Ozi
-	O9AxionRuTj9RLRUg3/pcOeXYjZdhfaXL3fn0lTeZeJN2UVbdOxv7qnBnpMaNkchvmBVkvj
-	YVOqqWFDkqEjOMcmP3kJxv5ZHyDM8vS6RS87EGUl5wx2NzXpSyJYYHMml63NI3u3p14CPG5
-	+ov54eO9f0EB2TMpl5kVqEvumBdf8vkjbehW3kW4Ekf3E6nfoTf/kuGAx9ycu62IztSXTCy
-	fERvys0QRsVpTjaxWcy80iV1XFnP25EPcDbxeMPekCtpDTNZ6RAM5pdX4WuEhj9twL7O0Vz
-	6FGi5QCnbQiZpdNoVTq93SoR9BvWQmHErgbEe4Zhx7IPd+skhRvwe/gfmqqUcqQUSiKJwFi
-	GSzRnK5/iPDGrfrrbEs1lhGensUcx/VOM+GyTLiAQk6n4GnEQykG3rEzoh7xhlXuI3mWilN
-	LO83CO5hRfsL+4yh1+0dlBUHL3OSv/yxc4fadN4uAYmHHBpUbTwc0YJtTLqW9roBWunipoR
-	MFhntPEBaaxB6vTB1BbiF5pBhdmA3mRMzIuCsjCbLaaq6U39yzyS/6c8XOdQIL0GfhXvXFd
-	ta21yXiX/XDCtsto2FdF99/bBMp9v4QlYr/wrkVurXUyMCNfbmJu2LfqwpeqrHzpnTWccMJ
-	6Usd4+yg4eFHynFTB2uD7XCeM8mMOjJwaV95gZWyMn8ksOyR3cO0QlKnVSxsgy03To2qbVj
-	aMa5+YWZ89c+aZGZdNBQO96gDOkJWGDUTYztD+l9qIWwnnRfb7GcnFG60cIa3H05ea+AGV2
-	F7Zg+QcZ/mozs8e/t8HKwy8WuNKgYNjWTq1QPwYhsrz7QV21U4c73Cax2MTUR8S30LZHDEk
-	CAmQo1V8QWCHYm/3ecGJvjHx5ahyniZRsDlbcwh8WvqbunBoXBJmNYcyE0bEL000/bk3bU2
-	TMDkiw7bxnmSQzF2lHVOE4xheR9qyIk3I6cTzwuhHRnAexMOQSQ2JGriVy8KdPDbSQje6oh
-	9jGyINl8ZY4638b2zTGgMjbrWbN317XlA==
-X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
-X-QQ-RECHKSPAM: 0
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Han Gao <rabenda.cn@gmail.com>,
+ Vivian Wang <wangruikang@iscas.ac.cn>, Inochi Amaoto <inochiama@gmail.com>,
+ Yao Zi <ziyao@disroot.org>
+References: <20251020053523.731353-1-uwu@icenowy.me>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <20251020053523.731353-1-uwu@icenowy.me>
+X-ClientProxiedBy: BN8PR04CA0043.namprd04.prod.outlook.com
+ (2603:10b6:408:d4::17) To SJ0PR12MB5673.namprd12.prod.outlook.com
+ (2603:10b6:a03:42b::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR12MB5673:EE_|CH1PPFC596BECF8:EE_
+X-MS-Office365-Filtering-Correlation-Id: c6b80aa0-0499-4fb8-b521-08de152e6c32
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q1dEY2p3cVlxalRVS1ZBUFVwV1dHY1hWOUIzVlBONGZuZWUxWWc5L1k5QzJ2?=
+ =?utf-8?B?OURhd1RidUF2bTVZTEFsaVFPSm8raklwMW9DLzZvdGNMTzQzbENPakxpQ3hH?=
+ =?utf-8?B?U2M5QmZkWGZaN2krS2RLczVmVWhkYjM1eWxWVThuRjlzK3BuZDBBb2xNNENI?=
+ =?utf-8?B?STE3YzNPRGtVM2x2UGZnRGJzVlBSNXozSVVUUXF6SHlEaTczbE4yaU44dDVh?=
+ =?utf-8?B?VXRPTlVDblkxMEY4dWtiSXBCOEN3c3dvWHhzaHk3QVZRQ3pSOGxEWjVTaHBY?=
+ =?utf-8?B?VE9DVWxKbG9RZWpJenZCdkpySTBXR2xSM1JjVnN1WUpRVnpyZExzVk4yS1dl?=
+ =?utf-8?B?cnFXM2hiSi92M1g1cjc4QW1aeWJsRW1paHNVQ2I4OVk3VGFzQ0JlOVI0S0Jq?=
+ =?utf-8?B?K0o4N2NWZHZ2eHVLQlNWTWYrbjRyeUVoU1kzV0lZbThkM1M2alJMVU9ONXJD?=
+ =?utf-8?B?bGNvcHhVMG4wbDJDbGZ3RHhQcEE1L0lhK05zUy80S01RL2FobDF6NjkvaGhS?=
+ =?utf-8?B?WDRKb0g2djlrVGl1Yzk1NUNIK0pIZ1plY2xPWi9HVkZnQ1YySVRTbDZDYi92?=
+ =?utf-8?B?cncvc2NvamVFU2d3aTVFN3JXemJPbDh3NzQxM01wM0xpQ1A3QjFNMFBUaEkr?=
+ =?utf-8?B?K3FLZ1duSXdhc3hWcjhHWEV4M0FtZjdXOWVqNVBNYk1kUzZ3alBpeFA3UFZi?=
+ =?utf-8?B?SjlCVk5IN3pzKzk5TCtLcFd2bTNya3ZHd2UxajlRa0ZVdHRKeE5HNzlGckFM?=
+ =?utf-8?B?ZkZVZkhQVzV2N2RjVzhwWDFRVCsxMUJGL0lwc2o1N0tPN25oU2RHSllUUlQr?=
+ =?utf-8?B?Sy85RFFScUFVdFdBN2R1dFF2ekpwUXZHV1hMU3VDZzZ1eE0vYzFYbDJ1L0dj?=
+ =?utf-8?B?WVVmUmFnYThKaEM5c090Z1B6ZDllVzNrL1RQUnNGMUVvSml2ZU1Yek9ta29K?=
+ =?utf-8?B?NnQ2L2k0UER3Zml4U3pOdEc3RGFWUnNWWXk5VFBtTEhrc1JINFQ2WUdOa0ZU?=
+ =?utf-8?B?QlhIVlV1WHYyNmVHVndMZmcyaFl2UUdHajRKNmx2Vm5kdjNSYzd2bitGbzVC?=
+ =?utf-8?B?SExXQWJtTDkreVRuemsrNEEya1VmMXZjVzE4TG5sOFFpRjBOeTZVTXNNRFor?=
+ =?utf-8?B?WE5kODRqSy9hN3dIZEo4dE5ReDVTbEtHdEdDeFpqSGtIQnNTQ1N4VlVBK0Vq?=
+ =?utf-8?B?TnZyNE1mUGkwNmZBS0p0NVRMaHhJSDZBL2NVaEx4VE1Na0JIMDRZR2lTdGhi?=
+ =?utf-8?B?WGxjTjFyMG05SHNFMTErSXFDcHR5ZnNONS94VGJIc1pwOWdKa0dJV1djRFdu?=
+ =?utf-8?B?dXIyRTcwVEJqSXlhNU9IVW8ySlZPOExBWElzdzFjNVV0VDk2eFRKWE9NdCtB?=
+ =?utf-8?B?VXFaYmJKT1BwTG9KM0srOEswS3FMVlhDcyt1cHhieTd4RjZqanB1S3I3dk8r?=
+ =?utf-8?B?RTNSRFFkQ2Urb3gwNFFVUUNpRmVoQStiUTVrcDg0bzBMUmwwMmZQK21hTEgy?=
+ =?utf-8?B?UUhnUmtlcFBNNjZUVXExL2JOa1VwUitmV0pXM2VuYzJnZkR1czFjZjJOdmdE?=
+ =?utf-8?B?R3Z4SjRWbldzZjNHQm0yVFEwQ0R6UER2U0huZXVvU2I4U2VRZit2bHZsSmNq?=
+ =?utf-8?B?dk8wZU1rRmRDeWZVbndUL1ZtRGVYckw1YVc3czVFYW5NT1dFaWtOc1E2VTkz?=
+ =?utf-8?B?eXpOVGdBazY2NHh3c3BjaXZhK2trS1NJRjBVRVVlUjNaK2xRNU0xQ1VIeHdo?=
+ =?utf-8?B?VlZaV25KeVd5VEZBSTJHQ1EvUHorNlRhbWdoQlQ4S1dQRzRyb2lxa3ZWWVFm?=
+ =?utf-8?B?YkxNaStyV0hDdDlkbndud21mbGxvbmZrK3hJdTVwZ2FPdzQrdzNGRzNyelpj?=
+ =?utf-8?B?amFweUZaVEU3TjVDVlRFQUx2T1FvTjBtZHdFWXNIQldab2x4R1JlaG1RempJ?=
+ =?utf-8?B?OGFGMmpqSkR4LzNJN1pwQXhKRGgxcDJJdFgrR2hiTTJlaFZuNlVlTnc0M3Jm?=
+ =?utf-8?Q?SUgX4XtmTwp0uG9dtDm6FMpExg/QL0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB5673.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a0ZFSjZ4UFQ1L09VNThuM3E0cVZSeWtDWWNwNGpUUkFjazRZM054YUttMzlv?=
+ =?utf-8?B?L1Y2ckZHamZkT2E0YjFrRVUzUnZwcGJtVGhTVjR3ZHZRWHhTZ2JId1hxVFVj?=
+ =?utf-8?B?eHVzclprdkJQcG1RRW5PMDNPWnRxR3J2V2g1SlRFc3p2c1k2Y2VUYzk0S1Bp?=
+ =?utf-8?B?T2VCU2R4MWdaVFhOK3NNTVZXdGN1M2UxRnJhL3Bsc2t2aUgrOGJLcElxS0Vn?=
+ =?utf-8?B?bGRzV0JtclRYZGROT0lmcHNFd2JCNkQ4bXRGWHlkcktZeTl5OVArMVRRQ1Z3?=
+ =?utf-8?B?KzJUYzZXbUhnSlpHbVMrQ3pPVE5hN2k3a1k1K0FhMmlROXgzZEdrcFR1cFFu?=
+ =?utf-8?B?Wlo4WFdjUE10VWZoaDUwdm0zb1NDaTFTR0paRkpOZnl6NGJEOXJBVTJxbHQ4?=
+ =?utf-8?B?alJMZ09sVHNsVnZMNDEydlRRVzlWR2FhcC9Za2ordHJrU0NSaTVpUDZUT2Fv?=
+ =?utf-8?B?djlkeVM0UDRaVHE1UWFRTk45bEVYeWlnL09sYUFQSFZQQm1qaDVuMUhvVlM5?=
+ =?utf-8?B?V3BMTUF6K1JXN1hOMVkrZHA2SUkydmRGT2hMRFhhZDJYNVNHWTZrNWNJWGJz?=
+ =?utf-8?B?ZHFTUUcxbjBsSE1lM01FYzhlWGI2OGRBWUJucVRDZ3BwMGxOb01DZDRCTGlG?=
+ =?utf-8?B?QThlaFREUW5xUlJaTXFWQmwvd3NBZVFUeTFTd21UZHdtQ1lWRU5RZjBkdFAw?=
+ =?utf-8?B?ZmJoN2F0RGdXTjVBa2RiOWRxRzN5eVhma0JaRTFmZm10MFFFdVRBRVBFaGI4?=
+ =?utf-8?B?bXEyVFFsbzlzOXFJZGE1M3dyc2RIdnZYbmwrcldGbUJ6aVdiNjE0aHM3Z2R4?=
+ =?utf-8?B?K1E0T2FmYmlSdHc2a05JNHJHbzBOMmJOSmM4dlR6VW5uT0MxT3ZQTTJKNlpj?=
+ =?utf-8?B?MlpidTlVWUMyWHpWcmIrVFNGd0RXMVNvWGJCZFdZRXBQZ1MwK3AyWng5VUYr?=
+ =?utf-8?B?UUFxNFpFQXRGMEphMSs3RGo1ZjVqQzBCd3ZnOGpWcWdRVis2QmRNQ1F6K3J5?=
+ =?utf-8?B?SVhSMndWMUNkZDROeTVLUjhDQjJZaENoR3RPWXVBNDB0N2VtRU9MQ2dTS1dt?=
+ =?utf-8?B?cWI4K2FycmhnTGhFOVZCWWhvNERFUENzQTdlVThleGJZNWlBRzE0MzI2ODlZ?=
+ =?utf-8?B?Ny9kWGpvV3pPc3BGdTlvaUlpbERXL0wxUXNFdDZHdEt0a2ZnS2dHSURmbWFy?=
+ =?utf-8?B?WDhaODZueTZOR2V4dGMvM2tKWmhjaUw3b3liV0tiUUFSQ3RDeGV1MUxlRWg1?=
+ =?utf-8?B?UXVMV2VYWkZwNWR4RDlOZ2VERHl2WlNpK21qcElORjlCMnZpd3JXUFllZCtH?=
+ =?utf-8?B?MHJBcVM4aHpkdkpPQ2t0OTdLK2w0dGtodHYzMm9IWEQ1YjAvVFprdzRLZzB6?=
+ =?utf-8?B?TUlUUHJoQ3hsNDZ0ZlpuclNmRlF1Q2tTdDJEcXJXZFZkdmo1ZWNZbTVzcWdL?=
+ =?utf-8?B?QTBDV3ZjeW13YlNnVXRUWXY2aTd6S3BLSDEwU2YwSE85QjRhbDhEVlc5dU9C?=
+ =?utf-8?B?blhwZTdrUitDUFhielo0bGlFVVUzczJXMU1EclRRa1BiQVZZYXhNVWdNaVZF?=
+ =?utf-8?B?d2hqeUVDdmY2V0I1ZGZDeXk4d1RKZS9kL2RrU3duQUpHK0QrSm1uZFU3aDI2?=
+ =?utf-8?B?dEE5R01lRTFzVXM3TFdEdyt2WUI0QmpFYVRiTU1xZThKMG9vd3VkVHQ0cVJJ?=
+ =?utf-8?B?RHdWREcyYlJRNC8yMFQyQjhTOHZNanBpSlhPY1Z6VXl3QXhCdU9QYUxLVy9i?=
+ =?utf-8?B?U09nTCtJeStjaHV0QW1wUnIyOVFvblBvOUkybXcrRlBYR3piR05sMmEzYTBQ?=
+ =?utf-8?B?NjRtMlZLck9pMmxjN2t0UHBpbFR0dU82NWZqL3g0eGwxcTNzeDBJMG9lY01q?=
+ =?utf-8?B?a3Fzc2xDSmlpVG1rNEFtWSswQlNEdjE2cHh5Ym92YlppVUxYQjNrb1JBU2JM?=
+ =?utf-8?B?ZXQyNjRpUWtacnBUeFZZMWxOeXd3WWZDRktqMTlmZll1UUswRjByZWNHVkl1?=
+ =?utf-8?B?Uk9wQkxONE9ZTkc3dnZQNGV2a21FaENBMXBuS1JnaFhBd0FzazFwbE5xdnZr?=
+ =?utf-8?B?SUZscXZFeGdHMUQzMjNkSFZNTnVpNGRxQnMvMGN4dDc2UUJhS2o0U1hrNmxV?=
+ =?utf-8?Q?+0mCxcgUv5iI2DCHo1JX4qSti?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6b80aa0-0499-4fb8-b521-08de152e6c32
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB5673.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2025 07:57:06.3634
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: el8AeYIItWOQ8yc1oVxZGJcWdf1rg01z9DmvaKGCNtR5U7cJc689hZiz1eGQ/3Sr
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPFC596BECF8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_000445_642096_E4A0B68C 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20251027_005714_156291_B52D5398 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,131 +186,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The PLIC driver for OF-based platforms currently assigns 'context_id = i'
-within the context loop. This implies an assumption that all harts are
-numbered contiguously starting from 0.
 
-In Asymmetric Multi-Processing (AMP) systems, where Linux might boot on
-a non-zero hart ID (e.g., hart4), while other harts (e.g., hart0) are
-running a different OS, this assumption is violated. This can lead to
- different system inadvertently sharing the same
-PLIC enable_base register. Consequently, this causes configuration
-conflicts and incorrect interrupt handling.
 
-Assign the PLIC context ID based on the actual hart ID provided by the
-OF node. This ensures that each hart context maps to a unique enable
-region within the PLIC, thereby resolving conflicts in AMP setups. This
-change preserves the correct behavior on Symmetric Multi-Processing (SMP)
-and Uniprocessor (UP) systems.
+On 10/20/25 07:35, Icenowy Zheng wrote:
+> The RISC-V Svpbmt privileged extension provides support for overriding
+> page memory coherency attributes, and, along with vendor extensions like
+> Xtheadmae, supports pgprot_{writecombine,noncached} on RISC-V.
+> 
+> Adapt the codepath that maps ttm_write_combined to pgprot_writecombine
+> and ttm_noncached to pgprot_noncached to RISC-V, to allow proper page
+> access attributes.
+> 
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> Tested-by: Han Gao <rabenda.cn@gmail.com>
+> ---
+> Changes in v2:
+> - Added Han Gao's test tag.
+> 
+>  drivers/gpu/drm/ttm/ttm_module.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/ttm/ttm_module.c b/drivers/gpu/drm/ttm/ttm_module.c
+> index b3fffe7b5062a..aa137ead5cc59 100644
+> --- a/drivers/gpu/drm/ttm/ttm_module.c
+> +++ b/drivers/gpu/drm/ttm/ttm_module.c
+> @@ -74,7 +74,8 @@ pgprot_t ttm_prot_from_caching(enum ttm_caching caching, pgprot_t tmp)
+>  #endif /* CONFIG_UML */
+>  #endif /* __i386__ || __x86_64__ */
+>  #if defined(__ia64__) || defined(__arm__) || defined(__aarch64__) || \
+> -	defined(__powerpc__) || defined(__mips__) || defined(__loongarch__)
+> +	defined(__powerpc__) || defined(__mips__) || defined(__loongarch__) || \
+> +	defined(__riscv)
 
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
----
-Changelog in v2:
-- add comments
-- modify commit message
-- use `context_id` instead of `i` when skip contexts other than external
-  interrupts for our privilege level
-- Link to v1: https://lore.kernel.org/r/20251020-fix-plic-amp-v1-1-defe2a99ab80@linux.dev
----
- drivers/irqchip/irq-sifive-plic.c | 26 ++++++++++++++------------
- 1 file changed, 14 insertions(+), 12 deletions(-)
+Looks reasonable, but does that work on all RISC-V variants?
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index cbd7697bc14819cbe3b77096b26901b605491f75..2289eb2f77bbd0da460d22ad3ffcd3e7ef2bde40 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -487,18 +487,18 @@ static int plic_parse_nr_irqs_and_contexts(struct fwnode_handle *fwnode,
- }
- 
- static int plic_parse_context_parent(struct fwnode_handle *fwnode, u32 context,
--				     u32 *parent_hwirq, int *parent_cpu, u32 id)
-+				     u32 *parent_hwirq, int *parent_cpu, u32 id,
-+				     unsigned long *hartid)
- {
- 	struct of_phandle_args parent;
--	unsigned long hartid;
- 	int rc;
- 
- 	if (!is_of_node(fwnode)) {
--		hartid = acpi_rintc_ext_parent_to_hartid(id, context);
--		if (hartid == INVALID_HARTID)
-+		*hartid = acpi_rintc_ext_parent_to_hartid(id, context);
-+		if (*hartid == INVALID_HARTID)
- 			return -EINVAL;
- 
--		*parent_cpu = riscv_hartid_to_cpuid(hartid);
-+		*parent_cpu = riscv_hartid_to_cpuid(*hartid);
- 		*parent_hwirq = RV_IRQ_EXT;
- 		return 0;
- 	}
-@@ -507,19 +507,19 @@ static int plic_parse_context_parent(struct fwnode_handle *fwnode, u32 context,
- 	if (rc)
- 		return rc;
- 
--	rc = riscv_of_parent_hartid(parent.np, &hartid);
-+	rc = riscv_of_parent_hartid(parent.np, hartid);
- 	if (rc)
- 		return rc;
- 
- 	*parent_hwirq = parent.args[0];
--	*parent_cpu = riscv_hartid_to_cpuid(hartid);
-+	*parent_cpu = riscv_hartid_to_cpuid(*hartid);
- 	return 0;
- }
- 
- static int plic_probe(struct fwnode_handle *fwnode)
- {
- 	int error = 0, nr_contexts, nr_handlers = 0, cpu, i;
--	unsigned long plic_quirks = 0;
-+	unsigned long plic_quirks = 0, hartid;
- 	struct plic_handler *handler;
- 	u32 nr_irqs, parent_hwirq;
- 	struct plic_priv *priv;
-@@ -569,14 +569,15 @@ static int plic_probe(struct fwnode_handle *fwnode)
- 
- 	for (i = 0; i < nr_contexts; i++) {
- 		error = plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu,
--						  priv->acpi_plic_id);
-+						  priv->acpi_plic_id, &hartid);
- 		if (error) {
- 			pr_warn("%pfwP: hwirq for context%d not found\n", fwnode, i);
- 			continue;
- 		}
- 
- 		if (is_of_node(fwnode)) {
--			context_id = i;
-+			/* each hart has two contexts: M-mode and S-mode */
-+			context_id = hartid * 2 + i % 2;
- 		} else {
- 			context_id = acpi_rintc_get_plic_context(priv->acpi_plic_id, i);
- 			if (context_id == INVALID_CONTEXT) {
-@@ -594,7 +595,7 @@ static int plic_probe(struct fwnode_handle *fwnode)
- 			if (IS_ENABLED(CONFIG_RISCV_M_MODE)) {
- 				void __iomem *enable_base = priv->regs +
- 					CONTEXT_ENABLE_BASE +
--					i * CONTEXT_ENABLE_SIZE;
-+					context_id * CONTEXT_ENABLE_SIZE;
- 
- 				for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
- 					__plic_toggle(enable_base, hwirq, 0);
-@@ -694,7 +695,8 @@ static int plic_probe(struct fwnode_handle *fwnode)
- 
- fail_cleanup_contexts:
- 	for (i = 0; i < nr_contexts; i++) {
--		if (plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu, priv->acpi_plic_id))
-+		if (plic_parse_context_parent(fwnode, i, &parent_hwirq, &cpu,
-+					      priv->acpi_plic_id, &hartid))
- 			continue;
- 		if (parent_hwirq != RV_IRQ_EXT || cpu < 0)
- 			continue;
+And while at it maybe please fix the indentation, using a tab here is probably not very adequate. In other words make the defined() match the one on the first line.
 
----
-base-commit: fdbc36b17e9f2fa24c940959e39df90f53ccce2b
-change-id: 20251020-fix-plic-amp-72bd94969ca4
+Regards,
+Christian.
 
-Best regards,
--- 
-Troy Mitchell <troy.mitchell@linux.dev>
+>  	if (caching == ttm_write_combined)
+>  		tmp = pgprot_writecombine(tmp);
+>  	else
 
 
 _______________________________________________
