@@ -4,203 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD7F5CCF9E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 09:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C5BCCF9EA
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 10:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:Message-ID:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X4zNTm5cVALuvxVVW4jortK//0ZHTHJi5pai9itOdrI=; b=eKP9QiiwroTeta
-	DT0kY/QXnc8NuqufpLqEcxngwlxz4CyvxqSSX8fS/wPoMKsEIpz3Gpo3bkDH449sxGpBlO/cB3BUA
-	V9yTxni/3yZlyWuTJKnOmGHJMugEsIXYFsCRNJ+r6sLMGocjvWe5C75tO8YuqowuCrq8EpcbgTxsA
-	zNTVPdtrjLfgY1qFWOSm5Lk2Q1r0Xytzraxp+8jiHj1Qye5xWyK3yBLIi9vC/vT7DCIuIN9QHCoFY
-	3WdqI87NdE15gGRvt2k1fRYUOTtO2u8RhWWXjieK2nnUh40oJ5vlGBEvzPjjzfF03HZvKxH7rLaH6
-	5EaVp5S+LFV14AiCUbnA==;
+	List-Owner; bh=PJmL18jetsIZsSObR3QM+wiaBDOGIO1IL94M1h5aq4Y=; b=wEEfSgDJKREd/9
+	ZDmy1Xyt771kZvPl9tPgTVBaEutquEudBc88My9LluRfrWzTx21aBzzObYCQePBFWPNahqjQJU2ss
+	Z9v0dYBcE3JoOsysFszWvDLKlP6nXAou6qD+Xt4UonWe7IP8Igu1Rabq0pMHs0lWlQocTSVGrLZ/U
+	arfqLGZ1kNnvSlX2wP8nbTm5Mkcy+LpP1RbBUm/0cG84qyayNQa9BwX9ucdwxNHHGoWuPUSYvDfHe
+	/pyt6E9ZnlTlHs7gzeMIPdaLntZ83tv547Jb4JS51mLomUzpGqu7oDnh+iLZmBZgq1PPdCLu+f+f2
+	mAdNhVNuRIweU3mk5tnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJbT-0000000DYTN-27X7;
-	Mon, 27 Oct 2025 09:33:27 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1vDKIT-0000000Ddnf-3BBd;
+	Mon, 27 Oct 2025 10:17:53 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDJbR-0000000DYRn-13mT;
-	Mon, 27 Oct 2025 09:33:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761557605; x=1793093605;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   in-reply-to:mime-version;
-  bh=4NrRZIOxsOjE4hZ0JMM3ZHmBNZfuWfcj/iHtqU7KUCo=;
-  b=g2V3/Jeq2nCBMdUsGwFK7k0+pNNL00az8GFsuh5jKGL+wa683x5L9Ko3
-   n90ugDZFrsLKwoMeqYwT8yj69dhnzE+uMM9yjqUjF+PShY30YWnfEsE2w
-   7ULsyHW12tqXLOwoYQ5HKKRnZq6G7vIcAfqHZAtmhTZxeepg9BWQPjBYu
-   2KtH42uoE1WHuicGuak8iSVW5N4lH2oCTK/bYGfuGHlo23W90AXuJT8PV
-   NwgToHdXqQtRXU2l5za29msVa8z3lRRSvX1sgAIcKGZ2CbhDzYzVxyQg8
-   u1A/bIN5X5ot/qq/1XMX1C9Vo7yiUclmhzonk2V7XsaC11FqjQUm4vFC5
-   g==;
-X-CSE-ConnectionGUID: 5w/4b7RgRNSBg9FixJqd0w==
-X-CSE-MsgGUID: xJiSO3bhRsK6OjZ/5sVjkA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="67466797"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="67466797"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 02:32:59 -0700
-X-CSE-ConnectionGUID: m/9yGOL1SN2dQFGo4qwVaA==
-X-CSE-MsgGUID: Bvdgx2v4QMWeTyuHnOuilg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,258,1754982000"; 
-   d="scan'208";a="184224607"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 02:32:59 -0700
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Mon, 27 Oct 2025 02:32:58 -0700
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27 via Frontend Transport; Mon, 27 Oct 2025 02:32:58 -0700
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (40.93.195.56)
- by edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Mon, 27 Oct 2025 02:32:58 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PwEzxrmznzldFsbjVCjcE+qC9QoYLjy9mFdAiNVXpgLxDyvVD6ocAElVAIOgQd/FxzIrytiDy2eBnW+wSM0hvzFi9V+8q6fJqx41tFbaBOVDY0O0G1bgzHTPfaMiXq/PtgAjjrHXujtxc43IALXQtK6y19eKmfjIQHACN8Eu5YOddI2jrPJYDBVGZIDHlw5tKbe/ssmY0c1KCggTLuNNUspTPRXyj9539jJZ2YxfL75CJoPKfdddwm+7n8UMXNX3ficUM0R+pgIFHDL8u3dUGIW3Fh9XAKh44hpvW1xrtIUnxfm3W7Y9jkHxUFD1xLcecykevOIg8Mo6tuCrfvnrrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7t0iBqMi1zFf55nUaYv5jIir4tG3cddNstN/yNlKu6M=;
- b=EvRR+JEws9+rgnG+jVFp2ru6wAXqv4E+dyF5gUJToaVSzco939sK0QHX1nVVaxxTGl3H60zdRO7QFFCsfpITLe2mRD7xYpwcgxkWTBOGqy7gjhGf+BXhsD4G58SDMkYP3iUR/N8rEnjhnTyHcmUKlHsz20DwmdRf8e9glYxZhENKnKAP4wE6w6HJaGxE8O/xJZFCuS3q/qIBH+1tBKHiujh9s+WP81fa5QFH16pvLmTZG6A8Y57wm6qYQf3vTUp/XQenBvcGIJj8LHZ3DsBaBbbyzs2qFHmkOi4/GwQmA18ZuQnFWmJB7xxZ+SxPIjdQh3qu1m7cBR1o8eYGrRd8Mg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
- DS0PR11MB7459.namprd11.prod.outlook.com (2603:10b6:8:144::22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.18; Mon, 27 Oct 2025 09:32:49 +0000
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca%6]) with mapi id 15.20.9253.017; Mon, 27 Oct 2025
- 09:32:49 +0000
-Date: Mon, 27 Oct 2025 17:31:20 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Kai Huang <kai.huang@intel.com>, "chenhuacai@kernel.org"
-	<chenhuacai@kernel.org>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>,
-	"maz@kernel.org" <maz@kernel.org>, "borntraeger@linux.ibm.com"
-	<borntraeger@linux.ibm.com>, "pjw@kernel.org" <pjw@kernel.org>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "kas@kernel.org"
-	<kas@kernel.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>, "maddy@linux.ibm.com"
-	<maddy@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, "zhaotianrui@loongson.cn"
-	<zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, "michael.roth@amd.com" <michael.roth@amd.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Ira Weiny
-	<ira.weiny@intel.com>, "loongarch@lists.linux.dev"
-	<loongarch@lists.linux.dev>, "binbin.wu@linux.intel.com"
-	<binbin.wu@linux.intel.com>, "ackerleytng@google.com"
-	<ackerleytng@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, "Vishal
- Annapurve" <vannapurve@google.com>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, Rick P Edgecombe
-	<rick.p.edgecombe@intel.com>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
-Subject: Re: [PATCH v3 14/25] KVM: TDX: Bug the VM if extended the initial
- measurement fails
-Message-ID: <aP876BCemBr8Gm7J@yzhao56-desk.sh.intel.com>
-References: <20251017003244.186495-1-seanjc@google.com>
- <20251017003244.186495-15-seanjc@google.com>
- <442f5488e4a66f6a1517082df3d2ae47316be010.camel@intel.com>
- <aPuq33-qEJsDhdgG@google.com>
-Content-Disposition: inline
-In-Reply-To: <aPuq33-qEJsDhdgG@google.com>
-X-ClientProxiedBy: PS2PR01CA0046.apcprd01.prod.exchangelabs.com
- (2603:1096:300:58::34) To DS7PR11MB5966.namprd11.prod.outlook.com
- (2603:10b6:8:71::6)
+	id 1vDKIR-0000000Ddmd-13Ze
+	for linux-riscv@lists.infradead.org;
+	Mon, 27 Oct 2025 10:17:53 +0000
+Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id E183741968
+	for <linux-riscv@lists.infradead.org>; Mon, 27 Oct 2025 10:17:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1761560266;
+	bh=9DhDySVvD7mdReEgfjhQfxSVU5DcbAQWOe9Vkh93eqY=;
+	h=MIME-Version:In-Reply-To:References:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=pkKQHn3nqe04ZTRnWokHhu+DGeHofYpmTTQ+7uiaGOvTOvFFZW/uyGN3aYqtqy4NC
+	 IhYFt/HShMGy+LH43TQ/J+rs6XzTn0z/Ld7TVz+wphNs01NabFT/HSK5azJpMJVNai
+	 0PKuNJpWCj9PHydibPPT1lVIjWJdoqEuHLGatxAI9jMOvqQdagHd66QABeBXvZ3M7a
+	 2OxYBSaDLHX/O8WzlsCfKtlKyQ8Y6o1hXITggJ6kbWVjpfWrIHOa3xg+GIOzNAUbgD
+	 /8Mosg7qudpZiLEeii+Ms6WETZUPtVya4VwYWSLiwTsS7c1Jh5Wrq/R5vFP4ERS90C
+	 InCp+53xv969t8n6z9mKDE/acnNhI160yjWnRxvgCtnvNVEJAHS4R8m3Y2eJPeqBZY
+	 eZsX7UT2O4BeQk0dHJspZ1LAzGdLJyLXrrJy7bNxdpLuaIj4PKI4AzKrvnx3WJpPYn
+	 JtYQBe36PJNuajL9wlda6l3IFGP9ZjXSTfF4NIjGdqL8FwoJWoJvh0Zw5j2wMM0rki
+	 0JGzZd3g9V+gHcjv6TiuvKX5QpJO6d5cqjtJXeFbRI5SsxNk9eTugBDzrsq/kq31zb
+	 iCFOTM9b6zTzDTPra2ZkFbV7unzpinT//cgR7eN+8X8Ll3hlX+/YjWQtLLlLon0nR4
+	 CYtaxJzbaji+fYHeRjvwHyRQ=
+Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-5db24da6d69so10647112137.3
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Oct 2025 03:17:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761560264; x=1762165064;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9DhDySVvD7mdReEgfjhQfxSVU5DcbAQWOe9Vkh93eqY=;
+        b=H72Z7dkTEB9pId1guJNVg3QTaaNS1rfgdRID5PxsBh2dAr+WildgnbR2gVtGApQlPw
+         epxzhC+dF6PaDs927FVnj4jN1FQGwg5NlqHafw5t7zBt+7Ae9Q6OUsefKmLDITeB2toM
+         TQARD4LqGYtNSATh2GjQyjHRGK2ftDYPWX9OJ5eHUnQ4H65OpCg9r8MBVuTE4mXfpIdU
+         +YxHtTvF9aazWKkF1jwB2MGULTiFl+91T5+WQVQKtwOIQfp8dC+vsbi+VeXzBUIUjil6
+         tb1cYZ7fMZEADhmLpFsdUhUcGvsAbSsMwTLDP2x/ok876pme6UEwDar9yP0WfudymBJI
+         xrxg==
+X-Forwarded-Encrypted: i=1; AJvYcCXjRe1lePvWtYUZIOaWFuwse8awKCdKifSrMN/MPyNxpOS+++ZjNFTQmSuJe1yzVTp7RlmYnZeAOZ3H0g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjYrhVxz1WLgPMpgPvGy7M9z66RfQ/WRQgAzzZvgVKOn8fL+wD
+	RQrIorabY7Q1KFcz03+i5PcUSVK1jDJniPj6Kk2Sy53XXwnY/DcqRry6ugXvUfp3ty6C8mja39n
+	gbjhZI77Q57f/S3CmcXKoGoACqZLFZAa3GEDHp39I2cHW14/YPIBNaL8F1BClXEzzAUQL+KTIt+
+	Wq7Fs/sAzH00IWEjelmirhsoSXCtYJY+9ufendWKJNuBoQeXET5W6VnG4Qlry1
+X-Gm-Gg: ASbGnct4H8MeoLeNFO1WggCPKMVThEm3IL/6ev5WpKdg2mPVeaVwzZ7k1FwjCxGrUwa
+	LzKsv40Q3qiL6YDzpeC0zM6/MElv82lWZqdC2Z1Q0JjOAReowRZITpgi2wtuXz6lrH/xxpBxgsK
+	6Zs4pX2kRUBKgr4u0YgRGrA1YtJ3d/ZUG3Q5DA3nzoGMWSzWllF4eM6w==
+X-Received: by 2002:a05:6102:954:b0:5d5:f40d:28cc with SMTP id ada2fe7eead31-5d7dd6a1b92mr14555706137.34.1761560264189;
+        Mon, 27 Oct 2025 03:17:44 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEdPvzfUWy+KzTQx0NZKC+viVyDjrKZWPq/ag/aFPbstdqmRZATfbto1tMny89+DUKS+pVIxA5PrA3lQ+wZpqk=
+X-Received: by 2002:a05:6102:954:b0:5d5:f40d:28cc with SMTP id
+ ada2fe7eead31-5d7dd6a1b92mr14555692137.34.1761560263720; Mon, 27 Oct 2025
+ 03:17:43 -0700 (PDT)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 27 Oct 2025 03:17:43 -0700
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 27 Oct 2025 03:17:43 -0700
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|DS0PR11MB7459:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0a36ccaf-fd81-45fb-07ba-08de153bcb32
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KlZskL9aH8m2f9n+feqbXj35bm+dprLFdpuAoNZHvIDRbEuUhankyszrtzWz?=
- =?us-ascii?Q?BM3g5TrfapSQA2zymhZudu0KIoSkkz/hmHNAxD7cWcl6EcWkpPB/a4o72D65?=
- =?us-ascii?Q?i2WE406OD5Eja+bCNbiKyEjpzTKS9RWd738SV5M8fG7LHYPpK9evx3qlRZWk?=
- =?us-ascii?Q?tAjX+LGrfmEZCFX7rCTrHGtKxfZ1lPtV7W85JNCcG2+hdby2YaxwJ9BcbVIz?=
- =?us-ascii?Q?N3+iIenO03DRAoHoV7csqWmETqIoTg+USzFHPgbZX6BEQPkcTsj3M9fy3owA?=
- =?us-ascii?Q?4ST1tdp8Z2Gfx/Xc8buQlRE5KF5hdxPSnGM/f95mf1I4pHjOXMPG0baNH9Ii?=
- =?us-ascii?Q?72yZpd0TqvwJ4Kk1Ige9MKbWmah4zMKb0bhZPfbW9qHR3OdNDqt/f6ApN4dT?=
- =?us-ascii?Q?tOLETyeMHDoyno0kuc0dGJJbuAJHEeodF/0n8fGPI8SCNuEOY1RACW8NfclK?=
- =?us-ascii?Q?kcYNR6kJh0dJYlw+LrATUUkRSCIRfe5MjSlzI3n4WbyYk+0JfATpsipJWpmF?=
- =?us-ascii?Q?4HgZL1tNQKWlmZHgqbHlk6G0MfcONatV5bUlaMcqJN8ybBsmy1UMwOyyUCAu?=
- =?us-ascii?Q?4Pf5z60dTZkPiBgrxxXF0H3n64cLsJ6PzQgEdOfl/wO7kZFqa2RDubVP08dQ?=
- =?us-ascii?Q?TRlkMF0jdMzOc41jTbUJfmbBanNoh5u2TCkjG5teNA7m9ufTunXSDmbmsjID?=
- =?us-ascii?Q?CNOCpgsb29evq5oE+Vr6kIz7xWnW+60WTo4QWvZvprn1w+fchDljz0Yh/rdh?=
- =?us-ascii?Q?Rrbmz75CeosL5N1kgSaJ8/cDIZFwPN0UYHGVK90smp/0AD0goGLmXB5n6MZ/?=
- =?us-ascii?Q?vDKU6XGxCp3rJ5oTy+ifg/GUQuZG5iohqPzhVzir1UN5BLsMseBB0Z8R8rya?=
- =?us-ascii?Q?uE2p5+pcksX55KWSMU8qXRmzJcfN5q69LkyCOOD/0cfdVZHyNKPiob2HEGNR?=
- =?us-ascii?Q?nNNdF4CUYlM4Phljy9AYNxlX7MFNHfw55nyMuRQTNJZhDB58tw7DNvdpKB0z?=
- =?us-ascii?Q?1NXfhi5H6tyVcz4TC33hUIjh2u5NqvRyUk542r0CA8KnZvblfCtCBW3x7/vu?=
- =?us-ascii?Q?yC109tHZMVN6A7K+v5Jzz4aPoBRSX6Ozk99VVyUyaRblQgn7f0n7+ukbGE/S?=
- =?us-ascii?Q?vOGoAKM5BrYdnv5W1K7+uffv2vHH1wfCCg5uPHfBKJxdJi+a0UAWT1Gl9Q9Q?=
- =?us-ascii?Q?4EguhHsvyqqdmzCTprSSdzpyVByiTGwBH8cp3m/Pxb/Oho/UzUCtpkIR+Cp9?=
- =?us-ascii?Q?8FZA/2Fv6hIgOGt/qZu1NsxHpj1iyuF8QneHPMElj+EzbsN0bm87QUS78dyW?=
- =?us-ascii?Q?6Pw3DH01L9Rz8mLI2kAZPHkDHczsFsS8SDgc8CE9UIXki4ftD0ZsA0rIRZqL?=
- =?us-ascii?Q?z8+w/Ha5XSTrYegvWFMP9Hh+RozPgRLJFuuTmU37N6CCt2cpIQgukO+BPfsI?=
- =?us-ascii?Q?y+kWAvGKSVCwImIX/EIjnfHLFg1CGiST?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8AuvsAG/aX3W8aM22FG3GhVBEQlcs/YOxRZ4TwvCFw/P1vULQpiPgHfz5Evh?=
- =?us-ascii?Q?4bVvxWN+j7LIC3doKGcgpGpI2DRoicrTrpr8WMrHrB0FZ3MoIU6mp6rS4DA7?=
- =?us-ascii?Q?v1U4XJPzeXhNR1bWTq4bLTu0R/LSznz71vLlr0WU7yCH0PhSpfQ+vuYu52DS?=
- =?us-ascii?Q?0TgMQ93FCPEEOnuUuiOAUjqsBeBmtQlOtOV+DC8QcGeDpl7JVzpNNi0eS9Rk?=
- =?us-ascii?Q?ho0RAKP8YdMS115cmjVJmluw3wF5gk2GAsfBVw8y+tRMPEMu2yOSpYreTu9o?=
- =?us-ascii?Q?WfXU7JpKdEIccmNlzwW7xfpKMEPzjLo+64JuejU1mp2K2TCrqlpgG5TlUH01?=
- =?us-ascii?Q?gS+BvrSxL/fg0CASy3wTOODTJjnpd6Jfnu3xemgwAbAu9n7IU45j8bNwKhxB?=
- =?us-ascii?Q?x0QSn+p6BKjsBBYnmxCmTQdzsIIqRDW8WQbKrh5fRelyudUWqB9vZnIj1Kib?=
- =?us-ascii?Q?tk1C4sD/RUGpLL5R9sN2k6MT4k09g2kjVLH3HbFaLIdA0e4FfMRMH8WIJVxe?=
- =?us-ascii?Q?lOjQH/Ml2T6TGMQatJyHEupNMmMZSPMgfnmAAh4WNcflZTvaqeteGWtQsSvA?=
- =?us-ascii?Q?39JXjOZgVwXkK92g6R9sKcDfdrGYS3R/72VkNLQDi/uEBe38XV9GITiwzkVY?=
- =?us-ascii?Q?rYq630JwsdjylchCfRLbKXVYGdJzxF8Ri1oKq2bc0Ky8D50mRQTmQ3PohO+o?=
- =?us-ascii?Q?eQjOoIYzOvwH39ZjTmviLwzJH0BlMY6XVPk0gIeJxNUURHbL/D66QrMbw5AP?=
- =?us-ascii?Q?GRksA4jQDmOpshz2Rix14tXkD4sMzoYRbyC9RgK+OnGRVpOITcxq9RgEnBo3?=
- =?us-ascii?Q?9RVqs3AZZYUto09N9IP0cBvqvtFGRWD68Gy1Y7fCch7pqwR1ktGchjvoBpf3?=
- =?us-ascii?Q?GetfEXk/6GoTMmFxCf4tVKkqRwcaiaUoXbZHdQVPyhO4pUiZDn+RjNJ0fjxc?=
- =?us-ascii?Q?wHjJ9nvwHPWg+kPQclT5OdZt2Iwczc+PXexw+/4+4Wl/KpYApq5m56fjWaTs?=
- =?us-ascii?Q?Y42n88rNsNsOOjmorV5qdH1yJEKwo/VRfRT+uojF0B6834sYcYAQWbVYI5sf?=
- =?us-ascii?Q?KD8/8X+WUU056gqa5t9RWkim9kESVw4qtcBdN9bTC/NwhWw1dmhhCCAl5KFN?=
- =?us-ascii?Q?htlgd+JIJ6uENGL3K7luyUG06kn18nos8VbupyvQ6vpuKBdHQ8J5b0U5m1XJ?=
- =?us-ascii?Q?Z6fLgEe33/AGFaMmSE4HLpTJEEl5QnlIApzTPVnwBUkfUnAtc0+5Ce9CU5/C?=
- =?us-ascii?Q?rlevlN79H6ozQuUIclc8lh9LGHwO56AgMliGKZtfTxD3+m+xeHgFo08g3hki?=
- =?us-ascii?Q?chc5acpV1zi7RqQY/ydwkC6M7qJ0DiAabfIvyma0FMbEoYYA4ddo1Y1efKLf?=
- =?us-ascii?Q?f1yTa157+xpZWaT2XXUMNjY7ibkMd1LlhZ4/qHDaPB8ma0axZ4ZD/JTqNnnk?=
- =?us-ascii?Q?t3VmsnOO84ZaTXpdjT0KLxA2x9qjJEtjEoQVPFXxLBM5w6gYkyJZtXuoNU4a?=
- =?us-ascii?Q?MWQFbwdPUtOmxwISuHytk4+lSBhKtw6HolWwgq96SoxGkGvgfaLZso4FEDNR?=
- =?us-ascii?Q?drcArHOOWEUweV7ACNYadxQcH2Paj/KG1quseiQk?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0a36ccaf-fd81-45fb-07ba-08de153bcb32
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2025 09:32:49.1733
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sMreRnyXPnsHue0fYORQcEdzGexAc4TwOrnc7fwmtPzhnASd9ZBaz45fD4aD4Y7+UJv51kCOcVbSw6XcAVj83A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7459
-X-OriginatorOrg: intel.com
+In-Reply-To: <aP86TltQ2uqeK6FY@pie>
+References: <20251026224424.1891541-1-aurelien@aurel32.net>
+ <20251026224424.1891541-2-aurelien@aurel32.net> <A73D83A7055D782E+aP7lAdAk66slv6l7@kernel.org>
+ <aP8QHwsYDlbQxQJo@pie> <mvmh5vk67in.fsf@suse.de> <aP86TltQ2uqeK6FY@pie>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+User-Agent: alot/0.0.0
+Date: Mon, 27 Oct 2025 03:17:43 -0700
+X-Gm-Features: AWmQ_bkt48PMnhkCO0H9qLGejhLpBvvYCPQTMfZ0eF7vE7Bd7Gc1hHCSa_6NREU
+Message-ID: <CAJM55Z9w0pnFmVjJKJNMs1iqOxoL=YpkBu0L7NuUZ_0ipMtQAQ@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] driver: reset: spacemit-p1: add driver for poweroff/reboot
+To: Andreas Schwab <schwab@suse.de>, Yao Zi <ziyao@disroot.org>
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, Aurelien Jarno <aurelien@aurel32.net>, 
+	linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>, 
+	Sebastian Reichel <sre@kernel.org>, Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-pm@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_023325_333964_9F38F49D 
-X-CRM114-Status: GOOD (  23.43  )
+X-CRM114-CacheID: sfid-20251027_031751_608935_305AC51A 
+X-CRM114-Status: GOOD (  21.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,45 +113,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025 at 09:35:43AM -0700, Sean Christopherson wrote:
-> On Thu, Oct 23, 2025, Kai Huang wrote:
-> > On Thu, 2025-10-16 at 17:32 -0700, Sean Christopherson wrote:
-> > > WARN and terminate the VM if TDH_MR_EXTEND fails, as extending the
-> > > measurement should fail if and only if there is a KVM bug, or if the S-EPT
-> > > mapping is invalid, and it should be impossible for the S-EPT mappings to
-> > > be removed between kvm_tdp_mmu_map_private_pfn() and tdh_mr_extend().
-> > > 
-> > > Holding slots_lock prevents zaps due to memslot updates,
-> > > filemap_invalidate_lock() prevents zaps due to guest_memfd PUNCH_HOLE,
-> > > and all usage of kvm_zap_gfn_range() is mutually exclusive with S-EPT
-> > > entries that can be used for the initial image.  The call from sev.c is
-> > > obviously mutually exclusive, TDX disallows KVM_X86_QUIRK_IGNORE_GUEST_PAT
-> > > so same goes for kvm_noncoherent_dma_assignment_start_or_stop, and while
-> > > __kvm_set_or_clear_apicv_inhibit() can likely be tripped while building the
-> > > image, the APIC page has its own non-guest_memfd memslot and so can't be
-> > > used for the initial image, which means that too is mutually exclusive.
-> > > 
-> > > Opportunistically switch to "goto" to jump around the measurement code,
-> > > partly to make it clear that KVM needs to bail entirely if extending the
-> > > measurement fails, partly in anticipation of reworking how and when
-> > > TDH_MEM_PAGE_ADD is done.
-> > > 
-> > > Fixes: d789fa6efac9 ("KVM: TDX: Handle vCPU dissociation")
-Maybe this tag is for patch 25?
+Quoting Yao Zi (2025-10-27 10:24:30)
+> On Mon, Oct 27, 2025 at 10:03:44AM +0100, Andreas Schwab wrote:
+> > On Okt 27 2025, Yao Zi wrote:
+> > > On Mon, Oct 27, 2025 at 11:20:33AM +0800, Troy Mitchell wrote:
+> > >> On Sun, Oct 26, 2025 at 11:41:14PM +0100, Aurelien Jarno wrote:
+> > >> > diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+> > >> > index 8248895ca9038..61c16f3d5abc7 100644
+> > >> > --- a/drivers/power/reset/Kconfig
+> > >> > +++ b/drivers/power/reset/Kconfig
+> > >> > @@ -283,6 +283,15 @@ config POWER_RESET_KEYSTONE
+> > >> >          help
+> > >> >            Reboot support for the KEYSTONE SoCs.
+> > >> >
+> > >> > +config POWER_RESET_SPACEMIT_P1
+> > >> > +        tristate "SpacemiT P1 poweroff and reset driver"
+> > >> > +        depends on ARCH_SPACEMIT || COMPILE_TEST
+> > >> > +        depends on MFD_SPACEMIT_P1
+> > >> > +        default m
+> > >> default m if ARCH_SPACEMIT? Or default ARCH_SPACEMIT?
+> > >> I believe that reboot and shutdown are actually essential functionalities,
+> > >> so it might make more sense: default ARCH_SPACEMIT?
+> > >
+> > > I don't think there's anything preventing it to be built as module by
+> > > default: even though it's "essential", it's unnecessary during kernel
+> > > and userspace startup, thus I see no reason to build it in the image.
+> >
+> > Wouldn't it be needed in a reboot-on-panic situation?
+>
+> Oops, yeah, I missed this stuff. Seems systemd automatic boot assessment
+> could switch to another boot option if one fails to boot. And if it's
+> caused by a (very early) kernel panic, then reboot support does play a
+> part here.
 
-> > So IIUC this patch only adds a KVM_BUG_ON() when TDH.MR.EXTEND fails.  How
-> > does this fix anything?
-> 
-> Hmm, yeah, I'll drop the Fixes.  It made more sense when I thought it was
-> impossible for tdh_mr_extend() to fail, as returning an error and not explicitly
-> terminating the VM was "wrong".  But I agree it does far more harm than good,
-> even when relocated to the end of the series.
+But if systemd is running then you've at least got as far as the initramfs,
+and have the module available. So I don't see the problem.
+
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
