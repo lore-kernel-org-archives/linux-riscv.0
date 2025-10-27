@@ -4,139 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54243CCF9EB
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 15:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3428BCCF9EB
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 15:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5MsAc0MyWzNk6tZ3KG5GAGwgBTC96zYnhGzs4OENahk=; b=B7a2d0khkUO8Kk
-	4gqkeejalXJ3AeJoLApNdYJ75KZ8s6ekTtp4bL9DWBlMGWfPcoR9tQ+lJTQX6F5x1eJYvcmIID5lH
-	hNkaPn5XcCKBfyvGPa6o37EKI/04jtNepHIzL0dH1qZVWNvnMWyypFxn0rhroKpXjtc/J2BSFlyJs
-	CY8wu+xmb1/7ymH6XM1OvRUPp/mz9UiEu/zKTlRMLybKwNmd5bPtsKAYu2VFqiiw8f18CZBFk15zG
-	jRrO9dfwGaaFlZc2nxK5wfDF0N9JB8v7iYNoRyX1qYAIVV1CT7QB3OsFVsV0/wH9thxTn3F+Vyf2y
-	wAMMsRhpKcXj+2XRKuDw==;
+	List-Owner; bh=1bGUbKDFzNfMNuhA3hc2WTH7eA3snVT5PrjdANNc0gw=; b=MIYZblJPSCKssy
+	Y2oZJEiqtsdnGnJ1a8f9RKSX8oyfHUwfCMwhjJF/G98g+xdFuSXN1wPyCKR/KgQ5bklMdCGHVwVu9
+	/gS7ZhA3pqxksA++oFgOnsJLykikl0OXNQDRR3PKaLKOW9pg+JoLpm2FD6Do5vVCLyiDNBWpaIfx8
+	ZjDTDGvwFnBunH+TR/I4YYNc95iZ9ExQ9xE2c+l2Dj5xpkThwuLidtd3oSsJZvDdyf+mTEe2TEBVe
+	6/NjRk9/NHL5cSAnuCsvxoEAjp860QYnZ8y3E6+6rEDlqveExRvTvhRhA4QPoh1cb+cXNkVQTpH0P
+	id40x9wO7nbp++mw38oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDP2L-0000000EDYp-1lv0;
-	Mon, 27 Oct 2025 15:21:33 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1vDPXn-0000000EGOA-2o9b;
+	Mon, 27 Oct 2025 15:54:03 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDP2I-0000000EDY6-39NT
+	id 1vDPXl-0000000EGNR-0ApX
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Oct 2025 15:21:32 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b608df6d2a0so4345525a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Oct 2025 08:21:30 -0700 (PDT)
+	Mon, 27 Oct 2025 15:54:02 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-63c09ff13aeso8306412a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Oct 2025 08:53:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761578490; x=1762183290; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FAuDRjv5uAXTsOVI/eb5J4UAMhtSLGfuIUeu/cvlLSU=;
-        b=VfhmXVqZftpf4SEFbqCpU/kRKUEwoMJX05N5Ge8i7YQNQFqe5NKeyYKUHg6Rd7HCjS
-         /zgibWD0geN/lzSomP581/Wu8YharHGulCdtRNarRJ6Mwn6Gpks6qRoQx7xDTewf6lGj
-         q2lXmw/k/lWG7gEV3GgYWl6XIP2dXwWjrRTA/2Xp5FWQjL4WONPcSiGTXWvia+7EIeB3
-         Y7SvkEOUGH9LWCjODjXRIj4ssny09ppnsgj7KKq4H7H21KT2gXnqkzUw2NjHC/9iSOcG
-         qElL1E8PHiImti8YSXPWnrg57N3Ii5KIX7+X/1US/9PI2QyMhJ5bE5WuPnd2TDlEPy1A
-         I+eA==
+        d=linux-foundation.org; s=google; t=1761580438; x=1762185238; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Lyo3P6jUrO11oV/07r7VEk3+sHuM/zfcTZIIBqJLkxg=;
+        b=h84y+MjF/07qZRVDoumK8EdGj271nC14uC02mI98of8m0GcOb3r86Pi7vkVOuFeI98
+         ceWOnItfGx2lTsk2qXfFC1+cvqw9OEvsfRHzDBiz1vwxMoo21J28vp6r08gOvCDMXn+j
+         yRLIcVXTUzSp7U2xmNll3i7ZMwHJK5z4u0VK4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761578490; x=1762183290;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FAuDRjv5uAXTsOVI/eb5J4UAMhtSLGfuIUeu/cvlLSU=;
-        b=K4cYdbFVrr68Ap2uDCUxMjWu/USDaw2T30CSXr2oPPiY2KjxznRy5ZjdMAbFHsCuAr
-         OFT7old9d0MGIq9tYiXg8IxRieXjCh30tt+vdfiq7FZPZsSggf3lnE6VGifP5eJnJFci
-         Afu86bs09M0w7MDuOHN3j81g+9NrAHKqdX0O8ycmLNsExEaqUqK5hVelU4E6oiGajluL
-         BwFy3luMkY0mVTVVsfSliJ/7zXucMkzSV7ROmIAKvUaFIzTFyt+Foniy8jPuF5QETven
-         BB7OgHg2O6mskT+z46T5esK7o2x9mE+0DSXT+VeonJiJDoiuVjk67igILgWgxg9pjEoL
-         Ln2A==
-X-Forwarded-Encrypted: i=1; AJvYcCXG0Rxdexto1Y/95AGWLlv26QlbEoIFqX9FA6MHGOeKN6Nn9Nsdce4f1NgDmKPOdTbFq6v5xavTHUl/Lg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyr2OvhCbYpjG1D/qdf8CtBvEH3yfVkorD+0LJPaiYVTUy+A0Nk
-	r/J6CywwTmrFdNvYTKqjosXX2MNUKzCI5AZU7RCbM6JmvdAZQLOS6/RH
-X-Gm-Gg: ASbGncuJ3WFc6vTlCpkW/GVFTluCgO4w92Wdc6GcEBc3OySFfNPP+dKLuYqZctf3FqE
-	fuKOw3UmwDOybqXZXg7Ft8YC4wVJKtjmugCIXGq9xgwILNsukvY6lRZlzrs9prWy3ROS1Q0OEQb
-	YQ5GyPRMlWz6MrQrujGSzBgNrrYiLC9nIxdduhYZdDiAx0Jh7Q5LCZ/rsJghEVMUOOf9wk2POhJ
-	OUMhkJgYfMI8RDJhbUoTIy8GLdAI328+R6oqwcEz1qhC4sB6/i5FlDXLSF1GkbnQDg2Nf9NkOal
-	+dixxqvCmgmockNiX1GV78O1RchF0nF3NMX7XTPYDZaBs/zjJILZD26BT+kQ2TnYBUij94ut2E9
-	t7u71cAtah3aQOV0dfY4SodKx8k2atj2+r03JhayyapmPDS+NyV/OEA8LrL+oGi48AoG3lhhv1i
-	mcbVP/YcnS0/p41aZ8hucfvqacn73SjgTexSY=
-X-Google-Smtp-Source: AGHT+IE98kyCeEo6PTndR/a9uNVMw9TW4vCsYVgseUaymh3OJieDxpigWzsO7C6JngKgDnTsgFT3wA==
-X-Received: by 2002:a17:903:1d0:b0:290:dfab:ca91 with SMTP id d9443c01a7336-294cb68836emr3428795ad.54.1761578489223;
-        Mon, 27 Oct 2025 08:21:29 -0700 (PDT)
-Received: from DESKTOP-8TIG9K0.localdomain ([119.28.20.50])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498cf3426sm87711215ad.7.2025.10.27.08.21.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Oct 2025 08:21:28 -0700 (PDT)
-From: Xie Yuanbin <qq570070308@gmail.com>
-To: peterz@infradead.org,
-	riel@surriel.com,
-	segher@kernel.crashing.org,
-	linux@armlinux.org.uk,
-	mathieu.desnoyers@efficios.com,
-	paulmck@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	hca@linux.ibm.com,
-	gor@linux.ibm.com,
-	agordeev@linux.ibm.com,
-	borntraeger@linux.ibm.com,
-	svens@linux.ibm.com,
-	davem@davemloft.net,
-	andreas@gaisler.com,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	luto@kernel.org,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	anna-maria@linutronix.de,
-	frederic@kernel.org,
-	juri.lelli@redhat.com,
-	vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	qq570070308@gmail.com,
-	thuth@redhat.com,
-	akpm@linux-foundation.org,
-	david@redhat.com,
-	lorenzo.stoakes@oracle.com,
-	ryan.roberts@arm.com,
-	max.kellermann@ionos.com,
-	urezki@gmail.com,
-	nysal@linux.ibm.com
-Cc: x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	will@kernel.org
-Subject: Re: [PATCH 0/3] Optimize code generation during context
-Date: Mon, 27 Oct 2025 23:21:00 +0800
-Message-ID: <20251027152100.62906-1-qq570070308@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251024182628.68921-1-qq570070308@gmail.com>
-References: <20251024182628.68921-1-qq570070308@gmail.com>
+        d=1e100.net; s=20230601; t=1761580438; x=1762185238;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Lyo3P6jUrO11oV/07r7VEk3+sHuM/zfcTZIIBqJLkxg=;
+        b=vewaMAxou+OS7ErFvLKgvR/lK3YbNFMrpRGXMgvU++Zcpl1nJgl8weJ42WLiIeQB89
+         Ddq3aMIsdIxNw9yfKRZHCowDxStvm2a8u1UFq83S/CZNoTPqoreHk2UhmaAWghqWZ9+F
+         UEGioDtXKDnHu0lfhrgdSVG3GZXnvzcdUPrq2fn0uMk20Qv0/CtjE/ISDoi8Hf3GsOd5
+         FVHN37zC5SZy2iTAqV1gehNdExMR5ilu+k5P4m7lbyMypRxtelXxE4HW0Y8j2kDJeEHu
+         g4bvVLLlzA9IakpEqS7ZAK/m+W7wSBaA2Zt5gLrj85nA2iwLoyxpkjUqXcuePYZwa2yB
+         47wA==
+X-Forwarded-Encrypted: i=1; AJvYcCXY/E4VXW2ADV87CF4/3clhrTxIjN3BF+GTg6xg3OghU1/cVpvP9JWSZPCDIASiumtyJ4glthih6AsOvg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9r7j8/jWQwkflHURGZWK74jvb86T3RaAllPYVdClq50lckAQi
+	PBe/UyeavUH1pTD8nUoxtNJ/u7XtvrYaPtRC6C0zY4L6dGMXde2DwL2ilBHimA7YYugKDL0URb0
+	oKoyRLrY=
+X-Gm-Gg: ASbGncsu2ZhUKA5mdDMSvBotpEWGR+vmrf0EFnAwAtB+h7VoVTEK5lprqpYBwT476zp
+	dh7E0YOrt4LqmhXRDiurwxnPu992JTiir+KWbb2E0aoK4aiE/Y995hVjflGmp42ac5xY+gzrbdO
+	QCgteh4watfHPkVLL8tgGyAC6teh5uEnhXs3/eyfWluqHmCyc7lXvKY4eKwMsxqoWBNRJiMvxuv
+	T/41MN6cV1rBcxVV8KedfeKhl1PaACFWZSzlXoPP4d2JsYtSmLP6FQnovmFsg5c4KaicZOMT/AX
+	6Ydsgpfw2LU9CQ3nFA41PQQy8evP0S6Z7gbGoTDUJHfmfYVfyZz7XqAS+vOiKVsvnRFmbgk2id9
+	+P4lQ5wIJ4UE8rHhX4gB1x3Q3CyCg486oUKYkEotq2QjbuQzZ6bcIdNR3apUjKd9Wy2yI2qj45j
+	kA/IijklYVajEjVS36NFKMWx7HA2fvFbZYVEes56BnPJRsd/wlDntCV0LEEoQ7
+X-Google-Smtp-Source: AGHT+IEtg5fgC5oubFlkGA7VvJPxfVOZacAZsfvcQLS1o2XtBSJqhJOM5fMhVIqXkTNPxbTUaTTThw==
+X-Received: by 2002:a05:6402:158c:b0:63e:1e85:6e76 with SMTP id 4fb4d7f45d1cf-63ed84d1c71mr386689a12.19.1761580438596;
+        Mon, 27 Oct 2025 08:53:58 -0700 (PDT)
+Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com. [209.85.208.41])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63e7efd0fabsm6285618a12.34.2025.10.27.08.53.58
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Oct 2025 08:53:58 -0700 (PDT)
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-63c4f1e7243so7611042a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Oct 2025 08:53:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWCfv1Nbab1RUVpOTMM5+yYPtzzu6+qtzhifaoDq5spKvBuSPMjA0KDpAih/JPViutze7mVU/oQiArmnA==@lists.infradead.org
+X-Received: by 2002:a05:6402:4412:b0:628:b619:49bd with SMTP id
+ 4fb4d7f45d1cf-63ed84db9e2mr369134a12.25.1761580437926; Mon, 27 Oct 2025
+ 08:53:57 -0700 (PDT)
 MIME-Version: 1.0
+References: <20251027083700.573016505@linutronix.de>
+In-Reply-To: <20251027083700.573016505@linutronix.de>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 27 Oct 2025 08:53:41 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wiZ0RdDzpafUUduCn3gOVX3a=ZmGOw7wu1s-jqe8KypDA@mail.gmail.com>
+X-Gm-Features: AWmQ_blZNXFTqWGx07mPO-qNDyYJc9sRx0MxijvPg_spVplnaBKcigb1OKRcACM
+Message-ID: <CAHk-=wiZ0RdDzpafUUduCn3gOVX3a=ZmGOw7wu1s-jqe8KypDA@mail.gmail.com>
+Subject: Re: [patch V5 00/12] uaccess: Provide and use scopes for user access
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel test robot <lkp@intel.com>, 
+	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	x86@kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+	Heiko Carstens <hca@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Andrew Cooper <andrew.cooper3@citrix.com>, 
+	David Laight <david.laight.linux@gmail.com>, Julia Lawall <Julia.Lawall@inria.fr>, 
+	Nicolas Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>, 
+	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
+	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	linux-fsdevel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_082130_794378_1D28B45F 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20251027_085401_123763_5627531B 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,181 +119,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I conducted a more detailed performance test on this series of patches.
-https://lore.kernel.org/lkml/20251024182628.68921-1-qq570070308@gmail.com/t/#u
+On Mon, 27 Oct 2025 at 01:43, Thomas Gleixner <tglx@linutronix.de> wrote:
+>
+> This is a follow up on the V4 feedback:
 
-The data is as follows:
-1. Time spent on calling finish_task_switch (unit: rdtsc):
-| compiler && appended cmdline | without patches | with patches  |
-| clang + NA                   | 14.11 - 14.16   | 12.73 - 12.74 |
-| clang + "spectre_v2_user=on" | 30.04 - 30.18   | 17.64 - 17.73 |
-| gcc + NA                     | 16.73 - 16.83   | 15.35 - 15.44 |
-| gcc + "spectre_v2_user=on"   | 40.91 - 40.96   | 30.61 - 30.66 |
+This series looks all sane to me, and I think the naming etc now all
+makes perfect sense.
 
-Note: I use x86 for testing here. Different architectures have different
-cmdlines for configuring mitigations. For example, on arm64, spectre v2
-mitigation is enabled by default, and it should be disabled by adding
-"nospectre_v2" to the cmdline.
-
-2. bzImage size:
-| compiler | without patches | with patches  |
-| clang    | 13173760        | 13173760      |
-| gcc      | 12166144        | 12166144      |
-
-No size changes were found on bzImage.
-
-Test info:
-1. kernel source:
-latest linux-next branch:
-commit id 72fb0170ef1f45addf726319c52a0562b6913707
-2. test machine:
-cpu: intel i5-8300h@4Ghz
-mem: DDR4 2666MHz
-Bare-metal boot, non-virtualized environment
-3. compiler:
-gcc: gcc version 15.2.0 (Debian 15.2.0-7)
-clang: Debian clang version 22.0.0 (++20250731080150+be449d6b6587-1~exp1+b1)
-4. config:
-base on default x86_64_defconfig, and setting:
-CONFIG_PREEMPT=y
-CONFIG_PREEMPT_DYNAMIC=n
-CONFIG_CC_OPTIMIZE_FOR_SIZE=y
-CONFIG_HZ=100
-CONFIG_DEBUG_ENTRY=n
-CONFIG_X86_DEBUG_FPU=n
-CONFIG_EXPERT=y
-CONFIG_MODIFY_LDT_SYSCALL=n
-CONFIG_CGROUPS=n
-CONFIG_BUG=n
-CONFIG_BLK_DEV_NVME=y
-5. test method:
-Use rdtsc (cntvct_el0 can be use on arm64/arm) to obtain timestamps
-before and after finish_task_switch calling point, and created multiple
-processes to trigger context switches, then calculated the average
-duration of the finish_task_switch call.
-Note that using multiple processes rather than threads is recommended for
-testing, because this will trigger switch_mm (where spectre v2 mitigations
-may be performed) during context switching.
-
-I put my test code here:
-kernel(just for testing, not a commit):
-```
-diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
-index ced2a1dee..9e72a4a1a 100644
---- a/arch/x86/entry/syscalls/syscall_64.tbl
-+++ b/arch/x86/entry/syscalls/syscall_64.tbl
-@@ -394,6 +394,7 @@
- 467	common	open_tree_attr		sys_open_tree_attr
- 468	common	file_getattr		sys_file_getattr
- 469	common	file_setattr		sys_file_setattr
-+470	common	mysyscall		sys_mysyscall
- 
- #
- # Due to a historical design error, certain syscalls are numbered differently
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 1842285ea..bcbfea69d 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -5191,6 +5191,40 @@ asmlinkage __visible void schedule_tail(struct task_struct *prev)
- 	calculate_sigpending();
- }
- 
-+static DEFINE_PER_CPU(uint64_t, mytime);
-+static DEFINE_PER_CPU(uint64_t, total_time);
-+static DEFINE_PER_CPU(uint64_t, last_total_time);
-+static DEFINE_PER_CPU(uint64_t, total_count);
-+
-+static __always_inline uint64_t myrdtsc(void)
-+{
-+    register uint64_t rax __asm__("rax");
-+    register uint64_t rdx __asm__("rdx");
-+
-+    __asm__ __volatile__ ("rdtsc" : "=a"(rax), "=d"(rdx));
-+    return rax | (rdx << 32);
-+}
-+
-+static __always_inline void start_time(void)
-+{
-+	raw_cpu_write(mytime, myrdtsc());
-+}
-+
-+static __always_inline void end_time(void)
-+{
-+	const uint64_t end_time = myrdtsc();
-+	const uint64_t cost_time = end_time - raw_cpu_read(mytime);
-+
-+	raw_cpu_add(total_time, cost_time);
-+	if (raw_cpu_inc_return(total_count) % (1 << 20) == 0) {
-+		const uint64_t t = raw_cpu_read(total_time);
-+		const uint64_t lt = raw_cpu_read(last_total_time);
-+
-+		pr_emerg("cpu %d total_time %llu, last_total_time %llu, cha : %llu\n", raw_smp_processor_id(), t, lt, t - lt);
-+		raw_cpu_write(last_total_time, t);
-+	}
-+}
-+
- /*
-  * context_switch - switch to the new MM and the new thread's register state.
-  */
-@@ -5254,7 +5288,10 @@ context_switch(struct rq *rq, struct task_struct *prev,
- 	switch_to(prev, next, prev);
- 	barrier();
- 
--	return finish_task_switch(prev);
-+	start_time();
-+	rq = finish_task_switch(prev);
-+	end_time();
-+	return rq;
- }
- 
- /*
-@@ -10854,3 +10891,19 @@ void sched_change_end(struct sched_change_ctx *ctx)
- 		p->sched_class->prio_changed(rq, p, ctx->prio);
- 	}
- }
-+
-+
-+static struct task_struct *my_task;
-+
-+SYSCALL_DEFINE0(mysyscall)
-+{
-+	preempt_disable();
-+	while (1) {
-+		if (my_task)
-+			wake_up_process(my_task);
-+		my_task = current;
-+		set_current_state(TASK_UNINTERRUPTIBLE);
-+		__schedule(0);
-+	}
-+	return 0;
-+}
-```
-
-User program:
-```c
-int main()
-{
-	cpu_set_t mask;
-	if (fork())
-		sleep(1);
-
-	CPU_ZERO(&mask);
-	CPU_SET(5, &mask); // Assume that cpu5 exists
-	assert(sched_setaffinity(0, sizeof(mask), &mask) == 0);
-	syscall(470);
-	// unreachable
-	return 0;
-}
-```
-
-Usage:
-1. set core5 as isolated cpu: add "isolcpus=5" to cmdline
-2. run user programe
-3. wait for kernel print
-
-Everyone is welcome to test it.
-
-Xie Yuanbin
+                  Linus
 
 _______________________________________________
 linux-riscv mailing list
