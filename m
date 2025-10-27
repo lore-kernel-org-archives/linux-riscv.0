@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD13CCF9E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 08:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B09FFCCF9E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 08:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=8x5iFbXD6XM+eaUVhobBmSfnIWdaemyKJsSMFv8/uKc=; b=NahjPA8GOxOG6+
-	HUFq74rgIHLcU7YDSmLfXATEOGz0Z2TW2fd8nodCJjwaPdq2cGG1z+JvxUfF/Je7/424Edf76au/s
-	L6YhYwYLqxPpus7yRHi/woOULZt/kDvT2oSyxetq5I3Vue4TpafalnP6KsxBQRE7Xlt/IOszVsskL
-	VJkbTcmindNBGbFzH6E45+j/9ZES+mAfBS/E3pwaTmNu2EvUJltf0NMLQcx3/JP9uNkvzwWisiVRA
-	nyVzpy7LGi46znHH7zdjfPnIJm4qHa1098wn+9cLU8rdCaa/tpg0tkAmyCTGBx8Uow+nGP0/btWTH
-	64iFaPIvUhXUaTPAsEXQ==;
+	List-Owner; bh=IbGkzkKo7z7RrUacF0Xf7NcUL1D+Rzr97KUoOu7oU0o=; b=FcuzP3KW899Tas
+	C7irq9mflEWGtd4IyoZdhc3U2YTJK+hB9MX8AgrUxwSQizeoc8qQ3Q+giquVUbdo37PZmIqMgtpTA
+	aVrN1g4nfcGBInZcFs2d1newdV49zHtehz4M3quYLx4Ze7HvulBu2YkA787FB7rDimAQX4/0kZywF
+	pUmV/ftz0kJCf8sUeX1dxs8AYKwsSGwXN8hLnh3pJERGreQ2LOy+esj6eFZ1dblYGKN22dj9i8Crv
+	V7JRO0n32HkPtwJ0x9EqpP1Ol26jpn2FQObnmuUYmEbfVuy5mYLUGP0UPTNg/CWdZQQfjcMw987Yt
+	FGZDyJD/EiGrLqhXhkKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIpf-0000000DOEV-2laJ;
-	Mon, 27 Oct 2025 08:44:03 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vDIpq-0000000DOSE-46nx;
+	Mon, 27 Oct 2025 08:44:15 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIpT-0000000DNz9-2mCt;
-	Mon, 27 Oct 2025 08:43:55 +0000
-Message-ID: <20251027083745.356628509@linutronix.de>
+	id 1vDIpV-0000000DO1l-491q;
+	Mon, 27 Oct 2025 08:43:57 +0000
+Message-ID: <20251027083745.419351819@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761554629;
+	s=2020; t=1761554631;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=DNQHcterXWXQuFWR5KPGbkzD3Sh/vJk9lLVEwO1xPSA=;
-	b=Shun7IjVfYUPlEkByDviiP8FOOaPtcom7r3qT0QBgoYlkb5vVwr+bQ4W4TGvFBSI3ZaZZR
-	+20dugYVw1XjPXkDP5YySKtN01v9L3UhhgPMAozbd9iTr5u/pfXPwlvPDEoj2eN9Rj3tdS
-	FgNcCCZMo7m/ESx0d2/P7CcfOtUZByEi1Q5vdVk6Rm9cKUF0/gPodfvQYfARbcL06zSFj8
-	EJcAJO5BlCn5G3xT2nW85AxFwE6WyRsbFUVB1x4KZYyo7Y3JTTFgskCCG72B3F2UERG1en
-	UpXuHrFLcxh5qeAKwe+AtutqsB/hJ93fVNcggB2CsGQvpnMSloAE9dGSvojtdw==
+	 references:references; bh=Q6hUKo07m0tisXGEHl1vXx2So4mSCWEC1HB29LLd09o=;
+	b=gejG86uGYkBt6kWWKbtkkSyMBhIL8DMix1IJdC1Rv4n2zeeBoyu48PVGhZVUSHn02j0zdT
+	nmQpQtSmY9gZ7ggvnh67Q8n3mXcoapnf9GCM73OSpXBVD22oPU6VOAqFwbhmorvSAMHnrB
+	pFIq7EJ8RfZkfAnKdb0+OxNiUSsRkeQeab4bvpXdk82BQLUdBrERKKZ0uiO5fuB1tEj9ov
+	+w1HWnCm3PlTeUxvOwVUNopURrTcD6NNQuNGZT6D/lqReqmCXB0Cy0U6g7lA/wcDI1GoOJ
+	eBuFmh33SvtZhYmNWbWopURvy96FHOZ+N/ukhFraVnsT7MXVuVZPaDU37taYEg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761554629;
+	s=2020e; t=1761554631;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=DNQHcterXWXQuFWR5KPGbkzD3Sh/vJk9lLVEwO1xPSA=;
-	b=CjAAJqTBR4AiPBtCOu7ZrMjj2ByjpD9kOdxzU0+8Jcl/6N+Mh+z+AJN5HxvT1ZXUhXLEd0
-	lCdJ913xubPYmqBA==
+	 references:references; bh=Q6hUKo07m0tisXGEHl1vXx2So4mSCWEC1HB29LLd09o=;
+	b=cWp0c/Y7PNgdaZpuBpvFN/3v3mB9pcZY8cVBK4GP/w1IMHXEMiwFHPbdgZAayFLqDnHzUj
+	V/9jZrSCHbwq1wBw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- linuxppc-dev@lists.ozlabs.org,
+Cc: Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org,
  kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
  Linus Torvalds <torvalds@linux-foundation.org>,
  x86@kernel.org,
- Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ linuxppc-dev@lists.ozlabs.org,
  Heiko Carstens <hca@linux.ibm.com>,
  Christian Borntraeger <borntraeger@linux.ibm.com>,
  Sven Schnelle <svens@linux.ibm.com>,
@@ -76,13 +76,13 @@ Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
  Christian Brauner <brauner@kernel.org>,
  Jan Kara <jack@suse.cz>,
  linux-fsdevel@vger.kernel.org
-Subject: [patch V5 04/12] powerpc/uaccess: Use unsafe wrappers for ASM GOTO
+Subject: [patch V5 05/12] riscv/uaccess: Use unsafe wrappers for ASM GOTO
 References: <20251027083700.573016505@linutronix.de>
 MIME-Version: 1.0
-Date: Mon, 27 Oct 2025 09:43:48 +0100 (CET)
+Date: Mon, 27 Oct 2025 09:43:50 +0100 (CET)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_014351_898749_8743A312 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20251027_014354_199186_F154197A 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,49 +118,41 @@ uaccess header wrap it with a local label that makes both compilers emit
 correct code. Same for the kernel_nofault() variants.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Nicholas Piggin <npiggin@gmail.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: linuxppc-dev@lists.ozlabs.org
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org
 ---
- arch/powerpc/include/asm/uaccess.h |    8 ++++----
+ arch/riscv/include/asm/uaccess.h |    8 ++++----
  1 file changed, 4 insertions(+), 4 deletions(-)
 
---- a/arch/powerpc/include/asm/uaccess.h
-+++ b/arch/powerpc/include/asm/uaccess.h
-@@ -451,7 +451,7 @@ user_write_access_begin(const void __use
- #define user_write_access_begin	user_write_access_begin
- #define user_write_access_end		prevent_current_write_to_user
- 
--#define unsafe_get_user(x, p, e) do {					\
-+#define arch_unsafe_get_user(x, p, e) do {			\
- 	__long_type(*(p)) __gu_val;				\
- 	__typeof__(*(p)) __user *__gu_addr = (p);		\
- 								\
-@@ -459,7 +459,7 @@ user_write_access_begin(const void __use
- 	(x) = (__typeof__(*(p)))__gu_val;			\
- } while (0)
- 
--#define unsafe_put_user(x, p, e) \
-+#define arch_unsafe_put_user(x, p, e)				\
- 	__put_user_size_goto((__typeof__(*(p)))(x), (p), sizeof(*(p)), e)
- 
- #define unsafe_copy_from_user(d, s, l, e) \
-@@ -504,11 +504,11 @@ do {									\
- 		unsafe_put_user(*(u8*)(_src + _i), (u8 __user *)(_dst + _i), e); \
- } while (0)
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -437,10 +437,10 @@ unsigned long __must_check clear_user(vo
+ 		__clear_user(untagged_addr(to), n) : n;
+ }
  
 -#define __get_kernel_nofault(dst, src, type, err_label)			\
-+#define arch_get_kernel_nofault(dst, src, type, err_label)		\
- 	__get_user_size_goto(*((type *)(dst)),				\
- 		(__force type __user *)(src), sizeof(type), err_label)
++#define arch_get_kernel_nofault(dst, src, type, err_label)			\
+ 	__get_user_nocheck(*((type *)(dst)), (__force __user type *)(src), err_label)
  
 -#define __put_kernel_nofault(dst, src, type, err_label)			\
-+#define arch_put_kernel_nofault(dst, src, type, err_label)		\
- 	__put_user_size_goto(*((type *)(src)),				\
- 		(__force type __user *)(dst), sizeof(type), err_label)
++#define arch_put_kernel_nofault(dst, src, type, err_label)			\
+ 	__put_user_nocheck(*((type *)(src)), (__force __user type *)(dst), err_label)
  
+ static __must_check __always_inline bool user_access_begin(const void __user *ptr, size_t len)
+@@ -460,10 +460,10 @@ static inline void user_access_restore(u
+  * We want the unsafe accessors to always be inlined and use
+  * the error labels - thus the macro games.
+  */
+-#define unsafe_put_user(x, ptr, label)					\
++#define arch_unsafe_put_user(x, ptr, label)				\
+ 	__put_user_nocheck(x, (ptr), label)
+ 
+-#define unsafe_get_user(x, ptr, label)	do {				\
++#define arch_unsafe_get_user(x, ptr, label)	do {			\
+ 	__inttype(*(ptr)) __gu_val;					\
+ 	__get_user_nocheck(__gu_val, (ptr), label);			\
+ 	(x) = (__force __typeof__(*(ptr)))__gu_val;			\
 
 
 _______________________________________________
