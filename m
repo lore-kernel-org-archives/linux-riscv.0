@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2716CCF9EB
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 19:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CDD6CCF9EB
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 19:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qtbd79CwmQLCQ20bZO6lPanvOuQUaBotf7hYcVo7Jlk=; b=wdePQIN2s7r7a9
-	rlg2evPdCHwjng2zoHlvd7rycx/lJGS6exv5zG+zfRYgFf2KpyJsv/TSmWRiEBz4KXD5l+oOlPhsm
-	kR7tfnpLm0sifTbc+h8zP+rq7C7nJiXYRDBL3NapEi5Delm89GsTZNu1SrqW8xUipLnSgwvYOrfrq
-	stClplNeGh0WW313UE7pktgi0Sy6uO5x+YzClVFMs3/ZEQL9fMSUjDWmIbO4ON+/hhkWH5Ds0GMww
-	IAW8ntlv6AWlPCVLyJl+YGHjGdwx14z25h04L0JcECqx/aTXYMg7WSDhV4aeqfzCiiNTO3AiwSdoZ
-	iTfXxINzLW5Ovs937ezQ==;
+	List-Owner; bh=W7JTiZ3C7NBeCUbhao7E0hJGZHL/4qklBa/0QvNZ0OQ=; b=rda8K+dxucM2bP
+	tZrgl2FIuupkD9IQEn52dabZd4otkTGyQ90JfSAblh5nddmD+iPNLAThon/ql9pnVjRF50ygQYXzZ
+	IdoRZX5XMya5eX150Z2t6J87cuXJVP8UoB7J61UrtnOqq+Q3lkQjjh4X5b2p75r2E5qE91R9wDt9K
+	/ETTzyIYckRUMxM4WjBF0lw06aGjutTh3c35OTqmQyjTOJeBpRBcXVilKkUFt+ftw2KRYx/bdqfBL
+	bZIRNvqln6IBeCy2qE44acbYtBrluz3g2LntKiIoX5qXxZ0PgSaveuI7NbJ5XtDWLytfQ5h6dgXp/
+	YGw3u6YjuD6MyYtgRhHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSSx-0000000Ec0c-06WW;
-	Mon, 27 Oct 2025 19:01:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vDSZ8-0000000EchA-2fxw;
+	Mon, 27 Oct 2025 19:07:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDSSu-0000000Ebzk-0PXO
+	id 1vDSZ6-0000000Ecgq-34jj
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Oct 2025 19:01:14 +0000
+	Mon, 27 Oct 2025 19:07:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AF2434873F;
-	Mon, 27 Oct 2025 19:01:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44FB5C19422;
-	Mon, 27 Oct 2025 19:01:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2483344386;
+	Mon, 27 Oct 2025 19:07:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5CA1C4CEF1;
+	Mon, 27 Oct 2025 19:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1761591671;
-	bh=icM7Q1j8GLqLmcpszjolm1Y/md1kJGQpU7Zw15cxzdA=;
+	s=korg; t=1761592052;
+	bh=PbSM5Goroah3kg+eVMNFshrN2EhgSvGlXNZQZDE60SM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=a5GzwWb/YZxefV4KerrrNK8KPOnz9S2bv8RwDVDc69CT4CyycfclAzUFjZf052keC
-	 2/2x7ygF1BLVMgovjFOUgjSsDe+TcVvQDFR6pDsTCudOupdHX14QZDmLqG034KIkGN
-	 uvT7ATvvhSglnDMEf1biDBlhFcT84DIrOVPCeKQQ=
+	b=p7QZ96Mnxzfza4/gc8yBSPC76BDRgHUbR72Nedm9ak0i72qa8bClcGtm1hcwSaQ8d
+	 k8vV+8QQg9QhopOYHdvn1WWh4qa+3jGieS9ztKnicjwJYcmjjZlWWwyFoj7m4bNXgI
+	 UNGXh6wPsuRIlwYLueTnAVil2TiCz0zuDky+yuvI=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: stable@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -49,18 +49,18 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-riscv@lists.infradead.org,
 	Rob Herring <robh@kernel.org>,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.10 286/332] riscv: Use of_get_cpu_hwid()
-Date: Mon, 27 Oct 2025 19:35:39 +0100
-Message-ID: <20251027183532.408988014@linuxfoundation.org>
+Subject: [PATCH 5.15 070/123] riscv: Use of_get_cpu_hwid()
+Date: Mon, 27 Oct 2025 19:35:50 +0100
+Message-ID: <20251027183448.271242205@linuxfoundation.org>
 X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251027183524.611456697@linuxfoundation.org>
-References: <20251027183524.611456697@linuxfoundation.org>
+In-Reply-To: <20251027183446.381986645@linuxfoundation.org>
+References: <20251027183446.381986645@linuxfoundation.org>
 User-Agent: quilt/0.69
 X-stable: review
 X-Patchwork-Hint: ignore
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_120112_157237_DC64EFD6 
+X-CRM114-CacheID: sfid-20251027_120736_792856_2964657C 
 X-CRM114-Status: UNSURE (   9.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -79,7 +79,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5.10-stable review patch.  If anyone has any objections, please let me know.
+5.15-stable review patch.  If anyone has any objections, please let me know.
 
 ------------------
 
