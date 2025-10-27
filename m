@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EBDACCF9E5
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 03:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4416FCCF9E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 03:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1nWwQ4mhoW7jchiAH1V6Bm1E12OXbzOFNaYvwHpOPwo=; b=Exoxf7al5kfKAB
-	h8cMsQU5re+pvnon7lUet6bVdCBhkzd34lMb+Yy+8Z1u1c8zN4Mo0hrKqinuAqQrdPl2oA/i/uETL
-	dkCVhrBSdGqpoqsZqMOJ3Rc6leK3/LRh39S/ijE8Nu/77CLUNaq2TyRHNnUkydO+IrWiFpwbCIl1O
-	vX+heEGiGt4vHr+aRDOypshTUEH15oyCHbXGqN02q7QqK6tUYiE/h0mgIcaZzJaRXZxFXmmwVza9G
-	DqfLFrdKvV0xc/nSBO5BSvnr5cwosf9zXpbptTuVOP7ANQZMw1JkH4yGIJZ7BAn74I9Hy27nzRnyJ
-	OBm2A+UN+Kp599jiJLfw==;
+	List-Owner; bh=Hqa1QbYPgvw8OqTvVEshknTEDJMfsr85PqjcP7ecsWs=; b=DRyFZY76H5WcfO
+	5hvSM22IFfUjvi2q4DFzDW9d+N9ln1rmjiwPoLPJH3V4MQO3bgEBnbk0BBdzkHxNBDVcB4Yq1gy4l
+	eGAuNLsDo0aA5fRILRs8SpSpRAmR0bmB07c1FBsshWQ6k7aaQiqWdLNUJsixAVVCV7SVViSZ+un4f
+	dmAIgXGFo9AUR/ZRtwHkEo/ioNb/BOzOYrESTZSawJR9u7HN5qYCowr+1OlCTjamEDGo44pcJU0NK
+	7D2Woa+ZtdVQ10rLL1DOMqBJbgc9pjRCry4FsDFs2HZMUZH6p2rNRvoDHGQF1EqKvEgnyWG5cAOGq
+	r5wJfXWSsM4PI7bnGXUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDDoK-0000000D3PF-1DIh;
-	Mon, 27 Oct 2025 03:22:20 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1vDE43-0000000D42d-3BKq;
+	Mon, 27 Oct 2025 03:38:35 +0000
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDDoG-0000000D3MU-0Vvn
+	id 1vDE40-0000000D41n-1vfR
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Oct 2025 03:22:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1761535237;
-	bh=56JGIU4CD1fsXCYSHVvyznt4gBt5NH3ahDq0LBsoufM=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=E1OtxS5mVmZP77hAW9lJoGz1KJEGje0c7HoE+rZdbbzood82a2DwpSdFVd9iSox7o
-	 sNF7BY60rvCS/+RMPE9MmQoQIO2gNfjIa8DC+myb0YDfEx/3iI8sRtyGDTZh7xGOhf
-	 GOM0BaGPzkSKu8P68Ul5G2rHSn5wKOoKWfYTKO7k=
-X-QQ-mid: esmtpgz11t1761535235t1790e053
-X-QQ-Originating-IP: wU7tvrJ7wJKBNyTcA7+PgYwp28voDXOKAvCOskFI580=
-Received: from = ( [183.48.247.177])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 27 Oct 2025 11:20:33 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 2694975293500696196
-EX-QQ-RecipientCnt: 13
-Date: Mon, 27 Oct 2025 11:20:33 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Aurelien Jarno <aurelien@aurel32.net>, linux-kernel@vger.kernel.org,
-	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
-	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
-Subject: Re: [PATCH v4 1/2] driver: reset: spacemit-p1: add driver for
- poweroff/reboot
-Message-ID: <A73D83A7055D782E+aP7lAdAk66slv6l7@kernel.org>
-References: <20251026224424.1891541-1-aurelien@aurel32.net>
- <20251026224424.1891541-2-aurelien@aurel32.net>
+	Mon, 27 Oct 2025 03:38:34 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-945a33e0d55so50077139f.1
+        for <linux-riscv@lists.infradead.org>; Sun, 26 Oct 2025 20:38:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1761536311; x=1762141111; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lLv/abQqhTrjCuxnsZKW6XWrZqaImCMO0bBeDuN7Ur0=;
+        b=LhyKsfu3HuYWGgRogHX8HrmAgJVAFN6K0aQ3HHM/yTdW5b2e5gpzDrRD/Ig54yXI8S
+         CypLEwoTeZDFdN/x0DtPNf2matMMPY9x1YhvaRzOvUKIUtPU26lk/1vj3ydAFiQnCJeY
+         ZXHdO7pT2yC4q2bZNcXrm0Yugz+/TI4OdzlZX/wA/Qe+K99wIIe7trK2Fqax/ghN+wiP
+         HE4MncIdTaTel1qTczzdUHoGUTW5QgL6kPVesEDbp7otCvb4feyIH2MWKbZaOQZ9K0bG
+         esmymQl0koH7lFlKFZj0UjHYEZleYRwImyqRClFaOUZv+JeMtO6TVbMJZNql7C4iIpvM
+         bRPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761536311; x=1762141111;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lLv/abQqhTrjCuxnsZKW6XWrZqaImCMO0bBeDuN7Ur0=;
+        b=A5R5chW7T4yOs8x9xoaF8TEW8QX/zDnUvJonbrt/2yXztgVYyIW4/kc2fadsV3UuaF
+         BJlyySnFGA2MJfu4Xc/7iVIuLF4xojyqbWmXo+/dHLA0/L6mMsXU1TIPxwtkehBrzG7Z
+         WpGrFSWdBM5SIyyTQSdlqSDgGQnJTmBmmNJeFxQKU7deiQ/wzV4RMGNhURZ6ctmtVq4j
+         I6EGO1vqlhBYtnxLpKPbkigXH9y5nspdVV2yBQoHgT2v4XLjnxGrp2TYIAuWNdK8HScz
+         OQLBiSOQRrayzXABbSbAB8IbnkUKxKbkZbDqzI7bYd3VQPQnSl7sli9sqNab23cbUD43
+         IltQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVGp463uk9W7Be+vcRW8h4AqUt+/TrVphYZyicRCkdBmhXm/1N8+YVGGQxrH7EASfnvlDio0lhTLEzzcQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywz24Gf+uAzMFmv7G5+8FlvI9+qx1GgUFXpJmDQWiPE2heRvlpQ
+	BK2KnzF3ir5+R7vauOhrQlCzw0AfW8ZguIRegY9pofFk3s+Xl91c8l/wr764UhjwfiBLQ53cjfC
+	H98xev7QhwpuNLBAiArHzpUIGUVvJF1braYaaF5NZZg==
+X-Gm-Gg: ASbGncun9bWzINjryhlJdO/4BZI0yVzncCSSvEpbZKoenOlS/6Ed3+6Xc5aHpsRGWWI
+	YrvLghvBrpIa8vLJX+m/5ck5NnU9oWzTg44La75MuX6FtmIuAJ06TnrtD18SJah03Vp0Lvnwjh1
+	D/iH6wLk3gUEz1eOr3dfaxK+ppMtd4+oblGG7+2BtOMD22AqYTkQzsPVrOhSyR3GEsKb2NpozBS
+	cDgpfb3/rccWExjZvbrbAz5mmzV3LzzNb1RJsGvQt724vNQdIviHY2yqW7muyXXiybOaKPqTR+x
+	Tv/QR2QXOB/f8K0vFkYMvCJgT+BBc8nvxpLur0eSgBd4AsgO5QD1Vf681DFv
+X-Google-Smtp-Source: AGHT+IFXk1YUaLAdhvo8rgPkIKe5gLo/c+djIhEIA40LWqKcizzRXoBKOFj4cyggO2AuZkgxTRXbB8jToGSbWYc3oMw=
+X-Received: by 2002:a05:6e02:190c:b0:42f:9eb7:759b with SMTP id
+ e9e14a558f8ab-430c5306894mr466704455ab.28.1761536310727; Sun, 26 Oct 2025
+ 20:38:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251026224424.1891541-2-aurelien@aurel32.net>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: Odky5wNUcHo/ZJD1bp1skDoRPE43gdiWI7Pv7u+UVx6L6wXBnWFC8g3n
-	7Q8RwA8NO16VKCg4/2XQwVWECFj2oOXrP+v/vRPglMUyYWBpsDHMZdxUbGcASuMTUb1bBuM
-	Q5r7ECaMhcFQR3jiW7Fflktpp3fVpK85HoOhSphIuxe8p5M8ZlQpBHytK4StqKDA+i+WHDh
-	wV+KUsXgiKQlFxI5MuUJ3nnVDO0slFx7z3cwMvXK93YO7jcmp1zZMPorKs8l5bIM51z9b6N
-	9J9xCpC5ritCEfCIHCjmiUIAkR85xEsp1AqKOzJ/6vFoiSrv3uDg3BSsduxmoG1SS8K6VtU
-	pOTaBMuSHYwe9u2EYBK5fIy1SVGDbSVFr1JBoOe2DnjZfFun1DIaMlliPfKAQIFQWoxAKTH
-	Zbpo3t15w6T6LxqF7Z7thX1ZJiYbPhyIYGTD7RknfYGbQvEfoG0AolB5DosfUm5VM0eQO55
-	kpBYOqHHeMhvodr+Aeq3MTiw5DgXVM8Ig6cdbuXF+DU5Q1TW3kU8QsN/1f4o4sQbEsNuxVz
-	syxR8eqt9Fwc5RnHHWud6Txssod9PuVLtawA0QbRvAMu7WyGBosRid6QfoXSGvFuiVIdiPc
-	nU32DIhQ2zR9ZA14l4t0GykCHHDxbiZw7G4Ruh7lsAUGYuTqKwjP7ngd+rxynczW72o4P6x
-	Tey2Q5cab1ttYVvlj+qR4aeksQJAuPVoZ/5hcVn1wvP7NTnz9FhoPyjorUrbvjZfcT0ZdcC
-	Vi5r/n9ARYxDp/+E9PMdzAVbGUqggpOYOfO6BxeX9gwp2ZXhrkN4dYMvI/mWRzO0n4GemLc
-	tmyKCmStVAf0Xqx0ZmKpJM0KPaA0MUvGXYyYtwiENreVAM0cUrPenYnvMIR4dYB2SWZxrYl
-	YkjbVxAufjRMXr4lSlNt0oIowVFWDZyOq6s126+gJYW6ziFcawiAC5RGMbQXqkLNgEhQBdc
-	STcYB36OU4dQIJuPYe7dpikuGww4suizxmBN6/EiEZb2QEjbNGQp9CIdKGKAx21UclJs/jh
-	jiQrjO00rOiEwbQ4Tv3g+VLTWdqBDOFVI27Num+l9lahKR/aUD1Ssg6/Z8bbg=
-X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
-X-QQ-RECHKSPAM: 0
+References: <20251017155925.361560-1-apatel@ventanamicro.com>
+In-Reply-To: <20251017155925.361560-1-apatel@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 27 Oct 2025 09:08:19 +0530
+X-Gm-Features: AWmQ_bleYZ_iePePDvRC5d6Pe5JA_nbAbhQUpFmow4pTKUmpRz54E4-TMp1PLS4
+Message-ID: <CAAhSdy1+AFQepjrfKrcQvC8cxDpjOHfF500O6FXTYzf-iksCfw@mail.gmail.com>
+Subject: Re: [PATCH 0/4] SBI MPXY support for KVM Guest
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Atish Patra <atish.patra@linux.dev>, Andrew Jones <ajones@ventanamicro.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_202217_343136_A2B9F75E 
-X-CRM114-Status: GOOD (  30.77  )
+X-CRM114-CacheID: sfid-20251026_203832_740853_0B0D8E3C 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,169 +95,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 26, 2025 at 11:41:14PM +0100, Aurelien Jarno wrote:
-> This driver implements poweroff/reboot support for the SpacemiT P1 PMIC
-> chip, which is commonly paired with the SpacemiT K1 SoC.
-> 
-> The SpacemiT P1 support is implemented as a MFD driver, so the access is
-> done directly through the regmap interface. Reboot or poweroff is
-> triggered by setting a specific bit in a control register, which is
-> automatically cleared by the hardware afterwards.
-> 
-> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-> ---
-> v2:
->  - Replace the "select" by a "depends on"
->  - Remove outdated Reviewed-by
-> 
->  drivers/power/reset/Kconfig              |  9 +++
->  drivers/power/reset/Makefile             |  1 +
->  drivers/power/reset/spacemit-p1-reboot.c | 88 ++++++++++++++++++++++++
->  3 files changed, 98 insertions(+)
->  create mode 100644 drivers/power/reset/spacemit-p1-reboot.c
-> 
-> diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-> index 8248895ca9038..61c16f3d5abc7 100644
-> --- a/drivers/power/reset/Kconfig
-> +++ b/drivers/power/reset/Kconfig
-> @@ -283,6 +283,15 @@ config POWER_RESET_KEYSTONE
->  	help
->  	  Reboot support for the KEYSTONE SoCs.
->  
-> +config POWER_RESET_SPACEMIT_P1
-> +	tristate "SpacemiT P1 poweroff and reset driver"
-> +	depends on ARCH_SPACEMIT || COMPILE_TEST
-> +	depends on MFD_SPACEMIT_P1
-> +	default m
-default m if ARCH_SPACEMIT? Or default ARCH_SPACEMIT?
-I believe that reboot and shutdown are actually essential functionalities,
-so it might make more sense: default ARCH_SPACEMIT?
-
-                                      - Troy
-> +	help
-> +	  This driver supports power-off and reset operations for the SpacemiT
-> +	  P1 PMIC.
-> +
->  config POWER_RESET_SYSCON
->  	bool "Generic SYSCON regmap reset driver"
->  	depends on OF
-> diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
-> index 51da87e05ce76..0e4ae6f6b5c55 100644
-> --- a/drivers/power/reset/Makefile
-> +++ b/drivers/power/reset/Makefile
-> @@ -24,6 +24,7 @@ obj-$(CONFIG_POWER_RESET_LTC2952) += ltc2952-poweroff.o
->  obj-$(CONFIG_POWER_RESET_QNAP) += qnap-poweroff.o
->  obj-$(CONFIG_POWER_RESET_REGULATOR) += regulator-poweroff.o
->  obj-$(CONFIG_POWER_RESET_RESTART) += restart-poweroff.o
-> +obj-$(CONFIG_POWER_RESET_SPACEMIT_P1) += spacemit-p1-reboot.o
->  obj-$(CONFIG_POWER_RESET_ST) += st-poweroff.o
->  obj-$(CONFIG_POWER_RESET_TH1520_AON) += th1520-aon-reboot.o
->  obj-$(CONFIG_POWER_RESET_TORADEX_EC) += tdx-ec-poweroff.o
-> diff --git a/drivers/power/reset/spacemit-p1-reboot.c b/drivers/power/reset/spacemit-p1-reboot.c
-> new file mode 100644
-> index 0000000000000..9ec3d1fff8f3d
-> --- /dev/null
-> +++ b/drivers/power/reset/spacemit-p1-reboot.c
-> @@ -0,0 +1,88 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2025 by Aurelien Jarno
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/reboot.h>
-> +
-> +/* Power Control Register 2 */
-> +#define PWR_CTRL2		0x7e
-> +#define PWR_CTRL2_SHUTDOWN	BIT(2)	/* Shutdown request */
-> +#define PWR_CTRL2_RST		BIT(1)	/* Reset request */
-> +
-> +static int spacemit_p1_pwroff_handler(struct sys_off_data *data)
-> +{
-> +	struct regmap *regmap = data->cb_data;
-> +	int ret;
-> +
-> +	/* Put the PMIC into shutdown state */
-> +	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_SHUTDOWN);
-> +	if (ret) {
-> +		dev_err(data->dev, "shutdown failed: %d\n", ret);
-> +		return notifier_from_errno(ret);
-> +	}
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static int spacemit_p1_restart_handler(struct sys_off_data *data)
-> +{
-> +	struct regmap *regmap = data->cb_data;
-> +	int ret;
-> +
-> +	/* Put the PMIC into reset state */
-> +	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_RST);
-> +	if (ret) {
-> +		dev_err(data->dev, "restart failed: %d\n", ret);
-> +		return notifier_from_errno(ret);
-> +	}
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static int spacemit_p1_reboot_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct regmap *regmap;
-> +	int ret;
-> +
-> +	regmap = dev_get_regmap(dev->parent, NULL);
-> +	if (!regmap)
-> +		return -ENODEV;
-> +
-> +	ret = devm_register_power_off_handler(dev, &spacemit_p1_pwroff_handler,
-> +					      regmap);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				     "Failed to register power off handler\n");
-> +
-> +	ret = devm_register_restart_handler(dev, spacemit_p1_restart_handler,
-> +					    regmap);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				     "Failed to register restart handler\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct platform_device_id spacemit_p1_reboot_id_table[] = {
-> +	{ "spacemit-p1-reboot", },
-> +	{ /* sentinel */ },
-> +};
-> +MODULE_DEVICE_TABLE(platform, spacemit_p1_reboot_id_table);
-> +
-> +static struct platform_driver spacemit_p1_reboot_driver = {
-> +	.driver = {
-> +		.name = "spacemit-p1-reboot",
-> +	},
-> +	.probe = spacemit_p1_reboot_probe,
-> +	.id_table = spacemit_p1_reboot_id_table,
-> +};
-> +module_platform_driver(spacemit_p1_reboot_driver);
-> +
-> +MODULE_DESCRIPTION("SpacemiT P1 reboot/poweroff driver");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.47.2
-> 
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBPY3QgMTcsIDIwMjUgYXQgOToyOeKAr1BNIEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50
+YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IFRoaXMgc2VyaWVzIGFkZHMgU0JJIE1QWFkgc3VwcG9y
+dCBmb3IgS1ZNIEd1ZXN0L1ZNIHdoaWNoIHdpbGwKPiBlbmFibGUgUUVNVS1LVk0gb3IgS1ZNVE9P
+TCB0byBlbXVsYXRlIFJQTUkgTVBYWSBjaGFubmVscyBmb3IgdGhlCj4gR3Vlc3QvVk0uCj4KPiBU
+aGVzZSBwYXRjaGVzIGNhbiBhbHNvIGJlIGZvdW5kIGluIHJpc2N2X2t2bV9zYmlfbXB4eV92MSBi
+cmFuY2gKPiBhdDogaHR0cHM6Ly9naXRodWIuY29tL2F2cGF0ZWwvbGludXguZ2l0Cj4KPiBBbnVw
+IFBhdGVsICg0KToKPiAgIFJJU0MtVjogS1ZNOiBDb252ZXJ0IGt2bV9yaXNjdl92Y3B1X3NiaV9m
+b3J3YXJkKCkgaW50byBleHRlbnNpb24KPiAgICAgaGFuZGxlcgo+ICAgUklTQy1WOiBLVk06IEFk
+ZCBzZXBhcmF0ZSBzb3VyY2UgZm9yIGZvcndhcmRlZCBTQkkgZXh0ZW5zaW9ucwo+ICAgUklTQy1W
+OiBLVk06IEFkZCBTQkkgTVBYWSBleHRlbnNpb24gc3VwcG9ydCBmb3IgR3Vlc3QKPiAgIEtWTTog
+cmlzY3Y6IHNlbGZ0ZXN0czogQWRkIFNCSSBNUFhZIGV4dGVuc2lvbiB0byBnZXQtcmVnLWxpc3QK
+Pgo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5oICAgICAgICAgfCAgNSAr
+Ky0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oICAgICAgICAgICAgIHwgIDEg
+Kwo+ICBhcmNoL3Jpc2N2L2t2bS9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICAgfCAgMSAr
+Cj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpLmMgICAgICAgICAgICAgICAgICAgICB8IDEwICsr
+KysrLQo+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaV9iYXNlLmMgICAgICAgICAgICAgICAgfCAy
+OCArLS0tLS0tLS0tLS0tLS0KPiAgYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmlfZm9yd2FyZC5jICAg
+ICAgICAgICAgIHwgMzQgKysrKysrKysrKysrKysrKysrKwo+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1
+X3NiaV9yZXBsYWNlLmMgICAgICAgICAgICAgfCAzMiAtLS0tLS0tLS0tLS0tLS0tLQo+ICBhcmNo
+L3Jpc2N2L2t2bS92Y3B1X3NiaV9zeXN0ZW0uYyAgICAgICAgICAgICAgfCAgNCArLS0KPiAgYXJj
+aC9yaXNjdi9rdm0vdmNwdV9zYmlfdjAxLmMgICAgICAgICAgICAgICAgIHwgIDMgKy0KPiAgLi4u
+L3NlbGZ0ZXN0cy9rdm0vcmlzY3YvZ2V0LXJlZy1saXN0LmMgICAgICAgIHwgIDQgKysrCj4gIDEw
+IGZpbGVzIGNoYW5nZWQsIDU2IGluc2VydGlvbnMoKyksIDY2IGRlbGV0aW9ucygtKQo+ICBjcmVh
+dGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmlfZm9yd2FyZC5jCj4KClF1ZXVl
+ZCB0aGlzIHNlcmllcyBmb3IgTGludXgtNi4xOQoKVGhhbmtzLApBbnVwCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
