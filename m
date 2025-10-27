@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BBECCCF9F1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB97CCF9F0
 	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 08:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:Date:cc:MIME-Version:References:Subject
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=UHGCEjQz49zfjyBUWO9SZTlWjxKmPOhGSw62IMhum6c=; b=zGa9FtuWDBLH3a
-	vP6uqWCDvBdQyfu6OOazmOQEm/l3aK/kopvOQyEjCYGGTluPehJkWokPeTRW+5OUhFeIYyZJVs/eo
-	pqfTul6eU82GMN9sNbtmQlU89a1rzxTeav5FkQRTw1gvibqTSyGTQbRidtH6K8aiczyBXGye2rkUs
-	33fgaox2PoRm34ME2SYwTFkIqFW6jlQyJuuArIApfQlBv+Drs+dnEATFGbc7DWq6s7RgyTcATwp11
-	J1VH1Y0KVXvhlMfI71zMwzEnZ4DYzUsopR0Nwv4/9uEybJsaNxYxgLp6jWTpdR0eRusJpqVW1+oM4
-	F1xzlGAojXx0ClRRoUVQ==;
+	List-Owner; bh=V16xNJt52Z3QE4hgPyM5x7mr2Di/Q5LNuH7akL3Fobg=; b=n9dVHvgMlyCCqk
+	7jw7Q3uTjc896cwQdo3UW0zhM2Ft5P31waYnSioTra7L8an0a/altiDtL/lDVkkc41TTThdtpmW10
+	+I8SyVgYW9xWObYipwReugE+ThPvNjE4fdkAEP/atSeijvGNnpHL0YCS31YZCtSrAPIqRgWaZCEW0
+	hmrp60VxWna5eM2Ee4ukn7YtQv2lmGigW9iloP+31Ueb11PCd+IA8JY92XdP87F3ig29sEOrK/7ia
+	sO9kRGksR3p49Sn57eEx5t1dCoQsEy5A/CpT1u7tBn9MgxUgM8WwbIQjFv32V+yynPmbLE0VNvxtU
+	hS6RRKabKn95C8/GqtXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIqC-0000000DOrc-1kkN;
-	Mon, 27 Oct 2025 08:44:36 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vDIqD-0000000DOsn-0ckV;
+	Mon, 27 Oct 2025 08:44:37 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIpe-0000000DOBA-1qCm;
+	id 1vDIpc-0000000DO95-3HRa;
 	Mon, 27 Oct 2025 08:44:08 +0000
-Message-ID: <20251027083745.673465359@linutronix.de>
+Message-ID: <20251027083745.609031602@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761554640;
+	s=2020; t=1761554638;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=uMwKIluQZ/G+KoDWjXfgtZpH34AaSudGJEkVAvBfiV4=;
-	b=xItvuyS+liJchgafJHpU9tYzPOno9TqkarDH1yZCK3/SY8LaeF0qT3opEQkDdO2pbpY6RP
-	Htv+fdHsKQ7EcNx1mU7B7kjkr2MwCU/4llsA9ZTs/iz+8JRvkjQPVcPUyemRxjlbtktGKw
-	GsJHGW2ZY09kGlWJaszbHS77TSX4HGu2viKiUm9yVfGlp4Wr7eYi0dBWXqDf+lbjgf3UOL
-	EK1SbwjiDt9mqIf2xFqEMIs2XBc6hrKI7n1ZGKPIsTdyVEWZ5039b7tBmAnJ6wMzAJxKjx
-	WAWU5PRgWHSrODttFM/9WH+13KTG9uP6NXR5SYwhtmgFY+wKA/oNAOAMka0zHA==
+	 references:references; bh=as4pbOCxyeTzYGzifOoPeMiju/LrgMig7nFy3Mj05oM=;
+	b=ZVzA63ZcU5mloVrwo8+Jfcyohj0YpcWp8iDv0uosSTIGcM45Tl8yQXKTF3WdtzlsM1z+mJ
+	f8TA9NOrPnTyPyVmugWaX5MxqCnytrkuKrBuLV26iaNZqxMEtBr6xJ45WTbOR/vB+3gzzV
+	0jNCxcRcapxFnr3bWoJY97mTfcv5YEKGvo7Tq4oSQsHCMrQ6FBCAcYDG+ifbE9gMHosLHb
+	zkzf0SDgTCLBEJJbQ1BEUmbtn9GjOI9CG6cUmFHccokGfgEJjy/2JkinfGlDNP8ioNLaW0
+	dnn85SIAnHnJayOM5hUUKyanxcds+OjyyMzirFKdQw9EW1wOg2U3qD+4JnQUmg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761554640;
+	s=2020e; t=1761554638;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=uMwKIluQZ/G+KoDWjXfgtZpH34AaSudGJEkVAvBfiV4=;
-	b=tYimNmTfzHE55VQN/cxG6Mfbc65avtlgEq43Xb/8LXKZ65sSl0k4ojYbJ4I2f258Ii1cd0
-	MyXDnpD51wgg7VCQ==
+	 references:references; bh=as4pbOCxyeTzYGzifOoPeMiju/LrgMig7nFy3Mj05oM=;
+	b=wry6l0YwTe1mHwd3wZkgxRkSddPV4gTf1dO6fAnvsK4rZdyFD/mI82Mc3upvCPaozRA33y
+	FSBO9vnYcONdE5Dw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Julia Lawall <Julia.Lawall@inria.fr>,
- Nicolas Palix <nicolas.palix@imag.fr>,
- kernel test robot <lkp@intel.com>,
+Subject: [patch V5 08/12] uaccess: Provide put/get_user_inline()
+References: <20251027083700.573016505@linutronix.de>
+MIME-Version: 1.0
+cc: kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
  Linus Torvalds <torvalds@linux-foundation.org>,
@@ -68,6 +69,8 @@ Cc: Julia Lawall <Julia.Lawall@inria.fr>,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  Andrew Cooper <andrew.cooper3@citrix.com>,
  David Laight <david.laight.linux@gmail.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>,
+ Nicolas Palix <nicolas.palix@imag.fr>,
  Peter Zijlstra <peterz@infradead.org>,
  Darren Hart <dvhart@infradead.org>,
  Davidlohr Bueso <dave@stgolabs.net>,
@@ -76,14 +79,10 @@ Cc: Julia Lawall <Julia.Lawall@inria.fr>,
  Christian Brauner <brauner@kernel.org>,
  Jan Kara <jack@suse.cz>,
  linux-fsdevel@vger.kernel.org
-Subject: [patch V5 09/12] [RFC] coccinelle: misc: Add
- scoped_masked_$MODE_access() checker script
-References: <20251027083700.573016505@linutronix.de>
-MIME-Version: 1.0
-Date: Mon, 27 Oct 2025 09:43:58 +0100 (CET)
+Date: Mon, 27 Oct 2025 09:43:56 +0100 (CET)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_014402_744893_3ED1DA63 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20251027_014402_525360_A510E271 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,140 +99,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A common mistake in user access code is that the wrong access mode is
-selected for starting the user access section. As most architectures map
-Read and Write modes to ReadWrite this goes often unnoticed for quite some
-time.
+Provide conveniance wrappers around scoped user access similiar to
+put/get_user(), which reduce the usage sites to:
 
-Aside of that the scoped user access mechanism requires that the same
-pointer is used for the actual accessor macros that was handed in to start
-the scope because the pointer can be modified by the scope begin mechanism
-if the architecture supports masking.
+       if (!get_user_inline(val, ptr))
+       		return -EFAULT;
 
-Add a basic (and incomplete) coccinelle script to check for the common
-issues. The error output is:
+Should only be used if there is a demonstrable performance benefit.
 
-kernel/futex/futex.h:303:2-17: ERROR: Invalid pointer for unsafe_put_user(p) in scoped_masked_user_write_access(to)
-kernel/futex/futex.h:292:2-17: ERROR: Invalid access mode unsafe_get_user() in scoped_masked_user_write_access()
-
-Not-Yet-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Cc: Julia Lawall <Julia.Lawall@inria.fr>
-Cc: Nicolas Palix <nicolas.palix@imag.fr>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 ---
- scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++++++++++++++++++++
- 1 file changed, 108 insertions(+)
+V5: Rename to inline
+V4: Rename to scoped
+---
+ include/linux/uaccess.h |   50 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 50 insertions(+)
 
---- /dev/null
-+++ b/scripts/coccinelle/misc/scoped_uaccess.cocci
-@@ -0,0 +1,108 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/// Validate scoped_masked_user*access() scopes
-+///
-+// Confidence: Zero
-+// Options: --no-includes --include-headers
+--- a/include/linux/uaccess.h
++++ b/include/linux/uaccess.h
+@@ -825,6 +825,56 @@ for (bool done = false; !done; done = tr
+ #define scoped_user_rw_access(uptr, elbl)				\
+ 	scoped_user_rw_access_size(uptr, sizeof(*(uptr)), elbl)
+ 
++/**
++ * get_user_inline - Read user data inlined
++ * @val:	The variable to store the value read from user memory
++ * @usrc:	Pointer to the user space memory to read from
++ *
++ * Return: 0 if successful, -EFAULT when faulted
++ *
++ * Inlined variant of get_user(). Only use when there is a demonstrable
++ * performance reason.
++ */
++#define get_user_inline(val, usrc)				\
++({								\
++	__label__ efault;					\
++	typeof(usrc) _tmpsrc = usrc;				\
++	int _ret = 0;						\
++								\
++	scoped_user_read_access(_tmpsrc, efault)		\
++		unsafe_get_user(val, _tmpsrc, efault);		\
++	if (0) {						\
++	efault:							\
++		_ret = -EFAULT;					\
++	}							\
++	_ret;							\
++})
 +
-+virtual context
-+virtual report
-+virtual org
++/**
++ * put_user_inline - Write to user memory inlined
++ * @val:	The value to write
++ * @udst:	Pointer to the user space memory to write to
++ *
++ * Return: 0 if successful, -EFAULT when faulted
++ *
++ * Inlined variant of put_user(). Only use when there is a demonstrable
++ * performance reason.
++ */
++#define put_user_inline(val, udst)				\
++({								\
++	__label__ efault;					\
++	typeof(udst) _tmpdst = udst;				\
++	int _ret = 0;						\
++								\
++	scoped_user_write_access(_tmpdst, efault)		\
++		unsafe_put_user(val, _tmpdst, efault);		\
++	if (0) {						\
++	efault:							\
++		_ret = -EFAULT;					\
++	}							\
++	_ret;							\
++})
 +
-+@initialize:python@
-+@@
-+
-+scopemap = {
-+  'scoped_user_read_access_size'  : 'scoped_user_read_access',
-+  'scoped_user_write_access_size' : 'scoped_user_write_access',
-+  'scoped_user_rw_access_size'    : 'scoped_user_rw_access',
-+}
-+
-+# Most common accessors. Incomplete list
-+noaccessmap = {
-+  'scoped_user_read_access'       : ('unsafe_put_user', 'unsafe_copy_to_user'),
-+  'scoped_user_write_access'      : ('unsafe_get_user', 'unsafe_copy_from_user'),
-+}
-+
-+# Most common accessors. Incomplete list
-+ptrmap = {
-+  'unsafe_put_user'			 : 1,
-+  'unsafe_get_user'			 : 1,
-+  'unsafe_copy_to_user'		 	 : 0,
-+  'unsafe_copy_from_user'		 : 0,
-+}
-+
-+print_mode = None
-+
-+def pr_err(pos, msg):
-+   if print_mode == 'R':
-+      coccilib.report.print_report(pos[0], msg)
-+   elif print_mode == 'O':
-+      cocci.print_main(msg, pos)
-+
-+@r0 depends on report || org@
-+iterator name scoped_user_read_access,
-+	      scoped_user_read_access_size,
-+	      scoped_user_write_access,
-+	      scoped_user_write_access_size,
-+	      scoped_user_rw_access,
-+	      scoped_user_rw_access_size;
-+iterator scope;
-+statement S;
-+@@
-+
-+(
-+(
-+scoped_user_read_access(...) S
-+|
-+scoped_user_read_access_size(...) S
-+|
-+scoped_user_write_access(...) S
-+|
-+scoped_user_write_access_size(...) S
-+|
-+scoped_user_rw_access(...) S
-+|
-+scoped_user_rw_access_size(...) S
-+)
-+&
-+scope(...) S
-+)
-+
-+@script:python depends on r0 && report@
-+@@
-+print_mode = 'R'
-+
-+@script:python depends on r0 && org@
-+@@
-+print_mode = 'O'
-+
-+@r1@
-+expression sp, a0, a1;
-+iterator r0.scope;
-+identifier ac;
-+position p;
-+@@
-+
-+  scope(sp,...) {
-+    <...
-+    ac@p(a0, a1, ...);
-+    ...>
-+  }
-+
-+@script:python@
-+pos << r1.p;
-+scope << r0.scope;
-+ac << r1.ac;
-+sp << r1.sp;
-+a0 << r1.a0;
-+a1 << r1.a1;
-+@@
-+
-+scope = scopemap.get(scope, scope)
-+if ac in noaccessmap.get(scope, []):
-+   pr_err(pos, 'ERROR: Invalid access mode %s() in %s()' %(ac, scope))
-+
-+if ac in ptrmap:
-+   ap = (a0, a1)[ptrmap[ac]]
-+   if sp != ap.lstrip('&').split('->')[0].strip():
-+      pr_err(pos, 'ERROR: Invalid pointer for %s(%s) in %s(%s)' %(ac, ap, scope, sp))
+ #ifdef CONFIG_HARDENED_USERCOPY
+ void __noreturn usercopy_abort(const char *name, const char *detail,
+ 			       bool to_user, unsigned long offset,
 
 
 _______________________________________________
