@@ -4,52 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B039CCF9E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 08:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BBECCCF9F1
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 08:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:Subject:Cc
 	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=m7B/HrSKToE4CgNP35AuEI5jt8C79He93SqjzgP6W0c=; b=LrVurHfz78F2gg
-	6m1uYZzKA4h3hnBhOBCw7mhmpJQq5ebYcngreUnNOPhW1/UpHY6Sl1jV4qCdUVSO+m3XYpfrKFklB
-	ULO1+NHl8tClhrfFH+14CrMyCJkRLJDnR4Oncs/MdOBOVSj/wmiPggHO35Et93nbh9HRHZ0GLo2Jk
-	/rii0Qjg2e8+UIG4FNd7+10anWkHykM+81nhAjFu27BV3+Byk31R0DWwzpIUr0FN8NRomBuS0wPZL
-	vCb7pQ2RpBERouxsiKtcUTRHEVv1OdmMXY1vIwEQ/BEOe/3kInrFTn5HlBR8/F9GA1GtbTf8K+oJX
-	avwA1G7PizcYGq/nAWVw==;
+	List-Owner; bh=UHGCEjQz49zfjyBUWO9SZTlWjxKmPOhGSw62IMhum6c=; b=zGa9FtuWDBLH3a
+	vP6uqWCDvBdQyfu6OOazmOQEm/l3aK/kopvOQyEjCYGGTluPehJkWokPeTRW+5OUhFeIYyZJVs/eo
+	pqfTul6eU82GMN9sNbtmQlU89a1rzxTeav5FkQRTw1gvibqTSyGTQbRidtH6K8aiczyBXGye2rkUs
+	33fgaox2PoRm34ME2SYwTFkIqFW6jlQyJuuArIApfQlBv+Drs+dnEATFGbc7DWq6s7RgyTcATwp11
+	J1VH1Y0KVXvhlMfI71zMwzEnZ4DYzUsopR0Nwv4/9uEybJsaNxYxgLp6jWTpdR0eRusJpqVW1+oM4
+	F1xzlGAojXx0ClRRoUVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIq1-0000000DOet-2csB;
-	Mon, 27 Oct 2025 08:44:25 +0000
+	id 1vDIqC-0000000DOrc-1kkN;
+	Mon, 27 Oct 2025 08:44:36 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDIpX-0000000DO2n-1bnK;
-	Mon, 27 Oct 2025 08:44:00 +0000
-Message-ID: <20251027083745.483079889@linutronix.de>
+	id 1vDIpe-0000000DOBA-1qCm;
+	Mon, 27 Oct 2025 08:44:08 +0000
+Message-ID: <20251027083745.673465359@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761554633;
+	s=2020; t=1761554640;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=FNPRKTae+LjL38iEukoJJJeJEzdmx+2M9xnDzgu4YJA=;
-	b=IcvIXSV9t45rrEEtw03twVZVH+Cf5EExRyy1qZwgGd2Y2K9M7co7XW96jp6EmLrClLh++l
-	jr3dOdZVz1fQF1UNp8c66r8mpb686vf7ljbpmrb4etjJUNfu0WZ0tNmwXYxy6Mqvw48chQ
-	teHdD8NcqJ5t4brSX2XHKi1D2UTR2iN7lsnmZZ5QHAxZR754VjOvZIWlkyZixDFJBBtlSn
-	Um78y/D6hLteYGeICRmVsulOuNKGt4ISc1DU1WFAeDKeAEgUMCqb72WarbJcppE/J9tA40
-	R9d2T/O1gaT0zAdoPYZIGb4dytqpU0iVWXNI3iuLN6NYCVVOnAwoWQUxmw21lA==
+	 references:references; bh=uMwKIluQZ/G+KoDWjXfgtZpH34AaSudGJEkVAvBfiV4=;
+	b=xItvuyS+liJchgafJHpU9tYzPOno9TqkarDH1yZCK3/SY8LaeF0qT3opEQkDdO2pbpY6RP
+	Htv+fdHsKQ7EcNx1mU7B7kjkr2MwCU/4llsA9ZTs/iz+8JRvkjQPVcPUyemRxjlbtktGKw
+	GsJHGW2ZY09kGlWJaszbHS77TSX4HGu2viKiUm9yVfGlp4Wr7eYi0dBWXqDf+lbjgf3UOL
+	EK1SbwjiDt9mqIf2xFqEMIs2XBc6hrKI7n1ZGKPIsTdyVEWZ5039b7tBmAnJ6wMzAJxKjx
+	WAWU5PRgWHSrODttFM/9WH+13KTG9uP6NXR5SYwhtmgFY+wKA/oNAOAMka0zHA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761554633;
+	s=2020e; t=1761554640;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=FNPRKTae+LjL38iEukoJJJeJEzdmx+2M9xnDzgu4YJA=;
-	b=Vmmptw8EZHTXIjSgtQJjhgReiceqLlCamqWreAYU9B/vuJ6P+xL9UOF2A8pB7gfIWhGfee
-	YyXsaFaxl4ENOxCg==
+	 references:references; bh=uMwKIluQZ/G+KoDWjXfgtZpH34AaSudGJEkVAvBfiV4=;
+	b=tYimNmTfzHE55VQN/cxG6Mfbc65avtlgEq43Xb/8LXKZ65sSl0k4ojYbJ4I2f258Ii1cd0
+	MyXDnpD51wgg7VCQ==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- linux-s390@vger.kernel.org,
+Cc: Julia Lawall <Julia.Lawall@inria.fr>,
+ Nicolas Palix <nicolas.palix@imag.fr>,
  kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
@@ -63,11 +61,13 @@ Cc: Heiko Carstens <hca@linux.ibm.com>,
  Paul Walmsley <pjw@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  linux-riscv@lists.infradead.org,
+ Heiko Carstens <hca@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ linux-s390@vger.kernel.org,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  Andrew Cooper <andrew.cooper3@citrix.com>,
  David Laight <david.laight.linux@gmail.com>,
- Julia Lawall <Julia.Lawall@inria.fr>,
- Nicolas Palix <nicolas.palix@imag.fr>,
  Peter Zijlstra <peterz@infradead.org>,
  Darren Hart <dvhart@infradead.org>,
  Davidlohr Bueso <dave@stgolabs.net>,
@@ -76,13 +76,14 @@ Cc: Heiko Carstens <hca@linux.ibm.com>,
  Christian Brauner <brauner@kernel.org>,
  Jan Kara <jack@suse.cz>,
  linux-fsdevel@vger.kernel.org
-Subject: [patch V5 06/12] s390/uaccess: Use unsafe wrappers for ASM GOTO
+Subject: [patch V5 09/12] [RFC] coccinelle: misc: Add
+ scoped_masked_$MODE_access() checker script
 References: <20251027083700.573016505@linutronix.de>
 MIME-Version: 1.0
-Date: Mon, 27 Oct 2025 09:43:52 +0100 (CET)
+Date: Mon, 27 Oct 2025 09:43:58 +0100 (CET)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_014355_591215_5407E72F 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20251027_014402_744893_3ED1DA63 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,49 +100,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ASM GOTO is miscompiled by GCC when it is used inside a auto cleanup scope:
+A common mistake in user access code is that the wrong access mode is
+selected for starting the user access section. As most architectures map
+Read and Write modes to ReadWrite this goes often unnoticed for quite some
+time.
 
-bool foo(u32 __user *p, u32 val)
-{
-	scoped_guard(pagefault)
-		unsafe_put_user(val, p, efault);
-	return true;
-efault:
-	return false;
-}
+Aside of that the scoped user access mechanism requires that the same
+pointer is used for the actual accessor macros that was handed in to start
+the scope because the pointer can be modified by the scope begin mechanism
+if the architecture supports masking.
 
-It ends up leaking the pagefault disable counter in the fault path. clang
-at least fails the build.
+Add a basic (and incomplete) coccinelle script to check for the common
+issues. The error output is:
 
-S390 is not affected for unsafe_*_user() as it uses it's own local label
-already, but __get/put_kernel_nofault() lack that.
+kernel/futex/futex.h:303:2-17: ERROR: Invalid pointer for unsafe_put_user(p) in scoped_masked_user_write_access(to)
+kernel/futex/futex.h:292:2-17: ERROR: Invalid access mode unsafe_get_user() in scoped_masked_user_write_access()
 
-Rename them to arch_*_kernel_nofault() which makes the generic uaccess
-header wrap it with a local label that makes both compilers emit correct
-code.
-
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
-Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
-Cc: Sven Schnelle <svens@linux.ibm.com>
-Cc: linux-s390@vger.kernel.org
+Not-Yet-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: Julia Lawall <Julia.Lawall@inria.fr>
+Cc: Nicolas Palix <nicolas.palix@imag.fr>
 ---
- arch/s390/include/asm/uaccess.h |    4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++++++++++++++++++++
+ 1 file changed, 108 insertions(+)
 
---- a/arch/s390/include/asm/uaccess.h
-+++ b/arch/s390/include/asm/uaccess.h
-@@ -468,8 +468,8 @@ do {									\
- 
- #endif /* CONFIG_CC_HAS_ASM_GOTO_OUTPUT && CONFIG_CC_HAS_ASM_AOR_FORMAT_FLAGS */
- 
--#define __get_kernel_nofault __mvc_kernel_nofault
--#define __put_kernel_nofault __mvc_kernel_nofault
-+#define arch_get_kernel_nofault __mvc_kernel_nofault
-+#define arch_put_kernel_nofault __mvc_kernel_nofault
- 
- void __cmpxchg_user_key_called_with_bad_pointer(void);
- 
+--- /dev/null
++++ b/scripts/coccinelle/misc/scoped_uaccess.cocci
+@@ -0,0 +1,108 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/// Validate scoped_masked_user*access() scopes
++///
++// Confidence: Zero
++// Options: --no-includes --include-headers
++
++virtual context
++virtual report
++virtual org
++
++@initialize:python@
++@@
++
++scopemap = {
++  'scoped_user_read_access_size'  : 'scoped_user_read_access',
++  'scoped_user_write_access_size' : 'scoped_user_write_access',
++  'scoped_user_rw_access_size'    : 'scoped_user_rw_access',
++}
++
++# Most common accessors. Incomplete list
++noaccessmap = {
++  'scoped_user_read_access'       : ('unsafe_put_user', 'unsafe_copy_to_user'),
++  'scoped_user_write_access'      : ('unsafe_get_user', 'unsafe_copy_from_user'),
++}
++
++# Most common accessors. Incomplete list
++ptrmap = {
++  'unsafe_put_user'			 : 1,
++  'unsafe_get_user'			 : 1,
++  'unsafe_copy_to_user'		 	 : 0,
++  'unsafe_copy_from_user'		 : 0,
++}
++
++print_mode = None
++
++def pr_err(pos, msg):
++   if print_mode == 'R':
++      coccilib.report.print_report(pos[0], msg)
++   elif print_mode == 'O':
++      cocci.print_main(msg, pos)
++
++@r0 depends on report || org@
++iterator name scoped_user_read_access,
++	      scoped_user_read_access_size,
++	      scoped_user_write_access,
++	      scoped_user_write_access_size,
++	      scoped_user_rw_access,
++	      scoped_user_rw_access_size;
++iterator scope;
++statement S;
++@@
++
++(
++(
++scoped_user_read_access(...) S
++|
++scoped_user_read_access_size(...) S
++|
++scoped_user_write_access(...) S
++|
++scoped_user_write_access_size(...) S
++|
++scoped_user_rw_access(...) S
++|
++scoped_user_rw_access_size(...) S
++)
++&
++scope(...) S
++)
++
++@script:python depends on r0 && report@
++@@
++print_mode = 'R'
++
++@script:python depends on r0 && org@
++@@
++print_mode = 'O'
++
++@r1@
++expression sp, a0, a1;
++iterator r0.scope;
++identifier ac;
++position p;
++@@
++
++  scope(sp,...) {
++    <...
++    ac@p(a0, a1, ...);
++    ...>
++  }
++
++@script:python@
++pos << r1.p;
++scope << r0.scope;
++ac << r1.ac;
++sp << r1.sp;
++a0 << r1.a0;
++a1 << r1.a1;
++@@
++
++scope = scopemap.get(scope, scope)
++if ac in noaccessmap.get(scope, []):
++   pr_err(pos, 'ERROR: Invalid access mode %s() in %s()' %(ac, scope))
++
++if ac in ptrmap:
++   ap = (a0, a1)[ptrmap[ac]]
++   if sp != ap.lstrip('&').split('->')[0].strip():
++      pr_err(pos, 'ERROR: Invalid pointer for %s(%s) in %s(%s)' %(ac, ap, scope, sp))
 
 
 _______________________________________________
