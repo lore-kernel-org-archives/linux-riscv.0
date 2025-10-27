@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173DCCCF9EA
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 13:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C164CCF9E5
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 13:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5CIL8RUXuaPlAA2SVJ4EHG2iMqSABmwZBzH17w7ORE8=; b=Vsml/6HYkK1JXi
-	IcwAiRqnpCRB8GgK+SM9Bjajvq8vTD6Q9vXbcTDBEVOl0lj+EaVLZLntrxgj5kDWHFCCJiQju7nrU
-	yUhc8yFnMx+JDOPFlABLb3SD7hXk6KmOEtCUL84P9sXEGU9yoWlga5EvfrUdicWwY+BF3tzrhgM3o
-	wsIqKGer5nDgy+CKCzoUtvYctOs/H+WVmwNkJqm913d+mKMZcwFModEjxz+vQdaDWpVjKezsDIdU2
-	BaNPVs0Jg9uHnZDBrdUWkvbKGCxbprTuIUjNPykZbJ4jYOWp0AX/pIg6wPHjqcF5BzhMgdO9sBcZL
-	AnwMpmK+p5dqdquMBE/w==;
+	List-Owner; bh=8W4YC++U1DyERueB5xJFnV3c7OBhFM1upSpsur53B0E=; b=EiyG9MT71+tMn8
+	f+RSoVqEuKvoGgmKp1wWlU4PjH3HLt6ejq5/LKzkW9ZMR/wIQ5IFYu4byigtfC0eC4EO2xFQ6Z+G8
+	FYY0s5urp7rrQqPk5x73UqZg1Mu03R7+/e8SzlHqAmrrUBuYlsQZaxlWeTmyKfPelPPMTYMR+USpy
+	TPCXeZLV65L2aepSuSjKMkw0kW9FGzKAbjw0h/v6OOOE1TLls3u4qNd5nxf0aOGYvh3+Bnq6SDz7f
+	M2r5AzcJ7QrWwdbkxc8i6MOKAdnfIYvBy4qT9xPndLnrWYZWE3RE5J7L+sZKAoQUfreSSHSbf0q0Q
+	W8GqRNmB1w6eDTqyomqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNQP-0000000E4ZD-34fi;
-	Mon, 27 Oct 2025 13:38:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vDNfb-0000000E5qQ-1OcK;
+	Mon, 27 Oct 2025 13:53:59 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDNQO-0000000E4Yl-1oFJ
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 27 Oct 2025 13:38:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=SBzTJGNPqfgMV5eUkKm2/xzjPmcyE229N1DrH/IP+kU=; b=VLoCCVlXaeOf7IS5tZ6mlESD9n
-	G13vU2Wau+4cx3RfzEOk8RLtlOyZo5qPjv2+5V4ivXNww52gK9Fe/eua84oCqbFGOt3uAUqX3FrnS
-	NxIFCiHafr/X97hzYzuorAU3rMIYoYNZ4SoLddBf/C1CAmnTZB333Y5s+6dhpFtNK+yhs5pjZqGWd
-	iHwcJDw7cPxKUOZGVTXKD5RkrH7hvC5Iu0GQygjIP7HMRDH+h20CHEEz0gutQPE+EoWL6mHhJIWNT
-	gG1JrZJIgyPhtZx6n7xNJRq7xvbCFWgpsFlEQQuXeqjiq1+rSr4PS/826UE56ymElT/Yrj07yuseJ
-	qNDEyETQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDMYa-00000002CWO-0hHM
+	id 1vDNfY-0000000E5pD-1pCh
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Oct 2025 12:42:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 841B54386D;
-	Mon, 27 Oct 2025 13:38:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 099C1C4CEF1;
-	Mon, 27 Oct 2025 13:38:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761572287;
-	bh=gqvuTK2airj61pCPi99n7PP0OTEYVHFTeCG5nZFFdzY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n7rTHVOu0MVumBdZo9ViIt/dHyGzHfHHi7pdbUP3eF9Ubg5CmW/X3t9S6LGI3OYtB
-	 UZoPhdl+Rj1NpD2KiIAbMnTJCiju0ZtQDG7RSZx2uPhTZ0M0+zfHYTOXTFE691Cufb
-	 mMcsmB21miV4uJmANZCj/Gm0GLo1wz3rTUBQw9HA+DSCA7zZ1N3dLiKKXYBL1f+iww
-	 Yuu3bcc7JGpNmd3+TyrXQuqGdmIgqlKTs/lovY3DiqLlQnY9sqJO+qZcB5bBNDh+ZN
-	 qFKX4DKjEHU4BZosKAnG/SMyoQV9AVb86ozyRx2HfeT3kX9GG6JYt1hq/hlogpm7p2
-	 Ye2JjJC7I1LZw==
-Date: Mon, 27 Oct 2025 08:38:04 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Randolph Lin <randolph@andestech.com>
-Cc: kwilczynski@kernel.org, aou@eecs.berkeley.edu,
-	thippeswamy.havalige@amd.com, jingoohan1@gmail.com,
-	palmer@dabbelt.com, linux-kernel@vger.kernel.org,
-	krzk+dt@kernel.org, randolph.sklin@gmail.com, namcao@linutronix.de,
-	tim609@andestech.com, linux-riscv@lists.infradead.org,
-	alex@ghiti.fr, bhelgaas@google.com, lpieralisi@kernel.org,
-	shradha.t@samsung.com, conor+dt@kernel.org, ben717@andestech.com,
-	devicetree@vger.kernel.org, inochiama@gmail.com,
-	linux-pci@vger.kernel.org, mani@kernel.org,
-	paul.walmsley@sifive.com, pjw@kernel.org
-Subject: Re: [PATCH v9 1/4] dt-bindings: PCI: Add Andes QiLai PCIe support
-Message-ID: <176157228191.240954.997388702686594192.robh@kernel.org>
-References: <20251023120933.2427946-1-randolph@andestech.com>
- <20251023120933.2427946-2-randolph@andestech.com>
+	Mon, 27 Oct 2025 13:53:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1761573157;
+	bh=3kzLSOuCsNwd3PzYAldLRKtwAf4LDDOP8IpojHoSDqA=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=oSjrzR/Y31GQ8Je2z2krqEdS/g/jxabnCZS1DXdHwX0JKlLy1K+Rn3eVlg24KZ0SL
+	 I4wBxxiuNl7YjUxf0/nqcpRKJnP+S8VwvSIV81q73gH8dYPpA+Qd5DcU+0DnT9lnz/
+	 3smiuUg4bTCGjmiHSfcEIPlGoobkOXgYK+HQ2sms=
+X-QQ-mid: zesmtpip4t1761573148td27e7fff
+X-QQ-Originating-IP: UrvBgtWjK2nHPKDaDc+5eztGAGq+puoGJrqONWDB7do=
+Received: from = ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 27 Oct 2025 21:52:26 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3589194371110630699
+EX-QQ-RecipientCnt: 14
+Date: Mon, 27 Oct 2025 21:52:27 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-i2c@vger.kernel.org, linux-rtc@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v2 0/4] fix the SpacemiT P1 Kconfig and resend the K1 I2C
+ ILCR patch.
+Message-ID: <DE3BC758D99A2110+aP95G3ppc_mZaDpq@troy-wujie14pro-arch>
+References: <20251027-p1-kconfig-fix-v2-0-49688f30bae8@linux.spacemit.com>
+ <aP9IVckJT-k2_O4K@aurel32.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251023120933.2427946-2-randolph@andestech.com>
+In-Reply-To: <aP9IVckJT-k2_O4K@aurel32.net>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: Mh0xRtMdhgZRanLwuwAVcqmp1P5pal50KAfMbD3eUBhbrg5PthVOPmEf
+	sGCN4jmRdbbe5xpLy1i2t+h30110rqU3JDOIWeHHzRRD60R2HH+2BHxviT2E0WSmyEwlnId
+	CC0jO8m1mZ/IBWmmc5+6nERrwOOdw+eHvVboDE+E2Gm21uXExF9vHLiV+62SCxpZBFp6nKF
+	onSpJLykJBQnVJ0IglQ/pe+ngk1wkw2+8N76DVd7W0c7Ho3ak2oxLpgxRPowcq4+9CPj9/n
+	6DENo9CAn6S+3yrMXpnuQEZEGeY6BY8fo12HTF7vKHq4zkAqOnoNgj1igiwpVhxhz+zWtw5
+	1VApAhZD1W80QnYqz7ZOJOx+v/RT+RaA1SRjUbRJbmSUOBfq4TcIdp8DVGMLsErq79dlGeN
+	8Pu26+hhV1+YTtJpLOuGNRhsa7PFC3/y8l9+ueD3dPVxcFZ4YX0rP/jfK8m0Jk5TQsh2M4n
+	R/G9DGS3LvBzj3nzlcJfVvgOk+l+LZCiSsGOt/GHQg6ec2NjBL6Xuj3gviWnnmviyupOEVN
+	qzqUvYy/NAhgJ6HwNQ+Jqqwtb2P6Q0hp/DpFW+Ke+SNCnuZ+eNZlmLDcrymbM1KUHV9TxYf
+	RHxFbhLw4KD3V9xzNNz22a+HfDST0HzhMQZi+YCDdnkn1io1r3TybjQCCHUCiVE4+sIV69F
+	V9sO4pIRinHvLbIj3x9WLT6UWl/z6rLx9SgEgsIHYr1qoPbT1nMaB/VprXxq7wKKH2gjU0I
+	/8E6NLCir7Of0PZiWQ/rh7EeqD3/N2clFkDdmC8FWMcevvrWI41xAdUfZPpornXRyM0+sfD
+	bWptv9DdWT/yo8yi6o0Lbjreu5OT8XKxuwpdtsSDCO1A8/IU7yEUD7wtAj2lYe3bO8wwhxG
+	1QgNzitFphMUzcFKn1efkit0E4kFrfFKIsaVIOuJGgUduzkaZIZG0ovBhLx7ZDphrJunTNm
+	oe8aYjAEekfdG7ZLnjm1e9GGvqx2gqgZuEAmsyn76Twb71DMFzCIGFruu3YFM237WIsbk47
+	JheZa21s+p/n7/YhbEVzJavzd0pbtJdyKZGF/yrzAkgzn5jqpMBD7pemfRgH8ivUMbcbL9B
+	CQTufCOfcne/7aJsNllQ3asTFYIBG4Xjg==
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_124240_460396_B68FCE8A 
-X-CRM114-Status: UNSURE (   7.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251027_065357_067896_335B0ED2 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,20 +102,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 23 Oct 2025 20:09:30 +0800, Randolph Lin wrote:
-> Add the Andes QiLai PCIe node, which includes 3 Root Complexes.
-> Only one example is required in the DTS bindings YAML file.
+On Mon, Oct 27, 2025 at 11:24:21AM +0100, Aurelien Jarno wrote:
+> Hi,
 > 
-> Signed-off-by: Randolph Lin <randolph@andestech.com>
-> ---
->  .../bindings/pci/andestech,qilai-pcie.yaml    | 86 +++++++++++++++++++
->  1 file changed, 86 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/andestech,qilai-pcie.yaml
+> On 2025-10-27 13:48, Troy Mitchell wrote:
+> > Since P1 Kconfig directly selects K1_I2C, after the I2C ILCR patch was
+> > merged, the driver would fail [1] when COMMON_CLK was not selected.
+> > 
+> > This series fixes the P1 Kconfig and resends the I2C ILCR patch(This
+> > patch has reverted by maintainer [2]). In addition, the Kconfig for
+> > P1's two subdevices, regulator and RTC, has been updated to use
+> > 'depends on MFD_SPACEMIT_P1' instead of 'select'.
+> > 
+> > Link: https://lore.kernel.org/oe-kbuild-all/202510202150.2qXd8e7Y-lkp@intel.com/ [1]
+> > Link: https://lore.kernel.org/all/sdhkjmi5l2m4ua4zqkwkecbihul5bc2dbmitudwfd57y66mdht@6ipjfyz7dtmx/ [2]
+> > 
+> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > 
+> I think this series misses a patch to add a default value for 
+> MFD_SPACEMIT_P1. Otherwise it doesn't make sense to define a default 
+> value for the ones depending on it (RTC_DRV_SPACEMIT_P1, 
+> REGULATOR_SPACEMIT_P1).
+Yes, I forgot that. I'll add it in the next version. Thanks!
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
+                                  - Troy
+> 
+> Regards
+> Aurelien
+> 
+> -- 
+> Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+> aurelien@aurel32.net                     http://aurel32.net
+> 
 
 _______________________________________________
 linux-riscv mailing list
