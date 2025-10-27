@@ -4,119 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F293CCF9E5
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Oct 2025 22:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ADF8CCF9E5
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 01:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2sER3hRAFRLI5zSMH4kTt9jWS1Q8K3ce+kC9ZRx9u6U=; b=SIZw8RQITv2pxsF79aMrlL9XoA
-	2DzpLTHWvr70YK4zm3QnCQK049RREqlhXBgnR1iDUuKgcj+ne0C+GNlp9ia04ZIs2uwvRYESsMKnn
-	TXQDRdPPVNKHaLYmIT15QPh5MVnh/oTg4yKQD9BX2iUMxAKwrKi9Qv6rbA6Yn+GLb8lWl0CKx0Jod
-	cGgpvCIgge8ZOWNM2HNHoKxNfC2U2M80xpfEF6bEcSx3f3gctm8rmORUFxZnB04b9aQh0D+p4qN5h
-	YfiTuHnu0tfMXnDlzgYGCeiNiGJ2vsvCcCkPCXk0skTQVy1fL90FOM0GeAuUmvkHXsKqHm3/oHS5M
-	9PDGrAaQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2Q/Nnd+exmX1YBwgl5ceSBv/JVddu1C/QpHtUR5Rk9s=; b=GqNvYh6IvXehMq
+	Bl6ohisXyy6S1OR1ZqI7A/TeokiJIzTR+oIOJrFVLTu4zlCl1d5dKdFr0zbA1OwFjyWH5+eWjcyOh
+	E3keRurEAeM+LD70Za/JHcynBaoGPJ+nui+qPYoO76VJ1cjVLFm93KJ4UfnL1xxjQ+2SmGgkxyt6g
+	cUo2CkEYKJ0VuORwEsXHT3v2ktKO7Sz+F4I09JFQl8C/+NRQzYBsjyMDv1XWGIbXbOXMqN3ZqEAeS
+	F/io9Ns+KFGOGB89Nj7B7TVSJo/owTqJJZIFfoItY/YFBYkXe7m5q6kkASEFRLWhAuWiA/oP4r8o7
+	0a20C8+6i9UXh2DoLKfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD9Xu-0000000Cpkw-1UQU;
-	Sun, 26 Oct 2025 22:49:06 +0000
-Received: from black.elm.relay.mailchannels.net ([23.83.212.19])
+	id 1vDBtR-0000000CwPF-3DsE;
+	Mon, 27 Oct 2025 01:19:29 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vD9Xr-0000000CpkX-0uiW
+	id 1vDBtN-0000000CwOC-23an
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 Oct 2025 22:49:04 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id E05ED36160F;
-	Sun, 26 Oct 2025 22:48:57 +0000 (UTC)
-Received: from fr-int-smtpout16.hostinger.io (100-119-151-11.trex-nlb.outbound.svc.cluster.local [100.119.151.11])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 5647D36142C;
-	Sun, 26 Oct 2025 22:48:54 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1761518937; a=rsa-sha256;
-	cv=none;
-	b=AyKXTiJdD/Z/lO8dC4edljNQ+VNou7Bjk5ebwAQQLWVvX3/SGwqgB0NIyTrsW8Do8tFXyz
-	Tzy5yx18uX6OdKCt4AqhG5Q4H1nb9JF1MjLhkOa96yhtZ/hMJgJ9j/mhcPhJ4Uv+oW0HKA
-	ABkSYr+1NmxDnwT/N150itKH0zz58WIpHXirKq4MSW6PJE52OtqQZExhbQ2alWnJ3gJMbH
-	KO1nKhbmqIPSADHUGNsscFHeHte9KNJsx8jhtC3L9akB5iKDfM4Ufq5JAH04/ZZHe77dL0
-	fwKxWgXoIodyYi2eYRO+t5EhlbivFG2oMjb1w4LMPIwIPExtivtGFUcTkE43Xg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1761518937;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=uFsO6MOvX/5QN9XiCW8717+gVZ3oyi7YrYXpJc6qfWo=;
-	b=GMKoZHeOXm/XU3rl55b/WDHS3fTAm7uSZHGn3Rpl/niDzyYT4tym2yvM6uYGu+sLn7WDzc
-	chjpbRqB3rJ3adDRftlN5vIrXlb4QQ0NvuCj0QMeVkKWpFFpXb8mv8mAJxNJFPRIpBGcSh
-	1eLzQ+Qyyf+veJdiw3+4iVHmyvawnANCDXugYf3c0UEqlb4xE6BaXyQAXmHV7og43iuDaV
-	LZmjnjVtQVMA+TfZoZA23Cs1K+8slVjI1DAN5Qg3yrOWNyq7suVphH0gzihcyQKzWtupo2
-	jzVFBpKsFAN6PR1KvdpBg8fMlGHYZrtreq6jkbVRXi2Ue/+vZbqDuPO58wTatQ==
-ARC-Authentication-Results: i=1;
-	rspamd-674f557ffc-8hdz9;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Glossy-Bored: 6f0a4d1c3bd11df6_1761518937746_4155451395
-X-MC-Loop-Signature: 1761518937746:3498211039
-X-MC-Ingress-Time: 1761518937746
-Received: from fr-int-smtpout16.hostinger.io (fr-int-smtpout16.hostinger.io
- [148.222.54.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.119.151.11 (trex/7.1.3);
-	Sun, 26 Oct 2025 22:48:57 +0000
-Received: from [IPV6:2001:861:4450:d360:bf0e:83cc:ac75:8cdc] (unknown [IPv6:2001:861:4450:d360:bf0e:83cc:ac75:8cdc])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4cvsJ264nCz1xnw;
-	Sun, 26 Oct 2025 22:48:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1761518932;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uFsO6MOvX/5QN9XiCW8717+gVZ3oyi7YrYXpJc6qfWo=;
-	b=jenUQCRo/Am12+0noROadVkvTh0uDbTiGgY5PW4GBhmXmSaweUQKOWiqC8gaa4JoV2Hrxp
-	4VbTgPWu61Tk1DvjY+2IpygBCE2UP01UTkG3AQulIqUUjqE4LBrC/G8aJB+wqPJ8AEsoKs
-	qGOq/3qi62DOGVdrZcDFlfXTW/nB4EbiEDJtpaSCjUoXfItt8ZXxSX4lSjagPgdn7O0wzv
-	SC/oDFSwVohEEX9imI6yRPg38l24DubnNoKg6C40g7Qtl3bmVYmssFTEcv3Ir9/eEETvBT
-	evLH3aD9wSdZqyUKp7ZQSM8eywYe/8y5lnMgeHDy+mBvdvPVyuCUu0wGpA0krg==
-Message-ID: <4bdad288-250b-4e94-abea-eb231fba5beb@rootcommit.com>
+	Mon, 27 Oct 2025 01:19:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1761527937;
+	bh=FtNZ8zy+l54IpAnURTHO+1r1GOzAAhW69sizKWqnidw=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=yBxeUGDGCE2mtPOqUwC/4cbTKgm4hHnawaMB6a3CZ0jAQ0VzmUrqTrA06xrmjOP4e
+	 vPcwqWFEMKfJzKtWxrPqOuimjsCPOhK6dlsstt1/PI7YkREb8GzZ1qAFdwZA4yIEcM
+	 OHmNmxBm/SkmugjESQLo6UM/G4bHfcgGLDzg8054=
+X-QQ-mid: zesmtpsz7t1761527932t8c892f9c
+X-QQ-Originating-IP: X46h/Pqk7NaYdaGiCnjlkcYaOwRSoAVzeudXsZlyse8=
+Received: from = ( [183.48.247.177])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 27 Oct 2025 09:18:51 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4802128976697344578
+EX-QQ-RecipientCnt: 4
+Date: Mon, 27 Oct 2025 09:18:50 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [RFC PATCH] riscv: dts: spacemit: initial i2c support for
+ OrangePi RV2
+Message-ID: <4544207DE7959B10+aP7Ieuaw16uArne_@kernel.org>
+References: <20251025074514.642357-1-michael.opdenacker@rootcommit.com>
+ <52bf454f-424a-4824-a3fe-339d411bd664@rootcommit.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, unicorn_wang@outlook.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- alexander.sverdlin@gmail.com, rabenda.cn@gmail.com,
- thomas.bonnefille@bootlin.com, chao.wei@sophgo.com,
- liujingqi@lanxincomputing.com, devicetree@vger.kernel.org,
- sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/3] arm64: dts: sophgo: add initial Milk-V Duo S board
- support
-To: Joshua Milas <josh.milas@gmail.com>, Inochi Amaoto <inochiama@gmail.com>
-References: <20251011014811.28521-1-josh.milas@gmail.com>
- <20251011014811.28521-3-josh.milas@gmail.com>
- <hkdnjyldwr4watvizsju4qcvpvkb3mtt5rathaooembpceyufx@ega5xrqj6v3y>
- <aOqtt7BDXxItrs7W@sleek>
- <bsol3uim4brrrsdmvuk6f3uzampbki2pyhziap6x4rw7txl435@rwoxrnctkf3y>
- <aP6UJFPP-ReYPzmq@sleek>
-Content-Language: en-US, fr
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Organization: Root Commit
-In-Reply-To: <aP6UJFPP-ReYPzmq@sleek>
-Date: Sun, 26 Oct 2025 22:48:50 +0000 (UTC)
-X-CM-Envelope: MS4xfCvqkUVMbgTTDbHBA0d4cZBu8FEN3OWccx7Z3P1XKUivUx4Y68YFJpjG2DHVo3P5lB3Ny+/8w0V3ajRhGWzoYRUuaCkXdvFvHcWTnCnbhFz/PrdrWC+x COM5aFHJVvKFr/TS8TzixCnKhPhzdj9F1cfiwoyCXMPAS7pXgasqCyvGi//OA5t4SeP7b2FDSbjXfXy1AVcC2dv6FZnC70B6jl2TXyls2IVUEAz66hPQhnNX W5HaqF3f6vdnVH0zTYj7Rw3WokajdiUoQcaes/olNhpXTR3Ld6XT88k0RRYbZ3G+sbO+g/wQYIHbUV26cukqWAaAZJ39l7/NFaKC+Ax/8H35WFixldDWhNmH Gkxj9HAOcLxINWk6EQIwQk7YXHH/3GAhirc1dTXOrRLXY21Qibf0mRZb2+xOOR9gplI1hoPpropN94wkvlE2eyNylLcA8xtjPptBAHoWDzyiJE/R0FzA7lcW u94QFzgavtxqJW144Djci+uYdLHMp4kObiBWY1v9sSgFQezyQkdQJB5sJ6XMjBXyxMbP3REFSeOhjR9qszHNlvfU2Un6AhM7ePi1Q79UQ27lMP/3wvv4Yd/n +P+f/QkuVcGpT0T23r7ISE8NKEBSuxST3WHxTuVy1SqP0zX8RelYByh9/a5grzuJ1rZ8zqcgZslAWZ0Cl/l+wZ55doQVqWtDLOr/ThG1mzAxHgbyl+YMCQcP s3N2FHaIdEcL7qj8T370YNQQSlY4jap/8379yoznKiZS5VKvbBmL/IbdD5hdSucMQlHxQGn07kmNMkSCXOxJbn2AtwVwu+O/cIutf3kP58xOMdpzcPrv1Yzt VTI0v9w8oSv+E+QDDiQmQpLzs+SV2IO9maYa13KvUW4p1EyLKcvsWRhzMnPXMJlnSXezO3/QWaBpF/HHB/f3IMuH8ewAQ2PWBoxQSlffglVzhZLZcO0tz6Ki mZTfsQ==
-X-CM-Analysis: v=2.4 cv=GbNFnhXL c=1 sm=1 tr=0 ts=68fea554 a=zy7iCUYNTH43UiyTonfErQ==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=YzZgpwwcAAAA:8 a=d70CFdQeAAAA:8 a=SDwY5gupPOl0iZWIF84A:9 a=QEXdDO2ut3YA:10 a=diELbSsDbaqdzccPbx55:22 a=NcxpMcIZDGm-g932nG_k:22
-X-AuthUser: michael.opdenacker@rootcommit.com
+Content-Disposition: inline
+In-Reply-To: <52bf454f-424a-4824-a3fe-339d411bd664@rootcommit.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NYlggeZuI0UG6WA1n9n/zQdNuazZ8e4RdsaS8q0dpYRLKx4kfoFQrXgi
+	4ZsCNkujYM6RZwihAcgbR1dsQ2ISg3DGeSOzv5wZMHG50doS1SP3OMb7YVZnnZkuMPIhfaI
+	QbYqTgO8RetUgZ11dpRqphRlH47QDS5nhWByhCuO/guT7uCWDWHBPoZshaXCrtIN9pqX45t
+	VAzncdmRYYo+yuclf4P9du/ch7KqIq3b/2h0yKZGL45D+9CVDVY9DjQbRFk5dXg5J5UUVmm
+	lJTQFQ9RwMes18GgX2ACd9hxetO/XDIqUrcd8XiE3VP0YrteIfg1oXUqKkUQahcj0zK3FmK
+	O4yaMeITJHFT8DwhaIt0TtQxSplcN4VZ20GyB2+AIxSyNBK5680FsqS0655mPLvnAsyOuW8
+	slEt+NnBVpw54L85ErkN1VU1xJbxLmF364z+eeQeGabRotk2t8NOrFf92wL+GJOfTMH1wlh
+	Bn/RfjzVt+uRgEL+VPgSlAE3bSywVkvN9x283pI+g3FOPptJ5gJXbrqaAyUGrJrT/Q/brZr
+	TMVmUftQ0J43Imb6PVWxKs/Q7iR/UrisYNJVFOOkQIvyQ/9kLwpDd+lV1xohgiwPKqoTXDA
+	wjQm9eLU4mPV8g4UTok3LD8G0lZJo3kP8dQcoEr15544V+gnftQkMlwZ0zP/nZ5loHLZYlF
+	r+7+/nX691PHu+B5mHkVPPzlICDYScfV/FumRo1UME1UxlJAAiGcaArvxKGs4UO6Y5c5Re6
+	Y9xv8Oq4yqDshq1a9OaUf4htVrQFzlMdhIm/um06s2m3ePdJUBnQaDdBTsnNwAgCKoWyltS
+	FyvUFa6neLZXxBu7Ju7q3R1b2d8uEacwWImLF86gxXoGtmSqQt0cKzFg7xdCX+RIYGXaAGZ
+	3B+b82BQKUiAY/b6H0n+uBfq2H6PwAf/mvW9aRH4XIs+dxNt4DyF7ByEUQDqVg2ysv0j8eH
+	oaSyFiK3qXfH358Aq1lhFzWkk7Z+CpdcddzL9mzvBKMnQ4GZfwX3xE9zDqVE/xNdDOIgV/v
+	jrDkW3WeHpAy4ByoAaWPQr4fuybveLbJlhxhg15jh5ofEE1S5O
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251026_154903_615426_B4CA544E 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20251026_181926_905414_2276D1BF 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,65 +90,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Joshua
-
-Thanks a lot for working on support for Milk-V Duo S. I'll be happy to 
-test your V3 :)
-
-On 10/26/25 22:35, Joshua Milas wrote:
-> Inochi,
->
-> Thanks for pointing me twards duo-pinmux. I was able to use it to get
-> the default config which is uart0, spi3, and i2c4. I can change the
-> dts to match, but...
->
->> I suggest enabling devices that are accessed by default
-> Would we rather enable anything that can be accessed by the pinmux?
-
-If I understand correctly, you can't do that because there will be 
-conflicts.
- From the Duo S pinout diagram 
-(https://milkv.io/duo-s/duos-pinout.webp), on headers 41 and 39, you 
-have to choose between MIPI, I2C2, PWM12/13 or SD1. If at least 2 of 
-these are selected at the same time, there will be a conflict, and I 
-assume that the pinctrl controller driver will flag it.
-
-Then it sounds complicated to define a default combination for the whole 
-board, because it's like a default use model. Who gets to choose? What 
-Inochi suggests is to follow the vendor kernel choice, which would 
-correspond to the way the vendor intended the board to be used. However 
-the community could choose another default way to use the board, so the 
-choice may be up to the first contributor to the mainline kernel for 
-this board, possibly revised through later discussions.
-
-I guess there are cases when the choice is easy:
-
-- When only one configuration is available for a set of pins
-- When there are important devices on I2C or SPI buses on the board. 
-Then, you want to find a way to prioritize such buses. Fortunately, I 
-guess the board design also guides you to the right choice.
-
-I was facing the the same question today on another board, and that's 
-why I'm happy it's raised here. As thousands of DTS files have been 
-written before, I'd love to hear from people with experience on this 
-topic. Are guidelines written anywhere for board DTS creators?
-
-Cheers
-Michael.
-
--- 
-Michael Opdenacker
-Root Commit
-Yocto Project and OpenEmbedded Training course - Learn by doing:
-https://rootcommit.com/training/yocto/
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBPY3QgMjUsIDIwMjUgYXQgMDc6NDg6NDVBTSArMDAwMCwgTWljaGFlbCBPcGRlbmFj
+a2VyIHdyb3RlOgo+IEdyZWV0aW5ncywKPiAKPiBPbiAxMC8yNS8yNSAwOTo0NSwgbWljaGFlbC5v
+cGRlbmFja2VyQHJvb3Rjb21taXQuY29tIHdyb3RlOgo+ID4gRnJvbTogTWljaGFlbCBPcGRlbmFj
+a2VyIDxtaWNoYWVsLm9wZGVuYWNrZXJAcm9vdGNvbW1pdC5jb20+ClsuLi5dCj4gPiArJmkyYzIg
+ewo+ID4gKwlwaW5jdHJsLTAgPSA8JmkyYzJfMF9jZmc+Owo+ID4gKwlwaW5jdHJsLW5hbWVzID0g
+ImRlZmF1bHQiOwo+ID4gKwlzdGF0dXMgPSAib2theSI7Cj4gPiArfTsKPiA+ICsKPiA+ICsmaTJj
+OCB7Cj4gPiArCXBpbmN0cmwtMCA9IDwmaTJjOF9jZmc+Owo+ID4gKwlwaW5jdHJsLW5hbWVzID0g
+ImRlZmF1bHQiOwo+ID4gKwlzdGF0dXMgPSAib2theSI7Cj4gPiArfTsKPiA+ICsKPiA+ICAgJnBk
+bWEgewo+ID4gICAJc3RhdHVzID0gIm9rYXkiOwo+ID4gICB9Owo+IAo+IAo+IFVuZm9ydHVuYXRl
+bHksIHRoZXNlIGNoYW5nZXMgYXJlIG5vdCBmdW5jdGlvbmFsIHlldCBvbiBPcmFuZ2VQaSBSVjIs
+IHRlc3RpbmcKPiBvbiBodHRwczovL2dpdGh1Yi5jb20vc3BhY2VtaXQtY29tL2xpbnV4L2NvbW1p
+dHMvazEvZHQtZm9yLW5leHQKPiAKPiAjIGkyY2RldGVjdCAtciAyCj4gV0FSTklORyEgVGhpcyBw
+cm9ncmFtIGNhbiBjb25mdXNlIHlvdXIgSTJDIGJ1cywgY2F1c2UgZGF0YSBsb3NzIGFuZCB3b3Jz
+ZSEKPiBJIHdpbGwgcHJvYmUgZmlsZSAvZGV2L2kyYy0yIHVzaW5nIHJlY2VpdmUgYnl0ZSBjb21t
+YW5kcy4KPiBJIHdpbGwgcHJvYmUgYWRkcmVzcyByYW5nZSAweDA4LTB4NzcuCj4gQ29udGludWU/
+IFtZL25dCj4gwqAgwqAgwqAwwqAgMcKgIDLCoCAzwqAgNMKgIDXCoCA2wqAgN8KgIDjCoCA5wqAg
+YcKgIGLCoCBjwqAgZMKgIGXCoCBmCj4gMDA6wqAgwqAgwqAgwqAgW8KgIDEyNC42NzUzMjFdIGky
+Yy1rMSBkNDAxMjAwMC5pMmM6IGkyYyB0cmFuc2ZlciBmYWlsZWQsIHJldCAtMTEKPiBlcnIgMHg0
+MDAwMDAKWy4uLl0KCj4gwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAtLSAwOSBbwqAgMTI0LjY4
+Njc2OV0gaTJjLWsxIGQ0MDEyMDAwLmkyYzogaTJjIHRyYW5zZmVyCj4gSSBhc3N1bWUgdGhlIGky
+Yy1rMSBkcml2ZXIgd29ya3Mgb24gQmFuYW5hUGkgRjMuCk5vLCBJdCBkb2Vzbid0IHdvcmsgb24g
+QmFuYW5hUGkgRjMgYWN0dWFsbHkuCj4gQW55IGNsdWVzIHdoeSB0aGUgc2FtZQo+IGJ1c2VzIGRv
+bid0IHdvcmsgT3JhbmdlUGkgUlYyPwpUaGlzIGlzIGEga25vd24gaXNzdWUuCkkgZGlkbuKAmXQg
+Zml4IGl0IGVhcmxpZXIgc2luY2UgaXQgZG9lc27igJl0IGFmZmVjdCBmdW5jdGlvbmFsaXR5LApi
+dXQgbm93IHRoYXQgaXTigJlzIGJlZW4gcmVwb3J0ZWQsIGl04oCZcyB0aW1lIHRvIGZpeCBpdC4K
+SeKAmWxsIHNlbmQgYSBwYXRjaCBzaG9ydGx5LgoKVGhhbmtzIGZvciByZXBvcnRpbmcgdGhpcyBp
+c3N1ZS4KCiAgICAgICAgICAgICAgICAtIFRyb3kKPiBUaGFua3MgaW4gYWR2YW5jZQo+IENoZWVy
+cwo+IE1pY2hhZWwuCj4gCj4gLS0gCj4gTWljaGFlbCBPcGRlbmFja2VyCj4gUm9vdCBDb21taXQK
+PiBZb2N0byBQcm9qZWN0IGFuZCBPcGVuRW1iZWRkZWQgVHJhaW5pbmcgY291cnNlIC0gTGVhcm4g
+YnkgZG9pbmc6Cj4gaHR0cHM6Ly9yb290Y29tbWl0LmNvbS90cmFpbmluZy95b2N0by8KPiAKPiAK
+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
