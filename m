@@ -4,63 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B98CCF9E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 10:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 996A0CCF9E5
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 11:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zh2TG5V13AMadA8SC6NkxKsrOSBd7ZkQc850/vTvCu8=; b=kJbxdliUHQ8WBi
-	CZHdgDSO7EgoVjiNE7I7iTYSWY1E5mD7jvVFkN9SAfCM7l5ZvEqrMr/nzEL2bIqmyHkyPI21cH2b/
-	Lx9+6Mp445+BEgoG9++vchXKStGgSOu42IkRTt6U4nb6aEja5JtoWeKrENDky7d/QCDVPdgm9TvM4
-	QubUgeVC4GTJFPLnhU9SGI9odWvpTuKeulsKZzsFWSsKOFjHBAlMHctWCbn+xp7/ULvPAUoX0ePuy
-	rN6Nk8X3DwMF6V3F/lMYu6A8iNr7AMyPXDJngVCBRWbuWTgis9jdWmvjcqiidD2Wo5zF6xhqFleV9
-	Pzlgbf+tlYc0Veavse0g==;
+	List-Owner; bh=u1O29c5e8MhNhIyk1tERiN5ExWmfzr2ryjpFSWsJMHw=; b=H+BZuI4/n5uDXu
+	KuJt2ZEMjTP2L+dGg7DF0v50KijttdE/UMJGPDAANbeIng0CYRW0wAbbydor3Rp0JrogK4OQsI03O
+	ddn6MQx2lGfW7HsAnBTUnEaA/jcYSvi6Ad/zsq9zl9zIG3lR6j7LaFVp7EYCPBe89IeKPNnfJErnA
+	JCd707iYI1qSJgtu+gqZq4Yyx7Xzm6AzRBzRWOl4JPqstEA7H0pSCO64HJQuu70QfKZRTwiOXVu8Z
+	x+faGSBaAoH6XJCyNkEeQCbn3MXoExdfEErPRGg4yoV8nm4kcZDLefFtxXSVBqHUnyrBi6M70etpg
+	6kavyzVhcQ3hUilNoL5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDKWC-0000000DfIL-0yk5;
-	Mon, 27 Oct 2025 10:32:04 +0000
-Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
+	id 1vDLps-0000000DpIX-18Ll;
+	Mon, 27 Oct 2025 11:56:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDKWA-0000000DfHt-1eE1
+	id 1vDLpr-0000000DpI3-0Ddc
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Oct 2025 10:32:03 +0000
-Received: from localhost (unknown [116.232.147.23])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id BEF7E341A11;
-	Mon, 27 Oct 2025 10:31:58 +0000 (UTC)
-Date: Mon, 27 Oct 2025 18:31:47 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Andreas Schwab <schwab@suse.de>, Yao Zi <ziyao@disroot.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Aurelien Jarno <aurelien@aurel32.net>, linux-kernel@vger.kernel.org,
-	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] driver: reset: spacemit-p1: add driver for
- poweroff/reboot
-Message-ID: <20251027103147-GYA1541054@gentoo.org>
-References: <20251026224424.1891541-1-aurelien@aurel32.net>
- <20251026224424.1891541-2-aurelien@aurel32.net>
- <A73D83A7055D782E+aP7lAdAk66slv6l7@kernel.org>
- <aP8QHwsYDlbQxQJo@pie>
- <mvmh5vk67in.fsf@suse.de>
- <aP86TltQ2uqeK6FY@pie>
- <CAJM55Z9w0pnFmVjJKJNMs1iqOxoL=YpkBu0L7NuUZ_0ipMtQAQ@mail.gmail.com>
+	Mon, 27 Oct 2025 11:56:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7B367611F7;
+	Mon, 27 Oct 2025 11:56:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82500C4CEF1;
+	Mon, 27 Oct 2025 11:56:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761566186;
+	bh=sS1lIlP0t/Ne7eJT0CnV8aE5TtS6WT4gJ2MXWuhWQWw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NTR3uudJBfLWhNLSRn3Wtwg9aDPkR2gB+WJWl/df0PCoUi43ruJfSAycB5vsYR7oe
+	 iFdgNJXzkGPo0OFXaO1ymYdeWEdtnnSh95Snn+VgYz6H3FQ29DwMPqri+/Ojab656y
+	 jqdIBih0bGnmez5tdtCKFGX5KM1s+hJl1F1h0FRgh1iLkf6WnuTOueA4UULvE9BWNF
+	 PBT8BPRfSMtZKX1KKdAfgBzCpwWCSyWtZ/J5DpVeSHFJ2tuOVYRXLl4GU8fAzA6ZT7
+	 Sez7ZjoezZbp+mXHWVlIebRKZt5pbt1o29YiqDIO16ET7Fz3WJjaYNn3Ly4KtbCF6k
+	 bfZjv0VW3TCIw==
+Date: Mon, 27 Oct 2025 11:56:15 +0000
+From: Drew Fustini <fustini@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Subject: Re: [PATCH v3 5/5] riscv: dts: thead: Add reset controllers of more
+ subsystems for TH1520
+Message-ID: <aP9d3-deezGtCbHr@gen8>
+References: <20251014131032.49616-1-ziyao@disroot.org>
+ <20251014131032.49616-6-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAJM55Z9w0pnFmVjJKJNMs1iqOxoL=YpkBu0L7NuUZ_0ipMtQAQ@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_033202_482885_4A450CC7 
-X-CRM114-Status: GOOD (  25.94  )
+In-Reply-To: <20251014131032.49616-6-ziyao@disroot.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,57 +64,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Michal Wilczynski <m.wilczynski@samsung.com>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi 
-
-On 03:17 Mon 27 Oct     , Emil Renner Berthing wrote:
-> Quoting Yao Zi (2025-10-27 10:24:30)
-> > On Mon, Oct 27, 2025 at 10:03:44AM +0100, Andreas Schwab wrote:
-> > > On Okt 27 2025, Yao Zi wrote:
-> > > > On Mon, Oct 27, 2025 at 11:20:33AM +0800, Troy Mitchell wrote:
-> > > >> On Sun, Oct 26, 2025 at 11:41:14PM +0100, Aurelien Jarno wrote:
-> > > >> > diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-> > > >> > index 8248895ca9038..61c16f3d5abc7 100644
-> > > >> > --- a/drivers/power/reset/Kconfig
-> > > >> > +++ b/drivers/power/reset/Kconfig
-> > > >> > @@ -283,6 +283,15 @@ config POWER_RESET_KEYSTONE
-> > > >> >          help
-> > > >> >            Reboot support for the KEYSTONE SoCs.
-> > > >> >
-> > > >> > +config POWER_RESET_SPACEMIT_P1
-> > > >> > +        tristate "SpacemiT P1 poweroff and reset driver"
-> > > >> > +        depends on ARCH_SPACEMIT || COMPILE_TEST
-> > > >> > +        depends on MFD_SPACEMIT_P1
-> > > >> > +        default m
-> > > >> default m if ARCH_SPACEMIT? Or default ARCH_SPACEMIT?
-> > > >> I believe that reboot and shutdown are actually essential functionalities,
-> > > >> so it might make more sense: default ARCH_SPACEMIT?
-> > > >
-> > > > I don't think there's anything preventing it to be built as module by
-> > > > default: even though it's "essential", it's unnecessary during kernel
-> > > > and userspace startup, thus I see no reason to build it in the image.
-> > >
-> > > Wouldn't it be needed in a reboot-on-panic situation?
-> >
-> > Oops, yeah, I missed this stuff. Seems systemd automatic boot assessment
-> > could switch to another boot option if one fails to boot. And if it's
-> > caused by a (very early) kernel panic, then reboot support does play a
-> > part here.
+On Tue, Oct 14, 2025 at 01:10:32PM +0000, Yao Zi wrote:
+> Describe reset controllers for VI, MISC, AP, DSP and AO subsystems. The
+> one for AO subsystem is marked as reserved, since it may be used by AON
+> firmware.
 > 
-> But if systemd is running then you've at least got as far as the initramfs,
-> and have the module available. So I don't see the problem.
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 37 +++++++++++++++++++++++++++
+>  1 file changed, 37 insertions(+)
 > 
-In rare case, if got kernel panic before load this module, then we
-should really fix it instead.. Besides, there is no restriction to prevent
-user to make this driver as built-in, right?
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> index e680d1a7c821..15d64eaea89f 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -277,6 +277,12 @@ clint: timer@ffdc000000 {
+>  					      <&cpu3_intc 3>, <&cpu3_intc 7>;
+>  		};
+>  
+> +		rst_vi: reset-controller@ffe4040100 {
+> +			compatible = "thead,th1520-reset-vi";
+> +			reg = <0xff 0xe4040100 0x0 0x8>;
 
-So I think this isn't really a big problem either
--- 
-Yixun Lan (dlan)
+Is this intentional so that the first VI_SUBSYS register, VISYS_SW_RST
+at offset 0x100, will have an offset of 0 from the thead,th1520-reset-vi
+reg in the driver?
+
+[snip]
+> +		rst_dsp: reset-controller@ffef040028 {
+> +			compatible = "thead,th1520-reset-dsp";
+> +			reg = <0xff 0xef040028 0x0 0x4>;
+
+Similar to rst_vi, is this intentional so that the first register,
+DSPSYS_SW_RST at offset 0x28, will have an offset of 0 in the driver?
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
