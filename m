@@ -4,51 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF3CCCD1BF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 06:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA250CCD1BF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 06:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oSFS+T0KiyTr190kQhqhSBPmk3YjtTEHnaMcY9lHDLc=; b=tqkDfQ7k3D8u7h9+OjooDRLEIz
-	zJQ0t0WEnlUxIHAYwVfDI5IqmbaocfWZ19RKbGvqAJ8Xo15prZ4bjTbDzWVj2NP29VYma9zwurS+V
-	3bO6pQd8G6cwB71Z0EqveF6thS0jov+ymv+xzcaKZOJIAabuYpxgTnipDNZNSymxiD2t/wkiL+Qx3
-	HT4rAT0EE+VznhXV6ZUzdJerJwAvrMPq0W0lvfG7YkVy+z36m0yTvOwqyr7z/7XGMGAYpaJYPGqqK
-	JAb0w6sAfXVi5ZJAopn5CE79TGPBnKcENJNGqDFF1SRjQK9EVDnPesxOEtZIhIcE7AdG1o7EUUGCw
-	awdQxL5w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xsZH6649T5cUhu0qxm7t8mOFpFJ98uA3spWb1y99vts=; b=TtkLS4mcObqn+3
+	1Oor1eDw2yVe9je7cp4HYa04SnKlHpBmP8iAjaQJ1kWXBPfQaBOKDuFWxgy1h0/UVrBPVzwBtAZBi
+	HWjLs8An322ZLDPGOQeU/8yqHrV5wIupMdf7ZJkX1bYg1/2og2yfdJO2yqcdi8hhqhdY23izxGSmp
+	I0mYC0G1LtTDMcxre6jZIH3D66G3EV9Ba8XsqZpj7w9SJ9KWp4dpaz/dQ19Imvtom157ouqc7p+O7
+	TapCEIG8dkb57P3udrMEIQ5+AISgxqQMAT3UMLw9WmUTA/9cPkn3UFbgVvZ+M1X6RnyI3UWGBnuzg
+	xcDt10Bm/6XGv4R6BA4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdLQ-0000000FMRN-3FqC;
-	Tue, 28 Oct 2025 06:38:12 +0000
-Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
+	id 1vDdba-0000000FN3f-1uaT;
+	Tue, 28 Oct 2025 06:54:54 +0000
+Received: from mail-eastus2azon11010032.outbound.protection.outlook.com ([52.101.56.32] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDdLM-0000000FMQU-3Fqa
-	for linux-riscv@lists.infradead.org;
-	Tue, 28 Oct 2025 06:38:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1761633483; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=5+5/oH3gRtkklMreCNra6WAMe32tNr7/MSdCNrsy5tc=;
-	b=bSkcmnm6XfrhKULTawOkYYY7zbFgqDPNqf3DTeohlGUg0Xs6d50RauJHS6ixZUAgYnciw8EMX/K7WP/GJA7kRaJ6UWbL3DPajioIaWKc7lBPXTEs1dRM2e3P8XvLMB2k3DUPGhf9Xh7wLzL8BR5WEOoy/3e9mEIB99EDnNkCg8I=
-Received: from 30.221.132.149(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WrAvdmY_1761633480 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 28 Oct 2025 14:38:00 +0800
-Message-ID: <bfa92ecd-aef6-4712-b611-32caaf0ed993@linux.alibaba.com>
-Date: Tue, 28 Oct 2025 14:37:59 +0800
+	id 1vDdbY-0000000FN3A-23gY;
+	Tue, 28 Oct 2025 06:54:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yDwGpY+2GG8kNMqgzBnhwH5CLggZvsTBLIr3mQza/WoZ3woQpyItQ58GpNa7u+vaxth487zqE3A1IhIQuQlrzRD9JoWUHNlVfCX9YhIzixT2TYUyxMImOvFBbUEPmfR2mLCiOo2M0VDzgoeHx4oYiGzC0rYpErjdHLwX3rDnh7q4XqlLVQdhlV0mmEI5Sqf2fNgf4iNZAw8XF7a3Z6fhfwK/wN4I03MfmC/sUJ5xWTvAIvGPpA5lMaQKYgJzyBVYqTym7Mi89jjN6j5lN32a/NCPkdGG1BOEOSF6tvzWDiEiPQ+9DTMIZvXPjgoS0M+3uArYtpl1j5M3Y1VlEhmtgg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eR4popbPYKTm4IdURWFMHNCaQFM1QK1+9AKs1QYAp9U=;
+ b=P/HuKTiAIJ/DvIyozvoCFtK9d+TcrRJxsQ2A1C+6PHo3JuEMTo5fiUWDV6e6uoQxpuzny+UlwY6d+/0wjELh0Pi4s2jv3zJ+DWQC7w2QcQAnqJU6OPEqIvRNeZgzTHX/o35/jdgU2EQXv+4N18xTkg51SrywRIXJFOLOVXJTYeSlB5hcDOEDdr7lR6C/C0rrdV13HCi7wPSWsqcTamNGkBpeJ9GyL7kZtQe0UK5t9FvAgNFnZ8DCwatXCsL9Hk8BHEps4UHZzCQcs9OXh/XJClPASmgFNEJOV12U0PFbf+4S2boDjm/AvYiMwu1y6bYaXcwvyRUwjjIcPT+4ARWGyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=csie.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eR4popbPYKTm4IdURWFMHNCaQFM1QK1+9AKs1QYAp9U=;
+ b=TxIbLLJ1ZbEblp1VoOQ60IDHzlN4QXA/g96jscBJKSMAIJ/MFHDFdSg9bkPkBpoQCmoofjSsGQLF+Ysd2qO1B1bZJXlloN4CU1kmGmR6K0ye/R85cX/lcwsCuOc6QULA3CekBjTUZz6fXcNx8oep/xKpL4oNHCPtERuq8Vbx73wYUX/aJ/yKEYe9O3/q334SVFkxJNpXTQHFGBahVrVwP14Gvyy3mK9rrd4Zy6ALXie+bc0vgVY8UCT1SABR10+hiJ+hjwaiBAJ5ipKg/80pZX0JWxrmr34g+CjdNTx+2kLf9Au4cjpffnVzHS4p7UwdKTu8kjitSWmUgIKRS6N0LA==
+Received: from BN9PR03CA0778.namprd03.prod.outlook.com (2603:10b6:408:13a::33)
+ by CH2PR12MB4150.namprd12.prod.outlook.com (2603:10b6:610:a6::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.19; Tue, 28 Oct
+ 2025 06:54:45 +0000
+Received: from BN2PEPF0000449D.namprd02.prod.outlook.com
+ (2603:10b6:408:13a:cafe::88) by BN9PR03CA0778.outlook.office365.com
+ (2603:10b6:408:13a::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.12 via Frontend Transport; Tue,
+ 28 Oct 2025 06:54:45 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN2PEPF0000449D.mail.protection.outlook.com (10.167.243.148) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9275.10 via Frontend Transport; Tue, 28 Oct 2025 06:54:44 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Mon, 27 Oct
+ 2025 23:54:32 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 27 Oct
+ 2025 23:54:32 -0700
+Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 27 Oct 2025 23:54:29 -0700
+Date: Mon, 27 Oct 2025 23:54:28 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <joro@8bytes.org>, <kevin.tian@intel.com>,
+	<suravee.suthikulpanit@amd.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<sven@kernel.org>, <j@jannau.net>, <jean-philippe@linaro.org>,
+	<robin.clark@oss.qualcomm.com>, <dwmw2@infradead.org>,
+	<baolu.lu@linux.intel.com>, <yong.wu@mediatek.com>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <tjeznach@rivosinc.com>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<heiko@sntech.de>, <schnelle@linux.ibm.com>, <mjrosato@linux.ibm.com>,
+	<wens@csie.org>, <jernej.skrabec@gmail.com>, <samuel@sholland.org>,
+	<thierry.reding@gmail.com>, <jonathanh@nvidia.com>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <asahi@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<linux-rockchip@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-tegra@vger.kernel.org>,
+	<virtualization@lists.linux.dev>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v1 03/20] iommu/arm-smmu-v3: Implement
+ arm_smmu_domain_test_dev
+Message-ID: <aQBopHFub8wyQh5C@Asurada-Nvidia>
+References: <cover.1760312725.git.nicolinc@nvidia.com>
+ <f52e8079148a673641d2858700c49fa0c81022aa.1760312725.git.nicolinc@nvidia.com>
+ <20251020163231.GX316284@nvidia.com>
+ <aPaWsEg1Y3XqsA3E@Asurada-Nvidia>
+ <20251027232640.GE1018328@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: mm: Add proper handling for HWPOISON faults
-To: xueshuai@linux.alibaba.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250930082927.18971-1-tianruidong@linux.alibaba.com>
-From: Ruidong Tian <tianruidong@linux.alibaba.com>
-In-Reply-To: <20250930082927.18971-1-tianruidong@linux.alibaba.com>
+Content-Disposition: inline
+In-Reply-To: <20251027232640.GE1018328@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF0000449D:EE_|CH2PR12MB4150:EE_
+X-MS-Office365-Filtering-Correlation-Id: d842b719-4def-4257-6660-08de15eee099
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|7416014|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fGUmcarunF6mbX+AippTaiEUY2peatoTMyHGt/KfKy82iBEYmMgWDqCJLU/h?=
+ =?us-ascii?Q?Aft3E9MtBgUdOMN6R24elRge5gJpCjyvq9E6iOTo8noba4j5ciQB8mnl9vs6?=
+ =?us-ascii?Q?Ao909usDPbZo9CPI4pE/nfstI6KvV49m+L1exjNHcXFja+5o9VgjOxCptyCo?=
+ =?us-ascii?Q?hv/zbnbtbNop/T8PoB/m1sYKTB57zhBq32HFTP5Run2bpy2grlNVA6XeDItc?=
+ =?us-ascii?Q?BtV+th7UuaYSlmNgGr2HdH3c25h2zLOId3UOpPpAXr0YKrXUi9eiv3D9Oi3U?=
+ =?us-ascii?Q?80QwygkLP5U5KEgPytBCtvF3cXZUOaLFfb2HfmTRxIOzassw4A6FyNW06Qwy?=
+ =?us-ascii?Q?nnvfmhXf9VF5y4sXbAzdvqyJERaO+cetn/rhrskWyl7wzvcUKloGDW4HbuE1?=
+ =?us-ascii?Q?nyf9htzTeYsiJXrrANlb+NtzHI2YnXPmJ3fWB3aOSAwSQK1G18N9XmIW7JZj?=
+ =?us-ascii?Q?lQSpI/NxnSlfOGVjfJ2lxgyrxNYK3fhm8hptPbf2du/skdlq+XpaLuqGdv3h?=
+ =?us-ascii?Q?nhcrMPd3sRS4vOwvADAMXO1x2HKn4DDwRi6B5xPIHXc23mGEvRokDbvshJ75?=
+ =?us-ascii?Q?yuqquIQJLgzy9xtMUtNEI/gKesh6F8HFZ7MmxHeEBLExYAg3xX7n2iITrLVO?=
+ =?us-ascii?Q?xD3QhMmO1rQWG58NiRr9zkZ3ryQ38lFzOkZW+cICRy6X5nUBeoiD1+2Ec34i?=
+ =?us-ascii?Q?Io6f9XfPpGXuQSyay+198NTqurSjqbhSb3c9NxxQTtvKYMqoi0+twtZAWnMo?=
+ =?us-ascii?Q?rZVIeMHLtM/FBhk63WbKj6FidkePaa6jdX30UtvLbidnk4XrLZIDOmfE78aY?=
+ =?us-ascii?Q?yWSrvDme5KB6UtPHPwQv4NJ520oR9l8RQ6d3w/HiUMSeCe9J4yIEnjBVdA23?=
+ =?us-ascii?Q?iPZ0kTX6QWtRR2g94o7CXdjOTKh1U0d3sOcPIGtnQyapbYUypByRPxjfAvQa?=
+ =?us-ascii?Q?ygyMMEm7WFbkAlRvC/rKgkkya5EG1ZtLUfDX4VmHa+0t0ry1Qyv/J1ukBq4F?=
+ =?us-ascii?Q?R/BoLph5OFN8esguQ5X3SdDKXsZJNKGqZyg2LwgajfOpkG7IsmcbaaN+R4zx?=
+ =?us-ascii?Q?QGAMkFtxNli3zX1RJdGhSHfZuTiMKWJcce5aji5JYK0tfInHZo6mZFBAkfKY?=
+ =?us-ascii?Q?o+C6HMB6/YiVosEyUEOCOQvD6D07LjC+RmsuiM3HI3SRM69Sy/jMYIJp2Bmc?=
+ =?us-ascii?Q?JM8oyBU5HkP5OpWMgJDydBr0WZ4GhsQRaAsJXqXG3+G3OQd7QXgi04BRhTVI?=
+ =?us-ascii?Q?4jEfql+tCHJiwWpCPX7Ej1MQZKJiMlYGVg51co74xVHHkyB6/VXb+EUCjvhk?=
+ =?us-ascii?Q?d7zs0ojjatsiXxhN1kMWhXPGkNgLcpjHQATj6RWl1Dm0MvFG4gMVusc4xCjz?=
+ =?us-ascii?Q?jp0X7BujtfEtj8FEUVS3le89JnTBj3GmWNiWCBF/AVBwyUvA7arQyCpZNSjg?=
+ =?us-ascii?Q?ppki4VjznSsWJmOLGT1wgXxoNj8cE3wKbJ9AORGcG4k1dGimclIPTO7x7mTt?=
+ =?us-ascii?Q?hflYUIgm3p/pD4x3l75jcVRr6AuJH0dYA2gqKqkqqtQlPdWFZqrPK1tbi2hR?=
+ =?us-ascii?Q?yzgOBayjqOPa+OsVpBw=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(7416014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 06:54:44.6252
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d842b719-4def-4257-6660-08de15eee099
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000449D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4150
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_233809_293715_60F9FB26 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20251027_235452_537606_3814AE66 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,144 +164,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Gentle reminder on this patch. Thanks.
+On Mon, Oct 27, 2025 at 08:26:40PM -0300, Jason Gunthorpe wrote:
+> On Mon, Oct 20, 2025 at 01:08:16PM -0700, Nicolin Chen wrote:
+> 
+> > > I don't see any reasonable way to mitigate this??
+> > 
+> > Right. It can't simply go through a regular attach_dev call since
+> > driver wouldn't expect any inconsistency in the core.
+> > 
+> > Driver would have to be aware of the reset state, and make a copy
+> > of the old domain's CD/STE to use for a test_dev() during a reset.
+> 
+> It seems convoluted :\
 
-> From: winterddd <tianruidong@linux.alibaba.com>
->
-> Currently, the RISC-V fault handler treats memory poisoning faults
-> (VM_FAULT_HWPOISON and VM_FAULT_HWPOISON_LARGE) as a generic bus error
-> (BUS_ADRERR). This is incorrect as it loses crucial information about
-> the nature of the error.
->
-> As for describe in [0], A SIGBUS is sent with the correct machine check
-> error code (BUS_MCEERR_AR) and populates `si_addr_lsb`(log2 of the
-> corruption page size) in siginfo while there is page fault with poison
-> page.
->
-> The logic is based on the existing arm64 implementation for handling
-> HWPOISON.
->
-> Testing
-> --------------
-> ras-tools[0] is used to test.
->
-> ./einj_mem_uc -j -k single &
->
-> echo 0x107943b400 > /sys/devices/system/memory/hard_offline_page
->
-> echo trigger > ./trigger_start
->
-> before apply this patch:
-> 	signal 7 code 2 addr 0x7fff95bdc400
-> after apply this patch:
-> 	signal 7 code 4 addr 0x7fff95bdc400
->
-> [0]: https://www.man7.org/linux/man-pages/man2/sigaction.2.html
-> [1]: https://kernel.googlesource.com/pub/scm/linux/kernel/git/aegl/ras-tools/
->
-> Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
-> ---
->   arch/riscv/include/asm/bug.h |  1 +
->   arch/riscv/kernel/traps.c    | 32 ++++++++++++++++++++++----------
->   arch/riscv/mm/fault.c        | 12 +++++++++++-
->   3 files changed, 34 insertions(+), 11 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-> index 4c03e20ad11f..23711f2ffae3 100644
-> --- a/arch/riscv/include/asm/bug.h
-> +++ b/arch/riscv/include/asm/bug.h
-> @@ -95,5 +95,6 @@ struct task_struct;
->   void __show_regs(struct pt_regs *regs);
->   void die(struct pt_regs *regs, const char *str);
->   void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr);
-> +void riscv_force_sig_mceerr(int code, unsigned long addr, short lsb);
->   
->   #endif /* _ASM_RISCV_BUG_H */
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index d46347482509..17dad6f8d678 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -113,20 +113,32 @@ void die(struct pt_regs *regs, const char *str)
->   		make_task_dead(SIGSEGV);
->   }
->   
-> -void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
-> +static void riscv_show_signal(int signo, int code, unsigned long addr)
->   {
->   	struct task_struct *tsk = current;
-> +	struct pt_regs *regs = task_pt_regs(tsk);
->   
-> -	if (show_unhandled_signals && unhandled_signal(tsk, signo)
-> -	    && printk_ratelimit()) {
-> -		pr_info("%s[%d]: unhandled signal %d code 0x%x at 0x" REG_FMT,
-> -			tsk->comm, task_pid_nr(tsk), signo, code, addr);
-> -		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
-> -		pr_cont("\n");
-> -		__show_regs(regs);
-> -		dump_instr(KERN_INFO, regs);
-> -	}
-> +	if (!show_unhandled_signals || !unhandled_signal(tsk, signo)
-> +	    || !printk_ratelimit())
-> +		return;
-> +
-> +	pr_info("%s[%d]: unhandled signal %d code 0x%x at 0x" REG_FMT,
-> +		tsk->comm, task_pid_nr(tsk), signo, code, addr);
-> +	print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
-> +	pr_cont("\n");
-> +	__show_regs(regs);
-> +	dump_instr(KERN_INFO, regs);
-> +}
->   
-> +void riscv_force_sig_mceerr(int code, unsigned long addr, short lsb)
-> +{
-> +	riscv_show_signal(SIGBUS, code, addr);
-> +	force_sig_mceerr(code, (void __user *)addr, lsb);
-> +}
-> +
-> +void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
-> +{
-> +	riscv_show_signal(signo, code, addr);
->   	force_sig_fault(signo, code, (void __user *)addr);
->   }
->   
-> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-> index 04ed6f8acae4..a6ccc4ab3a75 100644
-> --- a/arch/riscv/mm/fault.c
-> +++ b/arch/riscv/mm/fault.c
-> @@ -16,6 +16,7 @@
->   #include <linux/kprobes.h>
->   #include <linux/kfence.h>
->   #include <linux/entry-common.h>
-> +#include <linux/hugetlb.h>
->   
->   #include <asm/ptrace.h>
->   #include <asm/tlbflush.h>
-> @@ -128,10 +129,19 @@ static inline void mm_fault_error(struct pt_regs *regs, unsigned long addr, vm_f
->   		 */
->   		pagefault_out_of_memory();
->   		return;
-> -	} else if (fault & (VM_FAULT_SIGBUS | VM_FAULT_HWPOISON | VM_FAULT_HWPOISON_LARGE)) {
-> +	} else if (fault & VM_FAULT_SIGBUS) {
->   		/* Kernel mode? Handle exceptions or die */
->   		do_trap(regs, SIGBUS, BUS_ADRERR, addr);
->   		return;
-> +	} else if (fault & (VM_FAULT_HWPOISON_LARGE | VM_FAULT_HWPOISON)) {
-> +		unsigned int lsb;
-> +
-> +		lsb = PAGE_SHIFT;
-> +		if (fault & VM_FAULT_HWPOISON_LARGE)
-> +			lsb = hstate_index_to_shift(VM_FAULT_GET_HINDEX(fault));
-> +
-> +		riscv_force_sig_mceerr(BUS_MCEERR_AR, addr, lsb);
-> +		return;
->   	} else if (fault & VM_FAULT_SIGSEGV) {
->   		do_trap(regs, SIGSEGV, SEGV_MAPERR, addr);
->   		return;
+Yea. Both core and driver would end up with complexities Orz.
+
+> IDK if you want to do that some kind of "attach but really don't" flag
+> so all the tracking was kept, just the STE was forced to blocking.
+> 
+> Then since all the fake attaches are tracked and validated switching
+> to a real ste shouldn't fail.
+> 
+> For instance SMMU could continue to build the CD table and act like
+> the CD is active, but the STE wouldn't point to it.
+> 
+> Basically, this approach doesn't seem to solve all the problems, it
+> reduces them sure, but there are still enough gaps.
+
+Yea, this works for reset because the physical STE is on an ABORT
+state, so SW can concurrently mutate the CD as much as it wants.
+Yet, with a translating STE, CD table can't be mutated I suppose?
+
+So this "attach but really don't" flag would be used by the reset
+case exclusively. It feels like the surgical in-driver approach
+that we thought about in the beginning v.s. the core-managed one
+that we wished for to fix all drivers.
+
+By doing so, I think the core could simply forward the two reset
+callbacks to the driver where it does an STE-level suspend/resume
+and raises a reset flag so that any concurrent attach_dev would
+bypass the last STE updates until the reset_done is finished.
+
+This, however, will require driver to implement those callbacks
+individually, if it cares to fix the vulnerability..
+
+> So I think we either have to live with them and call it a user bug to
+> change the domain improperly during FLR.. If it happens dump the
+> translation into blocking and move on..
+
+But, we previously discussed that it'd not be a user bug for VFs,
+unless they are all getting reset by the PCI core?
+
+Otherwise, returning -EBUSY rejecting concurrent attach would be
+the easiest way.
+
+Thanks
+Nicolin
 
 _______________________________________________
 linux-riscv mailing list
