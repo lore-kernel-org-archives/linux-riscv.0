@@ -4,97 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E1CCCF9EA
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 22:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB8DCCD1BF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 22:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fX1EmxwT0TGbunVONHTep4/3G1PQYbtdx9mh64J4e9U=; b=47i6uUebs8sUuz
-	p7DVEm6mlfxNG3LokR5HjKrDTV1RMdc+GGIlW+vO1oDDlCxe4x5Xr10iMmbc4e5tcOhc6OPt/Ua3m
-	ayT8Gs7CAaQjMiuJYuk5zMYGEsg5ZqJNlJYKQfRhuGZF3oqvA/+8jw0Lq7kY/sr8j/fb6AZntMtlr
-	XPht6jYTY5jwMZw/cZEs3HOZEzH+u7iZgddlBBaG41UGoDrG6tiTl5l3bokIf3stLs2TkYuYPWuKe
-	vX97jxA8VF0gOUl26ftUNPFkrREAw10ZxV9Zgvr3UQwVIRmOuIdpsGdbmGzW3jhuR5Ge7woxCIsPk
-	nArfWNSShHhndsFQkUmg==;
+	List-Owner; bh=DmzZEDAA5n4BxpD0/2I304YDZ1hcbmn/EfxBHx9OoMQ=; b=lb8EKFCr1Fe7eA
+	/AVAFOb2uWOidD5hxJgYtVDaaR4FmMAbKX3hqXREY3gMOAnpcy5hiX2y+hLP2lOTsVLNNgrwXGhAo
+	LB8vMwbBcGw7z01D2pWXvV5aWHkgWEUaFE0Xbvc52OzJtuFBkNOLt1kzSejKfShBQXxzyZFEmQd+D
+	VYCU5F5BOLr4coovW9hM4wWgdUQfbHEbs1PTQpjJdXoPV5Q79iDHwfcUBOl6LYQOiPq49VUB7en0r
+	ef8BZL+7WPjMxPeTmouFKmfhrwROAE1PxWUKbwRAEXneJAzs898PZ1bUBTlYlyui56s3HWtwddAki
+	i1w2Qso5XZgxnDNk0xHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDsDR-0000000GkDU-1gzL;
-	Tue, 28 Oct 2025 22:30:57 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vDsEl-0000000GkPf-0KIq;
+	Tue, 28 Oct 2025 22:32:19 +0000
+Received: from mx-out2.startmail.com ([2a02:22a0:bbb6:1d00::1002:2525])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDsDP-0000000GkCA-1a90
+	id 1vDsEh-0000000GkOC-3oIT
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Oct 2025 22:30:56 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4770e7062b5so23388885e9.2
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 15:30:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761690653; x=1762295453; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w7MYXT8RdCoSxz7Hgl9+a32CaifYT+zfGLvjG0fFD9Q=;
-        b=IbSPzZ6pFpHxuyRHIjk4C/RAbGRNMVKSmIXA/Sgr/EwwxPTGx3ALoryRElSHG8NGA6
-         3Tal/oOxnu9tkXDLRenRFaIWtLz4EF0YiK2hEvJ5zXO6cr2oitAG7xzC7D9bk3okQdty
-         MiU9Q/0esE07r8jotSft3UkBg8+elQE9XRz3+CN8YZhJUU4KeGq4SO8cHOPhWprd0L0p
-         SNIrEuVvTCS6uTIvA+B822idFxaH0cGSu8586XmLEps24Xv8T/iN4BHcz/WwVLkQtI29
-         DgSXqdaqK6DrpjmNCQ8PPvVpxwQ1ra+KhEo/UmKc0ybSHFGs/IIxISYDD6Zz9OCXBCBX
-         yQ7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761690653; x=1762295453;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=w7MYXT8RdCoSxz7Hgl9+a32CaifYT+zfGLvjG0fFD9Q=;
-        b=pz4w+pc/gxrI+84T6QjACnlq7AcnxMUgC8XG2vHm6w5tKN/Bf3RV3JNP0+8CxDeQSS
-         bob+NYNwfASXF8POyTCHCPwmJ4OpoxdgPJZcATlt53oI4MqyVBW9A4GRjf2JeFwLp3RF
-         VvWPg0bj2Sx6f74HX8l4vP3XxCuNrFNUWxTOSbhSd13yY3XOk8Y2fU+bzxHduP+FMGIr
-         ZdbevmvJRnRLwFQxBvJvAYbnHFkG+x5sy8JCgf3+SC0zZm7yAvu6FLQJMgTWRj0KYi51
-         RLnneUCWIJe7PC/ncIhRDMookvaUr7npK/YHeGRoTUgdxP80tVa7QNZC0INtuASRemba
-         Rddw==
-X-Forwarded-Encrypted: i=1; AJvYcCVd4kxeF+GD0S0p1y7moLSniXIC/LW+KZmvSJBa6BVX7QaE+NYBCJqCVLIJBhuuKjKafDd9TYbbyTZYsg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOiOOBwgAKDabimelKwBqMLAHvV9Lv6Y1mbKNkZ2KlTVte0uAN
-	qKp30C4nkGkOJb400e8tncwAz/xlA19luE7DEw8tMgsUzK5qNx7rKYvm
-X-Gm-Gg: ASbGncttZV8V7DPLl8/mLDzwJ8ViB8J0b6OVPp/CvzOwY05unborg4zdUjF8ZP4p8mC
-	Gmp3Y/O+saeH1cUM7OiK6+2W8RPYcAMXKolmtrT9zdZZtHoFO9LyZNUPEYn3bLx4ijJOyc4Oyaw
-	HEYxc0hz1tj5rEvDQjwLcEJYCou0xcNOXI4yJPJJxh+pQjE4h+uYTWgTqWa2WuWzPnFQ94pAnFD
-	lwJlHg3BW7RQfqTDxara/Um/F6IF44++wOCx6fxhgFd5ScGOeW7KP1Q1ZNk+C/V5UxfpwYcrfB/
-	nFmGtG5CRh3UAKFFD3DXvNhLzegxUqltg0BTFnTkHEdVAFO6FhMNRi+kAsCeq+E+DUhqyhi1Y7L
-	zpDyBPoPTkpgFEqJy1wFOmOiEGkn73UVxIPBziaBGWW8kzgF/AdGbRpHXRHvb2XtBUDUVTLkEDB
-	Bxv0tQoZ99APFU+Zv5SPSKQOlgU909u5W4KDLKcMhJzVX2CiNan9Kv
-X-Google-Smtp-Source: AGHT+IGr3MaQmjLDcnechwHoyti0ltwYCF5fdXDSzbiJBdxMc2AUsas+y5bOu1/39BNyQHtZcenqXg==
-X-Received: by 2002:a05:600c:474f:b0:477:df3:1453 with SMTP id 5b1f17b1804b1-4771e1ed170mr10187095e9.28.1761690652951;
-        Tue, 28 Oct 2025 15:30:52 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4771e3b7cb9sm16032815e9.15.2025.10.28.15.30.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 15:30:52 -0700 (PDT)
-Date: Tue, 28 Oct 2025 22:30:50 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: dave.hansen@intel.com, alex@ghiti.fr, aou@eecs.berkeley.edu,
- axboe@kernel.dk, bp@alien8.de, brauner@kernel.org, catalin.marinas@arm.com,
- christophe.leroy@csgroup.eu, dave.hansen@linux.intel.com,
- edumazet@google.com, hpa@zytor.com, kuni1840@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- maddy@linux.ibm.com, mingo@redhat.com, mpe@ellerman.id.au,
- npiggin@gmail.com, palmer@dabbelt.com, pjw@kernel.org, tglx@linutronix.de,
- torvalds@linux-foundation.org, will@kernel.org, x86@kernel.org
-Subject: Re: [PATCH v1 2/2] epoll: Use __user_write_access_begin() and
- unsafe_put_user() in epoll_put_uevent().
-Message-ID: <20251028223050.3e3ce110@pumpkin>
-In-Reply-To: <CAAVpQUARk-XeMdTeGy_s65sdwuLY2RzocGyJ=2_WkhsrFN-bUw@mail.gmail.com>
-References: <ea7552f1-842c-4bb8-b19e-0410bf18c305@intel.com>
-	<20251028053330.2391078-1-kuniyu@google.com>
-	<20251028095407.2bb53f85@pumpkin>
-	<CAAVpQUARk-XeMdTeGy_s65sdwuLY2RzocGyJ=2_WkhsrFN-bUw@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
-MIME-Version: 1.0
+	Tue, 28 Oct 2025 22:32:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=weathered-steel.dev;
+	s=startmail1; t=1761690727;
+	bh=7fbLf7dsMSEXsanBd+TOkS6hS7Yp+t45iWo2f3WKxDM=;
+	h=Date:From:To:Subject:Message-ID:References:Mime-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:From:Subject:To:Date:
+	 Sender:Content-Type:Content-Transfer-Encoding:Content-Disposition:
+	 Mime-Version:Reply-To:In-Reply-To:References:Message-Id:
+	 List-Unsubscribe:List-Unsubscribe-Post:Autocrypt;
+	b=PAXceexBW6LqhOQCKV/n049i6ibT84slkSt9i08v8LW32Z2f9A5yd1a+EVL1yDQoo
+	 lVf6LgG5cE6CQqj8+ja7m+lBwcrjzlyo2mb/wvIu7U9AYOxS3Oz80MtS5pMCus/T58
+	 KhdbY5jARLAt2G4kZBh4QrV7rRYS6gXXf3xSky79sfnJi01YjZUqVRsd79755pY3pG
+	 w0JcbQ8jcA6vPcG66tGW/iAlMH0CD3MlN3+L4NSiltTgeSyE/+6PzVFnAbnKDaHKWp
+	 zUAbRMOVMzTvfO1Ez9Ww/cOVYqKERTzCCY/V1pxAVbvXliNxq4g2hAqRH2Pd8+eqim
+	 UU0kA/mCsPa3g==
+Date: Tue, 28 Oct 2025 22:32:02 +0000
+From: Elle Rhumsaa <elle@weathered-steel.dev>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/4] rust: macros: Add support for 'imports_ns' to module!
+Message-ID: <aQFEYmJ4K92NNjs5@archiso>
+References: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
+ <CGME20251028122316eucas1p2733987cd4c1eb8f83d6572d542e76d2a@eucas1p2.samsung.com>
+ <20251028-pwm_fixes-v1-1-25a532d31998@samsung.com>
+Mime-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20251028-pwm_fixes-v1-1-25a532d31998@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_153055_423969_DD896334 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20251028_153216_093981_F7683F56 
+X-CRM114-Status: UNSURE (   4.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,35 +80,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyOCBPY3QgMjAyNSAwOTo0MjoyNSAtMDcwMApLdW5peXVraSBJd2FzaGltYSA8a3Vu
-aXl1QGdvb2dsZS5jb20+IHdyb3RlOgoKPiBPbiBUdWUsIE9jdCAyOCwgMjAyNSBhdCAyOjU04oCv
-QU0gRGF2aWQgTGFpZ2h0Cj4gPGRhdmlkLmxhaWdodC5saW51eEBnbWFpbC5jb20+IHdyb3RlOgo+
-ID4KPiA+IE9uIFR1ZSwgMjggT2N0IDIwMjUgMDU6MzI6MTMgKzAwMDAKPiA+IEt1bml5dWtpIEl3
-YXNoaW1hIDxrdW5peXVAZ29vZ2xlLmNvbT4gd3JvdGU6Cj4gPgo+ID4gLi4uLiAgCj4gPiA+IEkg
-cmViYXNlZCBvbiAxOWFiMGEyMmVmYmQgYW5kIHRlc3RlZCA0IHZlcnNpb25zIG9uCj4gPiA+IEFN
-RCBFUFlDIDdCMTIgbWFjaGluZTogIAo+ID4KPiA+IFRoYXQgaXMgemVuNSB3aGljaCBJIGJlbGll
-dmUgaGFzIG11Y2ggZmFzdGVyIGNsYWMvc3RhYyB0aGFuIGFueXRoaW5nIGVsc2UuCj4gPiAoSXQg
-bWlnaHQgYWxzbyBoYXZlIGEgZmFzdGVyIGxmZW5jZSAtIG5vdCBzdXJlLikgIAo+IAo+IFRoaXMg
-aXMgdGhlIFplbiAyIHBsYXRmb3JtLCBzbyBwcm9iYWJseSB0aGUgc3RhYy9jbGFjIGNvc3Qgd2ls
-bCBiZQo+IG1vcmUgZXhwZW5zaXZlIHRoYW4geW91IGV4cGVjdCBvbiBaZW4gNS4KCkkgbXVzdCBo
-YXMgbG9va2VkIHRoZSBjcHUgdHlwZSBpbmNvcnJlY3RseS4KQU1EIGhhdmVuJ3QgbWFkZSBpdCBl
-YXN5IHdvcmtpbmcgb3V0IHRoZSBjcHUgYXJjaGl0ZWN0dXJlLgpJIG5lZWQgdG8gZ2V0IGFuIG9s
-ZGVyIHplbiBjcHUgZm9yIG15IHNldCBvZiB0ZXN0IHN5c3RlbXMKKGFuZCBzb21lIG5ld2VyIElu
-dGVsIG9uZXMpLgoKPiA+IEdldHRpbmcgYSAzJSBjaGFuZ2UgZm9yIHRoYXQgZGlmZiBhbHNvIHNl
-ZW1zIHVubGlrZWx5Lgo+ID4gRXZlbiBpZiB5b3UgaGFsdmVkIHRoZSBleGVjdXRpb24gdGltZSBv
-ZiB0aGF0IGNvZGUgdGhlIHN5c3RlbSB3b3VsZCBoYXZlCj4gPiB0byBiZSBzcGVuZGluZyA2JSBv
-ZiB0aGUgdGltZSBpbiB0aGF0IGxvb3AuCj4gPiBFdmVuIHlvdXIgb3JpZ2luYWwgcG9zdCBvbmx5
-IHNob3dzIDElIGluIGVwX3RyeV9zZW5kX2V2ZW50cygpLgoKSSByZWFsaXNlZCBhZnRlciB0aGF0
-IHlvdSBtaWdodCBiZSBzaG93aW5nIGEgMyUgY2hhbmdlIGluIHRoYXQgMSUuCj4gCj4gV2Ugc2F3
-IGEgc2ltaWxhciBpbXByb3ZlbWVudCBvbiB0aGUgc2FtZSBwbGF0Zm9ybSBieQo+IDFmYjBlNDcx
-NjExZCAoIm5ldDogcmVtb3ZlIG9uZSBzdGFjL2NsYWMgcGFpciBmcm9tCj4gbW92ZV9hZGRyX3Rv
-X3VzZXIoKSIpLgoKQ2VydGFpbmx5IHJlbW92aW5nIG9uZSBjb3VsZCBlYXNpbHkgYmUgbWVhc3Vy
-YWJsZS4KCglEYXZpZAoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On Tue, Oct 28, 2025 at 01:22:32PM +0100, Michal Wilczynski wrote:
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+
+Reviewed-by: Elle Rhumsaa <elle@weathered-steel.dev>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
