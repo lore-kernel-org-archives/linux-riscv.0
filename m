@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2305CCF9E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 10:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C40BCCF9E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 11:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uBYnHo+8XOZj+xpGlDveMFrqQZSePlboWGxrY1gGzUs=; b=DMQyRPISdYYYjqWYWIT5Me5u3J
-	9HU/d8FJ6RirPSCbLFTSgthd984n33dZK9NApnYwpiCU+l3kx6E6hmqBOdRoKAZ4ptqzZyl83uDbd
-	LJhK6UJVrFMJLI18mJAoNUmJVO23xtQ1vIjIfEprRmnubWjrnq6u7i0bI+rMrZCQLwHBj5veEqgmX
-	VdpnUsKCNnN6649ZIjRgEfoIBupVKdQ2hWH6xxJ5M2C1LCwgPZun+SmEjqyNT8nqOeW54eMkSob6Z
-	iiKBKv79KN6JLC+xSF3VdFVlBmiej+DLAGizZCvuwEpgsO9BPqHT4mqVxAbrImjINhYEr4KqQCbgt
-	cKHvR3lw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/EMy0eVBP2o4BEi+LOAyLPGhfbF9cZvNdbR76BYt27o=; b=tN9+u3sLBRTfD/
+	VE4DRztwQSX4Oi+SROeOGl61cit3FgQ05gar1uWGrh+NxXXqn7vJXI0Ockko/KJHniYiQw7An+hH5
+	KurHX2rjA04y3Oljh2SatN1J0fcNOs3Wxexz94Je80lk1vkokao3Hlim29mnTFcvIrLKuV5QVUFDJ
+	Xzmlwl5EkgL8eTpXUsJH6FHLN86d9GrlKCVcRjQ5gtrZs2lt5L5WcK8p/XBmFMYQX7FtwOuYIfQyA
+	LXKEDU4Eat9cPY10qRUfxHMFZnd53LT+cISGSqsXve4HIgpZa1Pyg8xmM/JtEgfENbs7TLwdSPEsR
+	Lw1ubbDG8vyG8N4qwkfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDhKl-0000000Fnhc-443h;
-	Tue, 28 Oct 2025 10:53:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vDhtI-0000000FqQy-3NyQ;
+	Tue, 28 Oct 2025 11:29:28 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDhKk-0000000FnhC-2FhA
+	id 1vDhtG-0000000FqQM-1Aeq
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Oct 2025 10:53:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0194A4174A;
-	Tue, 28 Oct 2025 10:53:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6227FC4CEE7;
-	Tue, 28 Oct 2025 10:53:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761648825;
-	bh=o2i+hy59JTIggu4JkKszi2raX5XX+rmhgCt0oVfg3ZM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P7BnFmJRDOshpE8vQBRrbCa3ydyjv2KFtBTVJqPK7+5Gp+MkVkpJmV9Pwf+2cDMin
-	 w8iMhGqdRz+NsCjfKLkYN5a1aIA4VNNf+I63Ae/u5X6q07NOfNasqYLajschcvQuvi
-	 nCrE1zfmZnkX/myc+8zIhLfog0VbA257/WTgHNAJcyCCtE951QszHIw/Xlqcmk5JYf
-	 3Fgk+sjNNC3cJZMkvJtRhGhok45wbLhc5nvkbgujozxogp7QFRRfwCB5CAn8J+X/P8
-	 eW/r0WTbVPOGZEDfYC3yJMu3j0I0K1CMiu+U/Y+Tk/qz5JBgXP3RudXYu29uy9vszu
-	 +Xo446SnG3wNA==
-Date: Tue, 28 Oct 2025 10:53:40 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, luxu.kernel@bytedance.com, atishp@rivosinc.com,
-	cleger@rivosinc.com, ajones@ventanamicro.com,
-	apatel@ventanamicro.com, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, songshuaishuai@tinylab.org,
-	bjorn@rivosinc.com, charlie@rivosinc.com, masahiroy@kernel.org,
-	valentina.fernandezalanis@microchip.com, jassisinghbrar@gmail.com,
-	conor.dooley@microchip.com
-Subject: Re: [PATCH 1/3] drivers: firmware: riscv: add SSE NMI support
-Message-ID: <20251028-foam-hypocrite-f37fe270115d@spud>
-References: <20251027133431.15321-1-cuiyunhui@bytedance.com>
- <20251027133431.15321-2-cuiyunhui@bytedance.com>
+	Tue, 28 Oct 2025 11:29:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761650958; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=OPE5nDWfuugw1kKa6IcPSetaU8VLCXsoaM0Nn5DkvqFPMPAtCpyRR74CKCvp8fgDrbw03ZqetOY2b58Bha7NWrdpabp+hq08LOC1lmHwhRSWOS6wlcrFbnJds11Xf4yLCMa7oe+aRw2gC1FZtUsCVunrhmyG6A3MWg321jayJrk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761650958; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=htCIUeie1Fllw0gMKXGW6GDJsuGaHCRZYsDOba4fJdw=; 
+	b=leSEemltU/maU1r+O9yiGVP2P+FEnVzaaExpVFmnPiimQwOvEUCH4NyS4TKf04DShFVxd3dXUgZLI7YlDzBBSUwJs0eAFMYZZR5znF/caGAnK3TWtzJVzi/FYnFDsgw6XXpTnTPcNwqryZqsg/7AnUp9w8Xd25liHtm9HHUeEPo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761650958;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=htCIUeie1Fllw0gMKXGW6GDJsuGaHCRZYsDOba4fJdw=;
+	b=njF1zKZ/WbjS+4NeXpMU3JLnnb5YjV33OKRR0aHXNhR7Jcwqy0kdZzM/JEXoeWlU
+	ZXYj5TwdKFdb/ALbBzm3sGGOLbFJDdp6qQsqwvO3yuoa7Mbt1j6PoZgPYh1hF31oXew
+	mEHjaI416JMXgTPtRsi4dT4ijkPqBbzoflyteJ64=
+Received: by mx.zohomail.com with SMTPS id 1761650955763658.116487530986;
+	Tue, 28 Oct 2025 04:29:15 -0700 (PDT)
+Message-ID: <e66945e7-9be0-4208-8b60-ec534db4fde5@pigmoral.tech>
+Date: Tue, 28 Oct 2025 19:29:05 +0800
 MIME-Version: 1.0
-In-Reply-To: <20251027133431.15321-2-cuiyunhui@bytedance.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/6] reset: anlogic: add support for Anlogic DR1V90
+ resets
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+References: <20251026-dr1v90-cru-v2-0-43b67acd6ddd@pigmoral.tech>
+ <20251026-dr1v90-cru-v2-4-43b67acd6ddd@pigmoral.tech>
+ <36d28431c41ec9ed86487135d81e50b136ee0fae.camel@pengutronix.de>
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+In-Reply-To: <36d28431c41ec9ed86487135d81e50b136ee0fae.camel@pengutronix.de>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_035346_615926_EEDFCA63 
-X-CRM114-Status: GOOD (  22.49  )
+X-CRM114-CacheID: sfid-20251028_042926_710707_B6221EB2 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,136 +82,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7670810950400344154=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7670810950400344154==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+zhbmMplIx6EbLzo"
-Content-Disposition: inline
-
-
---+zhbmMplIx6EbLzo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Oct 27, 2025 at 09:34:29PM +0800, Yunhui Cui wrote:
-> Add support for handling Non-Maskable Interrupts (NMIs) through the
-> RISC-V Supervisor Software Events (SSE) framework. Since each NMI
-> type(e.g., unknown NMI, etc.) requires a distinct SSE event, a newfile
-> sse_nmi.c is introduced to manage their registration and enabling.
->=20
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> ---
->  MAINTAINERS                      |  7 +++
->  arch/riscv/include/asm/sbi.h     |  1 +
->  drivers/firmware/riscv/Kconfig   | 10 ++++
->  drivers/firmware/riscv/Makefile  |  1 +
->  drivers/firmware/riscv/sse_nmi.c | 81 ++++++++++++++++++++++++++++++++
->  5 files changed, 100 insertions(+)
->  create mode 100644 drivers/firmware/riscv/sse_nmi.c
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 8bf5416953f45..6df6cbec4d85d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22057,6 +22057,13 @@ S:	Maintained
->  F:	drivers/firmware/riscv/riscv_sse.c
->  F:	include/linux/riscv_sse.h
-> =20
-> +RISC-V SSE NMI SUPPORT
-> +M:	Yunhui Cui <cuiyunhui@bytedance.com>
-> +R:	Xu Lu <luxu.kernel@bytedance.com>
-> +L:	linux-riscv@lists.infradead.org
-> +S:	Maintained
-> +F:	drivers/firmware/riscv/sse_nmi.c
-
-Does actually this need a separate entry?
-
->  RISC-V THEAD SoC SUPPORT
->  M:	Drew Fustini <fustini@kernel.org>
->  M:	Guo Ren <guoren@kernel.org>
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 874cc1d7603a5..52d3fdf2d4cc1 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -486,6 +486,7 @@ enum sbi_sse_attr_id {
->  #define SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS	0x00100000
->  #define SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS	0x00108000
->  #define SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED	0xffff0000
-
-> +#define SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI		0xffff0001
-
-Where is this canonically defined?
-
-I looked at the v3 SBI spec and it says:
-0xffff0001 - 0xffff3fff Local events reserved for future use
-This needs to be marked RFC until this event is in a frozen version of
-the SBI spec.
-
->  #define SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED	0xffff8000
-> =20
->  #define SBI_SSE_EVENT_PLATFORM		BIT(14)
-> diff --git a/drivers/firmware/riscv/Kconfig b/drivers/firmware/riscv/Kcon=
-fig
-> index ed5b663ac5f91..fd16b4c43cf01 100644
-> --- a/drivers/firmware/riscv/Kconfig
-> +++ b/drivers/firmware/riscv/Kconfig
-> @@ -12,4 +12,14 @@ config RISCV_SBI_SSE
->  	  this option provides support to register callbacks on specific SSE
->  	  events.
-> =20
-> +config RISCV_SSE_NMI
-
-I think I'd like to see both the filename and Kconfig option match the
-established naming for the base sse support.
-
-> +	bool "Enable SBI Supervisor Software Events NMI support"
-> +	depends on RISCV_SBI_SSE
-> +	default y
-> +	help
-> +	  This option enables support for delivering Non-Maskable Interrupt
-> +	  (NMI) notifications through the Supervisor Software Events (SSE)
-> +	  framework.
-
-> When enabled, the system supports some common NMI features
-> +	  such as unknown NMI handling.
-
-No, when enabled the _kernel_ supports these things. The code in this
-patch seems to fail gracefully when there's no SSE support in the
-underlying system, but you should make the option description match
-reality.
-
-Cheers,
-Conor.
-
---+zhbmMplIx6EbLzo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQCgswAKCRB4tDGHoIJi
-0itnAQDnpl32Y0LtSa+sgVEcSirydmilahyOEHFqJeoVuN3qJQEA3IwUjCLKYTo9
-5TmToOPz2OqeTGSRyc455k4/O7slyQk=
-=f9tW
------END PGP SIGNATURE-----
-
---+zhbmMplIx6EbLzo--
-
-
---===============7670810950400344154==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7670810950400344154==--
-
+SGnCoFBoaWxpcHAsClRoYW5rcyBmb3IgeW91ciByZXZpZXcuCgpPbiAxMC8yOC8yNSA0OjE3IFBN
+LCBQaGlsaXBwIFphYmVsIHdyb3RlOgo+IE9uIFNvLCAyMDI1LTEwLTI2IGF0IDIyOjAwICswODAw
+LCBKdW5odWkgTGl1IHdyb3RlOgo+PiBBZGQgcmVzZXQgY29udHJvbGxlciBzdXBwb3J0IGZvciB0
+aGUgQW5sb2dpYyBEUjFWOTAgU29DLCB3aGljaCBpcyBhbgo+PiBhdXhpbGlhcnkgZGV2aWNlIGFz
+c29jaWF0ZWQgd2l0aCB0aGUgQ2xvY2sgYW5kIFJlc2V0IFVuaXQgKENSVSkuIEFsbAo+PiByZXNl
+dHMgYXJlIGFjdGl2ZS1sb3cuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEp1bmh1aSBMaXUgPGp1bmh1
+aS5saXVAcGlnbW9yYWwudGVjaD4KPj4gLS0tCj4+ICAgZHJpdmVycy9yZXNldC9LY29uZmlnICAg
+ICAgICB8ICAgOSArKysKPj4gICBkcml2ZXJzL3Jlc2V0L01ha2VmaWxlICAgICAgIHwgICAxICsK
+Pj4gICBkcml2ZXJzL3Jlc2V0L3Jlc2V0LWRyMXY5MC5jIHwgMTM1ICsrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysKPj4gICAzIGZpbGVzIGNoYW5nZWQsIDE0NSBpbnNl
+cnRpb25zKCspCj4+Cj4gWy4uLl0KPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcmVzZXQvcmVzZXQt
+ZHIxdjkwLmMgYi9kcml2ZXJzL3Jlc2V0L3Jlc2V0LWRyMXY5MC5jCj4+IG5ldyBmaWxlIG1vZGUg
+MTAwNjQ0Cj4+IGluZGV4IDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAu
+LmViOTA2NGUzYWI0NTRmYjM5YWRjMWFkNDI2ZjQ1OGUzOWJiNjE2OWUKPj4gLS0tIC9kZXYvbnVs
+bAo+PiArKysgYi9kcml2ZXJzL3Jlc2V0L3Jlc2V0LWRyMXY5MC5jCj4+IEBAIC0wLDAgKzEsMTM1
+IEBACj4gWy4uLl0KPj4gK3N0YXRpYyBjb25zdCBzdHJ1Y3QgZHIxdjkwX3Jlc2V0X21hcCBkcjF2
+OTBfcmVzZXRzW10gPSB7Cj4+ICsJW1JFU0VUX09DTV0JCT0geyAweDc0LCBCSVQoNCl9LAo+IFsu
+Li5dCj4+ICsJW1JFU0VUX05JQ19IUDBdCQk9IHsgMHg3OCwgQklUKDApfSwKPiBbLi4uXQo+PiAr
+CVtSRVNFVF9VU0IwXQkJPSB7IDB4N0MsIEJJVCgwKX0sCj4gVGhlIHJlZ2lzdGVycyAweDc0LCAw
+eDc4LCBhbmQgMHg3QyBhcmUgZXhjbHVzaXZlbHkgdXNlZCBmb3IgcmVzZXRzPwoKWWVzLCB0aGVz
+ZSB0aHJlZSByZWdpc3RlcnMgb25seSBjb250YWluIGJpdHMgZm9yIHJlc2V0cyBhY2NvcmRpbmcg
+dG8gdGhlCnJlZ2lzdGVyIGxpc3QgZG9jLgoKPgo+IFsuLi5dCj4+ICt9Owo+PiArCj4+ICtzdGF0
+aWMgaW50IGRyMXY5MF9yZXNldF9jb250cm9sX3VwZGF0ZShzdHJ1Y3QgcmVzZXRfY29udHJvbGxl
+cl9kZXYgKnJjZGV2LAo+PiArCQkJCSAgICAgICB1bnNpZ25lZCBsb25nIGlkLCBib29sIGFzc2Vy
+dCkKPj4gK3sKPj4gKwlzdHJ1Y3QgZHIxdjkwX3Jlc2V0X2NvbnRyb2xsZXIgKnJzdGMgPSB0b19k
+cjF2OTBfcmVzZXRfY29udHJvbGxlcihyY2Rldik7Cj4+ICsJdTMyIG9mZnNldCA9IGRyMXY5MF9y
+ZXNldHNbaWRdLm9mZnNldDsKPj4gKwl1MzIgYml0ID0gZHIxdjkwX3Jlc2V0c1tpZF0uYml0Owo+
+PiArCXUzMiByZWc7Cj4+ICsKPj4gKwlyZWcgPSByZWFkbChyc3RjLT5iYXNlICsgb2Zmc2V0KTsK
+Pj4gKwlpZiAoYXNzZXJ0KQo+PiArCQlyZWcgJj0gfmJpdDsKPj4gKwllbHNlCj4+ICsJCXJlZyB8
+PSBiaXQ7Cj4+ICsJd3JpdGVsKHJlZywgcnN0Yy0+YmFzZSArIG9mZnNldCk7Cj4gVGhlcmUgc2hv
+dWxkIGJlIGEgbG9jayBhcm91bmQgdGhpcyByZWFkLW1vZGlmeS13cml0ZSBhY2Nlc3MuCgpPa2F5
+LCBJIHdpbGwgYWRkIGEgbG9jayBpbiB0aGUgbmV4dCB2ZXJzaW9uLgoKPgo+IHJlZ2FyZHMKPiBQ
+aGlsaXBwCgotLSAKQmVzdCByZWdhcmRzLApKdW5odWkgTGl1CgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
