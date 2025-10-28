@@ -4,69 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 797CFCCD1BF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 12:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 985C9CCF9E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 13:35:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zgD4hDcI31Nxz5oRasVleZ5qcQo9R6kmu28+c388jLQ=; b=pYWM/8dE96/gN/
-	4z6vga5k1SYIVaMbYpb2NSIpVLYFovZW9sqrOMVEtt55WizeAcTax6cNmOrMiuLddBRzHixdKOnp7
-	SN46sYRsX0/hMwg19zm0kX4nY+GzBfpLkCUbj86fZbSP3OiYaH7vE6+7cjhJQasI88dSxFOQXv2wl
-	0thuuKoOJLHgbfqyueJVuvbfXuW0jjN6OtRVKYqzvmMjrq8zCwUL4eSG6ae4jCwbSBTVSRqsfX9wj
-	O0aOj4OLtjGYLsgTyNlsEbRatTWRhHYIkmuOQuARazNPGnWIunE4q17Rf28o0nLxQlr/KZTLT+455
-	jwbpfj62hh3Fho0Qg9Mg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1x/4HQ94gPdgQR2Vc/5e/wV9E3yS5nVHRL/PidGrWeg=; b=gufw6U+enU7m5fu4OECTQ0vrq8
+	VpKx9WfY6UxwFkhq7wPZJ2g30gH9bYiAZX7FchjF0NQUefKrdPvXCrGAFgCrUbrlSkXWCHGFAebiW
+	ZtaXXm3qcm+1AU/p4BlWkKz9S9j7aM0Y7C2jFMiHBEgLcM869A1f7+iesXT2DpBS5ojtygad2SOBb
+	ztV9OgvQ6D6MOqq9aGJDCJ8f5/Q9uU9sqt2aD0EqwydmBYaMDqlALZ0LRRWbd+fVLfq8Vz65j/Y+6
+	X/Zv/gUYusdRTa9diK/DoOLWVFS+95+yfZkQYNdXcNzB5tQAsOo576x82TE4IDO+Qm1kC76L8OSb4
+	qMOjsIRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDj7o-0000000Fxru-33qN;
-	Tue, 28 Oct 2025 12:48:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vDjr2-0000000G0WF-2PVG;
+	Tue, 28 Oct 2025 13:35:16 +0000
+Received: from mail-canadaeastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c104::] helo=YQZPR01CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDj7m-0000000Fxre-3Snl
-	for linux-riscv@lists.infradead.org;
-	Tue, 28 Oct 2025 12:48:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E65961E93;
-	Tue, 28 Oct 2025 12:48:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4BEFC4CEF7;
-	Tue, 28 Oct 2025 12:48:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761655709;
-	bh=mBs6zOvlj94/t/tcRzA9U+nJJWpO9GMLA7jnyPrzwMs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=beLtwKfkHuArdJ093VKDaQyW5I77Lx9WOTXN184qFghOTo6/Tdh2mUvvtTH+jRL2S
-	 4cygiFZP7DMx9PsOIwy1/u+DYquQyts+p2E1uAYY7ztuWaQwWzWQh4RcCRGIh3vlIV
-	 WRxFToVynHiHiPYkbcrBPFvbFEvXb9aIf20ebCQeUGjEu4eVNmQTU3ynfL3vl9jhf5
-	 BK2XPYyxVuE65pAQd6m4XDplUFIKr8L0KPtWB5OUjQsdiFoKbzoSImm/rw9X8ZF0Tg
-	 tKOktKXmzdGKg0CWYMMY9tnh55nN9ABkDZRMduKMYLwMYVG4Z5tRJV6JZqJkOEhpJ1
-	 E2O1QgHXh0gVA==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	akpm@linux-foundation.org,
-	david@redhat.com,
-	apopple@nvidia.com,
-	alexandre.f.demers@gmail.com,
-	alexghiti@rivosinc.com,
-	willy@infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.17-6.1] riscv: mm: Define MAX_POSSIBLE_PHYSMEM_BITS for zsmalloc
-Date: Tue, 28 Oct 2025 08:48:06 -0400
-Message-ID: <20251028124815.1058740-6-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251028124815.1058740-1-sashal@kernel.org>
-References: <20251028124815.1058740-1-sashal@kernel.org>
+	id 1vDjqz-0000000G0Vi-10jt;
+	Tue, 28 Oct 2025 13:35:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=po4qdZWDd4xouSRppaG4JtS60cSoL9b05ac82E4ZkNY70RDk47bwx/iIMw0075InQEd6tN2sIYlmpl7YSNm28hCntaHo/VUgB1sEU0kyspqdpEcWqCI6ESNyM6wt465M0D4rU0TSgB4hPhreR5tr3sEdlZIN0wOPETq6aLJaXfiRvXyaH5OIsIXZGzqnPqvx1pe34LkXaaFwkCBryKR/EmV1wwpkZhHJ9TvBiYC196MYrC54NnB7d1JyGZO8bgUD/xnsxd76J1AHVEdRknKio2xuh5xIs4H8mLo4Wf3D0VyhNg08RADUjGHopQjEQ6hpUkFb6EQ83B1AFgpJCscPJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x8KDwnUXuOzCxlMVVRXvbcEUnahNKJayk2qWL8UaU7U=;
+ b=JcUq+AUkSSvZLopjFaLtfuM6vQykcG0Q8h0coN/XusRZaMBCzR4bvVmoaXY9s3mls+B/+dFItySG/4a6iubs9Q7PcmYycZ4Pe798UzKSM8SSxfwkncIb2gqC9NKwhZdOtYvDYhGMeGzQPTpNaavyfN/ZE01snXziREZQOr2N9GTQuam1TdYOx0BCtejOLLRKGHFhmxP9XsT57IZ4QVDe0OitjNQtE4Nfr1QvZQ2tpEubV+mtQzjJKnVw/Bd0Y3EtMCPXf50dI8TTGex4hShZO7nQ5itYJeCeiSe3S1ScO5ZQDXuMI9f0fVq7Id+KS3oMdAmDNpCbvNIqLrirFCjcLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x8KDwnUXuOzCxlMVVRXvbcEUnahNKJayk2qWL8UaU7U=;
+ b=JhpQ5Ms/jkNiLnDxW3G4B7Ks7H5bXIDOD0EKWUeAhbQTA3d+6OoUxbbsLcvnJASW6kRhl0vUUQllhGFmo0qto4PAIdBdWzFFUXwhk6bTQnAsvnoLVdFPeIG81u9IGHpQo9mveAk2nsMbzuDlXLlAmh/JBMa6PVgxCk+9jPAVcGgZDndhmBsbDBh6/sdu9VApK2GL7DNuBEZBwF05xnI9lpEqQyoz6ykLWrudUDvcdWXDrqwwschgVGacLWUGbkKSm5E2xI3ZX7tunQiC8Bp7BlYUJb5icJnMesBQoFKzXdG96ec3ifrM7HPjuTkXqT92wlR/8xihQQc4lQTyCrJb0w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
+ by YT2PPF4A90670E9.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b08::439) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Tue, 28 Oct
+ 2025 13:35:05 +0000
+Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::50f1:2e3f:a5dd:5b4]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::50f1:2e3f:a5dd:5b4%2]) with mapi id 15.20.9275.013; Tue, 28 Oct 2025
+ 13:35:05 +0000
+Message-ID: <afc2d92c-bace-4128-b3c8-106e81cfd420@efficios.com>
+Date: Tue, 28 Oct 2025 09:35:03 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [patch V5 01/12] ARM: uaccess: Implement missing
+ __get_user_asm_dword()
+To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
+Cc: kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ Linus Torvalds <torvalds@linux-foundation.org>, x86@kernel.org,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ Heiko Carstens <hca@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+ Andrew Cooper <andrew.cooper3@citrix.com>,
+ David Laight <david.laight.linux@gmail.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
+ Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
+ <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org
+References: <20251027083700.573016505@linutronix.de>
+ <20251027083745.168468637@linutronix.de>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <20251027083745.168468637@linutronix.de>
+X-ClientProxiedBy: YT3PR01CA0083.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:84::11) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:be::5)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.17.5
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YT2PPF4A90670E9:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5ec36c05-6704-439f-f453-08de1626cd9f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bkF3S3RZbUdsLy9zc2R3SFZSM0VMQ3R3MHBjckVPRUczNXRFWHlnREVaL1FB?=
+ =?utf-8?B?RVRuamR4dWoraFFXOUlybHlKVnE3MzllVkYvaVFqNjI4bTdnOVM1WWdEcEpR?=
+ =?utf-8?B?N01zQ2p3QXpFSzJ6SDVnd2piaDZDaGdFekFKMmN6MVNzbEZ5Z0txTk1MdENu?=
+ =?utf-8?B?dkRTWlMxUGlxMWJCNkJZclREd3U3RTVpZDkrcHllMWROZEY2LzRPdUw2Q1R4?=
+ =?utf-8?B?UCtJMHN5cEV5KzlPSEZTSU5KR1FwT2dQcjl2dVFsUnp0YjJCWG03Ylp0ZFp3?=
+ =?utf-8?B?MzRROVQ5NEpVYU56UG1LNmpNZGlKaEc1MlZkbDhPN1hPOEJDeWZDSzR4ak1x?=
+ =?utf-8?B?Q0JrN21EblBLUGtnY2dXYTJsRjNPV0g4bS9UK3pXcEJFa3loR0RreEdLWUcr?=
+ =?utf-8?B?eElTRC9XQ1piQ0dsSUZJSmZsaEZRcFNiT2JDVk5IM3JOWXdoL3F0VmJCYVdW?=
+ =?utf-8?B?eStNWEt3WnBVWXF1bkNjL2wzZis2OFltdEI1RldIZVk1Rk9aUjRGYVpnYjFN?=
+ =?utf-8?B?TXgxOHBqdlV0NERJYTBld2llV3NHa295SkVWSkp2U2ZXZ1BWbUFGMGNBdFVz?=
+ =?utf-8?B?TWYzNkE4cVdQazkwVG1NcGxsRE1EYkJvTDNUR2hpTVpaWU0rODExZWxUWnh1?=
+ =?utf-8?B?akhXWHdJK2RGZGxwMFZVV2ZTK2hjV2tGUEJWNit2aTNJYjlmZWdLTXh4ZUU1?=
+ =?utf-8?B?UHJNcEFwK2pqV25lQ1pVV3dOVlJ4cEVhQ3J5K3ovMVZ3QmxxZEFNTW1qdWQw?=
+ =?utf-8?B?ODNNSm9UTm1NTEhZaUF3QUdTZnFRWFpQam16RUM2N3pVcWZHOXhmeC9WSEdl?=
+ =?utf-8?B?Q01GdVlrVFlMVGtoaWdHQUFwajRxWFpCSTNuNGtUQzZpVDZuOWcweHY1V2tq?=
+ =?utf-8?B?S3ZYUDlBdE5aRTcvcEJxZmIzc0tFcERKZjdHNm9yOGdTM0JFL0xScE9PUzVv?=
+ =?utf-8?B?UWtHSnJnK0wzTG5KN2tRL21rQWZVNTByWnVDeDB1L2c1SHRhRnRna3ZWNGJ5?=
+ =?utf-8?B?enpla1BjU0hheFZIdmU1MmNjKy8waERoVU5VbjVXZlFMTVZaL0htblg3ZEFn?=
+ =?utf-8?B?ajBHS3VVRTg5RGdQWjNWdFZIRk12Zld4VzVhNVdNK1MvYUduelBOS3VnY2xv?=
+ =?utf-8?B?TFdIdzV6SjBleVBkb1IyY1ZZVHpHR2VIZk0xS0lsdGNlekFiSGxhOFdyWjhk?=
+ =?utf-8?B?UmlZRlpYOFRlK0NuK2lqVVRXZWVkc1liNEVSQ2Vic1BvT2lzakZ6c2dvcEM5?=
+ =?utf-8?B?Y1VoTFB3MmhvVy9iMUR2eWZacUtmdWZZSGRPYTU4eVQybmhhOXdKTDJnTmZY?=
+ =?utf-8?B?UERPNUl0RzFwZGJkU0lOZ3VrMUNiUVdESmhkbnhhVGZCcTkrRmRtYWM5Tkp5?=
+ =?utf-8?B?RTc5TFI4VndaMml6KzdzOWdTZkpWKzFnenRGdGFNNnd6OUlndmF0UURkcVZw?=
+ =?utf-8?B?dmFiSlZjVGlYMTNMT3N2azlVU20wRFp0SmhMTnNOa1FSa0VITlljZS9KVmI1?=
+ =?utf-8?B?Q3FFcVhFTmFzZTlPRkJ3c2Fkc25LU1g4UTRzdGVMOHJaZE9mSnBibHNqZUdm?=
+ =?utf-8?B?N3M1K1RZc1EzdFpteXpSeTdNS1Q3UU5qTmJPL1g5VEROQU54bXFzc3N0V2tn?=
+ =?utf-8?B?MjM1VEVZZGU1ZE1Wcjh2SEx0QWltY3NlZWZOdU9UcTB3U0RLbTZmV3g4RHpR?=
+ =?utf-8?B?cEdUS0o2NnA1clBTVkRmaGNNdFdKbU41TlV5cUx5QUExSmkySHlwNzlaZjMz?=
+ =?utf-8?B?Z2t3cTd6dk1TL1VJZkEzSEt0S3VteTlncWlPUXFSNCt0NHFrWDBGZFpOcGxI?=
+ =?utf-8?B?bHJHaVZaYkJuTWFDRVVhVmVSRGtzOC94cVZxNG5oQnlsRmE3Wk43NndaMzVt?=
+ =?utf-8?B?a1ZaNmRVcEI2Q21sOE5odDA4MXpSa25IcDlzWVppbjZuUEE9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L2hsb20wekdFWDZNK1JmK0JDcjBKMEN1ZmptbTNqZCtEVDZ6enNyQTNYVkl5?=
+ =?utf-8?B?Y040VTZUQXdwU0RIazJIclBxUXRRWC9YaEdQUzRUKzYwWXExalB4am9JOEF3?=
+ =?utf-8?B?R0pEeE85TTkyZnc0Nnd6NVRiYTg4SDV6ZHB6WEU1RDM2cjdZY2dGbjVabk5v?=
+ =?utf-8?B?aCtOSEhNeE9ka3NFQzYyWHAyUXZuUWRGM0FXSnlmbjZHYUVXRDdEaTh0ZDg0?=
+ =?utf-8?B?bG5NNWJaOHVnR3R3SXpsb3g2eTBnbGpqVi9WMXBtT3ZvWit5Q3UvM3RJTk0x?=
+ =?utf-8?B?SnRYcWtWWnFLbkxIVjc5TS9PWFY1OTVVWjZ2MUJzeDlTeUVwYnZzaXd3aURP?=
+ =?utf-8?B?RFdsMlc2VEZNR3gxSWxmb1VMUnVIU3pQUzNUMnRHSlZ4NWpJT2pjdjdNT2Qz?=
+ =?utf-8?B?ZHpZOGE2eWNPUjV3d0l5KzBwdXpJNVdmc2h5VGVQRDBaN2trdnlERzB4S3Z3?=
+ =?utf-8?B?U0lVNkVYbTducysycUpFNDJBc3orcHVPNGk0dlhnR1NmWG1XVzJWOUNZdkJS?=
+ =?utf-8?B?NUJSMFpBMWpRcjhQa2phSjhHRHdmamwzZk1TU082SDA4aDE3K09mTlRqWElY?=
+ =?utf-8?B?SUpYQVV4UkRRT0FxcWpURzEwWjQ4WE5zQjVBVDNCR0ZPNmpCUG43R2JBN2dP?=
+ =?utf-8?B?Q055SVlWY0ZYZ25LeTlZRVgvUDhUNVh4VmthZ1BsUTE0TGRQWXdqYWxOSHJY?=
+ =?utf-8?B?TUNtMTF6bFdyMmRPSUFVTWpRZXdxRmFuRjBZSWhFNXBpV1VMRG1SQ0hrcDV4?=
+ =?utf-8?B?dzdJK05zK1lYdUI0bEMrVzYwbFlXUE1VMUJ0d1NWc215TmZpUGMxRWxMcDZE?=
+ =?utf-8?B?eXRLUXRoWVhXOEc0TFlhRWFRaTczUXhyTzhmMXBuUTVKem5ManozNjF1MUtx?=
+ =?utf-8?B?MjBCcWNzdUUrZDNSZU5INGk2Z2lJWm9Xc08vS3ZKbE1ZY1dNcDJYUlcvMzlS?=
+ =?utf-8?B?N2ZpczAyMGI5MGdxZWErNGxoY1FSeEp1a3RtNkZiTkVjNzNPOXlJNnVGcGVO?=
+ =?utf-8?B?OFA4SVZPNk5vK213bzdSL0kyVDdSSHd6ZGEvTFVwclE5V2JVRXhFYlFnbmZi?=
+ =?utf-8?B?bHZqdlFjRTZaRWNxaU1ndmsvMXUxZUVLR0ZrZkUvc3hYeStUVitaTGxOQ3h6?=
+ =?utf-8?B?Tk40OEFWZWtsbnlVWThuYllIM3dwVFJXenlIR2ppZDZzaFQ0OVdtalZzWVhi?=
+ =?utf-8?B?clIvbEhIYkNCZFVReGp2dFdON3h1cnU1ZXlreEFacTlHT1QvYjhlMTczY2JC?=
+ =?utf-8?B?M0ZGZ3FZdUJQM2Jlc2pCdzZYQ3MzM1Q5YXd1SVJlSVZaVm9UbUZnUlN2UmQx?=
+ =?utf-8?B?Wmp5RGlSWjIvdEpxd2pmazRyaGs5NzM3Wk9yemo1RXplbzgxamlXa21CQ21Q?=
+ =?utf-8?B?UWlmRGdScnp2M3lHZ0xPNGZES0QwMjRsS3YrZkxSMUlHWWlpSWprRXlIS1VW?=
+ =?utf-8?B?cXNxYmh6VFZkZDE5T2dxa0M4ejJzL0dUQkVTNmo1MWhBMmt1VEcxdFYzbWxp?=
+ =?utf-8?B?b3hTbGdaaUFvek1ZZFpHRC95aHpmdlR2ZzF3ZHo1TlArZGo1YkpPdWNOa29r?=
+ =?utf-8?B?YkRSMHdyUHJkT2R1YVF6emROdTJZdUxRQi9IQWJ6dWtnY2NkV3VCWTlFa0d4?=
+ =?utf-8?B?azVHeklvNUl1ZS9yaUVuTit0OFppS1lVclZLVlE0by9FTTQzbDZhSkRoVHEy?=
+ =?utf-8?B?Y1hraFFydU9ESkxlejlkM1h2VTFzc1dkTEZrUUJtblNnSkFoLzVtS2VoOG15?=
+ =?utf-8?B?UHBGcE1CL05JMWZiaWJWZWFmNlpGTXhibWFZR0Y5RHpHWDhIUDA5dUZZUTVy?=
+ =?utf-8?B?bHpqSVYyNDh1Z051Y0RKQVFpTTlGR3JrQ2NyLzhDaXZzMlJhQ2RBU1BaYjJS?=
+ =?utf-8?B?akFKaDk5VzI3U0UyWnF6MUlQb2NoQ3hZcThENnJicS9GbFBCTnlvdXlRZlZ2?=
+ =?utf-8?B?K1Z4dGppbWF4bHdTeGZQVDl4YURQc2JRbkJXNEptcFZjYVJXWUxqTms3WW5R?=
+ =?utf-8?B?RlVkQm1WZTZlVDFFOVVMMHpQK1pPcWhoNEM4RDV6RXBnZ2h4K1UweE1UVDly?=
+ =?utf-8?B?MkNVNTZxNTFhZTBGWE9ZVCttd1Bna0JycHNFc0lueWJ6YytDY2VZTll2bWtY?=
+ =?utf-8?B?RVZVeWFiN01LeFhlMWtUbTlGL0pnWDQ4cHVyWEVFbjZ6ZGNqYXFmaEZYM1Qv?=
+ =?utf-8?Q?rAVBe4jYTzTnYNb3xpF64+Q=3D?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5ec36c05-6704-439f-f453-08de1626cd9f
+X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 13:35:05.0773
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wP09yp6S+orkLte9S9UPeLZTzV5lqKu/M4OvcaenOaYvP92IZ3cIVNxSzNzBizHwF0txA3V1dK//CaXkUOpcjdzQKELtMpkc24gTvjziHYE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PPF4A90670E9
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251028_063513_611318_61C5606B 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,177 +188,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Samuel Holland <samuel.holland@sifive.com>
+On 2025-10-27 04:43, Thomas Gleixner wrote:
+> When CONFIG_CPU_SPECTRE=n then get_user() is missing the 8 byte ASM variant
+> for no real good reason. This prevents using get_user(u64) in generic code.
+> 
+> Implement it as a sequence of two 4-byte reads with LE/BE awareness and
+> make the unsigned long (or long long) type for the intermediate variable to
+> read into dependend on the the target type.
+> 
+> The __long_type() macro and idea was lifted from PowerPC. Thanks to
+> Christophe for pointing it out.
 
-[ Upstream commit 5898fc01ff344075e4332aa9abeb0841c85e7e51 ]
+[...]
 
-This definition is used by zsmalloc to optimize memory allocation. On
-riscv64, it is the same as MAX_PHYSMEM_BITS from asm/sparsemem.h, but
-that definition depends on CONFIG_SPARSEMEM. The correct definition is
-already provided for riscv32.
+Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-Link: https://lore.kernel.org/r/20251015233327.3885003-1-samuel.holland@sifive.com
-Signed-off-by: Paul Walmsley <pjw@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
 
-LLM Generated explanations, may be completely bogus:
-
-Based on my comprehensive analysis of this commit using repository
-examination and code analysis, here is my assessment:
-
-## **Backport Status: YES**
-
-## Detailed Analysis
-
-### 1. Code Change Analysis
-
-The commit adds a single line to `arch/riscv/include/asm/pgtable-64.h`:
-```c
-#define MAX_POSSIBLE_PHYSMEM_BITS 56
-```
-
-This definition is required by zsmalloc (used by ZRAM/ZSWAP) for correct
-memory allocation calculations.
-
-### 2. Tools Used and Findings
-
-**Repository Investigation:**
-- **Grep searches** revealed that MAX_POSSIBLE_PHYSMEM_BITS is:
-  - Already defined for riscv32 (34 bits)
-  - Defined for all other major architectures (x86, arm64, powerpc,
-    mips, arc, arm)
-  - Missing for riscv64 (this is the bug being fixed)
-
-- **Code analysis of mm/zsmalloc.c** (lines 65-77, 91-92) shows:
-  - zsmalloc uses `_PFN_BITS = (MAX_POSSIBLE_PHYSMEM_BITS - PAGE_SHIFT)`
-  - OBJ_INDEX_BITS = (BITS_PER_LONG - _PFN_BITS)
-  - Without MAX_POSSIBLE_PHYSMEM_BITS, it falls back to MAX_PHYSMEM_BITS
-    or BITS_PER_LONG
-
-- **Examined arch/riscv/include/asm/sparsemem.h** which defines
-  MAX_PHYSMEM_BITS as 56, but only when `CONFIG_SPARSEMEM` is enabled
-
-**Impact Analysis:**
-Without this fix on riscv64 systems where CONFIG_SPARSEMEM is disabled:
-- Incorrect: _PFN_BITS = 64 - 12 = **52 bits** (using BITS_PER_LONG
-  fallback)
-- Correct: _PFN_BITS = 56 - 12 = **44 bits**
-- This causes OBJ_INDEX_BITS to be 12 bits instead of 20 bits
-- Affects ZS_MIN_ALLOC_SIZE calculations and entire zsmalloc size class
-  system
-
-### 3. Historical Context Investigation
-
-**Git history analysis** revealed critical information:
-- Commit **f0bbc41760557** (2021) fixed this exact issue for ARM, MIPS,
-  PowerPC, and other architectures
-- That 2021 commit:
-  - Was triggered by actual kernel crashes (NULL pointer dereference in
-    zs_map_object)
-  - Had "Fixes:" tags pointing to zsmalloc
-  - Was backported to stable kernels (signed-off by Sasha Levin)
-  - Documented real-world bug report: "Unable to handle kernel NULL
-    pointer dereference"
-- riscv was NOT included in that 2021 fix (likely because riscv64
-  support was incomplete then)
-- The current commit (5898fc01ff344) completes that 2021 work for
-  riscv64
-
-### 4. Configuration Analysis
-
-**Examined arch/riscv/Kconfig**:
-- ARCH_SPARSEMEM_ENABLE is optional (`def_bool y` depends on MMU)
-- Users CAN choose FLATMEM instead of SPARSEMEM
-- Default config has `CONFIG_SPARSEMEM_MANUAL=y`, but this is not
-  mandatory
-- Without CONFIG_SPARSEMEM, MAX_PHYSMEM_BITS is undefined, triggering
-  the bug
-
-### 5. Subsystem Criticality
-
-**Memory Management Impact:**
-- zsmalloc is used by ZRAM (compressed RAM) and ZSWAP (compressed swap)
-- These are important for memory-constrained systems
-- Incorrect calculations could lead to:
-  - Memory corruption
-  - Kernel crashes
-  - Data loss
-
-### 6. Backport Indicators
-
-**Against backporting:**
-- No "Cc: stable@vger.kernel.org" tag
-- No "Fixes:" tag
-- Limited scope (only affects specific config combinations)
-
-**For backporting:**
-- **Critical**: Identical bug was backported for other architectures in
-  2021
-- **Precedent**: This is completing a known stable-backport pattern
-- **Safety**: Minimal change (single line), no side effects
-- **Correctness**: Fixes mathematically incorrect value that can cause
-  crashes
-- **Stable Rules Compliance**: Pure bug fix, no new features, no
-  architectural changes
-
-### 7. Risk Assessment
-
-**Regression Risk: VERY LOW**
-- Single constant definition
-- No behavioral changes
-- Only affects riscv64
-- Mirrors existing definitions for other architectures
-- Value (56) matches the PFN_MASK in the same file (GENMASK(53, 10))
-
-**Impact if NOT backported:**
-- Users building riscv64 kernels without CONFIG_SPARSEMEM will have
-  broken zsmalloc
-- Potential for kernel crashes similar to the 2021 ARM bug report
-- Data corruption in ZRAM/ZSWAP scenarios
-
-## Conclusion
-
-This commit SHOULD be backported because:
-
-1. **It fixes the same bug that was considered serious enough to
-   backport for other architectures in 2021**
-2. **The 2021 fix caused real kernel crashes that were documented**
-3. **It's a minimal, safe change with no regression risk**
-4. **It follows stable kernel rules: fixes bug, no new features, no
-   architectural changes**
-5. **riscv64 was simply missed in the 2021 fix, and this commit
-   completes that work**
-
-The lack of explicit stable tags is likely an oversight, as this is
-clearly a bug fix following the pattern of previous stable-backported
-commits for the same issue on other architectures.
-
- arch/riscv/include/asm/pgtable-64.h | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index 1018d22169013..6e789fa58514c 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -69,6 +69,8 @@ typedef struct {
- 
- #define PTRS_PER_PMD    (PAGE_SIZE / sizeof(pmd_t))
- 
-+#define MAX_POSSIBLE_PHYSMEM_BITS 56
-+
- /*
-  * rv64 PTE format:
-  * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
 -- 
-2.51.0
-
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
 
 _______________________________________________
 linux-riscv mailing list
