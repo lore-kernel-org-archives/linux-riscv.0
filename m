@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C01CCF9E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 15:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1A8CCD1BF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 15:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bZaAKX/3EQIVeX70MYalSl0SQjL6az1cSqTxliQUSUQ=; b=kQIRxvffbojaS7
-	0tkYNY9EeECW0/tzrmVcB2BIWLGMiQ+vGfdM2zaC0OrbnHFG49EHUBCiQV1K8L2xNwn1GTcVdtuAO
-	SfWx3o2aocgRTodMwD3vgbNlo2p8qyiNwLofy0Mz1B868KkTPMAPaJnRlFsJLnqQFlv9072Q9d53k
-	Lf6WZA1wpKb0TJB4llGgENsm6rAe/gNWogC1wJMRekMbi2o9ubtDTyeW8GSSxluu1M8Ghfus4PIoB
-	5tEQ2qQS74tHN6SaRfalq01FptbguTQMV89rLosGpMZ491/SFDA01uBcAgNFpd5xzv9ccVQwtPTu9
-	znYYA0fP6URzDRcQfaOA==;
+	List-Owner; bh=AHbvywvVISI/Pe2YimSMt1FPplDuWLe2T0q+9RG0jLw=; b=DjM3P4OT5oCfL5
+	R/DFWdVsV0agnZ7VN0xjr1umm6aBL8DfPqyQSkJcRzdMkjfbcwZuczxUj1Lz0THW4A2oHo+FWCfh1
+	05kP26tpLrBlOYThan5yIMsoNJ5rtNGC2T5JukAIo4kEYQL2rL+P49SdofFg4MlfMp0JaS+apD10e
+	L+i8AHpfJsyxHTK8mKbiaieLuQHd0ZB9uqIPyJ6J8t+9l2mboCm3OdXNSYfe1HKZqASRbkPDWWBZm
+	PWNr4SDHIYuphAeTVVQQTqthrEix/gaBnLw8iRCiwmC/AT+9C/O7TJOCcHcshDPMg6Buehzj9x9b7
+	36R5uBWRDgSILIGvKa0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDm3N-0000000GFTP-25kI;
-	Tue, 28 Oct 2025 15:56:09 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vDm6T-0000000GG7m-1j1A;
+	Tue, 28 Oct 2025 15:59:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDm3K-0000000GFS9-0hUG;
-	Tue, 28 Oct 2025 15:56:07 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761666964;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UuJ043THRvtCeNNEXMyo9HE4WCxrom2sWKd3gBR4LJU=;
-	b=OzfJrQmaGSYN7SjKtIVGt8XfMPuNg4JidCQ8tWQK7AVcOCmFMWTyt7m3oaUqsJxpyM0pab
-	+9VYgPLRugbHDX88KcBOysbJ/aq1qSI58eSdNkEqVOW7qjKTKIUy5Dlk/fxAOLwId5eUGL
-	MMCc/R6qmw7qog3LmZOpn1hDbjFJ/yfaXhgNJR3gCLTsi/v5MgAafS4ZxWm/T3HYbhDBYz
-	7c21YHT0Nu/Sjny5kfjGTXYYbNGtZT06Axwaf1pQQ7shqgfmdljAo2APs5uuRC3KZQDlgK
-	uYX1vd7MjyQwAwEqJ1sI+OyJphVkD9lM3WBrKG1nbnqWkrsRgH5c5NF/n8hOYw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761666964;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UuJ043THRvtCeNNEXMyo9HE4WCxrom2sWKd3gBR4LJU=;
-	b=+BHGZAi3yNFrAvpwe9vwol5p0lVACxAmOqomEwb4Pm2KqtlBgDYqoGb8xyRWB/0XxRQyXl
-	VePkBymJj4BQJSAg==
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, LKML
- <linux-kernel@vger.kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Darren Hart
- <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, =?utf-8?Q?An?=
- =?utf-8?Q?dr=C3=A9?= Almeida
- <andrealmeid@igalia.com>, kernel test robot <lkp@intel.com>, Russell King
- <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, Linus
- Torvalds <torvalds@linux-foundation.org>, x86@kernel.org, Madhavan
- Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, linuxppc-dev@lists.ozlabs.org, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, linux-s390@vger.kernel.org, Andrew Cooper
- <andrew.cooper3@citrix.com>, David Laight <david.laight.linux@gmail.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix
- <nicolas.palix@imag.fr>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V5 10/12] futex: Convert to get/put_user_inline()
-In-Reply-To: <0c979fe0-ee55-48be-bd0f-9bff71b88a1d@efficios.com>
-References: <20251027083700.573016505@linutronix.de>
- <20251027083745.736737934@linutronix.de>
- <0c979fe0-ee55-48be-bd0f-9bff71b88a1d@efficios.com>
-Date: Tue, 28 Oct 2025 16:56:03 +0100
-Message-ID: <87frb3uijw.ffs@tglx>
+	id 1vDm6S-0000000GG74-1JYe;
+	Tue, 28 Oct 2025 15:59:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D8A8614A7;
+	Tue, 28 Oct 2025 15:59:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C55CEC4CEE7;
+	Tue, 28 Oct 2025 15:59:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761667159;
+	bh=SDRIuqWM2TI7GYT8HdCkn7TBcJvTMa+nGGBd4kxLWaU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=h0Rjdky40XtCVRjoUUWv5rLiJ9ZMpCagJKFXeyfzHOGEHTGw9bKgoBDki9igeNVWF
+	 hxxzLvARw99/t5f4Lqs+Dj5fZyVuN3fZZCRfCFM55ZeACJS/rijOr6rAqCQE7Hwid1
+	 QyXcKn0xMZDkHD1ajCbuYBSCn+ENYdvO5PJWUuqfmfteG28nQwGE4UO2KHjBeLwl2c
+	 hE32PRBdNnuYpqH0YyIEEpoBXAGIkGRuRSDfPq/9QdewsKj3LtsQ6g4eJFxD5TaKJO
+	 HpEpDWwMqwcXSfnux9kuKahgFba9EgaGpASx7PAIM38ag+Pw/+fgAan6RlnvKpPKM4
+	 jLUxM6PBiYL0w==
+Date: Tue, 28 Oct 2025 16:59:16 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [RFC PATCH v6 27/29] x86/mm/pti: Implement a TLB flush
+ immediately after a switch to kernel CR3
+Message-ID: <aQDoVAs5UZwQo-ds@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <20251010153839.151763-28-vschneid@redhat.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_085606_341755_6437EEC3 
-X-CRM114-Status: GOOD (  15.44  )
+Content-Disposition: inline
+In-Reply-To: <20251010153839.151763-28-vschneid@redhat.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +98,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 28 2025 at 10:24, Mathieu Desnoyers wrote:
-> On 2025-10-27 04:44, Thomas Gleixner wrote:
->> From: Thomas Gleixner <tglx@linutronix.de>
->> 
->> Replace the open coded implementation with the new get/put_user_inline()
->> helpers. This might be replaced by a regular get/put_user(), but that needs
->> a proper performance evaluation.
->
-> I understand that this is aiming to keep the same underlying code,
-> but I find it surprising that the first user of the "inline" get/put
-> user puts the burden of the proof on moving this to regular
-> get/put_user() rather than on using the inlined version.
->
-> The comment above the inline API clearly states that performance
-> numbers are needed to justify the use of inline, not the opposite.
->
-> I am concerned that this creates a precedent that may be used by future
-> users of the inline API to use it without performance numbers
-> justification.
+Le Fri, Oct 10, 2025 at 05:38:37PM +0200, Valentin Schneider a =E9crit :
+> Deferring kernel range TLB flushes requires the guarantee that upon
+> entering the kernel, no stale entry may be accessed. The simplest way to
+> provide such a guarantee is to issue an unconditional flush upon switching
+> to the kernel CR3, as this is the pivoting point where such stale entries
+> may be accessed.
+> =
 
-There was not justification for the open coded inline either and
-converting it to get/put must be a completely seperate change.
+> As this is only relevant to NOHZ_FULL, restrict the mechanism to NOHZ_FULL
+> CPUs.
+> =
+
+> Note that the COALESCE_TLBI config option is introduced in a later commit,
+> when the whole feature is implemented.
+> =
+
+> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+> ---
+>  arch/x86/entry/calling.h      | 26 +++++++++++++++++++++++---
+>  arch/x86/kernel/asm-offsets.c |  1 +
+>  2 files changed, 24 insertions(+), 3 deletions(-)
+> =
+
+> diff --git a/arch/x86/entry/calling.h b/arch/x86/entry/calling.h
+> index 813451b1ddecc..19fb6de276eac 100644
+> --- a/arch/x86/entry/calling.h
+> +++ b/arch/x86/entry/calling.h
+> @@ -9,6 +9,7 @@
+>  #include <asm/ptrace-abi.h>
+>  #include <asm/msr.h>
+>  #include <asm/nospec-branch.h>
+> +#include <asm/invpcid.h>
+> =
+
+>  /*
+> =
+
+> @@ -171,8 +172,27 @@ For 32-bit we have the following conventions - kerne=
+l is built with
+> 	andq    $(~PTI_USER_PGTABLE_AND_PCID_MASK), \reg
+>  .endm
+> =
+
+> -.macro COALESCE_TLBI
+> +.macro COALESCE_TLBI scratch_reg:req
+>  #ifdef CONFIG_COALESCE_TLBI
+> +	/* No point in doing this for housekeeping CPUs */
+> +	movslq  PER_CPU_VAR(cpu_number), \scratch_reg
+> +	bt	\scratch_reg, tick_nohz_full_mask(%rip)
+> +	jnc	.Lend_tlbi_\@
+
+I assume it's not possible to have a static call/branch to
+take care of all this ?
+
+Thanks.
+
+-- =
+
+Frederic Weisbecker
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
