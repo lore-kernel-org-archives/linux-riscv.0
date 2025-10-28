@@ -4,160 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66124CCF9E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Oct 2025 23:27:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A0B3CCF9E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 00:28:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ctrc+2PlnFnsRVqbRskec/fXEXYqXEbgu9NjPZM9g6c=; b=V6U3QxPGCm4eiH
-	GwLk1sMqo0VtqiG6Dj4WzA940oKhL6KREz0GEWPimE1wPYGmBcCitKjf7zNyDURofOHUGIYaCnVOL
-	zyKX1Oir1Y8Y3WSMIADhjBzdcK+KM2nlBLI0yfGsv7TBdB2yvfp5qdBEmkHZJXL9FHRFS0B2JX05P
-	n6jx4dAN2BKQpCrj/I+mI6R9WTxrb8eydknCiwNeoXA4FLsX7B0mejDISevIzxQXt4LL5ejHqJXSL
-	906fBp2cnfHp/2x4FeKghIRX+1y/Gmw9ShvX/aOqMZIMUOq4c1IQquqjhqDh7cu+FqnCh8QZjfvH3
-	HbUI9Wbi4Suszg7S1SzQ==;
+	List-Owner; bh=YI5KEDImWy2khk5Yhz3f4DyGSe45Zgc9wMsVxC9Uu5g=; b=AVu+Md4hDzo2lq
+	aHnrrtweQiOio4L6gDaD1fws1Sa6PrD0sHjv44gnYWGuOPsqKUwOZPR4iY9a82QVE4LX68EC26XlG
+	xFUFVSYCDW0So7t3s7+vSXS6JcRu31ii7pnPU36xTHKhGwXs64SfO440IQ2/ismvj03Qvt1e0uOzI
+	Ky4DunceCCfOJBHcMGokB4MmJS6MSVh65mbJXnYjctgnZgSsv4bPqdG4bw1m78qNQqbSAakt3ybBA
+	vRRYuAPr2nDm0RtsAEXpOGo4UMCWWlgGanDrMzSPoWq0GAL2b4LBwLDSYInif+2fNGZuwt/k5jymo
+	x4/hDTfsBx2d7Lf2ffYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDWc3-0000000EwDY-26IT;
-	Mon, 27 Oct 2025 23:26:55 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vDXZr-0000000Ez78-0sAJ;
+	Tue, 28 Oct 2025 00:28:43 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDWc0-0000000EwBg-2UhM;
-	Mon, 27 Oct 2025 23:26:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e/S2KiMk9FPZwoDyDEbICzOjPQaXf732TJpXIs7eVqvR0baFHjpQCAQLGp1TP/pkgx3vpDNTgR9+Z0X4WLrevqCPEibdKrQ/EbFog4WpASjTMNqPTE2gjTeYOAmOoVeXMWcCJVJPs1xWn8HgSiyizDm+dqhoqAbsPlj7/iHc2lOREuE6LLcfUNLu+ufVhwv7V0Mp9xB6XSRQDDpbqAOkwBf+qY1BQCAih1d++SghJvyvyf2GjjvsGrBXnYB3HJfGVYEK0+614KocsnOdkKYFukLS9+19MaE1BDNw7WzCTLOuC4aFJSeuzUjXboUo/GoyEIGijlIZ4xVDCimS/V04yQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gx7BUMBHnYmfmeqjkgLxcm2+ZpM3DfyTQljjnYSuyrM=;
- b=ToBjWBKTaWXSuLqgwpbAuGBSURB/sVJwJ7IfuJNWgJENHidfOhH3WyunLxLw9hlzI/XKcNhfTsUMmuMxKq8oBbAWVwKYm8LhgS+Yjib0u69n41/C+2+g1dUodvlWyrE3AUe9ymfv+xY1G2s7KvSfb9j4RdTvaoLJpzeOf5l3DyOaMWtAQOe56MIq7gB9GhgGBSxeYDqAXygCeiamWSf8Ivw/faW4WZnn+yXLAmclulPxOqpZ2qNsqZ8gTK4MP7JykqMuunNRnlFkB1FhSIQI/f0ql3qR6KaRQ4wX86dM/B0K/inLvd2Ym5L6PKIZqlXiEx2R7LUHHhhdJJnGEaEeog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gx7BUMBHnYmfmeqjkgLxcm2+ZpM3DfyTQljjnYSuyrM=;
- b=lbbsG0eLfGdRhdSdREtblJl7xUVs/fr46qiaiM3A5jlHZZQkDAmk4L62HhIXnryD9jvQBlKAIswAPcG6mTXjUBwKAOBsLFFRX3ejX0vjM2gloHWy/VgCBuRqjmXde4QvNkJHSfI7eD8kgXjiVRUli6I25QGjY+1mw4JDpmzN+aK163t21pA7pmbpg7rWtOecXM9SaCsoP2P9/HTERd08EQpfTJK7WOlP53HEpMlG9rBeCQYs4np02N0pqBgc45fZVFU+ggOMuzULXlm2t/rVSxIwujl9O18qQ59GHfWgCIBZ4LEFar/h7ih3NsiSM6tahjCwZa6MvPXpB17H7IIp2g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by SN7PR12MB6791.namprd12.prod.outlook.com (2603:10b6:806:268::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Mon, 27 Oct
- 2025 23:26:41 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9253.017; Mon, 27 Oct 2025
- 23:26:41 +0000
-Date: Mon, 27 Oct 2025 20:26:40 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: joro@8bytes.org, kevin.tian@intel.com, suravee.suthikulpanit@amd.com,
-	will@kernel.org, robin.murphy@arm.com, sven@kernel.org,
-	j@jannau.net, jean-philippe@linaro.org,
-	robin.clark@oss.qualcomm.com, dwmw2@infradead.org,
-	baolu.lu@linux.intel.com, yong.wu@mediatek.com,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	tjeznach@rivosinc.com, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, heiko@sntech.de, schnelle@linux.ibm.com,
-	mjrosato@linux.ibm.com, wens@csie.org, jernej.skrabec@gmail.com,
-	samuel@sholland.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org, virtualization@lists.linux.dev,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v1 03/20] iommu/arm-smmu-v3: Implement
- arm_smmu_domain_test_dev
-Message-ID: <20251027232640.GE1018328@nvidia.com>
-References: <cover.1760312725.git.nicolinc@nvidia.com>
- <f52e8079148a673641d2858700c49fa0c81022aa.1760312725.git.nicolinc@nvidia.com>
- <20251020163231.GX316284@nvidia.com>
- <aPaWsEg1Y3XqsA3E@Asurada-Nvidia>
-Content-Disposition: inline
-In-Reply-To: <aPaWsEg1Y3XqsA3E@Asurada-Nvidia>
-X-ClientProxiedBy: MN2PR01CA0049.prod.exchangelabs.com (2603:10b6:208:23f::18)
- To MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
+	id 1vDXZi-0000000Ez3Y-1KLa;
+	Tue, 28 Oct 2025 00:28:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761611314; x=1793147314;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=O9r9SqoXgXXFWNnj6936GGaEnFwZ1KbD5C04lY3OlKM=;
+  b=RbYjObmZKXBJdSRuwfmkCmPx+mi3qLxxaAyMe4c3KeYAMYe3eza1AAtL
+   R3pFlN012+MMRUl1p6TFuPjGoQrRhLzAdEYfULcgyHExu57D6eZhpI2ej
+   ThQm1udRITMOWc2kIxZZ2tDNiqLEkVPlAIW7Amc+Pu+ElUWJ29sszqoWM
+   lDXO2Dnssei/Fkx6aFeKDS7QblEtkXe/dFtW+VMPCljFCgLSDGKiJViv1
+   nGp7xUZlSfwp9+yWe9ZxwBa+hhpLGBeuLeC66LjZHh2qpzJEQklKbmD/I
+   eUSxSUULMj7yLwnZHn6kaQTb32e0DVS7bk0WJ8IyPaTvzobkiDGEq01kw
+   A==;
+X-CSE-ConnectionGUID: h4bP0oUZSOik21wiuaU9OQ==
+X-CSE-MsgGUID: p+/AWTEXSRi/m2d2T3zrxA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63741217"
+X-IronPort-AV: E=Sophos;i="6.19,260,1754982000"; 
+   d="scan'208";a="63741217"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 17:28:34 -0700
+X-CSE-ConnectionGUID: MtsX8J75QwO7JVf7pLQ1Rw==
+X-CSE-MsgGUID: sxeH5MnIQqC0pE4YKx+1fg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,260,1754982000"; 
+   d="scan'208";a="222400872"
+Received: from rpedgeco-desk.jf.intel.com ([10.88.27.139])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2025 17:28:32 -0700
+From: Rick Edgecombe <rick.p.edgecombe@intel.com>
+To: seanjc@google.com
+Cc: ackerleytng@google.com,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	binbin.wu@linux.intel.com,
+	borntraeger@linux.ibm.com,
+	chenhuacai@kernel.org,
+	frankja@linux.ibm.com,
+	imbrenda@linux.ibm.com,
+	ira.weiny@intel.com,
+	kai.huang@intel.com,
+	kas@kernel.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-coco@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	maddy@linux.ibm.com,
+	maobibo@loongson.cn,
+	maz@kernel.org,
+	michael.roth@amd.com,
+	oliver.upton@linux.dev,
+	palmer@dabbelt.com,
+	pbonzini@redhat.com,
+	pjw@kernel.org,
+	rick.p.edgecombe@intel.com,
+	vannapurve@google.com,
+	x86@kernel.org,
+	yan.y.zhao@intel.com,
+	zhaotianrui@loongson.cn
+Subject: [PATCH] KVM: TDX: Take MMU lock around tdh_vp_init()
+Date: Mon, 27 Oct 2025 17:28:24 -0700
+Message-ID: <20251028002824.1470939-1-rick.p.edgecombe@intel.com>
+X-Mailer: git-send-email 2.51.1
+In-Reply-To: <aP-1qlTkmFUgTld-@google.com>
+References: <aP-1qlTkmFUgTld-@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|SN7PR12MB6791:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6d6454cd-481c-4edc-ba5b-08de15b048af
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KYIr0W99nu7jT8pnol/aQsy6rRlolAzh6rp4ejtemDxSkQj0Oab7vcwJF3nF?=
- =?us-ascii?Q?/pmps/1fTrKl0OQCkI4g7feku1jews9DoVidmiNVmuSQYJDTCfZag83zFGqb?=
- =?us-ascii?Q?UaDBlr1z+4k6JteM1+CBaVpcS8GVvlrgfBRTbezfcLt4nWXlBqlhqHSwq4oF?=
- =?us-ascii?Q?7lqBHYbmrSGXLd6l0ZrifZ5cMw9CppMZHLhjiECtrW5WhWRnSSzG1dNcw2RE?=
- =?us-ascii?Q?TujflS6EKrchfu+4ylM/Skw0juKwbvolsOSTEeUuPYiFVvuGvUCiTJoJyzOi?=
- =?us-ascii?Q?Qjad9NxxDztGiKrt1siGCQ2eWbruPstyNd5U3yqBkCgF880C+4zzeAjoKLdA?=
- =?us-ascii?Q?/mofGtibK6TMbVo/SnbLBe9EzkfiIVTWFIBBdj4iZvXILijpWe3RifI9888l?=
- =?us-ascii?Q?fz+/IYvAwvgVlM/zbazJcDd6o4y5P+3jVhopG5+OCrzUtLjwsM4HlQympNy/?=
- =?us-ascii?Q?jaBqnvrLLXyJ4CPPQVyC9hGCl0xC1d56eCte5k7Ve1iW3f+CcofMPN4r6fe6?=
- =?us-ascii?Q?BPnHaln4bkyLTnDlCoejcNhbktwPlRDl5O7EzVoEBsl0i65F893peJJXERur?=
- =?us-ascii?Q?936DO6sg0kXiwaTj1W6uwSXOED3ow64Y1lFeqHC7eeHuQ9ajzUsex/F3Bfz9?=
- =?us-ascii?Q?m9GlasYUPDx4e8AXA0BYhxwaZo60rpJhlYRQ+B9FMrNFZ3qn3MYf9FnJrLER?=
- =?us-ascii?Q?ta1ximCGlmNkkjzS+Y/fsqPtTkvV4RdTqA/QBh8U0sqIeHYeX1etVyimOp10?=
- =?us-ascii?Q?KlvubpB0AzIbfQ1vNZ/Zo8qop1Me/m3497kiSUpUOpX/0T2gZSfd81lklOfz?=
- =?us-ascii?Q?cQEqQzBChhx5WdZtXwnM0R7P1PG+1RsnjpYKI7CwYt2XjnbGiC/iTl11iXLc?=
- =?us-ascii?Q?qX5Brn13nNxMcZ7VN/GVUa8HMKMidelqpwg71j0yiSMrtsblJspwm5zLAcMN?=
- =?us-ascii?Q?3W8zZMAIJhR8Uem5twr2qDI0nnXtUUYMhLE5A/eK4TIZbeVuP8t1punlaVVv?=
- =?us-ascii?Q?FikWu/cmn1+g95laHdj3ITi2eEXu3SVc9wAyU6MEcSSaJ6vrCJO4+mo93qCd?=
- =?us-ascii?Q?sY72J4BMYYN8vHvnjIVapjcuzd7ZfeORGGTqwD7NJQ8jomykyHRSchOx1rOe?=
- =?us-ascii?Q?JwvHrmlHNplinEIL2vaPkotJup7Ufmo65vfLecBxzBmBrVM6unlM4C5ZXRQu?=
- =?us-ascii?Q?abba8R1bwg16Bq0m1Yu9D4lyZaT9kEgeiYrb02MIoC+J5Chop7U9PUtjX8OZ?=
- =?us-ascii?Q?ljNbqZpTdzddHnS2ATV1t7hCH11aEZ0mPUPfJMi8Ka+oRVCJxeNTst+IMDdg?=
- =?us-ascii?Q?8NNg0GGqx6xvTugfzLT3e32+Idfu0Nz01ynRYPtm2KmV07ZYmOtwApTUAqPz?=
- =?us-ascii?Q?OHAVP+u1Ef4HVlLaUQLD3XGy5r6LkWeo/rp7QrF/7RSs1+hvcWrsfEY7AvHj?=
- =?us-ascii?Q?iqAesM2uxQRQQdmYleb2zkA0elPG/fQ/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MdrKUo1VRvzK62ai/Ce5i3rd/ggQghPW5IwFzh3JwTRyJLj51LXcbE1qm6DG?=
- =?us-ascii?Q?qoVwazo/PqKA53fFRKSAydecMrOID5xwSQwPsJqHaJGcDsrdQRb2lLIMW6VU?=
- =?us-ascii?Q?ikhfwen91iyI2lRgjkuMD+hP5O1uNqgMBGW2hOcz/a/zWDDofsNr6Dj11IJG?=
- =?us-ascii?Q?80laEhLFU1euloFOzQQyC2TORVEwDRqDVKbv2eyzsqQSSmiD8CbJnxrxiqQp?=
- =?us-ascii?Q?qDwol+CUhrjWszpLN6IPnBsS6DhLYE43XVkV+VHQv28NBbYAgTiA0uBIiNWe?=
- =?us-ascii?Q?TYLolxNZMSmqO102TUi+h35U1ycBba9blzm+7qLEc9x9sulJQKHZZN5oN0sk?=
- =?us-ascii?Q?NZyWa8tqqCiYaLSm1+cjnuubrIvK5t9XEqhavO/Vd0V/Aw7t7Ef/E4fb6+w+?=
- =?us-ascii?Q?hHaO4ffA9UQvdT/8Qcm7pLbud8sGqBbmt+FTVKvSlDR34SVshnvUnO822v2+?=
- =?us-ascii?Q?nlwz/hYGzOD83dJm235aE1bTEBrguXRsgnRJwy+mDZ6gwcHiNSo+uaxdcYo4?=
- =?us-ascii?Q?OxuQS7vTNbTkgER+M09TjHQgL7K4idKlT2k1ELgbSuyPq+LwYvQfHAqPgX46?=
- =?us-ascii?Q?I3joIGtsl31ej4xFRswRPI6ouV4P04VkrT+vNWt0Zwrnuoo18YukjPoSZxKS?=
- =?us-ascii?Q?IAmpxKsMl8NdqMDBuXTDVqk6GNOw42YWcNWIK67lVlAGHRq85j1ygGgGkVZ8?=
- =?us-ascii?Q?dTiFa7DYGfmQ/GGI70mgL7RBvxr0AMSlzHG0rFx8ol4joPiBeUp+coaMJh2m?=
- =?us-ascii?Q?Q890+lTdYuY9FQRzg61L28FwO90Ph/QeGNO+UJKOetBu0ZpXCytKQdqRlWdE?=
- =?us-ascii?Q?5YK1BsF49FnUjRrHkZeq0pYzdzTt/pox63N23huoJ2MpjXt7ms66GLGo5bM9?=
- =?us-ascii?Q?YZ4CAGmOt5WcbaHIcMv8mEZcsMRMlxMAIqK4tVynFENlnDktTpJhSkNOTLVA?=
- =?us-ascii?Q?xpvgTpImdqhQe4FY5sIAw9Izr2VpnSEotoMkd9vS82mjlTIEY0hWlP21pTw6?=
- =?us-ascii?Q?+tEHo+6sFdRcZVKyuAYdziVsuK93do2slGOYijf3Pw4+W4gT+xxih/lY1sXl?=
- =?us-ascii?Q?ZfThhgFB8k+YQt+pJpYO5yY5jFybePzdfn+pHFLK0n5zanMYc+DYPlIxm2xB?=
- =?us-ascii?Q?hkLpOUzkj+ERsy71elxD3NgvO5QW54XDRZxoy3CuXo8EIiDHt7iuJgF31r0L?=
- =?us-ascii?Q?p+4Xard/7ipqDR0ujMKGI2y+ifuCvNt5nmCq0ibqk8sZXli0SZkVYNLZ/efy?=
- =?us-ascii?Q?Fop/RLYUMvske19LLPzC/xVYVk5s7LuU99JAccNCB057r3xHzEYPI2+FFxRv?=
- =?us-ascii?Q?EA6JrtmGCQfKWCd49IzPa+8o5EyjY8gZ6XCIu1tJtBPdktCV9efhmPzp82Dv?=
- =?us-ascii?Q?4IAvIqqVq12Yg+sunNZBc3QfBXdK/aiEaOoxRuoS2Fce7c8ggV7SbCL/yLeZ?=
- =?us-ascii?Q?BW1f+9GUaQlgF8AuY6hlsMIdI+LiSZ7UbzH9SpLm6rGCRqVaFEJVxluIcc4o?=
- =?us-ascii?Q?3pZotqaKg9Jm+RqASe2dq6+g5WTDmbIHsz9PpPMLD4o7A3SWV6LRS+zI/Y0B?=
- =?us-ascii?Q?HMumaGqdCHK0ZbBygN8=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d6454cd-481c-4edc-ba5b-08de15b048af
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2025 23:26:41.3272
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gb50Z1dqxSylnIaT5cxXN938vYkZ2jSHVc1zxEWuhYypV5RUfbPszxmS8O59p4Uy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6791
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251027_162652_636682_7EE1688C 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20251027_172834_538553_FA8C1FDE 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,38 +115,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20, 2025 at 01:08:16PM -0700, Nicolin Chen wrote:
+Take MMU lock around tdh_vp_init() in KVM_TDX_INIT_VCPU to prevent
+meeting contention during retries in some no-fail MMU paths.
 
-> > I don't see any reasonable way to mitigate this??
-> 
-> Right. It can't simply go through a regular attach_dev call since
-> driver wouldn't expect any inconsistency in the core.
-> 
-> Driver would have to be aware of the reset state, and make a copy
-> of the old domain's CD/STE to use for a test_dev() during a reset.
+The TDX module takes various try-locks internally, which can cause
+SEAMCALLs to return an error code when contention is met. Dealing with
+an error in some of the MMU paths that make SEAMCALLs is not straight
+forward, so KVM takes steps to ensure that these will meet no contention
+during a single BUSY error retry. The whole scheme relies on KVM to take
+appropriate steps to avoid making any SEAMCALLs that could contend while
+the retry is happening.
 
-It seems convoluted :\
+Unfortunately, there is a case where contention could be met if userspace
+does something unusual. Specifically, hole punching a gmem fd while
+initializing the TD vCPU. The impact would be triggering a KVM_BUG_ON().
 
-IDK if you want to do that some kind of "attach but really don't" flag
-so all the tracking was kept, just the STE was forced to blocking.
+The resource being contended is called the "TDR resource" in TDX docs 
+parlance. The tdh_vp_init() can take this resource as exclusive if the 
+'version' passed is 1, which happens to be version the kernel passes. The 
+various MMU operations (tdh_mem_range_block(), tdh_mem_track() and 
+tdh_mem_page_remove()) take it as shared.
 
-Then since all the fake attaches are tracked and validated switching
-to a real ste shouldn't fail.
+There isn't a KVM lock that maps conceptually and in a lock order friendly 
+way to the TDR lock. So to minimize infrastructure, just take MMU lock 
+around tdh_vp_init(). This makes the operations we care about mutually 
+exclusive. Since the other operations are under a write mmu_lock, the code 
+could just take the lock for read, however this is weirdly inverted from 
+the actual underlying resource being contended. Since this is covering an 
+edge case that shouldn't be hit in normal usage, be a little less weird 
+and take the mmu_lock for write around the call.
 
-For instance SMMU could continue to build the CD table and act like
-the CD is active, but the STE wouldn't point to it.
+Fixes: 02ab57707bdb ("KVM: TDX: Implement hooks to propagate changes of TDP MMU mirror page table")
+Reported-by: Yan Zhao <yan.y.zhao@intel.com>
+Suggested-by: Yan Zhao <yan.y.zhao@intel.com>
+Signed-off-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+---
+Hi,
 
-Basically, this approach doesn't seem to solve all the problems, it
-reduces them sure, but there are still enough gaps.
+It was indeed awkward, as Sean must have sniffed. But seems ok enough to
+close the issue.
 
-So I think we either have to live with them and call it a user bug to
-change the domain improperly during FLR.. If it happens dump the
-translation into blocking and move on..
+Yan, can you give it a look?
 
-Or we have to do some kind of fake attach tracking which doesn't sound
-appealing..
+Posted here, but applies on top of this series.
 
-Jason
+Thanks,
+
+Rick
+---
+ arch/x86/kvm/vmx/tdx.c | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
+
+diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+index daec88d4b88d..8bf5d2624152 100644
+--- a/arch/x86/kvm/vmx/tdx.c
++++ b/arch/x86/kvm/vmx/tdx.c
+@@ -2938,9 +2938,18 @@ static int tdx_td_vcpu_init(struct kvm_vcpu *vcpu, u64 vcpu_rcx)
+ 		}
+ 	}
+ 
+-	err = tdh_vp_init(&tdx->vp, vcpu_rcx, vcpu->vcpu_id);
+-	if (TDX_BUG_ON(err, TDH_VP_INIT, vcpu->kvm))
+-		return -EIO;
++	/*
++	 * tdh_vp_init() can take a exclusive lock of the TDR resource inside
++	 * the TDX module. This resource is also taken as shared in several
++	 * no-fail MMU paths, which could return TDX_OPERAND_BUSY on contention.
++	 * A read lock here would be enough to exclude the contention, but take
++	 * a write lock to avoid the weird inversion.
++	 */
++	scoped_guard(write_lock, &vcpu->kvm->mmu_lock) {
++		err = tdh_vp_init(&tdx->vp, vcpu_rcx, vcpu->vcpu_id);
++		if (TDX_BUG_ON(err, TDH_VP_INIT, vcpu->kvm))
++			return -EIO;
++	}
+ 
+ 	vcpu->arch.mp_state = KVM_MP_STATE_RUNNABLE;
+ 
+-- 
+2.51.1
+
 
 _______________________________________________
 linux-riscv mailing list
