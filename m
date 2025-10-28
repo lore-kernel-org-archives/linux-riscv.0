@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C3A2CCD1BF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42610CCF9F0
 	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 12:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,45 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xM4qdKCzpqQoQPgl/R+5n5XtIz4+CGN/9hl7pWKJQhw=; b=NnzDt7zPtCfepD
-	5Zwk2RlojCn6qD/NeAGf9OGpKxxwVEFHFWi5x8vyDA6ttHCET+BoosI84spoKvRb+wRLOjh7TJlPc
-	aUXHu+4H2x1ooMCd0AzCbQ1uQ4lV5Lkl2JrxoUBJmr7vEnHKhmDCZ7nPXfnvRm0wd+3QV0XT061mw
-	CdyS1IovtoLvHqpoCLPIB0hplRcNkLEr4HnTial2cBX8EXCSuVTDU8sPAczVvjoJdcuXuPKtW8GxV
-	STINP3h+YWgd6raJUCQkEfhRefe6mLFYWEMAnbQp82J+DdAMBXswXqHLSxKmJThxelRpSyTM7M+lz
-	YnEYoi2RYSmouXg21elg==;
+	List-Owner; bh=9J12hOKRWP1Q1tjhDHk0lAnCrTQtwi5YMVcBBYWYJkA=; b=dTeU3hwqz6ax8K
+	bY++HU3Y/+Z1Iz4wuS7EsqErHzLoZsdxKNs6dWTm5Kzjdf9ZPGx5Sd45poq7zHDFBLcRoLX3Vn1Oy
+	kFuoxrIb8ksuQiEeci7fy3KEaYuv9FIQJQMdTFTu7LgC4J5p0vRPJcLgh1ky0fwaZ4gbT5S1B1zVw
+	u3NW4rv4ceRortnKiOJgpmOm7B5s34kk4EtZNawvYRXcAciSlpocqSe9SoDYGK0NP4Pjl359mqP0h
+	F+/ZvImLaqd8BFFkGp+K/EwIsB3hYL6fRK3jlMy4Nil0CtAmjU2pMo5DVY/LS5RsQN6LWmSLljaMa
+	UmmwA2vtJvf17UhpJckw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDijY-0000000Fv3m-01CD;
+	id 1vDijY-0000000Fv46-1ICW;
 	Tue, 28 Oct 2025 12:23:28 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDijR-0000000Fv0j-0V5p
+	id 1vDijR-0000000Fv0u-0s6h
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Oct 2025 12:23:25 +0000
+	Tue, 28 Oct 2025 12:23:26 +0000
 Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251028122317euoutp027ae80c9a092f4dbee2655e48006d8809~ypyioQJZ70282502825euoutp02T
-	for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 12:23:17 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251028122317euoutp027ae80c9a092f4dbee2655e48006d8809~ypyioQJZ70282502825euoutp02T
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251028122319euoutp02b1f0e94212754ba7b12880828c3f7c73~ypyk24fRB0283502835euoutp02V
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 12:23:19 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251028122319euoutp02b1f0e94212754ba7b12880828c3f7c73~ypyk24fRB0283502835euoutp02V
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1761654197;
-	bh=S7Qb8GD7QtIdkNg1sJYTbyBiBhynyekDP/0KBPsG5fc=;
+	s=mail20170921; t=1761654199;
+	bh=Lm82DRGUZZTV1/beTKsFXySMTVqtnJxLBKgmXs1gVko=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=W39YBq8gRkSQRtmiqYbhAmCfOap53lZ4hkYWh/z6xZuBhkZ4AR5bJvtKO6Kip+d8h
-	 AMu6xTCU4OjpicB+jSJ/h6BmVSExYtvmu5N+KxQwjqGxlcfGSDHesf2OTIOgE/S2MQ
-	 6bcTdPwtJmmGqXghLFxtr96X2pbe2jwJcZBY9e8s=
+	b=BnIeIH5jEm0VOKgBrzpMbb1uakOkoeayhb74hp0j9RjEqIYQ9EVWNhalDlmIwitFP
+	 jS/H83dsM39aXBHimHfxdD23J7JTzy4buroRirlXUeUAUlf6q/vqiqP1EPc/KOWpaR
+	 NpGDcXgj3sSnsomxoIMhIeOy5C8FJPrNfZFHVpd0=
 Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251028122316eucas1p2733987cd4c1eb8f83d6572d542e76d2a~ypyh4s3HI0846208462eucas1p2I;
-	Tue, 28 Oct 2025 12:23:16 +0000 (GMT)
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251028122318eucas1p1863a8b44efe27c28a1bcf427d2855c00~ypykGd4I41056510565eucas1p1H;
+	Tue, 28 Oct 2025 12:23:18 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251028122315eusmtip2aa7fbb6e4d59ddf58d1f0e5dabdc826e~ypyg2_QJ10792007920eusmtip2f;
-	Tue, 28 Oct 2025 12:23:15 +0000 (GMT)
+	20251028122318eusmtip2cb42586905d3b5fd524bea75b0831884~ypyjWQEit0671406714eusmtip20;
+	Tue, 28 Oct 2025 12:23:18 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 28 Oct 2025 13:22:32 +0100
-Subject: [PATCH 1/4] rust: macros: Add support for 'imports_ns' to module!
+Date: Tue, 28 Oct 2025 13:22:35 +0100
+Subject: [PATCH 4/4] pwm: th1520: Fix clippy warning for redundant struct
+ field init
 MIME-Version: 1.0
-Message-Id: <20251028-pwm_fixes-v1-1-25a532d31998@samsung.com>
+Message-Id: <20251028-pwm_fixes-v1-4-25a532d31998@samsung.com>
 In-Reply-To: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
 To: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
 	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
@@ -64,16 +65,16 @@ Cc: Stephen Rothwell <sfr@canb.auug.org.au>, rust-for-linux@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20251028122316eucas1p2733987cd4c1eb8f83d6572d542e76d2a
+X-CMS-MailID: 20251028122318eucas1p1863a8b44efe27c28a1bcf427d2855c00
 X-Msg-Generator: CA
-X-RootMTR: 20251028122316eucas1p2733987cd4c1eb8f83d6572d542e76d2a
+X-RootMTR: 20251028122318eucas1p1863a8b44efe27c28a1bcf427d2855c00
 X-EPHeader: CA
-X-CMS-RootMailID: 20251028122316eucas1p2733987cd4c1eb8f83d6572d542e76d2a
+X-CMS-RootMailID: 20251028122318eucas1p1863a8b44efe27c28a1bcf427d2855c00
 References: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
-	<CGME20251028122316eucas1p2733987cd4c1eb8f83d6572d542e76d2a@eucas1p2.samsung.com>
+	<CGME20251028122318eucas1p1863a8b44efe27c28a1bcf427d2855c00@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_052321_707468_F3378B20 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20251028_052321_700619_3CEBE655 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,70 +91,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Kernel modules that use C symbols exported via `EXPORT_SYMBOL_NS` must
-declare this dependency for `modpost` verification. C modules achieve
-this by using the `MODULE_IMPORT_NS(NAMESPACE)` macro, which embeds an
-`import_ns=<NAMESPACE>` tag into the `.modinfo` section.
+Clippy warns about redundant struct field initialization when the field
+name and the variable name are the same (e.g., `status: status`).
 
-The Rust `module!` macro lacked the ability to generate these tags,
-resulting in build warnings for Rust drivers (like the PWM driver) that
-call namespaced C functions.
-
-Modify the `module!` macro's internal parser (`ModuleInfo`) to accept a
-new optional field `imports_ns`, which takes an array of namespace
-strings.  Update the code generator (`ModInfoBuilder::emit`) loop to
-iterate over these strings and emit the corresponding
-`import_ns=<NAMESPACE>` tags into the `.modinfo` section using the
-existing `#[link_section]` mechanism.
-
-This provides the necessary infrastructure for Rust modules to correctly
-declare their C namespace dependencies.
+No functional change.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- rust/macros/module.rs | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/pwm/pwm_th1520.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/rust/macros/module.rs b/rust/macros/module.rs
-index 5ee54a00c0b65699596e660b2d4d60e64be2a50c..408cd115487514c8be79724d901c676435696376 100644
---- a/rust/macros/module.rs
-+++ b/rust/macros/module.rs
-@@ -98,6 +98,7 @@ struct ModuleInfo {
-     description: Option<String>,
-     alias: Option<Vec<String>>,
-     firmware: Option<Vec<String>>,
-+    imports_ns: Option<Vec<String>>,
- }
+diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+index 5fb123f5e9c6dc3a8ee9a7a47fa778c23213e957..95a809af48eb16fe13125d4d9f4ee5de20555e77 100644
+--- a/drivers/pwm/pwm_th1520.rs
++++ b/drivers/pwm/pwm_th1520.rs
+@@ -185,7 +185,7 @@ fn round_waveform_tohw(
+         );
  
- impl ModuleInfo {
-@@ -112,6 +113,7 @@ fn parse(it: &mut token_stream::IntoIter) -> Self {
-             "license",
-             "alias",
-             "firmware",
-+            "imports_ns",
-         ];
-         const REQUIRED_KEYS: &[&str] = &["type", "name", "license"];
-         let mut seen_keys = Vec::new();
-@@ -137,6 +139,7 @@ fn parse(it: &mut token_stream::IntoIter) -> Self {
-                 "license" => info.license = expect_string_ascii(it),
-                 "alias" => info.alias = Some(expect_string_array(it)),
-                 "firmware" => info.firmware = Some(expect_string_array(it)),
-+                "imports_ns" => info.imports_ns = Some(expect_string_array(it)),
-                 _ => panic!("Unknown key \"{key}\". Valid keys are: {EXPECTED_KEYS:?}."),
-             }
- 
-@@ -195,6 +198,11 @@ pub(crate) fn module(ts: TokenStream) -> TokenStream {
-             modinfo.emit("firmware", &fw);
-         }
+         Ok(pwm::RoundedWaveform {
+-            status: status,
++            status,
+             hardware_waveform: wfhw,
+         })
      }
-+    if let Some(imports) = info.imports_ns {
-+        for ns in imports {
-+            modinfo.emit("import_ns", &ns);
-+        }
-+    }
- 
-     // Built-in modules also export the `file` modinfo string.
-     let file =
 
 -- 
 2.34.1
