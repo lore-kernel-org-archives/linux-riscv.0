@@ -4,54 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C92CCF9EE
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 12:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AC3DCCD1BF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 12:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:MIME-Version:
+	Message-Id:Date:Subject:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mZmwaHG5HBv1oSIkcjLlboqrot746hrITwpH+kAIqaQ=; b=V/KvwpvS3b828g
-	9nWD54wPbnJdAhGJtJuFG12Old+zyVf9kBa6vdmZp+yJUB0Gx4bW/UUiPZIgZHUrbSMC+GnWZko/E
-	pD2mZzHaEXEHvHcvUyTOUZSxftl2E6ns70Xc4PRn20qp5pBJ5H5YwnVFJIcwER8yCnsd7Rn/bT7fV
-	RzqcyShWkNedQZtsOLR7Lap9qKc1BQ63jVDYdstYfsa+3lRyxZ9DDf+pah61KFEiqEi7+ITey+OiM
-	KKt56TzeIG42EGB5ThsAP4o9FLFXEEGd8wlqf7XdfO+6kCyLqoIDBKEjBeKSIInEE2CVwFcl0D1kb
-	5qTyyUGY6lOSeF5txBpQ==;
+	In-Reply-To:List-Owner; bh=UbLAgXsN5q4IfOHkDIQzYblWf3e6G/gzKhCZj0z584o=; b=Dm
+	8+CQ78iIXqCcmKY4XREq02FOlgv9SiUymYN2RdAL6Akw4wXfkdCUw5Wt8LKvqPNV6zNQyCZ8iIJnT
+	iS4Fa7DEguYHI3A6q3P96jDDqjO+3r6Qx4a/cCEpn+mwBEe/PyECnp7cnwyDJU3XtdWtDvXc8m9Fb
+	a/b/z0CaPkFRtuh8YaDdm6cyhMB68/55HFCYgX1ar7ZTnKQ3r2DihG3Xlkl6cn9n0gBERNrsA5C6J
+	NaJWI/4C9oAuRbn+KLh/61XY7vdnet/DbM3iLXECeteYceyTf7JViZTV0/eGeQtsqmn1bDWpubpYv
+	Htl47AAW6Yd43+taHEdBH6DNruikeJIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDijX-0000000Fv3D-2cwj;
-	Tue, 28 Oct 2025 12:23:27 +0000
+	id 1vDijV-0000000Fv2P-06Qn;
+	Tue, 28 Oct 2025 12:23:25 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDijR-0000000Fv0n-0VL9
+	id 1vDijR-0000000Fv0f-0VHf
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Oct 2025 12:23:25 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251028122318euoutp025b9103d7b650d8a177056eea59d6e461~ypyjyGRC-0298502985euoutp02O
-	for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 12:23:18 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251028122318euoutp025b9103d7b650d8a177056eea59d6e461~ypyjyGRC-0298502985euoutp02O
+	Tue, 28 Oct 2025 12:23:24 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251028122315euoutp02b6abf5f603389f47ac1581817177ff11~ypyhZWief0277002770euoutp02W
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 12:23:15 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251028122315euoutp02b6abf5f603389f47ac1581817177ff11~ypyhZWief0277002770euoutp02W
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1761654198;
-	bh=uWMsqhhcsDbSWAzMcyI6QgsDz6D9C7w2POWICu7CupQ=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=LkN5orKn9XHXubVcNTl/1nuQvVq/uHBE3gmWBWr+njVfDGe1qwKGccWy7Qxfxhm73
-	 49AfQbivz9L/BefYPWUM7iENdKJsXJn+iYMhWgpqv5OdVk9PjyvmIJ89YOoRJsA+UY
-	 s/oYE8G8ywiXZMSqRTFvuNEigb0hGQsnDHVhhI6c=
+	s=mail20170921; t=1761654196;
+	bh=Jf/xisGgKKrfoTZqLlk9KCwMEgqafBF+UVNf9SDfM/0=;
+	h=From:Subject:Date:To:Cc:References:From;
+	b=ePtLi+yZBa45Z6llcrrDe1LA4v3KT3cBAih1OMsFuudiNnlhC0UF2y823h09oCQeE
+	 qq0adg0b8qf79v1m2JSS4qOLA2/3CjrR9msei/CwIXYnAtHANgym+qgnS+XPeXSfey
+	 rThellpIR8YWq5p1NXv9ufRZHqv/uZkqwQlSSaZY=
 Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251028122318eucas1p17161f0e1f2281c868688e8a4cc3d8f68~ypyjVyJo80564105641eucas1p1P;
-	Tue, 28 Oct 2025 12:23:18 +0000 (GMT)
+	20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5~ypyg5Mq3g0079300793eucas1p1o;
+	Tue, 28 Oct 2025 12:23:15 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251028122317eusmtip2563abe71fe7499c4e71a7162653a7e76~ypyih3a7n2998829988eusmtip2H;
-	Tue, 28 Oct 2025 12:23:17 +0000 (GMT)
+	20251028122314eusmtip2b41c21bf57cd2df99166eb249c16d3ee~ypygBMKKr0665606656eusmtip24;
+	Tue, 28 Oct 2025 12:23:14 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 28 Oct 2025 13:22:34 +0100
-Subject: [PATCH 3/4] pwm: th1520: Use module_pwm_platform_driver! macro
+Subject: [PATCH 0/4] Introduce import_ns support for Rust
+Date: Tue, 28 Oct 2025 13:22:31 +0100
+Message-Id: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
 MIME-Version: 1.0
-Message-Id: <20251028-pwm_fixes-v1-3-25a532d31998@samsung.com>
-In-Reply-To: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
+X-B4-Tracking: v=1; b=H4sIAIe1AGkC/yWN2w6DIAxAf8XwvBoh6pxP+4/FLAjVkQVw1Fti/
+	PehvvW0J6cbIwwGidXJxgLOhox3EfgtYeojXY9gdGQmMlHwTFQwLPbdmRUJlJIP3YrynhcVi/4
+	Q8DxE/dVcHPA3xeR4LZlFInkm6+QK8hLCRCM4XMcjDYsPX+N66KSDzgcgdPrgOZoZyEJ3Is8KL
+	Vr9JGlpcn2qvD3et5IQ4mzNWCdzmfIKguKs2fc/Gj/itOUAAAA=
+X-Change-ID: 20251028-pwm_fixes-cca9db267458
 To: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
 	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
 	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,  Benno Lossin
@@ -64,16 +68,15 @@ Cc: Stephen Rothwell <sfr@canb.auug.org.au>, rust-for-linux@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20251028122318eucas1p17161f0e1f2281c868688e8a4cc3d8f68
+X-CMS-MailID: 20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5
 X-Msg-Generator: CA
-X-RootMTR: 20251028122318eucas1p17161f0e1f2281c868688e8a4cc3d8f68
+X-RootMTR: 20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5
 X-EPHeader: CA
-X-CMS-RootMailID: 20251028122318eucas1p17161f0e1f2281c868688e8a4cc3d8f68
-References: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
-	<CGME20251028122318eucas1p17161f0e1f2281c868688e8a4cc3d8f68@eucas1p1.samsung.com>
+X-CMS-RootMailID: 20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5
+References: <CGME20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_052321_702597_584D53B2 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20251028_052321_692100_2EDEF4E7 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,37 +93,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The `pwm_th1520` Rust driver calls C functions from the `PWM` namespace,
-triggering `modpost` warnings due to missing namespace import
-declarations in its `.modinfo` section.
+This series addresses build warnings reported by `modpost` for the Rust
+PWM driver (`pwm_th1520`) in linux-next:
 
-Fix these warnings and simplify the module declaration by switching from
-the generic `kernel::module_platform_driver!` macro to the newly
-introduced PWM-specific `kernel::module_pwm_platform_driver!` macro.
-The new macro automatically handles the required `imports_ns: ["PWM"]`
-declaration.
+WARNING: modpost: module pwm_th1520 uses symbol pwmchip_release from
+namespace PWM, but does not import it.
 
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+These warnings occur because Rust modules, like C modules, need to
+declare their dependencies on C symbols exported to specific namespaces
+(using `EXPORT_SYMBOL_NS` in C). This is done by embedding
+"import_ns=<NAMESPACE>" tags into the module's `.modinfo` section, which
+`modpost` verifies.  The C macro `MODULE_IMPORT_NS()` handles this, but
+the Rust `module!` macro lacked equivalent functionality.
+
+This series introduces the necessary support:
+
+Patch 1 extends the core `module!` macro in `rust/macros/module.rs`
+to parse an optional `imports_ns: [...]` field and generate the required
+`import_ns` tags in the `.modinfo` section.
+
+Patch 2 adds a convenience macro `module_pwm_platform_driver!` to
+`rust/kernel/pwm.rs`. This macro wraps the standard
+`module_platform_driver!` and automatically adds `imports_ns: ["PWM"]`,
+simplifying module declaration for PWM driver authors.
+
+Patch 3 updates the `pwm_th1520` driver to use the new helper macro,
+fixing the build warnings.
+
+Patch 4 includes a minor clippy style fix for the `pwm_th1520` driver.
+
+Thanks to Stephen Rothwell for reporting the build warnings.
+
 ---
- drivers/pwm/pwm_th1520.rs | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Michal Wilczynski (4):
+      rust: macros: Add support for 'imports_ns' to module!
+      rust: pwm: Add module_pwm_platform_driver! macro
+      pwm: th1520: Use module_pwm_platform_driver! macro
+      pwm: th1520: Fix clippy warning for redundant struct field init
 
-diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
-index 0ad38b78be854ab3c10268fb20763d9962f59c0f..5fb123f5e9c6dc3a8ee9a7a47fa778c23213e957 100644
---- a/drivers/pwm/pwm_th1520.rs
-+++ b/drivers/pwm/pwm_th1520.rs
-@@ -369,7 +369,7 @@ fn probe(
-     }
- }
- 
--kernel::module_platform_driver! {
-+kernel::module_pwm_platform_driver! {
-     type: Th1520PwmPlatformDriver,
-     name: "pwm-th1520",
-     authors: ["Michal Wilczynski <m.wilczynski@samsung.com>"],
+ drivers/pwm/pwm_th1520.rs |  4 ++--
+ rust/kernel/pwm.rs        | 23 +++++++++++++++++++++++
+ rust/macros/module.rs     |  8 ++++++++
+ 3 files changed, 33 insertions(+), 2 deletions(-)
+---
+base-commit: cb6649f6217c0331b885cf787f1d175963e2a1d2
+change-id: 20251028-pwm_fixes-cca9db267458
+prerequisite-message-id: 20251016-rust-next-pwm-working-fan-for-sending-v16-0-a5df2405d2bd@samsung.com
+prerequisite-patch-id: bddf445f74431c647c134eabb3eb029374455a2e
+prerequisite-patch-id: 6fbf1d04b8ca1c72362d7f3a4e420be8f95a44a8
+prerequisite-patch-id: d4adae5b56cd13089bfa070bc4bd3bbc6f50b097
+prerequisite-patch-id: c1a631eb7a5d8f1d8dfdae847e8b32e8d5ea95d8
+prerequisite-patch-id: 6c2a0d316d9d0aa99346cb12afe4b9dc5ac217db
+prerequisite-patch-id: 4a05412207606f8df51db0068c4f57785b02a271
+prerequisite-patch-id: e0a0d54562e883b07cbe9c5b3721687de5b4ea55
 
+Best regards,
 -- 
-2.34.1
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 
 _______________________________________________
