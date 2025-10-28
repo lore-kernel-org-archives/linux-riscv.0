@@ -4,179 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 985C9CCF9E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 13:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A24CCD1BF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 13:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1x/4HQ94gPdgQR2Vc/5e/wV9E3yS5nVHRL/PidGrWeg=; b=gufw6U+enU7m5fu4OECTQ0vrq8
-	VpKx9WfY6UxwFkhq7wPZJ2g30gH9bYiAZX7FchjF0NQUefKrdPvXCrGAFgCrUbrlSkXWCHGFAebiW
-	ZtaXXm3qcm+1AU/p4BlWkKz9S9j7aM0Y7C2jFMiHBEgLcM869A1f7+iesXT2DpBS5ojtygad2SOBb
-	ztV9OgvQ6D6MOqq9aGJDCJ8f5/Q9uU9sqt2aD0EqwydmBYaMDqlALZ0LRRWbd+fVLfq8Vz65j/Y+6
-	X/Zv/gUYusdRTa9diK/DoOLWVFS+95+yfZkQYNdXcNzB5tQAsOo576x82TE4IDO+Qm1kC76L8OSb4
-	qMOjsIRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Qm7+Bk3CFZpLENik92vLSUo4JPz7IXf39+9CTHe4z5I=; b=IZPtWEkic4peH/
+	ZY6Wall3qCG216RZ0uNcDeRZ5DQ6aYVkvRpLDPU1hlDLJ8PSLnQPQ3eQ1O4nqXu+rk2xrrRgM8Rti
+	pNJ4CfhKgXJjT8c6JRNt+eROqOP7vh0v4KPE55kMHhaS6XA4ELUaYAgOaEmdmg+vis98yr1lDamgZ
+	oOV0t0Q+8Xo1jzdvNizZqnZMto/bYfR7wk9gWsyxxfc3ebOXLtNsGHDMf2Cj2n8AjHXUOHeJ0LrOn
+	5XuatCVM0Xl6DD+1nYjX1q/opsCVdYxWdUOpLjOXJYHXlWWeqi2GccRKSEH0oH+klxqz6AlOFkC6n
+	qdf5NAd6wwXFSHFEqLeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDjr2-0000000G0WF-2PVG;
-	Tue, 28 Oct 2025 13:35:16 +0000
-Received: from mail-canadaeastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c104::] helo=YQZPR01CU011.outbound.protection.outlook.com)
+	id 1vDjzV-0000000G19F-1nUA;
+	Tue, 28 Oct 2025 13:44:01 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDjqz-0000000G0Vi-10jt;
-	Tue, 28 Oct 2025 13:35:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=po4qdZWDd4xouSRppaG4JtS60cSoL9b05ac82E4ZkNY70RDk47bwx/iIMw0075InQEd6tN2sIYlmpl7YSNm28hCntaHo/VUgB1sEU0kyspqdpEcWqCI6ESNyM6wt465M0D4rU0TSgB4hPhreR5tr3sEdlZIN0wOPETq6aLJaXfiRvXyaH5OIsIXZGzqnPqvx1pe34LkXaaFwkCBryKR/EmV1wwpkZhHJ9TvBiYC196MYrC54NnB7d1JyGZO8bgUD/xnsxd76J1AHVEdRknKio2xuh5xIs4H8mLo4Wf3D0VyhNg08RADUjGHopQjEQ6hpUkFb6EQ83B1AFgpJCscPJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x8KDwnUXuOzCxlMVVRXvbcEUnahNKJayk2qWL8UaU7U=;
- b=JcUq+AUkSSvZLopjFaLtfuM6vQykcG0Q8h0coN/XusRZaMBCzR4bvVmoaXY9s3mls+B/+dFItySG/4a6iubs9Q7PcmYycZ4Pe798UzKSM8SSxfwkncIb2gqC9NKwhZdOtYvDYhGMeGzQPTpNaavyfN/ZE01snXziREZQOr2N9GTQuam1TdYOx0BCtejOLLRKGHFhmxP9XsT57IZ4QVDe0OitjNQtE4Nfr1QvZQ2tpEubV+mtQzjJKnVw/Bd0Y3EtMCPXf50dI8TTGex4hShZO7nQ5itYJeCeiSe3S1ScO5ZQDXuMI9f0fVq7Id+KS3oMdAmDNpCbvNIqLrirFCjcLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x8KDwnUXuOzCxlMVVRXvbcEUnahNKJayk2qWL8UaU7U=;
- b=JhpQ5Ms/jkNiLnDxW3G4B7Ks7H5bXIDOD0EKWUeAhbQTA3d+6OoUxbbsLcvnJASW6kRhl0vUUQllhGFmo0qto4PAIdBdWzFFUXwhk6bTQnAsvnoLVdFPeIG81u9IGHpQo9mveAk2nsMbzuDlXLlAmh/JBMa6PVgxCk+9jPAVcGgZDndhmBsbDBh6/sdu9VApK2GL7DNuBEZBwF05xnI9lpEqQyoz6ykLWrudUDvcdWXDrqwwschgVGacLWUGbkKSm5E2xI3ZX7tunQiC8Bp7BlYUJb5icJnMesBQoFKzXdG96ec3ifrM7HPjuTkXqT92wlR/8xihQQc4lQTyCrJb0w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
- by YT2PPF4A90670E9.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b08::439) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Tue, 28 Oct
- 2025 13:35:05 +0000
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::50f1:2e3f:a5dd:5b4]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::50f1:2e3f:a5dd:5b4%2]) with mapi id 15.20.9275.013; Tue, 28 Oct 2025
- 13:35:05 +0000
-Message-ID: <afc2d92c-bace-4128-b3c8-106e81cfd420@efficios.com>
-Date: Tue, 28 Oct 2025 09:35:03 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch V5 01/12] ARM: uaccess: Implement missing
- __get_user_asm_dword()
-To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
-Cc: kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, x86@kernel.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- David Laight <david.laight.linux@gmail.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
- Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
- <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org
-References: <20251027083700.573016505@linutronix.de>
- <20251027083745.168468637@linutronix.de>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <20251027083745.168468637@linutronix.de>
-X-ClientProxiedBy: YT3PR01CA0083.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:84::11) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:be::5)
+	id 1vDjzS-0000000G18D-0HdU
+	for linux-riscv@lists.infradead.org;
+	Tue, 28 Oct 2025 13:43:59 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 5A36925E06;
+	Tue, 28 Oct 2025 14:43:52 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id 9W7edxZGJM9z; Tue, 28 Oct 2025 14:43:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1761659031; bh=0eCX2hzh9/rOQP2c5dwLPKKJYD0q5MTnLSDk5aNZX9M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HGrqsDy1K11pC3XvY+UZFFi197y53VLfS+CJS6xLRum+crvECeY6OPwkQBtfYtcOh
+	 GcPYq9q3DZX6yTZZlQTTMfFQngnCXPBt3Gndm3D17Ns4SK64RSz5lQuv4KfcQ/cwAO
+	 ewuXsBpwxr603WwRlQQi6qNeB5mGGgbmOkCLu1RuoEIEmLx6d+Kxr2qfvGWc/cTtps
+	 ILwYJgqk1ezpSICZbqnfp8pXh6+sjSBiX/UL4eZb3fDxOKejmXkTKMEC2s9NISpLzw
+	 EcF1oXDYcUunXpNHckT5wCMczVYYVo5OU9viNmHQ/pZi2ZK7vpg1Mh/8RKClDwDUR9
+	 lJEs4Dq+2yUeQ==
+Date: Tue, 28 Oct 2025 13:42:44 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Drew Fustini <fustini@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Michal Wilczynski <m.wilczynski@samsung.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
+	Han Gao <gaohan@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>,
+	linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
+Subject: Re: [PATCH v3 5/5] riscv: dts: thead: Add reset controllers of more
+ subsystems for TH1520
+Message-ID: <aQDIVJNX0fOTbp7p@pie>
+References: <20251014131032.49616-1-ziyao@disroot.org>
+ <20251014131032.49616-6-ziyao@disroot.org>
+ <aP9d3-deezGtCbHr@gen8>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YT2PPF4A90670E9:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5ec36c05-6704-439f-f453-08de1626cd9f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bkF3S3RZbUdsLy9zc2R3SFZSM0VMQ3R3MHBjckVPRUczNXRFWHlnREVaL1FB?=
- =?utf-8?B?RVRuamR4dWoraFFXOUlybHlKVnE3MzllVkYvaVFqNjI4bTdnOVM1WWdEcEpR?=
- =?utf-8?B?N01zQ2p3QXpFSzJ6SDVnd2piaDZDaGdFekFKMmN6MVNzbEZ5Z0txTk1MdENu?=
- =?utf-8?B?dkRTWlMxUGlxMWJCNkJZclREd3U3RTVpZDkrcHllMWROZEY2LzRPdUw2Q1R4?=
- =?utf-8?B?UCtJMHN5cEV5KzlPSEZTSU5KR1FwT2dQcjl2dVFsUnp0YjJCWG03Ylp0ZFp3?=
- =?utf-8?B?MzRROVQ5NEpVYU56UG1LNmpNZGlKaEc1MlZkbDhPN1hPOEJDeWZDSzR4ak1x?=
- =?utf-8?B?Q0JrN21EblBLUGtnY2dXYTJsRjNPV0g4bS9UK3pXcEJFa3loR0RreEdLWUcr?=
- =?utf-8?B?eElTRC9XQ1piQ0dsSUZJSmZsaEZRcFNiT2JDVk5IM3JOWXdoL3F0VmJCYVdW?=
- =?utf-8?B?eStNWEt3WnBVWXF1bkNjL2wzZis2OFltdEI1RldIZVk1Rk9aUjRGYVpnYjFN?=
- =?utf-8?B?TXgxOHBqdlV0NERJYTBld2llV3NHa295SkVWSkp2U2ZXZ1BWbUFGMGNBdFVz?=
- =?utf-8?B?TWYzNkE4cVdQazkwVG1NcGxsRE1EYkJvTDNUR2hpTVpaWU0rODExZWxUWnh1?=
- =?utf-8?B?akhXWHdJK2RGZGxwMFZVV2ZTK2hjV2tGUEJWNit2aTNJYjlmZWdLTXh4ZUU1?=
- =?utf-8?B?UHJNcEFwK2pqV25lQ1pVV3dOVlJ4cEVhQ3J5K3ovMVZ3QmxxZEFNTW1qdWQw?=
- =?utf-8?B?ODNNSm9UTm1NTEhZaUF3QUdTZnFRWFpQam16RUM2N3pVcWZHOXhmeC9WSEdl?=
- =?utf-8?B?Q01GdVlrVFlMVGtoaWdHQUFwajRxWFpCSTNuNGtUQzZpVDZuOWcweHY1V2tq?=
- =?utf-8?B?S3ZYUDlBdE5aRTcvcEJxZmIzc0tFcERKZjdHNm9yOGdTM0JFL0xScE9PUzVv?=
- =?utf-8?B?UWtHSnJnK0wzTG5KN2tRL21rQWZVNTByWnVDeDB1L2c1SHRhRnRna3ZWNGJ5?=
- =?utf-8?B?enpla1BjU0hheFZIdmU1MmNjKy8waERoVU5VbjVXZlFMTVZaL0htblg3ZEFn?=
- =?utf-8?B?ajBHS3VVRTg5RGdQWjNWdFZIRk12Zld4VzVhNVdNK1MvYUduelBOS3VnY2xv?=
- =?utf-8?B?TFdIdzV6SjBleVBkb1IyY1ZZVHpHR2VIZk0xS0lsdGNlekFiSGxhOFdyWjhk?=
- =?utf-8?B?UmlZRlpYOFRlK0NuK2lqVVRXZWVkc1liNEVSQ2Vic1BvT2lzakZ6c2dvcEM5?=
- =?utf-8?B?Y1VoTFB3MmhvVy9iMUR2eWZacUtmdWZZSGRPYTU4eVQybmhhOXdKTDJnTmZY?=
- =?utf-8?B?UERPNUl0RzFwZGJkU0lOZ3VrMUNiUVdESmhkbnhhVGZCcTkrRmRtYWM5Tkp5?=
- =?utf-8?B?RTc5TFI4VndaMml6KzdzOWdTZkpWKzFnenRGdGFNNnd6OUlndmF0UURkcVZw?=
- =?utf-8?B?dmFiSlZjVGlYMTNMT3N2azlVU20wRFp0SmhMTnNOa1FSa0VITlljZS9KVmI1?=
- =?utf-8?B?Q3FFcVhFTmFzZTlPRkJ3c2Fkc25LU1g4UTRzdGVMOHJaZE9mSnBibHNqZUdm?=
- =?utf-8?B?N3M1K1RZc1EzdFpteXpSeTdNS1Q3UU5qTmJPL1g5VEROQU54bXFzc3N0V2tn?=
- =?utf-8?B?MjM1VEVZZGU1ZE1Wcjh2SEx0QWltY3NlZWZOdU9UcTB3U0RLbTZmV3g4RHpR?=
- =?utf-8?B?cEdUS0o2NnA1clBTVkRmaGNNdFdKbU41TlV5cUx5QUExSmkySHlwNzlaZjMz?=
- =?utf-8?B?Z2t3cTd6dk1TL1VJZkEzSEt0S3VteTlncWlPUXFSNCt0NHFrWDBGZFpOcGxI?=
- =?utf-8?B?bHJHaVZaYkJuTWFDRVVhVmVSRGtzOC94cVZxNG5oQnlsRmE3Wk43NndaMzVt?=
- =?utf-8?B?a1ZaNmRVcEI2Q21sOE5odDA4MXpSa25IcDlzWVppbjZuUEE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L2hsb20wekdFWDZNK1JmK0JDcjBKMEN1ZmptbTNqZCtEVDZ6enNyQTNYVkl5?=
- =?utf-8?B?Y040VTZUQXdwU0RIazJIclBxUXRRWC9YaEdQUzRUKzYwWXExalB4am9JOEF3?=
- =?utf-8?B?R0pEeE85TTkyZnc0Nnd6NVRiYTg4SDV6ZHB6WEU1RDM2cjdZY2dGbjVabk5v?=
- =?utf-8?B?aCtOSEhNeE9ka3NFQzYyWHAyUXZuUWRGM0FXSnlmbjZHYUVXRDdEaTh0ZDg0?=
- =?utf-8?B?bG5NNWJaOHVnR3R3SXpsb3g2eTBnbGpqVi9WMXBtT3ZvWit5Q3UvM3RJTk0x?=
- =?utf-8?B?SnRYcWtWWnFLbkxIVjc5TS9PWFY1OTVVWjZ2MUJzeDlTeUVwYnZzaXd3aURP?=
- =?utf-8?B?RFdsMlc2VEZNR3gxSWxmb1VMUnVIU3pQUzNUMnRHSlZ4NWpJT2pjdjdNT2Qz?=
- =?utf-8?B?ZHpZOGE2eWNPUjV3d0l5KzBwdXpJNVdmc2h5VGVQRDBaN2trdnlERzB4S3Z3?=
- =?utf-8?B?U0lVNkVYbTducysycUpFNDJBc3orcHVPNGk0dlhnR1NmWG1XVzJWOUNZdkJS?=
- =?utf-8?B?NUJSMFpBMWpRcjhQa2phSjhHRHdmamwzZk1TU082SDA4aDE3K09mTlRqWElY?=
- =?utf-8?B?SUpYQVV4UkRRT0FxcWpURzEwWjQ4WE5zQjVBVDNCR0ZPNmpCUG43R2JBN2dP?=
- =?utf-8?B?Q055SVlWY0ZYZ25LeTlZRVgvUDhUNVh4VmthZ1BsUTE0TGRQWXdqYWxOSHJY?=
- =?utf-8?B?TUNtMTF6bFdyMmRPSUFVTWpRZXdxRmFuRjBZSWhFNXBpV1VMRG1SQ0hrcDV4?=
- =?utf-8?B?dzdJK05zK1lYdUI0bEMrVzYwbFlXUE1VMUJ0d1NWc215TmZpUGMxRWxMcDZE?=
- =?utf-8?B?eXRLUXRoWVhXOEc0TFlhRWFRaTczUXhyTzhmMXBuUTVKem5ManozNjF1MUtx?=
- =?utf-8?B?MjBCcWNzdUUrZDNSZU5INGk2Z2lJWm9Xc08vS3ZKbE1ZY1dNcDJYUlcvMzlS?=
- =?utf-8?B?N2ZpczAyMGI5MGdxZWErNGxoY1FSeEp1a3RtNkZiTkVjNzNPOXlJNnVGcGVO?=
- =?utf-8?B?OFA4SVZPNk5vK213bzdSL0kyVDdSSHd6ZGEvTFVwclE5V2JVRXhFYlFnbmZi?=
- =?utf-8?B?bHZqdlFjRTZaRWNxaU1ndmsvMXUxZUVLR0ZrZkUvc3hYeStUVitaTGxOQ3h6?=
- =?utf-8?B?Tk40OEFWZWtsbnlVWThuYllIM3dwVFJXenlIR2ppZDZzaFQ0OVdtalZzWVhi?=
- =?utf-8?B?clIvbEhIYkNCZFVReGp2dFdON3h1cnU1ZXlreEFacTlHT1QvYjhlMTczY2JC?=
- =?utf-8?B?M0ZGZ3FZdUJQM2Jlc2pCdzZYQ3MzM1Q5YXd1SVJlSVZaVm9UbUZnUlN2UmQx?=
- =?utf-8?B?Wmp5RGlSWjIvdEpxd2pmazRyaGs5NzM3Wk9yemo1RXplbzgxamlXa21CQ21Q?=
- =?utf-8?B?UWlmRGdScnp2M3lHZ0xPNGZES0QwMjRsS3YrZkxSMUlHWWlpSWprRXlIS1VW?=
- =?utf-8?B?cXNxYmh6VFZkZDE5T2dxa0M4ejJzL0dUQkVTNmo1MWhBMmt1VEcxdFYzbWxp?=
- =?utf-8?B?b3hTbGdaaUFvek1ZZFpHRC95aHpmdlR2ZzF3ZHo1TlArZGo1YkpPdWNOa29r?=
- =?utf-8?B?YkRSMHdyUHJkT2R1YVF6emROdTJZdUxRQi9IQWJ6dWtnY2NkV3VCWTlFa0d4?=
- =?utf-8?B?azVHeklvNUl1ZS9yaUVuTit0OFppS1lVclZLVlE0by9FTTQzbDZhSkRoVHEy?=
- =?utf-8?B?Y1hraFFydU9ESkxlejlkM1h2VTFzc1dkTEZrUUJtblNnSkFoLzVtS2VoOG15?=
- =?utf-8?B?UHBGcE1CL05JMWZiaWJWZWFmNlpGTXhibWFZR0Y5RHpHWDhIUDA5dUZZUTVy?=
- =?utf-8?B?bHpqSVYyNDh1Z051Y0RKQVFpTTlGR3JrQ2NyLzhDaXZzMlJhQ2RBU1BaYjJS?=
- =?utf-8?B?akFKaDk5VzI3U0UyWnF6MUlQb2NoQ3hZcThENnJicS9GbFBCTnlvdXlRZlZ2?=
- =?utf-8?B?K1Z4dGppbWF4bHdTeGZQVDl4YURQc2JRbkJXNEptcFZjYVJXWUxqTms3WW5R?=
- =?utf-8?B?RlVkQm1WZTZlVDFFOVVMMHpQK1pPcWhoNEM4RDV6RXBnZ2h4K1UweE1UVDly?=
- =?utf-8?B?MkNVNTZxNTFhZTBGWE9ZVCttd1Bna0JycHNFc0lueWJ6YytDY2VZTll2bWtY?=
- =?utf-8?B?RVZVeWFiN01LeFhlMWtUbTlGL0pnWDQ4cHVyWEVFbjZ6ZGNqYXFmaEZYM1Qv?=
- =?utf-8?Q?rAVBe4jYTzTnYNb3xpF64+Q=3D?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ec36c05-6704-439f-f453-08de1626cd9f
-X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2025 13:35:05.0773
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wP09yp6S+orkLte9S9UPeLZTzV5lqKu/M4OvcaenOaYvP92IZ3cIVNxSzNzBizHwF0txA3V1dK//CaXkUOpcjdzQKELtMpkc24gTvjziHYE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PPF4A90670E9
+Content-Disposition: inline
+In-Reply-To: <aP9d3-deezGtCbHr@gen8>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_063513_611318_61C5606B 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20251028_064358_517379_741DBA9E 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,31 +80,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-27 04:43, Thomas Gleixner wrote:
-> When CONFIG_CPU_SPECTRE=n then get_user() is missing the 8 byte ASM variant
-> for no real good reason. This prevents using get_user(u64) in generic code.
+On Mon, Oct 27, 2025 at 11:56:15AM +0000, Drew Fustini wrote:
+> On Tue, Oct 14, 2025 at 01:10:32PM +0000, Yao Zi wrote:
+> > Describe reset controllers for VI, MISC, AP, DSP and AO subsystems. The
+> > one for AO subsystem is marked as reserved, since it may be used by AON
+> > firmware.
+> > 
+> > Signed-off-by: Yao Zi <ziyao@disroot.org>
+> > ---
+> >  arch/riscv/boot/dts/thead/th1520.dtsi | 37 +++++++++++++++++++++++++++
+> >  1 file changed, 37 insertions(+)
+> > 
+> > diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> > index e680d1a7c821..15d64eaea89f 100644
+> > --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> > +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> > @@ -277,6 +277,12 @@ clint: timer@ffdc000000 {
+> >  					      <&cpu3_intc 3>, <&cpu3_intc 7>;
+> >  		};
+> >  
+> > +		rst_vi: reset-controller@ffe4040100 {
+> > +			compatible = "thead,th1520-reset-vi";
+> > +			reg = <0xff 0xe4040100 0x0 0x8>;
 > 
-> Implement it as a sequence of two 4-byte reads with LE/BE awareness and
-> make the unsigned long (or long long) type for the intermediate variable to
-> read into dependend on the the target type.
+> Is this intentional so that the first VI_SUBSYS register, VISYS_SW_RST
+> at offset 0x100, will have an offset of 0 from the thead,th1520-reset-vi
+> reg in the driver?
+
+Yes, it's intentional for both VI and DSP subsystem. As you could see,
+excluding these TEE-only shadows, the first reset-related register in
+VI_SUBSYS is at offset 0x100. For DSP subsystem, it's at offset 0x28
+(and is the only reset-related register).
+
+I want to keep the first 0x100 bytes in VI_SUBSYS, and first 0x24 bytes
+in DSP_SUBSYS free, because they're clock-related registers, and should
+be reserved for clock driver introduced in the future.
+
+In TH1520 SoC, only AON and AP subsystems have strictly separated reset
+and clock register regions. For all other subsystems like VI, VO, VP,
+MISC and DSP, reset and clock registers tightly follow each other, but
+they don't interleave.
+
+This series follows the way in which VO clock/reset controllers are
+modeled in devicetree, where the subsystem region is split into two
+nodes, one for clock and one for reset. This will lead to less regular
+address/size values like what you noticed, as the registers do stay very
+close.
+
+> [snip]
+> > +		rst_dsp: reset-controller@ffef040028 {
+> > +			compatible = "thead,th1520-reset-dsp";
+> > +			reg = <0xff 0xef040028 0x0 0x4>;
 > 
-> The __long_type() macro and idea was lifted from PowerPC. Thanks to
-> Christophe for pointing it out.
+> Similar to rst_vi, is this intentional so that the first register,
+> DSPSYS_SW_RST at offset 0x28, will have an offset of 0 in the driver?
+> 
+> Thanks,
+> Drew
 
-[...]
-
-Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-
-
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+Best regards,
+Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
