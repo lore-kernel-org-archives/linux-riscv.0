@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AC3DCCD1BF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 12:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E61ECCD1BF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Oct 2025 12:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:MIME-Version:
-	Message-Id:Date:Subject:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc:Subject:
+	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:List-Owner; bh=UbLAgXsN5q4IfOHkDIQzYblWf3e6G/gzKhCZj0z584o=; b=Dm
-	8+CQ78iIXqCcmKY4XREq02FOlgv9SiUymYN2RdAL6Akw4wXfkdCUw5Wt8LKvqPNV6zNQyCZ8iIJnT
-	iS4Fa7DEguYHI3A6q3P96jDDqjO+3r6Qx4a/cCEpn+mwBEe/PyECnp7cnwyDJU3XtdWtDvXc8m9Fb
-	a/b/z0CaPkFRtuh8YaDdm6cyhMB68/55HFCYgX1ar7ZTnKQ3r2DihG3Xlkl6cn9n0gBERNrsA5C6J
-	NaJWI/4C9oAuRbn+KLh/61XY7vdnet/DbM3iLXECeteYceyTf7JViZTV0/eGeQtsqmn1bDWpubpYv
-	Htl47AAW6Yd43+taHEdBH6DNruikeJIQ==;
+	List-Owner; bh=n3Nvo4fdU0IHGCrJmzb6BgoGNQRG63P/hXDO/5IxhUY=; b=Ey7pBEPMIdSkpl
+	wpzUOFxDQsNOYlHCoNPapgdttPFM0pR5AhxtXEr06d0hqc0HL6kWy6ca7s8SeNGQf9SjiLHgrKqyZ
+	AUVs+G0GBg4OvnfxKlsMrGXSR10TLKaz1iWVCBsQGY8KDJGcEb//QVLk0cWEb8/8cBENQHtO+5iha
+	jTvfgzXhD63vGySkWHp1zxEjZLTiCD0BXMOoj7UlIWfKaLNa37luGiY6FgNQQ1EGh8asYRAV1Tt+Z
+	1EOCuvwzNBbkdm3ItJ+LQAGO7hhX3ig5o0UWf4dYkTNbreoV+M77nF7WdjrZYxg9ii6VtigN+AD3D
+	GxMpT5OWz/dqQ9PXAtsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDijV-0000000Fv2P-06Qn;
-	Tue, 28 Oct 2025 12:23:25 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1vDiwC-0000000FwiQ-0yEa;
+	Tue, 28 Oct 2025 12:36:32 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDijR-0000000Fv0f-0VHf
+	id 1vDiw9-0000000Fwhl-2Nms
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Oct 2025 12:23:24 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251028122315euoutp02b6abf5f603389f47ac1581817177ff11~ypyhZWief0277002770euoutp02W
-	for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 12:23:15 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251028122315euoutp02b6abf5f603389f47ac1581817177ff11~ypyhZWief0277002770euoutp02W
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1761654196;
-	bh=Jf/xisGgKKrfoTZqLlk9KCwMEgqafBF+UVNf9SDfM/0=;
-	h=From:Subject:Date:To:Cc:References:From;
-	b=ePtLi+yZBa45Z6llcrrDe1LA4v3KT3cBAih1OMsFuudiNnlhC0UF2y823h09oCQeE
-	 qq0adg0b8qf79v1m2JSS4qOLA2/3CjrR9msei/CwIXYnAtHANgym+qgnS+XPeXSfey
-	 rThellpIR8YWq5p1NXv9ufRZHqv/uZkqwQlSSaZY=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5~ypyg5Mq3g0079300793eucas1p1o;
-	Tue, 28 Oct 2025 12:23:15 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251028122314eusmtip2b41c21bf57cd2df99166eb249c16d3ee~ypygBMKKr0665606656eusmtip24;
-	Tue, 28 Oct 2025 12:23:14 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH 0/4] Introduce import_ns support for Rust
-Date: Tue, 28 Oct 2025 13:22:31 +0100
-Message-Id: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
-MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAIe1AGkC/yWN2w6DIAxAf8XwvBoh6pxP+4/FLAjVkQVw1Fti/
-	PehvvW0J6cbIwwGidXJxgLOhox3EfgtYeojXY9gdGQmMlHwTFQwLPbdmRUJlJIP3YrynhcVi/4
-	Q8DxE/dVcHPA3xeR4LZlFInkm6+QK8hLCRCM4XMcjDYsPX+N66KSDzgcgdPrgOZoZyEJ3Is8KL
-	Vr9JGlpcn2qvD3et5IQ4mzNWCdzmfIKguKs2fc/Gj/itOUAAAA=
-X-Change-ID: 20251028-pwm_fixes-cca9db267458
-To: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,  Benno Lossin
-	<lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,  Alice Ryhl
-	<aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,  Danilo Krummrich
-	<dakr@kernel.org>,  Michal Wilczynski <m.wilczynski@samsung.com>,  Drew
-	Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,  Fu Wei
-	<wefu@redhat.com>,  =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>, rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5
-X-Msg-Generator: CA
-X-RootMTR: 20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5
-X-EPHeader: CA
-X-CMS-RootMailID: 20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5
-References: <CGME20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5@eucas1p1.samsung.com>
+	Tue, 28 Oct 2025 12:36:30 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4271234b49cso792787f8f.3
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 05:36:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1761654987; x=1762259787; darn=lists.infradead.org;
+        h=in-reply-to:references:to:cc:subject:from:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iQyOvbQrIsm+G0Ym24/Af4gfQ7jSESa1LluzqC9uUdU=;
+        b=oD9ErHYm3D1rJjnXhOgREUsNdYQwgllu7/6NI4KkCQeK7Ql4c4OLKrc/1f4d4fvSxj
+         CABm54MNiu20Fd3R3aZRIs9CGyaBB/jiSDDpuOmJR5rA360nROKCjxq9GrhkVrGRJKlU
+         dEyGGua9mcbucPOwE/wkyw2oPh7ptmNJDMFLNO7DxtwZde6cSXenPy/w6ELh+jOUyHTi
+         xVy/9QZDaFWaK9y6912LXQJZOEka/sRcmCTthETrGRBnfffpF8/d+U9rFWZiG9ehrnWZ
+         r5V2OIHtpQ/2Eo59cbmqy0Ls2MBLXRd0ZsFxeGjpq6wUV7K7MB45FX79emIBIuwesC3o
+         Fw1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761654987; x=1762259787;
+        h=in-reply-to:references:to:cc:subject:from:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=iQyOvbQrIsm+G0Ym24/Af4gfQ7jSESa1LluzqC9uUdU=;
+        b=TgqXvMIzklECg3iIjc5huGt5Z3oYvLZeyGC0i3YNqHqaB0kuxn+yvX3wabqo7T/xqY
+         eQG7BCOmeAO6vFb/1zDp190BHNys6kFT+LOSPcPYjYEULSFtgGJUUZ+WuoO0a3qJfQM4
+         y7Gbq/YDljzRb1Amcma77seo2bqRZzaxBF1hEBzwizwIOZwh0N/enpuwcDQCOaB69YqC
+         qCCJIZBFPh/IwbLmVvPGooXILbpjOn5NYGkZf/6qXkeo0gMEHiIkJkhJSAH7ebVC4Ss3
+         HAI2MfQtE0C4BRbx3aiEv1gL2bYoM6rpLwah/bsbvCLZ1d8i6Ek5L6ZRElZu7Se9CwI8
+         6tRw==
+X-Forwarded-Encrypted: i=1; AJvYcCU1aTg/TYnqsJPp0oOsod5Ulq3KNAA1domW5tponBAs9dv0DKlH4sWZav9091cj65FEN4C2QZRfADQnsg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9oCJofQiieCe0pNiLDiWYtGtfNSuFlCnXlLdNLMAgjsHPVGIT
+	15f7UZv+cz2rE91X6hWYptcdytNYFDSjLu3gAT2EeH92I2R/4XTPxArKEiw0z2GH/eQ=
+X-Gm-Gg: ASbGncuQoAezK+TNusixiTWdjSqdbVgnt/8kFig3Kzj1wNCs9BKAkXIrYeJKxrtDiJJ
+	xgizPM20BujQ2QqLi2F2CnJo72AgAQVyhPZflDxCR9Cu23GYERZ5h3fvObWsguenm+SLijXAIOw
+	bGZvT6sKo0pZGALissYqbo9IawnlQ4wJIZbGXHqwXoLbwU3y/fGu9/KQDwi/EFRF77kYjFPRqDD
+	xi8R2pX4vblDgvH79Be2SWAsnNxI+whVMjPozWzxQF/lLwRo1WY+irtfzVDi0h088LmBPgbOwyp
+	fAQpJbjuny+mZ+6vHfeVKgSFxvWWWg8wgikQK0SI+XXHa6YQagsUwlAMkpZTWawu9duFFlAqdvx
+	dSMYfjXhqTOmS5x4SOZdedeqOnQVAr+kdVWIAe0NxyqEkcP7hbpGCBXP2VFHIBd69
+X-Google-Smtp-Source: AGHT+IERzNAPCuMV5ZEd056F4yvrhY3xaFUs/IZCciZzISu1FZ3xid6ZyglBvWFh7twn6bZPyUL+oQ==
+X-Received: by 2002:a05:6000:25c5:b0:425:6fb5:2ac8 with SMTP id ffacd0b85a97d-429a7e97509mr1501787f8f.9.1761654987044;
+        Tue, 28 Oct 2025 05:36:27 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::3052])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-429952e2e06sm20285678f8f.46.2025.10.28.05.36.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Oct 2025 05:36:26 -0700 (PDT)
+Mime-Version: 1.0
+Date: Tue, 28 Oct 2025 13:36:20 +0100
+Message-Id: <DDTYKLFUE3M0.17GD0S4OSQG16@ventanamicro.com>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+Subject: Re: [PATCH 3/3] riscv: crash: use NMI to stop the CPU
+Cc: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+ <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <luxu.kernel@bytedance.com>,
+ <atishp@rivosinc.com>, <cleger@rivosinc.com>, <ajones@ventanamicro.com>,
+ <apatel@ventanamicro.com>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <songshuaishuai@tinylab.org>,
+ <bjorn@rivosinc.com>, <charlie@rivosinc.com>, <masahiroy@kernel.org>,
+ <valentina.fernandezalanis@microchip.com>, <jassisinghbrar@gmail.com>,
+ <conor.dooley@microchip.com>, "linux-riscv"
+ <linux-riscv-bounces@lists.infradead.org>
+To: "Conor Dooley" <conor@kernel.org>, "Yunhui Cui"
+ <cuiyunhui@bytedance.com>
+References: <20251027133431.15321-1-cuiyunhui@bytedance.com>
+ <20251027133431.15321-4-cuiyunhui@bytedance.com>
+ <20251028-scallion-list-c8aa5f350286@spud>
+In-Reply-To: <20251028-scallion-list-c8aa5f350286@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_052321_692100_2EDEF4E7 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20251028_053629_630143_A45BFE38 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +109,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series addresses build warnings reported by `modpost` for the Rust
-PWM driver (`pwm_th1520`) in linux-next:
+2025-10-28T10:42:12+00:00, Conor Dooley <conor@kernel.org>:
+> On Mon, Oct 27, 2025 at 09:34:31PM +0800, Yunhui Cui wrote:
+>> NMI is more robust than IPI for stopping CPUs during crashes,
+>> especially with interrupts disabled. Add SBI_SSE_EVENT_LOCAL_CRASH_NMI
+>> eventid to implement NMI for stopping CPUs.
+>> 
+>> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+>> ---
+>> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+>> @@ -487,6 +487,7 @@ enum sbi_sse_attr_id {
+>>  #define SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS	0x00108000
+>>  #define SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED	0xffff0000
+>>  #define SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI		0xffff0001
+>> +#define SBI_SSE_EVENT_LOCAL_CRASH_NMI		0xffff0002
 
-WARNING: modpost: module pwm_th1520 uses symbol pwmchip_release from
-namespace PWM, but does not import it.
+This event isn't defined in the SBI pull request.
 
-These warnings occur because Rust modules, like C modules, need to
-declare their dependencies on C symbols exported to specific namespaces
-(using `EXPORT_SYMBOL_NS` in C). This is done by embedding
-"import_ns=<NAMESPACE>" tags into the module's `.modinfo` section, which
-`modpost` verifies.  The C macro `MODULE_IMPORT_NS()` handles this, but
-the Rust `module!` macro lacked equivalent functionality.
+I assume it's a pure software event that the platform shouldn't inject.
+If we want to reserve more events for software use, why not make them
+generic, like SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED?
 
-This series introduces the necessary support:
-
-Patch 1 extends the core `module!` macro in `rust/macros/module.rs`
-to parse an optional `imports_ns: [...]` field and generate the required
-`import_ns` tags in the `.modinfo` section.
-
-Patch 2 adds a convenience macro `module_pwm_platform_driver!` to
-`rust/kernel/pwm.rs`. This macro wraps the standard
-`module_platform_driver!` and automatically adds `imports_ns: ["PWM"]`,
-simplifying module declaration for PWM driver authors.
-
-Patch 3 updates the `pwm_th1520` driver to use the new helper macro,
-fixing the build warnings.
-
-Patch 4 includes a minor clippy style fix for the `pwm_th1520` driver.
-
-Thanks to Stephen Rothwell for reporting the build warnings.
-
----
-Michal Wilczynski (4):
-      rust: macros: Add support for 'imports_ns' to module!
-      rust: pwm: Add module_pwm_platform_driver! macro
-      pwm: th1520: Use module_pwm_platform_driver! macro
-      pwm: th1520: Fix clippy warning for redundant struct field init
-
- drivers/pwm/pwm_th1520.rs |  4 ++--
- rust/kernel/pwm.rs        | 23 +++++++++++++++++++++++
- rust/macros/module.rs     |  8 ++++++++
- 3 files changed, 33 insertions(+), 2 deletions(-)
----
-base-commit: cb6649f6217c0331b885cf787f1d175963e2a1d2
-change-id: 20251028-pwm_fixes-cca9db267458
-prerequisite-message-id: 20251016-rust-next-pwm-working-fan-for-sending-v16-0-a5df2405d2bd@samsung.com
-prerequisite-patch-id: bddf445f74431c647c134eabb3eb029374455a2e
-prerequisite-patch-id: 6fbf1d04b8ca1c72362d7f3a4e420be8f95a44a8
-prerequisite-patch-id: d4adae5b56cd13089bfa070bc4bd3bbc6f50b097
-prerequisite-patch-id: c1a631eb7a5d8f1d8dfdae847e8b32e8d5ea95d8
-prerequisite-patch-id: 6c2a0d316d9d0aa99346cb12afe4b9dc5ac217db
-prerequisite-patch-id: 4a05412207606f8df51db0068c4f57785b02a271
-prerequisite-patch-id: e0a0d54562e883b07cbe9c5b3721687de5b4ea55
-
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
-
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
