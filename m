@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A439FCCF9F0
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 14:49:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F27CCF9F6
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 14:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FvwSnT49e0+2vuwmFyOM6JuMLIWuM/7dcywK93xHuR8=; b=BQc6VDVun/ZBAw
-	2bWAo0gCF3a6wWpHhje5nghxO5HcfOJsS35ZW861Pv0rK8U3PRkzK7U7pIMG6taV+Uca+6ltaEtXr
-	q4+Dd08/9H3xnjfZCLdtgETqusLJ1oOzo1GYS1ufLVyHfjPSAn0iBBKCQ+7QBzAk2Tv8XkJFPoVkE
-	f7smGZb6LKlVXxmFuYSmJ8zZsLUUGlJNghx7BPROpuelXaYXlAS2P7J62XWWI4fvjK2akHOqr1gM1
-	PFUBgMjUfN57CBog2MkBtGYAig9ylKSyfYheMnXvPCAVG3Pxyr95FT9UfNZRldky7iHT5zCEJor10
-	MYxBz/TYPsEGmCkSqaLg==;
+	List-Owner; bh=RgXYHGlIIx4Ip/v38wL2u4J4q7Wcy2XsHbcZK/IxQbM=; b=tX+gigdpPTi3Wt
+	fux2R4kBzgbU0SirVs7nTlGPMy1CvQiekw67FK4bTdkGfOSxxa+E6m9XVgm0what0fWNyI7fPFXMP
+	S6TBE4sTVCjuuWOefiBgxVJc4dhXvU4Lrmn4lVlEI7bT4QqDNEazY8OvBhK2+h4fYExW0QHDTiHJY
+	6/GCKzDpfi8QFrXMHR4Gjn6JiB0Ywx3ouODw1dTjvtX9SAbUkuwtwq9r2oFd568mK8//7FH+XffUf
+	lEYkXSEm3naOn5Bo0PX8WrJm5L+rIr2LuuZMVpStQkeCBaevvGTYLOkjuFon1Oh56g6f7L1qtjE94
+	2xnmCpaReT4iK9LXEosg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7U5-00000001ebF-3wy1;
-	Wed, 29 Oct 2025 14:49:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vE7Xu-00000001fZR-2IvX;
+	Wed, 29 Oct 2025 14:53:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7U3-00000001eaT-3TYb;
-	Wed, 29 Oct 2025 14:49:07 +0000
+	id 1vE7Xr-00000001fXX-1H9F;
+	Wed, 29 Oct 2025 14:53:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A44E661E65;
-	Wed, 29 Oct 2025 14:49:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA588C4CEF7;
-	Wed, 29 Oct 2025 14:49:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 12E3741728;
+	Wed, 29 Oct 2025 14:53:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39C64C19423;
+	Wed, 29 Oct 2025 14:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761749346;
-	bh=HxTqJgI/0X/CEmspyZav8h3FXPWX3qB1qsKFzsoN4as=;
+	s=k20201202; t=1761749581;
+	bh=DycaBBkGuqgEIP5677gSgx8QDJGofxkMNPMcP3M730o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tlja5Mq4eRWp697QA/xQ+7a9KJbcnrMdob9cxsXt9OIQA755+bFzbNzRv16bZ4K7i
-	 B9LDftZXKO7gStpMqGdXCVrWsVQ+ROKQ4K+QvkxPz38VTj++u90ce6yRHNCsPSi5pD
-	 v/JhE3LMKbYoWFWsQEzSVXb3Hm7XB2z8+8xOj7ZC7Xvnlx4rEDqU8ejlyTgLe/T9R2
-	 3vUJArOhgOLb46RZqe+pCWQx7olKyL6EJb+OqaocNuhbMh3d/KGFm/ek9z7wlrO99H
-	 rF7V3yVMeDSwqgzEw1be+gsJR70/J/KwRrqpNcrj62az9WVQF5F5bIT1qWPQ84EK24
-	 yw1IH2IxbPQpw==
-Date: Wed, 29 Oct 2025 15:49:03 +0100
+	b=NbRDLF5bQ+u4J4hiySQAVpBuc86Gn1rrbceqZEKYNWpKF9yoAhVdLiG/Nu9SRzin5
+	 ddwOS2DAvBL0w6K59co5lqXWGrpHXdyA3+e94n4XKlatrRRprHxYDEy/DFtpqcJYjz
+	 jGBmveuocLom0Tr99M8s/YfJisMETw3u7WfPV8VPmObP73KGTMrcXJF2ZKhuh5kL4K
+	 FNZiQ5jjE+Qy5WcINDDA3sOHLfgNQyF9ljeM8CBlvKWvkNPOMLvSsJkY31UBeqPnRr
+	 epdow2onJrow0Coha3Tk5/8X8R1mpOEWDHWRuB0t8h2sykd3/evOgK+UEPDUs1Kui5
+	 FM7cF5Ys9ZgFA==
+Date: Wed, 29 Oct 2025 15:52:58 +0100
 From: Frederic Weisbecker <frederic@kernel.org>
 To: Valentin Schneider <vschneid@redhat.com>
 Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
 	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
 	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
 	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
 	Dave Hansen <dave.hansen@linux.intel.com>,
@@ -79,18 +80,19 @@ Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
 	Yair Podemsky <ypodemsk@redhat.com>,
 	Marcelo Tosatti <mtosatti@redhat.com>,
 	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [RFC PATCH v6 27/29] x86/mm/pti: Implement a TLB flush
- immediately after a switch to kernel CR3
-Message-ID: <aQIpXyX-z8ltB1i5@localhost.localdomain>
+Subject: Re: [PATCH v6 23/29] context-tracking: Introduce work deferral
+ infrastructure
+Message-ID: <aQIqSq2FWyHg0Y3p@localhost.localdomain>
 References: <20251010153839.151763-1-vschneid@redhat.com>
- <20251010153839.151763-28-vschneid@redhat.com>
- <aQDoVAs5UZwQo-ds@localhost.localdomain>
- <xhsmh3472qah4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <aQHtBudA4aw4a3gT@localhost.localdomain>
- <xhsmhwm4dpzh4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <20251010153839.151763-24-vschneid@redhat.com>
+ <aQDMfu0tzecFzoGr@localhost.localdomain>
+ <xhsmh5xbyqas1.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <xhsmhwm4dpzh4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+In-Reply-To: <xhsmh5xbyqas1.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251029_075303_381542_B1B3DD11 
+X-CRM114-Status: GOOD (  26.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,67 +109,70 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Le Wed, Oct 29, 2025 at 03:13:59PM +0100, Valentin Schneider a =E9crit :
-> On 29/10/25 11:31, Frederic Weisbecker wrote:
-> > Le Wed, Oct 29, 2025 at 11:16:23AM +0100, Valentin Schneider a =E9crit :
-> >> On 28/10/25 16:59, Frederic Weisbecker wrote:
-> >> > Le Fri, Oct 10, 2025 at 05:38:37PM +0200, Valentin Schneider a =E9cr=
-it :
-> >> >> @@ -171,8 +172,27 @@ For 32-bit we have the following conventions -=
- kernel is built with
-> >> >>      andq    $(~PTI_USER_PGTABLE_AND_PCID_MASK), \reg
-> >> >>  .endm
-> >> >>
-> >> >> -.macro COALESCE_TLBI
-> >> >> +.macro COALESCE_TLBI scratch_reg:req
-> >> >>  #ifdef CONFIG_COALESCE_TLBI
-> >> >> +	/* No point in doing this for housekeeping CPUs */
-> >> >> +	movslq  PER_CPU_VAR(cpu_number), \scratch_reg
-> >> >> +	bt	\scratch_reg, tick_nohz_full_mask(%rip)
-> >> >> +	jnc	.Lend_tlbi_\@
-> >> >
-> >> > I assume it's not possible to have a static call/branch to
-> >> > take care of all this ?
-> >> >
-> >>
-> >> I think technically yes, but that would have to be a per-cpu patchable
-> >> location, which would mean something like each CPU having its own copy=
- of
-> >> that text page... Unless there's some existing way to statically optim=
-ize
-> >>
-> >>   if (cpumask_test_cpu(smp_processor_id(), mask))
-> >>
-> >> where @mask is a boot-time constant (i.e. the nohz_full mask).
+Le Wed, Oct 29, 2025 at 11:09:50AM +0100, Valentin Schneider a =E9crit :
+> On 28/10/25 15:00, Frederic Weisbecker wrote:
+> > Le Fri, Oct 10, 2025 at 05:38:33PM +0200, Valentin Schneider a =E9crit :
+> >> +	old =3D atomic_read(&ct->state);
+> >> +
+> >> +	/*
+> >> +	 * The work bit must only be set if the target CPU is not executing
+> >> +	 * in kernelspace.
+> >> +	 * CT_RCU_WATCHING is used as a proxy for that - if the bit is set, =
+we
+> >> +	 * know for sure the CPU is executing in the kernel whether that be =
+in
+> >> +	 * NMI, IRQ or process context.
+> >> +	 * Set CT_RCU_WATCHING here and let the cmpxchg do the check for us;
+> >> +	 * the state could change between the atomic_read() and the cmpxchg(=
+).
+> >> +	 */
+> >> +	old |=3D CT_RCU_WATCHING;
 > >
-> > Or just check housekeeping_overriden static key before everything. This=
- one is
-> > enabled only if either nohz_full, isolcpus or cpuset isolated partition=
- (well,
-> > it's on the way for the last one) are running, but those are all niche,=
- which
-> > means you spare 99.999% kernel usecases.
+> > Most of the time, the task should be either idle or in userspace. I'm s=
+till not
+> > sure why you start with a bet that the CPU is in the kernel with RCU wa=
+tching.
 > >
 > =
 
-> Oh right, if NOHZ_FULL is actually in use.
+> Right I think I got that the wrong way around when I switched to using
+> CT_RCU_WATCHING vs CT_STATE_KERNEL. That wants to be
 > =
 
-> Yeah that housekeeping key could do since, at least for the cmdline
-> approach, it's set during start_kernel(). I need to have a think about the
-> runtime cpuset case.
+>   old &=3D ~CT_RCU_WATCHING;
+> =
 
-You can ignore the runtime thing and simply check the static key before rea=
-ding
-the housekeeping mask. For now nohz_full is only enabled by cmdline.
+> i.e. bet the CPU is NOHZ-idle, if it's not the cmpxchg fails and we don't
+> store the work bit.
 
-> Given we have ALTERNATIVE's in there I assume something like a
-> boot-time-driven static key could do, but I haven't found out yet if and
-> how that can be shoved in an ASM file.
+Right.
 
-Right, I thought I had seen static keys in ASM already but I can't find it
-anymore. arch/x86/include/asm/jump_label.h is full of reusable magic
-though.
+> =
+
+> >> +	/*
+> >> +	 * Try setting the work until either
+> >> +	 * - the target CPU has entered kernelspace
+> >> +	 * - the work has been set
+> >> +	 */
+> >> +	do {
+> >> +		ret =3D atomic_try_cmpxchg(&ct->state, &old, old | (work << CT_WORK=
+_START));
+> >> +	} while (!ret && !(old & CT_RCU_WATCHING));
+> >
+> > So this applies blindly to idle as well, right? It should work but note=
+ that
+> > idle entry code before RCU watches is also fragile.
+> >
+> =
+
+> Yeah I remember losing some hair trying to grok the idle entry situation;
+> we could keep this purely NOHZ_FULL and have the deferral condition be:
+> =
+
+>   (ct->state & CT_STATE_USER) && !(ct->state & CT_RCU_WATCHING)
+
+Well, after all what works for NOHZ_FULL should also work for idle. It's
+preceded by entry code as well (or rather __cpuidle).
 
 Thanks.
 
