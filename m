@@ -4,119 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DFDCCF9EB
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 14:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A439FCCF9F0
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 14:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T0AhtEQB0W8n2pehHvLnVoBEs4fInvkCsUHv8Jg6QKA=; b=jUtF0FCvIL/cphQ/5j/oSUPWfS
-	rIvu6t0V/FINpgVT6DZJ/IvYOLQ0BGRJ9n1XWe/wXovIKCohYId3P6AfxukSbw9KxXwhY8sdZ4MPw
-	70w/FMaIiRcmTWI5O8odGwUEwgR41m8o1/pbnXQ9GqEo/owREVzdKcSkxGxn9ryP+yMuvDsZh47zN
-	r8D+nriituu3/WUOvQ5QUuyPXYdtMuAmg+S2Ycv9v2UedZjuMLPhUwcD6HTp7qzI4OW+mdUERUPeb
-	RW5J5cnclAkT1k+9ilYjCUn+0PiJfjl4byMZFUnaGzU0jr+eV7hFk24FmqJcL4FP3+9co89gpEBNm
-	F6pdN1Ig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FvwSnT49e0+2vuwmFyOM6JuMLIWuM/7dcywK93xHuR8=; b=BQc6VDVun/ZBAw
+	2bWAo0gCF3a6wWpHhje5nghxO5HcfOJsS35ZW861Pv0rK8U3PRkzK7U7pIMG6taV+Uca+6ltaEtXr
+	q4+Dd08/9H3xnjfZCLdtgETqusLJ1oOzo1GYS1ufLVyHfjPSAn0iBBKCQ+7QBzAk2Tv8XkJFPoVkE
+	f7smGZb6LKlVXxmFuYSmJ8zZsLUUGlJNghx7BPROpuelXaYXlAS2P7J62XWWI4fvjK2akHOqr1gM1
+	PFUBgMjUfN57CBog2MkBtGYAig9ylKSyfYheMnXvPCAVG3Pxyr95FT9UfNZRldky7iHT5zCEJor10
+	MYxBz/TYPsEGmCkSqaLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7N3-00000001cx5-1vBE;
-	Wed, 29 Oct 2025 14:41:53 +0000
-Received: from toucan.tulip.relay.mailchannels.net ([23.83.218.254])
+	id 1vE7U5-00000001ebF-3wy1;
+	Wed, 29 Oct 2025 14:49:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7N0-00000001cvP-3iQK
-	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 14:41:52 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id CD544721631;
-	Wed, 29 Oct 2025 14:41:49 +0000 (UTC)
-Received: from fr-int-smtpout24.hostinger.io (trex-green-8.trex.outbound.svc.cluster.local [100.123.122.56])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id B43DD721840;
-	Wed, 29 Oct 2025 14:41:44 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1761748909; a=rsa-sha256;
-	cv=none;
-	b=i3WSzsLYo7teMpHtZN0AjNdZ4foxz/q0PwZGvGzYNAIojH4EsbGQ17K8774xGyd6mxTMLB
-	AIFpEh/IpG6S27BBxOBmbMKyRkp0I+RTMkqY9VNnJmGjAp/5zhmQSBIZ9ik8ZmdyxDfV9Y
-	CtoZTo531IguB7U3eMa+JvTOGrgOw5o1T8HKs4qiYSdjIzMLp49EKnCnj2XlxlxJhXl6do
-	UTgcHe4K0jjWChiat2QCh3vY/If2abb5ELbVYOrPljt73WetzLmien5MinVYd8jlcfxXK9
-	JzsdRypXg1FcWEly0Ooy8DLhFjhrL9z6fMsBuo6Q5q0ppMrMnUTDAHBzGlNXNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1761748909;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=S1xXs3JGvgEgRE8/1iINIBl8/G8ZW5nPLsCFO5WNNV0=;
-	b=Imoa1XqZLGBRzJTPpZvMEnuo8HAAAUTw7rSu0RE6UGjbbYihjRQmrK+8e2MYrOuoBADE7b
-	CuJT06i83I8m6y86e2viB2TJxjZjs7wqrJixsuEj7/qwyycE/3eC/YpWhwae1WeRGqjHLT
-	RfaN50i7GBxmaOFuBUSJp385MIVpyCXG1GuDgtyg/AkunqUdWRxp0eTgvt/YOBYnP3rKJf
-	8fj2MFxLZNRLwM02rXkruzCCteryjWobWwkw8/0IfESu5fWEGmpN6COzIlqxXMfPLWPd5z
-	aIDYo50nQ/8sItNpH4GIGPp/TkxGe7twl2s2HW1UUfsJgquGeLTb5D0M6k+q0w==
-ARC-Authentication-Results: i=1;
-	rspamd-77bb85d8d5-wq79s;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Hysterical-Tart: 443c3104291b6376_1761748909567_1523129841
-X-MC-Loop-Signature: 1761748909567:1662878829
-X-MC-Ingress-Time: 1761748909567
-Received: from fr-int-smtpout24.hostinger.io (fr-int-smtpout24.hostinger.io
- [148.222.54.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.123.122.56 (trex/7.1.3);
-	Wed, 29 Oct 2025 14:41:49 +0000
-Received: from [IPV6:2001:861:4450:d360:cc54:3014:8454:2c6d] (unknown [IPv6:2001:861:4450:d360:cc54:3014:8454:2c6d])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4cxVLX0ChZz1xtT;
-	Wed, 29 Oct 2025 14:41:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1761748903;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=S1xXs3JGvgEgRE8/1iINIBl8/G8ZW5nPLsCFO5WNNV0=;
-	b=aTHNEf/TnTquIxOWInYfDDw0QevBSwKkHEJE/6vbCJQM1iNFWM51fjwTq9EAa+mTsTrYwZ
-	vV2AjwVGgO1JRwKU7PPOJS8YvnGYfx6AuJh8sBDj8+PsufMUh+wx9+575Vqx5rwDFoGMES
-	0kcc4EG6lv9H5GM884Sa677DwQm1/uEzftU4PzLO3sedt4DZK5ParJh1A2Li57V2jOlVii
-	MjKQ2uvY2X8qGmdqo1CYuJN2HSQ7Kl7l8UAjzDGF97sZl6IPETXndKg+ONej2dAfktovuA
-	HjYxrk9I/zAv/CWN4En5fGw378QPqUKXB54XlBdnFWBwTcFdXvSiTjPT+009Vw==
-Message-ID: <6e4bf564-07e9-44a3-a18f-69bc716ca575@rootcommit.com>
+	id 1vE7U3-00000001eaT-3TYb;
+	Wed, 29 Oct 2025 14:49:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A44E661E65;
+	Wed, 29 Oct 2025 14:49:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA588C4CEF7;
+	Wed, 29 Oct 2025 14:49:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761749346;
+	bh=HxTqJgI/0X/CEmspyZav8h3FXPWX3qB1qsKFzsoN4as=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tlja5Mq4eRWp697QA/xQ+7a9KJbcnrMdob9cxsXt9OIQA755+bFzbNzRv16bZ4K7i
+	 B9LDftZXKO7gStpMqGdXCVrWsVQ+ROKQ4K+QvkxPz38VTj++u90ce6yRHNCsPSi5pD
+	 v/JhE3LMKbYoWFWsQEzSVXb3Hm7XB2z8+8xOj7ZC7Xvnlx4rEDqU8ejlyTgLe/T9R2
+	 3vUJArOhgOLb46RZqe+pCWQx7olKyL6EJb+OqaocNuhbMh3d/KGFm/ek9z7wlrO99H
+	 rF7V3yVMeDSwqgzEw1be+gsJR70/J/KwRrqpNcrj62az9WVQF5F5bIT1qWPQ84EK24
+	 yw1IH2IxbPQpw==
+Date: Wed, 29 Oct 2025 15:49:03 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [RFC PATCH v6 27/29] x86/mm/pti: Implement a TLB flush
+ immediately after a switch to kernel CR3
+Message-ID: <aQIpXyX-z8ltB1i5@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <20251010153839.151763-28-vschneid@redhat.com>
+ <aQDoVAs5UZwQo-ds@localhost.localdomain>
+ <xhsmh3472qah4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <aQHtBudA4aw4a3gT@localhost.localdomain>
+ <xhsmhwm4dpzh4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com, devicetree@vger.kernel.org,
- sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 2/5] arm64: dts: sophgo: add initial Milk-V Duo S board
- support
-To: Joshua Milas <josh.milas@gmail.com>, tglx@linutronix.de, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, unicorn_wang@outlook.com,
- inochiama@gmail.com, paul.walmsley@sifive.com, samuel.holland@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- alexander.sverdlin@gmail.com, rabenda.cn@gmail.com,
- thomas.bonnefille@bootlin.com, chao.wei@sophgo.com,
- liujingqi@lanxincomputing.com
-References: <20251029001052.36774-1-josh.milas@gmail.com>
- <20251029001052.36774-3-josh.milas@gmail.com>
- <4b1b2580-63ce-4ce8-b4a9-1763d3d3a253@rootcommit.com>
-Content-Language: en-US, fr
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Organization: Root Commit
-In-Reply-To: <4b1b2580-63ce-4ce8-b4a9-1763d3d3a253@rootcommit.com>
-Date: Wed, 29 Oct 2025 14:41:40 +0000 (UTC)
-X-CM-Analysis: v=2.4 cv=Lflu6Sfi c=1 sm=1 tr=0 ts=690227a6 a=cfTWVnPyVfvWbvVVnrj+XQ==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=-d3y0XjIFKyu09ZH-IMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=URPqgtl0u8oA:10 a=NcxpMcIZDGm-g932nG_k:22
-X-CM-Envelope: MS4xfHOzqohSyERV3CJIWO+IJIU8BQRPxIPwrQrUV+4GAs1IWYTl+vbhEX6eXClg5kyn3CmwykLaUiQ7Puc9aw+ckgifACezeIajAZLft/NMzaxbl1bjqTH/ cmK5oYOArSLZRvcIdNSH8xa9NPck0uNuLsKc5gex+MidQzKfJazvwkSSkh3zrWfQew2oG6ebqZE2XhwlJjSA/KHFmWHC+eYCRCU73jCIem2k305uXDvS3cZH IYkM2M1HMvQzzdDZq4h4FZ57vNsZ4Xnebs4BTkuc5WHnASdCVtLd4Felqspt7WZo8+tqgms+KVzGzt5AQtxnjIXAFTvCJRk5eS1ylwNdcgTjQz9R6SLm3I/w z3H1GeCV4+8hMSktb6P34ME7Qwzi/MJNJ1LgGoi+bTPDJMkmb3Ol3CDXghCGXXkgQHiQH9hxI2HM6JwcaylQSb2E4LlDDwl77s7OvTHGFvR6ohBsX0kwTXSa +phUG42SvbicvWSpSoLouBPHAYqv8P9ZmNEiutoWWUb8288YPcXhH8SmvwWnyvOXuOQhrU36LPx2nnjbn5yc2o0jIxV0rQieYY2mnK8n49306fJYKhAEteUL XF0D+RX7os5d39KXaa+mflRdTktPHjBszKHnuhrX1HkE8yxFrT0K9rptPA2CYTepyn97RqT9aKpUveWyCDeG5KH3QfJ7bT0EmLVKpg1rrxb1rCiNBEAVP4yC L0DxS7hY4X2fm3AtfNq7ls/6CHRD/c4+CQkAQKs4IgT0Kb2lS0lDmmO2QJGO5HLE5Xp5lIutq7Fwg3iSBXcgb8NjGEK76DcMbW62G0XXIfhc2lQlPC4wRB0U eubIa1NRquaD8ce5e4rAvWokg1vktm0qW9iraNtqp8cCqlJspet8NEVsZiRrxdC/fnvTSiotIZRECtjNuV3xcvvPyMm2W+Tj4Y71a9LBRgFK6YKuRgH49WsS 1B8jGMBo2yXd3ah
- 5ilCweGa3rx1sj85eeFLn9JjmjPbD8fCGa7d5SlNrB2O8u5DRdJOsgA==
-X-AuthUser: michael.opdenacker@rootcommit.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_074151_248857_E77F33D6 
-X-CRM114-Status: UNSURE (   5.52  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <xhsmhwm4dpzh4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,19 +102,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-R3JlZXRpbmdzLAoKT24gMTAvMjkvMjUgMTM6MzUsIE1pY2hhZWwgT3BkZW5hY2tlciB3cm90ZToK
-Pgo+IEkgbWFuYWdlZCB0byBib290IHRoZSBib2FyZCBhbmQgcnVuIHRlc3RzOgo+Cj4gVGVzdGVk
-IHN1Y2Nlc3NmdWxseToKPgo+IMKgKiB1YXJ0MDogYm9vdCBjb25zb2xlCj4gwqAqIG1tYzAgKHNk
-aGNpMD8pOiByb290IGZpbGVzeXN0ZW0KPgo+IElzc3VlcwoKCi4uLgpJIHJlYWxpemUgSSByZXBs
-aWVkIHRvIHRoZSBhcm02NCBwYXJ0IG9mIHRoZSB0aHJlYWQsIGJ1dCBpbmRlZWQgSSByYW4gbXkg
-CnRlc3RzIG9uIHJpc2N2LgpNaWNoYWVsLgoKLS0gCk1pY2hhZWwgT3BkZW5hY2tlcgpSb290IENv
-bW1pdApZb2N0byBQcm9qZWN0IGFuZCBPcGVuRW1iZWRkZWQgVHJhaW5pbmcgY291cnNlIC0gTGVh
-cm4gYnkgZG9pbmc6Cmh0dHBzOi8vcm9vdGNvbW1pdC5jb20vdHJhaW5pbmcveW9jdG8vCgoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Le Wed, Oct 29, 2025 at 03:13:59PM +0100, Valentin Schneider a =E9crit :
+> On 29/10/25 11:31, Frederic Weisbecker wrote:
+> > Le Wed, Oct 29, 2025 at 11:16:23AM +0100, Valentin Schneider a =E9crit :
+> >> On 28/10/25 16:59, Frederic Weisbecker wrote:
+> >> > Le Fri, Oct 10, 2025 at 05:38:37PM +0200, Valentin Schneider a =E9cr=
+it :
+> >> >> @@ -171,8 +172,27 @@ For 32-bit we have the following conventions -=
+ kernel is built with
+> >> >>      andq    $(~PTI_USER_PGTABLE_AND_PCID_MASK), \reg
+> >> >>  .endm
+> >> >>
+> >> >> -.macro COALESCE_TLBI
+> >> >> +.macro COALESCE_TLBI scratch_reg:req
+> >> >>  #ifdef CONFIG_COALESCE_TLBI
+> >> >> +	/* No point in doing this for housekeeping CPUs */
+> >> >> +	movslq  PER_CPU_VAR(cpu_number), \scratch_reg
+> >> >> +	bt	\scratch_reg, tick_nohz_full_mask(%rip)
+> >> >> +	jnc	.Lend_tlbi_\@
+> >> >
+> >> > I assume it's not possible to have a static call/branch to
+> >> > take care of all this ?
+> >> >
+> >>
+> >> I think technically yes, but that would have to be a per-cpu patchable
+> >> location, which would mean something like each CPU having its own copy=
+ of
+> >> that text page... Unless there's some existing way to statically optim=
+ize
+> >>
+> >>   if (cpumask_test_cpu(smp_processor_id(), mask))
+> >>
+> >> where @mask is a boot-time constant (i.e. the nohz_full mask).
+> >
+> > Or just check housekeeping_overriden static key before everything. This=
+ one is
+> > enabled only if either nohz_full, isolcpus or cpuset isolated partition=
+ (well,
+> > it's on the way for the last one) are running, but those are all niche,=
+ which
+> > means you spare 99.999% kernel usecases.
+> >
+> =
+
+> Oh right, if NOHZ_FULL is actually in use.
+> =
+
+> Yeah that housekeeping key could do since, at least for the cmdline
+> approach, it's set during start_kernel(). I need to have a think about the
+> runtime cpuset case.
+
+You can ignore the runtime thing and simply check the static key before rea=
+ding
+the housekeeping mask. For now nohz_full is only enabled by cmdline.
+
+> Given we have ALTERNATIVE's in there I assume something like a
+> boot-time-driven static key could do, but I haven't found out yet if and
+> how that can be shoved in an ASM file.
+
+Right, I thought I had seen static keys in ASM already but I can't find it
+anymore. arch/x86/include/asm/jump_label.h is full of reusable magic
+though.
+
+Thanks.
+
+-- =
+
+Frederic Weisbecker
+SUSE Labs
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
