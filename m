@@ -4,61 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A139CCF9EB
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 10:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A860CCF9E9
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 10:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z6rsL1zPX7lmeWvPdpJveYTnKWxvbDgWr6Nxip5jSWk=; b=GXZ4ylR/ywUT8YOT4VqD9560+a
-	afucIo5A+RMWz90tsiTC9kRgcoxmD4VCia4ppmEws4MWkZXg4Z0ePY68l3yKOG4SEkAL3N/a28puK
-	2Xhy4xkobX1gZApV9fRjyeiy8YFB3RZCDjM5EYXaF9cJhQQn0KLEA4R/t7SmPEqClPhNR4zEGJ6AB
-	cg0KC3r7Vd0a7cDlcipJF8Q7yeUUjxUyunAsg9/emE1gR9rB7aq9rWG9pRGqAXNY22mSP4/o6T8He
-	EH96XjXbAMSKe4yp7WHorLlCk7r5yLvoNYr070WliR6HUxcHsYzk3DSfYfHiz9HJO4JxsNwzCHcKP
-	jDh0WhXg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=G15ofyiWculgO0f0JWllvR4abeG5Jz4xv39aQwn1/tc=; b=KfR+PKPBLHg/zr
+	QoNj3T3HPdNB0v90K5Xv8N+Z2oMRxPwqwtvgP9wE4Hr8kIfspltnZwL3r+grmWYqwKnGDslaaUxaG
+	GWTuPUOxYScs/dpVR8A+S2W15WKYiQFVmrYnX6Fl0A6kWSxqGVmJm4ox2MzYL5IP0EZLPc8epaXcH
+	9UbEra98zTjIVTuPwzgYD5nc3amtVpD47MYPZpF0KgJWAil777qb4ku1F8ZjRLxdG1g1V+a7VMq0i
+	BRUhXtLe3F95kkTe8PsKX09JAjrtRPRUIg7ELB8r8NSc5nJRwt0kiYoJNuHmfcZxaixwp2P1oE2iq
+	gihsAee5rfGx2pHZCicw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE32Q-00000000cbu-1f0z;
-	Wed, 29 Oct 2025 10:04:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vE383-00000000dq8-2PWv;
+	Wed, 29 Oct 2025 10:10:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE32O-00000000cbk-2Grq
+	id 1vE37y-00000000dkJ-0BnY
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 10:04:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6ABEC603A2;
-	Wed, 29 Oct 2025 10:04:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D0B2C4CEF7;
-	Wed, 29 Oct 2025 10:04:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761732255;
-	bh=9EkDS1DJ2fZOAXUw2/HfVLqWdqgIctXJK7bhJgzpr3w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OEPuyLSF2EDJR259VKbjKrbAixkoep3+mPQlbzCuFXXW8lk6JasA5n6gE4de/4xeO
-	 Yr11i6FAuqWGikCB8lmtGECXyXXVvcEVrNIR7u/LUiYLyYwaKeiMEAFE6ibhdiRI6d
-	 1n2mW7GrLXh5SRItmsfHxwD5gpDH/C3aOfM9A+kPtSd/VLZn0mtBi4/7yuU7WQcvvZ
-	 FzjBFxv9yeviiF05ShfmE8KX5uyx5jnkcJOgYNfOOjWqU/DAxKA66mvvzPIo6EuSv/
-	 XaOmL6xeI1LVAyIzTCZmNBO2iiQAhXXpXh+6IbAd/axzcmj7sSpWzn3sPShpGYI5Cx
-	 WUSgAFhtpVBVw==
-Date: Wed, 29 Oct 2025 11:04:12 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Stephen Rothwell <sfr@canb.auug.org.au>, rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 0/4] Introduce import_ns support for Rust
-Message-ID: <2dedlnknikkrwg5f6ocuvjrogdjuqyg4sg6zkkao4w4yyvvsje@dkt7rco3fen3>
-References: <CGME20251028122315eucas1p159b65037cf6f3f710c1917e2464399b5@eucas1p1.samsung.com>
- <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
+	Wed, 29 Oct 2025 10:10:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761732599;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P8VL8F1BbEiYOKI5l4LcZTZfjaaIUn5rioPCVGdYu3M=;
+	b=iAsyiOz8WJbKJ1pUlEb3Lt3RnbmTs+pEVwwmsG12ple4osYSimbGcqZpqCyqZr8GV7kGEm
+	o4rGqealshc15P7grtOobHS9WYWjo4c7YHw+kd/6kREGLB7JZM1xjowb3bEa1U+Mr5BXzg
+	qBZmq+4t8+pQt571x4onhnpHSUsWF5o=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-479-8eQGzHhFOFOIlPF0-1rQ2w-1; Wed, 29 Oct 2025 06:09:55 -0400
+X-MC-Unique: 8eQGzHhFOFOIlPF0-1rQ2w-1
+X-Mimecast-MFC-AGG-ID: 8eQGzHhFOFOIlPF0-1rQ2w_1761732594
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4270a273b6eso5370453f8f.0
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Oct 2025 03:09:55 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761732594; x=1762337394;
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=F7va99Zg9nu4+XxtsT3y+i0Qg89ua4ByIHfysL3F+F4=;
+        b=ORqECdFeYv6ztplENmqARHjibkBOGVf3HFM8/C3jAhXgIp3yFDFRMO/iSLu9JkfiEx
+         MAv16FpmAPQZapg8ZYIcu1/39lVKeeOfUUTbdlWh5UW8H8fLkoJ/HYjuWHbaVySLfRfR
+         I3OtEC5UQmvx10N+kt6VOhFhAPfM/K78iSIGA0OhT9jJcOKUEcVzispewvMNRYxWFqnn
+         Cak4KKzaxNmp5sPHn2WUy9u6k2sdHj7HI5ok0twZLQrguffejD6TPDTUVs2dWPZK5pkH
+         2dw1wfyZqHdF+LhWmeRGb7TSbTymyuYC8VoW3+K9OPEc7k+QbyLQGgJr+UsiIzaqmWMl
+         jn4A==
+X-Forwarded-Encrypted: i=1; AJvYcCUzcLyGpxC2tnRST6P/PpyMRnZTZ9SqsrENxqFF3NfdN+nR1T1GOSAgNIfPzjLJV4iTBQPIY5oXuwWHlA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+habICMQI79uwjVMBNodJpRFPHYgmg7Hcz0jGWX/MI5Q1n1RP
+	5b5AgZdKDk9TowSJmdzNAvzMnEajm6+Cw33+mAmXyDrxXXRnuUhtdUpl6SN0Z9Z3sTo7NNGSoeO
+	UYCYuqLFtrdLc2fOmwCdAvbMZXDHvN+ljAOoCb7nF5xo3l0kz4wFAxlJCErLYXcSIAPLbrA==
+X-Gm-Gg: ASbGncuLbpHaG06cHcqq6/DAw0fk3PRtmDuvt47mlI9BnT+iH2UCc8UydCn8v0e3j+q
+	GqG5BaT0ujU+1O/7KeAxpFwHfz85eSZ4US8uzc/6rMgDfvqlYBzhLpMkeWdx4hg8fsyJxJENn9u
+	KmXYjKNupgHaMX1SrjREfQtiaTYmcr5+3ZiqIHLnBVH1p4fxyCfSj6JbHPBM0ydu11atqj5I9VY
+	2fsylFP4dODqfSoV85kkhubkWacDy52oWDsstvRk7S2nLpS/yx579xeXYnOyKnPIB3I1/wiK+D/
+	jJ4APTIcgcmN5BnpgJ5W5u9NSAWrakaozTYsXYxS2/NWziNMiLW/v67W3Wb/gQ+ZMpWXYIPcwP1
+	9aSwo/E90C17JxguImuebR8D58y7NLVkPDHicxC4+pqbgwPJq5v0jJJTt83sJ
+X-Received: by 2002:a05:6000:2089:b0:428:4354:aa43 with SMTP id ffacd0b85a97d-429aef83083mr1733939f8f.18.1761732594352;
+        Wed, 29 Oct 2025 03:09:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGMwZOd1Sm4LKIO70Dn8iCGAQm9z32hncQVtTx+dFITCY/jcrLahS/V2gOWr58H4oqqEmvh5w==
+X-Received: by 2002:a05:6000:2089:b0:428:4354:aa43 with SMTP id ffacd0b85a97d-429aef83083mr1733872f8f.18.1761732593822;
+        Wed, 29 Oct 2025 03:09:53 -0700 (PDT)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952e3201sm25467518f8f.47.2025.10.29.03.09.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Oct 2025 03:09:52 -0700 (PDT)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Nicolas
+ Saenz Julienne <nsaenzju@redhat.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+ <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter
+ Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra
+ <peterz@infradead.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, Josh
+ Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Arnd
+ Bergmann <arnd@arndb.de>, "Paul E. McKenney" <paulmck@kernel.org>, Jason
+ Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard
+ Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
+ "David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay
+ <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
+ Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
+ Morton <akpm@linux-foundation.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
+ <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
+ <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Juri Lelli
+ <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
+ Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
+ Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 23/29] context-tracking: Introduce work deferral
+ infrastructure
+In-Reply-To: <aQDMfu0tzecFzoGr@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <20251010153839.151763-24-vschneid@redhat.com>
+ <aQDMfu0tzecFzoGr@localhost.localdomain>
+Date: Wed, 29 Oct 2025 11:09:50 +0100
+Message-ID: <xhsmh5xbyqas1.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-In-Reply-To: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: A7v3Ildu0JAXmCyHE5ZZYeRIpJu_gXJpzkUUvYtpzNE_1761732594
+X-Mimecast-Originator: redhat.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251029_031004_055358_25FB69B6 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,95 +129,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5555432949253362411=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5555432949253362411==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lwldfp7ktswpmmdy"
-Content-Disposition: inline
-
-
---lwldfp7ktswpmmdy
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/4] Introduce import_ns support for Rust
-MIME-Version: 1.0
-
-Hello,
-
-On Tue, Oct 28, 2025 at 01:22:31PM +0100, Michal Wilczynski wrote:
-> This series addresses build warnings reported by `modpost` for the Rust
-> PWM driver (`pwm_th1520`) in linux-next:
->=20
-> WARNING: modpost: module pwm_th1520 uses symbol pwmchip_release from
-> namespace PWM, but does not import it.
->=20
-> These warnings occur because Rust modules, like C modules, need to
-> declare their dependencies on C symbols exported to specific namespaces
-> (using `EXPORT_SYMBOL_NS` in C). This is done by embedding
-> "import_ns=3D<NAMESPACE>" tags into the module's `.modinfo` section, which
-> `modpost` verifies.  The C macro `MODULE_IMPORT_NS()` handles this, but
-> the Rust `module!` macro lacked equivalent functionality.
->=20
-> This series introduces the necessary support:
->=20
-> Patch 1 extends the core `module!` macro in `rust/macros/module.rs`
-> to parse an optional `imports_ns: [...]` field and generate the required
-> `import_ns` tags in the `.modinfo` section.
->=20
-> Patch 2 adds a convenience macro `module_pwm_platform_driver!` to
-> `rust/kernel/pwm.rs`. This macro wraps the standard
-> `module_platform_driver!` and automatically adds `imports_ns: ["PWM"]`,
-> simplifying module declaration for PWM driver authors.
->=20
-> Patch 3 updates the `pwm_th1520` driver to use the new helper macro,
-> fixing the build warnings.
-
-Given that for now the pwm_th1520 driver is the only user, does it make
-sense to merge this series via my pwm tree? If it goes via a different
-tree, I'd like to have a tag to merge into my tree to hand over code
-which is free of warnings to Linus in the next merge window.
-
-> Patch 4 includes a minor clippy style fix for the `pwm_th1520` driver.
-
-If you could mention the command that makes this warning visible, I'd be
-glad to add that to my repertoire of build checks.
-
-Thanks for addressing the issue
-Uwe
-
---lwldfp7ktswpmmdy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmkB5pkACgkQj4D7WH0S
-/k6UYwf/aiVsmV7r/vjSJFC7oRNtghIAzmFFDcufzkGp1TwjNtiHxd4YrClxhsz/
-MOcxmpcNkV/v2XVyNiKW0Xyyex/qwXN6tDX2JMFfcV09ShOCL9N4BTXznK0a7BEB
-1IGAETAi5P9nQhgoTVFcOvC25+50BprwsewCeiHF/g/kV2RSQJWZnnqO/j4ldZjz
-PDnj5fTuh+RlP0v5ylkA3zai6OehtTthAor6zx6MVjn+wrewOMQtD3wLYr/yIkdA
-vvarCxMjRTfVV6fe77LkdLPpy+Dfj/j6eLaYGUckmgIyFKMuKu6SrJT5CDiHgtoK
-sSpNMbCFNacM7GRgIdYJD70j71Xy+A==
-=mmj+
------END PGP SIGNATURE-----
-
---lwldfp7ktswpmmdy--
-
-
---===============5555432949253362411==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5555432949253362411==--
-
+T24gMjgvMTAvMjUgMTU6MDAsIEZyZWRlcmljIFdlaXNiZWNrZXIgd3JvdGU6Cj4gTGUgRnJpLCBP
+Y3QgMTAsIDIwMjUgYXQgMDU6Mzg6MzNQTSArMDIwMCwgVmFsZW50aW4gU2NobmVpZGVyIGEgw6lj
+cml0IDoKPj4gKwlvbGQgPSBhdG9taWNfcmVhZCgmY3QtPnN0YXRlKTsKPj4gKwo+PiArCS8qCj4+
+ICsJICogVGhlIHdvcmsgYml0IG11c3Qgb25seSBiZSBzZXQgaWYgdGhlIHRhcmdldCBDUFUgaXMg
+bm90IGV4ZWN1dGluZwo+PiArCSAqIGluIGtlcm5lbHNwYWNlLgo+PiArCSAqIENUX1JDVV9XQVRD
+SElORyBpcyB1c2VkIGFzIGEgcHJveHkgZm9yIHRoYXQgLSBpZiB0aGUgYml0IGlzIHNldCwgd2UK
+Pj4gKwkgKiBrbm93IGZvciBzdXJlIHRoZSBDUFUgaXMgZXhlY3V0aW5nIGluIHRoZSBrZXJuZWwg
+d2hldGhlciB0aGF0IGJlIGluCj4+ICsJICogTk1JLCBJUlEgb3IgcHJvY2VzcyBjb250ZXh0Lgo+
+PiArCSAqIFNldCBDVF9SQ1VfV0FUQ0hJTkcgaGVyZSBhbmQgbGV0IHRoZSBjbXB4Y2hnIGRvIHRo
+ZSBjaGVjayBmb3IgdXM7Cj4+ICsJICogdGhlIHN0YXRlIGNvdWxkIGNoYW5nZSBiZXR3ZWVuIHRo
+ZSBhdG9taWNfcmVhZCgpIGFuZCB0aGUgY21weGNoZygpLgo+PiArCSAqLwo+PiArCW9sZCB8PSBD
+VF9SQ1VfV0FUQ0hJTkc7Cj4KPiBNb3N0IG9mIHRoZSB0aW1lLCB0aGUgdGFzayBzaG91bGQgYmUg
+ZWl0aGVyIGlkbGUgb3IgaW4gdXNlcnNwYWNlLiBJJ20gc3RpbGwgbm90Cj4gc3VyZSB3aHkgeW91
+IHN0YXJ0IHdpdGggYSBiZXQgdGhhdCB0aGUgQ1BVIGlzIGluIHRoZSBrZXJuZWwgd2l0aCBSQ1Ug
+d2F0Y2hpbmcuCj4KClJpZ2h0IEkgdGhpbmsgSSBnb3QgdGhhdCB0aGUgd3Jvbmcgd2F5IGFyb3Vu
+ZCB3aGVuIEkgc3dpdGNoZWQgdG8gdXNpbmcKQ1RfUkNVX1dBVENISU5HIHZzIENUX1NUQVRFX0tF
+Uk5FTC4gVGhhdCB3YW50cyB0byBiZQoKICBvbGQgJj0gfkNUX1JDVV9XQVRDSElORzsKCmkuZS4g
+YmV0IHRoZSBDUFUgaXMgTk9IWi1pZGxlLCBpZiBpdCdzIG5vdCB0aGUgY21weGNoZyBmYWlscyBh
+bmQgd2UgZG9uJ3QKc3RvcmUgdGhlIHdvcmsgYml0LgoKPj4gKwkvKgo+PiArCSAqIFRyeSBzZXR0
+aW5nIHRoZSB3b3JrIHVudGlsIGVpdGhlcgo+PiArCSAqIC0gdGhlIHRhcmdldCBDUFUgaGFzIGVu
+dGVyZWQga2VybmVsc3BhY2UKPj4gKwkgKiAtIHRoZSB3b3JrIGhhcyBiZWVuIHNldAo+PiArCSAq
+Lwo+PiArCWRvIHsKPj4gKwkJcmV0ID0gYXRvbWljX3RyeV9jbXB4Y2hnKCZjdC0+c3RhdGUsICZv
+bGQsIG9sZCB8ICh3b3JrIDw8IENUX1dPUktfU1RBUlQpKTsKPj4gKwl9IHdoaWxlICghcmV0ICYm
+ICEob2xkICYgQ1RfUkNVX1dBVENISU5HKSk7Cj4KPiBTbyB0aGlzIGFwcGxpZXMgYmxpbmRseSB0
+byBpZGxlIGFzIHdlbGwsIHJpZ2h0PyBJdCBzaG91bGQgd29yayBidXQgbm90ZSB0aGF0Cj4gaWRs
+ZSBlbnRyeSBjb2RlIGJlZm9yZSBSQ1Ugd2F0Y2hlcyBpcyBhbHNvIGZyYWdpbGUuCj4KClllYWgg
+SSByZW1lbWJlciBsb3Npbmcgc29tZSBoYWlyIHRyeWluZyB0byBncm9rIHRoZSBpZGxlIGVudHJ5
+IHNpdHVhdGlvbjsKd2UgY291bGQga2VlcCB0aGlzIHB1cmVseSBOT0haX0ZVTEwgYW5kIGhhdmUg
+dGhlIGRlZmVycmFsIGNvbmRpdGlvbiBiZToKCiAgKGN0LT5zdGF0ZSAmIENUX1NUQVRFX1VTRVIp
+ICYmICEoY3QtPnN0YXRlICYgQ1RfUkNVX1dBVENISU5HKQoKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
