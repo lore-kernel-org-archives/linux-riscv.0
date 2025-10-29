@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F45CCF9EB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0319CCF9F1
 	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 16:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EfsAULzmCRx0UQ42omSU+BlVFLOERSCkqS9yia+6s3A=; b=qi3FgezAR11nbc
-	ka1Gh8asr6Mj6xGODMcjSzuqavTSNxLmg4Lx+YGXrTQje/Rc1UprJ12OqFyHkW0zuLX34rvJiLMxm
-	Y4PNKK3BSZRQ04e/X0F9lsirFz9+ifWnjxmLHXDZAo90nV2l+Mu7wY8A/x/T+MSB5XsAGk/v5bxnP
-	3favp6eRs1xKQcbup/1JY9QaTLTPCABu9RMk0hSpn7RUz/ashjLGfz91OX/Pf0wYNmuhpzjptmmNi
-	u02nlm1pv2MZ5VRGr13+bzrrAc+/9P6FFAQh18nPZbq8npOAQUvSxl7tF+0LM+0r04ApYO4y/OKy0
-	vuRki2Pf2v0lqiIqAslw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6hpiISppTtMKYf03eLC0nU1b88QQHNbv7Ur6MSveSXo=; b=ug3DbiuciTX+ot
+	VFkjGoEPVe4k3UFXLvPLJuEO0HQgMqR4TC8TCzMEIFY6M2eaOIC5rpifndwNEtui2DCtpaGn8NRdm
+	Rst0wXO/eYpJ/4H+F76L4qOageh4wpGUYrE6Nc9EZ4pSpVjY7xrM8NAKf0ZR18gCo1w/IDAfe+B7Z
+	T2zoCfD1pD71oq6Aftjm2gnboEGq8tT4pfZ/MxTP1flVoSaXiOFXI2Frq8SNrH2JIboFYLn3EWpO0
+	jnYkYPPjJePBEDZLCdIetZEeYMclWnuwPC+VT8Ta/W4jIvy1GafqFZIL6V9hKB0cPFMU1udLJZlLP
+	BbzcUxSxcYL1aC/E2+nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8lw-00000001wb7-12pF;
-	Wed, 29 Oct 2025 16:11:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vE8m5-00000001wex-1l7M;
+	Wed, 29 Oct 2025 16:11:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8ls-00000001wa7-3KwH
+	id 1vE8m4-00000001weG-44CO
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 16:11:38 +0000
+	Wed, 29 Oct 2025 16:11:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C2B54023F;
-	Wed, 29 Oct 2025 16:11:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B3ADC4CEF7;
-	Wed, 29 Oct 2025 16:11:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 04CC861F47;
+	Wed, 29 Oct 2025 16:11:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D989AC4CEF8;
+	Wed, 29 Oct 2025 16:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761754294;
-	bh=ZHoYFhjdnzGDFed/NoYuMn50qAQjcf3x65RDhAXAqO8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=LhUmpwAd7Z9ccct7wO8x5Sch+wXZ8LM6RsiBZPsYX/E3xLaYm96OVekFU7qoJiil+
-	 uYnZ0LpXf7Ib7lfEYkuZOl5dlyLS4S4aTqupXTPDZRQ2rWCPBkj19b8lI5nAO8I432
-	 FakMqVk2You9r5Q5a4TkzwwkJ4TGC/M7Ckl0g7V1NqYUB/c16PrgkFAV7+4alrCsAj
-	 PwdzI6XZEtQHPkzP9CERmK7obs7hqZBLKaKWJMuKGKWVENPMiVfIxo9APaNlThW8sA
-	 jReEQpa6i+Z9rOJtPNTbjOJ5bAC1kiqijZzxvhmTaUjVuQU+mxLQocli4JlHTg8047
-	 EZ9WeZNgRdd/w==
+	s=k20201202; t=1761754307;
+	bh=yx40n6aW+7axlHFIv+/k4z1XcQ+4QDorszZ6b/jKM44=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=shL+YnIan2zZqQcm7YTriVz713DFPhdH2niLVFZdiWRW4nO2yK9V7sJqSwkLrdaeU
+	 30wlimwKz1xybhPt5ctiYBaJZ0Zm6lx1H2HOUzcd1dglYp8MnMewMg2/b7ik2a9vIh
+	 FZCk5zEYSv33GfdwyKV9eHgmxadTkeFdhXZiFXGrIAYy34itjnm0w/4oCh03FYn2/i
+	 6gJVSEPYEjToVkeDk8Klf425qY4BYiwndogt4aWvqoZb9IU8vSse4xnl91pNKt9a3x
+	 vRHJO0SkyIfEe/FbRWv/VEoKXikG/b7TXSEaNZUfDdDcHFO6I8CWsQZlXpx3MV0BUv
+	 9vj3BL8KeO1aA==
 From: Conor Dooley <conor@kernel.org>
 To: claudiu.beznea@tuxon.dev
 Cc: conor@kernel.org,
@@ -58,16 +58,15 @@ Cc: conor@kernel.org,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 0/7] Redo PolarFire SoC's mailbox/clock devicestrees and related code
-Date: Wed, 29 Oct 2025 16:11:16 +0000
-Message-ID: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
+Subject: [PATCH v6 4/7] riscv: dts: microchip: fix mailbox description
+Date: Wed, 29 Oct 2025 16:11:20 +0000
+Message-ID: <20251029-cobbler-unwritten-b907859d048d@spud>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
+References: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6087; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=PM+I1awA9VRT67tF+JHyycrqYb2aNW3lbRaKFXiJEn0=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlMNut+zDyjI2E89eA7DjYWa79JrvzXb1tPT/iRNzF3n vd0tjqdjlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEwkR4Phv/MZ8QU/2TeZiPaJ vGibefo/+5kpt57L9RbkpT0xXy0plM7IsKzh5a5ZjFr/Dx9VyGXjaTPumpAVbadm0vvM/16341Y VHgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2048; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=CJ93zZ/gwT2VF26tXat2Gljwq2Roq9NVUZwBFI4dODQ=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlMNusz1M0/cvfZGng1c7NuXpdx5OO+aHaF2IqGnKU1t pyPb2p0lLIwiHExyIopsiTe7muRWv/HZYdzz1uYOaxMIEMYuDgFYCJn3zMybHtncCWt+N3sea8i xVQSLZemCSVx1R8PWRN21D1hyuavDxj+p9lc2dbM/t7u/gE1nhKHBQHuWdb/Z620FFgVLZSzljm LBQA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_091136_900344_109E73E5 
-X-CRM114-Status: GOOD (  31.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,134 +85,58 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-In v5 the only real change is that I removed the attempt at a common
-implementation of regmap-based divider/gate clocks. The series hasn't
-managed to receive feedback on my approach in 2025, despite sending
-several revisions and bumps, and it is blocking support for both new
-drivers (gpio interrupt support, pinctrl and hwmon off the top of my
-head) and a new platform so I have decided to strip out the attempt at
-making something common in exchange for something that can be merged
-through the clk-microchip tree without relying on feedback from the
-clock maintainers.
+When the binding for the mailbox on PolarFire SoC was originally
+written, and later modified, mistakes were made - and the precise
+nature of the later modification should have been a giveaway, but alas
+I was naive at the time.
 
-Currently the driver uses the common gate and divider clocks, but the
-driver used to use its own custom clock types. Reprising this version of
-the code allows me to use regmap accessors in the driver without any
-wider impact, or attempting to create something that works for any other
-user. It has the advantage that it has already been tested in that prior
-for, and all that is done to the clock implementations is replacing
-readl()s and writel()s with their regmap equivalents.
+A more correct modelling of the hardware is to use two syscons and have
+a single reg entry for the mailbox, containing the mailbox region. The
+two syscons contain the general control/status registers for the mailbox
+and the interrupt related registers respectively. The reason for two
+syscons is that the same mailbox is present on the non-SoC version of
+the FPGA, which has no interrupt controller, and the shared part of the
+rtl was unchanged between devices.
 
-Hopefully this change has made it possible to merge the series,
-Conor.
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/boot/dts/microchip/mpfs.dtsi | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
 
-v6:
-- make reset depend on MFD_SYSCON
-- return regmap_update_bits() result directly instead of an additional
-  return 0 in reset
-- use regmap_update_bits() instead of regmap_read() -> regmap_write()
-  RMW sequences in clock
-- drop clock driver specific lock, since regmap has internal locking,
-  from !msspll clocks
-- implement determine_rate instead of round_rate
-- drop patch 1 & 2 (soc bits) since I applied them as a pre-req for
-  pinctrl work
-
-v5:
-- drop mfd patch applied by Lee
-- remove attempt at common regmap divider/gate clocks, and replace it
-  with a return to how the code used to look, before it started using
-  the non-regmap versions of the common divider/gate, with the
-  readl()/writel()s replaced by their regmap equivalents.
-
-v4:
-- unify both regmap clk implementations under one option
-- change map_offset to a u32, after Gabriel pointed out that u8 was
-  too restrictive.
-- remove locking from regmap portion of reset driver, relying on
-  inherent regmap lock
-
-v3 changes:
-- drop simple-mfd (for now) from syscon node
-
-v2 cover letter:
-
-Here's something that I've been mulling over for a while, since I
-started to understand how devicetree stuff was "meant" to be done.
-There'd been little reason to actually press forward with it, because it
-is fairly disruptive. I've finally opted to do it, because a user has
-come along with a hwmon driver that needs to access the same register
-region as the mailbox and the author is not keen on using the aux bus,
-and because I do not want the new pic64gx SoC that's based on PolarFire
-SoC to use bindings etc that I know to be incorrect.
-
-Given backwards compatibility needs to be maintained, this patch series
-isn't the prettiest thing I have ever written. The reset driver needs to
-retain support for the auxiliary bus, which looks a bit mess, but not
-much can be done there. The mailbox and clock drivers both have to have
-an "old probe" function to handle the old layout. Thankfully in the
-clock driver, regmap support can be used to identically
-handle both old and new devicetree formats - but using a regmap in the
-mailbox driver was only really possible for the new format, so the code
-there is unfortunately a bit of an if/else mess that I'm both not proud
-of, nor really sure is worth "improving".
-
-The series should be pretty splitable per subsystem, only the dts change
-has some sort of dependency, but I'll not be applying that till
-everything else is in Linus' tree, so that's not a big deal.
-
-I don't really want this stuff in stable, hence a lack of cc: stable
-anywhere here, since what's currently in the tree works fine for the
-currently supported hardware.
-
-AFAIK, the only other project affected here is U-Boot, which I have
-already modified to support the new format.
-
-I previously submitted this as an RFC, only to Lee and the dt list, in
-order to get some feedback on the syscon/mfd bindings:
-https://lore.kernel.org/all/20240815-shindig-bunny-fd42792d638a@spud/
-I'm not really going to bother with a proper changelog, since that was
-submitted with lots of WIP code to get answers to some questions. The
-main change was "removing" some of the child nodes of the syscons.
-
-And as a "real" series where discussion lead to me dropping use of the
-amlogic clk-regmap support:
-https://lore.kernel.org/linux-clk/20241002-private-unequal-33cfa6101338@spud/
-As a result of that, I've implemented what I think Stephen was asking
-for - but I'm not at all sure that it is..
-
-CC: Conor Dooley <conor.dooley@microchip.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: pierre-henry.moussay@microchip.com
-CC: valentina.fernandezalanis@microchip.com
-CC: Michael Turquette <mturquette@baylibre.com>
-CC: Stephen Boyd <sboyd@kernel.org>
-CC: Rob Herring <robh@kernel.org>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: Philipp Zabel <p.zabel@pengutronix.de>
-CC: linux-riscv@lists.infradead.org
-CC: linux-clk@vger.kernel.org
-CC: devicetree@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
-
-Conor Dooley (7):
-  reset: mpfs: add non-auxiliary bus probing
-  dt-bindings: clk: microchip: mpfs: remove first reg region
-  clk: microchip: mpfs: use regmap for clocks
-  riscv: dts: microchip: fix mailbox description
-  riscv: dts: microchip: convert clock and reset to use syscon
-  MAINTAINERS: add new soc drivers to Microchip RISC-V entry
-  MAINTAINERS: rename Microchip RISC-V entry
-
- .../bindings/clock/microchip,mpfs-clkcfg.yaml |  36 +--
- MAINTAINERS                                   |   4 +-
- arch/riscv/boot/dts/microchip/mpfs.dtsi       |  34 ++-
- drivers/clk/microchip/Kconfig                 |   2 +
- drivers/clk/microchip/clk-mpfs.c              | 227 ++++++++++++++----
- drivers/reset/Kconfig                         |   1 +
- drivers/reset/reset-mpfs.c                    |  79 ++++--
- 7 files changed, 298 insertions(+), 85 deletions(-)
-
+diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+index 9883ca3554c5..f9d6bf08e717 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+@@ -259,6 +259,11 @@ clkcfg: clkcfg@20002000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
++		sysreg_scb: syscon@20003000 {
++			compatible = "microchip,mpfs-sysreg-scb", "syscon";
++			reg = <0x0 0x20003000 0x0 0x1000>;
++		};
++
+ 		ccc_se: clock-controller@38010000 {
+ 			compatible = "microchip,mpfs-ccc";
+ 			reg = <0x0 0x38010000 0x0 0x1000>, <0x0 0x38020000 0x0 0x1000>,
+@@ -521,10 +526,14 @@ usb: usb@20201000 {
+ 			status = "disabled";
+ 		};
+ 
+-		mbox: mailbox@37020000 {
++		control_scb: syscon@37020000 {
++			compatible = "microchip,mpfs-control-scb", "syscon";
++			reg = <0x0 0x37020000 0x0 0x100>;
++		};
++
++		mbox: mailbox@37020800 {
+ 			compatible = "microchip,mpfs-mailbox";
+-			reg = <0x0 0x37020000 0x0 0x58>, <0x0 0x2000318C 0x0 0x40>,
+-			      <0x0 0x37020800 0x0 0x100>;
++			reg = <0x0 0x37020800 0x0 0x1000>;
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <96>;
+ 			#mbox-cells = <1>;
 -- 
 2.51.0
 
