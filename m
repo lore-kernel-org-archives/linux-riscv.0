@@ -4,59 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05559CCF9E9
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 12:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39D9CCF9E9
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 12:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4Crw9EoJYlCXTvBlEwTcfkaFt5hgroDd2k9iLf18kRc=; b=qH49bcZRsOgos8
-	FdtzDSz14ZqwfVPImDyXgXeWQhjT+uQSm81JO1sbiDRA2RR6/uZ3k/JzDJ4KlT/IigS0mqQdXp6zm
-	ie+43p6r1XDBCLdu4hLvyh4YNDvuwVqIR1MbfLBhqXVwGbcZrfLYPBUgzO/a54fGuOo6fpfqJa2PX
-	AZOayKJvt/CKFNxtR9HIhxgYIpKYBI19L47JSW9sdotlYm4wP/MqO9MCLQpDOUSxJPuFvOmuaRUeH
-	jbAP+96EyR5sSUPV8Dd4a9wtwTzw58m8Lkmu6bO6ctBhKe0BSYkL9lvefy9WsJVIOp3YRXnY+oTxi
-	UWizKY38rXmm46SjqzIQ==;
+	List-Owner; bh=M/70961qbWzsMMlLjNtbbfRKy7RSJyZBwbEMQLH7xaY=; b=m2YM8BorX+sPOg
+	sodZxUz+IkW+JdxWhjaof0EGkLGIf5c8lEfC+ApnBD+io0t98P9wEnu1PCL4PYLNU/puZnnwBaeAH
+	+7ORuvdkEHRdSL9BX5ZoOXDNXtRMn9qeO3aP0B+uMcAfZte4DGttBH0oE3BHkmwjsDFY9Teu7kkkV
+	lghsE6vruj4lLGE+Rz7726wXgtkuWplZLUpdeM9RcsRzJIBvybWTZb/u6hXvdbt9bfYyEm2MlMP1Q
+	V0Z0gFU6jCe+ZwVZKkWI76t/409lZK511crEK21OHeY5UsCYKjocgYAXp0vdtEDqGXbf1BqdfsbEd
+	BULahg8k8NXkk6Kqsp4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE5f9-00000001Edq-1YPp;
-	Wed, 29 Oct 2025 12:52:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vE5hD-00000001F9p-3LLf;
+	Wed, 29 Oct 2025 12:54:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE5f4-00000001Ecm-2mNf
+	id 1vE5hD-00000001F9Q-084f
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 12:52:25 +0000
+	Wed, 29 Oct 2025 12:54:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3272C43855;
-	Wed, 29 Oct 2025 12:52:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F402C4CEF7;
-	Wed, 29 Oct 2025 12:52:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1AB5962143;
+	Wed, 29 Oct 2025 12:54:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FC22C4CEF7;
+	Wed, 29 Oct 2025 12:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761742342;
-	bh=1HAJ1BJ3hJr4rMA1mSnM4Z+EA/gpodPOwk5FC2dXS+8=;
+	s=k20201202; t=1761742473;
+	bh=ERdenaaSnCayj1jM0xEoP/ksydq7NeKvn4duQyaIA68=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eR089nn/rglpiimPihlYCj2SAY7spC2qAj5Lr7H6Goy6akWpAa25G5+gOrKYvQ424
-	 MoaGPeC0uz358YVaYuA68Xmgpu+OTQO3hZ+xSYhXinicU4oLgbMDuN+tndeRCNsWki
-	 jenc5xV1wdfqBHdaxOJ/1pv+/eQyxjndYz45Qi7IYLuuxgRKGVSe1TbkSVX1e2PYmq
-	 2jq5hqWLHMD4bRNG6H/vlmS8WV618g19vR/E5AeXpInNitu+gGfbaXJW2HSbfKCIjG
-	 OuafbZLakfKlxk7EWUkm24lWPX9UccCbRtdWTLxiIH0RxWJD31ryDwlbS3NcZR4sSf
-	 7h6QQMFcwwLsw==
-Date: Wed, 29 Oct 2025 12:52:14 +0000
+	b=CG+TiDH9vGrRy+dyYgFaDqCLfCHqvH7YbbEpGB4Wyf1sfqV7Z72xZvLHkffLd2uin
+	 yRkW4y9wr6dcsSz2IXD+UhbcdQYbVmigc/lSyttE636E4xmsd81+TFdGtLgy18uNMq
+	 3P040ruFcjLA6waCPh/yOKM0ZKFgs/Bz5LteAXdIri9sarOU/pJVjqCNnCQS+8Qt7F
+	 8i3EaA0SU9esvTY3db6xHPuFGt4bS6T4/3N5Gg0ueJt6mQHvGgDUopWLmYvl8uwNRs
+	 Jcmg7njFZziQ00suGgN+EUSg84LwN3EMwaMfaDhoDK2ItrTLVNCkCbwJ58CoQogmoh
+	 v4h1uUFM1gJjw==
+Date: Wed, 29 Oct 2025 12:54:25 +0000
 From: Drew Fustini <fustini@kernel.org>
 To: Yao Zi <ziyao@disroot.org>
-Subject: Re: [PATCH v3 4/5] reset: th1520: Support reset controllers in more
- subsystems
-Message-ID: <aQIN_lVnn3wcwBCg@gen8>
+Subject: Re: [PATCH v3 3/5] reset: th1520: Prepare for supporting multiple
+ controllers
+Message-ID: <aQIOgbUf2IHoWCf2@gen8>
 References: <20251014131032.49616-1-ziyao@disroot.org>
- <20251014131032.49616-5-ziyao@disroot.org>
+ <20251014131032.49616-4-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251014131032.49616-5-ziyao@disroot.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_055222_737203_F2EEC83F 
-X-CRM114-Status: UNSURE (   7.79  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251014131032.49616-4-ziyao@disroot.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +70,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 01:10:31PM +0000, Yao Zi wrote:
-> Introduce reset controllers for AP, MISC, VI, VP and DSP subsystems and
-> add their reset signal mappings.
+On Tue, Oct 14, 2025 at 01:10:30PM +0000, Yao Zi wrote:
+> TH1520 SoC is divided into several subsystems, shipping distinct reset
+> controllers with similar control logic. Let's make reset signal mapping
+> a data structure specific to one compatible to prepare for introduction
+> of more reset controllers in the future.
 > 
 > Signed-off-by: Yao Zi <ziyao@disroot.org>
 > ---
->  drivers/reset/reset-th1520.c | 793 +++++++++++++++++++++++++++++++++++
->  1 file changed, 793 insertions(+)
+>  drivers/reset/reset-th1520.c | 42 +++++++++++++++++++++++++-----------
+>  1 file changed, 30 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.c
+> index 14d964a9c6b6..2b65a95ed021 100644
+> --- a/drivers/reset/reset-th1520.c
+> +++ b/drivers/reset/reset-th1520.c
+[snip]
+> @@ -138,22 +147,31 @@ static int th1520_reset_probe(struct platform_device *pdev)
+>  	if (IS_ERR(priv->map))
+>  		return PTR_ERR(priv->map);
+>  
+> -	/* Initialize GPU resets to asserted state */
+> -	ret = regmap_update_bits(priv->map, TH1520_GPU_RST_CFG,
+> -				 TH1520_GPU_RST_CFG_MASK, 0);
+> -	if (ret)
+> -		return ret;
+> +	if (of_device_is_compatible(dev->of_node, "thead,th1520-reset")) {
 
-Reviewed-by: Drew Fustini <fustini@kernel.org>
+Is there a reason that there is a now a conditional check for the
+compatible here?
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
