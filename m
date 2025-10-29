@@ -4,162 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5146BCCF9F0
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 16:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5878BCCF9F0
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 16:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SJjNcMGNxEfAWwinEVP6P3lkhnRq+M2mgJhypOOoK5A=; b=4jUOS37MECOU4D
-	KV/3VfdBwSDg/hfFAlxRdmn0hKO4+5uXhNhugy5i/h+jTC0iswS0feogXYcPnzUIEW1wEUtGT734L
-	u2RXQGYViSlGLcZnnwGNZ6WvlG5qtsOK78F3314ecuvlThvmSbYXnoMAdG6P3qGWuhi2sexBkPIb4
-	QWOOQmxvrmp6nb9qzBDNGIwcuaCsfR6kN1iF8vl9/+OShCxuuD/Kdjc0k4T+H6DUs5f8kD9gF2y2D
-	H3/bwWJ/vJf/kA27E4Gk0MCDPUe2ByPEnljWuN4Rkf9lddBNM5ZHB/lH8BdXBpurAlY7/SISEZolR
-	3jHTyLU/1AFR3TTSigqQ==;
+	List-Owner; bh=gaagaWWNHGr7wNkF6+ZXnFlVZSz7RQY66shraBYWD6g=; b=yPHm/UpPBZwLRR
+	xKLoQJA3Pta2MloANn69FFPfre9UJsCD/C2HuvdwKG0FGJG9sEcaP2sjeqcxuUHr3YDBLF2Z+mVIe
+	qE1S17wWHp72xULb43R/6rnd/Ao1KpzPH6QfCq9+PpWdoNfY77SdkpruaGzY3z7wF4uWx1eqF4C10
+	TvSwwWrcQLwXp4LFzW4e6oPm6FNTMgjKgbSmpRSf3akV3Ipkh8DNTp55gWlQeDEeRXPs3il78eSen
+	vdMenGmyQDAq5hBX/IAbK3WEVElLXSIQk1QqXQyt37GUUlhVBWD+bhrRnEqxEq0HZhvog9Kc6xxw2
+	/EMxGyresR+33UpJELCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8bf-00000001uYr-1Gsf;
-	Wed, 29 Oct 2025 16:01:03 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vE8lw-00000001wbB-2Gps;
+	Wed, 29 Oct 2025 16:11:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8bc-00000001uWD-2g0x
+	id 1vE8lu-00000001wah-26QM
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 16:01:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JDKq+1/eF/sIVS4lUvQ2CePhzRTv6pqFt5DiIJdk4JvAyTC9qsD3yiNTLzkvIVE6Vk7TEkCTIpaIosn6nmX+EGNUm/OZSF9XWueWYrTQCpXbOvqgQgNi+jyskl6cLcUeQDlROTkPIWGglwXleLrL49MaRXLt1ayVIxX3e08TECO4mrEWGWVWdWXnknSyRoqz6KjOezpXAjcTQyH3TKghajY7+8M9dPwK2VKYV4ayuvjyl/ww5/tjYDDcUPF9Ml0MpqxErjIYwKT1mmHgtr/Uu8pi56XeDO9wzGJOBfeLbEw/b9ydgE2W5Og0xot4S46JYUTJGxwetYFvoX/mdJMZcQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W0rVf4FwEBEtemx4M9H882dal8cPJiuFYf4pGGgbZi4=;
- b=KNx7Stns3fSveWeNGSq+TIl1a6/423E72Oug1z5uJYxiIPD5cbWXdvq9647tD/hECkzNlKVB90AYWtZTFVtheXAagA8BJ0Coln/xXVC7B/uCewlwkSiIIU5qCXpVTyQ5nLKMECKKzl7GX934l5hXp7jBNWYRp7UzI4HD7iM/zJLmiWraufKMbGZJaiFuGejnOdxaueTDZBQrCCSaWMZgxIwaX2mjKeLRLCfPD+7654uu/ZyoiFeYe0U4p993Tvr4OgSOy6JCoJQ2TSMuxxyZklDPBH7GVbCU8UBYh/N94EL5fePfXHukOosm5OnE6hzfgnFNVlAoS7YZVE6S7omhwA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W0rVf4FwEBEtemx4M9H882dal8cPJiuFYf4pGGgbZi4=;
- b=gYaHruw0kKacecfkXUJPjQWJ8yBEkU0Z5d262y9JTgW4TbA+AhnTxKaCY6Z5EOx4U5sB8PEsrvodpJlTY8rZDyqpjCFVgV1AHHdJ2XfOSxj2hNJkf8oxVm4XzqAkapJeqrT6PDcC5QBPfqqi2ilSZuN2D+Fddi8QtKwYJOBAeykyfjVJ+vsWNAU8Y3erMHh2D4MaQiTDNQ8qVlhcHM6xuFRLhV0lTKQmQXLkQ3BImCfqyxmNiQ+FHi3/wbEgo1H7dYx049uJqIo30h4yAjjPXCRTHAwpMnCJIbamfQRFQ6D4m0L9VD3r9saKXN3NuYQqPt5pkSabEvu5TBzEJ03lxQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.19; Wed, 29 Oct
- 2025 16:00:47 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9275.011; Wed, 29 Oct 2025
- 16:00:47 +0000
-Date: Wed, 29 Oct 2025 13:00:46 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Shuah Khan <shuah@kernel.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Will Deacon <will@kernel.org>
-Cc: Alexey Kardashevskiy <aik@amd.com>,
-	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
-	James Gowans <jgowans@amazon.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Michael Roth <michael.roth@amd.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev
-Subject: Re: [PATCH v7 15/15] iommupt: Add a kunit test for the IOMMU
- implementation
-Message-ID: <20251029160046.GA1187278@nvidia.com>
-References: <0-v7-ab019a8791e2+175b8-iommu_pt_jgg@nvidia.com>
- <15-v7-ab019a8791e2+175b8-iommu_pt_jgg@nvidia.com>
-Content-Disposition: inline
-In-Reply-To: <15-v7-ab019a8791e2+175b8-iommu_pt_jgg@nvidia.com>
-X-ClientProxiedBy: BN9PR03CA0639.namprd03.prod.outlook.com
- (2603:10b6:408:13b::14) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
+	Wed, 29 Oct 2025 16:11:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 38B9B43E56;
+	Wed, 29 Oct 2025 16:11:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50589C4CEF7;
+	Wed, 29 Oct 2025 16:11:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761754298;
+	bh=SBPUsQQts6myI7KNC8yymj9GqGzDulDYvcTpau9/ALk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=vL3wKFOIoq91uTTR96HuBCNCR0G7LITKAB33GwdtWlZeoGAyn+DRgPe0glvKcknJq
+	 M9dMTaEPAloeCsn6TK7lZM9RlOw7cUNUGcpknMdVf+CSTmLtZTHZjnDHZ5+KZWA8Jv
+	 e0VsXgB/8ulVgFyGI+viPeK1eZw66zUZaL4ZsnL34lkm/2q7H83ZUE0gXJCfSAUbZU
+	 QTJ2p9BZGr+TaXt1s0YcydKPPTW0I8OtPD0HnRh6m66XQCO1B20aARMNxTKscYWj/9
+	 hKRJN5h/fHLcopvATVbruTVkBSHhP8STh4N2SZh3s+wSpQ6gDjyLDLxscXROACoR8V
+	 d3FiA4wXgiqzQ==
+From: Conor Dooley <conor@kernel.org>
+To: claudiu.beznea@tuxon.dev
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 1/7] reset: mpfs: add non-auxiliary bus probing
+Date: Wed, 29 Oct 2025 16:11:17 +0000
+Message-ID: <20251029-macarena-neglector-318431fec367@spud>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
+References: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|BN5PR12MB9511:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62671531-d1bd-4860-657c-08de17045310
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?x44QHODqktfXgbIaP5F4eSgY8t2Vl6w6/hQhwyU9ZSFuCU4GLnKhJgSfhzcd?=
- =?us-ascii?Q?3UplyHTnVvKANasjiPApQ5Lcxf5FU1x+MkUKOwHM+RN5hwjf9vyy+6tgivfm?=
- =?us-ascii?Q?VI29BFwIHWheJVUjNbHGVRx1Vdwmi41I1wKVwRIKY8/h6VykDTFMFaP8W+G6?=
- =?us-ascii?Q?JDFHJDV7zqoR3Te+vj2JrUqFG+DKhKEFuF7a/OrbZcSaFLEXbNdKzMCs3lFK?=
- =?us-ascii?Q?uIIU63S/zh9aasEu4xev5V5LcABPCn+3KY0N8ELopoXO41nMKDVTkUrINjkn?=
- =?us-ascii?Q?Sg3qSBwZW2o9813pJTU01iJKHFhd1NXglrVUnUONVn+77m0z8Pa8yUs3pDtG?=
- =?us-ascii?Q?B+0VsuOWP6r9lH0a7R4pduuyjxUG9CBGYeCzhQu7Yon0dc1rSFjd4v0710sS?=
- =?us-ascii?Q?W+pHSuftEgrvufBKBEhUZzweqY83eHGLDOmLRtvG9m1JJqgiVfoSPlZ5OYAC?=
- =?us-ascii?Q?1Q+9tLyEhiopJEcQOwmUsv7TDBRg55qx71q5/ULZ2y6vF3bIc7uY6JvMglQ7?=
- =?us-ascii?Q?UiXyohlLG2GCy5X2Y2JiRhwsx9wLBA5wp9Jq0rsryCuUwAkCBrEv2Q0D3A52?=
- =?us-ascii?Q?vjjlq03zP1esV6UuD/DIa1f+Cb0eKPXnnYBlAYHDHdCFbHPhixfN8OdQtYF6?=
- =?us-ascii?Q?NK8+DZeLDTPdixJ9TAToo8ATIQWrI8L/zyacgoP3Xcjl3+ZyEqsay2RHM0Y4?=
- =?us-ascii?Q?yZlmK8K8PpLbunmhhGJONt5+nrvG9vJWA+YH3bqbsKPj7oOqJ3HHSL8VgbLh?=
- =?us-ascii?Q?Jqw8SQ7w1BhvSPqzHEdLexHno6Jqaed4R6UmccxIgYM8Jip4jUBoZ+m0Vh+k?=
- =?us-ascii?Q?53vT7ejRp8c9m24OmSV8e6KKf5MpVPPa2Px8u+1suYmya8THXQ5im21CKqXz?=
- =?us-ascii?Q?AUFmZcfTVZJWAP6iesUhVAlwnTk1ZXuOXelyKN4DlFvOZ7DWyDblkeckIEyx?=
- =?us-ascii?Q?T7znOfTBgg+JQn+xvWxDoxN7PU9qRdcS1dgzhlkXxUeE04NV2e9hmLL8PjsD?=
- =?us-ascii?Q?nZ7ERaUn5NWd49zCFqR4bjEWFgHOOhZGLVCTZFOhkpH20RWfcmtAJwMs7PZq?=
- =?us-ascii?Q?t28ZnPkha9rqcamdi8KlUj5w6FbU+VscU07VcoaRVMALJ0QeqmYTUb4ugfBD?=
- =?us-ascii?Q?4FMZ7zIkPAxLs7OUZhHDobrz9jWPzgt1Rx9Ss0ymNeQFzZ/oxP73qhCNkqGs?=
- =?us-ascii?Q?X0G2C/xiF1PHKboTBb8Vmh0+D+vTRUwbXLB3zwlptqDpF4bhHmFW+OLDcDOT?=
- =?us-ascii?Q?DNnWG6v23ryvFifEx+iLkvux9Qo5AjTYgocrb96zXWamsnlrIcZC9EiXPirz?=
- =?us-ascii?Q?KuJhhRN7QQeaN8x8Fzdp0W5lIXJMv1Ainh2flgAYG6wAv3QXyqjPq8ijortZ?=
- =?us-ascii?Q?T74A4JNwgGBQ3y015ueW2V2lwfRSYLf5Ml53ZId3vDB5asbzYWAV0mLTI6qv?=
- =?us-ascii?Q?Z6eLJSSVxAxoDQDfoXxAJ4iLb+e1B9SbZHuJEQ47KJFyEOrQXsnyvBqqwQ3T?=
- =?us-ascii?Q?kDiC8RmVQkyfoEA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4ZMVNKwqJZthW/41Rno5bw/A0v/x2N7L/8EAeIsv6lp1AGYzgRD6kQQRdreu?=
- =?us-ascii?Q?V0PBM+f4LnNK6V8gTe4Ry2IUuICAQ6pVcg97KYAKYk/g+L8Ne0DU+KqwcdVH?=
- =?us-ascii?Q?0Bx6Qe27owPHLP9+9C+LnezKYGF94YIuZczHrend+dZmOMpWTxiojZlDRghl?=
- =?us-ascii?Q?GuLh9N2QuHPEjvpWBNxgRcEQMwP1arZZPAe7oLMEcZXNUiDTRHTHzfI4MW9D?=
- =?us-ascii?Q?SzItQxo+M+RUmp17g6PfHR9U6kMrkVvf83y9+sBzpy9+14Dt6Z5bOKju8iW2?=
- =?us-ascii?Q?W8I2oOekEIThXdqiE7nbkXluJT2CgywJTC9gHqmnmZzn55OWXxVOM77k37o/?=
- =?us-ascii?Q?5J/9z7cWhX0EYlMS4jlO0gRhvwXFPp1x+hVxEUSkfVaHAL2eYA9UM3+pPMPj?=
- =?us-ascii?Q?S/ei0MG3t5NpiOBxEIh0//esNkFOWbj2myAmHthBsZSCJhqioBGp7k+mdjHY?=
- =?us-ascii?Q?Zndv8gfzlGqVQJMXi4suW0dvh3oMMSbEbmiK+33S/jnrqzgpPoWEd7kyQd7S?=
- =?us-ascii?Q?RBVtIolmzHxis7aj4I57PwLi7U2YEusdA4hMCrtfDdhQ5UkizMUsnA281fnq?=
- =?us-ascii?Q?JlmNyc5wXDoMGAIneSgYrRqhCb9amHGs1B/5lGeMv2lJd1S+OWVQHtopM4t2?=
- =?us-ascii?Q?j4BPhPeGwk2wdmMBMBsaZygToaQh8VsnjfQQGX/e/epW/zA0sFw/+IofR311?=
- =?us-ascii?Q?D9LVGN4OZDgMMoqqM/LoVnZZ1Ei1/CvxFdtAKTLChopON/dwevJgq0nc7Bee?=
- =?us-ascii?Q?HtYpGJ/F18wuj0IIDT/oRGzG/51DnS+NBDxFGEWme0hu+aeplbcFQRnsAuGX?=
- =?us-ascii?Q?JxjasrgEYbWshvg2qXRMpZAP/muK8tKPrsM5PJUbyjKCrnJkK7AGRvn9895C?=
- =?us-ascii?Q?L+vL+PYRiJUvDh9A+KHoJ5gaugYLUt1gt3GcXTgkAQ5Gn9fd/6wiAo8TyBqr?=
- =?us-ascii?Q?jRWH0NeL0PSeqeVibZAoYiJK059ZNzvmkimYVarjzJCDdVw/nMFyIwKu9Mp2?=
- =?us-ascii?Q?vHlbTO6cQmFs9PGJyldLdCBllcBauzMHml3B0d7fyvuQ2D7c2kH5zR5iCglA?=
- =?us-ascii?Q?0xP+bxjPQOeZG7SfFGwvYI+dWHsmh2Lwjh7bXXT64GZHFVEn7ZbTOePr7oI2?=
- =?us-ascii?Q?2JMs26dKfjI0hWQyfvFCnZjX7RG70fDAhotdbj+U4ZKEPYbzlq6AFgs5dwaS?=
- =?us-ascii?Q?597b1ugoA7KpQmVdnwfMNvAP5DnYJGR8C7w8U7p2G1l40ksXKSEfqLWN2E+8?=
- =?us-ascii?Q?v+uZGssxCOrubsLvD8r1JowfoLsKBXAWhlO7R72Ntj5qptmfEFEoRrRbRhxn?=
- =?us-ascii?Q?fnZv8URSqwuDQvtRoQfk79eqCFzWxPZ6VFWXO9h694h1UM1ltrn9rfh8HFsz?=
- =?us-ascii?Q?2sstROa5bm4Yr9mYgyaIJIXG8JASgA9ejZwrnwGkKsPphh+kDQmPPcq0H72I?=
- =?us-ascii?Q?tzuICw+7kBCpKIKiQnYR6Jbj84PFUiMzM2SiNKez98z4t+229ofbv3x1gYlU?=
- =?us-ascii?Q?hdGawAAOKgvXTui1NQ50NTu/dPT1tNYH2zN/EzUuD+7IOemza2P7pUx4buf9?=
- =?us-ascii?Q?YZ5V5RvuumxCs8CMoao=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62671531-d1bd-4860-657c-08de17045310
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2025 16:00:47.5888
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HxfLdI6cpEu7S9BkA+pb4aPDNvvhO3wsuL7cw85NAkRnW7D6civisCdGTcRsbwLT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN5PR12MB9511
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6690; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=WjSYxPHoiecG3YZVCMCzeZtGrY72vr6u1gmlrYkaGJE=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlMNusucCmdWFN9dEqkWdThu5L3a33SHX3fBXR6vp3+K bros658RykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACby6TcjQ/sq8czfXZ9/R5SZ +MfoHvu39vKcGU3K8g/llG8w7PoZtJCR4ccnFW6d3HN9xX3FZs84N9Z/8HoSZTn1yqxZV4psHsS t4wIA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_090100_675981_8EF76E63 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20251029_091138_581831_51F59189 
+X-CRM114-Status: GOOD (  22.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,45 +86,222 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 03:20:45PM -0300, Jason Gunthorpe wrote:
-> +static void test_map_table_to_oa(struct kunit *test)
-> +{
-> +	struct kunit_iommu_priv *priv = test->priv;
-> +	pt_vaddr_t limited_pgbitmap =
-> +		priv->info.pgsize_bitmap % (IS_32BIT ? SZ_2G : SZ_16G);
-> +	struct pt_range range = pt_top_range(priv->common);
-> +	unsigned int pgsz_lg2;
-> +	pt_vaddr_t max_pgsize;
-> +	pt_vaddr_t cur_va;
-> +
-> +	max_pgsize = 1ULL << (vafls(limited_pgbitmap) - 1);
-> +	KUNIT_ASSERT_TRUE(test, priv->info.pgsize_bitmap & max_pgsize);
-> +
-> +	for (pgsz_lg2 = 0; pgsz_lg2 != PT_VADDR_MAX_LG2; pgsz_lg2++) {
-> +		pt_oaddr_t paddr = log2_set_mod(priv->test_oa, 0, pgsz_lg2);
-> +		u64 len = log2_to_int(pgsz_lg2);
-> +		pt_vaddr_t offset;
-> +
-> +		if (!(priv->info.pgsize_bitmap & len))
-> +			continue;
-> +		if (len > max_pgsize)
-> +			break;
-> +
-> +		cur_va = ALIGN(range.va + priv->smallest_pgsz * 256,
-> +			       max_pgsize);
-> +		for (offset = 0; offset != max_pgsize; offset += len)
-> +			do_map(test, cur_va + offset, paddr + offset, len);
-> +		check_iova(test, cur_va, paddr, max_pgsize);
-> +		KUNIT_ASSERT_EQ(test, count_valids_single(test, len),
-> +				max_pgsize / len);
+From: Conor Dooley <conor.dooley@microchip.com>
 
-It seems alot of compilers figured out how to make that divide into a
-shift, but at least one hits a __udivdi3. Should be:
+While the auxiliary bus was a nice bandaid, and meant that re-writing
+the representation of the clock regions in devicetree was not required,
+it has run its course. The "mss_top_sysreg" region that contains the
+clock and reset regions, also contains pinctrl and an interrupt
+controller, so the time has come rewrite the devicetree and probe the
+reset controller from an mfd devicetree node, rather than implement
+those drivers using the auxiliary bus. Wanting to avoid propagating this
+naive/incorrect description of the hardware to the new pic64gx SoC is a
+major motivating factor here.
 
-		KUNIT_ASSERT_EQ(test, count_valids_single(test, len),
-				log2_div(max_pgsize, pgsz_lg2));
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+v6:
+- depend on MFD_SYSCON
+- return regmap_update_bits() result directly instead of an additional
+  return 0
 
-Jason
+v4:
+- Only use driver specific lock for non-regmap writes
+
+v2:
+- Implement the request to use regmap_update_bits(). I found that I then
+  hated the read/write helpers since they were just bloat, so I ripped
+  them out. I replaced the regular spin_lock_irqsave() stuff with a
+  guard(spinlock_irqsave), since that's a simpler way of handling the two
+  different paths through such a trivial pair of functions.
+---
+ drivers/reset/Kconfig      |  1 +
+ drivers/reset/reset-mpfs.c | 79 ++++++++++++++++++++++++++++++--------
+ 2 files changed, 63 insertions(+), 17 deletions(-)
+
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index 78b7078478d4..0ec4b7cd08d6 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -200,6 +200,7 @@ config RESET_PISTACHIO
+ config RESET_POLARFIRE_SOC
+ 	bool "Microchip PolarFire SoC (MPFS) Reset Driver"
+ 	depends on MCHP_CLK_MPFS
++	depends on MFD_SYSCON
+ 	select AUXILIARY_BUS
+ 	default MCHP_CLK_MPFS
+ 	help
+diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
+index f6fa10e03ea8..25de7df55301 100644
+--- a/drivers/reset/reset-mpfs.c
++++ b/drivers/reset/reset-mpfs.c
+@@ -7,13 +7,16 @@
+  *
+  */
+ #include <linux/auxiliary_bus.h>
++#include <linux/cleanup.h>
+ #include <linux/delay.h>
+ #include <linux/io.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+-#include <linux/slab.h>
++#include <linux/regmap.h>
+ #include <linux/reset-controller.h>
++#include <linux/slab.h>
+ #include <dt-bindings/clock/microchip,mpfs-clock.h>
+ #include <soc/microchip/mpfs.h>
+ 
+@@ -27,11 +30,14 @@
+ #define MPFS_SLEEP_MIN_US	100
+ #define MPFS_SLEEP_MAX_US	200
+ 
++#define REG_SUBBLK_RESET_CR	0x88u
++
+ /* block concurrent access to the soft reset register */
+ static DEFINE_SPINLOCK(mpfs_reset_lock);
+ 
+ struct mpfs_reset {
+ 	void __iomem *base;
++	struct regmap *regmap;
+ 	struct reset_controller_dev rcdev;
+ };
+ 
+@@ -46,41 +52,46 @@ static inline struct mpfs_reset *to_mpfs_reset(struct reset_controller_dev *rcde
+ static int mpfs_assert(struct reset_controller_dev *rcdev, unsigned long id)
+ {
+ 	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
+-	unsigned long flags;
+ 	u32 reg;
+ 
+-	spin_lock_irqsave(&mpfs_reset_lock, flags);
++	if (rst->regmap)
++		return regmap_update_bits(rst->regmap, REG_SUBBLK_RESET_CR, BIT(id), BIT(id));
++
++	guard(spinlock_irqsave)(&mpfs_reset_lock);
+ 
+ 	reg = readl(rst->base);
+ 	reg |= BIT(id);
+ 	writel(reg, rst->base);
+ 
+-	spin_unlock_irqrestore(&mpfs_reset_lock, flags);
+-
+ 	return 0;
+ }
+ 
+ static int mpfs_deassert(struct reset_controller_dev *rcdev, unsigned long id)
+ {
+ 	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
+-	unsigned long flags;
+ 	u32 reg;
+ 
+-	spin_lock_irqsave(&mpfs_reset_lock, flags);
++	if (rst->regmap)
++		return regmap_update_bits(rst->regmap, REG_SUBBLK_RESET_CR, BIT(id), 0);
++
++	guard(spinlock_irqsave)(&mpfs_reset_lock);
+ 
+ 	reg = readl(rst->base);
+ 	reg &= ~BIT(id);
+ 	writel(reg, rst->base);
+ 
+-	spin_unlock_irqrestore(&mpfs_reset_lock, flags);
+-
+ 	return 0;
+ }
+ 
+ static int mpfs_status(struct reset_controller_dev *rcdev, unsigned long id)
+ {
+ 	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
+-	u32 reg = readl(rst->base);
++	u32 reg;
++
++	if (rst->regmap)
++		regmap_read(rst->regmap, REG_SUBBLK_RESET_CR, &reg);
++	else
++		reg = readl(rst->base);
+ 
+ 	/*
+ 	 * It is safe to return here as MPFS_NUM_RESETS makes sure the sign bit
+@@ -130,11 +141,45 @@ static int mpfs_reset_xlate(struct reset_controller_dev *rcdev,
+ 	return index - MPFS_PERIPH_OFFSET;
+ }
+ 
+-static int mpfs_reset_probe(struct auxiliary_device *adev,
+-			    const struct auxiliary_device_id *id)
++static int mpfs_reset_mfd_probe(struct platform_device *pdev)
+ {
+-	struct device *dev = &adev->dev;
+ 	struct reset_controller_dev *rcdev;
++	struct device *dev = &pdev->dev;
++	struct mpfs_reset *rst;
++
++	rst = devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
++	if (!rst)
++		return -ENOMEM;
++
++	rcdev = &rst->rcdev;
++	rcdev->dev = dev;
++	rcdev->ops = &mpfs_reset_ops;
++
++	rcdev->of_node = pdev->dev.parent->of_node;
++	rcdev->of_reset_n_cells = 1;
++	rcdev->of_xlate = mpfs_reset_xlate;
++	rcdev->nr_resets = MPFS_NUM_RESETS;
++
++	rst->regmap = device_node_to_regmap(pdev->dev.parent->of_node);
++	if (IS_ERR(rst->regmap))
++		dev_err_probe(dev, PTR_ERR(rst->regmap), "Failed to find syscon regmap\n");
++
++	return devm_reset_controller_register(dev, rcdev);
++}
++
++static struct platform_driver mpfs_reset_mfd_driver = {
++	.probe		= mpfs_reset_mfd_probe,
++	.driver = {
++		.name = "mpfs-reset",
++	},
++};
++module_platform_driver(mpfs_reset_mfd_driver);
++
++static int mpfs_reset_adev_probe(struct auxiliary_device *adev,
++				 const struct auxiliary_device_id *id)
++{
++	struct reset_controller_dev *rcdev;
++	struct device *dev = &adev->dev;
+ 	struct mpfs_reset *rst;
+ 
+ 	rst = devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
+@@ -145,8 +190,8 @@ static int mpfs_reset_probe(struct auxiliary_device *adev,
+ 
+ 	rcdev = &rst->rcdev;
+ 	rcdev->dev = dev;
+-	rcdev->dev->parent = dev->parent;
+ 	rcdev->ops = &mpfs_reset_ops;
++
+ 	rcdev->of_node = dev->parent->of_node;
+ 	rcdev->of_reset_n_cells = 1;
+ 	rcdev->of_xlate = mpfs_reset_xlate;
+@@ -176,12 +221,12 @@ static const struct auxiliary_device_id mpfs_reset_ids[] = {
+ };
+ MODULE_DEVICE_TABLE(auxiliary, mpfs_reset_ids);
+ 
+-static struct auxiliary_driver mpfs_reset_driver = {
+-	.probe		= mpfs_reset_probe,
++static struct auxiliary_driver mpfs_reset_aux_driver = {
++	.probe		= mpfs_reset_adev_probe,
+ 	.id_table	= mpfs_reset_ids,
+ };
+ 
+-module_auxiliary_driver(mpfs_reset_driver);
++module_auxiliary_driver(mpfs_reset_aux_driver);
+ 
+ MODULE_DESCRIPTION("Microchip PolarFire SoC Reset Driver");
+ MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
+-- 
+2.51.0
+
 
 _______________________________________________
 linux-riscv mailing list
