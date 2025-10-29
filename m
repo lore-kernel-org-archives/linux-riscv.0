@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A707ECCF9EB
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 11:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63DC3CCF9EB
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 11:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hGOmDMdF+QvKOYFo9mgcUII1rcnu889RaWkOnx/UnNM=; b=KMcMbNP/aRVjE3
-	ijm4420xZgGxUDCL+1Cgd3QPnNNLBwsLonG7Iag/6z18SY/zaaSVkY+Kc9QS8k0ppeeIhUiwRXm5o
-	9rJrLDNSjsAVW51RSEIldBC+vCxyd/zZDToPtkeX//CjjyCWSVKoyGG+BLMJnXkwc9LGwxGyuG/P4
-	RCv1VGN5/xLWgumQoC0DcFzVpDrfmYozu3+tLUbsGS6WdDfyjnw0K5E8KDV8BPRThY872u1P8EirN
-	Mo3hhGPmqj1WKzdq+B8PJrX6SZLkTXTv7DYR77j83TvT5v/xDNVYZrMqGFqvmPmFTRa71FUfo9Smp
-	x1hEMNsb+LMcCJ4fYp2A==;
+	List-Owner; bh=qitYHkqF4RDD4M8oZWe7z+ud+TMWSlCIqffSpikHsQ0=; b=NZyIH9Zqh/j+VK
+	WxA8LNkzctX0ohuIlbBS9L0X587qNubpcQ3wXNO0nvStfGW5Ow4bl5WJ5vQgTrHNRdycr2jgDDiic
+	SIPEhAldKExu7kXAyCYe2CDDJ5kHFSdLBX3lkF/1pNlxdPim6Nmjw4Sersp/20VcTc1bi2du+Rq7g
+	2HtfgLTcLpPE/+Rg1vtd05SVgP12UhJR0PouWHB6HlC/WHWCp7b28ZZo9niimwREFcfad/yb8MxKF
+	4KtMMRDDu+HQSSlmsDi0yM0gdUx7s+4tbNUsxWrIaExx92tv+dMOh1+bA8qf/F2K3YH0DxUHsgiRg
+	Ly8VL8rycG7m5gdIOXQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE4Ki-00000000xuU-1tdu;
-	Wed, 29 Oct 2025 11:27:16 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1vE4Ko-00000000xxn-39iN;
+	Wed, 29 Oct 2025 11:27:22 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE4Kg-00000000xtY-0z2s
+	id 1vE4Kl-00000000xvw-3O4X
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 11:27:15 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-33d896debe5so7876683a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Oct 2025 04:27:13 -0700 (PDT)
+	Wed, 29 Oct 2025 11:27:20 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-33d896debe5so7876765a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Oct 2025 04:27:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1761737233; x=1762342033; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1761737239; x=1762342039; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EFXZa2m3ScC7B7xgAgov/Ch2E5BoKfJoACxjrPDC6sE=;
-        b=V3xUGWP6RK6fW0jt4Dbsna+/PuO27zcgD7WC1NwNmAr1/aXrDrJ2qNsn6YC2JLOOft
-         VV8tE/F/oCjFuhDZWmjHB7Rrht2O9TlrbWWOVHHn6oFxC8jiNjcTA74T+Zh1l1Swe9u0
-         bHGXsEP/OK9Mr4rigBH7IPybCCh08sVTWNDOsNn09eLQcsO+zWv/cw9MrK/wb49QEnR1
-         waMWXWxofACGnTV49315m5lg3IQisblrtgnc1rwdXLarEvfeCarTTTjMgeGfc5zxXtHK
-         LCGgAFO+MNQLtg54wKdrEFlRwApViFW8C/8doYhRzXVitWoQByJTRriCBvBcbMWXcKhI
-         /tow==
+        bh=CjTmNoD235Z0Q+UTnvL+T6Jk9tiw9Xtbmp+pbEirE4Q=;
+        b=gyRrD1Gw95eKxoMsMvHWEhegMHpJt43+nTQ7AxRfiR07Y/RWMe4euNa/Jj8Db19pHq
+         5MpzrC8W9mDaJ+au0fEarClOPy6BTPHrjZ8L8u/5mpMm4LTKr1UFQ+5ZgWTzHwLO9Sj8
+         bazoNgfMXsWfVzqx5/6EetFOPozwKngROxDQWq+SeEb0rD4yLnymEXVSiEo9JXIWj1I/
+         Wd5dz0vxFhqvO7U/Y1jBovfZU5h5qh1DmhjWOPn0GC7Zhz/lOBmUkr1YIGUycx/9eEJB
+         DywGIzeGfB4zRiLay97AFYBAxAZMmH7zIogFukvam9UzoBvY3xgXWudWyjyt71yT2HXh
+         5jxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761737233; x=1762342033;
+        d=1e100.net; s=20230601; t=1761737239; x=1762342039;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EFXZa2m3ScC7B7xgAgov/Ch2E5BoKfJoACxjrPDC6sE=;
-        b=T6uqmnduQBtNHi2ZCuNXCDZXjN1y8lumVZH7KursFWnmvuHS+Yo0BgaMPSxViDQ99u
-         JJl0KbIgqr31FPtOdivlWCxSqWMa9HNewZOsELFPLayiOZm9KISSfaSYf3WUC2sH2dbc
-         dM+RqZ7JztydgThPrBfBiLofMA7pk6uE5iIZO8402Yhb3p3ru8kXVyfFmXOmmgXjI5nG
-         YqzLT9wQKrIgYtuEF5BP3Soiin1qWItRG7OypVwzsDoDRbuLYhIUCMzE+MNowsJyUxYv
-         lY49aX+TUObGbxWEtfuEOwdFHKbPDG9digGPlnOkkf/lpgpk1llbSMSnQ3j13KnUCk2y
-         F/eA==
-X-Gm-Message-State: AOJu0YzHWjgEwTze4QlGIFNDr5Qgw3smOl+0RSKnTvA39k4k/FH7HXSE
-	avWbTCcMCSQGK4jMxJ9zpRvWfalGRPFBW1YEptc2xh9rb6TPG6VMEYrAxVq7FOrDF8jZhF9RZjr
-	RpoDvq+xsSA==
-X-Gm-Gg: ASbGncvumYWpuj1D7CIB/eA10AafkFMJEXj9NFfRICqXW9u/Mx/UHp1umyYVp4gZSAQ
-	n4W1gDZAGevUzEpxtQE8oBBbqyTV5gyGPgkugFmyF+7ei/WtrpxeFMowqDboO1Lee4xb1ENjMVU
-	eRki6fj9gdQ5ai6ospkREEwUpAEHRkQrw4f8OBM0EVhn7Qk1XUKvXcMRZaIa67FgNYwlr5HgvGl
-	tMYGN74nr9l1OrPlSU9qAy2pqHGK0A/trPMpVikGsiZw8EHLzJHIN9PjlRkRFuAP09LA543yHQP
-	GhNlz4jF6mjBXbHb4UWuNgGRm5QEMIjwbWpEaUy/zquYiueAbu0WzR79lPbwBxWVGB6etkC2WXg
-	4lZzmyzILH+8Df/PzcgBFtBtPKMxc6xCjT/pHtdWaVLJV61g26skozD4L/N6/6Ph9XwCbM/37ZY
-	Jt2lUZ8uQOJNpO49ys1mshnQVfVWvY
-X-Google-Smtp-Source: AGHT+IFGkvDWy4UC3Hg/jmsLKRMLWCVuS3Q0brKoM+EvGQYG5cGXwRa91mgG3g+8I8GSaWTf36w5eA==
-X-Received: by 2002:a17:90b:4a11:b0:330:6c5a:4af4 with SMTP id 98e67ed59e1d1-3403a29bc2cmr3385152a91.35.1761737233246;
-        Wed, 29 Oct 2025 04:27:13 -0700 (PDT)
+        bh=CjTmNoD235Z0Q+UTnvL+T6Jk9tiw9Xtbmp+pbEirE4Q=;
+        b=D/GopDG440q8N3Xl2nTyiWNNUSNwvcKSwnETjtDgb3w6sc5bpMoUUEAik/2VHgl4o2
+         khQcomjrzBsblUF0ubsY5P0UQ69L1bwGmBObGB2rEoVNT/7HKC79onW/DVoyAyoMazQV
+         AqHFKB6GhNfUg7BniGTPHKa+jjLEOY2oJcHK1SsRREOumRVUrTvJj+wiFfhlYNqAmO4g
+         vEisj7g+YOOAHaU8CrBeVSHPmi/4rljPRZGZfJ+b7HCvvzORkUtbiXxr53NtLpneqhFL
+         RbRmRKH/25ePtrjc/+7ajs5zaIhugMK4hdBlD/gdmzPk8hAwE+BgYPL+tutK2W7TLW7D
+         v9Ew==
+X-Gm-Message-State: AOJu0YwqCUYYJXYbOLXE/DdJxMZbvcP0aTLZmbhz490iZFY6FIg6S80E
+	hP23LtxbzGvF0LLLp/cSYQrc3s4HWKVJPZGRgwrS0ReLjSy6d/CfLtAu/oZowPMfm1L4e92wCNu
+	WaRRu1VHzkA==
+X-Gm-Gg: ASbGnctASxPcf0VN5GWiAMxEA9IJuwPEvVOsJD8Hc3EkWG6j9MNz6IiNLEPP8Sw47ae
+	xLyXbC5+j43AqQMDmm/0lnEcm3obsh387PaRGB5zYF/Cg+GyjIpKIOfzXCLTUGJ3VocBevyHI9A
+	UofjvyhGx+rH27XY1y/hlWuoN9Yow2MaXP9BoAsixLB0V8MaXm3WFE6SjyRP+T5AUh8CoCmrf5e
+	uI5bdEn/zbwOp4Pws16LmNvxnnqmh+AMDBf9A1iITe0ifgyb/tB2X2f9GztvinGYXF3uFkonHch
+	/jwYpzekVrJG0UMifaAy8uAcEhBFLNRCHL/V7CJvSGfb2tpLSmEK8l7s4JBZjuvCqC2bDEoEd4j
+	WdHtiwbE2PwJqS/Syt7mUTTuMdb4NZTVT6fFMqHMhnMPIgjh04bQdbhGK20dSMP9/o1TFAy63Ao
+	8PKw0HA/9+RuYspL9bnLd9jqbNxEHu
+X-Google-Smtp-Source: AGHT+IGV9vVH8+hlZLrwbCF6EeuF04kV3fpI5UDP/oNNvPeA5hF+38GHsytRURBATavrU36r7KMQfg==
+X-Received: by 2002:a17:90b:384d:b0:339:d03e:2a11 with SMTP id 98e67ed59e1d1-3403a15844cmr2891587a91.14.1761737238675;
+        Wed, 29 Oct 2025 04:27:18 -0700 (PDT)
 Received: from ventana-desktop.localhost ([2405:201:d019:c0ce:f7f5:7789:48e5:c03f])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33fed7f6040sm15316918a91.16.2025.10.29.04.27.08
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33fed7f6040sm15316918a91.16.2025.10.29.04.27.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 04:27:13 -0700 (PDT)
+        Wed, 29 Oct 2025 04:27:18 -0700 (PDT)
 From: Himanshu Chauhan <hchauhan@ventanamicro.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	linux-efi@vger.kernel.org,
 	acpica-devel@lists.linux.dev
-Subject: [RFC PATCH v2 02/10] riscv: Define arch_apei_get_mem_attribute for RISC-V
-Date: Wed, 29 Oct 2025 16:56:40 +0530
-Message-ID: <20251029112649.3811657-3-hchauhan@ventanamicro.com>
+Subject: [RFC PATCH v2 03/10] acpi: Introduce SSE in HEST notification types
+Date: Wed, 29 Oct 2025 16:56:41 +0530
+Message-ID: <20251029112649.3811657-4-hchauhan@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251029112649.3811657-1-hchauhan@ventanamicro.com>
 References: <20251029112649.3811657-1-hchauhan@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_042714_274655_42EE01F4 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20251029_042719_846802_36B6B24B 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,46 +103,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ghes_map function uses arch_apei_get_mem_attribute to get the
-protection bits for a given physical address. These protection
-bits are then used to map the physical address.
+Introduce a new HEST notification type for RISC-V SSE events.
+The GHES entry's notification structure contains the notification
+to be used for a given error source. For error sources delivering
+events over SSE, it should contain the new SSE notification type.
 
 Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
 ---
- arch/riscv/include/asm/acpi.h | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ include/acpi/actbl1.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-index 6e13695120bc..0c599452ef48 100644
---- a/arch/riscv/include/asm/acpi.h
-+++ b/arch/riscv/include/asm/acpi.h
-@@ -27,6 +27,26 @@ extern int acpi_disabled;
- extern int acpi_noirq;
- extern int acpi_pci_disabled;
+diff --git a/include/acpi/actbl1.h b/include/acpi/actbl1.h
+index 7f35eb0e8458..20b490227398 100644
+--- a/include/acpi/actbl1.h
++++ b/include/acpi/actbl1.h
+@@ -1535,7 +1535,8 @@ enum acpi_hest_notify_types {
+ 	ACPI_HEST_NOTIFY_SEI = 9,	/* ACPI 6.1 */
+ 	ACPI_HEST_NOTIFY_GSIV = 10,	/* ACPI 6.1 */
+ 	ACPI_HEST_NOTIFY_SOFTWARE_DELEGATED = 11,	/* ACPI 6.2 */
+-	ACPI_HEST_NOTIFY_RESERVED = 12	/* 12 and greater are reserved */
++	ACPI_HEST_NOTIFY_SSE = 12, /* RISCV SSE */
++	ACPI_HEST_NOTIFY_RESERVED = 13	/* 13 and greater are reserved */
+ };
  
-+#ifdef	CONFIG_ACPI_APEI
-+/*
-+ * acpi_disable_cmcff is used in drivers/acpi/apei/hest.c for disabling
-+ * IA-32 Architecture Corrected Machine Check (CMC) Firmware-First mode
-+ * with a kernel command line parameter "acpi=nocmcoff". But we don't
-+ * have this IA-32 specific feature on ARM64, this definition is only
-+ * for compatibility.
-+ */
-+#define acpi_disable_cmcff 1
-+static inline pgprot_t arch_apei_get_mem_attribute(phys_addr_t addr)
-+{
-+	/*
-+	 * Until we have a way to look for EFI memory attributes.
-+	 */
-+	return PAGE_KERNEL;
-+}
-+#else /* CONFIG_ACPI_APEI */
-+#define acpi_disable_cmcff 0
-+#endif /* !CONFIG_ACPI_APEI */
-+
- static inline void disable_acpi(void)
- {
- 	acpi_disabled = 1;
+ /* Values for config_write_enable bitfield above */
 -- 
 2.43.0
 
