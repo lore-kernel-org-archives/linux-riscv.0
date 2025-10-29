@@ -4,95 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F27CCF9F6
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 14:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3ECACCF9EB
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 15:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RgXYHGlIIx4Ip/v38wL2u4J4q7Wcy2XsHbcZK/IxQbM=; b=tX+gigdpPTi3Wt
-	fux2R4kBzgbU0SirVs7nTlGPMy1CvQiekw67FK4bTdkGfOSxxa+E6m9XVgm0what0fWNyI7fPFXMP
-	S6TBE4sTVCjuuWOefiBgxVJc4dhXvU4Lrmn4lVlEI7bT4QqDNEazY8OvBhK2+h4fYExW0QHDTiHJY
-	6/GCKzDpfi8QFrXMHR4Gjn6JiB0Ywx3ouODw1dTjvtX9SAbUkuwtwq9r2oFd568mK8//7FH+XffUf
-	lEYkXSEm3naOn5Bo0PX8WrJm5L+rIr2LuuZMVpStQkeCBaevvGTYLOkjuFon1Oh56g6f7L1qtjE94
-	2xnmCpaReT4iK9LXEosg==;
+	List-Owner; bh=5PpWnVSxKraKcXgSE7kaVpgT/W+LgiGZEP7OCxfDfw8=; b=AmSX5R3SYGZSSb
+	DcUiNvicQrPTbuxJIebRTTZK6hu4pPEkMCNw1KBTXXf5Llt7VVF4xRckxDlMwsWufqdmQUwaXUuBT
+	WPdJm/rUFRkyayyDevHHtfDd/5OQc22JNBnLcpStQBOAH8IuZAIKCP+VWBOZ0FIwpkgBxMGunVkva
+	2AQ7Pt35B+nGoLUGJemmQ7QsBHMloMOs1uwqLrzqyO/5AERVDBMRT9pT7aqx/sQX6w87L1tqO1WCr
+	mFp+Y0ioYqa8pd9NnCM25lkKskPGrTycEqnLMN9zlypQxb1ePrx2UoQAc5kNfJq6ZO3zktkP+LEo0
+	vAVYRXhHYYC5ZIt0ejGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7Xu-00000001fZR-2IvX;
-	Wed, 29 Oct 2025 14:53:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vE7sV-00000001kR4-1U24;
+	Wed, 29 Oct 2025 15:14:23 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE7Xr-00000001fXX-1H9F;
-	Wed, 29 Oct 2025 14:53:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12E3741728;
-	Wed, 29 Oct 2025 14:53:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39C64C19423;
-	Wed, 29 Oct 2025 14:53:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761749581;
-	bh=DycaBBkGuqgEIP5677gSgx8QDJGofxkMNPMcP3M730o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NbRDLF5bQ+u4J4hiySQAVpBuc86Gn1rrbceqZEKYNWpKF9yoAhVdLiG/Nu9SRzin5
-	 ddwOS2DAvBL0w6K59co5lqXWGrpHXdyA3+e94n4XKlatrRRprHxYDEy/DFtpqcJYjz
-	 jGBmveuocLom0Tr99M8s/YfJisMETw3u7WfPV8VPmObP73KGTMrcXJF2ZKhuh5kL4K
-	 FNZiQ5jjE+Qy5WcINDDA3sOHLfgNQyF9ljeM8CBlvKWvkNPOMLvSsJkY31UBeqPnRr
-	 epdow2onJrow0Coha3Tk5/8X8R1mpOEWDHWRuB0t8h2sykd3/evOgK+UEPDUs1Kui5
-	 FM7cF5Ys9ZgFA==
-Date: Wed, 29 Oct 2025 15:52:58 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 23/29] context-tracking: Introduce work deferral
- infrastructure
-Message-ID: <aQIqSq2FWyHg0Y3p@localhost.localdomain>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <20251010153839.151763-24-vschneid@redhat.com>
- <aQDMfu0tzecFzoGr@localhost.localdomain>
- <xhsmh5xbyqas1.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	id 1vE7sS-00000001kPg-2DPi
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Oct 2025 15:14:22 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 2726D25746;
+	Wed, 29 Oct 2025 16:14:15 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id 8G9h0oREbF2K; Wed, 29 Oct 2025 16:14:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1761750854; bh=Un1263Y3t/Nka3u0iyTUOo72BpVIJVxFmdi8tdLbhK4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dXiPVvjG4PegWw59QZbcyAN4cY6mmMlz60Ip2wVjreAYmKclVc1RyCIJb5+6vG7tL
+	 o2dysstrnuIRKHOhSFr7yQDsJ44TlLI7GXJpF4nz5PgdAo4SDKRVWwD1WK+ud+AHhz
+	 O9sPOnKqe3xEiyyHh7ls+AJPdhSpeX5wjLf3SgQYYiEo3MZDpG4I01rKjvkTi7Bey1
+	 Yi3NxDzRpr2YwcdfmmwMADUgMNu3Y2F7bxuHrRKSZ/HPUkZyj2EKvZRo7hfK7Mzqva
+	 MEbMHhbMJsRhJljA99pCaPv5JOzXPOlUXB9CqXYCot0e5Y8lWJS+qlPLco4X72B86d
+	 yiedeL0ygHJdA==
+Date: Wed, 29 Oct 2025 15:13:46 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Drew Fustini <fustini@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Michal Wilczynski <m.wilczynski@samsung.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
+	Han Gao <gaohan@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>,
+	linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
+Subject: Re: [PATCH v3 3/5] reset: th1520: Prepare for supporting multiple
+ controllers
+Message-ID: <aQIvH4jbj9Ifd7Av@pie>
+References: <20251014131032.49616-1-ziyao@disroot.org>
+ <20251014131032.49616-4-ziyao@disroot.org>
+ <aQIOgbUf2IHoWCf2@gen8>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <xhsmh5xbyqas1.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+In-Reply-To: <aQIOgbUf2IHoWCf2@gen8>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_075303_381542_B1B3DD11 
-X-CRM114-Status: GOOD (  26.87  )
+X-CRM114-CacheID: sfid-20251029_081420_993618_8D687669 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,82 +80,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Le Wed, Oct 29, 2025 at 11:09:50AM +0100, Valentin Schneider a =E9crit :
-> On 28/10/25 15:00, Frederic Weisbecker wrote:
-> > Le Fri, Oct 10, 2025 at 05:38:33PM +0200, Valentin Schneider a =E9crit :
-> >> +	old =3D atomic_read(&ct->state);
-> >> +
-> >> +	/*
-> >> +	 * The work bit must only be set if the target CPU is not executing
-> >> +	 * in kernelspace.
-> >> +	 * CT_RCU_WATCHING is used as a proxy for that - if the bit is set, =
-we
-> >> +	 * know for sure the CPU is executing in the kernel whether that be =
-in
-> >> +	 * NMI, IRQ or process context.
-> >> +	 * Set CT_RCU_WATCHING here and let the cmpxchg do the check for us;
-> >> +	 * the state could change between the atomic_read() and the cmpxchg(=
-).
-> >> +	 */
-> >> +	old |=3D CT_RCU_WATCHING;
-> >
-> > Most of the time, the task should be either idle or in userspace. I'm s=
-till not
-> > sure why you start with a bet that the CPU is in the kernel with RCU wa=
-tching.
-> >
-> =
+On Wed, Oct 29, 2025 at 12:54:25PM +0000, Drew Fustini wrote:
+> On Tue, Oct 14, 2025 at 01:10:30PM +0000, Yao Zi wrote:
+> > TH1520 SoC is divided into several subsystems, shipping distinct reset
+> > controllers with similar control logic. Let's make reset signal mapping
+> > a data structure specific to one compatible to prepare for introduction
+> > of more reset controllers in the future.
+> > 
+> > Signed-off-by: Yao Zi <ziyao@disroot.org>
+> > ---
+> >  drivers/reset/reset-th1520.c | 42 +++++++++++++++++++++++++-----------
+> >  1 file changed, 30 insertions(+), 12 deletions(-)
+> > 
+> > diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.c
+> > index 14d964a9c6b6..2b65a95ed021 100644
+> > --- a/drivers/reset/reset-th1520.c
+> > +++ b/drivers/reset/reset-th1520.c
+> [snip]
+> > @@ -138,22 +147,31 @@ static int th1520_reset_probe(struct platform_device *pdev)
+> >  	if (IS_ERR(priv->map))
+> >  		return PTR_ERR(priv->map);
+> >  
+> > -	/* Initialize GPU resets to asserted state */
+> > -	ret = regmap_update_bits(priv->map, TH1520_GPU_RST_CFG,
+> > -				 TH1520_GPU_RST_CFG_MASK, 0);
+> > -	if (ret)
+> > -		return ret;
+> > +	if (of_device_is_compatible(dev->of_node, "thead,th1520-reset")) {
+> 
+> Is there a reason that there is a now a conditional check for the
+> compatible here?
 
-> Right I think I got that the wrong way around when I switched to using
-> CT_RCU_WATCHING vs CT_STATE_KERNEL. That wants to be
-> =
+Yes, this regmap operation is for initializing GPU resets and thus
+modifies TH1520_GPU_RST_CFG, which only applies for the VO reset
+controller (with compatible "thead,th1520-reset") but not others, or
+other unrelated resets could be unexpectedly asserted.
 
->   old &=3D ~CT_RCU_WATCHING;
-> =
+> Thanks,
+> Drew
 
-> i.e. bet the CPU is NOHZ-idle, if it's not the cmpxchg fails and we don't
-> store the work bit.
-
-Right.
-
-> =
-
-> >> +	/*
-> >> +	 * Try setting the work until either
-> >> +	 * - the target CPU has entered kernelspace
-> >> +	 * - the work has been set
-> >> +	 */
-> >> +	do {
-> >> +		ret =3D atomic_try_cmpxchg(&ct->state, &old, old | (work << CT_WORK=
-_START));
-> >> +	} while (!ret && !(old & CT_RCU_WATCHING));
-> >
-> > So this applies blindly to idle as well, right? It should work but note=
- that
-> > idle entry code before RCU watches is also fragile.
-> >
-> =
-
-> Yeah I remember losing some hair trying to grok the idle entry situation;
-> we could keep this purely NOHZ_FULL and have the deferral condition be:
-> =
-
->   (ct->state & CT_STATE_USER) && !(ct->state & CT_RCU_WATCHING)
-
-Well, after all what works for NOHZ_FULL should also work for idle. It's
-preceded by entry code as well (or rather __cpuidle).
-
-Thanks.
-
--- =
-
-Frederic Weisbecker
-SUSE Labs
+Regards,
+Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
