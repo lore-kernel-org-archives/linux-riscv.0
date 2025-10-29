@@ -4,70 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5180DCCF9EA
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 01:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A7BCCD1BF
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 01:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pPfY+mxDWoHf1R7MvgpCLJ6QPm8+EA+nQTjvWCCIdTM=; b=JEx7hQVF4moqd9
-	uCPwJylAZ9pJUYAkTLVkpLv590LzCdKyeSFOSUMrrUv/Ur7H7VumfMqjt+n66T5k+UzbfpYKL+b8m
-	as200JtP0ldQRnUyNCG7X9ZiYkRwQ+XnY+qYWAjx9fliZ2t0W9hCARB22il970Voa5z3M5dYpiRvm
-	ihQyyZdg9c+NNI6w5jVwxdeMTXrJUV0VEtQoqSx3PCy5otGKIiDytI7sX3JIZUZygu1K941whqtQm
-	1ktVsSp9pj8s03y08Xulr4DoGR+/DbKm9D8sKIkfh76K701/bB1vBgvUDHlWDNfS/ZUZN2SKbiW8A
-	dQF23WuSUIknct58LEJg==;
+	List-Owner; bh=ar//LQhp1n2w2MRiqG856Jy8dXg/ilHkpixT7aL5+1s=; b=0+CEEL3PQcuGn1
+	I5K0r4v0zbtZCMJ6AoU4WwoVppbqmAigNUkQTdVEKlfAKap0aLAP2WBRdfzHezSO8+hCKbLEcdkVn
+	RXsGrZYDiKUL87zcDvasRdRzhwHZpoF7g4Yoyos/A+wUxhvohxNmY1oSNY/PipHgb/M7w1+iBB+xI
+	xCllenX4mypZElCSN+/SGmh0euYNIlimqKZiCg7YAh6eLFrosi2UFgDJYpT821K66cFI/HUYzuayv
+	/i/cpwKNgF8alPyjDghD7iEXG92ncZbii3khJE0w9wstkFbBqJWPDczAAwDiDCYC7STlXkBJRuiXz
+	nM280N17Br8h7rB3sqYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDuXp-0000000GtLY-0Ozi;
-	Wed, 29 Oct 2025 01:00:09 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1vDuYh-0000000GtRx-1qE7;
+	Wed, 29 Oct 2025 01:01:03 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDuXl-0000000GtKN-2NJM
+	id 1vDuYf-0000000GtRR-38zC
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 01:00:07 +0000
-Date: Wed, 29 Oct 2025 08:59:49 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1761699600;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=axfy//ogFDe/yGbFMo1sZMCFPL+4baIeWWIdu2LpDI8=;
-	b=C+uHI4yJrnTWHNX09+K4A6XEe9JSPPUru03wyNSgVfHv61E7wLAa4TZ331QLDUnPoQ1P6E
-	VjUIg4YW3JXeZ4EO+p4elnyhBy5vg944BCDQMdxymYkrakt5HKwr3RRDjZBvBZO2zy4wqQ
-	Odu3Jg8x6KTSeZ3PTZpwj1+hNJQKZC4=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Troy Mitchell <troy.mitchell@linux.dev>
-To: Michal Wilczynski <m.wilczynski@samsung.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>, rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Troy Mitchell <troy.mitchell@linux.dev>
-Subject: Re: [PATCH 3/4] pwm: th1520: Use module_pwm_platform_driver! macro
-Message-ID: <aQFnBYc7C-nQslJ9@kernel.org>
-References: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
- <CGME20251028122318eucas1p17161f0e1f2281c868688e8a4cc3d8f68@eucas1p1.samsung.com>
- <20251028-pwm_fixes-v1-3-25a532d31998@samsung.com>
+	Wed, 29 Oct 2025 01:01:03 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7a26ea3bf76so8742239b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 18:01:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761699661; x=1762304461; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=EOFIBRmcwlFaN9bXxhzQe/4jdraVkcYuslQKkiUSHs4=;
+        b=f0IS+flhDIswc5E3ujIFyWWWbVfi/uOJcvV73IhQt6atUYBopKRFG2Ol7QRO3rICUP
+         5eD8T18NKTS31Uyf7kyAXrxe3b47NXe1mHGAbgB8h80VNoR3SZXnVJwUSY/DOA4uS6mH
+         72XFuvy0OanxZo07zbubXaSR4MEp7Ov/nGS+/rR5RB4rTR2vcRAQtZ7qhjCX24gQvAeQ
+         NfZOr18Y41a8g7wX3DiFB/pn15b2qR7+GbBjvh9pz73wLjmcCteJ86bDkSM+WdREX4Va
+         rVw/sEtgyemXEXcMRfoVdJZkdeTFU734CGckWaBrp26VOiV181T35iq7Njtc8XckGh39
+         gnqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761699661; x=1762304461;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EOFIBRmcwlFaN9bXxhzQe/4jdraVkcYuslQKkiUSHs4=;
+        b=Iee3j8jcYgrmQRk250LnPvQTU5efTkWhMPAR3CVZaDpxLNztCcK03pAMbBM0hnzr5D
+         s2lbSCI48VT/cVvwdDRzHcVv1h9wXSOahnmWgwmjj73mFhuJ/FpT0vWQJ6DKPa2+aI2g
+         WPg6ciXImv7F/MVYPMbo7ifVgSxE0VCCDBDFSFa2kBN6B2PmqYmxUp4pYqCXBNhE/0sL
+         7tBN7I0KGTyI2K7jRr/Uimxued72h5fvc9FvEv7Z/v2KJ06V5Zfp0fQKCObnKGM3AKLx
+         HAeXVThG3+HVL3Gkx+wXDi8TV42GnbM8BUHPkvRB/L8w5wlVZoarFDImHdEFYs0SZj64
+         Xz7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV1mx7fCkIR8OuXZ2XT3mUEEmGKl+xOa3T39iYu2gpEK2OkLiaBq+6fIUtf1LtCaOtU5NYiaNHKNg8XwQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoU7avzz513cn9+KmcNYvmnP1X4RRhx9XZpb1WBHiyvVu2jlw0
+	VsUByKsM49zgpX8mshrm0BFaaFSe5TI8MmsoRePMRRozUp8pDST1ycNw
+X-Gm-Gg: ASbGncum2eaG8NYKX0MvthJu+W62aI7G0Doy6/g6VecdwwWUGryNPNGuNwHv2dlcF+g
+	bK+aOvds/T0Jzzgu62sGJcJjke3Hq+1P6xNSYzgpOjm4QzSf3Jh8Qi+GFzJGYqhna3wZ4c3tADG
+	fPGXw0D4+D+I78V99B0BgvNXZrigLDl7lfSWD1faomGg3Jf8sKC7WYbOzYLKjM4Pqynq4PsliAA
+	FNDLH7onikCbR8JRfdSsRaCHyxMNvnAqW1dVg4CEUvDTZ1svGAMM7/7iIK/319E4f4eFdUykJ5/
+	o5nFKTIRbysH1sEwZQ48Eifjs7yAKJf+wfENt1Ha2awiBQijltPcf25oBvxB46zcDqXdm1BzhFz
+	2TNzT2VomtSoU9UbN9qQarcJuwLBuRVkPSJ1Tn+o3D6CXpYId+hHD1h50TINaTDWSgdwhMJTiEZ
+	3on44GRpbPSA==
+X-Google-Smtp-Source: AGHT+IEMe32xqVGqKCj2DGI+hZvdmpFIC/0PTrMJHiFO3ihM2p5pLrA2hxJkIMoSwNxbQFCypenenQ==
+X-Received: by 2002:a05:6a20:914a:b0:2f1:302d:1285 with SMTP id adf61e73a8af0-34657f5b873mr1069767637.17.1761699660885;
+        Tue, 28 Oct 2025 18:01:00 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a414015724sm13039315b3a.14.2025.10.28.18.01.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Oct 2025 18:01:00 -0700 (PDT)
+Date: Wed, 29 Oct 2025 09:00:52 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen Wang <unicorn_wang@outlook.com>, Han Gao <rabenda.cn@gmail.com>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicornxw@gmail.com>, u.kleine-koenig@baylibre.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, conor+dt@kernel.org, krzk+dt@kernel.org, 
+	mani@kernel.org, liujingqi@lanxincomputing.com, palmer@dabbelt.com, 
+	pjw@kernel.org, robh@kernel.org, tglx@linutronix.de, sycamoremoon376@gmail.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	sophgo@lists.linux.dev, chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, 
+	fengchun.li@sophgo.com
+Subject: Re: [PATCH 0/4] Add PCIe support in DTS for Sophgo SG2042 SoC
+Message-ID: <ilkog5axxgj2vexc2wegkpyyysrrcjhejamnpc2wmb3ilakbwq@f25veozfglr6>
+References: <cover.1760929111.git.unicorn_wang@outlook.com>
+ <PN6PR01MB1171791524E2BC1C227E342F6FEF5A@PN6PR01MB11717.INDPRD01.PROD.OUTLOOK.COM>
+ <CAAT7Ki_4nkKM1-D_8ybwusxTTsR=Lf09v8Cx6QDWfuy8KLtbBg@mail.gmail.com>
+ <PN6PR01MB1171739409EDE88BC4453D09AFEFFA@PN6PR01MB11717.INDPRD01.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251028-pwm_fixes-v1-3-25a532d31998@samsung.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <PN6PR01MB1171739409EDE88BC4453D09AFEFFA@PN6PR01MB11717.INDPRD01.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_180005_971672_575C7BC8 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_180102_020509_2E121C86 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,19 +108,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 28, 2025 at 01:22:34PM +0100, Michal Wilczynski wrote:
-> The `pwm_th1520` Rust driver calls C functions from the `PWM` namespace,
-> triggering `modpost` warnings due to missing namespace import
-> declarations in its `.modinfo` section.
+On Sun, Oct 26, 2025 at 08:31:49AM +0800, Chen Wang wrote:
 > 
-> Fix these warnings and simplify the module declaration by switching from
-> the generic `kernel::module_platform_driver!` macro to the newly
-> introduced PWM-specific `kernel::module_pwm_platform_driver!` macro.
-> The new macro automatically handles the required `imports_ns: ["PWM"]`
-> declaration.
+> On 10/25/2025 7:58 PM, Han Gao wrote:
+> [......]
+> > > > base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+> > EVB1.X/2.0 can be started normally.
 > 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.dev>
+> Thank you, Han.
+> 
+> Inochi, please add "Tested-by: Han Gao <rabenda.cn@gmail.com>" when you pick
+> this patchset for next.
+> 
+
+Just add the tag is fine and no quote, I can collect the tag with b4.
+
+Like this.
+
+Tested-by: Han Gao <rabenda.cn@gmail.com>
+
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
