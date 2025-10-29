@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 502EDCCF9EE
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 17:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217BACCF9F0
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 17:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jSFi/m5F1DsT9QcaJI2JDlJ/9aObdRmnXgpJkTZ0lJs=; b=fHxOcGezD5FwW5
-	HhYgJr7psEQPYKVTp0SC0esl3Qc4EOk8UdlqRMREuS1+gt6lfHiyXraAPGA5CKL9qLqfXBY8yioDw
-	Im60kUGIXDGOsUMPFGecFR6Uzc9RkyQ5xbgz5JNvSi92TmBSz6/JG4LoIPu052XDe/sgwKyUHtu3B
-	Rfd2aJZXuuc4WW0+B8bveOK7ks29KSQYJ1Cn5ESs9RDkEGkuYVjySfYnBf6aI2V57uAV99AYc2ObG
-	5JIHnxn/LZ1dlBhjFykMLUpyIorLQ5KM3PT21RysXWp45/ZWHP5xxgtZhEF790OXtipHJVkSZgcWP
-	MBgfs//ZGVmhgVeipNKQ==;
+	List-Owner; bh=1ObV3rHLf1Y9joUOe8Yza7QipyiPYi0poPcKEqt8xdE=; b=TNNAlkv5u0xYnf
+	lPFmgRYQKJR9dcn5ftY1gjCFoa/eEUDRIAjFO6t198dysHSBCEThQYLWGlosX1SrRSB4GHMP2Sz0E
+	xfP2XWTpLKCK4ip7SZeS8Zwvpg8narZvsnPSH02LhZjUgX/dwJoKENWwbGFLItOtosbqxc1U0heND
+	c1quTvnvWNQvtDWWl5LxV09Joir1HaSNSPs0zkSu/BIfvgUfvMzHhiNn+S3lCsQHQ1ksGfDazEy8P
+	/rzJPoK6Y0/mERMx3ZbDPJxVp+A/iP5WJUz1xxZwjnR0In59ZETCNLvyiTRPzgyY1DJ2oIClPXTKx
+	wAJoG/Ctp9Zee6D6FUww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE9lc-00000002AA0-0GqJ;
-	Wed, 29 Oct 2025 17:15:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vE9qn-00000002BAl-0IE8;
+	Wed, 29 Oct 2025 17:20:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE9la-00000002A9M-1QI7;
-	Wed, 29 Oct 2025 17:15:22 +0000
+	id 1vE9qk-00000002BAf-1Njh
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Oct 2025 17:20:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 374136149D;
-	Wed, 29 Oct 2025 17:15:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35E0DC4CEF7;
-	Wed, 29 Oct 2025 17:15:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6903061201;
+	Wed, 29 Oct 2025 17:20:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D03BFC4CEF7;
+	Wed, 29 Oct 2025 17:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761758120;
-	bh=t3ByI2ggpnXN7fpU/j1XfFuDuzjdaTgYJk3bPpbYU5w=;
+	s=k20201202; t=1761758441;
+	bh=fRO3N8gBJsLWYOcvvMBetHyoZTIc2Qfk5OoctK9z4cY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mCctPaF/s4Ej/qaUy9NBWjZ4tFp0QCR0mZ6Q58I4iogldTOoS12UFHS0vHbG0DSph
-	 227Cm4eZbmJrh0L/NPvh44Kt43N6IyuWC/KldVbmCoiLr50mqPOn4lsXsfukXT9u+K
-	 SBwatwsBkUUf9NSOFWQllmDLp942vZS35JrPpXugYhl3MQY2Z3swCE0Lc1cVMzrOLm
-	 q+hyKGuAJkkwhVPyyL8Zd0mjnzZC9T1HST0yNNQxlFzyBGHCKafdtiPPmxzYYRh5+I
-	 K8ivV6rg0eGcNpXKcdo4UXxI0eBtAIghhVlnwJJpy2Ww7H0rESJJHmDQURxNbt0Hv7
-	 4WzSv5OBoFaLQ==
-Date: Wed, 29 Oct 2025 18:15:17 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: Phil Auld <pauld@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
- user->kernel transition
-Message-ID: <aQJLpSYz3jdazzdb@localhost.localdomain>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <aQDuY3rgOK-L8D04@localhost.localdomain>
- <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	b=N/EdVFt+7i6uw00cv7W15qxY7Dr3YFHx9glHH7ILW38C+Ro4XjgKVnNAeSYuXGs+h
+	 83iRqmQY02PCGvYZvtxPfhBjcVh3u/wW02siqXIUTgZJEDMS5/kokTX++ycNzaCsH5
+	 yXTaoXuyWLchtj1D6pw75IljWYLOkqwfSReZ8q3x/v8gWcUVDv35XjMKhwKqdYEr9U
+	 9NYPlhzk6120ifvtn1Hl9IY/bdPKM8/XWrBXzkRNwPyJzXIrQmU5YLF9yFF4oA3B73
+	 GyBHOyWlnt5mEAqTZGQyzBi6opsPdBcArpCaRBIimRxBuY/OKziszCnKk5J8vE5197
+	 2/XYNOwAcv3Vg==
+Date: Wed, 29 Oct 2025 10:20:36 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-gpio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v1] pinctrl: mpfs-iomux0: fix compile-time constant
+ warning for LLVM prior to 17
+Message-ID: <20251029172036.GA1130586@ax162>
+References: <20251029-isolation-shield-b66aea79a9a4@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+In-Reply-To: <20251029-isolation-shield-b66aea79a9a4@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,214 +71,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Le Wed, Oct 29, 2025 at 11:32:58AM +0100, Valentin Schneider a =E9crit :
-> I need to have a think about that one; one pain point I see is the context
-> tracking work has to be NMI safe since e.g. an NMI can take us out of
-> userspace. Another is that NOHZ-full CPUs need to be special cased in the
-> stop machine queueing / completion.
-> =
+On Wed, Oct 29, 2025 at 03:29:35PM +0000, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> With LLVM prior to 17.0.0:
+> 
+> drivers/pinctrl/pinctrl-mpfs-iomux0.c:89:2: error: initializer element is not a compile-time constant
+>         MPFS_IOMUX0_GROUP(spi0),
+>         ^~~~~~~~~~~~~~~~~~~~~~~
+> drivers/pinctrl/pinctrl-mpfs-iomux0.c:79:10: note: expanded from macro 'MPFS_IOMUX0_GROUP'
+>         .mask = BIT(mpfs_iomux0_##_name##_pins[0]),     \
+>                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> include/vdso/bits.h:7:19: note: expanded from macro 'BIT'
+> \#define BIT(nr)                 (UL(1) << (nr))
+>                                 ^~~~~~~~~~~~~~~
+> 
+> This is a constant, but LLVM prior to a change from Nick to match the
+> gcc behaviour did not allow this. The macro isn't really all that much
+> of an idiot-proofing, just change it to the same sort that's in the
+> gpio2 driver, where a second argument provides the mask/setting.
+> 
+> Reported-by: Nathan Chancellor <nathan@kernel.org>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/2140
+> Fixes: 46397274da22 ("pinctrl: add polarfire soc iomux0 pinmux driver")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-> /me goes fetch a new notebook
+Thanks a lot for the quick fix!
 
-Something like the below (untested) ?
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
-diff --git a/arch/x86/include/asm/context_tracking_work.h b/arch/x86/includ=
-e/asm/context_tracking_work.h
-index 485b32881fde..2940e28ecea6 100644
---- a/arch/x86/include/asm/context_tracking_work.h
-+++ b/arch/x86/include/asm/context_tracking_work.h
-@@ -3,6 +3,7 @@
- #define _ASM_X86_CONTEXT_TRACKING_WORK_H
- =
-
- #include <asm/sync_core.h>
-+#include <linux/stop_machine.h>
- =
-
- static __always_inline void arch_context_tracking_work(enum ct_work work)
- {
-@@ -10,6 +11,9 @@ static __always_inline void arch_context_tracking_work(en=
-um ct_work work)
- 	case CT_WORK_SYNC:
- 		sync_core();
- 		break;
-+	case CT_WORK_STOP_MACHINE:
-+		stop_machine_poll_wait();
-+		break;
- 	case CT_WORK_MAX:
- 		WARN_ON_ONCE(true);
- 	}
-diff --git a/include/linux/context_tracking_work.h b/include/linux/context_=
-tracking_work.h
-index 2facc621be06..b63200bd73d6 100644
---- a/include/linux/context_tracking_work.h
-+++ b/include/linux/context_tracking_work.h
-@@ -6,12 +6,14 @@
- =
-
- enum {
- 	CT_WORK_SYNC_OFFSET,
-+	CT_WORK_STOP_MACHINE_OFFSET,
- 	CT_WORK_MAX_OFFSET
- };
- =
-
- enum ct_work {
--	CT_WORK_SYNC     =3D BIT(CT_WORK_SYNC_OFFSET),
--	CT_WORK_MAX      =3D BIT(CT_WORK_MAX_OFFSET)
-+	CT_WORK_SYNC         =3D BIT(CT_WORK_SYNC_OFFSET),
-+	CT_WORK_STOP_MACHINE =3D BIT(CT_WORK_STOP_MACHINE_OFFSET),
-+	CT_WORK_MAX          =3D BIT(CT_WORK_MAX_OFFSET)
- };
- =
-
- #include <asm/context_tracking_work.h>
-diff --git a/include/linux/stop_machine.h b/include/linux/stop_machine.h
-index 72820503514c..0efe88e84b8a 100644
---- a/include/linux/stop_machine.h
-+++ b/include/linux/stop_machine.h
-@@ -36,6 +36,7 @@ bool stop_one_cpu_nowait(unsigned int cpu, cpu_stop_fn_t =
-fn, void *arg,
- void stop_machine_park(int cpu);
- void stop_machine_unpark(int cpu);
- void stop_machine_yield(const struct cpumask *cpumask);
-+void stop_machine_poll_wait(void);
- =
-
- extern void print_stop_info(const char *log_lvl, struct task_struct *task);
- =
-
-diff --git a/kernel/stop_machine.c b/kernel/stop_machine.c
-index 3fe6b0c99f3d..8f0281b0db64 100644
---- a/kernel/stop_machine.c
-+++ b/kernel/stop_machine.c
-@@ -22,6 +22,7 @@
- #include <linux/atomic.h>
- #include <linux/nmi.h>
- #include <linux/sched/wake_q.h>
-+#include <linux/sched/isolation.h>
- =
-
- /*
-  * Structure to determine completion condition and record errors.  May
-@@ -176,6 +177,68 @@ struct multi_stop_data {
- 	atomic_t		thread_ack;
- };
- =
-
-+static DEFINE_PER_CPU(int, stop_machine_poll);
-+
-+void stop_machine_poll_wait(void)
-+{
-+	int *poll =3D this_cpu_ptr(&stop_machine_poll);
-+
-+	while (*poll)
-+		cpu_relax();
-+	/* Enforce the work in stop machine to be visible */
-+	smp_mb();
-+}
-+
-+static void stop_machine_poll_start(struct multi_stop_data *msdata)
-+{
-+	int cpu;
-+
-+	if (housekeeping_enabled(HK_TYPE_KERNEL_NOISE))
-+		return;
-+
-+	/* Random target can't be known in advance */
-+	if (!msdata->active_cpus)
-+		return;
-+		=
-
-+	for_each_cpu_andnot(cpu, cpu_online_mask, housekeeping_cpumask(HK_TYPE_KE=
-RNEL_NOISE)) {
-+		int *poll =3D per_cpu_ptr(&stop_machine_poll, cpu);
-+
-+		if (cpumask_test_cpu(cpu, msdata->active_cpus))
-+			continue;
-+
-+		*poll =3D 1;
-+
-+		/*
-+		 * Act as a full barrier so that if the work is queued, polling is
-+		 * visible.
-+		 */
-+		if (ct_set_cpu_work(cpu, CT_WORK_STOP_MACHINE))
-+			msdata->num_threads--;
-+		else
-+			*poll =3D 0;
-+	}
-+}
-+
-+static void stop_machine_poll_complete(struct multi_stop_data *msdata)
-+{
-+	int cpu;
-+
-+	if (housekeeping_enabled(HK_TYPE_KERNEL_NOISE))
-+		return;
-+
-+	for_each_cpu_andnot(cpu, cpu_online_mask, housekeeping_cpumask(HK_TYPE_KE=
-RNEL_NOISE)) {
-+		int *poll =3D per_cpu_ptr(&stop_machine_poll, cpu);
-+
-+		if (cpumask_test_cpu(cpu, msdata->active_cpus))
-+			continue;
-+		/*
-+		 * The RmW in ack_state() fully orders the work performed in stop_machin=
-e()
-+		 * with polling.
-+		 */
-+		*poll =3D 0;
-+	}
-+}
-+
- static void set_state(struct multi_stop_data *msdata,
- 		      enum multi_stop_state newstate)
- {
-@@ -186,10 +249,13 @@ static void set_state(struct multi_stop_data *msdata,
- }
- =
-
- /* Last one to ack a state moves to the next state. */
--static void ack_state(struct multi_stop_data *msdata)
-+static bool ack_state(struct multi_stop_data *msdata)
- {
--	if (atomic_dec_and_test(&msdata->thread_ack))
-+	if (atomic_dec_and_test(&msdata->thread_ack)) {
- 		set_state(msdata, msdata->state + 1);
-+		return true;
-+	}
-+	return false;
- }
- =
-
- notrace void __weak stop_machine_yield(const struct cpumask *cpumask)
-@@ -240,7 +306,8 @@ static int multi_cpu_stop(void *data)
- 			default:
- 				break;
- 			}
--			ack_state(msdata);
-+			if (ack_state(msdata) && msdata->state =3D=3D MULTI_STOP_EXIT)
-+				stop_machine_poll_complete(msdata);
- 		} else if (curstate > MULTI_STOP_PREPARE) {
- 			/*
- 			 * At this stage all other CPUs we depend on must spin
-@@ -615,6 +682,8 @@ int stop_machine_cpuslocked(cpu_stop_fn_t fn, void *dat=
-a,
- 		return ret;
- 	}
- =
-
-+	stop_machine_poll_start(&msdata);
-+
- 	/* Set the initial state and stop all online cpus. */
- 	set_state(&msdata, MULTI_STOP_PREPARE);
- 	return stop_cpus(cpu_online_mask, multi_cpu_stop, &msdata);
+> ---
+> 
+> Not entirely sold on the fixes tag since it's to shut up an old
+> compiler, but no harm in it I guess.
+> 
+> CC: Conor Dooley <conor.dooley@microchip.com>
+> CC: Daire McNamara <daire.mcnamara@microchip.com>
+> CC: Linus Walleij <linus.walleij@linaro.org>
+> CC: Nathan Chancellor <nathan@kernel.org>
+> CC: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+> CC: Bill Wendling <morbo@google.com>
+> CC: Justin Stitt <justinstitt@google.com>
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-gpio@vger.kernel.org
+> CC: linux-kernel@vger.kernel.org
+> CC: llvm@lists.linux.dev
+> ---
+>  drivers/pinctrl/pinctrl-mpfs-iomux0.c | 36 +++++++++++++--------------
+>  1 file changed, 18 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/pinctrl-mpfs-iomux0.c b/drivers/pinctrl/pinctrl-mpfs-iomux0.c
+> index 49d9fcec0a16..cf5b2e4e8f5b 100644
+> --- a/drivers/pinctrl/pinctrl-mpfs-iomux0.c
+> +++ b/drivers/pinctrl/pinctrl-mpfs-iomux0.c
+> @@ -73,33 +73,33 @@ static const unsigned int mpfs_iomux0_uart4_pins[] = { 11 };
+>  static const unsigned int mpfs_iomux0_mdio0_pins[] = { 12 };
+>  static const unsigned int mpfs_iomux0_mdio1_pins[] = { 13 };
+>  
+> -#define MPFS_IOMUX0_GROUP(_name) { \
+> +#define MPFS_IOMUX0_GROUP(_name, _mask) { \
+>  	.name = #_name "_mssio",	\
+>  	.pins = mpfs_iomux0_##_name##_pins,	\
+> -	.mask = BIT(mpfs_iomux0_##_name##_pins[0]),	\
+> +	.mask = _mask,	\
+>  	.setting = 0x0,	\
+>  }, { \
+>  	.name = #_name "_fabric",	\
+>  	.pins = mpfs_iomux0_##_name##_pins,	\
+> -	.mask = BIT(mpfs_iomux0_##_name##_pins[0]),	\
+> -	.setting = BIT(mpfs_iomux0_##_name##_pins[0]),	\
+> +	.mask = _mask,	\
+> +	.setting = _mask,	\
+>  }
+>  
+>  static const struct mpfs_iomux0_pin_group mpfs_iomux0_pin_groups[] = {
+> -	MPFS_IOMUX0_GROUP(spi0),
+> -	MPFS_IOMUX0_GROUP(spi1),
+> -	MPFS_IOMUX0_GROUP(i2c0),
+> -	MPFS_IOMUX0_GROUP(i2c1),
+> -	MPFS_IOMUX0_GROUP(can0),
+> -	MPFS_IOMUX0_GROUP(can1),
+> -	MPFS_IOMUX0_GROUP(qspi),
+> -	MPFS_IOMUX0_GROUP(uart0),
+> -	MPFS_IOMUX0_GROUP(uart1),
+> -	MPFS_IOMUX0_GROUP(uart2),
+> -	MPFS_IOMUX0_GROUP(uart3),
+> -	MPFS_IOMUX0_GROUP(uart4),
+> -	MPFS_IOMUX0_GROUP(mdio0),
+> -	MPFS_IOMUX0_GROUP(mdio1),
+> +	MPFS_IOMUX0_GROUP(spi0, BIT(0)),
+> +	MPFS_IOMUX0_GROUP(spi1, BIT(1)),
+> +	MPFS_IOMUX0_GROUP(i2c0, BIT(2)),
+> +	MPFS_IOMUX0_GROUP(i2c1, BIT(3)),
+> +	MPFS_IOMUX0_GROUP(can0, BIT(4)),
+> +	MPFS_IOMUX0_GROUP(can1, BIT(5)),
+> +	MPFS_IOMUX0_GROUP(qspi, BIT(6)),
+> +	MPFS_IOMUX0_GROUP(uart0, BIT(7)),
+> +	MPFS_IOMUX0_GROUP(uart1, BIT(8)),
+> +	MPFS_IOMUX0_GROUP(uart2, BIT(9)),
+> +	MPFS_IOMUX0_GROUP(uart3, BIT(10)),
+> +	MPFS_IOMUX0_GROUP(uart4, BIT(11)),
+> +	MPFS_IOMUX0_GROUP(mdio0, BIT(12)),
+> +	MPFS_IOMUX0_GROUP(mdio1, BIT(13)),
+>  };
+>  
+>  static const char * const mpfs_iomux0_spi0_groups[] = { "spi0_mssio", "spi0_fabric" };
+> -- 
+> 2.51.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
