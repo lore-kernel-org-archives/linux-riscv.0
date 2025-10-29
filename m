@@ -4,159 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F25CCF9E9
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 10:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC45CCF9EB
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 10:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zckW0rP7KqgMc7b8Rky9Y7QkOWKflD8BnxUe47CnbrA=; b=weSfVb6uwTzv3P
-	J+9ItDZ0SEYxYhR7YEuRax1hH/CY42J7gWKgYs6rNYy6mddPlfd9+M07BE8mEY4Gky3MmyYi5d3Ld
-	Q68ZJKoe4qxS+7xsAfGlv4rXg3aA4PpxIthurOCCcUm9rVXl3Xr+mLOHra4B3gGOmkNFHxtxbvMRF
-	N/wXTbkZvNRi8jqhzIuboKrYqsquv6TlEbkOfvMbI4BMFxCq3oAXiVv2BbURyeDXcztCVg/zEmhy+
-	r1sU/h2Ozx29yWxvcTVLPz0N1/R2xqkg275oXUqrTcwmLnIfD9O3XRWF+vcCZp76OFPfZbUShYhPg
-	F2CaquUUWhcgE91dk5aw==;
+	List-Owner; bh=i0hHJWe+n6hdruC5oh4dihPpIi0bhvwh88dNHrTtxfI=; b=StIDKyJYyF+bpi
+	znoHiVX3XscB0OTBh+PRtb87MQwAgv3EOOj88wHyNsC/Xjw7mlCSgN45KoIU7OlnaY86QZleifCml
+	btErlDKjlzChvBe4P+o2KMjlHSnoaSWaensi0teUEm+vWROK9rb0gOE3iFXYJQVV+MgiH5I22TY4N
+	gwRtpsNv5MMf5AQIzmyKSO0VsgWndWH928f0LgLIxzo/9zeyhjaiaPq5wwydujr8XfZxIkXMwIQDs
+	H5gDI9v81ep5nu7bqJev1UMuXPlk+o1WGZyRnIhbPho4R50cZpeab0HD5SEH6TUJMmSgX8oxgiua7
+	SJjnx54mTWdmJnqbIX8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3OF-00000000kqX-0WA3;
-	Wed, 29 Oct 2025 10:26:51 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vE3Sx-00000000m9r-24lT;
+	Wed, 29 Oct 2025 10:31:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE3OC-00000000kp9-1KCU
-	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 10:26:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761733606;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=/l/eBTg6PDk2gq24yxrQmlGvSlksP+1NRV8KnJwBP8E=;
-	b=cnncW+AON+djwLkCGRV01SWIpFPM/uefZqgxtKSyfKIdwhdN2cEMX5WYCgx9cWmbY//jV0
-	aPxQfs0D+r5sOG5glob+B5YMFQLOI6VfJZw/5nsCWh3cW2TILgfBEDWjLQrBC3S0cq1RoZ
-	2mDCh4qfsQy9PIfuMEbjTEw8m8Mq/hE=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-274--f8sF72gMG6Tuk5V95Dqgg-1; Wed, 29 Oct 2025 06:26:45 -0400
-X-MC-Unique: -f8sF72gMG6Tuk5V95Dqgg-1
-X-Mimecast-MFC-AGG-ID: -f8sF72gMG6Tuk5V95Dqgg_1761733604
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-475da25c4c4so24165405e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Oct 2025 03:26:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761733604; x=1762338404;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/l/eBTg6PDk2gq24yxrQmlGvSlksP+1NRV8KnJwBP8E=;
-        b=ben4HRcB+ujQUnMdLyfv7AFatUgkDzHRe9qOvCNaJz8HIst5FRF4s/UzCzCXApIvud
-         zxXHN/JWZfdp1ijopLaNL0ePEliMZTKVAseScbe1sk+OF6bilnd+QQbNp94qtbvlfUp+
-         CTLCP0bXr1uN8tpKPlhXFoCUvAN8yoG2sC/mMDryiMacGVkUx8iR6PcyEDue9bLhGS0U
-         1hPsNvrMjmBO3us2lO28u/dKNBHYckMQu7LKzUE+8akGZRdDAgsX1QE6klungXAyQTKZ
-         sahm+oC1YMkqsWVmDiXYhrBRf/RUw+qsNoW9Z2FxdJ96MW7VUC9Co8T67KvF6ixE0v0L
-         yivg==
-X-Forwarded-Encrypted: i=1; AJvYcCXA6XyRW842P2JMEAjLQMyPYviluzPhiGhEkRFGQJU8p+DgGI4LA8Rkn5ggEX6zdqBhUgTJ9hVkyy7zIQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6ORzHVhES/UYZqp359aP7Q/blBt6cH/oeQnzKllDosneRtP3Z
-	KBk4IO6JSGkpoFMdKJuCPd3qK2x1DbO6LKnS0NUdB5/ztUecjjwEoXVNgTrqCwo7QID0hcCkIwM
-	qrLkRfLEzhM9D+Mu9OQ5yFpm8JV02iE4OEUKtI1rr2YqQXAHsPXeonGZoS1FyGebMhKX0SA==
-X-Gm-Gg: ASbGncs6kKeRo3DgZrCC1nsI5HMRUj3sI0FB5soZx63MgafCweQjjyDTIqBxZJw2P2p
-	pfcjqcdlIRUZ/J1z9PlwbP2ySjINnwZ39azuDHyyZneBiVASsMk+z541t+oUBuLXUrOAqdNqUPn
-	lvfZobYIx/idhIiK6sKhpeiNZkmWQV2XdrHu8CCzway3wjOhjeU8fJnj3lKoZlMPJBOZH1tv8cJ
-	n0aDSo/I40pdMPhFimOitGRsfQmghg2ZvSZZ+Zj5hmcPpwi8x6XhGwUCqWA0PwZvuSm8JQ6SifB
-	8gx6YZTLz86qblE0J+FBe3eYkI1916QpuNonZ8bsU9ti+2AcxmZRzEzYewXRZJ32b1RrOEjBwQl
-	IPMohCQD4fXD/50LSkqv0+Q==
-X-Received: by 2002:a05:600c:4591:b0:471:115e:624b with SMTP id 5b1f17b1804b1-4771e18cc1fmr23359215e9.17.1761733603676;
-        Wed, 29 Oct 2025 03:26:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGtQTrCoapOr6bX5uVmtmRqcuUC4lYBRzIXvtaTPDducTLRlHN+f7pxZPgextJafstOMsxSuw==
-X-Received: by 2002:a05:600c:4591:b0:471:115e:624b with SMTP id 5b1f17b1804b1-4771e18cc1fmr23358735e9.17.1761733603198;
-        Wed, 29 Oct 2025 03:26:43 -0700 (PDT)
-Received: from [10.32.64.156] (nat-pool-muc-t.redhat.com. [149.14.88.26])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4771e202093sm43202745e9.11.2025.10.29.03.26.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Oct 2025 03:26:41 -0700 (PDT)
-Message-ID: <c6f8871a-5118-4947-9801-43b2a7a42993@redhat.com>
-Date: Wed, 29 Oct 2025 11:26:39 +0100
+	id 1vE3Sr-00000000m41-3Vec;
+	Wed, 29 Oct 2025 10:31:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 09C6443A44;
+	Wed, 29 Oct 2025 10:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E4DAC116D0;
+	Wed, 29 Oct 2025 10:31:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761733896;
+	bh=Kk/z5xbjPIxTq926BScJO1YbAE6B21A/nQcvL+Stxjo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mQHpiMhHIipyykg71nO9gr0ccOWvAw3jtxADhT6O9/iW0PpIiw/qmz5zVTUW3oo0Y
+	 Yq4gg7lmHuk8qvkB8w7kGP3dJ/Es/yfXH9Z/5NpT3GdhmC3rdV4d9InuM6AE6YDHuy
+	 66y1CBVkVJ47bCQATzwguaNY0rGy4czAnJJf2Xq0+TNv8MsAXP6t2uwOLwNqTFFpSC
+	 b93q4JO88FSbhgGajCQoNTlTc5GzNikQEX4E8U13MGQNOniIiwlNgiHYmZ4xaVekC8
+	 PXMEnG8bUYp8VmovluQl1CaebknBe933wtZ0M/W93tFXssHpX/nRz8xuoWt5VU0UOX
+	 RCaW/NJFhcGtw==
+Date: Wed, 29 Oct 2025 11:31:34 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [RFC PATCH v6 27/29] x86/mm/pti: Implement a TLB flush
+ immediately after a switch to kernel CR3
+Message-ID: <aQHtBudA4aw4a3gT@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <20251010153839.151763-28-vschneid@redhat.com>
+ <aQDoVAs5UZwQo-ds@localhost.localdomain>
+ <xhsmh3472qah4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] Optimize code generation during context
-To: Xie Yuanbin <qq570070308@gmail.com>, riel@surriel.com,
- linux@armlinux.org.uk, mathieu.desnoyers@efficios.com, paulmck@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
- borntraeger@linux.ibm.com, svens@linux.ibm.com, davem@davemloft.net,
- andreas@gaisler.com, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, luto@kernel.org,
- peterz@infradead.org, acme@kernel.org, namhyung@kernel.org,
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- irogers@google.com, adrian.hunter@intel.com, anna-maria@linutronix.de,
- frederic@kernel.org, juri.lelli@redhat.com, vincent.guittot@linaro.org,
- dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
- mgorman@suse.de, vschneid@redhat.com, thuth@redhat.com,
- akpm@linux-foundation.org, lorenzo.stoakes@oracle.com,
- segher@kernel.crashing.org, ryan.roberts@arm.com, max.kellermann@ionos.com,
- urezki@gmail.com, nysal@linux.ibm.com
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-perf-users@vger.kernel.org, will@kernel.org
-References: <18734a4944e47952b7ad3e10a36c902392bdaa91.camel@surriel.com>
- <20251025173700.754-1-qq570070308@gmail.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20251025173700.754-1-qq570070308@gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZmCc7dGOoQCogNrkh2ToNnMyyHf-z1fV7o80tr0iJKc_1761733604
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <xhsmh3472qah4.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_032648_433157_DC723B35 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20251029_033138_956238_AB2096CF 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,55 +103,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25.10.25 19:37, Xie Yuanbin wrote:
-> On Fri, 24 Oct 2025 17:36:06 -0400, Rik van Riel wrote:
->> Also, what kind of performance improvement
->> have you measured with these changes?
-> 
-> When I debugged performance issues before, I used the company's equipment.
-> I could only observe the macro business performance data, but not the
-> specific scheduling time. Today I did some testing using my devices,
-> and the testing logic is as follows:
-> ```
-> -	return finish_task_switch(prev);
-> +	start_time = rdtsc();
-> +	barrier();
-> +	rq = finish_task_switch(prev);
-> +	barrier();
-> +	end_time = rdtsc;
-> +	return rq;
-> ```
-> 
-> The test data is as follows:
-> 1. mitigations Off, without patches: 13.5 - 13.7
-> 2. mitigations Off, with patches: 13.5 - 13.7
-> 3. mitigations On, without patches: 23.3 - 23.6
-> 4. mitigations On, with patches: 16.6 - 16.8
+Le Wed, Oct 29, 2025 at 11:16:23AM +0100, Valentin Schneider a =E9crit :
+> On 28/10/25 16:59, Frederic Weisbecker wrote:
+> > Le Fri, Oct 10, 2025 at 05:38:37PM +0200, Valentin Schneider a =E9crit :
+> >> @@ -171,8 +172,27 @@ For 32-bit we have the following conventions - ke=
+rnel is built with
+> >>      andq    $(~PTI_USER_PGTABLE_AND_PCID_MASK), \reg
+> >>  .endm
+> >>
+> >> -.macro COALESCE_TLBI
+> >> +.macro COALESCE_TLBI scratch_reg:req
+> >>  #ifdef CONFIG_COALESCE_TLBI
+> >> +	/* No point in doing this for housekeeping CPUs */
+> >> +	movslq  PER_CPU_VAR(cpu_number), \scratch_reg
+> >> +	bt	\scratch_reg, tick_nohz_full_mask(%rip)
+> >> +	jnc	.Lend_tlbi_\@
+> >
+> > I assume it's not possible to have a static call/branch to
+> > take care of all this ?
+> >
+> =
 
-Such numbers absolutely have to be part of the relevant patches / cover 
-letter to show that the compiler is not actually smart enough to make a 
-good decision.
+> I think technically yes, but that would have to be a per-cpu patchable
+> location, which would mean something like each CPU having its own copy of
+> that text page... Unless there's some existing way to statically optimize
+> =
 
-Having that said, sometimes it helps to understand "why" the compiler 
-does a bad job, and try to tackle that instead.
+>   if (cpumask_test_cpu(smp_processor_id(), mask))
+> =
 
-For example, compilers will not inline functions that might be too big 
-(there is a compiler tunable), factoring out slow-paths etc could help 
-to convince the compiler to do the right thing.
+> where @mask is a boot-time constant (i.e. the nohz_full mask).
 
-Of course, it's not always possible, and sometimes we just now that we 
-always want to inline.
+Or just check housekeeping_overriden static key before everything. This one=
+ is
+enabled only if either nohz_full, isolcpus or cpuset isolated partition (we=
+ll,
+it's on the way for the last one) are running, but those are all niche, whi=
+ch
+means you spare 99.999% kernel usecases.
 
--- 
-Cheers
+Thanks.
 
-David / dhildenb
+> =
 
+> > Thanks.
+> >
+> > --
+> > Frederic Weisbecker
+> > SUSE Labs
+> =
+
+> =
+
+
+-- =
+
+Frederic Weisbecker
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
