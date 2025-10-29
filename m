@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A36BFCCF9EA
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 00:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F2F1CCF9F1
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 00:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Af7lfGSDNke1aUznvzb47LrxjjF9UOmB6b2XJLugB08=; b=DxSFZkw1o1uo0l
-	Dw6KrdH2i9k2DHozVtx7uUEXKrXSOZeknOIs2SVRG9ScXalZdFRg/9uQaiSdjo5a/991DRHt19S1q
-	k6hl5hoRe0caMay1yLIgCAFoDg4sdWlyLdc+knL70jwQhhZ07+Pj4e0QVIsmmZPThtLtYo48J98Jw
-	xeKyTuNVIjXgoxs0KQXiB+N2w57GHQvYcb4w+zhuzOw4wXGwaQwadEYxhYIjbphQpaXW/AMRrFEtO
-	sQid6pjAJgZdlV7zH5ydg7FWS77j1lBuVLpC9DJ6ddJgrnQWxFQ5qAfQfloRzD6tuCpL6YVhV9sdW
-	gkGm5D5t/TqPJ35jRqVA==;
+	List-Owner; bh=A8yvaNdLShEwNyojKUnbyNDGOi3Xa+/hOkLvzekyfG4=; b=BwE7BC5wUhJE1j
+	EnJjfgokojg59LnXi4zLkcwv8zb9qkiWdJyxfU3WhpxTiORCJLvVVzIso8zxlBZFP9v24d4EYWZ4w
+	X13cTHfKlpqmf6IWR/ztA1xUUb6CwkEbVWHGy6qP5kEnLi8QZNY6z35rbJgkSi/bsT+mMwpkqNe+k
+	eMal4TwbpGd/wIaDXo2m68Gnm7BP9NyW7g7rnpiuxfrSCYVnidm4mjiYHwH5GMPqvHVYuux2Xrwwv
+	/jNa4kJc/Gyv7d1X6I9RLllEnT3FGJ0xUaAs0+t5dXKKTYzyP+Wx5PX07GTUSPpg6WEPqbrwwEX+c
+	GFSWbokOFOQQO6cN4v8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDtn4-0000000GqLF-0opZ;
-	Wed, 29 Oct 2025 00:11:50 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1vDtn6-0000000GqM5-24Mg;
+	Wed, 29 Oct 2025 00:11:52 +0000
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDtn1-0000000GqJZ-2u5Y
+	id 1vDtn3-0000000GqKN-1r50
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 00:11:49 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-7ea50f94045so4454796d6.1
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 17:11:47 -0700 (PDT)
+	Wed, 29 Oct 2025 00:11:50 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-78ea15d3489so57977826d6.3
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 17:11:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761696706; x=1762301506; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1761696708; x=1762301508; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Tq2p1V6khYqdwj7axqsIU1Jb8x290oJDm2pwh+Ywad8=;
-        b=jCc12TqTL4gRERWik/7tkpdSZJ58VsCRhmSLPP0k2LadguSNaJWHb4fcZtkbcEV7AO
-         FA10Z4xRkwnAeQrlr/znN5ogntGeim7oEQwvtUgpXiNMoBZyr6n6GrD+bulpOnpI8oj0
-         YshbH4glUC560USjPWqmkRt1TEg92QfoFlYCx50zi7kzzbfbhK6AbS2Sf+Vb8eU3/aWD
-         Dx52OoOW8gFKXevBNkymmex7iBEPPn0ynPtmslbTTnE3eS60l8NHn1g73MHaFmGZL7Cu
-         oabyp+DLFu27MlC5jvQqagba0gCHszsqOwhnSHOnmDFp91zz3yXg1v7Q8jE+doHTAVzs
-         Bndw==
+        bh=J9pgIB4Tz67zjDEuCaou8T/MZSYRwlTrfA6jaD1u7do=;
+        b=YG4GZNHavmIK7AGCx+H8a+woYhtQBU7iVTCwrosoo5ThCh+u9RFqtwRYa+znxVT+RR
+         jQn5EDsBw1sAF3/PWErykpHkJV09XHH6zSbflm/ZavjW2vsgqHy9qNfYJFnVJB+bpyb2
+         fIdgK3A0WI/v8YrGXz9lSGbMmwUHOoVcXzcjaeX+aEoI6nUFtD3ENK9gZdctLqUDyw+3
+         0hm7IwLeoTzz7t13ZTtIjEeSH3msQtucTh0daNSD7YFSIVXJn+m1o1WhlzPmgpV1Sjj2
+         AUThS1bgR9Z0YxxukzHNNVQsjHMGhiQCsFZ06eynRf5U0G4n8wkwV+3raNpLo7aPrfZl
+         2J8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761696706; x=1762301506;
+        d=1e100.net; s=20230601; t=1761696708; x=1762301508;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Tq2p1V6khYqdwj7axqsIU1Jb8x290oJDm2pwh+Ywad8=;
-        b=wke113X83bX8YGHUB2m/ari2YoeRiCDSRgnjq1hyfhvlTP0niVR+xybxlGs2yFN72L
-         CtV43XmIOcUkNahp1C1zqcU7nHgvLt6KP3Stkq24Tl0kL91dsksElzZcL64UgMVReZUG
-         sc0ttKv7ujEjcGfrrdiFc+Yuqy/ZLSDQNmw3gx0AfjbYbWyaJW22lsm71HasMY57eLtG
-         6rN3I6OKW45O0oRBBn+YyNv3KGQiV7zGy66LJMoJT3T5za7e5VSRggHVD2R4oPTOf9Cn
-         1cyn0gksTSNkii65X5FUYB6zU+ItXBBUVUy9bFtfCO4kN/TFI4P/IOtrvBMTxP9zdsOu
-         g1Jg==
-X-Forwarded-Encrypted: i=1; AJvYcCXCnnP7WmRJmbpJ2Cl6PUUADhKWIpabMnWeRHJtq9/fyEhwgVsHV13msfTKmUOkBrEDlqaT2BFYtj+ulw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywx3coPOCvviZcZrqU2Z3nlwj1jTCIMM01Cdo/GFqNXeOZC3BCj
-	Rq4KAchqvDZ0oqyDX+hGf8uCmC/Myhru/NLwHXOp3chR3ne6NmP7l+zg
-X-Gm-Gg: ASbGnct+/OwhgjTq2AarA1QpEjS7Ib6Orm5ADMJMt58/TxLY9um47nzU+v+HUHcjwlz
-	qoO09z7Wip3UIlc2slcEIvU9Y5pQ9qzYF3wa314EU13YI856irD6OLpQl+Cx1N7MlhSg7vNJZ7p
-	uVuWS19K2cpCN+2xZUd62q/1yyNwQpe8L/+sJHfE3Fhoskz+EjfWSS5ous2Exz6zCVId5cQZxHu
-	13ZIWJq93LCu9fcTljP+rtsobzopvIvuN06CBBnIb+Y0w22C44e7p4TaZM5pVhECHStVWZJ8Bl5
-	w1pScFYyGXn2kHfRVK8/aKaB3rjLZib/5KVRUYi1fhn9+CZbVStJ1kHhanOUMQU12cl9tepkEnQ
-	ASqK7lH3jwNZ3w+fRP5UaOgLM1m+7qq9KwarYYhwp4vQGxm758BblIHP3QhC+PDbaIGpyrdYB1g
-	zYeM1z8OMOMEOy5/RA5VR4J6QQZGZVgczNgNEQFiGE36PP
-X-Google-Smtp-Source: AGHT+IFhZd8hjXUHUkgWb5j59kFDmvYlbS3no4lghYJO/biRsJA71NeXCb5OP8OCzXDNjXkj1j2Y4Q==
-X-Received: by 2002:a05:6214:234b:b0:77e:aba2:c8b1 with SMTP id 6a1803df08f44-87ffb49eae6mr67532066d6.22.1761696706418;
-        Tue, 28 Oct 2025 17:11:46 -0700 (PDT)
+        bh=J9pgIB4Tz67zjDEuCaou8T/MZSYRwlTrfA6jaD1u7do=;
+        b=vIAW1kugDdkSlNac6cY/iZcxzIYUzdyUDtPsqjDHurMqTAvZ25pA2E0I4hrUf3w7QH
+         NNTOZ6YQ7+CnS8rmj5fe6+VeArNPzx2vWK/f1H7SexCV80InBhGjqMoeXrgzfQz0enfT
+         q8BxYi7XsvMKAXNbGK6ecycxmSNfJeXImUlaoyJvS3SFGTxhm7OWoJqR3MeCHmLGm1ov
+         IbvMtY8IvouCmMLFdk+C8K2fKWc2J3qNWUBuuamIGA5BsxSeX0zH3A5LCZPDlyqP79Ky
+         iC5ztYg5h1UttOTXVlCPOmOx1MQUiyc2KjI7BFNI4OPoB1RyzNqo9mjh5y8kpfi0fCTO
+         pZIA==
+X-Forwarded-Encrypted: i=1; AJvYcCVxflN4QzEtFYIT1h5FAtIN5skAivMjm1Ej2nUKXKtth6PxHcu5QVQyF5KPcGRU9SZH4HIjeM4j+m4e0Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8LZf2EnJ+iiU/QH1Y2j51kK4+59LG0IHy56QFd4OujMHdSCqI
+	67/8LI7GEBsnvihwQdxBV7cJpVqACjh0tEdIibGrvlQPNPSnhQ43mK5C
+X-Gm-Gg: ASbGncs1WnijREBF892GlRnj5b8tyKB3hKILUpSWs2TQD2LOSo8ZzdDZ0SGTuroGDOi
+	IuAhEDSpE8S7qCDYRn9HJxKJ4smzrw9V/ygcgtSaP2SBMbI0Uigurjs2/tvJ3jCb4QGkxoACBPj
+	0FJT8K3Dw+2+MPQX3C+k4TNGE7z2pqippL+ooZQho8uHojYmy7trJEclIC3ESQZaoAjT+hOGsv/
+	En0x8O/HLN/uJKpfy5fT3xs0aAxzTcMq0/VOXNt5TmIOzcwNiJy1IXpqSo2aQUX36N7LiHOT5sw
+	J4gbL6ImBC9jmx/eUkXPdPCB0PEJirlL3LVQw5aLCJ1W9obxbB1qMXDkVEBKpA0fSoSAbJ3QR4n
+	B9LFSa6QIXt7OQicuCwVg+vyZS9kxRKi1qpCH0ipyevt1H1cPHk6mOWaaDY9PlmfDHYlT2PHAug
+	wtNV5QArVLVkJG1N7Kb4y8fIWNXZSsWk+SWA==
+X-Google-Smtp-Source: AGHT+IFyKyBOAZv1RmAbtR9z53jqxuAJGXNiIM7ALtSRjvdVP7EE2a6cy6IFhiNFKgBsewKzfhE7HA==
+X-Received: by 2002:a0c:f118:0:b0:87d:fc3e:6d9b with SMTP id 6a1803df08f44-88009bd6efbmr10961316d6.42.1761696708384;
+        Tue, 28 Oct 2025 17:11:48 -0700 (PDT)
 Received: from sleek (d-23-244-200-70.nh.cpe.atlanticbb.net. [23.244.200.70])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-87fc48dee2esm87255906d6.23.2025.10.28.17.11.45
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-87fc48dee2esm87255906d6.23.2025.10.28.17.11.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 17:11:46 -0700 (PDT)
+        Tue, 28 Oct 2025 17:11:48 -0700 (PDT)
 From: Joshua Milas <josh.milas@gmail.com>
 To: tglx@linutronix.de,
 	robh@kernel.org,
@@ -91,17 +91,16 @@ Cc: josh.milas@gmail.com,
 	devicetree@vger.kernel.org,
 	sophgo@lists.linux.dev,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 3/5] dt-bindings: soc: sophgo: add sg2000 plic and clint documentation
-Date: Tue, 28 Oct 2025 20:10:50 -0400
-Message-ID: <20251029001052.36774-4-josh.milas@gmail.com>
+Subject: [PATCH v3 4/5] riscv64: dts: sophgo: add SG2000 dtsi
+Date: Tue, 28 Oct 2025 20:10:51 -0400
+Message-ID: <20251029001052.36774-5-josh.milas@gmail.com>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251029001052.36774-1-josh.milas@gmail.com>
 References: <20251029001052.36774-1-josh.milas@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_171147_737439_85E04955 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251028_171149_513463_13235623 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,41 +117,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the compatible strings for the sg2000 [1] interrupt
-controller and timer.
-
-Link: https://en.sophgo.com/sophon-u/product/introduce/sg200x.html [1]
+Adds sg2000.dtsi on the RISCV side.
 
 Signed-off-by: Joshua Milas <josh.milas@gmail.com>
 ---
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
- Documentation/devicetree/bindings/timer/sifive,clint.yaml        | 1 +
- 2 files changed, 2 insertions(+)
+ arch/riscv/boot/dts/sophgo/sg2000.dtsi | 53 ++++++++++++++++++++++++++
+ 1 file changed, 53 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2000.dtsi
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 5b827bc243011..122d622d20a57 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -69,6 +69,7 @@ properties:
-               - allwinner,sun20i-d1-plic
-               - sophgo,cv1800b-plic
-               - sophgo,cv1812h-plic
-+              - sophgo,sg2000-plic
-               - sophgo,sg2002-plic
-               - sophgo,sg2042-plic
-               - sophgo,sg2044-plic
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index d85a1a088b35d..42cbfb4d46a17 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -48,6 +48,7 @@ properties:
-               - allwinner,sun20i-d1-clint
-               - sophgo,cv1800b-clint
-               - sophgo,cv1812h-clint
-+              - sophgo,sg2000-clint
-               - sophgo,sg2002-clint
-               - thead,th1520-clint
-           - const: thead,c900-clint
+diff --git a/arch/riscv/boot/dts/sophgo/sg2000.dtsi b/arch/riscv/boot/dts/sophgo/sg2000.dtsi
+new file mode 100644
+index 0000000000000..412adacc00576
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/sg2000.dtsi
+@@ -0,0 +1,53 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++
++#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
++
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/pinctrl/pinctrl-sg2000.h>
++#include "cv180x-cpus.dtsi"
++#include "cv180x.dtsi"
++#include "cv181x.dtsi"
++
++/ {
++	compatible = "sophgo,sg2000";
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x10000000>;
++	};
++
++	soc {
++		interrupt-parent = <&plic>;
++		dma-noncoherent;
++
++		pinctrl: pinctrl@3001000 {
++			compatible = "sophgo,sg2000-pinctrl";
++			reg = <0x03001000 0x1000>,
++			      <0x05027000 0x1000>;
++			reg-names = "sys", "rtc";
++		};
++
++		clk: clock-controller@3002000 {
++			compatible = "sophgo,sg2000-clk";
++			reg = <0x03002000 0x1000>;
++			clocks = <&osc>;
++			#clock-cells = <1>;
++		};
++
++		plic: interrupt-controller@70000000 {
++			compatible = "sophgo,sg2000-plic", "thead,c900-plic";
++			reg = <0x70000000 0x4000000>;
++			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++			interrupt-controller;
++			#address-cells = <0>;
++			#interrupt-cells = <2>;
++			riscv,ndev = <101>;
++		};
++
++		clint: timer@74000000 {
++			compatible = "sophgo,sg2000-clint", "thead,c900-clint";
++			reg = <0x74000000 0x10000>;
++			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
++		};
++	};
++};
 -- 
 2.51.1
 
