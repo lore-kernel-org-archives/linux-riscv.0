@@ -4,97 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635B1CCF9EA
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 00:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5180DCCF9EA
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 01:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TVPLEZABMdXYgFDq2tY2WYhzBCHr9BUrTRSrAXqJges=; b=VdedcD3lRTxlAR
-	7zf4q3uuAoaRDnx8AvknI360B7XKUonuashMX2/02TDOOXIn7/AHANyNpRv4Spm0SNC51Cr3em+ND
-	pc1YIJuf1T/ETtF/Sz8/6w0m6d1PvyM/1vimVp+lyAZftBTGUbX5FtO+sjYwXouttb5OjKcAoQmBO
-	FFDw3Sq768TA3PqU1asquIUIAHcOdR88Y2U6neK8KGXo/EXaMOM0E1OzvD+7XKIgW92NbgEkpjMHS
-	wEEA80lZ1l48CKydVg3N6nID9eJjfisTnjtjz+2ZlowtdP3GEDXYWk87tMFmgL2kj7DMN4zev5+vU
-	VzAQjWAeeYaZOIt1Plvg==;
+	List-Owner; bh=pPfY+mxDWoHf1R7MvgpCLJ6QPm8+EA+nQTjvWCCIdTM=; b=JEx7hQVF4moqd9
+	uCPwJylAZ9pJUYAkTLVkpLv590LzCdKyeSFOSUMrrUv/Ur7H7VumfMqjt+n66T5k+UzbfpYKL+b8m
+	as200JtP0ldQRnUyNCG7X9ZiYkRwQ+XnY+qYWAjx9fliZ2t0W9hCARB22il970Voa5z3M5dYpiRvm
+	ihQyyZdg9c+NNI6w5jVwxdeMTXrJUV0VEtQoqSx3PCy5otGKIiDytI7sX3JIZUZygu1K941whqtQm
+	1ktVsSp9pj8s03y08Xulr4DoGR+/DbKm9D8sKIkfh76K701/bB1vBgvUDHlWDNfS/ZUZN2SKbiW8A
+	dQF23WuSUIknct58LEJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDuR9-0000000GsnR-3r6l;
-	Wed, 29 Oct 2025 00:53:15 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1vDuXp-0000000GtLY-0Ozi;
+	Wed, 29 Oct 2025 01:00:09 +0000
+Received: from out-173.mta0.migadu.com ([91.218.175.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vDuR7-0000000Gsmj-1vfP
+	id 1vDuXl-0000000GtKN-2NJM
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 00:53:14 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-34029cee97fso1622556a91.1
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Oct 2025 17:53:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761699192; x=1762303992; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=m8SBa+XRdCWeVW9AmWkZ3MCowA+/EYnxZNZHdIoneiw=;
-        b=B55zIo15KZBGnd3YO9VwibfkKGUh5huw6pKffThxBWkUSK2K2UtjNTZKD0FVMpZZYm
-         Wtg0TEUs4a3Y10GDi/UIj+GxDa8lnjukxM4LWu2Sui0N5ySTiwAzFj+cvuAqohbs0Xxz
-         Wi1DQbyoYFivIzF5kzdk9D9Q8GNCvE75+SPg6TV9Ixcsafv686iJaCnEaLQcYugBalh0
-         YTpRYr+N+s4EUel8txd91lS/9dQ4R9y2hf8g6xI+r7ZI7RhLphLB434RHxO5nIXVZFuy
-         HLvoK9qDqdfGF9GblMFSX3mTHoyFHGR1oPWjidf6TTv02+2mY4Sj8IkN/1TKH50yAhDu
-         kbzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761699192; x=1762303992;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=m8SBa+XRdCWeVW9AmWkZ3MCowA+/EYnxZNZHdIoneiw=;
-        b=P6GJUQf+NCgFEPgI9P6anfzzdLVCwFjE4nJrNxaJNv8qkw9S1b3MUEg3UZP1mS2TWP
-         Xr0M0A11Gd0hMbq1nP7k9fEX8KtjY7eDcMAVl40R/rI+N+qci1pIjrbm+K2WTOlQjZmf
-         eTzGyZ3JlJ4SD8paVhhBVKiGY10MDRZxgK0VwKC3tT/AbuE1z0ebp2CPeUhETui76uli
-         OmDozZv7NjfjLCq6b/QAvULDqQsImldYd9z+t1jjUqS7Y9pqwqnLlCvS4xA1BrG1hsnq
-         Oxg9P8F7EOhHF6FHcdZkFURMnndAT+FHwfnnmc/zSAZF7gh5dBorbN5eKUud+H98RCGB
-         lxNA==
-X-Forwarded-Encrypted: i=1; AJvYcCXLfCuWxGpI0MrMePOXLc8/MI25dhDrDYZcKRzptmSj55enjATsHZfZxLOCSNOziO7IC9b9HvPaBLdpPg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yywvi8IFGxZ4MxBYhN9QhRe+BZ6rt4TinDj/8dkQaqJzG7MKbOh
-	oxTmHWzV5XG6cTRB9FcG3E3Atg3jE1nRkJOWY1Tj+YTVnTyf5nh5DB9G
-X-Gm-Gg: ASbGnctLvH7feIEaj2BMtWmV/mByVaKyPE01MtJRj87Z7v6Fwztzb1Ny4W65VZwzeR1
-	485cS2K1WBHW6YTS9ntOBhVhB5LpA0mLpTeUERHzQB1avZIyxIf47dUOE0kImm0d5lZLbB6O5Lo
-	STWMu/WNjAqIUVYhGhf/olKpTpJuTz9ReDilaH8WGX0Au8Cq2+00mpLwD184QYqGivu/hFyUod4
-	r87pFj1KMG3XRL5a2cOOCU9+H66qnGb0YhaA4Bfl9f9SvkP3WG1RX8edGlTUipBHC/y4qK6t9Dm
-	r4nDNCdsGgtdaz9y+2THGtab1wJZvZrkRyo6fXpe77iz3tDltLnmrMPvsKu/JaX2FosdU/cElcC
-	VwV7SEzMbeOvWC0dqthQs23WuUiO9ICgJFUeI0KAH8SVKqlp2trdVruTaxWsd5Gvcjso4p2NqL2
-	E=
-X-Google-Smtp-Source: AGHT+IE90UXiGYJzRQ58CyS5PxlflDC8vEvcklnc4McQT7Hk9PgOXlQ2qQeKd9vAUAOVnUzqvljQKw==
-X-Received: by 2002:a17:90b:2dcb:b0:32d:d5f1:fe7f with SMTP id 98e67ed59e1d1-3403a260a68mr941140a91.15.1761699192237;
-        Tue, 28 Oct 2025 17:53:12 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33fed70a83csm13316804a91.4.2025.10.28.17.53.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Oct 2025 17:53:11 -0700 (PDT)
-Date: Wed, 29 Oct 2025 08:53:04 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
-	Joshua Milas <josh.milas@gmail.com>, Inochi Amaoto <inochiama@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	unicorn_wang@outlook.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, alexander.sverdlin@gmail.com, 
-	rabenda.cn@gmail.com, thomas.bonnefille@bootlin.com, chao.wei@sophgo.com, 
-	liujingqi@lanxincomputing.com, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/3] arm64: dts: sophgo: add initial Milk-V Duo S board
- support
-Message-ID: <7e37k5hdn7nnn7cxnfrzqfy7h7a3ofnaf4r6rgk7exehrhsn2i@rvxjxvh2sodw>
-References: <20251011014811.28521-1-josh.milas@gmail.com>
- <20251011014811.28521-3-josh.milas@gmail.com>
- <hkdnjyldwr4watvizsju4qcvpvkb3mtt5rathaooembpceyufx@ega5xrqj6v3y>
- <aOqtt7BDXxItrs7W@sleek>
- <bsol3uim4brrrsdmvuk6f3uzampbki2pyhziap6x4rw7txl435@rwoxrnctkf3y>
- <aP6UJFPP-ReYPzmq@sleek>
- <4bdad288-250b-4e94-abea-eb231fba5beb@rootcommit.com>
+	Wed, 29 Oct 2025 01:00:07 +0000
+Date: Wed, 29 Oct 2025 08:59:49 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1761699600;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=axfy//ogFDe/yGbFMo1sZMCFPL+4baIeWWIdu2LpDI8=;
+	b=C+uHI4yJrnTWHNX09+K4A6XEe9JSPPUru03wyNSgVfHv61E7wLAa4TZ331QLDUnPoQ1P6E
+	VjUIg4YW3JXeZ4EO+p4elnyhBy5vg944BCDQMdxymYkrakt5HKwr3RRDjZBvBZO2zy4wqQ
+	Odu3Jg8x6KTSeZ3PTZpwj1+hNJQKZC4=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Troy Mitchell <troy.mitchell@linux.dev>
+To: Michal Wilczynski <m.wilczynski@samsung.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Troy Mitchell <troy.mitchell@linux.dev>
+Subject: Re: [PATCH 3/4] pwm: th1520: Use module_pwm_platform_driver! macro
+Message-ID: <aQFnBYc7C-nQslJ9@kernel.org>
+References: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
+ <CGME20251028122318eucas1p17161f0e1f2281c868688e8a4cc3d8f68@eucas1p1.samsung.com>
+ <20251028-pwm_fixes-v1-3-25a532d31998@samsung.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <4bdad288-250b-4e94-abea-eb231fba5beb@rootcommit.com>
+In-Reply-To: <20251028-pwm_fixes-v1-3-25a532d31998@samsung.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251028_175313_523162_5F2A172A 
-X-CRM114-Status: GOOD (  33.47  )
+X-CRM114-CacheID: sfid-20251028_180005_971672_575C7BC8 
+X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,75 +84,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 26, 2025 at 10:48:50PM +0000, Michael Opdenacker wrote:
-> Hi Joshua
+On Tue, Oct 28, 2025 at 01:22:34PM +0100, Michal Wilczynski wrote:
+> The `pwm_th1520` Rust driver calls C functions from the `PWM` namespace,
+> triggering `modpost` warnings due to missing namespace import
+> declarations in its `.modinfo` section.
 > 
-> Thanks a lot for working on support for Milk-V Duo S. I'll be happy to test
-> your V3 :)
+> Fix these warnings and simplify the module declaration by switching from
+> the generic `kernel::module_platform_driver!` macro to the newly
+> introduced PWM-specific `kernel::module_pwm_platform_driver!` macro.
+> The new macro automatically handles the required `imports_ns: ["PWM"]`
+> declaration.
 > 
-> On 10/26/25 22:35, Joshua Milas wrote:
-> > Inochi,
-> > 
-> > Thanks for pointing me twards duo-pinmux. I was able to use it to get
-> > the default config which is uart0, spi3, and i2c4. I can change the
-> > dts to match, but...
-> > 
-> > > I suggest enabling devices that are accessed by default
-> > Would we rather enable anything that can be accessed by the pinmux?
-> 
-> If I understand correctly, you can't do that because there will be
-> conflicts.
-
-> From the Duo S pinout diagram (https://milkv.io/duo-s/duos-pinout.webp), on
-> headers 41 and 39, you have to choose between MIPI, I2C2, PWM12/13 or SD1.
-> If at least 2 of these are selected at the same time, there will be a
-> conflict, and I assume that the pinctrl controller driver will flag it.
-> 
-
-Yes, that's true. Boards with CV18XX always require setting pinctrl.
-
-> Then it sounds complicated to define a default combination for the whole
-> board, because it's like a default use model. Who gets to choose? What
-> Inochi suggests is to follow the vendor kernel choice, which would
-> correspond to the way the vendor intended the board to be used. However the
-> community could choose another default way to use the board, so the choice
-> may be up to the first contributor to the mainline kernel for this board,
-> possibly revised through later discussions.
-> 
-
-In fact, I see the maintainers do not agree adding every possible
-configuration to the DTS, (especially without "omit-if-unused" flag).
-And in many case, it is impossible to add all possibility. As a
-result, I prefer to use DTS overlay if there is something custom,
-and keep the mainline DTS minimum.
-
-> I guess there are cases when the choice is easy:
-> 
-> - When only one configuration is available for a set of pins
-> - When there are important devices on I2C or SPI buses on the board. Then,
-> you want to find a way to prioritize such buses. Fortunately, I guess the
-> board design also guides you to the right choice.
-> 
-
-In fact the priority is the thing that is hard to decide. This is why
-I suggesting keeping compatible with the vendor kernel, as many people
-starts with vendor kernel and it is a good thing to refer.
-
->
-> I was facing the the same question today on another board, and that's why
-> I'm happy it's raised here. As thousands of DTS files have been written
-> before, I'd love to hear from people with experience on this topic. Are
-> guidelines written anywhere for board DTS creators?
-> 
-> Cheers
-> Michael.
-> 
-> -- 
-> Michael Opdenacker
-> Root Commit
-> Yocto Project and OpenEmbedded Training course - Learn by doing:
-> https://rootcommit.com/training/yocto/
-> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.dev>
 
 _______________________________________________
 linux-riscv mailing list
