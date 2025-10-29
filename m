@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FEF1CCF9F0
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 16:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F45CCF9EB
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 16:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hha0moMZSwRPs8YgTbrK4oylxfd2FSTgx0Fl5YV85U8=; b=n6bvDqqnhBWkN+
-	X1P3OqYJe9emyj0ixiy/Qbx1hrxtK78PnZ28aypBHxgp/tIixsiYonuOB3j7gIdAFdbPLI2sx4+3I
-	vYWgRcZB7or/6Scb3a/wV6rdwn5LCgMbTCnKVa7Dlw9ZiaFNLbom5CgeToWKWujU7RubPq5JLtK0X
-	MJvnSIK41LHcsPoCFwT6iB5bekCDagWCCELQ1l9e+BsAsNxAVYEmUVq4AWvxFWWwCpCFmNUeFiGKk
-	4SI3um2XxEI1360qrQ/EQwTJPq9ehdYC+1WGg9UqhLUJJV9pyM1GDEr4F1soms9//Jv4ObMSe/uSQ
-	DGRLRvixftY38kE3DUvA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EfsAULzmCRx0UQ42omSU+BlVFLOERSCkqS9yia+6s3A=; b=qi3FgezAR11nbc
+	ka1Gh8asr6Mj6xGODMcjSzuqavTSNxLmg4Lx+YGXrTQje/Rc1UprJ12OqFyHkW0zuLX34rvJiLMxm
+	Y4PNKK3BSZRQ04e/X0F9lsirFz9+ifWnjxmLHXDZAo90nV2l+Mu7wY8A/x/T+MSB5XsAGk/v5bxnP
+	3favp6eRs1xKQcbup/1JY9QaTLTPCABu9RMk0hSpn7RUz/ashjLGfz91OX/Pf0wYNmuhpzjptmmNi
+	u02nlm1pv2MZ5VRGr13+bzrrAc+/9P6FFAQh18nPZbq8npOAQUvSxl7tF+0LM+0r04ApYO4y/OKy0
+	vuRki2Pf2v0lqiIqAslw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8m4-00000001weD-0Ws5;
-	Wed, 29 Oct 2025 16:11:48 +0000
+	id 1vE8lw-00000001wb7-12pF;
+	Wed, 29 Oct 2025 16:11:40 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE8m0-00000001wdF-3tK7
+	id 1vE8ls-00000001wa7-3KwH
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 16:11:46 +0000
+	Wed, 29 Oct 2025 16:11:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 937EE4002C;
-	Wed, 29 Oct 2025 16:11:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC19DC4CEFF;
-	Wed, 29 Oct 2025 16:11:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C2B54023F;
+	Wed, 29 Oct 2025 16:11:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B3ADC4CEF7;
+	Wed, 29 Oct 2025 16:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761754304;
-	bh=aZIjHtly/v+niXScbbIy10UhhOoZxWZhit3d3603RhY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tdlDZRf1jkmshb1ohgOVmDVz/GFvSt/bj3DAklQ9Pwy2WFR7rY6dHk+EMrVC/VRse
-	 S0bcjXVlln+8ATIUMn1UEA/PoAq/G0bF0oaYDY8+aoUal+CBgmIbkv9cx0PkjgCD4R
-	 f6/6HwD1OIODRXodm3FUc1wMcnOvq1JG+pERZnsWQ38CPdYNtHJPQNHKH9AtojRvD9
-	 kPQKca8+WzWOcvzuWCtUnWMSdqH1HDWWUOsIrcYBynNo1dmCxd842se5LL7pfbGwy6
-	 pnLfw5ia0wDpzi2nXaZZtN+B6+IwkXqmQ/RXj2sCen66SRYhIcJfblcwuM4WXXALfg
-	 WKDGJEF9ZUPAA==
+	s=k20201202; t=1761754294;
+	bh=ZHoYFhjdnzGDFed/NoYuMn50qAQjcf3x65RDhAXAqO8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=LhUmpwAd7Z9ccct7wO8x5Sch+wXZ8LM6RsiBZPsYX/E3xLaYm96OVekFU7qoJiil+
+	 uYnZ0LpXf7Ib7lfEYkuZOl5dlyLS4S4aTqupXTPDZRQ2rWCPBkj19b8lI5nAO8I432
+	 FakMqVk2You9r5Q5a4TkzwwkJ4TGC/M7Ckl0g7V1NqYUB/c16PrgkFAV7+4alrCsAj
+	 PwdzI6XZEtQHPkzP9CERmK7obs7hqZBLKaKWJMuKGKWVENPMiVfIxo9APaNlThW8sA
+	 jReEQpa6i+Z9rOJtPNTbjOJ5bAC1kiqijZzxvhmTaUjVuQU+mxLQocli4JlHTg8047
+	 EZ9WeZNgRdd/w==
 From: Conor Dooley <conor@kernel.org>
 To: claudiu.beznea@tuxon.dev
 Cc: conor@kernel.org,
@@ -58,18 +58,16 @@ Cc: conor@kernel.org,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 3/7] clk: microchip: mpfs: use regmap for clocks
-Date: Wed, 29 Oct 2025 16:11:19 +0000
-Message-ID: <20251029-surfboard-refocus-ca9b135ab123@spud>
+Subject: [PATCH v6 0/7] Redo PolarFire SoC's mailbox/clock devicestrees and related code
+Date: Wed, 29 Oct 2025 16:11:16 +0000
+Message-ID: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
-References: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12535; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=kAOkUiiat4dSSwrUrQMbpHYhZj3/SqHFi7V2PyRP9Rk=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlMNuvqG6aYTyo4q7xpody2i9sqftbsP3vi7BfbLY/ux BxaoLVOtKOUhUGMi0FWTJEl8XZfi9T6Py47nHvewsxhZQIZwsDFKQATcTnFyND9INJ37YXs0Efr 2/Td9LbLeX58mTL58mQ/pqXrtMT/PVrG8Fe+qie7nVMyn+nNgR99CeaSJomzu0T+rnXmP2fUt1o mnhcA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6087; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=PM+I1awA9VRT67tF+JHyycrqYb2aNW3lbRaKFXiJEn0=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlMNut+zDyjI2E89eA7DjYWa79JrvzXb1tPT/iRNzF3n vd0tjqdjlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEwkR4Phv/MZ8QU/2TeZiPaJ vGibefo/+5kpt57L9RbkpT0xXy0plM7IsKzh5a5ZjFr/Dx9VyGXjaTPumpAVbadm0vvM/16341Y VHgA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_091145_013402_FAC5F02C 
-X-CRM114-Status: GOOD (  25.72  )
+X-CRM114-CacheID: sfid-20251029_091136_900344_109E73E5 
+X-CRM114-Status: GOOD (  31.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,383 +86,134 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Convert the PolarFire SoC clock driver to use regmaps instead of iomem
-addresses as a preparatory work for supporting the new binding for this
-device that will only provide the second of the two register regions, and
-will require the use of syscon regmap to access the "cfg" and "periph"
-clocks currently supported by the driver.
+In v5 the only real change is that I removed the attempt at a common
+implementation of regmap-based divider/gate clocks. The series hasn't
+managed to receive feedback on my approach in 2025, despite sending
+several revisions and bumps, and it is blocking support for both new
+drivers (gpio interrupt support, pinctrl and hwmon off the top of my
+head) and a new platform so I have decided to strip out the attempt at
+making something common in exchange for something that can be merged
+through the clk-microchip tree without relying on feedback from the
+clock maintainers.
 
-This is effectively a revert of commit 4da2404bb003 ("clk: microchip:
-mpfs: convert cfg_clk to clk_divider") and commit d815569783e6 ("clk:
-microchip: mpfs: convert periph_clk to clk_gate") as it resurrects the
-ops structures removed in those commits, with the readl()s and
-writel()s replaced by regmap_read()s and regmap_writes()s.
+Currently the driver uses the common gate and divider clocks, but the
+driver used to use its own custom clock types. Reprising this version of
+the code allows me to use regmap accessors in the driver without any
+wider impact, or attempting to create something that works for any other
+user. It has the advantage that it has already been tested in that prior
+for, and all that is done to the clock implementations is replacing
+readl()s and writel()s with their regmap equivalents.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
+Hopefully this change has made it possible to merge the series,
+Conor.
+
 v6:
+- make reset depend on MFD_SYSCON
+- return regmap_update_bits() result directly instead of an additional
+  return 0 in reset
 - use regmap_update_bits() instead of regmap_read() -> regmap_write()
-  RMW sequences
-- drop driver specific lock, since regmap has internal locking
+  RMW sequences in clock
+- drop clock driver specific lock, since regmap has internal locking,
+  from !msspll clocks
 - implement determine_rate instead of round_rate
----
- drivers/clk/microchip/Kconfig    |   2 +
- drivers/clk/microchip/clk-mpfs.c | 227 +++++++++++++++++++++++++------
- 2 files changed, 186 insertions(+), 43 deletions(-)
+- drop patch 1 & 2 (soc bits) since I applied them as a pre-req for
+  pinctrl work
 
-diff --git a/drivers/clk/microchip/Kconfig b/drivers/clk/microchip/Kconfig
-index 0724ce65898f..1b9e43eb5497 100644
---- a/drivers/clk/microchip/Kconfig
-+++ b/drivers/clk/microchip/Kconfig
-@@ -7,6 +7,8 @@ config MCHP_CLK_MPFS
- 	bool "Clk driver for PolarFire SoC"
- 	depends on ARCH_MICROCHIP_POLARFIRE || COMPILE_TEST
- 	default ARCH_MICROCHIP_POLARFIRE
-+	depends on MFD_SYSCON
- 	select AUXILIARY_BUS
-+	select REGMAP_MMIO
- 	help
- 	  Supports Clock Configuration for PolarFire SoC
-diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
-index c22632a7439c..484893e68b67 100644
---- a/drivers/clk/microchip/clk-mpfs.c
-+++ b/drivers/clk/microchip/clk-mpfs.c
-@@ -4,10 +4,13 @@
-  *
-  * Copyright (C) 2020-2022 Microchip Technology Inc. All rights reserved.
-  */
-+#include <linux/cleanup.h>
- #include <linux/clk-provider.h>
- #include <linux/io.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
-+#include <linux/regmap.h>
- #include <dt-bindings/clock/microchip,mpfs-clock.h>
- #include <soc/microchip/mpfs.h>
- 
-@@ -30,6 +33,14 @@
- #define MSSPLL_POSTDIV_WIDTH	0x07u
- #define MSSPLL_FIXED_DIV	4u
- 
-+static const struct regmap_config mpfs_clk_regmap_config = {
-+	.reg_bits = 32,
-+	.reg_stride = 4,
-+	.val_bits = 32,
-+	.val_format_endian = REGMAP_ENDIAN_LITTLE,
-+	.max_register = REG_SUBBLK_CLOCK_CR,
-+};
-+
- /*
-  * This clock ID is defined here, rather than the binding headers, as it is an
-  * internal clock only, and therefore has no consumers in other peripheral
-@@ -39,6 +50,7 @@
- 
- struct mpfs_clock_data {
- 	struct device *dev;
-+	struct regmap *regmap;
- 	void __iomem *base;
- 	void __iomem *msspll_base;
- 	struct clk_hw_onecell_data hw_data;
-@@ -67,21 +79,39 @@ struct mpfs_msspll_out_hw_clock {
- 
- #define to_mpfs_msspll_out_clk(_hw) container_of(_hw, struct mpfs_msspll_out_hw_clock, hw)
- 
-+struct mpfs_cfg_clock {
-+	struct regmap *map;
-+	const struct clk_div_table *table;
-+	u8 map_offset;
-+	u8 shift;
-+	u8 width;
-+	u8 flags;
-+};
-+
- struct mpfs_cfg_hw_clock {
--	struct clk_divider cfg;
--	struct clk_init_data init;
-+	struct clk_hw hw;
-+	struct mpfs_cfg_clock cfg;
- 	unsigned int id;
--	u32 reg_offset;
-+};
-+
-+#define to_mpfs_cfg_clk(_hw) container_of(_hw, struct mpfs_cfg_hw_clock, hw)
-+
-+struct mpfs_periph_clock {
-+	struct regmap *map;
-+	u8 map_offset;
-+	u8 shift;
- };
- 
- struct mpfs_periph_hw_clock {
--	struct clk_gate periph;
-+	struct clk_hw hw;
-+	struct mpfs_periph_clock periph;
- 	unsigned int id;
- };
- 
-+#define to_mpfs_periph_clk(_hw) container_of(_hw, struct mpfs_periph_hw_clock, hw)
-+
- /*
-- * mpfs_clk_lock prevents anything else from writing to the
-- * mpfs clk block while a software locked register is being written.
-+ * Protects MSSPLL outputs, since there's two to a register
-  */
- static DEFINE_SPINLOCK(mpfs_clk_lock);
- 
-@@ -219,16 +249,61 @@ static int mpfs_clk_register_msspll_outs(struct device *dev,
- /*
-  * "CFG" clocks
-  */
-+static unsigned long mpfs_cfg_clk_recalc_rate(struct clk_hw *hw, unsigned long prate)
-+{
-+	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
-+	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
-+	u32 val;
- 
--#define CLK_CFG(_id, _name, _parent, _shift, _width, _table, _flags, _offset) {		\
--	.id = _id,									\
--	.cfg.shift = _shift,								\
--	.cfg.width = _width,								\
--	.cfg.table = _table,								\
--	.reg_offset = _offset,								\
--	.cfg.flags = _flags,								\
--	.cfg.hw.init = CLK_HW_INIT(_name, _parent, &clk_divider_ops, 0),		\
--	.cfg.lock = &mpfs_clk_lock,							\
-+	regmap_read(cfg->map, cfg->map_offset, &val);
-+	val >>= cfg->shift;
-+	val &= clk_div_mask(cfg->width);
-+
-+	return divider_recalc_rate(hw, prate, val, cfg->table, cfg->flags, cfg->width);
-+}
-+
-+static int mpfs_cfg_clk_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
-+{
-+	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
-+	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
-+
-+	return divider_determine_rate(hw, req, cfg->table, cfg->width, 0);
-+}
-+
-+static int mpfs_cfg_clk_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long prate)
-+{
-+	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
-+	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
-+	int divider_setting;
-+	u32 val;
-+	u32 mask;
-+
-+	divider_setting = divider_get_val(rate, prate, cfg->table, cfg->width, 0);
-+
-+	if (divider_setting < 0)
-+		return divider_setting;
-+
-+	mask = clk_div_mask(cfg->width) << cfg->shift;
-+	val = divider_setting << cfg->shift;
-+	regmap_update_bits(cfg->map, cfg->map_offset, val, mask);
-+
-+	return 0;
-+}
-+
-+static const struct clk_ops mpfs_clk_cfg_ops = {
-+	.recalc_rate = mpfs_cfg_clk_recalc_rate,
-+	.determine_rate = mpfs_cfg_clk_determine_rate,
-+	.set_rate = mpfs_cfg_clk_set_rate,
-+};
-+
-+#define CLK_CFG(_id, _name, _parent, _shift, _width, _table, _flags, _offset) {	\
-+	.id = _id,								\
-+	.cfg.shift = _shift,							\
-+	.cfg.width = _width,							\
-+	.cfg.table = _table,							\
-+	.cfg.map_offset = _offset,						\
-+	.cfg.flags = _flags,							\
-+	.hw.init = CLK_HW_INIT(_name, _parent, &mpfs_clk_cfg_ops, 0),		\
- }
- 
- #define CLK_CPU_OFFSET		0u
-@@ -248,10 +323,10 @@ static struct mpfs_cfg_hw_clock mpfs_cfg_clks[] = {
- 		.cfg.shift = 0,
- 		.cfg.width = 12,
- 		.cfg.table = mpfs_div_rtcref_table,
--		.reg_offset = REG_RTC_CLOCK_CR,
-+		.cfg.map_offset = REG_RTC_CLOCK_CR,
- 		.cfg.flags = CLK_DIVIDER_ONE_BASED,
--		.cfg.hw.init =
--			CLK_HW_INIT_PARENTS_DATA("clk_rtcref", mpfs_ext_ref, &clk_divider_ops, 0),
-+		.hw.init =
-+			CLK_HW_INIT_PARENTS_DATA("clk_rtcref", mpfs_ext_ref, &mpfs_clk_cfg_ops, 0),
- 	}
- };
- 
-@@ -264,14 +339,14 @@ static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *
- 	for (i = 0; i < num_clks; i++) {
- 		struct mpfs_cfg_hw_clock *cfg_hw = &cfg_hws[i];
- 
--		cfg_hw->cfg.reg = data->base + cfg_hw->reg_offset;
--		ret = devm_clk_hw_register(dev, &cfg_hw->cfg.hw);
-+		cfg_hw->cfg.map = data->regmap;
-+		ret = devm_clk_hw_register(dev, &cfg_hw->hw);
- 		if (ret)
- 			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
- 					     cfg_hw->id);
- 
- 		id = cfg_hw->id;
--		data->hw_data.hws[id] = &cfg_hw->cfg.hw;
-+		data->hw_data.hws[id] = &cfg_hw->hw;
- 	}
- 
- 	return 0;
-@@ -281,15 +356,50 @@ static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *
-  * peripheral clocks - devices connected to axi or ahb buses.
-  */
- 
--#define CLK_PERIPH(_id, _name, _parent, _shift, _flags) {			\
--	.id = _id,								\
--	.periph.bit_idx = _shift,						\
--	.periph.hw.init = CLK_HW_INIT_HW(_name, _parent, &clk_gate_ops,		\
--				  _flags),					\
--	.periph.lock = &mpfs_clk_lock,						\
-+static int mpfs_periph_clk_enable(struct clk_hw *hw)
-+{
-+	struct mpfs_periph_hw_clock *periph_hw = to_mpfs_periph_clk(hw);
-+	struct mpfs_periph_clock *periph = &periph_hw->periph;
-+
-+	regmap_update_bits(periph->map, periph->map_offset,
-+			   BIT(periph->shift), BIT(periph->shift));
-+
-+	return 0;
- }
- 
--#define PARENT_CLK(PARENT) (&mpfs_cfg_clks[CLK_##PARENT##_OFFSET].cfg.hw)
-+static void mpfs_periph_clk_disable(struct clk_hw *hw)
-+{
-+	struct mpfs_periph_hw_clock *periph_hw = to_mpfs_periph_clk(hw);
-+	struct mpfs_periph_clock *periph = &periph_hw->periph;
-+
-+	regmap_update_bits(periph->map, periph->map_offset, BIT(periph->shift), 0);
-+}
-+
-+static int mpfs_periph_clk_is_enabled(struct clk_hw *hw)
-+{
-+	struct mpfs_periph_hw_clock *periph_hw = to_mpfs_periph_clk(hw);
-+	struct mpfs_periph_clock *periph = &periph_hw->periph;
-+	u32 val;
-+
-+	regmap_read(periph->map, periph->map_offset, &val);
-+
-+	return !!(val & BIT(periph->shift));
-+}
-+
-+static const struct clk_ops mpfs_periph_clk_ops = {
-+	.enable = mpfs_periph_clk_enable,
-+	.disable = mpfs_periph_clk_disable,
-+	.is_enabled = mpfs_periph_clk_is_enabled,
-+};
-+
-+#define CLK_PERIPH(_id, _name, _parent, _shift, _flags) {				\
-+	.id = _id,									\
-+	.periph.map_offset = REG_SUBBLK_CLOCK_CR,					\
-+	.periph.shift = _shift,								\
-+	.hw.init = CLK_HW_INIT_HW(_name, _parent, &mpfs_periph_clk_ops, _flags),	\
-+}
-+
-+#define PARENT_CLK(PARENT) (&mpfs_cfg_clks[CLK_##PARENT##_OFFSET].hw)
- 
- /*
-  * Critical clocks:
-@@ -346,19 +456,55 @@ static int mpfs_clk_register_periphs(struct device *dev, struct mpfs_periph_hw_c
- 	for (i = 0; i < num_clks; i++) {
- 		struct mpfs_periph_hw_clock *periph_hw = &periph_hws[i];
- 
--		periph_hw->periph.reg = data->base + REG_SUBBLK_CLOCK_CR;
--		ret = devm_clk_hw_register(dev, &periph_hw->periph.hw);
-+		periph_hw->periph.map = data->regmap;
-+		ret = devm_clk_hw_register(dev, &periph_hw->hw);
- 		if (ret)
- 			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
- 					     periph_hw->id);
- 
- 		id = periph_hws[i].id;
--		data->hw_data.hws[id] = &periph_hw->periph.hw;
-+		data->hw_data.hws[id] = &periph_hw->hw;
- 	}
- 
- 	return 0;
- }
- 
-+static inline int mpfs_clk_syscon_probe(struct mpfs_clock_data *clk_data,
-+					struct platform_device *pdev)
-+{
-+	clk_data->regmap = syscon_regmap_lookup_by_compatible("microchip,mpfs-mss-top-sysreg");
-+	if (IS_ERR(clk_data->regmap))
-+		return PTR_ERR(clk_data->regmap);
-+
-+	clk_data->msspll_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(clk_data->msspll_base))
-+		return PTR_ERR(clk_data->msspll_base);
-+
-+	return 0;
-+}
-+
-+static inline int mpfs_clk_old_format_probe(struct mpfs_clock_data *clk_data,
-+					    struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+
-+	dev_warn(&pdev->dev, "falling back to old devicetree format");
-+
-+	clk_data->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(clk_data->base))
-+		return PTR_ERR(clk_data->base);
-+
-+	clk_data->msspll_base = devm_platform_ioremap_resource(pdev, 1);
-+	if (IS_ERR(clk_data->msspll_base))
-+		return PTR_ERR(clk_data->msspll_base);
-+
-+	clk_data->regmap = devm_regmap_init_mmio(dev, clk_data->base, &mpfs_clk_regmap_config);
-+	if (IS_ERR(clk_data->regmap))
-+		return PTR_ERR(clk_data->regmap);
-+
-+	return mpfs_reset_controller_register(dev, clk_data->base + REG_SUBBLK_RESET_CR);
-+}
-+
- static int mpfs_clk_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -374,13 +520,12 @@ static int mpfs_clk_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	clk_data->base = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(clk_data->base))
--		return PTR_ERR(clk_data->base);
--
--	clk_data->msspll_base = devm_platform_ioremap_resource(pdev, 1);
--	if (IS_ERR(clk_data->msspll_base))
--		return PTR_ERR(clk_data->msspll_base);
-+	ret = mpfs_clk_syscon_probe(clk_data, pdev);
-+	if (ret) {
-+		ret = mpfs_clk_old_format_probe(clk_data, pdev);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	clk_data->hw_data.num = num_clks;
- 	clk_data->dev = dev;
-@@ -406,11 +551,7 @@ static int mpfs_clk_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, &clk_data->hw_data);
--	if (ret)
--		return ret;
--
--	return mpfs_reset_controller_register(dev, clk_data->base + REG_SUBBLK_RESET_CR);
-+	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, &clk_data->hw_data);
- }
- 
- static const struct of_device_id mpfs_clk_of_match_table[] = {
+v5:
+- drop mfd patch applied by Lee
+- remove attempt at common regmap divider/gate clocks, and replace it
+  with a return to how the code used to look, before it started using
+  the non-regmap versions of the common divider/gate, with the
+  readl()/writel()s replaced by their regmap equivalents.
+
+v4:
+- unify both regmap clk implementations under one option
+- change map_offset to a u32, after Gabriel pointed out that u8 was
+  too restrictive.
+- remove locking from regmap portion of reset driver, relying on
+  inherent regmap lock
+
+v3 changes:
+- drop simple-mfd (for now) from syscon node
+
+v2 cover letter:
+
+Here's something that I've been mulling over for a while, since I
+started to understand how devicetree stuff was "meant" to be done.
+There'd been little reason to actually press forward with it, because it
+is fairly disruptive. I've finally opted to do it, because a user has
+come along with a hwmon driver that needs to access the same register
+region as the mailbox and the author is not keen on using the aux bus,
+and because I do not want the new pic64gx SoC that's based on PolarFire
+SoC to use bindings etc that I know to be incorrect.
+
+Given backwards compatibility needs to be maintained, this patch series
+isn't the prettiest thing I have ever written. The reset driver needs to
+retain support for the auxiliary bus, which looks a bit mess, but not
+much can be done there. The mailbox and clock drivers both have to have
+an "old probe" function to handle the old layout. Thankfully in the
+clock driver, regmap support can be used to identically
+handle both old and new devicetree formats - but using a regmap in the
+mailbox driver was only really possible for the new format, so the code
+there is unfortunately a bit of an if/else mess that I'm both not proud
+of, nor really sure is worth "improving".
+
+The series should be pretty splitable per subsystem, only the dts change
+has some sort of dependency, but I'll not be applying that till
+everything else is in Linus' tree, so that's not a big deal.
+
+I don't really want this stuff in stable, hence a lack of cc: stable
+anywhere here, since what's currently in the tree works fine for the
+currently supported hardware.
+
+AFAIK, the only other project affected here is U-Boot, which I have
+already modified to support the new format.
+
+I previously submitted this as an RFC, only to Lee and the dt list, in
+order to get some feedback on the syscon/mfd bindings:
+https://lore.kernel.org/all/20240815-shindig-bunny-fd42792d638a@spud/
+I'm not really going to bother with a proper changelog, since that was
+submitted with lots of WIP code to get answers to some questions. The
+main change was "removing" some of the child nodes of the syscons.
+
+And as a "real" series where discussion lead to me dropping use of the
+amlogic clk-regmap support:
+https://lore.kernel.org/linux-clk/20241002-private-unequal-33cfa6101338@spud/
+As a result of that, I've implemented what I think Stephen was asking
+for - but I'm not at all sure that it is..
+
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: pierre-henry.moussay@microchip.com
+CC: valentina.fernandezalanis@microchip.com
+CC: Michael Turquette <mturquette@baylibre.com>
+CC: Stephen Boyd <sboyd@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Philipp Zabel <p.zabel@pengutronix.de>
+CC: linux-riscv@lists.infradead.org
+CC: linux-clk@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+
+Conor Dooley (7):
+  reset: mpfs: add non-auxiliary bus probing
+  dt-bindings: clk: microchip: mpfs: remove first reg region
+  clk: microchip: mpfs: use regmap for clocks
+  riscv: dts: microchip: fix mailbox description
+  riscv: dts: microchip: convert clock and reset to use syscon
+  MAINTAINERS: add new soc drivers to Microchip RISC-V entry
+  MAINTAINERS: rename Microchip RISC-V entry
+
+ .../bindings/clock/microchip,mpfs-clkcfg.yaml |  36 +--
+ MAINTAINERS                                   |   4 +-
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  34 ++-
+ drivers/clk/microchip/Kconfig                 |   2 +
+ drivers/clk/microchip/clk-mpfs.c              | 227 ++++++++++++++----
+ drivers/reset/Kconfig                         |   1 +
+ drivers/reset/reset-mpfs.c                    |  79 ++++--
+ 7 files changed, 298 insertions(+), 85 deletions(-)
+
 -- 
 2.51.0
 
