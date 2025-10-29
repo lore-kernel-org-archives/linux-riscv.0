@@ -4,71 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F60CCF9F0
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 16:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54699CCF9F8
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 16:34:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+zTbxsihQ9DjlV5EbkXwtqCpQvmnrZpXVl0EJDtGGOE=; b=43+0mkf/0TQT20
-	vAPQRuw0xHxuswJM+KdpUnS5lm3RfjUkESCtP5wR6zEtSap4vVhe4I811HMmsD+TLD1h0zRCiw4pr
-	Pn0DeGoEsAwcMv3fGNsP4NTLglu3EbIH+q4tNm2PahWyvgmkUedN/8ZYVhI64vFsoyPpihm07g/Qa
-	//wQPgwFqsBXRSnZ83AzjyiRNBlsuQnRsTsFBTWflFYaYKiwjR8YrUXO0g6dyse/qAGCwYBrrUkAx
-	F5bA1o2qI/CA+wS9vpvChQtfAehERBLlviFq9YDgWLEmp7ZFctWCACa0HK/gJHWkdaMu6DdfdBFAt
-	5b9i/V9t61sg0puGnHPg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4VBtBdvbg3wjFOnRRzf5UytgNkBThy7cr62PlTEfOPs=; b=Z02X+q5MrkieSF
+	xbN14U3siQlZFQI60l6ynp/V1xtvXHB4VlF1nF0srKywK7kpkuvimvC7J5oz7vl93RtTxX0gdEGtI
+	o/PhErxYkZcWTx5f2caB+A8GtfcjL9jUiPxPDn17ll4c4vynggv4U9Qgl7CRhdwfN4BiSzTbROdzY
+	djsjQWF/XQvrBg5HpUBwAZ4lQmKo2BNqekzbEGJF7iiLFvoWKQ3pmbEoYfMtPVa35yRE+rlkI6qBT
+	psrTFGt+9GPhDI/+DQr8mDIuDDazdV7tUVkgJU81t5Xj0MZj5H/i5HhmKkn1cxZa1anRCe/4gfQZ4
+	ekNWOhzh+Jv52jliqwzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE97M-000000021Nq-27QF;
-	Wed, 29 Oct 2025 16:33:48 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vE97V-000000021Uw-1p3a;
+	Wed, 29 Oct 2025 16:33:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE97J-000000021Mc-1LgR
+	id 1vE97U-000000021Rb-0Asi
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 29 Oct 2025 16:33:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=U3ZWzIw+tzavBMOmDgztL9+WJKK3w3KSDq6YVOazGFI=; b=BMIVmjAkAxoEvHEPKxmRkhOq5T
+	DimvvpzF4Mo9iXwSkBDPLgLit9gsdszlMsdhTDlRUeEtgG6+7zfeoIFQvoz5oCg8CQYSn4KimHAre
+	j9TdHiaQrPb351tb3Y0XylhkRVtpDU85jXojUTQfk953eTjXdatbNgpHZeLeZgD286awuaVWxKAl4
+	HTKCfXgQGP9LdBXO/bUHFot14DkmtUmISNLl3gSTuBpe2cvoJl2NbK/maX4CPx60gbyiTjNcQkLLE
+	Ho83a6Z5tCMkD/RfZoGEqI14cHe5x7Y0g4098e6nE+c0k5ZKujoWVf0cCBppX3NPwoZ/8HOdnPoWp
+	9uNH52eg==;
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vE8Fh-00000007Jdd-3x2O
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 16:33:46 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-470ffbf2150so7459515e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Oct 2025 09:33:44 -0700 (PDT)
+	Wed, 29 Oct 2025 15:38:23 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b4aed12cea3so12339866b.1
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Oct 2025 09:33:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761755623; x=1762360423; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=AAflKtaWcrVF6Nhfrfoz1N7w/0F8UwSgA56H4g4glHQ=;
-        b=MGgh4PyutXwQANmmf+PJ/W6elWM+SdAORJbq07Lu8261cFb9QAWr2YfPXHuhTPdgxu
-         KN/rNLOaKOiZU79nPVHZ+1aSoXFRoEPAC28IqjityhHNZig7Zqk1alw/4Gwm/SOOqP09
-         1ShM5qTEejh4zJag+jEhfIUf0K/qIQqzJSO7V+mrN1510wpFnIbuQARHPuEwMCXwwxcJ
-         N0OTK9u8oL60qqAKEqqrhKstr2sXmOjTuq9k/IF8xFzRR+PZ3PakS7yHZ4WBh9ic11MQ
-         9PKQmCAhnvBimL1ST75y4G5HdBOvX5h6BpmHcD137lzxtBS+0FdmrDtR0RujEwhs1bDd
-         VfHQ==
+        d=gmail.com; s=20230601; t=1761755632; x=1762360432; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U3ZWzIw+tzavBMOmDgztL9+WJKK3w3KSDq6YVOazGFI=;
+        b=NxUjZMbH/jEJDwrFBfzFDtTkrNyOH/SW7lmvLKlJW9FvIX/HDCPNzlBbngMHEbt1c8
+         ytuVz4gf6hyhLdGjMQWoyfvCev8J3c4Uv2zL7mEbwWqa6drtIxgetlMP051wfMJeT9I6
+         mbqzskZB2Mg/J4QopX2y/HB1IwDMpv3lVYeBI5zlDpS0QSoykeEN9WRvlQoqzEc3GRaR
+         HXMJ7svo7UAZ3Swz581brY/ncrUeht5jmVY2Gr6N1HSTNrIKMw2Sv/xm8lE1hRQXA0Y+
+         SlAqFOO1B3znsghXfQ0tBZfFOfD+YXq6aVLiBWqCddr8Y1Ng2eqhfgnrdieWRY+MAlxf
+         GWYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761755623; x=1762360423;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AAflKtaWcrVF6Nhfrfoz1N7w/0F8UwSgA56H4g4glHQ=;
-        b=BM9VmeLkkmMIY72qKFSZ+vSf1AcJ8t9Iz+UEU3syZhmT8xPAryQO6Ls1xbMgFzTsAY
-         uPRZ2BrJAwr+o+1PqPlV7ZFhv7f2d3dL5f9YHkEf86HdD0dguk9InasfXmnguw6Jlpc+
-         31CjiHFl6qSKoQ0+zMVsEK199HEh8dczM4vz+TgNF9OOwoSj0AGGNv48TWi/Q/FkRUlk
-         zSnbEOaQDQXNhM54EtHHZ/nexhdSXAXeS7Z7FSnZdwUz8CozFW5iFgnTX3Rr3+B8y2LP
-         mA5RETf94CCMT+j8XO45665IsCRrzL7Qqv1ug1ncVGBXRAx0y8p6lkqunVf22kx2W6uQ
-         IY1A==
-X-Forwarded-Encrypted: i=1; AJvYcCWgOggn2Rcp/sDWfMngJ2YUOWzv/e0ksRN30KqqnbVqi4zrOYRGUOOK91H113tCjmgn54jdW0QBx7cxbw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8Bh9CKbLNfK8pvr4lEihcJtMOAkca0QRrdGbGeSHrQs9RqBHg
-	huJln82R2pegpzUMwNhOVgJYvgNgQFlpqI7YvthKtBsDfSZtfpRazNKy
-X-Gm-Gg: ASbGncs8DYfEzKCGE2/XTIx23us5Bon+G7vKesUu1coorLdMQku04Qr4kZD1/MBLBQC
-	YxNyKAZ2DjgCJ7FutUM3kBVC7Z7AD6iZEz7PuNYDTK9rnMAvpuQRLz2+vGsdk35gnAulXgBNGqH
-	wT6WMbj6BMVT1jZDJPZ28qEWu4OhCghmXHIwaHj68c5U0ki7eYe95CI88BL0aMZqKlvX6h8Ywzb
-	4a6mgkwIZ++FFtaXFuM9CUs7l3sB86fMF8Zi7G1GBHQCO/+dlyGrB3IbEoBnDoV0cKtFUw6w5MM
-	hb66/1BcSmahvNjQPgdir75Y2MambuNVBtsgMJIPfmxVoDgEcYTzm5s7M9dtCejQmrf8+4jncgR
-	EiKZbtdvd7t2DQVjgvhosyPgFu13PX+4DVD06Kt+vavUL90nyzZFHYUjM+0rp3hkw2XdqGzk5oH
-	j2a6VratJHjLCDykRtD0XhodPAS8YreqA8rB+PEUpa9btAWrYReErK+wVdGJtpPsQ+zcU+
-X-Google-Smtp-Source: AGHT+IHTmDPmMpNCDFFQsAevLNP6qOs7nF+wicDIMZb/6KQd4rRWs7Qottj+hraNqh61j+yol+JE4g==
-X-Received: by 2002:a05:6000:430c:b0:425:86da:325f with SMTP id ffacd0b85a97d-429b4c5303emr258811f8f.27.1761755622916;
-        Wed, 29 Oct 2025 09:33:42 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761755632; x=1762360432;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=U3ZWzIw+tzavBMOmDgztL9+WJKK3w3KSDq6YVOazGFI=;
+        b=dU6kwDgTNja89gpNWrHMKO6ij8OZwZXb5U7+re+h/q5xGxSwhSMudAWSq7jZacx56c
+         qwFZ/Ge6O+2HB2ddWgsD4Xh5Fvnt6Pr9vO0Gflo2Wa/xoVTSknmk8tjaEQWGuQNyR+97
+         ShPUFtGN73YISAyuqQZOiU9wuGyacdxPcFpaYQLhr+qt6T9o1IfdgPopZgk4XTGEy43j
+         T2PZHu+417bW/3zod2uYZgCMJRBgJbOMNB95fE6zXU/VVdCYShTFnPvRoZTbRWXoE91s
+         y0YYlpyIwvN6tdZ2LLwXg1DFIqyfaO0tsNH0kbYRIGl/HhZsysgYvEAP6Jw+HPcNV39B
+         th5w==
+X-Forwarded-Encrypted: i=1; AJvYcCUl154tTeR0tLx9BmG0k43pZGMc/eyhf/ydsC733gBN7wxCQedMwVoWSLGdW0C3HxIPN6GO8u+VTA6ZNg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVU3/Jhtf1/ycStRnS1KUrVCaZUxKBnPlVE0uH15NZP6uRO0uc
+	U5XSsOPSdcSr1yjMQK8roRqsUejn4cYHFDaDyJfasfBm1Gg89F0LK8oz
+X-Gm-Gg: ASbGncvIxHOdyOscGVW4xD12M1v9eKxJIKvq/Iu2eziM5tktDZzejhyQy6v670L2LRQ
+	61gV3qtUB6/vop/3vj6558ma0kzcUFjR0yqgSvv4PeIeJ/Cbwdwh8sh4wK+kAEk07xbUXM6jWTf
+	ABnpwRos3wlCyNKTq5IY4X7XIEYJS3qkyo5Zahun6sKrNeT1qELo7cyt76ruEnuVnuiuyQayjLt
+	hKkwWQePvcVt/0jzXhLYvhbKA6tSPXRd/w4wanHq5NyUtfJokOuLcI3fgB5DY0jl+CkhIdgiuol
+	hQgAKz8InPmT/ltSNNb3P/X1AdruMm7RwICmXZF8Y1SKW7vpj9C1+XmLtVCHD0rPrOE85m+S+lM
+	Ay+gWX71FvIRY4lD4G6ux8OcGDMjAnoq3XwFEaApAI1R9rcAWoTFO5d5nMrI+/yG8ArcaBNSNjW
+	LweRbrH17CJyxToTW9Qa8+HTjE/ItUEDzpIudIO8Jn3IShxTXjHrWMTs0IT2/CgEFdjtLt
+X-Google-Smtp-Source: AGHT+IHRieiPBGU6MC5P5jZHI6G/6PD4P6RVg3Iggx9u+yanu4koYZOv2T4MUr84z07ifr1PiVwzxA==
+X-Received: by 2002:a17:907:3da4:b0:b6d:8da0:9a24 with SMTP id a640c23a62f3a-b703d2dc3fcmr322653366b.9.1761755631652;
+        Wed, 29 Oct 2025 09:33:51 -0700 (PDT)
 Received: from localhost (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-429952da12dsm27463002f8f.29.2025.10.29.09.33.41
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b6da1e2226fsm1067814666b.20.2025.10.29.09.33.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 09:33:41 -0700 (PDT)
+        Wed, 29 Oct 2025 09:33:50 -0700 (PDT)
 From: Thierry Reding <thierry.reding@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>
@@ -82,14 +98,16 @@ Cc: x86@kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/7] syscore: Pass context data to callbacks
-Date: Wed, 29 Oct 2025 17:33:29 +0100
-Message-ID: <20251029163336.2785270-1-thierry.reding@gmail.com>
+Subject: [PATCH v3 4/7] clk: ingenic: tcu: Use contextual data instead of global variable
+Date: Wed, 29 Oct 2025 17:33:33 +0100
+Message-ID: <20251029163336.2785270-5-thierry.reding@gmail.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251029163336.2785270-1-thierry.reding@gmail.com>
+References: <20251029163336.2785270-1-thierry.reding@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_093345_407085_1D69ED6D 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20251029_153822_155556_28706634 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,185 +126,119 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thierry Reding <treding@nvidia.com>
 
-Hi Greg, Rafael,
+Pass the driver-specific data via the syscore struct and use it in the
+syscore ops.
 
-sorry, this took a while to rework because I had to find a large enough
-block of free time to push through. I played around a bit with different
-ideas based on our discussion and ended up with a mix between Rafael's
-and my proposal. struct syscore_ops is now split out and can be made
-const. struct syscore is introduced to contain the variable data such
-as the list head and the driver data. It also has a pointer to the ops
-structure. Registration APIs are changed accordingly. I initially wanted
-to avoid this churn, but then realized I was already touching all of the
-files anyway, so might as well make it all consistent. As a result the
-series is about twice as large in terms of LOC, but that's mostly due to
-the structure split.
-
-For anyone who hasn't seen this yet, here's the full cover letter:
-
-Hi,
-
-Something that's been bugging me over the years is how some drivers have
-had to adopt file-scoped variables to pass data into something like the
-syscore operations. This is often harmless, but usually leads to drivers
-not being able to deal with multiple instances, or additional frameworks
-or data structures needing to be created to handle multiple instances.
-
-This series proposes to "objectify" struct syscore_ops by passing driver
-specific data to the syscore callbacks. The contextual data is stored in
-a new struct syscore before registering the structure with the framework
-and the structure can be embedded in driver-specific data to make it per
-instance.
-
-Patch 1 contains the bulk of these changes. It's fairly intrusive
-because it does the conversion of the function signature all in one
-patch. An alternative would've been to introduce new callbacks such that
-these changes could be staged in. However, the amount of changes here
-are not quite numerous enough to justify that, in my opinion, and
-syscore isn't very frequently used, so the risk of another user getting
-added while this is merged is rather small. All in all I think merging
-this in one go is the simplest way.
-
-Patches 2-7 are conversions of some existing drivers to take advantage
-of this new parameter and tie the code to per-instance data.
-
-Given that the recipient list for this is huge, I'm limiting this to
-Greg (because it's at the core a... core change) and a set of larger
-lists for architectures and subsystems that are impacted.
-
+Signed-off-by: Thierry Reding <treding@nvidia.com>
+---
 Changes in v3:
-- add separate syscore structure containing the modifiable fields,
-  including driver-specific data, as well as a pointer to the constified
-  syscore_ops structure
-- change registration/unregistration API to make these changes more
-  obvious
+- adjust for API changes and update commit message
 
-Changes in v2:
-- kerneldoc fixes
+ drivers/clk/ingenic/tcu.c | 63 +++++++++++++++++++--------------------
+ 1 file changed, 30 insertions(+), 33 deletions(-)
 
-Thanks,
-Thierry
-
-Thierry Reding (7):
-  syscore: Pass context data to callbacks
-  MIPS: PCI: Use contextual data instead of global variable
-  bus: mvebu-mbus: Use contextual data instead of global variable
-  clk: ingenic: tcu: Use contextual data instead of global variable
-  clk: mvebu: Use contextual data instead of global variable
-  irqchip/irq-imx-gpcv2: Use contextual data instead of global variable
-  soc/tegra: pmc: Use contextual data instead of global variable
-
- arch/arm/mach-exynos/mcpm-exynos.c        | 12 ++--
- arch/arm/mach-exynos/suspend.c            | 48 +++++++------
- arch/arm/mach-pxa/generic.h               |  6 +-
- arch/arm/mach-pxa/irq.c                   | 10 ++-
- arch/arm/mach-pxa/mfp-pxa2xx.c            | 10 ++-
- arch/arm/mach-pxa/mfp-pxa3xx.c            | 10 ++-
- arch/arm/mach-pxa/pxa25x.c                |  4 +-
- arch/arm/mach-pxa/pxa27x.c                |  4 +-
- arch/arm/mach-pxa/pxa3xx.c                |  4 +-
- arch/arm/mach-pxa/smemc.c                 | 12 ++--
- arch/arm/mach-s3c/irq-pm-s3c64xx.c        | 12 ++--
- arch/arm/mach-s5pv210/pm.c                | 10 ++-
- arch/arm/mach-versatile/integrator_ap.c   | 12 ++--
- arch/arm/mm/cache-b15-rac.c               | 12 ++--
- arch/loongarch/kernel/smp.c               | 12 ++--
- arch/mips/alchemy/common/dbdma.c          | 12 ++--
- arch/mips/alchemy/common/irq.c            | 24 ++++---
- arch/mips/alchemy/common/usb.c            | 12 ++--
- arch/mips/pci/pci-alchemy.c               | 30 +++------
- arch/powerpc/platforms/cell/spu_base.c    | 10 ++-
- arch/powerpc/platforms/powermac/pic.c     | 12 ++--
- arch/powerpc/sysdev/fsl_lbc.c             | 12 ++--
- arch/powerpc/sysdev/fsl_pci.c             | 12 ++--
- arch/powerpc/sysdev/ipic.c                | 12 ++--
- arch/powerpc/sysdev/mpic.c                | 14 ++--
- arch/powerpc/sysdev/mpic_timer.c          | 10 ++-
- arch/sh/mm/pmb.c                          | 10 ++-
- arch/x86/events/amd/ibs.c                 | 12 ++--
- arch/x86/hyperv/hv_init.c                 | 12 ++--
- arch/x86/kernel/amd_gart_64.c             | 10 ++-
- arch/x86/kernel/apic/apic.c               | 12 ++--
- arch/x86/kernel/apic/io_apic.c            | 17 +++--
- arch/x86/kernel/cpu/aperfmperf.c          | 20 +++---
- arch/x86/kernel/cpu/intel_epb.c           | 16 +++--
- arch/x86/kernel/cpu/mce/core.c            | 14 ++--
- arch/x86/kernel/cpu/microcode/core.c      | 15 ++++-
- arch/x86/kernel/cpu/mtrr/legacy.c         | 12 ++--
- arch/x86/kernel/cpu/umwait.c              | 10 ++-
- arch/x86/kernel/i8237.c                   | 10 ++-
- arch/x86/kernel/i8259.c                   | 14 ++--
- arch/x86/kernel/kvm.c                     | 12 ++--
- drivers/acpi/pci_link.c                   | 10 ++-
- drivers/acpi/sleep.c                      | 12 ++--
- drivers/base/firmware_loader/main.c       | 12 ++--
- drivers/base/syscore.c                    | 82 ++++++++++++-----------
- drivers/bus/mvebu-mbus.c                  | 19 +++---
- drivers/clk/at91/pmc.c                    | 12 ++--
- drivers/clk/imx/clk-vf610.c               | 12 ++--
- drivers/clk/ingenic/jz4725b-cgu.c         |  2 +-
- drivers/clk/ingenic/jz4740-cgu.c          |  2 +-
- drivers/clk/ingenic/jz4755-cgu.c          |  2 +-
- drivers/clk/ingenic/jz4760-cgu.c          |  2 +-
- drivers/clk/ingenic/jz4770-cgu.c          |  2 +-
- drivers/clk/ingenic/jz4780-cgu.c          |  2 +-
- drivers/clk/ingenic/pm.c                  | 14 ++--
- drivers/clk/ingenic/pm.h                  |  2 +-
- drivers/clk/ingenic/tcu.c                 | 59 ++++++++--------
- drivers/clk/ingenic/x1000-cgu.c           |  2 +-
- drivers/clk/ingenic/x1830-cgu.c           |  2 +-
- drivers/clk/mvebu/common.c                | 19 ++++--
- drivers/clk/rockchip/clk-rk3288.c         | 12 ++--
- drivers/clk/samsung/clk-s5pv210-audss.c   | 12 ++--
- drivers/clk/samsung/clk.c                 | 12 ++--
- drivers/clk/tegra/clk-tegra210.c          | 12 ++--
- drivers/clocksource/timer-armada-370-xp.c | 12 ++--
- drivers/cpuidle/cpuidle-psci.c            | 12 ++--
- drivers/gpio/gpio-mxc.c                   | 12 ++--
- drivers/gpio/gpio-pxa.c                   | 12 ++--
- drivers/gpio/gpio-sa1100.c                | 12 ++--
- drivers/hv/vmbus_drv.c                    | 14 ++--
- drivers/iommu/amd/init.c                  | 12 ++--
- drivers/iommu/intel/iommu.c               | 12 ++--
- drivers/irqchip/exynos-combiner.c         | 14 ++--
- drivers/irqchip/irq-armada-370-xp.c       | 12 ++--
- drivers/irqchip/irq-bcm7038-l1.c          | 12 ++--
- drivers/irqchip/irq-gic-v3-its.c          | 12 ++--
- drivers/irqchip/irq-i8259.c               | 12 ++--
- drivers/irqchip/irq-imx-gpcv2.c           | 30 +++------
- drivers/irqchip/irq-loongson-eiointc.c    | 12 ++--
- drivers/irqchip/irq-loongson-htpic.c      | 10 ++-
- drivers/irqchip/irq-loongson-htvec.c      | 12 ++--
- drivers/irqchip/irq-loongson-pch-lpc.c    | 12 ++--
- drivers/irqchip/irq-loongson-pch-pic.c    | 12 ++--
- drivers/irqchip/irq-mchp-eic.c            | 12 ++--
- drivers/irqchip/irq-mst-intc.c            | 12 ++--
- drivers/irqchip/irq-mtk-cirq.c            | 12 ++--
- drivers/irqchip/irq-renesas-rzg2l.c       | 12 ++--
- drivers/irqchip/irq-sa11x0.c              | 12 ++--
- drivers/irqchip/irq-sifive-plic.c         | 12 ++--
- drivers/irqchip/irq-sun6i-r.c             | 18 +++--
- drivers/irqchip/irq-tegra.c               | 12 ++--
- drivers/irqchip/irq-vic.c                 | 12 ++--
- drivers/leds/trigger/ledtrig-cpu.c        | 14 ++--
- drivers/macintosh/via-pmu.c               | 12 ++--
- drivers/power/reset/sc27xx-poweroff.c     | 10 ++-
- drivers/sh/clk/core.c                     | 10 ++-
- drivers/sh/intc/core.c                    | 12 ++--
- drivers/soc/bcm/brcmstb/biuctrl.c         | 12 ++--
- drivers/soc/tegra/pmc.c                   | 21 ++++--
- drivers/thermal/intel/intel_hfi.c         | 12 ++--
- drivers/xen/xen-acpi-processor.c          | 12 ++--
- include/linux/syscore_ops.h               | 15 +++--
- kernel/cpu_pm.c                           | 12 ++--
- kernel/irq/generic-chip.c                 | 14 ++--
- kernel/irq/pm.c                           | 11 ++-
- kernel/printk/printk.c                    | 11 ++-
- kernel/time/sched_clock.c                 | 22 ++++--
- kernel/time/timekeeping.c                 | 22 ++++--
- virt/kvm/kvm_main.c                       | 18 +++--
- 109 files changed, 930 insertions(+), 523 deletions(-)
-
+diff --git a/drivers/clk/ingenic/tcu.c b/drivers/clk/ingenic/tcu.c
+index bc6a51da2072..8c6337d8e831 100644
+--- a/drivers/clk/ingenic/tcu.c
++++ b/drivers/clk/ingenic/tcu.c
+@@ -53,9 +53,9 @@ struct ingenic_tcu {
+ 	struct clk *clk;
+ 
+ 	struct clk_hw_onecell_data *clocks;
+-};
+ 
+-static struct ingenic_tcu *ingenic_tcu;
++	struct syscore syscore;
++};
+ 
+ static inline struct ingenic_tcu_clk *to_tcu_clk(struct clk_hw *hw)
+ {
+@@ -332,6 +332,29 @@ static const struct of_device_id __maybe_unused ingenic_tcu_of_match[] __initcon
+ 	{ /* sentinel */ }
+ };
+ 
++static int __maybe_unused tcu_pm_suspend(void *data)
++{
++	struct ingenic_tcu *tcu = data;
++
++	if (tcu->clk)
++		clk_disable(tcu->clk);
++
++	return 0;
++}
++
++static void __maybe_unused tcu_pm_resume(void *data)
++{
++	struct ingenic_tcu *tcu = data;
++
++	if (tcu->clk)
++		clk_enable(tcu->clk);
++}
++
++static const struct syscore_ops tcu_pm_ops __maybe_unused = {
++	.suspend = tcu_pm_suspend,
++	.resume = tcu_pm_resume,
++};
++
+ static int __init ingenic_tcu_probe(struct device_node *np)
+ {
+ 	const struct of_device_id *id = of_match_node(ingenic_tcu_of_match, np);
+@@ -430,7 +453,11 @@ static int __init ingenic_tcu_probe(struct device_node *np)
+ 		goto err_unregister_ost_clock;
+ 	}
+ 
+-	ingenic_tcu = tcu;
++	if (IS_ENABLED(CONFIG_PM_SLEEP)) {
++		tcu->syscore.ops = &tcu_pm_ops;
++		tcu->syscore.data = tcu;
++		register_syscore(&tcu->syscore);
++	}
+ 
+ 	return 0;
+ 
+@@ -455,42 +482,12 @@ static int __init ingenic_tcu_probe(struct device_node *np)
+ 	return ret;
+ }
+ 
+-static int __maybe_unused tcu_pm_suspend(void *data)
+-{
+-	struct ingenic_tcu *tcu = ingenic_tcu;
+-
+-	if (tcu->clk)
+-		clk_disable(tcu->clk);
+-
+-	return 0;
+-}
+-
+-static void __maybe_unused tcu_pm_resume(void *data)
+-{
+-	struct ingenic_tcu *tcu = ingenic_tcu;
+-
+-	if (tcu->clk)
+-		clk_enable(tcu->clk);
+-}
+-
+-static const struct syscore_ops __maybe_unused tcu_pm_ops = {
+-	.suspend = tcu_pm_suspend,
+-	.resume = tcu_pm_resume,
+-};
+-
+-static struct syscore __maybe_unused tcu_pm = {
+-	.ops = &tcu_pm_ops,
+-};
+-
+ static void __init ingenic_tcu_init(struct device_node *np)
+ {
+ 	int ret = ingenic_tcu_probe(np);
+ 
+ 	if (ret)
+ 		pr_crit("Failed to initialize TCU clocks: %d\n", ret);
+-
+-	if (IS_ENABLED(CONFIG_PM_SLEEP))
+-		register_syscore(&tcu_pm);
+ }
+ 
+ CLK_OF_DECLARE_DRIVER(jz4740_cgu, "ingenic,jz4740-tcu", ingenic_tcu_init);
 -- 
 2.51.0
 
