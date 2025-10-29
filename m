@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC1BCCF9F1
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 16:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 502EDCCF9EE
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 17:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tjym6VVZXee39xV2AXmzOzcKr3lHGdnuhZKDnVVP/Ys=; b=A1Nt7LYQOqFru2
-	dCeftKrfovTgORWMCMCsH7AjHs95GfQZU+nn2jxlATLydeIt1i5l4BwCcKuQN8g+5gQS9FC61O9MR
-	6fJmaa4mK8tCPADHfeCnneEp6e0IK2FffpyVHmD4YlXaGB/wXAXAQZB2J19FrinbwqMHpopOE0TnD
-	GeONdSxLLoCynr3V9x4UgkMCT0qgtx56WIB/K522fObnjYMz8KKhX/HNje8o8QUBA+bn7M/7W5bJP
-	L0FGLpaQSSpg4negA5C1Ju/00egQMJg7dkuF++i/lJ3k3iKbDfDOoNBBvBXNEESRmRHlFbRsxZ+oc
-	DedBbI8YFSWwQtsXdFaQ==;
+	List-Owner; bh=jSFi/m5F1DsT9QcaJI2JDlJ/9aObdRmnXgpJkTZ0lJs=; b=fHxOcGezD5FwW5
+	HhYgJr7psEQPYKVTp0SC0esl3Qc4EOk8UdlqRMREuS1+gt6lfHiyXraAPGA5CKL9qLqfXBY8yioDw
+	Im60kUGIXDGOsUMPFGecFR6Uzc9RkyQ5xbgz5JNvSi92TmBSz6/JG4LoIPu052XDe/sgwKyUHtu3B
+	Rfd2aJZXuuc4WW0+B8bveOK7ks29KSQYJ1Cn5ESs9RDkEGkuYVjySfYnBf6aI2V57uAV99AYc2ObG
+	5JIHnxn/LZ1dlBhjFykMLUpyIorLQ5KM3PT21RysXWp45/ZWHP5xxgtZhEF790OXtipHJVkSZgcWP
+	MBgfs//ZGVmhgVeipNKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE97l-000000021mm-3I81;
-	Wed, 29 Oct 2025 16:34:13 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1vE9lc-00000002AA0-0GqJ;
+	Wed, 29 Oct 2025 17:15:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE97Y-000000021WF-0VtW
-	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 16:34:01 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-63c1a0d6315so13906776a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Oct 2025 09:33:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761755638; x=1762360438; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MkaU4JsM1D+JY4wiuorXEjJy2zEEfje0oExQGt/PLrU=;
-        b=S7CERXMdcsEqJPa4CvbWVp4nRU2TMR8d29XvrDPGFSk6oDNX2Dh0La5pefAuEJuiRk
-         Mv12cScIxl8uu+iPkC1DqCYr24wD0CRaOSRBgIsmzvNddaCxbeapTaXqmrv/XCxx/QAn
-         8VmMkPKllYCtUeH7AzsmRFg7/4Nv6KqjyLWlCvr1IFy0xOZ1tUdrat+2ePytF23nh7Fl
-         pFTjvy9JEK2KwH98g69g79eoXTS+mOfE7+ZbItg2RgozpbNNn4tn7u/VldXrBovAHYcW
-         MnHPXAgszg9EBM9BO0ncvXkhS1Jfwc/0otFi5t/ylG1OT04zVvkN49xq60ZdCrUHHg4d
-         Y6aQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761755638; x=1762360438;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MkaU4JsM1D+JY4wiuorXEjJy2zEEfje0oExQGt/PLrU=;
-        b=lyziPxbgMAO812DdoisEP1mgQBKFxTUNB0dbe7A7ClPcb+UvS0G4RKwgvmkDRXAUNO
-         6a7DcCDvQbaA20BUct2tQQgsENED7etxFdzdKlIBzFUlR1kqpJTKNugWCR/zjR1qRxEN
-         e1JIQ8DLcIseMp+VbEUgmeobPlGwoBUWwHIcXoweSY/EUPHQG3mEHy745GAL5LIMYOmi
-         KQNBDxGnge3cihDO1+5TjE2pYYNKBvhvhY5PCDvZFhEQaHseVuFgRs7o+xEczcaO5n82
-         gd7q6qgWvA3FnIKNxZJOsycdPyacA67VDLNg5lvw/4PVoALvvIp1fdGme2ywX3ZULZCt
-         vU8g==
-X-Forwarded-Encrypted: i=1; AJvYcCUNyDdbS9EH/nAQyM+axstzTwJLzIpl4Fj2huCzb9vGk0eFcli0XHoDvUxqQDhazStujJZSQ8Qm9fCTrA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwW9HB18P6ereji9qGnR6eUXqXJwrLkttoFImeQME25/Ic/6ExG
-	RJAVoWzVZcHT2DLm3NI8VRFbnirEN1l6WroJH/jqPxzcNEhL14OF3LEq
-X-Gm-Gg: ASbGncswzUI9Whf5y9DvO9QbBmYBN1zesxpTSu+BCOxxSte5UmFukrCuaPG0Wl8LjWY
-	spLfjopyaL+fG6KY9SQnh1iop7FheYZnmFs82Qr08Ul7aKooFZ87TE6nmNhH5o6wydx764A0bm2
-	YREsEKUuFHG4EQskvhhKJ1Rgd/J84hixBqsQJtVNIjBmsQihDI9nUNuVYhIeIAXv/jauXwh/Lgl
-	ip/2tNCTt4zgKS5fP5QwBRiKpcUMSxmZFo0lmRumONu0npbkHev2JCmtx+GDjRTZ321sfz7kLzc
-	1JrkNWVgIwVkl1p4nmsyLrSNgpiBQguoGV+k/FBRlcnN9oEbamtMnQoy8VzDL7FNZMUq0SBxdbX
-	Fc+ociINTQUgM+SQWhY28IAaJpMcB5gwyiThQAAGcDNRpjuHlqdhbj58VvcR/Iz9yzOenh2zMhG
-	ALNtAg6YAEuJaZLgL3q5FvTRWkivHyA+WBmw1xstcCr4EkQ0rI570ewdq9XrBWeRbAFoKh
-X-Google-Smtp-Source: AGHT+IHnWRqBehOWBCyuY7cscNzDJLcQ8Q1/xskpkrSKjJiOMcliraM9J9uBI/ZGi7u/t3zd09QFLA==
-X-Received: by 2002:a05:6402:e9b:b0:634:544b:a740 with SMTP id 4fb4d7f45d1cf-64044255cf2mr2554809a12.22.1761755638150;
-        Wed, 29 Oct 2025 09:33:58 -0700 (PDT)
-Received: from localhost (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-63e86c6d7d3sm12474615a12.27.2025.10.29.09.33.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Oct 2025 09:33:56 -0700 (PDT)
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Cc: x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-sh@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 7/7] soc/tegra: pmc: Use contextual data instead of global variable
-Date: Wed, 29 Oct 2025 17:33:36 +0100
-Message-ID: <20251029163336.2785270-8-thierry.reding@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251029163336.2785270-1-thierry.reding@gmail.com>
-References: <20251029163336.2785270-1-thierry.reding@gmail.com>
+	id 1vE9la-00000002A9M-1QI7;
+	Wed, 29 Oct 2025 17:15:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 374136149D;
+	Wed, 29 Oct 2025 17:15:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35E0DC4CEF7;
+	Wed, 29 Oct 2025 17:15:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761758120;
+	bh=t3ByI2ggpnXN7fpU/j1XfFuDuzjdaTgYJk3bPpbYU5w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mCctPaF/s4Ej/qaUy9NBWjZ4tFp0QCR0mZ6Q58I4iogldTOoS12UFHS0vHbG0DSph
+	 227Cm4eZbmJrh0L/NPvh44Kt43N6IyuWC/KldVbmCoiLr50mqPOn4lsXsfukXT9u+K
+	 SBwatwsBkUUf9NSOFWQllmDLp942vZS35JrPpXugYhl3MQY2Z3swCE0Lc1cVMzrOLm
+	 q+hyKGuAJkkwhVPyyL8Zd0mjnzZC9T1HST0yNNQxlFzyBGHCKafdtiPPmxzYYRh5+I
+	 K8ivV6rg0eGcNpXKcdo4UXxI0eBtAIghhVlnwJJpy2Ww7H0rESJJHmDQURxNbt0Hv7
+	 4WzSv5OBoFaLQ==
+Date: Wed, 29 Oct 2025 18:15:17 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: Phil Auld <pauld@redhat.com>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+Message-ID: <aQJLpSYz3jdazzdb@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <aQDuY3rgOK-L8D04@localhost.localdomain>
+ <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_093400_180501_86FF7936 
-X-CRM114-Status: GOOD (  11.98  )
+Content-Disposition: inline
+In-Reply-To: <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,56 +100,214 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <treding@nvidia.com>
+Le Wed, Oct 29, 2025 at 11:32:58AM +0100, Valentin Schneider a =E9crit :
+> I need to have a think about that one; one pain point I see is the context
+> tracking work has to be NMI safe since e.g. an NMI can take us out of
+> userspace. Another is that NOHZ-full CPUs need to be special cased in the
+> stop machine queueing / completion.
+> =
 
-Pass the driver-specific data via the syscore struct and use it in the
-syscore ops.
+> /me goes fetch a new notebook
 
-Signed-off-by: Thierry Reding <treding@nvidia.com>
----
-Changes in v3:
-- adjust for API changes and update commit message
+Something like the below (untested) ?
 
- drivers/soc/tegra/pmc.c | 4 ++++
- 1 file changed, 4 insertions(+)
+diff --git a/arch/x86/include/asm/context_tracking_work.h b/arch/x86/includ=
+e/asm/context_tracking_work.h
+index 485b32881fde..2940e28ecea6 100644
+--- a/arch/x86/include/asm/context_tracking_work.h
++++ b/arch/x86/include/asm/context_tracking_work.h
+@@ -3,6 +3,7 @@
+ #define _ASM_X86_CONTEXT_TRACKING_WORK_H
+ =
 
-diff --git a/drivers/soc/tegra/pmc.c b/drivers/soc/tegra/pmc.c
-index f57e5a4b4d96..6e0ae0ede263 100644
---- a/drivers/soc/tegra/pmc.c
-+++ b/drivers/soc/tegra/pmc.c
-@@ -3150,6 +3150,7 @@ static void tegra186_pmc_process_wake_events(struct tegra_pmc *pmc, unsigned int
- 
- static void tegra186_pmc_wake_syscore_resume(void *data)
+ #include <asm/sync_core.h>
++#include <linux/stop_machine.h>
+ =
+
+ static __always_inline void arch_context_tracking_work(enum ct_work work)
  {
-+	struct tegra_pmc *pmc = data;
- 	u32 status, mask;
- 	unsigned int i;
- 
-@@ -3163,6 +3164,8 @@ static void tegra186_pmc_wake_syscore_resume(void *data)
- 
- static int tegra186_pmc_wake_syscore_suspend(void *data)
- {
-+	struct tegra_pmc *pmc = data;
+@@ -10,6 +11,9 @@ static __always_inline void arch_context_tracking_work(en=
+um ct_work work)
+ 	case CT_WORK_SYNC:
+ 		sync_core();
+ 		break;
++	case CT_WORK_STOP_MACHINE:
++		stop_machine_poll_wait();
++		break;
+ 	case CT_WORK_MAX:
+ 		WARN_ON_ONCE(true);
+ 	}
+diff --git a/include/linux/context_tracking_work.h b/include/linux/context_=
+tracking_work.h
+index 2facc621be06..b63200bd73d6 100644
+--- a/include/linux/context_tracking_work.h
++++ b/include/linux/context_tracking_work.h
+@@ -6,12 +6,14 @@
+ =
+
+ enum {
+ 	CT_WORK_SYNC_OFFSET,
++	CT_WORK_STOP_MACHINE_OFFSET,
+ 	CT_WORK_MAX_OFFSET
+ };
+ =
+
+ enum ct_work {
+-	CT_WORK_SYNC     =3D BIT(CT_WORK_SYNC_OFFSET),
+-	CT_WORK_MAX      =3D BIT(CT_WORK_MAX_OFFSET)
++	CT_WORK_SYNC         =3D BIT(CT_WORK_SYNC_OFFSET),
++	CT_WORK_STOP_MACHINE =3D BIT(CT_WORK_STOP_MACHINE_OFFSET),
++	CT_WORK_MAX          =3D BIT(CT_WORK_MAX_OFFSET)
+ };
+ =
+
+ #include <asm/context_tracking_work.h>
+diff --git a/include/linux/stop_machine.h b/include/linux/stop_machine.h
+index 72820503514c..0efe88e84b8a 100644
+--- a/include/linux/stop_machine.h
++++ b/include/linux/stop_machine.h
+@@ -36,6 +36,7 @@ bool stop_one_cpu_nowait(unsigned int cpu, cpu_stop_fn_t =
+fn, void *arg,
+ void stop_machine_park(int cpu);
+ void stop_machine_unpark(int cpu);
+ void stop_machine_yield(const struct cpumask *cpumask);
++void stop_machine_poll_wait(void);
+ =
+
+ extern void print_stop_info(const char *log_lvl, struct task_struct *task);
+ =
+
+diff --git a/kernel/stop_machine.c b/kernel/stop_machine.c
+index 3fe6b0c99f3d..8f0281b0db64 100644
+--- a/kernel/stop_machine.c
++++ b/kernel/stop_machine.c
+@@ -22,6 +22,7 @@
+ #include <linux/atomic.h>
+ #include <linux/nmi.h>
+ #include <linux/sched/wake_q.h>
++#include <linux/sched/isolation.h>
+ =
+
+ /*
+  * Structure to determine completion condition and record errors.  May
+@@ -176,6 +177,68 @@ struct multi_stop_data {
+ 	atomic_t		thread_ack;
+ };
+ =
+
++static DEFINE_PER_CPU(int, stop_machine_poll);
 +
- 	wke_read_sw_wake_status(pmc);
- 
- 	/* flip the wakeup trigger for dual-edge triggered pads
-@@ -3836,6 +3839,7 @@ static const struct tegra_pmc_regs tegra186_pmc_regs = {
- static void tegra186_pmc_init(struct tegra_pmc *pmc)
- {
- 	pmc->syscore.ops = &tegra186_pmc_wake_syscore_ops;
-+	pmc->syscore.data = pmc;
- 	register_syscore(&pmc->syscore);
- }
- 
--- 
-2.51.0
++void stop_machine_poll_wait(void)
++{
++	int *poll =3D this_cpu_ptr(&stop_machine_poll);
++
++	while (*poll)
++		cpu_relax();
++	/* Enforce the work in stop machine to be visible */
++	smp_mb();
++}
++
++static void stop_machine_poll_start(struct multi_stop_data *msdata)
++{
++	int cpu;
++
++	if (housekeeping_enabled(HK_TYPE_KERNEL_NOISE))
++		return;
++
++	/* Random target can't be known in advance */
++	if (!msdata->active_cpus)
++		return;
++		=
 
++	for_each_cpu_andnot(cpu, cpu_online_mask, housekeeping_cpumask(HK_TYPE_KE=
+RNEL_NOISE)) {
++		int *poll =3D per_cpu_ptr(&stop_machine_poll, cpu);
++
++		if (cpumask_test_cpu(cpu, msdata->active_cpus))
++			continue;
++
++		*poll =3D 1;
++
++		/*
++		 * Act as a full barrier so that if the work is queued, polling is
++		 * visible.
++		 */
++		if (ct_set_cpu_work(cpu, CT_WORK_STOP_MACHINE))
++			msdata->num_threads--;
++		else
++			*poll =3D 0;
++	}
++}
++
++static void stop_machine_poll_complete(struct multi_stop_data *msdata)
++{
++	int cpu;
++
++	if (housekeeping_enabled(HK_TYPE_KERNEL_NOISE))
++		return;
++
++	for_each_cpu_andnot(cpu, cpu_online_mask, housekeeping_cpumask(HK_TYPE_KE=
+RNEL_NOISE)) {
++		int *poll =3D per_cpu_ptr(&stop_machine_poll, cpu);
++
++		if (cpumask_test_cpu(cpu, msdata->active_cpus))
++			continue;
++		/*
++		 * The RmW in ack_state() fully orders the work performed in stop_machin=
+e()
++		 * with polling.
++		 */
++		*poll =3D 0;
++	}
++}
++
+ static void set_state(struct multi_stop_data *msdata,
+ 		      enum multi_stop_state newstate)
+ {
+@@ -186,10 +249,13 @@ static void set_state(struct multi_stop_data *msdata,
+ }
+ =
+
+ /* Last one to ack a state moves to the next state. */
+-static void ack_state(struct multi_stop_data *msdata)
++static bool ack_state(struct multi_stop_data *msdata)
+ {
+-	if (atomic_dec_and_test(&msdata->thread_ack))
++	if (atomic_dec_and_test(&msdata->thread_ack)) {
+ 		set_state(msdata, msdata->state + 1);
++		return true;
++	}
++	return false;
+ }
+ =
+
+ notrace void __weak stop_machine_yield(const struct cpumask *cpumask)
+@@ -240,7 +306,8 @@ static int multi_cpu_stop(void *data)
+ 			default:
+ 				break;
+ 			}
+-			ack_state(msdata);
++			if (ack_state(msdata) && msdata->state =3D=3D MULTI_STOP_EXIT)
++				stop_machine_poll_complete(msdata);
+ 		} else if (curstate > MULTI_STOP_PREPARE) {
+ 			/*
+ 			 * At this stage all other CPUs we depend on must spin
+@@ -615,6 +682,8 @@ int stop_machine_cpuslocked(cpu_stop_fn_t fn, void *dat=
+a,
+ 		return ret;
+ 	}
+ =
+
++	stop_machine_poll_start(&msdata);
++
+ 	/* Set the initial state and stop all online cpus. */
+ 	set_state(&msdata, MULTI_STOP_PREPARE);
+ 	return stop_cpus(cpu_online_mask, multi_cpu_stop, &msdata);
 
 _______________________________________________
 linux-riscv mailing list
