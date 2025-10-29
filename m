@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217BACCF9F0
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 17:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9EBCCF9EE
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 17:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1ObV3rHLf1Y9joUOe8Yza7QipyiPYi0poPcKEqt8xdE=; b=TNNAlkv5u0xYnf
-	lPFmgRYQKJR9dcn5ftY1gjCFoa/eEUDRIAjFO6t198dysHSBCEThQYLWGlosX1SrRSB4GHMP2Sz0E
-	xfP2XWTpLKCK4ip7SZeS8Zwvpg8narZvsnPSH02LhZjUgX/dwJoKENWwbGFLItOtosbqxc1U0heND
-	c1quTvnvWNQvtDWWl5LxV09Joir1HaSNSPs0zkSu/BIfvgUfvMzHhiNn+S3lCsQHQ1ksGfDazEy8P
-	/rzJPoK6Y0/mERMx3ZbDPJxVp+A/iP5WJUz1xxZwjnR0In59ZETCNLvyiTRPzgyY1DJ2oIClPXTKx
-	wAJoG/Ctp9Zee6D6FUww==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=3EJouRKCKu5ANdq+yW7hW8afJ9omvl/OaW+eqZvpcGk=; b=rqrmoUQydy11je
+	13eZ9olmannRAN1VVcdyv1aLLvO49PPG1Zt3t7qYtZYQpGjXeahxiz6+Obv29zWEnXm6kPnSp62Q1
+	PfIbojoSG3CWRn6CP3O3/ISn6nRtk6az9zih5/7ZvSTUhUMzYmUtJtppEEqjx8+oZJUzS6+r+Qup1
+	/E15IIEDTO0fJLNS6+4tPFQ3tlp4PHjxl8Nl8fSY3+96t/TxsSrVqDCHX4TNiUqk0K8uyCdYAE2s5
+	gcKO5gNg4XIJwi+g55pyQ446JLbKk2lQ05eJowxazYKyujBYv6agkw7F0JfbhCTIJMrX5KHXDZ9FE
+	B97YhorPfuoBsE2uB6GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE9qn-00000002BAl-0IE8;
-	Wed, 29 Oct 2025 17:20:45 +0000
+	id 1vEAGB-00000002GFj-285M;
+	Wed, 29 Oct 2025 17:46:59 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE9qk-00000002BAf-1Njh
-	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 17:20:43 +0000
+	id 1vEAG9-00000002GF4-2YTr;
+	Wed, 29 Oct 2025 17:46:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6903061201;
-	Wed, 29 Oct 2025 17:20:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D03BFC4CEF7;
-	Wed, 29 Oct 2025 17:20:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A3D9E605A2;
+	Wed, 29 Oct 2025 17:46:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 202B1C4CEF7;
+	Wed, 29 Oct 2025 17:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761758441;
-	bh=fRO3N8gBJsLWYOcvvMBetHyoZTIc2Qfk5OoctK9z4cY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N/EdVFt+7i6uw00cv7W15qxY7Dr3YFHx9glHH7ILW38C+Ro4XjgKVnNAeSYuXGs+h
-	 83iRqmQY02PCGvYZvtxPfhBjcVh3u/wW02siqXIUTgZJEDMS5/kokTX++ycNzaCsH5
-	 yXTaoXuyWLchtj1D6pw75IljWYLOkqwfSReZ8q3x/v8gWcUVDv35XjMKhwKqdYEr9U
-	 9NYPlhzk6120ifvtn1Hl9IY/bdPKM8/XWrBXzkRNwPyJzXIrQmU5YLF9yFF4oA3B73
-	 GyBHOyWlnt5mEAqTZGQyzBi6opsPdBcArpCaRBIimRxBuY/OKziszCnKk5J8vE5197
-	 2/XYNOwAcv3Vg==
-Date: Wed, 29 Oct 2025 10:20:36 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-gpio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v1] pinctrl: mpfs-iomux0: fix compile-time constant
- warning for LLVM prior to 17
-Message-ID: <20251029172036.GA1130586@ax162>
-References: <20251029-isolation-shield-b66aea79a9a4@spud>
+	s=k20201202; t=1761760016;
+	bh=KsXdySkGiHmSzsuy7Pi+sVL7aoIePP+MEpnzF2GEcmA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=K22XA1Hjw8uOX95mhKKhhconnRdms2qQD/Nbq0dqkODo/qoasd98i4iGIns2To5K7
+	 9LCQCwxZ++SdZB2vSAuCJYW4paAjVRKTA4iWkPcqn9ss6ygExiQXqHziIwzmyr+rkW
+	 +lIxJgcLxAivPEpWGXWHSqI8/7xdlQzr7QsViTjJuJzP8+wsaPDKG5m+0ZtIalIr/k
+	 OungqAalRYCEVyKSHVo57GafE546/x+UVS5pGNUIRUiKo7vIQBPHzK6tyDCTfyy+Hp
+	 yAXyomKjaPtaqAImWTBqtWHwQxnW7/jlC878FpiIrVJhNq87HlEksKBMqgKgcyoNJG
+	 qk2DTbEtU/sOQ==
+Date: Wed, 29 Oct 2025 12:46:54 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-sh@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/7] MIPS: PCI: Use contextual data instead of global
+ variable
+Message-ID: <20251029174654.GA1571737@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251029-isolation-shield-b66aea79a9a4@spud>
+In-Reply-To: <20251029163336.2785270-3-thierry.reding@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,111 +73,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 03:29:35PM +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Wed, Oct 29, 2025 at 05:33:31PM +0100, Thierry Reding wrote:
+> From: Thierry Reding <treding@nvidia.com>
 > 
-> With LLVM prior to 17.0.0:
-> 
-> drivers/pinctrl/pinctrl-mpfs-iomux0.c:89:2: error: initializer element is not a compile-time constant
->         MPFS_IOMUX0_GROUP(spi0),
->         ^~~~~~~~~~~~~~~~~~~~~~~
-> drivers/pinctrl/pinctrl-mpfs-iomux0.c:79:10: note: expanded from macro 'MPFS_IOMUX0_GROUP'
->         .mask = BIT(mpfs_iomux0_##_name##_pins[0]),     \
->                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> include/vdso/bits.h:7:19: note: expanded from macro 'BIT'
-> \#define BIT(nr)                 (UL(1) << (nr))
->                                 ^~~~~~~~~~~~~~~
-> 
-> This is a constant, but LLVM prior to a change from Nick to match the
-> gcc behaviour did not allow this. The macro isn't really all that much
-> of an idiot-proofing, just change it to the same sort that's in the
-> gpio2 driver, where a second argument provides the mask/setting.
-> 
-> Reported-by: Nathan Chancellor <nathan@kernel.org>
-> Link: https://github.com/ClangBuiltLinux/linux/issues/2140
-> Fixes: 46397274da22 ("pinctrl: add polarfire soc iomux0 pinmux driver")
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> Pass the driver-specific data via the syscore struct and use it in the
+> syscore ops.
 
-Thanks a lot for the quick fix!
+Would be nice to include the "instead of global variable" part here so
+the commit log includes the benefit and can stand alone even without
+the subject.
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Awesome to get rid of another global variable!  More comments below.
 
-> ---
-> 
-> Not entirely sold on the fixes tag since it's to shut up an old
-> compiler, but no harm in it I guess.
-> 
-> CC: Conor Dooley <conor.dooley@microchip.com>
-> CC: Daire McNamara <daire.mcnamara@microchip.com>
-> CC: Linus Walleij <linus.walleij@linaro.org>
-> CC: Nathan Chancellor <nathan@kernel.org>
-> CC: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
-> CC: Bill Wendling <morbo@google.com>
-> CC: Justin Stitt <justinstitt@google.com>
-> CC: linux-riscv@lists.infradead.org
-> CC: linux-gpio@vger.kernel.org
-> CC: linux-kernel@vger.kernel.org
-> CC: llvm@lists.linux.dev
-> ---
->  drivers/pinctrl/pinctrl-mpfs-iomux0.c | 36 +++++++++++++--------------
->  1 file changed, 18 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/pinctrl-mpfs-iomux0.c b/drivers/pinctrl/pinctrl-mpfs-iomux0.c
-> index 49d9fcec0a16..cf5b2e4e8f5b 100644
-> --- a/drivers/pinctrl/pinctrl-mpfs-iomux0.c
-> +++ b/drivers/pinctrl/pinctrl-mpfs-iomux0.c
-> @@ -73,33 +73,33 @@ static const unsigned int mpfs_iomux0_uart4_pins[] = { 11 };
->  static const unsigned int mpfs_iomux0_mdio0_pins[] = { 12 };
->  static const unsigned int mpfs_iomux0_mdio1_pins[] = { 13 };
+> +++ b/arch/mips/pci/pci-alchemy.c
+> @@ -33,6 +33,7 @@
 >  
-> -#define MPFS_IOMUX0_GROUP(_name) { \
-> +#define MPFS_IOMUX0_GROUP(_name, _mask) { \
->  	.name = #_name "_mssio",	\
->  	.pins = mpfs_iomux0_##_name##_pins,	\
-> -	.mask = BIT(mpfs_iomux0_##_name##_pins[0]),	\
-> +	.mask = _mask,	\
->  	.setting = 0x0,	\
->  }, { \
->  	.name = #_name "_fabric",	\
->  	.pins = mpfs_iomux0_##_name##_pins,	\
-> -	.mask = BIT(mpfs_iomux0_##_name##_pins[0]),	\
-> -	.setting = BIT(mpfs_iomux0_##_name##_pins[0]),	\
-> +	.mask = _mask,	\
-> +	.setting = _mask,	\
->  }
->  
->  static const struct mpfs_iomux0_pin_group mpfs_iomux0_pin_groups[] = {
-> -	MPFS_IOMUX0_GROUP(spi0),
-> -	MPFS_IOMUX0_GROUP(spi1),
-> -	MPFS_IOMUX0_GROUP(i2c0),
-> -	MPFS_IOMUX0_GROUP(i2c1),
-> -	MPFS_IOMUX0_GROUP(can0),
-> -	MPFS_IOMUX0_GROUP(can1),
-> -	MPFS_IOMUX0_GROUP(qspi),
-> -	MPFS_IOMUX0_GROUP(uart0),
-> -	MPFS_IOMUX0_GROUP(uart1),
-> -	MPFS_IOMUX0_GROUP(uart2),
-> -	MPFS_IOMUX0_GROUP(uart3),
-> -	MPFS_IOMUX0_GROUP(uart4),
-> -	MPFS_IOMUX0_GROUP(mdio0),
-> -	MPFS_IOMUX0_GROUP(mdio1),
-> +	MPFS_IOMUX0_GROUP(spi0, BIT(0)),
-> +	MPFS_IOMUX0_GROUP(spi1, BIT(1)),
-> +	MPFS_IOMUX0_GROUP(i2c0, BIT(2)),
-> +	MPFS_IOMUX0_GROUP(i2c1, BIT(3)),
-> +	MPFS_IOMUX0_GROUP(can0, BIT(4)),
-> +	MPFS_IOMUX0_GROUP(can1, BIT(5)),
-> +	MPFS_IOMUX0_GROUP(qspi, BIT(6)),
-> +	MPFS_IOMUX0_GROUP(uart0, BIT(7)),
-> +	MPFS_IOMUX0_GROUP(uart1, BIT(8)),
-> +	MPFS_IOMUX0_GROUP(uart2, BIT(9)),
-> +	MPFS_IOMUX0_GROUP(uart3, BIT(10)),
-> +	MPFS_IOMUX0_GROUP(uart4, BIT(11)),
-> +	MPFS_IOMUX0_GROUP(mdio0, BIT(12)),
-> +	MPFS_IOMUX0_GROUP(mdio1, BIT(13)),
+>  struct alchemy_pci_context {
+>  	struct pci_controller alchemy_pci_ctrl; /* leave as first member! */
+> +	struct syscore syscore;
+>  	void __iomem *regs;			/* ctrl base */
+>  	/* tools for wired entry for config space access */
+>  	unsigned long last_elo0;
+> @@ -46,12 +47,6 @@ struct alchemy_pci_context {
+>  	int (*board_pci_idsel)(unsigned int devsel, int assert);
 >  };
 >  
->  static const char * const mpfs_iomux0_spi0_groups[] = { "spi0_mssio", "spi0_fabric" };
+> -/* for syscore_ops. There's only one PCI controller on Alchemy chips, so this
+> - * should suffice for now.
+> - */
+> -static struct alchemy_pci_context *__alchemy_pci_ctx;
+> -
+> -
+>  /* IO/MEM resources for PCI. Keep the memres in sync with fixup_bigphys_addr
+>   * in arch/mips/alchemy/common/setup.c
+>   */
+> @@ -306,9 +301,7 @@ static int alchemy_pci_def_idsel(unsigned int devsel, int assert)
+>  /* save PCI controller register contents. */
+>  static int alchemy_pci_suspend(void *data)
+>  {
+> -	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
+> -	if (!ctx)
+> -		return 0;
+> +	struct alchemy_pci_context *ctx = data;
+>  
+>  	ctx->pm[0]  = __raw_readl(ctx->regs + PCI_REG_CMEM);
+>  	ctx->pm[1]  = __raw_readl(ctx->regs + PCI_REG_CONFIG) & 0x0009ffff;
+> @@ -328,9 +321,7 @@ static int alchemy_pci_suspend(void *data)
+>  
+>  static void alchemy_pci_resume(void *data)
+>  {
+> -	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
+> -	if (!ctx)
+> -		return;
+> +	struct alchemy_pci_context *ctx = data;
+>  
+>  	__raw_writel(ctx->pm[0],  ctx->regs + PCI_REG_CMEM);
+>  	__raw_writel(ctx->pm[2],  ctx->regs + PCI_REG_B2BMASK_CCH);
+> @@ -359,10 +350,6 @@ static const struct syscore_ops alchemy_pci_syscore_ops = {
+>  	.resume = alchemy_pci_resume,
+>  };
+>  
+> -static struct syscore alchemy_pci_syscore = {
+> -	.ops = &alchemy_pci_syscore_ops,
+> -};
+> -
+>  static int alchemy_pci_probe(struct platform_device *pdev)
+>  {
+>  	struct alchemy_pci_platdata *pd = pdev->dev.platform_data;
+> @@ -480,9 +467,10 @@ static int alchemy_pci_probe(struct platform_device *pdev)
+>  	__raw_writel(val, ctx->regs + PCI_REG_CONFIG);
+>  	wmb();
+>  
+> -	__alchemy_pci_ctx = ctx;
+>  	platform_set_drvdata(pdev, ctx);
+> -	register_syscore(&alchemy_pci_syscore);
+> +	ctx->syscore.ops = &alchemy_pci_syscore_ops;
+> +	ctx->syscore.data = ctx;
+> +	register_syscore(&ctx->syscore);
+
+As far as I can tell, the only use of syscore in this driver is for
+suspend/resume.
+
+This is a regular platform_device driver, so instead of syscore, I
+think it should use generic power management like other PCI host
+controller drivers do, something like this:
+
+  static int alchemy_pci_suspend_noirq(struct device *dev)
+  ...
+
+  static int alchemy_pci_resume_noirq(struct device *dev)
+  ...
+
+  static DEFINE_NOIRQ_DEV_PM_OPS(alchemy_pci_pm_ops,
+                                 alchemy_pci_suspend_noirq,
+                                 alchemy_pci_resume_noirq);
+
+  static struct platform_driver alchemy_pcictl_driver = {
+          .probe          = alchemy_pci_probe,
+          .driver = {
+                  .name   = "alchemy-pci",
+                  .pm     = pm_sleep_ptr(&alchemy_pci_pm_ops),
+          },
+  };
+
+Here's a sample in another driver:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/cadence/pci-j721e.c?id=v6.17#n663
+
+>  	register_pci_controller(&ctx->alchemy_pci_ctrl);
+>  
+>  	dev_info(&pdev->dev, "PCI controller at %ld MHz\n",
 > -- 
 > 2.51.0
 > 
