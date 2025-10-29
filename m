@@ -4,58 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16918CCF9EB
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 12:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59F58CCF9EB
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Oct 2025 12:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7FEte091QqyOZHndMOrYUUvqla6xeDbK7ApA4saIh+s=; b=Y9tgffHIjbeU3O
-	nit3f3KCemtcH31qZ/TX5y8yWdyyNCTGenC7opnelCLXr2FjPSLdodc2DwDK6HhHC9PSPHK90IoDR
-	oE3ygXEH7V0r1QnSKVkgkCgZfd8r1Sn6n0mjjljsx2byFx8SUJu1XZQJdDRk76cda2DRZEt09apdS
-	ftvbJ8z1ZE7JmDWSd+lJvOHCObO1Xl/heJLJZbbSVlld6jz8Sspz5xNWeLEEopIHN3iHbkXYrJhEr
-	G5QKkGjHf226XA1iRPN8rkn1RZXrYOZUrbNchUUzyOeeLi9ZeJhMdfafmiJdKx5/Nu2GG+N0V2JPf
-	UevXwAKIp0atu7kgqD7A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wYvzRQGrrYoNm14FwY9ONL1bca9QtztjH4Dh8avdrHM=; b=OARoSCuKKf+Wnk8ryYP/EagERs
+	NW4o9IUJauETeQaqGW23GdrdvVbiU8B945p+JMRyJyJVNVxSDkeBoDdaWjHgoYfrp4BE1iCiON5VL
+	Pex9Pde2/blTvt8fKdE04+jqp1Oe01o+nK14QZfdorcmheOaRZw5Jv3qEkn3R7Qtg738X7cqFKBMv
+	Kk/Ka5PwSX0JjRBwYj31yDerN5hOFudzO0SoOLx+QmQFeG9RZDM70We1cgq4RjgMDTeOj+9ckN1Re
+	hmJa0LKQ07Itw+yM60qpCWPu9xmdO0vggM4pvRnI4OqQWd7K/R8ghfPKQ3S3lOaadY6gv4nY23M4s
+	gzhtSq+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE5O5-00000001AkC-2fop;
-	Wed, 29 Oct 2025 12:34:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vE5PL-00000001Awl-08ke;
+	Wed, 29 Oct 2025 12:36:07 +0000
+Received: from cross.elm.relay.mailchannels.net ([23.83.212.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vE5O2-00000001Aj1-3KCM
+	id 1vE5PH-00000001Av4-0J4R
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Oct 2025 12:34:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38296463B1;
-	Wed, 29 Oct 2025 12:34:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B31C3C4CEF7;
-	Wed, 29 Oct 2025 12:34:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761741284;
-	bh=wCMm5SMLDdbe9NGRhjkjnjQ3ipki5USRE6K4jHu3HZA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RAoZkdnDmGj3UyvKdz6+m9HHFwbxnJj2IVJ8/pmiqDkA1pdcx7bSjLZsgRSfT+CQG
-	 p/dtNIbPQoOukYZ1NwnGe5ble2MK9Q0ggUt25EejCyGs3fhNqM8FOgNGiVEHcSZCUC
-	 cQbaNn9y0uI2JjZ+82xdL2LTev2Pi/S+dD8EUCU5HzWzvieHXUb5Sv98vPnifX3CeM
-	 2i3DRAtYIRzcv4p5XErrinObDzOE1OfbgAA25sUAq/BxNWnG/Pwo3q0AJtWvByA+08
-	 +Ev561SFthENk989DpbA0eMqEHeza3hEvbrMF5lD2lS85dVGbKDgvHtiDNpRsAcRyr
-	 wd8aeTiGVloPg==
-Date: Wed, 29 Oct 2025 12:34:36 +0000
-From: Drew Fustini <fustini@kernel.org>
-To: Yao Zi <ziyao@disroot.org>
-Subject: Re: [PATCH v3 1/5] dt-bindings: reset: thead,th1520-reset: Remove
- non-VO-subsystem resets
-Message-ID: <aQIJ3Ei9lziyQc8s@gen8>
-References: <20251014131032.49616-1-ziyao@disroot.org>
- <20251014131032.49616-2-ziyao@disroot.org>
+	Wed, 29 Oct 2025 12:36:06 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id F0E8B4C1FF0;
+	Wed, 29 Oct 2025 12:35:50 +0000 (UTC)
+Received: from de-fra-smtpout10.hostinger.io (trex-green-0.trex.outbound.svc.cluster.local [100.121.87.184])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id C55B64C250C;
+	Wed, 29 Oct 2025 12:35:46 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1761741350; a=rsa-sha256;
+	cv=none;
+	b=40AG28293lcDTnU4EkGeWjThsQv2Ycj7di6vxoaJB/Y9opRIhEx84gJhpug6FOLk9wAKDl
+	Z1lIzicDSaht6T/byvPkykL+mD9tUR5FRBb86xGPit0kOW/nzzaq1tQAv/tBXZAVhuL/pj
+	wybJCbB9qmlcPi1M7JK+vdacB0uMC+fflIPlC7inMEqjZULAx2gsSYMeUIgLVHiVWxJbYz
+	fx4GpocbHc6WG/TjsqgZN84LCSW6Kbjshn0qc+UN0RQA08EwaJc2sa7q6OOW3GW2LfwZWM
+	J6z+9EZntUNQHYt9BPXEoxlFUCz4Q3N8W8UpRJ33rE5FrVOBRsDeWp6ieMAHxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1761741350;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=Oe4ZxNABvSWDZwn7RexTLvMDd+wgT6cbVoGwGOqVxHg=;
+	b=5h/1kphtPwN3wdEQwmqweaw5bDMC6d/36MrPpD09VaQjP/R0wsyTrHxki/7PMjyM7nc1GM
+	LhtANWRCuKZljOlyVNYq94T0ntE9nQjFM3NeVh5TrfXIaUn2CfKzhjTDO4wfzlKjg3MRM6
+	/7jtswoycquPX/TxEr0oj+RvC2yhzxLAriyBxMjqpsMSdjxBL/Efhzktnt1HYDLXpsjaUC
+	LSLmXVm5gky6f0gmbNSImDaUAA6ryasDcP1OOOxUPxg0GSRusC51d+vHbvQMy38pHW2oJj
+	s4pzyLIJmOEs29Q9Nf86e0/4CduBUyW96uedxwX8met0fDVdDf8aM02v6TsIXg==
+ARC-Authentication-Results: i=1;
+	rspamd-77bb85d8d5-bws2z;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Reaction-Whimsical: 5225e7ec7f8e8d96_1761741350820_2222081920
+X-MC-Loop-Signature: 1761741350820:903895263
+X-MC-Ingress-Time: 1761741350819
+Received: from de-fra-smtpout10.hostinger.io (de-fra-smtpout10.hostinger.io
+ [148.222.55.9])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.121.87.184 (trex/7.1.3);
+	Wed, 29 Oct 2025 12:35:50 +0000
+Received: from [IPV6:2001:861:4450:d360:2406:5e25:7480:5f0b] (unknown [IPv6:2001:861:4450:d360:2406:5e25:7480:5f0b])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4cxRYC0mFQz3yqy;
+	Wed, 29 Oct 2025 12:35:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1761741345;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Oe4ZxNABvSWDZwn7RexTLvMDd+wgT6cbVoGwGOqVxHg=;
+	b=QqCFy9ddIA4yBphJF9vcN8yRLz1amgW53X5uZ/GZbSSfH3tAt2r2FUlpP0iCF34YwP40Oj
+	sFAfJ1/S0R/rremkxFEv3QLx4517/PdZl2e9RIw50J8ZiUlSbqsXiiZN9jifSQ4jHqaZW4
+	i5iS/hBagb67/uCzOY2u2SCTRhg1kDGrErO3t405GwQLnYya7gsBXH3Te8QeMypEuulWaV
+	05TJL41XUVjk4yBRtr9+xX2L4OGyx+4WXTBWTD63hcNQIQeYtqN391MEugibgbysEAuk4J
+	9Mj7euBsD/kG0vNLuWeBUlrRrDU/uIYFIto7kkx4SVuGo/+Gkc94eIPXFoT+jg==
+Message-ID: <4b1b2580-63ce-4ce8-b4a9-1763d3d3a253@rootcommit.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251014131032.49616-2-ziyao@disroot.org>
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@rootcommit.com, devicetree@vger.kernel.org,
+ sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 2/5] arm64: dts: sophgo: add initial Milk-V Duo S board
+ support
+To: Joshua Milas <josh.milas@gmail.com>, tglx@linutronix.de, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, unicorn_wang@outlook.com,
+ inochiama@gmail.com, paul.walmsley@sifive.com, samuel.holland@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ alexander.sverdlin@gmail.com, rabenda.cn@gmail.com,
+ thomas.bonnefille@bootlin.com, chao.wei@sophgo.com,
+ liujingqi@lanxincomputing.com
+References: <20251029001052.36774-1-josh.milas@gmail.com>
+ <20251029001052.36774-3-josh.milas@gmail.com>
+Content-Language: en-US, fr
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Organization: Root Commit
+In-Reply-To: <20251029001052.36774-3-josh.milas@gmail.com>
+Date: Wed, 29 Oct 2025 12:35:43 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=Ceda56rl c=1 sm=1 tr=0 ts=69020a20 a=wUKD9753dquIziLb6m98Lg==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=YzZgpwwcAAAA:8 a=d70CFdQeAAAA:8 a=pGLkceISAAAA:8 a=rAE3ZbY7XHi-JfuC7_kA:9 a=QEXdDO2ut3YA:10 a=diELbSsDbaqdzccPbx55:22 a=NcxpMcIZDGm-g932nG_k:22
+X-CM-Envelope: MS4xfAJT8EYqOXdyz75oxkACxsC0KJle9H+fVC0/lFHJ+Lv3v4L4AfKpVkFcFE9usfuSP33PfbJ396kKSwkJh363efFWzJ3RY3cLSBia1MzzRzFQ2zltbyX+ vWFcj5/jxXq8Xq+Dar3KlbCpBxnrECoGVNnZJjArKGmx6bVJYcclK1o9GM2aG+0359splJMr6JCVNQ1GAoczWYO73jGlmrwTYR2pbDZSJkycSSlM05W+W9cl RKsAXbnx38+H6b78+18fqqNuY6t+Z3qbMkrPnkdAMw7n7omyOxg1Dg6pQ/BILK6v0PU8FzLIG8puGMQ97m0H2AWzmy3DLQudAB04+1wFZ71eBGIzTsqKioAx +SL5YNUedMGsnXT9hmiNf/YBm1zcHyySmmv0DoD4sHskKHprwdBQ3kwScgP05r3CINkFDrIty5yLqLtVUlIAyOBczGx+rPl3Gz1tdw1caAiazacaae8sClTl usb62n5/lh2DDzzYN4u77WsCBUgiG3hZFJRVgxItacp24eqDJ1GqFyG6NT5mlUVn8sUGrd69Uox8wpvOIEUbiTaxSOTk/jcE7fj/BtdoWkPObS0+GvnRSgYS hm1ByLIKEy03qbnRNUozyHF2uN0vNRW5t1UkRNv+PrrtNEseWcO5hPpJ4UDsYNShyebkNuh12ShCgo2D1vQLjITN5JoJtJAcmfNoe+QqVRr5jknIhl/9wSs7 S9jpDkI6Nw12PJ4S/vDod4X+Ly8UncV6ep7vtOPHhZik97kSMcPbBz+SJBI8+Sk5Leb/jKY83uanH0buHkkV970sV0ye6A4TbWvoHdVVk9VnpZbo2g6qDJjy GFSaO/WMlRzVMVyN5eb24+WII2lh13uwsKjMMtvY0eotLVjKrcQzto4Phlf2oEBg1S4zo4l8zog8mCeIvn1ACFIsiM2eeKw8EEazWPcjTX+lhHatx4YZGzfb KcdUGJnPRVrDdBs
+ yCIWrckQzm7W+P7JjDnnU3cnmds21ljOM1MX2HiwMuj1V67WAX28JIg==
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251029_053446_849282_8DF2E0B9 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20251029_053604_351779_533A94F1 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,29 +126,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Michal Wilczynski <m.wilczynski@samsung.com>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 01:10:28PM +0000, Yao Zi wrote:
-> Registers in control of TH1520_RESET_ID_{NPU,WDT0,WDT1} belong to AP
-> reset controller, not the VO one which is documented as
-> "thead,th1520-reset" and is the only reset controller supported for
-> TH1520 for now.
-> 
-> Let's remove the IDs, leaving them to be implemented by AP-subsystem
-> reset controller in the future.
-> 
-> Fixes: 30e7573babdc ("dt-bindings: reset: Add T-HEAD TH1520 SoC Reset Controller")
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  include/dt-bindings/reset/thead,th1520-reset.h | 3 ---
->  1 file changed, 3 deletions(-)
+Hi Joshua
 
-Reviewed-by: Drew Fustini <fustini@kernel.org>
+Many thanks for this update! I'd love to have this board supported in 
+mainline, and when this happens, I'll add it to Yocto's meta-riscv layer 
+to make it easy to use.
+
+On 10/29/25 01:10, Joshua Milas wrote:
+> Adds initial arm64 support for the Milk-V Duo S board
+> [1] making it possible to boot Linux to the command line.
+>
+> Link: https://milkv.io/duo-s [1]
+>
+> Signed-off-by: Joshua Milas <josh.milas@gmail.com>
+> ---
+>   arch/arm64/boot/dts/sophgo/Makefile           |  1 +
+>   .../boot/dts/sophgo/sg2000-milkv-duo-s.dts    | 80 +++++++++++++++++++
+>   2 files changed, 81 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts
+>
+> diff --git a/arch/arm64/boot/dts/sophgo/Makefile b/arch/arm64/boot/dts/sophgo/Makefile
+> index 94f52cd7d994b..68aace728223a 100644
+> --- a/arch/arm64/boot/dts/sophgo/Makefile
+> +++ b/arch/arm64/boot/dts/sophgo/Makefile
+> @@ -1,2 +1,3 @@
+>   # SPDX-License-Identifier: GPL-2.0
+>   dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duo-module-01-evb.dtb
+> +dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duo-s.dtb
+> diff --git a/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts
+> new file mode 100644
+> index 0000000000000..174c194e1301d
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts
+> @@ -0,0 +1,80 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +
+> +/dts-v1/;
+> +
+> +#include "sg2000.dtsi"
+> +
+> +/ {
+> +	model = "Milk-V Duo S";
+> +	compatible = "milkv,duo-s", "sophgo,sg2000";
+> +
+> +	aliases {
+> +		i2c4 = &i2c4;
+> +		mmc0 = &sdhci0;
+> +		serial0 = &uart0;
+> +		spi3 = &spi3;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +};
+> +
+> +&osc {
+> +	clock-frequency = <25000000>;
+> +};
+> +
+> +&dmac {
+> +	status = "okay";
+> +};
+> +
+> +&emmc {
+> +	bus-width = <4>;
+> +	no-1-8-v;
+> +	cap-mmc-hw-reset;
+> +	no-sd;
+> +	no-sdio;
+> +	non-removable;
+> +	status = "okay";
+> +};
+> +
+> +&gmac0 {
+> +	status = "okay";
+> +};
+> +
+> +&i2c4 {
+> +	status = "okay";
+> +};
+> +
+> +&mdio {
+> +	status = "okay";
+> +};
+> +
+> +&saradc {
+> +	status = "okay";
+> +};
+> +
+> +&sdhci0 {
+> +	bus-width = <4>;
+> +	no-1-8-v;
+> +	disable-wp;
+> +	status = "okay";
+> +};
+> +
+> +&sdhci1 {
+> +	bus-width = <4>;
+> +	cap-sdio-irq;
+> +	no-mmc;
+> +	no-sd;
+> +	non-removable;
+> +	status = "okay";
+> +};
+> +
+> +&spi3 {
+> +	status = "okay";
+> +};
+> +
+> +&uart0 {
+> +	status = "okay";
+> +};
+> +
+
+
+I managed to boot the board and run tests:
+
+Tested successfully:
+
+  * uart0: boot console
+  * mmc0 (sdhci0?): root filesystem
+
+Issues
+
+  *
+
+    eth0:
+
+    ifconfig eth0 172.24.0.2
+    [ 48.893725] stmmaceth 4070000.ethernet eth0: Register
+    MEM_TYPE_PAGE_POOL RxQ-0
+    [ 48.903077] stmmaceth 4070000.ethernet eth0: cannot attach to PHY
+    (error: -ENODEV)
+    ifconfig: SIOCSIFFLAGS: No such device
+
+    I believe I have all drivers enabled though...
+
+  * emmc:
+
+    [ 2.730194] mmc2: Failed to initialize a non-removable card
+    [ 2.764843] mmc1: Failed to initialize a non-removable card
+
+    I tested with a board that has an eMMC
+
+  * i2c4: detected by "i2cdetect -l"
+    but no devices found by "i2cdetect -r 4"
+    I tried both pins 3/4 and pins 50/48, with two different devices
+    connected to the bus.
+    Which pins did you use? I could check the SoC pin muxing, but your
+    answer will save me time :D
+
+Would you mind sharing your defconfig file ("make savedefconfig") via a 
+private message or through a link (to avoid sending the entire file to 
+the list)?
+Thanks again
+Cheers
+Michael.
+
+
+-- 
+Michael Opdenacker
+Root Commit
+Yocto Project and OpenEmbedded Training course - Learn by doing:
+https://rootcommit.com/training/yocto/
+
 
 _______________________________________________
 linux-riscv mailing list
