@@ -4,111 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEA3CCF9F0
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 10:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCEB5CCF9E3
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 12:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YdwilDbL32gxjabwL1CoCz+2NEulejzsaqKwj2kNpxs=; b=go6Z128dyMVYjd
-	V3Eoh6carzYAjFz+WUMp/Umupz0U0+HRoMOk1DkGdxUbMg21lSpACj9vhZ4T12FPSe+/g6dFqtgem
-	NekU9QunLVdrAJiVDiCODMY2twpzs4jJoIEGpsBu7pUq4XPWpIxDkhFcHGH+tDCZeGWL9k9aJiZOC
-	U+yahMqVDWBnNwEcoWzazQ3gz1TEQeitmvHbx8KDON45+9NWBhOzpWZXmGUryY7lBU3cUlU76zPsn
-	XF1qd4l4gRRSthWzFVIt3C5GdEQhKbnFMg/6BNbEf7u0DmELZ2NrQyVOvIYq5gBXOk3dpmdEU6eh/
-	egLK7Hwvvb87zGBlFxSw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tTvLgK/Ec8tJFT+hTqlgoMrYup/2unG6biZZJRv4miI=; b=Ge0J49CFAN2bwmp4yOWahIcQZO
+	fqfB4JLC2sCY96x1g9kcMj67RQI50V2cHaT7DlM6Q73FEYded1uereoI9rny8xigbEuIifGsbPPcn
+	sR6OhL+l30GLcp2nTGZLXOa7rDTFeg6r4ONcfpRkA5PBaiNZXPc6+Xo9n/iveqWmAI++jHZ+5V2NN
+	Aoy6LjP3InH+3ZrwMq15hFRTHH0RbWJrGHYy+FisCUygWJ6wlpBdPxoGjpoL/rYoCGJW1UJCW5ZuJ
+	mkl4AXS/Hgxct6E6ta8aHILuGuQ0IVuUTyTLvpfVPDhecAq95a/Nyb1OyhXwndWABwa3+iyS+GpZ8
+	2tIrQPhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPqK-00000003ygu-2ZuY;
-	Thu, 30 Oct 2025 10:25:20 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1vERZl-000000046AA-2K7u;
+	Thu, 30 Oct 2025 12:16:21 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPqH-00000003yeg-2GGi
+	id 1vERZi-0000000469K-2h5A
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 10:25:19 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b404a8be3f1so15861166b.1
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 03:25:16 -0700 (PDT)
+	Thu, 30 Oct 2025 12:16:20 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47112a73785so7458995e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 05:16:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1761819915; x=1762424715; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lTgIsc3O+wDypaKqBlwZIo86kBPQGfr40arZuVCJ75M=;
-        b=HUAHUuoFux2zbNVWK5K8CNDgb39Yzl+w7F1AFPAmnuCB4blsRDkRMwLO1mtps+iFcK
-         aGuwuTpfQVr2auXe7Zh1lnyEOr9UnNZ1stywHys2NCJsVxsAyVvFkEUWGX+Z5OxlEYzq
-         evZGPBCrrQuBWyKvZkQ3nZc8nHo35X50WkF6KMaKMwwuxoALAxLTL0eoUcN36wg0WM8E
-         2Q7A1Z/TnjBSZKnxRlTnLgYyJlElQLfR0yC1yY0GKZPKirjmCvZuzDbk15c80NzaHi5p
-         o59RBw5r9Q9hRNlGY0uOMUPOeoRm7F7YdMj04T6bRCjOyTqjSv/jTJabiv6zYSJjaiWN
-         l96w==
+        d=gmail.com; s=20230601; t=1761826577; x=1762431377; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=s2h4BnseYLvI915SuwI6txSi2xO1Lp6zcqUfBWQt5q8=;
+        b=SOfL+JGTIkRkH/rpJLaF4dTjmz7h/Vis0wl6dk5TxGBaNundcLYGANJRD3gbZq0BX5
+         AXJ2TfX7Sud8jd40SxF2ewQ29ZwlwOFKSrIc2dUTLq60NsgYxw5Nf1Jp3wt8dmuOQcpN
+         cK4dLWT5MuIBxw4n1rg0ZtqmhI5Wreezt2qhlLMp7OWL1q+75DwqbhkM9R3Fk4xQ47Kg
+         xw8aKYcIf2A6vslyAuI20AGBwa3O0xIsy0xzuEPIdAE2khAAqoR5G+OTO2Gq0xcsKYrq
+         6SfYxjM+ayA+GgCkD1I5jHM0M0ZLb7bi+n1I75ViJvCByX1PP7RsiLTeJ3BNX4RySvkp
+         YuxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761819915; x=1762424715;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lTgIsc3O+wDypaKqBlwZIo86kBPQGfr40arZuVCJ75M=;
-        b=EZ7oczd0M/k3r8OZZW5Y7UBAG9Wr4UOsV72fMxX5Mory0JjYmS07XdQBBRnSzKkqNl
-         SJjZ8PLc7VQmiiwTyRF8slwawQ+0Rf/6cvhDySDpPbkBDdNmA2I6YhWh1SJQJuLBoVAz
-         aP4a7NMGbUg5AceVkzfXr++9mkBWJmS57mm+TRt5/LEMaKPSs1VH6xaTmmmC/rlvGG63
-         CUA1RSm8Zr6J//UVr2vDPfR9/ia0NGI8owtPBfaacNfiaPgRYxuLPxn/zZrilw858W6V
-         GmkhrSYkTCxrj/KQ4SEe2eJWE7gAT5+y2SufE1bivfbAYFNmqW8vdsO9q0Wsb1x6UKxZ
-         6tKw==
-X-Forwarded-Encrypted: i=1; AJvYcCXjh9O+TFAKYy8qrXQCVzWl3nx65cbtz8AJ2jcg2aDw9SjY9LsMiMkU1l8Mm+OUCb4XxHZfgc5Y2HOgLQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/dLJTPvrASsJbMpnpdT23usAsLhx3HkDEuHZ743XZ/37fkmwo
-	hweYLUevESmA1ebTHiuRq1R2TXQ/cU6C6Vftp2ef76ea+JiSxKsAPwt1DuMXNRH1u5c=
-X-Gm-Gg: ASbGncvvRd96XGYXEfTOqHEYfOjdlEzlWvS+mlD7WuEPftT6eM9PC5HcZ8MxgipfK2k
-	7zenAhV+CqgsEHyGz6DKZZDYCfrRwvRBo1ncL/X70KBFf7RrZnh04OqQJKA5Kg+X2eGK7izvQpl
-	IB63KAo3rjjA1+7zF5p6F4qzWjVkG5vNAOMsGJgyjFmY6Aw6MOvDh6o/FlohmYplzoIdAuiq5m8
-	zpVUgvO3mD8FIjQR4IfT13F3JLzcO/CUB0y/nl99w7wLajshar5SDBmWiC9fDcGBdVSXAF9cvBx
-	9KDa1Yw33aCq7eZMT0btsI2+evDDwhCJne84JTqa1ou2O8THgty5lTyDgbq347qhNTuZMMdQzkS
-	RKVK52yZaqsARNC2d3C0ekDyhPiPZ9wWFqjDSt0+19ntzhYHxSe99UU9L/w4IqGPz0jTSU/KoYD
-	YpLCcqYhHg/a1s/dTjDGBqxz9rAOjPWJXt1BBrohPzgeymwk0Jee213wv7OlCyanOLJAX+QJhiW
-	aSu
-X-Google-Smtp-Source: AGHT+IEXsUOIqP3MBMqvuO3EOkZU6BKA34oP58piwLuVoouucxjytl3skX6Ka8nntE+ckkHO79CK6A==
-X-Received: by 2002:a17:906:f586:b0:b6d:5439:e668 with SMTP id a640c23a62f3a-b703d55e454mr372826866b.8.1761819915166;
-        Thu, 30 Oct 2025 03:25:15 -0700 (PDT)
-Received: from mordecai (dynamic-2a00-1028-83b8-1e7a-3010-3bd6-8521-caf1.ipv6.o2.cz. [2a00:1028:83b8:1e7a:3010:3bd6:8521:caf1])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d853c549fsm1728375066b.37.2025.10.30.03.25.12
+        d=1e100.net; s=20230601; t=1761826577; x=1762431377;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s2h4BnseYLvI915SuwI6txSi2xO1Lp6zcqUfBWQt5q8=;
+        b=cQVtcXlfh+LQ+DAH+dJFAp4EW9gFveFapaoIxuiMve3UqwBtR8EKXekaHWXTaYIvU3
+         Mown0kaK4qiHI14tHPFW24ZRH/RuUwKGqkZjj1i+9Z3CFNNg4cyZC96vbpgiP78quge1
+         j0d8xZwTRkDnwUXdKWcOYAv0F1hFEh3BCw5WUtTLtcLyjTIiiph7OQTN0jidLiysTSv1
+         WFp68QXOVNwqpwwoFSv3BpKgP3r4yj4sV2qjVKcwU/yH/MFL3ysufHLYNNeK8z5lDJOL
+         s/CmVjoTNog6aZqi85OKJl5U5KYAzh8OAOY2N5wi7mJlazJUYS7cXIU93n4M9J438xLo
+         uI8w==
+X-Forwarded-Encrypted: i=1; AJvYcCWpAec+U+KWxVKCOC9HR7dT7fZwJvbCLuRivShTk4/hxhn0FPDMyMkSi5vzhPYsG718qp4ESPqg3tWYng==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmZ5VzuryVwVkvMxxMVGwOzlA63x7HPKbSu34o13izJmjV359E
+	xVFPmh/8OwOf4a7RTdUittZJxoJTC69NtQ+aH4xaC6k9Fj2KOPzOvA8S
+X-Gm-Gg: ASbGncvWzcZUIDCccn2V8dzxslCu/R+UPCLqVb9MW0h1Oo0PzmVIpPmVhwxMOfzKHRp
+	wy4lsVd5VJIGI+j76Mx7MNNJKET7pTAbR7pGL9/jL6bmHkQKHMvY5HyMZ+6qg9Q2RafgOLpPCF1
+	m2c2pxlRPLncTIThCFlcZN3iinAOiWLfzTOXhtGIJFT1HnrHeo0CXGHofq03cK8ENNvIM0Mr1W8
+	CNBV4H32a+WQ0kfU803xhQX4SkL27agjTSc2U6l33Ma9MUiRypFbKQ/aU8ZvxBN+ruYzodHtfaj
+	yvMHXGwASsrYsq+tk4FbrEN59Vsas7rBcvfhPEam2LPo/IRAHzUH0HtXg/tdWTpyfDJk2mT45hM
+	CdxG+htyCiNAZ0dTPvMKDXu8RoAiAHnBc1KejPCOSkBrPvmyY31v2Nwp+4XoGEaxvigGl6IUauG
+	zRcYkI0fmRFiCrK+j3pqrQ/kspk4T6028r2T13P5rq7o6hDEexCml7A7w7gurl44CMh8BWPf4NQ
+	fvstjvTiMdh
+X-Google-Smtp-Source: AGHT+IFFiHEvNPjKUlWf15eT6QrZW2LM5hHmfdRjCPGtpfvtcJfaix0mKpAwNuPfyTcNYpcwrmxIZg==
+X-Received: by 2002:a05:6000:2508:b0:3fb:aca3:d5d9 with SMTP id ffacd0b85a97d-429aef76469mr4752945f8f.1.1761826576503;
+        Thu, 30 Oct 2025 05:16:16 -0700 (PDT)
+Received: from orome (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952db839sm33617710f8f.34.2025.10.30.05.16.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 03:25:14 -0700 (PDT)
-Date: Thu, 30 Oct 2025 11:25:03 +0100
-From: Petr Tesarik <ptesarik@suse.com>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Josh
- Poimboeuf <jpoimboe@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy
- Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
- <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron
- <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel
- <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, "David S.
- Miller" <davem@davemloft.net>, Neeraj Upadhyay
- <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
- Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
- Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>,
- Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>, Jann Horn
- <jannh@google.com>, Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov
- <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>, Clark Williams
- <williams@redhat.com>, Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti
- <mtosatti@redhat.com>, Daniel Wagner <dwagner@suse.de>
-Subject: Re: [PATCH v6 06/29] static_call: Add read-only-after-init static
- calls
-Message-ID: <20251030112251.5afcf9ed@mordecai>
-In-Reply-To: <20251010153839.151763-7-vschneid@redhat.com>
-References: <20251010153839.151763-1-vschneid@redhat.com>
-	<20251010153839.151763-7-vschneid@redhat.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.50; x86_64-suse-linux-gnu)
+        Thu, 30 Oct 2025 05:16:14 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:16:12 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/7] MIPS: PCI: Use contextual data instead of global
+ variable
+Message-ID: <t3la3jte5tia7rh5ftuv5cchrwdxe4cxa2v3g6lxgoh5u6rmcy@hzw7lbke2vac>
+References: <20251029163336.2785270-3-thierry.reding@gmail.com>
+ <20251029174654.GA1571737@bhelgaas>
 MIME-Version: 1.0
+In-Reply-To: <20251029174654.GA1571737@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_032517_612556_0605AED4 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20251030_051618_734572_56F176B5 
+X-CRM114-Status: GOOD (  34.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,71 +99,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3600726178862260287=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Oct 2025 17:38:16 +0200
-Valentin Schneider <vschneid@redhat.com> wrote:
 
-> From: Josh Poimboeuf <jpoimboe@kernel.org>
-> 
-> Deferring a code patching IPI is unsafe if the patched code is in a
-> noinstr region.  In that case the text poke code must trigger an
-> immediate IPI to all CPUs, which can rudely interrupt an isolated NO_HZ
-> CPU running in userspace.
-> 
-> If a noinstr static call only needs to be patched during boot, its key
-> can be made ro-after-init to ensure it will never be patched at runtime.
-> 
-> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
-> ---
->  include/linux/static_call.h | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
-> 
-> diff --git a/include/linux/static_call.h b/include/linux/static_call.h
-> index 78a77a4ae0ea8..ea6ca57e2a829 100644
-> --- a/include/linux/static_call.h
-> +++ b/include/linux/static_call.h
-> @@ -192,6 +192,14 @@ extern long __static_call_return0(void);
->  	};								\
->  	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
->  
-> +#define DEFINE_STATIC_CALL_RO(name, _func)				\
-> +	DECLARE_STATIC_CALL(name, _func);				\
-> +	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
-> +		.func = _func,						\
-> +		.type = 1,						\
-> +	};								\
-> +	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
-> +
->  #define DEFINE_STATIC_CALL_NULL(name, _func)				\
->  	DECLARE_STATIC_CALL(name, _func);				\
->  	struct static_call_key STATIC_CALL_KEY(name) = {		\
-> @@ -200,6 +208,14 @@ extern long __static_call_return0(void);
->  	};								\
->  	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
->  
-> +#define DEFINE_STATIC_CALL_NULL_RO(name, _func)				\
-> +	DECLARE_STATIC_CALL(name, _func);				\
-> +	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
-> +		.func = NULL,						\
-> +		.type = 1,						\
-> +	};								\
-> +	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
-> +
+--===============3600726178862260287==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="stoiegldli5skly3"
+Content-Disposition: inline
 
-I think it would be a good idea to add a comment describing when these
-macros are supposed to be used, similar to the explanation you wrote for
-the _NOINSTR variants. Just to provide a clue for people adding a new
-static key in the future, because the commit message may become a bit
-hard to find if there are a few cleanup patches on top.
 
-Just my two cents,
-Petr T
+--stoiegldli5skly3
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 2/7] MIPS: PCI: Use contextual data instead of global
+ variable
+MIME-Version: 1.0
+
+On Wed, Oct 29, 2025 at 12:46:54PM -0500, Bjorn Helgaas wrote:
+> On Wed, Oct 29, 2025 at 05:33:31PM +0100, Thierry Reding wrote:
+> > From: Thierry Reding <treding@nvidia.com>
+> >=20
+> > Pass the driver-specific data via the syscore struct and use it in the
+> > syscore ops.
+>=20
+> Would be nice to include the "instead of global variable" part here so
+> the commit log includes the benefit and can stand alone even without
+> the subject.
+
+Good point.
+
+> Awesome to get rid of another global variable!  More comments below.
+
+\o/
+
+> > +++ b/arch/mips/pci/pci-alchemy.c
+> > @@ -33,6 +33,7 @@
+> > =20
+> >  struct alchemy_pci_context {
+> >  	struct pci_controller alchemy_pci_ctrl; /* leave as first member! */
+> > +	struct syscore syscore;
+> >  	void __iomem *regs;			/* ctrl base */
+> >  	/* tools for wired entry for config space access */
+> >  	unsigned long last_elo0;
+> > @@ -46,12 +47,6 @@ struct alchemy_pci_context {
+> >  	int (*board_pci_idsel)(unsigned int devsel, int assert);
+> >  };
+> > =20
+> > -/* for syscore_ops. There's only one PCI controller on Alchemy chips, =
+so this
+> > - * should suffice for now.
+> > - */
+> > -static struct alchemy_pci_context *__alchemy_pci_ctx;
+> > -
+> > -
+> >  /* IO/MEM resources for PCI. Keep the memres in sync with fixup_bigphy=
+s_addr
+> >   * in arch/mips/alchemy/common/setup.c
+> >   */
+> > @@ -306,9 +301,7 @@ static int alchemy_pci_def_idsel(unsigned int devse=
+l, int assert)
+> >  /* save PCI controller register contents. */
+> >  static int alchemy_pci_suspend(void *data)
+> >  {
+> > -	struct alchemy_pci_context *ctx =3D __alchemy_pci_ctx;
+> > -	if (!ctx)
+> > -		return 0;
+> > +	struct alchemy_pci_context *ctx =3D data;
+> > =20
+> >  	ctx->pm[0]  =3D __raw_readl(ctx->regs + PCI_REG_CMEM);
+> >  	ctx->pm[1]  =3D __raw_readl(ctx->regs + PCI_REG_CONFIG) & 0x0009ffff;
+> > @@ -328,9 +321,7 @@ static int alchemy_pci_suspend(void *data)
+> > =20
+> >  static void alchemy_pci_resume(void *data)
+> >  {
+> > -	struct alchemy_pci_context *ctx =3D __alchemy_pci_ctx;
+> > -	if (!ctx)
+> > -		return;
+> > +	struct alchemy_pci_context *ctx =3D data;
+> > =20
+> >  	__raw_writel(ctx->pm[0],  ctx->regs + PCI_REG_CMEM);
+> >  	__raw_writel(ctx->pm[2],  ctx->regs + PCI_REG_B2BMASK_CCH);
+> > @@ -359,10 +350,6 @@ static const struct syscore_ops alchemy_pci_syscor=
+e_ops =3D {
+> >  	.resume =3D alchemy_pci_resume,
+> >  };
+> > =20
+> > -static struct syscore alchemy_pci_syscore =3D {
+> > -	.ops =3D &alchemy_pci_syscore_ops,
+> > -};
+> > -
+> >  static int alchemy_pci_probe(struct platform_device *pdev)
+> >  {
+> >  	struct alchemy_pci_platdata *pd =3D pdev->dev.platform_data;
+> > @@ -480,9 +467,10 @@ static int alchemy_pci_probe(struct platform_devic=
+e *pdev)
+> >  	__raw_writel(val, ctx->regs + PCI_REG_CONFIG);
+> >  	wmb();
+> > =20
+> > -	__alchemy_pci_ctx =3D ctx;
+> >  	platform_set_drvdata(pdev, ctx);
+> > -	register_syscore(&alchemy_pci_syscore);
+> > +	ctx->syscore.ops =3D &alchemy_pci_syscore_ops;
+> > +	ctx->syscore.data =3D ctx;
+> > +	register_syscore(&ctx->syscore);
+>=20
+> As far as I can tell, the only use of syscore in this driver is for
+> suspend/resume.
+>=20
+> This is a regular platform_device driver, so instead of syscore, I
+> think it should use generic power management like other PCI host
+> controller drivers do, something like this:
+>=20
+>   static int alchemy_pci_suspend_noirq(struct device *dev)
+>   ...
+>=20
+>   static int alchemy_pci_resume_noirq(struct device *dev)
+>   ...
+>=20
+>   static DEFINE_NOIRQ_DEV_PM_OPS(alchemy_pci_pm_ops,
+>                                  alchemy_pci_suspend_noirq,
+>                                  alchemy_pci_resume_noirq);
+>=20
+>   static struct platform_driver alchemy_pcictl_driver =3D {
+>           .probe          =3D alchemy_pci_probe,
+>           .driver =3D {
+>                   .name   =3D "alchemy-pci",
+>                   .pm     =3D pm_sleep_ptr(&alchemy_pci_pm_ops),
+>           },
+>   };
+>=20
+> Here's a sample in another driver:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/d=
+rivers/pci/controller/cadence/pci-j721e.c?id=3Dv6.17#n663
+
+I thought so too, but then I looked at the history and saw that it was
+initially regular PM ops and then fixed by using syscore in this commit:
+
+    commit 864c6c22e9a5742b0f43c983b6c405d52817bacd
+    Author: Manuel Lauss <manuel.lauss@googlemail.com>
+    Date:   Wed Nov 16 15:42:28 2011 +0100
+   =20
+        MIPS: Alchemy: Fix PCI PM
+   =20
+        Move PCI Controller PM to syscore_ops since the platform_driver PM =
+methods
+        are called way too late on resume and far too early on suspend (aft=
+er and
+        before PCI device resume/suspend).
+        This also allows to simplify wired entry management a bit.
+   =20
+        Signed-off-by: Manuel Lauss <manuel.lauss@googlemail.com>
+        Cc: linux-mips@linux-mips.org
+        Patchwork: https://patchwork.linux-mips.org/patch/3007/
+        Signed-off-by: Ralf Baechle <ralf@linux-mips.org>
+
+So unfortunately I don't think it'll work for this driver.
+
+Thierry
+
+--stoiegldli5skly3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmkDVwcACgkQ3SOs138+
+s6FWDw//asJQ0od9HClRIj0RNLWAbliTk9QI3rUVvZd0krnee9oWFJS6p9gosZi7
+Baqb5WJ5xo7atxuHYK6RlAFAina/LUDWNpY9w1up0hM1K/NqVj0D6Ufrx2O4zw2Q
+5Ff2rbnpTBndYi8w6kth5MU4p/g3VtsilfSmErNPBQQF2CUQA3qmp3XVvAvbaH8+
+aUGS2rLpxX0Q06XGtXMtnvf4LHF4uzbZkX+AC6XqcBFT9BSgSjAKr65vMcYnqRqL
+sRxPbqQ9e6iZ2SibX+o61epk7rmO72XUa1v9TpZ24JNuvUIJnLfwm8D96f8NJEzK
+EznsDwGuOT/G87UYPvgqTZDbT8hbSvDEjGnlF8a6xtPP14Zm9hlMc0b9ZJ+wgMV4
+aMq7WckO8j/yY3NLAIokI/pMm5D11aYCSmk4PS7K4KdubNSeD+18J0QOZ/4cJyIQ
+cWI/P6sqD62A0QPMbbbtBa3MP9RbCZ0zhfFwI9dTprNJ7I7bijD/OLo798mkNB2f
+71+yECk1VnOKeAj9v80k479HlfUHaGCpRiEzWaKJ3IvLNqgUKH0q8nP8/McNXEKL
+8rRCO+5Ona/ND0lf2fue+/QeT44Fi24invQSdsgGdeaxEmcDkW06HSOK3Cp4pZWB
+E86uRaPgXuSRgDbxv2MMtv+PNWNWlqYzJ5/Lz0AkTm920p5RAvk=
+=Pbyc
+-----END PGP SIGNATURE-----
+
+--stoiegldli5skly3--
+
+
+--===============3600726178862260287==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3600726178862260287==--
+
