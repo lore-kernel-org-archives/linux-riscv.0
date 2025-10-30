@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45047CCFA00
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 20:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 686CDCCF9F0
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 20:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LTEn0/3jZYBuo5ijixdiG/fysFyRqZIkf1xmDlqwz20=; b=iAB3Ew5vRrJiaO
-	lI1DD6FP4fw8nTA2VTauw1RciBkzOoMncnGYgGFSgK2Scw+ATi4+LG+IUnBS48O2k5JzhRzcMGH7x
-	zg+PiRyIKliqpXBe95tyKNpWL0P6ukh1DJCr9Ch3av7vlczi+NSJyeMbrcQYfekbRt8F+mHGem0jA
-	2dAL6t+exKATZ9aMGgUC4vEuKlzb+Z+CwpvA9OGMbykQ8i9IwwlUWKA7eht3fxSdoZFpbmYxz7LfU
-	EBS6SqyF5aj3ssxcqFiOdESj+8Dnpoac2lMMopAE+ysonFGj0dAMcH8ZQ7LOA3Uo3rFFHyP/1mckI
-	R8abqUYVY7jtC8uqZ+TQ==;
+	List-Owner; bh=MZvgzR9/zFJmyb4RiIyAHvg1ozqv/Cj/0hCwfc/adi8=; b=VKlhJYJrfXbso0
+	qYBkKyyIwFZTLwP93jiIQC58Ij/1jzxMiqBnN0OVL5NgkKMHGqP7AK1SkkC7bNP3e61j4pZ1RO4jX
+	JfTdT7+IoZPZKfH5Vk7Lwih8CzSodSK9I6gbDRsMy923HBVnRVU8oEgiRYKRjDOy8oGSbZZWqmeDo
+	FAz0RpuiAzD5En23/jiIl6D0Nx6EaQVuo5FMc2lOj5k2x2K86MzW0E9GJeYk7pjlWhtY9seadI4M2
+	wZccj+OMvoPDBpvfyKZ+svoAekDP3gXi7t0aBTDPEiaHcVRjLLdFWVVTxOUdzaVYefiabNpA2G3Mf
+	hJNBDVbAy6AyccxMgotg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYzi-00000004l7A-2RxF;
-	Thu, 30 Oct 2025 20:11:38 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vEYzx-00000004lOJ-0Bgv;
+	Thu, 30 Oct 2025 20:11:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYye-00000004jn3-3lwF
+	id 1vEYym-00000004jws-1w15
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 30 Oct 2025 20:10:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=2Qp65v2XVpj2mbgYoCIcn74lwhNS3G3VX8VrR6k2zs8=; b=CSgnteNqi7QfTPvs8qngHlXJRy
+	K+dl/Wpdw4llucQNesK7qvUQAX/HxZryuVnzWs+X190xkH9X4qgHo35JxsXeGD6hYRFqXvJWxsZOB
+	U2HPiZ9I6MRwa6/fDf7PBhY6aTIBw3XoOndqS+lq5IXUVJ9L73sK1zfcsf+xa+kwdqyuTv0eijvxS
+	Lf5ITuo0HhaH/vwvau6jGTkjeiNBqZfu3n2pUN76OEJjtQ+LHFKmZmzy3eZPxIK2AF1LnJ5CoGx8S
+	gGx5SQgZ3pEIQb46M8pNUXjv+vgzVTuIcrRsJSXnplJzL97rypbRYtrhMKB7dDHuCvbFYHPXxTNpE
+	U/+fV6gA==;
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEY70-00000009tlk-27f9
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 20:10:36 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3405e02ff45so1132795a91.3
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 13:10:32 -0700 (PDT)
+	Thu, 30 Oct 2025 19:15:08 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33bbbb41a84so3170421a91.1
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 13:10:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761855031; x=1762459831; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761855035; x=1762459835; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=meKFn4T9FN95UHKOhoydSdUPWQIDJ02hjx7Eu38ytY8=;
-        b=wY7EmhP7Rp5GgfxMMTpYAzx8DR1ft9E5IUJoWbvtivU0TP+5C9BlHJePGGa8bT9vgO
-         zgRDsrZ21s1CIXAmetQdKTP0YcG4Axo/BzshMz0kcjckypvhK4E8xqOpWsCCrBnpce0o
-         Tagwz/EZoY579aLGn4jomkQR2La7QG9ZhYxKY+E+WN/qJaCJ+VGXK/h7bTbotKFxygEL
-         +KzFgx21cXMLbG0EyYL+L6HtASC8lzJ+Gb8LAfTAgX6Kd46AxhTE91iJXZ5b0V6z+yrm
-         NYohJd405dncC8SN6HRNwX68zFRsoj9PSVXO6GuBMA8aDLYFQzslXGUeLaTGgbCezMSD
-         /f0g==
+        bh=2Qp65v2XVpj2mbgYoCIcn74lwhNS3G3VX8VrR6k2zs8=;
+        b=ZX89Aq/ELVkKVrX3b1MNjibThQWgOKJ22+madMVMyboPau/8RJfE5EVh7I0d6rS7Sq
+         MjbIHah2f5VMC7Rp2tbmeqt0A77rS9sXYfcnQjrG+xK0HT01apqvoIr9h0vj/FmM8m6P
+         PUqNL+WjHdR9dMlKj0anIcP2ir3uGu6PZtSnFQRuzRkSXcqdesPCS5uQgiPq5N3KACZO
+         NjldPUgJty3RRmUp6Thb6Asxih7rtarETwOWjBPpMak195YM6g7LjcomWJ69rEyWyVHt
+         py5EDDtb12N0Ra4AM49RixIzIoCJenm7SLWwicrOA02W0flcp2OU2dUsrIln8TJr9YN9
+         fc9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761855031; x=1762459831;
+        d=1e100.net; s=20230601; t=1761855035; x=1762459835;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=meKFn4T9FN95UHKOhoydSdUPWQIDJ02hjx7Eu38ytY8=;
-        b=EyzEBoZEUJ06eDGQj+ttTEtg+g0xbhXpASbcMNWswRvxPbWq4jpxGCpwpToEs0fwRH
-         KkK1uhmw6/Y7VxPoDmpoXnV7RywdkqEj+L3WHKJ+mBYSwlHYMp+x7R527vwKcABFDUkl
-         0kggGK86b/XlXsrmziYbFkIszfC6cOSAJGFOlZeCxmbWj6KdpsT4PMX4FgNaGiFnjQER
-         rcoclJ2YWUQqhtQDqPHb3xuiUpuMl3Yz8xFqzzQwmWeHXRG984F6y8pCm7gis8Reoel7
-         Zj6d5fZlpQVaqK0zVp09OVErQUe4kynJCa+sMD82GAgB6ilEiAeqhH+x0IAKjPPVbuwQ
-         /aAw==
-X-Forwarded-Encrypted: i=1; AJvYcCUaDjQh4OGF0rm7RsIg/V5wPAF+x2riSHlW1rE+1JuqP0ejEmxDF90Z0+FfLsfuZYbG/giPtL+Ifwm+og==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZzUh08kqI+pX+KZKVtSVZPzF6CIrswxYVOiQ23IvBifxpKSaH
-	54ImaDTFQhRdS71qgvKTx8/WDlEHO8AAw0LubE/QG/ApgnRqe7aOezUgXabhZY5Bb2NkfCx2H0v
-	9diyofA==
-X-Google-Smtp-Source: AGHT+IFHot6p8Ozw6sPTCEifBtpuZu56mTW8C+szZfak/MuPqOINRZqkxHegGZo0IYVURE2JpMgMqwrtO2U=
-X-Received: from pjvl22.prod.google.com ([2002:a17:90a:dd96:b0:340:6aca:917f])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2d92:b0:340:5c38:3a56
- with SMTP id 98e67ed59e1d1-340830a3a7cmr1392650a91.37.1761855030672; Thu, 30
- Oct 2025 13:10:30 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:09:36 -0700
+        bh=2Qp65v2XVpj2mbgYoCIcn74lwhNS3G3VX8VrR6k2zs8=;
+        b=j0DmFlyIA8zVOxhAVLKmEDkPW5BsKHy+XkFvN8JzAS+ILG//VuYkcM1PJjbGhBGBNe
+         vABsMCj2KOieoyC+lk/v2Hn+kaiYboHPgyirBGKo3McGKMeo4GC7cWi3bNpH6pDAj87u
+         a9bU7Tv/e/PmIf7sYnwWIeZdroKQA66BMoT0sxUl5YRJv6dTcdOxUOsoXF9TGZ3sD71i
+         //iXxOFEbAAIvpYmtvPEuNSMYhZgdLi3hTAiilIjjT8yGaFUkyUoleJr7vDpd9OR3GEf
+         EAtdf6T7IQB0CSQNrcarZP6n8AWKi8KFoKawjRPPTGVjLlAk207WKyegcpgP40DQlFA5
+         otfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXFPmwROrOKIa0qmK2JPLXh1OGe4Q7jbqtvdKHJZAi/MxWVGEcyXBZCGJy6iDPzxPbmQ88hpAvYqC848w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywj4nlvHDfrUQfrwJChquP3HcLDmYD7hqO5hEdqdZNgIBGuwDDO
+	StUMGAmB4AVXvkj7EQI+YpN9FhLcS8PPnFl8/0yHIq7gvj4Bb6DmvyTR6f7UQCiehOLK7kEKnv+
+	O6vi3Sg==
+X-Google-Smtp-Source: AGHT+IHtEBN2FzRvx/PBMIz+g6mN5JL6fejVbo3/Jj6z8BZ8mwuwi1S8UZTxug0dqnAA2vI1WFCMGP+gtTc=
+X-Received: from pjph23.prod.google.com ([2002:a17:90a:9c17:b0:340:2aef:8b01])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3842:b0:335:2eef:4ca8
+ with SMTP id 98e67ed59e1d1-34083088cfamr1279023a91.33.1761855034597; Thu, 30
+ Oct 2025 13:10:34 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:09:37 -0700
 In-Reply-To: <20251030200951.3402865-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251030200951.3402865-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251030200951.3402865-14-seanjc@google.com>
-Subject: [PATCH v4 13/28] KVM: TDX: Avoid a double-KVM_BUG_ON() in tdx_sept_zap_private_spte()
+Message-ID: <20251030200951.3402865-15-seanjc@google.com>
+Subject: [PATCH v4 14/28] KVM: TDX: Use atomic64_dec_return() instead of a
+ poor equivalent
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -87,9 +103,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
 	Ackerley Tng <ackerleytng@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_131033_103740_91DA0A92 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_191506_626344_FBCBBCBB 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,37 +122,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Return -EIO immediately from tdx_sept_zap_private_spte() if the number of
-to-be-added pages underflows, so that the following "KVM_BUG_ON(err, kvm)"
-isn't also triggered.  Isolating the check from the "is premap error"
-if-statement will also allow adding a lockdep assertion that premap errors
-are encountered if and only if slots_lock is held.
+Use atomic64_dec_return() when decrementing the number of "pre-mapped"
+S-EPT pages to ensure that the count can't go negative without KVM
+noticing.  In theory, checking for '0' and then decrementing in a separate
+operation could miss a 0=>-1 transition.  In practice, such a condition is
+impossible because nr_premapped is protected by slots_lock, i.e. doesn't
+actually need to be an atomic (that wart will be addressed shortly).
+
+Don't bother trying to keep the count non-negative, as the KVM_BUG_ON()
+ensures the VM is dead, i.e. there's no point in trying to limp along.
 
 Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+Reviewed-by: Ira Weiny <ira.weiny@intel.com>
 Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
-Reviewed-by: Kai Huang <kai.huang@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ arch/x86/kvm/vmx/tdx.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index 658e0407eb21..db64a9e8c6a5 100644
+index db64a9e8c6a5..99db19e02cf1 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -1725,8 +1725,10 @@ static int tdx_sept_zap_private_spte(struct kvm *kvm, gfn_t gfn,
- 		err = tdh_mem_range_block(&kvm_tdx->td, gpa, tdx_level, &entry, &level_state);
+@@ -1726,10 +1726,9 @@ static int tdx_sept_zap_private_spte(struct kvm *kvm, gfn_t gfn,
  		tdx_no_vcpus_enter_stop(kvm);
  	}
--	if (tdx_is_sept_zap_err_due_to_premap(kvm_tdx, err, entry, level) &&
--	    !KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm)) {
-+	if (tdx_is_sept_zap_err_due_to_premap(kvm_tdx, err, entry, level)) {
-+		if (KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm))
-+			return -EIO;
-+
- 		atomic64_dec(&kvm_tdx->nr_premapped);
+ 	if (tdx_is_sept_zap_err_due_to_premap(kvm_tdx, err, entry, level)) {
+-		if (KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm))
++		if (KVM_BUG_ON(atomic64_dec_return(&kvm_tdx->nr_premapped) < 0, kvm))
+ 			return -EIO;
+ 
+-		atomic64_dec(&kvm_tdx->nr_premapped);
  		return 0;
  	}
+ 
+@@ -3161,8 +3160,7 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+ 		goto out;
+ 	}
+ 
+-	if (!KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm))
+-		atomic64_dec(&kvm_tdx->nr_premapped);
++	KVM_BUG_ON(atomic64_dec_return(&kvm_tdx->nr_premapped) < 0, kvm);
+ 
+ 	if (arg->flags & KVM_TDX_MEASURE_MEMORY_REGION) {
+ 		for (i = 0; i < PAGE_SIZE; i += TDX_EXTENDMR_CHUNKSIZE) {
 -- 
 2.51.1.930.gacf6e81ea2-goog
 
