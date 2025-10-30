@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C06CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 21:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A2BCCF9F0
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 21:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QXtBDBN3JzfmSloNygkUhELh23UeBd8iZaXdHir/PHE=; b=RLq4ct61/XlXAY
-	uyT+fCyZfO8SU7djBhxKmkFJo9gbG3WZnGPoEKrJpaUkFYzolWrc8IbwJHcYsjWMCP+18jPh+a/15
-	nzBNQ9nfC63t+gLeGJ54jGzhqenVwTjTHaE93Idn8L9utUD3MxktxT0g7Joky1BvpibHUQvhCZH8X
-	RApYMI7ki0yD+eEA6wiaBP91D5ySIeCiMyleylMQRy/J/jp5iOD8C9n1ecgB41mD2aajYPBj0o6Zp
-	/87Mgdgh+XkwGYzAaB0WW/WF4lnMFphKhyEDJ7D7oap7DE1u1CI9RMU/XhBeoghp8YtwC8XdFiO4X
-	bqL/dUFiw0/BegaoJXmA==;
+	List-Owner; bh=XAWua1uyDi8tMul3qpoyfZHUreXaewsqpM4EEvA5JTE=; b=LBqnl0WpTdzwPB
+	bsY55K+LFyrakQHBfAHMKEB+v/KJRu3NlRjKPO5zkvR6sWONlw+RvxdKpYNNvVzVoGIMux8Quhnju
+	8E4Z1Pfrg9ey34KekDdEae/5lk6Itce4eBOuja1hx/Tb+2kDooJihQSkbfBCY+aT4afFGbIs0T37L
+	QU/hP26G7qEGkuJdI3nhZClLa1Hwie9x5LAEiY5MGCHwX/64V86XCm85DKX11wKWksKZQPON/r7Qu
+	29F7+NgLnZXwmHXcCGeox+z9qZ1DH4FW7cNg8CVvGAv+bFkoySh6BS80lTujS5xcjOVPV7/ZSbwaP
+	lz8rEDl7fkQrjHwclTlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEaGO-00000004uQB-2m7C;
-	Thu, 30 Oct 2025 21:32:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vEaXH-00000004yGm-0kVs;
+	Thu, 30 Oct 2025 21:50:25 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEaGO-00000004uPX-11ve
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 30 Oct 2025 21:32:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=vbEdMMd/alv82EZhs0oPuJJdyvSbCwrjtSlWnhwOMUI=; b=XnV8fq/v+IrpITYXi43CSzWMZK
-	wJAzNwJ76EeSvK379gzKjHVSzKVuMseoi/8Z4LaJlR1ftdFGkcIw8CjwinFGumBLqiY4yq7qliBOm
-	YLAgUHZsgKRV6oLUXuaBhVkkHaUoVYs2uvkjGkeEEEd+Fvg1/W9op59u+DDzWZMbtm26hWX92M4Hu
-	QPR12PsugJHpEvN0pdbTDBTQPYFdvEanrHJENvmGIVYgrwZy3V/xLuzFKB2IR4rErPKai1dcwL7je
-	79lmPfDCzpbjCgBIT9JihYjDgZuhZSZyfiiPG4gQHWiomwHG1ZX6NB2+aZkWlcTAMRMDXsTW/9EHz
-	BNp1IYDg==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEZOc-0000000A3TI-1Tpv
+	id 1vEaXA-00000004yEv-1NEl
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 20:37:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=vbEdMMd/alv82EZhs0oPuJJdyvSbCwrjtSlWnhwOMUI=; b=FQ5exwrph/BeEvhhVCtUCO2pqe
-	iAck5hK/q3oIAN8VUYIHc1IpVEvI5rcN6QeW0NJyzn9xlrny4h8KQKJ3SRxHGKpwLqbjiK/9FIR9Y
-	1rPE9XUw8D+fbci2VhjaEMDJP2sVgazYxVN92Z6/zI+S69Wzc3qOd+GFcDFkqSy9tRSg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vEaFs-00CY1x-9Y; Thu, 30 Oct 2025 22:32:24 +0100
-Date: Thu, 30 Oct 2025 22:32:24 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Yixun Lan <dlan@gentoo.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: spacemit: Implement emac_set_pauseparam properly
-Message-ID: <2eb5f9fc-d173-4b9e-89a3-87ad17ddd163@lunn.ch>
-References: <20251030-k1-ethernet-fix-autoneg-v1-1-baa572607ccc@iscas.ac.cn>
+	Thu, 30 Oct 2025 21:50:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761861016; x=1793397016;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=uhsBi6jPYk4r7zoS0KFwjGrcAihOvbPQ1OZl8wiwXVg=;
+  b=ZzbE7McXuckRTmtONo9jvxI7uyGY4m4KhBJ9CfWUz3/d3TLRGhro8AuD
+   WOZrFzoSEQO/uwxRt02YvhkVKBnRB6Yx62l4efBJK7QANYRYrJSHrPtcW
+   /60BP0y032vj/Iv+J14rLQR+UTfUipqaHLszvvkQqKEhZN+niDxT2w2ko
+   m21MC5BKAzBDguK/Csw+o1gGop8csouOHbYyaUA1COXLMpqG9KN3/YXpm
+   M/fuXI7YX+xJzlNDyoKBwBmnc0jR52FP+3ntIvsTWCWa9d29bsgMz1IfN
+   bw3LgxrdNEnjrQzCs+KeuROE/c+sZQYmjUB+Fc9nJ4Et1wOZlTgLHXcEW
+   w==;
+X-CSE-ConnectionGUID: YYHyInRKQGCcc6c4o4iI8A==
+X-CSE-MsgGUID: ZRsQTqwXR8qBRx8jaVoRFw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11598"; a="81645382"
+X-IronPort-AV: E=Sophos;i="6.19,267,1754982000"; 
+   d="scan'208";a="81645382"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2025 14:50:15 -0700
+X-CSE-ConnectionGUID: mqKL0/XMRAu6LM36rYEPAQ==
+X-CSE-MsgGUID: UsRHOMzSR5SIqQrleSv+Ww==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,267,1754982000"; 
+   d="scan'208";a="186404807"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by fmviesa008.fm.intel.com with ESMTP; 30 Oct 2025 14:50:12 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vEaX4-000MYi-28;
+	Thu, 30 Oct 2025 21:50:10 +0000
+Date: Fri, 31 Oct 2025 05:49:11 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alex Elder <elder@riscstar.com>, broonie@kernel.org, dlan@gentoo.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	p.zabel@pengutronix.de, linux-spi@vger.kernel.org,
+	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 2/3] spi: spacemit: introduce SpacemiT K1 SPI
+ controller driver
+Message-ID: <202510310505.d7e7kzCk-lkp@intel.com>
+References: <20251027125504.297033-3-elder@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251030-k1-ethernet-fix-autoneg-v1-1-baa572607ccc@iscas.ac.cn>
+In-Reply-To: <20251027125504.297033-3-elder@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_203722_512942_AA52E847 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20251030_145016_428036_85FF7AD4 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +92,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 10:31:44PM +0800, Vivian Wang wrote:
-> emac_set_pauseparam (the set_pauseparam callback) didn't properly update
-> phydev->advertising. Fix it by changing it to call phy_set_asym_pause.
+Hi Alex,
 
-This patch is doing a lot more than that.
+kernel test robot noticed the following build errors:
 
-Please break this patch up into smaller parts.
+[auto build test ERROR on 8fec172c82c2b5f6f8e47ab837c1dc91ee3d1b87]
 
-One obvious part you can break out is emac_get_pauseparam() reading
-from hardware rather that state variables.
+url:    https://github.com/intel-lab-lkp/linux/commits/Alex-Elder/dt-bindings-spi-add-SpacemiT-K1-SPI-support/20251027-211246
+base:   8fec172c82c2b5f6f8e47ab837c1dc91ee3d1b87
+patch link:    https://lore.kernel.org/r/20251027125504.297033-3-elder%40riscstar.com
+patch subject: [PATCH v6 2/3] spi: spacemit: introduce SpacemiT K1 SPI controller driver
+config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20251031/202510310505.d7e7kzCk-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251031/202510310505.d7e7kzCk-lkp@intel.com/reproduce)
 
->  static int emac_set_pauseparam(struct net_device *dev,
->  			       struct ethtool_pauseparam *pause)
->  {
->  	struct emac_priv *priv = netdev_priv(dev);
-> -	u8 fc = 0;
-> +	struct phy_device *phydev = dev->phydev;
->  
-> -	priv->flow_control_autoneg = pause->autoneg;
-> +	if (!phydev)
-> +		return -ENODEV;
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510310505.d7e7kzCk-lkp@intel.com/
 
-I'm not sure that is the correct condition. emac_up() will fail if it
-cannot find the PHY. What you need to be testing here is if the
-interface is admin down, and so is not connected to the PHY. If so,
--ENETDOWN would be more appropriate.
+All errors (new ones prefixed by >>, old ones prefixed by <<):
 
-> -	if (pause->autoneg) {
-> -		emac_set_fc_autoneg(priv);
-> -	} else {
-> -		if (pause->tx_pause)
-> -			fc |= FLOW_CTRL_TX;
-> +	if (!phy_validate_pause(phydev, pause))
-> +		return -EINVAL;
->  
-> -		if (pause->rx_pause)
-> -			fc |= FLOW_CTRL_RX;
-> +	priv->flow_control_autoneg = pause->autoneg;
->  
-> -		emac_set_fc(priv, fc);
-> -	}
-> +	phy_set_asym_pause(dev->phydev, pause->rx_pause, pause->tx_pause);
+>> ERROR: modpost: "__hexagon_udivdi3" [drivers/spi/spi-spacemit-k1.ko] undefined!
 
-It is hard to read what this patch is doing, but there are 3 use cases.
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for DMA_CMA
+   Depends on [n]: HAVE_DMA_CONTIGUOUS [=n] && CMA [=y]
+   Selected by [m]:
+   - SND_SOC_K1_I2S [=m] && SOUND [=m] && SND [=m] && SND_SOC [=m] && (COMPILE_TEST [=y] || ARCH_SPACEMIT) && HAVE_CLK [=y]
 
-1) general autoneg for link speed etc, and pause autoneg
-2) general autoneg for link speed etc, and forced pause
-3) forced link speed etc, and forced pause.
-
-I don't see all these being handled. It gets much easier to get this
-right if you make use of phylink, since phylink handles all the
-business logic for you.
-
-	Andrew
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
