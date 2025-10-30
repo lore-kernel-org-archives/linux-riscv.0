@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05444CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 20:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCDB6CCF9E3
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 20:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SZM5lMEKhz4Bn3kniSEvEXncKpZhN+foZs4htCqi/lE=; b=nieyv+fNlKcpM8
-	DV414y1KR7x6Zti5VVqUCmvWiOvnRpyH1zLxAEaEemFk7E+RA4ShVzyupbBZI6oj9sCiqjnz6nDCX
-	SNrqIWx2PAC6cWwstC+3+6uZ37aDsEjdlJNCiCm1NV0Cppw7NYUrIHSj30rqIgepVmx5ibuRqOcuM
-	v45HSsfE5YcGm+JuzDEqaB0LhK2TBlNmyPn24H/uGA5OIbmcfc090+jNTI5TIFLf+Pyz8MFx3JsU+
-	2GpbaHfZCYBhQRyqivSNiBKdEtESpCsUhYg33SmHvM3N68+h4qpJAK1w7Ipbx+Avh5fuuV46H2g2A
-	yW2rmQSsVkQdD+Gb8l5g==;
+	List-Owner; bh=HPOexex1pWS/jYTDLg3z/rAChJ6YlPE4cS4N1KQHJEA=; b=VlU5GfvyBbPP8K
+	JJBDA7aA7H5+AAQGt91Tn/75OlFtD2MTXKtGy1fxERaSLWxv8TH34AFslXgLBhn1FMXtKfGAbd/QS
+	imn0vNDvD87TAFhw6KpokEOJd1ZeZFG/avuZe16yd8fl9uWV46BNj2F5i9u1wmqj/ZmAidFsPf8eJ
+	WAKIMwvjBhc09CNXwbPQtVpTKg4+6cJGo7enESx3OGsehaPs45voFNLBmHZC11d9mo4C91ohFnVFc
+	K34VR2FBjUmlD99+MIIr6SR91Bvjo3wavqjiGJcUlZNaPW+XccrLVGhMO2mYyBdV/1gD6To/09r0a
+	l10Q6zoQDF1lpb6K+hOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYzC-00000004kU5-16uV;
-	Thu, 30 Oct 2025 20:11:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vEYzN-00000004kgS-1ZTg;
+	Thu, 30 Oct 2025 20:11:18 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYye-00000004jmr-16Kr
+	id 1vEYyb-00000004jjm-3FgP
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 30 Oct 2025 20:10:32 +0000
+	Thu, 30 Oct 2025 20:10:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=IvM7TjIntZ9FlQ6yPFIX7Pdb82bcYcGNbKTNQ5X1yLU=; b=HvMyZ7FmF0cDvvzdju1eVQagqR
-	McNz94P9GVBsThTK7g9F6ZPQz+nIKDUL1fvjZtgo0SrdmHGXpMyC5pUv5rGXdcHXgNLdOm7dSh/Id
-	6Mv32VrYzS4GX51X1TZp1/01qb5gWx/LXSsHiC1g8cUecIN5q3+xO1CcH2HjyphZCSD5C8kqsQtrx
-	0OO4R3Gh/eKfNTN5aQrVyUjjNwN49GqR9rpTHhVhW69F3VycEwpnA5RT4Zy8p/DAp8gAghp+wjDKA
-	gkLzPQgyR83p/4uB82rvLWOx5VCs776Ltpb3JxttiBXJPJULcxR+rvbu6s7MoYVjEidOyVe9yfRK4
-	D70txHNg==;
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEY6p-00000009tf4-1drd
+	bh=l9YJv18Ob5fRSYpWoHOBPRjxzgmHk89rOMKnw0Dkb6I=; b=D46Vw2TNQJeZJkizmcyOH6VE3F
+	/nf5a1OXscAdaL0QQEIgooAPUv3s1BK5Vw8c7fuzktyEJ0yl28KsHxh7jCUGjPs2yN0uo7z5l+XPl
+	U7qbqbI05UCoFTb2Wn9X5KOWDs4f/J4y9KfSM97gTVdDLQ9AO0JQU51daKh7RsbSnkd08sYOMRMDb
+	loZxw9l+QvqsPTpQUfiCbPDx4icHdKcVU73RYJTUdram5YZBhbP9/woucFwGK4qvFB1D7DJcmpoyN
+	h1oqbMPccVX6AP93EmsImVvo85JYgyYA60uOcwchmgB8rlsJ8HwSNscAZA73ZWSiuU8ebvylbMQMO
+	AVTGtISw==;
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEYyW-0000000C5PN-3lya
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 19:14:58 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33dadf7c5beso1398495a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 13:10:25 -0700 (PDT)
+	Thu, 30 Oct 2025 20:10:28 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-32ee4998c50so1121545a91.3
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 13:10:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761855024; x=1762459824; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761855021; x=1762459821; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=IvM7TjIntZ9FlQ6yPFIX7Pdb82bcYcGNbKTNQ5X1yLU=;
-        b=RdSiSKIyH6Tgg2mEzMJ/kdJYVuXt0Nmq5Eei9V8Uw8R0b33vkVBhVPDFy7Rs5/VmPA
-         TtvSSHTo0tZKw4OZIyC56xvDS2pmbjyYI8eoB5zEMEq9T4mN6TXXSnjJwbw7RzGleXUz
-         lW6JXU9Rnoa2pCPUxbcxijyeAKkzJ6C0V9mVgPk7nKH0J6K6T7vIXb2vc8JYB/cB1Odw
-         uFBbUFJj5xPnVduLpc12xfc06PP+2+ztRlkgWEZDkZUMINtvtH2TGVR/JNprTUbHwTLb
-         jA4onYpKhBvcch+uNYeCRnIfWrf1dtvXXoi7GXIf5KGlkO0wlDXCEOycyKzw/IVaq0F5
-         +q7w==
+        bh=l9YJv18Ob5fRSYpWoHOBPRjxzgmHk89rOMKnw0Dkb6I=;
+        b=3dEKK0BOuXUq/kvQ62z1hnB9Wdd+ffhDNm9WNsEY6MJB3z7IOfGMhI68ITHvxG5wFe
+         8t7f8chZRc3A7DpbOkXHNeJ5FIeoBS3ww7ts8lHEvxvMBXDNrPPr7IEweZcr9EYkPmsR
+         URSns1NCEQHx3whOjtgr8wXuh7f/zbWyOLHvRd6VflbMFuzXxUi4XwaaMI74IUn0WNUg
+         yylsYouV0nrltuLXPI7aXDEZoZWEma5A+GZBniUeWuMecqbXtjIlewON2vuKEde7zm+e
+         nGmglywsznQKBZpsssymXh77IONwHlQ76imwkRwHl8UnO8XZfOn6Wk8Y2Wh1Hro8XTnd
+         3Zgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761855024; x=1762459824;
+        d=1e100.net; s=20230601; t=1761855021; x=1762459821;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=IvM7TjIntZ9FlQ6yPFIX7Pdb82bcYcGNbKTNQ5X1yLU=;
-        b=wcIa/bAMvX9XTIKN7GmWZSnJK52tv2LRIbxzPP43mSo0loO3BI2xhhcg8diyyn3UVp
-         EXD5GbVYKllr3gr+DvHYVBf3uUM+VpGV9tMKKh7Hpq1IXHIXwoq4INUOphHDT9fVcMcR
-         FwlvIsVf1I86Q2MSbkDvf8EwrqEsYIfYOnOCGuGz7XVsIo1v+YE004/hyFvzmp4mHFH0
-         Y6HPRyrx7iLJ+S5BU3OoWNErcntCw+5eb3axnIIF7xn4Wg5qW/hztmZWJVysEis/45q+
-         tiB6wCn+iezgx3ZIVpanysYLfelUh+VfuIiGjydIcKlczTsF9G5piOA8/3q1SwijtpTc
-         mWGA==
-X-Forwarded-Encrypted: i=1; AJvYcCUE2KfowsF1BtpwNsjhvBCwnOmXc+XRPxTPG9/6H3kQkcuS38+ybDxwELG5Ha/cS7X0K7FhNKxbKs7Jgg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YygJv3qBSZ3vLRidXJ+2royeqmvMSUcVHb54k1Ip8cr2vlxH97p
-	1Mg3R+NuxDcB8oSJxVDH/7Ar/ZRwYncwDdGUrNizkUrdZ3HFdLFhU+DOmPPVnNY7qlbSXIHjjUV
-	4Rs0Keg==
-X-Google-Smtp-Source: AGHT+IGgb27AO5v2WDGNnxGkmz0o+KOcj5EzJAo9YzbL1iR1u4hmGEpmIxfQoNCUxUiI3kNavEPI4qshnw4=
-X-Received: from pjdr2.prod.google.com ([2002:a17:90a:2e82:b0:340:8a98:4706])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3947:b0:340:6fae:1a0c
- with SMTP id 98e67ed59e1d1-34083070e80mr1280206a91.21.1761855023579; Thu, 30
- Oct 2025 13:10:23 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:09:33 -0700
+        bh=l9YJv18Ob5fRSYpWoHOBPRjxzgmHk89rOMKnw0Dkb6I=;
+        b=WJbdywJgVayPwUpq3Js9uQHWzvEL/gWsuSfUMegYSvO3fmoUcZn8rnQdZylr2xzWy0
+         Rv3fH6mh9HDZFfGCQTynZZXaGwANebXs3GjJSY25wvDZC/YhRIQzB8cmFdAPTxPcCN/t
+         aDnajLwejTmGbdLrFlu2ZbzoaGPJd/b1fCFkGStkYAwSKjEKCzm8F4Yz8Bbv5RHLXDxs
+         Dc/ULzL6zid0Hkj2AVVnrqBLxMmYKrd5Uv+pzkkT2D3tkgaJOOHWr8lorl/R1fvYESrT
+         Fm/RrnwK+YTFve+CAWuJ0uka25hUtmj/36ysNCVJAyUP8VgkTyNh1MOXFoYlE1nQvDTt
+         m6fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUhhGPThkt+yaFjFIRwfFcqHmwkKIyQmo5EvNeGfGsPiesHKiZQD1UdekxyvFzaqE1PiCu46Xgyoi3G0Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+/Osy5C/Rl5K+A0RU16mKSTY2jv2C8MbEnKLP3yy4sHQsWezA
+	GdSaauu2EKx3ez04NWbkYyMuPXSuPfuYr2SontvS9aGLq3J6GkmDxSCtYsYPMR8WmRhjW3bL6iU
+	gfqL0iw==
+X-Google-Smtp-Source: AGHT+IG+gFwz9Ni5D6YjNM4YmwfrZ1OxqSQdFqNs3bWhzX+cRsNM16o/ggLOmTawQXyQElnAsV5VYAZIDy0=
+X-Received: from pjvp23.prod.google.com ([2002:a17:90a:df97:b0:339:e59f:e26])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4e83:b0:33b:c5de:6a4e
+ with SMTP id 98e67ed59e1d1-34082fa592cmr1221665a91.5.1761855021014; Thu, 30
+ Oct 2025 13:10:21 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:09:32 -0700
 In-Reply-To: <20251030200951.3402865-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251030200951.3402865-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251030200951.3402865-11-seanjc@google.com>
-Subject: [PATCH v4 10/28] KVM: TDX: Fold tdx_sept_drop_private_spte() into tdx_sept_remove_private_spte()
+Message-ID: <20251030200951.3402865-10-seanjc@google.com>
+Subject: [PATCH v4 09/28] KVM: TDX: Return -EIO, not -EINVAL, on a
+ KVM_BUG_ON() condition
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -102,8 +103,9 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
 	Ackerley Tng <ackerleytng@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_191455_516118_0AA974B7 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20251030_201026_218368_0A325529 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,145 +123,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fold tdx_sept_drop_private_spte() into tdx_sept_remove_private_spte() as a
-step towards having "remove" be the only and only function that deals with
-removing/zapping/dropping a SPTE, e.g. to avoid having to differentiate
-between "zap", "drop", and "remove".  Eliminating the "drop" helper also
-gets rid of what is effectively dead code due to redundant checks, e.g. on
-an HKID being assigned.
+Return -EIO when a KVM_BUG_ON() is tripped, as KVM's ABI is to return -EIO
+when a VM has been killed due to a KVM bug, not -EINVAL.  Note, many (all?)
+of the affected paths never propagate the error code to userspace, i.e.
+this is about internal consistency more than anything else.
 
-No functional change intended.
-
+Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+Reviewed-by: Ira Weiny <ira.weiny@intel.com>
 Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
-Reviewed-by: Kai Huang <kai.huang@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 90 +++++++++++++++++++-----------------------
- 1 file changed, 40 insertions(+), 50 deletions(-)
+ arch/x86/kvm/vmx/tdx.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index c242d73b6a7b..abea9b3d08cf 100644
+index c3bae6b96dc4..c242d73b6a7b 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -1648,55 +1648,6 @@ static int tdx_sept_set_private_spte(struct kvm *kvm, gfn_t gfn,
- 	return tdx_mem_page_record_premap_cnt(kvm, gfn, level, pfn);
- }
+@@ -1621,7 +1621,7 @@ static int tdx_mem_page_record_premap_cnt(struct kvm *kvm, gfn_t gfn,
+ 	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
  
--static int tdx_sept_drop_private_spte(struct kvm *kvm, gfn_t gfn,
--				      enum pg_level level, struct page *page)
--{
--	int tdx_level = pg_level_to_tdx_sept_level(level);
--	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
--	gpa_t gpa = gfn_to_gpa(gfn);
--	u64 err, entry, level_state;
--
--	/* TODO: handle large pages. */
--	if (KVM_BUG_ON(level != PG_LEVEL_4K, kvm))
--		return -EIO;
--
--	if (KVM_BUG_ON(!is_hkid_assigned(kvm_tdx), kvm))
--		return -EIO;
--
--	/*
--	 * When zapping private page, write lock is held. So no race condition
--	 * with other vcpu sept operation.
--	 * Race with TDH.VP.ENTER due to (0-step mitigation) and Guest TDCALLs.
--	 */
--	err = tdh_mem_page_remove(&kvm_tdx->td, gpa, tdx_level, &entry,
--				  &level_state);
--
--	if (unlikely(tdx_operand_busy(err))) {
--		/*
--		 * The second retry is expected to succeed after kicking off all
--		 * other vCPUs and prevent them from invoking TDH.VP.ENTER.
--		 */
--		tdx_no_vcpus_enter_start(kvm);
--		err = tdh_mem_page_remove(&kvm_tdx->td, gpa, tdx_level, &entry,
--					  &level_state);
--		tdx_no_vcpus_enter_stop(kvm);
--	}
--
--	if (KVM_BUG_ON(err, kvm)) {
--		pr_tdx_error_2(TDH_MEM_PAGE_REMOVE, err, entry, level_state);
--		return -EIO;
--	}
--
--	err = tdh_phymem_page_wbinvd_hkid((u16)kvm_tdx->hkid, page);
--
--	if (KVM_BUG_ON(err, kvm)) {
--		pr_tdx_error(TDH_PHYMEM_PAGE_WBINVD, err);
--		return -EIO;
--	}
--	tdx_quirk_reset_page(page);
--	return 0;
--}
--
- static int tdx_sept_link_private_spt(struct kvm *kvm, gfn_t gfn,
- 				     enum pg_level level, void *private_spt)
- {
-@@ -1858,7 +1809,11 @@ static int tdx_sept_free_private_spt(struct kvm *kvm, gfn_t gfn,
- static int tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
- 					enum pg_level level, kvm_pfn_t pfn)
- {
-+	int tdx_level = pg_level_to_tdx_sept_level(level);
-+	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
- 	struct page *page = pfn_to_page(pfn);
-+	gpa_t gpa = gfn_to_gpa(gfn);
-+	u64 err, entry, level_state;
- 	int ret;
+ 	if (KVM_BUG_ON(kvm->arch.pre_fault_allowed, kvm))
+-		return -EINVAL;
++		return -EIO;
+ 
+ 	/* nr_premapped will be decreased when tdh_mem_page_add() is called. */
+ 	atomic64_inc(&kvm_tdx->nr_premapped);
+@@ -1635,7 +1635,7 @@ static int tdx_sept_set_private_spte(struct kvm *kvm, gfn_t gfn,
+ 
+ 	/* TODO: handle large pages. */
+ 	if (KVM_BUG_ON(level != PG_LEVEL_4K, kvm))
+-		return -EINVAL;
++		return -EIO;
  
  	/*
-@@ -1869,6 +1824,10 @@ static int tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
- 	if (KVM_BUG_ON(!is_hkid_assigned(to_kvm_tdx(kvm)), kvm))
- 		return -EIO;
+ 	 * Read 'pre_fault_allowed' before 'kvm_tdx->state'; see matching
+@@ -1658,10 +1658,10 @@ static int tdx_sept_drop_private_spte(struct kvm *kvm, gfn_t gfn,
  
-+	/* TODO: handle large pages. */
-+	if (KVM_BUG_ON(level != PG_LEVEL_4K, kvm))
+ 	/* TODO: handle large pages. */
+ 	if (KVM_BUG_ON(level != PG_LEVEL_4K, kvm))
+-		return -EINVAL;
 +		return -EIO;
-+
+ 
+ 	if (KVM_BUG_ON(!is_hkid_assigned(kvm_tdx), kvm))
+-		return -EINVAL;
++		return -EIO;
+ 
+ 	/*
+ 	 * When zapping private page, write lock is held. So no race condition
+@@ -1846,7 +1846,7 @@ static int tdx_sept_free_private_spt(struct kvm *kvm, gfn_t gfn,
+ 	 * and slot move/deletion.
+ 	 */
+ 	if (KVM_BUG_ON(is_hkid_assigned(kvm_tdx), kvm))
+-		return -EINVAL;
++		return -EIO;
+ 
+ 	/*
+ 	 * The HKID assigned to this TD was already freed and cache was
+@@ -1867,7 +1867,7 @@ static int tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
+ 	 * there can't be anything populated in the private EPT.
+ 	 */
+ 	if (KVM_BUG_ON(!is_hkid_assigned(to_kvm_tdx(kvm)), kvm))
+-		return -EINVAL;
++		return -EIO;
+ 
  	ret = tdx_sept_zap_private_spte(kvm, gfn, level, page);
  	if (ret <= 0)
- 		return ret;
-@@ -1879,7 +1838,38 @@ static int tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
- 	 */
- 	tdx_track(kvm);
- 
--	return tdx_sept_drop_private_spte(kvm, gfn, level, page);
-+	/*
-+	 * When zapping private page, write lock is held. So no race condition
-+	 * with other vcpu sept operation.
-+	 * Race with TDH.VP.ENTER due to (0-step mitigation) and Guest TDCALLs.
-+	 */
-+	err = tdh_mem_page_remove(&kvm_tdx->td, gpa, tdx_level, &entry,
-+				  &level_state);
-+
-+	if (unlikely(tdx_operand_busy(err))) {
-+		/*
-+		 * The second retry is expected to succeed after kicking off all
-+		 * other vCPUs and prevent them from invoking TDH.VP.ENTER.
-+		 */
-+		tdx_no_vcpus_enter_start(kvm);
-+		err = tdh_mem_page_remove(&kvm_tdx->td, gpa, tdx_level, &entry,
-+					  &level_state);
-+		tdx_no_vcpus_enter_stop(kvm);
-+	}
-+
-+	if (KVM_BUG_ON(err, kvm)) {
-+		pr_tdx_error_2(TDH_MEM_PAGE_REMOVE, err, entry, level_state);
-+		return -EIO;
-+	}
-+
-+	err = tdh_phymem_page_wbinvd_hkid((u16)kvm_tdx->hkid, page);
-+	if (KVM_BUG_ON(err, kvm)) {
-+		pr_tdx_error(TDH_PHYMEM_PAGE_WBINVD, err);
-+		return -EIO;
-+	}
-+
-+	tdx_quirk_reset_page(page);
-+	return 0;
- }
- 
- void tdx_deliver_interrupt(struct kvm_lapic *apic, int delivery_mode,
 -- 
 2.51.1.930.gacf6e81ea2-goog
 
