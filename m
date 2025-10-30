@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B690CCF9FC
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 13:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2EDECCF9FC
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 13:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PQnG5e9qATRq8e4DpA2I//zrhwrjsVkr+F1SGiiJOZM=; b=yv4aHxiMngrWY0
-	sDGWAbdfioMa04d1TMixZ5GgEdnEpOILdh/rWfGVVWeB20U0dbyKez6s4VLKfVjgj7GOr4MPnFtXx
-	gc4RJRrQEdUncKmIZ56uTop2wlNs0SFybFNJmF4N35YEtL2Dr/CuyjxEDU/oKUONantVDutvdo45l
-	znMtadM1eEglqeLIgzAyFpZn4t/irga7TlsZGayAyVKhMm1waGxp5jp9z5qWPZRVUm56ms5pKZCKd
-	XYNC7SEYIHxfI8cOO+qs8AKvAIhQuULHn50tAgBhp1KPb9WP3xFFehmsaLxOgNcclQ1lXEiOQQx6t
-	kyBlgNsxRmeC3FXO06Dg==;
+	List-Owner; bh=1XNKHxWei+t50zNSB9i+3jTCgC0+WQR1l7RNuaJ32/o=; b=PRWNuL0iL71e2n
+	J2c2LLd68GujY6A0ikbEelyF606A6AaYrqm2IvR+BLgYgqg11qhPKgg5w3/muYRW/kUskf3vH0Ueo
+	GiMyYWZaTu9E4NUScXAqNk2rfq586m6AcQhx30CveXFh2fr3jrvFVMuRtzyfE86aIDlvLy1ztrpbd
+	O2f+CpcCU/7ENGgecgA+KWoSz/Rdauoz9RtAkReXQnK1tOKAmtaN6sBtmdIvAuBgQ5OmnYxKstuq/
+	1d86orL5bVpbQWkMJVtPNQVjvxi67oZ5RGvY3+TGitwRHMDdFiFaFt4Nw2kBaXTDZXEjnyx77qRbk
+	EU1CjICj4w0JcouohWGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEStT-00000004DA9-0q9j;
-	Thu, 30 Oct 2025 13:40:47 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vET9J-00000004GB2-3hlC;
+	Thu, 30 Oct 2025 13:57:09 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEStQ-00000004D9f-45Md
+	id 1vET9H-00000004GAa-3azu
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 13:40:46 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vEStC-0002QT-NZ; Thu, 30 Oct 2025 14:40:30 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vEStC-006DiW-0z;
-	Thu, 30 Oct 2025 14:40:30 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vEStC-00000000AGH-0uQV;
-	Thu, 30 Oct 2025 14:40:30 +0100
-Message-ID: <4e3c3c3d6c1a0d2905a90e5f1c0b2cb8f67bc43b.camel@pengutronix.de>
-Subject: Re: [PATCH v6 1/7] reset: mpfs: add non-auxiliary bus probing
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Conor Dooley <conor@kernel.org>, claudiu.beznea@tuxon.dev
-Cc: Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
-	 <daire.mcnamara@microchip.com>, pierre-henry.moussay@microchip.com, 
-	valentina.fernandezalanis@microchip.com, Michael Turquette
-	 <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Thu, 30 Oct 2025 14:40:30 +0100
-In-Reply-To: <20251029-macarena-neglector-318431fec367@spud>
-References: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
-	 <20251029-macarena-neglector-318431fec367@spud>
-User-Agent: Evolution 3.56.1-1+deb13u1 
+	Thu, 30 Oct 2025 13:57:08 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-294fb21b0dcso9624155ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 06:57:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1761832627; x=1762437427; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c8VyXh52m2HmF6WkbMPxGheT256pmfI79AWNunisbZ0=;
+        b=hfkxbs4A87qWLsUYc/gXcgKzIjl6V9491Y+hHpHMZvALmHBXGdmtY40ydF9RSY7JO9
+         SG8ykvUYLnBDojGBa+KC+grL4AlHxp2w2jbRA1DhdxACygAlOyfWBYU56aQJR4LMTPw/
+         KHTtaaN5sSE2NKEJTO7Oe+SERvDS2u2lqZbhY7MSSWiNVUwmqxmK8/nX0TbOgemz7XII
+         hRHP41frLY/8doEegl6FXxOmrnBGU84oQlkx1r66r2THOSikAhGwBWUV0hfCRWx+AvDb
+         vbTwiAZsz3hV0AIq/+yowArAmVrthqmTGjX5z9MtarRpe/Qyv1WSzttbs7F9xpOB/vFs
+         xjZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761832627; x=1762437427;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=c8VyXh52m2HmF6WkbMPxGheT256pmfI79AWNunisbZ0=;
+        b=OaR0AtZG1u8BqoOhzc7dXTfuWAQ9W2yPl/8BqUqI0ymcnAQJ4kW3dZXkS+7GhfpN9Y
+         FEx/8eVgDfFSJAnX4B0PBR7Md/VoqO9fvYUi19NNnJL0tJGas9Q9vCs7YDckiUaCQSkz
+         JO4h+Vv9Ry3zgwBS1h8k1Zi2y7Knk/PKV9CHX13TN1PU8BbLbvcEVoLse/UdOUu+b5yi
+         T7r4xrfaWRMgih7ZkfLtkp+H4UaBbBCVVPkH+IyHtqPWcWC58t4w8imvViHzPGotehah
+         NaWbeW/jpovxO5I6oeR2DmuOI+tYVft+ghSh3JS44Lnx4Zi6QL5eDb7h3g0/33KdxYx8
+         TQHg==
+X-Gm-Message-State: AOJu0YxFm4XwsqmO/Is0RWCleU83rMKoVZPQnX/+l1EG7h/9siMyQL9U
+	O2lBe1PtgrKGZlLMiG9h606fWGZGwl0kw+I79f/Eyr+cu2crbvbbHSeOKHBGMQqWfeWO9IXoGGe
+	1rT9oCbQ=
+X-Gm-Gg: ASbGncvLC2zda5pbwuwOeotRjaKnGWwXJbPz++Mjz+RcRdtj0+hFPIKzrfY+x0E0KDU
+	kA95SCh1Cn022MLLy7zukXsJPCMKONGtoaI3CTfIT8zCuhtQszRHCSyOCoj54NlYiRdOYI/bz4L
+	pGRN9jnsKJ8+3CAwmoTEEx0I+jtSizJWvpS/JdzYN9gMtVackXXFv49sZKi8OrhMWbPAgEm6GpK
+	zZEkQ/M6fsmr93/jhPGlkKokoYCcAch9vpM21s7IT5GNq6OZ5VzSvw4U/cXbwLCu9JZiIs0PUIQ
+	PJ3B4GLTLiPDFQLvlqYYHAz1sdlZoCuJDwnYqS30YTC0C6c5YzXTY7U4a9PWrCKBBmH+W5cJukt
+	s5cYguZ1/HVOLzHwSLi6agHO+KwqX3cH8hRq2twH0peleFbV57foB6gd6oeihoeX+RMv4FQ9E8W
+	vmlmfI1tqksc0NhgAGto/+BWn3Ey2BrHK6iQy3jeVeylLTcNWVBezR8MN5v6JeMMU=
+X-Google-Smtp-Source: AGHT+IGCoAuBzTrQiSWc/Ld2jXG5kw739zrV1CLzqkJDo2K/6TZfdSsStOQfI7qh++gzFJ3h/uvC5g==
+X-Received: by 2002:a17:902:f550:b0:277:3488:787e with SMTP id d9443c01a7336-294dee0cebemr84296405ad.12.1761832626724;
+        Thu, 30 Oct 2025 06:57:06 -0700 (PDT)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498e495e8sm187071905ad.110.2025.10.30.06.57.02
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 30 Oct 2025 06:57:06 -0700 (PDT)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	apatel@ventanamicro.com,
+	guoren@kernel.org
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [RFC PATCH v1 1/4] riscv: mm: Introduce percpu loaded_asid
+Date: Thu, 30 Oct 2025 21:56:49 +0800
+Message-ID: <20251030135652.63837-2-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20251030135652.63837-1-luxu.kernel@bytedance.com>
+References: <20251030135652.63837-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_064045_033876_9855F53B 
-X-CRM114-Status: GOOD (  24.98  )
+X-CRM114-CacheID: sfid-20251030_065707_896067_0B46090D 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,130 +107,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2025-10-29 at 16:11 +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> While the auxiliary bus was a nice bandaid, and meant that re-writing
-> the representation of the clock regions in devicetree was not required,
-> it has run its course. The "mss_top_sysreg" region that contains the
-> clock and reset regions, also contains pinctrl and an interrupt
-> controller, so the time has come rewrite the devicetree and probe the
-> reset controller from an mfd devicetree node, rather than implement
-> those drivers using the auxiliary bus. Wanting to avoid propagating this
-> naive/incorrect description of the hardware to the new pic64gx SoC is a
-> major motivating factor here.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> v6:
-> - depend on MFD_SYSCON
-> - return regmap_update_bits() result directly instead of an additional
->   return 0
-> 
-> v4:
-> - Only use driver specific lock for non-regmap writes
-> 
-> v2:
-> - Implement the request to use regmap_update_bits(). I found that I then
->   hated the read/write helpers since they were just bloat, so I ripped
->   them out. I replaced the regular spin_lock_irqsave() stuff with a
->   guard(spinlock_irqsave), since that's a simpler way of handling the two
->   different paths through such a trivial pair of functions.
-> ---
->  drivers/reset/Kconfig      |  1 +
->  drivers/reset/reset-mpfs.c | 79 ++++++++++++++++++++++++++++++--------
->  2 files changed, 63 insertions(+), 17 deletions(-)
-> 
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index 78b7078478d4..0ec4b7cd08d6 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -200,6 +200,7 @@ config RESET_PISTACHIO
->  config RESET_POLARFIRE_SOC
->  	bool "Microchip PolarFire SoC (MPFS) Reset Driver"
->  	depends on MCHP_CLK_MPFS
-> +	depends on MFD_SYSCON
->  	select AUXILIARY_BUS
->  	default MCHP_CLK_MPFS
->  	help
-> diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
-> index f6fa10e03ea8..25de7df55301 100644
-> --- a/drivers/reset/reset-mpfs.c
-> +++ b/drivers/reset/reset-mpfs.c
-> @@ -7,13 +7,16 @@
->   *
->   */
->  #include <linux/auxiliary_bus.h>
-> +#include <linux/cleanup.h>
->  #include <linux/delay.h>
->  #include <linux/io.h>
-> +#include <linux/mfd/syscon.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
-> -#include <linux/slab.h>
-> +#include <linux/regmap.h>
->  #include <linux/reset-controller.h>
-> +#include <linux/slab.h>
->  #include <dt-bindings/clock/microchip,mpfs-clock.h>
->  #include <soc/microchip/mpfs.h>
->  
-> @@ -27,11 +30,14 @@
->  #define MPFS_SLEEP_MIN_US	100
->  #define MPFS_SLEEP_MAX_US	200
->  
-> +#define REG_SUBBLK_RESET_CR	0x88u
-> +
->  /* block concurrent access to the soft reset register */
->  static DEFINE_SPINLOCK(mpfs_reset_lock);
->  
->  struct mpfs_reset {
->  	void __iomem *base;
-> +	struct regmap *regmap;
->  	struct reset_controller_dev rcdev;
->  };
->  
-> @@ -46,41 +52,46 @@ static inline struct mpfs_reset *to_mpfs_reset(struct reset_controller_dev *rcde
->  static int mpfs_assert(struct reset_controller_dev *rcdev, unsigned long id)
->  {
->  	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
-> -	unsigned long flags;
->  	u32 reg;
->  
-> -	spin_lock_irqsave(&mpfs_reset_lock, flags);
-> +	if (rst->regmap)
-> +		return regmap_update_bits(rst->regmap, REG_SUBBLK_RESET_CR, BIT(id), BIT(id));
+The percpu loaded_asid records the asid currently used by each CPU.
 
-This could use regmap_set_bits().
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+---
+ arch/riscv/include/asm/mmu_context.h | 1 +
+ arch/riscv/mm/context.c              | 4 ++++
+ 2 files changed, 5 insertions(+)
 
-> +
-> +	guard(spinlock_irqsave)(&mpfs_reset_lock);
->  
->  	reg = readl(rst->base);
->  	reg |= BIT(id);
->  	writel(reg, rst->base);
+diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
+index 8c4bc49a3a0f5..fd532f8e8d057 100644
+--- a/arch/riscv/include/asm/mmu_context.h
++++ b/arch/riscv/include/asm/mmu_context.h
+@@ -39,6 +39,7 @@ static inline int init_new_context(struct task_struct *tsk,
+ }
+ 
+ DECLARE_STATIC_KEY_FALSE(use_asid_allocator);
++DECLARE_PER_CPU(unsigned long, loaded_asid);
+ 
+ #ifdef CONFIG_RISCV_ISA_SUPM
+ #define mm_untag_mask mm_untag_mask
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index 55c20ad1f7444..4d5792c3a8c19 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -32,6 +32,8 @@ static unsigned long *context_asid_map;
+ static DEFINE_PER_CPU(atomic_long_t, active_context);
+ static DEFINE_PER_CPU(unsigned long, reserved_context);
+ 
++DEFINE_PER_CPU(unsigned long, loaded_asid) = 0;
++
+ static bool check_update_reserved_context(unsigned long cntx,
+ 					  unsigned long newcntx)
+ {
+@@ -193,6 +195,8 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
+ 		  (cntx2asid(cntx) << SATP_ASID_SHIFT) |
+ 		  satp_mode);
+ 
++	this_cpu_write(loaded_asid, cntx2asid(cntx));
++
+ 	if (need_flush_tlb)
+ 		local_flush_tlb_all();
+ }
+-- 
+2.20.1
 
-Since I've just seen this in the i.MX8ULP series [1], it would be
-cleaner to convert the aux driver to regmap as well. The readl/writel()
-code paths could be dropped then.
-
-[1] https://lore.kernel.org/lkml/20251029135229.890-1-laurentiumihalcea111@gmail.com/
-
-[...]
->  static int mpfs_deassert(struct reset_controller_dev *rcdev, unsigned long id)
->  {
->  	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
-> -	unsigned long flags;
->  	u32 reg;
->  
-> -	spin_lock_irqsave(&mpfs_reset_lock, flags);
-> +	if (rst->regmap)
-> +		return regmap_update_bits(rst->regmap, REG_SUBBLK_RESET_CR, BIT(id), 0);
-
-And this could use regmap_clear_bits().
-
-regards
-Philipp
 
 _______________________________________________
 linux-riscv mailing list
