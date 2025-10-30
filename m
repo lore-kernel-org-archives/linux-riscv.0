@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEBCCCF9E3
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 15:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 273D5CCF9FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 16:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=jYHk/aZLNagDOckVe6vNhlOjRqdIf8lG+UCQvFouDSc=; b=WmvSiIbzUWD61y
-	HasX+bssVtrU4IZBTwS82jgb4I53VruS2iITm7Ri6WH12hO1zxmqkq2jHHmro0ljpG5wQLJFcpX7H
-	LSDYrIyEPyF2TN70SyISbqTfq0U9LhrTnzNiIm65C3V7wxX1weIc0fNrwH/zc0FLo+RkspVoNnYgP
-	Mk6lpcvc4vsrTtqjQYHPbLYNfx8Yh2AK/wljGZWJF8Cq9TGuYmP0N55oDMetiA59mZj14ZBlehW+Q
-	c1heyR4o5oZ6IBGbNTUbDpz5N/B2h2A25oBmIDcS/Ib76KQd99TV1Gw2VvIZvdmKhS2UPXX+X9fbn
-	DwMXjrGakJua3oA3kdSg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zBOBb6GLG1eiYn4C8ZEcFFD6fUnNl7tiU6eO9Yi078s=; b=MhI8W4BBJchaco
+	RJ5kK8g+amp6NPb7h8TrTwTM0rYlXlwVivPj1BLsdj/8/G7G6SulduqaBSLtDqWVd5TihkrJ5A5Zl
+	ZmXf+0m0rPY4PXKnU627Nl7pREif60Nl2PHZcfr/pt2QaO37mrNhjejY3dhRPCYF/V4xpY7OjNIm2
+	3OkpK+SnV/KFdzRqoMKhNggEjhkgSGAyteekkTjz6KXvQJx/Tx1xZu4dTBTQxx5blVTgzSketWOon
+	mc1gq+uDxm2HLOimLHqe8uC3Cb5vJe1DZ0oFDFxFvsY6/92ZQaKdeytH+/1keADoIpDq4g4xnipKy
+	di3zbzCkMDRe9bbAmyew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUcX-00000004O4p-3LmK;
-	Thu, 30 Oct 2025 15:31:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vEViJ-00000004TXz-3PeB;
+	Thu, 30 Oct 2025 16:41:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEUcW-00000004O4Q-0xYq;
-	Thu, 30 Oct 2025 15:31:24 +0000
+	id 1vEViG-00000004TXQ-1rHQ;
+	Thu, 30 Oct 2025 16:41:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3EAA660439;
-	Thu, 30 Oct 2025 15:31:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B243BC4CEF1;
-	Thu, 30 Oct 2025 15:31:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C0A1441B14;
+	Thu, 30 Oct 2025 16:41:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A17F5C4CEF1;
+	Thu, 30 Oct 2025 16:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761838282;
-	bh=BQKVwpOXmWrg/NEsihgDHlt6ylYYGyKXQx46PtRBNIE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=XFFZtvmLEsNprsgJCGzuegi3fo25BFtbyMKj/vENFC2KNhctUWYTRw+Ob7OEsPprU
-	 6RLUb4R0FtZX5SuSVghhYpA/qbFQ31O0l8MxxjFENM70+PpO+pvJ7y4nJGg6rYCVSF
-	 f1E/lZIO2nysDztmIhGwZgf77f/GEc/qLlGLVyRJ1bhbGEqIZ0izCUKouYbBbxhPwB
-	 o6ini4Cjp8T6XA47GbGqM/Hcb7VA5Nnpya3KjRlz+AgI/l83VQ/ip73xZZJMLHvUY6
-	 PIR6KCA1wLrqDh7IEl3L0xtmv1duKWtzakHljhYnSWSiCzKNnorQ1GlmH1r7EuGObb
-	 Pl+A6RH05shBg==
-Date: Thu, 30 Oct 2025 10:31:21 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-sh@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/7] MIPS: PCI: Use contextual data instead of global
- variable
-Message-ID: <20251030153121.GA1624982@bhelgaas>
+	s=k20201202; t=1761842483;
+	bh=aIoUwknKACszK3iv7HnkpaK0g2nYzhodMj6uyK4R4cI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OFfTgDYUwwtk9a3MXmhN+C5QZeQcKowOvQ7JtdxMp86xa7GEim8ms4eA76JdlZfHS
+	 eFhBevKSCYCx6yMiJ4R3yNh1fEKAOckpxYlBhI00S+GuEHbN3tDMHcHFjIQ1269XM1
+	 0162sMPeIP15mj38QzG6640TZdgvl0DyZO+zAfpQ7ma2P8O29xh8ZpHLOZ/sL32xe0
+	 iqWWZ9MUG/8ewMu0jydmDJAMYeZyKtiWVz81dJNlG9Bj+piDGu94CB0PcteyGg6uJe
+	 yPXStu00GL1l1YREbznHaQFRp4m3fyjHtsoP+kDTeTeOt9XtrZbecyLXwkT6Ds1J5w
+	 cFFbUk6PUfVZg==
+Date: Thu, 30 Oct 2025 22:11:12 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Johannes Erdfelt <johannes@erdfelt.com>, 
+	Aurelien Jarno <aurelien@aurel32.net>
+Cc: Alex Elder <elder@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, bhelgaas@google.com, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, vkoul@kernel.org, kishon@kernel.org, dlan@gentoo.org, 
+	guodong@riscstar.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, p.zabel@pengutronix.de, christian.bruel@foss.st.com, 
+	shradha.t@samsung.com, krishna.chundru@oss.qualcomm.com, qiang.yu@oss.qualcomm.com, 
+	namcao@linutronix.de, thippeswamy.havalige@amd.com, inochiama@gmail.com, 
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org, linux-phy@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/7] Introduce SpacemiT K1 PCIe phy and host controller
+Message-ID: <5kwbaj2eqr4imcaoh6otqo7huuraqhodxh4dbwc33vqpi5j5yq@ueufnqetrg2m>
+References: <20251013153526.2276556-1-elder@riscstar.com>
+ <aPEhvFD8TzVtqE2n@aurel32.net>
+ <92ee253f-bf6a-481a-acc2-daf26d268395@riscstar.com>
+ <aQEElhSCRNqaPf8m@aurel32.net>
+ <20251028184250.GM15521@sventech.com>
+ <82848c80-15e0-4c0e-a3f6-821a7f4778a5@riscstar.com>
+ <20251028204832.GN15521@sventech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <t3la3jte5tia7rh5ftuv5cchrwdxe4cxa2v3g6lxgoh5u6rmcy@hzw7lbke2vac>
+In-Reply-To: <20251028204832.GN15521@sventech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251030_094125_166544_3776CBF9 
+X-CRM114-Status: GOOD (  25.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,152 +80,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 01:16:12PM +0100, Thierry Reding wrote:
-> On Wed, Oct 29, 2025 at 12:46:54PM -0500, Bjorn Helgaas wrote:
-> > On Wed, Oct 29, 2025 at 05:33:31PM +0100, Thierry Reding wrote:
-> > > From: Thierry Reding <treding@nvidia.com>
-> > > 
-> > > Pass the driver-specific data via the syscore struct and use it in the
-> > > syscore ops.
-
-> > > +++ b/arch/mips/pci/pci-alchemy.c
-> > > @@ -33,6 +33,7 @@
-> > >  
-> > >  struct alchemy_pci_context {
-> > >  	struct pci_controller alchemy_pci_ctrl; /* leave as first member! */
-> > > +	struct syscore syscore;
-> > >  	void __iomem *regs;			/* ctrl base */
-> > >  	/* tools for wired entry for config space access */
-> > >  	unsigned long last_elo0;
-> > > @@ -46,12 +47,6 @@ struct alchemy_pci_context {
-> > >  	int (*board_pci_idsel)(unsigned int devsel, int assert);
-> > >  };
-> > >  
-> > > -/* for syscore_ops. There's only one PCI controller on Alchemy chips, so this
-> > > - * should suffice for now.
-> > > - */
-> > > -static struct alchemy_pci_context *__alchemy_pci_ctx;
-> > > -
-> > > -
-> > >  /* IO/MEM resources for PCI. Keep the memres in sync with fixup_bigphys_addr
-> > >   * in arch/mips/alchemy/common/setup.c
-> > >   */
-> > > @@ -306,9 +301,7 @@ static int alchemy_pci_def_idsel(unsigned int devsel, int assert)
-> > >  /* save PCI controller register contents. */
-> > >  static int alchemy_pci_suspend(void *data)
-> > >  {
-> > > -	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
-> > > -	if (!ctx)
-> > > -		return 0;
-> > > +	struct alchemy_pci_context *ctx = data;
-> > >  
-> > >  	ctx->pm[0]  = __raw_readl(ctx->regs + PCI_REG_CMEM);
-> > >  	ctx->pm[1]  = __raw_readl(ctx->regs + PCI_REG_CONFIG) & 0x0009ffff;
-> > > @@ -328,9 +321,7 @@ static int alchemy_pci_suspend(void *data)
-> > >  
-> > >  static void alchemy_pci_resume(void *data)
-> > >  {
-> > > -	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
-> > > -	if (!ctx)
-> > > -		return;
-> > > +	struct alchemy_pci_context *ctx = data;
-> > >  
-> > >  	__raw_writel(ctx->pm[0],  ctx->regs + PCI_REG_CMEM);
-> > >  	__raw_writel(ctx->pm[2],  ctx->regs + PCI_REG_B2BMASK_CCH);
-> > > @@ -359,10 +350,6 @@ static const struct syscore_ops alchemy_pci_syscore_ops = {
-> > >  	.resume = alchemy_pci_resume,
-> > >  };
-> > >  
-> > > -static struct syscore alchemy_pci_syscore = {
-> > > -	.ops = &alchemy_pci_syscore_ops,
-> > > -};
-> > > -
-> > >  static int alchemy_pci_probe(struct platform_device *pdev)
-> > >  {
-> > >  	struct alchemy_pci_platdata *pd = pdev->dev.platform_data;
-> > > @@ -480,9 +467,10 @@ static int alchemy_pci_probe(struct platform_device *pdev)
-> > >  	__raw_writel(val, ctx->regs + PCI_REG_CONFIG);
-> > >  	wmb();
-> > >  
-> > > -	__alchemy_pci_ctx = ctx;
-> > >  	platform_set_drvdata(pdev, ctx);
-> > > -	register_syscore(&alchemy_pci_syscore);
-> > > +	ctx->syscore.ops = &alchemy_pci_syscore_ops;
-> > > +	ctx->syscore.data = ctx;
-> > > +	register_syscore(&ctx->syscore);
-> > 
-> > As far as I can tell, the only use of syscore in this driver is for
-> > suspend/resume.
-> > 
-> > This is a regular platform_device driver, so instead of syscore, I
-> > think it should use generic power management like other PCI host
-> > controller drivers do, something like this:
-> > 
-> >   static int alchemy_pci_suspend_noirq(struct device *dev)
-> >   ...
-> > 
-> >   static int alchemy_pci_resume_noirq(struct device *dev)
-> >   ...
-> > 
-> >   static DEFINE_NOIRQ_DEV_PM_OPS(alchemy_pci_pm_ops,
-> >                                  alchemy_pci_suspend_noirq,
-> >                                  alchemy_pci_resume_noirq);
-> > 
-> >   static struct platform_driver alchemy_pcictl_driver = {
-> >           .probe          = alchemy_pci_probe,
-> >           .driver = {
-> >                   .name   = "alchemy-pci",
-> >                   .pm     = pm_sleep_ptr(&alchemy_pci_pm_ops),
-> >           },
-> >   };
-> > 
-> > Here's a sample in another driver:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/cadence/pci-j721e.c?id=v6.17#n663
-> 
-> I thought so too, but then I looked at the history and saw that it was
-> initially regular PM ops and then fixed by using syscore in this commit:
-> 
->     commit 864c6c22e9a5742b0f43c983b6c405d52817bacd
->     Author: Manuel Lauss <manuel.lauss@googlemail.com>
->     Date:   Wed Nov 16 15:42:28 2011 +0100
->     
->         MIPS: Alchemy: Fix PCI PM
->     
->         Move PCI Controller PM to syscore_ops since the platform_driver PM methods
->         are called way too late on resume and far too early on suspend (after and
->         before PCI device resume/suspend).
->         This also allows to simplify wired entry management a bit.
->     
->         Signed-off-by: Manuel Lauss <manuel.lauss@googlemail.com>
->         Cc: linux-mips@linux-mips.org
->         Patchwork: https://patchwork.linux-mips.org/patch/3007/
->         Signed-off-by: Ralf Baechle <ralf@linux-mips.org>
-
-The alchemy PCI controller is a platform_device, and it must be
-initialized before enumerating the PCI devices below it.  The same
-order should apply for suspend/resume (suspend PCI devices, then PCI
-controller; resume PCI controller, then PCI devices).
-
-So if this didn't work before, I think it means something is messed up
-with the device hierarchy.
-
-But I understand the difficulty of testing changes here, so syscore is
-simplest from that point of view.
-
-It does complicate maintenance though.  I think all of mips ultimately
-uses register_pci_controller() and pcibios_scanbus().  Neither really
-contains anything mips-specific, so they duplicate a lot of the code
-in pci_host_probe().  Oh well, I guess that's part of the burden of
-supporting old platforms forever.
-
-Bjorn
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+KyBBdXJlbGllbgoKT24gVHVlLCBPY3QgMjgsIDIwMjUgYXQgMDE6NDg6MzJQTSAtMDcwMCwgSm9o
+YW5uZXMgRXJkZmVsdCB3cm90ZToKPiBPbiBUdWUsIE9jdCAyOCwgMjAyNSwgQWxleCBFbGRlciA8
+ZWxkZXJAcmlzY3N0YXIuY29tPiB3cm90ZToKPiA+IE9uIDEwLzI4LzI1IDE6NDIgUE0sIEpvaGFu
+bmVzIEVyZGZlbHQgd3JvdGU6Cj4gPiA+IEkgaGF2ZSBiZWVuIHRlc3RpbmcgdGhpcyBwYXRjaHNl
+dCByZWNlbnRseSBhcyB3ZWxsLCBidXQgb24gYW4gT3JhbmdlIFBpCj4gPiA+IFJWMiBib2FyZCBp
+bnN0ZWFkIChhbmQgYW4gZXh0cmEgUlYyIHNwZWNpZmljIHBhdGNoIHRvIGVuYWJsZSBwb3dlciB0
+bwo+ID4gPiB0aGUgTS4yIHNsb3QpLgo+ID4gPiAKPiA+ID4gSSByYW4gaW50byB0aGUgc2FtZSBz
+eW1wdG9tcyB5b3UgaGFkICgiUUlEIDAgdGltZW91dCIgYWZ0ZXIgYWJvdXQgNjAKPiA+ID4gc2Vj
+b25kcykuIEhvd2V2ZXIsIEknbSB1c2luZyBhbiBJbnRlbCA2MDBwLiBJIGNhbiBjb25maXJtIG15
+IE5WTUUgZHJpdmUKPiA+ID4gc2VlbXMgdG8gd29yayBmaW5lIHdpdGggdGhlICJwY2llX2FzcG09
+b2ZmIiB3b3JrYXJvdW5kIGFzIHdlbGwuCj4gPiAKPiA+IEkgZG9uJ3Qgc2VlIHRoaXMgcHJvYmxl
+bSwgYW5kIGhhdmVuJ3QgdHJpZWQgdG8gcmVwcm9kdWNlIGl0IHlldC4KPiA+IAo+ID4gTWFuaSB0
+b2xkIG1lIEkgbmVlZGVkIHRvIGFkZCB0aGVzZSBsaW5lcyB0byBlbnN1cmUgdGhlICJydW50aW1l
+Cj4gPiBQTSBoaWVyYXJjaHkgb2YgUENJZSBjaGFpbiIgd29uJ3QgYmUgImJyb2tlbiI6Cj4gPiAK
+PiA+IAlwbV9ydW50aW1lX3NldF9hY3RpdmUoKQo+ID4gCXBtX3J1bnRpbWVfbm9fY2FsbGJhY2tz
+KCkKPiA+IAlkZXZtX3BtX3J1bnRpbWVfZW5hYmxlKCkKPiA+IAo+ID4gSnVzdCBvdXQgb2YgY3Vy
+aW9zaXR5LCBjb3VsZCB5b3UgdHJ5IHdpdGggdGhvc2UgbGluZXMgYWRkZWQKPiA+IGp1c3QgYmVm
+b3JlIHRoZXNlIGFzc2lnbm1lbnRzIGluIGsxX3BjaWVfcHJvYmUoKT8KPiA+IAo+ID4gCWsxLT5w
+Y2kuZGV2ID0gZGV2Owo+ID4gCWsxLT5wY2kub3BzID0gJmsxX3BjaWVfb3BzOwo+ID4gCWR3X3Bj
+aWVfY2FwX3NldCgmazEtPnBjaSwgUkVRX1JFUyk7Cj4gPiAKPiA+IEkgZG91YnQgaXQgd2lsbCBm
+aXggd2hhdCB5b3UncmUgc2VlaW5nLCBidXQgYXQgdGhlIG1vbWVudCBJJ20KPiA+IHdvcmtpbmcg
+b24gc29tZXRoaW5nIGVsc2UuCj4gCj4gVW5mb3J0dW5hdGVseSB0aGVyZSBpcyBubyBkaWZmZXJl
+bmNlIHdpdGggdGhlIHJ1bnRpbWUgUE0gaGllcmFyY2h5Cj4gYWRkaXRpb25zLgo+IAoKVGhlc2Ug
+YXJlIG5vdCBzdXBwb3NlZCB0byBmaXggdGhlIGlzc3VlcyB5b3Ugd2VyZSBmYWNpbmcuIEkgZGlz
+Y3Vzc2VkIHdpdGggQWxleApvZmZsaW5lIGFuZCBmaWd1cmVkIG91dCB0aGF0IEwxIHdvcmtzIGZp
+bmUgb24gaGlzIEJQSS1GMyBib2FyZCB3aXRoIGEgTlZNZSBTU0QuCgpBbmQgSSBiZWxpZXZlLCBB
+dXJlbGllbiBpcyBhbHNvIHVzaW5nIHRoYXQgc2FtZSBib2FyZCwgYnV0IHdpdGggZGlmZmVyZW50
+ClNTRHMuIEJ1dCB3aGF0IGlzIHB1enpsaW5nIG1lIGlzLCBMMSBpcyBicmVha2luZyBBdXJlbGll
+bidzIHNldHVwIHdpdGggMyBTU0RzCmZyb20gZGlmZmVyZW50IHZlbmRvcnMuIEl0IGFwcGFyZW50
+bHkgd29ya3MgZmluZSBvbiBBbGV4J3Mgc2V0dXAuIFNvIGl0IHNvbWVob3cKY29uZmlybXMgdGhh
+dCBSb290IFBvcnQgc3VwcG9ydHMgYW5kIGJlaGF2ZXMgY29ycmVjdGx5IHdpdGggTDEuIEJ1dCBh
+dCB0aGUgc2FtZQp0aW1lLCBJIGNhbm5vdCBqdXN0IHNheSB3aXRob3V0IGV2aWRlbmNlIHRoYXQg
+TDEgaXMgYnJva2VuIG9uIGFsbCB0aGVzZSBTU0RzCnRoYXQgeW91IGFuZCBBdXJlbGllbiB0ZXN0
+ZWQgd2l0aC4KClNvIHVudGlsIHRoYXQgaXMgZmlndXJlZCBvdXQsIEkndmUgYXNrZWQgQWxleCB0
+byBkaXNhYmxlIEwxIENBUCBpbiB0aGUKY29udHJvbGxlciBkcml2ZXIuIFNvIGluIHRoZSBuZXh0
+IHZlcnNpb24gb2YgdGhpcyBzZXJpZXMsIHlvdXIgU1NEcyBzaG91bGQgd29yawpvdXQgb2YgdGhl
+IGJveC4KCi0gTWFuaQoKLS0gCuCuruCuo+Cuv+CuteCuo+CvjeCuo+CuqeCvjSDgrprgrqTgrr7g
+rprgrr/grrXgrq7gr40KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
