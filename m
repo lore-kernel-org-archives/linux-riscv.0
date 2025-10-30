@@ -4,176 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8804ECCF9F1
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 10:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEA3CCF9F0
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 10:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=JYycuXL9A29sHfqHncE6+S44HwLjM2l90VDHVxG3kmc=; b=tNKGHCQjFJjMn+36noDMZEMQ3x
-	oZZW4pN2hZxjmJAoKJDx4ul1pTk+e238QwG3/mxAb58gtI5R6qhumRDqKj8hoXF+gRshFrdMMvA96
-	GEuDO5gMksvsE3yx7MAMfLzx8s3uNvhRIVBbvk7VJxqfd4+fSlO9HMie5PNQ8uTvHyA6H2ScukWVD
-	DGKyfj9iQEpBWZGJ/6spv18dkHy0vG36H7xCmQwARhuNfrrQUS6PewpIWmrmotvOU+L4gQChQum72
-	5a/NWKRheXttJlQNq5JAouW6SEOMI6aIFNuktLroWTfIVLqy0C00emWAJQUgx8zTJke25hA659luU
-	jymrkz1w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YdwilDbL32gxjabwL1CoCz+2NEulejzsaqKwj2kNpxs=; b=go6Z128dyMVYjd
+	V3Eoh6carzYAjFz+WUMp/Umupz0U0+HRoMOk1DkGdxUbMg21lSpACj9vhZ4T12FPSe+/g6dFqtgem
+	NekU9QunLVdrAJiVDiCODMY2twpzs4jJoIEGpsBu7pUq4XPWpIxDkhFcHGH+tDCZeGWL9k9aJiZOC
+	U+yahMqVDWBnNwEcoWzazQ3gz1TEQeitmvHbx8KDON45+9NWBhOzpWZXmGUryY7lBU3cUlU76zPsn
+	XF1qd4l4gRRSthWzFVIt3C5GdEQhKbnFMg/6BNbEf7u0DmELZ2NrQyVOvIYq5gBXOk3dpmdEU6eh/
+	egLK7Hwvvb87zGBlFxSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPo6-00000003xxx-2s3G;
-	Thu, 30 Oct 2025 10:23:02 +0000
-Received: from mail-westcentralusazon11010024.outbound.protection.outlook.com ([40.93.198.24] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vEPqK-00000003ygu-2ZuY;
+	Thu, 30 Oct 2025 10:25:20 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEPo4-00000003xwQ-00d8
+	id 1vEPqH-00000003yeg-2GGi
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 10:23:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oiDdAH271U9b9ImY/8pkBSIAk/PPQvcJWPBfd8f9dRq1XbvdgRJBUqhU6VpTi7RMSvVN1OJ3pN0aBSPOe6tmmC1EkPEAfdAwzpq4zejahMzYJvF+yae8jUA0/90kh6xPCbfkbEyrGMC2S4gmsY04SECvN0LFNbvUqkOdogYO16Hc9Ps/X68NbIuRUhXmszfVGsohyXak/HqU8uRErcwB4sf3zFMo6pbXV95jgBjJ4PH6zf5J3W2sfHlUXYcJltSbmQmR9/RtKuSQ9Nq1Rj14QvwaJ8PiKbezfQ7bBG/rsudMWo4NJ9sgTY7S8+38So6jOFx+aDOHKKvB4us+MCy7gw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+GslrXl2KSzkfz8y1KJaNFOJxYHSrZut4UeTuLS9zg4=;
- b=I0W9mCVMRZVhlMdCGIShEjwCl66G+g0CLURhorSHMpt34VtnNDzcObV6KGlDLaIjhhcgvZCNX6za7ApOsNkrC6FBNO2XA+bmbeeB6jBLzXY2JdVlwZozwQ4ipYlZjO+tWMt+h9aS4dS07EmRGk5UEiatGrRQ+DxpGkWfNWKJb86e1wS6M3W8fS/H7pIQSUKQBEUXX+YRu3/IoBMlGQCnw38MKMSpoGmSM4QEatw1CaHftxFxFB0G6EqSvtyPOhWcO8vToZx9Doa3YW93Lxc1MqNfgA8iAIeig1SgP2eBfTrWpWPG3gah62UkBYsxF6oacbl7LXk+hEx7GgkVq0BYkw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+GslrXl2KSzkfz8y1KJaNFOJxYHSrZut4UeTuLS9zg4=;
- b=vtdU52KuuUTZ2ZXWl7XrbbGAf42lPbXqCHvnq+tgjhLCNBFj2qbaJsxyYPIZBu/bs1LYIZQzcrTPzXGkqwTnrAdD9rNbHiPkTvvq8bSDG6dH41i8mzzM0EGNcove3rQEsQro3rc+bqXEk2gAzj3EjYOawrbEZBZsauk+I4Mufuo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) by
- IA0PR12MB8695.namprd12.prod.outlook.com (2603:10b6:208:485::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9275.13; Thu, 30 Oct 2025 10:22:54 +0000
-Received: from DS7PR12MB6048.namprd12.prod.outlook.com
- ([fe80::6318:26e5:357a:74a5]) by DS7PR12MB6048.namprd12.prod.outlook.com
- ([fe80::6318:26e5:357a:74a5%7]) with mapi id 15.20.9275.013; Thu, 30 Oct 2025
- 10:22:54 +0000
-Message-ID: <ce1af711-dbb9-474d-ad11-66018cdbc29b@amd.com>
-Date: Thu, 30 Oct 2025 15:52:40 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 13/15] iommu/amd: Use the generic iommu page table
-To: Jason Gunthorpe <jgg@nvidia.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
- Joerg Roedel <joro@8bytes.org>, Justin Stitt <justinstitt@google.com>,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
- Bill Wendling <morbo@google.com>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Miguel Ojeda <ojeda@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Shuah Khan <shuah@kernel.org>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Will Deacon <will@kernel.org>
-Cc: Alexey Kardashevskiy <aik@amd.com>,
- Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
- James Gowans <jgowans@amazon.com>, Kevin Tian <kevin.tian@intel.com>,
- Michael Roth <michael.roth@amd.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev
-References: <13-v7-ab019a8791e2+175b8-iommu_pt_jgg@nvidia.com>
-Content-Language: en-US
-From: Vasant Hegde <vasant.hegde@amd.com>
-In-Reply-To: <13-v7-ab019a8791e2+175b8-iommu_pt_jgg@nvidia.com>
-X-ClientProxiedBy: PN4PR01CA0028.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:273::9) To DS7PR12MB6048.namprd12.prod.outlook.com
- (2603:10b6:8:9f::5)
+	Thu, 30 Oct 2025 10:25:19 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b404a8be3f1so15861166b.1
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 03:25:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1761819915; x=1762424715; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lTgIsc3O+wDypaKqBlwZIo86kBPQGfr40arZuVCJ75M=;
+        b=HUAHUuoFux2zbNVWK5K8CNDgb39Yzl+w7F1AFPAmnuCB4blsRDkRMwLO1mtps+iFcK
+         aGuwuTpfQVr2auXe7Zh1lnyEOr9UnNZ1stywHys2NCJsVxsAyVvFkEUWGX+Z5OxlEYzq
+         evZGPBCrrQuBWyKvZkQ3nZc8nHo35X50WkF6KMaKMwwuxoALAxLTL0eoUcN36wg0WM8E
+         2Q7A1Z/TnjBSZKnxRlTnLgYyJlElQLfR0yC1yY0GKZPKirjmCvZuzDbk15c80NzaHi5p
+         o59RBw5r9Q9hRNlGY0uOMUPOeoRm7F7YdMj04T6bRCjOyTqjSv/jTJabiv6zYSJjaiWN
+         l96w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761819915; x=1762424715;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lTgIsc3O+wDypaKqBlwZIo86kBPQGfr40arZuVCJ75M=;
+        b=EZ7oczd0M/k3r8OZZW5Y7UBAG9Wr4UOsV72fMxX5Mory0JjYmS07XdQBBRnSzKkqNl
+         SJjZ8PLc7VQmiiwTyRF8slwawQ+0Rf/6cvhDySDpPbkBDdNmA2I6YhWh1SJQJuLBoVAz
+         aP4a7NMGbUg5AceVkzfXr++9mkBWJmS57mm+TRt5/LEMaKPSs1VH6xaTmmmC/rlvGG63
+         CUA1RSm8Zr6J//UVr2vDPfR9/ia0NGI8owtPBfaacNfiaPgRYxuLPxn/zZrilw858W6V
+         GmkhrSYkTCxrj/KQ4SEe2eJWE7gAT5+y2SufE1bivfbAYFNmqW8vdsO9q0Wsb1x6UKxZ
+         6tKw==
+X-Forwarded-Encrypted: i=1; AJvYcCXjh9O+TFAKYy8qrXQCVzWl3nx65cbtz8AJ2jcg2aDw9SjY9LsMiMkU1l8Mm+OUCb4XxHZfgc5Y2HOgLQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/dLJTPvrASsJbMpnpdT23usAsLhx3HkDEuHZ743XZ/37fkmwo
+	hweYLUevESmA1ebTHiuRq1R2TXQ/cU6C6Vftp2ef76ea+JiSxKsAPwt1DuMXNRH1u5c=
+X-Gm-Gg: ASbGncvvRd96XGYXEfTOqHEYfOjdlEzlWvS+mlD7WuEPftT6eM9PC5HcZ8MxgipfK2k
+	7zenAhV+CqgsEHyGz6DKZZDYCfrRwvRBo1ncL/X70KBFf7RrZnh04OqQJKA5Kg+X2eGK7izvQpl
+	IB63KAo3rjjA1+7zF5p6F4qzWjVkG5vNAOMsGJgyjFmY6Aw6MOvDh6o/FlohmYplzoIdAuiq5m8
+	zpVUgvO3mD8FIjQR4IfT13F3JLzcO/CUB0y/nl99w7wLajshar5SDBmWiC9fDcGBdVSXAF9cvBx
+	9KDa1Yw33aCq7eZMT0btsI2+evDDwhCJne84JTqa1ou2O8THgty5lTyDgbq347qhNTuZMMdQzkS
+	RKVK52yZaqsARNC2d3C0ekDyhPiPZ9wWFqjDSt0+19ntzhYHxSe99UU9L/w4IqGPz0jTSU/KoYD
+	YpLCcqYhHg/a1s/dTjDGBqxz9rAOjPWJXt1BBrohPzgeymwk0Jee213wv7OlCyanOLJAX+QJhiW
+	aSu
+X-Google-Smtp-Source: AGHT+IEXsUOIqP3MBMqvuO3EOkZU6BKA34oP58piwLuVoouucxjytl3skX6Ka8nntE+ckkHO79CK6A==
+X-Received: by 2002:a17:906:f586:b0:b6d:5439:e668 with SMTP id a640c23a62f3a-b703d55e454mr372826866b.8.1761819915166;
+        Thu, 30 Oct 2025 03:25:15 -0700 (PDT)
+Received: from mordecai (dynamic-2a00-1028-83b8-1e7a-3010-3bd6-8521-caf1.ipv6.o2.cz. [2a00:1028:83b8:1e7a:3010:3bd6:8521:caf1])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d853c549fsm1728375066b.37.2025.10.30.03.25.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Oct 2025 03:25:14 -0700 (PDT)
+Date: Thu, 30 Oct 2025 11:25:03 +0100
+From: Petr Tesarik <ptesarik@suse.com>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Josh
+ Poimboeuf <jpoimboe@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy
+ Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
+ <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron
+ <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel
+ <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, "David S.
+ Miller" <davem@davemloft.net>, Neeraj Upadhyay
+ <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
+ Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
+ Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>,
+ Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>, Jann Horn
+ <jannh@google.com>, Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov
+ <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>, Clark Williams
+ <williams@redhat.com>, Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti
+ <mtosatti@redhat.com>, Daniel Wagner <dwagner@suse.de>
+Subject: Re: [PATCH v6 06/29] static_call: Add read-only-after-init static
+ calls
+Message-ID: <20251030112251.5afcf9ed@mordecai>
+In-Reply-To: <20251010153839.151763-7-vschneid@redhat.com>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+	<20251010153839.151763-7-vschneid@redhat.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.50; x86_64-suse-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB6048:EE_|IA0PR12MB8695:EE_
-X-MS-Office365-Filtering-Correlation-Id: 33783d6c-390c-423c-6296-08de179e49bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M2ZHV0NJSFh4MWdpaTllT1liZkxuU2lnbzIxbnRIclV1Wk45Y2ZsMVJMS0Zw?=
- =?utf-8?B?N2ZEZithZ1lhTXJDQ25vaWpudjh0OTNtMEVTeE9KSnA2TVExVUlVMFN5ZEFW?=
- =?utf-8?B?b3UxTmVVWnRwOWlPWW1XVUhqTEphZXdmQjZmNlcvd1Y4eTFwZGtvV0ttNkxE?=
- =?utf-8?B?LzFHVXc2aFBYQUdwdk9XSVFCTlRqcGF3MytaNSthVXdwWHVyYnVEdEdMckNs?=
- =?utf-8?B?Vkd3QmtIUGh6QlVERENSMGIrdER2WDlGT0NhckN5dXB2elZsQmVPUWF1TG8r?=
- =?utf-8?B?N3IwS3JXRFhlamJtMC8zdW1VQlFPT0djOEh0bTRNaGFOV2VydkVxZERIVGVm?=
- =?utf-8?B?UnB3Z1lWcXlwQUdZQkkrUmZWbjhKVEdmOVNnT2FtNXJqY2pHVWpjdW01K1B0?=
- =?utf-8?B?cTJsMFlJSzc5eGtvalJ1WlZSWCtlTGkvSE13cEE2cml4eEdLbVZ3VFNHUTZC?=
- =?utf-8?B?bFRta211VzZwYitwQWkwTUlObkw0SlR6WFdna3Z5TWpHU08rMWN1amFoQnJu?=
- =?utf-8?B?N2p6cEgzd3JZNXZqMW03ZVNqM243K3piOEZrNkRWTWRFWWZSTWtlVkt6bHN1?=
- =?utf-8?B?bEFqblo0SmtBU2Q5UnJhWkx6aWZuaEQvZWRqc1FRQ2t2dWx3U1ZINUtCbHU1?=
- =?utf-8?B?NThONmtXSUpKaXlIdHh3bnVwVXdDZUN5aEthVnYwcTBGdjhHeTNwbW9kL294?=
- =?utf-8?B?RjJxdFZYdUFhUEx2WmhSWEFkTzJOaHlkeFBGUkVrdlp6Y3NBRCtnZnR1cTIx?=
- =?utf-8?B?aXV1YUlJRnNNMGpMaS9GOEJNc24vcURxTDRGZHJBNWNxWk1MMzhVZkhRbXk4?=
- =?utf-8?B?UXhIWkdHRGk3eFB3Q2hwcG5Kc1hjRnJ4Rkt4RWJaaEpCZjZubjdtVlJvRk9D?=
- =?utf-8?B?VWlMY2RyZzN1dW5JT2I4c1FFMG1FZ01ZNlB4c0FPWXVselFwcGZSOTY2Tk1U?=
- =?utf-8?B?TSs5bkV3TFpKMzRkeHdBSExpdDYvMTF3S2l4ZGRkSkJPWWRmSzZmYWp0T1N2?=
- =?utf-8?B?MkRnTU9ER3plY0tsV2dZelhuVEIvOE5CSWgwNk5ud0FiWndhOEZnSzRidjFB?=
- =?utf-8?B?eDBZYmtGTzJtOWFJbE01NVB6Qll4V0ptZm5xc2RXNlhHbVJKekFSWm1tNkcx?=
- =?utf-8?B?UWJaV0JlQnVHV1ltQXA0TkthSi9hMVpETXFaMGVmNys3TGR2OGxUenNubmE3?=
- =?utf-8?B?blVSRjNWbGErVkpBRTViTkxpV2dPQXE1WkY3S0xkcVg1KzNreWlhb1R2UUcw?=
- =?utf-8?B?SnVpL1l1aGF5NithTlZjbi8zcWdnWHVFSVVTYTY2QnZ1Skh4THVTRUMrbm1h?=
- =?utf-8?B?T2IwMGhMdXJ6aWV2Q2Vvb3J1ZGt3eXN3OVFXYkJJYjhwUEVaWlBXSDBFUUxC?=
- =?utf-8?B?R2dDbVE1SS9uQzBTY3hPblVxWXM1dVJ0dkJuQ1dNS05EK2FTZURPRzByemd1?=
- =?utf-8?B?V0t1dlo3YTkvczJIeEtsOVh4OWtnNURtYmxCeVV0c3dOT1lCdEhEZ2twVnpr?=
- =?utf-8?B?ZDFDeEhReDFZV1djbG1wZmFEKzFNSEwzcjNzcjd1UnViMVR3TGFHZC85NjJC?=
- =?utf-8?B?SG9udzRqcStTN29OYkFtNlNDcW1YY25oVndqa3N6U1NndTNTR1hTSmErWkNl?=
- =?utf-8?B?Z1BRN3Q0TW5iUU5OdnI1aVZUR0V4U2h0cFZieExtTzZuOTVvcEp1VlpZT3Zh?=
- =?utf-8?B?ZERBcjhNb1dLdUR0ZmxmelRybXlBRUxMU2NnSEpyZjhTQm0xQkgweUx6aHVt?=
- =?utf-8?B?dE1BYTZYVUpWVzU4MDNZNmMydXAxTHdQZG50N043aGVDZWtSMUU0SDFKaW1H?=
- =?utf-8?B?NlFtKzQrZjgwTG9LYmtBZnJkYmdHdnVmWldESzltZ1F6anZmMEE0U0p1N2U0?=
- =?utf-8?B?amJKZTNZYVNZYXZzdjh0ekMxWG1NTVpjbnl2M3dsMis1YUZHeW9HMGR5Myt4?=
- =?utf-8?B?MG1HdWFCNzlieTlYeXJBZzJPOGFKa0tMREE5SkQyYVVxbkZSaFF1ZGNOTm1N?=
- =?utf-8?Q?ulwbnM3qdgY38TSd7wrFoz4akxPxpg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6048.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c3JySTNDb0RFRXdWeW9rTTM2cjg2Z1Z5eWd5WjZHQndiQnJITnZtaS9vSC9t?=
- =?utf-8?B?aFF0N2RDT21oUVAzaE52TWlqdGR6eEFoS3lBZHE3ZjBqekNCSFZHR2svRE03?=
- =?utf-8?B?dm1aK1hmNnFGdHo5eHBlVEFEUDFqbWVDZkExSE9odDFpcm9oZERObklSUkl6?=
- =?utf-8?B?S2FIRXEyOFoxaE1Pek9zUElXTEdBbVROT1czenU2OFNsQTdxZC96L3dONEpu?=
- =?utf-8?B?cU4vb29vS2dhOWUwaHQ4R2ZrWkZEaGhCbFpuSnMxNlF3TlVpdlJZRVBDL1RJ?=
- =?utf-8?B?Z2Zab2w2cVlzNHBVUGZvYjBrenljNkdPK1k0V3FJZHBjeTRndHNUcHhTb3ZV?=
- =?utf-8?B?WXF0N2FwYlFudkRZb1kycEdWNXh3Vzd5czcwTUlPaWxEVlFMS3IvZVhraVFY?=
- =?utf-8?B?KzJMRTRxejFPR3I3Qm5WWENiYjlabXZJN092NmdORU1GZ09nZ1cxS0RFa3Ix?=
- =?utf-8?B?Um94SGZiSUZ6MnhPellrcTVOZkcrRmNNOHhSd3ZRMm1MdTFQKzYrSUh6WWFm?=
- =?utf-8?B?ekU2VzM1YVVzOERrd1M0bERlc2dQYUUyL0hpcklrbm5KZ2JnYkRacmF0VUg0?=
- =?utf-8?B?TEtSOHhpa3kzc3VQRkNVV01RRS8yaUN1dWdRT3E3djhMWVJaSFQ2eitMV01G?=
- =?utf-8?B?RzcxeGtpbFE3V1pmeURrSCtrYkZMNFIxQjVJNW9LYUhVZmtzakU5cU50TVZp?=
- =?utf-8?B?QWtsNmpOaDFXN1duN1BpRUVlU2E3dFczejhxSDdPUlF0cTVlK1dDeVJabFlE?=
- =?utf-8?B?dzJ3czN5VW5QZUZFWC81WHZMdDBJbkswTkRrWDJ6U3dkRUlOL1hMeHFSclZr?=
- =?utf-8?B?S09kMUFqcXZ3dzI2WXVyWHd2NkNteTJzclVQb2FSVWc0WjZ3dExUbDVyTy96?=
- =?utf-8?B?TXJMcWszTFJDdWlSYk0rc2l0ZW5ra1VZVzhTdDIzcThFaEpUaE45Wlk2TEo3?=
- =?utf-8?B?WEpDQlFhZ1pIRXBZVFVuQ1Y2WWFpMTJnTjJIVHlzNUdGWXFFVTBHcWw1VnZs?=
- =?utf-8?B?cmt4TGZNeU50U3loWlBwaHhMVGp5NEV2VXpPNzR1ejl3aExpNEVhc0pLZWli?=
- =?utf-8?B?VVdiZUh4YVROVnIwTVZWNENKZy8ybHBFcEJ2SjNHRG92cVlOUjk3RkRKS1gx?=
- =?utf-8?B?RDlmbC9QYjM0Mmg0Y3I1bmVXL29RN1JwcWNwYkFEQllOaFZPVkZPb2RvSUcx?=
- =?utf-8?B?Vy81aXJkNENIbUlGZGZJdDBKRS8xNC8yaDc5bGdTRDRBZ1BjQlFHS2NFREZN?=
- =?utf-8?B?aHh2aXduM2FUL0NsTGdLMU9abUtsbUxYRUFWTUluTDdDWGhKNVJxa3dUT3Bj?=
- =?utf-8?B?V1ErZXh6S0Zua1pJRng4aEZEakZTdGZZZ1R1bnFXMGpINTVtMW9qdS9nOVNx?=
- =?utf-8?B?QjdjUitJR3BySVVscjJSeC93MXUvYjFWMHdMUkxrZnhBME1wZ2FXT0dmS0VV?=
- =?utf-8?B?NzZQbm1aczBzNE96ZWo5dDNOWjBBdHpXOWtoNzgyNW5BMWpwLytzbklSZkNN?=
- =?utf-8?B?TEt2d2pCODk2VXhBd3ZXZ3ZBbGI5Y1NQb1JZQTFPZ2NuVUl0VHJYN09lNUdI?=
- =?utf-8?B?dy9hS2hxVjNyVURrTGZDZVAvQkp0YlViSEs2VmhpeTJDTC9yMTJYRUwvQWhX?=
- =?utf-8?B?NlFNRzZjS09iQUFXU1VhbjlaeGVWTjduMFAyUGREWDVuUloyT3lCQVFjWkJr?=
- =?utf-8?B?MUFQdEgzRTVWQ0ZmTng4bEQyeHJPQ1pVS2JnOElHcFNWamRKejh3YWdOQUZE?=
- =?utf-8?B?NUhBd1lGQUZiNjVMSUw5QmNhdlM5T2kzMFY2K3c2TEUvQUVGUnV2NFhuYTRW?=
- =?utf-8?B?eTNIVW5NcjVUQWdPa3lvL0FxOHpSNldsWm5tc210T1l3QVBlUDRjVkJZbHNL?=
- =?utf-8?B?aGRld1JHa3ozOTJUWSt3aXJOdHdHbG9PcVBpVmNmc2NETVhLR3RUa0VZaGtR?=
- =?utf-8?B?RmN1TFdTZW1iRTE1RVZsMEloMHlFY1FqbDdqWmliRTF6Q3ZNdHI2UDlFRXRG?=
- =?utf-8?B?Wk5uTWRsYjlKcFVxcTNFUkw1OXg1QzluU0R1cEhhUCtDVnhQaE1CNzZPL0s0?=
- =?utf-8?B?NGdWb1dJcm9WSE5vYU00ay9pV094UHFtU28zMEVHcDQzZmJ6TTl4eFZ6SkJm?=
- =?utf-8?Q?15FD4vs4POtleMc5688HT/1dH?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 33783d6c-390c-423c-6296-08de179e49bc
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6048.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2025 10:22:54.6802
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /kFCgOxKIz9kuE74Inge9rdSxzHjSK8P0Aqat/Kqay21WaEXtiMrTIM/y46DO1LZ2Ozj4qjQDdqCT7v1CW93QQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8695
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_032300_230480_E5B8CE3F 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20251030_032517_612556_0605AED4 
+X-CRM114-Status: GOOD (  26.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,52 +125,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/23/2025 11:50 PM, Jason Gunthorpe wrote:
-> From: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>
-> 
-> Replace the io_pgtable versions with pt_iommu versions. The v2 page table
-> uses the x86 implementation that will be eventually shared with VT-d.
-> 
-> This supports the same special features as the original code:
->  - increase_top for the v1 format to allow scaling from 3 to 6 levels
->  - non-present flushing
->  - Dirty tracking for v1 only
->  - __sme_set() to adjust the PTEs for CC
->  - Optimization for flushing with virtualization to minimize the range
->  - amd_iommu_pgsize_bitmap override of the native page sizes
->  - page tables allocate from the device's NUMA node
-> 
-> Rework the domain ops so that v1/v2 get their own ops. Make dedicated
-> allocation functions for v1 and v2. Hook up invalidation for a top change
-> to struct pt_iommu_flush_ops. Delete some of the iopgtable related code
-> that becomes unused in this patch. The next patch will delete the rest of
-> it.
-> 
-> This fixes a race bug in AMD's increase_address_space() implementation. It
-> stores the top level and top pointer in different memory, which prevents
-> other threads from reading a coherent version:
-> 
->    increase_address_space()   alloc_pte()
->                                 level = pgtable->mode - 1;
-> 	pgtable->root  = pte;
-> 	pgtable->mode += 1;
->                                 pte = &pgtable->root[PM_LEVEL_INDEX(level, address)];
-> 
-> The iommupt version is careful to put mode and root under a single
-> READ_ONCE and then is careful to only READ_ONCE a single time per
-> walk.
-> 
-> Signed-off-by: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>
-> Tested-by: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+On Fri, 10 Oct 2025 17:38:16 +0200
+Valentin Schneider <vschneid@redhat.com> wrote:
 
-I have reviewed and done some testing. Looks good to me.
+> From: Josh Poimboeuf <jpoimboe@kernel.org>
+> 
+> Deferring a code patching IPI is unsafe if the patched code is in a
+> noinstr region.  In that case the text poke code must trigger an
+> immediate IPI to all CPUs, which can rudely interrupt an isolated NO_HZ
+> CPU running in userspace.
+> 
+> If a noinstr static call only needs to be patched during boot, its key
+> can be made ro-after-init to ensure it will never be patched at runtime.
+> 
+> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+> ---
+>  include/linux/static_call.h | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+> 
+> diff --git a/include/linux/static_call.h b/include/linux/static_call.h
+> index 78a77a4ae0ea8..ea6ca57e2a829 100644
+> --- a/include/linux/static_call.h
+> +++ b/include/linux/static_call.h
+> @@ -192,6 +192,14 @@ extern long __static_call_return0(void);
+>  	};								\
+>  	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
+>  
+> +#define DEFINE_STATIC_CALL_RO(name, _func)				\
+> +	DECLARE_STATIC_CALL(name, _func);				\
+> +	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
+> +		.func = _func,						\
+> +		.type = 1,						\
+> +	};								\
+> +	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
+> +
+>  #define DEFINE_STATIC_CALL_NULL(name, _func)				\
+>  	DECLARE_STATIC_CALL(name, _func);				\
+>  	struct static_call_key STATIC_CALL_KEY(name) = {		\
+> @@ -200,6 +208,14 @@ extern long __static_call_return0(void);
+>  	};								\
+>  	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
+>  
+> +#define DEFINE_STATIC_CALL_NULL_RO(name, _func)				\
+> +	DECLARE_STATIC_CALL(name, _func);				\
+> +	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
+> +		.func = NULL,						\
+> +		.type = 1,						\
+> +	};								\
+> +	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
+> +
 
+I think it would be a good idea to add a comment describing when these
+macros are supposed to be used, similar to the explanation you wrote for
+the _NOINSTR variants. Just to provide a clue for people adding a new
+static key in the future, because the commit message may become a bit
+hard to find if there are a few cleanup patches on top.
 
-Reviewed-by: Vasant Hegde <vasant.hegde@amd.com>
-
--Vasant
-
+Just my two cents,
+Petr T
 
 _______________________________________________
 linux-riscv mailing list
