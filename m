@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA33CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 20:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8956CCF9F0
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 20:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rJSOW5yhLAIKDG8V9zBBUiqylzGu03gHmNU1Vw+JfEc=; b=Q9kskGvn4fuRRZ
-	wm1ZY/WO8Z9NwrvHNL4wd091j6tI/MiVTHq2QSTZeetnI7sq7HX+etTece+rJgZ773crZghF9atGt
-	rnv7FDMZsnB6atbvZ+gj0cemsSvF1YteESVK/SgP/nEs0CCZJ7bczZzJQ6rdrJAtkCRAIN2ng0tBd
-	Im99VTrzzI0drLpUVJezUyhOsUqoQ+sW6WnMq6iEDNU9BaJ9xwoLj0fSIg+hKq7vNjQ1y8u+j3saA
-	4/4nxoHNNc2NvdMB1oByglO/f0YR4ITojb74fGmaG29v0G2V6NYE0nqsI1kA0605sp6wc/1nucxOP
-	HcMGSUYbTOcymp+iq2PA==;
+	List-Owner; bh=gaEk85pHL2Ja1eIqHEJzCANcQG/P12hN8jYA5gaRzeg=; b=SRV7lOWSdD4TXC
+	6N2nPbntZZ9Xl0L0BTWNMyOGvRCEcBKiKsah7wcjINYJtSy6hZNaVqDDhhEsOUnEAYlnmSwfJc8mZ
+	sFDbu+TVFkAcWxnUUkQ2nLGKMvPuWJl2Ue4kXJKZvlKG7lvrnN2QMd1n8zw1V/XkJCIZBdlhKGi5I
+	XMlApm7knwA0Vo7TpGBPzwgHTk+r+oAqW2TXofQ2blJMH411cxRSdJxIfY4P84vSf7EaIHEqtVUmF
+	MnoBX/Ya0/1znmyTbQ2ibK3hVY73fBP9Dnmilcv4eXH41NbObvxw2kI4l9USw9lU6j0sqlMpobyvE
+	J23rNoGqnH8m5owLfXwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEZ17-00000004mjg-3AS6;
-	Thu, 30 Oct 2025 20:13:05 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1vEZ1A-00000004mnx-0dpy;
+	Thu, 30 Oct 2025 20:13:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYyv-00000004k7Z-2imy
+	id 1vEYz6-00000004kKu-2iXc
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 30 Oct 2025 20:11:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=HfwppzbkJFTqc1oDUhl9YAWd2H/Ydo3ViOcPjYsyqPw=; b=RDE97aIft6hvoPQW/dxcEjJrJ5
+	pVo83iYm2FHWxDQtv2+Kg+zgfvKRPIkM7+EoSlLJp1QhuWuHyam8ANJk9GNr8Kcaz0Ja/FTjwXpKx
+	GI8GpvvrVgClsuTJ6w6177zJWe/D7Nie3DGYN6A2BynLPPCDS15/jqdycS3EJPq74DDVqgoeAyg9C
+	H0QL8PsZwL4Wyr5Yre+EGtFb8PvnBcseiVIu2dXUOXgcVjmXD+nWsGP050n65tmZxB2ORKirZiyAf
+	u34QeED09WjGBnopbG+9WdJwku9QCO+OJL02dpFA8gOqIeNFV8k/FuunSLnHasNIS1ixAKY1nvOF8
+	BFZ4OSZg==;
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEY7J-00000009tz3-43sV
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 20:10:58 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b57cf8dba28so1198546a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 13:10:48 -0700 (PDT)
+	Thu, 30 Oct 2025 19:15:28 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3406aa44a1dso1645539a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 13:10:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761855048; x=1762459848; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761855055; x=1762459855; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=q3vUMZT0yYe1EXEiRgC8c4U03xvX09k6brWY3B4yx5I=;
-        b=dzKPMF4F1Z9SaFcllfHIaN5K7jMsdgV8GROEwAKF9VqldR9dL0y8FiZ2YnvRV8Nn8D
-         ylZfZ5l0cjNXBC7lRq5sNfY5LmeFEnxxRZoIADamHHDdwSnQQFU8Xs4dLIRe+ee0DFx1
-         oru1xaBuasQhz+qa+L7Vc5zoBzF0J3byQDuOtyOmc+n2ipKZUqMasqNicP7SY3Ga9fie
-         DRbxMClWMHT3SOTIrhqf7+F2/RIwknZbXOGNOjBJxKT9XZ6x7RAzeQEo21teoADAY5j3
-         yv0RKU1YfC+XpIXadgwutdhM4mWbe8BzB3IRhsAO22bVR7o4tXNwbh9euiktTHx6YPAH
-         Sdqw==
+        bh=HfwppzbkJFTqc1oDUhl9YAWd2H/Ydo3ViOcPjYsyqPw=;
+        b=O7cQMqOwjLnKfJBLVfB0+M2swNy0UfrjbOGSpgLgR5GU4n9c2J7d9ck3IA9WjK6EPR
+         WN3CTkr9A4xkoDbl5vzK3bT6l1iKTkMniwL29wlX+8teUBjltB6j99Ef3BxKKmr2ZpwK
+         RhoZiERodtb9q3DH/g54irTWgl8tH3c2I9M6ydqgDt4kV/qA6W08uecuky4ppSJM+ZBe
+         B+XaFGtSxbsInjmmH0mIhX7CSeCib2MCCS+Fx/WogGiYroziROi4fXSTSKjM822WjZBQ
+         05vURvFnvG+HWDDRV/ixV24eM3CSC/bYjNXjTknxHnWl6QrYsOIqkqay86wtQ9SFAo61
+         aAUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761855048; x=1762459848;
+        d=1e100.net; s=20230601; t=1761855055; x=1762459855;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=q3vUMZT0yYe1EXEiRgC8c4U03xvX09k6brWY3B4yx5I=;
-        b=PGThQgY8JFKHj1VxqC0vln3HyBhBeJzH4o/f+51YN2KGnoZbrlXNbAZkYGyeRrBEZE
-         CYsSdDe0T5VkjAia8SSokxV02m2Y8LIhDeq/IrirMy/UdBSizLRGY72PtplqbqWI6IBB
-         OpI2uoAvgjd6k2/QrBGP7S2rtUXquqsvqX5LFDy0X5/yA/6WbM9yBo1Tk9NFLXDXrN6z
-         f9gHT+DMVxIw8/7TLilCQNtd0Hq7qFLXJOjVL66uNSCy62zEBYEneFpyOkIITKtoRrlD
-         soGroLCzvuIpU6/Hun9frgnD9LHhTVHiGZTSCBE9cMfZXlwt/MqEPYKv7B6EdvBzt/di
-         fqwA==
-X-Forwarded-Encrypted: i=1; AJvYcCXIA7cblM9fkZtuTlyzLy7vfWTcmhV5jCAfDlIzGVWINnoJGASVBGaQnK1mz5Ty15MGauq/hX0qb4PcYQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHD3r0QnTeX2FG0mGjsS9y+AxH/rgrR9o5qH66fztJjeUN/Hys
-	n546zC8w5b46Jo8KhND0GTIc/d9hnOPq0kXYiPtohb6rj5mn+2YwttlIeimA/w4P8dqmk6wrVOX
-	eSZmPEA==
-X-Google-Smtp-Source: AGHT+IGMIUiQfnFXRwKgU4xakuBoSsZwl0KV10BIrj34ojpFyNKXcMvJLG+bxMBFJqWMl0yCEf0bmf3P3I0=
-X-Received: from pltj3.prod.google.com ([2002:a17:902:76c3:b0:294:8e58:7348])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2348:b0:295:1a63:57b0
- with SMTP id d9443c01a7336-2951a635c07mr12598385ad.23.1761855047670; Thu, 30
- Oct 2025 13:10:47 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:09:42 -0700
+        bh=HfwppzbkJFTqc1oDUhl9YAWd2H/Ydo3ViOcPjYsyqPw=;
+        b=aqR5UxLPf9hd6fhJKDuPWlI1quV3cGRJ0L0iRxXWIfmpmBJ7IzOR8yUdekcEy/1CRm
+         Seb5wsTcyARbOpnMi+QCZ29iBqL6t+k/Mq3fjUnc6N+ncdOlc2gvUr+oSm7wOWIHkTQa
+         HmZaME905ONbvm1E/6VKGsdM+ECR+BHIGEf/3qGQDNKHsNHV0JzuEpwzlpNwMWhrvXLz
+         arj4yQP2IiAI+Fd5rQUk4zwqQ+kVstlzbzWsvWMjcklij4zQ+qK0/Y5EkyJfYh8Fxm+m
+         EslNsLD569bCB6E0NFjDNXDsQZ+I8zUQLRhy0E71WFgjRPU9YLXCmP1SIpnJt8v5sUxS
+         AzxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUzT7c6TZv9hoGXlQY9BbQVY7MeW5LfKpPjUa0FIdQAtLV5pMPegQ9gLvPwdkgk31F1s/rhtZ7I0V5Gow==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyumWncGifbw+Lhssv1npsiVZuH9Tyz2eWOruseqQhLtrBfon5y
+	TNYAy+qGB3o6RLgKVK/aB3fxeRej+pIgYwon/Ppn5OzMXVLCs3nPlGmeH20pvc5/+pnrMyk8vxY
+	cqzGCoQ==
+X-Google-Smtp-Source: AGHT+IFgv0+NgL48Cma0Y79QUzd7lRP+/FCxQ0tZkUpinDRTeLAklkWHALMXu+tHUB2W7Y9sxKQZz0IMk4g=
+X-Received: from pjbbt9.prod.google.com ([2002:a17:90a:f009:b0:340:7770:2e30])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1f82:b0:32e:a5ae:d00
+ with SMTP id 98e67ed59e1d1-34082fc7b43mr1201499a91.13.1761855054620; Thu, 30
+ Oct 2025 13:10:54 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:09:45 -0700
 In-Reply-To: <20251030200951.3402865-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251030200951.3402865-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251030200951.3402865-20-seanjc@google.com>
-Subject: [PATCH v4 19/28] KVM: TDX: Derive error argument names from the local
- variable names
+Message-ID: <20251030200951.3402865-23-seanjc@google.com>
+Subject: [PATCH v4 22/28] KVM: TDX: Add tdx_get_cmd() helper to get and
+ validate sub-ioctl command
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -88,9 +103,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
 	Ackerley Tng <ackerleytng@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_131049_775168_492D4144 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_191526_066180_AD0E2BA8 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,43 +122,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When printing SEAMCALL errors, use the name of the variable holding an
-error parameter instead of the register from whence it came, so that flows
-which use descriptive variable names will similarly print descriptive
-error messages.
+Add a helper to copy a kvm_tdx_cmd structure from userspace and verify
+that must-be-zero fields are indeed zero.
 
-Suggested-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+No functional change intended.
+
+Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+Reviewed-by: Kai Huang <kai.huang@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+ arch/x86/kvm/vmx/tdx.c | 35 +++++++++++++++++++++--------------
+ 1 file changed, 21 insertions(+), 14 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index 5e6f2d8b6014..63d4609cc3bc 100644
+index 97632fc6b520..390c934562c1 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -41,14 +41,15 @@
- #define TDX_BUG_ON(__err, __fn, __kvm)				\
- 	__TDX_BUG_ON(__err, #__fn, __kvm, "%s", "")
+@@ -2782,20 +2782,29 @@ static int tdx_td_finalize(struct kvm *kvm, struct kvm_tdx_cmd *cmd)
+ 	return 0;
+ }
  
--#define TDX_BUG_ON_1(__err, __fn, __rcx, __kvm)			\
--	__TDX_BUG_ON(__err, #__fn, __kvm, ", rcx 0x%llx", __rcx)
-+#define TDX_BUG_ON_1(__err, __fn, a1, __kvm)			\
-+	__TDX_BUG_ON(__err, #__fn, __kvm, ", " #a1 " 0x%llx", a1)
++static int tdx_get_cmd(void __user *argp, struct kvm_tdx_cmd *cmd)
++{
++	if (copy_from_user(cmd, argp, sizeof(*cmd)))
++		return -EFAULT;
++
++	/*
++	 * Userspace should never set hw_error.  KVM writes hw_error to report
++	 * hardware-defined error back to userspace.
++	 */
++	if (cmd->hw_error)
++		return -EINVAL;
++
++	return 0;
++}
++
+ int tdx_vm_ioctl(struct kvm *kvm, void __user *argp)
+ {
+ 	struct kvm_tdx_cmd tdx_cmd;
+ 	int r;
  
--#define TDX_BUG_ON_2(__err, __fn, __rcx, __rdx, __kvm)		\
--	__TDX_BUG_ON(__err, #__fn, __kvm, ", rcx 0x%llx, rdx 0x%llx", __rcx, __rdx)
-+#define TDX_BUG_ON_2(__err, __fn, a1, a2, __kvm)	\
-+	__TDX_BUG_ON(__err, #__fn, __kvm, ", " #a1 " 0x%llx, " #a2 " 0x%llx", a1, a2)
+-	if (copy_from_user(&tdx_cmd, argp, sizeof(struct kvm_tdx_cmd)))
+-		return -EFAULT;
+-
+-	/*
+-	 * Userspace should never set hw_error. It is used to fill
+-	 * hardware-defined error by the kernel.
+-	 */
+-	if (tdx_cmd.hw_error)
+-		return -EINVAL;
++	r = tdx_get_cmd(argp, &tdx_cmd);
++	if (r)
++		return r;
  
--#define TDX_BUG_ON_3(__err, __fn, __rcx, __rdx, __r8, __kvm)	\
--	__TDX_BUG_ON(__err, #__fn, __kvm, ", rcx 0x%llx, rdx 0x%llx, r8 0x%llx", __rcx, __rdx, __r8)
-+#define TDX_BUG_ON_3(__err, __fn, a1, a2, a3, __kvm)	\
-+	__TDX_BUG_ON(__err, #__fn, __kvm, ", " #a1 " 0x%llx, " #a2 ", 0x%llx, " #a3 " 0x%llx", \
-+		     a1, a2, a3)
+ 	mutex_lock(&kvm->lock);
  
+@@ -3171,11 +3180,9 @@ int tdx_vcpu_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
+ 	if (!is_hkid_assigned(kvm_tdx) || kvm_tdx->state == TD_STATE_RUNNABLE)
+ 		return -EINVAL;
  
- bool enable_tdx __ro_after_init;
+-	if (copy_from_user(&cmd, argp, sizeof(cmd)))
+-		return -EFAULT;
+-
+-	if (cmd.hw_error)
+-		return -EINVAL;
++	ret = tdx_get_cmd(argp, &cmd);
++	if (ret)
++		return ret;
+ 
+ 	switch (cmd.id) {
+ 	case KVM_TDX_INIT_VCPU:
 -- 
 2.51.1.930.gacf6e81ea2-goog
 
