@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCDB6CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 20:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D14CCF9F0
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 20:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HPOexex1pWS/jYTDLg3z/rAChJ6YlPE4cS4N1KQHJEA=; b=VlU5GfvyBbPP8K
-	JJBDA7aA7H5+AAQGt91Tn/75OlFtD2MTXKtGy1fxERaSLWxv8TH34AFslXgLBhn1FMXtKfGAbd/QS
-	imn0vNDvD87TAFhw6KpokEOJd1ZeZFG/avuZe16yd8fl9uWV46BNj2F5i9u1wmqj/ZmAidFsPf8eJ
-	WAKIMwvjBhc09CNXwbPQtVpTKg4+6cJGo7enESx3OGsehaPs45voFNLBmHZC11d9mo4C91ohFnVFc
-	K34VR2FBjUmlD99+MIIr6SR91Bvjo3wavqjiGJcUlZNaPW+XccrLVGhMO2mYyBdV/1gD6To/09r0a
-	l10Q6zoQDF1lpb6K+hOg==;
+	List-Owner; bh=0hGxUOrGsJD38S6oKjSX4vyYIv7oNQGb0IhG0loZC3E=; b=uC4RAIYFTl4jP1
+	vvLtwOKH+hoiMGX6tnxfT4DOO4ao1l/NjP6/2int0TcCMslRm5hpXau2vu8CDNT+zIx6A/sHi8teT
+	yYNR6hQAAf02t8FrNxfu5UsKP4PJ1UCJa1500r0OUx4W7NzloRhMMIbEi/ZsGdQEoDAGulEwQYYt4
+	hKlaPpD4+iaclc8ZwbjTIpDDdy/e1vP/6gAx+7NDuysXmEKevOHuRdhgHo5ZDOgZgJd9WfBAORGvc
+	uIYCxHiQ7t33RhesrOLdyb60sZq+lz39a/gYIRyN+EFfaKxNcGJVsHPUSUWoz70BfGh2NeiJodUKG
+	Q+cTDtIQpvFzJr5LcfTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYzN-00000004kgS-1ZTg;
-	Thu, 30 Oct 2025 20:11:18 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYyb-00000004jjm-3FgP
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 30 Oct 2025 20:10:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=l9YJv18Ob5fRSYpWoHOBPRjxzgmHk89rOMKnw0Dkb6I=; b=D46Vw2TNQJeZJkizmcyOH6VE3F
-	/nf5a1OXscAdaL0QQEIgooAPUv3s1BK5Vw8c7fuzktyEJ0yl28KsHxh7jCUGjPs2yN0uo7z5l+XPl
-	U7qbqbI05UCoFTb2Wn9X5KOWDs4f/J4y9KfSM97gTVdDLQ9AO0JQU51daKh7RsbSnkd08sYOMRMDb
-	loZxw9l+QvqsPTpQUfiCbPDx4icHdKcVU73RYJTUdram5YZBhbP9/woucFwGK4qvFB1D7DJcmpoyN
-	h1oqbMPccVX6AP93EmsImVvo85JYgyYA60uOcwchmgB8rlsJ8HwSNscAZA73ZWSiuU8ebvylbMQMO
-	AVTGtISw==;
+	id 1vEYzQ-00000004kkc-1K1g;
+	Thu, 30 Oct 2025 20:11:20 +0000
 Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYyW-0000000C5PN-3lya
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEYyb-00000004jjt-3hm5
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 20:10:28 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-32ee4998c50so1121545a91.3
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 13:10:24 -0700 (PDT)
+	Thu, 30 Oct 2025 20:10:31 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-33bc5d7c289so2693148a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 13:10:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761855021; x=1762459821; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761855028; x=1762459828; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=l9YJv18Ob5fRSYpWoHOBPRjxzgmHk89rOMKnw0Dkb6I=;
-        b=3dEKK0BOuXUq/kvQ62z1hnB9Wdd+ffhDNm9WNsEY6MJB3z7IOfGMhI68ITHvxG5wFe
-         8t7f8chZRc3A7DpbOkXHNeJ5FIeoBS3ww7ts8lHEvxvMBXDNrPPr7IEweZcr9EYkPmsR
-         URSns1NCEQHx3whOjtgr8wXuh7f/zbWyOLHvRd6VflbMFuzXxUi4XwaaMI74IUn0WNUg
-         yylsYouV0nrltuLXPI7aXDEZoZWEma5A+GZBniUeWuMecqbXtjIlewON2vuKEde7zm+e
-         nGmglywsznQKBZpsssymXh77IONwHlQ76imwkRwHl8UnO8XZfOn6Wk8Y2Wh1Hro8XTnd
-         3Zgg==
+        bh=KH8ZMUFkaBzXjpSahKr3XCuyUdT65ecO9/HP1PAb4RI=;
+        b=NaG8Mj13BW6YqxXKxcTduYvnGaAN8JhGo7wuVEIAscXDr/VtSlTcvNcN69A5hnCZoY
+         4azGj5fmdnYmNa/5AjBSTEvC1BqumQ4PZEeAQr4fDBnhu/C6Jac9H0yPJKEq/sSGjil3
+         MldiMKTMOt7o6wRLnZJq98ZqyxmQSZhP4IppI8uXSfXI4xOnuKU9UM3JkQNZ4MUEDUMl
+         0UVykVkuhXs84U8ZODHXndO/6264Nm6n2BSfoT1Juxy4H6wtrWcQveMCno8DcTeMR4b+
+         bI9bMNfEOjzlDDxX1OTVCqH60aBqL4oUR1DIw7KoM9sQDkJYlVj40+Z5o6SwqbReXbEb
+         D4DA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761855021; x=1762459821;
+        d=1e100.net; s=20230601; t=1761855028; x=1762459828;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=l9YJv18Ob5fRSYpWoHOBPRjxzgmHk89rOMKnw0Dkb6I=;
-        b=WJbdywJgVayPwUpq3Js9uQHWzvEL/gWsuSfUMegYSvO3fmoUcZn8rnQdZylr2xzWy0
-         Rv3fH6mh9HDZFfGCQTynZZXaGwANebXs3GjJSY25wvDZC/YhRIQzB8cmFdAPTxPcCN/t
-         aDnajLwejTmGbdLrFlu2ZbzoaGPJd/b1fCFkGStkYAwSKjEKCzm8F4Yz8Bbv5RHLXDxs
-         Dc/ULzL6zid0Hkj2AVVnrqBLxMmYKrd5Uv+pzkkT2D3tkgaJOOHWr8lorl/R1fvYESrT
-         Fm/RrnwK+YTFve+CAWuJ0uka25hUtmj/36ysNCVJAyUP8VgkTyNh1MOXFoYlE1nQvDTt
-         m6fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUhhGPThkt+yaFjFIRwfFcqHmwkKIyQmo5EvNeGfGsPiesHKiZQD1UdekxyvFzaqE1PiCu46Xgyoi3G0Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+/Osy5C/Rl5K+A0RU16mKSTY2jv2C8MbEnKLP3yy4sHQsWezA
-	GdSaauu2EKx3ez04NWbkYyMuPXSuPfuYr2SontvS9aGLq3J6GkmDxSCtYsYPMR8WmRhjW3bL6iU
-	gfqL0iw==
-X-Google-Smtp-Source: AGHT+IG+gFwz9Ni5D6YjNM4YmwfrZ1OxqSQdFqNs3bWhzX+cRsNM16o/ggLOmTawQXyQElnAsV5VYAZIDy0=
-X-Received: from pjvp23.prod.google.com ([2002:a17:90a:df97:b0:339:e59f:e26])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4e83:b0:33b:c5de:6a4e
- with SMTP id 98e67ed59e1d1-34082fa592cmr1221665a91.5.1761855021014; Thu, 30
- Oct 2025 13:10:21 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:09:32 -0700
+        bh=KH8ZMUFkaBzXjpSahKr3XCuyUdT65ecO9/HP1PAb4RI=;
+        b=OtEgopnlbR+8xq1SPah9bytoLVw0mqfCygBRX9S9gPMxp3+F1CPDQkj/86hk7vKsd1
+         wMOzKZxfmRJrmaQG4z3M2DsZGP4a7drGjzhSVdWpiqeptfz9g3mPfczftWu53lTWD7Fk
+         SZqeZRjCteMEy9cn1R73DWNU7ZP0S3sSy8P6BaZbsmmhYK9uMnasWodd0+w9yeHYsb1v
+         WFvFtObqkVKCb16qc9xYpgOGwafmR2qi2WGTspuKIgK3DYKUXxNb+UTc+nxNbT+wqlEB
+         EgxSuS3jeAOkXf+n+6+P0eIOGJtw12V7RFTh+Ee1H+xO7a960MDZY9T3OmIsV4kfWn8v
+         LDxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVQ6ZK/P0A87XxpKEGbLXL3PjndevOJnjrCK43Pu9iu7Q6+2BPU+cb2L39B8jLCMnMAuhRA3Yfx95f8sA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzpt7nRslELRzs8n2u8ebLkoND09aLwQDQ7YXLS18S7YQz2tWCM
+	wG246CD5xO2IRRKtCe8UExqlxbtVyL+2ZKppK3TvfAzEKHx6fuhPRFMuRigcSdxYQbR6j6QBn/W
+	atTETYg==
+X-Google-Smtp-Source: AGHT+IGrJrKalEV3VAWt2uGzDiDeYhZVGRjeI1LK3deyE8hSeRDQF6nrnXg4JLxn0CpF+AukaegC2zqX/UE=
+X-Received: from pjbgj23.prod.google.com ([2002:a17:90b:1097:b0:33b:cfaf:ce3e])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1801:b0:330:6d5e:f17b
+ with SMTP id 98e67ed59e1d1-34083074dddmr1219299a91.21.1761855028166; Thu, 30
+ Oct 2025 13:10:28 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:09:35 -0700
 In-Reply-To: <20251030200951.3402865-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251030200951.3402865-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251030200951.3402865-10-seanjc@google.com>
-Subject: [PATCH v4 09/28] KVM: TDX: Return -EIO, not -EINVAL, on a
- KVM_BUG_ON() condition
+Message-ID: <20251030200951.3402865-13-seanjc@google.com>
+Subject: [PATCH v4 12/28] KVM: TDX: WARN if mirror SPTE doesn't have full RWX
+ when creating S-EPT mapping
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -103,9 +88,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
 	Ackerley Tng <ackerleytng@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_201026_218368_0A325529 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_131030_076489_D2836BBE 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,72 +107,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Return -EIO when a KVM_BUG_ON() is tripped, as KVM's ABI is to return -EIO
-when a VM has been killed due to a KVM bug, not -EINVAL.  Note, many (all?)
-of the affected paths never propagate the error code to userspace, i.e.
-this is about internal consistency more than anything else.
+Pass in the mirror_spte to kvm_x86_ops.set_external_spte() to provide
+symmetry with .remove_external_spte(), and assert in TDX that the mirror
+SPTE is shadow-present with full RWX permissions (the TDX-Module doesn't
+allow the hypervisor to control protections).
 
-Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-Reviewed-by: Ira Weiny <ira.weiny@intel.com>
-Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/x86/include/asm/kvm_host.h | 2 +-
+ arch/x86/kvm/mmu/tdp_mmu.c      | 3 +--
+ arch/x86/kvm/vmx/tdx.c          | 6 +++++-
+ 3 files changed, 7 insertions(+), 4 deletions(-)
 
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index b5867f8fe6ce..87a5f5100b1d 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -1848,7 +1848,7 @@ struct kvm_x86_ops {
+ 				void *external_spt);
+ 	/* Update the external page table from spte getting set. */
+ 	int (*set_external_spte)(struct kvm *kvm, gfn_t gfn, enum pg_level level,
+-				 kvm_pfn_t pfn_for_gfn);
++				 u64 mirror_spte);
+ 
+ 	/* Update external page tables for page table about to be freed. */
+ 	int (*free_external_spt)(struct kvm *kvm, gfn_t gfn, enum pg_level level,
+diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
+index e1a96e9ea1bb..9c26038f6b77 100644
+--- a/arch/x86/kvm/mmu/tdp_mmu.c
++++ b/arch/x86/kvm/mmu/tdp_mmu.c
+@@ -515,7 +515,6 @@ static int __must_check set_external_spte_present(struct kvm *kvm, tdp_ptep_t sp
+ 	bool was_present = is_shadow_present_pte(old_spte);
+ 	bool is_present = is_shadow_present_pte(new_spte);
+ 	bool is_leaf = is_present && is_last_spte(new_spte, level);
+-	kvm_pfn_t new_pfn = spte_to_pfn(new_spte);
+ 	int ret = 0;
+ 
+ 	KVM_BUG_ON(was_present, kvm);
+@@ -534,7 +533,7 @@ static int __must_check set_external_spte_present(struct kvm *kvm, tdp_ptep_t sp
+ 	 * external page table, or leaf.
+ 	 */
+ 	if (is_leaf) {
+-		ret = kvm_x86_call(set_external_spte)(kvm, gfn, level, new_pfn);
++		ret = kvm_x86_call(set_external_spte)(kvm, gfn, level, new_spte);
+ 	} else {
+ 		void *external_spt = get_external_spt(gfn, new_spte, level);
+ 
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index c3bae6b96dc4..c242d73b6a7b 100644
+index 7ab67ad83677..658e0407eb21 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -1621,7 +1621,7 @@ static int tdx_mem_page_record_premap_cnt(struct kvm *kvm, gfn_t gfn,
+@@ -1629,14 +1629,18 @@ static int tdx_mem_page_record_premap_cnt(struct kvm *kvm, gfn_t gfn,
+ }
+ 
+ static int tdx_sept_set_private_spte(struct kvm *kvm, gfn_t gfn,
+-				     enum pg_level level, kvm_pfn_t pfn)
++				     enum pg_level level, u64 mirror_spte)
+ {
  	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
- 
- 	if (KVM_BUG_ON(kvm->arch.pre_fault_allowed, kvm))
--		return -EINVAL;
-+		return -EIO;
- 
- 	/* nr_premapped will be decreased when tdh_mem_page_add() is called. */
- 	atomic64_inc(&kvm_tdx->nr_premapped);
-@@ -1635,7 +1635,7 @@ static int tdx_sept_set_private_spte(struct kvm *kvm, gfn_t gfn,
++	kvm_pfn_t pfn = spte_to_pfn(mirror_spte);
  
  	/* TODO: handle large pages. */
  	if (KVM_BUG_ON(level != PG_LEVEL_4K, kvm))
--		return -EINVAL;
-+		return -EIO;
+ 		return -EIO;
  
++	WARN_ON_ONCE(!is_shadow_present_pte(mirror_spte) ||
++		     (mirror_spte & VMX_EPT_RWX_MASK) != VMX_EPT_RWX_MASK);
++
  	/*
  	 * Read 'pre_fault_allowed' before 'kvm_tdx->state'; see matching
-@@ -1658,10 +1658,10 @@ static int tdx_sept_drop_private_spte(struct kvm *kvm, gfn_t gfn,
- 
- 	/* TODO: handle large pages. */
- 	if (KVM_BUG_ON(level != PG_LEVEL_4K, kvm))
--		return -EINVAL;
-+		return -EIO;
- 
- 	if (KVM_BUG_ON(!is_hkid_assigned(kvm_tdx), kvm))
--		return -EINVAL;
-+		return -EIO;
- 
- 	/*
- 	 * When zapping private page, write lock is held. So no race condition
-@@ -1846,7 +1846,7 @@ static int tdx_sept_free_private_spt(struct kvm *kvm, gfn_t gfn,
- 	 * and slot move/deletion.
- 	 */
- 	if (KVM_BUG_ON(is_hkid_assigned(kvm_tdx), kvm))
--		return -EINVAL;
-+		return -EIO;
- 
- 	/*
- 	 * The HKID assigned to this TD was already freed and cache was
-@@ -1867,7 +1867,7 @@ static int tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
- 	 * there can't be anything populated in the private EPT.
- 	 */
- 	if (KVM_BUG_ON(!is_hkid_assigned(to_kvm_tdx(kvm)), kvm))
--		return -EINVAL;
-+		return -EIO;
- 
- 	ret = tdx_sept_zap_private_spte(kvm, gfn, level, page);
- 	if (ret <= 0)
+ 	 * barrier in tdx_td_finalize().
 -- 
 2.51.1.930.gacf6e81ea2-goog
 
