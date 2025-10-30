@@ -4,121 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5B2CCFA04
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 12:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32542CCF9FC
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 12:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eodVXIB51E5HyrMCyxN0irPsK1LigNDmyFyKqnxshdQ=; b=1kxPS0B+Ipz3sJIkkkasHwafsm
-	rkphvYGCrHE2F61G+wcBf74+BcCTa01LLSwB1HwNYF6vHeJGU8vx41KwxJcj7CedTeg/yHyiLjHqE
-	kInwswcvw3W+bUXnb/w6WACryjQCU8mAIFiGpTXrrO5Qdi6cXb7C83KC+xcBBpYeRsIkYR9j0OIaQ
-	hfg6/+BmPpMapi72F0DVHxARCuLncT1JZvnZgakYjDN08couqUVNP3BgoGenMXN7dUGb3LxLXhocf
-	iWW8v9qZwqtndmSyOk+MdqwVh/8fNOkjiQ08uw+qnAo0rF7qz8+OxAc7nSgKVMmevy347nfOcompR
-	v9ut7eQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3l5QV1SHdOsIFCPlFcSQEirA8UqPavxh1ZjPkA6isPg=; b=sHHu+paMDFaW9+
+	4G1tRP3OojDk67U2genDo2kVgc6pJYxtJNULR9swETrVlw6f+SLE8hU+B3u82ilv9RIGiDuEsR0Wz
+	/9WEV6Hq3bprmhiJf6VsqA8l59jbZBDEus6C41XoATeg/CzyRimiy6tpSU9Z7tMoIfeAXqpl8KI+6
+	NtC8Oonze5D6yxKWYCbJjSvcj868O0sUsdVEm/ymsPa2WI+SM5R20KtZmf9UCOWDoHp1iW0IXJ7/p
+	XE4VaEg14E3Xrps2jBeNswLu1krHkrIbYmQkxV2IvdcvtKroYQcr5qYlD7OR5Cl3MR86p/rWYiIl3
+	q/6cKBDILco1uPPJR2qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vES6a-0000000492J-1DkY;
-	Thu, 30 Oct 2025 12:50:16 +0000
-Received: from serval.cherry.relay.mailchannels.net ([23.83.223.163])
+	id 1vESCF-00000004ADW-0XuB;
+	Thu, 30 Oct 2025 12:56:07 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vES6W-0000000491d-2awz
+	id 1vESCC-00000004ADB-4B5v
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 12:50:14 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 776BB8C0811;
-	Thu, 30 Oct 2025 12:50:09 +0000 (UTC)
-Received: from fr-int-smtpout16.hostinger.io (trex-green-4.trex.outbound.svc.cluster.local [100.124.162.95])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 3ABDF8C1FCC;
-	Thu, 30 Oct 2025 12:50:05 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1761828608; a=rsa-sha256;
-	cv=none;
-	b=y34sBHE5oOtQ3vZrXxjfFAHwsCRLhVkzy0mansGrQx//f4+8uDiMx1jVfxvYWTjEUeiR8t
-	NeZ6Jp/x0y1KPbYO1XhokxoSXPZFlMVi/C4SLruCbYIea6chTN2BouI+sduTdQHVmX/Bl9
-	PyQWl7UCePnECSB1j06LbbVh9lX38+n0S7j70QWbmxjLIwMigbJQy0RHpxdd8eVEahZgnL
-	p4082B8YAB2veE9TuDB0GeqYersYrDlJByyV4rdY4Q898czaubIVfUEeSeja850zwoiYPU
-	+/5keTbEflANU2oXFsvdi702u8huTW6CK0r2F4sup4q87eictEV1U7eauBgpgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1761828608;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=Gz3xQ+hmZGgEDLHwvY3zzhydvK+yGJ/MdRVQe4JZJGo=;
-	b=5OQuRYFcBL/vQljZA0nyxz9w0K+bjoOsOb7oVzqN/WzAZBGPZ/vHy/+xeRW/ukmDYj1EBj
-	Yx8Evj72sa9FgHjnbSeDUdE/HP1ItPKQ/odhH9l1NJtgrTAsfg4Bh8SUrFzKh+1PLkvwq4
-	LAN5+TYucEN9dIQfLVDQb6TVTXKVWAzvZ0s21aEmvsOFB4M/UqFW/U+ZiBaLYaVZkiTf9F
-	1TW3T1FfOp3x5zolu6d+Jl4L7TLW6YVC102b6L5EIx5ULXPznjmcEqbwbCOrwJBNxsD0sz
-	XF62yg5V4qKceDZTm0NKnhcFrCs1C5gdai7B79N3qu84xYjjOmtjOlXiG3pTeg==
-ARC-Authentication-Results: i=1;
-	rspamd-77bb85d8d5-j8sw9;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Obese-Gusty: 4d5da9715151f960_1761828608645_2022255201
-X-MC-Loop-Signature: 1761828608645:2649050027
-X-MC-Ingress-Time: 1761828608645
-Received: from fr-int-smtpout16.hostinger.io (fr-int-smtpout16.hostinger.io
- [148.222.54.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.124.162.95 (trex/7.1.3);
-	Thu, 30 Oct 2025 12:50:08 +0000
-Received: from [IPV6:2001:861:4450:d360:c0a5:3392:2a75:70e6] (unknown [IPv6:2001:861:4450:d360:c0a5:3392:2a75:70e6])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4cy3qF4xcDz1xnw;
-	Thu, 30 Oct 2025 12:50:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1761828603;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Gz3xQ+hmZGgEDLHwvY3zzhydvK+yGJ/MdRVQe4JZJGo=;
-	b=D0eda/wHwY9vazv1OtQ95Hg7X3tM7MUtG5e8JpkWV/f+mqXUQ3oJ6YjPHLtwjh/0Wpg2eI
-	AfzptSgVexOZFna7mwcN1r/Pr/zlacsL1v5QGUWdht0b2l08CT5MmatJi7IL8qtcj1w7o7
-	2o3FfIwDqVlxJvh4Wa276E/zCFUNPn5veyDYUG/UfVKBdtUeXLTPHWPq9sQ7ENbX/vdLpQ
-	NIUMPj68ZA+ParyFxJs3Cq2v4sHs5pYu3LdLDMi9exAGFHePYQtIqwDtoDjlgbAiLm4jHj
-	cEIfzXtyRFjYRC+ZES2Ehs3RPOxxmGHvHr6nKniRRwhXnr3vNmHh1sh8GGZNOA==
-Message-ID: <b81536ee-5acf-4308-aa22-c374c4a3b8f7@rootcommit.com>
+	Thu, 30 Oct 2025 12:56:06 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vESBz-0004nE-8s; Thu, 30 Oct 2025 13:55:51 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vESBx-006DFj-09;
+	Thu, 30 Oct 2025 13:55:49 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vESBw-000000009Jt-3zT9;
+	Thu, 30 Oct 2025 13:55:48 +0100
+Message-ID: <845f360bb63bf3db5a57f90a5c474271a7194d9a.camel@pengutronix.de>
+Subject: Re: [PATCH v3 0/5] Add reset controllers for other TH1520 subsystems
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yao Zi <ziyao@disroot.org>, Drew Fustini <fustini@kernel.org>, Guo Ren	
+ <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley	 <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou	 <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Michal Wilczynski	 <m.wilczynski@samsung.com>
+Date: Thu, 30 Oct 2025 13:55:48 +0100
+In-Reply-To: <20251014131032.49616-1-ziyao@disroot.org>
+References: <20251014131032.49616-1-ziyao@disroot.org>
+User-Agent: Evolution 3.56.1-1+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, unicorn_wang@outlook.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- alexander.sverdlin@gmail.com, rabenda.cn@gmail.com,
- thomas.bonnefille@bootlin.com, chao.wei@sophgo.com,
- liujingqi@lanxincomputing.com, devicetree@vger.kernel.org,
- sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/3] arm64: dts: sophgo: add initial Milk-V Duo S board
- support
-To: Inochi Amaoto <inochiama@gmail.com>, Joshua Milas <josh.milas@gmail.com>
-References: <20251011014811.28521-1-josh.milas@gmail.com>
- <20251011014811.28521-3-josh.milas@gmail.com>
- <hkdnjyldwr4watvizsju4qcvpvkb3mtt5rathaooembpceyufx@ega5xrqj6v3y>
- <aOqtt7BDXxItrs7W@sleek>
- <bsol3uim4brrrsdmvuk6f3uzampbki2pyhziap6x4rw7txl435@rwoxrnctkf3y>
- <aP6UJFPP-ReYPzmq@sleek>
- <4bdad288-250b-4e94-abea-eb231fba5beb@rootcommit.com>
- <7e37k5hdn7nnn7cxnfrzqfy7h7a3ofnaf4r6rgk7exehrhsn2i@rvxjxvh2sodw>
-Content-Language: en-US, fr
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Organization: Root Commit
-In-Reply-To: <7e37k5hdn7nnn7cxnfrzqfy7h7a3ofnaf4r6rgk7exehrhsn2i@rvxjxvh2sodw>
-Date: Thu, 30 Oct 2025 12:50:01 +0000 (UTC)
-X-CM-Analysis: v=2.4 cv=DJTd4DNb c=1 sm=1 tr=0 ts=69035efb a=oMt8lXEVxmMAvUTv2ASLGA==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=qwwWCKxYK2TD6zjFQdwA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
-X-CM-Envelope: MS4xfNwpELjTKPpT2hRmqJcNaPWk81N8hSnY8Avz0V4rzyS53iFZkWJTT7Pe/VnUWgiWXf75c7PedFqG4YtNsCCFz9FBxE6WAyWJcIUFAaSgGtJrYxd06Il3 eXkCsPWR4B+muheKfLDvKNJDEh9xd4Z/9z40a/s+ngnQfXEfWxfqppYd1DcI3xZ57V8fmz85KeksQ1Tknsc3+skkLMasLVwVmUkpExW1KkgSlQyTbzCHeK54 v05gKnX6moG1Z7D5KBMgaETDP5KEfeT+GUl3Lt5rmsHaIrZn2OfrKx4OCPWhQlFOK8dBxPGiNXYLqy9I7U+RaDaZ7L53K/nMYkI+StWqZbhPL10GnuvjfObH ERsRgRRVu03Hasaxe2tIHRL89dCqoRPCwBPpGJapaEJlEdC/0yn2N4XFcgl4x1hloXyOWio7eCVcKaHfj0XngffvzJ3Df7RRQrxNwhGKBbX4d5oZFSwzNPxh zAAjD7MenjfzXT8FGyygcQimLTCga7XBFAb6lJKR6TQ2n2Er4AGjQLdyGZY5r30V/hEiH85iHCMH6MYcH+yh0Y5RsxpOg+B78eRskJ8B2ycUcS5Fp0sm5XOk F4xplmp3CwZ39+vEvaPRm4vZ5s+UKfccoiTtEowgz+29BCplw5kKBP7zcZx9EFTeB2sHYAr4WtnUww/u7ZEb+N4iKusQUFOMQVOe+srsBrzdCh6Bbo64TROF 4t+srDpziUQoaVBkVkPG9yGtLd7SZGp8yafhi2j5H/YznwyC/2uW2Ye0uBqIQtbbF0HiiXVx5dcnTlrXbMyMRm0wFGUVTWWog/fOlKZDUAvhjHUjryGE0ZL7 ye+kobiDGJVqj1c5owdFAAtE8yFGE1JvF/BLK9LhoM7az6nIeVNLxb1X/jJHxkAmTLaAUKAvAYjLUBClrR+VvCeyO0GP6be5l6L7yBfg15eo3h6tXo34H/tD n4NZ6Q==
-X-AuthUser: michael.opdenacker@rootcommit.com
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_055013_207252_257BCEA4 
-X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-CacheID: sfid-20251030_055605_056946_621F8787 
+X-CRM114-Status: UNSURE (   9.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,37 +75,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi,
+On Di, 2025-10-14 at 13:10 +0000, Yao Zi wrote:
+> TH1520 SoC is split into several subsystems, and each of them comes with
+> distinct reset controllers. We've already had the one for VO subsystem
+> documented as "thead,th1520-reset" and supported, and this series adds
+> support for others, including AO, VI, MISC, AP, DSP and VO.
+> 
+> For TH1520_RESET_ID_{NPU,WDT0,WDT1}, these're reset signals that have
+> been introduced along with support for the VO reset controller. However,
+> registers in control of these resets don't stay in the VO reset region,
+> instead they're AP-subsystem resets, thus the original ABI is
+> problematic. I remove them in PATCH 1 and reintroduce them in PATCH 2.
+[...]
 
-Thanks a lot for the guidance!
+Patches 1-4 applied to reset/next, thanks!
 
-On 10/29/25 01:53, Inochi Amaoto wrote:
-> In fact, I see the maintainers do not agree adding every possible
-> configuration to the DTS, (especially without "omit-if-unused" flag).
-> And in many case, it is impossible to add all possibility. As a
-> result, I prefer to use DTS overlay if there is something custom,
-> and keep the mainline DTS minimum.
+[1/5] dt-bindings: reset: thead,th1520-reset: Remove non-VO-subsystem resets
+      https://git.pengutronix.de/cgit/pza/linux/commit/?id=68ce5ac15ff8
+[2/5] dt-bindings: reset: thead,th1520-reset: Add controllers for more subsys
+      https://git.pengutronix.de/cgit/pza/linux/commit/?id=76001d5d3cd1
+[3/5] reset: th1520: Prepare for supporting multiple controllers
+      https://git.pengutronix.de/cgit/pza/linux/commit/?id=ac3d323caee8
+[4/5] reset: th1520: Support reset controllers in more subsystems
+      https://git.pengutronix.de/cgit/pza/linux/commit/?id=f5da5084e282
 
-I guess you meant "/omit-if-no-ref/". Good to know!
-
-> In fact the priority is the thing that is hard to decide. This is why
-> I suggesting keeping compatible with the vendor kernel, as many people
-> starts with vendor kernel and it is a good thing to refer.
-This makes sense. Thanks again.
-Cheers
-Michael.
-
--- 
-Michael Opdenacker
-Root Commit
-Yocto Project and OpenEmbedded Training course - Learn by doing:
-https://rootcommit.com/training/yocto/
-
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
