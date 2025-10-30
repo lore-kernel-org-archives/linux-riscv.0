@@ -4,90 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B19CCF9F0
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 12:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5B2CCFA04
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 12:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zvGZJFLt3SqzpvTQiMGGanbXIZL+rq0BWwtzuHDGq4E=; b=c4uDCd2OddK6wewnFf9wAEC0gL
-	aqZ8ExMiBppl5ieYoAOY1z5i6ds8q8G1YvQuS8LlnioZV1GPfL5BL0MRCzZ4UhLrjZmAnyiqY2V0p
-	JN0urnCPWXKOKRdi9MsPvfw1+aSzXNbvEaC6EPCd+VOS0goSvtuUL7A1DdDHqyJZZP8pEVNFgd96y
-	TnyzH0r/kFTeBYCB0+NAXrMjDfRAU+vvdt9HwyN5rcrZ0wLqwEiIRo0h3sbUMDH+Ve9UUkAzyi7ee
-	9QRNnD7XtH5uneQBtQOowmQhLe9D8c7a4ReSEPjepxENuUYdGHANmD7BmzTNl7jyiPdMmQF/mqXuO
-	wNqHAw0A==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eodVXIB51E5HyrMCyxN0irPsK1LigNDmyFyKqnxshdQ=; b=1kxPS0B+Ipz3sJIkkkasHwafsm
+	rkphvYGCrHE2F61G+wcBf74+BcCTa01LLSwB1HwNYF6vHeJGU8vx41KwxJcj7CedTeg/yHyiLjHqE
+	kInwswcvw3W+bUXnb/w6WACryjQCU8mAIFiGpTXrrO5Qdi6cXb7C83KC+xcBBpYeRsIkYR9j0OIaQ
+	hfg6/+BmPpMapi72F0DVHxARCuLncT1JZvnZgakYjDN08couqUVNP3BgoGenMXN7dUGb3LxLXhocf
+	iWW8v9qZwqtndmSyOk+MdqwVh/8fNOkjiQ08uw+qnAo0rF7qz8+OxAc7nSgKVMmevy347nfOcompR
+	v9ut7eQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERlG-000000047MU-09i1;
-	Thu, 30 Oct 2025 12:28:15 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1vES6a-0000000492J-1DkY;
+	Thu, 30 Oct 2025 12:50:16 +0000
+Received: from serval.cherry.relay.mailchannels.net ([23.83.223.163])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERlC-000000047Kf-0NBw
+	id 1vES6W-0000000491d-2awz
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 12:28:11 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-429b9b6ce96so361014f8f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 05:28:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761827288; x=1762432088; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4faCkAArvXRFWP/BvJT3qCkXJoGOkTL/9xvSBBThwwA=;
-        b=j7D/M6xWUEPfU8IefZ8rhyGsbG70Qul+ZBNtYVkeGGB7SfnP1zKxnqfj+AHWEytLEX
-         jbXfYuklnYtpA9nhSFaCGrD/UGd+Ph2Wg/Em2EDY+YeM4ItLV7Eya/LVsdUcRJ9f4Nz2
-         U9IdF7+1gBuIRgSi/Kq8aQC7h1kGDgL5UaxA2B4Lz7RCKvHMojJiOtgo1lQrn4QKsUoi
-         2m8LkgG0gfgrvmOLFWXwndp56Mb33lxW1YgRqcRZmtRNtIzr4X9QA97LJV6G2PvY5GyX
-         makHInk73+MdYjKtJCxFCmnW0AgyaKtcMQ8vFyOinmW6sOIaPcn0i/NpDYENhON4DnMj
-         trHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761827288; x=1762432088;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4faCkAArvXRFWP/BvJT3qCkXJoGOkTL/9xvSBBThwwA=;
-        b=KhELCslAXxB2lH6+3Q/6y7i1fvWjt0wIn931bbRFKetB93gBtPgkMo5APcLDySvRDn
-         1BnvYFG14wTgNZEPUuPRvjC9xSSPTYdhWib3KucjIoCF6lqxAYrhz44cpSukCYKCAWTj
-         ifIe4a6iEMFo1pv8WTw/R2Uz/Y194K0JitPmlN7qjglArTnfK/KJN+Vk5GRx7UwcVZZI
-         hjsRqGzllDjZ0zaop9biAYfY90DZZmhPqt4cu7GPjuexJz81Lv/wuJVMcXrP2lPV8DaX
-         qnYRF/J9cbb+GLeBqgd/yWdK02QqywrrHFJazEx37gp4J9sSp/UYdY+9Bb05h6hrtttT
-         sRlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVgEvTY87F9G6anWnm9Wmbo3xFhkT1+qp/MoK1+SCLL3fxhNG9mzSBK2nvUcD+3vVshxnscx8/WvD+0sQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJ3mG1R1s1nchP45eF6pps9/y5LJ5dgcfLKkuTjKx3VKG9hrWi
-	eNVuILHq5O0l1vryzGbLDuv85UFI8n4U5iAehXhvcxgqcjvaHTNL7Wdc
-X-Gm-Gg: ASbGncvT7wv7/HFU+sd3KflGPPHnGgMK+z6X2bY0AqanxWW9zdc/yZlwQjf0cCgxkSJ
-	Loz1xJffESM1Qy1i0i9DMvtriHO1zQZXOwEKNi6QeR1KQOh5cQ9kKGTmRTYnLGq3CFf9Mz9c8eJ
-	9v0e9cvrT+cwBgj+4N4AicUktEGWIFY3EuS1RsWHS5EnYfo1RB3c7jOM4iiFId+obd8vT8uTAYw
-	on6SiCWxZRLfJ9IYWjCvkHCRF0b8Kcm+LMdesFVW/9SDxSiCDYTKvJB6zuOoVKkuXrocjD+yIm/
-	JZ6PStBAp1RMg2mffBLTWc7REnLrok9OS4M1O9qv+mKWu182Z9xV84v7q4ZhFjOxyE1LldusDXH
-	6GLBAXzrEUrrUTm2ExDUiLrH/fCv01/Rpbu0g9tjNEmPwVM4+rqm7aeBbOak3Tb9Sr61sD+/5Qz
-	raTJ6dKuc4gBYC2RiMJg0rWvXiPeCxikiZzGHj2YWt1iusgUMGbWevopkZMY3VuCxlxMxNoELO/
-	g==
-X-Google-Smtp-Source: AGHT+IFohGfPrMB+gEC0PPjeDu6wKsKn5Xw4tnoTnVq6JsR15gq4re74GuIZTwiApDmgxJjGG1cQpQ==
-X-Received: by 2002:a5d:5d06:0:b0:3ec:d78d:8fcc with SMTP id ffacd0b85a97d-429aef82ae4mr6294449f8f.14.1761827288007;
-        Thu, 30 Oct 2025 05:28:08 -0700 (PDT)
-Received: from orome (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429ba445463sm2028625f8f.10.2025.10.30.05.28.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 05:28:06 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:28:04 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/7] clk: ingenic: tcu: Use contextual data instead of
- global variable
-Message-ID: <5psq67p7ozmfz6mbi626q2uixqtbtfpejkhud5fv6wqr66xasz@ksiokkf5qsgr>
-References: <20251029163336.2785270-5-thierry.reding@gmail.com>
- <20251029175647.GA1572736@bhelgaas>
+	Thu, 30 Oct 2025 12:50:14 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 776BB8C0811;
+	Thu, 30 Oct 2025 12:50:09 +0000 (UTC)
+Received: from fr-int-smtpout16.hostinger.io (trex-green-4.trex.outbound.svc.cluster.local [100.124.162.95])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 3ABDF8C1FCC;
+	Thu, 30 Oct 2025 12:50:05 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1761828608; a=rsa-sha256;
+	cv=none;
+	b=y34sBHE5oOtQ3vZrXxjfFAHwsCRLhVkzy0mansGrQx//f4+8uDiMx1jVfxvYWTjEUeiR8t
+	NeZ6Jp/x0y1KPbYO1XhokxoSXPZFlMVi/C4SLruCbYIea6chTN2BouI+sduTdQHVmX/Bl9
+	PyQWl7UCePnECSB1j06LbbVh9lX38+n0S7j70QWbmxjLIwMigbJQy0RHpxdd8eVEahZgnL
+	p4082B8YAB2veE9TuDB0GeqYersYrDlJByyV4rdY4Q898czaubIVfUEeSeja850zwoiYPU
+	+/5keTbEflANU2oXFsvdi702u8huTW6CK0r2F4sup4q87eictEV1U7eauBgpgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1761828608;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=Gz3xQ+hmZGgEDLHwvY3zzhydvK+yGJ/MdRVQe4JZJGo=;
+	b=5OQuRYFcBL/vQljZA0nyxz9w0K+bjoOsOb7oVzqN/WzAZBGPZ/vHy/+xeRW/ukmDYj1EBj
+	Yx8Evj72sa9FgHjnbSeDUdE/HP1ItPKQ/odhH9l1NJtgrTAsfg4Bh8SUrFzKh+1PLkvwq4
+	LAN5+TYucEN9dIQfLVDQb6TVTXKVWAzvZ0s21aEmvsOFB4M/UqFW/U+ZiBaLYaVZkiTf9F
+	1TW3T1FfOp3x5zolu6d+Jl4L7TLW6YVC102b6L5EIx5ULXPznjmcEqbwbCOrwJBNxsD0sz
+	XF62yg5V4qKceDZTm0NKnhcFrCs1C5gdai7B79N3qu84xYjjOmtjOlXiG3pTeg==
+ARC-Authentication-Results: i=1;
+	rspamd-77bb85d8d5-j8sw9;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Obese-Gusty: 4d5da9715151f960_1761828608645_2022255201
+X-MC-Loop-Signature: 1761828608645:2649050027
+X-MC-Ingress-Time: 1761828608645
+Received: from fr-int-smtpout16.hostinger.io (fr-int-smtpout16.hostinger.io
+ [148.222.54.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.124.162.95 (trex/7.1.3);
+	Thu, 30 Oct 2025 12:50:08 +0000
+Received: from [IPV6:2001:861:4450:d360:c0a5:3392:2a75:70e6] (unknown [IPv6:2001:861:4450:d360:c0a5:3392:2a75:70e6])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4cy3qF4xcDz1xnw;
+	Thu, 30 Oct 2025 12:50:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1761828603;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Gz3xQ+hmZGgEDLHwvY3zzhydvK+yGJ/MdRVQe4JZJGo=;
+	b=D0eda/wHwY9vazv1OtQ95Hg7X3tM7MUtG5e8JpkWV/f+mqXUQ3oJ6YjPHLtwjh/0Wpg2eI
+	AfzptSgVexOZFna7mwcN1r/Pr/zlacsL1v5QGUWdht0b2l08CT5MmatJi7IL8qtcj1w7o7
+	2o3FfIwDqVlxJvh4Wa276E/zCFUNPn5veyDYUG/UfVKBdtUeXLTPHWPq9sQ7ENbX/vdLpQ
+	NIUMPj68ZA+ParyFxJs3Cq2v4sHs5pYu3LdLDMi9exAGFHePYQtIqwDtoDjlgbAiLm4jHj
+	cEIfzXtyRFjYRC+ZES2Ehs3RPOxxmGHvHr6nKniRRwhXnr3vNmHh1sh8GGZNOA==
+Message-ID: <b81536ee-5acf-4308-aa22-c374c4a3b8f7@rootcommit.com>
 MIME-Version: 1.0
-In-Reply-To: <20251029175647.GA1572736@bhelgaas>
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@rootcommit.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, unicorn_wang@outlook.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ alexander.sverdlin@gmail.com, rabenda.cn@gmail.com,
+ thomas.bonnefille@bootlin.com, chao.wei@sophgo.com,
+ liujingqi@lanxincomputing.com, devicetree@vger.kernel.org,
+ sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/3] arm64: dts: sophgo: add initial Milk-V Duo S board
+ support
+To: Inochi Amaoto <inochiama@gmail.com>, Joshua Milas <josh.milas@gmail.com>
+References: <20251011014811.28521-1-josh.milas@gmail.com>
+ <20251011014811.28521-3-josh.milas@gmail.com>
+ <hkdnjyldwr4watvizsju4qcvpvkb3mtt5rathaooembpceyufx@ega5xrqj6v3y>
+ <aOqtt7BDXxItrs7W@sleek>
+ <bsol3uim4brrrsdmvuk6f3uzampbki2pyhziap6x4rw7txl435@rwoxrnctkf3y>
+ <aP6UJFPP-ReYPzmq@sleek>
+ <4bdad288-250b-4e94-abea-eb231fba5beb@rootcommit.com>
+ <7e37k5hdn7nnn7cxnfrzqfy7h7a3ofnaf4r6rgk7exehrhsn2i@rvxjxvh2sodw>
+Content-Language: en-US, fr
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Organization: Root Commit
+In-Reply-To: <7e37k5hdn7nnn7cxnfrzqfy7h7a3ofnaf4r6rgk7exehrhsn2i@rvxjxvh2sodw>
+Date: Thu, 30 Oct 2025 12:50:01 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=DJTd4DNb c=1 sm=1 tr=0 ts=69035efb a=oMt8lXEVxmMAvUTv2ASLGA==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=qwwWCKxYK2TD6zjFQdwA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
+X-CM-Envelope: MS4xfNwpELjTKPpT2hRmqJcNaPWk81N8hSnY8Avz0V4rzyS53iFZkWJTT7Pe/VnUWgiWXf75c7PedFqG4YtNsCCFz9FBxE6WAyWJcIUFAaSgGtJrYxd06Il3 eXkCsPWR4B+muheKfLDvKNJDEh9xd4Z/9z40a/s+ngnQfXEfWxfqppYd1DcI3xZ57V8fmz85KeksQ1Tknsc3+skkLMasLVwVmUkpExW1KkgSlQyTbzCHeK54 v05gKnX6moG1Z7D5KBMgaETDP5KEfeT+GUl3Lt5rmsHaIrZn2OfrKx4OCPWhQlFOK8dBxPGiNXYLqy9I7U+RaDaZ7L53K/nMYkI+StWqZbhPL10GnuvjfObH ERsRgRRVu03Hasaxe2tIHRL89dCqoRPCwBPpGJapaEJlEdC/0yn2N4XFcgl4x1hloXyOWio7eCVcKaHfj0XngffvzJ3Df7RRQrxNwhGKBbX4d5oZFSwzNPxh zAAjD7MenjfzXT8FGyygcQimLTCga7XBFAb6lJKR6TQ2n2Er4AGjQLdyGZY5r30V/hEiH85iHCMH6MYcH+yh0Y5RsxpOg+B78eRskJ8B2ycUcS5Fp0sm5XOk F4xplmp3CwZ39+vEvaPRm4vZ5s+UKfccoiTtEowgz+29BCplw5kKBP7zcZx9EFTeB2sHYAr4WtnUww/u7ZEb+N4iKusQUFOMQVOe+srsBrzdCh6Bbo64TROF 4t+srDpziUQoaVBkVkPG9yGtLd7SZGp8yafhi2j5H/YznwyC/2uW2Ye0uBqIQtbbF0HiiXVx5dcnTlrXbMyMRm0wFGUVTWWog/fOlKZDUAvhjHUjryGE0ZL7 ye+kobiDGJVqj1c5owdFAAtE8yFGE1JvF/BLK9LhoM7az6nIeVNLxb1X/jJHxkAmTLaAUKAvAYjLUBClrR+VvCeyO0GP6be5l6L7yBfg15eo3h6tXo34H/tD n4NZ6Q==
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_052810_141436_D6912670 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20251030_055013_207252_257BCEA4 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,102 +131,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1950954779280403155=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Inochi,
 
---===============1950954779280403155==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6ob5xm6zi76m7ppm"
-Content-Disposition: inline
+Thanks a lot for the guidance!
 
+On 10/29/25 01:53, Inochi Amaoto wrote:
+> In fact, I see the maintainers do not agree adding every possible
+> configuration to the DTS, (especially without "omit-if-unused" flag).
+> And in many case, it is impossible to add all possibility. As a
+> result, I prefer to use DTS overlay if there is something custom,
+> and keep the mainline DTS minimum.
 
---6ob5xm6zi76m7ppm
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 4/7] clk: ingenic: tcu: Use contextual data instead of
- global variable
-MIME-Version: 1.0
+I guess you meant "/omit-if-no-ref/". Good to know!
 
-On Wed, Oct 29, 2025 at 12:56:47PM -0500, Bjorn Helgaas wrote:
-> On Wed, Oct 29, 2025 at 05:33:33PM +0100, Thierry Reding wrote:
-> > From: Thierry Reding <treding@nvidia.com>
-> >=20
-> > Pass the driver-specific data via the syscore struct and use it in the
-> > syscore ops.
->=20
-> Some of these things in drivers/clk/ are also platform_device drivers
-> (though not this one) and use generic power management, e.g.,
->=20
->   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/drivers/clk/qcom/q6sstop-qcs404.c?id=3Dv6.17#n209
->=20
-> I have no idea if that's desirable or practical here, but using the
-> platform_device model instead of syscore could have advantages in
-> terms of modeling device dependencies and ordering.
+> In fact the priority is the thing that is hard to decide. This is why
+> I suggesting keeping compatible with the vendor kernel, as many people
+> starts with vendor kernel and it is a good thing to refer.
+This makes sense. Thanks again.
+Cheers
+Michael.
 
-Similar to the MIPS/Alchemy PCI driver, although there's no git log
-reference in this case, I suspect this was not in driver PM on purpose.
-The pattern I've seen quite often is very low-level device driver code
-doing this using syscore_ops because they run very late/early during
-suspend/resume, respectively, so the driver PM callbacks often aren't
-sufficient.
+-- 
+Michael Opdenacker
+Root Commit
+Yocto Project and OpenEmbedded Training course - Learn by doing:
+https://rootcommit.com/training/yocto/
 
-In recent years, some of the issues have been alleviated by things such
-as device links, so a conversion may work now.
-
-However, often these are also exotic and/or old devices that are
-difficult to find testers for, so I've been trying to keep the changes
-in this series as minimal as possible, so that we can be reasonably sure
-things will continue to work just by reviewing the code.
-
-The most important bit in the series is patch 1, which lays the
-groundwork for avoiding these global variables for new code. Also, in
-particular I have a concrete case where the global variable approach
-doesn't work because an IP block that used to be a guaranteed singleton
-now no longer is.
-
-I have looked at various drivers that I ended up not converting because
-they use a global variable not only for syscore but also for other
-things and fixing that up would've been way out of scope of this series.
-
-Thierry
-
---6ob5xm6zi76m7ppm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmkDWcwACgkQ3SOs138+
-s6Hg1w//bfwZK2UyWYgH0DjUdLRkw/JLbu/3memPliSQO+SxPOEf7uwnD1QnAiQ3
-AaL3UiueXsnj30IkhBnqYoPaFQRz3G5Ag/PFIKX3kireFrAExwZP/9AKWiJflD1I
-gh+QOfqgZ1HpJr3QSmmjosBmkm5T7a/J5dUNuCcZoRcya8QmACQqg3sWy8gj4BdT
-Hy/aq2/JWEEJs1pLE5SvCexBqTP5gxTj8MTuNgqm3hRDtZc4TQnKNZIcJwgOruMX
-Wy4rrgBPQiASKxxP7ksI7iXCTOYM61AlEm39RUFNcGKI9iOw1YxFn2LuVIPoFJc6
-H92dgYcRmcEgy/oWPc8yTs9iX2POH5p/40/nb53U3sj6iQVhEMoVIGmIuxEX9RHL
-VHkn3RNfYCZlwqDtwCCoN6DWBW2PNUAX3dsD1ng3ZZHuDH2lbQaQudKRi7MGhAxm
-ADqiAfq1HO8Fk6uo5BFMtpieue14jJFHaQs21TkOlurf/LH9GT2qO52/8KtcxYx8
-F8pXjAM4Ps+sj+Er6h1Tb6PpXrpJ1lvGqagYTEJpWQuWyjXLGeseMpif2ucjdzjp
-4qfcE13QtePpLlbO8kklfDMdo6+uClFAMgWMM0jWWFtczIaUWmwRYcDGUbW4RbHt
-H6TJJVsDtuaQNx9wfo+vq3oMZviuttJPzFqYefIOL7oACIZD6sk=
-=0K07
------END PGP SIGNATURE-----
-
---6ob5xm6zi76m7ppm--
-
-
---===============1950954779280403155==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1950954779280403155==--
-
