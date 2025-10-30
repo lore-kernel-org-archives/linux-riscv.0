@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444B9CCF9FC
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 13:57:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05FA5CCF9F0
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 13:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p3yQ40pnuoYCbJQ85BYsti3+mMZWMxqe3j5mJrxPcFI=; b=2c4o0gVMsfzd1c
-	aQ0VyvXrqBi1yrbBgaHesjNiOW1KcXazjkl3Hlzb2TF85qaSt1jUAg/UMCU5Pypok+98dg8GWZ2Hv
-	8cfSrJxwhse+yIhmJfi1n2rBQMyPN1hFAjsjEBxjajdjeJDHJ8YaFu2ShJPG5fWFb445v6FvU++N6
-	a1YzYau6q10ORQ5K02hhrgiHBYuviEJqvzBWF5shZiu9R4X8kKJCRcO2/FZDA4hEjWPny3x9Rpp8w
-	9L15glOPTSs9bByZgpmzGXoGeytwPDdb3BgggkU4It1tyvoJUDZYVoOLRkpxLfUfE6kCk4MKh7sRF
-	wWZPJwMGQBD291c9Rc6w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/QJk6G4k33GqBJ6huGNNSNHPDREKydd+ROSWDhmLfV0=; b=QzB5hhfkHCq6//
+	IkWCG0uLDSrlwbxuQuvCsWWVB1YkoVLR9PZkx+15VRGjitGXO2xtUrtyiHEfY4cNMD5Km6fkgbsaB
+	FcWCdkvLTm3JdJjHrPlaOo5V0bUqzf3kIcc71KrvREfR3N48k/gOQ6FSS6bbLljov4UCBKuwUQ01W
+	FBowOiTl31bm5avps+aF1ALtrWJZG8XvyeHbJLTASFaUiJnTBB4SIVZVrZMzrZiDmf4KMH85WUCL1
+	rIfLkuMPKebtQ8jnU/bhguKRy+nZ6Yes1NsHBFi42dbxD8KoZUhDOBi57X+qN5J+38P0q3G7oOmco
+	AEg7czV+dzhXt9HO7kQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vET9P-00000004GCc-0tA2;
-	Thu, 30 Oct 2025 13:57:15 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1vET9I-00000004GAq-2PtB;
+	Thu, 30 Oct 2025 13:57:08 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vET9M-00000004GBr-1p1D
+	id 1vET9G-00000004GA6-0BG3
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 13:57:13 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-294fc62d7f4so6474755ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 06:57:12 -0700 (PDT)
+	Thu, 30 Oct 2025 13:57:07 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-294cc96d187so13639585ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 06:57:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1761832631; x=1762437431; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=idtv0RG1n1Xu/2siY10CA00hyxq2ZPaiF1nMz1aq8l0=;
-        b=MNSP7AVn3+4ds0/bnphSWDcftLMqFZsS5ZKoxxsHYQlxAPym1vxR26ZuPoocz4v1UN
-         Nbl7M7+bmCzkqoSmzg676ymsKNtuDDFdSzxJTxEKpkDPb+2nG5KwGeaY+CurRNGVAInw
-         bT4gMP1OFTmLNflVztnkJdhq/kVkYcoJKxrZRV1uODPYEf4DvCTvBwdbrYSLDRcEGa2b
-         EJQ1lxTZnZSysqMxfluugfb15DrywBYkyj6456BeYzhnt0M2g6B90aVEV/OVfArAuXz0
-         wGLNk5U+EVOb+uz4pjPMdPFFwEpf1GajZJzR/Nb52+dCpmB2ZLsSyVqihS5+QrpQbWO+
-         mqLw==
+        d=bytedance.com; s=google; t=1761832622; x=1762437422; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jk8TnzOxyuLBQtldVmhC9Imz006gRUGHy0jLbQTIeSg=;
+        b=M8PZiYx2kzfDiTuWPh27n12NJAi0IGjqlvEkO7sGK7iS/w7SGSs0QgKw//C14vdPNP
+         qI/N3VwqN4XWO7E2ltI7/BTU6iB+6C8eu9sTch4ebZR1p+n82rK1K2iWiatjsLU05Pnl
+         cPY6t5tOR9n/gMePOhN2Q5ZJAjP45zTEthYBgfj6x4ns1kjTbCiLC1PSY03U9R4Aak8z
+         Xg4iByA7aJON+AUb3GraV/x02CpKctSbyYILDyQAArhoiQjVCe6wLWVNRsWeYhQHyhCR
+         Xikijf3yOlVOadwzldw4rERSPIsxPhJtQY3W0XhD6PmSqKXm+FWdd3k2V6BNfvfo8Oz8
+         65Ig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761832631; x=1762437431;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=idtv0RG1n1Xu/2siY10CA00hyxq2ZPaiF1nMz1aq8l0=;
-        b=uOI1sulK39i2vlcukYbT2K0or2ND9GnJpA+5oLpTALZriCSy/PLUT9hJp5B+gRMD78
-         TUXOSzMu6sHqw4UeRJeD9kS9FHO8Io4n0nLxuxlXK2IqOn4+LoRcNCaALXoZJk1r5DT2
-         AXEb3QQsudYevGX5DDU8BWrDeBI03wQruSAkMt5bklDTKTC3h/zTc5I7+QL5TVaDJMNW
-         JMcWzDyquiwrzL9xT5mxvotilboyJTLjXhNfBTbQ+JfRVJnokoGY1NnXXuuvfP7YVvBN
-         lG4oZbOjNOjQ0pYCBg1RTwIu7mxQythXRNCMpdLw5/qMR33Q4Vh6NSXnhMLk9DDkEP7N
-         GZNA==
-X-Gm-Message-State: AOJu0YzOmoCj02o3+oCkBdybWhnrlHA0/P3sZ8oD7ynQrxPEQxp2WssK
-	Xmtt0gtCHnogBhBbDtfOzdH45vXmrLLYJN5n/0b092P57OboEZohd6jgEkvMdS5JtKo=
-X-Gm-Gg: ASbGncvE765bEq8CYc7YWVe2uWORRQAabL55tbCu3BoJCD8N93lbSBAFDUWnfmHy0ag
-	/w7bBjqsp6NXJ/A4z9jVuXPxGfk9ZlkoCLw8JiRl3Bb8nILprrsOXicP8Qt4VwR9HkQaEFCYNiz
-	x5PJxht7s33d36k3XLcCAvLND7yMZXyot7isk+LUrnEnrGjdMp+WL+MoWfCp5t0trQD6hTjq5Q4
-	rI7ROrsuiUGsDRkeZowQzkRjDR4EjkoyLu58PP6/olZ0uaAl+Xm27qitmnjlmxot4/VkQYdHlf6
-	5nunK45FPSmSBzx2f3Mfz0XXHrqsLaHXDCl0mEzENFH1bsMzzz8dnnELhinbGmV3dvlWCt/XIWt
-	/M4LEcUrCalZTn/mOB7TxbzMYUaLxrpcf0dMiJGwTm+STV5ztC7YEvd+vefp+4ZMR5qAxKvvzxQ
-	hLQQy0uJnTHH5SHkK2kjhRUDzEu9er2N93eiPHSD5+weWjawSF/8Exz+NgG6fG4sU=
-X-Google-Smtp-Source: AGHT+IGbOUAtM2+Lu3qbpwcnntpyy8m+vA1T9owmvZzuSyODN0ovPcBr/za3iDV2dG9ZYLAg2yY1uw==
-X-Received: by 2002:a17:902:f682:b0:294:ec58:1d25 with SMTP id d9443c01a7336-294ee0a0fb8mr33408495ad.50.1761832631190;
-        Thu, 30 Oct 2025 06:57:11 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761832622; x=1762437422;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jk8TnzOxyuLBQtldVmhC9Imz006gRUGHy0jLbQTIeSg=;
+        b=FTfQ3C+FS4BZgkXA041UHk+XVh4kS0cp+8RjMk72ubjwavfOuFyDgqYaw+onR4/cjC
+         Mpf2vAlhjxgRT7/gpXhT82R48H0KWQR7eUlB+EG9V+iMhLIVHhsHCZDu1VzDbBTRjTV9
+         CSI2dJroLTmQjFmuJ7CY+UAdORMUNY9jVM6Sft2QFhyzYVJn2Zk9odKLYL2Kqb2NLtMj
+         TADZ0s0nbZfZ8HTOlMiMEuEZqV/EuzpWTVKvLfngl3m10TKDdwwzqh4/ZamF6dKZuypN
+         2s/ztRAioY0UYONVQv1t8mdbQ1Y+q49Mx3fMjHl38uzUTmU45csy4f7M6IDzz8E1X4M1
+         XIJg==
+X-Gm-Message-State: AOJu0Yz4Qu2aJ1y8e3FBD0Pkwgt0tMrY5wgjcuRjmQFXMAQ8Fer9vJMW
+	45PvUfhvTOHI3Lle7AZUhGv6QSqq9xAyZInrGcZV8ltTcJ7hLKZVXD1+YFgty/wq0arRZj2tGoT
+	bn0DOs+k=
+X-Gm-Gg: ASbGncvddK+ujHIfRJZstmbYHkeJLIAJH00/8JEHvOx9daq5m01+sEFAj5GCZPRx0zx
+	qz4GzvXhBs0A35Gz5VJice9gvNDJ7JvIEClY1UK6tToiTHnW5tKWK2P117IWJbJkZf9qIl+J4LE
+	b66X8Ph8P4yqcvvi0ectjpkzIF7uaBELdPjDSBpKEj+x2oFc8AoNwxXP4Mnpe15qakNB42YFOYh
+	rpD4mJMl9XA9aUj+lkq5BfKeXgi0rnASDEmjLi933nI7Ta9wqVTFVLZB5IWxUQnnn6T8JCqq3aS
+	ilx1X/he7tgAESWxbMaFlOyQOd9sEjJN/elK/WtAJTarur2MdEc3/rECKEE/L75Mhut9SfZGoRV
+	WsYD30wiW9aEPEKi4pJZ1hCs3gaSQpNk3Nnv0Z4WP26SnCvhaVkanSoWyAMbnSbGqdIuzOwW820
+	Wo3SbJcdl8XqzSGBuGoQf0R00NpTkgAgYaqhRo4vFT9u2V52CnUJ6FgmhHFg9FsbdewRjSiE56Q
+	Q==
+X-Google-Smtp-Source: AGHT+IGpaSpfBxlrthCicNKtIDC5somDGkkgwjpvULUEKqRhdtcWOa61ZR+A4h5HiaDX2of1Cz4ySw==
+X-Received: by 2002:a17:902:c402:b0:294:e8a0:382b with SMTP id d9443c01a7336-294ee477f04mr37227085ad.54.1761832622332;
+        Thu, 30 Oct 2025 06:57:02 -0700 (PDT)
 Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498e495e8sm187071905ad.110.2025.10.30.06.57.07
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498e495e8sm187071905ad.110.2025.10.30.06.56.58
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 30 Oct 2025 06:57:10 -0700 (PDT)
+        Thu, 30 Oct 2025 06:57:02 -0700 (PDT)
 From: Xu Lu <luxu.kernel@bytedance.com>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -79,16 +80,14 @@ To: pjw@kernel.org,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [RFC PATCH v1 2/4] riscv: mm: Introduce percpu tlb flush queue
-Date: Thu, 30 Oct 2025 21:56:50 +0800
-Message-ID: <20251030135652.63837-3-luxu.kernel@bytedance.com>
+Subject: [RFC PATCH v1 0/4] riscv: mm: Defer tlb flush to context_switch
+Date: Thu, 30 Oct 2025 21:56:48 +0800
+Message-ID: <20251030135652.63837-1-luxu.kernel@bytedance.com>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251030135652.63837-1-luxu.kernel@bytedance.com>
-References: <20251030135652.63837-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_065712_473750_1FCA9F34 
-X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-CacheID: sfid-20251030_065706_085918_51AD02B7 
+X-CRM114-Status: UNSURE (   9.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,37 +105,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The percpu tlb flush queue is used to buffer the tlb flush tasks that
-each cpu needs to process.
+When need to flush tlb of a remote cpu, there is no need to send an IPI
+if the target cpu is not using the asid we want to flush. Instead, we
+can cache the tlb flush info in percpu buffer, and defer the tlb flush
+to the next context_switch.
 
-Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
----
- arch/riscv/mm/tlbflush.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+This reduces the number of IPI due to tlb flush:
 
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 8404530ec00f9..aa8f1304ae5c4 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -103,6 +103,18 @@ struct flush_tlb_range_data {
- 	unsigned long stride;
- };
- 
-+#define TLB_FLUSH_QUEUE_SIZE					16
-+struct tlb_flush_queue {
-+	struct flush_tlb_range_data tasks[TLB_FLUSH_QUEUE_SIZE];
-+	raw_spinlock_t lock;
-+	unsigned int len;
-+};
-+
-+DEFINE_PER_CPU(struct tlb_flush_queue, tlb_flush_queue) = {
-+	.lock = __RAW_SPIN_LOCK_UNLOCKED(tlb_flush_queue.lock),
-+	.len = 0,
-+};
-+
- static void __ipi_flush_tlb_range_asid(void *info)
- {
- 	struct flush_tlb_range_data *d = info;
+* ltp - mmapstress01
+Before: ~108k
+After: ~46k
+
+Future plan in the next version:
+
+- This patch series reduces IPI by deferring tlb flush to
+context_switch. It does not clear the mm_cpumask of target mm_struct. In
+the next version, I will apply a threshold to the number of ASIDs
+maintained by each cpu's tlb. Once the threshold is exceeded, ASID that
+has not been used for the longest time will be flushed out. And current
+cpu will be cleared in the mm_cpumask.
+
+Thanks in advance for your comments.
+
+Xu Lu (4):
+  riscv: mm: Introduce percpu loaded_asid
+  riscv: mm: Introduce percpu tlb flush queue
+  riscv: mm: Enqueue tlbflush info if task is not running on target cpu
+  riscv: mm: Perform tlb flush during context_switch
+
+ arch/riscv/include/asm/mmu_context.h |  1 +
+ arch/riscv/include/asm/tlbflush.h    |  4 ++
+ arch/riscv/mm/context.c              | 10 ++++
+ arch/riscv/mm/tlbflush.c             | 76 +++++++++++++++++++++++++++-
+ 4 files changed, 90 insertions(+), 1 deletion(-)
+
 -- 
 2.20.1
 
