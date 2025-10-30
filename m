@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCEB5CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 12:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02CCDCCF9E3
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 12:18:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tTvLgK/Ec8tJFT+hTqlgoMrYup/2unG6biZZJRv4miI=; b=Ge0J49CFAN2bwmp4yOWahIcQZO
-	fqfB4JLC2sCY96x1g9kcMj67RQI50V2cHaT7DlM6Q73FEYded1uereoI9rny8xigbEuIifGsbPPcn
-	sR6OhL+l30GLcp2nTGZLXOa7rDTFeg6r4ONcfpRkA5PBaiNZXPc6+Xo9n/iveqWmAI++jHZ+5V2NN
-	Aoy6LjP3InH+3ZrwMq15hFRTHH0RbWJrGHYy+FisCUygWJ6wlpBdPxoGjpoL/rYoCGJW1UJCW5ZuJ
-	mkl4AXS/Hgxct6E6ta8aHILuGuQ0IVuUTyTLvpfVPDhecAq95a/Nyb1OyhXwndWABwa3+iyS+GpZ8
-	2tIrQPhg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Y/A/eQwX9v+u/VwgG+qKrCoi1u7i5UFi7LrT0LS7n1g=; b=OKJf31hsI7iSbW
+	4hw5AJE6bf0SrK5pLQ+yFsGUh5XiSUa+GbsP2/Jce0WWPsZT7zTvo4psN6XcXnFi0rSEI/ansqbMF
+	pFRCSsQrolg5oBOgYRqvbT/auDggAZ0ddMwYD2QxAKKtr99Sncs6GUr5LF53y9nDEbx7fHC/gXMAN
+	+hf0J7vzAXXiITI4EwA0zuxpgFD21tZqFVF0X4mPQnpqU/g5QFbsOyC7cYhHTRdQau2D7x5Mziw4w
+	o87HG/k+H4Q6mko5xzuVsKWLjGT1ZJaZ3uyli4LA4t9mEXeAsIsS3iMr11PsrWtIHCnYgWedflcJa
+	1Jp6EYwTPoVySMNeNKzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERZl-000000046AA-2K7u;
-	Thu, 30 Oct 2025 12:16:21 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vERbY-000000046R2-3CnJ;
+	Thu, 30 Oct 2025 12:18:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vERZi-0000000469K-2h5A
+	id 1vERbU-000000046QP-1Aj3
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 12:16:20 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47112a73785so7458995e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 05:16:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761826577; x=1762431377; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=s2h4BnseYLvI915SuwI6txSi2xO1Lp6zcqUfBWQt5q8=;
-        b=SOfL+JGTIkRkH/rpJLaF4dTjmz7h/Vis0wl6dk5TxGBaNundcLYGANJRD3gbZq0BX5
-         AXJ2TfX7Sud8jd40SxF2ewQ29ZwlwOFKSrIc2dUTLq60NsgYxw5Nf1Jp3wt8dmuOQcpN
-         cK4dLWT5MuIBxw4n1rg0ZtqmhI5Wreezt2qhlLMp7OWL1q+75DwqbhkM9R3Fk4xQ47Kg
-         xw8aKYcIf2A6vslyAuI20AGBwa3O0xIsy0xzuEPIdAE2khAAqoR5G+OTO2Gq0xcsKYrq
-         6SfYxjM+ayA+GgCkD1I5jHM0M0ZLb7bi+n1I75ViJvCByX1PP7RsiLTeJ3BNX4RySvkp
-         YuxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761826577; x=1762431377;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s2h4BnseYLvI915SuwI6txSi2xO1Lp6zcqUfBWQt5q8=;
-        b=cQVtcXlfh+LQ+DAH+dJFAp4EW9gFveFapaoIxuiMve3UqwBtR8EKXekaHWXTaYIvU3
-         Mown0kaK4qiHI14tHPFW24ZRH/RuUwKGqkZjj1i+9Z3CFNNg4cyZC96vbpgiP78quge1
-         j0d8xZwTRkDnwUXdKWcOYAv0F1hFEh3BCw5WUtTLtcLyjTIiiph7OQTN0jidLiysTSv1
-         WFp68QXOVNwqpwwoFSv3BpKgP3r4yj4sV2qjVKcwU/yH/MFL3ysufHLYNNeK8z5lDJOL
-         s/CmVjoTNog6aZqi85OKJl5U5KYAzh8OAOY2N5wi7mJlazJUYS7cXIU93n4M9J438xLo
-         uI8w==
-X-Forwarded-Encrypted: i=1; AJvYcCWpAec+U+KWxVKCOC9HR7dT7fZwJvbCLuRivShTk4/hxhn0FPDMyMkSi5vzhPYsG718qp4ESPqg3tWYng==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmZ5VzuryVwVkvMxxMVGwOzlA63x7HPKbSu34o13izJmjV359E
-	xVFPmh/8OwOf4a7RTdUittZJxoJTC69NtQ+aH4xaC6k9Fj2KOPzOvA8S
-X-Gm-Gg: ASbGncvWzcZUIDCccn2V8dzxslCu/R+UPCLqVb9MW0h1Oo0PzmVIpPmVhwxMOfzKHRp
-	wy4lsVd5VJIGI+j76Mx7MNNJKET7pTAbR7pGL9/jL6bmHkQKHMvY5HyMZ+6qg9Q2RafgOLpPCF1
-	m2c2pxlRPLncTIThCFlcZN3iinAOiWLfzTOXhtGIJFT1HnrHeo0CXGHofq03cK8ENNvIM0Mr1W8
-	CNBV4H32a+WQ0kfU803xhQX4SkL27agjTSc2U6l33Ma9MUiRypFbKQ/aU8ZvxBN+ruYzodHtfaj
-	yvMHXGwASsrYsq+tk4FbrEN59Vsas7rBcvfhPEam2LPo/IRAHzUH0HtXg/tdWTpyfDJk2mT45hM
-	CdxG+htyCiNAZ0dTPvMKDXu8RoAiAHnBc1KejPCOSkBrPvmyY31v2Nwp+4XoGEaxvigGl6IUauG
-	zRcYkI0fmRFiCrK+j3pqrQ/kspk4T6028r2T13P5rq7o6hDEexCml7A7w7gurl44CMh8BWPf4NQ
-	fvstjvTiMdh
-X-Google-Smtp-Source: AGHT+IFFiHEvNPjKUlWf15eT6QrZW2LM5hHmfdRjCPGtpfvtcJfaix0mKpAwNuPfyTcNYpcwrmxIZg==
-X-Received: by 2002:a05:6000:2508:b0:3fb:aca3:d5d9 with SMTP id ffacd0b85a97d-429aef76469mr4752945f8f.1.1761826576503;
-        Thu, 30 Oct 2025 05:16:16 -0700 (PDT)
-Received: from orome (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429952db839sm33617710f8f.34.2025.10.30.05.16.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 05:16:14 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:16:12 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/7] MIPS: PCI: Use contextual data instead of global
- variable
-Message-ID: <t3la3jte5tia7rh5ftuv5cchrwdxe4cxa2v3g6lxgoh5u6rmcy@hzw7lbke2vac>
-References: <20251029163336.2785270-3-thierry.reding@gmail.com>
- <20251029174654.GA1571737@bhelgaas>
+	Thu, 30 Oct 2025 12:18:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 002FB423BD;
+	Thu, 30 Oct 2025 12:18:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BDE6C4CEF1;
+	Thu, 30 Oct 2025 12:18:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761826686;
+	bh=c/5NhRaDMZ/kbf4ALWp9C3bkG4NzH2gCZR2gh2BS+5Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eqwvNwZ6OXvD0PLLo9oKFlOauS0KB9w85q0SZ3Xda7sQevCZ+PF82wJOLsJwYVa8J
+	 1876w8uLPUw/grmthVZBX1OwHBWnWfh/zmDlS2ZyeNUGt17A6GXXqYHgyC01Wg4nP9
+	 lyC1pnN2cdKNa069kddROOPKTXz8sdfvgbqsp2K5m5AbGGI5cMnoBqIk7nkTXWGD7B
+	 qHg3KdbmcIwJKg+nCcKhbU70mhjWFFaHX+gynoFm2YmmwmXNcwEZLAY7PdGfXh+Brl
+	 udhaAHnl3jScbhaAQdPhAsXaix37XODTzGa5lfTJa6icjLK7SVb1kCjZgZhgvxT/XD
+	 pzVl8j7N89Y0w==
+Date: Thu, 30 Oct 2025 12:17:58 +0000
+From: Drew Fustini <fustini@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Michal Wilczynski <m.wilczynski@samsung.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
+	Han Gao <gaohan@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>,
+	linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
+Subject: Re: [PATCH v3 3/5] reset: th1520: Prepare for supporting multiple
+ controllers
+Message-ID: <aQNXdmH_sA6hgOKC@gen8>
+References: <20251014131032.49616-1-ziyao@disroot.org>
+ <20251014131032.49616-4-ziyao@disroot.org>
+ <aQIOgbUf2IHoWCf2@gen8>
+ <aQIvH4jbj9Ifd7Av@pie>
 MIME-Version: 1.0
-In-Reply-To: <20251029174654.GA1571737@bhelgaas>
+Content-Disposition: inline
+In-Reply-To: <aQIvH4jbj9Ifd7Av@pie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_051618_734572_56F176B5 
-X-CRM114-Status: GOOD (  34.47  )
+X-CRM114-CacheID: sfid-20251030_051808_799145_C6A79731 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,200 +80,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3600726178862260287=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 29, 2025 at 03:13:46PM +0000, Yao Zi wrote:
+> On Wed, Oct 29, 2025 at 12:54:25PM +0000, Drew Fustini wrote:
+> > On Tue, Oct 14, 2025 at 01:10:30PM +0000, Yao Zi wrote:
+> > > TH1520 SoC is divided into several subsystems, shipping distinct reset
+> > > controllers with similar control logic. Let's make reset signal mapping
+> > > a data structure specific to one compatible to prepare for introduction
+> > > of more reset controllers in the future.
+> > > 
+> > > Signed-off-by: Yao Zi <ziyao@disroot.org>
+> > > ---
+> > >  drivers/reset/reset-th1520.c | 42 +++++++++++++++++++++++++-----------
+> > >  1 file changed, 30 insertions(+), 12 deletions(-)
+> > > 
+> > > diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.c
+> > > index 14d964a9c6b6..2b65a95ed021 100644
+> > > --- a/drivers/reset/reset-th1520.c
+> > > +++ b/drivers/reset/reset-th1520.c
+> > [snip]
+> > > @@ -138,22 +147,31 @@ static int th1520_reset_probe(struct platform_device *pdev)
+> > >  	if (IS_ERR(priv->map))
+> > >  		return PTR_ERR(priv->map);
+> > >  
+> > > -	/* Initialize GPU resets to asserted state */
+> > > -	ret = regmap_update_bits(priv->map, TH1520_GPU_RST_CFG,
+> > > -				 TH1520_GPU_RST_CFG_MASK, 0);
+> > > -	if (ret)
+> > > -		return ret;
+> > > +	if (of_device_is_compatible(dev->of_node, "thead,th1520-reset")) {
+> > 
+> > Is there a reason that there is a now a conditional check for the
+> > compatible here?
+> 
+> Yes, this regmap operation is for initializing GPU resets and thus
+> modifies TH1520_GPU_RST_CFG, which only applies for the VO reset
+> controller (with compatible "thead,th1520-reset") but not others, or
+> other unrelated resets could be unexpectedly asserted.
 
---===============3600726178862260287==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="stoiegldli5skly3"
-Content-Disposition: inline
+Thanks for the explanation.
 
-
---stoiegldli5skly3
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 2/7] MIPS: PCI: Use contextual data instead of global
- variable
-MIME-Version: 1.0
-
-On Wed, Oct 29, 2025 at 12:46:54PM -0500, Bjorn Helgaas wrote:
-> On Wed, Oct 29, 2025 at 05:33:31PM +0100, Thierry Reding wrote:
-> > From: Thierry Reding <treding@nvidia.com>
-> >=20
-> > Pass the driver-specific data via the syscore struct and use it in the
-> > syscore ops.
->=20
-> Would be nice to include the "instead of global variable" part here so
-> the commit log includes the benefit and can stand alone even without
-> the subject.
-
-Good point.
-
-> Awesome to get rid of another global variable!  More comments below.
-
-\o/
-
-> > +++ b/arch/mips/pci/pci-alchemy.c
-> > @@ -33,6 +33,7 @@
-> > =20
-> >  struct alchemy_pci_context {
-> >  	struct pci_controller alchemy_pci_ctrl; /* leave as first member! */
-> > +	struct syscore syscore;
-> >  	void __iomem *regs;			/* ctrl base */
-> >  	/* tools for wired entry for config space access */
-> >  	unsigned long last_elo0;
-> > @@ -46,12 +47,6 @@ struct alchemy_pci_context {
-> >  	int (*board_pci_idsel)(unsigned int devsel, int assert);
-> >  };
-> > =20
-> > -/* for syscore_ops. There's only one PCI controller on Alchemy chips, =
-so this
-> > - * should suffice for now.
-> > - */
-> > -static struct alchemy_pci_context *__alchemy_pci_ctx;
-> > -
-> > -
-> >  /* IO/MEM resources for PCI. Keep the memres in sync with fixup_bigphy=
-s_addr
-> >   * in arch/mips/alchemy/common/setup.c
-> >   */
-> > @@ -306,9 +301,7 @@ static int alchemy_pci_def_idsel(unsigned int devse=
-l, int assert)
-> >  /* save PCI controller register contents. */
-> >  static int alchemy_pci_suspend(void *data)
-> >  {
-> > -	struct alchemy_pci_context *ctx =3D __alchemy_pci_ctx;
-> > -	if (!ctx)
-> > -		return 0;
-> > +	struct alchemy_pci_context *ctx =3D data;
-> > =20
-> >  	ctx->pm[0]  =3D __raw_readl(ctx->regs + PCI_REG_CMEM);
-> >  	ctx->pm[1]  =3D __raw_readl(ctx->regs + PCI_REG_CONFIG) & 0x0009ffff;
-> > @@ -328,9 +321,7 @@ static int alchemy_pci_suspend(void *data)
-> > =20
-> >  static void alchemy_pci_resume(void *data)
-> >  {
-> > -	struct alchemy_pci_context *ctx =3D __alchemy_pci_ctx;
-> > -	if (!ctx)
-> > -		return;
-> > +	struct alchemy_pci_context *ctx =3D data;
-> > =20
-> >  	__raw_writel(ctx->pm[0],  ctx->regs + PCI_REG_CMEM);
-> >  	__raw_writel(ctx->pm[2],  ctx->regs + PCI_REG_B2BMASK_CCH);
-> > @@ -359,10 +350,6 @@ static const struct syscore_ops alchemy_pci_syscor=
-e_ops =3D {
-> >  	.resume =3D alchemy_pci_resume,
-> >  };
-> > =20
-> > -static struct syscore alchemy_pci_syscore =3D {
-> > -	.ops =3D &alchemy_pci_syscore_ops,
-> > -};
-> > -
-> >  static int alchemy_pci_probe(struct platform_device *pdev)
-> >  {
-> >  	struct alchemy_pci_platdata *pd =3D pdev->dev.platform_data;
-> > @@ -480,9 +467,10 @@ static int alchemy_pci_probe(struct platform_devic=
-e *pdev)
-> >  	__raw_writel(val, ctx->regs + PCI_REG_CONFIG);
-> >  	wmb();
-> > =20
-> > -	__alchemy_pci_ctx =3D ctx;
-> >  	platform_set_drvdata(pdev, ctx);
-> > -	register_syscore(&alchemy_pci_syscore);
-> > +	ctx->syscore.ops =3D &alchemy_pci_syscore_ops;
-> > +	ctx->syscore.data =3D ctx;
-> > +	register_syscore(&ctx->syscore);
->=20
-> As far as I can tell, the only use of syscore in this driver is for
-> suspend/resume.
->=20
-> This is a regular platform_device driver, so instead of syscore, I
-> think it should use generic power management like other PCI host
-> controller drivers do, something like this:
->=20
->   static int alchemy_pci_suspend_noirq(struct device *dev)
->   ...
->=20
->   static int alchemy_pci_resume_noirq(struct device *dev)
->   ...
->=20
->   static DEFINE_NOIRQ_DEV_PM_OPS(alchemy_pci_pm_ops,
->                                  alchemy_pci_suspend_noirq,
->                                  alchemy_pci_resume_noirq);
->=20
->   static struct platform_driver alchemy_pcictl_driver =3D {
->           .probe          =3D alchemy_pci_probe,
->           .driver =3D {
->                   .name   =3D "alchemy-pci",
->                   .pm     =3D pm_sleep_ptr(&alchemy_pci_pm_ops),
->           },
->   };
->=20
-> Here's a sample in another driver:
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/d=
-rivers/pci/controller/cadence/pci-j721e.c?id=3Dv6.17#n663
-
-I thought so too, but then I looked at the history and saw that it was
-initially regular PM ops and then fixed by using syscore in this commit:
-
-    commit 864c6c22e9a5742b0f43c983b6c405d52817bacd
-    Author: Manuel Lauss <manuel.lauss@googlemail.com>
-    Date:   Wed Nov 16 15:42:28 2011 +0100
-   =20
-        MIPS: Alchemy: Fix PCI PM
-   =20
-        Move PCI Controller PM to syscore_ops since the platform_driver PM =
-methods
-        are called way too late on resume and far too early on suspend (aft=
-er and
-        before PCI device resume/suspend).
-        This also allows to simplify wired entry management a bit.
-   =20
-        Signed-off-by: Manuel Lauss <manuel.lauss@googlemail.com>
-        Cc: linux-mips@linux-mips.org
-        Patchwork: https://patchwork.linux-mips.org/patch/3007/
-        Signed-off-by: Ralf Baechle <ralf@linux-mips.org>
-
-So unfortunately I don't think it'll work for this driver.
-
-Thierry
-
---stoiegldli5skly3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmkDVwcACgkQ3SOs138+
-s6FWDw//asJQ0od9HClRIj0RNLWAbliTk9QI3rUVvZd0krnee9oWFJS6p9gosZi7
-Baqb5WJ5xo7atxuHYK6RlAFAina/LUDWNpY9w1up0hM1K/NqVj0D6Ufrx2O4zw2Q
-5Ff2rbnpTBndYi8w6kth5MU4p/g3VtsilfSmErNPBQQF2CUQA3qmp3XVvAvbaH8+
-aUGS2rLpxX0Q06XGtXMtnvf4LHF4uzbZkX+AC6XqcBFT9BSgSjAKr65vMcYnqRqL
-sRxPbqQ9e6iZ2SibX+o61epk7rmO72XUa1v9TpZ24JNuvUIJnLfwm8D96f8NJEzK
-EznsDwGuOT/G87UYPvgqTZDbT8hbSvDEjGnlF8a6xtPP14Zm9hlMc0b9ZJ+wgMV4
-aMq7WckO8j/yY3NLAIokI/pMm5D11aYCSmk4PS7K4KdubNSeD+18J0QOZ/4cJyIQ
-cWI/P6sqD62A0QPMbbbtBa3MP9RbCZ0zhfFwI9dTprNJ7I7bijD/OLo798mkNB2f
-71+yECk1VnOKeAj9v80k479HlfUHaGCpRiEzWaKJ3IvLNqgUKH0q8nP8/McNXEKL
-8rRCO+5Ona/ND0lf2fue+/QeT44Fi24invQSdsgGdeaxEmcDkW06HSOK3Cp4pZWB
-E86uRaPgXuSRgDbxv2MMtv+PNWNWlqYzJ5/Lz0AkTm920p5RAvk=
-=Pbyc
------END PGP SIGNATURE-----
-
---stoiegldli5skly3--
-
-
---===============3600726178862260287==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Reviewed-by: Drew Fustini <fustini@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3600726178862260287==--
-
