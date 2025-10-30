@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4F0CCF9FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 20:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA33CCF9E3
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Oct 2025 20:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j0rXYNIQmmZVtJbAPqOKS5K7MQUnVuC17HM/9w3oxpM=; b=k6u5f9QWdAVMb/
-	e+Kr1p98tEI5NIRSbfB33nzwKwrI+ubrGpWnJ2VJo/gInp0YAhj4vP+4Zy5b4NF1ybc3GILlNI83+
-	AQTrflz3LM5/Gelwt5FTGI/gv+G4skD0nFlzRoPqOu7UPcJyzxBeUVPnGc6hwKQdsuauPJQsa1PP1
-	NTWIUAolYxAM5OaAN8TEAxTehTfPf+lLURTrHcWT8ZdxFby33v4pNiiLFSzLX/vdujMCPf7HzY8Q2
-	t0bIpECoWBQBBN5LGC1s6Yg6gcJUVG8VXTiOjBPuLCSamY5cb4//k7b1SX1juOPF6SF6jK4qgdGhK
-	ebEWGQIBDNDn/m3bSx/Q==;
+	List-Owner; bh=rJSOW5yhLAIKDG8V9zBBUiqylzGu03gHmNU1Vw+JfEc=; b=Q9kskGvn4fuRRZ
+	wm1ZY/WO8Z9NwrvHNL4wd091j6tI/MiVTHq2QSTZeetnI7sq7HX+etTece+rJgZ773crZghF9atGt
+	rnv7FDMZsnB6atbvZ+gj0cemsSvF1YteESVK/SgP/nEs0CCZJ7bczZzJQ6rdrJAtkCRAIN2ng0tBd
+	Im99VTrzzI0drLpUVJezUyhOsUqoQ+sW6WnMq6iEDNU9BaJ9xwoLj0fSIg+hKq7vNjQ1y8u+j3saA
+	4/4nxoHNNc2NvdMB1oByglO/f0YR4ITojb74fGmaG29v0G2V6NYE0nqsI1kA0605sp6wc/1nucxOP
+	HcMGSUYbTOcymp+iq2PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEZ0w-00000004mWY-0i9c;
-	Thu, 30 Oct 2025 20:12:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vEZ17-00000004mjg-3AS6;
+	Thu, 30 Oct 2025 20:13:05 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEYz3-00000004kIF-3tkX
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 30 Oct 2025 20:10:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=xpa5Fver89jqQUHMNWla6MmRTI/zYJOh/l7CEBc/74M=; b=ZbRj9N0TDsqv1zXRfHfC9zjno9
-	c2+NUqtV0gKStDv5O8fLLos0KaCijl5VB3Ohxnb66xR6iwHl0FIPGWeBnJrWz4Ur77/czAmuXYdzV
-	LBEBSkyOgx2qcSwSWJfagLfOpjscNlbL5DBCTudEkiEOM6FGK3QPl/C6+nV84Xq6Nz5alTZrBGJLi
-	exhlUa3AF1cq1h6+5ATHHOXt9hUJTKXpMeOBEVqzhGEL8NEfUFi9dNKP2FXHrLWwKRhYaRgViuWRZ
-	2UM4c2Q5jypH2g9/pMkUwtycwuTIuEwCMwQexyrLH+tZWiiYtbVBtj9lJ+5kuoHaFj0r4HPDpGxz1
-	ZCXhr3kg==;
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEY7H-00000009tx4-2B7P
+	id 1vEYyv-00000004k7Z-2imy
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Oct 2025 19:15:25 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3324538ceb0so2548917a91.1
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 13:10:54 -0700 (PDT)
+	Thu, 30 Oct 2025 20:10:58 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b57cf8dba28so1198546a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 13:10:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761855052; x=1762459852; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761855048; x=1762459848; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=xpa5Fver89jqQUHMNWla6MmRTI/zYJOh/l7CEBc/74M=;
-        b=hdbYCOHRyiQ0L/jEJh1DbvL59dqhV5ibzwLLgfdJo3yW9zVfZK+gsHJwW6Psz++JX4
-         WR0bnkbmmOHCkTXYyf7KYv2U2tm84arCXcYXiQeyzn7MOgHwle4o70639ZDpt5jLb69r
-         i0pretToQSHN8ObqTYElFPBqgJJd02ApCNaf/1M8I2sqTtroUPGllUFcvHby1c2FE/LB
-         P3HoVXeXYuivnp0XKk5BLNGSPMxg3KqYkHKi0EQw+Np7CftF8iiXubpdI1wJY1JmgsO+
-         D9evqLk1weMFq0m66A9Xh7idJv2w1jJTQuhZB3XbqezkPlLc3CNENs54PXJNRteXAiGG
-         yZAw==
+        bh=q3vUMZT0yYe1EXEiRgC8c4U03xvX09k6brWY3B4yx5I=;
+        b=dzKPMF4F1Z9SaFcllfHIaN5K7jMsdgV8GROEwAKF9VqldR9dL0y8FiZ2YnvRV8Nn8D
+         ylZfZ5l0cjNXBC7lRq5sNfY5LmeFEnxxRZoIADamHHDdwSnQQFU8Xs4dLIRe+ee0DFx1
+         oru1xaBuasQhz+qa+L7Vc5zoBzF0J3byQDuOtyOmc+n2ipKZUqMasqNicP7SY3Ga9fie
+         DRbxMClWMHT3SOTIrhqf7+F2/RIwknZbXOGNOjBJxKT9XZ6x7RAzeQEo21teoADAY5j3
+         yv0RKU1YfC+XpIXadgwutdhM4mWbe8BzB3IRhsAO22bVR7o4tXNwbh9euiktTHx6YPAH
+         Sdqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761855052; x=1762459852;
+        d=1e100.net; s=20230601; t=1761855048; x=1762459848;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xpa5Fver89jqQUHMNWla6MmRTI/zYJOh/l7CEBc/74M=;
-        b=g3TlntCZCrT7tuE1E74wsalS2GiX2UELw33r7H16IcnjWew7MNDb9H38x/yQGHeXTN
-         B9hkzzSyYHroZqwjTpLkg+XStzGG6Qt9iuLi4uUZiG23taSg1GChEszz7fezxHxCZvK9
-         6IV3CrQrF2ibiEr1RNVB2gRNaHXq9H01TAKCeHn6ULRGpXYyH8SsjWsqANvVsFvXUA9Q
-         ubyl3b4n34SVWSLo3Obsv1sLpAVc4Ws7tkY3+CdyBLokhjZIRiITSEWB3ly8R9R2vmK7
-         LdQw3KAnUAel+A3mE+ddnXR6Z4yZcx0jWo/juF0L9K7XBCULRZliZk1ee/oZZ5XLnBwH
-         dsug==
-X-Forwarded-Encrypted: i=1; AJvYcCXrs1k9yPn+mDaDJC88hu0AOq9+vHr1iLNBvMhHuB6d+j16VnALoC5IabLSE3dy82+UGRR04r5R3vKwAg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfjQIUTUnIPoAiSLmq1pYDV9ybyAdqFMWZP+R+k2i4VPMrWrxk
-	0RcrALdsrrXY1bZDH65oLZFdApo+dkIxRk1nVRS/tdjW3NMjBs2x+ppb7MYzE/yiKvu+pNtuSyC
-	Dmfg9pg==
-X-Google-Smtp-Source: AGHT+IGdH9ACR3MS+ju/IeUipjD96kAUXZo3BjKEOn1spE0qh/NlJMuCLno+Rlt479ILTGbPCBlzBUGVIBM=
-X-Received: from pjl4.prod.google.com ([2002:a17:90b:2f84:b0:339:dc19:ae60])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3c52:b0:338:3789:2e7b
- with SMTP id 98e67ed59e1d1-34082fd9099mr1370626a91.13.1761855052135; Thu, 30
- Oct 2025 13:10:52 -0700 (PDT)
-Date: Thu, 30 Oct 2025 13:09:44 -0700
+        bh=q3vUMZT0yYe1EXEiRgC8c4U03xvX09k6brWY3B4yx5I=;
+        b=PGThQgY8JFKHj1VxqC0vln3HyBhBeJzH4o/f+51YN2KGnoZbrlXNbAZkYGyeRrBEZE
+         CYsSdDe0T5VkjAia8SSokxV02m2Y8LIhDeq/IrirMy/UdBSizLRGY72PtplqbqWI6IBB
+         OpI2uoAvgjd6k2/QrBGP7S2rtUXquqsvqX5LFDy0X5/yA/6WbM9yBo1Tk9NFLXDXrN6z
+         f9gHT+DMVxIw8/7TLilCQNtd0Hq7qFLXJOjVL66uNSCy62zEBYEneFpyOkIITKtoRrlD
+         soGroLCzvuIpU6/Hun9frgnD9LHhTVHiGZTSCBE9cMfZXlwt/MqEPYKv7B6EdvBzt/di
+         fqwA==
+X-Forwarded-Encrypted: i=1; AJvYcCXIA7cblM9fkZtuTlyzLy7vfWTcmhV5jCAfDlIzGVWINnoJGASVBGaQnK1mz5Ty15MGauq/hX0qb4PcYQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHD3r0QnTeX2FG0mGjsS9y+AxH/rgrR9o5qH66fztJjeUN/Hys
+	n546zC8w5b46Jo8KhND0GTIc/d9hnOPq0kXYiPtohb6rj5mn+2YwttlIeimA/w4P8dqmk6wrVOX
+	eSZmPEA==
+X-Google-Smtp-Source: AGHT+IGMIUiQfnFXRwKgU4xakuBoSsZwl0KV10BIrj34ojpFyNKXcMvJLG+bxMBFJqWMl0yCEf0bmf3P3I0=
+X-Received: from pltj3.prod.google.com ([2002:a17:902:76c3:b0:294:8e58:7348])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2348:b0:295:1a63:57b0
+ with SMTP id d9443c01a7336-2951a635c07mr12598385ad.23.1761855047670; Thu, 30
+ Oct 2025 13:10:47 -0700 (PDT)
+Date: Thu, 30 Oct 2025 13:09:42 -0700
 In-Reply-To: <20251030200951.3402865-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251030200951.3402865-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.1.930.gacf6e81ea2-goog
-Message-ID: <20251030200951.3402865-22-seanjc@google.com>
-Subject: [PATCH v4 21/28] KVM: TDX: Add macro to retry SEAMCALLs when forcing
- vCPUs out of guest
+Message-ID: <20251030200951.3402865-20-seanjc@google.com>
+Subject: [PATCH v4 19/28] KVM: TDX: Derive error argument names from the local
+ variable names
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -103,8 +88,9 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
 	Ackerley Tng <ackerleytng@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_191523_662404_AA58BF8C 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20251030_131049_775168_492D4144 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,132 +108,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a macro to handle kicking vCPUs out of the guest and retrying
-SEAMCALLs on -EBUSY instead of providing small helpers to be used by each
-SEAMCALL.  Wrapping the SEAMCALLs in a macro makes it a little harder to
-tease out which SEAMCALL is being made, but significantly reduces the
-amount of copy+paste code and makes it all but impossible to leave an
-elevated wait_for_sept_zap.
+When printing SEAMCALL errors, use the name of the variable holding an
+error parameter instead of the register from whence it came, so that flows
+which use descriptive variable names will similarly print descriptive
+error messages.
 
+Suggested-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 82 +++++++++++++++++-------------------------
- 1 file changed, 33 insertions(+), 49 deletions(-)
+ arch/x86/kvm/vmx/tdx.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index 999b519494e9..97632fc6b520 100644
+index 5e6f2d8b6014..63d4609cc3bc 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -294,25 +294,34 @@ static inline void tdx_disassociate_vp(struct kvm_vcpu *vcpu)
- 	vcpu->cpu = -1;
- }
+@@ -41,14 +41,15 @@
+ #define TDX_BUG_ON(__err, __fn, __kvm)				\
+ 	__TDX_BUG_ON(__err, #__fn, __kvm, "%s", "")
  
--static void tdx_no_vcpus_enter_start(struct kvm *kvm)
--{
--	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
--
--	lockdep_assert_held_write(&kvm->mmu_lock);
--
--	WRITE_ONCE(kvm_tdx->wait_for_sept_zap, true);
--
--	kvm_make_all_cpus_request(kvm, KVM_REQ_OUTSIDE_GUEST_MODE);
--}
--
--static void tdx_no_vcpus_enter_stop(struct kvm *kvm)
--{
--	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
--
--	lockdep_assert_held_write(&kvm->mmu_lock);
--
--	WRITE_ONCE(kvm_tdx->wait_for_sept_zap, false);
--}
-+/*
-+ * Execute a SEAMCALL related to removing/blocking S-EPT entries, with a single
-+ * retry (if necessary) after forcing vCPUs to exit and wait for the operation
-+ * to complete.  All flows that remove/block S-EPT entries run with mmu_lock
-+ * held for write, i.e. are mutually exclusive with each other, but they aren't
-+ * mutually exclusive with running vCPUs, and so can fail with "operand busy"
-+ * if a vCPU acquires a relevant lock in the TDX-Module, e.g. when doing TDCALL.
-+ *
-+ * Note, the retry is guaranteed to succeed, absent KVM and/or TDX-Module bugs.
-+ */
-+#define tdh_do_no_vcpus(tdh_func, kvm, args...)					\
-+({										\
-+	struct kvm_tdx *__kvm_tdx = to_kvm_tdx(kvm);				\
-+	u64 __err;								\
-+										\
-+	lockdep_assert_held_write(&kvm->mmu_lock);				\
-+										\
-+	__err = tdh_func(args);							\
-+	if (unlikely(tdx_operand_busy(__err))) {				\
-+		WRITE_ONCE(__kvm_tdx->wait_for_sept_zap, true);			\
-+		kvm_make_all_cpus_request(kvm, KVM_REQ_OUTSIDE_GUEST_MODE);	\
-+										\
-+		__err = tdh_func(args);						\
-+										\
-+		WRITE_ONCE(__kvm_tdx->wait_for_sept_zap, false);		\
-+	}									\
-+	__err;									\
-+})
+-#define TDX_BUG_ON_1(__err, __fn, __rcx, __kvm)			\
+-	__TDX_BUG_ON(__err, #__fn, __kvm, ", rcx 0x%llx", __rcx)
++#define TDX_BUG_ON_1(__err, __fn, a1, __kvm)			\
++	__TDX_BUG_ON(__err, #__fn, __kvm, ", " #a1 " 0x%llx", a1)
  
- /* TDH.PHYMEM.PAGE.RECLAIM is allowed only when destroying the TD. */
- static int __tdx_reclaim_page(struct page *page)
-@@ -1722,14 +1731,7 @@ static void tdx_track(struct kvm *kvm)
- 	 */
- 	lockdep_assert_held_write(&kvm->mmu_lock);
+-#define TDX_BUG_ON_2(__err, __fn, __rcx, __rdx, __kvm)		\
+-	__TDX_BUG_ON(__err, #__fn, __kvm, ", rcx 0x%llx, rdx 0x%llx", __rcx, __rdx)
++#define TDX_BUG_ON_2(__err, __fn, a1, a2, __kvm)	\
++	__TDX_BUG_ON(__err, #__fn, __kvm, ", " #a1 " 0x%llx, " #a2 " 0x%llx", a1, a2)
  
--	err = tdh_mem_track(&kvm_tdx->td);
--	if (unlikely(tdx_operand_busy(err))) {
--		/* After no vCPUs enter, the second retry is expected to succeed */
--		tdx_no_vcpus_enter_start(kvm);
--		err = tdh_mem_track(&kvm_tdx->td);
--		tdx_no_vcpus_enter_stop(kvm);
--	}
--
-+	err = tdh_do_no_vcpus(tdh_mem_track, kvm, &kvm_tdx->td);
- 	TDX_BUG_ON(err, TDH_MEM_TRACK, kvm);
+-#define TDX_BUG_ON_3(__err, __fn, __rcx, __rdx, __r8, __kvm)	\
+-	__TDX_BUG_ON(__err, #__fn, __kvm, ", rcx 0x%llx, rdx 0x%llx, r8 0x%llx", __rcx, __rdx, __r8)
++#define TDX_BUG_ON_3(__err, __fn, a1, a2, a3, __kvm)	\
++	__TDX_BUG_ON(__err, #__fn, __kvm, ", " #a1 " 0x%llx, " #a2 ", 0x%llx, " #a3 " 0x%llx", \
++		     a1, a2, a3)
  
- 	kvm_make_all_cpus_request(kvm, KVM_REQ_OUTSIDE_GUEST_MODE);
-@@ -1781,14 +1783,8 @@ static void tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
- 	if (KVM_BUG_ON(level != PG_LEVEL_4K, kvm))
- 		return;
  
--	err = tdh_mem_range_block(&kvm_tdx->td, gpa, tdx_level, &entry, &level_state);
--	if (unlikely(tdx_operand_busy(err))) {
--		/* After no vCPUs enter, the second retry is expected to succeed */
--		tdx_no_vcpus_enter_start(kvm);
--		err = tdh_mem_range_block(&kvm_tdx->td, gpa, tdx_level, &entry, &level_state);
--		tdx_no_vcpus_enter_stop(kvm);
--	}
--
-+	err = tdh_do_no_vcpus(tdh_mem_range_block, kvm, &kvm_tdx->td, gpa,
-+			      tdx_level, &entry, &level_state);
- 	if (TDX_BUG_ON_2(err, TDH_MEM_RANGE_BLOCK, entry, level_state, kvm))
- 		return;
- 
-@@ -1803,20 +1799,8 @@ static void tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
- 	 * with other vcpu sept operation.
- 	 * Race with TDH.VP.ENTER due to (0-step mitigation) and Guest TDCALLs.
- 	 */
--	err = tdh_mem_page_remove(&kvm_tdx->td, gpa, tdx_level, &entry,
--				  &level_state);
--
--	if (unlikely(tdx_operand_busy(err))) {
--		/*
--		 * The second retry is expected to succeed after kicking off all
--		 * other vCPUs and prevent them from invoking TDH.VP.ENTER.
--		 */
--		tdx_no_vcpus_enter_start(kvm);
--		err = tdh_mem_page_remove(&kvm_tdx->td, gpa, tdx_level, &entry,
--					  &level_state);
--		tdx_no_vcpus_enter_stop(kvm);
--	}
--
-+	err = tdh_do_no_vcpus(tdh_mem_page_remove, kvm, &kvm_tdx->td, gpa,
-+			      tdx_level, &entry, &level_state);
- 	if (TDX_BUG_ON_2(err, TDH_MEM_PAGE_REMOVE, entry, level_state, kvm))
- 		return;
- 
+ bool enable_tdx __ro_after_init;
 -- 
 2.51.1.930.gacf6e81ea2-goog
 
