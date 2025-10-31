@@ -4,96 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03BCCCF9F0
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 01:24:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09471CCF9E3
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 01:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vxfc72LvfPnez+ZjQ81haeh1KemO6Qc50EzqZYvEgog=; b=r0lgFqz2O5DuinLqu67hR42L2j
-	ZYjO/nahlsrQxoBTpbqmk/IlzrcTzWH0tcgbFO4mvvbqh0rlhWCVMxFc64wd1s63vUzSvnWkVxByK
-	qkhhApoOnoXlE8cmL8DweBvfGzxlrOzbwiFWGSGCQNOxsJKUauTKibrmqZG17ELWYtaCQSugegRa/
-	NHhmDNgnEkqH8OGoYjEir+WjlB2BNaKzhMO8nrH1jfjcqJFL07xHvWdMywa0cbpKwIgyCwlv4V87E
-	2IjCDFjN6N8BusZ8rBaVxNMzuB8hOiqB/D4K2ZMDuWbhtbP1WhAsndEuwDUSuVjHTBIT1PBUqrfSv
-	0TELQh7w==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DM6vYTgM6J0jJ+g32YqxIvDxIyy02GwY4NQ/TNui+Ro=; b=MzBgp2dON1t903
+	7weFh08XWcRtbsGd75iseAzIkDrGfdF07SHYQkNL51wl35TEw9KZBhGWLiAuuKWCJ4f7osNUTUYsY
+	U/7DIJWiNKxZTM12duX38L80YyVueYnkCPvyCMAR0EI0QtnkGKTNWNfSObMMbLT0OmeGJpJHsK3mV
+	ltpgw8GHNoVkjyZgtts0vGbsx4T1bowB2fD+yAU3Nwhzus5lUuUVEjKheSw8BgWXeGJQtE67vLhju
+	88xDWxmRrPdU1ujPzA9NtyyoMvDScsS0GYEaByWd15nUk72Eoppn2Mohs/HbZrKzcE1AaI+mnIN6S
+	Q1005icfOivDEts1EQ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEdsZ-00000005DtC-1L29;
-	Fri, 31 Oct 2025 01:24:35 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1vEe4w-00000005Eip-1MhG;
+	Fri, 31 Oct 2025 01:37:23 +0000
+Received: from mail-il1-x143.google.com ([2607:f8b0:4864:20::143])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEdsV-00000005Dst-1pDJ
+	id 1vEe4t-00000005EiS-2IKz
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Oct 2025 01:24:33 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7a59ec9bef4so2264275b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 18:24:30 -0700 (PDT)
+	Fri, 31 Oct 2025 01:37:21 +0000
+Received: by mail-il1-x143.google.com with SMTP id e9e14a558f8ab-4330d2ea04eso2500365ab.3
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 18:37:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761873870; x=1762478670; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KcSBl+fombjs6jhb+boYVCpSv0fgyDJ8iOMAQkc0Fa8=;
-        b=RMwGmBT5SggqBdZzpD39Zgc+3FmT4+wWqr5I81an3P3Vrm751HHIB3c5lliDROjACU
-         4lToKdO40tn8JWd3MNgPfQ0jRqFjgZZD0kmDetldOWgMw4DT6/TP7mEm4Gw9G3ffUvuY
-         wPb1zG68+m3MW94tCDm+nrIXS8IQkkOb8rf0ivd3PSC/QuJ6lg6QaohNsX5WefDy1HAj
-         IP9yW+5Vow3QI7CsdCt3yOOrBmWsj9NM5CPnkAW1gutb/2CHoalfabgOdnd3V1I56NCP
-         Y4J3t7vz1R39OZvfQPT6clZ6cPzWOma1SM9bBPJgvhvoYKEYENQxaskjztx9FPmzfEJl
-         7zeg==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761874638; x=1762479438; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MZXfwu/E+BC+JAhEUtk1GdLUOAn+XEVcnmRSn9TxWj8=;
+        b=ngP75FBbCAYGEIQRHJLERVeymtSPhJaCHjK9Sx0qquxUEEeXg/Q6Nx9JbAcpeA1hk1
+         8x/kkTinQ7C2G1sWFFU88+BVudy5TLdcX1l8c+ilcvVV5vFiG/P8Qb/01RHCDMmGB3u5
+         U6L34ajtqJkUl0/3mAQ7x9KkiGHH7OlxnBaLKkeaz3GPxYGpD/ovjigVJk6LmNa8yZ4p
+         EtnzqzSk/1cbVsiQjg/iuYA2SAebi/MkNT8gDtvZtpYdo5cc6RyeT3nKEM3TsFPejFRZ
+         WtFJur7sJPOMTW4PmtqeaJtyTPvxk0XIhEBYoEj3rsIqZQP3p9byv900nb6g+6F2t8lv
+         JxQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761873870; x=1762478670;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KcSBl+fombjs6jhb+boYVCpSv0fgyDJ8iOMAQkc0Fa8=;
-        b=gHp+iZIFuDe/4L90jE5xhJGUOO90WhY3LlS66SXqCVVMMScs6+XnKVfUraNU9etpoE
-         KGXtNJ9hokSd+k/tUpQx8HeDkH/mwu3/zNvHdc5oXpTKb1uoRs3GrOYFTpdme2xv/32V
-         A/DuwgHhHbRm3vDbnzU07sO9dZ5f2iM/dT7NYytFlyg9hYVUpjxbdGPfYsF2nFbh5QNm
-         D9IN5JWldZVCoc2WqhfP8rd7YHAeNlsOIQQkVLT4EROySxcuQ/KfcKwyWivLAoySUxU2
-         NHyVMMwPDpx+jR+9IzjTps7Y3Ulxg4SC5J+adJBKUTajCCj0TcuDQ9llQVLKBcDNf2jn
-         JH1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWOqL/BD/ihD6n0LJC/Has1l8WKSOHBAFia7frDvub2yb/FbEmTTsLj9z6ZS3ViaF7bJC9lKzI+UI1yDw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+lFl4fLay75qkTnBfkGWSYqWn+ukRT7YOMsbkvIgWDrBy129b
-	72Qda1KgndYV+EOwJPITVVEjZNw9/+gxtlkOCkowWbFQy//ifIkOadnZ
-X-Gm-Gg: ASbGnctZLOue4md9BogDTygnU8LWUSUkqOXSnySaIzJdKjPX9OdiSpg2bdo+rhVyLWb
-	FWyXiGaa2ch9fC0UpQW/2U4Jv+Xtkvu5RFhDpTMsMs6tiW2j6D7OiA7iSDSGruhmp8726IgiCAk
-	3FbL6ISkSQ7D+tJe/rxpGNzFSxgMOylHQh+HQv0DXRqmVFDHgqDq2LRcH5ofvGoRqcfwv2SDId/
-	mHRcRW3fjRNoDeLX5iZ9JsHeAD/XHjcnhe2KxoMVWChfhtf4oYjX+6c5KZBqxhgExy4bjUEyvN1
-	n/UWUZeRC4vzcBuyHhnQi8TT7/6mHhy9FOUvCKjhARQWOAszbWSFdWpHmKHxRkkQmZfVUP17t8M
-	yv5ac/NVcI8jxil11ny+76rdgQw5kFu0+ANSLw6sT+ocjs1O8chGEMxX8qBHpPr7F0wHeUpJJ0Z
-	scf/ca++6mUSY=
-X-Google-Smtp-Source: AGHT+IFmcP0ESU85vjNBrC9Xk91hvqDQ9l7Vj8fu5fIwvpUmwTv0sGAr8xsWOWJ1HNzSt9GGNxsHwg==
-X-Received: by 2002:a05:6a21:3283:b0:340:4bb7:8d02 with SMTP id adf61e73a8af0-348cd211f18mr2293295637.60.1761873869735;
-        Thu, 30 Oct 2025 18:24:29 -0700 (PDT)
-Received: from archie.me ([210.87.74.117])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b93b8aa3ff1sm223032a12.14.2025.10.30.18.24.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Oct 2025 18:24:28 -0700 (PDT)
-Received: by archie.me (Postfix, from userid 1000)
-	id 6D1FE4209E4A; Fri, 31 Oct 2025 08:24:25 +0700 (WIB)
-Date: Fri, 31 Oct 2025 08:24:25 +0700
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-To: Atish Patra <atish.patra@linux.dev>,
-	Yunhui Cui <cuiyunhui@bytedance.com>, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	conor@kernel.org, luxu.kernel@bytedance.com, cleger@rivosinc.com,
-	ajones@ventanamicro.com, apatel@ventanamicro.com,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	songshuaishuai@tinylab.org, bjorn@rivosinc.com,
-	charlie@rivosinc.com, masahiroy@kernel.org,
-	valentina.fernandezalanis@microchip.com, jassisinghbrar@gmail.com,
-	conor.dooley@microchip.com
-Subject: Re: [PATCH 3/3] riscv: crash: use NMI to stop the CPU
-Message-ID: <aQQPyan9ifX84e4h@archie.me>
-References: <20251027133431.15321-1-cuiyunhui@bytedance.com>
- <20251027133431.15321-4-cuiyunhui@bytedance.com>
- <e9c2021a-fa7f-4b01-9b48-afe5fa73135f@linux.dev>
+        d=1e100.net; s=20230601; t=1761874638; x=1762479438;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MZXfwu/E+BC+JAhEUtk1GdLUOAn+XEVcnmRSn9TxWj8=;
+        b=MHkcNxAQOiqHuXsiMnUwLPSs4EXNh2APKQ2CY0yPUQppxpnsj3mgAO/6Laz/9T/Rk7
+         AItsz0COi4w3mZW+Kv3Q9AE1zOfAMgKT2DvZ4SLXCFZldzVbmLZp8cR/6PD2o7gH1OdX
+         72OcKSrvCgFFXxO/YF7h6oaNK1QOPfniuzUsl0/1XuL4JRrHMrmru7x2yvyi1lEOH1vV
+         CYek01lOiI8XYX641A62vZY0comz3mpozk2uSfJQwPiAE0O1L6HFdQz93IxsqjS1vCad
+         Q7YSwUJzpkncjrny9rcAJWDQQ9olxzNYDARahv1l1Q3rFIbhGYnoQHTPP8LmeqKXx1D+
+         V2JA==
+X-Forwarded-Encrypted: i=1; AJvYcCXVz45wFvo9V3Lq1Ucs8xzwbDMM5etqSLp/hxO/RM0AqQln8dMOsEcoYh2bJ1dRhXHnPK5h8WK5vrVgwQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1xyYXXBHCmtF+i8uRfiC+r8WY5RL5y/0yYqGRjRe1I1LmNDNQ
+	8nkSk2DKiMlk96Hgq1KiHXKhuiDsmfxuDPrcFphq8RDy8G66FChgKqZICeOWLD0IXCA=
+X-Gm-Gg: ASbGncttXp1QT9NPOtbbOD1rbMsbwRRP6LPcEcRhUp96cwZE+YDQIdCXBF/kODICE9+
+	6JDoqsSkRQQT2V4FPPCt+IvliJaOQ/JGFCJU/X0vr4FKn98sSkC9ibe77CVypS8M9G/FoSL4o2t
+	5Me7c2y8HmUTK3amfF5PAIFID5T9d7K0gvWGBqqY1RmreSkb4Vc4YAyqJRLo040JZwmL+X/JlWZ
+	3UBfliAo+YTQT5otPAwGsrg77FizxIxYn6eFp8mMcD6+mRySVgTPjtJZisQZMwiIHy64CJZ9Gv0
+	R8r0tKtZe5ZAr8XjWDjDFYRNpVkMAHyMlTGMU2F5eSK4yF4/gT8ROnOhuDwlqfRUfysyASc09pE
+	y1Cs1xvpp/2AOA+RpFPGKnHheyiTQ9wzBxOBnSipIunNbiZ7GGQkWnQXDVya1bR5r/bhvi7o1nZ
+	gm9f/xFWS6/2bIcXWD5qJYYRPIDvuStdFlGYWoaM66
+X-Google-Smtp-Source: AGHT+IF8jKPMcN4haMJfj2iiZ24svqDtow1spkbfII1MB862Q9VVregRX2uRZw72R6OIomLop1+AMQ==
+X-Received: by 2002:a05:6e02:b27:b0:430:af13:accc with SMTP id e9e14a558f8ab-4330d1280afmr28635775ab.7.1761874638596;
+        Thu, 30 Oct 2025 18:37:18 -0700 (PDT)
+Received: from [172.22.22.234] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-43310245c34sm1321815ab.2.2025.10.30.18.37.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Oct 2025 18:37:18 -0700 (PDT)
+Message-ID: <9e60f7ed-7afc-4151-a301-4a0832b9105f@riscstar.com>
+Date: Thu, 30 Oct 2025 20:37:16 -0500
 MIME-Version: 1.0
-In-Reply-To: <e9c2021a-fa7f-4b01-9b48-afe5fa73135f@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/7] dt-bindings: pci: spacemit: introduce PCIe host
+ controller
+To: Rob Herring <robh@kernel.org>
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ dlan@gentoo.org, guodong@riscstar.com, devicetree@vger.kernel.org,
+ linux-pci@vger.kernel.org, spacemit@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251030220259.1063792-1-elder@riscstar.com>
+ <20251030220259.1063792-4-elder@riscstar.com>
+ <20251031005718.GA539812-robh@kernel.org>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20251031005718.GA539812-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_182431_715219_249FF867 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251030_183719_974763_7CBB51FB 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,57 +102,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8149529951262594661=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 10/30/25 7:58 PM, Rob Herring wrote:
+> On Thu, Oct 30, 2025 at 05:02:54PM -0500, Alex Elder wrote:
+>> Add the Device Tree binding for the PCIe root complex found on the
+>> SpacemiT K1 SoC.  This device is derived from the Synopsys Designware
+>> PCIe IP.  It supports up to three PCIe ports operating at PCIe gen 2
+>> link speeds (5 GT/sec).  One of the ports uses a combo PHY, which is
+>> typically used to support a USB 3 port.
+>>
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>> ---
+>>   .../bindings/pci/spacemit,k1-pcie-host.yaml   | 157 ++++++++++++++++++
+>>   1 file changed, 157 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml b/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
+>> new file mode 100644
+>> index 0000000000000..58239a155ecc0
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
+>> @@ -0,0 +1,157 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/pci/spacemit,k1-pcie-host.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: SpacemiT K1 PCI Express Host Controller
+>> +
+>> +maintainers:
+>> +  - Alex Elder <elder@riscstar.com>
+>> +
+>> +description: >
+>> +  The SpacemiT K1 SoC PCIe host controller is based on the Synopsys
+>> +  DesignWare PCIe IP.  The controller uses the DesignWare built-in
+>> +  MSI interrupt controller, and supports 256 MSIs.
+> 
+> Wrap lines at 80.
 
---===============8149529951262594661==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="l4Iyd7nhM5+T6dxQ"
-Content-Disposition: inline
+OK.
 
+>> +
+>> +allOf:
+>> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: spacemit,k1-pcie
+>> +
+>> +  reg:
+>> +    items:
+>> +      - description: DesignWare PCIe registers
+>> +      - description: ATU address space
+>> +      - description: PCIe configuration space
+>> +      - description: Link control registers
+>> +
+>> +  reg-names:
+>> +    items:
+>> +      - const: dbi
+>> +      - const: atu
+>> +      - const: config
+>> +      - const: link
+>> +
+>> +  clocks:
+>> +    items:
+>> +      - description: DWC PCIe Data Bus Interface (DBI) clock
+>> +      - description: DWC PCIe application AXI-bus master interface clock
+>> +      - description: DWC PCIe application AXI-bus slave interface clock
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: dbi
+>> +      - const: mstr
+>> +      - const: slv
+>> +
+>> +  resets:
+>> +    items:
+>> +      - description: DWC PCIe Data Bus Interface (DBI) reset
+>> +      - description: DWC PCIe application AXI-bus master interface reset
+>> +      - description: DWC PCIe application AXI-bus slave interface reset
+>> +
+>> +  reset-names:
+>> +    items:
+>> +      - const: dbi
+>> +      - const: mstr
+>> +      - const: slv
+>> +
+>> +  interrupts:
+>> +    items:
+>> +      - description: Interrupt used for MSIs
+>> +
+>> +  interrupt-names:
+>> +    const: msi
+>> +
+>> +  spacemit,apmu:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +    description:
+>> +      A phandle that refers to the APMU system controller, whose
+>> +      regmap is used in managing resets and link state, along with
+>> +      and offset of its reset control register.
+>> +    items:
+>> +      - items:
+>> +          - description: phandle to APMU system controller
+>> +          - description: register offset
+>> +
+>> +patternProperties:
+>> +  '^pcie?@':
+> 
+> It's always PCIe, so drop the '?'.
 
---l4Iyd7nhM5+T6dxQ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I'll fix that.
 
-On Thu, Oct 30, 2025 at 01:46:40AM -0700, Atish Patra wrote:
-> 1. Invoking SSE on this path may lead to some race conditions if
-> interruption is enabled.
+> With that,
+> 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-What race condition?
+Thanks for the review.
 
-Confused...
-
---=20
-An old man doll... just what I always wanted! - Clara
-
---l4Iyd7nhM5+T6dxQ
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCaQQPyQAKCRD2uYlJVVFO
-oxE6AP9I4NFyMCoGzkBrmBIf+863ij8NRBMe873QzL81xOT7KgD9G1rHfUK7x3LI
-SqjtNdTIOSPzqUUofHFp4CAjKdmkkQw=
-=ejAp
------END PGP SIGNATURE-----
-
---l4Iyd7nhM5+T6dxQ--
-
-
---===============8149529951262594661==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+					-Alex
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8149529951262594661==--
-
