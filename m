@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9859CCCF9FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 13:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206DECCF9FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 13:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
-	Cc:To:Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LIjwWXaPk8zIlRoK4dM/OvS9+B/xJmq0mcxph7Y9jqA=; b=1hHxOHXS3iZBep
-	wkFAyR1gXJJp4Ce4mQIZlqmLlgBzxad1EWM05BEOKFY4omG2+T5weSjkxLQlJG8BNjwJYyh3mx8iI
-	FoR/5hG91UCezPML0pBssIamaLWuuu02GB5AIZqHAw5E5h0D+uW1Uqx0AtEfvL1+N4vzaBtkU6hnO
-	7v6jINAWYU0f00iflbJznAAMRh9Bh3ZTta2EHleGOghk+yx1y/lLT6bDGMBCxJ4DBMj5lfXEWYbze
-	jHKnBRgiRFzSfk9yUmdbxTBIXFqyoiGf7JN9KpUXi1Ea5zQTaiM8BwPZB8gorcmtQsR2i5OCcjRkN
-	Z1CKZaLXBOdpP0sK9POQ==;
+	List-Owner; bh=1gzAGQ1QX9vYsB4is1vOXtQrNXFz1wq6/bel9qH5q4A=; b=Aq++e090hLBKwy
+	8WXvFAzlHjO64bR/QU5GONN4kdKFAH6kzAR4mbLjBEuWBi+uKY5eXeq5GbArdBXdTc1Gb5qgh2sOO
+	4v27m8U8RG6DIXWzp2BQf5LNMTK4ZvkKsn+siszeihchbAg+Oj1hm7lKrEzZcBLiTU8HBFwQnIrTl
+	U1DYwF6n6aY15ITlZWbNKwSQQps9UsvxP109nc5pWkhgctit9iYqLwT920SzbdDuyKBu/380XHfBi
+	hw4VuDgXRDNt2dbHjZSg8r5Vosm/UBQs/sIynZynXUX+ozBMqHqR6Iu3s3kpQru6zggoQUpkqr0jX
+	yqakBr6xSFh2y+C24F4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEovo-000000069EY-2ikc;
-	Fri, 31 Oct 2025 13:12:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vEpCF-000000069um-0nlJ;
+	Fri, 31 Oct 2025 13:29:39 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEovm-000000069Dt-0DIN
+	id 1vEpCA-000000069uJ-3zmv
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Oct 2025 13:12:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2D794099E;
-	Fri, 31 Oct 2025 13:12:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9D93C4CEE7;
-	Fri, 31 Oct 2025 13:12:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761916356;
-	bh=1rwfYJBuNs8Xw9hEJc66YBPhOXArAPLszXsQFe7O3u8=;
-	h=Date:Reply-To:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=f9+EqC5WRd/sDGGwiZxzmEIndtVF8XVgbt/QJAmmE32q/tHDSPgrSri5+smmC9Pa7
-	 Vw5PQPOByMkPiV2tZCIQ4UBk8NcQv3mOjXCCNxHJnG9StvNFkbeRDlIjmJ3wY+o1wt
-	 XkbPK1hO+Db8xlGyDbC4CtrTRG4bYvHkrPM8fSd3Wo8JJcdUXaYVj8X8wcEMu4jKH1
-	 mqtVuFEZ2JuWZ2ShshkYF6VgstGKmGNAu7nMCB3O8+mZ7WngZPXJjxj/IBKGCoQz5L
-	 23pZbJayCZ1hz21HLTlKLefWh5GO1JM0sDRQdm2BA7ppe5jbwGV11II5hJ5E0WY/6+
-	 FuWkEGy2sOM1g==
-Message-ID: <4654398f-324c-4465-88eb-8cadde6160dc@kernel.org>
-Date: Fri, 31 Oct 2025 14:12:29 +0100
+	Fri, 31 Oct 2025 13:29:37 +0000
+Received: from [192.168.0.109] (unknown [114.241.85.109])
+	by APP-01 (Coremail) with SMTP id qwCowAAXfWe0uQRpJJbBAA--.7539S2;
+	Fri, 31 Oct 2025 21:29:24 +0800 (CST)
+Message-ID: <729fc508-0682-41b0-8582-b1388f31e08d@iscas.ac.cn>
+Date: Fri, 31 Oct 2025 21:29:23 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] rust: macros: Add support for 'imports_ns' to module!
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>,
- Sami Tolvanen <samitolvanen@google.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
- Michal Wilczynski <m.wilczynski@samsung.com>,
- Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
- Danilo Krummrich <dakr@kernel.org>, Drew Fustini <fustini@kernel.org>,
- Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
- Stephen Rothwell <sfr@canb.auug.org.au>, rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-modules@vger.kernel.org
-References: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
- <CGME20251028122316eucas1p2733987cd4c1eb8f83d6572d542e76d2a@eucas1p2.samsung.com>
- <20251028-pwm_fixes-v1-1-25a532d31998@samsung.com>
- <h3sivr3uuzr5oodqe326svchbw3rzo4f4nw4chpeee2jwzjq3j@bdtecauehkn4>
- <CANiq72nNxVJeMZdESrrB+LGmdRK+M5AGZbUw-x2aE-Qa-=HtJQ@mail.gmail.com>
+Subject: Re: [PATCH net] net: spacemit: Implement emac_set_pauseparam properly
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Yixun Lan <dlan@gentoo.org>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20251030-k1-ethernet-fix-autoneg-v1-1-baa572607ccc@iscas.ac.cn>
+ <2eb5f9fc-d173-4b9e-89a3-87ad17ddd163@lunn.ch>
+ <ee49cb12-2116-4f0d-8265-cd1c42b6037b@iscas.ac.cn>
+ <c180925d-68fe-4af1-aa4f-57fb2cd1e9ca@lunn.ch>
 Content-Language: en-US
-From: Daniel Gomez <da.gomez@kernel.org>
-Organization: kernel.org
-In-Reply-To: <CANiq72nNxVJeMZdESrrB+LGmdRK+M5AGZbUw-x2aE-Qa-=HtJQ@mail.gmail.com>
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <c180925d-68fe-4af1-aa4f-57fb2cd1e9ca@lunn.ch>
+X-CM-TRANSID: qwCowAAXfWe0uQRpJJbBAA--.7539S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZFW7Xr13Zw15KF43CFW5GFg_yoW8ur1rpa
+	yaga4vyF1jyr1vyFZ7Zr47Xa4j9395JrsxCFyrKw18Xrn8XFyrCr9rKF47C39xWw1kJr4Y
+	9ws5XF93ArsrAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IU56yI5UUUUU==
+X-Originating-IP: [114.241.85.109]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_061238_110384_12B7EE5C 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20251031_062935_367875_DDADE171 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,36 +85,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Daniel Gomez <da.gomez@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAzMS8xMC8yMDI1IDEzLjU3LCBNaWd1ZWwgT2plZGEgd3JvdGU6Cj4gT24gRnJpLCBPY3Qg
-MzEsIDIwMjUgYXQgODo0N+KAr0FNIFV3ZSBLbGVpbmUtS8O2bmlnIDx1a2xlaW5la0BrZXJuZWwu
-b3JnPiB3cm90ZToKPj4KPj4gSSBhbHJlYWR5IGFza2VkIHRoaXMgaW4gcmVwbHkgdG8gdGhlIGNv
-dmVyIGxldHRlciwgYnV0IHRoZSBxdWVzdGlvbiB3YXMKPj4gbG9zdCBvbiB0aGUgd2F5IChubyBv
-ZmZlbnNlISksIHNvIEknbSBhc2tpbmcgYWdhaW4uIEFzIGl0IG9ubHkgcmVhbGx5Cj4+IGFmZmVj
-dHMgdGhpcyBwYXRjaCwgSSdtIGRvaW5nIHRoYXQgaGVyZToKPj4KPj4gQ2FuIEkgaGF2ZSBzb21l
-IGJsZXNzaW5nIHRvIHRha2UgdGhpcyBwYXRjaCB2aWEgbXkgcHdtIHRyZWU/IFdvdWxkIHlvdQo+
-PiBwcmVmZXIgYSB0YWcgdG8gYWxzbyBtZXJnZSBpdCBpbnRvIHlvdXIgdHJlZT8gVGhlbiBJIHdv
-dWxkIGFwcGx5IGl0IG9uCj4+IHRvcCBvZiA2LjE4LXJjMSBhbmQgcHJvdmlkZSBhIHRhZyBmb3Ig
-eW91IHRvIG1lcmdlLgo+IAo+IFNvdW5kcyBmaW5lIHRvIG1lLCBidXQgSSBhbSBDYydpbmcgdGhl
-IG1vZHVsZXMgbWFpbnRhaW5lcnMgc2luY2UgdGhleQo+IHdlcmUgbm90LCBqdXN0IGluIGNhc2U6
-Cj4gCj4gQWNrZWQtYnk6IE1pZ3VlbCBPamVkYSA8b2plZGFAa2VybmVsLm9yZz4KPiAKPiBJIHRo
-aW5rIHdlIGRvbid0IG5lZWQgdGhlIHRhZy9tZXJnZSwgdW5sZXNzIHNvbWVvbmUgZWxzZSBpcyBs
-b29raW5nIHRvCj4gdXNlIHRoaXMgKGlzIHRoZXJlIHN1Y2ggYSB1c2VyPyBJIG1heSBoYXZlIG1p
-c3NlZCBpdCkuCj4gCj4gVGhhbmtzIQo+IAo+IENoZWVycywKPiBNaWd1ZWwKClV3ZSwgdGhhdCdz
-IG9rYXkgZnJvbSBtb2R1bGVzIHNpZGU6CgpBY2tlZC1ieTogRGFuaWVsIEdvbWV6IDxkYS5nb21l
-ekBzYW1zdW5nLmNvbT4KCkZZSSwgSSBoYXZlbid0IG1lcmdlZCBBbmRyZWFzJ3MgcGF0Y2hlcyAo
-cnVzdDogZXh0ZW5kIGBtb2R1bGUhYCBtYWNybyB3aXRoCmludGVnZXIgcGFyYW1ldGVyIHN1cHBv
-cnQpIHlldCwgd2hpY2ggYWRkIHJ1c3QvbWFjcm9zL21vZHVsZS5ycyB0byBvdXIKTUFJTlRBSU5F
-UlMgZmlsZSBsaXN0LiBTbywgaXQncyBmaW5lIGZyb20gbW9kdWxlcyBzaWRlIHRvIGdvIHRocm91
-Z2ggeW91ciB0cmVlLgpJIHdhcyBhaW1pbmcgdG8gbWVyZ2UgdGhlc2UgcGF0Y2hlcyBhbG9uZyB3
-aXRoIHNvbWUgb3RoZXJzIGZvciB0aGlzIHdlZWsgYnV0CkkndmUgZm91bmQgYSByZWdyZXNzaW9u
-IGluIGttb2QgdGVzdGluZyBpbnRyb2R1Y2VkIGluIHRoZSBsYXRlc3QgdjYuMTgtcmMxLAp3aGlj
-aCBpcyB0YWtpbmcgbWUgc29tZSBleHRyYSB0aW1lLgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 10/31/25 20:43, Andrew Lunn wrote:
+> On Fri, Oct 31, 2025 at 03:22:56PM +0800, Vivian Wang wrote:
+>> On 10/31/25 05:32, Andrew Lunn wrote:
+>>>> [...]
+>>>>
+>>>> -		emac_set_fc(priv, fc);
+>>>> -	}
+>>>> +	phy_set_asym_pause(dev->phydev, pause->rx_pause, pause->tx_pause);
+>>> It is hard to read what this patch is doing, but there are 3 use cases.
+>> Yeah, I guess the patch doesn't look great. I'll reorganize it in the
+>> next version to make it clearer what the new implementation is and also
+>> fix it up per your other comments.
+>>
+>>> 1) general autoneg for link speed etc, and pause autoneg
+>>> 2) general autoneg for link speed etc, and forced pause
+>>> 3) forced link speed etc, and forced pause.
+>> Thanks for the tip on the different cases. However, there's one bit I
+>> don't really understand: Isn't this set_pauseparam thing only for
+>> setting pause autoneg / force?
+> Nope. You need to think about how it interacts with generic autoneg.
+>
+>        ethtool -A|--pause devname [autoneg on|off] [rx on|off] [tx on|off]
+>
+>        ethtool -s devname [speed N] [lanes N] [duplex half|full]
+>               [port tp|aui|bnc|mii] [mdix auto|on|off] [autoneg on|off]
+>
+> These autoneg are different things. -s is about generic autoneg,
+> speed, duplex, etc. However pause can also be negotiated, or not,
+> using -A.
+>
+> You can only autoneg pause if you are doing generic autoneg. So there
+> are three combinations you need to handle.
+
+Oh, that is what I had missed. I hadn't understood this part before. Thanks.
+
+> With pause autoneg off, you can set registers in the MAC immediately,
+> but you need to be careful not to overwrite the values when generic
+> autoneg completes and the adjust_link callback is called.
+>
+> If you have pause autoneg on, you have to wait for the adjust_link
+> callback to be called with the results of the negotiation, including
+> pause.
+>
+> phylink hides all this logic. There is a link_up callback, which tells
+> you how to program the hardware. You just do it, no logic needed.
+
+This makes sense. I'll look into using phylink.
+
+Thanks,
+Vivian "dramforever" Wang
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
