@@ -4,63 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C25F7CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 11:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2099CCCF9F8
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 12:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qg2MTAvL/iuCV2LuhLEc5coEUqYabkV743gkJ3bmehE=; b=PQV3v2XUPJqqicc1Mkci4ISdp0
-	Dd9Mgd4UwK2vv2BHR52/E59ZegWza495+FRfpsu9BKo1xu9xwNBFkF9HwJpm6yPulBxKMPt8jr7aW
-	IR5WdmeEGxeIk61tgXbMeBBrBUYLgRQml4kELWi9w4jO3/XA9ZiX7Oi3xWqPNweesEDBiwlP3ysw5
-	FfWRqUw3c9qAD9vtU8iXA5lzonlbhBr+D7Im98Qzsdm0jpSJHOd0+oZ4+fNFyToAUwxkUtuWERbW4
-	j2SBDgD+x9GvuT5FPbroD6xVGeHuhoDKwb4xlkJdP8sK5F+D56srKmbYCgtvNfXezjA4rD0bKh2Vc
-	9zMx0iWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=m70QWtlSGxTB3jFaRpe20PM6hGg/MM2CFCVdKSm+83E=; b=xsiWP07QXkXQtx
+	mF57ZreROip1X065e4c/+ycaXnEWto5NQmnnPKhwU1RacNkKHlfzdLIsYGzFA9cUz8GFnv2G4TWiE
+	v56Odk3hTyoNseDdYnw40QqL++buJdHPtwc4hmUOPll+S7m2C/ODrt8SbhwjbC2tNtIBxavyHedBY
+	A5YcPIK7SFkCsu+w5bD6ixfPHjjywERvdc/JJSzn9NqvaCnAI5BIME+xO2H4XRs+RfynNz4WUOZl4
+	LhH0z82d6BgbM3wsaOEJe85s3VVFacOhIGulg2+c4J2QYbilytk1EPY2HJgJbr7DOScvnEmWyGYcH
+	OEAdyvEEzeeDf6g6HumA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEnjU-000000062q2-1j0L;
-	Fri, 31 Oct 2025 11:55:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vEogv-000000068HE-3iNu;
+	Fri, 31 Oct 2025 12:57:18 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEnjT-000000062pv-0mfU
+	id 1vEogt-000000068EJ-0YNv
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Oct 2025 11:55:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1694361F63;
-	Fri, 31 Oct 2025 11:55:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FBE8C4CEFB;
-	Fri, 31 Oct 2025 11:55:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761911749;
-	bh=fIa0j/GtzmZQoXo7Ot/AE5uFcIg/11da1EjbWi+1FyM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UpJakExDBsWMDyNT5cd0cPM42pmALGG2HG3KDlSC3d8/dEsp+7uftN1mBP9pSq2kC
-	 SfzBHxziQDTrKJ01VLakWP/ATUknVzGs6NrPObaM+mqD7wncIu23SKVPxLczhm7VBp
-	 5cwB36DRphXuiOt4h+PDSgirRDnzM4b9xQ1wHnNYf8Vov6UXW5xjf7UidadrsHiT1S
-	 jd9AFjcrKoHNubKtEHzOyUSs0QlNtYQ7ZmYJaDX8FM3QqQUU1PEIzIk7VTCiAwOH/i
-	 MgaRyAP/A0P+FRa4+2EC5Tw7LzIsFYLaQk+F5WSWrXNYtOZCQVQlBkZRYaiqMOs31A
-	 lQIrDRXvqRt4Q==
-Date: Fri, 31 Oct 2025 11:55:44 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: claudiu.beznea@tuxon.dev, Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 1/7] reset: mpfs: add non-auxiliary bus probing
-Message-ID: <20251031-rewrap-single-e13bbfd9f1bb@spud>
-References: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
- <20251029-macarena-neglector-318431fec367@spud>
- <4e3c3c3d6c1a0d2905a90e5f1c0b2cb8f67bc43b.camel@pengutronix.de>
+	Fri, 31 Oct 2025 12:57:16 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b63e5da0fdeso332483a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 31 Oct 2025 05:57:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761915434; x=1762520234; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=57XM95AelX9DUBLfU9THwVSSutS8OZT8Oj+HWgG7Ons=;
+        b=d/A9xZxjFXiO5cU21PJAUff25i9/i19HpFF73zz2Wpjh1cvOxuxeEv4MoSEZuquk+d
+         jjfgR4dXHJzzrdS8v2EXc78gHNnAZsF5vJyxUM6B5Nm33iLb9E/yW74CIEMSzBK5Qpmt
+         NcqOg9SaDJNkm+Z3vBXGZ/FEO0GoRhv70ksm+/79LAZLv5MsvF3FA+n/QTAdesupJc1k
+         Fq3m4YMBgFs7UsC3p8ptBEp7wFbyIyo9q6GeFtIxwJ2w4mq/6aNm8tgdRh1mEZ1C7skG
+         NqDFkJHPXdb7/UYGpc76tWFEfvDgZJG7Kk9Gy5iscsa2Cd72ay3AeRr4sRF0sQX9aFlo
+         +Rfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761915434; x=1762520234;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=57XM95AelX9DUBLfU9THwVSSutS8OZT8Oj+HWgG7Ons=;
+        b=EJ7sHA7jD8YErx9XGeqz5Zaq3FrR5O9IjajqGMyUJ+fWuUIVDa90goB617xaRglTOn
+         NZ1pXuv92jXZCxJQz+jgGC5ZxCEBz68LtJIam9bqD3rBC2L4+5e+ruoJXAylQOeplYfp
+         u/Ir+5lVlB4At6ALj4JcAQlN0nDH7cYNtDFmBJZZo5YoxEx1I4AWD2A7z5Ufa9pGSmLM
+         gNdviEWJNFwNOsNQvb6CocN33QgtSRFMXixxCMrAfjiw5NiBSy6US5n7a6MCHe2X1cSu
+         /EpnIsiOag9rUl4DYu7GfR1+Ht4OjHax+lFew1HSV5kvgucxp1ZnoTqCvPn/K6Ue/tt7
+         CdGA==
+X-Forwarded-Encrypted: i=1; AJvYcCWILLy5qeGnhCvkeY+Q9tpUyTZNlxJ0HI+e1KHez/7MdunKl5/iMwZTHJ6NRhKPJsrzXH3zB236Ky734Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoPYDvj4H4sNCXW6npgna7kvR1BOe8y2e4Kv2mX7xg7LsHmkoP
+	rtrrySrFviiRUr/6Ev8WZIM7CXaCIhFE6JrbuwcCtIy8I0YK6lLMN96gNXGL5c+2Bd4BSsbWFPg
+	ixVu9HY5xD2cDSe0Kthcx6OrgtJsxa6s=
+X-Gm-Gg: ASbGncvSQHG/vIhjPI8qGUuWZqfomUHJbYm5mZo+k9tuUrIIbFaNSG+QQLhl634FE5q
+	fDwf9ChEtngDM5hmoB+Vw4YM3UxB+2XGExkux5fer4jPzptaIhWqt86Jj79UUXT8NjFGp8TPPXZ
+	Sr/zmkhgpRFcm/xdHy//SX5QAjzUvSMcJ71KOkd6gZO+XtWoHgbHrHwWtBsesL38KkdlYqe+PDk
+	jxPLstd+1Bo08L752mWMuqELsh4t3sUSYsjllQcNi4cjtOvpILWWdbGyINA7b4Mi7s2dTbfVd7z
+	fQ4diZuZlBNcBC6F3LHljHsffHLIO1E58Ao1i4ez4OZ4jabZHSoBNzWRolbsm0j9s/iH9ef5RuT
+	8oaDQ43btyiFwYQ==
+X-Google-Smtp-Source: AGHT+IFJM+PQMbTXmTGodnAosPHILr2GU6NSMb59LbmXplfAnvliIPhU9LCa4gpUD72tPa8WjMFa+1grBXZZatyQfa0=
+X-Received: by 2002:a17:902:e887:b0:272:2bf1:6a1f with SMTP id
+ d9443c01a7336-2951a3d2847mr26244955ad.4.1761915433746; Fri, 31 Oct 2025
+ 05:57:13 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <4e3c3c3d6c1a0d2905a90e5f1c0b2cb8f67bc43b.camel@pengutronix.de>
+References: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
+ <CGME20251028122316eucas1p2733987cd4c1eb8f83d6572d542e76d2a@eucas1p2.samsung.com>
+ <20251028-pwm_fixes-v1-1-25a532d31998@samsung.com> <h3sivr3uuzr5oodqe326svchbw3rzo4f4nw4chpeee2jwzjq3j@bdtecauehkn4>
+In-Reply-To: <h3sivr3uuzr5oodqe326svchbw3rzo4f4nw4chpeee2jwzjq3j@bdtecauehkn4>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Fri, 31 Oct 2025 13:57:00 +0100
+X-Gm-Features: AWmQ_blGoLkmXXueKnCk5kJ5O9pXLS5GlmxYneYVuP4K75NG97cEfvhzpNZh5XM
+Message-ID: <CANiq72nNxVJeMZdESrrB+LGmdRK+M5AGZbUw-x2aE-Qa-=HtJQ@mail.gmail.com>
+Subject: Re: [PATCH 1/4] rust: macros: Add support for 'imports_ns' to module!
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
+	Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Michal Wilczynski <m.wilczynski@samsung.com>, Boqun Feng <boqun.feng@gmail.com>, 
+	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Stephen Rothwell <sfr@canb.auug.org.au>, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-modules@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251031_055715_192727_6E659E42 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,83 +103,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5685867473925204329=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5685867473925204329==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3ertujbkv4Kiy4c2"
-Content-Disposition: inline
-
-
---3ertujbkv4Kiy4c2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Oct 30, 2025 at 02:40:30PM +0100, Philipp Zabel wrote:
-> On Mi, 2025-10-29 at 16:11 +0000, Conor Dooley wrote:
-> > @@ -46,41 +52,46 @@ static inline struct mpfs_reset *to_mpfs_reset(stru=
-ct reset_controller_dev *rcde
-> >  static int mpfs_assert(struct reset_controller_dev *rcdev, unsigned lo=
-ng id)
-> >  {
-> >  	struct mpfs_reset *rst =3D to_mpfs_reset(rcdev);
-> > -	unsigned long flags;
-> >  	u32 reg;
-> > =20
-> > -	spin_lock_irqsave(&mpfs_reset_lock, flags);
-> > +	if (rst->regmap)
-> > +		return regmap_update_bits(rst->regmap, REG_SUBBLK_RESET_CR, BIT(id),=
- BIT(id));
->=20
-> This could use regmap_set_bits().
->=20
-> > +
-> > +	guard(spinlock_irqsave)(&mpfs_reset_lock);
-> > =20
-> >  	reg =3D readl(rst->base);
-> >  	reg |=3D BIT(id);
-> >  	writel(reg, rst->base);
->=20
-> Since I've just seen this in the i.MX8ULP series [1], it would be
-> cleaner to convert the aux driver to regmap as well. The readl/writel()
-> code paths could be dropped then.
->=20
-> [1] https://lore.kernel.org/lkml/20251029135229.890-1-laurentiumihalcea11=
-1@gmail.com/
-
-Yeah, it's definitely a lot neater this way. I'll do that. Patch ends up
-touching the clock driver in the process, but I don't think that's a big
-deal, since it's just the auxdev bits relating to the iomem pointer
-becoming a regmap pointer instead.
-
---3ertujbkv4Kiy4c2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQSjwAAKCRB4tDGHoIJi
-0vFhAQDkkuWAVOeVDtGSxjnEuSHfZc3mS1vaWbu8o2swToIRfQD/arEA8nv6Wdrl
-4zip7L/VCNOznI8CuShbdOQVEj1BuAM=
-=py6j
------END PGP SIGNATURE-----
-
---3ertujbkv4Kiy4c2--
-
-
---===============5685867473925204329==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5685867473925204329==--
-
+T24gRnJpLCBPY3QgMzEsIDIwMjUgYXQgODo0N+KAr0FNIFV3ZSBLbGVpbmUtS8O2bmlnIDx1a2xl
+aW5la0BrZXJuZWwub3JnPiB3cm90ZToKPgo+IEkgYWxyZWFkeSBhc2tlZCB0aGlzIGluIHJlcGx5
+IHRvIHRoZSBjb3ZlciBsZXR0ZXIsIGJ1dCB0aGUgcXVlc3Rpb24gd2FzCj4gbG9zdCBvbiB0aGUg
+d2F5IChubyBvZmZlbnNlISksIHNvIEknbSBhc2tpbmcgYWdhaW4uIEFzIGl0IG9ubHkgcmVhbGx5
+Cj4gYWZmZWN0cyB0aGlzIHBhdGNoLCBJJ20gZG9pbmcgdGhhdCBoZXJlOgo+Cj4gQ2FuIEkgaGF2
+ZSBzb21lIGJsZXNzaW5nIHRvIHRha2UgdGhpcyBwYXRjaCB2aWEgbXkgcHdtIHRyZWU/IFdvdWxk
+IHlvdQo+IHByZWZlciBhIHRhZyB0byBhbHNvIG1lcmdlIGl0IGludG8geW91ciB0cmVlPyBUaGVu
+IEkgd291bGQgYXBwbHkgaXQgb24KPiB0b3Agb2YgNi4xOC1yYzEgYW5kIHByb3ZpZGUgYSB0YWcg
+Zm9yIHlvdSB0byBtZXJnZS4KClNvdW5kcyBmaW5lIHRvIG1lLCBidXQgSSBhbSBDYydpbmcgdGhl
+IG1vZHVsZXMgbWFpbnRhaW5lcnMgc2luY2UgdGhleQp3ZXJlIG5vdCwganVzdCBpbiBjYXNlOgoK
+QWNrZWQtYnk6IE1pZ3VlbCBPamVkYSA8b2plZGFAa2VybmVsLm9yZz4KCkkgdGhpbmsgd2UgZG9u
+J3QgbmVlZCB0aGUgdGFnL21lcmdlLCB1bmxlc3Mgc29tZW9uZSBlbHNlIGlzIGxvb2tpbmcgdG8K
+dXNlIHRoaXMgKGlzIHRoZXJlIHN1Y2ggYSB1c2VyPyBJIG1heSBoYXZlIG1pc3NlZCBpdCkuCgpU
+aGFua3MhCgpDaGVlcnMsCk1pZ3VlbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
