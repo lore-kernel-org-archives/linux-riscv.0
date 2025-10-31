@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7B1CCF9F0
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 03:10:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB0E2CCF9F0
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 03:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AVQGzyNDDwcmKIDtRAQtcNemC4IXw3hYAtkdwhEVw3g=; b=XpXO0XsvT3Xzpy
-	5SH1ZpkmIksB8RvR2LAENWQ1ihZBmI/U9azvHkX4NDE/78JDZP2Z+/ZNYFAB5M582X+LrL22KYbP5
-	d6KyULRUW8aUyBF8wiRquP5jghjsrBGc+A5xkWvYBYw3EJGS52KztuTGS3e/j2PLjs0j8ZsPPhATG
-	iUUWg94HK1LFR/O38knxkWCqxo6LaPQFDqbcL8EEJTrAGusCHYVB3F7qxE3F1nwqzirFSuGGtTwGl
-	Tby53f/Hrxg3B/EsJ3XgvkJIgTmfzI588yFyxc8D8AtxLBetclTWISDIRGyGTo1sZo/uojFjxRBYa
-	HcSsGt6DggFjaCesqLXg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pU3zVil4O7uV2dxkbHa+bLwTvPN9wL2rnENRk2CKj2o=; b=JEtryPxdC2kIDd
+	LmOmHEmlkGIG2t52CiGCm1Y4hYX95z8c4tSS6qkWI8e1epenAhm3fVFVrMVrtO6PZ3ZTuPn/5zCpy
+	8xdyMdI3E8IwwMr4IyTw1Q6xkRPcP57uJndyiHleFCnra2VTpDhGalLrCGc4xv/1kkoOA0lH/riid
+	OI4uziCQnEo/bcVF+DNh1dRx843P06kWgWipAH7E7MVa14XYyyXx4rmrKWk/IQX73+6We2O3GVQHF
+	1Sp5ZEdcynZk1My0DpW42j9hLXlEwRTW5q63GrMKuxinj+J+ZNyLgNuZcwl+3j/oS8WnfxXj84V5S
+	Xk23mLh5eQRhxiTZtiBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEfWt-00000005JBc-09J6;
-	Fri, 31 Oct 2025 03:10:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEfWq-00000005JAm-23kb
+	id 1vEfZD-00000005JUL-2hi9;
+	Fri, 31 Oct 2025 03:12:43 +0000
+Received: from mail.loongson.cn ([114.242.206.163])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vEfZ8-00000005JU1-2g3O
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Oct 2025 03:10:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4B47F44070;
-	Fri, 31 Oct 2025 03:10:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94C2AC113D0;
-	Fri, 31 Oct 2025 03:10:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761880214;
-	bh=gPQqX60nfJA+wWE97jTOrifzWerWhEGbAricOxLGwB0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LXAEjvwt5G+bUEpcrv7GaH77tovw5D5mFMogIR1eG3CsSPaMd+Jo60OqerMR72fK4
-	 XS0g/B4z5oUuYc4LS75vH2U38ZA5e4WIPrm0W2pmSvcN7rgPAPByjLn+rkMCBs42g7
-	 5XCYxHTLjgzHULz/hsTctk4JIFeN2DGszGH/JLo+nZAz9LKaOvhozdV6fHD0JTW13Q
-	 fRKriyMH17Qax+OoyWsVpT7KqWb2cUUx+dQq8YE17mkE/tYGyPdjWxlPhP4BPmey9S
-	 WtRGmou0ZZ6uMgccw6fUOcXf3lqqdT1NXkIVPE48VUpR9SRmJh6yZpK+fLjgy4mtuv
-	 UTgvCQBYoDpug==
-Date: Thu, 30 Oct 2025 23:10:09 -0400
-From: Nathan Chancellor <nathan@kernel.org>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, ajones@ventanamicro.com, macro@orcam.me.uk
-Subject: Re: [PATCH v3] riscv: asm: use .insn for making custom instructions
-Message-ID: <20251031031009.GA2891125@ax162>
-References: <20251024171640.65232-1-ben.dooks@codethink.co.uk>
+	Fri, 31 Oct 2025 03:12:41 +0000
+Received: from loongson.cn (unknown [10.2.5.213])
+	by gateway (Coremail) with SMTP id _____8Axjr8gKQRpkOwcAA--.60913S3;
+	Fri, 31 Oct 2025 11:12:32 +0800 (CST)
+Received: from localhost.localdomain (unknown [10.2.5.213])
+	by front1 (Coremail) with SMTP id qMiowJBxysAbKQRpGMkeAQ--.13727S2;
+	Fri, 31 Oct 2025 11:12:28 +0800 (CST)
+From: Bibo Mao <maobibo@loongson.cn>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 0/6] KVM: LoongArch: selftests: Add timer test case
+Date: Fri, 31 Oct 2025 11:12:21 +0800
+Message-Id: <20251031031227.4020738-1-maobibo@loongson.cn>
+X-Mailer: git-send-email 2.39.3
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251024171640.65232-1-ben.dooks@codethink.co.uk>
+X-CM-TRANSID: qMiowJBxysAbKQRpGMkeAQ--.13727S2
+X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
+X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
+	ZEXasCq-sGcSsGvfJ3UbIjqfuFe4nvWSU5nxnvy29KBjDU0xBIdaVrnUUvcSsGvfC2Kfnx
+	nUUI43ZEXa7xR_UUUUUUUUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_201016_575157_C1B351F3 
-X-CRM114-Status: GOOD (  22.87  )
+X-CRM114-CacheID: sfid-20251030_201239_142551_16D10359 
+X-CRM114-Status: UNSURE (   6.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,103 +73,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGV5IEJlbiwKCk9uIEZyaSwgT2N0IDI0LCAyMDI1IGF0IDA2OjE2OjQwUE0gKzAxMDAsIEJlbiBE
-b29rcyB3cm90ZToKPiBUaGUgYXNzZW1ibGVyIGhhcyAuaW5zbiBmb3IgYnVpbGRpbmcgY3VzdG9t
-IGluc3RydWN0aW9ucwo+IG5vdywgc28gY2hhbmdlIHRoZSAuNGJ5dGUgdG8gLmluc24uIFRoaXMg
-ZW5zdXJlcyB0aGUgb3V0cHV0Cj4gaXMgbWFya2VkIGFzIGFuIGluc3RydWN0aW9uIGFuZCBub3Qg
-YXMgZGF0YSB3aGljaCBtYXkKPiBjb25mdXNlIGJvdGggZGVidWdnZXJzIGFuZCBhbnl0aGluZyBl
-bHNlIHRoYXQgcmVsaWVzIG9uCj4gdGhpcyBzb3J0IG9mIG1hcmtpbmcuCj4gCj4gQWRkIGFuIEFT
-TV9JTlNOX0koKSB3cmFwcGVyIGluIGFzbS5oIHRvIGFsbG93IHRoZSBzZWxlY3RpbmcKPiBvZiBo
-b3cgdGhpcyBpcyBvdXRwdXQgc28gb2xkZXIgYXNzZW1ibGVycyBhcmUgc3RpbGwgZ29vZC4KPiAK
-PiBSZXZpZXdlZC1ieTogQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNvbT4KPiBT
-aWduZWQtb2ZmLWJ5OiBCZW4gRG9va3MgPGJlbi5kb29rc0Bjb2RldGhpbmsuY28udWs+Cj4gLS0t
-Cj4gdjI6Cj4gICAtIGZpeGVkICNpZm5kZWYgdiAjaWZkZWYKPiAgIC0gYWRkZWQgY3VzdG9tIE1J
-UFMgaW5zdHJ1Y3Rpb25zIHRvbwo+ICAgLSBuZXcgcGF0Y2ggZGVzY3JpcHRpb24KPiB2MzoKPiAg
-IC0gZml4ZWQgdHlwbyBtaXNzZWQgaW4gY29tcGlsZSB0ZXN0IG9mIE5PUDQKPiAgIC0gZml4ZWQg
-aW5jb3JyZWN0IE1JUFMgY2hhbmdlcwo+ICAgLSByZS13b3JlZCBzbGlnaHRseSB0byBzaG9ydGVu
-IHNlbnRlbmNlcyBhbmQgcmVtb3ZlIHR5cG9zCj4gLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vYXNtLmggICAgICAgICAgICAgICAgICAgIHwgNiArKysrKysKPiAgYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9pbnNuLWRlZi5oICAgICAgICAgICAgICAgfCA4ICsrKystLS0tCj4gIGFyY2gvcmlz
-Y3YvaW5jbHVkZS9hc20vdmVuZG9yX2V4dGVuc2lvbnMvbWlwcy5oIHwgNiArKystLS0KPiAgMyBm
-aWxlcyBjaGFuZ2VkLCAxMyBpbnNlcnRpb25zKCspLCA3IGRlbGV0aW9ucygtKQo+IAo+IGRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FzbS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9hc20uaAo+IGluZGV4IDhiZDJhMTEzODJhMy4uMmQ5NzQzNjk5OWNhIDEwMDY0NAo+IC0t
-LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXNtLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2FzbS5oCj4gQEAgLTEyLDYgKzEyLDEyIEBACj4gICNkZWZpbmUgX19BU01fU1RSKHgp
-CSN4Cj4gICNlbmRpZgo+ICAKPiArI2lmZGVmIENPTkZJR19BU19IQVNfSU5TTgoKVGhlIGN1cnJl
-bnQgQVNfSEFTX0lOU04gY2hlY2sgaW4gS2NvbmZpZyBpcyBub3Qgc3VmZmljaWVudCBmb3IgdGhp
-cwp1c2FnZS4gV2l0aCBMTFZNIHByaW9yIHRvIFsxXSAoaS5lLiwgb2xkZXIgdGhhbiAxOSkgb3Ig
-R05VIGJpbnV0aWxzCnByaW9yIHRvIFsyXSAoaS5lLiwgb2xkZXIgdGhhbiAyLjM4KSwgdGhlIGJ1
-aWxkIGJyZWFrczoKCiAgSW4gZmlsZSBpbmNsdWRlZCBmcm9tIDxidWlsdC1pbj46NDoKICBJbiBm
-aWxlIGluY2x1ZGVkIGZyb20gbGliL3Zkc28vZ2V0dGltZW9mZGF5LmM6NjoKICBJbiBmaWxlIGlu
-Y2x1ZGVkIGZyb20gaW5jbHVkZS92ZHNvL2RhdGFwYWdlLmg6MjE6CiAgSW4gZmlsZSBpbmNsdWRl
-ZCBmcm9tIGluY2x1ZGUvdmRzby9wcm9jZXNzb3IuaDoxMDoKICBhcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3Zkc28vcHJvY2Vzc29yLmg6MjM6MjogZXJyb3I6IGV4cGVjdGVkIGluc3RydWN0aW9uIGZv
-cm1hdAogICAgIDIzIHwgICAgICAgICBBTFRfUklTQ1ZfUEFVU0UoKTsKICAgICAgICB8ICAgICAg
-ICAgXgogIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3QuaDo0NzozOiBub3RlOiBl
-eHBhbmRlZCBmcm9tIG1hY3JvICdBTFRfUklTQ1ZfUEFVU0UnCiAgICAgNDcgfCAgICAgICAgICAg
-ICAgICAgUklTQ1ZfUEFVU0UsIC8qIE9yaWdpbmFsIFJJU0PigJFWIHBhdXNlIGluc24gKi8gXAog
-ICAgICAgIHwgICAgICAgICAgICAgICAgIF4KICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24t
-ZGVmLmg6MjU5OjIxOiBub3RlOiBleHBhbmRlZCBmcm9tIG1hY3JvICdSSVNDVl9QQVVTRScKICAg
-IDI1OSB8ICNkZWZpbmUgUklTQ1ZfUEFVU0UgICAgIEFTTV9JTlNOX0koIjB4MTAwMDAwZiIpCiAg
-ICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICBeCiAgYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9hc20uaDoxNjoyNjogbm90ZTogZXhwYW5kZWQgZnJvbSBtYWNybyAnQVNNX0lOU05fSScKICAg
-ICAxNiB8ICNkZWZpbmUgQVNNX0lOU05fSShfX3gpICIuaW5zbiAiIF9feAogICAgICAgIHwgICAg
-ICAgICAgICAgICAgICAgICAgICAgIF4KICA8aW5saW5lIGFzbT46NTo3OiBub3RlOiBpbnN0YW50
-aWF0ZWQgaW50byBhc3NlbWJseSBoZXJlCiAgICAgIDUgfCAuaW5zbiAweDEwMDAwMGYKICAgICAg
-ICB8ICAgICAgIF4KCiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nvci5oOiBB
-c3NlbWJsZXIgbWVzc2FnZXM6CiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nv
-ci5oOjI3OiBFcnJvcjogdW5yZWNvZ25pemVkIG9wY29kZSBgMHgxMDAwMDBmJwogIGFyY2gvcmlz
-Y3YvaW5jbHVkZS9hc20vdmRzby9wcm9jZXNzb3IuaDoyNzogRXJyb3I6IHVucmVjb2duaXplZCBv
-cGNvZGUgYDB4MTAwMDAwZicKICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vcHJvY2Vzc29y
-Lmg6Mjc6IEVycm9yOiB1bnJlY29nbml6ZWQgb3Bjb2RlIGAweDEwMDAwMGYnCiAgYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nvci5oOjI3OiBFcnJvcjogdW5yZWNvZ25pemVkIG9w
-Y29kZSBgMHgxMDAwMDBmJwogIG1ha2VbNF06ICoqKiBbc2NyaXB0cy9NYWtlZmlsZS5idWlsZDoy
-ODc6IGFyY2gvcmlzY3Yva2VybmVsL3Zkc28vdmdldHRpbWVvZmRheS5vXSBFcnJvciAxCgpNYXli
-ZSB0aGlzIHdhbnRzIGEgbmV3IHN5bWJvbCBsaWtlIENPTkZJR19BU19IQVNfSU5TTl9FWFQgdGhh
-dCBjaGVja3MKZm9yIHRoaXMgc3VwcG9ydD8KClsxXTogaHR0cHM6Ly9naXRodWIuY29tL2xsdm0v
-bGx2bS1wcm9qZWN0L2NvbW1pdC8yYTA4NmRjZTY5MWUzY2MzNGEyZmMyN2Y0ZmIyNTViYjJjYmJm
-YWM5ClsyXTogaHR0cHM6Ly9zb3VyY2V3YXJlLm9yZy9naXQvP3A9YmludXRpbHMtZ2RiLmdpdDth
-PWNvbW1pdDtoPWEyNjJiODJmZGJmNGNkYTNiMDY0OGIxYWRjMzIyNDVjYTNmNzhiN2EKCkNoZWVy
-cywKTmF0aGFuCgo+ICsjZGVmaW5lIEFTTV9JTlNOX0koX194KSAiLmluc24gIiBfX3gKPiArI2Vs
-c2UKPiArI2RlZmluZSBBU01fSU5TTl9JKF9feCkgIi40Ynl0ZSAiIF9feAo+ICsjZW5kaWYKPiAr
-Cj4gICNpZiBfX3Jpc2N2X3hsZW4gPT0gNjQKPiAgI2RlZmluZSBfX1JFR19TRUwoYSwgYikJX19B
-U01fU1RSKGEpCj4gICNlbGlmIF9fcmlzY3ZfeGxlbiA9PSAzMgo+IGRpZmYgLS1naXQgYS9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2luc24tZGVmLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2lu
-c24tZGVmLmgKPiBpbmRleCBjOWNmY2VhNTJjYmIuLmQyOWRhNmNjZDNkZCAxMDA2NDQKPiAtLS0g
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24tZGVmLmgKPiArKysgYi9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2luc24tZGVmLmgKPiBAQCAtMjU2LDEwICsyNTYsMTAgQEAKPiAgCUlOU05fUyhP
-UENPREVfT1BfSU1NLCBGVU5DMyg2KSwgX19SUzIoMyksCQlcCj4gIAkgICAgICAgU0lNTTEyKChv
-ZmZzZXQpICYgMHhmZTApLCBSUzEoYmFzZSkpCj4gIAo+IC0jZGVmaW5lIFJJU0NWX1BBVVNFCSIu
-NGJ5dGUgMHgxMDAwMDBmIgo+IC0jZGVmaW5lIFpBV1JTX1dSU19OVE8JIi40Ynl0ZSAweDAwZDAw
-MDczIgo+IC0jZGVmaW5lIFpBV1JTX1dSU19TVE8JIi40Ynl0ZSAweDAxZDAwMDczIgo+IC0jZGVm
-aW5lIFJJU0NWX05PUDQJIi40Ynl0ZSAweDAwMDAwMDEzIgo+ICsjZGVmaW5lIFJJU0NWX1BBVVNF
-CUFTTV9JTlNOX0koIjB4MTAwMDAwZiIpCj4gKyNkZWZpbmUgWkFXUlNfV1JTX05UTwlBU01fSU5T
-Tl9JKCIweDAwZDAwMDczIikKPiArI2RlZmluZSBaQVdSU19XUlNfU1RPCUFTTV9JTlNOX0koIjB4
-MDFkMDAwNzMiKQo+ICsjZGVmaW5lIFJJU0NWX05PUDQJQVNNX0lOU05fSSgiMHgwMDAwMDAxMyIp
-Cj4gIAo+ICAjZGVmaW5lIFJJU0NWX0lOU05fTk9QNAlfQUMoMHgwMDAwMDAxMywgVSkKPiAgCj4g
-ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVuZG9yX2V4dGVuc2lvbnMvbWlw
-cy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZW5kb3JfZXh0ZW5zaW9ucy9taXBzLmgKPiBp
-bmRleCBlYThjYTc0N2Q2OTEuLmZmZWIxMmRjMTdhMyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL3ZlbmRvcl9leHRlbnNpb25zL21pcHMuaAo+ICsrKyBiL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vdmVuZG9yX2V4dGVuc2lvbnMvbWlwcy5oCj4gQEAgLTMwLDggKzMwLDggQEAg
-ZXh0ZXJuIHN0cnVjdCByaXNjdl9pc2FfdmVuZG9yX2V4dF9kYXRhX2xpc3QgcmlzY3ZfaXNhX3Zl
-bmRvcl9leHRfbGlzdF9taXBzOwo+ICAgKiBhbGxvd2luZyBhbnkgc3Vic2VxdWVudCBpbnN0cnVj
-dGlvbnMgdG8gZmV0Y2guCj4gICAqLwo+ICAKPiAtI2RlZmluZSBNSVBTX1BBVVNFCSIuNGJ5dGUg
-MHgwMDUwMTAxM1xuXHQiCj4gLSNkZWZpbmUgTUlQU19FSEIJIi40Ynl0ZSAweDAwMzAxMDEzXG5c
-dCIKPiAtI2RlZmluZSBNSVBTX0lIQgkiLjRieXRlIDB4MDAxMDEwMTNcblx0Igo+ICsjZGVmaW5l
-IE1JUFNfUEFVU0UJQVNNX0lOU05fSSgiMHgwMDUwMTAxM1xuXHQiKQo+ICsjZGVmaW5lIE1JUFNf
-RUhCCUFTTV9JTlNOX0koIjB4MDAzMDEwMTNcblx0IikKPiArI2RlZmluZSBNSVBTX0lIQglBU01f
-SU5TTl9JKCIweDAwMTAxMDEzXG5cdCIpCj4gIAo+ICAjZW5kaWYgLy8gX0FTTV9SSVNDVl9WRU5E
-T1JfRVhURU5TSU9OU19NSVBTX0gKPiAtLSAKPiAyLjM3LjIuMzUyLmczYzQ0NDM3NjQzCj4gCj4g
-Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4g
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This patch set adds timer test case for LoongArch system, it is based
+on common arch_timer test case. And it includes time counter function,
+one-shot/period mode interrupt, and software emulated timer function
+test.
+
+Bibo Mao (6):
+  KVM: LoongArch: selftests: Add system registers save and restore on
+    exception
+  KVM: LoongArch: selftests: Add exception handler register interface
+  KVM: LoongArch: selftests: Add basic interfaces
+  KVM: LoongArch: selftests: Add timer test case with one-shot mode
+  KVM: LoongArch: selftests: Add period mode timer and time counter test
+  KVM: LoongArch: selftests: Add SW emulated timer test
+
+ tools/testing/selftests/kvm/Makefile.kvm      |  10 +-
+ .../kvm/include/loongarch/arch_timer.h        |  84 ++++++++
+ .../kvm/include/loongarch/processor.h         |  81 +++++++-
+ .../selftests/kvm/lib/loongarch/exception.S   |   6 +
+ .../selftests/kvm/lib/loongarch/processor.c   |  38 +++-
+ .../selftests/kvm/loongarch/arch_timer.c      | 187 ++++++++++++++++++
+ 6 files changed, 400 insertions(+), 6 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/include/loongarch/arch_timer.h
+ create mode 100644 tools/testing/selftests/kvm/loongarch/arch_timer.c
+
+
+base-commit: e53642b87a4f4b03a8d7e5f8507fc3cd0c595ea6
+-- 
+2.39.3
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
