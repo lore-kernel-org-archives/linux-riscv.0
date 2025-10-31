@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CEC6CCF9EE
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 06:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5B7CCF9EE
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 06:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/8cYT6ZuDkgolPbhoA1sMiE/fHY742dzPUUR63mSilg=; b=z0RIC4ZPgz4/Yq
-	hRDH3GQ1fu6CnRvG0w/ZiKvW0VkLUgdsz4yGoj7YrmMmgnZPiAhL2Lj6Daow8T53wOvTPspEzMCKn
-	/f75aMmM6+h2r3HlS5TIoILaVxPtUWP1deuReD8/OrWV+qZSHGbFiwzsW9wieSIWYaiDpQ5uQD2lR
-	rg429ulKrspJgozsV8kDnPXMjsX8siDzqN76+eYFb6RUMqU+uNy+X2Q6Gq5nXAJsDFtzIU5cjlUev
-	Yjx74C8rWfuEaZ2ppelPpC7hwjHCgk8+tJHmPgWWdDEg+LoShG8BPKs4Mue6hnwdr8O7tft/d7RPV
-	6W5UKRP8v2SV7zhTsvIw==;
+	List-Owner; bh=2iy15iRX4b8TsMmzrNzyS4nsNtR9pLfHuj/zLImDUsw=; b=Swh4XVsZsme5Sz
+	mhQYBFiyyXEiOlnFtfAgEwKPebJuM+bgyYy/LoONOpMmI+OlqYVEWHNA/ywvEaJJH6p/GPUuwkOOg
+	mfKi/b/rYHLT0isKkKtqbg+cQm7Dm+wXLSQEWmi4IVZXOxk4mcXQoV8XV0sqXoajWaFDTHyYLOc18
+	5nNjbx2mO//xU6WJ+iDm8H27HX7xTWh9aNwqP0SbNFc/hJe7EehpI3VkzkIFm61ukDsZtW/OcSn8z
+	z2lYYzQo3xaXO40XTAOXrzr4GYT5hrLq7lMuUMRmFuiJjUCobWtccrz0OETsz/rQF8e8Y2BTTHRcO
+	g2EodbLUG544/fLsoNEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEiLv-00000005R8a-0ri8;
-	Fri, 31 Oct 2025 06:11:11 +0000
+	id 1vEizu-00000005UnR-0iK1;
+	Fri, 31 Oct 2025 06:52:30 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEiLL-00000005R16-1H9q;
-	Fri, 31 Oct 2025 06:10:36 +0000
+	id 1vEizq-00000005Un5-38LR
+	for linux-riscv@lists.infradead.org;
+	Fri, 31 Oct 2025 06:52:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C384143601;
-	Fri, 31 Oct 2025 06:10:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6449CC4CEF1;
-	Fri, 31 Oct 2025 06:10:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B7F3444D41
+	for <linux-riscv@lists.infradead.org>; Fri, 31 Oct 2025 06:52:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99ACFC116D0
+	for <linux-riscv@lists.infradead.org>; Fri, 31 Oct 2025 06:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761891032;
-	bh=mtI0bJgcONn/+JNea1wnkILdIZmOmfcP/gzxeMrjXJs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rDDA7osPfNKJWxC6aUuvy+jowSUofyqimpL1QvPRJtDoh9joXUz9Z8pp/KYkh+boq
-	 TTVrkev+wIydtYDHxM68tfxTbDC0ODJHJPAxIdhsnYjMB8pTb3Ak0EjP+uD5U4DkiO
-	 jH19GobKrGOs6SyL56fIa0CDMZMsnivg+4JIRe+Pr6EudiD8BGkYp3q+ROhMzGr/KF
-	 sDNnYKqGRoVGXAbpSqe/jaBMfbuxrvMTDRE70DoBg9zVvGJKdqU1vG3PUJuRec39gb
-	 j/zSkPyOOih0ERHsQyiULHVo0xgh4JRnAzngtYMf5ZAVbqMx09OWcaCYBdkLjcQgpE
-	 iwi5wZpI9EtkA==
-Date: Fri, 31 Oct 2025 11:40:20 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: Johannes Erdfelt <johannes@erdfelt.com>, 
-	Alex Elder <elder@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, vkoul@kernel.org, 
-	kishon@kernel.org, dlan@gentoo.org, guodong@riscstar.com, pjw@kernel.org, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de, 
-	christian.bruel@foss.st.com, shradha.t@samsung.com, krishna.chundru@oss.qualcomm.com, 
-	qiang.yu@oss.qualcomm.com, namcao@linutronix.de, thippeswamy.havalige@amd.com, 
-	inochiama@gmail.com, devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-phy@lists.infradead.org, spacemit@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/7] Introduce SpacemiT K1 PCIe phy and host controller
-Message-ID: <ywr66wfkfay3xse77mb7ddbga5nced4yg7dapiybj3p2yp2an2@7zsaj5one5in>
-References: <20251013153526.2276556-1-elder@riscstar.com>
- <aPEhvFD8TzVtqE2n@aurel32.net>
- <92ee253f-bf6a-481a-acc2-daf26d268395@riscstar.com>
- <aQEElhSCRNqaPf8m@aurel32.net>
- <20251028184250.GM15521@sventech.com>
- <82848c80-15e0-4c0e-a3f6-821a7f4778a5@riscstar.com>
- <20251028204832.GN15521@sventech.com>
- <5kwbaj2eqr4imcaoh6otqo7huuraqhodxh4dbwc33vqpi5j5yq@ueufnqetrg2m>
- <aQOlMcI9jTdd7QNb@aurel32.net>
+	s=k20201202; t=1761893544;
+	bh=ksx4g+Jh2oVtltJZWL+FIC5BrFeq4u4rjwvhozEkK1U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ev8bWVRC1tbtlXw/rhWi9pOl0IDaJ4iq9Kfdw7R+PaAuYXp/MdcoYuZ7mTkrooNNK
+	 N48R+m2bU+huj2o9GITfLGpO17xhbgRaPQKHoVPsaaLTfch0TQCV6mZNBubWGGCSh7
+	 dc5/9uCluvY72tU3dZt42zcfOBp7N9UFBuDwa/c1aikOy+6sdcyy00zgNGTF92+zUi
+	 tVK934J0IB5ndU1tvQOAsqw/Cdzdp1UdD6tKz+tfQxV/l+Nvhd/g0OLzC+puGkqLL0
+	 Tn2EhcLlbYcomRlD2OUeVZj6X0Q4wgZOEQF6yIa0vexIUdlqXamd+6X5EIvpElhbsv
+	 8d9YwWpqB5Jog==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-592f29e273bso1826671e87.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 23:52:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVHZgAh7osbcKWCI5JJ9GFEOqusY0iDgvAxhFXPe1GxRns8mi5TEwhI1EX+kcD4NYtX7tHD84Nj5474bQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWlMgeRwcWUqJ/FqxU0vZI7SfmrKL6NKxXYyKD2gI0CzLDX9uL
+	G6hjw9uK7N39OOmucW0ZCPwF7vDV+eBEvk4z84rQzc0vYNwqN6LDWHPpdvFqD4oQ1u6AgLpptjA
+	WFqj35WGPzpx1HrooxilXo8hrbrK53I8=
+X-Google-Smtp-Source: AGHT+IGNsOV4X6EuU2Cx9uru+UgCvt2SHFfMKSEOF6DN6EwXXCSpNdERHV1a1hygRioO3zt9qFaRgV8Lq6fjNY7CVCE=
+X-Received: by 2002:a05:6512:238c:b0:579:fb2b:d280 with SMTP id
+ 2adb3069b0e04-5941d56502fmr862097e87.42.1761893542935; Thu, 30 Oct 2025
+ 23:52:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aQOlMcI9jTdd7QNb@aurel32.net>
+References: <20251031024328.735161-1-maqianga@uniontech.com> <aQQ3KUap1cB73HOm@pie>
+In-Reply-To: <aQQ3KUap1cB73HOm@pie>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 31 Oct 2025 07:52:10 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGxP_8FhZgD42iD-7pnnZgjez3mXkTZz69YAc5FPkLBMA@mail.gmail.com>
+X-Gm-Features: AWmQ_bkTKSyKxtWJ5rxc0jSzCLTGDjPaQTsOxTi8sBWFe8oDoA4aQMGWz-6rHWs
+Message-ID: <CAMj1kXGxP_8FhZgD42iD-7pnnZgjez3mXkTZz69YAc5FPkLBMA@mail.gmail.com>
+Subject: Re: [PATCH] efi/riscv: Remove the useless failure return message print
+To: Yao Zi <ziyao@disroot.org>
+Cc: Qiang Ma <maqianga@uniontech.com>, pjw@kernel.org, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, linux-efi@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_231035_766379_FE9CDC5A 
-X-CRM114-Status: GOOD (  33.22  )
+X-CRM114-CacheID: sfid-20251030_235226_856336_865F8B31 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +79,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBPY3QgMzAsIDIwMjUgYXQgMDY6NDk6MzdQTSArMDEwMCwgQXVyZWxpZW4gSmFybm8g
-d3JvdGU6Cj4gSGkgTWFuaSwKPiAKPiBPbiAyMDI1LTEwLTMwIDIyOjExLCBNYW5pdmFubmFuIFNh
-ZGhhc2l2YW0gd3JvdGU6Cj4gPiArIEF1cmVsaWVuCj4gPiAKPiA+IE9uIFR1ZSwgT2N0IDI4LCAy
-MDI1IGF0IDAxOjQ4OjMyUE0gLTA3MDAsIEpvaGFubmVzIEVyZGZlbHQgd3JvdGU6Cj4gPiA+IE9u
-IFR1ZSwgT2N0IDI4LCAyMDI1LCBBbGV4IEVsZGVyIDxlbGRlckByaXNjc3Rhci5jb20+IHdyb3Rl
-Ogo+ID4gPiA+IE9uIDEwLzI4LzI1IDE6NDIgUE0sIEpvaGFubmVzIEVyZGZlbHQgd3JvdGU6Cj4g
-PiA+ID4gPiBJIGhhdmUgYmVlbiB0ZXN0aW5nIHRoaXMgcGF0Y2hzZXQgcmVjZW50bHkgYXMgd2Vs
-bCwgYnV0IG9uIGFuIE9yYW5nZSBQaQo+ID4gPiA+ID4gUlYyIGJvYXJkIGluc3RlYWQgKGFuZCBh
-biBleHRyYSBSVjIgc3BlY2lmaWMgcGF0Y2ggdG8gZW5hYmxlIHBvd2VyIHRvCj4gPiA+ID4gPiB0
-aGUgTS4yIHNsb3QpLgo+ID4gPiA+ID4gCj4gPiA+ID4gPiBJIHJhbiBpbnRvIHRoZSBzYW1lIHN5
-bXB0b21zIHlvdSBoYWQgKCJRSUQgMCB0aW1lb3V0IiBhZnRlciBhYm91dCA2MAo+ID4gPiA+ID4g
-c2Vjb25kcykuIEhvd2V2ZXIsIEknbSB1c2luZyBhbiBJbnRlbCA2MDBwLiBJIGNhbiBjb25maXJt
-IG15IE5WTUUgZHJpdmUKPiA+ID4gPiA+IHNlZW1zIHRvIHdvcmsgZmluZSB3aXRoIHRoZSAicGNp
-ZV9hc3BtPW9mZiIgd29ya2Fyb3VuZCBhcyB3ZWxsLgo+ID4gPiA+IAo+ID4gPiA+IEkgZG9uJ3Qg
-c2VlIHRoaXMgcHJvYmxlbSwgYW5kIGhhdmVuJ3QgdHJpZWQgdG8gcmVwcm9kdWNlIGl0IHlldC4K
-PiA+ID4gPiAKPiA+ID4gPiBNYW5pIHRvbGQgbWUgSSBuZWVkZWQgdG8gYWRkIHRoZXNlIGxpbmVz
-IHRvIGVuc3VyZSB0aGUgInJ1bnRpbWUKPiA+ID4gPiBQTSBoaWVyYXJjaHkgb2YgUENJZSBjaGFp
-biIgd29uJ3QgYmUgImJyb2tlbiI6Cj4gPiA+ID4gCj4gPiA+ID4gCXBtX3J1bnRpbWVfc2V0X2Fj
-dGl2ZSgpCj4gPiA+ID4gCXBtX3J1bnRpbWVfbm9fY2FsbGJhY2tzKCkKPiA+ID4gPiAJZGV2bV9w
-bV9ydW50aW1lX2VuYWJsZSgpCj4gPiA+ID4gCj4gPiA+ID4gSnVzdCBvdXQgb2YgY3VyaW9zaXR5
-LCBjb3VsZCB5b3UgdHJ5IHdpdGggdGhvc2UgbGluZXMgYWRkZWQKPiA+ID4gPiBqdXN0IGJlZm9y
-ZSB0aGVzZSBhc3NpZ25tZW50cyBpbiBrMV9wY2llX3Byb2JlKCk/Cj4gPiA+ID4gCj4gPiA+ID4g
-CWsxLT5wY2kuZGV2ID0gZGV2Owo+ID4gPiA+IAlrMS0+cGNpLm9wcyA9ICZrMV9wY2llX29wczsK
-PiA+ID4gPiAJZHdfcGNpZV9jYXBfc2V0KCZrMS0+cGNpLCBSRVFfUkVTKTsKPiA+ID4gPiAKPiA+
-ID4gPiBJIGRvdWJ0IGl0IHdpbGwgZml4IHdoYXQgeW91J3JlIHNlZWluZywgYnV0IGF0IHRoZSBt
-b21lbnQgSSdtCj4gPiA+ID4gd29ya2luZyBvbiBzb21ldGhpbmcgZWxzZS4KPiA+ID4gCj4gPiA+
-IFVuZm9ydHVuYXRlbHkgdGhlcmUgaXMgbm8gZGlmZmVyZW5jZSB3aXRoIHRoZSBydW50aW1lIFBN
-IGhpZXJhcmNoeQo+ID4gPiBhZGRpdGlvbnMuCj4gPiA+IAo+ID4gCj4gPiBUaGVzZSBhcmUgbm90
-IHN1cHBvc2VkIHRvIGZpeCB0aGUgaXNzdWVzIHlvdSB3ZXJlIGZhY2luZy4gSSBkaXNjdXNzZWQg
-d2l0aCBBbGV4Cj4gPiBvZmZsaW5lIGFuZCBmaWd1cmVkIG91dCB0aGF0IEwxIHdvcmtzIGZpbmUg
-b24gaGlzIEJQSS1GMyBib2FyZCB3aXRoIGEgTlZNZSBTU0QuCj4gPiAKPiA+IEFuZCBJIGJlbGll
-dmUsIEF1cmVsaWVuIGlzIGFsc28gdXNpbmcgdGhhdCBzYW1lIGJvYXJkLCBidXQgd2l0aCBkaWZm
-ZXJlbnQKPiA+IFNTRHMuIEJ1dCB3aGF0IGlzIHB1enpsaW5nIG1lIGlzLCBMMSBpcyBicmVha2lu
-ZyBBdXJlbGllbidzIHNldHVwIHdpdGggMyBTU0RzCj4gPiBmcm9tIGRpZmZlcmVudCB2ZW5kb3Jz
-LiBJdCBhcHBhcmVudGx5IHdvcmtzIGZpbmUgb24gQWxleCdzIHNldHVwLiBTbyBpdCBzb21laG93
-Cj4gPiBjb25maXJtcyB0aGF0IFJvb3QgUG9ydCBzdXBwb3J0cyBhbmQgYmVoYXZlcyBjb3JyZWN0
-bHkgd2l0aCBMMS4gQnV0IGF0IHRoZSBzYW1lCj4gPiB0aW1lLCBJIGNhbm5vdCBqdXN0IHNheSB3
-aXRob3V0IGV2aWRlbmNlIHRoYXQgTDEgaXMgYnJva2VuIG9uIGFsbCB0aGVzZSBTU0RzCj4gPiB0
-aGF0IHlvdSBhbmQgQXVyZWxpZW4gdGVzdGVkIHdpdGguCj4gCj4gSXQgY291bGQgYmUgdGhhdCB3
-ZSBoYXZlIGRpZmZlcmVudCByZXZpc2lvbiBvZiB0aGUgQlBJLUYzIGJvYXJkLCBpdCdzIAo+IG5v
-dCBpbXBvc3NpYmxlIHRoYXQgSSBnb3QgYW4gZWFybHktaXNoIHZlcnNpb24uIFRoYXQgc2FpZCBJ
-IGp1c3QgCj4gdmlzdWFsbHkgY2hlY2tlZCB0aGUgUENCIGFnYWluc3QgdGhlIHNjaGVtYXRpY3Ms
-IGFuZCB0aGUgZGV2aWNlcyBvbiB0aGUgCj4gQ0xLUkVRTiBsaW5lIGFwcGVhciB0byBiZSBpbnN0
-YWxsZWQuCj4gCgpDTEtSRVEjIGlzIG9ubHkgbmVlZGVkIGZvciBMMSBQTSBTdWJzdGF0ZXMgKEwx
-LjEgYW5kIEwxLjIpLiBJbiBvdGhlciBBU1BNIHN0YXRlcwooTDBzIGFuZCBMMSksIFJFRkNMSyBp
-cyBzdXBwb3NlZCB0byBiZSBPTi4gU28gdGhvc2UgZG9uJ3QgbmVlZCBDTEtSRVEjIGFzc2VydGlv
-bgpieSB0aGUgZW5kcG9pbnQuCgpUaGUgTDEgaXNzdWUgeW91IGFyZSBmYWNpbmcgY291bGQgYmUg
-ZHVlIHRvIHRoZSBib2FyZCByb3V0aW5nIGlzc3VlIGFsc28uIEknbQpqdXN0IHNwZWN1bGF0aW5n
-IGhlcmUuCgo+IElmIHNvbWVvbmUgaGFzIGNvbnRhY3RzIHRvIGNoZWNrIHdoYXQgY2hhbmdlcyBo
-YXZlIGJlZW4gZG9uZSBiZXR3ZWVuIHRoZSAKPiBkaWZmZXJlbnQgYm9hcmQgcmV2aXNpb24sIHRo
-YXQgY291bGQgaGVscC4gT3Igc2FtZSBpZiB0aGVyZSBhcmUgCj4gZGlmZmVyZW50IHJldmlzaW9u
-cyBvZiB0aGUgU3BhY2VtaVQgSzEgY2hpcC4KPiAKCkkgaG9wZSBBbGV4IGNhbiBnZXQgdGhpcyBp
-bmZvcm1hdGlvbi4KCi0gTWFuaQoKLS0gCuCuruCuo+Cuv+CuteCuo+CvjeCuo+CuqeCvjSDgrprg
-rqTgrr7grprgrr/grrXgrq7gr40KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+On Fri, 31 Oct 2025 at 05:12, Yao Zi <ziyao@disroot.org> wrote:
+>
+> On Fri, Oct 31, 2025 at 10:43:28AM +0800, Qiang Ma wrote:
+> > In the efi_create_mapping() in arch/riscv/kernel/efi.c,
+> > the return value is always 0, and this debug message
+> > is unnecessary. So, remove it.
+>
+> Should we make efi_create_mapping() return void at the same time, if it
+> will never fail?
+>
+
+No.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
