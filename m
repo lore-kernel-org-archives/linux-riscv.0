@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E99CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 17:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D616CCF9F8
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 18:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=iChu5PetQ9jCqzrAmK8YQ/jeZ9sqt62elftIzahoBP4=; b=Z8qv3n8HAHn9WNyw1x+lmcEe0j
-	OEhsNIhrcU+/i5DFIXEFhpwQjle2572kCHNKfvZf/XEH0TeqpzbtXkq+5+tGSDonrh/WYBYalcN2b
-	ta+bIgt0FRK7fzEtTzIW+jwGFv/a5Cem0YUMfPzaQoAHQzxD6S/XbyVIJ08bN8UWLdOE11fN8u1TN
-	I5D97mGrmGRGhLI3nNTl0zQkFsuCc4mCyfAaN57H1bjpFJOsjtsLPQItW84ZgYvrzM1/1oC71f4EF
-	Od4vla4x79fDQaJ1UA9d591TRX/fakw6figSg0cwgkdRCLj28rniBRB06dV6Hc3Wnyj4P6azElAPO
-	GuyHgysg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kF/iZl3DfJuorc+MrJ5UGyAOrEYI+v9+dAvDA2Z3eik=; b=RPE+rcylmUY2zP
+	jGfowJWYolvCXv3v9Mx2G7p1uEIWKpKn9etTbRzYtMr3KYnFsS3BJPMDqKCJgfIkqQbKZJAv00Lrn
+	Xvddc5KN/hLK9onxDmOxEyNlKqrNXEIVP12VFETVmgfCKbQKWrdbnYs68n2h44XvP5r0n2AyXRNWG
+	NAkI9R2cVD0jb24xRrIMocltZuiddsMttFebDz3FqFbSyVWHx+vCMhnaHbcWxxyf0iCaSNbXCeM7x
+	tG1MQvK6nCClb14tMfBVzBSjqHP2+L9f5AssWuVPlft9K3jYXKUVx4dHwkn6ygdqt/1LIFocu5T/a
+	IdgtwKbHU2BZeK7UhUrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEt1c-00000006Xi1-1KaF;
-	Fri, 31 Oct 2025 17:34:56 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vEtsJ-00000006cSi-31cB;
+	Fri, 31 Oct 2025 18:29:23 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEt1a-00000006Xgp-0FQn
+	id 1vEtsG-00000006cRY-2aI2
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Oct 2025 17:34:55 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3407734d98bso1859939a91.3
-        for <linux-riscv@lists.infradead.org>; Fri, 31 Oct 2025 10:34:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761932093; x=1762536893; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LtnXaqdbVR8gOvpEPR+6l9cfgKr6bsCXJtfhHUXOVv8=;
-        b=2qj7q/SPnSzAJWmUBZOwFnAJRi1bVMZE4leSeHsOE87g0MVN+52wGnSgpUAzf60VUz
-         DUXb2JITJp0PKZVNPF/zQ992bK2koe6YPvKGFEcCxKV4sjbzFPz3UKERLhwVkAY2j13p
-         BYstnDl6AiImMc5sRxzOCbW7Qm0jiB0L+0nfX8hgCzD5w9j+mb9fUiEiSVPBZKfT6ahQ
-         gk/QuMmnxy62x/41wj2Nft39tCxozY9TlcbWfNJwgWfBg7JQFqPPkK0OMnEmh1BdX1n2
-         3CxSrZ/uTblAdIlhMJHF80LoPjpJVQnDxWPXJW5avVNG1aDuBT2U95RjzqjyJKJitZhp
-         +LSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761932093; x=1762536893;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LtnXaqdbVR8gOvpEPR+6l9cfgKr6bsCXJtfhHUXOVv8=;
-        b=XrlRozfSr9zogqqyoZhu3JcI5dESMkJ6VmpQbQKCadSMrvz9E6xREqSsZ0I1YKIj9v
-         2CdlB7YfgLmqtMBnbEwvT0Wlm2WAS8mW4c38zD1qui/RltJYKcqQHNrW3YzMacw4D3p/
-         q+wklleyqSkVCd16xcK6O3ROWICAee6ejuMrQ9LoFSK77HEgR79TS/zJGCGi38FkQc5T
-         proRUdo+8YffJ5ksn2DPg7vqmacCNaAm4tJ6tseJmUfGRjRLX92QHQNJ+cGHUOVLWz/a
-         IuiVU7TF9WzlbEMcaGZlE0/BCDQErs+WGubwMdkIPXDlIhuN7kfh3ZRpjBxF5w/1F2oV
-         mM6A==
-X-Forwarded-Encrypted: i=1; AJvYcCVp+C/lXdape1tcvE6Xo11mBz/IYA5zR8UiXMPQSu1t4574AO2B6ccQ9Oku+opOMEXuf1pGon2nmtOnkQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+N6F8faUoIvVuik4ylRKcWAO2smTa8RK/foS2acdku0Yz06Is
-	B/Y1AkaOd+033oNGPAzFY7Vu1Ksbas3+/ZZSA9qHmvkMeur7+QthdTBLw61/To1Y77oBkZCsj+d
-	9V1gmPw==
-X-Google-Smtp-Source: AGHT+IEhd62pQuR9tjnc3Il5ckB3BFxieNfGOf0XAASHT7mISEiuLVbYaHxfkZsCDA/umOxHYLwWX5NLxe4=
-X-Received: from pjbmg14.prod.google.com ([2002:a17:90b:370e:b0:33e:34c2:1e17])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:fc4b:b0:32e:5646:d43f
- with SMTP id 98e67ed59e1d1-3408306e65fmr6078929a91.19.1761932092859; Fri, 31
- Oct 2025 10:34:52 -0700 (PDT)
-Date: Fri, 31 Oct 2025 10:34:51 -0700
-In-Reply-To: <aQRyyieyDrZZMpIt@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20251030200951.3402865-1-seanjc@google.com> <20251030200951.3402865-27-seanjc@google.com>
- <aQRyyieyDrZZMpIt@yzhao56-desk.sh.intel.com>
-Message-ID: <aQTzO7D1O02zQbcD@google.com>
-Subject: Re: [PATCH v4 26/28] KVM: TDX: Guard VM state transitions with "all"
- the locks
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Binbin Wu <binbin.wu@linux.intel.com>, Michael Roth <michael.roth@amd.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
-	Ackerley Tng <ackerleytng@google.com>
+	Fri, 31 Oct 2025 18:29:23 +0000
+Received: from [127.0.0.2] (unknown [114.241.85.109])
+	by APP-05 (Coremail) with SMTP id zQCowADnU_Lg_wRp2u3JAA--.5659S2;
+	Sat, 01 Nov 2025 02:28:48 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Sat, 01 Nov 2025 02:28:04 +0800
+Subject: [PATCH net v2] net: spacemit: Check IFF_UP in
+ emac_set_pauseparam()
+MIME-Version: 1.0
+Message-Id: <20251101-k1-ethernet-remove-fc-v2-1-014ac3bc280e@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIALP/BGkC/4VOSw7CIBC9SjNrpyk0RezKe5iaIJ1aYloUkGga7
+ i5B92ZWb953A0/OkIe+2sBRNN7YNQO+q0DPar0SmjFj4A3vWNMyvDGkMJNbKaCjxUbCSaPk0yj
+ 2o5QHJSB7744m8yq5J8hSGL5PR49n7gg/5qI8obbLYkJfRVEziU6z85aKfjY+WPcu2yIrhj8zI
+ sN8itqJjaJrpD4ar5Wvla71CkNK6QOcZYIg8QAAAA==
+X-Change-ID: 20251031-k1-ethernet-remove-fc-82fd67d889a6
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Yixun Lan <dlan@gentoo.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-CM-TRANSID: zQCowADnU_Lg_wRp2u3JAA--.5659S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ur1fArWkAryxAF4xtF18Xwb_yoW8Gw4rpF
+	WUZasruw47JF45KFs7Aa1xZFy5JayxtryUuF1ayw4rZasFyw4UAF9YkFW3Cr1UZFWrCrya
+	gw45Z3WfCF1DArDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8JV
+	W8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
+	nIWIevJa73UjIFyTuYvjfUonmRUUUUU
+X-Originating-IP: [114.241.85.109]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_103454_100004_FCD6DEED 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20251031_112921_030666_E36006A8 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,45 +90,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025, Yan Zhao wrote:
-> On Thu, Oct 30, 2025 at 01:09:49PM -0700, Sean Christopherson wrote:
-> > Acquire kvm->lock, kvm->slots_lock, and all vcpu->mutex locks when
-> > servicing ioctls that (a) transition the TD to a new state, i.e. when
-> > doing INIT or FINALIZE or (b) are only valid if the TD is in a specific
-> > state, i.e. when initializing a vCPU or memory region.  Acquiring "all"
-> > the locks fixes several KVM_BUG_ON() situations where a SEAMCALL can fail
-> > due to racing actions, e.g. if tdh_vp_create() contends with either
-> > tdh_mr_extend() or tdh_mr_finalize().
-> > 
-> > For all intents and purposes, the paths in question are fully serialized,
-> > i.e. there's no reason to try and allow anything remotely interesting to
-> > happen.  Smack 'em with a big hammer instead of trying to be "nice".
-> > 
-> > Acquire kvm->lock to prevent VM-wide things from happening, slots_lock to
-> > prevent kvm_mmu_zap_all_fast(), and _all_ vCPU mutexes to prevent vCPUs
-> s/kvm_mmu_zap_all_fast/kvm_mmu_zap_memslot
+Currently, emac_set_pauseparam() will oops if userspace calls it while
+the interface is not up, because phydev is NULL, but it is still
+accessed in emac_set_fc() and emac_set_fc_autoneg().
 
-Argh!  Third time's a charm?  Hopefully...
+Check for IFF_UP in emac_set_pauseparam() before proceeding.
 
-> > @@ -3170,7 +3208,8 @@ static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *c
-> >  
-> >  int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
-> >  {
-> > -	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
-> > +	struct kvm *kvm = vcpu->kvm;
-> > +	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
-> reverse xmas tree ?
+Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+---
+Changes in v2:
+- Reduced patch to only contain checking IFF_UP to avoid the oops. More
+  invasive changes will be sent to net-next in the future. (Andrew)
+- Link to v1: https://lore.kernel.org/r/20251031-k1-ethernet-remove-fc-v1-1-1ae3f1d6508c@iscas.ac.cn
+---
+ drivers/net/ethernet/spacemit/k1_emac.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-No, because the shorter line generates an input to the longer line.  E.g. we could
-do this if we really, really want an xmas tree:
+diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
+index e1c5faff3b71..a3fc17d2ca10 100644
+--- a/drivers/net/ethernet/spacemit/k1_emac.c
++++ b/drivers/net/ethernet/spacemit/k1_emac.c
+@@ -1441,6 +1441,9 @@ static int emac_set_pauseparam(struct net_device *dev,
+ 	struct emac_priv *priv = netdev_priv(dev);
+ 	u8 fc = 0;
+ 
++	if (!(dev->flags & IFF_UP))
++		return -ENETDOWN;
++
+ 	priv->flow_control_autoneg = pause->autoneg;
+ 
+ 	if (pause->autoneg) {
 
-	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
-	struct kvm *kvm = vcpu->kvm;
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251031-k1-ethernet-remove-fc-82fd67d889a6
 
-but this won't compile
+Best regards,
+-- 
+Vivian "dramforever" Wang
 
-	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
-	struct kvm *kvm = vcpu->kvm;
 
 _______________________________________________
 linux-riscv mailing list
