@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67CB8CCFA02
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 19:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 968A3CCFA03
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 19:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1wt5AnGkU+SkM4p+Zz7OjSHtnteHlAd6F5NIqZ1Muvs=; b=2CWWhj2suHj37i
-	JA5I5x/eyTG331/Lj/jQQ8QpBLJVWUHvVPy2IvxXHucLYFOTKIyqSnKPQE3Nc5CDt4D87YHvhCcgW
-	vq3eAaush+ByRnhHUPrtrq2dYszti3JaA003p7c2Alg68pvIz4HJzsCij4GHiE9BQyzDplLqWupsj
-	O+7hLMkItG6RgpVVanfCNDpcQ16mSBRYY/oDsb4itVpaEZHk1A/stek9fmQAVpi/2rVSftdrfnhEf
-	Qq6o6q6eF3ZuTWf4Oy98xGQU/HmbxzxnnrgfPSqiU778t6e286blnIM/8R4HN2xbaOyq852pj50ce
-	zd+ws5l87+XNJuh14Paw==;
+	List-Owner; bh=wkr0uHH5tV3G3bHvC2kX9gj5Iqbr8X2X8rrgQJVbY48=; b=wpYJKyxuUBrB9h
+	lxPoIq6DwOleAIOXYiMrw0J4VOeJjFA+ZFgnoM56qIwEhDkRYN+s2bIhzee93pNGtYpcuj056prKV
+	yVPDBrOxdKATTNtXi5+BYPTKPhHPrjwTvhC2b4aAYKsYxjNCda+bEAio7Xb8CzLKvR5Nm9DdqiQjk
+	sYkoR9mF2mlL6JVM3WKYfP4uILJyGy5IMqmJA9rWh4BD+EEOOKC72pgvNz2xU1H/7RhdRrib9+fiY
+	IbOe/9hvCao99UOC1BtPXbdIfN8IUbn1PZ1eBLFSzVIkHskCoX3rmKx0+JqhDNj4NPQnwqMYuKl8P
+	NdX4BsUpPxbftmOWXkEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEuho-00000006hDF-3Fgy;
-	Fri, 31 Oct 2025 19:22:36 +0000
+	id 1vEv6h-00000006jsw-3OVO;
+	Fri, 31 Oct 2025 19:48:19 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEuhk-00000006hBk-3Z9u
+	id 1vEv6e-00000006jsc-3aGv
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Oct 2025 19:22:35 +0000
+	Fri, 31 Oct 2025 19:48:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8AC17419AE;
-	Fri, 31 Oct 2025 19:22:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB1DEC4CEE7;
-	Fri, 31 Oct 2025 19:22:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 30BF343F38;
+	Fri, 31 Oct 2025 19:48:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B39D8C4CEE7;
+	Fri, 31 Oct 2025 19:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761938551;
-	bh=aRO45gf5CfHW1/jbUbbLGsRCxWY7tHk3cFfnDvNsB6Y=;
+	s=k20201202; t=1761940096;
+	bh=3XMdMiV5/Fkf0a0hQ2bHKVTveLYXM6aobfgWUzIzlyM=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=M5HDCi2R/696KAq+LQQDeEnnFTStWNLkXYwKUiU9FxJS0+SMep8pWFlpbWtMhCEDE
-	 3IqSttDBCsW639HgoIfXNDa5Rl5R2Eg3DPtIMGmbvxRmY4i0JiGYkRMvEIB/UsEAF/
-	 CpSxsd8YDaLo7qB+j1Vd4dXbW9wlxIEkOBpLnql/SBO5QE8BsCAMM0NgYXNNpBc0uG
-	 74Srbaun1zMez0S5J737hSGvZAiklmcFqDN9evPXeLKPQOTt4EkImzO1RV9Ab3ErMe
-	 U7GPDkqCNG4vnEozILb4d3SSdHavGo7+IHCu1Lfn9KlyQUdgHAk2dJZMnL8zRIQzci
-	 moNGNmIxIROuQ==
-Date: Fri, 31 Oct 2025 13:22:23 -0600 (MDT)
+	b=jhLrkMJ1Xr02uFTfEx/frXtknVpDmVQfc9O4keDaTkipOQ9UC1Zl+VCqb/XHpjJHh
+	 lQQVWqtGbfmN+B56AGTydSbzItiFwivMka5zoMEb7wi2z26fZoRbHzGZY8u4dld9Od
+	 XVUCpBVPQH2+rCLmX2+N8eUbM4jMy9/KcKhLJMKbkftUEMt3kMETRqJ8HDQPt3XMdS
+	 hg6CyFsDb3ZDPaxbBhzVHVkM7RzbaYxsYNDtsNKPDiRl1ijnkAdS/KwKr8uh9QTXm8
+	 Rcpa0l5VB5wzJfKbLCJBlJ3G4CL7pI1J6FfYAXpE44Jurnor7XhX5BjXzbIDDZf5uy
+	 4J5wAbgnhUBeg==
+Date: Fri, 31 Oct 2025 13:48:10 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: Deepak Gupta <debug@rivosinc.com>
 cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -76,14 +76,15 @@ cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
     evan@rivosinc.com, cleger@rivosinc.com, alexghiti@rivosinc.com, 
     samitolvanen@google.com, broonie@kernel.org, rick.p.edgecombe@intel.com, 
     rust-for-linux@vger.kernel.org, Zong Li <zong.li@sifive.com>
-Subject: Re: [PATCH v22 03/28] riscv: zicfiss / zicfilp enumeration
-In-Reply-To: <20251023-v5_user_cfi_series-v22-3-1d53ce35d8fd@rivosinc.com>
-Message-ID: <9230fa65-6b8e-ebf6-f215-b3a3bb7357d9@kernel.org>
-References: <20251023-v5_user_cfi_series-v22-0-1d53ce35d8fd@rivosinc.com> <20251023-v5_user_cfi_series-v22-3-1d53ce35d8fd@rivosinc.com>
+Subject: Re: [PATCH v22 10/28] riscv/mm: Implement map_shadow_stack()
+ syscall
+In-Reply-To: <20251023-v5_user_cfi_series-v22-10-1935270f7636@rivosinc.com>
+Message-ID: <020e2f6e-9c1b-648e-3017-31eb8a89c493@kernel.org>
+References: <20251023-v5_user_cfi_series-v22-0-1935270f7636@rivosinc.com> <20251023-v5_user_cfi_series-v22-10-1935270f7636@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_122232_927912_958B4EF7 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20251031_124816_929153_F644E21C 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +101,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Oct 2025, Deepak Gupta wrote:
+On Thu, 23 Oct 2025, Deepak Gupta via B4 Relay wrote:
 
-> This patch adds support for detecting zicfiss and zicfilp. zicfiss and
-> zicfilp stands for unprivleged integer spec extension for shadow stack
-> and branch tracking on indirect branches, respectively.
+> From: Deepak Gupta <debug@rivosinc.com>
 > 
-> This patch looks for zicfiss and zicfilp in device tree and accordinlgy
-> lights up bit in cpu feature bitmap. Furthermore this patch adds detection
-> utility functions to return whether shadow stack or landing pads are
-> supported by cpu.
+> As discussed extensively in the changelog for the addition of this
+> syscall on x86 ("x86/shstk: Introduce map_shadow_stack syscall") the
+> existing mmap() and madvise() syscalls do not map entirely well onto the
+> security requirements for shadow stack memory since they lead to windows
+> where memory is allocated but not yet protected or stacks which are not
+> properly and safely initialised. Instead a new syscall map_shadow_stack()
+> has been defined which allocates and initialises a shadow stack page.
+> 
+> This patch implements this syscall for riscv. riscv doesn't require token
+> to be setup by kernel because user mode can do that by itself. However to
+> provide compatibility and portability with other architectues, user mode
+> can specify token set flag.
 > 
 > Reviewed-by: Zong Li <zong.li@sifive.com>
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 
-This patch introduces some 'checkpatch.pl --strict' messages:
+This patch introduces a 'checkpatch.pl --strict' message:
 
-CHECK: Alignment should match open parenthesis
-#68: FILE: arch/riscv/kernel/cpufeature.c:278:
-+static int riscv_cfilp_validate(const struct riscv_isa_ext_data *data,
-+			      const unsigned long *isa_bitmap)
+CHECK: Lines should not end with a '('
+#78: FILE: arch/riscv/kernel/usercfi.c:36:
++	asm goto(
 
-CHECK: Alignment should match open parenthesis
-#77: FILE: arch/riscv/kernel/cpufeature.c:287:
-+static int riscv_cfiss_validate(const struct riscv_isa_ext_data *data,
-+			      const unsigned long *isa_bitmap)
-
-
-I'll fix them up here in the event that v22 goes in, but please do the 
-same on your side in case a new version is needed.  
+I'll fix it up here in the event that v22 goes in, but please do the same 
+on your side in case a new version is needed.
 
 
 thanks,
 
-- Paul 
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
