@@ -4,65 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D30DCCF9EB
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 07:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF86ECCF9EE
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 07:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tz1qqrtkhcTaxR8nrchKcJLJqFl6e52DL5SShjvVB+4=; b=beXRc4uVy4L0MwGAFWlpwY5qT3
-	n3K1bG+CZ9SmlXr1RmXZ2XYVnKOP+2CgbZ2yDAe4xwIr45GKPiYSMm9lggmLvs9+uDiLp2yid+Nlk
-	Cfc8dYCXPDy7L+jIGSeS1ksJK1zuMQBGX5flHqUYppuqpzRd4sjDmacxgTzNC6ac57rjdoFEKSPkP
-	0ESWk5U+9QtmV4fWJxP5rrAABjBe9NtYdt0eUH+wAJuX4f/LglMEvdVl0jxtaxW8bYjPk8w4mvQt4
-	Mw/hduxfea1Ef85NOiFihstizgy8qbBtr42y9YnEqQDrS7yQwiEKaZ1bYht48WcWds4R6RcqKejwT
-	QFC/HfOQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=k43XPOjTWYh4uV893+sNXpC6vU2VxHtsiEEtEcqDwzA=; b=OpkcDpIk69I+8M
+	r4ctqdDacMFCcL2EOBmNVE8eX9g1xloo76P/rnW9BdEXDOjWOL67uY6lzgzl2lDUr13AzJQdy/g3+
+	dxdLjIAct70Ff7tW4Kduq1/EdC+be8FIt3r1Gd+bAjxfhr60K0B1uDJAGHPsXbukAa/o/mLxbu1I5
+	Nq3buL/cLCoRD0IXBBG4z0/N3mmEh072dQzAW0ok4WYJg+Ecb4d0P90GJXL+ghid2vaVCRfBo4gf3
+	KctKXg2DV9mrh5/QiGRs/NVzXdttEAFgYus1f9lAMZ2CZBM+gA9rsAX66mDXvQMMFMUyBjPFklNmU
+	THE6E9u9153MJjnnvghA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEjrN-00000005Z7c-0ZEf;
-	Fri, 31 Oct 2025 07:47:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vEk1v-00000005aRP-4AQP;
+	Fri, 31 Oct 2025 07:58:41 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEjrK-00000005Z7E-18EE
-	for linux-riscv@lists.infradead.org;
-	Fri, 31 Oct 2025 07:47:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 96FF940ACF;
-	Fri, 31 Oct 2025 07:47:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09DACC4CEF8;
-	Fri, 31 Oct 2025 07:47:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761896859;
-	bh=7GmpMUcbzk3IQ7Nc39bFAOvP0kWu7uS4b5WKDgdELi0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sPhR7nl2fhn2TNbDxPnu9RgTr3vBzLt1y7c26zXBBCO0tkA1GR2wSDFXagCGhCBzl
-	 HV35U/h4eoM9O6dxrv6UcjV8VQvpJduydaNFEMCJC05nzGJgwt6zSoLMkGkA85q0RK
-	 mFvql6USWFFEb2/XJsR0W3JZqNm89fVoHsIo4Sny/Tw7Enk3imrpixHLz3xsy4a/uA
-	 +6jlx/+0V0EU12obrPIaAP5oCzcxazoL9hsXWY4qI6hlAiNCKLkNdStudLg2ap4TL/
-	 zi1s11JBuOnEcXV44LUUuPjJEiIkGWSxWPwu80hs2aNXJj3VttFW0y4HC9WyU1dU6S
-	 9hLZW5Sv6yXGA==
-Date: Fri, 31 Oct 2025 08:47:36 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Stephen Rothwell <sfr@canb.auug.org.au>, rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/4] rust: macros: Add support for 'imports_ns' to module!
-Message-ID: <h3sivr3uuzr5oodqe326svchbw3rzo4f4nw4chpeee2jwzjq3j@bdtecauehkn4>
-References: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
- <CGME20251028122316eucas1p2733987cd4c1eb8f83d6572d542e76d2a@eucas1p2.samsung.com>
- <20251028-pwm_fixes-v1-1-25a532d31998@samsung.com>
+	id 1vEk1p-00000005aP7-2ijY;
+	Fri, 31 Oct 2025 07:58:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761897513; x=1793433513;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=rzM0b8qPEYkMq5nIoO4tMjMsIEGrMoYlxde7BXZgKfY=;
+  b=goZspn5dnwSdx0wnGIBedLEsVmCijQR8zOYDAJ9DYziwKsyIJyYBEysK
+   9rmBTMXeIkJW8t94ZLfZGI/bH6NQh1aXyOtVQQF5K268be1bEl972jb1W
+   DTTNvLO7voXC/gPxSFH4D9OEtIQb7Yby5JgOWBuJlsoKb0EIDZP3salof
+   /EOu764ODGwOAYplkyRe5aUZuD4mrJZxspR9m5M70YBsCtdSyLayEWecp
+   S13125gqwWd10Np1sqThsaEDwQPA8514P/Wfx4s8Bx9WoLObGJ67+jZ07
+   jBp1f1sPtcuTqRWTYw6RCQrXTdE4Uk/m03NCvMApNYRK38lNbqpxKkeZa
+   w==;
+X-CSE-ConnectionGUID: 8EqcAGlwQiurG76xyQ3nNg==
+X-CSE-MsgGUID: Selr6ap1TDufxyEf349Mog==
+X-IronPort-AV: E=McAfee;i="6800,10657,11598"; a="74729288"
+X-IronPort-AV: E=Sophos;i="6.19,268,1754982000"; 
+   d="scan'208";a="74729288"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 00:58:32 -0700
+X-CSE-ConnectionGUID: aelFfb7/T7+TXvXFUL/t7w==
+X-CSE-MsgGUID: o2Ju4geKSZSKLBD3vX8YRA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,268,1754982000"; 
+   d="scan'208";a="186108753"
+Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.124.240.28]) ([10.124.240.28])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 00:58:25 -0700
+Message-ID: <7e43061a-b901-4e8f-8ee9-57d67aaf4f38@linux.intel.com>
+Date: Fri, 31 Oct 2025 15:58:22 +0800
 MIME-Version: 1.0
-In-Reply-To: <20251028-pwm_fixes-v1-1-25a532d31998@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 04/28] KVM: x86/mmu: Add dedicated API to map
+ guest_memfd pfn into TDP MMU
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
+ Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>,
+ Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ackerley Tng <ackerleytng@google.com>
+References: <20251030200951.3402865-1-seanjc@google.com>
+ <20251030200951.3402865-5-seanjc@google.com>
+Content-Language: en-US
+From: Binbin Wu <binbin.wu@linux.intel.com>
+In-Reply-To: <20251030200951.3402865-5-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_004742_490903_8E1E4869 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20251031_005833_882312_109EBBC3 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,90 +98,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8951990068293424856=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8951990068293424856==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ecrpz7cwozvvwprk"
-Content-Disposition: inline
 
+On 10/31/2025 4:09 AM, Sean Christopherson wrote:
+> Add and use a new API for mapping a private pfn from guest_memfd into the
+> TDP MMU from TDX's post-populate hook instead of partially open-coding the
+> functionality into the TDX code.  Sharing code with the pre-fault path
+> sounded good on paper, but it's fatally flawed as simulating a fault loses
+> the pfn, and calling back into gmem to re-retrieve the pfn creates locking
+> problems, e.g. kvm_gmem_populate() already holds the gmem invalidation
+> lock.
+>
+> Providing a dedicated API will also removing several MMU exports that
+> ideally would not be exposed outside of the MMU, let alone to vendor code.
+> On that topic, opportunistically drop the kvm_mmu_load() export.  Leave
+> kvm_tdp_mmu_gpa_is_mapped() alone for now; the entire commit that added
+> kvm_tdp_mmu_gpa_is_mapped() will be removed in the near future.
+>
+> Gate the API on CONFIG_KVM_GUEST_MEMFD=y as private memory _must_ be backed
+> by guest_memfd.  Add a lockdep-only assert to that the incoming pfn is
+> indeed backed by guest_memfd, and that the gmem instance's invalidate lock
+> is held (which, combined with slots_lock being held, obviates the need to
+> check for a stale "fault").
+>
+> Cc: Michael Roth <michael.roth@amd.com>
+> Cc: Yan Zhao <yan.y.zhao@intel.com>
+> Cc: Ira Weiny <ira.weiny@intel.com>
+> Cc: Vishal Annapurve <vannapurve@google.com>
+> Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
+> Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
+> Reviewed-by: Kai Huang <kai.huang@intel.com>
+> Link: https://lore.kernel.org/all/20250709232103.zwmufocd3l7sqk7y@amd.com
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
---ecrpz7cwozvvwprk
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/4] rust: macros: Add support for 'imports_ns' to module!
-MIME-Version: 1.0
+Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
 
-Hello,
-
-I already asked this in reply to the cover letter, but the question was
-lost on the way (no offense!), so I'm asking again. As it only really
-affects this patch, I'm doing that here:
-
-On Tue, Oct 28, 2025 at 01:22:32PM +0100, Michal Wilczynski wrote:
-> Kernel modules that use C symbols exported via `EXPORT_SYMBOL_NS` must
-> declare this dependency for `modpost` verification. C modules achieve
-> this by using the `MODULE_IMPORT_NS(NAMESPACE)` macro, which embeds an
-> `import_ns=3D<NAMESPACE>` tag into the `.modinfo` section.
->=20
-> The Rust `module!` macro lacked the ability to generate these tags,
-> resulting in build warnings for Rust drivers (like the PWM driver) that
-> call namespaced C functions.
->=20
-> Modify the `module!` macro's internal parser (`ModuleInfo`) to accept a
-> new optional field `imports_ns`, which takes an array of namespace
-> strings.  Update the code generator (`ModInfoBuilder::emit`) loop to
-> iterate over these strings and emit the corresponding
-> `import_ns=3D<NAMESPACE>` tags into the `.modinfo` section using the
-> existing `#[link_section]` mechanism.
->=20
-> This provides the necessary infrastructure for Rust modules to correctly
-> declare their C namespace dependencies.
->=20
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  rust/macros/module.rs | 8 ++++++++
->  1 file changed, 8 insertions(+)
-
-Can I have some blessing to take this patch via my pwm tree? Would you
-prefer a tag to also merge it into your tree? Then I would apply it on
-top of 6.18-rc1 and provide a tag for you to merge.
-
-Best regards
-Uwe
-
---ecrpz7cwozvvwprk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmkEaZUACgkQj4D7WH0S
-/k43lgf+LJYRV7/XhylyloNNOExBGW6OxuOAexD36boCRoglcjhV86Q2uMyIjEzN
-i8a/laz8cvofAPfyuKZINk44WfDiGolM6Ncee2fXergLU/wQ1BNCHjBv5ceRzF7h
-hYMXVSkFZXdpQIFT3Fb/dVlPhTvYH/MNHKPsYKBvSb3gnmJZi6VB/JnEq3rFCMDk
-GhOmZURIVBPZZ47EqWPAxkF3uxwZMXcDrgcYp5SidQgsXkTiR8oRMutPMm6TGdu6
-MgR62vBP6MalplxmqsxDJ1YNB/e7cNxxv6vo/O/ljyqZUBDr2GEkBxPysxWcm48N
-5LhG2qlEyrGDF/mw46sdzgJhkm7+NQ==
-=Hn2I
------END PGP SIGNATURE-----
-
---ecrpz7cwozvvwprk--
-
-
---===============8951990068293424856==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8951990068293424856==--
-
