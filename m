@@ -4,93 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09471CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 01:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31897CCF9F0
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 02:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DM6vYTgM6J0jJ+g32YqxIvDxIyy02GwY4NQ/TNui+Ro=; b=MzBgp2dON1t903
-	7weFh08XWcRtbsGd75iseAzIkDrGfdF07SHYQkNL51wl35TEw9KZBhGWLiAuuKWCJ4f7osNUTUYsY
-	U/7DIJWiNKxZTM12duX38L80YyVueYnkCPvyCMAR0EI0QtnkGKTNWNfSObMMbLT0OmeGJpJHsK3mV
-	ltpgw8GHNoVkjyZgtts0vGbsx4T1bowB2fD+yAU3Nwhzus5lUuUVEjKheSw8BgWXeGJQtE67vLhju
-	88xDWxmRrPdU1ujPzA9NtyyoMvDScsS0GYEaByWd15nUk72Eoppn2Mohs/HbZrKzcE1AaI+mnIN6S
-	Q1005icfOivDEts1EQ2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3m0znk8fCSB1DNSNm6eXBLY4qq91nmodLGXZz0aZ+7Y=; b=M54AXejvNTWd6w
+	DdLmoprI+A7GeBbDbhaONpaJPMJpNbvXbPx1pomjGuTPyusML+miC1RlTbcFdH6nqnV5F/XdW4gmv
+	qyBPlKi0Ll+2VNF7GFwwQpOBOJeZVEm/fJSAYxtHCOKpEbFOIVCrG52TvysUPCjpPNsTuurKiMLVW
+	RvsuoZ4qYg9MXPUt6Z9P3oa5QzGfai41pSsc0rxF5gPa8nz1xwnGj51YLa3z5nTEg3Gqwc6ezFMGQ
+	Nn45uskzlkexQJAY4Gp6Hoa3IdOYoEy3E/BUtar+MfAb0n4uHrQ2TwiEfOXWn0WFWgp9OMLANzEz1
+	UK2Mgo6HGM2leGI4DmVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEe4w-00000005Eip-1MhG;
-	Fri, 31 Oct 2025 01:37:23 +0000
-Received: from mail-il1-x143.google.com ([2607:f8b0:4864:20::143])
+	id 1vEf8a-00000005HYh-1rRa;
+	Fri, 31 Oct 2025 02:45:13 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEe4t-00000005EiS-2IKz
+	id 1vEf8X-00000005HXi-1IGS
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Oct 2025 01:37:21 +0000
-Received: by mail-il1-x143.google.com with SMTP id e9e14a558f8ab-4330d2ea04eso2500365ab.3
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Oct 2025 18:37:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1761874638; x=1762479438; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MZXfwu/E+BC+JAhEUtk1GdLUOAn+XEVcnmRSn9TxWj8=;
-        b=ngP75FBbCAYGEIQRHJLERVeymtSPhJaCHjK9Sx0qquxUEEeXg/Q6Nx9JbAcpeA1hk1
-         8x/kkTinQ7C2G1sWFFU88+BVudy5TLdcX1l8c+ilcvVV5vFiG/P8Qb/01RHCDMmGB3u5
-         U6L34ajtqJkUl0/3mAQ7x9KkiGHH7OlxnBaLKkeaz3GPxYGpD/ovjigVJk6LmNa8yZ4p
-         EtnzqzSk/1cbVsiQjg/iuYA2SAebi/MkNT8gDtvZtpYdo5cc6RyeT3nKEM3TsFPejFRZ
-         WtFJur7sJPOMTW4PmtqeaJtyTPvxk0XIhEBYoEj3rsIqZQP3p9byv900nb6g+6F2t8lv
-         JxQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761874638; x=1762479438;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MZXfwu/E+BC+JAhEUtk1GdLUOAn+XEVcnmRSn9TxWj8=;
-        b=MHkcNxAQOiqHuXsiMnUwLPSs4EXNh2APKQ2CY0yPUQppxpnsj3mgAO/6Laz/9T/Rk7
-         AItsz0COi4w3mZW+Kv3Q9AE1zOfAMgKT2DvZ4SLXCFZldzVbmLZp8cR/6PD2o7gH1OdX
-         72OcKSrvCgFFXxO/YF7h6oaNK1QOPfniuzUsl0/1XuL4JRrHMrmru7x2yvyi1lEOH1vV
-         CYek01lOiI8XYX641A62vZY0comz3mpozk2uSfJQwPiAE0O1L6HFdQz93IxsqjS1vCad
-         Q7YSwUJzpkncjrny9rcAJWDQQ9olxzNYDARahv1l1Q3rFIbhGYnoQHTPP8LmeqKXx1D+
-         V2JA==
-X-Forwarded-Encrypted: i=1; AJvYcCXVz45wFvo9V3Lq1Ucs8xzwbDMM5etqSLp/hxO/RM0AqQln8dMOsEcoYh2bJ1dRhXHnPK5h8WK5vrVgwQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1xyYXXBHCmtF+i8uRfiC+r8WY5RL5y/0yYqGRjRe1I1LmNDNQ
-	8nkSk2DKiMlk96Hgq1KiHXKhuiDsmfxuDPrcFphq8RDy8G66FChgKqZICeOWLD0IXCA=
-X-Gm-Gg: ASbGncttXp1QT9NPOtbbOD1rbMsbwRRP6LPcEcRhUp96cwZE+YDQIdCXBF/kODICE9+
-	6JDoqsSkRQQT2V4FPPCt+IvliJaOQ/JGFCJU/X0vr4FKn98sSkC9ibe77CVypS8M9G/FoSL4o2t
-	5Me7c2y8HmUTK3amfF5PAIFID5T9d7K0gvWGBqqY1RmreSkb4Vc4YAyqJRLo040JZwmL+X/JlWZ
-	3UBfliAo+YTQT5otPAwGsrg77FizxIxYn6eFp8mMcD6+mRySVgTPjtJZisQZMwiIHy64CJZ9Gv0
-	R8r0tKtZe5ZAr8XjWDjDFYRNpVkMAHyMlTGMU2F5eSK4yF4/gT8ROnOhuDwlqfRUfysyASc09pE
-	y1Cs1xvpp/2AOA+RpFPGKnHheyiTQ9wzBxOBnSipIunNbiZ7GGQkWnQXDVya1bR5r/bhvi7o1nZ
-	gm9f/xFWS6/2bIcXWD5qJYYRPIDvuStdFlGYWoaM66
-X-Google-Smtp-Source: AGHT+IF8jKPMcN4haMJfj2iiZ24svqDtow1spkbfII1MB862Q9VVregRX2uRZw72R6OIomLop1+AMQ==
-X-Received: by 2002:a05:6e02:b27:b0:430:af13:accc with SMTP id e9e14a558f8ab-4330d1280afmr28635775ab.7.1761874638596;
-        Thu, 30 Oct 2025 18:37:18 -0700 (PDT)
-Received: from [172.22.22.234] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-43310245c34sm1321815ab.2.2025.10.30.18.37.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Oct 2025 18:37:18 -0700 (PDT)
-Message-ID: <9e60f7ed-7afc-4151-a301-4a0832b9105f@riscstar.com>
-Date: Thu, 30 Oct 2025 20:37:16 -0500
+	Fri, 31 Oct 2025 02:45:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1761878656;
+	bh=frwsj15DgVxVMJ8KO7DoMvHVFee+Jhsr1xRKxDB+3cw=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=lEtZsil+X93z2NhcgnwSxRVCvVDA+r9JHfER1EUitRp44zbZRvAU3iOImQ+NoUI8X
+	 0OobxANNDI7SEJMvbHKEdZCd2JoYSVwvPFkM25x3Oy5N2FljDFbxGSrwgkXFHURw0r
+	 WI25hinCahtrUcW9sTEFG+OwHuhuRQ49hspF4lcs=
+X-QQ-mid: zesmtpsz2t1761878650t811abe2e
+X-QQ-Originating-IP: 6sh+ThAW+eQ59N+O6BU1he7uvP2VizEbUxZD6p44FpY=
+Received: from localhost.localdomain ( [123.114.60.34])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 31 Oct 2025 10:44:08 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 1469372003017503645
+EX-QQ-RecipientCnt: 9
+From: Qiang Ma <maqianga@uniontech.com>
+To: ardb@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Qiang Ma <maqianga@uniontech.com>
+Subject: [PATCH] efi/riscv: Remove the useless failure return message print
+Date: Fri, 31 Oct 2025 10:43:28 +0800
+Message-Id: <20251031024328.735161-1-maqianga@uniontech.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/7] dt-bindings: pci: spacemit: introduce PCIe host
- controller
-To: Rob Herring <robh@kernel.org>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- dlan@gentoo.org, guodong@riscstar.com, devicetree@vger.kernel.org,
- linux-pci@vger.kernel.org, spacemit@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251030220259.1063792-1-elder@riscstar.com>
- <20251030220259.1063792-4-elder@riscstar.com>
- <20251031005718.GA539812-robh@kernel.org>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20251031005718.GA539812-robh@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: M7nxhb6mzyWmhLP0LYDlObH120Gmy+iY54Hfc8Ze186KgxhUBnwR49jO
+	PWIf5GLYUKJTEcoOv8rby8+TjtW9ZKTL65qyZar7qHUPfYW9LToiFecsBNVOToJbM9qbHAQ
+	cBXNuaDChAB3nUorAHeI/5zdNu2YeIVw0dg3TE4HYHJc1FWSV/Fa0A11cjpJb2UhkFB6L8G
+	3m6DyUzqWEtL7p58kvIWskHdaGmza0a8cct8MYs0xBqWFNvRk1aucuiTDCBseyuty4U5wNV
+	SBzw9xrVboWkQAydng19hZ18ZPWij/ftTo7t8jXqLwoDZAMgIU4gDR7RgaSAoKuvJft0tJ1
+	9c20YLCzoAb1megViOwaauWji4EBOnTTanOTCcsvx8eiFQ1diCXU66FvtTQTB2tfxIZzPE3
+	vXJnKBDwnl/BB1dnORMs+kVRGrI0Z7XWaXQtgaTUNRu9o+9o04i/aO541c3JNi3tNLSmVai
+	C3pJ/nouBSnkae8Ui1IEnCO8ZyoXtAChg0PFb25+UhBCE+u7GpNOhML9TKhWuoWbsPPSsxy
+	+3nDSYMF0lBKV9BZTXxjy4PM/w+1a3zsGPze5C/rhWcXGvPqEejEKeZTAKSAYXjoifO47c+
+	n+7WC7l4VFKsbx+EPdBzYFvL7P72TW2AWyEChQeCvfAgoLLfVGN+n8Tfz7j1cSF8tmuj4Zp
+	ajVL4A3lT5fzXTHlbOVuJLE7ptb3j616wDGdHp8C8AfTrm5BYP415Ztf/KAv4wvx74Yqq+b
+	JMtRtFqASV/XuIdWhe1lG+MUtYV0p4XRudYFwc5ZEcSoAwOzdhfXIMwCndCTC3AWDypDVpk
+	AeUpcJWnNp6Qz7zA+ZXIiLT0Mvf9SviwzXTExJfrkiCcTTfrsqHu7ynp7P04FuvtoU4XtvH
+	6DDZso8gjwxTQxOOE0nW7j4E7+yXNdNOC1GPdScRDlPkw6AAX8/8gKTMaDHqD0xdUO0k1ic
+	g9qvhpx551t+AtjY7Ot2wh7TbEVLb+xXnVLoGFmiMQ2JHK1tiuA9QbqRgqnurX9GwQwmRD6
+	6s7fh+ALythYypYIO9B/lP+CV5rv6H1w++d6ydvw==
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251030_183719_974763_7CBB51FB 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20251030_194509_939479_06F1B59E 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,129 +93,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/30/25 7:58 PM, Rob Herring wrote:
-> On Thu, Oct 30, 2025 at 05:02:54PM -0500, Alex Elder wrote:
->> Add the Device Tree binding for the PCIe root complex found on the
->> SpacemiT K1 SoC.  This device is derived from the Synopsys Designware
->> PCIe IP.  It supports up to three PCIe ports operating at PCIe gen 2
->> link speeds (5 GT/sec).  One of the ports uses a combo PHY, which is
->> typically used to support a USB 3 port.
->>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->>   .../bindings/pci/spacemit,k1-pcie-host.yaml   | 157 ++++++++++++++++++
->>   1 file changed, 157 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml b/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
->> new file mode 100644
->> index 0000000000000..58239a155ecc0
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
->> @@ -0,0 +1,157 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/pci/spacemit,k1-pcie-host.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: SpacemiT K1 PCI Express Host Controller
->> +
->> +maintainers:
->> +  - Alex Elder <elder@riscstar.com>
->> +
->> +description: >
->> +  The SpacemiT K1 SoC PCIe host controller is based on the Synopsys
->> +  DesignWare PCIe IP.  The controller uses the DesignWare built-in
->> +  MSI interrupt controller, and supports 256 MSIs.
-> 
-> Wrap lines at 80.
+In the efi_create_mapping() in arch/riscv/kernel/efi.c,
+the return value is always 0, and this debug message
+is unnecessary. So, remove it.
 
-OK.
+Signed-off-by: Qiang Ma <maqianga@uniontech.com>
+---
+ drivers/firmware/efi/riscv-runtime.c | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
 
->> +
->> +allOf:
->> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
->> +
->> +properties:
->> +  compatible:
->> +    const: spacemit,k1-pcie
->> +
->> +  reg:
->> +    items:
->> +      - description: DesignWare PCIe registers
->> +      - description: ATU address space
->> +      - description: PCIe configuration space
->> +      - description: Link control registers
->> +
->> +  reg-names:
->> +    items:
->> +      - const: dbi
->> +      - const: atu
->> +      - const: config
->> +      - const: link
->> +
->> +  clocks:
->> +    items:
->> +      - description: DWC PCIe Data Bus Interface (DBI) clock
->> +      - description: DWC PCIe application AXI-bus master interface clock
->> +      - description: DWC PCIe application AXI-bus slave interface clock
->> +
->> +  clock-names:
->> +    items:
->> +      - const: dbi
->> +      - const: mstr
->> +      - const: slv
->> +
->> +  resets:
->> +    items:
->> +      - description: DWC PCIe Data Bus Interface (DBI) reset
->> +      - description: DWC PCIe application AXI-bus master interface reset
->> +      - description: DWC PCIe application AXI-bus slave interface reset
->> +
->> +  reset-names:
->> +    items:
->> +      - const: dbi
->> +      - const: mstr
->> +      - const: slv
->> +
->> +  interrupts:
->> +    items:
->> +      - description: Interrupt used for MSIs
->> +
->> +  interrupt-names:
->> +    const: msi
->> +
->> +  spacemit,apmu:
->> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->> +    description:
->> +      A phandle that refers to the APMU system controller, whose
->> +      regmap is used in managing resets and link state, along with
->> +      and offset of its reset control register.
->> +    items:
->> +      - items:
->> +          - description: phandle to APMU system controller
->> +          - description: register offset
->> +
->> +patternProperties:
->> +  '^pcie?@':
-> 
-> It's always PCIe, so drop the '?'.
+diff --git a/drivers/firmware/efi/riscv-runtime.c b/drivers/firmware/efi/riscv-runtime.c
+index fa71cd898120..4a2588358be2 100644
+--- a/drivers/firmware/efi/riscv-runtime.c
++++ b/drivers/firmware/efi/riscv-runtime.c
+@@ -36,20 +36,12 @@ static bool __init efi_virtmap_init(void)
+ 	init_new_context(NULL, &efi_mm);
+ 
+ 	for_each_efi_memory_desc(md) {
+-		phys_addr_t phys = md->phys_addr;
+-		int ret;
+-
+ 		if (!(md->attribute & EFI_MEMORY_RUNTIME))
+ 			continue;
+ 		if (md->virt_addr == U64_MAX)
+ 			return false;
+ 
+-		ret = efi_create_mapping(&efi_mm, md);
+-		if (ret) {
+-			pr_warn("  EFI remap %pa: failed to create mapping (%d)\n",
+-				&phys, ret);
+-			return false;
+-		}
++		efi_create_mapping(&efi_mm, md);
+ 	}
+ 
+ 	if (efi_memattr_apply_permissions(&efi_mm, efi_set_mapping_permissions))
+-- 
+2.20.1
 
-I'll fix that.
-
-> With that,
-> 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
-Thanks for the review.
-
-					-Alex
 
 _______________________________________________
 linux-riscv mailing list
