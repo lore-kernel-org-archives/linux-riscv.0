@@ -4,74 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889AFCCF9FF
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 08:22:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F46ECCFA00
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 08:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lyrYiAxLi1HzoyhtVQ33Gjy4zL1eCT2rTTKI4oPNoBc=; b=HiiTk3MeBb1nal
-	S2m8vrX1wGQDOftZDf3k7HhN0S6jA9lo/WKZ3d09t3A7A/kaHICh4ueNORsyIx2vLP5sweK0pPybG
-	OypKwJJ0Do3qO2F3X9fSNEP7AaUrnhYFMWyYK2Dkvqj0Hzks1Vbav5e35CPJQQttbZKZVvlYm7b4t
-	9QUXUJgetpBG60I6qd0EdgyvbhRykokLoM4M0jzIx348WOVoYb2vCIw1Sm2HV+Pi1cSZ6XnvLxMvi
-	TQeIX+KL+cMnPdFvDDAd+Z9lUUpNIeLnhbjlkw9wQ23/I9X2Ipr0ZwuxxhuHZtJDYraSeVf3k+Uk6
-	NslAmyDctTleSftTy/jg==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:Message-ID:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gn2SQEtllOxig5qj3jaa+1q8O8bortrMX032NcqGLtA=; b=CtqMH2AnESVH9I
+	rCCfck7WlgcDnJn/AVYziM6MRc9zf3ttEAgE6jgB7apoLnHrSPakUf6EpO/L0CdEn4KKR33sztccp
+	zPy37Lvtm0lVA73eh8kmNapEvjfzS5yRmtKv0qhJ4XUAK3WGt6hV5exekJ0Kqk00EawGiEL41g3HM
+	Wq/2ouDDA4rlSawkg2MQLfwtjLtQvu8DPQqbKfnh7d3WXgIvqJSUINd+HSFZVdOENv5x0ciTiWwJ2
+	+CYthsCV9wvB3Baa+d4m1ooh4xlji3QfUEaMM2knL1r3GF0VVaTQPOv300MYkGbk5TD1sRAjwViAT
+	yRhN1zjrLnaonRphuEHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkOp-00000005dVH-0hvM;
-	Fri, 31 Oct 2025 08:22:19 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vEkRT-00000005dm7-028y;
+	Fri, 31 Oct 2025 08:25:03 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkOl-00000005dUl-1tcq
-	for linux-riscv@lists.infradead.org;
-	Fri, 31 Oct 2025 08:22:17 +0000
-Received: from [127.0.0.2] (unknown [114.241.85.109])
-	by APP-03 (Coremail) with SMTP id rQCowADHROyocQRpUDO+AA--.4150S2;
-	Fri, 31 Oct 2025 16:22:01 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Fri, 31 Oct 2025 16:21:53 +0800
-Subject: [PATCH net] net: spacemit: Remove broken flow control support
+	id 1vEkRQ-00000005dlC-2XJx;
+	Fri, 31 Oct 2025 08:25:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761899100; x=1793435100;
+  h=date:from:to:cc:subject:message-id:reply-to:references:
+   in-reply-to:mime-version;
+  bh=jhVoyx5hpbLpdyiXisEXDVUYNHPJEsfLNdX4ghxf9ig=;
+  b=CfMhcH3XhWEc4OfSYTsYBwlCIw+ml4L0b5rOsO7KGo2EI8WxPaN4lGcW
+   okJSY82zJhsnxKTTU9NN+Ie51qCigsxD3CDFjhSEmOd8C5ovfIqPuWSyZ
+   V2H0Glz4b1GWTGI2cgTnGo5h8SM06Twjp0tSjnt+clCe7ctrX+hgvwmnc
+   oCtmJxzBojrblmHATMNCClIOkpkLBHEuCXRq8/ilf9DeGKvtq27UwYut8
+   ZLkLlIN94KLosl2DTOWYRJcLZYEBXEZ4cmgymokkJUtdVntum3Lw+b9hK
+   pfDU3hvz9p9zlrd61Kob87CbHzt9pyRHFHf0WBewmHclRxqTLCwUe5RU4
+   w==;
+X-CSE-ConnectionGUID: cXU5z9PsT26CVbojJ0K5VQ==
+X-CSE-MsgGUID: gZ0/Fj0wQhyeTgjZER4nwQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="67890090"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="67890090"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 01:24:59 -0700
+X-CSE-ConnectionGUID: fLWJYXoOR0mQcvlXcmo6Bw==
+X-CSE-MsgGUID: mDJJe/rITAO4ixmg6lBuYQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,268,1754982000"; 
+   d="scan'208";a="217014059"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa001.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 01:24:59 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Fri, 31 Oct 2025 01:24:58 -0700
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Fri, 31 Oct 2025 01:24:58 -0700
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.19)
+ by edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Fri, 31 Oct 2025 01:24:58 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WMbFw5jRXrdSpA2GpRriVFCQT0Q3YpEgEaMap0HPBMBSKEiYrpPi5kVK8aZKYIFvxoFvNmQtQlhUDb+hGp9ixDXspuTMkpmfK4JaPeHXbjPX5Z0JAjyuHtT85O4OeF7zqLQVeEk15FqdPmelfXhbJSMUKjpVN33lSEm6C/6L9nArd9TOLLbqlpXhEV0CDqGuH2R32iPQaA4J7ff0s/jhk5bNToy5JwxClFQn7CVz1SO/N7BdnmeWVUEb8nSFUGzYBK2IUC72ubY9q1TdhUatigh6gci43/qYeNsRT2mOm++RMHB6yW0SbQdr/oSJBeJPkfkbd7ocMcCzrglYuJXyuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dULCWM9yVulwgW4e+uInXhNLEifNoGIYoC2osjhDyWw=;
+ b=JIm/clRu7L/dAbGGHAEOJOVm0Os3h3M7b8olB8w94lhKeNzxa92NjpHWBtBNPH+H49CcvmgzN4E5hivj21IgU/kcNiaaJNUgAjktBQd65/f0JtDiRq6EVE7MDFCBrrv16ddTsKaD1ppqglcgpAe63zsyII4TA+FaB/9Oc9E+VlLH5mKTCLOXcphq4x2eTmw7WMxVdZG6bcqthZLa3TNesMBCI84xBzMuEOMMfVJaXechNvOZmGCGR8sJcGu4FqMCYfExCR7zqBAIRFDfWYbDH6gDH+oefc9Cxf0GiSCVVU7s1tmu4ibHAxn4tdChZwM3pgnZe8PgrTfjE9yDBJP86A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
+ DS0PR11MB7766.namprd11.prod.outlook.com (2603:10b6:8:138::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9253.18; Fri, 31 Oct 2025 08:24:54 +0000
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca%6]) with mapi id 15.20.9275.013; Fri, 31 Oct 2025
+ 08:24:54 +0000
+Date: Fri, 31 Oct 2025 16:23:22 +0800
+From: Yan Zhao <yan.y.zhao@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
+	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
+	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, "Kirill A.
+ Shutemov" <kas@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<x86@kernel.org>, <linux-coco@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, Kai Huang
+	<kai.huang@intel.com>, Binbin Wu <binbin.wu@linux.intel.com>, Michael Roth
+	<michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, "Rick
+ Edgecombe" <rick.p.edgecombe@intel.com>, Ackerley Tng
+	<ackerleytng@google.com>
+Subject: Re: [PATCH v4 10/28] KVM: TDX: Fold tdx_sept_drop_private_spte()
+ into tdx_sept_remove_private_spte()
+Message-ID: <aQRx+lssVZxYLbFt@yzhao56-desk.sh.intel.com>
+References: <20251030200951.3402865-1-seanjc@google.com>
+ <20251030200951.3402865-11-seanjc@google.com>
+Content-Disposition: inline
+In-Reply-To: <20251030200951.3402865-11-seanjc@google.com>
+X-ClientProxiedBy: SG2PR02CA0003.apcprd02.prod.outlook.com
+ (2603:1096:3:17::15) To DS7PR11MB5966.namprd11.prod.outlook.com
+ (2603:10b6:8:71::6)
 MIME-Version: 1.0
-Message-Id: <20251031-k1-ethernet-remove-fc-v1-1-1ae3f1d6508c@iscas.ac.cn>
-X-B4-Tracking: v=1; b=H4sIAKBxBGkC/y2N7QrCIBSGb0XO705MI7PdSiwwPTYJt3W0EQzvP
- al+Pu/nBpk4UoZebMC0xhznqYHcCXCjne6E0TcG1amj7A4SHxKpjMQTFWRK80oYHBoVvD55Y85
- WQ+suTCG+v7sXaFEYfiLT89U+yt+52Uzo5pRi6cWq99IgO3ndKgy1fgCm9C0SnAAAAA==
-X-Change-ID: 20251031-k1-ethernet-remove-fc-82fd67d889a6
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Yixun Lan <dlan@gentoo.org>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Vivian Wang <wangruikang@iscas.ac.cn>
-X-Mailer: b4 0.14.3
-X-CM-TRANSID: rQCowADHROyocQRpUDO+AA--.4150S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Xry8Kw17JF18ur1rWFWxWFg_yoWxCw1fpF
-	W5X3s2yFWDJFsYgFs7Jr4UAFy3Ga4xtr17uFyfC3yFq3ZIyryxZFy8Ka17CFykurW8uryY
-	gw4jk3W8GF4DX37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
-	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r
-	1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
-	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcS
-	sGvfC2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
-X-Originating-IP: [114.241.85.109]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|DS0PR11MB7766:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0955e144-f205-404e-30c8-08de1856f810
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pt90xpTyjZBQ3fupttSpySF5LYVA/nTjhTCXI142iSBlYabU/pMl7sKeoU7a?=
+ =?us-ascii?Q?zoBF/QNJKzDxaTgtugP9MKOVG9GtEXyJFQF+mYRYS7glhbIQRNnRV+j2ZJ3X?=
+ =?us-ascii?Q?T8MzqSyHvMhh87a6wDXycVs0dudL6YY9wo3k94UsTHsdFnWgaveu1GmNQh8z?=
+ =?us-ascii?Q?at/40NVu7q5u0Tqmep5t89y/xL+Ps3Snw2lV+qAUmTaFLeuO9+OMhSke2QYI?=
+ =?us-ascii?Q?1OAPRa+XLQm9h8XRd1Hxup0NCWCNpYXZ8Edwuf+d5HapueluGNAGXbIBp4Fj?=
+ =?us-ascii?Q?ZDG9iRRfdsK86J4IWCSTJMUqHIDdnYFwY9RE3ceNJLOPBwt4JAKpoQASmApY?=
+ =?us-ascii?Q?Um3x9mY2PinHlYGOwfvfH8MY0B3EEYUS5s5c5jkOfo0aFm6SgAs3ROOEBR8s?=
+ =?us-ascii?Q?twQvRTZ5pOSZG/Qj2qJrJSdz6kv8JYXBrZ6yba4st1WcJIIHXLajdMZjt/g0?=
+ =?us-ascii?Q?2QuYsg/hvHQLxqs8mhtwAqA1tqAVOSIkmsIYMjPDdyDUuDEtEfz+HJ56/WlW?=
+ =?us-ascii?Q?ypp45Om+nIyajNr9VSfnJlEqn0YQFCIr48I+XjsoEi20A0O+2ouH3rx/xLoP?=
+ =?us-ascii?Q?i5suKkGmJUaNIAKjUzfD03bFWOVpSCSL6DFnG8zYGAoGbJ4hjcG0n1RHLu/t?=
+ =?us-ascii?Q?UN8mVd0x8crpAA84VD6xw8CQbuT2H3cGKao2v8Df9LLtk+cdNcfmpbvgrCfw?=
+ =?us-ascii?Q?mDD0cGhd8RiTU8ZyxrT3sNyexo9qgwmjnoSMeY913xAQ/ysWYje2VQ6PYo49?=
+ =?us-ascii?Q?Kog51GLhpOXlcz4P4Iu4SOW06kV682tKUl87VPQ6EABWgYwp3BX0rKI5e7lW?=
+ =?us-ascii?Q?AbwUEWFomptaoCThbTpw0L0Rqgc6BpPNwjKFmC+BP01bp48xLY4uB2XAF0Cq?=
+ =?us-ascii?Q?u5nGsKQKo0y/ZlSgiotNGzos8f6a+yltAs54ByD+IWpmT8rwCGYT05AKjKfp?=
+ =?us-ascii?Q?S1uqNIoE+I41NpradjbsxFgjmgjGWk3l3gdafEEVxStBqg18q+AuavL/nxON?=
+ =?us-ascii?Q?7JO7lNBdpCuxFL9sscFe5VDufCHVEL2RFLdFjUPhxf9sskky4ZsvIBPsLspz?=
+ =?us-ascii?Q?nD5ggteq0CZ5eCpPZf4bz8D9CBvY09gR78RKnewEEtG2XmijKIvHZ1iW0u+H?=
+ =?us-ascii?Q?TX7jY1kIPp1E4k+uegtrm3mHU+GhhCzngJT9Q+zM2yHVMRgDkbD3WcVrYVNY?=
+ =?us-ascii?Q?zo55cDRUL/Y6aL3Kz1qMPx9IILvrq7xmx19LY34bmABiZRjf9dRm7Khahzez?=
+ =?us-ascii?Q?WvfS+8/nTyHqHgPuQ+4nO3/qYbVEGqllcd/6Hw0M+FIL314GrJfsmwVxmpCC?=
+ =?us-ascii?Q?UnxYKOjbqB6gxas6XRubKjNLZ2byW5snMiCis+HUn/ze9vCGWhd7EYkS7007?=
+ =?us-ascii?Q?uHc631WLyGvGlFdcBEDtnjNaupkx2YOt6wL3N+2+w+YbZxXHaWyfDWAvx5YA?=
+ =?us-ascii?Q?4VDxafru/yaJITy9F671EADe/h/TKRb9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?TjhP2nkPv6OutqSnrNmxzGqOSOJVAfGaOVCcbguYiGpQ0bfbq6roOtPXbZxh?=
+ =?us-ascii?Q?kXfsqA+G+bpedH860HfQv0jPx5WbFLil6+qvdhs7bAq4yueDogx86/WOe2QV?=
+ =?us-ascii?Q?V9/MCGGNBXiqJWB8FSG62kkwxtAAJe1tL98SKibHsFshUbcZcPlgyQuRO/21?=
+ =?us-ascii?Q?47hQqSi2DhHnYoGWUbM9WNhH35yf+5+QmrCg0puppjVlSjJzlT5EdsQSsuwp?=
+ =?us-ascii?Q?yhsdPg9mixoZqR7uzgW3HTZISGtwM0mPKROgsWPs1oQZ4NuVoE1u6RwmgPp3?=
+ =?us-ascii?Q?V/tVHna2ZCGZyecTOyGn0n5w40uQAJ5ZTo3PHvHqaDCGUNgP17SKZ9AeWz7O?=
+ =?us-ascii?Q?+eUhveB2I3suz5uawJGJevR2//taHbMHyygtohNm8YLNcc5r7W18s/mEbqx/?=
+ =?us-ascii?Q?3h1EnZkyKn1tHb4k0TiutQvOI4a2CQGKBbzgnfCny+nUv/k497opVZ8ONXo5?=
+ =?us-ascii?Q?NQYy62VqHS6j+HQEBJTa+ZFy5GFQxdsBqdO7Sf0O6WGbJ2PtLEXy7hDjIDmE?=
+ =?us-ascii?Q?v9ywCWhs3aLs3YfD4lpbVR0RoYW+q7aU9lc1V/BLtfVpfouVZ5ikhtU0AG/R?=
+ =?us-ascii?Q?U2VEtJN+LY9kt52mBKnLQVoYKivM3Kqf+SBcvCsDTgFr7zdoO5MMcJjtDNjV?=
+ =?us-ascii?Q?zYLuWtQCGAPcFlKaZr3BEQ/HdUi6pTph9Xba/iZfR+9Ck0VlbW3RPXNJE+GJ?=
+ =?us-ascii?Q?cDQNMp5eTRQ+nkEGC5uG0r4ghAjhTsDpmKPPPw7QpqvGA/TOm4GPmnkvHVA+?=
+ =?us-ascii?Q?F1d016+7AzqLMnebnF9WnMSJMInu3qf6iGuq1niqt7lfYx1zBHDJCLIv4+7V?=
+ =?us-ascii?Q?ei+0fgCGrogMK4vp9YLwDuXDlEMnT1hSfTe/rG0mjadT6p+B99Dgf4a11zqU?=
+ =?us-ascii?Q?oIc9iNOB9UoHIkeHHXOqHC+37LvdP3PmLCeX+BDcqNkCP2ImvTQ+lyXXCiI7?=
+ =?us-ascii?Q?mXpRfrgj1INY1siGrbR8BBTIRWepzHhFOG9YkACxro3yaZ9vOEEkjQZ7Yss0?=
+ =?us-ascii?Q?POrSIlkctH9PZQqlfNaiL8rg13k2npCYZoTw/BqgOOKZ1LPJ+0BM75YC7Ghf?=
+ =?us-ascii?Q?5MsX/+87fJV0x21Im+j6zEFIlGm5NXYNL+llIvT0gryvt9XSyKIODONFb+0T?=
+ =?us-ascii?Q?6Ay3kQq48N6bYMePHkPorxPLB0K9xUYlvT1SqnipuT+8YlREkc3HQ6eKr/7e?=
+ =?us-ascii?Q?DKHFFBwgJC5s1W34rqtD7HgN4hgBCnHxvK7/Ut/C5lxbSqTV5KoxKzYNsECB?=
+ =?us-ascii?Q?Vd6sgclhkitVsTxLuoDUvp7bwY5FM3YrHYmieRpi70OfEGBmf7iUZX9FPUqQ?=
+ =?us-ascii?Q?xXt9dLfgYDnSUEroQM5jUgzQtBOZc3gXNQFtu7FYl2CpXvZcWQCDvZnhaZGP?=
+ =?us-ascii?Q?0RoWgIyBaQjoqBfDvjXrk1YLx3wUrfySyFsvakf8a1mQfb62sYIO48V4fmfK?=
+ =?us-ascii?Q?74u/bsCai27PIX8QapIAZp44Oq+yLD4kdmJ6fIP9ZFgNFGt3wMIcq2VuXChy?=
+ =?us-ascii?Q?/wtSx3gzUa7QU77n0/VpZidZ7Ad55QEW3u/tbQDFMli3dtsrEJTNy6jlFnpJ?=
+ =?us-ascii?Q?aQeIhFdOefPTZJE7kur1NSln+utiQ+glup0k/wY7?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0955e144-f205-404e-30c8-08de1856f810
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 08:24:54.3201
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9J9VJDd3eyrYR2o9cyj11ZlQ/sP79esP4krMRl9v8P+TywJVinHgLjsDa7tPnk3HO3F7ZFuwxceWgiF4HEV7lw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7766
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_012215_865605_AEB0F07B 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20251031_012500_779450_862F8269 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,227 +204,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, emac_set_pauseparam() will oops if userspace calls it while
-the interface is not up. The reason is that if the interface is not up,
-phydev may be NULL, but is still accessed in emac_set_fc() and
-emac_set_fc_autoneg().
+On Thu, Oct 30, 2025 at 01:09:33PM -0700, Sean Christopherson wrote:
+> Fold tdx_sept_drop_private_spte() into tdx_sept_remove_private_spte() as a
+> step towards having "remove" be the only and only function that deals with
+only and only?
 
-Since the existing flow control implementation is somewhat broken in
-general (for example, it doesn't handle autonegotiation properly),
-remove it for now to fix the more urgent oops problem. A better
-implementation will be sent in future patches.
-
-Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
----
-This more urgent problem was discovered while trying to fix
-emac_set_pauseparam() (v1 of that has already been sent to the mailing
-lists [1], but it was still bad), so I decided to send this patch for
-the net tree now so that this oops will not happen on 6.18. A future
-version of the proper flow control implementation will be sent to
-net-next.
-
-[1]: https://lore.kernel.org/spacemit/20251030-k1-ethernet-fix-autoneg-v1-1-baa572607ccc@iscas.ac.cn
----
- drivers/net/ethernet/spacemit/k1_emac.c | 107 --------------------------------
- 1 file changed, 107 deletions(-)
-
-diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-index e1c5faff3b71..c85dc742c404 100644
---- a/drivers/net/ethernet/spacemit/k1_emac.c
-+++ b/drivers/net/ethernet/spacemit/k1_emac.c
-@@ -46,8 +46,6 @@
- #define EMAC_RX_FRAMES			64
- #define EMAC_RX_COAL_TIMEOUT		(600 * 312)
- 
--#define DEFAULT_FC_PAUSE_TIME		0xffff
--#define DEFAULT_FC_FIFO_HIGH		1600
- #define DEFAULT_TX_ALMOST_FULL		0x1f8
- #define DEFAULT_TX_THRESHOLD		1518
- #define DEFAULT_RX_THRESHOLD		12
-@@ -132,9 +130,6 @@ struct emac_priv {
- 	u32 tx_delay;
- 	u32 rx_delay;
- 
--	bool flow_control_autoneg;
--	u8 flow_control;
--
- 	/* Softirq-safe, hold while touching hardware statistics */
- 	spinlock_t stats_lock;
- };
-@@ -179,9 +174,7 @@ static void emac_set_mac_addr_reg(struct emac_priv *priv,
- 
- static void emac_set_mac_addr(struct emac_priv *priv, const unsigned char *addr)
- {
--	/* We use only one address, so set the same for flow control as well */
- 	emac_set_mac_addr_reg(priv, addr, MAC_ADDRESS1_HIGH);
--	emac_set_mac_addr_reg(priv, addr, MAC_FC_SOURCE_ADDRESS_HIGH);
- }
- 
- static void emac_reset_hw(struct emac_priv *priv)
-@@ -200,9 +193,6 @@ static void emac_reset_hw(struct emac_priv *priv)
- 
- static void emac_init_hw(struct emac_priv *priv)
- {
--	/* Destination address for 802.3x Ethernet flow control */
--	u8 fc_dest_addr[ETH_ALEN] = { 0x01, 0x80, 0xc2, 0x00, 0x00, 0x01 };
--
- 	u32 rxirq = 0, dma = 0;
- 
- 	regmap_set_bits(priv->regmap_apmu,
-@@ -228,12 +218,6 @@ static void emac_init_hw(struct emac_priv *priv)
- 		DEFAULT_TX_THRESHOLD);
- 	emac_wr(priv, MAC_RECEIVE_PACKET_START_THRESHOLD, DEFAULT_RX_THRESHOLD);
- 
--	/* Configure flow control (enabled in emac_adjust_link() later) */
--	emac_set_mac_addr_reg(priv, fc_dest_addr, MAC_FC_SOURCE_ADDRESS_HIGH);
--	emac_wr(priv, MAC_FC_PAUSE_HIGH_THRESHOLD, DEFAULT_FC_FIFO_HIGH);
--	emac_wr(priv, MAC_FC_HIGH_PAUSE_TIME, DEFAULT_FC_PAUSE_TIME);
--	emac_wr(priv, MAC_FC_PAUSE_LOW_THRESHOLD, 0);
--
- 	/* RX IRQ mitigation */
- 	rxirq = FIELD_PREP(MREGBIT_RECEIVE_IRQ_FRAME_COUNTER_MASK,
- 			   EMAC_RX_FRAMES);
-@@ -1018,57 +1002,6 @@ static int emac_mdio_init(struct emac_priv *priv)
- 	return ret;
- }
- 
--static void emac_set_tx_fc(struct emac_priv *priv, bool enable)
--{
--	u32 val;
--
--	val = emac_rd(priv, MAC_FC_CONTROL);
--
--	FIELD_MODIFY(MREGBIT_FC_GENERATION_ENABLE, &val, enable);
--	FIELD_MODIFY(MREGBIT_AUTO_FC_GENERATION_ENABLE, &val, enable);
--
--	emac_wr(priv, MAC_FC_CONTROL, val);
--}
--
--static void emac_set_rx_fc(struct emac_priv *priv, bool enable)
--{
--	u32 val = emac_rd(priv, MAC_FC_CONTROL);
--
--	FIELD_MODIFY(MREGBIT_FC_DECODE_ENABLE, &val, enable);
--
--	emac_wr(priv, MAC_FC_CONTROL, val);
--}
--
--static void emac_set_fc(struct emac_priv *priv, u8 fc)
--{
--	emac_set_tx_fc(priv, fc & FLOW_CTRL_TX);
--	emac_set_rx_fc(priv, fc & FLOW_CTRL_RX);
--	priv->flow_control = fc;
--}
--
--static void emac_set_fc_autoneg(struct emac_priv *priv)
--{
--	struct phy_device *phydev = priv->ndev->phydev;
--	u32 local_adv, remote_adv;
--	u8 fc;
--
--	local_adv = linkmode_adv_to_lcl_adv_t(phydev->advertising);
--
--	remote_adv = 0;
--
--	if (phydev->pause)
--		remote_adv |= LPA_PAUSE_CAP;
--
--	if (phydev->asym_pause)
--		remote_adv |= LPA_PAUSE_ASYM;
--
--	fc = mii_resolve_flowctrl_fdx(local_adv, remote_adv);
--
--	priv->flow_control_autoneg = true;
--
--	emac_set_fc(priv, fc);
--}
--
- /*
-  * Even though this MAC supports gigabit operation, it only provides 32-bit
-  * statistics counters. The most overflow-prone counters are the "bytes" ones,
-@@ -1425,39 +1358,6 @@ static void emac_ethtool_get_regs(struct net_device *dev,
- 			emac_rd(priv, MAC_GLOBAL_CONTROL + i * 4);
- }
- 
--static void emac_get_pauseparam(struct net_device *dev,
--				struct ethtool_pauseparam *pause)
--{
--	struct emac_priv *priv = netdev_priv(dev);
--
--	pause->autoneg = priv->flow_control_autoneg;
--	pause->tx_pause = !!(priv->flow_control & FLOW_CTRL_TX);
--	pause->rx_pause = !!(priv->flow_control & FLOW_CTRL_RX);
--}
--
--static int emac_set_pauseparam(struct net_device *dev,
--			       struct ethtool_pauseparam *pause)
--{
--	struct emac_priv *priv = netdev_priv(dev);
--	u8 fc = 0;
--
--	priv->flow_control_autoneg = pause->autoneg;
--
--	if (pause->autoneg) {
--		emac_set_fc_autoneg(priv);
--	} else {
--		if (pause->tx_pause)
--			fc |= FLOW_CTRL_TX;
--
--		if (pause->rx_pause)
--			fc |= FLOW_CTRL_RX;
--
--		emac_set_fc(priv, fc);
--	}
--
--	return 0;
--}
--
- static void emac_get_drvinfo(struct net_device *dev,
- 			     struct ethtool_drvinfo *info)
- {
-@@ -1631,8 +1531,6 @@ static void emac_adjust_link(struct net_device *dev)
- 		}
- 
- 		emac_wr(priv, MAC_GLOBAL_CONTROL, ctrl);
--
--		emac_set_fc_autoneg(priv);
- 	}
- 
- 	phy_print_status(phydev);
-@@ -1712,8 +1610,6 @@ static int emac_phy_connect(struct net_device *ndev)
- 		goto err_node_put;
- 	}
- 
--	phy_support_asym_pause(phydev);
--
- 	phydev->mac_managed_pm = true;
- 
- 	emac_update_delay_line(priv);
-@@ -1883,9 +1779,6 @@ static const struct ethtool_ops emac_ethtool_ops = {
- 	.get_sset_count		= emac_get_sset_count,
- 	.get_strings		= emac_get_strings,
- 	.get_ethtool_stats	= emac_get_ethtool_stats,
--
--	.get_pauseparam		= emac_get_pauseparam,
--	.set_pauseparam		= emac_set_pauseparam,
- };
- 
- static const struct net_device_ops emac_netdev_ops = {
-
----
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-change-id: 20251031-k1-ethernet-remove-fc-82fd67d889a6
-
-Best regards,
--- 
-Vivian "dramforever" Wang
-
+> removing/zapping/dropping a SPTE, e.g. to avoid having to differentiate
+> between "zap", "drop", and "remove".  Eliminating the "drop" helper also
+> gets rid of what is effectively dead code due to redundant checks, e.g. on
+> an HKID being assigned.
 
 _______________________________________________
 linux-riscv mailing list
