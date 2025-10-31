@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C55CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 20:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 159F5CCFA02
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 20:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xZ+LgtAudo/e5/anb3/IBu+h9at93XwCRpNB+jlJr6o=; b=SSuqAQAE30XvYE
-	me4NrLFXeUgYFu1IX99jbhPT6AYidPLUGbJvprB9jcKo74gMz2wH5u9g8L+gSmMW0zp/agxKIg//U
-	uk2QyTr/NhINkHF+S2sm714lCmaOK1mh7LE24SO1VCBKZ/AZ3+NhfhbxFLasH5ZBjqgtf+WDL8vpj
-	NXA76D+Nda2RhZz8ERCtXM3r5ehi/V4lwP2RiXXFb1qc7cjjG0Kf9ZIl9AE0bh/SHNMCplWONg3Qi
-	kOQjajNslH1sfWE78e2Bf0CxAtdbzWcRil+k4j8lmBhMykNyvQBqC7KYX2iitgAIFLargnxgmfnkw
-	LKnjeLXruWtx5rIJiDmg==;
+	List-Owner; bh=wUWiV9032DuRMVIFlosuRjTr5g2tH4GcUiULCqf9Xfk=; b=lQYZNXCu/Yno0a
+	O3jAyc8MY3ySTc2T8LQXoeYHUVz4uuT4YdwJYXLeDAcUd/kHVxg+YqgeNO+iDWAlHYg3fi1kl5c6j
+	ygXz0FTF5/IgE26NuIwxzf+K1Ok7gpdQU/PiTTDIMezzRlNf4R0qQ6cnHeQcTzHcf/d4hk0/mpG3x
+	RTolsJO1BMTGmUXpuRuTUHunggvXdsRnkADt6oNiwaazLQe3q6enjz0eNUAgSnDqxYLrU5uNrsCzk
+	n/LPMmrdCnnNQvctTt6vEHDMnuR2PhHNvBbVSBP6OAu3zekzIXY2frJAHqQfblA2t13Don/T5wVGd
+	P6hjHSJj9JYolCENtzvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEvPR-00000006lE2-3svP;
-	Fri, 31 Oct 2025 20:07:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vEviR-00000006m8d-472g;
+	Fri, 31 Oct 2025 20:27:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEvPQ-00000006lDw-139S
+	id 1vEviO-00000006m8C-2Big
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Oct 2025 20:07:40 +0000
+	Fri, 31 Oct 2025 20:27:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1627060235;
-	Fri, 31 Oct 2025 20:07:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EC5FC4CEE7;
-	Fri, 31 Oct 2025 20:07:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D26E84326E;
+	Fri, 31 Oct 2025 20:27:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3A41C4CEE7;
+	Fri, 31 Oct 2025 20:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761941258;
-	bh=wQet1zpVA979LHOCAKnvDe4vIz5lgogB/RiA4rvDzcE=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=eEbaFUePEqsqd1xqvFj6PfHBe6jOCi2lEMdH8TycHl0Q5Auluk8S2lpJXmv9TxFx6
-	 NusxPnTpJc0X0f0CeYGgWHWJPP+pm9H5h9r65gPGw/KCR077Hi6MKNwd20DNPMNN6b
-	 WeahrAxPZQa10FjP/DdR4c+HK/1h5x2nUAasMuSHcOITJAiV483CzwcXL5NGIqys+P
-	 mY145nVNkpzIC2zpwBWy190cfG4RZuldrQmgNpuR1kKC8i8XpoLRbm6nuQrl1TbMCc
-	 xrhLxkelxND1eIrhNaB+SV+lyaoUFqxJyBOJ8iEADXR4rSsgSzl+qs3Ga+6/bKM9QS
-	 dwrww+Tnxquiw==
-Date: Fri, 31 Oct 2025 14:07:32 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Deepak Gupta <debug@rivosinc.com>, Andy Chiu <andybnac@gmail.com>
-cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-    Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
-    x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-    Andrew Morton <akpm@linux-foundation.org>, 
-    "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-    Vlastimil Babka <vbabka@suse.cz>, 
-    Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-    Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-    Christian Brauner <brauner@kernel.org>, 
-    Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
-    Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
-    Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-    Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
-    Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-    Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-    =?ISO-8859-15?Q?Bj=F6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-    Andreas Hindborg <a.hindborg@kernel.org>, 
-    Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-    Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org, 
-    linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-    linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-    linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
-    linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
-    richard.henderson@linaro.org, jim.shu@sifive.com, 
-    Andy Chiu <andybnac@gmail.com>, kito.cheng@sifive.com, 
-    charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com, 
-    cleger@rivosinc.com, alexghiti@rivosinc.com, samitolvanen@google.com, 
-    broonie@kernel.org, rick.p.edgecombe@intel.com, 
-    rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v22 17/28] riscv/signal: save and restore of shadow stack
- for signal
-In-Reply-To: <20251023-v5_user_cfi_series-v22-17-1935270f7636@rivosinc.com>
-Message-ID: <a8f469b8-5750-dfec-2390-09bad4515f99@kernel.org>
-References: <20251023-v5_user_cfi_series-v22-0-1935270f7636@rivosinc.com> <20251023-v5_user_cfi_series-v22-17-1935270f7636@rivosinc.com>
+	s=k20201202; t=1761942435;
+	bh=uzQfovvW/jkcgZT/o1AXK4X5cICS7Xt6pO1Aj9cYQ6U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=elc116YLJ+U9gqeEgBBKoraeUPU0m7OubR7/DAVS6GqQp/XQpMhTKy1cEWuJ+wVHx
+	 jqmIlvabTP23S8s4yU6zwpXZohol+W3wqdVvejzNy3LxQUZxt+6joA6/HI1rQdnuLS
+	 Xsq37ui/dLYjtDiwdQ6YztWllWSE65WRqY+sUzX3ApvlNo3IXCln0VnITPfsOMfvJ0
+	 6EgSkMzN53ug3rZVJOOeegdMNzPcKLUC3TC/j7jK/ryWpJboPryyBsWu5smVBew8lb
+	 nNHDFhHlGJNjk6zUMbUwoHZXIjI9VpCe30wchvJS+kPPtOYaFcpqV41oAh5k2ViPid
+	 VrXybyYxCOWRA==
+Date: Fri, 31 Oct 2025 16:27:11 -0400
+From: Nathan Chancellor <nathan@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Ben Dooks <ben.dooks@codethink.co.uk>, linux-riscv@lists.infradead.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	macro@orcam.me.uk
+Subject: Re: [PATCH v3] riscv: asm: use .insn for making custom instructions
+Message-ID: <20251031202711.GC2486902@ax162>
+References: <20251024171640.65232-1-ben.dooks@codethink.co.uk>
+ <20251031031009.GA2891125@ax162>
+ <20251031-980f37fdcb94d15b02945fce@orel>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20251031-980f37fdcb94d15b02945fce@orel>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251031_132717_456800_72BE1A1C 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +76,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Oct 2025, Deepak Gupta via B4 Relay wrote:
+On Fri, Oct 31, 2025 at 02:08:33PM -0500, Andrew Jones wrote:
+> Or we can change the test in 'config AS_HAS_INSN' to use the hex encoded
+> input. We'd completely stop using .insn for LLVM older than 19 and GNU
+> binutils older than 2.38, but that's probably better than adding yet
+> another config.
 
-> From: Deepak Gupta <debug@rivosinc.com>
-> 
-> Save shadow stack pointer in sigcontext structure while delivering signal.
-> Restore shadow stack pointer from sigcontext on sigreturn.
-> 
-> As part of save operation, kernel uses `ssamoswap` to save snapshot of
-> current shadow stack on shadow stack itself (can be called as a save
-> token). During restore on sigreturn, kernel retrieves token from top of
-> shadow stack and validates it. This allows that user mode can't arbitrary
-> pivot to any shadow stack address without having a token and thus provide
-> strong security assurance between signaly delivery and sigreturn window.
-> 
-> Use ABI compatible way of saving/restoring shadow stack pointer into
-> signal stack. This follows what Vector extension, where extra registers
-> are placed in a form of extension header + extension body in the stack.
-> The extension header indicates the size of the extra architectural
-> states plus the size of header itself, and a magic identifier of the
-> extension. Then, the extensions body contains the new architectural
-> states in the form defined by uapi.
-> 
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+Yeah, that would obviously work too. I was not sure how tolerable it was
+to lose the use of .insn altogether for those versions hence the split
+suggestion but if it is not that big of a deal, might as well check for
+the extended .insn upfront.
 
-This patch causes some 'checkpatch.pl --strict' messages:
-
-CHECK: Comparison to NULL could be written "!saved_shstk_ptr"
-#271: FILE: arch/riscv/kernel/usercfi.c:186:
-+	if (saved_shstk_ptr == NULL)
-
-CHECK: Lines should not end with a '('
-#300: FILE: arch/riscv/kernel/usercfi.c:215:
-+		pr_info_ratelimited(
-
-I've fixed them up here in the event that v22 goes in, but please do the 
-same on your side in case a new version is needed.
-
-
-- Paul
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
