@@ -4,90 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8095ECCF9FF
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 09:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E74CCF9FA
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 09:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M9o6xqKA2vXjtxstrb10P9l1D/Axt7hEOs2Fr23duRk=; b=ud3ksiVHP8mruv
-	oKuDAiNnWbXkNz2aTjltaOyUM6E1crFxI3Op1kGoqUKvkCJoxS2FPGC49huKWW4Efr3FhpTk4xelk
-	jFMCdoLnMck/+c6Al9fG0gzztboYjTdrm+oqvQBkcX08yhUKCpOhf8wXX+zdWGiWbOHP/YJg92uLJ
-	bjU53vUm/q3/xUve4ZrutF7BeBagwtu7qaDPFnxK/1vHyvYyofdfs9jNMKnCA5+lufyvs0x8npdzn
-	D6Aqu6vdzoTWGsRK4NsBXb2LC0/46RN+7fSgSEkK30yRoGxxiudGg+TbYx/lGQU9Fhbi4LeYTvyE7
-	7nhs44Xsqv2TsOkSXjyQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=PNv+oscHX3UcDQj13PGpOcG/2Y4eYQK7+bc0oSgUlc8=; b=3GZNPn95dM/5Kn9hYuIjSaeR06
+	oieHro4Wyc/+eMAHAXWhQ2tt7nLrfL2I1e2E+JPYwPRQiIa+iwiFHczNz8KWq0cF6Fh/tiNsUpfZU
+	cMhcRj8Y95kSkOeDfsJCIgziSNaatRnyGFrjdCReZ6q2sil4VVpeJJMlmJ6xkH8ue5mnU3yWzN0Gb
+	4ucuKoKwUPakOy4TQN+Sxx5qKh/fRRS1r8mm4ueriRMOEaim9GlsriSV6xV61J0FNyzPolQwryKta
+	77MVhU6am6zGCWq4yOkGDOA1hHyVdJfZX617NVVBHRQHOwjBHYZOfG0ayHbIRn5kBDz9Sa/lnkqBh
+	y+vRwaJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vElGT-00000005nfo-2cZS;
-	Fri, 31 Oct 2025 09:17:45 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1vElgv-00000005pKn-2gzo;
+	Fri, 31 Oct 2025 09:45:05 +0000
+Received: from mail-westus3azon11012046.outbound.protection.outlook.com ([40.107.209.46] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vElGQ-00000005ne2-0x67;
-	Fri, 31 Oct 2025 09:17:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761902262; x=1793438262;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=6+fdM28QuB9T1HFnYCRzCUXVpG1QU1xA4LJIWTCndpE=;
-  b=bEcwznLhMIcFn+sVDVSO8r6aCscJyCi3kE8oCvdG+aeLEvWmEcnomWAA
-   4GbOLdqeyZ2kvC6VqL9sm7ZKHqWsbyyoh2eVNgZc6wWTV/FSsgrbZPcNf
-   kgndqtoCanTlczctUNw4ZPhiT3Rnmfzx0symwMPSGZ7qvtSIRIIG9bata
-   yn45f3ZASzpRl/OjiOXyOIJ+lmnRQ5TqeFNjPKGQu4coT1ZvzkkCkINzS
-   azElLHT7dLqpBwKGECaCTJU0iJkri4oBVdHZutMaozpWJDqATOvPo3gMP
-   aLpLwbv1DPSdc30/77AZQHwHYrpRABSPyYEy5SO/uaeX/KrJIKFXZmKO4
-   w==;
-X-CSE-ConnectionGUID: 09qGstlhSaeL4mpo9qKlwg==
-X-CSE-MsgGUID: EMQrHEzJQrGRtO2VNtaLeA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11598"; a="63974774"
-X-IronPort-AV: E=Sophos;i="6.19,269,1754982000"; 
-   d="scan'208";a="63974774"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 02:17:41 -0700
-X-CSE-ConnectionGUID: xN3TnblrQqeOxewqaIMiwg==
-X-CSE-MsgGUID: 7VuncW0PQxeTB4CUZL105Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,269,1754982000"; 
-   d="scan'208";a="186126269"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.124.240.28]) ([10.124.240.28])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 02:17:33 -0700
-Message-ID: <94e3e701-b60d-419b-b3c1-2b41796ab5c3@linux.intel.com>
-Date: Fri, 31 Oct 2025 17:17:29 +0800
-MIME-Version: 1.0
+	id 1vElgr-00000005pJD-2WT9
+	for linux-riscv@lists.infradead.org;
+	Fri, 31 Oct 2025 09:45:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mXIYUIM9PwFbwW2PSOLn6zOu3OLZLJ43D74Vfgv4PaGxkmiF/uA1jHvMq0E+bPnAT9FjSSBiCEqehRBX2mLcnFD9qO6NAo8/1neQLI0VFwYwax/ZGHic3RJBwSJ93qv5wsuUTEt9/fh8Mgar7ffPKZYlgMb876nZ49Lmq0/hdrY+3ktTnOuPbeC9JyglfuW4nvNJrhEqiyCC2lLoYGl/QMkuNMfYcH8IQMab2U/eBXj99FKaTF9CdMAusdBQgdbaJrIgZmr3jwSNv72H3u95oLXu0RFzwUBQFJjkN6azD+k9O1s6yZ+FCFKN+kpA/K4CQu+80dXcFpl7xb6AqgNQhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=T4+1O8TpScKMM+dW2m1M4VgGiQd8ZI+WoV9OHYsRKgI=;
+ b=TM78ze7CtuyQsewDF1xz8ULADezjMlAiyk/T0B2IpmwE+QYeHGSAWDC1tQzCAjNdbtlX87hV9l2++TLYaPmRxr4eF9ALl3uwJAlj7cGAcYOu8b6oPfahPk8Cr96hGFCkmTaYHTg93981p5IlCOVhjoMBPNb4+uAxncoQwkvzR4pLR2pOaQA1GkRtE3yGYtOAGlBflT59NadR2uqFkErIsW2+yAWdlrPlliDeMtpzQOr3JiSQWTAPs6yqCagnGSyOj4gqijmdfldwqX4SsMkBSlmGbHaeES7Vuc8/+dC/AMAdmSGrsMa4FAy1+TfQ2HiN50e2y/zqBOr4OjYpKQGQIQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=T4+1O8TpScKMM+dW2m1M4VgGiQd8ZI+WoV9OHYsRKgI=;
+ b=ZVafpi60qC9lu43up1pY9kDLiBYzCfCWFVtmanuObquQbJL51Kfvgcudx4SyKXi4cb+j8jl8cLKuqYiZFi6nlrRXoOnOCItFZih8IfHioH/aQKFc5Ss5ZYd9jlphXB0cDPDCkd0AkU8SmcF5uz0yu8rw7TEm7BZ3GneyVBhUnzI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) by
+ CH1PPF68E8581EB.namprd12.prod.outlook.com (2603:10b6:61f:fc00::611) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.14; Fri, 31 Oct
+ 2025 09:44:55 +0000
+Received: from DS7PR12MB6048.namprd12.prod.outlook.com
+ ([fe80::6318:26e5:357a:74a5]) by DS7PR12MB6048.namprd12.prod.outlook.com
+ ([fe80::6318:26e5:357a:74a5%7]) with mapi id 15.20.9275.013; Fri, 31 Oct 2025
+ 09:44:54 +0000
+Message-ID: <9a9a82c3-04b1-4a0e-b7aa-098e36155bdc@amd.com>
+Date: Fri, 31 Oct 2025 15:14:42 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 24/28] KVM: TDX: Use guard() to acquire kvm->lock in
- tdx_vm_ioctl()
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
- Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>,
- Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ackerley Tng <ackerleytng@google.com>
-References: <20251030200951.3402865-1-seanjc@google.com>
- <20251030200951.3402865-25-seanjc@google.com>
+Subject: Re: [PATCH v7 04/15] iommupt: Add the AMD IOMMU v1 page table format
+To: Jason Gunthorpe <jgg@nvidia.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
+ Joerg Roedel <joro@8bytes.org>, Justin Stitt <justinstitt@google.com>,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+ Bill Wendling <morbo@google.com>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Miguel Ojeda <ojeda@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Shuah Khan <shuah@kernel.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Will Deacon <will@kernel.org>
+Cc: Alexey Kardashevskiy <aik@amd.com>,
+ Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
+ James Gowans <jgowans@amazon.com>, Kevin Tian <kevin.tian@intel.com>,
+ Michael Roth <michael.roth@amd.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev
+References: <4-v7-ab019a8791e2+175b8-iommu_pt_jgg@nvidia.com>
 Content-Language: en-US
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20251030200951.3402865-25-seanjc@google.com>
+From: Vasant Hegde <vasant.hegde@amd.com>
+In-Reply-To: <4-v7-ab019a8791e2+175b8-iommu_pt_jgg@nvidia.com>
+X-ClientProxiedBy: PN3PR01CA0144.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:bf::11) To DS7PR12MB6048.namprd12.prod.outlook.com
+ (2603:10b6:8:9f::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB6048:EE_|CH1PPF68E8581EB:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f6c3d4e-8a83-44dc-016f-08de18622536
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SXUwVWN1TnJnMEQrejU1cFp4c2diditSVmx1MU9lKzdZYVlFdjZKRHFjaU1z?=
+ =?utf-8?B?V2NPd0lMVHZ0STlzbTJhRm5STkNHVmg3UjhVVmdhRnB4TVNBcFlUSGp6REdk?=
+ =?utf-8?B?SFQyaFFUdnc1WXpORXVmai82VU1hc2NHcXhaY2V3OWFFbXJUTWV1d2xGd2VI?=
+ =?utf-8?B?WTIwTWRKNWMweUJlaTRCTGl5NWZrczViSnJPREkyVFJYVXg1RUpaWE0xTlBC?=
+ =?utf-8?B?ZC8reExKRThHbTE4azFybUpsUWlEbUpiOFp4aENMbUdmUXVnenJBT0thRklY?=
+ =?utf-8?B?R3hraE5mZmpKby9saWdFMTBuejE0R3dQaWQwV2lWNTluM2tjM1VwZ0Z5dzFk?=
+ =?utf-8?B?S2tnYzQyK2lCb2dQOC9ZRlJ2N2dRNFoyZlRjalpTTUNKRFpiTFNzKzloek9M?=
+ =?utf-8?B?RnNCaEtTUjFvOUNQenNqR0JpNTUvMjY2dVduQTIrR2dFblA0bHdTY1dBWFZN?=
+ =?utf-8?B?V3pCSVJSUVhKMVA0bnZIcTNKMjNSdVF2cUoyMDNXTEk5M3E1WkliRnZ1a3FS?=
+ =?utf-8?B?Q1oyeUpKNGJtdStEdVArb0ZBWjhZc0VWbzBTVXZTQ0hUNjNqV3A0YmlsMENM?=
+ =?utf-8?B?UEE0VDFsV3hCbDc2cFBqNU1oY1lZM1p5eldFbFFxbWtUbTA5MXdmZjNKVXJM?=
+ =?utf-8?B?a1hnQUJsTXBxZ0VxYktzTmovdDdrRm41SCtxNUpwb010QW5TVzZZT29ORXJv?=
+ =?utf-8?B?dGE1eWl0TVFLbWtsRHIvQ05vaEFGVUo2cjVoVWhlZGhuZHIrMmNzNTNqaEgz?=
+ =?utf-8?B?UUkrYkhBZmplTWg0NU95dmQ1aEI4WGxmeEhsZ1NDWmMxTVpCcG50ZVZJV0pu?=
+ =?utf-8?B?R3g5Q3BRRWk1UzBPUTFHNEIwQXVldTZTNHFVS0NYWVd0bW5MUFJvSFk0NkdY?=
+ =?utf-8?B?aXlObjFLdzMwUmVrdUYwRlhNTkNWNXZpUGVzWjl4VFIyQmp2ZVNlTWk1ZTY5?=
+ =?utf-8?B?YXhOVlI4aVZjOThYbG0vcS85UGtGWkZwZ05oZTZEM24vT1d2RlMxTzRBM3M1?=
+ =?utf-8?B?WnovbHhHSVpoVjIvUkN0Wlc5K0xPNG5lWlJqSzBqU3hmNVNVZEVENmVpNXBV?=
+ =?utf-8?B?RG96UXZINVhhVjJPeHNmaXRBeTJGUUZwWkJiY0RuSHAwV25sUTFCSi9qQ3R0?=
+ =?utf-8?B?SGV3WS9maElCY1lSK1BFSy9vS0VmdTNEYUwvUi9pZHZsbFgzTWlldWNQOFl2?=
+ =?utf-8?B?clIrNlZlTkh1SjJWblZsVjVJa3k3TGMzUUdvRzNNNzl2MHZneFQ4ejZ2Z3pB?=
+ =?utf-8?B?bHBURDJVdGloMkRIQmRuZ3hmR3pIYlB4UGJhd3J0UzB1S3NweGZjaWxoV21D?=
+ =?utf-8?B?RXVSemFyUjZBQ0ptcUNReVdaSVEwanl6N1dRZDgzYVNrUFhOZjNFSFRURjdr?=
+ =?utf-8?B?SkVVMEVoeVZyeVRNcFFvMVRNck9Zc3BmV0N0YzFOZ3Job2k4VXE0KzI2ZFcz?=
+ =?utf-8?B?bkRieHN2cG9OZy90cU1ubEloVnhDdnMrUlcvM1JhRG5MUzdlbWF2elZqckVW?=
+ =?utf-8?B?N2dzYUg0WS8yZTdtT2l4OWRGaGxjalNWSS8yb1lHSi9PUFgzT2JXVmxnUnRy?=
+ =?utf-8?B?SDdUSlljbVVTU1oyU2UyWXdZZUU3dGdCUWMwWDBadFhLN1BRWUE0ZS9lblVV?=
+ =?utf-8?B?ZU8xcXhTaWV2MjJQYS9DbVpQZkNSYjQrVUg1enlFci9EeVJUdzV5NUoxcW1K?=
+ =?utf-8?B?dHBFTm15dUNSalhicFR2YzJrNWNCcnM2SkxoSm9TTDFaOTVWeWU0ZzBVVFRt?=
+ =?utf-8?B?R3A3T3QrSXZYZ1p2WUE5NGgzT3VlSWhjeWJnUmVWekRhT1dNNUJJa0F2QzNJ?=
+ =?utf-8?B?WXJmaEVxUEQ5M08yTW9GcDZLMDZrZEErTXRXcDhma1N4Mk1JL3c1M2ZIeW1S?=
+ =?utf-8?B?Z2xyeStIZy9rMmxJNS9kY3RScDVxTmRucGlNdWZwTTd2Vzh4eDhpOVg5Q05m?=
+ =?utf-8?B?YUJXTjJIcmhreVowZjh3M1BueUR1YnVJbFl1R0MxN3h5V0lmOWZQbUd5eldq?=
+ =?utf-8?Q?UwDXpwWfVSD6IbC9wntRevzIeQ7pgM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6048.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d3YwYVpISUtla0d4M0hqMXlTWlJCczVuNnVTTDVPWmtIa1kzL3ZqNWdtNUJl?=
+ =?utf-8?B?d0xqZVBKMG9ldXlwNWlRWUUrSnptTkRQUzBCYTRUbFVBVFQ2RmN3eHV5Zm51?=
+ =?utf-8?B?dWtCK1h6MFYrc1VxaE1Cbjl5d3FCTVdrM1NJK0NidTcrR0RXbGZGcmxNZlFD?=
+ =?utf-8?B?UUtOZ212MVZZakk0Q3lHK3Y0dmdYVXhzMjcyUWxKaStjL0hQR2l3NmxRMlU5?=
+ =?utf-8?B?ZEZiNmZWZTRBNWRtV1R6cjBVYmdpYWRrMFhFOXpOVXlGdkUwQUFnMEFYUnh0?=
+ =?utf-8?B?aFAyN1lOY3gyMjkybFp1cXJ5RWZxN1VtQmJuMUR2VGlhTUpoRjJyNEtxejdB?=
+ =?utf-8?B?MnhmZklpZnRURUVsc3I3SzFhWlB4dzNJNkdWbWpEV0haWmZ0NjRreVRiN2ZI?=
+ =?utf-8?B?clQyZktNczJHNENhaDUzMmVVcEg2YndzMllnL0NwS1phTGIxRDNWWjY1SWJu?=
+ =?utf-8?B?cStvYWptYVBic3ZmYlFiRFdqRnVDdS80NG14ek1RR296MkJGd0c0b2J3UkU2?=
+ =?utf-8?B?N3h3ZnBxNWtGNjlMTzR0Yk1SWE9ndnFWQUozY1JhNWtCeEFScmRXZXdWK2p6?=
+ =?utf-8?B?RG1pMW4wZmo0d0ZUV0djNGlYcjRyUFRVRzdlR1BVb1VkZGFFOWFra2Y0TTdG?=
+ =?utf-8?B?RzdDdllITFo0cy81V3V6YnZCVFpTbHc5M3JrVXZBYnJ1UHdBUktBRExUOXNq?=
+ =?utf-8?B?eDMydVpXdXkvSFkvVHkzK3dncnkzM0x1VzRnU2RQOUN4b2taWUcxdFl0Y29j?=
+ =?utf-8?B?SjRmRWZWbjg4N09YQlNPOXlvVnhKbTZIbmh3MTkveGFvV2M1WnphK0NlUEJo?=
+ =?utf-8?B?Y3pCeGJTK3N3Z1JsdnFkbkZ4R0piTnB3OGgvODFzUHFPOStJZm16d0xOcTd2?=
+ =?utf-8?B?ZFIyeG5qdDZvVldMWUZhbysyR0VrbUkyUlhPTDdOeWI0a2s4L1hHNEhMa1dl?=
+ =?utf-8?B?QUwranpTTUJsa3MzOFk2cGVGZjFlRzhGcW81RUp0bnpIZ1poY3NOWmNNQmV3?=
+ =?utf-8?B?VFFMeWxJbFBINElwZjROV0xkcFp2M2x2NzRRSE5FVmRQQTRicGhzR01uaUl3?=
+ =?utf-8?B?Z3AwS2thY1IvVVd4NlZoV1dHVkRyVWhlbHhpQkJyUEJHa0Jkb1dVSGJBSFN0?=
+ =?utf-8?B?WkY2cGIxcG5XRUY2RzAwWUJrL0ZUQmVUN243N1VUSUg2R1hnU0xjdllvK01O?=
+ =?utf-8?B?VytpNE9pd2RGbWR1S0wxclFpUnI4WGp4cm1mdnZ2QVJ5cEJUdHg1V1A5dVEy?=
+ =?utf-8?B?WWFJNEh2RUlEMHFTclJlZ2JMdU5yWHVBZjNwWUw4MUxVdGlJRVo2N0NjVUxD?=
+ =?utf-8?B?N2lLNDZhVWkzVEQ2cVR0aEhsazZmOWJNRHVuQkV6cm44ZFRUNUVyZXRJMEhq?=
+ =?utf-8?B?NlBoLzJUeDNVOUpsMGZVZ0lVRUdLeEZpK1RxRS9nYmMyTE5tMHFvakxWT3Yv?=
+ =?utf-8?B?Uy9GTG1hWTdkeWdjTzNjNW1zY3h1L05YK3UwemdwakVyRnhrNHdLUSt1NTAz?=
+ =?utf-8?B?ZWNNamRYVFRvU0hhRXo0M2FndW5aZk5yVi9HODBUbkFnMktqVmN4TlhaK3ZS?=
+ =?utf-8?B?bm94YTBJMXpEWnh0TTJNRnZuTVhpSmhxZUZnckNvOUhGY1N3ZUtHNG1pczhX?=
+ =?utf-8?B?SzR0UDAxWmNvM3hWbi9Jb3JWakFId3pDY3hxK2lKTkNBV1o4Zk9xR2YyekFQ?=
+ =?utf-8?B?Rlh5N0NERUpDM1E3eWVDNjlEaUxYWklkTll6OC9ZQWRkT21maVVTZHhic3FU?=
+ =?utf-8?B?dllsNGwxQUM4R3hzck9EVWY0a2YxSFl2SkpMclN6dWo2ejFGWEU0Vmd6blpM?=
+ =?utf-8?B?Nk1DMFR0cUdZelRDVDl1Yk1UZG1reEUvNWh3NXptdU9vMy9JcUZDT042S2xh?=
+ =?utf-8?B?SWswbG0xQnBLbU5UaGRZemRwUFdYYkhrUkVEYTA2d3BGOWVhRkpMQXhmVFpw?=
+ =?utf-8?B?ZFN2SkpPTmVZWmt4dDhTRUhRTXcwOGhmalEwak5WTFNiRytIb0dheFA4cWNv?=
+ =?utf-8?B?Z0dadU9MUVFPRGlPTk1QejlPZ1JxT3JiK214QkovM1d4WGw3eXpUc1dUTjRj?=
+ =?utf-8?B?MjlZbFlYVys3OGhDSDNoVUtESjVVTEpwYUY1VTV1MUdHV0JyczFYY1BnSVdC?=
+ =?utf-8?Q?cGU2arj6wUlFYlBcmzWhJ9QuV?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f6c3d4e-8a83-44dc-016f-08de18622536
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6048.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2025 09:44:54.7843
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1AhcSTlVB4Sk0SjnYsdkm7I87F/j69XwXQ9ukbsr6o41uJeeQV6bK3yLA4OUybd7pM9ffd4xQtrxr2nq3h7yVw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF68E8581EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_021742_287360_54472E21 
-X-CRM114-Status: UNSURE (   4.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251031_024501_747619_4789F988 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,25 +186,165 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 10/23/2025 11:50 PM, Jason Gunthorpe wrote:
+> AMD IOMMU v1 is unique in supporting contiguous pages with a variable size
+> and it can decode the full 64 bit VA space. Unlike other x86 page tables
+> this explicitly does not do sign extension as part of allowing the entire
+> 64 bit VA space to be supported.
+> 
+> The general design is quite similar to the x86 PAE format, except with a
+> 6th level and quite different PTE encoding.
+> 
+> This format is the only one that uses the PT_FEAT_DYNAMIC_TOP feature in
+> the existing code as the existing AMDv1 code starts out with a 3 level
+> table and adds levels on the fly if more IOVA is needed.
+> 
+> Comparing the performance of several operations to the existing version:
+> 
+> iommu_map()
+>    pgsz  ,avg new,old ns, min new,old ns  , min % (+ve is better)
+>      2^12,     65,64    ,      62,61      ,  -1.01
+>      2^13,     70,66    ,      67,62      ,  -8.08
+>      2^14,     73,69    ,      71,65      ,  -9.09
+>      2^15,     78,75    ,      75,71      ,  -5.05
+>      2^16,     89,89    ,      86,84      ,  -2.02
+>      2^17,    128,121   ,     124,112     , -10.10
+>      2^18,    175,175   ,     170,163     ,  -4.04
+>      2^19,    264,306   ,     261,279     ,   6.06
+>      2^20,    444,525   ,     438,489     ,  10.10
+>      2^21,     60,62    ,      58,59      ,   1.01
+>  256*2^12,    381,1833  ,     367,1795    ,  79.79
+>  256*2^21,    375,1623  ,     356,1555    ,  77.77
+>  256*2^30,    356,1338  ,     349,1277    ,  72.72
+> 
+> iommu_unmap()
+>    pgsz  ,avg new,old ns, min new,old ns  , min % (+ve is better)
+>      2^12,     76,89    ,      71,86      ,  17.17
+>      2^13,     79,89    ,      75,86      ,  12.12
+>      2^14,     78,90    ,      74,86      ,  13.13
+>      2^15,     82,89    ,      74,86      ,  13.13
+>      2^16,     79,89    ,      74,86      ,  13.13
+>      2^17,     81,89    ,      77,87      ,  11.11
+>      2^18,     90,92    ,      87,89      ,   2.02
+>      2^19,     91,93    ,      88,90      ,   2.02
+>      2^20,     96,95    ,      91,92      ,   1.01
+>      2^21,     72,88    ,      68,85      ,  20.20
+>  256*2^12,    372,6583  ,     364,6251    ,  94.94
+>  256*2^21,    398,6032  ,     392,5758    ,  93.93
+>  256*2^30,    396,5665  ,     389,5258    ,  92.92
+> 
+> The ~5-17x speedup when working with mutli-PTE map/unmaps is because the
+> AMD implementation rewalks the entire table on every new PTE while this
+> version retains its position. The same speedup will be seen with dirtys as
+> well.
+> 
+> The old implementation triggers a compiler optimization that ends up
+> generating a "rep stos" memset for contiguous PTEs. Since AMD can have
+> contiguous PTEs that span 2Kbytes of table this is a huge win compared to
+> a normal movq loop. It is why the unmap side has a fairly flat runtime as
+> the contiguous PTE sides increases. This version makes it explicit with a
+> memset64() call.
+> 
+> Tested-by: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
+Reviewed-by: Vasant Hegde <vasant.hegde@amd.com>
 
-On 10/31/2025 4:09 AM, Sean Christopherson wrote:
-> Use guard() in tdx_vm_ioctl() to tidy up the code a small amount, but more
-> importantly to minimize the diff of a future change, which will use
-> guard-like semantics to acquire and release multiple locks.
->
-> No functional change intended.
->
-> Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-> Reviewed-by: Kai Huang <kai.huang@intel.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  drivers/iommu/Makefile                     |   1 +
+>  drivers/iommu/generic_pt/Kconfig           |  12 +
+>  drivers/iommu/generic_pt/fmt/Makefile      |  11 +
+>  drivers/iommu/generic_pt/fmt/amdv1.h       | 391 +++++++++++++++++++++
+>  drivers/iommu/generic_pt/fmt/defs_amdv1.h  |  21 ++
+>  drivers/iommu/generic_pt/fmt/iommu_amdv1.c |  15 +
+>  include/linux/generic_pt/common.h          |  19 +
+>  include/linux/generic_pt/iommu.h           |  12 +
+>  8 files changed, 482 insertions(+)
+>  create mode 100644 drivers/iommu/generic_pt/fmt/Makefile
+>  create mode 100644 drivers/iommu/generic_pt/fmt/amdv1.h
+>  create mode 100644 drivers/iommu/generic_pt/fmt/defs_amdv1.h
+>  create mode 100644 drivers/iommu/generic_pt/fmt/iommu_amdv1.c
+> 
 
-Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
+.../...
+
+> +$(eval $(foreach fmt,$(iommu_pt_fmt-m),$(call create_format,$(fmt),m)))
+> diff --git a/drivers/iommu/generic_pt/fmt/amdv1.h b/drivers/iommu/generic_pt/fmt/amdv1.h
+> new file mode 100644
+> index 00000000000000..1f46e4ab4aea51
+> --- /dev/null
+> +++ b/drivers/iommu/generic_pt/fmt/amdv1.h
+> @@ -0,0 +1,391 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (c) 2024-2025, NVIDIA CORPORATION & AFFILIATES
+> + *
+> + * AMD IOMMU v1 page table
+> + *
+> + * This is described in Section "2.2.3 I/O Page Tables for Host Translations"
+> + * of the "AMD I/O Virtualization Technology (IOMMU) Specification"
+> + *
+> + * Note the level numbering here matches the core code, so level 0 is the same
+> + * as mode 1.
+> + *
+> + */
+> +#ifndef __GENERIC_PT_FMT_AMDV1_H
+> +#define __GENERIC_PT_FMT_AMDV1_H
+> +
+> +#include "defs_amdv1.h"
+> +#include "../pt_defs.h"
+> +
+> +#include <asm/page.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/container_of.h>
+> +#include <linux/mem_encrypt.h>
+> +#include <linux/minmax.h>
+> +#include <linux/sizes.h>
+> +#include <linux/string.h>
+> +
+> +enum {
+> +	PT_MAX_OUTPUT_ADDRESS_LG2 = 52,
+> +	PT_MAX_VA_ADDRESS_LG2 = 64,
+> +	PT_ITEM_WORD_SIZE = sizeof(u64),
+> +	PT_MAX_TOP_LEVEL = 5,
+> +	PT_GRANULE_LG2SZ = 12,
+> +	PT_TABLEMEM_LG2SZ = 12,
+> +
+> +	/* The DTE only has these bits for the top phyiscal address */
+> +	PT_TOP_PHYS_MASK = GENMASK_ULL(51, 12),
+> +};
+> +
+> +/* PTE bits */
+> +enum {
+> +	AMDV1PT_FMT_PR = BIT(0),
+> +	AMDV1PT_FMT_D = BIT(6),
+> +	AMDV1PT_FMT_NEXT_LEVEL = GENMASK_ULL(11, 9),
+> +	AMDV1PT_FMT_OA = GENMASK_ULL(51, 12),
+> +	AMDV1PT_FMT_FC = BIT_ULL(60),
+> +	AMDV1PT_FMT_IR = BIT_ULL(61),
+> +	AMDV1PT_FMT_IW = BIT_ULL(62),
+> +};
+> +
+> +/*
+> + * gcc 13 has a bug where it thinks the output of FIELD_GET() is an enum, make
+> + * these defines to avoid it.
+> + */
+> +#define AMDV1PT_FMT_NL_DEFAULT 0
+> +#define AMDV1PT_FMT_NL_SIZE 7
+> +
+> +#define common_to_amdv1pt(common_ptr) \
+> +	container_of_const(common_ptr, struct pt_amdv1, common)
+> +#define to_amdv1pt(pts) common_to_amdv1pt((pts)->range->common)
+
+Unused macros?
+
+-Vasant
 
 
 _______________________________________________
