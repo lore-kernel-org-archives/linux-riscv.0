@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C5CCCFA00
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 08:20:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889AFCCF9FF
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Oct 2025 08:22:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=krLhFh6zhKlVSicH5fJMHzoJ4ORGBmBI5RG/A2pqD7o=; b=Xf2fjA0gR+pYhF
-	NIgCC7mTAw4Ur3AGZElL6o9LnM1bfm4tj/2aU6k50LQ/3vwbA4ieBJk6lQpFhIIXzKGaD0aoH4IL5
-	ZAzAOOLqLS2mMoHc+p+vKIlWuI9dVdoqFNIn41OOjF38tq9QdGJVxSqHf34NzznYT2tHCZJZ62pmB
-	skXEDC3dkjAm+oFODKI1FghRJaZgSTqIPu8iDP639CfG7ZKVz5IDEbmh2mmESSUqcVDjUmc4WicOI
-	dPaO3LCepkRiTqkaqp8NmZYadEheQTmFviOCEiXkxKGhIG2ydhGAVwBhvtgtm8lrD1cPaZq19mxp2
-	xHwiuOQY/sRkCcAZB17Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lyrYiAxLi1HzoyhtVQ33Gjy4zL1eCT2rTTKI4oPNoBc=; b=HiiTk3MeBb1nal
+	S2m8vrX1wGQDOftZDf3k7HhN0S6jA9lo/WKZ3d09t3A7A/kaHICh4ueNORsyIx2vLP5sweK0pPybG
+	OypKwJJ0Do3qO2F3X9fSNEP7AaUrnhYFMWyYK2Dkvqj0Hzks1Vbav5e35CPJQQttbZKZVvlYm7b4t
+	9QUXUJgetpBG60I6qd0EdgyvbhRykokLoM4M0jzIx348WOVoYb2vCIw1Sm2HV+Pi1cSZ6XnvLxMvi
+	TQeIX+KL+cMnPdFvDDAd+Z9lUUpNIeLnhbjlkw9wQ23/I9X2Ipr0ZwuxxhuHZtJDYraSeVf3k+Uk6
+	NslAmyDctTleSftTy/jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkMI-00000005d7X-0Uj2;
-	Fri, 31 Oct 2025 08:19:42 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1vEkOp-00000005dVH-0hvM;
+	Fri, 31 Oct 2025 08:22:19 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vEkM9-00000005d3h-0ETg;
-	Fri, 31 Oct 2025 08:19:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761898773; x=1793434773;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=EzjqWFPbYzjEfpDteBcncRVxcsQvYXXWJGNfJY3z6Qw=;
-  b=Uu01M07n5zKOlRjF7OzTzFGT5Rk4rSA/1L3VOjsCFftzEMEl+9nqIM2c
-   m8V0YCCHUdhcYM+2dpKb/yJiVPS5okYFPQdWeX4lRnE25AJl4lT1Aj9Jz
-   KcwLCtk8kCL2Qm5xd9YohjYMouNTX9zQ4S2WKjRfLAuF5hRVDJmz1W75p
-   I/OTmTY371A0utoNQnA0c8LyLwqXKWwoOwK4gH/GAbceBAsm3anc2oV//
-   Trm914ZmWlN+l3n0HJSeY7cV6iwOB9ejt9W5Qh578N9lXljPWT7fweVaE
-   YF6wGX5TO/IUdfxKp6ebzHUyyDLWW1lMb24RL5n4wCWrkSZSRN5dCsOKI
-   A==;
-X-CSE-ConnectionGUID: 8ZlWVh3VST2hI0G+0lWdgQ==
-X-CSE-MsgGUID: fpu2L7NTRxaeLwZkm/sQPA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11598"; a="66666550"
-X-IronPort-AV: E=Sophos;i="6.19,268,1754982000"; 
-   d="scan'208";a="66666550"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 01:19:29 -0700
-X-CSE-ConnectionGUID: ln37oo4sSVGgtPADrikf7g==
-X-CSE-MsgGUID: Cf3BSL1nT0KAv+tRtGKg6g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,268,1754982000"; 
-   d="scan'208";a="186112068"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.124.240.28]) ([10.124.240.28])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2025 01:19:22 -0700
-Message-ID: <af023723-63d5-46d3-85bb-c2d2dcfe7b15@linux.intel.com>
-Date: Fri, 31 Oct 2025 16:19:18 +0800
+	id 1vEkOl-00000005dUl-1tcq
+	for linux-riscv@lists.infradead.org;
+	Fri, 31 Oct 2025 08:22:17 +0000
+Received: from [127.0.0.2] (unknown [114.241.85.109])
+	by APP-03 (Coremail) with SMTP id rQCowADHROyocQRpUDO+AA--.4150S2;
+	Fri, 31 Oct 2025 16:22:01 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Fri, 31 Oct 2025 16:21:53 +0800
+Subject: [PATCH net] net: spacemit: Remove broken flow control support
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 12/28] KVM: TDX: WARN if mirror SPTE doesn't have full
- RWX when creating S-EPT mapping
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
- Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>,
- Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ackerley Tng <ackerleytng@google.com>
-References: <20251030200951.3402865-1-seanjc@google.com>
- <20251030200951.3402865-13-seanjc@google.com>
-Content-Language: en-US
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20251030200951.3402865-13-seanjc@google.com>
+Message-Id: <20251031-k1-ethernet-remove-fc-v1-1-1ae3f1d6508c@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAKBxBGkC/y2N7QrCIBSGb0XO705MI7PdSiwwPTYJt3W0EQzvP
+ al+Pu/nBpk4UoZebMC0xhznqYHcCXCjne6E0TcG1amj7A4SHxKpjMQTFWRK80oYHBoVvD55Y85
+ WQ+suTCG+v7sXaFEYfiLT89U+yt+52Uzo5pRi6cWq99IgO3ndKgy1fgCm9C0SnAAAAA==
+X-Change-ID: 20251031-k1-ethernet-remove-fc-82fd67d889a6
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Yixun Lan <dlan@gentoo.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Vivian Wang <wangruikang@iscas.ac.cn>
+X-Mailer: b4 0.14.3
+X-CM-TRANSID: rQCowADHROyocQRpUDO+AA--.4150S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Xry8Kw17JF18ur1rWFWxWFg_yoWxCw1fpF
+	W5X3s2yFWDJFsYgFs7Jr4UAFy3Ga4xtr17uFyfC3yFq3ZIyryxZFy8Ka17CFykurW8uryY
+	gw4jk3W8GF4DX37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
+	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
+	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
+	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r
+	1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
+	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcS
+	sGvfC2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
+X-Originating-IP: [114.241.85.109]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251031_011933_146172_09E6D88B 
-X-CRM114-Status: UNSURE (   5.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251031_012215_865605_AEB0F07B 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,22 +83,226 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Currently, emac_set_pauseparam() will oops if userspace calls it while
+the interface is not up. The reason is that if the interface is not up,
+phydev may be NULL, but is still accessed in emac_set_fc() and
+emac_set_fc_autoneg().
 
+Since the existing flow control implementation is somewhat broken in
+general (for example, it doesn't handle autonegotiation properly),
+remove it for now to fix the more urgent oops problem. A better
+implementation will be sent in future patches.
 
-On 10/31/2025 4:09 AM, Sean Christopherson wrote:
-> Pass in the mirror_spte to kvm_x86_ops.set_external_spte() to provide
-> symmetry with .remove_external_spte(), and assert in TDX that the mirror
-> SPTE is shadow-present with full RWX permissions (the TDX-Module doesn't
-> allow the hypervisor to control protections).
->
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+---
+This more urgent problem was discovered while trying to fix
+emac_set_pauseparam() (v1 of that has already been sent to the mailing
+lists [1], but it was still bad), so I decided to send this patch for
+the net tree now so that this oops will not happen on 6.18. A future
+version of the proper flow control implementation will be sent to
+net-next.
 
-Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
+[1]: https://lore.kernel.org/spacemit/20251030-k1-ethernet-fix-autoneg-v1-1-baa572607ccc@iscas.ac.cn
+---
+ drivers/net/ethernet/spacemit/k1_emac.c | 107 --------------------------------
+ 1 file changed, 107 deletions(-)
+
+diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
+index e1c5faff3b71..c85dc742c404 100644
+--- a/drivers/net/ethernet/spacemit/k1_emac.c
++++ b/drivers/net/ethernet/spacemit/k1_emac.c
+@@ -46,8 +46,6 @@
+ #define EMAC_RX_FRAMES			64
+ #define EMAC_RX_COAL_TIMEOUT		(600 * 312)
+ 
+-#define DEFAULT_FC_PAUSE_TIME		0xffff
+-#define DEFAULT_FC_FIFO_HIGH		1600
+ #define DEFAULT_TX_ALMOST_FULL		0x1f8
+ #define DEFAULT_TX_THRESHOLD		1518
+ #define DEFAULT_RX_THRESHOLD		12
+@@ -132,9 +130,6 @@ struct emac_priv {
+ 	u32 tx_delay;
+ 	u32 rx_delay;
+ 
+-	bool flow_control_autoneg;
+-	u8 flow_control;
+-
+ 	/* Softirq-safe, hold while touching hardware statistics */
+ 	spinlock_t stats_lock;
+ };
+@@ -179,9 +174,7 @@ static void emac_set_mac_addr_reg(struct emac_priv *priv,
+ 
+ static void emac_set_mac_addr(struct emac_priv *priv, const unsigned char *addr)
+ {
+-	/* We use only one address, so set the same for flow control as well */
+ 	emac_set_mac_addr_reg(priv, addr, MAC_ADDRESS1_HIGH);
+-	emac_set_mac_addr_reg(priv, addr, MAC_FC_SOURCE_ADDRESS_HIGH);
+ }
+ 
+ static void emac_reset_hw(struct emac_priv *priv)
+@@ -200,9 +193,6 @@ static void emac_reset_hw(struct emac_priv *priv)
+ 
+ static void emac_init_hw(struct emac_priv *priv)
+ {
+-	/* Destination address for 802.3x Ethernet flow control */
+-	u8 fc_dest_addr[ETH_ALEN] = { 0x01, 0x80, 0xc2, 0x00, 0x00, 0x01 };
+-
+ 	u32 rxirq = 0, dma = 0;
+ 
+ 	regmap_set_bits(priv->regmap_apmu,
+@@ -228,12 +218,6 @@ static void emac_init_hw(struct emac_priv *priv)
+ 		DEFAULT_TX_THRESHOLD);
+ 	emac_wr(priv, MAC_RECEIVE_PACKET_START_THRESHOLD, DEFAULT_RX_THRESHOLD);
+ 
+-	/* Configure flow control (enabled in emac_adjust_link() later) */
+-	emac_set_mac_addr_reg(priv, fc_dest_addr, MAC_FC_SOURCE_ADDRESS_HIGH);
+-	emac_wr(priv, MAC_FC_PAUSE_HIGH_THRESHOLD, DEFAULT_FC_FIFO_HIGH);
+-	emac_wr(priv, MAC_FC_HIGH_PAUSE_TIME, DEFAULT_FC_PAUSE_TIME);
+-	emac_wr(priv, MAC_FC_PAUSE_LOW_THRESHOLD, 0);
+-
+ 	/* RX IRQ mitigation */
+ 	rxirq = FIELD_PREP(MREGBIT_RECEIVE_IRQ_FRAME_COUNTER_MASK,
+ 			   EMAC_RX_FRAMES);
+@@ -1018,57 +1002,6 @@ static int emac_mdio_init(struct emac_priv *priv)
+ 	return ret;
+ }
+ 
+-static void emac_set_tx_fc(struct emac_priv *priv, bool enable)
+-{
+-	u32 val;
+-
+-	val = emac_rd(priv, MAC_FC_CONTROL);
+-
+-	FIELD_MODIFY(MREGBIT_FC_GENERATION_ENABLE, &val, enable);
+-	FIELD_MODIFY(MREGBIT_AUTO_FC_GENERATION_ENABLE, &val, enable);
+-
+-	emac_wr(priv, MAC_FC_CONTROL, val);
+-}
+-
+-static void emac_set_rx_fc(struct emac_priv *priv, bool enable)
+-{
+-	u32 val = emac_rd(priv, MAC_FC_CONTROL);
+-
+-	FIELD_MODIFY(MREGBIT_FC_DECODE_ENABLE, &val, enable);
+-
+-	emac_wr(priv, MAC_FC_CONTROL, val);
+-}
+-
+-static void emac_set_fc(struct emac_priv *priv, u8 fc)
+-{
+-	emac_set_tx_fc(priv, fc & FLOW_CTRL_TX);
+-	emac_set_rx_fc(priv, fc & FLOW_CTRL_RX);
+-	priv->flow_control = fc;
+-}
+-
+-static void emac_set_fc_autoneg(struct emac_priv *priv)
+-{
+-	struct phy_device *phydev = priv->ndev->phydev;
+-	u32 local_adv, remote_adv;
+-	u8 fc;
+-
+-	local_adv = linkmode_adv_to_lcl_adv_t(phydev->advertising);
+-
+-	remote_adv = 0;
+-
+-	if (phydev->pause)
+-		remote_adv |= LPA_PAUSE_CAP;
+-
+-	if (phydev->asym_pause)
+-		remote_adv |= LPA_PAUSE_ASYM;
+-
+-	fc = mii_resolve_flowctrl_fdx(local_adv, remote_adv);
+-
+-	priv->flow_control_autoneg = true;
+-
+-	emac_set_fc(priv, fc);
+-}
+-
+ /*
+  * Even though this MAC supports gigabit operation, it only provides 32-bit
+  * statistics counters. The most overflow-prone counters are the "bytes" ones,
+@@ -1425,39 +1358,6 @@ static void emac_ethtool_get_regs(struct net_device *dev,
+ 			emac_rd(priv, MAC_GLOBAL_CONTROL + i * 4);
+ }
+ 
+-static void emac_get_pauseparam(struct net_device *dev,
+-				struct ethtool_pauseparam *pause)
+-{
+-	struct emac_priv *priv = netdev_priv(dev);
+-
+-	pause->autoneg = priv->flow_control_autoneg;
+-	pause->tx_pause = !!(priv->flow_control & FLOW_CTRL_TX);
+-	pause->rx_pause = !!(priv->flow_control & FLOW_CTRL_RX);
+-}
+-
+-static int emac_set_pauseparam(struct net_device *dev,
+-			       struct ethtool_pauseparam *pause)
+-{
+-	struct emac_priv *priv = netdev_priv(dev);
+-	u8 fc = 0;
+-
+-	priv->flow_control_autoneg = pause->autoneg;
+-
+-	if (pause->autoneg) {
+-		emac_set_fc_autoneg(priv);
+-	} else {
+-		if (pause->tx_pause)
+-			fc |= FLOW_CTRL_TX;
+-
+-		if (pause->rx_pause)
+-			fc |= FLOW_CTRL_RX;
+-
+-		emac_set_fc(priv, fc);
+-	}
+-
+-	return 0;
+-}
+-
+ static void emac_get_drvinfo(struct net_device *dev,
+ 			     struct ethtool_drvinfo *info)
+ {
+@@ -1631,8 +1531,6 @@ static void emac_adjust_link(struct net_device *dev)
+ 		}
+ 
+ 		emac_wr(priv, MAC_GLOBAL_CONTROL, ctrl);
+-
+-		emac_set_fc_autoneg(priv);
+ 	}
+ 
+ 	phy_print_status(phydev);
+@@ -1712,8 +1610,6 @@ static int emac_phy_connect(struct net_device *ndev)
+ 		goto err_node_put;
+ 	}
+ 
+-	phy_support_asym_pause(phydev);
+-
+ 	phydev->mac_managed_pm = true;
+ 
+ 	emac_update_delay_line(priv);
+@@ -1883,9 +1779,6 @@ static const struct ethtool_ops emac_ethtool_ops = {
+ 	.get_sset_count		= emac_get_sset_count,
+ 	.get_strings		= emac_get_strings,
+ 	.get_ethtool_stats	= emac_get_ethtool_stats,
+-
+-	.get_pauseparam		= emac_get_pauseparam,
+-	.set_pauseparam		= emac_set_pauseparam,
+ };
+ 
+ static const struct net_device_ops emac_netdev_ops = {
+
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251031-k1-ethernet-remove-fc-82fd67d889a6
+
+Best regards,
+-- 
+Vivian "dramforever" Wang
 
 
 _______________________________________________
