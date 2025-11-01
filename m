@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDC9CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Nov 2025 08:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A98CCF9F0
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Nov 2025 09:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YPrK3h444uj8YnZgW0CUj7+ok7gQE6tmoLj7c85COVY=; b=pgw7iuZvRrj2Eh423AYqWmdQCu
-	sDqwizrF3eeUPS9tt2y3zV7HS9xlRfJwhxtMaG10jv0m/nHABacVql71YPKDJHt5Qj+keKL8VwNab
-	Q/dB4AyO8TnzeI05Som5y9tetneFn8Q6uaYmVbA6M55Tvcifb75ILnicGlKT0+vl5gYAr7zNh4C4L
-	tRDcxP4dTW2FkecnFCO0fh0/8+6LfSnugqwjQMN8oeYLbky0eH/D+5oD9lRObwU4hP5mbagUqXQSq
-	LTt+eHPz2xS8V3EDE47s4vPW9qPb5tCwY7ErKwbCjOdYHnL3YRGjvFaeg8IwR4AB8D9ufIyJooII/
-	2rzgXDFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YqElp2IRi9+0Gn9khNMS8IcsmNhpcf3wC6vcnRJL/To=; b=fHMNG+UjHVj45v
+	5sXVWPlDIkcSp6kMCrp9erdBkJTnh67YZ67MlAC+HDJ+4xNjX4cnAeOEQD7RbrtteAUo2J8b2im0O
+	6aU66WRjKafZbIW2BxdKTbpsZYLaIz2FTre3kGDHgLGNWLFn1xWcyXsUXCQjq1ev5HT93JBQtYvTX
+	0R1xjDi6p+cAn5O2XIsUsloBH0+hBU6549fFR/J+FfPGbksBv5KxDHQPBD7Ozaqfu3/VsUn1SIVVm
+	sV2nq/NPrFAZQtMasSaTDQr6XB+ENOqh8F4c8XwG+Lbe+4x7pLMfDnoTYOCd2WChFBWdqyw+CCcZD
+	VhPZ1acP7rkxE4JKG1CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vF6de-00000007Ag9-3XyU;
-	Sat, 01 Nov 2025 08:07:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vF7Wn-00000007DDt-3vKF;
+	Sat, 01 Nov 2025 09:04:05 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vF6dd-00000007AfV-0dKM
+	id 1vF7Wk-00000007DCa-38bb
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Nov 2025 08:07:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 329836013A;
-	Sat,  1 Nov 2025 08:07:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3791FC4CEF1;
-	Sat,  1 Nov 2025 08:07:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761984422;
-	bh=G/Jcr2WP/cPGUf9Bk+5VxA0ZTOL+7p5/wefrl26pvuU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jgX6xL9FRABC9/zPye3aZ3S733GzdIqPWf2fgzW3yjKoE9aXXAERGZFbjTszexFf+
-	 70ZpoqX7K9DWoCgD5fvJajvx6Iewm9liRnLS2QIB35aP5lRunwDZms9dMC4RNbfwvr
-	 532Q1dkMl+/MOQskQCNaQyRPK5r10pPS2z3IJo74ulRB8s1ZPrZETsFG+HRkIJgIw2
-	 DGk80xJMhqRBEHs7tf8vchk22i2xHiv8aDYwdLodCL9zNjx/s2jPRGQCLv7JgSub12
-	 nkYSeR8OdaQ/ZCmlv/7Y8yFRScetZrds90yLTeYsJKRR5kaXOwcsEezeWEkFfETbN+
-	 ObwH9QzHipeCg==
-Date: Sat, 1 Nov 2025 09:06:59 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Daniel Gomez <da.gomez@kernel.org>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Stephen Rothwell <sfr@canb.auug.org.au>, rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org, linux-modules@vger.kernel.org
-Subject: Re: [PATCH 1/4] rust: macros: Add support for 'imports_ns' to module!
-Message-ID: <ltzoyvyzmyf6ltdpolovjlsd44uuswkrbtlakzps376ohc23wn@mgqnvgv77tez>
-References: <20251028-pwm_fixes-v1-0-25a532d31998@samsung.com>
- <CGME20251028122316eucas1p2733987cd4c1eb8f83d6572d542e76d2a@eucas1p2.samsung.com>
- <20251028-pwm_fixes-v1-1-25a532d31998@samsung.com>
- <h3sivr3uuzr5oodqe326svchbw3rzo4f4nw4chpeee2jwzjq3j@bdtecauehkn4>
- <CANiq72nNxVJeMZdESrrB+LGmdRK+M5AGZbUw-x2aE-Qa-=HtJQ@mail.gmail.com>
- <4654398f-324c-4465-88eb-8cadde6160dc@kernel.org>
+	Sat, 01 Nov 2025 09:04:04 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1761987840;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YBiJs2WQjHw8UYmAw8T778QlQ1tMZTE4odg9x5Nma9s=;
+	b=eKcrB4lf7+ICg25rkrUi1rF6Ld0go7A3Zu3w+BzvbL5UK9y5J35vB3+FTZkvdynrMASvDA
+	1u0XTIMTdm2uEOmnGQH/+PCetg0c0VcSB91MNyNKpCQK0TYHOG2qD8jyzS6/nwnpQOK2Ac
+	mNMN2cCH4/mxbA9SLpEPBuKbwN0Dx0Q=
+From: Ze Huang <huang.ze@linux.dev>
+Date: Sat, 01 Nov 2025 17:03:26 +0800
+Subject: [PATCH 2/3] riscv: dts: spacemit: Add DWC3 USB 3.0 controller node
+ for K1
 MIME-Version: 1.0
-In-Reply-To: <4654398f-324c-4465-88eb-8cadde6160dc@kernel.org>
+Message-Id: <20251101-k1-usb3dts-v1-2-dd2660e5740b@linux.dev>
+References: <20251101-k1-usb3dts-v1-0-dd2660e5740b@linux.dev>
+In-Reply-To: <20251101-k1-usb3dts-v1-0-dd2660e5740b@linux.dev>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Ze Huang <huang.ze@linux.dev>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761987811; l=1584;
+ i=huang.ze@linux.dev; s=20250705; h=from:subject:message-id;
+ bh=3YiLR57+6Dxa5xB+On0XN2AuxKYOGj2xQbXtnep93Hc=;
+ b=RO46HnnWwT5Ud1pKk+OX7GYV++DZhj9XZff79ejdHzVGBoGqcQkQE+0tDK7JexlUvfaAjLgJM
+ L2D8gdD/x7YBgwvzqJLmGowi92qLrPqw1qgxKu+ypEpEq3orMojnQUe
+X-Developer-Key: i=huang.ze@linux.dev; a=ed25519;
+ pk=Kzc4PMu5PTo8eZZQ5xmTNL9jeXcQ9Wml0cs+vlQpBkg=
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251101_020403_068584_FBBA4AA0 
+X-CRM114-Status: UNSURE (   7.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,101 +76,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1226570745293209981=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add node for the Synopsys DWC3 USB 3.0 host controller on the K1 SoC.
+The controller resides on the 'storage-bus' and uses its DMA
+translations.
 
---===============1226570745293209981==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="usbfmskd44ovktpd"
-Content-Disposition: inline
+Signed-off-by: Ze Huang <huang.ze@linux.dev>
+---
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index d4d3c6d88a29..1d1c6276e9d0 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -1010,6 +1010,30 @@ storage-bus {
+ 			#size-cells = <2>;
+ 			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>;
+ 
++			usb_dwc3: usb@c0a00000 {
++				compatible = "spacemit,k1-dwc3";
++				reg = <0x0 0xc0a00000 0x0 0x10000>;
++				clocks = <&syscon_apmu CLK_USB30>;
++				clock-names = "usbdrd30";
++				interrupts = <125>;
++				phys = <&usbphy2>, <&combo_phy PHY_TYPE_USB3>;
++				phy-names = "usb2-phy", "usb3-phy";
++				phy_type = "utmi";
++				resets = <&syscon_apmu RESET_USB30_AHB>,
++					 <&syscon_apmu RESET_USB30_VCC>,
++					 <&syscon_apmu RESET_USB30_PHY>;
++				reset-names = "ahb", "vcc", "phy";
++				reset-delay = <2>;
++				snps,hsphy_interface = "utmi";
++				snps,dis_enblslpm_quirk;
++				snps,dis-u2-freeclk-exists-quirk;
++				snps,dis-del-phy-power-chg-quirk;
++				snps,dis_u2_susphy_quirk;
++				snps,dis_u3_susphy_quirk;
++				snps,dis_rxdet_inp3_quirk;
++				status = "disabled";
++			};
++
+ 			emmc: mmc@d4281000 {
+ 				compatible = "spacemit,k1-sdhci";
+ 				reg = <0x0 0xd4281000 0x0 0x200>;
 
---usbfmskd44ovktpd
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/4] rust: macros: Add support for 'imports_ns' to module!
-MIME-Version: 1.0
+-- 
+2.51.2
 
-Hello Daniel, hello Miguel,
-
-On Fri, Oct 31, 2025 at 02:12:29PM +0100, Daniel Gomez wrote:
-> On 31/10/2025 13.57, Miguel Ojeda wrote:
-> > On Fri, Oct 31, 2025 at 8:47=E2=80=AFAM Uwe Kleine-K=C3=B6nig <ukleinek=
-@kernel.org> wrote:
-> > > Can I have some blessing to take this patch via my pwm tree? Would you
-> > > prefer a tag to also merge it into your tree? Then I would apply it on
-> > > top of 6.18-rc1 and provide a tag for you to merge.
-> >=20
-> > Sounds fine to me, but I am Cc'ing the modules maintainers since they
-> > were not, just in case:
-
-Good idea, thanks for catching that.
-
-> > Acked-by: Miguel Ojeda <ojeda@kernel.org>
-> > [...]
->=20
-> Uwe, that's okay from modules side:
->=20
-> Acked-by: Daniel Gomez <da.gomez@samsung.com>
-
-Thanks for your Acks, I applied patches #1-#3 to
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-(#4 was applied already).
-=20
-> FYI, I haven't merged Andreas's patches (rust: extend `module!` macro with
-> integer parameter support) yet, which add rust/macros/module.rs to our
-> MAINTAINERS file list. So, it's fine from modules side to go through your=
- tree.
-> I was aiming to merge these patches along with some others for this week =
-but
-> I've found a regression in kmod testing introduced in the latest v6.18-rc=
-1,
-> which is taking me some extra time.
-
-If the issues you mentioned are sorted out and you apply patches that
-conflict with the changes I committed, please get in touch that we
-coordinate if/how to sort them out.
-
-Also if the need for a tag to share the commit arises, please coordinate
-and don't just merge the just now created commits, as I like to be able
-to rewrite my tree for late Acks etc. So I'd like to prepare and know
-when commits become set in stone.
-
-Best regards
-Uwe
-
---usbfmskd44ovktpd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmkFv6AACgkQj4D7WH0S
-/k6QQAf/ZAkDEyqE7MH4fqSdX0BKyDtZcv4Lt4GumeKupHHVRA5dkdUIGoamRHO1
-odjELXXO+7Em0roeVXdjnh3W6J2FjINqP8NYvXXN2bT3WjCL2CVWh1+X0kj6Odlr
-5lPowTPcu82u+fqUa758zMy55NYoeK4BEgrxSRPDamM9st2sivebaANBMKY1aSGw
-NgUFvhdmYcA8eWfEE5FfNhLfcfy/mjP/ogZ5p3/l7/5MqG7bmNsWin8r0u81k06m
-e081JkotlTeg9J2gAlnD61AZyn77/LP5764h5CiFYrFD18uK0ZHtfW3xqnT+jeKe
-/E9CAoE8NvNtI1FpAChL2Q7++uAr6g==
-=x5ke
------END PGP SIGNATURE-----
-
---usbfmskd44ovktpd--
-
-
---===============1226570745293209981==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1226570745293209981==--
-
