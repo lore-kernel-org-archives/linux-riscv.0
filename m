@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237A0CCFA00
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Nov 2025 15:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCDACCFA04
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Nov 2025 15:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dbI8YxviN8BpQM+rXQKk2v6OBJRoO/SA7oAcIjrRxeI=; b=a0/U2Iw8P2G6mq
-	rXkkqK46ZF7hZH2LMD6TNhqnkJ/2FLiuumfKx0FVJ7vFJ+/sGQ4s5BqPox4m9RXRkea2ob8N221EH
-	7Y89ub+C460mK3RelouSA+9COTSkFLlAucEy3MRL3UuxLHKx3uYX+6vh1883ZNIRKGD4qxdWPE8Tq
-	CcPOJqpP/lIcA2iNhL0rGy81e/mVexJ9IA+Yjz/2ckSx46C/cwTkVrfptvz848UgL4LEp58+rJ7rH
-	BftWakYSWZHSnkYVClbGHCuY98XxNkkfpjJ8uYhK60U1J5cvHzuxYfidl8AiNW1TiHqz7RirCT0Ev
-	uxz/cer7VeN7APmCL2tw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lfbh691V0eSW+cWvNigI9M6nnc72tgN7hE5NbDyeIV8=; b=rsbguSt1NVFSfa
+	24a/pQlGl6gZbUo24QXl5fZdbNQCsG7DyjLOwNtH5zIFB463Tfu5PpF62dJtwppIt0wWoAFV1p14E
+	XyCFey26fcqD8o07JFW/k5vRkTARzLClapkDmOwNAWgcWI7toKviGCcm7zWAqjChVWmIlNzRXjPLm
+	QWtMPsdc6dlpIET1pZPfmTXYU5Dek380AC/sPuH3RTEqTiHIytuMFilElU8OPpj0QB4ELJKMBXzqB
+	4d68v/eQZtAeecQM7N6NKCIvHi+aBqt7oJdCxs3talhQBiuVzLgR3NnjTRVrcG11ValYi+uzw+wZl
+	KOjgC0z7GxcglvstLa6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFDl5-00000007sol-2heG;
-	Sat, 01 Nov 2025 15:43:15 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1vFDkw-00000007snb-1RGv;
+	Sat, 01 Nov 2025 15:43:06 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFDl0-00000007so1-2sz8
+	id 1vFDkt-00000007snE-3J9C
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Nov 2025 15:43:13 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-26d0fbe238bso25964715ad.3
-        for <linux-riscv@lists.infradead.org>; Sat, 01 Nov 2025 08:43:10 -0700 (PDT)
+	Sat, 01 Nov 2025 15:43:05 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-294fb21b068so35590105ad.1
+        for <linux-riscv@lists.infradead.org>; Sat, 01 Nov 2025 08:43:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1762011790; x=1762616590; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CcA70PVwTnb4/jopyJB8UMf+ejoU1/qkR5vDiv7mLZA=;
-        b=KnDGBqnyyHQyqtXJy1YPZBzT4oXfUln+1T6gAs+m7MKxP4rwYYuYF4d9ng4tnirG6U
-         uayCB2EHcnvI4xhknxCQTSGkB/r9N028qp3B/rjUZjHWAHMEtUTZAV8N81chOuag7R3a
-         uBkFFdGf14RLF7JXQuq++mLpJmrJ+v6XkDQem6LKnT2cYPsRL63ox9JG+wc6D6OalCzy
-         UautLI3pcoT/ViK4mebDM6U8Gjqrwg+YCqM2zbbjPwUZcBaf/aduL/LP8EK7NRq4Dujn
-         7drFGv85luOgRaW26P2KSOfAEM8upntRfp3T+V3WwwP+8n1LA9zDxlivumlcQcoqGv1Q
-         Zh8g==
+        d=ventanamicro.com; s=google; t=1762011782; x=1762616582; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qzSxlietdv08Nz41XlGqZnExJjtZBryEPCo4y1RIDZc=;
+        b=M/IjIAljfXgdJ7j+jGcvCqC6usurEFN1i438oKMripIA3gxpMskSeUFpxodAcVM0wN
+         gPg9ZOm88y4WBocDcuq4wEgYG7fFF4NYptr+Jfa5mYxVw2OVYrrlK3XLrPjRZPc+mY0p
+         ha0NE1CZcbgtvsJ3hVHNJQAUn5yqcWbuGu/qT3/upZ8Nl8IxNiYEKQ7tQjzhcSLUnVVj
+         XQ0OkqpTqBt8QAarfPoA3loUek2+BHVmBGXCK+GXBjEpeOE6IZqmcVi3/5s5PiTW2TXU
+         gbfxJvDtUmx3inlEKHhmDn6T4aSdIHmt/FFxaGKrskXpRwP0hWWs3vHYtrclJC5DF7i5
+         XkxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762011790; x=1762616590;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CcA70PVwTnb4/jopyJB8UMf+ejoU1/qkR5vDiv7mLZA=;
-        b=jyCRJxTtpaEyEwLT0FULdfih4BID0s/L4W/rqpXtVHLOXydBmdl05QNBeSYA7T/RLl
-         h8n/UdAnkil3pVQTH2E1hR7s8rWXHTFbD4vtNjRxwrMuRHjHUCwcC/WfcngWfbkuwylu
-         aEoasJJnWfd3WolttVukVxzk3tDv5cbtMwMBv+HtOhh2ABFWBxa2Eltv20cfzXW9xmMg
-         5sLBeVKiSob7g2AHpUJB1+KDhfUcFfh8vsakW14/Betp0EOjwLPdLyiOz5abjiion2bb
-         hUBjXRqobQtqSDG82Qn+jP4SAjR6M+KLv/wlj4vA7cIf+SuuvzHiago4VAw0DWIu5arD
-         +vSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWHYkFe8Camlbful3+/y6ECHYCgI1zbQL62eRjY5QoNjkGM7jaLG6iV4h+S6i598byQD/aiFKSo38mGwQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZOSjyBoZNoQXEE1RtDD5HSqRO0napGB64LX/gX0couzZSxyzY
-	eulUqXZ/nVDMKlL1LahGdLBXGqRBUUcvHbsKfJ2iaZ0zG8MittpWYRXhIZJ9Dzgw/Gw=
-X-Gm-Gg: ASbGncsz+GHzRapca7MrkLqS2Xi7sxYX2g9QNCUXB9TK9rjNWZ63MQbtbod19UhD9vw
-	hd241EtU8o4q0GcB3lPMOpoJVAVrnnDphsLKBE+YQi2F7BnChL+iNZN2P92LJh2DGsxAfKsWV27
-	X7Hj7BuL/5SzDliW+C04N4RTSPQ/zOxp764uuRkV+mkLFeMjR8ifIuyjoXIvHU0w7RbAMRl5Dqo
-	MTncMwN4ZSC/t2EugPrZah7FTkfxEqizbomHxA+U675te5Wh15B4RX4zTQNAul0R37wYkTPK1zA
-	9GlqGYS3dcXAm0YaLQYob5ExGQ/RXN36Jiz6c6qy+gTeSrZ2wYlyRQ5iUMne/Lpw8JRJ01XV4lg
-	qkaTLP8K+TPotd7xYhSpxa9iaefEiTAtrSBCJKv0ldQiM7km4BwZ85xmahOa3VbDfkcJT5lmFPC
-	kx3E1YLWGpsPNRl1ZJid2fECPIGU3cEkmQigMQEOX2WA==
-X-Google-Smtp-Source: AGHT+IGpRBEwhgyZU04oRdc2JtlV77rsk0jCZD7dlM8oXxEemL+4JiYFTNnpMduG0pla8WCCicoqeg==
-X-Received: by 2002:a17:903:38c7:b0:295:62d:503c with SMTP id d9443c01a7336-2951a3d281bmr96116035ad.16.1762011789776;
-        Sat, 01 Nov 2025 08:43:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1762011782; x=1762616582;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qzSxlietdv08Nz41XlGqZnExJjtZBryEPCo4y1RIDZc=;
+        b=AgoG51sha+4XWPOLJw1g7CHCWclU43kukPOWz6XhoW5pJPAX7UT66eWslA3hQu+4GX
+         noWGoFWYXrGlLH1aFhgGfZZTA/8hKq6wOXu993xbrk6YpesnrHykyZVRHsaZe7P8kQJg
+         uTVnR82w9685HZDp/q982wkS3YOX3wc/8u3cEyPk32VYaxRGuNbMq1BNMYmPyFYA7eOJ
+         vWo9o6bZYDCxeduNtN1gRhF3x92riZJbZ9zq/DIIQcNXmBhM98mUZ2WbMwDdETmPBImB
+         3QoaPqDlPRNggmnK9Cl6r88s6BTMDL+gKbuXO4Mg+ALfll7MLX/h5BXXdFmFW8Vi19Em
+         Sxwg==
+X-Forwarded-Encrypted: i=1; AJvYcCUKxG0YQUdTRci1ipKWxDkVKe/8OQEEfhFB8mwuxsgvfbPUnhvHRW8hpLxBtij0PE/5i272a0IN3tjiTQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG9rcuucnziRxujC9kcmmObBdzSgPmOU4xlc+7GZ5QUxmd3MFl
+	8Ir6qwoY7M9juD9qZlnXMcWbiitmfiTTV845gt7R7tQmb3C2S1ax8ekq31oZbrltCU0=
+X-Gm-Gg: ASbGncspHq1jbZ9EqQy/gCRoCqRNICS3mS9Yh9wnhGE8DN5xJV8egIz58SPVeLGs1p9
+	Wtcmcml/GEWQZ60anGyMMZkyVRqkELLWOTBgWZPV1QS9qTLIiTS3Y1ymUJBJxMWT4KYo3F96sBZ
+	7wTwlVBQvnl+F8XO296jpQzJl1bPfT7QCKRsVw2HpXakR0rG13OTXTVq1iGiMeHaB2eYP8q1kii
+	Fs4SJgG4BD2kZlcSZutDuWG5zJuMAXoE3Vc3pgHxRy9KvevHyNUnwlrx4pe0gUpUkAYzkjrSRUo
+	1PGFM2MJ3r9TLG2caEahhUBTwADYBaenrIA+KnlTraqsDF98gQxBGCkt2fPk0q+jiltts+PzCcj
+	MY7f7hNYKSIL7MsFt3g+8+tf63XTGMunRKSe91DqMGpcQ0m1umVds2O/kg9WxiQl5yQKZs/TEYm
+	/yDYF/PYSO9o2a4c72qNZo5jtFSNvWpFw=
+X-Google-Smtp-Source: AGHT+IG9sjo4xwPEkzo6ctV338QETzcZ1vLZmEK24hr2B/GgahZDtRfJJ0dMRkfnA3yh0prDVDGKIw==
+X-Received: by 2002:a17:902:e749:b0:295:7f1d:b034 with SMTP id d9443c01a7336-2957f1db313mr4827205ad.4.1762011782049;
+        Sat, 01 Nov 2025 08:43:02 -0700 (PDT)
 Received: from localhost.localdomain ([122.171.20.36])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-295269bd2fesm59990105ad.105.2025.11.01.08.43.02
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-295269bd2fesm59990105ad.105.2025.11.01.08.42.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Nov 2025 08:43:09 -0700 (PDT)
+        Sat, 01 Nov 2025 08:43:01 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -79,16 +78,14 @@ To: Rob Herring <robh@kernel.org>,
 	Greg KH <gregkh@linuxfoundation.org>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
 	Ian Rogers <irogers@google.com>
-Subject: [PATCH v2 01/12] dt-bindings: Add RISC-V trace component bindings
-Date: Sat,  1 Nov 2025 21:12:34 +0530
-Message-ID: <20251101154245.162492-2-apatel@ventanamicro.com>
+Subject: [PATCH v2 00/12] Linux RISC-V trace framework and drivers
+Date: Sat,  1 Nov 2025 21:12:33 +0530
+Message-ID: <20251101154245.162492-1-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251101154245.162492-1-apatel@ventanamicro.com>
-References: <20251101154245.162492-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_084310_756406_680FBD21 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20251101_084303_838263_9426B0A4 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,137 +103,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the memory mapped RISC-V trace components
-which support both the RISC-V efficient trace (E-trace) protocol and
-the RISC-V Nexus-based trace (N-trace) protocol.
+This series adds initial support for RISC-V trace framework and drivers.
+The RISC-V trace v1.0 specification is already ratified and can be found at:
+https://github.com/riscv-non-isa/e-trace-encap/releases/tag/v1.0.0-ratified
+https://github.com/riscv-non-isa/tg-nexus-trace/releases/tag/1.0_Ratified
 
-The RISC-V trace components are defined by the RISC-V trace control
-interface specification.
+The RISC-V trace framework and drivers are designed to be agnostic to the
+underlying trace protocol hence both RISC-V E-trace and RISC-V N-trace should
+work fine. The discovery of trace protocl parameters are left to user-space
+trace decoder.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- .../bindings/riscv/riscv,trace-component.yaml | 112 ++++++++++++++++++
- 1 file changed, 112 insertions(+)
+In ther future, there will be subsequent series adding:
+1) Sysfs support
+2) ACPI support
+3) More trace drivers (such as funnel, ATB, etc)
+4) Support for upcoming self-hosted trace specification
+5) ... and more ...
+
+These patches can also be found in the riscv_trace_support_v2 branch at:
+https://github.com/avpatel/linux.git
+
+To test the patches, we need QEMU virt machine with RISC-V trace support
+which can be found in rv-etrace branch at:
+https://gitlab.com/danielhb/qemu.git
+
+To capture rvtrace data using perf on QEMU virt machine do the following:
+1) Launch QEMU virt machine
+   $ qemu-system-riscv64 -nographic -M virt -smp 2 -bios fw_dynamic.bin \
+     -kernel Image -append "root=/dev/vda rw console=ttyS0 earlycon=sbi" \
+     -drive file=/path/to/rootfs.img,id=disk1,if=none,format=raw \
+     -device virtio-blk-device,drive=disk1
+2) Run perf record to capture rvtrace data
+   $ perf record --all-cpus -e rvtrace/event=0x1/ <command>
+3) The step2 would create a perf.data file which has the rvtrace data.
+   Now run perf report -D and look for PERF_RECORD_AUXTRACE event
+   section(s) which point(s) to the actual rvtrace data offset.
+
+Changes since v1:
+ - Rebased on Linux-6.18-rc3
+ - Addressed Rob's comments in dt-bindings added by PATCH1
+ - Get reference of conn->dest_fwnode and add missing break in
+   rvtrace_of_parse_outconns() of rvtrace-platform drivers added
+   by PATCH2
+ - Added new inline function rvtrace_comp_is_empty() in PATCH2
+   and used it in rvtrace_encoder_stop() added by PATCH5
+ - Fixed trRamWPLow usage in PATCH7
+ - Determine RAM sink buffer size based on component implementation
+   ID and reduce default RAM sink buffer size to 1MB
+ - Add new PATCH8 to enable DMA_RESTRICTED_POOL in RISC-V defconfig
+   so that implementations with RAM sink address restrictions can
+   be handled.
+
+Anup Patel (6):
+  dt-bindings: Add RISC-V trace component bindings
+  rvtrace: Initial implementation of driver framework
+  rvtrace: Add functions to create/destroy a trace component path
+  rvtrace: Add function to copy into perf AUX buffer
+  riscv: Enable DMA_RESTRICTED_POOL in defconfig
+  MAINTAINERS: Add entry for RISC-V trace framework and drivers
+
+Mayuresh Chitale (6):
+  rvtrace: Add functions to start/stop tracing on a component path
+  rvtrace: Add trace encoder driver
+  rvtrace: Add trace ramsink driver
+  rvtrace: Add perf driver for tracing using perf tool
+  perf tools: Add RISC-V trace PMU record capabilities
+  perf tools: Initial support for RISC-V trace decoder
+
+ .../bindings/riscv/riscv,trace-component.yaml | 112 +++
+ MAINTAINERS                                   |  11 +
+ arch/riscv/configs/defconfig                  |   1 +
+ drivers/Makefile                              |   1 +
+ drivers/hwtracing/Kconfig                     |   2 +
+ drivers/hwtracing/rvtrace/Kconfig             |  33 +
+ drivers/hwtracing/rvtrace/Makefile            |   6 +
+ drivers/hwtracing/rvtrace/rvtrace-core.c      | 798 ++++++++++++++++++
+ drivers/hwtracing/rvtrace/rvtrace-encoder.c   | 107 +++
+ drivers/hwtracing/rvtrace/rvtrace-perf.c      | 343 ++++++++
+ drivers/hwtracing/rvtrace/rvtrace-platform.c  | 192 +++++
+ drivers/hwtracing/rvtrace/rvtrace-ramsink.c   | 262 ++++++
+ include/linux/rvtrace.h                       | 349 ++++++++
+ tools/perf/arch/riscv/util/Build              |   1 +
+ tools/perf/arch/riscv/util/auxtrace.c         | 218 +++++
+ tools/perf/util/Build                         |   1 +
+ tools/perf/util/auxtrace.c                    |   4 +
+ tools/perf/util/auxtrace.h                    |   1 +
+ tools/perf/util/rvtrace-decoder.c             |  91 ++
+ tools/perf/util/rvtrace.h                     |  20 +
+ 20 files changed, 2553 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
+ create mode 100644 drivers/hwtracing/rvtrace/Kconfig
+ create mode 100644 drivers/hwtracing/rvtrace/Makefile
+ create mode 100644 drivers/hwtracing/rvtrace/rvtrace-core.c
+ create mode 100644 drivers/hwtracing/rvtrace/rvtrace-encoder.c
+ create mode 100644 drivers/hwtracing/rvtrace/rvtrace-perf.c
+ create mode 100644 drivers/hwtracing/rvtrace/rvtrace-platform.c
+ create mode 100644 drivers/hwtracing/rvtrace/rvtrace-ramsink.c
+ create mode 100644 include/linux/rvtrace.h
+ create mode 100644 tools/perf/arch/riscv/util/auxtrace.c
+ create mode 100644 tools/perf/util/rvtrace-decoder.c
+ create mode 100644 tools/perf/util/rvtrace.h
 
-diff --git a/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml b/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
-new file mode 100644
-index 000000000000..7979af3d4174
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
-@@ -0,0 +1,112 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/riscv,trace-component.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V Trace Component
-+
-+maintainers:
-+  - Anup Patel <anup@brainfault.org>
-+
-+description:
-+  The RISC-V trace control interface specification standard memory mapped
-+  components (or devices) which support both the RISC-V efficient trace
-+  (E-trace) protocol and the RISC-V Nexus-based trace (N-trace) protocol.
-+  The RISC-V trace components have implementation specific directed acyclic
-+  graph style interdependency where output of one component serves as input
-+  to another component and certain components (such as funnel) can take inputs
-+  from multiple components. The type and version of a RISC-V trace component
-+  can be discovered from it's IMPL memory mapped register hence component
-+  specific compatible strings are not needed.
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - qemu,trace-component
-+      - const: riscv,trace-component
-+
-+  reg:
-+    maxItems: 1
-+
-+  cpus:
-+    maxItems: 1
-+    description:
-+      phandle to the cpu to which the RISC-V trace component is bound.
-+
-+  in-ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+    patternProperties:
-+      '^port(@[0-7])?$':
-+        description: Input connections from RISC-V trace component
-+        $ref: /schemas/graph.yaml#/properties/port
-+
-+  out-ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+    patternProperties:
-+      '^port(@[0-7])?$':
-+        description: Output connections from RISC-V trace component
-+        $ref: /schemas/graph.yaml#/properties/port
-+
-+required:
-+  - compatible
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    // Example 1 (Per-hart encoder and ramsink components):
-+
-+    encoder@c000000 {
-+      compatible = "qemu,trace-component", "riscv,trace-component";
-+      reg = <0xc000000 0x1000>;
-+      cpus = <&CPU0>;
-+      out-ports {
-+        port {
-+          CPU0_ENCODER_OUTPUT: endpoint {
-+            remote-endpoint = <&CPU0_RAMSINK_INPUT>;
-+          };
-+        };
-+      };
-+    };
-+
-+    ramsink@c001000 {
-+      compatible = "qemu,trace-component", "riscv,trace-component";
-+      reg = <0xc001000 0x1000>;
-+      cpus = <&CPU0>;
-+      in-ports {
-+        port {
-+          CPU0_RAMSINK_INPUT: endpoint {
-+          };
-+        };
-+      };
-+    };
-+
-+    encoder@c002000 {
-+      compatible = "qemu,trace-component", "riscv,trace-component";
-+      reg = <0xc002000 0x1000>;
-+      cpus = <&CPU1>;
-+      out-ports {
-+        port {
-+          CPU1_ENCODER_OUTPUT: endpoint {
-+            remote-endpoint = <&CPU1_RAMSINK_INPUT>;
-+          };
-+        };
-+      };
-+    };
-+
-+    ramsink@c003000 {
-+      compatible = "qemu,trace-component", "riscv,trace-component";
-+      reg = <0xc003000 0x1000>;
-+      cpus = <&CPU1>;
-+      in-ports {
-+        port {
-+          CPU1_RAMSINK_INPUT: endpoint {
-+          };
-+        };
-+      };
-+    };
-+
-+...
 -- 
 2.43.0
 
