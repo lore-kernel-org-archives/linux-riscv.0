@@ -4,106 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D56CCFA02
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Nov 2025 23:44:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F662CCFA00
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Nov 2025 21:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bO4pqRPO/lJg0Bq2a6nlVfjwlfXNoD0Z+/QFXAWf+Vk=; b=iwhpMFIU7PuF7X
-	Vqoq3FNxzOhbr1HJCkO7vcIDRyUJU2mLuD3mpo7wAjHfNxE8BntzOsSwSBnv7MDn1XLkl2ZI1ASPT
-	PFkWnh00u277Sh2QjDYtt5lE3JC0f9cxwxUGSHNFCu16R4cPaZ9L3McSN3TqVfMQMOYnI5sDKvBXC
-	Tr2MHFgg2v8KuTY6lXNe8YB4cUYghSe5QKAmuwOqdfr/WkCMvKOzEV3vM8suEsrqFiKBQAREhhhM5
-	CQupeJRPL88LfoWCdGLJMt0Gi2pmuFqOjkvOfQPFwuhhf35+nLXqKuBFTVW8AC+uP5QT69twUDv4a
-	OL1hLjp8v0zzFa99GT8A==;
+	List-Owner; bh=jgB0fzPgfcAFakpH9ILDIwyV0TbkRgb5nZR5Ubwv2TE=; b=mbjK33a5mnM5Lg
+	f6cCDnM9hwxAY5nl0J3Hm59vdi4c/wXMq8vole8LdVKLk8D8I3saXN8wGqc/4T3i4KHQODYVc6e3n
+	nfmRu1Zdzclv3OGQXLumr8AgQKk4uFVHxIkavGzJEMrco2SNj5brRScyWHNZUYwmwvj5T5Cw+xTvr
+	8ksVr1lgAIc5aSluMY7oIxJogvOLNzwzHA0qhJtq4c3iwkJgwIfraEilbk4+15A+VnzxEqLoTytJa
+	2e+wDHih9eYv6ggkb4CUQk+bmie/7W0NEnKmG4hS9urGM0guHvHnpA3ZDXpUWSgDCApll+izttZQl
+	0QE51WPby1xkM3+asBWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFLGo-00000008ADv-3Zbo;
-	Sat, 01 Nov 2025 23:44:30 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1vFg1A-00000008riY-1d3H;
+	Sun, 02 Nov 2025 21:53:44 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFLGm-00000008ADX-1qbk
-	for linux-riscv@lists.infradead.org;
-	Sat, 01 Nov 2025 23:44:29 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-27d3540a43fso33601115ad.3
-        for <linux-riscv@lists.infradead.org>; Sat, 01 Nov 2025 16:44:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762040667; x=1762645467; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=M5xrL6w1s6Y/SwQgHOGtWpqSk58YCr4boule2VrLo7o=;
-        b=fMSPS7w7asjmytuEQGEbPd0OyIVkB0RsdAqURwczxi4hMowORFRMojv/iZzH97rRlN
-         OGtATVOsLcUFP4Q/Zzi44p4A+bkVyj8N+Mfn/BIrCHQW2t8oHpSR0PrJ9p/Bh1hiTXua
-         kw+BIa4dgfolRXUXtKQxm7932/SnpcCGb5u7mbJpGJT+W352gqpvC2vlQsKXYnhstc3o
-         96KJI2Um3X55oVYL7aZsp9kjga1DCemEEYLngZePE5sJLnAtf6teUmmJ8mGtwHwrJ+Mc
-         PwhuR4UQ0nfm1zLrjXTR8GD9/2FEFaf6MzWDIvcmKpuq0bmijxCy1WP3rWjWXe3XyKH2
-         GIOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762040667; x=1762645467;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=M5xrL6w1s6Y/SwQgHOGtWpqSk58YCr4boule2VrLo7o=;
-        b=tGCk1+bJSogALbkklrWDyq+nXNMIomdEbzf+RpeOYztGCa5D0V0kh+RXtQe+pMucUc
-         OMTTGscwIbQMWs1ZpheOzuEF8Zk/nWHY5mdNbhntu2fDHOwf54trvZsl/ZUu9Oh9LrLA
-         aArTjVc3YfYHwdEEPaVJkmaGMSinIgL8uwRxnY38hI3ip9x//URxvadLkwp/Hj2o9Uiy
-         wm6eUs8xnKpu8M2N04Pt6XQfCUVqBIXy91zEr8B+FOOth5t/z2mIjckW8GblC5k1yOHz
-         WYVmHlYVboRgVu86+p5JA4jPawVt1nH9bsAG07lRX5nIn3jiwmWJNkd6ElLPPvLGqzvO
-         3kwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXtzOCkRc4N1dj9uOTi5aV13mt1ez4NwFSyYd1gxNPkkgiyCtuDgfu57WoJRvZ1psf5ZYMz08UtElwFYA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfbO18zFmFwdrv+eeqIuOMsd9OiXZKPTk6PfvPcsMiYpxWOqHp
-	xP6wG2JU/0x/GOx9ex2pouQTQLX2dsPbrHUasX4oJvAEREarRpRxvWu3
-X-Gm-Gg: ASbGnctCPmmtsOEH0e8LJHfZBQmu22PCouB7ycCEoyBG8Jlz90xpR2qbmgVHhMYKaFo
-	yPVvTk67ynXp8t9zyp1isov2sDjyHgNB9htW/jQcTdUISEpC/m6MSNbxpxwlh4ncIYQQpI8qhLL
-	hGY4o0P2u6+JBn4+ABFvJGdK2u/SQA0IZHHiTvv5cwIyf6B7/Mb+/S2WG4hsy1DzlPDiOYl2s4E
-	9vt/Kr56Mkn7zA7lOUeaeS5pSg071EN8vvwBwSK3DgvWJ8eKD7f+AXREqQZ6ImgfpFB9xHVDdcb
-	elXOviz8HA6Kh1FBOAKbmRDGWZ323Ns8kgP7QyyGvktGQ2zSJk62HfZ2FlHA87SQZNDV+SQqQnj
-	VLmpGNsgNsChEnAwAZ47z1/UJ6XOAh6dseLLXyBFwlcxnt2mOJqZbrOK6u2uA0gPyPcpPiTwgaj
-	s2hyi+Wy2VQA==
-X-Google-Smtp-Source: AGHT+IHes7gAPMGnU9C8dtef1adr+TMQgs0cEQ/JgUMpaIjuvVBJgyDHwEuzKah+vpeRkyOHYuQGpw==
-X-Received: by 2002:a17:902:c942:b0:295:7f1f:a80a with SMTP id d9443c01a7336-2957f1fb69dmr17823945ad.27.1762040666931;
-        Sat, 01 Nov 2025 16:44:26 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-340b070ec06sm4370384a91.3.2025.11.01.16.44.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Nov 2025 16:44:26 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: u.kleine-koenig@baylibre.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	unicorn_wang@outlook.com,
-	conor+dt@kernel.org,
-	rabenda.cn@gmail.com,
-	krzk+dt@kernel.org,
-	mani@kernel.org,
-	liujingqi@lanxincomputing.com,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	robh@kernel.org,
-	tglx@linutronix.de,
-	sycamoremoon376@gmail.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	chao.wei@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	fengchun.li@sophgo.com,
-	Chen Wang <unicornxw@gmail.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>
-Subject: Re: [PATCH 0/4] Add PCIe support in DTS for Sophgo SG2042 SoC
-Date: Sun,  2 Nov 2025 07:44:12 +0800
-Message-ID: <176204064246.157916.1254578946904175496.b4-ty@gmail.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <cover.1760929111.git.unicorn_wang@outlook.com>
-References: <cover.1760929111.git.unicorn_wang@outlook.com>
+	id 1vFg17-00000008rhQ-0dM3;
+	Sun, 02 Nov 2025 21:53:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1762120421; x=1793656421;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=wlc0UGWnu9Jt/GUB1LZ5Asy8Dq1Zq0j7h+47A1DCXgQ=;
+  b=TAG7rlsUbel7rBtDKV37Xn/Af+/RDDJ92SoMTdZesZFANRNLbqW+KJi6
+   g9Xu+lieBwdt3QtRX3zW+mDyNqcjZduF/bJuEXbr68mJSHKKCKjwcdMwk
+   veu8tYo3f/tYO8Glp36DUpuM0cN9v3lJlO34aCiDn+n7j1pvnqid8DCCe
+   NuF1QEq2ZajBgQVX43bQC7ZudwPIRE+9NTjk/ZzMlL21SrG09Xdq6GqSu
+   fbVnntecWAB3b8Ie9C63DHxzVf4e7L2OpKl2VN4QHX1nWlKuSy2DwTUeA
+   bBbb/qM6ux4IMc41kTICO5t6YUOcQS90zuNs+LZUZmw7nFrKB/8UrNfYo
+   Q==;
+X-CSE-ConnectionGUID: 8UbS3l+/QDOOH9cuHZlH7w==
+X-CSE-MsgGUID: 8dYrvlBMSLueNG8Yw8YbBg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11601"; a="51770892"
+X-IronPort-AV: E=Sophos;i="6.19,274,1754982000"; 
+   d="scan'208";a="51770892"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Nov 2025 13:53:36 -0800
+X-CSE-ConnectionGUID: 0tQ+/Z5IRwWinFoWz7n/aA==
+X-CSE-MsgGUID: zmwLQ7idRgKcJrmcIvrAkQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,274,1754982000"; 
+   d="scan'208";a="191040965"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by fmviesa005.fm.intel.com with ESMTP; 02 Nov 2025 13:53:33 -0800
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vFg0w-000PbA-32;
+	Sun, 02 Nov 2025 21:53:30 +0000
+Date: Mon, 3 Nov 2025 05:52:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alex Elder <elder@riscstar.com>, vkoul@kernel.org, kishon@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, p.zabel@pengutronix.de, dlan@gentoo.org,
+	aurelien@aurel32.net, guodong@riscstar.com,
+	linux-phy@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Junzhong Pan <panjunzhong@linux.spacemit.com>
+Subject: Re: [PATCH v4 4/7] phy: spacemit: introduce PCIe/combo PHY
+Message-ID: <202511030553.8UVCnq06-lkp@intel.com>
+References: <20251030220259.1063792-5-elder@riscstar.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20251030220259.1063792-5-elder@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251101_164428_484515_EFDCEA45 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20251102_135341_227493_1FCEC502 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,32 +91,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Oct 2025 11:32:55 +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> This new patch set is a continuation of the previous patchset
-> "[PATCH v3 0/7] Add PCIe support to Sophgo SG2042 SoC" [1].
-> 
-> The drivers and bindings have already been merged into the kernel
-> mainline, and this patchset will focus on submitting the remaining
-> DTS changes into the mainline.
-> 
-> [...]
+Hi Alex,
 
-Applied to dt/riscv, thanks!
+kernel test robot noticed the following build errors:
 
-[1/4] riscv: sophgo: dts: add PCIe controllers for SG2042
-      https://github.com/sophgo/linux/commit/4e27aca4881ace1e9a812fc2c88b33dd84e29993
-[2/4] riscv: sophgo: dts: enable PCIe for PioneerBox
-      https://github.com/sophgo/linux/commit/b85ad0d06a19de95d41f91162389a1bbb461a405
-[3/4] riscv: sophgo: dts: enable PCIe for SG2042_EVB_V1.X
-      https://github.com/sophgo/linux/commit/c6c215099e89b1eb71ed6592163ae5b530f4538e
-[4/4] riscv: sophgo: dts: enable PCIe for SG2042_EVB_V2.0
-      https://github.com/sophgo/linux/commit/579d6526aa43a155c8685a88ef8350a8c29afa47
+[auto build test ERROR on 131f3d9446a6075192cdd91f197989d98302faa6]
 
-Thanks,
-Inochi
+url:    https://github.com/intel-lab-lkp/linux/commits/Alex-Elder/dt-bindings-phy-spacemit-add-SpacemiT-PCIe-combo-PHY/20251031-060541
+base:   131f3d9446a6075192cdd91f197989d98302faa6
+patch link:    https://lore.kernel.org/r/20251030220259.1063792-5-elder%40riscstar.com
+patch subject: [PATCH v4 4/7] phy: spacemit: introduce PCIe/combo PHY
+config: sh-allyesconfig (https://download.01.org/0day-ci/archive/20251103/202511030553.8UVCnq06-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251103/202511030553.8UVCnq06-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511030553.8UVCnq06-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   sh4-linux-ld: drivers/phy/phy-spacemit-k1-pcie.o: in function `k1_pcie_phy_probe':
+>> phy-spacemit-k1-pcie.c:(.text+0x7e4): undefined reference to `devm_clk_hw_register'
+>> sh4-linux-ld: phy-spacemit-k1-pcie.c:(.text+0x7ec): undefined reference to `devm_clk_hw_get_clk'
+   sh4-linux-ld: drivers/net/phy/air_en8811h.o: in function `en8811h_resume':
+   air_en8811h.c:(.text+0x948): undefined reference to `clk_restore_context'
+   sh4-linux-ld: drivers/net/phy/air_en8811h.o: in function `en8811h_suspend':
+   air_en8811h.c:(.text+0x984): undefined reference to `clk_save_context'
+   sh4-linux-ld: drivers/media/i2c/tc358746.o: in function `tc358746_probe':
+   tc358746.c:(.text+0x1a68): undefined reference to `devm_clk_hw_register'
+   sh4-linux-ld: tc358746.c:(.text+0x1a74): undefined reference to `devm_of_clk_add_hw_provider'
+   sh4-linux-ld: tc358746.c:(.text+0x1a78): undefined reference to `of_clk_hw_simple_get'
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
