@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBF4CCFA00
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Nov 2025 02:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 967E4CCFA00
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Nov 2025 02:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=V5vx0MSPlLHlGpq+MQcAcQCfT0Cd4y9pm0UvIHS1J1s=; b=Th+MK1JegIz3Uj
-	iMAh8SxMijexi5Apb7QK9TzqGDwMrYOd/VPjHcSLb+qlleEOz6CwD/gQjT0pFJuuvyI0LU55lDnSg
-	DiNwoBdxqqPuDkc01Uc9q8SqNv0ouWWg4R1LFB1GHpMBFVn0EVgcUwpjJk3pAr8UUJdHU7Rxm8bHW
-	1XU2VijeURFT9qapBntvlwq78OjhaZviqWjUHODkLJggSGN/+kgRbQ73VkVa5fdG2ZmsH3r+CTaxw
-	JON0vqLcoryOYZCAp8EF6xHvcL4eHI6EayQc6AHSA6pVaTIJl136xaQoMVgZNJIHwLcDR5ZMT++c1
-	dFB/lESLN3F+BneN31ig==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+b3DG92qHVMs5FTuJpmJP8xvI+4BbM+C+Q1jnw+EPm8=; b=bx3P2SyaoEXaCl
+	DEfD9mkEGl9e3FYfOYcCl/sZ2bo0NPX2YUILLm/Ubjhy0VvKEw9vi0pWIsVg4xyUoqkHb7XJus8Ty
+	qUomkXqvUxwTglZkKslP2lKK+0JL0UCDUPF8ZtLL5RLoTqoMsvWFmIBME0o/sz9FnVmd/K9+Zn9Fo
+	X1UdMYU2eun43azMBrKASk2WiIj0uvzg5bd4BNiLvnz/JALFVyFr6aCnx7SZV7m1wECqXqlVOiW2C
+	rIO1QjfwJbrHlk4GAw9IVh7+rpe6NZ7s5AVJCrsgrq4mOKrIiwFZgHcFAZUn/sOagCVFlB7lBwy2Z
+	vTqqt5BhPrNyCXm7Y6Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFjud-000000092dR-2jym;
-	Mon, 03 Nov 2025 02:03:16 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1vFkZ8-000000094sj-0JOa;
+	Mon, 03 Nov 2025 02:45:06 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFjuZ-000000092cv-1G4v
+	id 1vFkZ4-000000094qp-1FC1
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Nov 2025 02:03:14 +0000
-Received: from [127.0.0.2] (unknown [114.241.85.109])
-	by APP-05 (Coremail) with SMTP id zQCowAD3oO9JDQhpJTImAQ--.23894S2;
-	Mon, 03 Nov 2025 10:02:50 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Mon, 03 Nov 2025 10:02:49 +0800
-Subject: [PATCH net v3] net: spacemit: Check netif_running() in
- emac_set_pauseparam()
+	Mon, 03 Nov 2025 02:45:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1762137874;
+	bh=EzhqW4LTolUoeFR6p40cCHk6rVnU+KQUnuF+gS36JjM=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=q4JkamuKKZTlgKGhfP9hJrv85LD7eIagA4Rl7OwJnkdKsDI7rR6oqEocYmpBq0s/l
+	 qgJcIrAlwGmEN3KEG+g/SI/EHjFwiMNrezTPWgse0+Tw+Zkl6k4vZs4zC1/mTQSksF
+	 oOKES8Jf12DBEOkxz//ZMVDwNXvvEQ6fx4t4UqP8=
+X-QQ-mid: esmtpgz15t1762137867ta3d9be05
+X-QQ-Originating-IP: ULHth8tWTgPrwdTvp7p10X6LZ87YT7f4b9dFm0/Sijg=
+Received: from = ( [183.48.244.243])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 03 Nov 2025 10:44:26 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 7644360371679395444
+EX-QQ-RecipientCnt: 4
+Date: Mon, 3 Nov 2025 10:44:25 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [RFC PATCH] riscv: dts: spacemit: initial i2c support for
+ OrangePi RV2
+Message-ID: <D8EC2D64D80DFAFE+aQgXCTbGv9o9t9IS@kernel.org>
+References: <20251025074514.642357-1-michael.opdenacker@rootcommit.com>
+ <52bf454f-424a-4824-a3fe-339d411bd664@rootcommit.com>
+ <4544207DE7959B10+aP7Ieuaw16uArne_@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20251103-k1-ethernet-remove-fc-v3-1-2083770cd282@iscas.ac.cn>
-X-B4-Tracking: v=1; b=H4sIAEgNCGkC/4WOwWrDMBBEf8Xo3DVaOVbVnPIfIQV5ta5FsZ1Ii
- mgw/vcKtVB6KGVPszvzdjYROXiO4thsInD20a9LEd1TI2iyyxuDd0ULJVWPskN4R+A0cVg4QeB
- 5zQwjgVGj08/OmBerRcleA4/+o3LPoljF5WsZ+HYvP9L3ZbCRgdZ59unYZN2igUD4uu3VP/mY1
- vCo3TLWwD81MkIZy92ITvfS0MlHsrG11NJSmVn9cFD+yVGFI/FgqRtIGcm/Ofu+fwIVhXGVOQE
- AAA==
-X-Change-ID: 20251031-k1-ethernet-remove-fc-82fd67d889a6
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Yixun Lan <dlan@gentoo.org>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
- Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-CM-TRANSID: zQCowAD3oO9JDQhpJTImAQ--.23894S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ur13Zr1rKw1DJFy5Ar15CFg_yoW8uw1fpF
-	WUZa93Ww17Jr4rKFs7tw4xZFy5Jayftr1Uua1akw4rZa4aya4UCFyFkFW3Cr18ZFW5CrWa
-	gw4jv3WfCF1DArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26F
-	4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
-	7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r
-	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
-	628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
-	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
-	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
-	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
-	BIdaVFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-Originating-IP: [114.241.85.109]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+Content-Disposition: inline
+In-Reply-To: <4544207DE7959B10+aP7Ieuaw16uArne_@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251102_180311_734772_9A9F0B8D 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20251102_184503_292389_886B64E6 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,67 +73,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, emac_set_pauseparam() will oops if userspace calls it while
-the interface is not up, because phydev is NULL, but it is still
-accessed in emac_set_fc() and emac_set_fc_autoneg().
-
-Check for netif_running(dev) in emac_set_pauseparam() before proceeding.
-
-Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
----
-This more urgent problem was discovered while trying to fix
-emac_set_pauseparam() (v1 of that has already been sent to the mailing
-lists [1], but it was still bad), so I decided to send this patch for
-the net tree now so that this oops will not happen on 6.18. A future
-version of the proper flow control implementation will be sent to
-net-next.
-
-[1]: https://lore.kernel.org/spacemit/20251030-k1-ethernet-fix-autoneg-v1-1-baa572607ccc@iscas.ac.cn
----
-Changes in v3:
-- Check netif_running() instead (Andrew)
-- Add back blurb about the attempt to fix flow control for context
-- Link to v2: https://lore.kernel.org/r/20251101-k1-ethernet-remove-fc-v2-1-014ac3bc280e@iscas.ac.cn
-
-Changes in v2:
-- Reduced patch to only contain checking IFF_UP to avoid the oops. More
-  invasive changes will be sent to net-next in the future. (Andrew)
-- Link to v1: https://lore.kernel.org/r/20251031-k1-ethernet-remove-fc-v1-1-1ae3f1d6508c@iscas.ac.cn
----
- drivers/net/ethernet/spacemit/k1_emac.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-index e1c5faff3b71..220eb5ce7583 100644
---- a/drivers/net/ethernet/spacemit/k1_emac.c
-+++ b/drivers/net/ethernet/spacemit/k1_emac.c
-@@ -1441,6 +1441,9 @@ static int emac_set_pauseparam(struct net_device *dev,
- 	struct emac_priv *priv = netdev_priv(dev);
- 	u8 fc = 0;
- 
-+	if (!netif_running(dev))
-+		return -ENETDOWN;
-+
- 	priv->flow_control_autoneg = pause->autoneg;
- 
- 	if (pause->autoneg) {
-
----
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-change-id: 20251031-k1-ethernet-remove-fc-82fd67d889a6
-
-Best regards,
--- 
-Vivian "dramforever" Wang
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBPY3QgMjcsIDIwMjUgYXQgMDk6MTg6NTBBTSArMDgwMCwgVHJveSBNaXRjaGVsbCB3
+cm90ZToKPiBPbiBTYXQsIE9jdCAyNSwgMjAyNSBhdCAwNzo0ODo0NUFNICswMDAwLCBNaWNoYWVs
+IE9wZGVuYWNrZXIgd3JvdGU6Cj4gPiBHcmVldGluZ3MsCj4gPiAKPiA+IE9uIDEwLzI1LzI1IDA5
+OjQ1LCBtaWNoYWVsLm9wZGVuYWNrZXJAcm9vdGNvbW1pdC5jb20gd3JvdGU6Cj4gPiA+IEZyb206
+IE1pY2hhZWwgT3BkZW5hY2tlciA8bWljaGFlbC5vcGRlbmFja2VyQHJvb3Rjb21taXQuY29tPgo+
+IFsuLi5dCj4gPiA+ICsmaTJjMiB7Cj4gPiA+ICsJcGluY3RybC0wID0gPCZpMmMyXzBfY2ZnPjsK
+PiA+ID4gKwlwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+ID4gPiArCXN0YXR1cyA9ICJva2F5
+IjsKPiA+ID4gK307Cj4gPiA+ICsKPiA+ID4gKyZpMmM4IHsKPiA+ID4gKwlwaW5jdHJsLTAgPSA8
+JmkyYzhfY2ZnPjsKPiA+ID4gKwlwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+ID4gPiArCXN0
+YXR1cyA9ICJva2F5IjsKPiA+ID4gK307Cj4gPiA+ICsKPiA+ID4gICAmcGRtYSB7Cj4gPiA+ICAg
+CXN0YXR1cyA9ICJva2F5IjsKPiA+ID4gICB9Owo+ID4gCj4gPiAKPiA+IFVuZm9ydHVuYXRlbHks
+IHRoZXNlIGNoYW5nZXMgYXJlIG5vdCBmdW5jdGlvbmFsIHlldCBvbiBPcmFuZ2VQaSBSVjIsIHRl
+c3RpbmcKPiA+IG9uIGh0dHBzOi8vZ2l0aHViLmNvbS9zcGFjZW1pdC1jb20vbGludXgvY29tbWl0
+cy9rMS9kdC1mb3ItbmV4dAo+ID4gCj4gPiAjIGkyY2RldGVjdCAtciAyCj4gPiBXQVJOSU5HISBU
+aGlzIHByb2dyYW0gY2FuIGNvbmZ1c2UgeW91ciBJMkMgYnVzLCBjYXVzZSBkYXRhIGxvc3MgYW5k
+IHdvcnNlIQo+ID4gSSB3aWxsIHByb2JlIGZpbGUgL2Rldi9pMmMtMiB1c2luZyByZWNlaXZlIGJ5
+dGUgY29tbWFuZHMuCj4gPiBJIHdpbGwgcHJvYmUgYWRkcmVzcyByYW5nZSAweDA4LTB4NzcuCj4g
+PiBDb250aW51ZT8gW1kvbl0KPiA+IMKgIMKgIMKgMMKgIDHCoCAywqAgM8KgIDTCoCA1wqAgNsKg
+IDfCoCA4wqAgOcKgIGHCoCBiwqAgY8KgIGTCoCBlwqAgZgo+ID4gMDA6wqAgwqAgwqAgwqAgW8Kg
+IDEyNC42NzUzMjFdIGkyYy1rMSBkNDAxMjAwMC5pMmM6IGkyYyB0cmFuc2ZlciBmYWlsZWQsIHJl
+dCAtMTEKPiA+IGVyciAweDQwMDAwMApJIHJlY2FsbCB0aGF0IHRoZSBQTUlDIHNvbWV0aW1lcyBy
+ZXBvcnRzIEkyQyB0aW1lb3V0cy4KQ291bGQgeW91IHBsZWFzZSBjb25maXJtIGlmIHlvdeKAmXJl
+IHNlZWluZyB0aGlzIGlzc3VlIG9uIHlvdXIgc2lkZT8KSWYgc28sIGRvZXMgaXQgc3RpbGwgb2Nj
+dXIgd2hlbiB1c2luZyBteSBicmFuY2g/CgpUaGFua3MhCgogICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgLSBUcm95CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
