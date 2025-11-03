@@ -4,107 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40135CCF9FE
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Nov 2025 14:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C8FCCF9F8
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Nov 2025 15:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DfdAbEyiTrb7x+bAWmZ5xfDRiAKcHA1A4N7wXE1A8vw=; b=qFbFKpRuLm2b5V
-	7MCZgvX5R0q/ul8+En4JYPxPjAe5LFey5FavZlhizfBlk7ljuKdFfX3i+DHM0rTDokZmR5oXxgLNm
-	Y8ixiYw2eMEW9zpOHPqPAaqoH/Wu5SAbna0b8aV22WxO9aAOrIEGQaf+2wb3JKZ4Gg0LKfGPts04m
-	WskMOIsBhoHOd3Pp3/aP2azHrps+tg5YaxRtwifRhAG0ktX0fbkswRhNaLupYFOM1rkfIAI1FCbJ+
-	otv5kZog7NcfGQB/TTjuHvZcc1cdxeUGtzO6d5RP4ug9v55LFBO957LfAUgtSUvSZ/lbzQzNraYvz
-	3uSAffwDA+zGDAZGbR1A==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
+	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LZn99B6CKWY9hMRbol4PuwY8J/au4shGfUfzuQZj3k4=; b=G5xHJDBxUn3HKG
+	cYjq0ceVMBkdbv0ySQuWFKKqPbqxaScRDgkZ0siHltdPt6HJu8YJQma8ieccd9ZwgFsJguodpki2I
+	MFGfhEr9VXsDGZyQMfueH85DvbiD5hjWfeXxYf+lch/QPgBEB/fjHk/gDEr314hn4tYGyFNxhfB9c
+	NX7mRvncD/15OCnAkP+UZeUdf8C8jzRV3eEw+T2j9kMzGo2aBcCTmfC4aZUpS1AxSuUI3B9TDGDkY
+	6l3xQQz1uJ69PX1mDB5UvhHJSTiES609PpIFuJeYSoCmUsmZwOH+ZBDYFyaV097UHMAFtNyjAKTwi
+	4La3VnizWE5/rZ2SH5mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFw1H-0000000A4HM-2Ifs;
-	Mon, 03 Nov 2025 14:58:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vFw8L-0000000A4vf-0ufd;
+	Mon, 03 Nov 2025 15:06:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFw1F-0000000A4Fr-1Ddu
+	id 1vFw8J-0000000A4vF-2Qmp
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Nov 2025 14:58:54 +0000
+	Mon, 03 Nov 2025 15:06:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E24B940542;
-	Mon,  3 Nov 2025 14:58:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E28C4CEFD;
-	Mon,  3 Nov 2025 14:58:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ADBEC6013E;
+	Mon,  3 Nov 2025 15:06:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5616BC4CEE7;
+	Mon,  3 Nov 2025 15:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762181932;
-	bh=yI6U0Jbl9pQKGgh2f/PAc8LVsjIuSkug/TrTGbnqVXY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dypgTxmxmckjOltRAuSTiOfIncMClMLmauLx/hxIa3hGW/8oEBlmi+vTe/4n+t9qN
-	 XStoOc2/CEjPSoFGgpGStppODbO3doUYSjK3AsOZPXGGAskHrAorp7flUIJQovjE4T
-	 0EJgKhrtD8jgzravWG2J/XstHJmoolgDOoHCeZ4IKvf+W+7+efjo0bDRU5DFPB0sdv
-	 CjFIk79mrKnm7xDTLF6wbjtzu+k9Ocpfw/mEqhorAgf1rnl7EM2ekDXTFNkOyr7z+p
-	 1HjoTJGLZvGb4hl7wdQlf/v6w2UdtfjNLr3A9/4btFbMGyOLYTm/8ZT+CAwylgTGSH
-	 FG4wcFZxf2SQw==
-Message-ID: <d7fd8e66-6b38-4b07-a775-487005c1f63c@kernel.org>
-Date: Mon, 3 Nov 2025 15:58:48 +0100
+	s=k20201202; t=1762182370;
+	bh=baDm2VqEOdN0jCEUpzXO5wRW1mZqbENh2wIatZtOiw0=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=V0jXFkQgg79lri4jgYsr6IJS4cDNC+4iCc68w0O/pp9woomcRJxiDEMGvpo1hQmUR
+	 YPbfjuYCcbxwyeufHBCvq4In1xAgWZMzH//6kPA6RLjWOVXd+jvI+br0txPreWdh7C
+	 KRawP8fGjhYZepRnqBPwT5cZEOxvcMDRUBg9tk5CeCzSc745JYWP7Wgzr+UUEpVkO0
+	 YF1FlNnAFCItQCia2HdwlCOvmEPjezWpUAAMHRNsYVyvM832uMKd1pEKf5yF1Q6Z45
+	 nsUV6IH/pGJhpfg4/mi4I+eiNyT/EjiUUyehDeb8xkDmdua/hgcc07a2+EveFEK96b
+	 l+Dgkt07O2VFA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 465E3CCFA06;
+	Mon,  3 Nov 2025 15:06:10 +0000 (UTC)
+From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
+Date: Mon, 03 Nov 2025 16:05:48 +0100
+Subject: [PATCH] riscv: Update MIPS vendor id to 0x127.
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: defconfig: enable RESET_GPIO driver
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
- linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@bgdev.pl>
-References: <CGME20251103140639eucas1p2eed021e71c5f027bf324a9d038f7a9fa@eucas1p2.samsung.com>
- <20251103140630.2364367-1-m.szyprowski@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251103140630.2364367-1-m.szyprowski@samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_065853_380156_4527864D 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <20251103-mips-vendorid-v1-1-4fcb5f4d53fe@htecgroup.com>
+X-B4-Tracking: v=1; b=H4sIAMvECGkC/x2MQQqAIBBFryKzbkCNCLpKtJAcaxapKEgg3r2h1
+ eM9+L9DpcJUYVMdCjWunKKImRSct4sXIXtxsNouRs8GH84VG0WfCnv0QaIjgVlBNrlQ4Pf/248
+ xPmYzIjhfAAAA
+X-Change-ID: 20251031-mips-vendorid-df103aedf117
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Chao-ying Fu <cfu@wavecomp.com>, 
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762182369; l=1072;
+ i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
+ bh=3SOEHxo/iLuGukJm8WAmBVDY7Kaj7mnCfvYaKbPje/c=;
+ b=4Kkbdn4PPtXv972XSyF6kf21wrzTj1bJorDUmNmTyjB4IwTbb7oxuMvedD8ZLszZ2g9Nqoo7u
+ scJ+8ITMU60CBZIIxKx9oqKbZ2ibIQMpBlaBbdfTKqGsbYUHHuWe1DK
+X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
+ pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
+X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
+ with auth_id=476
+X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,30 +82,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: aleksa.paunovic@htecgroup.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/11/2025 15:06, Marek Szyprowski wrote:
-> Commit 25d4d4604d01 ("reset: always bail out on missing RESET_GPIO
-> driver") reworked GPIO-based reset controller initialization, so now
-> RESET_GPIO driver is required to properly instantiate MMC device for
-> most of WLAN and SDIO chips.
-> 
-> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+From: Chao-ying Fu <cfu@wavecomp.com>
 
-Please use patchset concept, so I won't have to send objections to every
-subsystem.
+[1] defines MIPS vendor id as 0x127.
 
-No, the 25d4d4604d01 commit is part of broken, non-bisectable patchset
-and alone breaks everyone which CANNOT be fixed with defconfig.
+[1] https://mips.com/wp-content/uploads/2025/06/P8700_Programmers_Reference_Manual_Rev1.84_5-31-2025.pdf
 
-All users are affected and that commit must be dropped. I am very
-surprised it was just merged without the rest.
+Fixes: a8fed1bc03ace27902338e4f0d318335883ac847 ("riscv: Add xmipsexectl as a vendor extension")
+Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+---
+ arch/riscv/include/asm/vendorid_list.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index 3b09874d7a6dfb8f8aa45b0be41c20711d539e78..55205f7938055ba2b744dba5118bba935bcac008 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -9,6 +9,6 @@
+ #define MICROCHIP_VENDOR_ID	0x029
+ #define SIFIVE_VENDOR_ID	0x489
+ #define THEAD_VENDOR_ID		0x5b7
+-#define MIPS_VENDOR_ID		0x722
++#define MIPS_VENDOR_ID		0x127
+ 
+ #endif
+
+---
+base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
+change-id: 20251031-mips-vendorid-df103aedf117
 
 Best regards,
-Krzysztof
+-- 
+Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+
 
 
 _______________________________________________
