@@ -4,146 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F05EACCFA03
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Nov 2025 08:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAF0CCFA03
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Nov 2025 08:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5v0Cv+CEhL8aco8tCvRY4Dbg73oqz29nmqG+zwdN7Ng=; b=kXw7UIGaA2oGdq
-	ArnsspwwldDGshX4JO0omunyc6kYUUH0CC+cDSKF26IBYQAIFXsRdxgrtobbBm/GQWhJeKfIvK21C
-	6K4RwTZtc++ZnXOX943xQJ9I4BVrU5ST4hLI5HdY/mXg78Lgk78S1z4JiscO/VPCdMnF1eYbyyg0F
-	myyX8PfDBOg2Fy+fhkYmHapsuKHBJvPPcGmPBbmeun7AQzGh0IBoTQT58xHAUaV0pQx+yiRhNbQnE
-	aDJDS6QtHkLeX7DcrxUcUwyjJN/LHrAyT9sKLZq4mwm1NSbmQb4W25kXbc+CfbPxNc30QuYjKFXvs
-	1vyXJm4YS/XZus7zIFyQ==;
+	List-Owner; bh=7W2zdN2cgRx5pBv9Zcs+Eq9xg3Fy3nxBg/IpMkvCsnI=; b=XfIufV5fapUns6
+	1uZHPyXS28UYgEDMFNx647EB52KO76ZFJ2k7zuh84jV/2GhCWpv7/iXjSDZPvQgJZT5ItHIQJbUQ9
+	FjbVI3cpWY0urxgoDrPZCLVyIj/bjkiKtbfsVXSnxo2aDy39Tz+ksek0XoKF0Yx4gz8PSjHF6z/Pi
+	A4hgiW+LaSEyejMNcn9M/swr35vfgTSNhiqTLAX7Rm8koNa08W3F0HL8wQfLNGMEMP6FL+TzdOx0z
+	tkzl3ky9Pwu3JiDgPI9+8pqxgNfeMQTLXmwexX2JkAx+mcqn5n6OcpbU1FubB96CrmPWte2CU/CG8
+	3P6v2cjnJVexb9uzbctg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFq0b-00000009R38-0drJ;
-	Mon, 03 Nov 2025 08:33:49 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1vFq4L-00000009RTT-3s5e;
+	Mon, 03 Nov 2025 08:37:41 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vFq0X-00000009R2b-2UYF;
-	Mon, 03 Nov 2025 08:33:47 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A2KFI8K004420;
-	Mon, 3 Nov 2025 08:32:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=6kvXeg
-	tnHGH2dvhngivPl8vSn9VVnbxianx2ml6At6Q=; b=SIJzn+1B6W9oM2eaoy/YHg
-	eBBigTFYyvOI9FqFVbAxNQBJk7OsJkIcL71Bfna6VZUkqh40c7GapUFYZ5iF8sRv
-	Gr8dTXMymRtZJ8s++yexWv1ij7wo6VYhShrZhVDq41yj75ph0JeGVCKADK/YHtTq
-	GX3MIMDZ/N5qqAEIbGF00Q5htF6MOC+XL4hF518BX18l+iJjxcQbmu4bDG1zmjC4
-	JaRrWPwAdwUgpIOYFdxBzdZMRCWUzsW/HgM451x3+JWx1KfcwQmlDNOkYt4NhTIW
-	gRD9YIaV0/uJm8zB4i1DBFMoHs18pKBmB/HXGu5E8lZ+lxXr3R2rXIwqr6iKj5Pg
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a59xbnkvs-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Nov 2025 08:32:27 +0000 (GMT)
-Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5A38WQmQ029518;
-	Mon, 3 Nov 2025 08:32:27 GMT
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a59xbnkvq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Nov 2025 08:32:26 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A34SfIE012891;
-	Mon, 3 Nov 2025 08:32:25 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4a5y81mbvw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Nov 2025 08:32:25 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A38WNYw44106174
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 3 Nov 2025 08:32:23 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C27F220040;
-	Mon,  3 Nov 2025 08:32:23 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 16F2220043;
-	Mon,  3 Nov 2025 08:32:13 +0000 (GMT)
-Received: from [9.109.215.252] (unknown [9.109.215.252])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  3 Nov 2025 08:32:12 +0000 (GMT)
-Message-ID: <dee4dc13-b187-42df-93ce-f738cfab32ea@linux.ibm.com>
-Date: Mon, 3 Nov 2025 14:02:11 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 23/29] context-tracking: Introduce work deferral
- infrastructure
+	id 1vFq4J-00000009RSN-2kmN
+	for linux-riscv@lists.infradead.org;
+	Mon, 03 Nov 2025 08:37:40 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-63ec651ba87so961188a12.2
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Nov 2025 00:37:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1762159057; x=1762763857; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/6+8IBdXCcTU6eZ4JMuY2we8/fQYN6+oBue210uWprk=;
+        b=KGLRGCr6hAYuitreTADyMcp5+eFvB+tXFyLH336hSHXQ3jyhAb9BsHBumOE7RAI+mK
+         O/Xm6siv88MQLxDuy/uXSsvoM8WpIXwHfy6ZjeS45ZXkk7on+rjjgugKukVsIyZ7j964
+         o4VLAc7MtCqPHQWKGho1h4oReP8qK8BrRFPNSnKQ+fTZUhhu03RJX3L8LEs5Qsv51R+o
+         ov5p3sJpqyz1rDX4m5IgUB3aNoXILeXjU1Fd6jVt/0ZTy7EfzkiTbBks7hhH/yqEFnlB
+         gsJEVsIs0EtmI4zLM8gUVUSDiN/5OK/2vDPA8kzyXuAj0MMKALaMTNPIbuA7z7lIS+l0
+         IqSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762159057; x=1762763857;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/6+8IBdXCcTU6eZ4JMuY2we8/fQYN6+oBue210uWprk=;
+        b=ANXUC4cczM/hYYVa/LBT+Lk74Ch5oUgyXo+n0TiNBQPqRgsYQxs81QV971O2KZZNIe
+         aD65hhSGTUjjMnUmno+qU/lzsoPfBynuJPcRXr+wg8faLC+EujpC4BccINzt0Ct0Lq7R
+         8EqRbqEaOmZZKy1w9wh0eemCreTEftRwxRVTttSNnDQSf9/qEa74wLPzdAqxQ0cOAKda
+         nv9IrYptAMdbshq7JKPGoOsWh6kXMjpDfmdmV4YXcNkc+Tr/Q9yjYyJQhJDVpNbfgRbn
+         fc8lQ9PNXTzTPke4MIBGr9tAeSicmp9izQxUUNkKHnz5rGUapMWObVUqj0xH9M5WKPLX
+         UoyA==
+X-Forwarded-Encrypted: i=1; AJvYcCVXFSFKRMujgWjLNbsY5bBSGcGNnFo6m5bOq/eDL8DRevzTU/KMGRsyNV4L2RZ+APe91VAXIFpCdmvf6w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YznCCFlhiIp9Eu+dKRGc08k0fdInpbo8iOj6pFyeoSKDYZwLzYg
+	rFa1Y6eN7FYVRO0Xk6Iw2+2U49rwzo5t8h6AQUH2a2hX6yHJki5M2/zHh+UMnkP0nbQ=
+X-Gm-Gg: ASbGnctFutVLpUuSZLflt2jfSDWBzAuZQJW7G0XVtMbVT5hv1DGc4UIpQK7CBjhtyMI
+	7DYdQyoKa5eSwoziFOzLLrxBzhBFXZp1ZdDPr8OLjV8NIzMCFO6hnKS7/1njWHNoCnVVcX4NMlg
+	wXpY5cAPAd/Sg0UhJ7DyKsgDlNmUXenwZEqfjq8ErZ1iIKJDY1DOyc3RN/l4KZAHou90gjWyziF
+	uCDI4IpqmZ3Tb7M/lnMVyFXoj7xH7lhDOXrDulwE03piGsxXECRFYadaDS7AdDNBhoEb0JKlYe/
+	rU+0GBKBtr+xTDwGL4ZF4iM18bHBEfAV1Vzw6Vkp/pbRWfmVc+cPGhP9TfYjlpzdW3CG0x18+Tt
+	kryXGkORs/jIb6n8IxB6AFkZf5F/mqNmYdZoAA0TIy4LmdnCtk5XBBbqb5zkoJRAvGJnpmsRZ02
+	T61XD6ghk0bp7toNNQr5Q7Fa6TApXxw7irhNJfHtQGcujRICqFbwxiHHVbKziYwAkwiCk6Hzfk7
+	XYs
+X-Google-Smtp-Source: AGHT+IEXAMzB4Q3iZseWqc5EI+3z01yD/lkzyZQiHdGqXZRiWGSYaalZ7FPGcsDnEnqBbvKYbK1akQ==
+X-Received: by 2002:a05:6402:27d3:b0:640:9eb3:3683 with SMTP id 4fb4d7f45d1cf-6409eb34460mr3244974a12.1.1762159057100;
+        Mon, 03 Nov 2025 00:37:37 -0800 (PST)
+Received: from mordecai (dynamic-2a00-1028-83b8-1e7a-3010-3bd6-8521-caf1.ipv6.o2.cz. [2a00:1028:83b8:1e7a:3010:3bd6:8521:caf1])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6407b428119sm9012005a12.24.2025.11.03.00.37.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Nov 2025 00:37:36 -0800 (PST)
+Date: Mon, 3 Nov 2025 09:37:28 +0100
+From: Petr Tesarik <ptesarik@suse.com>
 To: Valentin Schneider <vschneid@redhat.com>
-Cc: Nicolas Saenz Julienne <nsaenzju@redhat.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Arnaldo Carvalho de Melo <acme@kernel.org>,
-        Josh Poimboeuf <jpoimboe@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-        Frederic Weisbecker <frederic@kernel.org>,
-        "Paul E. McKenney" <paulmck@kernel.org>,
-        Jason Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>,
-        Ard Biesheuvel <ardb@kernel.org>,
-        Sami Tolvanen <samitolvanen@google.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-        Joel Fernandes <joelagnelf@nvidia.com>,
-        Josh Triplett
- <josh@joshtriplett.org>,
-        Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>,
-        Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-        Mel Gorman <mgorman@suse.de>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Masahiro Yamada <masahiroy@kernel.org>, Han Shen <shenhan@google.com>,
-        Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>,
-        Dan Carpenter <dan.carpenter@linaro.org>,
-        Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-        Clark Williams <williams@redhat.com>,
-        Yair Podemsky <ypodemsk@redhat.com>,
-        Marcelo Tosatti <mtosatti@redhat.com>, Daniel Wagner <dwagner@suse.de>,
-        Petr Tesarik <ptesarik@suse.com>, linux-kernel@vger.kernel.org,
-        linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
-        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-        linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-        linux-trace-kernel@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Josh
+ Poimboeuf <jpoimboe@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy
+ Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
+ <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron
+ <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel
+ <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, "David S.
+ Miller" <davem@davemloft.net>, Neeraj Upadhyay
+ <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
+ Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
+ Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>,
+ Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>, Jann Horn
+ <jannh@google.com>, Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov
+ <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>, Clark Williams
+ <williams@redhat.com>, Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti
+ <mtosatti@redhat.com>, Daniel Wagner <dwagner@suse.de>
+Subject: Re: [PATCH v6 06/29] static_call: Add read-only-after-init static
+ calls
+Message-ID: <20251103093728.031042d0@mordecai>
+In-Reply-To: <xhsmhqzujp9t3.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 References: <20251010153839.151763-1-vschneid@redhat.com>
- <20251010153839.151763-24-vschneid@redhat.com>
-Content-Language: en-US
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-In-Reply-To: <20251010153839.151763-24-vschneid@redhat.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAxMDAyMSBTYWx0ZWRfXyZF7uxWMbR9h
- eLK/nkDGQm3o/vMS6b4dMArF21TNJ6CaqoI+fi7VPIcu7OWjh13TfAaGOyTxh1gnwQIWiBKHjJa
- 4uMwIrzLslo+qUygbHd9488ZCjL6vK5iXuiWUNX6ThTOzJBP1PKCUz5zZmvloNgyToR45jE2irN
- a4EYP7E5d99vyLe0EnPUaY+AWXCKsxBO2ENMsQJ0K7+9kC0+hwsMybY4fCkeMcwmUxF0SvKxntf
- G1Y18toiIF/maL5RFi7povbdJ4FJNPvHT8auC2LdGyFW5VpJAL0soYtskChjteGM2wfpc+kcC7y
- KDSiIb0W+R7wCTgyXcXkjXUndM3ScPyUHlasPD5janXDgGwLZxidSrdWYD0Sch6Yd3oNTOJv1+T
- flE5Wy2KQc8LqVOKJgn3Dc1iG4Hf4Q==
-X-Proofpoint-GUID: U84lOeDC5Q0AhrPIqcAHknHeCkhsE8rA
-X-Authority-Analysis: v=2.4 cv=OdCVzxTY c=1 sm=1 tr=0 ts=6908689b cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=JfrnYn6hAAAA:8 a=20KFwNOVAAAA:8 a=e3ynTO8eh5RAdg4_BR0A:9
- a=QEXdDO2ut3YA:10 a=1CNFftbPRP8L7MoqJWF3:22 a=UhEZJTgQB8St2RibIkdl:22
- a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=QOGEsqRv6VhmHaoFNykA:22
-X-Proofpoint-ORIG-GUID: Yw4-ly9gm_lGmLrDsIj0uqTuFktFQQKI
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-02_02,2025-10-29_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 spamscore=0 suspectscore=0 impostorscore=0
- lowpriorityscore=0 priorityscore=1501 clxscore=1011 phishscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511010021
+	<20251010153839.151763-7-vschneid@redhat.com>
+	<20251030112251.5afcf9ed@mordecai>
+	<xhsmhqzujp9t3.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.50; x86_64-suse-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_003345_653175_F89C83C2 
-X-CRM114-Status: GOOD (  30.60  )
+X-CRM114-CacheID: sfid-20251103_003739_721825_00E3CC1F 
+X-CRM114-Status: GOOD (  37.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,105 +122,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Valentin.
+On Fri, 31 Oct 2025 12:52:56 +0100
+Valentin Schneider <vschneid@redhat.com> wrote:
 
-On 10/10/25 9:08 PM, Valentin Schneider wrote:
-> smp_call_function() & friends have the unfortunate habit of sending IPIs to
-> isolated, NOHZ_FULL, in-userspace CPUs, as they blindly target all online
-> CPUs.
+> On 30/10/25 11:25, Petr Tesarik wrote:
+> > On Fri, 10 Oct 2025 17:38:16 +0200
+> > Valentin Schneider <vschneid@redhat.com> wrote:
+> >  
+> >> From: Josh Poimboeuf <jpoimboe@kernel.org>
+> >>
+> >> Deferring a code patching IPI is unsafe if the patched code is in a
+> >> noinstr region.  In that case the text poke code must trigger an
+> >> immediate IPI to all CPUs, which can rudely interrupt an isolated NO_HZ
+> >> CPU running in userspace.
+> >>
+> >> If a noinstr static call only needs to be patched during boot, its key
+> >> can be made ro-after-init to ensure it will never be patched at runtime.
+> >>
+> >> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+> >> ---
+> >>  include/linux/static_call.h | 16 ++++++++++++++++
+> >>  1 file changed, 16 insertions(+)
+> >>
+> >> diff --git a/include/linux/static_call.h b/include/linux/static_call.h
+> >> index 78a77a4ae0ea8..ea6ca57e2a829 100644
+> >> --- a/include/linux/static_call.h
+> >> +++ b/include/linux/static_call.h
+> >> @@ -192,6 +192,14 @@ extern long __static_call_return0(void);
+> >>      };								\
+> >>      ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
+> >>
+> >> +#define DEFINE_STATIC_CALL_RO(name, _func)				\
+> >> +	DECLARE_STATIC_CALL(name, _func);				\
+> >> +	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
+> >> +		.func = _func,						\
+> >> +		.type = 1,						\
+> >> +	};								\
+> >> +	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
+> >> +
+> >>  #define DEFINE_STATIC_CALL_NULL(name, _func)				\
+> >>      DECLARE_STATIC_CALL(name, _func);				\
+> >>      struct static_call_key STATIC_CALL_KEY(name) = {		\
+> >> @@ -200,6 +208,14 @@ extern long __static_call_return0(void);
+> >>      };								\
+> >>      ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
+> >>
+> >> +#define DEFINE_STATIC_CALL_NULL_RO(name, _func)				\
+> >> +	DECLARE_STATIC_CALL(name, _func);				\
+> >> +	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
+> >> +		.func = NULL,						\
+> >> +		.type = 1,						\
+> >> +	};								\
+> >> +	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
+> >> +  
+> >
+> > I think it would be a good idea to add a comment describing when these
+> > macros are supposed to be used, similar to the explanation you wrote for
+> > the _NOINSTR variants. Just to provide a clue for people adding a new
+> > static key in the future, because the commit message may become a bit
+> > hard to find if there are a few cleanup patches on top.
+> >  
 > 
-> Some callsites can be bent into doing the right, such as done by commit:
+> I was about to write such a comment but I had another take; The _NOINSTR
+> static key helpers are special and only relevant to IPI deferral; whereas
+> the _RO helpers actually change the backing storage for the keys and as a
+> bonus are used by the IPI deferral instrumentation.
 > 
->    cc9e303c91f5 ("x86/cpu: Disable frequency requests via aperfmperf IPI for nohz_full CPUs")
+> IMO it's the same here for the static calls, it makes sense to mark the
+> relevant ones as _RO regardless of IPI deferral.
 > 
-> Unfortunately, not all SMP callbacks can be omitted in this
-> fashion. However, some of them only affect execution in kernelspace, which
-> means they don't have to be executed *immediately* if the target CPU is in
-> userspace: stashing the callback and executing it upon the next kernel entry
-> would suffice. x86 kernel instruction patching or kernel TLB invalidation
-> are prime examples of it.
+> I could however add a comment to ANNOTATE_NOINSTR_ALLOWED() itself,
+> something like:
 > 
-> Reduce the RCU dynticks counter width to free up some bits to be used as a
-> deferred callback bitmask. Add some build-time checks to validate that
-> setup.
-> 
-> Presence of CT_RCU_WATCHING in the ct_state prevents queuing deferred work.
-> 
-> Later commits introduce the bit:callback mappings.
-> 
-> Link: https://lore.kernel.org/all/20210929151723.162004989@infradead.org/
-> Signed-off-by: Nicolas Saenz Julienne <nsaenzju@redhat.com>
-> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
-> ---
->   arch/Kconfig                                 |  9 +++
->   arch/x86/Kconfig                             |  1 +
->   arch/x86/include/asm/context_tracking_work.h | 16 +++++
->   include/linux/context_tracking.h             | 21 ++++++
->   include/linux/context_tracking_state.h       | 30 ++++++---
->   include/linux/context_tracking_work.h        | 26 ++++++++
->   kernel/context_tracking.c                    | 69 +++++++++++++++++++-
->   kernel/time/Kconfig                          |  5 ++
->   8 files changed, 165 insertions(+), 12 deletions(-)
->   create mode 100644 arch/x86/include/asm/context_tracking_work.h
->   create mode 100644 include/linux/context_tracking_work.h
-> 
-> diff --git a/include/linux/context_tracking_work.h b/include/linux/context_tracking_work.h
-> new file mode 100644
-> index 0000000000000..c68245f8d77c5
-> --- /dev/null
-> +++ b/include/linux/context_tracking_work.h
-> @@ -0,0 +1,26 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _LINUX_CONTEXT_TRACKING_WORK_H
-> +#define _LINUX_CONTEXT_TRACKING_WORK_H
-> +
-> +#include <linux/bitops.h>
-> +
-> +enum {
-> +	CT_WORK_n_OFFSET,
-> +	CT_WORK_MAX_OFFSET
-> +};
-> +
-> +enum ct_work {
-> +	CT_WORK_n        = BIT(CT_WORK_n_OFFSET),
-> +	CT_WORK_MAX      = BIT(CT_WORK_MAX_OFFSET)
-> +};
-> +
-> +#include <asm/context_tracking_work.h>
-> +
+> ```
+> /*
+>  * This is used to tell objtool that a given static key is safe to be used
+>  * within .noinstr code, and it doesn't need to generate a warning about it.
+>  *
+>  * For more information, see tools/objtool/Documentation/objtool.txt,
+>  * "non-RO static key usage in noinstr code"
+>  */
+> #define ANNOTATE_NOINSTR_ALLOWED(key) __ANNOTATE_NOINSTR_ALLOWED(key)
+> ```
 
-It fails to compile on powerpc (likey any arch other than x86)
+I agree, this makes more sense. Thank you!
 
-In file included from ./include/linux/context_tracking_state.h:8,
-                  from ./include/linux/hardirq.h:5,
-                  from ./include/linux/interrupt.h:11,
-                  from ./include/linux/kernel_stat.h:8,
-                  from ./include/linux/cgroup.h:27,
-                  from ./include/linux/memcontrol.h:13,
-                  from ./include/linux/swap.h:9,
-                  from ./include/linux/suspend.h:5,
-                  from arch/powerpc/kernel/asm-offsets.c:21:
-./include/linux/context_tracking_work.h:17:10: fatal error: 
-asm/context_tracking_work.h: No such file or directory
-    17 | #include <asm/context_tracking_work.h>
-       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Gating works for compile, but no benefit of the series.
-
-+#ifdef HAVE_CONTEXT_TRACKING_WORK
-  #include <asm/context_tracking_work.h>
-+#endif
-
-
-I have been trying to debug/understand the issue seen with isolcpus= and
-nohz_full=. system is idle, even then it occasionally woken up to do 
-some work. So I was interesting if this series can help.
+Petr T
 
 _______________________________________________
 linux-riscv mailing list
