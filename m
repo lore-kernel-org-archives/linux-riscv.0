@@ -4,113 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FF7CCFA03
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Nov 2025 20:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E30CCF9F8
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Nov 2025 22:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NHX1q3bWUzMInpbJ7M5CJUKge35/z09Z3xCV56nnIug=; b=eiMM++aPLDyWUvvznksDTiBIs+
-	3hvJvhPbRiJ6GVYaCjnfXzdvnLXG4YX78qNcWvMS2VlNkDTR/oPaH5iy5QUJs6LpqpUCRD5pIqc0l
-	txxJA+0SkuqNoB0EBWuHCES50yFV2wiTWFdJY8PbOzNgsg0jX1fj+Jkz3jR5KYbhQ48z2BOQ33wi0
-	3A0gCQz7Y0ncs3nC2nz2PK66c8RJMQ6FQRi/CJ/EecumbpxG8QIEoJYro0xiD//OBkGGmCxaxtUAA
-	XxXwdnQzjW6G0F7ivRhfilVMlmtNS4PGXliho4Z/3EOCEwmYDEkExq8PC6VcQPZcDKRWFKWgZXbPM
-	wsgknZfg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SuiEq8BfL/so/T/2PEsY0h0010TI5pWb7aNJ0H/i6uo=; b=qZYNtrliro9zS/zCcxnnUIiqY4
+	PVeQcufngIKjmWO3y0//VVFibiUVl6lcuHeVjXKrHjjD9ewl6eJ05wCzqOeBz0wmpu+doxLUZfUbj
+	Ca4Ipchb00h/jGqSf1GW8r3plCjqoqkmVjlqRlDKN94AdALdutbtbN3QqUr9jvey7kAyzQaEXo4z4
+	SXv0/HCiXABzuphxxtJAcgSY8tixQbhQDD0dLbDKWxrY7sqmSxCD2ZDn3sFtRllBJMlCQGiOLzM+8
+	KnFEOxq4EhHR3utDPfqDq1ARU30QPpeHG1aCyL8icWfF5viPTyg7fxm6WISck4ke9grm1C/8OBvA4
+	RcAgNXjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG1WP-0000000AcQG-3cpW;
-	Mon, 03 Nov 2025 20:51:25 +0000
-Received: from iguana.tulip.relay.mailchannels.net ([23.83.218.253])
+	id 1vG2iT-0000000Agz9-2dSD;
+	Mon, 03 Nov 2025 22:07:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG1WN-0000000AcPj-0iOO
+	id 1vG2iS-0000000Agz3-05XY
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Nov 2025 20:51:24 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 7FB846C0176;
-	Mon, 03 Nov 2025 20:51:15 +0000 (UTC)
-Received: from fr-int-smtpout28.hostinger.io (trex-green-8.trex.outbound.svc.cluster.local [100.123.122.56])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 5392B6C2A7B;
-	Mon, 03 Nov 2025 20:51:14 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1762203075; a=rsa-sha256;
-	cv=none;
-	b=6gtB/XMHsYvO6fP5W2VC98bV7XtfLz4fyXvGKv/NA2qbUozgkreQDgoeskP0VeNZoNy23n
-	9+s2SSMfml6vso4KkVFoHukDKtFW54ItaapLoS5W/JSmDHLNnWZeFGZRMTOLpwqtmZ/2dk
-	OHuddjbiKI6FvL9vRWiPAHsA1g1w8PsRLc6G9BApfAPHiF4Etdon6ZLSrTynhh77MN4AI6
-	cpsVbU5jlRMekI+5Z7jXUo35CJ6VmO5aOnPAkJR3crrL66fVTdw18BV8FjQ238BaZcy1Bh
-	w1Xt3lwgVWahNaUrKG67UKTQ1+nOl4r+XBJVJ3QWmBxVMuyHOvP+97oB+wXzwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1762203075;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=BN1E+bNOPGkOUKtyobMs/wo8d2QpDKee5w7CGY8kmTg=;
-	b=KyAS/2RrGlKUJDAyndK8IiOHwMRkWUpu1swN2r66uiluT43Kz1ahwXtlAFlmcsSPxgZCMs
-	2T0kaFEV1BQ7oGyCP1+M336soHFzOrmG/OuIYkgONzo74cGEzfW4m9zObF6yVFCqYXGD5j
-	4ljidXLInq+BMz6z/KAsHhAiWOuRyPvYbMRuCaQd9pK2A9l8DuFllPMqmiuR32EMSh7dxA
-	OfLkrpvTBozmkK7/dtMOiEyKrkwgUCbiufS3T0gO8pdspTnowRxRnALTw6f6OlqdOb2SmE
-	mHb/SEHtr4iX+ND7BTPmw2hDOc3gNRdengUvqrF0eLigXblSMALhrEzFPC++fA==
-ARC-Authentication-Results: i=1;
-	rspamd-77bb85d8d5-4b6h5;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Attack-Wipe: 291948b0682b543e_1762203075221_2281779579
-X-MC-Loop-Signature: 1762203075221:3538348875
-X-MC-Ingress-Time: 1762203075221
-Received: from fr-int-smtpout28.hostinger.io (fr-int-smtpout28.hostinger.io
- [148.222.54.10])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.123.122.56 (trex/7.1.3);
-	Mon, 03 Nov 2025 20:51:15 +0000
-Received: from [172.20.71.102] (93-46-206-37.ip109.fastwebnet.it [93.46.206.37])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d0kJb6D9Xz31H7;
-	Mon,  3 Nov 2025 20:51:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1762203072;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BN1E+bNOPGkOUKtyobMs/wo8d2QpDKee5w7CGY8kmTg=;
-	b=bIcpagrhlaVbcXRnoe34HB8DQ6jbKt1FDRu0HVtyp1Ewaq/oDY8elTSJVd2HJr6iKp3t8v
-	ufx8mFA8mfRHr5+bfeDcIOHmgGXq8ijTm3D/ie5li7M+scVG/ukKBRAnjQ5X3M7zHOV9wH
-	RNKLk0YgHOEmhvu6N4lNUHvB2T2eKvJbBOUEdxiyzAtKewHK/4m8DEPp1gjQXR58qXMTAU
-	fjQrpcE3bGkWLFtv2XvmMU756V3KhvZF8bv5D3qWnSSDIeTGR6TKWmJ7M2I0+onxDSoTzK
-	jKMWno4hQrjVA/4SeC77gNnBLrbCL2sV1NJjb+o4hbY50ll1NwebFlt8s62BYA==
-Message-ID: <40d90aa9-4ab2-4d8c-939d-337e63179515@rootcommit.com>
+	Mon, 03 Nov 2025 22:07:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 11B14601D9;
+	Mon,  3 Nov 2025 22:07:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7E24C116B1;
+	Mon,  3 Nov 2025 22:07:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762207674;
+	bh=2DR7h+1jxsdywkQTNzsrebtck92hsKLGJI+1GUT8xto=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=h/UxAeHxkkfLb4MJdoxgpKHvncKyituzo9p2J2gz5bGXH2TuiKOkibybomTU0KeAc
+	 Lca624f3aSpgMgFq1LfaJZTthMyQilJAh7QJO1yLKL5Yqv0Ndt4UUa8xOkWWqJZdUr
+	 m+1jlvywuk/r+m3y7J1CMUVDVQtQuyZE5caTXekv1F+5IsUu+jjZ32G3DWochqPtdH
+	 BKjvZSZZPguS+vdaB9VR9NoPMI0wJjDlDx3AmNoe+6CMCh5D/lVpHtLvCmpAiUQ7zF
+	 nPzPArA67JVSm0UadefMUjxhIrXSVn03zbfnjdiGXNJPl0A5cgEV42a0Uf4UQtybBR
+	 f2PY9UNgTujfQ==
+Date: Mon, 3 Nov 2025 22:07:50 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Djordje Todorovic <djordje.todorovic@htecgroup.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Chao-ying Fu <cfu@wavecomp.com>
+Subject: Re: [PATCH] riscv: Update MIPS vendor id to 0x127.
+Message-ID: <20251103-tabby-laurel-bc895f236a69@spud>
+References: <20251103-mips-vendorid-v1-1-4fcb5f4d53fe@htecgroup.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com
-Subject: Re: [RFC PATCH] riscv: dts: spacemit: initial i2c support for
- OrangePi RV2
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-References: <20251025074514.642357-1-michael.opdenacker@rootcommit.com>
- <52bf454f-424a-4824-a3fe-339d411bd664@rootcommit.com>
- <4544207DE7959B10+aP7Ieuaw16uArne_@kernel.org>
- <D8EC2D64D80DFAFE+aQgXCTbGv9o9t9IS@kernel.org>
-Content-Language: en-US
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Organization: Root Commit
-In-Reply-To: <D8EC2D64D80DFAFE+aQgXCTbGv9o9t9IS@kernel.org>
-Date: Mon,  3 Nov 2025 20:51:11 +0000 (UTC)
-X-CM-Analysis: v=2.4 cv=GbNFnhXL c=1 sm=1 tr=0 ts=690915c0 a=4YLbAjK1KvTCq7jIiv2jOw==:117 a=4YLbAjK1KvTCq7jIiv2jOw==:17 a=IkcTkHD0fZMA:10 a=NEAV23lmAAAA:8 a=d70CFdQeAAAA:8 a=ns0OWjIUjD52wNEF5mYA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
-X-CM-Envelope: MS4xfFNUVeAk1COLrQEIxgkDEsA67G4T0AWfHChZDjJtrd+1qHJfe0zhHlthOtQujIv0302NmhFRhFTjB6FsvhX90WktgrV7gt1wATYTUziJxl21G9/nd79w +wqIJp0EsQHgSzruSS0Gej1zeYYHxEUj0Ug04fSOZPo7X/i9KF8eZvpwYS+Y6etI+oATsGDqSBSjMrp1d4lhbCsN9MmjfN/C4cgaRvrEjTz35UwnGHerYinc PzGV6Xm2bVYdoAtJ6LtPUme8kwrJtOv9Poz/unZMLzJtKdzeTo41kQk3udV2UiJm+Qmuqr3GfvJIPew1RXWUfTOTzsG+9dvvllPKqPKcuyxvBhJCyOCqPeX1 GqCYpK/C
-X-AuthUser: michael.opdenacker@rootcommit.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_125123_488753_C11B065F 
-X-CRM114-Status: UNSURE (   7.26  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251103-mips-vendorid-v1-1-4fcb5f4d53fe@htecgroup.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,30 +66,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============8498859449688267940=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVHJveSwKCk9uIDExLzMvMjUgMDM6NDQsIFRyb3kgTWl0Y2hlbGwgd3JvdGU6Cj4+PiBVbmZv
-cnR1bmF0ZWx5LCB0aGVzZSBjaGFuZ2VzIGFyZSBub3QgZnVuY3Rpb25hbCB5ZXQgb24gT3Jhbmdl
-UGkgUlYyLCB0ZXN0aW5nCj4+PiBvbiBodHRwczovL2dpdGh1Yi5jb20vc3BhY2VtaXQtY29tL2xp
-bnV4L2NvbW1pdHMvazEvZHQtZm9yLW5leHQKPj4+Cj4+PiAjIGkyY2RldGVjdCAtciAyCj4+PiBX
-QVJOSU5HISBUaGlzIHByb2dyYW0gY2FuIGNvbmZ1c2UgeW91ciBJMkMgYnVzLCBjYXVzZSBkYXRh
-IGxvc3MgYW5kIHdvcnNlIQo+Pj4gSSB3aWxsIHByb2JlIGZpbGUgL2Rldi9pMmMtMiB1c2luZyBy
-ZWNlaXZlIGJ5dGUgY29tbWFuZHMuCj4+PiBJIHdpbGwgcHJvYmUgYWRkcmVzcyByYW5nZSAweDA4
-LTB4NzcuCj4+PiBDb250aW51ZT8gW1kvbl0KPj4+ICDCoCDCoCDCoDDCoCAxwqAgMsKgIDPCoCA0
-wqAgNcKgIDbCoCA3wqAgOMKgIDnCoCBhwqAgYsKgIGPCoCBkwqAgZcKgIGYKPj4+IDAwOsKgIMKg
-IMKgIMKgIFvCoCAxMjQuNjc1MzIxXSBpMmMtazEgZDQwMTIwMDAuaTJjOiBpMmMgdHJhbnNmZXIg
-ZmFpbGVkLCByZXQgLTExCj4+PiBlcnIgMHg0MDAwMDAKPiBJIHJlY2FsbCB0aGF0IHRoZSBQTUlD
-IHNvbWV0aW1lcyByZXBvcnRzIEkyQyB0aW1lb3V0cy4KPiBDb3VsZCB5b3UgcGxlYXNlIGNvbmZp
-cm0gaWYgeW914oCZcmUgc2VlaW5nIHRoaXMgaXNzdWUgb24geW91ciBzaWRlPwo+IElmIHNvLCBk
-b2VzIGl0IHN0aWxsIG9jY3VyIHdoZW4gdXNpbmcgbXkgYnJhbmNoPwpVbmZvcnR1bmF0ZWx5LCBJ
-IGNhbid0IHRyeSBhdCB0aGUgbW9tZW50LCBub3QgaGF2aW5nIHRoZSBib2FyZCB0aGlzIAp3ZWVr
-LiBJJ2xsIGJlIGFibGUgdG8gdGVzdCBhZ2FpbiBuZXh0IHdlZWstZW5kLiBIb3dldmVyLCBJIGRv
-bid0IApyZW1lbWJlciBoYXZpbmcgaXQgd2l0aCB5b3VyIGNoYW5nZXMuCkNoZWVycwpNaWNoYWVs
-LgotLSAKCk1pY2hhZWwgT3BkZW5hY2tlcgpSb290IENvbW1pdApFbWJlZGRlZCBMaW51eCBUcmFp
-bmluZyBhbmQgQ29uc3VsdGluZwpodHRwczovL3Jvb3Rjb21taXQuY29tCgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============8498859449688267940==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="XT64vcUASahEeAk1"
+Content-Disposition: inline
+
+
+--XT64vcUASahEeAk1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Nov 03, 2025 at 04:05:48PM +0100, Aleksa Paunovic wrote:
+> From: Chao-ying Fu <cfu@wavecomp.com>
+>=20
+> [1] defines MIPS vendor id as 0x127.
+>=20
+> [1] https://mips.com/wp-content/uploads/2025/06/P8700_Programmers_Referen=
+ce_Manual_Rev1.84_5-31-2025.pdf
+>=20
+> Fixes: a8fed1bc03ace27902338e4f0d318335883ac847 ("riscv: Add xmipsexectl =
+as a vendor extension")
+
+Incorrect format for fixes tags!
+
+> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+> ---
+>  arch/riscv/include/asm/vendorid_list.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/=
+asm/vendorid_list.h
+> index 3b09874d7a6dfb8f8aa45b0be41c20711d539e78..55205f7938055ba2b744dba51=
+18bba935bcac008 100644
+> --- a/arch/riscv/include/asm/vendorid_list.h
+> +++ b/arch/riscv/include/asm/vendorid_list.h
+> @@ -9,6 +9,6 @@
+>  #define MICROCHIP_VENDOR_ID	0x029
+>  #define SIFIVE_VENDOR_ID	0x489
+>  #define THEAD_VENDOR_ID		0x5b7
+> -#define MIPS_VENDOR_ID		0x722
+> +#define MIPS_VENDOR_ID		0x127
+
+How was this ever wrong? Do devices exist with this old ID? Do we need
+to support both as vendor IDs for MIPS?
+Also, this was added in the wrong point in the list (it's meant to be
+alphanumeric order IIRC). Sorting by the ID makes things annoying to
+humans to read.
+
+> =20
+>  #endif
+>=20
+> ---
+> base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
+> change-id: 20251031-mips-vendorid-df103aedf117
+>=20
+> Best regards,
+> --=20
+> Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+>=20
+
+--XT64vcUASahEeAk1
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQknsgAKCRB4tDGHoIJi
+0grwAP9hSkh4d4dpb6ujhlwQh+NgR7Y8Z+xjcqBOtioVXX3Q7AEAsWp8nvW8ztsF
+WthfV4obgjRQtHadgx5MjdfnkxWLtw8=
+=dMyF
+-----END PGP SIGNATURE-----
+
+--XT64vcUASahEeAk1--
+
+
+--===============8498859449688267940==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8498859449688267940==--
+
