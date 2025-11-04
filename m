@@ -4,106 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992C9CCFA00
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 09:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF796CCFA04
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 11:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HIgNT34IqbY0GJr4PSwTtmKLL0hWzpfM3nHEhFnf6ng=; b=T8ra8QNJMscKyA
-	9oCYf6faHfWbNjsGmVIGKPoe5vhyBxzlrQ54BOWkx8A0cI6bajt/9DThlYBWmIdibdwo68yb9ASCv
-	+4OcQyb82Uq0cdRhqNMGVOqokWMcbJn9pvF4eeabxoTOkXPB85QNQMW6wWODdVJjWV5DpyzFO9ROW
-	YwaFTUNmfvFG911cSONkmKUq0yHwSAUiCK1fFIcJbBlyNLpbquXogpAhG6H3KezwDU4gKPlnsStaE
-	D1y9ymk8I2pyW0LIO33vJnVY5keUVYwjdOWYT8L5718UUqxhvtgUTfq0S9FOQNCzXAZq6SJPJNHh7
-	JCeFq3w1TM2S4p0oB3bg==;
+	List-Owner; bh=8CzB7dl2VLvyjzzKhSgplQS2J5aGrutnCYgbyX25VP4=; b=AVOMJMX8YTbWcW
+	wpNVrfNu9JUF98KMabiVpzXbM8oi9s9+RXC5Z91wIfCZH7ljR8pZXsg5II7Ju8iLQM9ZiVGBsqiTm
+	1SgQp/j23fdOEsnqDGdviCVuObKTdEyidmCuQSUJz2/n/CTlC9LU5GGuM4pUv+dBnl9I6pEXxpggV
+	dYlLT0DEdN0ptHANZNhYx+PgYWgMBKiwmyRgU9wF6lPoWUHPQWgiw4JMgerYXbmnXYKzSOBV4l7o2
+	hPfhcRKPdX1t6SxlnLp0ELPwHHWexf/VcSz4dbWaZPFpQkAwNvILLAKhakIDsbOQIFvlDuOXA9AEE
+	sxzAutMqxr94grpLXBlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDFt-0000000BX0m-2Tvl;
-	Tue, 04 Nov 2025 09:23:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vGFM3-0000000Bj2T-2bzO;
+	Tue, 04 Nov 2025 11:37:39 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGDFs-0000000BX0c-1ifh
+	id 1vGFM2-0000000Bj2F-1HX8
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 04 Nov 2025 11:37:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=bCANsSOyNZ/TgfuPB2YI86R5M5d8AljFZy/8fydVnwE=; b=qAra0NoShnzDLSKNJDckBPAE37
+	sR4xwoeohcB5yXctg64hMYEhiTyLPgOum96TJQ+PrJ0ce2hsbOlRs04C1zsi70Qsn4bEJzH6P7nk9
+	+X/GIPafGuqIUMYGfqVRlQ4lxufGKTJ0fA5cl6dX39CgoU2QdzposP2Sy0V/+AOw6CVuW/8qPQo1M
+	sGlpJpmzHh+4qIw7+tx77HA+h49N0Ui9IrFBE0iUtm29W3KGT3AiCxRAsNYZk8VTyGa7hVD1SOydb
+	49fxxsReo5zrkWwQ77FZL0N4rUPpUU75Hrxl79TtK+X/8Gro3dJN8LlNjEVRxoPrlKl2Ev0PPIqSW
+	AIRzmTpQ==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGFLu-00000005fZw-2Wjc
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Nov 2025 09:23:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 66E70601F3;
-	Tue,  4 Nov 2025 09:23:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44F4FC4CEF7;
-	Tue,  4 Nov 2025 09:23:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762248187;
-	bh=60PDl3YG6ohKFhJPI5pGSMVXaeqsUG9sm2w+uu0swdY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lven0VTr7Mn0Tz/67Fhyq3P6M6AuWGgJVG47QIjp/1mm7KDRW8YL4Ce4IScVhJE/q
-	 O/pB3lL7wVrozK57GGxiplcNgR9QLJ9vG6VXNzvPohMlHzKg3YVFK+bBSeSeNB4r3c
-	 xcBWzUolpPDWyac0yROW4nHleelRvo9it2ReeqpdePuJ2q32QFaq5sy6Z1ZNCDCGDe
-	 VkvO/NKyk6tQZwaN7Qujv0rUL/yzDQ/ULIme8oYVhZPYIi1ONBl0piNnzNH5GG4Fxb
-	 8nRbSg17oH/ETdMgK0xIKp6FOvOdAovFPcuTQtj7aXKi9QPAZUFgeID4DiXE27qGT4
-	 c7OsB7k1xGhaw==
-Message-ID: <015568df-63d8-45ed-bb21-b09fe323b528@kernel.org>
-Date: Tue, 4 Nov 2025 10:23:02 +0100
+	Tue, 04 Nov 2025 11:37:35 +0000
+Received: from loongson.cn (unknown [10.2.5.213])
+	by gateway (Coremail) with SMTP id _____8BxT_Bt5QlperQeAA--.664S3;
+	Tue, 04 Nov 2025 19:37:17 +0800 (CST)
+Received: from localhost.localdomain (unknown [10.2.5.213])
+	by front1 (Coremail) with SMTP id qMiowJCxM+Rr5QlpWDImAQ--.51821S2;
+	Tue, 04 Nov 2025 19:37:15 +0800 (CST)
+From: Bibo Mao <maobibo@loongson.cn>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 4/7] KVM: LoongArch: selftests: Add timer test case with one-shot mode
+Date: Tue,  4 Nov 2025 19:36:56 +0800
+Message-Id: <20251104113700.1561752-5-maobibo@loongson.cn>
+X-Mailer: git-send-email 2.39.3
+In-Reply-To: <20251104113700.1561752-1-maobibo@loongson.cn>
+References: <20251104113700.1561752-1-maobibo@loongson.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/3] spi: dt-binding: document Microchip CoreSPI
-To: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>,
- Mark Brown <broonie@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>,
- Daire McNamara <daire.mcnamara@microchip.com>,
- Valentina Fernandez Alanis <valentina.fernandezalanis@microchip.com>,
- Cyril Jean <cyril.jean@microchip.com>
-References: <20251103160515.412706-1-prajna.rajendrakumar@microchip.com>
- <20251103160515.412706-3-prajna.rajendrakumar@microchip.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251103160515.412706-3-prajna.rajendrakumar@microchip.com>
+X-CM-TRANSID: qMiowJCxM+Rr5QlpWDImAQ--.51821S2
+X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
+X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
+	ZEXasCq-sGcSsGvfJ3UbIjqfuFe4nvWSU5nxnvy29KBjDU0xBIdaVrnUUvcSsGvfC2Kfnx
+	nUUI43ZEXa7xR_UUUUUUUUU==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251104_113732_399657_25B5DC2E 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,35 +94,291 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/11/2025 17:05, Prajna Rajendra Kumar wrote:
-> Add device tree bindings for Microchip's CoreSPI controller.
-> 
-> CoreSPI is a "soft" IP core intended for FPGA implementations. Its
-> configurations are set in Libero. These properties represent
-> non-discoverable configurations determined by Verilog parameters to the
-> IP.
-> 
-> Signed-off-by: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
-> ---
->  .../bindings/spi/microchip,mpfs-spi.yaml      | 65 +++++++++++++++++++
->  1 file changed, 65 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml b/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
-> index 62a568bdbfa0..62c38d0c93e7 100644
-> --- a/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
-> +++ b/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
-> @@ -26,6 +26,7 @@ properties:
->            - const: microchip,pic64gx-spi
->            - const: microchip,mpfs-spi
->        - const: microchip,mpfs-spi
-> +      - const: microchip,corespi-rtl-v5 # FPGA CoreSPI
+Add timer test case based on common arch_timer code, one-shot mode
+is tested with timer interrupt.
 
-Please keep alphabetical order. Or better, combine such (you have there
-already!) into enum.
+Signed-off-by: Bibo Mao <maobibo@loongson.cn>
+---
+ tools/testing/selftests/kvm/Makefile.kvm      | 10 +-
+ .../kvm/include/loongarch/arch_timer.h        | 79 +++++++++++++++
+ .../kvm/include/loongarch/processor.h         | 10 ++
+ .../selftests/kvm/lib/loongarch/processor.c   |  4 +-
+ .../selftests/kvm/loongarch/arch_timer.c      | 98 +++++++++++++++++++
+ 5 files changed, 196 insertions(+), 5 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/include/loongarch/arch_timer.h
+ create mode 100644 tools/testing/selftests/kvm/loongarch/arch_timer.c
 
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 148d427ff24b..662adf8f309b 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -183,6 +183,8 @@ TEST_GEN_PROGS_arm64 += memslot_perf_test
+ TEST_GEN_PROGS_arm64 += mmu_stress_test
+ TEST_GEN_PROGS_arm64 += rseq_test
+ TEST_GEN_PROGS_arm64 += steal_time
++SPLIT_TESTS_arm64    += arch_timer
++SPLIT_TESTS_arm64    += get-reg-list
+ 
+ TEST_GEN_PROGS_s390 = $(TEST_GEN_PROGS_COMMON)
+ TEST_GEN_PROGS_s390 += s390/memop
+@@ -209,6 +211,8 @@ TEST_GEN_PROGS_riscv += memslot_perf_test
+ TEST_GEN_PROGS_riscv += mmu_stress_test
+ TEST_GEN_PROGS_riscv += rseq_test
+ TEST_GEN_PROGS_riscv += steal_time
++SPLIT_TESTS_riscv    += arch_timer
++SPLIT_TESTS_riscv    += get-reg-list
+ 
+ TEST_GEN_PROGS_loongarch += coalesced_io_test
+ TEST_GEN_PROGS_loongarch += demand_paging_test
+@@ -222,10 +226,10 @@ TEST_GEN_PROGS_loongarch += kvm_page_table_test
+ TEST_GEN_PROGS_loongarch += memslot_modification_stress_test
+ TEST_GEN_PROGS_loongarch += memslot_perf_test
+ TEST_GEN_PROGS_loongarch += set_memory_region_test
++TEST_GEN_PROGS_loongarch += arch_timer
++SPLIT_TESTS_loongarch    = arch_timer
+ 
+-SPLIT_TESTS += arch_timer
+-SPLIT_TESTS += get-reg-list
+-
++SPLIT_TESTS += $(SPLIT_TESTS_$(ARCH))
+ TEST_PROGS += $(TEST_PROGS_$(ARCH))
+ TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(ARCH))
+ TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(ARCH))
+diff --git a/tools/testing/selftests/kvm/include/loongarch/arch_timer.h b/tools/testing/selftests/kvm/include/loongarch/arch_timer.h
+new file mode 100644
+index 000000000000..94b1cba2744d
+--- /dev/null
++++ b/tools/testing/selftests/kvm/include/loongarch/arch_timer.h
+@@ -0,0 +1,79 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * LoongArch Constant Timer specific interface
++ */
++#ifndef SELFTEST_KVM_ARCH_TIMER_H
++#define SELFTEST_KVM_ARCH_TIMER_H
++
++#include "processor.h"
++/* LoongArch timer frequency is constant 100MHZ */
++#define	TIMER_FREQ		(100UL << 20)
++#define msec_to_cycles(msec)    (TIMER_FREQ * (unsigned long)(msec) / 1000)
++#define usec_to_cycles(usec)	(TIMER_FREQ * (unsigned long)(usec) / 1000000)
++#define cycles_to_usec(cycles)	((unsigned long)(cycles) * 1000000 / TIMER_FREQ)
++
++static inline unsigned long timer_get_cycles(void)
++{
++	unsigned long val = 0;
++
++	__asm__ __volatile__(
++		"rdtime.d %0, $zero\n\t"
++		: "=r"(val)
++		:
++	);
++
++	return val;
++}
++
++static inline void timer_set_next_cmp_ms(unsigned int msec, bool period)
++{
++	unsigned long val;
++
++	val = msec_to_cycles(msec) & CSR_TCFG_VAL;
++	val |= CSR_TCFG_EN;
++	if (period)
++		val |= CSR_TCFG_PERIOD;
++	csr_write(val, LOONGARCH_CSR_TCFG);
++}
++
++static inline unsigned long timer_get_val(void)
++{
++	return csr_read(LOONGARCH_CSR_TVAL);
++}
++
++static inline unsigned long timer_get_cfg(void)
++{
++	return csr_read(LOONGARCH_CSR_TCFG);
++}
++
++static inline void timer_irq_enable(void)
++{
++	unsigned long val;
++
++	val = csr_read(LOONGARCH_CSR_ECFG);
++	val |= ECFGF_TIMER;
++	csr_write(val, LOONGARCH_CSR_ECFG);
++}
++
++static inline void timer_irq_disable(void)
++{
++	unsigned long val;
++
++	val = csr_read(LOONGARCH_CSR_ECFG);
++	val &= ~ECFGF_TIMER;
++	csr_write(val, LOONGARCH_CSR_ECFG);
++}
++
++static inline void __delay(uint64_t cycles)
++{
++	uint64_t start = timer_get_cycles();
++
++	while ((timer_get_cycles() - start) < cycles)
++		cpu_relax();
++}
++
++static inline void udelay(unsigned long usec)
++{
++	__delay(usec_to_cycles(usec));
++}
++#endif /* SELFTEST_KVM_ARCH_TIMER_H */
+diff --git a/tools/testing/selftests/kvm/include/loongarch/processor.h b/tools/testing/selftests/kvm/include/loongarch/processor.h
+index b027f8f4dac7..61f6e215046b 100644
+--- a/tools/testing/selftests/kvm/include/loongarch/processor.h
++++ b/tools/testing/selftests/kvm/include/loongarch/processor.h
+@@ -83,6 +83,8 @@
+ #define LOONGARCH_CSR_PRMD		0x1
+ #define LOONGARCH_CSR_EUEN		0x2
+ #define LOONGARCH_CSR_ECFG		0x4
++#define  ECFGB_TIMER			11
++#define  ECFGF_TIMER			(BIT_ULL(ECFGB_TIMER))
+ #define LOONGARCH_CSR_ESTAT		0x5  /* Exception status */
+ #define  CSR_ESTAT_EXC_SHIFT		16
+ #define  CSR_ESTAT_EXC_WIDTH		6
+@@ -111,6 +113,14 @@
+ #define LOONGARCH_CSR_KS1		0x31
+ #define LOONGARCH_CSR_TMID		0x40
+ #define LOONGARCH_CSR_TCFG		0x41
++#define  CSR_TCFG_VAL			(BIT_ULL(48) - BIT_ULL(2))
++#define  CSR_TCFG_PERIOD_SHIFT		1
++#define  CSR_TCFG_PERIOD		(0x1UL << CSR_TCFG_PERIOD_SHIFT)
++#define  CSR_TCFG_EN			(0x1UL)
++#define LOONGARCH_CSR_TVAL		0x42
++#define LOONGARCH_CSR_TINTCLR		0x44 /* Timer interrupt clear */
++#define  CSR_TINTCLR_TI_SHIFT		0
++#define  CSR_TINTCLR_TI			(1 << CSR_TINTCLR_TI_SHIFT)
+ /* TLB refill exception entry */
+ #define LOONGARCH_CSR_TLBRENTRY		0x88
+ #define LOONGARCH_CSR_TLBRSAVE		0x8b
+diff --git a/tools/testing/selftests/kvm/lib/loongarch/processor.c b/tools/testing/selftests/kvm/lib/loongarch/processor.c
+index 20ba476ccb72..436990258068 100644
+--- a/tools/testing/selftests/kvm/lib/loongarch/processor.c
++++ b/tools/testing/selftests/kvm/lib/loongarch/processor.c
+@@ -271,8 +271,8 @@ static void loongarch_vcpu_setup(struct kvm_vcpu *vcpu)
+ 		TEST_FAIL("Unknown guest mode, mode: 0x%x", vm->mode);
+ 	}
+ 
+-	/* user mode and page enable mode */
+-	val = PLV_USER | CSR_CRMD_PG;
++	/* kernel mode and page enable mode */
++	val = PLV_KERN | CSR_CRMD_PG;
+ 	loongarch_set_csr(vcpu, LOONGARCH_CSR_CRMD, val);
+ 	loongarch_set_csr(vcpu, LOONGARCH_CSR_PRMD, val);
+ 	loongarch_set_csr(vcpu, LOONGARCH_CSR_EUEN, 1);
+diff --git a/tools/testing/selftests/kvm/loongarch/arch_timer.c b/tools/testing/selftests/kvm/loongarch/arch_timer.c
+new file mode 100644
+index 000000000000..2a2cebcf3885
+--- /dev/null
++++ b/tools/testing/selftests/kvm/loongarch/arch_timer.c
+@@ -0,0 +1,98 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ *
++ * The test validates one-shot constant timer IRQ using CSR_TCFG and
++ * CSR_TVAL registers.
++ */
++#include "arch_timer.h"
++#include "kvm_util.h"
++#include "processor.h"
++#include "timer_test.h"
++#include "ucall_common.h"
++
++static void guest_irq_handler(struct ex_regs *regs)
++{
++	uint64_t xcnt, val, cfg, xcnt_diff_us;
++	unsigned int intid;
++	uint32_t cpu = guest_get_vcpuid();
++	struct test_vcpu_shared_data *shared_data = &vcpu_shared_data[cpu];
++
++	intid = !!(regs->estat & BIT(INT_TI));
++
++	/* Make sure we are dealing with the correct timer IRQ */
++	GUEST_ASSERT_EQ(intid, 1);
++
++	cfg = timer_get_cfg();
++
++	/*
++	 * On physical machine, value of LOONGARCH_CSR_TVAL is BIT_ULL(48) - 1
++	 * On virtual machine, its value counts down from BIT_ULL(48) - 1
++	 */
++	val = timer_get_val();
++	xcnt = timer_get_cycles();
++	xcnt_diff_us = cycles_to_usec(xcnt - shared_data->xcnt);
++
++	/* Basic 'timer condition met' check */
++	__GUEST_ASSERT(val > cfg,
++			"val = 0x%lx, cfg = 0x%lx, xcnt_diff_us = 0x%lx",
++			val, cfg, xcnt_diff_us);
++
++	csr_write(CSR_TINTCLR_TI, LOONGARCH_CSR_TINTCLR);
++	WRITE_ONCE(shared_data->nr_iter, shared_data->nr_iter + 1);
++}
++
++static void guest_test_oneshot_timer(uint32_t cpu)
++{
++	uint32_t irq_iter, config_iter;
++	uint64_t us;
++	struct test_vcpu_shared_data *shared_data = &vcpu_shared_data[cpu];
++
++	shared_data->nr_iter = 0;
++	shared_data->guest_stage = 0;
++	us = msecs_to_usecs(test_args.timer_period_ms) + test_args.timer_err_margin_us;
++	for (config_iter = 0; config_iter < test_args.nr_iter; config_iter++) {
++		shared_data->xcnt = timer_get_cycles();
++
++		/* Setup the next interrupt */
++		timer_set_next_cmp_ms(test_args.timer_period_ms, false);
++		/* Setup a timeout for the interrupt to arrive */
++		udelay(us);
++
++		irq_iter = READ_ONCE(shared_data->nr_iter);
++		__GUEST_ASSERT(config_iter + 1 == irq_iter,
++				"config_iter + 1 = 0x%x, irq_iter = 0x%x.\n"
++				"  Guest timer interrupt was not triggered within the specified\n"
++				"  interval, try to increase the error margin by [-e] option.\n",
++				config_iter + 1, irq_iter);
++	}
++}
++
++static void guest_code(void)
++{
++	uint32_t cpu = guest_get_vcpuid();
++
++	timer_irq_enable();
++	local_irq_enable();
++	guest_test_oneshot_timer(cpu);
++
++	GUEST_DONE();
++}
++
++struct kvm_vm *test_vm_create(void)
++{
++	struct kvm_vm *vm;
++	int nr_vcpus = test_args.nr_vcpus;
++
++	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
++	vm_init_descriptor_tables(vm);
++	vm_install_exception_handler(vm, EXCCODE_INT, guest_irq_handler);
++
++	/* Make all the test's cmdline args visible to the guest */
++	sync_global_to_guest(vm, test_args);
++	return vm;
++}
++
++void test_vm_cleanup(struct kvm_vm *vm)
++{
++	kvm_vm_free(vm);
++}
+-- 
+2.39.3
 
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
