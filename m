@@ -4,96 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 476F1CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 08:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F6DCCF9E3
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 08:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=plz9coVWajSklEgt3iOO2xfGyoMKba3k3CPLOhcNvAU=; b=TASsVQlQBimO1n
-	trm6X9pSAqkgxcsYjR993RlV6f6K2xq3tKUkI+JPFpJICFIMQtS3xg3cCA2CWItrjrQbGk2aH9SVh
-	QPycwa/h45Fy7A0O1/rYKF3MSpVPR1QI06kCWAqH7pco0MawYUX1guG+k/BsFhbhfwW9r7gOSPCG8
-	OhSo+fX6iAOBymXQkTk0pKSShmZggZ040o4hxvph2O+thukXJkBZuteXbRN43iRHOO8Ojk3iAxqyh
-	Wrw5BRI6hfTwnvhyNjkm52MeqU4DLmVYigV/H9UNtSOiLhLuvYgJjvPHfhs0pGgJvsQ2pncyvcEFY
-	Ra/25Ah0MAjGNC28Gp6w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qY3STG2HBiDDLcA7iz7aiU+WOxY2PEB1FHw7gyHQDyM=; b=HnAgOb4VJNaKgp1xt5oQFnZFVy
+	HPWplorD5nKDL3sz7cA8nUK+bQ/ULY+fRb+dZsAdov60GjjlgJSM7Ji+MDG+UOnCK58/4gREHHeBh
+	i/a7FR5LlR8wi/I3epB0mTGjrn6NSxTU7mCRy7SibC8jdatKyd7dZFgOvo+rFNqOlPiZsZJ9Vbvu8
+	9QotnhZna2rR/1lD/fgBEQo6Wu59dpYCw9qIrE4c40OtsCIGaa9RNr7pQGDrL6ChfXpjcq+xUOUVJ
+	ax4LgBoXN1JEBDudWA+Riyl0TsQNpoB6gt970Im2wKcqUgwQR+JBOcjyTSOu3wYGnUJDl2N21DaFx
+	pflQW6bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCT4-0000000BQmD-0a0h;
-	Tue, 04 Nov 2025 08:32:42 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vGCiS-0000000BSaP-3OKP;
+	Tue, 04 Nov 2025 08:48:36 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGCT0-0000000BQlU-3uE9
+	id 1vGCiQ-0000000BSZs-237y
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Nov 2025 08:32:40 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47721743fd0so28008165e9.2
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Nov 2025 00:32:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1762245156; x=1762849956; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Q/O1TSTyTcVC+LZvOe26uYzr4lGVu8ZW4bCxIjulEb4=;
-        b=GAJVR2LFHuZtx+ESpqT8dB6hO3Pr4+mA6R7+GeZKqLXPEfHT+gEOqhTTfSr1bJGSEr
-         ZC56LDt0ZcnWBY/uxTap6rlPAaqNc5usgrLBu1ZLdtrwxP4j7sIfZDbiGgocHHw147bv
-         ZvO771QmGA22MRV+AapiXLnzYBThqGgleggIrI0AbagZwG1DuS3g63mZg09hk7aknqRo
-         +O7cirG889iJ0HI7g5PPnl88hVUAvwPfaIw9KOuwb2QskQB8HuFY/Hsj7b6Y6CFvY+NX
-         5W6aWf69qRsl3Gff9WxpT6kdkkbr5/OkJ7SQPpERKeLKV7U7SKX+RwygsSUQWTBuFA+S
-         VsoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762245156; x=1762849956;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q/O1TSTyTcVC+LZvOe26uYzr4lGVu8ZW4bCxIjulEb4=;
-        b=g2c9jGKBj32zXpYi8q7fulYqvzmTmhWMR5Zm606h49dXbt8vrEYbiJdKuClXwG/1W1
-         KN2Fa+xjvsPM8/grPvT/gFmh5RpefeAhJvI3QopjBPzcaV+VBMwNFQviHeOav6/vFkCF
-         x55wWbuAEEf1mg4CF61CZu0Ezc+Z0eI6U3XWZm+v6Ne15so9wQidOEkvuPYuZsmsvEFl
-         3nuWrtaWqLR3AWZQ6hmPgabFVbj/sIORNM1XZcU+gIO7vCNVnV1vj9pY9IyLsna0Jjmm
-         3K3La0EcPRGGBju18cFVGGknA+OoZkXrsjYcKMxvgGHoV+6PcvzJLGycowceKkZ4WKxa
-         Dfmw==
-X-Forwarded-Encrypted: i=1; AJvYcCVmMoytXJ2Azgp5q/jU9SUEsK+XjSJzErbgXCitl5Ymr0v82OPzijEmVdrPVA6143o2riS+5nolC2fvVg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/lE3JF+AbIrAaNrytEj/cyBDaWiYhFCRoI4xQeBxvK4hoHgxs
-	QhncKaA8yQLt+ZuYyYnUpoiRo0i4cz43njOK0f9Qf1z2VzhEIm0D+IABGb7/TiCKHu4=
-X-Gm-Gg: ASbGncuvDeZjEerS6HIg+KDqbNFOesKKqnuz14us1D3BjWs8xLWehSvslS4+2ZzM+zI
-	x/vsgvDvxOQRhS7XtGySKFFTwHsvsUK1vDRbJ0LCCLTnZqMc1HuxMLPf1xC6vDcccMaqjzxNQER
-	UUCDhB6Ul6G4X1D8bLLhNkZpqZAwfXGdHSFuDfAaNXupjE+ifFcDqCF/fQkSnpCt2LbEwCrp1Z3
-	BK8h2DkRNu0087LmmiloT9bcSrx4NRz96uKw1P0hnAEtMo1AAoFdsXDoEglB/JRR/SSTUqvvwfd
-	fMXbP8TBoZbwXp5wIfqYWUx5Cy67h97W42ZWTKUaxyEFQvOt77wq24CK7jOHm91K/HXgd7dCcSo
-	c00a1TjJ/h1tiDQK+lx6AYIYFWurtWenB1x8dzb8luERkbWzSXyOPgdwG+1VG+r5fHe4EYjC5Gl
-	Bw66gQ+yFG
-X-Google-Smtp-Source: AGHT+IEyhEqP/V11SA3HoR4U1HIXN+k13COmzT5HOb54Zc5gCin00HHaDach4NErIK6LqUlRHnvjuA==
-X-Received: by 2002:a05:600c:820f:b0:45d:d97c:236c with SMTP id 5b1f17b1804b1-477308a07e5mr152274095e9.21.1762245155770;
-        Tue, 04 Nov 2025 00:32:35 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.134])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429dc1f5f8csm3188952f8f.23.2025.11.04.00.32.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Nov 2025 00:32:34 -0800 (PST)
-Message-ID: <4cb0e6bf-4c46-4e41-861e-9fa80e652e86@tuxon.dev>
-Date: Tue, 4 Nov 2025 10:32:33 +0200
+	Tue, 04 Nov 2025 08:48:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1762246114; x=1793782114;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=TTQr+0R+W0AqrqEoPVc7J5rpzXqWM5mmludeeFcg23Q=;
+  b=xCDGulkj7G3MU4lQjBZO7C0bRJnEeJ7kHdKqXt9EsnVaJgW2k7o6XSOn
+   oZVlyH4kdwHbUHZ7cffIJqsYg4pxdZFDPfat0Bj7N4npd4Uk1Kq1gRL02
+   +A+KH6FDKZoV38nfMqEa9LLUFG8HcwjN9EpNdTaw1yqHxfzEfB7jtp1/X
+   ILVFe4+0ZuiVLl2mF/bq7tt6/5DVO8rBSUzVMDkdiVZyMo+vb25L86EQo
+   fiqZtzhNU0U7zl3rFqvThIZeHna64JQyLh8EfN9RyDfl6FENKZdQy1UUA
+   bE1nScCBoluCSUnUzIbUZ1YrHIKWA6A7kvEZh3SGh0ygEI1/aRetuHLqj
+   w==;
+X-CSE-ConnectionGUID: cuBV7z19QNieLgsXxlf1Vg==
+X-CSE-MsgGUID: AMkxw+pPTB+e2XdkMflsTQ==
+X-IronPort-AV: E=Sophos;i="6.19,278,1754982000"; 
+   d="asc'?scan'208";a="215994660"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2025 01:48:32 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.29; Tue, 4 Nov 2025 01:48:08 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Tue, 4 Nov 2025 01:48:06 -0700
+Date: Tue, 4 Nov 2025 08:46:23 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
+CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-spi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, Daire McNamara <daire.mcnamara@microchip.com>,
+	Valentina Fernandez Alanis <valentina.fernandezalanis@microchip.com>, "Cyril
+ Jean" <cyril.jean@microchip.com>
+Subject: Re: [PATCH v1 1/3] spi: microchip: rename driver file and internal
+ identifiers
+Message-ID: <20251104-paralyze-creature-d2ab0ce2566a@wendy>
+References: <20251103160515.412706-1-prajna.rajendrakumar@microchip.com>
+ <20251103160515.412706-2-prajna.rajendrakumar@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/7] Redo PolarFire SoC's mailbox/clock devicestrees
- and related code
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- Daire McNamara <daire.mcnamara@microchip.com>,
- pierre-henry.moussay@microchip.com, valentina.fernandezalanis@microchip.com,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <20251029-chewing-absolve-c4e6acfe0fa4@spud>
+In-Reply-To: <20251103160515.412706-2-prajna.rajendrakumar@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_003239_150155_A4089B22 
-X-CRM114-Status: UNSURE (   3.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251104_004834_709990_92D03237 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,20 +86,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7198457429622519016=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============7198457429622519016==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="dbyOFFU7ujEIU9/Y"
+Content-Disposition: inline
+
+--dbyOFFU7ujEIU9/Y
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Nov 03, 2025 at 04:05:13PM +0000, Prajna Rajendra Kumar wrote:
+> The spi-microchip-core.c driver provides support for the Microchip
+> PolarFire SoC (MPFS) "hard" SPI controller. It was originally named
+> "core" with the expectation that it might also cover Microchip's
+> CoreSPI "soft" IP, but that never materialized.
+>=20
+> The CoreSPI IP cannot be supported by this driver because its register
+> layout differs substantially from the MPFS SPI controller. In practice
+> most of the code would need to be replaced to handle those differences
+> so keeping the drivers separate is the simpler approach.
+>=20
+> The file and internal symbols are renamed to reflect MPFS support and
+> to free up "spi-microchip-core.c" for CoreSPI driver.
+>=20
+> Fixes: 9ac8d17694b6 ("spi: add support for microchip fpga spi controllers=
+")
+> Signed-off-by: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
+
+Renaming the driver from spi-mpfs to spi-microchip-core was my mistake,
+based on the knowledge that the coreSPI IP is what had been hardened and
+use in the mpfs device. I didn't expect that the register layout had
+been changed so dramatically between the two, when all other "hardened" IP
+just added extra bits in registers or whole new registers.
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+--dbyOFFU7ujEIU9/Y
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQm9XwAKCRB4tDGHoIJi
+0mN6AP9OaCb3FGGYqtgk+5W1t+1MWt58dVr1qbwzn5K6+yOO9gD8Cf6jDATNSvyc
+0SnFN+sA0OZ52EDvffH7yuSTGCJV3gs=
+=cXn0
+-----END PGP SIGNATURE-----
+
+--dbyOFFU7ujEIU9/Y--
 
 
-On 10/29/25 18:11, Conor Dooley wrote:
->   dt-bindings: clk: microchip: mpfs: remove first reg region
->   clk: microchip: mpfs: use regmap for clocks
-
-Applied to clk-microchip, thanks!
+--===============7198457429622519016==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7198457429622519016==--
+
