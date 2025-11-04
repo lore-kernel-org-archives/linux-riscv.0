@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733CECCFA04
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 14:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB46CCFA04
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 15:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LyP91PZ4kfuMyMgo5Lve4fZGimE8hSsAqu3v5qLWDvk=; b=47OxF7IMHw8REH6py2sxpZV+5S
-	aiHpsNkMkCmr4DWmBY0r7zJjyqvXd/Yn08c1C8yDhLCSYMGyxYwsVUNLJM01rnF99wmJziG/ytCBW
-	bwCDji7RNDCAdulyfkw+Ux7qcSQ/i9szE2Fd1B7ToVsoOuLQQ13ZsoH6lFJINBsa4WtNnmu2gJyZb
-	p2MBCwoAaKUNb7jwffL1XQCu5myvzA6TMN96ACfbUFH6GCKbQ7QgnP7QIOWRjFWn2HFU10xqsozTj
-	j0iuvYiSWIo92Y/8ILHB4Ld2SD0WdLh9oXpNIU+ClW74bOgi0nQsPodHnscPtYFZtHa7wZ3Ks57t/
-	Vco2CTTA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2+wnV3Pxq/w4/20YRm0Fz4KCXwI6BdkTITr7qtPoV00=; b=Go3hMNJ8tu+Ya2
+	6Af2/Oxmz6zrgwoUFNwUYZCFQ7CpC25UAkEQBfCTkCB1sg71w1W7RnrT4F4/F96SlGut3THXPHz7G
+	TSD9PlbM0fJlsB6S64GGjx2athhyhPwZ075o6Vb8xCrP//KaYcqcBgPorCEACnoJvMHZyiOxHQWQ9
+	MZO/oLV3yMcnpjKIftEnELIqWOJILie/gEUk1+nk8BTUMJ5fM6qH61cdnFHgzbgbpX78THyEvCi/2
+	400bCTH1pF+zc7zl45YSNRXJkaQU65PHh5VIDDmIep8qhBNnN86oKKkHXFKKKqR2ddPFxV2zGAfi/
+	NxWQPNaH9RXmXxZdewUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGHlD-0000000Bxcv-3EsZ;
-	Tue, 04 Nov 2025 14:11:47 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vGJ1N-0000000C6Hy-1FFz;
+	Tue, 04 Nov 2025 15:32:33 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGHlA-0000000BxcN-3S4g
+	id 1vGJ1K-0000000C6Gv-0dzj
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Nov 2025 14:11:46 +0000
+	Tue, 04 Nov 2025 15:32:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1762265504; x=1793801504;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1762270350; x=1793806350;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=Ex8XdeL/8Gi1LCfuPJxHKOEhuXFMFx5Il6pVqKcnCAI=;
-  b=xnPko5g6UmCu+spt6RG3FdrKdAi36XA+g6/QqY0+rIHBR4MPNMaP9HkD
-   i05sQmvsyOr63Dszyi9zwkF5+tRlIo3HnsqR608ERD1DTz1yDKqf6ZvTI
-   I2wITMfpoiJWf4oAjQB9WH8nouv2LeWEU8o6Yx4+2KHHrdg4cvkdpkI1p
-   ngfIiX3rnKSKcfO3NHATvtYnXi1dMHz70ot32mvtPDDWpMxoVw6Dufgxd
-   sAFbvg6fBFz3MGEW1FVco17mAIwi65gKnI3WFtazb1XXx5Z8k9ZFOoKlo
-   Q/dad/sLY4H11iBC+UYpH936whlTNA1p5ipbKNQKfGTdatRNqvMeCTkJ7
-   A==;
-X-CSE-ConnectionGUID: 6jdsD7f5TPqVV8cNAt/ljg==
-X-CSE-MsgGUID: veeYOFsNTXukUHMFtEd39g==
+  bh=s/kB+iSurW7zoiDDtbH95+4Fk8pV2slaHdvSG1EPNCE=;
+  b=XfCEsMtxxe8HRzSivQoXBwxJf4I8nkYz/FdQ6gWN1iue3oYcAkEWMalV
+   g/sFSYgq8RWN+JoueiQff8m/jZ4pDWjeXpbT2ageNHv8YVKkZTjuTWgis
+   qdlSWaEY4aYCr2SGaqWJhfWcKSvCZIJQoTPTsJOOscgxV0etqvwkBmd5h
+   MtMo5k91tyGjovG2A8CPNjQjhlcbcQqmdTRNlwi6VYmcAw45gChmIYugG
+   5knIjiipKi3NpF1boQqXgH0r3p+Bq8B8x4PXQdW7vmdNQpO90+J74zu+H
+   eMq2on+myOCdXB6JEHcpk61seUviwmTIOxfAECUiLWT2EjycDR9UuhA2O
+   Q==;
+X-CSE-ConnectionGUID: Puo1ezSgS4GaWMGP6YwZhA==
+X-CSE-MsgGUID: x3qSh6v+S3ayUzNbW410tw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="68204143"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="68204143"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2025 07:32:27 -0800
+X-CSE-ConnectionGUID: pBo2mrM5T42UlzXUvw/0yQ==
+X-CSE-MsgGUID: j+rctOb1RECHOKpGmNsLGw==
+X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,279,1754982000"; 
-   d="asc'?scan'208";a="48029652"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Nov 2025 07:11:42 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 4 Nov 2025 07:10:55 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Tue, 4 Nov 2025 07:10:52 -0700
-Date: Tue, 4 Nov 2025 14:09:08 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-CC: Djordje Todorovic <Djordje.Todorovic@htecgroup.com>, "alex@ghiti.fr"
-	<alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"cfu@wavecomp.com" <cfu@wavecomp.com>, "conor@kernel.org" <conor@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>
-Subject: Re: [PATCH] riscv: Update MIPS vendor id to 0x127.
-Message-ID: <20251104-reclining-eskimo-9ab425c708d3@wendy>
-References: <20251104-iciness-ranting-29dd93fe6a7e@wendy>
- <bb3a2237-6dde-4231-a016-faf190f9a877@htecgroup.com>
+   d="scan'208";a="187339081"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa008.jf.intel.com with ESMTP; 04 Nov 2025 07:32:24 -0800
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vGJ0W-000RXo-0f;
+	Tue, 04 Nov 2025 15:31:56 +0000
+Date: Tue, 4 Nov 2025 23:29:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Valentina Fernandez Alanis <valentina.fernandezalanis@microchip.com>,
+	Cyril Jean <cyril.jean@microchip.com>,
+	Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
+Subject: Re: [PATCH v1 1/3] spi: microchip: rename driver file and internal
+ identifiers
+Message-ID: <202511042322.bDgHrd9d-lkp@intel.com>
+References: <20251103160515.412706-2-prajna.rajendrakumar@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <bb3a2237-6dde-4231-a016-faf190f9a877@htecgroup.com>
+Content-Disposition: inline
+In-Reply-To: <20251103160515.412706-2-prajna.rajendrakumar@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_061145_100180_A59AC639 
-X-CRM114-Status: GOOD (  25.48  )
+X-CRM114-CacheID: sfid-20251104_073230_281634_E1608088 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,113 +93,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6486051293855873650=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6486051293855873650==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ZDEVGWACkCSeSg9+"
-Content-Disposition: inline
+Hi Prajna,
 
---ZDEVGWACkCSeSg9+
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+kernel test robot noticed the following build errors:
 
-On Tue, Nov 04, 2025 at 02:06:31PM +0000, Aleksa Paunovic wrote:
-> On 11/4/25 14:18, Conor Dooley wrote:
->=20
-> > On Tue, Nov 04, 2025 at 11:53:49AM +0000, Aleksa Paunovic wrote:
-> >> On 11/3/25 23:07, Conor Dooley wrote:
-> >>> On Mon, Nov 03, 2025 at 04:05:48PM +0100, Aleksa Paunovic wrote:
-> >>>> From: Chao-ying Fu <cfu@wavecomp.com>
+[auto build test ERROR on broonie-spi/for-next]
+[also build test ERROR on linus/master v6.18-rc4 next-20251104]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-While I am here, you have a From: header with Chao-ying it it, but the
-patch has not been signed off by them.
+url:    https://github.com/intel-lab-lkp/linux/commits/Prajna-Rajendra-Kumar/spi-microchip-rename-driver-file-and-internal-identifiers/20251104-001544
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+patch link:    https://lore.kernel.org/r/20251103160515.412706-2-prajna.rajendrakumar%40microchip.com
+patch subject: [PATCH v1 1/3] spi: microchip: rename driver file and internal identifiers
+config: arm64-allyesconfig (https://download.01.org/0day-ci/archive/20251104/202511042322.bDgHrd9d-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project d2625a438020ad35330cda29c3def102c1687b1b)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251104/202511042322.bDgHrd9d-lkp@intel.com/reproduce)
 
-> >>>>
-> >>>> [1] defines MIPS vendor id as 0x127.
-> >>>>
-> >>>> [1] https://mips.com/wp-content/uploads/2025/06/P8700_Programmers_Re=
-ference_Manual_Rev1.84_5-31-2025.pdf
-> >>>>
-> >>>> Fixes: a8fed1bc03ace27902338e4f0d318335883ac847 ("riscv: Add xmipsex=
-ectl as a vendor extension")
-> >>> Incorrect format for fixes tags!
-> >> Will fix that in v2.
-> >>
-> >>>> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-> >>>> ---
-> >>>>  arch/riscv/include/asm/vendorid_list.h | 2 +-
-> >>>>  1 file changed, 1 insertion(+), 1 deletion(-)
-> >>>>
-> >>>> diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/inc=
-lude/asm/vendorid_list.h
-> >>>> index 3b09874d7a6dfb8f8aa45b0be41c20711d539e78..55205f7938055ba2b744=
-dba5118bba935bcac008 100644
-> >>>> --- a/arch/riscv/include/asm/vendorid_list.h
-> >>>> +++ b/arch/riscv/include/asm/vendorid_list.h
-> >>>> @@ -9,6 +9,6 @@
-> >>>>  #define MICROCHIP_VENDOR_ID	0x029
-> >>>>  #define SIFIVE_VENDOR_ID	0x489
-> >>>>  #define THEAD_VENDOR_ID		0x5b7
-> >>>> -#define MIPS_VENDOR_ID		0x722
-> >>>> +#define MIPS_VENDOR_ID		0x127
-> >>> How was this ever wrong? Do devices exist with this old ID? Do we need
-> >>> to support both as vendor IDs for MIPS?
-> >> I'm not sure how it first started, but since we worked on qemu as well=
-, we never noticed any issues while testing.=A0
-> >> It shouldn't cause any problems in the future though.
-> > So all the hardware uses the 0x127 id? Where did 0x722 come from?
-> > I recall qemu defaults to 0x0, so were none of the mips code paths
-> > tested, or were they tested with a qemu modified to use 0x722?
->=20
->=20
-> That is correct, all hardware uses the 0x127 id.=A0
->=20
-> I'm not sure where we got 0x722 from - perhaps I or someone else misread =
-the value=A0
->=20
-> (0x27 and 0x2 are both mentioned in the Programmer's Guide mvendorid bit =
-descriptions).
->=20
->=20
-> Everything was tested with qemu modified to use 0x722. Please see [1], fo=
-r example.
->=20
->=20
-> [1] https://patchew.org/QEMU/20250717093833.402237-1-djordje.todorovic@ht=
-ecgroup.com/20250717093833.402237-4-djordje.todorovic@htecgroup.com/
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511042322.bDgHrd9d-lkp@intel.com/
 
-Okay, cool. Can you put this information into the commit message? It
-should really explain what went wrong and what is impacted by the
-change.
+All errors (new ones prefixed by >>):
 
---ZDEVGWACkCSeSg9+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQoJBAAKCRB4tDGHoIJi
-0veVAP9aIWLMy4lMYIWj0uj8Yn4S4IWNd55ETr8Jmh178uAVJwEAxgR20BCN+zgr
-Jb6U3+MUM5nAeAPCsgYzRrV5uPZetgQ=
-=1G5I
------END PGP SIGNATURE-----
-
---ZDEVGWACkCSeSg9+--
+>> drivers/spi/spi-mpfs.c:620:3: error: field designator 'remove_new' does not refer to any field in type 'struct platform_driver'
+     620 |         .remove_new = mpfs_spi_remove,
+         |         ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
 
 
---===============6486051293855873650==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+vim +620 drivers/spi/spi-mpfs.c
+
+   612	
+   613	static struct platform_driver mpfs_spi_driver = {
+   614		.probe = mpfs_spi_probe,
+   615		.driver = {
+   616			.name = "microchip-spi",
+   617			.pm = MICROCHIP_SPI_PM_OPS,
+   618			.of_match_table = of_match_ptr(mpfs_spi_dt_ids),
+   619		},
+ > 620		.remove_new = mpfs_spi_remove,
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6486051293855873650==--
-
