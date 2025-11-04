@@ -4,178 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D361CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 19:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B8B8CCFA04
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 21:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HWmc9mIQ1yuxYQwcC5L7UY9ag1G3fbwcPmHUsMdp+Oo=; b=ySC8sfBWO2xr5o
-	GO3I91/7SVoXkjs0nB1SZfa0ylEFrAAQz8B5WEQiw6oTy9+lUPUZUwD3DOL9jeiERVc4kC2BQYkv8
-	45aJkyT6+o2yiDBzdyP/a3SPZOHHTJ2l62HSKuYQPQYlI3PAKMqlR53aWdja2BhODHCEnSa7RLY9t
-	vsZWGqkd35SioaQ+7uVlxDlYsNb5TbmBG+Vokjq/IAA7NL8Y06zM2OXBasTV14cyQKpW+PerbbBOO
-	RqOZsenpB660YBD1nh3hcH8uu68p9b5R8B2R8kS7sdu0h7l6HYpN/L5MgAIy2tqEb7p0NGK7dYCFy
-	0hwoFinmv9oGw5B4GlNA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bh409TdeORIJvlsW88LCH8oew+nLoZOe9z36AomzUhA=; b=3SSn1An0KBeZtH0M0OPDUnLziA
+	ynZN1XBG0QsXN1OV/vEFqkDFL48CY/j/DxOmpYGoaknnHI1VVcOdxXx/XBQ4BrSPADxv2M0AGPcv5
+	p/Oo41F321slrlEV05JkRlXIFy812CBm9USPBbD6Dv4R4pOit5ewIlT4gFETcB1SKDi2VkCMOZzJb
+	YeRBufU3REzkboCO8AcGqZqoizhOzHDbIpGnGd/Unk/ngpHv4oE+49InJUcKSFGScPyXQsAE0Canm
+	aea7QPoKghDcBr7BmQRqxlLCm/bUzMfOFVS86ZI0vt42Bs1Bozcf+YnqypzV83d6N/C2lvrkchTdt
+	DZRrpdQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGMZT-0000000CTvm-07Dx;
-	Tue, 04 Nov 2025 19:19:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vGOPR-0000000CaZJ-12fc;
+	Tue, 04 Nov 2025 21:17:45 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGMZR-0000000CTvP-2UYP
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 04 Nov 2025 19:19:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=vvuI8ajRkRN5btUCjoxXWleEK11sSj2CzeGc8l4fNJw=; b=AeFOZVrRl1t99ZpC+WFmwQKOC9
-	Tgs+c73xh/0BhXP6ddjW4qFNgK1CgHckENg7fPxOAuZ3czJFXKYDtkYvDa/X4iRZyGdGK6tFJ2z6E
-	2fe53Svmdycj1aHwv4snDBUOgFj4Wpryu/RGhsa9oeI7CWYsDCZ0Bd3TGk+6ANhN0bChnsj1a5hee
-	41+ijUrtXvRlCnYJAb32Fm/V/KTg7Iu+EEubKfXsOMQ2GPe0DEYuGNX1ctoeKWfxDDgPDKXRmTFgW
-	OzROxrR1BhmH4xGGv/Dsy7ZeDte4l4dYyFglTuOZf9WJzItCREGgmYAr6jaAT9VtSG8kVM3PgyGAA
-	D74wtAgQ==;
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLhh-00000000hnA-1hNi
+	id 1vGOPM-0000000CaYS-3eeN
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Nov 2025 18:24:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s7U4we6s0YW2SaT2Yoh5KkIuYXNoLdxX9jTXQLLGvigbVqzbcteeMC1sycAtF8Iyo6ex6DmQfAsfnXvH1hl+dqQZuUTgevb0mIvQVe71fbC8nJYV5RrTNjNX4iiVZfMRCRzKyh2tTQPfuabUIAd65uKaW48OR4nDU/PHXDyDDhK6c7Bp2d0n6JTZ6G2t/WaKVP36b5qmRl+amqjV6GRaXzpm3OT/kaGA2YUhM6XqchhSF3VoAj54bOIKbkQuVfROmXScCkDNz08nA8jw5TWrbMbZQIakv+iulLxy3k6XTVwhBniTosSCV+LcZaWhSN0Op8o0PL9Bx510SY9zwO2KOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vvuI8ajRkRN5btUCjoxXWleEK11sSj2CzeGc8l4fNJw=;
- b=SdryqnDrow4OUmbtvspjjL39I9uJgcpw5TtrG8l2Q1sDphKDzAIZI/XaugzDaLpLQIA1HBgZ7QvUQ5/PjpHF/QVMigj6pUoEkocLC6YcID4ppU0lPB3Eb88WnVRFzIBJOvGLSRNd3oESDJHWAjd6Td7n0FdF+Xx9ZjVw9wBIszG/HGy9FE697R1hwHSDdczjJF2SH5G1VEcgLH4Uf8jEhr9ws4JV1+unWasijfEoPayl/Hamqw4KKWhVUU+WRC+gHB12ZB1Qwyyn2PidLqWEcd191RGuraIYs2nl+X4Y7H9YwL8pWY5DJK9tnst57WVxP0qRIssSc20zeV5nyPz+eQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vvuI8ajRkRN5btUCjoxXWleEK11sSj2CzeGc8l4fNJw=;
- b=k5ESZQ/WrGSwxtIRGCajkpCK/pZ81rU3vQ2I9gsoh+99tk0DWEF10FSfWKLIg6uHCYyZJDhHl0rCdwo5o+M5TDs/nlvXD8vkLLuzvfoG5gye/TY08GVLVo3n8XpJUIhu69s6rFJkG85HH5CfONnUWd0SlClT4v1OW5LUf4FUIqcPsH3obwTLtiqDpDUstFa9ZKGBSWEp09gePdq9MumO6EmzVdKCYYC4KQ/TenC18lyrQKDZri82OP8uhVQmOSUnpMD2PgBcjbuLyIGj6zFHEb8NuiZwZ/KV8dEf1b+wDwf0D12qgo6gggE6JNye62pEePl8BE4AMpqw7D0XrJNOMA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by CH2PR12MB4149.namprd12.prod.outlook.com (2603:10b6:610:7c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Tue, 4 Nov
- 2025 19:19:48 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9298.006; Tue, 4 Nov 2025
- 19:19:48 +0000
-Date: Tue, 4 Nov 2025 15:19:47 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Shuah Khan <shuah@kernel.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Will Deacon <will@kernel.org>, Alexey Kardashevskiy <aik@amd.com>,
-	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
-	James Gowans <jgowans@amazon.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Michael Roth <michael.roth@amd.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Vasant Hegde <vasant.hegde@amd.com>
-Subject: Re: [PATCH v8 05/15] iommupt: Add iova_to_phys op
-Message-ID: <20251104191947.GC1678406@nvidia.com>
-References: <5-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
- <d7ba7762-f398-4a7e-8e70-786ed9c4fa52@infradead.org>
-Content-Disposition: inline
-In-Reply-To: <d7ba7762-f398-4a7e-8e70-786ed9c4fa52@infradead.org>
-X-ClientProxiedBy: BL1PR13CA0427.namprd13.prod.outlook.com
- (2603:10b6:208:2c3::12) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
+	Tue, 04 Nov 2025 21:17:42 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2955623e6faso36412065ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Nov 2025 13:17:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1762291060; x=1762895860; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=BGjWT2vMzqtOZS9xN5d6Q0YRIr9cvpctAWp7WzNW7AA=;
+        b=dFtpBRFSTaIuP+6334VqODAa8YopCiSWXUXkvjjlAPAVUZU/ZWvCrWqw3QKb4iMeq3
+         Dn40Rq/v1KflgZHU0xgGw67SHXukohlyU0X+yxXRv1g5aAGWdHtFLo81rLXF6PaWqRVN
+         lY11PywFnR6unZRFCAIcnhf/+tLbnU2S4UMTeRSwPjU7kkLFQurqKcjsRqnSnGsDIsmq
+         uQXiUCG+AYLV8supV5VnsPtfJacivhUgs8MhHrYaGW2/j1shOQzRiKdOSw8IFtBt/6Zc
+         g4l48PjkmAaWjGj97O/HlchQ8KB1hXJaDr2N/r3wEBG5i5anHXeWicztsm0U4zPBE8xT
+         OzOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762291060; x=1762895860;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BGjWT2vMzqtOZS9xN5d6Q0YRIr9cvpctAWp7WzNW7AA=;
+        b=FAf/eamWh3CpMKdDi87EFvUma6e5ITPJxiQBaVH9DUH3EPQISSYszP6SncY81LoKAl
+         hS1Ne2cVZQFXftEVXlNLA7hQK2lOlmqIq08z+s2psNNw7h+7DPyNF84Pc4hIZnzTYj3F
+         BSgmlpab0g5/Q14ns8ymk+3Fndle389Cl7IZRlL0T6fMxEfoz/WZEfKF2symMFCTPfKW
+         tm0sgHPXmU9Q1l/vwfdm/AgGOfmO5RAFaEQCS+qwmZypHI2b/6dDzFjMJhk3v06AZirH
+         1Xa+3SZVoLCooaMW1XfOAz8MeW1QTDhvKYhSCYK5J3vTBRfJ7tJJ3XzZk9U9lW1EHJtg
+         MFNw==
+X-Forwarded-Encrypted: i=1; AJvYcCXG3wHcUvyCqATA3obWrIf53k+ot/AteWuo4Czyd/kMr3IwjmyeMk3y+gV4WsyIp2QxoJJwqo+6p2EGSA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YySX8XShCfdEdcdRf1rS7NSZePij+N5HRIq/Wrwm+kVGcO7Ir93
+	daD2JOV4Ncc0ZeSIfYDJtwfY2drhypl8PwqnqAH7GWJppAtiTt4ZX5gIowGNKXZuiEI=
+X-Gm-Gg: ASbGncvNaCkqTBtEAxrnVOQ6CqLQ/uxO7DHVV1wrdBjDX1zmjy4hiCH3scXq3+5eCNG
+	uGMVeqjhTKu2Zfdbt5W8DV/uJkuzhWQfmkKdc6YE+br8SHsli0+ECsJYHd5yNOpHl+lZvsfmzw/
+	82UgDlxGTwmU9OEA1GGIUCjf+YwK0RsiqWA+WdsNyLhYQ9IPmvkAH+cSbu5RJb2G8fnrsQOqbz7
+	Lp5CUXHELK6ivfrS+I/lOJq22yCYM5RJG+uJfJ4DhlPDSiuDHYyG0HyN5V6o781uQRNOJM/PIg2
+	UwEyfJi+oMX5oIv3Yr6mfAwZWx55bDBv09s6VenweXcw2Xy+oPaAV0Q2pkaqX6bqJ62PhasgTFu
+	60u/eqrFyMIiWxowaT8FtILF6E3MXY/kVgHasi7OS68CSxOFj7tj/M6SF8SH43z5qYu1kxIfAaW
+	kr2edmT/lPSg7Hhn8KEqVJ
+X-Google-Smtp-Source: AGHT+IH3Rnr9KTQSewiyDJxZYVWcxdCwkU03H2gP4ZOo4Vy5LVvo5/dzAHr56LlVqfHqMMIhppMFyg==
+X-Received: by 2002:a17:902:ce01:b0:295:2c8e:8e44 with SMTP id d9443c01a7336-2962ae94470mr13204245ad.59.1762291059617;
+        Tue, 04 Nov 2025 13:17:39 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29601998eb6sm37348165ad.29.2025.11.04.13.17.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Nov 2025 13:17:39 -0800 (PST)
+Date: Tue, 4 Nov 2025 13:17:36 -0800
+From: Deepak Gupta <debug@rivosinc.com>
+To: Joel Stanley <joel@jms.id.au>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	alistair.francis@wdc.com, jim.shu@sifive.com, kito.cheng@sifive.com,
+	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com,
+	cleger@rivosinc.com, alexghiti@rivosinc.com,
+	Zong Li <zong.li@sifive.com>,
+	Michael Ellerman <mpe@tenstorrent.com>
+Subject: Re: [PATCH v22 00/28] riscv control-flow integrity for usermode
+Message-ID: <aQptcHayBOY1sw1J@debug.ba.rivosinc.com>
+References: <20251023-v5_user_cfi_series-v22-0-1935270f7636@rivosinc.com>
+ <CACPK8XeQf9UJuu39bGcm2mySWrKYvUadOgFRmpas+AS9fXA2WA@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|CH2PR12MB4149:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d286abf-902f-4cee-4174-08de1bd71ed0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?T+iH5eWDPwM36JKIYfNDc6nlQLIrxbmHPTClvtvA6SnBRBjDWTIRIbRAQpX/?=
- =?us-ascii?Q?9hH6OGlqHul/NDzWpO4z5b8r30qCBBWSGIosaCs0wVxwyFHq7/gQGFfQgalh?=
- =?us-ascii?Q?iExotue0R0f2se5j/hEATaVh8PTEqI1bU4r5yS4x9TkjFAdYTtouBQ/Ucex5?=
- =?us-ascii?Q?Ds3rfSTA9KniwRZiCRIX/FXa83HVXpHoOLJAevPq7WSj5PmvOZQr+P5Qsm0r?=
- =?us-ascii?Q?b7DgNocLZUwSGiQ7Tf5qV4u04vHx83fUfwqc+0dhYLSxpFV8rxmy5JGQzPbg?=
- =?us-ascii?Q?0cSoHS1ol2WwCr7BTo6X7ClCJ/v5xofycACFI7TBCbR3cJLXehHLUd7yOX1y?=
- =?us-ascii?Q?2OEer+VLY7d0mjVoOJMC5NqtnqTI4nGoNJsXQCKCjUhhjn7jL3DHbNZXcvPX?=
- =?us-ascii?Q?8Ou9Y57j4Qz1fyALu2BF3qdcDP9wbXMj5i2UhhrAg90nRzgf1BaT/KJXe11O?=
- =?us-ascii?Q?5JwM4Nx/h4JgHE6u1id/FsQaADJmMC/wxPRpDJbkNkAUkI1yGkBgr2xqlnu7?=
- =?us-ascii?Q?p2tfPD/tMlzZrU2KG9Qwy+jhyEqyX+TXQb6HsK+ekAPP30OMsd4jMvAMXMeR?=
- =?us-ascii?Q?92mK9z94C1JMj9vtHXW3sXE4YZhxfwvvMgRILF+VhpEJGtf44qWylt7BKZlJ?=
- =?us-ascii?Q?Xo0dw0+1hhZYFYHWw79Ugx2dftyEQCPGc33lv/D1Ux0ncdNwqnfLN6asSowd?=
- =?us-ascii?Q?UpJneEiFOOJ1cZW59zTntFsn6UBim+dDi4AZ5pn7NLmnDoK7daJhuIW+t9iS?=
- =?us-ascii?Q?bWlvzlmp8eMYlDwOBBS6rAtCEaxVSb+Ja0BZsEEzGl20KQnWPkO5+ssXYbCk?=
- =?us-ascii?Q?1hX1sZFH7hdy7X2xQnlooEV8ORNU0mVx58zM79pacNknlW5Y86/xpCLse+XZ?=
- =?us-ascii?Q?9Ug6LtvNQq01rJMqJPv8IYQfj1LCwSe/NaMEwKNlCM+qTLcVN8Mj6cFV8qQn?=
- =?us-ascii?Q?96BHTBzgdRBlJOviZMKGJiFdzsSw1Ovm8f2q+hvjoy30wLL3baLOeWzlDW1V?=
- =?us-ascii?Q?UvyNq8Un3yDviSCfbt7jtnLewqlCc+2ba7SOzJ5Wb1ZhPzQRlL56f5IsMiMD?=
- =?us-ascii?Q?XWCUjLtcrwcwNALWnc9EgDtLG0aq4hHffeynWN4lszppVCYO7lg3sLY+rbTp?=
- =?us-ascii?Q?nKUq/MxAcBm/K0BxoKaHZ5QObymXc3NUzswdj6hZToOkLbGik3ypBBY3fuKM?=
- =?us-ascii?Q?jfYOQzXP4ucNuMFhazYEH779sLWI77nKUrMevzzqDUC/cT+lzhYrKbvIJt0A?=
- =?us-ascii?Q?Yq8graIbQAT3HjBtZgSCFgm1GqnuZ/SvY11mTTsnbvJTiONsb1sIqRihePDS?=
- =?us-ascii?Q?aG05Zg7gE1JnXHA6dUny/nW9DjVwD8b358Mz7eokQQ11/9z14tHDbQgxeh9W?=
- =?us-ascii?Q?7abmR/WUztr/HugMiTAkl4u5JUSYym//6eeLREXFmuX907P1ol8G4Hu1hG3n?=
- =?us-ascii?Q?1xZ1sp4prbZ331/sMK5yt3NcmvuXJ+qI?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?A8jpwkRKo9vUK4AORu4zVbSUY08CK4bZaDlS+6l3XZ3p2d4LE5uHALyjlwev?=
- =?us-ascii?Q?sGN+m0iceMZRrwnacUKlcaNrm6mLHLFmieib/X5Q/RkjorzYRgyDpLz5VzMm?=
- =?us-ascii?Q?1U4/WzCcqagcmJiNHGdxaOilqRaIhjiHHkHdoLpVNSsUy4ri+0GH+qIi+W6U?=
- =?us-ascii?Q?+7M7rhfDSfABZVXiqmO67KF1MdFkbT0DoVKKEfUMyhy54zpzUyH9WFgJpK0u?=
- =?us-ascii?Q?bJ+89B5VKL55R+ILruK/FhNw21p8Z6wcc8wkmsMGtPgeF5oR147a0mM4foZY?=
- =?us-ascii?Q?MJFbNgymncWoAdmm3MZjq9iIPn6+/ap8msoGXKt54NhSuifAE1cIkU3V4ZxA?=
- =?us-ascii?Q?wfaWmj4c904YEapQsXTovg5Vi/I3ZhwkbkbSDEQwHBE9NCECV6+8EZtL4qxT?=
- =?us-ascii?Q?Rq6rkR1bMq+RJ99C2joffdiQ+26Sr97Ctwl9o8xzr/6vt/xmjjBRX6LrAqIV?=
- =?us-ascii?Q?8JJOy1GMuIAS2RKznK8Q6HQacAHHmgssySr2hFG+5yFPApfK04tUORQHATHQ?=
- =?us-ascii?Q?NREm7bT3jx2I4rcMnkIAXKnvqpFw8zZJyKv365wxmkxbXOtHCkVQZ/fbECey?=
- =?us-ascii?Q?90+iCbnSjrkF+XTQ+SI0ib1EsLU658U/XRvgCW1L66YTSiY1voSDFxFIX7GF?=
- =?us-ascii?Q?dCXjoVoY4xgDOR7t0gUgUfXrWW6mzTtiN8iITFVqD0Dz7h3dq71Ie0UjLk+k?=
- =?us-ascii?Q?/7CynPk93itXx+XftqoKC26+ZBtYjMLkoEdZjt3bo+TLn+9k/h+aflq/QPOd?=
- =?us-ascii?Q?KRBqxKCPsOzJrhWChYjN1HJYTsz5WpMgzbryqv+hBoHzf9uL6nn+irF6YWEm?=
- =?us-ascii?Q?Om+KssIb/xYsrlbppLYsfpnUHobzMtUuRFns+KxiO07iio9Q7gPrNllK74q/?=
- =?us-ascii?Q?D4ucPU90GRAvemQ5rNNjJ2ME4x4y02/NQlmEVQI/0EB82NpmXccYoLr03eUs?=
- =?us-ascii?Q?WGfkGJCskVVAndIGr7LVa15mEmAB9dYRO7937M0nhhEf8fpzOxrcagO0jyTe?=
- =?us-ascii?Q?XRniOJTsone+yf1jwwSC6sBXLsqpoLklsIQ4delHiOJibeR224gO2qBSg/Ty?=
- =?us-ascii?Q?8ZqTWtQA3AiiMTGKVxiwCmekCFrhyDGK1V9UW7TiPhMxL8E+es8ZO24oR9X7?=
- =?us-ascii?Q?aX0J3zKwwF0wko7lG365Ohgn264tF/KI+jOyWAsdJU66/RNamwlQKvrQyHhu?=
- =?us-ascii?Q?kZNHGewvgwnpFzy6/ALO+8Ig5sqRZlFMMGLv0jOuqomNGYJJigD31sz3aCyF?=
- =?us-ascii?Q?sQqUTiDbo9YemWtdTTYBl2TkqTCSehYQcrW2PRK8E3jqA7sz/AYeidScVb1N?=
- =?us-ascii?Q?ClFKtsvxhDdEuHoiEaGyIX48rJLx5WMoxQ8vBmEfHNOGobMwWxOwY1Zvgatw?=
- =?us-ascii?Q?z549Do4u7KoEekWiT7OMXVOd65U4kylPYIyNoa95tum4M6Su2tHfVHU26tI0?=
- =?us-ascii?Q?XFUtdC7zh8tc6yhpTXoBjI99sMDe/TJky1Nkyp86EBoKkvkT4hG9BYD5ZHs8?=
- =?us-ascii?Q?H0qGdd2OVpXiiNOahPxeU43ipP7v1cEeWVRI+0CzTb4hlWZFlrCqwfj+LaxU?=
- =?us-ascii?Q?p6DnfV30FB/BXo+q5E8=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d286abf-902f-4cee-4174-08de1bd71ed0
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 19:19:48.3239
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2SXc4/3lw97p5jgjx0+5fKhI9jGUXHyoKbzruY2J3w/IlLPRYwN+r1wjVNCvqcam
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4149
+Content-Disposition: inline
+In-Reply-To: <CACPK8XeQf9UJuu39bGcm2mySWrKYvUadOgFRmpas+AS9fXA2WA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_182425_501574_7C772D29 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251104_131741_050425_73A36DC7 
+X-CRM114-Status: GOOD (  24.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,26 +103,187 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025 at 11:02:06AM -0800, Randy Dunlap wrote:
-> 
-> 
-> On 11/4/25 10:30 AM, Jason Gunthorpe wrote:
-> > +/**
-> > + * iova_to_phys() - Return the output address for the given IOVA
-> > + * @iommu_table: Table to query
-> 
->       @domain: (as below)
+Hi Joel,
 
-Thanks,
+Thanks a lot for testing it out.
 
-I got this one and the prior one
+Comments inline.
 
-Jason
+On Tue, Nov 04, 2025 at 05:34:11PM +1030, Joel Stanley wrote:
+>Hello Deepak,
+>
+>On Fri, 24 Oct 2025 at 03:31, Deepak Gupta via B4 Relay
+><devnull+debug.rivosinc.com@kernel.org> wrote:
+>>
+>> v22: fixing build error due to -march=zicfiss being picked in gcc-13 and above
+>> but not actually doing any codegen or recognizing instruction for zicfiss.
+>> Change in v22 makes dependence on `-fcf-protection=full` compiler flag to
+>> ensure that toolchain has support and then only CONFIG_RISCV_USER_CFI will be
+>> visible in menuconfig.
+>
+>Following our discussion at the riscv summit I spent some time with
+>this patch set with the goal of giving a test run on emulation. I only
+>got as far as qemu, as I couldn't get the selftests passing there.
+>
+>I had trouble running the podman container so I built a toolchain
+>using the riscv-gnu-toolchain branch (cfi-dev, d19f3009f6c2) you
+>pointed to.
+>
+>The opensbi branch was a bit old and wouldn't build with GCC 15, so I
+>tried to rebase and noticed the patches were already upstream. Have
+>you tested using v1.7 (or newer) there? Is there something I missed,
+>do we need more patches on upstream opensbi?
+>
+>I booted it in qemu 10.1.2 with the zicfi extensions both on and off.
+>
+>qemu-system-riscv64 -M virt,aia=aplic-imsic,aia-guests=5 \
+>  -cpu rv64,zicfilp=true,zicfiss=true,zimop=true,zcmop=true
+>  -smp 8 -nographic -bios fw_dynamic.elf
+>  -m 1024M -kernel arch/riscv/boot/Image \
+>  -initrd selftests/selftests.cpio \
+>  -append 'init=mini-init command="cfitests"'
+>
+>My results:
+>
+>no zicfi, no z*mop (crash, as expected):
+>-------------------------------------------------
+>
+>Running command: cfitests
+>system_opcode_insn: Invalid opcode for CSR read/write instruction[
+>0.462709] cfitests[85]: unhandled signal 4 code 0x1 at
+>0x0000000000011c44 in cfitests[1c44,10000+6d000]
+>[    0.463141] CPU: 4 UID: 0 PID: 85 Comm: cfitests Not tainted
+>6.18.0-rc3-tt-defconfig-jms-00090-g6e2297f1edbc #93 NONE
+>[    0.463338] Hardware name: riscv-virtio,qemu (DT)
+>[    0.463573] epc : 0000000000011c44 ra : 00000000000104e0 sp :
+>00007fffebd0ddb0
+>...
+>[    0.465177] status: 0000000200004020 badaddr: 00000000ce104073
+>cause: 0000000000000002
+>[    0.465410] Code: 0893 05d0 4501 0073 0000 b7f5 4501 b7f9 0017 0000
+>(4073) ce10
+>
+>no zicfi, z*mop (failed to start, as expected):
+>-----------------------------------------------------------
+>
+>Running command: cfitests
+>TAP version 13
+># Starting risc-v CFI tests
+>Bail out! Get landing pad status failed with -22
+>
+>zicfi, z*mop (failed to start, unexpected):
+>-------------------------------------------------------
+>Running command: cfitests
+>TAP version 13
+># Starting risc-v CFI tests
+>Bail out! Get landing pad status failed with -22
+>
+>I went digging to see why the zicfi enabled kernel failed. The
+>userspace binary was built with CFI:
+>
+>$ riscv64-unknown-linux-gnu-readelf -n selftests/cfitests
+>
+>Displaying notes found in: .note.gnu.property
+>  Owner                Data size     Description
+>  GNU                  0x00000010    NT_GNU_PROPERTY_TYPE_0
+>      Properties: RISC-V AND feature: CFI_LP_UNLABELED, CFI_SS
+>
+>I then tested your opensbi tree with some hacks to get it built with a
+>newer compiler. This produced different results, which was unexpected:
+>
+
+Opensbi doesn't need to be built with new compiler. All it needs do are
+reflect MPELP bit back to S-mode (if its taking a trap and then reflecting
+back to S-mode) and ofcourse have SSE support. Both of these are upstream
+in opensbi.
+
+I'll test with upstream opensbi, test and report back.
+
+>Running command: cfitests
+>TAP version 13
+># Starting risc-v CFI tests
+>Bail out! Landing pad is not enabled, should be enabled via glibc
+># Totals: pass:0 fail:0 xfail:0 xpass:0 skip:0 error:0
+>
+>The selftest binary and the little toy init that starts it are both
+>statically linked and built against the toolchain's glibc, so I would
+>expect this to work.
+>
+>$ riscv64-unknown-linux-gnu-readelf -n sifive-cfi-build/sysroot/usr/lib/libc.a
+>
+>File: sifive-cfi-build/sysroot/usr/lib/libc.a(init-first.o)
+>
+>Displaying notes found in: .note.gnu.property
+>  Owner                Data size        Description
+>  GNU                  0x00000010       NT_GNU_PROPERTY_TYPE_0
+>      Properties: RISC-V AND feature: CFI_LP_UNLABELED, CFI_SS
+>
+>The kernel seems to have detected that CFI is available and is built with it:
+>
+>$ grep CFI .config
+>CONFIG_RISCV_USER_CFI=y
+>CONFIG_ARCH_SUPPORTS_CFI=y
+>
+>I did notice the func-sig-dev gcc branch is a few commits ahead of
+>what the sifive riscv-gnu-toolchain points to.
+
+Most likely PRCTL_* is not updated in cfi-dev branch? I'll take a look.
+
+>
+>I had to context switch to some other tasks at this point. I wanted to
+>do some more digging to work out what was wrong, but I haven't found
+>time, so here are my notes in the hope that they are useful. I'll let
+>you know if I discover anything further.
+
+Thanks once again.
+>
+>Cheers,
+>
+>Joel
+>
+>
+>> How to test this series
+>> =======================
+>>
+>> Toolchain
+>> ---------
+>> $ git clone git@github.com:sifive/riscv-gnu-toolchain.git -b cfi-dev
+>> $ riscv-gnu-toolchain/configure --prefix=<path-to-where-to-build> --with-arch=rv64gc_zicfilp_zicfiss --enable-linux --disable-gdb  --with-extra-multilib-test="rv64gc_zicfilp_zicfiss-lp64d:-static"
+>> $ make -j$(nproc)
+>>
+>> Qemu
+>> ----
+>> Get the lastest qemu
+>> $ cd qemu
+>> $ mkdir build
+>> $ cd build
+>> $ ../configure --target-list=riscv64-softmmu
+>> $ make -j$(nproc)
+>>
+>> Opensbi
+>> -------
+>> $ git clone git@github.com:deepak0414/opensbi.git -b v6_cfi_spec_split_opensbi
+>> $ make CROSS_COMPILE=<your riscv toolchain> -j$(nproc) PLATFORM=generic
+>>
+>> Linux
+>> -----
+>> Running defconfig is fine. CFI is enabled by default if the toolchain
+>> supports it.
+>>
+>> $ make ARCH=riscv CROSS_COMPILE=<path-to-cfi-riscv-gnu-toolchain>/build/bin/riscv64-unknown-linux-gnu- -j$(nproc) defconfig
+>> $ make ARCH=riscv CROSS_COMPILE=<path-to-cfi-riscv-gnu-toolchain>/build/bin/riscv64-unknown-linux-gnu- -j$(nproc)
+>>
+>> Running
+>> -------
+>>
+>> Modify your qemu command to have:
+>> -bios <path-to-cfi-opensbi>/build/platform/generic/firmware/fw_dynamic.bin
+>> -cpu rv64,zicfilp=true,zicfiss=true,zimop=true,zcmop=true
 
 _______________________________________________
 linux-riscv mailing list
