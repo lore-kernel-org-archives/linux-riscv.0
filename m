@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB48CCFA05
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 01:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD457CCFA03
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 02:23:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r4JCYT38buYrJYX7KHuVtg16yWtedITFd+QpOqokkAw=; b=Eg+TYIZFtLEfb9
-	ZJFMWTyDVF9CKw8Pbg7bm18RbNV0BLD9xeduEzKVoqahfJYLyy/agTHRR/Sho19wI43SNZUTSft9z
-	tVOq6E+iygQro9tNmIGk5slAXps5S5/Q9fMZV71PrKIGPyg5WqbVgv7iQYHqMCMOResLm+aTSARd/
-	/Sxh03ra84S733ZQIaUBTH63hvOp9b5005mi9g8jvVIIKR/Bgbv6FbO+n7oDXVkAVaPykAmPSt2jy
-	fjPVGuKSdxbxXrfcDN1Zg/VIxjytgBxZHqHPlrr3V+GIf1fhUdJSLTmYkcwNA6wTXo715X4veZTnt
-	EBdzdNkONeRMEi/IZKDw==;
+	List-Owner; bh=+TZiLGpi/EHf4q/0Q5r5KWVQRHv4yG3NihRJN+kH3OE=; b=WjmdkIP3XiJDXg
+	HZS1ZlwrsXSNBCY8PM9L8fJBTIo7yJc/xdcUbiS0bZxrtGQCaCptFcrvY0G+ZmhfpmUQBi6Jk/X4N
+	d34xyalKIPxiGhZyyaeIZDDTob3lct8Od6heNRxddpBNTlCwjSIOBo8ChxpaVQdVjc4WEQrUArE4C
+	I05aSpQok0BpLFQMGJdg3qxQIo98yKZRSzt/cVC9CBatv0K4UJdBfdw0dX97faF4eWevyLdxSCqG4
+	XbKaGeX1wBjixkI5QJCUQPF/VWkFRIHQWN3cga2Rtc7ePiCh0s2k59MnlUvAxLfx29/C4QdsZ3DI1
+	HcC6V+KLch4fdI4rq/vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG62Q-0000000AwQ3-3VVD;
-	Tue, 04 Nov 2025 01:40:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vG6hY-0000000Aynt-0CKo;
+	Tue, 04 Nov 2025 02:23:16 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG62O-0000000AwPi-0Fbi
+	id 1vG6hU-0000000AymP-2bXS
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Nov 2025 01:40:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 88983435FC;
-	Tue,  4 Nov 2025 01:40:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67F3DC4CEFD;
-	Tue,  4 Nov 2025 01:40:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762220443;
-	bh=hLOl+nIyoL9YpIF2ua5v7KC49yNxnmSmLEI5ZrCaKFc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ObB97N3HwireapfZhr8VJvNPleWkPGkmwUNnms1y1dHu2ThRp3qpqa5G2NF6ULO5w
-	 G53Lysn7IsIG/u2sDuZbevMK95L4wlHfvtrU5effNZSFgKUGl1rw3stn6sxpwARV44
-	 J4YIt23RHSrRw8ZnuSJP21Uf5nSXumCkqmqc6f1iGZCPE/WLMvMGfz7cY3eFuALsWJ
-	 creCiWq5x/be52kQNiYOPHpBpe8o2KmFF1lKFN+mMIuPj2yt/CspD+C3OdDetM4DNZ
-	 nt1fa6KUqQbIzLEqB0rjQFheMdpbjVET++CXi51/qAyBylBW05ochj/Me+Yc9koPwh
-	 hx0CvJSbhZnMA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADB83809A8A;
-	Tue,  4 Nov 2025 01:40:18 +0000 (UTC)
+	Tue, 04 Nov 2025 02:23:14 +0000
+X-QQ-mid: zesmtpsz7t1762222925t2995d897
+X-QQ-Originating-IP: A3/odC16aftFYDtQULxGfhYeoNPRYDA1Ks1BQJ6CPbs=
+Received: from [169.235.25.74] ( [169.235.25.74])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 04 Nov 2025 10:22:00 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 18013488585438763342
+EX-QQ-RecipientCnt: 13
+Message-ID: <0BF8B2E83B6154B6+f17f32b4-f6ff-4184-917d-4b27fb916eae@tinylab.org>
+Date: Mon, 3 Nov 2025 18:21:59 -0800
 MIME-Version: 1.0
-Subject: Re: [PATCH net v3] net: spacemit: Check netif_running() in
- emac_set_pauseparam()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176222041749.2285814.8859925220463360389.git-patchwork-notify@kernel.org>
-Date: Tue, 04 Nov 2025 01:40:17 +0000
-References: <20251103-k1-ethernet-remove-fc-v3-1-2083770cd282@iscas.ac.cn>
-In-Reply-To: <20251103-k1-ethernet-remove-fc-v3-1-2083770cd282@iscas.ac.cn>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, dlan@gentoo.org,
- maxime.chevallier@bootlin.com, troy.mitchell@linux.spacemit.com,
- vadim.fedorenko@linux.dev, netdev@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/8] dce, riscv: Unused syscall trimming with
+ PUSHSECTION and conditional KEEP()
+To: Arnd Bergmann <arnd@arndb.de>, Masahiro Yamada <masahiroy@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-kbuild@vger.kernel.org, linux-riscv@lists.infradead.org
+Cc: Linux-Arch <linux-arch@vger.kernel.org>, linux-kernel@vger.kernel.org,
+ i@maskray.me, Zhangjin Wu <falcon@tinylab.org>, ronbogo@outlook.com,
+ z1652074432@gmail.com, lx24@stu.ynu.edu.cn
+References: <30C972B6393DBAC5+cover.1760463245.git.tanyuan@tinylab.org>
+ <33333fdd-2aa2-4ce0-8781-92222829ea12@app.fastmail.com>
+Content-Language: en-US
+From: Yuan Tan <tanyuan@tinylab.org>
+In-Reply-To: <33333fdd-2aa2-4ce0-8781-92222829ea12@app.fastmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
+X-QQ-XMAILINFO: MVZgjp+9CImMjfK5jnhey9JN5ObsfkhR9Pyom6Umy3WdUI/5Shp0ijBq
+	/CT/8RuToj9iDI6TMW7FG6/FrqL4WUM7SCWrJg8d3tUj11+6F1KNDjei5lCyzoI9T/rD2gS
+	OTCXBBdDP8PRE4hCaYtlzSXZHKEfxkdDUZ1px4JMlC/HMtYiwADn4t/OCj5qid0XeN0BXa5
+	18RMyjXjqgb7GEyXv5KSYfztqdlMurjAHWG1lushytmxuv2krJf3RlmT8aLDxUVj53aUdmR
+	jjNe1SRitD40itP4kPlcC/Ui030pWHjScCoS4Hn5oRR6z0FULFAzPlmYyNd0FsE+NmabT0O
+	CzU2aw97GdP3Tm47VFMlAeF5jKhSYtGpA/tzhCaT2QzUbm/uGPwUiN+2hdkCaMDQvBJjUBz
+	eZbz/T5Hh8fNCHR3EwhQ4R3YGmmBziaH0Km5LOUr00uxICEb42jJi8Zuy1ziFaoy4A54Npl
+	0Dt85Ymp4TKOrSig0KC0ocQpZUahry09NGc4En/g/ND2cmmYqoz1QE3xeSBbUyD6Mb59UYG
+	qZdjaGvR+pf/972hw/Omz5sfxszkaKJ9WoMxEjeG/TFzWV2SfxDODv8NuxELh7AUJBdZUpR
+	EWtZtK++v/Gy+SOUD6s/f0l/NM3CgtqYk4aFJjti3HyVDv3RNnc6kdeaNCxB1Orab/pyREl
+	ESDpwjcTc4Lm3pmVCqDscfNc9xz/jXv3UoQFCjFV2gmNObw3M0ha5cfp41r7MbK3BGBBa+w
+	fiso7aJkyPlxGfE9Lq3TImFXnFBicwZU2tIa15djZeL6s+4Q7M4ehy8jaI7AMFfIJXvQUhO
+	tUJbgXpy0kX2MXk3fiyqOqwgkiJ0DCPGUuXedIqQ6Wmv//YnOfUpOw8aKtpxI1BCQ3eoiCa
+	2QnSvJX0h3g5MfbrC6bf8CX61ZH9jsWCFxuwkJ/Uvuahoj8YQIomVZEwkK/H/k1jZrqJPHG
+	D8EyxFvXOj8C2nkjg4mSq0rBx+1soRq9IMMsrWjL9iSpESAem7vrtyal+CJXkayo8Jw3ffv
+	y4xd0V+WFUFA04s8Z/gZ+2uF5HY8DD7KF8pDgxNvgbWfxfqHpSLejb+5XBuZS8YC0EkXmEQ
+	QDpvaY9UWHgmRyjbl/mWcE=
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_174044_137898_DBC499AD 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251103_182313_169172_147828CD 
+X-CRM114-Status: GOOD (  28.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +88,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Mon, 03 Nov 2025 10:02:49 +0800 you wrote:
-> Currently, emac_set_pauseparam() will oops if userspace calls it while
-> the interface is not up, because phydev is NULL, but it is still
-> accessed in emac_set_fc() and emac_set_fc_autoneg().
-> 
-> Check for netif_running(dev) in emac_set_pauseparam() before proceeding.
-> 
-> Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> 
-> [...]
-
-Here is the summary with links:
-  - [net,v3] net: spacemit: Check netif_running() in emac_set_pauseparam()
-    https://git.kernel.org/netdev/net/c/5556f23478e6
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDEwLzE1LzIwMjUgMTI6NDcgQU0sIEFybmQgQmVyZ21hbm4gd3JvdGU6Cj4gT24gV2VkLCBP
+Y3QgMTUsIDIwMjUsIGF0IDA4OjE2LCBZdWFuIFRhbiB3cm90ZToKPj4gSGkgYWxsLAo+Pgo+PiBU
+aGlzIHNlcmllcyBhaW1zIHRvIGludHJvZHVjZSBzeXNjYWxsIHRyaW1taW5nIHN1cHBvcnQgYmFz
+ZWQgb24gZGVhZCBjb2RlCj4+IGFuZCBkYXRhIGVsaW1pbmF0aW9uIChEQ0UpLiBUaGlzIGNhbiBy
+ZWR1Y2UgdGhlIGZpbmFsIGltYWdlIHNpemUsIHdoaWNoIGlzCj4+IHBhcnRpY3VsYXJseSB1c2Vm
+dWwgZm9yIGVtYmVkZGVkIGRldmljZXMsIHdoaWxlIGFsc28gcmVkdWNpbmcgdGhlIGF0dGFjawo+
+PiBzdXJmYWNlLiBJdCBtaWdodCBmdXJ0aGVyIGJlbmVmaXQgc3BlY2lhbGl6ZWQgc2NlbmFyaW9z
+IHN1Y2ggYXMgdW5pa2VybmVscwo+PiBvciBMVE8gYnVpbGRzLCBhbmQgY291bGQgcG90ZW50aWFs
+bHkgaGVscCBzaHJpbmsgdGhlIGluc3RydWN0aW9uIGNhY2hlCj4+IGZvb3RwcmludC4KPj4KPj4g
+QmVzaWRlcyB0aGF0LCB0aGlzIHNlcmllcyBhbHNvIGludHJvZHVjZXMgYSBuZXcgUFVTSFNFQ1RJ
+T04gbWFjcm8uIFRoaXMKPj4gd3JhcHBlciBhbGxvd3Mgc2VjdGlvbnMgY3JlYXRlZCBieSAucHVz
+aHNlY3Rpb24gdG8gaGF2ZSBhIHByb3BlciByZWZlcmVuY2UKPj4gcmVsYXRpb25zaGlwIHdpdGgg
+dGhlaXIgY2FsbGVycywgc28gdGhhdCAtLWdjLXNlY3Rpb25zIGNhbiBzYWZlbHkgd29yawo+PiB3
+aXRob3V0IHJlcXVpcmluZyB1bmNvbmRpdGlvbmFsIEtFRVAoKSBlbnRyaWVzIGluIGxpbmtlciBz
+Y3JpcHRzLgo+Pgo+PiBTaW5jZSB0aGUgbmV3IHN5c2NhbGx0Ymwuc2ggaW5mcmFzdHJ1Y3R1cmUg
+aGFzIGJlZW4gbWVyZ2VkLCBJIHRoaW5rIGl04oCZcyBhCj4+IGdvb2QgdGltZSB0byBwdXNoIHRo
+aXMgcGF0Y2hzZXRUT0RPPyBmb3J3YXJkLgo+Pgo+PiBQYXRjaCAx4oCTMyBpbnRyb2R1Y2UgdGhl
+IGluZnJhc3RydWN0dXJlIGZvciBUUklNX1VOVVNFRF9TWVNDQUxMUywgbWFpbmx5Cj4+IGFsbG93
+aW5nIHN5c2NhbGx0Ymwuc2ggdG8gZGVjaWRlIHdoaWNoIHN5c2NhbGxzIHRvIGtlZXAgYWNjb3Jk
+aW5nIHRvCj4+IFVTRURfU1lTQ0FMTFMuCj4+IFBhdGNoIDQgZW5hYmxlcyBUUklNX1VOVVNFRF9T
+WVNDQUxMUyBmb3IgdGhlIFJJU0MtViBhcmNoaXRlY3R1cmUuIFdpdGgKPj4gc3lzY2FsbHRibC5z
+aCBub3cgYXZhaWxhYmxlLCB0aGlzIGZlYXR1cmUgc2hvdWxkIGJlIGFwcGxpY2FibGUgdG8gYWxs
+Cj4+IGFyY2hpdGVjdHVyZXMgdGhhdCBzdXBwb3J0IExEX0RFQURfQ09ERV9EQVRBX0VMSU1JTkFU
+SU9OIGFuZCB1c2UKPj4gc3lzY2FsbHRibC5zaCwgYnV0IGxldOKAmXMgZm9jdXMgb24gUklTQy1W
+IGZpcnN0Lgo+PiBQYXRjaCA14oCTOCBhZGRyZXNzIHRoZSBkZXBlbmRlbmN5IGludmVyc2lvbiBw
+cm9ibGVtIGNhdXNlZCBieSBzZWN0aW9ucwo+PiBjcmVhdGVkIHdpdGggLnB1c2hzZWN0aW9uIHRo
+YXQgYXJlIGZvcmNpYmx5IHJldGFpbmVkIGJ5IEtFRVAoKSBpbiBsaW5rZXIKPj4gc2NyaXB0cy4K
+PiBUaGFua3MgYSBsb3QgZm9yIHlvdXIgd29yayBvbiB0aGlzLiBJIHRoaW5rIGl0IGlzIGluZGVl
+ZCB2YWx1YWJsZSB0bwo+IGJlIGFibGUgdG8gb3B0aW1pemUga2VybmVscyB3aXRoIGEgc21hbGxl
+ciBzdWJzZXQgb2Ygc3lzdGVtIGNhbGxzIGZvcgo+IGtub3duIHdvcmtsb2FkcywgYW5kIGhhdmUg
+YXMgbXVjaCBkZWFkIGNvZGUgZWxpbWluYXRpb24gYXMgcG9zc2libGUuCj4KPiBIb3dldmVyLCBJ
+IGNvbnRpbnVlIHRvIHRoaW5rIHRoYXQgdGhlIGFkZGVkIHNjcmlwdGluZyB3aXRoIGEga25vd24K
+PiBzZXQgb2Ygc3lzY2FsbCBuYW1lcyBpcyBmdW5kYW1lbnRhbGx5IHRoZSB3cm9uZyBhcHByb2Fj
+aCB0byBnZXQgdG8KPiB0aGlzIGxpc3Q6IFRoaXMgYWRkcyBjb21wbGV4aXR5IHRvIHRoZSBidWls
+ZCBwcm9jZXNzIGluIG9uZSBvZgo+IHRoZSBhcmVhcyB0aGF0IGlzIGFscmVhZHkgdG9vIGNvbXBs
+aWNhdGVkLCBhbmQgaXQgZHVwbGljYXRlcyB3aGF0Cj4gd2UgY2FuIGFscmVhZHkgZG8gd2l0aCBL
+Y29uZmlnIGZvciBhIHN1YnNldCBvZiB0aGUgc3lzdGVtIGNhbGxzLgo+Cj4gSSB0aGluayB0aGUg
+d2F5IHdlIHNob3VsZCBjb25maWd1cmUgdGhlIHNldCBvZiBzeXNjYWxscyBpbnN0ZWFkIGlzCj4g
+dG8gYWRkIG1vcmUgS2NvbmZpZyBzeW1ib2xzIGd1YXJkZWQgYnkgQ09ORklHX0VYUEVSVCB0aGF0
+IHR1cm4KPiBjbGFzc2VzIG9mIHN5c2NhbGxzIG9uIG9yIG9mZi4gWW91IGhhdmUgb2J2aW91c2x5
+IGRvbmUgdGhlIHJlc2VhcmNoCj4gdG8gY29tZSB1cCB3aXRoIGEgbGlzdCBvZiB1c2VkL3VudXNl
+ZCBlbnRyeSBwb2ludHMgZm9yIG9uZSBvciBtb3JlCj4gd29ya2xvYWRzLiBDYW4geW91IHNoYXJl
+IHRob3NlIGxpc3RzPwo+Cj4gICAgICAgQXJuZAoKCkhpIEFybmQsCgpTb3JyeSBmb3IgdGhlIGxh
+dGUgcmVwbHkg4oCUIHRoaXMgcGF0Y2hzZXQgcmVhbGx5IHdvcmUgbWUgb3V0LCBhbmQgSSBvbmx5
+IGp1c3QKcmVjb3ZlcmVkLsKgIFRoYW5rIHlvdSB2ZXJ5IG11Y2ggZm9yIHlvdXIgZmVlZGJhY2sh
+CgpSZWdhcmRpbmcgeW91ciBzdWdnZXN0aW9uIHRvIHVzZSBLY29uZmlnIHRvIGNvbnRyb2wgd2hp
+Y2ggc3lzdGVtIGNhbGxzIGFyZQppbmNsdWRlZCBvciBleGNsdWRlZCwgcGVyaGFwcyB3ZSBjb3Vs
+ZCB0YWtlIGluc3BpcmF0aW9uIGZyb20gc3lzdGVtZCdzCmNsYXNzaWZpY2F0aW9uIGFwcHJvYWNo
+LiBGb3IgZXhhbXBsZSwgc3lzdGVtZCBncm91cHMgc3lzY2FsbHMgaW50byBjYXRlZ29yaWVzCmxp
+a2VbMV06CgpAYWlvIEBiYXNpYy1pbyBAY2hvd24gQGNsb2NrIEBjcHUtZW11bGF0aW9uIEBkZWJ1
+ZyBAZmlsZS1zeXN0ZW0KCmFuZCBzbyBvbi4KCkhvd2V2ZXIsIGlmIHdlIGdvIGRvd24gdGhpcyBy
+b3V0ZSwgd2Ugd291bGQgbmVlZCB0byBjb250aW51b3VzbHkgbWFpbnRhaW4gYW5kCnVwZGF0ZSB0
+aGVzZSBjYXRlZ29yaWVzIHdoZW5ldmVyIExpbnV4IGludHJvZHVjZXMgbmV3IHN5c3RlbSBjYWxs
+cy4gSScgbSBub3QKc3VyZSB3aGV0aGVyIHRoYXQgd291bGQgYmUgYW4gaWRlYWwgbG9uZy10ZXJt
+IGFwcHJvYWNoLgoKRm9yIHJlZmVyZW5jZSwgaGVyZSBpcyB0aGUgbGlzdCBvZiBzeXNjYWxscyBy
+ZXF1aXJlZCB0byBydW4gTGlnaHR0cGQuCgpleGVjdmUgc2V0X3RpZF9hZGRyZXNzIG1vdW50IHdy
+aXRlIGJyayBtbWFwIG11bm1hcCBnZXR1aWQgZ2V0Z2lkIGdldHBpZApjbG9ja19nZXR0aW1lIGdl
+dGN3ZCBmY250bCBmc3RhdCByZWFkIGR1cDMgc29ja2V0IHNldHNvY2tvcHQgYmluZCBsaXN0ZW4K
+cnRfc2lnYWN0aW9uIHJ0X3NpZ3Byb2NtYXNrIG5ld2ZzdGF0YXQgcHJsaW1pdDY0IGVwb2xsX2Ny
+ZWF0ZTEgZXBvbGxfY3RsIHBpcGUyCmVwb2xsX3B3YWl0IGFjY2VwdDQgZ2V0c29ja29wdCByZWN2
+ZnJvbSBzaHV0ZG93biB3cml0ZXYgZ2V0ZGVudHM2NCBvcGVuYXQgY2xvc2UKCldlJ3ZlIHRlc3Rl
+ZCBpdCBzdWNjZXNzZnVsbHkgb24gUUVNVSArIGluaXRyYW1mcywgYW5kIEkgY2FuIHNoYXJlIHRo
+ZQpkZXBsb3ltZW50IHNjcmlwdCBpZiBhbnlvbmUgd291bGQgbGlrZSB0byByZXByb2R1Y2UgdGhl
+IHNldHVwLgoKQWxzbywgSSBub3RpY2VkIHRoYXQgdGhlcmUgaGF2ZW4ndCBiZWVuIGFueSBjb21t
+ZW50cyBzbyBmYXIgb24gdGhlIGxhdGVyCnBhdGNoZXMgaW50cm9kdWNpbmcgdGhlIFBVU0hTRUNU
+SU9OIG1hY3JvLsKgIEknIG0gYSBiaXQgY29uY2VybmVkIGFib3V0IGhvdwpwZW9wbGUgcGVyY2Vp
+dmUgdGhpcyBwYXJ0LgoKWzFdIGh0dHBzOi8vZ2l0aHViLmNvbS9zeXN0ZW1kL3N5c3RlbWQvYmxv
+Yi9tYWluL3NyYy9zaGFyZWQvc2VjY29tcC11dGlsLmMKCgoKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
