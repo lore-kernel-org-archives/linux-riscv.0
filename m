@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762CDCCFA04
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 19:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0283CCFA05
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 19:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yDTKW+Q8C4Fm2Uc9FtoJP1JaSj9PdjJw7VS2ea5HUJU=; b=4DnnEL2CUuItEv
-	G9WrtzKimSkH1LbMTK+obMdWVfbpsqCK1CtIXYb07jqTp8PKJYm3XfrDh9rXZWh2AIhUyjxQCj+xB
-	ekWZU5JyZklVH/UxIhdx/kRRw3fByhv3jNPf6zzYlzE6T/bdKfrr9e3ZlanWtuS8nZk45QuMwSqJS
-	T4uBz1yPairv47/e2BA3MwURcuZBCvDFsmELDZXXqhWVnJnimYo8mqpoRD0fkkURS/KPLaRtTGEJz
-	WXeAhVnO1fPpm4oHdn8miLUOOxjdIsF56fkvMwtmNA4S3aLpBuGeAWBb9OEPgYgG2nLhWjz37z8sS
-	Zyr/WSlml41P/KeVj9tA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qCer1x6dlbwa329k8SCIouhHeK+BB4cfWTKJBvA6X6k=; b=xC1/Db43dCdGcx
+	fBAPqy4oX6pOxDvgXkADYqJBerGKlK/wQiz2eOJUMbhxoM/aPjnP9XDkivp11NIjykxe8hJhK0a1o
+	g1GXqjQXrqKEAqvr6On9WnabSoJ4sd4+PAtTKIK0P1+MfKFLMjA04+SbDs0z6O9ADUaAFqjdY51DZ
+	foaKkMtMJKTwLNaquBoWltCvOzGBfLOW/1IgmzGrfAYKwF3b26vO3KLteHX/vrunLRBgAaMVXMSuw
+	f7WBGqJJwSoCt038hwEPSTVnel6iWLsgyNVMsZUE6UFX7rcDU/Q1ZMYPFiJGy5kgHdqjgZM/15vi6
+	6y5e95EOeMq8JdMKw06w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGMH8-0000000CS3c-4ASz;
-	Tue, 04 Nov 2025 19:01:02 +0000
+	id 1vGMHD-0000000CS6Z-1SaH;
+	Tue, 04 Nov 2025 19:01:07 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGMH7-0000000CS2g-0arf
+	id 1vGMHC-0000000CS5K-0IsY
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 04 Nov 2025 19:01:01 +0000
+	Tue, 04 Nov 2025 19:01:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=kXqswN7hPvva7PQ1a9IqhdwTclZAlneKzYGlqm+YL3c=; b=a9NKE/EAfc1yOpN/81Znyh98f5
-	OJccZUrsbUNay7HSZQ2z5JYD7KpBgNPhnEXOYCr7uA5a2d9RoqNdvQy5USj9g8/8l2rjagUqtZM2k
-	1bEOttZvLHGuR8XdStUz6IAk/pO2gU4424a1cU6u7xRxIc9dCc+KREH1Z7cfgiGgQmB7RiRsaeJLw
-	J+xqv4KO5MytV1EtG3JKw+KIig+M81JwwNtTHy8EilFU2209LAzHHmwolmmw2EzKRvgq5TRCP+814
-	qe+nkNyYSwFKUgzor8vPz4uXUk3n0dYgPfMEXjZEejL6yKlCk4kYJfEpxUBWXz7dgSNbQ3Vp1uJ7+
-	V5akjVjw==;
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=9/qi/FIwUMIXUQIJdEQVhgG3zXcm/gFoVK7Kx1LPuv4=; b=YXbvSr2vclA68pYWBRthw0CxLB
+	YxQJO6+EfMpFdmqH7xcKDcU0eN3KZxWwaAvhXRuchT4Z/D3CcdEQLGXjhaYxvQqn+BZhIJektSpuZ
+	PyzqsB0C9UrUP8AqRfEsj82alDzEzcNDe6gUdmxc05Xfanr7wAXL1bxBRnpozIKdZy4TZ8Tb0gRQT
+	sZ+YsJWGXFIMkvZK2y+8+LiNiNViBB8Yl0zOFVPemAmOt6L3GUzuU9Ev2ffijvVtOdFdDbKT8kM+a
+	GJet3fKTUhtkA3/auSjGgca1bnt/1n6mxFZxG7nVzhLs2ZN0tzMF4xI4qPf3JDIUdiAbkX2jIjPAX
+	wOJSKe+Q==;
+Received: from mail-northcentralusazon11013067.outbound.protection.outlook.com ([40.107.201.67] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGLPM-00000000gOm-2D5p
+	id 1vGLPR-00000000gQ9-3DQk
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Nov 2025 18:05:30 +0000
+	Tue, 04 Nov 2025 18:05:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N/u06k6I4L7Gv6SiSTNSv8wvXlGEI1p4ZOml8WXAdq1NLYMM+OysjvZht29kfXnLxzBvoE8KB/V0OAWTGABeYmD6JCQEEgt5mKK3PE2bcVaV+zKTI1Xlu0VYyoj6HhqxD+yqPAkYNfLSgMw46g2ZdPZoM2dDYA+1IwXqBDc/54BheNaE9FUZWwcS40uv0DhMHOsfsEt3y0wGIyCaaNjcRBmRZRDEbuFFwtPvA24J7XClM6oKVlFsXmKy6+4A2fdLJFqVyisnQPe9fOVxCJb97iDjugCzvzwuU2JGhxbjvgrRcC5CnEzXxpZ8sLrFnKQ3DMBBJ4IkD99z6vb8I3BoMg==
+ b=MQXATrvpZ6P/KB3WnlSmKeZpmOLxqinTVKNi1ycP+KeAvLIrFb36r6/bw28xYhgcg9Ru9gvvqQVpjh5ItR/lCn68C8bBQU3Jdl1rxZgIPfXn+Z0dzit9lBkdHQf8RuV74zDBZn3Pv4HoLGvRkQbesiWOxhcQyusXwWbg0pLVhTpnbZTy8NvmusQJOlEx6Y8SHKBly1kcvi/sgwNR9c5aCkOs1VOGtmQhMyklh51iqv+fjo0cBetmpZcWquNM1758x3RaAPHmqPYr0LyMxCitzVunhvpK8XEgiovC6BEwbO8CIGDmUnJE9j9CMhm62Fg6a09fsQvwhRszXSJT2ApdSA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kXqswN7hPvva7PQ1a9IqhdwTclZAlneKzYGlqm+YL3c=;
- b=NvUZ675gZpa6ihHS6442Mjw/gbZKhtD/QUmUhxr+1YnS2TCbhUZfK6TnGvNkQ6wugqqbwJmfYgqcI6mbIjbHd7uKUjvy2RNQWkbhCg/q79BHX1/BNwR2oH6VpxTbmHwOBFIa89tK1AMfkPtuO1PGd1pTJ78NF5+hb/ZbktcwScMrQsqpsUEa4sEIuEk3yX+YPY2668kN8hvaUowON+VqX35dQS52kOt1WoZ4oSc7LjvIV2cXSPk8w5NSxBz1VktKZuK8/3/W8WyyJl/rdRPS+2Co1RpCIVj33JgfWPt0Q0bXhwun5wT0dE+1Up8e4dQO8s4VGwKhYmQog1dA0QG11g==
+ bh=9/qi/FIwUMIXUQIJdEQVhgG3zXcm/gFoVK7Kx1LPuv4=;
+ b=CO+tjOOHL6gu45EqgI5ovCZUsgJa9chLSu+ntOeXTPq9Y47XdSBL6BF8T7LgHMa+gdEDcvbghmYgS6qdSCmnBDxBlkfgvSguY6tfcI4KfzU+nj7TosbEzvOUfOVjMVMFbiAFycYwqPocWVTuCazEzQvGGVO3dz+tjj1SdMtF4Of5TVNyZGRa3sSle757aOGVNk+pqMjnnFaqN2PKdfwByQc6IeRYU1xVLNV2+hg8cGen79p9nY0NMzElHfdHvD3UFeBBlMzswrPK/qllowEp0EcEAZzQ/RE7PHXjBGdWbX807AW6Pmt9JwERS3A8/t98yHwOwuDDQdMRFkjnRQnE4Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kXqswN7hPvva7PQ1a9IqhdwTclZAlneKzYGlqm+YL3c=;
- b=QYIYAblRn4PB7uwVWnA5epeNBCbcjQC0ML06fnkUNG86CuSpcL+EjGRI02vTf4fMW6ygSjQ5A1z70IYDexWGD9m59tIjvOPz5AAedsLdly3UHv4C6yNrQW/1d0IbT7wxmFPWjkiZ9iuYpSbfu844j3JJjhLrRGWjbncZLWh+WkhGnlhnjU0TISkqr4JFrJUFlhRS3GJQg+5jZvrg/fFFrfLVEkMwSUZzn3cXMQ7LRIcOCa3la2qZxXwCHGaKdNF9d8EU3p67ig+qx73bpGWaFHxi7frpu/nps0LfVTxx3F2KyrG1AhcCvBqgdN4I+rFtsyZNezTx9isVEBT2muVMbw==
+ bh=9/qi/FIwUMIXUQIJdEQVhgG3zXcm/gFoVK7Kx1LPuv4=;
+ b=G0vpUa7p+q5JYV+5qpoNUSNr/QrVUNqjtYZU89zU7bYy8/M4wA/VjjukbJPIXzafvleCsuIPDJNcC4Xh++YL4oPB8GteSfQftCHzeoIbMxcTjECTxpX3OJj3dvK/VPr4hP1bipmtX24zCerieDEBIGRCipsP/Jr0+aH6sW3g2s6yi0jKWvNhF3Z0mPhwiYGtfKSuPILJBmzybub4SSU4Zdc3FJUim05f+qIFAJGrYBsC9bZoqjVUtks38FM5GvX42MFHQXP6fYKOk5F2M0zBkEqUhbOPPJz2OwCvKQUJ3VyPPoI05haWrIBWTa/q/MJai/Z+gf1AL55HAkpHJi458w==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
  by MW6PR12MB7071.namprd12.prod.outlook.com (2603:10b6:303:238::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.8; Tue, 4 Nov
- 2025 19:00:47 +0000
+ 2025 19:00:48 +0000
 Received: from MN2PR12MB3613.namprd12.prod.outlook.com
  ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
  ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9298.006; Tue, 4 Nov 2025
- 19:00:47 +0000
+ 19:00:48 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alexandre Ghiti <alex@ghiti.fr>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -83,88 +83,90 @@ Cc: lihangjing@bytedance.com,
 	Xu Lu <luxu.kernel@bytedance.com>,
 	patches@lists.linux.dev,
 	xieyongji@bytedance.com
-Subject: [PATCH 0/5] Convert riscv to use the generic iommu page table
-Date: Tue,  4 Nov 2025 15:00:39 -0400
-Message-ID: <0-v1-d3317b0ee398+50-iommu_pt_riscv_jgg@nvidia.com>
-X-ClientProxiedBy: BLAPR05CA0035.namprd05.prod.outlook.com
- (2603:10b6:208:335::16) To MN2PR12MB3613.namprd12.prod.outlook.com
+Subject: [PATCH 3/5] iommu/riscv: Use the generic iommu page table
+Date: Tue,  4 Nov 2025 15:00:42 -0400
+Message-ID: <3-v1-d3317b0ee398+50-iommu_pt_riscv_jgg@nvidia.com>
+In-Reply-To: <0-v1-d3317b0ee398+50-iommu_pt_riscv_jgg@nvidia.com>
+References: 
+X-ClientProxiedBy: BLAPR05CA0042.namprd05.prod.outlook.com
+ (2603:10b6:208:335::22) To MN2PR12MB3613.namprd12.prod.outlook.com
  (2603:10b6:208:c1::17)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|MW6PR12MB7071:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7bb15095-58d9-4783-3e97-08de1bd4762b
+X-MS-Office365-Filtering-Correlation-Id: 3b498b48-3140-4191-076a-08de1bd47647
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+KccLInYmYVoJnehkbOjaShH3nBe2RNuhGMwAPcTHWycjJloWArm19c06Xot?=
- =?us-ascii?Q?Kg+Igrvn2O/lUy5KTDE9NkrD0R/7u1M4nYvprW3ncAEfKhb82D8tZOk4Yygv?=
- =?us-ascii?Q?8PLjBxfAHJ0jzZM1xt9gDSH4CSPxg8S2CKB+3hUBLTJYsGG+bQPI+LNIJa6H?=
- =?us-ascii?Q?TKw2eyKdrLlLXgfoSfpST11Wjkbo4vJauZXjbH7Ia4VFaHjw0s8RQUJdrUx8?=
- =?us-ascii?Q?/JwT4h5L/ZZ1/dK0hlTliZuHDgRg+UdSopsMlQWzvoxPnHU43byNmBzZs5c+?=
- =?us-ascii?Q?9otuc9M+zSudLLAWwoYBhOBNH++QJBwlyc929g0E9g0PtcD8p60pQNzckGXD?=
- =?us-ascii?Q?+B1fkXBJf0DXusDwCiyS2tEpTlNp06l8HinZ2goniI04dxFrlostgvezdGow?=
- =?us-ascii?Q?is+s4QqE8QVUTTCD7Z+Uj6bdS2Plqhahvt7rVSskYYUNcoVEu7SQxK3nsiP1?=
- =?us-ascii?Q?QKcFpavCanaAjUNp+ILEnonqn/Qm0OTS4uqwMCf2HKs9kImEC43wtxWL/8wc?=
- =?us-ascii?Q?9yeJ/BaYI5ogMzRKGLMB3XNjyLg/A0LwEHiA6KFAX65lCR5GdRMB9ENnIZLD?=
- =?us-ascii?Q?o7Q9q95z+O6lVDUHK4Oc3VOOmdXmOhC3PrP985rCwJjd4H2+jEMaZ8iIsW/L?=
- =?us-ascii?Q?9krGZhXTXDWNLpJyMDftgXhrcmQob8K0Ze7u7JwD7cq/R4nLLTLeO4Qb9taV?=
- =?us-ascii?Q?pWlfjL6Yd5Dy0S1CfTEysXLvnTOgRa6wA2OlsTIEfw9OYyBwnpNpO0pnodQc?=
- =?us-ascii?Q?A5OBSmS2F98t6ZBZwmeKec41xIfEae4DPaLJLbyhHTsvt8TVCPgPps1+uLjd?=
- =?us-ascii?Q?BfnwN7wEZZLLyLf/pSDl7BXaZsMGqNpFsyoehYSbUX5nQy88G+y7zRWbPq/m?=
- =?us-ascii?Q?8lCADGUstrKoEF7Bs8GnpZlRraxtGoSFtTsZwRKle5thZLsNLlPNiRoq3gj8?=
- =?us-ascii?Q?KTAqC624KJmaXFInzF0fIXWagkXCnoub5Kr6XSVhaqsd9l0JkJYERIDsD8zU?=
- =?us-ascii?Q?/q1eMPM25nZumO7IbmdF7NL7A190FjJXkuf3LW1RcgYzuBTTPc5pdXaIzQ9E?=
- =?us-ascii?Q?Blrjwl0j+tQ+4FwIGC6TmX2sft3f98Hr3lifNXxSMJaykDzpqNWQ9mBvFu6p?=
- =?us-ascii?Q?Jg5DPyo2mGRZWVvlTLK3r2hPYSI2U4E8vxg7DL7bkL2i26s3tLj8i+rnyCiA?=
- =?us-ascii?Q?vTgt2RD9vwEoZnVvxUpbBb8BS5AifGYcu2qInGPSyOz7ttlXsW+4BjNZdgV+?=
- =?us-ascii?Q?l53CPuVR1TCAEQc4FsGFF/GO6ZIDu1WzFDM9BHs/LQVc/TPsgpeTxFc8a0nS?=
- =?us-ascii?Q?ExpipCOuW3fnDtn4WmmPmqJ9Fll/E+c7I9hPh7LpqpWntnUx1zbhfzaOcipe?=
- =?us-ascii?Q?O+8PoygffqTzMWOO5SrXKL6dQSEJdSCpYkGRgHdK+/X9m2KRYUEFJlI6GREX?=
- =?us-ascii?Q?scJTRU47P9KwnyaynF4/UPB9x6y+3TmIPfnGbJFF/FK0nWDakzFhYnGtgY8v?=
- =?us-ascii?Q?MbRNHv+HvfE4ZtdURb4+iJpsmWDVgTUsuBLb?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NJ8riR3N6YACspqeOHOJa8LNMpZgwSjcMJz7QwqGRSRWeYmddVqz2BiyA4sv?=
+ =?us-ascii?Q?rAxeuCyxvk5pUrS+3vtCwoN+i5usEfnjUM9X8TV9Zk0l5F/5jrSDktHq6OMR?=
+ =?us-ascii?Q?ISV84tnkYmLpZ4+ivxVn0JR89Hj7V8RLp92bsVoVcuiVq2UMigEVB8slMTQM?=
+ =?us-ascii?Q?gxIc1SlUNP/tK4kpNCk+x1m8Tj0bfrpxX4ZX5uE1kyN3UC626KoGTmFH8hVf?=
+ =?us-ascii?Q?E9nFvaMXAm/iVTQwOz/omMMSzU5Il+ApdW69IRnq7lO2SiwEWLBoev9aGYl4?=
+ =?us-ascii?Q?+vINWk8IOkxd+ifxQSj41CQeMF/dosRE6C/47dYT3rxCrxGG0XzOM0fRqZ1/?=
+ =?us-ascii?Q?Ll6I3umgk7WdAylkrm5MOMKeqxEDT/J9+9rtslsaZjK8fndg80+TQPItCCzy?=
+ =?us-ascii?Q?qcxEiUtX/m3M/ZrdXi1Vy9TlEXkheCW5j7nQATB0ZNIV7JOoqEnSDTtGHTMb?=
+ =?us-ascii?Q?OnkmTtu5vynyUdHB3wle4WqHrjjqnK71/f+mzHr7LfeVlQc0F5IqbT3UzNFA?=
+ =?us-ascii?Q?mcs4oZyNf9vfkl0ewwcA7252C7NkykqsVfYYmFjkDnFXNjwHIoaTudyTILQ9?=
+ =?us-ascii?Q?58xsQ/B0vk99nagoB98K0vry5Fl3nY7p2zAt0rZYGpjyKla3Covy0WjJUqkS?=
+ =?us-ascii?Q?Rdl3caEgQnkBf1OyNymt98nMQZHLTdAj7oPQf3eKLtzFjtg03ZJ14I274qbH?=
+ =?us-ascii?Q?R6XRgXgDL0APcu+PNjd+imXEbwdVQUCdqCNUy9ci9tEbFSItwhURppYm1kPk?=
+ =?us-ascii?Q?4ounQZCYlxHnr9ZC/o9kzbtf2FHuhMoc0shfe7XC/Ha2J8U8VtWX0yjt/4yl?=
+ =?us-ascii?Q?nVUscK2EpbERZgFGinqC8zqTtWAMhY9JZ66vAJG2NyYVGb4KcOuKDIWRfTRE?=
+ =?us-ascii?Q?DkHxmTAWfGIrUAZzs22KZ9RJP9mzXOPlyNjiSJLOUckR5P6y3IUZ+pyDupE9?=
+ =?us-ascii?Q?mHN1ji3F5iDH0ntR1cLL2S5sfGK8SkoUi2NvHxN54lsX2P8XivZHgTIlTxKy?=
+ =?us-ascii?Q?rrTohQ/DRTOH3z7DfiAn7PiWy2kpjqb057Y9WeLfT1U5soRKlscq4gQ171q8?=
+ =?us-ascii?Q?On6noMyvNZmqmuN1gGSrJWYHyU2MCXNizB4cNEL9mZnT7xwpdftz6o0DMoGQ?=
+ =?us-ascii?Q?72B9QNzpiBFXVpHH0EnshSFLxjieJENPn9oCAsGSiNdHg6+64YkJdCuuI77f?=
+ =?us-ascii?Q?ITvP7K4NL7chuRr0KLnHTg12KSjiPLNS1UNhygai/qWJfxbgc7f6lK80Xxbn?=
+ =?us-ascii?Q?+lyzGahk1LaqJXIazjl0hT3AG4DldyUgOeT49CT6bIEt6shq/d/LGQCizV0J?=
+ =?us-ascii?Q?8UaYsjrJT2ODeQ5GN6szwDwM8hc1hd3z1EAKFYkeeKkpfWXqX1wBxeE/eIDw?=
+ =?us-ascii?Q?Bq9C1iiNE1elfleJN4FCs1wtqo8cQBZxPtfTtLcZYCoG3R6Q7Rm/tTfAZ7Zp?=
+ =?us-ascii?Q?/v7NHy/BD0y3Due15acQq/pRqD87IiT5ThPHabKYHhfkKqCY+xZXESRqNYY9?=
+ =?us-ascii?Q?BO2sPpBMqKW+Bbw=3D?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4I9srdpJ0rheLXTk3IT250UPe7TUfA70AcbsvJDOanw4eVZWSUpTIdzXO4BL?=
- =?us-ascii?Q?vHDXYeMtGlgFRmcINS3rPfVxciSNNvyjR8vCl4jSjs6jelPmmQJWaExzeyyZ?=
- =?us-ascii?Q?MbqR31r86t5esLnGlDSP4/tOyMh63M4bVv23RYGi+bwzTU/Uds/WHbMp0r7J?=
- =?us-ascii?Q?oSaoeSmsPWemeg2bMc6ScUhAUR+CutSTfclw/FqLuasrPfao2V1NBTFOiLwR?=
- =?us-ascii?Q?n4x2TzzkS7e+RbzjpzgJJR50G+EDztAm6EUNlJUJNlAWJPnY8rfOqBJZo+pQ?=
- =?us-ascii?Q?aCMFJqBdBJeFhriYepqrikMT1sl4hIHjz/yNMJcA2UlNLIsf8rNJqRV6paTB?=
- =?us-ascii?Q?vUNpQke6AwwlXoLsOSbo5DAWiOC6kYEL5hxdhY1TMuEnfKDLrmgfMUVhR3zR?=
- =?us-ascii?Q?tcxW5OnnnMIIWAtIvNSzG5/HJXCLFrilzVsT35rsvjMtNLVWdfAHbNK21FpI?=
- =?us-ascii?Q?R4xgc3P3PGtnf+f3xtN4FqY6EHspLaKJzw9RjT9vMaYXG+dvj75ADwYw54PJ?=
- =?us-ascii?Q?u9hOOtiowW0TMvpEnl283iDPlPXLB1QlfMdOnhFfTebYAeltyVG1Rv3FvOai?=
- =?us-ascii?Q?bGlWybWm3/SAJA9VT1oNoUFkLoCv4i+TlYBjKlHxtdcG5ZnwxQjKZG9nnKkW?=
- =?us-ascii?Q?m3q8QtZE3YGTyxcV1suJ229rTDIHFb47Fv1N1CnFZAevxvoh2X2wnRoHvstt?=
- =?us-ascii?Q?oR8oQFKVSCsEvTXV0Zt8fY1NczDcKKDu0Zy9x2DFX8TxS6JOZ0oRnIsvSPdH?=
- =?us-ascii?Q?znQL8tuqlKtczNgNGTEi59HhMhgA+z2gfI17JkbZT6q1EZZgKeotRnSt8Eau?=
- =?us-ascii?Q?XaSNA40lW1YV6mfFeMoYrRPixkJQ9F56DG3IYX7zoD2Aeyk2DHPi6vR2esVc?=
- =?us-ascii?Q?gcxCZv5e2/pBkVgHIs2THJ2L2uc7fdXQqwNATg2zJEKNr+C4eMEBavasQT8H?=
- =?us-ascii?Q?zyGyET/y4w92POkCvUYM9Pa5TMuHcnWZVEnlfPA2SycofvyyKOhukboeMLD+?=
- =?us-ascii?Q?n3AMxBFn5fukpGKTsrv2V18zNBFzODTGRLN2MfT6yOGd0D9GMQjCrYWWQYCf?=
- =?us-ascii?Q?/LJ2Ef0ChPM0QBXBkIzB9mzi14H7mufSVsF9fF+myLcC4ejNKzWoZRlV/G/8?=
- =?us-ascii?Q?m8cTuC10LapIo+GPNW9FAjJE93zbTNAWQ0vXrTJE4wa1nuyKsUmPTX+XwB6h?=
- =?us-ascii?Q?hgyl04PVLxsKePtLqCtYHFowsSr9FWd1iAd9ZAhYr8pRC0u06f6hLpQfARW1?=
- =?us-ascii?Q?utV6nSPQyfpd3BXFKf1X6RXyurzggOR3yMoL3/UmD0VzltkAcVnhHePek5oK?=
- =?us-ascii?Q?S7m1S/D1k1vAiRtrGuVX1l4Pu7AuN+C9yD9IbOPTOdq4fof3PEJ4Ccg7AUTE?=
- =?us-ascii?Q?oCeD6FkZOdZfZRGbvyVaUQUB+uZOk8A1YZi6d3sfY2VBINgZzV+aZTZDmxFX?=
- =?us-ascii?Q?vD1QztJhFBWyHtVxbzPjGdfcLMlnmXxZsa8N5qURJGYb3COFtdA1xtyf+dxN?=
- =?us-ascii?Q?V6Tbole4QsKBSDOT3uzswIREbIcT0n7+vzmqc8yX7F488tmesaqzu2DxCC9T?=
- =?us-ascii?Q?RhfHuJhdMkdzMR5L1lk=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eHjprfaGFS3GXlExEL+jRiuCuc/QM8xZPp2bRQXTYDqBl/tZ0roBVqEiSlXK?=
+ =?us-ascii?Q?X4z2o69Et/xJGo26B39jXPbkfEiPHk0JMA1tK0iK+idIArGq9m7CwpMrOOz8?=
+ =?us-ascii?Q?tGW2xzUyiTyaw9iu11cwmwXGZ/n5IHs6PZoAGSCZIwJsNUffgcxMGIEhE3Ko?=
+ =?us-ascii?Q?KeLmprFLhSh9qoTBXmSmJpeKJ9+he7IhEvdLzb5Z485dZ89yXWA5vkhoxuZQ?=
+ =?us-ascii?Q?YUKJR6i0WBCHzTDTSJrsgUhXGvnX90iU20vsGq9uiiu4/rEjj1r+AxosQ8Rl?=
+ =?us-ascii?Q?04l7F0q1hzDKrRBJLjksWT3B/jfkXbyaBrpMTiGXy0PtNcseJw36Z1XiYu3y?=
+ =?us-ascii?Q?tQZ/6ZnRWWRZSlntrNhhz2wMnYhXWngsjh1w9YKRTM/Qm696x/GZv5/2In1P?=
+ =?us-ascii?Q?RWpRnOAHjW2kyElEFNnwuaB/Pst9qsk3DfydePQhAdmdFwWMtmbtXikAFnkQ?=
+ =?us-ascii?Q?LRc6QYaUBvLyFdoLPWkDwzYTA9EP+ntM51bhE217OkuzPAF4SQ0htQI2WFEi?=
+ =?us-ascii?Q?QGErzFmHZ6ymSOAHGyU60rSq6dQofDFFVy6/LWwA9B1iF5UDC9vT0cuDiAXe?=
+ =?us-ascii?Q?WxuYN287/Piyn0QRxkydiizQ5hpuZRyyaJOy2NXWAUuo0C7pdaEqxrQA4Lvm?=
+ =?us-ascii?Q?ydVtuue1pAbjYk4ck1G3p/1pf21tM3DKyKuE6Y8pHiz8UCFtFNtqCNrma7IO?=
+ =?us-ascii?Q?496GIRaE3nCY4cgybbf/M/NRn3JSOq5KMggeb6vdQL3lbn2QfbHz9SFfCMNu?=
+ =?us-ascii?Q?5XnuzbviLFpkP9Kf83Y8jD4dHiO0eU2wZdf7YS7MyDpfwyegtc5itRLWz0nk?=
+ =?us-ascii?Q?P1GsT6bFF8gNkoKf5fkeFUIv23xuURyzITEIC8hb6tJkmvPF1wI2bqL/BKp+?=
+ =?us-ascii?Q?htxHaRssNYAIJoGyRx+jqZjO24QA9O1W2sIv+fDzkLRMYzGjIrwE7bJsaHBa?=
+ =?us-ascii?Q?DmfKwG7gz7/WCihvaoUOOd6JuYezj0Pd+oqYNMdNpZwnW/E/ZjnzZZVyKJw8?=
+ =?us-ascii?Q?3xCkCrKmOr0EZne1SkHlJtuU+YrXwVBKer0JqV/cJr/ARDdSeA0hrzMOyxVi?=
+ =?us-ascii?Q?WXBWBqMp/3fCpPwgDeD2btU+WT8GnI/kGJd2Ns/lymCBsxJljjjrVla4McNR?=
+ =?us-ascii?Q?St2/UA7JGjAbdTqOm1fK5QaDXAUySoHVMbMh/wgUMxsjEPZcRyRQgiOHpF2F?=
+ =?us-ascii?Q?BM+Ki1EDOwrMmzXu3wKU0hu5lxG4hTrV4g0p6+xbLNR3dcCedq4nPp/illCx?=
+ =?us-ascii?Q?Ig1pmN8VYwcN8YsPnu+FyAqERLyVJw4OCj2h0omMJHth8r77VXECDR0hW21r?=
+ =?us-ascii?Q?HCNTFfosy/03FEOYCEONozrHbVUtCMnZSIkARwWsCAjXhlyLKstADl7hjBYA?=
+ =?us-ascii?Q?QzihdRcChXnYm4INnSNuB9mKm12VCISOZfUYPvPz8NIVhrxD6h3FdgNSG5SD?=
+ =?us-ascii?Q?Tglwzfz8TqeRb9XKMo/uhTmx8dW4v3MdU17td09KlM+5M+KQCJefutxP4wuN?=
+ =?us-ascii?Q?InkhF0X5my6+doE3ZPu7R2fsNJWXg84e81NhbgC/klW5NON+Av5DqnmIx/h5?=
+ =?us-ascii?Q?XLLhricil+3G9vKce0o=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7bb15095-58d9-4783-3e97-08de1bd4762b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b498b48-3140-4191-076a-08de1bd47647
 X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 19:00:46.3572
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2025 19:00:46.5996
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lmrsIvyeWRsi2rys52uCQmBD4ZNxjG38GvpSzbrzJ8tCRhaQ48pQH1WtbvA/e5zV
+X-MS-Exchange-CrossTenant-UserPrincipalName: AZ8KYHgX6xrvVdTLv6S6kHI1vuIJc7+SzctYDx/p4ZLHAlRRchHP64/2KI5Az7Uh
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB7071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_180528_640533_54F535E5 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20251104_180533_906903_F1CCBD6B 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,55 +183,427 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[ It looks like the precursor series will be merged, along with VTD. If
-someone from riscv can test and review this it can likely go this cycle
-too. I couldn't even slightly test it. ]
-
 This is a fairly straightforward conversion of the RISC-V iommu driver to
 use the generic iommu page table code.
 
-It brings support for SVNAPOT which is a 64K contiguous page. Otherwise
-it should not change the behavior.
+Invalidation stays as it is now with the driver pretending to implement
+simple range based invalidation even though the HW is more like ARM SMMUv3
+than AMD where the HW implements a single-PTE based invalidation. Future
+work to extend the generic invalidate mechanism to support more ARM-like
+semantics would benefit this driver as well.
 
-The series disables SADE as the dirty tracking support is not implemented
-in the driver and should be done somewhat differently. The generic code
-gets further along though this does not include the format implementation
-of read and clear dirty.
+Delete the existing page table code.
 
-The format implementation should be able to support the 32 bit option, but
-this does not enable the iommu implementation as there seems to be no user
-today.
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/iommu/riscv/Kconfig |   3 +
+ drivers/iommu/riscv/iommu.c | 287 +++++-------------------------------
+ 2 files changed, 39 insertions(+), 251 deletions(-)
 
-It looks like RISCV could support the DYNAMIC_TOP option. It would require
-some additional work on the core side to interact safely with SIGN_EXTEND.
-
-This is on github: https://github.com/jgunthorpe/linux/commits/iommu_pt_riscv
-
-Jason Gunthorpe (5):
-  iommupt: Add the RISC-V page table format
-  iommu/riscv: Disable SADE
-  iommu/riscv: Use the generic iommu page table
-  iommu/riscv: Enable SVNAPOT support for contiguous ptes
-  iommu/riscv: Allow RISC_VIOMMU to COMPILE_TEST
-
- drivers/iommu/generic_pt/.kunitconfig        |   1 +
- drivers/iommu/generic_pt/Kconfig             |  11 +
- drivers/iommu/generic_pt/fmt/Makefile        |   2 +
- drivers/iommu/generic_pt/fmt/defs_riscv.h    |  29 ++
- drivers/iommu/generic_pt/fmt/iommu_riscv64.c |  11 +
- drivers/iommu/generic_pt/fmt/riscv.h         | 313 +++++++++++++++++++
- drivers/iommu/riscv/Kconfig                  |   8 +-
- drivers/iommu/riscv/iommu-bits.h             |   4 +-
- drivers/iommu/riscv/iommu.c                  | 302 +++---------------
- include/linux/generic_pt/common.h            |  15 +
- include/linux/generic_pt/iommu.h             |  11 +
- 11 files changed, 446 insertions(+), 261 deletions(-)
- create mode 100644 drivers/iommu/generic_pt/fmt/defs_riscv.h
- create mode 100644 drivers/iommu/generic_pt/fmt/iommu_riscv64.c
- create mode 100644 drivers/iommu/generic_pt/fmt/riscv.h
-
-
-base-commit: 8c955dfc1d4934202c404591e6f7d1b45fd83d96
+diff --git a/drivers/iommu/riscv/Kconfig b/drivers/iommu/riscv/Kconfig
+index c071816f59a67b..a329ec634cf1c5 100644
+--- a/drivers/iommu/riscv/Kconfig
++++ b/drivers/iommu/riscv/Kconfig
+@@ -6,6 +6,9 @@ config RISCV_IOMMU
+ 	depends on RISCV && 64BIT
+ 	default y
+ 	select IOMMU_API
++	select GENERIC_PT
++	select IOMMU_PT
++	select IOMMU_PT_RISCV64
+ 	help
+ 	  Support for implementations of the RISC-V IOMMU architecture that
+ 	  complements the RISC-V MMU capabilities, providing similar address
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index 3a29b31d53bbf7..8fe0031f6cb665 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -21,6 +21,7 @@
+ #include <linux/iopoll.h>
+ #include <linux/kernel.h>
+ #include <linux/pci.h>
++#include <linux/generic_pt/iommu.h>
+ 
+ #include "../iommu-pages.h"
+ #include "iommu-bits.h"
+@@ -806,14 +807,15 @@ static int riscv_iommu_iodir_set_mode(struct riscv_iommu_device *iommu,
+ 
+ /* This struct contains protection domain specific IOMMU driver data. */
+ struct riscv_iommu_domain {
+-	struct iommu_domain domain;
++	union {
++		struct iommu_domain domain;
++		struct pt_iommu_riscv_64 riscvpt;
++	};
+ 	struct list_head bonds;
+ 	spinlock_t lock;		/* protect bonds list updates. */
+ 	int pscid;
+-	int numa_node;
+-	unsigned int pgd_mode;
+-	unsigned long *pgd_root;
+ };
++PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
+ 
+ #define iommu_domain_to_riscv(iommu_domain) \
+ 	container_of(iommu_domain, struct riscv_iommu_domain, domain)
+@@ -1076,156 +1078,9 @@ static void riscv_iommu_iotlb_sync(struct iommu_domain *iommu_domain,
+ {
+ 	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+ 
+-	riscv_iommu_iotlb_inval(domain, gather->start, gather->end);
+-}
+-
+-#define PT_SHIFT (PAGE_SHIFT - ilog2(sizeof(pte_t)))
+-
+-#define _io_pte_present(pte)	((pte) & (_PAGE_PRESENT | _PAGE_PROT_NONE))
+-#define _io_pte_leaf(pte)	((pte) & _PAGE_LEAF)
+-#define _io_pte_none(pte)	((pte) == 0)
+-#define _io_pte_entry(pn, prot)	((_PAGE_PFN_MASK & ((pn) << _PAGE_PFN_SHIFT)) | (prot))
+-
+-static void riscv_iommu_pte_free(struct riscv_iommu_domain *domain,
+-				 unsigned long pte,
+-				 struct iommu_pages_list *freelist)
+-{
+-	unsigned long *ptr;
+-	int i;
+-
+-	if (!_io_pte_present(pte) || _io_pte_leaf(pte))
+-		return;
+-
+-	ptr = (unsigned long *)pfn_to_virt(__page_val_to_pfn(pte));
+-
+-	/* Recursively free all sub page table pages */
+-	for (i = 0; i < PTRS_PER_PTE; i++) {
+-		pte = READ_ONCE(ptr[i]);
+-		if (!_io_pte_none(pte) && cmpxchg_relaxed(ptr + i, pte, 0) == pte)
+-			riscv_iommu_pte_free(domain, pte, freelist);
+-	}
+-
+-	if (freelist)
+-		iommu_pages_list_add(freelist, ptr);
+-	else
+-		iommu_free_pages(ptr);
+-}
+-
+-static unsigned long *riscv_iommu_pte_alloc(struct riscv_iommu_domain *domain,
+-					    unsigned long iova, size_t pgsize,
+-					    gfp_t gfp)
+-{
+-	unsigned long *ptr = domain->pgd_root;
+-	unsigned long pte, old;
+-	int level = domain->pgd_mode - RISCV_IOMMU_DC_FSC_IOSATP_MODE_SV39 + 2;
+-	void *addr;
+-
+-	do {
+-		const int shift = PAGE_SHIFT + PT_SHIFT * level;
+-
+-		ptr += ((iova >> shift) & (PTRS_PER_PTE - 1));
+-		/*
+-		 * Note: returned entry might be a non-leaf if there was
+-		 * existing mapping with smaller granularity. Up to the caller
+-		 * to replace and invalidate.
+-		 */
+-		if (((size_t)1 << shift) == pgsize)
+-			return ptr;
+-pte_retry:
+-		pte = READ_ONCE(*ptr);
+-		/*
+-		 * This is very likely incorrect as we should not be adding
+-		 * new mapping with smaller granularity on top
+-		 * of existing 2M/1G mapping. Fail.
+-		 */
+-		if (_io_pte_present(pte) && _io_pte_leaf(pte))
+-			return NULL;
+-		/*
+-		 * Non-leaf entry is missing, allocate and try to add to the
+-		 * page table. This might race with other mappings, retry.
+-		 */
+-		if (_io_pte_none(pte)) {
+-			addr = iommu_alloc_pages_node_sz(domain->numa_node, gfp,
+-							 SZ_4K);
+-			if (!addr)
+-				return NULL;
+-			old = pte;
+-			pte = _io_pte_entry(virt_to_pfn(addr), _PAGE_TABLE);
+-			if (cmpxchg_relaxed(ptr, old, pte) != old) {
+-				iommu_free_pages(addr);
+-				goto pte_retry;
+-			}
+-		}
+-		ptr = (unsigned long *)pfn_to_virt(__page_val_to_pfn(pte));
+-	} while (level-- > 0);
+-
+-	return NULL;
+-}
+-
+-static unsigned long *riscv_iommu_pte_fetch(struct riscv_iommu_domain *domain,
+-					    unsigned long iova, size_t *pte_pgsize)
+-{
+-	unsigned long *ptr = domain->pgd_root;
+-	unsigned long pte;
+-	int level = domain->pgd_mode - RISCV_IOMMU_DC_FSC_IOSATP_MODE_SV39 + 2;
+-
+-	do {
+-		const int shift = PAGE_SHIFT + PT_SHIFT * level;
+-
+-		ptr += ((iova >> shift) & (PTRS_PER_PTE - 1));
+-		pte = READ_ONCE(*ptr);
+-		if (_io_pte_present(pte) && _io_pte_leaf(pte)) {
+-			*pte_pgsize = (size_t)1 << shift;
+-			return ptr;
+-		}
+-		if (_io_pte_none(pte))
+-			return NULL;
+-		ptr = (unsigned long *)pfn_to_virt(__page_val_to_pfn(pte));
+-	} while (level-- > 0);
+-
+-	return NULL;
+-}
+-
+-static int riscv_iommu_map_pages(struct iommu_domain *iommu_domain,
+-				 unsigned long iova, phys_addr_t phys,
+-				 size_t pgsize, size_t pgcount, int prot,
+-				 gfp_t gfp, size_t *mapped)
+-{
+-	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+-	size_t size = 0;
+-	unsigned long *ptr;
+-	unsigned long pte, old, pte_prot;
+-	int rc = 0;
+-	struct iommu_pages_list freelist = IOMMU_PAGES_LIST_INIT(freelist);
+-
+-	if (!(prot & IOMMU_WRITE))
+-		pte_prot = _PAGE_BASE | _PAGE_READ;
+-	else
+-		pte_prot = _PAGE_BASE | _PAGE_READ | _PAGE_WRITE | _PAGE_DIRTY;
+-
+-	while (pgcount) {
+-		ptr = riscv_iommu_pte_alloc(domain, iova, pgsize, gfp);
+-		if (!ptr) {
+-			rc = -ENOMEM;
+-			break;
+-		}
+-
+-		old = READ_ONCE(*ptr);
+-		pte = _io_pte_entry(phys_to_pfn(phys), pte_prot);
+-		if (cmpxchg_relaxed(ptr, old, pte) != old)
+-			continue;
+-
+-		riscv_iommu_pte_free(domain, old, &freelist);
+-
+-		size += pgsize;
+-		iova += pgsize;
+-		phys += pgsize;
+-		--pgcount;
+-	}
+-
+-	*mapped = size;
+-
+-	if (!iommu_pages_list_empty(&freelist)) {
++	if (iommu_pages_list_empty(&gather->freelist)) {
++		riscv_iommu_iotlb_inval(domain, gather->start, gather->end);
++	} else {
+ 		/*
+ 		 * In 1.0 spec version, the smallest scope we can use to
+ 		 * invalidate all levels of page table (i.e. leaf and non-leaf)
+@@ -1234,71 +1089,20 @@ static int riscv_iommu_map_pages(struct iommu_domain *iommu_domain,
+ 		 * capability.NL (non-leaf) IOTINVAL command.
+ 		 */
+ 		riscv_iommu_iotlb_inval(domain, 0, ULONG_MAX);
+-		iommu_put_pages_list(&freelist);
++		iommu_put_pages_list(&gather->freelist);
+ 	}
+-
+-	return rc;
+-}
+-
+-static size_t riscv_iommu_unmap_pages(struct iommu_domain *iommu_domain,
+-				      unsigned long iova, size_t pgsize,
+-				      size_t pgcount,
+-				      struct iommu_iotlb_gather *gather)
+-{
+-	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+-	size_t size = pgcount << __ffs(pgsize);
+-	unsigned long *ptr, old;
+-	size_t unmapped = 0;
+-	size_t pte_size;
+-
+-	while (unmapped < size) {
+-		ptr = riscv_iommu_pte_fetch(domain, iova, &pte_size);
+-		if (!ptr)
+-			return unmapped;
+-
+-		/* partial unmap is not allowed, fail. */
+-		if (iova & (pte_size - 1))
+-			return unmapped;
+-
+-		old = READ_ONCE(*ptr);
+-		if (cmpxchg_relaxed(ptr, old, 0) != old)
+-			continue;
+-
+-		iommu_iotlb_gather_add_page(&domain->domain, gather, iova,
+-					    pte_size);
+-
+-		iova += pte_size;
+-		unmapped += pte_size;
+-	}
+-
+-	return unmapped;
+-}
+-
+-static phys_addr_t riscv_iommu_iova_to_phys(struct iommu_domain *iommu_domain,
+-					    dma_addr_t iova)
+-{
+-	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+-	size_t pte_size;
+-	unsigned long *ptr;
+-
+-	ptr = riscv_iommu_pte_fetch(domain, iova, &pte_size);
+-	if (!ptr)
+-		return 0;
+-
+-	return pfn_to_phys(__page_val_to_pfn(*ptr)) | (iova & (pte_size - 1));
+ }
+ 
+ static void riscv_iommu_free_paging_domain(struct iommu_domain *iommu_domain)
+ {
+ 	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+-	const unsigned long pfn = virt_to_pfn(domain->pgd_root);
+ 
+ 	WARN_ON(!list_empty(&domain->bonds));
+ 
+ 	if ((int)domain->pscid > 0)
+ 		ida_free(&riscv_iommu_pscids, domain->pscid);
+ 
+-	riscv_iommu_pte_free(domain, _io_pte_entry(pfn, _PAGE_TABLE), NULL);
++	pt_iommu_deinit(&domain->riscvpt.iommu);
+ 	kfree(domain);
+ }
+ 
+@@ -1323,13 +1127,16 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+ 	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+ 	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+ 	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
++	struct pt_iommu_riscv_64_hw_info pt_info;
+ 	u64 fsc, ta;
+ 
+-	if (!riscv_iommu_pt_supported(iommu, domain->pgd_mode))
++	pt_iommu_riscv_64_hw_info(&domain->riscvpt, &pt_info);
++
++	if (!riscv_iommu_pt_supported(iommu, pt_info.fsc_iosatp_mode))
+ 		return -ENODEV;
+ 
+-	fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, domain->pgd_mode) |
+-	      FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, virt_to_pfn(domain->pgd_root));
++	fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, pt_info.fsc_iosatp_mode) |
++	      FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, pt_info.ppn);
+ 	ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
+ 	     RISCV_IOMMU_PC_TA_V;
+ 
+@@ -1344,37 +1151,32 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+ }
+ 
+ static const struct iommu_domain_ops riscv_iommu_paging_domain_ops = {
++	IOMMU_PT_DOMAIN_OPS(riscv_64),
+ 	.attach_dev = riscv_iommu_attach_paging_domain,
+ 	.free = riscv_iommu_free_paging_domain,
+-	.map_pages = riscv_iommu_map_pages,
+-	.unmap_pages = riscv_iommu_unmap_pages,
+-	.iova_to_phys = riscv_iommu_iova_to_phys,
+ 	.iotlb_sync = riscv_iommu_iotlb_sync,
+ 	.flush_iotlb_all = riscv_iommu_iotlb_flush_all,
+ };
+ 
+ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
+ {
++	struct pt_iommu_riscv_64_cfg cfg = {};
+ 	struct riscv_iommu_domain *domain;
+ 	struct riscv_iommu_device *iommu;
+-	unsigned int pgd_mode;
+-	dma_addr_t va_mask;
+-	int va_bits;
++	int ret;
+ 
+ 	iommu = dev_to_iommu(dev);
+ 	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57) {
+-		pgd_mode = RISCV_IOMMU_DC_FSC_IOSATP_MODE_SV57;
+-		va_bits = 57;
++		cfg.common.hw_max_vasz_lg2 = 57;
+ 	} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48) {
+-		pgd_mode = RISCV_IOMMU_DC_FSC_IOSATP_MODE_SV48;
+-		va_bits = 48;
++		cfg.common.hw_max_vasz_lg2 = 48;
+ 	} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39) {
+-		pgd_mode = RISCV_IOMMU_DC_FSC_IOSATP_MODE_SV39;
+-		va_bits = 39;
++		cfg.common.hw_max_vasz_lg2 = 39;
+ 	} else {
+ 		dev_err(dev, "cannot find supported page table mode\n");
+ 		return ERR_PTR(-ENODEV);
+ 	}
++	cfg.common.hw_max_oasz_lg2 = 56;
+ 
+ 	domain = kzalloc(sizeof(*domain), GFP_KERNEL);
+ 	if (!domain)
+@@ -1382,42 +1184,23 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
+ 
+ 	INIT_LIST_HEAD_RCU(&domain->bonds);
+ 	spin_lock_init(&domain->lock);
+-	domain->numa_node = dev_to_node(iommu->dev);
+-	domain->pgd_mode = pgd_mode;
+-	domain->pgd_root = iommu_alloc_pages_node_sz(domain->numa_node,
+-						     GFP_KERNEL_ACCOUNT, SZ_4K);
+-	if (!domain->pgd_root) {
+-		kfree(domain);
+-		return ERR_PTR(-ENOMEM);
+-	}
++	cfg.common.features = BIT(PT_FEAT_SIGN_EXTEND) |
++			      BIT(PT_FEAT_FLUSH_RANGE);
++	domain->riscvpt.iommu.nid = dev_to_node(iommu->dev);
++	domain->domain.ops = &riscv_iommu_paging_domain_ops;
+ 
+ 	domain->pscid = ida_alloc_range(&riscv_iommu_pscids, 1,
+ 					RISCV_IOMMU_MAX_PSCID, GFP_KERNEL);
+ 	if (domain->pscid < 0) {
+-		iommu_free_pages(domain->pgd_root);
+-		kfree(domain);
++		riscv_iommu_free_paging_domain(&domain->domain);
+ 		return ERR_PTR(-ENOMEM);
+ 	}
+ 
+-	/*
+-	 * Note: RISC-V Privilege spec mandates that virtual addresses
+-	 * need to be sign-extended, so if (VA_BITS - 1) is set, all
+-	 * bits >= VA_BITS need to also be set or else we'll get a
+-	 * page fault. However the code that creates the mappings
+-	 * above us (e.g. iommu_dma_alloc_iova()) won't do that for us
+-	 * for now, so we'll end up with invalid virtual addresses
+-	 * to map. As a workaround until we get this sorted out
+-	 * limit the available virtual addresses to VA_BITS - 1.
+-	 */
+-	va_mask = DMA_BIT_MASK(va_bits - 1);
+-
+-	domain->domain.geometry.aperture_start = 0;
+-	domain->domain.geometry.aperture_end = va_mask;
+-	domain->domain.geometry.force_aperture = true;
+-	domain->domain.pgsize_bitmap = va_mask & (SZ_4K | SZ_2M | SZ_1G | SZ_512G);
+-
+-	domain->domain.ops = &riscv_iommu_paging_domain_ops;
+-
++	ret = pt_iommu_riscv_64_init(&domain->riscvpt, &cfg, GFP_KERNEL);
++	if (ret) {
++		riscv_iommu_free_paging_domain(&domain->domain);
++		return ERR_PTR(ret);
++	}
+ 	return &domain->domain;
+ }
+ 
+@@ -1671,3 +1454,5 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+ 	riscv_iommu_queue_disable(&iommu->cmdq);
+ 	return rc;
+ }
++
++MODULE_IMPORT_NS("GENERIC_PT_IOMMU");
 -- 
 2.43.0
 
