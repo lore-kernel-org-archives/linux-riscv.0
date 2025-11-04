@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD457CCFA03
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 02:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8CBCCF9E3
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 06:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+TZiLGpi/EHf4q/0Q5r5KWVQRHv4yG3NihRJN+kH3OE=; b=WjmdkIP3XiJDXg
-	HZS1ZlwrsXSNBCY8PM9L8fJBTIo7yJc/xdcUbiS0bZxrtGQCaCptFcrvY0G+ZmhfpmUQBi6Jk/X4N
-	d34xyalKIPxiGhZyyaeIZDDTob3lct8Od6heNRxddpBNTlCwjSIOBo8ChxpaVQdVjc4WEQrUArE4C
-	I05aSpQok0BpLFQMGJdg3qxQIo98yKZRSzt/cVC9CBatv0K4UJdBfdw0dX97faF4eWevyLdxSCqG4
-	XbKaGeX1wBjixkI5QJCUQPF/VWkFRIHQWN3cga2Rtc7ePiCh0s2k59MnlUvAxLfx29/C4QdsZ3DI1
-	HcC6V+KLch4fdI4rq/vA==;
+	List-Owner; bh=ODS3d6yH81I44HJ2/6199HvyLe/iBj09raeJX/+0/ik=; b=nSUiuxldSWdByX
+	pTk5qE9ZSAAr1Tx0g+38svOMOnJ3q926hb8h6XiHezE1ItXZg8BLiIBR5646j/v1m32AnC1xKFMc5
+	vpRWO1GsieCN8FpnVzXDcVTastnRCU4gSiWTlJfnrriKBN4AkUfFQeM10fU3TU1o4N+hRrjJoI/3D
+	ZawdeskMQDj7uFlyNZAtbprn2mO69RYveBDI7wFKbyH9GznsXAJCl4E94iqff3oE8bprJHoGBXYg2
+	oeXj6xTOHeLWW4QJAUOm/WZjU0Mpc5t+hYrwViI4xLrdhalmqcN+BAdhJaMUWu4fhce83bwu3zORn
+	cU3Nm6c/iSxs4rnz9HGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG6hY-0000000Aynt-0CKo;
-	Tue, 04 Nov 2025 02:23:16 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1vGALs-0000000BE0J-2XXR;
+	Tue, 04 Nov 2025 06:17:08 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vG6hU-0000000AymP-2bXS
-	for linux-riscv@lists.infradead.org;
-	Tue, 04 Nov 2025 02:23:14 +0000
-X-QQ-mid: zesmtpsz7t1762222925t2995d897
-X-QQ-Originating-IP: A3/odC16aftFYDtQULxGfhYeoNPRYDA1Ks1BQJ6CPbs=
-Received: from [169.235.25.74] ( [169.235.25.74])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 04 Nov 2025 10:22:00 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 18013488585438763342
-EX-QQ-RecipientCnt: 13
-Message-ID: <0BF8B2E83B6154B6+f17f32b4-f6ff-4184-917d-4b27fb916eae@tinylab.org>
-Date: Mon, 3 Nov 2025 18:21:59 -0800
+	id 1vGALp-0000000BDzR-0eoO;
+	Tue, 04 Nov 2025 06:17:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1762237025; x=1793773025;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=mSKoZmGkcXW407B8mNGjY9EejInAopsSE39gAyEUn9k=;
+  b=Rfor26ryKck7JikmMrZaDlMjd8DS0Y0HIGDiL+9NLdlh2m+8722zaPj8
+   jnVHUd+xibkBOSc5fWmGwAI6KCXdacwMWo5322j81qXhaWrCHeEV7pIuL
+   RTK/P5zHLljo24bQjXEcfRrw0bxYIJ6aI2fNnV4dO1oHfEYlGFCM0xBQ/
+   psG8ObHs722naTnIdXbGBt04ntiPHaa2J//N1N19Fx3nNS5aI5kR/iizE
+   dmwoyt0kpumq562P1da93yHfsNbN1bhQWN7nIoDGobEP/onOMWWUZqook
+   Hm5NsfNbkjL8YysNLY3ozdOXRDq9ZlKnilO++uQNKTxYJ5GzlpqgbYaOb
+   w==;
+X-CSE-ConnectionGUID: VuLhlPnCRiqXi5WMEzMLmg==
+X-CSE-MsgGUID: CvDUfFj6TyeVYOw4t/rvwQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11602"; a="63528091"
+X-IronPort-AV: E=Sophos;i="6.19,278,1754982000"; 
+   d="scan'208";a="63528091"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2025 22:17:02 -0800
+X-CSE-ConnectionGUID: IL8VAT68RkmI5IbPyY1fNw==
+X-CSE-MsgGUID: u8bxLoPYS/KxoreV4M7Dmg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,278,1754982000"; 
+   d="scan'208";a="210576877"
+Received: from yinghaoj-desk.ccr.corp.intel.com (HELO [10.238.1.225]) ([10.238.1.225])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2025 22:16:56 -0800
+Message-ID: <31da959f-d004-4ae0-a6a7-d5d31b646b70@linux.intel.com>
+Date: Tue, 4 Nov 2025 14:16:53 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/8] dce, riscv: Unused syscall trimming with
- PUSHSECTION and conditional KEEP()
-To: Arnd Bergmann <arnd@arndb.de>, Masahiro Yamada <masahiroy@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-kbuild@vger.kernel.org, linux-riscv@lists.infradead.org
-Cc: Linux-Arch <linux-arch@vger.kernel.org>, linux-kernel@vger.kernel.org,
- i@maskray.me, Zhangjin Wu <falcon@tinylab.org>, ronbogo@outlook.com,
- z1652074432@gmail.com, lx24@stu.ynu.edu.cn
-References: <30C972B6393DBAC5+cover.1760463245.git.tanyuan@tinylab.org>
- <33333fdd-2aa2-4ce0-8781-92222829ea12@app.fastmail.com>
+Subject: Re: [PATCH v4 27/28] KVM: TDX: Bug the VM if extending the initial
+ measurement fails
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
+ Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>,
+ Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ackerley Tng <ackerleytng@google.com>
+References: <20251030200951.3402865-1-seanjc@google.com>
+ <20251030200951.3402865-28-seanjc@google.com>
 Content-Language: en-US
-From: Yuan Tan <tanyuan@tinylab.org>
-In-Reply-To: <33333fdd-2aa2-4ce0-8781-92222829ea12@app.fastmail.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
-X-QQ-XMAILINFO: MVZgjp+9CImMjfK5jnhey9JN5ObsfkhR9Pyom6Umy3WdUI/5Shp0ijBq
-	/CT/8RuToj9iDI6TMW7FG6/FrqL4WUM7SCWrJg8d3tUj11+6F1KNDjei5lCyzoI9T/rD2gS
-	OTCXBBdDP8PRE4hCaYtlzSXZHKEfxkdDUZ1px4JMlC/HMtYiwADn4t/OCj5qid0XeN0BXa5
-	18RMyjXjqgb7GEyXv5KSYfztqdlMurjAHWG1lushytmxuv2krJf3RlmT8aLDxUVj53aUdmR
-	jjNe1SRitD40itP4kPlcC/Ui030pWHjScCoS4Hn5oRR6z0FULFAzPlmYyNd0FsE+NmabT0O
-	CzU2aw97GdP3Tm47VFMlAeF5jKhSYtGpA/tzhCaT2QzUbm/uGPwUiN+2hdkCaMDQvBJjUBz
-	eZbz/T5Hh8fNCHR3EwhQ4R3YGmmBziaH0Km5LOUr00uxICEb42jJi8Zuy1ziFaoy4A54Npl
-	0Dt85Ymp4TKOrSig0KC0ocQpZUahry09NGc4En/g/ND2cmmYqoz1QE3xeSBbUyD6Mb59UYG
-	qZdjaGvR+pf/972hw/Omz5sfxszkaKJ9WoMxEjeG/TFzWV2SfxDODv8NuxELh7AUJBdZUpR
-	EWtZtK++v/Gy+SOUD6s/f0l/NM3CgtqYk4aFJjti3HyVDv3RNnc6kdeaNCxB1Orab/pyREl
-	ESDpwjcTc4Lm3pmVCqDscfNc9xz/jXv3UoQFCjFV2gmNObw3M0ha5cfp41r7MbK3BGBBa+w
-	fiso7aJkyPlxGfE9Lq3TImFXnFBicwZU2tIa15djZeL6s+4Q7M4ehy8jaI7AMFfIJXvQUhO
-	tUJbgXpy0kX2MXk3fiyqOqwgkiJ0DCPGUuXedIqQ6Wmv//YnOfUpOw8aKtpxI1BCQ3eoiCa
-	2QnSvJX0h3g5MfbrC6bf8CX61ZH9jsWCFxuwkJ/Uvuahoj8YQIomVZEwkK/H/k1jZrqJPHG
-	D8EyxFvXOj8C2nkjg4mSq0rBx+1soRq9IMMsrWjL9iSpESAem7vrtyal+CJXkayo8Jw3ffv
-	y4xd0V+WFUFA04s8Z/gZ+2uF5HY8DD7KF8pDgxNvgbWfxfqHpSLejb+5XBuZS8YC0EkXmEQ
-	QDpvaY9UWHgmRyjbl/mWcE=
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-X-QQ-RECHKSPAM: 0
+From: Binbin Wu <binbin.wu@linux.intel.com>
+In-Reply-To: <20251030200951.3402865-28-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_182313_169172_147828CD 
-X-CRM114-Status: GOOD (  28.15  )
+X-CRM114-CacheID: sfid-20251103_221705_217258_BCB09C08 
+X-CRM114-Status: GOOD (  29.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,79 +98,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDEwLzE1LzIwMjUgMTI6NDcgQU0sIEFybmQgQmVyZ21hbm4gd3JvdGU6Cj4gT24gV2VkLCBP
-Y3QgMTUsIDIwMjUsIGF0IDA4OjE2LCBZdWFuIFRhbiB3cm90ZToKPj4gSGkgYWxsLAo+Pgo+PiBU
-aGlzIHNlcmllcyBhaW1zIHRvIGludHJvZHVjZSBzeXNjYWxsIHRyaW1taW5nIHN1cHBvcnQgYmFz
-ZWQgb24gZGVhZCBjb2RlCj4+IGFuZCBkYXRhIGVsaW1pbmF0aW9uIChEQ0UpLiBUaGlzIGNhbiBy
-ZWR1Y2UgdGhlIGZpbmFsIGltYWdlIHNpemUsIHdoaWNoIGlzCj4+IHBhcnRpY3VsYXJseSB1c2Vm
-dWwgZm9yIGVtYmVkZGVkIGRldmljZXMsIHdoaWxlIGFsc28gcmVkdWNpbmcgdGhlIGF0dGFjawo+
-PiBzdXJmYWNlLiBJdCBtaWdodCBmdXJ0aGVyIGJlbmVmaXQgc3BlY2lhbGl6ZWQgc2NlbmFyaW9z
-IHN1Y2ggYXMgdW5pa2VybmVscwo+PiBvciBMVE8gYnVpbGRzLCBhbmQgY291bGQgcG90ZW50aWFs
-bHkgaGVscCBzaHJpbmsgdGhlIGluc3RydWN0aW9uIGNhY2hlCj4+IGZvb3RwcmludC4KPj4KPj4g
-QmVzaWRlcyB0aGF0LCB0aGlzIHNlcmllcyBhbHNvIGludHJvZHVjZXMgYSBuZXcgUFVTSFNFQ1RJ
-T04gbWFjcm8uIFRoaXMKPj4gd3JhcHBlciBhbGxvd3Mgc2VjdGlvbnMgY3JlYXRlZCBieSAucHVz
-aHNlY3Rpb24gdG8gaGF2ZSBhIHByb3BlciByZWZlcmVuY2UKPj4gcmVsYXRpb25zaGlwIHdpdGgg
-dGhlaXIgY2FsbGVycywgc28gdGhhdCAtLWdjLXNlY3Rpb25zIGNhbiBzYWZlbHkgd29yawo+PiB3
-aXRob3V0IHJlcXVpcmluZyB1bmNvbmRpdGlvbmFsIEtFRVAoKSBlbnRyaWVzIGluIGxpbmtlciBz
-Y3JpcHRzLgo+Pgo+PiBTaW5jZSB0aGUgbmV3IHN5c2NhbGx0Ymwuc2ggaW5mcmFzdHJ1Y3R1cmUg
-aGFzIGJlZW4gbWVyZ2VkLCBJIHRoaW5rIGl04oCZcyBhCj4+IGdvb2QgdGltZSB0byBwdXNoIHRo
-aXMgcGF0Y2hzZXRUT0RPPyBmb3J3YXJkLgo+Pgo+PiBQYXRjaCAx4oCTMyBpbnRyb2R1Y2UgdGhl
-IGluZnJhc3RydWN0dXJlIGZvciBUUklNX1VOVVNFRF9TWVNDQUxMUywgbWFpbmx5Cj4+IGFsbG93
-aW5nIHN5c2NhbGx0Ymwuc2ggdG8gZGVjaWRlIHdoaWNoIHN5c2NhbGxzIHRvIGtlZXAgYWNjb3Jk
-aW5nIHRvCj4+IFVTRURfU1lTQ0FMTFMuCj4+IFBhdGNoIDQgZW5hYmxlcyBUUklNX1VOVVNFRF9T
-WVNDQUxMUyBmb3IgdGhlIFJJU0MtViBhcmNoaXRlY3R1cmUuIFdpdGgKPj4gc3lzY2FsbHRibC5z
-aCBub3cgYXZhaWxhYmxlLCB0aGlzIGZlYXR1cmUgc2hvdWxkIGJlIGFwcGxpY2FibGUgdG8gYWxs
-Cj4+IGFyY2hpdGVjdHVyZXMgdGhhdCBzdXBwb3J0IExEX0RFQURfQ09ERV9EQVRBX0VMSU1JTkFU
-SU9OIGFuZCB1c2UKPj4gc3lzY2FsbHRibC5zaCwgYnV0IGxldOKAmXMgZm9jdXMgb24gUklTQy1W
-IGZpcnN0Lgo+PiBQYXRjaCA14oCTOCBhZGRyZXNzIHRoZSBkZXBlbmRlbmN5IGludmVyc2lvbiBw
-cm9ibGVtIGNhdXNlZCBieSBzZWN0aW9ucwo+PiBjcmVhdGVkIHdpdGggLnB1c2hzZWN0aW9uIHRo
-YXQgYXJlIGZvcmNpYmx5IHJldGFpbmVkIGJ5IEtFRVAoKSBpbiBsaW5rZXIKPj4gc2NyaXB0cy4K
-PiBUaGFua3MgYSBsb3QgZm9yIHlvdXIgd29yayBvbiB0aGlzLiBJIHRoaW5rIGl0IGlzIGluZGVl
-ZCB2YWx1YWJsZSB0bwo+IGJlIGFibGUgdG8gb3B0aW1pemUga2VybmVscyB3aXRoIGEgc21hbGxl
-ciBzdWJzZXQgb2Ygc3lzdGVtIGNhbGxzIGZvcgo+IGtub3duIHdvcmtsb2FkcywgYW5kIGhhdmUg
-YXMgbXVjaCBkZWFkIGNvZGUgZWxpbWluYXRpb24gYXMgcG9zc2libGUuCj4KPiBIb3dldmVyLCBJ
-IGNvbnRpbnVlIHRvIHRoaW5rIHRoYXQgdGhlIGFkZGVkIHNjcmlwdGluZyB3aXRoIGEga25vd24K
-PiBzZXQgb2Ygc3lzY2FsbCBuYW1lcyBpcyBmdW5kYW1lbnRhbGx5IHRoZSB3cm9uZyBhcHByb2Fj
-aCB0byBnZXQgdG8KPiB0aGlzIGxpc3Q6IFRoaXMgYWRkcyBjb21wbGV4aXR5IHRvIHRoZSBidWls
-ZCBwcm9jZXNzIGluIG9uZSBvZgo+IHRoZSBhcmVhcyB0aGF0IGlzIGFscmVhZHkgdG9vIGNvbXBs
-aWNhdGVkLCBhbmQgaXQgZHVwbGljYXRlcyB3aGF0Cj4gd2UgY2FuIGFscmVhZHkgZG8gd2l0aCBL
-Y29uZmlnIGZvciBhIHN1YnNldCBvZiB0aGUgc3lzdGVtIGNhbGxzLgo+Cj4gSSB0aGluayB0aGUg
-d2F5IHdlIHNob3VsZCBjb25maWd1cmUgdGhlIHNldCBvZiBzeXNjYWxscyBpbnN0ZWFkIGlzCj4g
-dG8gYWRkIG1vcmUgS2NvbmZpZyBzeW1ib2xzIGd1YXJkZWQgYnkgQ09ORklHX0VYUEVSVCB0aGF0
-IHR1cm4KPiBjbGFzc2VzIG9mIHN5c2NhbGxzIG9uIG9yIG9mZi4gWW91IGhhdmUgb2J2aW91c2x5
-IGRvbmUgdGhlIHJlc2VhcmNoCj4gdG8gY29tZSB1cCB3aXRoIGEgbGlzdCBvZiB1c2VkL3VudXNl
-ZCBlbnRyeSBwb2ludHMgZm9yIG9uZSBvciBtb3JlCj4gd29ya2xvYWRzLiBDYW4geW91IHNoYXJl
-IHRob3NlIGxpc3RzPwo+Cj4gICAgICAgQXJuZAoKCkhpIEFybmQsCgpTb3JyeSBmb3IgdGhlIGxh
-dGUgcmVwbHkg4oCUIHRoaXMgcGF0Y2hzZXQgcmVhbGx5IHdvcmUgbWUgb3V0LCBhbmQgSSBvbmx5
-IGp1c3QKcmVjb3ZlcmVkLsKgIFRoYW5rIHlvdSB2ZXJ5IG11Y2ggZm9yIHlvdXIgZmVlZGJhY2sh
-CgpSZWdhcmRpbmcgeW91ciBzdWdnZXN0aW9uIHRvIHVzZSBLY29uZmlnIHRvIGNvbnRyb2wgd2hp
-Y2ggc3lzdGVtIGNhbGxzIGFyZQppbmNsdWRlZCBvciBleGNsdWRlZCwgcGVyaGFwcyB3ZSBjb3Vs
-ZCB0YWtlIGluc3BpcmF0aW9uIGZyb20gc3lzdGVtZCdzCmNsYXNzaWZpY2F0aW9uIGFwcHJvYWNo
-LiBGb3IgZXhhbXBsZSwgc3lzdGVtZCBncm91cHMgc3lzY2FsbHMgaW50byBjYXRlZ29yaWVzCmxp
-a2VbMV06CgpAYWlvIEBiYXNpYy1pbyBAY2hvd24gQGNsb2NrIEBjcHUtZW11bGF0aW9uIEBkZWJ1
-ZyBAZmlsZS1zeXN0ZW0KCmFuZCBzbyBvbi4KCkhvd2V2ZXIsIGlmIHdlIGdvIGRvd24gdGhpcyBy
-b3V0ZSwgd2Ugd291bGQgbmVlZCB0byBjb250aW51b3VzbHkgbWFpbnRhaW4gYW5kCnVwZGF0ZSB0
-aGVzZSBjYXRlZ29yaWVzIHdoZW5ldmVyIExpbnV4IGludHJvZHVjZXMgbmV3IHN5c3RlbSBjYWxs
-cy4gSScgbSBub3QKc3VyZSB3aGV0aGVyIHRoYXQgd291bGQgYmUgYW4gaWRlYWwgbG9uZy10ZXJt
-IGFwcHJvYWNoLgoKRm9yIHJlZmVyZW5jZSwgaGVyZSBpcyB0aGUgbGlzdCBvZiBzeXNjYWxscyBy
-ZXF1aXJlZCB0byBydW4gTGlnaHR0cGQuCgpleGVjdmUgc2V0X3RpZF9hZGRyZXNzIG1vdW50IHdy
-aXRlIGJyayBtbWFwIG11bm1hcCBnZXR1aWQgZ2V0Z2lkIGdldHBpZApjbG9ja19nZXR0aW1lIGdl
-dGN3ZCBmY250bCBmc3RhdCByZWFkIGR1cDMgc29ja2V0IHNldHNvY2tvcHQgYmluZCBsaXN0ZW4K
-cnRfc2lnYWN0aW9uIHJ0X3NpZ3Byb2NtYXNrIG5ld2ZzdGF0YXQgcHJsaW1pdDY0IGVwb2xsX2Ny
-ZWF0ZTEgZXBvbGxfY3RsIHBpcGUyCmVwb2xsX3B3YWl0IGFjY2VwdDQgZ2V0c29ja29wdCByZWN2
-ZnJvbSBzaHV0ZG93biB3cml0ZXYgZ2V0ZGVudHM2NCBvcGVuYXQgY2xvc2UKCldlJ3ZlIHRlc3Rl
-ZCBpdCBzdWNjZXNzZnVsbHkgb24gUUVNVSArIGluaXRyYW1mcywgYW5kIEkgY2FuIHNoYXJlIHRo
-ZQpkZXBsb3ltZW50IHNjcmlwdCBpZiBhbnlvbmUgd291bGQgbGlrZSB0byByZXByb2R1Y2UgdGhl
-IHNldHVwLgoKQWxzbywgSSBub3RpY2VkIHRoYXQgdGhlcmUgaGF2ZW4ndCBiZWVuIGFueSBjb21t
-ZW50cyBzbyBmYXIgb24gdGhlIGxhdGVyCnBhdGNoZXMgaW50cm9kdWNpbmcgdGhlIFBVU0hTRUNU
-SU9OIG1hY3JvLsKgIEknIG0gYSBiaXQgY29uY2VybmVkIGFib3V0IGhvdwpwZW9wbGUgcGVyY2Vp
-dmUgdGhpcyBwYXJ0LgoKWzFdIGh0dHBzOi8vZ2l0aHViLmNvbS9zeXN0ZW1kL3N5c3RlbWQvYmxv
-Yi9tYWluL3NyYy9zaGFyZWQvc2VjY29tcC11dGlsLmMKCgoKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 10/31/2025 4:09 AM, Sean Christopherson wrote:
+> WARN and terminate the VM if TDH_MR_EXTEND fails, as extending the
+> measurement should fail if and only if there is a KVM bug, or if the S-EPT
+> mapping is invalid.  Now that KVM makes all state transitions mutually
+> exclusive via tdx_vm_state_guard, it should be impossible for S-EPT
+> mappings to be removed between kvm_tdp_mmu_map_private_pfn() and
+> tdh_mr_extend().
+>
+> Holding slots_lock prevents zaps due to memslot updates,
+> filemap_invalidate_lock() prevents zaps due to guest_memfd PUNCH_HOLE,
+> vcpu->mutex locks prevents updates from other vCPUs, kvm->lock prevents
+> VM-scoped ioctls from creating havoc (e.g. by creating new vCPUs), and all
+> usage of kvm_zap_gfn_range() is mutually exclusive with S-EPT entries that
+> can be used for the initial image.
+>
+> For kvm_zap_gfn_range(), the call from sev.c is obviously mutually
+> exclusive, TDX disallows KVM_X86_QUIRK_IGNORE_GUEST_PAT so the same goes
+> for kvm_noncoherent_dma_assignment_start_or_stop(), and
+> __kvm_set_or_clear_apicv_inhibit() is blocked by virtue of holding all
+> VM and vCPU mutexes (and the APIC page has its own non-guest_memfd memslot
+
+Nit:
+It sounds like TDX is using the memslot for the APIC page, but for a TD, the
+memslot for the APIC page is never initialized or used?
+
+> and so can't be used for the initial image, which means that too is
+> mutually exclusive irrespective of locking).
+>
+> Opportunistically return early if the region doesn't need to be measured
+> in order to reduce line lengths and avoid wraps.  Similarly, immediately
+> and explicitly return if TDH_MR_EXTEND fails to make it clear that KVM
+> needs to bail entirely if extending the measurement fails.
+>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+
+Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
+
+> ---
+>   arch/x86/kvm/vmx/tdx.c | 24 +++++++++++++-----------
+>   1 file changed, 13 insertions(+), 11 deletions(-)
+>
+> diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+> index 8bcdec049ac6..762f2896547f 100644
+> --- a/arch/x86/kvm/vmx/tdx.c
+> +++ b/arch/x86/kvm/vmx/tdx.c
+> @@ -3123,21 +3123,23 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+>   
+>   	put_page(src_page);
+>   
+> -	if (ret)
+> +	if (ret || !(arg->flags & KVM_TDX_MEASURE_MEMORY_REGION))
+>   		return ret;
+>   
+> -	if (arg->flags & KVM_TDX_MEASURE_MEMORY_REGION) {
+> -		for (i = 0; i < PAGE_SIZE; i += TDX_EXTENDMR_CHUNKSIZE) {
+> -			err = tdh_mr_extend(&kvm_tdx->td, gpa + i, &entry,
+> -					    &level_state);
+> -			if (err) {
+> -				ret = -EIO;
+> -				break;
+> -			}
+> -		}
+> +	/*
+> +	 * Note, MR.EXTEND can fail if the S-EPT mapping is somehow removed
+> +	 * between mapping the pfn and now, but slots_lock prevents memslot
+> +	 * updates, filemap_invalidate_lock() prevents guest_memfd updates,
+> +	 * mmu_notifier events can't reach S-EPT entries, and KVM's internal
+> +	 * zapping flows are mutually exclusive with S-EPT mappings.
+> +	 */
+> +	for (i = 0; i < PAGE_SIZE; i += TDX_EXTENDMR_CHUNKSIZE) {
+> +		err = tdh_mr_extend(&kvm_tdx->td, gpa + i, &entry, &level_state);
+> +		if (TDX_BUG_ON_2(err, TDH_MR_EXTEND, entry, level_state, kvm))
+> +			return -EIO;
+>   	}
+>   
+> -	return ret;
+> +	return 0;
+>   }
+>   
+>   static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *cmd)
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
