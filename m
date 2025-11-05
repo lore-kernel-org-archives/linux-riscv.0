@@ -4,96 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BBAECCF9F8
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 17:46:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A26CCFA0D
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 18:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b55sGna+qyi5CqGzVXqIoT1gWhOdxwM7WLOy5iFMUE0=; b=e5jmq2wUsg/DnT
-	5VE1VdDgfg6i22uwRI3AKLw9/JyJosZbYjo9aR2HQqPnF2jE3mUj47HqJjelVGdO0i4IxtqcW8IzV
-	nvGvMlYkWzApI2CuO2Xa21LYFlVakh2NX3V9QBlPlDKt2Qr+hG7LYsbST97Ouv190T/JUl5d0eQQN
-	M23rPZNn3HRHQDQ3i4gaRU9/JbiwngpKgTKSyvsXwZUkd3bnG6P+ZglFdoxG2ivF8OluO1SgRgoTM
-	iCxqtUXIMTHDeJCLpEC9ZDANdT4CopQ4BlUvfuiKnhBK5EEbVRxjy5DOTaXUTVrUnCdwXl5aydmCl
-	rbIgpu4rcEr7vgGTSjGg==;
+	List-Owner; bh=kMSmvxDBFco+THlBBsNamit4HhCBYxMp6C1ZSaxgYng=; b=0b6r/zgcthjdRQ
+	sVrJ95qyvAcNkD2hL2+iHElDYIeteUpW+NRH7VWRM7JMubVN8+EeVZdzLH4B2GfBR/rcC8r7XYT3l
+	IzKP0e+KEgFIyo3uCQf7rm2AORFzL/ukTsLFUc5+c+BcnKVc1/0QHxj29E5ySXXxa4AILVQ85bMej
+	GDMg+xjlFi69CzppPGsRqvT6+xh4CqR/i9y9UK2FXGlx4m1FBKCpb5d1KteVHBNZcKgU2qoPaB+2S
+	SWiYJB78jLVGyS5sN0g6c379VhqmIzczJksS6w0v8+nau1FnN6/TmdiJGsVPkauoslpfPE+Ozn+rg
+	4i4lGQrf+mRWc3JYEQ7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGhad-0000000ECWX-14rN;
-	Wed, 05 Nov 2025 17:46:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGi5d-0000000EE80-04pk;
+	Wed, 05 Nov 2025 18:18:37 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGhaa-0000000ECVy-2Mk6;
-	Wed, 05 Nov 2025 17:46:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AF14441943;
-	Wed,  5 Nov 2025 17:46:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1533CC4CEF5;
-	Wed,  5 Nov 2025 17:46:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762364791;
-	bh=woawi0pKo/kryyYybe6UTBTWMoVsh5qziqijASjnREk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X7Mf6l0akmdIq5iKgqrPQJacdZIwvZNDplWJ7ZFAiTj1m5jo/r4RZiwBnuufL7FJz
-	 rvjLuH5kIUsBewW58/KIJ4AtGpjFM65vgcq5Mq40hqFViVaFYaMO3B+3S2DJBgREr8
-	 Ydhgli/Ewi5GXUbKU7XplIRtFLKzGALUr+LrfoBKdNnCob1uuo8LERCMDso+bO1Ogb
-	 2kFxvq6vNnlZJHsASSZyjiY4DFFHKnlLj9M1sIw8Xs7M5lI6s7rwKH+tP57RLGeYQo
-	 I7shlbbDQcR6rzKbVlqZcx0moVDvOcKmF1aICmG6LscQYeQvqFcaYK64Yfrix1vGrk
-	 oPe9jn359SAFw==
-Date: Wed, 5 Nov 2025 18:46:28 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: Phil Auld <pauld@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
- user->kernel transition
-Message-ID: <aQuNdOEmPYkI03my@localhost.localdomain>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <aQDuY3rgOK-L8D04@localhost.localdomain>
- <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <aQJLpSYz3jdazzdb@localhost.localdomain>
- <xhsmh8qgk5txe.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	id 1vGi5X-0000000EE7D-3hWG;
+	Wed, 05 Nov 2025 18:18:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IKuNbrr5ooxS5PArsMEkxfRbFzaQ65qM7fznj9vRFC2eLUY5mdYTsfH1MriLNd/mmcXLiYefzxGASSU5cYZDyOvJw6MrIGa5Vf0EKUf+oql8g/t2Q3z/Pn8VaG8JF0kf14i9nwiahfcNRP2LZctjdyS2Zx8IIpZZQq3SNdU6lGm3yCedCQZ1PC8La5TVc1N5pawLSN3mq0vLPUnE2+JivYtdE6BPQrkWGgUSLBoOhT5i3p5VKVsTwJOkQ+veYcu4Wl1+MgVxHb61dV0T5xi5H0YkOUx/QOMcJoIT1ZGUSNyU1FDYvZMgs8R9Pr34iJ7F2ll4cWAku6kCzKRBgGofmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TVbxH8zZg/dBSjSSQnbJVnTvN0blKg05thaY9dEiC+c=;
+ b=XxH/xwmmG3L+izbkVl/yKju4l0HT5aHQTtT3qPW65/9mbUGyNCtPtMVg6snwKGRHZn7TuQLxGhwUUOl8neXA9YNK3OLsTew7F+STVxE0qsWRULsRJxbtfGnAiKvRN2h2GFSv0f67kMhynxGjfNSAFyjgrBOsnNsFnW38h2LU3/JxhBKRP44q7BpHfwNefgMXsn8cO4axhjMPAtOY/Q0eaFYMlnZAmFhcN/EvIJZSH9dNUv6rPccBgT17iuUTQVb//o+9I2KXffE2IG7hWi9rscJcjLeSEsT5Lyqh73kPETdZxrScdiJRuMV+YWocBinZirWQzEKBlvkCX+FjQlJigg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TVbxH8zZg/dBSjSSQnbJVnTvN0blKg05thaY9dEiC+c=;
+ b=sukUT+O4vTDXOL68jp0W6wppVHjS3HCDfExAbcnzRPnMwKZFYYmQUaapn0mE2x/LCtUwDm4Aw9guMBjGwcAWK9rf9ymZkytWLgOXHuCMvMz8JpPCVz6SqZp7cP8lOufC1tGqiA58EjpZT2jN+X4kyE5HaJU9bZNXswKiAkSGqOQIh1KOkFDA1kePW/wpu66l/7X21/0AddT0S1Yff3qCC1opCVFAelSdhQe24tmUqLQxNBOlQ144igzwAxt9J0iZe4CVrfAE+vjYzxsYjDSCAcdRVn6lCJOUc2qKOgTHBdhXFSr7TQj62yDvS9q/bq+CEt1/1Qod1lj0WMLIHhdU7g==
+Received: from SJ0PR13CA0198.namprd13.prod.outlook.com (2603:10b6:a03:2c3::23)
+ by MN6PR12MB8591.namprd12.prod.outlook.com (2603:10b6:208:471::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.7; Wed, 5 Nov
+ 2025 18:18:22 +0000
+Received: from SJ1PEPF0000231C.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c3:cafe::c8) by SJ0PR13CA0198.outlook.office365.com
+ (2603:10b6:a03:2c3::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.5 via Frontend Transport; Wed, 5
+ Nov 2025 18:18:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF0000231C.mail.protection.outlook.com (10.167.242.233) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.6 via Frontend Transport; Wed, 5 Nov 2025 18:18:22 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 5 Nov
+ 2025 10:18:04 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 5 Nov
+ 2025 10:18:04 -0800
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.9)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 5 Nov 2025 10:18:02 -0800
+Date: Wed, 5 Nov 2025 10:18:01 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: Jason Gunthorpe <jgg@nvidia.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "sven@kernel.org" <sven@kernel.org>, "j@jannau.net"
+	<j@jannau.net>, "jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"robin.clark@oss.qualcomm.com" <robin.clark@oss.qualcomm.com>,
+	"dwmw2@infradead.org" <dwmw2@infradead.org>, "baolu.lu@linux.intel.com"
+	<baolu.lu@linux.intel.com>, "yong.wu@mediatek.com" <yong.wu@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"angelogioacchino.delregno@collabora.com"
+	<angelogioacchino.delregno@collabora.com>, "tjeznach@rivosinc.com"
+	<tjeznach@rivosinc.com>, "pjw@kernel.org" <pjw@kernel.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>, "heiko@sntech.de" <heiko@sntech.de>,
+	"schnelle@linux.ibm.com" <schnelle@linux.ibm.com>, "mjrosato@linux.ibm.com"
+	<mjrosato@linux.ibm.com>, "wens@csie.org" <wens@csie.org>,
+	"jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>, "samuel@sholland.org"
+	<samuel@sholland.org>, "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
+	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "asahi@lists.linux.dev"
+	<asahi@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
+	<linux-rockchip@lists.infradead.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "linux-sunxi@lists.linux.dev"
+	<linux-sunxi@lists.linux.dev>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "virtualization@lists.linux.dev"
+	<virtualization@lists.linux.dev>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v1 02/20] iommu: Introduce a test_dev domain op and an
+ internal helper
+Message-ID: <aQuU2dic75VkSyjr@Asurada-Nvidia>
+References: <cover.1760312725.git.nicolinc@nvidia.com>
+ <32ce256a2ece5d63e99d5858f953586859818ffc.1760312725.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276D10BD480FE66881870B08CFBA@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aQO//+6/B/WbdK2h@Asurada-Nvidia>
+ <20251103185400.GA1537560@nvidia.com>
+ <BN9PR11MB527638C0E43E8AA000410B878CC5A@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <xhsmh8qgk5txe.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+In-Reply-To: <BN9PR11MB527638C0E43E8AA000410B878CC5A@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231C:EE_|MN6PR12MB8591:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ba14651-9b7d-41ac-b073-08de1c97b458
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026|7416014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fyNu0vYIWg5Wi5i56jiDih4IKeySzyyzBaJlMhyvaIH9i1tZ5wzcB0ygDsKs?=
+ =?us-ascii?Q?bAgB6SeAPmJxS34aUS9cgYK43nzigsJ4nAZ8lBchHXqG8D6O0P6lIaZV1YJp?=
+ =?us-ascii?Q?1ngPK7eSr68QfkpwtdMWaS2Y+qKUfBQTdvUV/+PX7A+wuxtTDqlLuw56y0OQ?=
+ =?us-ascii?Q?cOunGV7XE3dSZUzojr00xKGfNqjqPUz2Y0uU37+Npzj76ldF4vqYsjFr23Qy?=
+ =?us-ascii?Q?wrDzF9VNkEJ5Nb6qF0CsGlIP5j2st7L0GvsrqnvDYq8FMyo2ViGPSb64MO/S?=
+ =?us-ascii?Q?KwEsNtlik6J+UdbW2dut7LS2nFAWy9t8JiymSA95GBS6nblDE0kEvVRv4QWj?=
+ =?us-ascii?Q?Xtv8io5X3exvLxXdUsppPlsfpp6hLoYSegxpzJYI3jOOIaEALUIvK8+JxgZe?=
+ =?us-ascii?Q?WAxxRS9V4K24RllZ1/JKcRvXHbmQjziOqzuVYf/MjzqGIkcWDIY/xMkQz5yl?=
+ =?us-ascii?Q?nWXAljB+JbuZSqAQKH3bYhiKGAvwfbeuraNAfFDhXljlumrpxXSVZmjrB+Ec?=
+ =?us-ascii?Q?zvb3H1q4BSNkso1Ikv69ymWP+J4r4wROnP8Ez0mwFXqkteD+dvEjX3xlku8f?=
+ =?us-ascii?Q?97gRZi6PN+8st+NLfDwbpGulfnrTinOx2BEqXzQpy1+6radCHn9ElYfR1Wwg?=
+ =?us-ascii?Q?BYxj+M2VIyjL2sojXsWXW4V/Pkmb2Ncta6SJPDta+tGSxNjxGJb9nwWi+Ddv?=
+ =?us-ascii?Q?WMN8Es/nGI6U1DIDuSISwhhj5lbasKVSbCLb20BXXgkJX39AEFohJoYlLqOa?=
+ =?us-ascii?Q?7CnETMnS0E81igjZmbMyXN8esmWuZvhdcmFVZSU0iFrRxXBEy6Xjjx2fySvo?=
+ =?us-ascii?Q?BIs1HDLxz+hpoASn0XSRQyd7BnjyvmSG85hERMITZZgoARUK2jWERAhLTm4r?=
+ =?us-ascii?Q?m/cuucM6K9Qmr0WEorkx+FnfX2la/FexlZnrPqnC3KbcLC9lLCglyGPVUGyG?=
+ =?us-ascii?Q?mz6Azf1RZhw5dvuRR68UZL9gQ+r4L0lFTuwY0e1rJ0VDIyRotnK9zjoEwIAw?=
+ =?us-ascii?Q?xhnJTWIslLaIvACsgaVTbvp4cbo7HR4ZQTYWPo7uru1SsdzWn0KkYYV7GllG?=
+ =?us-ascii?Q?eP33f7+iQpCX4cnmWW5QSJPE1kxSUMYddQ6VSG9Vnx1WgUgJ/PbBWrLy+TR7?=
+ =?us-ascii?Q?zbek45sd5vm41RtvOmOjLzPFkNVnxPCzw5pIlgmXz/KWFQwF0f0nF+rqtIH0?=
+ =?us-ascii?Q?lgPovybw/X+8tm9n/uIShFtmofcv57MHAt6rrwY8pxmegesjTbzFuavtFlcX?=
+ =?us-ascii?Q?NIsKhOTXfXIQKMXNwLVbqpRZrsEJlNiR+qixpMrhmSpOY+Fi2fY+WmxJmPAB?=
+ =?us-ascii?Q?hiGCHpbA77F/vHMt9Yu4xqXT/6kTgXaDaT1k/siuYyTvUYAj3Y5ku59ftEqd?=
+ =?us-ascii?Q?7y8lOfI3tAdphTWIIh7zd1Dp+QiKF79LlB972HgUrM6Ayg5UR85ZxziUlVpV?=
+ =?us-ascii?Q?JRmUVaveZgSZ7cH3Z0C0GijVaZHRNdk47a0bzIQsKtdp7Nfyww7Zpsba/t98?=
+ =?us-ascii?Q?vKfXgY/In3nTLQXdMQhbcVBq5O1rNCAYfOywpZK9ZS2if0uU5hE6sgyEgXNL?=
+ =?us-ascii?Q?H45fT9JVcUNlUCv9V1Ew2RC6OgA6olppabvpLIa9?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026)(7416014)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 18:18:22.3550
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ba14651-9b7d-41ac-b073-08de1c97b458
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231C.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR12MB8591
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_094632_642562_7AF2B524 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20251105_101832_148541_A3291D66 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,93 +181,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Le Wed, Nov 05, 2025 at 05:24:29PM +0100, Valentin Schneider a =E9crit :
-> On 29/10/25 18:15, Frederic Weisbecker wrote:
-> > Le Wed, Oct 29, 2025 at 11:32:58AM +0100, Valentin Schneider a =E9crit :
-> >> I need to have a think about that one; one pain point I see is the con=
-text
-> >> tracking work has to be NMI safe since e.g. an NMI can take us out of
-> >> userspace. Another is that NOHZ-full CPUs need to be special cased in =
-the
-> >> stop machine queueing / completion.
-> >>
-> >> /me goes fetch a new notebook
-> >
-> > Something like the below (untested) ?
-> >
-> =
+On Wed, Nov 05, 2025 at 06:57:31AM +0000, Tian, Kevin wrote:
+> > From: Jason Gunthorpe <jgg@nvidia.com>
+> > Sent: Tuesday, November 4, 2025 2:54 AM
+> > 
+> > On Thu, Oct 30, 2025 at 12:43:59PM -0700, Nicolin Chen wrote:
+> > 
+> > > FWIW, I am thinking of another design based on Jason's remarks:
+> > > https://lore.kernel.org/linux-iommu/aQBopHFub8wyQh5C@Asurada-
+> > Nvidia/
+> > >
+> > > So, instead of core initiating the round trip between the blocking
+> > > domain and group->domain, it forwards dev_reset_prepare/done to the
+> > > driver where it does a low-level attachment that wouldn't fail:
+> > >   For SMMUv3, it's an STE update.
+> > >   For intel_iommu, it seems to be the context table update?
+> > 
+> > Kevin, how bad do you think the UAPI issue is if we ignore it?
+> > 
+> 
+> yeah probably better to leave it. I didn't see a clean way and the
+> value didn't justify the complexity.
+> 
+> Regarding to PF reset, it's a devastating operation while the vf user
+> is operating the vf w/o any awareness. there must be certain
+> coordination in userspace. otherwise nobody can recover the
+> registers. Comparing to that, solving the domain attach problem
+> is less important...
 
-> Some minor nits below but otherwise that looks promising.
-> =
+If I capture these correctly, we should go with a -EBUSY version:
+ - Reject concurrent attachments during a device reset
+ - Skip reset for devices having sibling group devices
+ - Allow PF to stop IOMMU, ignoring VFs
+?
 
-> One problem I'm having however is reasoning about the danger zone; what
-> forbidden actions could a NO_HZ_FULL CPU take when entering the kernel
-> while take_cpu_down() is happening?
-> =
+That sounds pretty much like this v4:
+https://lore.kernel.org/linux-iommu/0f6021b500c74db33af8118210dd7a2b2fd31b3c.1756682135.git.nicolinc@nvidia.com/
+by dropping the SRIOV concern.
 
-> I'm actually not familiar with why we actually use stop_machine() for CPU
-> hotplug; I see things like CPUHP_AP_SMPCFD_DYING::smpcfd_dying_cpu() or
-> CPUHP_AP_TICK_DYING::tick_cpu_dying() expect other CPUs to be patiently
-> spinning in multi_cpu_stop(), and I *think* nothing in the entry code up =
-to
-> context_tracking entry would disrupt that, but it's not a small thing to
-> reason about.
-> =
-
-> AFAICT we need to reason about every .teardown callback from
-> CPUHP_TEARDOWN_CPU to CPUHP_AP_OFFLINE and their explicit & implicit
-> dependencies on other CPUs being STOP'd.
-
-You're raising a very interesting question. The initial point of stop_machi=
-ne()
-is to synchronize this:
-
-    set_cpu_online(cpu, 0)
-    migrate timers;
-    migrate hrtimers;
-    flush IPIs;
-    etc...
-
-against this pattern:
-
-    preempt_disable()
-    if (cpu_online(cpu))
-        queue something; // could be timer, IPI, etc...
-    preempt_enable()
-
-There have been attempts:
-
-      https://lore.kernel.org/all/20241218171531.2217275-1-costa.shul@redha=
-t.com/
-
-And really it should be fine to just do:
-
-    set_cpu_online(cpu, 0)
-    synchronize_rcu()
-    migrate / flush stuff
-
-Probably we should try that instead of the busy loop I proposed
-which only papers over the problem.
-
-Of course there are other assumptions. For example the tick
-timekeeper is migrated easily knowing that all online CPUs are
-not idle (cf: tick_cpu_dying()). So I expect a few traps, with RCU
-for example and indeed all these hotplug callbacks must be audited
-one by one.
-
-I'm not entirely unfamiliar with many of them. Let me see what I can do...
-
-Thanks.
-
--- =
-
-Frederic Weisbecker
-SUSE Labs
+Thanks
+Nicolin
 
 _______________________________________________
 linux-riscv mailing list
