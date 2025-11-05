@@ -4,164 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B854CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 16:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BBAECCF9F8
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 17:46:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/1q6R1Yy1aLiVD8RZpDZVAMe1ECxFt2AmQ6A7/i2snU=; b=hYPfWtftJcII4J
-	wNGl9O1HbTpgv3h/Myn0Y1wTd5W6XYRXOIxN24yz9BAAuPvUWf2MWbbrUoAKtXEdBgyV/N5pBr6AK
-	gE51/Vt8Ozh2XL+7vGiB+peOixpNmSNWPF0jnVu5gT9JrTRu6DkPKhWO/FVKSyxV+lj/4vUu6b7J9
-	DHvYImJ0YwoWpr0xK4oucxr4N1asOYRY7n4zIKJzlVQLOb04mBmMVQfdIbA+zlsSFpe0IQ+9QFeVT
-	yDS2p/x2+uIREmE4blm2JKKu3uWdXZ/fN91LxU0DQBH0rN36/EsTksMdbuavpQUuL50fCAu2/BPA3
-	oFmJ2qBAjK+Viwo+0o6Q==;
+	List-Owner; bh=b55sGna+qyi5CqGzVXqIoT1gWhOdxwM7WLOy5iFMUE0=; b=e5jmq2wUsg/DnT
+	5VE1VdDgfg6i22uwRI3AKLw9/JyJosZbYjo9aR2HQqPnF2jE3mUj47HqJjelVGdO0i4IxtqcW8IzV
+	nvGvMlYkWzApI2CuO2Xa21LYFlVakh2NX3V9QBlPlDKt2Qr+hG7LYsbST97Ouv190T/JUl5d0eQQN
+	M23rPZNn3HRHQDQ3i4gaRU9/JbiwngpKgTKSyvsXwZUkd3bnG6P+ZglFdoxG2ivF8OluO1SgRgoTM
+	iCxqtUXIMTHDeJCLpEC9ZDANdT4CopQ4BlUvfuiKnhBK5EEbVRxjy5DOTaXUTVrUnCdwXl5aydmCl
+	rbIgpu4rcEr7vgGTSjGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgpL-0000000E7aE-0z8N;
-	Wed, 05 Nov 2025 16:57:43 +0000
-Received: from mail-eastus2azon11010028.outbound.protection.outlook.com ([52.101.56.28] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1vGhad-0000000ECWX-14rN;
+	Wed, 05 Nov 2025 17:46:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgpI-0000000E7ZS-1jjC
-	for linux-riscv@lists.infradead.org;
-	Wed, 05 Nov 2025 16:57:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r0xtl1SM4q4yBtduRYCOTVl22Z1rTojk3hj99onByNeyIYoOkZXg8n6/sR//QPsPKz7J4hag9yn0RNovyUdPSLJzXgSn57xAmrUetxa7dqZ8SWHtuRsMKFRygPTp1mdImPF6Qj8D4JM7rlSIzJVgWL+doWaLydPM2vMtjQBN09iCBSZomXuCSk45Es/W1/GTFtZFxXgMhKDbBKugAZpv0TvgDtpveuYV2qRaZJ5q9NPfS9ydu6wKzRmqzxcdamDJ95XKT/w/B41zHJcSpujPuRBgvxjh8iJLCLbJVWFBYTRqVkqPOusghyzUCEbMMt3whXtpZnxldZkljSjtIwNDCg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mv2s9gL4ZHKozD79D8QUvGWISwoNQ9ZUZZ7pidbngxs=;
- b=TgD8sxk7L/NEnQvZY9YE2b3rgwPGLDonz/IlWcSGXF8p0qQrdzpuQ140a1kYGlBEBSyt9kLr6yLsXJmWuaPBqryzU8ALdbJFRBimElXblIkQ0HaNZAaT+zNzk1UXMx8nMCKdNhMY95eQFOWb9FmF8Dk1cgFntIO2YcrDn2JXB7EGhTMb+oOKq/KVfnFABA9LocHvtie7nk4HR4b88RvB6DM8E2AGZIEQ3J1PKYeDQX+pIg94XTG1ktf4PBXus3x+U/He5mYhyZqI5cPvbFcQ8szf0rAAKjSwMvuIqAUCWpWEZZPIdJsNb7rVnotDhFnpYi+zidJiwkwA6C3tkfbZYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mv2s9gL4ZHKozD79D8QUvGWISwoNQ9ZUZZ7pidbngxs=;
- b=S6wwQDoLaBQGFtAKp8mA7vWAHfA/56CHW67ufYQ9ZdJ+Pr0RGJaz37NKTNFrOXOHkIPjsLfAGVE3WuyK2eGyQL5bqzc0KxV/a51/H3APuok+88ZEVL9hokcMCb8miiDUv69DDV3UhTeJ9Ie4gYWdh0iF1qfFdyxp7pN2Z9IWe2y/JtkeIAkxXMCL7X0qtBMf2fEl96y/RuOqnMyFZPbeKiK+jKmEezAk58ycJjmM/TrUxpQDIR7dOocl1KmXd34IWtVc2+O1HnBx16PT9Hs3OUx21g9P4yTGa7eKVGK0ebLMHLcZ38O0OcsLdan64V5rr0Hh6sMoD76H7QWem8fMDw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by DS5PPF5A66AFD1C.namprd12.prod.outlook.com (2603:10b6:f:fc00::64d) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.14; Wed, 5 Nov
- 2025 16:57:34 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9298.006; Wed, 5 Nov 2025
- 16:57:34 +0000
-Date: Wed, 5 Nov 2025 12:57:33 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Ankit Soni <Ankit.Soni@amd.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Shuah Khan <shuah@kernel.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Will Deacon <will@kernel.org>, Alexey Kardashevskiy <aik@amd.com>,
-	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
-	James Gowans <jgowans@amazon.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Michael Roth <michael.roth@amd.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Vasant Hegde <vasant.hegde@amd.com>
-Subject: Re: [PATCH v8 13/15] iommu/amd: Use the generic iommu page table
-Message-ID: <20251105165733.GT1537560@nvidia.com>
-References: <0-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
- <13-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
- <lgdkkszwjsupu57kjrldslqs7wmsjozswiu7apcrsg7e7issge@xfqlnzb5omld>
-Content-Disposition: inline
-In-Reply-To: <lgdkkszwjsupu57kjrldslqs7wmsjozswiu7apcrsg7e7issge@xfqlnzb5omld>
-X-ClientProxiedBy: BN0PR10CA0005.namprd10.prod.outlook.com
- (2603:10b6:408:143::19) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
+	id 1vGhaa-0000000ECVy-2Mk6;
+	Wed, 05 Nov 2025 17:46:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AF14441943;
+	Wed,  5 Nov 2025 17:46:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1533CC4CEF5;
+	Wed,  5 Nov 2025 17:46:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762364791;
+	bh=woawi0pKo/kryyYybe6UTBTWMoVsh5qziqijASjnREk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X7Mf6l0akmdIq5iKgqrPQJacdZIwvZNDplWJ7ZFAiTj1m5jo/r4RZiwBnuufL7FJz
+	 rvjLuH5kIUsBewW58/KIJ4AtGpjFM65vgcq5Mq40hqFViVaFYaMO3B+3S2DJBgREr8
+	 Ydhgli/Ewi5GXUbKU7XplIRtFLKzGALUr+LrfoBKdNnCob1uuo8LERCMDso+bO1Ogb
+	 2kFxvq6vNnlZJHsASSZyjiY4DFFHKnlLj9M1sIw8Xs7M5lI6s7rwKH+tP57RLGeYQo
+	 I7shlbbDQcR6rzKbVlqZcx0moVDvOcKmF1aICmG6LscQYeQvqFcaYK64Yfrix1vGrk
+	 oPe9jn359SAFw==
+Date: Wed, 5 Nov 2025 18:46:28 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: Phil Auld <pauld@redhat.com>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+Message-ID: <aQuNdOEmPYkI03my@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <aQDuY3rgOK-L8D04@localhost.localdomain>
+ <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <aQJLpSYz3jdazzdb@localhost.localdomain>
+ <xhsmh8qgk5txe.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|DS5PPF5A66AFD1C:EE_
-X-MS-Office365-Filtering-Correlation-Id: fb359647-3b2e-4819-8996-08de1c8c6a9a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QZ27rEsS5JnFhea/SQVaPfYc9i6OcBSGpBCV5jPo0YjW56uQgzYZmBvr9H5o?=
- =?us-ascii?Q?eamSksvGQZfy4KHtrnU3Z/Y02PbYFy5O9bkW70RQllXb7hkjnlygQu4dVPxh?=
- =?us-ascii?Q?K49G8Yr9APZFWRLGWt08eGRg8DCkvyFPOQlFQx/Yq3+NdWX7nbQZlb9RT3JD?=
- =?us-ascii?Q?8wBgKbnSf60rrl9ygo5DcZPOhWdMH4+RprkxW+AI2k7ESbbWLBoqaWlgnQpx?=
- =?us-ascii?Q?zq7W64tn/+bfI7+veQMGoYj3isvD+ahJRnF9ZjqJKQi2S+ZqwVy15bEbRsEf?=
- =?us-ascii?Q?dnBWq2MBtM5JkBZz29jtLPO2lK6yxbualGpy2b2hl0I/G9jGShj/mv1e2mpW?=
- =?us-ascii?Q?4h5qDcfsE9obbU06GmR5AJrR++bpbWdWmNGPyJC8egemUoNDwu25PDu0q0R7?=
- =?us-ascii?Q?6uYFCVMPTi89wZfjgdO6r1a4MDAQOFEYo6tL2TsK8dHclG8G5WCLuLHLfE9f?=
- =?us-ascii?Q?tRw8mqMcnAA14+7WdzVRi0zlD35lXoXv/jBaPhEErrfg+f/Bg9O/TpIP2jXP?=
- =?us-ascii?Q?wfV3lO338t/JRYCb0eJQMfxNJg2Yhk0ygE6KXL1QsBBZ/zCPpAs5tJ4LHhoM?=
- =?us-ascii?Q?qYrf1Ir88I7WNeSFI/pSvEIa1Qo+/zfxjubeLuM7UyDAwFqkpl1CE5mVUgfG?=
- =?us-ascii?Q?wXHlp+TDzTb1sz8p2qexSl9eK0bfk+ZDpzyCk8tFwG1bA0ZVINepO/vtLPIb?=
- =?us-ascii?Q?CND5RuuKm9+4IvHelnzdSy6/YB8VxqnDOxJE141cERmy2iq9E5Va2W5OWzwU?=
- =?us-ascii?Q?hE9ukyk1kfLr3DKx0xBR4BS3iyIBNe71HbQXa24fWpIjoMX3o8/HsXJtSL27?=
- =?us-ascii?Q?wn61GTTzSmxRtvVm8zlakgjyfwNi+BmMf+X5wfq1DFr6H+qjPeb4vpa/Bp+4?=
- =?us-ascii?Q?F9RQ4GdYujYEqvkXT6LT0LPXBoI+URqntrR3CYy6Pr7v8JPwtzC2LdP5bbNI?=
- =?us-ascii?Q?EPdeCvKRIFT8/rqFsvrD8O1dpa2epZMrM9BPfJDJIkbFpWNwxHHTn+ypmU4g?=
- =?us-ascii?Q?Y+P/JGr6GMRT+EyJ80CljFQ5vp5SHCYNajiBdeRLZENYUIwh4uN28E0Z2B/Q?=
- =?us-ascii?Q?kguSFiIGuQEjMns8fsuJrdQbrL1paWA9RGDgWSjkj3ewECTshr+abvkuRnKl?=
- =?us-ascii?Q?Qb0AX6p0zkZTzwxqXDmBT9XNf5G+QlNrdFbuJEHN8da2U3jDC8HyXSGKmC0A?=
- =?us-ascii?Q?N4HEOqgkA30v9KFUhC1bid+XG2kvLcFzKaO9VnU8RIzbYz4wl243miXtcrBy?=
- =?us-ascii?Q?197AQegQGEriClJz8tFwGLqC4RFOMQ8P76D3JyWtJxA2URJ/Q2Q6fAIoj5FG?=
- =?us-ascii?Q?/m6xJskxa3tBDw4HhaLrdLLlgJKM3kwsNGklxi30+v9DB+H37ZswawTyiA0n?=
- =?us-ascii?Q?mbCtQJf5sr+AMa/8BAzt0rNDA4+b7Uqya5w0mwFpoLg/+AqRH39oHpayiEbu?=
- =?us-ascii?Q?593EEnVw7GQEYNUS+UKaG+xd9qVs5MKC?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YkPH58k97KvOAUSeCyWibkE0TdN/KuftX+ZAQ4EpUBII8uuAtyozIqrV+glQ?=
- =?us-ascii?Q?Gvg4xMEV+2G+jdH12gPjYvOa1UU6OmPTpGczC1J3wlroaWvYJ+OXPyzMtok0?=
- =?us-ascii?Q?VeWE8L/NkAv1grIcyF+s54byLVocOIVfZuIuvlNAe24fMPIriRKwcDj5P/I5?=
- =?us-ascii?Q?IkennY5u/LT3ddbgL+kvpRevr0Qsid/AjBN+FFCuaoLhGcpHN5+sfcDGjSYv?=
- =?us-ascii?Q?HiKKP1l4J+9zeUfcqcp+2M+emclF4m+/mTwj6iDItlOkI8e+kSZPt3WG5ag8?=
- =?us-ascii?Q?9VxUpEj6vDhO+W0PgaLcobKwEA2Yl3Dph2O6wYyqo1Be8aDVbeITM11CPF6u?=
- =?us-ascii?Q?5SBSN6MdqnLGJUYPaV2oUNZgWqZwSEJKE462usUoZXBquxz4n7TIJfFgJFi/?=
- =?us-ascii?Q?DI0WAUC7KVzHpmevzbY8XWC8A9wG0gbh2PCOiF/oRcnIUhxyFtQNWuQx4/4J?=
- =?us-ascii?Q?zE51pr5XA9H5gG13WgJDIA+8I5Ge64FCxL7oeDKanrZUOPY9n16KLvXxSR2s?=
- =?us-ascii?Q?jOqc5S08BO/EY97orYI30QRAGuEoWBm+DFoFFCc72bqC1plFYklnnc+AeihW?=
- =?us-ascii?Q?slkh3HRyg/fmFAdkJ1MO8slFPWYNBpa57Ev/YcDAEobMO6PoMxkNy3aNVBsp?=
- =?us-ascii?Q?jqZ3/cmTPnSwkUjtVqqfNStiEf5RttYmm2N/ViCH1l0JUj0SZlJqp1rcxpUN?=
- =?us-ascii?Q?x+c0B3UNoSt5FtghSRIatjdOXbHC2tsjggAgumu337ixaWLa6RyoVYpmdJLY?=
- =?us-ascii?Q?YOSE7zMfyoD4uG6qgisjkjAX2PhbT8bkjicdopgwC2DqnX3cse6jWY58EuYk?=
- =?us-ascii?Q?DDWb7gz2JkuGlmev2Eq7uiroMAdmUUr6i61lIMTsLzLSKRh0lMnHEFrsDLqy?=
- =?us-ascii?Q?1yv1yHMeELUEUbUh5zAnIG9FQL/V8ZpVHt0cLKnyWxsv7/6RAuZrQZrIlQ/C?=
- =?us-ascii?Q?lWBKNpZCv7WmpXPDyrQ0FYebWs9H8plqtCZ9mdHgtOemsZ+iM/AfX52txSTz?=
- =?us-ascii?Q?/9EthZBb4pw3alJD7Di93JABkXTAMlEysBnEPUMVZM8U7z3k6/eYqbEI9HvD?=
- =?us-ascii?Q?J2MYPuKPuuorTDoDyu58RaLuSxq/taUO7wVGq5OqLkVNBxkySMs6QXWDmcN5?=
- =?us-ascii?Q?jrqK2Bt4hOtsKF6ZUw1jei/Odsse9DV5T/o+uDlA1qBIiP+W9OB9ukpy3pRW?=
- =?us-ascii?Q?CEMCVGocno9pWcz2iAYDizg9hCu0m9EGvZ/vBNNXrWSGxpkFypqnuRXOXMDc?=
- =?us-ascii?Q?rLld5MpyduLObKsACiIPFiut7skz64s1J2poHQOEsXf6R4QrT3kFdyZXypd7?=
- =?us-ascii?Q?ikPOYsa7mq2yYr+tG7WMclOZGf7sqyFRezvJJrFxbglmsYFkhSv8PtUYS6n/?=
- =?us-ascii?Q?ngVT/Y8W9gncQspbOpv8U6YQpDOcBCwurQH+AQFTHtGLNX+Eu1ZEV/DDAsug?=
- =?us-ascii?Q?dngjXy1y0Jc6OCKNrOOLbmiF7IOntnAYWvzdMUHkUn5XM1uYMHO4BVMs59Zz?=
- =?us-ascii?Q?OU7H7lGZ/ff6hdtICYEn2Mq5aUm+CC+rQoxJXc4Y6L2xeMl4bK4wvpf7eNC2?=
- =?us-ascii?Q?POFq5bJNfP4sWXycRcM=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fb359647-3b2e-4819-8996-08de1c8c6a9a
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 16:57:34.4515
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: emkUvmaMWyRHweOS873LB9fVnGHrhiRaVke2v612ij5gaNQzWLU0+S6eVrJgy2eK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF5A66AFD1C
+Content-Disposition: inline
+In-Reply-To: <xhsmh8qgk5txe.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_085740_454765_BCD8FCFF 
-X-CRM114-Status: UNSURE (   6.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251105_094632_642562_7AF2B524 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,21 +105,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 04:01:53PM +0000, Ankit Soni wrote:
-> Tested-by: Ankit Soni <Ankit.Soni@amd.com>
-> 
-> I am little late, I had tested this patch series in both v1 and v2 page table 
-> modes using multiple benchmark tools (FIO, netperf, etc). The changes work as 
-> expected, and I observed no regressions.
+Le Wed, Nov 05, 2025 at 05:24:29PM +0100, Valentin Schneider a =E9crit :
+> On 29/10/25 18:15, Frederic Weisbecker wrote:
+> > Le Wed, Oct 29, 2025 at 11:32:58AM +0100, Valentin Schneider a =E9crit :
+> >> I need to have a think about that one; one pain point I see is the con=
+text
+> >> tracking work has to be NMI safe since e.g. an NMI can take us out of
+> >> userspace. Another is that NOHZ-full CPUs need to be special cased in =
+the
+> >> stop machine queueing / completion.
+> >>
+> >> /me goes fetch a new notebook
+> >
+> > Something like the below (untested) ?
+> >
+> =
 
-Thanks alot, your testing gives me great confidence!
+> Some minor nits below but otherwise that looks promising.
+> =
 
-Jason
+> One problem I'm having however is reasoning about the danger zone; what
+> forbidden actions could a NO_HZ_FULL CPU take when entering the kernel
+> while take_cpu_down() is happening?
+> =
+
+> I'm actually not familiar with why we actually use stop_machine() for CPU
+> hotplug; I see things like CPUHP_AP_SMPCFD_DYING::smpcfd_dying_cpu() or
+> CPUHP_AP_TICK_DYING::tick_cpu_dying() expect other CPUs to be patiently
+> spinning in multi_cpu_stop(), and I *think* nothing in the entry code up =
+to
+> context_tracking entry would disrupt that, but it's not a small thing to
+> reason about.
+> =
+
+> AFAICT we need to reason about every .teardown callback from
+> CPUHP_TEARDOWN_CPU to CPUHP_AP_OFFLINE and their explicit & implicit
+> dependencies on other CPUs being STOP'd.
+
+You're raising a very interesting question. The initial point of stop_machi=
+ne()
+is to synchronize this:
+
+    set_cpu_online(cpu, 0)
+    migrate timers;
+    migrate hrtimers;
+    flush IPIs;
+    etc...
+
+against this pattern:
+
+    preempt_disable()
+    if (cpu_online(cpu))
+        queue something; // could be timer, IPI, etc...
+    preempt_enable()
+
+There have been attempts:
+
+      https://lore.kernel.org/all/20241218171531.2217275-1-costa.shul@redha=
+t.com/
+
+And really it should be fine to just do:
+
+    set_cpu_online(cpu, 0)
+    synchronize_rcu()
+    migrate / flush stuff
+
+Probably we should try that instead of the busy loop I proposed
+which only papers over the problem.
+
+Of course there are other assumptions. For example the tick
+timekeeper is migrated easily knowing that all online CPUs are
+not idle (cf: tick_cpu_dying()). So I expect a few traps, with RCU
+for example and indeed all these hotplug callbacks must be audited
+one by one.
+
+I'm not entirely unfamiliar with many of them. Let me see what I can do...
+
+Thanks.
+
+-- =
+
+Frederic Weisbecker
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
