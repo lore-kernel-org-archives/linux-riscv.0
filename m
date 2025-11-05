@@ -4,89 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C20DBCCFA0D
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 16:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B854CCF9F8
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 16:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CLbGJKRzQegqKH3bxVRcVTXX6Ma1C3gstbpyji95XGs=; b=cZvHppd3333zt6donb/I2RfE6e
-	8+wgwBCqPxwt6e+8o+ZFLxWoBjgea9ionYqLeINLMsCuamhXqrMfLpk+ujZ47TgfwY0pnp6E9UuJn
-	MApFGFLL7j/ExqcKykPpHzO7s9/8MOhonFWjzbAPfoMgHaGhxEjPwONVX/TDRJtKJP5Qt305Kl2hs
-	4Jdt6zc6FAS7ZIpic/kbVK8do4I0p3Ps7bgCY6APvBrds6ekjnGAWaWLEb7mt/n5ZVh+QAxgXDCMt
-	+VwHE0vSUq8K9pVfgmDvuZaVgcNda62LErT0maxplNTmV3AzwSZ+5uCRIGBP26IZxiSZnA0w5l8pW
-	h0UUlYfw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/1q6R1Yy1aLiVD8RZpDZVAMe1ECxFt2AmQ6A7/i2snU=; b=hYPfWtftJcII4J
+	wNGl9O1HbTpgv3h/Myn0Y1wTd5W6XYRXOIxN24yz9BAAuPvUWf2MWbbrUoAKtXEdBgyV/N5pBr6AK
+	gE51/Vt8Ozh2XL+7vGiB+peOixpNmSNWPF0jnVu5gT9JrTRu6DkPKhWO/FVKSyxV+lj/4vUu6b7J9
+	DHvYImJ0YwoWpr0xK4oucxr4N1asOYRY7n4zIKJzlVQLOb04mBmMVQfdIbA+zlsSFpe0IQ+9QFeVT
+	yDS2p/x2+uIREmE4blm2JKKu3uWdXZ/fN91LxU0DQBH0rN36/EsTksMdbuavpQUuL50fCAu2/BPA3
+	oFmJ2qBAjK+Viwo+0o6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgjx-0000000E6V7-2TWu;
-	Wed, 05 Nov 2025 16:52:09 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vGgpL-0000000E7aE-0z8N;
+	Wed, 05 Nov 2025 16:57:43 +0000
+Received: from mail-eastus2azon11010028.outbound.protection.outlook.com ([52.101.56.28] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgju-0000000E6Td-1PVE
+	id 1vGgpI-0000000E7ZS-1jjC
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Nov 2025 16:52:07 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-47754e9cc7fso1665e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Nov 2025 08:52:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762361524; x=1762966324; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=esO8jRq9uTUw55PJsW3htw0zar+bIhexF73TArzHxxk=;
-        b=GieOOprjK5I6Sta4p8T2L45iyTVa25DWchJGuXKNJwMq1riXK3doOn/nO3el70HJ3J
-         Kn5MnT5joFFfvyxiQ2abFvlK1nXJoseLjOnKVYs1ojyidRKVp4/CIYK/X8Ha+k7/DNfH
-         eyf3IPTxCjoaeOw5NHPHmoTlWRj/JfaSyLhHyXMnUJaKBAdfefNx/zRqBLDjjKjJEz5t
-         qgFJ4KgG1NZ0XjzOhVQRnjoAZQgsEa2XBpU48oqzth2jU7mp2tDXbtvrUR7kIf6WwpJV
-         6tWnzRuEGQMz7agF4yWxE+I1+qHbrUVHQ1VTO1eSZ6rQf+21R3MoD59x/B7fnniUAFc/
-         vhjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762361524; x=1762966324;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=esO8jRq9uTUw55PJsW3htw0zar+bIhexF73TArzHxxk=;
-        b=v7M3IDODNER+RWdPllsHq8TDp3VTE/ZaHgsttNTRrxPkgtNTz0cLw130u5ESqM9Rb0
-         MHNmW6h0sJVV4qXPXaqmBqCuFXVKn6wujbv/dd3UW/zQRmSaPrvvPvwwD4tG7ybggZ34
-         6+mxrPAPb0Kbl3QJHAPqdeRuqZ/Wx4dZjBTYm20k2KphGd6l2ZmkausKCem1tdnYyRMv
-         9dGloLn15KC3L7UYJaHDp40N6rOt31xopkmUiB+pKC4HgmCf9NrirFL6zlSJzm+K/aqX
-         i73gKj9lVDPE2XlD9Z/0kLbuIUKykcq28YMsvkvzH4lz3rgphC2gjQIN+J2W9ST8/yj3
-         a9Qg==
-X-Forwarded-Encrypted: i=1; AJvYcCXDbfYCPsFzOahN4KytJfwZ6RgluJr3sFke8RDtqfqVyc75Lou55Jylum6qT0Snhe0a0fh/lXneni4fFg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXqs201ZzPhfKrDAAQHELd0GGQ4T81vdGIsOIwSwfBJYw7dWYJ
-	WODdLj8KREEvDCDsLKlA/wy2cXj8qOLeYrlP6cSOOwjN0pYBx2uFPLV5
-X-Gm-Gg: ASbGncsiAHhNkLrKVlK+VvgSvTJIT7PSJQNtjwJSOSJ9ZmxRYD8udanN+e/ydmrwTb+
-	cgNaGn+o4qurzHhmVVF1Wrld55E/Yd1l137mFKMZA2MRgak+36AKS5eVwpLSYGulo1X7fTR6MJZ
-	CIRgf5dS3GxfjeTpoIt0Q4GNzdGpJJztO6Uic7VjDnmf95M3FoyGbX69yBHtVZH0BwsL3N3fpcX
-	OEMh2imebseIMdJC0M6mJaDwxc5XP5B4S8stTRMFMspmATJkjL9D2HzJg08+/jpbPJJSj13afrc
-	PAU4K/hkbxF2ghroEbydBc+gFXvAqO8uB38f2R/TJL0tok7AmD3X1xNTWICxZkXObh7KPj/WW5f
-	2rRaTW0qAN6Ps9MNE+xzqhsG3YAV2seNnE0VNB+UGcmejB7M0xyzphEf+86bZz2o4B6er1iv/UX
-	PPiP+6Ju+EL5bfFakNiOFX8v1D1MxfuVvrtgLjmzqkimZW31AGGHeLb4TncubRM8Q=
-X-Google-Smtp-Source: AGHT+IF1eT04urNHEfsD9kdCj32CNL1YcHJ6oGuMVK3cU2BLT/aQRFRmm7ox5OYZe77ML31HK9v5ow==
-X-Received: by 2002:a05:600c:1c94:b0:477:fcb:2256 with SMTP id 5b1f17b1804b1-4775ce23efemr42468465e9.17.1762361524090;
-        Wed, 05 Nov 2025 08:52:04 -0800 (PST)
-Received: from orome (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4775ce210a7sm59725725e9.12.2025.11.05.08.52.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Nov 2025 08:52:02 -0800 (PST)
-Date: Wed, 5 Nov 2025 17:52:01 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
-Message-ID: <3dzha4qyqdrbutxby3n5nkvihnxrhniqr6w726eumhzgln2w5l@fbu72mzmjz4m>
-References: <20251029163336.2785270-1-thierry.reding@gmail.com>
- <20251029163336.2785270-2-thierry.reding@gmail.com>
- <CAJZ5v0igMJ12KoYCmrWauvOfdxaNP5-XVKoSxUroaKFN7S-rTQ@mail.gmail.com>
+	Wed, 05 Nov 2025 16:57:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=r0xtl1SM4q4yBtduRYCOTVl22Z1rTojk3hj99onByNeyIYoOkZXg8n6/sR//QPsPKz7J4hag9yn0RNovyUdPSLJzXgSn57xAmrUetxa7dqZ8SWHtuRsMKFRygPTp1mdImPF6Qj8D4JM7rlSIzJVgWL+doWaLydPM2vMtjQBN09iCBSZomXuCSk45Es/W1/GTFtZFxXgMhKDbBKugAZpv0TvgDtpveuYV2qRaZJ5q9NPfS9ydu6wKzRmqzxcdamDJ95XKT/w/B41zHJcSpujPuRBgvxjh8iJLCLbJVWFBYTRqVkqPOusghyzUCEbMMt3whXtpZnxldZkljSjtIwNDCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mv2s9gL4ZHKozD79D8QUvGWISwoNQ9ZUZZ7pidbngxs=;
+ b=TgD8sxk7L/NEnQvZY9YE2b3rgwPGLDonz/IlWcSGXF8p0qQrdzpuQ140a1kYGlBEBSyt9kLr6yLsXJmWuaPBqryzU8ALdbJFRBimElXblIkQ0HaNZAaT+zNzk1UXMx8nMCKdNhMY95eQFOWb9FmF8Dk1cgFntIO2YcrDn2JXB7EGhTMb+oOKq/KVfnFABA9LocHvtie7nk4HR4b88RvB6DM8E2AGZIEQ3J1PKYeDQX+pIg94XTG1ktf4PBXus3x+U/He5mYhyZqI5cPvbFcQ8szf0rAAKjSwMvuIqAUCWpWEZZPIdJsNb7rVnotDhFnpYi+zidJiwkwA6C3tkfbZYQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mv2s9gL4ZHKozD79D8QUvGWISwoNQ9ZUZZ7pidbngxs=;
+ b=S6wwQDoLaBQGFtAKp8mA7vWAHfA/56CHW67ufYQ9ZdJ+Pr0RGJaz37NKTNFrOXOHkIPjsLfAGVE3WuyK2eGyQL5bqzc0KxV/a51/H3APuok+88ZEVL9hokcMCb8miiDUv69DDV3UhTeJ9Ie4gYWdh0iF1qfFdyxp7pN2Z9IWe2y/JtkeIAkxXMCL7X0qtBMf2fEl96y/RuOqnMyFZPbeKiK+jKmEezAk58ycJjmM/TrUxpQDIR7dOocl1KmXd34IWtVc2+O1HnBx16PT9Hs3OUx21g9P4yTGa7eKVGK0ebLMHLcZ38O0OcsLdan64V5rr0Hh6sMoD76H7QWem8fMDw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
+ by DS5PPF5A66AFD1C.namprd12.prod.outlook.com (2603:10b6:f:fc00::64d) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.14; Wed, 5 Nov
+ 2025 16:57:34 +0000
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9298.006; Wed, 5 Nov 2025
+ 16:57:34 +0000
+Date: Wed, 5 Nov 2025 12:57:33 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Ankit Soni <Ankit.Soni@amd.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+	Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev, Bill Wendling <morbo@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Shuah Khan <shuah@kernel.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Will Deacon <will@kernel.org>, Alexey Kardashevskiy <aik@amd.com>,
+	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
+	James Gowans <jgowans@amazon.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Michael Roth <michael.roth@amd.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Vasant Hegde <vasant.hegde@amd.com>
+Subject: Re: [PATCH v8 13/15] iommu/amd: Use the generic iommu page table
+Message-ID: <20251105165733.GT1537560@nvidia.com>
+References: <0-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
+ <13-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
+ <lgdkkszwjsupu57kjrldslqs7wmsjozswiu7apcrsg7e7issge@xfqlnzb5omld>
+Content-Disposition: inline
+In-Reply-To: <lgdkkszwjsupu57kjrldslqs7wmsjozswiu7apcrsg7e7issge@xfqlnzb5omld>
+X-ClientProxiedBy: BN0PR10CA0005.namprd10.prod.outlook.com
+ (2603:10b6:408:143::19) To MN2PR12MB3613.namprd12.prod.outlook.com
+ (2603:10b6:208:c1::17)
 MIME-Version: 1.0
-In-Reply-To: <CAJZ5v0igMJ12KoYCmrWauvOfdxaNP5-XVKoSxUroaKFN7S-rTQ@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|DS5PPF5A66AFD1C:EE_
+X-MS-Office365-Filtering-Correlation-Id: fb359647-3b2e-4819-8996-08de1c8c6a9a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QZ27rEsS5JnFhea/SQVaPfYc9i6OcBSGpBCV5jPo0YjW56uQgzYZmBvr9H5o?=
+ =?us-ascii?Q?eamSksvGQZfy4KHtrnU3Z/Y02PbYFy5O9bkW70RQllXb7hkjnlygQu4dVPxh?=
+ =?us-ascii?Q?K49G8Yr9APZFWRLGWt08eGRg8DCkvyFPOQlFQx/Yq3+NdWX7nbQZlb9RT3JD?=
+ =?us-ascii?Q?8wBgKbnSf60rrl9ygo5DcZPOhWdMH4+RprkxW+AI2k7ESbbWLBoqaWlgnQpx?=
+ =?us-ascii?Q?zq7W64tn/+bfI7+veQMGoYj3isvD+ahJRnF9ZjqJKQi2S+ZqwVy15bEbRsEf?=
+ =?us-ascii?Q?dnBWq2MBtM5JkBZz29jtLPO2lK6yxbualGpy2b2hl0I/G9jGShj/mv1e2mpW?=
+ =?us-ascii?Q?4h5qDcfsE9obbU06GmR5AJrR++bpbWdWmNGPyJC8egemUoNDwu25PDu0q0R7?=
+ =?us-ascii?Q?6uYFCVMPTi89wZfjgdO6r1a4MDAQOFEYo6tL2TsK8dHclG8G5WCLuLHLfE9f?=
+ =?us-ascii?Q?tRw8mqMcnAA14+7WdzVRi0zlD35lXoXv/jBaPhEErrfg+f/Bg9O/TpIP2jXP?=
+ =?us-ascii?Q?wfV3lO338t/JRYCb0eJQMfxNJg2Yhk0ygE6KXL1QsBBZ/zCPpAs5tJ4LHhoM?=
+ =?us-ascii?Q?qYrf1Ir88I7WNeSFI/pSvEIa1Qo+/zfxjubeLuM7UyDAwFqkpl1CE5mVUgfG?=
+ =?us-ascii?Q?wXHlp+TDzTb1sz8p2qexSl9eK0bfk+ZDpzyCk8tFwG1bA0ZVINepO/vtLPIb?=
+ =?us-ascii?Q?CND5RuuKm9+4IvHelnzdSy6/YB8VxqnDOxJE141cERmy2iq9E5Va2W5OWzwU?=
+ =?us-ascii?Q?hE9ukyk1kfLr3DKx0xBR4BS3iyIBNe71HbQXa24fWpIjoMX3o8/HsXJtSL27?=
+ =?us-ascii?Q?wn61GTTzSmxRtvVm8zlakgjyfwNi+BmMf+X5wfq1DFr6H+qjPeb4vpa/Bp+4?=
+ =?us-ascii?Q?F9RQ4GdYujYEqvkXT6LT0LPXBoI+URqntrR3CYy6Pr7v8JPwtzC2LdP5bbNI?=
+ =?us-ascii?Q?EPdeCvKRIFT8/rqFsvrD8O1dpa2epZMrM9BPfJDJIkbFpWNwxHHTn+ypmU4g?=
+ =?us-ascii?Q?Y+P/JGr6GMRT+EyJ80CljFQ5vp5SHCYNajiBdeRLZENYUIwh4uN28E0Z2B/Q?=
+ =?us-ascii?Q?kguSFiIGuQEjMns8fsuJrdQbrL1paWA9RGDgWSjkj3ewECTshr+abvkuRnKl?=
+ =?us-ascii?Q?Qb0AX6p0zkZTzwxqXDmBT9XNf5G+QlNrdFbuJEHN8da2U3jDC8HyXSGKmC0A?=
+ =?us-ascii?Q?N4HEOqgkA30v9KFUhC1bid+XG2kvLcFzKaO9VnU8RIzbYz4wl243miXtcrBy?=
+ =?us-ascii?Q?197AQegQGEriClJz8tFwGLqC4RFOMQ8P76D3JyWtJxA2URJ/Q2Q6fAIoj5FG?=
+ =?us-ascii?Q?/m6xJskxa3tBDw4HhaLrdLLlgJKM3kwsNGklxi30+v9DB+H37ZswawTyiA0n?=
+ =?us-ascii?Q?mbCtQJf5sr+AMa/8BAzt0rNDA4+b7Uqya5w0mwFpoLg/+AqRH39oHpayiEbu?=
+ =?us-ascii?Q?593EEnVw7GQEYNUS+UKaG+xd9qVs5MKC?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YkPH58k97KvOAUSeCyWibkE0TdN/KuftX+ZAQ4EpUBII8uuAtyozIqrV+glQ?=
+ =?us-ascii?Q?Gvg4xMEV+2G+jdH12gPjYvOa1UU6OmPTpGczC1J3wlroaWvYJ+OXPyzMtok0?=
+ =?us-ascii?Q?VeWE8L/NkAv1grIcyF+s54byLVocOIVfZuIuvlNAe24fMPIriRKwcDj5P/I5?=
+ =?us-ascii?Q?IkennY5u/LT3ddbgL+kvpRevr0Qsid/AjBN+FFCuaoLhGcpHN5+sfcDGjSYv?=
+ =?us-ascii?Q?HiKKP1l4J+9zeUfcqcp+2M+emclF4m+/mTwj6iDItlOkI8e+kSZPt3WG5ag8?=
+ =?us-ascii?Q?9VxUpEj6vDhO+W0PgaLcobKwEA2Yl3Dph2O6wYyqo1Be8aDVbeITM11CPF6u?=
+ =?us-ascii?Q?5SBSN6MdqnLGJUYPaV2oUNZgWqZwSEJKE462usUoZXBquxz4n7TIJfFgJFi/?=
+ =?us-ascii?Q?DI0WAUC7KVzHpmevzbY8XWC8A9wG0gbh2PCOiF/oRcnIUhxyFtQNWuQx4/4J?=
+ =?us-ascii?Q?zE51pr5XA9H5gG13WgJDIA+8I5Ge64FCxL7oeDKanrZUOPY9n16KLvXxSR2s?=
+ =?us-ascii?Q?jOqc5S08BO/EY97orYI30QRAGuEoWBm+DFoFFCc72bqC1plFYklnnc+AeihW?=
+ =?us-ascii?Q?slkh3HRyg/fmFAdkJ1MO8slFPWYNBpa57Ev/YcDAEobMO6PoMxkNy3aNVBsp?=
+ =?us-ascii?Q?jqZ3/cmTPnSwkUjtVqqfNStiEf5RttYmm2N/ViCH1l0JUj0SZlJqp1rcxpUN?=
+ =?us-ascii?Q?x+c0B3UNoSt5FtghSRIatjdOXbHC2tsjggAgumu337ixaWLa6RyoVYpmdJLY?=
+ =?us-ascii?Q?YOSE7zMfyoD4uG6qgisjkjAX2PhbT8bkjicdopgwC2DqnX3cse6jWY58EuYk?=
+ =?us-ascii?Q?DDWb7gz2JkuGlmev2Eq7uiroMAdmUUr6i61lIMTsLzLSKRh0lMnHEFrsDLqy?=
+ =?us-ascii?Q?1yv1yHMeELUEUbUh5zAnIG9FQL/V8ZpVHt0cLKnyWxsv7/6RAuZrQZrIlQ/C?=
+ =?us-ascii?Q?lWBKNpZCv7WmpXPDyrQ0FYebWs9H8plqtCZ9mdHgtOemsZ+iM/AfX52txSTz?=
+ =?us-ascii?Q?/9EthZBb4pw3alJD7Di93JABkXTAMlEysBnEPUMVZM8U7z3k6/eYqbEI9HvD?=
+ =?us-ascii?Q?J2MYPuKPuuorTDoDyu58RaLuSxq/taUO7wVGq5OqLkVNBxkySMs6QXWDmcN5?=
+ =?us-ascii?Q?jrqK2Bt4hOtsKF6ZUw1jei/Odsse9DV5T/o+uDlA1qBIiP+W9OB9ukpy3pRW?=
+ =?us-ascii?Q?CEMCVGocno9pWcz2iAYDizg9hCu0m9EGvZ/vBNNXrWSGxpkFypqnuRXOXMDc?=
+ =?us-ascii?Q?rLld5MpyduLObKsACiIPFiut7skz64s1J2poHQOEsXf6R4QrT3kFdyZXypd7?=
+ =?us-ascii?Q?ikPOYsa7mq2yYr+tG7WMclOZGf7sqyFRezvJJrFxbglmsYFkhSv8PtUYS6n/?=
+ =?us-ascii?Q?ngVT/Y8W9gncQspbOpv8U6YQpDOcBCwurQH+AQFTHtGLNX+Eu1ZEV/DDAsug?=
+ =?us-ascii?Q?dngjXy1y0Jc6OCKNrOOLbmiF7IOntnAYWvzdMUHkUn5XM1uYMHO4BVMs59Zz?=
+ =?us-ascii?Q?OU7H7lGZ/ff6hdtICYEn2Mq5aUm+CC+rQoxJXc4Y6L2xeMl4bK4wvpf7eNC2?=
+ =?us-ascii?Q?POFq5bJNfP4sWXycRcM=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb359647-3b2e-4819-8996-08de1c8c6a9a
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 16:57:34.4515
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: emkUvmaMWyRHweOS873LB9fVnGHrhiRaVke2v612ij5gaNQzWLU0+S6eVrJgy2eK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF5A66AFD1C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_085206_398648_C77404E8 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20251105_085740_454765_BCD8FCFF 
+X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,87 +173,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1407086859761618244=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 05, 2025 at 04:01:53PM +0000, Ankit Soni wrote:
+> Tested-by: Ankit Soni <Ankit.Soni@amd.com>
+> 
+> I am little late, I had tested this patch series in both v1 and v2 page table 
+> modes using multiple benchmark tools (FIO, netperf, etc). The changes work as 
+> expected, and I observed no regressions.
 
---===============1407086859761618244==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ykyajizgfjgayrmb"
-Content-Disposition: inline
+Thanks alot, your testing gives me great confidence!
 
-
---ykyajizgfjgayrmb
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
-MIME-Version: 1.0
-
-On Mon, Nov 03, 2025 at 05:18:08PM +0100, Rafael J. Wysocki wrote:
-> On Wed, Oct 29, 2025 at 5:33=E2=80=AFPM Thierry Reding <thierry.reding@gm=
-ail.com> wrote:
-> >
-> > From: Thierry Reding <treding@nvidia.com>
-> >
-> > Several drivers can benefit from registering per-instance data along
-> > with the syscore operations. To achieve this, move the modifiable fields
-> > out of the syscore_ops structure and into a separate struct syscore that
-> > can be registered with the framework. Add a void * driver data field for
-> > drivers to store contextual data that will be passed to the syscore ops.
-> >
-> > Signed-off-by: Thierry Reding <treding@nvidia.com>
->=20
-> This change is fine with me, so I can apply it unless somebody has any
-> specific heartburn related to it (Greg?), but in case you want to
-> route it differently
->=20
-> Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
-
-I have a few follow-up patches for the Tegra PMC driver that depend on
-this. 6.19 is what I was targetting, so if we could put this into a
-stable branch that'd be the best solution. I can set that up via the
-Tegra tree if you and Greg are okay with it.
-
-If that's all too complicated, I can probably wait until the next cycle
-to merge the PMC changes.
-
-Thierry
-
---ykyajizgfjgayrmb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmkLgLAACgkQ3SOs138+
-s6F0Lg//dTn1/PUCYHRhF8cm1xB6JKggiLC40TRct49fcf9eF5gAdCqXm44qKoaF
-67aqiXAiwzovTctJIu3rz8p71/FeXp/qGWDdPm/+wI7yD+BoCcVO0nmvXuPwCzhd
-ZMwqeaRVm57JX4M9S5BdkOGtDLgAjyZ/6Qq/2isiQSPiWWl/IT3YiLyzw8vq8mcY
-VoepQGK5hm7CHFf8FOBs+sMt6q5JJDm0VjNi+seVcCNg9U25GaXCRc2D9ztAqRib
-3768/KMhlftnoJKsizCwWq2Gyw0Se7ifz66djjf51sHd064LLDv7OZpfeGyiFK01
-MvVGXoPFuIJB0yqIoMRBbeRULm4kq+dkUkt1JWwYAMw9ZJnhXPJJI8bal2IASj8/
-E6NADiYd9HS8kAXWYvLkm0xHv4FN5WXWG2a+Gf6K2vpBm07zG2xnI+eVjYQSnb9W
-O9TcZf3jDWvgEQ31plH5JFY32sI4vjLAdcKS2oRfkbxFDJvTS+RRjj3EPqFshNXf
-B5E6pXTCltOkUepuhbGDzIifVWzYgg/GyXNfwzdnJUXcAz7QPPJySfMraf/dn+8S
-hggVgAivRFDEtaNEqKU6iqoePR3HIUJe/Ebjrb199RV9t4FcnVYOpviJRf5EWpsF
-2YEUJPiA7neiac9fPLwCoRh33bJTIzanmWVxmFF1nQ2vozIt68U=
-=3Mmd
------END PGP SIGNATURE-----
-
---ykyajizgfjgayrmb--
-
-
---===============1407086859761618244==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Jason
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1407086859761618244==--
-
