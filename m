@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C987CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 03:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523ABCCFA13
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 03:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZBKAxK+c9RP/m921sYIXmr5xsYyTmFanbfb778yOL3Q=; b=Ij8FpKEJTrF0ow
-	ubayFxkAde7F8646ti3QiRtT17j8ovdNLiHNL4WiLlHXpsawnSMFmuNXlOCL+PY32JALiAr48aCgO
-	hwc7jhWTcBOco2JCBEY2GoDf9RmwI9p4ngowWoPSW1Z7dg3MlUmLSDF4KcbJE4PwEDZ8ELfa+ClcA
-	X4kfRDKL/rmjFzJXfbGdKuQD5L0+dug4Kcaujbx9fGC1qwoV94I+5IeqZM/vf6jZAbZ9ToFLaCCf4
-	FmUpN40XWPw/pwcE51DHPNKsh1lrfPKzfVsFNhailUkXh6RCmFStwYe4uHHf5zKlHn1dIzT80VP/t
-	PAHS51lt4mZJZd/u8nnA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CQQjIsaEAlSfut1YoNdqTRoC0WWee2qsvY/fAVBzSYE=; b=nLCj2KdUByvPaO
+	XEzO4+la2f+xmAMVL/QXk0X1Gg2x3ofywE5tPc0P3ZZWDajcYR+cF7lolY3f7U9VKd2P4BLIePqSw
+	1AdDk5zPe8bPbUppRr0w6RvxV1dYaxLLM5vxRfWsnJ35DrU6UMro28jOsP9kyRDnHDGNfZ0v9xpL3
+	wTtdlT+kEIzeJeNApPEvUrZVwW1hB2A0FXzXS17Iy5R6I4tDcIvY2bTiJhFeDtqEJbNhnqqZRTiM0
+	iiYXYC7DGFuD0GfQ7dk1dIBDF/KLENQZoBZBVFI6VYZNnoB6+VELrPsXvrWgQwwHloop33pinjF1c
+	iIKg8BwAVI6L7hBqNkLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGUMk-0000000CxcI-0bvs;
+	id 1vGUMk-0000000CxcN-1rTK;
 	Wed, 05 Nov 2025 03:39:22 +0000
 Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGUMg-0000000CxX6-0GuU
+	id 1vGUMg-0000000CxW5-0JI1
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Nov 2025 03:39:20 +0000
+	Wed, 05 Nov 2025 03:39:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1762313877;
-	bh=dLRrQ1i7ZuvOR380K25xa+U2XNncx0jGHzRRhBIJiZw=;
-	h=From:Subject:Date:Message-Id:MIME-Version:To;
-	b=nnZN/UWhIcf5KIk/1BFNUUYUxNMbhZrx3fLBop3bs8K9kP+HLehdf+nd5ncm+C4ah
-	 wpZIGEhh/thDd/vw1dqKrcC1YIu+9hGY2HYjeZMDh07jRlUuek+0BP+c8Ng+KlRKaP
-	 8pIwexvQTDE2yhQtwCwAgOuqtb6UQdcJkq4/UfQU=
-X-QQ-mid: esmtpsz10t1762313869t8b875169
-X-QQ-Originating-IP: VTNhh+X1bUuazguRm/WjXFuDmMP9yaF6AZ6vdFDmMhY=
+	s=mxsw2412; t=1762313886;
+	bh=vuCR47oUhJumCT8fjZvIpM1LnjXI8nJ4RRggTSODh1U=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=JTBGwggOWjC5ZufBmlHRpYtcepFEDwLG/vDJmJrsdmdcgfTVvtRnjJsvHv0vlFlrw
+	 9db4dHU6du3/M4VjEPSayJHdKjmFQonfGyQTTQ8mYKlt9NleUY4SnYgB3ojBGnNQxJ
+	 Lke+WSvsSes5t+eKMfHDXx5myky4Dj0f7PKtOoWU=
+X-QQ-mid: esmtpsz10t1762313877t6f7ec09a
+X-QQ-Originating-IP: ndsRvCgevoxhv+OTVbjzfRaEyEjpwJqrHaCdIducQvg=
 Received: from = ( [183.48.244.102])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 05 Nov 2025 11:37:46 +0800 (CST)
+	id ; Wed, 05 Nov 2025 11:37:54 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13385157105176269560
+X-BIZMAIL-ID: 5863978114994191627
 EX-QQ-RecipientCnt: 14
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: [PATCH 0/2] riscv: dts: spacemit: define all missing I2C
+Date: Wed, 05 Nov 2025 11:37:44 +0800
+Subject: [PATCH 2/2] riscv: dts: spacemit: define all missing I2C
  controller nodes
-Date: Wed, 05 Nov 2025 11:37:42 +0800
-Message-Id: <20251105-k1-add-i2c-node-v1-0-d18dae246137@linux.spacemit.com>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAIbGCmkC/x3MQQqAIBBA0avErBtQyYquEi20GWsINBQiiO6et
- HyL/x8onIULTM0DmS8pkmKFbhtYdxc3RqFqMMpYrZXFQ6MjQjErxkSMFEZvle87DgPU6swc5P6
- P8/K+H++XFuVhAAAA
-X-Change-ID: 20251105-k1-add-i2c-node-df8b50b64ef7
+Message-Id: <20251105-k1-add-i2c-node-v1-2-d18dae246137@linux.spacemit.com>
+References: <20251105-k1-add-i2c-node-v1-0-d18dae246137@linux.spacemit.com>
+In-Reply-To: <20251105-k1-add-i2c-node-v1-0-d18dae246137@linux.spacemit.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -62,38 +60,37 @@ Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762313866; l=648;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762313866; l=4289;
  i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=xiZjpDy3EAXqW0w4u5A4HJBPYdwJ/UmEUk25ogsrIqs=;
- b=vxtr0o72DIl8ORZBrMCYT6gEVCmnr934Hy5aIBBkYpcIOREfIIbk7+cs1nn295z7OPFLEqRNi
- 8HCFtKkb4AGCIbdKRl9krO/wrZXGBEq4ldHVkOdDDA7NyJ24o4Atl1s
+ bh=za1iW/97Na7IqykeUeXIcmQhYVxz6tkFsOynk60wX7k=;
+ b=UKWpQ0PR0KWAVDEJKvz8PF6cKOA9LPxwzW3ITOqWRmlA8MtADIwK+Xh3xLsdLb5jrJTYASF5H
+ fCrUruzUPRWDClZUZWKPgXjQTwp247lusZgHrgtqDQdFpc4ZoqoRSQG
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
  pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NYadThnUvFNzIe8lUce+JyK7AzU6o7Tax/Y/XM90kBkMRKknRKa+27Ei
-	6QOHAkK1UZY+w+wojOlpEVam6AWIKH/fIYQ7gEIFlC1mgK/5J8dFuh4EY1V7M2TyINaXNrq
-	JrM/GmDhFFRcXJDezeeclJMI0P5hhi/FMDqN3RGjAVfPTKjC03LNgbI27Dh4q/O/coPsNVO
-	JZ7wAe+yB7J++sZguRIIBXvYDlvnEgVuR7BWply7+Yq44IOHbG+jEJwKNFZO3h6aqOT0vlO
-	IwZG2+6uwQSOLaCx+ubs8gctGLLDmxNg3fSn2pI+Akj7K3fEUJ10vikDjjzEeR1SpkkLefF
-	HyV9Pa4J9uP0ovtDc8apUtg2zFbyEXgej4R270vvQxzX9BjmjgvmS3lFBQt7uDX1BaPtxY/
-	hPIdAhnSNqkribM1S3jxelNUPktLj97ZIZw8TURT0Ul7LszaOURxIl08aYLrTDrguVs0uKx
-	v/zKg5ntzFVzJlPPz+rdEHookZ3zku22L/6XYafINnYJT6YKj+cN/EjhuKxEJQgDvjRUX7K
-	EKn7x4ABlg24Uz1YoaRpuDLmo84Ol6ECl/RS7uiMKX0tQB/sgab6zds8aDvrd1NR3rTfZo1
-	Td7g2LOKPTPstpbjD5Kw+F5dVi6QHEkro1JUh1z2rrC5aMRCaHte6FrNmkXwp1p63XwGkCS
-	DiK1Gn8HhPbGSWNwzeNMIDRVoYSTQCCW+cPM1L9s5rF9HbrAnnFDe5Zzap07lg/H/MphedA
-	t/Qq0Q/DFIR/zz/vZSxYgpFOcOnKFfqub0VyCkN0+dDl/5JoiVfEpcCK1hKhQzSGElc2sXR
-	aPY6B2PXEhTvgZPnH9iHU6jGMInbK3A5igeGhGyOzjU9ylPlfVOUb9EIFMm40JuMbKJK6p2
-	NeXqDNz9gErfNc9Ow2NG/9XRTF9asoNK2xawISl0Gpuhya8ioft3Si5iHBvCTUmK+ANkzWP
-	0WspFssm5GnLG2fE5JZBjRIeiJUo2GJn+4JyRVnbtTv2W9fa7cM7+ECEbnOIY+zwobaPEjK
-	7/jh7B63J9dnS0Am3Oew6N59wlfy2N7eHWaB/TPhjRZ2V9ULr1kXbU9KFIrhgkKxBDYZLsa
-	caJqde92yna8bpab8DSnpV5t3ln5oBp9F8ZNAkvc0bpxAOtEshUgrkjM8OyRVGQag==
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-XMAILINFO: Mprg6+9faFwukaB28MlQhWKYF8LrShDy8+U4w51/DzB3inzUR3vFq7A4
+	Au9aE1JudJM7yVLsL7FOoPtGinQwFrjaOxAToCF7y3gRVuCMq1yq99h3uCXfauWiE/QUS4q
+	m1blEHVZ5e3nHlu9eR8jUg9BzH0wfyCqkeGE8qEeWLYrFFUwassDCktsrSUtADWJE9l5f7u
+	5p4Kt7fNY6m342gkDf6zNejZIF2a8qzCXeavFEj+tfd1ZSLHWpruU6rgTJfPkRz1pOTQGn3
+	Rk8pN+NAtkD2No+3jsL0zxw6X+S62VR0j1kugHWfzVx3iZ/HVacUvCLtowUe6OKQt2k3zZY
+	GJtHgyUs0mgbuF6esYxTFwXZoQRjAx3PTP5P5E1skE6pgwFfN5qXtN258nSm/xN34qYoyi3
+	2yqOzWDQzee4KArLWWs/NkUYoc61+X1W4PQcY2CM50ZAyTsKoOUp8GJZyvUCSIKJ8s4A2Ad
+	eM9Du4U8wQw4GbuFusGfQYjyHAG3y7ELQBDiFSmyEZwI8f2PiibwaKSoeMmo14c0n3b7wka
+	mMuCThvyZ7a3ToEVsfi0kA9lwwSAgDU9EhQ3h395lNoIkzQN+fvJeYcF0si5kik2kUbDAuD
+	pnq59OL6uGVqrNl4Pb0uhzizMyWRu/gn1q8sRXutvDro2wG2zcXIGqy9ipQhotZEqKJ/a+n
+	wuGQJMfPIW+0/TRDt/CbhBXqxn/UFsP5x0UOj7OXRUUKiwh69QMZ4t4+W4okHgYxbjaqluV
+	DTWbeS7Qu+AFuTedjIFnDPGPiRIa+Cgd0/2k7NhTL1w3tZE+bmWo9SyYb8ayGdI4zIVfn10
+	1C409InvIIK4XtA3HqML5G4xr+diUJp2esWfYz1WU8+p77YU03Irfgk8S9fPFm+D4CJYl2A
+	rQ6YGKbYECBOhZWFFNOl/ncgSQStsGCv7BafzoIsROvoRkpQjIH9n0anwJtmyBv+VZqdfyN
+	zvURL871g8nROwwus14YtlZr0U9GS3/DaP7dCTCI+h0O69xfz3ZZ/hVEkGvNxto2eFI0vIF
+	7HHQwG1KNHgxbhpRoI0mzfh4QZrG6F6CFNcdB2x1/gqewlQGAJ7S6NU10+RrTrkV6xxChfy
+	k0NRrAloaz5t3P8xhI3HnU1d6zpdw5OS7MM6AFHhGoG7EKRm7PRiV78XL+lQkVIaA==
+X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_193919_461377_9D50D5DC 
-X-CRM114-Status: UNSURE (   6.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251104_193919_463404_546B83B0 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,26 +107,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some I2C controllers exist in the hardware but are missing in the dtsi
-file.
+The SpacemiT K1 SoC is equipped with a total of nine I2C controllers,
+ranging from I2C0 to I2C8.
 
-This series adds the corresponding nodes.
+Prior to this change, only I2C2 and I2C8 were explicitly defined
+within the `k1.dtsi` device tree. This patch comprehensively adds
+the device tree node definitions for I2C0, I2C1, I2C4, I2C5, I2C6 and I2C7.
+
+The I2C3 node is not defined because it belongs exclusively to
+the secure domain.
+
+All newly defined I2C nodes are initially set to "disabled", allowing
+board-specific device tree enable and configure them.
+
+This ensures that all I2C controllers(not include secure domain and
+remote-cpu domain) are now available for use across
+the K1 platform.
 
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
-Troy Mitchell (2):
-      riscv: dts: spacemit: reorder i2c2 node
-      riscv: dts: spacemit: define all missing I2C controller nodes
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 80 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 80 insertions(+)
 
- arch/riscv/boot/dts/spacemit/k1.dtsi | 90 ++++++++++++++++++++++++++++++++++--
- 1 file changed, 85 insertions(+), 5 deletions(-)
----
-base-commit: 17490bd0527f59d841168457b245581f314b5fa0
-change-id: 20251105-k1-add-i2c-node-df8b50b64ef7
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index 5b46ce2edb059e22d878890b3b6192118dfdb2f4..843b7f3e2eef25fd3a44c4bec2b2280e33523f8c 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -358,6 +358,32 @@ syscon_rcpu2: system-controller@c0888000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
++		i2c0: i2c@d4010800 {
++			compatible = "spacemit,k1-i2c";
++			reg = <0x0 0xd4010800 0x0 0x38>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			clocks = <&syscon_apbc CLK_TWSI0>,
++				 <&syscon_apbc CLK_TWSI0_BUS>;
++			clock-names = "func", "bus";
++			clock-frequency = <400000>;
++			interrupts = <36>;
++			status = "disabled";
++		};
++
++		i2c1: i2c@d4011000 {
++			compatible = "spacemit,k1-i2c";
++			reg = <0x0 0xd4011000 0x0 0x38>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			clocks = <&syscon_apbc CLK_TWSI1>,
++				 <&syscon_apbc CLK_TWSI1_BUS>;
++			clock-names = "func", "bus";
++			clock-frequency = <400000>;
++			interrupts = <37>;
++			status = "disabled";
++		};
++
+ 		i2c2: i2c@d4012000 {
+ 			compatible = "spacemit,k1-i2c";
+ 			reg = <0x0 0xd4012000 0x0 0x38>;
+@@ -371,6 +397,32 @@ i2c2: i2c@d4012000 {
+ 			status = "disabled";
+ 		};
+ 
++		i2c4: i2c@d4012800 {
++			compatible = "spacemit,k1-i2c";
++			reg = <0x0 0xd4012800 0x0 0x38>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			clocks = <&syscon_apbc CLK_TWSI4>,
++				 <&syscon_apbc CLK_TWSI4_BUS>;
++			clock-names = "func", "bus";
++			clock-frequency = <400000>;
++			interrupts = <40>;
++			status = "disabled";
++		};
++
++		i2c5: i2c@d4013800 {
++			compatible = "spacemit,k1-i2c";
++			reg = <0x0 0xd4013800 0x0 0x38>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			clocks = <&syscon_apbc CLK_TWSI5>,
++				 <&syscon_apbc CLK_TWSI5_BUS>;
++			clock-names = "func", "bus";
++			clock-frequency = <400000>;
++			interrupts = <41>;
++			status = "disabled";
++		};
++
+ 		syscon_apbc: system-controller@d4015000 {
+ 			compatible = "spacemit,k1-syscon-apbc";
+ 			reg = <0x0 0xd4015000 0x0 0x1000>;
+@@ -382,6 +434,19 @@ syscon_apbc: system-controller@d4015000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
++		i2c6: i2c@d4018800 {
++			compatible = "spacemit,k1-i2c";
++			reg = <0x0 0xd4018800 0x0 0x38>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			clocks = <&syscon_apbc CLK_TWSI6>,
++				 <&syscon_apbc CLK_TWSI6_BUS>;
++			clock-names = "func", "bus";
++			clock-frequency = <400000>;
++			interrupts = <70>;
++			status = "disabled";
++		};
++
+ 		gpio: gpio@d4019000 {
+ 			compatible = "spacemit,k1-gpio";
+ 			reg = <0x0 0xd4019000 0x0 0x100>;
+@@ -472,6 +537,19 @@ pwm7: pwm@d401bc00 {
+ 			status = "disabled";
+ 		};
+ 
++		i2c7: i2c@d401d000 {
++			compatible = "spacemit,k1-i2c";
++			reg = <0x0 0xd401d000 0x0 0x38>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			clocks = <&syscon_apbc CLK_TWSI7>,
++				 <&syscon_apbc CLK_TWSI7_BUS>;
++			clock-names = "func", "bus";
++			clock-frequency = <400000>;
++			interrupts = <18>;
++			status = "disabled";
++		};
++
+ 		i2c8: i2c@d401d800 {
+ 			compatible = "spacemit,k1-i2c";
+ 			reg = <0x0 0xd401d800 0x0 0x38>;
+@@ -669,6 +747,8 @@ syscon_apbc2: system-controller@f0610000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
++		/* sec_i2c3: 0xf0614000, not available from Linux */
++
+ 		camera-bus {
+ 			compatible = "simple-bus";
+ 			ranges;
 
-Best regards,
 -- 
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
+2.51.1
 
 
 _______________________________________________
