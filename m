@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE206CCFA0D
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 22:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CCD2CCF9F8
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 22:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qyyVUWht5f7E4jjs0MMjrNOyfo96HfbxQd47+88oWxw=; b=ip/tVoUisKxJ3+
-	a0DMltMa0v1KsKYnB+Tzm/cTQGCZCHI+m9CUW+odxJhtP0bIA89k6RkYhqNDa9HxAQZNJb4W2KfH1
-	hiCgG9BAn38N6rwTYpJhfpsgfym2wiEM0W+mxyoB79muPQ6UAhIkSzFHQZcz9bWmnQto/9FEaPGfu
-	9g2BsGcDzh/0VoVIes8BZ2DM3sw/1PyXCkIpaA+NLO4Bf8OTozHxTZepFK3Yy2DulZ8zm7naRWMN4
-	dbGytVQV8bZiku+Ydl9GTI4Xvek0qVfKXxPpgBWxupy1hPcy+yx8mKD/LCHu+czBTL/2r1s2ngjVI
-	YlZNUUJXp6LyqYFSyA8A==;
+	List-Owner; bh=Oi0dckk+205NJBnyAWoKwt+2nVOy5Gwr426kWNysjrM=; b=Szov98ts8ZYxjm
+	3BIGi7JuhwMPibU7TSwbg1RJuqrzGRPRxfZtj4KaH/9uMQ5tTweHE1c9d9Aib1KtKmU4kpsInBgfS
+	lPSpNWfXGuV20K+Qt+nu+5DBCN19rluo0p01rYnFIFiza6VSCggZe5O6yh4PmShxpV/sUlx8PAszv
+	lccw7pBYzS7sEqW3A3IKfDSQPpQ38GIDhm6ncE4n8txcF2FTT7MQbngPZ8JMMy5b20XoKUtsgUCWr
+	G+Y9S7zleUAaB3Yh/9SMgwRdV9GAKuc2lagpx0Ead7ivOpqAfzBFccyo8tpLhzBCjbIzEK8R/Hzxa
+	iccS67+gEeTOlPaVc1hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGm18-0000000EZmk-2Qji;
-	Wed, 05 Nov 2025 22:30:14 +0000
+	id 1vGmEg-0000000EaOs-12sz;
+	Wed, 05 Nov 2025 22:44:14 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGm15-0000000EZlu-2MhP
+	id 1vGmEd-0000000EaOV-144Z
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Nov 2025 22:30:14 +0000
+	Wed, 05 Nov 2025 22:44:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=1WB5YF5L/yshQ2OgpgkrePCro6RnXwXz3n/xIbIvOQY=; b=OPcHwbqxQ1iw8ViCOSGmOjffci
-	YP2eeZLGx6cZSs8sw7JAHuDe5wiKgcWCxhbfIODy0ThEKlw2loWmouMvUq53+VRy9L+tBISfR/n/B
-	Ip0DZd8V3WIFGFL4ZWNz4WdAmdV796F++EyH+7AwpvssVy/ZadmfxMhmXCdwXIb4WUghzqiHFgven
-	UlX9E9iFTg7sus1a5XimzT+O3h/08xnSOG/uaMfH6l97pvvtSTTCNcWvMzC+1jhkMWdEo94219tQh
-	7bqaK58K91lOo1Y3yDaVuuHmSeoh7LxG6A7poi6+IiIMkzAYi8wXrafdsXe4Wop5e2pE47lvJugxn
-	DPLD1sjA==;
+	bh=Rcz9OHWqrkXIvtIUBV6foEU7yY/XR+LTCfFnMpPJAWE=; b=JcyOecmsyvuctmYcsfL2VURPJK
+	ARZA57NqLJM1Ls3zX/oV0/jnhV3xqV+9A9+AobFBMu59TamRLLipjY2jBF3lD6gmQbInegLZgpyqu
+	tlr9NXjnD35fCY3OLg1rNI/UQLcoWFVCJ45WI2DheKW8eVjmJFjvirLCoFoHEwf2MIqYqpkR5zQSH
+	QkParKIUeN3oBmYzXuuJE67Q3UJ3i2yPy9JqWQoLyeQCyFIs53aEmri0981o+Ggw3BmTq/E9JBsge
+	xi1GRtVCPhTbr/5sjrAtlCodfVSifq8FI3wJ25vkOkXK2VGJSb6PQ2/9MIL5bhdVpn4H0icoBpcI/
+	SRvJiNXQ==;
 Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
 	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1vGm0n-0000000AelV-0U9O;
-	Wed, 05 Nov 2025 23:29:53 +0100
-Date: Wed, 5 Nov 2025 23:29:52 +0100
+	id 1vGmES-0000000AfjF-2E3C;
+	Wed, 05 Nov 2025 23:44:00 +0100
+Date: Wed, 5 Nov 2025 23:44:00 +0100
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
 	Alex Elder <elder@riscstar.com>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
 	Troy Mitchell <troymitchell988@gmail.com>,
 	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v4] i2c: spacemit: introduce pio for k1
-Message-ID: <aQvP4HVcpX-MDZBJ@aurel32.net>
+Subject: Re: [PATCH] i2c: spacemit: fix detect issue
+Message-ID: <aQvTMM0S16gOdiAN@aurel32.net>
 Mail-Followup-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
 	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
 	Alex Elder <elder@riscstar.com>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
 	Troy Mitchell <troymitchell988@gmail.com>,
 	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-References: <20251009-k1-i2c-atomic-v4-1-a89367870286@linux.spacemit.com>
+References: <20251103-fix-k1-detect-failure-v1-1-bb07a8d7de7c@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251009-k1-i2c-atomic-v4-1-a89367870286@linux.spacemit.com>
+In-Reply-To: <20251103-fix-k1-detect-failure-v1-1-bb07a8d7de7c@linux.spacemit.com>
 User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_143012_086295_DB6C2725 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20251105_144411_297691_DD096EBD 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,109 +80,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 2025-10-09 17:59, Troy Mitchell wrote:
-> This patch introduces I2C PIO functionality for the Spacemit K1 SoC,
-> enabling the use of I2C in atomic context.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
-> Changes in v4:
-> - refactor for better readability: simplify condition check and moving if/else (timeout/
->   wait_xfer_complete) logic into a function
-> - remove irrelevant changes
-> - remove the status clear call in spacemit_i2c_xfer_common()
-> - sort functions to avoid forward declarations,
->   move unavoidable ones above function definitions
-> - use udelay() in atomic context to avoid sleeping
-> - wait for MSD on the last byte in wait_pio_xfer()
-> - Link to v3: https://lore.kernel.org/r/20250929-k1-i2c-atomic-v3-1-f7e660c138b6@linux.spacemit.com
-> 
-> Changes in v3:
-> - drop 1-5 patches (have been merged)
-> - modify commit message
-> - use readl_poll_timeout_atomic() in wait_pio_xfer()
-> - use msecs_to_jiffies() when get PIO mode timeout value
-> - factor out transfer state handling into spacemit_i2c_handle_state().
-> - do not disable/enable the controller IRQ around PIO transfers.
-> - consolidate spacemit_i2c_init() interrupt setup
-> - rename is_pio -> use_pio
-> - rename spacemit_i2c_xfer() -> spacemit_i2c_xfer_common()
-> - rename spacemit_i2c_int_xfer() -> spacemit_i2c_xfer()
-> - rename spacemit_i2c_pio_xfer() -> spacemit_i2c_pio_xfer_atomic()
-> - call spacemit_i2c_err_check() in wait_pio_xfer() when write last byte
-> - Link to v2: https://lore.kernel.org/r/20250925-k1-i2c-atomic-v2-0-46dc13311cda@linux.spacemit.com
-> 
-> Changes in v2:
-> - Patch 1/6:
->   Patch 3/6:
->   Patch 4/6:
->     - nothing
-> - Patch 2/6:
->   - remove is_pio judgement in irq_handler()
-> - Patch 5/6:
->   - fix wrong comment
->   - In spacemit_i2c_conditionally_reset_bus(), once the condition is met inside the loop, it should
->     return directly instead of using break.
-> - Patch 6/6:
->   - add is_pio judgement in irq_handler()
->   - use a fixed timeout value when PIO
->   - use readl_poll_timeout() in  spacemit_i2c_wait_bus_idle() when PIO
-> 
-> - Link to v1: https://lore.kernel.org/r/20250827-k1-i2c-atomic-v1-0-e59bea02d680@linux.spacemit.com
-> ---
->  drivers/i2c/busses/i2c-k1.c | 229 +++++++++++++++++++++++++++++++++++---------
->  1 file changed, 185 insertions(+), 44 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-> index 6b918770e612e098b8ad17418f420d87c94df166..a13284f840ee967466a01375e6603f7568a42f86 100644
-> --- a/drivers/i2c/busses/i2c-k1.c
-> +++ b/drivers/i2c/busses/i2c-k1.c
-> @@ -97,6 +97,8 @@
->  
->  #define SPACEMIT_BUS_RESET_CLK_CNT_MAX		9
->  
-> +#define SPACEMIT_WAIT_TIMEOUT      1000 /* ms */
-> +
->  enum spacemit_i2c_state {
->  	SPACEMIT_STATE_IDLE,
->  	SPACEMIT_STATE_START,
-> @@ -125,10 +127,14 @@ struct spacemit_i2c_dev {
->  
->  	enum spacemit_i2c_state state;
->  	bool read;
-> +	bool use_pio;
->  	struct completion complete;
->  	u32 status;
->  };
->  
-> +static void spacemit_i2c_err_check(struct spacemit_i2c_dev *i2c);
-> +static void spacemit_i2c_handle_state(struct spacemit_i2c_dev *i2c);
-> +
-
-At least for spacemit_i2c_err_check, the forward declaration can be 
-avoided by moving code, which is anyway probably better done in a 
-separate patch.
-
-Besides this nitpick, this sounds good, so:
-
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
-
-Regards
-Aurelien
-
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpPbiAyMDI1LTExLTAzIDE1OjA2LCBUcm95IE1pdGNoZWxsIHdyb3RlOgo+IFRoaXMgY29t
+bWl0IGFkZHJlc3NlcyB0d28gaXNzdWVzIGNhdXNpbmcgaTJjIGRldGVjdCB0byBmYWlsLgo+IAo+
+IFRoZSBpZGVudGlmaWVkIGlzc3VlcyBhcmU6Cj4gCj4gMS4gSW5jb3JyZWN0IGVycm9yIGhhbmRs
+aW5nIGZvciBCRUQgKEJ1cyBFcnJvciBObyBBQ0svTkFLKToKPiAgICBCZWZvcmUgdGhpcyBjb21t
+aXQsIEJvdGggQUxEIChBcmJpdHJhdGlvbiBMb3NzIERldGVjdGVkKSBhbmQKPiAgICBCRUQgcmV0
+dXJuZWQgLUVBR0FJTi4KPiAyLiBNaXNzaW5nIGludGVycnVwdCBzdGF0dXMgY2xlYXIgYWZ0ZXIg
+aW5pdGlhbGl6YXRpb24gaW4geGZlcigpOgo+ICAgIE9uIHRoZSBLMSBTb0MsIHNpbXBseSBmaXhp
+bmcgdGhlIGZpcnN0IGlzc3VlIGNoYW5nZWQgdGhlIGVycm9yCj4gICAgZnJvbSAtRUFHQUlOIHRv
+IC1FVElNRU9VVC4gVGhyb3VnaCB0cmFjaW5nLCBpdCB3YXMgZGV0ZXJtaW5lZCB0aGF0Cj4gICAg
+dGhpcyBpcyBsaWtlbHkgZHVlIHRvIE1TRCAoTWFzdGVyIFN0b3AgRGV0ZWN0ZWQpIGxhdGVuY3kg
+aXNzdWVzLgo+IAo+ICAgIFRoYXQgbWVhbnMgdGhlIE1TRCBiaXQgaW4gdGhlIElTUiBtYXkgc3Rp
+bGwgYmUgc2V0IG9uIHRoZSBuZXh0IHRyYW5zZmVyLgo+ICAgIEFzIGEgcmVzdWx0LCB0aGUgY29u
+dHJvbGxlciB3b24ndCB3b3JrIOKAlCB3ZSBjYW4gc2VlIGZyb20gdGhlIHNjb3BlIHRoYXQKPiAg
+ICBpdCBkb2Vzbid0IGlzc3VlIGFueSBzaWduYWwuCj4gICAgKFRoaXMgb25seSBvY2N1cnMgZHVy
+aW5nIHJhcGlkIGNvbnNlY3V0aXZlIEkyQyB0cmFuc2ZlcnMuCj4gICAgVGhhdCBleHBsYWlucyB3
+aHkgdGhlIGlzc3VlIG9ubHkgc2hvd3MgdXAgd2l0aCBpMmNkZXRlY3QuKQo+IAo+IFdpdGggdGhl
+c2UgdHdvIGZpeGVzLCBpMmMgZGV2aWNlIGRldGVjdGlvbiBub3cgZnVuY3Rpb25zIGNvcnJlY3Rs
+eSBvbiB0aGUgSzEgU29DLgo+IAo+IEZpeGVzOiA1ZWE1NTg0NzNmYTMxICgiaTJjOiBzcGFjZW1p
+dDogYWRkIHN1cHBvcnQgZm9yIFNwYWNlbWlUIEsxIFNvQyIpCj4gU2lnbmVkLW9mZi1ieTogVHJv
+eSBNaXRjaGVsbCA8dHJveS5taXRjaGVsbEBsaW51eC5zcGFjZW1pdC5jb20+Cj4gLS0tCj4gSSBj
+aGVja2VkIHRoZSB2ZW5kb3IgdmVyc2lvbiBkcml2ZXIgYW5kIHRyaWVkIGNvbW1lbnRpbmcgb3V0
+Cj4gc3BhY2VtaXRfaTJjX2NsZWFyX2ludF9zdGF0dXMoKSB0aGF0IHJ1bnMgYmVmb3JlIHhmZXIg
+c3RhcnRzLgo+IFN1cnByaXNpbmdseSwgaTJjZGV0ZWN0IHN0b3BwZWQgd29ya2luZyBhcyB3ZWxs
+Lgo+IC0tLQo+ICBkcml2ZXJzL2kyYy9idXNzZXMvaTJjLWsxLmMgfCA1ICsrKystCj4gIDEgZmls
+ZSBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiAKPiBkaWZmIC0tZ2l0
+IGEvZHJpdmVycy9pMmMvYnVzc2VzL2kyYy1rMS5jIGIvZHJpdmVycy9pMmMvYnVzc2VzL2kyYy1r
+MS5jCj4gaW5kZXggNmI5MTg3NzBlNjEyZTA5OGI4YWQxNzQxOGY0MjBkODdjOTRkZjE2Ni4uMzc4
+MjgzMjMzMTc3NzBhZTJmMDUyMmQyMTNkY2E2NzM0MmFlMTY2ZiAxMDA2NDQKPiAtLS0gYS9kcml2
+ZXJzL2kyYy9idXNzZXMvaTJjLWsxLmMKPiArKysgYi9kcml2ZXJzL2kyYy9idXNzZXMvaTJjLWsx
+LmMKPiBAQCAtMTYwLDcgKzE2MCw4IEBAIHN0YXRpYyBpbnQgc3BhY2VtaXRfaTJjX2hhbmRsZV9l
+cnIoc3RydWN0IHNwYWNlbWl0X2kyY19kZXYgKmkyYykKPiAgCj4gIAlpZiAoaTJjLT5zdGF0dXMg
+JiAoU1BBQ0VNSVRfU1JfQkVEIHwgU1BBQ0VNSVRfU1JfQUxEKSkgewo+ICAJCXNwYWNlbWl0X2ky
+Y19yZXNldChpMmMpOwo+IC0JCXJldHVybiAtRUFHQUlOOwo+ICsJCWlmIChpMmMtPnN0YXR1cyAm
+IFNQQUNFTUlUX1NSX0FMRCkKPiArCQkJcmV0dXJuIC1FQUdBSU47Cj4gIAl9CgpUaGlzIG1ha2Vz
+IHRoZSByZXN1bHRpbmcgY29kZSwgd2hpbGUgY29ycmVjdCwgY29tcGxleCB0byB1bmRlcnN0YW5k
+IGFzIAppdCBpcyBub3cgdHdvIHJlYWxseSBkaWZmZXJlbnQgZXJyb3JzLCBhcyB5b3UgZXhwbGFp
+bmVkIHdlbGwgaW4gdGhlIApjb21taXQgbWVzc2FnZS4KCkkgdGhlcmVmb3JlIHN1Z2dlc3QgdG8g
+b3JnYW5pemUgdGhlIGNvZGUgYXM6CgoJLyogQXJiaXRyYXRpb24gTG9zcyBEZXRlY3RlZCAqLwoJ
+aWYgKGkyYy0+c3RhdHVzICYgU1BBQ0VNSVRfU1JfQUxEKSB7CgkJc3BhY2VtaXRfaTJjX3Jlc2V0
+KGkyYyk7CgkJcmV0dXJuIC1FQUdBSU47Cgl9CgoJLyogQnVzIEVycm9yIE5vIEFDSy9OQUsgKi8K
+CWlmIChpMmMtPnN0YXR1cyAmIFNQQUNFTUlUX1NSX0JFRCkgewoJCXNwYWNlbWl0X2kyY19yZXNl
+dChpMmMpOwoJfQoKCj4gIAlyZXR1cm4gaTJjLT5zdGF0dXMgJiBTUEFDRU1JVF9TUl9BQ0tOQUsg
+PyAtRU5YSU8gOiAtRUlPOwo+IEBAIC00OTEsNiArNDkyLDggQEAgc3RhdGljIGludCBzcGFjZW1p
+dF9pMmNfeGZlcihzdHJ1Y3QgaTJjX2FkYXB0ZXIgKmFkYXB0LCBzdHJ1Y3QgaTJjX21zZyAqbXNn
+cywgaW4KPiAgCj4gIAlzcGFjZW1pdF9pMmNfaW5pdChpMmMpOwo+ICAKPiArCXNwYWNlbWl0X2ky
+Y19jbGVhcl9pbnRfc3RhdHVzKGkyYywgU1BBQ0VNSVRfSTJDX0lOVF9TVEFUVVNfTUFTSyk7Cj4g
+KwoKVGhpcyBzb3VuZHMgZ29vZCB0byBzdGFydCB0aGUgdHJhbnNmZXIgd2l0aCBhIGNsZWFuIGlu
+dGVycnVwdCBzdGF0ZS4gSSAKanVzdCB3b25kZXIgaWYgaXQgc2hvdWxkIGJlIG1vdmVkIHRvIHNw
+YWNlbWl0X2kyY19pbml0KCksIGllIHdoZXJlIHRoZSAKY29ycmVzcG9uZGluZyBpbnRlcnJ1cHRz
+IGFyZSBlbmFibGVkLgoKPiAgCXNwYWNlbWl0X2kyY19lbmFibGUoaTJjKTsKPiAgCj4gIAlyZXQg
+PSBzcGFjZW1pdF9pMmNfd2FpdF9idXNfaWRsZShpMmMpOwoKQW55d2F5OgoKVGVzdGVkLWJ5OiBB
+dXJlbGllbiBKYXJubyA8YXVyZWxpZW5AYXVyZWwzMi5uZXQ+CgoKUmVnYXJkcwpBdXJlbGllbgoK
+LS0gCkF1cmVsaWVuIEphcm5vICAgICAgICAgICAgICAgICAgICAgICAgICBHUEc6IDQwOTZSLzFE
+REQ4QzlCCmF1cmVsaWVuQGF1cmVsMzIubmV0ICAgICAgICAgICAgICAgICAgICAgaHR0cDovL2F1
+cmVsMzIubmV0CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
