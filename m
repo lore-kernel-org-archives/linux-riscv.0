@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8378DCCF9F8
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 16:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD3CCCF9F8
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 16:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Yfdz7sKt9WvnoyzhhkUaoOrHPz/aQwDZHGXzITyyRU=; b=puAOeasc5RoaIW5jAi1bzrmXpB
-	wOkupzLvjyokBStJQe8WQ0e11eC7DnF/bZW545fUGiMU1J4ojiMuew4byl8KHTk0J6DmAxnxMPN5J
-	AcwlAf9x6zvr+nz8oWsqE9MCfAX2NOuM1KfKoBFbNL+o6gatyHyoYtzGQJmJmb2sPnNi5QcoCZSkP
-	RsLfBtV6vfk3nb01aaCVhUuX0JMxtAYbsFIP2ggvkYMqIDBsh5RPyMIWLNP5nT3sOihuOoOSgBMXv
-	RTOa8QvoLRnrNb4PIy0R6jPhJ6s0fNFHUKmj83hb/4yt6VdvbkWkKSiNj770KJC9jSe+aoxWNJsMc
-	PntqL8xg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IvjXGHQvbJx5IZOWMEnGlsopTveGYycOW9dFf838hbY=; b=YZFlQnUIFT7nlC
+	Z6UYQ7FJ6b4k+0LE16o226ZFrP4vBbRL0KDRAGASZd2p0KXhnJnGQJVUXwrIPWMqB3d6OqX1/Nn/J
+	OoDTmV5G3Q2qU8bMV/bLKJ7gLORzXaIrYTfhd7FAvWOE44oJUdLaj+4U+npzOT/+AVOcJHHpgIzgZ
+	mKodCq5FgvxYV3OIO7qV7mdTc8tLkpM7tdeXcBELFFr216R69AhYMGsl2cuLkbooVHAjAtuTz/RQt
+	JvUPuLwoZ1V4egasEeU+9OCak824D5MQVGntgGH/jvb8kmdqCX+n1hly9EJ3BybxIblP1WWugKzCH
+	NgvCUvCovMPUF0FpNg0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgDU-0000000E3Il-4Bq2;
-	Wed, 05 Nov 2025 16:18:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGgIk-0000000E3nt-09Nx;
+	Wed, 05 Nov 2025 16:24:02 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgDS-0000000E3I8-1buK
+	id 1vGgIg-0000000E3mT-1ddy
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Nov 2025 16:18:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 642A741A7D;
-	Wed,  5 Nov 2025 16:18:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD4DEC116B1;
-	Wed,  5 Nov 2025 16:18:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762359513;
-	bh=jtQ6gEaQkzmYc07dmXo9QQFsS8gV6DmjYJ4TO+qHYGo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dx6nxMHATznO5a67WfGEYEyTibBUzhlWgJPru/yRj/Hv8ahqTpqdD1VD0+nB/i8iV
-	 nb93S1jksm2LS7do+VINUKNk61t6PzjkhkKOlecvghf/hVqdLZBUVl37ZIDYdPTMp5
-	 JjRdGNA5kHN4O5borDM0eYWuKR/z1UTBmGyf0xNhxIqjHWc0vyitcM2kx60doP+EnO
-	 cb0idfAwq2iKMq1f529MVbhLPj3muyohpV3K6DP1cGpqSyZ2mgGp7nKEGT9tEdjlt8
-	 6TPiyYzWkuLGjZMPf9LuJFRzoPci97DXGyzKN37TEWdKvtaM/cYCMt0oRxTVU6t8Nx
-	 KHiSf+qGmkiDw==
-Date: Wed, 5 Nov 2025 16:18:30 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Valentina Fernandez Alanis <valentina.fernandezalanis@microchip.com>,
-	Cyril Jean <cyril.jean@microchip.com>
-Subject: Re: [PATCH v2 3/3] spi: add support for microchip "soft" spi
- controller
-Message-ID: <aQt41uGfmbs7Qa7x@finisterre.sirena.org.uk>
-References: <20251105152823.730422-1-prajna.rajendrakumar@microchip.com>
- <20251105152823.730422-4-prajna.rajendrakumar@microchip.com>
+	Wed, 05 Nov 2025 16:24:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1762359777;
+	bh=CrqcVvAlxdTVvK0bOKoV9e/MfkwpqFERHSk564OJ9+E=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=lN9PEceTPUezqu0bHYKwrhbeMqu7L/jphAatx/BcPSTiSDfqR+zv2Sq4xSd56liaT
+	 FnKQekae7JfH8OyKD7u7xmBiN0XiUzydE7s0GeVQgqpMqDonVtRThHHvPZFm0o9hkJ
+	 Tg9cuFD2LO2633lKmz59VSlcb1lNyUGtjEVDl9Y4=
+X-QQ-mid: zesmtpip2t1762359774t5a699fa5
+X-QQ-Originating-IP: T0kQ8LzCYEveQBPnZ+ZSWwym2FwrqldE+02gmCjFqUA=
+Received: from = ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 06 Nov 2025 00:22:53 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 14411868300707364731
+EX-QQ-RecipientCnt: 11
+Date: Thu, 6 Nov 2025 00:22:53 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Goko Mell <goku.sonxin626@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Yixun Lan <dlan@gentoo.org>
+Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH] ASoC: spacemit: fix incorrect error check for sspa clock
+Message-ID: <83447AACDE00EAFC+aQt53fZVf6vMGsKY@troy-wujie14pro-arch>
+References: <20251106-spacemit-i2s-fix-v1-1-ee2cedcdda23@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20251105152823.730422-4-prajna.rajendrakumar@microchip.com>
-X-Cookie: If in doubt, mumble.
+Content-Disposition: inline
+In-Reply-To: <20251106-spacemit-i2s-fix-v1-1-ee2cedcdda23@gmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NhdiEwnVOUqEJmDCCN1QjuRE56jEleok/TDTIWYYNwFgYH6Y2w0cIvCx
+	Kr6ga0sKamklztWryTB5WjSNiNi9ZLjS2ERAXSAfCNtQXDmxxA4A1wcX0J1ZCRmUy+uNQap
+	vY7UnBbGjh+cP69aWOGX7wsr3424TlCBRis6g7e+lS4PTP83yk1NTDnokDCwAu1wXIlwroI
+	PyYliWzDncF9Wa0Kmlm+d1ce7Ek2EhtO9M9TRqxus2v8mILdNEaZgLeKnUJm3r/HxekZURc
+	Gc/er11/xlQtDvqJNBmmYr/G3uhRlnbrMNqGdGbpHXgHT3BmsYIE43Cwos7bWkIqBg45pCQ
+	/A18QuQBffMXn2C5uVyBxB6ghdnpcxoM4T71rFxFUbPqaOCzxBdqLCW3EEc6fhThDpa45au
+	v51+m9L7ugeebThjmH4LeVACX8hBMHjdzv4PjunBVogzYfdSWqcdfNbVSmOEmE/NrP4CT5V
+	9tHkN22d8l6tHXhhJonPFBl8OeJGpNf9XT1sR4AqZ6wwVOhQtbx5mNpjpkeNmcrjQw84nlH
+	lAwXw3AjXlGyAHJrfWZ+d/IVMUbP+AbTugtxVmc86iXoC62uyn1OrLdktlvqKqUn+Ol5H57
+	EAdJuqZLL5NKKDwJs6aG+c/c5RG6AZWsoi3spP7OMcv/wBhmc6+WPs1h8tHlkgkW10NcJEF
+	L7Vwn1y0Ka376OjINgWLlcKRQdojcqyBoRgntdz5kVn0HUZBI4Ycfc31ZKK5m9c95M8gekW
+	6S9ppJRIc7/5H/dPyhwvVC19yShbi86/Yx/BYfvfMSddxkvA12PKzvzmWUr+DtzzRAtrh4T
+	EOXpTy4chob2N5Jj1D+54zoAFwVFyt/WBsI7xylLqlWCTGUfj5P9YmQ40Lsy2+nFE/VNqct
+	qKCZ5glRF0gcEx91kXHypeyaa4aUJ/Ruivw5QA54R0xazBxEUDlEB3cX9sH70g+NUxH9Jup
+	vCzNCoC11srcQgtyYLcevHCebNHBtlNgL5Oi4vepDpN8pzPehzlXIxm76WubD7JNrSalH0h
+	wDtssZS2TLVxQzPhe0O1WCg+FKQoA=
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_081834_462367_939817F0 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20251105_082359_730026_B3727202 
+X-CRM114-Status: UNSURE (   7.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,64 +93,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4182935476666829619=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Nov 06, 2025 at 12:03:16AM +0800, Goko Mell wrote:
+> Fix a wrong IS_ERR() check in spacemit_i2s_probe() where `clk` was used
+> instead of `i2s->sspa_clk`.
+> 
+> Signed-off-by: Goko Mell <goku.sonxin626@gmail.com>
+You lost Fix tag here.
 
---===============4182935476666829619==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ahMTsRXk43UBu4Jy"
-Content-Disposition: inline
-
-
---ahMTsRXk43UBu4Jy
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Wed, Nov 05, 2025 at 03:28:23PM +0000, Prajna Rajendra Kumar wrote:
-
->  drivers/spi/Kconfig              |   9 +
->  drivers/spi/Makefile             |   1 +
->  drivers/spi/spi-microchip-core.c | 442 +++++++++++++++++++++++++++++++
->  3 files changed, 452 insertions(+)
-
-> +config SPI_MICROCHIP_CORE
-> +	tristate "Microchip FPGA SPI controllers"
-> +	depends on SPI_MASTER
-
-Reusing the same filename and config symbol is almost certainly going to
-create issues and confusion for people upgrading their kernel or doing
-backports.  Perhaps CoreSPI instead?
-
---ahMTsRXk43UBu4Jy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkLeMcACgkQJNaLcl1U
-h9DBEQf+I+GMNJBKyuyNbyKECoiylM6NJCpRPBtRkDC8FlF/4NmPRyJVc2NtggBJ
-0oE+Z29HdILxT7LZGiFS9Bohm1aV3polVze54vy08v+AGpmVWavecwP0A8267I09
-cgRP/g6g2uS5wsSoi5KaFNKzKHbv7iY/4VMyQqR45a9wmsnzHc5jCjGutCRbmIgy
-ehRT21gKFbzMDbL8uBgRwszxHj6xuYJ17NfiBCcbl/wRZV+22deriTxUywW8QIT7
-abi9fowOftdD9fD8mjyKZ8gQ++hFFBrS6UpWtSbSdpLHnmAtREK/4RNsimAfIq6x
-jRzSeE1l+fF0eV4OPnzRnvVWq4ms/w==
-=ohJB
------END PGP SIGNATURE-----
-
---ahMTsRXk43UBu4Jy--
-
-
---===============4182935476666829619==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+           - Troy
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4182935476666829619==--
-
