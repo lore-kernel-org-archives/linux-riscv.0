@@ -4,56 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77400CCFA04
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Nov 2025 23:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9164ECCF9F8
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 03:39:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tvsJ1d+FVt4kKylJeIbzSPmyr/iAFfEmtC950PQGshY=; b=P1W8XHhWOc0m6L
-	OusOn4+razxDyejOH5nyThGAYoFDIxgU9vys1tQT5ZrfL39ws0PP9BoGXQuVHOBwQymYSAlbcbqWF
-	+DV8uHT3KCC9zzZ5oWDg1fohwYCoo5GNvZHCcVT/yzvwg1iqm4m8AvAXlLXDn95pbganOxeouE4Gm
-	3S2tDZos3yUo97x/JuC/I8IHSkflZnFZKRpTC+kkt/21NgA8/VZZ+6YGUjcKe3w0kYIfIXrPaGy00
-	xunuMfCZsNLsNzufVbXSnS7PJ5VhukpBX/rW2N4cmSwUxNkXJNFYdF/9OBv1hOwvkGXuNnkmXc6ak
-	3qOo30E5J/vWQdHW5x4A==;
+	List-Owner; bh=J2dk/i1KGEMiJyTADdIyW0K4TY8ylqquvr45NjkQf2w=; b=3OR3XCSUmHrQ9y
+	/irLKS4+AG89Nuf10YjjMinNFaL26COd76FRzfxXSHGCYeqbkPK+aGDmFGvgNFAOUBkQ2GPa2W6oo
+	+w5Ef3wqjy5AQJ49tc5oR07CPNSPDbk2+fiMFO+VARAZra7i5SS5H14WC+08Hu/BUKqnyFbqPcfGB
+	0g8EB4nLDkapnDqxyeFOVzce6zwLZfdvQ9dce8Y0fKarnb+DjX4zTVzFb3ifa66UgabrtT0agDb8C
+	mKnZcNm4Zzw/nwJVGLt+i12hA2aXs4SRnZSRyQElW9n9hc4/zOeHXcYBolVFy7k9jXsL4pZ/PCjpS
+	LmYXUme7Walx7uvKNkig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGQlu-0000000Clim-1Jmo;
-	Tue, 04 Nov 2025 23:49:06 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGQls-0000000CliN-0MMY;
-	Tue, 04 Nov 2025 23:49:04 +0000
-Message-ID: <0792f0d8-0ce5-4858-baa9-c76154c9fc9b@infradead.org>
-Date: Tue, 4 Nov 2025 15:49:02 -0800
+	id 1vGUMn-0000000Cxd9-383k;
+	Wed, 05 Nov 2025 03:39:25 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGUMi-0000000CxXd-1CjS
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Nov 2025 03:39:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1762313881;
+	bh=ZEQeZC5FbCZl5/PPz+0+QIoro14u9RfciKjSruDqBlU=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=ihz+367sxdIGm/HSiD+hMPDIJWPt7S36MTT8mAVsVOQx5iKS384TcJ9RFaiKMdax0
+	 +wrrogX/CJQzsoil8lvr7ue26eRPJVkSbKXt2rqYzuvkJ0H5+0WwwQFXNl4+G9JoaP
+	 sfl411EVasOCIaP+XC99rIZOcFmo6TEFdSvDrcsE=
+X-QQ-mid: zesmtpsz2t1762313873td991a8ab
+X-QQ-Originating-IP: gdLyqkNyhnd0LHAyoMbqLbDBe5LUTi/ADZcDLkf1dZQ=
+Received: from = ( [183.48.244.102])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 05 Nov 2025 11:37:51 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2526406523798933425
+EX-QQ-RecipientCnt: 14
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Wed, 05 Nov 2025 11:37:43 +0800
+Subject: [PATCH 1/2] riscv: dts: spacemit: reorder i2c2 node
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 02/15] genpt: Add Documentation/ files
-To: Jason Gunthorpe <jgg@nvidia.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
- Joerg Roedel <joro@8bytes.org>, Justin Stitt <justinstitt@google.com>,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
- Bill Wendling <morbo@google.com>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Miguel Ojeda <ojeda@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Shuah Khan <shuah@kernel.org>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Will Deacon <will@kernel.org>
-Cc: Alexey Kardashevskiy <aik@amd.com>,
- Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
- James Gowans <jgowans@amazon.com>, Kevin Tian <kevin.tian@intel.com>,
- Michael Roth <michael.roth@amd.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
- Samiullah Khawaja <skhawaja@google.com>, Vasant Hegde <vasant.hegde@amd.com>
-References: <2-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <2-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
+Message-Id: <20251105-k1-add-i2c-node-v1-1-d18dae246137@linux.spacemit.com>
+References: <20251105-k1-add-i2c-node-v1-0-d18dae246137@linux.spacemit.com>
+In-Reply-To: <20251105-k1-add-i2c-node-v1-0-d18dae246137@linux.spacemit.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@gentoo.org>, 
+ Encrow Thorne <jyc0019@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762313866; l=1874;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=V8k0yxmQAnDcmXzZjyaiVPINJrE9h4Ksd4ST09u1EBk=;
+ b=mnCWk4Z1aIXLMbkESpWG4yvukgvwtTCO/09/fzS3TRRZ+6WeMuLb8Kv8wW07LbCPCQh/casEs
+ VYWm5wrUopwCXeRFv2SQGN8ht3qmC+e+amy49kfos1DN2LJo37OVsrw
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OYpbVsTx4C81i1Kz4DkCSuEVqlf/vJu7X0sK7YQtAKWexexYunjrf0A/
+	Xe6t43qFF6N7APZlG73b/xC+K3jOBeFfaTmgBNCIqOxgF4CTW/Wo5LdcUmfinw0KJnlEXY1
+	iYd7BwTLHMI41CFIteS4jzgu7jKMDo6XYYu51u0BTn0Wg6pbv3gUhEkcKUdE0mPbyp1TUzW
+	KF7cf73p4FRIHDuQA991ToRsFI6G9PYwUPdlzk6YA3oMrVfUYiWHD+kNYSZ3+8eSZMmo1fR
+	x0BEkwenL03KbDpDDV53ez1OAQLD6eeR+DYlAyoYB3MefAXmF3qiPShUXjDfULWYnW8Q/zQ
+	cBe/I28Br9tNhiBKLigHCbx9wzg3uiiobtxYG9fnButCWZ3+Cwl0wWBNpcGh+Su50wjHyJk
+	Y3872CrcaJWSlUywln2yG+g0AtxZtm/rsQHFDOpz9i4HZYHsDLs9fm27YVW4TNR551XHC+Z
+	+Szz55TfhHS0PrlB5ftXvcbH/KUYVvPZSygBGiPkrBGZGWgWsdkfZ7z6tirLgY85zWJH5YO
+	z6b1QzsmOeJK1RZYR36I+/j8fkouo/eFWb9VdWRL3NvbG4Pey39YnY2RjmVgErZur3Z07xv
+	mMohOyaU0CGy/F4hW5RiyzYdp1I3GpPaR5Fp7BScoC8C6WnavXWPt0BDcLilD2ngM+ZferX
+	fF0Ky4T7yPFRGRO/vTv7ZoF8TZZBGyyLTY1AESw1zc055Bh9hpIqAfWp6FzQv0maU8MZf4o
+	xq93GxVYYlq/1m9RQHlTuzlzre0qy0tKL2MamtEqZSldW5VIgYd8vaG/EaHZH7MM3eJc91m
+	b+MC9KzgsYaH2cavAXKQrnPvwBlDrKDRNy2Ej5wMBUifZZ7pJh8hGmp1bCWm9od4vz3Itc7
+	xv9h6FtKPZDHV2HjqxBpoj0WNMOzQ9Ue6fz/2Xk1UQxHjTk124VtpMUfnney9ujw44um8Xu
+	LCK2ufWBNFCXPirfnMMXHeAvLEiybncG2/cqeHrt6IvFEFngVhFOTcFVuYFq0vkzId8JQlt
+	s1gs7pV/xINhktDv2WF6O+UbVGJVHDghEKhTPyZgE6E/O1uQiRYj+eC33uPFyE5L2lnLUUW
+	1lhk7r0bey+WmasUWh75XLBjYV8FoR3mw==
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251104_193920_794580_E0F4C65B 
+X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,53 +107,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
+Reorder the i2c2 node to its correct position according to its
+register address.This improves the readability and maintainability
+of the device tree file by adhering to the established ordering convention.
 
-On 11/4/25 10:30 AM, Jason Gunthorpe wrote:
-> Add some general description and pull in the kdoc comments from the source
-> file to index most of the useful functions.
-> 
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-> Reviewed-by: Samiullah Khawaja <skhawaja@google.com>
-> Tested-by: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>
-> Tested-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->  Documentation/driver-api/generic_pt.rst | 142 ++++++++++++++++++++++++
->  Documentation/driver-api/index.rst      |   1 +
->  2 files changed, 143 insertions(+)
->  create mode 100644 Documentation/driver-api/generic_pt.rst
-> 
-> diff --git a/Documentation/driver-api/generic_pt.rst b/Documentation/driver-api/generic_pt.rst
-> new file mode 100644
-> index 00000000000000..210d1229aa1c1f
-> --- /dev/null
-> +++ b/Documentation/driver-api/generic_pt.rst
-> @@ -0,0 +1,142 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +========================
-> +Generic Radix Page Table
-> +========================
-> +
-> +.. kernel-doc:: include/linux/generic_pt/common.h
-> +	:doc: Generic Radix Page Table
-> +
-> +.. kernel-doc:: drivers/iommu/generic_pt/pt_defs.h
-> +	:doc: Generic Page Table Language
-> +
-> +-----
-> +Usage
-> +-----
+No functional change is introduced by this reordering.
 
-See Documentations/doc-guide/sphinx.rst for the usual order
-of heading adornments. Section beginning:
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-* Please stick to this order of heading adornments:
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index af35f9cd643513a1c68a00ccfb3ead688a8b1929..5b46ce2edb059e22d878890b3b6192118dfdb2f4 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -358,6 +358,19 @@ syscon_rcpu2: system-controller@c0888000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
++		i2c2: i2c@d4012000 {
++			compatible = "spacemit,k1-i2c";
++			reg = <0x0 0xd4012000 0x0 0x38>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			clocks = <&syscon_apbc CLK_TWSI2>,
++				 <&syscon_apbc CLK_TWSI2_BUS>;
++			clock-names = "func", "bus";
++			clock-frequency = <400000>;
++			interrupts = <38>;
++			status = "disabled";
++		};
++
+ 		syscon_apbc: system-controller@d4015000 {
+ 			compatible = "spacemit,k1-syscon-apbc";
+ 			reg = <0x0 0xd4015000 0x0 0x1000>;
+@@ -459,19 +472,6 @@ pwm7: pwm@d401bc00 {
+ 			status = "disabled";
+ 		};
+ 
+-		i2c2: i2c@d4012000 {
+-			compatible = "spacemit,k1-i2c";
+-			reg = <0x0 0xd4012000 0x0 0x38>;
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-			clocks = <&syscon_apbc CLK_TWSI2>,
+-				 <&syscon_apbc CLK_TWSI2_BUS>;
+-			clock-names = "func", "bus";
+-			clock-frequency = <400000>;
+-			interrupts = <38>;
+-			status = "disabled";
+-		};
+-
+ 		i2c8: i2c@d401d800 {
+ 			compatible = "spacemit,k1-i2c";
+ 			reg = <0x0 0xd401d800 0x0 0x38>;
 
 -- 
-~Randy
+2.51.1
 
 
 _______________________________________________
