@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D59CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 21:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ADACCCFA0D
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 21:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TK6vdVhL6/w77hhawevSg46L/RCI6GOA8O3HhmL/faI=; b=im0emjYth25jD5tdnk1VDI6rNB
-	JzZIIFnYLfVPPLNQiWE3KW/0Tt0R5hfd7vdos5YY2YbbPtqb5NjotTD9AQ6zAmVVynvGZ2PjqP6tw
-	VUGti+YlcELn3z1h86NrLPel2nX2aKEDD2SHJcnlF/3eaVZ7xpt4hOJCSX+IcMvPgK2XDTyqjI+cG
-	0zQ5daM0G8oUNKsR1kNBtiBZRiEHLYQmpA0863+roDPnqQqeVPRIDKCVixVeT3Q3BmT8rv7TCrTx4
-	5Id+n7z0LCS9G92w19Fl8s2xFO6Q24VtZnHWoGPAwdruYSJ6peOiciEiHSI0NhXUzBvt5eHgO5Ikl
-	/RvkEXww==;
+	bh=ssgtt2j2dcN1Iow1PiyAonRnDnpbtidrIf2Ueo25jmE=; b=ueP0gL85kfU1k8PSlZpcLEC1mN
+	BR+DGTWuZReC59x+rl4y8yKk0kaHFrJOgX7E5LWA9PI6uop0YsY8AQirSfcCKRoivUISbOnLG4Kja
+	UNDHnMg1zrIAcUlsL8iSu94kq9IBd8OYItrhb+IkkppurjccehuZOOl3dK1nTRVXH09NCKMNC+qFm
+	hIk7WvfTCrinqSX+5CEzN2n3CCAMG92le6G6lRwLV11wWtNi5FccnLznTL8d0loZ1Gg5b6+pj4vCY
+	oxmLkHHkXF39JjLirAEY10zSo3ctXFoAOAUAtDU4LLd5mAd5THUw0N6vk6oABPNPv2zBMiR/yyGLM
+	uqAfitnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGkrj-0000000ETm4-05bN;
-	Wed, 05 Nov 2025 21:16:27 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1vGlJ0-0000000EXyB-1XLl;
+	Wed, 05 Nov 2025 21:44:38 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGkre-0000000ETlV-3OAH
+	id 1vGlIy-0000000EXxh-3FKz
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Nov 2025 21:16:24 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-29470bc80ceso3331675ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Nov 2025 13:16:22 -0800 (PST)
+	Wed, 05 Nov 2025 21:44:37 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2957850c63bso3743355ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Nov 2025 13:44:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1762377382; x=1762982182; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=D1ax2+b/BmZMbWQLmn1abjqqCYtcXZuyWWUp9gYac88=;
-        b=EssCA3a2QrZhCBBcT2XKWLBRwy6XzW4dissXyl+TI/5uts7mLY6HQkPOjUt4UgRE0S
-         utg+fZBGMlGenI+KWs7tti54bD5VW2iEsxrXjm6B/0A+8eXLx92fUTDEzn4eKfSuVeEY
-         wQj34qQ/6dmccXApU9N4M20zJNs0geUQ+L0llR+f1O/jzySWc+OHm74hK3uGgNN/w/TR
-         9ewSJL2lriiuXzZ/7wzuotpXo+oZOXP/5TTDmNsWkwev0Huc9SRNC+7/dhto7FxyOUYf
-         P/Mv6ScNb2/TtJUuTDdYNWc2XF7eJmCLnF/lwg5FNqV5Fz3R+oVbq0sw5x0l2XMz0WwV
-         pwpw==
+        d=rivosinc.com; s=google; t=1762379075; x=1762983875; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rVWjaBUX/7qo8BA7ZtqqS8rCRLhaeeey8yCwyWWpyLA=;
+        b=IYuQspf7i2BvPRoa07Y+CHitWz/irQmcAy2elVJS+lD+nyTNrWXlQOpmQcZUoXDmAR
+         quc9jONK9pINlU3GllH96JWBjq8syl9UZSPcRyWxA/v0T7gcSc9Atk4KOrSKZdDVHZc5
+         77HVNGsblFcGzjyBTUlz9pEYBeo73alnVeCa/msC+tN/DSjtlMA7Tj1VtiMkDfHvLELz
+         NvowAsZpon09CY1xNNE7z33hLCcZ1HyiOA7pNG4QoDMVs4LqOFSQqu+y7+W/KpK+tIVT
+         tiHQLOA0hQ//tUdlCt0hXkdJCKJUphMm50QsnlXNsscZWXGDeEoeS2mYRcQCScm+LyXy
+         fP+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762377382; x=1762982182;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=D1ax2+b/BmZMbWQLmn1abjqqCYtcXZuyWWUp9gYac88=;
-        b=B9gIa0RS2OTs4YVEJkCHqpUlQ435tnxFZEeZSSRI5h7qif0niMUisbAFDOCZPnfeZt
-         JodwezaNIuzOmzmEv8B5qvOCPcMXp4ItDlvnIaRbEwsVXlDG1az8bfadlRe7666ngDtf
-         r9++OPLj8LKUHpJ0LUIjfeqsyxKANs+8m9tMg6NYzWMt2gL8P95g9qfe1+QpVj3YyruO
-         3KkLn0M4xhg1ZngKKtzvni/WkXJrTeVRvZrCsvq4LdZgr7KBxnFpK3Kr33fXMnHffDAQ
-         wl8EJgvgosMjIKq3o0bD5Hmw9JI3bI4tpNnDZduMSgSFVjeueuY68wuquH0PYD3iXlD1
-         gzwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUE15D6WRNoccSPxNEjcGysUlrGGVHFC4nqgro47kdKz7S+kuI+6htalPetnk/V8S+Qe0bt1QGkYlftsw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUIN1rp3Bqzw0eISjL9bTIm+dVrmwLXW9QdLY4PChXNbV1Hl5z
-	xOhHuX9v5JNUQiesNwR29WNWHePcDN/8ehiP6TMs3nYWIE8iDCkTOVsQYoanGy/ekHc=
-X-Gm-Gg: ASbGncskWbgjdRuF4+19gVg/HuUBQVz5tS5BfzDcSXPDz8hbLwb017CYD4fwiYHnW/b
-	67w/E4qhorkbGrXwBSUiKrJOGq0H3vk8vPCf4RpCAjD5qUlv0eyG4QgjoTC9BSegF2gqySne+NR
-	F22zyfj9U0BL2qOhjQVLQV9OQ1mlcxQdhYEUVDinocfJzyRysxxuz6vTBND8zLwlrMi6RMelJcm
-	dAGvo3feI0Kg85o2ki5nrrDcwtWIZEQK1e89+HTexldbp3gbNH9XdKI0ufna0Ql+SYfLYix8hJT
-	YV2sbCe9kaaO8AUoKplxL/YXM+sKFt1kwkeehCv2nyySId4cNSqbP4tAu1CSrYdvUcbA+MX85/m
-	nhIPJJEQ6l658K2Sxknba8TXkvKHBQxye1JJQ9nglOMYGttj4Qt+XM0gz6+MxdKdk2hLvyDIzRu
-	4QWAoh8/oT7Q==
-X-Google-Smtp-Source: AGHT+IGIZBQp5DjsGz3HmRAWZhPw8v6GqkWpZnGJFSt/AXCLpNaQaJyXUplBHQF5DvKtwaSJAHwvDg==
-X-Received: by 2002:a17:903:2304:b0:295:557e:7468 with SMTP id d9443c01a7336-2965173831dmr10789365ad.28.1762377381822;
-        Wed, 05 Nov 2025 13:16:21 -0800 (PST)
+        d=1e100.net; s=20230601; t=1762379075; x=1762983875;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rVWjaBUX/7qo8BA7ZtqqS8rCRLhaeeey8yCwyWWpyLA=;
+        b=aU+R8gr5sLFgpJ2zi6C57OhI/W5orZ3MZ3MEbJEBFgDSXZTAHgtLHkm9CcKpaDRL4N
+         GwMl1oB1IzqJkoAWyyasabIFz5J/Bqs+7IOs1XfQ8Z4eMHlTB6GvuptOgT22xj8mAWiP
+         PuuQs6pd0R7QDHnf588jrQa7wSbGJmtBpOOjy8wa8XCc9er1x2DgANojns2C4/irAZS4
+         k6YAcjISZibM3vjWEqg3iEYLkPVFo1yzaeR0dVmNMwyeEfMAb36IyFqp44jMDFEm58QS
+         cO5aX8dduxVSL5AtiaxYSMW8mMggsLt5V4BUnzjOmfkSZxCTsUio7INMxJyK6Wp8opgq
+         sUWg==
+X-Forwarded-Encrypted: i=1; AJvYcCVv+CeA0w2qBQAKLU3dnuJVUJgZ8jRspCKOgjOfWXj66jUdh3ejeK9yapR07zyG2330G1NXkMvaY5UxQg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpIiasrBRi0RmJ1FG9jf/jv4L0szw6HUkN6NNFlRBaGasRbYMf
+	//KzURmvS2+AxOetJg1MdjhbndT2xRnge0v3H6Tvg5bjVihLn0+KaSY+03grBxgOHRw=
+X-Gm-Gg: ASbGncuX7wGco8EthQNPAw9L6xS0xPFlXd1msApPuvPseccdbLYkZb6RUmATkPFu+dr
+	5fzVSUDwFwjCYkphXHeJ6ShLnYWWDSlofHy0W2VtU5hnB3gvNhr67o6u+c8r6UxVP5VbRvVzZZT
+	D5NI1duRLwjAUCuS8tQQB+mkIAYkcrGQL6xBnwN7OYemnHUllYAB1agzF5T7qxj4RVgvfrsntg3
+	O56cPDQ8/s2qG0tkuS0zPJYGTZ3FKELnYj3WCBIepxlwNiU8zSwCFSlFsXNkVxXXoRLVVrIeBse
+	BLjaRpCdVrLk+dAa31JX1pkeX2GnyZT1lZVBBvSqxbCzV2DTmWOcN2k4DQcuvodiMoqJmIVQ+xS
+	2f8MNrTqTcs7/eEZZtWjCDy7zlQa9CzCQpMRzWD0tE1+K6Go9Bq3wVFqyEyLuS7vHXJM5ek3Ve6
+	nUZdOYqWwo3Bw5/r9eyH+d
+X-Google-Smtp-Source: AGHT+IGUXuJp7B/Bqhn1WfKPsfAi2Zuz9PdCJSW9ZJXrA1YTaDItIRj/GRCMIgOV8doaMwcDTo+VDg==
+X-Received: by 2002:a17:903:2f87:b0:295:57cc:cf9e with SMTP id d9443c01a7336-2964e9de802mr11033895ad.0.1762379075518;
+        Wed, 05 Nov 2025 13:44:35 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-296509682casm4836705ad.22.2025.11.05.13.16.20
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2965096dbe4sm5273375ad.11.2025.11.05.13.44.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Nov 2025 13:16:21 -0800 (PST)
-Date: Wed, 5 Nov 2025 13:16:19 -0800
+        Wed, 05 Nov 2025 13:44:35 -0800 (PST)
+Date: Wed, 5 Nov 2025 13:44:32 -0800
 From: Deepak Gupta <debug@rivosinc.com>
 To: Joel Stanley <joel@jms.id.au>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Peter Zijlstra <peterz@infradead.org>, Kees Cook <kees@kernel.org>,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	alistair.francis@wdc.com, jim.shu@sifive.com, kito.cheng@sifive.com,
-	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com,
-	cleger@rivosinc.com, alexghiti@rivosinc.com,
-	Zong Li <zong.li@sifive.com>, Jesse Huang <jesse.huang@sifive.com>,
-	Michael Ellerman <mpe@tenstorrent.com>
-Subject: Re: [PATCH v22 00/28] riscv control-flow integrity for usermode
-Message-ID: <aQu-o1-e6FK1dByM@debug.ba.rivosinc.com>
+	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com,
+	richard.henderson@linaro.org, jim.shu@sifive.com,
+	andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
+	atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
+	alexghiti@rivosinc.com, Michael Ellerman <mpe@tenstorrent.com>
+Subject: Re: [PATCH v22 28/28] kselftest/riscv: kselftest for user mode cfi
+Message-ID: <aQvFQM38u0iwSlJ8@debug.ba.rivosinc.com>
 References: <20251023-v5_user_cfi_series-v22-0-1935270f7636@rivosinc.com>
- <CACPK8XeQf9UJuu39bGcm2mySWrKYvUadOgFRmpas+AS9fXA2WA@mail.gmail.com>
- <aQuyiVdxyqWNooJ5@debug.ba.rivosinc.com>
+ <20251023-v5_user_cfi_series-v22-28-1935270f7636@rivosinc.com>
+ <CACPK8Xcm2SeSStk2EBEcUoyiUc0=d6ce_MfnP=ce3z6MMXyuiw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aQuyiVdxyqWNooJ5@debug.ba.rivosinc.com>
+In-Reply-To: <CACPK8Xcm2SeSStk2EBEcUoyiUc0=d6ce_MfnP=ce3z6MMXyuiw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_131622_865145_25FBE1FB 
-X-CRM114-Status: GOOD (  24.17  )
+X-CRM114-CacheID: sfid-20251105_134436_816218_ED8CB862 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,307 +105,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 12:24:41PM -0800, Deepak Gupta wrote:
->On Tue, Nov 04, 2025 at 05:34:11PM +1030, Joel Stanley wrote:
->>Hello Deepak,
->>
->>On Fri, 24 Oct 2025 at 03:31, Deepak Gupta via B4 Relay
->><devnull+debug.rivosinc.com@kernel.org> wrote:
->>>
->>>v22: fixing build error due to -march=3Dzicfiss being picked in gcc-13 a=
-nd above
->>>but not actually doing any codegen or recognizing instruction for zicfis=
-s.
->>>Change in v22 makes dependence on `-fcf-protection=3Dfull` compiler flag=
- to
->>>ensure that toolchain has support and then only CONFIG_RISCV_USER_CFI wi=
-ll be
->>>visible in menuconfig.
->>
->>Following our discussion at the riscv summit I spent some time with
->>this patch set with the goal of giving a test run on emulation. I only
->>got as far as qemu, as I couldn't get the selftests passing there.
->>
->>I had trouble running the podman container so I built a toolchain
->>using the riscv-gnu-toolchain branch (cfi-dev, d19f3009f6c2) you
->>pointed to.
->>
->>The opensbi branch was a bit old and wouldn't build with GCC 15, so I
->>tried to rebase and noticed the patches were already upstream. Have
->>you tested using v1.7 (or newer) there? Is there something I missed,
->>do we need more patches on upstream opensbi?
->>
->>I booted it in qemu 10.1.2 with the zicfi extensions both on and off.
->>
->>qemu-system-riscv64 -M virt,aia=3Daplic-imsic,aia-guests=3D5 \
->> -cpu rv64,zicfilp=3Dtrue,zicfiss=3Dtrue,zimop=3Dtrue,zcmop=3Dtrue
->> -smp 8 -nographic -bios fw_dynamic.elf
->> -m 1024M -kernel arch/riscv/boot/Image \
->> -initrd selftests/selftests.cpio \
->> -append 'init=3Dmini-init command=3D"cfitests"'
->>
->>My results:
->>
->>no zicfi, no z*mop (crash, as expected):
->>-------------------------------------------------
->>
->>Running command: cfitests
->>system_opcode_insn: Invalid opcode for CSR read/write instruction[
->>0.462709] cfitests[85]: unhandled signal 4 code 0x1 at
->>0x0000000000011c44 in cfitests[1c44,10000+6d000]
->>[    0.463141] CPU: 4 UID: 0 PID: 85 Comm: cfitests Not tainted
->>6.18.0-rc3-tt-defconfig-jms-00090-g6e2297f1edbc #93 NONE
->>[    0.463338] Hardware name: riscv-virtio,qemu (DT)
->>[    0.463573] epc : 0000000000011c44 ra : 00000000000104e0 sp :
->>00007fffebd0ddb0
->>...
->>[    0.465177] status: 0000000200004020 badaddr: 00000000ce104073
->>cause: 0000000000000002
->>[    0.465410] Code: 0893 05d0 4501 0073 0000 b7f5 4501 b7f9 0017 0000
->>(4073) ce10
->>
->>no zicfi, z*mop (failed to start, as expected):
->>-----------------------------------------------------------
->>
->>Running command: cfitests
->>TAP version 13
->># Starting risc-v CFI tests
->>Bail out! Get landing pad status failed with -22
->>
->>zicfi, z*mop (failed to start, unexpected):
->>-------------------------------------------------------
->>Running command: cfitests
->>TAP version 13
->># Starting risc-v CFI tests
->>Bail out! Get landing pad status failed with -22
->>
->>I went digging to see why the zicfi enabled kernel failed. The
->>userspace binary was built with CFI:
->>
->>$ riscv64-unknown-linux-gnu-readelf -n selftests/cfitests
->>
->>Displaying notes found in: .note.gnu.property
->> Owner                Data size     Description
->> GNU                  0x00000010    NT_GNU_PROPERTY_TYPE_0
->>     Properties: RISC-V AND feature: CFI_LP_UNLABELED, CFI_SS
->>
->>I then tested your opensbi tree with some hacks to get it built with a
->>newer compiler. This produced different results, which was unexpected:
->>
->>Running command: cfitests
->>TAP version 13
->># Starting risc-v CFI tests
->>Bail out! Landing pad is not enabled, should be enabled via glibc
->># Totals: pass:0 fail:0 xfail:0 xpass:0 skip:0 error:0
+On Tue, Nov 04, 2025 at 05:42:04PM +1030, Joel Stanley wrote:
+>On Fri, 24 Oct 2025 at 03:33, Deepak Gupta via B4 Relay
+><devnull+debug.rivosinc.com@kernel.org> wrote:
+>
+>> diff --git a/tools/testing/selftests/riscv/cfi/Makefile b/tools/testing/selftests/riscv/cfi/Makefile
+>> new file mode 100644
+>> index 000000000000..55165a93845f
+>> --- /dev/null
+>> +++ b/tools/testing/selftests/riscv/cfi/Makefile
+>> @@ -0,0 +1,16 @@
+>> +CFLAGS += -I$(top_srcdir)/tools/include
+>> +
+>> +CFLAGS += -march=rv64gc_zicfilp_zicfiss -fcf-protection=full
+>> +
+>> +ifeq ($(shell $(CC) $(CFLAGS) -nostdlib -xc /dev/null -o /dev/null > /dev/null 2>&1; echo $$?),0)
+>> +TEST_GEN_PROGS := cfitests|
+>
+>I hacked this up a bit to get it working for me.
+>
+>I added this at the top to use the local headers from a `make
+>headers`. Without this the selftest lacked the required ptrace
+>changes:
+>
+>+CFLAGS += $(KHDR_INCLUDES)
 
-Ok so I think atleast I have narrowed down the issue. It seems like
-something is going on with how libc will initialize cfi in case of
-static compile.
-I enabled logging whenever prctl set/get are called and my rootfs
-binaries which are all dynamically linked are setting cfi prctls
-correctly. Except when I run statically compiled `cfitest`. It bails
-on "Shadow stack is not enabled" (unlike in your case where it bails
-saying landing pad is not enabled).
+hmm weird. In my case it picks it from location where headers get placed as part
+of build (or make headers_install). I wonder why it's not happening in your
+case. In any case, I think this can be added.
 
-Shortlog
-"""
-Welcome to Buildroot
-buildroot login: root
-[   51.361564] login[129]: arch_set_shadow_stack_status set successfully, s=
-hadow stack base 7fffbb977000size 800000
-[   51.362708] login[129]: arch_set_indir_br_lp_status set successfully
-[   51.363805] login[129]: arch_get_indir_br_lp_status called
-[   51.364296] login[129]: arch_get_shadow_stack_status called
-[   51.448918] bash[129]: arch_set_shadow_stack_status set successfully, sh=
-adow stack base 7fff9b516000size 800000
-[   51.450030] bash[129]: arch_set_indir_br_lp_status set successfully
-[   51.450568] bash[129]: arch_get_indir_br_lp_status called
-[   51.451047] bash[129]: arch_get_shadow_stack_status called
-[   51.552710] id[130]: arch_set_shadow_stack_status set successfully, shad=
-ow stack base 7fff7fa2a000size 800000
-[   51.553798] id[130]: arch_set_indir_br_lp_status set successfully
-[   51.554306] id[130]: arch_get_indir_br_lp_status called
-[   51.554757] id[130]: arch_get_shadow_stack_status called
-# mount -t 9p -o trans=3Dvirtio,version=3D9p2000.L host0 /mnt
-[   65.484939] mount[131]: arch_set_shadow_stack_status set successfully, s=
-hadow stack base 7fffa71a0000size 800000
-[   65.487002] mount[131]: arch_set_indir_br_lp_status set successfully
-[   65.488482] mount[131]: arch_get_indir_br_lp_status called
-[   65.489346] mount[131]: arch_get_shadow_stack_status called
-# /mnt/cfitests
-[   74.235075] cfitests[132]: arch_set_indir_br_lp_status set successfully
-[   74.249763] cfitests[132]: arch_get_indir_br_lp_status called
-[   74.250823] cfitests[132]: arch_get_shadow_stack_status called
-TAP version 13
-# Starting risc-v tests
-[   74.374286] cfitests[132]: arch_get_indir_br_lp_status called
-[   74.375497] cfitests[132]: arch_get_shadow_stack_status called
-Bail out! Shadow stack is not enabled, should be enabled via glibc
-# Totals: pass:0 fail:0 xfail:0 xpass:0 skip:0 error:0
-#
-"""
+>
+>I needed this before the ifeq so it used the cross compiler to perform
+>the test, otherwise the test was always false:
+>
+>+# Check for zicfli* extensions needs cross compiler
+>+# which is not set until lib.mk is included
+>+ifeq ($(LLVM)$(CC),cc)
+>+CC := $(CROSS_COMPILE)gcc
+>+endif
+>+#nedif
+>
+>Findally, a cosmetic one. If we set the name of the main test file to
+>be the same as the test, the rule from lib.mk will give us neat
+>output:
 
-Full log (with cfi prctls get/set) of boot at pastebin below
-https://pastebin.com/JbX2Yv5W
+Sure, make sense. Will do that.
+>
+>     make[2]: Entering directory 'tools/testing/selftests/riscv/cfi'
+>       CC       cfitests
+>
+>--- a/tools/testing/selftests/riscv/cfi/Makefile
+>+++ b/tools/testing/selftests/riscv/cfi/Makefile
+>@@ -12,12 +12,11 @@ endif
+> ifeq ($(shell $(CC) $(CFLAGS) -nostdlib -xc /dev/null -o /dev/null >
+>/dev/null 2>&1; echo $$?),0)
+> TEST_GEN_PROGS := cfitests
+>
+>-include ../../lib.mk
+>+$(OUTPUT)/cfitests: cfitests.c shadowstack.c
+>
+>-$(OUTPUT)/cfitests: riscv_cfi_test.c shadowstack.c
+>-       $(CC) -o$@ $(CFLAGS) $(LDFLAGS) $^
+> else
+>-include ../../lib.mk
+>
+> $(shell echo "Toolchain doesn't support CFI, skipping CFI kselftest." >&2)
+> endif
+>+
+>+include ../../lib.mk
+>
+>I can push up a branch with my changes if you'd like.
 
-CCed: Jesse Huang who is leading glibc patches. Can help us figure out
-why statically compiled binaries are failing to set cfi prctls appropriatel=
-y.
+Sure, please point me to that and I'll pick it up. Test locally and send it out.
 
-Paul,
-
-Given that it's not an issue in kernel changes, we should still be going ah=
-ead
-with it for 6.19
-
->>
->>The selftest binary and the little toy init that starts it are both
->>statically linked and built against the toolchain's glibc, so I would
->>expect this to work.
->>
->>$ riscv64-unknown-linux-gnu-readelf -n sifive-cfi-build/sysroot/usr/lib/l=
-ibc.a
->>
->>File: sifive-cfi-build/sysroot/usr/lib/libc.a(init-first.o)
->>
->>Displaying notes found in: .note.gnu.property
->> Owner                Data size        Description
->> GNU                  0x00000010       NT_GNU_PROPERTY_TYPE_0
->>     Properties: RISC-V AND feature: CFI_LP_UNLABELED, CFI_SS
->>
->>The kernel seems to have detected that CFI is available and is built with=
- it:
->>
->>$ grep CFI .config
->>CONFIG_RISCV_USER_CFI=3Dy
->>CONFIG_ARCH_SUPPORTS_CFI=3Dy
->>
->>I did notice the func-sig-dev gcc branch is a few commits ahead of
->>what the sifive riscv-gnu-toolchain points to.
->>
->>I had to context switch to some other tasks at this point. I wanted to
->>do some more digging to work out what was wrong, but I haven't found
->>time, so here are my notes in the hope that they are useful. I'll let
->>you know if I discover anything further.
->
->
->I have it working on my end with latest upstream opensbi (no hacks, same
->compiler)
->
->"""
->$ git log
->commit 38a6106b1099646f25657bba53cefb80886721a7 (HEAD -> master, origin/ma=
-ster, origin/HEAD)
->Author: Beno=EEt Monin <benoit.monin@bootlin.com>
->Date:   Mon Oct 27 14:12:17 2025 +0100
->
->    lib: utils/ipi: mswi: add MIPS P8700 compatible
->....
->"""
->
->I am surprised that change of compiler on opensbi changed errorcode for us=
-erspace
->in your setup. That's quite bizarre.
->
->Output from cfitests (with toolchain that's on docker. I didn't compile fr=
-om
->cfi-dev branch).
->
-># /mnt/cfitests
->TAP version 13
-># Starting risc-v tests
-># Landing pad and shadow stack are enabled for binary
-># cfi_ptrace_test, ptrace test succeeded
-># Executing RISC-V shadow stack self tests
->1..5
-># Exercising shadow stack fork test
-># Parent pid 133 and child pid 135
-># dummy calls for sspush and sspopchk in context of parent
-># Spewing out shadow stack ptr: 7fffbf4a9fb8
->  This is to ensure shadow stack is indeed enabled and working
-># Waiting on child to finish
-># dummy calls for sspush and sspopchk in context of child
-># Spewing out shadow stack ptr: 7fffbf4a9fb8
->  This is to ensure shadow stack is indeed enabled and working
->ok 1 shstk fork test
-># Exercising shadow stack map test
->ok 2 map shadow stack syscall
-># Exercising shadow stack gup tests
->ok 3 shadow stack gup tests
-># Exercising shadow stack signal test
->ok 4 shadow stack signal tests
-># Exercising shadow stack protection test (WPT)
->ok 5 memory protections of shadow stack memory
-># Totals: pass:5 fail:0 xfail:0 xpass:0 skip:0 error:0
->#
->
->Is there a place where I can grab your kselftest `cfitests` binary?
->
->Only difference I can see is that `cfitests` in my case is not statically
->compiled
->
->"""
->$ riscv64-unknown-linux-gnu-readelf -d /scratch/debug/sources/spectacles/c=
-fitests | grep NEEDED
-> 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
->
->"""
->
->>
->>Cheers,
->>
->>Joel
->>
->>
->>>How to test this series
->>>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->>>
->>>Toolchain
->>>---------
->>>$ git clone git@github.com:sifive/riscv-gnu-toolchain.git -b cfi-dev
->>>$ riscv-gnu-toolchain/configure --prefix=3D<path-to-where-to-build> --wi=
-th-arch=3Drv64gc_zicfilp_zicfiss --enable-linux --disable-gdb  --with-extra=
--multilib-test=3D"rv64gc_zicfilp_zicfiss-lp64d:-static"
->>>$ make -j$(nproc)
->>>
->>>Qemu
->>>----
->>>Get the lastest qemu
->>>$ cd qemu
->>>$ mkdir build
->>>$ cd build
->>>$ ../configure --target-list=3Driscv64-softmmu
->>>$ make -j$(nproc)
->>>
->>>Opensbi
->>>-------
->>>$ git clone git@github.com:deepak0414/opensbi.git -b v6_cfi_spec_split_o=
-pensbi
->>>$ make CROSS_COMPILE=3D<your riscv toolchain> -j$(nproc) PLATFORM=3Dgene=
-ric
->>>
->>>Linux
->>>-----
->>>Running defconfig is fine. CFI is enabled by default if the toolchain
->>>supports it.
->>>
->>>$ make ARCH=3Driscv CROSS_COMPILE=3D<path-to-cfi-riscv-gnu-toolchain>/bu=
-ild/bin/riscv64-unknown-linux-gnu- -j$(nproc) defconfig
->>>$ make ARCH=3Driscv CROSS_COMPILE=3D<path-to-cfi-riscv-gnu-toolchain>/bu=
-ild/bin/riscv64-unknown-linux-gnu- -j$(nproc)
->>>
->>>Running
->>>-------
->>>
->>>Modify your qemu command to have:
->>>-bios <path-to-cfi-opensbi>/build/platform/generic/firmware/fw_dynamic.b=
-in
->>>-cpu rv64,zicfilp=3Dtrue,zicfiss=3Dtrue,zimop=3Dtrue,zcmop=3Dtrue
 
 _______________________________________________
 linux-riscv mailing list
