@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCD5CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 08:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C8F4CCF9F8
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Nov 2025 09:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nLK2VcIsCaflfcbmBXqchGww2/oF1iFOC10ChrOTEjk=; b=xXask9gHAwA5lF
-	hrMNP9PsdvNqDwwL/mz3rPUq3GdXfXFVJQVItyuGnJZuNhHNFkKlRGsI7yl5RN2AIYnC7b8QKlxWT
-	7cPMsGCj3B92wXG8HfmiM77kiDe9tl45aSbeXruMkcs+WpWxxLfG13f4aJdQlZ5p3+i9yoCXHyB56
-	kidJx3S3j8UZRiTtysNneC7ZZco+4NcqCy7quX2tsKFKdVpJFwtjrjcBaceXr2Awq5nuJpu7MuoQa
-	fpzoDuoG0qAMln7pcSQNJsUOT+7+fdRC9b6ImxxlsPamGwQ5Zw8udhxgrnG5nN9L1XD0BnLJy6yju
-	WAZv9EB+29ZpshAkiExA==;
+	List-Owner; bh=LL6MK0ADoZvgkPbrfevZiCq111O3yRvtYunuh5hsR2c=; b=F3p1I53tX78zNN
+	J4h2kpvj0VU7Mmk8jDkKb0QOMTHSQzB1bHHWnr3K2bf0ykzyeUpEOBpJDSgl+Rrw/5dODhZJy7Tsg
+	r7oCPN1wnw2i8dStU4uTjB0rvbUwF98W+eo6F+z0KJ2oaLdwxsPoM84h/6Lw1K0qC2YpZdricBcoU
+	wGukNkdJxPmtFAG3ICe5h5CHe6VkDiAKXLJH3O5DyLfKo1D4liBdG6cn4Hg1Kv4xHbQ0vrvHJk34b
+	0a/57JzLOs1dQEyZ+4oK/XYV4cdrFOFgFfvu0gWFVWyJmLOOkTQOaOTPeZ3EUDYVQgLSSCYNnRdMX
+	RP2n1VL1ZBSqnJjddmxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZ8l-0000000DJSa-3GNN;
-	Wed, 05 Nov 2025 08:45:15 +0000
-Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZ8k-0000000DJS5-01e5
+	id 1vGZuQ-0000000DOR4-2kVZ;
+	Wed, 05 Nov 2025 09:34:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGZuP-0000000DOQf-2lDq
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Nov 2025 08:45:15 +0000
-Received: from 8bytes.org (p549214ac.dip0.t-ipconnect.de [84.146.20.172])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 6462F5A90D;
-	Wed,  5 Nov 2025 09:45:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1762332308;
-	bh=9634LwCOBvkVyltmD3yEImG3GLp+vauzcljqVmCfZXs=;
+	Wed, 05 Nov 2025 09:34:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CFBAC60203;
+	Wed,  5 Nov 2025 09:34:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB799C4CEFB;
+	Wed,  5 Nov 2025 09:34:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762335268;
+	bh=CNrqEy8bwMXrl85WfuykS9g2llTPMr5i0jDD1EzDRZ8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DdykuXFGz4Kyzn2l8GzRhXbOwpemTjiqSY9NnkSJ5kXzDibcDKgk3Crya1dT+N1Ts
-	 UH7FaWWUF2fq6OpnbmFSDJXIvL5PdoqWz0jZZotf4VyXYy5InXO3QMRJdHGa6Rzaeb
-	 MxBIh4MUKJl+OcDL2c70JUQZv/F6/7aKR/7bsxHQuOEkn9h/bIqWxcBXiTQgrOnRku
-	 AipM7oV8uNY+j4VTR+A71+Lm/Bi/LEdJjrz9vYJsMnA4ATN+A/7oIdHQmvkac7W8aF
-	 xTWnLZwWkQ4WulMxLtSJf6QnV4ULuve0Bf0buUIZk7fVlBoEn9/SfE5IqaOkZRXopu
-	 eMENQjBRtCNbg==
-Date: Wed, 5 Nov 2025 09:45:07 +0100
-From: Joerg Roedel <joro@8bytes.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev, 
-	Justin Stitt <justinstitt@google.com>, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, Bill Wendling <morbo@google.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Shuah Khan <shuah@kernel.org>, Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, 
-	Will Deacon <will@kernel.org>, Alexey Kardashevskiy <aik@amd.com>, 
-	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>, James Gowans <jgowans@amazon.com>, 
-	Kevin Tian <kevin.tian@intel.com>, Michael Roth <michael.roth@amd.com>, 
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev, Samiullah Khawaja <skhawaja@google.com>, 
-	Vasant Hegde <vasant.hegde@amd.com>
-Subject: Re: [PATCH v8 00/15] Consolidate iommu page table implementations
- (AMD)
-Message-ID: <3wwyr2kqhaj5icznsizcu372uzhygubkytko3vueamwnf6vzr2@hlas3nx53tps>
-References: <0-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
+	b=NXo442xp9UxvWEjC00AKsPpLYsZO8+DBfmkJYRGPI0roCO1LBJYM6meGIE8DUEGmJ
+	 TcsYCCBc0Glg+q4TXtWj/44Vyq3eZlAIZcaVEBdj3EmELGpmrhPcvRGPtJBFyzWhhF
+	 /e+kK+ArkXH8H0/tu+UzYkSY4Lk8lghMOe91xBTXOZ5xEVRDcyVYY+yEb6z2rEgPMd
+	 hgZhAmBAac+znrUHuzr3AXlqpSvySBX9/tohznS6ZQNVt9lvhgmr90TYdOQPvbl694
+	 RbRRIXQPYT9ui1egQFPw8yifhERfESTrjtPq6R3Z5reflIK0mgKkdjfwasgJIAhM1u
+	 aQIEUB4dhDXPQ==
+Date: Wed, 5 Nov 2025 09:34:21 +0000
+From: Lee Jones <lee@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+	linux-kernel@vger.kernel.org, Sebastian Reichel <sre@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	Aurelien Jarno <aurelien@aurel32.net>, linux-pm@vger.kernel.org
+Subject: Re: (subset) [PATCH v5 0/2] driver: reset: spacemit-p1: add driver
+ for poweroff/reboot
+Message-ID: <20251105093347.GD8064@google.com>
+References: <20251102230352.914421-1-aurelien@aurel32.net>
+ <176213091347.301408.11587695003687450479.b4-ty@collabora.com>
+ <FA447DF1D2398A79+aQlVuEbrLMCiGMpc@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <0-v8-d50aeee4481d+55efb-iommu_pt_jgg@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_004514_282360_544F916D 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <FA447DF1D2398A79+aQlVuEbrLMCiGMpc@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +72,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025 at 02:29:58PM -0400, Jason Gunthorpe wrote:
-> [Joerg, can you put this and vtd in linux-next please. The vtd series is still
-> good at v3 thanks]
-
-Applied, thanks Jason. Please send the kdoc fixes which address Randys review
-on-top.
-
-Regards,
-
-	Joerg
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAwNCBOb3YgMjAyNSwgVHJveSBNaXRjaGVsbCB3cm90ZToKCj4gT24gTW9uLCBOb3Yg
+MDMsIDIwMjUgYXQgMDE6NDg6MzNBTSArMDEwMCwgU2ViYXN0aWFuIFJlaWNoZWwgd3JvdGU6Cj4g
+PiAKPiA+IE9uIE1vbiwgMDMgTm92IDIwMjUgMDA6MDE6NTggKzAxMDAsIEF1cmVsaWVuIEphcm5v
+IHdyb3RlOgo+ID4gPiBUaGlzIGFkZHMgcG93ZXJvZmYvcmVib290IHN1cHBvcnQgZm9yIHRoZSBT
+cGFjZW1pVCBQMSBQTUlDIGNoaXAsIHdoaWNoIGlzCj4gPiA+IGNvbW1vbmx5IHBhaXJlZCB3aXRo
+IHRoZSBTcGFjZW1pVCBLMSBTb0MuCj4gPiA+IAo+ID4gPiBOb3RlOiBGb3IgcmVsaWFibGUgb3Bl
+cmF0aW9uLCB0aGlzIGRyaXZlciBkZXBlbmRzIG9uIGEgdGhpcyBwYXRjaCB0aGF0IGFkZHMKPiA+
+ID4gYXRvbWljIHRyYW5zZmVyIHN1cHBvcnQgdG8gdGhlIFNwYWNlbWlUIEkyQyBjb250cm9sbGVy
+IGRyaXZlcjoKPiA+ID4gICBodHRwczovL2xvcmUua2VybmVsLm9yZy9zcGFjZW1pdC8yMDI1MTAw
+OS1rMS1pMmMtYXRvbWljLXY0LTEtYTg5MzY3ODcwMjg2QGxpbnV4LnNwYWNlbWl0LmNvbS8KPiA+
+ID4gCj4gPiA+IFsuLi5dCj4gPiAKPiA+IEFwcGxpZWQsIHRoYW5rcyEKPiA+IAo+ID4gWzEvMl0g
+ZHJpdmVyOiByZXNldDogc3BhY2VtaXQtcDE6IGFkZCBkcml2ZXIgZm9yIHBvd2Vyb2ZmL3JlYm9v
+dAo+ID4gICAgICAgY29tbWl0OiAyODEyNGNjMGZiOGM3ZGMwMWE2ODM0ZDIyNzM1MWUyNWQ5YTky
+YzU4Cj4gU2hvdWxkIHdlIGFwcGx5IGl0IG5vdz8gVGhlIGRlcGVuZGVuY3kgcGF0Y2ggaGFzbuKA
+mXQgYmVlbiBtZXJnZWQgeWV0Li4uCgpXaGF0IGlzIHRoZSBkZXBlbmRlbmN5PwoKLS0gCkxlZSBK
+b25lcyBb5p2O55C85pavXQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
