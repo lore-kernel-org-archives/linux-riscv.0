@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 709C3CCFA05
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 17:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 544CBCCFA13
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 17:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A7ik+juE93ewRiPJI181QdpTB9bkaHYlWNulHj+Hqfc=; b=ILmpCRz6jsBHN5X1vbKxMxfHh4
-	nOgAQ5WKYbNqbtbcq/tY1stVKIyXtL2bzJufb8cyL1ySWYS+Afr0LW6WS4BCTXyXJdQGwtBjfH+UL
-	lx3BgpT6MVQhR6kHyNlMnph0EbBRpl9akEeYJ6v+75ODfERZt/uAD2IL6l32Tbd4cGsQpze22ZizB
-	XJlr2s6PRiR2breB+0e+vLS6vlrmAChO9qvrka/LjPo75cX8yjR5NqC3cCvkN1vnXuWMSNHT7G4oU
-	LgQ0Ba9t8jW29I5VYdeAo4qKm564FT0ALSthg8jyCJ/CLOMVuVmgZf339g7ZT8XnXHaQ7JUkvgQv7
-	syYVAbng==;
+	bh=OFoCKFewt2o0+y8ty/+38PCcNSKQbAQmuJHhzuXwpTI=; b=x4SOpDwQcUo1bO42G2BcGjE3K4
+	1BTwL8/l770KrmmqoRYUpznlte1PAXLjazMBSv6nsNQ0+8y735KZTkOZua0jH8NdnofYqzxn8P+mw
+	JRcQNVRKXnbv77oJKfcjD0/xFdS0HTfIk6zycBY9RHiUFt/GXL+p8Mge8GpOpIg5Yh9seEZ5WMrjL
+	lOw5PBejIVvnWznz4u8JkpuIXWkeGufX/9BSXtvB5GknVShBp3P+W5qR/uNMaOGp9e9svNLvjDoGZ
+	AImvYv/L8fbdg5lVwCniROS4INXu2+2O7t6K6BWDMJcB/HTzdc0RdyHkuYUP8F3kIXV4yb2ZkcUHS
+	y3XEfPOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3Vg-0000000Fzhq-0RiG;
-	Thu, 06 Nov 2025 17:10:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vH480-0000000G3Wi-28wu;
+	Thu, 06 Nov 2025 17:50:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3VW-0000000FzhL-2juH
+	id 1vH47z-0000000G3Wb-0Dby
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Nov 2025 17:10:52 +0000
+	Thu, 06 Nov 2025 17:50:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1228943F73;
-	Thu,  6 Nov 2025 17:10:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A649C4CEF7;
-	Thu,  6 Nov 2025 17:10:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 39C3D618FF;
+	Thu,  6 Nov 2025 17:50:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE47C4CEF7;
+	Thu,  6 Nov 2025 17:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762449045;
-	bh=5RJd2yoe7u43AeupxdyVCQ4K/Vt3gB+8I1S4CehziNE=;
+	s=k20201202; t=1762451429;
+	bh=WjWTvbzua2LgYAaRJe9lhFBkACy3GRXIKF3t5etpTx8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lkBZ2i+/mwOOuX9GhGdECytYLR4ZoDkJl849J2hQtO1L+/oDFNXYCeNt174ancQT3
-	 xbCnN9sPThUf3r7wQHPF8iYrx9QE8ByQfGeeXHSpXSc7X1ozl146yDIHzIyhN477Zl
-	 24roSdsWpljUoU1b1XPiOx3tQ9nNpNF0qwmsuiok+l3p312VCp83G1KCMDxzYj3j4R
-	 V6CN2ulyVc4L6VZFinUoMZZKTE8+9ekl/LsZXnN1C4wR4qq87Iee247p9DqgX4zpQx
-	 Mdo/2h36rXZ5gLXNVAuKxGQMnTO8WdbmjhK4ji+z1/V5GYGE6HlP6rgt50139EhDg6
-	 7lEF3XunOSRJA==
-Date: Thu, 6 Nov 2025 17:10:38 +0000
+	b=hbP8H4uc4//Q3JD9skD/NmChmp1R2f45h81QKbBzJv8eP5/t8LI5jfVTixIJFk9A1
+	 E9D9IKlGLveME0Myu4Sroc2KKth/rYvfaceRD165Zgm3N+MNJotluAJXyJNUgTwnMB
+	 3vek/s3C/u0rg3xd7NuwmAA2MMzirKLcV3RccjBahJMzmJQuMZ+cyS2SKpLPvMEHcE
+	 v5KGjPPOFAMOiiPuNVwNiO62+Jqq+leGtR69ZvVjtAR4DzdqNPLsfdQxBzakDCXW5k
+	 OneQzIti6WpF69yRelVNW+PJ0t/XbOwaJBFCYWNUrbIyUbKALQZMgI83GsYe9F2gIT
+	 ZVDuDx8UDODWQ==
+Date: Thu, 6 Nov 2025 17:50:25 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Junhui Liu <junhui.liu@pigmoral.tech>, tglx@linutronix.de
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org,
-	Inochi Amaoto <inochiama@outlook.com>, sophgo@lists.linux.dev,
-	linux-serial@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 00/13] riscv: Add initial support for Anlogic DR1V90
-Message-ID: <20251106-tinfoil-primer-30ff181203f4@spud>
-References: <20251021-dr1v90-basic-dt-v3-0-5478db4f664a@pigmoral.tech>
- <20251028-busybody-disallow-e068b221db6c@spud>
+To: Mark Brown <broonie@kernel.org>
+Cc: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Valentina Fernandez Alanis <valentina.fernandezalanis@microchip.com>,
+	Cyril Jean <cyril.jean@microchip.com>
+Subject: Re: [PATCH v2 3/3] spi: add support for microchip "soft" spi
+ controller
+Message-ID: <20251106-cable-generic-819b798c7068@spud>
+References: <20251105152823.730422-1-prajna.rajendrakumar@microchip.com>
+ <20251105152823.730422-4-prajna.rajendrakumar@microchip.com>
+ <aQt41uGfmbs7Qa7x@finisterre.sirena.org.uk>
 MIME-Version: 1.0
-In-Reply-To: <20251028-busybody-disallow-e068b221db6c@spud>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_091046_731684_1DB92EF8 
-X-CRM114-Status: GOOD (  23.66  )
+In-Reply-To: <aQt41uGfmbs7Qa7x@finisterre.sirena.org.uk>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,101 +73,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8026158200459850204=="
+Content-Type: multipart/mixed; boundary="===============6721794259223088857=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8026158200459850204==
+--===============6721794259223088857==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RxsOAUIaAk6EjGuV"
+	protocol="application/pgp-signature"; boundary="wJgqZzsyNZ2n1zkq"
 Content-Disposition: inline
 
 
---RxsOAUIaAk6EjGuV
-Content-Type: text/plain; charset=utf-8
+--wJgqZzsyNZ2n1zkq
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Thomas,
-
-On Tue, Oct 28, 2025 at 07:39:07PM +0000, Conor Dooley wrote:
-> Thomas, Junhui,
+On Wed, Nov 05, 2025 at 04:18:30PM +0000, Mark Brown wrote:
+> On Wed, Nov 05, 2025 at 03:28:23PM +0000, Prajna Rajendra Kumar wrote:
 >=20
-> On Tue, Oct 21, 2025 at 05:41:35PM +0800, Junhui Liu wrote:
-> > This introduces initial support for the Anlogic DR1V90 SoC [1] and the
-> > Milianke MLKPAI-FS01 [2] board.
-> >=20
-> > The DR1V90 is a RISC-V based FPSoC from Anlogic, featuring a Nuclei
-> > UX900 [3] core as its processing system (PS) and 94,464 LUTs in the
-> > programmable logic (PL) part. The Milianke MLKPAI-FS01 board is one of
-> > the first platforms based on this SoC, with UART1 routed to a Type-C
-> > interface for console access.
-> >=20
-> > Tested on the Milianke MLKPAI-FS01 board with both the vendor's OpenSBI
-> > and the not-yet-upstreamed mainline OpenSBI [4], as well as the vendor=
-=E2=80=99s
-> > U-Boot. Because the vendor=E2=80=99s OpenSBI is loaded at 0x1f300000, w=
-e have
-> > to additionally reserve the DRAM region 0x1fe00000=E2=80=930x1fffffff t=
-o prevent
-> > overlap if using vendor's OpenSBI.
-> >=20
-> > Link: https://www.anlogic.com/product/fpga/saldragon/dr1 [1]
-> > Link: https://www.milianke.com/product-item-104.html [2]
-> > Link: https://nucleisys.com/product/900.php [3]
-> > Link: https://github.com/pigmoral/opensbi/tree/dr1v90 [4]
-> > ---
-> > Changes in v3:
-> > - Update DT binding to use ACLINT instead of CLINT
-> > - Drop MAINTAINERS patch
-> > - Rebase on v6.18-rc1
-> > - Link to v2: https://lore.kernel.org/r/20250922-dr1v90-basic-dt-v2-0-6=
-4d28500cb37@pigmoral.tech
-> >=20
-> > Changes in v2:
-> > - Add MAINTAINERS entry for the DR1V90 platform
-> > - Remove the riscv,isa property of cpu and reorder propertyies
-> > - Fix clint base address in the dtsi
-> > - Change the memory node to cover the full 512MB RAM in board dts
-> > - Link to v1: https://lore.kernel.org/r/20250721-dr1v90-basic-dt-v1-0-5=
-740c5199c47@pigmoral.tech
-> >=20
-> > ---
-> > Junhui Liu (13):
-> >       dt-bindings: vendor-prefixes: Add Anlogic, Milianke and Nuclei
-> >       dt-bindings: riscv: Add Nuclei UX900 compatibles
-> >       dt-bindings: riscv: Add Anlogic DR1V90
-> >       dt-bindings: interrupt-controller: Add Anlogic DR1V90 PLIC
-> >       dt-bindings: interrupt-controller: Add Anlogic DR1V90 ACLINT MSWI
-> >       dt-bindings: interrupt-controller: Add Anlogic DR1V90 ACLINT SSWI
-> >       dt-bindings: timer: Add Anlogic DR1V90 ACLINT MTIMER
-> >       dt-bindings: serial: snps-dw-apb-uart: Add Anlogic DR1V90 uart
-> >       irqchip/aclint-sswi: Add Nuclei UX900 support
+> >  drivers/spi/Kconfig              |   9 +
+> >  drivers/spi/Makefile             |   1 +
+> >  drivers/spi/spi-microchip-core.c | 442 +++++++++++++++++++++++++++++++
+> >  3 files changed, 452 insertions(+)
 >=20
-> I'm happy enough with this series to grab it, but while I don't mind
-> taking some trivial binding changes with it, I don't want to take an
-> irqchip driver patch. Would you be able to apply the irqchip stuff
-> Thomas?
+> > +config SPI_MICROCHIP_CORE
+> > +	tristate "Microchip FPGA SPI controllers"
+> > +	depends on SPI_MASTER
+>=20
+> Reusing the same filename and config symbol is almost certainly going to
+> create issues and confusion for people upgrading their kernel or doing
+> backports.  Perhaps CoreSPI instead?
 
+The qspi driver (which is shared between SoC and FPGA IP) uses
+SPI_MICROCHIP_CORE_QSPI, so probably SPI_MICROCHIP_CORE_SPI should be
+used here. Prajna?
 
-Could you pick up 4-6 and 9 here please?
-
---RxsOAUIaAk6EjGuV
+--wJgqZzsyNZ2n1zkq
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQzWjgAKCRB4tDGHoIJi
-0pjLAP4i3LKjrcugZ1SHa8IN8d1ahJjzKig/a42m3C3BLhx/6AD8CjGNPrqdnGjb
-X9OAq+b6bdQXfUDl2Y1epPRbb3x1AwE=
-=g1P8
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQzf4QAKCRB4tDGHoIJi
+0qy2AP0U27WzBNDqaqh1XmP2VC+xajyfZyfQNxJNz2WHKaXRgwEA1kY/wCnEvIlC
+SYkV1jsJNg638yrXcon3wRQFmAch1Q0=
+=FvLK
 -----END PGP SIGNATURE-----
 
---RxsOAUIaAk6EjGuV--
+--wJgqZzsyNZ2n1zkq--
 
 
---===============8026158200459850204==
+--===============6721794259223088857==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -188,5 +134,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8026158200459850204==--
+--===============6721794259223088857==--
 
