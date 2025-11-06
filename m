@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 420BACCFA13
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 22:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3C4CCFA05
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 22:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
-	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dEBth/ARvrbwDTKMg16hKJrE0DwbMNmsniG0mHODO5w=; b=XFtan+QhLG103k
-	sfPPjy9T0ORiOvlP79usyn7jJdXB3udcEMO3ywQNoepPzazfnkIuAbyeKaSIHafhh3d0083eAccYA
-	30omjqv6SYkZ/eAq9X1VeNNzAYg8xG3vd5wlm6snFr5WFbdWPUGu44qp6zIiUCV/2ti/QWdXAjrvn
-	JrBIrU2d5p6jzWwLe5yhxO3tQeF3PNO2izQguyYFCBrzovBS4dJkmL17Nl24XXzn0BK7g1tI9ETmB
-	3GI0CDyT1MPOy9mj1r9Vqlv0qju+f5UV968eqwwwYMKMBEzrtn8Z0xrbQbGGiZtZHhMxlOzhwGKnm
-	DPBOAzouQ5G1P/183uRA==;
+	List-Owner; bh=LuziIDFQ608MlGwWQwFelskjGiH1wge/scDbKJZ3j0M=; b=PfYx9butKRSStM
+	vL0qtcKb1C0FQkPyx39FI9eqB5ecg65SoTwARUdiqtFG+z6s3quVhYItPGphgrgE4pVq2mAqPQiOE
+	NI3pq3KaxOJT8eXplxnVOqs8i27fgKUqnYr3IT8KLPoZ63VAZ397s2H8JA1pH5sXXQK17hhGNKyVU
+	rnJH0dqrmxa88oM/Cyxg/Fqzc1hgbw21U0DYbU5H4Lbr1ubqhOPz+P4GHyk68v/FgL5FhDZ39oNH+
+	jPW3XoEMdm/OaeMOPgnDwdMtNt9vc3w8j3OFPslYk8Qh1IYgpD+yYdRd0ayFX96+5nz1l0X6gH+ML
+	dEtTFWmayS1DrVdhDEpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH8Wk-0000000GJMl-0QqO;
-	Thu, 06 Nov 2025 22:32:22 +0000
+	id 1vH8qA-0000000GKVl-2xTH;
+	Thu, 06 Nov 2025 22:52:26 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH8Wi-0000000GJMI-0Cvt
+	id 1vH8q8-0000000GKVI-0lFi
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Nov 2025 22:32:21 +0000
+	Thu, 06 Nov 2025 22:52:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C54542B5E
-	for <linux-riscv@lists.infradead.org>; Thu,  6 Nov 2025 22:32:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FCE2C4CEFB
-	for <linux-riscv@lists.infradead.org>; Thu,  6 Nov 2025 22:32:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8BBDF4454C;
+	Thu,  6 Nov 2025 22:52:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AB47C4CEFB;
+	Thu,  6 Nov 2025 22:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762468338;
-	bh=VShSn6kWZFBITeLgqELgWHlGDI5Q/Af5tn7BnrLp9+M=;
-	h=Date:From:To:Subject:From;
-	b=tZKGoCYeyHw3jTmb/W2LXsd8Pav1LvPINNSNamPzzZ+eiZe112z914mAFRQn5kQAe
-	 Oyw8B+nIyLvgGBUCUo9uwXb+uYqsURQ0TdeXmmAXt2Zxs4/14EmNWpXcdz9JZwsSxe
-	 4SsXrGWhyTVCghMIy2HFboPYSXuvKj6zQxzyLuXFQP4H6or2BTUCNzy4NkTm8mjQuu
-	 25H4U20ia7kMNy9RREmLrXVqoDJPTDXwyr7FTKfPFw8AMkci7JkuqMWnsUQbLnUS2W
-	 z+TA7+siDOorM5n8BBHJaWbamzcJQNcZ0z5lfKrZCYYj7vZa2BSK0wpc/b8LKKgtjc
-	 2BchBXNkAgtnw==
-Date: Thu, 6 Nov 2025 15:32:07 -0700 (MST)
+	s=k20201202; t=1762469543;
+	bh=IRSfT8Qcf/blTDsXUTYbvaNw0dJP4wdg2wtqcoH4yR4=;
+	h=Date:From:To:cc:Subject:From;
+	b=EunqhHxgmUSdhXFTenfnXxc0Emrh3LEc4uoA6tGgiY5NJC02JnZpkeK4rQkDOuv0y
+	 ROjoeFLWeEXSTiUKLWZct/fsWRfl1VtXEMTdj/YTZSPPns0S3/I3/qQTc5P2/qTtFs
+	 +tg9PxCiZWGUDhAH7Idie5DNQ50oEHyrlwYHzW9xMoPGBDxqSIxQWUzRoBzmNcM3/5
+	 RTqzEifevewgnrVcz3iCpFrg18tRK2ZA+deESaPngDpDVgaOrZUr5jM7GKpyLi7vyW
+	 nM/s6ilnEaO+CjG3VCVSlF4vV/X82aR8HitsdrqI3i2/Quf5k11Cd1DAszSajDDzSO
+	 QlbCDysn0YH8Q==
+Date: Thu, 6 Nov 2025 15:52:22 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
-To: linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V fixes for v6.18-rc5
-Message-ID: <43d7b921-8102-0a80-c9bc-3ee1899cfe59@kernel.org>
+To: torvalds@linux-foundation.org
+cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] RISC-V updates for v6.18-rc5
+Message-ID: <50a5b4a5-18ae-6dda-bdbd-db67e112bc1b@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_143220_137434_99A4C588 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20251106_145224_258553_94CD045A 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,6 +68,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+
 Linus,
 
 The following changes since commit dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa:
@@ -81,6 +83,8 @@ for you to fetch changes up to 2e448567839c65768486d56612c88cb327d26050:
 
   cpuidle: riscv-sbi: Replace deprecated strcpy in sbi_cpuidle_init_cpu (2025-10-27 23:38:13 -0600)
 
+
+- Paul
 ----------------------------------------------------------------
 RISC-V updates for v6.18-rc5
 
@@ -134,7 +138,6 @@ Vivian Wang (2):
  11 files changed, 52 insertions(+), 19 deletions(-)
 
 vmlinux size differences in bytes (from v6.18-rc3):
-
  text  data bss    dec   hex filename                             
  -112   +64   .    -48   -30 vmlinux.defconfig.gcc-15             
  -104   +64   .    -40   -28 vmlinux.nosmp_defconfig.gcc-15       
