@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E86CCFA13
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 13:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA8BFCCFA05
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 16:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/zEvTnlepBJhE6dUEbsdFssXRmxAxDmbJ2ytMY8fUTA=; b=OjyK686ioivlZm
-	W+rcreRyHjv2Iz+LWNzVfgBufs1BGQfSuPrWGyANq2H1LunJ92OpvyBE9PHy7LzK/S/+bvw7SbtPq
-	uSzWv2zWO+Qy8l3PzLxglU+4nVdoMynf/Fik4oEeQpTNNGQk+ISZlRo3Kv6ILnN32n0Q/Wr3D4V2e
-	EbZDQJy0LxCdCSi54GbT69pR7kRkc7dB9xUzFXUBx7hYOP23rUPLk+A8KMRhr5+sFD9rBvYK1oImP
-	pw4kn61lRRBknWSJF/nM/sISJWMGt8NsEpjoXwcnsm4LCiJ+2X5icF6cTyVzjD3ZhY9IKa1UEaCEX
-	blPdraGeNTek68IQ/lfQ==;
+	List-Owner; bh=NFb4ns+vFlQxUcvbNDUPqjjQx/WZkUkBRCQyErCUtNc=; b=Q85Zy+TKt2vgbO
+	blR021soh8d0z4ANNP21UWYGV/zXGOJd6RYwAyzIgDZl+BRi2+DIkFBg1S+VXABS1PF+YSVSpySVl
+	LB9texA4S+uVi3LaR5Hj/wWGkUBtJIHo9Elc+mp7/XrtEDM2+Tfls73f4MasSkFx0Kd/Q/6UaNMi5
+	RNn+8DCtbWnIB77fMehSm2eAm+8kBUvT55vpwQpkVCK4yJmHuncR5VBJT8wZhCKkAp959BGPihCzV
+	SbTWpowqlddwl+YJv8cYr4MO+555X6+ROzAHQvHJV7ZpeHoxQNNj6rHwoMYhB+Xu412H6YNJuw6uC
+	JmoJ7Hguu9mSyAewvLPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH03w-0000000FZZf-3cbw;
-	Thu, 06 Nov 2025 13:30:04 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1vH2TL-0000000Frsf-0UoX;
+	Thu, 06 Nov 2025 16:04:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH03t-0000000FZYH-1u1y;
-	Thu, 06 Nov 2025 13:30:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1762435793; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=1kXLXXv2N3VYJNPmf0poJF0RIiMv5kZuy7eqQXCw1X4=;
-	b=Z7jQs5McRR/RUUvFRE7otomvLWt0boJZ1+Pkv1Zam6Qu0BPlEdHaDUEz5VT2wQbz+Pa9GSPt6hWBdiOkvzHtxM1ANuxCAiIOWweja/nFkaqnkjELynDtdUdmpZGWLi+W0dEqDcud7D295t/QKWleRKSZmK6D/mlkA0DJg183jYk=
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WrptGql_1762435791 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 06 Nov 2025 21:29:52 +0800
-From: fangyu.yu@linux.alibaba.com
-To: anup@brainfault.org
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	fangyu.yu@linux.alibaba.com,
-	graf@amazon.com,
-	guoren@kernel.org,
-	jiangyifei@huawei.com,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	pbonzini@redhat.com
-Subject: Re: Re: [PATCH] RISC-V: KVM: Fix guest page fault within HLV* instructions 
-Date: Thu,  6 Nov 2025 21:29:50 +0800
-Message-Id: <20251106132950.80534-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <CAAhSdy0azfC-L3buko7-mN1PDWxi08HN=3NQ+0VeyMR8gVJNoQ@mail.gmail.com>
-References: <CAAhSdy0azfC-L3buko7-mN1PDWxi08HN=3NQ+0VeyMR8gVJNoQ@mail.gmail.com>
+	id 1vH2TJ-0000000FrsP-0wra
+	for linux-riscv@lists.infradead.org;
+	Thu, 06 Nov 2025 16:04:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C89D618FB;
+	Thu,  6 Nov 2025 16:04:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 538EAC4CEF7;
+	Thu,  6 Nov 2025 16:04:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762445064;
+	bh=tfoWKbGkWGrx1rWAMfcc3SKOmRrWzeEzHpAOZDpTe8I=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=tl+UsoHL0dLcdRgsZplwHi385klqaW7n7/yYYb6A9H2Muht1ffsVvCbaOgNXTMv0U
+	 NOHczlLBQeYAqJS7/t70Hr0hX2LkKZEHRug9Ng+VVofpQP0WyQ+xYN3Jx72XQLAHa7
+	 rKnhPl2XeQfpERi18b6pyW7bEUrPdGbW5fC7EH6DNQBfpfepusxggJ13D0ymPcsA0H
+	 Y+7TYFfud3Hms/f5suhuzcfqLt0cfYRWddg7kYJo0MZbkyDicnBwnLHg+xcUOHvy5j
+	 ZD28MupVCztYJbumhDx/PwfPWRqwH403N4sKrolxico9SCqw+Ms/WHSMC+8gYfSjqB
+	 Bv3EmwPNa2ZSw==
+From: Lee Jones <lee@kernel.org>
+To: Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Alex Elder <elder@riscstar.com>, Andi Shyti <andi.shyti@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-i2c@vger.kernel.org, 
+ linux-rtc@vger.kernel.org, kernel test robot <lkp@intel.com>
+In-Reply-To: <20251027-p1-kconfig-fix-v2-1-49688f30bae8@linux.spacemit.com>
+References: <20251027-p1-kconfig-fix-v2-1-49688f30bae8@linux.spacemit.com>
+Subject: Re: (subset) [PATCH v2 1/4] mfd: simple-mfd-i2c: remove select
+ I2C_K1
+Message-Id: <176244506110.1925720.10807118665958896958.b4-ty@kernel.org>
+Date: Thu, 06 Nov 2025 16:04:21 +0000
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_053001_664964_F926B78C 
-X-CRM114-Status: GOOD (  11.98  )
+X-Mailer: b4 0.15-dev-52d38
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,116 +70,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
->>
->> When executing HLV* instructions at the HS mode, a guest page fault
->> may occur when a g-stage page table migration between triggering the
->> virtual instruction exception and executing the HLV* instruction.
->>
->> This may be a corner case, and one simpler way to handle this is to
->> re-execute the instruction where the virtual  instruction exception
->> occurred, and the guest page fault will be automatically handled.
->>
->> Fixes: 9f7013265112 ("RISC-V: KVM: Handle MMIO exits for VCPU")
->> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
->> ---
->>  arch/riscv/kvm/vcpu_insn.c | 21 ++++++++++++++++++---
->>  1 file changed, 18 insertions(+), 3 deletions(-)
->>
->> diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
->> index 97dec18e6989..a8b93aa4d8ec 100644
->> --- a/arch/riscv/kvm/vcpu_insn.c
->> +++ b/arch/riscv/kvm/vcpu_insn.c
->> @@ -448,7 +448,12 @@ int kvm_riscv_vcpu_virtual_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
->>                         insn = kvm_riscv_vcpu_unpriv_read(vcpu, true,
->>                                                           ct->sepc,
->>                                                           &utrap);
->> -                       if (utrap.scause) {
->> +                       switch (utrap.scause) {
->> +                       case 0:
->> +                               break;
->
->This looks like an unrelated change so drop it or send a separate patch
->with proper explanation.
->
->> +                       case EXC_LOAD_GUEST_PAGE_FAULT:
->> +                               return KVM_INSN_CONTINUE_SAME_SEPC;
->
->The KVM_INSN_xyz enum values are only for functions called via
->system_opcode_insn() so return 1 over here just like the below
->default case.
->
->Also, add some comments over here about why we are simply
->continuing the guest.
->
->> +                       default:
->>                                 utrap.sepc = ct->sepc;
->>                                 kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
->>                                 return 1;
->> @@ -503,7 +508,12 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
->>                  */
->>                 insn = kvm_riscv_vcpu_unpriv_read(vcpu, true, ct->sepc,
->>                                                   &utrap);
->> -               if (utrap.scause) {
->> +               switch (utrap.scause) {
->> +               case 0:
->> +                       break;
->
->This looks like an unrelated change so drop it or send a separate patch
->with proper explanation.
->
->> +               case EXC_LOAD_GUEST_PAGE_FAULT:
->> +                       return KVM_INSN_CONTINUE_SAME_SEPC;
->
->Same comment as kvm_riscv_vcpu_virtual_insn().
->
->> +               default:
->>                         /* Redirect trap if we failed to read instruction */
->>                         utrap.sepc = ct->sepc;
->>                         kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
->> @@ -629,7 +639,12 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
->>                  */
->>                 insn = kvm_riscv_vcpu_unpriv_read(vcpu, true, ct->sepc,
->>                                                   &utrap);
->> -               if (utrap.scause) {
->> +               switch (utrap.scause) {
->> +               case 0:
->> +                       break;
->
->This looks like an unrelated change so drop it or send a separate patch
->with proper explanation.
->
->> +               case EXC_LOAD_GUEST_PAGE_FAULT:
->> +                       return KVM_INSN_CONTINUE_SAME_SEPC;
->
->Same comment as kvm_riscv_vcpu_virtual_insn().
->
->> +               default:
->>                         /* Redirect trap if we failed to read instruction */
->>                         utrap.sepc = ct->sepc;
->>                         kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
->> --
->> 2.49.0
->>
->>
->
->Regards,
->Anup
-
-Hi Anup:
-
-Thanks for the review.
-I will follow your suggestions in the next version.
-
-Thanks,
-Fangyu
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAyNyBPY3QgMjAyNSAxMzo0ODowNSArMDgwMCwgVHJveSBNaXRjaGVsbCB3cm90ZToK
+PiBzZWxlY3Qgd2lsbCBmb3JjZSBhIHN5bWJvbCB0byBhIHNwZWNpZmljIHZhbHVlIHdpdGhvdXQg
+Y29uc2lkZXJpbmcKPiBpdHMgZGVwZW5kZW5jaWVzLiBBcyBhIHJlc3VsdCwgdGhlIGkyYy1rMSBk
+cml2ZXIgd2lsbCBmYWlsIHRvIGJ1aWxkCj4gd2hlbiBPRiBvciBDT01NT05fQ0xLIGFyZSBkaXNh
+YmxlZC4KPiAKPiBUaGUgcmVhc29uIGZvciByZW1vdmluZyBJMkNfSzEgaW5zdGVhZCBvZiBhZGRp
+bmcgYSBkZXBlbmRzIG9uIGNvbmRpdGlvbgo+IGlzIHRvIGtlZXAgdGhlIHBvc3NpYmlsaXR5IGZv
+ciBvdGhlciBTb0NzIHRvIHVzZSB0aGlzIFBNSUMuCj4gCj4gWy4uLl0KCkFwcGxpZWQsIHRoYW5r
+cyEKClsxLzRdIG1mZDogc2ltcGxlLW1mZC1pMmM6IHJlbW92ZSBzZWxlY3QgSTJDX0sxCiAgICAg
+IGNvbW1pdDogZWNmNmJjNDc0YWU5N2M0MDRlMjEyNWI0MTNlYjBlZjM2MjdiMDNjNQoKLS0KTGVl
+IEpvbmVzIFvmnY7nkLzmlq9dCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
