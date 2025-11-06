@@ -4,90 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1B3FCCFA05
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 11:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E86CCFA13
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 13:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ngc3x9eQW5TJFLXRS0V9y1ZJ6hGMwuZXJMP7StQvYuo=; b=KbIcGWqSZ3EfkhjbZ3TrxRPxGi
-	mMULjwMlcuUPrjEeeY6tzh2m5D7hQRRrkzRo8iH7QVCv5cQfTG9SkgHCDppdfo27Aj1yY4EFbMVtW
-	QiCFp2oNwAHP9nHaHUm+Z/z1L0Wf2hLnQShPb7qmcpM0auFkIagmKmAujPAq68NwCPGMjn59UB+nr
-	tsDYVoz8yH74xgTVy6moDDRj0bw6IdxpA369VcavGd++p13y4k/WLv263BSnqBqT3STvgE5cJ84+s
-	SL6Ayf9ng0kOaiAFFp0v6g14YwZLM8EUewMO2FFFwSNmXSA7GiSv7Xwu++XU0wP0m8na/tZ382iNh
-	VekE/KuA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/zEvTnlepBJhE6dUEbsdFssXRmxAxDmbJ2ytMY8fUTA=; b=OjyK686ioivlZm
+	W+rcreRyHjv2Iz+LWNzVfgBufs1BGQfSuPrWGyANq2H1LunJ92OpvyBE9PHy7LzK/S/+bvw7SbtPq
+	uSzWv2zWO+Qy8l3PzLxglU+4nVdoMynf/Fik4oEeQpTNNGQk+ISZlRo3Kv6ILnN32n0Q/Wr3D4V2e
+	EbZDQJy0LxCdCSi54GbT69pR7kRkc7dB9xUzFXUBx7hYOP23rUPLk+A8KMRhr5+sFD9rBvYK1oImP
+	pw4kn61lRRBknWSJF/nM/sISJWMGt8NsEpjoXwcnsm4LCiJ+2X5icF6cTyVzjD3ZhY9IKa1UEaCEX
+	blPdraGeNTek68IQ/lfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGxt2-0000000FMkC-0n1t;
-	Thu, 06 Nov 2025 11:10:40 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1vH03w-0000000FZZf-3cbw;
+	Thu, 06 Nov 2025 13:30:04 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGxsz-0000000FMjm-18LL
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Nov 2025 11:10:38 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-640a503fbe8so1374437a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Nov 2025 03:10:36 -0800 (PST)
+	id 1vH03t-0000000FZYH-1u1y;
+	Thu, 06 Nov 2025 13:30:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762427435; x=1763032235; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2HOJE+HVsVq4jDi0RFJp+8lGPaPymLnBxCpDhoqIT6Q=;
-        b=kizcoP8zGRIflvJcGap2uRQtSaELWlEZTZQWlucJu0Vkjsep/LFNx+j/NN59jenMyg
-         gs6vdnWtjh8W5K+/ZIIffVGR7eXLit5FYlMqL8HoGilolSgYbjaENHEw04XT6jZ5zpSh
-         qvmgF8zGBP5PG8hxrTj2PRCzgHEsHzP75USF2RyWatFSFp0pGuKzzPkCKK5e211rzlmZ
-         tkMYUWVgPns70Wjhuzc2vBP8LCfrLwQWRPyoNFhLdvtkzEEAp7ZMHCiOnX/lbqdSvF9y
-         oRloiVk1xA2OyjOyCnc37OCGIGKuK0ExGwFo3sN/+7B+hhUJEY8ldY2IkJKwpztvsJpo
-         R0kA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762427435; x=1763032235;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2HOJE+HVsVq4jDi0RFJp+8lGPaPymLnBxCpDhoqIT6Q=;
-        b=RlmW8c7vnTYsHFEVo4pk1I9FlCCpMfGd0WHOeVUhc61zqpPwDyK1RqRy5Ak+KuLE8l
-         jOyBCHwZ++xEhIJ4chiJroO2tGdAYffyTln1zBg7mCPyKltUgb9PgWKoZYCe2gGIvXAK
-         iAWBlxYlTxWAd5/s7RPsiKLsc2Aj2+lZkMCGQXoNF4vTHqJ40Zpl+tECdRn0B3j7iwSC
-         GJatKWKQNymfiCZ/P+sCkcHIysdbdlQDqR8a7NJKXGYzujUQsHHzKML9K2tIk+X3Ri0/
-         9dn4wJuMlW1C5AhPP8KE2Hxx2zhhTyDAsKfpxkC3RWS7NO4NtKGQENmHOzQ4KGPyJK6m
-         XdBw==
-X-Forwarded-Encrypted: i=1; AJvYcCUNIdwAnErBSiUQ8g/NWPmG0pajmAjXCOfcOcTpoohedS1Q42I7OQbb56TVio1dizhP6zHlNz2WiDi7Vg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLX0IvkesrFKMBcKUClQ98ik/X/k3ycbvTbMuhjT5q23h7NOsd
-	Ips63Qpe10ptT6U88eOqK5aVR8aWBp01QsbmpuQndly/IX+vVg+CEtdg
-X-Gm-Gg: ASbGncsoK6iS3gUvR8zlIjOcNIPW1coeAQ0IN+vCTt/hcizw4HGxs/6b4Bu2UlxKYbG
-	wPNAzdCKsuC7PMArqQuIXFiMB948fawXHKhVvizO1GAX6MlqJ439wbexefQ32Exj4OAQDGO+TW0
-	M/GNvCLcRBpEi60TRyYPFzEyDAd1tujKqrO7LyTXi3OnTyZsYN042dP634oJ09eQPlGgwzR9SdI
-	IWRKZzFqDW4wr0elcirpzC16KX60i/Vglak3/2f1eQBoXrIBafKoCuEtdKmcabLZ79IMkqbmKXV
-	YbTYPZYkxiWMvbVHdA6m1bScR2SuBtH+X+KqzHupDHCTLmB6NsLr5mZ1FpEzFL8r8n02ofJ2ON3
-	aJw7akqmk9HK+pkjkbcA25gSEofCUPd6h7fsXyC2tksHFvvJgGZfZ1WFg86ROnkEm9jNyqj1xsY
-	1k
-X-Google-Smtp-Source: AGHT+IGaxhluR1EdJp1LK95NPfDa80lJF7xKFLk2zAG333TwyEnCysl7N+wlyZkybqLt0nbS4usvag==
-X-Received: by 2002:a05:6402:40c1:b0:63c:2e3:6cb with SMTP id 4fb4d7f45d1cf-64105a578f4mr6255036a12.26.1762427435349;
-        Thu, 06 Nov 2025 03:10:35 -0800 (PST)
-Received: from archie.me ([210.87.74.117])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6411f86e0cesm1578811a12.33.2025.11.06.03.10.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Nov 2025 03:10:34 -0800 (PST)
-Received: by archie.me (Postfix, from userid 1000)
-	id 09CA5420A685; Thu, 06 Nov 2025 18:10:26 +0700 (WIB)
-Date: Thu, 6 Nov 2025 18:10:26 +0700
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-To: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux RISC-V <linux-riscv@lists.infradead.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Subject: Re: [PATCH] MAINTAINERS: Remove Albert Ou from riscv
-Message-ID: <aQyCIoipfejuaONp@archie.me>
-References: <20251031112702.41271-2-bagasdotme@gmail.com>
+	d=linux.alibaba.com; s=default;
+	t=1762435793; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=1kXLXXv2N3VYJNPmf0poJF0RIiMv5kZuy7eqQXCw1X4=;
+	b=Z7jQs5McRR/RUUvFRE7otomvLWt0boJZ1+Pkv1Zam6Qu0BPlEdHaDUEz5VT2wQbz+Pa9GSPt6hWBdiOkvzHtxM1ANuxCAiIOWweja/nFkaqnkjELynDtdUdmpZGWLi+W0dEqDcud7D295t/QKWleRKSZmK6D/mlkA0DJg183jYk=
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WrptGql_1762435791 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 06 Nov 2025 21:29:52 +0800
+From: fangyu.yu@linux.alibaba.com
+To: anup@brainfault.org
+Cc: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	fangyu.yu@linux.alibaba.com,
+	graf@amazon.com,
+	guoren@kernel.org,
+	jiangyifei@huawei.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	pbonzini@redhat.com
+Subject: Re: Re: [PATCH] RISC-V: KVM: Fix guest page fault within HLV* instructions 
+Date: Thu,  6 Nov 2025 21:29:50 +0800
+Message-Id: <20251106132950.80534-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <CAAhSdy0azfC-L3buko7-mN1PDWxi08HN=3NQ+0VeyMR8gVJNoQ@mail.gmail.com>
+References: <CAAhSdy0azfC-L3buko7-mN1PDWxi08HN=3NQ+0VeyMR8gVJNoQ@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20251031112702.41271-2-bagasdotme@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_031037_338974_B646B09A 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20251106_053001_664964_F926B78C 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +71,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0662249653352245857=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+>> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>>
+>> When executing HLV* instructions at the HS mode, a guest page fault
+>> may occur when a g-stage page table migration between triggering the
+>> virtual instruction exception and executing the HLV* instruction.
+>>
+>> This may be a corner case, and one simpler way to handle this is to
+>> re-execute the instruction where the virtual  instruction exception
+>> occurred, and the guest page fault will be automatically handled.
+>>
+>> Fixes: 9f7013265112 ("RISC-V: KVM: Handle MMIO exits for VCPU")
+>> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>> ---
+>>  arch/riscv/kvm/vcpu_insn.c | 21 ++++++++++++++++++---
+>>  1 file changed, 18 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+>> index 97dec18e6989..a8b93aa4d8ec 100644
+>> --- a/arch/riscv/kvm/vcpu_insn.c
+>> +++ b/arch/riscv/kvm/vcpu_insn.c
+>> @@ -448,7 +448,12 @@ int kvm_riscv_vcpu_virtual_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>>                         insn = kvm_riscv_vcpu_unpriv_read(vcpu, true,
+>>                                                           ct->sepc,
+>>                                                           &utrap);
+>> -                       if (utrap.scause) {
+>> +                       switch (utrap.scause) {
+>> +                       case 0:
+>> +                               break;
+>
+>This looks like an unrelated change so drop it or send a separate patch
+>with proper explanation.
+>
+>> +                       case EXC_LOAD_GUEST_PAGE_FAULT:
+>> +                               return KVM_INSN_CONTINUE_SAME_SEPC;
+>
+>The KVM_INSN_xyz enum values are only for functions called via
+>system_opcode_insn() so return 1 over here just like the below
+>default case.
+>
+>Also, add some comments over here about why we are simply
+>continuing the guest.
+>
+>> +                       default:
+>>                                 utrap.sepc = ct->sepc;
+>>                                 kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+>>                                 return 1;
+>> @@ -503,7 +508,12 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>>                  */
+>>                 insn = kvm_riscv_vcpu_unpriv_read(vcpu, true, ct->sepc,
+>>                                                   &utrap);
+>> -               if (utrap.scause) {
+>> +               switch (utrap.scause) {
+>> +               case 0:
+>> +                       break;
+>
+>This looks like an unrelated change so drop it or send a separate patch
+>with proper explanation.
+>
+>> +               case EXC_LOAD_GUEST_PAGE_FAULT:
+>> +                       return KVM_INSN_CONTINUE_SAME_SEPC;
+>
+>Same comment as kvm_riscv_vcpu_virtual_insn().
+>
+>> +               default:
+>>                         /* Redirect trap if we failed to read instruction */
+>>                         utrap.sepc = ct->sepc;
+>>                         kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+>> @@ -629,7 +639,12 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>>                  */
+>>                 insn = kvm_riscv_vcpu_unpriv_read(vcpu, true, ct->sepc,
+>>                                                   &utrap);
+>> -               if (utrap.scause) {
+>> +               switch (utrap.scause) {
+>> +               case 0:
+>> +                       break;
+>
+>This looks like an unrelated change so drop it or send a separate patch
+>with proper explanation.
+>
+>> +               case EXC_LOAD_GUEST_PAGE_FAULT:
+>> +                       return KVM_INSN_CONTINUE_SAME_SEPC;
+>
+>Same comment as kvm_riscv_vcpu_virtual_insn().
+>
+>> +               default:
+>>                         /* Redirect trap if we failed to read instruction */
+>>                         utrap.sepc = ct->sepc;
+>>                         kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+>> --
+>> 2.49.0
+>>
+>>
+>
+>Regards,
+>Anup
 
---===============0662249653352245857==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fZuX68Rtq6BKZVir"
-Content-Disposition: inline
+Hi Anup:
 
+Thanks for the review.
+I will follow your suggestions in the next version.
 
---fZuX68Rtq6BKZVir
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Oct 31, 2025 at 06:27:03PM +0700, Bagas Sanjaya wrote:
-> From: Charlie Jenkins <charlie@rivosinc.com>
->=20
-> Albert is not an active maintainer (he only posted on LKML three times
-> in 2019 [1]) and his inbox rejects all emails. Remove him from the
-> maintainer's list to put an end to everybody who interacts with the
-> riscv linux mailing list from getting spammed with rejection emails.
-=20
-review ping
-
---fZuX68Rtq6BKZVir
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCaQyCHwAKCRD2uYlJVVFO
-o5FvAP4kSjGOvT4bALDy0P/jnLCWzceZqua2ANQSbtHWsEukQQD/YV69wA7u3yzr
-jL/3ST0vq9rRs7f0XoYiCac68VBUMgo=
-=CRee
------END PGP SIGNATURE-----
-
---fZuX68Rtq6BKZVir--
-
-
---===============0662249653352245857==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Fangyu
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0662249653352245857==--
-
