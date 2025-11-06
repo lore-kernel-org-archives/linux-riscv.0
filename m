@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA8BFCCFA05
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 16:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF928CCF9F8
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 16:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NFb4ns+vFlQxUcvbNDUPqjjQx/WZkUkBRCQyErCUtNc=; b=Q85Zy+TKt2vgbO
-	blR021soh8d0z4ANNP21UWYGV/zXGOJd6RYwAyzIgDZl+BRi2+DIkFBg1S+VXABS1PF+YSVSpySVl
-	LB9texA4S+uVi3LaR5Hj/wWGkUBtJIHo9Elc+mp7/XrtEDM2+Tfls73f4MasSkFx0Kd/Q/6UaNMi5
-	RNn+8DCtbWnIB77fMehSm2eAm+8kBUvT55vpwQpkVCK4yJmHuncR5VBJT8wZhCKkAp959BGPihCzV
-	SbTWpowqlddwl+YJv8cYr4MO+555X6+ROzAHQvHJV7ZpeHoxQNNj6rHwoMYhB+Xu412H6YNJuw6uC
-	JmoJ7Hguu9mSyAewvLPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=amPXIEGdMSDj6mu9d8WyvueIZZX0Z9CBKF7OOdXvC7A=; b=TiE61myQJ3zFNW4lEVGKU2hR8e
+	PT0aLs06Q28KTWbHrKVE1f5voqJV3XTMzwyNWy8112JGibmgm374cqUPKJg8hp7gS2AJGyANchXi9
+	zJkd53NscmWTyrAx2l7WonEUDu+98x9t02lP1pDHqMUZxFzCslA4yzD0qLu83H4PX2/jelvrCfhD/
+	jqJs1vDfZo/EKATgKLHudojWIPmgbELr6nXYujLB1T6OcUI2uDR0hi7SU+XG1xRuajrLIuPi7/itz
+	pwEuJ9gRkHGicCy4WZPMgUc+470qR8NDhRCPKm+VtzygEILUmNGvBe2x7+XDyIpnMpjhDmwgjaMP8
+	OFePOHnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2TL-0000000Frsf-0UoX;
-	Thu, 06 Nov 2025 16:04:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vH3HA-0000000FyGn-16hT;
+	Thu, 06 Nov 2025 16:55:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2TJ-0000000FrsP-0wra
+	id 1vH3H7-0000000FyFp-3RPj
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Nov 2025 16:04:25 +0000
+	Thu, 06 Nov 2025 16:55:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C89D618FB;
-	Thu,  6 Nov 2025 16:04:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 538EAC4CEF7;
-	Thu,  6 Nov 2025 16:04:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A3B5A407D2;
+	Thu,  6 Nov 2025 16:55:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D242FC16AAE;
+	Thu,  6 Nov 2025 16:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762445064;
-	bh=tfoWKbGkWGrx1rWAMfcc3SKOmRrWzeEzHpAOZDpTe8I=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=tl+UsoHL0dLcdRgsZplwHi385klqaW7n7/yYYb6A9H2Muht1ffsVvCbaOgNXTMv0U
-	 NOHczlLBQeYAqJS7/t70Hr0hX2LkKZEHRug9Ng+VVofpQP0WyQ+xYN3Jx72XQLAHa7
-	 rKnhPl2XeQfpERi18b6pyW7bEUrPdGbW5fC7EH6DNQBfpfepusxggJ13D0ymPcsA0H
-	 Y+7TYFfud3Hms/f5suhuzcfqLt0cfYRWddg7kYJo0MZbkyDicnBwnLHg+xcUOHvy5j
-	 ZD28MupVCztYJbumhDx/PwfPWRqwH403N4sKrolxico9SCqw+Ms/WHSMC+8gYfSjqB
-	 Bv3EmwPNa2ZSw==
-From: Lee Jones <lee@kernel.org>
-To: Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Alex Elder <elder@riscstar.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-i2c@vger.kernel.org, 
- linux-rtc@vger.kernel.org, kernel test robot <lkp@intel.com>
-In-Reply-To: <20251027-p1-kconfig-fix-v2-1-49688f30bae8@linux.spacemit.com>
-References: <20251027-p1-kconfig-fix-v2-1-49688f30bae8@linux.spacemit.com>
-Subject: Re: (subset) [PATCH v2 1/4] mfd: simple-mfd-i2c: remove select
- I2C_K1
-Message-Id: <176244506110.1925720.10807118665958896958.b4-ty@kernel.org>
-Date: Thu, 06 Nov 2025 16:04:21 +0000
+	s=k20201202; t=1762448152;
+	bh=INKkQZKXRvoEmqr56OZfn85xTxcnjEuZr06CrINjP9U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oCUCqgz9oWWuCpVclbbG53qqmAEteEcTdkFeRqvQroyYKhiHf3z7u6AqdAEi6hrEg
+	 StHrV3mHiauNqRF0X3i2vwoYPNJ1dM7xUNnypZpe2MhYscpZZBmNhbXdl8ntQqtFgT
+	 ZcsTgQ3Ze1UxPoZM1NyfMR4/0obP8BrDDOp5fRmQgLc74/LcwYBYSzeZcXe6TekX0/
+	 ZKp8EcnC4VRfuawjVB7Avwhhzl9v5/YOOfYfFrGllmVe3GgsDaL5oeMx8vbvN0JxmH
+	 jNGYiytGccA8KUOwQp8u6asNv64vsd/JLCLswZKCF5HEOTjK6gFIsfaccRcEe4TjIt
+	 BZY+TPvUm1FWw==
+Date: Thu, 6 Nov 2025 16:55:48 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Alex Elder <elder@riscstar.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	han.xu@nxp.com, dlan@gentoo.org, Frank.li@nxp.com,
+	guodong@riscstar.com, devicetree@vger.kernel.org,
+	linux-spi@vger.kernel.org, imx@lists.linux.dev,
+	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 1/9] dt-bindings: spi: fsl-qspi: support SpacemiT K1
+Message-ID: <aQzTFODaYaevp0v-@finisterre.sirena.org.uk>
+References: <20251027133008.360237-1-elder@riscstar.com>
+ <20251027133008.360237-2-elder@riscstar.com>
 MIME-Version: 1.0
-X-Mailer: b4 0.15-dev-52d38
+In-Reply-To: <20251027133008.360237-2-elder@riscstar.com>
+X-Cookie: If in doubt, mumble.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251106_085553_874987_1C7F03E2 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,21 +73,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3051681846709851974=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyNyBPY3QgMjAyNSAxMzo0ODowNSArMDgwMCwgVHJveSBNaXRjaGVsbCB3cm90ZToK
-PiBzZWxlY3Qgd2lsbCBmb3JjZSBhIHN5bWJvbCB0byBhIHNwZWNpZmljIHZhbHVlIHdpdGhvdXQg
-Y29uc2lkZXJpbmcKPiBpdHMgZGVwZW5kZW5jaWVzLiBBcyBhIHJlc3VsdCwgdGhlIGkyYy1rMSBk
-cml2ZXIgd2lsbCBmYWlsIHRvIGJ1aWxkCj4gd2hlbiBPRiBvciBDT01NT05fQ0xLIGFyZSBkaXNh
-YmxlZC4KPiAKPiBUaGUgcmVhc29uIGZvciByZW1vdmluZyBJMkNfSzEgaW5zdGVhZCBvZiBhZGRp
-bmcgYSBkZXBlbmRzIG9uIGNvbmRpdGlvbgo+IGlzIHRvIGtlZXAgdGhlIHBvc3NpYmlsaXR5IGZv
-ciBvdGhlciBTb0NzIHRvIHVzZSB0aGlzIFBNSUMuCj4gCj4gWy4uLl0KCkFwcGxpZWQsIHRoYW5r
-cyEKClsxLzRdIG1mZDogc2ltcGxlLW1mZC1pMmM6IHJlbW92ZSBzZWxlY3QgSTJDX0sxCiAgICAg
-IGNvbW1pdDogZWNmNmJjNDc0YWU5N2M0MDRlMjEyNWI0MTNlYjBlZjM2MjdiMDNjNQoKLS0KTGVl
-IEpvbmVzIFvmnY7nkLzmlq9dCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+
+--===============3051681846709851974==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2o85NyMik87PQrJf"
+Content-Disposition: inline
+
+
+--2o85NyMik87PQrJf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Mon, Oct 27, 2025 at 08:29:59AM -0500, Alex Elder wrote:
+> Add the SpacemiT K1 SoC QSPI IP to the list of supported hardware.  This
+> is the first non-Freescale device represented here.  It has a nearly
+> identidal register set, and this binding correctly describes the hardware.
+
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
+
+--2o85NyMik87PQrJf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkM0xMACgkQJNaLcl1U
+h9C9ygf/asts4SaYlQ8kFs/PjZGM6Z5eh7AXfCSNgZMDEWxBB50XugwxeAM3zXmv
+NQsKsvHvhBmKGsZFerQcA273D6wh2mzw+Y95N69tHKfokmk8NE5UF3uCgv/HUwNM
+oRx/E5weS5meAoTeuCrkvduSTnoBimeYrJtzV4IvvrgbbMBQ+9fpBn70yAk30p1N
+9wCaF/aVNynUW0Cclof9tFQ4RckouUEKdkuvt9CXV8bGpZdNevCV4J7RVoFN/Njs
+Bui0PLDSesJmuRMyOSUVATZDqzG9Qf9baMUB2hptWaXlHVcXaOc8nLyfwPoYOR/c
+yNI0CT15fzoNFqlhEecigMQfInXKhQ==
+=d0As
+-----END PGP SIGNATURE-----
+
+--2o85NyMik87PQrJf--
+
+
+--===============3051681846709851974==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3051681846709851974==--
+
