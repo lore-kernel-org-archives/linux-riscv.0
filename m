@@ -4,75 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C84ECCFA05
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 18:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 420BACCFA13
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Nov 2025 22:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZD4ISt4deh8DpSTQngypcxN/kB46WQ3ALCAebJRo9oI=; b=AQbcSriCL7dK15
-	QCpnvgEojuY53KfKf43Nyin/4oebXvwKJ9jPdSX/Yqur8dLkhTthEFsxSbxwRX51YMbyx1HgJ6iCn
-	RMYfr6lYfZpruv+5ZCuOaP7qi6INLqSo9UK0qKKevhezJ6sGFoyAaR4veq9FyOXjn4w4ekkDixfmM
-	iGqwDipdwhuquVqIw9+5SoVPpao6Mqqj/HwCM1jnc1r6sGwf3ebzJ6h0mPPWDZhluDi+/WVG77atK
-	QYxz+ceHeKCvw4i8euB7JMdrDZVdQjw0NAcOVS7TA3S+Mt9Xu5BnmXwwsw5regG0I+LIg3tcCKM5u
-	lY6NBe68ReyHJ2mnMP7A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dEBth/ARvrbwDTKMg16hKJrE0DwbMNmsniG0mHODO5w=; b=XFtan+QhLG103k
+	sfPPjy9T0ORiOvlP79usyn7jJdXB3udcEMO3ywQNoepPzazfnkIuAbyeKaSIHafhh3d0083eAccYA
+	30omjqv6SYkZ/eAq9X1VeNNzAYg8xG3vd5wlm6snFr5WFbdWPUGu44qp6zIiUCV/2ti/QWdXAjrvn
+	JrBIrU2d5p6jzWwLe5yhxO3tQeF3PNO2izQguyYFCBrzovBS4dJkmL17Nl24XXzn0BK7g1tI9ETmB
+	3GI0CDyT1MPOy9mj1r9Vqlv0qju+f5UV968eqwwwYMKMBEzrtn8Z0xrbQbGGiZtZHhMxlOzhwGKnm
+	DPBOAzouQ5G1P/183uRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH4Xz-0000000G5Hc-05zf;
-	Thu, 06 Nov 2025 18:17:23 +0000
-Received: from hall.slaac.aurel32.net ([2001:bc8:6005:130:208:a2ff:fe0c:6b66] helo=hall.aurel32.net)
+	id 1vH8Wk-0000000GJMl-0QqO;
+	Thu, 06 Nov 2025 22:32:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH4Xw-0000000G5Gv-0AEN
+	id 1vH8Wi-0000000GJMI-0Cvt
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Nov 2025 18:17:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=yhLVE3WqZbAmQWYaSUimEUdVgYXmhd0JHFmuEZay51c=; b=ZZI0A6klrxnPS3iH/iWsrA5fcU
-	7l9gA6gmjDcNasJU8yz9uC8yg3bNDHlddwR9KeRWYBkOHZFsgjB2F6vkuozYVfP3E2j/QxiP8RV0L
-	VvWn7mNNC5q0Q48cV7SG9Wdgv4iZyKm/vWu6hl6NUggsGGEBjdi3uc7YcaOCkDeQCxccgiCvL13aT
-	lfAiWCGeNayXGM6a3TDKTLReKWlMDJteGbcDGV5mCwlKAc90pFRbItc25Opub21yAbfK4aL9F4wLH
-	p85GWTscZzTmZwIlv6jvGSfuLyokHbF1HhzSA1NWnm3aTviYwSGhZasg1wF5mCMvr5uQrVYPLLxqC
-	xxx0aEhg==;
-Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
-	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1vH4Xc-0000000BmAz-2u8W;
-	Thu, 06 Nov 2025 19:17:00 +0100
-Date: Thu, 6 Nov 2025 19:17:00 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Alex Elder <elder@riscstar.com>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Troy Mitchell <troymitchell988@gmail.com>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH] i2c: spacemit: fix detect issue
-Message-ID: <aQzmHB2FaPFS4qwj@aurel32.net>
-Mail-Followup-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Alex Elder <elder@riscstar.com>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Troy Mitchell <troymitchell988@gmail.com>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-References: <20251103-fix-k1-detect-failure-v1-1-bb07a8d7de7c@linux.spacemit.com>
- <aQvTMM0S16gOdiAN@aurel32.net>
- <12878F9DA586AA19+aQv0bKwLTzw_kJOq@kernel.org>
- <aQwzYrmv5TAIuqTh@aurel32.net>
- <0E2B2679F0650AE1+aQw0VgKNbcFqDH33@kernel.org>
+	Thu, 06 Nov 2025 22:32:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C54542B5E
+	for <linux-riscv@lists.infradead.org>; Thu,  6 Nov 2025 22:32:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FCE2C4CEFB
+	for <linux-riscv@lists.infradead.org>; Thu,  6 Nov 2025 22:32:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762468338;
+	bh=VShSn6kWZFBITeLgqELgWHlGDI5Q/Af5tn7BnrLp9+M=;
+	h=Date:From:To:Subject:From;
+	b=tZKGoCYeyHw3jTmb/W2LXsd8Pav1LvPINNSNamPzzZ+eiZe112z914mAFRQn5kQAe
+	 Oyw8B+nIyLvgGBUCUo9uwXb+uYqsURQ0TdeXmmAXt2Zxs4/14EmNWpXcdz9JZwsSxe
+	 4SsXrGWhyTVCghMIy2HFboPYSXuvKj6zQxzyLuXFQP4H6or2BTUCNzy4NkTm8mjQuu
+	 25H4U20ia7kMNy9RREmLrXVqoDJPTDXwyr7FTKfPFw8AMkci7JkuqMWnsUQbLnUS2W
+	 z+TA7+siDOorM5n8BBHJaWbamzcJQNcZ0z5lfKrZCYYj7vZa2BSK0wpc/b8LKKgtjc
+	 2BchBXNkAgtnw==
+Date: Thu, 6 Nov 2025 15:32:07 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V fixes for v6.18-rc5
+Message-ID: <43d7b921-8102-0a80-c9bc-3ee1899cfe59@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0E2B2679F0650AE1+aQw0VgKNbcFqDH33@kernel.org>
-User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_101720_510414_997B043C 
-X-CRM114-Status: GOOD (  28.75  )
+X-CRM114-CacheID: sfid-20251106_143220_137434_99A4C588 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,78 +67,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Linus,
 
-On 2025-11-06 13:38, Troy Mitchell wrote:
-> On Thu, Nov 06, 2025 at 06:34:26AM +0100, Aurelien Jarno wrote:
-> > Hi,
-> > 
-> > On 2025-11-06 09:05, Troy Mitchell wrote:
-> > > On Wed, Nov 05, 2025 at 11:44:00PM +0100, Aurelien Jarno wrote:
-> > > > Hi,
-> > > > 
-> > > > On 2025-11-03 15:06, Troy Mitchell wrote:
-> > > [...]
-> > > > >  	if (i2c->status & (SPACEMIT_SR_BED | SPACEMIT_SR_ALD)) {
-> > > > >  		spacemit_i2c_reset(i2c);
-> > > > > -		return -EAGAIN;
-> > > > > +		if (i2c->status & SPACEMIT_SR_ALD)
-> > > > > +			return -EAGAIN;
-> > > > >  	}
-> > > > 
-> > > > This makes the resulting code, while correct, complex to understand as 
-> > > > it is now two really different errors, as you explained well in the 
-> > > > commit message.
-> > > > 
-> > > > I therefore suggest to organize the code as:
-> > > > 
-> > > > 	/* Arbitration Loss Detected */
-> > > > 	if (i2c->status & SPACEMIT_SR_ALD) {
-> > > > 		spacemit_i2c_reset(i2c);
-> > > > 		return -EAGAIN;
-> > > > 	}
-> > > > 
-> > > > 	/* Bus Error No ACK/NAK */
-> > > > 	if (i2c->status & SPACEMIT_SR_BED) {
-> > > > 		spacemit_i2c_reset(i2c);
-> > > > 	}
-> > > Thanks. I'll fix it in the next version.
-> > > > 
-> > > > 
-> > > > >  	return i2c->status & SPACEMIT_SR_ACKNAK ? -ENXIO : -EIO;
-> > > > > @@ -491,6 +492,8 @@ static int spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, in
-> > > > >  
-> > > > >  	spacemit_i2c_init(i2c);
-> > > > >  
-> > > > > +	spacemit_i2c_clear_int_status(i2c, SPACEMIT_I2C_INT_STATUS_MASK);
-> > > > > +
-> > > > 
-> > > > This sounds good to start the transfer with a clean interrupt state. I 
-> > > > just wonder if it should be moved to spacemit_i2c_init(), ie where the 
-> > > > corresponding interrupts are enabled.
-> > > Uh, We can move it actually. But is it essentail?
-> > 
-> > For me ensuring that the interrupt status is in a clean state after 
-> > enabling the interrupt is part of the initialization.
-> Yes, I agree that.
-> > Furthermore if 
-> > spacemit_i2c_init() has to be called from another place, it's very 
-> > likely that it's also needed to get interrupt status in a clean state.
-> Why we need to call init() in other place?
-> Could you give me a cese?
+The following changes since commit dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa:
 
-Currently there is no need to do that. However if the driver is extended 
-(e.g. to add new features) and spacemit_i2c_init() needs to be called 
-from another place, it is likely that a reset of the interrupt status 
-should also be included. Therefore it's better to just include it 
-directly in spacemit_i2c_init().
+  Linux 6.18-rc3 (2025-10-26 15:59:49 -0700)
 
-Regards
-Aurelien
+are available in the Git repository at:
 
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.18-rc5
+
+for you to fetch changes up to 2e448567839c65768486d56612c88cb327d26050:
+
+  cpuidle: riscv-sbi: Replace deprecated strcpy in sbi_cpuidle_init_cpu (2025-10-27 23:38:13 -0600)
+
+----------------------------------------------------------------
+RISC-V updates for v6.18-rc5
+
+Some RISC-V updates for v6.18-rc5, including:
+
+- A fix to disable KASAN checks while walking a non-current task's
+  stackframe (following x86)
+
+- A fix for a kvrealloc()-related memory leak in
+  module_frob_arch_sections()
+
+- Two replacements of strcpy() with strscpy()
+
+- A change to use the RISC-V .insn assembler directive when possible
+  to assemble instructions from hex opcodes
+
+- Some low-impact fixes in the ptdump code and kprobes test code
+
+----------------------------------------------------------------
+Ben Dooks (1):
+      riscv: asm: use .insn for making custom instructions
+
+Chunyan Zhang (1):
+      riscv: stacktrace: Disable KASAN checks for non-current tasks
+
+Josephine Pfeiffer (1):
+      riscv: ptdump: use seq_puts() in pt_dump_seq_puts() macro
+
+Miaoqian Lin (1):
+      riscv: Fix memory leak in module_frob_arch_sections()
+
+Thorsten Blum (2):
+      riscv: KGDB: Replace deprecated strcpy in kgdb_arch_handle_qxfer_pkt
+      cpuidle: riscv-sbi: Replace deprecated strcpy in sbi_cpuidle_init_cpu
+
+Vivian Wang (2):
+      riscv: tests: Rename kprobes_test_riscv to kprobes_riscv
+      riscv: tests: Make RISCV_KPROBES_KUNIT tristate
+
+ arch/riscv/include/asm/asm.h                    |  6 ++++++
+ arch/riscv/include/asm/insn-def.h               |  8 ++++----
+ arch/riscv/include/asm/vendor_extensions/mips.h |  6 +++---
+ arch/riscv/kernel/kgdb.c                        |  4 ++--
+ arch/riscv/kernel/module-sections.c             |  8 ++++++--
+ arch/riscv/kernel/stacktrace.c                  | 21 +++++++++++++++++++--
+ arch/riscv/kernel/tests/Kconfig.debug           |  2 +-
+ arch/riscv/kernel/tests/kprobes/Makefile        |  4 +++-
+ arch/riscv/kernel/tests/kprobes/test-kprobes.c  |  5 ++++-
+ arch/riscv/mm/ptdump.c                          |  2 +-
+ drivers/cpuidle/cpuidle-riscv-sbi.c             |  5 +++--
+ 11 files changed, 52 insertions(+), 19 deletions(-)
+
+vmlinux size differences in bytes (from v6.18-rc3):
+
+ text  data bss    dec   hex filename                             
+ -112   +64   .    -48   -30 vmlinux.defconfig.gcc-15             
+ -104   +64   .    -40   -28 vmlinux.nosmp_defconfig.gcc-15       
+ -112  +160   .    +48   +30 vmlinux.rv32_defconfig.gcc-15        
+  +32   +96   .   +128   +80 vmlinux.rv32_nosmp_defconfig.gcc-15  
+  +24   +64   .    +88   +58 vmlinux.nommu_virt_defconfig.gcc-15  
+  +32   +96   .   +128   +80 vmlinux.defconfig.clang-20           
+  +24   +96   .   +120   +78 vmlinux.nosmp_defconfig.clang-20     
+  +40   +96   .   +136   +88 vmlinux.rv32_defconfig.clang-20      
+  +32  +160   .   +192   +c0 vmlinux.rv32_nosmp_defconfig.clang-20
+   +8   +64   .    +72   +48 vmlinux.nommu_virt_defconfig.clang-20
+ -112  +128   .    +16   +10 vmlinux.defconfig.gcc-14             
+ -104   +64   .    -40   -28 vmlinux.nosmp_defconfig.gcc-14       
+ -104   +96   .     -8    -8 vmlinux.rv32_defconfig.gcc-14        
+  +24  +160   .   +184   +b8 vmlinux.rv32_nosmp_defconfig.gcc-14  
+  +24   +64   .    +88   +58 vmlinux.nommu_virt_defconfig.gcc-14  
+  +36  +128   .   +164   +a4 vmlinux.defconfig.clang-19           
+  +40   +96   .   +136   +88 vmlinux.nosmp_defconfig.clang-19     
+  +40   +96   .   +136   +88 vmlinux.rv32_defconfig.clang-19      
+  +48  +128   .   +176   +b0 vmlinux.rv32_nosmp_defconfig.clang-19
+  +16     .   .    +16   +10 vmlinux.nommu_virt_defconfig.clang-19
+    .     .   .      .     . vmlinux.allnoconfig.gcc-14           
+-5937 -4656   . -10593 -2961 vmlinux.allmodconfig.gcc-14          
 
 _______________________________________________
 linux-riscv mailing list
