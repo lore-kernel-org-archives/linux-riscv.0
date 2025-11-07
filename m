@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 387AACCF9F8
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Nov 2025 17:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939FDCCF9F8
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Nov 2025 17:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1vpO3rtcCzlN6/UGyy3gMD9yIIx4szXKOWDERZv8a0=; b=0CY1LnRTLjOE+O5h2YjwfDfKkK
-	mUYi5X3+Gwuug6CIq/9mkllHjKdhPH24cQ9BbpR8cQTx5v5DJO85zooPN4aQwlvOmeCzw6Ql9pg1Z
-	JTmYeeMMOWT7m/zT1fIrZ0LRSWh+IepG/rygWAfWu/p3gT3TzqvK3/YQPFjkCgmN2t3pes+ZRt2+D
-	x2lp5UA9ZTv6GXEGs8AcU5x4IL3kG+BIiZCfVDQr9hzrPw06W4BLWQdSlNqlzbzOm9+8GZsEqyRoO
-	RRrl6g9ex04bUQ0ovJvZ82lhcjeaBfl5RIqLGFK2FFpIiD/aUmwQyqeoOwCYJoi+p8ThedqFSNLG+
-	ZTKUxFqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aXhJRQ7ZLppQUO8zwJiQt9jzTyXKVhhqzHvv2sJ3EH4=; b=GbThee9uU7Inph
+	lM/RYS8rub2PjrSRrZ0Tn1hBMf8lyUXnANZ7m58dCLoH/CEb6GJA4L/hJO/qff/HbbanXrnyGMSLj
+	NBtL1rbHy71P0HJx7mc8axlu1ov65aYbN4vYsG10CMfgZ5C+6qLH+X0CWKY8+tT6YyAAbhNNeTt1t
+	4miNffVpOBGj4C8jfKkzxhfHVjXNa9YMEUbf5f9+aYH0LnU8c3n33audAXPHeJaYNkN6hw8wQ0sWT
+	V+CEKicVKX5hDDVwUCvERJGOX23kcHTETbXGZIkgwyiuBvf3hEu2o4AVD6nr2UTlKWU8Z5/+04Ynt
+	fiq+rMFxv/uCCXWiJCXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHQ8R-00000000EZz-2CM6;
-	Fri, 07 Nov 2025 17:20:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vHQVa-00000000Jz1-3Txe;
+	Fri, 07 Nov 2025 17:44:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHQ8Q-00000000EZg-1ZqF
-	for linux-riscv@lists.infradead.org;
-	Fri, 07 Nov 2025 17:20:26 +0000
+	id 1vHQVY-00000000Jye-3wpx;
+	Fri, 07 Nov 2025 17:44:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 852B061913;
-	Fri,  7 Nov 2025 17:20:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8F5DC4CEF7;
-	Fri,  7 Nov 2025 17:20:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0AC426191C;
+	Fri,  7 Nov 2025 17:44:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C74EC4CEF8;
+	Fri,  7 Nov 2025 17:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762536025;
-	bh=oxDwYCkrdj5zrZ8eK9rx/ixf+coTfobB+mmKr0plunM=;
+	s=k20201202; t=1762537459;
+	bh=vUXVxSlqnlNC2tbqdDtNDX2ebfN1pxrOSHo7fEAw12Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H5DqYg68rq3zVGZMHb1G+n9EpqbvDQKJrpFVNHiVJLLFbZ5pY6AViB9hzMd9VqC5M
-	 mGKjRFnWZnyQf3T+SFj/OvyzEJ8mg297kyCDFXE8zqDRflD3BtHcB9pBRu9hxSBaOr
-	 pHXELra7/krwGXctjJ24pwXMVHH+dquYdiHz56qvXcVCJQhbVCxGqNnlFaBZ/EItv7
-	 DWCCMZrrJnLsBlmLOUdloFLYrlZ5bzI+xKmCmxRnQeEsPMZPlfpEBGYLMliTYsQVI8
-	 NNolAV9+5w7V/+MtAMJ8LA6bjUaFChAq1Lk/AtvtxGz+llwFdFOxuOBd0wZKT3M1T4
-	 t1NH4Y2MCHWAA==
-Date: Fri, 7 Nov 2025 17:20:19 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: E Shattow <e@freeshell.de>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	b=nPyiuHMehYfo3g71SbYqe2NgLFsFFVMXj4vT7odT8obZ75hR69ps6sjFs7W80FROW
+	 hsZ6pFPi88FRX2UD5Cm6+HC771R2+6brdPgwss1tTPliJYG2gsSBF458IPzk2biX4F
+	 RNucbaE7viPNG0fA44kswLaF1vDw1xdcVm24mb9XAzFuUudPzZP2zjF7PkN8uRFPi3
+	 v/mOgSdMqYEV8CsIQEdTu+nRG2wJjym0S+q1IPuIpdL1evYiCtDNkU1SRaMYdZVVx9
+	 XorcU2JIf9Jvp9EVNM6QQghP36vq0hw9+ssncfOeRNtG4AI3En7iA7OjYAWpfAG3M0
+	 mh5MCTsRK1scA==
+Date: Fri, 7 Nov 2025 09:44:17 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: Re: [PATCH v2 0/8] Add support for StarFive VisionFive 2 Lite board
-Message-ID: <20251107-frenzy-cloning-4b279cfe932c@spud>
-References: <20251107095530.114775-1-hal.feng@starfivetech.com>
- <c05d8bcc-3024-45cd-8630-b0595682e778@freeshell.de>
- <6d0fb6aa-6d88-4069-a5e5-9e910523888e@canonical.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Adrien Ricciardi <aricciardi@baylibre.com>,
+	James Morse <james.morse@arm.com>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Vasudevan Srinivasan <vasu@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>, guo.wenjia23@zte.com.cn,
+	liu.qingtao2@zte.com.cn, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv <linux-riscv-bounces@lists.infradead.org>
+Subject: Re: [PATCH v4 3/3] RISC-V: Add support for srmcfg CSR from Ssqosid
+ ext
+Message-ID: <aQ4v8QhQjRYrxNK3@x1>
+References: <20251007-ssqosid-v4-0-e8b57e59d812@kernel.org>
+ <20251007-ssqosid-v4-3-e8b57e59d812@kernel.org>
+ <DDDL94HT7HYF.3VU2WQYU4WZY5@ventanamicro.com>
+ <aOqjggmTr4ioHwB/@x1>
+ <DDH2Q0N2HLKF.2QSW4DB5FTJI6@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <6d0fb6aa-6d88-4069-a5e5-9e910523888e@canonical.com>
+Content-Disposition: inline
+In-Reply-To: <DDH2Q0N2HLKF.2QSW4DB5FTJI6@ventanamicro.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,186 +82,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5788802025745887042=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5788802025745887042==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="98XJ8Lpr/rFGdbIm"
-Content-Disposition: inline
-
-
---98XJ8Lpr/rFGdbIm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Nov 07, 2025 at 12:21:46PM +0100, Heinrich Schuchardt wrote:
-> On 11/7/25 12:11, E Shattow wrote:
-> >=20
-> >=20
-> > On 11/7/25 01:55, Hal Feng wrote:
-> > > VisionFive 2 Lite is a mini SBC based on the StarFive JH7110S industr=
-ial
-> > > SoC which can run at -40~85 degrees centigrade and up to 1.25GHz.
-> > >=20
-> > > Board features:
-> > > - JH7110S SoC
-> > > - 4/8 GiB LPDDR4 DRAM
-> > > - AXP15060 PMIC
-> > > - 40 pin GPIO header
-> > > - 1x USB 3.0 host port
-> > > - 3x USB 2.0 host port
-> > > - 1x M.2 M-Key (size: 2242)
-> > > - 1x MicroSD slot (optional non-removable 64GiB eMMC)
-> > > - 1x QSPI Flash
-> > > - 1x I2C EEPROM
-> > > - 1x 1Gbps Ethernet port
-> > > - SDIO-based Wi-Fi & UART-based Bluetooth
-> > > - 1x HDMI port
-> > > - 1x 2-lane DSI
-> > > - 1x 2-lane CSI
-> > >=20
-> > > VisionFive 2 Lite schematics: https://doc-en.rvspace.org/VisionFive2L=
-ite/PDF/VF2_LITE_V1.10_TF_20250818_SCH.pdf
-> > > VisionFive 2 Lite Quick Start Guide: https://doc-en.rvspace.org/Visio=
-nFive2Lite/VisionFive2LiteQSG/index.html
-> > > More documents: https://doc-en.rvspace.org/Doc_Center/visionfive_2_li=
-te.html
-> > >=20
-> > > Changes since v1:
-> > > - Drop patch 1 because it is applied.
-> > > - Rename jh7110.dtsi to jh711x.dtsi.
-> > > - Move the content of jh7110-common.dtsi to the new file
-> > >    jh711x-common.dtsi and move opp table to jh7110-common.dtsi.
-> > > patch 4:
-> > > - Move the uncommon nodes to jh7110-common.dtsi instead of board dts.
-> > > patch 5:
-> > > - Add jh7110s-common.dtsi and include it in jh7110s-starfive-visionfi=
-ve-2-lite.dtsi.
-> > >=20
-> > > Changes since RFC:
-> > > - Add jh7110s compatible to the generic cpufreq driver.
-> > > - Fix the dtbs_check error by adding the missing "enable-gpios" prope=
-rty
-> > >    in jh7110 pcie dt-bindings.
-> > > - Rebase on the latest mainline.
-> > > - Add VisionFive 2 Lite eMMC board device tree and add a common board=
- dtsi
-> > >    for VisionFive 2 Lite variants.
-> > > - Add usb switch pin configuration (GPIO62).
-> > > - Improve the commit messages.
-> > >=20
-> > > History:
-> > > v1: https://lore.kernel.org/all/20251016080054.12484-1-hal.feng@starf=
-ivetech.com/
-> > > RFC: https://lore.kernel.org/all/20250821100930.71404-1-hal.feng@star=
-fivetech.com/
-> > >=20
-> > > Hal Feng (8):
-> > >    dt-bindings: PCI: starfive,jh7110-pcie: Add enable-gpios property
-> > >    dt-bindings: riscv: Add StarFive JH7110S SoC and VisionFive 2 Lite
-> > >      board
-> > >    riscv: dts: starfive: Rename jh7110.dtsi to jh711x.dtsi
-> > >    riscv: dts: starfive: Split jh7110-common.dtsi and move opp table =
-to
-> > >      it
-> > >    riscv: dts: starfive: jh711x-common: Move out some nodes to jh7110
-> > >      common dtsi
-> > >    riscv: dts: starfive: Add common board dtsi for JH7110s and Vision=
-Five
-> > >      2 Lite variants
-> > >    riscv: dts: starfive: Add VisionFive 2 Lite board device tree
-> > >    riscv: dts: starfive: Add VisionFive 2 Lite eMMC board device tree
-> > >=20
-> > >   .../bindings/pci/starfive,jh7110-pcie.yaml    |   4 +
-> > >   .../devicetree/bindings/riscv/starfive.yaml   |   6 +
-> > >   arch/riscv/boot/dts/starfive/Makefile         |   3 +
-> > >   .../boot/dts/starfive/jh7110-common.dtsi      | 653 +--------------=
---
-> > >   .../boot/dts/starfive/jh7110s-common.dtsi     |  27 +
-> > >   ...h7110s-starfive-visionfive-2-lite-emmc.dts |  22 +
-> > >   .../jh7110s-starfive-visionfive-2-lite.dts    |  20 +
-> > >   .../jh7110s-starfive-visionfive-2-lite.dtsi   | 126 ++++
-> > >   .../boot/dts/starfive/jh711x-common.dtsi      | 656 +++++++++++++++=
-+++
-> > >   .../dts/starfive/{jh7110.dtsi =3D> jh711x.dtsi} |  16 -
-> > >   10 files changed, 879 insertions(+), 654 deletions(-)
-> > >   create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-common.dtsi
-> > >   create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-starfive-vi=
-sionfive-2-lite-emmc.dts
-> > >   create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-starfive-vi=
-sionfive-2-lite.dts
-> > >   create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-starfive-vi=
-sionfive-2-lite.dtsi
-> > >   create mode 100644 arch/riscv/boot/dts/starfive/jh711x-common.dtsi
-> > >   rename arch/riscv/boot/dts/starfive/{jh7110.dtsi =3D> jh711x.dtsi} =
-(99%)
-> > >=20
-> > >=20
-> > > base-commit: df5d79720b152e7ff058f11ed7e88d5b5c8d2a0c
-> >=20
-> > Small nit that "lite-emmc" is confusing together. In patches to U-Boot
-> > dev mailing list the EEPROM product id is demonstrated to be with "SL"
-> > suffix when compared to VisionFive 2 (JH7110) so I suggest avoid
-> > confusion in upstream and use for VisionFive 2 Lite (JH7110S) these
-> > compatible names:
-> >=20
-> > starfive,visionfive-2sl-lite
-> > starfive,visionfive-2sl-emmc
-> >=20
-> > Also filenames:
-> >=20
-> > jh7110s-starfive-visionfive-2sl-lite.dts
-> > jh7110s-starfive-visionfive-2sl.dtsi
-> > jh7110s-starfive-visionfive-2sl-emmc.dts
-> >=20
-> > What do you think?
-> >=20
->=20
-> This is a serial number for the Lite board:
-> VF7110SL-2310-D002E000-xxxxxxxx
->=20
-> Here E000 encodes that we have no eMMC.
->=20
-> The S is part of 7110S which we already have in 'jh7110s'. And the L is
-> already decoded as 'lite' in this patch series. Duplicating this informat=
-ion
-> as 'sl' as you suggested provides no benefit.
->=20
-> Let's just stick with Hal's suggestion.
-
-The marketing materials etc call it the visionfive 2 lite, for example
-on kickstarter: https://www.kickstarter.com/projects/starfive/visionfive-2-=
-lite-unlock-risc-v-sbc-at-199
-I'm happy enough with what Hal has here as a result.
-
---98XJ8Lpr/rFGdbIm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQ4qUwAKCRB4tDGHoIJi
-0syIAQD+Er+PMhGz0kEbUyrWG+rkw0VQZymPYFA4k1wpI8zTpQD/c/7P+rG/2fm/
-YoL8btigKOHdPBIBOGqtNCtKrN3/QAI=
-=NTsO
------END PGP SIGNATURE-----
-
---98XJ8Lpr/rFGdbIm--
-
-
---===============5788802025745887042==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5788802025745887042==--
-
+T24gTW9uLCBPY3QgMTMsIDIwMjUgYXQgMTE6MDY6NTBBTSArMDIwMCwgUmFkaW0gS3LEjW3DocWZ
+IHdyb3RlOgo+IDIwMjUtMTAtMTFUMTE6MzU6NDYtMDc6MDAsIERyZXcgRnVzdGluaSA8ZnVzdGlu
+aUBrZXJuZWwub3JnPjoKPiA+IE9uIFRodSwgT2N0IDA5LCAyMDI1IGF0IDA4OjQ3OjI3QU0gKzAy
+MDAsIFJhZGltIEtyxI1tw6HFmSB3cm90ZToKPiA+PiAyMDI1LTEwLTA3VDIzOjIxOjEyLTA3OjAw
+LCBEcmV3IEZ1c3RpbmkgPGZ1c3RpbmlAa2VybmVsLm9yZz46Cj4gPj4gPiBkaWZmIC0tZ2l0IGEv
+YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9xb3MuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcW9z
+LmgKPiA+PiA+ICtzdGF0aWMgaW5saW5lIHZvaWQgX19zd2l0Y2hfdG9fc3JtY2ZnKHN0cnVjdCB0
+YXNrX3N0cnVjdCAqbmV4dCkKPiA+PiA+ICt7Cj4gPj4gPiArCXUzMiAqY3B1X3NybWNmZ19wdHIg
+PSB0aGlzX2NwdV9wdHIoJmNwdV9zcm1jZmcpOwo+ID4+ID4gKwl1MzIgdGhyZWFkX3NybWNmZzsK
+PiA+PiA+ICsKPiA+PiA+ICsJdGhyZWFkX3NybWNmZyA9IFJFQURfT05DRShuZXh0LT50aHJlYWQu
+c3JtY2ZnKTsKPiA+PiA+ICsKPiA+PiA+ICsJaWYgKHRocmVhZF9zcm1jZmcgIT0gKmNwdV9zcm1j
+ZmdfcHRyKSB7Cj4gPj4gCj4gPj4gV291bGRuJ3QgcHJldi0+dGhyZWFkLnNybWNmZyBoYXZlIHRo
+ZSB2YWx1ZSBvZiBDU1JfU1JNQ0ZHIHdoZW4gZXhlY3V0aW5nCj4gPj4gc3dpdGNoX3RvPwo+ID4K
+PiA+IFRoYW5rcyBmb3IgcmV2aWV3aW5nLiBZZXMsIHlvdSBhcmUgcmlnaHQgdGhhdCBwcmV2LT50
+aHJlYWQuc3JtY2ZnIHNob3VsZAo+ID4gaGF2ZSBzYW1lIHZhbHVlIGFzIENTUl9TUk1DRkcuIEFy
+ZSB5b3Ugc3VnZ2VzdGluZyB0aGF0IHRoZSBjcHVfc3JtY2ZnIGlzCj4gPiBub3QgbmVjZXNzYXJ5
+IGFzIHByZXYtPnRocmVhZC5zcm1jZmcgc2hvdWxkIGhhdmUgc2FtZSB2YWx1ZT8KPiAKPiBZZXMs
+IGl0IHdvdWxkIGJlIG1vcmUgY29uc2lzdGVudCB3aXRoIG90aGVyIGNvbnRleHQgc3dpdGNoZWQg
+c3RhdGUuCj4gSSBqdXN0IHdhc24ndCBzdXJlIGlmIHNybWNmZyBkb2Vzbid0IGhhdmUgc3BlY2lh
+bCByYWNlIGNvbmRpdGlvbnMuCgpJIGRpZCBzb21lIHRlc3RpbmcgYW5kIHRoZSBwZXItY3B1IGNh
+Y2hlIG9mIENTUl9TUk1DRkcgaXMgbmVlZGVkLiBUaGlzCmlzIGJlY2F1c2UgdGhyZWFkLnNybWNm
+ZyBpcyBjaGFuZ2VkIGFzeW5jaHJvbm91c2x5IGZyb20gd2hlbiBDU1JfU1JNQ0ZHCmlzIHVwZGF0
+ZWQgaW4gX19zd2l0Y2hfdG9fc3JtY2ZnLgoKVGhlIHNybWNmZyB2YWx1ZSBmb3IgYSB0aHJlYWQg
+aXMgdXBkYXRlZCB3aGVuIGEgdXNlciB3cml0ZXMgdGhlIHBpZCB0byBhCmNvbnRyb2wgZ3JvdXAn
+cyB0YXNrcyBmaWxlIGluIHRoZSByZXNjdHJsIHZpcnR1YWwgZmlsZXN5c3RlbToKCnZvaWQgcmVz
+Y3RybF9hcmNoX3NldF9jbG9zaWRfcm1pZChzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRzaywgdTMyIGNs
+b3NpZCwgdTMyIHJtaWQpCnsKICAgICAgIHUzMiBzcm1jZmc7CgogICAgICAgV0FSTl9PTl9PTkNF
+KChjbG9zaWQgJiBTUk1DRkdfUkNJRF9NQVNLKSAhPSBjbG9zaWQpOwogICAgICAgV0FSTl9PTl9P
+TkNFKChybWlkICYgU1JNQ0ZHX01DSURfTUFTSykgIT0gcm1pZCk7CgogICAgICAgc3JtY2ZnID0g
+cm1pZCA8PCBTUk1DRkdfTUNJRF9TSElGVDsKICAgICAgIHNybWNmZyB8PSBjbG9zaWQ7CiAgICAg
+ICBXUklURV9PTkNFKHRzay0+dGhyZWFkLnNybWNmZywgc3JtY2ZnKTsKfQoKSSdtIGdldHRpbmcg
+YSBmdWxsIHBhdGNoIHNlcmllcyByZWFkeSB0aGF0IGhhcyBib3RoIHRoZSBTc3Fvc2lkIGFuZCB0
+aGUKQ0JRUkkgcmVzY3RybCBwYXRjaGVzLCBhbmQgSSB3aWxsIHBvc3QgdGhhdCBzb29uLiBJJ20g
+YWxzbyBwcmVwYXJpbmcKYSBmcmVzaGx5IHJlYmFzZWQgUWVtdSBzZXJpZXMgdGhhdCBhZGRzIHRo
+ZSBDQlFSSSBjb250cm9sbGVycy4KClRoYW5rcywKRHJldwoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
