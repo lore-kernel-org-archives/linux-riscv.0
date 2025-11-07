@@ -4,118 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B287CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Nov 2025 19:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B99CCF9E3
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Nov 2025 21:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vylf93MXJ+ehJJ4Lr8CB1nYJlX+0ZcDbZzTdnVrcfq0=; b=Hj0okubryaSKdV
-	dZ7GTehg5p06QWjTnBSRRL9n+N/gaFbXSs0OoWU+7KGuQEjolVJfDtxDPXevlWeea7K+IcS3niHvx
-	lKxGRcRG7csC/FKQZ56R8NCHLJUBQoVyl3BGfmXMi6Ir8VYUMYWjCkX2o8EH0Cz8TpsCiGjcM/R7B
-	S8nGcxH78cA89wkse7E/dphsLo/Ly9xWByWifq9VdYGgJqXUe2NogDoEfxyDFzpVI5WWQB4F167SP
-	eIzBv2kIokyjralvwHVjPsCrRW23fjIZD/ex1c5CXxt9PkaG7sidhB/L/EnnhauhAqw80hC1xFluJ
-	IxYt2zGzt9hHPooULKvw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ggEWfXle9+wxOAbpgnCbPJiPhZAT8kNbx1NVZZ4AYYA=; b=Ea4suv4pae2O8b
+	jwsDa/o0ktFUHjOtRkUmOkLYDw0lowFPvLk4SMhXCC/1I0iIulTRlyOwtvi5eIp+r5HN/tYxAZHOT
+	7J046zzUC2j6Yugq5yG4a0pIHy/N+PiaC36nv2IPSJB0vSIxRhl54AfATy7Y754TJ4Vus5U5hMov3
+	4lgAB5230CilKPxOy62xVU9OcH+4udgOHbcufAOjvUUclNuMMCVqJVtDhjvsRssft6slWU1pgnIkp
+	FBQJ22QiGQx6dprNYv9W3zfK+TWRhZjzPbanSnBRPYzT0SMYDlPpRJ356ZqwkXKrRzltQ3iMbmGNH
+	59opEODIc3BiNrC159aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHRyJ-00000000gto-2U9q;
-	Fri, 07 Nov 2025 19:18:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vHUSI-00000001FHL-46W7;
+	Fri, 07 Nov 2025 21:57:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHRyH-00000000gsp-31Ft
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 07 Nov 2025 19:18:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BoyRAxBYJ97KZHdMcvP1wI7gdZM18PW/SDBquVzm/CM=; b=D9tSwbNqxvZqsRO+aOEKeGYGQv
-	sMhvaaMmXAWgIxXmizQfj4od/0JoD73V1wEzgYm9bgOGpcMqh5vNxghd41N360JEbWr7PLFTPnWg0
-	3baFpJYWoHe1isZoGS5vFWaYlsEXuzL1kJOyHeNeJVUCzcA/Ns2gBybH32K0zsWppID7uZMtt4AcY
-	01Pxk/cSACJc4jPG7Is7vbb2id9Z1UvM/awg0qGEXUZlK7WnkGUyKrQzy2hJ+D/lAKmY94EMBBcHo
-	A8FfgJ0Qq/cpXSEnnfSz73+8pi1J/EWfI9pv6xJrIOEvKilHr8mS4MPpyeWiGQE0nw6LekpO7C3O3
-	vxdkOm5A==;
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHR6W-000000073cX-1fFF
+	id 1vHUSG-00000001FFg-01R0
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Nov 2025 18:22:36 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-471b80b994bso12138475e9.3
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Nov 2025 11:18:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762543079; x=1763147879; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BoyRAxBYJ97KZHdMcvP1wI7gdZM18PW/SDBquVzm/CM=;
-        b=KSB8hF3oBKjuoFgcYj0nTEdhuWMbRn6xNgXkLXHyGHpPF/kdbeR8QgrP55NKSM7xTe
-         Fah8sDxHI8HzL30E0qiWqaBWp+Tu91wflnrqAC563QCqltWJB255BACpU8zhIObqLjei
-         ZwvtuiJuvhnU/14ONNoRGdu0fr40JBUSZKZu/HBXh+zc9ar5XJMO9z6fEqN7E3IJM+KV
-         aGCHTXjw37eSiwHfd1NqeQ/UpqIuWunaajTxww8lfwqRY+7mLoe534OWITcvHlpbaI9f
-         cW9t7Fn3l9nTHNmYgoacenDKkJHbr8o8tA1Q9E/ri87QBpDjeZuspw8o4NsQnLzc3Hih
-         azRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762543079; x=1763147879;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=BoyRAxBYJ97KZHdMcvP1wI7gdZM18PW/SDBquVzm/CM=;
-        b=dmq85x4Y93QPkXwcUE7dpcFWD/ChHbEVdaHG5BPM+E1vw4xPh29aXlHYKLEOVMkt0z
-         fItgQ9kJkbMKhFh2b505y+baLuYfJ1ST0p4VoQXxVXtZYVi/4tTlbbIZ6+lixzAmCPCA
-         OpvrfcKPtCW3U52Vorm6nELlJh0MwBhePVfNT+SqL8IlhPPeJNm6OlmrQeHtiaG8kiDP
-         F5KoX0oylWycW0Xhb8IG+rjreIVkvYAMUo0VDC6LOqZC6zkqKTkH7nLqIHsz9yBA5sCZ
-         u80pUQfZdx0u0iJIBrf3qO8l63vysx9BQswrKwRu0sLTZjWYR8cY6uoI9hYIM7iX5oWr
-         h8rQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVtdVBnJysx3XWy7ueWrJ7oQ4j2jpTdOjcOWpaKg2y9yorrc07LVLOAZ4k87KhbyeJKCISxYpCLvRmjZQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+4tJ3D7duo75zF2vctZ3SU5/Ou6hrFD+PaJeq2Mxcxu4Wq+Q3
-	UCkF5nCFGZYlu5bHqZxUJFHF24bKn6AGvb6WKm57Vq4sxMPMFMHJ19yj
-X-Gm-Gg: ASbGnctoJNq1p2IJmnkfwHu9368Qy4jW+04wBHP2tFV6J4LV19vslvzSOPRenrnS7s7
-	TsE3G/eNb5IyHnanTydJOua6sROBpynWEv/Qz0kJdfuiCiIamfWUhvHUTnNGZ674su6mXyvL+Le
-	KMVi1bExJNG9brwWsoMa/mZPkCKkpz4lWFiMuHqGtA9YOAe3oa7mtNrQdQAXm3W3t14p3hav24F
-	el1/MEVWxmP/W35A+JSmjx21WaCExnHol4eg+e+WLN7ID66H5jLE+G9ZPD83Q42ngLQAn/U0mDS
-	zYngBxylNDAyOmZ6TnGn2hGnHtwVSn6RKNtQtr7ZvZ6Q/nSM64Ce8+CDMe7AK3Ay+XGuIRNFwPx
-	A2ODhpl3/y9XcVXdgHQSsvrz8fzaawL0XhT+riQVWoYpj73jAFM6Bgs9qLm44vUoTGOozaMk8Yk
-	2vEHO5yFh6ZVAo3v8c8zJVUpumFVGNYr8dIYS87JYDkNlSVVyF3xXJ
-X-Google-Smtp-Source: AGHT+IGwWldiHMKs6o3o24t2zUapUEv2nDiVIW1qgftMpp+s7M3k154xFpb/vMUGopieuIUWMdpZmw==
-X-Received: by 2002:a05:600c:45c7:b0:477:55b6:cdd6 with SMTP id 5b1f17b1804b1-4777322f0a4mr1228445e9.10.1762543078570;
-        Fri, 07 Nov 2025 11:17:58 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42abe62b23csm6811350f8f.10.2025.11.07.11.17.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Nov 2025 11:17:58 -0800 (PST)
-Date: Fri, 7 Nov 2025 19:17:53 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Andrew Cooper
- <andrew.cooper3@citrix.com>, Linus Torvalds
- <torvalds@linux-foundation.org>, kernel test robot <lkp@intel.com>, Russell
- King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
- <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Heiko
- Carstens <hca@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
- linux-s390@vger.kernel.org, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
- Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>,
- Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- =?UTF-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara
- <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V5 07/12] uaccess: Provide scoped user access regions
-Message-ID: <20251107191753.7433d2dc@pumpkin>
-In-Reply-To: <20251027083745.546420421@linutronix.de>
-References: <20251027083700.573016505@linutronix.de>
-	<20251027083745.546420421@linutronix.de>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Fri, 07 Nov 2025 21:57:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2EF8F44650;
+	Fri,  7 Nov 2025 21:57:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB72BC4CEF7;
+	Fri,  7 Nov 2025 21:57:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762552630;
+	bh=Xkt+of8KxrqMro0Ntcjzu/R8T+v1krSu+SWLso+jtvE=;
+	h=From:Date:Subject:To:Cc:From;
+	b=eUGErAHXK2x/+G8M7EcDFbx+giSXDUAc4NNp9fY2jxETB2kFEo+UAyss0DFFjz6Z0
+	 zRXewVmUxciyGbWFGrVjQvYIfPiSPRqS4Jx6uBfDAg8qbGTmYGAPU6U9iiC+nDZCBT
+	 n9rEN+lfrSXK5KA4z1Pp9QMQRVUPKUVT/aXeV/Sg+QHwgDIwUfReqBAaTLSOsm9mEN
+	 E/caEEHTk/1s4DVR7L9Q1QNgpLHdXI4CRTtVbF/9jvlluoOq/xkEmKo+FfYRgJ2/5B
+	 FCFfeLjnOMGJRc9fHYeJsC6DxToyVCvhBwD/P8BKD7alwER6fGUfysol05GHIrBBOE
+	 6drHIiez785bg==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Fri, 07 Nov 2025 14:56:59 -0700
+Subject: [PATCH fixes] riscv: Fix CONFIG_AS_HAS_INSN for new .insn usage
 MIME-Version: 1.0
+Message-Id: <20251107-riscv-fix-new-insn-usage-v1-1-9a186c5928a0@kernel.org>
+X-B4-Tracking: v=1; b=H4sIACprDmkC/yWMQQqDQAxFryJZG5iJ2JFepbiQMdZsokyoFWTub
+ mh3/8F7/wLjImzwbC4ofIjJpg6xbSCvk74ZZXYGCtTHGBIWsXzgIicqf1HUFD82uUf0iF1KmeZ
+ uAM/3wm79rl/wX2OtN4W/7sZxAAAA
+X-Change-ID: 20251107-riscv-fix-new-insn-usage-2261377c2d38
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Andrew Jones <ajones@ventanamicro.com>, 
+ Ben Dooks <ben.dooks@codethink.co.uk>, linux-riscv@lists.infradead.org, 
+ llvm@lists.linux.dev, patches@lists.linux.dev, 
+ Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3034; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=Xkt+of8KxrqMro0Ntcjzu/R8T+v1krSu+SWLso+jtvE=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDJl82cZmFkwsb82PlhVoueaXBP/W9w2dbr77/GZVFcVJO
+ Xx+BnwdpSwMYlwMsmKKLNWPVY8bGs45y3jj1CSYOaxMIEMYuDgFYCJfdBkZJkczznOM73faWvRV
+ SFVn9+G8y1eF2F89D3W439KYkaW2iZFhP9+kbYp3uLvCKhZliUjnTrb6uGRtnrD14SlOlxhUuix
+ 4AQ==
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_182232_587424_1CF468B9 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20251107_135712_095189_56DC35C2 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,100 +83,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Oct 2025 09:43:55 +0100 (CET)
-Thomas Gleixner <tglx@linutronix.de> wrote:
-
-> User space access regions are tedious and require similar code patterns all
-> over the place:
-...
-> There have been issues with using the wrong user_*_access_end() variant in
-> the error path and other typical Copy&Pasta problems, e.g. using the wrong
-> fault label in the user accessor which ends up using the wrong accesss end
-> variant. 
-> 
-> These patterns beg for scopes with automatic cleanup. The resulting outcome
-> is:
->     	scoped_user_read_access(from, Efault)
-> 		unsafe_get_user(val, from, Efault);
-> 	return 0;
->   Efault:
-> 	return -EFAULT;
-> 
-> The scope guarantees the proper cleanup for the access mode is invoked both
-> in the success and the failure (fault) path.
-> 
-...
-
-The code doesn't work if the 'from' (above) is 'const foo __user *from'.
-Due to assigning away constness.
-
-The changes below fix the build, I suspect the code is then correct.
-
-...
-> +/* Define RW variant so the below _mode macro expansion works */
-> +#define masked_user_rw_access_begin(u)	masked_user_access_begin(u)
-> +#define user_rw_access_begin(u, s)	user_access_begin(u, s)
-> +#define user_rw_access_end()		user_access_end()
-> +
-> +/* Scoped user access */
-> +#define USER_ACCESS_GUARD(_mode)				\
-
-#define USER_ACCESS_GUARD(_mode, void)
-(but change all the void below to a different name...)
-
-> +static __always_inline void __user *				\
-> +class_user_##_mode##_begin(void __user *ptr)			\
-> +{								\
-> +	return ptr;						\
-> +}								\
-> +								\
-> +static __always_inline void					\
-> +class_user_##_mode##_end(void __user *ptr)			\
-> +{								\
-> +	user_##_mode##_access_end();				\
-> +}								\
-> +								\
-> +DEFINE_CLASS(user_ ##_mode## _access, void __user *,		\
-> +	     class_user_##_mode##_end(_T),			\
-> +	     class_user_##_mode##_begin(ptr), void __user *ptr)	\
-> +								\
-> +static __always_inline class_user_##_mode##_access_t		\
-> +class_user_##_mode##_access_ptr(void __user *scope)		\
-> +{								\
-> +	return scope;						\
-> +}
-> +
-> +USER_ACCESS_GUARD(read)
-> +USER_ACCESS_GUARD(write)
-> +USER_ACCESS_GUARD(rw)
-
-USER_ACCESS_GUARD(read, const void)
-USER_ACCESS_GUARD(write, void)
-USER_ACCESS_GUARD(rw, void)
-
-> +#undef USER_ACCESS_GUARD
-...
-> +#define __scoped_user_access(mode, uptr, size, elbl)					\
-> +for (bool done = false; !done; done = true)						\
-> +	for (void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl); \
-
-	for (typeof(uptr) _tmpptr = ...
-
-> +	     !done; done = true)							\
-> +		for (CLASS(user_##mode##_access, scope)(_tmpptr); !done; done = true)	\
-> +			/* Force modified pointer usage within the scope */		\
-> +			for (const typeof(uptr) uptr = _tmpptr; !done; done = true)
-> +
-
-	David
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWZ0ZXIgY29tbWl0IDQ0YWEyNWMwMDBiNCAoInJpc2N2OiBhc206IHVzZSAuaW5zbiBmb3IgbWFr
+aW5nIGN1c3RvbQppbnN0cnVjdGlvbnMiKSwgYnVpbGRzIHVzaW5nIExMVk0gb2xkZXIgdGhhdCAx
+OSBvciBiaW51dGlscyBvbGRlciB0aGFuCjIuMzggZmFpbCB3aXRoOgoKICBhcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL3Zkc28vcHJvY2Vzc29yLmg6IEFzc2VtYmxlciBtZXNzYWdlczoKICBhcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3Zkc28vcHJvY2Vzc29yLmg6Mjc6IEVycm9yOiB1bnJlY29nbml6ZWQg
+b3Bjb2RlIGAweDEwMDAwMGYnCiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nv
+ci5oOjI3OiBFcnJvcjogdW5yZWNvZ25pemVkIG9wY29kZSBgMHgxMDAwMDBmJwogIGFyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20vdmRzby9wcm9jZXNzb3IuaDoyNzogRXJyb3I6IHVucmVjb2duaXplZCBv
+cGNvZGUgYDB4MTAwMDAwZicKICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vcHJvY2Vzc29y
+Lmg6Mjc6IEVycm9yOiB1bnJlY29nbml6ZWQgb3Bjb2RlIGAweDEwMDAwMGYnCiAgbWFrZVs0XTog
+KioqIFtzY3JpcHRzL01ha2VmaWxlLmJ1aWxkOjI4NzogYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92
+Z2V0dGltZW9mZGF5Lm9dIEVycm9yIDEKCiAgSW4gZmlsZSBpbmNsdWRlZCBmcm9tIDxidWlsdC1p
+bj46NDoKICBJbiBmaWxlIGluY2x1ZGVkIGZyb20gbGliL3Zkc28vZ2V0dGltZW9mZGF5LmM6NjoK
+ICBJbiBmaWxlIGluY2x1ZGVkIGZyb20gaW5jbHVkZS92ZHNvL2RhdGFwYWdlLmg6MjE6CiAgSW4g
+ZmlsZSBpbmNsdWRlZCBmcm9tIGluY2x1ZGUvdmRzby9wcm9jZXNzb3IuaDoxMDoKICBhcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3Zkc28vcHJvY2Vzc29yLmg6MjM6MjogZXJyb3I6IGV4cGVjdGVkIGlu
+c3RydWN0aW9uIGZvcm1hdAogICAgIDIzIHwgICAgICAgICBBTFRfUklTQ1ZfUEFVU0UoKTsKICAg
+ICAgICB8ICAgICAgICAgXgogIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3QuaDo0
+NzozOiBub3RlOiBleHBhbmRlZCBmcm9tIG1hY3JvICdBTFRfUklTQ1ZfUEFVU0UnCiAgICAgNDcg
+fCAgICAgICAgICAgICAgICAgUklTQ1ZfUEFVU0UsIC8qIE9yaWdpbmFsIFJJU0PigJFWIHBhdXNl
+IGluc24gKi8gXAogICAgICAgIHwgICAgICAgICAgICAgICAgIF4KICBhcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL2luc24tZGVmLmg6MjU5OjIxOiBub3RlOiBleHBhbmRlZCBmcm9tIG1hY3JvICdSSVND
+Vl9QQVVTRScKICAgIDI1OSB8ICNkZWZpbmUgUklTQ1ZfUEFVU0UgICAgIEFTTV9JTlNOX0koIjB4
+MTAwMDAwZiIpCiAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICBeCiAgYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9hc20uaDoxNjoyNjogbm90ZTogZXhwYW5kZWQgZnJvbSBtYWNybyAnQVNN
+X0lOU05fSScKICAgICAxNiB8ICNkZWZpbmUgQVNNX0lOU05fSShfX3gpICIuaW5zbiAiIF9feAog
+ICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgIF4KICA8aW5saW5lIGFzbT46NTo3OiBu
+b3RlOiBpbnN0YW50aWF0ZWQgaW50byBhc3NlbWJseSBoZXJlCiAgICAgIDUgfCAuaW5zbiAweDEw
+MDAwMGYKICAgICAgICB8ICAgICAgIF4KCmJpbnV0aWxzIGdhaW5lZCBzdXBwb3J0IGZvciAnLmlu
+c24gPHZhbHVlPicgaW4gMi4zOCBbMV0gYW5kIExMVk0gZ2FpbmVkCnN1cHBvcnQgaW4gMTkgWzJd
+LiBBZGp1c3QgdGhlIHRlc3QgZm9yIENPTkZJR19BU19IQVNfSU5TTiB0byBlbnN1cmUgdGhhdAph
+bGwgdmVyc2lvbnMgb2YgLmluc24gYXJlIHN1cHBvcnRlZCBiZWZvcmUgYmVpbmcgdXNlZC4KCkZp
+eGVzOiA0NGFhMjVjMDAwYjQgKCJyaXNjdjogYXNtOiB1c2UgLmluc24gZm9yIG1ha2luZyBjdXN0
+b20gaW5zdHJ1Y3Rpb25zIikKTGluazogaHR0cHM6Ly9zb3VyY2V3YXJlLm9yZy9naXQvP3A9Ymlu
+dXRpbHMtZ2RiLmdpdDthPWNvbW1pdDtoPWEyNjJiODJmZGJmNGNkYTNiMDY0OGIxYWRjMzIyNDVj
+YTNmNzhiN2EgWzFdCkxpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9sbHZtL2xsdm0tcHJvamVjdC9j
+b21taXQvMmEwODZkY2U2OTFlM2NjMzRhMmZjMjdmNGZiMjU1YmIyY2JiZmFjOSBbMl0KU3VnZ2Vz
+dGVkLWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPgpTaWduZWQtb2Zm
+LWJ5OiBOYXRoYW4gQ2hhbmNlbGxvciA8bmF0aGFuQGtlcm5lbC5vcmc+Ci0tLQogYXJjaC9yaXNj
+di9LY29uZmlnIHwgMiArLQogMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0
+aW9uKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnIGIvYXJjaC9yaXNjdi9LY29u
+ZmlnCmluZGV4IDIyY2RhOWM0NTJkMi4uZmFkZWMyMGI4N2E4IDEwMDY0NAotLS0gYS9hcmNoL3Jp
+c2N2L0tjb25maWcKKysrIGIvYXJjaC9yaXNjdi9LY29uZmlnCkBAIC0zNjcsNyArMzY3LDcgQEAg
+Y29uZmlnIFJJU0NWX05PTlNUQU5EQVJEX0NBQ0hFX09QUwogCSAgc3lzdGVtcyB0byBoYW5kbGUg
+Y2FjaGUgbWFuYWdlbWVudC4KIAogY29uZmlnIEFTX0hBU19JTlNOCi0JZGVmX2Jvb2wgJChhcy1p
+bnN0ciwuaW5zbiByIDUxJChjb21tYSkgMCQoY29tbWEpIDAkKGNvbW1hKSB0MCQoY29tbWEpIHQw
+JChjb21tYSkgemVybykKKwlkZWZfYm9vbCAkKGFzLWluc3RyLC5pbnNuIDB4MTAwMDAwZikKIAog
+Y29uZmlnIEFTX0hBU19PUFRJT05fQVJDSAogCSMgaHR0cHM6Ly9naXRodWIuY29tL2xsdm0vbGx2
+bS1wcm9qZWN0L2NvbW1pdC85ZThlZDM0MDNjMTkxYWI5YzQ5MDNlOGVlYjhmNzMyZmY4YTQzY2I0
+CgotLS0KYmFzZS1jb21taXQ6IGE4ODIxMjZjNDJmYzUzMjc1YWM5MTk2OWQ0NjBkOTM5MTkxZGI3
+YjAKY2hhbmdlLWlkOiAyMDI1MTEwNy1yaXNjdi1maXgtbmV3LWluc24tdXNhZ2UtMjI2MTM3N2My
+ZDM4CgpCZXN0IHJlZ2FyZHMsCi0tICAKTmF0aGFuIENoYW5jZWxsb3IgPG5hdGhhbkBrZXJuZWwu
+b3JnPgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
