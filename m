@@ -4,174 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B5ECCF9E3
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Nov 2025 18:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48831CCFA19
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Nov 2025 19:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TfGp9UbcOnsG+/IBhDncbM/djG9w1sEqbKGRhaau2b0=; b=DVXllS+lmZonI+
-	L84J8uLx7Di3fwGUbAv5qLtlYcnVP0LNlwylM9YWlun1lfbwFX6SSY3hbiHqBhTYCTu0j5HB9njd4
-	zy3O6PC5PTuKLlPQ/BbAA1CbmWVA93yRCItw/2ky3+UFbvRmZVpiE14PnUumAll7J4eCkSYXIA6WE
-	uT6I4WTOEgxJFxZwTQ0wofQOLZQhb5S/+J1nRyna5bt2uN7PfKCOIU4KVZX/0M4GGZ6IVP3k7SZPL
-	ZuKYG2LTN79EpxbbAl5nKTgW9xMm2RCPk1AHwVDAwKbGjgS0VXGySyAx169rjhdysCdB/ceQOe3ro
-	q+qK5FWJFaU1Z6G9KO9A==;
+	List-Owner; bh=Z14hvWTW13llKGfRVFMsU5Y4lbNNaTuh02BtNOV7RVg=; b=gmB0pgbMgPCrI8
+	tFFgwESLmfwSM07n0Khx5V3RanJF1ujPHEkQgFdWZTiEQmOnFW5jRmQ0uH4qwTb9F7ZqS+rSOz7oc
+	aDFp3+vgq25UNMOblVq1+PdFKGxzH5aPGqC9aRRZRJghQzFNyZlA50npbpJESzAVNfDwtXZbQP8Ub
+	4y6fka90GgU1UmLILX9fle3XyhYitB+Wx1ZABWHlTo1DkGnGCrgy7XW3J56JBoo+qHE0gxSh1XfRl
+	REpvrtJDF5XpALeX3YCBX9QfSUkk76JNEJtpeaHItZcKsA6mHrAeP6694x4o52DJaKIHFM8Nq7xSQ
+	l3niNFStMDxVOvO5vfsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHRgH-00000000bqB-3mPH;
-	Fri, 07 Nov 2025 18:59:29 +0000
-Received: from mail-eastusazon11011023.outbound.protection.outlook.com ([52.101.52.23] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vHRwU-00000000ffV-0pXh;
+	Fri, 07 Nov 2025 19:16:14 +0000
+Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHRgF-00000000boQ-0Pup;
-	Fri, 07 Nov 2025 18:59:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XDnthst8Um+m8gDO0I1kfXr2I526XjXv6OSd26XYYwzVyhGLTK3f1WiRMtN3p/VdV2iEjPJTvFFSeEJk8MWRZ6no39+MJEYRJKGNYE/twAKYS66mbPD4CZp7VAyb8zSiykeU/3NqSG8A5LbX/G9fBkPJCueNmtFDkNgEk0RqrFZPAFOZWPkgNWqO7lLrrN4IRX4HcV9ZHWpfQPuG3PqCnaK31EPSRsZT7F34u65XDu6Tm2eyKpI6+ewwZRH9ctlJVuD3gjSvIHfa+NseLH0uyyWQ3f/n9Q0RT45lHlqHt+9DyKk/SV1P1qFcIdw/qnSMxWboxtZ+VVBBJ1YUGpWuZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R/CqcIEtH3a6mpjanHTrhl5/5mqZeanCekUhNOaJgjc=;
- b=CiOxsXUS1HnRSv8trBXQUDPSQHaEcI4FxxY+bOAvK8PxIxoTVeyTAQDiojEc3qy9BRXp9eopt5er0E70sTLSSh+H6yztqp9xC2ywXFPrSkT4W8vOLN83caigr+TBDUgrC/sTXAXeFTVUzLgnblfgxbHFGSAAkDtBWhO8yj0bdwS0icSiLeR66RS5ZRe4p+pFgDxBEgFGRQZHxkhLZil1L7b6mcnPWY0WLhwC+Tr30AXDWEmaQcjpzW+NJ90zmDAX/N2CWAdEcXOgi3p0c4AKsc7z3zCAL2k2oCpPuX0yQX1k1xFw2bd2I0lC+asWlFQifeiH0uJhBAHd0j10kYAavw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=csie.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R/CqcIEtH3a6mpjanHTrhl5/5mqZeanCekUhNOaJgjc=;
- b=FHpEME00nd6CEZbzmibUkTviaETZOgMEaLAqDAq8P0QyVCObK0hBjk9/d9JsuiFbzSIuZzW3P2YcWpYGWEDo9Z1BHNkUAzpFrZJtlk/zibrGdORFMBQfOrrE3OSFD2rF7DAvz2Zz1t7YKKI7Mc1bQPq50jxO/GG5LULm7QNLR4VJ7B+urXhgt69kAy8I0c6vdgIuyBElc1mZmyk9AwieLDOkOKZF2vmKN4WAeEEEBDzWUwD4rmNF7so2s07q+UczaaKKS7erOUbrp4A4W6gpiiMaSRAIH9AAJP1HGpxQH5mNPEohqmMxDqZGaouk5SEcoRZMagVk65H3tY3pZ44MrA==
-Received: from BN9PR03CA0031.namprd03.prod.outlook.com (2603:10b6:408:fb::6)
- by CH3PR12MB9147.namprd12.prod.outlook.com (2603:10b6:610:19a::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Fri, 7 Nov
- 2025 18:59:16 +0000
-Received: from BN2PEPF000044A4.namprd02.prod.outlook.com
- (2603:10b6:408:fb:cafe::8b) by BN9PR03CA0031.outlook.office365.com
- (2603:10b6:408:fb::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.9 via Frontend Transport; Fri, 7
- Nov 2025 18:59:15 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN2PEPF000044A4.mail.protection.outlook.com (10.167.243.155) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Fri, 7 Nov 2025 18:59:14 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 7 Nov
- 2025 10:59:00 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 7 Nov
- 2025 10:58:59 -0800
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 7 Nov 2025 10:58:57 -0800
-Date: Fri, 7 Nov 2025 10:58:56 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: "Tian, Kevin" <kevin.tian@intel.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
-	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "sven@kernel.org" <sven@kernel.org>, "j@jannau.net"
-	<j@jannau.net>, "jean-philippe@linaro.org" <jean-philippe@linaro.org>,
-	"robin.clark@oss.qualcomm.com" <robin.clark@oss.qualcomm.com>,
-	"dwmw2@infradead.org" <dwmw2@infradead.org>, "baolu.lu@linux.intel.com"
-	<baolu.lu@linux.intel.com>, "yong.wu@mediatek.com" <yong.wu@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>, "tjeznach@rivosinc.com"
-	<tjeznach@rivosinc.com>, "pjw@kernel.org" <pjw@kernel.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "heiko@sntech.de" <heiko@sntech.de>,
-	"schnelle@linux.ibm.com" <schnelle@linux.ibm.com>, "mjrosato@linux.ibm.com"
-	<mjrosato@linux.ibm.com>, "wens@csie.org" <wens@csie.org>,
-	"jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>, "samuel@sholland.org"
-	<samuel@sholland.org>, "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
-	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "asahi@lists.linux.dev"
-	<asahi@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-arm-msm@vger.kernel.org"
-	<linux-arm-msm@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
-	<linux-rockchip@lists.infradead.org>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, "linux-sunxi@lists.linux.dev"
-	<linux-sunxi@lists.linux.dev>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "virtualization@lists.linux.dev"
-	<virtualization@lists.linux.dev>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v1 02/20] iommu: Introduce a test_dev domain op and an
- internal helper
-Message-ID: <aQ5BcKLR1YzRggGo@Asurada-Nvidia>
-References: <cover.1760312725.git.nicolinc@nvidia.com>
- <32ce256a2ece5d63e99d5858f953586859818ffc.1760312725.git.nicolinc@nvidia.com>
- <BN9PR11MB5276D10BD480FE66881870B08CFBA@BN9PR11MB5276.namprd11.prod.outlook.com>
- <aQO//+6/B/WbdK2h@Asurada-Nvidia>
- <20251103185400.GA1537560@nvidia.com>
- <BN9PR11MB527638C0E43E8AA000410B878CC5A@BN9PR11MB5276.namprd11.prod.outlook.com>
- <aQuU2dic75VkSyjr@Asurada-Nvidia>
- <20251107185409.GA1932966@nvidia.com>
+	id 1vHRwM-00000000fYx-0AYw
+	for linux-riscv@lists.infradead.org;
+	Fri, 07 Nov 2025 19:16:12 +0000
+Received: by mail-io1-xd44.google.com with SMTP id ca18e2360f4ac-940d25b807bso38441239f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Nov 2025 11:16:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1762542965; x=1763147765; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ay3vJcZn8gR8uhIOX8xdTsiqp7cEn/zrhd4VkngAbaw=;
+        b=0kF3NFmh7MNBkUYnnHwxRe54a17sEmUb/Dc7wWGCG5DP5+sw582DEZ/m+gzNpwHEFl
+         AuKbfTjVRTHLFCoUqpcQFNFDtQPVV6nnb7Cjwo3n26s0T1v95kI/DkyMF5hiUGmAzZ2r
+         kzpy/qTYxzI/j38ritF9cJ9L9wkeOnt4MnYwRS8+cxI44R+z+eLz2QVWYX7k2vW9zJlH
+         I6dLJYMtBWx5iDLePeWuG2NDJ4WaCrE+MEkS8EtVo5JQAB8Yzn/x+zFI5p9VgqE5h1pt
+         PJaKJDlrzOWx5wdunP4xzhtS3OZAv0+uo7n2yDXReTC0PCH9X1mDTd25iSpAD/1m0GwZ
+         QQzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762542965; x=1763147765;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Ay3vJcZn8gR8uhIOX8xdTsiqp7cEn/zrhd4VkngAbaw=;
+        b=HDJU6PuyXLqBLSYZk9qmDJqvDvA0EaycS8e8unusKX5ofq8F9o78EsTzvi3jR5HXE5
+         ijEZnPBY/XjooTypz+neWX0FDTir24ZuWamKDkOjSiG6yJRibV6t5fh1dInBErMpvaXx
+         /Unnaao3zrocV1B/fsWPmqwDQ9buzaDaJmyTEbUTVnchtaXPe716Aeb7j7WiA2wYvB+s
+         Dtr8HcoRGv9Y2/0W5qr8FKR723PV/7q38cMJJVdxBrf1+dC537caRmYZDxRtoITEbN3q
+         CNLWwRBOFBDY0dBy2zrl8CD6/RowN0M/f9Xl8SiznouUfMzssxNIQG8c0Gg5Td2GHnAO
+         z4Ww==
+X-Forwarded-Encrypted: i=1; AJvYcCWMxEeBTBGp90hX+Z+jXkL8cbv/1+ZxzSTY8eog1sjfaGsXOkNmwkEU1IxqICY05OLQRJDpnMQdsE2jtg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGefOrilh4OFgPwU0kE1UnJ58/BZRiAQWKA/9WJC59NHyDz9ML
+	BdYE2Vl5D7K81Hm39R/VAFRFL8yzN+uffpLItYBiAXP3hPzrsLTjM5PZjCp2iE7gTAc=
+X-Gm-Gg: ASbGncu1+p2UXvj0uY0B2d1J6bQitUpX5i9Ft+VVbYLdWQo3RcB3YSUYAXTFZyvFppG
+	FSJXz0Bpbvl5mhcwDrmrbww3EA+O8qRDVuJyzVhDAlS7F3/x6hV6AapeSYE/fwVmg+bmfJ9m2X3
+	4sjvJ6rqbS1uIDOka0fkKpY/0GGCQt8maxi6Vm8jcHgnJpLM6CEEuB7fjYjMrqyfI4Y+XIxW1yI
+	9qBFG1cFMMVJ+0wSLijjraSYfTLAZwUDqHOJdXEu0kCYw93pGIrx3H8akk9VaZ55ZhyazFJE5ij
+	va64P1MS2lkUzZmj6dqR4EZqTcY6bTSlOQRnx7dGVa66zBeY6wPSQWCP+BwD+o5PIO0q83SCWkx
+	wgnWhv7Ko9X7Sq/d7KpCSWvmmW3ds1Dut+i3C977ZlAJhzm0m2+NEbykB9bRuNG4S3WiPcfv3oJ
+	x/yRZnj+Z0V4UhzcVbac9/0+x/8c7xVqDOzAru9pzEjqg=
+X-Google-Smtp-Source: AGHT+IHCQMw8gkgpun15fOExG5Sy7WYN+BCNzSaipPURAOzJ4FqM/yDv4HIDN8wPjwaYW4Sy0gZ/Fw==
+X-Received: by 2002:a05:6602:15cf:b0:948:7c51:1977 with SMTP id ca18e2360f4ac-94895f83afemr60413039f.4.1762542965062;
+        Fri, 07 Nov 2025 11:16:05 -0800 (PST)
+Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-94888c34c6asm118772939f.10.2025.11.07.11.16.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Nov 2025 11:16:04 -0800 (PST)
+From: Alex Elder <elder@riscstar.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	vkoul@kernel.org,
+	kishon@kernel.org
+Cc: dlan@gentoo.org,
+	guodong@riscstar.com,
+	devicetree@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 1/7] dt-bindings: phy: spacemit: Add SpacemiT PCIe/combo PHY
+Date: Fri,  7 Nov 2025 13:15:50 -0600
+Message-ID: <20251107191557.1827677-2-elder@riscstar.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20251107191557.1827677-1-elder@riscstar.com>
+References: <20251107191557.1827677-1-elder@riscstar.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251107185409.GA1932966@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A4:EE_|CH3PR12MB9147:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec991946-88f8-4851-745c-08de1e2fbeaa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XYZ4AqT2Jncw+SLim9eN/0vL0+UthlAs2AZnerz3Wyij4qNbB2wkH8NiOQa5?=
- =?us-ascii?Q?TC+YythVHBvJefhy4kdJ1bVGDC3iO9VeqcE6FUckmCjmPKGHWkMcd0AuhNNF?=
- =?us-ascii?Q?8c5/uNz8h+vYycryibPGR8Qc96To+HQE17+QzKTf+Ha8Oi0QIc0xOe7dNyul?=
- =?us-ascii?Q?9sUMrXyWm5Qz4E6Ns8T74nDoU2vZ/bkRAKYwoDF4JYhPbbgofeMui30Z5Sq/?=
- =?us-ascii?Q?gcRDciXr/7y5dhi1wlUjSP0x9wcXwJLoNTmOBbyy8s8KNy4SYnQ701NF8Uui?=
- =?us-ascii?Q?R+ZQzGTNQ/1eiT5hUBflNDj5mM1HN+RM1Oo9K38TkT+3XAkumfAzxY6Dl5hN?=
- =?us-ascii?Q?/2Cswy/TUTleRdZR9qlL1Evvhu8DfosCX9n4JfjMUyrF6lNjdKf9jJzK+6Vo?=
- =?us-ascii?Q?QWsUl89D4Tpgb0Rtboa89UG4q5EwQW5AlqSV9c/n6kQ1CZMuZ0H54Fv3vD9Y?=
- =?us-ascii?Q?+dDF2yS0cXaTjlbMqq5KWXh4e4DnHXCoknmke+85UelpiCG98YC48bCEwIFC?=
- =?us-ascii?Q?7PoANUC2Ou3DXvwVx91jnk0tL9S8xQd1z3UVlIC0MZMQ3KNc2Up9Q/D7AqXZ?=
- =?us-ascii?Q?l8COggEMYqlJmL/NIyc+XgNeIyPWv1lNYW8EKgw9Q8uHtdKx/zxGSGpq1B9h?=
- =?us-ascii?Q?kQ85RxZpGSd9ClTbye92Y3aT2XQqgFfafAW11Aq3/DddESLZjO78apnU9zbI?=
- =?us-ascii?Q?LX+iRzW/WLreR1eGtv/87d59HALYEIxeRW03dDbmWEquGTOFuaEG3QuVfqh5?=
- =?us-ascii?Q?CACSkPBvqdR2osR3LNjf3ZlJGj4TFetpdRRm+Uvdy0qUuw2XrdnDMVnrQE1g?=
- =?us-ascii?Q?MnBRTAtU0cx4be+I4e+uui0dj3gaSyNHB60Za8JTLVdikVcZkCVFMtbIcBc7?=
- =?us-ascii?Q?IHMTLaoaKAQc3H1LszBN/Mr6AicrxRINU85JhyNVWcepzfNzvUhgS7zTFQUF?=
- =?us-ascii?Q?lJLDQio8iQAgscHR/xo71bXG/91ND7ATe4zm+6O9I/o0YTrhDedLYTYQM/hM?=
- =?us-ascii?Q?IJigLonZaEh229s7xHtV5TiZ9HQTPlV5KSQC7sv68haYZEsO4d9duWevdwNj?=
- =?us-ascii?Q?Jz49RoxIAWuofwg5T87CNbyyMM6pEoP2+lcKNXPYnpM5JrKZf6tiQ5s+9N+f?=
- =?us-ascii?Q?I6xluPaw+iiz5bQ2wKeK731dWNSgKl44Ccx96ecimW3snk5Vv//g9A7lfLOA?=
- =?us-ascii?Q?B5SnZ/sv2FlIfOsxDyc0IQqpIZXFpMJT7Kv9He/wh5pALkugyhrrH5N9Zv1l?=
- =?us-ascii?Q?nnX8uswkt0zMXlMTQMWjkDXMmvCKbhOx3RTarkYP8zVOuj85BDaAsieEPm8+?=
- =?us-ascii?Q?qLpMlx1GOn+YlYGuzN0fUfTL0Ccfy+Kgf345X2ixOHkSVh26inT73O7crWqF?=
- =?us-ascii?Q?C7SuXYw6Rag++3wfDBGLgxdUVyW0qTIdYreVDFO1AH2l9GVyffWIE3aBh1mh?=
- =?us-ascii?Q?h5Ryd2LrgHyzFuYOs05A6hsSyXeqFH1OJSO+yRnx3dqW4xYgZowD5YqWJoCU?=
- =?us-ascii?Q?/6cE/EjMVCY3cMzm53IHUhrGhEycraFYOOZkpGumog3B20Rt2M4ifc4yFa7V?=
- =?us-ascii?Q?Yj2B0Tr3XjKlTM4mqfQSpcotAr84+oucRgA2XwuR?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 18:59:14.2221
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec991946-88f8-4851-745c-08de1e2fbeaa
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A4.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_105927_142722_1FDAA1A3 
-X-CRM114-Status: GOOD (  27.30  )
+X-CRM114-CacheID: sfid-20251107_111606_078608_2E7ADFF7 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,57 +109,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 07, 2025 at 02:54:09PM -0400, Jason Gunthorpe wrote:
-> On Wed, Nov 05, 2025 at 10:18:01AM -0800, Nicolin Chen wrote:
-> > On Wed, Nov 05, 2025 at 06:57:31AM +0000, Tian, Kevin wrote:
-> > > > From: Jason Gunthorpe <jgg@nvidia.com>
-> > > > Sent: Tuesday, November 4, 2025 2:54 AM
-> > > > 
-> > > > On Thu, Oct 30, 2025 at 12:43:59PM -0700, Nicolin Chen wrote:
-> > > > 
-> > > > > FWIW, I am thinking of another design based on Jason's remarks:
-> > > > > https://lore.kernel.org/linux-iommu/aQBopHFub8wyQh5C@Asurada-
-> > > > Nvidia/
-> > > > >
-> > > > > So, instead of core initiating the round trip between the blocking
-> > > > > domain and group->domain, it forwards dev_reset_prepare/done to the
-> > > > > driver where it does a low-level attachment that wouldn't fail:
-> > > > >   For SMMUv3, it's an STE update.
-> > > > >   For intel_iommu, it seems to be the context table update?
-> > > > 
-> > > > Kevin, how bad do you think the UAPI issue is if we ignore it?
-> > > > 
-> > > 
-> > > yeah probably better to leave it. I didn't see a clean way and the
-> > > value didn't justify the complexity.
-> > > 
-> > > Regarding to PF reset, it's a devastating operation while the vf user
-> > > is operating the vf w/o any awareness. there must be certain
-> > > coordination in userspace. otherwise nobody can recover the
-> > > registers. Comparing to that, solving the domain attach problem
-> > > is less important...
-> > 
-> > If I capture these correctly, we should go with a -EBUSY version:
-> >  - Reject concurrent attachments during a device reset
-> >  - Skip reset for devices having sibling group devices
-> >  - Allow PF to stop IOMMU, ignoring VFs
-> > ?
-> > 
-> > That sounds pretty much like this v4:
-> > https://lore.kernel.org/linux-iommu/0f6021b500c74db33af8118210dd7a2b2fd31b3c.1756682135.git.nicolinc@nvidia.com/
-> > by dropping the SRIOV concern.
-> 
-> It seems like the simplest answer..
-> 
-> I'd ignore the VFs, I think it is already really weird/dangerous to be
-> resetting the PF while VFs have drivers bound.. Not sure there is
-> anything we can do to make this work better.
+Add the Device Tree binding for the PCIe/USB 3.0 combo PHY found in
+the SpacemiT K1 SoC.  This is one of three PCIe PHYs, and is unusual
+in that only the combo PHY can perform a calibration step needed to
+determine settings used by the other two PCIe PHYs.
 
-Ack. I've rebased that and will do some cleanup and run sanity tests
-before sending.
+Calibration must be done with the combo PHY in PCIe mode, and to allow
+this to occur independent of the eventual use for the PHY (PCIe or USB)
+some PCIe-related properties must be supplied: clocks; resets; and a
+syscon phandle.
 
-Thanks
-Nicolin
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Alex Elder <elder@riscstar.com>
+---
+v5: - Wrap lines at 80 columns
+
+ .../bindings/phy/spacemit,k1-combo-phy.yaml   | 114 ++++++++++++++++++
+ 1 file changed, 114 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
+
+diff --git a/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
+new file mode 100644
+index 0000000000000..b59476cd78b57
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
+@@ -0,0 +1,114 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/spacemit,k1-combo-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K1 PCIe/USB3 Combo PHY
++
++maintainers:
++  - Alex Elder <elder@riscstar.com>
++
++description: >
++  Of the three PHYs on the SpacemiT K1 SoC capable of being used for
++  PCIe, one is a combo PHY that can also be configured for use by a
++  USB 3 controller.  Using PCIe or USB 3 is a board design decision.
++
++  The combo PHY is also the only PCIe PHY that is able to determine
++  PCIe calibration values to use, and this must be determined before
++  the other two PCIe PHYs can be used.  This calibration must be
++  performed with the combo PHY in PCIe mode, and is this is done
++  when the combo PHY is probed.
++
++  The combo PHY uses an external oscillator as a reference clock.
++  During normal operation, the PCIe or USB port driver is responsible
++  for ensuring all other clocks needed by a PHY are enabled, and all
++  resets affecting the PHY are deasserted.  However, for the combo
++  PHY to perform calibration independent of whether it's later used
++  for PCIe or USB, all PCIe mode clocks and resets must be defined.
++
++properties:
++  compatible:
++    const: spacemit,k1-combo-phy
++
++  reg:
++    items:
++      - description: PHY control registers
++
++  clocks:
++    items:
++      - description: External oscillator used by the PHY PLL
++      - description: DWC PCIe Data Bus Interface (DBI) clock
++      - description: DWC PCIe application AXI-bus Master interface clock
++      - description: DWC PCIe application AXI-bus slave interface clock
++
++  clock-names:
++    items:
++      - const: refclk
++      - const: dbi
++      - const: mstr
++      - const: slv
++
++  resets:
++    items:
++      - description: PHY reset; remains deasserted after initialization
++      - description: DWC PCIe Data Bus Interface (DBI) reset
++      - description: DWC PCIe application AXI-bus Master interface reset
++      - description: DWC PCIe application AXI-bus slave interface reset
++
++  reset-names:
++    items:
++      - const: phy
++      - const: dbi
++      - const: mstr
++      - const: slv
++
++  spacemit,apmu:
++    description:
++      A phandle that refers to the APMU system controller, whose
++      regmap is used in setting the mode
++    $ref: /schemas/types.yaml#/definitions/phandle
++
++  "#phy-cells":
++    const: 1
++    description:
++      The argument value (PHY_TYPE_PCIE or PHY_TYPE_USB3) determines
++      whether the PHY operates in PCIe or USB3 mode.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - spacemit,apmu
++  - "#phy-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/spacemit,k1-syscon.h>
++    phy@c0b10000 {
++        compatible = "spacemit,k1-combo-phy";
++        reg = <0xc0b10000 0x1000>;
++        clocks = <&vctcxo_24m>,
++                 <&syscon_apmu CLK_PCIE0_DBI>,
++                 <&syscon_apmu CLK_PCIE0_MASTER>,
++                 <&syscon_apmu CLK_PCIE0_SLAVE>;
++        clock-names = "refclk",
++                      "dbi",
++                      "mstr",
++                      "slv";
++        resets = <&syscon_apmu RESET_PCIE0_GLOBAL>,
++                 <&syscon_apmu RESET_PCIE0_DBI>,
++                 <&syscon_apmu RESET_PCIE0_MASTER>,
++                 <&syscon_apmu RESET_PCIE0_SLAVE>;
++        reset-names = "phy",
++                      "dbi",
++                      "mstr",
++                      "slv";
++        spacemit,apmu = <&syscon_apmu>;
++        #phy-cells = <1>;
++    };
+-- 
+2.48.1
+
 
 _______________________________________________
 linux-riscv mailing list
