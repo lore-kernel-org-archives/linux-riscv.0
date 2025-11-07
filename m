@@ -4,107 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1C6CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Nov 2025 11:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB32CCFA05
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Nov 2025 11:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=/Ag7/1armw9LZo0QwOuKbbLbuBDSkzonAAdzcuZHCkc=; b=AENi0e00gqNs90ieC7/oWpXDi5
-	lwf3W/qhN7O/+f7RIuaEElMrmo0Lhmyce4ZzuMhV10YqBtvEPvdUEzVmpbL4Dip9c8P52EldemJ79
-	4E1mBJMoTHlI1RZHHFuhbl/XVf8OYH2rCAHlxzy7ruXU2wVftF4v8nMLHcjUI2Ld30kwfO6+B7v5d
-	GPWqt0tJ5A/V7g9qRJy5exFrVW4bCt0MWZkTlraszrpT6tNRrGBqa71It7AJ9j4oz6rBkFKtXX0pb
-	o4CdluovAIfMyz63tlkaHSqiFXI3oWY8qatRLUbYLgaUAsjrlD0VO3YzSw54cp2PGDp/Ra6g4JOz5
-	lXN9ps7g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RFh6Ia7lIvBkatI1Ec2pcRwpJUZVBclr48BkUkPLs6c=; b=ydb3MWzct4r95C
+	Em04PEZseuj75WPdLfDwf94I7yYdclUm2Uwo7rby5DOuO2C9nL+gew5OugAAAnBX9UQyCgJV2GAPd
+	0heg8LxEbjaqDeTElZjsU2sDvX3REEUhSe7gNDQBWmknWrAwrbBjKsPLPceido6ZNip3pD/+jlvc2
+	QjoZi57OMwxlhmoQBFMeZCS9tNIoJovwCp7ne9c56+zo0PXVwpWeivqbb1Polon8mQd9ijiiKF3el
+	qlGF4gSXhcgPu7FtkfJuvkhp+jDJ5UFiidZExjigMw2aKoegqcz5+KHlpWlZ8Ig0Z8B0uJ/bqjVnG
+	yHnQm5ZQ7U48Oh+c8sMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHKXw-0000000HCKo-3VZW;
-	Fri, 07 Nov 2025 11:22:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vHKaH-0000000HCfH-2rz0;
+	Fri, 07 Nov 2025 11:24:49 +0000
+Received: from freeshell.de ([116.202.128.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHKXt-0000000HCJg-2YAl;
-	Fri, 07 Nov 2025 11:22:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A00EC4450E;
-	Fri,  7 Nov 2025 11:22:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45321C4CEF7;
-	Fri,  7 Nov 2025 11:22:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762514540;
-	bh=WqJuyrothph0jJUBiuUUbS1FvhvPkDqkS2NhaeN0xV0=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=rImSqDdr0csAuwceoiZMORIrJXnobUCP+yoqx199IwW4RPtIeHWgGg8yhQ45V/D7R
-	 HxCBJlEMisUSTZWQ74AkbgFanp3OacerkO8+FsunvIN8Qv1PJjoKvEhbkIBisz2yNh
-	 fHEnA2G6Z+rnjMkyoYcahxv0PRsrM8NiFmSYDw5XFjOljLa3mMJnwZAikRLma8aHey
-	 0V3PWYoagJTX1nuIdJ2Oom+6PchZMhCgWc6c354u4h/wXc/BosroSeZA0hazMf3txS
-	 iSFPT4TBGUlSnwuvzF4pqevVMyluivzg/6sz2Tim0ZSb22VBqsrJyyImM6xekisJtj
-	 QhXJiXhB/cEDw==
-Date: Fri, 07 Nov 2025 05:22:18 -0600
+	id 1vHKaF-0000000HCes-0kHK
+	for linux-riscv@lists.infradead.org;
+	Fri, 07 Nov 2025 11:24:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
+	s=s2025; t=1762514669;
+	bh=HGs0/L8ncOabUNWXYKXnKsQ79vn23oo0qvYbvXQ7sWs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=j/YUeIQcHC8otLzqCl7XpD3lZAAcXH6zlMPgZl66YW+pPG648ixllD55b1yBs5jby
+	 venUESrF5aERiu2flcb/HktBi7fP3KD5YMLfjJc8qkyUHEAtDJS02U0RdV0ThSh1Fo
+	 5nL5lZht2VJuw/+8TeV+s6keLu1wciw09H/r8obnh2NZC8v58C66BQyLFjbpgD/J/m
+	 oB5mFvqsgqZs/2T97iGSasVF77dhqPiBpgLPZfo+teiJNHNF1qxEDIBbdsKwPDe8Ez
+	 bStr0/iUkeVznjhNx/pf2JCLh4NZuUs6SG84Q3N/0uhH0babn2t7fHFVirAEqTQ0Tt
+	 PTw/APnqFGJ2A==
+Received: from [192.168.2.54] (unknown [98.97.27.87])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id E2640B2201EE;
+	Fri,  7 Nov 2025 12:24:25 +0100 (CET)
+Message-ID: <5b7c7ecc-38db-483b-87fc-4199a8bd52c3@freeshell.de>
+Date: Fri, 7 Nov 2025 03:24:24 -0800
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-stm32@st-md-mailman.stormreply.com, 
- Eric Dumazet <edumazet@google.com>, Fabio Estevam <festevam@gmail.com>, 
- David Wu <david.wu@rock-chips.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Samin Guo <samin.guo@starfivetech.com>, linux-amlogic@lists.infradead.org, 
- netdev@vger.kernel.org, imx@lists.linux.dev, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- linux-renesas-soc@vger.kernel.org, Clark Wang <xiaoning.wang@nxp.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, Guo Ren <guoren@kernel.org>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- "G. Jaya Kumaran" <vineetha.g.jaya.kumaran@intel.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Shuang Liang <liangshuang@eswincomputing.com>, 
- Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, 
- Swathi K S <swathi.ks@samsung.com>, linux-arm-msm@vger.kernel.org, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- linux-rockchip@lists.infradead.org, Frank Li <Frank.Li@nxp.com>, 
- Emil Renner Berthing <kernel@esmil.dk>, 
- Shangjuan Wei <weishangjuan@eswincomputing.com>, 
- Vinod Koul <vkoul@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Maxime Ripard <mripard@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- Jan Petrous <jan.petrous@oss.nxp.com>, 
- Drew Fustini <dfustini@tenstorrent.com>, s32@nxp.com, 
- Conor Dooley <conor+dt@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Samuel Holland <samuel@sholland.org>, Kevin Hilman <khilman@baylibre.com>, 
- devicetree@vger.kernel.org, Chen-Yu Tsai <wens@kernel.org>, 
- linux-mips@vger.kernel.org, Konrad Dybcio <konradybcio@kernel.org>, 
- Matthew Gerlach <matthew.gerlach@altera.com>, 
- Zhi Li <lizhi2@eswincomputing.com>, linux-sunxi@lists.linux.dev, 
- Heiko Stuebner <heiko@sntech.de>, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
- Fu Wei <wefu@redhat.com>, Linux Team <linux-imx@nxp.com>, 
- Christophe Roullier <christophe.roullier@foss.st.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Keguang Zhang <keguang.zhang@gmail.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Romain Gantois <romain.gantois@bootlin.com>, 
- Magnus Damm <magnus.damm@gmail.com>, Drew Fustini <fustini@kernel.org>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Shawn Guo <shawnguo@kernel.org>, 
- linux-kernel@vger.kernel.org, Inochi Amaoto <inochiama@gmail.com>, 
- Jakub Kicinski <kuba@kernel.org>, sophgo@lists.linux.dev, 
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
- Minda Chen <minda.chen@starfivetech.com>, linux-riscv@lists.infradead.org, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Chen Wang <unicorn_wang@outlook.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-In-Reply-To: <20251107-qcom-sa8255p-emac-v5-1-01d3e3aaf388@linaro.org>
-References: <20251107-qcom-sa8255p-emac-v5-0-01d3e3aaf388@linaro.org>
- <20251107-qcom-sa8255p-emac-v5-1-01d3e3aaf388@linaro.org>
-Message-Id: <176251453854.1709481.17350672291824662534.robh@kernel.org>
-Subject: Re: [PATCH v5 1/8] dt-bindings: net: qcom: document the ethqos
- device for SCMI-based systems
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/8] riscv: dts: starfive: jh711x-common: Move out some
+ nodes to jh7110 common dtsi
+To: Hal Feng <hal.feng@starfivetech.com>, Conor Dooley <conor+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251107095530.114775-1-hal.feng@starfivetech.com>
+ <20251107095530.114775-6-hal.feng@starfivetech.com>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <20251107095530.114775-6-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_032221_687467_F7EBB6DA 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20251107_032447_398586_5D04B4D7 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,70 +84,70 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 07 Nov 2025 11:29:51 +0100, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+On 11/7/25 01:55, Hal Feng wrote:
+> Some nodes in this file are not used by the upcoming VisionFive 2 Lite
+> board. Move them to the jh7110 common dtsi to prepare for adding the
+> new VisionFive 2 Lite device tree.
 > 
-> Describe the firmware-managed variant of the QCom DesignWare MAC. As the
-> properties here differ a lot from the HLOS-managed variant, lets put it
-> in a separate file. Since we need to update the maximum number of power
-> domains, let's update existing bindings referencing the top-level
-> snps,dwmac.yaml and limit their maxItems for power-domains to 1.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 > ---
->  .../bindings/net/allwinner,sun7i-a20-gmac.yaml     |  3 +
->  .../bindings/net/altr,socfpga-stmmac.yaml          |  3 +
->  .../bindings/net/amlogic,meson-dwmac.yaml          |  3 +
->  .../devicetree/bindings/net/eswin,eic7700-eth.yaml |  3 +
->  .../devicetree/bindings/net/intel,dwmac-plat.yaml  |  3 +
->  .../bindings/net/loongson,ls1b-gmac.yaml           |  3 +
->  .../bindings/net/loongson,ls1c-emac.yaml           |  3 +
->  .../devicetree/bindings/net/nxp,dwmac-imx.yaml     |  3 +
->  .../devicetree/bindings/net/nxp,lpc1850-dwmac.yaml |  3 +
->  .../devicetree/bindings/net/nxp,s32-dwmac.yaml     |  3 +
->  .../devicetree/bindings/net/qcom,ethqos.yaml       |  3 +
->  .../bindings/net/qcom,sa8255p-ethqos.yaml          | 98 ++++++++++++++++++++++
->  .../devicetree/bindings/net/renesas,rzn1-gmac.yaml |  3 +
->  .../bindings/net/renesas,rzv2h-gbeth.yaml          |  3 +
->  .../devicetree/bindings/net/rockchip-dwmac.yaml    |  3 +
->  .../devicetree/bindings/net/snps,dwmac.yaml        |  5 +-
->  .../bindings/net/sophgo,cv1800b-dwmac.yaml         |  3 +
->  .../bindings/net/sophgo,sg2044-dwmac.yaml          |  3 +
->  .../bindings/net/starfive,jh7110-dwmac.yaml        |  3 +
->  .../devicetree/bindings/net/stm32-dwmac.yaml       |  3 +
->  .../devicetree/bindings/net/tesla,fsd-ethqos.yaml  |  3 +
->  .../devicetree/bindings/net/thead,th1520-gmac.yaml |  3 +
->  .../bindings/net/toshiba,visconti-dwmac.yaml       |  3 +
->  MAINTAINERS                                        |  1 +
->  24 files changed, 166 insertions(+), 1 deletion(-)
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 14 ++++++++++++++
+>  arch/riscv/boot/dts/starfive/jh711x-common.dtsi |  8 --------
+>  2 files changed, 14 insertions(+), 8 deletions(-)
 > 
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> index dd5805ef70a1..cdc362b8d58b 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> @@ -25,3 +25,17 @@ opp-1500000000 {
+>  		opp-microvolt = <1040000>;
+>  	};
+>  };
+> +
+> +&mmc0 {
+> +	cap-mmc-highspeed;
+> +	cap-mmc-hw-reset;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&emmc_vdd>;
+> +};
+> +
+> +&mmc1 {
+> +	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> +	disable-wp;
+> +};
+> diff --git a/arch/riscv/boot/dts/starfive/jh711x-common.dtsi b/arch/riscv/boot/dts/starfive/jh711x-common.dtsi
+> index 809274625615..42b8f60725fb 100644
+> --- a/arch/riscv/boot/dts/starfive/jh711x-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh711x-common.dtsi
+> @@ -281,14 +281,8 @@ &mmc0 {
+>  	assigned-clock-rates = <50000000>;
+>  	bus-width = <8>;
+>  	bootph-pre-ram;
+> -	cap-mmc-highspeed;
+> -	mmc-ddr-1_8v;
+> -	mmc-hs200-1_8v;
+> -	cap-mmc-hw-reset;
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&mmc0_pins>;
+> -	vmmc-supply = <&vcc_3v3>;
+> -	vqmmc-supply = <&emmc_vdd>;
+>  	status = "okay";
+>  };
+>  
+> @@ -298,8 +292,6 @@ &mmc1 {
+>  	assigned-clock-rates = <50000000>;
+>  	bus-width = <4>;
+>  	bootph-pre-ram;
+> -	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> -	disable-wp;
+>  	cap-sd-highspeed;
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&mmc1_pins>;
 
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/qcom,sa8255p-ethqos.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
- 	 $id: http://devicetree.org/schemas/net/qcom,ethqos-scmi.yaml
- 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/qcom,sa8255p-ethqos.yaml
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251107-qcom-sa8255p-emac-v5-1-01d3e3aaf388@linaro.org
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Reviewed-by: E Shattow <e@freeshell.de>
 
 _______________________________________________
 linux-riscv mailing list
