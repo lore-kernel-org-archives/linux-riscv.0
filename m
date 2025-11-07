@@ -4,129 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12DDACCFA05
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Nov 2025 10:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C86ACCF9F8
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Nov 2025 10:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ivs4opn3dNcv4MJtlAemDMUgxIwsepF3rUklOEnuhos=; b=i2LLq/VC0Av6p/
-	NWNysCm6F9z3ZboZheJTKS86hH+KOnZnopqpnurrIxcRYAjVRVKQ/g7cPzIxvB5HjXgP1uPAWhBtr
-	Rq+i2r5qL7wPkKcYt/Uoi5NsTlZbBhr9SSxwLBqFUxKuR7Uc+VcKqvOL9cO2zw9HXMkel3NZwc4MA
-	JGPjZy++Dn70+ASEl5KtCMBJi82eGZ+FDALJOsuJiDvRamzrmBUPP29OR9GVGlUoFO9mzgyO0l3eS
-	djngTL3PTAZxjL3oIKUQsEFcNx5MKx6yn8/11ODDQcHMy2Zr7+qKrIuUCA6FXUZtQ04myb3ZIc3iB
-	TBzGZJSZbEWxdjzAYSiA==;
+	List-Owner; bh=sd9oiCZs0n9y6z1WNus51Av1bMQTroqJ0YBcqVYX1kY=; b=VL4wphdpRb7mEd
+	lbKncKfjtsgvdtJWSGoP+Ff/F7JLsz7BaT9O5m18Aeylx2XI1M+G1XHKPcliDIAhX1N/e97R3LoxN
+	OTAoVI272DB4ya0z9/9QCQcpH9hGbvUoAK/PaxHsK8AAGmTh1UitQaYgD1tCOg9ulTFCAb3/z5vMi
+	4/jQ3HfdQo1Q3mbqT8xqxBOM+O/pQ3S33l+hRvUYRe2TmKVYyqRu1HEuGjGnKS9c9RGnbX7cq2h/c
+	vxtCrVd/3qglKi/0wicFGkrRbbAACdT6FujAmFg13bikqUx1TiqvIpCf5WYyzXEnaPcHMmr5Y05Em
+	9UrQxS2JrotzVGoTsqbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJRj-0000000H3BF-2KQ8;
-	Fri, 07 Nov 2025 10:11:55 +0000
-Received: from mail-bjschn02on2117.outbound.protection.partner.outlook.cn ([139.219.17.117] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1vHJVi-0000000H3bw-2F47;
+	Fri, 07 Nov 2025 10:16:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJRg-0000000H39B-3gh0
+	id 1vHJVh-0000000H3bo-2ccV
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Nov 2025 10:11:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=fW3wXH20sU3xNoS1Ap1Ja66CG5GzjI3Jb/qsXn9UFMeuUNO9dJ6P4HGxyRm6FNjDLk/w4Ls52AOGKyJd+2+Veucpdsg/Wp66A4PRktiOIS8KDd69OlC/OfbmULXM0LDrP6Wt5ipdBG3tyA81ZGn6doXLvgItfKfr3Tjm7ArzrXOq64sqj3Sg+OYkbpI9qUIyqJ5aR3M13PK5W80DK3NwI5+XEXK3kEgK1XTZsifclnGjpBCqz9CmklTxeX8YVvGJiagHoUDqVDFLzt9+QgqyOGko6nEov5mPG/7uQGJ+t7zv/Osxe9eyyctuDTP+IEkqVJA3gB2jG4gHpp0FfVLpVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OkGAzpKBcoDhRWb5kotsVESWZoSUPUUsZEuVHZgFVLs=;
- b=alh8AW5NxyWi++sR86aTN4RCctM4QQ6yRaBRpMAzAuXMA+Kqok01b0BAFoMT0Gmdvm/8cv9kcK06sI/ykJZnOnaddZMsjezWYsYZe+l022AGF+V5Q49LrbGFt8EbvZAw/XgGXoxn6QyVdv4siJk6MgMYjYoc9LOqmi1vXHR68VMx+QHKMSCeGB6oCVMUeaY3G4/8S6XkYi8X67bcixGTH7+9sXJc5EevSxZBzhJsECHcqoMd4dngoqOtUAtUgiN8auFCMNAH6xEbDyxWhqMTfTRv6xzwOtl+pxU3xugEsSK3gdWof2pOHSRpwHScvudO69vfi8bKQFmNiHzNJ2G4aw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:7::14) by ZQ2PR01MB1305.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:6::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Fri, 7 Nov
- 2025 09:55:45 +0000
-Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- ([fe80::2595:ef4d:fae:37d7]) by ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- ([fe80::2595:ef4d:fae:37d7%6]) with mapi id 15.20.9298.010; Fri, 7 Nov 2025
- 09:55:45 +0000
-From: Hal Feng <hal.feng@starfivetech.com>
-To: Conor Dooley <conor+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	E Shattow <e@freeshell.de>
-Cc: Hal Feng <hal.feng@starfivetech.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 6/8] riscv: dts: starfive: Add common board dtsi for JH7110s and VisionFive 2 Lite variants
-Date: Fri,  7 Nov 2025 17:55:28 +0800
-Message-ID: <20251107095530.114775-7-hal.feng@starfivetech.com>
-X-Mailer: git-send-email 2.43.2
-In-Reply-To: <20251107095530.114775-1-hal.feng@starfivetech.com>
-References: <20251107095530.114775-1-hal.feng@starfivetech.com>
-X-ClientProxiedBy: ZQ0PR01CA0014.CHNPR01.prod.partner.outlook.cn (10.2.0.83)
- To ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn (10.2.1.78)
+	Fri, 07 Nov 2025 10:16:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A7329601BD;
+	Fri,  7 Nov 2025 10:16:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8FA2C19425;
+	Fri,  7 Nov 2025 10:15:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762510560;
+	bh=qviGVDBTi1qrAbuFnDyLf1pcDfPGvS8U5aiSjvqCc4k=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=fJMvVnBgY9P2M/E2U68QDNumtskhL7X39tpAM1FOV7uOwn2plb6s6Z6ramQhQiAGK
+	 PxgjFOMBNsLXOzryveuR9aZFUZb4WoYpjLXzEyNKdyeTuU60IUEqXm0hX+8TYaUWYh
+	 TgHfqO8mKuf/9BiCJGcX1t4j9aCwwkYoSqZ4adc1deFXrbtc298cTrVJkEd4QmzW2w
+	 WCcbi4DY+VweCjvqvqp/18otSfyqozwhdfEuQFLuSVrscNYEjMniCuyqy286yS9QMU
+	 00Nh5J9UbwmXI/UrgpwGZ54c8Dse4aF7X94pVtt0XgNX7kwakkF3CVx+2XKDQyhPk6
+	 t5zevqH9KYuPg==
+From: Mark Brown <broonie@kernel.org>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ han.xu@nxp.com, dlan@gentoo.org, pjw@kernel.org, 
+ Alex Elder <elder@riscstar.com>
+Cc: Frank.li@nxp.com, p.zabel@pengutronix.de, guodong@riscstar.com, 
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+ apatel@ventanamicro.com, joel@jms.id.au, geert+renesas@glider.be, 
+ cyy@cyyself.name, heylenay@4d2.org, conor.dooley@microchip.com, 
+ fustini@kernel.org, linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, spacemit@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20251027133008.360237-1-elder@riscstar.com>
+References: <20251027133008.360237-1-elder@riscstar.com>
+Subject: Re: (subset) [PATCH v4 0/9] spi: enable the SpacemiT K1 SoC QSPI
+Message-Id: <176251055452.2492712.5964458337079179341.b4-ty@kernel.org>
+Date: Fri, 07 Nov 2025 10:15:54 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1305:EE_
-X-MS-Office365-Filtering-Correlation-Id: b061be4a-8630-481e-2e0b-08de1de3d1f7
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|1800799024|41320700013|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: DALQ5wrCOkgDc1ksNLUQHRjwfX/sMUSEcA5LdWfwdQIW4SlHsKWO7JLu8eeu4p8VYVRgi7ysBCdfyVjBt8Oe9aw6k5ZttIl6RBZOFPjdWoKoHdTd490+rr8gAxbnDoi95LqgvCNnzn1gghzy1eJE8YfwcgH2jVDqpCP5VPmqIlu+S4W8pONPyNd3EDon8uhkwpSc/nyt6oipHlncpjMu2FUQ2U9quhGPJpEW6smOWba9j6ubGE0peJLYsgFffPeggZ+PeDpHQR2k+IDwew1TZHyXG98HXPqXVo7qKP30uvH+khQtFDiRzsZV0vY704ilkre15jTT7/SGsCg7dbVf4GOiWW3/D4ktHNfeaUcCcpMxz1fGoxR59ovlHoo1LjO16sQFDyqcGGcSIk6btY0WsJ/MdlmLa/wuQ5Py19/6ofDEzRkVI7NhlbcL9ngiZmNZtnhPVoLJpvPuE9oDCl0yRlhwjn5ueHD96vh9MbnLbHmEP3hbhK5GQujl8JsruNqwBFUpBVaDl6w4zREbHrJawmWWRfddn3Neo6boZap0UTJWd0B48q37+6dugQb+WtaBAEnYbh32kYcwXrHYWWWqLDHq1FRiFNyzJ3B60WB8tK0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(1800799024)(41320700013)(38350700014)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QHpY78J8pC522GslMm4T0/3oYbYtQgtQRWUbmg+CZcG3pUqgiRED8Y8R6PFz?=
- =?us-ascii?Q?4N6G9GjxYr26gz2SDCP1D/JSYu+41VTeuQ8kkQCMUsi7pkDAwG6KksVuz+sf?=
- =?us-ascii?Q?EV0+NZg6FZZE2OLwqLxHRPrzGwt2cP8WseEzOkJqbyLipHV5HI8X1rdOhFW2?=
- =?us-ascii?Q?bPymD4JUqODB4ZRjbids05BT2WuAiixBTMOMns9h9r7yPxw5a5MCZfKboZ5t?=
- =?us-ascii?Q?liwU2EEP77IFAFIB4a6Onc30PQF+aYUsV/S95ag5wvCcUhE05N2eDHGUj+WT?=
- =?us-ascii?Q?0UwEGjStUnnj/lLlmMModkCCbK048827imY4FKarBhtzP09ZuX/+FCy4XuYJ?=
- =?us-ascii?Q?GduLpeaSBnjQD/+AWpRnHZ34GjxsFphU+SdGu7/meh8OICsaxIqEb1LShQ7J?=
- =?us-ascii?Q?aN1Ovbng+AJR5fl5bk7b9WUzAb1nwvPKn3o/WyBQTcAVHfzuiU0J6Dy5L2Sw?=
- =?us-ascii?Q?lN2IC2GlHXH2StO02FjE6QaQtqi9S/prwmHsx0nTFeB1OqtaTwBi0NbGFD8J?=
- =?us-ascii?Q?Cpkxlp3MwO/eaHf2W/VSXvMJqNpqway+0SVZ66FNmsyQbmx53AITVV7x5nVd?=
- =?us-ascii?Q?SBwvYYJyFgTFe7JkAvGpGkQ0CYnr06GLOKi5QqUh3ftW2sIuupOiu9aML5Jf?=
- =?us-ascii?Q?uxVIna7sFexf1KP3uDXv+b4lBtFcZ9LZPEXbnJ6TKzN9t+XMxTyFNItMZr78?=
- =?us-ascii?Q?Wbs0tLxwAI64516TqjzsOiAYP3/yh0L+9gXkcMcTAEKfBxWK/GJrj2NWlz7S?=
- =?us-ascii?Q?4V9hTinH7EIXqqEMG4sXFXUDFVYFq01vRGbbOCkq3zFZnxDmWxt3V2Cqq++B?=
- =?us-ascii?Q?mK7LiIav/kf0FGj3C9gI6Bq1UdHXl5EyQfLfN16nKsq9Js+p0FKT0vAtV8oA?=
- =?us-ascii?Q?EoodiCc6bbt0+Zn1qMoDrHs3KFzDm36LIgc1zzr1fqI2ZQ+t/NHeY59NMwfQ?=
- =?us-ascii?Q?cwJ/aCSs6q2krH18StquMxUdV/EhdCHcKAtI3KfCgvjPYfmDCcVVmFs3sWy6?=
- =?us-ascii?Q?uAWnU9uQetFeG6jBTRPpHyX40GXdjqdSqdrSre4PeiB4VxOrcoq4FVHlxtjU?=
- =?us-ascii?Q?vw32PCskHrS7H/PkChAEkSmfEMq6FMX1axRu4zOOKiR4mB70bg4Hd3xq8c2K?=
- =?us-ascii?Q?kyiEOJooZlguiodk/3CjCBtJ5BLaF2hGp2QOJaBi7tOxiXKKR/BofwSu9QYG?=
- =?us-ascii?Q?jUYzXrWBn0cojiO14bbWKxc6gqg7LVBF+brGsdVujxLAJxohMHUvMc9vsliQ?=
- =?us-ascii?Q?l6ODgprJAR1FdWCQKjB/5gQrRvRQkrARZFeH6665w+AT8MQZX7tARp8DaWb1?=
- =?us-ascii?Q?+BuD5XVVNgvEtWJBHS9y4SsmkYo/SBMitU7RlSqlX2B7R/4lOenKiz02Gcmx?=
- =?us-ascii?Q?ZRqNKpmysEWsBemm28T1FUCuFU7k8XvRdryFxUfG8pZpkyr3zZKpE30otyoT?=
- =?us-ascii?Q?JODt67QI73iIzcnLoRNCFH9NKkidNasClcHF8mIPb+dKsOsU8Nt6sj5gHgwx?=
- =?us-ascii?Q?8Cr4Vvj/zAVhEKfsoAPF1Mse/bzmUKB5hWFlOQOXbaWY/tDi4kVKb+UviYAe?=
- =?us-ascii?Q?6u+Q8Rcd8i+17yK/5mPFnSt+JNmgSg8hMQaKrr7qHr4F06Gn1k81GhgJ3q62?=
- =?us-ascii?Q?bw=3D=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b061be4a-8630-481e-2e0b-08de1de3d1f7
-X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 09:55:45.1748
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +mS6G2gyhlF4kVwx4fMnsiKV8FqIXfd1GlcMeDUfeQBMXIO/uNFgcgvomyN1y96UEyvEhVvleDruAUlO3v9PITpDp5g8pd/Sw61hEMPOniM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1305
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_021152_917745_D95C10A6 
-X-CRM114-Status: GOOD (  10.99  )
+X-Mailer: b4 0.15-dev-a6db3
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,184 +76,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add common board dtsi for use by JH7110s based boards and
-VisionFive 2 Lite variants.
+On Mon, 27 Oct 2025 08:29:58 -0500, Alex Elder wrote:
+> This series adds support for the SpacemiT K1 SoC QSPI.  This IP is
+> generally compatible with the Freescale QSPI driver, requiring three
+> minor changes to enable it to be supported.  The changes are:
+>   - Adding support for optional resets
+>   - Having the clock *not* be disabled when changing its rate
+>   - Allowing the size of storage blocks written to flash chips
+>     to be set to something different from the AHB buffer size
+> 
+> [...]
 
-Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
----
- .../boot/dts/starfive/jh7110s-common.dtsi     |  27 ++++
- .../jh7110s-starfive-visionfive-2-lite.dtsi   | 126 ++++++++++++++++++
- 2 files changed, 153 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-common.dtsi
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
+Applied to
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110s-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110s-common.dtsi
-new file mode 100644
-index 000000000000..ad0d54d44123
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110s-common.dtsi
-@@ -0,0 +1,27 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2025 StarFive Technology Co., Ltd.
-+ * Copyright (C) 2025 Hal Feng <hal.feng@starfivetech.com>
-+ */
-+
-+/dts-v1/;
-+#include "jh711x-common.dtsi"
-+
-+&cpu_opp {
-+	opp-312500000 {
-+		opp-hz = /bits/ 64 <312500000>;
-+		opp-microvolt = <800000>;
-+	};
-+	opp-417000000 {
-+		opp-hz = /bits/ 64 <417000000>;
-+		opp-microvolt = <800000>;
-+	};
-+	opp-625000000 {
-+		opp-hz = /bits/ 64 <625000000>;
-+		opp-microvolt = <800000>;
-+	};
-+	opp-1250000000 {
-+		opp-hz = /bits/ 64 <1250000000>;
-+		opp-microvolt = <1000000>;
-+	};
-+};
-diff --git a/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi b/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
-new file mode 100644
-index 000000000000..747fb806034d
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
-@@ -0,0 +1,126 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2025 StarFive Technology Co., Ltd.
-+ * Copyright (C) 2025 Hal Feng <hal.feng@starfivetech.com>
-+ */
-+
-+/dts-v1/;
-+#include "jh7110s-common.dtsi"
-+
-+&gmac0 {
-+	starfive,tx-use-rgmii-clk;
-+	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
-+	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+};
-+
-+&mmc1 {
-+	max-frequency = <50000000>;
-+	keep-power-in-suspend;
-+	non-removable;
-+};
-+
-+&pcie1 {
-+	enable-gpios = <&sysgpio 27 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+};
-+
-+&phy0 {
-+	motorcomm,tx-clk-adj-enabled;
-+	motorcomm,tx-clk-100-inverted;
-+	motorcomm,tx-clk-1000-inverted;
-+	motorcomm,rx-clk-drv-microamp = <3970>;
-+	motorcomm,rx-data-drv-microamp = <2910>;
-+	rx-internal-delay-ps = <1500>;
-+	tx-internal-delay-ps = <1500>;
-+};
-+
-+&pwm {
-+	status = "okay";
-+};
-+
-+&spi0 {
-+	status = "okay";
-+};
-+
-+&syscrg {
-+	assigned-clock-rates = <0>, <0>, <0>, <0>, <500000000>, <1250000000>;
-+};
-+
-+&sysgpio {
-+	uart1_pins: uart1-0 {
-+		tx-pins {
-+			pinmux = <GPIOMUX(22, GPOUT_SYS_UART1_TX,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			bias-disable;
-+			drive-strength = <12>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		rx-pins {
-+			pinmux = <GPIOMUX(23, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_UART1_RX)>;
-+			bias-pull-up;
-+			drive-strength = <2>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+
-+		cts-pins {
-+			pinmux = <GPIOMUX(24, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_UART1_CTS)>;
-+			input-enable;
-+		};
-+
-+		rts-pins {
-+			pinmux = <GPIOMUX(25, GPOUT_SYS_UART1_RTS,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			input-enable;
-+		};
-+	};
-+
-+	usb0_pins: usb0-0 {
-+		power-pins {
-+			pinmux = <GPIOMUX(26, GPOUT_HIGH,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			input-disable;
-+		};
-+
-+		switch-pins {
-+			pinmux = <GPIOMUX(62, GPOUT_LOW,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			input-disable;
-+		};
-+	};
-+};
-+
-+&uart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart1_pins>;
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	dr_mode = "host";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&usb0_pins>;
-+	status = "okay";
-+};
-+
-+&usb_cdns3 {
-+	phys = <&usbphy0>, <&pciephy0>;
-+	phy-names = "cdns3,usb2-phy", "cdns3,usb3-phy";
-+};
--- 
-2.43.2
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[1/9] dt-bindings: spi: fsl-qspi: support SpacemiT K1
+      commit: bd352547df647be8a1e6c9d4ca2b54b459f3abc1
+[2/9] dt-bindings: spi: fsl-qspi: add optional resets
+      commit: 873a46141460d209bb62eaa0dc9e7b67bff924a6
+[3/9] spi: fsl-qspi: add optional reset support
+      commit: 106d7641e55a472e7523c1f525c77fb6d420064d
+[4/9] spi: fsl-qspi: switch predicates to bool
+      commit: 6b398c1d3da7a673b13b1857f9fff4c15ee20cef
+[5/9] spi: fsl-qspi: add a clock disable quirk
+      commit: 1797d254f5c4b46b295527a635af7321a3fe1318
+[6/9] spi: fsl-qspi: introduce sfa_size devtype data
+      commit: 56931105074fe7e5fc9d54e3163df3b95075643c
+[7/9] spi: fsl-qspi: support the SpacemiT K1 SoC
+      commit: abc9a349b87ac0fd3ba8787ca00971b59c2e1257
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
 _______________________________________________
