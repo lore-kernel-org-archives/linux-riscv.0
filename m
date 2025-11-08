@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2D0CCFA18
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 08:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAFECCFA1E
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 08:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Jc6ipKN3GUjaUAyiiJHSxZzVW2+CkvKxIMDFuNTzte4=; b=w3GyABtoTZ+eEr
-	1nBOIw2b73LFPRd1dd1AFVGIA2wy1u/FWAJ7GptaX3wsl7+G9AU3P+MYTsI8wRBc8FwJCfcOhIuvT
-	+MuDUKudqhKEmcraxJuXoUQQh+zAS8h4/vfvHTVPBaR1HPEx2vIkkTp0ZIjvYu6ksYCN3Yb8OG3FO
-	sQoCNjSvrMkD6DXSu3xmiXatfGiZUU5ostdPCQtrIXkhCclDBB74tAzAwsaMrYPuP4biuAJ98i5LQ
-	47/ufbspLx8jEtdb6EwvV1dRBaAZ7EqO3go/sD1BBhMt7AqNMmhrbTa4KsHNkQliVR48FS6y4jJBP
-	re8kpEq51ZDISAm1kCgA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kU03l+B+18yGA5pgZtDGrc5PdDFrXw2eJnTVtL9lmQ4=; b=1BJ/RJ01h3EHrI
+	PoyX7NXw00OReT3dAHqVJ0zg4dLn90y1ivZgZHIU0wIM23hVQrET2Im60EPtJJO/bOIw4aIv2IzKp
+	SnQrHzzr5wihdmXhBfx/7cCHq5d+px/vM3gQPCdBD8kUaHrt92YAv7zhVbipk2jZjuE45f9ZR+AzS
+	6jD1K/M3LOmCPAshxi1Hmg6dDQQYc+6c1hBRa5ODXQ8q9H1O6bemcHCSrnoO2/gwhvoIXyB7M3Xp0
+	Bisci+sBMi/zis04hBXoRA5TktKMwMS2k6u1y1DKJ7YZwj0RhJd/tiKYFD+nZgHANkETVz1pG294O
+	VTp7M3h6tdxmv08ijIyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHeCG-00000002nFg-0ZCs;
-	Sat, 08 Nov 2025 08:21:20 +0000
+	id 1vHeCL-00000002nJA-3hYE;
+	Sat, 08 Nov 2025 08:21:25 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHeCB-00000002nBK-25P1;
-	Sat, 08 Nov 2025 08:21:18 +0000
+	id 1vHeCB-00000002nCB-3aqW;
+	Sat, 08 Nov 2025 08:21:19 +0000
 Received: from localhost.localdomain (unknown [223.166.92.44])
-	by APP-03 (Coremail) with SMTP id rQCowAA3texL_Q5p20b2AQ--.57722S2;
-	Sat, 08 Nov 2025 16:20:36 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAA3texL_Q5p20b2AQ--.57722S5;
+	Sat, 08 Nov 2025 16:20:38 +0800 (CST)
 From: gaohan@iscas.ac.cn
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -53,32 +53,37 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	Han Gao <rabenda.cn@gmail.com>
-Subject: [PATCH 0/3] riscv: soc: re-organized allwinner
-Date: Sat,  8 Nov 2025 16:20:22 +0800
-Message-ID: <cover.1762588494.git.gaohan@iscas.ac.cn>
+Subject: [PATCH 3/3] riscv: defconfig: enable SUNXI_XUANTIE and SUNXI_ANDES
+Date: Sat,  8 Nov 2025 16:20:25 +0800
+Message-ID: <bc141425b71f0cfc8f3ef0a3c6d08104fde1281f.1762588494.git.gaohan@iscas.ac.cn>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1762588494.git.gaohan@iscas.ac.cn>
+References: <cover.1762588494.git.gaohan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAA3texL_Q5p20b2AQ--.57722S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYC7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E
-	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
-	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8I
-	cVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2js
-	IEc7CjxVAFwI0_Cr1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE
-	6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72
-	CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7
-	M4IIrI8v6xkF7I0E8cxan2IY04v7M4kE6xkIj40Ew7xC0wCF04k20xvY0x0EwIxGrwCF54
-	CYxVCY1x0262kKe7AKxVW8ZVWrXwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
-	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIx
-	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
-	wI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
-	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUJManU
-	UUUU=
+X-CM-TRANSID: rQCowAA3texL_Q5p20b2AQ--.57722S5
+X-Coremail-Antispam: 1UD129KBjvdXoW7Gw1rur1fXr1Dury8Aw1kKrg_yoWxuFb_Jr
+	4xK3yrurWxJFZ29Fnxuw4rC3WDCa4UW348Xr42vr1UW3y2grnxX3yqqF1UJw15uF4jgFs7
+	Za92ya47CrnaqjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbLxFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUWwA2048vs2IY02
+	0Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UM2
+	8EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr0_GcWl
+	e2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI
+	8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwAC
+	jcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0x
+	kIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxAq
+	zxv26xkF7I0En4kS14v26r4a6rW5MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrV
+	AFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCI
+	c40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267
+	AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j
+	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRNBM
+	NUUUUU=
 X-Originating-IP: [223.166.92.44]
 X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_002115_927268_C3D67318 
-X-CRM114-Status: UNSURE (   4.73  )
+X-CRM114-CacheID: sfid-20251108_002116_258330_9F2EF3B9 
+X-CRM114-Status: UNSURE (   6.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,23 +103,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Han Gao <gaohan@iscas.ac.cn>
 
-Allwinner currently offers d1(s)/v821/v861/v881 on RISC-V,
-using different IPs.
+These options need to be enabled to prepare for v821/v861/v881.
 
-d1(s): Xuantie C906
-v821: Andes A27 + XuanTie E907
-v861/v881: XuanTie C907
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+ arch/riscv/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Han Gao (3):
-  riscv: soc: re-organized allwinner menu
-  riscv: soc: allwinner: d1: use the ARCH_SUNXI_XUANTIE
-  riscv: defconfig: enable SUNXI_XUANTIE and SUNXI_ANDES
-
- arch/riscv/Kconfig.socs                | 22 +++++++++++++++++-----
- arch/riscv/boot/dts/allwinner/Makefile | 20 ++++++++++----------
- arch/riscv/configs/defconfig           |  2 ++
- 3 files changed, 29 insertions(+), 15 deletions(-)
-
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index fc2725cbca18..ed0ac65babdc 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -29,6 +29,8 @@ CONFIG_ARCH_SOPHGO=y
+ CONFIG_ARCH_SPACEMIT=y
+ CONFIG_SOC_STARFIVE=y
+ CONFIG_ARCH_SUNXI=y
++CONFIG_ARCH_SUNXI_XUANTIE=y
++CONFIG_ARCH_SUNXI_ANDES=y
+ CONFIG_ARCH_THEAD=y
+ CONFIG_ARCH_VIRT=y
+ CONFIG_ARCH_CANAAN=y
 -- 
 2.47.3
 
