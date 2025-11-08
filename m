@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78465CCFA18
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 14:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E521CCFA18
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 14:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rb0OoWz/quP3eZOJ0JfArADGpN70QgjXH+POGPtFxSI=; b=ir+A1VS5eHOyqh
-	N9mKvwE/Klb0ypbTo8uDsqmm/tR7zAlZyeL6OtY0mQAz3cZ3BtecH3NaPUwP0yUqWLmCmASXsUnd+
-	PF5Z9OJuLgPQzeiqIr9lKw590Ekze2D7gKBj/tTq1DivdlvTBiiJtNbQFU9ANz4CY+mZm6DYTUwaZ
-	uAMm9H+gt2hn0Q6m23tfBOuBkpj8V4yaFrlUjBK38x4fduv1XdF+aPlW2/lpvwpQrz80nnnq6uIAS
-	MdVRokm4AxS188x/oiJrG0Ilbz2NDWqOqBbAprvC9fXnQ2I8ikYir1trIU6aesHQab6hUD80f3MF5
-	D8S6PYsv2b00CuLnpEsQ==;
+	List-Owner; bh=Bavxyd0tK5RDIF5OdhFACoxDvAWirJUr6cJAHfgRyNY=; b=s08Gjo3Wtu2Ek3
+	No07AKt7yHc6epZAa7LD3xK3Wn9zer4NAMbs2a1IzAKLFqKci0qGHQbiJPsSs788L08HGNr9S/nDB
+	POijQ2PuZ/oK95Pdfyv56bJLyB6F2ixIX14rtTrtF1OZ0vZeKGtFPJg1Kp321RupE9BC/kckt6MgI
+	p8JU6EgMxsi68ihIIcVKGyq2g1XUK7h1XZlsWWwVwbHSLo+thrIfphpg4z3eL0aJG5WlTu/NBzz1b
+	TaHdtYj0YxYCTzEm8HL61nFlzNFYJ/pq5ilVYBL31rMkXaNSzzF1Q9K2tI52LSgYf0rMSQo7sjK9s
+	ZV/wHxFNA7FdDj/nj37Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHkDu-00000003CbJ-3L4a;
-	Sat, 08 Nov 2025 14:47:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vHkEu-00000003ClW-1s0N;
+	Sat, 08 Nov 2025 14:48:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHkDs-00000003Cb2-1tcn;
-	Sat, 08 Nov 2025 14:47:24 +0000
+	id 1vHkEt-00000003Ckd-1S4o;
+	Sat, 08 Nov 2025 14:48:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E09A760052;
-	Sat,  8 Nov 2025 14:47:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAE16C4CEFB;
-	Sat,  8 Nov 2025 14:47:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F75660053;
+	Sat,  8 Nov 2025 14:48:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B07CC116C6;
+	Sat,  8 Nov 2025 14:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762613242;
-	bh=seiWAXWA40Itm0WaQziqNpXmGAyxL/tF/QM25Q9yPaE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=W7dvfHhKNsU2mj3j+TrfjRX13sG7PZgOKWXoqyHVzmFjOfSxG4gU7KsPOiXMfgXV+
-	 AJH5lZFoupvkTfXhrp8dRruIYrtm5ZQ3xSpMJIQeQRR0+N6wzC7t9VpsJ1ZFusIW2v
-	 cW+tm6YfbFbWIFHr9bMWroKU/WgzeYm18BkDEdk6oiAst/kT7D76HvAgPK7iFPa18d
-	 x3OquFQ3LvWgGKiJOuSD1fxykDRiXNVK5wJw+8Lf9cAiXJzPFWoyO1P243A91bXLuy
-	 +6xYwJVXNo92+1XTdLO3u+2bQnZ2Lg7P2lzrdJ7eb9pWs4S96T535g3thIXSOzJpvx
-	 zJpp/RItwSa/A==
-Message-ID: <287444fa-120c-42b4-9919-2f05ab1a2ab7@kernel.org>
-Date: Sat, 8 Nov 2025 15:47:16 +0100
+	s=k20201202; t=1762613305;
+	bh=Oo6g0GMqZZTxcLBaU6ktO2ZbYIHNWh6xms/osvI8ZXk=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=p4MMhFNgIiEyu6JE5Sc+kBWEcofVF4L9uJDCtmLTbYMG+XZf/cxIwjGxpAnOpJCsP
+	 EB7vV4c1DKZL1kQJrxFX9GRiyCsO/w0QP/cUEmADttS+uOUEpVDziA64e0XrKxe1GL
+	 7ex1Q/pVH7TO7Gl15DeWbkfqOqcB+efTWhzxksys/R1bFufrXuhgq4EEx1MrdzdrmV
+	 jtzipSeOA5BSkFmP1O1Neud1d4jrjDqbQAs+DivvbSRh0ZzlhLxgcV6xvID/LWhGUo
+	 H507ZFLIxGZ9eBNUQYhws8KI/+07kQoWebBf4wUkHYs4BxSM37fFErYg2LJ9B8710y
+	 Aya/LGR/5d4MA==
+Message-ID: <8ae5d81d-4869-4c39-9561-cb0f87da70fd@kernel.org>
+Date: Sat, 8 Nov 2025 15:48:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: revy <gaohan@iscas.ac.cn>
 Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
@@ -62,7 +63,7 @@ References: <cover.1762588494.git.gaohan@iscas.ac.cn>
  <d17a3a01e2b1297538c419b51953f9613426ba42.1762588494.git.gaohan@iscas.ac.cn>
  <e98a1e59-f3ff-4e9f-a180-79aea9943236@kernel.org>
  <43109A90-8447-4006-8E29-2D2C0866758F@iscas.ac.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <287444fa-120c-42b4-9919-2f05ab1a2ab7@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -107,7 +108,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <43109A90-8447-4006-8E29-2D2C0866758F@iscas.ac.cn>
+In-Reply-To: <287444fa-120c-42b4-9919-2f05ab1a2ab7@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,59 +125,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/11/2025 14:59, revy wrote:
-> 
-> 
-> 
->> -----Original Messages-----
->> From: "Krzysztof Kozlowski" <krzk@kernel.org>
->> Sent Time: 2025-11-08 19:29:07 (Saturday)
->> To: gaohan@iscas.ac.cn, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>, "Yixun Lan" <dlan@gentoo.org>, "Drew Fustini" <fustini@kernel.org>, "Geert Uytterhoeven" <geert+renesas@glider.be>, "Guodong Xu" <guodong@riscstar.com>, "Haylen Chu" <heylenay@4d2.org>, "Joel Stanley" <joel@jms.id.au>
->> Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, "Han Gao" <rabenda.cn@gmail.com>
->> Subject: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
->>
->> On 08/11/2025 09:20, gaohan@iscas.ac.cn wrote:
->>> From: Han Gao <gaohan@iscas.ac.cn>
->>>
->>> Allwinner currently offers d1(s)/v821/v861/v881 on RISC-V,
->>> using different IPs.
->>>
->>> d1(s): Xuantie C906
->>> v821: Andes A27 + XuanTie E907
->>> v861/v881: XuanTie C907
->>>
->>> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
->>> ---
->>> arch/riscv/Kconfig.socs | 22 +++++++++++++++++-----
->>> 1 file changed, 17 insertions(+), 5 deletions(-)
->>>
->>> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
->>> index 848e7149e443..7cba5d6ec4c3 100644
->>> --- a/arch/riscv/Kconfig.socs
->>> +++ b/arch/riscv/Kconfig.socs
->>> @@ -54,14 +54,26 @@ config SOC_STARFIVE
->>> 	help
->>> 	  This enables support for StarFive SoC platform hardware.
->>>
->>> -config ARCH_SUNXI
->>> -	bool "Allwinner sun20i SoCs"
->>> +menuconfig ARCH_SUNXI
->>> +	bool "Allwinner RISC-V SoCs"
->>> +
->>> +if ARCH_SUNXI
->>> +
->>> +config ARCH_SUNXI_XUANTIE
+On 08/11/2025 15:47, Krzysztof Kozlowski wrote:
+> On 08/11/2025 14:59, revy wrote:
 >>
 >>
->> You should not get multiple ARCHs. ARCH is only one. There is also not
->> much rationale in commit msg for that.
+>>
+>>> -----Original Messages-----
+>>> From: "Krzysztof Kozlowski" <krzk@kernel.org>
+>>> Sent Time: 2025-11-08 19:29:07 (Saturday)
+>>> To: gaohan@iscas.ac.cn, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>, "Yixun Lan" <dlan@gentoo.org>, "Drew Fustini" <fustini@kernel.org>, "Geert Uytterhoeven" <geert+renesas@glider.be>, "Guodong Xu" <guodong@riscstar.com>, "Haylen Chu" <heylenay@4d2.org>, "Joel Stanley" <joel@jms.id.au>
+>>> Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, "Han Gao" <rabenda.cn@gmail.com>
+>>> Subject: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
+>>>
+>>> On 08/11/2025 09:20, gaohan@iscas.ac.cn wrote:
+>>>> From: Han Gao <gaohan@iscas.ac.cn>
+>>>>
+>>>> Allwinner currently offers d1(s)/v821/v861/v881 on RISC-V,
+>>>> using different IPs.
+>>>>
+>>>> d1(s): Xuantie C906
+>>>> v821: Andes A27 + XuanTie E907
+>>>> v861/v881: XuanTie C907
+>>>>
+>>>> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+>>>> ---
+>>>> arch/riscv/Kconfig.socs | 22 +++++++++++++++++-----
+>>>> 1 file changed, 17 insertions(+), 5 deletions(-)
+>>>>
+>>>> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+>>>> index 848e7149e443..7cba5d6ec4c3 100644
+>>>> --- a/arch/riscv/Kconfig.socs
+>>>> +++ b/arch/riscv/Kconfig.socs
+>>>> @@ -54,14 +54,26 @@ config SOC_STARFIVE
+>>>> 	help
+>>>> 	  This enables support for StarFive SoC platform hardware.
+>>>>
+>>>> -config ARCH_SUNXI
+>>>> -	bool "Allwinner sun20i SoCs"
+>>>> +menuconfig ARCH_SUNXI
+>>>> +	bool "Allwinner RISC-V SoCs"
+>>>> +
+>>>> +if ARCH_SUNXI
+>>>> +
+>>>> +config ARCH_SUNXI_XUANTIE
+>>>
+>>>
+>>> You should not get multiple ARCHs. ARCH is only one. There is also not
+>>> much rationale in commit msg for that.
+>>
+>> The main goal is to avoid choosing multiple IP addresses for erreta. 
+>> If using Andes IPs, I don't want to choose XuanTIe (T-Head) ERRETA.
 > 
-> The main goal is to avoid choosing multiple IP addresses for erreta. 
-> If using Andes IPs, I don't want to choose XuanTIe (T-Head) ERRETA.
+> Not explained in commit msg but anyway not a good argument. It is some
+> sort of micro optimization and you completely miss the point we target
+> multiarch kernels.
 
-Not explained in commit msg but anyway not a good argument. It is some
-sort of micro optimization and you completely miss the point we target
-multiarch kernels.
+Heh, and I actually did not forbid or discourage choosing erratas per
+your soc. I said you only get one top level ARCH. Look at all arm64
+platforms. How many ARCHs are there per one vendor?
 
 Best regards,
 Krzysztof
