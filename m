@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B6ACCFA18
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 09:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3EA8CCFA13
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 11:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q/E+ZoIYsRobRnuf78NqHhvRP+dpvGHwX3l32vKGAek=; b=uRX7wUHB9JTmFT
-	9V/htW1ZuX3Vq4BGM4yzS6uU3GoxJg9whyUibCMU0cD9g9mVJeP/D8AS769YMzVAVeNKBBLtounvE
-	jGj6pJ/P5eNg1b8JibEnZ5SrvMK+I+NmDUBJxXUDrIEtQPRCv0Uc2jTJ42tmv8/AbvuBxcOmaGOtF
-	vne+/5k72e/KNiLdyGmsmL1JAJwTvFOuW2wsJrwWo4dMasc9gdDdzQwS+Z8/zGVjuXjX1hkYUTkho
-	UdRRd4UG2EjOQqw+JrdgAoN2zwbyYJ43V0ukRNOnGextUn8fhnXrEV5h/Qh0XGMjZ9kjoP/j+inwr
-	8yG0B74iZtscr+NzLYIQ==;
+	List-Owner; bh=W20GWbwnz90uX3ieXQ4jV1CBqKBlIwpxqfglUhgCF38=; b=oXc2oj3egdjrxT
+	fclefixQXKUfj9i5Qut2OF1qskWWcPMiRAHaCaoK+V+myJxBVZGOIfA6HxLEF5K7VdEjj1EiQoKF3
+	LOdsvuciXZTVUsbkue/cYE+zxbViUkkcB/J51grvMd4UPnaMLTg1Zec2x++1BhP0guDHZK3IrZVcp
+	uZzib09lyr+f+uyGTuU3WUOR41/4v0Dy589ScmVmGRrU42MPDJgiB9pBmpjf6d37NMVg5UUFbscxb
+	2IlH//XaJUeG9AW3AlzA9qGfdZ2WzduJnebGXiOCRpvtUj3iEHc2Sdxd7e8N0OSvxrPllgiP7RUwA
+	76KGglpv/N4WB9jIll7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHfWy-00000002zyn-15mN;
-	Sat, 08 Nov 2025 09:46:48 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1vHgoa-0000000331k-1nQN;
+	Sat, 08 Nov 2025 11:09:04 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHfWv-00000002zxc-2pkJ
-	for linux-riscv@lists.infradead.org;
-	Sat, 08 Nov 2025 09:46:47 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b3d196b7eeeso235350166b.0
-        for <linux-riscv@lists.infradead.org>; Sat, 08 Nov 2025 01:46:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762595203; x=1763200003; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lSUW/WjMhCO0Veyp/5U9fPi2v4UQHFyEZLh62h16fCE=;
-        b=LRS+PxKbcx0I22zb3AfN74ZKRzMe4oTb2F18PLq0KCERv84G0wTJ03wfIIvq4GhgGZ
-         m7hpvPq1hv5kvcd5SNLeSPxEPWz19oPNEqC39O/8BFeHK/pVznymHd3eX7foUjVQrBlO
-         1CIZEzv6rwiMgIFqCSrC91KFrLfrPao/BadQuxzNxzHv6cktrwiAaSORIAp3e/LL65a3
-         DiGy2S84HuYttKrHFFKfv+mQ9JM3Mu566jvAf+gVvc+loHxcRan6O89mZvuaWeu1H09P
-         i9m+BqEcH1x+V2XHHAILHrHQUPHv1MLTnEpmEvW5afbnIorzobdl9mT+KWQevO/e5o+n
-         NbyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762595203; x=1763200003;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=lSUW/WjMhCO0Veyp/5U9fPi2v4UQHFyEZLh62h16fCE=;
-        b=Sfs0T6dIwgIL7JHeaplioceZX+F+5TNTCHIvrtxjsPO874tyrSqEeMYWAEl0GX3BZ5
-         Wwoc6z0aWtElHBjqaYYPFk90J4gMPD5k+6HlGnwhm2TA/dMyuwQECdtkuD5YSDqTn7dc
-         PXDvgbm51roXfIDH0bhsgD6Vy6z3okZy2jcpbRl06XOgiJ9MtZTJnwhsg1rLkLj9sfPQ
-         xTucTpGnyeaWT5Q0h5XqGybwx/DsLQPuWd3TvWyupf/ZxNp2K6Fs5EuvSNEZgSdQnBxU
-         78X5YrXXlt5jIrFYbcihXKzJVRWaREKO3uASJ4Q6bEdbym63gQtEDbAZTEOiSfjJ45YK
-         F49A==
-X-Gm-Message-State: AOJu0YwbGx16bW6Zck3DxHA90n/0+QX7JRaQJucHZYRFAMmHIncwQQmw
-	8y/Fko7YNneoS84I0EEdy9nyg+YqT9YIy0vtKb5mMtgfiqXoVxTF4QUG
-X-Gm-Gg: ASbGncuTpRu9mrQezpphE/evTw+V81OmYIrvImxRlr3XPLz9L+wx9Oennh/j/PFJ960
-	2nMBCOG9rttbj+5ZDA//4B8IqM/WcXhpgrATUc0nlxMzgu2VxtSOWGOfMLAJn53EwL+nc+saebS
-	Hh9nZTn4kqT8d9+xtQ98ebhJpdMGRqp0doQvRvt5tqsyItSnRzIBCy6QZ9ATjFHWpw9w7jAI113
-	2Qq6FZAeecYqoWyS2uLS6vNqqfwttWM9iMFhJPGgr9XWQ3Ba0WTw4P7TToXNATCrnVVbYMoYktK
-	EseG67PCpw9zGcTdIXAa3UY6LeJSHDOXxGsmVrmOtYOQ8vMORUt8xgP4AfXHsAb18uqxgmntiD7
-	QbEJg83PXP7vzYFMrhDtbX0hfJPOahtwvbqOB90VXgmqj7ySWpzVF5ia6cR0wKgTNmdYHRvv7Wn
-	Tdul3UYtGIa77D+4GPlMyJQw==
-X-Google-Smtp-Source: AGHT+IEF4CkxscNYi/C2XNylHCh280mub3VhXy2YsQtWnD+IOuCk3xiDthoT6Cd2QfMZg0xUKQ0czw==
-X-Received: by 2002:a17:906:6a27:b0:b45:60ad:daf9 with SMTP id a640c23a62f3a-b72e028a602mr227544366b.3.1762595203327;
-        Sat, 08 Nov 2025 01:46:43 -0800 (PST)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72d7996c4csm291514066b.5.2025.11.08.01.46.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Nov 2025 01:46:42 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>, Han Gao <gaohan@iscas.ac.cn>,
- Yixun Lan <dlan@gentoo.org>, Drew Fustini <fustini@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Guodong Xu <guodong@riscstar.com>, Haylen Chu <heylenay@4d2.org>,
- Joel Stanley <joel@jms.id.au>, gaohan@iscas.ac.cn
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, Han Gao <rabenda.cn@gmail.com>
-Subject: Re: [PATCH 0/3] riscv: soc: re-organized allwinner
-Date: Sat, 08 Nov 2025 10:46:41 +0100
-Message-ID: <4692596.LvFx2qVVIh@jernej-laptop>
-In-Reply-To: <cover.1762588494.git.gaohan@iscas.ac.cn>
-References: <cover.1762588494.git.gaohan@iscas.ac.cn>
+	id 1vHgoW-0000000330R-2bxo;
+	Sat, 08 Nov 2025 11:09:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=to2ffKjQT3P3MwBgednnfOCK140+zX9tIALsoHeMAbU=; b=cDWq5EZN2304uIsRG15seKn7jc
+	8c4eO24JcZwAXyXW8HjrkgnDBqCvoME1flCK/uvSskYOXrEk9WEFizKXgzPI4ZxGLWnTSzkCFtVh+
+	ha6+874xT6F7dbERZeye47Yy70N4dvhaVxzgF2PZNJYDBIhVPIlwPnHMV0UZ7tJ81wQl40RcFPv1B
+	hJTknGJ/gAh9jFtRJsEhuGUUzoBbAQgVK94mtxGTqdbppsLSEC1E0a1lJmogvdKF+tlGy93qTAUuD
+	yiUGyNCul62N3ePUAKm3omphE9n1bC4HBS7Sjgyeq/p/VYCPmIecnDKelrKw/XDjXj/PzftruGgIM
+	DzZ0Os9g==;
+Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1vHgnx-0000000DxOH-1KAZ;
+	Sat, 08 Nov 2025 12:08:25 +0100
+Date: Sat, 8 Nov 2025 12:08:24 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Alex Elder <elder@riscstar.com>
+Cc: dlan@gentoo.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, vkoul@kernel.org, kishon@kernel.org,
+	bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, ziyao@disroot.org, johannes@erdfelt.com,
+	mayank.rana@oss.qualcomm.com, qiang.yu@oss.qualcomm.com,
+	shradha.t@samsung.com, inochiama@gmail.com, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	p.zabel@pengutronix.de, christian.bruel@foss.st.com,
+	thippeswamy.havalige@amd.com, krishna.chundru@oss.qualcomm.com,
+	guodong@riscstar.com, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-phy@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/7] Introduce SpacemiT K1 PCIe phy and host controller
+Message-ID: <aQ8kqIljwGZfkF8M@aurel32.net>
+Mail-Followup-To: Alex Elder <elder@riscstar.com>, dlan@gentoo.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	vkoul@kernel.org, kishon@kernel.org, bhelgaas@google.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	ziyao@disroot.org, johannes@erdfelt.com,
+	mayank.rana@oss.qualcomm.com, qiang.yu@oss.qualcomm.com,
+	shradha.t@samsung.com, inochiama@gmail.com, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	p.zabel@pengutronix.de, christian.bruel@foss.st.com,
+	thippeswamy.havalige@amd.com, krishna.chundru@oss.qualcomm.com,
+	guodong@riscstar.com, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-phy@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+References: <20251107191557.1827677-1-elder@riscstar.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20251107191557.1827677-1-elder@riscstar.com>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_014645_734371_E8DAFEB8 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251108_030901_235288_A51A669A 
+X-CRM114-Status: GOOD (  22.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,32 +93,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpEbmUgc29ib3RhLCA4LiBub3ZlbWJlciAyMDI1IG9iIDA5OjIwOjIyIFNyZWRuamVldnJv
-cHNraSBzdGFuZGFyZG5pIMSNYXMgamUgZ2FvaGFuQGlzY2FzLmFjLmNuIG5hcGlzYWwoYSk6Cj4g
-RnJvbTogSGFuIEdhbyA8Z2FvaGFuQGlzY2FzLmFjLmNuPgo+IAo+IEFsbHdpbm5lciBjdXJyZW50
-bHkgb2ZmZXJzIGQxKHMpL3Y4MjEvdjg2MS92ODgxIG9uIFJJU0MtViwKPiB1c2luZyBkaWZmZXJl
-bnQgSVBzLgo+IAo+IGQxKHMpOiBYdWFudGllIEM5MDYKPiB2ODIxOiBBbmRlcyBBMjcgKyBYdWFu
-VGllIEU5MDcKPiB2ODYxL3Y4ODE6IFh1YW5UaWUgQzkwNwo+IAo+IEhhbiBHYW8gKDMpOgo+ICAg
-cmlzY3Y6IHNvYzogcmUtb3JnYW5pemVkIGFsbHdpbm5lciBtZW51Cj4gICByaXNjdjogc29jOiBh
-bGx3aW5uZXI6IGQxOiB1c2UgdGhlIEFSQ0hfU1VOWElfWFVBTlRJRQo+ICAgcmlzY3Y6IGRlZmNv
-bmZpZzogZW5hYmxlIFNVTlhJX1hVQU5USUUgYW5kIFNVTlhJX0FOREVTCgpUaGlzIHNlcmllcyBp
-cyBpbmNvbXBsZXRlLiBJdCBpbnRyb2R1Y2VzIEFSQ0hfU1VOWElfQU5ERVMgc3ltYm9sIGJ1dCBp
-dCBpcwpuZXZlciB1c2VkLgoKQWRkaXRpb25hbGx5LCBwYXRjaGVzIGFyZSBub3Qgb3JnYW5pemVk
-IHByb3Blcmx5LiBGaXJzdCwgeW91IHNob3VsZCBpbnRyb2R1Y2UKcmVvcmdhbml6YXRpb24gYW5k
-IG9ubHkgdGhlbiBpbnRyb2R1Y2UgbmV3IGZlYXR1cmVzLiBBbHNvLCBub3QgYSBzaW5nbGUKcGF0
-Y2ggc2hvdWxkIGJyZWFrIGV4aXN0aW5nIGZ1bmN0aW9uYWxpdHkgZm9yIGJpc2VjdGFiaWxpdHkg
-cmVhc29ucy4gRmlyc3QKcGF0Y2ggYnJlYWtzIGNvbXBpbGF0aW9uIG9mIERUIGZpbGVzIHdoaWxl
-IHNlY29uZCByZXN0b3JlcyB0aGF0LiBUaGlzIG11c3QKbm90IGhhcHBlbi4KCkJlc3QgcmVnYXJk
-cywKSmVybmVqCgo+IAo+ICBhcmNoL3Jpc2N2L0tjb25maWcuc29jcyAgICAgICAgICAgICAgICB8
-IDIyICsrKysrKysrKysrKysrKysrLS0tLS0KPiAgYXJjaC9yaXNjdi9ib290L2R0cy9hbGx3aW5u
-ZXIvTWFrZWZpbGUgfCAyMCArKysrKysrKysrLS0tLS0tLS0tLQo+ICBhcmNoL3Jpc2N2L2NvbmZp
-Z3MvZGVmY29uZmlnICAgICAgICAgICB8ICAyICsrCj4gIDMgZmlsZXMgY2hhbmdlZCwgMjkgaW5z
-ZXJ0aW9ucygrKSwgMTUgZGVsZXRpb25zKC0pCj4gCj4gCgoKCgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Alex,
+
+Thanks for this new version.
+
+On 2025-11-07 13:15, Alex Elder wrote:
+> This series introduces a PHY driver and a PCIe driver to support PCIe
+> on the SpacemiT K1 SoC.  The PCIe implementation is derived from a
+> Synopsys DesignWare PCIe IP.  The PHY driver supports one combination
+> PCIe/USB PHY as well as two PCIe-only PHYs.  The combo PHY port uses
+> one PCIe lane, and the other two ports each have two lanes.  All PCIe
+> ports operate at 5 GT/second.
+> 
+> The PCIe PHYs must be configured using a value that can only be
+> determined using the combo PHY, operating in PCIe mode.  To allow
+> that PHY to be used for USB, the needed calibration step is performed
+> by the PHY driver automatically at probe time.  Once this step is done,
+> the PHY can be used for either PCIe or USB.
+> 
+> This initial version of the driver supports 32 MSIs, and does not
+> support PCI INTx interrupts.  The hardware does not support MSI-X.
+> 
+> Version 5 of this series incorporates suggestions made during the
+> review of version 4.  Specific highlights are detailed below.
+> 
+> Note:
+> Aurelien Jarno and Johannes Erdfelt have reported seeing ASPM errors
+> accessing NVMe drives when using earlier versions of this series.
+> The Kconfig files they used were very different from the RISC-V
+> default configuration.
+> 
+> Aurelien has since reported the errors do not occur when using
+> defconfig.  Johannes has not reported back about this.
+
+Unfortunately, while it is true with v4, this is not the case with v5 
+anymore :(
+
+Fundamentally in the generic designware driver, post_init (which is used 
+to disable L1 support on the controller side) is called after starting 
+the link. The comparison of the capabilities is done in 
+pcie_aspm_cap_init when the link is up, which happens a tiny bit after 
+starting it.
+
+In practice with v4, the link is started, ASPM L1 is disabled and the 
+link becomes up. With v5, the move of the code getting and enabling the 
+regulator changed the timing, and ASPM L1 is now disabled on the 
+controller 2-3 ms after the link is up, which is too late.
+
+I have added a call to pci_info to display the moment where ASPM is 
+disabled. This is without the regulator change:
+
+[    0.386730] spacemit-k1-pcie ca400000.pcie: host bridge /soc/pcie-bus/pcie@ca400000 ranges:
+[    0.386970] spacemit-k1-pcie ca800000.pcie: host bridge /soc/pcie-bus/pcie@ca800000 ranges:
+[    0.387017] spacemit-k1-pcie ca800000.pcie:       IO 0x00b7002000..0x00b7101fff -> 0x0000000000
+[    0.387047] spacemit-k1-pcie ca800000.pcie:      MEM 0x00a0000000..0x00afffffff -> 0x00a0000000
+[    0.387062] spacemit-k1-pcie ca800000.pcie:      MEM 0x00b0000000..0x00b6ffffff -> 0x00b0000000
+[    0.400109] spacemit-k1-pcie ca400000.pcie:       IO 0x009f002000..0x009f101fff -> 0x0000000000
+[    0.490101] spacemit-k1-pcie ca800000.pcie: iATU: unroll T, 8 ob, 8 ib, align 4K, limit 4G
+[    0.494195] spacemit-k1-pcie ca400000.pcie:      MEM 0x0090000000..0x009effffff -> 0x0090000000
+[    0.850344] spacemit-k1-pcie ca400000.pcie: iATU: unroll T, 8 ob, 8 ib, align 4K, limit 4G
+[    0.950133] spacemit-k1-pcie ca400000.pcie: PCIe Gen.1 x2 link up
+[    1.129988] spacemit-k1-pcie ca400000.pcie: PCI host bridge to bus 0000:00
+[    1.335482] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    1.340946] pci_bus 0000:00: root bus resource [io  0x100000-0x1fffff] (bus address [0x0000-0xfffff])
+[    1.350181] pci_bus 0000:00: root bus resource [mem 0x90000000-0x9effffff]
+[    1.358734] pci_bus 0000:00: resource 4 [io  0x100000-0x1fffff]
+[    1.362033] pci_bus 0000:00: resource 5 [mem 0x90000000-0x9effffff]
+[    1.368289] spacemit-k1-pcie ca400000.pcie: pcie_aspm_override_default_link_state
+[    1.375967] pci 0000:00:00.0: [1e5d:3003] type 01 class 0x060400 PCIe Root Port
+[    1.383043] pci 0000:00:00.0: BAR 0 [mem 0x00000000-0x000fffff]
+[    1.388927] pci 0000:00:00.0: BAR 1 [mem 0x00000000-0x000fffff]
+[    1.394826] pci 0000:00:00.0: PCI bridge to [bus 01-ff]
+[    1.400061] pci 0000:00:00.0:   bridge window [io  0x100000-0x100fff]
+[    1.406460] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
+[    1.413245] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+[    1.421012] pci 0000:00:00.0: supports D1
+[    1.424948] pci 0000:00:00.0: PME# supported from D0 D1 D3hot D3cold
+[    1.432718] pci 0000:01:00.0: [1987:5015] type 00 class 0x010802 PCIe Endpoint
+[    1.438698] pci 0000:01:00.0: BAR 0 [mem 0x00000000-0x00003fff 64bit]
+[    1.445426] pci 0000:01:00.0: 4.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x2 link at 0000:00:00.0 (capable of 31.504 Gb/s with 8.0 GT/s PCIe x4 link)
+[    1.464897] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+
+And this is with the regulator change:
+
+[    0.410796] spacemit-k1-pcie ca400000.pcie: host bridge /soc/pcie-bus/pcie@ca400000 ranges:
+[    0.410836] spacemit-k1-pcie ca800000.pcie: host bridge /soc/pcie-bus/pcie@ca800000 ranges:
+[    0.410889] spacemit-k1-pcie ca800000.pcie:       IO 0x00b7002000..0x00b7101fff -> 0x0000000000
+[    0.410917] spacemit-k1-pcie ca800000.pcie:      MEM 0x00a0000000..0x00afffffff -> 0x00a0000000
+[    0.410932] spacemit-k1-pcie ca800000.pcie:      MEM 0x00b0000000..0x00b6ffffff -> 0x00b0000000
+[    0.424651] spacemit-k1-pcie ca400000.pcie:       IO 0x009f002000..0x009f101fff -> 0x0000000000
+[    0.436446] spacemit-k1-pcie ca400000.pcie:      MEM 0x0090000000..0x009effffff -> 0x0090000000
+[    0.513897] spacemit-k1-pcie ca800000.pcie: iATU: unroll T, 8 ob, 8 ib, align 4K, limit 4G
+[    0.559595] spacemit-k1-pcie ca400000.pcie: iATU: unroll T, 8 ob, 8 ib, align 4K, limit 4G
+[    0.839412] spacemit-k1-pcie ca400000.pcie: PCIe Gen.1 x2 link up
+[    0.847078] spacemit-k1-pcie ca400000.pcie: PCI host bridge to bus 0000:00
+[    0.857600] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.868702] pci_bus 0000:00: root bus resource [io  0x100000-0x1fffff] (bus address [0x0000-0xfffff])
+[    1.146409] pci_bus 0000:00: root bus resource [mem 0x90000000-0x9effffff]
+[    1.373742] pci 0000:00:00.0: [1e5d:3003] type 01 class 0x060400 PCIe Root Port
+[    1.380963] pci 0000:00:00.0: BAR 0 [mem 0x00000000-0x000fffff]
+[    1.386883] pci 0000:00:00.0: BAR 1 [mem 0x00000000-0x000fffff]
+[    1.392808] pci 0000:00:00.0: PCI bridge to [bus 01-ff]
+[    1.395394] pci 0000:00:00.0:   bridge window [io  0x100000-0x100fff]
+[    1.401811] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
+[    1.408583] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+[    1.416354] pci 0000:00:00.0: supports D1
+[    1.420294] pci 0000:00:00.0: PME# supported from D0 D1 D3hot D3cold
+[    1.428220] pci 0000:01:00.0: [1987:5015] type 00 class 0x010802 PCIe Endpoint
+[    1.434034] pci 0000:01:00.0: BAR 0 [mem 0x00000000-0x00003fff 64bit]
+[    1.440772] pci 0000:01:00.0: 4.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x2 link at 0000:00:00.0 (capable of 31.504 Gb/s with 8.0 GT/s PCIe x4 link)
+[    1.463390] pci 0000:01:00.0: pcie_aspm_override_default_link_state
+[    1.467000] pci 0000:01:00.0: ASPM: default states L1
+[    1.472093] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+
+Note how the line pcie_aspm_override_default_link_state arrives too 
+late.
+
+Regards
+Aurelien
+
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
