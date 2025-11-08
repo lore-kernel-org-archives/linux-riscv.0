@@ -4,98 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5369CCCFA13
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 19:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852A0CCFA18
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 22:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1YOtDxIVY5A1QH0wnxdWR3k+g6V/jmU25F/Jt0DRueU=; b=dIXOoCDOFg44k+
-	pKb3FX3yZDgjkBMsZlVlvxhDXvWDUsBdDldH1SUCL9cr1VQOxmdpzoJ0Jrus2XsLjUqsv1KGgBsOk
-	MhaEPfUOzNJQIGbXkNdwC9+nalCZ5nX3b8zOvS5Zt1RyAAzq6Bi4UlDpDeXhnc6GaF3lct77q1rTd
-	p7ptS4i2sIfnaa36H1YrW1vBiTl0byiV0IppzHQ3N+PnSmQt89OfRIGE7DS/uW6gukagGFhx1BeAE
-	vHGXNEVVs2XahEotXNDnVqliGTjsJDnQw/ZL+SqLTpo1rj4d9licPXTDXOHu/eJzvkp5xNeRODFBg
-	325VdLk2hq8hPL0MtXWQ==;
+	List-Owner; bh=tImaqL52eGqt2Ce8KEKYRZOeZju1GU7sV4eAVidP6Ok=; b=0ff39nUk3Nd1yE
+	LaQZxAl6DcE2mX1rqcYy1piXAJaLEFsZgoP+6g5asWyiEWsn3FIy83AUsaVgaWb/RHZfWyp0fTIyP
+	9mlMBc0v/vdH+BQUjBpLy2fNa0tvWaPOmRN3eDsvGk/KdU0afnGj1qK8UkW9EoQBfVSK+qd4uD6xc
+	k8gYiCZvfGXxB6XvY32XvktT7RtUdyR1aZzWFQGIEdcdQjuCFYkzaC0OOtQ0szxDrYKT63v1dH4Kr
+	yS1ETA86zr9/gxWwdqylv6jQbOV7gM3OIleRZJGKLjP57qiqVySXYz3IOTOOb8hqwg+GtYA0p5IC7
+	bIImXLIEW1C/XCPRuTGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHopr-00000003P8H-2VFo;
-	Sat, 08 Nov 2025 19:42:55 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1vHrE2-00000003W0z-0MtF;
+	Sat, 08 Nov 2025 22:16:02 +0000
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHopo-00000003P4G-1Em7
-	for linux-riscv@lists.infradead.org;
-	Sat, 08 Nov 2025 19:42:54 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-37a3340391cso17514431fa.3
-        for <linux-riscv@lists.infradead.org>; Sat, 08 Nov 2025 11:42:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762630970; x=1763235770; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YRJxeXvOiEogIO9xMq6Bi1gey4v1YC+eoeXUVhZk5pE=;
-        b=LdmUa2ebC1hnLXN0D7yGkAPJx6yOiL35O0nlGvq59FbdoX1/vxo6wVrvcQ31wsEV7l
-         j+WvrDJDCU12MuDCRWHs617oVxSMOLivcJ1QZCy65MHkdxCgybpK1ACA27/oD/fuPntx
-         9vTtJ7vq049vE9VmuHqWlDXx3HjzzfseU9Sk8IxpzenihRzO2weiUEOreiYVzXfp/FGd
-         hMu6j43XNkgigk1TKQ8aEW17dsKjOecaIdwuvABFUo7MLLznMPyUifRuhnd11a99XNv4
-         Acy4uqXVw4eyeB39YiW52O+mZe6E26MmC+/bmMnVuq/xm7lXu1auTHPmxtizA6d4sI73
-         BoYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762630970; x=1763235770;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=YRJxeXvOiEogIO9xMq6Bi1gey4v1YC+eoeXUVhZk5pE=;
-        b=YuvBRaOuQEcFgBdOR9pn0zbXmKGjFZYKBTX+BXLSO/JMYXQwpR+Svzoto9sbb/Fq/c
-         BwyoI0U2u8ENDmMWhkAbQp4HVeeBESH1V0fR2DiwFkQYiXz3fHIarJb+uzto5Gv6xcEG
-         KuKWK2aJsxkocAyqUYKdGZDhd9NWNgvgSakGzMywNmWwWf2Vfo07lCclVPzVbm1St6+q
-         6zn2gCVgRFCiXL3JcmLLFrauUi5HXzt9fTMPGoEfvstwDy2MQZM2D5MpHlOYJJvFjq2J
-         5IiywE3cgBnlTUq4k1TdZSf5e+CCkvvxHef9KuR6AGfQA92+P2JhlodYjyaOgLt3qZpz
-         sC3Q==
-X-Gm-Message-State: AOJu0Yxuvk9wXeBJ1dtgBdYuHvpIKHlES1yQvoDI0oXOqSD+x6TT34ON
-	+dHei0aB4YpxVp0Jlu27awAd2ue/Gsj+5N3mRRwiYJmDhMPjqybvkdl24GtOMulzjmo=
-X-Gm-Gg: ASbGncvxlvtTQkoi4zkbH+nPhcObGuXQ8OnCemOCRl0gWeSMk+jzHE022e1eGZpOb6r
-	t/hqdOXDbI8/gyGbb/tMcJCIcx7F1u5F/hJt9FmXbz8NIKKqCa6RXF0Ey5i/nLBgRlEDqM+Wqky
-	cnj0q5TF3YNJ6t0uJqoPlwK4W1yT+tt6qbSa9xInaPTAN+2Vvl3cSk43BgAV30GWR1XBkxDr1q0
-	h4l26YsnEnxjtYU4VsVqo80sWOKjvmy5GDmITz/dZNFGBoboAKYw8MDjqaouNkQoHHOzSpPeItE
-	REt1lt+HruSfHCXOsE3DUlQ9SLfCrjtra14PLonJ3egdxehhZCsykFJhU+kCGrZKHAODAjFKnQ2
-	82p11FGIUUVGIMmcX2TDk6URuBpQmBz0IfT8u1mwJkKcFbh6bBSQVfz3h8cbpSlM3I18=
-X-Google-Smtp-Source: AGHT+IHlXDkvQRgzPuEt7DV3+vhlIfC3x/SoxFZdZvSyimgEP+WQTvBDKtkfBp3OnBFK8ucxkWoPdg==
-X-Received: by 2002:a2e:86d0:0:b0:378:cdf0:ad51 with SMTP id 38308e7fff4ca-37a7b233aa5mr7561051fa.24.1762630969620;
-        Sat, 08 Nov 2025 11:42:49 -0800 (PST)
-Received: from curiosity ([5.188.167.4])
-        by smtp.googlemail.com with ESMTPSA id 38308e7fff4ca-37a5f0edac3sm22115421fa.38.2025.11.08.11.42.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Nov 2025 11:42:47 -0800 (PST)
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Thomas Huth <thuth@redhat.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Joel Granados <joel.granados@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: [PATCH v4 9/9] selftests: riscv: verify syscalls discard vector context
-Date: Sat,  8 Nov 2025 22:41:48 +0300
-Message-ID: <20251108194207.1257866-10-geomatsi@gmail.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20251108194207.1257866-1-geomatsi@gmail.com>
-References: <20251108194207.1257866-1-geomatsi@gmail.com>
+	id 1vHrDz-00000003W0U-3QYM;
+	Sat, 08 Nov 2025 22:16:01 +0000
+Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 5A8MEjxP2478531
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Sat, 8 Nov 2025 14:14:46 -0800
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 5A8MEjxP2478531
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2025102301; t=1762640093;
+	bh=B/Cs56oiwOfYFf5C+E+O3dVcT+FEPLCVGwSgjVsb61Y=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=fWeMhNebCueBIgpwwJ9HzqbFTchAPIdo17J2WvEY7kkjBFr98Hd14BZVU/elSj4e9
+	 sYvaiqrxvUl4BY8IpX0uQCmYyYRGpwEYM4AMpxmeO6jowam81zKx+Iou/8ibo+BM+1
+	 ywYMqpzqqzlsIya940Jmlzx8lzG2S8DMVB5+RfgE7pFBtdtphXJ6gZJo7OenPNVKFJ
+	 UQgPH5eVKjpuy1XcgvLHNRCiWtDhbQz2AI+JZNS/Lv07T437bJJ0VfM8ndXOQVc3ZX
+	 UAUehct6G47TvwmWI2P9q6uIb6MiC/veNOSx+dHqmpfeKU8Yq/RQ/QTtFSTKBOHhQF
+	 vb74cw9jAoTUA==
+Date: Sat, 08 Nov 2025 14:14:44 -0800
+From: "H. Peter Anvin" <hpa@zytor.com>
+To: Xie Yuanbin <qq570070308@gmail.com>, david@redhat.com, tglx@linutronix.de,
+        segher@kernel.crashing.org, riel@surriel.com, peterz@infradead.org,
+        linux@armlinux.org.uk, mathieu.desnoyers@efficios.com,
+        paulmck@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+        aou@eecs.berkeley.edu, alex@ghiti.fr, hca@linux.ibm.com,
+        gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+        svens@linux.ibm.com, davem@davemloft.net, andreas@gaisler.com,
+        luto@kernel.org, mingo@redhat.com, bp@alien8.de,
+        dave.hansen@linux.intel.com, acme@kernel.org, namhyung@kernel.org,
+        mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+        jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
+        james.clark@linaro.org, anna-maria@linutronix.de, frederic@kernel.org,
+        juri.lelli@redhat.com, vincent.guittot@linaro.org,
+        dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+        mgorman@suse.de, vschneid@redhat.com, nathan@kernel.org,
+        nick.desaulniers+lkml@gmail.com, morbo@google.com,
+        justinstitt@google.com, qq570070308@gmail.com, thuth@redhat.com,
+        brauner@kernel.org, arnd@arndb.de, jlayton@kernel.org,
+        aalbersh@redhat.com, akpm@linux-foundation.org, david@kernel.org,
+        lorenzo.stoakes@oracle.com, max.kellermann@ionos.com,
+        ryan.roberts@arm.com, nysal@linux.ibm.com, urezki@gmail.com
+CC: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+        linux-perf-users@vger.kernel.org, llvm@lists.linux.dev,
+        will@kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_3/4=5D_Provide_the_alwa?=
+ =?US-ASCII?Q?ys_inline_version_of_some_functions?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <20251108172346.263590-4-qq570070308@gmail.com>
+References: <20251108172346.263590-1-qq570070308@gmail.com> <20251108172346.263590-4-qq570070308@gmail.com>
+Message-ID: <04CA2D22-4DE2-4DE1-A2BC-AACE666F5F93@zytor.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_114252_970505_15DF2122 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20251108_141559_866754_7C1AA60B 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,135 +96,214 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a test to v_ptrace test suite to verify that vector csr registers
-are clobbered on syscalls.
+On November 8, 2025 9:23:45 AM PST, Xie Yuanbin <qq570070308@gmail.com> wrote:
+>On critical hot code paths, inline functions can optimize performance.
+>However, for current compilers, there is no way to request them to inline
+>at a specific calling point of a function.
+>
+>Add a always inline version to some functions, so that they can be chosen
+>when called in hot paths.
+>
+>Signed-off-by: Xie Yuanbin <qq570070308@gmail.com>
+>Cc: Thomas Gleixner <tglx@linutronix.de>
+>Cc: Rik van Riel <riel@surriel.com>
+>Cc: Segher Boessenkool <segher@kernel.crashing.org>
+>Cc: David Hildenbrand <david@redhat.com>
+>Cc: Peter Zijlstra <peterz@infradead.org>
+>---
+> arch/arm/include/asm/mmu_context.h      | 12 +++++++-
+> arch/s390/include/asm/mmu_context.h     | 12 +++++++-
+> arch/sparc/include/asm/mmu_context_64.h | 12 +++++++-
+> kernel/sched/core.c                     | 38 ++++++++++++++++++++++---
+> 4 files changed, 67 insertions(+), 7 deletions(-)
+>
+>diff --git a/arch/arm/include/asm/mmu_context.h b/arch/arm/include/asm/mmu_context.h
+>index db2cb06aa8cf..e77b271570c1 100644
+>--- a/arch/arm/include/asm/mmu_context.h
+>+++ b/arch/arm/include/asm/mmu_context.h
+>@@ -80,7 +80,12 @@ static inline void check_and_switch_context(struct mm_struct *mm,
+> #ifndef MODULE
+> #define finish_arch_post_lock_switch \
+> 	finish_arch_post_lock_switch
+>-static inline void finish_arch_post_lock_switch(void)
+>+/*
+>+ * finish_arch_post_lock_switch_ainline - the always inline version of
+>+ * finish_arch_post_lock_switch, used for performance sensitive paths.
+>+ * If unsure, use finish_arch_post_lock_switch instead.
+>+ */
+>+static __always_inline void finish_arch_post_lock_switch_ainline(void)
+> {
+> 	struct mm_struct *mm = current->mm;
+> 
+>@@ -99,6 +104,11 @@ static inline void finish_arch_post_lock_switch(void)
+> 		preempt_enable_no_resched();
+> 	}
+> }
+>+
+>+static inline void finish_arch_post_lock_switch(void)
+>+{
+>+	finish_arch_post_lock_switch_ainline();
+>+}
+> #endif /* !MODULE */
+> 
+> #endif	/* CONFIG_MMU */
+>diff --git a/arch/s390/include/asm/mmu_context.h b/arch/s390/include/asm/mmu_context.h
+>index d9b8501bc93d..577062834906 100644
+>--- a/arch/s390/include/asm/mmu_context.h
+>+++ b/arch/s390/include/asm/mmu_context.h
+>@@ -97,7 +97,12 @@ static inline void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+> }
+> 
+> #define finish_arch_post_lock_switch finish_arch_post_lock_switch
+>-static inline void finish_arch_post_lock_switch(void)
+>+/*
+>+ * finish_arch_post_lock_switch_ainline - the always inline version of
+>+ * finish_arch_post_lock_switch, used for performance sensitive paths.
+>+ * If unsure, use finish_arch_post_lock_switch instead.
+>+ */
+>+static __always_inline void finish_arch_post_lock_switch_ainline(void)
+> {
+> 	struct task_struct *tsk = current;
+> 	struct mm_struct *mm = tsk->mm;
+>@@ -120,6 +125,11 @@ static inline void finish_arch_post_lock_switch(void)
+> 	local_irq_restore(flags);
+> }
+> 
+>+static inline void finish_arch_post_lock_switch(void)
+>+{
+>+	finish_arch_post_lock_switch_ainline();
+>+}
+>+
+> #define activate_mm activate_mm
+> static inline void activate_mm(struct mm_struct *prev,
+>                                struct mm_struct *next)
+>diff --git a/arch/sparc/include/asm/mmu_context_64.h b/arch/sparc/include/asm/mmu_context_64.h
+>index 78bbacc14d2d..ca7019080574 100644
+>--- a/arch/sparc/include/asm/mmu_context_64.h
+>+++ b/arch/sparc/include/asm/mmu_context_64.h
+>@@ -160,7 +160,12 @@ static inline void arch_start_context_switch(struct task_struct *prev)
+> }
+> 
+> #define finish_arch_post_lock_switch	finish_arch_post_lock_switch
+>-static inline void finish_arch_post_lock_switch(void)
+>+/*
+>+ * finish_arch_post_lock_switch_ainline - the always inline version of
+>+ * finish_arch_post_lock_switch, used for performance sensitive paths.
+>+ * If unsure, use finish_arch_post_lock_switch instead.
+>+ */
+>+static __always_inline void finish_arch_post_lock_switch_ainline(void)
+> {
+> 	/* Restore the state of MCDPER register for the new process
+> 	 * just switched to.
+>@@ -185,6 +190,11 @@ static inline void finish_arch_post_lock_switch(void)
+> 	}
+> }
+> 
+>+static inline void finish_arch_post_lock_switch(void)
+>+{
+>+	finish_arch_post_lock_switch_ainline();
+>+}
+>+
+> #define mm_untag_mask mm_untag_mask
+> static inline unsigned long mm_untag_mask(struct mm_struct *mm)
+> {
+>diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+>index 0e50ef3d819a..c50e672e22c4 100644
+>--- a/kernel/sched/core.c
+>+++ b/kernel/sched/core.c
+>@@ -4884,7 +4884,13 @@ static inline void finish_task(struct task_struct *prev)
+> 	smp_store_release(&prev->on_cpu, 0);
+> }
+> 
+>-static void do_balance_callbacks(struct rq *rq, struct balance_callback *head)
+>+/*
+>+ * do_balance_callbacks_ainline - the always inline version of
+>+ * do_balance_callbacks, used for performance sensitive paths.
+>+ * If unsure, use do_balance_callbacks instead.
+>+ */
+>+static __always_inline void do_balance_callbacks_ainline(struct rq *rq,
+>+		struct balance_callback *head)
+> {
+> 	void (*func)(struct rq *rq);
+> 	struct balance_callback *next;
+>@@ -4901,6 +4907,11 @@ static void do_balance_callbacks(struct rq *rq, struct balance_callback *head)
+> 	}
+> }
+> 
+>+static void do_balance_callbacks(struct rq *rq, struct balance_callback *head)
+>+{
+>+	do_balance_callbacks_ainline(rq, head);
+>+}
+>+
+> static void balance_push(struct rq *rq);
+> 
+> /*
+>@@ -4949,11 +4960,21 @@ struct balance_callback *splice_balance_callbacks(struct rq *rq)
+> 	return __splice_balance_callbacks(rq, true);
+> }
+> 
+>-static void __balance_callbacks(struct rq *rq)
+>+/*
+>+ * __balance_callbacks_ainline - the always inline version of
+>+ * __balance_callbacks, used for performance sensitive paths.
+>+ * If unsure, use __balance_callbacks instead.
+>+ */
+>+static __always_inline void __balance_callbacks_ainline(struct rq *rq)
+> {
+> 	do_balance_callbacks(rq, __splice_balance_callbacks(rq, false));
+> }
+> 
+>+static void __balance_callbacks(struct rq *rq)
+>+{
+>+	__balance_callbacks_ainline(rq);
+>+}
+>+
+> void balance_callbacks(struct rq *rq, struct balance_callback *head)
+> {
+> 	unsigned long flags;
+>@@ -5003,7 +5024,8 @@ static inline void finish_lock_switch(struct rq *rq)
+> #endif
+> 
+> #ifndef finish_arch_post_lock_switch
+>-# define finish_arch_post_lock_switch()	do { } while (0)
+>+# define finish_arch_post_lock_switch()		do { } while (0)
+>+# define finish_arch_post_lock_switch_ainline()	do { } while (0)
+> #endif
+> 
+> static inline void kmap_local_sched_out(void)
+>@@ -5050,6 +5072,9 @@ prepare_task_switch(struct rq *rq, struct task_struct *prev,
+> 
+> /**
+>  * finish_task_switch - clean up after a task-switch
+>+ * finish_task_switch_ainline - the always inline version of this func
+>+ * used for performance sensitive paths
+>+ *
+>  * @prev: the thread we just switched away from.
+>  *
+>  * finish_task_switch must be called after the context switch, paired
+>@@ -5067,7 +5092,7 @@ prepare_task_switch(struct rq *rq, struct task_struct *prev,
+>  * past. 'prev == current' is still correct but we need to recalculate this_rq
+>  * because prev may have moved to another CPU.
+>  */
+>-static struct rq *finish_task_switch(struct task_struct *prev)
+>+static __always_inline struct rq *finish_task_switch_ainline(struct task_struct *prev)
+> 	__releases(rq->lock)
+> {
+> 	struct rq *rq = this_rq();
+>@@ -5159,6 +5184,11 @@ static struct rq *finish_task_switch(struct task_struct *prev)
+> 	return rq;
+> }
+> 
+>+static struct rq *finish_task_switch(struct task_struct *prev)
+>+{
+>+	return finish_task_switch_ainline(prev);
+>+}
+>+
+> /**
+>  * schedule_tail - first thing a freshly forked thread must call.
+>  * @prev: the thread we just switched away from.
 
-Signed-off-by: Sergey Matyukevich <geomatsi@gmail.com>
----
- .../testing/selftests/riscv/vector/v_ptrace.c | 107 ++++++++++++++++++
- 1 file changed, 107 insertions(+)
-
-diff --git a/tools/testing/selftests/riscv/vector/v_ptrace.c b/tools/testing/selftests/riscv/vector/v_ptrace.c
-index fb371a42de15..d4e947c33f75 100644
---- a/tools/testing/selftests/riscv/vector/v_ptrace.c
-+++ b/tools/testing/selftests/riscv/vector/v_ptrace.c
-@@ -183,6 +183,113 @@ TEST(ptrace_v_early_debug)
- 	}
- }
- 
-+TEST(ptrace_v_syscall_clobbering)
-+{
-+	unsigned long vlenb;
-+	pid_t pid;
-+
-+	if (!is_vector_supported())
-+		SKIP(return, "Vector not supported");
-+
-+	asm volatile("csrr %[vlenb], vlenb" : [vlenb] "=r"(vlenb));
-+
-+	chld_lock = 1;
-+	pid = fork();
-+	ASSERT_LE(0, pid)
-+		TH_LOG("fork: %m");
-+
-+	if (pid == 0) {
-+		unsigned long vl;
-+
-+		while (chld_lock == 1)
-+			asm volatile("" : : "g"(chld_lock) : "memory");
-+
-+		asm(".option arch, +zve32x\n");
-+		asm(".option arch, +c\n");
-+		asm volatile("vsetvli %[new_vl], x0, e16, m2, tu, mu\n"
-+			     : [new_vl] "=r"(vl)
-+			     :
-+			     :);
-+
-+		while (1) {
-+			asm volatile ("c.ebreak");
-+			sleep(0);
-+		}
-+	} else {
-+		struct __riscv_v_regset_state *regset_data;
-+		struct user_regs_struct regs;
-+		size_t regset_size;
-+		struct iovec iov;
-+		int status;
-+
-+		/* attach */
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_ATTACH, pid, NULL, NULL));
-+		ASSERT_EQ(pid, waitpid(pid, &status, 0));
-+		ASSERT_TRUE(WIFSTOPPED(status));
-+
-+		/* unlock */
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_POKEDATA, pid, &chld_lock, 0));
-+
-+		/* resume and wait for the 1st c.ebreak */
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_CONT, pid, NULL, NULL));
-+		ASSERT_EQ(pid, waitpid(pid, &status, 0));
-+		ASSERT_TRUE(WIFSTOPPED(status));
-+
-+		/* read tracee vector csr regs using ptrace GETREGSET */
-+
-+		regset_size = sizeof(*regset_data) + vlenb * 32;
-+		regset_data = calloc(1, regset_size);
-+
-+		iov.iov_base = regset_data;
-+		iov.iov_len = regset_size;
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_RISCV_VECTOR, &iov));
-+
-+		/* verify initial vsetvli settings */
-+
-+		EXPECT_EQ(regset_data->vlenb, regset_data->vl);
-+		EXPECT_EQ(9UL, regset_data->vtype);
-+		EXPECT_EQ(vlenb, regset_data->vlenb);
-+		EXPECT_EQ(0UL, regset_data->vstart);
-+		EXPECT_EQ(0UL, regset_data->vcsr);
-+
-+		/* skip 1st c.ebreak, then resume and wait for the 2nd c.ebreak */
-+
-+		iov.iov_base = &regs;
-+		iov.iov_len = sizeof(regs);
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_PRSTATUS, &iov));
-+		regs.pc += 2;
-+		ASSERT_EQ(0, ptrace(PTRACE_SETREGSET, pid, NT_PRSTATUS, &iov));
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_CONT, pid, NULL, NULL));
-+		ASSERT_EQ(pid, waitpid(pid, &status, 0));
-+		ASSERT_TRUE(WIFSTOPPED(status));
-+
-+		/* read tracee vtype using ptrace GETREGSET */
-+
-+		iov.iov_base = regset_data;
-+		iov.iov_len = regset_size;
-+
-+		ASSERT_EQ(0, ptrace(PTRACE_GETREGSET, pid, NT_RISCV_VECTOR, &iov));
-+
-+		/* verify that V state is illegal after syscall */
-+
-+		EXPECT_EQ((1UL << (__riscv_xlen - 1)), regset_data->vtype);
-+		EXPECT_EQ(vlenb, regset_data->vlenb);
-+		EXPECT_EQ(0UL, regset_data->vstart);
-+		EXPECT_EQ(0UL, regset_data->vcsr);
-+		EXPECT_EQ(0UL, regset_data->vl);
-+
-+		/* cleanup */
-+
-+		ASSERT_EQ(0, kill(pid, SIGKILL));
-+	}
-+}
-+
- FIXTURE(v_csr_invalid)
- {
- };
--- 
-2.51.0
-
+There is, in fact: you have to have an always_inline version, and wrap it in a noinline version.
 
 _______________________________________________
 linux-riscv mailing list
