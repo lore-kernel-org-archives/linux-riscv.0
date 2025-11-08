@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB3DDCCFA1A
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 19:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7EE2CCFA13
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 19:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=r+onI5A89ijTUr0nz+xCbGdxerlWDXQFrcMNkAYPjw8=; b=s1J6tYB5d7f++R
-	PoqZDaJb8BDc4CaP28rEjHvbiZyMiPs+ZxjvzyZq8vNP/uW0MqZp1x3GHOuMHLkpHsiawRmrsMZUm
-	nqju/uwbB+b0OPe45j6vXFm+G+utpfen2PgRoqYG2P5cd8UUF/cCCnSpcaPoQ+B8xSUOaZET/bDj8
-	0uqxeOZEGIvtEoDV/joFou7Num98r7vZWooFvWhPy3PrO7K0HcBYRKK77A8rHCeaL5VoBOQUQV/L5
-	b9oMsjskSNj1lQ6jKxuIXtUcD++Gy+lTyczGL6LphFWin4P/4EFKXg87kgUoYGYQG63zFaB6b39ql
-	ZtKaFEAmE2pFnOM27jMg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=P74iwoMYIlUWxVWcFJfIyBwIeNEITn343ifODtTib54=; b=pHWgxH1n6ccqxv
+	SEPusd1AT8IZ2WYrV6yo0GkdU3MiOiqPLROCf/l0I+zsUqNJO/joZ3YsXf3Mt4xIX6oUOrihPk+sw
+	B9HIzhzzzzrJaXPop6G51+L1sJCXpSQ7Q13yNIVKqJLZIjywbWl594b2GJkzUispekZnBTRyEZcHe
+	vx0VnBkJVB0T6Z100ysx6w7REP9nSIG+0+L3Wccd5HorGbAEL6hMIP20xHtG0y+4hD/Dh/YyxXUlF
+	g1gmT+xhA+3/9z18eUabeJgF0FtWRy7uAd931NwnjNebuNDdVcVJU3jRyLpDK821mqnLkUxfaVOeX
+	R4QLDIBaPz5k5+86RWlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHopH-00000003Opv-3O2A;
-	Sat, 08 Nov 2025 19:42:19 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1vHopM-00000003Oqd-0Pmy;
+	Sat, 08 Nov 2025 19:42:24 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHopF-00000003OpU-2clq
+	id 1vHopJ-00000003Opz-1sGH
 	for linux-riscv@lists.infradead.org;
-	Sat, 08 Nov 2025 19:42:19 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-378d6fa5aebso15299071fa.2
-        for <linux-riscv@lists.infradead.org>; Sat, 08 Nov 2025 11:42:16 -0800 (PST)
+	Sat, 08 Nov 2025 19:42:22 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-36295d53a10so14509531fa.0
+        for <linux-riscv@lists.infradead.org>; Sat, 08 Nov 2025 11:42:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762630935; x=1763235735; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=13aFuuc1GQr46fPnxHYB7JQQ32jMQnvYNiL//B4303c=;
-        b=PQ2V9EF3iL+v9K0bPxq6eMRmkGQo3D4w34v87dX+lVBYD0uFNgFhG2CazVt2yPsUrI
-         E1jZyM85TkHJnSEVlgHmVKEhqSmBHwmRkztcL7rcTUKKhd9TS9UTVv+Niiq1U1NO8ngm
-         oL9fPCe/m4meuAPWMpySJQbB8LdyB5WJ+8FW7tyrEYRf9ezhclmdRzE21z2JZEGnO2Yi
-         8CuvbkTy9lfvDqFDc7bCUFluXkqBC+cgEitNtoMqRMXC2WoDFfyTGA8N6FB3Q+CSDY7n
-         9zTaOiwDzw2uup1FKJ+sUBmNrQkFTJuDidfy+XVjRisnh3vwISD0F+a/Mi6FIwcvuKA2
-         Xiwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762630935; x=1763235735;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1762630939; x=1763235739; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=13aFuuc1GQr46fPnxHYB7JQQ32jMQnvYNiL//B4303c=;
-        b=tzD2Crw0K4hKUVD2ULO6R4LBgiXj79cO3+z2Z6OSyrn8nN/d8BFsUuLRo6Tbs+wKbf
-         iAEB/kLEoXJdJ3rjOcd54tKr5QGh7HWs3qz3B2MncuRloNjlV+hvhYk3RI+ZWuGDlB2c
-         9gpOOUkbXoqMTfBTzPEbb33t85ZTqx0PqXm5LgU3qgG/8hGQF5CjP/liGu9lpPla5MWg
-         EElWbSdSzeMNoLuewk/6xswN0q792pcN1jSfsBJtkWp+IobQLLfUgNg/qWL+jsPhtuLF
-         J+6hh3AztKc70xW84bYSrRnk9dvwdSfVIufp4l5+bfz4daaPUYrf0k1rHMWYDft2GNpz
-         MtkQ==
-X-Gm-Message-State: AOJu0YyEtDZN+Z/NPRLn5G6qC3CvtmaJYG2HHvdaW14LybQF9GpQj+yx
-	TlFBAVDsgwR9KSApSWRJmxLYgWvSt1ADevrpFjSz9JySXw1YfjMH+z6bOliQn1kv984=
-X-Gm-Gg: ASbGncvs5h3cIFtiA0oSuUEY+yLFRoaC09m2T44KsQF0JRYqonCWjTvdbPcYmnD/eeo
-	kCP3afzwGd/xl2eugZAO9lTeZdW5/0K1DdfJv4x+9EMgGmMRaemzFEkaei2HJMgJiuBrAKERQp8
-	H3E8FhkLtvDWDPoMiAxzdR1jdQbfaZH0qSzwCNkrIjHsq05vx+SQ62jivpmrENV1zl7SnmosXIB
-	xCTr3hnj4lY2B8ehdu7Z75K7uxklyXhw/JvdYEIhYfiCIc9lrCAWY6BgTn5Sl17zdlbph7Pe1v/
-	y+vgkA4UhC4rbmrVfxJgW6Y2y5QEaKCEm3H4LI0HCIx/3qo0iNZ0tcfq8LWHkWjA/FsANxBbifG
-	JhG3MQfKzg8pEerFGkCsEilL/saFfC3eYy3fYwMelm+DgvwQe2XshmoeXPquqqIwnGvLqy+CqF0
-	GtEA==
-X-Google-Smtp-Source: AGHT+IFnDCuSBk7jK+h8KqudoG4bWkSSmVwNgOJURKDwKCfuB23jHIyPUYE9uyHMOVa5uRsybmgG3Q==
-X-Received: by 2002:a2e:b535:0:b0:37a:2f61:5f30 with SMTP id 38308e7fff4ca-37a7b30bad5mr6315371fa.35.1762630934396;
-        Sat, 08 Nov 2025 11:42:14 -0800 (PST)
+        bh=LHbmnK8ZAa3ArCtkCS3Paq/G1lnDqjyPBKtwjuhO/MQ=;
+        b=gnpJn4iab4GnexlfONruApgAw6yfRrsGHamSg8uU+3x3kSrkX5rQ/Wlxxap0CirROB
+         PtQGWNZpgj2E0fLtnmDbou0xVWK8aAprlcYz/XrIeaiLcXbKhUwMeTuduWYQenynEpzs
+         xKgPifn2WkCGCBbO5ezYhFXxoZPcBaLNkYRPy1P3v9uSPYiLforK+jDTEs6noY8Fxb/n
+         HY5gJgTRpFO9n5foYrdJxCXVbN55gMkECPHAM51Hc1sOMeXp76QhGuaIy2d12yiokA3k
+         CI4RPSAM46yJBVSYTeiOzBd/CC3MkLBP6mIIvepJA7IUqyZgPnWM1BUUKJJETuA5I0HR
+         2jHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762630939; x=1763235739;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=LHbmnK8ZAa3ArCtkCS3Paq/G1lnDqjyPBKtwjuhO/MQ=;
+        b=ik2odd/5EwYXW7dYEuPhuqATHkUIA8T9JlDwT1F8XoEvaWhVmjgsLu5Tu/pcvtcxhu
+         3RfraYC/MS919llqion5Rt4JII4Rxdds2k/xAHIqEpuVk93M8mT7nIv3eo41wOVoXmPn
+         /6HqpwL99iu6IsY1Y2uRU/XAWzOO7lJS8rDmNe1zQqJktU4t5L5IozFz40aoLym+AOsn
+         sh3hfqqrK9jnLql1tKu4+80MClOJdZb9bHm9EETe5MRsyB0NDIHhZ5glwcrLRcLSuNwD
+         a8bal/0tLP+YpUHsgNNBbZMYCv0ZYItqpoMSTvfiZDXQyVDbh6YVVbXNjPfM36umNbXd
+         xS9A==
+X-Gm-Message-State: AOJu0YwN4uFuqhMHzqQyG3QnrbaHiZinlKKOw2nouH9o71XLcvwxwDdo
+	d+UR3raU04gSDC2sJxRBEactrchhyb3Aj46nip8dcmI02XTTLzzBIDx1Xr4RycMuE4Q=
+X-Gm-Gg: ASbGncuQNEdKJHe7KFS0UdyVZgL56kaxXjgQTz/dxXSvfdyruPg/iLSexdaSRktnL4V
+	X7ISTN4IiXpj2ROhS57Pg0utQjYke19IvSY+T54xORck3l6j9mEa6kK/BHAvXhcbd57q3ukwMB8
+	L8g0rVHRlpCU0AcTp9L9/AaK1HLYKg2f1XAkMuIC8CoCX03cDk7rifWk+/BeA3jceSxZXFwFY+m
+	AMHCQpJPjibYFlt+Bgvs0Tn30Z4V4zGoV/OI84g10hyGw9JfMSB2YiFZu6lFh6ZQJgmDQaZgevj
+	k2NStIAG+ykYnj+5lno+sd2xpAzi5MnLPn649vh/Z4J+i2h7D6shtY2dR5ix7UpFf37+zMqPwpa
+	H2CMeb+8WoDE6TfEckv+CEKQ63isuxGwfwPg/sAjBWf1Z0KKqszXJ1mEOIQqwD/gieAc=
+X-Google-Smtp-Source: AGHT+IF3y7EhnrI50/eOKBcDvbA1ZdP19crRLl5icMKNiFVT61otI/EZ1TlvdKRA1oAFy9eUXhK/mw==
+X-Received: by 2002:a2e:8796:0:b0:37a:2dfa:c774 with SMTP id 38308e7fff4ca-37a7b1f475bmr6593681fa.31.1762630938599;
+        Sat, 08 Nov 2025 11:42:18 -0800 (PST)
 Received: from curiosity ([5.188.167.4])
-        by smtp.googlemail.com with ESMTPSA id 38308e7fff4ca-37a5f0edac3sm22115421fa.38.2025.11.08.11.42.09
+        by smtp.googlemail.com with ESMTPSA id 38308e7fff4ca-37a5f0edac3sm22115421fa.38.2025.11.08.11.42.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Nov 2025 11:42:12 -0800 (PST)
+        Sat, 08 Nov 2025 11:42:16 -0800 (PST)
 From: Sergey Matyukevich <geomatsi@gmail.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -86,14 +86,16 @@ Cc: Paul Walmsley <pjw@kernel.org>,
 	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: [PATCH v4 0/9] riscv: vector: misc ptrace fixes for debug use-cases
-Date: Sat,  8 Nov 2025 22:41:39 +0300
-Message-ID: <20251108194207.1257866-1-geomatsi@gmail.com>
+Subject: [PATCH v4 1/9] selftests: riscv: test ptrace vector interface
+Date: Sat,  8 Nov 2025 22:41:40 +0300
+Message-ID: <20251108194207.1257866-2-geomatsi@gmail.com>
 X-Mailer: git-send-email 2.51.2
+In-Reply-To: <20251108194207.1257866-1-geomatsi@gmail.com>
+References: <20251108194207.1257866-1-geomatsi@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_114217_686051_9151B927 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20251108_114221_536129_7E650BF4 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,77 +112,138 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series suggests fixes for several corner cases in the RISC-V
-vector ptrace implementation:
+Add a test case to check ptrace behavior in the case when vector
+extension is supported by the system, but vector context is not
+yet enabled for the traced process.
 
-- init vector context with proper vlenb, to avoid reading zero vlenb
-  by an early attached debugger
-
-- follow gdbserver expectations and return ENODATA instead of EINVAL
-  if vector extension is supported but not yet activated for the
-  traced process
-
-- validate input vector csr registers in ptrace, to maintain an accurate
-  view of the tracee's vector context across multiple halt/resume
-  debug cycles
-
-For detailed description see the appropriate commit messages. A new test
-suite v_ptrace is added into the tools/testing/selftests/riscv/vector
-to verify some of the vector ptrace functionality and corner cases.
-
-Previous versions:
-- v3: https://lore.kernel.org/linux-riscv/20251025210655.43099-1-geomatsi@gmail.com/T/#u
-- v2: https://lore.kernel.org/linux-riscv/20250821173957.563472-1-geomatsi@gmail.com/T/#u
-- v1: https://lore.kernel.org/linux-riscv/20251007115840.2320557-1-geomatsi@gmail.com/T/#u
-
-Changes in v4:
-The form 'vsetvli x0, x0, ...' can only be used if VLMAX remains
-unchanged, see spec 6.2. This condition was not met by the initial
-values in the selftests w.r.t. the initial zeroed context. QEMU accepted
-such values, but actual hardware (c908, BananaPi CanMV Zero board) did
-not, setting vill. So fix the selftests after testing on hardware:
-- replace 'vsetvli x0, x0, ...' by 'vsetvli rd, x0, ...' 
-- fixed instruction returns VLMAX, so use it in checks as well
-- replace fixed vlenb == 16 in the syscall test
-
-Changes in v3:
-Address the review comments by Andy Chiu and rework the approach:
-- drop forced vector context save entirely
-- perform strict validation of vector csr regs in ptrace
-
-Changes in v2:
-- add thread_info flag to allow to force vector context save
-- force vector context save after vector ptrace to ensure valid vector
-  context in the next ptrace operations
-- force vector context save on the first context switch after vector
-  context init to get proper vlenb
-
+Signed-off-by: Sergey Matyukevich <geomatsi@gmail.com>
 ---
-
-Ilya Mamay (1):
-  riscv: ptrace: return ENODATA for inactive vector extension
-
-Sergey Matyukevich (8):
-  selftests: riscv: test ptrace vector interface
-  selftests: riscv: verify initial vector state with ptrace
-  riscv: vector: init vector context with proper vlenb
-  riscv: csr: define vtype registers elements
-  riscv: ptrace: validate input vector csr registers
-  selftests: riscv: verify ptrace rejects invalid vector csr inputs
-  selftests: riscv: verify ptrace accepts valid vector csr values
-  selftests: riscv: verify syscalls discard vector context
-
- arch/riscv/include/asm/csr.h                  |  11 +
- arch/riscv/kernel/ptrace.c                    |  72 +-
- arch/riscv/kernel/vector.c                    |  12 +-
- .../testing/selftests/riscv/vector/.gitignore |   1 +
- tools/testing/selftests/riscv/vector/Makefile |   5 +-
- .../testing/selftests/riscv/vector/v_ptrace.c | 754 ++++++++++++++++++
- 6 files changed, 847 insertions(+), 8 deletions(-)
+ .../testing/selftests/riscv/vector/.gitignore |  1 +
+ tools/testing/selftests/riscv/vector/Makefile |  5 +-
+ .../testing/selftests/riscv/vector/v_ptrace.c | 85 +++++++++++++++++++
+ 3 files changed, 90 insertions(+), 1 deletion(-)
  create mode 100644 tools/testing/selftests/riscv/vector/v_ptrace.c
 
-
-base-commit: e811c33b1f137be26a20444b79db8cbc1fca1c89
+diff --git a/tools/testing/selftests/riscv/vector/.gitignore b/tools/testing/selftests/riscv/vector/.gitignore
+index 7d9c87cd0649..d21c03c3ee0e 100644
+--- a/tools/testing/selftests/riscv/vector/.gitignore
++++ b/tools/testing/selftests/riscv/vector/.gitignore
+@@ -2,3 +2,4 @@ vstate_exec_nolibc
+ vstate_prctl
+ v_initval
+ v_exec_initval_nolibc
++v_ptrace
+diff --git a/tools/testing/selftests/riscv/vector/Makefile b/tools/testing/selftests/riscv/vector/Makefile
+index 6f7497f4e7b3..c14ad127e7fb 100644
+--- a/tools/testing/selftests/riscv/vector/Makefile
++++ b/tools/testing/selftests/riscv/vector/Makefile
+@@ -2,7 +2,7 @@
+ # Copyright (C) 2021 ARM Limited
+ # Originally tools/testing/arm64/abi/Makefile
+ 
+-TEST_GEN_PROGS := v_initval vstate_prctl
++TEST_GEN_PROGS := v_initval vstate_prctl v_ptrace
+ TEST_GEN_PROGS_EXTENDED := vstate_exec_nolibc v_exec_initval_nolibc
+ 
+ include ../../lib.mk
+@@ -26,3 +26,6 @@ $(OUTPUT)/v_initval: v_initval.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
+ $(OUTPUT)/v_exec_initval_nolibc: v_exec_initval_nolibc.c
+ 	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
+ 		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
++
++$(OUTPUT)/v_ptrace: v_ptrace.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
++	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/vector/v_ptrace.c b/tools/testing/selftests/riscv/vector/v_ptrace.c
+new file mode 100644
+index 000000000000..6a4b5a2ab4a2
+--- /dev/null
++++ b/tools/testing/selftests/riscv/vector/v_ptrace.c
+@@ -0,0 +1,85 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <sys/ptrace.h>
++#include <sys/types.h>
++#include <sys/wait.h>
++#include <sys/wait.h>
++#include <sys/uio.h>
++#include <unistd.h>
++#include <errno.h>
++
++#include <linux/ptrace.h>
++#include <linux/elf.h>
++
++#include "../../kselftest_harness.h"
++#include "v_helpers.h"
++
++volatile unsigned long chld_lock;
++
++TEST(ptrace_v_not_enabled)
++{
++	pid_t pid;
++
++	if (!is_vector_supported())
++		SKIP(return, "Vector not supported");
++
++	chld_lock = 1;
++	pid = fork();
++	ASSERT_LE(0, pid)
++		TH_LOG("fork: %m");
++
++	if (pid == 0) {
++		while (chld_lock == 1)
++			asm volatile("" : : "g"(chld_lock) : "memory");
++
++		asm volatile ("ebreak" : : : );
++	} else {
++		struct __riscv_v_regset_state *regset_data;
++		unsigned long vlenb;
++		size_t regset_size;
++		struct iovec iov;
++		int status;
++		int ret;
++
++		asm volatile("csrr %[vlenb], vlenb" : [vlenb] "=r"(vlenb));
++
++		ASSERT_GT(vlenb, 0)
++			TH_LOG("vlenb is not valid: %lu\n", vlenb);
++
++		/* attach */
++
++		ASSERT_EQ(0, ptrace(PTRACE_ATTACH, pid, NULL, NULL));
++		ASSERT_EQ(pid, waitpid(pid, &status, 0));
++		ASSERT_TRUE(WIFSTOPPED(status));
++
++		/* unlock */
++
++		ASSERT_EQ(0, ptrace(PTRACE_POKEDATA, pid, &chld_lock, 0));
++
++		/* resume and wait for ebreak */
++
++		ASSERT_EQ(0, ptrace(PTRACE_CONT, pid, NULL, NULL));
++		ASSERT_EQ(pid, waitpid(pid, &status, 0));
++		ASSERT_TRUE(WIFSTOPPED(status));
++
++		/* try to read vector registers from the tracee */
++
++		regset_size = sizeof(*regset_data) + vlenb * 32;
++		regset_data = calloc(1, regset_size);
++
++		iov.iov_base = regset_data;
++		iov.iov_len = regset_size;
++
++		/* V extension is available, but not yet enabled for the tracee */
++
++		errno = 0;
++		ret = ptrace(PTRACE_GETREGSET, pid, NT_RISCV_VECTOR, &iov);
++		ASSERT_EQ(ENODATA, errno);
++		ASSERT_EQ(-1, ret);
++
++		/* cleanup */
++
++		ASSERT_EQ(0, kill(pid, SIGKILL));
++	}
++}
++
++TEST_HARNESS_MAIN
 -- 
 2.51.0
 
