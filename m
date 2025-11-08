@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F67CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 00:51:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 349C4CCFA1A
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 01:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o6OyAiZjLdXREvrviyjM2NVIbMUNJqJB9DLKjkgAV/g=; b=vmGvHhMCcrhY0u
-	uSXMU4eYNXXXe6uVHBE314tPzODMeAGyDiMep1a8zKNbHEQVflGJPX28UkgtoLkdGA5AeTRz0cGPm
-	RIDXm24U1bhXjep3UosGpj3i2IULKMpGIMBHO+xxsMGkC/2EV4QvoECaRR6ps6Q7fPVlU2pnwMUF6
-	25sZn0n3fuekI4ns40lcd4lSoLZsGefvV2jC3Gk3SbrTm7RdKdPAMtt3H5U/l1DMO9Q3WTHKqhILt
-	BBSM2NaIcqQjoCdkgE9EHTvKNbonObnX3/uug8zTbUPgl0Zgjo/mOFb9X+uBg2pGZjRCuJHCZDfbr
-	y5QjU1AgK/5JLzRDllyw==;
+	List-Owner; bh=+aSug6Jx2kejpeSJohekz+egcmJ+lKne08jnBl+r1Hk=; b=reeEjtH1xIsCw9
+	TzXSsnuXaQMZMnn6Eupb4fTHY4GYZn1mBflUJQCgOBt5qNRvgz9XC39QvEqf145/9Tq9+0292LPnv
+	JLMC1Fif8WtYdb2/g15IVJTeRPTAcZ+hv+AzLDd9WOvXKipZUmHr3DK+gyvoEPYxpNpzSXflJZghQ
+	t8B3qcs16YMHzlrogtDEZQ2Qg+tcvkXVV1stBEB+EOpjYdRttt4ZLNTSdRfnvp72nFMK0lkWv5ZjZ
+	drjYvZPyFHzF3ly5YwVPcKFidbys3H3ye6CuIoYB7sFiYqDwnfpEHWrhdvB2Fmo9puF6teHSodbxC
+	a85RpUsVuzJkuHIE1guQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHXB9-00000001o4x-0cdq;
-	Sat, 08 Nov 2025 00:51:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vHXO7-00000001qvv-0NaA;
+	Sat, 08 Nov 2025 01:05:07 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHXB6-00000001o3P-1xjf
-	for linux-riscv@lists.infradead.org;
-	Sat, 08 Nov 2025 00:51:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 82AFF41747;
-	Sat,  8 Nov 2025 00:51:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55F39C116B1;
-	Sat,  8 Nov 2025 00:51:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762563099;
-	bh=X65BSM7S8OpvSv2313E9aYYD5lZwDf8OKqldRYlKw7M=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Fqyfe4fmm7PeEVnVCbpwIwdsaGziIAnYGuaQrD2B0AhEIL0L45oiJbi1IE1t/V1I0
-	 G1C1a5Ky4KmUQB+3PK6v9IHuM/yppWU4nUmg4/14gVlt84FBATGLfQqZgXoI2eGO5A
-	 wMyIULLnPK4ow0J9IbAzg4dTcw/QECb51VgYvycrRUijVNie0fNpmQ9VKtnOUYHqRz
-	 wMYFbpUrRmWz8oaosZqbDCMvgR8szfDV9rG3lXL6AWsaQHt9hUTAUv5LAUgHuRXwS1
-	 oJPgT2+xFUssTrbvTRnEx7JxFcxpl8dYR3dv8oCyfkaqQOXIieKmQJWHklYtHP9qeu
-	 rRijJ+IpVUwZA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADD5E3A40FC8;
-	Sat,  8 Nov 2025 00:51:12 +0000 (UTC)
+	id 1vHXNz-00000001qrK-3u6s;
+	Sat, 08 Nov 2025 01:05:04 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251108010457euoutp01cedb2c8262766eb1481041d2c81944ca~14obFmMqQ2093120931euoutp01V;
+	Sat,  8 Nov 2025 01:04:57 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251108010457euoutp01cedb2c8262766eb1481041d2c81944ca~14obFmMqQ2093120931euoutp01V
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1762563897;
+	bh=KZDMheUIPVF8t1/EjXIGU5z5BgHTqhezvC9uuZ+yk4w=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=r3kyRRXeT9wkwgWjYLENKSzeOqhQIXAOPGkBH8ALiDqiXV+fnr75uGL45pauFAbC2
+	 ucIsQ68pdfqbDCT7et3UH83FEFUxN9aftU5Bft/VMlS/Vb86ReGgyPxHHLb2tfdYi2
+	 M2N8FK5G4jwu+6JeRHL5wdsYGMrtCI7CQNUiNH8M=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20251108010456eucas1p2a8b17a5c7403ce133e8ed2dd3481c4f0~14oZ_LScs0821708217eucas1p2A;
+	Sat,  8 Nov 2025 01:04:56 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20251108010454eusmtip2c99c393e840653a6a60f6de581bc622c~14oYiDJKP2515425154eusmtip2Y;
+	Sat,  8 Nov 2025 01:04:54 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Sat, 08 Nov 2025 02:04:37 +0100
+Subject: [PATCH RFC 03/13] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
 MIME-Version: 1.0
-Subject: Re: [PATCH fixes] riscv: Fix CONFIG_AS_HAS_INSN for new .insn usage
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176256307124.1206494.4272115513323337188.git-patchwork-notify@kernel.org>
-Date: Sat, 08 Nov 2025 00:51:11 +0000
-References: <20251107-riscv-fix-new-insn-usage-v1-1-9a186c5928a0@kernel.org>
-In-Reply-To: <20251107-riscv-fix-new-insn-usage-v1-1-9a186c5928a0@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
- alex@ghiti.fr, nick.desaulniers+lkml@gmail.com, morbo@google.com,
- justinstitt@google.com, ajones@ventanamicro.com, ben.dooks@codethink.co.uk,
- llvm@lists.linux.dev, patches@lists.linux.dev
+Message-Id: <20251108-jh7110-clean-send-v1-3-06bf43bb76b1@samsung.com>
+In-Reply-To: <20251108-jh7110-clean-send-v1-0-06bf43bb76b1@samsung.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>,  Conor Dooley
+	<conor@kernel.org>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,  Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
+	<hal.feng@starfivetech.com>,  Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Xingyu
+	Wu <xingyu.wu@starfivetech.com>, Vinod Koul <vkoul@kernel.org>,  Kishon
+	Vijay Abraham I <kishon@kernel.org>,  Andrzej Hajda
+	<andrzej.hajda@intel.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,  Laurent Pinchart
+	<Laurent.pinchart@ideasonboard.com>,  Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,  David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,  Lee Jones <lee@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,  Paul Walmsley
+	<paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>,  Marek Szyprowski
+	<m.szyprowski@samsung.com>, Icenowy Zheng <uwu@icenowy.me>,  Maud Spierings
+	<maudspierings@gocontroll.com>, Andy Yan <andyshrk@163.com>,  Heiko Stuebner
+	<heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-phy@lists.infradead.org, 
+	dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org
+X-Mailer: b4 0.15-dev
+X-CMS-MailID: 20251108010456eucas1p2a8b17a5c7403ce133e8ed2dd3481c4f0
+X-Msg-Generator: CA
+X-RootMTR: 20251108010456eucas1p2a8b17a5c7403ce133e8ed2dd3481c4f0
+X-EPHeader: CA
+X-CMS-RootMailID: 20251108010456eucas1p2a8b17a5c7403ce133e8ed2dd3481c4f0
+References: <20251108-jh7110-clean-send-v1-0-06bf43bb76b1@samsung.com>
+	<CGME20251108010456eucas1p2a8b17a5c7403ce133e8ed2dd3481c4f0@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_165140_547960_37C1A51A 
-X-CRM114-Status: UNSURE (   5.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251107_170501_418570_756B217B 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +102,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
 
-This patch was applied to riscv/linux.git (fixes)
-by Paul Walmsley <pjw@kernel.org>:
+This device is a child of the starfive,jh7110-hdmi-mfd node. It
+functions as both a PHY provider for the controller and as a clock
+provider for the variable pixel clock (hdmi_pclk), which it generates
+from its refoclk.
 
-On Fri, 07 Nov 2025 14:56:59 -0700 you wrote:
-> After commit 44aa25c000b4 ("riscv: asm: use .insn for making custom
-> instructions"), builds using LLVM older that 19 or binutils older than
-> 2.38 fail with:
-> 
->   arch/riscv/include/asm/vdso/processor.h: Assembler messages:
->   arch/riscv/include/asm/vdso/processor.h:27: Error: unrecognized opcode `0x100000f'
->   arch/riscv/include/asm/vdso/processor.h:27: Error: unrecognized opcode `0x100000f'
->   arch/riscv/include/asm/vdso/processor.h:27: Error: unrecognized opcode `0x100000f'
->   arch/riscv/include/asm/vdso/processor.h:27: Error: unrecognized opcode `0x100000f'
->   make[4]: *** [scripts/Makefile.build:287: arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
-> 
-> [...]
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ .../phy/starfive,jh7110-inno-hdmi-phy.yaml         | 65 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ 2 files changed, 66 insertions(+)
 
-Here is the summary with links:
-  - [fixes] riscv: Fix CONFIG_AS_HAS_INSN for new .insn usage
-    https://git.kernel.org/riscv/c/dc20452e6caf
+diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..a737ba767d4aa7c6cba197dc0314bdbb163930c8
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+@@ -0,0 +1,65 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/starfive,jh7110-inno-hdmi-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 Innosilicon INNO HDMI PHY
++
++maintainers:
++  - Michal Wilczynski <m.wilczynski@samsung.com>
++
++description:
++  The PHY portion of the StarFive JH7110 INNO HDMI IP.
++
++properties:
++  compatible:
++    const: starfive,jh7110-inno-hdmi-phy
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: refoclk
++
++  '#clock-cells':
++    const: 0
++
++  clock-output-names:
++    const: hdmi_pclk
++
++  '#phy-cells':
++    const: 0
++
++required:
++  - compatible
++  - clocks
++  - clock-names
++  - '#clock-cells'
++  - clock-output-names
++  - '#phy-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        hdmi_mfd: hdmi@29590000 {
++            compatible = "starfive,jh7110-hdmi-mfd";
++            reg = <0x29590000 0x4000>;
++
++            hdmi_phy: phy {
++                compatible = "starfive,jh7110-inno-hdmi-phy";
++                clocks = <&xin24m>;
++                clock-names = "refoclk";
++                #clock-cells = <0>;
++                clock-output-names = "hdmi_pclk";
++                #phy-cells = <0>;
++            };
++        };
++    };
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 99434e54dc39494153677a6ca359d70f2ba2ddb3..a75ba7a44ee84db6a75b91c1a0867a37db2ebcdb 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -24047,6 +24047,7 @@ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+ STARFIVE JH7110 DISPLAY SUBSYSTEM
+ M:	Michal Wilczynski <m.wilczynski@samsung.com>
+ S:	Maintained
++F:	Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+ F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-vout-subsystem.yaml
+ 
+ STARFIVE JH7110 DPHY RX DRIVER
 
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.34.1
 
 
 _______________________________________________
