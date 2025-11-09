@@ -4,82 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852A0CCFA18
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Nov 2025 22:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE04CCFA13
+	for <linux-riscv@archiver.kernel.org>; Sun,  9 Nov 2025 07:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tImaqL52eGqt2Ce8KEKYRZOeZju1GU7sV4eAVidP6Ok=; b=0ff39nUk3Nd1yE
-	LaQZxAl6DcE2mX1rqcYy1piXAJaLEFsZgoP+6g5asWyiEWsn3FIy83AUsaVgaWb/RHZfWyp0fTIyP
-	9mlMBc0v/vdH+BQUjBpLy2fNa0tvWaPOmRN3eDsvGk/KdU0afnGj1qK8UkW9EoQBfVSK+qd4uD6xc
-	k8gYiCZvfGXxB6XvY32XvktT7RtUdyR1aZzWFQGIEdcdQjuCFYkzaC0OOtQ0szxDrYKT63v1dH4Kr
-	yS1ETA86zr9/gxWwdqylv6jQbOV7gM3OIleRZJGKLjP57qiqVySXYz3IOTOOb8hqwg+GtYA0p5IC7
-	bIImXLIEW1C/XCPRuTGA==;
+	List-Owner; bh=42UblhveU/C5ysfVM6VzpW0tewIjZ54a28U0xN+QiNQ=; b=uWJxCCu7DBt3Pp
+	woPq1Ne6HwoSl2guD25zBZwz9pxEECMCyJBeRLE2sTV5twK+hb3IUFLChQCpoXvSNUKCSLAv7Jm+i
+	lhr/92kfut8HwLCQRNYXQBlhhTAl8l7fD1F1f5ygcHGwXPjnDjc8eHjm6f0Mvx8iup+VPSaP/6N+p
+	f8TycEBzyc6NT5JWSMw0PFvLSwcfXPps5ViyLMQSvzb2ar82o+V+KhvoV9WJt+8LV2ibBWwa3oVqA
+	11r43s64CnXgJfE5KAhvSFFAcSDiHKzth3zA5j4C8j9NKYH1ULYRLC84nn0sEcqYOmRqeDD+7h1h+
+	f0ZL0g5drjGgMBYpNQTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHrE2-00000003W0z-0MtF;
-	Sat, 08 Nov 2025 22:16:02 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1vHzWR-00000003pb5-3Fhv;
+	Sun, 09 Nov 2025 07:07:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHrDz-00000003W0U-3QYM;
-	Sat, 08 Nov 2025 22:16:01 +0000
-Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 5A8MEjxP2478531
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Sat, 8 Nov 2025 14:14:46 -0800
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 5A8MEjxP2478531
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2025102301; t=1762640093;
-	bh=B/Cs56oiwOfYFf5C+E+O3dVcT+FEPLCVGwSgjVsb61Y=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=fWeMhNebCueBIgpwwJ9HzqbFTchAPIdo17J2WvEY7kkjBFr98Hd14BZVU/elSj4e9
-	 sYvaiqrxvUl4BY8IpX0uQCmYyYRGpwEYM4AMpxmeO6jowam81zKx+Iou/8ibo+BM+1
-	 ywYMqpzqqzlsIya940Jmlzx8lzG2S8DMVB5+RfgE7pFBtdtphXJ6gZJo7OenPNVKFJ
-	 UQgPH5eVKjpuy1XcgvLHNRCiWtDhbQz2AI+JZNS/Lv07T437bJJ0VfM8ndXOQVc3ZX
-	 UAUehct6G47TvwmWI2P9q6uIb6MiC/veNOSx+dHqmpfeKU8Yq/RQ/QTtFSTKBOHhQF
-	 vb74cw9jAoTUA==
-Date: Sat, 08 Nov 2025 14:14:44 -0800
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: Xie Yuanbin <qq570070308@gmail.com>, david@redhat.com, tglx@linutronix.de,
-        segher@kernel.crashing.org, riel@surriel.com, peterz@infradead.org,
-        linux@armlinux.org.uk, mathieu.desnoyers@efficios.com,
-        paulmck@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-        aou@eecs.berkeley.edu, alex@ghiti.fr, hca@linux.ibm.com,
-        gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
-        svens@linux.ibm.com, davem@davemloft.net, andreas@gaisler.com,
-        luto@kernel.org, mingo@redhat.com, bp@alien8.de,
-        dave.hansen@linux.intel.com, acme@kernel.org, namhyung@kernel.org,
-        mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
-        jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
-        james.clark@linaro.org, anna-maria@linutronix.de, frederic@kernel.org,
-        juri.lelli@redhat.com, vincent.guittot@linaro.org,
-        dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-        mgorman@suse.de, vschneid@redhat.com, nathan@kernel.org,
-        nick.desaulniers+lkml@gmail.com, morbo@google.com,
-        justinstitt@google.com, qq570070308@gmail.com, thuth@redhat.com,
-        brauner@kernel.org, arnd@arndb.de, jlayton@kernel.org,
-        aalbersh@redhat.com, akpm@linux-foundation.org, david@kernel.org,
-        lorenzo.stoakes@oracle.com, max.kellermann@ionos.com,
-        ryan.roberts@arm.com, nysal@linux.ibm.com, urezki@gmail.com
-CC: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-        linux-perf-users@vger.kernel.org, llvm@lists.linux.dev,
-        will@kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_3/4=5D_Provide_the_alwa?=
- =?US-ASCII?Q?ys_inline_version_of_some_functions?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20251108172346.263590-4-qq570070308@gmail.com>
-References: <20251108172346.263590-1-qq570070308@gmail.com> <20251108172346.263590-4-qq570070308@gmail.com>
-Message-ID: <04CA2D22-4DE2-4DE1-A2BC-AACE666F5F93@zytor.com>
+	id 1vHzWM-00000003paI-287p
+	for linux-riscv@lists.infradead.org;
+	Sun, 09 Nov 2025 07:07:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1762672047;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QHvKsjMe/AixpxnbJYjrVGK6zy8xknqlwpjxpwPDfNM=;
+	b=HKq2wKoi2g/XqsaTocQTlAwuYWyu+9buFAeVd3EkTtUSZF1fKu5ay1leE6BHceKvZ4IM5h
+	avy62bxp5rsuiIR9285jBaQzt4I1eDbV66CJ937oA7rsOp8xHYWfYRtlYUDE5dDmAjPa2e
+	ctF3eYbK47vKdh41yQDqFBWZfkM9BIg=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-270-De2eeutwO6CUsdBXyOD_mg-1; Sun, 09 Nov 2025 02:07:25 -0500
+X-MC-Unique: De2eeutwO6CUsdBXyOD_mg-1
+X-Mimecast-MFC-AGG-ID: De2eeutwO6CUsdBXyOD_mg_1762672045
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-429c5da68e5so1202542f8f.1
+        for <linux-riscv@lists.infradead.org>; Sat, 08 Nov 2025 23:07:25 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762672044; x=1763276844;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=QHvKsjMe/AixpxnbJYjrVGK6zy8xknqlwpjxpwPDfNM=;
+        b=JD2qwZw6eTYgpLqsq32Cr2RII0iySH3nRqbHtUXhESqbF3n8vSF6AQYsQUtbkGj/Zf
+         q58/imy9qXgYSrXq1SlxOgrB7ooQwRcr5nhXiC/3N05g6woi0pSVapx8oJ/X3ouiCIx/
+         6hria0+cGpUIiLc5gQ0+LaDYlQVx/LG8DtNDKYnx6PNbeMxyhFLYsRMqNLnP0HZH2UgZ
+         nzTCy2mlAxLe8Wh2p7pD4c9QMsYWSBiFJsuCj2iJ0+JGR6qu85go2a13XJmpdUt5Wepq
+         U7rgQmJjYU18CKN2Brfe0x+MSeWCH9a7fAAzI7jzyMyPsFipbGfW2zU9YC33Wx0cTPUM
+         Z7Cg==
+X-Forwarded-Encrypted: i=1; AJvYcCWYBEez2WRgXvdlCMl48bx/NzZEhzEB0B+3LalZLM9wztGnINnFevTARZIb0F/00pKVQ8BKJfRiiZCElw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3VWcpIEv3zmgPNOB3eO+/DnHOBw5bnB6x4en6aFNApltqaXY5
+	usAy8WuYfC/FHAL0i2QEPL68J4EEuHqf52+6bcYlK2bTaQjJ5a9wJ/Ocr81LRH967F7KiOmvtLb
+	inp/hHGSmpuVXZgt9nUNBJin4aZ9EEuoee5mVHT2xjmWrFJsjY6NBO0yD8P9DNetVwP4sLlsQAy
+	jxj0sqzsYLQw8gvafN5d6FIorH0IZF8FaQmVXbkzsNP60o
+X-Gm-Gg: ASbGnct3sF3B4zBZQzY13cLVV1WrkjVom2Rg7rWlFcYXgGzwvH0B25FaGbMcNg1GAgc
+	1Hli93vN9glCmPfdx349bWDTHM0reqsA8raufY2ggtFxPDTPBND9QnRN1LHrj8b2xHjzX/R0XL/
+	sDwf3FKovyHO3gfMLubTz6iOVw6Wnw8fjnPpXNFrtyzoDqiAMgC1F0mFUlgo/TTTfnVe38kfsWf
+	3pCb/zmYAUqUZ3C8WkuLk0cVKSf1cd79L4ycuWrnuIqIXIugoT/5DHtlKhE
+X-Received: by 2002:a5d:5f51:0:b0:42b:2dc9:437d with SMTP id ffacd0b85a97d-42b2dc945bemr3340223f8f.8.1762672044537;
+        Sat, 08 Nov 2025 23:07:24 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHlgHVVqddTf0z9GBTwc7IKuQZJE4lbbt4jIACSUKr9tRwMh48mz2VQwkxk817nUPP85PYqX+H4iU6UOxhzr7A=
+X-Received: by 2002:a5d:5f51:0:b0:42b:2dc9:437d with SMTP id
+ ffacd0b85a97d-42b2dc945bemr3340209f8f.8.1762672044139; Sat, 08 Nov 2025
+ 23:07:24 -0800 (PST)
 MIME-Version: 1.0
+References: <CAAhSdy1jcXypH3yCUBaci2EbOy2cbr2qNtdYriKa-vcyFFeCzg@mail.gmail.com>
+In-Reply-To: <CAAhSdy1jcXypH3yCUBaci2EbOy2cbr2qNtdYriKa-vcyFFeCzg@mail.gmail.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Sun, 9 Nov 2025 08:07:12 +0100
+X-Gm-Features: AWmQ_bnx7mWPxNcnsLGyK7FcbtNdFOMyOYxt5lXfFl9U8cdhZMTbepfHl2tYedU
+Message-ID: <CABgObfYYc1MTR6MFjVWfXKu6tOe0iVY-dh9OnGU_6RvF1fCMeg@mail.gmail.com>
+Subject: Re: [GIT PULL v2] KVM/riscv fixes for 6.18 take #2
+To: Anup Patel <anup@brainfault.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	Atish Patra <atish.patra@linux.dev>, Andrew Jones <ajones@ventanamicro.com>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: YxDZDdkckJvQ-7g6ucZ-gjas2e7hBzLdugoIvAFgEds_1762672045
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_141559_866754_7C1AA60B 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20251108_230730_980656_A9D51EBD 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,221 +102,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On November 8, 2025 9:23:45 AM PST, Xie Yuanbin <qq570070308@gmail.com> wrote:
->On critical hot code paths, inline functions can optimize performance.
->However, for current compilers, there is no way to request them to inline
->at a specific calling point of a function.
->
->Add a always inline version to some functions, so that they can be chosen
->when called in hot paths.
->
->Signed-off-by: Xie Yuanbin <qq570070308@gmail.com>
->Cc: Thomas Gleixner <tglx@linutronix.de>
->Cc: Rik van Riel <riel@surriel.com>
->Cc: Segher Boessenkool <segher@kernel.crashing.org>
->Cc: David Hildenbrand <david@redhat.com>
->Cc: Peter Zijlstra <peterz@infradead.org>
->---
-> arch/arm/include/asm/mmu_context.h      | 12 +++++++-
-> arch/s390/include/asm/mmu_context.h     | 12 +++++++-
-> arch/sparc/include/asm/mmu_context_64.h | 12 +++++++-
-> kernel/sched/core.c                     | 38 ++++++++++++++++++++++---
-> 4 files changed, 67 insertions(+), 7 deletions(-)
->
->diff --git a/arch/arm/include/asm/mmu_context.h b/arch/arm/include/asm/mmu_context.h
->index db2cb06aa8cf..e77b271570c1 100644
->--- a/arch/arm/include/asm/mmu_context.h
->+++ b/arch/arm/include/asm/mmu_context.h
->@@ -80,7 +80,12 @@ static inline void check_and_switch_context(struct mm_struct *mm,
-> #ifndef MODULE
-> #define finish_arch_post_lock_switch \
-> 	finish_arch_post_lock_switch
->-static inline void finish_arch_post_lock_switch(void)
->+/*
->+ * finish_arch_post_lock_switch_ainline - the always inline version of
->+ * finish_arch_post_lock_switch, used for performance sensitive paths.
->+ * If unsure, use finish_arch_post_lock_switch instead.
->+ */
->+static __always_inline void finish_arch_post_lock_switch_ainline(void)
-> {
-> 	struct mm_struct *mm = current->mm;
-> 
->@@ -99,6 +104,11 @@ static inline void finish_arch_post_lock_switch(void)
-> 		preempt_enable_no_resched();
-> 	}
-> }
->+
->+static inline void finish_arch_post_lock_switch(void)
->+{
->+	finish_arch_post_lock_switch_ainline();
->+}
-> #endif /* !MODULE */
-> 
-> #endif	/* CONFIG_MMU */
->diff --git a/arch/s390/include/asm/mmu_context.h b/arch/s390/include/asm/mmu_context.h
->index d9b8501bc93d..577062834906 100644
->--- a/arch/s390/include/asm/mmu_context.h
->+++ b/arch/s390/include/asm/mmu_context.h
->@@ -97,7 +97,12 @@ static inline void switch_mm(struct mm_struct *prev, struct mm_struct *next,
-> }
-> 
-> #define finish_arch_post_lock_switch finish_arch_post_lock_switch
->-static inline void finish_arch_post_lock_switch(void)
->+/*
->+ * finish_arch_post_lock_switch_ainline - the always inline version of
->+ * finish_arch_post_lock_switch, used for performance sensitive paths.
->+ * If unsure, use finish_arch_post_lock_switch instead.
->+ */
->+static __always_inline void finish_arch_post_lock_switch_ainline(void)
-> {
-> 	struct task_struct *tsk = current;
-> 	struct mm_struct *mm = tsk->mm;
->@@ -120,6 +125,11 @@ static inline void finish_arch_post_lock_switch(void)
-> 	local_irq_restore(flags);
-> }
-> 
->+static inline void finish_arch_post_lock_switch(void)
->+{
->+	finish_arch_post_lock_switch_ainline();
->+}
->+
-> #define activate_mm activate_mm
-> static inline void activate_mm(struct mm_struct *prev,
->                                struct mm_struct *next)
->diff --git a/arch/sparc/include/asm/mmu_context_64.h b/arch/sparc/include/asm/mmu_context_64.h
->index 78bbacc14d2d..ca7019080574 100644
->--- a/arch/sparc/include/asm/mmu_context_64.h
->+++ b/arch/sparc/include/asm/mmu_context_64.h
->@@ -160,7 +160,12 @@ static inline void arch_start_context_switch(struct task_struct *prev)
-> }
-> 
-> #define finish_arch_post_lock_switch	finish_arch_post_lock_switch
->-static inline void finish_arch_post_lock_switch(void)
->+/*
->+ * finish_arch_post_lock_switch_ainline - the always inline version of
->+ * finish_arch_post_lock_switch, used for performance sensitive paths.
->+ * If unsure, use finish_arch_post_lock_switch instead.
->+ */
->+static __always_inline void finish_arch_post_lock_switch_ainline(void)
-> {
-> 	/* Restore the state of MCDPER register for the new process
-> 	 * just switched to.
->@@ -185,6 +190,11 @@ static inline void finish_arch_post_lock_switch(void)
-> 	}
-> }
-> 
->+static inline void finish_arch_post_lock_switch(void)
->+{
->+	finish_arch_post_lock_switch_ainline();
->+}
->+
-> #define mm_untag_mask mm_untag_mask
-> static inline unsigned long mm_untag_mask(struct mm_struct *mm)
-> {
->diff --git a/kernel/sched/core.c b/kernel/sched/core.c
->index 0e50ef3d819a..c50e672e22c4 100644
->--- a/kernel/sched/core.c
->+++ b/kernel/sched/core.c
->@@ -4884,7 +4884,13 @@ static inline void finish_task(struct task_struct *prev)
-> 	smp_store_release(&prev->on_cpu, 0);
-> }
-> 
->-static void do_balance_callbacks(struct rq *rq, struct balance_callback *head)
->+/*
->+ * do_balance_callbacks_ainline - the always inline version of
->+ * do_balance_callbacks, used for performance sensitive paths.
->+ * If unsure, use do_balance_callbacks instead.
->+ */
->+static __always_inline void do_balance_callbacks_ainline(struct rq *rq,
->+		struct balance_callback *head)
-> {
-> 	void (*func)(struct rq *rq);
-> 	struct balance_callback *next;
->@@ -4901,6 +4907,11 @@ static void do_balance_callbacks(struct rq *rq, struct balance_callback *head)
-> 	}
-> }
-> 
->+static void do_balance_callbacks(struct rq *rq, struct balance_callback *head)
->+{
->+	do_balance_callbacks_ainline(rq, head);
->+}
->+
-> static void balance_push(struct rq *rq);
-> 
-> /*
->@@ -4949,11 +4960,21 @@ struct balance_callback *splice_balance_callbacks(struct rq *rq)
-> 	return __splice_balance_callbacks(rq, true);
-> }
-> 
->-static void __balance_callbacks(struct rq *rq)
->+/*
->+ * __balance_callbacks_ainline - the always inline version of
->+ * __balance_callbacks, used for performance sensitive paths.
->+ * If unsure, use __balance_callbacks instead.
->+ */
->+static __always_inline void __balance_callbacks_ainline(struct rq *rq)
-> {
-> 	do_balance_callbacks(rq, __splice_balance_callbacks(rq, false));
-> }
-> 
->+static void __balance_callbacks(struct rq *rq)
->+{
->+	__balance_callbacks_ainline(rq);
->+}
->+
-> void balance_callbacks(struct rq *rq, struct balance_callback *head)
-> {
-> 	unsigned long flags;
->@@ -5003,7 +5024,8 @@ static inline void finish_lock_switch(struct rq *rq)
-> #endif
-> 
-> #ifndef finish_arch_post_lock_switch
->-# define finish_arch_post_lock_switch()	do { } while (0)
->+# define finish_arch_post_lock_switch()		do { } while (0)
->+# define finish_arch_post_lock_switch_ainline()	do { } while (0)
-> #endif
-> 
-> static inline void kmap_local_sched_out(void)
->@@ -5050,6 +5072,9 @@ prepare_task_switch(struct rq *rq, struct task_struct *prev,
-> 
-> /**
->  * finish_task_switch - clean up after a task-switch
->+ * finish_task_switch_ainline - the always inline version of this func
->+ * used for performance sensitive paths
->+ *
->  * @prev: the thread we just switched away from.
->  *
->  * finish_task_switch must be called after the context switch, paired
->@@ -5067,7 +5092,7 @@ prepare_task_switch(struct rq *rq, struct task_struct *prev,
->  * past. 'prev == current' is still correct but we need to recalculate this_rq
->  * because prev may have moved to another CPU.
->  */
->-static struct rq *finish_task_switch(struct task_struct *prev)
->+static __always_inline struct rq *finish_task_switch_ainline(struct task_struct *prev)
-> 	__releases(rq->lock)
-> {
-> 	struct rq *rq = this_rq();
->@@ -5159,6 +5184,11 @@ static struct rq *finish_task_switch(struct task_struct *prev)
-> 	return rq;
-> }
-> 
->+static struct rq *finish_task_switch(struct task_struct *prev)
->+{
->+	return finish_task_switch_ainline(prev);
->+}
->+
-> /**
->  * schedule_tail - first thing a freshly forked thread must call.
->  * @prev: the thread we just switched away from.
-
-There is, in fact: you have to have an always_inline version, and wrap it in a noinline version.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBPY3QgMjUsIDIwMjUgYXQgMTI6MTTigK9QTSBBbnVwIFBhdGVsIDxhbnVwQGJyYWlu
+ZmF1bHQub3JnPiB3cm90ZToKPgo+IEhpIFBhb2xvLAo+Cj4gV2UgaGF2ZSB0aHJlZSBmaXhlcyBm
+b3IgdGhlIDYuMTgga2VybmVsLiBUd28gb2YgdGhlc2UKPiBhcmUgcmVsYXRlZCB0byBjaGVja2lu
+ZyBwZW5kaW5nIGludGVycnVwdHMgd2hlcmVhcwo+IHRoZSB0aGlyZCBvbmUgcmVtb3ZlcyBhdXRv
+bWF0aWMgSS9PIG1hcHBpbmcgZnJvbQo+IGt2bV9hcmNoX3ByZXBhcmVfbWVtb3J5X3JlZ2lvbigp
+Lgo+Cj4gUGxlYXNlIHB1bGwuCgpQdWxsZWQsIHRoYW5rcy4KClBhb2xvCgo+Cj4gUmVnYXJkcywK
+PiBBbnVwCj4KPiBUaGUgZm9sbG93aW5nIGNoYW5nZXMgc2luY2UgY29tbWl0IDNhODY2MDg3ODgz
+OWZhYWRiNGYxYTZkZDcyYzMxNzljMWRmNTY3ODc6Cj4KPiAgIExpbnV4IDYuMTgtcmMxICgyMDI1
+LTEwLTEyIDEzOjQyOjM2IC0wNzAwKQo+Cj4gYXJlIGF2YWlsYWJsZSBpbiB0aGUgR2l0IHJlcG9z
+aXRvcnkgYXQ6Cj4KPiAgIGh0dHBzOi8vZ2l0aHViLmNvbS9rdm0tcmlzY3YvbGludXguZ2l0IHRh
+Z3Mva3ZtLXJpc2N2LWZpeGVzLTYuMTgtMgo+Cj4gZm9yIHlvdSB0byBmZXRjaCBjaGFuZ2VzIHVw
+IHRvIDhjNWZhMzc2NGZhY2FhZDZkMzgzMzZlOTBmNDA2YzJjMTFkNjk3MzM6Cj4KPiAgIFJJU0Mt
+VjogS1ZNOiBSZW1vdmUgYXV0b21hdGljIEkvTyBtYXBwaW5nIGZvciBWTV9QRk5NQVAgKDIwMjUt
+MTAtMjQKPiAyMToyNDozNiArMDUzMCkKPgo+IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiBLVk0vcmlzY3YgZml4ZXMgZm9y
+IDYuMTgsIHRha2UgIzIKPgo+IC0gRml4IGNoZWNrIGZvciBsb2NhbCBpbnRlcnJ1cHRzIG9uIHJp
+c2N2MzIKPiAtIFJlYWQgSEdFSVAgQ1NSIG9uIHRoZSBjb3JyZWN0IGNwdSB3aGVuIGNoZWNraW5n
+IGZvciBJTVNJQyBpbnRlcnJ1cHRzCj4gLSBSZW1vdmUgYXV0b21hdGljIEkvTyBtYXBwaW5nIGZy
+b20ga3ZtX2FyY2hfcHJlcGFyZV9tZW1vcnlfcmVnaW9uKCkKPgo+IC0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiBGYW5neXUg
+WXUgKDIpOgo+ICAgICAgIFJJU0MtVjogS1ZNOiBSZWFkIEhHRUlQIENTUiBvbiB0aGUgY29ycmVj
+dCBjcHUKPiAgICAgICBSSVNDLVY6IEtWTTogUmVtb3ZlIGF1dG9tYXRpYyBJL08gbWFwcGluZyBm
+b3IgVk1fUEZOTUFQCj4KPiBTYW11ZWwgSG9sbGFuZCAoMSk6Cj4gICAgICAgUklTQy1WOiBLVk06
+IEZpeCBjaGVjayBmb3IgbG9jYWwgaW50ZXJydXB0cyBvbiByaXNjdjMyCj4KPiAgYXJjaC9yaXNj
+di9rdm0vYWlhX2ltc2ljLmMgfCAxNiArKysrKysrKysrKysrKy0tCj4gIGFyY2gvcmlzY3Yva3Zt
+L21tdS5jICAgICAgIHwgMjUgKystLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+ICBhcmNoL3Jpc2N2
+L2t2bS92Y3B1LmMgICAgICB8ICAyICstCj4gIDMgZmlsZXMgY2hhbmdlZCwgMTcgaW5zZXJ0aW9u
+cygrKSwgMjYgZGVsZXRpb25zKC0pCj4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
