@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD557CD13D2
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Nov 2025 11:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C69CCFA13
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Nov 2025 11:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=32QwTSj6ah2tWlgrxr7+xr5EzqXlILchFRxEtw538X4=; b=NB+bpVWakIqT1C
-	n6yvCwH+1ZGZ4uSzdzJAcpI1MGsa3j1Lf406jAArkATIZBtQ3a20OpcX14mrcdpU1PLOqeRXtXTwO
-	y1565Xk88O/KZUehsZfzPCzRiFupCwSAjSZe4LSIvkp43q3cexmIhxpBdSPLszpjxnPkeYGq2x+9K
-	QuI7Bcxno3AVB2HdmSTch5UaoZ8KanZVFGrDM2y6s6lLZNUhiIJ3pTZFuLS0fIQOeUnmMPBDAs3jC
-	P9pPUk46CfhxMbPfLx8MgTefDB6sy4mmo3oQK/oLwHaLFr34+R+f6GCNaxtg4AuyHA2+mLhPbaVY1
-	2IwaBPz7uqyIusyEcrMg==;
+	List-Owner; bh=gOVgzR0jW44omelI7o9yF+y0M2LVV5lMcbmpsobgpSU=; b=Rr/XoQ//J1Wzv9
+	czqfDJ74SwmtsXP3rQWr/PqynAXAZqAYtvDES9nYgQrz+PdrReX77TfwvitK4uJtS3tHYM5DUEics
+	1MX7BkHmjWLVHn3ZO3jyfVK+fnDRgjfnkKOnGS+ynCpJsL4TO7S0OtaqdmX26KwO82whINaKP/ZEg
+	WgvdH7Yn49vHavAW3jmCJLyL5e+SwyDZ9xRvFfygv8IrSnHSPA02tIqjFXzU3TPVEeZHSPZuq9lY/
+	WuXX/auuSavfuHgHxhmyBQbjeyqZP+g8iT4twcKx7gUvxXUOpRvS07yeBJO08238wavvEPU4mVN0R
+	fcikEXM5dbNJiExISwDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQ0G-00000005Ija-1qcF;
-	Mon, 10 Nov 2025 11:24:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vIQ0S-00000005InY-17g9;
+	Mon, 10 Nov 2025 11:24:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQ0E-00000005IjB-2NR2
+	id 1vIQ0P-00000005Ilr-02w6
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Nov 2025 11:24:07 +0000
+	Mon, 10 Nov 2025 11:24:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4902843B0F;
-	Mon, 10 Nov 2025 11:24:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D840C19421;
-	Mon, 10 Nov 2025 11:24:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C0E7446B3;
+	Mon, 10 Nov 2025 11:24:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35921C116D0;
+	Mon, 10 Nov 2025 11:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762773846;
-	bh=CmXoBLuxUJoBzrxKmX5dd5XpWc+0xXD7kEShU5FrSRg=;
+	s=k20201202; t=1762773856;
+	bh=E43Z5Y8tSJqRgamwuiELwt0g0OSF4ium8fxWSOTU1R0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IOcmLUC3TrceYQ9JL7asupXpkrb/756TEH+Xu73myypmYEpbqoPLK3ZbmgBwO6aYT
-	 N+39PJS2+9c7p3RrBu5cbxO9Xo7AxPGAQGMcU5gXMOwdaDgeEmcN9WM6VEL8KK9eo9
-	 ubzxGpHxR0rsRhOziFnSM13Nfc919qqhAHBBKRoMGMF0BmOcj6VYJsAMEZqDabD1oL
-	 fIeqX3662wW0GdADVAn8WPI13+IRnEFcAlvlERk4XchZjLo4mV2LS7vNWdyalFX2qX
-	 rUOANWMairTSFYfZtka8Ptejx5RvcEIs+68F6fE3Bmst7PHjsNXLuBd3EeqCFyS0O2
-	 KVNV+9pV414EQ==
+	b=mAA72F0Rq4I2u6jvTdEFPVqAmJ7fTvOkaDGoyA/T7bzy/+LP2SlPPIPQ9a0yDj04s
+	 kdMhf90x5TnvmpJRA93dQRQY1IGTHDzwpY5qhYkX+YbVCQvxgOCumd9t+tqUtKmTZu
+	 b1PyelrqW3CmiYorwAMIyl0FZKMxGuMX/Ow75V1KWvpLRPYhORymNlhVfTXWW9ju3j
+	 FHgYaJ1bOHxF+iyju63WO/R9ciqfNZBxu8VP/Pr5DB0YBE2CFIE9jWTjGzMWS6w11L
+	 USyZUa+6+1nsEb+2mX2sxkY83iJjvQAwpqfFAm5IQ8e5Dl6BfKSXxmS/xEvw2BVufL
+	 WPpOiSzjE13Uw==
 From: Conor Dooley <conor@kernel.org>
 To: claudiu.beznea@tuxon.dev
 Cc: conor@kernel.org,
@@ -58,18 +58,19 @@ Cc: conor@kernel.org,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v7 1/5] reset: mpfs: add non-auxiliary bus probing
-Date: Mon, 10 Nov 2025 11:23:50 +0000
-Message-ID: <20251110-evict-gratified-bb816e2799a2@spud>
+Subject: [PATCH v7 4/5] MAINTAINERS: add new soc drivers to Microchip RISC-V entry
+Date: Mon, 10 Nov 2025 11:23:53 +0000
+Message-ID: <20251110-creature-spousal-213edfea02ce@spud>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251110-zookeeper-femur-68a0ae346397@spud>
 References: <20251110-zookeeper-femur-68a0ae346397@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8983; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=clSSL3dc+HDx0t1TsHPtxBl7W72R564AkCTNoIHCzak=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJmCp93nVaacL9yoH7+CO8mVPXGmY8sNDXaVn9WfLYr86 7Qfij3uKGVhEONikBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwEQuHmT4wxHiXbZgk2ftxMYf 3gxR1vdW5r9Rj79ep6e+56E078dN2xn+aTh9kg9a8HDWY4edhaohIlqsvbMMu0seeQqfLq06lvq VGwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=733; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=gmAo0f4txEXEqIJYVzrDbfZIGVrUbtgonOlTrrMh7lQ=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJmCpz3O3zCWCLXNS8qzqw1exiS5dfOJP57dfbHNTYF8/ Eau+1Q7SlkYxLgYZMUUWRJv97VIrf/jssO55y3MHFYmkCEMXJwCMJEtKxj+mZvsF6rd3xnnrcAj sf3ZZvZ1goV63F6s//rs203dWhh+MPzPrT/Fbbdj4/u0YreLy5duf77+8abHN99YfP7Y/TP8/5Z IdgA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_032406_650597_523DDA35 
-X-CRM114-Status: GOOD (  26.01  )
+X-CRM114-CacheID: sfid-20251110_032417_074748_D7C6A2E5 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,276 +89,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-While the auxiliary bus was a nice bandaid, and meant that re-writing
-the representation of the clock regions in devicetree was not required,
-it has run its course. The "mss_top_sysreg" region that contains the
-clock and reset regions, also contains pinctrl and an interrupt
-controller, so the time has come rewrite the devicetree and probe the
-reset controller from an mfd devicetree node, rather than implement
-those drivers using the auxiliary bus. Wanting to avoid propagating this
-naive/incorrect description of the hardware to the new pic64gx SoC is a
-major motivating factor here.
+Add the two new syscon drivers to the RISC-V entry for Microchip
+platforms.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-v7:
-- move entirely to regmap
-- use clear/set instead of update
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
 
-v6:
-- depend on MFD_SYSCON
-- return regmap_update_bits() result directly instead of an additional
-  return 0
-
-v4:
-- Only use driver specific lock for non-regmap writes
-
-v2:
-- Implement the request to use regmap_update_bits(). I found that I then
-  hated the read/write helpers since they were just bloat, so I ripped
-  them out. I replaced the regular spin_lock_irqsave() stuff with a
-  guard(spinlock_irqsave), since that's a simpler way of handling the two
-  different paths through such a trivial pair of functions.
----
- drivers/clk/microchip/clk-mpfs.c |  4 +-
- drivers/reset/Kconfig            |  1 +
- drivers/reset/reset-mpfs.c       | 92 +++++++++++++++++++-------------
- include/soc/microchip/mpfs.h     |  3 +-
- 4 files changed, 61 insertions(+), 39 deletions(-)
-
-diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
-index 484893e68b67..ee58304913ef 100644
---- a/drivers/clk/microchip/clk-mpfs.c
-+++ b/drivers/clk/microchip/clk-mpfs.c
-@@ -38,7 +38,7 @@ static const struct regmap_config mpfs_clk_regmap_config = {
- 	.reg_stride = 4,
- 	.val_bits = 32,
- 	.val_format_endian = REGMAP_ENDIAN_LITTLE,
--	.max_register = REG_SUBBLK_CLOCK_CR,
-+	.max_register = REG_SUBBLK_RESET_CR,
- };
- 
- /*
-@@ -502,7 +502,7 @@ static inline int mpfs_clk_old_format_probe(struct mpfs_clock_data *clk_data,
- 	if (IS_ERR(clk_data->regmap))
- 		return PTR_ERR(clk_data->regmap);
- 
--	return mpfs_reset_controller_register(dev, clk_data->base + REG_SUBBLK_RESET_CR);
-+	return mpfs_reset_controller_register(dev, clk_data->regmap);
- }
- 
- static int mpfs_clk_probe(struct platform_device *pdev)
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index 78b7078478d4..0ec4b7cd08d6 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -200,6 +200,7 @@ config RESET_PISTACHIO
- config RESET_POLARFIRE_SOC
- 	bool "Microchip PolarFire SoC (MPFS) Reset Driver"
- 	depends on MCHP_CLK_MPFS
-+	depends on MFD_SYSCON
- 	select AUXILIARY_BUS
- 	default MCHP_CLK_MPFS
- 	help
-diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
-index f6fa10e03ea8..d00212450990 100644
---- a/drivers/reset/reset-mpfs.c
-+++ b/drivers/reset/reset-mpfs.c
-@@ -7,13 +7,16 @@
-  *
-  */
- #include <linux/auxiliary_bus.h>
-+#include <linux/cleanup.h>
- #include <linux/delay.h>
- #include <linux/io.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
--#include <linux/slab.h>
-+#include <linux/regmap.h>
- #include <linux/reset-controller.h>
-+#include <linux/slab.h>
- #include <dt-bindings/clock/microchip,mpfs-clock.h>
- #include <soc/microchip/mpfs.h>
- 
-@@ -27,11 +30,10 @@
- #define MPFS_SLEEP_MIN_US	100
- #define MPFS_SLEEP_MAX_US	200
- 
--/* block concurrent access to the soft reset register */
--static DEFINE_SPINLOCK(mpfs_reset_lock);
-+#define REG_SUBBLK_RESET_CR	0x88u
- 
- struct mpfs_reset {
--	void __iomem *base;
-+	struct regmap *regmap;
- 	struct reset_controller_dev rcdev;
- };
- 
-@@ -46,41 +48,25 @@ static inline struct mpfs_reset *to_mpfs_reset(struct reset_controller_dev *rcde
- static int mpfs_assert(struct reset_controller_dev *rcdev, unsigned long id)
- {
- 	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
--	unsigned long flags;
--	u32 reg;
- 
--	spin_lock_irqsave(&mpfs_reset_lock, flags);
-+	return regmap_set_bits(rst->regmap, REG_SUBBLK_RESET_CR, BIT(id));
- 
--	reg = readl(rst->base);
--	reg |= BIT(id);
--	writel(reg, rst->base);
--
--	spin_unlock_irqrestore(&mpfs_reset_lock, flags);
--
--	return 0;
- }
- 
- static int mpfs_deassert(struct reset_controller_dev *rcdev, unsigned long id)
- {
- 	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
--	unsigned long flags;
--	u32 reg;
- 
--	spin_lock_irqsave(&mpfs_reset_lock, flags);
-+	return regmap_clear_bits(rst->regmap, REG_SUBBLK_RESET_CR, BIT(id));
- 
--	reg = readl(rst->base);
--	reg &= ~BIT(id);
--	writel(reg, rst->base);
--
--	spin_unlock_irqrestore(&mpfs_reset_lock, flags);
--
--	return 0;
- }
- 
- static int mpfs_status(struct reset_controller_dev *rcdev, unsigned long id)
- {
- 	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
--	u32 reg = readl(rst->base);
-+	u32 reg;
-+
-+	regmap_read(rst->regmap, REG_SUBBLK_RESET_CR, &reg);
- 
- 	/*
- 	 * It is safe to return here as MPFS_NUM_RESETS makes sure the sign bit
-@@ -130,23 +116,58 @@ static int mpfs_reset_xlate(struct reset_controller_dev *rcdev,
- 	return index - MPFS_PERIPH_OFFSET;
- }
- 
--static int mpfs_reset_probe(struct auxiliary_device *adev,
--			    const struct auxiliary_device_id *id)
-+static int mpfs_reset_mfd_probe(struct platform_device *pdev)
- {
--	struct device *dev = &adev->dev;
- 	struct reset_controller_dev *rcdev;
-+	struct device *dev = &pdev->dev;
- 	struct mpfs_reset *rst;
- 
- 	rst = devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
- 	if (!rst)
- 		return -ENOMEM;
- 
--	rst->base = (void __iomem *)adev->dev.platform_data;
-+	rcdev = &rst->rcdev;
-+	rcdev->dev = dev;
-+	rcdev->ops = &mpfs_reset_ops;
-+
-+	rcdev->of_node = pdev->dev.parent->of_node;
-+	rcdev->of_reset_n_cells = 1;
-+	rcdev->of_xlate = mpfs_reset_xlate;
-+	rcdev->nr_resets = MPFS_NUM_RESETS;
-+
-+	rst->regmap = device_node_to_regmap(pdev->dev.parent->of_node);
-+	if (IS_ERR(rst->regmap))
-+		return dev_err_probe(dev, PTR_ERR(rst->regmap),
-+				     "Failed to find syscon regmap\n");
-+
-+	return devm_reset_controller_register(dev, rcdev);
-+}
-+
-+static struct platform_driver mpfs_reset_mfd_driver = {
-+	.probe = mpfs_reset_mfd_probe,
-+	.driver = {
-+		.name = "mpfs-reset",
-+	},
-+};
-+module_platform_driver(mpfs_reset_mfd_driver);
-+
-+static int mpfs_reset_adev_probe(struct auxiliary_device *adev,
-+				 const struct auxiliary_device_id *id)
-+{
-+	struct reset_controller_dev *rcdev;
-+	struct device *dev = &adev->dev;
-+	struct mpfs_reset *rst;
-+
-+	rst = devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
-+	if (!rst)
-+		return -ENOMEM;
-+
-+	rst->regmap = (struct regmap *)adev->dev.platform_data;
- 
- 	rcdev = &rst->rcdev;
- 	rcdev->dev = dev;
--	rcdev->dev->parent = dev->parent;
- 	rcdev->ops = &mpfs_reset_ops;
-+
- 	rcdev->of_node = dev->parent->of_node;
- 	rcdev->of_reset_n_cells = 1;
- 	rcdev->of_xlate = mpfs_reset_xlate;
-@@ -155,12 +176,11 @@ static int mpfs_reset_probe(struct auxiliary_device *adev,
- 	return devm_reset_controller_register(dev, rcdev);
- }
- 
--int mpfs_reset_controller_register(struct device *clk_dev, void __iomem *base)
-+int mpfs_reset_controller_register(struct device *clk_dev, struct regmap *map)
- {
- 	struct auxiliary_device *adev;
- 
--	adev = devm_auxiliary_device_create(clk_dev, "reset-mpfs",
--					    (__force void *)base);
-+	adev = devm_auxiliary_device_create(clk_dev, "reset-mpfs", (void *)map);
- 	if (!adev)
- 		return -ENODEV;
- 
-@@ -176,12 +196,12 @@ static const struct auxiliary_device_id mpfs_reset_ids[] = {
- };
- MODULE_DEVICE_TABLE(auxiliary, mpfs_reset_ids);
- 
--static struct auxiliary_driver mpfs_reset_driver = {
--	.probe		= mpfs_reset_probe,
-+static struct auxiliary_driver mpfs_reset_aux_driver = {
-+	.probe		= mpfs_reset_adev_probe,
- 	.id_table	= mpfs_reset_ids,
- };
- 
--module_auxiliary_driver(mpfs_reset_driver);
-+module_auxiliary_driver(mpfs_reset_aux_driver);
- 
- MODULE_DESCRIPTION("Microchip PolarFire SoC Reset Driver");
- MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-diff --git a/include/soc/microchip/mpfs.h b/include/soc/microchip/mpfs.h
-index 0bd67e10b704..ec04c98a8b63 100644
---- a/include/soc/microchip/mpfs.h
-+++ b/include/soc/microchip/mpfs.h
-@@ -14,6 +14,7 @@
- 
- #include <linux/types.h>
- #include <linux/of_device.h>
-+#include <linux/regmap.h>
- 
- struct mpfs_sys_controller;
- 
-@@ -44,7 +45,7 @@ struct mtd_info *mpfs_sys_controller_get_flash(struct mpfs_sys_controller *mpfs_
- 
- #if IS_ENABLED(CONFIG_MCHP_CLK_MPFS)
- #if IS_ENABLED(CONFIG_RESET_POLARFIRE_SOC)
--int mpfs_reset_controller_register(struct device *clk_dev, void __iomem *base);
-+int mpfs_reset_controller_register(struct device *clk_dev, struct regmap *map);
- #else
- static inline int mpfs_reset_controller_register(struct device *clk_dev, void __iomem *base) { return 0; }
- #endif /* if IS_ENABLED(CONFIG_RESET_POLARFIRE_SOC) */
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 46126ce2f968..a28740a7d87a 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22105,6 +22105,8 @@ F:	drivers/pci/controller/plda/pcie-microchip-host.c
+ F:	drivers/pwm/pwm-microchip-core.c
+ F:	drivers/reset/reset-mpfs.c
+ F:	drivers/rtc/rtc-mpfs.c
++F:	drivers/soc/microchip/mpfs-control-scb.c
++F:	drivers/soc/microchip/mpfs-mss-top-sysreg.c
+ F:	drivers/soc/microchip/mpfs-sys-controller.c
+ F:	drivers/spi/spi-microchip-core-qspi.c
+ F:	drivers/spi/spi-microchip-core.c
 -- 
 2.51.0
 
