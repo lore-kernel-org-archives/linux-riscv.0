@@ -4,117 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CE4CCFA13
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Nov 2025 10:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B113CD13CF
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Nov 2025 11:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:
-	In-Reply-To:Message-ID:Subject:Cc:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=s79T21SEbqBkQOEFHpXh/ZlgD/jKccdyJd+RzQ2Hy94=; b=1RLRAY34O2hF+1kMJg2QqMHhSN
-	5mq6qFru97dv8UGZ8OMQEq8ZIe9gLmaoz7iO+ZiW8hKFh27v5wCmRFs4djCWszzAS3aGeaOBZM3TI
-	x+ZmcbYk1HahX79TaTgf55qYcssYeRav82pgOtNUwaUE6W+BsiOMGxSsmbHJ/UReFlROSpQ6kEae/
-	VQGO1c7PqNVg4EQm+L9MxH/dbC0KLjUxs0bKtv8NVv9AAcBjitSbt41U7+MmObEtx9x8Rx5gGrtRQ
-	toeo4RRGKfE0VYKJS9A/xzUZ/+wV6VMkIUv3XWwVtJzMtQA+015EWJpzduZcpq0YXGzAbhAMpOHxD
-	OfkV4lxQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4toUDXY2rPujF+ro+yKW0igwJowdwxnN7znTrY3szmM=; b=PSNOhpYiWYeyqQ
+	dnQ2cApcvHqDUYlsxwLGQCYb3fIDelT5k4JHCA3c4WbwQqyUhV1VDc5JERHrBlzPP0XZy+5CNz0WY
+	t5Nd/xdLzQ+vAqD+aGEUhZS0rrh7SpJdbBOmxO8/JTs0q0iOK18cNCvM4ch/7iWNR8uY5g+dyn75l
+	bhV5Hr0AEVDL5UsCji1nMLh3PinEUt36Qqy05tET/ffApcwsfK3EbhMiP5U7i3D8z7h5hbwDhTtMm
+	aKjnCQBTWH2QLh+uAoWwhiNVZ7Bzen3Xct1jgdrdvNjDAngugBr9gf+/azpR1hJ0Vs3BtFx7jpBPT
+	Dbf1WBHe8s6hGGFm5x2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOry-000000059ZL-27bB;
-	Mon, 10 Nov 2025 10:11:30 +0000
-Received: from caracal.birch.relay.mailchannels.net ([23.83.209.30])
+	id 1vIQ0N-00000005IlF-082r;
+	Mon, 10 Nov 2025 11:24:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOrv-000000059YN-3ssx
+	id 1vIQ0L-00000005Ikk-31Ai
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Nov 2025 10:11:29 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 1E1B34C20E8;
-	Mon, 10 Nov 2025 10:11:27 +0000 (UTC)
-Received: from fr-int-smtpout19.hostinger.io (trex-green-3.trex.outbound.svc.cluster.local [100.124.155.193])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 7E4EE4C160B;
-	Mon, 10 Nov 2025 10:11:24 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1762769486; a=rsa-sha256;
-	cv=none;
-	b=4XMHq6lEP1L4W+Uq31UEndziNpXM3z/BHY6sxe/t0xe4kxuINch9d391zYTD8HP/nO3gMy
-	0ynDQjDRvx/GaO5grHOThZUH81YSeBcwXvnfmSffcnl0QbZ+NTkTLQubsX3jokAT0xDBj3
-	xu32YzQULW2u1PGSlcVOi4u5dHi+P8qio91NISey/hqFIKFZrG/iucUu2CdumstdcECWyh
-	Ao2E9uTti47CMF0dQyLdxn+m9/G7SlColfT9RbjYhm4zWKwSbkkbPyRxzyIDNiubqPLM6t
-	FXAYJA421UYi0gdI709AdIbz1meomLsNm7WWGFSVRYdRWRf7REKNXBcBWM/Glg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1762769486;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=Xv4qtdoTRgEtEjLgDMNE/Omj14M13wzp5a5JVmEglRk=;
-	b=Tbz67d2YfgIu5ItarAWWwbH2V2cFGKmbmy3A4JNsqRMyaEIJ1wLagjP78H1kN694f1XuBE
-	WWckedt0leQocISWpKx9iLFYR9l+3Tg2GJ4bEK11ne6aP0rvjVtBZGZxpIHB4pefiO/udu
-	vgOfAa/5Y4CK6FE4Et8S6FMY72DtJzCxs0iaEM27CZvw2bNZ21bbcjtqUxX0qqlMZ6x+fF
-	LJ4nWCyI8nHkdJE/YtDYbqLGawY313A8MQjIzuLlIC+T9TXU1Sx9PeklreSprqDPoqhcZc
-	sOUPaCFotWRT1ff6DvFkOkPJBoEBL+TYLBaQhzp+8j/mG9H47VTi1+j/54ZtCA==
-ARC-Authentication-Results: i=1;
-	rspamd-77bb85d8d5-r7qnn;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Sponge-Army: 13dc4e3f5c0efe05_1762769486916_4271747599
-X-MC-Loop-Signature: 1762769486916:2648717695
-X-MC-Ingress-Time: 1762769486915
-Received: from fr-int-smtpout19.hostinger.io (fr-int-smtpout19.hostinger.io
- [148.222.54.35])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.124.155.193 (trex/7.1.3);
-	Mon, 10 Nov 2025 10:11:26 +0000
-Received: from localhost.localdomain (unknown [IPv6:2001:861:4450:d360:7d90:b645:1639:d009])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d4ln62cQ6z1yFF;
-	Mon, 10 Nov 2025 10:11:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1762769482;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Xv4qtdoTRgEtEjLgDMNE/Omj14M13wzp5a5JVmEglRk=;
-	b=r67goI2WtwKWjRdB0dSsLUqcRVEl3aCwPydWJdSN5v/uU+ILENn7yUjqn9g62e/IlqP/7J
-	YvQdtWoV/nS8mcSFerJRDW0v7VXjSJID8/esPKFgTRU4a/emmWi5o+ecHiP8U+ppZ/QJbw
-	bM8TQ2rvfD3G8ixSaHIKB+JPpHar+mNbwYbVCLz4f8EHFtoKE1lgDB4otyvHrXTq01qSkG
-	xUxuGDtCqDfHCJrdtgS1XTAw1VZZRicrSErdsh4uwTvQ3e/PZt8q/Qfw6XRyTpWw8l/Vv1
-	YPtHz3nAjiB1T3eKndj2bBdlJu2UDD3ZqIutwEXDLj2eqMiQUwRLOcYZ7n0PfQ==
-From: michael.opdenacker@rootcommit.com
-To: Rob Herring <robh@kernel.org>,
+	Mon, 10 Nov 2025 11:24:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 26B4C601A5;
+	Mon, 10 Nov 2025 11:24:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D160DC2BC87;
+	Mon, 10 Nov 2025 11:24:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762773852;
+	bh=o06pwj8GQhduMpl8X9PMCjFDAGlLMLElJucB88tSCYo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Galcd/L10+CvJOyC2hB+L/6sEPakTPxv6oq5pEbYX100syMbpTcxaQKXxF4UIFfpw
+	 Nqn8Mfe5bWKVI5e0PiGO+ZId+qQQx71UAaiP/4nIqTTENORb4bWFk7taghyyQgtpYM
+	 QNrqj0tS6a9BK5IXgUnoBFQEZ0QYGFojppOHr0uMJ1Klyvb4D5KY57odrVfHHeRVbg
+	 7ESqQ7kKyO+a4i2JMC8vHMLvxO3BwihzlLBpKPjAAzGcC0/A+Ex5bFDWBCI2a1+gzn
+	 wfan6ikC5Qg8xo9uZDGWRl6wLXf/V/oNwYrI8jOJdmZiz72YZJtXbvMtA6/zKGV5c3
+	 s9OYl5W7IlkJQ==
+From: Conor Dooley <conor@kernel.org>
+To: claudiu.beznea@tuxon.dev
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	devicetree@vger.kernel.org,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] riscv: dts: spacemit: Add OrangePi R2S board device tree
-Message-ID: <20251110101110.948198-3-michael.opdenacker@rootcommit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251110101110.948198-1-michael.opdenacker@rootcommit.com>
-References: <20251110101110.948198-1-michael.opdenacker@rootcommit.com>
+Subject: [PATCH v7 3/5] riscv: dts: microchip: convert clock and reset to use syscon
+Date: Mon, 10 Nov 2025 11:23:52 +0000
+Message-ID: <20251110-vicinity-stream-b6954d17e01c@spud>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251110-zookeeper-femur-68a0ae346397@spud>
+References: <20251110-zookeeper-femur-68a0ae346397@spud>
 MIME-Version: 1.0
-Date: Mon, 10 Nov 2025 10:11:22 +0000 (UTC)
-X-CM-Envelope: MS4xfCeK8aUdEUFri1FAtnPP6OhGpNiXrx/Ze5NW5ki3QmowvTEritrHWdGVijZwccCxiyziHh7W9/Xs1NJcUzH10Ts+lvJdqoTGSAy7KvchMNHtPq4xzBSm 4qSakyjdKPR14JMv5adGCNxIIliinDEBJRw0PylnmYWEx/zOOCIUcjLpvI84kwHgG9JxDdg9/G8DHwQmYYfFL/J3AYZAqhiy9FFMrIBCKpICVD5Ut5h3Ya8c xZR6LM6nva+hrFP27xXQ38rJW2RwPtNb8m95AXQhROfQ0IB+SZhoi6aDpX4oJQLj/Kj6HEnLNe3L7cCegKl8XQ7fWc8xQNhVBY9rlMuaIl6QyCjSn4Z+Z459 5Av/HbG5/jpWLuhwYeW23aDEFCnrS7KzNdhJgl5poS03D9xjwF4VLh2hQ1eRVsnlAQLzUPS5MiZfRkHugkDsa+aVUvG7l4W3Beup5mbe4MDR/sW3ksEXzF9c XGGqRLWVvp5V5nHqS9kgXEYeR9oLT4+5ZdXVzzdyhMn+9881HZTCDfu7lquWYlcC5wgbx9CVdiXyp/185FmY+CBl8JN0qyd6wP334EZOFWHYxjnM0kpTPjO/ QNQxjf9vPjJac7LthTYI28mVJSznW9GsHyDonMv7F3PCSCmlUuITBQw/ed94b5qjsBW0koFbq+UbHBIviOE5CcGgj3/xm13TgDkrTYcO9PNKjQ==
-X-CM-Analysis: v=2.4 cv=NuiDcNdJ c=1 sm=1 tr=0 ts=6911ba4a a=G6G7neK3IwemRqrlzYSHdw==:617 a=xqWC_Br6kY4A:10 a=5dAzR5NRAAAA:8 a=lv0vYI88AAAA:8 a=d70CFdQeAAAA:8 a=QbPVFpUTrLpRLxxKV0IA:9 a=9STjDIb-X-UA:10 a=ZKAZAlVgJm32z6MX8p4a:22 a=9qqun4PRrEabIEPCFt1_:22 a=NcxpMcIZDGm-g932nG_k:22
-X-AuthUser: michael.opdenacker@rootcommit.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_021128_208983_33F1280D 
-X-CRM114-Status: GOOD (  13.67  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2216; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=+zR8fbMXO9YW4YzwKnjp5SrmA8iRht4FGjwYBRXJ6yY=; b=kA0DAAoWeLQxh6CCYtIByyZiAGkRy0ei3kWAlDeH5mIUl4g8elSv50NtiF0eZr8sfY+ix+Wzx Yh1BAAWCgAdFiEEYduOhBqv/ES4Q4zteLQxh6CCYtIFAmkRy0cACgkQeLQxh6CCYtJ/tgD9FM5J TeDenWu0gbF67ZshvF6KSC/NO3RzRieteMYGyzoBAMmQ9BwHCizv+5ziMGu8PtoqmynJl+SVbnc awI51JWYD
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,147 +83,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Add initial device tree support for the OrangePi RV2 board [1], which is
-marketed as using the Ky X1 SoC but has been confirmed to be
-identical to the SpacemiT K1 [2].
+The "subblock" clocks and reset registers on PolarFire SoC are located
+in the mss-top-sysreg region, alongside pinctrl and interrupt control
+functionality. Re-write the devicetree to describe the sys explicitly,
+as its own node, rather than as a region of the clock node.
+Correspondingly, the phandles to the reset controller must be updated to
+the new provider. The drivers will continue to support the old way of
+doing things.
 
-The device tree is similar to the OrangePi RV2 device tree
-(k1-orangepi-rv2.dts).
-
-This minimal device tree enables:
-
-- booting into a serial console with UART.
-
-- the two RGMII ethernet ports
-  supporting Gigabit Ethernet operation.
-
-  They have an external Motorcomm YT8531C PHY attached,
-  the PHY uses GPIO for reset pin control. Their description
-  was reused from the DTS from the OrangePi RV2 board.
-
-- PDMA for the SpacemiT K1-based SoC.
-
-- the 8 GB eMMC chip for storage.
-  It works fine with the same description as
-  on the BananaPi F3 board DTS.
-
-Link: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-R2S.html [1]
-Link: https://www.spacemit.com/en/key-stone-k1 [2]
-
-Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/spacemit/Makefile         |  1 +
- .../boot/dts/spacemit/k1-orangepi-r2s.dts     | 90 +++++++++++++++++++
- 2 files changed, 91 insertions(+)
- create mode 100644 arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+ arch/riscv/boot/dts/microchip/mpfs.dtsi | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
-index 942ecb38bea0..96b3a13a3944 100644
---- a/arch/riscv/boot/dts/spacemit/Makefile
-+++ b/arch/riscv/boot/dts/spacemit/Makefile
-@@ -3,3 +3,4 @@ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-bananapi-f3.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-milkv-jupiter.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-musepi-pro.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-rv2.dtb
-+dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-r2s.dtb
-diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-new file mode 100644
-index 000000000000..58098c4a2aab
---- /dev/null
-+++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-@@ -0,0 +1,90 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2025 Michael Opdenacker <michael.opdenacker@rootcommit.com>
-+ */
+diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+index f9d6bf08e717..5c2963e269b8 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+@@ -251,11 +251,9 @@ pdma: dma-controller@3000000 {
+ 			#dma-cells = <1>;
+ 		};
+ 
+-		clkcfg: clkcfg@20002000 {
+-			compatible = "microchip,mpfs-clkcfg";
+-			reg = <0x0 0x20002000 0x0 0x1000>, <0x0 0x3E001000 0x0 0x1000>;
+-			clocks = <&refclk>;
+-			#clock-cells = <1>;
++		mss_top_sysreg: syscon@20002000 {
++			compatible = "microchip,mpfs-mss-top-sysreg", "syscon", "simple-mfd";
++			reg = <0x0 0x20002000 0x0 0x1000>;
+ 			#reset-cells = <1>;
+ 		};
+ 
+@@ -452,7 +450,7 @@ mac0: ethernet@20110000 {
+ 			local-mac-address = [00 00 00 00 00 00];
+ 			clocks = <&clkcfg CLK_MAC0>, <&clkcfg CLK_AHB>;
+ 			clock-names = "pclk", "hclk";
+-			resets = <&clkcfg CLK_MAC0>;
++			resets = <&mss_top_sysreg CLK_MAC0>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -466,7 +464,7 @@ mac1: ethernet@20112000 {
+ 			local-mac-address = [00 00 00 00 00 00];
+ 			clocks = <&clkcfg CLK_MAC1>, <&clkcfg CLK_AHB>;
+ 			clock-names = "pclk", "hclk";
+-			resets = <&clkcfg CLK_MAC1>;
++			resets = <&mss_top_sysreg CLK_MAC1>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -550,5 +548,12 @@ syscontroller_qspi: spi@37020100 {
+ 			clocks = <&scbclk>;
+ 			status = "disabled";
+ 		};
 +
-+/dts-v1/;
-+
-+#include "k1.dtsi"
-+#include "k1-pinctrl.dtsi"
-+
-+/ {
-+	model = "OrangePi R2S";
-+	compatible = "xunlong,orangepi-r2s", "spacemit,k1";
-+
-+	aliases {
-+		serial0 = &uart0;
-+		ethernet0 = &eth0;
-+		ethernet1 = &eth1;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0";
-+	};
-+};
-+
-+&emmc {
-+	bus-width = <8>;
-+	mmc-hs400-1_8v;
-+	mmc-hs400-enhanced-strobe;
-+	non-removable;
-+	no-sd;
-+	no-sdio;
-+	status = "okay";
-+};
-+
-+&eth0 {
-+	phy-handle = <&rgmii0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_cfg>;
-+	rx-internal-delay-ps = <0>;
-+	tx-internal-delay-ps = <0>;
-+	status = "okay";
-+
-+	mdio-bus {
-+		#address-cells = <0x1>;
-+		#size-cells = <0x0>;
-+
-+		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
-+		reset-delay-us = <10000>;
-+		reset-post-delay-us = <100000>;
-+
-+		rgmii0: phy@1 {
-+			reg = <0x1>;
++		clkcfg: clkcfg@3e001000 {
++			compatible = "microchip,mpfs-clkcfg";
++			reg = <0x0 0x3e001000 0x0 0x1000>;
++			clocks = <&refclk>;
++			#clock-cells = <1>;
 +		};
-+	};
-+};
-+
-+&eth1 {
-+	phy-handle = <&rgmii1>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1_cfg>;
-+	rx-internal-delay-ps = <0>;
-+	tx-internal-delay-ps = <250>;
-+	status = "okay";
-+
-+	mdio-bus {
-+		#address-cells = <0x1>;
-+		#size-cells = <0x0>;
-+
-+		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
-+		reset-delay-us = <10000>;
-+		reset-post-delay-us = <100000>;
-+
-+		rgmii1: phy@1 {
-+			reg = <0x1>;
-+		};
-+	};
-+};
-+
-+&pdma {
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_2_cfg>;
-+	status = "okay";
-+};
+ 	};
+ };
+-- 
+2.51.0
+
 
 _______________________________________________
 linux-riscv mailing list
