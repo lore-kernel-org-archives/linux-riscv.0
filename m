@@ -4,108 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90525CCFA13
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Nov 2025 10:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CE4CCFA13
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Nov 2025 10:12:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:Message-ID:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=K12zMu7yE3uQ4Tx0LvXJWPz2MwEasbbMsR8JF7EE1Xg=; b=SlrSWDpgOW3Xx6
-	X0uu6dvnRi0qshi5hYLaM0F4SWhI0tskvdgM+8hI1WnSaymn+6G8ncKUgisqnJIw3abtUJSt9GHGA
-	lHF0A2ndnU5cvmJLO1HfyECxDGDGvuznmJzsrSPBC60uc3HWG9HHqtI/MLIGieh5JhnN2Aycek5rg
-	sAfQakwjDC7HI1GQa62KfNnE887K1kbG3MWYnkbOWfkChpxTDP+vgU2hxk2HOTbyK6mIHZEuOEagD
-	DpDiD5In4sHTNu0y4GUxi41YaKmoS7r7+Wn7AJBAGkE8uJ2KjjcgRfq5gDmSV3Un6iEOn2kkDYEpz
-	JqiF4RVO5X60dmA2JZgw==;
+	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:
+	In-Reply-To:Message-ID:Subject:Cc:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=s79T21SEbqBkQOEFHpXh/ZlgD/jKccdyJd+RzQ2Hy94=; b=1RLRAY34O2hF+1kMJg2QqMHhSN
+	5mq6qFru97dv8UGZ8OMQEq8ZIe9gLmaoz7iO+ZiW8hKFh27v5wCmRFs4djCWszzAS3aGeaOBZM3TI
+	x+ZmcbYk1HahX79TaTgf55qYcssYeRav82pgOtNUwaUE6W+BsiOMGxSsmbHJ/UReFlROSpQ6kEae/
+	VQGO1c7PqNVg4EQm+L9MxH/dbC0KLjUxs0bKtv8NVv9AAcBjitSbt41U7+MmObEtx9x8Rx5gGrtRQ
+	toeo4RRGKfE0VYKJS9A/xzUZ/+wV6VMkIUv3XWwVtJzMtQA+015EWJpzduZcpq0YXGzAbhAMpOHxD
+	OfkV4lxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOry-000000059ZG-0mnv;
+	id 1vIOry-000000059ZL-27bB;
 	Mon, 10 Nov 2025 10:11:30 +0000
-Received: from gerbil.ash.relay.mailchannels.net ([23.83.222.67])
+Received: from caracal.birch.relay.mailchannels.net ([23.83.209.30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOrt-000000059Y8-2ylj
+	id 1vIOrv-000000059YN-3ssx
 	for linux-riscv@lists.infradead.org;
 	Mon, 10 Nov 2025 10:11:29 +0000
 X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
 Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 113AA4C2678;
-	Mon, 10 Nov 2025 10:11:24 +0000 (UTC)
-Received: from fr-int-smtpout19.hostinger.io (trex-green-0.trex.outbound.svc.cluster.local [100.124.152.27])
+	by relay.mailchannels.net (Postfix) with ESMTP id 1E1B34C20E8;
+	Mon, 10 Nov 2025 10:11:27 +0000 (UTC)
+Received: from fr-int-smtpout19.hostinger.io (trex-green-3.trex.outbound.svc.cluster.local [100.124.155.193])
 	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 3007D4C2C18;
-	Mon, 10 Nov 2025 10:11:21 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1762769483; a=rsa-sha256;
+	by relay.mailchannels.net (Postfix) with ESMTPA id 7E4EE4C160B;
+	Mon, 10 Nov 2025 10:11:24 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1762769486; a=rsa-sha256;
 	cv=none;
-	b=PIPD5RZOeCiC4U7ADCkGp6+HEtl8Lycd26L4/v/YnDL2H3wVQFMhpESt370hofH3oviWPA
-	XpqkNiEI/EIHGGVcmZ6ISb2mPRMjM5zmdsnYwOXPdjn3e0Hsxoqphxl4HQ3JQqnQ2nHjb3
-	X7EQVdNTOYMwkNIOmOgsM4Qs7ajTDC9aEd768LNNAsdGCwxeKwCQarmVvijasMgl+dT2Jv
-	HWYpQINX5QhgkewvkTqH0t9jCbR5YwzFtkvkmFKVNTCrB05mcHbIBujGQ7B5sJZ+aR7Ayw
-	aeSc3JmdDmUHZnLVTO2sqpWZssL/5/JGy2W1if6T1dDR4y0Is+75+KXITyRZ2g==
+	b=4XMHq6lEP1L4W+Uq31UEndziNpXM3z/BHY6sxe/t0xe4kxuINch9d391zYTD8HP/nO3gMy
+	0ynDQjDRvx/GaO5grHOThZUH81YSeBcwXvnfmSffcnl0QbZ+NTkTLQubsX3jokAT0xDBj3
+	xu32YzQULW2u1PGSlcVOi4u5dHi+P8qio91NISey/hqFIKFZrG/iucUu2CdumstdcECWyh
+	Ao2E9uTti47CMF0dQyLdxn+m9/G7SlColfT9RbjYhm4zWKwSbkkbPyRxzyIDNiubqPLM6t
+	FXAYJA421UYi0gdI709AdIbz1meomLsNm7WWGFSVRYdRWRf7REKNXBcBWM/Glg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mailchannels.net;
-	s=arc-2022; t=1762769483;
+	s=arc-2022; t=1762769486;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:dkim-signature;
-	bh=y9x3ivH7XRyk/FUXAXaQTfj9+U3F/MBjSqu5Ucn53yc=;
-	b=mMpIRqPyh7Dw1aSN+4Xszf1W0Cero5ymEO4NecI4rtcLrBdYwh33sKHfmWv7Lf7RRDMFYV
-	ttWYHFoGQ0+s94IlAsSP8b6Y3XpXVPR+eE4hImVaqRvQryuto/naATFegE0RgpyE8I6Llm
-	4tGpK/ufOUtTyZ3hBhj1pOZs7cJojTih43hWSlJxcO7QjfF0skqWxbPfhRVknTEc+XiXH5
-	5vAwm0LR7aZay0ymS2eiWjnrL1RiFcKxfxwEM09bkCIpUntHanXTw7BjUgmrhNg3inWKxd
-	vImf0NeroSuFnAPRgPnEVSh0vJ4hAwu63D3n1xe6ruDAuyxgPibq3Z4c16M+kw==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=Xv4qtdoTRgEtEjLgDMNE/Omj14M13wzp5a5JVmEglRk=;
+	b=Tbz67d2YfgIu5ItarAWWwbH2V2cFGKmbmy3A4JNsqRMyaEIJ1wLagjP78H1kN694f1XuBE
+	WWckedt0leQocISWpKx9iLFYR9l+3Tg2GJ4bEK11ne6aP0rvjVtBZGZxpIHB4pefiO/udu
+	vgOfAa/5Y4CK6FE4Et8S6FMY72DtJzCxs0iaEM27CZvw2bNZ21bbcjtqUxX0qqlMZ6x+fF
+	LJ4nWCyI8nHkdJE/YtDYbqLGawY313A8MQjIzuLlIC+T9TXU1Sx9PeklreSprqDPoqhcZc
+	sOUPaCFotWRT1ff6DvFkOkPJBoEBL+TYLBaQhzp+8j/mG9H47VTi1+j/54ZtCA==
 ARC-Authentication-Results: i=1;
-	rspamd-77bb85d8d5-nl9dj;
+	rspamd-77bb85d8d5-r7qnn;
 	auth=pass smtp.auth=hostingeremail
  smtp.mailfrom=michael.opdenacker@rootcommit.com
 X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
 X-MC-Relay: Neutral
 X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
 X-MailChannels-Auth-Id: hostingeremail
-X-Glossy-Inform: 0bbd98067dd68b55_1762769483865_2445791502
-X-MC-Loop-Signature: 1762769483865:1492278871
-X-MC-Ingress-Time: 1762769483864
+X-Sponge-Army: 13dc4e3f5c0efe05_1762769486916_4271747599
+X-MC-Loop-Signature: 1762769486916:2648717695
+X-MC-Ingress-Time: 1762769486915
 Received: from fr-int-smtpout19.hostinger.io (fr-int-smtpout19.hostinger.io
  [148.222.54.35])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.124.152.27 (trex/7.1.3);
-	Mon, 10 Nov 2025 10:11:23 +0000
+	by 100.124.155.193 (trex/7.1.3);
+	Mon, 10 Nov 2025 10:11:26 +0000
 Received: from localhost.localdomain (unknown [IPv6:2001:861:4450:d360:7d90:b645:1639:d009])
 	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d4ln34LvRz1xq6;
-	Mon, 10 Nov 2025 10:11:19 +0000 (UTC)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d4ln62cQ6z1yFF;
+	Mon, 10 Nov 2025 10:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1762769480;
+	s=hostingermail-a; t=1762769482;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=y9x3ivH7XRyk/FUXAXaQTfj9+U3F/MBjSqu5Ucn53yc=;
-	b=jVJvUDfDIeqlvUCernUj8dSSKZb/f0v5Xd2+gv9oodV1K+FV5EfrWkk5R8Pja7rjj0ZQ2F
-	4IBOmsajqgucx6sXsI6oZiAZbjIY8S2gh47x1RIhWU9A4QwAZvIrrrH9D7TsmuN8Ivx0YR
-	LdydOOArmzv/UpTToO4DjKmB9ROBGENT+XD1R0MIcPpNvWwsWL7SnEcQXAajlDj6KRm45J
-	MQExy/TVzLtRIO8dvmEoK4gNp27VBIgFd9LZ2YUzjPqRRm+LFBSR2iakPxp5WbgooBVkB7
-	oOjncCQFaqyHygLd7unDOqT9O4KA55QI2+Z7sTduNmECHf2tW1JAJRUzO07Mzw==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Xv4qtdoTRgEtEjLgDMNE/Omj14M13wzp5a5JVmEglRk=;
+	b=r67goI2WtwKWjRdB0dSsLUqcRVEl3aCwPydWJdSN5v/uU+ILENn7yUjqn9g62e/IlqP/7J
+	YvQdtWoV/nS8mcSFerJRDW0v7VXjSJID8/esPKFgTRU4a/emmWi5o+ecHiP8U+ppZ/QJbw
+	bM8TQ2rvfD3G8ixSaHIKB+JPpHar+mNbwYbVCLz4f8EHFtoKE1lgDB4otyvHrXTq01qSkG
+	xUxuGDtCqDfHCJrdtgS1XTAw1VZZRicrSErdsh4uwTvQ3e/PZt8q/Qfw6XRyTpWw8l/Vv1
+	YPtHz3nAjiB1T3eKndj2bBdlJu2UDD3ZqIutwEXDLj2eqMiQUwRLOcYZ7n0PfQ==
 From: michael.opdenacker@rootcommit.com
-To: Paul Walmsley <pjw@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@gentoo.org>
+	Alexandre Ghiti <alex@ghiti.fr>
 Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Subject: [PATCH v2 0/2] riscv: spacemit: initial support for OrangePi R2S
-Message-ID: <20251110101110.948198-1-michael.opdenacker@rootcommit.com>
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 2/2] riscv: dts: spacemit: Add OrangePi R2S board device tree
+Message-ID: <20251110101110.948198-3-michael.opdenacker@rootcommit.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251110101110.948198-1-michael.opdenacker@rootcommit.com>
+References: <20251110101110.948198-1-michael.opdenacker@rootcommit.com>
 MIME-Version: 1.0
-Date: Mon, 10 Nov 2025 10:11:19 +0000 (UTC)
-X-CM-Envelope: MS4xfNfNuZlm3IaJ5+M+kUBv96M4y9ze4NOds2bgcrcU+ApKMalsUbwTHA+1IOX2opBdAxT78LkY7JE3KpXTLR3dyJC07a9eu1WKBrwVGSPzgT0I99l25Dz0 fFidDuzbTHI5mLl+lLn4zcAs4TgapQE4Gsx31YuKQvV/9allxtYtGCf6X+jso9uan9p6j5qMATyfW5iRV5YaTdF7J9nKJl557SRkymAoxnCZ9KGDkfNOmzCm LbjmezMTtJvLXz+F4MneF1hzZarNcKtBcRq8UVAVV8dl4WaAy5DF54lVrcsdSgpF2/8qJ8T0/xzpfFgHdrAloPbpuBZ2EewOHbB/tI98F18yrmya6x/YvvPL 5qOiV/fDNHHipN3A6n4RwO8njmmcTEy0Sd/Po1Txy7w5aBKIkAf8T03wlxyav8esezookm16tyT8cf1mGvOzvOX8XjLCw+pQ68m2myBwZ1tpLZDPljo2bxLQ kiVfuxJVYy4k/m8nHR5GSIFRLZcPXmXwscvmtkGWQZiEqmh7frp/3WliZng=
-X-CM-Analysis: v=2.4 cv=NuiDcNdJ c=1 sm=1 tr=0 ts=6911ba48 a=G6G7neK3IwemRqrlzYSHdw==:617 a=xqWC_Br6kY4A:10 a=5dAzR5NRAAAA:8 a=lv0vYI88AAAA:8 a=NEAV23lmAAAA:8 a=d70CFdQeAAAA:8 a=c5yYfSoVHdyevq9fuNQA:9 a=9STjDIb-X-UA:10 a=ZKAZAlVgJm32z6MX8p4a:22 a=9qqun4PRrEabIEPCFt1_:22 a=NcxpMcIZDGm-g932nG_k:22
+Date: Mon, 10 Nov 2025 10:11:22 +0000 (UTC)
+X-CM-Envelope: MS4xfCeK8aUdEUFri1FAtnPP6OhGpNiXrx/Ze5NW5ki3QmowvTEritrHWdGVijZwccCxiyziHh7W9/Xs1NJcUzH10Ts+lvJdqoTGSAy7KvchMNHtPq4xzBSm 4qSakyjdKPR14JMv5adGCNxIIliinDEBJRw0PylnmYWEx/zOOCIUcjLpvI84kwHgG9JxDdg9/G8DHwQmYYfFL/J3AYZAqhiy9FFMrIBCKpICVD5Ut5h3Ya8c xZR6LM6nva+hrFP27xXQ38rJW2RwPtNb8m95AXQhROfQ0IB+SZhoi6aDpX4oJQLj/Kj6HEnLNe3L7cCegKl8XQ7fWc8xQNhVBY9rlMuaIl6QyCjSn4Z+Z459 5Av/HbG5/jpWLuhwYeW23aDEFCnrS7KzNdhJgl5poS03D9xjwF4VLh2hQ1eRVsnlAQLzUPS5MiZfRkHugkDsa+aVUvG7l4W3Beup5mbe4MDR/sW3ksEXzF9c XGGqRLWVvp5V5nHqS9kgXEYeR9oLT4+5ZdXVzzdyhMn+9881HZTCDfu7lquWYlcC5wgbx9CVdiXyp/185FmY+CBl8JN0qyd6wP334EZOFWHYxjnM0kpTPjO/ QNQxjf9vPjJac7LthTYI28mVJSznW9GsHyDonMv7F3PCSCmlUuITBQw/ed94b5qjsBW0koFbq+UbHBIviOE5CcGgj3/xm13TgDkrTYcO9PNKjQ==
+X-CM-Analysis: v=2.4 cv=NuiDcNdJ c=1 sm=1 tr=0 ts=6911ba4a a=G6G7neK3IwemRqrlzYSHdw==:617 a=xqWC_Br6kY4A:10 a=5dAzR5NRAAAA:8 a=lv0vYI88AAAA:8 a=d70CFdQeAAAA:8 a=QbPVFpUTrLpRLxxKV0IA:9 a=9STjDIb-X-UA:10 a=ZKAZAlVgJm32z6MX8p4a:22 a=9qqun4PRrEabIEPCFt1_:22 a=NcxpMcIZDGm-g932nG_k:22
 X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_021126_051428_B3632DAB 
-X-CRM114-Status: UNSURE (   8.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251110_021128_208983_33F1280D 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,157 +133,145 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
 
-This adds initial support for the OrangePi R2S board [1], which
-is marketed as using the Ky X1 SoC but is in fact identical to
-the SpacemiT K1 SoC [2].
+Add initial device tree support for the OrangePi RV2 board [1], which is
+marketed as using the Ky X1 SoC but has been confirmed to be
+identical to the SpacemiT K1 [2].
 
-What makes this board attractive is its 4 Ethernet ports
-(2 x Gigagit RGMII with an external Motorcomm YT8531C PHY,
-and 2 x 2.5 Gigabit Ethernet with RTL8125BG on an internal
-PCI Express bus), its small form factor and its attractive
-pricing like other OrangePi boards.
+The device tree is similar to the OrangePi RV2 device tree
+(k1-orangepi-rv2.dts).
 
-What is supported:
-- Serial console on serial UART
-- 8 GB eMMC
-- 2x Gigabit RGMII Ethernet ports
+This minimal device tree enables:
 
-This patch series is based on Spacemit's Linux tree,
-"linux-for-next" branch [3]
+- booting into a serial console with UART.
+
+- the two RGMII ethernet ports
+  supporting Gigabit Ethernet operation.
+
+  They have an external Motorcomm YT8531C PHY attached,
+  the PHY uses GPIO for reset pin control. Their description
+  was reused from the DTS from the OrangePi RV2 board.
+
+- PDMA for the SpacemiT K1-based SoC.
+
+- the 8 GB eMMC chip for storage.
+  It works fine with the same description as
+  on the BananaPi F3 board DTS.
 
 Link: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-R2S.html [1]
 Link: https://www.spacemit.com/en/key-stone-k1 [2]
-Link: https://github.com/spacemit-com/linux/commits/k1/dt-for-next [3]
 
-Changes in V2
-- Squash 3 commits for initial DTS, Ethernet & PDMA, and eMMC
-
-==========
-eMMC tests
-==========
-
-Read tests
-----------
-
-hdparm -t --direct /dev/mmcblk0
-
-/dev/mmcblk0:
-Timing O_DIRECT disk reads: 846 MB in 3.01 seconds = 281.52 MB/sec
-
-Write tests
------------
-
-dd if=/dev/zero of=/dev/mmcblk0p2 bs=4M oflag=direct status=progress
-7600078848 bytes (7.6 GB, 7.1 GiB) copied, 127 s, 59.8 MB/s
-dd: error writing '/dev/mmcblk0p2': No space left on device
-1825+0 records in
-1824+0 records out
-7650410496 bytes (7.7 GB, 7.1 GiB) copied, 127.866 s, 59.8 MB/s
-
-==============
-Ethernet tests
-==============
-
-Tests on eth0
--------------
-
-root@orangepi-rv2-mainline:~# iperf3 -c 172.24.0.1
-Connecting to host 172.24.0.1, port 5201
-[ 5] local 172.24.0.2 port 51354 connected to 172.24.0.1 port 5201
-[ ID] Interval Transfer Bitrate Retr Cwnd
-[ 5] 0.00-1.00 sec 113 MBytes 947 Mbits/sec 0 395 KBytes
-[ 5] 1.00-2.00 sec 113 MBytes 945 Mbits/sec 0 395 KBytes
-[ 5] 2.00-3.00 sec 112 MBytes 936 Mbits/sec 0 395 KBytes
-[ 5] 3.00-4.00 sec 112 MBytes 942 Mbits/sec 0 395 KBytes
-[ 5] 4.00-5.00 sec 112 MBytes 941 Mbits/sec 0 395 KBytes
-[ 5] 5.00-6.00 sec 112 MBytes 940 Mbits/sec 0 409 KBytes
-[ 5] 6.00-7.00 sec 113 MBytes 948 Mbits/sec 0 409 KBytes
-[ 5] 7.00-8.00 sec 112 MBytes 940 Mbits/sec 0 409 KBytes
-[ 5] 8.00-9.00 sec 112 MBytes 941 Mbits/sec 0 414 KBytes
-[ 5] 9.00-10.03 sec 113 MBytes 919 Mbits/sec 0 414 KBytes
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval Transfer Bitrate Retr
-[ 5] 0.00-10.03 sec 1.10 GBytes 940 Mbits/sec 0 sender
-[ 5] 0.00-10.04 sec 1.10 GBytes 939 Mbits/sec receiver
-
-iperf Done.
-root@orangepi-rv2-mainline:~# iperf3 -s
------------------------------------------------------------
-Server listening on 5201 (test #1)
------------------------------------------------------------
-Accepted connection from 172.24.0.1, port 38326
-[ 5] local 172.24.0.2 port 5201 connected to 172.24.0.1 port 38332
-[ ID] Interval Transfer Bitrate
-[ 5] 0.00-1.00 sec 112 MBytes 935 Mbits/sec
-[ 5] 1.00-2.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 2.00-3.00 sec 112 MBytes 941 Mbits/sec
-[ 5] 3.00-4.00 sec 112 MBytes 941 Mbits/sec
-[ 5] 4.00-5.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 5.00-6.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 6.00-7.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 7.00-8.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 8.00-9.00 sec 112 MBytes 941 Mbits/sec
-[ 5] 9.00-10.00 sec 112 MBytes 943 Mbits/sec
-[ 5] 10.00-10.01 sec 384 KBytes 725 Mbits/sec
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval Transfer Bitrate
-[ 5] 0.00-10.01 sec 1.10 GBytes 941 Mbits/sec receiver
-
-Tests on eth1
-------------------
-
-root@orangepi-rv2-mainline:~# iperf3 -c 172.24.0.1
-Connecting to host 172.24.0.1, port 5201
-[ 5] local 172.24.0.2 port 60564 connected to 172.24.0.1 port 5201
-[ ID] Interval Transfer Bitrate Retr Cwnd
-[ 5] 0.00-1.00 sec 113 MBytes 947 Mbits/sec 0 423 KBytes
-[ 5] 1.00-2.00 sec 113 MBytes 945 Mbits/sec 0 423 KBytes
-[ 5] 2.00-3.00 sec 112 MBytes 943 Mbits/sec 0 423 KBytes
-[ 5] 3.00-4.00 sec 112 MBytes 938 Mbits/sec 0 423 KBytes
-[ 5] 4.00-5.00 sec 112 MBytes 944 Mbits/sec 0 423 KBytes
-[ 5] 5.00-6.00 sec 112 MBytes 936 Mbits/sec 0 423 KBytes
-[ 5] 6.00-7.00 sec 112 MBytes 943 Mbits/sec 0 423 KBytes
-[ 5] 7.00-8.00 sec 112 MBytes 940 Mbits/sec 0 423 KBytes
-[ 5] 8.00-9.00 sec 113 MBytes 951 Mbits/sec 0 639 KBytes
-[ 5] 9.00-10.01 sec 112 MBytes 934 Mbits/sec 0 639 KBytes
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval Transfer Bitrate Retr
-[ 5] 0.00-10.01 sec 1.10 GBytes 943 Mbits/sec 0 sender
-[ 5] 0.00-10.02 sec 1.10 GBytes 940 Mbits/sec receiver
-
-iperf Done.
-root@orangepi-rv2-mainline:~# iperf3 -s 172.24.0.1
------------------------------------------------------------
-Server listening on 5201 (test #1)
------------------------------------------------------------
-Accepted connection from 172.24.0.1, port 49628
-[ 5] local 172.24.0.2 port 5201 connected to 172.24.0.1 port 49640
-[ ID] Interval Transfer Bitrate
-[ 5] 0.00-1.00 sec 112 MBytes 934 Mbits/sec
-[ 5] 1.00-2.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 2.00-3.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 3.00-4.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 4.00-5.00 sec 112 MBytes 941 Mbits/sec
-[ 5] 5.00-6.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 6.00-7.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 7.00-8.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 8.00-9.00 sec 112 MBytes 942 Mbits/sec
-[ 5] 9.00-10.00 sec 112 MBytes 941 Mbits/sec
-[ 5] 10.00-10.01 sec 640 KBytes 1.14 Gbits/sec
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval Transfer Bitrate
-[ 5] 0.00-10.01 sec 1.10 GBytes 941 Mbits/sec receiver
-
-Michael Opdenacker (2):
-  dt-bindings: riscv: spacemit: Add OrangePi R2S board
-  riscv: dts: spacemit: Add OrangePi R2S board device tree
-
- .../devicetree/bindings/riscv/spacemit.yaml   |  1 +
+Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+---
  arch/riscv/boot/dts/spacemit/Makefile         |  1 +
  .../boot/dts/spacemit/k1-orangepi-r2s.dts     | 90 +++++++++++++++++++
- 3 files changed, 92 insertions(+)
+ 2 files changed, 91 insertions(+)
  create mode 100644 arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
 
+diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
+index 942ecb38bea0..96b3a13a3944 100644
+--- a/arch/riscv/boot/dts/spacemit/Makefile
++++ b/arch/riscv/boot/dts/spacemit/Makefile
+@@ -3,3 +3,4 @@ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-bananapi-f3.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-milkv-jupiter.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-musepi-pro.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-rv2.dtb
++dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-r2s.dtb
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+new file mode 100644
+index 000000000000..58098c4a2aab
+--- /dev/null
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+@@ -0,0 +1,90 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Michael Opdenacker <michael.opdenacker@rootcommit.com>
++ */
++
++/dts-v1/;
++
++#include "k1.dtsi"
++#include "k1-pinctrl.dtsi"
++
++/ {
++	model = "OrangePi R2S";
++	compatible = "xunlong,orangepi-r2s", "spacemit,k1";
++
++	aliases {
++		serial0 = &uart0;
++		ethernet0 = &eth0;
++		ethernet1 = &eth1;
++	};
++
++	chosen {
++		stdout-path = "serial0";
++	};
++};
++
++&emmc {
++	bus-width = <8>;
++	mmc-hs400-1_8v;
++	mmc-hs400-enhanced-strobe;
++	non-removable;
++	no-sd;
++	no-sdio;
++	status = "okay";
++};
++
++&eth0 {
++	phy-handle = <&rgmii0>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac0_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <0>;
++	status = "okay";
++
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++
++		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
++
++		rgmii0: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
++
++&eth1 {
++	phy-handle = <&rgmii1>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac1_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <250>;
++	status = "okay";
++
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++
++		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
++
++		rgmii1: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
++
++&pdma {
++	status = "okay";
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_2_cfg>;
++	status = "okay";
++};
 
 _______________________________________________
 linux-riscv mailing list
