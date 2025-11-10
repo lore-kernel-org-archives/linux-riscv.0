@@ -4,56 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 828AECCF9E3
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Nov 2025 13:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9BCACCFA13
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Nov 2025 13:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=amM67dzQ74SHGXpqTzO5nCC5lqueS13Oe/ZRVymagmc=; b=32FRBpIq3Asqyy
-	m1PgJfBllitH0x2tsmMDKQH87JVv/6O5Gpa1IfVnUcoVux1v45xQWJmqhxs7xB4eYM0y2DvCUD4TQ
-	93E0tPhBpHla9/Zo6WyKIPsxznaxQRQzGLpeQRtnnzoP6mHXufLl2FJNTbKnCyAg0nSCTM3PjGuPo
-	JNK6ZUQrNxjD9KYN8XEIbPCZTD+L0QEi8ZyR5iSvudMvF7Pw+FqJ41qLWlaFfk8OwyU2vFfyYz58h
-	YgNsgd10QQ6IczqKZPdU5JHzW+5AvjPD0rMLDqOGDd9V+xY2JoqvlojMvoG66bMbmmZReu5sxTXB5
-	Sdho81wiSZ90XyLtcZjw==;
+	List-Owner; bh=4esOznTogiwDNbLtlfsnFNhLCTtSNfqrddK3aBpkZhE=; b=lCQ96foOSmN2Pl
+	CyrqEyChpvTYXAH2bFFM5UQEgsbKQA+Rfw1xV0Dmu0Dc4PXn9PfML/LWNoclB+D54EAINqTq9YceF
+	cW/l8/HmizPZ3g25kVqDl2XEbJyRjBGosvUB6+Er0w29WhUY374TO8Jmml5sp78wSicsZhIyfjyFl
+	UAKjPnK1WePjoRKnblsHIjp5JOXnzJ7aLzw11zvKfKog9ScAVX73aScDIvoCNhN5rnr7SQPNDSdJN
+	Buq+UwpVMyxQUNsy2eFoyz8lv/thLWKU79QwWZE/wuib7sgv/9PfPRAsx3fXCRaTto8i14IPwsC26
+	ZZqki1H2Zjb+/E7JxXgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIS9R-00000005VWy-148y;
-	Mon, 10 Nov 2025 13:41:45 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1vISDb-00000005WGn-3Ode;
+	Mon, 10 Nov 2025 13:46:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIS9P-00000005VWB-0AqM
+	id 1vISDV-00000005WCB-39d7
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Nov 2025 13:41:44 +0000
-Received: from localhost (unknown [116.232.48.119])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 6D29C340F7B;
-	Mon, 10 Nov 2025 13:41:40 +0000 (UTC)
-Date: Mon, 10 Nov 2025 21:41:34 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: michael.opdenacker@rootcommit.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] riscv: dts: spacemit: Add OrangePi R2S board
- device tree
-Message-ID: <20251110134134-GYC1651402@gentoo.org>
-References: <20251110101110.948198-1-michael.opdenacker@rootcommit.com>
- <20251110101110.948198-3-michael.opdenacker@rootcommit.com>
+	Mon, 10 Nov 2025 13:46:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9CAE8438E7;
+	Mon, 10 Nov 2025 13:45:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 835D4C2BCAF;
+	Mon, 10 Nov 2025 13:45:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762782356;
+	bh=BfZlbtmgRdgYv7hKoZSzpQyyse54YgiwBUgsuLLVOEo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pGr1PmZRLwYBt/uM1R1jlsuy0hADBTEbyD6JFYM/9qUmH/OSBiahCYGGplFS1TzUF
+	 fzlRKv1LJnDjYZ9SoLa9wINK0OmUliXSttYyrAzFwGa1MlYTb4z8ik8fU4as9WOPdW
+	 Ozt/nUh+2gA0m/XJ3p5Ms1fbTcA9DkgYyfPdwnVAWGUHuMdVQa28g5QWxudt1OOjct
+	 Jzvlm8a9BwvM+gi1kTO+AiMKpvXjCc4FMQYFeyBF29yT77ji9HSTO9MkBjVjrO8lI/
+	 DzpyQh8F6WHUcnGAG7YOkh7LNk9iGs6JMyerz1X/pCSGtUKnS8wn9ZQivYcOHm4RGQ
+	 OH8bedllMvOGg==
+Date: Mon, 10 Nov 2025 13:45:50 +0000
+From: Lee Jones <lee@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-i2c@vger.kernel.org, linux-rtc@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: (subset) [PATCH v2 1/4] mfd: simple-mfd-i2c: remove select I2C_K1
+Message-ID: <20251110134550.GE1949330@google.com>
+References: <20251027-p1-kconfig-fix-v2-1-49688f30bae8@linux.spacemit.com>
+ <176244506110.1925720.10807118665958896958.b4-ty@kernel.org>
+ <71DB25E553BE0B04+aQ1LlKzeR-FkZA83@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251110101110.948198-3-michael.opdenacker@rootcommit.com>
+In-Reply-To: <71DB25E553BE0B04+aQ1LlKzeR-FkZA83@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_054143_136909_8BA93FF2 
-X-CRM114-Status: GOOD (  23.51  )
+X-CRM114-CacheID: sfid-20251110_054557_811851_EE2566ED 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,178 +75,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
-
-On 10:11 Mon 10 Nov     , michael.opdenacker@rootcommit.com wrote:
-> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-> 
-> Add initial device tree support for the OrangePi RV2 board [1], which is
-> marketed as using the Ky X1 SoC but has been confirmed to be
-> identical to the SpacemiT K1 [2].
-> 
-..
-> The device tree is similar to the OrangePi RV2 device tree
-> (k1-orangepi-rv2.dts).
-Drop above, this info is useless, will even bring more confusion
-
-> 
-> This minimal device tree enables:
-> 
-..
-> - booting into a serial console with UART.
- Enable UART0, to boot into a serial console
-> 
-> - the two RGMII ethernet ports
->   supporting Gigabit Ethernet operation.
-> 
->   They have an external Motorcomm YT8531C PHY attached,
->   the PHY uses GPIO for reset pin control. 
-..
-> Their description
->   was reused from the DTS from the OrangePi RV2 board.
-As I commented in v1, please drop above which is not technical related, useless..
-
-Two Gigabit ethernet ports with RGMII interface standard support are enabled,
-each port is connected to an external Motorcomm YT8531C PHY chip which uses
-the GPIO for reset control. 
-
-(I'm no native english speaker, try to slightly rearrange above text)
-> 
-> - PDMA for the SpacemiT K1-based SoC.
-> 
-> - the 8 GB eMMC chip for storage.
-..
->   It works fine with the same description as
->   on the BananaPi F3 board DTS.
-ditto, useless & drop
-> 
-> Link: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-R2S.html [1]
-> Link: https://www.spacemit.com/en/key-stone-k1 [2]
-> 
-ditto, no blank line
-> Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-> ---
->  arch/riscv/boot/dts/spacemit/Makefile         |  1 +
->  .../boot/dts/spacemit/k1-orangepi-r2s.dts     | 90 +++++++++++++++++++
->  2 files changed, 91 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
-> index 942ecb38bea0..96b3a13a3944 100644
-> --- a/arch/riscv/boot/dts/spacemit/Makefile
-> +++ b/arch/riscv/boot/dts/spacemit/Makefile
-> @@ -3,3 +3,4 @@ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-bananapi-f3.dtb
->  dtb-$(CONFIG_ARCH_SPACEMIT) += k1-milkv-jupiter.dtb
->  dtb-$(CONFIG_ARCH_SPACEMIT) += k1-musepi-pro.dtb
->  dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-rv2.dtb
-> +dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-r2s.dtb
-ditto, please sort
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> new file mode 100644
-> index 000000000000..58098c4a2aab
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> @@ -0,0 +1,90 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2025 Michael Opdenacker <michael.opdenacker@rootcommit.com>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "k1.dtsi"
-> +#include "k1-pinctrl.dtsi"
-> +
-> +/ {
-> +	model = "OrangePi R2S";
-> +	compatible = "xunlong,orangepi-r2s", "spacemit,k1";
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +		ethernet0 = &eth0;
-> +		ethernet1 = &eth1;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0";
-> +	};
-> +};
-> +
-> +&emmc {
-> +	bus-width = <8>;
-> +	mmc-hs400-1_8v;
-> +	mmc-hs400-enhanced-strobe;
-> +	non-removable;
-> +	no-sd;
-> +	no-sdio;
-> +	status = "okay";
-> +};
-> +
-> +&eth0 {
-> +	phy-handle = <&rgmii0>;
-> +	phy-mode = "rgmii-id";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac0_cfg>;
-> +	rx-internal-delay-ps = <0>;
-> +	tx-internal-delay-ps = <0>;
-> +	status = "okay";
-> +
-> +	mdio-bus {
-> +		#address-cells = <0x1>;
-> +		#size-cells = <0x0>;
-> +
-> +		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
-> +		reset-delay-us = <10000>;
-> +		reset-post-delay-us = <100000>;
-> +
-> +		rgmii0: phy@1 {
-> +			reg = <0x1>;
-> +		};
-> +	};
-> +};
-> +
-> +&eth1 {
-> +	phy-handle = <&rgmii1>;
-> +	phy-mode = "rgmii-id";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac1_cfg>;
-> +	rx-internal-delay-ps = <0>;
-> +	tx-internal-delay-ps = <250>;
-> +	status = "okay";
-> +
-> +	mdio-bus {
-> +		#address-cells = <0x1>;
-> +		#size-cells = <0x0>;
-> +
-> +		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
-> +		reset-delay-us = <10000>;
-> +		reset-post-delay-us = <100000>;
-> +
-> +		rgmii1: phy@1 {
-> +			reg = <0x1>;
-> +		};
-> +	};
-> +};
-> +
-> +&pdma {
-> +	status = "okay";
-> +};
-> +
-> +&uart0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart0_2_cfg>;
-> +	status = "okay";
-> +};
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAwNyBOb3YgMjAyNSwgVHJveSBNaXRjaGVsbCB3cm90ZToKCj4gT24gVGh1LCBOb3Yg
+MDYsIDIwMjUgYXQgMDQ6MDQ6MjFQTSArMDAwMCwgTGVlIEpvbmVzIHdyb3RlOgo+ID4gT24gTW9u
+LCAyNyBPY3QgMjAyNSAxMzo0ODowNSArMDgwMCwgVHJveSBNaXRjaGVsbCB3cm90ZToKPiA+ID4g
+c2VsZWN0IHdpbGwgZm9yY2UgYSBzeW1ib2wgdG8gYSBzcGVjaWZpYyB2YWx1ZSB3aXRob3V0IGNv
+bnNpZGVyaW5nCj4gPiA+IGl0cyBkZXBlbmRlbmNpZXMuIEFzIGEgcmVzdWx0LCB0aGUgaTJjLWsx
+IGRyaXZlciB3aWxsIGZhaWwgdG8gYnVpbGQKPiA+ID4gd2hlbiBPRiBvciBDT01NT05fQ0xLIGFy
+ZSBkaXNhYmxlZC4KPiA+ID4gCj4gPiA+IFRoZSByZWFzb24gZm9yIHJlbW92aW5nIEkyQ19LMSBp
+bnN0ZWFkIG9mIGFkZGluZyBhIGRlcGVuZHMgb24gY29uZGl0aW9uCj4gPiA+IGlzIHRvIGtlZXAg
+dGhlIHBvc3NpYmlsaXR5IGZvciBvdGhlciBTb0NzIHRvIHVzZSB0aGlzIFBNSUMuCj4gPiA+IAo+
+ID4gPiBbLi4uXQo+ID4gCj4gPiBBcHBsaWVkLCB0aGFua3MhCj4gPiAKPiA+IFsxLzRdIG1mZDog
+c2ltcGxlLW1mZC1pMmM6IHJlbW92ZSBzZWxlY3QgSTJDX0sxCj4gPiAgICAgICBjb21taXQ6IGVj
+ZjZiYzQ3NGFlOTdjNDA0ZTIxMjViNDEzZWIwZWYzNjI3YjAzYzUKPiBIaSBMZWUsCj4gCj4gSSB0
+aGluayB5b3UgZGlkbid0IG5vdGljZSB0aGlzIHJlcGx5IFsxXQo+IChNYXliZSBiZWNhdXNlIGhl
+IHdhcyByZXBseWluZyB0byB0aGUgY292ZXIgbGV0dGVyKS4KPiAKPiBBcyBBdXJlbGllbiBtZW50
+aW9uZWQsIHRoZSBjdXJyZW50IHNodXRkb3duL3JlYm9vdCAoYW5kIHBvc3NpYmx5IHRoZSByZWd1
+bGF0b3IKPiBhcyB3ZWxsKSBpbnRlbmRzIHRvIHVzZSB0aGUgYGRlZmF1bHQgTUZEX1NQQUNFTUlU
+X1AxYC4KPiBTbyBpZiB0aGVyZeKAmXMgbm8gYGRlZmF1bHQgbSBpZiBBUkNIX1NQQUNFTUlUYCwK
+PiB0aGUgZGVmYXVsdCB2YWx1ZSBpbiBzdWJkZXZpY2VzIG1heSBub3QgbWFrZSBtdWNoIHNlbnNl
+Lgo+IAo+IEJ1dCBkb27igJl0IHdvcnJ5IOKAlCB0byBtYWtlIHRoaW5ncyBlYXNpZXIgZm9yIHlv
+dSwgSeKAmWxsIHNlbmQgYW4gYWRkaXRpb25hbAo+IHBhdGNoIGJhc2VkIG9uIHlvdXIgYnJhbmNo
+IChpbiB0aGlzIHNlcmllcykuCj4gCj4gSG93IGRvZXMgdGhhdCBzb3VuZD8KCkdvIGZvciBpdC4K
+Ci0tIApMZWUgSm9uZXMgW+adjueQvOaWr10KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
