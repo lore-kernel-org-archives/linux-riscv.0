@@ -4,56 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A0CCCF9E3
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Nov 2025 19:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 361F9CCF9E3
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Nov 2025 19:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=biGuy1WbxBqShaamMOPapZ3IkuLursAcHdp9odUOKNM=; b=UavEtQuydXLt61KFyuiIJTkxVL
-	1QYu+tGlb8Z3XHSkwyrk3zDqGCkA5yK0+okjtD0XjaDC17rW/Muo7DBn3WQXwCJ1tUW+GXik+tIHV
-	nikKUsROhl/yOozFOGBkcwqnXLuMSQvx0eybKts+xo8dgsxb2cSF633OrkeL30Kyz5l5YvdbVhD6c
-	Hn88kD3BV8S7UktlWgvaUkTjusPyMz8SEV7UB7UtBzb2GMkPvd5X5s6rFCoyWYZ+gEbJmts2/EWEV
-	k2TEHeKjuCZKKJ6Lrknp2LRkzAnd/Ed5JrPEdCZmLhwM1ifcPQ7k66MmnOzSXm5fOK0eCBIojtl4G
-	q55NObWg==;
+	bh=wP87SGV+Yy9qm3HxRKkRMXPKQ3NwkYT+gxUDzCOzvvk=; b=LNDjDioh+So/FyLsEPBT4+LMsu
+	TBUMMpUC8lr4PSaUPPWLmBMDXP63TyfMxxXe2BwSoL3uEUdPG+qa1evPKpIYJL5HJd6Wrff+kZxzz
+	2Q3i7y2/1K55AMz2IPt9NACb19UFijiQfDBpXnbrW2c/jYPNCPP8eEcv6mLe8S0eQ5Ng3B9ABfL3O
+	+GIZ1eRUTLYCn/Opgd/RVjurPbf+Ta/sAGX9XAr7sP/UPDa0fTVQo7bHwuZLY3YY917IuLz+2y6AT
+	kcdRPRjGqIV/G2teWp7FHcOAEXiOJgCXg6ol3X8S77BK2ZmmKPg5WUozqXRi9UZDyu/938dEDjbxl
+	gPMaeUrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIXWF-000000061Z3-0beu;
-	Mon, 10 Nov 2025 19:25:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vIXgP-0000000628y-2ls4;
+	Mon, 10 Nov 2025 19:36:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIXWC-000000061YF-093W;
-	Mon, 10 Nov 2025 19:25:37 +0000
+	id 1vIXgO-0000000628f-0dF7;
+	Mon, 10 Nov 2025 19:36:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38DEA4097F;
-	Mon, 10 Nov 2025 19:25:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17E9CC16AAE;
-	Mon, 10 Nov 2025 19:25:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 206FE60195;
+	Mon, 10 Nov 2025 19:36:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DACD7C2BCB4;
+	Mon, 10 Nov 2025 19:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762802735;
-	bh=GrymXJeErTy9u70PVzPmfw43ubyTayEwBn+LiCzgBE4=;
+	s=k20201202; t=1762803366;
+	bh=jpF83hZl4+ePN40ExsHilbddxNFc1Cve8pvPWp8/Bmc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cpqC+x8V3BJ6v7fmFkIt+t3dVhDH0GKKdgDZh1nM0OX818sGDugtU8rjaIBwPdmKF
-	 QiEAvjcAlzFdMnYeBsYbJXlzbd53uuAdTpD+Si2EO8CF5/l2w6IkrAGj7h0drqhYHk
-	 zhs/qLZU8Ti3aUUAB6VDwUTDs4Yc2BpZCv3bMcgTEKKeKpHHPWiGfrGv1HUUY6bbaa
-	 8eiRsMGt3WbjCUNz2oUWjf+1KVcEWr4yHx07JgpWdX5GZ2IBw0Wn0s6pCx+ubse27h
-	 ay/YPZh79ewOXvUjiJMCAOmnLNtXfMj0c/YXq+74ER4kBPBH6xuu+hsRw8IefMlFcX
-	 kRcF6RUdPZdug==
-Date: Mon, 10 Nov 2025 19:25:25 +0000
+	b=r/JiLWNHjEYRmruV9LdKTJJTd45+gaNqMVxx3rKwEocvH5raBmPhaOaSVmu3LB1qB
+	 v0a/a1UV73eEVavjBqelijRtLfPFA7zKLv5pcjNmrBX6zODp941N/MZ9YvQE2P7+Ta
+	 23tHNDBX6X+G+I1EZMllpz83zr6Mj/te6SLxVm8+Eq9mSpu4z8sygEjiBDcf+ZBRNT
+	 nmcZDBXr7Q/x9Tn8j8zhBnrVMkPBuhyS5p81Tj270JsMuhgtxrYD8fPwYXHH0bQmlJ
+	 LPzeEDTvL4PZR5+MfOyG851q9+zXYhus/EQScPYQGY2xw+9LabgDNqmWOGy5TkWuXL
+	 fmQFkqDEx/eVA==
+Date: Mon, 10 Nov 2025 19:35:57 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: Re: [PATCH RFC 08/13] soc: starfive: Add jh7110-vout-subsystem driver
-Message-ID: <20251110-acetone-slinky-0f8e81291371@spud>
-References: <20251108-jh7110-clean-send-v1-0-06bf43bb76b1@samsung.com>
- <CGME20251108010504eucas1p26e8ee9aa88ab75bebd832eaea81720e9@eucas1p2.samsung.com>
- <20251108-jh7110-clean-send-v1-8-06bf43bb76b1@samsung.com>
+Subject: Re: [PATCH RFC 00/13] drm: starfive: jh7110: Enable display subsystem
+Message-ID: <20251110-clang-baking-b8b27730356e@spud>
+References: <CGME20251108010451eucas1p1c7bf340dbd2b1b7cbfb53d6debce7a2e@eucas1p1.samsung.com>
+ <20251108-jh7110-clean-send-v1-0-06bf43bb76b1@samsung.com>
 MIME-Version: 1.0
-In-Reply-To: <20251108-jh7110-clean-send-v1-8-06bf43bb76b1@samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_112536_137546_802A8C18 
-X-CRM114-Status: GOOD (  18.74  )
+In-Reply-To: <20251108-jh7110-clean-send-v1-0-06bf43bb76b1@samsung.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,81 +62,64 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Emil Renner Berthing <kernel@esmil.dk>, devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, dri-devel@lists.freedesktop.org, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, linux-clk@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Lee Jones <lee@kernel.org>, Andy Yan <andyshrk@163.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Hal Feng <hal.feng@starfivetech.com>, Simona Vetter <simona@ffwll.ch>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jonas Karlman <jonas@kwiboo.se>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Xingyu Wu <xingyu.wu@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org, Maud Spierings <maudspierings@gocontroll.com>, Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Zimmermann <tzimmermann@suse.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: multipart/mixed; boundary="===============5048466239098315162=="
+Content-Type: multipart/mixed; boundary="===============2996142862477600361=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5048466239098315162==
+--===============2996142862477600361==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="d6w1nrcqngNa0tVG"
+	protocol="application/pgp-signature"; boundary="cv1rMoP+ljYav3Y/"
 Content-Disposition: inline
 
 
---d6w1nrcqngNa0tVG
+--cv1rMoP+ljYav3Y/
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, Nov 08, 2025 at 02:04:42AM +0100, Michal Wilczynski wrote:
-> Add the wrapper driver for the StarFive JH7110 VOUT subsystem.
+On Sat, Nov 08, 2025 at 02:04:34AM +0100, Michal Wilczynski wrote:
+> This series enables the display subsystem on the StarFive JH7110 SoC.
+> This hardware has a complex set of dependencies that this series aims to
+> solve.
 >=20
-> This driver is responsible for managing the shared resources for all
-> video output devices. It enables the PD_VOUT power domain, enables the
-> top-level NoC bus clock, and deasserts the main bus reset.
+> I believe this is a PHY tuning issue that can be fixed in the new
+> phy-jh7110-inno-hdmi.c driver without changing the overall architecture.
+> I plan to continue debugging these modes and will submit follow up fixes
+> as needed.
 >=20
-> Once these resources are active, it calls of_platform_populate() to
-> create and probe the child devices (DC8200, VOUTCRG, HDMI MFD) that
-> reside within this subsystem.
+> The core architectural plumbing is sound and ready for review.
 >=20
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  MAINTAINERS                                  |   1 +
->  drivers/soc/Kconfig                          |   1 +
->  drivers/soc/Makefile                         |   1 +
->  drivers/soc/starfive/Kconfig                 |  25 ++++++
->  drivers/soc/starfive/Makefile                |   2 +
->  drivers/soc/starfive/jh7110-vout-subsystem.c | 117 +++++++++++++++++++++=
-++++++
->  6 files changed, 147 insertions(+)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 052876c6538f980f75ff64e78b6ebea460307904..74e562a6b57ac9f776c4be2d6=
-f0977c62bc03d46 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -24051,6 +24051,7 @@ F:	Documentation/devicetree/bindings/display/brid=
-ge/starfive,jh7110-inno-hdmi-co
->  F:	Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-mfd.yaml
->  F:	Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.y=
-aml
->  F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-vout-s=
-ubsystem.yaml
-> +F:	drivers/soc/starfive/jh7110-vout-subsystem.c
+> Notes:
+> - The JH7110 does not have a centralized MAINTAINERS entry like the
+>   TH1520, and driver maintainership seems fragmented. I have therefore
+>   added a MAINTAINERS entry for the display subsystem and am willing to
+>   help with its maintenance.
 
-The parent directory that you've created here for the driver (or created
-in a different patch) should probably be added to the "RISC-V MISC SOC
-SUPPORT" entry, along with the binding directory. Otherwise I'm probably
-not going to see the patches for the former (Emil maintains the
-plarform, but for $reasons I'm the one who applies patches and sends the
-PRs to Arnd). Think it used to be there, but got removed when the last
-(only?) driver was moved out.
+Yeah, bunch of different folks wrote the drivers, so lots of entries.
+Pretty much all as you've done here, authors are responsible for the
+individual components and Emil is the platform maintainer but
+responsible for most drivers.
 
---d6w1nrcqngNa0tVG
+Do you need any feedback dt wise on the RFC, or is it too likely that
+we'll both waste our breath if the DRM folks don't approve of your
+approach for the rest of this series?
+
+--cv1rMoP+ljYav3Y/
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRI8JQAKCRB4tDGHoIJi
-0iL7AQCiyLJiCSE3NKVn/dTVaRDq4/xjTR7nxORX6exO8YKwTAD/f4qo7cSk4n8+
-BG25eAfUyQihtYUjB8FnpYKCw2j6mQ8=
-=kAFU
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRI+nQAKCRB4tDGHoIJi
+0mgxAP9S65gNYTUGl4G/hjuQeRD2OPtB7jDPJa2U+Nb1h9guXgD/ZYh57W7dimb0
+HC9nSRLUedngvCWxlTKXCDULpQjSKg8=
+=vQrF
 -----END PGP SIGNATURE-----
 
---d6w1nrcqngNa0tVG--
+--cv1rMoP+ljYav3Y/--
 
 
---===============5048466239098315162==
+--===============2996142862477600361==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -151,5 +130,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5048466239098315162==--
+--===============2996142862477600361==--
 
