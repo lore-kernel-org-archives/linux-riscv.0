@@ -4,75 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3354ECCFA1A
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 11:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F08CCF9E3
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 11:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qFSjoZ3GyHqk+uJVP8aWO3kQ54i+dafdN7z19G3fr7g=; b=khqUHvIrtre2XN
-	50LSS0s75PbAOlsKrGX9yvHnY6XmFAxWnEMtu0yG1yr1/es7svGcDvfbWkjDV5Dq18Qk/+ZM8Muga
-	n+7cClxOAHd3HZtiJrh+K/OvEpEgAyczVRsPAkbZf2wZ1jsH41jDP/y31tiNeyGLIE35+ViR6To4x
-	yWudWSm/ivaHj/47NbtK7YlAfjNdy2DZ1Tjb6iCEejLwue6ZV7Ann6guDSfFY8g5UrpO3EYyGOgQQ
-	C3EoUj90DMM02zA6XeeFvVN7RK0wbtk4cunGabt9Ca2iLhhePEIdsHn+MCrl55wuCw94DepP1+VAB
-	vsO5lu6CTkWOm3pazYSg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T0KWxgrGIbZIGx/R1HFeWPY3MLZUN7u91pumjzNvElo=; b=AvDgovg0BdZzMxYbPQPSmVK32v
+	fxrMip6zGqMimu/TFEkpHxXLihIKE7mUHyAePdiz9ir0xVjVv5Gj5nKb6VI0ckr55fDzihNyPQGHQ
+	7WMFD9LOpD9p6IdcFFqLgznsxjRKvZmrERFFyzF1OmjIcwEgS3C4rzFTe/NehF2BYUjrXb7HV7VQK
+	1sgnLCFYWelDXJmS7RnmGR16fBe0ruT2O9jXzznSkgQ0nnMQ0xHiQpf49WsqChe3hQc+ft0gde6/o
+	IZZjxP6aPF2/g3C6NSclib55lFGYPCq6Yq1HoqkIBfHY3uGcSrJVLgX8vwfiHbyD4CCrWbuzcuzVo
+	W2quJqvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImPT-000000073bP-3Wfn;
-	Tue, 11 Nov 2025 11:19:39 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1vImhO-0000000754g-1WIW;
+	Tue, 11 Nov 2025 11:38:10 +0000
+Received: from fossa.ash.relay.mailchannels.net ([23.83.222.62])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImPR-000000073aF-3GVz
+	id 1vImhI-0000000752P-2KXw
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Nov 2025 11:19:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1762859976; x=1794395976;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=iFxkT7B47RCS6uuoDSZiQSPOjd+qK9G8OyWkqKGNTlc=;
-  b=BGjf1tWhrTleT2Gq9ASnjYd3y4qQcohg4AOIxjFqlYvjcYGcr26/rnOE
-   8OajS23DYDv8JrwN3w+JM/5xUlg592Pcd7f5IW/D+F4c1mejRtR0QJOa2
-   J0G3v62xoaYNBxncUd0XwIHZWIWOqV3TeltVUSz9li4DAPfnU+SJgfFt2
-   Gzjah7AzfPwkoNx9oOrCQyQ0m8hIrm4T6XM6dJb52gs9XVib0kD6xAJbP
-   JZEuId/aNeFtnuwVQiNejrVn7XRKK4W6CL0kA/GLW4v21OD4sLOA1bbJl
-   iOp3HW/kkgaiwWpSfK04fd3Z7J5QmL8re+fsMHpWu2/mYkqy2LYpNt3Kb
-   Q==;
-X-CSE-ConnectionGUID: g7eymDr5TCueRPVdkbEHvQ==
-X-CSE-MsgGUID: XrDz4l8GSOa65s+E5ZQrvg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="63922917"
-X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; 
-   d="scan'208";a="63922917"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2025 03:19:32 -0800
-X-CSE-ConnectionGUID: LM+Tx7byTUSiOs06Nl6lFQ==
-X-CSE-MsgGUID: c/kstrYRQOeX5wjS4aPC6g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; 
-   d="scan'208";a="226200395"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa001.jf.intel.com with ESMTP; 11 Nov 2025 03:19:33 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 7B64397; Tue, 11 Nov 2025 12:19:31 +0100 (CET)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Lee Jones <lee@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Cc: Yixun Lan <dlan@gentoo.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Subject: [PATCH v1 1/2] mfd: simple-mfd-i2c: Make ID table style consistent
-Date: Tue, 11 Nov 2025 12:18:35 +0100
-Message-ID: <20251111111930.796837-2-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251111111930.796837-1-andriy.shevchenko@linux.intel.com>
-References: <20251111111930.796837-1-andriy.shevchenko@linux.intel.com>
+	Tue, 11 Nov 2025 11:38:08 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 3E4031821BF;
+	Tue, 11 Nov 2025 11:38:02 +0000 (UTC)
+Received: from fr-int-smtpout30.hostinger.io (trex-green-2.trex.outbound.svc.cluster.local [100.121.225.152])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 217AD18033C;
+	Tue, 11 Nov 2025 11:37:58 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1762861081; a=rsa-sha256;
+	cv=none;
+	b=jJzObw4TU8KRSucN5sBufP8kHUy29AHDor3VA3LH3mWMtqk1ZpmdvrQVFMVjMefbkbc6ga
+	RbXwTN/4BE59BiPVT7KkkQLJQton2MifHCPkQtIohjcGAiteoTZ2h1yf8iDG6o60Wz2eR3
+	QACMt51ETURo5WhSgcsnzqlCumI4NPNBuvc67S2shVdp3yg6Q/DkwXMJlmlICCkmqZnMfL
+	6YuEKKIpA42E7sF+e7zwph015fOQrayUTIMPy5cYQNDbIXc8Z7yCKx7OXxr0/pRhG/eRc6
+	AB/Gp0rmdoqiEfTrDt2XXFlerJNVbu3nmHe0ViCMgBLCja0MK8ccU/PQVawE2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1762861081;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=Thxmb9T0BAdHQZHt3TV5jxQaTn4fq6YyiNYTq+kOTD8=;
+	b=JqcPZe11B+qR9NeWQk3ZgBJuZX/7pa7GShG4UzdyA0N1qCo4F62hD64DVz3K0fA1Fa4Qpi
+	8IVoNT3WCD939CBpuNvxRHuCUCSMBTIX3HTJg8oe2lpUFibwh/JLKtXJUdVwPecSImHZ02
+	fsXwCssjateM52j8jVjKQhSX9YK19NLeScdwyBjzWTY4y0kitMPlUUaVkYqgtVj9bQY4Nl
+	25S6koAL5KKmyWOqWYHivisxYQfKMtgRzvN1KMBMSd7/csbWq6v3ZMXTchF/k/JgYtIu0g
+	IbJ4g5J8sxM8omFPD5tJ+WiWslUiBz+l7/nCboFtkA7jVeGAep3bpZQNYT0NZQ==
+ARC-Authentication-Results: i=1;
+	rspamd-768b565cdb-8vj2s;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Whispering-Robust: 30e8d534303519c3_1762861082040_956378664
+X-MC-Loop-Signature: 1762861082039:1160088958
+X-MC-Ingress-Time: 1762861082039
+Received: from fr-int-smtpout30.hostinger.io (fr-int-smtpout30.hostinger.io
+ [148.222.54.7])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.121.225.152 (trex/7.1.3);
+	Tue, 11 Nov 2025 11:38:02 +0000
+Received: from [IPV6:2001:861:4450:d360:3bc5:3dcd:eed2:25ed] (unknown [IPv6:2001:861:4450:d360:3bc5:3dcd:eed2:25ed])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d5PfW3CN3z2xNs;
+	Tue, 11 Nov 2025 11:37:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1762861077;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Thxmb9T0BAdHQZHt3TV5jxQaTn4fq6YyiNYTq+kOTD8=;
+	b=BQR6Zk90DmY1oZE0JrCbX/6/0SplX433JCgprXfWw41A7rgSfxDFwFrMNR3yMazSgs23W1
+	YTgKF+tiYqvofWBfbIoc/llXV4FUrd8h8JszIkaBTxZiO5tPBBZonT4H4VLdKB36b7bXAV
+	03+DL8X4Wr2+EFWuAciw16g31Ho1gM5RPaZsEchl5ThEEPRUziba3KIMZHbSfLh5AO9DVA
+	MY4fuwJBSQPTqwfJY8rtMS+Dl0m9e0LVKFG/+jk3kwf1xXjmI4AOeI+8FHDZnZR/tRzmWW
+	pI/E3ZJhK9Bb980kCwk9Wa2WCKRyLKf6pPesALJPIT/zbStAJesLapMdaufgNA==
+Message-ID: <7f69b746-afda-4d3c-b78d-f6d95a6a758d@rootcommit.com>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@rootcommit.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Yangyu Chen <cyy@cyyself.name>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: spacemit: Add OrangePi R2S
+ board
+To: Krzysztof Kozlowski <krzk@kernel.org>, Yixun Lan <dlan@gentoo.org>
+References: <20251110220641.1751392-1-michael.opdenacker@rootcommit.com>
+ <20251110220641.1751392-2-michael.opdenacker@rootcommit.com>
+ <20251111-inquisitive-ambrosial-chicken-861542@kuoka>
+ <20251111101149-GYE1651402@gentoo.org>
+ <af7bd4ab-38dd-4a5a-93e5-f457ae3460db@kernel.org>
+ <1d469324-84c8-4b5d-ae68-d77e3c822656@rootcommit.com>
+ <2eb5ea0b-d071-4e17-abc8-7db5c78919f2@kernel.org>
+Content-Language: en-US, fr
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Organization: Root Commit
+In-Reply-To: <2eb5ea0b-d071-4e17-abc8-7db5c78919f2@kernel.org>
+Date: Tue, 11 Nov 2025 11:37:55 +0000 (UTC)
+X-CM-Envelope: MS4xfD7nlJ4/BJGImMueYHopBfT+uNoFbis3yzux4sfWhB+oB3CTgBNBBxZmYUbNd3SdnezEXWhYzeDKxibakg1GdRUS4lRCTS9aizs1a35/jO67Azl/QCQA Kq+KY9+dbq+QVh+wqo4I+zBhOm7GgTtnrou7TKPq25ynM/N8eH6ntcpSBjuwP7GZbjS9iJHSedEz4tLYSKSwRDZghHFTSZW+DvxiaAuG6K4Rzpp+LvJdtf8s 5KLkMXq7SanUvR1sxzhXw9lrsFRlNTMguVzXb56dJr9kQzSzHbhafeoKdGLm9GLod982eLq7MD0Vx71zTwEw1k8J2xdIz1XmkAGjIFO17vIX5XrJHo3zcsDD oHBewFF2Bvaydspwcbz7JKjjPTyR9k0m4VFZqkT7SBvXk3UvKzNasAKoIIB/DmMhGOx8OMpyDv+zMs8We0xTYjLPVRpPBp5hHgwHr0ybS3KFj6iQrv++epkH zDpLk75KXqM7zYaBR/hKhXlETBDRyVm3CmPmjkiAubIZMaUCq5NtPXQl4q0iKAO0ajoDC2SzVanL9lK496Wd/A2ZPfwHIQUm9GSd4TielHhNwl75LIs+J4No 4CX5TnyWntWWRGrlqXutih8Av8yN/4RegleACgbgZyHoCq/hElyIbA5H1NYlu6v2ny1IOoOKpaRKIMI/liF84Gz/SwqF5RcVQHtRAA0bVQt0I92pwlvYDDYA pkz+PH4wJWI/utivg+xwos1LpRDNbV/eboMbthiFTdwxv8GvnA/tMi9UZvaDhac8+/oW6IcVwVZahttXYbiP2MUBQupayDZioojTKS2VVrWAerbeFibk/A==
+X-CM-Analysis: v=2.4 cv=DJTd4DNb c=1 sm=1 tr=0 ts=69132015 a=sEYliDYKNDM94lrOIDkWOw==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=VwQbUJbxAAAA:8 a=d70CFdQeAAAA:8 a=jWY-LL_2j1N7cWvRbmcA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_031937_828347_AE3BD677 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20251111_033804_951880_196406F7 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,42 +130,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The lines in the OF ID table are written in three different styles.
-Choose the most common in the kernel and update accordingly.
+Hi Krzystof,
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
- drivers/mfd/simple-mfd-i2c.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+On 11/11/25 11:34, Krzysztof Kozlowski wrote:
+> On 11/11/2025 11:29, Michael Opdenacker wrote:
+>> Greetings
+>>
+>> Thanks one more time for the reviews!
+>>
+>> On 11/11/25 11:13, Krzysztof Kozlowski wrote:
+>>> On 11/11/2025 11:11, Yixun Lan wrote:
+>>>> Hi Krzysztof,
+>>>>
+>>>> On 08:43 Tue 11 Nov     , Krzysztof Kozlowski wrote:
+>>>>> On Mon, Nov 10, 2025 at 10:06:48PM +0000, michael.opdenacker@rootcommit.com wrote:
+>>>>>> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+>>>>>>
+>>>>>> Document the compatible string for the OrangePi R2S board [1], which
+>>>>>> is marketed as using the Ky X1 SoC but is in fact identical to
+>>>> Maybe, just say it "same" to clarify the ambiguity?
+>>> What is exactly "same"? Same die? Or same blocks/pieces? Whichever you
+>>> choose please make it very explicit.
+>> Maybe Troy Mitchell from Spacemit can shed light on this question.
+>>
+>> Anyway, I could use the same wording as in this commit introducing
+>> "OrangePi RV2":
+>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/arch?id=bab8dea259100a99e047fd11a48940b229d30031
+>>
+>> "The board is described as using the Ky X1 SoC, which, based on
+>> available downstream sources and testing, appears to be identical or
+>> very closely related to the SpacemiT K1 SoC".
+>>
+>> What do you think?
+> This clearly suggests they are not identical thus you should have also
+> dedicated compatible. Let me then precise, I thought it is obvious, that
+> except writing it more detailed in commit msg, you also need proper
+> binding expressing this. If this is not the same die and they look
+> compatible, then usually it means you need a compatible.
 
-diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
-index 0a607a1e3ca1..5fd0ef3fa44a 100644
---- a/drivers/mfd/simple-mfd-i2c.c
-+++ b/drivers/mfd/simple-mfd-i2c.c
-@@ -114,11 +114,11 @@ static const struct of_device_id simple_mfd_i2c_of_match[] = {
- 	{ .compatible = "fsl,lx2160aqds-fpga" },
- 	{ .compatible = "fsl,lx2160ardb-fpga" },
- 	{ .compatible = "kontron,sl28cpld" },
--	{ .compatible = "maxim,max5970", .data = &maxim_max5970},
--	{ .compatible = "maxim,max5978", .data = &maxim_max5970},
--	{ .compatible = "maxim,max77705-battery", .data = &maxim_mon_max77705},
--	{ .compatible = "silergy,sy7636a", .data = &silergy_sy7636a},
--	{ .compatible = "spacemit,p1", .data = &spacemit_p1, },
-+	{ .compatible = "maxim,max5970", .data = &maxim_max5970 },
-+	{ .compatible = "maxim,max5978", .data = &maxim_max5970 },
-+	{ .compatible = "maxim,max77705-battery", .data = &maxim_mon_max77705 },
-+	{ .compatible = "silergy,sy7636a", .data = &silergy_sy7636a },
-+	{ .compatible = "spacemit,p1", .data = &spacemit_p1 },
- 	{}
- };
- MODULE_DEVICE_TABLE(of, simple_mfd_i2c_of_match);
+Note quite, the sentence I reused says "identical *or* very closely 
+related".
+
+Anyway, that's not up to me to decide, as what you suggest would mean to 
+fix the DTS for OrangePi RV2 too.
+
+I was just trying to share code for this board too in a very similar way 
+to what was shared for OrangePi RV2, so that people can use the mainline 
+kernel to collaborate and make support for this board better than the 
+custom code produced by the board vendor...
+
+Cheers
+Michael.
+
 -- 
-2.50.1
+Michael Opdenacker
+Root Commit
+Yocto Project and OpenEmbedded Training course - Learn by doing:
+https://rootcommit.com/training/yocto/
 
 
 _______________________________________________
