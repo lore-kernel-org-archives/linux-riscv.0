@@ -4,67 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD584CCFA1E
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 16:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FAECCFA1A
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 16:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85bmZV2ezL74AZS0u4hHEdbfiZgZ8obRcici9TSqXNk=; b=OYQvDNxcOq/AdP+mwGOiO/ljyz
-	imBtumP6Gd6oaNp+fRVR2CYbxCEwRok/dyl+TC2xXj5Zx/fHMm4HmXSa+rwZlrlIzNsdKG2pNOU1+
-	j8hyfzhSsiwRrH4gfwtak0cRuEXiSBSQCvmPkr0wHo2wJ4ZZP3Pyfj8oNXAu2pH36GlJ4H7tu60wk
-	Rx4+kX2xzDvwA5r+oEFOVOeZKOifCLMCr0aDO9cNdSWtKOBIUn4dL5R3BPmmZbZX+QJjyAw1aCXTU
-	Nuoj1rauX+3QwA1ah/i1pSwFAqz4jgJXiuO9Xrr/Sbn0utxJKwZVpgbz4Pzk36BUcbDJky+XZxWg0
-	8BAOXZeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N/aYNhfPy2Mup/9aQRSXRV5pN0QbqusYamKd5FvBr7c=; b=Q3cxWSErxdLohi
+	wcQwE+gPGeCUWqGTZ/XQRQQywzZeG/bDmfWdU/n2Yt3r9BphJv3xl3LJ3VVmUYqMuCIuo3W9wMFxm
+	DTIysEeaW3k5bg+9Fsuyk391+H3C9s8Wg8DKDJrcWrOYZP6Hcxx9YmNlCUyRmj5y5nj9Bz6ScGyHZ
+	vuBkOtu937TEtojloWyrOfR6YBanVSQ8G4qvsOn/fQWmGlgxT5977o3Ky1v6qNVB34N6xMv/IFYAG
+	c2akVXFDlg0izuGhqN61X4NFxPl1gIKwDr4gIfG5FWsBaEGUwVfmzeXYY2vPsg1P80urL5FHYfY9z
+	7Zu4CBzGuB1YrMw+wosQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIrZ1-00000007Uae-3EfD;
-	Tue, 11 Nov 2025 16:49:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vIrZ2-00000007UbA-1Tn4;
+	Tue, 11 Nov 2025 16:49:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIrYz-00000007UZn-35LJ
+	id 1vIrYz-00000007UZl-3S8Z
 	for linux-riscv@lists.infradead.org;
 	Tue, 11 Nov 2025 16:49:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6D22541B09;
-	Tue, 11 Nov 2025 16:49:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5CF8C113D0;
-	Tue, 11 Nov 2025 16:49:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28AA644055
+	for <linux-riscv@lists.infradead.org>; Tue, 11 Nov 2025 16:49:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 034CDC116D0
+	for <linux-riscv@lists.infradead.org>; Tue, 11 Nov 2025 16:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1762879789;
-	bh=kpe5yNkzl1ylQk4HWkjZz+J5d1iHVL1ZFwBmlT0/iSo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YNF/G/l6d2q9beti94869bl7xQ9koe+hfeuOxk06ralzTMh3MnL7CTaQ75CXGqwlT
-	 cTu9797bpTWYDVc/45hPIR27L0H3tPjZWIGLCftY2WgdAKpBSZIh5y5F9cHcgEwKi8
-	 o5JRm7Zvlt2uUL1SW4fZpWHR0PAgcrn2xgRe2QzhuJuyjkLMaIwuWB2SvzgpTGfpLn
-	 LHtu/i6Um5qulwEIcIxfPLOETnL1gs4upbgMO3uykP5v4kaOjHQWWjHpXLugUCoIHg
-	 2HmDoW9y5VRg8DdadyrVZcGXKXDIbzZ8amTyxdFShr4OcBftR2cTdiDmMA5vXRTBFh
-	 0B6yWBltDpvYQ==
-Date: Tue, 11 Nov 2025 16:49:44 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: claudiu.beznea@tuxon.dev, Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/5] reset: mpfs: add non-auxiliary bus probing
-Message-ID: <20251111-cattle-stole-7bdec770bbe0@spud>
-References: <20251110-zookeeper-femur-68a0ae346397@spud>
- <20251110-evict-gratified-bb816e2799a2@spud>
- <2fabead977bee651800790f6b0d6323ffdc372c5.camel@pengutronix.de>
- <20251111-apron-dispersal-6bd72d4a41a1@spud>
+	bh=wq1eQ9leJJwsRbg+q/+CeM5Q/J0QheoRni5LdAnm06o=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=fiwtCZI/RQq4oBC46/xhxQq3J73AlgQ6n72JGFoufSVUBodKPipPpSXecDmCOtlcN
+	 l9DmQpbKhP0jUakBR/mK/b175IhYWYq/lC0EpGarLBQLnFG8rVduIR0o4yDDNsffBr
+	 rLyNcQrZDDVvXw9ofETH3N5GzZgEzDR4cGR/oLHarLh6SLU1zb7ik+0sPkL7TkrNHF
+	 Bjc5JXOCiHW2/JlcBD2hG4TGtDQSELoUQRBpcPZ064efLGTrO6LkEdCSCmYvpMc/sO
+	 KYQuxKwFVZcNnzpw1nic3w+p9E/bPzGz5rz25JWvo/qgJbCHjzStzXmVddonm6IxCn
+	 2X89RgecCdRQQ==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-59435d82c1fso4522809e87.2
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Nov 2025 08:49:48 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXEYZfc7XfU1twND96Bl4ac/XfFWDiw2NtwzQgAzT0F1lzdHohRvBXyVricvGTJutqFjVhwENlwfrfAag==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmdEXh0s+I7fr2ce4IZezg9x8973MxSJmAC/U6+GDANYiGWUgJ
+	dNWjOKqZlzLVHAEvC7GrkNLdJBYxdeNqjM7/Grfxj7iioxINblQtP3erMy1xAreXtRd4VSATqhp
+	6uDRYxVYtZgHTqYtVmo25hifdLU5xgOA=
+X-Google-Smtp-Source: AGHT+IGZvHuVSe5iJqYbExFs6eVBWwDag21rIO8Pvby8ZgKm1I1ZyqlWZO+zj9tOa/l1dRnmZWL6TeMz7UocLRGfN6w=
+X-Received: by 2002:a05:6512:39cb:b0:594:2f38:4604 with SMTP id
+ 2adb3069b0e04-5945f1b757emr3766330e87.41.1762879787245; Tue, 11 Nov 2025
+ 08:49:47 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20251111-apron-dispersal-6bd72d4a41a1@spud>
+References: <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
+ <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
+ <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
+ <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
+ <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
+ <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
+ <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
+ <jxfb5a2c2qber623l2gwewirwod54bbgfnvt7t7f3jah2ea33g@2uyhy3auzmpx>
+ <d9f3352a-1c1f-464a-a8fd-741cd96b5f8e@loongson.cn> <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com>
+ <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn> <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com>
+ <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
+ <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com>
+ <CAMj1kXEaxxcWTTANWeEMNjYDymdL5Fxy2B=XBF4RGtteEkfinw@mail.gmail.com>
+ <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn> <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
+In-Reply-To: <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 11 Nov 2025 17:49:36 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXELVc6AMXgUnjEuoetEYqBkBE3+nFH4--hFQaFGBTF3hA@mail.gmail.com>
+X-Gm-Features: AWmQ_blkkBK4eB_glR3-UhpCiwa3bDzaFeiiqfcHKYfJl_7P3Ja2j5gP_FB4hrI
+Message-ID: <CAMj1kXELVc6AMXgUnjEuoetEYqBkBE3+nFH4--hFQaFGBTF3hA@mail.gmail.com>
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+To: Huacai Chen <chenhuacai@kernel.org>
+Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_084949_819191_76392001 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20251111_084949_898435_0A8FE765 
+X-CRM114-Status: GOOD (  32.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,69 +93,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8817838263659330520=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8817838263659330520==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+1N/XShC9pu5yYwB"
-Content-Disposition: inline
-
-
---+1N/XShC9pu5yYwB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Nov 11, 2025 at 04:46:31PM +0000, Conor Dooley wrote:
-> On Mon, Nov 10, 2025 at 12:34:16PM +0100, Philipp Zabel wrote:
-> > On Mo, 2025-11-10 at 11:23 +0000, Conor Dooley wrote:
-> >=20
-> > With the superfluous cleanup include fixed.
-> >=20
-> > Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-> >=20
-> > and
-> >=20
-> > Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
-> >=20
-> > to be merged with the reset of the series.
->=20
-> Cool, I have dropped the include and pushed the patch to the
-> clk-microchip branch:
-> https://git.kernel.org/at91/c/4a75fcd2000e1af452343aac6e34387f8e794f37
-
-And of course I made a mistake hand assembling this, that's the hash
-=66rom before I removed the header. The actual commit is here:
-https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git/commit/?h=3D=
-clk-microchip&id=3D781f60e45bdfe351aad692ac0fa89e36f8bf4a36
-
---+1N/XShC9pu5yYwB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRNpKAAKCRB4tDGHoIJi
-0strAQCaeCfO/jKbKqDwIwnIpTIJ/gnmLI4l3QhScBIpyCR9CwEAr7UHKcT+Ph1N
-4Ox+Rgxn0tyGTs0P83gtbFaLQqUJnQk=
-=hPke
------END PGP SIGNATURE-----
-
---+1N/XShC9pu5yYwB--
-
-
---===============8817838263659330520==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8817838263659330520==--
-
+T24gTW9uLCAxMCBOb3YgMjAyNSBhdCAwODowMCwgSHVhY2FpIENoZW4gPGNoZW5odWFjYWlAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBNb24sIE5vdiAxMCwgMjAyNSBhdCA5OjE54oCvQU0gVGll
+emh1IFlhbmcgPHlhbmd0aWV6aHVAbG9vbmdzb24uY24+IHdyb3RlOgo+ID4KPiA+IE9uIDIwMjUv
+MTAvMjgg5LiL5Y2IOTo0NywgQXJkIEJpZXNoZXV2ZWwgd3JvdGU6Cj4gPiA+IE9uIFN1biwgMjYg
+T2N0IDIwMjUgYXQgMTI6MjAsIEh1YWNhaSBDaGVuIDxjaGVuaHVhY2FpQGtlcm5lbC5vcmc+IHdy
+b3RlOgo+ID4gPj4KPiA+ID4+IE9uIFRodSwgT2N0IDIzLCAyMDI1IGF0IDQ6MDfigK9QTSBBcmQg
+Qmllc2hldXZlbCA8YXJkYkBrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4+Pgo+ID4gPj4+IE9uIFRo
+dSwgMjMgT2N0IDIwMjUgYXQgMTA6MDEsIEh1YWNhaSBDaGVuIDxjaGVuaHVhY2FpQGtlcm5lbC5v
+cmc+IHdyb3RlOgo+ID4gPj4+Pgo+ID4gPj4+PiBPbiBUaHUsIE9jdCAyMywgMjAyNSBhdCAyOjU1
+4oCvUE0gVGllemh1IFlhbmcgPHlhbmd0aWV6aHVAbG9vbmdzb24uY24+IHdyb3RlOgo+ID4gPj4+
+Pj4KPiA+ID4+Pj4+IEhpIEpvc2ggYW5kIEFyZCwKPiA+ID4+Pj4+Cj4gPiA+Pj4+PiBPbiAyMDI1
+LzEwLzIwIOS4i+WNiDI6NTUsIEh1YWNhaSBDaGVuIHdyb3RlOgo+ID4gPj4+Pj4+IE9uIE1vbiwg
+T2N0IDIwLCAyMDI1IGF0IDk6MjTigK9BTSBUaWV6aHUgWWFuZyA8eWFuZ3RpZXpodUBsb29uZ3Nv
+bi5jbj4gd3JvdGU6Cj4gPiA+Pj4+Pj4+Cj4gPiA+Pj4+Pj4+IEhpIEpvc2gsIEFyZCBhbmQgSHVh
+Y2FpLAo+ID4gPj4+Pj4+Pgo+ID4gPj4+Pj4+PiBPbiAyMDI1LzEwLzE4IOS4iuWNiDE6MDUsIEpv
+c2ggUG9pbWJvZXVmIHdyb3RlOgo+ID4gPj4+Pj4+Pgo+ID4gPj4+Pj4+PiAuLi4KPiA+ID4+Pj4+
+Pj4KPiA+ID4+Pj4+Pj4+IEJ1dCBJSVVDLCB0aGUgbGlic3R1YiBjb2RlIHJ1bnMgKnZlcnkqIGVh
+cmx5LCBhbmQgd291bGRuJ3Qgc2hvdyB1cCBpbiBhCj4gPiA+Pj4+Pj4+PiBzdGFjayB0cmFjZSBh
+bnl3YXksIGJlY2F1c2UgdGhlcmUgYXJlIG5vIHRyYWNlcyBvZiBpdCBvbiB0aGUgc3RhY2sgb25j
+ZQo+ID4gPj4+Pj4+Pj4gaXQgYnJhbmNoZXMgdG8gaGVhZC5TIGNvZGUgKHdoaWNoIGRvZXNuJ3Qg
+c2F2ZSB0aGUgbGluayByZWdpc3RlcikuCj4gPiA+Pj4+Pj4+Cj4gPiA+Pj4+Pj4+IFRoYW5rcyBm
+b3IgeW91ciBkaXNjdXNzaW9ucy4KPiA+ID4+Pj4+Pj4KPiA+ID4+Pj4+Pj4gQXJlIHlvdSBPSyB3
+aXRoIHRoaXMgY3VycmVudCBwYXRjaD8KPiA+ID4+Pj4+PiBGb3IgbWUgdGhlIGN1cnJlbnQgcGF0
+Y2ggaXMganVzdCBPSy4KPiA+ID4+Pj4+Cj4gPiA+Pj4+PiBXZSBoYXZlIGRpc2N1c3NlZCB0aGlz
+IGEgZmV3IHRpbWVzIGJ1dCB0aGVyZSBpcyBhbG1vc3Qgbm8gY29uc2Vuc3VzCj4gPiA+Pj4+PiBv
+ZiB3aGF0IHNob3VsZCBoYXBwZW4gbmV4dCBhbmQgbm90aGluZyBjaGFuZ2VzLgo+ID4gPj4+Pj4K
+PiA+ID4+Pj4+IENvdWxkIHlvdSBwbGVhc2UgZ2l2ZSBtZSBhIGNsZWFyIHJlcGx5PyBUaGVuIEkg
+Y2FuIG1ha2UgcHJvZ3Jlc3MgZm9yCj4gPiA+Pj4+PiB0aGUgZm9sbG93aW5nIHNlcmllczoKPiA+
+ID4+Pj4+Cj4gPiA+Pj4+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sb29uZ2FyY2gvMjAyNTA5
+MTcxMTI3MTYuMjQ0MTUtMS15YW5ndGllemh1QGxvb25nc29uLmNuLwo+ID4gPj4+PiBGb3IgbWUs
+IHRoaXMgcGF0Y2ggaXMgT0ssIGlnbm9yZSBfX2VmaXN0dWJfIHByZWZpeCBpbiBvYmp0b29sIGlz
+IGFsc28KPiA+ID4+Pj4gT0sgWzFdLiBCdXQgSSBjYW5ub3QgYWNjZXB0IHRoZSB3YXkgdGhhdCBt
+b2RpZnlpbmcgdGhlIGVmaXN0dWIgcGFydAo+ID4gPj4+PiBvbmx5IGZvciBMb29uZ0FyY2guCj4g
+PiA+Pj4+Cj4gPiA+Pj4+IENsZWFyIGVub3VnaD8KPiA+ID4+Pj4KPiA+ID4+Pgo+ID4gPj4+IExv
+b25nQXJjaCBpcyB0aGUgb25seSBhcmNoaXRlY3R1cmUgd2hpY2ggaGFzIHRoZSBwcm9ibGVtLCBz
+byBJIGRvbid0Cj4gPiA+Pj4gc2VlIGEgcmVhc29uIHRvIG1vZGlmeSBvdGhlciBhcmNoaXRlY3R1
+cmVzLgo+ID4gPj4gIEZyb20geW91ciByZXBseSBJIHRoaW5rIHRoZSBlZmlzdHViIGNvZGUgaXMg
+Y29tcGxldGVseSByaWdodCwgYnV0Cj4gPiA+PiBvYmp0b29sIGNhbm5vdCBoYW5kbGUgdGhlICJu
+b3JldHVybiIgZnVuY3Rpb24gcG9pbnRlci4gQW5kIHRoaXMgcGF0Y2gKPiA+ID4+IGlzIGEgd29y
+a2Fyb3VuZCByYXRoZXIgdGhhbiBhIHByb3BlciBmaXggKHNvIHlvdSBkb24ndCB3YW50IHRvIHRv
+dWNoCj4gPiA+PiBvdGhlciBhcmNoaXRlY3R1cmVzKSwgcmlnaHQ/Cj4gPiA+Pgo+ID4gPgo+ID4g
+PiBUaGF0IGlzIG15IHJlYXNvbmluZywgeWVzLiBCdXQgSm9zaCBpcyByaWdodCB0aGF0IGl0IHNo
+b3VsZG4ndCBtYWtlIGEKPiA+ID4gZGlmZmVyZW5jZSBpbiBwcmFjdGljZSwgSSBhbSBqdXN0IHJl
+bHVjdGFudCB0byBtYWtlIGNoYW5nZXMgdG8gdGhlCj4gPiA+IGNvZGUgcnVubmluZyBvbiB0aGUg
+dGFyZ2V0IHRvIGFjY29tbW9kYXRlIGEgZmxhd2VkIGJ1aWxkIHRpbWUgdG9vbC4KPiA+Cj4gPiBJ
+ZiBJIHVuZGVyc3RhbmQgY29ycmVjdGx5LCBJIHNob3VsZCBtb2RpZnkgdGhpcyBwYXRjaCB0byBy
+ZW1vdmUgdGhlCj4gPiBjaGFuZ2VzIG9mIGFybSBhbmQgcmlzY3YgZm9yIG5vdywgZG8gdGhlIGNo
+YW5nZXMgb25seSB3aGVuIHRoZXJlIGlzCj4gPiBhIHJlYWwgcHJvYmxlbSBvciByZXF1aXJlbWVu
+dCBzb21lIGRheSwgcmlnaHQ/IElmIG5vIG1vcmUgY29tbWVudHMsCj4gPiBJIHdpbGwgc2VuZCB2
+MyBsYXRlci4KPiBOb3cgZXZlcnlvbmUgaW52b2x2ZWQgYWdyZWVzIHRoYXQgdGhlIGVmaXN0dWIg
+Y29kZSBpcyBjb3JyZWN0LCBzbyB0aGUKPiBwcm9wZXIgc29sdXRpb24gaXMgdG8gZml4IHRoZSBj
+b21waWxlci4gQ2hhbmdpbmcgZWZpc3R1YiBjb2RlIGFuZAo+IGNoYW5naW5nIG9ianRvb2wgKGln
+bm9yZSBfX2VmaXN0dWIgcHJlZml4KSBhcmUgYm90aCB3b3JrYXJvdW5kcywgYnV0IEkKPiB0aGlu
+ayBjaGFuZ2luZyBvYmp0b29sIGlzIGEgbGl0dGxlIG1vcmUgcmVhc29uYWJsZS4gTWF5YmUgSm9z
+aCBoYXMKPiBkaWZmZXJlbnQgaWRlYXM/Cj4KCldlbGwsIGdpdmVuIHRoYXQgb2JqdG9vbCBjYW5u
+b3QgZXZlbiBpbmZlciB0aGlzIGZvciBkaXJlY3QgY2FsbHMgKGFuZApuZWVkcyB0byBidWlsdCB3
+aXRoIGEgbGlzdCBvZiBrbm93biBub3JldHVybiBmdW5jdGlvbnMgaW4gdGhlIGVudGlyZQprZXJu
+ZWwpLCBJIHRoaW5rIGl0IGlzIHNhZmUgdG8gYXNzdW1lIHRoYXQgZG9pbmcgdGhpcyBmb3IgaW5k
+aXJlY3QKY2FsbHMgc3VjaCBhcyB0aGlzIG9uZSBpcyBpbnRyYWN0YWJsZS4KCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
