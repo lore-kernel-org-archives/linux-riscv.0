@@ -4,114 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428A0CCF9E3
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 10:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6693BCD1297
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 11:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w1rwABCvB+pM2oqe4rMEIw8cJ6vXcgq19pmKq+DvLPY=; b=FfM9GugjQMlcuL
-	29xdxs3h7a430HS2FjAQEqjQZbY6HShryGEwn5F1ld3Dg3jcOyp/QjEssPkEhHGqCpUbCgkmCG+Zf
-	rhZcISDJQ+botJ+hFyJq6/iz3ub5ig1/KfsRIj1mPp1V63BOR1FENtX2Q71P5tunhebpy/nWHriXo
-	f+vCHmdHPX37EZMWHiM57bnrWC3X9Y29fdw7VxE1FGtU8f0Gm4l4MJuNrTZaWVKLA4Ns+I54xHvuk
-	Gug2ZLTJNp9LJnMjBaRHor1dbNa3lmOn8Fh7b3RPbcF27awxpyEZJ9882wbC73tLmmn+XN/pTM1y1
-	qzW6G9oxzfs3Matt96sg==;
+	List-Owner; bh=CRvbKjXmDE+09B9yK9eUhsbCubKcgBP0RQIWp8I6IuY=; b=Ki+jb7TIpsVwMf
+	4ck9aeNa+Kc6nK8Uqe27WHwkRBpX2CZaPK/1dZ8i6VrRcsAK8d85HW0TJInrMq5zPxsRNDhBc8e88
+	ElfRugbQ4X0ddsL+F6K+jHQUWMlHL74SBKrTuPwiUQbFsTsE37Vx6IU1wjoXh/R1GIsWXSqPD9PPV
+	apEq9MLCzpFr9RU2aAlgaKu7RmORmt3UPPOyzBdF91KFDjV83CDoA6S4MeQcFyjKobA1Hq2V/GIY3
+	8+vw7GZG/YuobmvguxTHIfM4fdqNppHHrSwTKgYW0cif2XuIez06rry44m54wDDV6rY2ptpIH97JP
+	YkCv1r6X7E4zgdpajsZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlho-00000006xcq-335f;
-	Tue, 11 Nov 2025 10:34:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vImPT-000000073bF-13ac;
+	Tue, 11 Nov 2025 11:19:39 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlhm-00000006xcV-1Z3H
+	id 1vImPQ-000000073aF-2GGb
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Nov 2025 10:34:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A28BB43679;
-	Tue, 11 Nov 2025 10:34:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EC14C116B1;
-	Tue, 11 Nov 2025 10:34:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762857269;
-	bh=Dzpt6Z0D/c6MEJOU+LNjhT4k0I4uQhWwRaQj5wYq5TA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NGc4qocnrynRT01TB0/gRXEOoeA73ahdapiloQvkIbphHfZSwEWpQwKK7qncJzrRR
-	 qbSlgwnwpY6IzYMLPtK8OsobU2oEqzB9QXDxM49w7sWJqYK67KFMxWa20eTexbcgZ8
-	 JzAyVB8zdfH3xTlyYWwXP07bICtd7wa3ICCOyRpcWDVSI+xoCoNeMeLqlUo71i3VGw
-	 PhzIaArHBHpl+G/dz6YiFDNa8yRVDy9iIrGhWgRxCGTIPw3sAul3+HriiTZNHcijP7
-	 lS7O5T7EjSCHYORDCyMXOE0aghQyfDLhrWN+EHqFkJdAepoer0HZwACj7hBIWpsieT
-	 UhJgN1Mz1kZSw==
-Message-ID: <2eb5ea0b-d071-4e17-abc8-7db5c78919f2@kernel.org>
-Date: Tue, 11 Nov 2025 11:34:23 +0100
+	Tue, 11 Nov 2025 11:19:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1762859975; x=1794395975;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=9T0WYmDAOm7giXvF1mgj/3D0HBRvqmglFqNtm8BgpMI=;
+  b=Q+mNZCWVdiEGwTkRO3XD+AjGpBsRwosR5zkBC89jPhlkywD8LD8RIOWM
+   SMb9DnZmgz5bjnd6fQVDum97Eqv9h49uwKtq87S2AYoEV6UaYOYUgI8HR
+   uZXGbR92b9mwHUSGlpEHCwGaPiwln92HvjNR2bv3KYdYJt1/PyDiqHv5N
+   WQA3jKFShtVtegYw7FzuxePPjO767jg80fjEwojxDjNDrvTWau2KagttS
+   Nb/nvOz5A4mI3qnIMv4iQtqVH0wcDwUjEDaHK/2OoLeuTJMzFDKvnNkgx
+   DhrapivjKy/gDj4WvVm0K0ci60d1PjcNeqZkhC2bGSZKvDvte0txEvIfW
+   w==;
+X-CSE-ConnectionGUID: n2IrFtBAQHOyHa8hdpU0Gw==
+X-CSE-MsgGUID: QjHGC9MQRO6V0dlx3xoRIw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="63922911"
+X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; 
+   d="scan'208";a="63922911"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2025 03:19:32 -0800
+X-CSE-ConnectionGUID: 7KRySQPbRYeXDo4od8bOMg==
+X-CSE-MsgGUID: dkfo88vgSVqNB4eYiK/VeA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; 
+   d="scan'208";a="226200394"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa001.jf.intel.com with ESMTP; 11 Nov 2025 03:19:33 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+	id 802FC98; Tue, 11 Nov 2025 12:19:31 +0100 (CET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Lee Jones <lee@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Cc: Yixun Lan <dlan@gentoo.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v1 2/2] mfd: simple-mfd-i2c: don't use "proxy" headers
+Date: Tue, 11 Nov 2025 12:18:36 +0100
+Message-ID: <20251111111930.796837-3-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20251111111930.796837-1-andriy.shevchenko@linux.intel.com>
+References: <20251111111930.796837-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: spacemit: Add OrangePi R2S
- board
-To: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
- Yixun Lan <dlan@gentoo.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Yangyu Chen <cyy@cyyself.name>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-References: <20251110220641.1751392-1-michael.opdenacker@rootcommit.com>
- <20251110220641.1751392-2-michael.opdenacker@rootcommit.com>
- <20251111-inquisitive-ambrosial-chicken-861542@kuoka>
- <20251111101149-GYE1651402@gentoo.org>
- <af7bd4ab-38dd-4a5a-93e5-f457ae3460db@kernel.org>
- <1d469324-84c8-4b5d-ae68-d77e3c822656@rootcommit.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <1d469324-84c8-4b5d-ae68-d77e3c822656@rootcommit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_023430_475083_CF2B9001 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20251111_031936_612588_E635CDCC 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,45 +90,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2025 11:29, Michael Opdenacker wrote:
-> Greetings
-> 
-> Thanks one more time for the reviews!
-> 
-> On 11/11/25 11:13, Krzysztof Kozlowski wrote:
->> On 11/11/2025 11:11, Yixun Lan wrote:
->>> Hi Krzysztof,
->>>
->>> On 08:43 Tue 11 Nov     , Krzysztof Kozlowski wrote:
->>>> On Mon, Nov 10, 2025 at 10:06:48PM +0000, michael.opdenacker@rootcommit.com wrote:
->>>>> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
->>>>>
->>>>> Document the compatible string for the OrangePi R2S board [1], which
->>>>> is marketed as using the Ky X1 SoC but is in fact identical to
->>> Maybe, just say it "same" to clarify the ambiguity?
->> What is exactly "same"? Same die? Or same blocks/pieces? Whichever you
->> choose please make it very explicit.
-> 
-> Maybe Troy Mitchell from Spacemit can shed light on this question.
-> 
-> Anyway, I could use the same wording as in this commit introducing 
-> "OrangePi RV2":
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/arch?id=bab8dea259100a99e047fd11a48940b229d30031
-> 
-> "The board is described as using the Ky X1 SoC, which, based on 
-> available downstream sources and testing, appears to be identical or 
-> very closely related to the SpacemiT K1 SoC".
-> 
-> What do you think?
+Update header inclusions to follow IWYU (Include What You Use) principle.
 
-This clearly suggests they are not identical thus you should have also
-dedicated compatible. Let me then precise, I thought it is obvious, that
-except writing it more detailed in commit msg, you also need proper
-binding expressing this. If this is not the same die and they look
-compatible, then usually it means you need a compatible.
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/mfd/simple-mfd-i2c.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-Best regards,
-Krzysztof
+diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
+index 5fd0ef3fa44a..8b751d8e3b5a 100644
+--- a/drivers/mfd/simple-mfd-i2c.c
++++ b/drivers/mfd/simple-mfd-i2c.c
+@@ -15,12 +15,18 @@
+  * will be subsequently registered.
+  */
+ 
++#include <linux/array_size.h>
++#include <linux/dev_printk.h>
++#include <linux/err.h>
+ #include <linux/i2c.h>
+-#include <linux/kernel.h>
+ #include <linux/mfd/core.h>
++#include <linux/mod_devicetable.h>
+ #include <linux/module.h>
+ #include <linux/of_platform.h>
++#include <linux/platform_device.h>
++#include <linux/property.h>
+ #include <linux/regmap.h>
++#include <linux/stddef.h>
+ 
+ #include "simple-mfd-i2c.h"
+ 
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
