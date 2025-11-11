@@ -4,68 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B52CCFA18
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 15:34:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60084CCFA1A
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 15:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b9PKFaJd+A96P2lMp23KtEj0kwpCcObuUw83E+jXfTM=; b=2UvpI5jmG5tpcM
-	IozeQzrD7nKlzM//SJdBGKrPV6nV1w2LB+P+PiZlKSM3tckAftgYcdxvNxbAMVMGcTY+iaHkE3Tal
-	SNf7Go824bcHtomC9LVnvUn3TZSUD9LzfaukkMBwL2bEEN2NP6fqQKTRXJGgjvZlXxgrIpatA100H
-	nvymU1Sy4l5unSYZEMu9tcFqLsZz1KIOZvKBRS65Y8Tvi0rej4hToYFvCGKs9G0tT2KdR65sX0pbR
-	5f8JeAGn/MzMJLdZBxUCdgUoo3A/BAAPU0Rgyno7l0KvO+51sgdibTGoxWT3OQdasCVXL2iWQko5r
-	tXg2yd3GBkvajnsxmdHw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dVI0kAMZku3Vyb3lE/d27K3Lt7dJtq8YPTMkyS3tf98=; b=K+6geHOeUdzsC6
+	d9kZHhejr6QLlRErWTr57skLNuevA7MXuoo3KlPUcCK5/iiEBPyWFAerWJ3Hi036X4YKvga7IW5Ji
+	e5BoRuDvBUU2AmcwqAO7Y8hByDzzNmDvLLGyg94aBDrl02radLwjqHvXgKT4+7NRGFUmk6XIEdMfK
+	CXFPK7pL81dDsjfI8f6QGQYwd+TdlmtGdHF0OS53ffE3M2AW1otJLKqAXhlnmMVf4W27xjFO1irjz
+	bw0IPoO4iX55YCQv+a3RpYq4TvvLNXSis6YQgu+KpMZuy0spnrpBBbR1iXFjD6sqf0RuPU27szq7a
+	mzexTbTReUeV/fzDb7Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIqNL-00000007O14-0uH7;
-	Tue, 11 Nov 2025 15:33:43 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1vIqdQ-00000007PDV-3AQ9;
+	Tue, 11 Nov 2025 15:50:20 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIqNG-00000007Nz9-10wO;
-	Tue, 11 Nov 2025 15:33:41 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251111153330euoutp017494b02d40dededb563d4b1ef58097a0~2-aoKSf6x0077200772euoutp01-;
-	Tue, 11 Nov 2025 15:33:30 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251111153330euoutp017494b02d40dededb563d4b1ef58097a0~2-aoKSf6x0077200772euoutp01-
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1762875210;
-	bh=sloWl4MVPqNxu4Lal6cMW3w9aEbG/4Pt1qYZPePhrtE=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=Kfe+2Ek/w+bUpLwTygBNEWcXj2/9RpeCAYPlT7bjoq9HA70uytTNDmVDA9tYZm8xn
-	 PjfXlhu7atr5sek/dPX6o47ChghH0J8IS0BtsFXtYrpuN/fnnz0AbmKOzh7YLkYBX9
-	 OkTday6AnTVrcPFQljKo3ZyNeUQFXkvGD25BUqsQ=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251111153330eucas1p213a4f040efad6ebe0add9670332c93b9~2-anlypPk2653326533eucas1p2R;
-	Tue, 11 Nov 2025 15:33:30 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251111153328eusmtip2a21c5725c16f8d6a9d517389e448b5f7~2-amHRvql2096320963eusmtip2G;
-	Tue, 11 Nov 2025 15:33:28 +0000 (GMT)
-Message-ID: <00e897dc-9966-439b-a74a-7604a1870027@samsung.com>
-Date: Tue, 11 Nov 2025 16:33:28 +0100
+	id 1vIqdO-00000007PCw-1waN
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Nov 2025 15:50:19 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2957850c63bso10358345ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Nov 2025 07:50:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762876218; x=1763481018; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kwxwWH0h/k86KA6Lqbt4Xcny5Xif9KRZerM8f0+lE/Q=;
+        b=bgwDAgvT8/cXGltATRizyPl7PhmspjMGApvWspG5r4HeKhls0pC6FcTjLvbcFIhrgf
+         CxiSAcZkJ535pe/xbCIkthp/owB7RIwrxtRWSTJK6PhPy4FdZ252Jib2Bk2xrnuhtHxt
+         Nig67rsGjSevQH5G/xi8chCqVZw8Pbx9nqZURgIGT9+ksRrrH33g6ozxE4pHSBSo44mr
+         AFnYVqYfzwmU6TSbzCWk8NCc+uUZf1L0ggKq3NRIiDH/ZVXmlv9u7NlayBKBqma+AZC1
+         RArgWzBQ20VJUG9syrMzKYp0qkK+ShCR/kQar8pFVdQVfSvxfgIojHNEfuPZ1vzdGreR
+         COBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762876218; x=1763481018;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kwxwWH0h/k86KA6Lqbt4Xcny5Xif9KRZerM8f0+lE/Q=;
+        b=s6bJCzna9n+a8AOSdljSpPpkFzUfHpJUZ4Dt8RJ+sditgSHJ5qN07R/JyIcUemu6jv
+         4GLRquL5N2wBAaoFHdnvXVTNONbSVBSBIOGvZgwo6g7TDd786igCoExLh+GbDxe6IEsV
+         g67y/zurw29kdge48Aa1yAsq3cHjD+nJOCCLp3QHSa8iyA3yR/JrBl7/Rkk1jNIyUKv2
+         4uxZ+qbD5P7F41gQyHYKzUewmipW01Ktx5agOgZGxepxHWfuXHbKGWHZW0ykY1XzCYWn
+         oqaXNji5IsKHzjaQ2umvzbox1Cov4dP0zTGlMMDL2CQyX5fEq0E1QSV2ozYTVNhshzSB
+         dgVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVtxIW250cXzEKoIRsnKINSUcwefeBDO6NnyA4J/queUGRPiusRV0Fp+o83eyPL83fWKzydJ9mBCWwFPQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx737+ukwK+eWryi33HuBSKc7EPPwuKuvFkKO6HP+ejHYHsUtra
+	DKresDykMyd5WSyTvV/2aUI9FDqgu9v0WDka01p3Ee+jaDSS466J9562
+X-Gm-Gg: ASbGncs7bmJiOlV4WF+vbT8NHaZOsAF1h2AYGkzGW6F0eHYaUq1abCjMszsMJ4TqIFG
+	fAY0YUFPpE82JwuMDQgGlniT37tRUqY16gEsjqCD4RUJloxpns2wEhSkS4iBRzZXwAeHM+9cLRV
+	FDlPITglc7ZZbjZzlr3IW2ntNJ5o8yZGctxzSTfF8x2ZHk8CT8zKmSQ8vkklQ01LzVOkbS820Iu
+	Btl/qobaAXZLiBsUgCrs9hyXGHlTRIZ0+yhRE7DVsYERBxCIoQAhnzjBawmehHDClWvQhcd5b3z
+	NRTtqlwyF/jviGQwSvpxQLzfY3V9omBnIa4HqfD6HkFY6CEWga08KDwIlfAOrCuNRnTxv38w3BK
+	kWuiftN4Hy01CWAOmJSjeOhNM3v/aeJ2FqXNRPB735HpEZBFvylX5VED6Fy6jYcbwap+3cnwiEh
+	/6DA==
+X-Google-Smtp-Source: AGHT+IFUeZ86WNREaY3JnN9DeD2rSCTPmqw3Crt4HqqKMYEinhAe5X1WLVaqt8s1Jagy5zo/mu0g8Q==
+X-Received: by 2002:a17:902:fc4f:b0:295:55f:8ebb with SMTP id d9443c01a7336-298408213e4mr48838695ad.21.1762876217391;
+        Tue, 11 Nov 2025 07:50:17 -0800 (PST)
+Received: from localhost ([111.55.24.13])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2984dbdb09fsm1087615ad.17.2025.11.11.07.50.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Nov 2025 07:50:17 -0800 (PST)
+From: Encrow Thorne <jyc0019@gmail.com>
+Date: Tue, 11 Nov 2025 23:50:09 +0800
+Subject: [PATCH v2] clk: spacemit: fix comment typo
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 00/13] drm: starfive: jh7110: Enable display
- subsystem
-To: Conor Dooley <conor@kernel.org>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20251110-clang-baking-b8b27730356e@spud>
-X-CMS-MailID: 20251111153330eucas1p213a4f040efad6ebe0add9670332c93b9
-X-Msg-Generator: CA
-X-RootMTR: 20251108010451eucas1p1c7bf340dbd2b1b7cbfb53d6debce7a2e
-X-EPHeader: CA
-X-CMS-RootMailID: 20251108010451eucas1p1c7bf340dbd2b1b7cbfb53d6debce7a2e
-References: <CGME20251108010451eucas1p1c7bf340dbd2b1b7cbfb53d6debce7a2e@eucas1p1.samsung.com>
-	<20251108-jh7110-clean-send-v1-0-06bf43bb76b1@samsung.com>
-	<20251110-clang-baking-b8b27730356e@spud>
+Message-Id: <20251111-b4-fix-ccu-mix-typo-v2-1-d64b97b48d1f@gmail.com>
+X-B4-Tracking: v=1; b=H4sIADBbE2kC/22NQQqDMBBFryKz7pQkatGuvEdxoeOoA9VIYkNFv
+ HtTobuuhvf5/80Onp2wh3uyg+MgXuwcwVwSoLGZB0bpIoNRJtfKFNhm2MsbiV44xbtui0WVFqT
+ LnlNFGcTl4jh2TuujjjyKX63bzidBf9Ofr/zrCxo1UtN1bZoXim9ZNUyNPK9kJ6iP4/gAIVCcB
+ rYAAAA=
+X-Change-ID: 20251028-b4-fix-ccu-mix-typo-038c19fe30c4
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@gentoo.org>
+Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Encrow Thorne <jyc0019@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762876212; l=1164;
+ i=jyc0019@gmail.com; s=20251009; h=from:subject:message-id;
+ bh=DHlxEl4Cm3VRdwsbOA/YSIyQycDreMiqXswBc5rWTMo=;
+ b=y7lORg16U5lsvcS9/DoSo7mwT5fo22eEVpj3gCoSuWbYgbLul4lhSwzA8UAzZmSxgvPPJorn1
+ KMkTZ/dZIi5AGLNsXQ9FoACulckMazmMA6jsBicgtNXnh6nT7N+o4BK
+X-Developer-Key: i=jyc0019@gmail.com; a=ed25519;
+ pk=nnjLv04DUE0FXih6IcJUOjWFTEoo4xYQOu7m5RRHvZ4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_073339_649115_FB6BDDBC 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20251111_075018_534989_08515679 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +107,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, dri-devel@lists.freedesktop.org, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, linux-clk@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Lee Jones <lee@kernel.org>, Andy Yan <andyshrk@163.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Hal Feng <hal.feng@starfivetech.com>, Simona Vetter <simona@ffwll.ch>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jonas Karlman <jonas@kwiboo.se>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Xingyu Wu <xingyu.wu@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org, Maud Spierings <maudspierings@gocontroll.com>, Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Zimmermann <tzimmermann@suse.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Fix incorrect comment to match the filename.
 
+Reviewd-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Signed-off-by: Encrow Thorne <jyc0019@gmail.com>
+---
+Hi Stephen,
 
-On 11/10/25 20:35, Conor Dooley wrote:
-> On Sat, Nov 08, 2025 at 02:04:34AM +0100, Michal Wilczynski wrote:
->> This series enables the display subsystem on the StarFive JH7110 SoC.
->> This hardware has a complex set of dependencies that this series aims to
->> solve.
->>
->> I believe this is a PHY tuning issue that can be fixed in the new
->> phy-jh7110-inno-hdmi.c driver without changing the overall architecture.
->> I plan to continue debugging these modes and will submit follow up fixes
->> as needed.
->>
->> The core architectural plumbing is sound and ready for review.
->>
->> Notes:
->> - The JH7110 does not have a centralized MAINTAINERS entry like the
->>   TH1520, and driver maintainership seems fragmented. I have therefore
->>   added a MAINTAINERS entry for the display subsystem and am willing to
->>   help with its maintenance.
-> 
-> Yeah, bunch of different folks wrote the drivers, so lots of entries.
-> Pretty much all as you've done here, authors are responsible for the
-> individual components and Emil is the platform maintainer but
-> responsible for most drivers.
-> 
-> Do you need any feedback dt wise on the RFC, or is it too likely that
-> we'll both waste our breath if the DRM folks don't approve of your
-> approach for the rest of this series?
+Could you please take a look at this patch for inclusion?
 
-Hi Conor,
+Thanks!
+---
+Changes in v2:
+- Simplify commit message.
+- Link to v1: https://lore.kernel.org/r/20251029-b4-fix-ccu-mix-typo-v1-1-caddb3580e64@gmail.com
+---
+ drivers/clk/spacemit/ccu_mix.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Thank you for your response.
+diff --git a/drivers/clk/spacemit/ccu_mix.h b/drivers/clk/spacemit/ccu_mix.h
+index 54d40cd39b27..c406508e3504 100644
+--- a/drivers/clk/spacemit/ccu_mix.h
++++ b/drivers/clk/spacemit/ccu_mix.h
+@@ -220,4 +220,4 @@ extern const struct clk_ops spacemit_ccu_div_gate_ops;
+ extern const struct clk_ops spacemit_ccu_mux_gate_ops;
+ extern const struct clk_ops spacemit_ccu_mux_div_ops;
+ extern const struct clk_ops spacemit_ccu_mux_div_gate_ops;
+-#endif /* _CCU_DIV_H_ */
++#endif /* _CCU_MIX_H_ */
 
-That's a fair point about the risk of the DRM approach being rejected.
-While I can't be certain, I'm hopeful that part is relatively
-straightforward, as it primarily integrates other recently reviewed
-(though not yet merged) components like the inno-hdmi bridge and dc8200
-drivers.
-
-To be honest, I was more concerned that the DT part of the series would
-be more problematic. Given that, I would find it very helpful to get
-your feedback on the DT aspects now, if you have the time.
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251028-b4-fix-ccu-mix-typo-038c19fe30c4
 
 Best regards,
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+Encrow Thorne <jyc0019@gmail.com>
+
 
 _______________________________________________
 linux-riscv mailing list
