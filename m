@@ -4,54 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DC6CCFA1A
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 18:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD7CCCFA1A
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 18:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0OgZKs4KxRMPUEem7L/zoZY5bMsgzzDx+vwAlQMgrok=; b=0M5+Qa4ZXTa5anKshX0n4u8hmh
-	/e1FadqmJqCeWTE6R5kxnCyKSJ5SVvD9VkmNgworTicbKFfH/MWIZpj6nOA5YgCdQyEamoa4bAxYS
-	USB7J9KY3J2xzJv1FwzlL+tWwLpozHkPu5QZlvmnvN8dw7L/eH4fvat23kJu6YUTkJBCWOI3eE/h3
-	ovE6wZCt8iwaoXn9vhKNAbstMPQ2d5m4DnhMDNPJlVqUGTAcFWZJC5PNpqh+1eY4mpX68Ygbl8X8r
-	NpUB5a0iiWM5brO5Q3+XrWpyx2YFMLXmrVmyEo6NLfWkDrDWEpU9bhIe2n0cyczSL5ALkCR2lXMKn
-	lJh7W3Pw==;
+	bh=kQ2fdO90b7x0nW6ov70oDV1Fk6q09vK+cBNDre/EOKA=; b=adV9+AdPaFPu+rfbSTQ4PXJo3X
+	e70YnK2wbi9ios4PJ0o/DzfxnGnjqta4MoHR3n1AXFVqn4f7z3vmMuPieQvDvB+OzF72KzuxjB+kk
+	A6yGi3rUN1a/nP/O4oblqtaGnREZf2W3mSgnLN8HtjRa7UFWE0lG35LsjT6crHOkCzQjcotGAcg6h
+	+pBGNS3I51WabZzvHBx15t+JHJ5YxDPCSQctAEoJg98LFN+Yi2nwUARXj0LMfjoRSdT/7+EPNoYz4
+	IsTPm2U/0T4a6aqIDHtWId5BxjLFZ312J+G6eLa2Oh0q2T4JSBrObutYfLTcL+bWkAjJLqXLO8tZ1
+	so3RCoGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIswm-00000007b1u-0VlI;
-	Tue, 11 Nov 2025 18:18:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vIt0T-00000007bF2-11HD;
+	Tue, 11 Nov 2025 18:22:17 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIswk-00000007b1c-1vGy;
-	Tue, 11 Nov 2025 18:18:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92F1060209;
-	Tue, 11 Nov 2025 18:18:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A0EDC116D0;
-	Tue, 11 Nov 2025 18:18:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762885105;
-	bh=9A1g77d6NETJrsVEFwCGkGYcg7oNe/734nbYe0R1toY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DE1UvpH/bC9UZ2eBNdd8mq2OkWzJrQvT+sAdgbmfNQQBPEh/tAnmIjmopSsH+/i5E
-	 U1rDhQJM6MweLo/ufwiBDM1lFfgKcPglJWSBD8nWcdG+Vr4fZgBqLOGcWOkbbkTgFP
-	 qxrcE5TT/HeNEs2/29sSMaAT3+TvBpLE0BqHvBX3DLzbFSNvkQbKU/GZjwnEPwEnUC
-	 jC93p3cJ384/NXhhyYsEV/eB0Jm+haN1qW16cidNuUY6nM7B/Q8WDq45uLjgnaf5td
-	 /1NW0yt7iA2gNM7b0Id+r8yDnMfYFl70ge4s3ljjhcgKNlcbxqbej4tvEWtzceK24a
-	 JhfIq7TMhW33g==
-Date: Tue, 11 Nov 2025 18:18:16 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: Re: [PATCH RFC 01/13] dt-bindings: soc: starfive: Add vout-subsystem
- IP block
-Message-ID: <20251111-massager-twistable-1e88f03d82f8@spud>
-References: <20251108-jh7110-clean-send-v1-0-06bf43bb76b1@samsung.com>
- <CGME20251108010453eucas1p2403ec0dd2c69ae7f3eabe19cf686f345@eucas1p2.samsung.com>
- <20251108-jh7110-clean-send-v1-1-06bf43bb76b1@samsung.com>
+	id 1vIt0Q-00000007bEb-1CPh
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Nov 2025 18:22:15 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b9f1d0126e6so26404a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Nov 2025 10:22:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1762885333; x=1763490133; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=WIB2H6PdyJ1SkmEweEXB/zVmO+ijAnVaHWzNPmEF0uQ=;
+        b=KwbJCT0jsJ3L7qDDL391gK4jFSk4zeNC5aDEoZQBRwclUbBoac8kiAr1I567M9lgWl
+         Om9aceeWOlK/9XLl/PrQcr5ex56uQFcAijmD08pDoej0YYBkGO4iCdi+IGPYlUHz6b2O
+         SxtX9lguhsgHSTqSeXsPnkvdNYDKgV8sGZHKqH7dwV0+EBUO0lG5N0W+YJItXk8TzYvD
+         uSjx4Zzn/csmVAQDg0kxp0LLj9FcgFgyJd9BIddFu9Wg5fUyqA+PVUwLUMkMruwva+6x
+         LvMUY4eUAspRFtcmktSu/rQSEzCtr+pZTTNtf3yub/mWarVWoZgt/7Ass+sPkmC834ua
+         Wcog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762885333; x=1763490133;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WIB2H6PdyJ1SkmEweEXB/zVmO+ijAnVaHWzNPmEF0uQ=;
+        b=hA7r86tqXatLmNUN1+A4RIqTOyALgX6kLxSR6X0wSP2R/WhryKajjvjECf7YlYn7xq
+         ZvExlh0ySJfNMVnYBsFRmFgpaFMIJxCBkMAEifxjMm8uKZsq9XYDxGn5AeouBY6DVbmN
+         6ZhvULG9GKS2C+eKn0L5LcQ7yexKRyj9zPbwMIGTm8KqT0WmBCQbyDUl5Msj/pTB5kPG
+         9CbQz/yPjj5YLPwDXH7yV1SKqKzabny0MoOlTcZOhNPrNbtlvSXQSj71SQb8j5giAnqg
+         pIa2e6uCgZsD24f6ALFC8cqjwgi48o6Tz+s31tAR/DqJV3Z+80sxhd6cLxhvmLNK50QT
+         jNOw==
+X-Forwarded-Encrypted: i=1; AJvYcCVha77rrLviE8Lh2JPP0lXAdwwY7IWoWZDrFKbJCU5/uFX4cSJJsm/Mb0D3qEqL9TwC9KYr8nOx0pk/jA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRHlCo3Ex58dMUC23C4QEBFJuXuEdliVt4fgu4liyOz+/s0c4m
+	CFincr1fsi3sBJYG0QnG69boBOE9gJMsHOgHDqHnREHI9nrxnAIehtY95rg+13Ouabs=
+X-Gm-Gg: ASbGnctPUVcb7W8OnYZD+mY4S+yNN5e2N0byFDmpbJoN4NmSfuZSSXoJkC6Kc7eKbPy
+	oP8LlRlnjTQ294aSfD4lA6dxH0eJAo3Vgu6FINDIMnrinjGi0/uzia+pG0WJg9E+BaV8wNK7TdO
+	MCbgcr1IIsH2YE5vusZWAbwCV5PnC/ph6nCWkD5yQIfLbE55yLF4AwLbOukQ1HZDtqrzxhZvE/1
+	mTkhOLQsUrsjVZp38o9hTtFFqqCvx8a3bMtbydHSf19b8mB1XW+UgeWCYCy7n5cNAcl0AJiybkF
+	Jfx9wpt2DyjyKmab/a4oG5ABwCCU6cMi1KgXa8YIwiyVz/bzl3lIpn5y70dV39ydmQJx1et81Fj
+	wyHCzpRS3EYfsB3hK0ZmP+GVpZZBKfj+OIDbt1bf8q/OVyiAjRAKBYHU1Hph3FXoDlPWBCp5Knd
+	vIDOa5Wqr4Zg==
+X-Google-Smtp-Source: AGHT+IHgsZ6GDRjZreNqZqXrg+8gWBFkhsOds9i8Gem5eMBAg33B4vZazV1IYc7GtJj2mgzKsVOwwA==
+X-Received: by 2002:a17:902:d551:b0:282:2c52:508e with SMTP id d9443c01a7336-2984ed41a29mr3269885ad.8.1762885333020;
+        Tue, 11 Nov 2025 10:22:13 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2984dc9fc2csm3813175ad.53.2025.11.11.10.22.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Nov 2025 10:22:12 -0800 (PST)
+Date: Tue, 11 Nov 2025 10:22:09 -0800
+From: Deepak Gupta <debug@rivosinc.com>
+To: Zong Li <zong.li@sifive.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Brauner <brauner@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com,
+	richard.henderson@linaro.org, jim.shu@sifive.com,
+	andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
+	atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
+	alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
+	rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v22 25/28] riscv: create a config for shadow stack and
+ landing pad instr support
+Message-ID: <aRN-0Z9MNeJ9IZf2@debug.ba.rivosinc.com>
+References: <20251023-v5_user_cfi_series-v22-0-1935270f7636@rivosinc.com>
+ <20251023-v5_user_cfi_series-v22-25-1935270f7636@rivosinc.com>
+ <CANXhq0oEpCow0G+KsJ6ZPuwsxmAFVqoKGEzygiwSmxFsmntiWg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20251108-jh7110-clean-send-v1-1-06bf43bb76b1@samsung.com>
+Content-Disposition: inline
+In-Reply-To: <CANXhq0oEpCow0G+KsJ6ZPuwsxmAFVqoKGEzygiwSmxFsmntiWg@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251111_102214_419749_2A00C41F 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,266 +132,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, dri-devel@lists.freedesktop.org, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, linux-clk@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Lee Jones <lee@kernel.org>, Andy Yan <andyshrk@163.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Hal Feng <hal.feng@starfivetech.com>, Simona Vetter <simona@ffwll.ch>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jonas Karlman <jonas@kwiboo.se>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Xingyu Wu <xingyu.wu@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org, Maud Spierings <maudspierings@gocontroll.com>, Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Zimmermann <tzimmermann@suse.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: multipart/mixed; boundary="===============3984446731251278952=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3984446731251278952==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LyJKcpcoYORwRgse"
-Content-Disposition: inline
-
-
---LyJKcpcoYORwRgse
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Nov 08, 2025 at 02:04:35AM +0100, Michal Wilczynski wrote:
-> Add the dt-binding documentation for the StarFive JH7110 Video Output
-> (VOUT) subsystem.
->=20
-> This node acts as a parent for all devices within the VOUT power domain,
-> including the DC8200 display controller, the VOUTCRG clock generator,
-> and the HDMI MFD block. Its driver is responsible for managing the
-> shared power domain and top-level bus clocks for these children.
->=20
-> It is a bit similar to the display subsystem qcom,sdm845-mdss DT node.
->=20
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  .../starfive/starfive,jh7110-vout-subsystem.yaml   | 156 +++++++++++++++=
-++++++
->  MAINTAINERS                                        |   5 +
->  2 files changed, 161 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh71=
-10-vout-subsystem.yaml b/Documentation/devicetree/bindings/soc/starfive/sta=
-rfive,jh7110-vout-subsystem.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..4ad9423ea139a537b4cfea26b=
-0ed4ed263aa14a1
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-vout=
--subsystem.yaml
-> @@ -0,0 +1,156 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-vout-sub=
-system.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 VOUT (Video Output) Subsystem
-> +
-> +maintainers:
-> +  - Michal Wilczynski <m.wilczynski@samsung.com>
-> +
-> +description:
-> +  The JH7110 video output subsystem is an IP block that contains
-> +  the display controller (DC8200), HDMI controller/PHY, and VOUT
-> +  clock generator (VOUTCRG).
-> +
-> +properties:
-> +  compatible:
-> +    const: starfive,jh7110-vout-subsystem
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  ranges: true
-> +
-> +  '#address-cells':
-> +    const: 2
-> +
-> +  '#size-cells':
-> +    const: 2
-> +
-> +patternProperties:
-> +  "^display@[0-9a-f]+$":
-
-Personally I'd like to see these being regular properties, since there's
-exactly one possible setup for this.
-
-> +    type: object
-> +    description: Verisilicon DC8200 Display Controller node.
-
-Can you add the relevant references here instead of allowing any object?
-
-Cheers,
-Conor.
-
-> +
-> +  "^hdmi@[0-9a-f]+$":
-> +    type: object
-> +    description: StarFive HDMI MFD (PHY + Controller) node.
-> +
-> +  "^clock-controller@[0-9a-f]+$":
-> +    type: object
-> +    description: StarFive VOUT Clock Generator (VOUTCRG) node.
-> +
-> +  "^syscon@[0-9a-f]+$":
-> +    type: object
-> +    description: StarFive VOUT Syscon node.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - power-domains
-> +  - clocks
-> +  - resets
-> +  - ranges
-> +  - '#address-cells'
-> +  - '#size-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/starfive,jh7110-crg.h>
-> +    #include <dt-bindings/power/starfive,jh7110-pmu.h>
-> +    #include <dt-bindings/reset/starfive,jh7110-crg.h>
-> +
-> +    soc {
-> +        #address-cells =3D <2>;
-> +        #size-cells =3D <2>;
-> +
-> +        vout_subsystem: display-subsystem@29400000 {
-> +            compatible =3D "starfive,jh7110-vout-subsystem";
-> +            reg =3D <0x0 0x29400000 0x0 0x200000>;
-> +            #address-cells =3D <2>;
-> +            #size-cells =3D <2>;
-> +            ranges;
-> +
-> +            power-domains =3D <&pwrc JH7110_PD_VOUT>;
-> +            clocks =3D <&syscrg JH7110_SYSCLK_NOC_BUS_DISP_AXI>;
-> +            resets =3D <&syscrg JH7110_SYSRST_NOC_BUS_DISP_AXI>;
-> +
-> +            dc8200: display@29400000 {
-> +                compatible =3D "verisilicon,dc";
-> +                reg =3D <0x0 0x29400000 0x0 0x2800>;
-> +                interrupts =3D <95>;
-> +                clocks =3D <&voutcrg JH7110_VOUTCLK_DC8200_CORE>,
-> +                         <&voutcrg JH7110_VOUTCLK_DC8200_AXI>,
-> +                         <&voutcrg JH7110_VOUTCLK_DC8200_AHB>,
-> +                         <&voutcrg JH7110_VOUTCLK_DC8200_PIX0>,
-> +                         <&voutcrg JH7110_VOUTCLK_DC8200_PIX1>;
-> +                clock-names =3D "core", "axi", "ahb", "pix0", "pix1";
-> +                resets =3D <&voutcrg JH7110_VOUTRST_DC8200_AXI>,
-> +                         <&voutcrg JH7110_VOUTRST_DC8200_AHB>,
-> +                         <&voutcrg JH7110_VOUTRST_DC8200_CORE>;
-> +                reset-names =3D "axi", "ahb", "core";
-> +            };
-> +
-> +            hdmi_mfd: hdmi@29590000 {
-> +                compatible =3D "starfive,jh7110-hdmi-mfd";
-> +                reg =3D <0x0 0x29590000 0x0 0x4000>;
-> +                interrupts =3D <99>;
-> +
-> +                hdmi_phy: phy {
-> +                    compatible =3D "starfive,jh7110-inno-hdmi-phy";
-> +                    clocks =3D <&xin24m>;
-> +                    clock-names =3D "refoclk";
-> +                    #clock-cells =3D <0>;
-> +                    clock-output-names =3D "hdmi_pclk";
-> +                    #phy-cells =3D <0>;
-> +                };
-> +
-> +                hdmi_controller: controller {
-> +                    compatible =3D "starfive,jh7110-inno-hdmi-controller=
-";
-> +                    interrupts =3D <99>;
-> +                    clocks =3D <&voutcrg JH7110_VOUTCLK_HDMI_TX_SYS>,
-> +                             <&voutcrg JH7110_VOUTCLK_HDMI_TX_MCLK>,
-> +                             <&voutcrg JH7110_VOUTCLK_HDMI_TX_BCLK>,
-> +                             <&hdmi_phy>;
-> +                    clock-names =3D "sys", "mclk", "bclk", "pclk";
-> +                    resets =3D <&voutcrg JH7110_VOUTRST_HDMI_TX_HDMI>;
-> +                    reset-names =3D "hdmi_tx";
-> +                    phys =3D <&hdmi_phy>;
-> +                    phy-names =3D "hdmi-phy";
-> +                };
-> +            };
-> +
-> +            voutcrg: clock-controller@295c0000 {
-> +                compatible =3D "starfive,jh7110-voutcrg";
-> +                reg =3D <0x0 0x295c0000 0x0 0x10000>;
-> +                clocks =3D <&syscrg JH7110_SYSCLK_VOUT_SRC>,
-> +                         <&syscrg JH7110_SYSCLK_VOUT_TOP_AHB>,
-> +                         <&syscrg JH7110_SYSCLK_VOUT_TOP_AXI>,
-> +                         <&syscrg JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK>,
-> +                         <&syscrg JH7110_SYSCLK_I2STX0_BCLK>,
-> +                         <&hdmi_phy>;
-> +                clock-names =3D "vout_src", "vout_top_ahb",
-> +                              "vout_top_axi", "vout_top_hdmitx0_mclk",
-> +                              "i2stx0_bclk", "hdmitx0_pixelclk";
-> +                resets =3D <&syscrg JH7110_SYSRST_VOUT_TOP_SRC>;
-> +                reset-names =3D "vout_top";
-> +                #clock-cells =3D <1>;
-> +                #reset-cells =3D <1>;
-> +            };
-> +        };
-> +    };
-> +
-> +...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 348caaaa929a519bc0ec5c0c7b587468ef7532d5..99434e54dc39494153677a6ca=
-359d70f2ba2ddb3 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -24044,6 +24044,11 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
->  F:	drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-> =20
-> +STARFIVE JH7110 DISPLAY SUBSYSTEM
-> +M:	Michal Wilczynski <m.wilczynski@samsung.com>
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-vout-s=
-ubsystem.yaml
-> +
->  STARFIVE JH7110 DPHY RX DRIVER
->  M:	Jack Zhu <jack.zhu@starfivetech.com>
->  M:	Changhuang Liang <changhuang.liang@starfivetech.com>
->=20
-> --=20
-> 2.34.1
->=20
-
---LyJKcpcoYORwRgse
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRN96AAKCRB4tDGHoIJi
-0op6AP94in4x/F+djtzX2cdGh5YC4XpNjLGROQ5E+6usNlM+lgEA8CLCphPZFJZM
-EEQ1XnVlM99yRJUHnSZmsnWiZzmyCQo=
-=wEbO
------END PGP SIGNATURE-----
-
---LyJKcpcoYORwRgse--
-
-
---===============3984446731251278952==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3984446731251278952==--
-
+T24gVHVlLCBOb3YgMTEsIDIwMjUgYXQgMDE6NTg6MzdQTSArMDgwMCwgWm9uZyBMaSB3cm90ZToK
+Pk9uIEZyaSwgT2N0IDI0LCAyMDI1IGF0IDEyOjUx4oCvQU0gRGVlcGFrIEd1cHRhIHZpYSBCNCBS
+ZWxheQo+PGRldm51bGwrZGVidWcucml2b3NpbmMuY29tQGtlcm5lbC5vcmc+IHdyb3RlOgo+Pgo+
+PiBGcm9tOiBEZWVwYWsgR3VwdGEgPGRlYnVnQHJpdm9zaW5jLmNvbT4KPj4KPj4gVGhpcyBwYXRj
+aCBjcmVhdGVzIGEgY29uZmlnIGZvciBzaGFkb3cgc3RhY2sgc3VwcG9ydCBhbmQgbGFuZGluZyBw
+YWQgaW5zdHIKPj4gc3VwcG9ydC4gU2hhZG93IHN0YWNrIHN1cHBvcnQgYW5kIGxhbmRpbmcgaW5z
+dHIgc3VwcG9ydCBjYW4gYmUgZW5hYmxlZCBieQo+PiBzZWxlY3RpbmcgYENPTkZJR19SSVNDVl9V
+U0VSX0NGSWAuIFNlbGVjdGluZyBgQ09ORklHX1JJU0NWX1VTRVJfQ0ZJYCB3aXJlcwo+PiB1cCBw
+YXRoIHRvIGVudW1lcmF0ZSBDUFUgc3VwcG9ydCBhbmQgaWYgY3B1IHN1cHBvcnQgZXhpc3RzLCBr
+ZXJuZWwgd2lsbAo+PiBzdXBwb3J0IGNwdSBhc3Npc3RlZCB1c2VyIG1vZGUgY2ZpLgo+Pgo+PiBJ
+ZiBDT05GSUdfUklTQ1ZfVVNFUl9DRkkgaXMgc2VsZWN0ZWQsIHNlbGVjdCBgQVJDSF9VU0VTX0hJ
+R0hfVk1BX0ZMQUdTYCwKPj4gYEFSQ0hfSEFTX1VTRVJfU0hBRE9XX1NUQUNLYCBhbmQgRFlOQU1J
+Q19TSUdGUkFNRSBmb3IgcmlzY3YuCj4+Cj4+IFJldmlld2VkLWJ5OiBab25nIExpIDx6b25nLmxp
+QHNpZml2ZS5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IERlZXBhayBHdXB0YSA8ZGVidWdAcml2b3Np
+bmMuY29tPgo+PiAtLS0KPj4gIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgIHwg
+MjIgKysrKysrKysrKysrKysrKysrKysrKwo+PiAgYXJjaC9yaXNjdi9jb25maWdzL2hhcmRlbmlu
+Zy5jb25maWcgfCAgNCArKysrCj4+ICAyIGZpbGVzIGNoYW5nZWQsIDI2IGluc2VydGlvbnMoKykK
+Pj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZp
+Zwo+PiBpbmRleCAwYzYwMzhkYzVkZmQuLjRmOWY5MzU4ZTZlMyAxMDA2NDQKPj4gLS0tIGEvYXJj
+aC9yaXNjdi9LY29uZmlnCj4+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+PiBAQCAtMTE0Niw2
+ICsxMTQ2LDI4IEBAIGNvbmZpZyBSQU5ET01JWkVfQkFTRQo+Pgo+PiAgICAgICAgICAgIElmIHVu
+c3VyZSwgc2F5IE4uCj4+Cj4+ICtjb25maWcgUklTQ1ZfVVNFUl9DRkkKPj4gKyAgICAgICBkZWZf
+Ym9vbCB5Cj4+ICsgICAgICAgYm9vbCAicmlzY3YgdXNlcnNwYWNlIGNvbnRyb2wgZmxvdyBpbnRl
+Z3JpdHkiCj4+ICsgICAgICAgZGVwZW5kcyBvbiA2NEJJVCAmJiAkKGNjLW9wdGlvbiwtbWFiaT1s
+cDY0IC1tYXJjaD1ydjY0aW1hX3ppY2Zpc3MpICYmIFwKPj4gKyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICQoY2Mtb3B0aW9uLC1mY2YtcHJvdGVjdGlvbj1mdWxsKQo+Cj5IaSBEZWVwYWssCj5J
+IG5vdGljZWQgdGhhdCB5b3UgYWRkZWQgYSAkKGNjLW9wdGlvbiwtZmNmLXByb3RlY3Rpb249ZnVs
+bCkgY2hlY2sgaW4KPnRoaXMgdmVyc2lvbi4gSSB0aGluayB0aGlzIGNoZWNrIHdpbGwgZmFpbCBi
+eSBhIGNjMSB3YXJuaW5nIHdoZW4gdXNpbmcKPmEgbmV3ZXIgdG9vbGNoYWluLCBiZWNhdXNlIC1m
+Y2YtcHJvdGVjdGlvbiBjYW5ub3QgYmUgdXNlZCBhbG9uZSwgaXQKPm11c3QgYmUgc3BlY2lmaWVk
+IHRvZ2V0aGVyIHdpdGggdGhlIGFwcHJvcHJpYXRlIC1tYXJjaCBvcHRpb24uCj5Gb3IgZXhhbXBs
+ZToKPiAgMS4gLWZjZi1wcm90ZWN0aW9uPWJyYW5jaCByZXF1aXJlcyAtbWFyY2g9Li4uX3ppY2Zp
+bHAKPiAgMi4gLWZjZi1wcm90ZWN0aW9uPXJldHVybiByZXF1aXJlcyAtbWFyY2g9Li4uX3ppY2Zp
+c3MKPiAgMy4gLWZjZi1wcm90ZWN0aW9uPWZ1bGwgcmVxdWlyZXMgLW1hcmNoPS4uLl96aWNmaWxw
+X3ppY2Zpc3MKCnRvb2xjaGFpbiB0aGF0IEkgaGF2ZSBmcm9tIEp1bmUgZG9lc24ndCByZXF1aXJl
+IC1tYXJjaD0uLi5femljZmlscF96aWNmaXNzCmZvciAtZmNmLXByb3RlY3Rpb249ZnVsbC4gSWYg
+dGhhdCBoYXMgY2hhbmdlZCwgSSB0aGluayB0aGlzIHdpbGwgbmVlZCBhCnJldmlzaW9uLgoKPgo+
+Cj4+ICsgICAgICAgZGVwZW5kcyBvbiBSSVNDVl9BTFRFUk5BVElWRQo+PiArICAgICAgIHNlbGVj
+dCBSSVNDVl9TQkkKPj4gKyAgICAgICBzZWxlY3QgQVJDSF9IQVNfVVNFUl9TSEFET1dfU1RBQ0sK
+Pj4gKyAgICAgICBzZWxlY3QgQVJDSF9VU0VTX0hJR0hfVk1BX0ZMQUdTCj4+ICsgICAgICAgc2Vs
+ZWN0IERZTkFNSUNfU0lHRlJBTUUKPj4gKyAgICAgICBoZWxwCj4+ICsgICAgICAgICBQcm92aWRl
+cyBDUFUgYXNzaXN0ZWQgY29udHJvbCBmbG93IGludGVncml0eSB0byB1c2Vyc3BhY2UgdGFza3Mu
+Cj4+ICsgICAgICAgICBDb250cm9sIGZsb3cgaW50ZWdyaXR5IGlzIHByb3ZpZGVkIGJ5IGltcGxl
+bWVudGluZyBzaGFkb3cgc3RhY2sgZm9yCj4+ICsgICAgICAgICBiYWNrd2FyZCBlZGdlIGFuZCBp
+bmRpcmVjdCBicmFuY2ggdHJhY2tpbmcgZm9yIGZvcndhcmQgZWRnZSBpbiBwcm9ncmFtLgo+PiAr
+ICAgICAgICAgU2hhZG93IHN0YWNrIHByb3RlY3Rpb24gaXMgYSBoYXJkd2FyZSBmZWF0dXJlIHRo
+YXQgZGV0ZWN0cyBmdW5jdGlvbgo+PiArICAgICAgICAgcmV0dXJuIGFkZHJlc3MgY29ycnVwdGlv
+bi4gVGhpcyBoZWxwcyBtaXRpZ2F0ZSBST1AgYXR0YWNrcy4KPj4gKyAgICAgICAgIEluZGlyZWN0
+IGJyYW5jaCB0cmFja2luZyBlbmZvcmNlcyB0aGF0IGFsbCBpbmRpcmVjdCBicmFuY2hlcyBtdXN0
+IGxhbmQKPj4gKyAgICAgICAgIG9uIGEgbGFuZGluZyBwYWQgaW5zdHJ1Y3Rpb24gZWxzZSBDUFUg
+d2lsbCBmYXVsdC4gVGhpcyBtaXRpZ2F0ZXMgYWdhaW5zdAo+PiArICAgICAgICAgSk9QIC8gQ09Q
+IGF0dGFja3MuIEFwcGxpY2F0aW9ucyBtdXN0IGJlIGVuYWJsZWQgdG8gdXNlIGl0LCBhbmQgb2xk
+IHVzZXItCj4+ICsgICAgICAgICBzcGFjZSBkb2VzIG5vdCBnZXQgcHJvdGVjdGlvbiAiZm9yIGZy
+ZWUiLgo+PiArICAgICAgICAgZGVmYXVsdCB5Lgo+PiArCj4+ICBlbmRtZW51ICMgIktlcm5lbCBm
+ZWF0dXJlcyIKPj4KPj4gIG1lbnUgIkJvb3Qgb3B0aW9ucyIKPj4gZGlmZiAtLWdpdCBhL2FyY2gv
+cmlzY3YvY29uZmlncy9oYXJkZW5pbmcuY29uZmlnIGIvYXJjaC9yaXNjdi9jb25maWdzL2hhcmRl
+bmluZy5jb25maWcKPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXggMDAwMDAwMDAwMDAw
+Li4wODlmNGNlZTgyZjQKPj4gLS0tIC9kZXYvbnVsbAo+PiArKysgYi9hcmNoL3Jpc2N2L2NvbmZp
+Z3MvaGFyZGVuaW5nLmNvbmZpZwo+PiBAQCAtMCwwICsxLDQgQEAKPj4gKyMgUklTQ1Ygc3BlY2lm
+aWMga2VybmVsIGhhcmRlbmluZyBvcHRpb25zCj4+ICsKPj4gKyMgRW5hYmxlIGNvbnRyb2wgZmxv
+dyBpbnRlZ3JpdHkgc3VwcG9ydCBmb3IgdXNlcm1vZGUuCj4+ICtDT05GSUdfUklTQ1ZfVVNFUl9D
+Rkk9eQo+Pgo+PiAtLQo+PiAyLjQzLjAKPj4KPj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
