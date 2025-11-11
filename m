@@ -4,120 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29A6CD1297
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 10:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428A0CCF9E3
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Nov 2025 10:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MHg7M+oRqtczHR3PVFY9osI9rGmlXhFYm7V3rC5OnQw=; b=4c/GCPC1Gj+WKL2MCPe5Bu7FRf
-	+Ll0kcsdz/DNyABPk5PCrt0VdC7CvicZiqvUDn4N8i5qIa9nCXk/OzQcWuZ+/g2jmgY5FG7duENw+
-	Z+M2g/MX5Q+YBe7nI5WpzRWz17t5ouKNH7n8TXFMMsRR1JXy1FxXaQQWFJpcaaSFeCEnE8IQvA0bL
-	8GS8jrZNGbjf0SGpbm26JvYAdMQlYMkct4L93aJbc8dL7SjSZbenasJjwJ5lskk8KA6Pfp5PSyxbM
-	OfN+T8MWlRdnqWPuAiL5iSnDdW033NhHy6/K90RzI8oW1E2g2yp/4nKh1wqKra24GUN25nIGmTWxJ
-	VBuVt+5g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=w1rwABCvB+pM2oqe4rMEIw8cJ6vXcgq19pmKq+DvLPY=; b=FfM9GugjQMlcuL
+	29xdxs3h7a430HS2FjAQEqjQZbY6HShryGEwn5F1ld3Dg3jcOyp/QjEssPkEhHGqCpUbCgkmCG+Zf
+	rhZcISDJQ+botJ+hFyJq6/iz3ub5ig1/KfsRIj1mPp1V63BOR1FENtX2Q71P5tunhebpy/nWHriXo
+	f+vCHmdHPX37EZMWHiM57bnrWC3X9Y29fdw7VxE1FGtU8f0Gm4l4MJuNrTZaWVKLA4Ns+I54xHvuk
+	Gug2ZLTJNp9LJnMjBaRHor1dbNa3lmOn8Fh7b3RPbcF27awxpyEZJ9882wbC73tLmmn+XN/pTM1y1
+	qzW6G9oxzfs3Matt96sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIldX-00000006x72-1ETp;
-	Tue, 11 Nov 2025 10:30:07 +0000
-Received: from cockroach.ash.relay.mailchannels.net ([23.83.222.37])
+	id 1vIlho-00000006xcq-335f;
+	Tue, 11 Nov 2025 10:34:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIldU-00000006x69-0jVP
+	id 1vIlhm-00000006xcV-1Z3H
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Nov 2025 10:30:06 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 6DEBA18323B;
-	Tue, 11 Nov 2025 10:30:01 +0000 (UTC)
-Received: from de-fra-smtpout9.hostinger.io (100-121-222-5.trex-nlb.outbound.svc.cluster.local [100.121.222.5])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 65521183268;
-	Tue, 11 Nov 2025 10:29:58 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1762857001; a=rsa-sha256;
-	cv=none;
-	b=d21LOJ4Dg3a1WngEf80JJHMlfd61Kf611U3K9GVRm67Uzznnm92ca+4dFf5FBEnx9/IMRM
-	ZB0pUFwYvpDr3qj39y6xYt+GRjkFTkW5MOuQNNh39494/I+/2flAbURe5xdGRaBUm+PsqG
-	rqSmpow2dYOKd88Vwndoe9+ZWeCoTDwL6RievltMMxS2Upm2RI/JLfmmr1W2p8P11obveC
-	hmL5+Fl1FsipO3CnMqM6rXEUC5nAXJoiQMthyRdB8ZqwVUwjta/hBG/qljHxD2DJrRbCnK
-	0JS68H2KS5LW6bfx2gIi3QjbR6O+MsE8FraUT/ze43kbvuV+enSrZZmYktKLGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1762857001;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=2Qfd38hEYraSzh4msAcAjnFoyuX5aFZrJHQNeV8binU=;
-	b=e/pGXJ05WFdNTJUP1DvF4KYv8//2ScRqlXuL6v37OzsHq6krX4Np/JZQyydWNShErrD8Xl
-	wJ0cnw1fkBDQZl3KFMKDKWPzzjNMwuTAg5ZtPeWfrWwFprqFEl6UVMUAiUS4CgrRbWPkYH
-	pox+fb+1AMpb6oVd9AXGgtnjTGcXnsHh11VQuUeArLyiI0iVU7EbRo0MV9kM8tTmGuqQ13
-	sYZlM+EgufRkEmpMppDb3BsUWj3PtiSAApjIBlTWqiTYgb4HuhemNMAUTn7OVO55LDXNFf
-	joVY9UgDn0viIcc4zXj5nnMTYMzEJbkohTt9nZHsHYkkbpeTyTGRgoKvJAjGHg==
-ARC-Authentication-Results: i=1;
-	rspamd-768b565cdb-8vj2s;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Desert-Troubled: 6e166cee6faafddb_1762857001217_3440765751
-X-MC-Loop-Signature: 1762857001217:4042955906
-X-MC-Ingress-Time: 1762857001216
-Received: from de-fra-smtpout9.hostinger.io (de-fra-smtpout9.hostinger.io
- [148.222.55.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.121.222.5 (trex/7.1.3);
-	Tue, 11 Nov 2025 10:30:01 +0000
-Received: from [IPV6:2001:861:4450:d360:3bc5:3dcd:eed2:25ed] (unknown [IPv6:2001:861:4450:d360:3bc5:3dcd:eed2:25ed])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d5N832hrhz3xFP;
-	Tue, 11 Nov 2025 10:29:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1762856996;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Qfd38hEYraSzh4msAcAjnFoyuX5aFZrJHQNeV8binU=;
-	b=Y59Vz5Cy3h7ac5Q4a6xbqQW9AfpFBE0u1er116QmGuyswSnho5MmfyuUgpIXPj9pgYagrC
-	IWgn6V6ekxz0t2N6eWIqacQlLy6Ouj10vXWYxU9KJtGWDTLjqOLknF7exzLFUeFydMoSYf
-	0Cif2hJwkvmkXaiONmzTnBurJG7yNtq9GxiEmuohXfiK3kLQUErna5kdyTPZ6uAw7nneYf
-	4NnXAbKAhsUOvxxze9xRisDZUl29mmsBcOK5Aj0UmdwiOtGZGViUWlaeVuTgOVR4yZGIro
-	XUhcGoTUzpEYxOWK814cOmflyCdbUWSEt4IuGJb7ARy5ipVLAznAvRgfFDzgUQ==
-Message-ID: <1d469324-84c8-4b5d-ae68-d77e3c822656@rootcommit.com>
+	Tue, 11 Nov 2025 10:34:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A28BB43679;
+	Tue, 11 Nov 2025 10:34:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EC14C116B1;
+	Tue, 11 Nov 2025 10:34:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762857269;
+	bh=Dzpt6Z0D/c6MEJOU+LNjhT4k0I4uQhWwRaQj5wYq5TA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NGc4qocnrynRT01TB0/gRXEOoeA73ahdapiloQvkIbphHfZSwEWpQwKK7qncJzrRR
+	 qbSlgwnwpY6IzYMLPtK8OsobU2oEqzB9QXDxM49w7sWJqYK67KFMxWa20eTexbcgZ8
+	 JzAyVB8zdfH3xTlyYWwXP07bICtd7wa3ICCOyRpcWDVSI+xoCoNeMeLqlUo71i3VGw
+	 PhzIaArHBHpl+G/dz6YiFDNa8yRVDy9iIrGhWgRxCGTIPw3sAul3+HriiTZNHcijP7
+	 lS7O5T7EjSCHYORDCyMXOE0aghQyfDLhrWN+EHqFkJdAepoer0HZwACj7hBIWpsieT
+	 UhJgN1Mz1kZSw==
+Message-ID: <2eb5ea0b-d071-4e17-abc8-7db5c78919f2@kernel.org>
+Date: Tue, 11 Nov 2025 11:34:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: spacemit: Add OrangePi R2S
+ board
+To: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+ Yixun Lan <dlan@gentoo.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Alexandre Ghiti <alex@ghiti.fr>, Yangyu Chen <cyy@cyyself.name>,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
  Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: spacemit: Add OrangePi R2S
- board
-To: Krzysztof Kozlowski <krzk@kernel.org>, Yixun Lan <dlan@gentoo.org>
 References: <20251110220641.1751392-1-michael.opdenacker@rootcommit.com>
  <20251110220641.1751392-2-michael.opdenacker@rootcommit.com>
  <20251111-inquisitive-ambrosial-chicken-861542@kuoka>
  <20251111101149-GYE1651402@gentoo.org>
  <af7bd4ab-38dd-4a5a-93e5-f457ae3460db@kernel.org>
-Content-Language: en-US, fr
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Organization: Root Commit
-In-Reply-To: <af7bd4ab-38dd-4a5a-93e5-f457ae3460db@kernel.org>
-Date: Tue, 11 Nov 2025 10:29:55 +0000 (UTC)
-X-CM-Analysis: v=2.4 cv=Ceda56rl c=1 sm=1 tr=0 ts=69131024 a=sEYliDYKNDM94lrOIDkWOw==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=VwQbUJbxAAAA:8 a=d70CFdQeAAAA:8 a=KNP2rDlw_ukOLo_CF_YA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
-X-CM-Envelope: MS4xfN2h32KLALFXb4b0pLM6SFdBF3o6GUHuwWdxBQSw3ik18v2CL3U/G5YljWmpHqb7vlHlv9CPM3OSsJw5V234IDod/ssdQyL+oVsHpxv7dNF9eoqAD4jl qswtwaw5T9T8i3aemvyemMYfMfDLwmQt5Amp02KRqc7L893wVTC6O7ZoV5uh+ZyOPMSayeQkzli5foipfpM9GTNGwiXUH+qxIPns71egEssC5TVNz+En2OmK UX9aE9ZXMDYdxzPhjWoM5953n+fHfLTz0QmsNUzOFkxfU4H+/kyQqw+oVMpSBSgFDT/6AtFPcfbzvKoZOwJx7h/eGp7pPnRstSaqIgQg1hRSuWtWMgOhR4tT hnNcAwi+b5o4a/KE+ZKmQ/ruc6Ze/mwUBzAGaJqnZm1MnclQRCtRcpZsnw0ixiE8t39OAbA/axCKEroDJVVGIP2rOQX+7YrIcgwJewWLMdPKQDfDYzTUP49L PzzNWx4fd+e/XlfN+8UCyvUzyCBk6+WmGVBtkeUCqgYlU4tQBqR/o0qB0cut7nOA9DR3Exty4PqNz127hg9Cn9lasLMFBW2puLuSKLkWbX/O0llzpu0C9vWX 3B+4JU/1R2rFIyelwn2quSse97GglE2bkTW2QvGf+6ZQcXZuHFrLsZAbV+e2zLgNCdE9IDdnKn6AlJWQ5cBNQZGBR/caiAPummppcs6F2R7Vg62sIEUqqyu5 1ZUOC587/Vc9I3vSSJ8R3Kgw9Kmyq/3teBQhQbLMVXTiBznq9ScE/BLk/YuT7kDjuRvupj1Gbt6BDj4O/xOKHuu33IvWlDlh5EK84UMdBwcYHv5sM9N1rg==
-X-AuthUser: michael.opdenacker@rootcommit.com
+ <1d469324-84c8-4b5d-ae68-d77e3c822656@rootcommit.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <1d469324-84c8-4b5d-ae68-d77e3c822656@rootcommit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_023004_501066_3BC13352 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251111_023430_475083_CF2B9001 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,50 +123,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Greetings
+On 11/11/2025 11:29, Michael Opdenacker wrote:
+> Greetings
+> 
+> Thanks one more time for the reviews!
+> 
+> On 11/11/25 11:13, Krzysztof Kozlowski wrote:
+>> On 11/11/2025 11:11, Yixun Lan wrote:
+>>> Hi Krzysztof,
+>>>
+>>> On 08:43 Tue 11 Nov     , Krzysztof Kozlowski wrote:
+>>>> On Mon, Nov 10, 2025 at 10:06:48PM +0000, michael.opdenacker@rootcommit.com wrote:
+>>>>> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+>>>>>
+>>>>> Document the compatible string for the OrangePi R2S board [1], which
+>>>>> is marketed as using the Ky X1 SoC but is in fact identical to
+>>> Maybe, just say it "same" to clarify the ambiguity?
+>> What is exactly "same"? Same die? Or same blocks/pieces? Whichever you
+>> choose please make it very explicit.
+> 
+> Maybe Troy Mitchell from Spacemit can shed light on this question.
+> 
+> Anyway, I could use the same wording as in this commit introducing 
+> "OrangePi RV2":
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/arch?id=bab8dea259100a99e047fd11a48940b229d30031
+> 
+> "The board is described as using the Ky X1 SoC, which, based on 
+> available downstream sources and testing, appears to be identical or 
+> very closely related to the SpacemiT K1 SoC".
+> 
+> What do you think?
 
-Thanks one more time for the reviews!
+This clearly suggests they are not identical thus you should have also
+dedicated compatible. Let me then precise, I thought it is obvious, that
+except writing it more detailed in commit msg, you also need proper
+binding expressing this. If this is not the same die and they look
+compatible, then usually it means you need a compatible.
 
-On 11/11/25 11:13, Krzysztof Kozlowski wrote:
-> On 11/11/2025 11:11, Yixun Lan wrote:
->> Hi Krzysztof,
->>
->> On 08:43 Tue 11 Nov     , Krzysztof Kozlowski wrote:
->>> On Mon, Nov 10, 2025 at 10:06:48PM +0000, michael.opdenacker@rootcommit.com wrote:
->>>> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
->>>>
->>>> Document the compatible string for the OrangePi R2S board [1], which
->>>> is marketed as using the Ky X1 SoC but is in fact identical to
->> Maybe, just say it "same" to clarify the ambiguity?
-> What is exactly "same"? Same die? Or same blocks/pieces? Whichever you
-> choose please make it very explicit.
-
-Maybe Troy Mitchell from Spacemit can shed light on this question.
-
-Anyway, I could use the same wording as in this commit introducing 
-"OrangePi RV2":
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/arch?id=bab8dea259100a99e047fd11a48940b229d30031
-
-"The board is described as using the Ky X1 SoC, which, based on 
-available downstream sources and testing, appears to be identical or 
-very closely related to the SpacemiT K1 SoC".
-
-What do you think?
-
-Cheers,
-Michael
-
--- 
-Michael Opdenacker
-Root Commit
-Yocto Project and OpenEmbedded Training course - Learn by doing:
-https://rootcommit.com/training/yocto/
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
