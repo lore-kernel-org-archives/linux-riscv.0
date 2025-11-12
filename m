@@ -4,57 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E396CCF9F8
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Nov 2025 06:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B683CCF9F8
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Nov 2025 06:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NMMe8x4z5I11iK9BT/+b1+RQ/gUA9CZr7h4+VevTixE=; b=GVcIA+zvNN0e+2
-	DgxvCOfB80k6+dP3X/GRA4skfu8co4eVLSF/fCfywn+Wj9pVyWOLMo/bmtFehBTA0ic1RMNZJiAcU
-	9T7h2fVQ7JdEgA9AwRRAFmR0Gfrfx3fbLE3BY4Ho5himjkJCUgfAJ54towzQhxlyFMSMJQlxuGe9h
-	h/J8VXFHvqegbSl/KgsXJYo/q51RXnxXo3SvsTrx4IHBPgYQWUkUenl1EACUqzrW6KhPdqG+BgTs3
-	tiDADrqdrdGgT1XfMB11f7wfap5N6RWSXdPNJI4pPXxLts1DrQCdMhs94BoCxn3Zl3LHfZB8AAiOt
-	ifKG5Q1c6JTsd9FrZ+Wg==;
+	List-Owner; bh=v2htwDHwIOnOunV+M/VpZbv1NUE+PonI6VyGk5pemkU=; b=qW5Eo/Xw/xH+DC
+	CEkaF0Y6w/d6sf5xX4n6ES7ENB1VovpNBovuVtAVwXuL1d6ML0FWZJkV9ekrTKGmWdtJ5nLk5AA18
+	I+6rRX21PTFYFxqGhgRAOTqndIIOSyuRJuMfTsBLvqnlnfGq3g/9I7sC6uyN/H8b5KwUNgnNBiUQt
+	5DLCSmMf3HB8iHZfhKsa04k8p7/o+CIGl1FbbiMlp8NWcH7mHDZnlk8wB1BCWJUba4OpDMgfuOzTX
+	L2v+6wv1Ca5fyagkZJ/1uLjlVHETQwy+lBfXdSVOBLW/8AMKOEEuF3Btzm7coItFLTrHe64Vk070c
+	ra+GxzkcfUWMAKgoVovQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ4Tn-00000008DC9-1QPH;
-	Wed, 12 Nov 2025 06:37:19 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1vJ4W9-00000008DRU-3fb3;
+	Wed, 12 Nov 2025 06:39:45 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ4Tl-00000008DBT-2O2U
+	id 1vJ4W6-00000008DQs-0ssp
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Nov 2025 06:37:18 +0000
+	Wed, 12 Nov 2025 06:39:44 +0000
 Received: from localhost (unknown [116.232.48.119])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 8D31B340F28;
-	Wed, 12 Nov 2025 06:37:14 +0000 (UTC)
-Date: Wed, 12 Nov 2025 14:37:10 +0800
+	by smtp.gentoo.org (Postfix) with ESMTPSA id D3A86340F28;
+	Wed, 12 Nov 2025 06:39:32 +0000 (UTC)
+Date: Wed, 12 Nov 2025 14:39:25 +0800
 From: Yixun Lan <dlan@gentoo.org>
 To: michael.opdenacker@rootcommit.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: riscv: spacemit: Add OrangePi R2S
- board
-Message-ID: <20251112063710-GYD1677982@gentoo.org>
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v4 0/2] riscv: spacemit: initial support for OrangePi R2S
+Message-ID: <20251112063925-GYE1677982@gentoo.org>
 References: <20251112044426.2351999-1-michael.opdenacker@rootcommit.com>
- <20251112044426.2351999-2-michael.opdenacker@rootcommit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251112044426.2351999-2-michael.opdenacker@rootcommit.com>
+In-Reply-To: <20251112044426.2351999-1-michael.opdenacker@rootcommit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_223717_627085_3A20F56D 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20251111_223943_469511_9C78E083 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +67,35 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Hi Michael,
-  Thanks for the new iteration
-
-Hi Krzysztof,
-  Is this version addressed your concern? I would like to queue it for
-v6.19, but let me know in case you still have objection..
 
 On 04:44 Wed 12 Nov     , michael.opdenacker@rootcommit.com wrote:
 > From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
 > 
-> Document the compatible string for the OrangePi R2S board [1], which
-> is marketed as using the Ky X1 SoC but is in fact identical in die
+> This adds initial support for the OrangePi R2S board [1], which
+> is marketed as using the Ky X1 SoC but is identical in die
 > and package to the SpacemiT K1 SoC [2].
+> 
+> What makes this board attractive is its 4 Ethernet ports
+> (2 x Gigagit RGMII with an external Motorcomm YT8531C PHY,
+> and 2 x 2.5 Gigabit Ethernet with RTL8125BG on an internal
+> PCI Express bus), its small form factor and its attractive
+> pricing like other OrangePi boards.
+> 
+> What is supported:
+> - Serial console on serial UART
+> - 8 GB eMMC
+> - 2x Gigabit RGMII Ethernet ports
+> 
+> This patch series is based on Spacemit's Linux tree,
+> "linux-for-next" branch [3]
 > 
 > Link: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-R2S.html [1]
 > Link: https://www.spacemit.com/en/key-stone-k1 [2]
-> Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-> ---
->  Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> Link: https://github.com/spacemit-com/linux/commits/k1/dt-for-next [3]
 > 
-> diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-> index 52fe39296031..9c49482002f7 100644
-> --- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-> @@ -23,6 +23,7 @@ properties:
->                - bananapi,bpi-f3
->                - milkv,jupiter
->                - spacemit,musepi-pro
-> +              - xunlong,orangepi-r2s
->                - xunlong,orangepi-rv2
->            - const: spacemit,k1
->  
-> 
+for the series
+
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
 
 -- 
 Yixun Lan (dlan)
