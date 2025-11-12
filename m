@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3540ECCF9F8
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Nov 2025 10:11:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 276ADCCFA1A
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Nov 2025 10:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KDZyeOZCrabHBcu4zPz0JadrSJfJDLbkc5CPMw1/MkU=; b=xq+ibGIHjOhF5u
-	M32Z2vEremYOEwCMSC7o7zVznb+LPDRMmBSZ5GLHAWvAMBmRDRIXU0jfoU8Y2waa9sYBLrGtVSmeg
-	IwT8dieAe3scd6sWLgwQJ0358xqDmAwSgbEiKiUHAMLE7ta2C85surSC4FRFRH4g8WJT34qf/FrUP
-	5liBbNAeIZbi7CvQ59ZB9iqun99bq1DnQfK24ob4tyZHXTOaCGuhQx1lCeM8byQvEVBlxaUV8LrcF
-	E6pco68ygsKtyx+19YgJGpabZtLrepm5VnDCMp8ciy2yBwmezvaN2pXioI+eX6xpVQsW3PcIjgFub
-	XerCAnKGEJ2AK3ZeWsHA==;
+	List-Owner; bh=l7u3whvtSEjEqn6+h5H0VevP6c/p0CXnpS7Q5pDUF8Y=; b=Gf/D28Bp94t950
+	LmYUK1hIc3FijUccM88a9Qh0kGHDZew1i8HValenk0QD23/2yC8O47oBeLplCUIgpbBqQcKJGv826
+	grACV82/Igh979CFWPmmO8i4yX2mVweHL6T3nbzvJXpP1UjIVjRCXnqY7clmBbQHOUw/Gob+3YxOx
+	cu9XMQ1eYamKN8tKnWxtCvVzSwHjsrDZqb5W2KdU6mxB9c+85I96PIjbYwoeAeXZE1OBH418z4Oax
+	tz/OtTX15OXbH33tTQIaBXQwKuwDWffgqRSWmx7AusceopxHTmwTHNlJBkLqJjUtu3Q55vpp3j6XB
+	aw2lAPmIimtiJgqxBYnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7ol-00000008X6M-0k6m;
-	Wed, 12 Nov 2025 10:11:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJ81S-00000008YXL-3gF1;
+	Wed, 12 Nov 2025 10:24:18 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7oj-00000008X62-12VW
+	id 1vJ81P-00000008YWK-4BMG
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Nov 2025 10:11:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A13754191C;
-	Wed, 12 Nov 2025 10:11:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24445C16AAE;
-	Wed, 12 Nov 2025 10:11:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762942268;
-	bh=67K+zUYP/aX07sPx28wY3sUmjVIxiApKZNs5WbP/U/E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dsFw02eZhsIPw+FfG11keYy8dCIECtSNGvyD+WPxdkQesFL6xRcwuaZ4wghA5HKT6
-	 LaSlvWi4cRWWWLMmgzqwOlqzVRzO7lZLLwofPFRej3C2JevpIiRqg3kPmc8UoX8vOJ
-	 XOJBPp4Bf42kezFpeQDGQYrGWjFnhAt/P9wReRuWGotHHidZASLq2m6ymwwAU2NaAW
-	 A8gzJ1aS5FNm+yMpaS1C95OCNLJkfrIdAetAvdGsv4rDTleZiOuZ4i2973aRiXPNTu
-	 WB0xggNCqMw+R6Y0P4VGJnUOwowBLdSGzCFJhUjQhr0npfC5qFTTR+8Aumke1zSV+s
-	 wZK3WwYSM2d9A==
-Date: Wed, 12 Nov 2025 11:11:06 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: michael.opdenacker@rootcommit.com
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yangyu Chen <cyy@cyyself.name>, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	Wed, 12 Nov 2025 10:24:17 +0000
+Received: from ofsar (unknown [116.232.48.119])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 7577934102D;
+	Wed, 12 Nov 2025 10:24:02 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	han.xu@nxp.com,
+	broonie@kernel.org,
+	pjw@kernel.org,
+	Alex Elder <elder@riscstar.com>
+Cc: Yixun Lan <dlan@gentoo.org>,
+	Frank.li@nxp.com,
+	p.zabel@pengutronix.de,
+	guodong@riscstar.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	apatel@ventanamicro.com,
+	joel@jms.id.au,
+	geert+renesas@glider.be,
+	cyy@cyyself.name,
+	heylenay@4d2.org,
+	conor.dooley@microchip.com,
+	fustini@kernel.org,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: riscv: spacemit: Add OrangePi R2S
- board
-Message-ID: <20251112-devious-devout-urchin-86634a@kuoka>
-References: <20251112044426.2351999-1-michael.opdenacker@rootcommit.com>
- <20251112044426.2351999-2-michael.opdenacker@rootcommit.com>
+Subject: Re: (subset) [PATCH v4 0/9] spi: enable the SpacemiT K1 SoC QSPI
+Date: Wed, 12 Nov 2025 18:23:49 +0800
+Message-ID: <176294293577.242112.11591899263367700984.b4-ty@gentoo.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251027133008.360237-1-elder@riscstar.com>
+References: <20251027133008.360237-1-elder@riscstar.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251112044426.2351999-2-michael.opdenacker@rootcommit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_021109_310750_B78169AD 
-X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-CacheID: sfid-20251112_022416_054158_3A49CDF9 
+X-CRM114-Status: UNSURE (   9.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,21 +89,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 04:44:40AM +0000, michael.opdenacker@rootcommit.com wrote:
-> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-> 
-> Document the compatible string for the OrangePi R2S board [1], which
-> is marketed as using the Ky X1 SoC but is in fact identical in die
-> and package to the SpacemiT K1 SoC [2].
-> 
-> Link: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-R2S.html [1]
-> Link: https://www.spacemit.com/en/key-stone-k1 [2]
-> Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Mon, 27 Oct 2025 08:29:58 -0500, Alex Elder wrote:
+> This series adds support for the SpacemiT K1 SoC QSPI.  This IP is
+> generally compatible with the Freescale QSPI driver, requiring three
+> minor changes to enable it to be supported.  The changes are:
+>   - Adding support for optional resets
+>   - Having the clock *not* be disabled when changing its rate
+>   - Allowing the size of storage blocks written to flash chips
+>     to be set to something different from the AHB buffer size
+> 
+> [...]
+
+Applied, thanks!
+
+[8/9] riscv: dts: spacemit: enable K1 SoC QSPI on BPI-F3
+      https://github.com/spacemit-com/linux/commit/41d34e0b5497f919229d32580fbe34386087458f
 
 Best regards,
-Krzysztof
+-- 
+Yixun Lan
 
 
 _______________________________________________
