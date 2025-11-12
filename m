@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C00ACD37BF
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Nov 2025 20:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 563F3CD37BF
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Nov 2025 20:04:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZhgsHSWwYE+AJAvCgsuLaujv5DRjJZ+yiOoelBzkR3Y=; b=0ZIh3xkES9s9fL
-	3Pqye9MJximiqi/tOt7uR7YWBPDW8VZnQYOsgvjUaW1CUx97woIE2bBdhv/V68MITAIqEjwbk5VGy
-	PUjcOVnbHT2Mo9eM4+pSWswG6j0w4EOvT6mox0SD8H6ClDHyzba3VcVKrRKNOcqENppFY+OY1VuLU
-	OKgwRHDjhmE92z9r9fFog7l47FHaYbG25Fyk+1793/1COo6rAsuQlCne8ngJlvke+RB9Hglr11Xo/
-	ZfzZ7QAZvP07Ythvnpm2SEFxmg37SsPONz4jGOMV7fKN8t98HBwsFzMFWgu0Lj7xD347wy5pj3oB1
-	WNTGyhhhptxQdg633kEg==;
+	List-Owner; bh=xLCPgvZf3zsoDe9s4Mxneo1h1dQjpxhLENLhbOI+DvI=; b=a9BbE8oMO+vhZO
+	cicqOazZX0Ytwj3ZOixVXsrTELjsDW/zax74A1RRsjHxuyxQYVXARKaJPuzuAMAuE6iv7m9ePOW85
+	Rx4rY1TZSrTeaT762RmTNc9oJ3ehGQuBkZBbiF9Jk3v/FiTYiRDjGsi6Fd/R8pMpvV0cNiCRzWnPK
+	kkixejxg1fJRxaBu4kwTbyx117HJ5kTYEwFwvwnxZDFWE60hCYV5UzEY9xkR2zMxQXAxPSMQwted0
+	3eYoI1xA4cU/Tac9dMe0QjXv/ITB7FkFkifMqgGARD3D0OWsxtgRccTc6BoJ1x9BiJRgF5DjeDFYG
+	bIbEa8ub68HzylhneSxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJH4I-00000009SIP-3qwx;
-	Wed, 12 Nov 2025 20:03:50 +0000
+	id 1vJH4M-00000009SKQ-0tl6;
+	Wed, 12 Nov 2025 20:03:55 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJH4F-00000009SHB-3wln
+	id 1vJH4J-00000009SIW-0v1C
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Nov 2025 20:03:49 +0000
+	Wed, 12 Nov 2025 20:03:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 85823445D2;
-	Wed, 12 Nov 2025 20:03:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9848C4CEF1;
-	Wed, 12 Nov 2025 20:03:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E6C4240A26;
+	Wed, 12 Nov 2025 20:03:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E5E0C19422;
+	Wed, 12 Nov 2025 20:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762977827;
-	bh=yPtrlmY0IQVG2j8kOjS21draicu9LupkNCxZyl2KJs4=;
+	s=k20201202; t=1762977830;
+	bh=nUO9ROu0gW7/ns/uQ28gcX3yc+GW0w13a9/X2aAT8jY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pseUIglzfH77wCOtINpw4wNljlqAXfilMaf+ELGuMA4dE9ngP9hIwCAr6f0booGAI
-	 KGS3ahcwI3EKsfa02eyAbS5hdRtWdzVsGzXuxWciW0c8UB91X+lv73569lka9lXOjo
-	 9UgY/UZ53h5zs9LLLMTLHGLG9gOXpN139PBlV8xn7dIvZkyWvDK0YfN3HF4VhLPRpY
-	 F1ii9M1+Rt8t25qp/G5CL+NO2XGWqVT3q1gZiL7tZmIyG9UAiZL2XLfrk9wk5wTFm5
-	 o50YhE0QEdM1vOQMLJ7P4GtSyESJbHIrkZHgt2Nei0dWtoOsa/+sLdTKSJBLe+T8dj
-	 puB2ZKLo9xyhA==
-Date: Wed, 12 Nov 2025 20:56:46 +0100
+	b=l/ZMvnzn2CADtOmnEK8oxSBL8h+W0p5Nn5UpsvsKruwJSHxVcUeR4XM3Xql0nKdus
+	 bSqKhs+uMkYIkIZuUXwM0okWDFlbTc1b3GFwaLc0i8MS0mArq4SZjPqyfw0pTxylrb
+	 kDcACs6NyCZrwCjMXmWAun5aPbx2tyCNun6nsiYlfBKzyIIndQtIzMFJnjIFqLp5W7
+	 U7cJIK3dUA8BdBGXaq6srPbi1okyViOeP9mxuL9ACCcf5VmurrX4ECVYI2S9Yt8Co2
+	 wGu2c5Zt7YjzPlTh1Ym0osiGu8n7TbyhwjUGx6vHaiztJkPuyn821csRFMNgYBEt1M
+	 bcQaFk/gjrsng==
+Date: Wed, 12 Nov 2025 21:03:23 +0100
 From: Nicolas Schier <nsc@kernel.org>
 To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
 Cc: Nathan Chancellor <nathan@kernel.org>, Paul Walmsley <pjw@kernel.org>,
@@ -69,17 +69,16 @@ Cc: Nathan Chancellor <nathan@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: Re: [PATCH v2 10/10] kbuild: simplify CC_CAN_LINK
-Message-ID: <aRTmfreiEEMez2gs@derry.ads.avm.de>
+Subject: Re: [PATCH v2 00/10] kbuild: userprogs: introduce
+ architecture-specific CC_CAN_LINK and userprog flags
+Message-ID: <aRToC77bNUy2sKAK@derry.ads.avm.de>
 References: <20251014-kbuild-userprogs-bits-v2-0-faeec46e887a@linutronix.de>
- <20251014-kbuild-userprogs-bits-v2-10-faeec46e887a@linutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251014-kbuild-userprogs-bits-v2-10-faeec46e887a@linutronix.de>
+In-Reply-To: <20251014-kbuild-userprogs-bits-v2-0-faeec46e887a@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_120348_000438_BD64BECA 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_120351_300137_2705C6A6 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,24 +95,77 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 03:05:25PM +0200, Thomas Wei=DFschuh wrote:
-> All architectures supporting multiple ABIs have been migrated to
-> ARCH_CC_CAN_LINK. The remaining ones do not require any special flag,
-> so simplify the logic.
+On Tue, Oct 14, 2025 at 03:05:15PM +0200, Thomas Wei=DFschuh wrote:
+> The current logic to inherit -m32/-m64 from the kernel build only works
+> for a few architectures. It does not handle byte order differences,
+> architectures using different compiler flags or different kinds of ABIs.
+> =
+
+> Introduce a per-architecture override mechanism to set CC_CAN_LINK and
+> the flags used for userprogs.
 > =
 
 > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
 > ---
->  Makefile     | 11 +++--------
->  init/Kconfig |  3 +--
->  2 files changed, 4 insertions(+), 10 deletions(-)
+> Changes in v2:
+> - Rebase and drop already applied patch
+> - Disable CC_CAN_LINK if the test program generates warnings
+> - Move to architecture-specific logic
+> - Link to v1: https://lore.kernel.org/r/20250813-kbuild-userprogs-bits-v1=
+-0-2d9f7f411083@linutronix.de
+> =
+
+> ---
+> Thomas Wei=DFschuh (10):
+>       kbuild: don't enable CC_CAN_LINK if the dummy program generates war=
+nings
+>       init: deduplicate cc-can-link.sh invocations
+>       kbuild: allow architectures to override CC_CAN_LINK
+>       riscv: Implement custom CC_CAN_LINK
+>       s390: Implement custom CC_CAN_LINK
+>       powerpc: Implement custom CC_CAN_LINK
+>       MIPS: Implement custom CC_CAN_LINK
+>       x86/Kconfig: Implement custom CC_CAN_LINK
+>       sparc: Implement custom CC_CAN_LINK
+>       kbuild: simplify CC_CAN_LINK
+> =
+
+>  Makefile                |  8 ++++++--
+>  arch/mips/Kconfig       | 15 +++++++++++++++
+>  arch/powerpc/Kconfig    | 15 +++++++++++++++
+>  arch/riscv/Kconfig      | 11 +++++++++++
+>  arch/s390/Kconfig       | 11 +++++++++++
+>  arch/sparc/Kconfig      | 11 +++++++++++
+>  arch/x86/Kconfig        | 11 +++++++++++
+>  init/Kconfig            |  7 +++++--
+>  scripts/Kconfig.include |  3 +++
+>  scripts/cc-can-link.sh  |  2 +-
+>  10 files changed, 89 insertions(+), 5 deletions(-)
+> ---
+> base-commit: 10f8210c7a7098897fcee5ca70236167b39eb797
+> change-id: 20250813-kbuild-userprogs-bits-03c117da4d50
+> =
+
+> Best regards,
+> -- =
+
+> Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
 > =
 
 
-Reviewed-by: Nicolas Schier <nsc@kernel.org>
+Thanks for the patch set and all the work behind!  I found only one
+issue in patch 3, the rest looks good to me as they are.
 
--- =
+I haven't reviewed the compiler flags for the archs, but from the formal
+point of view they look good to me, too.
 
+How shall we proceed with here?  I think, easiest would be if we get
+appropriate acks from the architecture maintainers, so we could take
+this via kbuild.
+
+Other opinions?
+
+Kind regards,
 Nicolas
 
 _______________________________________________
