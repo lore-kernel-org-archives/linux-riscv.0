@@ -4,107 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3130BCCFA1A
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Nov 2025 02:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D87CCF9F8
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Nov 2025 04:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ySwXe6i/KnmYrYyKzjdXkdtY1KjNkpZMa9JimUyc6TQ=; b=2cJ1wofAjqjhuy
-	C1e12YGbndEAOS5MWIbqDwiIq1i1fJ++5fKHlnqZlRxxeCURUC7twLl5VRgiYirBHm0pkffz/EdZM
-	6+k6YPYpNoU6bakNDvC8DvIelrRjdZ2H1WD4YqN9c2O6Z3kHrR8hS98W0jOIGYi81zY5nF/p7BXzK
-	VcpHL5S9z4tkQ/r6Y9LmZx1Avc9IBQp8ahpXeffg4fCUvwd3ttGfJla1y/Pf9xSCxyDDCaY2iM/kM
-	HatnOCXvMQ6YiG3uY60RN1D0uAWLDwuPkQUof0uep0DxNZtYXpddS8YFpaz0/Ufe4z3z4YKtuH9O8
-	tPCEnc+untURGl4HMoZg==;
+	List-Archive:List-Unsubscribe:List-Id:Date:MIME-Version:References:
+	In-Reply-To:Message-ID:Subject:Cc:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=zG11YZMaJATgYgR0p8PmMAvL6jrVLi4ez8nTX0Wlvok=; b=SU+PJUvR1FgEAiGWK3YNldoT9D
+	GyJVWc+6IukX/5XFpzfNvdCl7f9rMfM9ybAkOQhAB093gqR24bXL9rFH0csbISgV1roH1AfuR0r+B
+	EphCzPYnZl9VvprJyW9yuXfULrZA4TOVkW2AgCqhf0zUGDWBRXc1SgjLhZFIomngIvCLY8mSqj1py
+	EoMSBeph+KU0oXfOGvGQVxVs2wuxnEAqxLgyXt93PrLO0y55YCq4urT1NPha/YsQluPuGNA08r9/H
+	q7GvPve66AYaQGHTWsAj4tN8d3yLdQNmxuBTuvcpdWzpXKQbKHg21fGEG0J/NAqFWYT88/ojwQ+RZ
+	oErs0UwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ0SS-0000000813y-2iTC;
-	Wed, 12 Nov 2025 02:19:40 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1vJ2iz-0000000888r-24rr;
+	Wed, 12 Nov 2025 04:44:53 +0000
+Received: from poodle.tulip.relay.mailchannels.net ([23.83.218.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ0SP-00000008131-3Fwp
+	id 1vJ2it-00000008879-1uTK
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Nov 2025 02:19:39 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b72cbc24637so79610766b.0
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Nov 2025 18:19:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1762913976; x=1763518776; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ugAQKBkBrsHecB9x8Cs9RwnH0DI2WGTlcIm1Ae1jyr0=;
-        b=LcHeJNty5dZ/fL99Oexa6FPYfDBY69HpYJtCOZfgGLcJ8mf2ss3wCrwm/l3ZH0rgYk
-         EuHzaK8ch+IA1h+vSVv+3oYRy5rOfOQhoDlvtr9RD6lr9aXRRVwgg2gK8DJRzFwCNv1G
-         TrkUBx2uszNfgVtQNskfq0KkdnuHGPEbfTuMepGVTjElk9M/uv6YTgH0Xvq30JzzJyUK
-         uwDdXijp8VqeIx7EizMNQn3qFHWMEr6NYEBEXXyrvLmYr8zQeOje551932/Y+OMydFuV
-         KX+2aEWwlHGwOPyt5udwzhzNCPr1/0dSEyL7AAmIiWmeJVbUu2h/s3vTZFWzHp+7H5CV
-         PSDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762913976; x=1763518776;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ugAQKBkBrsHecB9x8Cs9RwnH0DI2WGTlcIm1Ae1jyr0=;
-        b=m3YkHrCkT/2rJ111xfx95Il+X7/vhQTLVXpZ9cO9xcBhFC2eviZcGPQg/ul2MqNLgp
-         9pFKiQ4Yv5P6H0QvX+z4/MAsC0zPIj9KBuYa56GbVGUVCDxjywQ0/my7SIkrGst2dbff
-         jHnw5c8dULH2uUWRSGKw7FSvk+CMtDdTZkHfbT3nW5U3xrZY2x10Q/DMkJMMbiULUfiD
-         w4Muq9bt0LRS752/ehx3bx0cbutQ8HP1adoPQ2dLZaFhmVsQNnRiYI7bhcIwYseMJDoV
-         3KY5Oi44Qyp0Wfq+92lARe7fEG8B77SJbk6k724Rc0La58iyxombiVTlh7hJ/fIhPKaY
-         IBXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWP+klpkd9cmwC84GPf34vgWOPHJ7jyrm6Hbq7OvWbS4RYoyMqtIyCkmZhFKHEQWhmX/T0VEW2+GCxm4w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHtdBOLZ+fF4WeJryRagzo0yA/gJszleWsifGQOkXYS6rMEcs1
-	2oSEHrfQhxptoh+Ru3gUN8VBynCpGcIyzSzhgLJOhBhGMu7w6jKRvPpoRqU939LHjk39UOVBZZ/
-	jKG4vD8+Pf1Bh22AEdWCmOwFnlHA841mH7uanwq2LJQ==
-X-Gm-Gg: ASbGnctB2jMSZEDDtZGFOkdXmvPCP3J9aGZf6d5JyaWF/U9E4mjBptHoePCc1xEFbtc
-	gapRQJjnOof33Ke5Q97wSLXW92GyWGbaX0dWmtYjUvTrLtyTasloeupl6zPjxysDF0TyZCD5SKq
-	obMi8FxbRUlkZLICDeuqjo+orVMVX7vf7jXUrEZf80Zb6TLVTwLuCPHVCiqywdFMBuG8JlOBTiM
-	UxJBl7GmeD2Sx0yAZKq6dAqSEOKS0j/dAM5tR/8j9Z/vusVfFUk+gwSuUFA84M=
-X-Google-Smtp-Source: AGHT+IE+yEBTlwHkenGiGwu5UyXnAf6gT3RkSyNE+10D+a3qX/UN5XaT1J5EAZetmYd9Vh7p3GgyT6IZWxgqCbtm2x0=
-X-Received: by 2002:a17:907:3daa:b0:b72:52c2:b8ca with SMTP id
- a640c23a62f3a-b7331aec193mr102047266b.59.1762913975653; Tue, 11 Nov 2025
- 18:19:35 -0800 (PST)
+	Wed, 12 Nov 2025 04:44:50 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id C3350120CA6;
+	Wed, 12 Nov 2025 04:44:45 +0000 (UTC)
+Received: from de-fra-smtpout9.hostinger.io (trex-green-9.trex.outbound.svc.cluster.local [100.121.213.86])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 2ED39120665;
+	Wed, 12 Nov 2025 04:44:43 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1762922685; a=rsa-sha256;
+	cv=none;
+	b=v3LTPQJzxr1Xh3nPjFIb1iARsvBMt0VdFu1nglefMvcTdoaj1dwTb+Hfjo8aRCr+LK0nIi
+	LEOxqzGhsLeU4qBvtBcDNzUEl3AZMTlCkSyq3v1woWfdUTFSqbqiXjrhkJ2fhwb7YIOl5m
+	ch+ZrXUv9BW117bmG8eh+TJ4LQFAwywf7VP9QmIIFoE6BjPwpYYEm4H2HPTPKPbnJPNRyt
+	6wPgrwpsaDNqmCUPKl54mFfLPBYBurPl7bfsxXWHCZ6EpiFeS197YjLA0Tm5gus8AQsVtT
+	UQvJca0WIE9q5qjbebzjJiavhcGJFl+mkC6RjigmLvnUXR4tCrSGEtKo5iwwLQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1762922685;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=gWvTqx7+tTYvzQaik51mPtFs1qznC/s+mRlEV2OX5Ak=;
+	b=Xnrki8bKZNWsIvyAkXaggpCJrCV0sUl9AUsXBKCiPnDzd3xzd9d+xsjJ5L6oRZcK5v0S4S
+	M57ujtFS/H4CKFB5Y7WpwsZdJxZ/ZElLUfsnUcwGwblyN1hNicbZTfJX4v666I2JWYStPG
+	1l0NeemhnOaSGQsb4MvlBgHvK2Yvq1/cCHDhYa9C4Ohm7lHH+X/cgTqlaGJClF/24SOlez
+	jEizgwC2Ntwm/T8O3B665F6Lc2kWC6oVjmHkY0e40BdEQbO6geQ8euYP7Ii18QCMio9UMK
+	ZAv3IT6+iGkmwPIOUDKmn7TWZY6h3EcI5rGe4M2PVOHxIHlhb065OzIsqWDKYQ==
+ARC-Authentication-Results: i=1;
+	rspamd-768b565cdb-bj6n2;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Shoe-Bitter: 7f330a8001916908_1762922685683_1118103663
+X-MC-Loop-Signature: 1762922685683:3359293449
+X-MC-Ingress-Time: 1762922685683
+Received: from de-fra-smtpout9.hostinger.io (de-fra-smtpout9.hostinger.io
+ [148.222.55.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.121.213.86 (trex/7.1.3);
+	Wed, 12 Nov 2025 04:44:45 +0000
+Received: from localhost.localdomain (unknown [IPv6:2001:861:4450:d360:e24a:32fa:a400:91c])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d5rRD5f44z3xHJ;
+	Wed, 12 Nov 2025 04:44:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1762922681;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gWvTqx7+tTYvzQaik51mPtFs1qznC/s+mRlEV2OX5Ak=;
+	b=c3CQRNjebgeT+IyjT13VU8HAgAZmZrVGQYFTyjy2rac4zaujKJ7qHZ/wg4k1kTWbP62u2l
+	KaArpODu6bdJFoAsqPAxKP7EYH4BIhcyvmQjq54zlyLr1DAkQsZL6+sz/gaM8+yA2aIU7k
+	cdNtAalj+jTRyp5QIHTAQVTmtyb3tuO1CMAVcBeO+0Rvh2QZGtuZa4Hw3BTfoLiGg3ksvl
+	tXS43z7vh5JWvtS2kguGXLOJm5copnEZtL1FElnuurbQz+d8e5m34QbSiC61YLsl1QTO7v
+	Ool/L9sFfdZ9XYuIcObiG13P9xXRpHOlZ/NDnrwIFkcn6HGTwsEp83Y5pxSACQ==
+From: michael.opdenacker@rootcommit.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yangyu Chen <cyy@cyyself.name>
+Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 1/2] dt-bindings: riscv: spacemit: Add OrangePi R2S board
+Message-ID: <20251112044426.2351999-2-michael.opdenacker@rootcommit.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251112044426.2351999-1-michael.opdenacker@rootcommit.com>
+References: <20251112044426.2351999-1-michael.opdenacker@rootcommit.com>
 MIME-Version: 1.0
-References: <20251023-v5_user_cfi_series-v22-0-1935270f7636@rivosinc.com>
- <20251023-v5_user_cfi_series-v22-25-1935270f7636@rivosinc.com>
- <CANXhq0oEpCow0G+KsJ6ZPuwsxmAFVqoKGEzygiwSmxFsmntiWg@mail.gmail.com> <aRN-0Z9MNeJ9IZf2@debug.ba.rivosinc.com>
-In-Reply-To: <aRN-0Z9MNeJ9IZf2@debug.ba.rivosinc.com>
-From: Zong Li <zong.li@sifive.com>
-Date: Wed, 12 Nov 2025 10:19:23 +0800
-X-Gm-Features: AWmQ_bmKovRTmE80-MSruF1BPvDQmZ8Z-ahD6_kAC3IOhiFoglBht7EGrzIY3bI
-Message-ID: <CANXhq0ryrNUoBvACX9hh-=FVOe+L6_6beXrZQn2e1P6eWgcUiA@mail.gmail.com>
-Subject: Re: [PATCH v22 25/28] riscv: create a config for shadow stack and
- landing pad instr support
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Christian Brauner <brauner@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Jann Horn <jannh@google.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Benno Lossin <lossin@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
-	richard.henderson@linaro.org, jim.shu@sifive.com, andybnac@gmail.com, 
-	kito.cheng@sifive.com, charlie@rivosinc.com, atishp@rivosinc.com, 
-	evan@rivosinc.com, cleger@rivosinc.com, alexghiti@rivosinc.com, 
-	samitolvanen@google.com, broonie@kernel.org, rick.p.edgecombe@intel.com, 
-	rust-for-linux@vger.kernel.org
+Date: Wed, 12 Nov 2025 04:44:40 +0000 (UTC)
+X-CM-Envelope: MS4xfMVNK2xIzuy4WMC19TFvaS0296fSICCBfbpkkQJhiyBC4HxXM09fTCRgLWRZ4QTsj3XioJFaA4XlIMzUb+QomrVTIQkWdqJzF6ksO5gG+1H3vPDL7PlD OxcotLIen1pW+/bmqhXZluSMnRQDcWj67BdaxFqe/kS4TXWpIkTZiaxoesoEsi3ZaOGxpkJTvArjiv8vco+gJhpMORx7f2KS3TFcFQoNGAZhFf2t7DgtnDeX 05ptyWUPXjLuja6hzLffAZ/GL30TW1gjEIH8avsN7croIilxKDjyank3R7fQqwnM1aqQYjLflxxJ/6kCs3VQBUOLvI5w+BQaGCcmsNyiTvCvCLl34kAkcJlS NrjtFH5FjmauD9H2ChvYbDd+Pp/MorBU3tZh7t7KG1/NGemi9cxpKw925ACfhmI+wzwwopHty9cc/NpnNk/yYmJvOOXRMUzPbcMQHaTaO2kTdTdOk2AjnnWH LNvkDnCYYA0Y/zg3wnq8Qnh8aSU1AZeM2RB68ziRh2i76r1lxhneA0vbUvejqL1fdKlusV9ENz2cNORaypoZ5YseqF+MzV+rtLT9/v/32HoVtSMqJwycMjlQ d/ngjjsW0+PKBR7Aqk1gS8DpsGQKjwMyIfk8LTVVaQd/x/4onyuY2M7J6JEegUJSlLVt36zPy43JSyRyvInbtO5vfmDuSfmLXnUO00CGFamJ+z66zHcbjRnn PJU0sBivWIA=
+X-CM-Analysis: v=2.4 cv=Ceda56rl c=1 sm=1 tr=0 ts=691410b9 a=XVsSf4j1YTBLvHmD+RU1sw==:617 a=xqWC_Br6kY4A:10 a=5dAzR5NRAAAA:8 a=lv0vYI88AAAA:8 a=d70CFdQeAAAA:8 a=GJGCkeFiLITI3ydwnRgA:9 a=9STjDIb-X-UA:10 a=ZKAZAlVgJm32z6MX8p4a:22 a=9qqun4PRrEabIEPCFt1_:22 a=NcxpMcIZDGm-g932nG_k:22
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_181937_859008_E85CE0E2 
-X-CRM114-Status: GOOD (  29.01  )
+X-CRM114-CacheID: sfid-20251111_204447_562349_FFDE44F2 
+X-CRM114-Status: UNSURE (   6.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,83 +128,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBOb3YgMTIsIDIwMjUgYXQgMjoyMuKAr0FNIERlZXBhayBHdXB0YSA8ZGVidWdAcml2
-b3NpbmMuY29tPiB3cm90ZToKPgo+IE9uIFR1ZSwgTm92IDExLCAyMDI1IGF0IDAxOjU4OjM3UE0g
-KzA4MDAsIFpvbmcgTGkgd3JvdGU6Cj4gPk9uIEZyaSwgT2N0IDI0LCAyMDI1IGF0IDEyOjUx4oCv
-QU0gRGVlcGFrIEd1cHRhIHZpYSBCNCBSZWxheQo+ID48ZGV2bnVsbCtkZWJ1Zy5yaXZvc2luYy5j
-b21Aa2VybmVsLm9yZz4gd3JvdGU6Cj4gPj4KPiA+PiBGcm9tOiBEZWVwYWsgR3VwdGEgPGRlYnVn
-QHJpdm9zaW5jLmNvbT4KPiA+Pgo+ID4+IFRoaXMgcGF0Y2ggY3JlYXRlcyBhIGNvbmZpZyBmb3Ig
-c2hhZG93IHN0YWNrIHN1cHBvcnQgYW5kIGxhbmRpbmcgcGFkIGluc3RyCj4gPj4gc3VwcG9ydC4g
-U2hhZG93IHN0YWNrIHN1cHBvcnQgYW5kIGxhbmRpbmcgaW5zdHIgc3VwcG9ydCBjYW4gYmUgZW5h
-YmxlZCBieQo+ID4+IHNlbGVjdGluZyBgQ09ORklHX1JJU0NWX1VTRVJfQ0ZJYC4gU2VsZWN0aW5n
-IGBDT05GSUdfUklTQ1ZfVVNFUl9DRklgIHdpcmVzCj4gPj4gdXAgcGF0aCB0byBlbnVtZXJhdGUg
-Q1BVIHN1cHBvcnQgYW5kIGlmIGNwdSBzdXBwb3J0IGV4aXN0cywga2VybmVsIHdpbGwKPiA+PiBz
-dXBwb3J0IGNwdSBhc3Npc3RlZCB1c2VyIG1vZGUgY2ZpLgo+ID4+Cj4gPj4gSWYgQ09ORklHX1JJ
-U0NWX1VTRVJfQ0ZJIGlzIHNlbGVjdGVkLCBzZWxlY3QgYEFSQ0hfVVNFU19ISUdIX1ZNQV9GTEFH
-U2AsCj4gPj4gYEFSQ0hfSEFTX1VTRVJfU0hBRE9XX1NUQUNLYCBhbmQgRFlOQU1JQ19TSUdGUkFN
-RSBmb3IgcmlzY3YuCj4gPj4KPiA+PiBSZXZpZXdlZC1ieTogWm9uZyBMaSA8em9uZy5saUBzaWZp
-dmUuY29tPgo+ID4+IFNpZ25lZC1vZmYtYnk6IERlZXBhayBHdXB0YSA8ZGVidWdAcml2b3NpbmMu
-Y29tPgo+ID4+IC0tLQo+ID4+ICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICB8
-IDIyICsrKysrKysrKysrKysrKysrKysrKysKPiA+PiAgYXJjaC9yaXNjdi9jb25maWdzL2hhcmRl
-bmluZy5jb25maWcgfCAgNCArKysrCj4gPj4gIDIgZmlsZXMgY2hhbmdlZCwgMjYgaW5zZXJ0aW9u
-cygrKQo+ID4+Cj4gPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlz
-Y3YvS2NvbmZpZwo+ID4+IGluZGV4IDBjNjAzOGRjNWRmZC4uNGY5ZjkzNThlNmUzIDEwMDY0NAo+
-ID4+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZp
-Zwo+ID4+IEBAIC0xMTQ2LDYgKzExNDYsMjggQEAgY29uZmlnIFJBTkRPTUlaRV9CQVNFCj4gPj4K
-PiA+PiAgICAgICAgICAgIElmIHVuc3VyZSwgc2F5IE4uCj4gPj4KPiA+PiArY29uZmlnIFJJU0NW
-X1VTRVJfQ0ZJCj4gPj4gKyAgICAgICBkZWZfYm9vbCB5Cj4gPj4gKyAgICAgICBib29sICJyaXNj
-diB1c2Vyc3BhY2UgY29udHJvbCBmbG93IGludGVncml0eSIKPiA+PiArICAgICAgIGRlcGVuZHMg
-b24gNjRCSVQgJiYgJChjYy1vcHRpb24sLW1hYmk9bHA2NCAtbWFyY2g9cnY2NGltYV96aWNmaXNz
-KSAmJiBcCj4gPj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICQoY2Mtb3B0aW9uLC1mY2Yt
-cHJvdGVjdGlvbj1mdWxsKQo+ID4KPiA+SGkgRGVlcGFrLAo+ID5JIG5vdGljZWQgdGhhdCB5b3Ug
-YWRkZWQgYSAkKGNjLW9wdGlvbiwtZmNmLXByb3RlY3Rpb249ZnVsbCkgY2hlY2sgaW4KPiA+dGhp
-cyB2ZXJzaW9uLiBJIHRoaW5rIHRoaXMgY2hlY2sgd2lsbCBmYWlsIGJ5IGEgY2MxIHdhcm5pbmcg
-d2hlbiB1c2luZwo+ID5hIG5ld2VyIHRvb2xjaGFpbiwgYmVjYXVzZSAtZmNmLXByb3RlY3Rpb24g
-Y2Fubm90IGJlIHVzZWQgYWxvbmUsIGl0Cj4gPm11c3QgYmUgc3BlY2lmaWVkIHRvZ2V0aGVyIHdp
-dGggdGhlIGFwcHJvcHJpYXRlIC1tYXJjaCBvcHRpb24uCj4gPkZvciBleGFtcGxlOgo+ID4gIDEu
-IC1mY2YtcHJvdGVjdGlvbj1icmFuY2ggcmVxdWlyZXMgLW1hcmNoPS4uLl96aWNmaWxwCj4gPiAg
-Mi4gLWZjZi1wcm90ZWN0aW9uPXJldHVybiByZXF1aXJlcyAtbWFyY2g9Li4uX3ppY2Zpc3MKPiA+
-ICAzLiAtZmNmLXByb3RlY3Rpb249ZnVsbCByZXF1aXJlcyAtbWFyY2g9Li4uX3ppY2ZpbHBfemlj
-Zmlzcwo+Cj4gdG9vbGNoYWluIHRoYXQgSSBoYXZlIGZyb20gSnVuZSBkb2Vzbid0IHJlcXVpcmUg
-LW1hcmNoPS4uLl96aWNmaWxwX3ppY2Zpc3MKPiBmb3IgLWZjZi1wcm90ZWN0aW9uPWZ1bGwuIElm
-IHRoYXQgaGFzIGNoYW5nZWQsIEkgdGhpbmsgdGhpcyB3aWxsIG5lZWQgYQo+IHJldmlzaW9uLgoK
-WWVzLCB0aGF04oCZcyB3aGF0IEnigJl2ZSBsZWFybmVkIGZyb20gdGhlIHRvb2xjaGFpbiBndXlz
-IHNvIGZhciwgcGVyaGFwcwp3ZSBjYW4gZG91YmxlIGNoZWNrIHdpdGggdGhlbS4gSWYgaXQgaXMg
-cmlnaHQsIEkgZ3Vlc3Mgd2UgbWlnaHQgbWVyZ2UKdGhlbSBpbnRvIG9uZSBjaGVjayBhcyBmb2xs
-b3dzOgokKGNjLW9wdGlvbiwtbWFiaT1scDY0IC1tYXJjaD1ydjY0aW1hX3ppY2ZpbHBfemljZmlz
-cyAtZmNmLXByb3RlY3Rpb249ZnVsbCkKb3IKJChjYy1vcHRpb24sLW1hYmk9bHA2NCAtbWFyY2g9
-cnY2NGltYV96aWNmaXNzIC1mY2YtcHJvdGVjdGlvbj1yZXR1cm4pCgo+Cj4gPgo+ID4KPiA+PiAr
-ICAgICAgIGRlcGVuZHMgb24gUklTQ1ZfQUxURVJOQVRJVkUKPiA+PiArICAgICAgIHNlbGVjdCBS
-SVNDVl9TQkkKPiA+PiArICAgICAgIHNlbGVjdCBBUkNIX0hBU19VU0VSX1NIQURPV19TVEFDSwo+
-ID4+ICsgICAgICAgc2VsZWN0IEFSQ0hfVVNFU19ISUdIX1ZNQV9GTEFHUwo+ID4+ICsgICAgICAg
-c2VsZWN0IERZTkFNSUNfU0lHRlJBTUUKPiA+PiArICAgICAgIGhlbHAKPiA+PiArICAgICAgICAg
-UHJvdmlkZXMgQ1BVIGFzc2lzdGVkIGNvbnRyb2wgZmxvdyBpbnRlZ3JpdHkgdG8gdXNlcnNwYWNl
-IHRhc2tzLgo+ID4+ICsgICAgICAgICBDb250cm9sIGZsb3cgaW50ZWdyaXR5IGlzIHByb3ZpZGVk
-IGJ5IGltcGxlbWVudGluZyBzaGFkb3cgc3RhY2sgZm9yCj4gPj4gKyAgICAgICAgIGJhY2t3YXJk
-IGVkZ2UgYW5kIGluZGlyZWN0IGJyYW5jaCB0cmFja2luZyBmb3IgZm9yd2FyZCBlZGdlIGluIHBy
-b2dyYW0uCj4gPj4gKyAgICAgICAgIFNoYWRvdyBzdGFjayBwcm90ZWN0aW9uIGlzIGEgaGFyZHdh
-cmUgZmVhdHVyZSB0aGF0IGRldGVjdHMgZnVuY3Rpb24KPiA+PiArICAgICAgICAgcmV0dXJuIGFk
-ZHJlc3MgY29ycnVwdGlvbi4gVGhpcyBoZWxwcyBtaXRpZ2F0ZSBST1AgYXR0YWNrcy4KPiA+PiAr
-ICAgICAgICAgSW5kaXJlY3QgYnJhbmNoIHRyYWNraW5nIGVuZm9yY2VzIHRoYXQgYWxsIGluZGly
-ZWN0IGJyYW5jaGVzIG11c3QgbGFuZAo+ID4+ICsgICAgICAgICBvbiBhIGxhbmRpbmcgcGFkIGlu
-c3RydWN0aW9uIGVsc2UgQ1BVIHdpbGwgZmF1bHQuIFRoaXMgbWl0aWdhdGVzIGFnYWluc3QKPiA+
-PiArICAgICAgICAgSk9QIC8gQ09QIGF0dGFja3MuIEFwcGxpY2F0aW9ucyBtdXN0IGJlIGVuYWJs
-ZWQgdG8gdXNlIGl0LCBhbmQgb2xkIHVzZXItCj4gPj4gKyAgICAgICAgIHNwYWNlIGRvZXMgbm90
-IGdldCBwcm90ZWN0aW9uICJmb3IgZnJlZSIuCj4gPj4gKyAgICAgICAgIGRlZmF1bHQgeS4KPiA+
-PiArCj4gPj4gIGVuZG1lbnUgIyAiS2VybmVsIGZlYXR1cmVzIgo+ID4+Cj4gPj4gIG1lbnUgIkJv
-b3Qgb3B0aW9ucyIKPiA+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9jb25maWdzL2hhcmRlbmlu
-Zy5jb25maWcgYi9hcmNoL3Jpc2N2L2NvbmZpZ3MvaGFyZGVuaW5nLmNvbmZpZwo+ID4+IG5ldyBm
-aWxlIG1vZGUgMTAwNjQ0Cj4gPj4gaW5kZXggMDAwMDAwMDAwMDAwLi4wODlmNGNlZTgyZjQKPiA+
-PiAtLS0gL2Rldi9udWxsCj4gPj4gKysrIGIvYXJjaC9yaXNjdi9jb25maWdzL2hhcmRlbmluZy5j
-b25maWcKPiA+PiBAQCAtMCwwICsxLDQgQEAKPiA+PiArIyBSSVNDViBzcGVjaWZpYyBrZXJuZWwg
-aGFyZGVuaW5nIG9wdGlvbnMKPiA+PiArCj4gPj4gKyMgRW5hYmxlIGNvbnRyb2wgZmxvdyBpbnRl
-Z3JpdHkgc3VwcG9ydCBmb3IgdXNlcm1vZGUuCj4gPj4gK0NPTkZJR19SSVNDVl9VU0VSX0NGST15
-Cj4gPj4KPiA+PiAtLQo+ID4+IDIuNDMuMAo+ID4+Cj4gPj4KCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+
+Document the compatible string for the OrangePi R2S board [1], which
+is marketed as using the Ky X1 SoC but is in fact identical in die
+and package to the SpacemiT K1 SoC [2].
+
+Link: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-R2S.html [1]
+Link: https://www.spacemit.com/en/key-stone-k1 [2]
+Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+---
+ Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+index 52fe39296031..9c49482002f7 100644
+--- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
++++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+@@ -23,6 +23,7 @@ properties:
+               - bananapi,bpi-f3
+               - milkv,jupiter
+               - spacemit,musepi-pro
++              - xunlong,orangepi-r2s
+               - xunlong,orangepi-rv2
+           - const: spacemit,k1
+ 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
