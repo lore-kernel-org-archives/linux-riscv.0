@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17944CD4F34
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 00:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A2B0CD4F3C
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 00:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+2UNQt7cMaztsAC6/+yh8HDeZpYQr3dlhV0ST+wkvbY=; b=xAMOu4nauJstls
-	tnqXnHwy6k+3yqfh4PcvkB5iRd+vvXL9oBhbr++6o2Z1j7lW25720UQOF0x1WYlt7Y22msvXnP4Si
-	2ZZ126ePMUiq46iI+eaOR2fS/sJT5eu9nZHJNtu13zrn4ClYxdkRICM115zz6eUEeoKh9W4fn64I7
-	36OVPRHzBgX+QDdU3KSspO+eD0bjQKKnpvDuE3kZjNcbaFTRXDeEe8Q2Nr3FC4c0xVxAH3mi2cFNx
-	WxXn5cZvv+uQ/xCxfidUkHrO/s+RcYun3zECsRedouPxi9JWN9lkbxxAlBV3OFrN//xDaoyxkpUSy
-	3Xody3ldpV4HQjvy+lUQ==;
+	List-Owner; bh=c/f/lequF4wOyCCvXhgUbrmgezGY1XjbZwKAffu6irg=; b=tXHt3f0Vj3hAyf
+	h68GK+2Y0d37xkPErp9wyxgTVvbvAIz8saFvl4EVEva1HhUcEM5mQls+CXyTbRT0LZcgwJzppVLwz
+	vErkiipt9RkO8DqO/DAkm+Lwm8iSMAoTP+L1FfVnWVkMZ2o50ZsKdkOLXz3oqPy2/Q863B1ouvanH
+	DV1Q6h8vZrTVIr1Wt4cTaAWfo7teoK5hzDnjkyLVN9KwC/NyBRTagnVTjHANObziFPHkSIb/DZQpb
+	QIf0b0IQ6SecwAuQWi7ym2wY+v9dg4go2OaoetSVpUm1BrTXwFRw2B+avmjm1ijJMwJ566hJ9E+Yq
+	Jw+N107ktbqXravBFciQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJLRT-00000009e8Z-1TQ2;
-	Thu, 13 Nov 2025 00:44:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJLRC-00000009drU-0IhM;
+	Thu, 13 Nov 2025 00:43:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJLRJ-00000009dsk-1SNE
+	id 1vJLRA-00000009dp2-34Ss
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 00:43:58 +0000
+	Thu, 13 Nov 2025 00:43:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32D9E4479C;
-	Thu, 13 Nov 2025 00:43:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0B180C2BCB4;
-	Thu, 13 Nov 2025 00:43:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762994624;
-	bh=IPjzSuwKw0/IvILddCYwySiXTQZGu/tjP3Sc0NnpRVA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=HClatwGeLgEDkLF0L9q9UC7sGvjRTqnRYNEWUMALMORNuTuJ3huk4PrYDDQftJu9n
-	 0ZYdKq6GdtGf6RoZYv3J+qda6Zruw+B2BktX44bp5m5ICdAnmhyrOyw7/KUeI2D3Mj
-	 k7PO6GWK0ED+zb9ViTcuTwh+VXRItmQwpTLhu4wgZueWmxYJjGdoyJmrNFgmbPYYpd
-	 6R6UaJQsYl+WGozphTPYCKQMonakhEFsGQu4MqCqDfH8TsAZObbWdkveKxj/A3x+64
-	 L0mUOaLyRCwy5SYrpfo/zVXfPCY00Wj3CrDhaQWVHO7SbrLkfd9+ekINTzGO+KsxQ6
-	 SFezk6nHipARA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D52E6CD4F30;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A268601E6;
 	Thu, 13 Nov 2025 00:43:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E8DDAC2BCB3;
+	Thu, 13 Nov 2025 00:43:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762994623;
+	bh=JxdFhs6m+jpZSuVM0h6LrugZL2h/LmWZ4qPYhd8l21c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=fgh2lu/qNW1n3Yrn7JE50LdHalw2ZRF1TPsUgv2ZpfXLQK+rJQcBfqtzek32YbqHu
+	 lFtvRGeXpP7L0abUsAORsLqOFAB+BXL1jKL+O1OLq5sDU/NqpqjQC/8vkyRFLCn2GE
+	 lE2BvJ3NF+93vj1eckd+Mw9qiqNYxQAEAdvj2f61U/eSgxHMAsJKGmnrNBGdTR+Zec
+	 OtXmNCWgvw4Shww9JGBOKjDvdut+UajeQDYWN+ZPsQ6M/dEA6VRdMLfzbaZ1mRTnav
+	 qyROzjo2PiRXb8KsnX8BVBiM082oLxI6n84W761KFN+iqwLA3gVJ3MUJ12MlMohiNh
+	 mwiEduYHo27yQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D7E91CD4F2F;
+	Thu, 13 Nov 2025 00:43:42 +0000 (UTC)
 From: Deepak Gupta via B4 Relay <devnull+debug.rivosinc.com@kernel.org>
-Date: Wed, 12 Nov 2025 16:43:22 -0800
-Subject: [PATCH v23 24/28] arch/riscv: dual vdso creation logic and select
- vdso based on hw
+Date: Wed, 12 Nov 2025 16:43:11 -0800
+Subject: [PATCH v23 13/28] prctl: arch-agnostic prctl for indirect branch
+ tracking
 MIME-Version: 1.0
-Message-Id: <20251112-v5_user_cfi_series-v23-24-b55691eacf4f@rivosinc.com>
+Message-Id: <20251112-v5_user_cfi_series-v23-13-b55691eacf4f@rivosinc.com>
 References: <20251112-v5_user_cfi_series-v23-0-b55691eacf4f@rivosinc.com>
 In-Reply-To: <20251112-v5_user_cfi_series-v23-0-b55691eacf4f@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -83,21 +83,18 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
  rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
- Deepak Gupta <debug@rivosinc.com>, Charles Mirabile <cmirabil@redhat.com>
+ Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762994618; l=9508;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762994618; l=5257;
  i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
- bh=5kW3ppW7X69x7Q0biC+r7pIGZhVe4tEPfC6qDLBYOh8=;
- b=ZUXxP2jWCx9aFYnGqIw4ZsqI92ReGz8O6QXxYZ+AufkCBA+XalcYH6JabYrkZOEtgw87F9Xcu
- ynT+1r2EZu4CmOCea5IVkwApRI+S+9Wm76tPnaNvGxjacIb6AUTi8LA
+ bh=//BKFL/B5DGzgzNcxCALX3+BH8HxJjmHBkOpM1C2zRA=;
+ b=MFE+OH7s8d3C0mGAMBW7da0nB/Ejbk+aUDEMmNBt0w+cStTv6kfU6zTDH6ZyOeYoC0n8n0zcO
+ bhRuKgVEZ0wCPTKC0B0yTXd5ISraJjRTNSJrG8d3F6TwaAIRv/66oO4
 X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
  pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-Endpoint-Received: by B4 Relay for debug@rivosinc.com/20251023 with
  auth_id=553
 X-Original-From: Deepak Gupta <debug@rivosinc.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_164353_476861_8FE350C5 
-X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,246 +114,141 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Deepak Gupta <debug@rivosinc.com>
 
-Shadow stack instructions are taken from zimop (mandated on RVA23).
-Any hardware prior to RVA23 profile will fault on shadow stack instruction.
-Any userspace with shadow stack instruction in it will fault on such
-hardware. Thus such userspace can't be brought onto such a hardware.
+Three architectures (x86, aarch64, riscv) have support for indirect branch
+tracking feature in a very similar fashion. On a very high level, indirect
+branch tracking is a CPU feature where CPU tracks branches which uses
+memory operand to perform control transfer in program. As part of this
+tracking on indirect branches, CPU goes in a state where it expects a
+landing pad instr on target and if not found then CPU raises some fault
+(architecture dependent)
 
-It's not known how userspace will respond to such binary fragmentation.
-However in order to keep kernel portable across such different hardware,
-`arch/riscv/kernel/vdso_cfi` is created which has logic (Makefile) to
-compile `arch/riscv/kernel/vdso` sources with cfi flags and then changes
-in `arch/riscv/kernel/vdso.c` for selecting appropriate vdso depending
-on whether underlying hardware(cpu) implements zimop extension. Offset
-of vdso symbols will change due to having two different vdso binaries,
-there is added logic to include new generated vdso offset header and
-dynamically select offset (like for rt_sigreturn).
+x86 landing pad instr - `ENDBRANCH`
+arch64 landing pad instr - `BTI`
+riscv landing instr - `lpad`
 
+Given that three major arches have support for indirect branch tracking,
+This patch makes `prctl` for indirect branch tracking arch agnostic.
+
+To allow userspace to enable this feature for itself, following prtcls are
+defined:
+ - PR_GET_INDIR_BR_LP_STATUS: Gets current configured status for indirect
+   branch tracking.
+ - PR_SET_INDIR_BR_LP_STATUS: Sets a configuration for indirect branch
+   tracking.
+   Following status options are allowed
+       - PR_INDIR_BR_LP_ENABLE: Enables indirect branch tracking on user
+         thread.
+       - PR_INDIR_BR_LP_DISABLE; Disables indirect branch tracking on user
+         thread.
+ - PR_LOCK_INDIR_BR_LP_STATUS: Locks configured status for indirect branch
+   tracking for user thread.
+
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Zong Li <zong.li@sifive.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-Acked-by: Charles Mirabile <cmirabil@redhat.com>
 ---
- arch/riscv/Makefile                        |  3 +++
- arch/riscv/include/asm/vdso.h              | 13 ++++++++++++-
- arch/riscv/kernel/Makefile                 |  1 +
- arch/riscv/kernel/vdso.c                   |  7 +++++++
- arch/riscv/kernel/vdso/Makefile            | 29 ++++++++++++++++++++---------
- arch/riscv/kernel/vdso/gen_vdso_offsets.sh |  4 +++-
- arch/riscv/kernel/vdso_cfi/Makefile        | 25 +++++++++++++++++++++++++
- arch/riscv/kernel/vdso_cfi/vdso-cfi.S      | 11 +++++++++++
- 8 files changed, 82 insertions(+), 11 deletions(-)
+ include/linux/cpu.h        |  4 ++++
+ include/uapi/linux/prctl.h | 27 +++++++++++++++++++++++++++
+ kernel/sys.c               | 30 ++++++++++++++++++++++++++++++
+ 3 files changed, 61 insertions(+)
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index f60c2de0ca08..b74b63da16a7 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -176,6 +176,8 @@ ifeq ($(CONFIG_MMU),y)
- prepare: vdso_prepare
- vdso_prepare: prepare0
- 	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso include/generated/vdso-offsets.h
-+	$(if $(CONFIG_RISCV_USER_CFI),$(Q)$(MAKE) \
-+		$(build)=arch/riscv/kernel/vdso_cfi include/generated/vdso-cfi-offsets.h)
- 	$(if $(CONFIG_COMPAT),$(Q)$(MAKE) \
- 		$(build)=arch/riscv/kernel/compat_vdso include/generated/compat_vdso-offsets.h)
+diff --git a/include/linux/cpu.h b/include/linux/cpu.h
+index 487b3bf2e1ea..8239cd95a005 100644
+--- a/include/linux/cpu.h
++++ b/include/linux/cpu.h
+@@ -229,4 +229,8 @@ static inline bool cpu_attack_vector_mitigated(enum cpu_attack_vectors v)
+ #define smt_mitigations SMT_MITIGATIONS_OFF
+ #endif
  
-@@ -183,6 +185,7 @@ endif
- endif
- 
- vdso-install-y			+= arch/riscv/kernel/vdso/vdso.so.dbg
-+vdso-install-$(CONFIG_RISCV_USER_CFI)	+= arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg
- vdso-install-$(CONFIG_COMPAT)	+= arch/riscv/kernel/compat_vdso/compat_vdso.so.dbg
- 
- BOOT_TARGETS := Image Image.gz Image.bz2 Image.lz4 Image.lzma Image.lzo Image.zst Image.xz loader loader.bin xipImage vmlinuz.efi
-diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
-index f80357fe24d1..35bf830a5576 100644
---- a/arch/riscv/include/asm/vdso.h
-+++ b/arch/riscv/include/asm/vdso.h
-@@ -18,9 +18,19 @@
- 
- #ifndef __ASSEMBLER__
- #include <generated/vdso-offsets.h>
-+#ifdef CONFIG_RISCV_USER_CFI
-+#include <generated/vdso-cfi-offsets.h>
-+#endif
- 
-+#ifdef CONFIG_RISCV_USER_CFI
- #define VDSO_SYMBOL(base, name)							\
--	(void __user *)((unsigned long)(base) + __vdso_##name##_offset)
-+	  (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZIMOP) ?			\
-+	  (void __user *)((unsigned long)(base) + __vdso_##name##_cfi_offset) :	\
-+	  (void __user *)((unsigned long)(base) + __vdso_##name##_offset))
-+#else
-+#define VDSO_SYMBOL(base, name)							\
-+	  ((void __user *)((unsigned long)(base) + __vdso_##name##_offset))
-+#endif
- 
- #ifdef CONFIG_COMPAT
- #include <generated/compat_vdso-offsets.h>
-@@ -33,6 +43,7 @@ extern char compat_vdso_start[], compat_vdso_end[];
- #endif /* CONFIG_COMPAT */
- 
- extern char vdso_start[], vdso_end[];
-+extern char vdso_cfi_start[], vdso_cfi_end[];
- 
- #endif /* !__ASSEMBLER__ */
- 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 2d0e0dcedbd3..9026400cba10 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -72,6 +72,7 @@ obj-y	+= vendor_extensions/
- obj-y	+= probes/
- obj-y	+= tests/
- obj-$(CONFIG_MMU) += vdso.o vdso/
-+obj-$(CONFIG_RISCV_USER_CFI) += vdso_cfi/
- 
- obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
- obj-$(CONFIG_RISCV_MISALIGNED)	+= unaligned_access_speed.o
-diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-index 3a8e038b10a2..43f70198ac3c 100644
---- a/arch/riscv/kernel/vdso.c
-+++ b/arch/riscv/kernel/vdso.c
-@@ -98,6 +98,13 @@ static struct __vdso_info compat_vdso_info __ro_after_init = {
- 
- static int __init vdso_init(void)
- {
-+	/* Hart implements zimop, expose cfi compiled vdso */
-+	if (IS_ENABLED(CONFIG_RISCV_USER_CFI) &&
-+	    riscv_has_extension_unlikely(RISCV_ISA_EXT_ZIMOP)) {
-+		vdso_info.vdso_code_start = vdso_cfi_start;
-+		vdso_info.vdso_code_end = vdso_cfi_end;
-+	}
++int arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status);
++int arch_set_indir_br_lp_status(struct task_struct *t, unsigned long status);
++int arch_lock_indir_br_lp_status(struct task_struct *t, unsigned long status);
 +
- 	__vdso_init(&vdso_info);
- #ifdef CONFIG_COMPAT
- 	__vdso_init(&compat_vdso_info);
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 272f1d837a80..a842dc034571 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -20,6 +20,10 @@ endif
- ifdef VDSO_CFI_BUILD
- CFI_MARCH = _zicfilp_zicfiss
- CFI_FULL = -fcf-protection=full
-+CFI_SUFFIX = -cfi
-+OFFSET_SUFFIX = _cfi
-+ccflags-y += -DVDSO_CFI=1
-+asflags-y += -DVDSO_CFI=1
- endif
+ #endif /* _LINUX_CPU_H_ */
+diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+index 51c4e8c82b1e..9b4afdc85099 100644
+--- a/include/uapi/linux/prctl.h
++++ b/include/uapi/linux/prctl.h
+@@ -386,4 +386,31 @@ struct prctl_mm_map {
+ # define PR_FUTEX_HASH_SET_SLOTS	1
+ # define PR_FUTEX_HASH_GET_SLOTS	2
  
- # Files to link into the vdso
-@@ -48,13 +52,20 @@ endif
- CFLAGS_hwprobe.o += -fPIC
- 
- # Build rules
--targets := $(obj-vdso) vdso.so vdso.so.dbg vdso.lds
-+vdso_offsets := vdso$(if $(VDSO_CFI_BUILD),$(CFI_SUFFIX),)-offsets.h
-+vdso_o := vdso$(if $(VDSO_CFI_BUILD),$(CFI_SUFFIX),).o
-+vdso_so := vdso$(if $(VDSO_CFI_BUILD),$(CFI_SUFFIX),).so
-+vdso_so_dbg := vdso$(if $(VDSO_CFI_BUILD),$(CFI_SUFFIX),).so.dbg
-+vdso_lds := vdso.lds
-+
-+targets := $(obj-vdso) $(vdso_so) $(vdso_so_dbg) $(vdso_lds)
-+
- obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
- 
--obj-y += vdso.o
--CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
-+obj-y += vdso$(if $(VDSO_CFI_BUILD),$(CFI_SUFFIX),).o
-+CPPFLAGS_$(vdso_lds) += -P -C -U$(ARCH)
- ifneq ($(filter vgettimeofday, $(vdso-syms)),)
--CPPFLAGS_vdso.lds += -DHAS_VGETTIMEOFDAY
-+CPPFLAGS_$(vdso_lds) += -DHAS_VGETTIMEOFDAY
- endif
- 
- # Disable -pg to prevent insert call site
-@@ -63,12 +74,12 @@ CFLAGS_REMOVE_getrandom.o = $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
- CFLAGS_REMOVE_hwprobe.o = $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
- 
- # Force dependency
--$(obj)/vdso.o: $(obj)/vdso.so
-+$(obj)/$(vdso_o): $(obj)/$(vdso_so)
- 
- # link rule for the .so file, .lds has to be first
--$(obj)/vdso.so.dbg: $(obj)/vdso.lds $(obj-vdso) FORCE
-+$(obj)/$(vdso_so_dbg): $(obj)/$(vdso_lds) $(obj-vdso) FORCE
- 	$(call if_changed,vdsold_and_check)
--LDFLAGS_vdso.so.dbg = -shared -soname=linux-vdso.so.1 \
-+LDFLAGS_$(vdso_so_dbg) = -shared -soname=linux-vdso.so.1 \
- 	--build-id=sha1 --eh-frame-hdr
- 
- # strip rule for the .so file
-@@ -79,9 +90,9 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
- # Generate VDSO offsets using helper script
- gen-vdsosym := $(src)/gen_vdso_offsets.sh
- quiet_cmd_vdsosym = VDSOSYM $@
--	cmd_vdsosym = $(NM) $< | $(gen-vdsosym) | LC_ALL=C sort > $@
-+	cmd_vdsosym = $(NM) $< | $(gen-vdsosym) $(OFFSET_SUFFIX) | LC_ALL=C sort > $@
- 
--include/generated/vdso-offsets.h: $(obj)/vdso.so.dbg FORCE
-+include/generated/$(vdso_offsets): $(obj)/$(vdso_so_dbg) FORCE
- 	$(call if_changed,vdsosym)
- 
- # actual build commands
-diff --git a/arch/riscv/kernel/vdso/gen_vdso_offsets.sh b/arch/riscv/kernel/vdso/gen_vdso_offsets.sh
-index c2e5613f3495..bd5d5afaaa14 100755
---- a/arch/riscv/kernel/vdso/gen_vdso_offsets.sh
-+++ b/arch/riscv/kernel/vdso/gen_vdso_offsets.sh
-@@ -2,4 +2,6 @@
- # SPDX-License-Identifier: GPL-2.0
- 
- LC_ALL=C
--sed -n -e 's/^[0]\+\(0[0-9a-fA-F]*\) . \(__vdso_[a-zA-Z0-9_]*\)$/\#define \2_offset\t0x\1/p'
-+SUFFIX=${1:-""}
-+sed -n -e \
-+'s/^[0]\+\(0[0-9a-fA-F]*\) . \(__vdso_[a-zA-Z0-9_]*\)$/\#define \2'$SUFFIX'_offset\t0x\1/p'
-diff --git a/arch/riscv/kernel/vdso_cfi/Makefile b/arch/riscv/kernel/vdso_cfi/Makefile
-new file mode 100644
-index 000000000000..8ebd190782b0
---- /dev/null
-+++ b/arch/riscv/kernel/vdso_cfi/Makefile
-@@ -0,0 +1,25 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+# RISC-V VDSO CFI Makefile
-+# This Makefile builds the VDSO with CFI support when CONFIG_RISCV_USER_CFI is enabled
-+
-+# setting VDSO_CFI_BUILD triggers build for vdso differently
-+VDSO_CFI_BUILD := 1
-+
-+# Set the source directory to the main vdso directory
-+src := $(srctree)/arch/riscv/kernel/vdso
-+
-+# Copy all .S and .c files from vdso directory to vdso_cfi object build directory
-+vdso_c_sources := $(wildcard $(src)/*.c)
-+vdso_S_sources := $(wildcard $(src)/*.S)
-+vdso_c_objects := $(addprefix $(obj)/, $(notdir $(vdso_c_sources)))
-+vdso_S_objects := $(addprefix $(obj)/, $(notdir $(vdso_S_sources)))
-+
-+$(vdso_S_objects): $(obj)/%.S: $(src)/%.S
-+	$(Q)cp $< $@
-+
-+$(vdso_c_objects): $(obj)/%.c: $(src)/%.c
-+	$(Q)cp $< $@
-+
-+# Include the main VDSO Makefile which contains all the build rules and sources
-+# The VDSO_CFI_BUILD variable will be passed to it to enable CFI compilation
-+include $(src)/Makefile
-diff --git a/arch/riscv/kernel/vdso_cfi/vdso-cfi.S b/arch/riscv/kernel/vdso_cfi/vdso-cfi.S
-new file mode 100644
-index 000000000000..d426f6accb35
---- /dev/null
-+++ b/arch/riscv/kernel/vdso_cfi/vdso-cfi.S
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
-+ * Copyright 2025 Rivos, Inc
++ * Get the current indirect branch tracking configuration for the current
++ * thread, this will be the value configured via PR_SET_INDIR_BR_LP_STATUS.
 + */
++#define PR_GET_INDIR_BR_LP_STATUS      79
 +
-+#define	vdso_start	vdso_cfi_start
-+#define	vdso_end	vdso_cfi_end
++/*
++ * Set the indirect branch tracking configuration. PR_INDIR_BR_LP_ENABLE will
++ * enable cpu feature for user thread, to track all indirect branches and ensure
++ * they land on arch defined landing pad instruction.
++ * x86 - If enabled, an indirect branch must land on `ENDBRANCH` instruction.
++ * arch64 - If enabled, an indirect branch must land on `BTI` instruction.
++ * riscv - If enabled, an indirect branch must land on `lpad` instruction.
++ * PR_INDIR_BR_LP_DISABLE will disable feature for user thread and indirect
++ * branches will no more be tracked by cpu to land on arch defined landing pad
++ * instruction.
++ */
++#define PR_SET_INDIR_BR_LP_STATUS      80
++# define PR_INDIR_BR_LP_ENABLE		   (1UL << 0)
 +
-+#define __VDSO_PATH "arch/riscv/kernel/vdso_cfi/vdso-cfi.so"
++/*
++ * Prevent further changes to the specified indirect branch tracking
++ * configuration.  All bits may be locked via this call, including
++ * undefined bits.
++ */
++#define PR_LOCK_INDIR_BR_LP_STATUS      81
 +
-+#include "../vdso/vdso.S"
+ #endif /* _LINUX_PRCTL_H */
+diff --git a/kernel/sys.c b/kernel/sys.c
+index 8b58eece4e58..9071422c1609 100644
+--- a/kernel/sys.c
++++ b/kernel/sys.c
+@@ -2388,6 +2388,21 @@ int __weak arch_lock_shadow_stack_status(struct task_struct *t, unsigned long st
+ 	return -EINVAL;
+ }
+ 
++int __weak arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
++{
++	return -EINVAL;
++}
++
++int __weak arch_set_indir_br_lp_status(struct task_struct *t, unsigned long status)
++{
++	return -EINVAL;
++}
++
++int __weak arch_lock_indir_br_lp_status(struct task_struct *t, unsigned long status)
++{
++	return -EINVAL;
++}
++
+ #define PR_IO_FLUSHER (PF_MEMALLOC_NOIO | PF_LOCAL_THROTTLE)
+ 
+ static int prctl_set_vma(unsigned long opt, unsigned long addr,
+@@ -2868,6 +2883,21 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
+ 	case PR_FUTEX_HASH:
+ 		error = futex_hash_prctl(arg2, arg3, arg4);
+ 		break;
++	case PR_GET_INDIR_BR_LP_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_get_indir_br_lp_status(me, (unsigned long __user *)arg2);
++		break;
++	case PR_SET_INDIR_BR_LP_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_set_indir_br_lp_status(me, arg2);
++		break;
++	case PR_LOCK_INDIR_BR_LP_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_lock_indir_br_lp_status(me, arg2);
++		break;
+ 	default:
+ 		trace_task_prctl_unknown(option, arg2, arg3, arg4, arg5);
+ 		error = -EINVAL;
 
 -- 
 2.43.0
