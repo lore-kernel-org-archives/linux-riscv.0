@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9E6CD98D2
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 19:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B222CD98D2
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 19:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yCsdpbfvJHGah0maLsNuTr5Zj0B3JCR6zOa33bPcAxU=; b=yGcxK3/+eIJcrl
-	31LRsh8s7CoS2j4N0XizIoB4u3hPBGyOHhJACTynsRZlaYoKy2FkDsk6FszO0/yNV+t51/YhCx+9b
-	Nrg4R3C/rBIyRs/Etk17Y7zYpmLRPddbEA47rVhvEW6uJHyRo4upP3KQE4FVX9F+Hz7DwS0gcBKim
-	PGzr6Pjt/h4Fp5K1xSZN6Y1DZWmlRQwbILuztsT9CkA2BKd+DE+7+LMqp3xAa6ZF205Dn8pM03CXg
-	qfR2BjACFl8Tt4OPiOtn048WVDRGTSa1g+ilBoPkbS9FuWy8VgX8TwKYak+1YXBDt68Blo8legvYE
-	CrzD1OOxZnAx27H+ak/A==;
+	List-Owner; bh=ABbs/Rut+i91geAM8xNIYt6FlCphGXvmmQX/Bq/Sxeo=; b=tA6nTMtwm6a9V+
+	60H9kL00KE3FjHyiHIFro01aS8s3qaJKUPw4MPrFZhHK1dmPbt5mHXEL3vDiDzVzBwulgzxUCJjda
+	8k6r+hqcUriTuS3zYZuGVBMtodwjsA60P+0DvWkfkelhPhbFxdJTeG/weYVrjL+Jc4jB27y+k4mcG
+	CDwwEHVC80Rv7KPBMW1dMFlWGn0yUTxTbh8KxU+fIsQR/KeZB1QlS9kfdWyVo4LfVJL2qg8Mutx2Q
+	bPUES2ShDi6DHCfdv3hK0qSYQkk56qAGj2IV8XbMWC3wJ8oYAHNMRsEd7fR8QG2Ju0IaaTIVqnHtE
+	k3C7OUyHyVDBQyN4dhwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJcp2-0000000AzLY-0ARN;
-	Thu, 13 Nov 2025 19:17:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJcps-0000000AzU2-2q0t;
+	Thu, 13 Nov 2025 19:18:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJcp0-0000000AzLP-3kVd
+	id 1vJcpr-0000000AzTR-1kKy
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 19:17:31 +0000
+	Thu, 13 Nov 2025 19:18:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 23C31600C4;
-	Thu, 13 Nov 2025 19:17:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CDD1C4CEF5;
-	Thu, 13 Nov 2025 19:17:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7856C60524
+	for <linux-riscv@lists.infradead.org>; Thu, 13 Nov 2025 19:18:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18D3AC2BC9E
+	for <linux-riscv@lists.infradead.org>; Thu, 13 Nov 2025 19:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763061449;
-	bh=kt1jO8UvsULEtaDs/E7EX9tnRAFarugVzSN9GuwH6ro=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dvIhnU76/pW+vCvvgnPNOO2XoQTRK5+zJKW4w6KCqjeswisCxWkZpIiklY0SGPySS
-	 dc4BL0IQw9fjzF4yEHDnzZhbHolCVFhMkJCDkfroC1oOYtZ1AEzdpJNIltye3ymCvr
-	 EoRUENxrYwJSfHaAGwqCFp4xZkLO5vyi37LLaJudOdlSK/ZjLC+8F3TSas9cOVBxw/
-	 b33BvjEkKZPiNKw/m8PlodjOhuvFQf0UXpUiKy2dufHvnPJCEUu7MAIUM+q8ZL3qRP
-	 ySj9jf4v/bQJ/v3kabWXXf5WDP40v48ydCR215Lvnu4LAirAtUi8mxv+N29aZK0vi3
-	 AC64p6ZBMkUBw==
-Message-ID: <273b638e-8251-4faf-929a-87432a48abdc@kernel.org>
-Date: Thu, 13 Nov 2025 20:17:22 +0100
+	s=k20201202; t=1763061502;
+	bh=6UprQ8VPFTOJEJnrAk3c1+70Nbd/u85upyCo1jyU1qk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=W0X7qiriJx8qwv9BbYquHPo7dcdlB2adgQNwN+FfcpIdmW/AITZJ5Zpqm03CC/Dxr
+	 6GnRSXQmfJ+W2vthEpzKITubGF74mnCc6WUcvin3uowyc8BT86f+//ZfLYv29g+BBF
+	 lF+wiMxVq3NM9L1tiAzuG5XwvTH/cQqPOIPuH8Swojls+LSeWQiKJpBdWwsNkrHfoc
+	 ViJlr54gGxXeICJKCHSvemTDsL0eAAUa1Kuky49BxecjyBAtJpJBy74zC1sU1paLFh
+	 iEnE0JiwwGU2Q+ypXPimklXXrXm0/+3QIl6jESwwRiu7KL4wKdlkBy+NprPJA+WbMw
+	 +qgnAYGxQ0H4g==
+Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-3d47192e99bso1374957fac.0
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Nov 2025 11:18:22 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWD6/VA8hw3e7op6KYPvQQ8yf8NvWxI2SQa/e4MxhQ7MDaT6SdjUnv8shK+NMz0bdvpFxsGMMhxvGCAqQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1qr3E9EsLh4KJ7qjqLRuvHQ266a7mHk5wI7OfRs8brA2cSN4m
+	Ij+perpySt54kSXo6nXbx5NC3f37WZyZqETssB622lMi1hv3K4NY1VfiRkUoD6WurwIclNwY8hd
+	n+qkWfcxsVh384rmtfLZlYBz4CBPPrAA=
+X-Google-Smtp-Source: AGHT+IEEkDRYf3o6eWh7An4Eb7oaPpWELLivUE1adLZQeit4rdCPvsjZcC3pPuLNVua35azYMW1z4kNGcBFvSY5y77M=
+X-Received: by 2002:a05:6871:e324:b0:3d4:b889:7d65 with SMTP id
+ 586e51a60fabf-3e8674043b0mr485629fac.19.1763061501288; Thu, 13 Nov 2025
+ 11:18:21 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/22] checkpatch: Warn on page table access without
- accessors
-To: Samuel Holland <samuel.holland@sifive.com>, Joe Perches
- <joe@perches.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org,
- Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org
-Cc: devicetree@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>,
- linux-kernel@vger.kernel.org, Mike Rapoport <rppt@kernel.org>,
- Michal Hocko <mhocko@suse.com>, Conor Dooley <conor@kernel.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
- Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
- Vlastimil Babka <vbabka@suse.cz>, "Liam R . Howlett"
- <Liam.Howlett@oracle.com>, Andy Whitcroft <apw@canonical.com>,
- Dwaipayan Ray <dwaipayanray1@gmail.com>,
- Lukas Bulwahn <lukas.bulwahn@gmail.com>
-References: <20251113014656.2605447-1-samuel.holland@sifive.com>
- <20251113014656.2605447-8-samuel.holland@sifive.com>
- <1dfa1e3566cafbe43a1d4753defef9c82ddb3b64.camel@perches.com>
- <a6e7a571-91d2-4e66-bc86-ba30f624294b@sifive.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Content-Language: en-US
-In-Reply-To: <a6e7a571-91d2-4e66-bc86-ba30f624294b@sifive.com>
+References: <20251029163336.2785270-1-thierry.reding@gmail.com>
+ <20251029163336.2785270-2-thierry.reding@gmail.com> <CAJZ5v0igMJ12KoYCmrWauvOfdxaNP5-XVKoSxUroaKFN7S-rTQ@mail.gmail.com>
+ <3dzha4qyqdrbutxby3n5nkvihnxrhniqr6w726eumhzgln2w5l@fbu72mzmjz4m> <2tx3o5es77oa37zqvikcoo6n2ryxvepa54ezsaawcjdbf3g3wp@o2dbcbskjksk>
+In-Reply-To: <2tx3o5es77oa37zqvikcoo6n2ryxvepa54ezsaawcjdbf3g3wp@o2dbcbskjksk>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Thu, 13 Nov 2025 20:18:10 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0gupHEg8ip+2R1wYAQ=BQn4Mk5EMMu==StRxwvXA0WwsA@mail.gmail.com>
+X-Gm-Features: AWmQ_bka8IUODzeQR5ggeX8uZbZXXCIST1G0sD3k8DJ8TOKe2Mgor6ApCD0oVpM
+Message-ID: <CAJZ5v0gupHEg8ip+2R1wYAQ=BQn4Mk5EMMu==StRxwvXA0WwsA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +81,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13.11.25 03:36, Samuel Holland wrote:
-> On 2025-11-12 8:21 PM, Joe Perches wrote:
->> On Wed, 2025-11-12 at 17:45 -0800, Samuel Holland wrote:
->>> Architectures may have special rules for accessing the hardware page
->>> tables (for example, atomicity/ordering requirements), so the generic MM
->>> code provides the pXXp_get() and set_pXX() hooks for architectures to
->>> implement. These accessor functions are often omitted where a raw
->>> pointer dereference is believed to be safe (i.e. race-free). However,
->>> RISC-V needs to use these hooks to rewrite the page table values at
->>> read/write time on some platforms. A raw pointer dereference will no
->>> longer produce the correct value on those platforms, so the generic code
->>> must always use the accessor functions.
->> []
->>> diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
->> []
->>> @@ -7721,6 +7721,13 @@ sub process {
->>>   				ERROR("MISSING_SENTINEL", "missing sentinel in ID array\n" . "$here\n$stat\n");
->>>   			}
->>>   		}
->>> +
->>> +# check for raw dereferences of hardware page table pointers
->>> +		if ($realfile !~ m@^arch/@ &&
->>> +		    $line =~ /(?<!pte_t |p[mu4g]d_t |izeof\()\*\(?(vmf(\.|->))?(pte|p[mu4g]d)p?\b/) {
->>> +			WARN("PAGE_TABLE_ACCESSORS",
->>> +			     "Use $3p_get()/set_$3() instead of dereferencing page table pointers\n" . $herecurr);
->>> +		}
->>>   	}
->>
->> Seems like a lot of matches
->>
->> $ git grep -P '(?<!pte_t |p[mu4g]d_t |izeof\()\*\(?(vmf(\.|->))?(pte|p[mu4g]d)p?\b' | \
->>    grep -v '^arch/' | wc -l
->> 766
-
-That is indeed concerning.
-
-I recall that we discussed an alternative approach with Ryan in the 
-past: I don't remember all the details, but essentially it was about 
-using separate types, such that dereferencing would not get you the type 
-the other functions would be expecting. Such that the compiler will bark 
-when you try to dereference.
-
-
--- 
-Cheers
-
-David
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBOb3YgMTMsIDIwMjUgYXQgNzozMuKAr1BNIFRoaWVycnkgUmVkaW5nIDx0aGllcnJ5
+LnJlZGluZ0BnbWFpbC5jb20+IHdyb3RlOgo+Cj4gT24gV2VkLCBOb3YgMDUsIDIwMjUgYXQgMDU6
+NTI6MDFQTSArMDEwMCwgVGhpZXJyeSBSZWRpbmcgd3JvdGU6Cj4gPiBPbiBNb24sIE5vdiAwMywg
+MjAyNSBhdCAwNToxODowOFBNICswMTAwLCBSYWZhZWwgSi4gV3lzb2NraSB3cm90ZToKPiA+ID4g
+T24gV2VkLCBPY3QgMjksIDIwMjUgYXQgNTozM+KAr1BNIFRoaWVycnkgUmVkaW5nIDx0aGllcnJ5
+LnJlZGluZ0BnbWFpbC5jb20+IHdyb3RlOgo+ID4gPiA+Cj4gPiA+ID4gRnJvbTogVGhpZXJyeSBS
+ZWRpbmcgPHRyZWRpbmdAbnZpZGlhLmNvbT4KPiA+ID4gPgo+ID4gPiA+IFNldmVyYWwgZHJpdmVy
+cyBjYW4gYmVuZWZpdCBmcm9tIHJlZ2lzdGVyaW5nIHBlci1pbnN0YW5jZSBkYXRhIGFsb25nCj4g
+PiA+ID4gd2l0aCB0aGUgc3lzY29yZSBvcGVyYXRpb25zLiBUbyBhY2hpZXZlIHRoaXMsIG1vdmUg
+dGhlIG1vZGlmaWFibGUgZmllbGRzCj4gPiA+ID4gb3V0IG9mIHRoZSBzeXNjb3JlX29wcyBzdHJ1
+Y3R1cmUgYW5kIGludG8gYSBzZXBhcmF0ZSBzdHJ1Y3Qgc3lzY29yZSB0aGF0Cj4gPiA+ID4gY2Fu
+IGJlIHJlZ2lzdGVyZWQgd2l0aCB0aGUgZnJhbWV3b3JrLiBBZGQgYSB2b2lkICogZHJpdmVyIGRh
+dGEgZmllbGQgZm9yCj4gPiA+ID4gZHJpdmVycyB0byBzdG9yZSBjb250ZXh0dWFsIGRhdGEgdGhh
+dCB3aWxsIGJlIHBhc3NlZCB0byB0aGUgc3lzY29yZSBvcHMuCj4gPiA+ID4KPiA+ID4gPiBTaWdu
+ZWQtb2ZmLWJ5OiBUaGllcnJ5IFJlZGluZyA8dHJlZGluZ0BudmlkaWEuY29tPgo+ID4gPgo+ID4g
+PiBUaGlzIGNoYW5nZSBpcyBmaW5lIHdpdGggbWUsIHNvIEkgY2FuIGFwcGx5IGl0IHVubGVzcyBz
+b21lYm9keSBoYXMgYW55Cj4gPiA+IHNwZWNpZmljIGhlYXJ0YnVybiByZWxhdGVkIHRvIGl0IChH
+cmVnPyksIGJ1dCBpbiBjYXNlIHlvdSB3YW50IHRvCj4gPiA+IHJvdXRlIGl0IGRpZmZlcmVudGx5
+Cj4gPiA+Cj4gPiA+IEFja2VkLWJ5OiBSYWZhZWwgSi4gV3lzb2NraSAoSW50ZWwpIDxyYWZhZWxA
+a2VybmVsLm9yZz4KPiA+Cj4gPiBJIGhhdmUgYSBmZXcgZm9sbG93LXVwIHBhdGNoZXMgZm9yIHRo
+ZSBUZWdyYSBQTUMgZHJpdmVyIHRoYXQgZGVwZW5kIG9uCj4gPiB0aGlzLiA2LjE5IGlzIHdoYXQg
+SSB3YXMgdGFyZ2V0dGluZywgc28gaWYgd2UgY291bGQgcHV0IHRoaXMgaW50byBhCj4gPiBzdGFi
+bGUgYnJhbmNoIHRoYXQnZCBiZSB0aGUgYmVzdCBzb2x1dGlvbi4gSSBjYW4gc2V0IHRoYXQgdXAg
+dmlhIHRoZQo+ID4gVGVncmEgdHJlZSBpZiB5b3UgYW5kIEdyZWcgYXJlIG9rYXkgd2l0aCBpdC4K
+PiA+Cj4gPiBJZiB0aGF0J3MgYWxsIHRvbyBjb21wbGljYXRlZCwgSSBjYW4gcHJvYmFibHkgd2Fp
+dCB1bnRpbCB0aGUgbmV4dCBjeWNsZQo+ID4gdG8gbWVyZ2UgdGhlIFBNQyBjaGFuZ2VzLgo+Cj4g
+SSd2ZSBhZGRlZCB0aGlzIHNpbmdsZSBwYXRjaCB0byBhIGJyYW5jaCBiYXNlZCBvZmYgb2YgdjYu
+MTgtcmMxIHRoYXQgSQo+IHBsYW4gdG8gZmVlZCBpbnRvIGxpbnV4LW5leHQgc28gaXQgY2FuIGdl
+dCBzb21lIGJyb2FkZXIgZXhwb3N1cmUuCj4KPiBJIGNhbiBrZWVwIHRoYXQgYnJhbmNoIHN0YWJs
+ZSBzbyBpdCBjYW4gZ28gdGhyb3VnaCBtdWx0aXBsZSB0cmVlcyBpZgo+IG5lZWRlZC4gSWYgYW55
+b25lJ3MgaW50ZXJlc3RlZCwgdGhlIGJyYW5jaCBpcyBoZXJlOgo+Cj4gICAgICAgICBodHRwczov
+L2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC90ZWdyYS9saW51eC5naXQv
+bG9nLz9oPWZvci02LjE5L3N5c2NvcmUKCllvdSBiZWF0IG1lIHRvIHRoaXMsIHNvcnJ5IGFib3V0
+IHRoZSBkZWxheS4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
