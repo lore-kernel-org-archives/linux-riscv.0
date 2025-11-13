@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE24DCD4F30
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 00:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8161CD4F44
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 00:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hV3PlpVWbs6Z8h9eSFJvtvRjJnOjjsqTWyglC50UKco=; b=Ag0kvwAWcgQpCX
-	mAKKS+bvpiT4O9Hn00A1zylcTnOiwSbuJZXxveblmr6wvci3zWG0KkpTBkUe+29Sblt5VR89OWAdI
-	1QQcZvfBRbsKvb0QhXb6KbUtOEgIOUX5sy8Xns1q5L/dDwkhAP4lj7trM3LaxBohrr50AQX8/iFDC
-	6S8z4Le4L2urNjYSOhZLBBsVXsFBU++YlNNErnQ+JMjhFCLyJ5EUaehmaNeKxL3wQkfgH6dNt6VxD
-	YzVh7uJn8KSBwyCleCJZgzInXABGrIT8PSOxgyPHX1ZTyGgoUSOpJfuIpSgA0xkrTkcjzLn9EsBqa
-	qntJxYnxZafHvZ01vYRw==;
+	List-Owner; bh=p2FffvuiJ5oYBWD+j4XpuennRet81HngUZXxE6Sc4qQ=; b=0zFRaVxiMCOKBx
+	hcH2lPyavSviJtNFeAHT755H+7XGJ/kfqqHAbvYhZQu/FhrNwur+VoPMt//F+sGpXEsot9GOXjtFR
+	wtIaZkpt9s9r7BOCA2JTkqmdIXGVuop3mueDsXkNk+HOZJlXBud4GnTru/nKi2eXW0WkCAYQjrlbQ
+	65lUfUs0IztB0GjTdkgOaVVHT71X021cWb9fGXzeXXCI5V796USEyZxtb5LYvaWDWI9Ug3NpxapFw
+	qIU5uQNUU6sWE+QJQ6jXsQxafh6liV+ApjRgCEtrOVGH0cLh1kPc/KHPCECLSCXHanhuyxlSGp8S+
+	q6sPsGnNFBN1CBd0uBJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJLRL-00000009e3X-1pQG;
-	Thu, 13 Nov 2025 00:43:58 +0000
+	id 1vJLRS-00000009e7X-1gBs;
+	Thu, 13 Nov 2025 00:44:02 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJLRG-00000009dr4-1WFA
+	id 1vJLRI-00000009dr4-2TVH
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 00:43:51 +0000
+	Thu, 13 Nov 2025 00:43:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 45506446F8;
+	by sea.source.kernel.org (Postfix) with ESMTP id CC5FF446DC;
 	Thu, 13 Nov 2025 00:43:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6F35FC2BCB6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B9D7EC4DDF9;
 	Thu, 13 Nov 2025 00:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1762994623;
-	bh=W87iAvAtwPzIao1Kl3uJdHgPAstNdwcXUemtLCbZFyE=;
+	bh=IWV/cc7nU5utSG71ajaBhItrAAJIoLJKysavG0licH4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=O5zUw3jq69q2sOEMbrExGGGKWS3tUpArS8wVzkNAaufxEnr1mAGRGJmSjDO8XiIch
-	 rlOdWJZCDxGvZTp5i3L1zs4gK3ICRUIY6Cb3x9VrbRosT+8HzpoDcM6gHlVfosnq5+
-	 a2D2CjnigIQTW15fQhCpjzATcxnou1uLIAr7nI+7CEXunNosSaDT8WBymZOojY//7c
-	 Bfh1kf0roSHmEe0JRuf+TmEA6Xovlspn9GfYM3PBO6MBXP7tfd+T2YRSCFXRlqpzs+
-	 CPgHSLxtJt/PP9RgJzU2bO/opQNqM3O+miB4/7Q5+2g/RaqyxhaXDmg55jVd8qW9Lq
-	 bE5Yazgz/0b6g==
+	b=r2yHLDT+Jwafzr5GXBSdNZ4ogr3Lq96wuueJGMmCdBA8qVknrhy68dBuSRIvDSRFa
+	 +azpIMC+pAR20lOez4Y0z0YsLY69hR55v9aEb9Dg+aDAEkxXx3x9cScIkMzxATPbYv
+	 sKSQNN+GTPpZ6lQwc20WEz7heVyrCIpiS4YqQKIIM4RQY3qVE8sT5Y2q/MQJTEdyr0
+	 sZJd2MeCt+JiZfzcxmzuLWvl42b9QcacPDCw7yGqZXbj9Rbu8wWjud5oX1u6GiyGRm
+	 6XMWka7LpdL26kup9HLn7ESE29w4nEgOB5TwGaRMfdljPVxTtl6jeq/G2vCtMmgLi4
+	 Zot3uZw7XCDkQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 56261CD4F2C;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A33FFCD4F2D;
 	Thu, 13 Nov 2025 00:43:43 +0000 (UTC)
 From: Deepak Gupta via B4 Relay <devnull+debug.rivosinc.com@kernel.org>
-Date: Wed, 12 Nov 2025 16:43:16 -0800
-Subject: [PATCH v23 18/28] riscv/kernel: update __show_regs to print shadow
- stack register
+Date: Wed, 12 Nov 2025 16:43:20 -0800
+Subject: [PATCH v23 22/28] riscv: enable kernel access to shadow stack
+ memory via FWFT sbi call
 MIME-Version: 1.0
-Message-Id: <20251112-v5_user_cfi_series-v23-18-b55691eacf4f@rivosinc.com>
+Message-Id: <20251112-v5_user_cfi_series-v23-22-b55691eacf4f@rivosinc.com>
 References: <20251112-v5_user_cfi_series-v23-0-b55691eacf4f@rivosinc.com>
 In-Reply-To: <20251112-v5_user_cfi_series-v23-0-b55691eacf4f@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -83,21 +83,21 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
  rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
- Deepak Gupta <debug@rivosinc.com>
+ Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762994618; l=1056;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762994618; l=2857;
  i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
- bh=wP5UX7zWs0Sv1DUPgXKgMTygpamqW2/FxBkyaeLpPmk=;
- b=XgsZAeUT1sXG/F+4ZdUQXPJ/oLZzD/TzpHQHvsP50reqdgPJEzc+FCBukTyOsqVOkj0T+wXh2
- XFdHxvNuumZBb+QoQcRR0YeS49jg3I108jb3DjkhZSD4rRxZ/9FUKEk
+ bh=6jhZAX7qSjG5giCOVCgCSSpmySXxQ3X5SeSFJU/GKzQ=;
+ b=W2WhBMK6sjGOyUZTeb5gCSAXF1cfuwgwZOIqRVNvDjuiNs6qTcLQ5w9yO/OAsdoS6vfmmUjI2
+ R+EjdOdpYctAwC4JeIrxEwYh5NGeSSbxrTgfuHDAAh+/kJarIV8JpSb
 X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
  pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-Endpoint-Received: by B4 Relay for debug@rivosinc.com/20251023 with
  auth_id=553
 X-Original-From: Deepak Gupta <debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_164350_501652_92ADFBB9 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20251112_164352_687947_BF30E028 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,30 +117,90 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Deepak Gupta <debug@rivosinc.com>
 
-Updating __show_regs to print captured shadow stack pointer as well.
-On tasks where shadow stack is disabled, it'll simply print 0.
+Kernel will have to perform shadow stack operations on user shadow stack.
+Like during signal delivery and sigreturn, shadow stack token must be
+created and validated respectively. Thus shadow stack access for kernel
+must be enabled.
 
+In future when kernel shadow stacks are enabled for linux kernel, it must
+be enabled as early as possible for better coverage and prevent imbalance
+between regular stack and shadow stack. After `relocate_enable_mmu` has
+been done, this is as early as possible it can enabled.
+
+Reviewed-by: Zong Li <zong.li@sifive.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/kernel/process.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/kernel/asm-offsets.c |  6 ++++++
+ arch/riscv/kernel/head.S        | 27 +++++++++++++++++++++++++++
+ 2 files changed, 33 insertions(+)
 
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 49f527e3acfd..aacb23978f93 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -93,8 +93,8 @@ void __show_regs(struct pt_regs *regs)
- 		regs->s8, regs->s9, regs->s10);
- 	pr_cont(" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
- 		regs->s11, regs->t3, regs->t4);
--	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT "\n",
--		regs->t5, regs->t6);
-+	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT " ssp : " REG_FMT "\n",
-+		regs->t5, regs->t6, get_active_shstk(current));
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index 8a2b2656cb2f..af827448a609 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -533,4 +533,10 @@ void asm_offsets(void)
+ 	DEFINE(FREGS_A6,	    offsetof(struct __arch_ftrace_regs, a6));
+ 	DEFINE(FREGS_A7,	    offsetof(struct __arch_ftrace_regs, a7));
+ #endif
++#ifdef CONFIG_RISCV_SBI
++	DEFINE(SBI_EXT_FWFT, SBI_EXT_FWFT);
++	DEFINE(SBI_EXT_FWFT_SET, SBI_EXT_FWFT_SET);
++	DEFINE(SBI_FWFT_SHADOW_STACK, SBI_FWFT_SHADOW_STACK);
++	DEFINE(SBI_FWFT_SET_FLAG_LOCK, SBI_FWFT_SET_FLAG_LOCK);
++#endif
+ }
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index bdf3352acf4c..9c99c5ad6fe8 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -15,6 +15,7 @@
+ #include <asm/image.h>
+ #include <asm/scs.h>
+ #include <asm/xip_fixup.h>
++#include <asm/usercfi.h>
+ #include "efi-header.S"
  
- 	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
- 		regs->status, regs->badaddr, regs->cause);
+ __HEAD
+@@ -170,6 +171,19 @@ secondary_start_sbi:
+ 	call relocate_enable_mmu
+ #endif
+ 	call .Lsetup_trap_vector
++#if defined(CONFIG_RISCV_SBI) && defined(CONFIG_RISCV_USER_CFI)
++	li a7, SBI_EXT_FWFT
++	li a6, SBI_EXT_FWFT_SET
++	li a0, SBI_FWFT_SHADOW_STACK
++	li a1, 1 /* enable supervisor to access shadow stack access */
++	li a2, SBI_FWFT_SET_FLAG_LOCK
++	ecall
++	beqz a0, 1f
++	la a1, riscv_nousercfi
++	li a0, CMDLINE_DISABLE_RISCV_USERCFI_BCFI
++	REG_S a0, (a1)
++1:
++#endif
+ 	scs_load_current
+ 	call smp_callin
+ #endif /* CONFIG_SMP */
+@@ -330,6 +344,19 @@ SYM_CODE_START(_start_kernel)
+ 	la tp, init_task
+ 	la sp, init_thread_union + THREAD_SIZE
+ 	addi sp, sp, -PT_SIZE_ON_STACK
++#if defined(CONFIG_RISCV_SBI) && defined(CONFIG_RISCV_USER_CFI)
++	li a7, SBI_EXT_FWFT
++	li a6, SBI_EXT_FWFT_SET
++	li a0, SBI_FWFT_SHADOW_STACK
++	li a1, 1 /* enable supervisor to access shadow stack access */
++	li a2, SBI_FWFT_SET_FLAG_LOCK
++	ecall
++	beqz a0, 1f
++	la a1, riscv_nousercfi
++	li a0, CMDLINE_DISABLE_RISCV_USERCFI_BCFI
++	REG_S a0, (a1)
++1:
++#endif
+ 	scs_load_current
+ 
+ #ifdef CONFIG_KASAN
 
 -- 
 2.43.0
