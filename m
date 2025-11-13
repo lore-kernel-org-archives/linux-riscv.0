@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2093ECD5BC2
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 10:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B64CD5BC2
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 10:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=py1rDLWD6beRtu4hEaBgK/RutRt1hevCUE4pPPs7Nho=; b=qRbC7laqnquK7R
-	mL/NRL1XK616xfztjIp5J7iVlh1A7RsQKw85JMEpgtcMorChEgVmnLjc7DSjrcDzr4SFbVnJ2S7i+
-	r4GWeZiYzfpgRSOlFEoPlzGoypfaCITwcWExtlViI5UZCkTDRHwqKid6DuVhxKt8e6pVhuIw702F6
-	EAczfhcD9mlks+tk+21GycR1Yq0KRONlq/fXBpoky571cX8uctpZ3hf9RxpPdU1t07G7mJlhCwObQ
-	TK2yiZ1CoF/yeoHFqQOGYdLI9HqzT9A02PHTRA0Wluvd8WSEIvWsxVOdcA1etj0fnmUrnkP2lXhc+
-	GgeHwGZ7mF6s9b+cHJFw==;
+	List-Owner; bh=TkunOLaHUIrZliMx8/hluoAN5m7241e/4/6HKS41t8A=; b=DLT0ejZ8td5FS6
+	3BVp1x8ekhYKTE9QmQYAn7maKPO9dj3HYocD7sLG+Yi8N+G9WNd3wVnI38Y6r6gsAaLYVHQmvbcBP
+	SUeBcdq/M1kBmHzbnezvz2VOAsEUUPk8x3LLHpWOhRr2ibufXmVOE7tzTCZtILIPRuS2ULqxTIdm8
+	rdyvf1g+GsAFB6cZvfaVIp+y75e4zG9bUKDEi++9visj94F7pBygellodVy0mgrKnDK02ZACuswJ+
+	n6oad56LupzUdkkFKsnyc2TN1gsBrDr15lMw3q3+Gbi/eklSC7Wv9BkTkMu25hdajk6w9suATGq5E
+	EbjkL+OS7VXvevu4nnpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUxB-0000000AKcO-37g0;
-	Thu, 13 Nov 2025 10:53:25 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1vJUxa-0000000AKic-1BLF;
+	Thu, 13 Nov 2025 10:53:50 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUx8-0000000AKay-1WO8
+	id 1vJUxY-0000000AKhJ-0Nj3
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 10:53:24 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-7b75e366866so376118b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Nov 2025 02:53:22 -0800 (PST)
+	Thu, 13 Nov 2025 10:53:49 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3437ea05540so668282a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Nov 2025 02:53:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763031201; x=1763636001; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1763031227; x=1763636027; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iXzDe/lb8LBcXrcioYpdWFUmDINGA7jRuKL/XW2h0KY=;
-        b=Q8fZ0q/xFivBQDH2SbMPicCbegg3lmM+FbyX8IISe0wd2s0V0kVjgEeh6Db2jV6OoG
-         QFSeLfZ8Ht8EggOV/CCp38ML1SQwf+XvtQ1WoZPd7tP9P9Tfj/iecWZSmrx3vr2O3QlZ
-         vbBIM1lEoLhoCmhPz7v+g01/X+Np6xiDGgYtX07Wn23tVe9Gq/s3G2Fgw79/4hGh288i
-         d3fruiee45bfRYRQP6rt8ZeizxaYRtrkzZQJiUFY2ZgqFL08ZX22H0hUk8sGpa1ZfTgC
-         g+7BFth1hvBTWsG+BD6DYfQsILv4KCyjZQmA7X0fxTvxasDE+WDf/DdlPKqJarMQsC2K
-         /J6Q==
+        bh=79H4PCNvjunVFwIbn/0+pzKB83dy0Gioq68+Eu7c2ig=;
+        b=GU/T6e5NU4+dO+LrMG4SSxWkLaHl9m5peCJ2vp5QjBd0aJxA4vxHO1z9ngPtz+fuej
+         w6PJMWJEb4FuqJIvmOh8uqP6/vzqRh2bFOlq6CBuDLM17nAQxF/4CNDIuKuZDgojmrzu
+         bcjEzlY78dQYEXV8GMLtW3O4v7R7eJiOmu0UZHwvrd38a7Iv7FPXbA11gIxhnbiC+gbN
+         auXB1VdDNfRg1qIxa+KlwlCXl/IbusSWEbjsU6ZTOlhMENLLYryMz6eyOPGeZ6Q3CsRZ
+         z3XpoKhkuEXH1ZQ5P3hx6bHEzjoLAPEDT7zwgVFbiaZcSE+c7Gzph5d70NbxT/NTkhiP
+         lKqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763031201; x=1763636001;
+        d=1e100.net; s=20230601; t=1763031227; x=1763636027;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=iXzDe/lb8LBcXrcioYpdWFUmDINGA7jRuKL/XW2h0KY=;
-        b=S9KdGm/cj6NLQ9R67FI4cQTm75EAG862j80rPXFLxcVgealCIl8PxhSbfw/eTKu9WW
-         sibunhgsnsgEwdqhItBc/i44wyE1pnfXqRPjGQZ2GJRO2DBm72ypnRuYaeodfB9uEGz+
-         SzOO2aJL7j1aqZn/852jZpZTIy9SI7vguqd+cRBZ7wlp+cRibTFeGZzzQLwigqUVoIpU
-         MwfPmnQDWDOvHCdUXxfRqXeNuM9l6cGNbRPjW82AHMiLScGvtEMqUfc2WKuuquPd0YQi
-         8ur6gIzMilG7uRVHCPxxIhuvlKiDkJ02H2p/0M8b2yo8NKt8GAhLs/DvqQqWddsiDjyS
-         ki5A==
-X-Forwarded-Encrypted: i=1; AJvYcCW6RYyN91husso6RbopH6AB2kDMjvUZBehhKK3t8DHq1QkGMFirBhBJqrteQFI9zp0Wen0XI79A1cMImw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx165nQLsEwC8bjJfzqu9ZXtA3KQ2uzxJT/bS4Ddl3jruAOGTqw
-	kH2sJX+sTRRxdyh7MqQ/nM0egQJoqPdePOLfevIF8GdcMDpbvi8VYq25
-X-Gm-Gg: ASbGncsV22vcmRg3N0Gkyck4N6wwdt4o5M6kd4IjZyA+WiL4uaIN/pXQEdab436y1ON
-	7hwO381kmh990MbmTwid0PzBavRx46MK8rJeFq95q7N9wM2e9HzYHzfJrbOwEkliB0PQEQySUks
-	KQ+OrNF0giNJxtNCiRbDXIcxTYIqSlsQnYQFtgMdX5wxiQ4EVS5dAzdnH62eY19JkVT8mDGMUYC
-	/LONf6fjuTdg9xPI1ZxIsCNVBPyZq/w9oEqJOOGifMr/frJE+/TQCSPrL6lM5TlfWzMKekc/DT6
-	9zGpJgS41ZEnUyMSK/RjerqWIb815EgTO6+3buOzx7r2UPLVQxrnE/+zmD6nVI0XaBEfjhrtc3b
-	rvl+SNjkkIPt6eD/ArO07oFE7ckZt2L5uvnOmWNms+9294eEwJi57IKgGhCp4HDKdI4z8rSBQ4/
-	L1/x/zTLZ1UXi1Te6zKZ3rJSiwYflIKQ65VWo=
-X-Google-Smtp-Source: AGHT+IGjc7/BLrmluqoR0wCBX6JW+io2uPlNPbBrwMmM01hCccHJSoZKJTWfi0yRonMDUz3bgaA4Iw==
-X-Received: by 2002:a17:90b:4a4d:b0:33e:30e8:81cb with SMTP id 98e67ed59e1d1-343dde14c3bmr7915421a91.13.1763031201314;
-        Thu, 13 Nov 2025 02:53:21 -0800 (PST)
+        bh=79H4PCNvjunVFwIbn/0+pzKB83dy0Gioq68+Eu7c2ig=;
+        b=WPMh+Krqp0VghvWxbjee+zPkWx3BfEpgbml4q6jmWMC+GFzRpkKySz7P5YyqvZ3Rzo
+         T7b3iFyBiHyX1c7DBvYEu2LHS38gV3haR8M0616CioWHiLj12wM7N7PBtSAv6Cozq6k8
+         jYT1uQjRLGuf5wD/RvNOayKHAm2QFyrEHwJ8Dld+imIEKxyYuN2q+Edo1UWPzPYLaPUU
+         uf3qmdULVBED5/NYUEuaYWn8L343fXtNIGDkdwkPg6mRdnhZ+1Bh664IEKhsABsQ8q1i
+         o6spr0VQBbAYrqZbgxTTK0bOcEXTIyRyEgjSmRYe5L1W1TDZjwQfPgYtXUruW2v9WAcM
+         HV3A==
+X-Forwarded-Encrypted: i=1; AJvYcCWqHCWVf9JeKWW1pAbG8OSlSE3vvHQP+ABEfXBlkbLcBgWUqIl5veZpQo0rmRZ8kt4jdOndScUS4+JeHg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMNG5d0AjBa9LfPQ2QpskQQnnkC5zSdss/zR40X4CHKMeTTDqw
+	oLaW5NMUpj+52V8AAGklmD8ofeF6fNxFSC/PBD3VChS6yE55pEEaDmLk
+X-Gm-Gg: ASbGncuXL8u+W0yrgXV70wHZyTOaiP+jahCSTBzr59fMcHdQtRjW9J7wWeYot6CXck7
+	c5HhbnXVkX38IRiKoKXt76lLtW0ljonPT3x5Wri1HB7P4SPa5aEqILdyh31nYwfJ16Qt9lN4Gn5
+	u2TVKj8618jJJM9Y9pUpk6DE7uuqrjgtS1j5W88FUI/uFtO8KJdrpN6GL/W9eTdE8DNa+TLYPq5
+	nTclV/sjIHvZtYsHQrkOS+5OZ3wzhK17taq75syRVw6b0Kj7USDJAoPekz4uphv7ykjLFR+sb94
+	Q9sISxudPirwAPoBW1UpgCPEMKPMus0hcn7Ksh/JGO+yZYh/J73iAXIgbu+r50/T916Vla4YToW
+	6Qd0jDJEZjCUxVbYg5qugMbKjPZouxx+6jCmkyC9artf5RW4aXvjbTD6kWC515ZZiUwmYtSE65I
+	DJIgsip8cd5/GZcH7w88BNAdpU
+X-Google-Smtp-Source: AGHT+IG67cbPiY5vzZGzQUE0bLFNEQd0Hs0NoyrOMcnJ2e809/8Qsgd+TCKfqsTG/VC1QF5SpkYEpw==
+X-Received: by 2002:a17:90b:51ca:b0:343:653d:31c with SMTP id 98e67ed59e1d1-343dddd4253mr7480650a91.5.1763031227339;
+        Thu, 13 Nov 2025 02:53:47 -0800 (PST)
 Received: from DESKTOP-8TIG9K0.localdomain ([119.28.20.50])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-343ed4c939dsm2139616a91.6.2025.11.13.02.53.02
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-343ed4c939dsm2139616a91.6.2025.11.13.02.53.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Nov 2025 02:53:20 -0800 (PST)
+        Thu, 13 Nov 2025 02:53:46 -0800 (PST)
 From: Xie Yuanbin <qq570070308@gmail.com>
 To: tglx@linutronix.de,
 	riel@surriel.com,
@@ -143,18 +143,18 @@ Cc: x86@kernel.org,
 	sparclinux@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	llvm@lists.linux.dev,
-	will@kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH v3 1/3] Make enter_lazy_tlb inline on x86
-Date: Thu, 13 Nov 2025 18:52:25 +0800
-Message-ID: <20251113105227.57650-2-qq570070308@gmail.com>
+	will@kernel.org
+Subject: [PATCH v3 2/3] Make raw_spin_rq_unlock inline
+Date: Thu, 13 Nov 2025 18:52:26 +0800
+Message-ID: <20251113105227.57650-3-qq570070308@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251113105227.57650-1-qq570070308@gmail.com>
 References: <20251113105227.57650-1-qq570070308@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_025322_402146_041A977A 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20251113_025348_131037_96CD1754 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,90 +171,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This function is very short, and is called in the context switching,
-which is the hot code path.
+This function is short, and is called in some critical hot code paths,
+such as finish_lock_switch.
 
-Change it to inline function on x86 to optimize performance, just like
-its code on other architectures.
+Make it inline to optimize performance.
 
 Signed-off-by: Xie Yuanbin <qq570070308@gmail.com>
-Reviewed-by: Rik van Riel <riel@surriel.com>
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202511091959.kfmo9kPB-lkp@intel.com/
-Closes: https://lore.kernel.org/oe-kbuild-all/202511092219.73aMMES4-lkp@intel.com/
-Closes: https://lore.kernel.org/oe-kbuild-all/202511100042.ZklpqjOY-lkp@intel.com/
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Rik van Riel <riel@surriel.com>
+Cc: Segher Boessenkool <segher@kernel.crashing.org>
+Cc: David Hildenbrand <david@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: H. Peter Anvin (Intel) <hpa@zytor.com>
 ---
- arch/x86/include/asm/mmu_context.h | 23 ++++++++++++++++++++++-
- arch/x86/mm/tlb.c                  | 21 ---------------------
- 2 files changed, 22 insertions(+), 22 deletions(-)
+ kernel/sched/core.c  | 5 -----
+ kernel/sched/sched.h | 6 +++++-
+ 2 files changed, 5 insertions(+), 6 deletions(-)
 
-diff --git a/arch/x86/include/asm/mmu_context.h b/arch/x86/include/asm/mmu_context.h
-index 73bf3b1b44e8..ecd134dcfb34 100644
---- a/arch/x86/include/asm/mmu_context.h
-+++ b/arch/x86/include/asm/mmu_context.h
-@@ -136,8 +136,29 @@ static inline void mm_reset_untag_mask(struct mm_struct *mm)
- }
- #endif
- 
-+/*
-+ * Please ignore the name of this function.  It should be called
-+ * switch_to_kernel_thread().
-+ *
-+ * enter_lazy_tlb() is a hint from the scheduler that we are entering a
-+ * kernel thread or other context without an mm.  Acceptable implementations
-+ * include doing nothing whatsoever, switching to init_mm, or various clever
-+ * lazy tricks to try to minimize TLB flushes.
-+ *
-+ * The scheduler reserves the right to call enter_lazy_tlb() several times
-+ * in a row.  It will notify us that we're going back to a real mm by
-+ * calling switch_mm_irqs_off().
-+ */
- #define enter_lazy_tlb enter_lazy_tlb
--extern void enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk);
-+#ifndef MODULE
-+static __always_inline void enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk)
-+{
-+	if (this_cpu_read(cpu_tlbstate.loaded_mm) == &init_mm)
-+		return;
-+
-+	this_cpu_write(cpu_tlbstate_shared.is_lazy, true);
-+}
-+#endif
- 
- #define mm_init_global_asid mm_init_global_asid
- extern void mm_init_global_asid(struct mm_struct *mm);
-diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
-index 5d221709353e..cb715e8e75e4 100644
---- a/arch/x86/mm/tlb.c
-+++ b/arch/x86/mm/tlb.c
-@@ -970,27 +970,6 @@ void switch_mm_irqs_off(struct mm_struct *unused, struct mm_struct *next,
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 81cf8452449a..0e50ef3d819a 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -677,11 +677,6 @@ bool raw_spin_rq_trylock(struct rq *rq)
  	}
  }
  
--/*
-- * Please ignore the name of this function.  It should be called
-- * switch_to_kernel_thread().
-- *
-- * enter_lazy_tlb() is a hint from the scheduler that we are entering a
-- * kernel thread or other context without an mm.  Acceptable implementations
-- * include doing nothing whatsoever, switching to init_mm, or various clever
-- * lazy tricks to try to minimize TLB flushes.
-- *
-- * The scheduler reserves the right to call enter_lazy_tlb() several times
-- * in a row.  It will notify us that we're going back to a real mm by
-- * calling switch_mm_irqs_off().
-- */
--void enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk)
+-void raw_spin_rq_unlock(struct rq *rq)
 -{
--	if (this_cpu_read(cpu_tlbstate.loaded_mm) == &init_mm)
--		return;
--
--	this_cpu_write(cpu_tlbstate_shared.is_lazy, true);
+-	raw_spin_unlock(rq_lockp(rq));
 -}
 -
  /*
-  * Using a temporary mm allows to set temporary mappings that are not accessible
-  * by other CPUs. Such mappings are needed to perform sensitive memory writes
+  * double_rq_lock - safely lock two runqueues
+  */
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index f702fb452eb6..7d305ec10374 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -1541,13 +1541,17 @@ static inline void lockdep_assert_rq_held(struct rq *rq)
+ 
+ extern void raw_spin_rq_lock_nested(struct rq *rq, int subclass);
+ extern bool raw_spin_rq_trylock(struct rq *rq);
+-extern void raw_spin_rq_unlock(struct rq *rq);
+ 
+ static inline void raw_spin_rq_lock(struct rq *rq)
+ {
+ 	raw_spin_rq_lock_nested(rq, 0);
+ }
+ 
++static inline void raw_spin_rq_unlock(struct rq *rq)
++{
++	raw_spin_unlock(rq_lockp(rq));
++}
++
+ static inline void raw_spin_rq_lock_irq(struct rq *rq)
+ {
+ 	local_irq_disable();
 -- 
 2.51.0
 
