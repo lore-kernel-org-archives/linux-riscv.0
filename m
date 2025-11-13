@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 926F5CD4F41
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 01:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B5A9CD4F3B
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 01:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QQqYHzgiZXKDNYB7oAzLOLWcbRper8drwtlPxavvbRs=; b=yZgsqhetUxq2BP
-	H8z+yyquT9jczma97BfRmrHNfy4G3+dib5V7z3Gk//hTPUbQFh0TiLhPQ9XxpKToSgCK+uBc2Xv9f
-	X8ztpucu7u39zNMEowc8xQyK36Innd58i5bIJNytiKTkWL45g/ehKTE4Ectel1DsC25CMbpknwBSc
-	5DLKytuETVO0xUVGw0xRCcb0f9k2WlkLtd3mRovFDJSn61c3Lxc8YzQWIlXJLPArkBxJLNxbbqVow
-	3FO4TFUU8Z+ztm51LlwZT3ZSzW7lVHXTDkkTShXJaNUkEMd2uCoq2GCUpJRxBdSVeSwSeMvZlakI6
-	xcS84NMZ65Noz6LoV3lg==;
+	List-Owner; bh=21e6lVt5xn83ls+mn4awoQbrvHXqn3Mk4Thtl+LkXvA=; b=aEvGbvZ8DMkOPp
+	CWKNiKW8yqBm/kXvZ1LfOT9k74dy7CH5XUFsV2kKDLHiCTbi7h1lqLPdZhfD29QfQdakrV4fJHoho
+	Cki3t0xb8XdLn1mFjE+m6hnz5766MUaQ1zdaCqcCmzwaqTZcJKzQQYZdNNHXRSGuyOtmt5rdvae9d
+	Ux+N1/vRDuNUF2YrlwxPHkb30OW1pbdnszAwkImK8yTWmbhQOckZBIE0zxtEkDeVBRdotnqzT7tYc
+	gRrOkURcl6YPEvtaPpTEyX0kE/qJFbacId/GCx2vBxRBRviKqgWR0M2EeEGtx1EUnXcHyf6Ag/Cc2
+	G8U/52z3Dml4kEhp2CTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJMQh-00000009jon-2PZ0;
-	Thu, 13 Nov 2025 01:47:19 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1vJMQl-00000009jse-1tdp;
+	Thu, 13 Nov 2025 01:47:23 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJMQd-00000009jl7-0vJL
+	id 1vJMQj-00000009jq9-15h5
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 01:47:16 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-ba2450aba80so158499a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Nov 2025 17:47:14 -0800 (PST)
+	Thu, 13 Nov 2025 01:47:22 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-297f35be2ffso3845345ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Nov 2025 17:47:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1762998434; x=1763603234; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1762998440; x=1763603240; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=onXS1ZyyTIk7E4Phjch+Gs0PpMpoB1JPFOZexalawi0=;
-        b=J6S0H7HiBazAmQ6XRNj9vV65Mo5nxMxACSWZdB2KyxK990/EQSgAuj4CpHKJC0jN97
-         tFrfYrv09XblwLcCrJEj4/BMvL5uEpTyZur0HNqFuI1tFof6YNQX95p9MIgsG32Qp3MP
-         xV37CopNrQVi1WwfejSJ0HlRdbpBTuPcXyUFaDDk/bcxxWq9eCOwaF5RTDgSWhlKy6MP
-         04eWcT1NDpaNZt5O5LsSdaFEnh1V5WQstWh6iuopFUoKieTCgrI+0Ac8rHycHrATTtVY
-         xgRSCHSe/JPcfEKCn/zx7EUfO2ALGyCwPD2Sk37BopfWLjVXp6QbRKPskczkYzN3Z0Jz
-         ZRAg==
+        bh=ZB9Jv5e+J/nnZHZhnhots3i8EjJxTeX7spRmBxkznRQ=;
+        b=dm0cAUQHCNGMh4xM38uFVfVD/roL2sHebAPHfwa9n95Kj0R09FxzA/VvgMB6GPpGJA
+         v5vTdYbDtm0gvLFg8DQVnYPmE/6bC7gJT8c6RNGzf8IIeUbeYfL8lMZrzJUc06Xrr+Nb
+         Q/QCpspeopAsehuohPISp7WXqOafNGk6H60ikXx1GzUTZcLMoBSDN4gaD6MWfEEuiyYj
+         CQAckRJF2S4zXJdViclVZtA/cNdSc97AdsZi6Oim4kBYVla7gegrB5zdyx/o10c8L8hI
+         jZO5FrvtNWZbNXFmoPrGpX6T0F2dWYO6fksJnIByRoxQt6Sq4fTxgwuG0aW+4yPJg9Ox
+         058A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762998434; x=1763603234;
+        d=1e100.net; s=20230601; t=1762998440; x=1763603240;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=onXS1ZyyTIk7E4Phjch+Gs0PpMpoB1JPFOZexalawi0=;
-        b=IBRKBjulcUfsqottWeQff6ZgviwTScOWVYqGVwZADOrLUubbypYzppljxHHB19ceQK
-         +vOYfw/102jMQAP9CGr9g4MvsmPp0X13TIsil90VBTLwTk9DYmIHOVPxkuXIgboIglCq
-         I9Ly2zzJgXdf3Pm9BEZnh1mZaIh8VYePQ5rcfjurZKt7Ysih8vshQ2gTMKRXmkM8JQQH
-         oSYoKfT/X/I/7OsIt5RdGbQilFcGXzbE214UPGY14/fznfRK1vlnAv4L4nFjDAcGSQ8s
-         JAgxllACQgAf5WK+jzADbBarNIksAJp+2g8SmSCztK0NbBUDK5IDjEx9hAqTGH6W33I9
-         EnDA==
-X-Forwarded-Encrypted: i=1; AJvYcCXngfmB8QDWMrQBIDeuJ0BLT8L/Pxx2o4u1y0TsnttkPPZTVN/e6pmXSmIsF3JHWw25C48tFH5HIshHmQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzw0zwqOGHTZoIFILjfCFw0QjX7S40N3f4jDFxUos0o769XbAby
-	ns9HPbyrFQRnbT76OhhPrkGWk8HWZicQfgI++s2Jt+fWrKjc7+VAAXexn/aLUnaR41A=
-X-Gm-Gg: ASbGnctYjEAV8UYoUs7XnqvxbyP2FczYXZy+ZxDtRBXz4GTWo9sXE8q6MDKAYuhLTTQ
-	ThD61+nz1b5MwC+bjRwG7t7ItGomaOD1dj5b9Uvqtgy7CEq1htUONxCxNokFE78F5gVqOeG/sYR
-	JsrKvNQc0anb729pmZLkVp1xMAnY75BlONqMKN+HA8g6+AJlfk2FW8Q0UEGYFlbKC5NHX9e+NGF
-	2Tl/tho7/ldurnC4FpnJg0LIYcI55osPXTcyKuE9rosMUkZE6Bc55ra9+O26+X8hz+CevA+wWKK
-	1cYzcpOzhPFalBzk+EOd1ChiJxkV7RNJ8gFnWfalxS+anrWmOi38Q4dIRe0jacX8FujPxzW+Sbg
-	TAjWdP9wXiZZoUp8aqDKzRWyQMtOsQRIbg4XAXxIOZxqR7vGBosBPG5fZdIZHdR0y4rT7BTamT/
-	o16xgVt4lG+3C+JgtcG9hXDQ==
-X-Google-Smtp-Source: AGHT+IEPUQpGJSnlpoH1wKnMxfvk73znW6zYh27mDLEJKnxaxWn+hw/P1W+C7Nu+pbcglz2Jny/U/g==
-X-Received: by 2002:a17:902:cccf:b0:297:f8d9:aad7 with SMTP id d9443c01a7336-2984ede5755mr62262705ad.50.1762998434336;
-        Wed, 12 Nov 2025 17:47:14 -0800 (PST)
+        bh=ZB9Jv5e+J/nnZHZhnhots3i8EjJxTeX7spRmBxkznRQ=;
+        b=rPEtGLxnfdd5vm6RE8xA8PyGvF1PZqiCiqji56TTdzbJM/5YD+H952zB71y31FIX59
+         hdCqghRGyu3Q7kjGw385adIjI7NlJ/KTuHjmwlsF5aflzFvr3x94TUoazUv/k0ZQmKQx
+         p1hbtdPTi8suJCy+PtFCeq6clmEbPubFJsJjKeRA4wSdQw7xMrOQ1ie1GRLRId/NAaJY
+         KBfjQN6PhFKQ1g/HA/uNVeTN0gtlYmG72OYgxw+1PDnigPDbEB0C/EjkD9lIUMQx54lY
+         pLllHhrRdM7XF4IusfhlZ1NoJCbSKBnJ+ElXUzQqgteb4tCtQaX86zWeV9HqwZjbghFR
+         KLsw==
+X-Forwarded-Encrypted: i=1; AJvYcCVIg1QVUGPZxdXoVIFV9/C0RZ0u5xMjpHMIaNV7JMqHwwpxvCyY53HVIvIbOyoz7inZkFfi/mKJ//ba5w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxN7zUcT/nCBJK7VxzMms8U+RQCipZqk8U2ISGKWOwl3WtWzrHd
+	QJQz3G9xBs/DOWBurXUVO7qj0MhWoD8ZR72cgDVFZIb1R0+KS00YU2EcUnuCs6+01QQ=
+X-Gm-Gg: ASbGnctFnEMio7uTb/51x08M98t3ifIedj7IRDA15wWnbsx9mxoTBMIP9NvEGZQiso5
+	N5+HUw2f9J/2IEujC2faJ/Dvkhc/7hvqwXnUNEQdWT8dtcz5t4BBVOZLQ+oRpjoYtuSgfYzz2G2
+	wPbSFKHhjSSNMguH+oZnlSsnjfbJDh7OUYawyXlv3MrLoA/wtY0c1t3UKOYdQkbde+VjxFgx9NB
+	SHkCs857Oa60iyOCBbpuXAKeFY0gX9hTMQd+Gxa8izX69vVrxbklFoCEoeA2dDmMrZqNB8oFfA8
+	WsMZnbCmpagZddezunx/5Idhg3WRbZZOU143K38mOjIpX4/Htx2k2lexCdmVB+m0MfK3hlFBcXS
+	OC1pclE2Yg8xNBQ90gIF6ErjBTynCnRzwYcNojTE68wWAbJAHXBqVUn6gq65TCnLHlAX/ujfO3E
+	6hV3jFNbgMLcekd04Wr2Hc0w==
+X-Google-Smtp-Source: AGHT+IF7iLJyShxHKC7U969MaIOXMFAFaPrs9T06x1cgDMhJWNaYEsQEWxTnOb0Z/OpUrPfiBHQTzQ==
+X-Received: by 2002:a17:902:d588:b0:297:c889:ba37 with SMTP id d9443c01a7336-2984eddda58mr63974625ad.41.1762998440376;
+        Wed, 12 Nov 2025 17:47:20 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2ccae8sm4986485ad.98.2025.11.12.17.47.13
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2ccae8sm4986485ad.98.2025.11.12.17.47.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 17:47:14 -0800 (PST)
+        Wed, 12 Nov 2025 17:47:20 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <pjw@kernel.org>,
@@ -91,16 +91,16 @@ Cc: devicetree@vger.kernel.org,
 	Vlastimil Babka <vbabka@suse.cz>,
 	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v3 10/22] riscv: mm: Always use page table accessor functions
-Date: Wed, 12 Nov 2025 17:45:23 -0800
-Message-ID: <20251113014656.2605447-11-samuel.holland@sifive.com>
+Subject: [PATCH v3 14/22] riscv: mm: Fix up memory types when writing page tables
+Date: Wed, 12 Nov 2025 17:45:27 -0800
+Message-ID: <20251113014656.2605447-15-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20251113014656.2605447-1-samuel.holland@sifive.com>
 References: <20251113014656.2605447-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_174715_268924_A018F72A 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20251112_174721_332839_5176C8E2 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,9 +117,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the semantically appropriate accessor function instead of a raw
-pointer dereference. This will become important once these functions
-start transforming the PTE value on some platforms.
+Currently, Linux on RISC-V has three ways to specify the cacheability
+and ordering PMAs of a page:
+ 1) Do nothing; assume the system is entirely cache-coherent and rely on
+    the hardware for any ordering requirements
+ 2) Use the page table bits specified by Svpbmt
+ 3) Use the page table bits specified by XTheadMae
+
+To support all three methods, the kernel dynamically determines the
+definitions of the _PAGE_NOCACHE and _PAGE_IO fields. However, this
+alone is not sufficient, as XTheadMae uses a nonzero memory type value
+for normal memory pages. So the kernel uses an additional alternative
+sequence (ALT_THEAD_PMA) to insert the correct memory type when
+generating page table entries.
+
+Some RISC-V platforms use a fourth method to specify the cacheability of
+a page of RAM: RAM is mapped to multiple physical address ranges, with
+each alias having a different set of statically-determined PMAs.
+Software selects the PMAs for a page by choosing the corresponding PFN
+from one of the available physical address ranges. Like for XTheadMae,
+this strategy also requires applying a transformation when writing page
+table entries. Since these physical memory aliases should be invisible
+to the rest of the kernel, the opposite transformation must be applied
+when reading page table entries.
+
+However, with this last method of specifying PMAs, there is no inherent
+way to indicate the cacheability of a page in the pgprot_t value, since
+the PFN itself determines cacheability. This implementation reuses the
+PTE bits from Svpbmt, as Svpbmt is the standard RISC-V extension, and
+thus ought to be the most common way to indicate per-page PMAs. Thus,
+the Svpbmt variant of _PAGE_NOCACHE and _PAGE_IO is made available even
+when the CPU does not support the extension.
+
+It turns out that with some clever bit manipulation, it is just as
+efficient to transform all three Svpbmt memory type values to the
+corresponding XTheadMae values, as it is to check for and insert the
+one XTheadMae memory type value for normal memory. Thus, we implement
+XTheadMae as a variant on top of Svpbmt. This allows the _PAGE_NOCACHE
+and _PAGE_IO definitions to be compile-time constants, and centralizes
+all memory type handling to a single set of alternative macros.
+
+However, there is a tradeoff for platforms relying on hardware for all
+memory type handling: the memory type PTE bits must now be masked off
+when writing page table entries, whereas previously no transformation
+was needed.
+
+As a side effect, since the inverse transformation is applied when
+reading back page table entries, this change fixes the reporting of the
+memory type bits from ptdump on platforms with XTheadMae.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
@@ -127,296 +172,539 @@ Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 (no changes since v2)
 
 Changes in v2:
- - New patch for v2
+ - Keep Kconfig options for each PBMT variant separate/non-overlapping
+ - Move fixup code sequences to set_pXX() and pXXp_get()
+ - Only define ALT_UNFIX_MT in configurations that need it
+ - Improve inline documentation of ALT_FIXUP_MT/ALT_UNFIX_MT
 
- arch/riscv/include/asm/pgtable.h |  8 ++--
- arch/riscv/kvm/gstage.c          |  6 +--
- arch/riscv/mm/init.c             | 68 +++++++++++++++++---------------
- arch/riscv/mm/pgtable.c          |  9 +++--
- 4 files changed, 49 insertions(+), 42 deletions(-)
+ arch/riscv/include/asm/errata_list.h |  45 -------
+ arch/riscv/include/asm/pgtable-32.h  |   3 +
+ arch/riscv/include/asm/pgtable-64.h  | 171 ++++++++++++++++++++++-----
+ arch/riscv/include/asm/pgtable.h     |  47 ++++----
+ arch/riscv/mm/pgtable.c              |  14 +--
+ arch/riscv/mm/ptdump.c               |  12 +-
+ 6 files changed, 174 insertions(+), 118 deletions(-)
 
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 6694b5ccdcf8..fa03021b7074 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -53,51 +53,6 @@ asm(ALTERNATIVE(	\
+ 	: /* no inputs */	\
+ 	: "memory")
+ 
+-/*
+- * _val is marked as "will be overwritten", so need to set it to 0
+- * in the default case.
+- */
+-#define ALT_SVPBMT_SHIFT 61
+-#define ALT_THEAD_MAE_SHIFT 59
+-#define ALT_SVPBMT(_val, prot)						\
+-asm(ALTERNATIVE_2("li %0, 0\t\nnop",					\
+-		  "li %0, %1\t\nslli %0,%0,%3", 0,			\
+-			RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,	\
+-		  "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID,	\
+-			ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)	\
+-		: "=r"(_val)						\
+-		: "I"(prot##_SVPBMT >> ALT_SVPBMT_SHIFT),		\
+-		  "I"(prot##_THEAD >> ALT_THEAD_MAE_SHIFT),		\
+-		  "I"(ALT_SVPBMT_SHIFT),				\
+-		  "I"(ALT_THEAD_MAE_SHIFT))
+-
+-#ifdef CONFIG_ERRATA_THEAD_MAE
+-/*
+- * IO/NOCACHE memory types are handled together with svpbmt,
+- * so on T-Head chips, check if no other memory type is set,
+- * and set the non-0 PMA type if applicable.
+- */
+-#define ALT_THEAD_PMA(_val)						\
+-asm volatile(ALTERNATIVE(						\
+-	__nops(7),							\
+-	"li      t3, %1\n\t"						\
+-	"slli    t3, t3, %3\n\t"					\
+-	"and     t3, %0, t3\n\t"					\
+-	"bne     t3, zero, 2f\n\t"					\
+-	"li      t3, %2\n\t"						\
+-	"slli    t3, t3, %3\n\t"					\
+-	"or      %0, %0, t3\n\t"					\
+-	"2:",  THEAD_VENDOR_ID,						\
+-		ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)		\
+-	: "+r"(_val)							\
+-	: "I"(_PAGE_MTMASK_THEAD >> ALT_THEAD_MAE_SHIFT),		\
+-	  "I"(_PAGE_PMA_THEAD >> ALT_THEAD_MAE_SHIFT),			\
+-	  "I"(ALT_THEAD_MAE_SHIFT)					\
+-	: "t3")
+-#else
+-#define ALT_THEAD_PMA(_val)
+-#endif
+-
+ #define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
+ asm volatile(ALTERNATIVE(						\
+ 	__nops(5),							\
+diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+index fa6c87015c48..90ef35a7c1a5 100644
+--- a/arch/riscv/include/asm/pgtable-32.h
++++ b/arch/riscv/include/asm/pgtable-32.h
+@@ -28,6 +28,9 @@
+ #define _PAGE_IO		0
+ #define _PAGE_MTMASK		0
+ 
++#define ALT_FIXUP_MT(_val)
++#define ALT_UNFIX_MT(_val)
++
+ static const __maybe_unused int pgtable_l4_enabled;
+ static const __maybe_unused int pgtable_l5_enabled;
+ 
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index 093f0f41fd23..aad34c754325 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -8,7 +8,7 @@
+ 
+ #include <linux/bits.h>
+ #include <linux/const.h>
+-#include <asm/errata_list.h>
++#include <asm/alternative-macros.h>
+ 
+ extern bool pgtable_l4_enabled;
+ extern bool pgtable_l5_enabled;
+@@ -111,6 +111,8 @@ enum napot_cont_order {
+ #define HUGE_MAX_HSTATE		2
+ #endif
+ 
++#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
++
+ /*
+  * [62:61] Svpbmt Memory Type definitions:
+  *
+@@ -119,53 +121,152 @@ enum napot_cont_order {
+  *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
+  *  11 - Rsvd   Reserved for future standard use
+  */
+-#define _PAGE_NOCACHE_SVPBMT	(1UL << 61)
+-#define _PAGE_IO_SVPBMT		(1UL << 62)
+-#define _PAGE_MTMASK_SVPBMT	(_PAGE_NOCACHE_SVPBMT | _PAGE_IO_SVPBMT)
++#define _PAGE_NOCACHE		(1UL << 61)
++#define _PAGE_IO		(2UL << 61)
++#define _PAGE_MTMASK		(3UL << 61)
+ 
+ /*
++ * ALT_FIXUP_MT
++ *
++ * On systems that do not support any form of page-based memory type
++ * configuration, this code sequence clears the memory type bits in the PTE.
++ *
++ * On systems that support Svpbmt, the memory type bits are left alone.
++ *
++ * On systems that support XTheadMae, a Svpbmt memory type is transformed
++ * into the corresponding XTheadMae memory type.
++ *
+  * [63:59] T-Head Memory Type definitions:
+  * bit[63] SO - Strong Order
+  * bit[62] C - Cacheable
+  * bit[61] B - Bufferable
+  * bit[60] SH - Shareable
+  * bit[59] Sec - Trustable
+- * 00110 - NC   Weakly-ordered, Non-cacheable, Bufferable, Shareable, Non-trustable
+  * 01110 - PMA  Weakly-ordered, Cacheable, Bufferable, Shareable, Non-trustable
++ * 00110 - NC   Weakly-ordered, Non-cacheable, Bufferable, Shareable, Non-trustable
+  * 10010 - IO   Strongly-ordered, Non-cacheable, Non-bufferable, Shareable, Non-trustable
++ *
++ * Pseudocode operating on bits [63:60]:
++ *   t0 = mt << 1
++ *   if (t0 == 0)
++ *     t0 |= 2
++ *   t0 ^= 0x5
++ *   mt ^= t0
++ */
++
++#define ALT_FIXUP_MT(_val)								\
++	asm(ALTERNATIVE_2("addi	t0, zero, 0x3\n\t"					\
++			  "slli	t0, t0, 61\n\t"						\
++			  "not	t0, t0\n\t"						\
++			  "and	%0, %0, t0\n\t"						\
++			  "nop\n\t"							\
++			  "nop\n\t"							\
++			  "nop",							\
++			  __nops(7),							\
++			  0, RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,		\
++			  "srli	t0, %0, 59\n\t"						\
++			  "seqz	t1, t0\n\t"						\
++			  "slli	t1, t1, 1\n\t"						\
++			  "or	t0, t0, t1\n\t"						\
++			  "xori	t0, t0, 0x5\n\t"					\
++			  "slli	t0, t0, 60\n\t"						\
++			  "xor	%0, %0, t0",						\
++			  THEAD_VENDOR_ID, ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)	\
++			  : "+r" (_val) :: "t0", "t1")
++
++#else
++
++#define _PAGE_NOCACHE		0
++#define _PAGE_IO		0
++#define _PAGE_MTMASK		0
++
++#define ALT_FIXUP_MT(_val)
++
++#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_ERRATA_THEAD_MAE */
++
++#if defined(CONFIG_ERRATA_THEAD_MAE)
++
++/*
++ * ALT_UNFIX_MT
++ *
++ * On systems that support Svpbmt, or do not support any form of page-based
++ * memory type configuration, the memory type bits are left alone.
++ *
++ * On systems that support XTheadMae, the XTheadMae memory type (or zero) is
++ * transformed back into the corresponding Svpbmt memory type.
++ *
++ * Pseudocode operating on bits [63:60]:
++ *   t0 = mt & 0xd
++ *   t0 ^= t0 >> 1
++ *   mt ^= t0
+  */
+-#define _PAGE_PMA_THEAD		((1UL << 62) | (1UL << 61) | (1UL << 60))
+-#define _PAGE_NOCACHE_THEAD	((1UL << 61) | (1UL << 60))
+-#define _PAGE_IO_THEAD		((1UL << 63) | (1UL << 60))
+-#define _PAGE_MTMASK_THEAD	(_PAGE_PMA_THEAD | _PAGE_IO_THEAD | (1UL << 59))
+ 
+-static inline u64 riscv_page_mtmask(void)
++#define ALT_UNFIX_MT(_val)								\
++	asm(ALTERNATIVE(__nops(6),							\
++			  "srli	t0, %0, 60\n\t"						\
++			  "andi	t0, t0, 0xd\n\t"					\
++			  "srli	t1, t0, 1\n\t"						\
++			  "xor	t0, t0, t1\n\t"						\
++			  "slli	t0, t0, 60\n\t"						\
++			  "xor	%0, %0, t0",						\
++			  THEAD_VENDOR_ID, ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)	\
++			  : "+r" (_val) :: "t0", "t1")
++
++#define ptep_get ptep_get
++static inline pte_t ptep_get(pte_t *ptep)
+ {
+-	u64 val;
++	pte_t pte = READ_ONCE(*ptep);
+ 
+-	ALT_SVPBMT(val, _PAGE_MTMASK);
+-	return val;
++	ALT_UNFIX_MT(pte);
++
++	return pte;
+ }
+ 
+-static inline u64 riscv_page_nocache(void)
++#define pmdp_get pmdp_get
++static inline pmd_t pmdp_get(pmd_t *pmdp)
+ {
+-	u64 val;
++	pmd_t pmd = READ_ONCE(*pmdp);
++
++	ALT_UNFIX_MT(pmd);
+ 
+-	ALT_SVPBMT(val, _PAGE_NOCACHE);
+-	return val;
++	return pmd;
+ }
+ 
+-static inline u64 riscv_page_io(void)
++#define pudp_get pudp_get
++static inline pud_t pudp_get(pud_t *pudp)
+ {
+-	u64 val;
++	pud_t pud = READ_ONCE(*pudp);
++
++	ALT_UNFIX_MT(pud);
+ 
+-	ALT_SVPBMT(val, _PAGE_IO);
+-	return val;
++	return pud;
+ }
+ 
+-#define _PAGE_NOCACHE		riscv_page_nocache()
+-#define _PAGE_IO		riscv_page_io()
+-#define _PAGE_MTMASK		riscv_page_mtmask()
++#define p4dp_get p4dp_get
++static inline p4d_t p4dp_get(p4d_t *p4dp)
++{
++	p4d_t p4d = READ_ONCE(*p4dp);
++
++	ALT_UNFIX_MT(p4d);
++
++	return p4d;
++}
++
++#define pgdp_get pgdp_get
++static inline pgd_t pgdp_get(pgd_t *pgdp)
++{
++	pgd_t pgd = READ_ONCE(*pgdp);
++
++	ALT_UNFIX_MT(pgd);
++
++	return pgd;
++}
++
++#else
++
++#define ALT_UNFIX_MT(_val)
++
++#endif /* CONFIG_ERRATA_THEAD_MAE */
+ 
+ static inline int pud_present(pud_t pud)
+ {
+@@ -195,6 +296,7 @@ static inline int pud_user(pud_t pud)
+ 
+ static inline void set_pud(pud_t *pudp, pud_t pud)
+ {
++	ALT_FIXUP_MT(pud);
+ 	WRITE_ONCE(*pudp, pud);
+ }
+ 
+@@ -245,11 +347,7 @@ static inline bool mm_pud_folded(struct mm_struct *mm)
+ 
+ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+ {
+-	unsigned long prot_val = pgprot_val(prot);
+-
+-	ALT_THEAD_PMA(prot_val);
+-
+-	return __pmd((pfn << _PAGE_PFN_SHIFT) | prot_val);
++	return __pmd((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
+ }
+ 
+ static inline unsigned long _pmd_pfn(pmd_t pmd)
+@@ -257,6 +355,9 @@ static inline unsigned long _pmd_pfn(pmd_t pmd)
+ 	return __page_val_to_pfn(pmd_val(pmd));
+ }
+ 
++#define pmd_offset_lockless(pudp, pud, address) \
++	(pud_pgtable(pud) + pmd_index(address))
++
+ #define pmd_ERROR(e) \
+ 	pr_err("%s:%d: bad pmd %016lx.\n", __FILE__, __LINE__, pmd_val(e))
+ 
+@@ -268,6 +369,7 @@ static inline unsigned long _pmd_pfn(pmd_t pmd)
+ 
+ static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
+ {
++	ALT_FIXUP_MT(p4d);
+ 	WRITE_ONCE(*p4dp, p4d);
+ }
+ 
+@@ -327,11 +429,15 @@ static inline struct page *p4d_page(p4d_t p4d)
+ 
+ #define pud_index(addr) (((addr) >> PUD_SHIFT) & (PTRS_PER_PUD - 1))
+ 
++#define pud_offset_lockless(p4dp, p4d, address) \
++	(pgtable_l4_enabled ? p4d_pgtable(p4d) + pud_index(address) : (pud_t *)(p4dp))
++
+ #define pud_offset pud_offset
+-pud_t *pud_offset(p4d_t *p4d, unsigned long address);
++pud_t *pud_offset(p4d_t *p4dp, unsigned long address);
+ 
+ static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
+ {
++	ALT_FIXUP_MT(pgd);
+ 	WRITE_ONCE(*pgdp, pgd);
+ }
+ 
+@@ -382,8 +488,11 @@ static inline struct page *pgd_page(pgd_t pgd)
+ 
+ #define p4d_index(addr) (((addr) >> P4D_SHIFT) & (PTRS_PER_P4D - 1))
+ 
++#define p4d_offset_lockless(pgdp, pgd, address) \
++	(pgtable_l5_enabled ? pgd_pgtable(pgd) + p4d_index(address) : (p4d_t *)(pgdp))
++
+ #define p4d_offset p4d_offset
+-p4d_t *p4d_offset(pgd_t *pgd, unsigned long address);
++p4d_t *p4d_offset(pgd_t *pgdp, unsigned long address);
+ 
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ static inline pte_t pmd_pte(pmd_t pmd);
 diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 5a08eb5fe99f..acfd48f92010 100644
+index ba2fb1d475a3..8b622f901707 100644
 --- a/arch/riscv/include/asm/pgtable.h
 +++ b/arch/riscv/include/asm/pgtable.h
-@@ -952,7 +952,7 @@ static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
- #ifdef CONFIG_SMP
- 	pud_t pud = __pud(xchg(&pudp->pud, 0));
- #else
--	pud_t pud = *pudp;
-+	pud_t pud = pudp_get(pudp);
+@@ -253,6 +253,7 @@ static inline bool pmd_leaf(pmd_t pmd)
  
- 	pud_clear(pudp);
- #endif
-@@ -1129,13 +1129,15 @@ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
+ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+ {
++	ALT_FIXUP_MT(pmd);
+ 	WRITE_ONCE(*pmdp, pmd);
+ }
+ 
+@@ -263,11 +264,7 @@ static inline void pmd_clear(pmd_t *pmdp)
+ 
+ static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
+ {
+-	unsigned long prot_val = pgprot_val(prot);
+-
+-	ALT_THEAD_PMA(prot_val);
+-
+-	return __pgd((pfn << _PAGE_PFN_SHIFT) | prot_val);
++	return __pgd((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
+ }
+ 
+ static inline unsigned long _pgd_pfn(pgd_t pgd)
+@@ -343,11 +340,7 @@ static inline unsigned long pte_pfn(pte_t pte)
+ /* Constructs a page table entry */
+ static inline pte_t pfn_pte(unsigned long pfn, pgprot_t prot)
+ {
+-	unsigned long prot_val = pgprot_val(prot);
+-
+-	ALT_THEAD_PMA(prot_val);
+-
+-	return __pte((pfn << _PAGE_PFN_SHIFT) | prot_val);
++	return __pte((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
+ }
+ 
+ #define pte_pgprot pte_pgprot
+@@ -486,11 +479,7 @@ static inline int pmd_protnone(pmd_t pmd)
+ /* Modify page protection bits */
+ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
+ {
+-	unsigned long newprot_val = pgprot_val(newprot);
+-
+-	ALT_THEAD_PMA(newprot_val);
+-
+-	return __pte((pte_val(pte) & _PAGE_CHG_MASK) | newprot_val);
++	return __pte((pte_val(pte) & _PAGE_CHG_MASK) | pgprot_val(newprot));
+ }
+ 
+ #define pgd_ERROR(e) \
+@@ -547,9 +536,10 @@ static inline int pte_same(pte_t pte_a, pte_t pte_b)
+  * a page table are directly modified.  Thus, the following hook is
+  * made available.
   */
- #define set_p4d_safe(p4dp, p4d) \
- ({ \
--	WARN_ON_ONCE(p4d_present(*p4dp) && !p4d_same(*p4dp, p4d)); \
-+	p4d_t old = p4dp_get(p4dp); \
-+	WARN_ON_ONCE(p4d_present(old) && !p4d_same(old, p4d)); \
- 	set_p4d(p4dp, p4d); \
- })
- 
- #define set_pgd_safe(pgdp, pgd) \
- ({ \
--	WARN_ON_ONCE(pgd_present(*pgdp) && !pgd_same(*pgdp, pgd)); \
-+	pgd_t old = pgdp_get(pgdp); \
-+	WARN_ON_ONCE(pgd_present(old) && !pgd_same(old, pgd)); \
- 	set_pgd(pgdp, pgd); \
- })
- #endif /* !__ASSEMBLER__ */
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index b67d60d722c2..297744e2ab5d 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -154,7 +154,7 @@ int kvm_riscv_gstage_set_pte(struct kvm_gstage *gstage,
- 		ptep = &next_ptep[gstage_pte_index(map->addr, current_level)];
- 	}
- 
--	if (pte_val(*ptep) != pte_val(map->pte)) {
-+	if (pte_val(ptep_get(ptep)) != pte_val(map->pte)) {
- 		set_pte(ptep, map->pte);
- 		if (gstage_pte_leaf(ptep))
- 			gstage_tlb_flush(gstage, current_level, map->addr);
-@@ -241,12 +241,12 @@ void kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- 		if (op == GSTAGE_OP_CLEAR)
- 			put_page(virt_to_page(next_ptep));
- 	} else {
--		old_pte = *ptep;
-+		old_pte = ptep_get(ptep);
- 		if (op == GSTAGE_OP_CLEAR)
- 			set_pte(ptep, __pte(0));
- 		else if (op == GSTAGE_OP_WP)
- 			set_pte(ptep, __pte(pte_val(ptep_get(ptep)) & ~_PAGE_WRITE));
--		if (pte_val(*ptep) != pte_val(old_pte))
-+		if (pte_val(ptep_get(ptep)) != pte_val(old_pte))
- 			gstage_tlb_flush(gstage, ptep_level, addr);
- 	}
- }
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index d85efe74a4b6..ac686c1b2f85 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -459,8 +459,8 @@ static void __meminit create_pte_mapping(pte_t *ptep, uintptr_t va, phys_addr_t
- 
- 	BUG_ON(sz != PAGE_SIZE);
- 
--	if (pte_none(ptep[pte_idx]))
--		ptep[pte_idx] = pfn_pte(PFN_DOWN(pa), prot);
-+	if (pte_none(ptep_get(ptep + pte_idx)))
-+		set_pte(ptep + pte_idx, pfn_pte(PFN_DOWN(pa), prot));
+-static inline void set_pte(pte_t *ptep, pte_t pteval)
++static inline void set_pte(pte_t *ptep, pte_t pte)
+ {
+-	WRITE_ONCE(*ptep, pteval);
++	ALT_FIXUP_MT(pte);
++	WRITE_ONCE(*ptep, pte);
  }
  
- #ifndef __PAGETABLE_PMD_FOLDED
-@@ -542,18 +542,19 @@ static void __meminit create_pmd_mapping(pmd_t *pmdp,
- 	uintptr_t pmd_idx = pmd_index(va);
- 
- 	if (sz == PMD_SIZE) {
--		if (pmd_none(pmdp[pmd_idx]))
--			pmdp[pmd_idx] = pfn_pmd(PFN_DOWN(pa), prot);
-+		if (pmd_none(pmdp_get(pmdp + pmd_idx)))
-+			set_pmd(pmdp + pmd_idx, pfn_pmd(PFN_DOWN(pa), prot));
- 		return;
- 	}
- 
--	if (pmd_none(pmdp[pmd_idx])) {
-+	if (pmd_none(pmdp_get(pmdp + pmd_idx))) {
- 		pte_phys = pt_ops.alloc_pte(va);
--		pmdp[pmd_idx] = pfn_pmd(PFN_DOWN(pte_phys), PAGE_TABLE);
-+		set_pmd(pmdp + pmd_idx,
-+			pfn_pmd(PFN_DOWN(pte_phys), PAGE_TABLE));
- 		ptep = pt_ops.get_pte_virt(pte_phys);
- 		memset(ptep, 0, PAGE_SIZE);
- 	} else {
--		pte_phys = PFN_PHYS(_pmd_pfn(pmdp[pmd_idx]));
-+		pte_phys = PFN_PHYS(_pmd_pfn(pmdp_get(pmdp + pmd_idx)));
- 		ptep = pt_ops.get_pte_virt(pte_phys);
- 	}
- 
-@@ -644,18 +645,19 @@ static void __meminit create_pud_mapping(pud_t *pudp, uintptr_t va, phys_addr_t
- 	uintptr_t pud_index = pud_index(va);
- 
- 	if (sz == PUD_SIZE) {
--		if (pud_val(pudp[pud_index]) == 0)
--			pudp[pud_index] = pfn_pud(PFN_DOWN(pa), prot);
-+		if (pud_val(pudp_get(pudp + pud_index)) == 0)
-+			set_pud(pudp + pud_index, pfn_pud(PFN_DOWN(pa), prot));
- 		return;
- 	}
- 
--	if (pud_val(pudp[pud_index]) == 0) {
-+	if (pud_val(pudp_get(pudp + pud_index)) == 0) {
- 		next_phys = pt_ops.alloc_pmd(va);
--		pudp[pud_index] = pfn_pud(PFN_DOWN(next_phys), PAGE_TABLE);
-+		set_pud(pudp + pud_index,
-+			pfn_pud(PFN_DOWN(next_phys), PAGE_TABLE));
- 		nextp = pt_ops.get_pmd_virt(next_phys);
- 		memset(nextp, 0, PAGE_SIZE);
- 	} else {
--		next_phys = PFN_PHYS(_pud_pfn(pudp[pud_index]));
-+		next_phys = PFN_PHYS(_pud_pfn(pudp_get(pudp + pud_index)));
- 		nextp = pt_ops.get_pmd_virt(next_phys);
- 	}
- 
-@@ -670,18 +672,19 @@ static void __meminit create_p4d_mapping(p4d_t *p4dp, uintptr_t va, phys_addr_t
- 	uintptr_t p4d_index = p4d_index(va);
- 
- 	if (sz == P4D_SIZE) {
--		if (p4d_val(p4dp[p4d_index]) == 0)
--			p4dp[p4d_index] = pfn_p4d(PFN_DOWN(pa), prot);
-+		if (p4d_val(p4dp_get(p4dp + p4d_index)) == 0)
-+			set_p4d(p4dp + p4d_index, pfn_p4d(PFN_DOWN(pa), prot));
- 		return;
- 	}
- 
--	if (p4d_val(p4dp[p4d_index]) == 0) {
-+	if (p4d_val(p4dp_get(p4dp + p4d_index)) == 0) {
- 		next_phys = pt_ops.alloc_pud(va);
--		p4dp[p4d_index] = pfn_p4d(PFN_DOWN(next_phys), PAGE_TABLE);
-+		set_p4d(p4dp + p4d_index,
-+			pfn_p4d(PFN_DOWN(next_phys), PAGE_TABLE));
- 		nextp = pt_ops.get_pud_virt(next_phys);
- 		memset(nextp, 0, PAGE_SIZE);
- 	} else {
--		next_phys = PFN_PHYS(_p4d_pfn(p4dp[p4d_index]));
-+		next_phys = PFN_PHYS(_p4d_pfn(p4dp_get(p4dp + p4d_index)));
- 		nextp = pt_ops.get_pud_virt(next_phys);
- 	}
- 
-@@ -727,18 +730,19 @@ void __meminit create_pgd_mapping(pgd_t *pgdp, uintptr_t va, phys_addr_t pa, phy
- 	uintptr_t pgd_idx = pgd_index(va);
- 
- 	if (sz == PGDIR_SIZE) {
--		if (pgd_val(pgdp[pgd_idx]) == 0)
--			pgdp[pgd_idx] = pfn_pgd(PFN_DOWN(pa), prot);
-+		if (pgd_val(pgdp_get(pgdp + pgd_idx)) == 0)
-+			set_pgd(pgdp + pgd_idx, pfn_pgd(PFN_DOWN(pa), prot));
- 		return;
- 	}
- 
--	if (pgd_val(pgdp[pgd_idx]) == 0) {
-+	if (pgd_val(pgdp_get(pgdp + pgd_idx)) == 0) {
- 		next_phys = alloc_pgd_next(va);
--		pgdp[pgd_idx] = pfn_pgd(PFN_DOWN(next_phys), PAGE_TABLE);
-+		set_pgd(pgdp + pgd_idx,
-+			pfn_pgd(PFN_DOWN(next_phys), PAGE_TABLE));
- 		nextp = get_pgd_next_virt(next_phys);
- 		memset(nextp, 0, PAGE_SIZE);
- 	} else {
--		next_phys = PFN_PHYS(_pgd_pfn(pgdp[pgd_idx]));
-+		next_phys = PFN_PHYS(_pgd_pfn(pgdp_get(pgdp + pgd_idx)));
- 		nextp = get_pgd_next_virt(next_phys);
- 	}
- 
-@@ -1574,14 +1578,14 @@ struct execmem_info __init *execmem_arch_setup(void)
- #ifdef CONFIG_MEMORY_HOTPLUG
- static void __meminit free_pte_table(pte_t *pte_start, pmd_t *pmd)
+ void flush_icache_pte(struct mm_struct *mm, pte_t pte);
+@@ -598,6 +588,7 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
  {
--	struct page *page = pmd_page(*pmd);
-+	struct page *page = pmd_page(pmdp_get(pmd));
- 	struct ptdesc *ptdesc = page_ptdesc(page);
- 	pte_t *pte;
- 	int i;
+ 	pte_t pte = __pte(atomic_long_xchg((atomic_long_t *)ptep, 0));
  
- 	for (i = 0; i < PTRS_PER_PTE; i++) {
- 		pte = pte_start + i;
--		if (!pte_none(*pte))
-+		if (!pte_none(ptep_get(pte)))
- 			return;
- 	}
++	ALT_UNFIX_MT(pte);
+ 	page_table_check_pte_clear(mm, pte);
  
-@@ -1595,14 +1599,14 @@ static void __meminit free_pte_table(pte_t *pte_start, pmd_t *pmd)
- 
- static void __meminit free_pmd_table(pmd_t *pmd_start, pud_t *pud, bool is_vmemmap)
+ 	return pte;
+@@ -869,6 +860,7 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
  {
--	struct page *page = pud_page(*pud);
-+	struct page *page = pud_page(pudp_get(pud));
- 	struct ptdesc *ptdesc = page_ptdesc(page);
- 	pmd_t *pmd;
- 	int i;
+ 	pmd_t pmd = __pmd(atomic_long_xchg((atomic_long_t *)pmdp, 0));
  
- 	for (i = 0; i < PTRS_PER_PMD; i++) {
- 		pmd = pmd_start + i;
--		if (!pmd_none(*pmd))
-+		if (!pmd_none(pmdp_get(pmd)))
- 			return;
- 	}
++	ALT_UNFIX_MT(pmd);
+ 	page_table_check_pmd_clear(mm, pmd);
  
-@@ -1617,13 +1621,13 @@ static void __meminit free_pmd_table(pmd_t *pmd_start, pud_t *pud, bool is_vmemm
- 
- static void __meminit free_pud_table(pud_t *pud_start, p4d_t *p4d)
+ 	return pmd;
+@@ -886,7 +878,11 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+ 				unsigned long address, pmd_t *pmdp, pmd_t pmd)
  {
--	struct page *page = p4d_page(*p4d);
-+	struct page *page = p4d_page(p4dp_get(p4d));
- 	pud_t *pud;
- 	int i;
+ 	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
+-	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
++	ALT_FIXUP_MT(pmd);
++	pmd = __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
++	ALT_UNFIX_MT(pmd);
++
++	return pmd;
+ }
  
- 	for (i = 0; i < PTRS_PER_PUD; i++) {
- 		pud = pud_start + i;
--		if (!pud_none(*pud))
-+		if (!pud_none(pudp_get(pud)))
- 			return;
- 	}
+ #define pmdp_collapse_flush pmdp_collapse_flush
+@@ -955,14 +951,9 @@ static inline int pudp_test_and_clear_young(struct vm_area_struct *vma,
+ static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
+ 					    unsigned long address,  pud_t *pudp)
+ {
+-#ifdef CONFIG_SMP
+-	pud_t pud = __pud(xchg(&pudp->pud, 0));
+-#else
+-	pud_t pud = pudp_get(pudp);
+-
+-	pud_clear(pudp);
+-#endif
++	pud_t pud = __pud(atomic_long_xchg((atomic_long_t *)pudp, 0));
  
-@@ -1668,7 +1672,7 @@ static void __meminit remove_pte_mapping(pte_t *pte_base, unsigned long addr, un
++	ALT_UNFIX_MT(pud);
+ 	page_table_check_pud_clear(mm, pud);
  
- 		ptep = pte_base + pte_index(addr);
- 		pte = ptep_get(ptep);
--		if (!pte_present(*ptep))
-+		if (!pte_present(ptep_get(ptep)))
- 			continue;
+ 	return pud;
+@@ -985,7 +976,11 @@ static inline pud_t pudp_establish(struct vm_area_struct *vma,
+ 				   unsigned long address, pud_t *pudp, pud_t pud)
+ {
+ 	page_table_check_pud_set(vma->vm_mm, pudp, pud);
+-	return __pud(atomic_long_xchg((atomic_long_t *)pudp, pud_val(pud)));
++	ALT_FIXUP_MT(pud);
++	pud = __pud(atomic_long_xchg((atomic_long_t *)pudp, pud_val(pud)));
++	ALT_UNFIX_MT(pud);
++
++	return pud;
+ }
  
- 		pte_clear(&init_mm, addr, ptep);
-@@ -1698,7 +1702,7 @@ static void __meminit remove_pmd_mapping(pmd_t *pmd_base, unsigned long addr, un
- 			continue;
- 		}
- 
--		pte_base = (pte_t *)pmd_page_vaddr(*pmdp);
-+		pte_base = (pte_t *)pmd_page_vaddr(pmdp_get(pmdp));
- 		remove_pte_mapping(pte_base, addr, next, is_vmemmap, altmap);
- 		free_pte_table(pte_base, pmdp);
- 	}
-@@ -1777,10 +1781,10 @@ static void __meminit remove_pgd_mapping(unsigned long va, unsigned long end, bo
- 		next = pgd_addr_end(addr, end);
- 		pgd = pgd_offset_k(addr);
- 
--		if (!pgd_present(*pgd))
-+		if (!pgd_present(pgdp_get(pgd)))
- 			continue;
- 
--		if (pgd_leaf(*pgd))
-+		if (pgd_leaf(pgdp_get(pgd)))
- 			continue;
- 
- 		p4d_base = p4d_offset(pgd, 0);
+ static inline pud_t pud_mkinvalid(pud_t pud)
 diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-index 8b6c0a112a8d..c4b85a828797 100644
+index c4b85a828797..604744d6924f 100644
 --- a/arch/riscv/mm/pgtable.c
 +++ b/arch/riscv/mm/pgtable.c
-@@ -95,8 +95,8 @@ int pud_free_pmd_page(pud_t *pud, unsigned long addr)
- 	flush_tlb_kernel_range(addr, addr + PUD_SIZE);
+@@ -42,20 +42,14 @@ int ptep_test_and_clear_young(struct vm_area_struct *vma,
+ EXPORT_SYMBOL_GPL(ptep_test_and_clear_young);
  
- 	for (i = 0; i < PTRS_PER_PMD; i++) {
--		if (!pmd_none(pmd[i])) {
--			pte_t *pte = (pte_t *)pmd_page_vaddr(pmd[i]);
-+		if (!pmd_none(pmdp_get(pmd + i))) {
-+			pte_t *pte = (pte_t *)pmd_page_vaddr(pmdp_get(pmd + i));
- 
- 			pte_free_kernel(NULL, pte);
- 		}
-@@ -158,8 +158,9 @@ pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
- pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
- 		      pud_t *pudp)
+ #ifdef CONFIG_64BIT
+-pud_t *pud_offset(p4d_t *p4d, unsigned long address)
++pud_t *pud_offset(p4d_t *p4dp, unsigned long address)
  {
--	VM_WARN_ON_ONCE(!pud_present(*pudp));
--	pud_t old = pudp_establish(vma, address, pudp, pud_mkinvalid(*pudp));
-+	VM_WARN_ON_ONCE(!pud_present(pudp_get(pudp)));
-+	pud_t old = pudp_establish(vma, address, pudp,
-+				   pud_mkinvalid(pudp_get(pudp)));
+-	if (pgtable_l4_enabled)
+-		return p4d_pgtable(p4dp_get(p4d)) + pud_index(address);
+-
+-	return (pud_t *)p4d;
++	return pud_offset_lockless(p4dp, p4dp_get(p4dp), address);
+ }
  
- 	flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
- 	return old;
+-p4d_t *p4d_offset(pgd_t *pgd, unsigned long address)
++p4d_t *p4d_offset(pgd_t *pgdp, unsigned long address)
+ {
+-	if (pgtable_l5_enabled)
+-		return pgd_pgtable(pgdp_get(pgd)) + p4d_index(address);
+-
+-	return (p4d_t *)pgd;
++	return p4d_offset_lockless(pgdp, pgdp_get(pgdp), address);
+ }
+ #endif
+ 
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index 0dd6ee282953..763ffde8ab5e 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -140,8 +140,8 @@ static const struct prot_bits pte_bits[] = {
+ 		.clear = ".",
+ 	}, {
+ #endif
+-#ifdef CONFIG_RISCV_ISA_SVPBMT
+-		.mask = _PAGE_MTMASK_SVPBMT,
++#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
++		.mask = _PAGE_MTMASK,
+ 		.set = "MT(%s)",
+ 		.clear = "  ..  ",
+ 	}, {
+@@ -216,11 +216,11 @@ static void dump_prot(struct pg_state *st)
+ 		if (val) {
+ 			if (pte_bits[i].mask == _PAGE_SOFT)
+ 				sprintf(s, pte_bits[i].set, val >> 8);
+-#ifdef CONFIG_RISCV_ISA_SVPBMT
+-			else if (pte_bits[i].mask == _PAGE_MTMASK_SVPBMT) {
+-				if (val == _PAGE_NOCACHE_SVPBMT)
++#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
++			else if (pte_bits[i].mask == _PAGE_MTMASK) {
++				if (val == _PAGE_NOCACHE)
+ 					sprintf(s, pte_bits[i].set, "NC");
+-				else if (val == _PAGE_IO_SVPBMT)
++				else if (val == _PAGE_IO)
+ 					sprintf(s, pte_bits[i].set, "IO");
+ 				else
+ 					sprintf(s, pte_bits[i].set, "??");
 -- 
 2.47.2
 
