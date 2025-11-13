@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB33CD6E54
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 19:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE485CD98D0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 19:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SqZLT/XGLwZeQE5DInKlhCQquqEDHUuHKkFFTjDXhN8=; b=Wr8WknwpSwf0I2
-	ydvoprwt3KV5dl+lLfXLW0M+5GVyxGWip0tIW64aevRypArs3lYPjZNqj23JXHoVA3EZKCdw8AgVJ
-	9ui5ESpQNOLoYFzuLJP7X2RUd7oBiCakagwmQmLYRkOFkPThX52jj9rbiynp1J0sxZIiCHf44rf8t
-	wjUZpMZwGQcItAgE1kM4GbH34c/n0oT3bidEOy+wSf0wsR2tpb5nIVv6+nvXHq94TFVLqHhy9n30u
-	vNCZYDIDp2xKcgM3xbp4C1U2rwZ97OCcAFIGtwkrz2iLbKWtTfWcOq8SxY+QWfVJEtBTkJBJ/Y1KS
-	BMORXK8v1Er4TSnkPBFA==;
+	List-Owner; bh=0v8vvMU8/r3y31mf4RE/reJpQrD6UC9dh4UEDt0VwyQ=; b=CDC0lAFxNunSGY
+	wg2H3oYBdDx5q3MELHgKp82MT0IEW7JCXFbOu0ztg+wJ/zazFnet8Et3cXgs7BHvVwslpQC3gqY6O
+	fUz6JuWj6WH9a12qJ0Gs6y3zrRsyOiEbFgHyUIUkcslYXCThIk1es6DGbAs3mI7Xy+BxCc3HDuJuq
+	oMxZgE+81N5WqdNYz5FP83mI/e34rWG3hYw06D8sIY71Fmxq0DPZoI74surqVjsGL7seqKdNdXrhU
+	a1orzGvgoU9yMs6oL1nvMSIzOGuP+z/FGJxU4uy4/CCgizZbAhVrGuQ6BsqgKKYDj0aJzFYPL7goH
+	FRHGmDKUCDUeQ37lu3bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJciS-0000000Ayc5-0D2A;
-	Thu, 13 Nov 2025 19:10:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJcjR-0000000Ayhi-1eua;
+	Thu, 13 Nov 2025 19:11:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJciP-0000000Aybm-2PF7
+	id 1vJcjP-0000000AyhZ-3PYK
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 19:10:42 +0000
+	Thu, 13 Nov 2025 19:11:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 19FDA4061F;
-	Thu, 13 Nov 2025 19:10:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2347CC4CEF1;
-	Thu, 13 Nov 2025 19:10:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0857D60103;
+	Thu, 13 Nov 2025 19:11:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ED57C4CEF7;
+	Thu, 13 Nov 2025 19:11:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763061040;
-	bh=44TFkluQ8NjYkM/UonfvdyIjixH2154CCmS8Jt4lT68=;
+	s=k20201202; t=1763061102;
+	bh=XPlHEOw1uPJQDazcMEywsx61CVGNF/VpjcTn8wMkkCo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=R3toaTeLMEp1d+NiFs6A+mAY1QvXx6w8f3DWOLVS/1Maj4RyEyaI5L5hN7YTyPF1r
-	 h9/gJnDm459DS/Gtg/XeJaLhWgMeRLqXpKO4Am6wfK3HgR4bQiPeky/lIH+Etx/T2g
-	 /AflA7CydDfqNxJv1TsKtJV4AQE/KWXmEUEeXlgPv4q4qa+5pxYXsBGRu8S9RnKhNU
-	 A2RqgauhajKhHy6HUToubqfxEOYUdPdK8CwTC2hVKKG5+XtBC5WvBmwudvJyoIL0VM
-	 sRQi9XZ8z9NLL1aDBRjzrOW3qboZSkFNBjF/E8SmOAg9BjFBoU8h51AoHQNur3kYlo
-	 aYtC+RKaddxSQ==
-Message-ID: <0898b3ab-ae9a-49c8-a026-b9dac50e38c9@kernel.org>
-Date: Thu, 13 Nov 2025 20:10:33 +0100
+	b=Oitpd3ZdicpxqLH3v5bMK5Dlw1A1IeaK/f+tMTgfSeNLv6snibjasCa8fSqZIGDFS
+	 ilaoa+y3l2jQcb+qTJocZRgmlzNYJaDn3EAu9DGDHd/qKIxK0tmkyjhU2Txd2cqisv
+	 aNhkpdWedumHkSV5hFInFMMbkv3zrJuy4L/pysJQMAwj2LyuHGxfPnws2ZY1hL6Cwa
+	 V1Ic0ZewDvDwdHjuxn5G151CvWFhEP6vH3mkDkXNug+MjJ0B4RzaKCWG0UOQtkjWVF
+	 lSaCMtY9s73rD13zCeObAXRd10IO48NtEimwc7JrnRCNLaeilmBAOmnUfHvaE+uupq
+	 eH2Mloms0G7lA==
+Message-ID: <ae87f1fe-b107-4589-bde5-21c9f3e8f816@kernel.org>
+Date: Thu, 13 Nov 2025 20:11:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 04/22] perf/events: replace READ_ONCE() with standard
- page table accessors
+Subject: Re: [PATCH v3 05/22] mm: Move the fallback definitions of pXXp_get()
 To: Samuel Holland <samuel.holland@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
  linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
@@ -59,19 +58,12 @@ Cc: devicetree@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
  Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
  Vlastimil Babka <vbabka@suse.cz>, "Liam R . Howlett"
- <Liam.Howlett@oracle.com>, Anshuman Khandual <anshuman.khandual@arm.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, linux-perf-users@vger.kernel.org
+ <Liam.Howlett@oracle.com>
 References: <20251113014656.2605447-1-samuel.holland@sifive.com>
- <20251113014656.2605447-5-samuel.holland@sifive.com>
+ <20251113014656.2605447-6-samuel.holland@sifive.com>
 From: "David Hildenbrand (Red Hat)" <david@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20251113014656.2605447-5-samuel.holland@sifive.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_111041_641350_C6103DE6 
-X-CRM114-Status: UNSURE (   7.80  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251113014656.2605447-6-samuel.holland@sifive.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,19 +81,13 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 13.11.25 02:45, Samuel Holland wrote:
-> From: Anshuman Khandual <anshuman.khandual@arm.com>
+> Some platforms need to fix up the values when reading or writing page
+> tables. Because of this, the accessors must always be used; it is not
+> valid to simply dereference a pXX_t pointer.
 > 
-> Replace READ_ONCE() with standard page table accessors i.e pxdp_get() which
-> anyways default into READ_ONCE() in cases where platform does not override.
+> Move these definitions up by a few lines, so they will be in scope
+> everywhere that currently dereferences a pXX_t pointer.
 > 
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Arnaldo Carvalho de Melo <acme@kernel.org>
-> Cc: Namhyung Kim <namhyung@kernel.org>
-> Cc: linux-perf-users@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> Link: https://lore.kernel.org/r/20251006042622.1743675-1-anshuman.khandual@arm.com/
 > Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 > ---
 
