@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F8DCD6E78
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 15:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15C6CD8C87
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 15:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=76rgH9fBfkC4HyBMGXCsLPArwF/PxQ46836621QMqO4=; b=crAfUmw6tqFOF/
-	7po4rl6yeOslTacseuR+3WIJfDKIJaL195qmgcP57wnjnzLRrZjFgt3iBEWBImAD7yW2vr6PXldgx
-	WpV5sNd3KaiX5meZ+ELKT2RAU8Is4wlfSXC+S3JOov8k1rQynIB/o+WvlkXNo+reFIOP21tcbHFoF
-	XJro6jb9GTdu7iy0QeFFjWetwPkscuHos60zSXwpULJg1RWNztYU2v1pH2DORSgdLSOYjUUSTPPVu
-	F3n50eA3Y8ix1P8Q4wuvlZ+zZLzf8Ru6/lGQCjy6rFf4ldVUGU0bsJU/w3gcDb3ahET9ktzITDCZB
-	hPc5yTXsNJzRmghx82HQ==;
+	List-Owner; bh=IVOzk9EoprSo2lR8GyTnG9jisfBsZf/sZiFbbGFxaYk=; b=X2m5jxp1q1iFRI
+	8Xw7PwgfDob6Of9aKlT4ksI5UzxfPn2nGPBK1XFyg8L6TinD6fiCLGLrbh2O9ocvhWGZKxnGbdLHI
+	6kFt2K7o3zQfHRr+4/QLKeRKfYn12AVvkV1+udDaMMXEoxGIaEOMokmUAIo7ZMenAzhnBZLbHGIcr
+	H3RcbgJ3fVn+WnS+h/bWdSMMZ5W8OXJ3pgTXrRYRU5caZJt70raQRedVxfL6Ek40sctiAmmT8t99j
+	NaRkj9xiVEoUqA4AMNxHBMQPSSK3jxRPwYYC5cTFcR9q1eyZvKjaChK613qCkka9U5Tit5Z7VxxOc
+	QkL0YFWBu61RSDjtX4JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJZ4E-0000000AhRL-0qPa;
-	Thu, 13 Nov 2025 15:16:58 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1vJZ5g-0000000AiEF-42kL;
+	Thu, 13 Nov 2025 15:18:28 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJZ45-0000000AhB6-3N30
+	id 1vJZ5e-0000000AiDc-1URK
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 15:16:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1763046978;
-	bh=5AGNvaURvHGKAavyDt3SYJlevQsgOCQzedVhKN3nGVw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hXL+fFSt1lF8fqaJhdWEA3T+ShmM5u/Xbf2lHvu3gDBmJqfAIZnz90g8kW1bkujvH
-	 px5RxeqKofIflhoz0eTfbb9T5DxdtDorPZFcXz9FS3JKdz71pKojqBBaVOIxRyGjwH
-	 lCNjQVnpwYI6vPbmUiH1wKlm91jOCWG3uAvOwn90fw4uSS7EJHp84vp4p0MWm7I1O6
-	 LncojllfI5h8FEhShvcfF/nCceH0btWwhhkd2m6Uw2mGwqKZnPFE4dHYCh0AUk4cUN
-	 jT1stvHhQkdvhp9/fzCc0pX229Tp8PlDHqKeBSoCpw/8aEIzf9WuFdXfD5oZXncwd9
-	 j9t+Ab9nUJqTw==
-Received: from [192.168.2.54] (unknown [74.244.53.222])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id AFF95B2202BC;
-	Thu, 13 Nov 2025 16:16:14 +0100 (CET)
-Message-ID: <4a55301a-ef7e-4b47-8151-621cfba36ddd@freeshell.de>
-Date: Thu, 13 Nov 2025 07:16:12 -0800
+	Thu, 13 Nov 2025 15:18:27 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-37775ed97daso18641611fa.0
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Nov 2025 07:18:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1763047104; x=1763651904; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QRYm2EAMV6902qJ3Pk+J6ovgxi/kpUbCnbc3oiRtnOo=;
+        b=n2Dhjzn9xACAi6Opwc61qzT8WL1I6FJxOgv/EFIoHpgo4Ot3a8KSfKN/SenKkoIeaP
+         dpfzst0J1vusVFt3PtwvSe8WV7j21nQ30l4uWIiPpWpAIH+PqhZ1m2xR2mRodR5KMzoj
+         CR3DQPR+qC3xLCr6OdG4LF54E/B+squVVYYDWoNzq6wzlKjBAYxVKqRhuOF/OPWAOY3u
+         k3rE/VJej8v9TtU/vPyodwczAZ6RS7SSjf04MeWrhP+t1WGHtvzkBT6rHCRHmN/atgNb
+         DJ01kGoCuOH4LThkoLS0Bk3pLhn7lzBp31bdP5w/eJIc85S+sDaDcGDZJy14JfOXm7Rb
+         vi3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763047104; x=1763651904;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=QRYm2EAMV6902qJ3Pk+J6ovgxi/kpUbCnbc3oiRtnOo=;
+        b=hlGtkh3sHiikLjxWjNkuZKCkssePNSXhI56brOVA+qIfLXOgaiYq3pWp6gRLO8q+4t
+         6WhJGoWI+w3O5DyVfIUZa3LwBLnSFgmWw/k9Tuzy2Rl3XbOO6gFdL5h/of12Q1pVaUpR
+         W+AyYCgkyx0l0TjmKr4+V6fuDpaM75wSD7aXjzBpV8EyabH6wFC8VcUZMuflG1CzNMtQ
+         gMTMMsYZT+czRwndAZHxfON3tel+bjqo8/AfnIjxRHtrdx8jh2deTwsNM0YXMlrgHAo8
+         /2t0s9pzCokHvTTM1m4uQWUYUnaTl869+CO5KDIGx1fUTKn36CM6tScaYC5UVmyV7s2m
+         O7JA==
+X-Forwarded-Encrypted: i=1; AJvYcCX2XVmmFG8x2GhWXeslsP0gR1msECSUqCBh79I052qHXvlwFnr2EcVmR2UyEXGGAbToKfRsLS6UxczaeA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlsunaWZISDDU0pzNmhnl8GTtGONCFOFckI58IoKM42lDABjPx
+	XY+cKiWWbmiqh0aDv96UBq9q78bAkER1SQiRg+vxgl+CjDecp2P1DUHdyS0/D7HQ+sTIRNGeXXD
+	cwynpOT9Q0zlz3bMmQE89Cc+qfyC+zqSsja10aCgFKA==
+X-Gm-Gg: ASbGncvjuImUDf68NRL7tmmU9Vw2ce13/pOvBUTQs86mYoYqF9pz5F9IZPqukvUGKNa
+	O91GJmZ8Mb/QOqf0Zf1xADBJRGUI3Og+j4nsX+qvrPdC9b7NlC+cSy+vR2fu64G/3NzfPYIbLzA
+	K7Ow0lJB1axprNaViHnN6xxiGrUF+c/Epc3mDq6BP/ebVBesAz9WnXiKEsxrR2MUVTt/C3OjzUb
+	lvXQkgBTtAu+QRsdxfXJBRPsWNEbAcIOV1YG18qiT9SmCTrBraP+qij2YpE
+X-Google-Smtp-Source: AGHT+IH9ePhQCjWvQTbPgBVRMyGJ6ewOVBKdWZSNN9fANLpqouH+J7xUFyuxRmFM83J/G1xeLyH2OppMIvqphrJZwdM=
+X-Received: by 2002:ac2:4c46:0:b0:592:f390:1bf0 with SMTP id
+ 2adb3069b0e04-5957ebae691mr1281548e87.8.1763047103605; Thu, 13 Nov 2025
+ 07:18:23 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/8] Add support for StarFive VisionFive 2 Lite board
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Bjorn Helgaas <bhelgaas@google.com>,
- Conor Dooley <conor+dt@kernel.org>, Hal Feng <hal.feng@starfivetech.com>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20251107095530.114775-1-hal.feng@starfivetech.com>
- <CAJM55Z_rczBo4D3HsC90QW1=fp3NWgK-tsEo6LHTZNXEBHTDqA@mail.gmail.com>
- <ZQ2PR01MB13076544E2136E7E7C2EEDA1E6CD2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
- <CAJM55Z9KyNK1n4i9FxbLor4HTQKqK8WKA2svjPVvKXihw_E+sg@mail.gmail.com>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <CAJM55Z9KyNK1n4i9FxbLor4HTQKqK8WKA2svjPVvKXihw_E+sg@mail.gmail.com>
+References: <20251027-fix-plic-amp-v2-1-f077b9439112@linux.dev>
+In-Reply-To: <20251027-fix-plic-amp-v2-1-f077b9439112@linux.dev>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Thu, 13 Nov 2025 20:48:11 +0530
+X-Gm-Features: AWmQ_blP9j-crZuwtE4BM2ZNTxUI7mgqjVhDsoYDOra9IW9nQar5EykYgy5O37U
+Message-ID: <CAK9=C2XSmeCQLrQY51jJRD+Mnph4a0h8BiPEEaFai+5jBC6jHA@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv/plic: assign context ID based on hartid
+To: Troy Mitchell <troy.mitchell@linux.dev>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+	Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_071650_406143_F0ACD636 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20251113_071826_440505_BCDE228B 
+X-CRM114-Status: GOOD (  26.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,135 +92,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/13/25 02:42, Emil Renner Berthing wrote:
-> Quoting Hal Feng (2025-11-13 04:42:05)
->>> On 12.11.25 21:54, Emil Renner Berthing wrote:
->>> Quoting Hal Feng (2025-11-07 10:55:22)
->>>> VisionFive 2 Lite is a mini SBC based on the StarFive JH7110S
->>>> industrial SoC which can run at -40~85 degrees centigrade and up to
->>>> 1.25GHz.
-> [...]
->>> Currently the JH7110 device trees are layed out like this, with a nice separation
->>> between the SoC description and board descriptions:
->>>
->>> jh7110.dtsi               # JH7110 SoC description
->>> |- jh7110-common.dtsi     # Peripherals common to all JH7110 boards
->>>    |- jh7110-starfive-visionfive-2.dtsi # Peripherals common to VF2 boards
->>>    |  |- <VF2 boards>     # Final VF2 board descriptions
->>>    |- jh7110-milkv-marscm.dtsi # Peripherals common to Mars CM boards
->>>    |  |- <Mars CM boards> # Final Mars CM board descriptions
->>>    |- <other boards>      # Other JH7110 board descriptions
->>>
->>> With this series it moves to
->>>
->>> jh711x.dtsi
->>> |- jh711x-common.dtsi
->>>    |- jh7110-common.dtsi
->>>    |  |- <jh7110 boards>
->>>    |- jh7110s-common.dtsi
->>>       |- <jh7110s boards>
->>>
->>> ..which I can't even give clear labels like above. In other words when new
->>> patches are sent in it would not be easy to explain exactly where each change
->>> should go and why.
->>> I'm also worried that you'll find that more of the peripherals on the JH7110S
->>> need special handling and a new jh7110s-... compatible string. Then I guess
->>> they'll need to jump from jh7110x.dtsi two levels down to jh7110{,s}-
->>> common.dtsi which then both describe SoC and board properties.
->>>
->>> If you're serious about calling this a new SoC then I'd expect something more
->>> like this:
->>>
->>> jh711x.dtsi                  # Peripherals common to both SoCs
->>> |- jh7110.dtsi               # JH7110 SoC description
->>> |  |- jh7110-common.dtsi     # Peripherals common to all JH7110 boards
->>> |     |- jh7110-starfive-visionfive-2.dtsi # Peripherals common to VF2 boards
->>> |     |  |- <VF2 boards>     # Final VF2 board descriptions
->>> |     |- jh7110-milkv-marscm.dtsi # Peripherals common to Mars CM boards
->>> |     |  |- <Mars CM boards> # Final Mars CM board descriptions
->>> |     |- <other boards>      # Other JH7110 board descriptions
->>> |- jh7110s.dtsi              # JH7110S SoC description
->>>    |- jh7110s-common.dtsi    # Peripherals common to all JH7110S boards
->>>       |- <JH7110S boards>    # Final JH7110S board descriptions
->>>
->>> I know this will mean some duplication in jh7110{,s}-common.dtsi, but I
->>> would prefer that to not having a clear explanation of what each file describes.
->>>
->>> Do you think this layout could work for you?
->>
->> Yeah, it is clearer for developers and maintainers.
->>
->> Considering Conor's suggestion, what about:
->>
->> jh7110.dtsi               # JH7110 SoC description
->> |- jh7110-common.dtsi     # Peripherals common to all JH7110 boards
->>    |- jh7110-starfive-visionfive-2.dtsi # Peripherals common to VF2 boards
->>    |  |- <VF2 boards>     # Final VF2 board descriptions
->>    |- jh7110-milkv-marscm.dtsi # Peripherals common to Mars CM boards
->>    |  |- <Mars CM boards> # Final Mars CM board descriptions
->>    |- <other boards>      # Other JH7110 board descriptions
->> |- <JH7110S boards>
->>
-
-JH-7110 and JH-7110I reference docs are listed (not any JH-7110S) at:
-https://doc-en.rvspace.org/Doc_Center/datasheet_0.html
-
-Does the JH-7110I use the OPP table for JH-7110 or JH-7110S?
-
->> Move the opp table from jh7110.dtsi to jh7110-common.dtsi.
->> Remove jh7110s-common.dtsi, because only one board uses JH7110S now.
-> 
-> This patchset adds 2 different boards. Has this changed?
-> 
-> Also this would mean that you're not using the starfive,jh7110s compatible or
-> any other starfive,jh7110s-.. compatible strings, so effectively you're not
-> treating it as a new chip, but just a board that needs a different opp table.
-> 
-> I see now that the opp table is effectively the only difference between the two
-> chips in this patchset, so if that's closer to reality then what you suggest is
-> fine with me.
-> 
-> /Emil
-
-Are we now re-visiting Hal's suggestion then (during code review for
-Milk-V Mars CM and Mars CM Lite) to split out the OPP tables and make
-them per-board, as before introduction of the StarFive VisionFive 2 Lite
-board(s) ?
-
-Can we then do as from where we are now before this series:
-
-- Move "the JH-7110" OPP table into jh7110-common-opp-1500.dtsi
-
-- Each board jh7110-{deepcomputing,milkv,pine64,starfive}*.dts includes
-said OPP dtsi file.
-
-and for this series:
-
-- Drop the adding of a new compatible
-
-- Add "the JH-7110S" OPP table into jh7110-common-opp-1250.dtsi
-
-- Use existing jh7110-* prefix for "JH-7110S" board dtsi and dts,
-include jh7110-common.dtsi as usual, and include jh7110-common-opp-1250.dtsi
-
-The exact filename pattern for the OPP tables I suggest here are
-approximations, however that idea is my suggestion if we're just doing a
-breakout of the tables and not a new compatible.
-
-I am positive on having the 1250MHz OPP tables split out into dtsi
-instead of stuffing them into the VisionFive 2 Lite common dtsi. That's
-all it is?
-
--E
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBPY3QgMjcsIDIwMjUgYXQgMTI6MzXigK9QTSBUcm95IE1pdGNoZWxsIDx0cm95Lm1p
+dGNoZWxsQGxpbnV4LmRldj4gd3JvdGU6Cj4KPiBUaGUgUExJQyBkcml2ZXIgZm9yIE9GLWJhc2Vk
+IHBsYXRmb3JtcyBjdXJyZW50bHkgYXNzaWducyAnY29udGV4dF9pZCA9IGknCj4gd2l0aGluIHRo
+ZSBjb250ZXh0IGxvb3AuIFRoaXMgaW1wbGllcyBhbiBhc3N1bXB0aW9uIHRoYXQgYWxsIGhhcnRz
+IGFyZQo+IG51bWJlcmVkIGNvbnRpZ3VvdXNseSBzdGFydGluZyBmcm9tIDAuCj4KPiBJbiBBc3lt
+bWV0cmljIE11bHRpLVByb2Nlc3NpbmcgKEFNUCkgc3lzdGVtcywgd2hlcmUgTGludXggbWlnaHQg
+Ym9vdCBvbgo+IGEgbm9uLXplcm8gaGFydCBJRCAoZS5nLiwgaGFydDQpLCB3aGlsZSBvdGhlciBo
+YXJ0cyAoZS5nLiwgaGFydDApIGFyZQo+IHJ1bm5pbmcgYSBkaWZmZXJlbnQgT1MsIHRoaXMgYXNz
+dW1wdGlvbiBpcyB2aW9sYXRlZC4gVGhpcyBjYW4gbGVhZCB0bwo+ICBkaWZmZXJlbnQgc3lzdGVt
+IGluYWR2ZXJ0ZW50bHkgc2hhcmluZyB0aGUgc2FtZQo+IFBMSUMgZW5hYmxlX2Jhc2UgcmVnaXN0
+ZXIuIENvbnNlcXVlbnRseSwgdGhpcyBjYXVzZXMgY29uZmlndXJhdGlvbgo+IGNvbmZsaWN0cyBh
+bmQgaW5jb3JyZWN0IGludGVycnVwdCBoYW5kbGluZy4KPgo+IEFzc2lnbiB0aGUgUExJQyBjb250
+ZXh0IElEIGJhc2VkIG9uIHRoZSBhY3R1YWwgaGFydCBJRCBwcm92aWRlZCBieSB0aGUKPiBPRiBu
+b2RlLiBUaGlzIGVuc3VyZXMgdGhhdCBlYWNoIGhhcnQgY29udGV4dCBtYXBzIHRvIGEgdW5pcXVl
+IGVuYWJsZQo+IHJlZ2lvbiB3aXRoaW4gdGhlIFBMSUMsIHRoZXJlYnkgcmVzb2x2aW5nIGNvbmZs
+aWN0cyBpbiBBTVAgc2V0dXBzLiBUaGlzCj4gY2hhbmdlIHByZXNlcnZlcyB0aGUgY29ycmVjdCBi
+ZWhhdmlvciBvbiBTeW1tZXRyaWMgTXVsdGktUHJvY2Vzc2luZyAoU01QKQo+IGFuZCBVbmlwcm9j
+ZXNzb3IgKFVQKSBzeXN0ZW1zLgo+Cj4gU2lnbmVkLW9mZi1ieTogVHJveSBNaXRjaGVsbCA8dHJv
+eS5taXRjaGVsbEBsaW51eC5kZXY+Cj4gLS0tCj4gQ2hhbmdlbG9nIGluIHYyOgo+IC0gYWRkIGNv
+bW1lbnRzCj4gLSBtb2RpZnkgY29tbWl0IG1lc3NhZ2UKPiAtIHVzZSBgY29udGV4dF9pZGAgaW5z
+dGVhZCBvZiBgaWAgd2hlbiBza2lwIGNvbnRleHRzIG90aGVyIHRoYW4gZXh0ZXJuYWwKPiAgIGlu
+dGVycnVwdHMgZm9yIG91ciBwcml2aWxlZ2UgbGV2ZWwKPiAtIExpbmsgdG8gdjE6IGh0dHBzOi8v
+bG9yZS5rZXJuZWwub3JnL3IvMjAyNTEwMjAtZml4LXBsaWMtYW1wLXYxLTEtZGVmZTJhOTlhYjgw
+QGxpbnV4LmRldgo+IC0tLQo+ICBkcml2ZXJzL2lycWNoaXAvaXJxLXNpZml2ZS1wbGljLmMgfCAy
+NiArKysrKysrKysrKysrKy0tLS0tLS0tLS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgMTQgaW5zZXJ0
+aW9ucygrKSwgMTIgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFjaGlw
+L2lycS1zaWZpdmUtcGxpYy5jIGIvZHJpdmVycy9pcnFjaGlwL2lycS1zaWZpdmUtcGxpYy5jCj4g
+aW5kZXggY2JkNzY5N2JjMTQ4MTljYmUzYjc3MDk2YjI2OTAxYjYwNTQ5MWY3NS4uMjI4OWViMmY3
+N2JiZDBkYTQ2MGQyMmFkM2ZmY2QzZTdlZjJiZGU0MCAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2ly
+cWNoaXAvaXJxLXNpZml2ZS1wbGljLmMKPiArKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXNpZml2
+ZS1wbGljLmMKPiBAQCAtNDg3LDE4ICs0ODcsMTggQEAgc3RhdGljIGludCBwbGljX3BhcnNlX25y
+X2lycXNfYW5kX2NvbnRleHRzKHN0cnVjdCBmd25vZGVfaGFuZGxlICpmd25vZGUsCj4gIH0KPgo+
+ICBzdGF0aWMgaW50IHBsaWNfcGFyc2VfY29udGV4dF9wYXJlbnQoc3RydWN0IGZ3bm9kZV9oYW5k
+bGUgKmZ3bm9kZSwgdTMyIGNvbnRleHQsCj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIHUzMiAqcGFyZW50X2h3aXJxLCBpbnQgKnBhcmVudF9jcHUsIHUzMiBpZCkKPiArICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdTMyICpwYXJlbnRfaHdpcnEsIGludCAq
+cGFyZW50X2NwdSwgdTMyIGlkLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICB1bnNpZ25lZCBsb25nICpoYXJ0aWQpCj4gIHsKPiAgICAgICAgIHN0cnVjdCBvZl9waGFuZGxl
+X2FyZ3MgcGFyZW50Owo+IC0gICAgICAgdW5zaWduZWQgbG9uZyBoYXJ0aWQ7Cj4gICAgICAgICBp
+bnQgcmM7Cj4KPiAgICAgICAgIGlmICghaXNfb2Zfbm9kZShmd25vZGUpKSB7Cj4gLSAgICAgICAg
+ICAgICAgIGhhcnRpZCA9IGFjcGlfcmludGNfZXh0X3BhcmVudF90b19oYXJ0aWQoaWQsIGNvbnRl
+eHQpOwo+IC0gICAgICAgICAgICAgICBpZiAoaGFydGlkID09IElOVkFMSURfSEFSVElEKQo+ICsg
+ICAgICAgICAgICAgICAqaGFydGlkID0gYWNwaV9yaW50Y19leHRfcGFyZW50X3RvX2hhcnRpZChp
+ZCwgY29udGV4dCk7Cj4gKyAgICAgICAgICAgICAgIGlmICgqaGFydGlkID09IElOVkFMSURfSEFS
+VElEKQo+ICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwo+Cj4gLSAgICAg
+ICAgICAgICAgICpwYXJlbnRfY3B1ID0gcmlzY3ZfaGFydGlkX3RvX2NwdWlkKGhhcnRpZCk7Cj4g
+KyAgICAgICAgICAgICAgICpwYXJlbnRfY3B1ID0gcmlzY3ZfaGFydGlkX3RvX2NwdWlkKCpoYXJ0
+aWQpOwo+ICAgICAgICAgICAgICAgICAqcGFyZW50X2h3aXJxID0gUlZfSVJRX0VYVDsKPiAgICAg
+ICAgICAgICAgICAgcmV0dXJuIDA7Cj4gICAgICAgICB9Cj4gQEAgLTUwNywxOSArNTA3LDE5IEBA
+IHN0YXRpYyBpbnQgcGxpY19wYXJzZV9jb250ZXh0X3BhcmVudChzdHJ1Y3QgZndub2RlX2hhbmRs
+ZSAqZndub2RlLCB1MzIgY29udGV4dCwKPiAgICAgICAgIGlmIChyYykKPiAgICAgICAgICAgICAg
+ICAgcmV0dXJuIHJjOwo+Cj4gLSAgICAgICByYyA9IHJpc2N2X29mX3BhcmVudF9oYXJ0aWQocGFy
+ZW50Lm5wLCAmaGFydGlkKTsKPiArICAgICAgIHJjID0gcmlzY3Zfb2ZfcGFyZW50X2hhcnRpZChw
+YXJlbnQubnAsIGhhcnRpZCk7Cj4gICAgICAgICBpZiAocmMpCj4gICAgICAgICAgICAgICAgIHJl
+dHVybiByYzsKPgo+ICAgICAgICAgKnBhcmVudF9od2lycSA9IHBhcmVudC5hcmdzWzBdOwo+IC0g
+ICAgICAgKnBhcmVudF9jcHUgPSByaXNjdl9oYXJ0aWRfdG9fY3B1aWQoaGFydGlkKTsKPiArICAg
+ICAgICpwYXJlbnRfY3B1ID0gcmlzY3ZfaGFydGlkX3RvX2NwdWlkKCpoYXJ0aWQpOwo+ICAgICAg
+ICAgcmV0dXJuIDA7Cj4gIH0KPgo+ICBzdGF0aWMgaW50IHBsaWNfcHJvYmUoc3RydWN0IGZ3bm9k
+ZV9oYW5kbGUgKmZ3bm9kZSkKPiAgewo+ICAgICAgICAgaW50IGVycm9yID0gMCwgbnJfY29udGV4
+dHMsIG5yX2hhbmRsZXJzID0gMCwgY3B1LCBpOwo+IC0gICAgICAgdW5zaWduZWQgbG9uZyBwbGlj
+X3F1aXJrcyA9IDA7Cj4gKyAgICAgICB1bnNpZ25lZCBsb25nIHBsaWNfcXVpcmtzID0gMCwgaGFy
+dGlkOwo+ICAgICAgICAgc3RydWN0IHBsaWNfaGFuZGxlciAqaGFuZGxlcjsKPiAgICAgICAgIHUz
+MiBucl9pcnFzLCBwYXJlbnRfaHdpcnE7Cj4gICAgICAgICBzdHJ1Y3QgcGxpY19wcml2ICpwcml2
+Owo+IEBAIC01NjksMTQgKzU2OSwxNSBAQCBzdGF0aWMgaW50IHBsaWNfcHJvYmUoc3RydWN0IGZ3
+bm9kZV9oYW5kbGUgKmZ3bm9kZSkKPgo+ICAgICAgICAgZm9yIChpID0gMDsgaSA8IG5yX2NvbnRl
+eHRzOyBpKyspIHsKPiAgICAgICAgICAgICAgICAgZXJyb3IgPSBwbGljX3BhcnNlX2NvbnRleHRf
+cGFyZW50KGZ3bm9kZSwgaSwgJnBhcmVudF9od2lycSwgJmNwdSwKPiAtICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByaXYtPmFjcGlfcGxpY19pZCk7Cj4g
+KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcml2LT5h
+Y3BpX3BsaWNfaWQsICZoYXJ0aWQpOwo+ICAgICAgICAgICAgICAgICBpZiAoZXJyb3IpIHsKPiAg
+ICAgICAgICAgICAgICAgICAgICAgICBwcl93YXJuKCIlcGZ3UDogaHdpcnEgZm9yIGNvbnRleHQl
+ZCBub3QgZm91bmRcbiIsIGZ3bm9kZSwgaSk7Cj4gICAgICAgICAgICAgICAgICAgICAgICAgY29u
+dGludWU7Cj4gICAgICAgICAgICAgICAgIH0KPgo+ICAgICAgICAgICAgICAgICBpZiAoaXNfb2Zf
+bm9kZShmd25vZGUpKSB7Cj4gLSAgICAgICAgICAgICAgICAgICAgICAgY29udGV4dF9pZCA9IGk7
+Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgLyogZWFjaCBoYXJ0IGhhcyB0d28gY29udGV4dHM6
+IE0tbW9kZSBhbmQgUy1tb2RlICovCj4gKyAgICAgICAgICAgICAgICAgICAgICAgY29udGV4dF9p
+ZCA9IGhhcnRpZCAqIDIgKyBpICUgMjsKCkRlcml2aW5nIFBMSUMgY29udGV4dF9pZCBmcm9tIGhh
+cnRpZCBpcyB0b3RhbGx5IGJyb2tlbiBiZWNhdXNlIHRoZXJlCmlzIHNpbXBseSBubyByZWxhdGlv
+biBiZXR3ZWVuIGNvbnRleHRfaWQgYW5kIGhhcnRpZCBhbmQgUExJQyBzcGVjCmRvZXMgbm90IGNs
+YWltIGFueSBzdWNoIHJlbGF0aW9uLgoKRm9yIGV4YW1wbGUsIGluIFNpRml2ZSBTb0NzIHdpdGgg
+b25lIEUtY29yZSBhbmQgbXVsdGlwbGUgUy1jb3Jlcy4KVGhlIEUtY29yZSBvbmx5IGhhcyBNLW1v
+ZGUgc28gdGhlcmUgaXMgb25seSBNLW1vZGUgUExJQyBjb250ZXh0CmZvciB0aGUgRS1jb3JlLgoK
+RHVlIHRvIHRoaXMgcmVhc29uLCB0aGUgImludGVycnVwdHMtZXh0ZW5kZWQiIHByb3BlcnR5IGhh
+cyBvbmUKZW50cnkgZm9yIFBMSUMgY29udGV4dC4KClRvIGFkZHJlc3MgdGhlIEFNUCB1c2UtY2Fz
+ZSwgeW91IGNhbiBzaW1wbHkgZGlzYWJsZSB0aGUgSEFSVHMKbm90IGF2YWlsYWJsZSBpbiBhIHBh
+cnRpdGlvbi4gRm9yIGV4YW1wbGUsIGlmIHlvdSBoYXZlIHR3byBwYXJ0aXRpb25zCihBOiBoYXJ0
+MCwgaGFydDEgYW5kIEI6IGhhcnQyLCBoYXJ0MykgdGhlbiB0aGUgRkRUIHBhc3NlZCB0byBib3Ro
+CnBhcnRpdGlvbnMgd2lsbCBoYXZlIHNhbWUgUExJQyBEVCBub2RlIGJ1dCBwYXJ0aXRpb24gQSB3
+aWxsIGhhdmUKaGFydDIgYW5kIGhhcnQzIERUIG5vZGVzIGRpc2FibGVkIHdoZXJlYXMgcGFydGl0
+aW9uIEIgd2lsbCBoYXZlCmhhcnQwIGFuZCBoYXJ0MSBEVCBub2RlcyBkaXNhYmxlZC4KCj4gICAg
+ICAgICAgICAgICAgIH0gZWxzZSB7Cj4gICAgICAgICAgICAgICAgICAgICAgICAgY29udGV4dF9p
+ZCA9IGFjcGlfcmludGNfZ2V0X3BsaWNfY29udGV4dChwcml2LT5hY3BpX3BsaWNfaWQsIGkpOwo+
+ICAgICAgICAgICAgICAgICAgICAgICAgIGlmIChjb250ZXh0X2lkID09IElOVkFMSURfQ09OVEVY
+VCkgewo+IEBAIC01OTQsNyArNTk1LDcgQEAgc3RhdGljIGludCBwbGljX3Byb2JlKHN0cnVjdCBm
+d25vZGVfaGFuZGxlICpmd25vZGUpCj4gICAgICAgICAgICAgICAgICAgICAgICAgaWYgKElTX0VO
+QUJMRUQoQ09ORklHX1JJU0NWX01fTU9ERSkpIHsKPiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIHZvaWQgX19pb21lbSAqZW5hYmxlX2Jhc2UgPSBwcml2LT5yZWdzICsKPiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQ09OVEVYVF9FTkFCTEVfQkFTRSArCj4g
+LSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGkgKiBDT05URVhUX0VOQUJM
+RV9TSVpFOwo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250ZXh0
+X2lkICogQ09OVEVYVF9FTkFCTEVfU0laRTsKPgo+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgZm9yIChod2lycSA9IDE7IGh3aXJxIDw9IG5yX2lycXM7IGh3aXJxKyspCj4gICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF9fcGxpY190b2dnbGUoZW5hYmxlX2Jh
+c2UsIGh3aXJxLCAwKTsKPiBAQCAtNjk0LDcgKzY5NSw4IEBAIHN0YXRpYyBpbnQgcGxpY19wcm9i
+ZShzdHJ1Y3QgZndub2RlX2hhbmRsZSAqZndub2RlKQo+Cj4gIGZhaWxfY2xlYW51cF9jb250ZXh0
+czoKPiAgICAgICAgIGZvciAoaSA9IDA7IGkgPCBucl9jb250ZXh0czsgaSsrKSB7Cj4gLSAgICAg
+ICAgICAgICAgIGlmIChwbGljX3BhcnNlX2NvbnRleHRfcGFyZW50KGZ3bm9kZSwgaSwgJnBhcmVu
+dF9od2lycSwgJmNwdSwgcHJpdi0+YWNwaV9wbGljX2lkKSkKPiArICAgICAgICAgICAgICAgaWYg
+KHBsaWNfcGFyc2VfY29udGV4dF9wYXJlbnQoZndub2RlLCBpLCAmcGFyZW50X2h3aXJxLCAmY3B1
+LAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcml2LT5h
+Y3BpX3BsaWNfaWQsICZoYXJ0aWQpKQo+ICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRpbnVl
+Owo+ICAgICAgICAgICAgICAgICBpZiAocGFyZW50X2h3aXJxICE9IFJWX0lSUV9FWFQgfHwgY3B1
+IDwgMCkKPiAgICAgICAgICAgICAgICAgICAgICAgICBjb250aW51ZTsKPgo+IC0tLQo+IGJhc2Ut
+Y29tbWl0OiBmZGJjMzZiMTdlOWYyZmEyNGM5NDA5NTllMzlkZjkwZjUzY2NjZTJiCj4gY2hhbmdl
+LWlkOiAyMDI1MTAyMC1maXgtcGxpYy1hbXAtNzJiZDk0OTY5Y2E0Cj4KPiBCZXN0IHJlZ2FyZHMs
+Cj4gLS0KPiBUcm95IE1pdGNoZWxsIDx0cm95Lm1pdGNoZWxsQGxpbnV4LmRldj4KPgo+CgpSZWdh
+cmRzLApBbnVwCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
