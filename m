@@ -4,78 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6191FCD5BAC
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 09:31:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CBF9CD5BB4
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 10:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zfGzBcteBLSkgFoZxKCWWEZtP72rbywdM2SeEWrmC90=; b=G+nVpqmo2c5jyC
-	ho1h7t+f9fUd/lbyH550HItVvjHVD11tIJZwWdmV8cVsx0Fe13FueBZghm2xWeTJ/e2Xa+CRzWqrz
-	t5mMOSs1zz4hRGcBFC8W+MHdlpmKK5k2vfc2O8Ks/c1h38wBcr9kS/fC2CIJuIriBUxDEfa3imbjc
-	AdmUVP8I8JC2WeB4sc5Q8pXNQdUXedPOkXODP2rHmfbgrSXCNBWIrcPqUeQKLZY7Xlpzkqxu357vg
-	LG8eWUzOYOsOGk1Md5IthE4rNiOCmO+bwx+2cB6gUXNCs7jKtOKsVEyWQkz/whrqbbYX5VnAEFONP
-	taSQUPlM+euNhpj1tdsw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rz0/3zWxwOZZUcBdk0J2TnLvqYgmpdPZ7k3JZmcugsM=; b=iWlBDaFqzOIIxe
+	h04EX3VgdQhlKwsEqlS/NXt90af2bOGdui+wGVFqgqhfqyMdNTtyBlrPyTiDf0HyebGBOmly/itGy
+	dx87C+ZCLG8DosNzD+btpunZ0+Dk7EFbTL1Mw04ETEEl5HZ5iCLlTgMoRLtc8YsN3v1gsbMjVHkUP
+	SWW7ofp/L82eK08KltC8PukDyJCvGjPEd1F3C58QcwbKfelOWXFhbq/rxn+8A5B51kxDyjJS2L85R
+	37XZ773gDegolQzdsjCoIftxbRyo1SHYUQJyNpEKKijYAD8ZXRpmJE9VezRO/dzN9WgDHEPnqa7Hu
+	sfj61U162nFlSoKFv+5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTfi-0000000ACE2-1FS3;
-	Thu, 13 Nov 2025 09:31:18 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vJUMJ-0000000AGBt-2Zvi;
+	Thu, 13 Nov 2025 10:15:19 +0000
+Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTfd-0000000ACDT-3t8d
+	id 1vJUMH-0000000AGBM-2gfi
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 09:31:16 +0000
-Date: Thu, 13 Nov 2025 10:31:10 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1763026270;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=di0zlvtolFZ2ujSvVa+1BFR0CAlyEx4DiO0mYSWQDwc=;
-	b=ygwUYp2FepRzD3HjKdKbHo13iKPe5fGwe/j9Ys6zZiMvxAWN1OBuAhyCiELOtD2RGYJltU
-	8VX7MMGJ5DjE9n6DrWYVAuNwfdZvsbH1aHRwEYX3teYkFw5AJBO35bW4WpF5Tk5kFHUWrL
-	gLNEY+Wc1BUOIms3gsYJ/wOrqfpecWcaeu7T+cTr/m0bQLMtttloE8h10mHvi2/tYzORRN
-	G/jTKrO/gkksvgHb4CvJQr0H0W8vsKeIQ0e8rgMNvSrLaU6xLfa0eBk4Zd3xD9o+7GQDNd
-	mfHowgXQeM41cjXmGj3ubXSd3BExQ+zjAH7KBXzuEcjBpvptyc3CwuDZVPJ21A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1763026270;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=di0zlvtolFZ2ujSvVa+1BFR0CAlyEx4DiO0mYSWQDwc=;
-	b=+qRXOq4Jk2slHhdA1iSs+PP5mTSlOHMcDybHXlytmmFNwk4bSfci9b5O8vXXVZ+OjYzTkf
-	EiwvRX9YrR/EFeCw==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Nicolas Schier <nsc@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Masahiro Yamada <masahiroy@kernel.org>, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org, sparclinux@vger.kernel.org
-Subject: Re: [PATCH v2 00/10] kbuild: userprogs: introduce
- architecture-specific CC_CAN_LINK and userprog flags
-Message-ID: <20251113102307-ca2180c8-4876-46ea-8678-aaedd9ba36f0@linutronix.de>
-References: <20251014-kbuild-userprogs-bits-v2-0-faeec46e887a@linutronix.de>
- <aRToC77bNUy2sKAK@derry.ads.avm.de>
+	Thu, 13 Nov 2025 10:15:18 +0000
+Received: from ofsar (unknown [116.232.48.119])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 80DDB340861;
+	Thu, 13 Nov 2025 10:15:11 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+To: soc@kernel.org
+Cc: Yixun Lan <dlan@gentoo.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Alex Elder <elder@riscstar.com>,
+	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] RISC-V SpacemiT Devicetrees for v6.19
+Date: Thu, 13 Nov 2025 18:14:50 +0800
+Message-ID: <20251113180732-GYC0846694@gentoo.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aRToC77bNUy2sKAK@derry.ads.avm.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_013114_104769_0099E431 
-X-CRM114-Status: GOOD (  27.31  )
+X-CRM114-CacheID: sfid-20251113_021517_705180_8006BCC0 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,97 +63,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 09:03:23PM +0100, Nicolas Schier wrote:
-> On Tue, Oct 14, 2025 at 03:05:15PM +0200, Thomas Wei=DFschuh wrote:
-> > The current logic to inherit -m32/-m64 from the kernel build only works
-> > for a few architectures. It does not handle byte order differences,
-> > architectures using different compiler flags or different kinds of ABIs.
-> > =
+Hi Arnd,
 
-> > Introduce a per-architecture override mechanism to set CC_CAN_LINK and
-> > the flags used for userprogs.
-> > =
+   Please pull SpacemiT's DeviceTree changes for v6.19
 
-> > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> > ---
-> > Changes in v2:
-> > - Rebase and drop already applied patch
-> > - Disable CC_CAN_LINK if the test program generates warnings
-> > - Move to architecture-specific logic
-> > - Link to v1: https://lore.kernel.org/r/20250813-kbuild-userprogs-bits-=
-v1-0-2d9f7f411083@linutronix.de
-> > =
+Yixun Lan
 
-> > ---
-> > Thomas Wei=DFschuh (10):
-> >       kbuild: don't enable CC_CAN_LINK if the dummy program generates w=
-arnings
-> >       init: deduplicate cc-can-link.sh invocations
-> >       kbuild: allow architectures to override CC_CAN_LINK
-> >       riscv: Implement custom CC_CAN_LINK
-> >       s390: Implement custom CC_CAN_LINK
-> >       powerpc: Implement custom CC_CAN_LINK
-> >       MIPS: Implement custom CC_CAN_LINK
-> >       x86/Kconfig: Implement custom CC_CAN_LINK
-> >       sparc: Implement custom CC_CAN_LINK
-> >       kbuild: simplify CC_CAN_LINK
-> > =
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-> >  Makefile                |  8 ++++++--
-> >  arch/mips/Kconfig       | 15 +++++++++++++++
-> >  arch/powerpc/Kconfig    | 15 +++++++++++++++
-> >  arch/riscv/Kconfig      | 11 +++++++++++
-> >  arch/s390/Kconfig       | 11 +++++++++++
-> >  arch/sparc/Kconfig      | 11 +++++++++++
-> >  arch/x86/Kconfig        | 11 +++++++++++
-> >  init/Kconfig            |  7 +++++--
-> >  scripts/Kconfig.include |  3 +++
-> >  scripts/cc-can-link.sh  |  2 +-
-> >  10 files changed, 89 insertions(+), 5 deletions(-)
-> > ---
-> > base-commit: 10f8210c7a7098897fcee5ca70236167b39eb797
-> > change-id: 20250813-kbuild-userprogs-bits-03c117da4d50
-> > =
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-> > Best regards,
-> > -- =
+are available in the Git repository at:
 
-> > Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> > =
+  https://github.com/spacemit-com/linux tags/spacemit-dt-for-6.19-1
 
-> =
+for you to fetch changes up to 5a97a38c22799a802f33001dcb022d2942fe4a41:
 
-> Thanks for the patch set and all the work behind!  I found only one
-> issue in patch 3, the rest looks good to me as they are.
-> =
+  riscv: dts: spacemit: define all missing I2C controller nodes (2025-11-12 18:53:26 +0800)
 
-> I haven't reviewed the compiler flags for the archs, but from the formal
-> point of view they look good to me, too.
-> =
+----------------------------------------------------------------
+RISC-V SpacemiT DT changes for 6.19
 
-> How shall we proceed with here?  I think, easiest would be if we get
-> appropriate acks from the architecture maintainers, so we could take
-> this via kbuild.
+- Add Uart and I2C nodes
+- Add P1 PMIC nodes
+- Add MusePi Pro board support
+- Add OrangePi R2S board support
+- Enable eeprom for BPI-F3
+- Enable QSPI on BPI-F3
+- Enable Ethernet and PDMA on OrangePi RV2
 
-That would surely be the best option. Unfortunately quite frequently it is =
-hard
-to get architecture maintainer's feedback on a cross-architecture series.
+----------------------------------------------------------------
+Alex Elder (4):
+      riscv: dts: spacemit: enable the i2c8 adapter
+      riscv: dts: spacemit: define fixed regulators
+      riscv: dts: spacemit: define regulator constraints
+      riscv: dts: spacemit: enable K1 SoC QSPI on BPI-F3
 
-> Other opinions?
+Aurelien Jarno (3):
+      riscv: dts: spacemit: enable the i2c2 adapter on BPI-F3
+      riscv: dts: spacemit: add 24c02 eeprom on BPI-F3
+      riscv: dts: spacemit: add i2c aliases on BPI-F3
 
-It would also work to only take the first three patches through the kbuild =
-tree
-and push the other ones through the architecture trees.
+Hendrik Hamerlinck (1):
+      riscv: dts: spacemit: add UART pinctrl combinations
 
-I don't really have a clear preference.
+Michael Opdenacker (3):
+      riscv: dts: spacemit: add Ethernet and PDMA to OrangePi RV2
+      dt-bindings: riscv: spacemit: Add OrangePi R2S board
+      riscv: dts: spacemit: Add OrangePi R2S board device tree
 
+Troy Mitchell (4):
+      dt-bindings: riscv: spacemit: add MusePi Pro board
+      riscv: dts: spacemit: add MusePi Pro board device tree
+      riscv: dts: spacemit: reorder i2c2 node
+      riscv: dts: spacemit: define all missing I2C controller nodes
 
-Thomas
+ .../devicetree/bindings/riscv/spacemit.yaml        |   2 +
+ arch/riscv/boot/dts/spacemit/Makefile              |   2 +
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    | 172 ++++++++
+ arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts     |  79 ++++
+ arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts   |  90 ++++
+ arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts   |  52 +++
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi       | 465 ++++++++++++++++++++-
+ arch/riscv/boot/dts/spacemit/k1.dtsi               | 122 ++++++
+ 8 files changed, 982 insertions(+), 2 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+ create mode 100644 arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
 
 _______________________________________________
 linux-riscv mailing list
