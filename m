@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C2A1CD4F39
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E81CD4F3A
 	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 01:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,64 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3o+dqWEasDxZvVPLPGzowImdQfXd+gKo6d0iEs3gF7k=; b=qiFNcwwayin7Kc
-	XOP/zfjnEyv+gv86vqSC+Vnapj9OxmLZQqqwYEflnxsdf2T3SjdnuI+YeSu0DA3+7t55+QutbOKn8
-	b8wHE0T9/YoYYR8StKDPDjn9ABTzXhJLecf2nDdWHlha6rFbr3y3CFg32cOESLmXDo5cPpii/N7rE
-	DkZxNm22IVppBzDn9ionSZZnH86Nk5HOSrwVLKDIq6wwxCt5NOf00zkUlKLlDYYsoTLSob1TRALKj
-	6IWXFuu6HFqb6L5NrGb1oCphV3MMnRPREZUraNqJrKqOTdpvMB/uWml6X5uSl+hzR8w9nYx/PZMcR
-	iHO+04FUykZ33lnqVs4A==;
+	List-Owner; bh=ZPs12+vRGGkMTJVzTT7jyiFgVZ2Ilxbd8aAX7vbdrUg=; b=4A6YzNNP2ht4bR
+	7eHpkfj0H+BU+0aC+PbL0OZ7SBcdEfSexOWiLQFxdWga/qS/6GYWE5QQRHD6k4xYi8nbuDScLaTdU
+	yLy3RhmrTciEPtVOqVtlMlx33XnbogsZki9z/hGPZjrfwxBRnYadcUDaAZqt54cF+MsWgTRFFFIzn
+	20cOVXKnXTAh0B4S90RXkW05tjpuT0PDonFiPtLYeA844sUh0L0yfeiibX8t8sSZ5815C7vea1YjN
+	a3Joooc0WOR1WMIJaS/zL+KPdLayLAizIqAn9Slgzs72/0riF8uTb7gUu1WqZ/BhCSCCxaVpQq7YS
+	HI0eU8juWZfTKoFS/meQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJMQW-00000009jhG-0fQ8;
-	Thu, 13 Nov 2025 01:47:08 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1vJMQX-00000009jiD-3ILR;
+	Thu, 13 Nov 2025 01:47:09 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJMQS-00000009jfK-1fG0
+	id 1vJMQT-00000009jg1-42HR
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 01:47:05 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-29555415c5fso3310465ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Nov 2025 17:47:04 -0800 (PST)
+	Thu, 13 Nov 2025 01:47:07 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-298144fb9bcso2808195ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Nov 2025 17:47:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1762998423; x=1763603223; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1762998425; x=1763603225; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=V+yqNsk4liq+0TyYbfqqqgCxYeLqjkF7jXxObMUTUHM=;
-        b=SGWp+ezcymwauf+iXaqFWWcxl1Bvar859cZT0rxhIA/xYvUb5Qff/lvcTuG5obzkb0
-         F32pX3g8mN3uQfRKaY5Ms4rsKmWAFs+hw0YAGj/DTio4d9eG/L70phj+aYiVtOJxNgS2
-         Hqjhd/nxEnbRU1757hbF4a5mSBEgWHc8pshuMaDsqIotDHPGZN/sugRy889W8B2rPIN4
-         FdIjrQa2Q2EZ4T+zEPlvXDroJMHKfYNyZhe0o2A/jifMAgD6PtASLuWnjnsXwTDtFYK3
-         0ODEUbHZDZXXzLDsWnPfMxHQ2+PMh3pOVPx2j+45W5PuEJ7c3EnZl2selmiSHj71zfQa
-         5nNw==
+        bh=7sKtwP//OgsTzC5xxNl/Xd6UYX/1wT9VConzzoLFoks=;
+        b=bNzmvSwOpiwB51nqOZbR6Hd6UGVxJXIyitjJcO7+Nj3dvsZwqcUvpEYCJoFyS6AzeQ
+         i3l5Um+7GxpzP4T7gGV67SYbTnDJoU4KtCmR1KT89DJT1EP4jqgFijeOO/Nw2203oH6J
+         +FoseZ9NUDJlXmvJ35FqrGopkvwryqbOimupJtd2DPKfNlonlyUTv0U8y8j+55tx0Ft4
+         QO8riiyxgHa+kvy3AR03KC7nBQrG0kmuV4l/4fcPQV3jL5X7zyQdVa7EHiXaDOOAhyF1
+         TP3DR3hi4pul2swcawZRWKBpjEhTrA2BcZGDAj03exYxpgJJD6/n/B1DeboS82qZAQ1H
+         kC2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762998423; x=1763603223;
+        d=1e100.net; s=20230601; t=1762998425; x=1763603225;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=V+yqNsk4liq+0TyYbfqqqgCxYeLqjkF7jXxObMUTUHM=;
-        b=lwA4qgIiznZIN0uEsELTkHpcOpohA5phoyOt8lhystXRQJRjez8qZc3fnD9D3pKD0Q
-         MPD9Jj7JUN6VyyXcGaz0lyHqujgPc07jbdFbJJrOv8p1+GdEmkzDe6EAsTGiqLIYPzaH
-         H5DK+zJVFDnESwaNbr+OxGfscb4uIY5hNUeTRDenZRy1yci4ygc6p2vU7RHRWwleH+sk
-         DB+SCBSstRr7Zbz7YYX+xX3QRRH6BrCovGORfDtqgp8OH6a10EhUn6ZsbhZt8J429/pm
-         Rq0dCiFpelFqe38MBPPvF8eK4fEq+QIQNBrI9mbtPzzsM7NADvGTgXgFQ4A5Uo7aev2E
-         8ZSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVgIDnW3u9ktMAzEzby6u6madFSvcMCR366egL7n29tlfWo0fUb8TzE2+qHWqtidx7mRgMKlz8zn+JfrA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhWohBGo4VCSGn3gPysri3VZZadtBEi273B6CK476HC+lUvGVv
-	P/lPEBeot0Tjqjx1KV7+94O39o8S26KT0F4RLWiYB5m8Oh5nK7oVa2vU2FT3YE3jgiY=
-X-Gm-Gg: ASbGncvPGGPdZZXXTW8QWLkhUKS109a/Ia31uabV+2jr2tZgKWsWAfq+i4yDvm8MLDB
-	N+gexOkGiDvLFgPN9o/NTViaoG+el6liqaVBKkaSv771I3EXgEIvQc6QU9XoVYUftC9HlU8xFmM
-	0ekFjKxHZu8MmpZLEu5nsJ4Tvp0jjMLTUwfwH2EySrPLk9pB47s7BwE7IyZORQubMnvLRZhog7T
-	j+x53hVGfwe6M818jLSgrmtlQds0X6TLiTUGaE6Xfqr1mi8eTfd1eHEoIetGLjynSzd80GtZBbe
-	vkxYCpAvl7GeKvNrHkGRnEeAhVdllS/n9GH/96fpVDBMmt+SWWIdeYnZZwTWPBmw2WBnY02lO/t
-	E7/6AKd5UPPvQR/3LOdflgkrfsZCg568Ie0S/9buiay0sSMaGiPPE+Tm2+Tr9CXOIFJyXlZujxB
-	ofnClGrtb/swrb1x2c2aA0Xyvq+Rt9wWdV
-X-Google-Smtp-Source: AGHT+IE5/byJkN6PUIJz0PFtm0m4DzcmYy5ZdKT+rzV4QNwdcHdn7EgBhDmqTxsB7L2xrr78NQwjSQ==
-X-Received: by 2002:a17:902:d4d2:b0:295:1351:f629 with SMTP id d9443c01a7336-2984ed328abmr54095875ad.9.1762998423477;
-        Wed, 12 Nov 2025 17:47:03 -0800 (PST)
+        bh=7sKtwP//OgsTzC5xxNl/Xd6UYX/1wT9VConzzoLFoks=;
+        b=VMs46mugvc75aRzb7/emULCSJSD8Gi03JFYrGG7KUHC/UYipcB2HUB/R5/c9X/8OzW
+         UCkJcsqbJyMYgJZ1gt9hGcECynrrRiWQe19c4KeFXPzrKFYpjJAMpBZJDLEKXkcI4R6F
+         Q5jUYHnj0ZOg9bK+DRhcFjW/VhGw9FZgvZkBLbrpQO8JV+H7pv55n2SDKKjjFX1WMGEL
+         rzEwkcK5r/FaQsjGyf4yV2rM1p9goEJYWS2dp6CksqVT0BeVZEsCRcZz4grAXZv6UU9B
+         x3y+orTM9NZeT56QiNigs6q+lFj5G0uLmQhRb1eG98QJEIfZDtodbTH+2O4ROEMC+ZX9
+         20Eg==
+X-Forwarded-Encrypted: i=1; AJvYcCXuomWcftnwbf8rMGvbpBkY7JiDxs4PtQHcMjC3/UOjt2FoQpzayA4tTrMtbuMacwUJ8gqSkNHy4q4hNQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1i+xjVabfmWOfs6CEKodFJLuOobOwTmL4yVPRMEtf2RJjgfGk
+	4NdqyIBzEb3/UB8ojE+q/vlFlUw9SkyppKgkWhWefLTJ+jjRJzxDffprD3XSCRren4E=
+X-Gm-Gg: ASbGncsbJjK2olPbgBIMeIX1fCbF203OiK4+iu7fxIzBFhGc6awVZCCLKKXTADkiLuG
+	W+SjFCTx+AESO5GEtzaN0WYv3i4tPLQS0ZQbgHX1PgX/zQ+JW9/Erz4pvBXJoWqf34+uOLcv6Uz
+	bsnKh7WEQL4qwd2YPRQZT3xQZEbOLRmw640PaOsM/c+vLSA2OBBfUO4OuWwAH8W1kYffz9q3/TG
+	wNAjKFCCvAgX+EngNJh7urCcRjs21PFBMErpupLhTrX+JDU2SVjrZhF5MSlJkGKDpmtXDgtny4H
+	JDr8DLFxMEhfdoWgKICz7zwUbxeGPBbwrtQpOgWxe/Jz8Y7+KltpVFH38Z2MmiNXqKzJIyehB/C
+	yxiamJWMT7YAw1hQbTAA+Ytlm13B5expsSsEspdyuqZyTQ4IjuNfxbGwbSOpB9DLVK15a+aAkWv
+	fj9IRYYzGUZ42grbUO+x/9aw==
+X-Google-Smtp-Source: AGHT+IFyAjw4zT369i2V/HQmfngUMRA4j/oLD3IR8XNvQ6Htb0EplxsCGv5RKISA4ePCqfHnQtITTg==
+X-Received: by 2002:a17:902:e788:b0:297:d4c4:4d99 with SMTP id d9443c01a7336-2984ed30d02mr63149505ad.6.1762998425114;
+        Wed, 12 Nov 2025 17:47:05 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2ccae8sm4986485ad.98.2025.11.12.17.47.02
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2ccae8sm4986485ad.98.2025.11.12.17.47.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 17:47:03 -0800 (PST)
+        Wed, 12 Nov 2025 17:47:04 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <pjw@kernel.org>,
@@ -91,20 +91,22 @@ Cc: devicetree@vger.kernel.org,
 	Vlastimil Babka <vbabka@suse.cz>,
 	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Oscar Salvador <osalvador@suse.de>,
-	Lance Yang <lance.yang@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	linux-perf-users@vger.kernel.org,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v3 03/22] mm/dirty: replace READ_ONCE() with pudp_get()
-Date: Wed, 12 Nov 2025 17:45:16 -0800
-Message-ID: <20251113014656.2605447-4-samuel.holland@sifive.com>
+Subject: [PATCH v3 04/22] perf/events: replace READ_ONCE() with standard page table accessors
+Date: Wed, 12 Nov 2025 17:45:17 -0800
+Message-ID: <20251113014656.2605447-5-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20251113014656.2605447-1-samuel.holland@sifive.com>
 References: <20251113014656.2605447-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_174704_458538_1930B7B5 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20251112_174706_015466_E82E1758 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,38 +125,60 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-Replace READ_ONCE() with a standard page table accessor i.e pudp_get() that
-anyways defaults into READ_ONCE() in cases where platform does not override
+Replace READ_ONCE() with standard page table accessors i.e pxdp_get() which
+anyways default into READ_ONCE() in cases where platform does not override.
 
-Link: https://lkml.kernel.org/r/20251006055214.1845342-1-anshuman.khandual@arm.com
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: linux-perf-users@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Acked-by: David Hildenbrand <david@redhat.com>
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-Reviewed-by: Oscar Salvador <osalvador@suse.de>
-Cc: Lance Yang <lance.yang@linux.dev>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Link: https://lore.kernel.org/r/20251006042622.1743675-1-anshuman.khandual@arm.com/
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
 Changes in v3:
- - New patch for v3 (cherry-picked from linux-next)
+ - Replace my patch with Anshuman Khandual's patch from LKML
 
- mm/mapping_dirty_helpers.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v2:
+ - New patch for v2
 
-diff --git a/mm/mapping_dirty_helpers.c b/mm/mapping_dirty_helpers.c
-index c193de6cb23a..737c407f4081 100644
---- a/mm/mapping_dirty_helpers.c
-+++ b/mm/mapping_dirty_helpers.c
-@@ -149,7 +149,7 @@ static int wp_clean_pud_entry(pud_t *pud, unsigned long addr, unsigned long end,
- 			      struct mm_walk *walk)
- {
- #ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
--	pud_t pudval = READ_ONCE(*pud);
-+	pud_t pudval = pudp_get(pud);
+ kernel/events/core.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index 1fd347da9026..fa4f9165bd94 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -8122,7 +8122,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
+ 	pte_t *ptep, pte;
  
- 	/* Do not split a huge pud */
- 	if (pud_trans_huge(pudval)) {
+ 	pgdp = pgd_offset(mm, addr);
+-	pgd = READ_ONCE(*pgdp);
++	pgd = pgdp_get(pgdp);
+ 	if (pgd_none(pgd))
+ 		return 0;
+ 
+@@ -8130,7 +8130,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
+ 		return pgd_leaf_size(pgd);
+ 
+ 	p4dp = p4d_offset_lockless(pgdp, pgd, addr);
+-	p4d = READ_ONCE(*p4dp);
++	p4d = p4dp_get(p4dp);
+ 	if (!p4d_present(p4d))
+ 		return 0;
+ 
+@@ -8138,7 +8138,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
+ 		return p4d_leaf_size(p4d);
+ 
+ 	pudp = pud_offset_lockless(p4dp, p4d, addr);
+-	pud = READ_ONCE(*pudp);
++	pud = pudp_get(pudp);
+ 	if (!pud_present(pud))
+ 		return 0;
+ 
 -- 
 2.47.2
 
