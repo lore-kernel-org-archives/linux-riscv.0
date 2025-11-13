@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB28CD4F40
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 01:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D637CD4F35
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 01:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o8JEhBiuOlNT9p3fzEA5rvewVDlqASkaewrxQ96yvTw=; b=rmJcyY8EOW1bRn
-	I8kKCPbKuXb1JmuqvPbKrpDyDoqOWkqECIXkWc16yt7KX0MRP8trQmkWiRE5Jepq+n++4Eh8lXalY
-	oXBPmKDpNaARjTGJ4WyBjpuqbUJPfuD0V/hmSmblH6SSZjt/pMsz4HOU+JyxmbvYmz0dScNKWTRCr
-	ecP8VvcLXl1al7zIfWbnnjh/OjWV4YwpADjFEnvsH7347dHybOqdcw6x12h7rZrSKHYt/V05rx3rK
-	m5B74sIVU8qYE0diTbVocebn8IcO7zUm08NlBqo7IkAMALaEGso2542m941AW9P4uqoLXN83uS6r/
-	fduypd9lj62LX6e98qMA==;
+	List-Owner; bh=5DRtqR7DoB2C70vU+uMP/s+Im+4mhLp8Kqs53Nv82lY=; b=duGTWCHzYD8Iq3
+	RXgnkMV+zn0LEYScPJnYUrKfWhG6/h6iYK4xEKxcQh+6etu7lSbyKjxOJC+d3mnHVy1G9KFrYRcym
+	9c9ntiRm2LZmUf7gVoLFMX5QdvDZZ42NNjGTmYfqLkP4CNsdx3Xo96gaBxNiM05MtICqIQPgkeZ8z
+	v0LCtIJKmdBMVye3WgzD/+khb6yHdiuK5G1fmx5FnxkVRQPK/C3w0+W6AWShiGTGYJLYUFOFczP8c
+	msXIhZQLY8ZV0rkd0pYKkrxGFeB+j1NhtTa+SGY4R+T0z0pUSYpS2ok2PmQz+6ujl7bQsuIpSjlXS
+	dVH8U7r46t6DQpIMz4TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJMQi-00000009jpU-0ODa;
-	Thu, 13 Nov 2025 01:47:20 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1vJMQj-00000009jrE-3E69;
+	Thu, 13 Nov 2025 01:47:21 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJMQe-00000009jlu-3AP4
+	id 1vJMQh-00000009jok-3HPq
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 01:47:17 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2953e415b27so2453185ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Nov 2025 17:47:16 -0800 (PST)
+	Thu, 13 Nov 2025 01:47:21 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-bc1f6dfeb3dso176368a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Nov 2025 17:47:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1762998436; x=1763603236; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1762998439; x=1763603239; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FhqbfzFBgO5voylyQ1oE0qebaNihNkFkz8eAAFF/X6s=;
-        b=J8kUpPBTPdpSnXxCurvTgFwbGcXFW2gAiQ448pMKCF1/eHIDdKc0PTzcfyG0/3rJZz
-         DhWjWmm0LamkSL2Ia5xMSJcjjk5GKf6PL4Q0yw5Iae2QyU0xlIef90cpQ/RaWpSAgSfi
-         K4Opj49RbqAiLpwhhSvPpriYZo5FcEGPI9o6QxSujwi2KBkp5+b66f/KHd77v8jZB4aL
-         utoATIURLWqfwtWKlF8KeA2sJ6I4yuCOhPClzSdbPtrm3oyFkEgpqWPNkcD7DcHrSK5B
-         hsAs3NfseXXdzKzqwFrUGUzpmchU4bmdg5ygUYEnimiSxFmC5cRmHPDOXoAWBBEBfOzb
-         E1eA==
+        bh=61IAp/RLZglhPiTIaYZ0zqBWXh5TU3+Z1ZyRv4wlW+o=;
+        b=ZgL3lyN3DSWCfqHXnqI4mEOTIaEHwNeaSMiZGs6Q9Zk35aaJjy5F/+qwieaJ2yK6mI
+         juKEiyTd+2oXKNcbA5gsMKaNyZJfdFVoJsDQalngZs2SOF/ll6xgecUSqp5hdIxdsaBr
+         xkXOCDxomLdCH+TY2y7c8BwTUAwgaUmXK36CzaJ9LJ+S/Ed3mKLPm9tH4uLkQai16Bu8
+         t6UKiXybdSzlLqHEM+TmyZvE95v6ZSEicODUe+14AAl6VEEpJC8eqU09OWganQYw1r68
+         uJM8n4SSQauT32CvIb+JT24rxDgdJHOGJx3PjwGBwq7e4Logtu60nBfz680SsHrfe7d8
+         7URw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762998436; x=1763603236;
+        d=1e100.net; s=20230601; t=1762998439; x=1763603239;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=FhqbfzFBgO5voylyQ1oE0qebaNihNkFkz8eAAFF/X6s=;
-        b=Nn4/9AbjQtFdZtpSOwRFmWcmGOrgePSQ3CKVpeYLE448MUuyQyUNsQiw6UHPyPUiz/
-         pOf0+wF34e3WFNlizeXGhTQdVOffbFYfZ+PGUrtPDvnhRaP12yY3gJpsNb9GMbl/VyX3
-         IJzzzHgNaxmift/7aZlMje56I1NZkMOVQDLAUin4ABvEo2nuMp5IaLRU6MZGnmEhp2lV
-         Disqw4GV7/n/jxlRluQa+qpoK+USNGZhng9E/n9mF79G4sxFIvjukxX4xnZzR1IyD+yU
-         pJBITXww0vOH8lWpHhCi6fQhxqTByblOQ6JJys+EsVoyFtL1XmCHjlqpZQ2/Ui8Rv1Tm
-         FjNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUnJDqQAPX33ujJ8d68yoMuXndS7AEPgXfNLwDGCA2gGQLTIOZLmYiG94Koy4gxgn8ni2+A9uaxtJiUNA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEBZqOhUZ/WlYlp4/lDDeOyKGiBw4rHuY7owQd7b/bK8tefVsY
-	W0KrIVeVOujkphwA5r2VkD2F5fRDkcU/DULcnDX8qhNnvTw+UxB+qBxdq+lqYHqCZVw=
-X-Gm-Gg: ASbGnctZJSyzcL3VbyknEitVrXx0hJxV6C/BLCQQLUrL0thrQIQJGEUpbUNNQjqvZfD
-	s6u0QZdSFOhol+fqNQ5QWYQH8xaQZ+f8qkSMJq18KDHSxeqfE4PKpNJtzquznbxLCADOtyPXJyP
-	5zSSijl07Nv03pp9wrtR0/5oxpsogX9vun8SV4tlXgP6kFF98N29elF32J07XpKELWoMojv0lQz
-	reBKPQjQSK8k8m8SaztxQn9CKP8WV25em+e1qA0vu01dzUVAORYuqaIggDS6z4SdjoS9SJ5iIwj
-	HVZKeu7T0wky1v8YM1bU4m+CjMWbIqFUwBIQhqEAqANNE5CJtrzA1oI/x0glHmJsjz93LW6shMx
-	NG8M8QD07+iE4erVNmlxvEgYFitgkJcE3ZKByRY3jQxvh5qvySHgo1E+9NsAYa+K/zglHHjGoYO
-	z8auJ6vAcEGZ9qUMjJUJpT/PVVzkWDaJDB
-X-Google-Smtp-Source: AGHT+IFU3ZD0WgCFLGesvoHcSqmefP/DlaLr5QtMhOO16RVbV2tzjU8K9lCg5h0K2mU/+/PVAIgbRA==
-X-Received: by 2002:a17:902:fc86:b0:298:1156:acd5 with SMTP id d9443c01a7336-2984edcaeccmr67224805ad.39.1762998435872;
-        Wed, 12 Nov 2025 17:47:15 -0800 (PST)
+        bh=61IAp/RLZglhPiTIaYZ0zqBWXh5TU3+Z1ZyRv4wlW+o=;
+        b=iyiZ7pJvb6emCkU2cpcGVlQ8DUROeyhmOLxDzpjotvP/HaIsX0OfN668iiC3uPVIfy
+         OxWCy9B6kSKfHpeogE144NNZmlWgO1Pzr8ETvNsLCMPWF+kzWAggytMqmG2F9ARbD6cj
+         Fz6ptDR9P3oPWyxRNoaFvQGSXOH0bUfPoSi3fdbkXXMtX13HVybjy7d9fQAKqWdrcl6C
+         tfYJawEF3+d6mQSemXeGWCHarJekRTtc+ZC9DJc28v5qkcmalJWXnYu7k0QPKrvLi+sM
+         y6LCG5UntcPXJboq0P2mNX9lzISHCZIaHCgrZRSelB6A0NT4J+TdNAsY5UACdxBks3op
+         Yjcg==
+X-Forwarded-Encrypted: i=1; AJvYcCV7gYquvCTBZG6tLFNGbuPL2awzcTIEvFAzo14gpztaPGsRM4S6Ti3kQOBs+q2kyVlMAdFGlFdpHJRrVg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyatwZCDddCcfj6ePFOfc6VlOUkiqaz9uWHK5Brn0YGTDDUT+F7
+	QAXQgUyXI9tQbOb/DKeJfJEUJ+Fuy+BrS70Q5EXGiHVwBp61cjyhrw9GBlucsQ2B4OA=
+X-Gm-Gg: ASbGnct1SIdirrkiVCOzPHipuqsin66D9ZmEFVA3lDIiK1NMlOP+bf0XUVGVS0OKhdY
+	K4NTVKNfpuBSHJ67l+GNZb6+6zW50+jKX/7Ka/iWs8Snl3DJ+HXnchd7d/HPlRDmw4VQ+93mFTy
+	vWvHg7CiWnuu3i3clPYpIsnoX+FDpfESwy7lmo5YqJfoJSHjYpejiSVWpszLdu6pstaATsxPrHz
+	LcHAUWpni8NDCsF4OERdw+zQ+KzlarP/0QHUjOg8yQ/ShlQFNrv4DadiX4QQ/+REze653F+g2TQ
+	fTtFHPvtHLQGYJNHWVaEOJ05TNl2PpFJaGtF12j4su66PBTpbikydov3HbiybjVfBauACGvTw90
+	EiOsSrlhYhcyiKdcTTfAlLjSPZbD/l0q1i+S8TeqEbO6/NM7lp/eEJsmcov/KM8s+BAROvQ/cPh
+	UBXBPIiAA1/1Qb314/+n1F8g==
+X-Google-Smtp-Source: AGHT+IFQeTKY4sW5xPwKJekSx5UPto2J8a08JXV7cfYp4pOZ2iobnw+lqJ4IrO6RHskdtg/6++UDAg==
+X-Received: by 2002:a17:902:e5c3:b0:295:ed6:4625 with SMTP id d9443c01a7336-2984ee0459dmr58942605ad.47.1762998438873;
+        Wed, 12 Nov 2025 17:47:18 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2ccae8sm4986485ad.98.2025.11.12.17.47.14
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2ccae8sm4986485ad.98.2025.11.12.17.47.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 17:47:15 -0800 (PST)
+        Wed, 12 Nov 2025 17:47:18 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <pjw@kernel.org>,
@@ -90,17 +90,18 @@ Cc: devicetree@vger.kernel.org,
 	Rob Herring <robh+dt@kernel.org>,
 	Vlastimil Babka <vbabka@suse.cz>,
 	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v3 11/22] riscv: mm: Simplify set_p4d() and set_pgd()
-Date: Wed, 12 Nov 2025 17:45:24 -0800
-Message-ID: <20251113014656.2605447-12-samuel.holland@sifive.com>
+	Samuel Holland <samuel.holland@sifive.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v3 13/22] riscv: ptdump: Only show N and MT bits when enabled in the kernel
+Date: Wed, 12 Nov 2025 17:45:26 -0800
+Message-ID: <20251113014656.2605447-14-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20251113014656.2605447-1-samuel.holland@sifive.com>
 References: <20251113014656.2605447-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_174716_796821_18F206E3 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20251112_174719_843918_6B1A406F 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,51 +118,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V uses the same page table entry format and has the same atomicity
-requirements at all page table levels, so these setter functions use the
-same underlying implementation at all levels. Checking the translation
-mode to pick between two identical branches only serves to make these
-functions less efficient.
+When the Svnapot or Svpbmt extension is not implemented, the
+corresponding page table bits are reserved, and must be zero. There is
+no need to show them in the ptdump output.
 
+When the Kconfig option for an extension is disabled, we assume it is
+not implemented. In that case, the kernel may provide a fallback
+definition for the fields, like how _PAGE_MTMASK is defined on riscv32.
+Using those fallback definitions in ptdump would produce incorrect
+results. To avoid this, hide the fields from the ptdump output.
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-(no changes since v2)
+(no changes since v1)
 
-Changes in v2:
- - New patch for v2
+ arch/riscv/mm/ptdump.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
- arch/riscv/include/asm/pgtable-64.h | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
-
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index 6e789fa58514..5532f8515450 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -275,10 +275,7 @@ static inline unsigned long _pmd_pfn(pmd_t pmd)
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index 34299c2b231f..0dd6ee282953 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -134,11 +134,13 @@ struct prot_bits {
  
- static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
- {
--	if (pgtable_l4_enabled)
--		WRITE_ONCE(*p4dp, p4d);
--	else
--		set_pud((pud_t *)p4dp, (pud_t){ p4d_val(p4d) });
-+	WRITE_ONCE(*p4dp, p4d);
- }
- 
- static inline int p4d_none(p4d_t p4d)
-@@ -342,10 +339,7 @@ pud_t *pud_offset(p4d_t *p4d, unsigned long address);
- 
- static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
- {
--	if (pgtable_l5_enabled)
--		WRITE_ONCE(*pgdp, pgd);
--	else
--		set_p4d((p4d_t *)pgdp, (p4d_t){ pgd_val(pgd) });
-+	WRITE_ONCE(*pgdp, pgd);
- }
- 
- static inline int pgd_none(pgd_t pgd)
+ static const struct prot_bits pte_bits[] = {
+ 	{
+-#ifdef CONFIG_64BIT
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
+ 		.mask = _PAGE_NAPOT,
+ 		.set = "N",
+ 		.clear = ".",
+ 	}, {
++#endif
++#ifdef CONFIG_RISCV_ISA_SVPBMT
+ 		.mask = _PAGE_MTMASK_SVPBMT,
+ 		.set = "MT(%s)",
+ 		.clear = "  ..  ",
+@@ -214,7 +216,7 @@ static void dump_prot(struct pg_state *st)
+ 		if (val) {
+ 			if (pte_bits[i].mask == _PAGE_SOFT)
+ 				sprintf(s, pte_bits[i].set, val >> 8);
+-#ifdef CONFIG_64BIT
++#ifdef CONFIG_RISCV_ISA_SVPBMT
+ 			else if (pte_bits[i].mask == _PAGE_MTMASK_SVPBMT) {
+ 				if (val == _PAGE_NOCACHE_SVPBMT)
+ 					sprintf(s, pte_bits[i].set, "NC");
 -- 
 2.47.2
 
