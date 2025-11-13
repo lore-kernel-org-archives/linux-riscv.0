@@ -4,108 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862BCCD5BC1
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 10:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A7ACD5BC2
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 10:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Lz/yuCpTiqNH2QuDjMJHEOztwgw1+Gstf3hhjRAumU=; b=PRl6R1EL4ivIU9
-	T/jJQ1TpDBtpN40/1bhiIULzgjRrL3r84K6d+DH5ExX/SSaaWt0J9Ps55r+xO5nU7cOX22ZnTzErk
-	u7Eab40Jl1BYjuMe2OAp0896Kx8sYwbGgDa5Ij3ZpPBZFzspaV3vTd/1Ks7fzUEX6EiDrT0Ft4r2T
-	4Cqce7JhQu4cxVZ2p2YuSskqfJZvXLsHPJEtYNNFSgpr7LQUr0lqhXFRZ2d3qkV3icXwjs3oZP7oo
-	ee21aLUv7kxTH45feYRyaFpEVkZmcE0Nd/DOBdRHNTzJHYcseVBtym7PSEdtwbXL0S9Ld04sG6tuL
-	BgbPoZfgs58NTXqgHm4w==;
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4niE8BNVr3WZIyZ9iG/yxe9o/Ua0UUG26npisTLeuj4=; b=BPPmEBb3/gh1n7
+	HDjxMukWRjAKTu+c3A7At7+m9UrQxVPqBkjdx+FUrSwKgjSGGeaFp+DrZ9FW4ldUi8FwGJ6GzyixJ
+	3CYS13nMSGFS4pOCjZwNGvWGKURftmJsJ4dE4iGDiWHYg7fze/LdH5TYdAb6/zzQa8j+gsIz3Ch09
+	00aQiWB1EsOAoyLKwe8PWwAOoFKfcAGGdLhzUC/b6xAZRR1QrzrZjvAx/kos67qaG7enlyG57rgQu
+	bIodcXlCVIgZciIN1Smtd07vNp5moOB8WOPdPRhF1ByKQtZPW6av/iEXxZT1IDqHaS7yj+S8U0EJo
+	oeLDeyTxQNaPjbnsDbeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUmh-0000000AIyF-0cpw;
-	Thu, 13 Nov 2025 10:42:35 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1vJUvm-0000000AKG6-0fWk;
+	Thu, 13 Nov 2025 10:51:58 +0000
+Received: from smtp20.cstnet.cn ([159.226.251.20] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUme-0000000AIxp-2zm6
+	id 1vJUvh-0000000AKFH-3Jaj
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 10:42:34 +0000
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com [209.85.218.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 4ADBB40254
-	for <linux-riscv@lists.infradead.org>; Thu, 13 Nov 2025 10:42:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1763030548;
-	bh=WaWROQhILaIk4AODRxLJvdFvDxUCFVP6Fxty2SkZyI4=;
-	h=MIME-Version:In-Reply-To:References:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=YgRcZuLm86cfnKM7UX2EDXrfVXVcH1g7Mf8TnnZtarKdu91czDC6BrbC3vYLgRRBM
-	 VyLumaupXBK1Uk/2VGv8993+5Y/RGuN/5BFUp0dOhf+S4lEHIN9ku8GjBD2tRDGrG4
-	 TCJj0QgRG7WKIcMzKaZhf0YYhWhtMFlh2pqcbPqMoo3dgplzXKBcmuLfNm3mI0jF2W
-	 PBgw0rnGSysHsT5sLzllM3U4Y9BYpLjjLRf5AxjjCadjKyS+84AGVuE1i2pvOSY0+C
-	 qcaTmiQKywpplVhHdBrsKu0W/GkM1bOOJ0Wyx2hd450k9VLIghw1gsYnFx8Gs9Jx+4
-	 V1melovOopT6Te1FMo+IZALYEgsLSfCFeRuKU7vRFcdbBe5t85DEoRcXUFCsG7niPJ
-	 oPtQG6hlmpmhV9YPDsUIpY/W/Mk7z/WBBQbnYYKfRRcD4aGaLC5Kd3gD0VNhmQunIt
-	 HuZnLFItLu/9zgO12WTZgdx09CSDVu4c6j9+6d5d+NKHCg+lOKxFa7OXojLQfknTKQ
-	 u5syzlvV4wEdIG3AsYCGnwd1Yg/jiEGKNbV3yHO/B/pgIPNUbVggOyFqrXwLXN+XGt
-	 oU7qzDJRUtYZezsomLqD5RI5Sc3VklJXSwv7LpxN32c2BYTPDzOaIz9oI++HojWsgL
-	 wuwmwZwYUO6oKa3j1HTYpMVU=
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-b70b21e6cdbso93408566b.1
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Nov 2025 02:42:28 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763030547; x=1763635347;
-        h=cc:to:subject:message-id:date:user-agent:from:references
-         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WaWROQhILaIk4AODRxLJvdFvDxUCFVP6Fxty2SkZyI4=;
-        b=r26SXTsxBclCyEmIV4VaSx4mUy70NGpXOiY0/DShFLzsVEZ8pIMPlhdAG/WbjfRF9h
-         wv46YlvpucnnsY7KAutBzF6rzMMt1vMyPjrS7u96ezWFvhfU62+gO2lROlvF/82atneS
-         EgIzV/th6p0SJ9u+XhUhXIf82nZLDDY8Ax9i59WL6INPb6uvIQVYrFS7edJzyOHpNG2u
-         k9/kdPk2bzDrDJe2YFq1WvQgKpbGJvO4ltnOtxambIBPWcb0fgnTwlnC+ATB83dzcXuB
-         Tqr92mAv765ct2rEgDo0k4iNaf5dHcxDFeZyn2i8Sv7+zIORkxU82Z9/w2FxSLNsdb+0
-         U8dA==
-X-Forwarded-Encrypted: i=1; AJvYcCXosO+Of4mv/3/5stj7fIhxg3V8YKPbHZaAYULUgLGLwsUZbLl17tGg0PIArnAZKDwZXJXDv98CKd76Ug==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKgXePbe7lMajJTayWmdofjXWeK3FkEAtAl6dBLtdb8MocpZ+6
-	XgxRO8cS9FI7BBMr1wRrs5yai340VPd/gA5x5S/jjv85F54jpOK9TFP5oCzK+KtN4G9S5QWdO0b
-	E3JtcDJsfT0k5HbiDJZA2LtSxzNcuNerhKJM+AAUINYsOKAFkWwBtyQkyjcMUM4FmROSZx8tlKD
-	WYuyacJKI2T6xLUWiuE/iTz66k0a4m278H1rNKf+bjjLALGA8LTyQwJWeUFQtu
-X-Gm-Gg: ASbGnctW/6fJaToV+/xKhd4iDHwxIv4JfX7wF9oAejSJLyom604RtI0Qn0nDv2M3sBY
-	bdZhhx7sqnK1h/y8w1G2VDlYHt5+sjaegWPGumeEvLuiPqszovhXACbJnrfPZP3ACV78+9f69RQ
-	A87t5S7jZSYroPzCch+X2dcDcPatbhFW6O99pd/5hqa0b4HyRgM3842A==
-X-Received: by 2002:a17:907:3e1f:b0:b72:b7cd:f59e with SMTP id a640c23a62f3a-b7348087148mr254967566b.8.1763030547562;
-        Thu, 13 Nov 2025 02:42:27 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFTJg98+9M8c886tFyGLEzoK9vA4EcA/KrEpft00B6n0vwqztesDMLxb4eNFEPEpnVvcr/HOe2M0PsqZg0bCHc=
-X-Received: by 2002:a17:907:3e1f:b0:b72:b7cd:f59e with SMTP id
- a640c23a62f3a-b7348087148mr254965466b.8.1763030547147; Thu, 13 Nov 2025
- 02:42:27 -0800 (PST)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 13 Nov 2025 02:42:26 -0800
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 13 Nov 2025 02:42:26 -0800
+	Thu, 13 Nov 2025 10:51:56 +0000
+Received: from xujiakai2025$iscas.ac.cn ( [210.73.43.101] ) by
+ ajax-webmail-APP-10 (Coremail) ; Thu, 13 Nov 2025 18:51:42 +0800
+ (GMT+08:00)
+X-Originating-IP: [210.73.43.101]
+Date: Thu, 13 Nov 2025 18:51:42 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?6K645L2z5Yev?= <xujiakai2025@iscas.ac.cn>
+To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, 
+	"Alexandre Ghiti" <alex@ghiti.fr>
+Subject: [PATCH] riscv: fix KUnit test_kprobes crash when building with
+ Clang
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.1-cmXT5 build
+ 20240627(e6c6db66) Copyright (c) 2002-2025 www.mailtech.cn cnic.cn
 MIME-Version: 1.0
-In-Reply-To: <ZQ2PR01MB13076544E2136E7E7C2EEDA1E6CD2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
-References: <20251107095530.114775-1-hal.feng@starfivetech.com>
- <CAJM55Z_rczBo4D3HsC90QW1=fp3NWgK-tsEo6LHTZNXEBHTDqA@mail.gmail.com> <ZQ2PR01MB13076544E2136E7E7C2EEDA1E6CD2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-User-Agent: alot/0.0.0
-Date: Thu, 13 Nov 2025 02:42:26 -0800
-X-Gm-Features: AWmQ_blOZ9S9m9Ve_xD05iTkInH_Tetx_kG4fJGOm32UTmonVLiTkEgBwiVrXdU
-Message-ID: <CAJM55Z9KyNK1n4i9FxbLor4HTQKqK8WKA2svjPVvKXihw_E+sg@mail.gmail.com>
-Subject: RE: [PATCH v2 0/8] Add support for StarFive VisionFive 2 Lite board
-To: Albert Ou <aou@eecs.berkeley.edu>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Conor Dooley <conor+dt@kernel.org>, E Shattow <e@freeshell.de>, 
-	Hal Feng <hal.feng@starfivetech.com>, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Viresh Kumar <viresh.kumar@linaro.org>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Message-ID: <738dd4e2.ff73.19a7cd7b4d5.Coremail.xujiakai2025@iscas.ac.cn>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: tACowAAnEOg_uBVp25oBAA--.19303W
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCQ4FCWkVqNMfUQABsD
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_024233_100850_9CAC313A 
-X-CRM114-Status: GOOD (  23.30  )
+X-CRM114-CacheID: sfid-20251113_025154_218362_BF2A7F65 
+X-CRM114-Status: UNSURE (   3.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,89 +71,209 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Hal Feng (2025-11-13 04:42:05)
-> > On 12.11.25 21:54, Emil Renner Berthing wrote:
-> > Quoting Hal Feng (2025-11-07 10:55:22)
-> > > VisionFive 2 Lite is a mini SBC based on the StarFive JH7110S
-> > > industrial SoC which can run at -40~85 degrees centigrade and up to
-> > > 1.25GHz.
-[...]
-> > Currently the JH7110 device trees are layed out like this, with a nice separation
-> > between the SoC description and board descriptions:
-> >
-> > jh7110.dtsi               # JH7110 SoC description
-> > |- jh7110-common.dtsi     # Peripherals common to all JH7110 boards
-> >    |- jh7110-starfive-visionfive-2.dtsi # Peripherals common to VF2 boards
-> >    |  |- <VF2 boards>     # Final VF2 board descriptions
-> >    |- jh7110-milkv-marscm.dtsi # Peripherals common to Mars CM boards
-> >    |  |- <Mars CM boards> # Final Mars CM board descriptions
-> >    |- <other boards>      # Other JH7110 board descriptions
-> >
-> > With this series it moves to
-> >
-> > jh711x.dtsi
-> > |- jh711x-common.dtsi
-> >    |- jh7110-common.dtsi
-> >    |  |- <jh7110 boards>
-> >    |- jh7110s-common.dtsi
-> >       |- <jh7110s boards>
-> >
-> > ..which I can't even give clear labels like above. In other words when new
-> > patches are sent in it would not be easy to explain exactly where each change
-> > should go and why.
-> > I'm also worried that you'll find that more of the peripherals on the JH7110S
-> > need special handling and a new jh7110s-... compatible string. Then I guess
-> > they'll need to jump from jh7110x.dtsi two levels down to jh7110{,s}-
-> > common.dtsi which then both describe SoC and board properties.
-> >
-> > If you're serious about calling this a new SoC then I'd expect something more
-> > like this:
-> >
-> > jh711x.dtsi                  # Peripherals common to both SoCs
-> > |- jh7110.dtsi               # JH7110 SoC description
-> > |  |- jh7110-common.dtsi     # Peripherals common to all JH7110 boards
-> > |     |- jh7110-starfive-visionfive-2.dtsi # Peripherals common to VF2 boards
-> > |     |  |- <VF2 boards>     # Final VF2 board descriptions
-> > |     |- jh7110-milkv-marscm.dtsi # Peripherals common to Mars CM boards
-> > |     |  |- <Mars CM boards> # Final Mars CM board descriptions
-> > |     |- <other boards>      # Other JH7110 board descriptions
-> > |- jh7110s.dtsi              # JH7110S SoC description
-> >    |- jh7110s-common.dtsi    # Peripherals common to all JH7110S boards
-> >       |- <JH7110S boards>    # Final JH7110S board descriptions
-> >
-> > I know this will mean some duplication in jh7110{,s}-common.dtsi, but I
-> > would prefer that to not having a clear explanation of what each file describes.
-> >
-> > Do you think this layout could work for you?
->
-> Yeah, it is clearer for developers and maintainers.
->
-> Considering Conor's suggestion, what about:
->
-> jh7110.dtsi               # JH7110 SoC description
-> |- jh7110-common.dtsi     # Peripherals common to all JH7110 boards
->    |- jh7110-starfive-visionfive-2.dtsi # Peripherals common to VF2 boards
->    |  |- <VF2 boards>     # Final VF2 board descriptions
->    |- jh7110-milkv-marscm.dtsi # Peripherals common to Mars CM boards
->    |  |- <Mars CM boards> # Final Mars CM board descriptions
->    |- <other boards>      # Other JH7110 board descriptions
-> |- <JH7110S boards>
->
-> Move the opp table from jh7110.dtsi to jh7110-common.dtsi.
-> Remove jh7110s-common.dtsi, because only one board uses JH7110S now.
+Clang misaligns the test_kprobes_addresses and test_kprobes_functions
+arrays, or does not export local labels by default. Both can cause
+kmalloc_array() allocation errors and KUnit failures.
 
-This patchset adds 2 different boards. Has this changed?
+This patch fixes the issue by:
+- Adding .section .rodata to explicitly place arrays in the read-only data segment.
+- Adding .align 3 to align arrays to 8 bytes.
+- Adding .globl to probe labels to ensure symbols are visible.
 
-Also this would mean that you're not using the starfive,jh7110s compatible or
-any other starfive,jh7110s-.. compatible strings, so effectively you're not
-treating it as a new chip, but just a board that needs a different opp table.
+For detailed debug and analysis, see:
+https://github.com/j1akai/temp/blob/main/20251113/readme.md
 
-I see now that the opp table is effectively the only difference between the two
-chips in this patchset, so if that's closer to reality then what you suggest is
-fine with me.
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+---
+ arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S   | 29 +++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
-/Emil
+diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
+index b951d0f12482..ac5ce305b1bd 100644
+--- a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
++++ b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
+@@ -7,8 +7,10 @@
+ SYM_FUNC_START(test_kprobes_add)
+ 	li a1, KPROBE_TEST_MAGIC_UPPER
+ 	li a2, KPROBE_TEST_MAGIC_LOWER
++.globl test_kprobes_add_addr1
+ test_kprobes_add_addr1:
+ 	add a1, a1, a2
++.globl test_kprobes_add_addr2
+ test_kprobes_add_addr2:
+ 	add a0, a1, x0
+ 	ret
+@@ -19,6 +21,7 @@ SYM_FUNC_START(test_kprobes_jal)
+ 	mv a1, ra
+ 	.option push
+ 	.option norvc
++.globl test_kprobes_jal_addr1
+ test_kprobes_jal_addr1:
+ 	jal x0, 2f
+ 	ret
+@@ -27,6 +30,7 @@ test_kprobes_jal_addr1:
+ 	ret
+ 	.option push
+ 	.option norvc
++.globl test_kprobes_jal_addr2
+ test_kprobes_jal_addr2:
+ 2:	jal 1b
+ 	.option pop
+@@ -40,6 +44,7 @@ SYM_FUNC_START(test_kprobes_jalr)
+ 	mv a1, ra
+ 	.option push
+ 	.option norvc
++.globl test_kprobes_jalr_addr
+ test_kprobes_jalr_addr:
+ 	jalr a0
+ 	.option pop
+@@ -51,6 +56,7 @@ test_kprobes_jalr_addr:
+ SYM_FUNC_END(test_kprobes_jalr)
+ 
+ SYM_FUNC_START(test_kprobes_auipc)
++.globl test_kprobes_auipc_addr
+ test_kprobes_auipc_addr:
+ 	auipc a0, KPROBE_TEST_MAGIC_LOWER
+ 	la a1, test_kprobes_auipc_addr
+@@ -67,20 +73,26 @@ SYM_FUNC_START(test_kprobes_branch)
+ 	li a0, 0
+ 	li a1, 1
+ 	li a2, 2
++.globl test_kprobes_branch_addr1
+ test_kprobes_branch_addr1:
+ 	beqz a0, 1f
+ 	ret
+ 1:
++.globl test_kprobes_branch_addr2
+ test_kprobes_branch_addr2:
+ 	beqz a1, 3f
++.globl test_kprobes_branch_addr3
+ test_kprobes_branch_addr3:
+ 	bnez a0, 3f
++.globl test_kprobes_branch_addr4
+ test_kprobes_branch_addr4:
+ 	bnez a2, 1f
+ 	ret
+ 1:
++.globl test_kprobes_branch_addr5
+ test_kprobes_branch_addr5:
+ 	bge a1, a2, 3f
++.globl test_kprobes_branch_addr6
+ test_kprobes_branch_addr6:
+ 	bge a2, a1, 2f
+ 	ret
+@@ -89,9 +101,11 @@ test_kprobes_branch_addr6:
+ 	add a0, a0, t0
+ 	ret
+ 2:
++.globl test_kprobes_branch_addr7
+ test_kprobes_branch_addr7:
+ 	blt a2, a1, 3f
+ 	li a0, KPROBE_TEST_MAGIC_LOWER
++.globl test_kprobes_branch_addr8
+ test_kprobes_branch_addr8:
+ 	blt a1, a2, 1b
+ 3:
+@@ -104,6 +118,7 @@ SYM_FUNC_END(test_kprobes_branch)
+ 
+ SYM_FUNC_START(test_kprobes_c_j)
+ 	li a0, 0
++.globl test_kprobes_branch_c_j_addr1
+ test_kprobes_branch_c_j_addr1:
+ 	c.j 2f
+ 1:
+@@ -111,12 +126,14 @@ test_kprobes_branch_c_j_addr1:
+ 	add a0, a0, a1
+ 	ret
+ 2:	li a0, KPROBE_TEST_MAGIC_LOWER
++.globl test_kprobes_branch_c_j_addr2
+ test_kprobes_branch_c_j_addr2:
+ 	c.j 1b
+ SYM_FUNC_END(test_kprobes_c_j)
+ 
+ SYM_FUNC_START(test_kprobes_c_jr)
+ 	la a0, 2f
++.globl test_kprobes_c_jr_addr1
+ test_kprobes_c_jr_addr1:
+ 	c.jr a0
+ 	ret
+@@ -126,6 +143,7 @@ test_kprobes_c_jr_addr1:
+ 2:
+ 	li a0, KPROBE_TEST_MAGIC_UPPER
+ 	la a1, 1b
++.globl test_kprobes_c_jr_addr2
+ test_kprobes_c_jr_addr2:
+ 	c.jr a1
+ SYM_FUNC_END(test_kprobes_c_jr)
+@@ -133,6 +151,7 @@ SYM_FUNC_END(test_kprobes_c_jr)
+ SYM_FUNC_START(test_kprobes_c_jalr)
+ 	mv a1, ra
+ 	la a0, 1f
++.globl test_kprobes_c_jalr_addr
+ test_kprobes_c_jalr_addr:
+ 	c.jalr a0
+ 	li a2, KPROBE_TEST_MAGIC_UPPER
+@@ -145,16 +164,19 @@ SYM_FUNC_END(test_kprobes_c_jalr)
+ SYM_FUNC_START(test_kprobes_c_beqz)
+ 	li a0, 0
+ 	li a1, 1
++.globl test_kprobes_c_beqz_addr1
+ test_kprobes_c_beqz_addr1:
+ 	c.beqz a0, 2f
+ 	ret
+ 1:	li a1, KPROBE_TEST_MAGIC_UPPER
+ 	add a0, a0, a1
+ 	ret
++.globl test_kprobes_c_beqz_addr2
+ test_kprobes_c_beqz_addr2:
+ 2:	c.beqz a1, 3f
+ 	li a0, KPROBE_TEST_MAGIC_LOWER
+ 	mv a1, x0
++.globl test_kprobes_c_beqz_addr3
+ test_kprobes_c_beqz_addr3:
+ 	c.beqz a1, 1b
+ 3:	li a0, 0
+@@ -164,15 +186,18 @@ SYM_FUNC_END(test_kprobes_c_beqz)
+ SYM_FUNC_START(test_kprobes_c_bnez)
+ 	li a0, 0
+ 	li a1, 1
++.globl test_kprobes_c_bnez_addr1
+ test_kprobes_c_bnez_addr1:
+ 	c.bnez a1, 2f
+ 	ret
+ 1:	li a1, KPROBE_TEST_MAGIC_UPPER
+ 	add a0, a0, a1
+ 	ret
++.globl test_kprobes_c_bnez_addr2
+ test_kprobes_c_bnez_addr2:
+ 2:	c.bnez a0, 3f
+ 	li a0, KPROBE_TEST_MAGIC_LOWER
++.globl test_kprobes_c_bnez_addr3
+ test_kprobes_c_bnez_addr3:
+ 	c.bnez a0, 1b
+ 3:	li a0, 0
+@@ -181,6 +206,8 @@ SYM_FUNC_END(test_kprobes_c_bnez)
+ 
+ #endif /* CONFIG_RISCV_ISA_C */
+ 
++.section .rodata
++.align 3
+ SYM_DATA_START(test_kprobes_addresses)
+ 	RISCV_PTR test_kprobes_add_addr1
+ 	RISCV_PTR test_kprobes_add_addr2
+@@ -212,6 +239,8 @@ SYM_DATA_START(test_kprobes_addresses)
+ 	RISCV_PTR 0
+ SYM_DATA_END(test_kprobes_addresses)
+ 
++.section .rodata
++.align 3
+ SYM_DATA_START(test_kprobes_functions)
+ 	RISCV_PTR test_kprobes_add
+ 	RISCV_PTR test_kprobes_jal
+-- 
+2.34.1
 
+</xujiakai2025@iscas.ac.cn>
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
