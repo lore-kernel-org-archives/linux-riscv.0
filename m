@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACBBCD98D2
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 19:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39BB5CD98E7
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 21:42:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFwkQN3/LaVUIk0ZD68ZM9FzpVu0aZ6ZgrvIgNWng6Y=; b=ogjZ2yfba5d6uXWyOReV6m4nEk
-	uVsaITeQT3+OJ3m5QC9XW06mZ7vGZNNcda8Exg+VHNdpWQxpjkmxdEuRw+LU2JkGECSE1m88efpor
-	QWx9iUpYBBx3o0n72whCStnJGoPLJsLM+xY9raAZKFgp8VCY8mNV3lnbGcSpY6oSorBIjyuFncTna
-	zW7mgMEXbFmM1V8tDxTjhDKWoxBrCBLRSQTZHdZ1lHanINDNa5e5E1aIVX3ErmAKi4/C6pnK31ef3
-	DYzO9QQuy9L2GJM+yjOdup9V5SVsYYnhAxdVpWO1YJlKRUH+KYijDIzh7pRsgq4yFE9F+qx6ZITp8
-	+A0/3R7A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DjqifvG4B8b88HTxNHyYnZ09dhMryAbXlHLQKdetl+8=; b=b53Sz9jWQaD+kQ
+	KzprxCmNjzbnqKbtIyq9qXhlZn5HAhWeXasdqsdzDWN5bP2+goa77mmh8ktFJ7vZv6gx6rmb7YkF0
+	RrcOyBDkIu2FWJJgoKj0glFtLGX5yB5Atd3bOyGHAq31T9LiCPr9Ccr9iuplgKRlIhe82s+kFKWuR
+	SBjrGw4lwNtjfUIPJiSJ+M9z3iiJGIInrUCFJfP9u60XGSxSe0Qmpf5V6JPyV9Cox8vBnPCyRW6O5
+	kO6wPurCc7/Ob3SAwHZOsnI0AlnBAIq4diQZfGGE2+yfClvTkvWJBdqXvIRHvBoOj8xfNGQNUeIgb
+	b7BWxy7dtvIHugxx2uKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJdFg-0000000B2B2-1Pso;
-	Thu, 13 Nov 2025 19:45:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJf4Z-0000000B8ur-2sT7;
+	Thu, 13 Nov 2025 21:41:43 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJdFe-0000000B2Ah-1cro;
-	Thu, 13 Nov 2025 19:45:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE38B600CB;
-	Thu, 13 Nov 2025 19:45:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70FE0C4CEF1;
-	Thu, 13 Nov 2025 19:44:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763063101;
-	bh=0VwKaYc35bZVUgu90hr/jsC2a+mJC8giJD4+WvmKtmE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CYdJIPPSOEOvnf/bgsK11R2E89RQ7+vEc5reOI2FhvVe9UVPfAItJfBhMQSYjoGv0
-	 TNXFpYwpGAm3kQazKFBeEFhmJBXOw2jeikG1SNneO4gp0FOhTlV3pYjUDrryqGGvVW
-	 cF5VIdqba1jBzZ6YvMAoSjLCEVCBO8pk8A10cnNxpONJ1ru5wnLwbGyKKF/S1cYyFK
-	 kyt0oasNjxwpqKj75d72zVvVJgRpLLL++cfso3ieHF0qj4Hasq9dUqbELt+sp1roY3
-	 W1mhVVQ/6D80E7ChaldiPuY4sQVYEzinVKabCn9zyBlXxO0pqxcAgaPojRyQZWFrVk
-	 9FNGg4ljOwW3w==
-Date: Thu, 13 Nov 2025 19:44:52 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Xingyu Wu <xingyu.wu@starfivetech.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Andy Yan <andyshrk@163.com>, Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-phy@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH RFC 01/13] dt-bindings: soc: starfive: Add vout-subsystem
- IP block
-Message-ID: <20251113-irritable-unfold-da619d52026c@spud>
-References: <20251108-jh7110-clean-send-v1-0-06bf43bb76b1@samsung.com>
- <CGME20251108010453eucas1p2403ec0dd2c69ae7f3eabe19cf686f345@eucas1p2.samsung.com>
- <20251108-jh7110-clean-send-v1-1-06bf43bb76b1@samsung.com>
- <20251111-massager-twistable-1e88f03d82f8@spud>
- <20251111-unsaid-rockslide-67b88b2e34bd@spud>
- <0d8e3a626b037dd348378e5ebca8005c1e715871.camel@icenowy.me>
- <20251112-skating-robust-81be8dee0a8b@spud>
- <1d54524d7ef939232b4512ca59c78794484103ca.camel@icenowy.me>
+	id 1vJf4X-0000000B8uP-0Tk8
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Nov 2025 21:41:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=6Q+eQ0jQq4j3cE3OQzV7WwPST+vm1AuIfNIfB6ulnWs=; b=tJauWlZbkPmWRDcbqq+7FVfW2g
+	tn5sMzpqX8dB33N7WzoWj5n7HsjBc/M8RwNGBtSTV5k5z8jKEZDfIeoH5ytmdJojflllCqRbyd1Nf
+	Sl4nLCykpangvKs6sYLFcMlYwQ8s3foCQy6aKbQTTPwF8dQijUlMvE8TElZw7wvw4nK5nIgcQz9qE
+	pQnWhLLPBSQEs+1/c3GjnBNEF+NMbCz2mlqB+xEVyqB/yfzAUwGI5BJ6SlfDwjqYLFzBFZMFp2D78
+	J19ursYXrzLjWwhTSvsNM2tWLAwU/Xrr8cA0f+HkPAHZIDvCIfc5akhL4ESuG995ji8bsRDltVY0O
+	v7haPHjw==;
+Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1vJf4A-00000002tEH-3gkL;
+	Thu, 13 Nov 2025 22:41:18 +0100
+Date: Thu, 13 Nov 2025 22:41:18 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Troy Mitchell <troymitchell988@gmail.com>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v2] i2c: spacemit: fix detect issue
+Message-ID: <aRZQfqFjDNds19by@aurel32.net>
+Mail-Followup-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Troy Mitchell <troymitchell988@gmail.com>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+References: <20251113-fix-k1-detect-failure-v2-1-b02a9a74f65a@linux.spacemit.com>
 MIME-Version: 1.0
-In-Reply-To: <1d54524d7ef939232b4512ca59c78794484103ca.camel@icenowy.me>
+Content-Disposition: inline
+In-Reply-To: <20251113-fix-k1-detect-failure-v2-1-b02a9a74f65a@linux.spacemit.com>
+User-Agent: Mutt/2.2.13 (2024-03-09)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_134141_614320_80F8FF6B 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,101 +80,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7339501335220126682=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7339501335220126682==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ts3gmjGSebbDWFBm"
-Content-Disposition: inline
-
-
---ts3gmjGSebbDWFBm
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Nov 13, 2025 at 08:48:33AM +0800, Icenowy Zheng wrote:
-> =E5=9C=A8 2025-11-12=E6=98=9F=E6=9C=9F=E4=B8=89=E7=9A=84 18:36 +0000=EF=
-=BC=8CConor Dooley=E5=86=99=E9=81=93=EF=BC=9A
-> > On Wed, Nov 12, 2025 at 02:34:39PM +0800, Icenowy Zheng wrote:
-> > > =E5=9C=A8 2025-11-11=E6=98=9F=E6=9C=9F=E4=BA=8C=E7=9A=84 18:36 +0000=
-=EF=BC=8CConor Dooley=E5=86=99=E9=81=93=EF=BC=9A
-> > > > On Tue, Nov 11, 2025 at 06:18:16PM +0000, Conor Dooley wrote:
-> > > > > On Sat, Nov 08, 2025 at 02:04:35AM +0100, Michal Wilczynski
-> > > > > wrote:
-> > > > > > Add the dt-binding documentation for the StarFive JH7110
-> > > > > > Video
-> >=20
-> > > > > > +patternProperties:
-> > > > > > +=C2=A0 "^display@[0-9a-f]+$":
-> > > > >=20
-> > > > > Personally I'd like to see these being regular properties,
-> > > > > since
-> > > > > there's
-> > > > > exactly one possible setup for this.
-> > > > >=20
-> > > > > > +=C2=A0=C2=A0=C2=A0 type: object
-> > > > > > +=C2=A0=C2=A0=C2=A0 description: Verisilicon DC8200 Display Con=
-troller node.
-> > > > >=20
-> > > > > Can you add the relevant references here instead of allowing
-> > > > > any
-> > > > > object?
-> > > >=20
-> > > > I don't think that if you did, this would pass the binding
-> > > > checks,
-> > > > because there's no "verisilicon,dc" binding. I think I saw one in
-> > > > progress, but without the soc-specific compatible that I am going
-> > > > to
-> > > > require here - if for no reason other than making sure that the
-> > > > clocks
-> > > > etc are provided correctly for this device.
-> > >=20
-> > > Well I didn't specify any soc-specific compatible because that IP
-> > > has
-> > > its own identification registers.
-> >=20
-> > I still require one because I want to make sure that clocks etc are
-> > handled correctly. You can ignore it in the driver if you wish, but
-> > when
-> > the next user comes along with one more or less clock, I want the
-> > jh7110 one to be forced to use the correct configuration.
->=20
-> I don't think for those generic IPs requiring a SoC-specific compatible
-> is a good idea.
-
-I disagree. If things are complex enough to end up with different
-numbers of clocks or power-domains etc on different platforms (which I
-believe GPUs are) then I want one for validation purposes on platforms I
-care about. What you do in the driver is up to you.
-
---ts3gmjGSebbDWFBm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRY1NAAKCRB4tDGHoIJi
-0k9zAQDvbUM7s4AEGxVxu+wdxmQIgr0MmVDfS6YxVkmZ+4CJIAEAiwMj6RElCUx6
-g7Zzf1f3tUc15pHEt8NIVOAt/SqlRQc=
-=tccX
------END PGP SIGNATURE-----
-
---ts3gmjGSebbDWFBm--
-
-
---===============7339501335220126682==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7339501335220126682==--
-
+T24gMjAyNS0xMS0xMyAyMToyMSwgVHJveSBNaXRjaGVsbCB3cm90ZToKPiBUaGlzIGNvbW1pdCBh
+ZGRyZXNzZXMgdHdvIGlzc3VlcyBjYXVzaW5nIGkyYyBkZXRlY3QgdG8gZmFpbC4KPiAKPiBUaGUg
+aWRlbnRpZmllZCBpc3N1ZXMgYXJlOgo+IAo+IDEuIEluY29ycmVjdCBlcnJvciBoYW5kbGluZyBm
+b3IgQkVEIChCdXMgRXJyb3IgTm8gQUNLL05BSyk6Cj4gICAgQmVmb3JlIHRoaXMgY29tbWl0LCBC
+b3RoIEFMRCAoQXJiaXRyYXRpb24gTG9zcyBEZXRlY3RlZCkgYW5kCj4gICAgQkVEIHJldHVybmVk
+IC1FQUdBSU4uCj4gMi4gTWlzc2luZyBpbnRlcnJ1cHQgc3RhdHVzIGNsZWFyIGFmdGVyIGluaXRp
+YWxpemF0aW9uIGluIHhmZXIoKToKPiAgICBPbiB0aGUgSzEgU29DLCBzaW1wbHkgZml4aW5nIHRo
+ZSBmaXJzdCBpc3N1ZSBjaGFuZ2VkIHRoZSBlcnJvcgo+ICAgIGZyb20gLUVBR0FJTiB0byAtRVRJ
+TUVPVVQuIFRocm91Z2ggdHJhY2luZywgaXQgd2FzIGRldGVybWluZWQgdGhhdAo+ICAgIHRoaXMg
+aXMgbGlrZWx5IGR1ZSB0byBNU0QgKE1hc3RlciBTdG9wIERldGVjdGVkKSBsYXRlbmN5IGlzc3Vl
+cy4KPiAKPiAgICBUaGF0IG1lYW5zIHRoZSBNU0QgYml0IGluIHRoZSBJU1IgbWF5IHN0aWxsIGJl
+IHNldCBvbiB0aGUgbmV4dCB0cmFuc2Zlci4KPiAgICBBcyBhIHJlc3VsdCwgdGhlIGNvbnRyb2xs
+ZXIgd29uJ3Qgd29yayDigJQgd2UgY2FuIHNlZSBmcm9tIHRoZSBzY29wZSB0aGF0Cj4gICAgaXQg
+ZG9lc24ndCBpc3N1ZSBhbnkgc2lnbmFsLgo+ICAgIChUaGlzIG9ubHkgb2NjdXJzIGR1cmluZyBy
+YXBpZCBjb25zZWN1dGl2ZSBJMkMgdHJhbnNmZXJzLgo+ICAgIFRoYXQgZXhwbGFpbnMgd2h5IHRo
+ZSBpc3N1ZSBvbmx5IHNob3dzIHVwIHdpdGggaTJjZGV0ZWN0LikKPiAKPiBXaXRoIHRoZXNlIHR3
+byBmaXhlcywgaTJjIGRldmljZSBkZXRlY3Rpb24gbm93IGZ1bmN0aW9ucyBjb3JyZWN0bHkgb24g
+dGhlIEsxIFNvQy4KPiAKPiBGaXhlczogNWVhNTU4NDczZmEzMSAoImkyYzogc3BhY2VtaXQ6IGFk
+ZCBzdXBwb3J0IGZvciBTcGFjZW1pVCBLMSBTb0MiKQo+IFRlc3RlZC1ieTogQXVyZWxpZW4gSmFy
+bm8gPGF1cmVsaWVuQGF1cmVsMzIubmV0Pgo+IFNpZ25lZC1vZmYtYnk6IFRyb3kgTWl0Y2hlbGwg
+PHRyb3kubWl0Y2hlbGxAbGludXguc3BhY2VtaXQuY29tPgo+IC0tLQo+IENoYW5nZWxvZyBpbiB2
+MjoKPiAtIGhhbmRsZSBBTEQgYW5kIEJFRCBlcnJvcnMgc2VwYXJhdGVseSBpbiBzcGFjZW1pdF9p
+MmNfaGFuZGxlX2VycigpCj4gLSBtb3ZlIGNsZWFyX2ludF9zdGF0dXMoKSBhYm92ZSBzcGFjZW1p
+dF9pMmNfaW5pdCgpCj4gLSBtb3ZlIGNsZWFyX2ludF9zdGF0dXMoKSBmcm9tIHhmZXIoKSBpbnRv
+IHNwYWNlbWl0X2kyY19pbml0KCkKPiAtIExpbmsgdG8gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwu
+b3JnL2FsbC8yMDI1MTEwMy1maXgtazEtZGV0ZWN0LWZhaWx1cmUtdjEtMS1iYjA3YThkN2RlN2NA
+bGludXguc3BhY2VtaXQuY29tLwo+IC0tLQo+ICBkcml2ZXJzL2kyYy9idXNzZXMvaTJjLWsxLmMg
+fCAxOSArKysrKysrKysrKysrLS0tLS0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAxMyBpbnNlcnRpb25z
+KCspLCA2IGRlbGV0aW9ucygtKQoKVGVzdGVkLWJ5OiBBdXJlbGllbiBKYXJubyA8YXVyZWxpZW5A
+YXVyZWwzMi5uZXQ+ClJldmlld2VkLWJ5OiBBdXJlbGllbiBKYXJubyA8YXVyZWxpZW5AYXVyZWwz
+Mi5uZXQ+CgotLSAKQXVyZWxpZW4gSmFybm8gICAgICAgICAgICAgICAgICAgICAgICAgIEdQRzog
+NDA5NlIvMURERDhDOUIKYXVyZWxpZW5AYXVyZWwzMi5uZXQgICAgICAgICAgICAgICAgICAgICBo
+dHRwOi8vYXVyZWwzMi5uZXQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
