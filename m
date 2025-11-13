@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC47CD4F37
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637F2CD4F3A
 	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 01:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,64 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=27JQ1oD9pmAZ15pJkAM1STyLkTJGq19jGH1qEAcvGF4=; b=YSjHuqOF5PpIu8
-	pzx1wGQsRkCeWtL9vueD60kmabr1M+E945pC3bz++RFH2/IkW3NLYgpWtdIlRbyMztyE1Dx4+Z5nE
-	V+B+UuOLij81AUBz5aRcX0MBRIT9msGDXh9YVpac+S7f78Rf3nfm/QwVVeeai/AMG/i+MeRmPnK1L
-	KHZszXgWAyJo+cAoWIgezTA/Cu4+eNT5hgK9zUc433jSCbjfR0SuvJw1MR+r2P5R+UEBuTJSjsloy
-	6QUy0/GA4p3uz8FyFK19++1iMJu3TSrKpxwbEbdLP5NYaadDK0DZVEt2HNHVme7fHBeIVTX5+8dQA
-	uVwp6baWXCs/JKa60HSg==;
+	List-Owner; bh=x3RNbwec13fzKoTUXN5EssePbW4RZBgnex/q57zdnwo=; b=Uet1eFyIrqYZnM
+	EPLyzemUoR1SYDGMVVXrDzthe80jWJUWJm+BE5cDPGpLmmC7ncwBDFY3PLOVHdhlKylrt3j7CiwKP
+	thzfF+e1Cx1mZIwq3s4jsQQ01LcNZFGZM/DWydLVezDpQgFWqzBrG8C45n1mm8ANhvFxF1rWW6q7T
+	BCyuYUZNW0VBZQyYoVnL+RkSDt9W8PfUW8bYuYTjiQBGPFUtzO8dFv7oHpi2yIra2AAI2oI3iskxU
+	EEtEiR5vQweVMmAvvuUgAGvcYfF//kYualEysdS+kl1YTYCkwSKT+POa7qEcED4PxFGb+0mxAuoeF
+	tTU523rU6ibCSJqpWVUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJMQp-00000009jwM-0eF5;
-	Thu, 13 Nov 2025 01:47:28 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1vJMQo-00000009jvb-3QJe;
+	Thu, 13 Nov 2025 01:47:26 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJMQm-00000009jtJ-0mE0
+	id 1vJMQk-00000009jrf-2pJt
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 01:47:25 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7ade456b6abso200980b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Nov 2025 17:47:23 -0800 (PST)
+	Thu, 13 Nov 2025 01:47:23 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-bc0d7255434so186290a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Nov 2025 17:47:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1762998443; x=1763603243; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1762998442; x=1763603242; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3tvwsP9vvABxxjFo83LMGwuoc9gJFKDbkPSolQxDxUQ=;
-        b=QHiGD86clVhwlHbwHWQt9Xtod203cTCYccSiMtNx1xR3lc8aOiotyeK9W8C6KOBw8K
-         qyRxmQx1Z2j9jDldZXdudq2SYHGMigCLsnfoOjwDYFRuf6v8nwyDDzpCDsCrQMRqL8nA
-         LhH1jFpun/Mkv27pKkQlOTxnyDxfJ0T8YyKPatZ7oP1NIIo1sTZwgn5gFIBXm0Xmc09b
-         l1bd+nPS6zyDweq3VT95j/7x68TRxUT3qZ9ubMhQfoxX/sfcgUY3j31o0CqJCW4+UkQB
-         DHBIzmY2eCEsLyR9S+pzsJa98rv/i/E4XhYc6iIbzXjxoxC7EaEe5ftLatNrfy8Uhvvq
-         K5mA==
+        bh=LCfGLyHTlwnlWI3FvQiRrpmgPRI/lUHNtrwWz9sKS0g=;
+        b=H7oXcJpyNJuvqZiDP9BP9ilY4wKDsUbM+8GDhpw5F3e8GQZRyB6t5oL9CaRzok3Ehq
+         hYMephxCFS/KaNYqAgdVG84a4zofZ6U+cGw+OK3nznoj6haBrJIWzK0QKFftxd6dyqdL
+         iLrE3MDd+meLjtQJt9SLIL4b5AjFXJBZNj1Mdc82dVnpfNVoHdjmH+36KW4+p9OSzJ4i
+         o6jIKw5Mg7MNQQc2QghibcyzETX4EvBIeLcNdnTs0PWo0Gx37/s0JlwaHIaaAvK4MxqT
+         42HK4th++1mp5V+J9YU2+hdRlzY/CMXJdtyyJRd6Umnjb47mNi3vJiwzAIIc9WU/khgb
+         HxmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762998443; x=1763603243;
+        d=1e100.net; s=20230601; t=1762998442; x=1763603242;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=3tvwsP9vvABxxjFo83LMGwuoc9gJFKDbkPSolQxDxUQ=;
-        b=aIFKH2QomP6MHuGxt9w2WRH6hAmFD9oUvLM8KUfbZrieQ9vAf62r8PB53Ni3UfjUTy
-         lm31QTNWUhk2z2AhDEvCZYlxXPTrGIwMZ9s9gPJv8I7Y/aew40ayi2M3oNWgjTTwxBbG
-         VHLkBQ+Ap8hpnaZWzds92yD6BI6lcQlozb08m6gjyba/eEUbNOZWcvSbUVZNjpP8LX00
-         da3wNJU+AqQc9zmI/VI7Sib1Q+cqb4ih+JJk5hG0ETWuFpWRDOHapKPxTQqLdR4UuxfU
-         SaeKNkY4lm+F9C2ohEl+lu0Tkz0YebUhpaXRIq8ps5fJOQS4fSROmqpabVg0h3/yoz1k
-         kvCA==
-X-Forwarded-Encrypted: i=1; AJvYcCXxv7bFlEYKUamC92vADH23BFjBUfL1ueXuoS9fq0Vhfz0pRYR4VJu1J3SuJ/sWtqd1W4xFvdHZYFdUAw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZwYAOe7qZOXJdCKGXruyUduZhKaYNUAQxznki9H0KQt8gotjp
-	pr/CbpNkMpsIkfk9EPN/39kQQR92sj5SFermG1V6g8PO6kdpQn4EmdP4ed6mCwuvLzE=
-X-Gm-Gg: ASbGncutS77ttM7AV0KbtOJ/eHI1Hntqq3p3ujcYLBOHyv6IQenS0sUIxwywwwcER0O
-	Fn7GTjTC0lln0m6I1b9QWH+QfKOdCQV8vGh9skP75vJIHkwjZyvaiHO/wbEQblg2F4S8Ag33Kct
-	qeL9wQVge26zO6dsNsYsFWMEhuHUJ1GAGnwoIK6agh9yT3sn/i8GfWk1NdbQ19abk8q8BYcA9b8
-	z6uyOhX6ER1675GvjbamLrBGB15N7tuLvLEcEkFREPcjjftahDiKDjfNcskvRfV08/2BqtJIGjQ
-	hCYCroWQbxB+1gsgtkMfFLicE0A6voBcJD5IATNa+K472iWHajFe0OQvUXH/PQevT7QOuOHaMWz
-	uhjJgsObDv6B6Gc93NUYMXodho3i5pHuGgS9KlFTLR11qhhfSOsQxc5vRS0hec5h1YYj16UqzZl
-	LBvUZ2Y7iADMzTr6Fph90ZPg==
-X-Google-Smtp-Source: AGHT+IEzjGNl3Wyy3hzWqL7on4A+1Kg8RojXA788MVa4vlvrwXnh7VKjWrR3/ZaKHRkhd2fy7O+m8w==
-X-Received: by 2002:a17:902:d4c8:b0:297:f8d9:aae9 with SMTP id d9443c01a7336-2984edde647mr68226655ad.51.1762998443331;
-        Wed, 12 Nov 2025 17:47:23 -0800 (PST)
+        bh=LCfGLyHTlwnlWI3FvQiRrpmgPRI/lUHNtrwWz9sKS0g=;
+        b=CtOCBwnPBThXnSQU/9na00LcC9sBJv1RLjoL7AOqtxljfiuixV6jc4xwddYauqN20h
+         Eg0KBSOsPqUEcoi44sgNu2EleidLKS4kjag19Qb3CX1J2BRRPf1kQqmhdGAPaB+2rSaf
+         46pHAdGnkmS/7j5GoMWmdqp9Csb9tOEqQnDRmLlertXCAwyiAf6Sne7Ntnb9e4dF0xJC
+         +VlI2q3DwiOcCB3dADU62z5p3Po4WKoznRmv6NaAJmjhpeAOkY936gdTSCf3TRls+xTk
+         Pftg3QxGjGBy8sF53hpve8u/TpDMNSlAr0a2uenigCqmWqjpJPGotxOPwuu/sYq/Y4a4
+         TnjA==
+X-Forwarded-Encrypted: i=1; AJvYcCV5QhH0ncMKQPgnlRTG7bhqvzhAO7wKZeA0gz4d3hC/+ItwqQufvUHOmYoSCLOYWLaDiPtsz43Q478ccg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHAHhpqLwN1DSB0osOQYt3RaBNp0ZzVPU5tStEi0Rle7AO08a4
+	KBYga1YDBHNyRIuivB8OqBGR7wSzn269WHwY4yUckdkLs6QRcL54z+C3g7DbugLGsVg=
+X-Gm-Gg: ASbGnctIVrjFk3md5f7tL0taAdCUTgLTTT0FkT0Jus4FLztjmn7tv2rorr/GoRkDSEZ
+	uGaYj8P8VBrL6bbhAUnV1t5B7HJWIkebJQuexFoHzNd1sFvtcu8YLySbMv6YrVzTHgLB+BSc/bT
+	RXFcNu5TE3bjNCS0F5OX5JzK2eOKwPk8/If+TYEZpYzKtGN2/NpgSd36bCYYy6kW52BJP7kic5+
+	PRqdkhcwPskd1GTPPM1sm9n6rcZw1PIrImUrHVDnwy5kcqiPn5ztOHZgDP6+2zyFHvbx1/nYwc0
+	hHQ6a0Z4cUe5MDxrRy3WERcpaFucts0ENq5XSngFq0vQclI7KB/bADHJ6EJ6G9x0ImHuqJxr+G8
+	Nx3vp9K9RGhusXqJl2usEiI8eMP16FEJWBDCxWYrUfurK1glJZVDC/hUXwmN4VNOyJOAWr8UyRk
+	ZA8ZNlvRQVBC6+6dgcPFg+1w==
+X-Google-Smtp-Source: AGHT+IFq0UAOun8d9XJx744M7CwKUVs4/xq+EwynwZ5LpaPcXyVk6iynKKn4ZFAafmUlsME9mB3yew==
+X-Received: by 2002:a17:902:ef45:b0:295:738f:73fe with SMTP id d9443c01a7336-2984edec698mr65123165ad.30.1762998441862;
+        Wed, 12 Nov 2025 17:47:21 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2ccae8sm4986485ad.98.2025.11.12.17.47.22
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2ccae8sm4986485ad.98.2025.11.12.17.47.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 17:47:23 -0800 (PST)
+        Wed, 12 Nov 2025 17:47:21 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <pjw@kernel.org>,
@@ -90,18 +90,17 @@ Cc: devicetree@vger.kernel.org,
 	Rob Herring <robh+dt@kernel.org>,
 	Vlastimil Babka <vbabka@suse.cz>,
 	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: [PATCH v3 16/22] riscv: alternative: Add an ALTERNATIVE_3 macro
-Date: Wed, 12 Nov 2025 17:45:29 -0800
-Message-ID: <20251113014656.2605447-17-samuel.holland@sifive.com>
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH v3 15/22] riscv: mm: Expose all page table bits to assembly code
+Date: Wed, 12 Nov 2025 17:45:28 -0800
+Message-ID: <20251113014656.2605447-16-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20251113014656.2605447-1-samuel.holland@sifive.com>
 References: <20251113014656.2605447-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_174724_233369_CAAC8325 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20251112_174722_782716_A27C637D 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,117 +117,164 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ALT_FIXUP_MT() is already using ALTERNATIVE_2(), but it needs to be
-extended to handle a fourth case. Add ALTERNATIVE_3(), which extends
-ALTERNATIVE_2() with another block of new content.
+pgtable-32.h and pgtable-64.h are not usable by assembly code files, so
+move all page table field definitions to pgtable-bits.h. This allows
+handling more complex PTE transformations in out-of-line assembly code.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-(no changes since v2)
+(no changes since v1)
 
-Changes in v2:
- - Fix erroneously-escaped newline in assembly ALTERNATIVE_CFG_3 macro
+ arch/riscv/include/asm/pgtable-32.h   | 11 -------
+ arch/riscv/include/asm/pgtable-64.h   | 30 -------------------
+ arch/riscv/include/asm/pgtable-bits.h | 42 +++++++++++++++++++++++++--
+ 3 files changed, 40 insertions(+), 43 deletions(-)
 
- arch/riscv/include/asm/alternative-macros.h | 45 ++++++++++++++++++---
- 1 file changed, 40 insertions(+), 5 deletions(-)
-
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-index 9619bd5c8eba..e8bf384da5c2 100644
---- a/arch/riscv/include/asm/alternative-macros.h
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -50,8 +50,17 @@
- 	ALT_NEW_CONTENT \vendor_id_2, \patch_id_2, \enable_2, "\new_c_2"
- .endm
+diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+index 90ef35a7c1a5..eb556ab95732 100644
+--- a/arch/riscv/include/asm/pgtable-32.h
++++ b/arch/riscv/include/asm/pgtable-32.h
+@@ -17,17 +17,6 @@
  
-+.macro ALTERNATIVE_CFG_3 old_c, new_c_1, vendor_id_1, patch_id_1, enable_1,	\
-+				new_c_2, vendor_id_2, patch_id_2, enable_2,	\
-+				new_c_3, vendor_id_3, patch_id_3, enable_3
-+	ALTERNATIVE_CFG_2 "\old_c", "\new_c_1", \vendor_id_1, \patch_id_1, \enable_1 \
-+				    "\new_c_2", \vendor_id_2, \patch_id_2, \enable_2
-+	ALT_NEW_CONTENT \vendor_id_3, \patch_id_3, \enable_3, "\new_c_3"
-+.endm
-+
- #define __ALTERNATIVE_CFG(...)		ALTERNATIVE_CFG __VA_ARGS__
- #define __ALTERNATIVE_CFG_2(...)	ALTERNATIVE_CFG_2 __VA_ARGS__
-+#define __ALTERNATIVE_CFG_3(...)	ALTERNATIVE_CFG_3 __VA_ARGS__
+ #define MAX_POSSIBLE_PHYSMEM_BITS 34
  
- #else /* !__ASSEMBLER__ */
+-/*
+- * rv32 PTE format:
+- * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+- *       PFN      reserved for SW   D   A   G   U   X   W   R   V
+- */
+-#define _PAGE_PFN_MASK  GENMASK(31, 10)
+-
+-#define _PAGE_NOCACHE		0
+-#define _PAGE_IO		0
+-#define _PAGE_MTMASK		0
+-
+ #define ALT_FIXUP_MT(_val)
+ #define ALT_UNFIX_MT(_val)
  
-@@ -98,6 +107,13 @@
- 	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, patch_id_1, enable_1)	\
- 	ALT_NEW_CONTENT(vendor_id_2, patch_id_2, enable_2, new_c_2)
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index aad34c754325..fa2c1dcb6f72 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -70,20 +70,6 @@ typedef struct {
  
-+#define __ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, patch_id_1, enable_1,	\
-+				   new_c_2, vendor_id_2, patch_id_2, enable_2,	\
-+				   new_c_3, vendor_id_3, patch_id_3, enable_3)	\
-+	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, patch_id_1, enable_1,	\
-+				   new_c_2, vendor_id_2, patch_id_2, enable_2)	\
-+	ALT_NEW_CONTENT(vendor_id_3, patch_id_3, enable_3, new_c_3)
-+
- #endif /* __ASSEMBLER__ */
+ #define MAX_POSSIBLE_PHYSMEM_BITS 56
  
- #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, CONFIG_k)	\
-@@ -108,6 +124,13 @@
- 	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, patch_id_1, IS_ENABLED(CONFIG_k_1),	\
- 				   new_c_2, vendor_id_2, patch_id_2, IS_ENABLED(CONFIG_k_2))
- 
-+#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, patch_id_1, CONFIG_k_1,		\
-+				  new_c_2, vendor_id_2, patch_id_2, CONFIG_k_2,		\
-+				  new_c_3, vendor_id_3, patch_id_3, CONFIG_k_3)		\
-+	__ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, patch_id_1, IS_ENABLED(CONFIG_k_1),	\
-+				   new_c_2, vendor_id_2, patch_id_2, IS_ENABLED(CONFIG_k_2),	\
-+				   new_c_3, vendor_id_3, patch_id_3, IS_ENABLED(CONFIG_k_3))
-+
- #else /* CONFIG_RISCV_ALTERNATIVE */
- #ifdef __ASSEMBLER__
- 
-@@ -118,11 +141,17 @@
- #define __ALTERNATIVE_CFG(old_c, ...)		ALTERNATIVE_CFG old_c
- #define __ALTERNATIVE_CFG_2(old_c, ...)		ALTERNATIVE_CFG old_c
- 
-+#define _ALTERNATIVE_CFG_3(old_c, ...)	\
-+	ALTERNATIVE_CFG old_c
-+
- #else /* !__ASSEMBLER__ */
- 
- #define __ALTERNATIVE_CFG(old_c, ...)		old_c "\n"
- #define __ALTERNATIVE_CFG_2(old_c, ...)		old_c "\n"
- 
-+#define _ALTERNATIVE_CFG_3(old_c, ...)	\
-+	__ALTERNATIVE_CFG(old_c)
-+
- #endif /* __ASSEMBLER__ */
- 
- #define _ALTERNATIVE_CFG(old_c, ...)		__ALTERNATIVE_CFG(old_c)
-@@ -147,15 +176,21 @@
- 	_ALTERNATIVE_CFG(old_content, new_content, vendor_id, patch_id, CONFIG_k)
- 
+-/*
+- * rv64 PTE format:
+- * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+- *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
+- */
+-#define _PAGE_PFN_MASK  GENMASK(53, 10)
+-
+-/*
+- * [63] Svnapot definitions:
+- * 0 Svnapot disabled
+- * 1 Svnapot enabled
+- */
+-#define _PAGE_NAPOT_SHIFT	63
+-#define _PAGE_NAPOT		BIT(_PAGE_NAPOT_SHIFT)
  /*
-- * A vendor wants to replace an old_content, but another vendor has used
-- * ALTERNATIVE() to patch its customized content at the same location. In
-- * this case, this vendor can create a new macro ALTERNATIVE_2() based
-- * on the following sample code and then replace ALTERNATIVE() with
-- * ALTERNATIVE_2() to append its customized content.
-+ * Variant of ALTERNATIVE() that supports two sets of replacement content.
+  * Only 64KB (order 4) napot ptes supported.
   */
- #define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, patch_id_1, CONFIG_k_1,		\
- 				   new_content_2, vendor_id_2, patch_id_2, CONFIG_k_2)		\
- 	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, patch_id_1, CONFIG_k_1,	\
- 					new_content_2, vendor_id_2, patch_id_2, CONFIG_k_2)
+@@ -113,18 +99,6 @@ enum napot_cont_order {
+ 
+ #if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
+ 
+-/*
+- * [62:61] Svpbmt Memory Type definitions:
+- *
+- *  00 - PMA    Normal Cacheable, No change to implied PMA memory type
+- *  01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
+- *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
+- *  11 - Rsvd   Reserved for future standard use
+- */
+-#define _PAGE_NOCACHE		(1UL << 61)
+-#define _PAGE_IO		(2UL << 61)
+-#define _PAGE_MTMASK		(3UL << 61)
+-
+ /*
+  * ALT_FIXUP_MT
+  *
+@@ -176,10 +150,6 @@ enum napot_cont_order {
+ 
+ #else
+ 
+-#define _PAGE_NOCACHE		0
+-#define _PAGE_IO		0
+-#define _PAGE_MTMASK		0
+-
+ #define ALT_FIXUP_MT(_val)
+ 
+ #endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_ERRATA_THEAD_MAE */
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index 179bd4afece4..18c50cbd78bf 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -6,6 +6,16 @@
+ #ifndef _ASM_RISCV_PGTABLE_BITS_H
+ #define _ASM_RISCV_PGTABLE_BITS_H
  
 +/*
-+ * Variant of ALTERNATIVE() that supports three sets of replacement content.
++ * rv32 PTE format:
++ * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
++ *       PFN      reserved for SW   D   A   G   U   X   W   R   V
++ *
++ * rv64 PTE format:
++ * | 63 | 62 61 | 60 54 | 53 10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
++ *   N      MT     RSV     PFN    reserved for SW   D   A   G   U   X   W   R   V
 + */
-+#define ALTERNATIVE_3(old_content, new_content_1, vendor_id_1, patch_id_1, CONFIG_k_1,		\
-+				   new_content_2, vendor_id_2, patch_id_2, CONFIG_k_2,		\
-+				   new_content_3, vendor_id_3, patch_id_3, CONFIG_k_3)		\
-+	_ALTERNATIVE_CFG_3(old_content, new_content_1, vendor_id_1, patch_id_1, CONFIG_k_1,	\
-+					new_content_2, vendor_id_2, patch_id_2, CONFIG_k_2,	\
-+					new_content_3, vendor_id_3, patch_id_3, CONFIG_k_3)
 +
- #endif
+ #define _PAGE_ACCESSED_OFFSET 6
+ 
+ #define _PAGE_PRESENT   (1 << 0)
+@@ -21,6 +31,36 @@
+ #define _PAGE_SPECIAL   (1 << 8)    /* RSW: 0x1 */
+ #define _PAGE_TABLE     _PAGE_PRESENT
+ 
++#define _PAGE_PFN_SHIFT		10
++#ifdef CONFIG_64BIT
++#define _PAGE_PFN_MASK		GENMASK(53, 10)
++#else
++#define _PAGE_PFN_MASK		GENMASK(31, 10)
++#endif /* CONFIG_64BIT */
++
++#if defined(CONFIG_RISCV_ISA_SVPBMT) || defined(CONFIG_ERRATA_THEAD_MAE)
++/*
++ * [62:61] Svpbmt Memory Type definitions:
++ *
++ *  00 - PMA    Normal Cacheable, No change to implied PMA memory type
++ *  01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
++ *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
++ *  11 - Rsvd   Reserved for future standard use
++ */
++#define _PAGE_NOCACHE		(UL(1) << 61)
++#define _PAGE_IO		(UL(2) << 61)
++#define _PAGE_MTMASK		(UL(3) << 61)
++#else
++#define _PAGE_NOCACHE		0
++#define _PAGE_IO		0
++#define _PAGE_MTMASK		0
++#endif /* CONFIG_RISCV_ISA_SVPBMT || CONFIG_ERRATA_THEAD_MAE */
++
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++#define _PAGE_NAPOT_SHIFT	63
++#define _PAGE_NAPOT		BIT(_PAGE_NAPOT_SHIFT)
++#endif /* CONFIG_RISCV_ISA_SVNAPOT */
++
+ /*
+  * _PAGE_PROT_NONE is set on not-present pages (and ignored by the hardware) to
+  * distinguish them from swapped out pages
+@@ -30,8 +70,6 @@
+ /* Used for swap PTEs only. */
+ #define _PAGE_SWP_EXCLUSIVE _PAGE_ACCESSED
+ 
+-#define _PAGE_PFN_SHIFT 10
+-
+ /*
+  * when all of R/W/X are zero, the PTE is a pointer to the next level
+  * of the page table; otherwise, it is a leaf PTE.
 -- 
 2.47.2
 
