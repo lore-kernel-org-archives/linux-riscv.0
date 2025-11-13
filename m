@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A605BCD4F3B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCA53CD4F3E
 	for <linux-riscv@archiver.kernel.org>; Thu, 13 Nov 2025 01:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,80 +12,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M0vvO/PrEKwI2y+XJNdWkRmjYqAaBRjn652ReII0LmY=; b=scDgYk54b8uJjk
-	+Y/aozQD7srnlaPHW7pZC4ZlzIV7Rdbi4Rtjm7rqS+eLZZJK4tHWfpeCfI4moIGomPRD8IFAAixI7
-	/2pzL/Y2Ub52OEcF6CGBLSDdP7s17ZD2rWzArHdDenwFKvoE6e674UJE1oyqkBfuFhrTUwDhDHCFO
-	XbMFlpEU074p9V4KJS3zm3TvImpVWnPgACNS6s790knlYmaXdMstbfM1VlNEu5lyTRep7rvIpWmPP
-	QDIWUbZg+RE+QRclFNsPQ+cTxf4mO8cIy24NQLA6ztV3n8xduWUZM9Zyc70LJt4JKChxMyQEdLrGx
-	GxOpEKdYkPGfhAsH0EzA==;
+	List-Owner; bh=TxbXti9ZRg9MBz6hX82yvt5zSMxQEtcN4O2936hudOY=; b=ftDPvo/ioYspva
+	nEPPgP3B8ZLWghiY7Wv6XYFLigSHjAuipD6UxlKsNzTaiSHvCuYrzOgRQFvNlrhxdTzMsshWaXijB
+	8kjAlTxPAbWiePbjfXC1/yFphSvvlqYdLtzGDUVQfHfrk6/t7nRm739DBE8JiDWmU9cG3e4sQx1a1
+	MT3S4DrJujFpdYcv44qzRobLVf7qKeP2mFEtRd5uCBxKtS7pRg1Dd7CZC0t2oAX0Y48ZbTrFu1cIq
+	dAStfMx593rdnRfqgaiyeZ8dOi+YYU9DdyZHS8/pKtjGmN4gvwkggu4WtOkXAoHmEp21V7QKc+W0r
+	In71s76RK+AvZjAWkOyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJMQX-00000009jhm-1uKZ;
-	Thu, 13 Nov 2025 01:47:09 +0000
+	id 1vJMQc-00000009jk7-0M6u;
+	Thu, 13 Nov 2025 01:47:14 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJMQU-00000009jg9-2nK7
+	id 1vJMQa-00000009jjH-04xk
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 13 Nov 2025 01:47:07 +0000
+	Thu, 13 Nov 2025 01:47:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=YdtMIGVZlv4MisNDb9tnVG+/irsKPLGgILycxKzmm5k=; b=Mhr6WEoHXlGB9t77CIcZgXSa5s
-	orN1kNeDsySuKtoXfgW3nFY3KM0SDeQQcpKEF7HdOpHwrwmMGc9qOr4q5KxpBftXsnwKhoF5M8H4L
-	gn/n3l5+DAnrfLkfCgkqGvE6ABw4xdq0mh5850ixlSuTqZ9rWFH84fwysrE/4etKVvCMRJ1fi4EH3
-	gZc1UGSPzRVXPWjotzwnE7Ky5VBkEE/ZEsFyDbom0lTkHYM/zgAIWR0mFVxWKAFE2AspCJnSE6bdj
-	3LF5Gaouq6+8M1dcwcJI6WLsud03DIDEWZDSRJ9UA96pU4/A0LiBH3n3X21VR7PfsjN+r81d5mxLe
-	c9FFk0Lw==;
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	bh=VLUmTi++1HGkiLtqpPoIfkvNz5bT2yFaPhtAlSBbrkg=; b=Vm2+vohXYyqiQlSDkOOyo/wmQn
+	lke5KNbTVd5jVL2k3sb0H5BK1m/hfN+p9XONjNjo3FSVkas2+rVwNQnfBd5GW3Jh/xD5ME+kn3y0M
+	IkzhAwKxZvSvCPfiy2fZNdrS5uXN48ihDQf7cThVsEMtjGi33sQZGIi10w8m9QP1elZyeoVf3eVUm
+	/XqPZqLu3pDQ3YFtYpNcF5ps3aLUYEKtei6WBld3NbqWoueSCRRzt4ANZSzirHEPsI1tsgCQkrkIh
+	jkwD/exmmItDclr0el3V6yoFMVjhdBlg66GNWAd5uvFBrCzd1VbmZ3gJdguxbBS3Rw0w+PbMD+7uz
+	e3vKeMDA==;
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJLYm-0000000Gmo9-0G9H
+	id 1vJLYr-0000000Gmqk-2YKK
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Nov 2025 00:51:38 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-297dc3e299bso2684095ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Nov 2025 17:47:01 -0800 (PST)
+	Thu, 13 Nov 2025 00:51:43 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-29812589890so3178175ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Nov 2025 17:47:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1762998420; x=1763603220; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1762998427; x=1763603227; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YdtMIGVZlv4MisNDb9tnVG+/irsKPLGgILycxKzmm5k=;
-        b=Ht2i315Muw/vg9qYDB72vvnjhiu9UsELhN9CkXTJxRMVC86FgBcnn77TlVwA3yfJWa
-         fz5Y7C/K/VeA+DB9qHL29PPW+/hJDFsnpDo7byb+4HDOZ9Vm4n+yxop9QaurtzInA/d2
-         DICFAfEAUzssGCZp8SzCOMA16X8kOR9F/mUjWgAgF4xlhHApH4PNW1RivdI4E8THVUjy
-         eU2XuyzLtISmr/AoVtaaAKoSxcbGbT2HU+o9Mi6Hy166OYrSou/74hkwLTD7PnqhwYsj
-         Yu7GjpO0PHNCnoQegs7kDaKsclLxmEGgtu+NINArJrzSnGj6n+1BWwHNYVHRg8hO6NlA
-         sidQ==
+        bh=VLUmTi++1HGkiLtqpPoIfkvNz5bT2yFaPhtAlSBbrkg=;
+        b=VzFiEA+D0RwX4JIljqRXRHEDvhgYMtwchq96WAPh5Uk4fuVHjj5l4ezvweC6H3Q0kN
+         N++tV1u6z47/eY2sVUVLb7st3eNZfHVyolV7eBO6yZCXsbt8CRMKgbFYAWprbfAjAytK
+         JBcEaT9GXrDVdwB8/3od7e8UMoXhcumHWz6QKGdRdBzm/p1wPKWnl2zH6f0cBYyXVehZ
+         LQoDckIKkjBXTOMVi/NcTk6HF73CYTLJ0vNOxTfF95VlgCsfFAB1YitWso/YuqRHfzEQ
+         faDdVa8hoWLd1wfa5lHJStj8/OCEkJuIZO8oTNOmMgQsOsOsHV9fRb38xAE0jgwZOCGL
+         h4xA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762998420; x=1763603220;
+        d=1e100.net; s=20230601; t=1762998427; x=1763603227;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=YdtMIGVZlv4MisNDb9tnVG+/irsKPLGgILycxKzmm5k=;
-        b=kQXdE+Ee3CPjYAK17w7IhCVv93H7q3l9LiEnhlBRYYpurUEmnr+ofhRtkFHblWu/y8
-         xIHtePIPVBw+JXxqxkLvDVrjthjnYb2TMZFH/CKGdvKzJiEtpgK0DeNmrM8bGiTnLKkX
-         jFunHhkC+BQFLyPnfokpCiALKO57/BuTU+c5c8zT66UTj63H61UunwJKFOQQYjI60LQA
-         5gh01/QmOH+GzNGl/F1Js/YiNxRB3Vta7snG13mignlTIdHq7Tz6zE6GmpNWf4A18WL3
-         oulAcs14+MejBizA3VjYq7LazftcG9xe9a0omtPfTg5/pj7okSle8xva87yTJvzwuuaO
-         Fo1w==
-X-Forwarded-Encrypted: i=1; AJvYcCVaS2yPZ5BxIJ6ma/Inp1woeNZasq6O7joeL4mRb1nTCEzrRsdKv1WVI6bGGJYwoiKsbulLDI9j7OobAw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzPP4ZyHfvQ93AH8lTYSrRx5yzmWgH+evznmxWpRlUjucmOp9R
-	LnnBk/XOjSq9D+lMGgutFheEHUfoeL6rsnsg/c8naQhNXf/ht8oBq2i7SOWzB3tTEkxxD2dDjGs
-	sCMnC
-X-Gm-Gg: ASbGnctOF+4k3JcSKEKvXQN8DOpSf0oxqkgACq+jNYtaGITtnsSbQHS4xvfvTRjHbv8
-	21yI6wKKbTh5d9N66zSyZqsfwupKHVJitK6eSZ5GVc7Ot8jE4KF6xv+FjZ4qw23zHByD/oArt4C
-	tPszqgNo1sR5s6V7G005vBt4CZFXS5msrmwsMhHBawLct002xSe+mQG0My5ZaMUSfUpk7+tfdhA
-	8mjOQdsgRXY0b5jy70oDUoUO1khOfTM2L34CzfewJ0H8qGYl2BowZ4ySjIqk5LXcDfledsUPtiC
-	pux2QgfcgeDI1qnc/DX7Wuve7/vc/QfV9iDpd+1iM0Nzugbb2ZzLslmeiY69GXtPgzwyCRFk7r2
-	EH7rcDwz2pxVqUkAVV/7lWDAyGptNFkt9QFHC8kBJ12DifeSC0qRxbZe9VEm3DW6v0IasrYj7yX
-	fmCqH0QiqOLfgiIqf0shUYVA==
-X-Google-Smtp-Source: AGHT+IFYjWF2Je2zdGG5G71XUhLWD4KFs37feNtxzRSLtVmw8LZxUlSD+Pjrpw1Q7n3dWJ2wHP2y9w==
-X-Received: by 2002:a17:903:3c64:b0:295:3e80:9aa4 with SMTP id d9443c01a7336-2984ed46fcamr62445305ad.22.1762998420290;
-        Wed, 12 Nov 2025 17:47:00 -0800 (PST)
+        bh=VLUmTi++1HGkiLtqpPoIfkvNz5bT2yFaPhtAlSBbrkg=;
+        b=Mc5RjKTOx692UOobWQNqKWStQw/g1UhHwNdNLs4D/3IdG6LWtRbSWysICpIX3TxYCI
+         JJfj10LFzq6S7oKA4beR2gVfe4Pk9k7ewh0URl03fb+kVG3kLypurSw9hFi2MBqWogDM
+         3E652K9IdJhEyPeM1C1+Ntq19YbsSo9EQi8zjW2OXVnVtm1Z8GGQMSin5/6ZBbdLwamo
+         ujIkWejBTwv7RhvLAAa3N4COW5C34k+bSKutH649K+V9rIc7xGTN9zbkhU98vGy46Qc7
+         BkFVpZ4pYTRAzvcuVTEx5TF8ZEB38ECkRPHe4cUIRQe0SENe+01+iCfLlj0KGodohXTu
+         JWpw==
+X-Forwarded-Encrypted: i=1; AJvYcCXXVdJBRfojMSi6HHE31dWDH1DGWHerU+Mv3u2KA/+lMzTSZiaE3c+qZVd9A8jxeN2OLDjMUilPqjUiOg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZjAOe4QkJO1n97AWFzDXlFYo1W7kWP2y6S9ZAj0VhnuGyX1/l
+	Mu6lMEYT+iyTWL0pqgueqMpQtQJpo+5viOreIX4A4AacOFmr63ly44aRuXtWo48s0Tg=
+X-Gm-Gg: ASbGncswZqZECaktt8BCAJvrC9nA2zmZxZ610hmi6NttBf6inXhMLCeUlbSKYUdyKPj
+	2hMEmv4AlNMdS05B/m6hH+3izZcEKrExC1tZBlJzllS4QvBRVW81oCFhZvVZFurTzf6jOSfU8iK
+	2lZd5p0mzZLSShA+P22CYT7zb8O5568mZe9DqAKxPB7A9Z9Ski8pHOwMjYUm6wNsGGPRtZZRsxl
+	iJs1Cwj+w7chCdZXXdX/KfNGdifUUqmtlPS619RNykH3ZzoKrTWHHUSmeJEhWV7g36OmYHLoxsN
+	Zqdq2k6tfvlD7q/W26eixoXw3m1gIaeWmxRCtdsTPRY7w+XW7RzBDNadK3Y7y2CjKPH5ur62n0g
+	feN0hVorc89p1hxzkx6lewiwaveTp1LSNHrMAvUoB/qZPKqFU5+71IvQgJfa+GolXKVgWVzHazw
+	G3zQ3baAhmtKEwSwesdyo7HA==
+X-Google-Smtp-Source: AGHT+IGHyS+mDyrQaZDGXxDAQVdZw9gnQRb0FUGE5S/L7D9yFzt8E/UzPtcwSd6KHOBX5fl5Cq42AQ==
+X-Received: by 2002:a17:902:e5c3:b0:298:3545:81e2 with SMTP id d9443c01a7336-2984ed359e1mr63898395ad.22.1762998426605;
+        Wed, 12 Nov 2025 17:47:06 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2ccae8sm4986485ad.98.2025.11.12.17.46.59
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2ccae8sm4986485ad.98.2025.11.12.17.47.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 17:47:00 -0800 (PST)
+        Wed, 12 Nov 2025 17:47:06 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <pjw@kernel.org>,
@@ -106,21 +105,17 @@ Cc: devicetree@vger.kernel.org,
 	Rob Herring <robh+dt@kernel.org>,
 	Vlastimil Babka <vbabka@suse.cz>,
 	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Lance Yang <lance.yang@linux.dev>,
-	SeongJae Park <sj@kernel.org>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v3 01/22] mm/ptdump: replace READ_ONCE() with standard page table accessors
-Date: Wed, 12 Nov 2025 17:45:14 -0800
-Message-ID: <20251113014656.2605447-2-samuel.holland@sifive.com>
+Subject: [PATCH v3 05/22] mm: Move the fallback definitions of pXXp_get()
+Date: Wed, 12 Nov 2025 17:45:18 -0800
+Message-ID: <20251113014656.2605447-6-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20251113014656.2605447-1-samuel.holland@sifive.com>
 References: <20251113014656.2605447-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_005136_280832_1E070386 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20251113_005141_905109_E12217B3 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,80 +132,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Anshuman Khandual <anshuman.khandual@arm.com>
+Some platforms need to fix up the values when reading or writing page
+tables. Because of this, the accessors must always be used; it is not
+valid to simply dereference a pXX_t pointer.
 
-Replace READ_ONCE() with standard page table accessors i.e pxdp_get()
-which anyways default into READ_ONCE() in cases where platform does not
-override.  Also convert ptep_get_lockless() into ptep_get() as well.
+Move these definitions up by a few lines, so they will be in scope
+everywhere that currently dereferences a pXX_t pointer.
 
-Link: https://lkml.kernel.org/r/20251001042502.1400726-1-anshuman.khandual@arm.com
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-Acked-by: Lance Yang <lance.yang@linux.dev>
-Acked-by: SeongJae Park <sj@kernel.org>
-Acked-by: David Hildenbrand <david@redhat.com>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-Changes in v3:
- - Replace patch with cherry-pick from linux-next
+(no changes since v2)
 
 Changes in v2:
- - New patch for v2 (taken from LKML)
+ - New patch for v2
 
- mm/ptdump.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ include/linux/pgtable.h | 70 ++++++++++++++++++++---------------------
+ 1 file changed, 35 insertions(+), 35 deletions(-)
 
-diff --git a/mm/ptdump.c b/mm/ptdump.c
-index b600c7f864b8..973020000096 100644
---- a/mm/ptdump.c
-+++ b/mm/ptdump.c
-@@ -31,7 +31,7 @@ static int ptdump_pgd_entry(pgd_t *pgd, unsigned long addr,
- 			    unsigned long next, struct mm_walk *walk)
- {
- 	struct ptdump_state *st = walk->private;
--	pgd_t val = READ_ONCE(*pgd);
-+	pgd_t val = pgdp_get(pgd);
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 32e8457ad535..ca8c99cdc1cc 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -90,6 +90,41 @@ static inline unsigned long pud_index(unsigned long address)
+ #define pgd_index(a)  (((a) >> PGDIR_SHIFT) & (PTRS_PER_PGD - 1))
+ #endif
  
- #if CONFIG_PGTABLE_LEVELS > 4 && \
- 		(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
-@@ -54,7 +54,7 @@ static int ptdump_p4d_entry(p4d_t *p4d, unsigned long addr,
- 			    unsigned long next, struct mm_walk *walk)
++#ifndef ptep_get
++static inline pte_t ptep_get(pte_t *ptep)
++{
++	return READ_ONCE(*ptep);
++}
++#endif
++
++#ifndef pmdp_get
++static inline pmd_t pmdp_get(pmd_t *pmdp)
++{
++	return READ_ONCE(*pmdp);
++}
++#endif
++
++#ifndef pudp_get
++static inline pud_t pudp_get(pud_t *pudp)
++{
++	return READ_ONCE(*pudp);
++}
++#endif
++
++#ifndef p4dp_get
++static inline p4d_t p4dp_get(p4d_t *p4dp)
++{
++	return READ_ONCE(*p4dp);
++}
++#endif
++
++#ifndef pgdp_get
++static inline pgd_t pgdp_get(pgd_t *pgdp)
++{
++	return READ_ONCE(*pgdp);
++}
++#endif
++
+ #ifndef kernel_pte_init
+ static inline void kernel_pte_init(void *addr)
  {
- 	struct ptdump_state *st = walk->private;
--	p4d_t val = READ_ONCE(*p4d);
-+	p4d_t val = p4dp_get(p4d);
+@@ -334,41 +369,6 @@ static inline int pudp_set_access_flags(struct vm_area_struct *vma,
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+ #endif
  
- #if CONFIG_PGTABLE_LEVELS > 3 && \
- 		(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
-@@ -77,7 +77,7 @@ static int ptdump_pud_entry(pud_t *pud, unsigned long addr,
- 			    unsigned long next, struct mm_walk *walk)
- {
- 	struct ptdump_state *st = walk->private;
--	pud_t val = READ_ONCE(*pud);
-+	pud_t val = pudp_get(pud);
- 
- #if CONFIG_PGTABLE_LEVELS > 2 && \
- 		(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
-@@ -100,7 +100,7 @@ static int ptdump_pmd_entry(pmd_t *pmd, unsigned long addr,
- 			    unsigned long next, struct mm_walk *walk)
- {
- 	struct ptdump_state *st = walk->private;
--	pmd_t val = READ_ONCE(*pmd);
-+	pmd_t val = pmdp_get(pmd);
- 
- #if defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS)
- 	if (pmd_page(val) == virt_to_page(lm_alias(kasan_early_shadow_pte)))
-@@ -121,7 +121,7 @@ static int ptdump_pte_entry(pte_t *pte, unsigned long addr,
- 			    unsigned long next, struct mm_walk *walk)
- {
- 	struct ptdump_state *st = walk->private;
--	pte_t val = ptep_get_lockless(pte);
-+	pte_t val = ptep_get(pte);
- 
- 	if (st->effective_prot_pte)
- 		st->effective_prot_pte(st, val);
+-#ifndef ptep_get
+-static inline pte_t ptep_get(pte_t *ptep)
+-{
+-	return READ_ONCE(*ptep);
+-}
+-#endif
+-
+-#ifndef pmdp_get
+-static inline pmd_t pmdp_get(pmd_t *pmdp)
+-{
+-	return READ_ONCE(*pmdp);
+-}
+-#endif
+-
+-#ifndef pudp_get
+-static inline pud_t pudp_get(pud_t *pudp)
+-{
+-	return READ_ONCE(*pudp);
+-}
+-#endif
+-
+-#ifndef p4dp_get
+-static inline p4d_t p4dp_get(p4d_t *p4dp)
+-{
+-	return READ_ONCE(*p4dp);
+-}
+-#endif
+-
+-#ifndef pgdp_get
+-static inline pgd_t pgdp_get(pgd_t *pgdp)
+-{
+-	return READ_ONCE(*pgdp);
+-}
+-#endif
+-
+ #ifndef __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
+ static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
+ 					    unsigned long address,
 -- 
 2.47.2
 
