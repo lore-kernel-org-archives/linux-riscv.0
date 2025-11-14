@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A531ECDE00A
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 04:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB47CD4F49
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 04:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aXF3VHoKQqzHTi2bOH15FJU9tMK/v0nbAwIKBhlDWF4=; b=Ff820NRqcfgmhk
-	lFC/Um85r/zmp0VfJ50veNkXNcXNqGREVdXUSgr1y6fg8PahZhfhPf+sl/rPiclCR9iHu7XI6uD/d
-	pRhr1Qk2RBOxAlMc99tBi2okqDQ+EY+GogEqjzRducXG4NmyyQoiP64QXIlYc0izlLpTD4W2EF9BO
-	6f1DkrQu25gc2VHoUEyCEEvCtLzI6FTBg0UNSlMnEp4dkwDahiTpofij7NFMWzr9EAy07448r9wvr
-	GY/b3/Vc56G0LIUeLWQ7t+d17e+CNf1yTuJDzRVIvlIXt5+lC4nsnQnLDNpRpsU7/Ar6y4h62scf4
-	72rkmK1+8m0cJdpsO9zg==;
+	List-Owner; bh=hz21a1EahY23dsHZEKJ+ZYdpzfudcZ1f1wRBgVuJP+8=; b=pGAB4BDufMdtMy
+	gZKmHKJoLxkMOThLjgKSi6MBfllIbPF6kD1fzlJs0evHJF2HfWEjvQDbgkzrMLop9zsA7R8UAZTFC
+	N4CUxNIkj1LK+gxXJc0h3jJY8lLjyghwHGjbJzdAtTdL3jgNFmAmMEczUwbIkQLsr46F6+K/pRzCh
+	phrRJ1RlIA29bqOdEkp9x6qHR5RoXP6miH9w+k8WJVivgUtg+6xDGR6aZpV+HduSejrb8MxIubfJ/
+	trubVQiC5qfH1fyopb04g1dIIOTeuxloomqU1eBkcQJLN85YE21P0ohVWhEPgcefJaPc+KWu50foW
+	Te6rmojXyC914NJXvHIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJlL1-0000000BXJC-46Ex;
-	Fri, 14 Nov 2025 04:23:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJlPe-0000000BXYB-3gay;
+	Fri, 14 Nov 2025 04:27:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJlL0-0000000BXIm-09iA
+	id 1vJlPd-0000000BXXc-1D4z
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Nov 2025 04:23:07 +0000
+	Fri, 14 Nov 2025 04:27:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C07E4004E;
-	Fri, 14 Nov 2025 04:23:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C574FC16AAE;
-	Fri, 14 Nov 2025 04:22:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E48F60128;
+	Fri, 14 Nov 2025 04:27:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BDC3C113D0;
+	Fri, 14 Nov 2025 04:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763094183;
-	bh=RobVRCgZWKDAOE0gDSu7wYFNPR+HLgdW/UejZYDDlGE=;
+	s=k20201202; t=1763094471;
+	bh=BElALngLN2nFhaInsP852/aGs6CMGw4etVXE34fZIjs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JpQ9qeouOkhcbiv4XbYPE+RA9hjIDmMQ+z1O63pqvJGFha1JCpQaMOcKWJgzbo8tk
-	 XJ4yA30qSWHnrF0Xbwx9XxwaF0nqeyeu8ltfDqZPbN3oex3L07o5IThMLseHcDg6Bv
-	 1fAuESBIcya76J7XaQggkHMa4Yk+pn7g9Vu2i9/p55spB0NQ8CVygWnFp30/HA2jVh
-	 P2AYeyhI/xe9XkmCwZgHndjonZMsbW6q7wfnGOteYAV8PYxLE0bQz5bLBmRsnPFe95
-	 PgIaRb96v6thoR4zQ8OxMZQCYI5p7PTlsPB72vjiLqaxbzH5FAExUCREc5KTbvjwxG
-	 7NLMjsjSUxLpA==
-Date: Thu, 13 Nov 2025 21:22:54 -0700
+	b=MChFGhE2l/mEBBnjKokUFr/WJR+V2WR/BNdIXlxZ7F4DWvd5LlA7WR+SbIsNd6T5p
+	 XLohdaztk3jTypiLtJViRiMzBcBEj4n3u61lZ6DVKQTtmI2nc6sPXuyui+8eNcpWNN
+	 z60MjTf+BRU/qYwxJnNFL50DT9aK3PSZWE+/UaN4vh2keuunX9DvbkE0d6uIt1rQMB
+	 9xtjhrNA3YvSgTCuhcIYETlamknRCv8pQYWFIIS1hLgub5xGEWBnRrHhH8O0ZTPbG/
+	 6xQOdNn34QRyl9zXUWZ0wi6BB2LZUX+YSZOVyfuQZfrBYX1Qz6BNc1cHvt3eCmgh/P
+	 ND3ELNyp2KMPw==
+Date: Thu, 13 Nov 2025 21:27:41 -0700
 From: Nathan Chancellor <nathan@kernel.org>
 To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Nicolas Schier <nsc@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+Cc: Nicolas Schier <nicolas.schier@linux.dev>,
+	Nicolas Schier <nsc@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Heiko Carstens <hca@linux.ibm.com>,
@@ -69,18 +70,14 @@ Cc: Nicolas Schier <nsc@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: Re: [PATCH v2 00/10] kbuild: userprogs: introduce
- architecture-specific CC_CAN_LINK and userprog flags
-Message-ID: <20251114042254.GB2566209@ax162>
+Subject: Re: [PATCH v2 01/10] kbuild: don't enable CC_CAN_LINK if the dummy
+ program generates warnings
+Message-ID: <20251114042741.GA3582402@ax162>
 References: <20251014-kbuild-userprogs-bits-v2-0-faeec46e887a@linutronix.de>
- <aRToC77bNUy2sKAK@derry.ads.avm.de>
- <20251113102307-ca2180c8-4876-46ea-8678-aaedd9ba36f0@linutronix.de>
+ <20251014-kbuild-userprogs-bits-v2-1-faeec46e887a@linutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251113102307-ca2180c8-4876-46ea-8678-aaedd9ba36f0@linutronix.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_202306_135524_282320ED 
-X-CRM114-Status: GOOD (  23.36  )
+In-Reply-To: <20251014-kbuild-userprogs-bits-v2-1-faeec46e887a@linutronix.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,48 +94,69 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025 at 10:31:10AM +0100, Thomas Wei=DFschuh wrote:
-> On Wed, Nov 12, 2025 at 09:03:23PM +0100, Nicolas Schier wrote:
-> > Thanks for the patch set and all the work behind!  I found only one
-> > issue in patch 3, the rest looks good to me as they are.
-> > =
-
-> > I haven't reviewed the compiler flags for the archs, but from the formal
-> > point of view they look good to me, too.
-> > =
-
-> > How shall we proceed with here?  I think, easiest would be if we get
-> > appropriate acks from the architecture maintainers, so we could take
-> > this via kbuild.
+On Tue, Oct 14, 2025 at 03:05:16PM +0200, Thomas Wei=DFschuh wrote:
+> It is possible that the kernel toolchain generates warnings when used
+> together with the system toolchain. This happens for example when the
+> older kernel toolchain does not handle new versions of sframe debug
+> information. While these warnings where ignored during the evaluation
+> of CC_CAN_LINK, together with CONFIG_WERROR the actual userprog build
+> will later fail.
 > =
 
-> That would surely be the best option. Unfortunately quite frequently it i=
-s hard
-> to get architecture maintainer's feedback on a cross-architecture series.
+> Example warning:
 > =
 
-> > Other opinions?
+> .../x86_64-linux/13.2.0/../../../../x86_64-linux/bin/ld:
+> error in /lib/../lib64/crt1.o(.sframe); no .sframe will be created
+> collect2: error: ld returned 1 exit status
 > =
 
-> It would also work to only take the first three patches through the kbuil=
-d tree
-> and push the other ones through the architecture trees.
+> Make sure that the very simple example program does not generate
+> warnings already to avoid breaking the userprog compilations.
 > =
 
-> I don't really have a clear preference.
+> Fixes: ec4a3992bc0b ("kbuild: respect CONFIG_WERROR for linker and assemb=
+ler")
+> Fixes: 3f0ff4cc6ffb ("kbuild: respect CONFIG_WERROR for userprogs")
+> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
 
-If you do not have a preference, I think it would be easier if Nicolas
-picks up the first three patches (which I will go review formally
-shortly, sorry again for the delay on that) to make sure they make
-6.19-rc1 then you can send out the architecture changes individually
-with plans to pick up any ones that have been left behind after a
-development cycle? That should give architecture maintainers enough time
-to properly react and review the series (since they will know if those
-flags are appropriate). We could probably send the last patch as a fix
-if those changes do not land until 6.20-rc1.
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
-Cheers,
-Nathan
+While this makes sense as a way to immediately fix the problem and align
+cc-can-link.sh with the other test functions like cc-option and like, it
+is rather unfortunate that this particular warning causes an error since
+the rest of the userprogs infrastructure does not care about SFrame...
+I wonder if there is a way to avoid it since I think this warning does
+not point to a fundamental problem.
+
+> ---
+>  scripts/cc-can-link.sh | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> =
+
+> diff --git a/scripts/cc-can-link.sh b/scripts/cc-can-link.sh
+> index 6efcead3198989d2ab2ab6772c72d8bb61c89c4e..e67fd8d7b6841e53341045b28=
+dc5196cc1327cbe 100755
+> --- a/scripts/cc-can-link.sh
+> +++ b/scripts/cc-can-link.sh
+> @@ -1,7 +1,7 @@
+>  #!/bin/sh
+>  # SPDX-License-Identifier: GPL-2.0
+>  =
+
+> -cat << "END" | $@ -x c - -o /dev/null >/dev/null 2>&1
+> +cat << "END" | $@ -Werror -Wl,--fatal-warnings -x c - -o /dev/null >/dev=
+/null 2>&1
+>  #include <stdio.h>
+>  int main(void)
+>  {
+> =
+
+> -- =
+
+> 2.51.0
+> =
+
 
 _______________________________________________
 linux-riscv mailing list
