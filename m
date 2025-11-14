@@ -4,134 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 309ABCE8D76
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 18:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACD4CE8D79
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 18:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=FELngRocvbP3y9+iW2aHKIqu5FAdT8b6X8l5Vdy4VvE=; b=DBHAlEjxb728dQjuJ6CGCE6Dxh
-	E+iBm3jTZbGikT+wLZTRo3ePFVFgFo9kE4ntkiTSR5W1jft1ZmywyRaq2gdrO3VcwNg1hodTaYhyq
-	46UzPAYuTKaP4wk/iqVa99cuq0YkmDeahnDm7Q1saVjiZy1mMbzheAFt8pb2J4nCOJPSkDFdWux2n
-	dX4nNI4taWN9AiT0Xx935U6lG4zziuqtkWlV7gwQ8yiXt/H7Edjssv+MKEP3objPX9LmP7MwMAKQ8
-	vG7DfytjcqAeAyRlKlqVUqvXJODSD44PJqht/mYzqDozJZi6/rXNmVica99tRRKAi/Sgajjx0gcSA
-	T4Umru2Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3qgsrTC0vCCKZ/Ezj82T7JmV4ui9FXAJovuklxWW19k=; b=bgZRkDxBO4uwOE
+	ER1GqYGssnKXE6xdD1U204fUYzLlMAeLM7HV2FHlwyD436xLhLUnS7FRYRO2LfJyI3a+mmoOCf4gq
+	1jT1Yj/7H9IccTQFDXdcyxrUA+VoaleJCOSmoW5ARQiU8hz5TyPCRvOxT1YhNP7ZJxHMwiehTvt5b
+	abuniX8POIvjMya6awx6yIpcbu72eROf2Dp9aGiUHTek3qRNNGcJzzqugPIh+GoA23793rJkv1NsG
+	mIwWVLCkyOmYJDSqekc7gz1iV3vK6at/8Ylkcsx9r3X3h/VD8JBKiHbLhEt4HymC3XP4MYm70Ykix
+	j9nu9SFsH/TSfSRW900w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJynf-0000000CyBC-3t9T;
-	Fri, 14 Nov 2025 18:45:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJyza-0000000Cyso-1FA3;
+	Fri, 14 Nov 2025 18:57:54 +0000
+Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJynd-0000000CyAS-15er
+	id 1vJyzX-0000000Cyrk-3XGA
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Nov 2025 18:45:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1D94436C6;
-	Fri, 14 Nov 2025 18:45:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51B54C4AF09;
-	Fri, 14 Nov 2025 18:45:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763145932;
-	bh=byi20PYOU8Ug3I3+51VizebbpMY1mRuELhMsy/6viIU=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=S8GsaMpZKMaybiEVTCv6qX4MxBngNjWZQhiBd/P6ZWueNVMJAU5tmxuavDBX+Gez+
-	 5/vmg+4jtoiHb/ECXTkbi1N9QTewxlXM7NRLb6If2FV65+/9GSkb4qk5Hr5ouq7P/o
-	 A3hEvimGDVJFJtf81xGA/SyzJlDfE7iKa3W9drptj1Dm/+gpgiPrc7t8aogdzBGsnq
-	 2hyW2xc7i9HteEE7ZegVj/G30Qo+hMusRQAndWKDOZXWKTmtcSA7qJMmmJLofFlmsv
-	 4GWujoA3TTHJiRV7ljBOeuALudhDNi+XYYsN2vkGcz0xX/Di2Hn6lN0tT2C3hE9A2x
-	 tVq9oFCyJo31g==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 50DBCF4006F;
-	Fri, 14 Nov 2025 13:45:30 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Fri, 14 Nov 2025 13:45:30 -0500
-X-ME-Sender: <xms:yngXadYa0d5cGbI-GF27_Y3pl_K-ec-CVH--mkPcMfKEgwOILovMhg>
-    <xme:yngXafOE--nfoTeI9aWy7-fbugqx7rmlOuCEE3dYBVwWTBO-badPGuh_s45x1wnix
-    Oi3npe4N7AfqfBC4gOKUs6WYsXR3j9tWRiWpCjYgSurMl_MUI916Q>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvuddtheejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehnugih
-    ucfnuhhtohhmihhrshhkihdfuceolhhuthhosehkvghrnhgvlhdrohhrgheqnecuggftrf
-    grthhtvghrnhepkefhieejfedvueejheehiefgvdfhjeefjeelvdfghfelgeejudevleej
-    uddvvefgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
-    eprghnugihodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduudeiudekheei
-    fedvqddvieefudeiiedtkedqlhhuthhopeepkhgvrhhnvghlrdhorhhgsehlihhnuhigrd
-    hluhhtohdruhhspdhnsggprhgtphhtthhopeegkedpmhhouggvpehsmhhtphhouhhtpdhr
-    tghpthhtohepjhgsrghrohhnsegrkhgrmhgrihdrtghomhdprhgtphhtthhopegsphesrg
-    hlihgvnhekrdguvgdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthht
-    ohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrghthhhivg
-    hurdguvghsnhhohigvrhhssegvfhhfihgtihhoshdrtghomhdprhgtphhtthhopegsohhq
-    uhhnrdhfvghnghesghhmrghilhdrtghomhdprhgtphhtthhopehurhgviihkihesghhmrg
-    hilhdrtghomhdprhgtphhtthhopehrohhsthgvughtsehgohhoughmihhsrdhorhhgpdhr
-    tghpthhtohepjhgrnhhnhhesghhoohhglhgvrdgtohhm
-X-ME-Proxy: <xmx:yngXaXq2XXGoOWrpdOjpYOBRQDp11eBfIxc6YeBd6D1nb4uB7cT_jQ>
-    <xmx:yngXaaDWrYDEpEG1p36aT7lISmWaPBkuGN6A-UDoJkiqQR5_EvMgdA>
-    <xmx:yngXaednjzX0ow_radpTUVZupSfYw5vqqcxnghR2QSQFD71g1qZlAw>
-    <xmx:yngXaffQO9hD5bLFULufQL4IF3d4av7lzmsksPXFe5ORmlbBQdgyiQ>
-    <xmx:yngXaUNi8XrrLOoC45OykpNR3g_sQA-aTfSX-Ry-GROO-iHzIaWFxhCy>
-Feedback-ID: ieff94742:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 042D5700054; Fri, 14 Nov 2025 13:45:30 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 14 Nov 2025 18:57:53 +0000
+Received: by mail-io1-xd44.google.com with SMTP id ca18e2360f4ac-9487e2b9622so181373339f.2
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Nov 2025 10:57:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1763146671; x=1763751471; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hu93jrgt16GNM8HBZugqTHoqi52uFXrn0f1Yp7esaAs=;
+        b=dqugc7RIwkBXNQdu0FoRA57y80mJnnUezEiw/D5daXWowrIelYLrH+7imVTijDTDXr
+         OG9fTcKnPbBO21l/rqM6ETW1gg/LF7wecNx5beLN/Mkef55SQOylfU5WpeD0VMGZBKkK
+         cP4W5aU7s+XMRLU4QZJViEf0VK1VwodbdOj3h7vUEf74RDSI538MH5VG9+UkKgJTU2Da
+         jcM7G5AufUGQ1ul460Ia5WzyymylaoYwfASVyasJL9vtKnKqKJ1O7lhqoAkMj1miwxZK
+         dPvImb9//fUOZ5yHKWKi1su4liLMyNKZxV2dGR+xFrQYCvH8elqJBCpgluSnYYax+2J1
+         P60g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763146671; x=1763751471;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=hu93jrgt16GNM8HBZugqTHoqi52uFXrn0f1Yp7esaAs=;
+        b=c1HV0WZm7648E/kefrwr2Ocum5SJPmPMEGmBT84uqyDqVLqCv1QE4mviySts6XcqmW
+         r+OTIy0K8rxnhiJBGkrPZmXC330jN65C333rLe+shkhQenKWeSo4l7YUBJFGAQKGQjvD
+         VGajscvbID5WEXV3Q5ALjeX6l9ULb5s1PBjM8fSlnDydowjSzrOTOlJzoSc/kQSugw0U
+         dzad2QIVA75K9DF4Yl6F7pIQULFt93Xmiuw5GTq2zY28qk5Q1E8lf41if0eKwAvzBqTT
+         ffDvM6dY2SGWaXZrLa9XsTpw7wJBtFZbgrDluhaej4lS61Mr+ni/WktchXf0F3kpt8ze
+         +Bfg==
+X-Forwarded-Encrypted: i=1; AJvYcCX8DnAtZDdP7WsUEdNVBJyQuZs65lPxkzctY3HeOa0qIyapH3VZM9mS+rJEhaHYVvYkC9OpANBjGnuJVQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3w/Wf9t0mgutDsPao5H3n1ZwliXmC8VK23LlhdYnFS+IotPOj
+	etsz3mviBuaVsENMY2eAFG9l7C6ttp4b1E/GOqVAe/Cr/0DDfCdkXL5jhMEVBlDJeVc=
+X-Gm-Gg: ASbGncuTz5FIyBKvErPF0Ewhv4/r6v232lQlTxejeTy7MSozXsPIMzW2hwBYU9xFpLK
+	Na6qJDgiYCpt3QCTdCF6PgBKikbn/iiXu+fRgTPx3YcdQNRmTG6lukmV0ImPBG8r4/VjPSmTLsb
+	BJHAma4JLC/r/mmKdGjYsV0CZDrdGoen2AwJkEz2Lvfr1dgH2/47qxry1F3LlypEPOB2ius2snl
+	XnmVlAiXDnKkC8Adieebnk/AWkeC3wyw62OwHjRWI3J5TIbV0msyDRUpYblBox2zajl/9hrk9fi
+	SMcA3y8057RlaP/hgBN3MbZTHqHhP2r7Vkc/lFoDo4aXe4HOM14y4vQWJNvJUqK3MlCumeYulou
+	NMZpbgNwIIxW8w8P2KkhaXRJ/hyPy/TarBZVSmmU7jT9j2XapsZFYCmbQsm1S85AEXh8IniHb1j
+	mKAaFG1K1p5C9yXw6Ev1FcacIfrLd/I7dB/YQC6kMs79URb+/x7K8uYg==
+X-Google-Smtp-Source: AGHT+IFeZ+nEollEKgDhQ7ieSd8muaJyYhRQJB6yiY924Ch6n+G3VyFq8ZoZpYgmOsoQMLWRQOm8JA==
+X-Received: by 2002:a05:6602:640d:b0:948:8be8:a8d7 with SMTP id ca18e2360f4ac-948e0da72e6mr647783139f.13.1763146670137;
+        Fri, 14 Nov 2025 10:57:50 -0800 (PST)
+Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-948d2ba690bsm278679339f.8.2025.11.14.10.57.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Nov 2025 10:57:49 -0800 (PST)
+From: Alex Elder <elder@riscstar.com>
+To: broonie@kernel.org,
+	dlan@gentoo.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: [PATCH v7 1/3] dt-bindings: spi: add SpacemiT K1 SPI support
+Date: Fri, 14 Nov 2025 12:57:42 -0600
+Message-ID: <20251114185745.2838358-2-elder@riscstar.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20251114185745.2838358-1-elder@riscstar.com>
+References: <20251114185745.2838358-1-elder@riscstar.com>
 MIME-Version: 1.0
-X-ThreadId: ATddxb8eqn9V
-Date: Fri, 14 Nov 2025 10:45:08 -0800
-From: "Andy Lutomirski" <luto@kernel.org>
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: "Valentin Schneider" <vschneid@redhat.com>,
- "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
- linux-mm@kvack.org, rcu@vger.kernel.org,
- "the arch/x86 maintainers" <x86@kernel.org>,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org,
- "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- "Arnaldo Carvalho de Melo" <acme@kernel.org>,
- "Josh Poimboeuf" <jpoimboe@kernel.org>,
- "Paolo Bonzini" <pbonzini@redhat.com>, "Arnd Bergmann" <arnd@arndb.de>,
- "Frederic Weisbecker" <frederic@kernel.org>,
- "Jason Baron" <jbaron@akamai.com>,
- "Steven Rostedt" <rostedt@goodmis.org>,
- "Ard Biesheuvel" <ardb@kernel.org>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "David S. Miller" <davem@davemloft.net>,
- "Neeraj Upadhyay" <neeraj.upadhyay@kernel.org>,
- "Joel Fernandes" <joelagnelf@nvidia.com>,
- "Josh Triplett" <josh@joshtriplett.org>,
- "Boqun Feng" <boqun.feng@gmail.com>,
- "Uladzislau Rezki" <urezki@gmail.com>,
- "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>,
- "Mel Gorman" <mgorman@suse.de>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Masahiro Yamada" <masahiroy@kernel.org>,
- "Han Shen" <shenhan@google.com>, "Rik van Riel" <riel@surriel.com>,
- "Jann Horn" <jannh@google.com>,
- "Dan Carpenter" <dan.carpenter@linaro.org>,
- "Oleg Nesterov" <oleg@redhat.com>, "Juri Lelli" <juri.lelli@redhat.com>,
- "Clark Williams" <williams@redhat.com>,
- "Yair Podemsky" <ypodemsk@redhat.com>,
- "Marcelo Tosatti" <mtosatti@redhat.com>,
- "Daniel Wagner" <dwagner@suse.de>, "Petr Tesarik" <ptesarik@suse.com>,
- "Shrikanth Hegde" <sshegde@linux.ibm.com>
-Message-Id: <1a911310-4ca5-45a4-b9bf-5f37c6ab238e@app.fastmail.com>
-In-Reply-To: <89398bdf-4dad-4976-8eb9-1e86032c8794@paulmck-laptop>
-References: <20251114150133.1056710-1-vschneid@redhat.com>
- <c4768cf3-f131-44e6-9b25-ebeb633f32ee@app.fastmail.com>
- <beb46a02-b902-438b-8b6d-b5f0d7ad0ae6@app.fastmail.com>
- <89398bdf-4dad-4976-8eb9-1e86032c8794@paulmck-laptop>
-Subject: Re: [PATCH v7 00/31] context_tracking,x86: Defer some IPIs until a
- user->kernel transition
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_104533_373900_F3EFBB47 
-X-CRM114-Status: GOOD (  59.21  )
+X-CRM114-CacheID: sfid-20251114_105751_885726_F7220256 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,180 +109,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add support for the SPI controller implemented by the SpacemiT K1 SoC.
 
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Alex Elder <elder@riscstar.com>
+---
+ .../bindings/spi/spacemit,k1-spi.yaml         | 84 +++++++++++++++++++
+ 1 file changed, 84 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml
 
-On Fri, Nov 14, 2025, at 10:14 AM, Paul E. McKenney wrote:
-> On Fri, Nov 14, 2025 at 09:22:35AM -0800, Andy Lutomirski wrote:
->> 
+diff --git a/Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml b/Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml
+new file mode 100644
+index 0000000000000..e82c7f8d0b981
+--- /dev/null
++++ b/Documentation/devicetree/bindings/spi/spacemit,k1-spi.yaml
+@@ -0,0 +1,84 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/spi/spacemit,k1-spi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K1 SoC Serial Peripheral Interface (SPI)
++
++maintainers:
++  - Alex Elder <elder@kernel.org>
++
++description:
++  The SpacemiT K1 SoC implements a SPI controller that has two 32-entry
++  FIFOs, for transmit and receive.  Details are currently available in
++  section 18.2.1 of the K1 User Manual, found in the SpacemiT Keystone
++  K1 Documentation[1].  The controller transfers words using PIO.  DMA
++  transfers are supported as well, if both TX and RX DMA channels are
++  specified,
++
++  [1] https://developer.spacemit.com/documentation
++
++allOf:
++  - $ref: /schemas/spi/spi-controller.yaml#
++
++properties:
++  compatible:
++    const: spacemit,k1-spi
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Core clock
++      - description: Bus clock
++
++  clock-names:
++    items:
++      - const: core
++      - const: bus
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  dmas:
++    items:
++      - description: RX DMA channel
++      - description: TX DMA channel
++
++  dma-names:
++    items:
++      - const: rx
++      - const: tx
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - interrupts
++
++unevaluatedProperties: false
++
++examples:
++  - |
++
++    #include <dt-bindings/clock/spacemit,k1-syscon.h>
++    spi@d401c000 {
++        compatible = "spacemit,k1-spi";
++        reg = <0xd401c000 0x30>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        clocks = <&syscon_apbc CLK_SSP3>,
++                 <&syscon_apbc CLK_SSP3_BUS>;
++        clock-names = "core", "bus";
++        resets = <&syscon_apbc RESET_SSP3>;
++        interrupts = <55>;
++        dmas = <&pdma 20>, <&pdma 19>;
++        dma-names = "rx", "tx";
++    };
+-- 
+2.48.1
 
->> > Oh, any another primitive would be possible: one CPU could plausibly 
->> > execute another CPU's interrupts or soft-irqs or whatever by taking a 
->> > special lock that would effectively pin the remote CPU in user mode -- 
->> > you'd set a flag in the target cpu_flags saying "pin in USER mode" and 
->> > the transition on that CPU to kernel mode would then spin on entry to 
->> > kernel mode and wait for the lock to be released.  This could plausibly 
->> > get a lot of the on_each_cpu callers to switch over in one fell swoop: 
->> > anything that needs to synchronize to the remote CPU but does not need 
->> > to poke its actual architectural state could be executed locally while 
->> > the remote CPU is pinned.
->
-> It would be necessary to arrange for the remote CPU to remain pinned
-> while the local CPU executed on its behalf.  Does the above approach
-> make that happen without re-introducing our current context-tracking
-> overhead and complexity?
-
-Using the pseudo-implementation farther down, I think this would be like:
-
-if (my_state->status == INDETERMINATE) {
-   // we were lazy and we never promised to do work atomically.
-   atomic_set(&my_state->status, KERNEL);
-   this_entry_work = 0;
-   /* we are definitely not pinned in this path */
-} else {
-   // we were not lazy and we promised we would do work atomically
-   atomic exchange the entire state to { .work = 0, .status = KERNEL }
-   this_entry_work = (whatever we just read);
-   if (this_entry_work & PINNED) {
-     u32 this_cpu_pin_count = this_cpu_ptr(pin_count);
-     while (atomic_read(&this_cpu_pin_count)) {
-       cpu_relax();
-     }
-   }
- }
-
-and we'd have something like:
-
-bool try_pin_remote_cpu(int cpu)
-{
-    u32 *remote_pin_count = ...;
-    struct fancy_cpu_state *remote_state = ...;
-    atomic_inc(remote_pin_count);  // optimistic
-
-    // Hmm, we do not want that read to get reordered with the inc, so we probably
-    // need a full barrier or seq_cst.  How does Linux spell that?  C++ has atomic::load
-    // with seq_cst and maybe the optimizer can do the right thing.  Maybe it's:
-    smp_mb__after_atomic();
-
-    if (atomic_read(&remote_state->status) == USER) {
-      // Okay, it's genuinely pinned.
-      return true;
-
-      // egads, if this is some arch with very weak ordering,
-      // do we need to be concerned that we just took a lock but we
-      // just did a relaxed read and therefore a subsequent access
-      // that thinks it's locked might appear to precede the load and therefore
-      // somehow get surprisingly seen out of order by the target cpu?
-      // maybe we wanted atomic_read_acquire above instead?
-    } else {
-      // We might not have successfully pinned it
-      atomic_dec(remote_pin_count);
-    }
-}
-
-void unpin_remote_cpu(int cpu)
-{
-    atomic_dec(remote_pin_count();
-}
-
-and we'd use it like:
-
-if (try_pin_remote_cpu(cpu)) {
-  // do something useful
-} else {
-  send IPI;
-}
-
-but we'd really accumulate the set of CPUs that need the IPIs and do them all at once.
-
-I ran the theorem prover that lives inside my head on this code using the assumption that the machine is a well-behaved x86 system and it said "yeah, looks like it might be correct".  I trust an actual formalized system or someone like you who is genuinely very good at this stuff much more than I trust my initial impression :)
-
->
->> Following up, I think that x86 can do this all with a single atomic (in the common case) per usermode round trip.  Imagine:
->> 
->> struct fancy_cpu_state {
->>   u32 work; // <-- writable by any CPU
->>   u32 status; // <-- readable anywhere; writable locally
->> };
->> 
->> status includes KERNEL, USER, and maybe INDETERMINATE.  (INDETERMINATE means USER but we're not committing to doing work.)
->> 
->> Exit to user mode:
->> 
->> atomic_set(&my_state->status, USER);
->
-> We need ordering in the RCU nohz_full case.  If the grace-period kthread
-> sees the status as USER, all the preceding KERNEL code's effects must
-> be visible to the grace-period kthread.
-
-Sorry, I'm speaking lazy x86 programmer here.  Maybe I mean atomic_set_release.  I want, roughly, the property that anyone who remotely observes USER can rely on the target cpu subsequently going through the atomic exchange path above.  I think even relaxed ought to be good enough for that one most architectures, but there are some potentially nasty complications involving that fact that this mixes operations on a double word and a single word that's part of the double word.
-
->
->> (or, in the lazy case, set to INDETERMINATE instead.)
->> 
->> Entry from user mode, with IRQs off, before switching to kernel CR3:
->> 
->> if (my_state->status == INDETERMINATE) {
->>   // we were lazy and we never promised to do work atomically.
->>   atomic_set(&my_state->status, KERNEL);
->>   this_entry_work = 0;
->> } else {
->>   // we were not lazy and we promised we would do work atomically
->>   atomic exchange the entire state to { .work = 0, .status = KERNEL }
->>   this_entry_work = (whatever we just read);
->> }
->
-> If this atomic exchange is fully ordered (as opposed to, say, _relaxed),
-> then this works in that if the grace-period kthread sees USER, its prior
-> references are guaranteed not to see later kernel-mode references from
-> that CPU.
-
-Yep, that's the intent of my pseudocode.  On x86 this would be a plain 64-bit lock xchg -- I don't think cmpxchg is needed.  (I like to write lock even when it's implicit to avoid needing to trust myself to remember precisely which instructions imply it.)
-
->
->> if (PTI) {
->>   switch to kernel CR3 *and flush if this_entry_work says to flush*
->> } else {
->>   flush if this_entry_work says to flush;
->> }
->> 
->> do the rest of the work;
->> 
->> 
->> 
->> I suppose that a lot of the stuff in ti_flags could merge into here, but it could be done one bit at a time when people feel like doing so.  And I imagine, but I'm very far from confident, that RCU could use this instead of the current context tracking code.
->
-> RCU currently needs pretty heavy-duty ordering to reliably detect the
-> other CPUs' quiescent states without needing to wake them from idle, or,
-> in the nohz_full case, interrupt their userspace execution.  Not saying
-> it is impossible, but it will need extreme care.
-
-Is the thingy above heavy-duty enough?  Perhaps more relevantly, could RCU do this *instead* of the current CT hooks on architectures that implement it, and/or could RCU arrange for the ct hooks to be cheap no-ops on architectures that support the thingy above.  By "could" I mean "could be done without absolutely massive refactoring and without the resulting code being an unmaintainable disaster?  I'm sure any sufficiently motivated human or LLM could pull off the unmaintainable disaster version.  I bet I could even do it myself!)
-
->
->> The idea behind INDETERMINATE is that there are plenty of workloads that frequently switch between user and kernel mode and that would rather accept a few IPIs to avoid the heavyweight atomic operation on user -> kernel transitions.  So the default behavior could be to do KERNEL -> INDETERMINATE instead of KERNEL -> USER, but code that wants to be in user mode for a long time could go all the way to USER.  We could make it sort of automatic by noticing that we're returning from an IRQ without a context switch and go to USER (so we would get at most one unneeded IPI per normal user entry), and we could have some nice API for a program that intends to hang out in user mode for a very long time (cpu isolation users, for example) to tell the kernel to go immediately into USER mode.  (Don't we already have something that could be used for this purpose?)
->
-> RCU *could* do an smp_call_function_single() when the CPU failed
-> to respond, perhaps in a manner similar to how it already forces a
-> given CPU out of nohz_full state if that CPU has been executing in the
-> kernel for too long.  The real-time guys might not be amused, though.
-> Especially those real-time guys hitting sub-microsecond latencies.
-
-It wouldn't be outrageous to have real-time imply the full USER transition.
-
->
->> Hmm, now I wonder if it would make sense for the default behavior of Linux to be like that.  We could call it ONEHZ.  It's like NOHZ_FULL except that user threads that don't do syscalls get one single timer tick instead of many or none.
->> 
->> 
->> Anyway, I think my proposal is pretty good *if* RCU could be made to use it -- the existing context tracking code is fairly expensive, and I don't think we want to invent a new context-tracking-like mechanism if we still need to do the existing thing.
->
-> If you build with CONFIG_NO_HZ_FULL=n, do you still get the heavyweight
-> operations when transitioning between kernel and user execution?
-
-No.  And I even tested approximately this a couple weeks ago for unrelated reasons.  The only unnecessary heavy-weight thing we're doing in a syscall loop with mitigations off is the RDTSC for stack randomization.
-
-But I did that test on a machine that would absolutely benefit from the IPI suppression that the OP is talking about here, and I think it would be really quite nice if a default distro kernel with a more or less default distribution could be easily convinced to run a user thread without interrupting it.  It's a little bit had that NO_HZ_FULL is still an exotic non-default thing, IMO.
-
---Andy
 
 _______________________________________________
 linux-riscv mailing list
