@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88E0BCE7B1B
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 15:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B48A2CE7B1B
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 15:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LuTYlvkSW1o9ouIdQtkitoNZsLRZn0bh2n/fRxgMkpE=; b=GBSKuU2qmkVXLJ
-	uS7OPkZrCqZo/RNHf5YB6Of3jUcv63pmOspbmYb6bCMquUj1PTJAfLlnXx2IOV9pLMLIRwI2H7D2v
-	snUB+2LM/sZVJHjCa9lZ0ieg2iI9OFj3K1cBD3gLTDxrruV3A8sG+eEp7mOhRxuO26cT+fkEkBAiW
-	tcFnl/PGan28utA7hxGn9xyW+G5EXqdHzDqDjEqIQA2bw/XZVodkNiPS2H7DzlmO6WugLcRnpfqGw
-	TE0UVV4mCtOH+IzY2HTNmCymK3uQaMQx1PH4rJOTCdbMnDRogVYPgiaMhPpU9h3/kh3TfxC5dc2VQ
-	Utk0CngWEsHPB4C6V4Mg==;
+	List-Owner; bh=i0Pqaqr+o6JR2/1CQ97WWzPZnAMcpzWRynzM0zuyGrs=; b=sAj/VJm0Jgy16L
+	Ur1b453k558xPpSrjyvcpRBuOdau7swCzgLJ+yj6qgChDk9clWtAQ29fgRf1bhOyboSVZ1pUAONP0
+	6arBDN1aoC3mBpR32Wi5s75iYTVpX3poFelkSwK8JFb/qHohSx+QSYdCeNbC2rwgNtM/iVEX8dqVZ
+	tLBsrrbR/PSAFdIjP6tB8VpoAJ8ImpZjYXcusRsrcV5kuAlBajGsQ+/tPffCT5DTdYowmgbgB3HNO
+	Gm0fRzHkFw0RirVoUl+aH8sfJhJAEQWuC6MNW0ivUe2Q1xMVI95VDPDykOVAPOZyxfx35B2HSl4Aa
+	jbOpFF1WHeEnm+4QOgdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvNq-0000000CSAN-1r7f;
-	Fri, 14 Nov 2025 15:06:42 +0000
+	id 1vJvO5-0000000CSKg-1fm0;
+	Fri, 14 Nov 2025 15:06:57 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvNo-0000000CS8o-3MVv
+	id 1vJvO4-0000000CSJb-1kpn
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 14 Nov 2025 15:06:40 +0000
+	Fri, 14 Nov 2025 15:06:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=0EVYMqufOoIHV82nAeE2u6YNjD+PUPB4KvH6NE2Jsio=; b=C4DWRzw7r0LJkxdeHYtAgNnxf/
-	a71tH124zloJzokRbgao8oO7sPeMXQhqFND2A5vzolyX+E3pWmOZRVYHY/ULorREfpr/rNt9yNlc7
-	5NTO+7Ra2s3K9aK8HSn6cPx0XBc8bcgIzaAjpgQPHjZx3FOGHbIbHXmCRNxgk+JejAl1tOUNwNi2A
-	56GiKhUUEMq+ZwU9yx5IWjeSC1Zj6svkteKgfDrJX3iCS1WW33GPH4PXgmki52YD5OUs2p0gu/cyr
-	RbwzVKRZgoaO1iRnclsaNOgIFs8tYlmzYTED/XYeWHCkd3F3fswk1yZ6+qdNKhm8u/l+FwL5ksUPA
-	fpJ9OrJQ==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	bh=jPe85wKAQS8nAPbz9O1eWBHIVRYgj0iBULMk7IyxpE0=; b=YgYkIeGGl4mZnpebZo2E0ATQ4t
+	VJj8ZBD4LWDZRsEl9fzOenkNTkZl8XnLpyWHkDGG+ZvZdZo9s4AHNQLBM9SRfmuR5BAVJhk8kbxdu
+	uUwaYeLCqmxBUmCDcUyCYAPfV52oNobsKyxg8DGWtL2B5CIkmu72T9B8iQnWyUWH7+18D8NqIYILz
+	ClK4NwOiVuWBZzzWxr+xKfyJKU5QrEPeWmU8xTUT88p6QIaWm2BlIhuZ4PK262/aQef0cHAFA45jy
+	DGxYS3BsoagG0DDZpwX1TdQqxqNwchMWcNg6mGU4B5E3wgx47kMowTbf4C6bw3rbnKTG5kMDZ4y3J
+	lKOX6Lmg==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJuW7-00000002lZh-0n51
+	id 1vJuWM-00000002ldN-3haF
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Nov 2025 14:11:12 +0000
+	Fri, 14 Nov 2025 14:11:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763132796;
+	s=mimecast20190719; t=1763132812;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0EVYMqufOoIHV82nAeE2u6YNjD+PUPB4KvH6NE2Jsio=;
-	b=HMeKA2bXI5bLuwlR8Qqp200aCArDqB1wusjkCkodJXsYEThzGBP4xoKWcAUEtj/veVJyCj
-	EA+8uUG840dC+H2flTe70a0ZZiBH+uVVn2fVupLoQ7XJvwqjciOXytYP99esuuoGaU1/3i
-	0PvqD8qzlyobsDi6BDoQgdYjxX7Y0A8=
+	bh=jPe85wKAQS8nAPbz9O1eWBHIVRYgj0iBULMk7IyxpE0=;
+	b=igKtCKLfL3onsi7a0GkwqXb1Zl6n9JamxhWFVN/oeh7JJts0S7ZxiPptvkv8CD5VxsxMwY
+	ZAGSVPaiHM6Ilh0sAnM8jIh9egZc6Zxbcn+ZOyHJyWDMGW3nERTH00dlwIVry+wcXMT1Fe
+	mD9mS6mHAk+6aebehRpjBZM2BMOklVg=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763132796;
+	s=mimecast20190719; t=1763132812;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0EVYMqufOoIHV82nAeE2u6YNjD+PUPB4KvH6NE2Jsio=;
-	b=HMeKA2bXI5bLuwlR8Qqp200aCArDqB1wusjkCkodJXsYEThzGBP4xoKWcAUEtj/veVJyCj
-	EA+8uUG840dC+H2flTe70a0ZZiBH+uVVn2fVupLoQ7XJvwqjciOXytYP99esuuoGaU1/3i
-	0PvqD8qzlyobsDi6BDoQgdYjxX7Y0A8=
+	bh=jPe85wKAQS8nAPbz9O1eWBHIVRYgj0iBULMk7IyxpE0=;
+	b=igKtCKLfL3onsi7a0GkwqXb1Zl6n9JamxhWFVN/oeh7JJts0S7ZxiPptvkv8CD5VxsxMwY
+	ZAGSVPaiHM6Ilh0sAnM8jIh9egZc6Zxbcn+ZOyHJyWDMGW3nERTH00dlwIVry+wcXMT1Fe
+	mD9mS6mHAk+6aebehRpjBZM2BMOklVg=
 Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-404-cI01Fc2gNgiloAaXk9-ykA-1; Fri,
- 14 Nov 2025 10:06:33 -0500
-X-MC-Unique: cI01Fc2gNgiloAaXk9-ykA-1
-X-Mimecast-MFC-AGG-ID: cI01Fc2gNgiloAaXk9-ykA_1763132786
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-101-LEviGDC8P1mJckMlf_MqCQ-1; Fri,
+ 14 Nov 2025 10:06:48 -0500
+X-MC-Unique: LEviGDC8P1mJckMlf_MqCQ-1
+X-Mimecast-MFC-AGG-ID: LEviGDC8P1mJckMlf_MqCQ_1763132801
 Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4213318AB432;
-	Fri, 14 Nov 2025 15:06:26 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A9FC518A1AED;
+	Fri, 14 Nov 2025 15:06:40 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.226.10])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0671519560B9;
-	Fri, 14 Nov 2025 15:06:12 +0000 (UTC)
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BF9A91956048;
+	Fri, 14 Nov 2025 15:06:26 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -127,16 +127,16 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Daniel Wagner <dwagner@suse.de>,
 	Petr Tesarik <ptesarik@suse.com>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>
-Subject: [PATCH v7 17/31] x86/bugs: Mark cpu_buf_vm_clear key as allowed in .noinstr
-Date: Fri, 14 Nov 2025 16:01:19 +0100
-Message-ID: <20251114150133.1056710-18-vschneid@redhat.com>
+Subject: [PATCH v7 18/31] x86/speculation/mds: Mark cpu_buf_idle_clear key as allowed in .noinstr
+Date: Fri, 14 Nov 2025 16:01:20 +0100
+Message-ID: <20251114150133.1056710-19-vschneid@redhat.com>
 In-Reply-To: <20251114150133.1056710-1-vschneid@redhat.com>
 References: <20251114150133.1056710-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_141111_434957_2CF5A520 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20251114_141127_181243_7BD9F8A4 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,34 +153,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The static key is only ever updated in
+Later commits will cause objtool to warn about static keys being used in
+.noinstr sections in order to safely defer instruction patching IPIs
+targeted at NOHZ_FULL CPUs.
 
-  __init mmio_apply_mitigation
+cpu_buf_idle_clear is used in .noinstr code, and can be modified at
+runtime (SMT hotplug). Suppressing the text_poke_sync() IPI has little
+benefits for this key, as hotplug implies eventually going through
+takedown_cpu() -> stop_machine_cpuslocked() which is going to cause
+interference on all online CPUs anyway.
 
 Mark it to let objtool know not to warn about it.
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- arch/x86/kernel/cpu/bugs.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/x86/kernel/cpu/bugs.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/arch/x86/kernel/cpu/bugs.c b/arch/x86/kernel/cpu/bugs.c
-index d7fa03bf51b45..a2d7dc4d2a4a3 100644
+index a2d7dc4d2a4a3..39f6a2f9593f8 100644
 --- a/arch/x86/kernel/cpu/bugs.c
 +++ b/arch/x86/kernel/cpu/bugs.c
-@@ -196,8 +196,11 @@ DEFINE_STATIC_KEY_FALSE(switch_mm_cond_l1d_flush);
-  * Controls CPU Fill buffer clear before VMenter. This is a subset of
-  * X86_FEATURE_CLEAR_CPU_BUF, and should only be enabled when KVM-only
-  * mitigation is required.
-+ *
-+ * NOINSTR: This static key is only updated during init, so it can't be
-+ * a cause of post-init interference.
-  */
--DEFINE_STATIC_KEY_FALSE(cpu_buf_vm_clear);
-+DEFINE_STATIC_KEY_FALSE_NOINSTR(cpu_buf_vm_clear);
- EXPORT_SYMBOL_GPL(cpu_buf_vm_clear);
+@@ -181,8 +181,13 @@ DEFINE_STATIC_KEY_FALSE(switch_mm_always_ibpb);
+ DEFINE_STATIC_KEY_FALSE(switch_vcpu_ibpb);
+ EXPORT_SYMBOL_GPL(switch_vcpu_ibpb);
  
- #undef pr_fmt
+-/* Control CPU buffer clear before idling (halt, mwait) */
+-DEFINE_STATIC_KEY_FALSE(cpu_buf_idle_clear);
++/*
++ * Control CPU buffer clear before idling (halt, mwait)
++ *
++ * NOINSTR: This static key is updated during SMT hotplug which itself already
++ * causes some interference.
++ */
++DEFINE_STATIC_KEY_FALSE_NOINSTR(cpu_buf_idle_clear);
+ EXPORT_SYMBOL_GPL(cpu_buf_idle_clear);
+ 
+ /*
 -- 
 2.51.0
 
