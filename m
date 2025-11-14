@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59769CE7B1B
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 15:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6339CE7B1E
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 15:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vc6nL7FtLp+pM+wwROhhq7xkOqlZf0K933hp5PQc7wU=; b=HIyAnZvRv5U+aS
-	B/YkmHQxArKugbDh5z4mq0h5zXK83wswJRB4j1h2PPqPd3vE/k/HkiEpq3wcLg+iAWAcVMkhicsX8
-	KinZhQXvYLCpxSHXHO5V2weeoXGpEKKeaypI5TVDBZATQcGLO6PKVKqBXFkZilj0WDazduGp+nrFo
-	klWEOwl5IST1QILijayHd9/8JewPrddYPHDm+3kUJ00nmmppzPWAcexwW/H2oGq2AsxzwlSltAUqT
-	s6wgrXcqzODSy+4RzUavYumVdzAFLD0CCmfbqrejQ1WQubOxE6XCirhv93qvNe3evesae6navtulL
-	vNpconhpR3PxBrcsYZKQ==;
+	List-Owner; bh=7TcQuKbNwTgqYl8hlvTxKUtHcE5lpZ1cawZ/XTBPzBY=; b=RR4HB1kUjanXcb
+	ZL/+r6nPbg7In/5tG8H/hfzZ1b0IpakGjie0G80LdbVYdzcEPKv0C1jwJGzxiamEdaLjmWKSLs7l5
+	yFrPsp8T87sDHN8jWafhBw/+ePugGERpVnD8+i1/CyJyRkRJp4lKmBP7BW/8IGEzEhgFZ2Zbzg1nI
+	wHOyo44KO2jaNvKoWe1GdNmzF3stF1H0AnRv3yHA2pp2sAo4KjH6ltDglC+Oo42Pp6hQ/8dYuvnFB
+	snC7S0p/5JUtUAWklwiuZ92R3z4HtbZ2gbdWFQGQxJSXjuRhvnM8h0itA8OGAag1KqCFvOCVxmTlk
+	UrqqjjgbPln7GbSW2kcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvMR-0000000CREw-0rdF;
-	Fri, 14 Nov 2025 15:05:15 +0000
+	id 1vJvMh-0000000CRQY-19xt;
+	Fri, 14 Nov 2025 15:05:31 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvMP-0000000CRD6-0pWG
+	id 1vJvMf-0000000CROx-3XJY
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 14 Nov 2025 15:05:13 +0000
+	Fri, 14 Nov 2025 15:05:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=q5MmuDhyyCRvim2U70KrPJRnnsespTvM3TjOrkj7aIY=; b=IwUFi/J+iJKwS+SqVeHhPxy0Gz
-	7Pc5EvCJRBoyvSrgBky+6x9/n0Wies6FeMWgj8abSo8RfhMnoII9e+Ag5QgQzg381x15mcIIdwkib
-	j6xAW/Nm9j1q0DFvIXVxo6nmFH96QknFGbY7kKroq0ORfzdnoztGcwWAAsXq96g+R6ysdNdLzpU0i
-	8zsJ7mjgzgmj/ix8GZcnauN0IGfeuoimvAvQ63cVPujpc/m8kW45plI0kbmX3d4Rz/wVfk+p5o1IL
-	1ZQm8amFa9lBg1Xaj6KTCGgeXPuRFHoGFA8z3V4LuTnOSpaP9MkjZRrj+3AGswjiLcUaJrpLMOyLS
-	Tb+8m11A==;
+	bh=mYsxd3auPHrfEyiSRiw1uwn1LfepSkxHHrao83gvKCM=; b=Pb9C9U3vYk2LH+/YR5C5jzVDZN
+	jez49hfJKfGGsG0wz0i7GXZ6kN2VUKMCtgSVfWB78sjNje3/mj3bovRZb3IAavax3rsTs1lrynUfx
+	Pjz6XXzh2NfFYXoxMNESJ11gOutu6327AAt9dyFPdnUWb1Ta6yo91y5XhWTUZjGLj91JWon5Xninf
+	j5SBPr10HAwu/LL6dqd2d4OKhcwxJLKXMewOBiFZKWpgFdSOpo/Mzv+yA4rQfRoddkKREnyCR6Ftf
+	ZS2zI8iQMu4PQGy6D5Gh9ArDfXOaYt/ly1G3QZ7Yr/PgRCkA2hlCvmw7/Oz2EYNooz8EnhYEqmgXo
+	AR4nvS7Q==;
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJuUh-00000002lDM-2f04
+	id 1vJuUy-00000002lHu-1qok
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Nov 2025 14:09:45 +0000
+	Fri, 14 Nov 2025 14:10:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763132709;
+	s=mimecast20190719; t=1763132725;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=q5MmuDhyyCRvim2U70KrPJRnnsespTvM3TjOrkj7aIY=;
-	b=QZCAb1MVK0Oo1hn+Z/+d4Db+8ZOy31MvF+t1o2szd0AE171INY1Xvc4NP3aGAgFIiZEAZ0
-	XRx8jsPaG+HDZuLb+AXHPVIc3yAWIycUpCq66EKRxzWeQ6CDEPCrhnA4B/s48daUNBEgbE
-	LPkDHyBBI19QliXHB+xJ6BOQbu9836Y=
+	bh=mYsxd3auPHrfEyiSRiw1uwn1LfepSkxHHrao83gvKCM=;
+	b=AtMshwK68wZ/YkY2ccL73s3x/Fy4cdYKeQCJ0hWjMjqI6pZ46oMYR0/DMhAmBAq6UJVDCz
+	/YmcQbR139dwGlqVo9O+yQoZ4ce4yPs1sqEbdCNsPSkbQl1cul4L64HBtxhQ9TCZehLwu1
+	zvwW6k1wvsafH/2K6wYpKeCS2WWEWfQ=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763132709;
+	s=mimecast20190719; t=1763132726;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=q5MmuDhyyCRvim2U70KrPJRnnsespTvM3TjOrkj7aIY=;
-	b=QZCAb1MVK0Oo1hn+Z/+d4Db+8ZOy31MvF+t1o2szd0AE171INY1Xvc4NP3aGAgFIiZEAZ0
-	XRx8jsPaG+HDZuLb+AXHPVIc3yAWIycUpCq66EKRxzWeQ6CDEPCrhnA4B/s48daUNBEgbE
-	LPkDHyBBI19QliXHB+xJ6BOQbu9836Y=
+	bh=mYsxd3auPHrfEyiSRiw1uwn1LfepSkxHHrao83gvKCM=;
+	b=N6g1uKFuRTiFcEG2jwBQd3Ij0T0+PiuukpTIbBD3V0SqYu9hdUYRPmyIjrykbCJYjl4EM8
+	ww0M30hriB/nb5N0mNY48t3jifrKBFBOjroxWZ6Dl2GJf15L7kwNlmoQFPRThMDiFrR3zo
+	cXgUfmX79sT4q1ySD6gjlsqsdASa+/g=
 Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-407-bfH3JdWFP9aA7fMba-3JXg-1; Fri,
- 14 Nov 2025 10:05:07 -0500
-X-MC-Unique: bfH3JdWFP9aA7fMba-3JXg-1
-X-Mimecast-MFC-AGG-ID: bfH3JdWFP9aA7fMba-3JXg_1763132702
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-39-6oHxJBeGO0qqNP5iNM1MBA-1; Fri,
+ 14 Nov 2025 10:05:21 -0500
+X-MC-Unique: 6oHxJBeGO0qqNP5iNM1MBA-1
+X-Mimecast-MFC-AGG-ID: 6oHxJBeGO0qqNP5iNM1MBA_1763132716
 Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 816D61800EF6;
-	Fri, 14 Nov 2025 15:05:02 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A25441801306;
+	Fri, 14 Nov 2025 15:05:16 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.226.10])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0974619560B9;
-	Fri, 14 Nov 2025 15:04:48 +0000 (UTC)
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0658819560B9;
+	Fri, 14 Nov 2025 15:05:02 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -127,16 +127,16 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Daniel Wagner <dwagner@suse.de>,
 	Petr Tesarik <ptesarik@suse.com>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>
-Subject: [PATCH v7 11/31] loongarch/paravirt: Mark pv_steal_clock static call as __ro_after_init
-Date: Fri, 14 Nov 2025 16:01:13 +0100
-Message-ID: <20251114150133.1056710-12-vschneid@redhat.com>
+Subject: [PATCH v7 12/31] arm64/paravirt: Mark pv_steal_clock static call as __ro_after_init
+Date: Fri, 14 Nov 2025 16:01:14 +0100
+Message-ID: <20251114150133.1056710-13-vschneid@redhat.com>
 In-Reply-To: <20251114150133.1056710-1-vschneid@redhat.com>
 References: <20251114150133.1056710-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_140943_836126_D7C80F52 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20251114_141000_632711_9510B78F 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,22 +162,22 @@ so mark it appropriately as __ro_after_init.
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- arch/loongarch/kernel/paravirt.c | 2 +-
+ arch/arm64/kernel/paravirt.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/loongarch/kernel/paravirt.c b/arch/loongarch/kernel/paravirt.c
-index b1b51f920b231..9ec3f5c31fdab 100644
---- a/arch/loongarch/kernel/paravirt.c
-+++ b/arch/loongarch/kernel/paravirt.c
-@@ -19,7 +19,7 @@ static u64 native_steal_clock(int cpu)
+diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c
+index aa718d6a9274a..ad28fa23c9228 100644
+--- a/arch/arm64/kernel/paravirt.c
++++ b/arch/arm64/kernel/paravirt.c
+@@ -32,7 +32,7 @@ static u64 native_steal_clock(int cpu)
  	return 0;
  }
  
 -DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
 +DEFINE_STATIC_CALL_RO(pv_steal_clock, native_steal_clock);
  
- static bool steal_acc = true;
- 
+ struct pv_time_stolen_time_region {
+ 	struct pvclock_vcpu_stolen_time __rcu *kaddr;
 -- 
 2.51.0
 
