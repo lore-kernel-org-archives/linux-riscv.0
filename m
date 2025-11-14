@@ -4,57 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F662CE7AAA
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 10:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD142CE7AAE
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 10:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=46N347o/jrOguHrebvVaGV7xi644TTes+ewAX/FFYZc=; b=PJZvxnaSF700Sh
-	O62cTDyfRm6wgoYqwGt7Le2KJk0YZ/ueH/6HhOnXwMg2nBTAW+A1Yjvg3Y2vDEkpbg4GtPspd7c1m
-	YV+ZTJyAJs0BDfABev2fly4D5HCcy46RWnE0KPEkzIiqxPNEKiibEHCbJVTzFuRkRIIn2aiYDti1S
-	SKUTjbntai1oEWoBjnkKSfESyuPiS9LD+ATS3bu+BqfvNEkQ+uugubTD0gAtpU6u9acUYLz9mvVMt
-	D6/f3dvTJbcZGuMs/eacy15xDGxw40tOVQW4PB3zb5e5oZwPCgDPJojrCjBnvdrMerOwbhQeTy+OM
-	JFGgxakAosGVRUPpuWdQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MZxLqgannlr5nU9zD1LJBDl0Hw+Gsdb2OTLcJvYwI50=; b=emButZDDAXZWEd
+	5stYbza8cn8Ur5TFQGMyEgzUvaVYmuCBywqFLAvoTmnzP8t4HmmcpMK88q0hQxvZnap2CvHcPgKkf
+	+JG6JLk06FlTZRkpBW0/EKQKpSNm2i5iEzuGNRAMNPqOMHQSawTRCLwTzyX3BftWhFatIjcSneGIJ
+	+nPTi1VxgvLNGmB2yLPEedqMj/BsecZppbAtvVv++4zPjlUR3fLQHMMETf9mCwGfJeb2p6/vWvhVY
+	/KTeSihQ4eQMFZledNGv4v4A1DZqqA+EQQFNXg13Pok76+M234zU7gOF5dwAHbISWPKAJnz0z97Np
+	kJ2x3GQMmgGIKRfLXGJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJrLe-0000000C42Z-14sg;
-	Fri, 14 Nov 2025 10:48:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJrVy-0000000C4bn-2jrf;
+	Fri, 14 Nov 2025 10:58:50 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJrLc-0000000C42C-2soZ
+	id 1vJrVv-0000000C4bA-2LSI
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Nov 2025 10:48:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B897E6016F;
-	Fri, 14 Nov 2025 10:48:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE180C16AAE;
-	Fri, 14 Nov 2025 10:48:03 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Samuel Holland <samuel@sholland.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v2] of/irq: Ignore interrupt parent for nodes without interrupts
-Date: Fri, 14 Nov 2025 11:47:54 +0100
-Message-ID: <fbe6fc3657070fe2df7f0529043542b52b827449.1763116833.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	Fri, 14 Nov 2025 10:58:49 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-37a415a22ecso15282481fa.0
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Nov 2025 02:58:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1763117925; x=1763722725; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=moct8oK8oTbFIKdj9gmba82CoQn6tiSrpePvUZCPRVw=;
+        b=P7WIWHh42FiwR0vBsCL8+pACqHtM7NjDQp6Oq/Yh5VCT3+YE4DDKpaI5BXZmDQt/kk
+         ROcPPN0CN263xrOnCtgvydnxnXD1yiM/iQwoXujDDgk4KmPOsmv5t/IDDE6Yu0xJcCBo
+         Q0+7WsB/KQH1q35d67csm10YhsXLFgPxa8//fzMn+UsLytabiEsAlUgz5LMTpyFtWLZc
+         AhepxoouHZYrSczxFez0RNoADS4iDos3a5ZONkc+uC57O8eizShD/tK44iQrgLXnWyBK
+         hyM0BytCWQetxAnSmHNdDj22/zs5rqQ73qTceOHx2PwBlxAEhZF/s5vIXgKq5p+v1VJ4
+         1MEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763117925; x=1763722725;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=moct8oK8oTbFIKdj9gmba82CoQn6tiSrpePvUZCPRVw=;
+        b=SAanhGp3efLDJoZBEPzg5ASTTkxQzPEB1aw5jk8f+u5JWepElafOggsOKmD5ZFBl+4
+         NEemP0RwLtjsz+z4gsKm/bMxmEU3vaQsQ/wnOtNmwhDpRStm0b+weHsl74P/3sLEuwVI
+         sVRIeoZnmAnAlqKQZFYe2kRcFDUCBGfeb4IhIl3uqxfgw12jVKBM5TM7ghLNqCkETCBW
+         5GbLhkpdVHFljQVEhQ0QliZWM3z9PPpal/ct7j0N+ieBSJAvOo4IQJZ61BqAYGKybJvZ
+         DlUTMSAQmNcUUyi1Hj3No5HTV74drABhERPp2UyWJixrpZcUM+Jpq9JNxlo0Qiup1vrT
+         7edw==
+X-Forwarded-Encrypted: i=1; AJvYcCVK/PJUEEZkc3B1Q2DRkWKrc2VWFeg0yt3srFAfY31WQwzHoxeKm2z/XE5bttsBq5oXgkDA2OLcnOjj9w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEmAvH8lK1sI1YqkgHxxsCkeGG7lluAHwnBsBkEHifBkJkA1Df
+	FKt05mVMD91CEXftmf0AvjvjuCklrlrTeOMcNqY7rXpG6rlixzZw7wjF++70OoT2b4LLN86wgZM
+	Y2TUXW4cqJb2jkmd+VFluruUMb1fA3k4004ohHwhZx/gUdyon+foGS2A=
+X-Gm-Gg: ASbGncsA8nGjKNAIuTJPkYWoRZgGW/lq07L+jLGGsY0xAcuJSkvxffV7KcPKk8pMFaz
+	vMudj6473HhT4j7PY9jEoTRkI+ynzoY0iA5PIP6vr8nKb7xEV+hYYlPUBFqin0JUVaoVEmKS8OW
+	wK1iD1obiC08BgFQ+DMwFTYpRFdOCrOwD4LC89C9pAK8yIEUFuUSUlba2e1neBajWr9dpvz8R/V
+	CqRioMV9AaX4EojbrHbR+lOpTELiwGitxxmzdSXlxqHenibt0DGNRS8lV1HO2Wr2DVLr1Yz
+X-Google-Smtp-Source: AGHT+IHtWv3j/kZRqGPNIwLqySl8Dn60GDM67CrGNpEV2WqP6UiTqoAfeRJbMH3DmWBDQD/LXQzpcCWrrkYqNy5pYQ4=
+X-Received: by 2002:a2e:be8a:0:b0:37a:5c3c:1332 with SMTP id
+ 38308e7fff4ca-37b9b120886mr19565341fa.14.1763117925382; Fri, 14 Nov 2025
+ 02:58:45 -0800 (PST)
 MIME-Version: 1.0
+References: <20251114065808.304430-1-mchitale@ventanamicro.com>
+In-Reply-To: <20251114065808.304430-1-mchitale@ventanamicro.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Fri, 14 Nov 2025 16:28:33 +0530
+X-Gm-Features: AWmQ_bkJBRYtzHMKgVk5_MpRdU9UJqxxzNv1iyYVUyrewdYSmK-fvYMuEe14jZU
+Message-ID: <CAK9=C2X_mF+h8_K_jBZ6o==GUqZyna9yPn0NgMdXYQ1VxJdSwA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: sbi: Prefer SRST shutdown over legacy
+To: Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atishp@rivosinc.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
+	Andrew Davis <afd@ti.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251114_025847_771818_B7AFD544 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,61 +92,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Devicetree Specification states:
-
-    The root of the interrupt tree is determined when traversal of the
-    interrupt tree reaches an interrupt controller node without an
-    interrupts property and thus no explicit interrupt parent.
-
-However, of_irq_init() gratuitously assumes that a node without
-interrupts has an actual interrupt parent if it finds an
-interrupt-parent property higher up in the device tree.  Hence when such
-a property is present (e.g. in the root node), the root interrupt
-controller may not be detected as such, causing a panic:
-
-    OF: of_irq_init: children remain, but no parents
-    Kernel panic - not syncing: No interrupt controller found.
-
-Commit e91033621d56e055 ("of/irq: Use interrupts-extended to find
-parent") already fixed a first part, by checking for the presence of an
-interrupts-extended property.  Fix the second part by only calling
-of_irq_find_parent() when an interrupts property is present.
-
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-v2:
-  - Split off from series "[PATCH/RFC 0/2] of/irq: Fix root interrupt
-    controller handling"[1] to relax dependencies,
-  - Drop RFC.
-
-[1] https://lore.kernel.org/all/cover.1759485668.git.geert+renesas@glider.be
----
- drivers/of/irq.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-index b174ec29648955c6..5cb1ca89c1d8725d 100644
---- a/drivers/of/irq.c
-+++ b/drivers/of/irq.c
-@@ -613,7 +613,7 @@ void __init of_irq_init(const struct of_device_id *matches)
- 		 * are the same distance away from the root irq controller.
- 		 */
- 		desc->interrupt_parent = of_parse_phandle(np, "interrupts-extended", 0);
--		if (!desc->interrupt_parent)
-+		if (!desc->interrupt_parent && of_property_present(np, "interrupts"))
- 			desc->interrupt_parent = of_irq_find_parent(np);
- 		if (desc->interrupt_parent == np) {
- 			of_node_put(desc->interrupt_parent);
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMTQsIDIwMjUgYXQgMTI6MjnigK9QTSBNYXl1cmVzaCBDaGl0YWxlCjxtY2hp
+dGFsZUB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IEN1cnJlbnRseSwgdGhlIHNiaV9pbml0
+KCkgYWx3YXlzIGF0dGVtcHRzIHRvIHJlZ2lzdGVyIHRoZSBsZWdhY3kgc2h1dGRvd24KPiBmdW5j
+dGlvbiBhcyB0aGUgc3lzLW9mZiBoYW5kbGVyIHdoaWNoIGlzIGZpbmUgd2hlbiBSSVNDVl9TQklf
+VjAxIGlzIG5vdAo+IGVuYWJsZWQuIEhvd2V2ZXIsIGlmIFJJU0NWX1NCSV9WMDEgaXMgZW5hYmxl
+ZCBpbiB0aGUga2VybmVsIGFuZCB0aGUgU0JJCj4gdjAuMSBpcyBub3Qgc3VwcG9ydGVkIGJ5IHRo
+ZSB1bmRlcmx5aW5nIFNCSSBpbXBsZW1lbnRhdGlvbiB0aGVuIHRoZQo+IGxlZ2FjeSBzaHV0ZG93
+biBmYWlscy4gRml4IHRoaXMgYnkgbm90IHJlZ2lzdGVyaW5nIHRoZSBsZWdhY3kgc2h1dGRvd24K
+PiB3aGVuIFNSU1Qgc2h1dGRvd24gaXMgYXZhaWxhYmxlLgo+Cj4gRml4ZXM6IDcwZGRmODZkNzZj
+MSAoInJpc2N2OiBzYmk6IFN3aXRjaCB0byBuZXcgc3lzLW9mZiBoYW5kbGVyIEFQSSIpCj4gU2ln
+bmVkLW9mZi1ieTogTWF5dXJlc2ggQ2hpdGFsZSA8bWNoaXRhbGVAdmVudGFuYW1pY3JvLmNvbT4K
+CkxHVE0uCgpSZXZpZXdlZC1ieTogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KClJl
+Z2FyZHMsCkFudXAKCj4gLS0tCj4gIGFyY2gvcmlzY3Yva2VybmVsL3NiaS5jIHwgNiArKysrKy0K
+PiAgMSBmaWxlIGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+Cj4gZGlm
+ZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3NiaS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2Jp
+LmMKPiBpbmRleCA1ZThjZGUwNTUyNjQuLmM0NDMzMzcwNTZhYiAxMDA2NDQKPiAtLS0gYS9hcmNo
+L3Jpc2N2L2tlcm5lbC9zYmkuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3NiaS5jCj4gQEAg
+LTY0OCw5ICs2NDgsOSBAQCBpbnQgc2JpX2RlYnVnX2NvbnNvbGVfcmVhZChjaGFyICpieXRlcywg
+dW5zaWduZWQgaW50IG51bV9ieXRlcykKPgo+ICB2b2lkIF9faW5pdCBzYmlfaW5pdCh2b2lkKQo+
+ICB7Cj4gKyAgICAgICBib29sIHNyc3RfcG93ZXJfb2ZmID0gZmFsc2U7Cj4gICAgICAgICBpbnQg
+cmV0Owo+Cj4gLSAgICAgICBzYmlfc2V0X3Bvd2VyX29mZigpOwo+ICAgICAgICAgcmV0ID0gc2Jp
+X2dldF9zcGVjX3ZlcnNpb24oKTsKPiAgICAgICAgIGlmIChyZXQgPiAwKQo+ICAgICAgICAgICAg
+ICAgICBzYmlfc3BlY192ZXJzaW9uID0gcmV0Owo+IEBAIC02ODMsNiArNjgzLDcgQEAgdm9pZCBf
+X2luaXQgc2JpX2luaXQodm9pZCkKPiAgICAgICAgICAgICAgICAgICAgIHNiaV9wcm9iZV9leHRl
+bnNpb24oU0JJX0VYVF9TUlNUKSkgewo+ICAgICAgICAgICAgICAgICAgICAgICAgIHByX2luZm8o
+IlNCSSBTUlNUIGV4dGVuc2lvbiBkZXRlY3RlZFxuIik7Cj4gICAgICAgICAgICAgICAgICAgICAg
+ICAgcmVnaXN0ZXJfcGxhdGZvcm1fcG93ZXJfb2ZmKHNiaV9zcnN0X3Bvd2VyX29mZik7Cj4gKyAg
+ICAgICAgICAgICAgICAgICAgICAgc3JzdF9wb3dlcl9vZmYgPSB0cnVlOwo+ICAgICAgICAgICAg
+ICAgICAgICAgICAgIHNiaV9zcnN0X3JlYm9vdF9uYi5ub3RpZmllcl9jYWxsID0gc2JpX3Nyc3Rf
+cmVib290Owo+ICAgICAgICAgICAgICAgICAgICAgICAgIHNiaV9zcnN0X3JlYm9vdF9uYi5wcmlv
+cml0eSA9IDE5MjsKPiAgICAgICAgICAgICAgICAgICAgICAgICByZWdpc3Rlcl9yZXN0YXJ0X2hh
+bmRsZXIoJnNiaV9zcnN0X3JlYm9vdF9uYik7Cj4gQEAgLTcwMiw0ICs3MDMsNyBAQCB2b2lkIF9f
+aW5pdCBzYmlfaW5pdCh2b2lkKQo+ICAgICAgICAgICAgICAgICBfX3NiaV9zZW5kX2lwaSAgPSBf
+X3NiaV9zZW5kX2lwaV92MDE7Cj4gICAgICAgICAgICAgICAgIF9fc2JpX3JmZW5jZSAgICA9IF9f
+c2JpX3JmZW5jZV92MDE7Cj4gICAgICAgICB9Cj4gKwo+ICsgICAgICAgaWYgKCFzcnN0X3Bvd2Vy
+X29mZikKPiArICAgICAgICAgICAgICAgc2JpX3NldF9wb3dlcl9vZmYoKTsKPiAgfQo+IC0tCj4g
+Mi40My4wCj4KPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
