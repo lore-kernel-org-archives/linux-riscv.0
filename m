@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99253CE8D76
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 19:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E595CEACC1
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 20:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zsjyfrYckzZeHd8SwD4nqKkMn+ARgEMfUTAKW807ma4=; b=DuwizsGsqCsTJk
-	3wkYd6+M5hu3K9NIgowBXVMKBY3mcObwnRXu2Ij4pyt2yx0Sbmtvvno15gMNLtkXENTMj72H+OXEp
-	83QvlbukD/XVTWOSo2ZDyBo4LumK1hkwqJmtbYFNDVBBa2VTyh5XQJiz7zn90JqAdsPULOTsrWhhC
-	eM1DcpIBWbItmxIrgsrKpUDt/8Bbl85stXc5Z+VBYeydHd/54oj5ujhJuCZNGtBko5NtvcfOw6v0N
-	A5NZ3xKqhBfPfZ9usc8UMBHRtKF21OSSvQcCP3Yv+y9M/xMv2ZYgq+W62t3r/nR2a61Jbh/2FhAXc
-	VbTqSZMENh61E/I/cnaw==;
+	List-Owner; bh=4c6/Pl72g3x8teMWgghcSVfwcLoY0zuh8uJl7SOxofc=; b=BLjj0t7wPtVs1G
+	eV19Uupm91Diysmtv1cF5zapbfodyVe2SHESpZGrNQ2u/Q7F9vF1YBqs9+VGXbgVeSyuEwBxLT2GJ
+	BPvm3ajL07ZgjitWkXqnY3FKIdUGvcAfEOSInDTmQ1puudiZLEKhcNafb7Z1XOfSPeWThSPpS5uEk
+	ppVaS6syzapUwB0pH/Fqc8EMrYywrBTwYHN2eHiasyf9HWGoQ486RvtQMHU7f8rlknlV15ZxXIraA
+	jtCDi1e13lfwWxcTcJUr7S7SO0Rv3y1UQyXmRGxKqiBnyc9Pn+XtpT1yMqnB5QtJs3nIC6YJhJaUs
+	purynk87UE+vsJD9hS7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJziX-0000000D22D-2nNu;
-	Fri, 14 Nov 2025 19:44:21 +0000
+	id 1vJzyU-0000000D3Dl-1uNS;
+	Fri, 14 Nov 2025 20:00:50 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJziS-0000000D21U-3WQK;
-	Fri, 14 Nov 2025 19:44:20 +0000
+	id 1vJzyR-0000000D3CQ-2RDi;
+	Fri, 14 Nov 2025 20:00:48 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1763149455;
+	s=2020; t=1763150445;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=X3YYGc4b5Pr9c4KoZvbwK3VLYSBe3af5xbvfb36+JCI=;
-	b=LexRWbmLGZy53r6pTcHou9ffaCf/nQBlEuUud81fffTY1piVuJlKS99+J4BVcxB2h84jVA
-	JsDVd16BrBOgFBCT0hiKaD7d1DxSchV3AhjHg6spJ+D8Gu1klglzmpMaCgeLWDvOCTsERG
-	TahicHhYFn5juSANT1fOG4/BZZs5E3i6st/AMlK6rq5Pm1MD7bn2QLirPCQ7mVfpyvBxWQ
-	y7N47YdVd0cXYHN6TOzrpQYHtzJQEMqS9a5FiIqS7VRv11cqcF4oP2jHm0V9jlhe0nHqdy
-	77RvM4vBdYBuThkDLcQ8hKvNll7l50VNArnuoyW+n4X3SrmRWt78tbrbjEWkJQ==
+	bh=xDw+Bdt1Z2l9pBavkXEn0jsVYHruaBcdQyUPevKqzy4=;
+	b=0kgK4QipB+mbrtzwq9kh5xX3Hr+d7JvraQXYboZ1ICbRXFk5J8XXxp4HbvZPhwQbXkb49u
+	Js/Ak6qOZ4eFR9DhVVNZg0Mcl617x5NBaCdR4tI+Lz7rAq9Gg/yZ7XSQ+f3ZcuXTqunOZS
+	yZdXZ2wFvti2+oxZCRjelsfTmiIOUs1y81k6XPVXunW2sSg4PzRSyZM8k96XgZZwNMGfJy
+	HRlLDfMXcyKclt2SyaYMi8V9+tdp6BtHJ0GCAYAi1tZ8XIV7OtRYQA0OHkKLwDiRbZyaQu
+	xnFHzSOu0KDabw2w7amR5F9ejIfNpLRJMd3Lw1KWl+4v4QDWM/iQdmae6QWHdg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1763149455;
+	s=2020e; t=1763150445;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=X3YYGc4b5Pr9c4KoZvbwK3VLYSBe3af5xbvfb36+JCI=;
-	b=40zAVFBmoQ9ytl+qD4DXmOWJ1OqpyrNSsoOVU2TYC6tHo4z2zi5Tm3fE+RnPtd7F0VaBLs
-	VPpdI75gggZjAvAg==
+	bh=xDw+Bdt1Z2l9pBavkXEn0jsVYHruaBcdQyUPevKqzy4=;
+	b=tlnHCyf+mgcY02876mNDlgdhfkQctuiHGs4zXqCYzxEk4w+OxAX0c70R6/x4Hi+6AZ4AH0
+	eZ72jJYcZPSoj6AQ==
 To: Xie Yuanbin <qq570070308@gmail.com>, riel@surriel.com,
  segher@kernel.crashing.org, david@redhat.com, peterz@infradead.org,
  hpa@zytor.com, osalvador@suse.de, linux@armlinux.org.uk,
@@ -73,17 +73,17 @@ Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
  linux-perf-users@vger.kernel.org, llvm@lists.linux.dev, will@kernel.org
-Subject: Re: [PATCH v3 2/3] Make raw_spin_rq_unlock inline
-In-Reply-To: <20251113105227.57650-3-qq570070308@gmail.com>
+Subject: Re: [PATCH v3 3/3] Make finish_task_switch and its subfuncs inline
+ in context switching
+In-Reply-To: <20251113105227.57650-4-qq570070308@gmail.com>
 References: <20251113105227.57650-1-qq570070308@gmail.com>
- <20251113105227.57650-3-qq570070308@gmail.com>
-Date: Fri, 14 Nov 2025 20:44:13 +0100
-Message-ID: <875xbcbdrm.ffs@tglx>
+ <20251113105227.57650-4-qq570070308@gmail.com>
+Date: Fri, 14 Nov 2025 21:00:43 +0100
+Message-ID: <87346gbd04.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_114417_016044_741B06FF 
-X-CRM114-Status: UNSURE (   6.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251114_120047_760092_4208D447 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,15 +102,90 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Thu, Nov 13 2025 at 18:52, Xie Yuanbin wrote:
 
-> This function is short, and is called in some critical hot code paths,
-> such as finish_lock_switch.
+What are subfuncs? This is not a SMS service. Use proper words and not
+made up abbreviations.
+
+> `finish_task_switch` is a hot path in context switching, and due to
+
+Same comment as before about functions....
+
+> possible mitigations inside switch_mm, performance here is greatly
+> affected by function calls and branch jumps. Make it inline to optimize
+> the performance.
+
+Again you mark them __always_inline and not inline. Most of them are
+already 'inline'. Can you please precise in your wording?
+
+> After `finish_task_switch` is changed to an inline function, the number of
+> calls to the subfunctions (called by `finish_task_switch`) increases in
+> this translation unit due to the inline expansion of `finish_task_switch`.
+> Due to compiler optimization strategies, these functions may transition
+> from inline functions to non inline functions, which can actually lead to
+> performance degradation.
+
+I'm having a hard time to understand this word salad.
+
+> Make the subfunctions of finish_task_stwitch inline to prevent
+> degradation.
 >
-> Make it inline to optimize performance.
+> Perf test:
+> Time spent on calling finish_task_switch (rdtsc):
 
-> +static inline void raw_spin_rq_unlock(struct rq *rq)
+What means (rdtsc)? 
 
-That inline does not guarantee that the compiler actually inlines
-it. clang is obnoxiously bad at that.
+>  | compiler && appended cmdline | without patch   | with patch    |
+>  | gcc + NA                     | 13.93 - 13.94   | 12.39 - 12.44 |
+
+What is NA and what are the time units of this?
+
+>  | gcc + "spectre_v2_user=on"   | 24.69 - 24.85   | 13.68 - 13.73 |
+>  | clang + NA                   | 13.89 - 13.90   | 12.70 - 12.73 |
+>  | clang + "spectre_v2_user=on" | 29.00 - 29.02   | 18.88 - 18.97 |
+
+So the real benefit is observable when spectre_v2_user mitigations are
+enabled. You completely fail to explain that.
+
+> Perf test info:
+> 1. kernel source:
+> linux-next
+> commit 9c0826a5d9aa4d52206d ("Add linux-next specific files for 20251107")
+> 2. compiler:
+> gcc: gcc version 15.2.0 (Debian 15.2.0-7) with
+> GNU ld (GNU Binutils for Debian) 2.45
+> clang: Debian clang version 21.1.4 (8) with
+> Debian LLD 21.1.4 (compatible with GNU linkers)
+> 3. config:
+> base on default x86_64_defconfig, and setting:
+> CONFIG_HZ=100
+> CONFIG_DEBUG_ENTRY=n
+> CONFIG_X86_DEBUG_FPU=n
+> CONFIG_EXPERT=y
+> CONFIG_MODIFY_LDT_SYSCALL=n
+> CONFIG_CGROUPS=n
+> CONFIG_BLK_DEV_NVME=y
+
+This really can go into the comment section below the first '---'
+separator. No point in having this in the change log.
+
+> Size test:
+> bzImage size:
+>  | compiler | without patches | with patches  |
+>  | clang    | 13722624        | 13722624      |
+>  | gcc      | 12596224        | 12596224      |
+
+bzImage size is completely irrelevant. What's interesting is how the
+size of the actual function changes.
+
+> Size test info:
+> 1. kernel source && compiler: same as above
+> 2. config:
+> base on default x86_64_defconfig, and setting:
+> CONFIG_SCHED_CORE=y
+> CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+> CONFIG_NO_HZ_FULL=y
+
+And again, we all know how to build a kernel.
+
 
 _______________________________________________
 linux-riscv mailing list
