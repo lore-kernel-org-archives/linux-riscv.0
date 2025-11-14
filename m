@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C5D1CE8D55
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 17:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6477CE8D5D
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 17:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
 	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IWpEj8ghJjiyd4Hxza32eyObeLHAJC/XiD+U38MRecU=; b=1zCnV9XJ3YF7wP
-	QOozG1BFOL6bIOgxV9xkkU2MfFJ2BFSSVXYKpNm2vAsUsDKOIApWntxXYd55smw0w0XQ1ToUji9D6
-	rYtAZ6F+uWiA8TLaVB4jaLpuB6OcujpijCGihfHOgNNbMzTaE6LU4+7e9v/HP1N6nUYOTuN42sJn6
-	FwkmzdTKKLD+Z42VGqYGVa4vKzddO5KOKzltSZfUNnic/JOszV8rrm0qf+vXx9/dmsUHjtuhmji6e
-	UrI04WngQicvoVsv/CHxWOgOobRmpgYnQEU4GGxqqg92AEt412oN/MVLLPailwnPY30/ilnjh+xa2
-	HrsZaThZH8BJ8w1z+PQw==;
+	List-Owner; bh=JL3W3c5+yYJi8b7M9YShdxwNxA/oxMgUiqjjoPTHFe4=; b=DTAQ6tlbqn1WYB
+	dWIj0asa7A4xDiWEguoTcyeSdoHx1duLfeAab5D8avreDE1xjyAvgnSocLf6kWAqE7sd7GTfenZnI
+	jQuYCX6p03BScSlcS0B0A8c6I/3Vqc0CPDjY4WCjWK1cuPnreLzbpXpeNd8JaDnrTAB+gkmWCp5QR
+	2XIRBZCHZ/BHSpFtO+K9+Ns8AwMsDqEfP5+SvRSW2Q2xDrBLIcc5gXEPwCya6KXFUSVyOtwZMHIrs
+	x4csl8WOnmpvMMUXpAGqzsWfKTVJ6OLAioMKmR/BLusb313w1Xu6FOxnpbaaq6uNyuG4Pfg4hWiQx
+	roj67D+ZyNzDXsLBPvOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJxGU-0000000CoPz-3mKK;
-	Fri, 14 Nov 2025 17:07:14 +0000
+	id 1vJxGS-0000000CoPK-2WSM;
+	Fri, 14 Nov 2025 17:07:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJxGS-0000000CoPD-2BY5
+	id 1vJxGQ-0000000CoOH-1Gsg
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Nov 2025 17:07:13 +0000
+	Fri, 14 Nov 2025 17:07:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A8C54342C;
-	Fri, 14 Nov 2025 17:07:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FB94C4CEF5;
+	by sea.source.kernel.org (Postfix) with ESMTP id CD67C40196;
 	Fri, 14 Nov 2025 17:07:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3DCAC4CEF8;
+	Fri, 14 Nov 2025 17:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763140032;
-	bh=igsruaZJbdtmGdaC7B3AS7+DHvBZvaCaPggr5B93CGA=;
+	s=k20201202; t=1763140029;
+	bh=CmRiev1jpdffxZw/zxPg5cVSvwXm3OIigSidm0tBhi0=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=UKyK6ruWPWv9yGMBCnINyDrnhMy42aw/EMiYMNaQxh6ockNFFts/0YsAYtXJhav1X
-	 D3ZtvvGusUVZl9tWcAHlp32bUnPxx3JZMETxkAsI2F2KgX56YJSKYulbsKi4WcCCN4
-	 OuCHNm8MDkeIMEW4qKgeF5qVafuJ/2FwclXcvQ/6LJ6u1egDzZwzD7P30c4WYtK/+C
-	 aXOXZQ5ViMcgOUlU6xVJum1LQZnocf0xTHZX7w8Gvb2Q6SezhmsgJ6IgPzB6yF1SCK
-	 HyTc6Gw1FiWRkjF7rgPigiWoIuDS8u0dqPK/9YUADf+OjgNagcyOmwoNRAbAZrt3fC
-	 ixeTgM2HVSJWw==
+	b=Ys1Tv+xlo8I7lq5rRkJ/URGPHIUOu+ZzI1qovH6NLRCpHiJlR9b7sRS+beuEZ5f2i
+	 Q9v3AwBX65ow5jw+qqmfUJhV5tGgYbIS6K7pny/UnPvJx6gmV6wFnt2qbOc+EV8lww
+	 5B/K08cSE8aCqSnZgMLuOM7+RfMABlyzZ4Ry61YVGNBxA+h/sYOgkrUMWmaPuduHD8
+	 25pkySDyQm6+bI4oEN9opnSzqsfi7crDVWYeS3UBlFK+c81+AV8bEXg0gBhCA4z0J9
+	 hFPNrGqlGwgUtHFg9BkDH7I2ItNa5q68hMFS5EGPZVifmf1Pwpp+1/z/uR1uFgXrM0
+	 YIlVP8xH4e+zQ==
 From: Mark Brown <broonie@kernel.org>
 To: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -51,16 +51,16 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Daire McNamara <daire.mcnamara@microchip.com>, 
  Valentina Fernandez Alanis <valentina.fernandezalanis@microchip.com>, 
  Cyril Jean <cyril.jean@microchip.com>
-In-Reply-To: <20251114104545.284765-1-prajna.rajendrakumar@microchip.com>
-References: <20251114104545.284765-1-prajna.rajendrakumar@microchip.com>
-Subject: Re: [PATCH v4 0/3] Add support for Microchip CoreSPI Controller
-Message-Id: <176314002988.180192.12322068947585326018.b4-ty@kernel.org>
-Date: Fri, 14 Nov 2025 17:07:09 +0000
+In-Reply-To: <20251107122104.1389301-1-prajna.rajendrakumar@microchip.com>
+References: <20251107122104.1389301-1-prajna.rajendrakumar@microchip.com>
+Subject: Re: [PATCH v3 0/3] Add support for Microchip CoreSPI Controller
+Message-Id: <176314002747.180192.13977683844281536815.b4-ty@kernel.org>
+Date: Fri, 14 Nov 2025 17:07:07 +0000
 MIME-Version: 1.0
 X-Mailer: b4 0.15-dev-88d78
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_090712_597055_D88B3CEB 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20251114_090710_367380_1C3EF914 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,7 +77,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Nov 2025 10:45:42 +0000, Prajna Rajendra Kumar wrote:
+On Fri, 07 Nov 2025 12:21:01 +0000, Prajna Rajendra Kumar wrote:
 > This patch series adds support for the Microchip FPGA CoreSPI "soft" IP
 > and documents its device tree bindings.
 > 
