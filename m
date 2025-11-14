@@ -4,128 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 767C5CE8D4F
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 16:21:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C5D1CE8D55
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 17:07:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=U25uA3Yqnot6wf3TjOM3SBAsmcvmXEZZZOqg2VyIblg=; b=Y/MqURaZ3Upta3RFphOIujizmM
-	qDgmU7bCINjT9Zmck4tGWmVviykuZhFgHsrLVJ3Mym9FpwxBe05L1YVATvrry9oz+gkj5t3+AwrZW
-	57Enfx8X6f/LBKji+3MhkE7U5HE1xUUKSBKroF3yhvLM39MHoW2WaRYvpIYRxpSmMuV5ei5ngPio5
-	8DJ7XCxjyAVfukJWWX8dL+bujDF7+zVg+t06hR8SbCn5s2gnbhIGtAvK9fgiCdk2+orotmm2OMOJH
-	Ozpqh+TGA91zK4utbP4GYp7BDMTw5lbJD0mblN4w4sFKLx1kob2EC9klLCrXkiBrvI6C70dlsdzWG
-	ZmoTMp5A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IWpEj8ghJjiyd4Hxza32eyObeLHAJC/XiD+U38MRecU=; b=1zCnV9XJ3YF7wP
+	QOozG1BFOL6bIOgxV9xkkU2MfFJ2BFSSVXYKpNm2vAsUsDKOIApWntxXYd55smw0w0XQ1ToUji9D6
+	rYtAZ6F+uWiA8TLaVB4jaLpuB6OcujpijCGihfHOgNNbMzTaE6LU4+7e9v/HP1N6nUYOTuN42sJn6
+	FwkmzdTKKLD+Z42VGqYGVa4vKzddO5KOKzltSZfUNnic/JOszV8rrm0qf+vXx9/dmsUHjtuhmji6e
+	UrI04WngQicvoVsv/CHxWOgOobRmpgYnQEU4GGxqqg92AEt412oN/MVLLPailwnPY30/ilnjh+xa2
+	HrsZaThZH8BJ8w1z+PQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwXt-0000000CjHB-1XLB;
-	Fri, 14 Nov 2025 16:21:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJxGU-0000000CoPz-3mKK;
+	Fri, 14 Nov 2025 17:07:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwXs-0000000CjGe-2Xzv
+	id 1vJxGS-0000000CoPD-2BY5
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Nov 2025 16:21:08 +0000
+	Fri, 14 Nov 2025 17:07:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 926BB6017A;
-	Fri, 14 Nov 2025 16:21:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23D38C4AF09;
-	Fri, 14 Nov 2025 16:21:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A8C54342C;
+	Fri, 14 Nov 2025 17:07:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FB94C4CEF5;
+	Fri, 14 Nov 2025 17:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763137267;
-	bh=sdAOBvzBQbQ58hWdafyr1VicSS+CMEqs0nYJg4IbVNc=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=HFKJbFmP9Ujt3AKc7/UDrJzlJi7JumxeosLUkWEyPeklpq5OZZt72yyohcI3A8DjR
-	 Q5Vh2zAeFMd2IiCnte0N/XnGK6DNbDRQ/7YvQ5lhwqg9RolCuYDSpfKJqS1B0vZukv
-	 WRM5Cfpv4s2uQBT9XQpMmVhLg7RU2QrLO7TehZVkVvfsiLOIriL0AHuR7xxhksMb0r
-	 rQ1Xr54dcBhj8eF/NMqOjBRjmPKn9v4PpWEBURevuz0YH6yMHvvs4zxmhQOC1HiZt1
-	 eaXuznue691T9OUZ0Tb36FWCOYcv7m6yoU4B67wWFVQhqHzZSTrRZF2fY0n7ubjqfK
-	 3ELPPESaDQuog==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 2A926F4006D;
-	Fri, 14 Nov 2025 11:21:05 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Fri, 14 Nov 2025 11:21:05 -0500
-X-ME-Sender: <xms:8FYXaX1xeo7cwPzIqK0lN7OWVpvdACGCH0_QR-xqptpdj06yrqDiMg>
-    <xme:8FYXaQ5044wGZzeghlvmdCODRvYE2agaizWczUnN-jUKKWRJl7iq7FAPf_6mDi1Nk
-    _cq58VZC_S-DwQ4rAg_2zGQMltJ_hj7flJjkLTIUdudS5euDrsHNIs>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvuddtvdelucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehnugih
-    ucfnuhhtohhmihhrshhkihdfuceolhhuthhosehkvghrnhgvlhdrohhrgheqnecuggftrf
-    grthhtvghrnhepkefhieejfedvueejheehiefgvdfhjeefjeelvdfghfelgeejudevleej
-    uddvvefgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
-    eprghnugihodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduudeiudekheei
-    fedvqddvieefudeiiedtkedqlhhuthhopeepkhgvrhhnvghlrdhorhhgsehlihhnuhigrd
-    hluhhtohdruhhspdhnsggprhgtphhtthhopeegkedpmhhouggvpehsmhhtphhouhhtpdhr
-    tghpthhtohepjhgsrghrohhnsegrkhgrmhgrihdrtghomhdprhgtphhtthhopegsphesrg
-    hlihgvnhekrdguvgdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthht
-    ohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrghthhhivg
-    hurdguvghsnhhohigvrhhssegvfhhfihgtihhoshdrtghomhdprhgtphhtthhopegsohhq
-    uhhnrdhfvghnghesghhmrghilhdrtghomhdprhgtphhtthhopehurhgviihkihesghhmrg
-    hilhdrtghomhdprhgtphhtthhopehrohhsthgvughtsehgohhoughmihhsrdhorhhgpdhr
-    tghpthhtohepjhgrnhhnhhesghhoohhglhgvrdgtohhm
-X-ME-Proxy: <xmx:8VYXaavy2Rcw5_KExroGJoSP4RswQNujNsiylB0Zboj1MLJmYGXRMQ>
-    <xmx:8VYXaZY6rZhPaBTbMRdgxZfVoWO_tE57Uf8RTZRFKYMUkM6OhPqO7w>
-    <xmx:8VYXaXq_i9JHyksMPvKjGa4dS9KQQoAc-nePruIhtsmCgMAuL00tWQ>
-    <xmx:8VYXaQqiB1qrgBqZ3MW1P6T2OaapMG_gHq2V-9XZpin12vZyrdLMFw>
-    <xmx:8VYXaUXaaOeVLlHat2d5uQs_qjo-uL7EhSwfZcFtiahVbx-tqC236JT4>
-Feedback-ID: ieff94742:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D4A0C700054; Fri, 14 Nov 2025 11:21:04 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20201202; t=1763140032;
+	bh=igsruaZJbdtmGdaC7B3AS7+DHvBZvaCaPggr5B93CGA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=UKyK6ruWPWv9yGMBCnINyDrnhMy42aw/EMiYMNaQxh6ockNFFts/0YsAYtXJhav1X
+	 D3ZtvvGusUVZl9tWcAHlp32bUnPxx3JZMETxkAsI2F2KgX56YJSKYulbsKi4WcCCN4
+	 OuCHNm8MDkeIMEW4qKgeF5qVafuJ/2FwclXcvQ/6LJ6u1egDzZwzD7P30c4WYtK/+C
+	 aXOXZQ5ViMcgOUlU6xVJum1LQZnocf0xTHZX7w8Gvb2Q6SezhmsgJ6IgPzB6yF1SCK
+	 HyTc6Gw1FiWRkjF7rgPigiWoIuDS8u0dqPK/9YUADf+OjgNagcyOmwoNRAbAZrt3fC
+	 ixeTgM2HVSJWw==
+From: Mark Brown <broonie@kernel.org>
+To: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Valentina Fernandez Alanis <valentina.fernandezalanis@microchip.com>, 
+ Cyril Jean <cyril.jean@microchip.com>
+In-Reply-To: <20251114104545.284765-1-prajna.rajendrakumar@microchip.com>
+References: <20251114104545.284765-1-prajna.rajendrakumar@microchip.com>
+Subject: Re: [PATCH v4 0/3] Add support for Microchip CoreSPI Controller
+Message-Id: <176314002988.180192.12322068947585326018.b4-ty@kernel.org>
+Date: Fri, 14 Nov 2025 17:07:09 +0000
 MIME-Version: 1.0
-X-ThreadId: ATddxb8eqn9V
-Date: Fri, 14 Nov 2025 08:20:42 -0800
-From: "Andy Lutomirski" <luto@kernel.org>
-To: "Valentin Schneider" <vschneid@redhat.com>,
- "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
- linux-mm@kvack.org, rcu@vger.kernel.org,
- "the arch/x86 maintainers" <x86@kernel.org>,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Cc: "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- "Arnaldo Carvalho de Melo" <acme@kernel.org>,
- "Josh Poimboeuf" <jpoimboe@kernel.org>,
- "Paolo Bonzini" <pbonzini@redhat.com>, "Arnd Bergmann" <arnd@arndb.de>,
- "Frederic Weisbecker" <frederic@kernel.org>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- "Jason Baron" <jbaron@akamai.com>,
- "Steven Rostedt" <rostedt@goodmis.org>,
- "Ard Biesheuvel" <ardb@kernel.org>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "David S. Miller" <davem@davemloft.net>,
- "Neeraj Upadhyay" <neeraj.upadhyay@kernel.org>,
- "Joel Fernandes" <joelagnelf@nvidia.com>,
- "Josh Triplett" <josh@joshtriplett.org>,
- "Boqun Feng" <boqun.feng@gmail.com>,
- "Uladzislau Rezki" <urezki@gmail.com>,
- "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>,
- "Mel Gorman" <mgorman@suse.de>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Masahiro Yamada" <masahiroy@kernel.org>,
- "Han Shen" <shenhan@google.com>, "Rik van Riel" <riel@surriel.com>,
- "Jann Horn" <jannh@google.com>,
- "Dan Carpenter" <dan.carpenter@linaro.org>,
- "Oleg Nesterov" <oleg@redhat.com>, "Juri Lelli" <juri.lelli@redhat.com>,
- "Clark Williams" <williams@redhat.com>,
- "Yair Podemsky" <ypodemsk@redhat.com>,
- "Marcelo Tosatti" <mtosatti@redhat.com>,
- "Daniel Wagner" <dwagner@suse.de>, "Petr Tesarik" <ptesarik@suse.com>,
- "Shrikanth Hegde" <sshegde@linux.ibm.com>
-Message-Id: <c4768cf3-f131-44e6-9b25-ebeb633f32ee@app.fastmail.com>
-In-Reply-To: <20251114150133.1056710-1-vschneid@redhat.com>
-References: <20251114150133.1056710-1-vschneid@redhat.com>
-Subject: Re: [PATCH v7 00/31] context_tracking,x86: Defer some IPIs until a
- user->kernel transition
+X-Mailer: b4 0.15-dev-88d78
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251114_090712_597055_D88B3CEB 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,48 +77,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 14 Nov 2025 10:45:42 +0000, Prajna Rajendra Kumar wrote:
+> This patch series adds support for the Microchip FPGA CoreSPI "soft" IP
+> and documents its device tree bindings.
+> 
+> As preparation, the existing Microchip SPI driver is renamed to clearly
+> indicate that it supports only the Microchip PolarFire SoC "hard" controller.
+> Although it was originally named with the expectation that it might also
+> cover the FPGA CoreSPI "soft" IP, the register layouts differ significantly,
+> so separate drivers are required.
+> 
+> [...]
 
+Applied to
 
-On Fri, Nov 14, 2025, at 7:01 AM, Valentin Schneider wrote:
-> Context
-> =======
->
-> We've observed within Red Hat that isolated, NOHZ_FULL CPUs running a
-> pure-userspace application get regularly interrupted by IPIs sent from
-> housekeeping CPUs. Those IPIs are caused by activity on the housekeeping CPUs
-> leading to various on_each_cpu() calls, e.g.:
->
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-> The heart of this series is the thought that while we cannot remove NOHZ_FULL
-> CPUs from the list of CPUs targeted by these IPIs, they may not have to execute
-> the callbacks immediately. Anything that only affects kernelspace can wait
-> until the next user->kernel transition, providing it can be executed "early
-> enough" in the entry code.
->
+Thanks!
 
-I want to point out that there's another option here, although anyone trying to implement it would be fighting against quite a lot of history.
+[1/3] spi: microchip: rename driver file and internal identifiers
+      commit: 71c814e98696f2cd53e9e6cef7501c2d667d4c5a
+[2/3] spi: dt-binding: document Microchip CoreSPI
+      commit: 8ce9a2ed153bcaa750aa494e91ce2e70c3b0cdc5
+[3/3] spi: add support for microchip "soft" spi controller
+      commit: 059f545832be85d29ac9ccc416a16f647aa78485
 
-Logically, each CPU is in one of a handful of states: user mode, idle, normal kernel mode (possibly subdivided into IRQ, etc), and a handful of very narrow windows, hopefully uninstrumented and not accessing any PTEs that might be invalid, in the entry and exit paths where any state in memory could be out of sync with actual CPU state.  (The latter includes right after the CPU switches to kernel mode, for example.)  And NMI and MCE and whatever weird "security" entry types that Intel and AMD love to add.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-The way the kernel *currently* deals with this has two big historical oddities:
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-1. The entry and exit code cares about ti_flags, which is per-*task*, which means that atomically poking it from other CPUs involves the runqueue lock or other shenanigans (see the idle nr_polling code for example), and also that it's not accessible from the user page tables if PTI is on.
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-2. The actual heavyweight atomic part (context tracking) was built for RCU, and it's sort or bolted on, and, as you've observed in this series, it's really quite awkward to do things that aren't RCU using context tracking.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-If this were a greenfield project, I think there's a straightforward approach that's much nicer: stick everything into a single percpu flags structure.  Imagine we have cpu_flags, which tracks both the current state of the CPU and what work needs to be done on state changes.  On exit to user mode, we would atomically set the mode to USER and make sure we don't touch anything like vmalloc space after that.  On entry back to kernel mode, we would avoid vmalloc space, etc, then atomically switch to kernel mode and read out whatever deferred work is needed.  As an optimization, if nothing in the current configuration needs atomic state tracking, the state could be left at USER_OR_KERNEL and the overhead of an extra atomic op at entry and exit could be avoided.
+Thanks,
+Mark
 
-And RCU would hook into *that* instead of having its own separate set of hooks.
-
-I think that actually doing this would be a big improvement and would also be a serious project.  There's a lot of code that would get touched, and the existing context tracking code is subtle and confusing.  And, as mentioned, ti_flags has the wrong scope.
-
-It's *possible* that one could avoid making ti_flags percpu either by extensive use of the runqueue locks or by borrowing a kludge from the idle code.  For the latter, right now, the reason that the wake-from-idle code works is that the optimized path only happens if the idle thread/cpu is "polling", and it's impossible for the idle ti_flags to be polling while the CPU isn't actually idle.  We could similarly observe that, if a ti_flags says it's in USER mode *and* is on, say, cpu 3, then cpu 3 is most definitely in USER mode.  So someone could try shoving the CPU number into ti_flags :-p   (USER means actually user or in the late exit / early entry path.)
-
-Anyway, benefits of this whole approach would include considerably (IMO) increased comprehensibility compared to the current tangled ct code and much more straightforward addition of new things that happen to a target CPU conditionally depending on its mode.  And, if the flags word was actually per cpu, it could be mapped such that SWITCH_TO_KERNEL_CR3 would use it -- there could be a single CR3 write (and maybe CR4/invpcid depending on whether a zapped mapping is global) and the flush bit could depend on whether a flush is needed.  And there would be basically no chance that a bug that accessed invalidated-but-not-flushed kernel data could be undetected -- in PTI mode, any such access would page fault!  Similarly, if kernel text pokes deferred the flush and serialization, the only code that could execute before noticing the deferred flush would be the user-CR3 code.
-
-Oh, any another primitive would be possible: one CPU could plausibly execute another CPU's interrupts or soft-irqs or whatever by taking a special lock that would effectively pin the remote CPU in user mode -- you'd set a flag in the target cpu_flags saying "pin in USER mode" and the transition on that CPU to kernel mode would then spin on entry to kernel mode and wait for the lock to be released.  This could plausibly get a lot of the on_each_cpu callers to switch over in one fell swoop: anything that needs to synchronize to the remote CPU but does not need to poke its actual architectural state could be executed locally while the remote CPU is pinned.
-
---Andy
 
 _______________________________________________
 linux-riscv mailing list
