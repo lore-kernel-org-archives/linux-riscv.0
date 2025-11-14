@@ -4,132 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E11D8CE8D60
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 17:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3505CE8D6F
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 18:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=MCMbKvIYPnA7I/4xPlV8gOTJwCj+NEwx/oMVhMnfs7g=; b=pVV8U+0m0DIy54aSA0MwEpoxya
-	A+fiW1YHm1PE2emeN6u610o1+E3lkLgiL2v4XIVS8MrJGqF0e5Xl1O32Vmz5tcrf28VABtdVh6TYb
-	H6xCkHdL07FYfEdNiW6GSIEVIAgyNNeoeX8pdYBDWZQ5/MUt+N0cYkocCBCkb5Nkob3zJe+BJjMdq
-	Q6pJ/1KUEovSeRxYPWMmO14T78kDPCBN+7easUobF/wz14K+1qxvIQSHdERBfiAEKjuRriNmS4X77
-	U3tTrq40X0NECD0ws+2uBfh2pQEVPOwGjLHS3HVEhtNQmqKDmA1oGNvdWKgIar1mC1F5m5gqyRCox
-	yCNEYtZQ==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4R8jFLtIlJp38UzenMGvXsMVOWamo9bsZEQu+PLw0/Y=; b=F3RBUJ9ijK7gOB
+	0eJnS3OLfC3qswBvHc810DnpfRj2f+ziXa+WG6xrszPZm6kpaAd2NGagp81gXdClkPiawZCNwhzNE
+	oiqUZLaZV1byYqJy98j9iDdBHmzeG2ocZCrse851dpGbUdvsTHBpOnAouR2kPCME9fz8miSmZU7Yg
+	rMGzdnVVx6ZTe6GDw1s0MNptUlpsD4YOuC7tz9zHUsfMNhjV1epmAEgGsAHTKikUWGnoEi+axp7pJ
+	/AG1fQj/l1g7LPjsU2uwd+f2Z/MhcmetWuPeZ41WjQig3SRJa32JPJkEDAS82ylfpDn2UtPeoavBB
+	EKFcBkpn8KCcHHM9tRpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJxVn-0000000CpeB-00vZ;
-	Fri, 14 Nov 2025 17:23:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJyJD-0000000CwKO-1NPs;
+	Fri, 14 Nov 2025 18:14:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJxVk-0000000CpdD-1QpC
-	for linux-riscv@lists.infradead.org;
-	Fri, 14 Nov 2025 17:23:01 +0000
+	id 1vJyJB-0000000CwJv-49E1;
+	Fri, 14 Nov 2025 18:14:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7BEC74024E;
-	Fri, 14 Nov 2025 17:22:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3554C2BCAF;
-	Fri, 14 Nov 2025 17:22:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A85060186;
+	Fri, 14 Nov 2025 18:14:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5640C116B1;
+	Fri, 14 Nov 2025 18:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763140979;
-	bh=Wn21IOPfie55Agjgm4yTzq64wt8lPfqbNjOydlIl3ks=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=SilCQx3XmZ/NT8jwjxoviXOlaW0MBhdKaK6ghe5sIAgoz9gNP5gqiGgaBzCDfxJZ2
-	 uwfxVWw9QqMQf3GbzhmEL3u6qpm8JOKoFwj8Q7DAuUncFSOrJM/hzT6qwnHvwqvbfQ
-	 oDrzf/fHlG/2xevvDVaAtI02uGwk1Pv+dAR79Ks1zmz/u3yWKFR5UOt0JXli8z4LnR
-	 KTi5T+TeAhz1F5mjqdf98BKqgS8vj9Tp0ZwQoPoleNSgSmWtvgvTrEfi11mRoMfNNI
-	 SSI1qvuG5BkP5bBCd95C1BWlAQl3+FrhQcJj8NmGaoz0snW0FJ6l60v4DX0whLV1QC
-	 pJGqjk8r/bbPA==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 89FE8F4007E;
-	Fri, 14 Nov 2025 12:22:56 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Fri, 14 Nov 2025 12:22:56 -0500
-X-ME-Sender: <xms:cGUXabwEqVEpa1Pu5wTjk4joAbVQryrNMlkH96m6Rqbgt7emLRj7LA>
-    <xme:cGUXaeG_FuBKBhhpWNSN54290UOZDu1nnTWl9eTRn5OyT5oiOC7K0UK5QkLRFRCCH
-    _hZOI__w0Gxd-nD_URIR5GlTla4_kE-BTWFle1bK4W2HQwmeUxvlA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvuddtgedtucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehnugih
-    ucfnuhhtohhmihhrshhkihdfuceolhhuthhosehkvghrnhgvlhdrohhrgheqnecuggftrf
-    grthhtvghrnhepkefhieejfedvueejheehiefgvdfhjeefjeelvdfghfelgeejudevleej
-    uddvvefgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
-    eprghnugihodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduudeiudekheei
-    fedvqddvieefudeiiedtkedqlhhuthhopeepkhgvrhhnvghlrdhorhhgsehlihhnuhigrd
-    hluhhtohdruhhspdhnsggprhgtphhtthhopeegkedpmhhouggvpehsmhhtphhouhhtpdhr
-    tghpthhtohepjhgsrghrohhnsegrkhgrmhgrihdrtghomhdprhgtphhtthhopegsphesrg
-    hlihgvnhekrdguvgdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthht
-    ohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrghthhhivg
-    hurdguvghsnhhohigvrhhssegvfhhfihgtihhoshdrtghomhdprhgtphhtthhopegsohhq
-    uhhnrdhfvghnghesghhmrghilhdrtghomhdprhgtphhtthhopehurhgviihkihesghhmrg
-    hilhdrtghomhdprhgtphhtthhopehrohhsthgvughtsehgohhoughmihhsrdhorhhgpdhr
-    tghpthhtohepjhgrnhhnhhesghhoohhglhgvrdgtohhm
-X-ME-Proxy: <xmx:cGUXaUDpJ_uK79SK7Sbacr87uFV8wZEsIf2pIISOfwTkBCtvWlzrEw>
-    <xmx:cGUXae5Y61eVBcZCaJHzDtO62XxeGCqtc9VUtRcQqNlU6sq2BPHPDw>
-    <xmx:cGUXaR33ueH3p4j58OA_EkrtZ_VytmnamzZ896qedlQfrBIvZjLmpg>
-    <xmx:cGUXafVOzTzxUTLUMYvZY7NoWG8psGhITslD4bm_amg0iRE7ssFf3w>
-    <xmx:cGUXaWk7Pm5SeQEG2tIMjhRAiJsTdItwmKq4_ZH92byZlKEjJy-RgVcM>
-Feedback-ID: ieff94742:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 490B2700063; Fri, 14 Nov 2025 12:22:56 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: ATddxb8eqn9V
-Date: Fri, 14 Nov 2025 09:22:35 -0800
-From: "Andy Lutomirski" <luto@kernel.org>
-To: "Valentin Schneider" <vschneid@redhat.com>,
- "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
- linux-mm@kvack.org, rcu@vger.kernel.org,
- "the arch/x86 maintainers" <x86@kernel.org>,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Cc: "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- "Arnaldo Carvalho de Melo" <acme@kernel.org>,
- "Josh Poimboeuf" <jpoimboe@kernel.org>,
- "Paolo Bonzini" <pbonzini@redhat.com>, "Arnd Bergmann" <arnd@arndb.de>,
- "Frederic Weisbecker" <frederic@kernel.org>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- "Jason Baron" <jbaron@akamai.com>,
- "Steven Rostedt" <rostedt@goodmis.org>,
- "Ard Biesheuvel" <ardb@kernel.org>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "David S. Miller" <davem@davemloft.net>,
- "Neeraj Upadhyay" <neeraj.upadhyay@kernel.org>,
- "Joel Fernandes" <joelagnelf@nvidia.com>,
- "Josh Triplett" <josh@joshtriplett.org>,
- "Boqun Feng" <boqun.feng@gmail.com>,
- "Uladzislau Rezki" <urezki@gmail.com>,
- "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>,
- "Mel Gorman" <mgorman@suse.de>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Masahiro Yamada" <masahiroy@kernel.org>,
- "Han Shen" <shenhan@google.com>, "Rik van Riel" <riel@surriel.com>,
- "Jann Horn" <jannh@google.com>,
- "Dan Carpenter" <dan.carpenter@linaro.org>,
- "Oleg Nesterov" <oleg@redhat.com>, "Juri Lelli" <juri.lelli@redhat.com>,
- "Clark Williams" <williams@redhat.com>,
- "Yair Podemsky" <ypodemsk@redhat.com>,
- "Marcelo Tosatti" <mtosatti@redhat.com>,
- "Daniel Wagner" <dwagner@suse.de>, "Petr Tesarik" <ptesarik@suse.com>,
- "Shrikanth Hegde" <sshegde@linux.ibm.com>
-Message-Id: <beb46a02-b902-438b-8b6d-b5f0d7ad0ae6@app.fastmail.com>
-In-Reply-To: <c4768cf3-f131-44e6-9b25-ebeb633f32ee@app.fastmail.com>
-References: <20251114150133.1056710-1-vschneid@redhat.com>
- <c4768cf3-f131-44e6-9b25-ebeb633f32ee@app.fastmail.com>
+	s=k20201202; t=1763144044;
+	bh=o+j5swFsnXgCqnE0eg6/H67kOI6QLdqW9fhbdgj4dN0=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=jK8r0yvsojY1rymY5knaXU/LO05zt8VRVgkyIxC7vQXIdN1SVPl5xhqyRA3ej7V5m
+	 ZWVrw8lkCNfk1Bad7grOXshhcg0EoS0VYkJgVr8pwVjwQbXwDCnVmSpIKyVZcME/i9
+	 3/KkH0B6hEgPEGvxRQ31RiaEdmyWfGw2B5TeafY8uJLJoR1IkF5rrl/4IerK9Tshaj
+	 vX39a9LLOQ/BSkJ5+Tyodr09pvrvJb5B4ctrUoh9jdpCMNfmQiGJhsOYJZHFqb68Nf
+	 Bf3vHlOW/b768iOvaBfw3TWNnIUk72mAhEfgKx4h81AEU5WAMUatwzdzSeoimZaxns
+	 ToBGK/+oL0Xww==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 13468CE0CA7; Fri, 14 Nov 2025 10:14:04 -0800 (PST)
+Date: Fri, 14 Nov 2025 10:14:04 -0800
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Andy Lutomirski <luto@kernel.org>
+Cc: Valentin Schneider <vschneid@redhat.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	linux-mm@kvack.org, rcu@vger.kernel.org,
+	the arch/x86 maintainers <x86@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>
 Subject: Re: [PATCH v7 00/31] context_tracking,x86: Defer some IPIs until a
  user->kernel transition
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_092300_418164_6D1F0E0A 
-X-CRM114-Status: GOOD (  57.21  )
+Message-ID: <89398bdf-4dad-4976-8eb9-1e86032c8794@paulmck-laptop>
+References: <20251114150133.1056710-1-vschneid@redhat.com>
+ <c4768cf3-f131-44e6-9b25-ebeb633f32ee@app.fastmail.com>
+ <beb46a02-b902-438b-8b6d-b5f0d7ad0ae6@app.fastmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <beb46a02-b902-438b-8b6d-b5f0d7ad0ae6@app.fastmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,159 +105,197 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Nov 14, 2025 at 09:22:35AM -0800, Andy Lutomirski wrote:
+> 
+> 
+> On Fri, Nov 14, 2025, at 8:20 AM, Andy Lutomirski wrote:
+> > On Fri, Nov 14, 2025, at 7:01 AM, Valentin Schneider wrote:
+> >> Context
+> >> =======
+> >>
+> >> We've observed within Red Hat that isolated, NOHZ_FULL CPUs running a
+> >> pure-userspace application get regularly interrupted by IPIs sent from
+> >> housekeeping CPUs. Those IPIs are caused by activity on the housekeeping CPUs
+> >> leading to various on_each_cpu() calls, e.g.:
+> >>
+> >
+> >> The heart of this series is the thought that while we cannot remove NOHZ_FULL
+> >> CPUs from the list of CPUs targeted by these IPIs, they may not have to execute
+> >> the callbacks immediately. Anything that only affects kernelspace can wait
+> >> until the next user->kernel transition, providing it can be executed "early
+> >> enough" in the entry code.
+> >>
+> >
+> > I want to point out that there's another option here, although anyone 
+> > trying to implement it would be fighting against quite a lot of history.
+> >
+> > Logically, each CPU is in one of a handful of states: user mode, idle, 
+> > normal kernel mode (possibly subdivided into IRQ, etc), and a handful 
+> > of very narrow windows, hopefully uninstrumented and not accessing any 
+> > PTEs that might be invalid, in the entry and exit paths where any state 
+> > in memory could be out of sync with actual CPU state.  (The latter 
+> > includes right after the CPU switches to kernel mode, for example.)  
+> > And NMI and MCE and whatever weird "security" entry types that Intel 
+> > and AMD love to add.
+> >
+> > The way the kernel *currently* deals with this has two big historical oddities:
+> >
+> > 1. The entry and exit code cares about ti_flags, which is per-*task*, 
+> > which means that atomically poking it from other CPUs involves the 
+> > runqueue lock or other shenanigans (see the idle nr_polling code for 
+> > example), and also that it's not accessible from the user page tables 
+> > if PTI is on.
+> >
+> > 2. The actual heavyweight atomic part (context tracking) was built for 
+> > RCU, and it's sort or bolted on, and, as you've observed in this 
+> > series, it's really quite awkward to do things that aren't RCU using 
+> > context tracking.
+> >
+> > If this were a greenfield project, I think there's a straightforward 
+> > approach that's much nicer: stick everything into a single percpu flags 
+> > structure.  Imagine we have cpu_flags, which tracks both the current 
+> > state of the CPU and what work needs to be done on state changes.  On 
+> > exit to user mode, we would atomically set the mode to USER and make 
+> > sure we don't touch anything like vmalloc space after that.  On entry 
+> > back to kernel mode, we would avoid vmalloc space, etc, then atomically 
+> > switch to kernel mode and read out whatever deferred work is needed.  
+> > As an optimization, if nothing in the current configuration needs 
+> > atomic state tracking, the state could be left at USER_OR_KERNEL and 
+> > the overhead of an extra atomic op at entry and exit could be avoided.
+> >
+> > And RCU would hook into *that* instead of having its own separate set of hooks.
 
+Please note that RCU needs to sample a given CPU's idle state from other
+CPUs, and to have pretty heavy-duty ordering guarantees.  This is needed
+to avoid RCU needing to wake up idle CPUs on the one hand or relying on
+scheduling-clock interrupts waking up idle CPUs on the other.
 
-On Fri, Nov 14, 2025, at 8:20 AM, Andy Lutomirski wrote:
-> On Fri, Nov 14, 2025, at 7:01 AM, Valentin Schneider wrote:
->> Context
->> =======
->>
->> We've observed within Red Hat that isolated, NOHZ_FULL CPUs running a
->> pure-userspace application get regularly interrupted by IPIs sent from
->> housekeeping CPUs. Those IPIs are caused by activity on the housekeeping CPUs
->> leading to various on_each_cpu() calls, e.g.:
->>
->
->> The heart of this series is the thought that while we cannot remove NOHZ_FULL
->> CPUs from the list of CPUs targeted by these IPIs, they may not have to execute
->> the callbacks immediately. Anything that only affects kernelspace can wait
->> until the next user->kernel transition, providing it can be executed "early
->> enough" in the entry code.
->>
->
-> I want to point out that there's another option here, although anyone 
-> trying to implement it would be fighting against quite a lot of history.
->
-> Logically, each CPU is in one of a handful of states: user mode, idle, 
-> normal kernel mode (possibly subdivided into IRQ, etc), and a handful 
-> of very narrow windows, hopefully uninstrumented and not accessing any 
-> PTEs that might be invalid, in the entry and exit paths where any state 
-> in memory could be out of sync with actual CPU state.  (The latter 
-> includes right after the CPU switches to kernel mode, for example.)  
-> And NMI and MCE and whatever weird "security" entry types that Intel 
-> and AMD love to add.
->
-> The way the kernel *currently* deals with this has two big historical oddities:
->
-> 1. The entry and exit code cares about ti_flags, which is per-*task*, 
-> which means that atomically poking it from other CPUs involves the 
-> runqueue lock or other shenanigans (see the idle nr_polling code for 
-> example), and also that it's not accessible from the user page tables 
-> if PTI is on.
->
-> 2. The actual heavyweight atomic part (context tracking) was built for 
-> RCU, and it's sort or bolted on, and, as you've observed in this 
-> series, it's really quite awkward to do things that aren't RCU using 
-> context tracking.
->
-> If this were a greenfield project, I think there's a straightforward 
-> approach that's much nicer: stick everything into a single percpu flags 
-> structure.  Imagine we have cpu_flags, which tracks both the current 
-> state of the CPU and what work needs to be done on state changes.  On 
-> exit to user mode, we would atomically set the mode to USER and make 
-> sure we don't touch anything like vmalloc space after that.  On entry 
-> back to kernel mode, we would avoid vmalloc space, etc, then atomically 
-> switch to kernel mode and read out whatever deferred work is needed.  
-> As an optimization, if nothing in the current configuration needs 
-> atomic state tracking, the state could be left at USER_OR_KERNEL and 
-> the overhead of an extra atomic op at entry and exit could be avoided.
->
-> And RCU would hook into *that* instead of having its own separate set of hooks.
->
-> I think that actually doing this would be a big improvement and would 
-> also be a serious project.  There's a lot of code that would get 
-> touched, and the existing context tracking code is subtle and 
-> confusing.  And, as mentioned, ti_flags has the wrong scope.
->
-> It's *possible* that one could avoid making ti_flags percpu either by 
-> extensive use of the runqueue locks or by borrowing a kludge from the 
-> idle code.  For the latter, right now, the reason that the 
-> wake-from-idle code works is that the optimized path only happens if 
-> the idle thread/cpu is "polling", and it's impossible for the idle 
-> ti_flags to be polling while the CPU isn't actually idle.  We could 
-> similarly observe that, if a ti_flags says it's in USER mode *and* is 
-> on, say, cpu 3, then cpu 3 is most definitely in USER mode.  So someone 
-> could try shoving the CPU number into ti_flags :-p   (USER means 
-> actually user or in the late exit / early entry path.)
->
-> Anyway, benefits of this whole approach would include considerably 
-> (IMO) increased comprehensibility compared to the current tangled ct 
-> code and much more straightforward addition of new things that happen 
-> to a target CPU conditionally depending on its mode.  And, if the flags 
-> word was actually per cpu, it could be mapped such that 
-> SWITCH_TO_KERNEL_CR3 would use it -- there could be a single CR3 write 
-> (and maybe CR4/invpcid depending on whether a zapped mapping is global) 
-> and the flush bit could depend on whether a flush is needed.  And there 
-> would be basically no chance that a bug that accessed 
-> invalidated-but-not-flushed kernel data could be undetected -- in PTI 
-> mode, any such access would page fault!  Similarly, if kernel text 
-> pokes deferred the flush and serialization, the only code that could 
-> execute before noticing the deferred flush would be the user-CR3 code.
->
-> Oh, any another primitive would be possible: one CPU could plausibly 
-> execute another CPU's interrupts or soft-irqs or whatever by taking a 
-> special lock that would effectively pin the remote CPU in user mode -- 
-> you'd set a flag in the target cpu_flags saying "pin in USER mode" and 
-> the transition on that CPU to kernel mode would then spin on entry to 
-> kernel mode and wait for the lock to be released.  This could plausibly 
-> get a lot of the on_each_cpu callers to switch over in one fell swoop: 
-> anything that needs to synchronize to the remote CPU but does not need 
-> to poke its actual architectural state could be executed locally while 
-> the remote CPU is pinned.
+Or am I missing the point of your suggestion?
 
-Following up, I think that x86 can do this all with a single atomic (in the common case) per usermode round trip.  Imagine:
+> > I think that actually doing this would be a big improvement and would 
+> > also be a serious project.  There's a lot of code that would get 
+> > touched, and the existing context tracking code is subtle and 
+> > confusing.  And, as mentioned, ti_flags has the wrong scope.
 
-struct fancy_cpu_state {
-  u32 work; // <-- writable by any CPU
-  u32 status; // <-- readable anywhere; writable locally
-};
+Serious care would certainly be needed!  ;-)
 
-status includes KERNEL, USER, and maybe INDETERMINATE.  (INDETERMINATE means USER but we're not committing to doing work.)
+> > It's *possible* that one could avoid making ti_flags percpu either by 
+> > extensive use of the runqueue locks or by borrowing a kludge from the 
+> > idle code.  For the latter, right now, the reason that the 
+> > wake-from-idle code works is that the optimized path only happens if 
+> > the idle thread/cpu is "polling", and it's impossible for the idle 
+> > ti_flags to be polling while the CPU isn't actually idle.  We could 
+> > similarly observe that, if a ti_flags says it's in USER mode *and* is 
+> > on, say, cpu 3, then cpu 3 is most definitely in USER mode.  So someone 
+> > could try shoving the CPU number into ti_flags :-p   (USER means 
+> > actually user or in the late exit / early entry path.)
+> >
+> > Anyway, benefits of this whole approach would include considerably 
+> > (IMO) increased comprehensibility compared to the current tangled ct 
+> > code and much more straightforward addition of new things that happen 
+> > to a target CPU conditionally depending on its mode.  And, if the flags 
+> > word was actually per cpu, it could be mapped such that 
+> > SWITCH_TO_KERNEL_CR3 would use it -- there could be a single CR3 write 
+> > (and maybe CR4/invpcid depending on whether a zapped mapping is global) 
+> > and the flush bit could depend on whether a flush is needed.  And there 
+> > would be basically no chance that a bug that accessed 
+> > invalidated-but-not-flushed kernel data could be undetected -- in PTI 
+> > mode, any such access would page fault!  Similarly, if kernel text 
+> > pokes deferred the flush and serialization, the only code that could 
+> > execute before noticing the deferred flush would be the user-CR3 code.
+> >
+> > Oh, any another primitive would be possible: one CPU could plausibly 
+> > execute another CPU's interrupts or soft-irqs or whatever by taking a 
+> > special lock that would effectively pin the remote CPU in user mode -- 
+> > you'd set a flag in the target cpu_flags saying "pin in USER mode" and 
+> > the transition on that CPU to kernel mode would then spin on entry to 
+> > kernel mode and wait for the lock to be released.  This could plausibly 
+> > get a lot of the on_each_cpu callers to switch over in one fell swoop: 
+> > anything that needs to synchronize to the remote CPU but does not need 
+> > to poke its actual architectural state could be executed locally while 
+> > the remote CPU is pinned.
 
-Exit to user mode:
+It would be necessary to arrange for the remote CPU to remain pinned
+while the local CPU executed on its behalf.  Does the above approach
+make that happen without re-introducing our current context-tracking
+overhead and complexity?
 
-atomic_set(&my_state->status, USER);
+> Following up, I think that x86 can do this all with a single atomic (in the common case) per usermode round trip.  Imagine:
+> 
+> struct fancy_cpu_state {
+>   u32 work; // <-- writable by any CPU
+>   u32 status; // <-- readable anywhere; writable locally
+> };
+> 
+> status includes KERNEL, USER, and maybe INDETERMINATE.  (INDETERMINATE means USER but we're not committing to doing work.)
+> 
+> Exit to user mode:
+> 
+> atomic_set(&my_state->status, USER);
 
-(or, in the lazy case, set to INDETERMINATE instead.)
+We need ordering in the RCU nohz_full case.  If the grace-period kthread
+sees the status as USER, all the preceding KERNEL code's effects must
+be visible to the grace-period kthread.
 
-Entry from user mode, with IRQs off, before switching to kernel CR3:
+> (or, in the lazy case, set to INDETERMINATE instead.)
+> 
+> Entry from user mode, with IRQs off, before switching to kernel CR3:
+> 
+> if (my_state->status == INDETERMINATE) {
+>   // we were lazy and we never promised to do work atomically.
+>   atomic_set(&my_state->status, KERNEL);
+>   this_entry_work = 0;
+> } else {
+>   // we were not lazy and we promised we would do work atomically
+>   atomic exchange the entire state to { .work = 0, .status = KERNEL }
+>   this_entry_work = (whatever we just read);
+> }
 
-if (my_state->status == INDETERMINATE) {
-  // we were lazy and we never promised to do work atomically.
-  atomic_set(&my_state->status, KERNEL);
-  this_entry_work = 0;
-} else {
-  // we were not lazy and we promised we would do work atomically
-  atomic exchange the entire state to { .work = 0, .status = KERNEL }
-  this_entry_work = (whatever we just read);
-}
+If this atomic exchange is fully ordered (as opposed to, say, _relaxed),
+then this works in that if the grace-period kthread sees USER, its prior
+references are guaranteed not to see later kernel-mode references from
+that CPU.
 
-if (PTI) {
-  switch to kernel CR3 *and flush if this_entry_work says to flush*
-} else {
-  flush if this_entry_work says to flush;
-}
+> if (PTI) {
+>   switch to kernel CR3 *and flush if this_entry_work says to flush*
+> } else {
+>   flush if this_entry_work says to flush;
+> }
+> 
+> do the rest of the work;
+> 
+> 
+> 
+> I suppose that a lot of the stuff in ti_flags could merge into here, but it could be done one bit at a time when people feel like doing so.  And I imagine, but I'm very far from confident, that RCU could use this instead of the current context tracking code.
 
-do the rest of the work;
+RCU currently needs pretty heavy-duty ordering to reliably detect the
+other CPUs' quiescent states without needing to wake them from idle, or,
+in the nohz_full case, interrupt their userspace execution.  Not saying
+it is impossible, but it will need extreme care.
 
+> The idea behind INDETERMINATE is that there are plenty of workloads that frequently switch between user and kernel mode and that would rather accept a few IPIs to avoid the heavyweight atomic operation on user -> kernel transitions.  So the default behavior could be to do KERNEL -> INDETERMINATE instead of KERNEL -> USER, but code that wants to be in user mode for a long time could go all the way to USER.  We could make it sort of automatic by noticing that we're returning from an IRQ without a context switch and go to USER (so we would get at most one unneeded IPI per normal user entry), and we could have some nice API for a program that intends to hang out in user mode for a very long time (cpu isolation users, for example) to tell the kernel to go immediately into USER mode.  (Don't we already have something that could be used for this purpose?)
 
+RCU *could* do an smp_call_function_single() when the CPU failed
+to respond, perhaps in a manner similar to how it already forces a
+given CPU out of nohz_full state if that CPU has been executing in the
+kernel for too long.  The real-time guys might not be amused, though.
+Especially those real-time guys hitting sub-microsecond latencies.
 
-I suppose that a lot of the stuff in ti_flags could merge into here, but it could be done one bit at a time when people feel like doing so.  And I imagine, but I'm very far from confident, that RCU could use this instead of the current context tracking code.
+> Hmm, now I wonder if it would make sense for the default behavior of Linux to be like that.  We could call it ONEHZ.  It's like NOHZ_FULL except that user threads that don't do syscalls get one single timer tick instead of many or none.
+> 
+> 
+> Anyway, I think my proposal is pretty good *if* RCU could be made to use it -- the existing context tracking code is fairly expensive, and I don't think we want to invent a new context-tracking-like mechanism if we still need to do the existing thing.
 
+If you build with CONFIG_NO_HZ_FULL=n, do you still get the heavyweight
+operations when transitioning between kernel and user execution?
 
-The idea behind INDETERMINATE is that there are plenty of workloads that frequently switch between user and kernel mode and that would rather accept a few IPIs to avoid the heavyweight atomic operation on user -> kernel transitions.  So the default behavior could be to do KERNEL -> INDETERMINATE instead of KERNEL -> USER, but code that wants to be in user mode for a long time could go all the way to USER.  We could make it sort of automatic by noticing that we're returning from an IRQ without a context switch and go to USER (so we would get at most one unneeded IPI per normal user entry), and we could have some nice API for a program that intends to hang out in user mode for a very long time (cpu isolation users, for example) to tell the kernel to go immediately into USER mode.  (Don't we already have something that could be used for this purpose?)
-
-Hmm, now I wonder if it would make sense for the default behavior of Linux to be like that.  We could call it ONEHZ.  It's like NOHZ_FULL except that user threads that don't do syscalls get one single timer tick instead of many or none.
-
-
-Anyway, I think my proposal is pretty good *if* RCU could be made to use it -- the existing context tracking code is fairly expensive, and I don't think we want to invent a new context-tracking-like mechanism if we still need to do the existing thing.
-
---Andy
+							Thanx, Paul
 
 _______________________________________________
 linux-riscv mailing list
