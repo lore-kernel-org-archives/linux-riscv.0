@@ -4,93 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE016CEACCE
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Nov 2025 20:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AF2CEACEF
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Nov 2025 00:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rvYXNTwGsUzbLhO+v8MI6HeTLkXDh7b5VOcoIbIUTvs=; b=kGaJjkJC/gZb8B
-	x3jvgYhga65xACcFI+zy/tH0bqvPGxjdKN7DPKzVDvSe8wOO0nImXpEjB7eprKbrk3F29AYfbmHlc
-	7FiEZwKl3LskcE8GlTcFA2DYu3H6hlxwUCcBz4lFsj/7BelsWHEyVNLGaABDEjxFiguJJ/Xl6ikfC
-	1OU2sGvXsg+uCt6tcDgTnWczhmjc94xewHHnv3/a6fiFJp4vJGsxmR3PZQ9OVimw65Mhtg4HjgE7F
-	dF11B/NhdsKV6bXEEJXXXyqof67RCiGJ4tTVe4ZsrDVMVtY8NOV4NnyG1fSjqNiHZNk/dFS8Mi8RO
-	NOqdviAqXXuDbeD428Pw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=3JGV86Ofcbz7Vjaj2pOY6taiJQOZ3hyI7XWIYh+qn0Y=; b=CBE45+4G+Mjr9vfwitui31rWNK
+	HXiklqMAzbt6n4SIve0aeyT7pRHW0nb/UGjSoyUNp8aJsjj2gUhvXjLuZm2vwru4HBknLGzQ49qQZ
+	C0xe7EpNPvQgDQQuUL+h8AdwyK4hJlwrmDYYPGUsHrCZWwslRwt6Dx1RMfjn9U9wxos8mYozUrUCt
+	YN18tcG5eTHf2gWuW6CgvX/xtPecWncwSBvzqCkXUVcyIisauBopep1FDQ/QDhYRTYWUPjrQzVVIr
+	r+56iMsv79I3YwC+i0vXqMDaM06F+Hnp50DZbZIuraVeB3k6+kRPE+yFAHQtVNKAS2b7OUNFU196C
+	fL7QVOlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK0Xi-0000000D5Xc-3Hjn;
-	Fri, 14 Nov 2025 20:37:14 +0000
-Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
+	id 1vK4Au-0000000DHV8-44SV;
+	Sat, 15 Nov 2025 00:29:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK0Xg-0000000D5XG-20h0
+	id 1vK4At-0000000DHUJ-1MRy
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Nov 2025 20:37:13 +0000
-Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-92aee734585so93716839f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Nov 2025 12:37:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1763152631; x=1763757431; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2N7A4sphnOSNn2VwNdf5jHhtrwzomqOxdOIMs+gXosY=;
-        b=qa8iWCwwgiH9HnGQa2P5ltbhx9bgIQVNVxM/jzkORdjkQdsuG5uv95bS/KB+9l5Tl8
-         b7UiMD6aEH8Qdr8FrWVzXijaFaBVnS6XtHMCZWJdqZxo7QhvcEuV/0oVws+5Jk+VIuiH
-         +g13jsY0AOJuHvT7rwCMHyNJ5PvA5u9qmViGpFxvL/CvzQpKPOE0S1mB7X9p7AUWdJs/
-         t8a7gzv3wgJpaBOEqlFEkXMe66aWh6iABqSlPtcDl0gbPVVQwncQh7d5rCjC5AyVdKQe
-         sGuzFKfuyVgQ5Dg7spG+E4BCU/33hk69PT1ZmzHVQjBBjajnSnfKnIglZPzPoUHKE49I
-         ugXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763152631; x=1763757431;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2N7A4sphnOSNn2VwNdf5jHhtrwzomqOxdOIMs+gXosY=;
-        b=EO3pQGK8oUn/5138pfMH0HMmt2w8DttJgRUUjbv6murP3tOoM0mRYGwiT/v2qYn8gi
-         h4fldLqKeevqIr+mTE/bbegiBV3J1iL9qjKFOgn8qy09IpZEaoNPon9ioYfhbXi7DKbM
-         K0RNrsA9pWQ0ma9W9FTvSh/35+3Retug6crMPKxaVVbl/hwLjzwY43VH6B/w9UNzM/yT
-         /HG7M++LkfujQPVmN4Gyasw4rGDPvIMtzkJqzOMSEzN83anJx70B2LSLU8XT50uVenBG
-         X4PPJ2NV1j/dyowqapIxduLP0IAjgGVFPEfpE8oajfyIJ8nn6TzdR0VG+EYh/xtKu5hO
-         /GLg==
-X-Forwarded-Encrypted: i=1; AJvYcCWDhOOs6HJZA2H7LSF/7rHyEwP2Q79zQZ+Q+ZuvxNTb5z2AU0kDhHUrmrpWxtfMnrdTrPxcGzN66+VS9g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YztdEtjm4ZAzsrWZ8JpZT3L7MK/2e1LDjXWt4DrJfOqH81FGIw4
-	GG1yWNuQr3u9SzyMzfgA6d+soPBSXVIFuSFwMQkzMonMdYw3+zYW2im0N+zYpa9gtoc=
-X-Gm-Gg: ASbGnctUTMwPajf+lmr145+0XHjbYtiRjLDI4CQa/x6Cc1xXSg71dcirZkSrjTS5Pob
-	95V7WYpVdkqj1raC/Ajv0YbxOjapaDEihQmcgwyg4NVfj/7yoyPWbmC2/hdJjH9NKweOoeLGIqv
-	SRz5OxYc9pc0mZ9tOjFlPQ/mNGEGqZOvuTEiCnTRJiRJGwor257i38OXtXs/+OvWjOcD0XfiImY
-	WuP0Xlntb7AU5AO5DIxvebkJRsIca3cvzRs2fZlvQkF65bsVt4u14ZidPrUS8ttu5THeRSnqKlz
-	Wz7flQnCRCqDTVh3WNQMoAOfBVkUvdbmDxZ6PQt9uLGqAYv5QdI5PnZIYt+y6SwGSd5o7SYX7tj
-	DUCWsmbAy9NJKKf7iXpCSnoBzPuj+IJCb1TLxwqoc54lMMluSR3DAiBDyVYajPdLMhJBXtu9Qv4
-	q2efDEylBeux68WKnO2LZtAAY0JA/h3zhyNbphZyA92g5vihYHp/n9UdBePKs+
-X-Google-Smtp-Source: AGHT+IEsFHp9+KTrH36IfqMNkMBqKDdgRHUJrYhyOx128Vw+1DZKY9oKj4WLZvRXlvy/+FFiqg/IEg==
-X-Received: by 2002:a05:6e02:3c88:b0:433:767e:8f47 with SMTP id e9e14a558f8ab-4348c954ba8mr72409145ab.29.1763152631499;
-        Fri, 14 Nov 2025 12:37:11 -0800 (PST)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-434833c5eeasm33471855ab.5.2025.11.14.12.37.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Nov 2025 12:37:11 -0800 (PST)
-Message-ID: <939d76d0-a535-4d7d-bc3b-9d92be9b782a@riscstar.com>
-Date: Fri, 14 Nov 2025 14:37:09 -0600
+	Sat, 15 Nov 2025 00:29:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 763CE43E3B;
+	Sat, 15 Nov 2025 00:29:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E885C4AF09;
+	Sat, 15 Nov 2025 00:29:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763166594;
+	bh=e9NLv0KhLEFdWRUZrMQNfpFyoR5NzFBMcL2BU/txkvI=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=tjbGuUViIgE8DbMZEqvvASWk22Ni8F2yyswXkq6ljN6JvxrW3LFA/cXgdKIhjshwv
+	 5/9jA/0uwS2ugAqIxC2BaJDM2tO0CiEmXz2mcy8jnmS6X0mmaG1nDcHzqUrLVNzakx
+	 BgvHlPs92olV5IsIPCCaNWqu4BPLPQBD6PsM0s7FpPgyPeTZGPiudKEe5uzsKYV5XI
+	 G/dxssAg1GP1k3M3mFYQF+YHp4XRS2uczH5SFdZ10lvHLqUWaaxkYbqrAkLE2/OLHg
+	 xv0VGimI/uOfyV9+JEyvBH2GjHu6v5E/SMVQCilSpA5PNVN8y9cOaJu5c9lOyDxCkB
+	 p4wIy2YL1Sgrw==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 20E59F4007C;
+	Fri, 14 Nov 2025 19:29:52 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Fri, 14 Nov 2025 19:29:52 -0500
+X-ME-Sender: <xms:f8kXaYP_QFfIS1oOUOKZZl5jFHrPEcMk6RblzeoOcC2iEVuq3WeuhQ>
+    <xme:f8kXaZxQj47DKupgm51V26LsD93iRUKgXXFU3lyHHR4mps6LrHRMzy6DcQoYOOMmj
+    bJHCpDSv2hVfdh8z8WXIWBymfLTwSeaqxLXuFfEZ0taW3jWjhuJUw8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvudduvdeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehnugih
+    ucfnuhhtohhmihhrshhkihdfuceolhhuthhosehkvghrnhgvlhdrohhrgheqnecuggftrf
+    grthhtvghrnhepkefhieejfedvueejheehiefgvdfhjeefjeelvdfghfelgeejudevleej
+    uddvvefgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+    eprghnugihodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduudeiudekheei
+    fedvqddvieefudeiiedtkedqlhhuthhopeepkhgvrhhnvghlrdhorhhgsehlihhnuhigrd
+    hluhhtohdruhhspdhnsggprhgtphhtthhopeegkedpmhhouggvpehsmhhtphhouhhtpdhr
+    tghpthhtohepjhgsrghrohhnsegrkhgrmhgrihdrtghomhdprhgtphhtthhopegsphesrg
+    hlihgvnhekrdguvgdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthht
+    ohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrghthhhivg
+    hurdguvghsnhhohigvrhhssegvfhhfihgtihhoshdrtghomhdprhgtphhtthhopegsohhq
+    uhhnrdhfvghnghesghhmrghilhdrtghomhdprhgtphhtthhopehurhgviihkihesghhmrg
+    hilhdrtghomhdprhgtphhtthhopehrohhsthgvughtsehgohhoughmihhsrdhorhhgpdhr
+    tghpthhtohepjhgrnhhnhhesghhoohhglhgvrdgtohhm
+X-ME-Proxy: <xmx:gMkXabdoCbTfms0FoEg_GJgl6FgXa5xQx_ty6BJZoh6HyeHV5zrznA>
+    <xmx:gMkXaZmIJ1z3KZvXB3KL6adMbSKrCf3nXuKgoqv8kqEf-6skVjaHFQ>
+    <xmx:gMkXaezk0f0oemBqCDivfz47Om-NPp3ENuY_X0n1HwPUOft4614Pww>
+    <xmx:gMkXaRiKeW_eNhYM6aVpR3mABUUm9mTwMaFvY-zCwmH8IiYGX7h-JQ>
+    <xmx:gMkXaVDb-JyrtuYINK607hAYSCZPkXpuh5uYtLwpret1M2npo3x_xlzw>
+Feedback-ID: ieff94742:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id D1DF5700063; Fri, 14 Nov 2025 19:29:51 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/3] spi: spacemit: introduce SpacemiT K1 SPI
- controller driver
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, broonie@kernel.org,
- dlan@gentoo.org
-Cc: p.zabel@pengutronix.de, linux-spi@vger.kernel.org,
- spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251027125504.297033-1-elder@riscstar.com>
- <20251027125504.297033-3-elder@riscstar.com>
- <FFC4D2691116C9D4+aQAgeeG28SpSI7YR@kernel.org>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <FFC4D2691116C9D4+aQAgeeG28SpSI7YR@kernel.org>
+X-ThreadId: ATddxb8eqn9V
+Date: Fri, 14 Nov 2025 16:29:31 -0800
+From: "Andy Lutomirski" <luto@kernel.org>
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: "Valentin Schneider" <vschneid@redhat.com>,
+ "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
+ linux-mm@kvack.org, rcu@vger.kernel.org,
+ "the arch/x86 maintainers" <x86@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ "Arnaldo Carvalho de Melo" <acme@kernel.org>,
+ "Josh Poimboeuf" <jpoimboe@kernel.org>,
+ "Paolo Bonzini" <pbonzini@redhat.com>, "Arnd Bergmann" <arnd@arndb.de>,
+ "Frederic Weisbecker" <frederic@kernel.org>,
+ "Jason Baron" <jbaron@akamai.com>,
+ "Steven Rostedt" <rostedt@goodmis.org>,
+ "Ard Biesheuvel" <ardb@kernel.org>,
+ "Sami Tolvanen" <samitolvanen@google.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ "Neeraj Upadhyay" <neeraj.upadhyay@kernel.org>,
+ "Joel Fernandes" <joelagnelf@nvidia.com>,
+ "Josh Triplett" <josh@joshtriplett.org>,
+ "Boqun Feng" <boqun.feng@gmail.com>,
+ "Uladzislau Rezki" <urezki@gmail.com>,
+ "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>,
+ "Mel Gorman" <mgorman@suse.de>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Masahiro Yamada" <masahiroy@kernel.org>,
+ "Han Shen" <shenhan@google.com>, "Rik van Riel" <riel@surriel.com>,
+ "Jann Horn" <jannh@google.com>,
+ "Dan Carpenter" <dan.carpenter@linaro.org>,
+ "Oleg Nesterov" <oleg@redhat.com>, "Juri Lelli" <juri.lelli@redhat.com>,
+ "Clark Williams" <williams@redhat.com>,
+ "Yair Podemsky" <ypodemsk@redhat.com>,
+ "Marcelo Tosatti" <mtosatti@redhat.com>,
+ "Daniel Wagner" <dwagner@suse.de>, "Petr Tesarik" <ptesarik@suse.com>,
+ "Shrikanth Hegde" <sshegde@linux.ibm.com>
+Message-Id: <4f1a7b15-cfdc-478e-8e43-98750608866c@app.fastmail.com>
+In-Reply-To: <b3472cb3-86fa-4687-bfce-3b9a1bf4ff36@paulmck-laptop>
+References: <20251114150133.1056710-1-vschneid@redhat.com>
+ <c4768cf3-f131-44e6-9b25-ebeb633f32ee@app.fastmail.com>
+ <beb46a02-b902-438b-8b6d-b5f0d7ad0ae6@app.fastmail.com>
+ <89398bdf-4dad-4976-8eb9-1e86032c8794@paulmck-laptop>
+ <1a911310-4ca5-45a4-b9bf-5f37c6ab238e@app.fastmail.com>
+ <b3472cb3-86fa-4687-bfce-3b9a1bf4ff36@paulmck-laptop>
+Subject: Re: [PATCH v7 00/31] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_123712_788143_CB430BD9 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20251114_162955_412503_3C7B0C10 
+X-CRM114-Status: GOOD (  46.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +145,165 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/27/25 8:46 PM, Troy Mitchell wrote:
-> On Mon, Oct 27, 2025 at 07:55:02AM -0500, Alex Elder wrote:
->> This patch introduces the driver for the SPI controller found in the
->> SpacemiT K1 SoC.  Currently the driver supports master mode only.
->> The SPI hardware implements RX and TX FIFOs, 32 entries each, and
->> supports both PIO and DMA mode transfers.
->>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->>   drivers/spi/Kconfig           |   9 +
->>   drivers/spi/Makefile          |   1 +
->>   drivers/spi/spi-spacemit-k1.c | 965 ++++++++++++++++++++++++++++++++++
->>   3 files changed, 975 insertions(+)
->>   create mode 100644 drivers/spi/spi-spacemit-k1.c
->>
->> diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
->> index 4d8f00c850c14..2e933edab1718 100644
->> --- a/drivers/spi/Kconfig
->> +++ b/drivers/spi/Kconfig
->> @@ -1071,6 +1071,15 @@ config SPI_SG2044_NOR
->>   	  also supporting 3Byte address devices and 4Byte address
->>   	  devices.
->>   
->> +config SPI_SPACEMIT_K1
->> +	tristate "K1 SPI Controller"
->> +	depends on ARCH_SPACEMIT || COMPILE_TEST
->> +	depends on OF
->> +	imply MMP_PDMA if ARCH_SPACEMIT
->> +	default ARCH_SPACEMIT
-> SPI needs to be a built-in feature?
-> if not, how about:
-> default m if ARCH_SPACEMIT
 
-I finally implemented this today and while testing I found a
-bug in the module removal code.  It's been more than two weeks
-since I got any feedback on this series, and although I've been
-holding back on posting I think it's time to send a new version.
 
-In addition to this suggestion, I have two bug fixes plus your
-Ack on patch 1, so I just posted v7.
+On Fri, Nov 14, 2025, at 12:03 PM, Paul E. McKenney wrote:
+> On Fri, Nov 14, 2025 at 10:45:08AM -0800, Andy Lutomirski wrote:
+>> 
+>> 
+>> On Fri, Nov 14, 2025, at 10:14 AM, Paul E. McKenney wrote:
+>> > On Fri, Nov 14, 2025 at 09:22:35AM -0800, Andy Lutomirski wrote:
+>> >> 
+>> 
+>> >> > Oh, any another primitive would be possible: one CPU could plausibly 
+>> >> > execute another CPU's interrupts or soft-irqs or whatever by taking a 
+>> >> > special lock that would effectively pin the remote CPU in user mode -- 
+>> >> > you'd set a flag in the target cpu_flags saying "pin in USER mode" and 
+>> >> > the transition on that CPU to kernel mode would then spin on entry to 
+>> >> > kernel mode and wait for the lock to be released.  This could plausibly 
+>> >> > get a lot of the on_each_cpu callers to switch over in one fell swoop: 
+>> >> > anything that needs to synchronize to the remote CPU but does not need 
+>> >> > to poke its actual architectural state could be executed locally while 
+>> >> > the remote CPU is pinned.
+>> >
+>> > It would be necessary to arrange for the remote CPU to remain pinned
+>> > while the local CPU executed on its behalf.  Does the above approach
+>> > make that happen without re-introducing our current context-tracking
+>> > overhead and complexity?
+>> 
+>> Using the pseudo-implementation farther down, I think this would be like:
+>> 
+>> if (my_state->status == INDETERMINATE) {
+>>    // we were lazy and we never promised to do work atomically.
+>>    atomic_set(&my_state->status, KERNEL);
+>>    this_entry_work = 0;
+>>    /* we are definitely not pinned in this path */
+>> } else {
+>>    // we were not lazy and we promised we would do work atomically
+>>    atomic exchange the entire state to { .work = 0, .status = KERNEL }
+>>    this_entry_work = (whatever we just read);
+>>    if (this_entry_work & PINNED) {
+>>      u32 this_cpu_pin_count = this_cpu_ptr(pin_count);
+>>      while (atomic_read(&this_cpu_pin_count)) {
+>>        cpu_relax();
+>>      }
+>>    }
+>>  }
+>> 
+>> and we'd have something like:
+>> 
+>> bool try_pin_remote_cpu(int cpu)
+>> {
+>>     u32 *remote_pin_count = ...;
+>>     struct fancy_cpu_state *remote_state = ...;
+>>     atomic_inc(remote_pin_count);  // optimistic
+>> 
+>>     // Hmm, we do not want that read to get reordered with the inc, so we probably
+>>     // need a full barrier or seq_cst.  How does Linux spell that?  C++ has atomic::load
+>>     // with seq_cst and maybe the optimizer can do the right thing.  Maybe it's:
+>>     smp_mb__after_atomic();
+>> 
+>>     if (atomic_read(&remote_state->status) == USER) {
+>>       // Okay, it's genuinely pinned.
+>>       return true;
+>> 
+>>       // egads, if this is some arch with very weak ordering,
+>>       // do we need to be concerned that we just took a lock but we
+>>       // just did a relaxed read and therefore a subsequent access
+>>       // that thinks it's locked might appear to precede the load and therefore
+>>       // somehow get surprisingly seen out of order by the target cpu?
+>>       // maybe we wanted atomic_read_acquire above instead?
+>>     } else {
+>>       // We might not have successfully pinned it
+>>       atomic_dec(remote_pin_count);
+>>     }
+>> }
+>> 
+>> void unpin_remote_cpu(int cpu)
+>> {
+>>     atomic_dec(remote_pin_count();
+>> }
+>> 
+>> and we'd use it like:
+>> 
+>> if (try_pin_remote_cpu(cpu)) {
+>>   // do something useful
+>> } else {
+>>   send IPI;
+>> }
+>> 
+>> but we'd really accumulate the set of CPUs that need the IPIs and do them all at once.
+>> 
+>> I ran the theorem prover that lives inside my head on this code using the assumption that the machine is a well-behaved x86 system and it said "yeah, looks like it might be correct".  I trust an actual formalized system or someone like you who is genuinely very good at this stuff much more than I trust my initial impression :)
+>
+> Let's start with requirements, non-traditional though that might be. ;-)
 
-					-Alex
+That's ridiculous! :-)
+
+>
+> An "RCU idle" CPU is either in deep idle or executing in nohz_full
+> userspace.
+>
+> 1.	If the RCU grace-period kthread sees an RCU-idle CPU, then:
+>
+> 	a.	Everything that this CPU did before entering RCU-idle
+> 		state must be visible to sufficiently later code executed
+> 		by the grace-period kthread, and:
+>
+> 	b.	Everything that the CPU will do after exiting RCU-idle
+> 		state must *not* have been visible to the grace-period
+> 		kthread sufficiently prior to having sampled this
+> 		CPU's state.
+>
+> 2.	If the RCU grace-period kthread sees an RCU-nonidle CPU, then
+> 	it depends on whether this is the same nonidle sojourn as was
+> 	initially seen.  (If the kthread initially saw the CPU in an
+> 	RCU-idle state, it would not have bothered resampling.)
+>
+> 	a.	If this is the same nonidle sojourn, then there are no
+> 		ordering requirements.	RCU must continue to wait on
+> 		this CPU.
+>
+> 	b.	Otherwise, everything that this CPU did before entering
+> 		its last RCU-idle state must be visible to sufficiently
+> 		later code executed by the grace-period kthread.
+> 		Similar to (1a) above.
+>
+> 3.	If a given CPU quickly switches into and out of RCU-idle
+> 	state, and it is always in RCU-nonidle state whenever the RCU
+> 	grace-period kthread looks, RCU must still realize that this
+> 	CPU has passed through at least one quiescent state.
+>
+> 	This is why we have a counter for RCU rather than just a
+> 	simple state.
+
+...
+
+> I am not seeing how the third requirement above is met, though.  I have
+> not verified the sampling code that the RCU grace-period kthread is
+> supposed to use because I am not seeing it right off-hand.
+
+This is ct_rcu_watching_cpu_acquire, right?  Lemme think.  Maybe there's even a way to do everything I'm suggesting without changing that interface.
+
+
+>> It wouldn't be outrageous to have real-time imply the full USER transition.
+>
+> We could have special code for RT, but this of course increases the
+> complexity.  Which might be justified by sufficient speedup.
+
+I'm thinking that the code would be arranged so that going to user mode in the USER or the INTERMEDIATE state would be fully valid and would just have different performance characteristics.  So the only extra complexity here would be the actual logic to choose which state to go to. and...
+>
+> And yes, many distros enable NO_HZ_FULL by default.  I will refrain from
+> suggesting additional static branches.  ;-)
+
+I'm not even suggesting a static branch.  I think the potential performance wins are big enough to justify a bona fide ordinary if statement or two :)  I'm also contemplating whether it could make sense to make this whole thing be unconditionally configured in if the performance in the case where no one uses it (i.e. everything is INTERMEDIATE instead of USER) is good enough.
+
+I will ponder.
 
 _______________________________________________
 linux-riscv mailing list
