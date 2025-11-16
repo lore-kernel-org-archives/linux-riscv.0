@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90EFCCD19A
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Nov 2025 18:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCEB5CCD19A
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Nov 2025 19:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NQ6s847HvCy7JXTTZ507uEUXU2CC5pWZ+e+pqsimqVU=; b=OEx7gHwDIMnO0QXO3A8itWFO0e
-	C4BPrRbSSyVcdH1BNsx7R5NIp+TCy91CiHCh1elm7QUTS8eJQMwniNGPqnU8uyok0zLE6PTkZu6Ww
-	oVh2rSyIgq4Z6k5Fd6L5noAT9p/DlgGmHgpZas7XM/Q81f20EhxVlSDuE0YSj5CRZKGgc8YQkFnAP
-	rwbivofxNYYeIfEgL4cXCt4A48dy7wClJSZOeZ0+Sb3CWFrhYRMGIYLPjl7MQBnUzxmiq+2VmzPAh
-	CjpfS6tYcwmrdFYn1NuYYMco5B2tc63SyPxsmNcGIg9qp/IqL+ZPZ9bwWr8dG//82ObR5VuCo2jXL
-	Kx/2StVQ==;
+	bh=QUKXUzr84ACo1RQK4skJaDZJ4qcrCPFz/j5EtDXp9iE=; b=MAB8W16YifWrB+egbrF9QLyW1m
+	eSYT9X6sf9EWxq/RcyiXBWy15krTf0U5JIhjn4RXx1Cm5UGbmNxvt0HpnNbcRT3azI4tKw17KmvyS
+	PW9jsSmKKE7ZETh5pOa6SRiGAj4hbsFbObS+P44ofmlDyaYbzZe6BGN0L0vMxpMZHJQRDjoFJz+g6
+	0Dyo8ZUkdIq6tuSY6VeDlLa861ALQemN9hmdfenFPlCEDuUZ6fRVDJYsGw27zGnxiXlVH0O3ha/Qr
+	1xlrVdC24wNxwM2RKgXTnhVy6q4QPR8us5zqO6TlBi5H7FKzqj9HH6Sle4gubcoxTT8dFSEuGxWfx
+	ryIxsAag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKhLU-0000000F1VU-0Zwc;
-	Sun, 16 Nov 2025 18:19:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vKiZo-0000000F4PU-0M6M;
+	Sun, 16 Nov 2025 19:38:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKhLR-0000000F1Uz-3X6b
+	id 1vKiZm-0000000F4PM-1faB
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Nov 2025 18:19:25 +0000
+	Sun, 16 Nov 2025 19:38:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2399660183;
-	Sun, 16 Nov 2025 18:19:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A81E5C4CEF1;
-	Sun, 16 Nov 2025 18:19:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5FA0B60008;
+	Sun, 16 Nov 2025 19:38:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75899C4CEF1;
+	Sun, 16 Nov 2025 19:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763317163;
-	bh=dEgW1rRC+aV4R5Ukz5J6zVPHu6vjYC2y2EAyWUhddoI=;
+	s=k20201202; t=1763321896;
+	bh=aDnvoRXp5jbZbWUaysTMKr6pXeOZrBDJ3a6yyM30XtY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mSi7FKFRHP4Ad+VAlITP7/J6SSBMdsbE4vUro/7SbibOD8oPHLNSLMHF9SbCtIXvr
-	 ZyMdL872/xepUnVZfxG63K6l6NTgsUtFExlLZLjmCDG0YDj6W6DfMEVW2hXnc0X94J
-	 XmzsVl1DYGxPN6sF2vHMhAtdSHp7b28pDcWi1WsiQkGDa1wxZWyMPI+5LAhIsSPJQm
-	 GKG5aqQEFqBOsw88fMe75jV8TpYPj61haUrTJKVse196/f22gWRS6SpuJMmt2qLRvx
-	 iCM+0xkZDfTGHVW1ep1aiLGoVq8E2YXKaEUryZdgQxM84akd/q0dD3qBJXDuncmM+4
-	 4pH0+VsTnjIrg==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 1DE341ACCC98; Sun, 16 Nov 2025 18:19:21 +0000 (GMT)
-Date: Sun, 16 Nov 2025 18:19:21 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: dlan@gentoo.org, p.zabel@pengutronix.de, linux-spi@vger.kernel.org,
-	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 2/3] spi: spacemit: introduce SpacemiT K1 SPI
- controller driver
-Message-ID: <aRoVqVtYLJJAPCia@sirena.co.uk>
-References: <20251114185745.2838358-1-elder@riscstar.com>
- <20251114185745.2838358-3-elder@riscstar.com>
+	b=sqe+lrK5Q9WvEDBSLJsJtqJeSCpe3kjuCAAp5J9RFxBhzL+oMhNzWTVGFVdnc42im
+	 Mn5SR6lLOmZTuuSsmJ3EHWXz33qrELFXMAeKI6U3BRoi7sVU6Tk88PrxiGK3/G6IHM
+	 1EPwZoO7VymlR1AMupWuiCoTccvgqZhup/2ez6+xxKAM4eqJbOwEJhE2YqBgRgnVE6
+	 RYcrfAKRSHt/kxFKHQDDAZj5McYpD1ztzmUPulj8VEIePCrbldlGI0T2IXQMQor01c
+	 pF7raNtTeapjVgRytFTEivajQU5+SKKWTR+s4Ws1vEtitpTPbyoEgyu5ayubPwKGeH
+	 0rCZeEFUJqXJA==
+Date: Sun, 16 Nov 2025 19:38:07 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Asuna <spriteovo@gmail.com>
+Cc: Vivian Wang <wangruikang@iscas.ac.cn>, Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Han Gao <rabenda.cn@gmail.com>,
+	Jason Montleon <jmontleo@redhat.com>,
+	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kbuild@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH v3] RISC-V: re-enable gcc + rust builds
+Message-ID: <20251116-axis-pouch-419f794cb1cb@spud>
+References: <20250914-gcc-rust-v3-v3-1-34d4d5864144@gmail.com>
+ <73d55231-d1e5-400d-9446-1914a78c0db8@iscas.ac.cn>
+ <0bc61e6e-8a27-4711-8ce0-60b1e300ac31@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20251114185745.2838358-3-elder@riscstar.com>
-X-Cookie: marriage, n.:
+In-Reply-To: <0bc61e6e-8a27-4711-8ce0-60b1e300ac31@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,133 +84,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0479316274599437445=="
+Content-Type: multipart/mixed; boundary="===============5209462837213120899=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0479316274599437445==
+--===============5209462837213120899==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="m79HQmrzkmVitIUm"
+	protocol="application/pgp-signature"; boundary="cRVUOKC/OyDnbFeQ"
 Content-Disposition: inline
 
 
---m79HQmrzkmVitIUm
+--cRVUOKC/OyDnbFeQ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 14, 2025 at 12:57:43PM -0600, Alex Elder wrote:
+On Sun, Nov 16, 2025 at 10:36:16PM +0800, Asuna wrote:
+> Hi everyone. Sorry I was inactive on this patch for a while. I'm getting
+> back into this work.
+>=20
+> On 9/19/25 1:20 PM, Vivian Wang wrote:
+> > I think instead of testing libclang version, it would make more sense to
+> > feature test if bindgen the binary supports these flags, like what we
+> > already do with $(cc-option,...).
+> >=20
+> > Same for all the other version tests.
+>=20
+> Conor, since you've reviewed the v3 patch, do you think Vivian's suggesti=
+on
+> is a better solution? If so, I can start trying to make a v4 patch towards
+> that path in the next few days.
+>=20
 
-> This patch introduces the driver for the SPI controller found in the
-> SpacemiT K1 SoC.  Currently the driver supports master mode only.
-> The SPI hardware implements RX and TX FIFOs, 32 entries each, and
-> supports both PIO and DMA mode transfers.
+I'm okay with either approach, just drop my tag if you decide to use her
+suggestion, and I will re-review.
 
-This looks mostly good but there's a bit of open coding that looks like
-the driver could make more use of the core.
-
-> @@ -0,0 +1,966 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * SpacemiT K1 SPI controller driver
-> + *
-> + * Copyright (C) 2025 by RISCstar Solutions Corporation.  All rights reserved.
-> + * Copyright (c) 2023, spacemit Corporation.
-> + */
-
-Please make the entire comment a C++ one so things look more
-intentional.
-
-> +static bool k1_spi_map_dma_buffer(struct k1_spi_io *io, size_t len, void *dummy)
-> +{
-> +	struct device *dmadev = io->chan->device->dev;
-> +	unsigned int nents = DIV_ROUND_UP(len, SZ_2K);
-> +	struct sg_table *sgt = &io->sgt;
-> +	void *bufp = io->buf ? : dummy;
-> +	struct scatterlist *sg;
-> +	unsigned int i;
-
-The SPI core can do DMA mapping for you, the only thing this is doing
-that's unusual is that it's imposing a fixed 2K limit on block sizes.
-If this limit comes from the DMA controller (which looks to be the case
-since we feed the entire table into the DMA controller at once?) the
-core will already DTRT here, assuming the DMA controller correctly
-advertises this restriction.
-
-> +static bool k1_spi_map_dma_buffers(struct k1_spi_driver_data *drv_data)
-> +{
-
-...
-
-> +	/* Don't bother with DMA if we can't do even a single burst */
-> +	if (drv_data->len < dma_burst_size)
-> +		return false;
-> +
-> +	/* We won't use DMA if the transfer is too big, either */
-> +	if (drv_data->len > K1_SPI_MAX_DMA_LEN)
-> +		return false;
-
-The core has a can_dma() callback for this.
-
-> +static int k1_spi_transfer_one_message(struct spi_controller *host,
-> +					   struct spi_message *message)
-> +{
-
-...
-
-> +	/* Hold frame low to avoid losing transferred data */
-> +	val = readl(drv_data->base + SSP_TOP_CTRL);
-> +	val |= TOP_HOLD_FRAME_LOW;
-> +	writel(val, drv_data->base + SSP_TOP_CTRL);
-
-This looks like it should be a set_cs() operation?
-
-> +
-> +	list_for_each_entry(transfer, &message->transfers, transfer_list) {
-> +		reinit_completion(completion);
-> +
-> +		/* Issue the next transfer */
-> +		if (!k1_spi_transfer_start(drv_data, transfer)) {
-> +			message->status = -EIO;
-> +			break;
-> +		}
-> +
-> +		k1_spi_transfer_wait(drv_data);
-> +
-> +		k1_spi_transfer_end(drv_data, transfer);
-
-Why not just implement the transfer_one() callback?  This just looks
-like it's duplicating code.
-
-> +static irqreturn_t k1_spi_ssp_isr(int irq, void *dev_id)
-> +{
-
-> +	/* Get status and clear pending interrupts */
-> +	val = readl(drv_data->base + SSP_STATUS);
-> +	writel(val, drv_data->base + SSP_STATUS);
-
-This unconditionally acknowledges all interrupts even if we didn't
-handle anything...
-
---m79HQmrzkmVitIUm
+--cRVUOKC/OyDnbFeQ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkaFagACgkQJNaLcl1U
-h9B8Pgf/Zmjhqwvzz1HwGWIb7Kl/LZ6HBUoyYaZVe4SZCCreL+g9lu2juH2Nzs4r
-mZzkYbZx4Xt+bbnKjx/QNjA2I+3oBNzOjpN4HydZatG/yQN9W7Bx64Xous2fXeU6
-0RH400LlVzR10eCpPAVWUOg9v9zbotGBAN7hgY6pLm+9AOWkJf4HDqaymiY1ZUSZ
-uusOILxXFySQ1/k4itKYVrzybcTEBfOqf3t2I3jAv/q1ADCHnsgI5NDvY1eIi5eX
-4GPg14RiN7PXIyjUWERuVyjA9hvpXLhJQYeMgHa8ads9/t1Av1zkN+b904rMYDKQ
-pn/l2ypyAVEkMGgblGryYghc4WPYtw==
-=fc2P
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRooHAAKCRB4tDGHoIJi
+0gg8AP0bFl/forsWFyM7j0VCxtaiprWS+FBSVkAkEe6urE/eZgEAjsKFyclbZ6NS
+7a6Sk1T0L3FCy8UZIMOgsZfdiKOuvQY=
+=/6Vf
 -----END PGP SIGNATURE-----
 
---m79HQmrzkmVitIUm--
+--cRVUOKC/OyDnbFeQ--
 
 
---===============0479316274599437445==
+--===============5209462837213120899==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -206,5 +145,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0479316274599437445==--
+--===============5209462837213120899==--
 
