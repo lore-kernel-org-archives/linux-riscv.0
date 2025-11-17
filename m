@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C052CEACEF
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 14:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CECDBCEBF61
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 14:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nj6JzIPig1F6GwxpPxbcGj7d6y2C5MgyRQLYax3V8+A=; b=zkjtSq2IsJx1lB
-	VzC9XsbFVt/oU4gpW3z85OUqOHqFJwVxPA/bvfKQn11/MgYuFpRdsoDanScOB1Fue89iANZvUhbSQ
-	JynLtXvyZB9ptiZK2iPmQqivTyCL13h1glbMMbL9eBi0r98Qnmt3QOqKinHirnEFEDrKUwiKMY4Pd
-	2G9iZKQLCEkST07Ban/PgHmLqVs2HaNea/Bi1CedATwqyL3HKpHwxvFDeBkVNz5eO/jDnJxmSCRXh
-	5jiCjZo6ftgyJeIjSN89T7ZP1q3TsWOMnjm1vp/w64rMT0fclbRduBHC2XxkdmP6lCqMW0cWuPd6p
-	7BXjEQOUkUx1tN1dlntQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5q/UE8NKFwRpYH98F7fS5tqaqIvY5cfennN0PDpHg30=; b=U4Y4T4YklBgZ0n
+	ZpmD2IoD7+4eZ7DrlO9Zk5vK/wS9R5LDOr6v7tBmPoGYMETECx/e7XLNZi4b13pax05nphR8Fm0eB
+	31rN8UIpLwMaipUEgBi0b9NGIfy/RGo1hulgztQp/bCNt7vdNAqtn9scT8dx+oTVuj/pneYqMj5dz
+	wt/1fjuQyuAVzac8t8BiBeCIMPp49jYiHIgdnBhgWWcbHG0yo3yRyCrAg/QWQFTzYyIJ6YyQ/s1zd
+	/SKtih4msX9sREzKrsYRNG4iv5pNfGsK/Gs2QB6tvVqN7ETnEtnjwwOx/kWlMtSVqMilvGowshtEx
+	tamOdP8cKjhypTQ+LXJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL06w-0000000GFZw-2Emx;
-	Mon, 17 Nov 2025 14:21:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vL09t-0000000GG2N-0W3T;
+	Mon, 17 Nov 2025 14:24:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL06v-0000000GFZk-0smh
+	id 1vL09s-0000000GG29-0Sx3
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Nov 2025 14:21:41 +0000
+	Mon, 17 Nov 2025 14:24:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A46B160222;
-	Mon, 17 Nov 2025 14:21:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 689EDC4CEFB;
-	Mon, 17 Nov 2025 14:21:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8489460207;
+	Mon, 17 Nov 2025 14:24:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 347AAC116B1;
+	Mon, 17 Nov 2025 14:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763389300;
-	bh=E5fXTu2ulGjFwJu91VzOdzL+58gav1X0Zx4tNynBJCE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Fe2WSCuqOTlP1MOTMRlS8hJ1LNSjzLqDQaSXo6fJNnQsDiTnKtEGqkQw4zTY3r3h1
-	 QPJ34LBLKQ5DATG9u7Lpd5ud7HUa4E+T7vO/v3CoMjGMHWO0J/6zyMs42q41L5JAPR
-	 Znxg/KNpW/f+dKJtYbo9g7cCB1SStcjzvTxrl3GoPA8hMyB4BL1FqV5T9ZYeLr5Yk8
-	 nAfGhLkjIeULhZEdFhs+KGz5VwQ2lHgKUFH2GBKN/qC+hA31d91lA7p0fG+IV5twCW
-	 d2Lozg8aO//XxI/etMFS6ckytkFh4r+j311PVRU/g3FdafYkCpoDPRU3tIb7pB1ArE
-	 VKv+4v2HYw/1w==
+	s=k20201202; t=1763389483;
+	bh=BDKG7XUa8rnXnpXGUzZd9vrLZaSbarLWWRV5Gl7xd0k=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Di+l2jkCHPmhuWmywggLQnHetuBxRMnf14nf7l7MMwEJH7G0QGy0Ce80g0jq9hQog
+	 tIY59KpG0T0mrYhGTmqXeM8PB1TKvOkDIQ/bTrIXw77Nkv6rn3HS7I+UZZ0osSb4PO
+	 IxA/A4MCglkJmKIpv9STMXel1vr87VWCO8veWM1ZhHPnkev5kj84CE2j+EaHO+l+/7
+	 tp/As5Sgqa2C76PCkfHL3RWq1wkGCgyVgJjXQMGNomeIKhP8Ijdcm/bIyAZYag9c+/
+	 yyZJOQOTdRPihh/iMHzeEGRTaAnNQLT8DJixrtqpsrtlIpnjbuBU6JLSIqlGmuVDVY
+	 lJNc8jjWwLcFg==
 From: Conor Dooley <conor@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: conor@kernel.org,
+	Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
 	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
-Subject: [PATCH v1 3/3] soc: microchip: mpfs-sys-controller: add support for pic64gx
-Date: Mon, 17 Nov 2025 14:21:22 +0000
-Message-ID: <20251117-partner-anymore-0fe4b6c47557@spud>
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v1] dt-bindings: cache: sifive,ccache0: add a pic64gx compatible
+Date: Mon, 17 Nov 2025 14:24:37 +0000
+Message-ID: <20251117-colt-carnival-8aab0a900816@spud>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251117-mashing-cursor-6e965a77ce6a@spud>
-References: <20251117-mashing-cursor-6e965a77ce6a@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3690; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=NAXbPWlJ0Ex76wD57WQaysCf0x3fTMwkfqbrXzFauUE=; b=kA0DAAoWeLQxh6CCYtIByyZiAGkbL16j45NncLpOgSyJ7o5yeehEnO8TOZkGZPsz2QPX1l9Kb oh1BAAWCgAdFiEEYduOhBqv/ES4Q4zteLQxh6CCYtIFAmkbL14ACgkQeLQxh6CCYtL2xQEA1AK5 shW6IJISM8RTiB+waAO+OXRdTii3dy7Dux1D/QEBAJw3v03Ddoxxtrq9DywZ+IZ70/Gw5n72FSz M6eUpZoUM
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1336; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=xVC4naZvJqIKQsdgFTu1CkfEm/T81TARj47gE0EvuZw=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnSBqoiD6qv9mknuldP/a5W1aaW8cf68HT7CIdPCeo2K Qdaes06SlkYxLgYZMUUWRJv97VIrf/jssO55y3MHFYmkCEMXJwCMJGanwz/M63zJwp077leVNhy 0DT/0nQX4enO+tMrPq/7rPSWIcSAk5HhTPRf86tJ9ffXX5q11Fd44RWOa0H8p970FWUYv/ypl6b PBwA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,128 +78,39 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 
-pic64gx is not compatible with mpfs because due to the lack of FPGA
-functionality some features are disabled. Notably, anything to do with
-FPGA fabric contents is not supported.
+The pic64gx use the same IP than mpfs, therefore add compatibility with
+mpfs as fallback.
 
 Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/soc/microchip/mpfs-sys-controller.c | 74 +++++++++++++++------
- 1 file changed, 54 insertions(+), 20 deletions(-)
+CC: Conor Dooley <conor@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Paul Walmsley <pjw@kernel.org>
+CC: Samuel Holland <samuel.holland@sifive.com>
+CC: devicetree@vger.kernel.org
+CC: linux-riscv@lists.infradead.org
+CC: linux-kernel@vger.kernel.org
+ Documentation/devicetree/bindings/cache/sifive,ccache0.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
-index 30bc45d17d34..02ab0875c911 100644
---- a/drivers/soc/microchip/mpfs-sys-controller.c
-+++ b/drivers/soc/microchip/mpfs-sys-controller.c
-@@ -36,6 +36,11 @@ struct mpfs_sys_controller {
- 	struct kref consumers;
- };
+diff --git a/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml b/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
+index 579bacb66f34..c0e5ebb1fa4c 100644
+--- a/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
++++ b/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
+@@ -48,6 +48,11 @@ properties:
+           - const: microchip,mpfs-ccache
+           - const: sifive,fu540-c000-ccache
+           - const: cache
++      - items:
++          - const: microchip,pic64gx-ccache
++          - const: microchip,mpfs-ccache
++          - const: sifive,fu540-c000-ccache
++          - const: cache
  
-+struct mpfs_syscon_config {
-+	unsigned int nb_subdevs;
-+	struct platform_device *subdevs;
-+};
-+
- int mpfs_blocking_transaction(struct mpfs_sys_controller *sys_controller, struct mpfs_mss_msg *msg)
- {
- 	unsigned long timeout = msecs_to_jiffies(MPFS_SYS_CTRL_TIMEOUT_MS);
-@@ -110,25 +115,11 @@ struct mtd_info *mpfs_sys_controller_get_flash(struct mpfs_sys_controller *mpfs_
- }
- EXPORT_SYMBOL(mpfs_sys_controller_get_flash);
- 
--static struct platform_device subdevs[] = {
--	{
--		.name		= "mpfs-rng",
--		.id		= -1,
--	},
--	{
--		.name		= "mpfs-generic-service",
--		.id		= -1,
--	},
--	{
--		.name		= "mpfs-auto-update",
--		.id		= -1,
--	},
--};
--
- static int mpfs_sys_controller_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct mpfs_sys_controller *sys_controller;
-+	struct mpfs_syscon_config *of_data;
- 	struct device_node *np;
- 	int i, ret;
- 
-@@ -164,11 +155,17 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, sys_controller);
- 
-+	of_data = (struct mpfs_syscon_config *) device_get_match_data(dev);
-+	if (!of_data) {
-+		dev_err(dev, "Error getting match data\n");
-+		return -EINVAL;
-+	}
- 
--	for (i = 0; i < ARRAY_SIZE(subdevs); i++) {
--		subdevs[i].dev.parent = dev;
--		if (platform_device_register(&subdevs[i]))
--			dev_warn(dev, "Error registering sub device %s\n", subdevs[i].name);
-+	for (i = 0; i < of_data->nb_subdevs; i++) {
-+		of_data->subdevs[i].dev.parent = dev;
-+		if (platform_device_register(&of_data->subdevs[i]))
-+			dev_warn(dev, "Error registering sub device %s\n",
-+				 of_data->subdevs[i].name);
- 	}
- 
- 	dev_info(&pdev->dev, "Registered MPFS system controller\n");
-@@ -183,8 +180,45 @@ static void mpfs_sys_controller_remove(struct platform_device *pdev)
- 	mpfs_sys_controller_put(sys_controller);
- }
- 
-+static struct platform_device mpfs_subdevs[] = {
-+	{
-+		.name		= "mpfs-rng",
-+		.id		= -1,
-+	},
-+	{
-+		.name		= "mpfs-generic-service",
-+		.id		= -1,
-+	},
-+	{
-+		.name		= "mpfs-auto-update",
-+		.id		= -1,
-+	},
-+};
-+
-+static struct platform_device pic64gx_subdevs[] = {
-+	{
-+		.name		= "mpfs-rng",
-+		.id		= -1,
-+	},
-+	{
-+		.name		= "mpfs-generic-service",
-+		.id		= -1,
-+	},
-+};
-+
-+static const struct mpfs_syscon_config mpfs_config = {
-+	.nb_subdevs = ARRAY_SIZE(mpfs_subdevs),
-+	.subdevs = mpfs_subdevs,
-+};
-+
-+static const struct mpfs_syscon_config pic64gx_config = {
-+	.nb_subdevs = ARRAY_SIZE(pic64gx_subdevs),
-+	.subdevs = pic64gx_subdevs,
-+};
-+
- static const struct of_device_id mpfs_sys_controller_of_match[] = {
--	{.compatible = "microchip,mpfs-sys-controller", },
-+	{.compatible = "microchip,mpfs-sys-controller", .data = &mpfs_config},
-+	{.compatible = "microchip,pic64gx-sys-controller", .data = &pic64gx_config},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mpfs_sys_controller_of_match);
+   cache-block-size:
+     const: 64
 -- 
 2.51.0
 
