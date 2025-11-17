@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79860CE8D6B
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 18:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A19CCE8D6B
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 19:04:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BWd3EdFUa8dB7ur/iZDNlunk294jNDpYRkttHiMtLCU=; b=YUannQvBfZn51yxHyU9FXvnutT
-	/JKM9Wmj7mV+lRDQN9vBihYRC+KlvA6rqrVHWK0t5wsrsy/XVH4PRJ3WlClVwK34lo4+B2LcQKBrW
-	88nRQk1bbiSl7r0OL2aLvLfPmFGo/UhZTx4LM3rSrk8/up5fNTkaXZTbMhKB0hksX4jeGz7w5HzYO
-	9tEW4Qwau8XYmPbvYVXNSWoYM1ANSBokd1v6/1Pba8FIDstq5kkj9azbHWVBnG5YiG7JGUFGe8OLA
-	v+GvPQMEB4KCwIjur6GYmolu4jhoJShybqxwGs79DnpoVrYj6r3NSKI6pQ2HW4GZoPppZzr/VjqMG
-	rZP0RRnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1rId1JnS8gwSWsUqp0xoemT7wSMfrTRtTkza+turf4M=; b=MtJA6xM5Qz5Vyu
+	6FM6ee3WZvkJObBtV6OSa6sWGVdLUOa3qOqErwxiP3Jucb5tnXgsUtnJexJz1VfDhRimxYNlAI7hI
+	6zQWkkHHTZjRkWRykTJR1vzJD1jkk0ikfMJJ3OrC/X0+im2tkylfyrBokeOA5oTSTpEui9LW9m+/I
+	7tGC1ujHzLRiK1aInBVSS+TLgXLqqsIA7pbpQD/kz/8f4Uyuu5pC/lNM9+k+VN9E7xQAQ1X+P1mw6
+	/ui8nAUSSRuVp0D8Qha5qwde9jSP5jAC2Qm+nJEy7IrgqtcBYY5SaN5wvvx2eaHCXft4OgWdB71uS
+	/6lO0rlIE9tzI2kJdeWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL4Au-0000000Gcxr-3u0Y;
-	Mon, 17 Nov 2025 18:42:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vL4WE-0000000Gh71-0GtJ;
+	Mon, 17 Nov 2025 19:04:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL4At-0000000Gcxj-1pUm
+	id 1vL4WA-0000000Gh6A-145Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Nov 2025 18:42:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 860F0601F1;
-	Mon, 17 Nov 2025 18:42:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89E5EC4CEF5;
-	Mon, 17 Nov 2025 18:41:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763404921;
-	bh=JZPvJG4H9TtURVS4KR4gxr5gf352lFKsvwgszLWc4oU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ijsTdrG2Ikg8KgFdoRtI7ulj6jVyS1KWCGCJgvBa1yf7t6CRz6FojOhQF0A6JuAPZ
-	 /mUhZNBrN4zla8f5jiM/SlJW2zNVZ4rJI4a866fH3kMqRDoX3622ehfhSyMop4LlzN
-	 q0fgLl/jeWED9IGi55wLJBFUfRRGssqloNdKiPL8TPoCwrfamcK2TdfBqfIOzM9K4m
-	 ZjFEGxVrp0cs+bIjOizIGnE8Cy1dxumxqPoi2KWO0yi9UBa5QS7qeYJJuJGRyBIKgJ
-	 j+uGT+fWugqhNwQIkOuPboYKpTSuu0IrS/h70FB1tRg+OKZVAwya6Bg/0niW6groHK
-	 K5Dx1yubgO1hg==
-Date: Mon, 17 Nov 2025 18:41:56 +0000
-From: Conor Dooley <conor@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, devicetree@vger.kernel.org,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-can@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>
-Subject: Re: [net-next v1] dt-bindings: can: mpfs: document resets
-Message-ID: <20251117-edgy-extenuate-6850a9440802@spud>
-References: <20251117-twitter-sternness-f2b3a1506a6f@spud>
- <176340406423.422791.14985477842686606616.robh@kernel.org>
- <20251117-example-spoiled-6b098fb9fdcc@spud>
+	Mon, 17 Nov 2025 19:04:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1763406238;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=VKt60h4e/D77yoMk24RHMBXqjTCJQtx23LHDLJefZVQ=;
+	b=FkZ6dIJKHRAOapgZo/x1q6MDutxYAfMcdTeD99oer7Gg1Eg7SNs2sUaLVxXgq1vPgPj8if
+	sNIyrHX5f0saefU46h4h4Hxmagei3n2W63UkQ6IDogA6JfdP/LBdPtwZbU3LJ+/JgzPWPW
+	f+/ao8R49nmXXJXK5Wb5LIJvpAudOCk=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-364-hV9jXuTwNdaMZzfCYRdSmA-1; Mon,
+ 17 Nov 2025 14:03:52 -0500
+X-MC-Unique: hV9jXuTwNdaMZzfCYRdSmA-1
+X-Mimecast-MFC-AGG-ID: hV9jXuTwNdaMZzfCYRdSmA_1763406231
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7274918AB425;
+	Mon, 17 Nov 2025 19:03:49 +0000 (UTC)
+Received: from cmirabil.redhat.com (unknown [10.22.65.154])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DB31D1800451;
+	Mon, 17 Nov 2025 19:03:44 +0000 (UTC)
+From: Charles Mirabile <cmirabil@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	dlan@gentoo.org,
+	heylenay@4d2.org,
+	elder@riscstar.com,
+	troy.mitchell@linux.spacemit.com,
+	inochiama@outlook.com,
+	Charles Mirabile <cmirabil@redhat.com>,
+	Yanko Kaneti <yaneti@declera.com>
+Subject: [PATCH] clk: spacemit: fix UBSAN warning during probe
+Date: Mon, 17 Nov 2025 14:03:29 -0500
+Message-ID: <20251117190329.1337250-1-cmirabil@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <20251117-example-spoiled-6b098fb9fdcc@spud>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251117_110402_385772_33BDDFA5 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,110 +85,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7308062725157530235=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+When booting with KASAN enabled the following splat is encountered during
+probe of the k1 clock driver:
 
---===============7308062725157530235==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="9jacpcMD8tGHOEF2"
-Content-Disposition: inline
+UBSAN: array-index-out-of-bounds in drivers/clk/spacemit/ccu-k1.c:1044:16
+index 0 is out of range for type 'clk_hw *[*]'
+CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc5+ #1 PREEMPT(lazy)
+Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2022.10spacemit 10/01/2022
+Call Trace:
+[<ffffffff8002b628>] dump_backtrace+0x28/0x38
+[<ffffffff800027d2>] show_stack+0x3a/0x50
+[<ffffffff800220c2>] dump_stack_lvl+0x5a/0x80
+[<ffffffff80022100>] dump_stack+0x18/0x20
+[<ffffffff800164b8>] ubsan_epilogue+0x10/0x48
+[<ffffffff8099034e>] __ubsan_handle_out_of_bounds+0xa6/0xa8
+[<ffffffff80acbfa6>] k1_ccu_probe+0x37e/0x420
+[<ffffffff80b79e6e>] platform_probe+0x56/0x98
+[<ffffffff80b76a7e>] really_probe+0x9e/0x350
+[<ffffffff80b76db0>] __driver_probe_device+0x80/0x138
+[<ffffffff80b76f52>] driver_probe_device+0x3a/0xd0
+[<ffffffff80b771c4>] __driver_attach+0xac/0x1b8
+[<ffffffff80b742fc>] bus_for_each_dev+0x6c/0xc8
+[<ffffffff80b76296>] driver_attach+0x26/0x38
+[<ffffffff80b759ae>] bus_add_driver+0x13e/0x268
+[<ffffffff80b7836a>] driver_register+0x52/0x100
+[<ffffffff80b79a78>] __platform_driver_register+0x28/0x38
+[<ffffffff814585da>] k1_ccu_driver_init+0x22/0x38
+[<ffffffff80023a8a>] do_one_initcall+0x62/0x2a0
+[<ffffffff81401c60>] do_initcalls+0x170/0x1a8
+[<ffffffff81401e7a>] kernel_init_freeable+0x16a/0x1e0
+[<ffffffff811f7534>] kernel_init+0x2c/0x180
+[<ffffffff80025f56>] ret_from_fork_kernel+0x16/0x1d8
+[<ffffffff81205336>] ret_from_fork_kernel_asm+0x16/0x18
+---[ end trace ]---
 
-
---9jacpcMD8tGHOEF2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Nov 17, 2025 at 06:29:55PM +0000, Conor Dooley wrote:
-> On Mon, Nov 17, 2025 at 12:27:44PM -0600, Rob Herring (Arm) wrote:
-> >=20
-> > On Mon, 17 Nov 2025 16:38:18 +0000, Conor Dooley wrote:
-> > > From: Conor Dooley <conor.dooley@microchip.com>
-> > >=20
-> > > The CAN cores on Polarfire SoC both have a reset. The platform firmwa=
-re
-> > > brings both cores out of reset, but the linux driver must use them
-> > > during normal operation. The resets should have been made required, b=
-ut
-> > > this is one of the things that can happen when the binding is written
-> > > without driver support.
-> > >=20
-> > > Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN c=
-ontroller")
-> > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > > ---
-> > > This is the second mistake in this binding, both spotted because of t=
-he
-> > > driver being written (although this one sat downstream for a while for
-> > > w/e reason). I wish I could say that I'd send the driver soon, but I =
-am
-> > > busy upstreaming things I wrote and therefore understand at the momen=
-t,
-> > > so a driver that I'd have to go understand and review before sending =
-is
-> > > low priority, sorry!
-> > >=20
-> > > CC: Conor Dooley <conor.dooley@microchip.com>
-> > > CC: Daire McNamara <daire.mcnamara@microchip.com>
-> > > CC: Marc Kleine-Budde <mkl@pengutronix.de>
-> > > CC: Vincent Mailhol <mailhol@kernel.org>
-> > > CC: Rob Herring <robh@kernel.org>
-> > > CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> > > CC: linux-riscv@lists.infradead.org
-> > > CC: linux-can@vger.kernel.org
-> > > CC: devicetree@vger.kernel.org
-> > > CC: linux-kernel@vger.kernel.org
-> > > ---
-> > >  .../devicetree/bindings/net/can/microchip,mpfs-can.yaml       | 4 ++=
-++
-> > >  1 file changed, 4 insertions(+)
-> > >=20
-> >=20
-> > My bot found errors running 'make dt_binding_check' on your patch:
-> >=20
-> > yamllint warnings/errors:
-> >=20
-> > dtschema/dtc warnings/errors:
-> > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings=
-/net/can/microchip,mpfs-can.example.dtb: can@2010c000 (microchip,mpfs-can):=
- 'resets' is a required property
-> > 	from schema $id: http://devicetree.org/schemas/net/can/microchip,mpfs-=
-can.yaml
->=20
-> Two issues in the same branch now, there's something weird going on with
-> my test script. /sigh guess that's my evening gone.
-
-I can spend my evening playing poe after all, I am pretty sure this was
-caused by running my test script and then immediately switching windows
-back and doing a rebase... I'll send a v2 tomorrow or w/e.
-pw-bot: changes-requested
-
---9jacpcMD8tGHOEF2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRtsdAAKCRB4tDGHoIJi
-0l5hAQCJe0ZHxyl8cOcnZUgbfN4pt45YDPzZtSMoGnQ2vaE2hAD6AuUA/GHPm7hf
-J04T840JoYUU8iCQaeqglW7vXrmShAs=
-=e8ps
------END PGP SIGNATURE-----
-
---9jacpcMD8tGHOEF2--
+This is bogus and is simply a result of KASAN consulting the `.num` member
+of the struct for bounds information (as it should due to `__counted_by`)
+and finding 0 set by kzalloc because it has not been initialized before
+the loop that fills in the array. The easy fix is to just move the line
+that sets `num` to before the loop that fills the array so that KASAN has
+the information it needs to accurately conclude that the access is valid.
 
 
---===============7308062725157530235==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
+Tested-by: Yanko Kaneti <yaneti@declera.com>
+
+Signed-off-by: Charles Mirabile <cmirabil@redhat.com>
+---
+ drivers/clk/spacemit/ccu-k1.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+index f5a9fe6ba1859..4761bc1e3b6e6 100644
+--- a/drivers/clk/spacemit/ccu-k1.c
++++ b/drivers/clk/spacemit/ccu-k1.c
+@@ -1018,6 +1018,8 @@ static int spacemit_ccu_register(struct device *dev,
+ 	if (!clk_data)
+ 		return -ENOMEM;
+ 
++	clk_data->num = data->num;
++
+ 	for (i = 0; i < data->num; i++) {
+ 		struct clk_hw *hw = data->hws[i];
+ 		struct ccu_common *common;
+@@ -1044,8 +1046,6 @@ static int spacemit_ccu_register(struct device *dev,
+ 		clk_data->hws[i] = hw;
+ 	}
+ 
+-	clk_data->num = data->num;
+-
+ 	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
+ 	if (ret)
+ 		dev_err(dev, "failed to add clock hardware provider (%d)\n", ret);
+
+base-commit: 6a23ae0a96a600d1d12557add110e0bb6e32730c
+-- 
+2.51.1
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7308062725157530235==--
-
