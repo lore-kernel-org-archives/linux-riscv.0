@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C68CEACEF
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 16:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B8ECEACEF
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 16:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=M6lywQTZ78rBUSgvl/we7bvQrtfJPtNHorua7lmJSfI=; b=YKpD5rPMgwLHpL
-	9NwfVXoghXbuk5IurwEnU+8GOfCOUNoEU/QYKKTfI6TM82FJjZycZhB8vEDmvIVsWsZv1jBZ3VD7B
-	V54v5NBasJslYZxMinYVN7tfny7b8nZOQDQHLRsWf1XSFj79To+hf0abfCv1G6rw3IMoBkLa+48Ce
-	Tq/E8tkq8OulNGsD4hriUmHciFRaXY5Zj1xzAKMF8tOhO/MHq0ZnR9K07sjdea5vjawIi6sE79Cxk
-	JlHgC7cwEgFdrhVvARrG3izizS0c331lmFfzfQcWSbAoXzswkJfPbPpeMWZ8FPX0+KhIqDAiZkH1f
-	F/6hjOpbPse96pgjWK7A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rGPvj90KHoNruBBicFWyXN2nLcMWX/FBkPPyexN1v1E=; b=UXGgxWa5vujqxK
+	vqqEnD3Dch95Nk6+LwdCNn8c0P7jWIblVDLvVh8iPDJ7jxMIK2OfYBJPEBnHQXhqT1vb3lV1iwuj8
+	RIxlEWS3xUbUtDo6851WBnTQ47sGRYrx/yeiNS714O/mtbPLrBGu/N3thkj32GTqzb2R8shudhpYU
+	+eP7pD/eyJrzayKby9L0FVRNxDsrJ92MNJCHt1A3JqB4b/LJFvsD/PdBhJqBAD+T/ZwlOh5BMkJ3V
+	9tYUt6cmZbTdzmf08TiboKUjYyZ+Hpza+YAJsgiGrI5TI7A6ufSInu7ka2U3BDaAtEyWtmHRKfeNv
+	aGumJwsp+C0NkGQWxNkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2Tu-0000000GQlO-1ikf;
-	Mon, 17 Nov 2025 16:53:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vL2Tz-0000000GQmE-2zpq;
+	Mon, 17 Nov 2025 16:53:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2Tt-0000000GQlD-0Ouw
+	id 1vL2Ty-0000000GQlx-06ep
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Nov 2025 16:53:33 +0000
+	Mon, 17 Nov 2025 16:53:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 422946022A;
-	Mon, 17 Nov 2025 16:53:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34ECFC19421;
-	Mon, 17 Nov 2025 16:53:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2E88660051;
+	Mon, 17 Nov 2025 16:53:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14A06C116B1;
+	Mon, 17 Nov 2025 16:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763398411;
-	bh=jirAepMGk643XDOW71/E/gpSvFkccHqAf75JsWUDiac=;
-	h=From:To:Cc:Subject:Date:From;
-	b=CFfOQCL0ZDcspG5JmJEPOLVtzFV1InfM+3qpaLc7ctTfsqsL+32Y0gQaip6AUruGu
-	 rwsMlciHbWX8oVdn/N5ceXKpT1q5HaatAHyS5AtLk35yIcujVuPs5Apm9a4sUZI5hR
-	 sdzqUMl6ILpZzz6BOWqPq+cTpQm5m7h+ZGzHIgs61ZBBTxwF5QvKu+Xe1nm+qit6A+
-	 c1pXsiqJ3YFRLJ8qYQ0eRdGxPd5cVU0HNzvl+2BubvtjFHZumf5hiPGvHRVuipBts2
-	 F4Z519Xa4mwpDjwMqFab0E/TWFOpDaDXHeB0xAJz7cUR1sQVCII3ICc0M17nsePPS9
-	 TX1TJksIu5PSA==
+	s=k20201202; t=1763398416;
+	bh=VfwwYyZqWowOItggqYS9MBc9xN4rjuwUcGHHtUNGlOw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qMR3NkwzgSb9fU3mW152kvulZSjapOke7BJ0tzKOHx8ZiIc/yMcin8wnjfkVizUbs
+	 cdiEHsm9p3K18D9h4BLEpgI0KvvEQYJoeRDh2vfqWhtVtHwnjxtjm9vIHOkS/a+YqB
+	 ZcoazKMhp2eYqGrahM4I4vbKQEOE5wBdxDSqsBVCnCkfi1aAtkErbbGfv4Cvv/Fxal
+	 19PMVR8P+D9Xy6FB0zydlXoend/WOC2loR6KEEG5guvgk8XRWVEZ2xY8ICz4ZMlN8B
+	 fIOrfH+S2YU16oo/Sl8lF7EIKbA0l1fUL3aYjD/sxWSUrL7tonbDMqoZELcu0+zfvV
+	 6oN+h2373fMrA==
 From: Conor Dooley <conor@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: conor@kernel.org,
@@ -50,13 +50,16 @@ Cc: conor@kernel.org,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v3 0/3] Add support for Microchip PIC64GX Curiosity Kit
-Date: Mon, 17 Nov 2025 16:53:21 +0000
-Message-ID: <20251117-paprika-tipping-e7bb3e211d6f@spud>
+	devicetree@vger.kernel.org,
+	Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
+Subject: [PATCH v3 1/3] dt-bindings: riscv: microchip: document the PIC64GX curiosity kit
+Date: Mon, 17 Nov 2025 16:53:22 +0000
+Message-ID: <20251117-gliding-sixties-6d06ed7412d7@spud>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251117-paprika-tipping-e7bb3e211d6f@spud>
+References: <20251117-paprika-tipping-e7bb3e211d6f@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1789; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=pwCT9CaX9KdSL1R9EJYAgsxDoGAzi1p14elOWIrNg0E=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnSQf83aKnZGr7cMfesi7CDwPT2PbmGi2ou3N8z6z/vz 3XHvxw53VHKwiDGxSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJvDvHyND4hIWveYLtH8s3 Xksdtp9+cpo5e8vTg4Gx+50YzYN7i1cyMlyxUIhP5Ntrsqzuy2Px7lK3eyu4t0reUS/9zv5Y6OZ Bd1YA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1482; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=ZSsBrvk2J+QWcy8FOSQPmxvkpcXnkkWM7WXrz+b5m0g=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnSQf9djzQc2TRD+64R34QJrzqNbE6sap/89k7v7B+71 ReK3oh+0VHKwiDGxSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJiIQzMuwQEn2aW7lgu+nR jtzlz7LNVqgebNvzd6pqrPwGsY7Le9cwMjyeqMtS3v1pZs7vCWX/GqxUdnvbX6n5POfFiV6jmzv z/rICAA==
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,44 +77,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 
-v3 of Pierre-Henry's stuff from over a year ago:
-https://lore.kernel.org/all/20240930095449.1813195-1-pierre-henry.moussay@microchip.com/
-In it he said "This will be fix in a V3 coming in due time", and I guess
-that due time was ~14 months.
+Update devicetree bindings document with PIC64GX Curiosity Kit, known
+by its "Curiosity-GX1000" product code.
 
-I've cut out all the binding patches, to hopefully make their
-application process more obvious to subsystem maintainers.
-The only real difference in these patches is that I went off and implemented
-the clock rework that I was asked for on v3, because it ended up being a
-requirement for hwmon and pinctrl work on the platform, as well as
-blocking this series (although it was obviously not a technical problem
-with the v2 of this series).
+Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/riscv/microchip.yaml | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-CC: Conor Dooley <conor.dooley@microchip.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: Rob Herring <robh@kernel.org>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: linux-riscv@lists.infradead.org
-CC: devicetree@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
-
-Pierre-Henry Moussay (3):
-  dt-bindings: riscv: microchip: document the PIC64GX curiosity kit
-  riscv: dts: microchip: add pic64gx and its curiosity kit
-  riscv: dts: microchip: remove POLARFIRE mention in Makefile
-
- .../devicetree/bindings/riscv/microchip.yaml  |   7 +-
- arch/riscv/boot/dts/microchip/Makefile        |  17 +-
- .../dts/microchip/pic64gx-curiosity-kit.dts   | 165 +++++
- .../boot/dts/microchip/pic64gx-pinctrl.dtsi   | 178 +++++
- arch/riscv/boot/dts/microchip/pic64gx.dtsi    | 630 ++++++++++++++++++
- 5 files changed, 987 insertions(+), 10 deletions(-)
- create mode 100644 arch/riscv/boot/dts/microchip/pic64gx-curiosity-kit.dts
- create mode 100644 arch/riscv/boot/dts/microchip/pic64gx-pinctrl.dtsi
- create mode 100644 arch/riscv/boot/dts/microchip/pic64gx.dtsi
-
+diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
+index 381d6eb6672e..137a6f413430 100644
+--- a/Documentation/devicetree/bindings/riscv/microchip.yaml
++++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
+@@ -4,14 +4,14 @@
+ $id: http://devicetree.org/schemas/riscv/microchip.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: Microchip PolarFire SoC-based boards
++title: Microchip SoC-based boards
+ 
+ maintainers:
+   - Conor Dooley <conor.dooley@microchip.com>
+   - Daire McNamara <daire.mcnamara@microchip.com>
+ 
+ description:
+-  Microchip PolarFire SoC-based boards
++  Microchip SoC-based boards
+ 
+ properties:
+   $nodename:
+@@ -46,6 +46,9 @@ properties:
+               - microchip,mpfs-sev-kit
+               - sundance,polarberry
+           - const: microchip,mpfs
++      - items:
++          - const: microchip,pic64gx-curiosity-kit
++          - const: microchip,pic64gx
+ 
+ additionalProperties: true
+ 
 -- 
 2.51.0
 
