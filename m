@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2AFBCEACEF
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 17:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEC3CEACEF
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 18:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxjZq6Z/nz8mdOABiAK2NwU38/42J+fZe6kR8DEa7IQ=; b=aRiVogi8sgDw2k52sDj7qEAy9Q
-	Z64UxRXyjCC11SuZuH2wzXLvS1rReNEqxAHPrgkuVw6aA01vjE549BhcEq27KmVpdDjAsJelR483g
-	H4D60be8bxWkLAR/MM9RhU9EPmz+S2O1yA/AVl/b7BjkhYx4zU/3wMX6SoAsKHDuOQPHvzBCiw/7P
-	t1USQne7SLfEiruzXPPRTfUvoWK2a0u4MbmlNc0aNQlStw/rd8JG+z6cjCQVwknqxU6UeBLX4rbtz
-	bXLQ9mcRyW+pzQyjWe929jw+GNn9ENEs+Bu6U25dW/DxxGB75gDlXnoFKH9i7iTD7OslIVaPgqAtF
-	8mjtGeTQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=A0iq6BRVimoUSrv/z0Gmg83bcDkhRt0iYT3SvKKmaZk=; b=Gbwy1bVlUqKz+PljUx+EjOYHat
+	oV/FqOvKlDLT2ZMMrLV2PzwhAf9Ph9O767ZnQFJyKSxLyAHdi3fVi5q4LnLU3w4FK5bNKLIn6NdX5
+	OfduYvd8Z+m1BXVnjSO1+dgCMlrpqkIQ2xrq2MeJcR1hPwQj1r9d3cXPMkA12ajZjfeHeDE3peC3h
+	gRzCrBfQF7S9UUtwC81FWvTOiCls1zJoQgLtWLdt3hSgB5rcoXx5f/5MY3dM2hzvZwu4fQWko5I3A
+	SWnGaTkVh+uiWKAJXmOp7mUAmuYGqukC2IQ7wv+fjhB9iFUnN8AQzhxt4Ra3fZlb/+gS5QqoUa4b3
+	sjg4AyxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL3L9-0000000GZCl-0y73;
-	Mon, 17 Nov 2025 17:48:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vL3x8-0000000GcF6-2R5U;
+	Mon, 17 Nov 2025 18:27:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL3L7-0000000GZCb-3U59
+	id 1vL3x5-0000000GcEj-3oG2
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Nov 2025 17:48:33 +0000
+	Mon, 17 Nov 2025 18:27:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 110B4601EA;
-	Mon, 17 Nov 2025 17:48:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 011EBC2BCAF;
-	Mon, 17 Nov 2025 17:48:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 407A4438A0;
+	Mon, 17 Nov 2025 18:27:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31F8BC2BCB1;
+	Mon, 17 Nov 2025 18:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763401711;
-	bh=qOLIQvSf0KW1L5d/BIjS9SrU30FqUG7gOG9CG6UKSJo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iJ0RXhN3PP8KuFQ/dvOP+mWwywxNTIQwSQ5XsQqJiQB4ANmQ/xrDIR2dD5uU2aFNx
-	 KyDSYqRtfg3OlTuJQwVie3zQ2ccxHLYNFuH0LLpP+0q62zK8fniI+vIaiOULCJmxIk
-	 GiIHED6eZJlbekYvPQLXPn52J9YXfs+DsKApnvZ5QzIL0iqSjHA4yIb5FMkvKm6Yil
-	 dYyp+LtUKVYWbvb3pKdAP/STf0RzIHlJQp2SGjHeNIADm74w27tWGvYR0EAVKSwWA8
-	 vhQiH8UMWE0KU+75au+ajYkhHonQN8t6yRPmMLKdDiO+RIgiHRYyhknU6iOwfwzlhl
-	 Wl7O8Pjgnn6VA==
-Date: Mon, 17 Nov 2025 17:48:26 +0000
-From: Conor Dooley <conor@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Daire McNamara <daire.mcnamara@microchip.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	linux-clk@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 3/3] dt-bindings: clock: mpfs-clkcfg: Add pic64gx
- compatibility
-Message-ID: <20251117-scrabble-making-17ae91d03a27@spud>
-References: <20251117-shadow-police-56aba5d855a3@spud>
- <20251117-depth-sage-ee0829c71c25@spud>
- <176340135320.214025.1792944827677577860.robh@kernel.org>
+	s=k20201202; t=1763404067;
+	bh=KgWGDtm7Lix+RRL3J6skSv7OaO3bi5ZBiY3XQ0yIU/s=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=t4JNfmpCwKuVCmYdu9cVztWn9iyvXZS9loTn2vM3pB1nQgTmPISqZGejupmoyD+cO
+	 MrVmKcRm/aarV0ejHW5T3vhKw65MvtdIEyDYCaJi/Or9xAVFkyiRTraUQvckhDVwVS
+	 Nn1xCcXwAY4Z3p207Eo0p7XwkvotHG9vu3f5gHg+Kf3ha5sqqjqr8Kc6CYI5AcYWNK
+	 JnV+LyZg85LiDnxpmMX8CT/zM0iaWzCuBaA3tfmWxfHWEgDdn6pIn+GWdzNQn6CXpy
+	 x+JyeoTqqP35At36EHG4mwplB3ULvKFNCJOS3loNb3V4wFElgWZ7YbclJgwCH5n0FW
+	 uKSTFmjPE7Neg==
+Date: Mon, 17 Nov 2025 12:27:44 -0600
 MIME-Version: 1.0
-In-Reply-To: <176340135320.214025.1792944827677577860.robh@kernel.org>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, devicetree@vger.kernel.org, 
+ Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol@kernel.org>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-can@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Daire McNamara <daire.mcnamara@microchip.com>
+To: Conor Dooley <conor@kernel.org>
+In-Reply-To: <20251117-twitter-sternness-f2b3a1506a6f@spud>
+References: <20251117-twitter-sternness-f2b3a1506a6f@spud>
+Message-Id: <176340406423.422791.14985477842686606616.robh@kernel.org>
+Subject: Re: [net-next v1] dt-bindings: can: mpfs: document resets
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251117_102747_987952_65590CFF 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,100 +71,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1458628932080223494=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1458628932080223494==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VHxIiW/r9SCVpufo"
-Content-Disposition: inline
+On Mon, 17 Nov 2025 16:38:18 +0000, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> The CAN cores on Polarfire SoC both have a reset. The platform firmware
+> brings both cores out of reset, but the linux driver must use them
+> during normal operation. The resets should have been made required, but
+> this is one of the things that can happen when the binding is written
+> without driver support.
+> 
+> Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN controller")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> This is the second mistake in this binding, both spotted because of the
+> driver being written (although this one sat downstream for a while for
+> w/e reason). I wish I could say that I'd send the driver soon, but I am
+> busy upstreaming things I wrote and therefore understand at the moment,
+> so a driver that I'd have to go understand and review before sending is
+> low priority, sorry!
+> 
+> CC: Conor Dooley <conor.dooley@microchip.com>
+> CC: Daire McNamara <daire.mcnamara@microchip.com>
+> CC: Marc Kleine-Budde <mkl@pengutronix.de>
+> CC: Vincent Mailhol <mailhol@kernel.org>
+> CC: Rob Herring <robh@kernel.org>
+> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-can@vger.kernel.org
+> CC: devicetree@vger.kernel.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  .../devicetree/bindings/net/can/microchip,mpfs-can.yaml       | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
 
+My bot found errors running 'make dt_binding_check' on your patch:
 
---VHxIiW/r9SCVpufo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+yamllint warnings/errors:
 
-On Mon, Nov 17, 2025 at 11:42:33AM -0600, Rob Herring (Arm) wrote:
->=20
-> On Mon, 17 Nov 2025 15:35:20 +0000, Conor Dooley wrote:
-> > From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
-> >=20
-> > pic64gx has a clock controller compatible with mpfs-clkcfg. Don't permit
-> > the deprecated configuration that was never supported for this SoC.
-> >=20
-> > Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
-> > Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  .../bindings/clock/microchip,mpfs-clkcfg.yaml     | 15 ++++++++++++++-
-> >  1 file changed, 14 insertions(+), 1 deletion(-)
-> >=20
->=20
-> My bot found errors running 'make dt_binding_check' on your patch:
->=20
-> yamllint warnings/errors:
->=20
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/c=
-lock/microchip,mpfs-clkcfg.yaml: then: 'anyOf' conditional failed, one must=
- be fixed:
-> 	'reg' is not one of ['$ref', 'additionalItems', 'additionalProperties', =
-'allOf', 'anyOf', 'const', 'contains', 'default', 'dependencies', 'dependen=
-tRequired', 'dependentSchemas', 'deprecated', 'description', 'else', 'enum'=
-, 'exclusiveMaximum', 'exclusiveMinimum', 'items', 'if', 'minItems', 'minim=
-um', 'maxItems', 'maximum', 'multipleOf', 'not', 'oneOf', 'pattern', 'patte=
-rnProperties', 'properties', 'required', 'then', 'typeSize', 'unevaluatedPr=
-operties', 'uniqueItems']
-> 	'type' was expected
-> 	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.example.dtb: can@2010c000 (microchip,mpfs-can): 'resets' is a required property
+	from schema $id: http://devicetree.org/schemas/net/can/microchip,mpfs-can.yaml
 
-Huh. I think the bot is right here, it's this hunk:
-@@ -69,6 +73,15 @@ required:
-   - clocks
-   - '#clock-cells'
+doc reference errors (make refcheckdocs):
 
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: microchip,pic64gx-clkcfg
-+then:
-+  reg:
-+    maxItems: 1
-+
- additionalProperties: false
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251117-twitter-sternness-f2b3a1506a6f@spud
 
- examples:
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-But I need to go figure out why I did not see this.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
---VHxIiW/r9SCVpufo
-Content-Type: application/pgp-signature; name="signature.asc"
+pip3 install dtschema --upgrade
 
------BEGIN PGP SIGNATURE-----
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRtf6gAKCRB4tDGHoIJi
-0pTEAQC3oXitlB1I7swxgbQi91gcja4Mrydyc5KJc11uQ0OdHwEA68dT8h3Ts6/i
-nHJhuhcEAbukG/MZDlIU27YwEW9BlQY=
-=TBXI
------END PGP SIGNATURE-----
-
---VHxIiW/r9SCVpufo--
-
-
---===============1458628932080223494==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1458628932080223494==--
-
