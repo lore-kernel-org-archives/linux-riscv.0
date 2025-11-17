@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D95DCEBF61
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FB6CEACEF
 	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 14:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UWwbDyibiYNB599D7iCMiNkoPTwYAUzWOzZdXrjnLnw=; b=P6QySYprzZjW4K
-	iaDNJDYNDYYPkrg6iBz49DjfUYQbeLIa+o/iQdne+GyHYSKff8yElzjBPvSXwFOE9dOS4nKZdrzHM
-	LGfljGFuX8MHDNuhao3006ObQi+N2E1+GbQ8l8zBVMba3R0d8lyg+K3TmlXsDBHE131Wbc5Evdboy
-	NbKB5WP/e/pGHof98kTHv5E+xKJu/idD/M9dU6+hG2q3M1tT9WjlfICne5w1q3TweF8vezbAI6dA0
-	fAcA/8MJHkVLT1+oNyWj/j/JrNSTlrJz8aVyasP6uAGNoQpxI9LmW+43yFT+tfMkdAouuOe2SIgNW
-	bcMJ3oMAXbJ8wOPT7LDA==;
+	List-Owner; bh=tB1Euc8QGOSuHJozZ9XPGEhrae1SGWRb1IdHJaMccLQ=; b=ChWJuhJ3ct2dF3
+	/eh+y38ot12Kh3lR+IFWncWktvGWaBY2kZDVIiFPP5UMq+mjlflyI0Jr0rBeIyUtBPnTmxYAMgD1f
+	tMz7hezspzmTdTRXIpwhRYsWn/ovzXbWo9DemXWtraxI33+3ClaNA+0PBJOqovroGl9Y/Gpw8Evjo
+	/jgmy5041BZpvKGoQV0poN9QFyN7Qsfgy/JaiMa3MeUjTu0ESh9AOb23VI3Ae3dTZckWS/Yb0xlFW
+	AHEv7t+yzV79kCVm9Thk76zP4PD+4Noo6tuaIxSzJzPJebsmiMSpm4FBBwqV2z7KBhKZcdHLxCbRK
+	UDDWtrIqe/sVTdeD7+MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL06r-0000000GFYV-3v7u;
-	Mon, 17 Nov 2025 14:21:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vL06u-0000000GFZN-11tD;
+	Mon, 17 Nov 2025 14:21:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL06q-0000000GFYO-1l35
+	id 1vL06t-0000000GFYn-0tI8
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Nov 2025 14:21:36 +0000
+	Mon, 17 Nov 2025 14:21:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D744960207;
+	by tor.source.kernel.org (Postfix) with ESMTP id 4A64F6020F;
+	Mon, 17 Nov 2025 14:21:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 065FAC4AF09;
 	Mon, 17 Nov 2025 14:21:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8D5FC4CEF1;
-	Mon, 17 Nov 2025 14:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763389295;
-	bh=VMkhzVdFF718xxI3R8myeRKPldhaPCNukn2Dr7NViNk=;
+	s=k20201202; t=1763389298;
+	bh=4Mi+LgMXubEexFptn3rownVulQBg1tOQnyFmAt9y8i0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Mj79QdGcCMslu9I0Lj53jxL8YNXYsTHzsbexR+87t9n4CoRE1NqjvYXIaKKfhrA6Q
-	 mLr6oPtrV+PELHftah0sUEaq8QC8fwwqSiLtXX492jp/kTjkabwMEjDZwNAvuhtVgI
-	 An11iV1m/4FqyCdkw86872P8gpxFCU6VCLjJ4jhiHlHWO3QYKFEmDPWN+fL33swTAo
-	 D9+EL91KIzHBoDTfaqMKU3E2DL8uwqkAuy8C4ajhDsOhcHkrwILm+q+ykL26sZXxKJ
-	 KZOUR93TrFe50u7k7fGweKzyXNuOcVrRw5mcyp4LvW5t73cEYZYLR4bDTu9hxL6mwQ
-	 AG8JQO1ElMZXg==
+	b=IkAaribyinSaMIZyProghQx0volGag6ODmeAGY6kwEI/CZgMGuhZ7IntFfu/9tXYY
+	 TifCFkka+wMw3MQ+Cpk7s5yLPQGStdJkkqrdEXpM+p6sQ5z6nE6yguYLl2dKt7C0o8
+	 4SzDJd97uM2dfyNZVDQf+dzpVlAkE2iR+ZMiXLLhMEQUWbEM9V8ZJq7IOecPtSjHdd
+	 FMu8erZXIMZF/I6BeOg3EM3QOTMzbQWG0kZwz/4FUUGGAd3Vm8Dz1UTBDTblveb1j4
+	 5vQtxWDc6S6umkbHxKMhiE6Qahxy/iaIAR7ehNZCmF5gUBD4581Mz9OgoYNA0RgqmJ
+	 Ux6UIyTSjbg9g==
 From: Conor Dooley <conor@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: conor@kernel.org,
@@ -50,15 +50,16 @@ Cc: conor@kernel.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
 	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 1/3] dt-bindings: soc: microchip: add compatible for the mss-top-sysreg on pic64gx
-Date: Mon, 17 Nov 2025 14:21:20 +0000
-Message-ID: <20251117-reversion-distaste-986c81a33f20@spud>
+	linux-riscv@lists.infradead.org,
+	Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
+Subject: [PATCH v1 2/3] dt-bindings: soc: microchip: mpfs-sys-controller: Add pic64gx compatibility
+Date: Mon, 17 Nov 2025 14:21:21 +0000
+Message-ID: <20251117-enrich-tricycle-aad89e430b0c@spud>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251117-mashing-cursor-6e965a77ce6a@spud>
 References: <20251117-mashing-cursor-6e965a77ce6a@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1213; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=9r0jELMzsNrhXXub+HN5urN9Eek071kdQwUXmSVqQ60=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnS+rE63PXr+A4o3N4cPmtvXMrP/+u+mu561dfbZfVei b9uv4NQRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACYSxs/wz2hC4nehJYVHjv4q 4BXJeHWy64mN2/TvmeLaa35InP2zUoHhf+W97cdZLnkebbTnUOp7vGOGhNuBJ95/D2qVLW9JFOw QYQYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1153; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=VsLhTgDg3A12xD5nur7r374Z89j1K8foRtnpWti1HhM=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnS+nEdOofm1erYW9u2XT6oczPzNf+x3qZbMRy8BRZRa XcuzH3RUcrCIMbFICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIks82VkWB5mpBA8iWtf5f1H MQJPdjXcirvbsm3NuXsnei41btyUeZbhf9qLWeYn5vyd3XjtI+PLzlen9yxYeVFinu+TljWLvsz z8+EHAA==
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,40 +77,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 
-pic64gx has an identical sysreg syscon to mpfs, add it using a fallback.
+pic64gx is not compatible with mpfs because due to the lack of FPGA
+functionality some features are disabled. Notably, anything to do with
+FPGA fabric contents is not supported.
 
+Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../microchip/microchip,mpfs-mss-top-sysreg.yaml   | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+ .../bindings/soc/microchip/microchip,mpfs-sys-controller.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
-index 44e4a50c3155..2c1efcdf59b7 100644
---- a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
-+++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
-@@ -15,10 +15,16 @@ description:
- 
- properties:
-   compatible:
--    items:
--      - const: microchip,mpfs-mss-top-sysreg
--      - const: syscon
--      - const: simple-mfd
-+    oneOf:
-+      - items:
-+          - const: microchip,mpfs-mss-top-sysreg
-+          - const: syscon
-+          - const: simple-mfd
-+      - items:
-+          - const: microchip,pic64gx-mss-top-sysreg
-+          - const: microchip,mpfs-mss-top-sysreg
-+          - const: syscon
-+          - const: simple-mfd
- 
-   reg:
+diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+index a3fa04f3a1bd..6cebc19db4f5 100644
+--- a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
++++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+@@ -24,7 +24,9 @@ properties:
      maxItems: 1
+ 
+   compatible:
+-    const: microchip,mpfs-sys-controller
++    enum:
++      - microchip,mpfs-sys-controller
++      - microchip,pic64gx-sys-controller
+ 
+   microchip,bitstream-flash:
+     $ref: /schemas/types.yaml#/definitions/phandle
 -- 
 2.51.0
 
