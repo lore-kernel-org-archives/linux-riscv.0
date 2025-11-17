@@ -4,100 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A68ACE8D6B
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 07:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BB2CE8D6B
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 08:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4RPOni27NuGfETUYzYDjpK2e7bKbiKs4D30BCs9zFI8=; b=Ohqy3rP33fLRgb
-	KP8xvgHTWzumkqbCO/XJeYNatS2GSqJx180F3dNd0svXhhGXakr65YXhBwiIXWOmCKewRI4oaSV2S
-	wtnt41NGh2je3/HpX+nfRKsR5FEvv64V4iliGZwcXVlGgHFOv719oXiQUSs/AEq8qQg6VGrxS6JxN
-	+RI27O4zXZrSSGdSOSIHbd5PrsEq1sLSyq2u2AmAmInaMRmr6g3fTUbeFSquFNeQQRFPrTv4bBAFL
-	3XNCzd8h6tsXz1ZAT0JPBUrPTgcKR5DC5xCScPsvmtI770sHBS8bjTk68FekgNO7T27rElIDhhQvB
-	oY6jfvBrX9Xyzt8IHNxA==;
+	List-Owner; bh=PQ4QoVcCmLHV8l69Oe/AWr8ve2LdMxvLwBvkRP6A3M8=; b=H1N+hEuFV9Ljoh
+	qFPSVtU4EdreEeX0tnZzXWUy4z7LYqeIJ3MubdtTq5e7R4I+FuTgJ5FJ1abMd3O+BJrRKDO+ptCKj
+	71RvPeiIn6ysvd3EU1LgH8kKo7PIQb+VkbAlOXuO1nX2ov/Ea2rKG+EL3WvgIfQdECAt/P7quPy26
+	esTR3vcLA+ylRLhKSKosgfiWyoZQmk06UjKG/eCJo5b2yRsinPREhofWc7PvJwcT6RVAVl2JnvgY2
+	tmMyO8jFYgYwwXKxsLa8OhPBTqVbs9+OrZ1jj1wh0TtrdWpkTOQIU32nXi9zyOO7sxUGwF++ocEz8
+	jUAyIN6PBQW10lbx8BHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKu4I-0000000FeLm-27nF;
-	Mon, 17 Nov 2025 07:54:34 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1vKuKF-0000000FfHt-2EeL;
+	Mon, 17 Nov 2025 08:11:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKu4G-0000000FeKa-2ENr
+	id 1vKuKD-0000000FfHR-48BM
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Nov 2025 07:54:34 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-bcfd82f55ebso621824a12.1
-        for <linux-riscv@lists.infradead.org>; Sun, 16 Nov 2025 23:54:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763366071; x=1763970871; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YJFYXjrZqLDFgZC57MuR9/7D9zTgqgt6RRzSRexdHss=;
-        b=bCZmrUCyQ3B8GQyI5q/ZC811LBgyd04WLrkHX34VTOi2trGjnvS3BHYuE82n7V2H0I
-         SZ+XaTNH6jHUS14Qf3BoZHS/pfTYpf9YpEyt+fQrhn7DGPOVfQNT+aSu/exG5BFvC11I
-         1+OuWEMl5GPbXUqo/mJoOeOUdrltpXHMG422RTOErinchldJTcL2vp1vk8TyOLdDmSWD
-         gELWyMB3iqPZcUoqaQa3PrOGJxduWZvFj8m/6oKqwNgGIo6Xo4ZMdJGelZDiDugYJMIM
-         EHec5fCj3G49GawAlL4pGd4z5cs4yazZb8g/68b1hcIGsXyUJ3sHF5wXltg09RkOEWeo
-         g2yQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763366071; x=1763970871;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=YJFYXjrZqLDFgZC57MuR9/7D9zTgqgt6RRzSRexdHss=;
-        b=P0Mv/19l048rBFYMIwg+RhVcKiB/HEscfHas6vVGGA/tzycIViHTdJLebNZwdPaT9g
-         7Q9H5vJQTJfatJ+H04LTEIL+x17dNNote3WEWL13R+t2cpU2xMeVYefm0TdNWdpbxsJY
-         iXbbmv4OgIueO8zapZlMmKP5fLY1alxQwZ7hykRNNmRFFXrwrVl22PR7vgLX3rS1m3bF
-         Igg5UVoXdy2j+hRn2dW7uD0YEt1VBlOCQimzCd4g0czRpRriYeZzSMRPYm6Es0/4igMY
-         F5HS3l7Hmx6bNtrzoe03T77AMmW5uoGz2JJDFpjLIoelRXmxWX1ptgO2NvHjU2klptOG
-         QBFA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtPjQ6/6GUsgZYfqrqIvZ5iZ4ebhh4x3qoV8z5D/frlfnpwPXq/r6wWlnXL2Z1TCIbIwKUNklrtZvM8A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeJwOkCp/SZPlC5PJxe3JmiKAE4mYoFOYf20Cyr2W5eKyCNXhR
-	yVSBzzZziZea8F1/szN9yEjBarL5IMuDRSuNt5TuJacwvdHn+l0ZKt80
-X-Gm-Gg: ASbGncuqthYWvvzuDYLbxr4fpDnxSeM375ek2TQH3c7r18MmdE//FA1kutAM/+rTbdI
-	GhCG1UFYBU8LZeRaHo/A1J7RKo0jAVM+DfQnFxtKso7RJWWkY5lD9R59Il5a1U1IaKQIHcvn244
-	BXfU8xxxofqB1NJZTCHkDSxFTKBJkpEdElVwU4T/uweGkydYbMkueHBTo8ShpsqV0YHAqhLILU7
-	7YgnaqDMcFuwmAENqKBfvwzIxg2maY1kVxDqyTbyBZ3VazSHN1Fv1CF3Jl4T8pYv9eNXUOCBgIf
-	EIMBNMzRj0UeoaRphXjTkYkah1tQ24YP2m/mIUGtKOwFrhy+vJwrveplbbPjuC0daHIMVqfV158
-	EK8KPHeBnt8hwpmdJxmgNOVMVXRf/dwXke73JayrSCRv2mgkADEnPi8STJo4ps1jP7aoVcogzh3
-	c=
-X-Google-Smtp-Source: AGHT+IG9sGqvuDwl6M8wyl+rjAQw7Vc6OPhJaA3ppAqLpuVnEaDJYf6M8j/2uygP8YUk8imuBKovyw==
-X-Received: by 2002:a05:693c:60c6:b0:2a4:86e5:6b2a with SMTP id 5a478bee46e88-2a49af801a3mr4018516eec.14.1763366071370;
-        Sun, 16 Nov 2025 23:54:31 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2a49d9ead79sm57344385eec.1.2025.11.16.23.54.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Nov 2025 23:54:30 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Ze Huang <huangze@whut.edu.cn>,
-	Longbin Li <looong.bin@gmail.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 0/3] riscv: sophgo: add top syscon device for cv18xx
-Date: Mon, 17 Nov 2025 15:53:57 +0800
-Message-ID: <176336602776.743994.11109487529493161809.b4-ty@gmail.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20251101014329.18439-1-looong.bin@gmail.com>
-References: <20251101014329.18439-1-looong.bin@gmail.com>
+	Mon, 17 Nov 2025 08:11:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 26729601A0;
+	Mon, 17 Nov 2025 08:11:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C05F8C4CEFB;
+	Mon, 17 Nov 2025 08:11:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763367060;
+	bh=HvIKM+Mr/CbDRHmlYEyfAHAA0uJ2Fzaw6XXikAQts74=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=LIZZQ2p2UzWEQSs1lRkAgc4JHQjgzmUwu3dnHpoKmFRFGwk0Bxu55xQzC7bnIvSTo
+	 xnwebpoS+CLTMhn7bkPVSSxfoZxhvDT2uhNFlwq9lQGrnybjVv1z8Nb2j3imokYtFs
+	 cIBcBuuVFX1S8WHmhX8+y95nN0AvVt6ceFIcWBXuVF0P/rPDt7LfrbtdWCwBMKzbNn
+	 dwO7D6jXF6UhPwcuOT7thrlKKunvvOoijkE5yynIXHNr0r+Z7m/qbLBIEnU05tfzip
+	 qDbRGr5nTJlYbDo4AceAMrGjLw8FpzgZGc/VEHXohyH5JK9Nv7w8sHyxXXDfRTYbMu
+	 GhKCE775w6EMg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAD973A82557;
+	Mon, 17 Nov 2025 08:10:28 +0000 (UTC)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_235432_571787_A3CFEFBE 
-X-CRM114-Status: UNSURE (   6.40  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [GIT PULL] RISC-V updates for v6.18-rc6
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <176336702774.2854411.7898604600703239898.git-patchwork-notify@kernel.org>
+Date: Mon, 17 Nov 2025 08:10:27 +0000
+References: <a7d159e4-8e75-e4be-4405-f10fee270664@kernel.org>
+In-Reply-To: <a7d159e4-8e75-e4be-4405-f10fee270664@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,21 +71,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 01 Nov 2025 09:43:20 +0800, Longbin Li wrote:
-> Add top syscon device bindings related DTS change for CV1800.
+Hello:
+
+This pull request was applied to riscv/linux.git (fixes)
+by Linus Torvalds <torvalds@linux-foundation.org>:
+
+On Mon, 10 Nov 2025 13:41:32 -0700 (MST) you wrote:
+> Linus,
 > 
+> The following changes since commit 225a97d6d45456a7627633da09cb842a43ef1b85:
+> 
+>   Merge tag 'riscv-for-linus-6.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (2025-11-06 15:44:18 -0800)
+> 
+> are available in the Git repository at:
+> 
+> [...]
 
-Applied to dt/riscv, thanks!
+Here is the summary with links:
+  - [GIT,PULL] RISC-V updates for v6.18-rc6
+    https://git.kernel.org/riscv/c/4427259cc7f7
 
-[1/3] dt-bindings: soc: sophgo: add TOP syscon for CV18XX/SG200X series SoC
-      https://github.com/sophgo/linux/commit/565c450124c105a0b4f4ff3265e19502d44bf23b
-[2/3] riscv: dts: sophgo: Add syscon node for cv18xx
-      https://github.com/sophgo/linux/commit/126a1b3c61cbec15ffaadf141adb9c4163da1757
-[3/3] riscv: dts: sophgo: Add USB support for cv18xx
-      https://github.com/sophgo/linux/commit/e307248a3c2df4432a7bbbde306ffcb33ec55898
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Thanks,
-Inochi
 
 
 _______________________________________________
