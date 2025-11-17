@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA9ECEBF61
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 08:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC85CEACEF
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 08:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XWb8/MpvSX0oC/cxYofeOw5Q8W2TPvsh9BuLIZy1g9k=; b=aWtYJSi58CkcjL
-	teLesJmJE+pXMLaPgG8mD3OgcU/k/OUqcBY8PNoRvlqnINXaA6W8vRCGLeEJpsshzcQQaa+NT1gDU
-	ryHGKj0wisBWPo2gSyLpzNpQUpLG2366i0G3TzpD+XYj3w43ujt6Pxsf85n36AxS+HXM+8JIYFkh4
-	XMUwX310Epn3zxOcRdcnTyFiHDl6FUyHjceITiGdWX4xEEFIGlVXkOzKJRANyS3n6hGmyJnyr44OO
-	1WmhmWKUOQUhNsytgRUyVbOGLbFQUrIUhCabx+cGNsv5pBKLmLc75+pIgwqsUjZ/FidI+y8UEJq+9
-	cebfX9JPd07mNoZsUcUw==;
+	List-Owner; bh=9BSkyPZbfuM/rQn9bC7AsfhUc4CBacM9UHvlBR45U8s=; b=dtjeqs3kfkoTCy
+	YIYcnanXzIKMTOrm915mTvAwLjPAtoRCnL4yxVne5koiYwA9/LIxvVMgxio9hcfC+RKTJT2leRFHd
+	TgO7C1oAOskL6W6KudbxfXoasI4+vLB0y3b2+jUHN7lJNO2iuVZLYckpOMbJvo5S3oJm0I5r9wZ3b
+	eTpVcSsm3KZTMik0QGOZHztBLzR+LTjPIptRC5BEHUtOqujYq+qqWLn2tfoTFNkyJnxN0lDolh0wM
+	Inr6YgQHjlj5hX2GbCvvJYMsK4RF9cTmwZE8CoS/jLy5XswGiQXHADi8Iv1EHCXWXY39FgZSa0nK6
+	Pemo5+CQGE3A9kec6O0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKuKG-0000000FfI8-3agM;
-	Mon, 17 Nov 2025 08:11:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vKuKH-0000000FfIH-1whb;
+	Mon, 17 Nov 2025 08:11:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKuKE-0000000FfHm-2qi0
+	id 1vKuKG-0000000FfHz-1Isx
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Nov 2025 08:11:02 +0000
+	Mon, 17 Nov 2025 08:11:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 22162601A0;
-	Mon, 17 Nov 2025 08:11:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBFC9C4CEFB;
-	Mon, 17 Nov 2025 08:11:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 678BD601AD;
+	Mon, 17 Nov 2025 08:11:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D396C116B1;
+	Mon, 17 Nov 2025 08:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763367061;
-	bh=EY/sN31vK+Bntj3RYtRVW2Ai8yUhG4xDAalX4UOSER4=;
+	s=k20201202; t=1763367063;
+	bh=vbUccxMenlFoZC2XraZMyQ965D0BsrX06UGVWNJuRQw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=OBQvxVGgyAwaNZOGJLx9ZX6fSJW4+5vvAIvf9z1k29oqg2L2LHhwmd+i6A8nFhNdK
-	 /+Q0neP5leKi1ShxP73z6WBrgy6WTGvyN1wHhMrt9K8m4XFPk+Gz+91aTO6/gTrNKV
-	 uAflp2kH8+Xx6WujROZjJaTU4ZsKoic7sit8PxtyXh+wygBtFO9Oe03TsOTjBiBUYo
-	 EaMLgHYPG3XA7eJtiZ0gtEQYGyRz1c3suJc1vnz6ZrD3S8RlI0KCyzqlCVE6Mvdnk9
-	 w/loSrEceUipQ3N334f0YkPu37w/0u5TYKSE1hMZsy0UngDlJIfbyUCEa/lxkvHLCZ
-	 sU5AfHSjFeGOg==
+	b=uLghrQkZjCrWvLUlFDthoUGIfTmbtNi+2tQ1Ng19rOyu8Df9bM/VTiAxnoMEZs88g
+	 WfZwQhMba9cQy/JhD5qjIqf7hVZ+bk2hXKJpyCaBTyzY+JPQCvJA1xr0i9Z3b3VJRl
+	 CXv1qk90WWTjqivGG3nCBb8BdZ5DOytsh8zjCs1MXaR1OudOmuaTnXElMuFo/i0MA3
+	 4+KkPp8S+Wr9VakxEGhG2nGzVh9tCENhLmPngmCCOR2R2Mf88h/B4v9yHJx/1pppxv
+	 Xvw2Ex4YaH4GW5yH9T8tSQ5K/LhGk5xx9FoZyBGK9UBiIsRZmkKXk65xyCgOgFEOAy
+	 EGuTsmH8h22CQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33D2E3A82557;
-	Mon, 17 Nov 2025 08:10:30 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70CC23A82557;
+	Mon, 17 Nov 2025 08:10:31 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: sbi: Prefer SRST shutdown over legacy
+Subject: Re: [PATCH v2] riscv: Update MIPS vendor id to 0x127.
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176336702899.2854411.10334925946163449436.git-patchwork-notify@kernel.org>
-Date: Mon, 17 Nov 2025 08:10:28 +0000
-References: <20251114065808.304430-1-mchitale@ventanamicro.com>
-In-Reply-To: <20251114065808.304430-1-mchitale@ventanamicro.com>
-To: Mayuresh Chitale <mchitale@ventanamicro.com>
+Message-Id: <176336703025.2854411.5259093565399811125.git-patchwork-notify@kernel.org>
+Date: Mon, 17 Nov 2025 08:10:30 +0000
+References: <20251113-mips-vendorid-v2-1-3279489b7f84@htecgroup.com>
+In-Reply-To: <20251113-mips-vendorid-v2-1-3279489b7f84@htecgroup.com>
+To: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, atishp@rivosinc.com,
- ajones@ventanamicro.com, cleger@rivosinc.com, afd@ti.com,
- linux-kernel@vger.kernel.org
+ aou@eecs.berkeley.edu, alex@ghiti.fr, conor.dooley@microchip.com,
+ djordje.todorovic@htecgroup.com, linux-kernel@vger.kernel.org,
+ cfu@wavecomp.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +78,20 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Paul Walmsley <pjw@kernel.org>:
 
-On Fri, 14 Nov 2025 06:58:06 +0000 you wrote:
-> Currently, the sbi_init() always attempts to register the legacy shutdown
-> function as the sys-off handler which is fine when RISCV_SBI_V01 is not
-> enabled. However, if RISCV_SBI_V01 is enabled in the kernel and the SBI
-> v0.1 is not supported by the underlying SBI implementation then the
-> legacy shutdown fails. Fix this by not registering the legacy shutdown
-> when SRST shutdown is available.
+On Thu, 13 Nov 2025 17:10:32 +0100 you wrote:
+> From: Chao-ying Fu <cfu@wavecomp.com>
+> 
+> [1] defines MIPS vendor id as 0x127. All previous MIPS RISC-V patches
+> were tested on QEMU, also modified to use 0x722 as MIPS_VENDOR_ID. This
+> new value should reflect real hardware.
+> 
+> [1] https://mips.com/wp-content/uploads/2025/06/P8700_Programmers_Reference_Manual_Rev1.84_5-31-2025.pdf
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: sbi: Prefer SRST shutdown over legacy
-    https://git.kernel.org/riscv/c/7b090e7b910c
+  - [v2] riscv: Update MIPS vendor id to 0x127.
+    https://git.kernel.org/riscv/c/91f815b7073d
 
 You are awesome, thank you!
 -- 
