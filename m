@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2742FCE8D6B
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 16:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3CFCEACEF
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 16:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=niZkTHuyE7gME55Grh6vjz1B8cSgRZVpL8b1FZHLlfM=; b=aEu1wRd/QCrVUR
-	db/Nt0mvK+pGjwpthiJbZ30u5Q05r0WsCfA/AtaDL4f+8L13XC+e90ApjQ6gXQyH/Lwt5QtAqWJ0w
-	i6IeiUxCGagqtpj4TS7QxFVZPh8U4FwLXbdB4qHegmNLUPm62LuibxKhLty3qETk/5geP5dsQAtG4
-	MX8c9jz7eSeLiljZos4D/p2OmHKrctLuhvNy5rp2RIiiS+4gw44X1GjpCijK4Gf3aWYquek8rihVY
-	ID8T6XuGQqHu2q4xpyr6uV4Crw/bU25wZapHBbYLbUx8dOgfOlGTDAJ/ix9CsldkAQzpI9Es4Wczp
-	IVWeNPYwnooJZcndvIKQ==;
+	List-Owner; bh=C4d8qpnlShn8zTIzTIbMqaIMrpRV7Ov14spDUhL0MXY=; b=MqCc8NTURQ3LZ8
+	5gZVVd0ZUuIT46H5etB/ZwGqzXGy3+RyukyO4+wlVECHYfmmdxlUILPzT40FCJVMRzhxk1ivL7V4F
+	oQIQu007zc91InwLHgK3iTUc3mQ2IW8r5G1j3vY+4eLj04cLGnt9+T/4uwMYx1OSLTMlxEVcxQlLJ
+	wuuif7v+QkIt5LqOs2iu9qdQTHZge0Rsh7u2AKHFYgPZ5Xb1CqNAR+ReMokowoLyxyxrLN3vJes5Q
+	ab2W5jjOA7Gz0M5EpzVsfGofgcSwnDMKEK69IQiyb3T3cvWZ5Aqu4GEAXDK/krAnbXPw8pq038A2i
+	KYeemJKFQnLZbKJNSrsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2FW-0000000GPcV-1tia;
-	Mon, 17 Nov 2025 16:38:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vL2Hh-0000000GPmI-44W0;
+	Mon, 17 Nov 2025 16:40:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2FU-0000000GPc8-0jlX
+	id 1vL2Hh-0000000GPmA-1Ki0
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Nov 2025 16:38:41 +0000
+	Mon, 17 Nov 2025 16:40:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8AA034189E;
-	Mon, 17 Nov 2025 16:38:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16D64C116B1;
-	Mon, 17 Nov 2025 16:38:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6BA906023A;
+	Mon, 17 Nov 2025 16:40:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75D47C19421;
+	Mon, 17 Nov 2025 16:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763397519;
-	bh=ggY0CM1uMMAhQmcHdo4hDKorWC1gmId184WwoW3Rkko=;
+	s=k20201202; t=1763397656;
+	bh=0u/fEso+kgrOQ7Z6mwNX61ZMy46Dsfj98uHXjWsMpcI=;
 	h=From:To:Cc:Subject:Date:From;
-	b=shfyhP/n9j/AUTeyS3ba/BIKKGqjwXhLWBuJTvepk2GnW821mRWcUIUy1rE7gAiJJ
-	 fqa0fqLM5v94yI49iNnRKYn3Lf6BEF7dqiKZ0zQAaAOOEr3Fp1KSJyQ9M/hOpIe3KR
-	 Xwig9B1W79hAzqT/Q6My9c2ap9GWDqjOcNZA1ASx7+kgQpaBEnX1ESxF9wVZTPVnEV
-	 StHpPIIYgF5kLKrHUawOmZULcbcFg1ue2tAZv+o+CUXaz56rpufj0Al+x780cZcEVd
-	 TxYZNKNFUSYo3WC2oBisT9sbCR5U2LMh4ftJn0VHfGUzRguF+TlfLzTLX8vuyF+qhr
-	 12/zC4gQvt41Q==
+	b=YqTKQsODxD5mu16b0gX2eCNqmjaieYGgZrGipXZsiLPR113mdl4oQvQOIthN0Nv5L
+	 /zkR852Ya7xCttPoHljGzxbWm6xIvHMtbtvvpYougYDjGVflGSMqgNYL3O/VpuDpz6
+	 UpWWTLRpR7YUrMmPILJDpmFz+CInnuqk0usQMGcFt0n9+WUpqVz6iymKYrNsjP1iI/
+	 IL470I/jODMLXFndzWOThOIS+Omxo9y1jblsODxjzt09qfIKR+xKPUdJ+TPEbs8CGh
+	 H8vOpbfwI5BVdQcJMkV+7/nsD1vu95r7GI/WQNKm28mzmvlTjpFR4nIDjjBtfz0cEw
+	 Yj6NAqHM9wMIA==
 From: Conor Dooley <conor@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: conor@kernel.org,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-riscv@lists.infradead.org,
-	linux-can@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: [net-next v1] dt-bindings: can: mpfs: document resets
-Date: Mon, 17 Nov 2025 16:38:18 +0000
-Message-ID: <20251117-twitter-sternness-f2b3a1506a6f@spud>
+Subject: [PATCH v1] riscv: dts: microchip: can on mpfs requires resets to function correctly
+Date: Mon, 17 Nov 2025 16:40:46 +0000
+Message-ID: <20251117-reference-mangle-17721deeb79c@spud>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1974; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=o0IWfGy7dLFMHxxCcDJkwRXrJajdOduLEpHVlJIjoLc=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnS/hU3S0LTBUTVNjAcP3/uq9YBrjRusf8SQsHL7F6U+ ZjHV7zvKGVhEONikBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwETu8DD84Xm+6NAC3pP7TSX0 9jQF1Z197jrV+1yc7/uqv8p7865sEmVkuL/NY8vNvlkJIcd+mfwvm/Spn7WWJXW3zt8uY5ZFjtY LmQE=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1291; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=eWRbRrZhKobb1L/Lydi0NVCS0F3M286Cohr8lQnFPWA=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnSAbwpRxhvvTEwX/q485/u+6NpJXkTZsQGqRwp+cd2c 23X6e/XOkpZGMS4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRyJeMDA2XH9VccRcr3Cp/ 7t+jorfyKsw7LFfvntA6Ve/aot/LpdkY/udc2J1vZ7v5sKnXqa2PY34J5EU+LVvf+PrWHdGqaMu tEdwA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_083840_237493_8AC595FF 
-X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +76,42 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The CAN cores on Polarfire SoC both have a reset. The platform firmware
-brings both cores out of reset, but the linux driver must use them
-during normal operation. The resets should have been made required, but
-this is one of the things that can happen when the binding is written
-without driver support.
+The can driver must use resets during normal driver operation, and will
+not function correctly without them. Add them to the devicetree for
+mpfs.
 
-Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN controller")
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-This is the second mistake in this binding, both spotted because of the
-driver being written (although this one sat downstream for a while for
-w/e reason). I wish I could say that I'd send the driver soon, but I am
-busy upstreaming things I wrote and therefore understand at the moment,
-so a driver that I'd have to go understand and review before sending is
-low priority, sorry!
-
 CC: Conor Dooley <conor.dooley@microchip.com>
 CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: Marc Kleine-Budde <mkl@pengutronix.de>
-CC: Vincent Mailhol <mailhol@kernel.org>
 CC: Rob Herring <robh@kernel.org>
 CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
 CC: linux-riscv@lists.infradead.org
-CC: linux-can@vger.kernel.org
 CC: devicetree@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
----
- .../devicetree/bindings/net/can/microchip,mpfs-can.yaml       | 4 ++++
- 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
-index 1219c5cb601f..d2a378064c50 100644
---- a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
-+++ b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
-@@ -32,11 +32,15 @@ properties:
-       - description: AHB peripheral clock
-       - description: CAN bus clock
+linux-kernel@vger.kernel.org
+ arch/riscv/boot/dts/microchip/mpfs.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+index 0fb94581b6cb..015f1daf5f61 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+@@ -444,6 +444,7 @@ can0: can@2010c000 {
+ 			clocks = <&clkcfg CLK_CAN0>, <&clkcfg CLK_MSSPLL3>;
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <56>;
++			resets = <&mss_top_sysreg CLK_CAN0>;
+ 			status = "disabled";
+ 		};
  
-+  resets:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-   - interrupts
-   - clocks
-+  - resets
- 
- additionalProperties: false
+@@ -453,6 +454,7 @@ can1: can@2010d000 {
+ 			clocks = <&clkcfg CLK_CAN1>, <&clkcfg CLK_MSSPLL3>;
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <57>;
++			resets = <&mss_top_sysreg CLK_CAN1>;
+ 			status = "disabled";
+ 		};
  
 -- 
 2.51.0
