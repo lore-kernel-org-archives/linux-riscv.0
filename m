@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B57ABCEACEF
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 15:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B0ECE8D6B
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Nov 2025 16:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ybDjC11stCHYxOl1iw+BBPRnff6rMDjosONnvqIPvDM=; b=TnfrSq+O8duWXk
-	Eb/NFscVXp6ywuFUtLwpTmNb06JFQ+M07fobg5ySR+FjURYn0k0ZYZAV7HlyBLm/70V4GIt2lIw9j
-	4WQnhQVHsdwRscC6MGl00aAqpknwLLmbfPot8fou9JccJabZ4BVMTHR+u/nbbpKumajAuHNpT7axt
-	AYfo30FRME/VMukSqUg/r0mdvVdI4zDs1cTvOLmijLV7Y8ez7hfRGWvDio0tsskAqb/BHSKpXkmnP
-	g4IUF/IGiRG2IEXnvtRUaso/rT5EhOLB3k8OE8ZaX9SvUHkwlw5p5pWj86WQ+EQPPWlXt5zsiz/Bd
-	hiMhlJ56BSdTIN/fFutg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OXrV4fFkhAhBivEGJ/7TDKGVUkgVOs8KWlj7+rIUZnw=; b=cB0Wwu1Ydt3N/7
+	Z+vjQ/O3Tbyt9hPNikgdCsBDFYAbbQAiUQl2P1q3OpgmrePIv9NW9Uhv5/G+LsfHfvfqYV1llsQNH
+	cn7qjjinkQR+Ae5KrCH2h61ySwZg05Czpj8AZ4Guuam2ePprp3fkbb59fJczPohEiezLqwGCBAPBM
+	dtAaKVgMzNHZGq+LIo9kZpxpOrjdcbmPZA0hVtcBTDWVPIlc2TGck19Mt/9vJSZ5vHKVNMGdMdxzO
+	iNASuizKtdJeMmaXzo0jpIcCZitWqpQZJoUSzcjWaF48kzQxtKf1PBChOSS7FJpb7ItXamCCmQTcl
+	SxUkglOxbKuTBVORqtwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1S2-0000000GLoP-1rhT;
-	Mon, 17 Nov 2025 15:47:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vL1eE-0000000GMZD-134w;
+	Mon, 17 Nov 2025 16:00:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1S2-0000000GLoG-0EY0
+	id 1vL1e7-0000000GMTU-0PdT
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Nov 2025 15:47:34 +0000
+	Mon, 17 Nov 2025 16:00:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0BE6C6023A;
-	Mon, 17 Nov 2025 15:47:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C280BC19423;
-	Mon, 17 Nov 2025 15:47:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 59288443FE;
+	Mon, 17 Nov 2025 16:00:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 927C7C19425;
+	Mon, 17 Nov 2025 15:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763394452;
-	bh=O7RWd2RNsJQ/yJb0uVw5IQViefyvHl39nqv+4xOuEPU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZRD4iuCarUzxBRaBnuTC602o5vAuzZGq4hybHLLBHO/3a9tkbk/4a5jcaE0uaZma0
-	 U+0Kt0LrVMhwEoqAYB8h34XrW6jD70lSSehVBHZzt99z+rJ/z56AfG227T72tnLVQE
-	 VgiDqvzvcijJRqxTS+FpL7YDzwi34ZD/x+0W4j7G/Y8vNsK5+PjKWtRDV2ilm94JQ7
-	 026QTd/KBBuGPPFx1GRHMaW6bT6cS3JpAL67BPkM4qKeLbkZwEpGY9bJeP8uNIfCbW
-	 sCCPQRSQagXOvhTkRaBFw6d6kkFa+cEk3FDWB+CvvgQHfz2BASSXRCzUnx7kerSBB8
-	 MGcWf33AC21Gg==
+	s=k20201202; t=1763395202;
+	bh=4mldTrpNfDBUNb10bIu/HKmz1c+0kq9vpFRlKYSObhU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kwCsuJ/4E81FYWxB8nhIpUh98cGRHXdkaivmeqCeFwzimnMDyucuUDCBGwnjff6nc
+	 6aMpYp939HTLPDOiKMAgSoz4Kf9VBqOxHbC/YCVXexBa5ZHUEjc6KjNDtcmHolXquj
+	 snq5mYN0o8C62kQV+JSgEW3K+C6zUDnbi0ohFiTCL9sv53J13GO3nyKJY92nTamckl
+	 ESVl0CEcvv2G6BuIsRLGUxqeGzQIzX50FfoRVZqbgkGfWkM6O85q2NiayVJvbXvzcf
+	 JktQMrF9XM9nFGDBiakDEr2E+lUWwg2UzrJWzORpQ37Q2Ht5YyZbnQdQYOAvBxyXWn
+	 G0hOwtandKaww==
 From: Conor Dooley <conor@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: conor@kernel.org,
 	Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-riscv@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH v1 2/2] mailbox: mpfs: drop POLARFIRE from ARCH_MICROCHIP_POLARFIRE
-Date: Mon, 17 Nov 2025 15:46:56 +0000
-Message-ID: <20251117-landline-grit-284cd8d6330a@spud>
+Subject: [PATCH] dt-bindings: gpio: mpfs-gpio: Add pic64gx GPIO compatibility
+Date: Mon, 17 Nov 2025 15:59:18 +0000
+Message-ID: <20251117-grumbly-oversized-2215fe887181@spud>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251117-screen-appointee-837a7296ca91@spud>
-References: <20251117-screen-appointee-837a7296ca91@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1267; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=mmmDslZJHTrotXDe/3DO8bgQq1j/1loTEphrINLp7lU=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnSzrkugtn3O1bvLJDap8iTsl6x33zJB1brU6+s67eYx 9wU+hnUUcrCIMbFICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIloKjD8910YM6O4LDpvxvbv O/NUT8geZ1W6/UyrzdQw3PiNpHeoJyPD+nxdycO2AnekKmdtDrDs2Hs+/H3srSyRo9PiNkacdeF iBAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1368; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=vBFHITy0tUgA8hiGFkPbCnmDy5W/03hkEl85M76mBwU=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnSbiHV/7SuHgz+9H7m+iV3CnfFfHtx75zaA+Vts6c4T Miq3ZpT1VHKwiDGxSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJvOZmZPjskn6NIYEn+8ni ZPP6xD7W/w7nTTbNspuXfU1F8bMl1yKG/wkSK6Z6JJ0QODEpWeG1gF1KrtTECb29a1Zc3W0ScWX DMWYA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251117_080003_159207_42E45175 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,39 +82,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 
-The ARCH_MICROCHIP symbol has been defined for some time on RISCV, as a
-replacement for ARCH_MICROCHIP_POLARFIRE since there are now other
-Microchip RISC-V products. Drop the POLARFIRE from
-ARCH_MICROCHIP_POLARFIRE in the POLARFIRE_SOC_MAILBOX Kconfig entry
-since the newly added pic64gx also uses the mailbox and it is one of the
-few users of ARCH_MICROCHIP_POLARFIRE left in the tree.
+pic64gx GPIO is compatible with mpfs-gpio controller, add it with a
+fallback.
 
+Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
+
+The diff here is kinda scuffed, because for some reason this binding had
+an "items: - enum" construct to begin with.
+
 CC: Conor Dooley <conor.dooley@microchip.com>
 CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: Jassi Brar <jassisinghbrar@gmail.com>
+CC: Linus Walleij <linus.walleij@linaro.org>
+CC: Bartosz Golaszewski <brgl@bgdev.pl>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
 CC: linux-riscv@lists.infradead.org
+CC: linux-gpio@vger.kernel.org
+CC: devicetree@vger.kernel.org
 CC: linux-kernel@vger.kernel.org
+ .../devicetree/bindings/gpio/microchip,mpfs-gpio.yaml        | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
- drivers/mailbox/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-index 29f16f220384..35bd402cadc9 100644
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@ -199,7 +199,7 @@ config POLARFIRE_SOC_MAILBOX
- 	tristate "PolarFire SoC (MPFS) Mailbox"
- 	depends on HAS_IOMEM
- 	depends on MFD_SYSCON
--	depends on ARCH_MICROCHIP_POLARFIRE || COMPILE_TEST
-+	depends on ARCH_MICROCHIP || COMPILE_TEST
- 	help
- 	  This driver adds support for the PolarFire SoC (MPFS) mailbox controller.
+diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+index d78da7dd2a56..184432d24ea1 100644
+--- a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
++++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+@@ -11,7 +11,10 @@ maintainers:
  
+ properties:
+   compatible:
+-    items:
++    oneOf:
++      - items:
++          - const: microchip,pic64gx-gpio
++          - const: microchip,mpfs-gpio
+       - enum:
+           - microchip,mpfs-gpio
+           - microchip,coregpio-rtl-v3
 -- 
 2.51.0
 
