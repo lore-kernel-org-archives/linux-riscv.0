@@ -4,102 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34754CEE327
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Nov 2025 16:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A769ECEE339
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Nov 2025 16:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tp0wnrTf9plP2KWbLIZYvR/L2qXEXwv72AIkX0mI0EI=; b=SEwG0PCOqtg6ce
-	IH8Y6hcGTBnKW6JKw7HTewWG6ILb3/JDbj52kZXJdgl9tJp5daQWxJGQD7HieEvcHj8q0+GxEscy3
-	1C6b5gKHPqjbOyu126q9uG+rjxirbyoHZNU0PKwVBnFBoNnVFtj5fxlxnHOotWhwO0/f06knk32md
-	XIajSh4oIlKjFxGQc9anVvgkrztM0dX6tJAtgo8XwEtGlKb6yMonXI269JM43bUT4c1O6OPo33ehP
-	tjidvtcsSw2VZi2VPO3ptRcbCvr0BybylFmzCdt2tITt4WxUGJuW0yZJvxmxIfrvASrWtIzhUmIt6
-	ZpqsXxH24M/kKaaBXz5A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1QzIHJdCiZZgeYl8Xa9WBW+q98Y7rwhP1wIqti2BkDk=; b=r4WlOGeCeMH5q7
+	MA6U191svDHQskfDX7YzluO3iTxgheuU+b0WjplMj1hdtpt0fZG4gOZMsyOAzKB5Pv6qED3ZTGmJy
+	12PbNLyozO1PoZ3TfS7SOmtidmqxnfWbdS0GNuryK1qAGzg6LfeYNLhs8Tt6n8WXNmI4M8ENrBvia
+	mePdAZ0KloFKbQM3vT/R2emIlKzjpBEFs9ZfoNXVjjK0E/Wdnm4zGXuRUs5q6Ji2wpgdqFzwmNFav
+	EGzL2nupveE3H3sYU0uM+vs151+1W+9ueUnZ45s38ssshfT9J9m1s9DPELYpYK6KUU7xF2nF+akIj
+	GuojmQ4OMM97dzlEug+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLONZ-00000000hSL-2Dix;
-	Tue, 18 Nov 2025 16:16:29 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1vLOWR-00000000ixI-01op;
+	Tue, 18 Nov 2025 16:25:39 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLONW-00000000hRc-3d6s
+	id 1vLOWN-00000000iwL-0y0H
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Nov 2025 16:16:28 +0000
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com [209.85.218.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 6A1FE3FB6A
-	for <linux-riscv@lists.infradead.org>; Tue, 18 Nov 2025 16:16:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1763482582;
-	bh=mIyOErqpwna01AMHHTOqB9yVf2/6iPsT5MoLCulL3dY=;
-	h=MIME-Version:In-Reply-To:References:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=NA23H0BRIHHg4VdBucuTrC+dBTTq9NQRQotNCm44yEeHuwXYI1R86DbMXnuG6/I0f
-	 w5CedOqT7oWnsT8BzRV/eV+MTnkdEeFWteaDqsMCSKkTVd8sR+MlA4riZgJYjPnj4b
-	 8zDxnMpYldgCkidZsOqBuxWNra+GHso6H6QjsgoErt5PFlbUuezGCVUDsb2XcSjajZ
-	 fELUsraU4iWMyy0I6/zY6v2rHGi8CsloAzSBuyx2mlyqJmOqvzoCjMCwoJIGq8ssUP
-	 27pX6wZL91yj3dcLyk/S3FIXh/AE12+TJUKB3F09GYDBk400+ZPqn8MN1VNqQxvrfL
-	 xqDkoGPjLnrGt6cqobEdXjlAyL6NttDfRP1UtksjM2J2qHVxGbiDbpqYwIZuyge1cn
-	 thcXSnOqtSIrFZ1dybbZZpZc2BPc6ehTUvZtG+kr4FTlv2G7XcRdnvLTNJCpJ2u3sx
-	 PVoFKPq1kAnfs76dCYE5Q9H9GSjme1u4llmOautmshzZFw7A5reUT2XvI9/UvsK7MW
-	 cZqvu8Rp5dxSFa/HscRzhJjgbft2ut+Nwuc5MEH/LN+8ObSbWT4L5qfK08OG9/dKHR
-	 BuTWEueC+Teud0k+aTC+7KkuWCF0UsJlo5ffrv9EOQm5OBHgEAH2xa4m0p1tyl6MfP
-	 KmIRj5xIKgEIHNj4dIJUAmEU=
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-b70b2a89c22so554752666b.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Nov 2025 08:16:22 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763482582; x=1764087382;
-        h=cc:to:subject:message-id:date:user-agent:from:references
-         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mIyOErqpwna01AMHHTOqB9yVf2/6iPsT5MoLCulL3dY=;
-        b=R85Tp5p+t0FZ0lfbxvBA+0g7BDOgPJdjrpdtGa6PgcWTY1Pw0DvJLwcm9bhA/6vrZP
-         iqMZ1Fu3dq4gSZy3fbcKJB4/wG3wsCj1gbbJLWyj7ylertWlyMr3Vb6G2YKHozcJT4SH
-         Gpx9JQSqCVKo91wCUZhQQcChPtWW6UrDgctieoDnJqT/xLmasiIiqC9KhpF/DEifu6z7
-         dfhFn8wI/Tny1C2OVpLacG8LZ6y4IGsSBJ4pwEcHCVOc3rRehKcjJcxWg2wu6Un6+C2C
-         Sr582kYBs3c1oK076/p+XN3QUIbgALfPLvf5+mWEBi6c1fBZe0GLr9z2jLvvAC5Z/BpZ
-         Bfrw==
-X-Forwarded-Encrypted: i=1; AJvYcCWjk6MiR2p7JilJpBoN9Rc/mBPGl1Dsp9JQ0CWhk2Ssngu9Tz16mDpnlK4CQLIB6xi/kqpuZQiBCz8ufQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRflXgQaqzJegsp7lPuYBmvN6fkitI3bxAzRFG8cYOhQB9FUEJ
-	irol6nAOo71Kql0ZgHRg5W71yH3afKqXjbTFZ0moUtaGbNu3gJdhtIWKdPJgytF9pCTiUs4nOy2
-	REDDbpB8CkYphvkTDfPrcR19DCVg5JuBPgDsml+dIi1NnNWIKt3rDq8ODqca8gHQ8q3TES3/77N
-	/awSvEabiGoqXEnHu+cncAuTogu7DXwILg8fkWttFOKCPQUWjRplAewIeQehLJ
-X-Gm-Gg: ASbGncvltQ2cO7TKTy6f6IU/aJVsGd9fnt242qOz5TVf7cWHDsqHghO7F47H4U/lFmJ
-	JGqeEp3K37IQsMHHoO5gTR4xZuz+OcIZSCs/IGTOCz5ymADrCkyyoWlExOQuNuqnk0RAXFkBHu+
-	5xRybnwUlkL4Sh1FfDw3yVOPq4y2kIXfSTUyiWPJ8BcsH2ORNyFovrgw==
-X-Received: by 2002:a17:906:c10a:b0:b61:e088:b560 with SMTP id a640c23a62f3a-b76346ef9cemr3649466b.4.1763482581772;
-        Tue, 18 Nov 2025 08:16:21 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGBn7K4EsQ1/VADA/bQzwH86ZFXAYwYh29/z7evvXjdMBNS0csaU/n5+W/6S5nKTtDNtgN/9vlYqKGmpyFhzys=
-X-Received: by 2002:a17:906:c10a:b0:b61:e088:b560 with SMTP id
- a640c23a62f3a-b76346ef9cemr3644766b.4.1763482581386; Tue, 18 Nov 2025
- 08:16:21 -0800 (PST)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 18 Nov 2025 08:16:20 -0800
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 18 Nov 2025 08:16:20 -0800
+	Tue, 18 Nov 2025 16:25:37 +0000
+Received: from Mobilestation.localdomain (unknown [183.6.59.216])
+	by APP-03 (Coremail) with SMTP id rQCowAAXpdffnRxpmMQ0AQ--.31198S2;
+	Wed, 19 Nov 2025 00:25:22 +0800 (CST)
+From: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: ajones@ventanamicro.com,
+	alexghiti@rivosinc.com,
+	shuah@kernel.org,
+	samuel.holland@sifive.com,
+	evan@rivosinc.com,
+	cleger@rivosinc.com,
+	zihong.plct@isrc.iscas.ac.cn,
+	zihongyao@outlook.com,
+	zhangyin2018@iscas.ac.cn,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Subject: [PATCH v5 0/2] riscv: hwprobe: Add Zicbop support
+Date: Wed, 19 Nov 2025 00:23:23 +0800
+Message-ID: <20251118162436.15485-1-zihong.plct@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-In-Reply-To: <20251118-p1-kconfig-fix-v3-4-8839c5ac5db3@linux.spacemit.com>
-References: <20251118-p1-kconfig-fix-v3-0-8839c5ac5db3@linux.spacemit.com> <20251118-p1-kconfig-fix-v3-4-8839c5ac5db3@linux.spacemit.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-User-Agent: alot/0.0.0
-Date: Tue, 18 Nov 2025 08:16:20 -0800
-X-Gm-Features: AWmQ_blHnUdEuO_Xk-xLGxCSBj91WsT4QrqSPcs0Pl7bY6VmfVJn7i7Sg1yCEAQ
-Message-ID: <CAJM55Z9Ep6xAR_TP+dCrSqWWyk8n=31-W3H4Ad6BkWUAWsbObg@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] mfd: simple-mfd-i2c: add default value
-To: Alex Elder <elder@riscstar.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Andi Shyti <andi.shyti@kernel.org>, Lee Jones <lee@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>, Yixun Lan <dlan@gentoo.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-i2c@vger.kernel.org, 
-	linux-rtc@vger.kernel.org
+X-CM-TRANSID: rQCowAAXpdffnRxpmMQ0AQ--.31198S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4ktr43uFWfGr4DAw17Awb_yoW5Jr13pF
+	Z3XrnxGF4DGw1fCa9rCw1xWr1rKwn5WrWUJrW8ArykZa1UAryrJw1xKrZ3AFW7ArZxWr4Y
+	vF4xWa15uFWDA37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-Originating-IP: [183.6.59.216]
+X-CM-SenderInfo: p2lk00vjoszunw6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_081627_230842_F1BFB144 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20251118_082535_646152_F173F444 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,28 +90,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Troy Mitchell (2025-11-18 07:08:08)
-> The default value of the P1 sub-device depends on the value
-> of P1, so P1 should have a default value here.
->
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
->  drivers/mfd/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-> index 6cec1858947bf7ab5ee78beb730c95dabcb43a98..b0f109b3acc40b074e4d0178e123437495853496 100644
-> --- a/drivers/mfd/Kconfig
-> +++ b/drivers/mfd/Kconfig
-> @@ -1260,6 +1260,7 @@ config MFD_SPACEMIT_P1
->         depends on I2C
->         select I2C_K1
->         select MFD_SIMPLE_MFD_I2C
-> +       default ARCH_SPACEMIT
+Changes since v4:
+------------------
+- Fixed style problems. (Andrew Jones)
+- Updated the selftest gating logic: the cbo.inval test is now also
+  enabled when `--zicboz-raises-sigill` or `-z` is supplied, instead of
+  being skipped when these flags are present. (Andrew Jones)
 
-Can this not be default m if ARCH_SPACEMIT?
+Changes since v3:
+------------------
+- Dropped the test for Zicbop absence, as prefetch instructions are
+  architecturally defined as hints and should never raise SIGILL.
+- Removed `--sigsegv` and `--sigbus` options; these faults should never
+  occur on compliant implementations, and the test now handles them
+  unconditionally for reporting purposes. (Andrew Jones)
+- Split the previous --sigill option into two explicit 
+  `--zicbom-raises-sigill` and `--zicboz-raises-sigill` to enable
+  extension-specific tests. (Andrew Jones)
 
-/Emil
+Changes since v2:
+------------------
+- Squashed the previous UAPI/kernel/doc patches(originally 1/4, 2/4, 3/4)
+  into a single hwprobe patch for simplicity.
+- Selftests:
+  * Dropped the `memory` clobber from the prefetch inline asm since it is
+    pure hint.
+  * Fixed style problems. (Andrew Jones)
+  * Merged the standalone prefetch test into 
+    `tools/testing/selftests/riscv/hwprobe/cbo.c` (Andrew Jones)
+  * Switched to `getopt_long` for option parsing. (Andrew Jones)
+
+Changes since v1:
+------------------
+- Bumped RISCV_HWPROBE_MAX_KEY (modified 1/4).
+- Added documentation for the Zicbop hwprobe bit/key (new 3/4).
+- Added a selftest(prefetch.c) for Zicbop (new 4/4).
+
+Hi all,
+
+This patch adds UAPI and kernel plumbing to expose the Zicbop extension
+presence and its block size through hwprobe. The interface mirrors
+Zicbom/Zicboz. This allows userspace to safely discover and optimize
+for Zicbop when available.
+
+Background: Zicbop is mandated by the RVA22U64 profile. Downstream may
+combine the presence bit with ZICBOP_BLOCK_SIZE to make profile-level
+policy decisions or enable Zicbop-specific optimizations.
+
+Yao Zihong (2):
+  riscv: hwprobe: Expose Zicbop extension and its block size
+  selftests/riscv: Add Zicbop prefetch test
+
+ Documentation/arch/riscv/hwprobe.rst        |   8 +-
+ arch/riscv/include/asm/hwprobe.h            |   2 +-
+ arch/riscv/include/uapi/asm/hwprobe.h       |   2 +
+ arch/riscv/kernel/sys_hwprobe.c             |   6 +
+ tools/testing/selftests/riscv/hwprobe/cbo.c | 165 ++++++++++++++++----
+ 5 files changed, 152 insertions(+), 31 deletions(-)
+
+-- 
+2.47.2
+
 
 _______________________________________________
 linux-riscv mailing list
