@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A769ECEE339
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Nov 2025 16:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF43CEE338
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Nov 2025 16:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1QzIHJdCiZZgeYl8Xa9WBW+q98Y7rwhP1wIqti2BkDk=; b=r4WlOGeCeMH5q7
-	MA6U191svDHQskfDX7YzluO3iTxgheuU+b0WjplMj1hdtpt0fZG4gOZMsyOAzKB5Pv6qED3ZTGmJy
-	12PbNLyozO1PoZ3TfS7SOmtidmqxnfWbdS0GNuryK1qAGzg6LfeYNLhs8Tt6n8WXNmI4M8ENrBvia
-	mePdAZ0KloFKbQM3vT/R2emIlKzjpBEFs9ZfoNXVjjK0E/Wdnm4zGXuRUs5q6Ji2wpgdqFzwmNFav
-	EGzL2nupveE3H3sYU0uM+vs151+1W+9ueUnZ45s38ssshfT9J9m1s9DPELYpYK6KUU7xF2nF+akIj
-	GuojmQ4OMM97dzlEug+A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XBVyq0OzCN34zkvuUws+pCL8rcfHrVUntJ4N0Ns5zac=; b=ueLrZ9HAzHYi9z
+	SkDe7KE4qQ9AZdKyCJ/HPOggvn+uqXnMYpvvYL/yYX4oJiGtcMgrSe89UwDMXunQEv+VUWb0TWD+0
+	+7ZzZQqPUn9gBSwyWpW63wSAGiS3Zjsb3LZ3weAHqbFL2Ab1wfJs4QS7kyLRACXQzjUf8AX+8V4uV
+	s7m2/jOhUlaGdQTVqJzxxbDm5g0twaYN4o3IKK6psZNFPcSi8jNfgWjNZVdJtHSqh/Q1AiFNUS5zi
+	ZSdbux6M1DsUDIvxFiuQxMCNngTGTbGMSGHfnV8q8NHqOK+6SJrJ1pmjRMwua147rLAIRPCk58Jq6
+	0meIR9Fi70MjB9FHPi0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOWR-00000000ixI-01op;
-	Tue, 18 Nov 2025 16:25:39 +0000
+	id 1vLOWh-00000000izv-1MZr;
+	Tue, 18 Nov 2025 16:25:55 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOWN-00000000iwL-0y0H
+	id 1vLOWe-00000000izE-2McU
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Nov 2025 16:25:37 +0000
+	Tue, 18 Nov 2025 16:25:54 +0000
 Received: from Mobilestation.localdomain (unknown [183.6.59.216])
-	by APP-03 (Coremail) with SMTP id rQCowAAXpdffnRxpmMQ0AQ--.31198S2;
-	Wed, 19 Nov 2025 00:25:22 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAAXpdffnRxpmMQ0AQ--.31198S3;
+	Wed, 19 Nov 2025 00:25:38 +0800 (CST)
 From: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
@@ -42,38 +42,52 @@ Cc: ajones@ventanamicro.com,
 	zihong.plct@isrc.iscas.ac.cn,
 	zihongyao@outlook.com,
 	zhangyin2018@iscas.ac.cn,
+	Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH v5 0/2] riscv: hwprobe: Add Zicbop support
-Date: Wed, 19 Nov 2025 00:23:23 +0800
-Message-ID: <20251118162436.15485-1-zihong.plct@isrc.iscas.ac.cn>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Cyan Yang <cyan.yang@sifive.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Nam Cao <namcao@linutronix.de>,
+	Aleksa Paunovic <aleksa.paunovic@htecgroup.com>,
+	Jingwei Wang <wangjingwei@iscas.ac.cn>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	=?UTF-8?q?Miquel=20Sabat=C3=A9=20Sol=C3=A0?= <mikisabate@gmail.com>,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+	linux-doc@vger.kernel.org (open list:DOCUMENTATION)
+Subject: [PATCH v5 1/2] riscv: hwprobe: Expose Zicbop extension and its block size
+Date: Wed, 19 Nov 2025 00:23:24 +0800
+Message-ID: <20251118162436.15485-2-zihong.plct@isrc.iscas.ac.cn>
 X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20251118162436.15485-1-zihong.plct@isrc.iscas.ac.cn>
+References: <20251118162436.15485-1-zihong.plct@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAAXpdffnRxpmMQ0AQ--.31198S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4ktr43uFWfGr4DAw17Awb_yoW5Jr13pF
-	Z3XrnxGF4DGw1fCa9rCw1xWr1rKwn5WrWUJrW8ArykZa1UAryrJw1xKrZ3AFW7ArZxWr4Y
-	vF4xWa15uFWDA37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-CM-TRANSID: rQCowAAXpdffnRxpmMQ0AQ--.31198S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxGw1Utw1DGw17urW5Ar1DWrg_yoWrAw1kpF
+	4DZrsxWFs8Cw4xCFWxt3WkZrn5J3Z7Kw43KF1Uu3yUJFW7trWrXr9xtFsIyr1DtFyFva92
+	gF4agrZYya9rArDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUH2b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY
+	1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
+	8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCF
+	s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFI
+	xGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc7CjxVAKzI0EY4vE52x0
+	82I5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
+	0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y
+	0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
+	W8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1l
+	IxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU07fHUUUUU
+	U==
 X-Originating-IP: [183.6.59.216]
 X-CM-SenderInfo: p2lk00vjoszunw6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_082535_646152_F173F444 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251118_082552_964605_62FC1D2E 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,64 +104,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Changes since v4:
-------------------
-- Fixed style problems. (Andrew Jones)
-- Updated the selftest gating logic: the cbo.inval test is now also
-  enabled when `--zicboz-raises-sigill` or `-z` is supplied, instead of
-  being skipped when these flags are present. (Andrew Jones)
+- Add `RISCV_HWPROBE_EXT_ZICBOP` to report the presence of the
+  Zicbop extension.
+- Add `RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE` to expose the block
+  size (in bytes) when Zicbop is supported.
+- Update hwprobe.rst to document the new extension bit and block
+  size key, following the existing Zicbom/Zicboz style.
 
-Changes since v3:
-------------------
-- Dropped the test for Zicbop absence, as prefetch instructions are
-  architecturally defined as hints and should never raise SIGILL.
-- Removed `--sigsegv` and `--sigbus` options; these faults should never
-  occur on compliant implementations, and the test now handles them
-  unconditionally for reporting purposes. (Andrew Jones)
-- Split the previous --sigill option into two explicit 
-  `--zicbom-raises-sigill` and `--zicboz-raises-sigill` to enable
-  extension-specific tests. (Andrew Jones)
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
+---
+ Documentation/arch/riscv/hwprobe.rst  | 8 +++++++-
+ arch/riscv/include/asm/hwprobe.h      | 2 +-
+ arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
+ arch/riscv/kernel/sys_hwprobe.c       | 6 ++++++
+ 4 files changed, 16 insertions(+), 2 deletions(-)
 
-Changes since v2:
-------------------
-- Squashed the previous UAPI/kernel/doc patches(originally 1/4, 2/4, 3/4)
-  into a single hwprobe patch for simplicity.
-- Selftests:
-  * Dropped the `memory` clobber from the prefetch inline asm since it is
-    pure hint.
-  * Fixed style problems. (Andrew Jones)
-  * Merged the standalone prefetch test into 
-    `tools/testing/selftests/riscv/hwprobe/cbo.c` (Andrew Jones)
-  * Switched to `getopt_long` for option parsing. (Andrew Jones)
-
-Changes since v1:
-------------------
-- Bumped RISCV_HWPROBE_MAX_KEY (modified 1/4).
-- Added documentation for the Zicbop hwprobe bit/key (new 3/4).
-- Added a selftest(prefetch.c) for Zicbop (new 4/4).
-
-Hi all,
-
-This patch adds UAPI and kernel plumbing to expose the Zicbop extension
-presence and its block size through hwprobe. The interface mirrors
-Zicbom/Zicboz. This allows userspace to safely discover and optimize
-for Zicbop when available.
-
-Background: Zicbop is mandated by the RVA22U64 profile. Downstream may
-combine the presence bit with ZICBOP_BLOCK_SIZE to make profile-level
-policy decisions or enable Zicbop-specific optimizations.
-
-Yao Zihong (2):
-  riscv: hwprobe: Expose Zicbop extension and its block size
-  selftests/riscv: Add Zicbop prefetch test
-
- Documentation/arch/riscv/hwprobe.rst        |   8 +-
- arch/riscv/include/asm/hwprobe.h            |   2 +-
- arch/riscv/include/uapi/asm/hwprobe.h       |   2 +
- arch/riscv/kernel/sys_hwprobe.c             |   6 +
- tools/testing/selftests/riscv/hwprobe/cbo.c | 165 ++++++++++++++++----
- 5 files changed, 152 insertions(+), 31 deletions(-)
-
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index 2f449c9b15bd..52f12af43b9d 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -275,6 +275,9 @@ The following keys are defined:
+        ratified in commit 49f49c842ff9 ("Update to Rafified state") of
+        riscv-zabha.
+ 
++  * :c:macro:`RISCV_HWPROBE_EXT_ZICBOP`: The Zicbop extension is supported, as
++       ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
++
+ * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated.  Returns similar values to
+      :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF`, but the key was
+      mistakenly classified as a bitmask rather than a value.
+@@ -369,4 +372,7 @@ The following keys are defined:
+ 
+     * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFWMACCQQQ`: The Xsfvfwmaccqqq
+         vendor extension is supported in version 1.0 of Matrix Multiply Accumulate
+-	Instruction Extensions Specification.
+\ No newline at end of file
++	Instruction Extensions Specification.
++
++* :c:macro:`RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE`: An unsigned int which
++  represents the size of the Zicbop block in bytes.
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 58f8dda73259..8c572a464719 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -8,7 +8,7 @@
+ 
+ #include <uapi/asm/hwprobe.h>
+ 
+-#define RISCV_HWPROBE_MAX_KEY 14
++#define RISCV_HWPROBE_MAX_KEY 15
+ 
+ static inline bool riscv_hwprobe_key_is_valid(__s64 key)
+ {
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index 5d30a4fae37a..9cc508be54c5 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -82,6 +82,7 @@ struct riscv_hwprobe {
+ #define		RISCV_HWPROBE_EXT_ZAAMO		(1ULL << 56)
+ #define		RISCV_HWPROBE_EXT_ZALRSC	(1ULL << 57)
+ #define		RISCV_HWPROBE_EXT_ZABHA		(1ULL << 58)
++#define		RISCV_HWPROBE_EXT_ZICBOP	(1ULL << 59)
+ #define RISCV_HWPROBE_KEY_CPUPERF_0	5
+ #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
+ #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
+@@ -107,6 +108,7 @@ struct riscv_hwprobe {
+ #define RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE	12
+ #define RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0	13
+ #define RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0	14
++#define RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE	15
+ /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+ 
+ /* Flags */
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index 199d13f86f31..6b33fd88bf3e 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -122,6 +122,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
+ 		EXT_KEY(ZCB);
+ 		EXT_KEY(ZCMOP);
+ 		EXT_KEY(ZICBOM);
++		EXT_KEY(ZICBOP);
+ 		EXT_KEY(ZICBOZ);
+ 		EXT_KEY(ZICNTR);
+ 		EXT_KEY(ZICOND);
+@@ -302,6 +303,11 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+ 		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOM))
+ 			pair->value = riscv_cbom_block_size;
+ 		break;
++	case RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE:
++		pair->value = 0;
++		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOP))
++			pair->value = riscv_cbop_block_size;
++		break;
+ 	case RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS:
+ 		pair->value = user_max_virt_addr();
+ 		break;
 -- 
 2.47.2
 
