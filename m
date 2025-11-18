@@ -4,82 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9110DCEBF97
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Nov 2025 06:13:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C13CCD19A
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Nov 2025 08:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wRO/2lXymZY1pspnADhG0+x2Bs0kh2UslzsGdwUsWgU=; b=WWjRYGd4q2o7r4
-	TenEefADxoBIYu0m/wnutdTnGMsAiba/9TfSu5lUhozSXwF/8LGM2djEusfDQtYtKoL5SgrYyti8+
-	LtMCdzN+s4as23wME/+31zG+P2/6/frjmP2Urba2AUoMC4HEnLy1rDpzd7K1BhAOS49Y+8Ukmj3vh
-	pfIjnhA7kyf4gb9KGs44z01Ahnkynl/PPeM6uzBLbSSjAZjufr6UNj27TMSfl+HqNEphE0u115d7Y
-	Hs0cv/UWMFVTJN+8h2GMQBDeHUVmmF2a489BoP0a7+he1UqubnLow6G85DpRsxIM2isHQ706GlRal
-	gSilQJAwSVElfLXrXy3w==;
+	List-Owner; bh=b5B78vqFc/rrnhaxVz0o4WnWizzQV+Z3ILxwRjweYFU=; b=YWdXxCZjW2zYY1
+	sijf19yABfblkoG5GHk1ZSjIhdAPH9YDhzqjWBPEYgS6oRh4O9U9mULGhbVrHAr0jlnV0DyM4hClE
+	lJXcrKqJdqsY4i8pOOVYWvQFMYSx9TzSnm0HgbDM/L4FVGT4FGIn/NVCBLlhObD2xodXHm8OfnKrD
+	dBMdQ2ODQTwd+ZEMhcp9A7v/2ww8aWi2PcGV/1gFpRd7d11Cy+wX3UDMc4q/byMVgqgYudhRik+bX
+	QEgiEv8zlxFPQo9UjeFW8lMqKlb3aAZISbzd7xtGKrLBP9fnYPDYlZICvc9F+ZZyOt3iMv8RHlYV0
+	zJbpX01iFBRjvV6oYmJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLExs-0000000HTv0-0pf8;
-	Tue, 18 Nov 2025 06:13:20 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1vLGr9-000000002JQ-1vii;
+	Tue, 18 Nov 2025 08:14:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLExp-0000000HTuE-1yK8
+	id 1vLGr8-000000002JA-2Apv
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Nov 2025 06:13:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1763446324;
-	bh=PefOPp4VRN+tiPLuOqhHsJ3+bwsd1zdz/20vvYEKS0Y=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=CH8kzZ+OXTHPP0+rxn+tX7o0j0lWxSzPzcPf1YgXFRb10OgkoJlUTef3BMaxzxsHz
-	 Pjla6o5729p7WCCOAfVPaU0jDg0QpEYt+7ou/WhigIadoqPizP/dGooCSlnHVHZQGl
-	 a4PqtzAmToBe4I1bSLJeiyyRg+xSeVw2kDpiMVsI=
-X-QQ-mid: zesmtpsz1t1763446322t85fbca92
-X-QQ-Originating-IP: sxHPH0siHuAz7N4YRiuNuWYFwBSXTUAYWAJuNFM67cE=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 18 Nov 2025 14:12:00 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3589277169008549396
-EX-QQ-RecipientCnt: 13
-Date: Tue, 18 Nov 2025 14:12:00 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Charles Mirabile <cmirabil@redhat.com>, linux-kernel@vger.kernel.org
-Cc: spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org, mturquette@baylibre.com,
-	sboyd@kernel.org, dlan@gentoo.org, heylenay@4d2.org,
-	elder@riscstar.com, troy.mitchell@linux.spacemit.com,
-	inochiama@outlook.com, Yanko Kaneti <yaneti@declera.com>
-Subject: Re: [PATCH] clk: spacemit: fix UBSAN warning during probe
-Message-ID: <6C924033633588A2+aRwOMF9uafe2dl5H@kernel.org>
-References: <20251117190329.1337250-1-cmirabil@redhat.com>
+	Tue, 18 Nov 2025 08:14:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A845E601D0;
+	Tue, 18 Nov 2025 08:14:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AD6DC16AAE;
+	Tue, 18 Nov 2025 08:14:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763453669;
+	bh=0CC4f7M1SiULjMXIJIXEs5EIBqs9WKMZKN5YwkFxQi4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=qcTNakD5xzuGQsgBcKeLTIEsJKLFIxm7z4Z7Rw3Hc0aXjsLNbsK0sNtTEiJb0Fajb
+	 +N6yZ8xw3Dm0+KmbHkkBY0goaClTkTD0RFXvOxA3l+Ik2PNaEHKPGULRg2WEyxq84w
+	 smjKp66KKGEJBTdAPFSS98KHJTWsd5o3kmAhQtQhAI2Zr1MaG3rYm+MiC7EdxiQgzp
+	 guTo1hKDfjIdvzOzuUTV6oGKnYG2ZKYb8Yp0sB9hMKz0ddM6syb2sN3xZmyk6vZ+Yz
+	 HVsPGYDOHlrkPtlltylSQ135bLDX+2XAOgv8m+C0r1TxONxDK5uNGw7M9vnXS8cmRT
+	 IBroFQPLHnOYg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33B743809A2D;
+	Tue, 18 Nov 2025 08:13:56 +0000 (UTC)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251117190329.1337250-1-cmirabil@redhat.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MX+1SEN3H+wAJ1xIDWnUW563xdfIUlc2/aaOirnPLXDVWn5rFKKxSvMU
-	Hbuff5fNVcJdbyf8qRwfXyEGstTXa1QwjmaJEoRR+JUKWw7PEe/upy12Pv6bJt9X+F5oljd
-	j/OgOAlKPkB38cJfFPeKT7mcuSVllYhjV3bisY/D8ZMCIkrbNCMp2tYrzxxf5v5o7Sys+sf
-	CouXLCB6cPWcfaGUnj1AJtIQI/pVBRQ5T+LNuD8kkeHvpzcIJah61Rq8dqqWmQbmAF/OPQN
-	DU1UI5mScUiJ/Zv+vR6IH9+YHSYrw9Y2nGlGdIF0yE/bAKccQFH1WiuOy3XIf9EriK5v1O5
-	8eYgLUDAghkRFV4CrtTWM8ETz5k+l0mkhvAnk42DFuQYYisDJvhjtm27NGxG5r1iKrigwhS
-	Q1BqtUQ3q55SAPUJu7iQs2VIUQvOpgnvtFXOKCIttpRddul5rpdFnCaBKftCk7ivNJo7T8c
-	j6U6GmLFULp8uWSMpX35QAboBqEOX+sJpLrOgFY2J77QtVhJ6o6p0SbQiy02pCaq7ic+OoS
-	dVFe9j2QDovoFk60Sc3aQ9zt4IrL47oSgIlXdcHZEAFUOw2kkdovXbwza5GU6LhQjqFApDn
-	eoL85NP5FcW4gFFvR97esgPH/VuHqxpOzyJfQHu1Oyc9C1x+EvVNOH2BQ80Y04Of1U4EKX/
-	j2UuVN/ywQnsB9bBgT/QxGrXkkPMRjIUTsyLkWAJCislJDwuZLTj246OSycDYfEAVY5FxG6
-	e5/4uJbOntiw7PFuRBjom8vAtsDxavCh8YSfqRqCIakwbz8xYbpo14oly2b9icHi+LGvVal
-	i4j6CyAn41UUS4QfpntXO3jegdJBCyWwrmDaalb/YwN1fHgjvbCJ2yvv7a+3IwUEwUUwH/g
-	hVexeYu3fCBqZX/NRULimiZOFgVSehjkB4E1vUywmddGWHddfnaI4uxcnJuoLDGSjhfm8sy
-	Bh8nFR2re7f05WyYaocP1nLrHazvzF5Aa489U97e7Zvla2DJlmMpNdtviIH2xkeqgPEquUE
-	D+TE9GNPvYp1DwERss0xI62e4ZNZIMf5Gd3MK3RA==
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_221318_038835_F024F53F 
-X-CRM114-Status: GOOD (  21.64  )
+Subject: Re: [PATCH] riscv: Remove __GFP_HIGHMEM masking
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <176345363474.4032995.16191176205928685745.git-patchwork-notify@kernel.org>
+Date: Tue, 18 Nov 2025 08:13:54 +0000
+References: <20251107182620.95844-1-vishal.moola@gmail.com>
+In-Reply-To: <20251107182620.95844-1-vishal.moola@gmail.com>
+To: Vishal Moola (Oracle) <vishal.moola@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,89 +71,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 02:03:29PM -0500, Charles Mirabile wrote:
-> When booting with KASAN enabled the following splat is encountered during
-> probe of the k1 clock driver:
-> 
-> UBSAN: array-index-out-of-bounds in drivers/clk/spacemit/ccu-k1.c:1044:16
-> index 0 is out of range for type 'clk_hw *[*]'
-> CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc5+ #1 PREEMPT(lazy)
-> Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2022.10spacemit 10/01/2022
-> Call Trace:
-> [<ffffffff8002b628>] dump_backtrace+0x28/0x38
-> [<ffffffff800027d2>] show_stack+0x3a/0x50
-> [<ffffffff800220c2>] dump_stack_lvl+0x5a/0x80
-> [<ffffffff80022100>] dump_stack+0x18/0x20
-> [<ffffffff800164b8>] ubsan_epilogue+0x10/0x48
-> [<ffffffff8099034e>] __ubsan_handle_out_of_bounds+0xa6/0xa8
-> [<ffffffff80acbfa6>] k1_ccu_probe+0x37e/0x420
-> [<ffffffff80b79e6e>] platform_probe+0x56/0x98
-> [<ffffffff80b76a7e>] really_probe+0x9e/0x350
-> [<ffffffff80b76db0>] __driver_probe_device+0x80/0x138
-> [<ffffffff80b76f52>] driver_probe_device+0x3a/0xd0
-> [<ffffffff80b771c4>] __driver_attach+0xac/0x1b8
-> [<ffffffff80b742fc>] bus_for_each_dev+0x6c/0xc8
-> [<ffffffff80b76296>] driver_attach+0x26/0x38
-> [<ffffffff80b759ae>] bus_add_driver+0x13e/0x268
-> [<ffffffff80b7836a>] driver_register+0x52/0x100
-> [<ffffffff80b79a78>] __platform_driver_register+0x28/0x38
-> [<ffffffff814585da>] k1_ccu_driver_init+0x22/0x38
-> [<ffffffff80023a8a>] do_one_initcall+0x62/0x2a0
-> [<ffffffff81401c60>] do_initcalls+0x170/0x1a8
-> [<ffffffff81401e7a>] kernel_init_freeable+0x16a/0x1e0
-> [<ffffffff811f7534>] kernel_init+0x2c/0x180
-> [<ffffffff80025f56>] ret_from_fork_kernel+0x16/0x1d8
-> [<ffffffff81205336>] ret_from_fork_kernel_asm+0x16/0x18
-> ---[ end trace ]---
-> 
-> This is bogus and is simply a result of KASAN consulting the `.num` member
-> of the struct for bounds information (as it should due to `__counted_by`)
-> and finding 0 set by kzalloc because it has not been initialized before
-> the loop that fills in the array. The easy fix is to just move the line
-> that sets `num` to before the loop that fills the array so that KASAN has
-> the information it needs to accurately conclude that the access is valid.
-> 
-It sounds very reasonable. Thanks!
+Hello:
 
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+This patch was applied to riscv/linux.git (for-next)
+by Paul Walmsley <pjw@kernel.org>:
 
+On Fri,  7 Nov 2025 10:26:20 -0800 you wrote:
+> Remove unnecessary __GFP_HIGHMEM masking, which was introduced with
+> commit 380f2c1ae9d4 ("riscv: convert alloc_{pmd, pte}_late() to use
+> ptdescs"). GFP_KERNEL doesn't contain __GFP_HIGHMEM.
 > 
-> Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
-> Tested-by: Yanko Kaneti <yaneti@declera.com>
-> 
-> Signed-off-by: Charles Mirabile <cmirabil@redhat.com>
+> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
 > ---
->  drivers/clk/spacemit/ccu-k1.c | 4 ++--
+>  arch/riscv/mm/init.c | 4 ++--
 >  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-> index f5a9fe6ba1859..4761bc1e3b6e6 100644
-> --- a/drivers/clk/spacemit/ccu-k1.c
-> +++ b/drivers/clk/spacemit/ccu-k1.c
-> @@ -1018,6 +1018,8 @@ static int spacemit_ccu_register(struct device *dev,
->  	if (!clk_data)
->  		return -ENOMEM;
->  
-> +	clk_data->num = data->num;
-> +
->  	for (i = 0; i < data->num; i++) {
->  		struct clk_hw *hw = data->hws[i];
->  		struct ccu_common *common;
-> @@ -1044,8 +1046,6 @@ static int spacemit_ccu_register(struct device *dev,
->  		clk_data->hws[i] = hw;
->  	}
->  
-> -	clk_data->num = data->num;
-> -
->  	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
->  	if (ret)
->  		dev_err(dev, "failed to add clock hardware provider (%d)\n", ret);
-> 
-> base-commit: 6a23ae0a96a600d1d12557add110e0bb6e32730c
-> -- 
-> 2.51.1
-> 
-> 
+
+Here is the summary with links:
+  - riscv: Remove __GFP_HIGHMEM masking
+    https://git.kernel.org/riscv/c/cba94f87992e
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
