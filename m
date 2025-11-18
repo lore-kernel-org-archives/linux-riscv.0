@@ -4,93 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0ED8CED620
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Nov 2025 14:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A22BCEDDB0
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Nov 2025 15:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bin0lIfDInC5BW258YYpjx8GtbTztLwdkbBtE09NuxY=; b=IaPYvGAtYUCSm+
-	vNsEk6Uqw6QsUmLoO0+SOaDfgRWfYi0xy5goK2QxHEP/DqerI+fTzlZLUb/j5MVguh7GlWiEQyyti
-	qit9LUuT8IGwt5xquL6F8vN/x28APQJTaV6+3ya1qlEeyt2jx0wiYMzcr+SfkHuV+MZK3Gt/dxzyj
-	7BqNpDnrtvXfCDsavqpUnkq/1pyiT616DaF3jwi8waEeCKZzrY4PAvtMqlKYBypWpWv/MaMDEsInc
-	AVLkBGlQJ/e358/3Ev7WnlFaI6zgDvEev7cQhgjyvUgsJJvjcIFa2faICYWhdIo8LLX7Jaf+EHWjx
-	Ehiy/TRsDppqfw3jUqEA==;
+	List-Owner; bh=t/YRoQYIJ2zH/3xupEA0DO97nDSlqJboWI+ee6qoUDo=; b=cqE5cOqrfV/kRi
+	9JhSc0W9HCzzJj4JtnAqr0350AIewWSwM7KciyvYPjJCLcalo68F0TbKT1Mdcv0gK9mUgEG1Xo7qT
+	h1qHGiP5pIgS9sKipCskgBycLCvX9NPvgCFk81jy5QSonDLautDM4oHxn6r9qL87mwmW9Ys77hC7O
+	AXiFIO7U5rDOrJybpIi4rCuIIBhJ9DIBz5hDYJcYjUWwg9Gahun9/1KKA4fXZReD4OYwRBpH+TL2Y
+	PJzsQHLQPC/sbMLKWMnYCVMPhPJzJciUCvVh9uvorQ+gpWjGvYQZhFt54k/rKeOAQut2eT/yLfinL
+	SAPSgfB0y76fll8DUA4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLMR6-00000000XXO-3fgb;
-	Tue, 18 Nov 2025 14:12:00 +0000
-Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
+	id 1vLNNx-00000000cEL-3yQy;
+	Tue, 18 Nov 2025 15:12:49 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLMR2-00000000XWX-47cg
+	id 1vLNNu-00000000cDx-0k8t
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Nov 2025 14:12:00 +0000
-Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-9491ba846b2so29665939f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Nov 2025 06:11:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1763475116; x=1764079916; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XQOHp/GwI3fcgmlB0YvLeMTllnQu/TZutZS/btTjmOc=;
-        b=VlSz/k3GK9F7O1k+ibEqYHuMXTwqRv00spP5+nP7GVPPqDwauDEAOwzZ91PSyJ9u4N
-         OmnV/7DlLfJygKNW0cKpisbH2uZAKPTdnqBqOow4vvB68p+KZ+OkiZIYdBE5FnSEdkSA
-         Jw1t+vGyYW3dcoV1p4d2l2mGDUDkKv0GcZLbsxGFMIN0KQYS0te67K/oM2DMqI9vfLMj
-         AUR3pd426Ie4Qh/nF6fZe4ZuXMp3Y/MW2xNtTIP7EbTxTMgiBZrxekztbECno5IyxhdU
-         vZtDNneH/h7EEf1Iyx9kaK75JlWGsD9Rm0fYw1R2wm7LLx1haZo9ifBvaB0enqBF4t3K
-         Gr7g==
+	Tue, 18 Nov 2025 15:12:48 +0000
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 222443FB7A
+	for <linux-riscv@lists.infradead.org>; Tue, 18 Nov 2025 15:12:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1763478761;
+	bh=QYW084xRPtrHcS9BFdMg3li+ldeYqP8F4NisC2kwgpU=;
+	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type;
+	b=agmYr6lWF+x9Ix6c8+VyPJepKH3dwggWQT/utjQIxk553lDxeWSpKFpXUfwjgtN3+
+	 3Z9CpZEB/mH2OtaMAOD2HdtRgJ55yRXRfbs5bmZqRskhiFvzMjIzTcPQW51isTUpeR
+	 YcneaGwT7Pobw5vPGrb+Pu1N1/gd/gfgk139PtfMJqXB/jLtWHDtDTCF8Mis0ecCZX
+	 euCfmdLhAxN+cvpX1GJ1uftcqxk+QhQHcVx2kAJ7z9XumcGBsHl9w+WntqWKHo/qF7
+	 P1OotWsPjSop/uDgzxBWnPJc2OU+MDB+D4uatCcUrsRDt8vIsUFbOD53vDizsb7yF5
+	 zAPGaWjc5bVflrs/byvhtdwPIqzYH7R65Zygf3Mbb0yUUy+xITADF6k44HsyPkfKOH
+	 eIE2mReDjAb2W1CAll+3Ttx7Iz153YEObwHFmsFGyHUBzhtqNka8IQvezuMuDGMApT
+	 Q+/qzgOWiJbgOE63iBdJkxxNQbz9Itj5GldO3057laPyqR1iLuz1Z5mjSIBTPMKBlx
+	 4zHeVqWfKYKRLo7pPrs9n1/RGc4NAmf+3uqJjHmqIldhj8GS6f0kj+nJdXGsyAPMXP
+	 UxGKVB3AAe0xfryGRVuQPk1lKCjcTCKCvNWy5epSakUN5oNtdl+OjCkEBGwQ8o6+n2
+	 9hX1OfDTbxwAn8gCJ9ca6GtI=
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4779da35d27so23978925e9.3
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Nov 2025 07:12:41 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763475116; x=1764079916;
+        d=1e100.net; s=20230601; t=1763478759; x=1764083559;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=XQOHp/GwI3fcgmlB0YvLeMTllnQu/TZutZS/btTjmOc=;
-        b=VcOJdDJbQ0lPQBgrffsaNvW2wj8wK15kYPZ+HR9Em1fsC1ttXhIwFfStvBM0HMRLfy
-         gDweLdo6YcCQ/xnnMZ+gkd2bhn+vLS3fpo0xOpjFPbeEGjjL2Y62/Z8CodecJN1T21SZ
-         m5ruZsv2krAOfRfgNtBf4PhNBIYWn6rN/vFCJCkyD0SFWwELwzQR0ux9+CfgX/8hLlLE
-         cyz8Xkpb/lug9T+b8yZA5rrsOysjUpEDX2Nq0sQkrKYbuiXS6/gYSZHWDs9Lh99Ce5Un
-         0rCQpkEHH9c58B3aZeBPx0TsgaevMYCnB2UmnKjGahRKCstWFLwzSxvqC3qB4ztU55L0
-         E8aA==
-X-Forwarded-Encrypted: i=1; AJvYcCVbt9RYdzaZUj6vhcTJMFMQS61I/Us2ggQV0swDSXRBde0etfNO/jJ0sYY22ciw2iaHyTV9IJU0LlMrqg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrETWom6kvzZjstf3+9w8mQ6JFIB8W5T5gk0OTNL74rQwuyjSL
-	3cldaq3+arb0gjRb0zw6M5lNBKsL9MWPv74sI/y0ex9+8qjq+yww5BekHg8t9tiJDoM=
-X-Gm-Gg: ASbGncsCuo2NPyB/it9B9PV/ynpD732uJyPH8rRVo+MhE/Cy5VWtrPHiH5KIB6+cIk5
-	kxA0Ukw4GxDx+aicE5LnGGf9m7fhQX32EbW9tfJvfnAlkC7JPQNmiUnYdYjJqhcFchTrP/4DnNw
-	T1vJXgznkEvJXLf1jsWZUo1xiNH8Bl+qw7CNFrr+zxKw4Ieu+CDWuRYa7+WpK/NatXmSYuYRkTZ
-	vX9DJhQKXTMcbkOHYQxTIH+KdgXDKZnaPuXzg6vN01cc0WWgiD7an6rr7ofolXUPGYgJVB/xvOn
-	iNeLGboCta0ZRABv2nkKsNtGk3RQZDw0f/AQQUEZ1CrNpxA94zAEgmZ7XCTHeRhqgzvSbdRW6Ex
-	ECaYl7F3MKDYh0fkpjUJJmqFqe0ONxzmCjN1Gs1V2zr4Ek/Ip1m2+84WnJgqDZNlZOOt4KOMhfT
-	/ni3WqPZhHycwgRPnm2RTzCO0xf3ScQZqpcIGg1tylDGz8DAQMpg==
-X-Google-Smtp-Source: AGHT+IF3S+JfrYl1iTQg9Cf+cciD5dTfnTSo4c8+gQm0I9ddxsueA+d0+U+Ih0ju8axq16SoJtC3pA==
-X-Received: by 2002:a05:6638:2047:b0:573:15bb:830c with SMTP id 8926c6da1cb9f-5b7c9dd4a58mr12679050173.13.1763475115710;
-        Tue, 18 Nov 2025 06:11:55 -0800 (PST)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5b7bd27fa4asm6008728173.26.2025.11.18.06.11.54
+        bh=QYW084xRPtrHcS9BFdMg3li+ldeYqP8F4NisC2kwgpU=;
+        b=IDTnPDYwK7A+tZx2L6rA5JnftRhliQBUX/95jPE7ystj1LtV01U/cIhDbd9dCel/Jn
+         n9dXRjO9UhyX2LVaW4ONSCg3OeH4vIexVLXBAN/x9Wa/T1q/pWIPwRR77ZiudemmSKvk
+         rIUnsLRkcvm/f3ojHzmvb0I0jri8G+JxY5GE20vcLd+yZJhDj9I8PESPp/YV8K6upoC+
+         a9qty1l6Vvdy34jTDp3kczMxPFhcDKMHFcJuSIt8F4EM4PDCqrB2swKqVz8jRexPlKyn
+         iuBlp0ucxGalfL9dKIe0wPK7uHXmcokgkeVPjOhutAjaBhSB0XZm9jfOGb67PuXV0j8l
+         QVtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUoi/AHYTYvSQbupJKkK9v+xb3fIa+zPeYsQpnX9zdPxUPXVVxoEr9rsHvHdwcy3CstP9hNKARZdn5FrQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXRXXs3IgxPdfx2TxdZJ+xo0V0O6qrh5nkARdsYvyUSbWMI6ok
+	SgNlSW0oqpdfJ/ROCcBUPfZ5ZR0a9X936Lco9nAY1EFLePhn++6FP0EjeqAm23FCILFaD5PxWof
+	QTiupUeJTud1XXUNQaDQueFUybNpczOaTf5faQzvGuqc7gA5gyiaXlAmamY5XoYMdaC0Ct5yGKu
+	Bo9cCTHbE6QQ==
+X-Gm-Gg: ASbGncvrDyc4j2EncOstPAotK1axwZiq4OmSBiz6vms1xeUYUEjyK6p449hkqS6zUhO
+	Nj0Rrh0LSZ7czCW46zHVSTXnLXK8dvO1QQarsmJ42apAelGA8l/lWDCfyWFo1uuUY5j5DPHDSDc
+	jOVhsEfmrbr27aqeMwY4UJJqnzvh4BQAIYZ5PdIlGAO/hE0nGngjShsA6PHwMEXQYGWf9FZwYXq
+	z7fAySOrRKQqFMz+FOcyw5UqzPodNxojarH2LGcZyZgrGMpd/yp4SlI8+9+Mo8XRNwmew59BQ/P
+	M2wcN5jQ1ysYZi+dz+rEq0j5D9lVyVa9ogMOhgHivI9nh4qN/zjq7E6GQwkUpFZX/LNSdytOUyr
+	JVeESYIVletgEwTS70oUbAaLq54TVgMcde4/Ep1zjl4YVjvhxFYV0vekPbAJJWrRn7HgtGPQMmy
+	LWFD0gcXw=
+X-Received: by 2002:a05:600c:a47:b0:477:7a53:f493 with SMTP id 5b1f17b1804b1-4778fe78b15mr169656105e9.23.1763478758464;
+        Tue, 18 Nov 2025 07:12:38 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE9nR6zrXV9uSL6xlJiS/ofCjZNxePLdcNBepG1KcjfIHFcnQEuUiye7UVgA/UkolEiTj0s+Q==
+X-Received: by 2002:a05:600c:a47:b0:477:7a53:f493 with SMTP id 5b1f17b1804b1-4778fe78b15mr169655645e9.23.1763478757841;
+        Tue, 18 Nov 2025 07:12:37 -0800 (PST)
+Received: from [192.168.103.118] (ip-005-147-080-091.um06.pools.vodafone-ip.de. [5.147.80.91])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477a04157c2sm143361745e9.1.2025.11.18.07.12.36
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Nov 2025 06:11:55 -0800 (PST)
-Message-ID: <21f0aa62-464f-4d8d-b8d7-5a4455179534@riscstar.com>
-Date: Tue, 18 Nov 2025 08:11:53 -0600
+        Tue, 18 Nov 2025 07:12:37 -0800 (PST)
+Message-ID: <ffdfc550-559b-4c59-9873-3f040fc3bb0e@canonical.com>
+Date: Tue, 18 Nov 2025 16:12:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/7] phy: spacemit: Introduce PCIe/combo PHY
-To: Neil Armstrong <neil.armstrong@linaro.org>, vkoul@kernel.org,
- kishon@kernel.org
-Cc: p.zabel@pengutronix.de, dlan@gentoo.org, aurelien@aurel32.net,
- guodong@riscstar.com, linux-phy@lists.infradead.org,
- spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Junzhong Pan <panjunzhong@linux.spacemit.com>
-References: <20251113214540.2623070-1-elder@riscstar.com>
- <20251113214540.2623070-5-elder@riscstar.com>
- <ba532f8d-a452-40e5-af46-b58b89f70a92@linaro.org>
+Subject: Re: [PATCH v2 4/8] riscv: dts: starfive: Split jh7110-common.dtsi and
+ move opp table to it
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ E Shattow <e@freeshell.de>, Yao Zi <ziyao@disroot.org>
+References: <20251107095530.114775-1-hal.feng@starfivetech.com>
+ <20251107095530.114775-5-hal.feng@starfivetech.com>
 Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <ba532f8d-a452-40e5-af46-b58b89f70a92@linaro.org>
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+In-Reply-To: <20251107095530.114775-5-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_061157_707741_B4C0147A 
-X-CRM114-Status: GOOD (  35.84  )
+X-CRM114-CacheID: sfid-20251118_071246_717522_808F4900 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,191 +122,1414 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTEvMTgvMjUgMjo1NiBBTSwgTmVpbCBBcm1zdHJvbmcgd3JvdGU6Cj4gT24gMTEvMTMvMjUg
-MjI6NDUsIEFsZXggRWxkZXIgd3JvdGU6Cj4+IEludHJvZHVjZSBhIGRyaXZlciB0aGF0IHN1cHBv
-cnRzIHRocmVlIFBIWXMgZm91bmQgb24gdGhlIFNwYWNlbWlUCj4+IEsxIFNvQy7CoCBUaGUgZmly
-c3QgUEhZIGlzIGEgY29tYm8gUEhZIHRoYXQgY2FuIGJlIGNvbmZpZ3VyZWQgZm9yCj4+IHVzZSBm
-b3IgZWl0aGVyIFVTQiAzIG9yIFBDSWUuwqAgVGhlIG90aGVyIHR3byBQSFlzIHN1cHBvcnQgUENJ
-ZQo+PiBvbmx5Lgo+Pgo+PiBBbGwgdGhyZWUgUEhZcyBtdXN0IGJlIHByb2dyYW1tZWQgd2l0aCBh
-biA4IGJpdCByZWNlaXZlciB0ZXJtaW5hdGlvbgo+PiB2YWx1ZSwgd2hpY2ggbXVzdCBiZSBkZXRl
-cm1pbmVkIGR5bmFtaWNhbGx5LsKgIE9ubHkgdGhlIGNvbWJvIFBIWSBpcwo+PiBhYmxlIHRvIGRl
-dGVybWluZSB0aGlzIHZhbHVlLsKgIFRoZSBjb21ibyBQSFkgcGVyZm9ybXMgYSBzcGVjaWFsCj4+
-IGNhbGlicmF0aW9uIHN0ZXAgYXQgcHJvYmUgdGltZSB0byBkaXNjb3ZlciB0aGlzLCBhbmQgdGhh
-dCB2YWx1ZSBpcwo+PiB1c2VkIHRvIHByb2dyYW0gZWFjaCBQSFkgdGhhdCBvcGVyYXRlcyBpbiBQ
-Q0llIG1vZGUuwqAgVGhlIGNvbWJvCj4+IFBIWSBtdXN0IHRoZXJlZm9yZSBiZSBwcm9iZWQgYmVm
-b3JlIGVpdGhlciBvZiB0aGUgUENJZS1vbmx5IFBIWXMKPj4gd2lsbCBiZSB1c2VkLgo+Pgo+PiBF
-YWNoIFBIWSBoYXMgYW4gaW50ZXJuYWwgUExMIGRyaXZlbiBmcm9tIGFuIGV4dGVybmFsIG9zY2ls
-bGF0b3IuCj4+IFRoaXMgUExMIHN0YXJ0ZWQgd2hlbiB0aGUgUEhZIGlzIGZpcnN0IGluaXRpYWxp
-emVkLCBhbmQgc3RheXMKPj4gb24gdGhlcmVhZnRlci4KPj4KPj4gRHVyaW5nIG5vcm1hbCBvcGVy
-YXRpb24sIHRoZSBVU0Igb3IgUENJZSBkcml2ZXIgdXNpbmcgdGhlIFBIWSBtdXN0Cj4+IGVuc3Vy
-ZSAob3RoZXIpIGNsb2NrcyBhbmQgcmVzZXRzIGFyZSBzZXQgdXAgcHJvcGVybHkuCj4+Cj4+IEhv
-d2V2ZXIgUENJZSBtb2RlIGNsb2NrcyBhcmUgZW5hYmxlZCBhbmQgcmVzZXRzIGFyZSBkZS1hc3Nl
-cnRlZAo+PiB0ZW1wb3JhcmlseSBieSB0aGlzIGRyaXZlciB0byBwZXJmb3JtIHRoZSBjYWxpYnJh
-dGlvbiBzdGVwIG9uIHRoZQo+PiBjb21ibyBQSFkuCj4+Cj4+IFRlc3RlZC1ieTogSnVuemhvbmcg
-UGFuIDxwYW5qdW56aG9uZ0BsaW51eC5zcGFjZW1pdC5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IEFs
-ZXggRWxkZXIgPGVsZGVyQHJpc2NzdGFyLmNvbT4KPj4gLS0tCgouIC4gLgoKPj4gZGlmZiAtLWdp
-dCBhL2RyaXZlcnMvcGh5L3BoeS1zcGFjZW1pdC1rMS1wY2llLmMgYi9kcml2ZXJzL3BoeS9waHkt
-IAo+PiBzcGFjZW1pdC1rMS1wY2llLmMKPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXgg
-MDAwMDAwMDAwMDAwMC4uNzU0NzdiZWE3ZjcwMAo+PiAtLS0gL2Rldi9udWxsCj4+ICsrKyBiL2Ry
-aXZlcnMvcGh5L3BoeS1zcGFjZW1pdC1rMS1wY2llLmMKPj4gQEAgLTAsMCArMSw2NzAgQEAKPj4g
-Ky8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4+ICsvKgo+PiArICogU3BhY2Vt
-aVQgSzEgUENJZSBhbmQgUENJZS9VU0IgMyBjb21ibyBQSFkgZHJpdmVyCj4+ICsgKgo+PiArICog
-Q29weXJpZ2h0IChDKSAyMDI1IGJ5IFJJU0NzdGFyIFNvbHV0aW9ucyBDb3Jwb3JhdGlvbi7CoCBB
-bGwgcmlnaHRzIAo+PiByZXNlcnZlZC4KPj4gKyAqLwo+PiArCj4+ICsjaW5jbHVkZSA8bGludXgv
-Yml0ZmllbGQuaD4KPj4gKyNpbmNsdWRlIDxsaW51eC9jbGsuaD4KPj4gKyNpbmNsdWRlIDxsaW51
-eC9jbGstcHJvdmlkZXIuaD4KPj4gKyNpbmNsdWRlIDxsaW51eC9pb3BvbGwuaD4KPj4gKyNpbmNs
-dWRlIDxsaW51eC9rZXJuZWwuaD4KPj4gKyNpbmNsdWRlIDxsaW51eC9tZmQvc3lzY29uLmg+Cj4+
-ICsjaW5jbHVkZSA8bGludXgvbW9kdWxlLmg+Cj4+ICsjaW5jbHVkZSA8bGludXgvcGh5L3BoeS5o
-Pgo+PiArI2luY2x1ZGUgPGxpbnV4L3BsYXRmb3JtX2RldmljZS5oPgo+PiArI2luY2x1ZGUgPGxp
-bnV4L3JlZ21hcC5oPgo+PiArI2luY2x1ZGUgPGxpbnV4L3Jlc2V0Lmg+Cj4+ICsKPj4gKyNpbmNs
-dWRlIDxkdC1iaW5kaW5ncy9waHkvcGh5Lmg+Cj4+ICsKPj4gKy8qCj4+ICsgKiBUaHJlZSBQQ0ll
-IHBvcnRzIGFyZSBzdXBwb3J0ZWQgaW4gdGhlIFNwYWNlbWlUIEsxIFNvQywgYW5kIHRoaXMgCj4+
-IGRyaXZlcgo+PiArICogc3VwcG9ydHMgdGhlaXIgUEhZcy4KPj4gKyAqCj4+ICsgKiBUaGUgUEhZ
-IGZvciBQQ0llIHBvcnQgQSBpcyBkaWZmZXJlbnQgZnJvbSB0aGUgUEhZcyBmb3IgcG9ydHMgQiBh
-bmQgQzoKPj4gKyAqIC0gSXQgaGFzIG9uZSBsYW5lLCB3aGlsZSBwb3J0cyBCIGFuZCBDIGhhdmUg
-dHdvCj4+ICsgKiAtIEl0IGlzIGEgY29tYm8gUEhZIGNhbiBiZSB1c2VkIGZvciBQQ0llIG9yIFVT
-QiAzCj4+ICsgKiAtIEl0IGNhbiBhdXRvbWF0aWNhbGx5IGNhbGlicmF0ZSBQQ0llIFRYIGFuZCBS
-WCB0ZXJtaW5hdGlvbiBzZXR0aW5ncwo+PiArICoKPj4gKyAqIFRoZSBQSFkgZnVuY3Rpb25hbGl0
-eSBmb3IgUENJZSBwb3J0cyBCIGFuZCBDIGlzIGlkZW50aWNhbDoKPj4gKyAqIC0gVGhleSBoYXZl
-IHR3byBQQ0llIGxhbmVzIChidXQgY2FuIGJlIHJlc3RyaWN0ZWQgdG8gMSB2aWEgZGV2aWNlIAo+
-PiB0cmVlKQo+PiArICogLSBUaGV5IGFyZSB1c2VkIGZvciBQQ0llIG9ubHkKPj4gKyAqIC0gVGhl
-eSBhcmUgY29uZmlndXJlZCB1c2luZyBUWCBhbmQgUlggdmFsdWVzIGNvbXB1dGVkIGZvciBwb3J0
-IEEKPj4gKyAqCj4+ICsgKiBBIGdpdmVuIGJvYXJkIGlzIGRlc2lnbmVkIHRvIHVzZSB0aGUgY29t
-Ym8gUEhZIGZvciBlaXRoZXIgUENJZSBvciAKPj4gVVNCIDMuCj4+ICsgKiBXaGV0aGVyIHRoZSBj
-b21ibyBQSFkgaXMgY29uZmlndXJlZCBmb3IgUENJZSBvciBVU0IgMyBpcyBzcGVjaWZpZWQgaW4K
-Pj4gKyAqIGRldmljZSB0cmVlIHVzaW5nIGEgcGhhbmRsZSBwbHVzIGFuIGFyZ3VtZW50LsKgIFRo
-ZSBhcmd1bWVudCBpbmRpY2F0ZXMKPj4gKyAqIHRoZSB0eXBlIChlaXRoZXIgUEhZX1RZUEVfUENJ
-RSBvciBQSFlfVFlQRV9VU0IzKS4KPj4gKyAqCj4+ICsgKiBFYWNoIFBIWSBoYXMgYSByZXNldCB0
-aGF0IGl0IGdldHMgYW5kIGRlYXNzZXJ0cyBkdXJpbmcgCj4+IGluaXRpYWxpemF0aW9uLgo+PiAr
-ICogRWFjaCBkZXBlbmRzIGFsc28gb24gb3RoZXIgY2xvY2tzIGFuZCByZXNldHMgcHJvdmlkZWQg
-YnkgdGhlIAo+PiBjb250cm9sbGVyCj4+ICsgKiBoYXJkd2FyZSAoUENJZSBvciBVU0IpIGl0IGlz
-IGFzc29jaWF0ZWQgd2l0aC7CoCBUaGUgY29udHJvbGxlciBkcml2ZXJzCj4+ICsgKiBhcmUgcmVx
-dWlyZWQgdG8gZW5hYmxlIGFueSBjbG9ja3MgYW5kIGRlLWFzc2VydCBhbnkgcmVzZXRzIHRoYXQg
-Cj4+IGFmZmVjdAo+PiArICogUEhZIG9wZXJhdGlvbi7CoCBJbiBhZGRpdGlvbiBlYWNoIFBIWSBp
-bXBsZW1lbnRzIGFuIGludGVybmFsIFBMTCwgCj4+IGRyaXZlbgo+PiArICogYnkgYW4gZXh0ZXJu
-YWwgKDI0IE1Ieikgb3NjaWxsYXRvci4KPj4gKyAqCj4+ICsgKiBQQ0llIFBIWXMgbXVzdCBiZSBw
-cm9ncmFtbWVkIHdpdGggUlggYW5kIFRYIGNhbGlicmF0aW9uIHZhbHVlcy7CoCBUaGUKPj4gKyAq
-IGNvbWJvIFBIWSBpcyB0aGUgb25seSBvbmUgdGhhdCBjYW4gZGV0ZXJtaW5lIHRoZXNlIHZhbHVl
-cy7CoCBUaGV5IGFyZQo+PiArICogZGV0ZXJtaW5lZCBieSB0ZW1wb3JhcmlseSBlbmFibGluZyB0
-aGUgY29tYm8gUEhZIGluIFBDSWUgbW9kZSBhdCAKPj4gcHJvYmUKPj4gKyAqIHRpbWUgKGlmIG5l
-Y2Vzc2FyeSkuwqAgVGhpcyBjYWxpYnJhdGlvbiBvbmx5IG5lZWRzIHRvIGJlIGRvbmUgb25jZSwg
-Cj4+IGFuZAo+PiArICogd2hlbiBpdCBoYXMgY29tcGxldGVkIHRoZSBUWCBhbmQgUlggdmFsdWVz
-IGFyZSBzYXZlZC4KPj4gKyAqCj4+ICsgKiBUbyBhbGxvdyB0aGUgY29tYm8gUEhZIHRvIGJlIGVu
-YWJsZWQgZm9yIGNhbGlicmF0aW9uLCB0aGUgcmVzZXRzIGFuZAo+PiArICogY2xvY2tzIGl0IHVz
-ZXMgaW4gUENJZSBtb2RlIG11c3QgYmUgc3VwcGxpZWQuCj4+ICsgKi8KPj4gKwo+PiArc3RydWN0
-IGsxX3BjaWVfcGh5IHsKPj4gK8KgwqDCoCBzdHJ1Y3QgZGV2aWNlICpkZXY7wqDCoMKgwqDCoMKg
-wqAgLyogUEhZIHByb3ZpZGVyIGRldmljZSAqLwo+PiArwqDCoMKgIHN0cnVjdCBwaHkgKnBoeTsK
-Pj4gK8KgwqDCoCB2b2lkIF9faW9tZW0gKnJlZ3M7Cj4+ICvCoMKgwqAgdTMyIHBjaWVfbGFuZXM7
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvKiBNYXggKDEgb3IgMikgdW5sZXNzIGxpbWl0ZWQgYnkg
-RFQgKi8KPj4gK8KgwqDCoCBzdHJ1Y3QgY2xrICpwbGw7Cj4+ICvCoMKgwqAgc3RydWN0IGNsa19o
-dyBwbGxfaHc7wqDCoMKgwqDCoMKgwqAgLyogUHJpdmF0ZSBQTEwgY2xvY2sgKi8KPj4gKwo+PiAr
-wqDCoMKgIC8qIFRoZSByZW1haW5pbmcgZmllbGRzIGFyZSBvbmx5IHVzZWQgZm9yIHRoZSBjb21i
-byBQSFkgKi8KPj4gK8KgwqDCoCB1MzIgdHlwZTvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC8qIFBI
-WV9UWVBFX1BDSUUgb3IgUEhZX1RZUEVfVVNCMyAqLwo+PiArwqDCoMKgIHN0cnVjdCByZWdtYXAg
-KnBtdTvCoMKgwqDCoMKgwqDCoCAvKiBNTUlPIHJlZ21hcCAobm8gZXJyb3JzKSAqLwo+PiArfTsK
-Pj4gKwo+PiArI2RlZmluZSBDQUxJQlJBVElPTl9USU1FT1VUwqDCoMKgwqDCoMKgwqAgNTAwMDAw
-wqDCoMKgIC8qIEZvciBjb21ibyBQSFkgKHVzZWMpICovCj4+ICsjZGVmaW5lIFBMTF9USU1FT1VU
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA1MDAwMDDCoMKgwqAgLyogRm9yIFBIWSBQTEwgbG9jayAo
-dXNlYykgKi8KPj4gKyNkZWZpbmUgUE9MTF9ERUxBWcKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgNTAw
-wqDCoMKgIC8qIFRpbWUgYmV0d2VlbiBwb2xscyAodXNlYykgKi8KPj4gKwo+PiArLyogU2VsZWN0
-aW5nIHRoZSBjb21ibyBQSFkgb3BlcmF0aW5nIG1vZGUgcmVxdWlyZXMgQVBNVSByZWdtYXAgYWNj
-ZXNzICovCj4+ICsjZGVmaW5lIFNZU0NPTl9BUE1VwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAic3Bh
-Y2VtaXQsYXBtdSIKPj4gKwo+PiArLyogUE1VIHNwYWNlLCBmb3Igc2VsZWN0aW5nIGJldHdlZW4g
-UENJZSBhbmQgVVNCIDMgbW9kZSAoY29tYm8gUEhZIAo+PiBvbmx5KSAqLwo+PiArCj4+ICsjZGVm
-aW5lIFBNVUFfVVNCX1BIWV9DVFJMMMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgwMTEwCj4+ICsj
-ZGVmaW5lIENPTUJPX1BIWV9TRUzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIEJJVCgzKcKgwqDCoCAv
-KiAwOiBQQ0llOyAxOiBVU0IgMyAqLwo+PiArCj4+ICsjZGVmaW5lIFBDSUVfQ0xLX1JFU19DVFJM
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDAzY2MKPj4gKyNkZWZpbmUgUENJRV9BUFBfSE9MRF9Q
-SFlfUlNUwqDCoMKgwqDCoMKgwqAgQklUKDMwKQo+PiArCj4+ICsvKiBQSFkgcmVnaXN0ZXIgc3Bh
-Y2UgKi8KPj4gKwo+PiArLyogT2Zmc2V0IGJldHdlZW4gbGFuZSAwIGFuZCBsYW5lIDEgcmVnaXN0
-ZXJzIHdoZW4gdGhlcmUgYXJlIHR3byAqLwo+PiArI2RlZmluZSBQSFlfTEFORV9PRkZTRVTCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgwNDAwCj4+ICsKPj4gKy8qIFBIWSBQTEwgY29u
-ZmlndXJhdGlvbiAqLwo+PiArI2RlZmluZSBQQ0lFX1BVX0FERFJfQ0xLX0NGR8KgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgMHgwMDA4Cj4+ICsjZGVmaW5lIFBMTF9SRUFEWcKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqAgQklUKDApwqDCoMKgwqDCoMKgwqAgLyogcmVhZC1vbmx5ICovCj4+ICsjZGVmaW5lIENG
-R19JTlRFUk5BTF9USU1FUl9BRErCoMKgwqDCoMKgwqDCoCBHRU5NQVNLKDEwLCA3KQo+PiArI2Rl
-ZmluZSBUSU1FUl9BREpfVVNCwqDCoMKgwqDCoMKgwqAgMHgyCj4+ICsjZGVmaW5lIFRJTUVSX0FE
-Sl9QQ0lFwqDCoMKgwqDCoMKgwqAgMHg2Cj4+ICsjZGVmaW5lIENGR19TV19QSFlfSU5JVF9ET05F
-wqDCoMKgwqDCoMKgwqAgQklUKDExKcKgwqDCoCAvKiBXZSBzZXQgYWZ0ZXIgUExMIAo+PiBjb25m
-aWcgKi8KPj4gKwo+PiArI2RlZmluZSBQQ0lFX1JDX0RPTkVfU1RBVFVTwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCAweDAwMTgKPj4gKyNkZWZpbmUgQ0ZHX0ZPUkNFX1JDVl9SRVRSWcKgwqDCoMKgwqDC
-oMKgIEJJVCgxMCnCoMKgwqDCoMKgwqDCoCAvKiBVc2VkIGZvciBQQ0llICovCj4+ICsKPj4gKy8q
-IFBDSWUgUEhZIGxhbmUgY2FsaWJyYXRpb247IGFzc3VtZXMgMjRNSHogaW5wdXQgY2xvY2sgKi8K
-Pj4gKyNkZWZpbmUgUENJRV9SQ19DQUxfUkVHMsKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgwMDIw
-Cj4+ICsjZGVmaW5lIFJDX0NBTF9UT0dHTEXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIEJJVCgyMikK
-Pj4gKyNkZWZpbmUgQ0xLU0VMwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIEdFTk1BU0so
-MzEsIDI5KQo+PiArI2RlZmluZSBDTEtTRUxfMjRNwqDCoMKgwqDCoMKgwqAgMHgzCj4+ICsKPj4g
-Ky8qIEFkZGl0aW9uYWwgUEhZIFBMTCBjb25maWd1cmF0aW9uIChVU0IgMyBhbmQgUENJZSkgKi8K
-Pj4gKyNkZWZpbmUgUENJRV9QVV9QTExfMcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAw
-eDAwNDgKPj4gKyNkZWZpbmUgUkVGXzEwMF9XU1NDwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBCSVQo
-MTIpwqDCoMKgIC8qIDE6IGlucHV0IGlzIDEwME1IeiwgU1NDICovCj4+ICsjZGVmaW5lIEZSRUZf
-U0VMwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBHRU5NQVNLKDE1LCAxMykKPj4gKyNkZWZpbmUgRlJF
-Rl8yNE3CoMKgwqDCoMKgwqDCoCAweDEKPj4gKyNkZWZpbmUgU1NDX0RFUF9TRUzCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIEdFTk1BU0soMTksIDE2KQo+PiArI2RlZmluZSBTU0NfREVQX05PTkXCoMKg
-wqDCoMKgwqDCoCAweDAKPj4gKyNkZWZpbmUgU1NDX0RFUF81MDAwUFBNwqDCoMKgwqDCoMKgwqAg
-MHhhCj4+ICsKPj4gKy8qIFBDSWUgUEhZIGNvbmZpZ3VyYXRpb24gKi8KPj4gKyNkZWZpbmUgUENJ
-RV9QVV9QTExfMsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDAwNGMKPj4gKyNkZWZp
-bmUgR0VOX1JFRjEwMMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgQklUKDQpwqDCoMKgIC8qIDE6IGdl
-bmVyYXRlIDEwME1IeiBjbGsgKi8KPj4gKwo+PiArI2RlZmluZSBQQ0lFX1JYX1JFRzHCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgwMDUwCj4+ICsjZGVmaW5lIEVOX1JURVJNwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCBCSVQoMykKPj4gKyNkZWZpbmUgQUZFX1JURVJNX1JFR8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgR0VOTUFTSygxMSwgOCkKPj4gKwo+PiArI2RlZmluZSBQQ0lFX1JYX1JF
-RzLCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgwMDU0Cj4+ICsjZGVmaW5lIFJYX1JU
-RVJNX1NFTMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgQklUKDUpwqDCoMKgIC8qIDA6IHVzZSBBRkVf
-UlRFUk1fUkVHIAo+PiB2YWx1ZSAqLwo+PiArCj4+ICsjZGVmaW5lIFBDSUVfTFRTU01fRElTX0VO
-VFJZwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDAwNWMKPj4gKyNkZWZpbmUgQ0ZHX1JFRkNMS19N
-T0RFwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBHRU5NQVNLKDksIDgpCj4+ICsjZGVmaW5lIFJGQ0xL
-X01PREVfRFJJVkVSwqDCoMKgIDB4MQo+PiArI2RlZmluZSBPVlJEX1JFRkNMS19NT0RFwqDCoMKg
-wqDCoMKgwqAgQklUKDEwKcKgwqDCoCAvKiAxOiB1c2UgQ0ZHX1JGQ0xLX01PREUgKi8KPj4gKwo+
-PiArI2RlZmluZSBQQ0lFX1RYX1JFRzHCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgw
-MDY0Cj4+ICsjZGVmaW5lIFRYX1JURVJNX1JFR8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgR0VOTUFT
-SygxNSwgMTIpCj4+ICsjZGVmaW5lIFRYX1JURVJNX1NFTMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-QklUKDI1KcKgwqDCoCAvKiAxOiB1c2UgVFhfUlRFUk1fUkVHICovCj4+ICsKPj4gKy8qIFplcm9l
-ZCBmb3IgdGhlIGNvbWJvIFBIWSBvcGVyYXRpbmcgaW4gVVNCIG1vZGUgKi8KPj4gKyNkZWZpbmUg
-VVNCM19URVNUX0NUUkzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgwMDY4Cj4+ICsK
-Pj4gKy8qIFBIWSBjYWxpYnJhdGlvbiB2YWx1ZXMsIGRldGVybWluZWQgYnkgdGhlIGNvbWJvIFBI
-WSBhdCBwcm9iZSB0aW1lICovCj4+ICsjZGVmaW5lIFBDSUVfUkNBTF9SRVNVTFTCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIDB4MDA4NMKgwqDCoCAvKiBQb3J0IEEgUEhZIG9ubHkgKi8KPj4gKyNkZWZp
-bmUgUlRFUk1fVkFMVUVfUljCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIEdFTk1BU0soMywgMCkKPj4g
-KyNkZWZpbmUgUlRFUk1fVkFMVUVfVFjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIEdFTk1BU0soNywg
-NCkKPj4gKyNkZWZpbmUgUl9UVU5FX0RPTkXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIEJJVCgxMCkK
-Pj4gKwo+PiArc3RhdGljIHUzMiBrMV9waHlfcnRlcm0gPSB+MDvCoMKgwqDCoCAvKiBJbnZhbGlk
-IGluaXRpYWwgdmFsdWUgKi8KPiAKPiBUaGlzIGdsb2JhbCB2YXJpYWJsZSB3b3VsZCBoYXZlIGRl
-c2VydmVkIGEgY29tbWVudCBleHBsYWluaW5nCj4gd2h5IHRoZSB2YWx1ZSBpcyBnbG9iYWwsIGlu
-c3RlYWQgdGhlIHJlYXNvbiBpcyBvbmx5IHByZXNlbnQgaW4gdGhlCj4gY29tbWl0IG1lc3NhZ2Uu
-Li4uCgpUaGUgKHNvbWV3aGF0IHN0cmFuZ2UpIG92ZXJhbGwgc2NoZW1lIGlzIGRlc2NyaWJlZCBp
-biBhIGNvbW1lbnQKYmxvY2sgYXQgdGhlIHRvcCBvZiB0aGUgZmlsZS4gIEJ1dCBJIHRoaW5rIHlv
-dSdyZSByaWdodCwgYSBzaG9ydApjb21tZW50IGNvdWxkIGF0IGxlYXN0IHJlZmVyIGJhY2sgdG8g
-dGhhdCwgYW5kIHNheSAidGhpcyBpcwp3aGVyZSB0aGUgY2FsaWJyYXRpb24gdmFsdWUgaXMgaGVs
-ZCIgb3Igc29tZXRoaW5nLgoKPj4gKy8qIFNhdmUgdGhlIFJYIGFuZCBUWCByZWNlaXZlciB0ZXJt
-aW5hdGlvbiB2YWx1ZXMgKi8KPj4gK3N0YXRpYyB2b2lkIGsxX3BoeV9ydGVybV9zZXQodTMyIHZh
-bCkKPj4gK3sKPj4gK8KgwqDCoCBrMV9waHlfcnRlcm0gPSB2YWwgJiAoUlRFUk1fVkFMVUVfUlgg
-fCBSVEVSTV9WQUxVRV9UWCk7Cj4+ICt9Cj4+ICsKPj4gK3N0YXRpYyBib29sIGsxX3BoeV9ydGVy
-bV92YWxpZCh2b2lkKQo+PiArewo+PiArwqDCoMKgIC8qIFZhbGlkIGlmIG5vIGJpdHMgb3V0c2lk
-ZSB0aG9zZSB3ZSBjYXJlIGFib3V0IGFyZSBzZXQgKi8KPj4gK8KgwqDCoCByZXR1cm4gIShrMV9w
-aHlfcnRlcm0gJiB+KFJURVJNX1ZBTFVFX1JYIHwgUlRFUk1fVkFMVUVfVFgpKTsKPj4gK30KCi4g
-LiAuCgo+PiArbW9kdWxlX3BsYXRmb3JtX2RyaXZlcihrMV9wY2llX3BoeV9kcml2ZXIpOwo+PiAr
-Cj4+ICtNT0RVTEVfREVTQ1JJUFRJT04oIlNwYWNlbWlUIEsxIFBDSWUgYW5kIFVTQiAzIFBIWSBk
-cml2ZXIiKTsKPj4gK01PRFVMRV9MSUNFTlNFKCJHUEwiKTsKPiAKPiBUaGUgY29kZSBpcyBxdWl0
-ZSBoYXJkIHRvIHJlYWQsIHdpdGggcGxlbnkgb2YgdXNlbGVzcyBjb21tZW50cwo+IHdoZW4gdGhl
-IGFjdHVhbCBjb21tZW50cyB3ZSBuZWVkcyBhcmUgZWl0aGVyIGluIHRoZSB3cm9uZyBwbGFjZQo+
-IG9yIGp1c3QgbWlzc2luZy4KCkkgdGhpbmsgdGhlIHdheSB0aGlzIGNhbGlicmF0aW9uIHdvcmtz
-IGlzIHVudXN1YWwgYW5kIGEgYml0CmNvbmZ1c2luZywgYW5kIEkgbWlnaHQgaGF2ZSBnb25lIHRv
-byBmYXIgdHJ5aW5nIHRvIGV4cGxhaW4gaXQuCgpJdCB3b3VsZCBiZSBtb3JlIGhlbHBmdWwgZm9y
-IHlvdSB0byBwcm92aWRlIGV4YW1wbGVzIG9mIHdoYXQKY29tbWVudHMgeW91IHRoaW5rIGFyZSB1
-c2VsZXNzLCBhbmQgd2hlcmUgdGhlcmUgYXJlIHRoaW5ncyB0aGF0CndvdWxkIGJlbmVmaXQgZnJv
-bSBiZXR0ZXIgZXhwbGFuYXRpb24gKGFzIHlvdSBkaWQgZm9yIHRoZSBsYWNrCm9mIGEgY29tbWVu
-dCBmb3IgdGhlIGsxX3BoeV9ydGVybSB2YWx1ZSkuICBJIHdhbnQgdmVyeSBtdWNoIHRvCm1ha2Ug
-dGhpbmdzIGJldHRlciwgYnV0IHlvdXIgc3RhdGVtZW50IG9mZmVycyBubyBndWlkYW5jZSBvbgp3
-aGF0IHlvdSdyZSBsb29raW5nIGZvci4KCj4gQW55d2F5LCBubyBiaWcgY29tbWVudCBvbiB0aGUg
-Y29kZSBvciB0aGUgQVBJIHVzYWdlLCBhbGwgbG9va3MgZ29vZDoKPiAKPiBSZXZpZXdlZC1ieTog
-TmVpbCBBcm1zdHJvbmcgPG5laWwuYXJtc3Ryb25nQGxpbmFyby5vcmc+CgpUaGFuayB5b3UgdmVy
-eSBtdWNoIGZvciByZXZpZXdpbmcgdGhpcyBOZWlsLgoKCQkJCQktQWxleAoKPiBUaGFua3MsCj4g
-TmVpbAo+IAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 11/7/25 10:55, Hal Feng wrote:
+> Preparing to add JH7110S based board device trees, move the content of
+> jh7110-common.dtsi to the new file jh711x-common.dtsi and move opp table
+> to jh7110-common.dtsi.
+> 
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>   .../boot/dts/starfive/jh7110-common.dtsi      | 665 +-----------------
+>   .../boot/dts/starfive/jh711x-common.dtsi      | 664 +++++++++++++++++
+>   arch/riscv/boot/dts/starfive/jh711x.dtsi      |  16 -
+>   3 files changed, 678 insertions(+), 667 deletions(-)
+>   create mode 100644 arch/riscv/boot/dts/starfive/jh711x-common.dtsi
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> index 809274625615..dd5805ef70a1 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> @@ -5,660 +5,23 @@
+>    */
+>   
+>   /dts-v1/;
+> -#include "jh711x.dtsi"
+> -#include "jh7110-pinfunc.h"
+> -#include <dt-bindings/gpio/gpio.h>
+> -#include <dt-bindings/leds/common.h>
+> -#include <dt-bindings/pinctrl/starfive,jh7110-pinctrl.h>
+> +#include "jh711x-common.dtsi"
+>   
+> -/ {
+> -	aliases {
+> -		ethernet0 = &gmac0;
+> -		i2c0 = &i2c0;
+> -		i2c2 = &i2c2;
+> -		i2c5 = &i2c5;
+> -		i2c6 = &i2c6;
+> -		mmc0 = &mmc0;
+> -		mmc1 = &mmc1;
+> -		serial0 = &uart0;
+> +&cpu_opp {
+> +	opp-375000000 {
+> +		opp-hz = /bits/ 64 <375000000>;
+> +		opp-microvolt = <800000>;
+>   	};
+> -
+> -	chosen {
+> -		stdout-path = "serial0:115200n8";
+> -	};
+> -
+> -	memory@40000000 {
+> -		device_type = "memory";
+> -		reg = <0x0 0x40000000 0x1 0x0>;
+> -		bootph-pre-ram;
+> -	};
+> -
+> -	gpio-restart {
+> -		compatible = "gpio-restart";
+> -		gpios = <&sysgpio 35 GPIO_ACTIVE_HIGH>;
+> -		priority = <224>;
+> -	};
+> -
+> -	leds {
+> -		compatible = "gpio-leds";
+> -
+> -		led_status_power: led-0 {
+> -			gpios = <&aongpio 3 GPIO_ACTIVE_HIGH>;
+> -		};
+> -	};
+> -
+> -	pwmdac_codec: audio-codec {
+> -		compatible = "linux,spdif-dit";
+> -		#sound-dai-cells = <0>;
+> -	};
+> -
+> -	sound {
+> -		compatible = "simple-audio-card";
+> -		simple-audio-card,name = "StarFive-PWMDAC-Sound-Card";
+> -		#address-cells = <1>;
+> -		#size-cells = <0>;
+> -
+> -		simple-audio-card,dai-link@0 {
+> -			reg = <0>;
+> -			format = "left_j";
+> -			bitclock-master = <&sndcpu0>;
+> -			frame-master = <&sndcpu0>;
+> -
+> -			sndcpu0: cpu {
+> -				sound-dai = <&pwmdac>;
+> -			};
+> -
+> -			codec {
+> -				sound-dai = <&pwmdac_codec>;
+> -			};
+> -		};
+> -	};
+> -};
+> -
+> -&cpus {
+> -	timebase-frequency = <4000000>;
+> -};
+> -
+> -&dvp_clk {
+> -	clock-frequency = <74250000>;
+> -};
+> -
+> -&gmac0_rgmii_rxin {
+> -	clock-frequency = <125000000>;
+> -};
+> -
+> -&gmac0_rmii_refin {
+> -	clock-frequency = <50000000>;
+> -};
+> -
+> -&gmac1_rgmii_rxin {
+> -	clock-frequency = <125000000>;
+> -};
+> -
+> -&gmac1_rmii_refin {
+> -	clock-frequency = <50000000>;
+> -};
+> -
+> -&hdmitx0_pixelclk {
+> -	clock-frequency = <297000000>;
+> -};
+> -
+> -&i2srx_bclk_ext {
+> -	clock-frequency = <12288000>;
+> -};
+> -
+> -&i2srx_lrck_ext {
+> -	clock-frequency = <192000>;
+> -};
+> -
+> -&i2stx_bclk_ext {
+> -	clock-frequency = <12288000>;
+> -};
+> -
+> -&i2stx_lrck_ext {
+> -	clock-frequency = <192000>;
+> -};
+> -
+> -&mclk_ext {
+> -	clock-frequency = <12288000>;
+> -};
+> -
+> -&osc {
+> -	clock-frequency = <24000000>;
+> -};
+> -
+> -&rtc_osc {
+> -	clock-frequency = <32768>;
+> -};
+> -
+> -&tdm_ext {
+> -	clock-frequency = <49152000>;
+> -};
+> -
+> -&camss {
+> -	assigned-clocks = <&ispcrg JH7110_ISPCLK_DOM4_APB_FUNC>,
+> -			  <&ispcrg JH7110_ISPCLK_MIPI_RX0_PXL>;
+> -	assigned-clock-rates = <49500000>, <198000000>;
+> -
+> -	ports {
+> -		#address-cells = <1>;
+> -		#size-cells = <0>;
+> -
+> -		port@0 {
+> -			reg = <0>;
+> -		};
+> -
+> -		port@1 {
+> -			reg = <1>;
+> -
+> -			camss_from_csi2rx: endpoint {
+> -				remote-endpoint = <&csi2rx_to_camss>;
+> -			};
+> -		};
+> +	opp-500000000 {
+> +		opp-hz = /bits/ 64 <500000000>;
+> +		opp-microvolt = <800000>;
+>   	};
+> -};
+> -
+> -&csi2rx {
+> -	assigned-clocks = <&ispcrg JH7110_ISPCLK_VIN_SYS>;
+> -	assigned-clock-rates = <297000000>;
+> -
+> -	ports {
+> -		#address-cells = <1>;
+> -		#size-cells = <0>;
+> -
+> -		port@0 {
+> -			reg = <0>;
+> -
+> -			/* remote MIPI sensor endpoint */
+> -		};
+> -
+> -		port@1 {
+> -			reg = <1>;
+> -
+> -			csi2rx_to_camss: endpoint {
+> -				remote-endpoint = <&camss_from_csi2rx>;
+> -			};
+> -		};
+> +	opp-750000000 {
+> +		opp-hz = /bits/ 64 <750000000>;
+> +		opp-microvolt = <800000>;
+>   	};
+> -};
+> -
+> -&gmac0 {
+> -	phy-handle = <&phy0>;
+> -	phy-mode = "rgmii-id";
+> -
+> -	mdio {
+> -		#address-cells = <1>;
+> -		#size-cells = <0>;
+> -		compatible = "snps,dwmac-mdio";
+> -
+> -		phy0: ethernet-phy@0 {
+> -			reg = <0>;
+> -		};
+> +	opp-1500000000 {
+> +		opp-hz = /bits/ 64 <1500000000>;
+> +		opp-microvolt = <1040000>;
+>   	};
+>   };
+> -
+> -&i2c0 {
+> -	clock-frequency = <100000>;
+> -	i2c-sda-hold-time-ns = <300>;
+> -	i2c-sda-falling-time-ns = <510>;
+> -	i2c-scl-falling-time-ns = <510>;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&i2c0_pins>;
+> -};
+> -
+> -&i2c2 {
+> -	clock-frequency = <100000>;
+> -	i2c-sda-hold-time-ns = <300>;
+> -	i2c-sda-falling-time-ns = <510>;
+> -	i2c-scl-falling-time-ns = <510>;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&i2c2_pins>;
+> -	status = "okay";
+> -};
+> -
+> -&i2c5 {
+> -	clock-frequency = <100000>;
+> -	i2c-sda-hold-time-ns = <300>;
+> -	i2c-sda-falling-time-ns = <510>;
+> -	i2c-scl-falling-time-ns = <510>;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&i2c5_pins>;
+> -	status = "okay";
+> -
+> -	axp15060: pmic@36 {
+> -		compatible = "x-powers,axp15060";
+> -		reg = <0x36>;
+> -		interrupt-controller;
+> -		#interrupt-cells = <1>;
+> -
+> -		regulators {
+> -			vcc_3v3: dcdc1 {
+> -				regulator-boot-on;
+> -				regulator-always-on;
+> -				regulator-min-microvolt = <3300000>;
+> -				regulator-max-microvolt = <3300000>;
+> -				regulator-name = "vcc_3v3";
+> -			};
+> -
+> -			vdd_cpu: dcdc2 {
+> -				regulator-always-on;
+> -				regulator-min-microvolt = <500000>;
+> -				regulator-max-microvolt = <1540000>;
+> -				regulator-name = "vdd_cpu";
+> -			};
+> -
+> -			emmc_vdd: aldo4 {
+> -				regulator-boot-on;
+> -				regulator-always-on;
+> -				regulator-min-microvolt = <1800000>;
+> -				regulator-max-microvolt = <3300000>;
+> -				regulator-name = "emmc_vdd";
+> -			};
+> -		};
+> -	};
+> -
+> -	eeprom@50 {
+> -		compatible = "atmel,24c04";
+> -		reg = <0x50>;
+> -		bootph-pre-ram;
+> -		pagesize = <16>;
+> -	};
+> -};
+> -
+> -&i2c6 {
+> -	clock-frequency = <100000>;
+> -	i2c-sda-hold-time-ns = <300>;
+> -	i2c-sda-falling-time-ns = <510>;
+> -	i2c-scl-falling-time-ns = <510>;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&i2c6_pins>;
+> -	status = "okay";
+> -};
+> -
+> -&mmc0 {
+> -	max-frequency = <100000000>;
+> -	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
+> -	assigned-clock-rates = <50000000>;
+> -	bus-width = <8>;
+> -	bootph-pre-ram;
+> -	cap-mmc-highspeed;
+> -	mmc-ddr-1_8v;
+> -	mmc-hs200-1_8v;
+> -	cap-mmc-hw-reset;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&mmc0_pins>;
+> -	vmmc-supply = <&vcc_3v3>;
+> -	vqmmc-supply = <&emmc_vdd>;
+> -	status = "okay";
+> -};
+> -
+> -&mmc1 {
+> -	max-frequency = <100000000>;
+> -	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO1_SDCARD>;
+> -	assigned-clock-rates = <50000000>;
+> -	bus-width = <4>;
+> -	bootph-pre-ram;
+> -	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> -	disable-wp;
+> -	cap-sd-highspeed;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&mmc1_pins>;
+> -	status = "okay";
+> -};
+> -
+> -&pcie0 {
+> -	perst-gpios = <&sysgpio 26 GPIO_ACTIVE_LOW>;
+> -	phys = <&pciephy0>;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&pcie0_pins>;
+> -};
+> -
+> -&pcie1 {
+> -	perst-gpios = <&sysgpio 28 GPIO_ACTIVE_LOW>;
+> -	phys = <&pciephy1>;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&pcie1_pins>;
+> -};
+> -
+> -&pwmdac {
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&pwmdac_pins>;
+> -};
+> -
+> -&qspi {
+> -	#address-cells = <1>;
+> -	#size-cells = <0>;
+> -	status = "okay";
+> -
+> -	nor_flash: flash@0 {
+> -		compatible = "jedec,spi-nor";
+> -		reg = <0>;
+> -		bootph-pre-ram;
+> -		cdns,read-delay = <2>;
+> -		spi-max-frequency = <100000000>;
+> -		cdns,tshsl-ns = <1>;
+> -		cdns,tsd2d-ns = <1>;
+> -		cdns,tchsh-ns = <1>;
+> -		cdns,tslch-ns = <1>;
+> -
+> -		partitions {
+> -			compatible = "fixed-partitions";
+> -			#address-cells = <1>;
+> -			#size-cells = <1>;
+> -
+> -			spl@0 {
+> -				reg = <0x0 0xf0000>;
+> -			};
+> -			uboot-env@f0000 {
+> -				reg = <0xf0000 0x10000>;
+> -			};
+> -			uboot@100000 {
+> -				reg = <0x100000 0xf00000>;
+> -			};
+> -		};
+> -	};
+> -};
+> -
+> -&pwm {
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&pwm_pins>;
+> -};
+> -
+> -&spi0 {
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&spi0_pins>;
+> -};
+> -
+> -&syscrg {
+> -	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
+> -			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
+> -			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
+> -			  <&syscrg JH7110_SYSCLK_QSPI_REF>,
+> -			  <&syscrg JH7110_SYSCLK_CPU_CORE>,
+> -			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
+> -	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
+> -				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+> -				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+> -				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
+> -	assigned-clock-rates = <0>, <0>, <0>, <0>, <500000000>, <1500000000>;
+> -};
+> -
+> -&sysgpio {
+> -	i2c0_pins: i2c0-0 {
+> -		i2c-pins {
+> -			pinmux = <GPIOMUX(57, GPOUT_LOW,
+> -					      GPOEN_SYS_I2C0_CLK,
+> -					      GPI_SYS_I2C0_CLK)>,
+> -				 <GPIOMUX(58, GPOUT_LOW,
+> -					      GPOEN_SYS_I2C0_DATA,
+> -					      GPI_SYS_I2C0_DATA)>;
+> -			bias-disable; /* external pull-up */
+> -			input-enable;
+> -			input-schmitt-enable;
+> -		};
+> -	};
+> -
+> -	i2c2_pins: i2c2-0 {
+> -		i2c-pins {
+> -			pinmux = <GPIOMUX(3, GPOUT_LOW,
+> -					     GPOEN_SYS_I2C2_CLK,
+> -					     GPI_SYS_I2C2_CLK)>,
+> -				 <GPIOMUX(2, GPOUT_LOW,
+> -					     GPOEN_SYS_I2C2_DATA,
+> -					     GPI_SYS_I2C2_DATA)>;
+> -			bias-disable; /* external pull-up */
+> -			input-enable;
+> -			input-schmitt-enable;
+> -		};
+> -	};
+> -
+> -	i2c5_pins: i2c5-0 {
+> -		bootph-pre-ram;
+> -
+> -		i2c-pins {
+> -			pinmux = <GPIOMUX(19, GPOUT_LOW,
+> -					      GPOEN_SYS_I2C5_CLK,
+> -					      GPI_SYS_I2C5_CLK)>,
+> -				 <GPIOMUX(20, GPOUT_LOW,
+> -					      GPOEN_SYS_I2C5_DATA,
+> -					      GPI_SYS_I2C5_DATA)>;
+> -			bias-disable; /* external pull-up */
+> -			bootph-pre-ram;
+> -			input-enable;
+> -			input-schmitt-enable;
+> -		};
+> -	};
+> -
+> -	i2c6_pins: i2c6-0 {
+> -		i2c-pins {
+> -			pinmux = <GPIOMUX(16, GPOUT_LOW,
+> -					      GPOEN_SYS_I2C6_CLK,
+> -					      GPI_SYS_I2C6_CLK)>,
+> -				 <GPIOMUX(17, GPOUT_LOW,
+> -					      GPOEN_SYS_I2C6_DATA,
+> -					      GPI_SYS_I2C6_DATA)>;
+> -			bias-disable; /* external pull-up */
+> -			input-enable;
+> -			input-schmitt-enable;
+> -		};
+> -	};
+> -
+> -	mmc0_pins: mmc0-0 {
+> -		mmc-pins {
+> -			pinmux = <PINMUX(PAD_SD0_CLK, 0)>,
+> -				 <PINMUX(PAD_SD0_CMD, 0)>,
+> -				 <PINMUX(PAD_SD0_DATA0, 0)>,
+> -				 <PINMUX(PAD_SD0_DATA1, 0)>,
+> -				 <PINMUX(PAD_SD0_DATA2, 0)>,
+> -				 <PINMUX(PAD_SD0_DATA3, 0)>,
+> -				 <PINMUX(PAD_SD0_DATA4, 0)>,
+> -				 <PINMUX(PAD_SD0_DATA5, 0)>,
+> -				 <PINMUX(PAD_SD0_DATA6, 0)>,
+> -				 <PINMUX(PAD_SD0_DATA7, 0)>;
+> -			bias-pull-up;
+> -			drive-strength = <12>;
+> -			input-enable;
+> -		};
+> -	};
+> -
+> -	mmc1_pins: mmc1-0 {
+> -		clk-pins {
+> -			pinmux = <GPIOMUX(10, GPOUT_SYS_SDIO1_CLK,
+> -					      GPOEN_ENABLE,
+> -					      GPI_NONE)>;
+> -			bias-pull-up;
+> -			drive-strength = <12>;
+> -			input-disable;
+> -			input-schmitt-disable;
+> -			slew-rate = <0>;
+> -		};
+> -
+> -		mmc-pins {
+> -			pinmux = <GPIOMUX(9, GPOUT_SYS_SDIO1_CMD,
+> -					     GPOEN_SYS_SDIO1_CMD,
+> -					     GPI_SYS_SDIO1_CMD)>,
+> -				 <GPIOMUX(11, GPOUT_SYS_SDIO1_DATA0,
+> -					      GPOEN_SYS_SDIO1_DATA0,
+> -					      GPI_SYS_SDIO1_DATA0)>,
+> -				 <GPIOMUX(12, GPOUT_SYS_SDIO1_DATA1,
+> -					      GPOEN_SYS_SDIO1_DATA1,
+> -					      GPI_SYS_SDIO1_DATA1)>,
+> -				 <GPIOMUX(7, GPOUT_SYS_SDIO1_DATA2,
+> -					     GPOEN_SYS_SDIO1_DATA2,
+> -					     GPI_SYS_SDIO1_DATA2)>,
+> -				 <GPIOMUX(8, GPOUT_SYS_SDIO1_DATA3,
+> -					     GPOEN_SYS_SDIO1_DATA3,
+> -					     GPI_SYS_SDIO1_DATA3)>;
+> -			bias-pull-up;
+> -			drive-strength = <12>;
+> -			input-enable;
+> -			input-schmitt-enable;
+> -			slew-rate = <0>;
+> -		};
+> -	};
+> -
+> -	pcie0_pins: pcie0-0 {
+> -		clkreq-pins {
+> -			pinmux = <GPIOMUX(27, GPOUT_LOW,
+> -					      GPOEN_DISABLE,
+> -					      GPI_NONE)>;
+> -			bias-pull-down;
+> -			drive-strength = <2>;
+> -			input-enable;
+> -			input-schmitt-disable;
+> -			slew-rate = <0>;
+> -		};
+> -
+> -		wake-pins {
+> -			pinmux = <GPIOMUX(32, GPOUT_LOW,
+> -					      GPOEN_DISABLE,
+> -					      GPI_NONE)>;
+> -			bias-pull-up;
+> -			drive-strength = <2>;
+> -			input-enable;
+> -			input-schmitt-disable;
+> -			slew-rate = <0>;
+> -		};
+> -	};
+> -
+> -	pcie1_pins: pcie1-0 {
+> -		clkreq-pins {
+> -			pinmux = <GPIOMUX(29, GPOUT_LOW,
+> -					      GPOEN_DISABLE,
+> -					      GPI_NONE)>;
+> -			bias-pull-down;
+> -			drive-strength = <2>;
+> -			input-enable;
+> -			input-schmitt-disable;
+> -			slew-rate = <0>;
+> -		};
+> -
+> -		wake-pins {
+> -			pinmux = <GPIOMUX(21, GPOUT_LOW,
+> -				      GPOEN_DISABLE,
+> -					      GPI_NONE)>;
+> -			bias-pull-up;
+> -			drive-strength = <2>;
+> -			input-enable;
+> -			input-schmitt-disable;
+> -			slew-rate = <0>;
+> -		};
+> -	};
+> -
+> -	pwmdac_pins: pwmdac-0 {
+> -		pwmdac-pins {
+> -			pinmux = <GPIOMUX(33, GPOUT_SYS_PWMDAC_LEFT,
+> -					      GPOEN_ENABLE,
+> -					      GPI_NONE)>,
+> -				 <GPIOMUX(34, GPOUT_SYS_PWMDAC_RIGHT,
+> -					      GPOEN_ENABLE,
+> -					      GPI_NONE)>;
+> -			bias-disable;
+> -			drive-strength = <2>;
+> -			input-disable;
+> -			input-schmitt-disable;
+> -			slew-rate = <0>;
+> -		};
+> -	};
+> -
+> -	pwm_pins: pwm-0 {
+> -		pwm-pins {
+> -			pinmux = <GPIOMUX(46, GPOUT_SYS_PWM_CHANNEL0,
+> -					      GPOEN_SYS_PWM0_CHANNEL0,
+> -					      GPI_NONE)>,
+> -				 <GPIOMUX(59, GPOUT_SYS_PWM_CHANNEL1,
+> -					      GPOEN_SYS_PWM0_CHANNEL1,
+> -					      GPI_NONE)>;
+> -			bias-disable;
+> -			drive-strength = <12>;
+> -			input-disable;
+> -			input-schmitt-disable;
+> -			slew-rate = <0>;
+> -		};
+> -	};
+> -
+> -	spi0_pins: spi0-0 {
+> -		mosi-pins {
+> -			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
+> -					      GPOEN_ENABLE,
+> -					      GPI_NONE)>;
+> -			bias-disable;
+> -			input-disable;
+> -			input-schmitt-disable;
+> -		};
+> -
+> -		miso-pins {
+> -			pinmux = <GPIOMUX(53, GPOUT_LOW,
+> -					      GPOEN_DISABLE,
+> -					      GPI_SYS_SPI0_RXD)>;
+> -			bias-pull-up;
+> -			input-enable;
+> -			input-schmitt-enable;
+> -		};
+> -
+> -		sck-pins {
+> -			pinmux = <GPIOMUX(48, GPOUT_SYS_SPI0_CLK,
+> -					      GPOEN_ENABLE,
+> -					      GPI_SYS_SPI0_CLK)>;
+> -			bias-disable;
+> -			input-disable;
+> -			input-schmitt-disable;
+> -		};
+> -
+> -		ss-pins {
+> -			pinmux = <GPIOMUX(49, GPOUT_SYS_SPI0_FSS,
+> -					      GPOEN_ENABLE,
+> -					      GPI_SYS_SPI0_FSS)>;
+> -			bias-disable;
+> -			input-disable;
+> -			input-schmitt-disable;
+> -		};
+> -	};
+> -
+> -	uart0_pins: uart0-0 {
+> -		tx-pins {
+> -			pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX,
+> -					     GPOEN_ENABLE,
+> -					     GPI_NONE)>;
+> -			bias-disable;
+> -			drive-strength = <12>;
+> -			input-disable;
+> -			input-schmitt-disable;
+> -			slew-rate = <0>;
+> -		};
+> -
+> -		rx-pins {
+> -			pinmux = <GPIOMUX(6, GPOUT_LOW,
+> -					     GPOEN_DISABLE,
+> -					     GPI_SYS_UART0_RX)>;
+> -			bias-disable; /* external pull-up */
+> -			drive-strength = <2>;
+> -			input-enable;
+> -			input-schmitt-enable;
+> -			slew-rate = <0>;
+> -		};
+> -	};
+> -};
+> -
+> -&uart0 {
+> -	bootph-pre-ram;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&uart0_pins>;
+> -	status = "okay";
+> -};
+> -
+> -&U74_1 {
+> -	cpu-supply = <&vdd_cpu>;
+> -};
+> -
+> -&U74_2 {
+> -	cpu-supply = <&vdd_cpu>;
+> -};
+> -
+> -&U74_3 {
+> -	cpu-supply = <&vdd_cpu>;
+> -};
+> -
+> -&U74_4 {
+> -	cpu-supply = <&vdd_cpu>;
+> -};
+> diff --git a/arch/riscv/boot/dts/starfive/jh711x-common.dtsi b/arch/riscv/boot/dts/starfive/jh711x-common.dtsi
+> new file mode 100644
+> index 000000000000..809274625615
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh711x-common.dtsi
+> @@ -0,0 +1,664 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+> + */
+> +
+> +/dts-v1/;
+> +#include "jh711x.dtsi"
+> +#include "jh7110-pinfunc.h"
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/pinctrl/starfive,jh7110-pinctrl.h>
+> +
+> +/ {
+> +	aliases {
+> +		ethernet0 = &gmac0;
+> +		i2c0 = &i2c0;
+> +		i2c2 = &i2c2;
+> +		i2c5 = &i2c5;
+> +		i2c6 = &i2c6;
+> +		mmc0 = &mmc0;
+> +		mmc1 = &mmc1;
+> +		serial0 = &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	memory@40000000 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x40000000 0x1 0x0>;
+> +		bootph-pre-ram;
+> +	};
+> +
+> +	gpio-restart {
+> +		compatible = "gpio-restart";
+> +		gpios = <&sysgpio 35 GPIO_ACTIVE_HIGH>;
+> +		priority = <224>;
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		led_status_power: led-0 {
+> +			gpios = <&aongpio 3 GPIO_ACTIVE_HIGH>;
+> +		};
+> +	};
+> +
+> +	pwmdac_codec: audio-codec {
+> +		compatible = "linux,spdif-dit";
+> +		#sound-dai-cells = <0>;
+> +	};
+> +
+> +	sound {
+> +		compatible = "simple-audio-card";
+> +		simple-audio-card,name = "StarFive-PWMDAC-Sound-Card";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		simple-audio-card,dai-link@0 {
+> +			reg = <0>;
+> +			format = "left_j";
+> +			bitclock-master = <&sndcpu0>;
+> +			frame-master = <&sndcpu0>;
+> +
+> +			sndcpu0: cpu {
+> +				sound-dai = <&pwmdac>;
+> +			};
+> +
+> +			codec {
+> +				sound-dai = <&pwmdac_codec>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&cpus {
+> +	timebase-frequency = <4000000>;
+> +};
+> +
+> +&dvp_clk {
+> +	clock-frequency = <74250000>;
+> +};
+> +
+> +&gmac0_rgmii_rxin {
+> +	clock-frequency = <125000000>;
+> +};
+> +
+> +&gmac0_rmii_refin {
+> +	clock-frequency = <50000000>;
+> +};
+> +
+> +&gmac1_rgmii_rxin {
+> +	clock-frequency = <125000000>;
+> +};
+> +
+> +&gmac1_rmii_refin {
+> +	clock-frequency = <50000000>;
+> +};
+> +
+> +&hdmitx0_pixelclk {
+> +	clock-frequency = <297000000>;
+> +};
+> +
+> +&i2srx_bclk_ext {
+> +	clock-frequency = <12288000>;
+> +};
+> +
+> +&i2srx_lrck_ext {
+> +	clock-frequency = <192000>;
+> +};
+> +
+> +&i2stx_bclk_ext {
+> +	clock-frequency = <12288000>;
+> +};
+> +
+> +&i2stx_lrck_ext {
+> +	clock-frequency = <192000>;
+> +};
+> +
+> +&mclk_ext {
+> +	clock-frequency = <12288000>;
+> +};
+> +
+> +&osc {
+> +	clock-frequency = <24000000>;
+> +};
+> +
+> +&rtc_osc {
+> +	clock-frequency = <32768>;
+> +};
+> +
+> +&tdm_ext {
+> +	clock-frequency = <49152000>;
+> +};
+> +
+> +&camss {
+> +	assigned-clocks = <&ispcrg JH7110_ISPCLK_DOM4_APB_FUNC>,
+> +			  <&ispcrg JH7110_ISPCLK_MIPI_RX0_PXL>;
+> +	assigned-clock-rates = <49500000>, <198000000>;
+> +
+> +	ports {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		port@0 {
+> +			reg = <0>;
+> +		};
+> +
+> +		port@1 {
+> +			reg = <1>;
+> +
+> +			camss_from_csi2rx: endpoint {
+> +				remote-endpoint = <&csi2rx_to_camss>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&csi2rx {
+> +	assigned-clocks = <&ispcrg JH7110_ISPCLK_VIN_SYS>;
+> +	assigned-clock-rates = <297000000>;
+> +
+> +	ports {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		port@0 {
+> +			reg = <0>;
+> +
+> +			/* remote MIPI sensor endpoint */
+> +		};
+> +
+> +		port@1 {
+> +			reg = <1>;
+> +
+> +			csi2rx_to_camss: endpoint {
+> +				remote-endpoint = <&camss_from_csi2rx>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&gmac0 {
+> +	phy-handle = <&phy0>;
+> +	phy-mode = "rgmii-id";
+> +
+> +	mdio {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		compatible = "snps,dwmac-mdio";
+> +
+> +		phy0: ethernet-phy@0 {
+> +			reg = <0>;
+> +		};
+> +	};
+> +};
+> +
+> +&i2c0 {
+> +	clock-frequency = <100000>;
+> +	i2c-sda-hold-time-ns = <300>;
+> +	i2c-sda-falling-time-ns = <510>;
+> +	i2c-scl-falling-time-ns = <510>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c0_pins>;
+> +};
+> +
+> +&i2c2 {
+> +	clock-frequency = <100000>;
+> +	i2c-sda-hold-time-ns = <300>;
+> +	i2c-sda-falling-time-ns = <510>;
+> +	i2c-scl-falling-time-ns = <510>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c2_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&i2c5 {
+> +	clock-frequency = <100000>;
+> +	i2c-sda-hold-time-ns = <300>;
+> +	i2c-sda-falling-time-ns = <510>;
+> +	i2c-scl-falling-time-ns = <510>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c5_pins>;
+> +	status = "okay";
+> +
+> +	axp15060: pmic@36 {
+> +		compatible = "x-powers,axp15060";
+> +		reg = <0x36>;
+> +		interrupt-controller;
+> +		#interrupt-cells = <1>;
+> +
+> +		regulators {
+> +			vcc_3v3: dcdc1 {
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-name = "vcc_3v3";
+> +			};
+> +
+> +			vdd_cpu: dcdc2 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <500000>;
+> +				regulator-max-microvolt = <1540000>;
+> +				regulator-name = "vdd_cpu";
+> +			};
+> +
+> +			emmc_vdd: aldo4 {
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-name = "emmc_vdd";
+> +			};
+> +		};
+> +	};
+> +
+> +	eeprom@50 {
+> +		compatible = "atmel,24c04";
+> +		reg = <0x50>;
+> +		bootph-pre-ram;
+> +		pagesize = <16>;
+> +	};
+> +};
+> +
+> +&i2c6 {
+> +	clock-frequency = <100000>;
+> +	i2c-sda-hold-time-ns = <300>;
+> +	i2c-sda-falling-time-ns = <510>;
+> +	i2c-scl-falling-time-ns = <510>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c6_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&mmc0 {
+> +	max-frequency = <100000000>;
+> +	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
+> +	assigned-clock-rates = <50000000>;
+> +	bus-width = <8>;
+> +	bootph-pre-ram;
+> +	cap-mmc-highspeed;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	cap-mmc-hw-reset;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&mmc0_pins>;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&emmc_vdd>;
+> +	status = "okay";
+> +};
+> +
+> +&mmc1 {
+> +	max-frequency = <100000000>;
+> +	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO1_SDCARD>;
+> +	assigned-clock-rates = <50000000>;
+> +	bus-width = <4>;
+> +	bootph-pre-ram;
+> +	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> +	disable-wp;
+> +	cap-sd-highspeed;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&mmc1_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&pcie0 {
+> +	perst-gpios = <&sysgpio 26 GPIO_ACTIVE_LOW>;
+> +	phys = <&pciephy0>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pcie0_pins>;
+> +};
+> +
+> +&pcie1 {
+> +	perst-gpios = <&sysgpio 28 GPIO_ACTIVE_LOW>;
+> +	phys = <&pciephy1>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pcie1_pins>;
+> +};
+> +
+> +&pwmdac {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pwmdac_pins>;
+> +};
+> +
+> +&qspi {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	status = "okay";
+> +
+> +	nor_flash: flash@0 {
+> +		compatible = "jedec,spi-nor";
+> +		reg = <0>;
+> +		bootph-pre-ram;
+> +		cdns,read-delay = <2>;
+> +		spi-max-frequency = <100000000>;
+> +		cdns,tshsl-ns = <1>;
+> +		cdns,tsd2d-ns = <1>;
+> +		cdns,tchsh-ns = <1>;
+> +		cdns,tslch-ns = <1>;
+> +
+> +		partitions {
+> +			compatible = "fixed-partitions";
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +
+> +			spl@0 {
+> +				reg = <0x0 0xf0000>;
+> +			};
+> +			uboot-env@f0000 {
+> +				reg = <0xf0000 0x10000>;
+> +			};
+> +			uboot@100000 {
+> +				reg = <0x100000 0xf00000>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&pwm {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pwm_pins>;
+> +};
+> +
+> +&spi0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&spi0_pins>;
+> +};
+> +
+> +&syscrg {
+> +	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
+> +			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
+> +			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
+> +			  <&syscrg JH7110_SYSCLK_QSPI_REF>,
+> +			  <&syscrg JH7110_SYSCLK_CPU_CORE>,
+> +			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
+> +	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
+> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+> +				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
+> +	assigned-clock-rates = <0>, <0>, <0>, <0>, <500000000>, <1500000000>;
+> +};
+> +
+> +&sysgpio {
+> +	i2c0_pins: i2c0-0 {
+> +		i2c-pins {
+> +			pinmux = <GPIOMUX(57, GPOUT_LOW,
+> +					      GPOEN_SYS_I2C0_CLK,
+> +					      GPI_SYS_I2C0_CLK)>,
+> +				 <GPIOMUX(58, GPOUT_LOW,
+> +					      GPOEN_SYS_I2C0_DATA,
+> +					      GPI_SYS_I2C0_DATA)>;
+> +			bias-disable; /* external pull-up */
+> +			input-enable;
+> +			input-schmitt-enable;
+> +		};
+> +	};
+> +
+> +	i2c2_pins: i2c2-0 {
+> +		i2c-pins {
+> +			pinmux = <GPIOMUX(3, GPOUT_LOW,
+> +					     GPOEN_SYS_I2C2_CLK,
+> +					     GPI_SYS_I2C2_CLK)>,
+> +				 <GPIOMUX(2, GPOUT_LOW,
+> +					     GPOEN_SYS_I2C2_DATA,
+> +					     GPI_SYS_I2C2_DATA)>;
+> +			bias-disable; /* external pull-up */
+> +			input-enable;
+> +			input-schmitt-enable;
+> +		};
+> +	};
+> +
+> +	i2c5_pins: i2c5-0 {
+> +		bootph-pre-ram;
+> +
+> +		i2c-pins {
+> +			pinmux = <GPIOMUX(19, GPOUT_LOW,
+> +					      GPOEN_SYS_I2C5_CLK,
+> +					      GPI_SYS_I2C5_CLK)>,
+> +				 <GPIOMUX(20, GPOUT_LOW,
+> +					      GPOEN_SYS_I2C5_DATA,
+> +					      GPI_SYS_I2C5_DATA)>;
+> +			bias-disable; /* external pull-up */
+> +			bootph-pre-ram;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +		};
+> +	};
+> +
+> +	i2c6_pins: i2c6-0 {
+> +		i2c-pins {
+> +			pinmux = <GPIOMUX(16, GPOUT_LOW,
+> +					      GPOEN_SYS_I2C6_CLK,
+> +					      GPI_SYS_I2C6_CLK)>,
+> +				 <GPIOMUX(17, GPOUT_LOW,
+> +					      GPOEN_SYS_I2C6_DATA,
+> +					      GPI_SYS_I2C6_DATA)>;
+> +			bias-disable; /* external pull-up */
+> +			input-enable;
+> +			input-schmitt-enable;
+> +		};
+> +	};
+> +
+> +	mmc0_pins: mmc0-0 {
+> +		mmc-pins {
+> +			pinmux = <PINMUX(PAD_SD0_CLK, 0)>,
+> +				 <PINMUX(PAD_SD0_CMD, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA0, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA1, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA2, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA3, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA4, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA5, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA6, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA7, 0)>;
+> +			bias-pull-up;
+> +			drive-strength = <12>;
+> +			input-enable;
+> +		};
+> +	};
+> +
+> +	mmc1_pins: mmc1-0 {
+> +		clk-pins {
+> +			pinmux = <GPIOMUX(10, GPOUT_SYS_SDIO1_CLK,
+> +					      GPOEN_ENABLE,
+> +					      GPI_NONE)>;
+> +			bias-pull-up;
+> +			drive-strength = <12>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+
+Please, add
+
+			bootph-pre-ram;
+
+to allow U-Boot to boot from SD-card. Maybe in a separate patch.
+
+Best regards
+
+Heinrich
+
+> +		};
+> +
+> +		mmc-pins {
+> +			pinmux = <GPIOMUX(9, GPOUT_SYS_SDIO1_CMD,
+> +					     GPOEN_SYS_SDIO1_CMD,
+> +					     GPI_SYS_SDIO1_CMD)>,
+> +				 <GPIOMUX(11, GPOUT_SYS_SDIO1_DATA0,
+> +					      GPOEN_SYS_SDIO1_DATA0,
+> +					      GPI_SYS_SDIO1_DATA0)>,
+> +				 <GPIOMUX(12, GPOUT_SYS_SDIO1_DATA1,
+> +					      GPOEN_SYS_SDIO1_DATA1,
+> +					      GPI_SYS_SDIO1_DATA1)>,
+> +				 <GPIOMUX(7, GPOUT_SYS_SDIO1_DATA2,
+> +					     GPOEN_SYS_SDIO1_DATA2,
+> +					     GPI_SYS_SDIO1_DATA2)>,
+> +				 <GPIOMUX(8, GPOUT_SYS_SDIO1_DATA3,
+> +					     GPOEN_SYS_SDIO1_DATA3,
+> +					     GPI_SYS_SDIO1_DATA3)>;
+> +			bias-pull-up;
+> +			drive-strength = <12>;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+> +	pcie0_pins: pcie0-0 {
+> +		clkreq-pins {
+> +			pinmux = <GPIOMUX(27, GPOUT_LOW,
+> +					      GPOEN_DISABLE,
+> +					      GPI_NONE)>;
+> +			bias-pull-down;
+> +			drive-strength = <2>;
+> +			input-enable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		wake-pins {
+> +			pinmux = <GPIOMUX(32, GPOUT_LOW,
+> +					      GPOEN_DISABLE,
+> +					      GPI_NONE)>;
+> +			bias-pull-up;
+> +			drive-strength = <2>;
+> +			input-enable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+> +	pcie1_pins: pcie1-0 {
+> +		clkreq-pins {
+> +			pinmux = <GPIOMUX(29, GPOUT_LOW,
+> +					      GPOEN_DISABLE,
+> +					      GPI_NONE)>;
+> +			bias-pull-down;
+> +			drive-strength = <2>;
+> +			input-enable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		wake-pins {
+> +			pinmux = <GPIOMUX(21, GPOUT_LOW,
+> +				      GPOEN_DISABLE,
+> +					      GPI_NONE)>;
+> +			bias-pull-up;
+> +			drive-strength = <2>;
+> +			input-enable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+> +	pwmdac_pins: pwmdac-0 {
+> +		pwmdac-pins {
+> +			pinmux = <GPIOMUX(33, GPOUT_SYS_PWMDAC_LEFT,
+> +					      GPOEN_ENABLE,
+> +					      GPI_NONE)>,
+> +				 <GPIOMUX(34, GPOUT_SYS_PWMDAC_RIGHT,
+> +					      GPOEN_ENABLE,
+> +					      GPI_NONE)>;
+> +			bias-disable;
+> +			drive-strength = <2>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+> +	pwm_pins: pwm-0 {
+> +		pwm-pins {
+> +			pinmux = <GPIOMUX(46, GPOUT_SYS_PWM_CHANNEL0,
+> +					      GPOEN_SYS_PWM0_CHANNEL0,
+> +					      GPI_NONE)>,
+> +				 <GPIOMUX(59, GPOUT_SYS_PWM_CHANNEL1,
+> +					      GPOEN_SYS_PWM0_CHANNEL1,
+> +					      GPI_NONE)>;
+> +			bias-disable;
+> +			drive-strength = <12>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+> +	spi0_pins: spi0-0 {
+> +		mosi-pins {
+> +			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
+> +					      GPOEN_ENABLE,
+> +					      GPI_NONE)>;
+> +			bias-disable;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +		};
+> +
+> +		miso-pins {
+> +			pinmux = <GPIOMUX(53, GPOUT_LOW,
+> +					      GPOEN_DISABLE,
+> +					      GPI_SYS_SPI0_RXD)>;
+> +			bias-pull-up;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +		};
+> +
+> +		sck-pins {
+> +			pinmux = <GPIOMUX(48, GPOUT_SYS_SPI0_CLK,
+> +					      GPOEN_ENABLE,
+> +					      GPI_SYS_SPI0_CLK)>;
+> +			bias-disable;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +		};
+> +
+> +		ss-pins {
+> +			pinmux = <GPIOMUX(49, GPOUT_SYS_SPI0_FSS,
+> +					      GPOEN_ENABLE,
+> +					      GPI_SYS_SPI0_FSS)>;
+> +			bias-disable;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +		};
+> +	};
+> +
+> +	uart0_pins: uart0-0 {
+> +		tx-pins {
+> +			pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX,
+> +					     GPOEN_ENABLE,
+> +					     GPI_NONE)>;
+> +			bias-disable;
+> +			drive-strength = <12>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		rx-pins {
+> +			pinmux = <GPIOMUX(6, GPOUT_LOW,
+> +					     GPOEN_DISABLE,
+> +					     GPI_SYS_UART0_RX)>;
+> +			bias-disable; /* external pull-up */
+> +			drive-strength = <2>;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +};
+> +
+> +&uart0 {
+> +	bootph-pre-ram;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&uart0_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&U74_1 {
+> +	cpu-supply = <&vdd_cpu>;
+> +};
+> +
+> +&U74_2 {
+> +	cpu-supply = <&vdd_cpu>;
+> +};
+> +
+> +&U74_3 {
+> +	cpu-supply = <&vdd_cpu>;
+> +};
+> +
+> +&U74_4 {
+> +	cpu-supply = <&vdd_cpu>;
+> +};
+> diff --git a/arch/riscv/boot/dts/starfive/jh711x.dtsi b/arch/riscv/boot/dts/starfive/jh711x.dtsi
+> index 6e56e9d20bb0..a380d3dabedd 100644
+> --- a/arch/riscv/boot/dts/starfive/jh711x.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh711x.dtsi
+> @@ -205,22 +205,6 @@ core4 {
+>   	cpu_opp: opp-table-0 {
+>   			compatible = "operating-points-v2";
+>   			opp-shared;
+> -			opp-375000000 {
+> -					opp-hz = /bits/ 64 <375000000>;
+> -					opp-microvolt = <800000>;
+> -			};
+> -			opp-500000000 {
+> -					opp-hz = /bits/ 64 <500000000>;
+> -					opp-microvolt = <800000>;
+> -			};
+> -			opp-750000000 {
+> -					opp-hz = /bits/ 64 <750000000>;
+> -					opp-microvolt = <800000>;
+> -			};
+> -			opp-1500000000 {
+> -					opp-hz = /bits/ 64 <1500000000>;
+> -					opp-microvolt = <1040000>;
+> -			};
+>   	};
+>   
+>   	thermal-zones {
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
