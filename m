@@ -4,52 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91AF6CCD19A
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Nov 2025 06:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C21CED247
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Nov 2025 06:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ydxWOCknWjXw9bwkYA/CqIyrWtJOWkdSrAHQWh57r0A=; b=iXDbbyiEGsZppR
-	qBk2Lnrla/Bm7Dsg9G/l40bcoxuRSEkRZtLgzFp+S/fPUWtrkeaadFj1MGyAD5nzB1OD7MDH8Xbpm
-	IqXoIu3DyOCWEWyXCR0LnIol4QwFG9FzLjgaUTovB8P7ORIrzKytc00PNmqRO4UurP/qXboeNqAWU
-	WW+uPJuKC0wKXRiJSZ6tAWM59iKrJMi3VZVaVCk+Iumm6T+WdUC/5asaWaU+Kh+6YgPgyHchA//Ea
-	BBDZNZm4tAqLdsGQiMAw9DGIDF/WUpmhkD635Kkgt/VEQZWi+RdV8w0+up13FCeo2HCilcVyZCfH1
-	N9yCzQr4E7glIqBsYvng==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EAyUHRcSp5fffj0kUlpvB+zrnJtEU5Z32aRRavEWRfg=; b=A3BSb5Xg5DPc84
+	jqpJYS8jKYI7FCLeg4tnTCL7o4Ay14fxuc5aEhtTOLWV1UUphZD3uNvprKI+eUdoeQMDeplKhzwwX
+	0v42BUvMmSGX9tBNIi7ALm+Iw5qerSxgUU8cvmpkGFcIXkveVOjP0j2mRMkVjhxuUtKHVwjBq51ND
+	LN5pSEhpqCwdPEMcSs98iYnqmtIGOr+UIsvMC5eie6B+iUD9C5nVaoXwmmnkgRlF+S0uKjMOnzg/e
+	QA62/lDcHNkrgHPE5A87EN5ME+my8p5zlyRHlIARRNzoo2h7aFqz2dKNaZr+NSx8xRawCkbCuE+2E
+	HN593U1MD9mgAv0GpqFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLEuG-0000000HTIS-3zQw;
-	Tue, 18 Nov 2025 06:09:37 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
+	id 1vLEuO-0000000HTKn-0LLw;
+	Tue, 18 Nov 2025 06:09:44 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLEuC-0000000HTG5-0BDr
+	id 1vLEuK-0000000HTGj-1jjQ
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Nov 2025 06:09:34 +0000
+	Tue, 18 Nov 2025 06:09:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1763446112;
-	bh=Fn+Ep3pNFHiTcymXP7LxnNNnuuTk/661XN/Li/c3sCc=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=moiKfufkQ/Scoe80sTmjwfnssPoy5e2iv16HSk3nmtdRnYlAAXyzXwEJMQvDJrlt/
-	 eVauBbiLKUWejlYhQ5emPXSi0Ea+aPBS1xdeLvqK1H7LRSu9WoN2E0vOn4k+22v3Ms
-	 X9iApm1fOS6fem8SQkhJqfRMN7GGC4Ol40iXezuM=
-X-QQ-mid: esmtpsz17t1763446104t31bd25e6
-X-QQ-Originating-IP: nIxd1ZNdKRzG+bXQuhHb5znGp5EUKBmLDWISygy7lWI=
+	s=mxsw2412; t=1763446098;
+	bh=hzOfPR919VrIHi152EWvE2Bp6APdazRwuR4ex5e3Hbw=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=H2Fg1GtMTxFLEaF4B0mfohNowKmQClOAYZVoFvQUxb+1c1qkZ1dTqefDsEj9aatel
+	 KxeSVtbfGYZbHK2mOpn/sbiN0YX9fYVH4SvLiRmnDyfPdTmVjmJOYnPnrYVJRCkLPf
+	 0LQ/dmQAFy/qo7keyCQ6w7zIhN/xWChhvEHy5JAA=
+X-QQ-mid: zesmtpsz8t1763446089t05f7671e
+X-QQ-Originating-IP: gfIiIDlmEa/nlrPhq5QOGcUUZldrQI1NIAYC/9iO1aU=
 Received: from = ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 18 Nov 2025 14:08:22 +0800 (CST)
+	id ; Tue, 18 Nov 2025 14:08:06 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 835651233922569180
+X-BIZMAIL-ID: 12746656525817130818
 EX-QQ-RecipientCnt: 13
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Tue, 18 Nov 2025 14:08:08 +0800
-Subject: [PATCH v3 4/4] mfd: simple-mfd-i2c: add default value
+Subject: [PATCH v3 0/4] fix the SpacemiT P1 Kconfig and resend the K1 I2C
+ ILCR patch.
+Date: Tue, 18 Nov 2025 14:08:04 +0800
+Message-Id: <20251118-p1-kconfig-fix-v3-0-8839c5ac5db3@linux.spacemit.com>
 MIME-Version: 1.0
-Message-Id: <20251118-p1-kconfig-fix-v3-4-8839c5ac5db3@linux.spacemit.com>
-References: <20251118-p1-kconfig-fix-v3-0-8839c5ac5db3@linux.spacemit.com>
-In-Reply-To: <20251118-p1-kconfig-fix-v3-0-8839c5ac5db3@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIAEQNHGkC/23MSw6CMBSF4a2Qjr2ktzwsjtyHcUBLCzfKIy0SD
+ GHvFhITow7/k5xvYd44Mp6dooU5M5GnvguRHCKmm7KrDVAVmgkuMuQCYUC46b6zVIOlGfJKqKy
+ oeKKkZeE0OBPmHbxcQzfkx949d3/CbX1T4puaEBA0pqLK0KDi8nyn7jHHfii1aWmMdd+yzZzEp
+ 3P8cQRwSItcSptwVZr/zrquL7HQGtj9AAAA
+X-Change-ID: 20251021-p1-kconfig-fix-6d2b59d03b8f
 To: Lee Jones <lee@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
  Alex Elder <elder@riscstar.com>, Andi Shyti <andi.shyti@kernel.org>, 
  Alexandre Belloni <alexandre.belloni@bootlin.com>, 
@@ -58,37 +62,38 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-i2c@vger.kernel.org, 
  linux-rtc@vger.kernel.org, Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763446086; l=740;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763446086; l=1635;
  i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=j2fkzlbQiDyQooNa5vCLtsRPai/03HAnd8cejpZGxhQ=;
- b=B/MhDWZhHagWY5LtxDsv1ceREB517kF3qq6Bhc4kb4wymUOZhda5qc7oQVAD98qehTYZkNU7D
- pheaHRfMXcJB0lcKvThrUqlCpR/TT1ofan42KM4ImD/hOWtCfRlOuZq
+ bh=pRelXNcNN37ZM7O2BV0S35r975DWh+ueu5XV8SMlrBs=;
+ b=jSJ9sJxE6RX5av6jM6BMhL0iGQaZppaNPJMQJNNU9u9qR01cb/m3k5HQIqRhqBGGXg1KdD1y6
+ xz4wUtB+mffAgOu9cOkDzl1KmjRdAqngIzXfCp7HEC7e5lwlCuEVn7z
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
  pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: Oex01RfMxfHezK4+ruocZCCJv92kXrUZsCNBE71uBsWV91gVnnPyt5zX
-	JlZTKjO5N6KJHDbFbQbxzQ9/AQBamdGiZ4PbaJkZjt/GkL3jtolZ41RtK3+U5jJwSv0+BCl
-	GOBivTnrYkFMWgPImZ7FjXLdItHHHP5b3m+sRq+oPBVaywp8tRIrIdBA3m2vWmL1H4+yUzo
-	bm+M3tzgra+F44Hn7EZhl6btiFbodFcFSobqzBfxyZrrjUpjhoj4BOlXBV7EmXYvcNdgpFi
-	8RYXpg+iNiLCMUd0j18LJj7G8dSfHlLQVi7H+MxRFUlnRTJ5jJ/nXWPV88cggaZ1yYBJs79
-	NlUsuHlvAvZpMz/vdZmMNCIFUvOy8cKXCMEOLrxy0FRXlA8cAiyiio+LH55m5/8Nr6nv86C
-	TpLkkGP0/jES4wgYk6pmemX3cZhUFqslH/6d5RhRhU85SeXIeXqyKhaX3lVrznee4RURPnv
-	1w7qmt3A4m8cYB7pacfISvgzIU2jn/VVpG48Kta46OQDmJmf2HEHuJlhweYSU9Jq4ewbn/0
-	L6pdNpcOcse0zGHcP3S1Ez8HCdol/GvSY/mSLXh8PAaKHNJvHGxJzhJ8nIFrLNH/ulvNSkf
-	lUJwPtpwdpjm/RFEHTiFIOs0sBx52wwAYyaFlO3UJSs9VKIER8ajgx+iELPaT/f6nffhWGP
-	SphtixZbRYmEjZm7IeCZ49yfDPecH4I7li4L6VViBfo1HlJooxl0DN3Rw7SKups25bE16Ix
-	ReklMLR09KO376qn1U+XycEjSdqNzLdJmyZesWr73QWLu4WB7UZWB6kbEwBIpN2JDbbfQi8
-	2DucpCD2tN3fpqyY4gzhGMo0nJ5KCn2S26U05OaoaeiTYjEhmFoumlLdb7rErY0bY4aARdi
-	9MFhVMm0gI/txW+G/PZDUDpV4eJt0dLhh//Qji+w6j6dPyqE6/yN4j8yKBqDVMMRYOBrZr3
-	i8CYiKOUINmxIo6Pk3lkdA4w5RCuEGh2afx0iemnoUpNEG74fiwa08DMV0AnrUh8wNK/RAL
-	zdZlPcZ3iFhJ/0c8vshDAoJXB/H0uURK8yH78IXhR15g+s2NV2AYAWQGx2lYaGJWIBhbzup
-	ptpodnl+oLv9FgKE1nSTuM=
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MmCmH9jyqHC2wcJjL4RwvH1l3Wa5bs4XKd+PVMud4HPY/PNAmETLJziZ
+	ptHKTSn7NPDAlZn9ZMKA5rtCbY5LpEVAlXjLbsVrXgpOZFgyjfo87ywP1nuIe6vItEmse/6
+	/GrOCbE4wR6d72x+Aak4/lAGl4wf8JkW2PoWY2i//hPqW7KYSb89TISPsTJrTCWwSNDh0jD
+	Fa/fFfaDzCuG8WNtER3Q75PhWCtuASiIYqTxk5tw7Of1NiKqL1AE0brIlENVdTJubMEten7
+	941CWwWqSGzEbUYvoZOplLGkRSglJ/OZ3x5/2EKjs3nBOa3i5rRC7ao+WSUZymOEbmYdSAJ
+	ieSwO5kbIwUojaJh/AzRJOJNvj2semMX374+GCRVtUblYhgr1jnuWNhk5AFXadUGqR+QEUT
+	66sd7eQHv4ACr9NINuyRun+jpRXBWT+286rA8m9KQMa/h9SzTo+wAHldUFKT0v9HJyYPNLm
+	TLUHsJy/PMv3OHDKzQ+MCopOfQOoCifgWY37NyFUAWhET9qlJJc08K/790AIUzrnYuYiKvx
+	N8ZYDbrV3pMel+oMuVJTQN29OjSsV85T/+ZUf1j25qFNRD91bin87GeiJRdU2Ro+IpEs36G
+	eY9ap4zvUNlmvk9bY1DT9M6cBQzLm9xWJT0hTKWODOTNxnKp/hdI0FFpjTBGt7vMVgDIHOk
+	bFU67EkDQZn5pc2gN0/461lfePxqqbx9PMfnEXEwVH+aIeEOvsJ3+lrYuAx/FOl/78YSNX7
+	tm6ERKDBrZTO6ZlWB2xFVhdU1xhc83gpS15OFzoWDtQqR+lRn2nuz/MD+Mph6dgkBe9n4sW
+	FtUy7T/1lyLz5/wJ4ATnHjrRmQKHoBwO2i9RGCXrnthNgo5E7fSxoUIhvA3PyAoG4ENaYsR
+	CGnCqDY0RZZYzlSx/sEntX+qpGAkct1nj9hLV+IgF91ZkoZ26rUKmfH5bn+97EouEi92B6k
+	mkrZocpm5XWgtjrz+FgXWsqMOFTas4vLLkpTgN5p7WwHPmxKqBsIDTBci8R+orKTVcxaaed
+	A3sYNrBUWmOrVVgnvUd0Wp4aGZQYkQwHSv0M/JZyuRbrn6wYhZax0h/Gi22rK6HExsNWMaE
+	+uL3b0UB9ebtSiuY+3eZ72UBlji+iQV3Q5dPsQ/tcxkcuETlz4SgHwoHeyewbHQzud0xozs
+	ednI
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_220932_980107_906D757B 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20251117_220941_363111_4B5F19F9 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,29 +111,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The default value of the P1 sub-device depends on the value
-of P1, so P1 should have a default value here.
+Since P1 Kconfig directly selects K1_I2C, after the I2C ILCR patch was
+merged, the driver would fail [1] when COMMON_CLK was not selected.
+
+This series fixes the P1 Kconfig and resends the I2C ILCR patch(This
+patch has reverted by maintainer [2]).
+
+Now, P1 Kconfig patch has been merged[3], so I2C ILCR patch can be
+merged as well.
+
+In addition, the Kconfig for P1's two subdevices, regulator and RTC,
+has been updated to use 'depends on MFD_SPACEMIT_P1' instead of 'select' and
+change default value from `ARCH_SPACEMIT` to `MFD_SPACEMIT_P1`.
+
+Link: https://lore.kernel.org/oe-kbuild-all/202510202150.2qXd8e7Y-lkp@intel.com/ [1]
+Link: https://lore.kernel.org/all/sdhkjmi5l2m4ua4zqkwkecbihul5bc2dbmitudwfd57y66mdht@6ipjfyz7dtmx/ [2]
+Link: https://lore.kernel.org/all/176244506110.1925720.10807118665958896958.b4-ty@kernel.org/ [3]
 
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- drivers/mfd/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Troy Mitchell (4):
+      i2c: spacemit: configure ILCR for accurate SCL frequency
+      rtc: spacemit: MFD_SPACEMIT_P1 as dependencies
+      regulator: spacemit: MFD_SPACEMIT_P1 as dependencies
+      mfd: simple-mfd-i2c: add default value
 
-diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index 6cec1858947bf7ab5ee78beb730c95dabcb43a98..b0f109b3acc40b074e4d0178e123437495853496 100644
---- a/drivers/mfd/Kconfig
-+++ b/drivers/mfd/Kconfig
-@@ -1260,6 +1260,7 @@ config MFD_SPACEMIT_P1
- 	depends on I2C
- 	select I2C_K1
- 	select MFD_SIMPLE_MFD_I2C
-+	default ARCH_SPACEMIT
- 	help
- 	  This option supports the I2C-based SpacemiT P1 PMIC, which
- 	  contains regulators, a power switch, GPIOs, an RTC, and more.
+ drivers/i2c/busses/Kconfig  |   2 +-
+ drivers/i2c/busses/i2c-k1.c | 159 ++++++++++++++++++++++++++++++++++++++++----
+ drivers/mfd/Kconfig         |   1 +
+ drivers/regulator/Kconfig   |   5 +-
+ drivers/rtc/Kconfig         |   4 +-
+ 5 files changed, 151 insertions(+), 20 deletions(-)
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251021-p1-kconfig-fix-6d2b59d03b8f
 
+Best regards,
 -- 
-2.51.2
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 
 _______________________________________________
