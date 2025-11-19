@@ -4,53 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00349CF2563
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Nov 2025 00:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39883CF2564
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Nov 2025 01:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BAsRQuK5KgUb3HI5iiySC4Tgu649z/k7uzPBfIfGx7g=; b=n4b2G+JVX2+Fn5
-	fc7vhJ0VtNeX6QFyD8qFOWMnsKYE056jWFpi2AghSy6q0YjvUJZvlP2XAazCUZN9SaiwHHSMsIxDZ
-	2sVT8H2o8oZLQcXqsjT+luKosNhk0/3J4xd8cDgVDTkAHhDCxJZoBfNBuJF0ecSBZdWy7wEtR91zc
-	yD7pQceZn2Qh8PKqr36xJmU1sNSAO/R6amvDY+dQDMdV65MaWe3LitdS2LumI4IWSEdpKxwvnAKpz
-	OIX/rIdhlExqJl7kqmfEf0UKjBZdOVXFE8zfnxXynyBhTqDc5Wf1Vbmb7AYKr3qyhxm8r352fFyq3
-	WOKL7AEqm/doZCwQJgtQ==;
+	List-Owner; bh=ImYQSv2PHJb8KvbHMqxW11MbN4EKw3p/E9ARNYjRgZA=; b=tVpZ/Ce/I0ODi6
+	dAX4uF0ZsCLN+PDxl/aYsY1SjTTQoY5nHgeZ6YA6BS2R8ZnAvI/pOpkkjMF200VRY+cvCo15pLOrr
+	zWKSk8EtRgCSWNVTUOrHZjB3ovKrmhlYZsZ/QdTwRmuQDQoaJRhVLxhJGhlvLEptMoj7LE0S7S2px
+	9OWckM9SxnZ98RbcwQdCb1P05HxRwcXxF1AD5myxPhaftIZxmm//TrBjAZvvUe89W7wmT4iNbCyQT
+	xMKY08WqT9zAadky4DRH3WyGHBQ7NwVA5vsjS0+t1538klBCsPLZNvHW7iR3g05Rdd+pj65LgbGJu
+	gkxd7TQjwUM+yHLUq4zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLVlw-00000001H0d-1ngX;
-	Wed, 19 Nov 2025 00:10:08 +0000
-Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1vLX9G-00000001Lm1-090Q;
+	Wed, 19 Nov 2025 01:38:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLVlu-00000001H0D-2JPO
+	id 1vLX9D-00000001Lla-257b
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Nov 2025 00:10:07 +0000
-Received: from localhost (unknown [116.232.18.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id B384C340E31;
-	Wed, 19 Nov 2025 00:03:36 +0000 (UTC)
-Date: Wed, 19 Nov 2025 08:03:32 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Stephen Boyd <sboyd@kernel.org>, Charles Mirabile <cmirabil@redhat.com>
-Cc: linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	mturquette@baylibre.com, heylenay@4d2.org, elder@riscstar.com,
-	troy.mitchell@linux.spacemit.com, inochiama@outlook.com,
-	Yanko Kaneti <yaneti@declera.com>
-Subject: Re: [PATCH] clk: spacemit: fix UBSAN warning during probe
-Message-ID: <20251119000332-GYB1726554@gentoo.org>
-References: <20251117190329.1337250-1-cmirabil@redhat.com>
+	Wed, 19 Nov 2025 01:38:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8094F44453;
+	Wed, 19 Nov 2025 01:38:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED477C19421;
+	Wed, 19 Nov 2025 01:38:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763516293;
+	bh=wGwlctlR3phb/EaWdcj3gsbtcDdcz9sjR+f8vd0Ir2U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=phoBJz/wW1mdB/aPVdYRHDSa4NyVz2vSvkFE1ZL80Fa0m4Jxdpt3C5aK9r1J5pjqC
+	 Mp81bE/WWvv6pcTP2aqJxoki1zwxA9DdF2BEbMClFn/UoWei5tskBiRGenWHazdcdK
+	 dgw6wUR2owco0L20XL+dZasgCrlOtO4ZiYZ3Mzts07gCSYfLZKlVk2Pe73rQrSzRP/
+	 DC6HI6RQDeNCXCPVTImSrqKE114qmGpnzgwv638cOPZJRcbhvktSjVzLGoJ/ud/PMQ
+	 kKL7u0osMmV1lRGlOZevS16ZUtSPJOk3FZaD7+gJw3TqNNSUaIIacJ9DXRF9+f79l7
+	 qDyRoXkF43AwQ==
+Date: Tue, 18 Nov 2025 18:38:08 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>, Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	namcao@linutronix.de
+Subject: Re: Re: [PATCH] riscv: fix KUnit test_kprobes crash when building
+ with Clang
+Message-ID: <20251119013808.GA1264583@ax162>
+References: <738dd4e2.ff73.19a7cd7b4d5.Coremail.xujiakai2025@iscas.ac.cn>
+ <621798fc-68bc-504c-755f-0a2f1f83d1c2@kernel.org>
+ <108ac2f0.17c6b.19a8fc4d1ca.Coremail.xujiakai2025@iscas.ac.cn>
+ <bd82855d-4a80-58fb-c949-b968569ef1e2@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251117190329.1337250-1-cmirabil@redhat.com>
+In-Reply-To: <bd82855d-4a80-58fb-c949-b968569ef1e2@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_161006_621579_8B2506B1 
-X-CRM114-Status: GOOD (  22.11  )
+X-CRM114-CacheID: sfid-20251118_173815_581927_96458F56 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,97 +78,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Stephen,
+Hi Paul and Jiakai,
 
-Could you take this patch directly? or let me know if you want me to handle
+On Tue, Nov 18, 2025 at 01:21:50PM -0700, Paul Walmsley wrote:
+> Not all of it, but some edited summary is appropriate.  I've queued the 
+> following revision for v6.18-rc fixes, under the theory that it would be 
+> good to get the test working for Clang users while the LLVM folks 
+> investigate.  Please let us know ASAP if you think anything in it should 
+> be changed.  I plan to send a PR out later this week.
 
-On 14:03 Mon 17 Nov     , Charles Mirabile wrote:
-> When booting with KASAN enabled the following splat is encountered during
-> probe of the k1 clock driver:
-> 
-> UBSAN: array-index-out-of-bounds in drivers/clk/spacemit/ccu-k1.c:1044:16
-> index 0 is out of range for type 'clk_hw *[*]'
-> CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc5+ #1 PREEMPT(lazy)
-> Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2022.10spacemit 10/01/2022
-> Call Trace:
-> [<ffffffff8002b628>] dump_backtrace+0x28/0x38
-> [<ffffffff800027d2>] show_stack+0x3a/0x50
-> [<ffffffff800220c2>] dump_stack_lvl+0x5a/0x80
-> [<ffffffff80022100>] dump_stack+0x18/0x20
-> [<ffffffff800164b8>] ubsan_epilogue+0x10/0x48
-> [<ffffffff8099034e>] __ubsan_handle_out_of_bounds+0xa6/0xa8
-> [<ffffffff80acbfa6>] k1_ccu_probe+0x37e/0x420
-> [<ffffffff80b79e6e>] platform_probe+0x56/0x98
-> [<ffffffff80b76a7e>] really_probe+0x9e/0x350
-> [<ffffffff80b76db0>] __driver_probe_device+0x80/0x138
-> [<ffffffff80b76f52>] driver_probe_device+0x3a/0xd0
-> [<ffffffff80b771c4>] __driver_attach+0xac/0x1b8
-> [<ffffffff80b742fc>] bus_for_each_dev+0x6c/0xc8
-> [<ffffffff80b76296>] driver_attach+0x26/0x38
-> [<ffffffff80b759ae>] bus_add_driver+0x13e/0x268
-> [<ffffffff80b7836a>] driver_register+0x52/0x100
-> [<ffffffff80b79a78>] __platform_driver_register+0x28/0x38
-> [<ffffffff814585da>] k1_ccu_driver_init+0x22/0x38
-> [<ffffffff80023a8a>] do_one_initcall+0x62/0x2a0
-> [<ffffffff81401c60>] do_initcalls+0x170/0x1a8
-> [<ffffffff81401e7a>] kernel_init_freeable+0x16a/0x1e0
-> [<ffffffff811f7534>] kernel_init+0x2c/0x180
-> [<ffffffff80025f56>] ret_from_fork_kernel+0x16/0x1d8
-> [<ffffffff81205336>] ret_from_fork_kernel_asm+0x16/0x18
-> ---[ end trace ]---
-> 
-> This is bogus and is simply a result of KASAN consulting the `.num` member
-> of the struct for bounds information (as it should due to `__counted_by`)
-> and finding 0 set by kzalloc because it has not been initialized before
-> the loop that fills in the array. The easy fix is to just move the line
-> that sets `num` to before the loop that fills the array so that KASAN has
-> the information it needs to accurately conclude that the access is valid.
-..
-> 
-> 
-One blank line is enough
-> Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
-> Tested-by: Yanko Kaneti <yaneti@declera.com>
-> 
-Drop, no blank line between Tested-by and SoF
-> Signed-off-by: Charles Mirabile <cmirabil@redhat.com>
+I spent some time today trying to minimize a small set of configurations
+that triggers this issue on top of defconfig since that occasionally
+reveals a path to head down for triage and I landed on:
 
-Reviewed-by: Yixun Lan <dlan@gentoo.org>
-> ---
->  drivers/clk/spacemit/ccu-k1.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-> index f5a9fe6ba1859..4761bc1e3b6e6 100644
-> --- a/drivers/clk/spacemit/ccu-k1.c
-> +++ b/drivers/clk/spacemit/ccu-k1.c
-> @@ -1018,6 +1018,8 @@ static int spacemit_ccu_register(struct device *dev,
->  	if (!clk_data)
->  		return -ENOMEM;
->  
-> +	clk_data->num = data->num;
-> +
->  	for (i = 0; i < data->num; i++) {
->  		struct clk_hw *hw = data->hws[i];
->  		struct ccu_common *common;
-> @@ -1044,8 +1046,6 @@ static int spacemit_ccu_register(struct device *dev,
->  		clk_data->hws[i] = hw;
->  	}
->  
-> -	clk_data->num = data->num;
-> -
->  	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
->  	if (ret)
->  		dev_err(dev, "failed to add clock hardware provider (%d)\n", ret);
-> 
-> base-commit: 6a23ae0a96a600d1d12557add110e0bb6e32730c
-> -- 
-> 2.51.1
-> 
-> 
+  $ cat arch/riscv/configs/repro.config
+  CONFIG_KPROBES=y
+  CONFIG_KUNIT=y
+  CONFIG_RELOCATABLE=y
+  CONFIG_RISCV_KPROBES_KUNIT=y
 
--- 
-Yixun Lan (dlan)
+  $ make -skj"$(nproc)" ARCH=riscv LLVM=1 clean defconfig repro.config Image
+
+  $ curl -LSs https://github.com/ClangBuiltLinux/boot-utils/releases/download/20241120-044434/riscv-rootfs.cpio.zst | zstd -d >rootfs.cpio
+
+  $ qemu-system-riscv64 \
+      -display none \
+      -nodefaults \
+      -bios default \
+      -M virt \
+      -append earlycon \
+      -kernel arch/riscv/boot/Image \
+      -initrd rootfs.cpio \
+      -m 512m \
+      -serial mon:stdio
+  ...
+  [    0.000000] Booting Linux on hartid 0
+  [    0.000000] Linux version 6.18.0-rc6-dirty (nathan@ax162) (ClangBuiltLinux clang version 21.1.5 (https://github.com/llvm/llvm-project.git 8e2cd28cd4ba46613a46467b0c91b1cabead26cd), ClangBuiltLinux LLD 21.1.5 (https://github.com/llvm/llvm-project.git 8e2cd28cd4ba46613a46467b0c91b1cabead26cd)) #1 SMP Tue Nov 18 17:58:23 MST 2025
+  ...
+  [    1.041311] KTAP version 1
+  [    1.041433] 1..1
+  [    1.042111]     KTAP version 1
+  [    1.042310]     # Subtest: kprobes_riscv
+  [    1.042610]     # module: kprobes_riscv_kunit
+  [    1.042732]     1..1
+  [    1.047104] ------------[ cut here ]------------
+  [    1.047293] WARNING: CPU: 0 PID: 45 at mm/page_alloc.c:5159 __alloc_frozen_pages_noprof+0x160/0x228
+  [    1.047602] Modules linked in:
+  [    1.047851] CPU: 0 UID: 0 PID: 45 Comm: kunit_try_catch Tainted: G                 N  6.18.0-rc6-dirty #1 NONE
+  [    1.047933] Tainted: [N]=TEST
+  [    1.047948] Hardware name: riscv-virtio,qemu (DT)
+  [    1.048024] epc : __alloc_frozen_pages_noprof+0x160/0x228
+  [    1.048057]  ra : ___kmalloc_large_node+0x52/0x1a0
+  [    1.048073] epc : ffffffff8023e2e8 ra : ffffffff80247c26 sp : ff200000001f3c10
+  [    1.048086]  gp : ffffffff81a25900 tp : ff600000023924c0 t0 : 00000000264163d0
+  [    1.048097]  t1 : 00000000264163d0 t2 : 00000000000aae60 s0 : ff200000001f3c90
+  [    1.048108]  s1 : 000000000a83ca20 a0 : 0000000000000001 a1 : ffffffff819e71ba
+  [    1.048119]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 000000003b9aca00
+  [    1.048130]  a5 : 0000000000016698 a6 : ff600000021480d0 a7 : 00000000000aae60
+  [    1.048140]  s2 : 0000000000000010 s3 : ffffffff8024857a s4 : 0000000000000dc0
+  [    1.048151]  s5 : ffffffff80018e20 s6 : ff2000000000bb40 s7 : 0000000000000000
+  [    1.048161]  s8 : 0000000000000000 s9 : 0000000000166e7c s10: 0000000000000000
+  [    1.048171]  s11: 0000000000000000 t3 : 0000000000000000 t4 : 0000000000000002
+  [    1.048181]  t5 : ff60000002392580 t6 : 0000000000000001
+  [    1.048191] status: 0000000200000120 badaddr: ffffffff8023e2e8 cause: 0000000000000003
+  [    1.048281] [<ffffffff8023e2e8>] __alloc_frozen_pages_noprof+0x160/0x228
+  [    1.048362] [<ffffffff80247c26>] ___kmalloc_large_node+0x52/0x1a0
+  [    1.048374] [<ffffffff80247dd8>] __kmalloc_large_node_noprof+0x1c/0x114
+  [    1.048384] [<ffffffff8024857a>] __kmalloc_noprof+0x252/0x450
+  [    1.048393] [<ffffffff80018ae6>] test_kprobe_riscv+0x5a/0x210
+  [    1.048406] [<ffffffff8050d6a6>] kunit_try_run_case+0x5a/0x15c
+  [    1.048417] [<ffffffff8050f69a>] kunit_generic_run_threadfn_adapter+0x1a/0x34
+  [    1.048439] [<ffffffff8004fa88>] kthread+0x178/0x1a0
+  [    1.048450] [<ffffffff8001311a>] ret_from_fork_kernel+0xe/0x48
+  [    1.048464] [<ffffffff80b500f2>] ret_from_fork_kernel_asm+0x16/0x1c
+  [    1.048513] ---[ end trace 0000000000000000 ]---
+  [    1.056832]     # test_kprobe_riscv: EXPECTATION FAILED at arch/riscv/kernel/tests/kprobes/test-kprobes.c:24
+  [    1.056832]     Expected kp to be true, but is false
+  [    1.058370]     not ok 1 test_kprobe_riscv
+  [    1.058484] not ok 1 kprobes_riscv
+  ...
+
+This appears to happen back to LLVM 15 so I am not sure it is a recent
+recent regression on the toolchain side.
+
+Without CONFIG_RELOCATABLE enabled, the test passes:
+
+  [    1.049384] KTAP version 1
+  [    1.049656] 1..1
+  [    1.050246]     KTAP version 1
+  [    1.050447]     # Subtest: kprobes_riscv
+  [    1.050760]     # module: kprobes_riscv_kunit
+  [    1.050867]     1..1
+  [    1.061790]     ok 1 test_kprobe_riscv
+  [    1.061929] ok 1 kprobes_riscv
+
+Interestingly, if I enable CONFIG_RISCV_KPROBES_KUNIT as a module, I get
+a failure when trying to load it in QEMU:
+
+  ~ # modprobe kprobes_riscv_kunit
+  [   42.214642] kprobes_riscv_kunit: The unexpected relocation type 'R_RISCV_ALIGN' from PC = 00000000abb84ce7
+  [   42.222778] kprobes_riscv_kunit: The unexpected relocation type 'R_RISCV_ALIGN' from PC = 00000000abb84ce7
+  modprobe: can't load module kprobes_riscv_kunit (kernel/arch/riscv/kernel/tests/kprobes/kprobes_riscv_kunit.ko): Invalid argument
+
+which is probably unrelated but I figured it was worth mentioning, as it
+does not allow me to see if this has something to do with the flags
+added to LDFLAGS_vmlinux.
+
+Maybe this is useful for the upstream report and further triage.
+
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
