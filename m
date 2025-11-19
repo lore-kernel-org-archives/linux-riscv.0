@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D0ACF31B7
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Nov 2025 12:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60EDCF31B8
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Nov 2025 12:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VSIHgzHdIvU/3q1C7U3F7oVMnlgxSnOeG4PwAT+Mh78=; b=g3URvL0U8VUBUz
-	dAckYsOWy0bYGFzis1fbcqDwHRGiViybmUCY/pD9F/T5HEQebcTG85xpPaHBcfNSL4XwFSARuA++A
-	fJ0GNwlumpPK9VAWm9x/Lj0SIEcx49JHP20j+oU23O+ylyXqXO0gB1DRI9PriEtjdk7FSdpGMyAmk
-	ILXc/DO+R/fY2BWQtjdX8/T9iT5rt9nJ4nkoKzgd+Z6uue1YZa2gpZjolhW47EJ9Zu0Nl/Tlg1Yo2
-	4coC2xoJUv5/DgYrNIXqdun7R5YmxVi9G9qiZneVD6IWU6ClYUW2TTy3DNPbGcAOWowl15b2XnIdU
-	LT8dNnQ7TudgUlJy10bQ==;
+	List-Owner; bh=69qHJFZRKrTKiCi/mlChEuP9VaeveSyBT8vLOjdb06M=; b=dceYtWUiRiHzfo
+	fxkSopTAagMgBL79Nozuym1cYiiFU+6uzA2PvhJgd9XhuW6dts+/u02Itx3gx0Ed7JGwKeOxn1i69
+	NjhiEIgN3Ce4cP2bdQTUHSH1lBplsMebwjCUihMTklLYiV0cstw45lcnMM/dG8qVODdU/8vtvrA5l
+	ULfvADtK+9gTWdrKjoAI8k9LNtC00OiDQCLE7qnMx0FcroSgrdbV3Af1CUG1Qpa2R5a28R60ahgkh
+	JNWYftczFyxlrdlBaQYVnvHrX1rdC0KqJb6u+B5oErleEwSTcOwUxSSSVHQAc6QoUFL5QTCqEP4Ar
+	khCyGyixIa1ixyFqbDCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhKl-00000003A65-0loN;
-	Wed, 19 Nov 2025 12:30:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vLhKq-00000003A8l-18ls;
+	Wed, 19 Nov 2025 12:30:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhKj-00000003A5q-3uf5
+	id 1vLhKm-00000003A6O-3jij
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Nov 2025 12:30:49 +0000
+	Wed, 19 Nov 2025 12:30:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0AD47605D3;
-	Wed, 19 Nov 2025 12:30:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D5F5C2BC87;
-	Wed, 19 Nov 2025 12:30:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 11DD7602CC;
+	Wed, 19 Nov 2025 12:30:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27AF3C113D0;
+	Wed, 19 Nov 2025 12:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763555448;
-	bh=iq0aV4T0WOF/GPJMcgiZ3VSc1pc95Da3JcgV1XIC52s=;
+	s=k20201202; t=1763555451;
+	bh=pV3aaX6iNgAKqE1MoQjwMUxNZdYr7ERloJjy7fJLIoc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cTR4tjqKmovQNZkhiVH1FAAPSplCdmELsgvip0m3tByybYUT+MQuKC46su0r+Ha6C
-	 MJBaX5Ee/m3MTJw/rsKlbOTYJvkWV5icGJGMgVWujVgLORwBO9t2M8iLzByyE/YK/N
-	 u9aKcYvrByLMeGaDmBeuCxwbbD6KDsxGj2xjCpdF4UgSv9IM+waZFVeALsVbXX3K88
-	 MVJ8FcaEDVlxJEWZax49/gBUF5QYxUYD9J5sLoZb+3Y/x0BgjwqxVSp/B4BfkJRroB
-	 e2eYirnwVYleh93YD9j6xB6haWoaGfntyNsJmva+9nTBKgUAxkuoF/ubocq2RXA0GX
-	 v+0HfL+MhWODQ==
+	b=EYTp4Djsi3eJAeKx4OU0ujsubTC7IPc+wS1JQBfec8wVdJbgQuDbZ0s+FJnrRYGtT
+	 RaU4eQp9m8ASKUXlicBD/1rm57u5bqxp5EgVJzUiteF1JoeM5emJGl32zu3k76hGSP
+	 wQluXUo36hjPr9HblRxx5VabgNxwn9JkB2flfom/VYiwclZ7/us67UPR7XVqLjymLR
+	 HqiN4XIVlT3IApFym4lnXEIN+BMGOwvHbzkWOH186ZdAZSG9W9YUJ3kVhJMMRZoL75
+	 Xp5do217DrNLoPdtWImqWKN6e/zAzdT6EflYzSJbwufR8sWIYzSUw1hNd64ElzdK9u
+	 CUPVKBnw9Mkng==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE35380AA40;
-	Wed, 19 Nov 2025 12:30:14 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE197380AA41;
+	Wed, 19 Nov 2025 12:30:17 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/2] Optimize the allocation of vector regset
+Subject: Re: [PATCH v5 0/2] riscv: hwprobe: Add Zicbop support
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176355541326.758643.4317027962321955415.git-patchwork-notify@kernel.org>
-Date: Wed, 19 Nov 2025 12:30:13 +0000
-References: <20251013091318.467864-1-yongxuan.wang@sifive.com>
-In-Reply-To: <20251013091318.467864-1-yongxuan.wang@sifive.com>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Message-Id: <176355541625.758643.4500342763865705965.git-patchwork-notify@kernel.org>
+Date: Wed, 19 Nov 2025 12:30:16 +0000
+References: <20251118162436.15485-1-zihong.plct@isrc.iscas.ac.cn>
+In-Reply-To: <20251118162436.15485-1-zihong.plct@isrc.iscas.ac.cn>
+To: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, greentime.hu@sifive.com,
- vincent.chen@sifive.com, andybnac@gmail.com, pjw@kernel.org,
+ ajones@ventanamicro.com, alexghiti@rivosinc.com, shuah@kernel.org,
+ samuel.holland@sifive.com, evan@rivosinc.com, cleger@rivosinc.com,
+ zihongyao@outlook.com, zhangyin2018@iscas.ac.cn, pjw@kernel.org,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,33 +69,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHNlcmllcyB3YXMgYXBwbGllZCB0byByaXNjdi9saW51eC5naXQgKGZvci1u
-ZXh0KQpieSBQYXVsIFdhbG1zbGV5IDxwandAa2VybmVsLm9yZz46CgpPbiBNb24sIDEzIE9jdCAy
-MDI1IDE3OjEyOjMwICswODAwIHlvdSB3cm90ZToKPiBUaGUgdmVjdG9yIHJlZ3NldCB1c2VzIHRo
-ZSBtYXhpbXVtIHBvc3NpYmxlIHZsZW5iIDgxOTIgdG8gYWxsb2NhdGUgYQo+IDJeMTggYnl0ZXMg
-YnVmZmVyIHRvIGNvcHkgdGhlIHZlY3RvciByZWdpc3Rlci4gQnV0IG1vc3QgcGxhdGZvcm1zCj4g
-ZG9u4oCZdCBzdXBwb3J0IHRoZSBsYXJnZXN0IHZsZW5iLgo+IAo+IFRoZSByZWdzZXQgaGFzIDIg
-dXNlcnMsIHB0cmFjZSBzeXNjYWxsIGFuZCBjb3JlZHVtcC4gV2hlbiBoYW5kbGluZyB0aGUKPiBQ
-VFJBQ0VfR0VUUkVHU0VUIHJlcXVlc3RzIGZyb20gcHRyYWNlIHN5c2NhbGwsIExpbnV4IHdpbGwg
-cHJlcGFyZSBhCj4ga2VybmVsIGJ1ZmZlciB3aGljaCBzaXplIGlzIG1pbih1c2VyIGJ1ZmZlciBz
-aXplLCBsaW1pdCkuIEEgbWFsaWNpb3VzCj4gdXNlciBwcm9jZXNzIG1pZ2h0IG92ZXJ3aGVsbSBh
-IG1lbW9yeS1jb25zdHJhaW50ZWQgc3lzdGVtIHdoZW4gdGhlCj4gYnVmZmVyIGxpbWl0IGlzIHZl
-cnkgbGFyZ2UuIFRoZSBjb3JlZHVtcCB1c2VzIHJlZ3NldF9nZXRfYWxsb2MoKSB0bwo+IGdldCB0
-aGUgY29udGV4dCBvZiB2ZWN0b3IgcmVnaXN0ZXIuIEJ1dCB0aGlzIEFQSSBhbGxvY2F0ZXMgYnVm
-ZmVyCj4gYmVmb3JlIGNoZWNraW5nIHdoZXRoZXIgdGhlIHRhcmdldCBwcm9jZXNzIHVzZXMgdmVj
-dG9yIGV4dGVuc2lvbiwgdGhpcwo+IHdhc3RlcyB0aW1lIHRvIHByZXBhcmUgYSBsYXJnZSBtZW1v
-cnkgYnVmZmVyLgo+IAo+IFsuLi5dCgpIZXJlIGlzIHRoZSBzdW1tYXJ5IHdpdGggbGlua3M6CiAg
-LSBbdjIsMS8yXSByaXNjdjogcHRyYWNlOiBPcHRpbWl6ZSB0aGUgYWxsb2NhdGlvbiBvZiB2ZWN0
-b3IgcmVnc2V0CiAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL3Jpc2N2L2MvZjhlMjU3ZTRkNTQ5
-CiAgLSBbdjIsMi8yXSBzZWxmdGVzdHM6IHJpc2N2OiBBZGQgdGVzdCBmb3IgdGhlIFZlY3RvciBw
-dHJhY2UgaW50ZXJmYWNlCiAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL3Jpc2N2L2MvOTI2Nzhj
-NDAwMzhiCgpZb3UgYXJlIGF3ZXNvbWUsIHRoYW5rIHlvdSEKLS0gCkRlZXQtZG9vdC1kb3QsIEkg
-YW0gYSBib3QuCmh0dHBzOi8va29yZy5kb2NzLmtlcm5lbC5vcmcvcGF0Y2h3b3JrL3B3Ym90Lmh0
-bWwKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hello:
+
+This series was applied to riscv/linux.git (for-next)
+by Paul Walmsley <pjw@kernel.org>:
+
+On Wed, 19 Nov 2025 00:23:23 +0800 you wrote:
+> Changes since v4:
+> ------------------
+> - Fixed style problems. (Andrew Jones)
+> - Updated the selftest gating logic: the cbo.inval test is now also
+>   enabled when `--zicboz-raises-sigill` or `-z` is supplied, instead of
+>   being skipped when these flags are present. (Andrew Jones)
+> 
+> [...]
+
+Here is the summary with links:
+  - [v5,1/2] riscv: hwprobe: Expose Zicbop extension and its block size
+    https://git.kernel.org/riscv/c/22813b82af1e
+  - [v5,2/2] selftests/riscv: Add Zicbop prefetch test
+    https://git.kernel.org/riscv/c/b291b9de3182
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
