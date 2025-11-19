@@ -4,86 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B64CCF256C
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Nov 2025 04:28:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D72BCF2567
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Nov 2025 07:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8llhB0hyKD4lgwR8FNZ1ZDZUNgltVZCPgl1H+e+4fzA=; b=U8Vr35DkqXdsUO
-	ZaRpEMISt3wjUHLeazbde1+fAU7TNC7n7HdHMp+OWa0dCCSJLEkyobgd6LRQ8pjNEeIrz3tNOKRiv
-	yvT5jHz5Ca2aa5Zjc68/kkzD/KXd4wF6SAwtwzi5UYJyll4nhTWXiiG2bgPbv5vwkP7lJ2KB2IRhy
-	RiLQslSqWRdzE0fIb0sOz8SLG+xOUDHNYwJBr6MxQEYTx1q+yrt/pjKryqU0KZnEg5RufN56xEhwG
-	HP+qyX0AwbwRBUfyp1e+D9yEnFbxranb3pH2JNjSOnzMnHDMTNc+cHjsSa1qzDmZYuSfiPVscXV/K
-	ROIa7Ipd74dAFJr25d9Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MEehrbGcrxSw4l+ZVoaMM4T+yFleiwf+cjNs1Xa3cZs=; b=BY6B3oZWGxUdrs
+	48X1BgYcEGs9Vth/jvvtLKGFAdC210P5R9YiaYgA4ZCziovtS5zfMXVEYfbQxbPh+D1KSUlf5dlPL
+	TFXa/ce0+6ocRUWUbjH9n3SYJ1RZeyQSjyxNYPdc1CSNbyvAHb+h6YrNRfLbu/4LowFtPTzlpWGfC
+	oWeU3FW3boEIuDqlaO8ZaDn+fC7CKWnL/wQMnl8dxJwM//RekC6LrSYKh4QQr1wNQS8cdMT7Od8CC
+	uBRk1SpB7lAVf+5jlCzGtvPJfwr31Zsxn3Es0nlmrEbXM+OytRzuJodd0x7Ioy+JS2gp4cWR37L3L
+	sLB/LcNsMgGeZW3S+bfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZnN-00000001kEg-3pBC;
-	Wed, 19 Nov 2025 04:27:53 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vLcFM-00000002fcZ-1EK1;
+	Wed, 19 Nov 2025 07:04:56 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZnL-00000001kBS-2nwb;
-	Wed, 19 Nov 2025 04:27:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=L7H2k0aKmN2ZzNIrgufGeZlIPYqmXD2WdErN1vAqfHU=; b=h9jxeLg56TosYZha7G2LQLpSUg
-	03sgY9DVXawHmdTWjXj2cT20MzqXB41qsNC3AcgUv9BLRPdAyRNRQ4eDkZWrPwxbSzrlNM/XZn9e1
-	sSYKhFIOS/6JpIccSLq/pUblnYtVQn39p8ZioORRgXgQtx57GSurQscwsVaC1/b8oupQqWLcD64h7
-	zyVANBavXknBWZe/xNFa1wvFzv/d043/cZd4uS8Fd3HknwqyDdiPbIrG1UH0NPTq8cair0zFYxQzf
-	SPmyloCcDjI8irxWUY2KNJwuchqH5W75ew747ZpRdHa5q+sTEhyvqVEzELf8lQMjL8NaLtNapMA/w
-	p0Dw3ovg==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZnA-0000000GWE9-42mK;
-	Wed, 19 Nov 2025 04:27:44 +0000
-Received: from loongson.cn (unknown [113.200.148.30])
-	by gateway (Coremail) with SMTP id _____8Bx3tIwRx1p4lclAA--.14768S3;
-	Wed, 19 Nov 2025 12:27:28 +0800 (CST)
-Received: from linux.localdomain (unknown [113.200.148.30])
-	by front1 (Coremail) with SMTP id qMiowJCxG8EsRx1pchQ4AQ--.53944S2;
-	Wed, 19 Nov 2025 12:27:25 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-To: Nathan Chancellor <nathan@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>
-Cc: linux-kbuild@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] kbuild: Add KBUILD_VMLINUX_LIBS_PRELINK
-Date: Wed, 19 Nov 2025 12:27:08 +0800
-Message-ID: <20251119042708.27658-1-yangtiezhu@loongson.cn>
-X-Mailer: git-send-email 2.42.0
+	id 1vLcFJ-00000002fbB-20Lo
+	for linux-riscv@lists.infradead.org;
+	Wed, 19 Nov 2025 07:04:55 +0000
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com [209.85.221.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id A6FA13FB7A
+	for <linux-riscv@lists.infradead.org>; Wed, 19 Nov 2025 07:04:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1763535887;
+	bh=HCDUZaE5+206zSZomo9Fg7tLxJqm77Cnmdl1n2fzVyI=;
+	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type;
+	b=GcRXAWZBNAoqWN7k+UCNiWYLLvnBZCP3HvXHD2mbjyyyp0UdETHFkh/gS3OYAtdxI
+	 wCdP0EjXu4+q3CPnl+h5YbxoRXzQw24tB8xZqM+6X2rTrwqypdVSdhH7sN55s6tyUN
+	 U4+S6g0ABTePz9+Msai/Veg4NmIKsBfbwPGjY0gSyFLnvoFmwd53KDT717T2RESvuT
+	 xIhd7StmIEL9aP5D4aqRcWYasbDzZIQKOnEQjnn5nlX3HwaqNHHKJOx6tos6L1K5aJ
+	 833Xay3hbE8L+UVpEVwmXrwNock+ecak3EHk5yhQVPWjP6C8oIWyasEijPpdE+K8MR
+	 aniHZgNHiRuWhsKvMQ8x6Z3micz/aZXorOzoWZtlKZ312uk1SH88nGOUpW8dAJlkrh
+	 yMLhwAXQJTbw4FyzsbTOIeiZD3fbfLdJUGRsluRRHmNRJcpeWCd9bVaz7mes8It6rO
+	 GrqytzgpHg7/ydkl0OOiZGq8ujCNQ2bFJ9ZDmQUh0AJqtucSaqEMrYJdDvvopzCjQq
+	 tCoMnHYoFx1AHWg+gGZCgT+fW4/K6PwV3sl+N0v/ppzHw8UvVX9rCi7J/d1225Ohid
+	 j/a2K06OGkDkYASwpCB3PZ097O/N+wa3xQZN0ObT110UAkh/Y/qS+DoJpCXpq/eWlk
+	 EuRtJIya+zUlEXqB0Q6Kl6LE=
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-429cdb0706aso4880443f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Nov 2025 23:04:47 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763535885; x=1764140685;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HCDUZaE5+206zSZomo9Fg7tLxJqm77Cnmdl1n2fzVyI=;
+        b=gHhvfM7oXSGaaXq2Nw17Lg/5EJNr1osrfnLUcAMVg05EHRXkh56FGpYZNfDOMe7n9P
+         LDZKauR/ZHv4LBYj/FThhYWWPJua6tvr/y09Wyt3PrZ6c4iud1/kXqSHSutzJfl6KAcp
+         7PpGv07ueBZoLt9C40mvvLE3uzS8CRlE/hwlAiiOzu5cv+eh+pYtu9Q0nKpRu+ch8J8S
+         WesDjKDvdGmJvJDEVLpx5EUh7iM5bobD1r+N38/ZTr3WACnj7ZCQXaE5RDqDbB+4dpyT
+         mBUx0sMVo8vHOo0hU/GNF/YMU8OVFxCcFEq3VVDUrSqpLUg9V6kD5IPvCYHiYjaz8Ua7
+         tgoA==
+X-Forwarded-Encrypted: i=1; AJvYcCVks199zHaKusCBjeCC4VSwMkvTgvUtIpAVnLtyC8qnJKGUFpOHNH3h+Yk8K7p55XJQoyQl9hHhKNZDkw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1ynYUIxfruwU0Wpje+Mj3OZqij25E057ZwjeO1oO36hAXO8DG
+	kFT1YGLXNWaEZ/IOniIyZc/CkN+TrOaSa7eq6WYIr2l41VdiDMzaxymeUZlSKh6vqk10dng78yC
+	gme+6pxFGsSjyGvibpP8n0or/vohlwe99T2rMZQp96KLA8464KNxm9AJlUvIfESvRPCF4dwNEth
+	LqfCda2WoB/w==
+X-Gm-Gg: ASbGncs4RTENTM1LTsOyboI0Delu4mpx8v1/1DuPawfuLpSr6Yq6S8MS+4+YfLOAZpw
+	xoAjZRZA1AE285al7evriOxkL/sVyo8jyFHe2QfPKPGpfNNBQsSHJmmipk7euxOqabhT92rkn9n
+	paQutsKBI3VwWY8STX/YoKVRvArOmqjkU9sQUEAv/eNVq0irsuR1U8TaF2k0kiOFDxd8LeVEKC0
+	xe/VSkiDVvl1a7qO1utfv8maOnu/LzkXJTMjBXE/J1HQRjXpfOCV0y3xahoazeujssKqgqDd8yJ
+	qF3lymIO3vAd1P+GnMPFZTq60zD8ap7YI3BNBci3lkzdpdq4KXdFxBTbSnoTpG+mmGzWfJfpjRO
+	tSauPvT5yWXtn7bO6kLAcAqFQ70FHb5ls1eSkfHvHV+qGHnE88XPOgdhX+oJtxFM5elq6OL0RX9
+	mkhRPKVY8=
+X-Received: by 2002:a5d:64c5:0:b0:42b:47da:c316 with SMTP id ffacd0b85a97d-42b5934afdfmr17476423f8f.26.1763535884671;
+        Tue, 18 Nov 2025 23:04:44 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEqVppj0kaC1T4AK8/+ki8hXQuFnAQjHrtuYAj2Vyhso+rWSDHbQHj+3SMP9d2Ef4b6qHHLeA==
+X-Received: by 2002:a5d:64c5:0:b0:42b:47da:c316 with SMTP id ffacd0b85a97d-42b5934afdfmr17476387f8f.26.1763535884152;
+        Tue, 18 Nov 2025 23:04:44 -0800 (PST)
+Received: from [192.168.123.154] (ip-005-147-080-091.um06.pools.vodafone-ip.de. [5.147.80.91])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53e85cc0sm37190082f8f.17.2025.11.18.23.04.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Nov 2025 23:04:43 -0800 (PST)
+Message-ID: <1f96a267-f5c6-498e-a2c4-7a47a73ea7e7@canonical.com>
+Date: Wed, 19 Nov 2025 08:04:41 +0100
 MIME-Version: 1.0
-X-CM-TRANSID: qMiowJCxG8EsRx1pchQ4AQ--.53944S2
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoW7tr1fWr1rGry8GFWxGFyrKrX_yoW8Zr1rpa
-	90kw42939rX3yvq397CrW0qw45tFZ8ZrWrWFWDJan8CryDXr4I9rZ2kr43AryDuFyDAF45
-	WF1xAFyakFyDu3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUkYb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r106r15M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
-	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE
-	14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k20xvY0x
-	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
-	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcV
-	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF
-	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
-	CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU1EksDUUUUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/8] Add support for StarFive VisionFive 2 Lite board
+To: Conor Dooley <conor@kernel.org>, Hal Feng <hal.feng@starfivetech.com>
+Cc: E Shattow <e@freeshell.de>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Bjorn Helgaas <bhelgaas@google.com>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+ <kwilczynski@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20251107095530.114775-1-hal.feng@starfivetech.com>
+ <CAJM55Z_rczBo4D3HsC90QW1=fp3NWgK-tsEo6LHTZNXEBHTDqA@mail.gmail.com>
+ <ZQ2PR01MB13076544E2136E7E7C2EEDA1E6CD2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+ <CAJM55Z9KyNK1n4i9FxbLor4HTQKqK8WKA2svjPVvKXihw_E+sg@mail.gmail.com>
+ <4a55301a-ef7e-4b47-8151-621cfba36ddd@freeshell.de>
+ <CAJM55Z-bRdNmnRZ7wi3PMOkzGYrxQEGk+7F67Pdu4WXwKmTjCQ@mail.gmail.com>
+ <ZQ2PR01MB13075CDDEFC2F03C837E1B31E6C92@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+ <b33919e9-e100-4629-92cb-d1ec3dd756a7@freeshell.de>
+ <ZQ2PR01MB1307DADE17FFEFCE70C3F391E6D62@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+ <20251118-throwing-marina-14a87d65465a@spud>
+Content-Language: en-US
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+In-Reply-To: <20251118-throwing-marina-14a87d65465a@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_042741_602582_DF143B28 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251118_230453_939885_25AD5708 
+X-CRM114-Status: GOOD (  28.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +131,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In order to only link libstub to the final vmlinux, it can not use the
-current KBUILD_VMLINUX_LIBS, just add KBUILD_VMLINUX_LIBS_PRELINK. This
-is preparation for later patch, no functionality change.
+On 11/19/25 00:10, Conor Dooley wrote:
+> On Tue, Nov 18, 2025 at 02:12:58AM +0000, Hal Feng wrote:
+>>> All,
+>>>
+>>> I repeat that the suggestion was made months ago (by Hal) to split out the
+>>> OPP tables per-board from the period of time when I was complaining about
+>>> 1.5GHz JH-7110 operation pushing TDP into over-temperature thermal limit
+>>> on Milk-V Mars CM SoM.
+>>>
+>>> Whether or not JH7110S is a new compatible should follow precedence in
+>>> Linux development. JH-7110S is evidently the same tape-out as JH-7110 and
+>>> however you deal with that in Linux is the appropriate way to deal with that
+>>> here. Selection of OPP table for correct operation will be determined by
+>>> bootloader, where, it is demonstrated by patch series sent to U-Boot
+>>> upstream to be selected ** per-board ** based on EEPROM content as if it
+>>> was any other JH-7110 board deciding dts based on EEPROM content. Given
+>>> that it is the same tape-out I do not find a valid justification for a new
+>>> compatible in the stack of adjacent software besides going along with some
+>>> kind of marketing-driven answer about whether or not this is a new SoC.
+>>>
+>>> What I care about now is that the VisionFive 2 Lite series is in good enough
+>>> shape and there's a possibility to act on this months-old suggestion to split out
+>>> the OPP tables which as we have confirmed the JH7110S is the same SoC as
+>>> JH7110 it makes a lot of sense to do.
+>>>
+>>> How is it supposed to work for binned silicon in Linux?
+>>
+>> Hi, Conor,  Emil,
+>>
+>> What do you think about this? Hope to hear from you.
+> 
+> Can someone just give me a yes/no question out of this thread? I'm not
+> really immediately sure what's being asked of me. What exactly do you
+> want to do with the opp-tables? "Split out" isn't super clear. Does that
+> mean into board files? I am guessing it does, since you're saying that a
+> particular board cannot support the 1.5 GHz mode. It's not unusual
+> though to use delete node for unsupported opp-table entries, could that
+> be done instead?
+> 
+> FWIW, this weekend is -rc7, so I won't be applying any new material
+> after that.
+> 
 
-Link: https://lore.kernel.org/lkml/pq4h7jgndnt6p45lj4kgubxjd5gidfetugcuf5rcxzxxanzetd@6rrlpjnjsmuy/
-Suggested-by: Josh Poimboeuf <jpoimboe@kernel.org>
-Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
----
-There is a long discussion in the previous patch:
-https://lore.kernel.org/lkml/20250928085506.4471-1-yangtiezhu@loongson.cn/
+There was agreement that the JH7110 and JH7110S need different operating 
+points. This is realized via the different includes for the VisionFive 2 
+Lite boards and the other boards.
 
-This version is based on 6.18-rc6, split the generic parts out
-into a separate patch to avoid merge conflicts, the other parts
-will send out after the merge window.
+Support for the new compatible string "starfive,jh7110s" used by the 
+VisionFive 2 Lite is already implemented in OpenSBI where it is needed 
+for platform support (specifically reboot). It is also used in tag 
+next-20251119 in drivers/cpufreq/cpufreq-dt-platdev.c. There is no 
+technical need to role this back.
 
- Makefile                | 1 +
- scripts/link-vmlinux.sh | 5 ++---
- 2 files changed, 3 insertions(+), 3 deletions(-)
+The changes in OpenSBI and the cpu frequency driver could have been 
+avoided by using
 
-diff --git a/Makefile b/Makefile
-index d763c2c75cdb..69485f47b794 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1199,6 +1199,7 @@ KBUILD_VMLINUX_OBJS := built-in.a $(patsubst %/, %/lib.a, $(filter %/, $(libs-y)
- KBUILD_VMLINUX_LIBS := $(filter-out %/, $(libs-y))
- 
- export KBUILD_VMLINUX_LIBS
-+export KBUILD_VMLINUX_LIBS_PRELINK
- export KBUILD_LDS          := arch/$(SRCARCH)/kernel/vmlinux.lds
- 
- ifdef CONFIG_TRIM_UNUSED_KSYMS
-diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-index 433849ff7529..e72d3254b93f 100755
---- a/scripts/link-vmlinux.sh
-+++ b/scripts/link-vmlinux.sh
-@@ -61,12 +61,11 @@ vmlinux_link()
- 	shift
- 
- 	if is_enabled CONFIG_LTO_CLANG || is_enabled CONFIG_X86_KERNEL_IBT; then
--		# Use vmlinux.o instead of performing the slow LTO link again.
- 		objs=vmlinux.o
--		libs=
-+		libs="${KBUILD_VMLINUX_LIBS_PRELINK}"
- 	else
- 		objs=vmlinux.a
--		libs="${KBUILD_VMLINUX_LIBS}"
-+		libs="${KBUILD_VMLINUX_LIBS} ${KBUILD_VMLINUX_LIBS_PRELINK}"
- 	fi
- 
- 	if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
--- 
-2.42.0
+compatible = "starfive,visionfive-2-lite-emmc", "starfive,jh7110s", 
+"starfive,jh7110"
 
+to indicate that JH7110s is just a variety of JH7110. This also would 
+match the best practice example in Documentation/devicetree/usage-model.rst:
+
+     compatible = "ti,omap3-beagleboard", "ti,omap3450", "ti,omap3";
+
+I guess we could add that third compatible value in a later patch.
+
+As U-Boot uses the Linux device-trees too, I have built U-Boot with the 
+updated device-trees and had no problem to boot all supported JH7110 and 
+JH7110S devices including the StarFive VisionFive 2 Lite.
+
+A bootph-pre-ram property for booting from SD-card that was already 
+missing before the series can be added via a separate patch.
+
+I think we should go ahead as is.
+
+Best regards
+
+Heinrich
 
 _______________________________________________
 linux-riscv mailing list
