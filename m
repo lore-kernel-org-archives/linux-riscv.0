@@ -4,55 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2DE7CF58C9
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Nov 2025 19:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0087ACF58E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Nov 2025 20:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=8Yh0bdWnd+n7CN8psUbSqJJyiiri0pXL2xTYq7qTd/0=; b=iXN
-	52n8hEXWECbp1lEm2bRnT2HRL+Gcbc6cyqoNGiE/63SZkR0niZHX6lPzyUll7ctsBr8lsT+YQoyPg
-	16Kji4n1Zx/9RIkCKqHcIJqnFajlkhFzzKD5AB3/9+IJtVSTQVIkgwlz+8yF2iuePeU7HjP9L4m5A
-	vNzDlSxduixNG/zWv7tsfZCMWUOaQ3Cdh+XuU/Nna84wuNDEVodb3kjgb94lAEBxn/K4Rbrw5EUQK
-	f1ozb6t5PnXSGauWzPm/Afx4m03isoZQNDdZCmX2+ZWJy1vmyEjxeXM7Kb7nkbBaIO2Rg+WNjwR6E
-	IgkPL9s8cOhai0M68sXZHJyB1AawJvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NdwNvjF9t8kmbk4+Tkww4YThPIa14jskt8iJhwB2fDA=; b=Ew/I/hsfe2anI2
+	B5U7aQWP6K9OzhXtL0nYp2uZhhYJ5w0fvbgK50FE9e4OsNFwBRgwyeBG0emhkE8ZUxhPNchTZ2Til
+	FWAoZcOb7wDzSMxYw0Mk92z7LiunuYZT9tNkiWq/tsflHiAyXMHBCSqFZyZ3eKez0KU0uTMFTzHxo
+	ageKn84uOe1uVpCk4Q0jR1D24iALRcCw1dcP4e8+20tBIy+K3UhOBrSEr29MM41EwSJfAQptOxneh
+	J6O8gRRF/JPIHkFikMx0doDQC7uuPedS0lgoxcNIiVVLXQuTwNI/IXfJN6KtLK/Do60Wv2pj/Z0pC
+	HHrGJt3r/4kJDAnBIgtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLo3c-000000058Ab-1RYn;
-	Wed, 19 Nov 2025 19:41:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vLotd-00000005VNS-2tB1;
+	Wed, 19 Nov 2025 20:35:21 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLo3a-0000000588a-2jS0
+	id 1vLota-00000005VKp-4621
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Nov 2025 19:41:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C9A041804;
-	Wed, 19 Nov 2025 19:41:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA33BC4CEF5;
-	Wed, 19 Nov 2025 19:41:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763581293;
-	bh=7nhdGzXnCDz38ZWAiBImSPi9KIOdbNklRd6MG6rHbnw=;
-	h=Date:From:To:Cc:Subject:From;
-	b=jXYKzvdJMsObmnZFdLwIbVv6LF8zkYzzmvJF30yj4BsaukXgez79/wO+Psp2Azppn
-	 qLQXLXnrI4lPYSGGI2Nie7rwgw6k5Gi4o9WBSRomdJbP5JKGDRo6A69Am4S7UIKO1b
-	 MaQNL8ZCumNJ4Y6i8+2yETvGt3r10zGrm4eRXe/SMx7QnvCAZljveK1DLIKcKZzIca
-	 cYxdFeWSLpEh54ziGWo6HNotFesTmYQguzbsbydX8YbAcabdMlTkfjo3ldPPhvTTGw
-	 aHmbzYTyEnBbfkkhh86LstcO2jOQPiCufBcuJJLrrzYyKzI/KIKTx1TqBqan/mpGNf
-	 ObTs1V0TlBRGA==
-Date: Wed, 19 Nov 2025 19:41:30 +0000
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: linux-riscv@lists.infradead.org, conor@kernel.org,
-	junhui.liu@pigmoral.tech
-Subject: [GIT PULL] Anlogic Platform Initial Support
-Message-ID: <20251119-sprinkled-setup-ad77396635c9@spud>
+	Wed, 19 Nov 2025 20:35:20 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4779cb0a33fso1960365e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Nov 2025 12:35:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763584516; x=1764189316; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IPjBoOQ0X6tiw7eKt7ufioOYEoA2Xgma4d9CNgYmRXA=;
+        b=N2Gf4tyE9Meev7JHOdMWC4IkZhqh00Zion7AmhgwBnsbAIfGcs1sGdFE4Q1kfr4jPX
+         jBSv+ijQJgKyupZv3fWXgSceAZ/0l3W/IZNRpbgSUvRKA4Z68IxBmHUBvyYM9c1QjARW
+         1WendNG8gVpIkt6rXnr2tT0l1P43LOX6LkYL1vZmWLSSkup7ab9M2nrEmwuXpHW+Hcy5
+         aSPVvYnfy7CxBCwBj99ZP9VqWUif1UL9ENoNpYkS0O+sV1c1d9lQ+GtmK0QFS+8tbGe/
+         oBw8nFowaW31k8ZWMjwinbwY4f8Bn2fdfiCXJ07vFHrj7OcAjTWM+WFCzhToKVvQgS1F
+         xwww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763584516; x=1764189316;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IPjBoOQ0X6tiw7eKt7ufioOYEoA2Xgma4d9CNgYmRXA=;
+        b=YNLvfzqFBc7nhJDcEKhGnFVbPfylWgvp+UdLyKZvMEiaFgWMkRuEzchig0Wwzaem6Y
+         nRIcDEj41I3XHhUKoegpHByzY5XWu2TbwnheZiTTLl0sqJZ1BHqJSmW2jGyoni05+Sc1
+         vnSJkhCTOfTbUMjmS/CKdHzLLssrXArRsuYZicF5IK3lxRzCwN6fTHeCUqSeGHT/sg8+
+         NZ7J+xNL1Ces4unxjPun5irVjP3nxzTTf91q5fq6spYMhjSAwkwWRdOKftS6eUsXNUDj
+         VIZVkBmU6PJNwKaR7PU4mzUBrT38ysjUIRzA8wr7Sf7i0iMAxjfudT8OlrbWVCPpE2If
+         fwdg==
+X-Gm-Message-State: AOJu0YzjsgDWqU6uopaGAE89anq5OuLT/aPsRuYCXYoqEMepR/5kwd9M
+	4FOo/L8lI5SjTzVu7bi+Mlbhbwo/+PTEmtis30N4owuqaVCZF8Xki/RUafji9ZNKil4=
+X-Gm-Gg: ASbGncuHAIvo5HrjZWvZaOV09bofNSFZ2mn+8lBAw7mlMfYFrQw5OESivkVKaJw+4OG
+	P9OAQrX96xML1SshIGqOBIN+dKPlm62MLOkSR8pEslBnYTb+XUItxxRGfIfWT8v9cbNXoUfO+fM
+	horZeeCMUOCOIH6NWHc8gk0mUWTaVOWkRxDsxlI3XvGojopmFfJthk1l31xiCj3ydwm/Rjpk2D2
+	r84XQniQz9J2NcfB8nALyuxwOsvbx7oPNT6rYE78Dn+nkKtTxWwxU3VBuQky3S0HA0oJCmEsV8m
+	No2VU1+UVwmoKhtuFmwq6AiP56KVURb2TZIYcWUEsLbH3iTMW0ptBNMB1zAxNuVIz54s+cJ/2WG
+	b5s/PXcjzkAFKFUckQsOJU05SYftw4ins2YYbXkwtD/DwyTmwxmS+KnBzz5u8sm7lEG+LcBdFY2
+	b+yfWM
+X-Google-Smtp-Source: AGHT+IFq24ZE90yWikR1WNs6G9qizziluuH3FFv6RjdpPlQ2XJnKH0ssswEw3Z2b4tPjhHGKFdhHog==
+X-Received: by 2002:a05:600c:4506:b0:477:5af7:6fa with SMTP id 5b1f17b1804b1-477b8c92626mr4124585e9.32.1763584516042;
+        Wed, 19 Nov 2025 12:35:16 -0800 (PST)
+Received: from curiosity ([80.211.22.60])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-477b82cc72dsm8653205e9.1.2025.11.19.12.35.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Nov 2025 12:35:15 -0800 (PST)
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Sergey Matyukevich <geomatsi@gmail.com>
+Subject: [PATCH] riscv: dts: allwinner: d1: fix vlenb property
+Date: Wed, 19 Nov 2025 23:35:06 +0300
+Message-ID: <20251119203508.1032716-1-geomatsi@gmail.com>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_114134_753665_B2D3F317 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20251119_123519_041280_36D672D8 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,119 +102,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8492758006965519683=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+According to [1], the C906 vector registers are 128 bits wide.
+The 'thead,vlenb' property specifies the vector register length
+in bytes, so its value must be set to 16.
 
---===============8492758006965519683==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OjpAxWcAERh+JVqW"
-Content-Disposition: inline
+[1] https://dl.linux-sunxi.org/D1/Xuantie_C906_R1S0_User_Manual.pdf
 
+Fixes: ce1daeeba600 ("riscv: dts: allwinner: Add xtheadvector to the D1/D1s devicetree")
+Signed-off-by: Sergey Matyukevich <geomatsi@gmail.com>
+---
+ arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---OjpAxWcAERh+JVqW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+index 6367112e614a..a7442a508433 100644
+--- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+@@ -28,7 +28,7 @@ cpu0: cpu@0 {
+ 			riscv,isa-base = "rv64i";
+ 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+ 					       "zifencei", "zihpm", "xtheadvector";
+-			thead,vlenb = <128>;
++			thead,vlenb = <16>;
+ 			#cooling-cells = <2>;
+ 
+ 			cpu0_intc: interrupt-controller {
+-- 
+2.51.2
 
-Hey folks,
-
-This is my first PR for 6.19, and it's a wee bit in advance of the
-others just in case there's some objection that needs reworking.
-Krzysztof is probably already aware of what's going on here, but I threw
-the toys of the pram over the behaviour of the vendor here, and so
-appointed myself maintainer after the submitter decided they were not
-comfortable doing so any more. You can read the context here if you like:
-https://lore.kernel.org/all/20250922-dr1v90-basic-dt-v2-0-64d28500cb37@pigmoral.tech/
-I'm only there as Odd Fixes, and I hope that I can eventually hand this
-over to someone who cares about it specifically.
-I consider what's here to otherwise be a bit on the premature side, with
-no clock, reset or pinctrl drivers, but the submitter of the initial support
-is currently working on that and I figured sorting out the maintainer
-thing made sending it at this point worthwhile.
-
-Cheers,
-Conor.
-
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
-
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/anlogic-initial-6.19
-
-for you to fetch changes up to e6195b944089b779f421d390ad3422e05356f275:
-
-  MAINTAINERS: Setup support for Anlogic tree (2025-11-12 17:15:23 +0000)
-
-----------------------------------------------------------------
-Initial Anlogic Platform Support
-
-Add bindings for the serial and timer peripherals, and a basic soc dtsi
-for the Anlogic dr1v90 SoC. The Milianke MLKPAI FS01 is the first board
-for this SoC. Add myself as maintainer for this platform for the time
-being.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (1):
-      MAINTAINERS: Setup support for Anlogic tree
-
-Junhui Liu (9):
-      dt-bindings: vendor-prefixes: Add Anlogic, Milianke and Nuclei
-      dt-bindings: riscv: Add Nuclei UX900 compatibles
-      dt-bindings: riscv: Add Anlogic DR1V90
-      dt-bindings: timer: Add Anlogic DR1V90 ACLINT MTIMER
-      dt-bindings: serial: snps-dw-apb-uart: Add Anlogic DR1V90 uart
-      riscv: Add Anlogic SoC famly Kconfig support
-      riscv: dts: Add initial Anlogic DR1V90 SoC device tree
-      riscv: dts: anlogic: Add Milianke MLKPAI FS01 board
-      riscv: defconfig: Enable Anlogic SoC
-
- Documentation/devicetree/bindings/riscv/anlogic.yaml                  |  27 +++++++++++++++++++++++++++
- Documentation/devicetree/bindings/riscv/cpus.yaml                     |   1 +
- Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml        |   1 +
- Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml |  17 +++++++++++------
- Documentation/devicetree/bindings/vendor-prefixes.yaml                |   6 ++++++
- MAINTAINERS                                                           |   8 ++++++++
- arch/riscv/Kconfig.socs                                               |   5 +++++
- arch/riscv/boot/dts/Makefile                                          |   1 +
- arch/riscv/boot/dts/anlogic/Makefile                                  |   2 ++
- arch/riscv/boot/dts/anlogic/dr1v90-mlkpai-fs01.dts                    |  28 ++++++++++++++++++++++++++++
- arch/riscv/boot/dts/anlogic/dr1v90.dtsi                               | 100 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- arch/riscv/configs/defconfig                                          |   1 +
- 12 files changed, 191 insertions(+), 6 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/riscv/anlogic.yaml
- create mode 100644 arch/riscv/boot/dts/anlogic/Makefile
- create mode 100644 arch/riscv/boot/dts/anlogic/dr1v90-mlkpai-fs01.dts
- create mode 100644 arch/riscv/boot/dts/anlogic/dr1v90.dtsi
-
---OjpAxWcAERh+JVqW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaR4dagAKCRB4tDGHoIJi
-0iWdAQCpaMtTUk4n6c5AP6htdMFUEoduw79vsmNFx4FQCaIviQEAvZ1uM89z0bWU
-i8Kg6Dwp+PW3fRPJfFvqYzAsUqM/5w4=
-=0X2r
------END PGP SIGNATURE-----
-
---OjpAxWcAERh+JVqW--
-
-
---===============8492758006965519683==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8492758006965519683==--
-
