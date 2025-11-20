@@ -4,74 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F02CF8875
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 16:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B28CF9C48
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 16:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGrCewVHXvu+rFqlELM7WZye4F0fUw/JNM/JxlkEcks=; b=B0bZOtpYwCouXbjhznGaNbmD7U
-	9n5HGmUQT9OLSrBnjm24D+fdjcv1cgeEIiNutwVBKLXtshQiYUmegDs7YjiMFyNMORuSlon9G3zg+
-	jeFpf9t49NSJ1WQe7u9KDzrujeYhGbh3bgPRgI4+dbBkOKtpo+I3QPa6XSr2GT8ulFsGozaH/Dug9
-	fnMTZxnq/yeMQysIR2RgXUzil/zzALDHIk0LSE5XgZoiDkHz5vMuTsNd/77RXKKLJ5zAW+3lPXU+8
-	94wUgXDalk+6xX9bqRw8gBqKBWLktffP/EftBQTtaJb/s20Jup+KznatWfvqGvf+/AMhb4xscKgy+
-	hYhWNPrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0bp9PzUitSIvZ6y0457CSHKPFH4FKFi2pfGMFsKsp6A=; b=BScSuFaZ2Uxqbi
+	1Yzu8VKz3QfRGiKUiZSK7DFOIMIT7aQqkJRFvq4TJJJpJ51RbjscmNuQLY913KZsUgpWt9lwknf5y
+	fZ+E7dqkHaH4r7FCW+sb6vx9mq8daznzaSP5ja2/rBVU7TTn5rATKrKneLL/wjbeOhgHOYd/kWHiD
+	bk05lBd1RIDIuZ42ipRomU93ExeXz3nClJIJVBHaJ1I3zrkSYB63IFHiXWayXR/vt8IkmfniflO7G
+	GB3BHXssZFCXx3PE34ukuEToAhKGMh8NnqRUQyODRcNT7mtGvoEJXrQMjzMko58+6g9jqxI9cSz81
+	3IuHqVs5ARkSti7hx6Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM7Z4-000000071Hv-0Swd;
-	Thu, 20 Nov 2025 16:31:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vM7gb-000000071vE-40bd;
+	Thu, 20 Nov 2025 16:39:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM7Z2-000000071Hl-1VtG
+	id 1vM7ga-000000071v2-0CLs
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Nov 2025 16:31:20 +0000
+	Thu, 20 Nov 2025 16:39:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6EA5D60194;
-	Thu, 20 Nov 2025 16:31:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1E5BC4CEF1;
-	Thu, 20 Nov 2025 16:31:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7ABFF601A2;
+	Thu, 20 Nov 2025 16:39:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF4BFC4CEF1;
+	Thu, 20 Nov 2025 16:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763656279;
-	bh=+t2RxpZYsc6EBAkiIiAw8xa7Z0l4LUgdt6k1NQShhzY=;
+	s=k20201202; t=1763656747;
+	bh=COJO4v5tFTz3670qo4kY/0Bq7kiQnVNdaNbifP4mjAE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SHG3OFeLTB4Hj/eETcebnotdZAETCyejYgNdFRTUA1Z8nSG3U05azdEclaOz6Ssh6
-	 WGlSzcJDRR7HjLoc9RiM/s7WxrbV8ZQmTzPP/nI5nW0RvCvF2imrMqN2t2TMNV//AA
-	 xhrUrqjY0CvoJkHJtTnNGJbtTmWBKSzsKc7fKM1PyLGKqzfyPd/ilqJayxqLipxuec
-	 RuHVValyQL2PlUbpDYtZrf9TALOC2xKsSS22gKw0fu7ud0tTUVY16Q6a784OjhOnTQ
-	 PQuzF8U11sO5gvcfKfX0jI7PpswnY9Grv0V8owCsIPlf5WO9hQzRre8hbwwJU/Srvp
-	 SmNMctiO7Ywrw==
-Date: Thu, 20 Nov 2025 16:31:11 +0000
-From: Conor Dooley <conor@kernel.org>
-To: netdev@vger.kernel.org
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Valentina.FernandezAlanis@microchip.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
-	Abin Joseph <abin.joseph@amd.com>, neil.armstrong@linaro.org
-Subject: Re: [RFC net-next v1 0/7] highly rfc macb usrio/tsu patches
-Message-ID: <20251120-unreal-antitrust-e32900cf893b@spud>
-References: <20251120-jubilant-purposely-67ec45ce4e2f@spud>
+	b=ipcbas6XQM+tdQa5OOSBUiBqyniuHbwSnjjS7zJ5MxFzJXiETXtTkV7oe2t4VoTOG
+	 85mMSVnhRKgJEVUSKSwGTyh9RI+XuRcyU9e+euAYNyepAjWsN6WSAVfvdkRLE5hSjd
+	 lY30zV0xIQQLrnXNq4bsCzqZHYrxRevXsBtdBzDZpReHzmPE41YOTyTrLN7XLBOO7j
+	 RmW/Z1g53zec9DQ9MKWmW+dKlWJPck8/ymRdKdglGudd8fxCF/tapu+BOed0He1Ptx
+	 5e1Dt7fWNlU/0Q9V0XsjXge3b+6mF8yv+fCplMa56hDnNLXSZClc8bNRuJ47YTcAe0
+	 sUQ38K/3hBWUA==
+Date: Thu, 20 Nov 2025 10:39:05 -0600
+From: Rob Herring <robh@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH v2 01/12] dt-bindings: Add RISC-V trace component bindings
+Message-ID: <20251120163905.GA1484818-robh@kernel.org>
+References: <20251101154245.162492-1-apatel@ventanamicro.com>
+ <20251101154245.162492-2-apatel@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <20251120-jubilant-purposely-67ec45ce4e2f@spud>
+Content-Disposition: inline
+In-Reply-To: <20251101154245.162492-2-apatel@ventanamicro.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,125 +63,168 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3311202477777319013=="
+Cc: Mark Rutland <mark.rutland@arm.com>, Ian Rogers <irogers@google.com>, Atish Patra <atish.patra@linux.dev>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Liang Kan <kan.liang@linux.intel.com>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Peter Zijlstra <peterz@infradead.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Mayuresh Chitale <mchitale@gmail.com>, Namhyung Kim <namhyung@kernel.org>, Ingo Molnar <mingo@redhat.com>, Greg KH <gregkh@linuxfoundation.org>, Adrian Hunter <adrian.hunter@intel.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jiri Olsa <jolsa@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, Nov 01, 2025 at 09:12:34PM +0530, Anup Patel wrote:
+> Add device tree bindings for the memory mapped RISC-V trace components
+> which support both the RISC-V efficient trace (E-trace) protocol and
+> the RISC-V Nexus-based trace (N-trace) protocol.
+> 
+> The RISC-V trace components are defined by the RISC-V trace control
+> interface specification.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  .../bindings/riscv/riscv,trace-component.yaml | 112 ++++++++++++++++++
+>  1 file changed, 112 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml b/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
+> new file mode 100644
+> index 000000000000..7979af3d4174
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
+> @@ -0,0 +1,112 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/riscv/riscv,trace-component.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: RISC-V Trace Component
+> +
+> +maintainers:
+> +  - Anup Patel <anup@brainfault.org>
+> +
+> +description:
+> +  The RISC-V trace control interface specification standard memory mapped
+> +  components (or devices) which support both the RISC-V efficient trace
+> +  (E-trace) protocol and the RISC-V Nexus-based trace (N-trace) protocol.
+> +  The RISC-V trace components have implementation specific directed acyclic
+> +  graph style interdependency where output of one component serves as input
+> +  to another component and certain components (such as funnel) can take inputs
+> +  from multiple components. The type and version of a RISC-V trace component
+> +  can be discovered from it's IMPL memory mapped register hence component
+> +  specific compatible strings are not needed.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - qemu,trace-component
+> +      - const: riscv,trace-component
 
---===============3311202477777319013==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="TId/bCOlj9KNVAAR"
-Content-Disposition: inline
+'component' seems a bit redundant.
 
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  cpus:
+> +    maxItems: 1
+> +    description:
+> +      phandle to the cpu to which the RISC-V trace component is bound.
+> +
+> +  in-ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +    patternProperties:
+> +      '^port(@[0-7])?$':
+> +        description: Input connections from RISC-V trace component
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +
+> +  out-ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +    patternProperties:
+> +      '^port(@[0-7])?$':
+> +        description: Output connections from RISC-V trace component
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +
+> +required:
+> +  - compatible
+> +  - reg
 
---TId/bCOlj9KNVAAR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Is no in or out ports valid? If not, you need:
 
-On Thu, Nov 20, 2025 at 04:26:02PM +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->=20
-> Hey folks,
->=20
-> After doing some debugging of broken tsu/ptp support on mpfs, I've come
-> up with some very rfc patches that I'd like opinions on - particularly
-> because they impact a bunch of platforms that I have no access to at all
-> and have no idea how they work. The at91 platforms I can just ask
-> Nicolas about (and he already provided some info directly, so I'm not
-> super worried at least about the usrio portion there) but the others
-> my gut says are likely incorrect in the driver at the moment.
->=20
-> These patches *are* fairly opinionated and not necessarily technically
-> correct or w/e. The only thing I am confident in saying that they are is
-> more deliberate than what's being done at the moment.
->=20
-> At the very least, it'd be good of the soc vendor folks could check
-> their platforms and see if their usrio stuff actually lines up with what
-> the driver currently calls "macb_default_usrio". Ours didn't and it was
-> a nasty surprise.
->=20
-> Cheers,
-> Conor.
->=20
-> CC: Valentina.FernandezAlanis@microchip.com
-> CC: Andrew Lunn <andrew+netdev@lunn.ch>
-> CC: David S. Miller <davem@davemloft.net>
-> CC: Eric Dumazet <edumazet@google.com>
-> CC: Jakub Kicinski <kuba@kernel.org>
-> CC: Paolo Abeni <pabeni@redhat.com>
-> CC: Rob Herring <robh@kernel.org>
-> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> CC: Conor Dooley <conor+dt@kernel.org>
-> CC: Daire McNamara <daire.mcnamara@microchip.com>
-> CC: Paul Walmsley <pjw@kernel.org>
-> CC: Palmer Dabbelt <palmer@dabbelt.com>
-> CC: Albert Ou <aou@eecs.berkeley.edu>
-> CC: Alexandre Ghiti <alex@ghiti.fr>
-> CC: Nicolas Ferre <nicolas.ferre@microchip.com>
-> CC: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> CC: Richard Cochran <richardcochran@gmail.com>
-> CC: Samuel Holland <samuel.holland@sifive.com>
-> CC: netdev@vger.kernel.org
-> CC: devicetree@vger.kernel.org
-> CC: linux-kernel@vger.kernel.org
-> CC: linux-riscv@lists.infradead.org
-> CC: Neil Armstrong <narmstrong@baylibre.com>
+anyOf:
+  - required: [ in-ports ]
+  - required: [ out-ports ]
 
-The perils of grabbing addresses from git blame..
-+CC Neil @ linaro.
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    // Example 1 (Per-hart encoder and ramsink components):
+> +
+> +    encoder@c000000 {
 
-> CC: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> CC: Sean Anderson <sean.anderson@linux.dev>
-> CC: Vineeth Karumanchi <vineeth.karumanchi@amd.com>
-> CC: Abin Joseph <abin.joseph@amd.com>
->=20
-> Conor Dooley (7):
->   riscv: dts: microchip: add tsu clock to macb on mpfs
->   net: macb: warn on pclk use as a tsu_clk fallback
->   net: macb: rename macb_default_usrio to at91_default_usrio as not all
->     platforms have mii mode control in usrio
->   net: macb: np4 doesn't need a usrio pointer
->   dt-bindings: net: macb: add property indicating timer adjust mode
->   net: macb: afaict, the driver doesn't support tsu timer adjust mode
->   net: macb: add mpfs specific usrio configuration
->=20
->  .../devicetree/bindings/net/cdns,macb.yaml    |  15 +++
->  arch/riscv/boot/dts/microchip/Makefile.orig   |  26 ++++
->  arch/riscv/boot/dts/microchip/mpfs.dtsi       |   8 +-
->  drivers/net/ethernet/cadence/macb.h           |   3 +
->  drivers/net/ethernet/cadence/macb_main.c      | 123 +++++++++++-------
->  5 files changed, 125 insertions(+), 50 deletions(-)
->  create mode 100644 arch/riscv/boot/dts/microchip/Makefile.orig
->=20
-> --=20
-> 2.51.0
->=20
+trace@...?
 
---TId/bCOlj9KNVAAR
-Content-Type: application/pgp-signature; name="signature.asc"
+Node names should be generic and a given compatible should only have 1 
+possible node name. (Yes, we failed to do this on Arm coresight stuff.)
 
------BEGIN PGP SIGNATURE-----
+> +      compatible = "qemu,trace-component", "riscv,trace-component";
+> +      reg = <0xc000000 0x1000>;
+> +      cpus = <&CPU0>;
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaR9CTwAKCRB4tDGHoIJi
-0l9+AQCAjXs4acBGojRkX7id4pZPjNPBVHlGllV6ND5awkZO7AD/fgnp3TeWWyfS
-eZPQo7qlyaefIwAK1U7ee9plirXEHQw=
-=Lpsd
------END PGP SIGNATURE-----
+blank line between properties and child nodes.
 
---TId/bCOlj9KNVAAR--
-
-
---===============3311202477777319013==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +      out-ports {
+> +        port {
+> +          CPU0_ENCODER_OUTPUT: endpoint {
+> +            remote-endpoint = <&CPU0_RAMSINK_INPUT>;
+> +          };
+> +        };
+> +      };
+> +    };
+> +
+> +    ramsink@c001000 {
+> +      compatible = "qemu,trace-component", "riscv,trace-component";
+> +      reg = <0xc001000 0x1000>;
+> +      cpus = <&CPU0>;
+> +      in-ports {
+> +        port {
+> +          CPU0_RAMSINK_INPUT: endpoint {
+> +          };
+> +        };
+> +      };
+> +    };
+> +
+> +    encoder@c002000 {
+> +      compatible = "qemu,trace-component", "riscv,trace-component";
+> +      reg = <0xc002000 0x1000>;
+> +      cpus = <&CPU1>;
+> +      out-ports {
+> +        port {
+> +          CPU1_ENCODER_OUTPUT: endpoint {
+> +            remote-endpoint = <&CPU1_RAMSINK_INPUT>;
+> +          };
+> +        };
+> +      };
+> +    };
+> +
+> +    ramsink@c003000 {
+> +      compatible = "qemu,trace-component", "riscv,trace-component";
+> +      reg = <0xc003000 0x1000>;
+> +      cpus = <&CPU1>;
+> +      in-ports {
+> +        port {
+> +          CPU1_RAMSINK_INPUT: endpoint {
+> +          };
+> +        };
+> +      };
+> +    };
+> +
+> +...
+> -- 
+> 2.43.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3311202477777319013==--
-
