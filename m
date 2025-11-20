@@ -4,178 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE2A1CF857D
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 10:11:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC5CCCF8844
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 11:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d0LD2OUyCsYFKklvgdIQ/hzxGFAA2BZxRtilsuAosX0=; b=rMJhyKCkTQCzfOfHUx0WDL7ciO
-	AuvDxuhVuWPy0GpN5HAm6j4qeLQ55MxC1mX4VOQeqeUBTSC9NjpqFK+siOj2IDY1G2UChvlxaWJFd
-	o4rSNNzPpDETOQkGbKFZp0UspigwNwekibh50URDSLkhDfBqt9U8sYZ6P8LKcaYEEFNTVSkVf9C7I
-	JzMvvPWrzlTt9gNoViZ6SMqww7/DvLm3K3aTvmtz7JbbDMX4vVe+u42alphbrsQUd2fC0zUTP8gbI
-	twsVH9PB1n2K2Oiz5AVT7g2VabqYmx2QkkMaYBFKgRvJbrhJ1UBYDCKxBmuVQWJeYVJbFNZIN8aY9
-	r9gdarDA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=k+clRME5XFaFDrRnlE/CtoAaIBJ9n69KEmqgaAKHtLk=; b=Ve6QJLODNTEhd9
+	Ucyz1LLkkLDZ41uX/5tNYgBgaQfqIKrcZkY6R+naPCwF3LaNIh0MsESK7svvNb3mhOmJZ+1Zqteoh
+	2Yomw3RmUIVtFi70A2v2TasMFEfwvAK9XzS3fT1/wIvADkdkMAkOPhRruzn9sY+sWFwOELmiOnH9d
+	c2TE3VpUGCgv+qCnoMOEMRF93QGXcW1gkM3QrIICkmrMQf0nAqik1Z7Oaa4VtX1+DmqPEMk4ts9yD
+	HxkeuxWh28dOD7V24stDZf5OAJJySm+893EoM9rQuFm6DJ7uX8ToRUZqBsG7iQYYJ2LKX3TdT7bXE
+	xD/UUdSz6mH4AOCS2Hjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM1dX-00000006UNs-33kb;
-	Thu, 20 Nov 2025 10:11:35 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1vM2mL-00000006ZHN-0pvZ;
+	Thu, 20 Nov 2025 11:24:45 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM1dU-00000006UNH-1vnU
+	id 1vM2mH-00000006ZG7-3BBn
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Nov 2025 10:11:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kamJOPO6DIHyMkgHbv0ZMMTTNKPGP8uEG9ni5lf4jHcieM7KM0APRsJv1XCc7mbasilCsxTblPSeLUzDxa6q8oRXOF/QlsbRcm6UguIM563Z37Tuhyux1Gb77MXphpavyl0EjasOME4sUNcoYz3133aBTcKtvJXpzySTq8uM1kgbx3kg5eYGj8ptAeN+EEZe+xjS4ppEtQQJIy4UVpPq/LZolBafxdEb/7HUWXZcMtUpZoANrzQCEM+gSM8cvwUnER6k1dmwQHP6pRosBDIeFP9Z1elcXGcswlPBf9g2w8uvbaftMoHfALLhDjHalqoM7gtLDzV/2WGoaRBolw2eLQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tv/MYpcXsRCbzeZnHtP8wkAi2D+TOWhWnKG3bgbS6LA=;
- b=b6lciz1+vakY/TLaIm90yY254wQIB1jYq1NkhTgSbA+qfWqk0Aw/2VeUFgi9u5cxDHWlU2x5l9tHu9VHxHgtql8S8xPrJPuTP+R1awFv4D+0n87ESBd99E9opCzCKWVAa3fMgzcw8X9lnP2Q7iBjtQhyhbQIuaAt4N4T2XyD8A1cH13WMBvSAGLAGzhe2dmx9w7WwtH19U/bmV6UbMfGmIdQKrBs6PZEe4n5UGs4+09aV79VHdZ6kFyIR8MwIkNC5pBK85YD+hrK9rg2f6aAdUexy+hO6V3afd7UzRjpm7x5Ae5fdI2PsOw5pfx4z0k5wxEWjT0/WrJOJlt/HvEVTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tv/MYpcXsRCbzeZnHtP8wkAi2D+TOWhWnKG3bgbS6LA=;
- b=SjA2fq1YZMtSRWjKI56W3bBIV6fIDidZ+3iyafESVice5Rpu2HrIOJJTxoWY8QmviUcmlRI5wOdiuLrAOTf+F2xdRhEuaXUrPHDsQgsdIQlf/3sgVR3Chb6DaLLRDmkVNnMvAixVnFWX6Lt3fCYOq5fmM7dEWRMoGDuyxqcVreM35zyQejHr1MnO6e9hAvzKnVelc9+UV0zmOAWEdr7gxVYiTrp1Oi/17FfCKygARNhT5G5BYuM6/lJB6tKV4l47m/Wy8jW8e95WYzJWQ/fTaNnEIRBfgE+FMpeDQR5Sa6CJaQhx3sX/ahB3nE/FzldM+irLjmAo9k7ged6pJBziIQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by MN2PR12MB4405.namprd12.prod.outlook.com (2603:10b6:208:26d::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.11; Thu, 20 Nov
- 2025 10:11:26 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%4]) with mapi id 15.20.9343.009; Thu, 20 Nov 2025
- 10:11:25 +0000
-Message-ID: <566061bf-7645-48ca-b7f5-086eab81d8eb@nvidia.com>
-Date: Thu, 20 Nov 2025 10:11:14 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] of/irq: Ignore interrupt parent for nodes without
- interrupts
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
- Saravana Kannan <saravanak@google.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland <samuel@sholland.org>,
- Marc Zyngier <maz@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
- linux-samsung-soc <linux-samsung-soc@vger.kernel.org>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <fbe6fc3657070fe2df7f0529043542b52b827449.1763116833.git.geert+renesas@glider.be>
- <b037f67a-b241-4689-9914-57ff578c1454@sirena.org.uk>
- <1a4d2276-75e1-4aa0-8ff2-c932ce5d6edc@kernel.org>
- <CAMuHMdXgq=Zv3GQes_d_eyCcB7m--PaEGSQJtUWiRjj-7gBVkw@mail.gmail.com>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <CAMuHMdXgq=Zv3GQes_d_eyCcB7m--PaEGSQJtUWiRjj-7gBVkw@mail.gmail.com>
-X-ClientProxiedBy: LO3P123CA0009.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:ba::14) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	Thu, 20 Nov 2025 11:24:44 +0000
+Received: from Mobilestation.localdomain (unknown [183.6.59.216])
+	by APP-05 (Coremail) with SMTP id zQCowADXzV5N+h5pzdhdAQ--.1076S2;
+	Thu, 20 Nov 2025 19:24:10 +0800 (CST)
+From: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>
+To: ajones@ventanamicro.com
+Cc: alex@ghiti.fr,
+	alexghiti@rivosinc.com,
+	aou@eecs.berkeley.edu,
+	cleger@rivosinc.com,
+	cuiyunhui@bytedance.com,
+	evan@rivosinc.com,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	samuel.holland@sifive.com,
+	shuah@kernel.org,
+	zhangyin2018@iscas.ac.cn,
+	zihong.plct@isrc.iscas.ac.cn,
+	zihongyao@outlook.com
+Subject: Re: [PATCH v5 2/2] selftests/riscv: Add Zicbop prefetch test
+Date: Thu, 20 Nov 2025 19:23:50 +0800
+Message-ID: <20251120112351.34433-1-zihong.plct@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20251118-cbe35d090a464d246ed0b8eb@orel>
+References: <20251118-cbe35d090a464d246ed0b8eb@orel>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|MN2PR12MB4405:EE_
-X-MS-Office365-Filtering-Correlation-Id: 745af8d2-f06c-498b-bf5f-08de281d29dd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MnRmb2hwazdlSXExV1RnUUdkZDJjOEdEQU5TbjV1T1l2b0ZKQ0RmeHhKWUxt?=
- =?utf-8?B?OW5PeGFmYkpMaXRrWmN5eTRhTVBXQ0tQSUc1ZU5XWjlxNjJRcThySkhpcXNX?=
- =?utf-8?B?ZVJnc3ZSaTlFcEY0VjJhdks1dEdZRzJyeE1wYXlYZCt5VlhrYWR4U0pRbmd2?=
- =?utf-8?B?b3dMa3RrNjFoU1R1VTNzcWVMUUNPUU9tM0p2ODNRTGZiZDEvZ0o3bEhMNWd1?=
- =?utf-8?B?TEo0V1J4VFFiRDBGUnkveXlBYXUwaklkRDdheStuU1Ntckk1YkNXUm5HS1RM?=
- =?utf-8?B?NG5lamhVbzEzODZNU1VjeVVnREpUYk1nUTVGVkRrZllWQ2k0am5sZ1dIVHJB?=
- =?utf-8?B?MjMxMjdYWi91NXoveEpMZkwyVFJUZmFOWC91cmhUNE02TERqNDdFWXNDbWhG?=
- =?utf-8?B?S3Qyb1JlTE14UHRUb0lOU2kxNUR3cnBHMFZERmJRMmMrU1h6ZXQ4N1hEd3do?=
- =?utf-8?B?WWllZjhjVUcvazNrMXZiK3BvSnUvOWw5b2ZGaE5MMHlnSmZ6cHVyZ2hPbnVG?=
- =?utf-8?B?OW9VTDIrWFYrdktYT2VUUnAzK1dRaTVld2ZRdWx1dm1JUWdQRkJhZFNjRDBr?=
- =?utf-8?B?TkJUVEk4cUJHZ0tIc3RJZmhrOFFvekEySlVoQXBVUEhibXdQOE1yMXA4TlB2?=
- =?utf-8?B?b3huc1NoRnFzUEZCL0FkaWVqaiswYzQ3ZVROV2ZXbCtERDlxYys5Z0g0MFla?=
- =?utf-8?B?OXRtM1p2UDAwTUVZVllrTjdXeHlUT3M5SWcycFF6NFY0Wklkc0xSM2pTVTUz?=
- =?utf-8?B?OXVlZjJaU3NGS1Nmc0ZPUzNIQlRGSDhaS09HaDBjTHZYVXVkV1E0WXEycnJk?=
- =?utf-8?B?d0ExelAyMFY1SDVVb2tuRTI5bVl1bGRQR21URnRxMlhYYnk4cHZ1UVJDWXdH?=
- =?utf-8?B?N3BXT0VNQmkveEtlVklRZyt1NUxxei95cHlxbjUvZ0U5SlRxRHI3UGJMcTZN?=
- =?utf-8?B?MzB3SjlXWUttUjlLQUR3S0UwZkdpcUF2bG5xTFMvVEpMWGtYZVdnc2Zib3Bx?=
- =?utf-8?B?QWJtV2JXL3RQemVYUTNudlU3cUhqem1BNjNmd1VaeXFwa2tNSEZJMHA5M2Vv?=
- =?utf-8?B?OFBNakV0WGpKaEp1MkdpclM3TEdxVTFJamREZ3ZKZ3BhN25WR0U1V3JMMklj?=
- =?utf-8?B?SjR1ZFgza1dyT2R0dklaNXhPUVhTSzc2dFE0cGFwTFVqaDhHNWlSYVk2ak9P?=
- =?utf-8?B?TzV0eHhUbjBERlh6NVNnRHlvS1BGeVRXZzdqUll0WkF1SjFaTnNRU3ZRT21y?=
- =?utf-8?B?bmJGWnkrNkNHY1Q3ekRjclJ5NFd2ZmNYRmRFMWhpNTlPZTFsSWFlWE5tUGho?=
- =?utf-8?B?eVBrODJIQWRTL3pzUlcwSlZIWmtVSStYRVo3QnlTbHdFVkd6TU1mblhvQm85?=
- =?utf-8?B?aVBJYW5yVGdZZm1jcWRzOEErV2dTK3grczhpbWg5Zk8vZktxdzBhVkNGL1Ji?=
- =?utf-8?B?MXU4dGR1WXE2Yk1HeFFzbVp6UFpacHl4UVZmeDR2bloxLzhzRVVRTTF0ZHEv?=
- =?utf-8?B?WWI3anZEN1dPSXVoMkZYSXFBS0oxUy8zN0VnVis5KzVPNUdmTTlFa0NBMlMy?=
- =?utf-8?B?TjNhRVRuaXNNcmJXSTVteXhkYmkxaEZQT29iMUlPc1ZWZjNjYmNqanBJNVVV?=
- =?utf-8?B?REFyWmtwSzh6M2pkU3lMRDgyQUdDbE5rZGxnQlI5MjUxTThTQmhmclVMYVdD?=
- =?utf-8?B?bTBrblM2NVNlUytVTWN6M3UwSkZTNUFJUDFvNzJWd1R0MGw3WnRSSWVRVEkw?=
- =?utf-8?B?Z0wwWXJleEVyeHhMbHpGL08zOG9oTHU4T3UvRlJaTjNjRWJIZXU0QmRTNURB?=
- =?utf-8?B?SnRBRTJPcWx1NWNsc1lwcVd0Tmw3bWs3K0dXUEEzQUVLM29oQmVpZXFJaU5Z?=
- =?utf-8?B?REJSaC90MktJYkZOSXpEYXQzWnhvY3B2eHV0UFBTeFpIVVNwMkQ1QklFZFoy?=
- =?utf-8?B?QlZlS09pZjh6Tzh3SGYwRnJJT0ZqSWlJOGtDaHc1S0lxdyt6dVVBRFNwdVpJ?=
- =?utf-8?B?clo3ZS9Rd3JnPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SW9TZW9lSHYxejMvM251RWRHOGZpaVJPRlp5RmtadmRpdGFkSTd5cjdETXBa?=
- =?utf-8?B?MHovTlhkcVVsZmlKYmRPSjlHcjd3Y3QwRmw3NjBwbnBBWkozTDlNeGJpVG03?=
- =?utf-8?B?OFNUVDZyYThmTGpwRUU4ZTd0d3llLzh5Yi9ZZ1FrNmRCUTdQNzBUME5qUU5n?=
- =?utf-8?B?a3VaVlJabmdvcEl1QVNYMkpTbk5HZVl1V08wWFRSNFpCR1BKTm12ZDAxYnV3?=
- =?utf-8?B?SnJFOVNtdmd6RWxWUDJHRHh1OFhDY3dLYmt5NkIyUmt0Y0NMNkZMa0svOG50?=
- =?utf-8?B?WGwveTBPZ0hGY2ZDaU42NWk5VUR4Z0hzVmpPTHBKNEp2UCs1S25zeC9vbzdT?=
- =?utf-8?B?SUFETzJQcHlQYmtuQ2NLa0IzclZKWlJSaG0zd2N4YXhaL01DQlFJTC81UGV1?=
- =?utf-8?B?SlZaY05OYVFXNDh3amFDOVBGcHlQRG9hekZQZUxab2dDQktjWFNJVk5wMjJZ?=
- =?utf-8?B?RHU1Q0hRb2VwbmZEWVNxTFZna2VJVHlnNUk5NjNGOWJqOXNTc01SZ2ltSnVV?=
- =?utf-8?B?L05JeXY1T2FjaUtzQUF4OFF5a215TFJmUWRLNm5OZm5Za3EyTXEzUEtrcFd1?=
- =?utf-8?B?Z0phTGZQUG4vbEcvbnAyVENwQjFBTmZKcE55UmRVUXNER0kzZ3VnL2dVUWgy?=
- =?utf-8?B?OXYrM2tkbzFlbEtrVkY0bDNaUjVkVGMySVRWVFBNeTJCamZmMnlwbWU5Y1o5?=
- =?utf-8?B?WFNVSzhJUHhuTDVYZjBJcTYweW5USnk5cG0yQ1JtUVlFOHR3MU5YMG9jUzA2?=
- =?utf-8?B?NWJGNUFmME5FVFYyV1FuK0tlYUdHUFlUemdkRnJjMG1NdDhMc0trdDJJL2U4?=
- =?utf-8?B?TGVzQ1psbEdRTkdFbUxDOTlORko4bzlER3dpdHpiSU01ZXJYVlplWE1PRHpK?=
- =?utf-8?B?a3YwdlZUMHRHc1kzUURNQnkrV3ltRDhFWm1RNDNLSW5NRjlCd1FIWi9ubVFk?=
- =?utf-8?B?TXhWc3VsbEU4OVVHd09uQjlnK3VTOEF2SkxZNXhvdGMva2VzWHk1dzhkL2NS?=
- =?utf-8?B?STF1a015cUxBaTNmNlFCdVJHek9oYXV4dlRQZXgwblV5eHVJREZNKzBNcnJj?=
- =?utf-8?B?L0R1UUx1K2ZQUGdSUkxMY0UxeWJuTm15d2IyVGsrejNUU1ZoK1d4VzRFOGYx?=
- =?utf-8?B?d0xpaGwraVFUTitnL1U2NFFEaUZ4a09NeU5RSXg1bGtteHNPdDN3RzBQUEdE?=
- =?utf-8?B?L3pzWHJLRWs0SFY2WFZlSG83S0YyRDF1U0p0L1dyMjNjdGVDOEw3YW5sTVRX?=
- =?utf-8?B?WC9xVFVVMW52RHEwbFZaKzR1WHY5aGorNWdnb0loeUpxNjBIcGFTUlBzai9x?=
- =?utf-8?B?d25ERnFxb0taaHhVZnRxMWthWEF1R1cxandyUFd6UjJmMkVRNE9YM1N2QVVL?=
- =?utf-8?B?ZWpjdzNPQUlKdEhiSFhlZmo3SzlmSUY5TVZCTzZwd051akllQjNPVlhQTlFS?=
- =?utf-8?B?Nk1XRExOa0ZsRlprQSszM280TzlCaVVWUm9UVFdST1hNc1Y4Q3lCeUVGWEFu?=
- =?utf-8?B?a1RIVyszUVA1TlpDU2xoc2wrVllQUlkyaUQvcHFZdXFtNG9mWU5NQ3l4eWNI?=
- =?utf-8?B?d0plcTZKbkNEZU45TGJ1dks0Zjk0cnNmRmxSR0kvMFRkenNjd2pZdURTVGNu?=
- =?utf-8?B?Njkxd3poWWtlTTYwWUUxQlEwK3Z1cC9PaFM1UmJqT2ZYOXhoVm1hU1Y4SEdw?=
- =?utf-8?B?YjNGS2pNVHRuRG1jSjV6VCtxa050Z1Erd1FuL0I4eFNCTnd3cXc4YWxtUDhx?=
- =?utf-8?B?SGcxOFFUWVlNL0dYUzFKeGp1V2Q4bDUwem9SdzdrWkVRTGJOa0h0aWtMc2Rk?=
- =?utf-8?B?TGJBR0c2MGRURDZ2OW1HS2lEZlNWL0pJZlgwYkUvWnpEakdDRlRSQmNzRUEx?=
- =?utf-8?B?NjhkcGRBbHlVMk8zS25Qd3I5TjZCSWozMFVMS3FZcjhPV2d4UGNCOFoyaDRZ?=
- =?utf-8?B?OUo1TjVQRDRsWDE1QUIyd1k2Y1p0KysxZjlmR2s2SnJ5bDNBSmFxcDVoVVoy?=
- =?utf-8?B?amQ3cXQ2SWtKZEVvMHh1Sno1UTNRWHpaLzNhcnZSWkxtT0JTWGloWFVzNlVw?=
- =?utf-8?B?VEZlakk0djF6ZjF4S3RObFAxWDRDL201dlUyWVk4QWYrUXhBVFNoSktrNHBn?=
- =?utf-8?Q?VhldXKAiYUfnYT+u45d9XVudd?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 745af8d2-f06c-498b-bf5f-08de281d29dd
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2025 10:11:25.8868
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VOnIPwFetuwkbIGz9yHHOybSjyxylcaqWWN/g8RS3fsjGhgkfAkbCWiNrF5EnugihtCfYtT2byN2eKpZkAZPKw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4405
+X-CM-TRANSID: zQCowADXzV5N+h5pzdhdAQ--.1076S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYB7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E
+	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
+	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8I
+	cVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aV
+	CY1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE
+	5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeV
+	CFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1l
+	FIxGxcIEc7CjxVA2Y2ka0xkIwI1l42xK82IYc2Ij64vIr41l4c8EcI0Ec7CjxVAaw2AFwI
+	0_GFv_Wryl4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
+	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0x
+	vE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE
+	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6x
+	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUosqXDUUUU
+X-Originating-IP: [183.6.59.216]
+X-CM-SenderInfo: p2lk00vjoszunw6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_021132_504319_DB1C957E 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20251120_032442_176240_1D54EADC 
+X-CRM114-Status: UNSURE (   4.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,71 +87,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew,
 
-On 19/11/2025 08:53, Geert Uytterhoeven wrote:
-> On Tue, 18 Nov 2025 at 20:55, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->> On 18/11/2025 20:34, Mark Brown wrote:
->>> On Fri, Nov 14, 2025 at 11:47:54AM +0100, Geert Uytterhoeven wrote:
->>>> The Devicetree Specification states:
->>>>
->>>>      The root of the interrupt tree is determined when traversal of the
->>>>      interrupt tree reaches an interrupt controller node without an
->>>>      interrupts property and thus no explicit interrupt parent.
->>>>
->>>> However, of_irq_init() gratuitously assumes that a node without
->>>> interrupts has an actual interrupt parent if it finds an
->>>> interrupt-parent property higher up in the device tree.  Hence when such
->>>> a property is present (e.g. in the root node), the root interrupt
->>>> controller may not be detected as such, causing a panic:
->>>
->>> I'm seeing a boot regression on the TI x15 platform in -next which
->>> bisects to this patch in -next, unfortunately even with earlycon (though
->>> just earlycon, I don't know the platform specific runes) the board just
->>> dies with no output:
->>>
->>>    https://validation.linaro.org/scheduler/job/4252918#L409
->>>
->>> It does seem like a plausible patch for this sort of issue though, and
->>> the bisect converges smoothly:
->>
->> All Samsung platforms fail as well. I was waiting with bisection but
->> Marek was as usually very fast:
->>
->> https://lore.kernel.org/all/20251118115037.1866871-1-m.szyprowski@samsung.com/
+On Tue, 18 Nov 2025 10:45:43 -0600, Andrew Jones wrote:
+> I would have written it like below to avoid four redundant lines
 > 
-> Yeah, the various ti,omap[45]-wugen-mpu nodes have interrupt-parent
-> properties, but no interrupts{-extended} properties.
-> 
-> Does the following (whitespace-damaged) patch, to restore finding an
-> explicit interrupt-parent, fix the issue?
-> 
-> --- a/drivers/of/irq.c
-> +++ b/drivers/of/irq.c
-> @@ -685,6 +685,8 @@ void __init of_irq_init(const struct of_device_id *matches)
->                  desc->interrupt_parent = of_parse_phandle(np,
-> "interrupts-extended", 0);
->                  if (!desc->interrupt_parent && of_property_present(np,
-> "interrupts"))
->                          desc->interrupt_parent = of_irq_find_parent(np);
-> +               if (!desc->interrupt_parent)
-> +                       desc->interrupt_parent = of_parse_phandle(np,
-> "interrupt-parent", 0);
->                  if (desc->interrupt_parent == np) {
->                          of_node_put(desc->interrupt_parent);
->                          desc->interrupt_parent = NULL;
+>  case 'm': case 'z':
+>    tests[opt == 'm' ? TEST_NO_ZICBOM : TEST_NO_ZICBOZ].enabled = true;
+>    tests[TEST_NO_CBO_INVAL].enabled = true;
+>    rc = sigaction(SIGILL, &act, NULL);
+>    assert(rc == 0);
+>    break;
 
+I'll apply this style pattern in future patches, or in a v6 if we end up
+needing one.
 
-This patch also breaks various Tegra boards but the above does fix it.
-
-Jon	
-
--- 
-nvpublic
+Thanks,
+Zihong
 
 
 _______________________________________________
