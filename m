@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FD1CFA441
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 19:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BE5CFA441
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 20:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nvL0J0ZzmRsMjo/BUsT3ZTwM/yHh0O+jf9Ntv0TgzUw=; b=e8u4EUtsuZhDNv
-	aWmx2Rg74gawu3134WqkEnhAw5a3oDe7ufDtcCTckv/JWWYmQiBZaiUM6T3Ts8oHZk03fSdpMbzJ6
-	wHBu5RP1Vsd5Jq6ywAiJ+HBX8bsMw/y3sqTWn2ln4qVFxSkKF+qh2JsEZa0C/mUI+4LqFA9q9YlvS
-	yNELzdocR7uAfVn8iEWU5oeIWw8q1ztElAKAHa9UYeiaFURVmAMmCDEuYXfcEOq6u23h8pK7gumTB
-	0dWyDPFXAzt5mYN5Kyn1V7ZQ3oM9MslM4bSy565/sCaLTaFQknySS6EvtC+Xz10fETe3X5LdPQJNl
-	oCIpuiAvSMdssgTHWaaw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CV9qtg6VCTZngwUvulnzhDuZfit9vPoRQthdG1it9Xg=; b=31j/mXSRA1Hr0z
+	dlj91KOPP3K/LTrwXlEmXmfCgjjcyadFxZzibYwY3bA6vcnzOqMml3u/xAWAA4jekxASsolNk6d/q
+	9m/RYOF4p4BK26kAGBHexk68b05HAC3RPWAKlyZmEOTiHyH90DUvbOtkQy1SdfMnIyQdj6MiXYyFL
+	/IO7Fe65eLR2euw3UxBlxqyIyvKGqbKoB6crt/WwdPLaCl3/YFvrTlCONX3AWcBezoBX1mGdZQNcF
+	F/tmk4sAtN6u6A+OZ96diqZOLwMlYf8fEjaC6UPK8Fi53TaZtcJgRiqO/pv+TL2d6bxQG/fWMTcn6
+	m7KbzQorSiZqSk34cGDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM9vL-00000007G3r-2qN5;
-	Thu, 20 Nov 2025 19:02:31 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vMBdN-00000007Mbw-2Ka5;
+	Thu, 20 Nov 2025 20:52:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM9vJ-00000007G3E-3eM8
-	for linux-riscv@lists.infradead.org;
-	Thu, 20 Nov 2025 19:02:30 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4779ce2a624so11228155e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Nov 2025 11:02:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763665347; x=1764270147; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=pUk7F3OiQezqpI/i6F82zzEyxwA4n2FgbJ6n9Doemj0=;
-        b=QJjdFVDx5uCnxLU946H+5W4TGjkxkdz1rUXJccLqY5KddVSbxPcOq7iZBFZh46j385
-         PezENRZ6HY+fdC7hMElU9fSAP30ca5Qd/KkYztkiQeMw5NKXNNnxGSFv2EhnMfWmuRda
-         46equ05RBWYwMqOoa7i916wnpwmhIiXq9unRwLFvcRQjIs1XRHjQH4lCHFNA8w90Vjxu
-         nOQZxf6NmGVn+QOJk+c59Wmjz0G0VG+xReTNbPmNQ4KHJ7vlZw0UYI3jE776jy2JcNFt
-         dtuR6jUQBG6vme9940XSE4Ju15Bq9FKgq8mwKKt2hLUY/5WindybWL3VbA65O9p98lTQ
-         PnRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763665347; x=1764270147;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pUk7F3OiQezqpI/i6F82zzEyxwA4n2FgbJ6n9Doemj0=;
-        b=a6fKAZnPm/PeRNRfXiJHakw9rfparLe2KEXrMRWJFyjly60Qa243A5ro8XjS5aH2Ey
-         KrpJ51vSuReZuf3TAVFmbvMH2QuK10wS5bNs1L5JJuULgizg8kGf5Co/E1oNxWR9X49S
-         Bn/jvSkxQ/PujB0XfQFFWpaXFQ7ul3wkh1t5ul2gwFwq4NJZwL+lLqS8thxxLQow0B6k
-         X8de0gzj+Fod8Fr6jN5DDTrjRMWIjYJQ3TM1rxhmItjt2jAmzHzUD8Rrd3L3nm4tPsc9
-         3wNf0K3wN4T4dDLz8OLk8VyYlRRHrJ5O5r463fyHL7yKYfgdPjcA0cPqYCrTJ9SyeUkP
-         aSIw==
-X-Gm-Message-State: AOJu0YysyhSmRce9yTO/Alg31qD7j0bYUSQlAroNPIARcxDa4vkQOYEW
-	1PXy58s7f6I58toz+SW4CisfB9yfRmFJ7v18lRy9/TxHnj8Nq5Gnemjo
-X-Gm-Gg: ASbGncuOsM5ob2pkZs8fBUJRMZ06ungepVL/3vfQOiTyLBX77qq+WatV4AwsQLZLy6s
-	kFd9HiIBOQjtwV/wiZHID9uyFGgjciegX6B9Cg7A1dwgNTdFSSASO8U0cAj21JUlFw1eeBBFiMt
-	0DxA213zr34V6GJIUnmj0yxpK+qFTgko5HRWpFDQoNIzqFG6q2k/xfHT9RHn4M+cuaEOji9oEDa
-	npppAqG+apCaAauMrpOMoKr50tadsMGIiZt6a9bS4CnKtSTja+79sV+81lvaXt4m1srEC7lQpT9
-	CIyrHZgne/A43C86/m1jRBxoNqWrPNKSraNk4xSx3IbsKjcwEZ5PLTQs149w7hVIRPbwOaAiSJb
-	9retkQZOxMdec912d9tKUt6Y7+EBBsSPfUD+AaWoNbfaa3O5IVbh/CLhxZO9Sv9JpYnaeH6uCAX
-	wsYvpn
-X-Google-Smtp-Source: AGHT+IEm7cyBl9sCriUUQUppCnGpTm7hcBwhjRia2+n5Yk+UR+NhXXnMSkR2YAPQMqM5M9apaOTEZw==
-X-Received: by 2002:a05:600c:1c86:b0:477:a36f:1a57 with SMTP id 5b1f17b1804b1-477b857907amr46992595e9.3.1763665347278;
-        Thu, 20 Nov 2025 11:02:27 -0800 (PST)
-Received: from curiosity ([80.211.22.60])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf3af0e1sm3254925e9.10.2025.11.20.11.02.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Nov 2025 11:02:26 -0800 (PST)
-Date: Thu, 20 Nov 2025 22:02:21 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: Andy Chiu <andybnac@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
+	id 1vMBdK-00000007Mb5-2SRL;
+	Thu, 20 Nov 2025 20:52:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DE71E440AA;
+	Thu, 20 Nov 2025 20:52:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99F48C4CEF1;
+	Thu, 20 Nov 2025 20:52:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763671920;
+	bh=/2MLYZFt2UK8yikPPD+7q2Ovh6jii1HpUvg+KerpW/s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=pjPQ0z9Hs2ySC+uoLN3NFLrILTqXtCvDqFyqSfOAVl1MCOVCrsXUyNPLUAiYb0o8h
+	 /3+kVk6iB1rfxBaDld9qmw++i5ZYtDrfDBusVWL5p7Y5k0BirMalh5YAhG7Zy+qH9+
+	 EZeblU6urmxotwaEh75Nok9ViV7jYaQ0i7qUkh9UROx7+ZHo0nesFJTXEp/GpbIJ7u
+	 /JIfoZ5fOl82GQZceIS2NGmBC0+rOKGg45m9ojUIptCuA6mTpC4NuT6JzwQ22gBFRS
+	 hxqD7xPITEGMixxETVFLyCNWmTFUGwVofHg5WI5KqZdOfV2k4DHK7b0JR27Z+HMzGo
+	 iv97OrLZWR4Fg==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Oleg Nesterov <oleg@redhat.com>,
-	Shuah Khan <shuah@kernel.org>, Thomas Huth <thuth@redhat.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Joel Granados <joel.granados@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH v4 1/9] selftests: riscv: test ptrace vector interface
-Message-ID: <aR9lvboEcSzSjGNY@curiosity>
-References: <20251108194207.1257866-1-geomatsi@gmail.com>
- <20251108194207.1257866-2-geomatsi@gmail.com>
- <CAFTtA3PK8kU6dsHdOT8Gj=ov9UbguSWv8+aQjtnvkx6hFWZGkg@mail.gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2] kbuild: Support directory targets for building DTBs
+Date: Thu, 20 Nov 2025 14:48:13 -0600
+Message-ID: <20251120204812.1983452-4-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAFTtA3PK8kU6dsHdOT8Gj=ov9UbguSWv8+aQjtnvkx6hFWZGkg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_110229_913594_58753B1D 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20251120_125202_693230_05FB49CA 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,22 +76,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBOb3YgMTksIDIwMjUgYXQgMTE6MTM6MzZBTSAtMDYwMCwgQW5keSBDaGl1IHdyb3Rl
-Ogo+IE9uIFNhdCwgTm92IDgsIDIwMjUgYXQgMTo0MuKAr1BNIFNlcmdleSBNYXR5dWtldmljaCA8
-Z2VvbWF0c2lAZ21haWwuY29tPiB3cm90ZToKPiA+Cj4gPiBBZGQgYSB0ZXN0IGNhc2UgdG8gY2hl
-Y2sgcHRyYWNlIGJlaGF2aW9yIGluIHRoZSBjYXNlIHdoZW4gdmVjdG9yCj4gPiBleHRlbnNpb24g
-aXMgc3VwcG9ydGVkIGJ5IHRoZSBzeXN0ZW0sIGJ1dCB2ZWN0b3IgY29udGV4dCBpcyBub3QKPiA+
-IHlldCBlbmFibGVkIGZvciB0aGUgdHJhY2VkIHByb2Nlc3MuCj4gPgo+ID4gU2lnbmVkLW9mZi1i
-eTogU2VyZ2V5IE1hdHl1a2V2aWNoIDxnZW9tYXRzaUBnbWFpbC5jb20+Cj4gCj4gUmV2aWV3ZWQt
-Ynk6IEFuZHkgQ2hpdSA8YW5keWJuYWNAZ21haWwuY29tPgoKVGhhbmtzIGZvciB0YWtpbmcgYSBs
-b29rICEgSSB3aWxsIG5lZWQgYXQgbGVhc3Qgb25lIG1vcmUgcmVzcGluCnRvIGNvdmVyIHh0aGVh
-ZHZlY3RvciBzdXBwb3J0IHRvIGJvdGggcHRyYWNlIGNoZWNrIGFuZCB0aGUgc2VsZnRlc3RzLgoK
-UmVnYXJkcywKU2VyZ2V5CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+It is useful to be able to build all the DTBs for a vendor. One can list
+all the .dts files in a directory and convert those to %.dtb targets,
+but that doesn't work for base+overlay DTB targets.
+
+Adding the dts subdirectory is straight-forward, but building the
+DTBs should only happen for certain targets (dtbs, dtbs_check, %.dtb,
+%.dtbo, and the directory target(s)).
+
+The 'scripts_dtc' rule doesn't really depend on 'dt_binding_schemas',
+but the directory target only depends on 'scripts' which depends on
+'scripts_dtc'.
+
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+Please ack and I'll take this in the DT tree.
+
+I don't really like looking at MAKECMDGOALS, but that's the only way I
+could come up with that works. Maybe someone knows a better way.
+
+v2:
+ - Convert arm, mips and riscv. The other DT enabled arches don't have 
+   vendor directories.
+ - Link to v1: https://lore.kernel.org/all/20251113225952.867138-1-robh@kernel.org/ 
+
+---
+ Makefile              | 2 +-
+ arch/arm/Kbuild       | 2 ++
+ arch/arm64/Kbuild     | 2 ++
+ arch/mips/Kbuild      | 2 ++
+ arch/riscv/Kbuild     | 2 ++
+ scripts/Makefile.dtbs | 3 +++
+ 6 files changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 17cfa11ca716..85018d461575 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1494,7 +1494,7 @@ export CHECK_DTBS=y
+ endif
+ 
+ ifneq ($(CHECK_DTBS),)
+-dtbs_prepare: dt_binding_schemas
++scripts_dtc: dt_binding_schemas
+ endif
+ 
+ dtbs_check: dtbs
+diff --git a/arch/arm/Kbuild b/arch/arm/Kbuild
+index 69de6b6243c7..af7dd53585c3 100644
+--- a/arch/arm/Kbuild
++++ b/arch/arm/Kbuild
+@@ -10,5 +10,7 @@ obj-y				+= probes/
+ obj-y				+= net/
+ obj-y				+= crypto/
+ 
++subdir-y += boot/dts
++
+ # for cleaning
+ subdir- += boot
+diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
+index 5bfbf7d79c99..9e9820af48c9 100644
+--- a/arch/arm64/Kbuild
++++ b/arch/arm64/Kbuild
+@@ -5,5 +5,7 @@ obj-$(CONFIG_XEN)	+= xen/
+ obj-$(subst m,y,$(CONFIG_HYPERV))	+= hyperv/
+ obj-$(CONFIG_CRYPTO)	+= crypto/
+ 
++subdir-y += boot/dts
++
+ # for cleaning
+ subdir- += boot
+diff --git a/arch/mips/Kbuild b/arch/mips/Kbuild
+index e901bf554483..6125d00cdcef 100644
+--- a/arch/mips/Kbuild
++++ b/arch/mips/Kbuild
+@@ -21,5 +21,7 @@ ifdef CONFIG_KVM
+ obj-y += kvm/
+ endif
+ 
++subdir-y += boot/dts
++
+ # for cleaning
+ subdir- += boot
+diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
+index 126fb738fc44..3cf7f84eb287 100644
+--- a/arch/riscv/Kbuild
++++ b/arch/riscv/Kbuild
+@@ -7,5 +7,7 @@ obj-$(CONFIG_KVM) += kvm/
+ 
+ obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
+ 
++subdir-y += boot/dts
++
+ # for cleaning
+ subdir- += boot
+diff --git a/scripts/Makefile.dtbs b/scripts/Makefile.dtbs
+index 2d321b813600..4d0d164df275 100644
+--- a/scripts/Makefile.dtbs
++++ b/scripts/Makefile.dtbs
+@@ -14,7 +14,10 @@ dtb-y           := $(addprefix $(obj)/, $(dtb-y))
+ multi-dtb-y     := $(addprefix $(obj)/, $(multi-dtb-y))
+ real-dtb-y      := $(addprefix $(obj)/, $(real-dtb-y))
+ 
++ifneq ($(findstring /dts/,$(MAKECMDGOALS))$(findstring dtb,$(MAKECMDGOALS)),)
+ always-y        += $(dtb-y)
++endif
++
+ targets         += $(real-dtb-y)
+ 
+ # dtbs-list
+-- 
+2.51.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
