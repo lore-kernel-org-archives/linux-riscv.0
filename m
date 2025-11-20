@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0BADCF9C46
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 16:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F02CF8875
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 16:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ea9pfbN5zMOQk09NKFI6cWkL45Yu6BmPVeu8Q9OfuiE=; b=JrwAKMI7l9cDK7
-	6vGpi5sCdp6T5LLizvsCqeBNUWe0VBFAR44OCx6z2fScJAFsZZCWQyNkO6U1f2OurQsxROGVXlhCT
-	6ln7xCpzAdmg4HOxa68zEMAFAQErgPsdry6NXdTXrDGWIwCS0tCoM7O9zn/5eXB/CvYpQHn0EIgI+
-	JwhrbEJ/fd6IppsCUurtDfww6Y5dzJGK6VS0TKAMa41KiGYnptQGyN6ey87Y35zEBx44oP6q56IFq
-	G8edRjsyYps8yIvEiomjRQ6lQvITCJC6JU08ZGZfnS5/xJXJqP6pr2Pf4b7UAwDVjXMhflfMPDFnl
-	vRL0HJ7hxnDIT+R3Wx5A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YGrCewVHXvu+rFqlELM7WZye4F0fUw/JNM/JxlkEcks=; b=B0bZOtpYwCouXbjhznGaNbmD7U
+	9n5HGmUQT9OLSrBnjm24D+fdjcv1cgeEIiNutwVBKLXtshQiYUmegDs7YjiMFyNMORuSlon9G3zg+
+	jeFpf9t49NSJ1WQe7u9KDzrujeYhGbh3bgPRgI4+dbBkOKtpo+I3QPa6XSr2GT8ulFsGozaH/Dug9
+	fnMTZxnq/yeMQysIR2RgXUzil/zzALDHIk0LSE5XgZoiDkHz5vMuTsNd/77RXKKLJ5zAW+3lPXU+8
+	94wUgXDalk+6xX9bqRw8gBqKBWLktffP/EftBQTtaJb/s20Jup+KznatWfvqGvf+/AMhb4xscKgy+
+	hYhWNPrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM7Ux-000000070ht-0U1Z;
-	Thu, 20 Nov 2025 16:27:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vM7Z4-000000071Hv-0Swd;
+	Thu, 20 Nov 2025 16:31:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM7Uu-000000070fk-1kon
+	id 1vM7Z2-000000071Hl-1VtG
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Nov 2025 16:27:05 +0000
+	Thu, 20 Nov 2025 16:31:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 19A2043F01;
-	Thu, 20 Nov 2025 16:27:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE44CC4CEF1;
-	Thu, 20 Nov 2025 16:26:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6EA5D60194;
+	Thu, 20 Nov 2025 16:31:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1E5BC4CEF1;
+	Thu, 20 Nov 2025 16:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763656024;
-	bh=OweOwTJ7iRHriV/3fFMI8DxPPwMu/XvNOTvcHJ/FBOw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fdETgA+g3R0EW6aeW24bHZPgm6m62uRkdrkMSCVi0kiUZewS7iAJ97yY89ZtTQuSk
-	 DO0hsLOu/n557vc1K7hsKouuh9xfSsZCAiBQt043xMJR5x2ESkQPcilKWCXMSI1wS9
-	 FU3v07driVnBcdVUJ+Zw8acieRE7aNLP81fjfaILvO1S3ru4mGR8oIhNrupORw5boJ
-	 bjAd3+dpbKdMkoZpfuCKYCWGMHrzNlsm8S+A/AuLY2kQLzfPGDJl7a4/F3A6FmvEul
-	 kByIz41Rw460euta3a8d9P/W3isykL/Gu9mJGhpi0TE04S4A4fYEuMRL3oX8onHZ99
-	 ZALHhLjG8v1ew==
+	s=k20201202; t=1763656279;
+	bh=+t2RxpZYsc6EBAkiIiAw8xa7Z0l4LUgdt6k1NQShhzY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SHG3OFeLTB4Hj/eETcebnotdZAETCyejYgNdFRTUA1Z8nSG3U05azdEclaOz6Ssh6
+	 WGlSzcJDRR7HjLoc9RiM/s7WxrbV8ZQmTzPP/nI5nW0RvCvF2imrMqN2t2TMNV//AA
+	 xhrUrqjY0CvoJkHJtTnNGJbtTmWBKSzsKc7fKM1PyLGKqzfyPd/ilqJayxqLipxuec
+	 RuHVValyQL2PlUbpDYtZrf9TALOC2xKsSS22gKw0fu7ud0tTUVY16Q6a784OjhOnTQ
+	 PQuzF8U11sO5gvcfKfX0jI7PpswnY9Grv0V8owCsIPlf5WO9hQzRre8hbwwJU/Srvp
+	 SmNMctiO7Ywrw==
+Date: Thu, 20 Nov 2025 16:31:11 +0000
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
+Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Valentina.FernandezAlanis@microchip.com,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
 	Richard Cochran <richardcochran@gmail.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Neil Armstrong <narmstrong@baylibre.com>,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	Sean Anderson <sean.anderson@linux.dev>,
 	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
-	Abin Joseph <abin.joseph@amd.com>
-Subject: [RFC net-next v1 7/7] net: macb: add mpfs specific usrio configuration
-Date: Thu, 20 Nov 2025 16:26:09 +0000
-Message-ID: <20251120-unspoken-licking-5c9263746766@spud>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251120-jubilant-purposely-67ec45ce4e2f@spud>
+	Abin Joseph <abin.joseph@amd.com>, neil.armstrong@linaro.org
+Subject: Re: [RFC net-next v1 0/7] highly rfc macb usrio/tsu patches
+Message-ID: <20251120-unreal-antitrust-e32900cf893b@spud>
 References: <20251120-jubilant-purposely-67ec45ce4e2f@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2990; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=G93/q3yEc1yTjdzyW1V6PNGqUts7lOELWRE7rxMzpvM=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnyjtK7S6/pLjiezpBr8WV9wQf+7r47SanNTzT8PGVWa 0tqL+brKGVhEONikBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwEQ+T2b4K5iq3y1x2dJuTlFo c8iavutfrm/+N1/V6I3ahnnP8md+TWL476iluaLKWCL5l4i+fVUT60MHFsPnszPvnfdyTRRc8P8 eNwA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_082704_502892_A1688175 
-X-CRM114-Status: GOOD (  18.89  )
+In-Reply-To: <20251120-jubilant-purposely-67ec45ce4e2f@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,98 +83,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3311202477777319013=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-On mpfs the driver needs to make sure the tsu clock source is not the
-fabric, as this requires that the hardware is in Timer Adjust mode,
-which is not compatible with the linux driver trying to control the
-hardware AFAICT.
+--===============3311202477777319013==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="TId/bCOlj9KNVAAR"
+Content-Disposition: inline
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-This may actually be a waste of time, since a) the peripheral is reset
-by the driver during probe which zeroes it, b) the timer-adjust mode is not
-permitted, so setting a 1 here is not ever done and c) the value written
-by the driver to the usrio register starts as zero, so would clear this
-bit anyway, were it to be set somehow.
-The alternative would be just setting the usrio struct pointer to NULL
-since none of the caps that would cause it to be accessed are set on
-this platform.
----
- drivers/net/ethernet/cadence/macb.h      |  2 ++
- drivers/net/ethernet/cadence/macb_main.c | 12 ++++++++++--
- 2 files changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
-index 59881c48485b..d30682db410a 100644
---- a/drivers/net/ethernet/cadence/macb.h
-+++ b/drivers/net/ethernet/cadence/macb.h
-@@ -770,6 +770,7 @@
- #define MACB_CAPS_QUEUE_DISABLE			0x00000800
- #define MACB_CAPS_QBV				0x00001000
- #define MACB_CAPS_USRIO_HAS_MII			0x00002000
-+#define MACB_CAPS_USRIO_TSUCLK_SOURCE		0x00004000
- #define MACB_CAPS_PCS				0x01000000
- #define MACB_CAPS_HIGH_SPEED			0x02000000
- #define MACB_CAPS_CLK_HW_CHG			0x04000000
-@@ -1217,6 +1218,7 @@ struct macb_usrio_config {
- 	u32 rgmii;
- 	u32 refclk;
- 	u32 hdfctlen;
-+	u32 tsu_source;
- };
- 
- struct macb_config {
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 4ad1409dab63..dd14bb4c9e26 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -4649,6 +4649,9 @@ static int macb_init(struct platform_device *pdev)
- 		if (bp->caps & MACB_CAPS_USRIO_HAS_CLKEN)
- 			val |= bp->usrio->refclk;
- 
-+		if (bp->caps & MACB_CAPS_USRIO_TSUCLK_SOURCE)
-+			val |= bp->usrio->tsu_source;
-+
- 		macb_or_gem_writel(bp, USRIO, val);
- 	}
- 
-@@ -5219,6 +5222,10 @@ static const struct macb_usrio_config at91_default_usrio = {
- 	.refclk = MACB_BIT(CLKEN),
- };
- 
-+static const struct macb_usrio_config mpfs_usrio = {
-+	.tsu_source = 0,
-+};
-+
- static const struct macb_usrio_config sama7g5_usrio = {
- 	.mii = 0,
- 	.rmii = 1,
-@@ -5342,11 +5349,12 @@ static const struct macb_config zynq_config = {
- static const struct macb_config mpfs_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
- 		MACB_CAPS_JUMBO |
--		MACB_CAPS_GEM_HAS_PTP,
-+		MACB_CAPS_GEM_HAS_PTP |
-+		MACB_CAPS_USRIO_TSUCLK_SOURCE,
- 	.dma_burst_length = 16,
- 	.clk_init = macb_clk_init,
- 	.init = init_reset_optional,
--	.usrio = &at91_default_usrio,
-+	.usrio = &mpfs_usrio,
- 	.max_tx_length = 4040, /* Cadence Erratum 1686 */
- 	.jumbo_max_len = 4040,
- };
--- 
-2.51.0
+--TId/bCOlj9KNVAAR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Thu, Nov 20, 2025 at 04:26:02PM +0000, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Hey folks,
+>=20
+> After doing some debugging of broken tsu/ptp support on mpfs, I've come
+> up with some very rfc patches that I'd like opinions on - particularly
+> because they impact a bunch of platforms that I have no access to at all
+> and have no idea how they work. The at91 platforms I can just ask
+> Nicolas about (and he already provided some info directly, so I'm not
+> super worried at least about the usrio portion there) but the others
+> my gut says are likely incorrect in the driver at the moment.
+>=20
+> These patches *are* fairly opinionated and not necessarily technically
+> correct or w/e. The only thing I am confident in saying that they are is
+> more deliberate than what's being done at the moment.
+>=20
+> At the very least, it'd be good of the soc vendor folks could check
+> their platforms and see if their usrio stuff actually lines up with what
+> the driver currently calls "macb_default_usrio". Ours didn't and it was
+> a nasty surprise.
+>=20
+> Cheers,
+> Conor.
+>=20
+> CC: Valentina.FernandezAlanis@microchip.com
+> CC: Andrew Lunn <andrew+netdev@lunn.ch>
+> CC: David S. Miller <davem@davemloft.net>
+> CC: Eric Dumazet <edumazet@google.com>
+> CC: Jakub Kicinski <kuba@kernel.org>
+> CC: Paolo Abeni <pabeni@redhat.com>
+> CC: Rob Herring <robh@kernel.org>
+> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> CC: Conor Dooley <conor+dt@kernel.org>
+> CC: Daire McNamara <daire.mcnamara@microchip.com>
+> CC: Paul Walmsley <pjw@kernel.org>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: Albert Ou <aou@eecs.berkeley.edu>
+> CC: Alexandre Ghiti <alex@ghiti.fr>
+> CC: Nicolas Ferre <nicolas.ferre@microchip.com>
+> CC: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+> CC: Richard Cochran <richardcochran@gmail.com>
+> CC: Samuel Holland <samuel.holland@sifive.com>
+> CC: netdev@vger.kernel.org
+> CC: devicetree@vger.kernel.org
+> CC: linux-kernel@vger.kernel.org
+> CC: linux-riscv@lists.infradead.org
+> CC: Neil Armstrong <narmstrong@baylibre.com>
+
+The perils of grabbing addresses from git blame..
++CC Neil @ linaro.
+
+> CC: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> CC: Sean Anderson <sean.anderson@linux.dev>
+> CC: Vineeth Karumanchi <vineeth.karumanchi@amd.com>
+> CC: Abin Joseph <abin.joseph@amd.com>
+>=20
+> Conor Dooley (7):
+>   riscv: dts: microchip: add tsu clock to macb on mpfs
+>   net: macb: warn on pclk use as a tsu_clk fallback
+>   net: macb: rename macb_default_usrio to at91_default_usrio as not all
+>     platforms have mii mode control in usrio
+>   net: macb: np4 doesn't need a usrio pointer
+>   dt-bindings: net: macb: add property indicating timer adjust mode
+>   net: macb: afaict, the driver doesn't support tsu timer adjust mode
+>   net: macb: add mpfs specific usrio configuration
+>=20
+>  .../devicetree/bindings/net/cdns,macb.yaml    |  15 +++
+>  arch/riscv/boot/dts/microchip/Makefile.orig   |  26 ++++
+>  arch/riscv/boot/dts/microchip/mpfs.dtsi       |   8 +-
+>  drivers/net/ethernet/cadence/macb.h           |   3 +
+>  drivers/net/ethernet/cadence/macb_main.c      | 123 +++++++++++-------
+>  5 files changed, 125 insertions(+), 50 deletions(-)
+>  create mode 100644 arch/riscv/boot/dts/microchip/Makefile.orig
+>=20
+> --=20
+> 2.51.0
+>=20
+
+--TId/bCOlj9KNVAAR
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaR9CTwAKCRB4tDGHoIJi
+0l9+AQCAjXs4acBGojRkX7id4pZPjNPBVHlGllV6ND5awkZO7AD/fgnp3TeWWyfS
+eZPQo7qlyaefIwAK1U7ee9plirXEHQw=
+=Lpsd
+-----END PGP SIGNATURE-----
+
+--TId/bCOlj9KNVAAR--
+
+
+--===============3311202477777319013==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3311202477777319013==--
+
