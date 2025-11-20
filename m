@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA9ACF8854
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 13:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690FBCF8855
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 13:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t7WbSbfpjzQue5X4t5aQIGE8PwzKEJ8yJ5my81wmBFU=; b=rNr1gIWv10/pwK
-	O6VwmwfuxgVKVUgqGQfedaIp6vs7WyFF6+recUciHARO1x5mdYhr7JeAn6O2oe6/kCP8y9VnAyRzh
-	k9XC5l8mDLQrvQ7rc3A7ygAEWAUwHyGHLJjLLyM3oPAcEvZwneXok8IFPYIT3+TfNvhb1n1e/w4lA
-	7IGfA1hS2QdLyv9uS3ZVRK3O2qJ5AuTileGUEytheoybVuZwq86bc2ZE00NhraHezUb6PbQFG1tNp
-	/dn9+Gph8mrQxYr5ilZiCOkSziKUTy0DTkYcqJiYTLHjPLMrTAVA9NvFAHUX8InUDMT0qmuN0YVBb
-	6pOMKERfPkrg1aupIlfA==;
+	List-Owner; bh=MikrrOVPbvVwjnIEFUidB2ge24hsLroxR4XYzyRDIxU=; b=4TEHfnFUoCwV+g
+	+bGuAXFr4+Uu3U7JfK9BEPT+xupO4PO7YwyGTpNSV3U5/AyWqS8Mvmo9yAnHMKN0nHfL1FTvlmuz+
+	5+G2uV6asknYLDyLrqGqTrmI6V9LX3HOsPTHxf74qBf6gTHOkcOO8QQ4OgC88+tal7lGvRnYh/5Pz
+	v8OzNeVJA/1kbB8nC7lnpvaRCTKMx6sTHAy4oQbIJvYj401dMTMbYDtsYNYhiayhJcITq5Lb2Q9qO
+	Fo2nplikDnrPqX7W8wcF75G0I/naDbJRCX1DCDpBHRxR6fCEJrbtdQaOzCLbklW9ljYJfj0E6+aQU
+	8jlRhQn2VrZgAQk+H1Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4Xc-00000006iVJ-3lz4;
-	Thu, 20 Nov 2025 13:17:40 +0000
+	id 1vM4Xd-00000006iVb-0mbi;
+	Thu, 20 Nov 2025 13:17:41 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4Xb-00000006iUb-3XYn
+	id 1vM4Xc-00000006iUm-0iCl
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 20 Nov 2025 13:17:39 +0000
+	Thu, 20 Nov 2025 13:17:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=jrH2BdkhugjMiwtpFJ5c+9QPvReu53srdnYH5f5dhM8=; b=bfeT4bW201T3+OTEFJovDgvzCU
-	UWGwIAQAnA6hrj7hk/m80O/hoacqh4sdf271Vh4qZCVLS2oeAnf1wRM5MpQt6AR8bAfLJAEFEY7dc
-	IsiaS3KWChFsRS0KqTyRyeDCYQwEKLhpiRnL0J7/di78MJCRXPC4RE27s2Es79phlQLQqpWBfH/7y
-	IuZ/QDXKQ/Vdyjlc4+NVh/KmwOhevLukATYkBUpyKBs8fRcgOMzUhAS/pW4kdFj9KCdEQvciX0x9x
-	aXH4mJBTJ5q0sdy+788hgTb30BMLd5cykmn7ZZ6ji/UdSvsu39sfoYRPAMqsONvPdXvnUkhkHWNU/
-	UeVU/LsQ==;
+	bh=MYSgN5w0D1hjp7V+UEVTCIwZSJHPUtS6HG0oLeFcfcM=; b=Ufu0uHcKW9HsPOIjruIGJv055S
+	r1FJUarMB2weQmj+N+qaLME4BKChBYBQuMYqBLKHKW/JGj/LRvlqtS7yFcDgkjLlBbmex72kxniGL
+	V1BqIMOKJcVW8RvEhcYLWsT1PlWG4zz4iV1nsJQBCQEBm1ai+JZJpyAoufomArbgR0bnq3UtRhyv8
+	mMYEuSG0QtvQkKDW3zLXyqnPc+JtKI4RnfSeetKGfgBllXRaIx0JHQ9jx1lGfDR1rrLQlON4zJxhy
+	cIxzVan9kvkWAYpWb3VRmfqXlty3afMN1m7OCKhpc6cuzwArhf8lIQzH6qLRZ+jgnyDxoKgrCpUkY
+	Bs5RZhtw==;
 Received: from layka.disroot.org ([178.21.23.139])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM3fj-0000000EY1m-1Hzl
+	id 1vM3fg-0000000EY1i-3NsX
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Nov 2025 12:22:08 +0000
+	Thu, 20 Nov 2025 12:22:13 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 407732608E;
-	Thu, 20 Nov 2025 14:17:05 +0100 (CET)
+	by disroot.org (Postfix) with ESMTP id 0C6962617B;
+	Thu, 20 Nov 2025 14:17:15 +0100 (CET)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id tAWxe1q3_yOl; Thu, 20 Nov 2025 14:17:04 +0100 (CET)
+ id fPVi9DDBgPin; Thu, 20 Nov 2025 14:17:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1763644624; bh=kxSICP8fwMm99AQGf8853Gn6w5FNP1Z6VkgI0xBu+jc=;
+	t=1763644634; bh=rzsceNVsLgNTO+X00rj3Tf+eMe4kMyO3UMkIeEbat4c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=h/91x6Pdoy5sdusvGSpzxcKRU7oE9n8KSPTIKw63SMMVE3i3K3mEWVwfezcFdTWf5
-	 rSzum9Hn4jlHWjYiPXA3alvmiZoPX0nMDe9eP/LksmN7r7N2n7L9y41VUwC+60+2wy
-	 lVKGH+TBMw5tE26h9tGvplO0jfyIMe0yQ+zLjVzbzAS8PcVT+RtLrm3huZeSK1BZbb
-	 B0tF3zpccEWmYwQos0x8m3sVt4qRlguG5z/cKGpLjiRMwB+PUBe+ShGwDfD6IzTyw9
-	 31Av3GooD9gzRqVeoU91goE4bpeEMverL/Xbxq0HI6AhaokkNr3unqMYG26PoXrYlZ
-	 TzWipCzM0dy5w==
+	b=hvu/z7cMM9B466fCNUlVTJJ+1uxXSmsnHKCwjPlaWNy3Q67leBSvyfLkAnO46Crrm
+	 4WyXMBl9RniFGROU0WXmQQ0jjpDIoI8BrAr7SKyd5lTZSVY8ACxuo3FXFJ8OK+9elt
+	 75F+5pGPX+Gyj8PAC+Equ6yaGDEJrXRBciCMP6IqGkvcnkXj+HrsXhqNPUn4ohLPpU
+	 VhbXeoqQq5qvn/BYvS/ya3foz9SJNa+Ge5bBlmSWmBYUOg63t8MemJBao8NIbdYIl/
+	 +TC1O1C26J79C0OkR+iKa2/y7KKz7/x5pGPgxmDfPkaUqDX31TJZbkZZzhxAVCtWYS
+	 8YHyWOdnZZnHw==
 From: Yao Zi <ziyao@disroot.org>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -79,15 +79,16 @@ Cc: linux-riscv@lists.infradead.org,
 	Han Gao <rabenda.cn@gmail.com>,
 	Han Gao <gaohan@iscas.ac.cn>,
 	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH 6/7] clk: thead: th1520-ap: Support CPU frequency scaling
-Date: Thu, 20 Nov 2025 13:14:15 +0000
-Message-ID: <20251120131416.26236-7-ziyao@disroot.org>
+Subject: [PATCH 7/7] [Not For Upstream] riscv: dts: thead: Add CPU clock and OPP table for TH1520
+Date: Thu, 20 Nov 2025 13:14:16 +0000
+Message-ID: <20251120131416.26236-8-ziyao@disroot.org>
 In-Reply-To: <20251120131416.26236-1-ziyao@disroot.org>
 References: <20251120131416.26236-1-ziyao@disroot.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_122207_396330_27FAF33E 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20251120_122212_206680_59A60387 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,233 +105,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On TH1520 SoC, c910_clk feeds the CPU cluster. It could be glitchlessly
-reparented to one of the two PLLs: either to cpu_pll0 indirectly through
-c910_i0_clk, or to cpu_pll1 directly.
+Add operating point table for CPU cores, and wire up clocks for CPU
+nodes.
 
-To achieve glitchless rate change, customized clock operations are
-implemented for c910_clk: on rate change, the PLL not currently in use
-is configured to the requested rate first, then c910_clk reparents to
-it.
-
-Additionally, c910_bus_clk, which in turn takes c910_clk as parent,
-has a frequency limit of 750MHz. A clock notifier is registered on
-c910_clk to adjust c910_bus_clk on c910_clk rate change.
+This patch isn't intended for upstreaming but only for testing purpose,
+since the PMIC driver for scaling CPU voltage isn't ready yet. Only
+operating points whose voltage is satisified by Lichee Module 4A's PMIC
+default, i.e. <= 1.5GHz, are enabled.
 
 Signed-off-by: Yao Zi <ziyao@disroot.org>
 ---
- drivers/clk/thead/clk-th1520-ap.c | 148 +++++++++++++++++++++++++++++-
- 1 file changed, 146 insertions(+), 2 deletions(-)
+ arch/riscv/boot/dts/thead/th1520.dtsi | 35 +++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
-diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-index 79f001a047b2..cd3b396c9a3d 100644
---- a/drivers/clk/thead/clk-th1520-ap.c
-+++ b/drivers/clk/thead/clk-th1520-ap.c
-@@ -7,9 +7,11 @@
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index bd5d33840884..6020d568ad7c 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -38,6 +38,8 @@ c910_0: cpu@0 {
+ 			d-cache-sets = <512>;
+ 			next-level-cache = <&l2_cache>;
+ 			mmu-type = "riscv,sv39";
++			operating-points-v2 = <&cpu_opp>;
++			clocks = <&clk CLK_C910>;
  
- #include <dt-bindings/clock/thead,th1520-clk-ap.h>
- #include <linux/bitfield.h>
-+#include <linux/clk.h>
- #include <linux/clk-provider.h>
- #include <linux/delay.h>
- #include <linux/device.h>
-+#include <linux/minmax.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-@@ -34,6 +36,9 @@
- #define TH1520_PLL_LOCK_TIMEOUT_US	44
- #define TH1520_PLL_STABLE_DELAY_US	30
+ 			cpu0_intc: interrupt-controller {
+ 				compatible = "riscv,cpu-intc";
+@@ -65,6 +67,8 @@ c910_1: cpu@1 {
+ 			d-cache-sets = <512>;
+ 			next-level-cache = <&l2_cache>;
+ 			mmu-type = "riscv,sv39";
++			operating-points-v2 = <&cpu_opp>;
++			clocks = <&clk CLK_C910>;
  
-+/* c910_bus_clk must be kept below 750MHz for stability */
-+#define TH1520_C910_BUS_MAX_RATE	(750 * 1000 * 1000)
+ 			cpu1_intc: interrupt-controller {
+ 				compatible = "riscv,cpu-intc";
+@@ -92,6 +96,8 @@ c910_2: cpu@2 {
+ 			d-cache-sets = <512>;
+ 			next-level-cache = <&l2_cache>;
+ 			mmu-type = "riscv,sv39";
++			operating-points-v2 = <&cpu_opp>;
++			clocks = <&clk CLK_C910>;
+ 
+ 			cpu2_intc: interrupt-controller {
+ 				compatible = "riscv,cpu-intc";
+@@ -119,6 +125,8 @@ c910_3: cpu@3 {
+ 			d-cache-sets = <512>;
+ 			next-level-cache = <&l2_cache>;
+ 			mmu-type = "riscv,sv39";
++			operating-points-v2 = <&cpu_opp>;
++			clocks = <&clk CLK_C910>;
+ 
+ 			cpu3_intc: interrupt-controller {
+ 				compatible = "riscv,cpu-intc";
+@@ -137,6 +145,33 @@ l2_cache: l2-cache {
+ 		};
+ 	};
+ 
++	cpu_opp: opp-table-cpu {
++		compatible = "operating-points-v2";
++		opp-shared;
 +
- struct ccu_internal {
- 	u8	shift;
- 	u8	width;
-@@ -472,6 +477,72 @@ static const struct clk_ops clk_pll_ops = {
- 	.set_rate	= ccu_pll_set_rate,
- };
- 
++		opp-300000000 {
++			opp-hz = /bits/ 64 <300000000>;
++			opp-microvolt = <600000>;
++		};
++
++		opp-800000000 {
++			opp-hz = /bits/ 64 <800000000>;
++			opp-microvolt = <700000>;
++		};
++
++		opp-1500000000 {
++			opp-hz = /bits/ 64 <1500000000>;
++			opp-microvolt = <800000>;
++		};
++
 +/*
-+ * c910_clk could be reparented glitchlessly for DVFS. There are two parents,
-+ *  - c910_i0_clk, dervided from cpu_pll0_clk or osc_24m.
-+ *  - cpu_pll1_clk, which provides the exact same set of rates as cpu_pll0_clk.
-+ *
-+ * During rate setting, always forward the request to the unused parent, and
-+ * then switch c910_clk to it to avoid glitch.
++		opp-1848000000 {
++			opp-hz = /bits/ 64 <1848000000>;
++			opp-microvolt = <1000000>;
++		};
 + */
-+static u8 c910_clk_get_parent(struct clk_hw *hw)
-+{
-+	return clk_mux_ops.get_parent(hw);
-+}
++	};
 +
-+static int c910_clk_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	return clk_mux_ops.set_parent(hw, index);
-+}
-+
-+static unsigned long c910_clk_recalc_rate(struct clk_hw *hw,
-+					  unsigned long parent_rate)
-+{
-+	return parent_rate;
-+}
-+
-+static int c910_clk_determine_rate(struct clk_hw *hw,
-+				   struct clk_rate_request *req)
-+{
-+	u8 alt_parent_index = !c910_clk_get_parent(hw);
-+	struct clk_hw *alt_parent;
-+
-+	alt_parent = clk_hw_get_parent_by_index(hw, alt_parent_index);
-+
-+	req->rate		= clk_hw_round_rate(alt_parent, req->rate);
-+	req->best_parent_hw	= alt_parent;
-+	req->best_parent_rate	= req->rate;
-+
-+	return 0;
-+}
-+
-+static int c910_clk_set_rate(struct clk_hw *hw, unsigned long rate,
-+			     unsigned long parent_rate)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static int c910_clk_set_rate_and_parent(struct clk_hw *hw, unsigned long rate,
-+					unsigned long parent_rate, u8 index)
-+{
-+	struct clk_hw *parent = clk_hw_get_parent_by_index(hw, index);
-+
-+	clk_set_rate(parent->clk, parent_rate);
-+
-+	c910_clk_set_parent(hw, index);
-+
-+	return 0;
-+}
-+
-+static const struct clk_ops c910_clk_ops = {
-+	.get_parent		= c910_clk_get_parent,
-+	.set_parent		= c910_clk_set_parent,
-+	.recalc_rate		= c910_clk_recalc_rate,
-+	.determine_rate		= c910_clk_determine_rate,
-+	.set_rate		= c910_clk_set_rate,
-+	.set_rate_and_parent	= c910_clk_set_rate_and_parent,
-+};
-+
- static const struct clk_parent_data osc_24m_clk[] = {
- 	{ .index = 0 }
- };
-@@ -672,7 +743,8 @@ static const struct clk_parent_data c910_i0_parents[] = {
- static struct ccu_mux c910_i0_clk = {
- 	.clkid	= CLK_C910_I0,
- 	.reg	= 0x100,
--	.mux	= TH_CCU_MUX("c910-i0", c910_i0_parents, 1, 1),
-+	.mux	= TH_CCU_MUX_FLAGS("c910-i0", c910_i0_parents, 1, 1,
-+				   CLK_SET_RATE_PARENT, CLK_MUX_ROUND_CLOSEST),
- };
- 
- static const struct clk_parent_data c910_parents[] = {
-@@ -683,7 +755,14 @@ static const struct clk_parent_data c910_parents[] = {
- static struct ccu_mux c910_clk = {
- 	.clkid	= CLK_C910,
- 	.reg	= 0x100,
--	.mux	= TH_CCU_MUX("c910", c910_parents, 0, 1),
-+	.mux	= {
-+		.mask		= BIT(0),
-+		.shift		= 0,
-+		.hw.init	= CLK_HW_INIT_PARENTS_DATA("c910",
-+							   c910_parents,
-+							   &c910_clk_ops,
-+							   CLK_SET_RATE_PARENT),
-+	},
- };
- 
- static struct ccu_div c910_bus_clk = {
-@@ -1372,11 +1451,69 @@ static const struct th1520_plat_data th1520_vo_platdata = {
- 	.nr_gate_clks = ARRAY_SIZE(th1520_vo_gate_clks),
- };
- 
-+/*
-+ * Maintain clock rate of c910_bus_clk below TH1520_C910_BUS_MAX_RATE (750MHz)
-+ * when its parent, c910_clk, changes the rate.
-+ *
-+ * Additionally, TRM is unclear about c910_bus_clk behavior with divisor set to
-+ * 2, thus we should ensure the new divisor stays in (2, MAXDIVISOR).
-+ */
-+static unsigned long c910_bus_clk_divisor(struct ccu_div *cd,
-+					  unsigned long parent_rate)
-+{
-+	return clamp(DIV_ROUND_UP(parent_rate, TH1520_C910_BUS_MAX_RATE),
-+		     2U, 1U << cd->div.width);
-+}
-+
-+static int c910_clk_notifier_cb(struct notifier_block *nb,
-+				unsigned long action, void *data)
-+{
-+	struct clk_notifier_data *cnd = data;
-+	unsigned long new_divisor, ref_rate;
-+
-+	if (action != PRE_RATE_CHANGE && action != POST_RATE_CHANGE)
-+		return NOTIFY_DONE;
-+
-+	new_divisor	= c910_bus_clk_divisor(&c910_bus_clk, cnd->new_rate);
-+
-+	if (cnd->new_rate > cnd->old_rate) {
-+		/*
-+		 * Scaling up. Adjust c910_bus_clk divisor
-+		 * - before c910_clk rate change to ensure the constraints
-+		 *   aren't broken after scaling to higher rates,
-+		 * - after c910_clk rate change to keep c910_bus_clk as high as
-+		 *   possible
-+		 */
-+		ref_rate = action == PRE_RATE_CHANGE ?
-+				cnd->old_rate : cnd->new_rate;
-+		clk_set_rate(c910_bus_clk.common.hw.clk,
-+			     ref_rate / new_divisor);
-+	} else if (cnd->new_rate < cnd->old_rate &&
-+		    action == POST_RATE_CHANGE) {
-+		/*
-+		 * Scaling down. Adjust c910_bus_clk divisor only after
-+		 * c910_clk rate change to keep c910_bus_clk as high as
-+		 * possible, Scaling down never breaks the constraints.
-+		 */
-+		clk_set_rate(c910_bus_clk.common.hw.clk,
-+			     cnd->new_rate / new_divisor);
-+	} else {
-+		return NOTIFY_DONE;
-+	}
-+
-+	return NOTIFY_OK;
-+}
-+
-+static struct notifier_block c910_clk_notifier = {
-+	.notifier_call	= c910_clk_notifier_cb,
-+};
-+
- static int th1520_clk_probe(struct platform_device *pdev)
- {
- 	const struct th1520_plat_data *plat_data;
- 	struct device *dev = &pdev->dev;
- 	struct clk_hw_onecell_data *priv;
-+	struct clk *notifier_clk;
- 
- 	struct regmap *map;
- 	void __iomem *base;
-@@ -1463,6 +1600,13 @@ static int th1520_clk_probe(struct platform_device *pdev)
- 		ret = devm_clk_hw_register(dev, &emmc_sdio_ref_clk.hw);
- 		if (ret)
- 			return ret;
-+
-+		notifier_clk = devm_clk_hw_get_clk(dev, &c910_clk.mux.hw,
-+						   "dvfs");
-+		ret = devm_clk_notifier_register(dev, notifier_clk,
-+						 &c910_clk_notifier);
-+		if (ret)
-+			return ret;
- 	}
- 
- 	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, priv);
+ 	pmu {
+ 		compatible = "riscv,pmu";
+ 		riscv,event-to-mhpmcounters =
 -- 
 2.51.2
 
