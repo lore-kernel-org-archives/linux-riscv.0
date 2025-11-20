@@ -4,90 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEA9CF8855
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 13:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C04CF8863
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Nov 2025 14:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	References:MIME-Version:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Nr1egqP0cNFhImJtA4XLT36PpnpLoD9uPS6ByuvkiQM=; b=NfsogRDX8aZxmESkSRqC2ytq8A
-	WXtMc2ycF3e3v7J9+p+k8GbEXjvLgP8f1Sc+/h1klJjjtWzou+x/wH2+210dnaDDxqsp9tJvthire
-	iaeC12uDE+d+WAFuECI2/+6EbDhZ4yDtB6VQOLr0cY14l8hYQSq8lwhorMytFVv0+vTdwFoc4SRZ+
-	bTzqd0HlMUA4duBGoXTy+UZ+5JJ2XJZ935v3k3btnPyzU8vA0w8IwPKIzQmQcoSV0rncGLp0SBKNO
-	4MPclwkcYEYGK3Bv+lf9GHpuEvnUjr114W3ar/+N7EETbOLPMVm9rhJuz/RY9pLLGpnhL072uNrKb
-	zWcEcJ7Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hgmzqm3eYTtJxVVMjwCRGz4kS90yZ75mGkCXJRg2ESQ=; b=x6POHfA3lOrEfJ
+	eupVW3HT5mL8Idt/vw4YRGcGfWO6E8LwoC9EHJHjOV3HZ93pKbYtJZGkt08BWAlpGQ2gDZTSIQl1Q
+	Xb+K0n9dXYHTT3GwU/bjYNg82+y5QfDjAMdK6t4nRG/6xrHyOF3MTPKtjhfL5bdZ8wI7YFQ+ajsSV
+	LvSR4ziWrMmDr7zu9iwN5+b6pNpEikQsgwbLTOQCrK2ksn7xfYOO8kDpcEmvsD0vPCEcECdOkhJaA
+	+c2b5sPyWCnGgJTJ647LFG2vbnBoc9HbFDo6UpqQ9C5k8cqLDVUCztOcvBQBFzx3FbzIvR6hjGP3p
+	IElaMFu51N9jlaShbQ5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4ZL-00000006inw-2emr;
-	Thu, 20 Nov 2025 13:19:27 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1vM5vH-00000006sBK-1nLz;
+	Thu, 20 Nov 2025 14:46:11 +0000
+Received: from m16.mail.126.com ([117.135.210.6])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4ZJ-00000006ina-3HCj
-	for linux-riscv@lists.infradead.org;
-	Thu, 20 Nov 2025 13:19:26 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-594270ec7f9so740455e87.3
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Nov 2025 05:19:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1763644763; x=1764249563; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:references
-         :mime-version:in-reply-to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=N+Pvs/P8yaAJcomIF/27w9FonmnRzGGcQEOUpMwbtSc=;
-        b=WvtHlXn1crtGR+E5BbRQXTjLTDeW1PSEFYG8/9HSLSWdtp5hrcHxMLkzZSJ1m7z91V
-         dqhBdiouALvxKgO7uoE41I5lJM51IIsqEUkqYb/5zxLgoJTvetaZlVkzvKTFi/Vvp/Cj
-         bYaQJK86KO1fTlD/1U+r41HHAGY+nzQ1HmT6LRhJzyYRI537V6BlhfIrPBEqnNBkkaEb
-         gH86cMjmRt+ntZqPEXKivKVAO/kJA9uAf9D5ladHGCEc5KD5wXZZg8MQ1dxLTjVlQXoz
-         2bcEPJ/IRAbLBMJ6AkqkTIP/8yISea21xjirx3Gro9yX3gv1BjiUrz7kGmw8IMM4g+aM
-         lM6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763644763; x=1764249563;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:references
-         :mime-version:in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=N+Pvs/P8yaAJcomIF/27w9FonmnRzGGcQEOUpMwbtSc=;
-        b=DAzIxtKsGwqz+Mj4IB3pmFhw7+M4k1cEbDrwir7P7kOzsy8qYVlvk0KbP+cy2ZzN/W
-         W5vkqM8uQrH/S06PhAc0dRzj+vo7W7uPsPXQP3aGgrjYyuXY/Y55Vn1+yk+WUiW7d88a
-         aziw5vVH8J5SkH+SljBSJWQC8Na2E8ByqT4CRd5OPuqyO2EnJQgIefPtDcwh5vxHQGA3
-         /qB6AjC9J2dOXCnYICBJbUlPKeONH6ee+YP/Mcze0MemSemiTHVWOHocj1/RXlHLWFP0
-         z4ZdTIHPgpdCc5zGebiIwuG+B8KkKCO67pvdkJcBmHVFFYp2YEPOCrFJYfYHm4kimkAu
-         Mb4g==
-X-Forwarded-Encrypted: i=1; AJvYcCUOYJm72UZiuDjxBVQxczvJo9qdmDwZEn+vok6gDMnlEnEwgx7WhPLGL5YqbgTkSkM4ZLZMvXfdIFnYrg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9eEkqwmGfFIhU0en05yQABH9r5CJL2lGdp8bpSaycy+sy0pzj
-	OMVbyZxRE1Ch8KVd12+VIfZe7oE2yGZGSkJEygPMVUUh3oYSfXqHGp1lzXSfyaw2eCU0Oj/n4sx
-	ckd/hBfECNF2SG3sDdUWt/7LWw5E522bCuREHQVCb2Q==
-X-Gm-Gg: ASbGncss0x/XuSGLWJHhfsh9XxhLp20H22+BR5IuRAG4LmmXsQb1VXTM1nyid3g/jjW
-	0vktrKbKJcu9BxNzPvVqRAMfQm4YocBNeg1Kv8VqhUKU3087VvK1FvE+mmL0tZDvEfj834FuKyA
-	xWmwSy2npLQ+hyYFzoPGw4lPP7pojujqh/iLiMKPGyRawrixSJ8NN1u4LsAXWUCqAbiqwskhM6x
-	HNB0B71KtSpDB+mrt4arnAWLGgQPcXGyOMxLCy8c5JUJB6N22c34q5jqJWXtzEGx3S+sKnE0yUb
-	y8Fsyc2UocWhVUp4QRsuPa2S1A==
-X-Google-Smtp-Source: AGHT+IEQ5Of/pwZQALzGabgNx2iK3YUlSn5cLYElEN96Nu9WW+rH8ZIKADzTHUZ2rHI3X/Cck3HhjRldNNCydiLySOs=
-X-Received: by 2002:a05:6512:12c7:b0:595:81ba:fb4 with SMTP id
- 2adb3069b0e04-5969e31aeeemr1132843e87.47.1763644763516; Thu, 20 Nov 2025
- 05:19:23 -0800 (PST)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 20 Nov 2025 05:19:22 -0800
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 20 Nov 2025 05:19:22 -0800
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-In-Reply-To: <aR4EEJO_PeXMKF_h@smile.fi.intel.com>
+	id 1vM5vC-00000006s9m-2VWT;
+	Thu, 20 Nov 2025 14:46:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=ck
+	2LXnallF0o14E7324Drq0pinMWebr/hckuV1kG/zs=; b=MqFEMG7/RTC91gTVjA
+	Dl4seBQ5Ws9MA7NAK4hlamY5Giq8jh+/TF3J8WmSKhuZ8tk1a+IlK1RDurJ+uZPM
+	kgvFUqGx0w7zxS5ndkD+1FMYtRC4hN/C5VB+agW7/Pb6BGuKee8NpGGOiaMprA+D
+	EAG1GHJM+2YnUR8kFh6nfq+vw=
+Received: from nilq-virtual-machine.. (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3t8f_KB9pu1X7AA--.141S2;
+	Thu, 20 Nov 2025 22:43:12 +0800 (CST)
+From: niliqiang <ni_liqiang@126.com>
+To: apatel@ventanamicro.com
+Subject: Re: [PATCH v16 6/9] irqchip: Add RISC-V advanced PLIC driver for direct-mode
+Date: Thu, 20 Nov 2025 22:43:11 +0800
+Message-Id: <20251120144311.5083-1-ni_liqiang@126.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240307140307.646078-7-apatel@ventanamicro.com>
+References: <20240307140307.646078-7-apatel@ventanamicro.com>
 MIME-Version: 1.0
-References: <20251119150049.13537-1-jszhang@kernel.org> <aR4EEJO_PeXMKF_h@smile.fi.intel.com>
-Date: Thu, 20 Nov 2025 05:19:22 -0800
-X-Gm-Features: AWmQ_bkIlwbTZgGoZosO65uRCBe6I-MO9GZQWGgQg5fS3X-qe8cV74I6WtFGmbU
-Message-ID: <CAMRc=McJz-omnKZsFLN+us00811bM1Q8Y-jodL5gtCp=OEsEEA@mail.gmail.com>
-Subject: Re: [PATCH] gpio: dwapb: Fold dwapb_context into dwapb_gpio_port
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Hoan Tran <hoan@os.amperecomputing.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	=?UTF-8?Q?Michael_B=C3=BCsch?= <mb@bues.ch>, 
-	Jisheng Zhang <jszhang@kernel.org>
+X-CM-TRANSID: _____wD3t8f_KB9pu1X7AA--.141S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tw47XFyrJw47tw1Dtw4DCFg_yoW8ZF1DpF
+	4Dt34Iya9rGF1ag3ZrGa1kAFy7C395Cayayr1DJ34a9wn8uFyqva1Iy3909ry5Jr4rAr1a
+	qrWjyF9rCan8ZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jjbyZUUUUU=
+X-Originating-IP: [111.162.114.251]
+X-CM-SenderInfo: xqlbzxxtld0wa6rslhhfrp/1tbiTwgM5WkfG4PySQAAs7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_051925_859092_D3BA9E62 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20251120_064607_054630_EF5F649F 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +65,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, conor+dt@kernel.org, maz@kernel.org, saravanak@google.com, anup@brainfault.org, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, ni.liqiang@zte.com.cn, bjorn@kernel.org, robh+dt@kernel.org, palmer@dabbelt.com, hu.yuye@zte.com.cn, krzysztof.kozlowski+dt@linaro.org, atishp@atishpatra.org, deng.weixian@zte.com.cn, linux-riscv@lists.infradead.org, frowand.list@gmail.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, ajones@ventanamicro.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAxOSBOb3YgMjAyNSAxODo1MzoyMCArMDEwMCwgQW5keSBTaGV2Y2hlbmtvCjxhbmRy
-aXkuc2hldmNoZW5rb0BpbnRlbC5jb20+IHNhaWQ6Cj4gT24gV2VkLCBOb3YgMTksIDIwMjUgYXQg
-MTE6MDA6NDlQTSArMDgwMCwgSmlzaGVuZyBaaGFuZyB3cm90ZToKPj4gRm9sZCBkd2FwYl9jb250
-ZXh0IGludG8gc3RydWN0IGR3YXBiX2dwaW9fcG9ydCB0byBmdXJ0aGVyIHNpbXBsaWZ5Cj4+IHRo
-ZSBjb2RlLiBTdXJlIHRoaXMgYnJpbmdzIGEgdGlueSAzNiBieXRlcyBkYXRhIG92ZXJoZWFkIGZv
-cgo+PiAhUE1fU0xFRVAuIEFmdGVyIGdyZXBwaW5nIHRoZSBhcm0vYXJtNjQvcmlzY3YgZHRzIGRp
-ciwgdGhlIG1heCBkd2FwYgo+PiBncGlvIHBvcnQgbnVtYmVyIGlzIDYodGhlIGJlcmxpbjJxIHNv
-YyBmYW1pbHkpLCBzbyB0aGlzIG1lYW5zIHdlIHdpbGwKPgo+IEdQSU8KPgo+ICphbmQgSSBiZWxp
-ZXZlIHRoaXMgaXMgbGltaXRhdGlvbiBieSBTeW5vcHN5cyBpbiBIVywgYnV0IEknbSBub3QgZ29p
-bmcgdG8gY2hlY2sKPiB0aGUgZGF0YXNoZWV0IHJpZ2h0IG5vdy4KPgo+PiB3YXN0ZSAyMTYgYnl0
-ZXMgbWVtb3J5IGluIHRvdGFsIHdoaWNoIGlzIHRyaXZpYWwgY29tcGFyZWQgdG8gdGhlCj4+IHN5
-c3RlbSBtZW1vcnkuCj4+Cj4+IEZyb20gYW5vdGhlciBzaWRlLCBhcyBNaWNoYWVsIG1lbnRpb25l
-ZDoKPj4gIlRoZSBkcml2ZXIgY3VycmVudGx5IGFsbG9jYXRlcyB0aGUgc3RydWN0IHdpdGgga3ph
-bGxvYyBhbmQgc3RvcmVzIGEKPj4gcG9pbnRlciB0byBpdCBpbiBjYXNlIG9mIFBNPXkuCj4+IFNv
-IHRoaXMgcHJvYmFibHkgaGFzIGFuIG92ZXJoZWFkIGluIHRoZSBzYW1lIG9yZGVyIG9mIG1hZ25p
-dHVkZQo+PiAocG9pbnRlciArIG1hbGxvYyBvdmVyaGVhZC9hbGlnbm1lbnQvZnJhZ21lbnRhdGlv
-bikgaW4gY2FzZSBvZiBQTT15Cj4+IG5vdy4iCj4+Cj4+IFNvIGxldCdzIEZvbGQgZHdhcGJfY29u
-dGV4dCBpbnRvIHN0cnVjdCBkd2FwYl9ncGlvX3BvcnQuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEpp
-c2hlbmcgWmhhbmcgPGpzemhhbmdAa2VybmVsLm9yZz4KPgo+PiBDQzogTWljaGFlbCBCw7xzY2gg
-PG1iQGJ1ZXMuY2g+Cj4KPiBQbGVhc2UsIHVzZSAtLWNjIG9yIG1vdmUgQ2MgbGlzdCBiZWxvdy4u
-Lgo+Cj4+IC0tLQo+Cj4gLi4udGhpcyBjdXR0ZXIgbGluZS4gSXQgd2lsbCBoYXZlIHRoZSBzYW1l
-IGVmZmVjdCBvbiB0aGUgZW1haWxzLCBidXQgaXQgd2lsbAo+IHJlZHVjZSB0aGUgbm9pc2UgaW4g
-dGhlIGNvbW1pdCBtZXNzYWdlLgo+Cj4+IE5PVEU6IHRoaXMgcGF0Y2ggaXMgYXBwbGllZCBhZ2Fp
-bnN0IHRoZSBmb2xsb3dpbmcgc2VyaWVzOgo+PiBbUEFUQ0ggdjMgMDAvMTVdIGdwaW86IFVzZSBt
-b2Rlcm4gUE0gbWFjcm9zCj4KPiBJdCdzIGJldHRlciB0byBqdXN0IHB1dCBhIGxpbmsgdG8gbG9y
-ZS5rZXJuZWwub3JnIG9yIGF0IGxlYXN0IG1lc3NhZ2UtaWQuCj4KPiAuLi4KPgo+IEkgaGF2ZSBh
-IG1peGVkIGZlZWxpbmdzIGFib3V0IHRoaXMsIGJ1dCBpZiBtYWludGFpbmVycyBnbyB3aXRoIGl0
-LAo+IGxldCBpdCBiZSB0aGVuLgo+CgpJIGRvbid0IG1pbmQgaXQgc28gcGxlYXNlIHJlc2VuZCBp
-dCB3aXRoIHRoZSBpc3N1ZXMgYWRkcmVzc2VkLCBKaXNoZW5nLgoKQmFydAoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+> diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+> +static const struct of_device_id aplic_match[] = {
+> + { .compatible = "riscv,aplic" },
+> + {}
+> +};
+> +
+> +static struct platform_driver aplic_driver = {
+> + .driver = {
+> +  .name  = "riscv-aplic",
+> +  .of_match_table = aplic_match,
+> + },
+> + .probe = aplic_probe,
+> +};
+> +builtin_platform_driver(aplic_driver);
+
+Dear Anup Patel and all concerned,
+
+I am writing to inquire about the historical rationale behind defining the APLIC driver's
+initialization priority using builtin_platform_driver in the current implementation.
+
+In our environment, we are encountering an issue where this priority level causes ACPI-based PCIe
+enumeration to be executed in the system_unbound_wq work queue. This parallel execution model
+results in PCIe devices being enumerated in an arbitrary order rather than strictly following the
+sequence defined in the ACPI DSDT table.
+
+The random enumeration order is adversely affecting customer experience, particularly in scenarios
+where device ordering is critical for proper system operation or application compatibility.
+
+We are considering modifying the APLIC driver's initialization priority to ensure PCIe enumeration
+occurs sequentially according to the DSDT specification. However, before proceeding with such
+changes, we wanted to consult with you regarding:
+
+1. Were there specific technical considerations that led to the current priority selection?
+2. Are there any potential side effects or broader impacts that we might have overlooked?
+3. Would you support such a priority adjustment, or do you have alternative suggestions to 
+address the enumeration order issue?
+
+We greatly appreciate your insights and expertise on this matter, as it will help us make an
+informed decision while maintaining system stability and compatibility.
+
+Thank you for your time and consideration.
+
+Best regards,
+Liqiang
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
