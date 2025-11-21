@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85898CFA46B
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 02:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 543C8CFA466
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 02:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ukMHGe50egwTBoGpLO+WzIDn8poolo5Wd7moc/gA18k=; b=EKINc4+6OISbKt
-	zSWOqRcsj6FEHK9eA+1k2RL0I3UpTP1lFOEZFY7r0rxDD1R9j4sUD298KrTbatqiRerVEyyN/0tlP
-	2vx+7ho+NfkTvJbcRzmr7ylCVMb4fx9bYxHu2ANQDWBpddU5pkpCXqvH3uTZ1abWf78JBBQpFTxef
-	DnUS+NSKHda9sC8xtQmWvePcEVINbQDShlgw0RioHAE2wyPutp+Osx9vg2Ce137KW6166ufHMX6w6
-	C9VHWf6PVN6Cslf24qvh4AcwG5AIXu6t6iCAICCJdBziVYAfRCWFix3XKfZaBLsYY2hUjpZamIlHB
-	bxffoLokf/EB52nIUSew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1G7Zyjcpq8sTUoeMFReTCSNBFeQn9a8tVjAPM8iWy8g=; b=bGjy/oGIAOigoyjeRCurJVy/Km
+	3DFxcxrPTinIoxm717yoXxIlMGuNW7mKwe+JsdGHbbq32yjKpsf+h4hOeaugk3fZYFZCgTPZQ2lkp
+	Cn6HbJvbMkk6LGxjnaxaPakpKmyEr/+wSB7G1Z7DMhlxQXF9CD1NZa8LbqdD4fe/tYDhoNSxE71Zh
+	oqgTzGPeJr194goDFiiAtwdSnNW/QJ2d0+l/bG2xzx5aczDgZahmcmKb1b8V1hbkiTJJ+Mm/eZVv9
+	BkPGokjs9voCH+lueY+ylhaU0lr5plbM1XphDW74Sxjb1wyaNydgycUZ18hTD/62FIWn9O/d6F2jG
+	fIho8mpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMGSD-00000007fH9-10o2;
-	Fri, 21 Nov 2025 02:00:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vMGaU-00000007gCl-02UY;
+	Fri, 21 Nov 2025 02:09:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMGSB-00000007fGg-3Ht5;
-	Fri, 21 Nov 2025 02:00:51 +0000
+	id 1vMGaR-00000007gBj-35yJ;
+	Fri, 21 Nov 2025 02:09:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CCDFC60216;
-	Fri, 21 Nov 2025 02:00:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D0F3C4CEF1;
-	Fri, 21 Nov 2025 02:00:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2282D4445F;
+	Fri, 21 Nov 2025 02:09:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30026C4CEF1;
+	Fri, 21 Nov 2025 02:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763690450;
-	bh=oURpXBr3KdDn9PGKvZ71lA/uZ3b0bjDvzcwrD9A6oco=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=RDaxqjBXt1j3UIdjy7D7SVnLs8g7GgWn0u8nIwwGC1fkiNvamtVFDj/FQO/M8D/eh
-	 ZYIA8xclzKyMLPZroHugJ3RkCZs5j9pKq0uWtuDFi0aBxiZtSOUzYSr5VSAEob6tbA
-	 +24SZmZdWrSItahXVbfOjubhuO2Q9wBLd3uWK8Q1anPuB2bUlhg79qq/F3gvp3PXJe
-	 GCBA+D0/jJI9zu1fGsaJShWGCCkqQPKRf5p99z7rHol3XvaTdbp8EZvcxoMvleDjLd
-	 cvjpgHB4iUi5H3cdt7LM8reUKZkE25YppGHm/F3OQ8XDVF7CXgsxWVC/aJfF3PxY64
-	 b0Fp/3p8/tkTA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE07F3A41003;
-	Fri, 21 Nov 2025 02:00:16 +0000 (UTC)
+	s=k20201202; t=1763690963;
+	bh=Bz7xeF2JFxhA+tr4bBYKwtM1aze7r6fWJHliCqTnUpU=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=j3dSOGzTqbCddJGVT5roKZn7ficPkxCfcZaQAbSHTo9ZEpPBpOUx6A+7D3iJGElrS
+	 xERwOpb0HglzyK+cyiMtdgu+xzC+v5c2uu28ifTlgYK2Oge6TJdh2knqdBtSef+qsa
+	 n4EASFxrLwd1zfxuHQhx80lddfRqlhkum8rXwIpnFiTVaQjEI29yJEKBIpe+M/FWR8
+	 OLEfnFo43eLM03+3tVi64Nr+UnQNI7VzrHe31zP9rsXTL7AzLiKeGnBkSfiX1Gvg3X
+	 9VJ4TWJNC3VVZ1aJwt1vadaOPQj2cIIv/pcsMPa30N8hKbqp7RTHENp04Ckbf6rwHH
+	 UvjI8iIQZXrfQ==
+Date: Thu, 20 Nov 2025 19:09:18 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Huacai Chen <chenhuacai@kernel.org>
+cc: Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Paul Walmsley <pjw@kernel.org>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    "Madhavan T. Venkataraman" <madvenka@linux.microsoft.com>, 
+    Tiezhu Yang <yangtiezhu@loongson.cn>, Ard Biesheuvel <ardb@kernel.org>, 
+    loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+    linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+    linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+In-Reply-To: <aRsH7RTpAah4g5Xr@willie-the-truck>
+Message-ID: <e36f8b19-c801-c872-381e-7eb40dc5e3e4@kernel.org>
+References: <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com> <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn> <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com> <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
+ <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com> <CAMj1kXEaxxcWTTANWeEMNjYDymdL5Fxy2B=XBF4RGtteEkfinw@mail.gmail.com> <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn> <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
+ <32s3lvzfu6jkyho7qenrqbsm5wkgjnzn2imdp6tfwycmyxpzgu@kg5367uxmxii> <CAAhV-H47fzaKcMhgLWWOTxB+srBsg85-eK0LW1vQXQnvq32-+w@mail.gmail.com> <aRsH7RTpAah4g5Xr@willie-the-truck>
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next 0/3] net: stmmac: pass struct device to init/exit
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176369041551.1856901.1355582687378802410.git-patchwork-notify@kernel.org>
-Date: Fri, 21 Nov 2025 02:00:15 +0000
-References: <aR2V0Kib7j0L4FNN@shell.armlinux.org.uk>
-In-Reply-To: <aR2V0Kib7j0L4FNN@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, wens@csie.org, davem@davemloft.net,
- fustini@kernel.org, edumazet@google.com, wefu@redhat.com, guoren@kernel.org,
- heiko@sntech.de, kuba@kernel.org, jan.petrous@oss.nxp.com,
- jernej.skrabec@gmail.com, keguang.zhang@gmail.com,
- prabhakar.mahadev-lad.rj@bp.renesas.com,
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-sunxi@lists.linux.dev, maxime.chevallier@bootlin.com,
- mcoquelin.stm32@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com,
- s32@nxp.com, samuel@sholland.org
+Content-Type: multipart/mixed; boundary="8323329-1623710078-1763690962=:1910464"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_180923_817158_BDE0305D 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,43 +74,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+--8323329-1623710078-1763690962=:1910464
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8BIT
 
-On Wed, 19 Nov 2025 10:02:56 +0000 you wrote:
-> Rather than passing the platform device to the ->init() and ->exit()
-> methods, make these methods useful for other devices by passing the
-> struct device instead. Update the implementations appropriately for
-> this change.
+On Mon, 17 Nov 2025, Will Deacon wrote:
+
+> On Sat, Nov 15, 2025 at 11:16:42AM +0800, Huacai Chen wrote:
+> > On Wed, Nov 12, 2025 at 2:00 AM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+> > > On Mon, Nov 10, 2025 at 03:00:00PM +0800, Huacai Chen wrote:
+> > >
+> > > > Changing efistub code and changing objtool (ignore __efistub prefix)
+> > > > are both workarounds, but I think changing objtool is a little more
+> > > > reasonable. Maybe Josh has different ideas?
+> > >
+> > > I thought the conversation had converged on what Tiezhu mentioned above,
+> > > which is to skip objtool on libstub for loongarch, but leave the other
+> > > arches alone.  That way objtool behavior is consistent between loongarch
+> > > and x86, and objtool doesn't need to ignore any prefixes.
+> > >
+> > > So basically, the v2 patch minus the arm64/riscv changes.
+> > 
+> > Hi, ARM64 and RISC-V maintainers,
+> > 
+> > Would you mind that this patch modifies the three architectures
+> > together (they are exactly the same style now)?
+> > 
+> > Madhavan is the author of ARM64's objtool, I think your opinion is
+> > also very important.
 > 
-> Move the calls for these methods into the core driver's probe and
-> remove methods from the stmmac_platform layer.
+> arm64 doesn't (yet) use objtool.
 > 
-> [...]
+> I defer to Ard on anything relating to the arm64 efistub. Reading the
+> start of this thread, it doesn't look like he's convinced and I'm not
+> surprised if it's purely an issue with objtool.
 
-Here is the summary with links:
-  - [net-next,1/3] net: stmmac: pass struct device to init()/exit() methods
-    https://git.kernel.org/netdev/net-next/c/85081acc6b11
-  - [net-next,2/3] net: stmmac: move probe/remove calling of init/exit
-    https://git.kernel.org/netdev/net-next/c/32da89a840e8
-  - [net-next,3/3] net: stmmac: rk: convert to init()/exit() methods
-    https://git.kernel.org/netdev/net-next/c/1a62894e040d
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Same for RISC-V.
 
 
+- Paul
+--8323329-1623710078-1763690962=:1910464
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-1623710078-1763690962=:1910464--
+
