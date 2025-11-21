@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B6DCFC27C
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 13:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FE1CFC27C
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 13:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BJkaBaBerKzZ/ktgWsMe3hjbE5tXjJw3cpycigaUutM=; b=Y3ddPUufG4APHw
-	UmqGvDKMlsIiyZxFHyd05QhsmEEoOUp+yJ2o+HXIO/RSAcahlccXcAzWzU7jMnmwKNAyXS3okL6S4
-	pyTdCTtGVCvrJoDePCmtq26GbOn/BreWGbkA13q6VYNoJ8VQmNJ5jMknNuVHkACNJ14i88GAU5BX0
-	QlWwy0dXMY/AYHlwg1Cy/KHW39aaA3vFYP2pI/DJkgle39bnLZHN/mi/yU2M6njJ6HFEeH9Jplb9F
-	Nf/TQ9ojMChWke1S00RkjCD4Aqu+MWIqC3ypJAyg4saujCn7Mi0sB2kPOaknln3q7IueTt+V2Ec71
-	6tIe+rcCmWBBgZnRjJeA==;
+	List-Owner; bh=EP+XJmfnswdK13uoiV6sTVyPtt05O81ZgzCtVhtDzGA=; b=Q+rij88evKy4qG
+	UG0h1xMrWijcw9/6RGVBDpjnUsUA00aYdLlz0jWncgIormhBgbBFZrOp3+A34yXCzuxkR7IoLuid/
+	B370MQD5BL9c+Cg9iWcERYhgZ4wnUSczrXJCGq/gSfKdOv1rmN4/ownUDRpmf0heqJXGe3w4zCjK5
+	lGZo2lMjlNcBGf35vqMSefMUM4kej4obXa7lP28QgZvFLsEUQcn+VQa7trlmOGTiSvtoj+J/x1+k/
+	VpVdg4qRSzWTWbIriCDMcLDJiMwCpcx/R6d7lcPpJOjzwOxd+w2OR6CltkodVgDkOHlHM2dD1+2pd
+	hbk3crPp0WwtakYa8Ceg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRQu-00000008R71-30Gl;
-	Fri, 21 Nov 2025 13:44:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vMRQx-00000008R8K-07Am;
+	Fri, 21 Nov 2025 13:44:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRQr-00000008R5i-2mfs
+	id 1vMRQu-00000008R6x-3tTF
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Nov 2025 13:44:14 +0000
+	Fri, 21 Nov 2025 13:44:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5EE8F4189D;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3EC064189D;
+	Fri, 21 Nov 2025 13:44:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4B69C4CEFB;
 	Fri, 21 Nov 2025 13:44:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4313C4CEF1;
-	Fri, 21 Nov 2025 13:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763732653;
-	bh=/v1QAlCCWNbMx8wdrlD6B9enfAEnlVlEnoMDUomq2iQ=;
+	s=k20201202; t=1763732656;
+	bh=0+J1Q5CKVMTP2xhn6YpjpspBi2tj6Gjjxk8nh8alXSY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ol/gUFQMczSrgF4dRYg+nQikDPq38qhKah68ijPzBb9d3Y2CCyFjY5jc+AYaYj+H5
-	 8m+xYq7jgfeA3ukeVAH04lzhon4UHa8zmUDaEMPvqNhE36DOSGXSH1skt5cxPYydSN
-	 3d4bwn+kA1N3/NeQsH/cLqXq90D/PAk8pv+qTCBTX/VjHJIZjJshfyaLJYofvS3cQA
-	 LJiOHt9lzGBypP54svXdLPiOW8+MBjbwhbJPAUrwPbDtgBSOfbzcCMrOfSgUkjkp7/
-	 L9VguOhd8Grjkf82EmhnmFFeIgt6LAoZlLUp02saR4N0ybn+YgIa0ZyI6hhbjjPQX/
-	 5MyCG3gbgaXTg==
+	b=MrcXdDJfyvU/I3meVg/ArtkEdEJx5REMlOb+eK7jKHWiSdBCUuRvZm5Eda3nnwROr
+	 tM58qKQjtrApyMD6gWUjO4pcmzRjUXsDdDaLGyyuHGlDi0pv+x3VmG623BS0d5zvpJ
+	 FKYpJblG+oBsMVYEETH3cbQ79tLlnCXx/rQ7fpmAlhYRoMXZteLfdTgd5bFwXaWUg5
+	 x4/F6y2j2UgxFMTXfRQGhcQNC309vIDGWSJ+JsVchrLEAi76LXGcoXKsuJxuPjKkUV
+	 q9PoYR7va2W052QLZpCrXc47d3E9i0qZyPZYUPVJ/Rw1kE5gqmYrVsPh2UUDkSJMv8
+	 fUotfhTBuhOog==
 From: Conor Dooley <conor@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: conor@kernel.org,
@@ -56,18 +56,18 @@ Cc: conor@kernel.org,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
-Subject: [PATCH v2 2/3] dt-bindings: clock: mpfs-ccc: Add pic64gx compatibility
-Date: Fri, 21 Nov 2025 13:44:01 +0000
-Message-ID: <20251121-trade-slacked-5fc7c1139cb2@spud>
+Subject: [PATCH v2 3/3] dt-bindings: clock: mpfs-clkcfg: Add pic64gx compatibility
+Date: Fri, 21 Nov 2025 13:44:02 +0000
+Message-ID: <20251121-unclip-shabby-a7a16e865146@spud>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251121-tartar-drew-ba31c5ec9192@spud>
 References: <20251121-tartar-drew-ba31c5ec9192@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1011; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=6u/MVsorAWOBiuYW/sM6Lc9tNpUToYIrlt3K2vcU0zQ=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkKOfMz906riTc7xdT856JynvxRZbZp8tvWTz5RKr9o8 ZxdSz2XdZSyMIhxMciKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAivsUM/xRktZm5fr7iXed4 ZJbyffkL5z5emWB6f/8qlW1tbYXVu30ZGV4Er1sTmKh0IJJnv2Cc5Edt7qdXubY07GqPZW3L6Z6 7hAcA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1375; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=BAqYmh3+kZOKEzACbZi5m6qzBFcZG08zjLdoiX1jvnQ=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkKOfMTLvxZIKvxR3R3ZPbj37b/pu479/R0njDjUV29i ObZk5LvdJSyMIhxMciKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAiaiYM/yxqF7nGc1v1pHDq ZZ763J5xM7IyYm3eebWswNroeTZ6zxl+s3Z7KBlM0oj+8Kf41vkdukI1vaGnXjoV7BM62F574BI vKwA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_054413_722951_2A07CE47 
-X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-CacheID: sfid-20251121_054416_992448_643FB0E2 
+X-CRM114-Status: UNSURE (   8.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,33 +87,50 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
 
-pic64gx SoC Clock Conditioning Circuitry is compatibles
-with the Polarfire SoC
+pic64gx has a clock controller compatible with mpfs-clkcfg. Don't permit
+the deprecated configuration that was never supported for this SoC.
 
 Signed-off-by: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/clock/microchip,mpfs-ccc.yaml       | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ .../bindings/clock/microchip,mpfs-clkcfg.yaml    | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml b/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml
-index f1770360798f..9a6b50527c42 100644
---- a/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml
-+++ b/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml
-@@ -17,7 +17,11 @@ description: |
+diff --git a/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
+index ee4f31596d97..a23703c281d1 100644
+--- a/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
++++ b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
+@@ -19,7 +19,11 @@ description: |
  
  properties:
    compatible:
--    const: microchip,mpfs-ccc
+-    const: microchip,mpfs-clkcfg
 +    oneOf:
 +      - items:
-+          - const: microchip,pic64gx-ccc
-+          - const: microchip,mpfs-ccc
-+      - const: microchip,mpfs-ccc
++          - const: microchip,pic64gx-clkcfg
++          - const: microchip,mpfs-clkcfg
++      - const: microchip,mpfs-clkcfg
  
    reg:
-     items:
+     oneOf:
+@@ -69,6 +73,16 @@ required:
+   - clocks
+   - '#clock-cells'
+ 
++if:
++  properties:
++    compatible:
++      contains:
++        const: microchip,pic64gx-clkcfg
++then:
++  properties:
++    reg:
++      maxItems: 1
++
+ additionalProperties: false
+ 
+ examples:
 -- 
 2.51.0
 
