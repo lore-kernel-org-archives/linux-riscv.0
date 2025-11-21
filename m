@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF0CCFC27C
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 13:36:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBEDCFC27C
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 13:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=C4K/SNGeIa4vHb40W+pGwCONEnCZpsBGS6AWD0Q9niA=; b=Ggk17c00Y5fnmh
-	gH1V7WgpTP9Q4nH9XMPkOU5RXsNHasnE1+NHPqyP05ZmmCPNuQMjcfcgfhNedZMimQpvAgRU0z/3c
-	Y1oIIFaY9n5JKk8tvD76jA7GNGFvTTpiMKm7Fdck1w2yHWM+7MvM2d/qH5ZqkoT44Eu5ImC7QMkh0
-	k5udXyZFH1jnNfRTsJemRNuS2hd9KZKkA9o7F77GhYRhLbv39/RD97UyLkaMQXgdY4/Xpm2Ipr+z4
-	Sxe+1JeAddb1ud4QTEEhgdmvpoN2b0Sh0dFaouso1CmCmhqFnRVytesPlmGJHlybkPCFJFJ8MvSFJ
-	vHJdap21KSf31q5bhixA==;
+	List-Owner; bh=qHUVickt8bpLpDEHbww2sC6Ru15fnfqY68u5Vsv8Puw=; b=vVkI2zxTULB0vN
+	E/dlk7PpxEahqsROdginEBWPQaWwQ8KQDw8akzQxtHvONEQMaCOliCPnsTN1VfA6vjnMoTOOPejB7
+	juMMLCW7Fr8bu4qG8e6921SX1Jdm5uLjnv/K29rzrgQobK3NmvPt+ngDUDg63dpdZSrhXi3e4EwfT
+	3vsE1haUX3TpMCh0yp44yUNN/RazEeVYhQKnzBqNS5/AHjchMgVRAds+LHQyIT0Hs+/Pkl+Bo/Y/+
+	KT2XOK/n6ahYONpd5KJVNDZPAyuWvtBgvxjIeJR+l33hvEJ2wRunj4ZZhR/+PDB1c6NalptehpBEs
+	D7wtmjo5MDoQPfDzXSeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRJ5-00000008Q3a-2jMF;
-	Fri, 21 Nov 2025 13:36:11 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
+	id 1vMRPX-00000008Qwl-37mI;
+	Fri, 21 Nov 2025 13:42:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRJ0-00000008Q2S-1lT6;
-	Fri, 21 Nov 2025 13:36:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1763732158; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=0Y4Gl8l0oRGBSSOkUyUCKPutDiBDPCRdKNSD2TJIBMU=;
-	b=NUtGdCBzWG2Qbzha1+Mq2lJvlFbN2BwwlAtTdX4zRla2hXVDnzHhTSBTlMhSWovCAiPAqc61HfSnIOLipSpS+xa0GkPwLXlPY1ReZ9OU0DHOWpineE72bLJvQ5UvMVhX5i9WQ+IbrK36TyPuunuWR2DBmx72lj0lTF+aM/EH8/4=
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0Wt0CGTO_1763732155 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 21 Nov 2025 21:35:56 +0800
-From: fangyu.yu@linux.alibaba.com
-To: anup@brainfault.org,
-	atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: guoren@kernel.org,
-	ajones@ventanamicro.com,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
+	id 1vMRPV-00000008QwQ-3IZv
+	for linux-riscv@lists.infradead.org;
+	Fri, 21 Nov 2025 13:42:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 992606025A;
+	Fri, 21 Nov 2025 13:42:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28347C116D0;
+	Fri, 21 Nov 2025 13:42:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763732568;
+	bh=JWEH0EEiu3HL+mQccorOdCZ3B7sTUWJsB+/8RXQUlrs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=UabFJLBBCAFml7+qNgB7VXXI+lMl4ffeKvg0NjnLbrVK8MBlQ7LWX5R+WQQW1XQMg
+	 wZTyx1BS7vLTdOH8v9vyBF+pt5ne2kJiPW5+MyyC9fw8eCK1cUOKkeddAtLpAWorrK
+	 OAnweA3HAYb1yLcQt4eTVtrKkkS3JorBNmsfj5d7SYHBBonaYyRuOGXJi+8ikntByy
+	 yWcG9p+oDcIOL6xvWKwQf+kOBhblY4rHsxunnPVWUDjgjLMR3VEP4afkatmJhQ6PXe
+	 QMISijh/2yAGqZwBXbGa+1TADN1bbeRRKfRzOHU2JOX1Iy+LD8A2SEYFdFf+ywzgem
+	 Fr2Bjqsu9CoTA==
+From: Conor Dooley <conor@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [PATCH v3] RISC-V: KVM: Fix guest page fault within HLV* instructions
-Date: Fri, 21 Nov 2025 21:35:43 +0800
-Message-Id: <20251121133543.46822-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	linux-can@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [net-next v2] dt-bindings: can: mpfs: document resets
+Date: Fri, 21 Nov 2025 13:42:30 +0000
+Message-ID: <20251121-sample-footsore-743d81772efc@spud>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_053607_009628_70E4E592 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2274; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=H1pKxRw0xn3sBjDfosi1NAZI2A1U748fyOaF5di6rGM=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkKOS7plyf6zE2cUSiwcmn0ydYIp5y9R/vrlGd1uBpvY d/Zd1Klo5SFQYyLQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABOp3s3wP3CxyI2GIAn/zrf1 1dXP9kfUWJ3akd1+syop0e/KC/WfIYwMq7Mns0xpWu75Q7jba9tao2TNxJ4Zvzwn5X6VO6ejIXy bFwA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +77,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-When executing HLV* instructions at the HS mode, a guest page fault
-may occur when a g-stage page table migration between triggering the
-virtual instruction exception and executing the HLV* instruction.
+The CAN cores on Polarfire SoC both have a reset. The platform firmware
+brings both cores out of reset, but the linux driver must use them
+during normal operation. The resets should have been made required, but
+this is one of the things that can happen when the binding is written
+without driver support.
 
-This may be a corner case, and one simpler way to handle this is to
-re-execute the instruction where the virtual  instruction exception
-occurred, and the guest page fault will be automatically handled.
-
-Fixes: b91f0e4cb8a3 ("RISC-V: KVM: Factor-out instruction emulation into separate sources")
-Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-
+Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN controller")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-Changes in v3:
-- Add a helper function to avoid repeating the same paragraph(suggested by drew)
-- Link to v2: https://lore.kernel.org/linux-riscv/20251111135506.8526-1-fangyu.yu@linux.alibaba.com/
+This is the second mistake in this binding, both spotted because of the
+driver being written (although this one sat downstream for a while for
+w/e reason). I wish I could say that I'd send the driver soon, but I am
+busy upstreaming things I wrote and therefore understand at the moment,
+so a driver that I'd have to go understand and review before sending is
+low priority, sorry!
 
-Changes in v2:
-- Remove unnecessary modifications and add comments(suggested by Anup)
-- Update Fixes tag
-- Link to v1: https://lore.kernel.org/linux-riscv/20250912134332.22053-1-fangyu.yu@linux.alibaba.com/
+v2: update the example too...
+
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Marc Kleine-Budde <mkl@pengutronix.de>
+CC: Vincent Mailhol <mailhol@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: linux-riscv@lists.infradead.org
+CC: linux-can@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
 ---
- arch/riscv/kvm/vcpu_insn.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ .../devicetree/bindings/net/can/microchip,mpfs-can.yaml      | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
-index de1f96ea6225..4d89b94128ae 100644
---- a/arch/riscv/kvm/vcpu_insn.c
-+++ b/arch/riscv/kvm/vcpu_insn.c
-@@ -298,6 +298,22 @@ static int system_opcode_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	return (rc <= 0) ? rc : 1;
- }
+diff --git a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+index 1219c5cb601f..519a11fbe972 100644
+--- a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
++++ b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+@@ -32,11 +32,15 @@ properties:
+       - description: AHB peripheral clock
+       - description: CAN bus clock
  
-+static bool is_load_guest_page_fault(unsigned long scause)
-+{
-+	/**
-+	 * If a g-stage page fault occurs, the direct approach
-+	 * is to let the g-stage page fault handler handle it
-+	 * naturally, however, calling the g-stage page fault
-+	 * handler here seems rather strange.
-+	 * Considering this is a corner case, we can directly
-+	 * return to the guest and re-execute the same PC, this
-+	 * will trigger a g-stage page fault again and then the
-+	 * regular g-stage page fault handler will populate
-+	 * g-stage page table.
-+	 */
-+	return (scause == EXC_LOAD_GUEST_PAGE_FAULT);
-+}
++  resets:
++    maxItems: 1
 +
- /**
-  * kvm_riscv_vcpu_virtual_insn -- Handle virtual instruction trap
-  *
-@@ -323,6 +339,8 @@ int kvm_riscv_vcpu_virtual_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 							  ct->sepc,
- 							  &utrap);
- 			if (utrap.scause) {
-+				if (is_load_guest_page_fault(utrap.scause))
-+					return 1;
- 				utrap.sepc = ct->sepc;
- 				kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
- 				return 1;
-@@ -378,6 +396,8 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		insn = kvm_riscv_vcpu_unpriv_read(vcpu, true, ct->sepc,
- 						  &utrap);
- 		if (utrap.scause) {
-+			if (is_load_guest_page_fault(utrap.scause))
-+				return 1;
- 			/* Redirect trap if we failed to read instruction */
- 			utrap.sepc = ct->sepc;
- 			kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
-@@ -504,6 +524,8 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		insn = kvm_riscv_vcpu_unpriv_read(vcpu, true, ct->sepc,
- 						  &utrap);
- 		if (utrap.scause) {
-+			if (is_load_guest_page_fault(utrap.scause))
-+				return 1;
- 			/* Redirect trap if we failed to read instruction */
- 			utrap.sepc = ct->sepc;
- 			kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+ required:
+   - compatible
+   - reg
+   - interrupts
+   - clocks
++  - resets
+ 
+ additionalProperties: false
+ 
+@@ -46,6 +50,7 @@ examples:
+         compatible = "microchip,mpfs-can";
+         reg = <0x2010c000 0x1000>;
+         clocks = <&clkcfg 17>, <&clkcfg 37>;
++        resets = <&clkcfg 17>;
+         interrupt-parent = <&plic>;
+         interrupts = <56>;
+     };
 -- 
-2.50.1
+2.51.0
 
 
 _______________________________________________
