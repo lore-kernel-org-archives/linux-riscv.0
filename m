@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9912CFC509
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 21:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DAACCFC509
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 22:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Z+YfuLVtBUm3GlK14YjP/Z4XlTun7tbnq5EuCn3Nrk=; b=hpMEZRtlSgFInv
-	LCC99Kjwa5kk6L3qZUxTk7ZySWEYMejHOpN8YFHxNDb8aFM+HO/V7zHBnChRkOsu1HaDGo/P0WdMI
-	la5kzeANEGpCbER9iaU8Dmx+D1HX5aBKFaZ+A8JBN8DZ2cC4TdluUeJ9/flopIQbUUVX9gUXXm3ox
-	Y56ZyJ2k++PlJUnDvM0ds0gbE60uBLcIvH0fRQ6pJRp9W+EfEjr2HTjyn6USQ9Bj7hnRSkMx4w+SU
-	ebj5Zb0iZuCoq2omlt9nERI9SVcacyjedJo8f7l0kH56fz9a5Pg7vDO6Xd2UCq8fTtBMPOWHEKbke
-	C88eS8/Oomd2ylTd9Tqw==;
+	List-Owner; bh=HJ3lKugIq7Y4QebJV6yQ/rsD846mPoTLO91Cf7gBTVI=; b=1bjB5riOFKaoQg
+	gLIgjKChKo30ZA3iFJ8UrgoHBx4f5acfFfCoQtvCIgzc3jyay3khXVvOa1xL5ruR8tr4svvYLig7H
+	hrErMdiAQNC3Byu8BTDEVgsELs2LEbGpHOrcCAnh7+kPkYXDz7s9bHf493myoY7bdT04+OXFTAM0t
+	vu0cF76LZc6mS/ms1IZ2ucmtZN5JrIKMKmk+wUAydtkIqsV2Hu38StnhVCIPaa63qUZqoJBe9s+yC
+	3AvxhLMKHyJsGF4YZ7mORV0XRujL6pcve5rq9vgjoFe/760Egbe7+9ltnCkt85b28EZ9eOqCCsl/v
+	gQe7xgqdho3CakJoGUBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMYUU-00000008zQ5-3sw4;
-	Fri, 21 Nov 2025 21:16:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vMZUc-000000091vF-3ijT;
+	Fri, 21 Nov 2025 22:20:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMYUS-00000008zPj-2Xzi
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Nov 2025 21:16:25 +0000
+	id 1vMZUa-000000091ua-294F;
+	Fri, 21 Nov 2025 22:20:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 092B144322;
-	Fri, 21 Nov 2025 21:16:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82571C4CEF1;
-	Fri, 21 Nov 2025 21:16:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8783D43BA3;
+	Fri, 21 Nov 2025 22:20:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F6DEC4CEF1;
+	Fri, 21 Nov 2025 22:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763759782;
-	bh=FiypYvKf6VpX/fvafcOV0jwDzIXIP9N1G7YUY78Mgto=;
+	s=k20201202; t=1763763635;
+	bh=IA7dRYfgmLM6hh4dPmzDRF9cilrSQigzy922nod1WPA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EeZF7r54BGm0ZwkzOfmMxiXjjvXXjgi8kjBuGCvx6FfJmz5IuUkElZmWMDFRioEBN
-	 eNh7m8pYVvU2bKzA6IRZzDCclPgoY3SV2B+5SKe/ITnjjNE7n2RPCBUHO+J7xMOunz
-	 ePaHzkX/wjfAfdM6UGtSXo5zoGn08giuehOto+pPoxtw2DK2FlWk9r//72uRliXIKE
-	 YSXxilLFiklFM5UWSEolAtTtjkyMgGNXi1nZZV6D/tf9VwwadIJbWI8hYP+fOVbJmW
-	 +2+C/wfQjj2Uhd8iOQvy3M8uVTRfpxbsPZWKKNXTr0vbpxFEFUS5rL39jYAYSnwPTD
-	 9GLGkjRjFQx0w==
-Date: Fri, 21 Nov 2025 13:16:21 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: soc@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <anup@brainfault.org>, Joel Stanley <joel@jms.id.au>,
-	Joel Stanley <jms@oss.tenstorrent.com>,
-	Nicholas Piggin <npiggin@oss.tenstorrent.com>,
-	Michael Neuling <mikey@neuling.org>,
-	Michael Ellerman <mpe@kernel.org>, Andy Gross <agross@kernel.org>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Drew Fustini <dfustini@oss.tenstorrent.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	b=GJesF9+6JXaHzGISpMpsgsByjjJRM0QtCtvm2qL3gNgta24CuCZbdho3/MCwy/6rm
+	 wTEygSGamPSDbl3LFobWCmgI0rPTUqF1eXo3FPj74vkKRYzqfWP8cE0MgKC7IQoIH1
+	 Z8PuCzaUKBcT+azvdSyjcMzK7TM21it/2mqnGZILw9g6yIpTZxkntKATJijxGupIy+
+	 cjOXjavQ62AwFHXfiyG1RyjkAMXVuPdgEH8aFq4snwjSQDUU2NkQJfkILhOEHJggNM
+	 RO6mCyvbw2bYilLbZKOHaF3d/PsO61RNb9mtw3RWYiN1EPtvTQ2jO37K3rML5gd/Yc
+	 +CNi7KS/9M9SA==
+Date: Fri, 21 Nov 2025 15:20:29 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Nicolas Schier <nsc@kernel.org>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [GIT PULL] RISC-V Tenstorrent Devicetree for v6.19
-Message-ID: <aSDWpcjVT+pt1R7I@x1>
-References: <aPUemXdOFZEdkayE@x1>
- <920f8f04-92dc-464f-807b-d09cc77c5532@app.fastmail.com>
+Subject: Re: [PATCH v2] kbuild: Support directory targets for building DTBs
+Message-ID: <20251121222029.GA1674270@ax162>
+References: <20251120204812.1983452-4-robh@kernel.org>
+ <20251121063033.GA571346@ax162>
+ <aSDAqhUb8_76IP0Y@derry.ads.avm.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <920f8f04-92dc-464f-807b-d09cc77c5532@app.fastmail.com>
+In-Reply-To: <aSDAqhUb8_76IP0Y@derry.ads.avm.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_131624_689231_B3C4D58B 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20251121_142036_577799_91AF59B0 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +82,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 21, 2025 at 09:49:42PM +0100, Arnd Bergmann wrote:
-> On Sun, Oct 19, 2025, at 19:23, Drew Fustini wrote:
-> > Hi Arnd,
-> >
-> > Please pull these changes which add Tenstorrent as a vendor and enable
-> > support for Blackhole. It adds the appropriate entries in MAINTAINERS.
-> > The changes all come from a single series [1] posted by myself. Joel
-> > Stanley has reviewed and tested all the patches. Rob acked or reviewed
-> > all the bindings patches. W=1 dtbs_check and dt_binding_check produce
-> > no warnings.
-> >
-> > [1] 
-> > https://lore.kernel.org/linux-riscv/20251013-tt-bh-dts-v3-0-9f058d4bbbda@oss.tenstorrent.com/
-> >
-> > Thanks,
-> > Drew
-> >
-> > The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
-> >
-> >   Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
-> >
-> > are available in the Git repository at:
-> >
-> >   git@github.com:tenstorrent/linux.git tags/tenstorrent-dt-for-v6.19
-> >
+On Fri, Nov 21, 2025 at 08:42:34PM +0100, Nicolas Schier wrote:
+> Using '$(filter )' instead of '$(findstring )' reduces the risk of false
+> positives, e.g.:
 > 
-> I pulled this one manually as you had the wrong URL here, please
-> use an https:// url for git pull. You can do this e.g. by adding
-> 
-> [url "https://github.com"]
->     insteadOf = git@github.com:
-> 
-> to your .gitconfig.
-> 
->        Arnd
+> dtb-targets := %/dts %.dtb %.dtbo dtbs dtbs_check
+> ifneq ($(findstring /dts/,$(MAKECMDGOALS))$(filter $(dtb-targets),$(MAKECMDGOALS)),)
 
-Sorry about that. I will make sure I give the correct url next time.
+Oh yeah, that would seem to clear up my concerns.
 
-Thanks,
-Drew
+> With (something like) that:
+> Tested-by: Nicolas Schier <nsc@kernel.org>
+> Acked-by: Nicolas Schier <nsc@kernel.org>
+
+Agreed.
+
+Acked-by: Nathan Chancellor <nathan@kernel.org>
+
+> But [1] seems to break this patch.
+> 
+> [1]: https://lore.kernel.org/linux-kbuild/20251120140645.478623-1-thomas.de_schampheleire@nokia.com
+
+Yeah, that will need to be coordinated, I cc'd Rob on that change for
+him to take a look as well.
+
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
