@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC800CFC29A
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 19:35:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715FCCFC29F
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 19:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DUbVqy4/hXFNa8IQ3Lk6BF82BLQD7+I56dLfSuZauBk=; b=Ctsoj+JuVDOOQ5
-	CQr5mKDIsBDibupXKS0vCz5M+WpAQhGDcDvt3OxEUxOnPEvEWYyiLyRH1T57VRG+Rl1w6ic0UQwQn
-	O6FeB4VQw/zDr3J4UErSyJtUXSaUkZv/3zvlxEd+eZZhp8DPt9REI8SvuCaLLHeTHG+STBC9KDyW3
-	pbcUv6qAAj65R36+WJjSx1aQGO255jZ0JkQzBtJlWjckpdHUuaoFtsSy+ORevbYFBJA17AvEPcfIH
-	77T5aVnfvUPskNPBn3X3ccTC9DM50AvZfyoTA2iRE+AmVufHXXtj1zCJPNCBr+ObaMI2uPKa2TRjd
-	PWHw726iQDo2vmwjaiig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4RwfVx+n+i64z88HC1AYEcs3ENTwomxFnh9G6hE5WZo=; b=vKHL7SvO0HOibxB7AIKA+/Hfe2
+	pOX/CvlYmoS2MRUPguoJTbRhhJ5NlgIgll1roElAKOoKN2pq+OT/8BYAASJw1TcJdfRKE9mc+2hYm
+	cgRgmw+ACFG2kMae/1YDi+HdqMrd/HjaAkIi/FhMBf555e8Gv0Rtn5Q/Xfgamo8CzyVovtUNUvr+i
+	+bAqbokmKKDe6pR8b9yBS9ADpkeHCPvz4tROIO93D0Zq6ompiEm2CZ19hFXpewSkUqXaMv82bfzWM
+	YhVyv1C+VyeijMxajydHuGAYvXnesMneo0UpdA08PNAcqAk3wxG8XX6V0kExoyMm3GXTyjUxXGYjo
+	SYHgCFnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMWut-00000008uR2-1j3L;
-	Fri, 21 Nov 2025 19:35:35 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vMX65-00000008vHy-1eYa;
+	Fri, 21 Nov 2025 19:47:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMWuq-00000008uPS-1P9w
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Nov 2025 19:35:34 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4779cb0a33fso23147315e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Nov 2025 11:35:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763753730; x=1764358530; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UpgOvXCNlXgopds0RDI/6vX/kTvFLO9tMaU8rBilFFA=;
-        b=kqXs6i/qJKhgmpnYLYsJfGYP+kdSzfV14sHJPzOXZhn+CGSj9eIISDoqy1RY4RZ6tC
-         Gpm25ZS3qnMu9Fw6ctjPpczz/LarSa0gGd0dPOukxqXXJP/pFtQioojg9ZAXZVezV95X
-         Rt40ZuZ6TsjODsxpuoNKXWSR6ZoAAuC4pliI5jlwQLY80JBXo893Hhgaqj0iFiYsOG/V
-         to89AFV3rt8MwSUlFC1KnN5ZFCUK+DeLrRP/kBcm3C9YkJXHlDCarle/71WPr4V67UlY
-         Mr8lpujSkCjdsINAAlMXaDMJAX3MZz3XXfgq/veC5G23QCsIoRROAx0ATGBY45/rvcwg
-         8qTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763753730; x=1764358530;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UpgOvXCNlXgopds0RDI/6vX/kTvFLO9tMaU8rBilFFA=;
-        b=TBNZLwUyMP9qfhQureBRbV/zMDpNmL4dRQV4almk0flzADvFEbfKy4RosCcpyyWiXb
-         JyAM4EwzxQQIO6TppZpNbM3O4o78RnSFDKUSdek+PA/G/Q8kaq16M+bEqinHvqFSLwmv
-         W5r72xvNRDo1EXtkZbEZTlO4XdwohAwI54hQoPaDGrBbAzjjPsKBmu0iz6MiA5MeOdIf
-         Wq33Mg5bD2B12RysQ9CQEAHvd/VF316AkuQKg2FIb4bG4sZqx8per+bccsVZtXvd7k8e
-         aZTaNSV+3HmpsNDUmz2Z4+6XepReAIv70aeP3KaSQcQg6k8W83IDS06jKho1SmVVCuqS
-         KExw==
-X-Forwarded-Encrypted: i=1; AJvYcCXDkxfdVJheoiOw7DI8ZUQEGNx2H0WrDKKelM2Zct5HpidqYrVAwqZnY/5ePCI/O9APqWWqJ0iWbAXiXQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1wFn+OGCtVK3wz0yB9bfwTVAZ+7VIeHNJrzUZjxMMuJPDNp7f
-	Zybk2K0gOPHf+5asJXZvzVKUaYCG7wSvCYA1Khj6cf5Sp/MO6Zw+Xol4emu1/IbIIJ0=
-X-Gm-Gg: ASbGncvAo9uVi5uWiTh3lzVgcqWrEmUIPys5Bf5f2+CvfLh/27AWgG4m9yCO2xCHRa5
-	/ZP0C5YWnAT/JjpU4BYkQdj+Ekbnwrrip/lLX1Ej59CGaooOJTWOOSCsTVBF0kqa8ZIs0Cti+4X
-	BUoaPJSHnDB4118BcDzb9ngetA050IcDurP1VRzl3p4SsZMA9chhPNXGPT9QwXUIqh6AgVZS9e4
-	ipmoI4BNMj/kHdmpW5v/z9rf9q3MGRDHcb8YKbtTOa9SK0O5hxh1nJoZ2Suf9qDlDsAz9g0L3u5
-	IUgaydC+vSpS7K2KycyA5RaiMyi/CFoD4bdh8PCMEo5y2n+sKRz57xMnzqhnk/fVUERxJHD1K2b
-	76kf5gA7CL9JvDR6s3m3e3rIsYSZr5xZjjLyIUT0XZvLEw2iwzR1FRba0i7VOtuStVx9SEHWGLd
-	fXprmD
-X-Google-Smtp-Source: AGHT+IGHmJQ/SUK/Uv0tWBBylSXC+SBhd5okhyM0xJCUkSd/MynCjS9RE29tfg6Rpn0kSFhSmIpQiA==
-X-Received: by 2002:a05:600c:4443:b0:475:da1a:5418 with SMTP id 5b1f17b1804b1-477c017484bmr38877365e9.1.1763753729949;
-        Fri, 21 Nov 2025 11:35:29 -0800 (PST)
-Received: from curiosity ([80.211.22.60])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-477bf3af0e1sm55186045e9.10.2025.11.21.11.35.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Nov 2025 11:35:29 -0800 (PST)
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Charlie Jenkins <charlie@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	linux-riscv@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: [PATCH] riscv: hwprobe: expose vector register length in bytes
-Date: Fri, 21 Nov 2025 22:35:10 +0300
-Message-ID: <20251121193524.1813200-1-geomatsi@gmail.com>
-X-Mailer: git-send-email 2.51.2
+	id 1vMX64-00000008vGw-0eJs;
+	Fri, 21 Nov 2025 19:47:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E7CC601F0;
+	Fri, 21 Nov 2025 19:47:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 690D2C4CEF1;
+	Fri, 21 Nov 2025 19:47:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763754426;
+	bh=Vg/9WM4svuJxXmTZGYFyYyC/fQlAZAwS2uwXY2DgmR8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HS/I0gDRR5ulP8YpCKhY0pGoC//uLtHpesK93QeLmDwHiWXgVF9PfspYCcY8YDa4e
+	 QnodNPzsMmpz6DkDpNNgHyqQ4J63bUI2MoW12ViGmehzqFp9bWDuPmjnkp6kS0CvQS
+	 oabcR2BgJpsitAfB7NNHtgePHZblvY8fPs4S/l4KvQHoem1aliLIO4FMggaYN6eqI6
+	 PBCyKmFVL2E/c1ntLJU+gYavkSwA05ILhv6s7pKH1j6Mz7QkiodmlCv7istGTUFffJ
+	 ANaSC6cjqLNnAtUDr7Ap7skCr6YQHKCThhTudU1ChxaK3UZVeoVpj46DLusTf2ly+o
+	 VswKi+rmdKN6Q==
+Date: Fri, 21 Nov 2025 20:42:34 +0100
+From: Nicolas Schier <nsc@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2] kbuild: Support directory targets for building DTBs
+Message-ID: <aSDAqhUb8_76IP0Y@derry.ads.avm.de>
+References: <20251120204812.1983452-4-robh@kernel.org>
+ <20251121063033.GA571346@ax162>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_113532_390087_F1606EBD 
-X-CRM114-Status: GOOD (  17.78  )
+In-Reply-To: <20251121063033.GA571346@ax162>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,65 +71,207 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6517881593745188174=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIHZlY3RvciByZWdpc3RlciBsZW5ndGggY2FuIGJlIG9idGFpbmVkIGZyb20gdGhlIHJlYWQt
-b25seSBDU1IgdmxlbmIuCkhvd2V2ZXIgcmVhZGluZyB0aGlzIENTUiBtYXkgYmUgdW5kZXNpcmFi
-bGUgaW4gc29tZSBjYXNlcy4gWFRoZWFkVmVjdG9yCmV4dGVuc2lvbiBpcyBvbmUgZXhhbXBsZTog
-ZXhpc3RpbmcgaW1wbGVtZW50YXRpb25zIG1heSBub3QgcHJvdmlkZSB0aGlzCnJlZ2lzdGVyLiBP
-biBzdWNoIHBsYXRmb3JtcywgdmxlbmIgaXMgc3BlY2lmaWVkIGFzIGRldmljZS10cmVlIHByb3Bl
-cnR5LgpSZWFkaW5nIHZsZW5iIGFsc28gaW5pdGlhbGl6ZXMgdGhlIGFwcGxpY2F0aW9u4oCZcyB2
-ZWN0b3IgY29udGV4dCwgZXZlbgp0aG91Z2ggdGhlIGFwcGxpY2F0aW9uIG1heSBkZWNpZGUgbm90
-IHRvIHVzZSB0aGUgdmVjdG9yIGV4dGVuc2lvbiBiYXNlZApvbiB0aGUgcmVwb3J0ZWQgbGVuZ3Ro
-LgoKTWVhbndoaWxlIHRoZSBrZXJuZWwgYWxyZWFkeSBkZXRlcm1pbmVzIHZsZW5iIGF0IGJvb3Qs
-IGVpdGhlciBmcm9tIHRoZQpDU1Igb3IgZnJvbSB0aGUgZGV2aWNlIHRyZWUuIFNvIGFkZCBSSVND
-Vl9IV1BST0JFX0tFWV9WRUNUT1JfUkVHX0xFTkdUSAp0byBleHBvc2UgdGhlIHZlY3RvciByZWdp
-c3RlciBsZW5ndGggYWxyZWFkeSBrbm93biB0byB0aGUga2VybmVsLgoKU2lnbmVkLW9mZi1ieTog
-U2VyZ2V5IE1hdHl1a2V2aWNoIDxnZW9tYXRzaUBnbWFpbC5jb20+Ci0tLQogRG9jdW1lbnRhdGlv
-bi9hcmNoL3Jpc2N2L2h3cHJvYmUucnN0ICB8IDMgKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L2h3cHJvYmUuaCAgICAgIHwgMiArLQogYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2h3cHJv
-YmUuaCB8IDEgKwogYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYyAgICAgICB8IDYgKysr
-KysrCiA0IGZpbGVzIGNoYW5nZWQsIDExIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKCmRp
-ZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2FyY2gvcmlzY3YvaHdwcm9iZS5yc3QgYi9Eb2N1bWVu
-dGF0aW9uL2FyY2gvcmlzY3YvaHdwcm9iZS5yc3QKaW5kZXggMDZjNTI4MGI3MjhhLi4xNDQzN2Zl
-NzkyNzYgMTAwNjQ0Ci0tLSBhL0RvY3VtZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdAor
-KysgYi9Eb2N1bWVudGF0aW9uL2FyY2gvcmlzY3YvaHdwcm9iZS5yc3QKQEAgLTM3OSwzICszNzks
-NiBAQCBUaGUgZm9sbG93aW5nIGtleXMgYXJlIGRlZmluZWQ6CiAKICogOmM6bWFjcm86YFJJU0NW
-X0hXUFJPQkVfS0VZX1pJQ0JPUF9CTE9DS19TSVpFYDogQW4gdW5zaWduZWQgaW50IHdoaWNoCiAg
-IHJlcHJlc2VudHMgdGhlIHNpemUgb2YgdGhlIFppY2JvcCBibG9jayBpbiBieXRlcy4KKworKiA6
-YzptYWNybzpgUklTQ1ZfSFdQUk9CRV9LRVlfVkVDVE9SX1JFR19MRU5HVEhgOiBBbiB1bnNpZ25l
-ZCBpbnQgd2hpY2gKKyAgcmVwcmVzZW50cyB0aGUgdmVjdG9yIHJlZ2lzdGVycyBsZW5ndGggaW4g
-Ynl0ZXMuCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3cHJvYmUuaCBiL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vaHdwcm9iZS5oCmluZGV4IDhjNTcyYTQ2NDcxOS4uYjEwMzEx
-YzlhNDRjIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3cHJvYmUuaAorKysg
-Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3cHJvYmUuaApAQCAtOCw3ICs4LDcgQEAKIAogI2lu
-Y2x1ZGUgPHVhcGkvYXNtL2h3cHJvYmUuaD4KIAotI2RlZmluZSBSSVNDVl9IV1BST0JFX01BWF9L
-RVkgMTUKKyNkZWZpbmUgUklTQ1ZfSFdQUk9CRV9NQVhfS0VZIDE2CiAKIHN0YXRpYyBpbmxpbmUg
-Ym9vbCByaXNjdl9od3Byb2JlX2tleV9pc192YWxpZChfX3M2NCBrZXkpCiB7CmRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oIGIvYXJjaC9yaXNjdi9pbmNs
-dWRlL3VhcGkvYXNtL2h3cHJvYmUuaAppbmRleCAxZWRlYTIzMzFiOGIuLmJkNmNkOTdjODFmOSAx
-MDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2h3cHJvYmUuaAorKysgYi9h
-cmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oCkBAIC0xMTAsNiArMTEwLDcgQEAg
-c3RydWN0IHJpc2N2X2h3cHJvYmUgewogI2RlZmluZSBSSVNDVl9IV1BST0JFX0tFWV9WRU5ET1Jf
-RVhUX1NJRklWRV8wCTEzCiAjZGVmaW5lIFJJU0NWX0hXUFJPQkVfS0VZX1ZFTkRPUl9FWFRfTUlQ
-U18wCTE0CiAjZGVmaW5lIFJJU0NWX0hXUFJPQkVfS0VZX1pJQ0JPUF9CTE9DS19TSVpFCTE1Cisj
-ZGVmaW5lIFJJU0NWX0hXUFJPQkVfS0VZX1ZFQ1RPUl9SRUdfTEVOR1RICTE2CiAvKiBJbmNyZWFz
-ZSBSSVNDVl9IV1BST0JFX01BWF9LRVkgd2hlbiBhZGRpbmcgaXRlbXMuICovCiAKIC8qIEZsYWdz
-ICovCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9iZS5jIGIvYXJjaC9y
-aXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYwppbmRleCAwZjcwMWFjZTNiYjkuLjMwMDc0MzJmYmRm
-MSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYworKysgYi9hcmNo
-L3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9iZS5jCkBAIC0zMjgsNiArMzI4LDEyIEBAIHN0YXRpYyB2
-b2lkIGh3cHJvYmVfb25lX3BhaXIoc3RydWN0IHJpc2N2X2h3cHJvYmUgKnBhaXIsCiAJCWh3cHJv
-YmVfaXNhX3ZlbmRvcl9leHRfbWlwc18wKHBhaXIsIGNwdXMpOwogCQlicmVhazsKIAorCWNhc2Ug
-UklTQ1ZfSFdQUk9CRV9LRVlfVkVDVE9SX1JFR19MRU5HVEg6CisJCXBhaXItPnZhbHVlID0gMDsK
-KwkJaWYgKGhhc192ZWN0b3IoKSB8fCBoYXNfeHRoZWFkdmVjdG9yKCkpCisJCQlwYWlyLT52YWx1
-ZSA9IHJpc2N2X3ZfdnNpemUgLyAzMjsKKwkJYnJlYWs7CisKIAkvKgogCSAqIEZvciBmb3J3YXJk
-IGNvbXBhdGliaWxpdHksIHVua25vd24ga2V5cyBkb24ndCBmYWlsIHRoZSB3aG9sZQogCSAqIGNh
-bGwsIGJ1dCBnZXQgdGhlaXIgZWxlbWVudCBrZXkgc2V0IHRvIC0xIGFuZCB2YWx1ZSBzZXQgdG8g
-MAotLSAKMi41MS4yCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+
+--===============6517881593745188174==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="AfpfqPLkSPOJGvv9"
+Content-Disposition: inline
+
+
+--AfpfqPLkSPOJGvv9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Nov 20, 2025 at 11:30:33PM -0700, Nathan Chancellor wrote:
+> On Thu, Nov 20, 2025 at 02:48:13PM -0600, Rob Herring (Arm) wrote:
+> > It is useful to be able to build all the DTBs for a vendor. One can list
+> > all the .dts files in a directory and convert those to %.dtb targets,
+> > but that doesn't work for base+overlay DTB targets.
+> >=20
+> > Adding the dts subdirectory is straight-forward, but building the
+> > DTBs should only happen for certain targets (dtbs, dtbs_check, %.dtb,
+> > %.dtbo, and the directory target(s)).
+> >=20
+> > The 'scripts_dtc' rule doesn't really depend on 'dt_binding_schemas',
+> > but the directory target only depends on 'scripts' which depends on
+> > 'scripts_dtc'.
+> >=20
+> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > ---
+> > Please ack and I'll take this in the DT tree.
+> >=20
+> > I don't really like looking at MAKECMDGOALS, but that's the only way I
+> > could come up with that works. Maybe someone knows a better way.
+>=20
+> Yeah, I do worry that just looking for "dtb" in MAKECMDGOALS could
+> result in some false positives but in the tree now, I only see one .c
+> file that would trigger this logic, so maybe it is not that big of a
+> deal?
+>=20
+>   $ fd dtb
+>   arch/microblaze/boot/dts/linked_dtb.S
+>   arch/mips/include/asm/mach-loongson64/builtin_dtbs.h
+>   arch/um/kernel/dtb.c
+>   drivers/gpu/drm/ci/dtbs-check.sh
+>   scripts/Makefile.dtbinst
+>   scripts/Makefile.dtbs
+>=20
+> Unfortunately, my Make-fu is pretty weak right now so I do not have any
+> immediate suggestions but Nicolas might... otherwise, we could probably
+> ride this for right now and either revert it or forward fix it if
+> problems come up in further testing, since this does seem rather useful
+> for folks working on device tree files.
+
+well, evaluating MAKECMDGOALS does not look that bad to me.  But I'd
+rather like to reduce the use of findstring, see below.
+
+>=20
+> > v2:
+> >  - Convert arm, mips and riscv. The other DT enabled arches don't have=
+=20
+> >    vendor directories.
+> >  - Link to v1: https://lore.kernel.org/all/20251113225952.867138-1-robh=
+@kernel.org/=20
+> >=20
+> > ---
+> >  Makefile              | 2 +-
+> >  arch/arm/Kbuild       | 2 ++
+> >  arch/arm64/Kbuild     | 2 ++
+> >  arch/mips/Kbuild      | 2 ++
+> >  arch/riscv/Kbuild     | 2 ++
+> >  scripts/Makefile.dtbs | 3 +++
+> >  6 files changed, 12 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/Makefile b/Makefile
+> > index 17cfa11ca716..85018d461575 100644
+> > --- a/Makefile
+> > +++ b/Makefile
+> > @@ -1494,7 +1494,7 @@ export CHECK_DTBS=3Dy
+> >  endif
+> > =20
+> >  ifneq ($(CHECK_DTBS),)
+> > -dtbs_prepare: dt_binding_schemas
+> > +scripts_dtc: dt_binding_schemas
+> >  endif
+> > =20
+> >  dtbs_check: dtbs
+> > diff --git a/arch/arm/Kbuild b/arch/arm/Kbuild
+> > index 69de6b6243c7..af7dd53585c3 100644
+> > --- a/arch/arm/Kbuild
+> > +++ b/arch/arm/Kbuild
+> > @@ -10,5 +10,7 @@ obj-y				+=3D probes/
+> >  obj-y				+=3D net/
+> >  obj-y				+=3D crypto/
+> > =20
+> > +subdir-y +=3D boot/dts
+> > +
+> >  # for cleaning
+> >  subdir- +=3D boot
+> > diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
+> > index 5bfbf7d79c99..9e9820af48c9 100644
+> > --- a/arch/arm64/Kbuild
+> > +++ b/arch/arm64/Kbuild
+> > @@ -5,5 +5,7 @@ obj-$(CONFIG_XEN)	+=3D xen/
+> >  obj-$(subst m,y,$(CONFIG_HYPERV))	+=3D hyperv/
+> >  obj-$(CONFIG_CRYPTO)	+=3D crypto/
+> > =20
+> > +subdir-y +=3D boot/dts
+> > +
+> >  # for cleaning
+> >  subdir- +=3D boot
+> > diff --git a/arch/mips/Kbuild b/arch/mips/Kbuild
+> > index e901bf554483..6125d00cdcef 100644
+> > --- a/arch/mips/Kbuild
+> > +++ b/arch/mips/Kbuild
+> > @@ -21,5 +21,7 @@ ifdef CONFIG_KVM
+> >  obj-y +=3D kvm/
+> >  endif
+> > =20
+> > +subdir-y +=3D boot/dts
+> > +
+> >  # for cleaning
+> >  subdir- +=3D boot
+> > diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
+> > index 126fb738fc44..3cf7f84eb287 100644
+> > --- a/arch/riscv/Kbuild
+> > +++ b/arch/riscv/Kbuild
+> > @@ -7,5 +7,7 @@ obj-$(CONFIG_KVM) +=3D kvm/
+> > =20
+> >  obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) +=3D purgatory/
+> > =20
+> > +subdir-y +=3D boot/dts
+> > +
+> >  # for cleaning
+> >  subdir- +=3D boot
+> > diff --git a/scripts/Makefile.dtbs b/scripts/Makefile.dtbs
+> > index 2d321b813600..4d0d164df275 100644
+> > --- a/scripts/Makefile.dtbs
+> > +++ b/scripts/Makefile.dtbs
+> > @@ -14,7 +14,10 @@ dtb-y           :=3D $(addprefix $(obj)/, $(dtb-y))
+> >  multi-dtb-y     :=3D $(addprefix $(obj)/, $(multi-dtb-y))
+> >  real-dtb-y      :=3D $(addprefix $(obj)/, $(real-dtb-y))
+> > =20
+> > +ifneq ($(findstring /dts/,$(MAKECMDGOALS))$(findstring dtb,$(MAKECMDGO=
+ALS)),)
+
+Using '$(filter )' instead of '$(findstring )' reduces the risk of false
+positives, e.g.:
+
+dtb-targets :=3D %/dts %.dtb %.dtbo dtbs dtbs_check
+ifneq ($(findstring /dts/,$(MAKECMDGOALS))$(filter $(dtb-targets),$(MAKECMD=
+GOALS)),)
+
+
+With (something like) that:
+Tested-by: Nicolas Schier <nsc@kernel.org>
+Acked-by: Nicolas Schier <nsc@kernel.org>
+
+But [1] seems to break this patch.
+
+[1]: https://lore.kernel.org/linux-kbuild/20251120140645.478623-1-thomas.de=
+_schampheleire@nokia.com
+
+Kind regards,
+Nicolas
+
+--AfpfqPLkSPOJGvv9
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEh0E3p4c3JKeBvsLGB1IKcBYmEmkFAmkgwKoACgkQB1IKcBYm
+Emm8Qw/+MwI0xujbY4z6kH8eqisZOdw3rGVbln1KTIUnNXmON6raX7XFOnAxqaHI
+BhYiwbUYWUHKeHApq1XCTR4WKNtzMYiID+zA0HuwxuqOlzdPwl35Xn+nvBw/Mmfw
+xUF9nqlmFu7MH9xIOfbWotGMIgqBc5FKAflHwHGpjW009mvPQ5hnMqiXk0DVu8oz
+rVLhviLqgjsx2ESl0sgkfiOBt0ygtzFKvUrqSVixl/sB5nI7sOhU190u8qvpZ/bV
+Pc6s9+IUhTv5+iaxhTUcsQjZTgHp5KJSrlmcIUY5eLdwFQRFAB3w4Kx8xNY8NO02
+xLPZSQ28FcJaBuRyLTYFy4CaVOMKV2r2JW5DUdkUxuIwh9UdEkOjCQSWfomRALGc
+PlZzKpsUp7p76fW2WkbjN9r45qCRFdaWEN3olr9vBh0Y5u+1AnZh7Ej/lws7Cj4z
+sEBo6QdAlP0ofjB1JrNP98MMOQu1Tr3fOwkadCmyRtuYqJG72Tj7t6EBrC/JRoS0
+MFl/XEPHgQcjRgVIWEfFtCwrflq2jO/f2fbfTZHPxbMbj99CATyDDTy+QWzB8bhT
+RqrzlrejhI4WV27fReo4wMk/Og8ewO0/h2mloIi1hrORFClz5M+aU3CCEvFu2hfY
++hBhCWYDLSN4n5mUhA6nH/RFdZoNohijzS15aqmkCNWx1yM/g5I=
+=pv6m
+-----END PGP SIGNATURE-----
+
+--AfpfqPLkSPOJGvv9--
+
+
+--===============6517881593745188174==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6517881593745188174==--
+
