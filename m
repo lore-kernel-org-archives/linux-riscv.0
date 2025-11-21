@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 261BECFA47C
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 06:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EBE3CFA478
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 06:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mPHcnG4SGPqf/XDhSxx35tDFBu0QTIswX7+neNL/jMA=; b=FnsQw467vCQZ7S
-	9g5zBvE4UF9HB3/pPGeXGxSOxfAd/T1Uq8M0QVW23wsVudxVsZOxaFrRUeGlYfd8rriCuu5F8NONb
-	+EyCndu8F4Znk1oHInnvpPWwIW5e0asqGo4Vrp4i4Vlm1A6Ep0WE9v9Zc9SPl+mr98+G+znxmZ7ER
-	125dXRswTMPHfzM582Ne09W9r7ZvT+dnu3DHtRFKacDsCDmoJ2ko/TN6taJ9SOkL1nqWEXQYwGsXj
-	kDwLmF+1Z1qerbYT0DE1KMm0IkYoWMzuZrZqD0NS9hcqCYNiTIBsmbiu2PqaPkk3FFl/fAcfA0+L3
-	zV/PSQLnx+rPEhl1r9yg==;
+	List-Owner; bh=lIrMJafnEMdxsW/8mPq1mMd4P3GLK0rSuQTct9wHLQE=; b=zyLbBaTS2pvxhA
+	6vCfT9gN9xrI7vso4CUI0iqxYxYZd9BmXm727YTKsg31HjEivDac4ZvBXkSJ13pL7sVgo3p5be7aH
+	R55hunkQHV6/16I62l7gwePz/urcZP7TuiHGIhcWxZQYxrsNbflenV0skgTLPJjZvxjqw11EF5+Gl
+	mdMdKzUED1IIefjO6KPfYa+FW4S8xB+p/T0i45DaaOWhGBXHJYsz9TmeEIOJzLNjUqamEyH1SmvzY
+	6GcaQFpkUCMo30ocmSXmS+cV0LjuVy8x6NfDfX8CPfTajZUgxlE1P0Uy0OnyE3qyvELM5+nsu9Q4O
+	MeWwQ78QHVkQFxCE1Rtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMKjj-00000007vCr-0Q4L;
+	id 1vMKjj-00000007vDQ-1qFY;
 	Fri, 21 Nov 2025 06:35:15 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMKjb-00000007v9Y-413F
+	id 1vMKjb-00000007v9Q-3ykL
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Nov 2025 06:35:11 +0000
+	Fri, 21 Nov 2025 06:35:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1763706906; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=VdGFnRej4jan/RD1DhfkIVku8ustFzK1xufyuodcb10=;
-	b=B0+4ctMMdSfSAB+KojsCdrzf2Otr9OU/h2GUPiqDQJ+Zea86yLoIvp88+hbZFWgO6uLS47SQsqICIeaIUnZwErpaQyD/09UrtYQrLf61tYjpRlmlxeROaNPnK0OzMRiegvG9n1iZydo0qV0SO+gDAnpBLqII+LxVJjJDrJL0yoU=
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0Wt-RZM9_1763706903 cluster:ay36)
+	t=1763706904; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=KagxXFcHWZjH/H289RXJLJqaiGThS7xE2EnvD01+1WY=;
+	b=KcLgyoZ36H0tmymJaH51uVBt8kDCZ1R4FUpZX0FsJNr2G4NKHKoDT18gJrwZVyuwbySbNaRIeGOJq7XgfzSngFh0I6F51ZCznRV2VxHRhLpjBsaiWlLS3N+1RU7ArIp7SMztqQ/5oDGoSyt6folkgkDjL6ToBn0BsfXq3e4E7LU=
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0Wt-RZLS_1763706902 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Fri, 21 Nov 2025 14:35:04 +0800
+          Fri, 21 Nov 2025 14:35:03 +0800
 From: cp0613@linux.alibaba.com
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -58,17 +58,16 @@ Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Chen Pei <cp0613@linux.alibaba.com>
-Subject: [PATCH v2 4/4] perf vendor events riscv: Add XuanTie C930 metrics
-Date: Fri, 21 Nov 2025 14:34:39 +0800
-Message-ID: <20251121063439.2545-5-cp0613@linux.alibaba.com>
+Subject: [PATCH v2 3/4] perf vendor events riscv: Add XuanTie C930 JSON file
+Date: Fri, 21 Nov 2025 14:34:38 +0800
+Message-ID: <20251121063439.2545-4-cp0613@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251121063439.2545-1-cp0613@linux.alibaba.com>
 References: <20251121063439.2545-1-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_223508_351336_D1D12241 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251120_223508_346662_DA9DB8A9 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,557 +86,792 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Pei <cp0613@linux.alibaba.com>
 
-This patch adds XuanTie C930 metrics, including topdown and some
-other metric groups.
+Add pmu json file of XuanTie C930.
 
 Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 ---
- .../arch/riscv/xuantie/c930/metrics.json      | 538 ++++++++++++++++++
- 1 file changed, 538 insertions(+)
- create mode 100644 tools/perf/pmu-events/arch/riscv/xuantie/c930/metrics.json
+ tools/perf/pmu-events/arch/riscv/mapfile.csv  |   1 +
+ .../arch/riscv/xuantie/c930/basic.json        | 117 +++++++++++
+ .../arch/riscv/xuantie/c930/ieu.json          |  97 ++++++++++
+ .../arch/riscv/xuantie/c930/ifu.json          |  62 ++++++
+ .../arch/riscv/xuantie/c930/l2c.json          |  87 +++++++++
+ .../arch/riscv/xuantie/c930/lsu.json          | 182 ++++++++++++++++++
+ .../arch/riscv/xuantie/c930/vfpu.json         | 177 +++++++++++++++++
+ 7 files changed, 723 insertions(+)
+ create mode 100644 tools/perf/pmu-events/arch/riscv/xuantie/c930/basic.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/xuantie/c930/ieu.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/xuantie/c930/ifu.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/xuantie/c930/l2c.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/xuantie/c930/lsu.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/xuantie/c930/vfpu.json
 
-diff --git a/tools/perf/pmu-events/arch/riscv/xuantie/c930/metrics.json b/tools/perf/pmu-events/arch/riscv/xuantie/c930/metrics.json
+diff --git a/tools/perf/pmu-events/arch/riscv/mapfile.csv b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+index 0a7e7dcc81be..0cac854f1738 100644
+--- a/tools/perf/pmu-events/arch/riscv/mapfile.csv
++++ b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+@@ -20,5 +20,6 @@
+ 0x489-0x8000000000000008-0x[[:xdigit:]]+,v1,sifive/p550,core
+ 0x489-0x8000000000000[1-6]08-0x[9b][[:xdigit:]]+,v1,sifive/p650,core
+ 0x5b7-0x0-0x0,v1,thead/c900-legacy,core
++0x5b7-0x8000000009201600-0x[[:xdigit:]]+,v1,xuantie/c930,core
+ 0x67e-0x80000000db0000[89]0-0x[[:xdigit:]]+,v1,starfive/dubhe-80,core
+ 0x31e-0x8000000000008a45-0x[[:xdigit:]]+,v1,andes/ax45,core
+diff --git a/tools/perf/pmu-events/arch/riscv/xuantie/c930/basic.json b/tools/perf/pmu-events/arch/riscv/xuantie/c930/basic.json
 new file mode 100644
-index 000000000000..689bae6209dc
+index 000000000000..afb4bec67af9
 --- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/xuantie/c930/metrics.json
-@@ -0,0 +1,538 @@
++++ b/tools/perf/pmu-events/arch/riscv/xuantie/c930/basic.json
+@@ -0,0 +1,117 @@
 +[
 +    {
-+        "MetricExpr": "(topdown.frontend_bound.slots - topdown.bad_speculation.recovery_bubbles*8) / topdown.slots ",
-+        "PublicDescription": "Fraction of slots unused due to the frontend's inability to supply enough uops",
-+        "BriefDescription": "Fraction of slots unused due to the frontend's inability to supply enough uops",
-+        "CommonMetricgroupName": "TopdownL1",
-+        "MetricGroup": "Common;TopdownL1",
-+        "MetricName": "topdown.frontend_bound.rate"
++        "EventName": "cycles.hart",
++        "EventCode": "0x00000001",
++        "BriefDescription": "cpu execute cycle"
 +    },
 +    {
-+        "MetricExpr": "(uop.spec - uop.ret + topdown.bad_speculation.recovery_bubbles*8) / topdown.slots",
-+        "PublicDescription": "Fraction of slots wasted due to incorrect speculations",
-+        "BriefDescription": "Fraction of slots wasted due to incorrect speculations",
-+        "CommonMetricgroupName": "TopdownL1",
-+        "MetricGroup": "Common;TopdownL1",
-+        "MetricName": "topdown.bad_speculation.rate"
++        "EventName": "inst.ret",
++        "EventCode": "0x00000002",
++        "BriefDescription": "inst retire num"
 +    },
 +    {
-+        "MetricExpr": "uop.ret / topdown.slots",
-+        "PublicDescription": "Fraction of slots that retired",
-+        "BriefDescription": "Fraction of slots that retired",
-+        "CommonMetricgroupName": "TopdownL1",
-+        "MetricGroup": "Common;TopdownL1",
-+        "MetricName": "topdown.retiring.rate"
++        "EventName": "inst.brjmp.spec",
++        "EventCode": "0x00000003",
++        "BriefDescription": "speculative execute br num"
 +    },
 +    {
-+        "MetricExpr": "1 - (topdown.frontend_bound.rate + topdown.bad_speculation.rate + topdown.retiring.rate)",
-+        "PublicDescription": "Fraction of slots unused due to a lack of backend resources",
-+        "BriefDescription": "Fraction of slots unused due to a lack of backend resources",
-+        "CommonMetricgroupName": "TopdownL1",
-+        "MetricGroup": "Common;TopdownL1",
-+        "MetricName": "topdown.backend_bound.rate"
++        "EventName": "inst.mispred.brjmp.spec",
++        "EventCode": "0x00000004",
++        "BriefDescription": "speculative execute br mispred num"
 +    },
 +    {
-+        "MetricExpr": "topdown.frontend_bound.latency.slots / topdown.slots",
-+        "PublicDescription": "Fetch latency bound L2 topdown metric",
-+        "BriefDescription": "Fetch latency bound L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.frontend_bound.latency.rate"
++        "EventName": "cache.l1i.rd.access",
++        "EventCode": "0x00000005",
++        "BriefDescription": "l1 icache acc num"
 +    },
 +    {
-+        "MetricExpr": "topdown.frontend_bound.rate - topdown.frontend_bound.latency.rate",
-+        "PublicDescription": "Fetch bandwidth bound L2 topdown metric",
-+        "BriefDescription": "Fetch bandwidth bound L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.frontend_bound.bandwidth.rate"
++        "EventName": "cache.l1i.rd.miss",
++        "EventCode": "0x00000006",
++        "BriefDescription": "l1 icache acc miss num"
 +    },
 +    {
-+        "MetricExpr": "topdown.bad_speculation.rate * inst.mispred.brjmp.spec / (inst.mispred.brjmp.spec + topdown.bad_speculation.exception_flush + topdown.bad_speculation.interrupt_flush + topdown.bad_speculation.other_flush + topdown.bad_speculation.rar_hazard_early_flush + topdown.bad_speculation.raw_hazard_early_flush)",
-+        "PublicDescription": "Branch mispredicts L2 topdown metric",
-+        "BriefDescription": "Branch mispredicts L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.bad_speculation.branch_mispredicts.rate"
++        "EventName": "cache.l1d.rd.access",
++        "EventCode": "0x00000007",
++        "BriefDescription": "l1 dcache load acc num"
 +    },
 +    {
-+        "MetricExpr": "topdown.bad_speculation.rate * (topdown.bad_speculation.raw_hazard_early_flush + topdown.bad_speculation.rar_hazard_early_flush) / (inst.mispred.brjmp.spec + topdown.bad_speculation.exception_flush + topdown.bad_speculation.interrupt_flush + topdown.bad_speculation.other_flush + topdown.bad_speculation.rar_hazard_early_flush + topdown.bad_speculation.raw_hazard_early_flush)",
-+        "PublicDescription": "Load/Store early flush L2 topdown metric",
-+        "BriefDescription": "Load/Store early flush L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.bad_speculation.ldst_early_flush.rate"
++        "EventName": "cache.l1d.rd.miss",
++        "EventCode": "0x00000008",
++        "BriefDescription": "l1 dcache load acc miss num"
 +    },
 +    {
-+        "MetricExpr": "topdown.bad_speculation.rate - (topdown.bad_speculation.branch_mispredicts.rate + topdown.bad_speculation.ldst_early_flush.rate)",
-+        "PublicDescription": "Machine clears L2 topdown metric",
-+        "BriefDescription": "Machine clears L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.bad_speculation.machine_clears.rate"
++        "EventName": "tlb.l1i.access",
++        "EventCode": "0x00000009",
++        "BriefDescription": "itlb acc num"
 +    },
 +    {
-+        "MetricExpr": "topdown.backend_bound.rate * (topdown.backend_bound.memory.load + topdown.backend_bound.memory.store)/cycles.hart",
-+        "PublicDescription": "Memory bound L2 topdown metric",
-+        "BriefDescription": "Memory bound L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.backend_bound.memory_bound.rate"
++        "EventName": "tlb.l1i.miss",
++        "EventCode": "0x0000000a",
++        "BriefDescription": "itlb acc miss num"
 +    },
 +    {
-+        "MetricExpr": "topdown.backend_bound.rate - topdown.backend_bound.memory_bound.rate",
-+        "PublicDescription": "Core bound L2 topdown metric",
-+        "BriefDescription": "Core bound L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.backend_bound.core_bound.rate"
++        "EventName": "tlb.l1d.access",
++        "EventCode": "0x0000000b",
++        "BriefDescription": "dtlb acc num"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * (inst.int.alu.spec + inst.int.mul.spec + inst.int.div.spec + inst.int.csr.spec) / uop.spec",
-+        "PublicDescription": "Integer operations L2 topdown metric",
-+        "BriefDescription": "Integer operations L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.retiring.int.rate"
++        "EventName": "tlb.l1d.miss",
++        "EventCode": "0x0000000c",
++        "BriefDescription": "dtlb acc miss num"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.brjmp.spec / uop.spec",
-+        "PublicDescription": "Branch operations L2 topdown metric",
-+        "BriefDescription": "Branch operations L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.retiring.brjmp.rate"
++        "EventName": "tlb.pf.access",
++        "EventCode": "0x0000000d",
++        "BriefDescription": "ptlb acc num"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.ldst.spec / uop.spec",
-+        "PublicDescription": "Load/Store operations L2 topdown metric",
-+        "BriefDescription": "Load/Store operations L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.retiring.ldst.rate"
++        "EventName": "tlb.pf.miss",
++        "EventCode": "0x0000000e",
++        "BriefDescription": "ptlb acc miss num"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.sca.fp.arith.spec / uop.spec",
-+        "PublicDescription": "Scalar float point arithmetic operations L2 topdown metric",
-+        "BriefDescription": "Scalar float point arithmetic operations L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.retiring.fp.arith.rate"
++        "EventName": "cache.l2.access",
++        "EventCode": "0x0000000f",
++        "BriefDescription": "l2 acc num"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.rvv.arith.spec / uop.spec",
-+        "PublicDescription": "Vector arithmetic operations L2 topdown metric",
-+        "BriefDescription": "Vector arithmetic operations L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.retiring.rvv.arith.rate"
++        "EventName": "cache.l2.miss",
++        "EventCode": "0x00000010",
++        "BriefDescription": "l2 acc miss num"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate - topdown.retiring.int.rate - topdown.retiring.brjmp.rate - topdown.retiring.ldst.rate - topdown.retiring.fp.arith.rate - topdown.retiring.rvv.arith.rate",
-+        "PublicDescription": "Other operations L2 topdown metric",
-+        "BriefDescription": "Other operations L2 topdown metric",
-+        "MetricGroup": "TopdownL2",
-+        "MetricName": "topdown.retiring.other.rate"
++        "EventName": "uop.spec",
++        "EventCode": "0x00000011",
++        "BriefDescription": "rename stage issue slots num"
 +    },
 +    {
-+        "MetricExpr": "cache.l1i.rd.miss.latency / cycles.hart",
-+        "PublicDescription": "Idle by icache miss L3 topdown metric",
-+        "BriefDescription": "Idle by icache miss L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.frontend_bound.latency.data.rate"
++        "EventName": "topdown.frontend_bound.slots",
++        "EventCode": "0x00000012",
++        "BriefDescription": "rename stage no stall and no in recovery, rename stage bubble slot num"
 +    },
 +    {
-+        "MetricExpr": "tlb.l1i.miss.latency / cycles.hart",
-+        "PublicDescription": "Idle by itlb miss L3 topdown metric",
-+        "BriefDescription": "Idle by itlb miss L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.frontend_bound.latency.addr.rate"
++        "EventName": "topdown.bad_speculation.recovery_bubbles",
++        "EventCode": "0x00000013",
++        "BriefDescription": "backend flush, rename stage stall cycle num"
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.brjmp.latency / cycles.hart",
-+        "PublicDescription": "Idle by fetch pipeline bubbles L3 topdown metric",
-+        "BriefDescription": "Idle by fetch pipeline bubbles L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.frontend_bound.latency.redirect.rate"
++        "EventName": "topdown.frontend_bound.latency.slots",
++        "EventCode": "0x00000014",
++        "BriefDescription": "rename stage no stall, frontend waste slots num"
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.brjmp.spec / inst.brjmp.spec",
-+        "PublicDescription": "Branch misprediction rate L3 topdown metric",
-+        "BriefDescription": "Branch misprediction rate L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "inst.mispred.rate"
++        "EventName": "topdown.backend_bound.memory.load",
++        "EventCode": "0x00000015",
++        "BriefDescription": "issue queue full, and exist inflight load cycle num"
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.brjmp.spec * 1000 / uop.spec",
-+        "PublicDescription": "Branch misprediction per 1000 instructions L3 topdown metric",
-+        "BriefDescription": "Branch misprediction per 1000 instructions L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "inst.mispred.pki"
++        "EventName": "topdown.backend_bound.memory.store",
++        "EventCode": "0x00000016",
++        "BriefDescription": "issue queue full, and exist inflight store cycle num"
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.branch / inst.brjmp.branch.spec",
-+        "PublicDescription": "Condition branch misprediction rate L3 topdown metric",
-+        "BriefDescription": "Condition branch misprediction rate L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "inst.mispred.branch.rate"
++        "EventName": "uop.ret",
++        "EventCode": "0x00000017",
++        "BriefDescription": "retire uop num"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/xuantie/c930/ieu.json b/tools/perf/pmu-events/arch/riscv/xuantie/c930/ieu.json
+new file mode 100644
+index 000000000000..61e57c0e415b
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/xuantie/c930/ieu.json
+@@ -0,0 +1,97 @@
++[
++    {
++        "EventName": "topdown.backend_bound.core.barrier_csr",
++        "EventCode": "0x0000003c",
++        "BriefDescription": "Stall cycles caused by CSR barrier at Rename"
++    },
++    {
++        "EventName": "topdown.backend_bound.core.highload",
++        "EventCode": "0x0000003d",
++        "BriefDescription": "Stall cycles caused by high load (ptag full, etc.) at Rename"
++    },
++    {
++        "EventName": "topdown.backend_bound.core.rob_full",
++        "EventCode": "0x0000003e",
++        "BriefDescription": "Stall cycles caused by ROB full at Rename"
++    },
++    {
++        "EventName": "topdown.backend_bound.core.flush_or_rebuild",
++        "EventCode": "0x0000003f",
++        "BriefDescription": "Stall cycles caused by flush or unfinished rebuilding at Rename"
++    },
++    {
++        "EventName": "ieu.de.inst_cnt",
++        "EventCode": "0x00000040",
++        "BriefDescription": "instr nums in de"
++    },
++    {
++        "EventName": "ieu.rn.inst_cnt",
++        "EventCode": "0x00000041",
++        "BriefDescription": "instr nums in rn"
++    },
++    {
++        "EventName": "topdown.bad_speculation.exception_flush",
++        "EventCode": "0x00000042",
++        "BriefDescription": "Flushes generated due to exceptions"
++    },
++    {
++        "EventName": "topdown.bad_speculation.interrupt_flush",
++        "EventCode": "0x00000043",
++        "BriefDescription": "Flushes generated due to interrupts"
++    },
++    {
++        "EventName": "topdown.bad_speculation.other_flush",
++        "EventCode": "0x00000044",
++        "BriefDescription": "Other flushes generated"
++    },
++    {
++        "EventName": "inst.int.alu.spec",
++        "EventCode": "0x00000045",
++        "BriefDescription": "Completed ALU instructions"
++    },
++    {
++        "EventName": "inst.int.mul.spec",
++        "EventCode": "0x00000046",
++        "BriefDescription": "Completed MULT instructions"
++    },
++    {
++        "EventName": "inst.int.div.spec",
++        "EventCode": "0x00000047",
++        "BriefDescription": "Completed DIV instructions"
++    },
++    {
++        "EventName": "inst.int.csr.spec",
++        "EventCode": "0x00000048",
++        "BriefDescription": "Completed CSR instructions"
++    },
++    {
++        "EventName": "ieu.is.siq.stall",
++        "EventCode": "0x000000c0",
++        "BriefDescription": "cycle nums of siq full stall cycles"
++    },
++    {
++        "EventName": "ieu.is.miq.stall",
++        "EventCode": "0x000000c1",
++        "BriefDescription": "cycle nums of miq full stall cycles"
++    },
++    {
++        "EventName": "ieu.is.biq.stall",
++        "EventCode": "0x000000c2",
++        "BriefDescription": "cycle nums of biq full stall cycles"
++    },
++    {
++        "EventName": "ieu.is.lsiq.stall",
++        "EventCode": "0x000000c3",
++        "BriefDescription": "cycle nums of lsiq full stall cycles"
++    },
++    {
++        "EventName": "ieu.is.vfpq.stall",
++        "EventCode": "0x000000c4",
++        "BriefDescription": "cycle nums of fpiq full stall cycles"
++    },
++    {
++        "EventName": "topdown.backend_bound.core.div_busy",
++        "EventCode": "0x000000c5",
++        "BriefDescription": "cycle nums of div busy stall cycles"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/xuantie/c930/ifu.json b/tools/perf/pmu-events/arch/riscv/xuantie/c930/ifu.json
+new file mode 100644
+index 000000000000..11057f66f797
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/xuantie/c930/ifu.json
+@@ -0,0 +1,62 @@
++[
++    {
++        "EventName": "inst.mispred.branch",
++        "EventCode": "0x00000018",
++        "BriefDescription": "speculative cond br mispred num"
++    },
++    {
++        "EventName": "inst.mispred.uncond_branch",
++        "EventCode": "0x00000019",
++        "BriefDescription": "speculative uncond br mispred num"
++    },
++    {
++        "EventName": "inst.mispred.ind",
++        "EventCode": "0x0000001a",
++        "BriefDescription": "speculative indir mispred num"
++    },
++    {
++        "EventName": "inst.mispred.ret",
++        "EventCode": "0x0000001b",
++        "BriefDescription": "speculative return mispred num"
++    },
++    {
++        "EventName": "inst.brjmp.branch.spec",
++        "EventCode": "0x0000001c",
++        "BriefDescription": "speculative execute cond br num"
++    },
++    {
++        "EventName": "inst.brjmp.uncond_branch.spec",
++        "EventCode": "0x0000001d",
++        "BriefDescription": "speculative execute uncond br num"
++    },
++    {
++        "EventName": "inst.brjmp.ind.spec",
++        "EventCode": "0x0000001e",
++        "BriefDescription": "speculative execute indir br num"
++    },
++    {
++        "EventName": "inst.brjmp.ret.spec",
++        "EventCode": "0x0000001f",
++        "BriefDescription": "speculative execute return num"
++    },
++    {
++        "EventName": "inst.brjmp.branch.tk",
++        "EventCode": "0x00000020",
++        "BriefDescription": "speculative br taken num"
++    },
++    {
++        "EventName": "cache.l1i.rd.miss.latency",
++        "EventCode": "0x000000b8",
++        "BriefDescription": "stall cycle because of l1 icache miss"
++    },
++    {
++        "EventName": "tlb.l1i.miss.latency",
++        "EventCode": "0x000000b9",
++        "BriefDescription": "stall cycle because of l1 itle miss"
++    },
++    {
++        "EventName": "inst.mispred.brjmp.latency",
++        "EventCode": "0x000000ba",
++        "BriefDescription": "stall cycle because of br miss"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/xuantie/c930/l2c.json b/tools/perf/pmu-events/arch/riscv/xuantie/c930/l2c.json
+new file mode 100644
+index 000000000000..885c554d5025
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/xuantie/c930/l2c.json
+@@ -0,0 +1,87 @@
++[
++    {
++        "EventName": "cache.l2.wb",
++        "EventCode": "0x000000a2",
++        "BriefDescription": "l2 cache wb number, dirty snpresp data included."
++    },
++    {
++        "EventName": "cache.l2.rd",
++        "EventCode": "0x000000a3",
++        "BriefDescription": "l2 cache read access."
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.branch *1000 / uop.spec",
-+        "PublicDescription": "Condition branch misprediction per 1000 instructions L3 topdown metric",
-+        "BriefDescription": "Condition branch misprediction per 1000 instructions L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "inst.mispred.branch.pki"
++        "EventName": "cache.l2.wr",
++        "EventCode": "0x000000a4",
++        "BriefDescription": "l2 cache store miss req from lsu."
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.uncond_branch / inst.brjmp.uncond_branch.spec",
-+        "PublicDescription": "Unconditional branch (exclude indirect branch and function return) misprediction rate L3 topdown metric",
-+        "BriefDescription": "Unconditional branch (exclude indirect branch and function return) misprediction rate L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "inst.mispred.uncond_branch.rate"
++        "EventName": "cache.l2.refill.rd",
++        "EventCode": "0x000000a5",
++        "BriefDescription": "l2 cache refill raised by lsu/ifu."
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.uncond_branch *1000 / uop.spec",
-+        "PublicDescription": "Unconditional branch (exclude indirect branch and function return) misprediction per 1000 instructions L3 topdown metric",
-+        "BriefDescription": "Unconditional branch (exclude indirect branch and function return) misprediction per 1000 instructions L3 topdown metric",
-+        "MetricGroup": "TopdownL3;Per-instruction",
-+        "MetricName": "inst.mispred.uncond_branch.pki"
++        "EventName": "cache.l2.refill.wr",
++        "EventCode": "0x000000a6",
++        "BriefDescription": "l2 cache refill raised by lsu stream write."
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.ind / inst.brjmp.ind.spec",
-+        "PublicDescription": "Indirect branch misprediction rate L3 topdown metric",
-+        "BriefDescription": "Indirect branch misprediction rate L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "inst.mispred.ind.rate"
++        "EventName": "cache.l2.wb.victim",
++        "EventCode": "0x000000a7",
++        "BriefDescription": "l2 cache write back to next-level cache raised by cache replace."
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.ind *1000 / uop.spec",
-+        "PublicDescription": "Indirect branch misprediction per 1000 instructions L3 topdown metric",
-+        "BriefDescription": "Indirect branch misprediction per 1000 instructions L3 topdown metric",
-+        "MetricGroup": "TopdownL3;Per-instruction",
-+        "MetricName": "inst.mispred.ind.pki"
++        "EventName": "cache.l2.wb.clean",
++        "EventCode": "0x000000a8",
++        "BriefDescription": "l2 cache write back to next-level cache raised by CMO or snoop."
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.ret / inst.brjmp.ret.spec",
-+        "PublicDescription": "Function return misprediction rate L3 topdown metric",
-+        "BriefDescription": "Function return misprediction rate L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "inst.mispred.ret.rate"
++        "EventName": "cache.l2.inval",
++        "EventCode": "0x000000a9",
++        "BriefDescription": "l2 cache invalidation to next-level cache raised by CMO or snoop."
 +    },
 +    {
-+        "MetricExpr": "inst.mispred.ret *1000 / uop.spec",
-+        "PublicDescription": "Function return misprediction per 1000 instructions L3 topdown metric",
-+        "BriefDescription": "Function return misprediction per 1000 instructions L3 topdown metric",
-+        "MetricGroup": "TopdownL3;Per-instruction",
-+        "MetricName": "inst.mispred.ret.pki"
++        "EventName": "cache.l2.refill.inst",
++        "EventCode": "0x000000aa",
++        "BriefDescription": "l2 cache refill raised by ifu load miss."
 +    },
 +    {
-+        "MetricExpr": "topdown.bad_speculation.raw_hazard_early_flush / (topdown.bad_speculation.raw_hazard_early_flush + topdown.bad_speculation.rar_hazard_early_flush)",
-+        "PublicDescription": "RAW early flush rate L3 topdown metric",
-+        "BriefDescription": "RAW early flush rate L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.bad_speculation.raw_hazard_early_flush.rate"
++        "EventName": "bus.access",
++        "EventCode": "0x000000ab",
++        "BriefDescription": "bus req count."
 +    },
 +    {
-+        "MetricExpr": "topdown.bad_speculation.rar_hazard_early_flush / (topdown.bad_speculation.raw_hazard_early_flush + topdown.bad_speculation.rar_hazard_early_flush)",
-+        "PublicDescription": "RAR early flush rate L3 topdown metric",
-+        "BriefDescription": "RAR early flush rate L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.bad_speculation.rar_hazard_early_flush.rate"
++        "EventName": "bus.rd.access",
++        "EventCode": "0x000000ac",
++        "BriefDescription": "bus read access count."
 +    },
 +    {
-+        "MetricExpr": "topdown.bad_speculation.exception_flush / (topdown.bad_speculation.exception_flush + topdown.bad_speculation.interrupt_flush + topdown.bad_speculation.other_flush)",
-+        "PublicDescription": "exception flush rate L3 topdown metric",
-+        "BriefDescription": "exception flush rate L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.bad_speculation.exception_flush.rate"
++        "EventName": "bus.wr.access",
++        "EventCode": "0x000000af",
++        "BriefDescription": "bus evict/write access count."
 +    },
 +    {
-+        "MetricExpr": "topdown.bad_speculation.interrupt_flush / (topdown.bad_speculation.exception_flush + topdown.bad_speculation.interrupt_flush + topdown.bad_speculation.other_flush)",
-+        "PublicDescription": "interrupt flush rate L3 topdown metric",
-+        "BriefDescription": "interrupt flush rate L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.bad_speculation.interrupt_flush.rate"
++        "EventName": "topdown.backend_bound.memory.demand_read.l3",
++        "EventCode": "0x000000bb",
++        "BriefDescription": "cacheable demand read data from l3"
 +    },
 +    {
-+        "MetricExpr": "topdown.bad_speculation.other_flush / (topdown.bad_speculation.exception_flush + topdown.bad_speculation.interrupt_flush + topdown.bad_speculation.other_flush)",
-+        "PublicDescription": "other flush rate L3 topdown metric",
-+        "BriefDescription": "other flush rate L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.bad_speculation.other_flush.rate"
++        "EventName": "topdown.backend_bound.memory.demand_read.peer_core",
++        "EventCode": "0x000000bc",
++        "BriefDescription": "cacheable demand read data from peer core"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.int.alu.spec / uop.spec",
-+        "PublicDescription": "Arithmetic operations L3 topdown metric",
-+        "BriefDescription": "Arithmetic operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.int.alu.rate"
++        "EventName": "topdown.backend_bound.memory.demand_read.dram",
++        "EventCode": "0x000000bd",
++        "BriefDescription": "cacheable demand read data from dram"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.int.mul.spec / uop.spec",
-+        "PublicDescription": "Multiplication operations L3 topdown metric",
-+        "BriefDescription": "Multiplication operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.int.mul.rate"
++        "EventName": "topdown.backend_bound.memory.demand_ostd_read",
++        "EventCode": "0x000000be",
++        "BriefDescription": "cacheable demand read with l2 miss and already sended bus req cycle"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.int.div.spec / uop.spec",
-+        "PublicDescription": "Division operations L3 topdown metric",
-+        "BriefDescription": "Division operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.int.div.rate"
++        "EventName": "topdown.backend_bound.memory.demand_read",
++        "EventCode": "0x000000bf",
++        "BriefDescription": "cacheable demand read with l2 miss"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/xuantie/c930/lsu.json b/tools/perf/pmu-events/arch/riscv/xuantie/c930/lsu.json
+new file mode 100644
+index 000000000000..5779692951e4
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/xuantie/c930/lsu.json
+@@ -0,0 +1,182 @@
++[
++    {
++        "EventName": "topdown.backend_bound.memory.store.l2_miss",
++        "EventCode": "0x00000079",
++        "BriefDescription": "store l2 miss and results in issue block"
++    },
++    {
++        "EventName": "topdown.backend_bound.memory.store.l1_miss",
++        "EventCode": "0x0000007a",
++        "BriefDescription": "store l1 miss and results in issue block"
++    },
++    {
++        "EventName": "topdown.backend_bound.memory.load.l2_miss",
++        "EventCode": "0x0000007b",
++        "BriefDescription": "load l2 miss and results in issue block"
++    },
++    {
++        "EventName": "topdown.backend_bound.memory.load.l1_miss",
++        "EventCode": "0x0000007c",
++        "BriefDescription": "load l1 miss and results in issue block"
++    },
++    {
++        "EventName": "topdown.backend_bound.memory.load.struct_hazard",
++        "EventCode": "0x0000007d",
++        "BriefDescription": "load struct hazards and results in issue block"
++    },
++    {
++        "EventName": "topdown.bad_speculation.rar_hazard_early_flush",
++        "EventCode": "0x0000007e",
++        "BriefDescription": "rar hazard results in early flush"
++    },
++    {
++        "EventName": "topdown.bad_speculation.rar_hazard_abnr_flush",
++        "EventCode": "0x0000007f",
++        "BriefDescription": "rar hazard results in retire flush"
++    },
++    {
++        "EventName": "topdown.bad_speculation.raw_hazard_early_flush",
++        "EventCode": "0x00000080",
++        "BriefDescription": "raw hazard results in early flush"
++    },
++    {
++        "EventName": "topdown.bad_speculation.raw_hazard_abnr_flush",
++        "EventCode": "0x00000081",
++        "BriefDescription": "raw hazard results in retire flush"
++    },
++    {
++        "EventName": "inst.load.unalign",
++        "EventCode": "0x00000083",
++        "BriefDescription": "load unalign split"
++    },
++    {
++        "EventName": "inst.store.unalign",
++        "EventCode": "0x00000084",
++        "BriefDescription": "store unalign split"
++    },
++    {
++        "EventName": "cache.l1d.wr.access",
++        "EventCode": "0x0000008a",
++        "BriefDescription": "store access l1 dcache"
++    },
++    {
++        "EventName": "cache.l1d.wr.miss",
++        "EventCode": "0x0000008b",
++        "BriefDescription": "store l1 dcache miss"
++    },
++    {
++        "EventName": "cache.l1d.refill.inner",
++        "EventCode": "0x0000008c",
++        "BriefDescription": "l1 dcache miss and l2c hit"
++    },
++    {
++        "EventName": "cache.l1d.refill.outer",
++        "EventCode": "0x0000008d",
++        "BriefDescription": "l1 dcache miss and l2c miss"
++    },
++    {
++        "EventName": "cache.l1d.wb",
++        "EventCode": "0x0000008e",
++        "BriefDescription": "l1 dcache dirty line eviction"
++    },
++    {
++        "EventName": "cache.l1d.wb.victim",
++        "EventCode": "0x0000008f",
++        "BriefDescription": "l1 dcache dirty line evicted by new cache line refill"
++    },
++    {
++        "EventName": "cache.l1d.wb.clean",
++        "EventCode": "0x00000090",
++        "BriefDescription": "l1 dcache dirty line evicted by cmo or snoop"
++    },
++    {
++        "EventName": "cache.l1d.inval",
++        "EventCode": "0x00000091",
++        "BriefDescription": "l1 dcache line invalidated by cmo or snoop"
++    },
++    {
++        "EventName": "inst.ldst.load.spec",
++        "EventCode": "0x00000092",
++        "BriefDescription": "load inst, not include prefetch"
++    },
++    {
++        "EventName": "inst.ldst.store.spec",
++        "EventCode": "0x00000093",
++        "BriefDescription": "store inst, not include cmo"
++    },
++    {
++        "EventName": "inst.ldst.lr.spec",
++        "EventCode": "0x00000094",
++        "BriefDescription": "lr inst"
++    },
++    {
++        "EventName": "inst.ldst.sc",
++        "EventCode": "0x00000095",
++        "BriefDescription": "sc inst"
++    },
++    {
++        "EventName": "inst.ldst.sc.pass",
++        "EventCode": "0x00000096",
++        "BriefDescription": "sc pass"
++    },
++    {
++        "EventName": "inst.ldst.sc.fail",
++        "EventCode": "0x00000097",
++        "BriefDescription": "sc fail"
++    },
++    {
++        "EventName": "inst.ldst.amo",
++        "EventCode": "0x00000098",
++        "BriefDescription": "amo inst"
++    },
++    {
++        "EventName": "inst.ldst.load_acquire.spec",
++        "EventCode": "0x00000099",
++        "BriefDescription": "load acquire inst"
++    },
++    {
++        "EventName": "inst.ldst.store_release.spec",
++        "EventCode": "0x0000009a",
++        "BriefDescription": "store release inst"
++    },
++    {
++        "EventName": "inst.ldst.fence",
++        "EventCode": "0x0000009b",
++        "BriefDescription": "fence inst"
++    },
++    {
++        "EventName": "inst.ldst.fencei",
++        "EventCode": "0x0000009c",
++        "BriefDescription": "fencei inst"
++    },
++    {
++        "EventName": "inst.ldst.dvm_sync",
++        "EventCode": "0x0000009d",
++        "BriefDescription": "dvm sync inst"
++    },
++    {
++        "EventName": "inst.ldst.vec_load.spec",
++        "EventCode": "0x0000009e",
++        "BriefDescription": "vector load inst(each split inst counts 1)"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.int.csr.spec / uop.spec",
-+        "PublicDescription": "CSR access operations L3 topdown metric",
-+        "BriefDescription": "CSR access operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.int.csr.rate"
++        "EventName": "inst.ldst.vec_store.spec",
++        "EventCode": "0x0000009f",
++        "BriefDescription": "vector store inst(each split inst counts 1)"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.brjmp.branch.spec / uop.spec",
-+        "PublicDescription": "Conditional branch operations L3 topdown metric",
-+        "BriefDescription": "Conditional branch operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.brjmp.branch.rate"
++        "EventName": "inst.ldst.float_load.spec",
++        "EventCode": "0x000000a0",
++        "BriefDescription": "float load inst"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.brjmp.ind.spec / uop.spec",
-+        "PublicDescription": "Indirect branch operations L3 topdown metric",
-+        "BriefDescription": "Indirect branch operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.brjmp.ind.rate"
++        "EventName": "inst.ldst.float_store.spec",
++        "EventCode": "0x000000a1",
++        "BriefDescription": "float store inst"
 +    },
++    {
++        "EventName": "inst.ldst.spec",
++        "EventCode": "0x000000b3",
++        "BriefDescription": "lsu inst cmplt num"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/xuantie/c930/vfpu.json b/tools/perf/pmu-events/arch/riscv/xuantie/c930/vfpu.json
+new file mode 100644
+index 000000000000..4412e4acc817
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/xuantie/c930/vfpu.json
+@@ -0,0 +1,177 @@
++[
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.brjmp.ret.spec / uop.spec",
-+        "PublicDescription": "Function return operations L3 topdown metric",
-+        "BriefDescription": "Function return operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.brjmp.ret.rate"
++        "EventName": "vfpu_ex1_rep",
++        "EventCode": "0x00000059",
++        "BriefDescription": "Number of inst replayed in VFPU EX1 stage"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.brjmp.uncond_branch.spec / uop.spec",
-+        "PublicDescription": "Unconditional branch operations L3 topdown metric",
-+        "BriefDescription": "Unconditional branch operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.brjmp.uncond_branch.rate"
++        "EventName": "topdown.backend_bound.core.rvv_stall",
++        "EventCode": "0x0000005a",
++        "BriefDescription": "Number of stall cycles caused by vfpu blocking execution instructions"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.ldst.load.spec / uop.spec",
-+        "PublicDescription": "Load operations L3 topdown metric",
-+        "BriefDescription": "Load operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.ldst.load.rate"
++        "EventName": "inst.sca.fp.arith.spec",
++        "EventCode": "0x0000005b",
++        "BriefDescription": "Number of executed scalar floating-point instructions"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.ldst.store.spec / uop.spec",
-+        "PublicDescription": "Store operations L3 topdown metric",
-+        "BriefDescription": "Store operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.ldst.store.rate"
++        "EventName": "inst.fp.arith.half.spec",
++        "EventCode": "0x0000005c",
++        "BriefDescription": "Number of executed half-precision scalar floating-point micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.ldst.float_load.spec / uop.spec",
-+        "PublicDescription": "Float load operations L3 topdown metric",
-+        "BriefDescription": "Float laod operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.ldst.float_load.rate"
++        "EventName": "inst.fp.arith.single.spec",
++        "EventCode": "0x0000005d",
++        "BriefDescription": "Number of executed single-precision scalar floating-point micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.ldst.float_store.spec / uop.spec",
-+        "PublicDescription": "Float store operations L3 topdown metric",
-+        "BriefDescription": "Float store operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.ldst.float_store.rate"
++        "EventName": "inst.fp.arith.double.spec",
++        "EventCode": "0x0000005e",
++        "BriefDescription": "Number of executed double-precision scalar floating-point micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.ldst.vec_load.spec / uop.spec",
-+        "PublicDescription": "Vector load operations L3 topdown metric",
-+        "BriefDescription": "Vector load operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.ldst.vec_load.rate"
++        "EventName": "inst.rvv.arith.spec",
++        "EventCode": "0x0000005f",
++        "BriefDescription": "Number of executed vector macro-instructions"
 +    },
 +    {
-+        "MetricExpr": "topdown.retiring.rate * inst.ldst.vec_store.spec / uop.spec",
-+        "PublicDescription": "Vector store operations L3 topdown metric",
-+        "BriefDescription": "Vector store operations L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.retiring.ldst.vec_store.rate"
++        "EventName": "uop.rvv.arith.spec",
++        "EventCode": "0x00000060",
++        "BriefDescription": "Number of executed vector micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "topdown.backend_bound.core.barrier_csr / cycles.hart",
-+        "PublicDescription": "Core bound barrier stall L3 topdown metric",
-+        "BriefDescription": "Core bound barrier stall L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.backend_bound.core.barrier.rate"
++        "EventName": "uop.rvv.arith.fp.spec",
++        "EventCode": "0x00000061",
++        "BriefDescription": "Number of executed vector floating-point micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "topdown.backend_bound.core.highload / cycles.hart",
-+        "PublicDescription": "Core bound high load stall L3 topdown metric",
-+        "BriefDescription": "Core bound high load stall L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.backend_bound.core.highload.rate"
++        "EventName": "inst.rvv.arith.fp.spec",
++        "EventCode": "0x00000062",
++        "BriefDescription": "Number of executed vector floating-point macro-instructions"
 +    },
 +    {
-+        "MetricExpr": "topdown.backend_bound.core.rob_full / cycles.hart",
-+        "PublicDescription": "Core bound rob full stall L3 topdown metric",
-+        "BriefDescription": "Core bound rob full stall L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.backend_bound.core.rob_full.rate"
++        "EventName": "uop.sca.fp.arith.bf.spec",
++        "EventCode": "0x00000063",
++        "BriefDescription": "Number of executed bfloat16 micro-instructions"
 +    },
 +    {
-+        "MetricExpr": " (ieu.is.siq.stall + ieu.is.miq.stall + ieu.is.biq.stall + ieu.is.lsiq.stall + ieu.is.vfpq.stall) / cycles.hart",
-+        "PublicDescription": "Core bound issue queue stall L3 topdown metric",
-+        "BriefDescription": "Core bound issueu queue stall L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.backend_bound.core.is_stall.rate"
++        "EventName": "uop.rvv.arith.vint8.spec",
++        "EventCode": "0x00000064",
++        "BriefDescription": "Number of vector micro-instructions executed with source operands of type int8"
 +    },
 +    {
-+        "MetricExpr": " topdown.backend_bound.core.div_busy / cycles.hart",
-+        "PublicDescription": "Core bound div busy stall L3 topdown metric",
-+        "BriefDescription": "Core bound div busy stall L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.backend_bound.core.div_busy.rate"
++        "EventName": "uop.rvv.arith.vint16.spec",
++        "EventCode": "0x00000065",
++        "BriefDescription": "Number of vector micro-instructions executed with source operands of type int16"
 +    },
 +    {
-+        "MetricExpr": " topdown.backend_bound.core.rvv_stall / cycles.hart",
-+        "PublicDescription": "Core bound rvv stall L3 topdown metric",
-+        "BriefDescription": "Core bound rvv stall L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.backend_bound.core.rvv_stall.rate"
++        "EventName": "uop.rvv.arith.vint32.spec",
++        "EventCode": "0x00000066",
++        "BriefDescription": "Number of vetor micro-instructions executed with source operands of type int32"
 +    },
 +    {
-+        "MetricExpr": "topdown.backend_bound.memory.load.l2_miss / (topdown.backend_bound.memory.load + topdown.backend_bound.memory.store)",
-+        "PublicDescription": "External memory bound L3 topdown metric",
-+        "BriefDescription": "External memory bound L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.backend_bound.memory.ext_mem_bound.rate"
++        "EventName": "uop.rvv.arith.vint64.spec",
++        "EventCode": "0x00000067",
++        "BriefDescription": "Number of vector micro-instructions executed with source operands of type int64"
 +    },
 +    {
-+        "MetricExpr": "topdown.backend_bound.memory.load.l1_miss / (topdown.backend_bound.memory.load + topdown.backend_bound.memory.store)",
-+        "PublicDescription": "L2 memory bound L3 topdown metric",
-+        "BriefDescription": "L2 memory bound L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.backend_bound.memory.l2_bound.rate"
++        "EventName": "uop.rvv.arith.fix_point.spec",
++        "EventCode": "0x00000068",
++        "BriefDescription": "Number of executed fixed-point micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "1 - topdown.backend_bound.memory.ext_mem_bound.rate - topdown.backend_bound.memory.l2_bound.rate - topdown.backend_bound.memory.store_bound.rate",
-+        "PublicDescription": "L1 memory bound L3 topdown metric",
-+        "BriefDescription": "L1 memory bound L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.backend_bound.memory.l1_bound.rate"
++        "EventName": "uop.fp.arith.fdiv.spec",
++        "EventCode": "0x00000069",
++        "BriefDescription": "Number of executed floting-point division micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "topdown.backend_bound.memory.store / (topdown.backend_bound.memory.load + topdown.backend_bound.memory.store)",
-+        "PublicDescription": "Store bound L3 topdown metric",
-+        "BriefDescription": "Store bound L3 topdown metric",
-+        "MetricGroup": "TopdownL3",
-+        "MetricName": "topdown.backend_bound.memory.store_bound.rate"
++        "EventName": "uop.rvv.arith.idiv.spec",
++        "EventCode": "0x0000006a",
++        "BriefDescription": "Number of executed integer division micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "cycles.hart * 8",
-+        "PublicDescription": "Total slots",
-+        "BriefDescription": "Total slots",
-+        "MetricGroup": "Common",
-+        "MetricName": "topdown.slots"
++        "EventName": "uop.rvv.arith.zvkn.spec",
++        "EventCode": "0x0000006b",
++        "BriefDescription": "Number of executed ZVKN-extension micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "uop.ret / cycles.hart",
-+        "PublicDescription": "Instructions per cycle",
-+        "BriefDescription": "Instructions per cycle",
-+        "MetricGroup": "Common;Per-cycle",
-+        "MetricName": "ipc"
++        "EventName": "uop.rvv.arith.zvks.spec",
++        "EventCode": "0x0000006c",
++        "BriefDescription": "Number of executed ZVKS-extension micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "cache.l1d.rd.miss * 1000 / uop.ret",
-+        "PublicDescription": "l1 dcache access misses per 1000 instructions",
-+        "BriefDescription": "l1 dcache access misses per 1000 instructions",
-+        "MetricGroup": "Common;Per-instruction",
-+        "MetricName": "cache.l1d.rd.data.mpki"
++        "EventName": "uop.rvv.arith.vmulu64.spec",
++        "EventCode": "0x0000006d",
++        "BriefDescription": "Number of micro-instructions executed in vector 64-bit integer multiplication unit"
 +    },
 +    {
-+        "MetricExpr": "cache.l1d.wr.miss * 1000 / uop.ret",
-+        "PublicDescription": "l1 dcache write access misses per 1000 instructions",
-+        "BriefDescription": "l1 dcache write access misses per 1000 instructions",
-+        "MetricGroup": "Common;Per-instruction",
-+        "MetricName": "cache.l1d.wr.data.mpki"
++        "EventName": "uop.rvv.arith.vmulu.spec",
++        "EventCode": "0x0000006e",
++        "BriefDescription": "Number of micro-instructions executed in vector integer multiplication unit"
 +    },
 +    {
-+        "MetricExpr": "cache.l1i.rd.miss * 1000 / uop.ret",
-+        "PublicDescription": "l1 icache access misses per 1000 instructions",
-+        "BriefDescription": "l1 icache access misses per 1000 instructions",
-+        "MetricGroup": "Common;Per-instruction",
-+        "MetricName": "cache.l1i.rd.code.mpki"
++        "EventName": "uop.rvv.arith.vdot.spec",
++        "EventCode": "0x0000006f",
++        "BriefDescription": "Number of executed RISC-V and Xuantie dot-extension micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "cache.l2.miss * 1000 / uop.ret",
-+        "PublicDescription": "l2 cache access misses per 1000 instructions",
-+        "BriefDescription": "l2 cache access misses per 1000 instructions",
-+        "MetricGroup": "Common;Per-instruction",
-+        "MetricName": "cache.l2.mpki"
++        "EventName": "uop.rvv.arith.vfmul.spec",
++        "EventCode": "0x00000070",
++        "BriefDescription": "Number of executed floating-point multiplication micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "tlb.l1d.miss * 1000 / uop.ret",
-+        "PublicDescription": "L1 TLB misses caused by data loads or stores per 1000 instructions",
-+        "BriefDescription": "L1 TLB misses caused by data loads or stores per 1000 instructions",
-+        "MetricGroup": "Common;Per-instruction",
-+        "MetricName": "tlb.l1d.ldst.mpki"
++        "EventName": "uop.rvv.arith.vfadd.spec",
++        "EventCode": "0x00000071",
++        "BriefDescription": "Number of executed floating-point addition micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "tlb.l1i.miss * 1000 / uop.ret",
-+        "PublicDescription": "L1 TLB misses caused by instruction fetch per 1000 instructions",
-+        "BriefDescription": "L1 TLB misses caused by instruction fetch per 1000 instructions",
-+        "MetricGroup": "Common;Per-instruction",
-+        "MetricName": "tlb.l1i.code.mpki"
++        "EventName": "uop.rvv.arith.perm.spec",
++        "EventCode": "0x00000072",
++        "BriefDescription": "Number of executed permutation micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "cache.l1d.rd.miss / cache.l1d.rd.access",
-+        "PublicDescription": "l1 dcache access miss rate",
-+        "BriefDescription": "l1 dcache access miss rate",
-+        "MetricGroup": "Common",
-+        "MetricName": "cache.l1d.rd.data.miss.rate"
++        "EventName": "uop.rvv.arith.redu.spec",
++        "EventCode": "0x00000073",
++        "BriefDescription": "Number of executed integer reduction micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "cache.l1d.wr.miss / cache.l1d.wr.access",
-+        "PublicDescription": "l1 dcache write access miss rate",
-+        "BriefDescription": "l1 dcache write access miss rate",
-+        "MetricGroup": "Common",
-+        "MetricName": "cache.l1d.wr.data.miss.rate"
++        "EventName": "uop.rvv.arith.fred.spec",
++        "EventCode": "0x00000074",
++        "BriefDescription": "Number of executed floating-point reduction micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "cache.l1i.rd.miss / cache.l1i.rd.access",
-+        "PublicDescription": "l1 icache access miss rate",
-+        "BriefDescription": "l1 icache access miss rate",
-+        "MetricGroup": "Common",
-+        "MetricName": "cache.l1i.rd.code.miss.rate"
++        "EventName": "uop.rvv.arith.mask.spec",
++        "EventCode": "0x00000075",
++        "BriefDescription": "Number of executed vector masked micro-instructions"
 +    },
 +    {
-+        "MetricExpr": "cache.l2.miss / cache.l2.access",
-+        "PublicDescription": "l2 cache access miss rate",
-+        "BriefDescription": "l2 cache access miss rate",
-+        "MetricGroup": "Common",
-+        "MetricName": "cache.l2.rd.miss.rate"
++        "EventName": "uop.rvv.arith.vlmax.spec",
++        "EventCode": "0x00000076",
++        "BriefDescription": "Number of vector micro-instructions excuted with max number of element"
 +    },
 +    {
-+        "MetricExpr": "1 - topdown.backend_bound.memory.demand_read.l3 / topdown.backend_bound.memory.demand_read",
-+        "PublicDescription": "LLC access miss rate",
-+        "BriefDescription": "lLC access miss rate",
-+        "MetricGroup": "Common",
-+        "MetricName": "cache.l3.rd.miss.rate"
++        "EventName": "uop.rvv.arith.agnostic.spec",
++        "EventCode": "0x00000077",
++        "BriefDescription": "Number of vector micro-instructions excuted with agnostic policy"
 +    },
 +    {
-+        "MetricExpr": "tlb.l1d.miss / tlb.l1d.access",
-+        "PublicDescription": "L1 TLB misses caused by data loads or stores rate",
-+        "BriefDescription": "L1 TLB misses caused by data loads or stores rate",
-+        "MetricGroup": "Common",
-+        "MetricName": "tlb.l1d.ldst.miss.rate"
++        "EventName": "uop.rvv.arith.idiv_direct.spec",
++        "EventCode": "0x00000078",
++        "BriefDescription": "Number of vector integer division micro-instructions producing special value types"
 +    },
 +    {
-+        "MetricExpr": "tlb.l1i.miss / tlb.l1i.access",
-+        "PublicDescription": "L1 TLB misses caused by instruction fetch rate",
-+        "BriefDescription": "L1 TLB misses caused by instruction fetch rate",
-+        "MetricGroup": "Common",
-+        "MetricName": "tlb.l1i.code.miss.rate"
++        "EventName": "uop.rvv.vadd.spec",
++        "EventCode": "0x000000ae",
++        "BriefDescription": "Number of executed vector integer addition micro-instructions"
 +    },
 +    {
-+        "MetricExpr": " bus.rd.access / bus.access",
-+        "PublicDescription": "Bus read access rate",
-+        "BriefDescription": "Bus read access rate",
-+        "MetricGroup": "Common",
-+        "MetricName": "bus.rd.rate"
++        "EventName": "uop.rvv.vmacc.spec",
++        "EventCode": "0x000000af",
++        "BriefDescription": "Number of executed vector integer multiply-add micro-instructions"
 +    },
 +    {
-+        "MetricExpr": " bus.wr.access / bus.access",
-+        "PublicDescription": "Bus write access rate",
-+        "BriefDescription": "Bus write access rate",
-+        "MetricGroup": "Common",
-+        "MetricName": "bus.wr.rate"
++        "EventName": "uop.rvv.vfmacc.spec",
++        "EventCode": "0x000000b0",
++        "BriefDescription": "Number of executed vector floating-point multiply-add micro-instructions"
 +    }
 +]
 -- 
