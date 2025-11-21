@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C799DCFA478
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 06:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE7ACFA478
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 06:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c3L8/Sj4K5NHq8ITKotu85fUQcKwdgBE2P+FSt3FWSw=; b=JYnp+MX0axqDyq
-	3tc78L0qAP72iTk/O0GMnQzoU77ZlnE36kZjS7cFraq1Zs2JRlkjNM5x58qEAuHZJ2g8n6lwIT2GM
-	bt/uz5iMjb0wFadxU6rfzrPM8T+nhlhawmKTfBRQbemmbvXhIEkT/P1n0XkTfeRfVFT4dKVn/lpxT
-	XOeYGwBOT7NDg7XcG0uRAoUdBCV6IXr7lhtX1Q7pwJJE9H6HA6Dn3JyTvdqxImqDgmgTbHrHuxyoc
-	QPNMMk+OOgLZI7fLSn5N6u1NOvMtxpqAqWB7oJwBciO1qYxEDICm9w9cPCCRIKSp9KQ00/wSIOuMi
-	JvzbSCNIBH2CmIoYy61g==;
+	List-Owner; bh=swbNN9bDzGNmfXyE66AbxYdaMYwKJuh6QBFMgLufGE4=; b=D7RG7Mr4muyk2O
+	RCGj+TS4/NX+/iHWaiZxfiwoQuXnTchMqp+tP/Dmxtw7eihZcD+oQAR/XysC2U1yRb+8Z9Iox+5ft
+	Avskog5r2xGxis8JdbWzaTeX3M5dyAPDmAXM7JR8R8JQlRQNfl9kDdq4p12Wru63Fg7tVC7SxdO89
+	BPUWmPjxyVq3o3ZlCZnbxbb6lSu+jcRgc5w7SjGFeSW8HC6NEdVsS/ZlcKtunIVX6vyeXMn2RckmX
+	UrwpPq3sfC6dWrWRr6y60BgaF757eHjIdygAoM3ptgm2CVoFdQS5vBzBxdu3Ag8nlVhvG7o9Cx3ZL
+	wZq/Cfs/kDj0e2iRcpEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMKfK-00000007uqo-2SXR;
-	Fri, 21 Nov 2025 06:30:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vMKjf-00000007vB0-0oSw;
+	Fri, 21 Nov 2025 06:35:11 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMKfI-00000007uqZ-2xnL;
-	Fri, 21 Nov 2025 06:30:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D145460220;
-	Fri, 21 Nov 2025 06:30:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE8E1C4CEF1;
-	Fri, 21 Nov 2025 06:30:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763706639;
-	bh=gDSALg5PLW9mySOKY3LcUIAnuzMXaM0GWAeazqo8adg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mAxOl9OxLsYR5RPnQ2ArO8vBCMbdZAyISNQZhdk/iBF3dZeBadX4O84qPuYSlgHG+
-	 aTceCMPEqg08aC+59W3sLYzlxJXQQbTm/wm7Y6zeybU4gXHMAhQQrkLrC8MC0cUX15
-	 rtir2oUBb8empsgR4WrVpSid23V1e85rhnwOSMTUf/xDm1KsNan+i7qjBYrMKcqi11
-	 wW0lkTO6dPWPHM1Bq2YjtO7bqMKlNXYRCaJIgX3S++m6nejwOLxX0Udwny8KDgXdVl
-	 BxUV44DQzoD6A4jk24+47g8pQ+00Q6v6KFxU+uKXP/Ff0nOZ4Z2eOaScZ+udG8PMRU
-	 OWqDPHXlelZiA==
-Date: Thu, 20 Nov 2025 23:30:33 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Nicolas Schier <nicolas.schier@linux.dev>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] kbuild: Support directory targets for building DTBs
-Message-ID: <20251121063033.GA571346@ax162>
-References: <20251120204812.1983452-4-robh@kernel.org>
+	id 1vMKjb-00000007v9V-3nDV
+	for linux-riscv@lists.infradead.org;
+	Fri, 21 Nov 2025 06:35:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1763706906; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=48Ey0y3O33KKcN2qk5Z3Lr1o4LbwnuPTXJlui7gSguo=;
+	b=nWmUuDlAcLqTuTmqFl1751y7mqqPHvzKxlBWUWrTh9kfRZYeURlZ7rzOMDAJmQV2cXcZ2mw5qV3AMqSVAS7dmiJqv+F7c/vEeYserMyV+2vzmo0v/RMrRDTATSfhqNdr/VXjzRw1B+yv0Tp2zuAILDByJopEMhb/F9rmZBPBP3o=
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0Wt-RZKC_1763706899 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 21 Nov 2025 14:35:00 +0800
+From: cp0613@linux.alibaba.com
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	james.clark@linaro.org,
+	guoren@kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen Pei <cp0613@linux.alibaba.com>
+Subject: [PATCH v2 1/4] dt-bindings: vendor-prefixes: Add prefix for XuanTie
+Date: Fri, 21 Nov 2025 14:34:36 +0800
+Message-ID: <20251121063439.2545-2-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251121063439.2545-1-cp0613@linux.alibaba.com>
+References: <20251121063439.2545-1-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251120204812.1983452-4-robh@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_223508_326137_375F9731 
+X-CRM114-Status: UNSURE (   5.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,138 +85,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 02:48:13PM -0600, Rob Herring (Arm) wrote:
-> It is useful to be able to build all the DTBs for a vendor. One can list
-> all the .dts files in a directory and convert those to %.dtb targets,
-> but that doesn't work for base+overlay DTB targets.
-> 
-> Adding the dts subdirectory is straight-forward, but building the
-> DTBs should only happen for certain targets (dtbs, dtbs_check, %.dtb,
-> %.dtbo, and the directory target(s)).
-> 
-> The 'scripts_dtc' rule doesn't really depend on 'dt_binding_schemas',
-> but the directory target only depends on 'scripts' which depends on
-> 'scripts_dtc'.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
-> Please ack and I'll take this in the DT tree.
-> 
-> I don't really like looking at MAKECMDGOALS, but that's the only way I
-> could come up with that works. Maybe someone knows a better way.
+From: Chen Pei <cp0613@linux.alibaba.com>
 
-Yeah, I do worry that just looking for "dtb" in MAKECMDGOALS could
-result in some false positives but in the tree now, I only see one .c
-file that would trigger this logic, so maybe it is not that big of a
-deal?
+Add new vendor strings to dt bindings for RISC-V vendor XuanTie.
 
-  $ fd dtb
-  arch/microblaze/boot/dts/linked_dtb.S
-  arch/mips/include/asm/mach-loongson64/builtin_dtbs.h
-  arch/um/kernel/dtb.c
-  drivers/gpu/drm/ci/dtbs-check.sh
-  scripts/Makefile.dtbinst
-  scripts/Makefile.dtbs
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Unfortunately, my Make-fu is pretty weak right now so I do not have any
-immediate suggestions but Nicolas might... otherwise, we could probably
-ride this for right now and either revert it or forward fix it if
-problems come up in further testing, since this does seem rather useful
-for folks working on device tree files.
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index f1d1882009ba..5d28b2da94cd 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1829,6 +1829,8 @@ patternProperties:
+     description: Xilinx
+   "^xnano,.*":
+     description: Xnano
++  "^xuantie,.*":
++    description: C-SKY Microsystems Co., Ltd. (XuanTie)
+   "^xunlong,.*":
+     description: Shenzhen Xunlong Software CO.,Limited
+   "^xylon,.*":
+-- 
+2.50.1
 
-> v2:
->  - Convert arm, mips and riscv. The other DT enabled arches don't have 
->    vendor directories.
->  - Link to v1: https://lore.kernel.org/all/20251113225952.867138-1-robh@kernel.org/ 
-> 
-> ---
->  Makefile              | 2 +-
->  arch/arm/Kbuild       | 2 ++
->  arch/arm64/Kbuild     | 2 ++
->  arch/mips/Kbuild      | 2 ++
->  arch/riscv/Kbuild     | 2 ++
->  scripts/Makefile.dtbs | 3 +++
->  6 files changed, 12 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Makefile b/Makefile
-> index 17cfa11ca716..85018d461575 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -1494,7 +1494,7 @@ export CHECK_DTBS=y
->  endif
->  
->  ifneq ($(CHECK_DTBS),)
-> -dtbs_prepare: dt_binding_schemas
-> +scripts_dtc: dt_binding_schemas
->  endif
->  
->  dtbs_check: dtbs
-> diff --git a/arch/arm/Kbuild b/arch/arm/Kbuild
-> index 69de6b6243c7..af7dd53585c3 100644
-> --- a/arch/arm/Kbuild
-> +++ b/arch/arm/Kbuild
-> @@ -10,5 +10,7 @@ obj-y				+= probes/
->  obj-y				+= net/
->  obj-y				+= crypto/
->  
-> +subdir-y += boot/dts
-> +
->  # for cleaning
->  subdir- += boot
-> diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
-> index 5bfbf7d79c99..9e9820af48c9 100644
-> --- a/arch/arm64/Kbuild
-> +++ b/arch/arm64/Kbuild
-> @@ -5,5 +5,7 @@ obj-$(CONFIG_XEN)	+= xen/
->  obj-$(subst m,y,$(CONFIG_HYPERV))	+= hyperv/
->  obj-$(CONFIG_CRYPTO)	+= crypto/
->  
-> +subdir-y += boot/dts
-> +
->  # for cleaning
->  subdir- += boot
-> diff --git a/arch/mips/Kbuild b/arch/mips/Kbuild
-> index e901bf554483..6125d00cdcef 100644
-> --- a/arch/mips/Kbuild
-> +++ b/arch/mips/Kbuild
-> @@ -21,5 +21,7 @@ ifdef CONFIG_KVM
->  obj-y += kvm/
->  endif
->  
-> +subdir-y += boot/dts
-> +
->  # for cleaning
->  subdir- += boot
-> diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-> index 126fb738fc44..3cf7f84eb287 100644
-> --- a/arch/riscv/Kbuild
-> +++ b/arch/riscv/Kbuild
-> @@ -7,5 +7,7 @@ obj-$(CONFIG_KVM) += kvm/
->  
->  obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
->  
-> +subdir-y += boot/dts
-> +
->  # for cleaning
->  subdir- += boot
-> diff --git a/scripts/Makefile.dtbs b/scripts/Makefile.dtbs
-> index 2d321b813600..4d0d164df275 100644
-> --- a/scripts/Makefile.dtbs
-> +++ b/scripts/Makefile.dtbs
-> @@ -14,7 +14,10 @@ dtb-y           := $(addprefix $(obj)/, $(dtb-y))
->  multi-dtb-y     := $(addprefix $(obj)/, $(multi-dtb-y))
->  real-dtb-y      := $(addprefix $(obj)/, $(real-dtb-y))
->  
-> +ifneq ($(findstring /dts/,$(MAKECMDGOALS))$(findstring dtb,$(MAKECMDGOALS)),)
->  always-y        += $(dtb-y)
-> +endif
-> +
->  targets         += $(real-dtb-y)
->  
->  # dtbs-list
-> -- 
-> 2.51.0
-> 
 
 _______________________________________________
 linux-riscv mailing list
