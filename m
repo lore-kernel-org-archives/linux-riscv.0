@@ -4,143 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67510CFC29B
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 17:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D992ACFC296
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 18:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DbpxlbD0B7PWKZzGPh6AxXMcuxZMoELg/FCH8Hj4hXQ=; b=ZJlwZW2VrlUrMf
-	ZdtLZkWu+G/ejIAadeByE/x8fNc+7jCPQszFGPDrysAKBuvgm3XRr3FjEsOXGnVg4Os9J5U+XrlMf
-	c7vbY4HZJsj9GBG5x+/Lj/WSoRHXay4N8xM8tObtV19JiZi1qi/h1ngA4rRmrd4tFy7zf1DYoInUR
-	I/dFQgqW/y9iSNqzWefho1g8aPQDf23CzXlzmxAdNvLmJgWvnGn/lvbt5yWJfUIzHTtmbYXwEWV2H
-	agY3XRfUMJ/Fi6IapnH+fgMsVPhXLFlScV5RyV+onagZf8bFSfbg958zsBtXqEfQFcZHBtGH7yHKm
-	nG/XkpY8qbY9kElrU3fw==;
+	List-Owner; bh=UZwJ/mfGkIBnfMTOUPT86mU6vTGkgfk2S5oi8pTvcl0=; b=k5TmFY0XdFNUnw
+	nkHpkkjnarGv7vfWj1zH74qopUtVidOtafm1u7nUbKR5xo+agRAMYWp2PEvW22K51bz6Sk9udKx3z
+	tkBJrgMa5foXzOkWq7Gx1Tn5EGQ6pi1eu77uwz68qQf7ANwBvEBO3P9hYJywg5pC+5L+TE9q+qMPP
+	XfAg+mn4dXQ79bChFjzWLQGmpoqXcpLPm7WHDl7WV1I1F3fAR6pgx6S+OW98PeTmqdeLs69GaXqmH
+	qEmo6DOqCbgixGsjM5zghTeDARbvMBZsDcmBV5bT4aQDZDAXiUua85CLwBIB7MEIOLGgpzm0Viotn
+	qz+xU6K0rxOFB4qBDOug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMVH2-00000008oUo-22e8;
-	Fri, 21 Nov 2025 17:50:20 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1vMVmz-00000008qfR-28Wx;
+	Fri, 21 Nov 2025 18:23:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMVGz-00000008oUI-25gU;
-	Fri, 21 Nov 2025 17:50:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763747418; x=1795283418;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=YckklQG/5FwUbczH+x3i0icUWdCO2DJMQNFuo3RKWck=;
-  b=CxEoigRIfvFQT+OgznmOEVgay7cSukJC0IKVY3RhsRCP2zcatrFqO22Z
-   DuJIr9BBVa2id4rlsgT1UBqzV1dhSd0rg5Okh3X25tGx0V+Bv8dkuT7vz
-   o+1Ua044vVSEHZP8++J+pJqOZVh0aEOnirvgS3xdf8dx5AIuM9LhixJjt
-   uh37Dr2GDKufK7IIO40tpK32d6zYjCLOmsCDss3bFAkccSPuURLuN8VFy
-   QR5et+flPuQZuRseQUWd+jUV9zorirhI588OjDEzWWYJk3ZxDGsP2GYuN
-   VHeEU9Ju+aWu10Cfc8jZ0Ke7nLMTTFNdowgfxDlQW/eEfL6ghQlox0ti6
-   w==;
-X-CSE-ConnectionGUID: E2lhTDTbR2+0ivMiPMctbQ==
-X-CSE-MsgGUID: M3aBHLb8TDq8+g3+fqzmVg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11620"; a="69465916"
-X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
-   d="scan'208";a="69465916"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 09:50:17 -0800
-X-CSE-ConnectionGUID: TALVmW4IQoSpoxqsJrQTWg==
-X-CSE-MsgGUID: pw0Ufr6DT1ewmiN2aWhOIA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
-   d="scan'208";a="222378181"
-Received: from schen9-mobl4.amr.corp.intel.com (HELO [10.125.110.60]) ([10.125.110.60])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 09:50:15 -0800
-Message-ID: <2837ea3e-c0b8-46b0-b8da-bf06906d124d@intel.com>
-Date: Fri, 21 Nov 2025 09:50:14 -0800
+	id 1vMVmy-00000008qfL-1yW7
+	for linux-riscv@lists.infradead.org;
+	Fri, 21 Nov 2025 18:23:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9289E60139;
+	Fri, 21 Nov 2025 18:23:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBCE3C4CEF1;
+	Fri, 21 Nov 2025 18:23:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763749399;
+	bh=Tn8d1sQwIoOGDV7RJWQSeoi9vVETWpTgHD0F6HgQ/GE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UzP2uVKl+OdmK3Ca+M7KnMoutuy/g8dKKOTuL4Kwkf/ft6+nVbcZSOZ2K5lYKlPl3
+	 JGARAYdiPUeTDqLH4URlt0wUKWeCkNXFdxrbZRJE+Z2yPyvLD9jQq9KdbfZjMClAjn
+	 7Xwux1OFDBhcDsysiRX97shXIzrJ2SN0e+ddDTQdpyRxhIx81E3dvrtph4EPaAeL3j
+	 +FY88P3A7tHVlVGWfmNz4EVsVGTiZz8avpr4bD0AteB8lXfyQegOAj8ffOOlj5jkUv
+	 mKLXbeEP/HAmN46twAAXM32vreq07thlbqHDcVf196CRW6nqqyyOqYPkpt0NrIpCL5
+	 vLclLldV9pN+g==
+Date: Fri, 21 Nov 2025 19:23:12 +0100
+From: Matthias Brugger <matthias.bgg@kernel.org>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	E Shattow <e@freeshell.de>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/5] Add support for StarFive VisionFive 2 Lite board
+Message-ID: <aSCuEJ_Y6gNNpB5M@ziggy.stardust>
+References: <20251120082946.109378-1-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v7 30/31] x86/mm, mm/vmalloc: Defer kernel TLB flush
- IPIs under CONFIG_COALESCE_TLBI=y
-To: Valentin Schneider <vschneid@redhat.com>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
- Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker <frederic@kernel.org>,
- "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>,
- Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- "David S. Miller" <davem@davemloft.net>,
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
- Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett
- <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Mel Gorman <mgorman@suse.de>, Andrew Morton <akpm@linux-foundation.org>,
- Masahiro Yamada <masahiroy@kernel.org>, Han Shen <shenhan@google.com>,
- Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>,
- Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>,
- Juri Lelli <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>,
- Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
- Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>
-References: <20251114150133.1056710-1-vschneid@redhat.com>
- <20251114151428.1064524-10-vschneid@redhat.com>
- <bad9eaaa-561a-498a-90d1-fe3a3ab8ba37@intel.com>
- <xhsmh5xb3thh6.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
-Content-Language: en-US
-From: Dave Hansen <dave.hansen@intel.com>
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <xhsmh5xb3thh6.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_095017_594704_15C87AB1 
-X-CRM114-Status: GOOD (  18.87  )
+Content-Disposition: inline
+In-Reply-To: <20251120082946.109378-1-hal.feng@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,68 +81,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/21/25 09:37, Valentin Schneider wrote:
-> On 19/11/25 10:31, Dave Hansen wrote:
->> On 11/14/25 07:14, Valentin Schneider wrote:
->>> +static bool flush_tlb_kernel_cond(int cpu, void *info)
->>> +{
->>> +	return housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE) ||
->>> +	       per_cpu(kernel_cr3_loaded, cpu);
->>> +}
->>
->> Is it OK that 'kernel_cr3_loaded' can be be stale? Since it's not part
->> of the instruction that actually sets CR3, there's a window between when
->> 'kernel_cr3_loaded' is set (or cleared) and CR3 is actually written.
->>
->> Is that OK?
->>
->> It seems like it could lead to both unnecessary IPIs being sent and for
->> IPIs to be missed.
->>
+On Thu, Nov 20, 2025 at 04:29:41PM +0800, Hal Feng wrote:
+> VisionFive 2 Lite is a mini SBC based on the StarFive JH7110S industrial
+> SoC which can run at -40~85 degrees centigrade and up to 1.25GHz.
 > 
-> So the pattern is
+> Board features:
+> - JH7110S SoC
+> - 4/8 GiB LPDDR4 DRAM
+> - AXP15060 PMIC
+> - 40 pin GPIO header
+> - 1x USB 3.0 host port
+> - 3x USB 2.0 host port
+> - 1x M.2 M-Key (size: 2242)
+> - 1x MicroSD slot (optional non-removable 64GiB eMMC)
+> - 1x QSPI Flash
+> - 1x I2C EEPROM
+> - 1x 1Gbps Ethernet port
+> - SDIO-based Wi-Fi & UART-based Bluetooth
+> - 1x HDMI port
+> - 1x 2-lane DSI
+> - 1x 2-lane CSI
 > 
->   SWITCH_TO_KERNEL_CR3
->   FLUSH
->   KERNEL_CR3_LOADED := 1
+> VisionFive 2 Lite schematics: https://doc-en.rvspace.org/VisionFive2Lite/PDF/VF2_LITE_V1.10_TF_20250818_SCH.pdf
+> VisionFive 2 Lite Quick Start Guide: https://doc-en.rvspace.org/VisionFive2Lite/VisionFive2LiteQSG/index.html
+> More documents: https://doc-en.rvspace.org/Doc_Center/visionfive_2_lite.html
 > 
->   KERNEL_CR3_LOADED := 0
->   SWITCH_TO_USER_CR3
+> Changes since v2:
+> - Drop patch 3, 4, 5.
+> patch 6:
+> - jh7110s-starfive-visionfive-2-lite.dtsi directly includes "jh7110.dtsi"
+>   instead of "jh7110s-common.dtsi".
+> 
+> Changes since v1:
+> - Drop patch 1 because it is applied.
+> - Rename jh7110.dtsi to jh711x.dtsi.
+> - Move the content of jh7110-common.dtsi to the new file
+>   jh711x-common.dtsi and move opp table to jh7110-common.dtsi.
+> patch 4:
+> - Move the uncommon nodes to jh7110-common.dtsi instead of board dts.
+> patch 5:
+> - Add jh7110s-common.dtsi and include it in jh7110s-starfive-visionfive-2-lite.dtsi.
+> 
+> Changes since RFC:
+> - Add jh7110s compatible to the generic cpufreq driver.
+> - Fix the dtbs_check error by adding the missing "enable-gpios" property
+>   in jh7110 pcie dt-bindings.
+> - Rebase on the latest mainline.
+> - Add VisionFive 2 Lite eMMC board device tree and add a common board dtsi
+>   for VisionFive 2 Lite variants.
+> - Add usb switch pin configuration (GPIO62).
+> - Improve the commit messages.
+> 
+> History:
+> v2: https://lore.kernel.org/all/20251107095530.114775-1-hal.feng@starfivetech.com/
+> v1: https://lore.kernel.org/all/20251016080054.12484-1-hal.feng@starfivetech.com/
+> RFC: https://lore.kernel.org/all/20250821100930.71404-1-hal.feng@starfivetech.com/
+> 
+> Hal Feng (5):
+>   dt-bindings: PCI: starfive,jh7110-pcie: Add enable-gpios property
+>   dt-bindings: riscv: Add StarFive JH7110S SoC and VisionFive 2 Lite
+>     board
+>   riscv: dts: starfive: Add common board dtsi for VisionFive 2 Lite
+>     variants
+>   riscv: dts: starfive: Add VisionFive 2 Lite board device tree
+>   riscv: dts: starfive: Add VisionFive 2 Lite eMMC board device tree
+> 
+>  .../bindings/pci/starfive,jh7110-pcie.yaml    |   4 +
+>  .../devicetree/bindings/riscv/starfive.yaml   |   6 +
+>  arch/riscv/boot/dts/starfive/Makefile         |   3 +
+>  ...h7110s-starfive-visionfive-2-lite-emmc.dts |  22 +
+>  .../jh7110s-starfive-visionfive-2-lite.dts    |  20 +
+>  .../jh7110s-starfive-visionfive-2-lite.dtsi   | 691 ++++++++++++++++++
+>  6 files changed, 746 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite-emmc.dts
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dts
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
 > 
 > 
-> The 0 -> 1 transition has a window between the unconditional flush and the
-> write to 1 where a remote flush IPI may be omitted. Given that the write is
-> immediately following the unconditional flush, that would really be just
-> two flushes racing with each other,
+> base-commit: fe4d0dea039f2befb93f27569593ec209843b0f5
+> -- 
 
-Let me fix that for you. When you wrote "a remote flush IPI may be
-omitted" you meant to write: "there's a bug." ;)
+Tested against v6.18-rc6 together with
+fa939a287224d ("dts: starfive: jh7110-common: split out mmc0 reset pins from common into boards")
 
-In the end, KERNEL_CR3_LOADED==0 means, "you don't need to send this CPU
-flushing IPIs because it will flush the TLB itself before touching
-memory that needs a flush".
-
-   SWITCH_TO_KERNEL_CR3
-   FLUSH
-   // On kernel CR3, *AND* not getting IPIs
-   KERNEL_CR3_LOADED := 1
-
-> but I could punt the kernel_cr3_loaded
-> write above the unconditional flush.
-
-Yes, that would eliminate the window, as long as the memory ordering is
-right. You not only need to have the KERNEL_CR3_LOADED:=1 CPU set that
-variable, you need to ensure that it has seen the page table update.
-
-> The 1 -> 0 transition is less problematic, worst case a remote flush races
-> with the CPU returning to userspace and it'll get interrupted back to
-> kernelspace.
-
-It's also not just "returning to userspace". It could well be *in*
-userspace by the point the IPI shows up. It's not the end of the world,
-and the window isn't infinitely long. But there certainly is still a
-possibility of getting spurious interrupts for the precious NOHZ_FULL
-task while it's in userspace.
+Tested-by: Matthias Brugger <mbrugger@suse.com>
 
 _______________________________________________
 linux-riscv mailing list
