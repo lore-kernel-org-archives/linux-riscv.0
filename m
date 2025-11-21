@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C74CFA464
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 01:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85898CFA46B
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 02:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DvRiETFnYccWhoTH9lkjfdbnmP+1xhSj/ABXqOroeDs=; b=l3ZU9hneoSB6Z5
-	wmJuddWsX3LtSvAWs1qEorSgQApYR345CTbKXjtcBOG0Ve0+xzSXQhgHU4WOa7htP48gKs6lg+9hW
-	3EFct9lpGwoEglSw+0uUBx7QhuglvhvmvQi6BSlt+3PQAEoDQ96gKJGMsmCfKRV15GD9Qt2UZ+2YY
-	eRRxNJ0ORvlElCAZb9+mGUs/DR5HIfC/CncX0GN1Dmct8MXZGm+mFAyN8MvB25NzG/jEB0G+Bc71U
-	fncKYw5Ba9mYI3Z24+XLPFyxJ33pSttpKUNM3021Eh8ohx8gQbvOpF2PbbzmS7NuXppVITqpIJEVj
-	0HLvqF8s11Haez1F0bHw==;
+	List-Owner; bh=ukMHGe50egwTBoGpLO+WzIDn8poolo5Wd7moc/gA18k=; b=EKINc4+6OISbKt
+	zSWOqRcsj6FEHK9eA+1k2RL0I3UpTP1lFOEZFY7r0rxDD1R9j4sUD298KrTbatqiRerVEyyN/0tlP
+	2vx+7ho+NfkTvJbcRzmr7ylCVMb4fx9bYxHu2ANQDWBpddU5pkpCXqvH3uTZ1abWf78JBBQpFTxef
+	DnUS+NSKHda9sC8xtQmWvePcEVINbQDShlgw0RioHAE2wyPutp+Osx9vg2Ce137KW6166ufHMX6w6
+	C9VHWf6PVN6Cslf24qvh4AcwG5AIXu6t6iCAICCJdBziVYAfRCWFix3XKfZaBLsYY2hUjpZamIlHB
+	bxffoLokf/EB52nIUSew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMFoB-00000007dye-33tT;
-	Fri, 21 Nov 2025 01:19:31 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vMGSD-00000007fH9-10o2;
+	Fri, 21 Nov 2025 02:00:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMFo6-00000007dxQ-3y6e
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Nov 2025 01:19:29 +0000
-Received: from [100.79.9.218] (unknown [110.53.160.106])
-	by APP-01 (Coremail) with SMTP id qwCowABX7MsWvh9pRdZwAQ--.15200S2;
-	Fri, 21 Nov 2025 09:19:20 +0800 (CST)
-Message-ID: <ca507aa5-670e-405a-a1dc-3316f96cef3b@isrc.iscas.ac.cn>
-Date: Fri, 21 Nov 2025 09:19:17 +0800
+	id 1vMGSB-00000007fGg-3Ht5;
+	Fri, 21 Nov 2025 02:00:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CCDFC60216;
+	Fri, 21 Nov 2025 02:00:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D0F3C4CEF1;
+	Fri, 21 Nov 2025 02:00:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763690450;
+	bh=oURpXBr3KdDn9PGKvZ71lA/uZ3b0bjDvzcwrD9A6oco=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=RDaxqjBXt1j3UIdjy7D7SVnLs8g7GgWn0u8nIwwGC1fkiNvamtVFDj/FQO/M8D/eh
+	 ZYIA8xclzKyMLPZroHugJ3RkCZs5j9pKq0uWtuDFi0aBxiZtSOUzYSr5VSAEob6tbA
+	 +24SZmZdWrSItahXVbfOjubhuO2Q9wBLd3uWK8Q1anPuB2bUlhg79qq/F3gvp3PXJe
+	 GCBA+D0/jJI9zu1fGsaJShWGCCkqQPKRf5p99z7rHol3XvaTdbp8EZvcxoMvleDjLd
+	 cvjpgHB4iUi5H3cdt7LM8reUKZkE25YppGHm/F3OQ8XDVF7CXgsxWVC/aJfF3PxY64
+	 b0Fp/3p8/tkTA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE07F3A41003;
+	Fri, 21 Nov 2025 02:00:16 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] Add Zilsd/Zclsd support in hwprobe and KVM
-To: pjw@kernel.org
-Cc: linux-riscv@lists.infradead.org
-References: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn>
-From: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
-In-Reply-To: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn>
-X-CM-TRANSID: qwCowABX7MsWvh9pRdZwAQ--.15200S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KFyfXF43KFW7XF4UCry3urg_yoW8CF1fpF
-	s5GFn0kr1kWw13CryfAr48ur4rAws5Wws8J3sxtw1UG3y3ZFyrArZay3ZIqr1UWFZa9r18
-	uF1YkwnF9w1xA3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUyjb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Jr0_Gr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCF
-	s4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
-	1rMI8E67AF67kF1VAFwI0_Jrv_JF1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
-	JVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r
-	1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUv
-	cSsGvfC2KfnxnUUI43ZEXa7IU8P5r7UUUUU==
-X-Originating-IP: [110.53.160.106]
-X-CM-SenderInfo: pslquxhhqjh1xofwqxxvufhxpvfd2hldfou0/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_171927_356645_AB3922B6 
-X-CRM114-Status: GOOD (  14.64  )
+Subject: Re: [PATCH net-next 0/3] net: stmmac: pass struct device to init/exit
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176369041551.1856901.1355582687378802410.git-patchwork-notify@kernel.org>
+Date: Fri, 21 Nov 2025 02:00:15 +0000
+References: <aR2V0Kib7j0L4FNN@shell.armlinux.org.uk>
+In-Reply-To: <aR2V0Kib7j0L4FNN@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, wens@csie.org, davem@davemloft.net,
+ fustini@kernel.org, edumazet@google.com, wefu@redhat.com, guoren@kernel.org,
+ heiko@sntech.de, kuba@kernel.org, jan.petrous@oss.nxp.com,
+ jernej.skrabec@gmail.com, keguang.zhang@gmail.com,
+ prabhakar.mahadev-lad.rj@bp.renesas.com,
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-sunxi@lists.linux.dev, maxime.chevallier@bootlin.com,
+ mcoquelin.stm32@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com,
+ s32@nxp.com, samuel@sholland.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,60 +75,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/27 00:29, Pincheng Wang wrote:
+Hello:
 
-> This is v2 of a short series that adds kernel support for the ratified
-> Zilsd (Load/Store pair) and Zclsd (Compressed Load/Store pair) RISC-V
-> ISA extensions. The series enables kernel-side exposure so user-space
-> (for example glibc) can detect and use these extensions via hwprobe and
-> runtime checks.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Wed, 19 Nov 2025 10:02:56 +0000 you wrote:
+> Rather than passing the platform device to the ->init() and ->exit()
+> methods, make these methods useful for other devices by passing the
+> struct device instead. Update the implementations appropriately for
+> this change.
 > 
-> Thanks,
-> Pincheng Wang
+> Move the calls for these methods into the core driver's probe and
+> remove methods from the stmmac_platform layer.
 > 
-> Pincheng Wang (5):
->    dt-bindings: riscv: add Zilsd and Zclsd extension descriptions
->    riscv: add ISA extension parsing for Zilsd and Zclsd
->    riscv: hwprobe: export Zilsd and Zclsd ISA extensions
->    riscv: KVM: allow Zilsd and Zclsd extensions for Guest/VM
->    KVM: riscv: selftests: add Zilsd and Zclsd extension to get-reg-list
->      test
-> 
->   Documentation/arch/riscv/hwprobe.rst          |  8 +++++
->   .../devicetree/bindings/riscv/extensions.yaml | 36 +++++++++++++++++++
->   arch/riscv/include/asm/hwcap.h                |  2 ++
->   arch/riscv/include/uapi/asm/hwprobe.h         |  2 ++
->   arch/riscv/include/uapi/asm/kvm.h             |  2 ++
->   arch/riscv/kernel/cpufeature.c                | 24 +++++++++++++
->   arch/riscv/kernel/sys_hwprobe.c               |  2 ++
->   arch/riscv/kvm/vcpu_onereg.c                  |  2 ++
->   .../selftests/kvm/riscv/get-reg-list.c        |  6 ++++
->   9 files changed, 84 insertions(+)
-> 
+> [...]
 
-Hi Paul,
+Here is the summary with links:
+  - [net-next,1/3] net: stmmac: pass struct device to init()/exit() methods
+    https://git.kernel.org/netdev/net-next/c/85081acc6b11
+  - [net-next,2/3] net: stmmac: move probe/remove calling of init/exit
+    https://git.kernel.org/netdev/net-next/c/32da89a840e8
+  - [net-next,3/3] net: stmmac: rk: convert to init()/exit() methods
+    https://git.kernel.org/netdev/net-next/c/1a62894e040d
 
-I noticed that this patch has remained in the testing branch for some 
-time, while the other patches in the same batch have already moved into 
-the experimental/merged and for-next branch.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-When testing locally by merging the current testing branch onto the 
-latest for-next, I observed merge conflicts in the related areas. I 
-would be glad to rebase the patch onto the current tree and send a new 
-version if that would help resolve the conflicts.
-
-Please let me know whether you would prefer me to prepare a rebased v3, 
-or if the merge will be handled on your side.
-
-Happy to rebase and resend if that would help.
-
-Best regards,
-Pincheng Wang
 
 
 _______________________________________________
