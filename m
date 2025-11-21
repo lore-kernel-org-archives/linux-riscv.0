@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB77CFC265
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 11:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A03BBCFC265
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 11:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VOUlAoKp+6WnoKZgIJf6imscrH71A9ejNFIcP+jwNn4=; b=wtByPn/zbOe5qb
-	2/JOZ2k+uSIWCpCigrgVnQ1WllOZsN1+KKTvGTnVoVeQ4cpyxMFDgLj89rsOGXJinJZOqSsiu7X2+
-	+CPuwbttVF0SeW58H176Li4LmHsAPFq6q7EFtYwrbgqNRI6/xghtSzm0uSnQeP4wy9WdliCGtbbt5
-	JYRlF47buaEZPO4sxePF4g4hLZ7oposxkUHMmBXw37RNCMyKW07Iqiac/iF1jOpCzLhkKaq6Kv2C5
-	N9E+n7eY28knb+5AUA56Bc9iOpu4nsyr7J5IJ4TFBy2aa8Ml7Ra6iYiBNEj2z5+OOf3pZEs9Rgy7U
-	dj4VgO8JOwNyG+y/ze+Q==;
+	List-Owner; bh=EQ/cyycb9UWEqniZzbGnaXLqOJxzzNSYZgaRSsCJZwY=; b=2Y9s86t+9R/SgX
+	o2Wo5qmMZAFFK0Lsy3rcpopyHsSO2WsMjyJBeRQmkYmUjRzAcJWffjvX+m80IiuClfNlxdUaezJ+J
+	9w3JsXifL5ODTcH//1EmmrYhk8uTOqQ97q9zPJmNN/kfrWB7pI34XPbg1bT28TJ94hwes0K4nEWfV
+	VjDOynMbc58CSyb7XRMbukz7U2eZ/A/nrjtMdvSmlg4Ia7JRvObhbvMjBPVgdDBGtEzXoxaJYCRMX
+	S4VG7fvJxISeLS7w3BJQeMhj8Y3pPppVgje0+ZA6TfQyh6K12o1YhtTMwERXGQPXmWN5pYwuF/+pp
+	HG28/9hkGs0y2u1gvmMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMPfY-00000008KJt-0U72;
-	Fri, 21 Nov 2025 11:51:16 +0000
+	id 1vMPgK-00000008KOc-2AOE;
+	Fri, 21 Nov 2025 11:52:04 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMPfT-00000008KJO-40VB
+	id 1vMPgH-00000008KNo-45C0
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Nov 2025 11:51:13 +0000
-Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com [209.85.218.70])
+	Fri, 21 Nov 2025 11:52:03 +0000
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com [209.85.208.70])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 13A9F3F942
-	for <linux-riscv@lists.infradead.org>; Fri, 21 Nov 2025 11:51:07 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id E7CB33F945
+	for <linux-riscv@lists.infradead.org>; Fri, 21 Nov 2025 11:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1763725867;
-	bh=WGDPbHQuHpY9+gw1iYDyOy2Eg2j2SkEl13GO1wQEzZ8=;
+	s=20251003; t=1763725918;
+	bh=1CJiYe46/9wzpUjF7HFzcDRB3znZsib+GR7IhrbsegE=;
 	h=MIME-Version:In-Reply-To:References:From:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=dyJi1ZW2jmxIUb1I027niJwsOGB3eQ762Vzq2EVeajlVetFg+9jIOD2mnc+48W7Wy
-	 4AOzyD/Tn7Z9/nfD0DXNQBvkyFa7OOVInLZM4FircP5vFrvcDCSNDGIhjpSxUNkeDK
-	 NFswL+sTbNFMQjj+9jfD1JQEpiSuuh/RWMugJu5JW1MgIUFQLLme8g9RR++FdjFMMo
-	 knOEwtKKhTGYBk809hJgQ36Brz9M6NQ3cyNnHYCe80XZtaqC/IzwcfJAP/nY+LrFeW
-	 HimOitzKP2wC+5n/FU1K/7Hfm+8I2k+Xa56cjkQE6Fdek18w2l1ede0BVtbT8jzZMT
-	 g36Ko2mqbtq8pGQZXHZze1Aju8LEgKVJOBbn2ZwTux/3ac/IUEpa3ThzxUmtg1haWB
-	 bAU3hCppY+nuYy7NVrLqDLIQWC9tUIRgh/OCevb7csaEx1An2YVbMissOnecceeA4y
-	 20FC1XgWBRkt6HSHcvtpMs5cto4kfy9Ok3iNGyyQGAf/4ODsGWG116JJvTtcIAf4zY
-	 /5iOsyGAlYm2N/itcaJzvGo1r63kZFPHEdWQJvoBtRyPVA1qmJ8rGrKPIKiFx2Jgs9
-	 Kv9IbCZJNXe44zMGqznLc5iats21n4+QipE+vpJwXsIfVBScanBb+rDnuYBfAxvXdm
-	 Nf0yhJ4MmTv1Wuy3XxvuyXzA=
-Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-b72e06680d4so288895966b.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Nov 2025 03:51:07 -0800 (PST)
+	b=bl4UgAIvlQSL4T2H+0ScDTJ7yIhheoSk316DE5bSx2n/U5WY+kIg/Do0OZqE3ze6M
+	 GBLKVKGqicaWipUXLXu1TXg6/hOBxyIINHqUTARw48HQKvAOBTQkvKd5srEXC3AUzJ
+	 CmqbYlnEWekuHQswtiVJc1/U7+VcMUL7JxEwNguCvzjhOSPkeGNunDXuKHXUFi98tq
+	 0c3mMjeOrWEpa76YjwmXz2ZiBrLxBcj00V5NUTvh+2Aa6oLl+i2yaywedWDyFWtzLn
+	 /vGH3AENBWCCGKH/d5HjDN0bRZmDW+hRLMkO0KRanps/dTPyx4nYOXtwCpAI54Lw1G
+	 8W+ki/tLjrHvCUcTWlzxd4rvqT0zml4kB6o7aKPcurYxWVlrYigZfFiTbqdkvBHkmB
+	 WsrcVbFSkMZQRxo0FG+s/fiEbVrpD1/9YXZkM6niCgJNKzc0xhuyTfVBADkTR/E2D4
+	 dsBxWQP+YFBRTwQj+EIcUk7iTTXwssguUxstG8iKwBU/aSEHvJbmroOwE/N0cgPGi9
+	 L6HjljiS7BHba8eLvObtjCr6B+2mGSmNUaLSkk5D5/h63xHwMldQsGYDXaqdFiQjvV
+	 62KEJb43wXvX7hskOZf2hg8Eha91Gc7/h/5vwGdXQbSZ0Myzr8yU5HYxbKnYqUBecN
+	 2Rx3L5ov/KpWiwGC9isUrsKc=
+Received: by mail-ed1-f70.google.com with SMTP id 4fb4d7f45d1cf-640b8d02165so3320300a12.2
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Nov 2025 03:51:58 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763725866; x=1764330666;
+        d=1e100.net; s=20230601; t=1763725918; x=1764330718;
         h=cc:to:subject:message-id:date:user-agent:from:references
          :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=WGDPbHQuHpY9+gw1iYDyOy2Eg2j2SkEl13GO1wQEzZ8=;
-        b=gvgEGmLFne3RGGKDa4ZdH0xyJziBWHyDB8nK4H57dVE9X898plX92c7JNNMS1kDNHX
-         G3DhiSc+76/nEpnASW6qx1YRIb5oZLdCDV5ftQLnvBHn5MM9zSDo9lq14gq2q2Zi0++8
-         SjY+d89r9X/AjRfi5HzLo+NfLGAD/+A0Q4itnBNBU4ZquZRFcaoCqjhkEbS9uhpoj7Mk
-         ZCjeqQULvoAvyKZuO42tGWzZCPq4GCX0pzlfvgFBDbrMJcGw6tHAmFg8dGsFmgKxScN4
-         JzJLqfekPtCrcQa0aKbNVJt6Wc2fZA/srztxmVYwwe7PuBrcJgIXOkMOTCbYlWB73j0P
-         dCEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX+UbPgh+TYnb55iiXrxiIbeXIZMDk6WjJFboNMjyEZ19t8dnR4sC2RhYRVJy5iO07ZYuXn9eHIwTEDjg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHmlHoIf/F20dasxdmsioQ/iB+arNaBUUIitlAUnFHKk99sXMR
-	ZuLX1UtgB8wm/6Mh8JD55QgY+op6/B9D5PVh+hQ0efm6WBU/yoHLr/gnqCoJs7TzB+hwh571S0m
-	/K8oUKfsSHHdqDwP0x3wAmjQ8VZejz/zswUPIYtBWB9u/eqMD1yvBOjlMeqTwWtQvfgxvn287fB
-	lXuIteEn3P7bd18uTdYJTRGQ9XtPrFMjzvNiCopd2TNfufYS3Ulm605poVEI0z
-X-Gm-Gg: ASbGncsnNAkhumCP2k5b+5wk4kS7+sRJi9VcqtH3nIHW9z+0iSWnqq4Lnnk1Px58XSi
-	1EsMGnZqjfdrAdgdmn+TSOyCi9lLFIYzALbSYE0FMRZruzYy8UYH5F9gcI7HT8HbI1a4Gvvogsh
-	wGSGFviBEuIMzpW9cqaE8ZnHdwdZWmE2qxZKsCBYMfKqWlEofqQixNY1gfvXze6+I2
-X-Received: by 2002:a17:907:3f9b:b0:b73:4006:1884 with SMTP id a640c23a62f3a-b76716d9fb2mr178971166b.37.1763725866309;
-        Fri, 21 Nov 2025 03:51:06 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFbBNgyoucqTathPWkzu4EoA5RlPQZMx2IIcYS98GKu59Kbn0elIr7tVeULwuVlppymA6TBZmJxCGp0MFNTb/M=
-X-Received: by 2002:a17:907:3f9b:b0:b73:4006:1884 with SMTP id
- a640c23a62f3a-b76716d9fb2mr178968566b.37.1763725865852; Fri, 21 Nov 2025
- 03:51:05 -0800 (PST)
+        bh=1CJiYe46/9wzpUjF7HFzcDRB3znZsib+GR7IhrbsegE=;
+        b=Eof8reJdbSHTF/zBsJYfv/X3garNj0HYWM/MV3QVJ+YSr0xBdCcOsi9+qN6v31ElEx
+         5M1X5lNlYKahvzIS871e53oc7Guy08DECrzL+ehVl+rxksfWUKG4ynY/7tijLfMxv5rn
+         z/6qMo+Ay/AMpHREnZyJRuRwYeqSv52JCiIMuZIPcUeIWD0npX1LcNEd1prA7AWI1UoI
+         VbQd6wjbDGaOfc9qK5ha9riqCu8h2aDbhbG92Vqvqat39vS4uId6vu2HDjn01W+u4HqJ
+         6zlEFonpFAZcYjVJPE0MuZoa2L+fS+hm0M+BAFlIF96oLbhmx1hYNFTIdsop6Ou+/nyg
+         Fzng==
+X-Forwarded-Encrypted: i=1; AJvYcCX5LR7MXdhSWPT0oas7KTSisJR/6KMo1HjZ00+4fKMht3IpQ7YFPSbVvk5BnYuNUAALgzM4cIp1CnIPEA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr+aZ0elD14Bn7qqGVVdaMH2wy4LNU6HnbNFQz+jL9pQqppV0s
+	R34kjhVZA80LvMfyoCn4WL8Eo4nQwNMKp13PizCEoRhzOF0w6RNKOocZHm0iAVmaQWAQsD0/C4I
+	IT1BTQBvfiOtH7KzWCYfP/QIymiCDM/oSj0tlOAR7mPMt9+YkejqVcTbKKEOC69+HrXApEnOw21
+	NvbBqCpv5mLBZPdcN4Ly+zFew5fiijhqdGWzbdgu3wXebLYSaqosD0DLvRthm/
+X-Gm-Gg: ASbGnctzQyv5gm4hEtmEmUA75fVWTVuCkUya7juUre98x1JiZe7Ul4d+r8VQ6EWROQU
+	E572JLU+xZg0fqS3QE5D7FS93R16s0pg7//iEQcprtxIa8RIzLnQDxNZ06YrMSlT+0lpyJ/z6gq
+	AJpdPItnuqp8IWAvJ4LzljaRi93Y31y7fR/SkJVJGrCPYVhPXfZuZ+d3LeIOe2lLBL
+X-Received: by 2002:a17:907:3e88:b0:b72:8489:7e65 with SMTP id a640c23a62f3a-b76716dbe58mr249513466b.31.1763725918442;
+        Fri, 21 Nov 2025 03:51:58 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHmmbb/l3K7dtugr+S1m3/Wv8PJ5+8oknGlLjROzkp0sM+lmlNKNB0zjV4+LxEvknw2diFiHds/C+1CuD4T17s=
+X-Received: by 2002:a17:907:3e88:b0:b72:8489:7e65 with SMTP id
+ a640c23a62f3a-b76716dbe58mr249509966b.31.1763725918024; Fri, 21 Nov 2025
+ 03:51:58 -0800 (PST)
 Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 21 Nov 2025 05:51:05 -0600
+ HTTPREST; Fri, 21 Nov 2025 03:51:56 -0800
 Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 21 Nov 2025 05:51:05 -0600
+ HTTPREST; Fri, 21 Nov 2025 03:51:56 -0800
 MIME-Version: 1.0
-In-Reply-To: <20251120082946.109378-4-hal.feng@starfivetech.com>
-References: <20251120082946.109378-1-hal.feng@starfivetech.com> <20251120082946.109378-4-hal.feng@starfivetech.com>
+In-Reply-To: <20251120082946.109378-5-hal.feng@starfivetech.com>
+References: <20251120082946.109378-1-hal.feng@starfivetech.com> <20251120082946.109378-5-hal.feng@starfivetech.com>
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 User-Agent: alot/0.0.0
-Date: Fri, 21 Nov 2025 05:51:05 -0600
-X-Gm-Features: AWmQ_bkaNRVs_IsWSLR3s4HRukSz_ikG2dyq34vaL1DCvYawBgn4_Mm40cBb9R8
-Message-ID: <CAJM55Z8NsC_-jcrm+ndMonU6EtkSzhAQvoROXZwOWNi9FeQLXA@mail.gmail.com>
-Subject: Re: [PATCH v3 3/5] riscv: dts: starfive: Add common board dtsi for
- VisionFive 2 Lite variants
+Date: Fri, 21 Nov 2025 03:51:56 -0800
+X-Gm-Features: AWmQ_bkB8niCYgVkDWKDtP_0Ppy1-V0zOFN4wZx7lFmVJ6bRkVFOMoAbi3kETSM
+Message-ID: <CAJM55Z89bBnr_GX81bPmCV0iHKbURAg=SbrTut_DUa-7gdK91A@mail.gmail.com>
+Subject: Re: [PATCH v3 4/5] riscv: dts: starfive: Add VisionFive 2 Lite board
+ device tree
 To: Albert Ou <aou@eecs.berkeley.edu>, Bjorn Helgaas <bhelgaas@google.com>, 
 	Conor Dooley <conor+dt@kernel.org>, E Shattow <e@freeshell.de>, 
 	Hal Feng <hal.feng@starfivetech.com>, 
@@ -103,8 +103,9 @@ To: Albert Ou <aou@eecs.berkeley.edu>, Bjorn Helgaas <bhelgaas@google.com>,
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_035112_254937_62CFC5A8 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20251121_035202_137578_AF27B5AA 
+X-CRM114-Status: UNSURE (   4.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,45 +122,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Hal Feng (2025-11-20 09:29:44)
-> Add common board dtsi for use by VisionFive 2 Lite variants.
+Quoting Hal Feng (2025-11-20 09:29:45)
+> VisionFive 2 Lite is a mini SBC based on the StarFive JH7110S SoC.
+>
+> Board features:
+> - JH7110S SoC
+> - 4/8 GiB LPDDR4 DRAM
+> - AXP15060 PMIC
+> - 40 pin GPIO header
+> - 1x USB 3.0 host port
+> - 3x USB 2.0 host port
+> - 1x M.2 M-Key (size: 2242)
+> - 1x MicroSD slot (optional non-removable 64GiB eMMC)
+> - 1x QSPI Flash
+> - 1x I2C EEPROM
+> - 1x 1Gbps Ethernet port
+> - SDIO-based Wi-Fi & UART-based Bluetooth
+> - 1x HDMI port
+> - 1x 2-lane DSI
+> - 1x 2-lane CSI
+>
+> VisionFive 2 Lite schematics: https://doc-en.rvspace.org/VisionFive2Lite/PDF/VF2_LITE_V1.10_TF_20250818_SCH.pdf
+> VisionFive 2 Lite Quick Start Guide: https://doc-en.rvspace.org/VisionFive2Lite/VisionFive2LiteQSG/index.html
+> More documents: https://doc-en.rvspace.org/Doc_Center/visionfive_2_lite.html
 >
 > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  .../jh7110s-starfive-visionfive-2-lite.dtsi   | 691 ++++++++++++++++++
->  1 file changed, 691 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
->
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi b/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
-> new file mode 100644
-> index 000000000000..aa375c4a3fa3
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
-> @@ -0,0 +1,691 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2025 StarFive Technology Co., Ltd.
-> + * Copyright (C) 2025 Hal Feng <hal.feng@starfivetech.com>
-> + */
-> +
-> +/dts-v1/;
-> +#include "jh7110.dtsi"
-> +#include "jh7110-pinfunc.h"
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/pinctrl/starfive,jh7110-pinctrl.h>
-''
-I'm confused. In [1] you said "remove jh7110s-common.dtsi, because only one
-board uses JH7110S now." but this series still adds two different boards.
 
-Also this derives from jh7110.dtsi rather than from jh7110-common.dts as I
-suggested in [2].
-
-In any case I'm fine with doing it this way, so
 Acked-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-
-[1]: https://lore.kernel.org/linux-riscv/ZQ2PR01MB13076544E2136E7E7C2EEDA1E6CD2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn/
-[2]: https://lore.kernel.org/linux-riscv/CAJM55Z-MfpVX3EuQ_AjvDSk6FwR51R5cQdN5RybS9pbJ8r9NNg@mail.gmail.com/
 
 _______________________________________________
 linux-riscv mailing list
