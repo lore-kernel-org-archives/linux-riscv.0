@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB702CFC29A
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 18:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3599CFC29A
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 18:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ODYJQSrD3v2MaU45eDhXWoX9vuRfigleJg1HfB/KEos=; b=DYliQssuhQ8ox9
-	53czzLzVYqhU1gm/9uPeIlhfnBymHLvwQQbdgb3OlgAWUCPUyOjPzcKAcwH1aNR51GxKb483mDHxi
-	BKOLzstjAlQGR/Q2NCAM06wwHp1ImIwuEhjGXjrsxiyfRjcpwQHG/Ly7mwIga4mc7eEk+JT7AOrh6
-	RnC22qv6AhIs4y4D7aM1ppNZ10Eyrk7zgKzRxfiMYLiqXAcOPwMt7ABJXCUagSB4uiUmMiZbVHWDk
-	ZzFHeo4QsYBnYf4nklGBrAVOcMmSIpY3jPXjQsr5lG99+xlPbj/ubtvIgdRkhHQL3DmpsGDHVzjWC
-	aaFfPgQ6gtAmxmEWo03w==;
+	List-Owner; bh=QLWyCZpLV5BT+LWYLqnkyfrcAJ30BJ4tKwixDdfxo+8=; b=S3mcPWPpqtyy7T
+	anro1/X3hTKFDYT9oPQ+K8lnofqs+ELlbEDzAR9LVHYGJi7JJZpY56CzrU5SpUg9XWABaVQA1BKZz
+	2NyU1pN/NKFNNSVxSEcUKUJy/9baKEFk6XhIafQY02gwcaXTRGfhh4NKx2MSK2fhPdb2qIBlgdUw2
+	gGtWRtNb3pHflezLZD1ZtxFZt+hTYqasfnV2DKWCSVA+ZjyxNESUgkomP094DG8qcxUQS/AYnKMcV
+	1mA6ey8wtvY1E3rHIgE3OU0XbcvaqgT+TM9YDYX23Ndfx7Nin4foiSFANzNI5+weLKCJkZLBdzuNj
+	233rjMthptWapdFniJRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMVzt-00000008rJm-3THe;
-	Fri, 21 Nov 2025 18:36:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vMW5u-00000008rac-3nhk;
+	Fri, 21 Nov 2025 18:42:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMVzs-00000008rJe-07Cz
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Nov 2025 18:36:40 +0000
+	id 1vMW5s-00000008rZe-2VHh;
+	Fri, 21 Nov 2025 18:42:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 11AD660139;
-	Fri, 21 Nov 2025 18:36:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0C2AC4CEF1;
-	Fri, 21 Nov 2025 18:36:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1763750197;
-	bh=crGPPT0AtAuzG2UEVBlxUERhuPjW93cug8nah7uLwPI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=QEx6H1kx4LH2VEQuGtG4dDTBfQimoEx6dOPrEkpMfabhu8lvBwbefk1rGdOBtVACD
-	 QZKA8vPhUokAEv0JJOZyDEHGcBf++sPmEabuLzPJH1etPYvKiGFWYCxM0l12ChfFsx
-	 m1HWtmpBhooqID4D5faCmw1veUK4HRjgPAR6uS0U=
-Date: Fri, 21 Nov 2025 10:36:36 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>, linux-mm@kvack.org, Peter Xu
- <peterx@redhat.com>, Arnd Bergmann <arnd@arndb.de>, David Hildenbrand
- <david@redhat.com>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil
- Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan
- <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Axel Rasmussen
- <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
- linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Conor Dooley
- <conor@kernel.org>, Deepak Gupta <debug@rivosinc.com>, Ved Shanbhogue
- <ved@rivosinc.com>, linux-fsdevel@vger.kernel.org, Christian Brauner
- <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-kernel@vger.kernel.org, Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: Re: [PATCH V15 1/6] mm: softdirty: Add
- pgtable_supports_soft_dirty()
-Message-Id: <20251121103636.22321ceb37093370e59cb6e1@linux-foundation.org>
-In-Reply-To: <dac6ddfe-773a-43d5-8f69-021b9ca4d24b@lucifer.local>
-References: <20251113072806.795029-1-zhangchunyan@iscas.ac.cn>
-	<20251113072806.795029-2-zhangchunyan@iscas.ac.cn>
-	<dac6ddfe-773a-43d5-8f69-021b9ca4d24b@lucifer.local>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E44943702;
+	Fri, 21 Nov 2025 18:42:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFB4EC4CEF1;
+	Fri, 21 Nov 2025 18:42:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763750570;
+	bh=0bMZ4NLDj8CskLCEMHyms2+DxxfLSA3gVajQFVYgIow=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OwfS76PxWsTyb+evI0DjzSdw52gt48ZkvUBIvhqu2K2chtrb1J5goM2bIhcK6YF17
+	 2E6jYyd9wEhXy8Ly+42iLaN2hn4Sfkv75r5BoMILmn6GdQqeojmMsN3yRq8/2KhEKD
+	 poytx9cTo5q78MOQMGe0mtWoxln3wO+iG3ZqK82cPdN/vF2jpmKIooXZgNdygXvriL
+	 CZjHlg7Jgm/kqJ8rHoRWCuVdjqJ2FXMtlRGsf1q9D0jHzbEs60T40Q3Npktkah8zdY
+	 XIrSPHV/iIQj+YOeBEK8Imx4rz3lGbXX+xbuA+l08mP4vyDtnJzOObgUwo1rVcRbGJ
+	 4I43q2OgU7yGA==
+Date: Fri, 21 Nov 2025 10:42:47 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Ard Biesheuvel <ardb@kernel.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, linux-kbuild@vger.kernel.org, linux-efi@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] kbuild: Add KBUILD_VMLINUX_LIBS_PRELINK
+Message-ID: <hka6ukulmkmxp7mrcmxmllco2sqof2elextc7ggcikazfzmwni@a4pnogedcr7r>
+References: <20251119042708.27658-1-yangtiezhu@loongson.cn>
+ <20251121070140.GA780042@ax162>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20251121070140.GA780042@ax162>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251121_104252_660830_B2AB30FD 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,26 +74,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Nov 2025 16:57:17 +0000 Lorenzo Stoakes <lorenzo.stoakes@oracle.com> wrote:
+On Fri, Nov 21, 2025 at 12:01:40AM -0700, Nathan Chancellor wrote:
+> > @@ -1199,6 +1199,7 @@ KBUILD_VMLINUX_OBJS := built-in.a $(patsubst %/, %/lib.a, $(filter %/, $(libs-y)
+> >  KBUILD_VMLINUX_LIBS := $(filter-out %/, $(libs-y))
+> >  
+> >  export KBUILD_VMLINUX_LIBS
+> > +export KBUILD_VMLINUX_LIBS_PRELINK
+> 
+> This variable name is a little confusing to me since they do get added
+> to vmlinux during linking, not before. I am not sure of a better one
+> though, maybe KBUILD_VMLINUX_LIBS_FINAL?
 
-> This breaks the VMA tests. Don't worry it's not exactly an obvious thing.
-> 
-> You can test this via:
-> 
-> $ cd tools/testing/vma
-> $ make && ./vma
-> 
-> (Currently we also have another breakage too which I'll chase up separately.)
-> 
-> Andrew - Could we simply apply the attached fix-patch?
-> 
-> I know this is in mm-stable now so ugh maybe we'll have some commits where VMA
-> tests are broken (not nice for bisection), but anyway we need to fix this even
-> so even if it has to be a follow up patch.
+I think that name was my idea.  Not sure what I was thinking, I guess
+"prelink" was somehow meant to imply after the vmlinux.o whole-archive
+link but before the "final" link.
 
-"mm: softdirty: add pgtable_supports_soft_dirty()" is still in
-mm-unstable so all is good.
+"final" is indeed better.
 
+> It may also make sense to
+> introduce similar syntax to the existing libs-y syntax, maybe
+> 
+>   final-libs-y
+> 
+> or something like that?
+
+Yeah, I suppose that would mirror how KBUILD_VMLINUX_LIBS is wired up.
+
+> Also, since these objects are no longer in KBUILD_VMLINUX_LIBS, does
+> this new variable need to be added to any of the other places in the
+> build system that use KBUILD_VMLINUX_LIBS for things such as build
+> dependencies?
+
+Not sure about that one.  drivers/firmware/efi/libstub/lib.a is getting
+built regardless so there must already be an implicit dependency?
+
+-- 
+Josh
 
 _______________________________________________
 linux-riscv mailing list
