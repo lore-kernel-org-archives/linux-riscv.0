@@ -4,120 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E28CFC299
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 17:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67510CFC29B
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 17:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XFNnHpePa5QDeg64byHNEPdag2cT4XI/p/fRX5kxcXM=; b=fjw/8i0XUGPIt8
-	S3yKRyGyimH3nLFz7ln01t0hPTNglii9Zyr6ey8tM7zvb5+PAEF/sS3a4BL+aVxb8srPyXNzNI3uA
-	uf8OmG35JPozax9o+jvfU90Mr4/hWMvsW0HGQrcRkhkesOIB2T5qFcti2Robs4Gvs2Mb6qU+US+RL
-	cqVDMvG5Vi45viyroIKGYpmlNOjRGSe5kxdyhTOh8k6V8G7N7cj0IoqIt9MdzkrGrid1mKEgCqs/e
-	1gYStvnoyV7tPpU20hmtIIhvsS6zhNFy+iAgpN4sTUZqbTrYosv2MvJC+8oIOr1oeRsgkSZDelwMt
-	Us7g/TS24Vs0sqXT0KLQ==;
+	List-Owner; bh=DbpxlbD0B7PWKZzGPh6AxXMcuxZMoELg/FCH8Hj4hXQ=; b=ZJlwZW2VrlUrMf
+	ZdtLZkWu+G/ejIAadeByE/x8fNc+7jCPQszFGPDrysAKBuvgm3XRr3FjEsOXGnVg4Os9J5U+XrlMf
+	c7vbY4HZJsj9GBG5x+/Lj/WSoRHXay4N8xM8tObtV19JiZi1qi/h1ngA4rRmrd4tFy7zf1DYoInUR
+	I/dFQgqW/y9iSNqzWefho1g8aPQDf23CzXlzmxAdNvLmJgWvnGn/lvbt5yWJfUIzHTtmbYXwEWV2H
+	agY3XRfUMJ/Fi6IapnH+fgMsVPhXLFlScV5RyV+onagZf8bFSfbg958zsBtXqEfQFcZHBtGH7yHKm
+	nG/XkpY8qbY9kElrU3fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMV4Q-00000008nt3-2tiC;
-	Fri, 21 Nov 2025 17:37:18 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vMVH2-00000008oUo-22e8;
+	Fri, 21 Nov 2025 17:50:20 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMV4O-00000008nsR-0Zb2
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Nov 2025 17:37:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763746634;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=V3OE0zpMaGFe7FLO1SjE8KbYNBSyHZmUa+LcldBnwuQ=;
-	b=OJRkF1yNZxr96JULB17P9/EUvhx1Ox0XH45RgxSDoXu12qcbb2Fsx2+fxxBe6klYybU212
-	b+CpIW1WpaAYjcedmq2yVuzD9sRdjiy+lOZskX/WCBt0hAdREv4ja0gbYzdaO7ZAFZMslh
-	wmXNjDsfgRVSWVwv2Koi4mQtjF9zlTE=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-101-o58idbbJPVOT0qXuBDGF7w-1; Fri, 21 Nov 2025 12:37:13 -0500
-X-MC-Unique: o58idbbJPVOT0qXuBDGF7w-1
-X-Mimecast-MFC-AGG-ID: o58idbbJPVOT0qXuBDGF7w_1763746632
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-42b3c965ce5so1804637f8f.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Nov 2025 09:37:13 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763746632; x=1764351432;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=V3OE0zpMaGFe7FLO1SjE8KbYNBSyHZmUa+LcldBnwuQ=;
-        b=Ls+A+Nm2ZSSGLPLjZb1GMm9WnLgOtgQi0iMsXMgYR7LcT29BQoRDOnrfzrb+oV171S
-         fe9vxiabamHWBv6lqXpMx10fevlwZ+hGoExH+jGoQsP9wzDJ3zgOzm19OLdiS4iyERSa
-         expxw1+hloFmNFGuSuCmN+91Flato4H//EQ/vl3cjWLe/P0YEUAmeVgu+cPYSWhFmvkF
-         3nTrGHbbx5U97jGKLpMNja9hyQUSwoG6mX5b7eEBMOkEnbpI5Ul5qmODJd8aPvwE/Uwh
-         Na6MYsOmL0NP7VeOorI/TC3zTDHMcXst7tehlzXxPmXWC7JTmu5t/6hnPYQjEIYA5s6J
-         k7YA==
-X-Forwarded-Encrypted: i=1; AJvYcCV9iR2Gw9HRZ0TrnH5s1cliV7bs+wyFuAr+sDXscnSNEhX0unpLw75huzraQ4XEPBZvzlO9tKEFZKCyXw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUiWmbuOOp7hOnWnO/CbKq8/qEoZqRfF1RZj/Sqk3NSlOYnxg7
-	D66HXW39KXOL+RE8/UXGj30F/Hojfe/RBHp5TduVEadRmE7K50JZm7+KGY1aPpKx/2KWducKblg
-	nIGqtLzp5bH0EijzzAyACEJnfMp7jhZj84f55312CRk2uY1nIqnqphKH6RrkLC7dmioSuRA==
-X-Gm-Gg: ASbGnctRi/XOKRlkhL1ndmzaK8VyCVWsLMOHlPHCTik4Ge1Uy+aWFL8+IKQJgr9sbpP
-	fGuzLnZgBRxBG26j/TvK4TwUHTNR9NBpilPpnh9wJRybSAbauj904RbpeyA6CHpMJyoqjFv2NLi
-	c63IuPZtTmHaHQdhEz1VUgWWWuy1JC0Hz3TMwddVFeDc5GMv6ZcRadXW4lOQNX2+IJGV9VcjFn0
-	H/jTEi3JW7JKeUypmBXyBnPYUOUzyVuATtGo65XuEOjTtfo/2F35GX9s4q1fe9WR5ye+MbOQKr5
-	Ag+j6cXtIjOQLLkxypgjR+YqR0HbNbbcrtpITvQgo+xFt61PgOx6hC/wpcWjGpOX2nQS9R35HBv
-	RgloouSXmZuan0R/E3lcpjKjJFpVClQBYcuW2VMmE8xMWce2sCy6EvnK3YTJRA+OZ4gzYz3E=
-X-Received: by 2002:a05:6000:2282:b0:42b:3ab7:b8b9 with SMTP id ffacd0b85a97d-42cc1cbd0dcmr3334263f8f.20.1763746631957;
-        Fri, 21 Nov 2025 09:37:11 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFwrptJrvQrMlATO+zOU3GD53XUKYoEIwVBRtwZMVM9uxcxDwDk+rU+CpbkpyNs1Ksl4qe7Bg==
-X-Received: by 2002:a05:6000:2282:b0:42b:3ab7:b8b9 with SMTP id ffacd0b85a97d-42cc1cbd0dcmr3334227f8f.20.1763746631366;
-        Fri, 21 Nov 2025 09:37:11 -0800 (PST)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cc231dc6esm4094867f8f.7.2025.11.21.09.37.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Nov 2025 09:37:10 -0800 (PST)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Dave Hansen <dave.hansen@intel.com>, linux-kernel@vger.kernel.org,
+	id 1vMVGz-00000008oUI-25gU;
+	Fri, 21 Nov 2025 17:50:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763747418; x=1795283418;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=YckklQG/5FwUbczH+x3i0icUWdCO2DJMQNFuo3RKWck=;
+  b=CxEoigRIfvFQT+OgznmOEVgay7cSukJC0IKVY3RhsRCP2zcatrFqO22Z
+   DuJIr9BBVa2id4rlsgT1UBqzV1dhSd0rg5Okh3X25tGx0V+Bv8dkuT7vz
+   o+1Ua044vVSEHZP8++J+pJqOZVh0aEOnirvgS3xdf8dx5AIuM9LhixJjt
+   uh37Dr2GDKufK7IIO40tpK32d6zYjCLOmsCDss3bFAkccSPuURLuN8VFy
+   QR5et+flPuQZuRseQUWd+jUV9zorirhI588OjDEzWWYJk3ZxDGsP2GYuN
+   VHeEU9Ju+aWu10Cfc8jZ0Ke7nLMTTFNdowgfxDlQW/eEfL6ghQlox0ti6
+   w==;
+X-CSE-ConnectionGUID: E2lhTDTbR2+0ivMiPMctbQ==
+X-CSE-MsgGUID: M3aBHLb8TDq8+g3+fqzmVg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11620"; a="69465916"
+X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
+   d="scan'208";a="69465916"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 09:50:17 -0800
+X-CSE-ConnectionGUID: TALVmW4IQoSpoxqsJrQTWg==
+X-CSE-MsgGUID: pw0Ufr6DT1ewmiN2aWhOIA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
+   d="scan'208";a="222378181"
+Received: from schen9-mobl4.amr.corp.intel.com (HELO [10.125.110.60]) ([10.125.110.60])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 09:50:15 -0800
+Message-ID: <2837ea3e-c0b8-46b0-b8da-bf06906d124d@intel.com>
+Date: Fri, 21 Nov 2025 09:50:14 -0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v7 30/31] x86/mm, mm/vmalloc: Defer kernel TLB flush
+ IPIs under CONFIG_COALESCE_TLBI=y
+To: Valentin Schneider <vschneid@redhat.com>, linux-kernel@vger.kernel.org,
  linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
  linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
  linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org
 Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
  Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
- <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
- <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason
- Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard
- Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
- "David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay
- <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
- Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
- Morton <akpm@linux-foundation.org>, Masahiro Yamada
- <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
- <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
- <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Juri Lelli
- <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
- Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+ Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker <frederic@kernel.org>,
+ "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Sami Tolvanen <samitolvanen@google.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+ Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett
+ <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Mel Gorman <mgorman@suse.de>, Andrew Morton <akpm@linux-foundation.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, Han Shen <shenhan@google.com>,
+ Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>,
+ Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>,
+ Juri Lelli <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>,
+ Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
  Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
  Shrikanth Hegde <sshegde@linux.ibm.com>
-Subject: Re: [RFC PATCH v7 30/31] x86/mm, mm/vmalloc: Defer kernel TLB flush
- IPIs under CONFIG_COALESCE_TLBI=y
-In-Reply-To: <bad9eaaa-561a-498a-90d1-fe3a3ab8ba37@intel.com>
 References: <20251114150133.1056710-1-vschneid@redhat.com>
  <20251114151428.1064524-10-vschneid@redhat.com>
  <bad9eaaa-561a-498a-90d1-fe3a3ab8ba37@intel.com>
-Date: Fri, 21 Nov 2025 18:37:09 +0100
-Message-ID: <xhsmh5xb3thh6.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
-MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: C6ezheUAitqpeIWDtAqFjhgXTIVT6aPPKJ-69Uy6rGc_1763746632
-X-Mimecast-Originator: redhat.com
+ <xhsmh5xb3thh6.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+Content-Language: en-US
+From: Dave Hansen <dave.hansen@intel.com>
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <xhsmh5xb3thh6.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_093716_272036_E12B1842 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20251121_095017_594704_15C87AB1 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,44 +157,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19/11/25 10:31, Dave Hansen wrote:
-> On 11/14/25 07:14, Valentin Schneider wrote:
->> +static bool flush_tlb_kernel_cond(int cpu, void *info)
->> +{
->> +	return housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE) ||
->> +	       per_cpu(kernel_cr3_loaded, cpu);
->> +}
->
-> Is it OK that 'kernel_cr3_loaded' can be be stale? Since it's not part
-> of the instruction that actually sets CR3, there's a window between when
-> 'kernel_cr3_loaded' is set (or cleared) and CR3 is actually written.
->
-> Is that OK?
->
-> It seems like it could lead to both unnecessary IPIs being sent and for
-> IPIs to be missed.
->
+On 11/21/25 09:37, Valentin Schneider wrote:
+> On 19/11/25 10:31, Dave Hansen wrote:
+>> On 11/14/25 07:14, Valentin Schneider wrote:
+>>> +static bool flush_tlb_kernel_cond(int cpu, void *info)
+>>> +{
+>>> +	return housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE) ||
+>>> +	       per_cpu(kernel_cr3_loaded, cpu);
+>>> +}
+>>
+>> Is it OK that 'kernel_cr3_loaded' can be be stale? Since it's not part
+>> of the instruction that actually sets CR3, there's a window between when
+>> 'kernel_cr3_loaded' is set (or cleared) and CR3 is actually written.
+>>
+>> Is that OK?
+>>
+>> It seems like it could lead to both unnecessary IPIs being sent and for
+>> IPIs to be missed.
+>>
+> 
+> So the pattern is
+> 
+>   SWITCH_TO_KERNEL_CR3
+>   FLUSH
+>   KERNEL_CR3_LOADED := 1
+> 
+>   KERNEL_CR3_LOADED := 0
+>   SWITCH_TO_USER_CR3
+> 
+> 
+> The 0 -> 1 transition has a window between the unconditional flush and the
+> write to 1 where a remote flush IPI may be omitted. Given that the write is
+> immediately following the unconditional flush, that would really be just
+> two flushes racing with each other,
 
-So the pattern is
+Let me fix that for you. When you wrote "a remote flush IPI may be
+omitted" you meant to write: "there's a bug." ;)
 
-  SWITCH_TO_KERNEL_CR3
-  FLUSH
-  KERNEL_CR3_LOADED := 1
+In the end, KERNEL_CR3_LOADED==0 means, "you don't need to send this CPU
+flushing IPIs because it will flush the TLB itself before touching
+memory that needs a flush".
 
-  KERNEL_CR3_LOADED := 0
-  SWITCH_TO_USER_CR3
+   SWITCH_TO_KERNEL_CR3
+   FLUSH
+   // On kernel CR3, *AND* not getting IPIs
+   KERNEL_CR3_LOADED := 1
 
+> but I could punt the kernel_cr3_loaded
+> write above the unconditional flush.
 
-The 0 -> 1 transition has a window between the unconditional flush and the
-write to 1 where a remote flush IPI may be omitted. Given that the write is
-immediately following the unconditional flush, that would really be just
-two flushes racing with each other, but I could punt the kernel_cr3_loaded
-write above the unconditional flush.
+Yes, that would eliminate the window, as long as the memory ordering is
+right. You not only need to have the KERNEL_CR3_LOADED:=1 CPU set that
+variable, you need to ensure that it has seen the page table update.
 
-The 1 -> 0 transition is less problematic, worst case a remote flush races
-with the CPU returning to userspace and it'll get interrupted back to
-kernelspace.
+> The 1 -> 0 transition is less problematic, worst case a remote flush races
+> with the CPU returning to userspace and it'll get interrupted back to
+> kernelspace.
 
+It's also not just "returning to userspace". It could well be *in*
+userspace by the point the IPI shows up. It's not the end of the world,
+and the window isn't infinitely long. But there certainly is still a
+possibility of getting spurious interrupts for the precious NOHZ_FULL
+task while it's in userspace.
 
 _______________________________________________
 linux-riscv mailing list
