@@ -4,140 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE7ECFC27F
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 13:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB4C1CFC282
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 14:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OxWCwurbRUK9h75cIzhR5x9N4OYgmpdFklOnKz265s4=; b=PcmysaMP5ACUci
-	CHDbqO2hTSG0fp+4VCjC8GsujYXSwo0Z/BDmYKMGTF4bxnTIcwSDz+26V3ITPlv1eZujeurrQDJHF
-	mpl/E855/xWAKOvHyU0jYHhQ27UOfhfsdYnDsXCdfdFJC3/FYlp5VzFzUgoX1SbxVX0sqOUeaRZco
-	a6ZK7OUN1iOLc1NnFB24x3QwuFIae+TZ9bp8QTO1TVk2wCy+p+I7iv2V1eNXPBcrzyQb0/suXIV0h
-	X73ezf2T8RRL+sy3ACQLglE+9bMzzcvIljX5xLr6UpD3sBN3kJ6gCOXUOnUzr2sqsE5S3O4J5LzEB
-	thJolb/46GTcwRF9/WHg==;
+	List-Owner; bh=lqAMrK6OtzV78DwCtt4owG3XPMHl43ODZnMNtI+8Yns=; b=oRqczXqHLHOi9m
+	uLVCb1RgsHsBOWWENpGKFOnWhWrGQsFZWMSk0s+dVwdbGyYa75RzqxDEHIX5pAEYfk8RxzhU9EtgE
+	ewKkM425hC67P2N3k6nB/Wr7vVxi68PjxDuLh5yv7fhy/Apnlh32KGuMJTbOX+uQ8azObj8OpRFiL
+	n8YjPV2sp7xrw92PCTd+0jpM/0i+sXLjKDy7iqmT7cQ/9KEOrl+up20y4PKqEzS97C7clEUhAcWCg
+	DeeG68m9bTOm/q3mC6Cm+2e3WRwuGuwxaBxjmLR/MGm6s9yoTtOzlV9uxhHM6ENOlbZ9tWtMfN9JW
+	jypeyF22jvyb5qIraanw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRdB-00000008TOf-3734;
-	Fri, 21 Nov 2025 13:56:57 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1vMS2A-00000008VzO-3aQX;
+	Fri, 21 Nov 2025 14:22:46 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRd8-00000008TJC-2lz1
+	id 1vMS28-00000008Vyg-0z6Z
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Nov 2025 13:56:55 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 68BDB21018;
-	Fri, 21 Nov 2025 13:56:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1763733393; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xtghZh7eeBa0zgsffKJ3eiOL5OvyE27c0pocmVijFC4=;
-	b=HO5kGCHF/D1Pc+UNPx6GzgfVmbxpF5grD3EOQWM0q0xHGH0wMn3yv3RMHjiUVNU5nico0H
-	iaasSfMC/VKHi2q1hp0HDcfNhdjGaWhysg6aRDg8yirFpj3P1GVCRUE0Js3YSpD6Zm6let
-	fFcLsgH15EI7B5yD5ZUd+fj6+Qavma4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1763733393;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xtghZh7eeBa0zgsffKJ3eiOL5OvyE27c0pocmVijFC4=;
-	b=1pD1z/ul2RdfgYUbYvh2lclQ3zoY14m4Wxf+MQKFaqNHcVe8UwV8qBBkn5e1AgvpdONtIE
-	ryP6CP5k9FLQDUDQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=HO5kGCHF;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="1pD1z/ul"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1763733393; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xtghZh7eeBa0zgsffKJ3eiOL5OvyE27c0pocmVijFC4=;
-	b=HO5kGCHF/D1Pc+UNPx6GzgfVmbxpF5grD3EOQWM0q0xHGH0wMn3yv3RMHjiUVNU5nico0H
-	iaasSfMC/VKHi2q1hp0HDcfNhdjGaWhysg6aRDg8yirFpj3P1GVCRUE0Js3YSpD6Zm6let
-	fFcLsgH15EI7B5yD5ZUd+fj6+Qavma4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1763733393;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xtghZh7eeBa0zgsffKJ3eiOL5OvyE27c0pocmVijFC4=;
-	b=1pD1z/ul2RdfgYUbYvh2lclQ3zoY14m4Wxf+MQKFaqNHcVe8UwV8qBBkn5e1AgvpdONtIE
-	ryP6CP5k9FLQDUDQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 115AD3EA61;
-	Fri, 21 Nov 2025 13:56:33 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 0JjBApFvIGkqdQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Fri, 21 Nov 2025 13:56:33 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: ardb@kernel.org,
-	javierm@redhat.com,
-	arnd@arndb.de
-Cc: x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-hyperv@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-fbdev@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 6/6] sysfb: Move edid_info into sysfb_primary_display
-Date: Fri, 21 Nov 2025 14:36:10 +0100
-Message-ID: <20251121135624.494768-7-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251121135624.494768-1-tzimmermann@suse.de>
-References: <20251121135624.494768-1-tzimmermann@suse.de>
+	Fri, 21 Nov 2025 14:22:45 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b32ff5d10so2029230f8f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Nov 2025 06:22:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1763734962; x=1764339762; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=s9Tj2omosRcUYxdoccgm+YuolCAEZN/10noVoCt2ot0=;
+        b=FjhtqYKEU2/7h7yniNNpWtk4mIqWR6uKQdVS/McZO/9p/EEh5aBGtrIzXP7mvRgKrc
+         bc5wv45ptxIOUcEjfELIRT/5qu+4HPmkGTExK0xQn8XCtUWlBz5Qu99ayWPgmlz3P8O2
+         IkSrK5MHfnBy+VQTLStuWDJwuX61IqLWGDWGuaDF4B2GJMMn62u6Ijm+5MZlOO+TxLbM
+         Vu7D5wjUnxQeQl+rIPrSMXR78oxq1jS6Xv38HpFVWkZ3jnyNzzWri6TPN0gNhLZi7PDO
+         V4URXeJrd/3LNlPuM0sg/BNNmmIW3wU4+CZ2lTgpmQRe0VhXlldARH1fB1616ZSOLRyq
+         qZ8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763734962; x=1764339762;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=s9Tj2omosRcUYxdoccgm+YuolCAEZN/10noVoCt2ot0=;
+        b=VGjVjainxEBERjp0qA6ULM0K/LAFRGvs+Jt6FAD1Wr0gk8SQ8hma38cU9Kw4X0vABU
+         7goDE959SzjCfQFxptIzMGo+O3zlLJFRecU/9x7h0OyeWNXFIuvyh1QciDKqdaaHNM+J
+         v8Zho6Ld5E+U3VG737h4XgTxLzmMCWtC9AN4Tt3obMqgShTLVh62LvckNhMmt5hZp3BZ
+         nFDDUvBehQruIC9mKPBx2qQji+4Ng18HvT0c2Djnt/+UPnQdD3z/WCsWihggqn3/HEfW
+         wF85D4qXISIvlpfQOPfV19G0ELHa+vaRMxTbfL7NeO2L93Rvtl6HTU33McuouERPB79i
+         wlNg==
+X-Forwarded-Encrypted: i=1; AJvYcCWADVtw9B6JOS+3D+VJjHGCXEumoXVeG2vTXzHKzAPKn/J18XD4/oTo3nB5/u01vNP2bMHwcL/aLwWNjw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9G9CGzFG5NGNLZOTdKSj0sFbMQalpmVfiIBP/X7yDWtJ4JIRX
+	/7bR7z1Jb1bkhVd0ta5qTX2QdBprsjApDMaJ2E6u3wnBV09Sya03otbFvkxAvf8Txys=
+X-Gm-Gg: ASbGncsY7PeYUaVp9rmXzHu314bpHSEcCqQPUu121vTthAzl2n2byd43sn1cHig100F
+	NQ3LNcmssQkeBzPMxb7vW6E9Z9KlbXqMMvN6+vjljkrYEMfov9J3ahx73AigIvOQIGMPnwGxQJh
+	6F1x9Xw+Sz4y5pXE6b5Nd87ZBlRPGkxtPRFkeuN6z9aROJNdGPMt7UWjYNOkvyJwzU5ubNJNZCX
+	tIsWV3xDU9fFrJpWRJLYlJpISBmEt9zWdyJe2gEpx5yRWfKPfqQKynJE7OyMcWe2jUNFSeuNR+I
+	kOJvWtc9SIvCpQDcgPSN+PrC7CoYISQZWv0DOU2j1SjG9wGc3dW9y9ACwfyw/5l3RXOSBwjsGpH
+	Ksw5a9ylCxtM3t+4Pnt1tdJIw5H+hQX1ZBkDCLfDRMbxUebpxXV6FAY3DiZ5Y6V5ipiUh0rw4q4
+	DJTjQazGzRKwjK1S5vl9bkvG+SwETj0rn4cGKLeGf/Xn/DnMbuVq2WaZGD
+X-Google-Smtp-Source: AGHT+IEgxVbe+hqxdvbG56kf9v6CMn5g1qaPlBLoZANmK8RgRjJBLPlXoEtEAoaG63SMBlnIFP5AdQ==
+X-Received: by 2002:a5d:5d88:0:b0:3e7:428f:d33 with SMTP id ffacd0b85a97d-42cc135db29mr2815296f8f.16.1763734961910;
+        Fri, 21 Nov 2025 06:22:41 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7fd9b45sm11126232f8f.43.2025.11.21.06.22.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Nov 2025 06:22:41 -0800 (PST)
+Message-ID: <9290f53d-3545-4299-9781-c1c558f71158@rivosinc.com>
+Date: Fri, 21 Nov 2025 15:22:40 +0100
 MIME-Version: 1.0
-X-Rspamd-Queue-Id: 68BDB21018
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[14];
-	ARC_NA(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DWL_DNSWL_BLOCKED(0.00)[suse.de:dkim];
-	FROM_EQ_ENVFROM(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLtfyjk8sg4x43ngtem9djprcp)];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:email,suse.de:mid,suse.de:dkim]
-X-Rspamd-Action: no action
+User-Agent: Mozilla Thunderbird
+Subject: Re: SSE May Corrupt KVM's Context
+To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ Himanshu Chauhan <hchauhan@ventanamicro.com>,
+ Anup Patel <apatel@ventanamicro.com>, =?UTF-8?B?6Lev5pet?=
+ <luxu.kernel@bytedance.com>, Atish Patra <atishp@atishpatra.org>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ =?UTF-8?B?5bSU6L+Q6L6J?= <cuiyunhui@bytedance.com>,
+ =?UTF-8?B?5YWD56u5?= <yuanzhu@bytedance.com>
+References: <00786ddb6d626442879072851d455bbd8ef1181d.e1f179e9.b8a1.463b.998f.98948268e9ea@bytedance.com>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <00786ddb6d626442879072851d455bbd8ef1181d.e1f179e9.b8a1.463b.998f.98948268e9ea@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_055654_846755_6DEC2FC1 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20251121_062244_413228_B206EFF9 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,187 +107,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move x86's edid_info into sysfb_primary_display as a new field named
-edid. Adapt all users.
-
-An instance of edid_info has only been defined on x86. With the move
-into sysfb_primary_display, it becomes available on all architectures.
-Therefore remove this contraint from CONFIG_FIRMWARE_EDID.
-
-x86 fills the EDID data from boot_params.edid_info. DRM drivers pick
-up the raw data and make it available to DRM clients. Replace the
-drivers' references to edid_info and instead use the sysfb_display_info
-as passed from sysfb.
-
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- arch/x86/kernel/setup.c          | 6 +-----
- drivers/gpu/drm/sysfb/efidrm.c   | 5 ++---
- drivers/gpu/drm/sysfb/vesadrm.c  | 5 ++---
- drivers/video/Kconfig            | 1 -
- drivers/video/fbdev/core/fbmon.c | 8 +++++---
- include/linux/sysfb.h            | 6 ++++++
- include/video/edid.h             | 4 ----
- 7 files changed, 16 insertions(+), 19 deletions(-)
-
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 675e4b9deb1f..d9bfe2032cd9 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -215,10 +215,6 @@ arch_initcall(init_x86_sysctl);
- 
- struct sysfb_display_info sysfb_primary_display;
- EXPORT_SYMBOL(sysfb_primary_display);
--#if defined(CONFIG_FIRMWARE_EDID)
--struct edid_info edid_info;
--EXPORT_SYMBOL_GPL(edid_info);
--#endif
- 
- extern int root_mountflags;
- 
-@@ -530,7 +526,7 @@ static void __init parse_boot_params(void)
- 	ROOT_DEV = old_decode_dev(boot_params.hdr.root_dev);
- 	sysfb_primary_display.screen = boot_params.screen_info;
- #if defined(CONFIG_FIRMWARE_EDID)
--	edid_info = boot_params.edid_info;
-+	sysfb_primary_display.edid = boot_params.edid_info;
- #endif
- #ifdef CONFIG_X86_32
- 	apm_info.bios = boot_params.apm_bios_info;
-diff --git a/drivers/gpu/drm/sysfb/efidrm.c b/drivers/gpu/drm/sysfb/efidrm.c
-index 29533ae8fbbf..50e0aeef709c 100644
---- a/drivers/gpu/drm/sysfb/efidrm.c
-+++ b/drivers/gpu/drm/sysfb/efidrm.c
-@@ -24,7 +24,6 @@
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
--#include <video/edid.h>
- #include <video/pixel_format.h>
- 
- #include "drm_sysfb_helper.h"
-@@ -207,8 +206,8 @@ static struct efidrm_device *efidrm_device_create(struct drm_driver *drv,
- 		&format->format, width, height, stride);
- 
- #if defined(CONFIG_FIRMWARE_EDID)
--	if (drm_edid_header_is_valid(edid_info.dummy) == 8)
--		sysfb->edid = edid_info.dummy;
-+	if (drm_edid_header_is_valid(dpy->edid.dummy) == 8)
-+		sysfb->edid = dpy->edid.dummy;
- #endif
- 	sysfb->fb_mode = drm_sysfb_mode(width, height, 0, 0);
- 	sysfb->fb_format = format;
-diff --git a/drivers/gpu/drm/sysfb/vesadrm.c b/drivers/gpu/drm/sysfb/vesadrm.c
-index 16fc223f8c5b..0680638b8131 100644
---- a/drivers/gpu/drm/sysfb/vesadrm.c
-+++ b/drivers/gpu/drm/sysfb/vesadrm.c
-@@ -25,7 +25,6 @@
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
--#include <video/edid.h>
- #include <video/pixel_format.h>
- #include <video/vga.h>
- 
-@@ -474,8 +473,8 @@ static struct vesadrm_device *vesadrm_device_create(struct drm_driver *drv,
- 	}
- 
- #if defined(CONFIG_FIRMWARE_EDID)
--	if (drm_edid_header_is_valid(edid_info.dummy) == 8)
--		sysfb->edid = edid_info.dummy;
-+	if (drm_edid_header_is_valid(dpy->edid.dummy) == 8)
-+		sysfb->edid = dpy->edid.dummy;
- #endif
- 	sysfb->fb_mode = drm_sysfb_mode(width, height, 0, 0);
- 	sysfb->fb_format = format;
-diff --git a/drivers/video/Kconfig b/drivers/video/Kconfig
-index d51777df12d1..ad55e7d62159 100644
---- a/drivers/video/Kconfig
-+++ b/drivers/video/Kconfig
-@@ -63,7 +63,6 @@ endif # HAS_IOMEM
- 
- config FIRMWARE_EDID
- 	bool "Enable firmware EDID"
--	depends on X86
- 	help
- 	  This enables access to the EDID transferred from the firmware.
- 	  On x86, this is from the VESA BIOS. DRM display drivers will
-diff --git a/drivers/video/fbdev/core/fbmon.c b/drivers/video/fbdev/core/fbmon.c
-index 0a65bef01e3c..07df7e98f8a3 100644
---- a/drivers/video/fbdev/core/fbmon.c
-+++ b/drivers/video/fbdev/core/fbmon.c
-@@ -32,11 +32,13 @@
- #include <linux/module.h>
- #include <linux/pci.h>
- #include <linux/slab.h>
--#include <video/edid.h>
-+#include <linux/string_choices.h>
-+#include <linux/sysfb.h>
-+
- #include <video/of_videomode.h>
- #include <video/videomode.h>
-+
- #include "../edid.h"
--#include <linux/string_choices.h>
- 
- /*
-  * EDID parser
-@@ -1504,7 +1506,7 @@ const unsigned char *fb_firmware_edid(struct device *device)
- 		res = &dev->resource[PCI_ROM_RESOURCE];
- 
- 	if (res && res->flags & IORESOURCE_ROM_SHADOW)
--		edid = edid_info.dummy;
-+		edid = sysfb_primary_display.edid.dummy;
- 
- 	return edid;
- }
-diff --git a/include/linux/sysfb.h b/include/linux/sysfb.h
-index e8bde392c690..5226efde9ad4 100644
---- a/include/linux/sysfb.h
-+++ b/include/linux/sysfb.h
-@@ -12,6 +12,8 @@
- #include <linux/screen_info.h>
- #include <linux/types.h>
- 
-+#include <video/edid.h>
-+
- struct device;
- struct platform_device;
- struct screen_info;
-@@ -62,6 +64,10 @@ struct efifb_dmi_info {
- 
- struct sysfb_display_info {
- 	struct screen_info screen;
-+
-+#if defined(CONFIG_FIRMWARE_EDID)
-+	struct edid_info edid;
-+#endif
- };
- 
- extern struct sysfb_display_info sysfb_primary_display;
-diff --git a/include/video/edid.h b/include/video/edid.h
-index c2b186b1933a..52aabb706032 100644
---- a/include/video/edid.h
-+++ b/include/video/edid.h
-@@ -4,8 +4,4 @@
- 
- #include <uapi/video/edid.h>
- 
--#if defined(CONFIG_FIRMWARE_EDID)
--extern struct edid_info edid_info;
--#endif
--
- #endif /* __linux_video_edid_h__ */
--- 
-2.51.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAxMS8yMS8yNSAwOToyNiwgWmhhbnBlbmcgWmhhbmcgd3JvdGU6Cj4gSGkgQ2zDqW1lbnQs
+wqAKPiAKPiBJIGVuY291bnRlcmVkIGFub3RoZXIgU1NFIHByb2JsZW0gcmVjZW50bHkuIEhvc3Qg
+U1NFIGV2ZW50cyBtYXkgYWZmZWN0IHRoZSBndWVzdC4gTmVpdGhlciBQTVUtU0JJLVNTRSBvciBL
+Vk0tU1NFIGlzIGVuYWJsZWQuIEp1c3QgdXNpbmcgdGhlIHNpbXBsZXN0IHJpc2N2X3NzZV90ZXN0
+IHRvIHRyaWdnZXIgZWNhbGwgU1NFLCBhbmQgaXQgd2lsbCBhZmZlY3QgdGhlIEtWTSB2Y3B1IHJ1
+bm5pbmcgaW4gdGhlIGJhY2tncm91bmQuCgpIaSBaaGFucGVuZywKCkknZCBiZSBpbmNsaW5lZCB0
+byBzYXkgdGhpcyBpcyBtb3N0IHByb2JhYmx5IGEgcHJvYmxlbSBpbiB0aGUgU0JJCmltcGxlbWVu
+dGF0aW9uIHRoYXQgaW5jb3JyZWN0bHkgc2VuZCBvciByZXN0b3JlIHRvL2Zyb20gdmlydCBjb250
+ZXh0LgpJJ2xsIHRyeSB0byByZXByb2R1Y2UgaXQgd2l0aCBPcGVuU0JJIGluIHRoZSB1cGNvbWlu
+ZyBkYXlzLgoKVGhhbmtzLAoKQ2zDqW1lbnQKCj4gCj4gVGhlIGZvbGxvd2luZyBsb2cgaXMgdGhl
+IG91dHB1dCBvZiBLVk0gYW5kIFFFTVUgd2hlbiB2Y3B1IGNyYXNoZXM6Cj4gCj4gW8KgIDE1Mi4y
+Mjg1NDhdIGt2bSBbMTQ1XTogVkNQVSBleGl0IGVycm9yIC0xNAo+IFvCoCAxNTIuMjMwNjY0XSBr
+dm0gWzE0NV06IFNFUEM9MHhmZmZmZmZmZjgwMDQwMjgwIFNTVEFUVVM9MHgyMDAwMDQ1MDAgSFNU
+QVRVUz0weDIwMDIwMTEwMAo+IFvCoCAxNTIuMjMxODY4XSBrdm0gWzE0NV06IFNDQVVTRT0weGYg
+U1RWQUw9MHgzYzggSFRWQUw9MHgwIEhUSU5TVD0weDEwMzAyMwo+IGVycm9yOiBrdm0gcnVuIGZh
+aWxlZCBCYWQgYWRkcmVzcwo+IMKgcGMgwqAgwqAgwqAgZmZmZmZmZmY4MDA0MDI4MAo+IMKgbWhh
+cnRpZMKgIDAwMDAwMDAwMDAwMDAwMDAKPiDCoG1zdGF0dXPCoCAwMDAwMDAwMjAwMDAwMTAwCj4g
+wqBtaXAgwqAgwqDCoCAwMDAwMDAwMDAwMDAwMDAwCj4gwqBtaWUgwqAgwqDCoCAwMDAwMDAwMDAw
+MDAwMDAwCj4gwqBtaWRlbGVnwqAgMDAwMDAwMDAwMDAwMDAwMAo+IMKgbWVkZWxlZ8KgIDAwMDAw
+MDAwMDAwMDAwMDAKPiDCoG10dmVjIMKgwqAgMDAwMDAwMDAwMDAwMDAwMAo+IMKgbWVwYyDCoCDC
+oCAwMDAwMDAwMDAwMDAwMDAwCj4gwqBtY2F1c2UgwqAgMDAwMDAwMDAwMDAwMDAwMAo+IMKgbXR2
+YWwgwqDCoCAwMDAwMDAwMDAwMDAwMDAwCj4gwqBtc2NyYXRjaCAwMDAwMDAwMDAwMDAwMDAwCj4g
+wqB4MC96ZXJvwqAgMDAwMDAwMDAwMDAwMDAwMCB4MS9yYSDCoMKgIGZmZmZmZmZmODBjMWFjMmMg
+eDIvc3AgwqDCoCBmZmZmZmZmZjgxZTAzY2YwIHgzL2dwIMKgwqAgZmZmZmZmZmY4MjAxYWE2OAo+
+IMKgeDQvdHAgwqDCoCBmZmZmZmZmZjgxZTBlMGMwIHg1L3QwIMKgwqAgZmZmZmZmZmY4MGI5MWEw
+OCB4Ni90MSDCoMKgIGZmZmZhZjgwZmVlMDAwMDAgeDcvdDIgwqDCoCAwMDAwMDAwMjAwMDAwMDIw
+Cj4gwqB4OC9zMCDCoMKgIGZmZmZmZmZmODFlMDNkNTAgeDkvczEgwqDCoCAwMDAwMDAwMDAxMDAw
+MDAwIHgxMC9hMCDCoCAwMDAwMDAwMDAwMDAwMDAwIHgxMS9hMSDCoCAwMDAwMDAwMDAwMDAwMDAw
+Cj4gwqB4MTIvYTIgwqAgMDAwMDAwMDAwMTAwMDAwMCB4MTMvYTMgwqAgZmZmZmFmODBmZmUwMDAw
+MCB4MTQvYTQgwqAgMDAwMDAwMDAwMDAwMDAwMCB4MTUvYTUgwqAgZmZmZmFmN2Y4MDAwMDAwMAo+
+IMKgeDE2L2E2IMKgIDAwMDAwMDAwMDAwMDAwMDIgeDE3L2E3IMKgIDAwMDAwMDAwMDAwMDAwMDIg
+eDE4L3MyIMKgIGZmZmZhZjgwZmVlMDAwMDAgeDE5L3MzIMKgIGZmZmZmZmZmODE2MzkxNzAKPiDC
+oHgyMC9zNCDCoCBmZmZmZmZmZjgyMDIwMGY4IHgyMS9zNSDCoCAwMDAwMDAwMDAwMDAwMDAwIHgy
+Mi9zNiDCoCAwMDAwMDAwMDAwMDAwMDAwIHgyMy9zNyDCoCAwMDAwMDAwMDAwMDAwMDAwCj4gwqB4
+MjQvczggwqAgMDAwMDAwMDAwMDAwMDAwMCB4MjUvczkgwqAgMDAwMDAwMDAwMDAwMDAwMCB4MjYv
+czEwwqAgMDAwMDAwMDAwMDAwMDAwMCB4MjcvczExwqAgMDAwMDAwMDAwMDAwMDAwMAo+IMKgeDI4
+L3QzIMKgIGZmZmZmZmZmODBiODUxMTAgeDI5L3Q0IMKgIGZmZmZmZmZmODIwNWQyNTggeDMwL3Q1
+IMKgIGZmZmZmZmZmODIwNWQyNTggeDMxL3Q2IMKgIGZmZmZmZmZmODIwNWQyYTAKPiBbwqAgMTUy
+LjMxMjgyNF0gcmlzY3Zfc3NlX3Rlc3Q6IEZBSUxFRDogRmFpbGVkIHRvIHdhaXQgZm9yIGV2ZW50
+IGxvY2FsX3NvZnR3YXJlX2luamVjdGVkIGNvbXBsZXRpb24gb24gQ1BVIDIKPiBbwqAgMTUyLjMx
+NzkzM10gcmlzY3Zfc3NlX3Rlc3Q6IEZBSUxFRDogUmVjZWl2ZWQgU1NFIGV2ZW50IC02NTUzNiBv
+biBDUFUgMiBpbnN0ZWFkIG9mIDQKPiAKPiBUaGUgZm9sbG93aW5nIGlzIHRoZSBhc3NlbWJseSBj
+b250ZXh0IHdoZXJlIHZjcHUgY3Jhc2hlcywgd2hpY2ggaXMgdGhlIFNBVkVfR1VFU1RfR1BSUyBt
+YWNybyB0aGF0IHJ1bnMgd2hlbiBpdCBnZXQgYmFjayB0byBob3N0KHZjcHVfc3dpdGNoLlM6IExr
+dm1fc3dpdGNoX3JldHVybikuCj4gVGhlIHNzY3JhdGNoIGlzIHNldCB0byAwKG9yIG90aGVyIGJh
+ZCBhbmQgbG93IGFkZHJlc3NlcykgYnkgbWlzdGFrZSwgY2F1c2luZyBhIGNyYXNoIHdoZW4gc3Rv
+cmluZyB0aGUgdmlydHVhbCBtYWNoaW5lIGNvbnRleHQuCj4gCj4gwqDCoCAweGZmZmZmZmZmODAw
+NDAyN2MgPCsyNTI+OiDCoCBjc3JydyDCoCBhMCxzc2NyYXRjaCxhMAo+IMKgwqAgMHhmZmZmZmZm
+ZjgwMDQwMjgwIDwrMjU2PjogwqAgc2QgwqAgwqDCoCByYSw5NjgoYTApCj4gwqDCoCAweGZmZmZm
+ZmZmODAwNDAyODQgPCsyNjA+OiDCoCBzZCDCoCDCoMKgIHNwLDk3NihhMCkKPiDCoMKgIDB4ZmZm
+ZmZmZmY4MDA0MDI4OCA8KzI2ND46IMKgIHNkIMKgIMKgwqAgZ3AsOTg0KGEwKQo+IMKgwqAgMHhm
+ZmZmZmZmZjgwMDQwMjhjIDwrMjY4PjogwqAgc2QgwqAgwqDCoCB0cCw5OTIoYTApCj4gwqDCoCAw
+eGZmZmZmZmZmODAwNDAyOTAgPCsyNzI+OiDCoCBzZCDCoCDCoMKgIHQwLDEwMDAoYTApCj4gwqDC
+oCAweGZmZmZmZmZmODAwNDAyOTQgPCsyNzY+OiDCoCBzZCDCoCDCoMKgIHQxLDEwMDgoYTApCj4g
+Cj4gVGhpcyBpcyBhIG11c3Qtb2NjdXIgcHJvYmxlbSBpbiBteSBlbnZpcm9ubWVudC4gQXMgbG9u
+ZyBhcyBhbiBpZGxlIFZNIGlzIHJ1bm5pbmcgaW4gdGhlIGJhY2tncm91bmQswqAgcnVuIHRoZSBT
+U0UgdGVzdCBpbiBsb29wIG9uIHRoZSBob3N0LCBhbmQgdGhlIHZjcHUgd2lsbCBjcmFzaC4gQ2Fu
+IHRoaXMgcHJvYmxlbSBiZSByZXByb2R1Y2VkIGluIHlvdXIgZW52aXJvbm1lbnQ/Cj4gCj4gUmVn
+YXJkcywKPiBaaGFucGVuZwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
