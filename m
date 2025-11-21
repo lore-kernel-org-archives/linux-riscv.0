@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DADCFA473
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 05:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C799DCFA478
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 06:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:Subject:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uZ8HyWkPqmLX9kQWamL8Tr3EWNVpfJtfWvTk2LzjBJY=; b=ujueH6VcIOsw9S
-	/QYu8+f2dbDjRDwgKG2v2SnrxHb+8I+7utTcHBrFOg0UUUxiyCUHDv8ckbUeGRdHrXBQkprFML832
-	MrvIj/7gsj+8dG1sAjm9qfCo4TgmiwoXEB2qSImva2JPT85ThTDtGqHqTilL/FJgEqKBsky1gSNyR
-	lbWTV7NM0kQFZvFRBiXH9h6w6fp/YEhDo8RR7rcCZM2buUOoJlVT2+9CvSOh57WiQkg5RNHBRNY8r
-	0i3XobsmZrnki3WdUIOsHEsUJfhDj7XV5c/TLCDUtDXFUBa3MlrldT3MMbbK3HhhysgOUuOhZ1Mov
-	aYLqpDNVlgS8kBYsGp0g==;
+	List-Owner; bh=c3L8/Sj4K5NHq8ITKotu85fUQcKwdgBE2P+FSt3FWSw=; b=JYnp+MX0axqDyq
+	3tc78L0qAP72iTk/O0GMnQzoU77ZlnE36kZjS7cFraq1Zs2JRlkjNM5x58qEAuHZJ2g8n6lwIT2GM
+	bt/uz5iMjb0wFadxU6rfzrPM8T+nhlhawmKTfBRQbemmbvXhIEkT/P1n0XkTfeRfVFT4dKVn/lpxT
+	XOeYGwBOT7NDg7XcG0uRAoUdBCV6IXr7lhtX1Q7pwJJE9H6HA6Dn3JyTvdqxImqDgmgTbHrHuxyoc
+	QPNMMk+OOgLZI7fLSn5N6u1NOvMtxpqAqWB7oJwBciO1qYxEDICm9w9cPCCRIKSp9KQ00/wSIOuMi
+	JvzbSCNIBH2CmIoYy61g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMJZw-00000007pw3-2Ice;
-	Fri, 21 Nov 2025 05:21:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vMKfK-00000007uqo-2SXR;
+	Fri, 21 Nov 2025 06:30:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMJZm-00000007ptb-3hPf
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Nov 2025 05:21:00 +0000
+	id 1vMKfI-00000007uqZ-2xnL;
+	Fri, 21 Nov 2025 06:30:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 43DD6444DC;
-	Fri, 21 Nov 2025 05:20:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17684C4CEFB;
-	Fri, 21 Nov 2025 05:20:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D145460220;
+	Fri, 21 Nov 2025 06:30:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE8E1C4CEF1;
+	Fri, 21 Nov 2025 06:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763702454;
-	bh=yusO0uQN14S6dK5wVmEdCIvoT5mDHm1dk9z9DY6DrPw=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=j7kch2yyq1xSD0kBpihOVxhsx6tDSVaP/OlwJVyXJra4cjmV1SkWI/9eEir3y64QT
-	 Xc7s50VgbQEjF2AMdydhZPcAA7rA9CgZAhsDfKfHRhezr4Wc3+ih0/EzmvxbhaLfr/
-	 JXsOcu3BSsVZXFPAp9/owxJMSxq0SertMFTYKEJGHqjK7vlQGQBMtVfg+pyUWYkxTD
-	 Ke9TR+sLbcuki54jNodw4/c38iCjNXkHVKRkQI53eoT6j8souvMpaEU5p9UMUfgl6o
-	 8obFhCdt7hVCn+9DWYCZDRR5YO1qapPvEFvqyH3W0Ka1SJsY3GtB8YoBlwFkkbZfAF
-	 Jpk7vlMW8GTBQ==
+	s=k20201202; t=1763706639;
+	bh=gDSALg5PLW9mySOKY3LcUIAnuzMXaM0GWAeazqo8adg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mAxOl9OxLsYR5RPnQ2ArO8vBCMbdZAyISNQZhdk/iBF3dZeBadX4O84qPuYSlgHG+
+	 aTceCMPEqg08aC+59W3sLYzlxJXQQbTm/wm7Y6zeybU4gXHMAhQQrkLrC8MC0cUX15
+	 rtir2oUBb8empsgR4WrVpSid23V1e85rhnwOSMTUf/xDm1KsNan+i7qjBYrMKcqi11
+	 wW0lkTO6dPWPHM1Bq2YjtO7bqMKlNXYRCaJIgX3S++m6nejwOLxX0Udwny8KDgXdVl
+	 BxUV44DQzoD6A4jk24+47g8pQ+00Q6v6KFxU+uKXP/Ff0nOZ4Z2eOaScZ+udG8PMRU
+	 OWqDPHXlelZiA==
+Date: Thu, 20 Nov 2025 23:30:33 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Nicolas Schier <nicolas.schier@linux.dev>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2] kbuild: Support directory targets for building DTBs
+Message-ID: <20251121063033.GA571346@ax162>
+References: <20251120204812.1983452-4-robh@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20251117190329.1337250-1-cmirabil@redhat.com>
-References: <20251117190329.1337250-1-cmirabil@redhat.com>
-Subject: Re: [PATCH] clk: spacemit: fix UBSAN warning during probe
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: spacemit@lists.linux.dev, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, mturquette@baylibre.com, dlan@gentoo.org, heylenay@4d2.org, elder@riscstar.com, troy.mitchell@linux.spacemit.com, inochiama@outlook.com, Charles Mirabile <cmirabil@redhat.com>, Yanko Kaneti <yaneti@declera.com>
-To: Charles Mirabile <cmirabil@redhat.com>, linux-kernel@vger.kernel.org
-Date: Thu, 20 Nov 2025 19:04:50 -0800
-Message-ID: <176369429000.11952.15242492549872244422@localhost.localdomain>
-User-Agent: alot/0.11
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_212054_943017_A651B431 
-X-CRM114-Status: UNSURE (   5.44  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20251120204812.1983452-4-robh@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +76,138 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Charles Mirabile (2025-11-17 11:03:29)
-> When booting with KASAN enabled the following splat is encountered during
-> probe of the k1 clock driver:
+On Thu, Nov 20, 2025 at 02:48:13PM -0600, Rob Herring (Arm) wrote:
+> It is useful to be able to build all the DTBs for a vendor. One can list
+> all the .dts files in a directory and convert those to %.dtb targets,
+> but that doesn't work for base+overlay DTB targets.
 > 
-> UBSAN: array-index-out-of-bounds in drivers/clk/spacemit/ccu-k1.c:1044:16
-> index 0 is out of range for type 'clk_hw *[*]'
-> CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc5+ #1 PREEMPT(lazy)
-> Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2022.10spacemit 10/01/2022
-> Call Trace:
-> [<ffffffff8002b628>] dump_backtrace+0x28/0x38
-> [<ffffffff800027d2>] show_stack+0x3a/0x50
-> [<ffffffff800220c2>] dump_stack_lvl+0x5a/0x80
-> [<ffffffff80022100>] dump_stack+0x18/0x20
-> [<ffffffff800164b8>] ubsan_epilogue+0x10/0x48
-> [<ffffffff8099034e>] __ubsan_handle_out_of_bounds+0xa6/0xa8
-> [<ffffffff80acbfa6>] k1_ccu_probe+0x37e/0x420
-> [<ffffffff80b79e6e>] platform_probe+0x56/0x98
-> [<ffffffff80b76a7e>] really_probe+0x9e/0x350
-> [<ffffffff80b76db0>] __driver_probe_device+0x80/0x138
-> [<ffffffff80b76f52>] driver_probe_device+0x3a/0xd0
-> [<ffffffff80b771c4>] __driver_attach+0xac/0x1b8
-> [<ffffffff80b742fc>] bus_for_each_dev+0x6c/0xc8
-> [<ffffffff80b76296>] driver_attach+0x26/0x38
-> [<ffffffff80b759ae>] bus_add_driver+0x13e/0x268
-> [<ffffffff80b7836a>] driver_register+0x52/0x100
-> [<ffffffff80b79a78>] __platform_driver_register+0x28/0x38
-> [<ffffffff814585da>] k1_ccu_driver_init+0x22/0x38
-> [<ffffffff80023a8a>] do_one_initcall+0x62/0x2a0
-> [<ffffffff81401c60>] do_initcalls+0x170/0x1a8
-> [<ffffffff81401e7a>] kernel_init_freeable+0x16a/0x1e0
-> [<ffffffff811f7534>] kernel_init+0x2c/0x180
-> [<ffffffff80025f56>] ret_from_fork_kernel+0x16/0x1d8
-> [<ffffffff81205336>] ret_from_fork_kernel_asm+0x16/0x18
-> ---[ end trace ]---
+> Adding the dts subdirectory is straight-forward, but building the
+> DTBs should only happen for certain targets (dtbs, dtbs_check, %.dtb,
+> %.dtbo, and the directory target(s)).
+> 
+> The 'scripts_dtc' rule doesn't really depend on 'dt_binding_schemas',
+> but the directory target only depends on 'scripts' which depends on
+> 'scripts_dtc'.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> Please ack and I'll take this in the DT tree.
+> 
+> I don't really like looking at MAKECMDGOALS, but that's the only way I
+> could come up with that works. Maybe someone knows a better way.
 
-Applied to clk-next
+Yeah, I do worry that just looking for "dtb" in MAKECMDGOALS could
+result in some false positives but in the tree now, I only see one .c
+file that would trigger this logic, so maybe it is not that big of a
+deal?
+
+  $ fd dtb
+  arch/microblaze/boot/dts/linked_dtb.S
+  arch/mips/include/asm/mach-loongson64/builtin_dtbs.h
+  arch/um/kernel/dtb.c
+  drivers/gpu/drm/ci/dtbs-check.sh
+  scripts/Makefile.dtbinst
+  scripts/Makefile.dtbs
+
+Unfortunately, my Make-fu is pretty weak right now so I do not have any
+immediate suggestions but Nicolas might... otherwise, we could probably
+ride this for right now and either revert it or forward fix it if
+problems come up in further testing, since this does seem rather useful
+for folks working on device tree files.
+
+> v2:
+>  - Convert arm, mips and riscv. The other DT enabled arches don't have 
+>    vendor directories.
+>  - Link to v1: https://lore.kernel.org/all/20251113225952.867138-1-robh@kernel.org/ 
+> 
+> ---
+>  Makefile              | 2 +-
+>  arch/arm/Kbuild       | 2 ++
+>  arch/arm64/Kbuild     | 2 ++
+>  arch/mips/Kbuild      | 2 ++
+>  arch/riscv/Kbuild     | 2 ++
+>  scripts/Makefile.dtbs | 3 +++
+>  6 files changed, 12 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Makefile b/Makefile
+> index 17cfa11ca716..85018d461575 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -1494,7 +1494,7 @@ export CHECK_DTBS=y
+>  endif
+>  
+>  ifneq ($(CHECK_DTBS),)
+> -dtbs_prepare: dt_binding_schemas
+> +scripts_dtc: dt_binding_schemas
+>  endif
+>  
+>  dtbs_check: dtbs
+> diff --git a/arch/arm/Kbuild b/arch/arm/Kbuild
+> index 69de6b6243c7..af7dd53585c3 100644
+> --- a/arch/arm/Kbuild
+> +++ b/arch/arm/Kbuild
+> @@ -10,5 +10,7 @@ obj-y				+= probes/
+>  obj-y				+= net/
+>  obj-y				+= crypto/
+>  
+> +subdir-y += boot/dts
+> +
+>  # for cleaning
+>  subdir- += boot
+> diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
+> index 5bfbf7d79c99..9e9820af48c9 100644
+> --- a/arch/arm64/Kbuild
+> +++ b/arch/arm64/Kbuild
+> @@ -5,5 +5,7 @@ obj-$(CONFIG_XEN)	+= xen/
+>  obj-$(subst m,y,$(CONFIG_HYPERV))	+= hyperv/
+>  obj-$(CONFIG_CRYPTO)	+= crypto/
+>  
+> +subdir-y += boot/dts
+> +
+>  # for cleaning
+>  subdir- += boot
+> diff --git a/arch/mips/Kbuild b/arch/mips/Kbuild
+> index e901bf554483..6125d00cdcef 100644
+> --- a/arch/mips/Kbuild
+> +++ b/arch/mips/Kbuild
+> @@ -21,5 +21,7 @@ ifdef CONFIG_KVM
+>  obj-y += kvm/
+>  endif
+>  
+> +subdir-y += boot/dts
+> +
+>  # for cleaning
+>  subdir- += boot
+> diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
+> index 126fb738fc44..3cf7f84eb287 100644
+> --- a/arch/riscv/Kbuild
+> +++ b/arch/riscv/Kbuild
+> @@ -7,5 +7,7 @@ obj-$(CONFIG_KVM) += kvm/
+>  
+>  obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
+>  
+> +subdir-y += boot/dts
+> +
+>  # for cleaning
+>  subdir- += boot
+> diff --git a/scripts/Makefile.dtbs b/scripts/Makefile.dtbs
+> index 2d321b813600..4d0d164df275 100644
+> --- a/scripts/Makefile.dtbs
+> +++ b/scripts/Makefile.dtbs
+> @@ -14,7 +14,10 @@ dtb-y           := $(addprefix $(obj)/, $(dtb-y))
+>  multi-dtb-y     := $(addprefix $(obj)/, $(multi-dtb-y))
+>  real-dtb-y      := $(addprefix $(obj)/, $(real-dtb-y))
+>  
+> +ifneq ($(findstring /dts/,$(MAKECMDGOALS))$(findstring dtb,$(MAKECMDGOALS)),)
+>  always-y        += $(dtb-y)
+> +endif
+> +
+>  targets         += $(real-dtb-y)
+>  
+>  # dtbs-list
+> -- 
+> 2.51.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
