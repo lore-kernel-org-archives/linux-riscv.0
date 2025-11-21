@@ -4,62 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715FCCFC29F
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 19:47:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82849CFC509
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Nov 2025 20:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4RwfVx+n+i64z88HC1AYEcs3ENTwomxFnh9G6hE5WZo=; b=vKHL7SvO0HOibxB7AIKA+/Hfe2
-	pOX/CvlYmoS2MRUPguoJTbRhhJ5NlgIgll1roElAKOoKN2pq+OT/8BYAASJw1TcJdfRKE9mc+2hYm
-	cgRgmw+ACFG2kMae/1YDi+HdqMrd/HjaAkIi/FhMBf555e8Gv0Rtn5Q/Xfgamo8CzyVovtUNUvr+i
-	+bAqbokmKKDe6pR8b9yBS9ADpkeHCPvz4tROIO93D0Zq6ompiEm2CZ19hFXpewSkUqXaMv82bfzWM
-	YhVyv1C+VyeijMxajydHuGAYvXnesMneo0UpdA08PNAcqAk3wxG8XX6V0kExoyMm3GXTyjUxXGYjo
-	SYHgCFnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=IlBnkmQjMJ1Gqm1bDHhmzsPiqzY0Hbl2cdyBzTIeIgM=; b=YRuaU1LTAre3hUNWpKEPovqKW7
+	1KTgUkGHFcyt8lBKWgFI85urF4w76ygMNmzZanVTD5ngu7xbyWOB5+6Nx1rYI86y6XZroPmQepOwX
+	IMbLmxISB5JMqD2H/ecbSOIX+wOztqQezNdvSYxwwhcZQLvv2HPx0MP71r08cQ0zipx0IXyiBdO/Y
+	lHNHcrp0A87cWmCpS8H70l2cEei7/VPNYoi6TEUJyL94H+6DGxYkCzwL27DXDYy6chdQYXcC4y0im
+	uUiTKrVe39nmEFaPjlVQ79AJ7Ep5Gd6GHAdKKay4Kb4app0ovg+nFeCv8ElnzH7ipZv7MW7vBMAS2
+	qzkYw6AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMX65-00000008vHy-1eYa;
-	Fri, 21 Nov 2025 19:47:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vMY55-00000008yQi-0vh1;
+	Fri, 21 Nov 2025 20:50:11 +0000
+Received: from flow-a3-smtp.messagingengine.com ([103.168.172.138])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMX64-00000008vGw-0eJs;
-	Fri, 21 Nov 2025 19:47:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E7CC601F0;
-	Fri, 21 Nov 2025 19:47:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 690D2C4CEF1;
-	Fri, 21 Nov 2025 19:47:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763754426;
-	bh=Vg/9WM4svuJxXmTZGYFyYyC/fQlAZAwS2uwXY2DgmR8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HS/I0gDRR5ulP8YpCKhY0pGoC//uLtHpesK93QeLmDwHiWXgVF9PfspYCcY8YDa4e
-	 QnodNPzsMmpz6DkDpNNgHyqQ4J63bUI2MoW12ViGmehzqFp9bWDuPmjnkp6kS0CvQS
-	 oabcR2BgJpsitAfB7NNHtgePHZblvY8fPs4S/l4KvQHoem1aliLIO4FMggaYN6eqI6
-	 PBCyKmFVL2E/c1ntLJU+gYavkSwA05ILhv6s7pKH1j6Mz7QkiodmlCv7istGTUFffJ
-	 ANaSC6cjqLNnAtUDr7Ap7skCr6YQHKCThhTudU1ChxaK3UZVeoVpj46DLusTf2ly+o
-	 VswKi+rmdKN6Q==
-Date: Fri, 21 Nov 2025 20:42:34 +0100
-From: Nicolas Schier <nsc@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: "Rob Herring (Arm)" <robh@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] kbuild: Support directory targets for building DTBs
-Message-ID: <aSDAqhUb8_76IP0Y@derry.ads.avm.de>
-References: <20251120204812.1983452-4-robh@kernel.org>
- <20251121063033.GA571346@ax162>
+	id 1vMY52-00000008yQ3-0H4R
+	for linux-riscv@lists.infradead.org;
+	Fri, 21 Nov 2025 20:50:09 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.phl.internal (Postfix) with ESMTP id CE2591380196;
+	Fri, 21 Nov 2025 15:50:05 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Fri, 21 Nov 2025 15:50:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1763758205;
+	 x=1763765405; bh=+MroMTBYaN1V2eG9itTrxK/f1uqlPkCiqSCWwUjIE9g=; b=
+	O5ltxRqc5dJDMWd4sbZLbyKjKRz5o1GvP6BLxCsToeHUmUlf+PBDvMV+FNMZa4s0
+	Tf25Pw7jfs+jGn7F0/Kavhmmvp0knHIyfHSK9AfZzoRlA0EfsdRMUSVmIoUwMk2I
+	UMBF4nnUgPpK5m8oFW3dA7eL07i3jhktPQqXB7tkpDHat3GyGXyFL9ae4GxHGF+N
+	vSxTXBcoIgl3cZw0JP4AXE5LUv1awPVSPhnOjEb/L9s9PCOGus33eCOpp7qrcqlI
+	ex7MbjJf8AHSug8xPjh+JAxTd69beA5UPS8M/ca4U9sgUmJ9Er+wNxFLyBFUQ4ag
+	WuuTr7LKtRW7GAtG/hPbhA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763758205; x=
+	1763765405; bh=+MroMTBYaN1V2eG9itTrxK/f1uqlPkCiqSCWwUjIE9g=; b=S
+	afd8epibNDnHKhKSDD2vJejEb+SNKuGTTpzYedBw6s2jtIJToX8Jt9P/LUIank3A
+	A0JzLY2C7f7RjST7Oevcyy5qZe7/QQ9YE1ok9TCoMNyVavUSNYVnX9vN+mab7SqZ
+	bIb5Xu5kwE+q+4Kvgv5m05KcNioUW8kQIe7BZq884Z33ZB68ZMGz4qjXkHbSXhTL
+	KMi59pGA8afGr7mLB/aINDkLTRRC76S1hqXhUyJoSWjRfc1sl1GHrtDFUmsq2dIf
+	DVBo2ut+lN3FNvhNc/IH1gBqrYt7wQfrzlybscV5LyWv1lqywF1YDamiAdVANxgE
+	tgnimsBT/Wm0E+lSqzeGQ==
+X-ME-Sender: <xms:fNAgaUV0LAtKpbUKZyZ_RpasTARkplipVapUh3RwSGTrIL75R1qHLQ>
+    <xme:fNAgaTZTjpNyyUGJTxuL64GHZyZdpEbawGSd44ll82lFMBRVEQ77s6jXcD-CWfymk
+    h3TaMzY3pv3Y710aXtlUsC76-aCyn8PXBAKZ5dIj45FfDRgpcj96og>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvfedtleejucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhepuedvvdffiedvjeevtdfftdelgedvvdejiedtfeeltddutefgjeeuheegheduteef
+    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpuhhrlhhfohhrghhithhpuhhllhdrhi
+    houhdpghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghm
+    pehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvd
+    egpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhhuphessghrrghinhhfrghu
+    lhhtrdhorhhgpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtg
+    hpthhtoheprghlvgigsehghhhithhirdhfrhdprhgtphhtthhopehjohgvlhesjhhmshdr
+    ihgurdgruhdprhgtphhtthhopegrghhrohhssheskhgvrhhnvghlrdhorhhgpdhrtghpth
+    htoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehfuhhsthhi
+    nhhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlh
+    drohhrghdprhgtphhtthhopehmphgvsehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:fNAgac5B7JMb2Wbeg6MbD54hOsoDJn_QhuutkmPMK6Uy--bkgh6vbQ>
+    <xmx:fNAgabt1C5FfsJ2aczJRPhKSOzCHN0giQ39OMqbjmzQkkVy9kV4yOw>
+    <xmx:fNAgacWh7eCV8dv5w9yFF1_vxrISn_rECFyZKMkWyaot0g5Xj35cXg>
+    <xmx:fNAgacHl-JL9eUkwSB_oJXUbaB2brXOMG8xXx2D-FU24o838k_EFjw>
+    <xmx:fdAgaW_GV8y0zNR2CNTwknlinigSU75zqYhIN6tre3Xyq6Sf1t6wiDY9>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 564A5700054; Fri, 21 Nov 2025 15:50:04 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-In-Reply-To: <20251121063033.GA571346@ax162>
+X-ThreadId: AxHevFwGHmhV
+Date: Fri, 21 Nov 2025 21:49:42 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Drew Fustini" <fustini@kernel.org>, soc@kernel.org
+Cc: "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Samuel Holland" <samuel.holland@sifive.com>,
+ "Daniel Lezcano" <daniel.lezcano@linaro.org>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Anup Patel" <anup@brainfault.org>,
+ "Joel Stanley" <joel@jms.id.au>, "Joel Stanley" <jms@oss.tenstorrent.com>,
+ "Nicholas Piggin" <npiggin@oss.tenstorrent.com>,
+ "Michael Neuling" <mikey@neuling.org>, "Michael Ellerman" <mpe@kernel.org>,
+ "Andy Gross" <agross@kernel.org>,
+ "Anirudh Srinivasan" <asrinivasan@oss.tenstorrent.com>,
+ "Paul Walmsley" <pjw@kernel.org>,
+ "Drew Fustini" <dfustini@oss.tenstorrent.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Message-Id: <920f8f04-92dc-464f-807b-d09cc77c5532@app.fastmail.com>
+In-Reply-To: <aPUemXdOFZEdkayE@x1>
+References: <aPUemXdOFZEdkayE@x1>
+Subject: Re: [GIT PULL] RISC-V Tenstorrent Devicetree for v6.19
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251121_125008_594309_F3814F74 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,207 +123,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6517881593745188174=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sun, Oct 19, 2025, at 19:23, Drew Fustini wrote:
+> Hi Arnd,
+>
+> Please pull these changes which add Tenstorrent as a vendor and enable
+> support for Blackhole. It adds the appropriate entries in MAINTAINERS.
+> The changes all come from a single series [1] posted by myself. Joel
+> Stanley has reviewed and tested all the patches. Rob acked or reviewed
+> all the bindings patches. W=1 dtbs_check and dt_binding_check produce
+> no warnings.
+>
+> [1] 
+> https://lore.kernel.org/linux-riscv/20251013-tt-bh-dts-v3-0-9f058d4bbbda@oss.tenstorrent.com/
+>
+> Thanks,
+> Drew
+>
+> The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+>
+>   Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
+>
+> are available in the Git repository at:
+>
+>   git@github.com:tenstorrent/linux.git tags/tenstorrent-dt-for-v6.19
+>
 
---===============6517881593745188174==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="AfpfqPLkSPOJGvv9"
-Content-Disposition: inline
+I pulled this one manually as you had the wrong URL here, please
+use an https:// url for git pull. You can do this e.g. by adding
 
+[url "https://github.com"]
+    insteadOf = git@github.com:
 
---AfpfqPLkSPOJGvv9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+to your .gitconfig.
 
-On Thu, Nov 20, 2025 at 11:30:33PM -0700, Nathan Chancellor wrote:
-> On Thu, Nov 20, 2025 at 02:48:13PM -0600, Rob Herring (Arm) wrote:
-> > It is useful to be able to build all the DTBs for a vendor. One can list
-> > all the .dts files in a directory and convert those to %.dtb targets,
-> > but that doesn't work for base+overlay DTB targets.
-> >=20
-> > Adding the dts subdirectory is straight-forward, but building the
-> > DTBs should only happen for certain targets (dtbs, dtbs_check, %.dtb,
-> > %.dtbo, and the directory target(s)).
-> >=20
-> > The 'scripts_dtc' rule doesn't really depend on 'dt_binding_schemas',
-> > but the directory target only depends on 'scripts' which depends on
-> > 'scripts_dtc'.
-> >=20
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > ---
-> > Please ack and I'll take this in the DT tree.
-> >=20
-> > I don't really like looking at MAKECMDGOALS, but that's the only way I
-> > could come up with that works. Maybe someone knows a better way.
->=20
-> Yeah, I do worry that just looking for "dtb" in MAKECMDGOALS could
-> result in some false positives but in the tree now, I only see one .c
-> file that would trigger this logic, so maybe it is not that big of a
-> deal?
->=20
->   $ fd dtb
->   arch/microblaze/boot/dts/linked_dtb.S
->   arch/mips/include/asm/mach-loongson64/builtin_dtbs.h
->   arch/um/kernel/dtb.c
->   drivers/gpu/drm/ci/dtbs-check.sh
->   scripts/Makefile.dtbinst
->   scripts/Makefile.dtbs
->=20
-> Unfortunately, my Make-fu is pretty weak right now so I do not have any
-> immediate suggestions but Nicolas might... otherwise, we could probably
-> ride this for right now and either revert it or forward fix it if
-> problems come up in further testing, since this does seem rather useful
-> for folks working on device tree files.
-
-well, evaluating MAKECMDGOALS does not look that bad to me.  But I'd
-rather like to reduce the use of findstring, see below.
-
->=20
-> > v2:
-> >  - Convert arm, mips and riscv. The other DT enabled arches don't have=
-=20
-> >    vendor directories.
-> >  - Link to v1: https://lore.kernel.org/all/20251113225952.867138-1-robh=
-@kernel.org/=20
-> >=20
-> > ---
-> >  Makefile              | 2 +-
-> >  arch/arm/Kbuild       | 2 ++
-> >  arch/arm64/Kbuild     | 2 ++
-> >  arch/mips/Kbuild      | 2 ++
-> >  arch/riscv/Kbuild     | 2 ++
-> >  scripts/Makefile.dtbs | 3 +++
-> >  6 files changed, 12 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/Makefile b/Makefile
-> > index 17cfa11ca716..85018d461575 100644
-> > --- a/Makefile
-> > +++ b/Makefile
-> > @@ -1494,7 +1494,7 @@ export CHECK_DTBS=3Dy
-> >  endif
-> > =20
-> >  ifneq ($(CHECK_DTBS),)
-> > -dtbs_prepare: dt_binding_schemas
-> > +scripts_dtc: dt_binding_schemas
-> >  endif
-> > =20
-> >  dtbs_check: dtbs
-> > diff --git a/arch/arm/Kbuild b/arch/arm/Kbuild
-> > index 69de6b6243c7..af7dd53585c3 100644
-> > --- a/arch/arm/Kbuild
-> > +++ b/arch/arm/Kbuild
-> > @@ -10,5 +10,7 @@ obj-y				+=3D probes/
-> >  obj-y				+=3D net/
-> >  obj-y				+=3D crypto/
-> > =20
-> > +subdir-y +=3D boot/dts
-> > +
-> >  # for cleaning
-> >  subdir- +=3D boot
-> > diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
-> > index 5bfbf7d79c99..9e9820af48c9 100644
-> > --- a/arch/arm64/Kbuild
-> > +++ b/arch/arm64/Kbuild
-> > @@ -5,5 +5,7 @@ obj-$(CONFIG_XEN)	+=3D xen/
-> >  obj-$(subst m,y,$(CONFIG_HYPERV))	+=3D hyperv/
-> >  obj-$(CONFIG_CRYPTO)	+=3D crypto/
-> > =20
-> > +subdir-y +=3D boot/dts
-> > +
-> >  # for cleaning
-> >  subdir- +=3D boot
-> > diff --git a/arch/mips/Kbuild b/arch/mips/Kbuild
-> > index e901bf554483..6125d00cdcef 100644
-> > --- a/arch/mips/Kbuild
-> > +++ b/arch/mips/Kbuild
-> > @@ -21,5 +21,7 @@ ifdef CONFIG_KVM
-> >  obj-y +=3D kvm/
-> >  endif
-> > =20
-> > +subdir-y +=3D boot/dts
-> > +
-> >  # for cleaning
-> >  subdir- +=3D boot
-> > diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-> > index 126fb738fc44..3cf7f84eb287 100644
-> > --- a/arch/riscv/Kbuild
-> > +++ b/arch/riscv/Kbuild
-> > @@ -7,5 +7,7 @@ obj-$(CONFIG_KVM) +=3D kvm/
-> > =20
-> >  obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) +=3D purgatory/
-> > =20
-> > +subdir-y +=3D boot/dts
-> > +
-> >  # for cleaning
-> >  subdir- +=3D boot
-> > diff --git a/scripts/Makefile.dtbs b/scripts/Makefile.dtbs
-> > index 2d321b813600..4d0d164df275 100644
-> > --- a/scripts/Makefile.dtbs
-> > +++ b/scripts/Makefile.dtbs
-> > @@ -14,7 +14,10 @@ dtb-y           :=3D $(addprefix $(obj)/, $(dtb-y))
-> >  multi-dtb-y     :=3D $(addprefix $(obj)/, $(multi-dtb-y))
-> >  real-dtb-y      :=3D $(addprefix $(obj)/, $(real-dtb-y))
-> > =20
-> > +ifneq ($(findstring /dts/,$(MAKECMDGOALS))$(findstring dtb,$(MAKECMDGO=
-ALS)),)
-
-Using '$(filter )' instead of '$(findstring )' reduces the risk of false
-positives, e.g.:
-
-dtb-targets :=3D %/dts %.dtb %.dtbo dtbs dtbs_check
-ifneq ($(findstring /dts/,$(MAKECMDGOALS))$(filter $(dtb-targets),$(MAKECMD=
-GOALS)),)
-
-
-With (something like) that:
-Tested-by: Nicolas Schier <nsc@kernel.org>
-Acked-by: Nicolas Schier <nsc@kernel.org>
-
-But [1] seems to break this patch.
-
-[1]: https://lore.kernel.org/linux-kbuild/20251120140645.478623-1-thomas.de=
-_schampheleire@nokia.com
-
-Kind regards,
-Nicolas
-
---AfpfqPLkSPOJGvv9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEh0E3p4c3JKeBvsLGB1IKcBYmEmkFAmkgwKoACgkQB1IKcBYm
-Emm8Qw/+MwI0xujbY4z6kH8eqisZOdw3rGVbln1KTIUnNXmON6raX7XFOnAxqaHI
-BhYiwbUYWUHKeHApq1XCTR4WKNtzMYiID+zA0HuwxuqOlzdPwl35Xn+nvBw/Mmfw
-xUF9nqlmFu7MH9xIOfbWotGMIgqBc5FKAflHwHGpjW009mvPQ5hnMqiXk0DVu8oz
-rVLhviLqgjsx2ESl0sgkfiOBt0ygtzFKvUrqSVixl/sB5nI7sOhU190u8qvpZ/bV
-Pc6s9+IUhTv5+iaxhTUcsQjZTgHp5KJSrlmcIUY5eLdwFQRFAB3w4Kx8xNY8NO02
-xLPZSQ28FcJaBuRyLTYFy4CaVOMKV2r2JW5DUdkUxuIwh9UdEkOjCQSWfomRALGc
-PlZzKpsUp7p76fW2WkbjN9r45qCRFdaWEN3olr9vBh0Y5u+1AnZh7Ej/lws7Cj4z
-sEBo6QdAlP0ofjB1JrNP98MMOQu1Tr3fOwkadCmyRtuYqJG72Tj7t6EBrC/JRoS0
-MFl/XEPHgQcjRgVIWEfFtCwrflq2jO/f2fbfTZHPxbMbj99CATyDDTy+QWzB8bhT
-RqrzlrejhI4WV27fReo4wMk/Og8ewO0/h2mloIi1hrORFClz5M+aU3CCEvFu2hfY
-+hBhCWYDLSN4n5mUhA6nH/RFdZoNohijzS15aqmkCNWx1yM/g5I=
-=pv6m
------END PGP SIGNATURE-----
-
---AfpfqPLkSPOJGvv9--
-
-
---===============6517881593745188174==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+       Arnd
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6517881593745188174==--
-
