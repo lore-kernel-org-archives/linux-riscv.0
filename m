@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A41CFC515
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 01:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B44CFC518
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 01:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x/qK1rAR//G+H4hBMGX4vOPuHHZ3G8ZK4r3uQcHW1CA=; b=dw2vSjDe+Uw16r
-	vCquS6Po632ULCbNHzd3x/2K67bK9+073VDO1C75/i02hFrpPkbTDHQ7sSQ637QqbWPhy/RBRpn6M
-	wCWH+6wOOfFDOmi4Nio9jxJz3s3k7r7yx7skCLyXhuIRZZrwqVynyysulpWErALXzKFP+iKYZB2Ww
-	a32eg61sE3coLts6aw7QDT8xFtIwX0lDzi04u8VgUKR8LqdBJH/HtS2U4nb2NwP4ZWPlCsKC13G7G
-	ch2zGpQG1tzb6hu1fQIc67vPGn6AIVNku1zs6nMRE887Ew5BHzRJMUQVZH6hNgxzNCepTsD65IZSA
-	fnDjikXUpMTVYnEVjm5g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q9lX1nPBKeumQTxNizxS9srR2CO0SeUtQC1nktARa/A=; b=MKeFcVLzadrjeDdGBQbZPoJfF2
+	+rAEXQ6z81WsSOw70LyrDG6OCiVOFg58J0v/ZubHXggb3q7M6PiGYX8Z6afZb5SbPvB/P+H8YH1w6
+	f13wH23BRqosmpP5u0Jq0awBB5zGisfQJPZ1yntof1mCcDllwi2+47ppPNbZEnvfShuBsTLJWcLxV
+	Lv78LHQSZyWER/KHZeKaz/6kMP5/jvemmU90Lok+4xHWXaLoI/HAaekyjC6Zvybg5+GQFPAVfCAU2
+	Gba80qIQfmBJVXkzcVQ+fxpJqgfN+ihO9Zkv53OTIzI+BY3dQz24llyKREi67sr6mamphZzqbZdjD
+	vxcptv5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMc93-000000098BC-3Gre;
-	Sat, 22 Nov 2025 01:10:33 +0000
+	id 1vMcCq-000000098Os-1Ulb;
+	Sat, 22 Nov 2025 01:14:28 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMc91-000000098B4-3YNP
+	id 1vMcCp-000000098Oi-0Iny
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Nov 2025 01:10:31 +0000
+	Sat, 22 Nov 2025 01:14:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB6BF601BC;
-	Sat, 22 Nov 2025 01:10:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CACA4C4CEF1;
-	Sat, 22 Nov 2025 01:10:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7935D60008;
+	Sat, 22 Nov 2025 01:14:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E2BDC4CEF1;
+	Sat, 22 Nov 2025 01:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763773829;
-	bh=V5/3lcf0wE54FxK6rCPxY1hvL1brr+ChL3XS4dJOp4g=;
+	s=k20201202; t=1763774066;
+	bh=TmK0ymaRbGnYFBwWDPKvoufQniChA4/p5HNSW5rwn4k=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=GUmypLaJnPk6p2ddsECWAmjKvrfITMjOeqoNkNHBcpeWmHbK7cJnM30ztlr0EYWm+
-	 RhBQgyyfWkcYWt238rGr0nCRklVvLvdWzT88KEgqPkuHeQ2tk295TUHtT/mX/oheCq
-	 CxAZUpED9Q2bKhPgrkNz9g2r8cA7I4Q3BIFTLa8Z1ENBNIktcbRbAviP5NuCx6a72m
-	 eDp8lvM457D7FC6HFSe1lrZfNPNOkttuXA2uwahFCsCjF27J8+IlH8F6uyvhf9aPFA
-	 z5hNI59XwRa7l35hLBz7eNa2Lx7yhrjXfxPuTuRF03IdEj0eWnq+LdU3LJj07V3+64
-	 p8Gh1to8iY2qA==
-Date: Fri, 21 Nov 2025 18:10:23 -0700 (MST)
+	b=DOCCUXDK6NRPvEW7WVjqDqRvikLNZETxp14lEvjXrEOexGVnJH5y6gk0Z+olezdx8
+	 4EshyvU5rLYqAlq84lgdS6MouZYFhL+q2fvWLIxnFc7zqz2CSNMSrhraclcdPg4jRS
+	 unLYvOiCD/w4CABgMBmXum9x7DnFD3jGUqhKK6d3W1LiwqTyKPiE3y/sOoVCY8Eua9
+	 yZeM/aBkwqJmXgXWDZl+XwWtf7eXckoFGU9Aza5brimVrD3fwG00I0GmVhWB5tN3J3
+	 OZJODR9xGQq7Fo2W34AgrGfyIAcU1NjUgIN75TmMKBwRRs/GBSyuKdCDwXCkP0eKUo
+	 sGpN4++AqfYXg==
+Date: Fri, 21 Nov 2025 18:14:24 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-cc: Paul Walmsley <pjw@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, namcao@linutronix.de
-Subject: Re: Re: Re: [PATCH] riscv: fix KUnit test_kprobes crash when building
- with Clang
-In-Reply-To: <5b293e31.1dde8.19a9a0f91bb.Coremail.xujiakai2025@iscas.ac.cn>
-Message-ID: <f1ea892e-a07a-5ded-dd6e-3e7ea55fe446@kernel.org>
-References: <738dd4e2.ff73.19a7cd7b4d5.Coremail.xujiakai2025@iscas.ac.cn> <621798fc-68bc-504c-755f-0a2f1f83d1c2@kernel.org> <108ac2f0.17c6b.19a8fc4d1ca.Coremail.xujiakai2025@iscas.ac.cn> <bd82855d-4a80-58fb-c949-b968569ef1e2@kernel.org>
- <5b293e31.1dde8.19a9a0f91bb.Coremail.xujiakai2025@iscas.ac.cn>
+To: Anup Patel <anup@brainfault.org>
+cc: Paul Walmsley <pjw@kernel.org>, Anup Patel <apatel@ventanamicro.com>, 
+    Mark Rutland <mark.rutland@arm.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+    "Rafael J . Wysocki" <rafael@kernel.org>, 
+    Atish Patra <atish.patra@linux.dev>, Atish Patra <atishp@rivosinc.com>, 
+    linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
+    Palmer Dabbelt <palmer@dabbelt.com>, 
+    Paul Walmsley <paul.walmsley@sifive.com>, 
+    Nutty Liu <nutty.liu@hotmail.com>, linux-riscv@lists.infradead.org, 
+    Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>, 
+    Len Brown <lenb@kernel.org>
+Subject: Re: [PATCH v3 1/1] RISC-V: Add common csr_read_num() and csr_write_num()
+ functions
+In-Reply-To: <CAAhSdy0iwq_ZPzFY5_x_wsbM_H+npSDVv1F=wP=O-_25VChh6Q@mail.gmail.com>
+Message-ID: <60f4c500-6e22-ed4b-912b-c9368bad7c9a@kernel.org>
+References: <20251014132106.181155-1-apatel@ventanamicro.com> <20251014132106.181155-2-apatel@ventanamicro.com> <012aaa39-a37b-e682-0e34-9b7d7cd87f75@kernel.org> <CAAhSdy0iwq_ZPzFY5_x_wsbM_H+npSDVv1F=wP=O-_25VChh6Q@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="8323329-284714384-1763774066=:3073511"
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,42 +73,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Nov 2025, Jiakai Xu wrote:
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-> &gt; Looks like you're using a mail client that sends HTML in what should be a 
-> &gt; plain-text E-mail; please fix that.
+--8323329-284714384-1763774066=:3073511
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8BIT
+
+On Thu, 30 Oct 2025, Anup Patel wrote:
+
+> On Thu, Oct 30, 2025 at 12:35 AM Paul Walmsley <pjw@kernel.org> wrote:
+> > On Tue, 14 Oct 2025, Anup Patel wrote:
+> >
+> > > In RISC-V, there is no CSR read/write instruction which takes CSR
+> > > number via register so add common csr_read_num() and csr_write_num()
+> > > functions which allow accessing certain CSRs by passing CSR number
+> > > as parameter. These common functions will be first used by the
+> > > ACPI CPPC driver and RISC-V PMU driver.
+> >
+> > This patch also (silently) removes the CSR number filtering, e.g.
+> >
+> > > diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
+> > > index 42c1a9052470..fe491937ed25 100644
+> > > --- a/drivers/acpi/riscv/cppc.c
+> > > +++ b/drivers/acpi/riscv/cppc.c
+> > > @@ -65,24 +65,19 @@ static void sbi_cppc_write(void *write_data)
+> > >  static void cppc_ffh_csr_read(void *read_data)
+> > >  {
+> > >       struct sbi_cppc_data *data = (struct sbi_cppc_data *)read_data;
+> > > +     int err;
+> > >
+> > > -     switch (data->reg) {
+> > > -     /* Support only TIME CSR for now */
+> > > -     case CSR_TIME:
+> > > -             data->ret.value = csr_read(CSR_TIME);
+> > > -             data->ret.error = 0;
+> > > -             break;
+> > > -     default:
+> > > -             data->ret.error = -EINVAL;
+> > > -             break;
+> > > -     }
+> >
+> > ... the above code, and:
 > 
-> I apologize for that oversight. 
-> I will make sure to use plain-text emails going forward.
-
-Looks like there's still a problem (the "&gt;"s above).
-
-> &gt; Not all of it, but some edited summary is appropriate.  I've queued the 
-> &gt; following revision for v6.18-rc fixes, under the theory that it would be 
-> &gt; good to get the test working for Clang users while the LLVM folks 
-> &gt; investigate.  Please let us know ASAP if you think anything in it should 
-> &gt; be changed.  I plan to send a PR out later this week.
+> The switch case is incomplete for cppc_ffh_csr_read().
+> Also, csr_read_num() already does appropriate filtering
+> so the switch case over here is now redundant.
 > 
-> Thank you for your review of the patch and for the time and effort
-> you spent on it. I fully agree with the modifications you made to the patch
-> description.
+> >
+> > >  /*
+> > >   * Read the CSR of a corresponding counter.
+> > >   */
+> > >  unsigned long riscv_pmu_ctr_read_csr(unsigned long csr)
+> > >  {
+> > > -     if (csr < CSR_CYCLE || csr > CSR_HPMCOUNTER31H ||
+> > > -        (csr > CSR_HPMCOUNTER31 && csr < CSR_CYCLEH)) {
+> > > -             pr_err("Invalid performance counter csr %lx\n", csr);
+> > > -             return -EINVAL;
+> >
+> > ... the above code.
+> >
+> > I'm thinking that we probably want to keep the CSR number filtering code
+> > in; at least, I can't think of a good reason to remove it.  Care to add it
+> > back in?
+> 
+> We can potentially have custom CSRs as hardware counters
+> hence the CSR filtering over here is already incomplete. Plus,
+> csr_read_num() already does the CSR filtering and returns
+> failure for inappropriate CSR number.
 
-Looks like some of the LLVM folks have responded to 
-https://github.com/llvm/llvm-project/issues/168308 with some suggestions.  
-Could you implement those and test it and update the patch?  If that can 
-be done by early next week, then we should hopefully be able to get it in 
-before v6.18 is tagged.
+OK.  To me, the most notable changes in this patch are the changes in the 
+filters for both reads and writes for the two different call sites, ACPI 
+FFH and PMU.  It would be good to document these filter changes directly 
+in the patch description, along with the rationale.
 
-thanks,
+I'm also not yet completely convinced that we should allow both of these 
+call sites to read and write any custom CSR.  But maybe the updated patch 
+description might be convincing...
 
-- Paul 
+
+- Paul
+--8323329-284714384-1763774066=:3073511
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-284714384-1763774066=:3073511--
+
