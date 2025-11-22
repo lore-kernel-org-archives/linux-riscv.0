@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634CCCFC518
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 01:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0C5CFC516
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 01:36:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q2wHMot4aQ2xy/Dpe45iXD77Us468A4Zzq41pGrjrNs=; b=SYGm+V7Yjertk7
-	/4OcBLwa0utgLKH1otNBnLNs7qm9gvg5RIbkzXOaCIG0T+U5nZ2dATulm9Kbr+UHfJqNIxLIQyO2E
-	2dxnA33+9gIU2a+ETPTQccmE929mB4elCx+GkvxLsBp5xzwJXrPgPTPeakytqENkTBpEAS2je/BKw
-	AJOXA7WovbXyuqHybq7bMJsjV3lx4YPYfbjpsPlX6W7fAj2buA3b0IDrTwbQTV3QpawXRtN2Oz1cV
-	jmPQ9tAgvyth12zcbiTJ9WL8X5Jb1sjoLY4nKHOmEJu5aNLcUWiPdBgwitJCtJw/skRfoMBA8LdBC
-	wo3eKMD5FpuSmv3hzbgQ==;
+	List-Owner; bh=G7ENVi7BUm/pGdBWa1AzRihTBcRGRZ7okzpDJgnpVrw=; b=yxafJcjAwGRPY9
+	4glmPzzZkKd2+PYa9eYaWHFQafXMPDekKDQ0HO/9ff62prp77PwO5romQ19EmOc43L+RgPuKllQbK
+	IJTaMMkpPI3GshbshtKDvWXdzAiTy3HFSj2b2uKfZFKo+QV30poE7vJrzOjJJBwzUeKyV0pvJ+ceu
+	XwewyzsxbO2SRQqlfnOgEaueril7Pxmg0EBeKj/OU6uB4aNchH6UXzHuCBjghNwKjBixpByq17Ccx
+	pW0u6X/CxYkzZdJSnzjBzkJGcLtz4Tt6CizgO4i/WN6qbHxt1IZy/1a7gsDIrCS4vCPlCS5jyRooM
+	ViiaIveBArrwhzAGVOmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMcIa-000000098jy-0P2z;
-	Sat, 22 Nov 2025 01:20:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vMcXf-000000099Nk-3Acd;
+	Sat, 22 Nov 2025 01:35:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMcIY-000000098jp-1zOh
-	for linux-riscv@lists.infradead.org;
-	Sat, 22 Nov 2025 01:20:22 +0000
+	id 1vMcXc-000000099Mr-2NMQ;
+	Sat, 22 Nov 2025 01:35:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 996B760172;
-	Sat, 22 Nov 2025 01:20:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 173ABC4CEF1;
-	Sat, 22 Nov 2025 01:20:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E464540496;
+	Sat, 22 Nov 2025 01:35:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C965EC4CEF1;
+	Sat, 22 Nov 2025 01:35:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763774421;
-	bh=VAZ/Zm4cnlcYBg8w2uY2Wf/4jK6ScSKcXM6yymno/HM=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=lwcfBwK/M3UmajwPpjJYJtUBq4B39y7RqUlcrWHJCWhiT8T9cVXZ2vg/F61xEqGPH
-	 6eXOmLD+OomZrhIGh7w8nr18f6nFr0PeQIhJ7hv0uYFBvZ9jyGZpvRDUVVqDBUljFj
-	 WOp1ixL4+sqKSyOZ6zBPCneUsqkC0RxvEc7v9biNwRH9AjcDx3J0+hseQ8H+bohmci
-	 /GsjiCaUKA1o1Nh9twOuB8gCqK1s21De7cW7acnjKDMS2aNbCIwcCoj7N0Ms68Sd5p
-	 b51nQU4yHaoj/fGcK51l6IxnQIqV+Qq2m++Dkrhl8E8OEbqtzLGGZWSfhBO8JDoPIw
-	 yU1pMGv9RJjpQ==
-Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id 488C45FA61;
-	Sat, 22 Nov 2025 09:20:18 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- Sergey Matyukevich <geomatsi@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Charlie Jenkins <charlie@rivosinc.com>
-In-Reply-To: <20251119203508.1032716-1-geomatsi@gmail.com>
-References: <20251119203508.1032716-1-geomatsi@gmail.com>
-Subject: Re: [PATCH] riscv: dts: allwinner: d1: fix vlenb property
-Message-Id: <176377441825.203955.5834397117362427441.b4-ty@kernel.org>
-Date: Sat, 22 Nov 2025 09:20:18 +0800
+	s=k20201202; t=1763775355;
+	bh=nQkWOwaTw36gMDiYgxDhMlzpOTjcrAM2DF2QmNc8EMk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=l36EEGOjwua6msm41YR6/XW0HneEoFKcD817r2luDLPv4cwsDLsxpy/R7NtNuKVeV
+	 YbZdTcJUSt0oqJPoFWsDo3DXphieyd3wKCultEzKQNX/aaS54ux2b7HFkcEkQ91GTt
+	 Z4TxYiyuAIttgeCCHNCnFjL+M3UugXlvVaUdVcDZVg9AP0m56CqPdQkM1Qo4vDHzOp
+	 vgXgzwEcZwEKliLOK2EMNNqlU9QRnRZafcBLqAuQDi9Ag3SRkBzgWNIuE8geiNWfCa
+	 BH4qnKX2BA8ARE0zRYGiF/cKiU5r33tKYS5IV8B8+0iXr9pekgZ67+vWAvNGJ1b9Gk
+	 m6p1Ii0z+3Euw==
+Date: Fri, 21 Nov 2025 18:35:51 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Tiezhu Yang <yangtiezhu@loongson.cn>
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>, linux-kbuild@vger.kernel.org,
+	linux-efi@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] kbuild: Add KBUILD_VMLINUX_LIBS_PRELINK
+Message-ID: <20251122013551.GA3928114@ax162>
+References: <20251119042708.27658-1-yangtiezhu@loongson.cn>
 MIME-Version: 1.0
-X-Mailer: b4 0.14.3
+Content-Disposition: inline
+In-Reply-To: <20251119042708.27658-1-yangtiezhu@loongson.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251121_173556_649608_83E604DE 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +75,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Nov 2025 23:35:06 +0300, Sergey Matyukevich wrote:
-> According to [1], the C906 vector registers are 128 bits wide.
-> The 'thead,vlenb' property specifies the vector register length
-> in bytes, so its value must be set to 16.
+On Wed, Nov 19, 2025 at 12:27:08PM +0800, Tiezhu Yang wrote:
+...
+> index 433849ff7529..e72d3254b93f 100755
+> --- a/scripts/link-vmlinux.sh
+> +++ b/scripts/link-vmlinux.sh
+> @@ -61,12 +61,11 @@ vmlinux_link()
+>  	shift
+>  
+>  	if is_enabled CONFIG_LTO_CLANG || is_enabled CONFIG_X86_KERNEL_IBT; then
+> -		# Use vmlinux.o instead of performing the slow LTO link again.
+
+Why is this comment getting removed?
+
+>  		objs=vmlinux.o
+> -		libs=
+> +		libs="${KBUILD_VMLINUX_LIBS_PRELINK}"
+>  	else
+>  		objs=vmlinux.a
+> -		libs="${KBUILD_VMLINUX_LIBS}"
+> +		libs="${KBUILD_VMLINUX_LIBS} ${KBUILD_VMLINUX_LIBS_PRELINK}"
+>  	fi
+>  
+>  	if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
+> -- 
+> 2.42.0
 > 
-> [1] https://dl.linux-sunxi.org/D1/Xuantie_C906_R1S0_User_Manual.pdf
-> 
-> 
-> [...]
-
-Applied to sunxi/fixes-for-6.18 in local tree, thanks!
-
-[1/1] riscv: dts: allwinner: d1: fix vlenb property
-      commit: 9f393d8e757f79060baf4b2e703bd6b2d0d8d323
-
-Best regards,
--- 
-Chen-Yu Tsai <wens@kernel.org>
-
 
 _______________________________________________
 linux-riscv mailing list
