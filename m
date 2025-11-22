@@ -4,76 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B0ECFC52A
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 11:43:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57DA5CFC52A
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 12:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z5mYWY0QURm7yXp8lFrzr+ZlVX8GDTuAJPdCHaeCAn8=; b=gFxqNpgRW3zxV8
-	ogs6WPlYslUszo13yzE94RJHhGIlFrxG77hGnEthHWGexYrcBLdGQ04YwccQMOkW7932UepQ18PTY
-	f7m9D+Rs48Xb2JkN/cf4EvuCqkmI0Z9z/A3T1O5cYsLXspxjJchup3XGfLy1fUsidFay0relAbzON
-	RYvnsBeRTZnTgxvPLCA+8o4WeyFBupMNQYHUKiMHxooC+kfGFU8YkfaZ3X3WMqEKbG98bBZO8Ta+i
-	zEjWQJ/7AoEzIsHAkXzpNADbgHVp2VQ4gmxPTNnafXuH3Yrkr5tp8Un9fsL4yTJs1kMAbuvuXcCbI
-	aRrZdk0WP7kV+qnVJgcw==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:From:Subject:Cc:To:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=Xcq25zTWq+KABjupE06fFH1bCUc5vehEtMjjn1ysTp8=; b=ii0
+	X6UvjwA7UKWlq/g5bGum6xTeqWTEU4HQvAIQoqeupcbZiUF/yQmkfBdJnR+T2i07SAT9IM9e0C35V
+	ks24i+kPo1fsxU/5EYObazwq6Ofd70XxJzo40WMACCnJ0dENtQgTcNUyXKLSEC9oHJUtFI4dMzy0a
+	72FUhmBuvpfL1xcA+i7bXN0GBI/gszhderc+L0wK+1SUHeKuetslVlefiRYucCDLq9Hnkhj1z1Rhe
+	m/iGYj6HvnfBrODOz0RY2EZ7Kr4iJSt9Hkwvok75QPYI239Q1lY4KbvvOfsHCom1nItaEGyMQNOcG
+	MCDXPmVVWrDK9QcotTPp+fgymkgBbgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMm1K-00000009W47-2I89;
-	Sat, 22 Nov 2025 11:43:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vMmaT-00000009XwO-1yjH;
+	Sat, 22 Nov 2025 12:19:33 +0000
+Received: from exactco.de ([176.9.10.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMm1I-00000009W3c-3bDe
+	id 1vMmaR-00000009Xvq-1Kpl
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Nov 2025 11:43:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0518D60153
-	for <linux-riscv@lists.infradead.org>; Sat, 22 Nov 2025 11:43:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6D92C19422
-	for <linux-riscv@lists.infradead.org>; Sat, 22 Nov 2025 11:43:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763811791;
-	bh=p8H88tgM9+gXap9lRijwllIzLZu5llgC1f7xv5nwybk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Ipvswz18aqd0/TPfyaDV4JwDv6OLD0cZeJIq8CrXbsMPz1VZwsapYJAtdiVIc37YT
-	 P/L0lbDBumBVIGHT+mEZV/7MD9cSmtv3T3DWptmTmc9qxDrBKkyRPXa4Ae8aE0PQUQ
-	 HbDVsMpuUKTcGgV/9mxXWCLrCfILdEio7MaZrfnJFLJTlc/yk47dzUsqNJjonEuNfi
-	 r7fYLuhO8HnGh2sORE0RhoxErJSvva28uDuBOu5ftFkehUDuNOUqLnkO6/lmnaImM7
-	 hcZKmV+aF+35cjIVo76O+EsmfvKSnHRb4a8+jOL/NKN437gxi/5FmsRnI8XRWwG0Y8
-	 yt3iC2HpajEig==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5942a631c2dso3364134e87.2
-        for <linux-riscv@lists.infradead.org>; Sat, 22 Nov 2025 03:43:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWM7tAOa6LQsoYt4dAGIBrahdhVb6hz35yjvf9suQdJGggoxI5CFGgX+sgmvzcqUc+gP2XTepTfqabUag==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNA1oWNzRFHY3SORBH8jgW0Na1jjXzyBUCtQVDSmgFlQ0Dunaa
-	eXyJxg11IIRnXFoj9dY59xmc7DsluHv792mXB1RTChkD9uc4XfuLHxdw0wVpVJUtqym8WMYZOym
-	oyj3H7NMVGd3Ylwzi9gCZQTIGoIqhz64=
-X-Google-Smtp-Source: AGHT+IGKRFlgwehxRBm62tvmwTXy609E55PZi7OAqnBZ+de0+tT9jGT1vTKQcXSXNqsiURj9qycDJBw3M2X6JvRwZDY=
-X-Received: by 2002:a05:6512:3b27:b0:592:fa8a:810d with SMTP id
- 2adb3069b0e04-596a3ea7847mr1884146e87.16.1763811789974; Sat, 22 Nov 2025
- 03:43:09 -0800 (PST)
-MIME-Version: 1.0
-References: <20251121135624.494768-1-tzimmermann@suse.de> <96a8d591-29d5-4764-94f9-6042252e53ff@app.fastmail.com>
- <CAMj1kXF1Dh0RbuqYc0fhAPf-CM0mdYh8BhenM8-ugKVHfwnhBg@mail.gmail.com>
- <199e7538-5b4a-483b-8976-84e4a8a0f2fd@suse.de> <CAMj1kXE+mS1Sm5GaROU0P97J2w1pew0P_To4sKiw8h1iOMuLcg@mail.gmail.com>
- <d080729c-6586-4b9c-b234-470977849d3d@suse.de> <6dff8e7e-c99b-443d-a1d8-22650ca0b595@suse.de>
- <CAMj1kXGpC_162bFL65kQw=7qVP7ezYw77Q76y217dDs8pqHogw@mail.gmail.com>
- <8d0bc096-e346-462b-a274-f0cc1456eea3@suse.de> <CAMj1kXFdethf2sb1tm1V4wRW1SyPt-OnCmaAXc5cHNKuLJMXWA@mail.gmail.com>
- <4c716fd1-c989-4e48-9878-e7312fefc302@suse.de>
-In-Reply-To: <4c716fd1-c989-4e48-9878-e7312fefc302@suse.de>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sat, 22 Nov 2025 12:42:58 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHO12LritnbMXapGBV8QnQOCVopJbaBi2ejMUgZQFGdSg@mail.gmail.com>
-X-Gm-Features: AWmQ_blTv2LH7aQFylqJjjKyEMR6uIyXZhGHq7nWzAQ8kC07d8tB-75tF0Nly1A
-Message-ID: <CAMj1kXHO12LritnbMXapGBV8QnQOCVopJbaBi2ejMUgZQFGdSg@mail.gmail.com>
-Subject: Re: [PATCH 0/6] arch, sysfb: Move screen and edid info into single place
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Arnd Bergmann <arnd@arndb.de>, Javier Martinez Canillas <javierm@redhat.com>, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-efi@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-fbdev@vger.kernel.org
+	Sat, 22 Nov 2025 12:19:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=exactco.de;
+	s=x; h=Content-Transfer-Encoding:Content-Type:Mime-Version:From:Subject:Cc:To
+	:Message-Id:Date:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+	List-Owner:List-Archive; bh=g2QzPOiMHKyEMeM+Ind39UB+URl5PXtA5R6Z7/DlsQk=; b=M
+	u1SkRzYx2xVTPWFxtqCO4sCtc9WyqsKdgCUDlJjHaoUyd2TrL0BmKGDMDtV/Sc7/63nEqgKNFqiGE
+	L2cF2VXcBu/hjhx5b070wkzw7nYze17qxujmLekEPzJ7rZAn0O+SdJBct++KnzLuvoEvMdtu90wbA
+	2ScKYfmfocxYWPknqPY9T11Yi7m1YUUPfx2wn3dYT33j3P0gPpZAL0FiRt/FyOByiyga3SCehr2cC
+	0AuEE7XYrT/lDpjrW9ktxyIb0D9GZpNVwFOmtYo+ry1LtSLPFIRWbeUP2k2s43yb/9MI+wNyxlqSm
+	sXkzCqv94FibtAa4Q83WspX8Ts2drTHpA==;
+Date: Sat, 22 Nov 2025 13:19:40 +0100 (CET)
+Message-Id: <20251122.131940.192031134976081316.rene@exactco.de>
+To: linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor@kernel.org>, Samuel Holland
+ <samuel.holland@sifive.com>
+Subject: [PATCH] riscv: dts: sifive: unmatched: Add PWM controlled fans
+From: =?iso-8859-1?Q?Ren=E9?= Rebe <rene@exactco.de>
+X-Mailer: Mew version 6.10 on Emacs 30.2
+Mime-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251122_041931_671712_4C90E269 
+X-CRM114-Status: UNSURE (   5.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,101 +62,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Nov 2025 at 11:52, Thomas Zimmermann <tzimmermann@suse.de> wrote:
->
-> Hi
->
-> Am 21.11.25 um 17:31 schrieb Ard Biesheuvel:
-> > On Fri, 21 Nov 2025 at 17:26, Thomas Zimmermann <tzimmermann@suse.de> wrote:
-> >> Hi
-> >>
-> >> Am 21.11.25 um 17:19 schrieb Ard Biesheuvel:
-> >>> On Fri, 21 Nov 2025 at 17:09, Thomas Zimmermann <tzimmermann@suse.de> wrote:
-> >>>>
-> >>>> Am 21.11.25 um 17:08 schrieb Thomas Zimmermann:
-> >>>>> Hi
-> >>>>>
-> >>>>> Am 21.11.25 um 16:56 schrieb Ard Biesheuvel:
-> >>>>>> On Fri, 21 Nov 2025 at 16:53, Thomas Zimmermann <tzimmermann@suse.de>
-> >>>>>> wrote:
-> >>>>>>> Hi
-> >>>>>>>
-> >>>>>>> Am 21.11.25 um 16:16 schrieb Ard Biesheuvel:
-> >>>>>>>> On Fri, 21 Nov 2025 at 16:10, Arnd Bergmann <arnd@arndb.de> wrote:
-> >>>>>>>>> On Fri, Nov 21, 2025, at 14:36, Thomas Zimmermann wrote:
-> >>>>>>>>>> Replace screen_info and edid_info with sysfb_primary_device of type
-> >>>>>>>>>> struct sysfb_display_info. Update all users.
-> >>>>>>>>>>
-> >>>>>>>>>> Sysfb DRM drivers currently fetch the global edid_info directly,
-> >>>>>>>>>> when
-> >>>>>>>>>> they should get that information together with the screen_info
-> >>>>>>>>>> from their
-> >>>>>>>>>> device. Wrapping screen_info and edid_info in
-> >>>>>>>>>> sysfb_primary_display and
-> >>>>>>>>>> passing this to drivers enables this.
-> >>>>>>>>>>
-> >>>>>>>>>> Replacing both with sysfb_primary_display has been motivate by
-> >>>>>>>>>> the EFI
-> >>>>>>>>>> stub. EFI wants to transfer EDID via config table in a single entry.
-> >>>>>>>>>> Using struct sysfb_display_info this will become easily possible.
-> >>>>>>>>>> Hence
-> >>>>>>>>>> accept some churn in architecture code for the long-term
-> >>>>>>>>>> improvements.
-> >>>>>>>>> This all looks good to me,
-> >>>>>>>>>
-> >>>>>>>>> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> >>>>>>> Thanks
-> >>>>>>>
-> >>>>>>>>> It should also bring us one step closer to eventually
-> >>>>>>>>> disconnecting the x86 boot ABI from the kernel-internal
-> >>>>>>>>> sysfb_primary_display.
-> >>>>>>>>>
-> >>>>>>>> Agreed
-> >>>>>>>>
-> >>>>>>>> Acked-by: Ard Biesheuvel <ardb@kernel.org>
-> >>>>>>> Thanks
-> >>>>>>>
-> >>>>>>>> I can take patches 1-2 right away, if that helps during the next
-> >>>>>>>> cycle.
-> >>>>>>>     From my sysfb-focused POV, these patches would ideally all go through
-> >>>>>>> the same tree, say efi or generic arch, or whatever fits best. Most of
-> >>>>>>> the other code is only renames anyway.
-> >>>>>>>
-> >>>>>> I don't mind queueing all of it, but I did get a conflict on
-> >>>>>> drivers/pci/vgaarb.c
-> >>>>> Probably from a78835b86a44 ("PCI/VGA: Select SCREEN_INFO on X86")
-> >>>> https://lore.kernel.org/all/20251013220829.1536292-1-superm1@kernel.org/
-> >>>>
-> >>> Yes, if I merge back -rc2 first, I can apply patches 1-5 onto my
-> >>> efi/next tree. But then I hit
-> >>>
-> >>> Applying: sysfb: Move edid_info into sysfb_primary_display
-> >>> error: sha1 information is lacking or useless (drivers/gpu/drm/sysfb/efidrm.c).
-> >>> error: could not build fake ancestor
-> >>> Patch failed at 0006 sysfb: Move edid_info into sysfb_primary_display
-> >>>
-> >>> If you prefer, you can take the whole lot via the sysfb tree instead,
-> >>> assuming it does not depend on the EDID changes I already queued up?
-> >> Sure, I can also add it to the drm-misc tree. ETA in upstream would be
-> >> v6.20-rc1.
-> >>
-> > But does that mean the EDID firmware on non-x86 will have to wait for
-> > 6.21? I was trying to avoid making this a 6 month effort.
->
-> No problem. Then let me rebase onto linux-next and put the existing EDID
-> patches for EFI on top. It's mostly acked or reviewed already. Once we
-> have it in good shape we can merged it all at once via the linux-efi
-> tree. Does that work for you?
->
-
-Sounds good.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBhZGRzIHRoZSB0d28gUFdNLWNvbnRyb2xsZWQgZmFucyBvZiB0aGUgSGlGaXZlIFVubWF0
+Y2hlZCBib2FyZCB0bwp0aGUgZGV2aWNlIHRyZWUuCgpTaWduZWQtb2ZmLWJ5OiBSZW7DqSBSZWJl
+IDxyZW5lQGV4YWN0Y28uZGU+Ci0tLQpUZXN0ZWQgb24gU2lGaXZlIEhpRml2ZSBVbm1hdGNoZWQg
+QTAwIHJ1bm5pbmcgVDIvTGludXguCi0tLQogYXJjaC9yaXNjdi9ib290L2R0cy9zaWZpdmUvaGlm
+aXZlLXVubWF0Y2hlZC1hMDAuZHRzIHwgMTAgKysrKysrKysrKwogMSBmaWxlIGNoYW5nZWQsIDEw
+IGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NpZml2ZS9o
+aWZpdmUtdW5tYXRjaGVkLWEwMC5kdHMgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NpZml2ZS9oaWZp
+dmUtdW5tYXRjaGVkLWEwMC5kdHMKaW5kZXggMDNjZTJjZWU0ZTk3Li44NTBmYTFkMjViZTcgMTAw
+NjQ0Ci0tLSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc2lmaXZlL2hpZml2ZS11bm1hdGNoZWQtYTAw
+LmR0cworKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NpZml2ZS9oaWZpdmUtdW5tYXRjaGVkLWEw
+MC5kdHMKQEAgLTQ3LDYgKzQ3LDE2IEBAIGdwaW8tcG93ZXJvZmYgewogCQlncGlvcyA9IDwmZ3Bp
+byAyIEdQSU9fQUNUSVZFX0xPVz47CiAJfTsKIAorCWZhbjEgeworCQljb21wYXRpYmxlID0gInB3
+bS1mYW4iOworCQlwd21zID0gPCZwd20xIDIgNzgxMjUwMCAwPjsKKwl9OworCisJZmFuMiB7CisJ
+CWNvbXBhdGlibGUgPSAicHdtLWZhbiI7CisJCXB3bXMgPSA8JnB3bTEgMyA3ODEyNTAwIDA+Owor
+CX07CisKIAlsZWQtY29udHJvbGxlci0xIHsKIAkJY29tcGF0aWJsZSA9ICJwd20tbGVkcyI7CiAK
+LS0gCjIuNDYuMAoKCi0tIApSZW7DqSBSZWJlLCBFeGFjdENPREUgR21iSCwgQmVybGluLCBHZXJt
+YW55Cmh0dHBzOi8vZXhhY3Rjby5kZSDigKIgaHR0cHM6Ly90MmxpbnV4LmNvbSDigKIgaHR0cHM6
+Ly9wYXRyZW9uLmNvbS9yZW5lcmViZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
