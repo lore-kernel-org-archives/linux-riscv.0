@@ -4,54 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D72CFC515
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 01:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C71ECFC504
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 03:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rf2YqKiRjBOomUy2kIUk40kjXEdnvyOqtrqy2dgpbjk=; b=GnoEEHGw7ORvsh
-	TJUrtqdS3Hm8g0hLGhD7tSSorXgRlF58HZDUpZtZ7Rx4Sl3M6xKiXvwg2AXwtirvRKsZq6qClDGv6
-	AnXpccVLXKxOT3OO7VChUa5jdlckaCc2iciwt1r+Y+b5G0PUXG5Mbi67lu0SObDjaho24/vQ5J23/
-	Jo3GIHtoYxSHFJ+Prfn8L+t0qA19CfuwPpvk7WN1DnFu6w13/WTyztDqsMU2z+VGHDKl2+LRdeuSO
-	e79IFoSoa2jRzR+wT6JfV0oxhNHrTCNpeXgCGbLngltGZo8SLRKfi/bfY3cuiIbQuRXAZcuUo3GZj
-	SnSM4TDUIzg5Y3gQskRQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=O81VGg4lzd6AQzGs4ojTyc7E+ZjbiTmBJRIJ1x8am3M=; b=A45JroelLYUyY8
+	W23CeHeHQfB4u3Ugu3sP9/OU+uWZxrBR8mR6tXrArIpv0pJ9WmLeyNjqcje+mWtcznZiS+Jh9iBKr
+	LJckEZQTkeSknnNCvLV7sUdKceC4kaQo69vGV+fTXOATRPddK9avQR0C3ORvuwFyruUmUZrscIsx6
+	VhG7y0W9RLYYGDYzPW3l9z8GVBK7FdPScCs+gMVmZNgg9T2noEmBTd8kMLbZEyAOUqufSB2cr2/IP
+	4DSMG424pFM6lONH45rdiE8lsMOKCfkSrd0wC+fOAJVqWnO45xVtxXZUbvYGtXsFoaPvn5s56CtD+
+	nmzQXxd3JTjEXawsCDow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMcZR-000000099fc-0eft;
-	Sat, 22 Nov 2025 01:37:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vMeLZ-00000009Dz6-0VN8;
+	Sat, 22 Nov 2025 03:31:37 +0000
+Received: from freeshell.de ([116.202.128.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMcZO-000000099eg-3VnS
+	id 1vMeLV-00000009Dya-1eA8
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Nov 2025 01:37:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F79640C3B;
-	Sat, 22 Nov 2025 01:37:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FC10C4CEF1;
-	Sat, 22 Nov 2025 01:37:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763775465;
-	bh=0qf20BDdueHRq9OhUD6dgHzT+/U8yH5JNjQHTEWIlEE=;
-	h=Date:From:To:cc:Subject:From;
-	b=QOH8Tq1ENnqCLZxjIK3c99DgyIuJS+5Zx1HGgVTzvARtgxWvYZewl1e3DFLV7iqrM
-	 GPZxGuCEwL06Y3Wxu2SPuBGBYoZZ6UhTNJG3U3gRNaFvBrPmDuYZw+kB9sT+J2Vxk/
-	 vJDP2xefvAJzJTRBeFp1APnn5dTSD55r62RuM2DNVbuUI94vba1KtMJy2QhHbTlUHl
-	 r+HipELnitI2qgqUFKsIgMnbdGwcf0c1TEx2jDJZiepXRd6lEMPffR1O5khLP81OhD
-	 qCoJTM48Qrg6TdqxfA2k+jSaB57Oz5hAqhv4ZIy98apQ9rFpL6zQqA7norkw0SeNuw
-	 ab1SXdH4vikcQ==
-Date: Fri, 21 Nov 2025 18:37:44 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V updates for v6.18-rc7
-Message-ID: <d51764f8-04af-8930-78bf-bb253b55b561@kernel.org>
+	Sat, 22 Nov 2025 03:31:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
+	s=s2025; t=1763782263;
+	bh=dSCZow36UoMM46BBajqssiSEXL6PvDYG1E5ouX01BOk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ari733BB+zfdbjsK5vIlyi2TujrFex+AHjwQ7i0+Av0sbyI+wfCZAJ24At2uIC0+S
+	 j9vdQLCadD2JF4bVuBHv8RrrBzMoPIXaeDdOVUI+T0AP+Ef4BCCgU6fX4Kxq4Pr6uL
+	 F9WkFdrkq4gWsAUR8CjSsMNBeXrjEM3ljENWdmWD/5uvrRkkqCqZG2oIugzA7OaeX0
+	 bcl3HqWntvR49i3hpDarUHQ8RNVHpQwd9ponL5c39URbpxuQkEbJv++zQJzXwdYA4z
+	 0IMEJIOReGvYpcIWxSURerjVSwqMstJM2ep7jShpKzbM6ioKx/EZrrULjw+aNVIe3y
+	 k5jswuNydDdqA==
+Received: from [192.168.2.54] (unknown [143.105.119.236])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id E5F3CB221561;
+	Sat, 22 Nov 2025 04:30:59 +0100 (CET)
+Message-ID: <b61969d3-b00b-4ea7-bee5-ba7ffb530aa9@freeshell.de>
+Date: Fri, 21 Nov 2025 19:30:57 -0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] riscv: dts: starfive: Add common board dtsi for
+ VisionFive 2 Lite variants
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Bjorn Helgaas <bhelgaas@google.com>,
+ Conor Dooley <conor+dt@kernel.org>, Hal Feng <hal.feng@starfivetech.com>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251120082946.109378-1-hal.feng@starfivetech.com>
+ <20251120082946.109378-4-hal.feng@starfivetech.com>
+ <CAJM55Z8NsC_-jcrm+ndMonU6EtkSzhAQvoROXZwOWNi9FeQLXA@mail.gmail.com>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <CAJM55Z8NsC_-jcrm+ndMonU6EtkSzhAQvoROXZwOWNi9FeQLXA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_173746_913304_DEC8F281 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20251121_193133_931621_087030DE 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,121 +85,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Linus,
-
-Please pull these RISC-V updates for v6.18-rc7.  v6.18 looks like it's 
-settling down well for us.  Am currently expecting to have one additional 
-fix with very limited scope coming in next week, after v6.18-rc7 is 
-tagged.
-
-To my eyes, the only notable patch in this PR is a patch to deal with MIPS 
-getting their RISC-V/JEDEC vendor ID wrong.  Apparently this didn't affect 
-their testing, because they've told us that their QEMU platform was also 
-using the wrong vendor ID.  (They are fixing upstream QEMU.)  The patch 
-that added the incorrect vendor ID only went in for the v6.18 merge 
-window.  So the good news is that we can fix this before the final v6.18 
-release is tagged.  Speaking with MIPS off-list, they've assured us that 
-they will start testing on FPGA bitstreams now, so I hope this will be a 
-closed issue going forward.
 
 
-- Paul
+On 11/21/25 03:51, Emil Renner Berthing wrote:
+> Quoting Hal Feng (2025-11-20 09:29:44)
+>> Add common board dtsi for use by VisionFive 2 Lite variants.
+>>
+>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> ---
+>>  .../jh7110s-starfive-visionfive-2-lite.dtsi   | 691 ++++++++++++++++++
+>>  1 file changed, 691 insertions(+)
+>>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
+>>
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi b/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
+>> new file mode 100644
+>> index 000000000000..aa375c4a3fa3
+>> --- /dev/null
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
+>> @@ -0,0 +1,691 @@
+>> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+>> +/*
+>> + * Copyright (C) 2025 StarFive Technology Co., Ltd.
+>> + * Copyright (C) 2025 Hal Feng <hal.feng@starfivetech.com>
+>> + */
+>> +
+>> +/dts-v1/;
+>> +#include "jh7110.dtsi"
+>> +#include "jh7110-pinfunc.h"
+>> +#include <dt-bindings/gpio/gpio.h>
+>> +#include <dt-bindings/leds/common.h>
+>> +#include <dt-bindings/pinctrl/starfive,jh7110-pinctrl.h>
+> ''
+> I'm confused. In [1] you said "remove jh7110s-common.dtsi, because only one
+> board uses JH7110S now." but this series still adds two different boards.
+> 
+> Also this derives from jh7110.dtsi rather than from jh7110-common.dts as I
+> suggested in [2].
+> 
+> In any case I'm fine with doing it this way, so
+> Acked-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> 
+> [1]: https://lore.kernel.org/linux-riscv/ZQ2PR01MB13076544E2136E7E7C2EEDA1E6CD2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn/
+> [2]: https://lore.kernel.org/linux-riscv/CAJM55Z-MfpVX3EuQ_AjvDSk6FwR51R5cQdN5RybS9pbJ8r9NNg@mail.gmail.com/
 
+"Yes" or "No" question from me: Is it necessary to introduce new
+"jh7110s" compatible?
 
-The following changes since commit 4427259cc7f7571a157fbc9b5011e1ef6fe0a4a8:
+I am also confused as suggestions and feedback from v2 are not
+implemented in v3:
 
-  Merge tag 'riscv-for-linus-6.18-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (2025-11-10 15:35:45 -0800)
+"jh7110" or "jh7110s" filename prefix ?
 
-are available in the Git repository at:
+<prefix>-starfive-visionfive-2-lite.dtsi includes jh7110-common.dtsi ?
+Not changed in v3 with include of "jh7110.dtsi" and duplicating
+jh7110-common.dtsi in a board dtsi file. This may be acceptable but it
+makes no sense to me why is this done when the suggestion is for minimal
+changes.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-6.18-rc7
+<prefix>-starfive-visionfive-2-lite.dtsi adds four pairs of
+'/delete-property/' with OPP table where different from jh7110-common.dtsi ?
 
-for you to fetch changes up to e2cb69263e797c0aa6676bcef23e9e27e44c83b0:
+<prefix>-starfive-visionfive-2-lite.dts:
+compatible = "starfive,visionfive-2-lite", "starfive,jh7110"
+? (or else)
+compatible = "starfive,visionfive-2-lite", "starfive,jh7110s"
+? (or else)
+compatible = "starfive,visionfive-2-lite", "starfive,jh7110s",
+"starfive,jh7110"
+?
 
-  tools: riscv: Fixed misalignment of CSR related definitions (2025-11-16 10:37:38 -0700)
+<prefix>-starfive-visionfive-2-lite-emmc.dts:
+compatible = "starfive,visionfive-2-lite-emmc", "starfive,jh7110"
+? (or else)
+compatible = "starfive,visionfive-2-lite-emmc", "starfive,jh7110s"
+? (or else)
+compatible = "starfive,visionfive-2-lite", "starfive,jh7110s",
+"starfive,jh7110"
+?
 
-----------------------------------------------------------------
-RISC-V updates for v6.18-rc7
-
-- Correct the MIPS RISC-V/JEDEC vendor ID.
-
-- Fix the system shutdown behavior in the legacy case where
-  CONFIG_RISCV_SBI_V01 is set, but the firmware implementation doesn't
-  support the older v0.1 system shutdown method.
-
-- Align some tools/ macro definitions with the corresponding kernel headers.
-
-----------------------------------------------------------------
-Chao-ying Fu (1):
-      riscv: Update MIPS vendor id to 0x127
-
-Chen Pei (1):
-      tools: riscv: Fixed misalignment of CSR related definitions
-
-Mayuresh Chitale (1):
-      riscv: sbi: Prefer SRST shutdown over legacy
-
- arch/riscv/include/asm/vendorid_list.h | 2 +-
- arch/riscv/kernel/sbi.c                | 6 +++++-
- drivers/perf/riscv_pmu_sbi.c           | 2 +-
- tools/arch/riscv/include/asm/csr.h     | 5 +++--
- 4 files changed, 10 insertions(+), 5 deletions(-)
-
-vmlinux size differences in bytes (from 4427259cc7f7):
- text data bss   dec   hex filename                                     
-    .    .   .     .     . vmlinux.defconfig.gcc-15                     
-    .    .   .     .     . vmlinux.nosmp_defconfig.gcc-15               
-    .    .   .     .     . vmlinux.rv32_defconfig.gcc-15                
-    .    .   .     .     . vmlinux.rv32_nosmp_defconfig.gcc-15          
-    .    .   .     .     . vmlinux.nommu_virt_defconfig.gcc-15          
-    .    .   .     .     . vmlinux.defconfig.clang-20                   
-    .    .   .     .     . vmlinux.nosmp_defconfig.clang-20             
-    .    .   .     .     . vmlinux.rv32_defconfig.clang-20              
-    .    .   .     .     . vmlinux.rv32_nosmp_defconfig.clang-20        
-    .    .   .     .     . vmlinux.nommu_virt_defconfig.clang-20        
-    .    .   .     .     . vmlinux.defconfig.gcc-14                     
-    .    .   .     .     . vmlinux.nosmp_defconfig.gcc-14               
-    .    .   .     .     . vmlinux.rv32_defconfig.gcc-14                
-    .    .   .     .     . vmlinux.rv32_nosmp_defconfig.gcc-14          
-    .    .   .     .     . vmlinux.nommu_virt_defconfig.gcc-14          
-    .    .   .     .     . vmlinux.defconfig.clang-19                   
-    .    .   .     .     . vmlinux.nosmp_defconfig.clang-19             
-    .    .   .     .     . vmlinux.rv32_defconfig.clang-19              
-    .    .   .     .     . vmlinux.rv32_nosmp_defconfig.clang-19        
-    .    .   .     .     . vmlinux.nommu_virt_defconfig.clang-19        
-    .    .   .     .     . vmlinux.defconfig.gcc-13                     
-    .    .   .     .     . vmlinux.nosmp_defconfig.gcc-13               
-    .    .   .     .     . vmlinux.rv32_defconfig.gcc-13                
-    .    .   .     .     . vmlinux.rv32_nosmp_defconfig.gcc-13          
-    .    .   .     .     . vmlinux.nommu_virt_defconfig.gcc-13          
-    .    .   .     .     . vmlinux.defconfig.clang-18                   
-    .    .   .     .     . vmlinux.nosmp_defconfig.clang-18             
-    .    .   .     .     . vmlinux.rv32_defconfig.clang-18              
-    .    .   .     .     . vmlinux.rv32_nosmp_defconfig.clang-18        
-    .    .   .     .     . vmlinux.nommu_virt_defconfig.clang-18        
-    .    .   .     .     . vmlinux.defconfig.gcc-12                     
-    .    .   .     .     . vmlinux.nosmp_defconfig.gcc-12               
-    .    .   .     .     . vmlinux.rv32_defconfig.gcc-12                
-    .    .   .     .     . vmlinux.rv32_nosmp_defconfig.gcc-12          
-    .    .   .     .     . vmlinux.nommu_virt_defconfig.gcc-12          
-    .    .   .     .     . vmlinux.defconfig.clang-17                   
-    .    .   .     .     . vmlinux.nosmp_defconfig.clang-17             
-    .    .   .     .     . vmlinux.rv32_defconfig.clang-17              
-    .    .   .     .     . vmlinux.rv32_nosmp_defconfig.clang-17        
-    .    .   .     .     . vmlinux.nommu_virt_defconfig.clang-17        
-    .    .   .     .     . vmlinux.defconfig.clang-15.patched           
-    .    .   .     .     . vmlinux.nosmp_defconfig.clang-15.patched     
-    .    .   .     .     . vmlinux.rv32_defconfig.clang-15.patched      
-    .    .   .     .     . vmlinux.rv32_nosmp_defconfig.clang-15.patched
-    .    .   .     .     . vmlinux.nommu_virt_defconfig.clang-15.patched
-    .    .   .     .     . vmlinux.defconfig.gcc-11                     
-    .    .   .     .     . vmlinux.nosmp_defconfig.gcc-11               
-    .    .   .     .     . vmlinux.rv32_defconfig.gcc-11                
-    .    .   .     .     . vmlinux.rv32_nosmp_defconfig.gcc-11          
-    .    .   .     .     . vmlinux.nommu_virt_defconfig.gcc-11          
-    .    .   .     .     . vmlinux.allnoconfig.gcc-14                   
-    .    .   .     .     . vmlinux.allmodconfig.gcc-14                  
-    .    .   .     .     . vmlinux.allnoconfig.clang-19                 
+-E
 
 _______________________________________________
 linux-riscv mailing list
