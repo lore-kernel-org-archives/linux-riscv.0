@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6068FCFC510
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 00:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A41CFC515
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 01:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6z/xq3rlFJ8jD11bP7EQtsxxOaVk3+C0ZV8RS+P9i8A=; b=tN62niJTc7SqOM
-	XTy9V2re5XL0sFGd3wiYwhxqjDuGihfga+44kp80u5i4QM/c70YUzXXj1QSo+NnYDHcNOkNnmSahN
-	GTiw4OFhGLlNQ9icEOf8g3YmzRjg279mfI3dQtVK4OQsyeptOjKrHPxKRFdMgXspxUzISOfBkUEtX
-	icHLFLSEqoKBLDZVN5TACZxC36LxhiuJc4PVgxnzPwsuTTPF8dHwtzl8SloIFmVzu1E1uj62uit3o
-	dfirwD1rl3zx6tq/qm0xMbCGmIP6e2WkbSr5Z+FVHNFoHw8LyUFbbm50A1VQhFrL6T1xSPEkP980R
-	Wco8U0hWBEE25SjB0imw==;
+	List-Owner; bh=x/qK1rAR//G+H4hBMGX4vOPuHHZ3G8ZK4r3uQcHW1CA=; b=dw2vSjDe+Uw16r
+	vCquS6Po632ULCbNHzd3x/2K67bK9+073VDO1C75/i02hFrpPkbTDHQ7sSQ637QqbWPhy/RBRpn6M
+	wCWH+6wOOfFDOmi4Nio9jxJz3s3k7r7yx7skCLyXhuIRZZrwqVynyysulpWErALXzKFP+iKYZB2Ww
+	a32eg61sE3coLts6aw7QDT8xFtIwX0lDzi04u8VgUKR8LqdBJH/HtS2U4nb2NwP4ZWPlCsKC13G7G
+	ch2zGpQG1tzb6hu1fQIc67vPGn6AIVNku1zs6nMRE887Ew5BHzRJMUQVZH6hNgxzNCepTsD65IZSA
+	fnDjikXUpMTVYnEVjm5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMb3t-000000095Gq-1BGs;
-	Sat, 22 Nov 2025 00:01:09 +0000
+	id 1vMc93-000000098BC-3Gre;
+	Sat, 22 Nov 2025 01:10:33 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMb3r-000000095GZ-3MYd;
-	Sat, 22 Nov 2025 00:01:07 +0000
+	id 1vMc91-000000098B4-3YNP
+	for linux-riscv@lists.infradead.org;
+	Sat, 22 Nov 2025 01:10:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D0F3A60145;
-	Sat, 22 Nov 2025 00:01:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1879EC4CEF1;
-	Sat, 22 Nov 2025 00:01:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AB6BF601BC;
+	Sat, 22 Nov 2025 01:10:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CACA4C4CEF1;
+	Sat, 22 Nov 2025 01:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763769666;
-	bh=7VO8MtWqKmaIpeDWygtuR4K+s9loO2/N5EOqF8TuZKk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bBy+Q6F/kNGlBfq4O+WSanA5e8J+IBriuKtAEnRPMqD8xgh+9NUcsdRQKdyB7kJ9z
-	 oc/4ZVK2Q2Ki4BcZbLFLzmdTRk2VYtJhqNOI05v1dZpkM9t4T14HL5Pym1d78q5FQQ
-	 cInnVW6id1gGtRmHOwsYWfOtAXo1xxT3jGW6ZDSggl94vFoUfG3egL1eAof2Lxq0/B
-	 TXKNPMzJl54V/HTfLlu/AZuCtFLCJjQj52CdS2/3r+w+wPrF0o/dFWwuuYpYGpiUUx
-	 angpT+Z/hP0QEoNEgtR78CMDnpVWsZCrf9hFflWC+bFF1P4JheC+kJvpNojrSh5K6C
-	 /krEyXvOprQhw==
-Date: Fri, 21 Nov 2025 17:01:01 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>, linux-kbuild@vger.kernel.org,
-	linux-efi@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] kbuild: Add KBUILD_VMLINUX_LIBS_PRELINK
-Message-ID: <20251122000101.GA1996391@ax162>
-References: <20251119042708.27658-1-yangtiezhu@loongson.cn>
- <20251121070140.GA780042@ax162>
- <hka6ukulmkmxp7mrcmxmllco2sqof2elextc7ggcikazfzmwni@a4pnogedcr7r>
+	s=k20201202; t=1763773829;
+	bh=V5/3lcf0wE54FxK6rCPxY1hvL1brr+ChL3XS4dJOp4g=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=GUmypLaJnPk6p2ddsECWAmjKvrfITMjOeqoNkNHBcpeWmHbK7cJnM30ztlr0EYWm+
+	 RhBQgyyfWkcYWt238rGr0nCRklVvLvdWzT88KEgqPkuHeQ2tk295TUHtT/mX/oheCq
+	 CxAZUpED9Q2bKhPgrkNz9g2r8cA7I4Q3BIFTLa8Z1ENBNIktcbRbAviP5NuCx6a72m
+	 eDp8lvM457D7FC6HFSe1lrZfNPNOkttuXA2uwahFCsCjF27J8+IlH8F6uyvhf9aPFA
+	 z5hNI59XwRa7l35hLBz7eNa2Lx7yhrjXfxPuTuRF03IdEj0eWnq+LdU3LJj07V3+64
+	 p8Gh1to8iY2qA==
+Date: Fri, 21 Nov 2025 18:10:23 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+cc: Paul Walmsley <pjw@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    Alexandre Ghiti <alex@ghiti.fr>, namcao@linutronix.de
+Subject: Re: Re: Re: [PATCH] riscv: fix KUnit test_kprobes crash when building
+ with Clang
+In-Reply-To: <5b293e31.1dde8.19a9a0f91bb.Coremail.xujiakai2025@iscas.ac.cn>
+Message-ID: <f1ea892e-a07a-5ded-dd6e-3e7ea55fe446@kernel.org>
+References: <738dd4e2.ff73.19a7cd7b4d5.Coremail.xujiakai2025@iscas.ac.cn> <621798fc-68bc-504c-755f-0a2f1f83d1c2@kernel.org> <108ac2f0.17c6b.19a8fc4d1ca.Coremail.xujiakai2025@iscas.ac.cn> <bd82855d-4a80-58fb-c949-b968569ef1e2@kernel.org>
+ <5b293e31.1dde8.19a9a0f91bb.Coremail.xujiakai2025@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <hka6ukulmkmxp7mrcmxmllco2sqof2elextc7ggcikazfzmwni@a4pnogedcr7r>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,72 +72,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 21, 2025 at 10:42:47AM -0800, Josh Poimboeuf wrote:
-> On Fri, Nov 21, 2025 at 12:01:40AM -0700, Nathan Chancellor wrote:
-> > > @@ -1199,6 +1199,7 @@ KBUILD_VMLINUX_OBJS := built-in.a $(patsubst %/, %/lib.a, $(filter %/, $(libs-y)
-> > >  KBUILD_VMLINUX_LIBS := $(filter-out %/, $(libs-y))
-> > >  
-> > >  export KBUILD_VMLINUX_LIBS
-> > > +export KBUILD_VMLINUX_LIBS_PRELINK
-> > 
-> > This variable name is a little confusing to me since they do get added
-> > to vmlinux during linking, not before. I am not sure of a better one
-> > though, maybe KBUILD_VMLINUX_LIBS_FINAL?
+On Wed, 19 Nov 2025, Jiakai Xu wrote:
+
+> &gt; Looks like you're using a mail client that sends HTML in what should be a 
+> &gt; plain-text E-mail; please fix that.
 > 
-> I think that name was my idea.  Not sure what I was thinking, I guess
-> "prelink" was somehow meant to imply after the vmlinux.o whole-archive
-> link but before the "final" link.
+> I apologize for that oversight. 
+> I will make sure to use plain-text emails going forward.
 
-Yeah I could see where you were going with that but glad we agree final
-is better heh.
+Looks like there's still a problem (the "&gt;"s above).
 
-> "final" is indeed better.
+> &gt; Not all of it, but some edited summary is appropriate.  I've queued the 
+> &gt; following revision for v6.18-rc fixes, under the theory that it would be 
+> &gt; good to get the test working for Clang users while the LLVM folks 
+> &gt; investigate.  Please let us know ASAP if you think anything in it should 
+> &gt; be changed.  I plan to send a PR out later this week.
 > 
-> > It may also make sense to
-> > introduce similar syntax to the existing libs-y syntax, maybe
-> > 
-> >   final-libs-y
-> > 
-> > or something like that?
-> 
-> Yeah, I suppose that would mirror how KBUILD_VMLINUX_LIBS is wired up.
+> Thank you for your review of the patch and for the time and effort
+> you spent on it. I fully agree with the modifications you made to the patch
+> description.
 
-On second thought, it might be less complicated to keep it this way...
+Looks like some of the LLVM folks have responded to 
+https://github.com/llvm/llvm-project/issues/168308 with some suggestions.  
+Could you implement those and test it and update the patch?  If that can 
+be done by early next week, then we should hopefully be able to get it in 
+before v6.18 is tagged.
 
-> > Also, since these objects are no longer in KBUILD_VMLINUX_LIBS, does
-> > this new variable need to be added to any of the other places in the
-> > build system that use KBUILD_VMLINUX_LIBS for things such as build
-> > dependencies?
-> 
-> Not sure about that one.  drivers/firmware/efi/libstub/lib.a is getting
-> built regardless so there must already be an implicit dependency?
+thanks,
 
-I think the explicit dependency currently comes from
-
-  vmlinux_o: vmlinux.a $(KBUILD_VMLINUX_LIBS)
-
-in Makefile. I think something like
-
-diff --git a/scripts/Makefile.vmlinux b/scripts/Makefile.vmlinux
-index cd788cac9d91..38b5f0ba9a4b 100644
---- a/scripts/Makefile.vmlinux
-+++ b/scripts/Makefile.vmlinux
-@@ -68,7 +68,7 @@ cmd_link_vmlinux =							\
- 	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
- 
- targets += vmlinux.unstripped .vmlinux.export.o
--vmlinux.unstripped: scripts/link-vmlinux.sh vmlinux.o .vmlinux.export.o $(KBUILD_LDS) FORCE
-+vmlinux.unstripped: scripts/link-vmlinux.sh vmlinux.o .vmlinux.export.o $(KBUILD_LDS) $(KBUILD_VMLINUX_LIBS_FINAL) FORCE
- 	+$(call if_changed_dep,link_vmlinux)
- ifdef CONFIG_DEBUG_INFO_BTF
- vmlinux.unstripped: $(RESOLVE_BTFIDS)
-
-is needed to ensure that an updated drivers/firmware/efi/libstub/lib.a
-results in vmlinux getting regenerated (at least according to my
-testing).
-
-Cheers,
-Nathan
+- Paul 
 
 _______________________________________________
 linux-riscv mailing list
