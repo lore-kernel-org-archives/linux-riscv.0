@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C71ECFC504
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 03:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 297BACF64B1
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Nov 2025 07:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O81VGg4lzd6AQzGs4ojTyc7E+ZjbiTmBJRIJ1x8am3M=; b=A45JroelLYUyY8
-	W23CeHeHQfB4u3Ugu3sP9/OU+uWZxrBR8mR6tXrArIpv0pJ9WmLeyNjqcje+mWtcznZiS+Jh9iBKr
-	LJckEZQTkeSknnNCvLV7sUdKceC4kaQo69vGV+fTXOATRPddK9avQR0C3ORvuwFyruUmUZrscIsx6
-	VhG7y0W9RLYYGDYzPW3l9z8GVBK7FdPScCs+gMVmZNgg9T2noEmBTd8kMLbZEyAOUqufSB2cr2/IP
-	4DSMG424pFM6lONH45rdiE8lsMOKCfkSrd0wC+fOAJVqWnO45xVtxXZUbvYGtXsFoaPvn5s56CtD+
-	nmzQXxd3JTjEXawsCDow==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZcQ2kpgoRQ6W+Cs4uQmvCv/G566r/2O06O/b6ELqXhY=; b=M4/iJ0oR+ommDy
+	eppuCm856xA3ms/HpmM1UMX/WOzjt3ohRgmbl8w2IPduCP3NUFdQGL86rUSCNRbvVEICXxtyRu8LU
+	yK4ih/zKazboVeUXgCSX6A6R4h1yEzY0p2qFc2GDshCoilZin0GP4LXtW5PfVkDmVa3VFg4EIlGSU
+	5DedO+n6hQi3c2+xSv19Q+NwVtibA0E76atTJVL/dG3SGh5fvMUG7GMVww8x9Mp4ae6m7RV5f5V3U
+	ewCm4hdVW5I4qKf5d7LQ+oqgxpFE36bl6NAY/NAiJzDyoq+fSoobDhzfddJL1AM9tjI6y7adw9Yc/
+	FvASVl0GIJSyp+JzJKyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMeLZ-00000009Dz6-0VN8;
-	Sat, 22 Nov 2025 03:31:37 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1vMiOE-00000009MF3-1BRh;
+	Sat, 22 Nov 2025 07:50:38 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMeLV-00000009Dya-1eA8
-	for linux-riscv@lists.infradead.org;
-	Sat, 22 Nov 2025 03:31:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1763782263;
-	bh=dSCZow36UoMM46BBajqssiSEXL6PvDYG1E5ouX01BOk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ari733BB+zfdbjsK5vIlyi2TujrFex+AHjwQ7i0+Av0sbyI+wfCZAJ24At2uIC0+S
-	 j9vdQLCadD2JF4bVuBHv8RrrBzMoPIXaeDdOVUI+T0AP+Ef4BCCgU6fX4Kxq4Pr6uL
-	 F9WkFdrkq4gWsAUR8CjSsMNBeXrjEM3ljENWdmWD/5uvrRkkqCqZG2oIugzA7OaeX0
-	 bcl3HqWntvR49i3hpDarUHQ8RNVHpQwd9ponL5c39URbpxuQkEbJv++zQJzXwdYA4z
-	 0IMEJIOReGvYpcIWxSURerjVSwqMstJM2ep7jShpKzbM6ioKx/EZrrULjw+aNVIe3y
-	 k5jswuNydDdqA==
-Received: from [192.168.2.54] (unknown [143.105.119.236])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id E5F3CB221561;
-	Sat, 22 Nov 2025 04:30:59 +0100 (CET)
-Message-ID: <b61969d3-b00b-4ea7-bee5-ba7ffb530aa9@freeshell.de>
-Date: Fri, 21 Nov 2025 19:30:57 -0800
+	id 1vMiOA-00000009MER-1TOD;
+	Sat, 22 Nov 2025 07:50:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1763797831; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=2EzqfeFOaSlEXbtIbD6DtqooVMJceZ4coYRaIINcRzU=;
+	b=fjq9lGlt/MbZeX5grxkvKSMwIREZ9ha3vaam1Ku/4+PEa9n2qpd/CY729Rz6kQxUR+yeviBTHQIWYjEpPE8n9XgVnqi7fGsrZFFR6vDw2FDv/ZHqjH2nyTTvLX7ymd6pW3XUUDIo/BlGjxjYI3e+wkQtmC/dgDI6bRgrKPj5ufk=
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0Wt3WcpV_1763797825 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 22 Nov 2025 15:50:26 +0800
+From: fangyu.yu@linux.alibaba.com
+To: anup@brainfault.org,
+	atish.patra@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: guoren@kernel.org,
+	ajones@ventanamicro.com,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Subject: [PATCH] RISC-V: KVM: Allow to downgrade HGATP mode via SATP mode
+Date: Sat, 22 Nov 2025 15:50:23 +0800
+Message-Id: <20251122075023.27589-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/5] riscv: dts: starfive: Add common board dtsi for
- VisionFive 2 Lite variants
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Bjorn Helgaas <bhelgaas@google.com>,
- Conor Dooley <conor+dt@kernel.org>, Hal Feng <hal.feng@starfivetech.com>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251120082946.109378-1-hal.feng@starfivetech.com>
- <20251120082946.109378-4-hal.feng@starfivetech.com>
- <CAJM55Z8NsC_-jcrm+ndMonU6EtkSzhAQvoROXZwOWNi9FeQLXA@mail.gmail.com>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <CAJM55Z8NsC_-jcrm+ndMonU6EtkSzhAQvoROXZwOWNi9FeQLXA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_193133_931621_087030DE 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20251121_235035_098110_4F466546 
+X-CRM114-Status: UNSURE (   6.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,85 +73,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
+Currently, HGATP mode uses the maximum value detected by the hardware
+but often such a wide GPA is unnecessary, just as a host sometimes
+doesn't need sv57.
+It's likely that no additional parameters (like no5lvl and no4lvl) are
+needed, aligning HGATP mode to SATP mode should meet the requirements
+of most scenarios.
 
-On 11/21/25 03:51, Emil Renner Berthing wrote:
-> Quoting Hal Feng (2025-11-20 09:29:44)
->> Add common board dtsi for use by VisionFive 2 Lite variants.
->>
->> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->> ---
->>  .../jh7110s-starfive-visionfive-2-lite.dtsi   | 691 ++++++++++++++++++
->>  1 file changed, 691 insertions(+)
->>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
->>
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi b/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
->> new file mode 100644
->> index 000000000000..aa375c4a3fa3
->> --- /dev/null
->> +++ b/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dtsi
->> @@ -0,0 +1,691 @@
->> +// SPDX-License-Identifier: GPL-2.0 OR MIT
->> +/*
->> + * Copyright (C) 2025 StarFive Technology Co., Ltd.
->> + * Copyright (C) 2025 Hal Feng <hal.feng@starfivetech.com>
->> + */
->> +
->> +/dts-v1/;
->> +#include "jh7110.dtsi"
->> +#include "jh7110-pinfunc.h"
->> +#include <dt-bindings/gpio/gpio.h>
->> +#include <dt-bindings/leds/common.h>
->> +#include <dt-bindings/pinctrl/starfive,jh7110-pinctrl.h>
-> ''
-> I'm confused. In [1] you said "remove jh7110s-common.dtsi, because only one
-> board uses JH7110S now." but this series still adds two different boards.
-> 
-> Also this derives from jh7110.dtsi rather than from jh7110-common.dts as I
-> suggested in [2].
-> 
-> In any case I'm fine with doing it this way, so
-> Acked-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> 
-> [1]: https://lore.kernel.org/linux-riscv/ZQ2PR01MB13076544E2136E7E7C2EEDA1E6CD2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn/
-> [2]: https://lore.kernel.org/linux-riscv/CAJM55Z-MfpVX3EuQ_AjvDSk6FwR51R5cQdN5RybS9pbJ8r9NNg@mail.gmail.com/
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+---
+ arch/riscv/kvm/gstage.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-"Yes" or "No" question from me: Is it necessary to introduce new
-"jh7110s" compatible?
+diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+index b67d60d722c2..bff80c80ead3 100644
+--- a/arch/riscv/kvm/gstage.c
++++ b/arch/riscv/kvm/gstage.c
+@@ -320,7 +320,6 @@ void __init kvm_riscv_gstage_mode_detect(void)
+ 	csr_write(CSR_HGATP, HGATP_MODE_SV57X4 << HGATP_MODE_SHIFT);
+ 	if ((csr_read(CSR_HGATP) >> HGATP_MODE_SHIFT) == HGATP_MODE_SV57X4) {
+ 		kvm_riscv_gstage_mode = HGATP_MODE_SV57X4;
+-		kvm_riscv_gstage_pgd_levels = 5;
+ 		goto done;
+ 	}
+ 
+@@ -328,7 +327,6 @@ void __init kvm_riscv_gstage_mode_detect(void)
+ 	csr_write(CSR_HGATP, HGATP_MODE_SV48X4 << HGATP_MODE_SHIFT);
+ 	if ((csr_read(CSR_HGATP) >> HGATP_MODE_SHIFT) == HGATP_MODE_SV48X4) {
+ 		kvm_riscv_gstage_mode = HGATP_MODE_SV48X4;
+-		kvm_riscv_gstage_pgd_levels = 4;
+ 		goto done;
+ 	}
+ 
+@@ -336,7 +334,6 @@ void __init kvm_riscv_gstage_mode_detect(void)
+ 	csr_write(CSR_HGATP, HGATP_MODE_SV39X4 << HGATP_MODE_SHIFT);
+ 	if ((csr_read(CSR_HGATP) >> HGATP_MODE_SHIFT) == HGATP_MODE_SV39X4) {
+ 		kvm_riscv_gstage_mode = HGATP_MODE_SV39X4;
+-		kvm_riscv_gstage_pgd_levels = 3;
+ 		goto done;
+ 	}
+ #else /* CONFIG_32BIT */
+@@ -354,6 +351,10 @@ void __init kvm_riscv_gstage_mode_detect(void)
+ 	kvm_riscv_gstage_pgd_levels = 0;
+ 
+ done:
++#ifdef CONFIG_64BIT
++	kvm_riscv_gstage_mode = min(satp_mode >> SATP_MODE_SHIFT, kvm_riscv_gstage_mode);
++	kvm_riscv_gstage_pgd_levels = kvm_riscv_gstage_mode - HGATP_MODE_SV39X4 + 3;
++#endif
+ 	csr_write(CSR_HGATP, 0);
+ 	kvm_riscv_local_hfence_gvma_all();
+ }
+-- 
+2.50.1
 
-I am also confused as suggestions and feedback from v2 are not
-implemented in v3:
-
-"jh7110" or "jh7110s" filename prefix ?
-
-<prefix>-starfive-visionfive-2-lite.dtsi includes jh7110-common.dtsi ?
-Not changed in v3 with include of "jh7110.dtsi" and duplicating
-jh7110-common.dtsi in a board dtsi file. This may be acceptable but it
-makes no sense to me why is this done when the suggestion is for minimal
-changes.
-
-<prefix>-starfive-visionfive-2-lite.dtsi adds four pairs of
-'/delete-property/' with OPP table where different from jh7110-common.dtsi ?
-
-<prefix>-starfive-visionfive-2-lite.dts:
-compatible = "starfive,visionfive-2-lite", "starfive,jh7110"
-? (or else)
-compatible = "starfive,visionfive-2-lite", "starfive,jh7110s"
-? (or else)
-compatible = "starfive,visionfive-2-lite", "starfive,jh7110s",
-"starfive,jh7110"
-?
-
-<prefix>-starfive-visionfive-2-lite-emmc.dts:
-compatible = "starfive,visionfive-2-lite-emmc", "starfive,jh7110"
-? (or else)
-compatible = "starfive,visionfive-2-lite-emmc", "starfive,jh7110s"
-? (or else)
-compatible = "starfive,visionfive-2-lite", "starfive,jh7110s",
-"starfive,jh7110"
-?
-
--E
 
 _______________________________________________
 linux-riscv mailing list
