@@ -4,85 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA5FCFC518
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Nov 2025 06:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C3E3CFC518
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Nov 2025 12:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AqCK60czqG7lZB6TeeqUugOk5zTP/nBg87jVdDIDcZA=; b=L8Umw5dpFiP4TK
-	7AjtiwElGdQK+5TGP2OgquC5DLWV5Myz42p01bvaxt5lnAfWIn8auRGXTtFGo6wF1PpD+Be+Km2Mk
-	/VxkUyh7UuavWKm6wRBVoSibsSlrn8Iz63zqaSrO5aJ2xe07+KfC94Pc8r5rZGlkPHm6oI4ZFE9TO
-	DIy33Cyll9oSjM45kN6AQIM/e8UbOOmZjVoKJo4TP7Q+wj8zltBocS8QhJwfPFE3kTuCNe01aSoxN
-	Pe6tfG4TeXtAvZQGw7WsxLbK6yw1rFXSyrwrEqp0QhHA+uXsKVoqleyGTMjZJRgZU5G0x3k+VocGA
-	tVeXh2JNhSH3NEvCYSVA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uW47iLBDpYN6IovKlLa//fb8B8UI+03NEX9Tvfc9/Qo=; b=r6rCuMq7IgceRE
+	L47u5hziUi7VoxKh9Q6PzOKxhLZeWqlLacT4gwD1xKO1I/tMyM7CzEml0/w0P0eDdX+Rh8oEhhgpD
+	O8Jsv6R/2S3O5FqSvBJFpy8lzjjTH0m90RNTRDQOWOiJ4/nKsjjADKXrUSiMo4Ou5Nu7n53YenCnL
+	rRnEeoGGy1Oe+Oe/+KbmikGxOITTrzP7SQYwok7BdHzyjhsqTok27ZQRWtvcUjUjKKSswfCFmI8bZ
+	EtY8iY8KkRmpDTz20k2hpdm4g/cazbhEPH9BPn+CJulbyT9jIJL9o3hiSxjrEcyE9NBanjB9ktLtZ
+	YWy2Ch/b8IEG2j3msDuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN3DI-0000000AAqe-2Wnd;
-	Sun, 23 Nov 2025 06:04:44 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1vN94A-0000000AOp7-46ng;
+	Sun, 23 Nov 2025 12:19:43 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN3DF-0000000AApq-0y5K
+	id 1vN945-0000000AOoH-1Tsk
 	for linux-riscv@lists.infradead.org;
-	Sun, 23 Nov 2025 06:04:43 +0000
-Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-4330dfb6ea3so12210325ab.0
-        for <linux-riscv@lists.infradead.org>; Sat, 22 Nov 2025 22:04:40 -0800 (PST)
+	Sun, 23 Nov 2025 12:19:41 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7aa9be9f03aso2847577b3a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 23 Nov 2025 04:19:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1763877880; x=1764482680; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y0Ym3e4+eljcJanj0NgQ/ieTgJgvdEQmEY7BMRWL1sM=;
-        b=zbGqB48dQ4r4+8pPdT9tOt4qYdo/ZAMnI5nsT71eib4R6XiERSJirZNvLVMO1pwIFp
-         yXvEAvlqMDuaTu1uuU606b0wLm5aGV9NnYkXlGkS8arE7oWh3AjvtA1faFJzATKrPfnx
-         ox5gaK2opmlLjQcOxlZWs4AEZzU5Xr+Ko5OST1UjQ+UXFv17RAJjAX55HfdgaFcBLgfC
-         yQ90MiYeTpUT0uuxNKG2Bju5Lgt8A+wL+F9GCa3vRWKyGpSEYmbnOUgMncbjYwNcb1eg
-         LlfO8fU8Ein4oddD7zaHUSaS1XYQMeM+X0nzz1oDc48qCOK1FIEDJEL12rxyB7OSLr7+
-         CdAA==
+        d=gmail.com; s=20230601; t=1763900376; x=1764505176; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tCYrQqEvztHYX2R5Z02I20mOYhdh9Ir99v7aCp1zUe4=;
+        b=FLzvRXaYRRzqa3cBTgzRggIuDW+UzEXsKb1X8eB7Daa8XHj2Ue9oGhdmiViLqxa77R
+         LxuSiG0VBcnYGHSb7JhPzswFZ18K12LyiGdn/KXczWrIAJGtvmM3Y0ZSRnwgU+pX8jnr
+         FTlOEN7FT8dYGLGB4iJEMHm38ImQYywY2I3Sh8D8u9bAmbK7LzM5WorlMofEA5sjvKAV
+         44LR7xeawuOFxg9s7V+JoRuphiBBXmva9DR+R7mWLXjMhAkJ3BK5EHeaexCVhTz7GFrV
+         GprMoxJtu7RlKA55R0qxxvVpdjHZ4SpZ3Xyvq+V0/2r6rBmPuf11xXLPaOv+7J14ZH6Y
+         sf1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763877880; x=1764482680;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=y0Ym3e4+eljcJanj0NgQ/ieTgJgvdEQmEY7BMRWL1sM=;
-        b=TgH7ck2U9BHrQs9dqPvASvs/04miWWHI0hAwkeAJOk4LoU+vWN8tKUltTIGvuwA8V5
-         RzFRkBlYKjkXkrzuGNH7Q3R4SrAdA4Apq8sLjsbqCjrbAQ+nKzo34RJh8E/KCeKRGgJc
-         P6hqdYGDrKis9loeDInuXldDXlwL+A45QXUM7I4BSflgp5CYLmlzl2t/oyjgO9q++EET
-         QodpzM5PQeMH8DdugkjdVSH9s7TBuSglqWDeG7btI2hkf9HSgzOFG2eNv+NbdU36IeZz
-         3a1j/o5bhSDoYUPvt8NunX7QAf/9IdEEaCCH5DnDgrHTzFfZIz31SJ4au7rjC3oFaJe0
-         cm2g==
-X-Forwarded-Encrypted: i=1; AJvYcCU7bsPi6i8hbpFvQLve1DA5WBwn125MUUj57YtsUf18ZJw2LqtR3Shnayqx0PNviitCnoxYR+QKf2XU7A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRXF4Zq+OUT5GEDYMDgnMYUGUC6y2cMeVxWXix7vnBs+ZoVsNO
-	Zp7R5lxdxhZD3u8pnNcQC9aWY64rl1YFdzd9rM7sNrzQctDpqlVg2Cl06lUbzvewfjuIC14lzvv
-	7d3+Bys/fK2sheHWJgFKW+LELsCoiCbc/S/eNUrGfBQ==
-X-Gm-Gg: ASbGncugvpZG3yG0DkaLLEjyQlKD7A521+qrQfO9eN8Ni+nxDBfRSavse9hrmA+glhO
-	xcSoy053ENP6a7/FNAtmJhK/7KoVC/PWgMobuabT9br0Jsqjo+lCAvJeEYd91k50Rt6G9WH1NLc
-	Gkvt76D3aj47iFsVir7Bly0ohMtA/hgzaqh3hgYXqWURaMlPQ4nSDVZbAT4H6XAXEjUb6s8FJY6
-	XHEEtzc2RExPgj5YA5TeMUvbopi5I1O4oyWfL+FTLSIuIgQjmherb+XBf66cI/uAakPdL0=
-X-Google-Smtp-Source: AGHT+IEICGt8U1dMzIatJR8sF+e5pkTbQAXoofCiolmsKFJW3OgUk7F+wVhAFpJqZBuqpSvwmp+AG6sTiLDxQF69RwQ=
-X-Received: by 2002:a05:6e02:b25:b0:42d:878b:6e40 with SMTP id
- e9e14a558f8ab-435b986a6a0mr42106725ab.13.1763877880147; Sat, 22 Nov 2025
- 22:04:40 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763900376; x=1764505176;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tCYrQqEvztHYX2R5Z02I20mOYhdh9Ir99v7aCp1zUe4=;
+        b=eqeYfDFgdpTEGy2cbtREDvwwhKu+4CMOFS6a/zb0jcWRMHkKxpI944iHF5tCBTocDt
+         id47seiyWfggKzD00K7LjzHYbfKAiEkuCKmod27WP8ac31tEfoFkORZ9gMQKWVTQURw4
+         eRII1AfC7SDWRaQqeDfYakLKdjUrdwHFfvOgrc2eluwXmPJrZm67YR7JiSwQcBd/j6Od
+         coEf95wdMCUz4s72/mDolSPsi06nlYvSBW7l8RsyjkGKxqXD6R5c4eDJH44Gc1lBcpp1
+         o0UK9oGGZaSikgst4od2ctL+GbSq4NS287I7MPwfXYT+8nf+POOf3lwfO25hKVUB3E7p
+         vhGw==
+X-Forwarded-Encrypted: i=1; AJvYcCULYPMqk5fwlskEZJ30OLNawqiG0Szn5K8DAVijCfOzLJl1BAYR3sDQao00CLQVVryR/TJN69Pt9fIzUA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7YioUAq05/XvoQ609h2Usd64zKNChvRRi2FP4ENz0iOs5dhMN
+	eebt9FMwTIe83wcqUJw59qQMJ0clTG8XTlnXB5qjrVtB9DI7VWO58o7E
+X-Gm-Gg: ASbGncvoTdAV6Ym8mj7A39NO24t+WnffBnjMEVXW5SZqwRe/Hl1WkcLtL3W71hy0I9r
+	icEQwiZys3NoofTCYHI3CE+t1sG1HLt6RMjoLoeSreZwjjxKJNFPv/7si8rQIxvLsmEPDda+TFb
+	0hljj4dcG7DZ3wMgwFgmpEnYOb3Y8e3gd3R7ghnhoHSNubacnHGmL3wnQX/Gk9Gx59zGsnb3taf
+	37+Ty5O7+D0USY6fTubrCjDCK2r7lzgZpeSDbkoKjr9sTvVLf8b9smFj/qK1kzbJtjrGeEqwWI5
+	UwmnscDDD0L7Dgozo8G3zsMGN1hCKYRZEqpZz8iL1MyRpNkeIoHlQE7sWS7y5A44rLiA3tpWhhi
+	pdn2e50TrMESciOJhUNWCvaohLWdKah/YMPiXX2dmx5Q9LnLSGvc3it979QenVGQNmaQdIkZQF3
+	SCKTuMib06hH/8AKJ0gMRxRm7FNsR/i4kT/EJZlI/0xtNYCKee
+X-Google-Smtp-Source: AGHT+IGf6ygH8Jb4cf01QxiqfQEDJ29a6hRUllFevQDvAG//mWFJqgi9wfdZ9zJBDAoD7TvOdP34+g==
+X-Received: by 2002:a05:6a00:1aca:b0:781:9ae1:1be6 with SMTP id d2e1a72fcca58-7c58c2b0d3amr10154323b3a.6.1763900375746;
+        Sun, 23 Nov 2025 04:19:35 -0800 (PST)
+Received: from DESKTOP-8TIG9K0.localdomain ([45.121.215.197])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7c3f0b63aefsm11410178b3a.52.2025.11.23.04.19.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Nov 2025 04:19:35 -0800 (PST)
+From: Xie Yuanbin <qq570070308@gmail.com>
+To: tglx@linutronix.de,
+	peterz@infradead.org,
+	david@kernel.org,
+	riel@surriel.com,
+	segher@kernel.crashing.org,
+	hpa@zytor.com,
+	arnd@arndb.de,
+	mingo@redhat.com,
+	juri.lelli@redhat.com,
+	vincent.guittot@linaro.org,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	vschneid@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	luto@kernel.org,
+	linux@armlinux.org.uk,
+	mathieu.desnoyers@efficios.com,
+	paulmck@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	hca@linux.ibm.com,
+	gor@linux.ibm.com,
+	agordeev@linux.ibm.com,
+	borntraeger@linux.ibm.com,
+	svens@linux.ibm.com,
+	davem@davemloft.net,
+	andreas@gaisler.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	james.clark@linaro.org,
+	anna-maria@linutronix.de,
+	frederic@kernel.org,
+	nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com,
+	morbo@google.com,
+	justinstitt@google.com,
+	thuth@redhat.com,
+	akpm@linux-foundation.org,
+	lorenzo.stoakes@oracle.com,
+	anshuman.khandual@arm.com,
+	nysal@linux.ibm.com,
+	max.kellermann@ionos.com,
+	urezki@gmail.com,
+	ryan.roberts@arm.com
+Cc: linux-kernel@vger.kernel.org,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	llvm@lists.linux.dev,
+	Xie Yuanbin <qq570070308@gmail.com>
+Subject: [PATCH v4 0/3] Optimize code generation during context switching
+Date: Sun, 23 Nov 2025 20:18:24 +0800
+Message-ID: <20251123121827.1304-1-qq570070308@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-References: <20251117084555.157642-1-minachou@andestech.com>
-In-Reply-To: <20251117084555.157642-1-minachou@andestech.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sun, 23 Nov 2025 11:34:28 +0530
-X-Gm-Features: AWmQ_bmRp_9DDhqwwT4rIHuX4mhNyPkmL0MkYJ-_5w63jKGHv0Xy2EdoowK85SY
-Message-ID: <CAAhSdy0mS++Oqp6jB8vf5n5Q8EYbFUDYceYxj1R6eH67=X2RZg@mail.gmail.com>
-Subject: Re: [PATCH v4] RISC-V: KVM: Flush VS-stage TLB after VCPU migration
- for split two-stage TLBs
-To: Hui Min Mina Chou <minachou@andestech.com>
-Cc: atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, tim609@andestech.com, ben717@andestech.com, 
-	az70021@gmail.com, =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_220441_331701_5B3E7F34 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20251123_041937_407948_22ABCB86 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,118 +152,223 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QSBzaG9ydGVyIHBhdGNoIHN1YmplY3QgY2FuIGJlOgoiUklTQy1WOiBLVk06IEZsdXNoIFZTLXN0
-YWdlIFRMQiBhZnRlciBWQ1BVIG1pZ3JhdGlvbiBmb3IgQW5kZXMgY29yZXMiCgpPbiBNb24sIE5v
-diAxNywgMjAyNSBhdCAyOjE54oCvUE0gSHVpIE1pbiBNaW5hIENob3UKPG1pbmFjaG91QGFuZGVz
-dGVjaC5jb20+IHdyb3RlOgo+Cj4gTW9zdCBpbXBsZW1lbnRhdGlvbnMgY2FjaGUgdGhlIGNvbWJp
-bmVkIHJlc3VsdCBvZiB0d28tc3RhZ2UKPiB0cmFuc2xhdGlvbiwgYnV0IHNvbWUsIGxpa2UgQW5k
-ZXMgY29yZXMsIHVzZSBzcGxpdCBUTEJzIHRoYXQKPiBzdG9yZSBWUy1zdGFnZSBhbmQgRy1zdGFn
-ZSBlbnRyaWVzIHNlcGFyYXRlbHkuCj4KPiBPbiBzdWNoIHN5c3RlbXMsIHdoZW4gYSBWQ1BVIG1p
-Z3JhdGVzIHRvIGFub3RoZXIgQ1BVLCBhbiBhZGRpdGlvbmFsCj4gSEZFTkNFLlZWTUEgaXMgcmVx
-dWlyZWQgdG8gYXZvaWQgdXNpbmcgc3RhbGUgVlMtc3RhZ2UgZW50cmllcywgd2hpY2gKPiBjb3Vs
-ZCBvdGhlcndpc2UgY2F1c2UgZ3Vlc3QgZmF1bHRzLgo+Cj4gSW50cm9kdWNlIGEgc3RhdGljIGtl
-eSB0byBpZGVudGlmeSBDUFVzIHdpdGggc3BsaXQgdHdvLXN0YWdlIFRMQnMuCj4gV2hlbiBlbmFi
-bGVkLCBLVk0gaXNzdWVzIGFuIGV4dHJhIEhGRU5DRS5WVk1BIG9uIFZDUFUgbWlncmF0aW9uIHRv
-Cj4gcHJldmVudCBzdGFsZSBWUy1zdGFnZSBtYXBwaW5ncy4KPgo+IFNpZ25lZC1vZmYtYnk6IEh1
-aSBNaW4gTWluYSBDaG91IDxtaW5hY2hvdUBhbmRlc3RlY2guY29tPgo+IFNpZ25lZC1vZmYtYnk6
-IEJlbiBab25nLVlvdSBYaWUgPGJlbjcxN0BhbmRlc3RlY2guY29tPgo+IFJldmlld2VkLWJ5OiBS
-YWRpbSBLcsSNbcOhxZkgPHJrcmNtYXJAdmVudGFuYW1pY3JvLmNvbT4KPiAtLS0KPiBDaGFuZ2Vs
-b2c6Cj4KPiB2NDoKPiAgLSBSZW5hbWUgdGhlIHBhdGNoIHN1YmplY3QKPiAgLSBSZW1vdmUgdGhl
-IEZpeGVzIHRhZwo+ICAtIEFkZCBhIHN0YXRpYyBrZXkgc28gdGhhdCBIRkVOQ0UuVlZNQSBpcyBp
-c3N1ZWQgb25seSBvbiBDUFVzIHdpdGgKPiAgICBzcGxpdCB0d28tc3RhZ2UgVExCcwo+ICAtIEFk
-ZCBrdm1fcmlzY3Zfc2V0dXBfdmVuZG9yX2ZlYXR1cmVzKCkgdG8gZGV0ZWN0IG12ZW5kb3JpZC9t
-YXJjaGlkCj4gICAgYW5kIGVuYWJsZSB0aGUga2V5IHdoZW4gcmVxdWlyZWQKPgo+IHYzOgo+ICAt
-IFJlc29sdmVkIGJ1aWxkIHdhcm5pbmc7IHVwZGF0ZWQgaGVhZGVyIGRlY2xhcmF0aW9uIGFuZCBj
-YWxsIHNpZGUgdG8KPiAgICBrdm1fcmlzY3ZfbG9jYWxfdGxiX3Nhbml0aXplCj4gIC0gQWRkIFJh
-ZGltIEtyxI1tw6HFmSdzIFJldmlld2VkLWJ5IHRhZwo+ICAoaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
-cmcvYWxsLzIwMjUxMDIzMDMyNTE3LjI1MjcxOTMtMS1taW5hY2hvdUBhbmRlc3RlY2guY29tLykK
-Pgo+IHYyOgo+ICAtIFVwZGF0ZWQgRml4ZXMgY29tbWl0IHRvIDkyZTQ1MDUwN2Q1Ngo+ICAtIFJl
-bmFtZWQgZnVuY3Rpb24gdG8ga3ZtX3Jpc2N2X2xvY2FsX3RsYl9zYW5pdGl6ZQo+ICAoaHR0cHM6
-Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUxMDIxMDgzMTA1LjQwMjkzMDUtMS1taW5hY2hvdUBh
-bmRlc3RlY2guY29tLykKPiAtLS0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1faG9zdC5o
-IHwgIDIgKysKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fdm1pZC5oIHwgIDIgKy0KPiAg
-YXJjaC9yaXNjdi9rdm0vbWFpbi5jICAgICAgICAgICAgIHwgMTQgKysrKysrKysrKysrKysKPiAg
-YXJjaC9yaXNjdi9rdm0vdmNwdS5jICAgICAgICAgICAgIHwgIDIgKy0KPiAgYXJjaC9yaXNjdi9r
-dm0vdm1pZC5jICAgICAgICAgICAgIHwgIDYgKysrKystCj4gIDUgZmlsZXMgY2hhbmdlZCwgMjMg
-aW5zZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0
-LmgKPiBpbmRleCBkNzFkMzI5OWEzMzUuLjIxYWJhYzJmODA0ZSAxMDA2NDQKPiAtLS0gYS9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL2t2bV9ob3N0LmgKPiBAQCAtMzIzLDQgKzMyMyw2IEBAIGJvb2wga3ZtX3Jpc2N2X3ZjcHVf
-c3RvcHBlZChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpOwo+Cj4gIHZvaWQga3ZtX3Jpc2N2X3ZjcHVf
-cmVjb3JkX3N0ZWFsX3RpbWUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsKPgo+ICtERUNMQVJFX1NU
-QVRJQ19LRVlfRkFMU0Uoa3ZtX3Jpc2N2X3RsYl9zcGxpdF9tb2RlKTsKPiArCgoia3ZtX3Jpc2N2
-X3Zzc3RhZ2VfdGxiX25vX2dwYSIgaXMgYSBiZXR0ZXIgbmFtZSBmb3IgdGhlIHN0YXRpYyBrZXku
-Cgo+ICAjZW5kaWYgLyogX19SSVNDVl9LVk1fSE9TVF9IX18gKi8KPiBkaWZmIC0tZ2l0IGEvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fdm1pZC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9r
-dm1fdm1pZC5oCj4gaW5kZXggYWI5OGUxNDM0ZmI3Li43NWZiNmU4NzJjY2QgMTAwNjQ0Cj4gLS0t
-IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fdm1pZC5oCj4gKysrIGIvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9rdm1fdm1pZC5oCj4gQEAgLTIyLDYgKzIyLDYgQEAgdW5zaWduZWQgbG9uZyBr
-dm1fcmlzY3ZfZ3N0YWdlX3ZtaWRfYml0cyh2b2lkKTsKPiAgaW50IGt2bV9yaXNjdl9nc3RhZ2Vf
-dm1pZF9pbml0KHN0cnVjdCBrdm0gKmt2bSk7Cj4gIGJvb2wga3ZtX3Jpc2N2X2dzdGFnZV92bWlk
-X3Zlcl9jaGFuZ2VkKHN0cnVjdCBrdm1fdm1pZCAqdm1pZCk7Cj4gIHZvaWQga3ZtX3Jpc2N2X2dz
-dGFnZV92bWlkX3VwZGF0ZShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpOwo+IC12b2lkIGt2bV9yaXNj
-dl9nc3RhZ2Vfdm1pZF9zYW5pdGl6ZShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpOwo+ICt2b2lkIGt2
-bV9yaXNjdl9sb2NhbF90bGJfc2FuaXRpemUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsKCmt2bV9y
-aXNjdl9sb2NhbF90bGJfc2FuaXRpemUoKSBtdXN0IGJlIGRlY2xhcmVkIGluIGt2bV90bGIuaAoK
-Pgo+ICAjZW5kaWYKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vbWFpbi5jIGIvYXJjaC9y
-aXNjdi9rdm0vbWFpbi5jCj4gaW5kZXggNjdjODc2ZGU3NGVmLi5iZjBlNGYxYWJlMGYgMTAwNjQ0
-Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vbWFpbi5jCj4gKysrIGIvYXJjaC9yaXNjdi9rdm0vbWFp
-bi5jCj4gQEAgLTE1LDYgKzE1LDE4IEBACj4gICNpbmNsdWRlIDxhc20va3ZtX25hY2wuaD4KPiAg
-I2luY2x1ZGUgPGFzbS9zYmkuaD4KPgo+ICtERUZJTkVfU1RBVElDX0tFWV9GQUxTRShrdm1fcmlz
-Y3ZfdGxiX3NwbGl0X21vZGUpOwo+ICsKPiArc3RhdGljIHZvaWQga3ZtX3Jpc2N2X3NldHVwX3Zl
-bmRvcl9mZWF0dXJlcyh2b2lkKQo+ICt7Cj4gKyAgICAgICAvKiBBbmRlcyBBWDY2OiBzcGxpdCB0
-d28tc3RhZ2UgVExCcyAqLwo+ICsgICAgICAgaWYgKHJpc2N2X2NhY2hlZF9tdmVuZG9yaWQoMCkg
-PT0gQU5ERVNfVkVORE9SX0lEICYmCj4gKyAgICAgICAgICAgKHJpc2N2X2NhY2hlZF9tYXJjaGlk
-KDApICYgMHhGRkZGKSA9PSAweDhBNjYpIHsKPiArICAgICAgICAgICAgICAgc3RhdGljX2JyYW5j
-aF9lbmFibGUoJmt2bV9yaXNjdl90bGJfc3BsaXRfbW9kZSk7Cj4gKyAgICAgICAgICAgICAgIGt2
-bV9pbmZvKCJ1c2luZyBzcGxpdCB0d28tc3RhZ2UgVExCcyByZXF1aXJpbmcgZXh0cmEgSEZFTkNF
-LlZWTUFcbiIpOwoKSSB0aGluayB0aGUgIlZTLXN0YWdlIFRMQiBkb2VzIG5vdCBjYWNoZSBndWVz
-dCBwaHlzaWNhbCBhZGRyZXNzZXMKYW5kIFZNSUQiIG1lc3NhZ2UgaXMgbW9yZSBjbGVhci4KCj4g
-KyAgICAgICB9Cj4gK30KPiArCj4gIGxvbmcga3ZtX2FyY2hfZGV2X2lvY3RsKHN0cnVjdCBmaWxl
-ICpmaWxwLAo+ICAgICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGludCBpb2N0bCwgdW5z
-aWduZWQgbG9uZyBhcmcpCj4gIHsKPiBAQCAtMTU5LDYgKzE3MSw4IEBAIHN0YXRpYyBpbnQgX19p
-bml0IHJpc2N2X2t2bV9pbml0KHZvaWQpCj4gICAgICAgICAgICAgICAgIGt2bV9pbmZvKCJBSUEg
-YXZhaWxhYmxlIHdpdGggJWQgZ3Vlc3QgZXh0ZXJuYWwgaW50ZXJydXB0c1xuIiwKPiAgICAgICAg
-ICAgICAgICAgICAgICAgICAga3ZtX3Jpc2N2X2FpYV9ucl9oZ2VpKTsKPgo+ICsgICAgICAga3Zt
-X3Jpc2N2X3NldHVwX3ZlbmRvcl9mZWF0dXJlcygpOwo+ICsKPiAgICAgICAgIGt2bV9yZWdpc3Rl
-cl9wZXJmX2NhbGxiYWNrcyhOVUxMKTsKPgo+ICAgICAgICAgcmMgPSBrdm1faW5pdChzaXplb2Yo
-c3RydWN0IGt2bV92Y3B1KSwgMCwgVEhJU19NT0RVTEUpOwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L2t2bS92Y3B1LmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiBpbmRleCAzZWJjZmZmYWE5
-NzguLjc5NjIxOGU0YTQ2MiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiAr
-KysgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiBAQCAtOTY4LDcgKzk2OCw3IEBAIGludCBrdm1f
-YXJjaF92Y3B1X2lvY3RsX3J1bihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4gICAgICAgICAgICAg
-ICAgICAqIE5vdGU6IFRoaXMgc2hvdWxkIGJlIGRvbmUgYWZ0ZXIgRy1zdGFnZSBWTUlEIGhhcyBi
-ZWVuCj4gICAgICAgICAgICAgICAgICAqIHVwZGF0ZWQgdXNpbmcga3ZtX3Jpc2N2X2dzdGFnZV92
-bWlkX3Zlcl9jaGFuZ2VkKCkKPiAgICAgICAgICAgICAgICAgICovCj4gLSAgICAgICAgICAgICAg
-IGt2bV9yaXNjdl9nc3RhZ2Vfdm1pZF9zYW5pdGl6ZSh2Y3B1KTsKPiArICAgICAgICAgICAgICAg
-a3ZtX3Jpc2N2X2xvY2FsX3RsYl9zYW5pdGl6ZSh2Y3B1KTsKPgo+ICAgICAgICAgICAgICAgICB0
-cmFjZV9rdm1fZW50cnkodmNwdSk7Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdm1p
-ZC5jIGIvYXJjaC9yaXNjdi9rdm0vdm1pZC5jCj4gaW5kZXggM2I0MjZjODAwNDgwLi4xZGJkNTBj
-NjdhODggMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vdm1pZC5jCj4gKysrIGIvYXJjaC9y
-aXNjdi9rdm0vdm1pZC5jCj4gQEAgLTEyNSw3ICsxMjUsNyBAQCB2b2lkIGt2bV9yaXNjdl9nc3Rh
-Z2Vfdm1pZF91cGRhdGUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQo+ICAgICAgICAgICAgICAgICBr
-dm1fbWFrZV9yZXF1ZXN0KEtWTV9SRVFfVVBEQVRFX0hHQVRQLCB2KTsKPiAgfQo+Cj4gLXZvaWQg
-a3ZtX3Jpc2N2X2dzdGFnZV92bWlkX3Nhbml0aXplKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKPiAr
-dm9pZCBrdm1fcmlzY3ZfbG9jYWxfdGxiX3Nhbml0aXplKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkK
-PiAgewo+ICAgICAgICAgdW5zaWduZWQgbG9uZyB2bWlkOwo+Cj4gQEAgLTE0Niw0ICsxNDYsOCBA
-QCB2b2lkIGt2bV9yaXNjdl9nc3RhZ2Vfdm1pZF9zYW5pdGl6ZShzdHJ1Y3Qga3ZtX3ZjcHUgKnZj
-cHUpCj4KPiAgICAgICAgIHZtaWQgPSBSRUFEX09OQ0UodmNwdS0+a3ZtLT5hcmNoLnZtaWQudm1p
-ZCk7Cj4gICAgICAgICBrdm1fcmlzY3ZfbG9jYWxfaGZlbmNlX2d2bWFfdm1pZF9hbGwodm1pZCk7
-Cj4gKwo+ICsgICAgICAgLyogRm9yIHNwbGl0IFRMQiBkZXNpZ25zLCBmbHVzaCBWUy1zdGFnZSBl
-bnRyaWVzIGFsc28gKi8KPiArICAgICAgIGlmIChzdGF0aWNfYnJhbmNoX3VubGlrZWx5KCZrdm1f
-cmlzY3ZfdGxiX3NwbGl0X21vZGUpKQo+ICsgICAgICAgICAgICAgICBrdm1fcmlzY3ZfbG9jYWxf
-aGZlbmNlX3Z2bWFfYWxsKHZtaWQpOwo+ICB9Cgprdm1fcmlzY3ZfbG9jYWxfdGxiX3Nhbml0aXpl
-KCkgaW1wbGVtZW50YXRpb24gbXVzdCBiZQptb3ZlZCB0byBrdm0vdGxiLmMKCj4gLS0KPiAyLjM0
-LjEKPgoKSSB3aWxsIHRha2UgY2FyZSBvZiB0aGUgYWJvdmUgY29tbWVudHMgYXQgdGhlIHRpbWUg
-b2YgbWVyZ2luZwp0aGlzIHBhdGNoLiBJZiBhbnkgZnVydGhlciBjaGFuZ2VzIGFyZSByZXF1aXJl
-ZCB0aGVuIEkgY2FuIHNxdWFzaApjaGFuZ2VzIGJlZm9yZSB0aGUgZW5kIG9mIG5leHQgd2Vlay4K
-ClF1ZXVlZCB0aGlzIHBhdGNoIGZvciBMaW51eC02LjE5LgoKVGhhbmtzLApBbnVwCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+The purpose of this series of patches is to optimize the performance of
+context switching. It does not change the code logic, but only modifies
+the inline attributes of some functions.
+
+It is found that finish_task_switch() is not inlined even in the O2 level
+optimization. This may affect performance for the following reasons:
+1. It is in the context switching code, which is a hot code path.
+2. Because of the modern CPU vulnerabilities, kernel is likely to perform
+some mitigations inside switch_mm_irq_off(), such as branch prediction
+hardening or l1d flushing, the instruction pipeline and cache may be
+flushed. finish_task_switch() is right after that, so the performance
+here is greatly affected by function calls and branch jumps.
+3. The __schedule function has __sched attribute, which makes it be
+placed in the ".sched.text" section, while finish_task_switch() does not,
+which causes their distance to be very far in binary, aggravating the
+above performance degradation.
+
+This series of patches primarily make some functions called in context
+switching as always inline to optimize performance. Here is the
+performance test data for these patches:
+Time spent on calling finish_task_switch(), the unit is tsc from x86:
+ | test scenario             | old   | new   | delta          |
+ | gcc 15.2                  | 13.94 | 12.40 | 1.54  (-11.1%) |
+ | gcc 15.2 + spectre_v2     | 24.78 | 13.70 | 11.08 (-44.7%) |
+ | clang 21.1.4              | 13.90 | 12.71 | 1.19  (- 8.6%) |
+ | clang 21.1.4 + spectre_v2 | 29.01 | 18.91 | 10.1  (-34.8%) |
+
+Additional information:
+1. The testing kernel source is commit 9c0826a5d9aa4d52206d ("Add
+linux-next specific files for 20251107") from linux-next branch.
+
+2. Testing machine:
+cpu: intel i5-8300h@4Ghz
+mem: DDR4 2666MHz
+Bare-metal boot, non-virtualized environment
+
+3. Testing compiler:
+gcc: gcc version 15.2.0 (Debian 15.2.0-7) with
+GNU ld (GNU Binutils for Debian) 2.45
+clang: Debian clang version 21.1.4 (8) with
+Debian LLD 21.1.4 (compatible with GNU linkers)
+
+4. Testing config:
+base on default x86_64_defconfig, and setting:
+CONFIG_HZ=100
+CONFIG_DEBUG_ENTRY=n
+CONFIG_X86_DEBUG_FPU=n
+CONFIG_EXPERT=y
+CONFIG_MODIFY_LDT_SYSCALL=n
+CONFIG_CGROUPS=n
+CONFIG_BLK_DEV_NVME=y
+
+5. Test method:
+Use rdtsc (cntvct_el0 can be use on arm64/arm) to obtain timestamps
+before and after finish_task_switch() calling point, and created multiple
+processes to trigger context switches, then calculated the average
+duration of the finish_task_switch() call.
+Note that using multiple processes rather than threads is recommended for
+testing, because this will trigger switch_mm_irqs_off(), where
+spectre_v2 mitigations may be performed, during context switching.
+
+6. Testing code:
+kernel:
+```patch
+diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
+index 8a4ac4841be6..5a42ec008620 100644
+--- a/arch/x86/entry/syscalls/syscall_64.tbl
++++ b/arch/x86/entry/syscalls/syscall_64.tbl
+@@ -395,6 +395,7 @@
+ 468	common	file_getattr		sys_file_getattr
+ 469	common	file_setattr		sys_file_setattr
+ 470	common	listns			sys_listns
++471	common	sched_test		sys_sched_test
+ 
+ #
+ # Due to a historical design error, certain syscalls are numbered differently
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 81cf8452449a..d7e2095aeb7d 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -5195,6 +5195,36 @@ asmlinkage __visible void schedule_tail(struct task_struct *prev)
+ 	calculate_sigpending();
+ }
+ 
++static DEFINE_PER_CPU(uint64_t, start_time);
++static DEFINE_PER_CPU(uint64_t, total_time);
++static DEFINE_PER_CPU(uint64_t, total_count);
++
++static __always_inline uint64_t test_rdtsc(void)
++{
++    register uint64_t rax __asm__("rax");
++    register uint64_t rdx __asm__("rdx");
++
++    __asm__ __volatile__ ("rdtsc" : "=a"(rax), "=d"(rdx));
++    return rax | (rdx << 32);
++}
++
++static __always_inline void test_start(void)
++{
++	raw_cpu_write(start_time, test_rdtsc());
++}
++
++static __always_inline void test_end(void)
++{
++	const uint64_t end_time = test_rdtsc();
++	const uint64_t cost_time = end_time - raw_cpu_read(start_time);
++
++	raw_cpu_add(total_time, cost_time);
++	if (unlikely(raw_cpu_inc_return(total_count) % (1 << 20) == 0)) {
++		pr_emerg("cpu %d total_time %llu\n", raw_smp_processor_id(), raw_cpu_read(total_time));
++		raw_cpu_write(total_time, 0);
++	}
++}
++
+ /*
+  * context_switch - switch to the new MM and the new thread's register state.
+  */
+@@ -5264,7 +5294,10 @@ context_switch(struct rq *rq, struct task_struct *prev,
+ 	switch_to(prev, next, prev);
+ 	barrier();
+ 
+-	return finish_task_switch(prev);
++	test_start();
++	rq = finish_task_switch(prev);
++	test_end();
++	return rq;
+ }
+ 
+ /*
+@@ -10861,3 +10894,18 @@ void sched_change_end(struct sched_change_ctx *ctx)
+ 		p->sched_class->prio_changed(rq, p, ctx->prio);
+ 	}
+ }
++
++static struct task_struct *wait_task;
++
++SYSCALL_DEFINE0(sched_test)
++{
++	preempt_disable();
++	while (1) {
++		if (likely(wait_task))
++			wake_up_process(wait_task);
++		wait_task = current;
++		set_current_state(TASK_UNINTERRUPTIBLE);
++		__schedule(SM_NONE);
++	}
++	return 0;
++}
+```
+
+User program:
+```c
+int main()
+{
+	cpu_set_t mask;
+	if (fork())
+		sleep(1);
+
+	CPU_ZERO(&mask);
+	CPU_SET(5, &mask); // Assume that cpu5 exists
+	assert(sched_setaffinity(0, sizeof(mask), &mask) == 0);
+	syscall(471);
+	// unreachable
+	return 0;
+}
+```
+
+Usage:
+1. set core5 as isolated cpu: add "isolcpus=5" to cmdline
+2. run user programe
+3. wait for kernel print
+
+v3->v4: https://lore.kernel.org/20251113105227.57650-1-qq570070308@gmail.com
+  - Improve the commit message
+
+v2->v3: https://lore.kernel.org/20251108172346.263590-1-qq570070308@gmail.com
+  - Fix building error in patch 1
+  - Simply add the __always_inline attribute to the existing function,
+    Instead of adding the always inline version functions
+
+v1->v2: https://lore.kernel.org/20251024182628.68921-1-qq570070308@gmail.com
+  - Make raw_spin_rq_unlock() inline
+  - Make __balance_callbacks() inline
+  - Add comments for always inline functions
+  - Add Performance Test Data
+
+Xie Yuanbin (3):
+  x86/mm/tlb: Make enter_lazy_tlb() always inline on x86
+  sched: Make raw_spin_rq_unlock() inline
+  sched/core: Make finish_task_switch() and its subfunctions always
+    inline
+
+ arch/arm/include/asm/mmu_context.h      |  2 +-
+ arch/riscv/include/asm/sync_core.h      |  2 +-
+ arch/s390/include/asm/mmu_context.h     |  2 +-
+ arch/sparc/include/asm/mmu_context_64.h |  2 +-
+ arch/x86/include/asm/mmu_context.h      | 23 ++++++++++++++++++++++-
+ arch/x86/include/asm/sync_core.h        |  2 +-
+ arch/x86/mm/tlb.c                       | 21 ---------------------
+ include/linux/perf_event.h              |  2 +-
+ include/linux/sched/mm.h                | 10 +++++-----
+ include/linux/tick.h                    |  4 ++--
+ include/linux/vtime.h                   |  8 ++++----
+ kernel/sched/core.c                     | 19 +++++++------------
+ kernel/sched/sched.h                    | 24 ++++++++++++++----------
+ 13 files changed, 60 insertions(+), 61 deletions(-)
+
+-- 
+2.51.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
