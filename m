@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47530CFC518
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Nov 2025 12:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E08CFC518
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Nov 2025 12:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7qSA7CEDBp/FrwgahCcxGkgEXurrHrzkfThHNZuB0LM=; b=O3XRgMgAGUy4oM
-	eoJDbslspqLN6zQmUJ8cEbtVERN81/rnr2FzvnlGw/EmatgmvXGEGx5DsFgRYdlOR+u+msM9Dd3Tn
-	us+9fBuU8/DOc43uZNadUe4Bt9q0FSSIMSoB29xTBQPsU8PRcxKfk8/zBSd9TqUEDReD87SSfP2ph
-	ZG674aYYpgMidrghHUu2vtjt5+7QrY50CXTgYf0nMmsdfqdoCjhEcEtQMftnfojFAPzMUSaUTjYbw
-	2RPKOQR6I7hcm2EgDnk3+lykeLDlE+0DdD6mvZ55cM83rq95bL3wokFN03GQWOLovCANAl01mFGZT
-	NEkn/Sy4Kvtkec5x899w==;
+	List-Owner; bh=yoXgQYINrw+17ekLhYhFqh91MWvuootTea3pnGjFmVM=; b=xI/B+kPEDM/wf2
+	rmfDB6HcnI0spJ3p3H1OWBxUw2tldZEQglMB/ybWkIoipXu0RvTmpJ/StlqiK2lCR9SxksbUcuttI
+	IOSHKk6sloSSJuCDclOsAv8BTXo+RcPUpDK40fsLcgyERfjgsf6soyO8r5mRfVBRN76kqqqzkKXrf
+	UgTiyD5wKtwwjIdT/YUBhbhmep3Pp2IQUAA0RFtO1ZJy+nfwNSZAD3bWwOknRDj0CDnX5nM829R0r
+	8AO8a4a9qfCIWY+AUqqH9HMObj2QVNYkDef0hiGuhYgTluSoLqxuKf13MNkmi5qBIiVgc1CVIpsJR
+	Xvq8a1P6O9kvQhJ301vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN967-0000000AP43-0gv7;
-	Sun, 23 Nov 2025 12:21:43 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1vN96S-0000000AP9e-0jrX;
+	Sun, 23 Nov 2025 12:22:04 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN964-0000000AP3F-1cMa
+	id 1vN96P-0000000AP8Z-2Sts
 	for linux-riscv@lists.infradead.org;
-	Sun, 23 Nov 2025 12:21:41 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-7ba92341f83so4820450b3a.0
-        for <linux-riscv@lists.infradead.org>; Sun, 23 Nov 2025 04:21:40 -0800 (PST)
+	Sun, 23 Nov 2025 12:22:02 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7b8eff36e3bso5342802b3a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 23 Nov 2025 04:22:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763900500; x=1764505300; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1763900521; x=1764505321; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gehuDY8hCnCk3Q8zSl7CeP6iDX7lw6Gp8zKZT6EL4m4=;
-        b=KL7b8rcTo3bAaamwGdyDotf9sOmbUzuAwkIuvclhD+fjUDjVzjsBVGzZPXc0NqCElZ
-         YloiplLim1moLPHEFIPAIIpP1PwwcjpqNEQOUx36q7OApnY5ilI6Quk9XOnBEVjOjz1T
-         7jxlahFhUJ/bnEADlfsNWnlF88XSkkolSi73Fmlo3cmp7oQBVCPU/BgRfr6yobCX+1ml
-         ZSoVfQEUrb04Pozk/L3F8v0gkwcqhtdjZiC5CCe0Ocr5884aM5gC1I2Q/cpQeoE+shPG
-         71RI9mthMqjvw8TuZZF6hbryHIRSgaszxH+BDT+RyIGrAhIoEOd8sQW5x5kaVGWR83ZT
-         aV0Q==
+        bh=rB4uv8kGHrYdQ+qu/Ya46ZVR53dC3l9vjdLUEI9k7FQ=;
+        b=JZ/BsRhrsvOKKNiqVph5WGNoTtkUEx3tQXT+8iP+YnJjQAQmImIeWAlTt4cR5IWsQI
+         XUvtkRoGvYMOJo3qXxrtx9+HpaXMYWRCLJgOIKm7jesc4b4oE10ThlVxExXp+6QOjtiQ
+         X5kpCooeSRasskxxLXwdsBHHisVBgiGzE63WiXpGH6h2/yiEG+hNzhSFNxYS49XnjlNq
+         fCAmI51Lv6gK1wiY8sUIvjmZ0PAtC90i9ILRp0cyqXLF5qmDWObTE4fMuI8YYQbzC57+
+         dvd32vBE5mGHEg66ZoN3tr1r5cCXOGo587v84mVs4euESBcUgGACZnIuhL9QtLeWw0vQ
+         R7kQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763900500; x=1764505300;
+        d=1e100.net; s=20230601; t=1763900521; x=1764505321;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=gehuDY8hCnCk3Q8zSl7CeP6iDX7lw6Gp8zKZT6EL4m4=;
-        b=afm5ebEViJytKdwNLEkgmzXsJjOP4CvucBkSFHDJoByKs6RL9fIeyHN0CfLn/4Ih/q
-         klB4a1QxdMmSEP4PcQnsk1v7UUg2CVsrjzNQABbo0UyINvxexfxFJ6SUbsKy5AfJh5IU
-         rNeU6qkFAmv5A11AWut/z58R276EH+sr/sm8/ziWQlfWaV6B5GiJr/N7xHFnfwcpwFF1
-         vVyMdP74NJNEP1F/BdBYC+rBp+FAvqO2+uniAmvRcM+izSYiLpi39QtIdfc91b7fCoIV
-         fJ9+uv8wvR5LHEctRzsj0Kmg5jFCqVwFXeGnD7usrvIf9ZoNL2CqD+91fT8b6y02j0J0
-         hAKw==
-X-Forwarded-Encrypted: i=1; AJvYcCW8cC5gdX8BFO6UzCGq47yw1mk/0+tP3TooC8vCR8Q2vDxKvKwtKbcG7MMhBkfaUbKGVwKSv06WrWughg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUkGTyNgTRbp0t0ufnCGj59AyiYA01z6cc13HWAI8VO33Pf3di
-	egWTPNgWBBoNq5YcDvImU+AtA2vKH8JygpIOoAlgDjUe47QKf6D2sryk
-X-Gm-Gg: ASbGncskDt4QbDXJBJ1q0fyIAXCIHtJ8GBlNNKyVDvcSG1ZSADTNluZ7B9VwZwcfLXG
-	I+2/L/wsdLnUPSTw5xhE1jb0F+fHIuAr1xCnwS+FGQZ/aYEPK8pUS5k2y0v5wGnyBgTeXL35Rvl
-	e6cJjNrtcId2OqhKB+Skkf/rPoVJ46RCsPFPUDxa4TX9l008h+4qqrTkNwSdHxseq5U56h/ITk6
-	lbRT0Lc/HuZL08wSw76MqXbanxeK7jLh8X8IhhycrIdUzh2/OyNSh3Q65sm49sy1ouXbbsqFyUz
-	uTXXX7bbpJGz50voZjJyei39zp7racldSxiLOfSSfo6JEFsDrfKTDdNiw4dOSQ7Z8YFJ7heLYun
-	h0dzYSvv9WrHbpb8KbLKudmKtTBuT7mTwZ5Nm5VLUbTfGCKUqchOllAEMZjviKhiFN09h+ZAY+8
-	KK857BF3Aiccn4gRud2EG+m345wj5YdZBWWf/+gA==
-X-Google-Smtp-Source: AGHT+IGKqRo5Rqn/7cYYbwvHMYFh4KwgapmQlfr3dLMTE6/Ihy9Y8y5GgtK/UfE6HYkuLUDpc/O0UQ==
-X-Received: by 2002:a05:6a00:22cb:b0:7b9:d7c2:fdf6 with SMTP id d2e1a72fcca58-7c58e601920mr9501764b3a.24.1763900499427;
-        Sun, 23 Nov 2025 04:21:39 -0800 (PST)
+        bh=rB4uv8kGHrYdQ+qu/Ya46ZVR53dC3l9vjdLUEI9k7FQ=;
+        b=xDAx+Eo0w6PVycmulpX2UaTGJz5solb8ZiNSQPbV0TPgaSwxO2ZGhX4VwMFPE3StM0
+         QFiOZKc2i3jsyzLmeOBK8D3aQ7jB0m0aNfQjDFh9BNmom3PqWH8D+LVTGXROO7Wps5VH
+         Wyh+8wjZwOitNH8lpWjT8TJHjclN+ANC58i2Aoglsfp6oFuGQFih67E0woOtoL5pW6N/
+         j9CBEtpPlBqDmCb5uFw3IpZRbodITZw4mL5tN5PsePLlacmUlsclI2ykCsMfBWaGbUuO
+         FjenqUMFZ66YFHWlZJRCFIy25JIhB1T73RQ7Kwt+9Zf7m1nBpCcEkpLd1qSOiSCbU8RU
+         Owmg==
+X-Forwarded-Encrypted: i=1; AJvYcCUt9fwqF5+Mpp7wt5YxwnIlLSaPSDs0j6+tKSDLk9xeZtqRyFHh7+x/tGdgFnYqF1w1V+4dvoIDIF3b5g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmqHkoTQLRUED+qfKgs9FEQ1OTMgmYNKVVHYofG7czwOhsxQUQ
+	IDIRrg14GzLSy11uo3oYQ2drnk/XhbVHsa7t8X4Z8KDreLzeB4OVWAQH
+X-Gm-Gg: ASbGncstdsqaN//pOIXL+DMxmxlaQugjUzJSg7Q/t6KtbKIzw5Elp+AMjOkDZnK52d0
+	u0y//vAY2CumajOw9IkK6lvoR+fj3QLzVYuDdpLYtOcHKUU7RAIYQV0POMNfq86Yska5T35RkAL
+	jhkXK9TKS4MwBDpO6W9YkqwLkUATmV+ijfPEGPK+akPN6veV/YCXV5ZzpyX4GZQS4JCAvw+wYkL
+	2J2SIP+c+RQn05VzCCzN4qZ8Xra2iov3hH8cCFwsiX9WSwj4bCmjDGsoC2j61lMMU30xCUPUYZg
+	ZGaTZvO1XjrS04uMjNm6Ts+ifiYaIqZ/kra/19NuZcytSXQikSXXknI3OpEfpU/5D8on7lxEV56
+	BD1TLMCTkWX7f63r1G0SBygp88+tRhnwatJjdpsUHwUKcKxnWfDisCrEuByVP21U5ahENFwuQfd
+	T8g3Mu+rT7ttBOeT6m84DqFMLw+8jRgmwDtTyxTUIRCPXzFqCi
+X-Google-Smtp-Source: AGHT+IGQG35NYvN7K5sssKQSBcqyisoVwQMWJ1B/AAA9uaABXDE+fiVx1k3aI58ekzaclz7KCP6OAg==
+X-Received: by 2002:a05:6a00:2384:b0:7ac:1444:6777 with SMTP id d2e1a72fcca58-7c58c89d553mr8910922b3a.12.1763900520454;
+        Sun, 23 Nov 2025 04:22:00 -0800 (PST)
 Received: from DESKTOP-8TIG9K0.localdomain ([45.121.215.197])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7c3f0b63aefsm11410178b3a.52.2025.11.23.04.21.24
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7c3f0b63aefsm11410178b3a.52.2025.11.23.04.21.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Nov 2025 04:21:39 -0800 (PST)
+        Sun, 23 Nov 2025 04:21:59 -0800 (PST)
 From: Xie Yuanbin <qq570070308@gmail.com>
 To: tglx@linutronix.de,
 	peterz@infradead.org,
@@ -134,17 +134,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	llvm@lists.linux.dev,
 	Xie Yuanbin <qq570070308@gmail.com>
-Subject: [PATCH v4 2/3] sched: Make raw_spin_rq_unlock() inline
-Date: Sun, 23 Nov 2025 20:18:26 +0800
-Message-ID: <20251123121827.1304-3-qq570070308@gmail.com>
+Subject: [PATCH v4 3/3] sched/core: Make finish_task_switch() and its subfunctions always inline
+Date: Sun, 23 Nov 2025 20:18:27 +0800
+Message-ID: <20251123121827.1304-4-qq570070308@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251123121827.1304-1-qq570070308@gmail.com>
 References: <20251123121827.1304-1-qq570070308@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_042140_425227_F29C9FBB 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251123_042201_656700_53AEE900 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,10 +160,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-raw_spin_rq_unlock() is short, and is called in some hot code paths
-such as finish_lock_switch.
+finish_task_switch() is a hot code path in context switching.
+When spectre_v2_user is enabled, kernel is likely to perform branch
+prediction hardening inside switch_mm_irqs_off(). finish_task_switch()
+is right after switch_mm_irqs_off(), so the performance here is
+greatly affected by function calls and branch jumps.
 
-Make raw_spin_rq_unlock() inline to optimize performance.
+Make finish_task_switch() always inline to optimize performance.
+
+After finish_task_switch() is changed as always inline, the number of
+calling points of subfunctions increases. According to the compiler
+optimization strategy, subfunctions that were originally inline may no
+longer be inline.
+
+Also make the subfunctions of finish_task_stwitch() always inline to
+prevent performance degradation.
+
+There is a improvement in the performace of finish_task_switch(). When
+spectre v2 is enabled, the improvement is significant.
+
+The following are testing results from intel i5-8300h@4Ghz (x86):
+Time spent on calling finish_task_switch(), the unit is tsc from x86:
+ | test scenario             | old   | new   | delta          |
+ | gcc 15.2                  | 13.94 | 12.40 | 1.54  (-11.1%) |
+ | gcc 15.2 + spectre_v2     | 24.78 | 13.70 | 11.08 (-44.7%) |
+ | clang 21.1.4              | 13.90 | 12.71 | 1.19  (- 8.6%) |
+ | clang 21.1.4 + spectre_v2 | 29.01 | 18.91 | 10.1  (-34.8%) |
+
+There is a minor improvement in the size of .text section in vmlinux,
+the unit is bytes:
+ | test scenario             | old      | new      | delta |
+ | gcc 15.2                  | 16208096 | 16208736 | 640   |
+ | clang 21.1.4              | 17943328 | 17944224 | 896   |
+
+No size changes were found on bzImage.
 
 Signed-off-by: Xie Yuanbin <qq570070308@gmail.com>
 Cc: Thomas Gleixner <tglx@linutronix.de>
@@ -173,53 +202,380 @@ Cc: Segher Boessenkool <segher@kernel.crashing.org>
 Cc: David Hildenbrand (Red Hat) <david@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>
 Cc: H. Peter Anvin (Intel) <hpa@zytor.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
 ---
-V3->V4: https://lore.kernel.org/20251113105227.57650-3-qq570070308@gmail.com
-  -- Revise commit message
+Additional information:
+1. The default spectre_v2 mitigation strategy on x86 is conditional, it
+can be set to always by appending "spectre_v2_user=on" to cmdline.
+However, on arm64/arm32, spectre v2 mitigation is enabled by default, and
+it should be disabled by adding "nospectre_v2" to the cmdline.
 
- kernel/sched/core.c  | 5 -----
- kernel/sched/sched.h | 6 +++++-
- 2 files changed, 5 insertions(+), 6 deletions(-)
+2. The testing kernel source is commit 9c0826a5d9aa4d52206d ("Add
+linux-next specific files for 20251107") from linux-next branch.
 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index f2931af76405..0f9e9f54d0a8 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -678,11 +678,6 @@ bool raw_spin_rq_trylock(struct rq *rq)
+3. When testing for performace, I use the default x86_64_defconfig,
+and setting:
+CONFIG_HZ=100
+CONFIG_DEBUG_ENTRY=n
+CONFIG_X86_DEBUG_FPU=n
+CONFIG_EXPERT=y
+CONFIG_MODIFY_LDT_SYSCALL=n
+CONFIG_CGROUPS=n
+CONFIG_BLK_DEV_NVME=y
+When testing for size, I use the default x86_64_defconfig,
+and setting:
+CONFIG_SCHED_CORE=y
+CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+CONFIG_NO_HZ_FULL=y
+
+4. It is recommended that using multiple processes rather than threads to
+do the test, because this will trigger switch_mm_irqs_off(), where
+spectre_v2 mitigations may be performed, during context switching.
+
+5. The test code can be found at the end of the cover letter:
+Link: https://lore.kernel.org/20251123121827.1304-1-qq570070308@gmail.com
+
+ arch/arm/include/asm/mmu_context.h      |  2 +-
+ arch/riscv/include/asm/sync_core.h      |  2 +-
+ arch/s390/include/asm/mmu_context.h     |  2 +-
+ arch/sparc/include/asm/mmu_context_64.h |  2 +-
+ arch/x86/include/asm/sync_core.h        |  2 +-
+ include/linux/perf_event.h              |  2 +-
+ include/linux/sched/mm.h                | 10 +++++-----
+ include/linux/tick.h                    |  4 ++--
+ include/linux/vtime.h                   |  8 ++++----
+ kernel/sched/core.c                     | 14 +++++++-------
+ kernel/sched/sched.h                    | 20 ++++++++++----------
+ 11 files changed, 34 insertions(+), 34 deletions(-)
+
+diff --git a/arch/arm/include/asm/mmu_context.h b/arch/arm/include/asm/mmu_context.h
+index db2cb06aa8cf..bebde469f81a 100644
+--- a/arch/arm/include/asm/mmu_context.h
++++ b/arch/arm/include/asm/mmu_context.h
+@@ -80,7 +80,7 @@ static inline void check_and_switch_context(struct mm_struct *mm,
+ #ifndef MODULE
+ #define finish_arch_post_lock_switch \
+ 	finish_arch_post_lock_switch
+-static inline void finish_arch_post_lock_switch(void)
++static __always_inline void finish_arch_post_lock_switch(void)
+ {
+ 	struct mm_struct *mm = current->mm;
+ 
+diff --git a/arch/riscv/include/asm/sync_core.h b/arch/riscv/include/asm/sync_core.h
+index 9153016da8f1..2fe6b7fe6b12 100644
+--- a/arch/riscv/include/asm/sync_core.h
++++ b/arch/riscv/include/asm/sync_core.h
+@@ -6,7 +6,7 @@
+  * RISC-V implements return to user-space through an xRET instruction,
+  * which is not core serializing.
+  */
+-static inline void sync_core_before_usermode(void)
++static __always_inline void sync_core_before_usermode(void)
+ {
+ 	asm volatile ("fence.i" ::: "memory");
+ }
+diff --git a/arch/s390/include/asm/mmu_context.h b/arch/s390/include/asm/mmu_context.h
+index d9b8501bc93d..c124ef6a01b3 100644
+--- a/arch/s390/include/asm/mmu_context.h
++++ b/arch/s390/include/asm/mmu_context.h
+@@ -97,7 +97,7 @@ static inline void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+ }
+ 
+ #define finish_arch_post_lock_switch finish_arch_post_lock_switch
+-static inline void finish_arch_post_lock_switch(void)
++static __always_inline void finish_arch_post_lock_switch(void)
+ {
+ 	struct task_struct *tsk = current;
+ 	struct mm_struct *mm = tsk->mm;
+diff --git a/arch/sparc/include/asm/mmu_context_64.h b/arch/sparc/include/asm/mmu_context_64.h
+index 78bbacc14d2d..d1967214ef25 100644
+--- a/arch/sparc/include/asm/mmu_context_64.h
++++ b/arch/sparc/include/asm/mmu_context_64.h
+@@ -160,7 +160,7 @@ static inline void arch_start_context_switch(struct task_struct *prev)
+ }
+ 
+ #define finish_arch_post_lock_switch	finish_arch_post_lock_switch
+-static inline void finish_arch_post_lock_switch(void)
++static __always_inline void finish_arch_post_lock_switch(void)
+ {
+ 	/* Restore the state of MCDPER register for the new process
+ 	 * just switched to.
+diff --git a/arch/x86/include/asm/sync_core.h b/arch/x86/include/asm/sync_core.h
+index 96bda43538ee..4b55fa353bb5 100644
+--- a/arch/x86/include/asm/sync_core.h
++++ b/arch/x86/include/asm/sync_core.h
+@@ -93,7 +93,7 @@ static __always_inline void sync_core(void)
+  * to user-mode. x86 implements return to user-space through sysexit,
+  * sysrel, and sysretq, which are not core serializing.
+  */
+-static inline void sync_core_before_usermode(void)
++static __always_inline void sync_core_before_usermode(void)
+ {
+ 	/* With PTI, we unconditionally serialize before running user code. */
+ 	if (static_cpu_has(X86_FEATURE_PTI))
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index 9870d768db4c..d9de20c20f38 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -1624,7 +1624,7 @@ static inline void perf_event_task_migrate(struct task_struct *task)
+ 		task->sched_migrated = 1;
+ }
+ 
+-static inline void perf_event_task_sched_in(struct task_struct *prev,
++static __always_inline void perf_event_task_sched_in(struct task_struct *prev,
+ 					    struct task_struct *task)
+ {
+ 	if (static_branch_unlikely(&perf_sched_events))
+diff --git a/include/linux/sched/mm.h b/include/linux/sched/mm.h
+index 0e1d73955fa5..e7787a6e7d22 100644
+--- a/include/linux/sched/mm.h
++++ b/include/linux/sched/mm.h
+@@ -44,7 +44,7 @@ static inline void smp_mb__after_mmgrab(void)
+ 
+ extern void __mmdrop(struct mm_struct *mm);
+ 
+-static inline void mmdrop(struct mm_struct *mm)
++static __always_inline void mmdrop(struct mm_struct *mm)
+ {
+ 	/*
+ 	 * The implicit full barrier implied by atomic_dec_and_test() is
+@@ -71,14 +71,14 @@ static inline void __mmdrop_delayed(struct rcu_head *rhp)
+  * Invoked from finish_task_switch(). Delegates the heavy lifting on RT
+  * kernels via RCU.
+  */
+-static inline void mmdrop_sched(struct mm_struct *mm)
++static __always_inline void mmdrop_sched(struct mm_struct *mm)
+ {
+ 	/* Provides a full memory barrier. See mmdrop() */
+ 	if (atomic_dec_and_test(&mm->mm_count))
+ 		call_rcu(&mm->delayed_drop, __mmdrop_delayed);
+ }
+ #else
+-static inline void mmdrop_sched(struct mm_struct *mm)
++static __always_inline void mmdrop_sched(struct mm_struct *mm)
+ {
+ 	mmdrop(mm);
+ }
+@@ -104,7 +104,7 @@ static inline void mmdrop_lazy_tlb(struct mm_struct *mm)
  	}
  }
  
--void raw_spin_rq_unlock(struct rq *rq)
--{
--	raw_spin_unlock(rq_lockp(rq));
--}
--
- /*
-  * double_rq_lock - safely lock two runqueues
+-static inline void mmdrop_lazy_tlb_sched(struct mm_struct *mm)
++static __always_inline void mmdrop_lazy_tlb_sched(struct mm_struct *mm)
+ {
+ 	if (IS_ENABLED(CONFIG_MMU_LAZY_TLB_REFCOUNT))
+ 		mmdrop_sched(mm);
+@@ -531,7 +531,7 @@ enum {
+ #include <asm/membarrier.h>
+ #endif
+ 
+-static inline void membarrier_mm_sync_core_before_usermode(struct mm_struct *mm)
++static __always_inline void membarrier_mm_sync_core_before_usermode(struct mm_struct *mm)
+ {
+ 	/*
+ 	 * The atomic_read() below prevents CSE. The following should
+diff --git a/include/linux/tick.h b/include/linux/tick.h
+index ac76ae9fa36d..fce16aa10ba2 100644
+--- a/include/linux/tick.h
++++ b/include/linux/tick.h
+@@ -175,7 +175,7 @@ extern cpumask_var_t tick_nohz_full_mask;
+ #ifdef CONFIG_NO_HZ_FULL
+ extern bool tick_nohz_full_running;
+ 
+-static inline bool tick_nohz_full_enabled(void)
++static __always_inline bool tick_nohz_full_enabled(void)
+ {
+ 	if (!context_tracking_enabled())
+ 		return false;
+@@ -299,7 +299,7 @@ static inline void __tick_nohz_task_switch(void) { }
+ static inline void tick_nohz_full_setup(cpumask_var_t cpumask) { }
+ #endif
+ 
+-static inline void tick_nohz_task_switch(void)
++static __always_inline void tick_nohz_task_switch(void)
+ {
+ 	if (tick_nohz_full_enabled())
+ 		__tick_nohz_task_switch();
+diff --git a/include/linux/vtime.h b/include/linux/vtime.h
+index 29dd5b91dd7d..428464bb81b3 100644
+--- a/include/linux/vtime.h
++++ b/include/linux/vtime.h
+@@ -67,24 +67,24 @@ static __always_inline void vtime_account_guest_exit(void)
+  * For now vtime state is tied to context tracking. We might want to decouple
+  * those later if necessary.
   */
+-static inline bool vtime_accounting_enabled(void)
++static __always_inline bool vtime_accounting_enabled(void)
+ {
+ 	return context_tracking_enabled();
+ }
+ 
+-static inline bool vtime_accounting_enabled_cpu(int cpu)
++static __always_inline bool vtime_accounting_enabled_cpu(int cpu)
+ {
+ 	return context_tracking_enabled_cpu(cpu);
+ }
+ 
+-static inline bool vtime_accounting_enabled_this_cpu(void)
++static __always_inline bool vtime_accounting_enabled_this_cpu(void)
+ {
+ 	return context_tracking_enabled_this_cpu();
+ }
+ 
+ extern void vtime_task_switch_generic(struct task_struct *prev);
+ 
+-static inline void vtime_task_switch(struct task_struct *prev)
++static __always_inline void vtime_task_switch(struct task_struct *prev)
+ {
+ 	if (vtime_accounting_enabled_this_cpu())
+ 		vtime_task_switch_generic(prev);
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 0f9e9f54d0a8..e4ede8f7e0e3 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -4865,7 +4865,7 @@ static inline void prepare_task(struct task_struct *next)
+ 	WRITE_ONCE(next->on_cpu, 1);
+ }
+ 
+-static inline void finish_task(struct task_struct *prev)
++static __always_inline void finish_task(struct task_struct *prev)
+ {
+ 	/*
+ 	 * This must be the very last reference to @prev from this CPU. After
+@@ -4881,7 +4881,7 @@ static inline void finish_task(struct task_struct *prev)
+ 	smp_store_release(&prev->on_cpu, 0);
+ }
+ 
+-static void do_balance_callbacks(struct rq *rq, struct balance_callback *head)
++static __always_inline void do_balance_callbacks(struct rq *rq, struct balance_callback *head)
+ {
+ 	void (*func)(struct rq *rq);
+ 	struct balance_callback *next;
+@@ -4916,7 +4916,7 @@ struct balance_callback balance_push_callback = {
+ 	.func = balance_push,
+ };
+ 
+-static inline struct balance_callback *
++static __always_inline struct balance_callback *
+ __splice_balance_callbacks(struct rq *rq, bool split)
+ {
+ 	struct balance_callback *head = rq->balance_callback;
+@@ -4946,7 +4946,7 @@ struct balance_callback *splice_balance_callbacks(struct rq *rq)
+ 	return __splice_balance_callbacks(rq, true);
+ }
+ 
+-static void __balance_callbacks(struct rq *rq)
++static __always_inline void __balance_callbacks(struct rq *rq)
+ {
+ 	do_balance_callbacks(rq, __splice_balance_callbacks(rq, false));
+ }
+@@ -4979,7 +4979,7 @@ prepare_lock_switch(struct rq *rq, struct task_struct *next, struct rq_flags *rf
+ #endif
+ }
+ 
+-static inline void finish_lock_switch(struct rq *rq)
++static __always_inline void finish_lock_switch(struct rq *rq)
+ {
+ 	/*
+ 	 * If we are tracking spinlock dependencies then we have to
+@@ -5011,7 +5011,7 @@ static inline void kmap_local_sched_out(void)
+ #endif
+ }
+ 
+-static inline void kmap_local_sched_in(void)
++static __always_inline void kmap_local_sched_in(void)
+ {
+ #ifdef CONFIG_KMAP_LOCAL
+ 	if (unlikely(current->kmap_ctrl.idx))
+@@ -5064,7 +5064,7 @@ prepare_task_switch(struct rq *rq, struct task_struct *prev,
+  * past. 'prev == current' is still correct but we need to recalculate this_rq
+  * because prev may have moved to another CPU.
+  */
+-static struct rq *finish_task_switch(struct task_struct *prev)
++static __always_inline struct rq *finish_task_switch(struct task_struct *prev)
+ 	__releases(rq->lock)
+ {
+ 	struct rq *rq = this_rq();
 diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index bbf513b3e76c..a60b238cb0f5 100644
+index a60b238cb0f5..412ff6149570 100644
 --- a/kernel/sched/sched.h
 +++ b/kernel/sched/sched.h
-@@ -1551,13 +1551,17 @@ static inline void lockdep_assert_rq_held(struct rq *rq)
+@@ -1381,12 +1381,12 @@ static inline struct cpumask *sched_group_span(struct sched_group *sg);
  
+ DECLARE_STATIC_KEY_FALSE(__sched_core_enabled);
+ 
+-static inline bool sched_core_enabled(struct rq *rq)
++static __always_inline bool sched_core_enabled(struct rq *rq)
+ {
+ 	return static_branch_unlikely(&__sched_core_enabled) && rq->core_enabled;
+ }
+ 
+-static inline bool sched_core_disabled(void)
++static __always_inline bool sched_core_disabled(void)
+ {
+ 	return !static_branch_unlikely(&__sched_core_enabled);
+ }
+@@ -1395,7 +1395,7 @@ static inline bool sched_core_disabled(void)
+  * Be careful with this function; not for general use. The return value isn't
+  * stable unless you actually hold a relevant rq->__lock.
+  */
+-static inline raw_spinlock_t *rq_lockp(struct rq *rq)
++static __always_inline raw_spinlock_t *rq_lockp(struct rq *rq)
+ {
+ 	if (sched_core_enabled(rq))
+ 		return &rq->core->__lock;
+@@ -1403,7 +1403,7 @@ static inline raw_spinlock_t *rq_lockp(struct rq *rq)
+ 	return &rq->__lock;
+ }
+ 
+-static inline raw_spinlock_t *__rq_lockp(struct rq *rq)
++static __always_inline raw_spinlock_t *__rq_lockp(struct rq *rq)
+ {
+ 	if (rq->core_enabled)
+ 		return &rq->core->__lock;
+@@ -1497,12 +1497,12 @@ static inline bool sched_core_disabled(void)
+ 	return true;
+ }
+ 
+-static inline raw_spinlock_t *rq_lockp(struct rq *rq)
++static __always_inline raw_spinlock_t *rq_lockp(struct rq *rq)
+ {
+ 	return &rq->__lock;
+ }
+ 
+-static inline raw_spinlock_t *__rq_lockp(struct rq *rq)
++static __always_inline raw_spinlock_t *__rq_lockp(struct rq *rq)
+ {
+ 	return &rq->__lock;
+ }
+@@ -1552,23 +1552,23 @@ static inline void lockdep_assert_rq_held(struct rq *rq)
  extern void raw_spin_rq_lock_nested(struct rq *rq, int subclass);
  extern bool raw_spin_rq_trylock(struct rq *rq);
--extern void raw_spin_rq_unlock(struct rq *rq);
  
- static inline void raw_spin_rq_lock(struct rq *rq)
+-static inline void raw_spin_rq_lock(struct rq *rq)
++static __always_inline void raw_spin_rq_lock(struct rq *rq)
  {
  	raw_spin_rq_lock_nested(rq, 0);
  }
  
-+static inline void raw_spin_rq_unlock(struct rq *rq)
-+{
-+	raw_spin_unlock(rq_lockp(rq));
-+}
-+
- static inline void raw_spin_rq_lock_irq(struct rq *rq)
+-static inline void raw_spin_rq_unlock(struct rq *rq)
++static __always_inline void raw_spin_rq_unlock(struct rq *rq)
+ {
+ 	raw_spin_unlock(rq_lockp(rq));
+ }
+ 
+-static inline void raw_spin_rq_lock_irq(struct rq *rq)
++static __always_inline void raw_spin_rq_lock_irq(struct rq *rq)
  {
  	local_irq_disable();
+ 	raw_spin_rq_lock(rq);
+ }
+ 
+-static inline void raw_spin_rq_unlock_irq(struct rq *rq)
++static __always_inline void raw_spin_rq_unlock_irq(struct rq *rq)
+ {
+ 	raw_spin_rq_unlock(rq);
+ 	local_irq_enable();
 -- 
 2.51.0
 
