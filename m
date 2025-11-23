@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31E6CFA46B
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Nov 2025 18:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C415CFC518
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Nov 2025 19:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Vehlj8RnKBzxcAbbreQw2YlcLa4yC+J2lVtb5bXDK6E=; b=gt3TPNWyiVQCJ8
-	KijLugxy/ExnP2IBTY9d+HMXmaAiMvKtPScXdQbrp6afvDQV5gwYunOC72ryQTqGNxVWYVqYoFhKO
-	H6OhzF66oDMnon+9VIw4qvDyDfIKl+z+thf09KFrtwwY41tRx1JvoJiq/0pvqkvmoGvkSgYzjaV2j
-	fMgmAbq+B5D8Zm7E05H4jeuGWVThOAokzcClqRaT0o6bG8viV6jZDSWCwm7/IE2FWq/7tmVoPY4hy
-	ax5OXVr6wH6UWeK0wJyGH0UgTlC/OCS//ksjPsg8XCrb8VZi1qmuYkd3tSJcKjCwBrSmeDNLak/AH
-	mUnRDbvAnA4y68Ojloag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XyIREzi42umQNu4GLEWV+yjNEzzs98gz4s22GqelLqM=; b=gQPZoRlLTg1SlrlrsaMwZQzH3A
+	CGTbBdTLa9J0lOga2wwgdYhl8axZzTWWKjTphg045TKD6BwWkDqZO195ENVVbWepwkBGLkoTbyqkJ
+	dHuOwtMrV7TNI9PMs2Dg0XEcSICBdzfA41OC3kpDZDPjl7mVCffMlJGhxxuLxQdnqfg17jbW+thXn
+	2VUcTsnpbxycTxw+4GJnMvsyEnZt8RaP1gG7J9UocOJFhyN43uh2AQaF8Edn30spCnoi81YQtA5I6
+	S3bTIRXp7U8V2c8Sh9oZfjgQDayKtbLWbqgZgPSd1/K8wxjJ1lLBlA0zlaPKSCmraFVy6/7COIs/I
+	O0WSCQyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNFDj-0000000AckP-1Nox;
-	Sun, 23 Nov 2025 18:53:59 +0000
+	id 1vNFK0-0000000AdGc-1Hox;
+	Sun, 23 Nov 2025 19:00:28 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNFDi-0000000AckF-1Pvs
+	id 1vNFJy-0000000AdGU-11Y9
 	for linux-riscv@lists.infradead.org;
-	Sun, 23 Nov 2025 18:53:58 +0000
+	Sun, 23 Nov 2025 19:00:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78D5560051;
-	Sun, 23 Nov 2025 18:53:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2220AC113D0;
-	Sun, 23 Nov 2025 18:53:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 29F90600C3;
+	Sun, 23 Nov 2025 19:00:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0904DC116B1;
+	Sun, 23 Nov 2025 19:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763924035;
-	bh=yvfIFkSNs3ybUYGQuCNnXP8WGROL0KV3aClc5Kte83A=;
-	h=From:To:Cc:Subject:Date:From;
-	b=pTIOu/cdnsA4ewhCRvDsanfUq6Wz9qMxXeIh1c0ZY0UV/+r8xLaJFIxzmGp88pwTC
-	 mOLjusWqpGq3QW5RuYfVQ1O04FZAeJmGOFMD293wKzUZnNoQEYZPyuMPySToOVThrx
-	 eSWVKOFujjpO/FVnkXWxxsXLxNVdEuivKK96lJyr1pjS39qFFbEZQRMk0rVpQCdtOu
-	 iXlui1qF9rsueAp22TZeneWHoruKuM1nD+I1104N37WUks+DRBZ59cl32Np8mznBp2
-	 TZnaTEVBGFxUXoK9FgU8gJG5rXqxXsnM/5yJFAiifS3mzejdl4I2td2hFkw2qhaGtY
-	 /uKbjIsQSQcbA==
+	s=k20201202; t=1763924424;
+	bh=9m7Xe3YPvGvx/YhDpSl02W5vZl4cE6QTfFAbyeafE7w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=e0Ky+/hKTXIjKO2Wset/lmvbjZy9W50U0T+PluPCEPfnnO+ukDmp/EUwk2/XmUk6p
+	 9iz7ICONgXb8gXKUjBiC+Ee5DJTRkRboyNP8NasQ0dQOu9ODExBBZq0esq1+ipymA5
+	 QVRv4vCZxDFKtbD5cOQ3vjsST4M117pe99R61IpZU0fp3uqOtozz06Hzw/0M/myLTo
+	 rs4hdrhGDI/JydHIMrS/xd7sw33PYmf0SnUVXRa6ZkDtmudTiEpx58Hs5Nm58D47LK
+	 ZGFMaUVya/e26IT5nO4BWRBwybg4wvyf58t3LiTTV45tnJEEwn7JVHDlXjd+Ey3TuR
+	 E/NaOP86HhBgg==
+Date: Sun, 23 Nov 2025 19:00:21 +0000
 From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Emil Renner Berthing <kernel@esmil.dk>
-Subject: [PATCH v1 1/4] MAINTAINERS: add Conor to StarFive entry
-Date: Sun, 23 Nov 2025 18:53:40 +0000
-Message-ID: <20251123-shopper-stunner-c3c5ff00b0ee@spud>
-X-Mailer: git-send-email 2.51.0
+To: =?iso-8859-1?Q?Ren=E9?= Rebe <rene@exactco.de>
+Cc: linux-riscv@lists.infradead.org,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH] riscv: dts: sifive: unmatched: Add PWM controlled fans
+Message-ID: <20251123-widow-prowler-9cedafa7bf3d@spud>
+References: <20251122.131940.192031134976081316.rene@exactco.de>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1188; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=UDqXviiyDO2rvEhsW8EMk+fYotEhO0q1Mh7aZXGvkyM=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnKEaZmWj3iG5Ta01MYXjYu1jj8ZrNfUpbgDwP2VZ4/F nT6vGHqKGVhEONikBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwESK9jD8Mw1yPlwdLbr5j+yP Rb+Nmh9/1o4zVLnR2HSgMrRl0+6MJIb/2Ubqngara+cEpl+dmuTwWM/0fOzs+T9tSi8F5UjY8SY yAgA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <20251122.131940.192031134976081316.rene@exactco.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,51 +63,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1819869796477681183=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-I apply the patches for StarFive devicetrees, add me to the entry along
-with my tree location etc. This is not a functional change, as this info
-was in the "RISC-V MISC" entry but I'd rather not have the duplication
-of entries covering the StarFive directory.
+--===============1819869796477681183==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IcDOS+BH1JPHWAV+"
+Content-Disposition: inline
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- MAINTAINERS | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 24efae3df425..a0e092d2d88a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22122,7 +22122,6 @@ T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
- F:	arch/riscv/boot/dts/canaan/
- F:	arch/riscv/boot/dts/microchip/
- F:	arch/riscv/boot/dts/sifive/
--F:	arch/riscv/boot/dts/starfive/
- 
- RISC-V PMU DRIVERS
- M:	Atish Patra <atish.patra@linux.dev>
-@@ -24447,7 +24446,10 @@ F:	drivers/crypto/starfive/
- 
- STARFIVE DEVICETREES
- M:	Emil Renner Berthing <kernel@esmil.dk>
-+M:	Conor Dooley <conor@kernel.org>
-+L:	linux-riscv@lists.infradead.org
- S:	Maintained
-+T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
- F:	arch/riscv/boot/dts/starfive/
- 
- STARFIVE DWMAC GLUE LAYER
--- 
-2.51.0
+--IcDOS+BH1JPHWAV+
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+Hey,
+
+On Sat, Nov 22, 2025 at 01:19:40PM +0100, Ren=C3=A9 Rebe wrote:
+> This adds the two PWM-controlled fans of the HiFive Unmatched board to
+> the device tree.
+>=20
+> Signed-off-by: Ren=C3=A9 Rebe <rene@exactco.de>
+> ---
+> Tested on SiFive HiFive Unmatched A00 running T2/Linux.
+
+Was this generated on top of a tree that includes 7dbc4432ea6b ("pwm:
+sifive: Fix PWM algorithm and clarify inverted compare behavior")?
+That'd be 6.17-rc1 or later.
+
+If not, the polarity of the pwms will need to be switched because the
+original driver author intentionally got it wrong and so 6.17-rc1 and
+later have the correct polarity...
+
+> ---
+>  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>=20
+> diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/r=
+iscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> index 03ce2cee4e97..850fa1d25be7 100644
+> --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> @@ -47,6 +47,16 @@ gpio-poweroff {
+>  		gpios =3D <&gpio 2 GPIO_ACTIVE_LOW>;
+>  	};
+> =20
+> +	fan1 {
+> +		compatible =3D "pwm-fan";
+> +		pwms =3D <&pwm1 2 7812500 0>;
+> +	};
+> +
+> +	fan2 {
+> +		compatible =3D "pwm-fan";
+> +		pwms =3D <&pwm1 3 7812500 0>;
+> +	};
+> +
+>  	led-controller-1 {
+>  		compatible =3D "pwm-leds";
+> =20
+> --=20
+> 2.46.0
+>=20
+>=20
+> --=20
+> Ren=C3=A9 Rebe, ExactCODE GmbH, Berlin, Germany
+> https://exactco.de =E2=80=A2 https://t2linux.com =E2=80=A2 https://patreo=
+n.com/renerebe
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--IcDOS+BH1JPHWAV+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaSNZxQAKCRB4tDGHoIJi
+0lPXAP9ssgOqSmlSLBzk57U90yDWV5k7UUm+cvu4btBeyrYguQEAgUXBYIH1MECC
+ldUPNYGI2wGs2itLtcjSZux8wskvHAQ=
+=RBI9
+-----END PGP SIGNATURE-----
+
+--IcDOS+BH1JPHWAV+--
+
+
+--===============1819869796477681183==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1819869796477681183==--
+
