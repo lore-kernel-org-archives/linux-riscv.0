@@ -4,134 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF48CFA466
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 11:35:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34039CFA466
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 12:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MfpAu0RpmihRngiGR8CVhjEKvku5IzC8AFcgaCi6DpM=; b=MYF4fDMLpVBaAC
-	0xuo1FLb5PnHikHRXPCMyyBGae1z9E4hObI+NioucnO+Y3kMOfaS0oRYXbIiWffrIQ1+DTNHNSbJj
-	VvVB9N1XZoAGTrA5LhsS749WcpaWqWaEb8qTE6ApEzbP92XiM8qQLNwLDU5p5wZMn3JdGRR4CoVHZ
-	R+kAuUaExYqCrphyYHeqtgRolh7I/0oOKaQc3M99ZJw2vdbCNyvcylfeYMqCVjFcqa+T+3LzAJaQr
-	XZjG5glpde6s6IMHwpf46N8Hwq45XmFUvJpIHnBNdxaZAEn3OO3Ympst/KOxAI4KC6zkb9+g8X2Nn
-	vBP+H9TPYr/aj78Mn9qQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k6eMzg72+ihW2qfcIhu0AHmHMPgmARLKlzonxzgHcX0=; b=dX2k4qlLS5ysuG6wtErw8Gtyl/
+	IavXL+5GDqL3z8qMBiqgjr8j9YbLAqtzMDgxflwkqjdFqMRh0oCdtK5riJtJS8LoUKG4hIrFYTcYW
+	wUTchjMpJSzYiDkgiB41VvB5kDsyJsH602MjEWzH1vUNEtxGJhwjR6g4KLlvG/UqgVaKX3JFHAlgY
+	Mm3jb2Qo5icXqcxsMCPQ/hvbAFs1Pg5I5uGzaAUlNtJasvI5dyD1wM7rReuUFrBBZmhclNTAZq51n
+	JnDDMh6ymiwaSuq5Gn1CdQZX5UUfOq0qtRZbYPajEM5MVLzVVjJVzKbwVzHW1E0s4fyvvQGd6yf5x
+	CgxLqB7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNUr2-0000000BZGU-0AEH;
-	Mon, 24 Nov 2025 11:35:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vNVK5-0000000BbLb-1JfI;
+	Mon, 24 Nov 2025 12:05:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNUqx-0000000BZG7-4A2k
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 24 Nov 2025 11:35:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=I85Xxh68/9uT6CgknlL0Nj8H4y2O0mKOXpxu6Z7Apug=; b=iJ4AjqM8ZS7RfHomBuotqZ1mO0
-	I9LK+9gx9pUO3LkKRbagVz53f0XFwFFKSrZbCuMWvHRD4OqnGzTNbqRD7Da2WtoKBw1byEoHZn84o
-	wzQFFOCnOhhV/esCvUlay2F/IFMOj7/zFiUdhJKpokd7+R5ItXJl7s71UBflLiMdR4NC47odgRica
-	0tXSckK8Csup/faHPkKgOm8/NhepS0cbvA3608R4zSCzxSq2J0Ea4C00qqAUCgYlniIncQdzbvOW/
-	iwGZdW4nMd9x02F/6PL086hfcNuf4h9dFVDIPvDv6c89ZWPjZoaPupwYK+VTzBWpG/ai+nHqP5ijf
-	W/NzxXRA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNTzI-00000003Xtj-2RZ5
+	id 1vNVK3-0000000BbL3-0bWP
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 10:40:06 +0000
+	Mon, 24 Nov 2025 12:05:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2698E435D8;
-	Mon, 24 Nov 2025 11:35:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F343DC4CEF1;
-	Mon, 24 Nov 2025 11:35:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A16B43C74;
+	Mon, 24 Nov 2025 12:05:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0D48C4CEF1;
+	Mon, 24 Nov 2025 12:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763984126;
-	bh=rV9wEI8xgRRUzZ7YVcq00IiRjy+3+mEvf0TadQmYgJo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RXT/fn+4Fjw7gIpcPvZelNAUR1Kp1D1NBc/avbSIJRnjPwerzfdp+jF9LH6J5DP3n
-	 KOzaJyBte6LWmZMaEioUYqqW3jU0GRwBLX1bgOpVKz34nEy4mxQIhly+38IacW36P+
-	 zbgHB+qs3WPiM835mGUUMRwfFiwO6c79pZ7SbhqkO5VBkbySIjyDJtIsOshVD3wDfS
-	 yCweeXRJm5ldX84phBFVogZdP09No0qgdeAcrUP36OxAthf40NSvCPJYdZX+X8S6VW
-	 q7mVSsQd5V6yyq2WrWRxKu4R2/8ihf3ySFiYvQ15guTwYWRBb5eq578s8c+skqQPkg
-	 h6TNm0bJ3mIvQ==
-Message-ID: <53f5b226-10ab-453b-a739-4bb3582fc665@kernel.org>
-Date: Mon, 24 Nov 2025 12:35:16 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/9] riscv: dts: thead: add DPU and HDMI device tree
- nodes
-To: Icenowy Zheng <uwu@icenowy.me>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>,
- Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Han Gao <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Icenowy Zheng <zhengxingda@iscas.ac.cn>
+	s=k20201202; t=1763985934;
+	bh=7sR0Xbnj66wneSR7F9/azeDlJ41BISBs9n+yKLO7m4o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PHHWsTh3KJww1D4UdL22qgXtxdbcHwZuvGinbQte4VW/acqy3pwcVegXrqEXVaEzF
+	 bfEOQCd0NbRLem1rhJEW/jDeVbivSZXdyKyVn5h/FqZ6MvBhZrl9+YaTqoUbPv8LDj
+	 Rki0vAtHq6zYji++QfrZdUOsvrSbwrTh9l90a8U8X6hESvfHOS8KwV/Uf9YV3SXfhY
+	 B+l+CFrS85I4Zvp8rUiT16XHRD1TflT4XKXs+n6VDPBqlCUv5ztCV1XCUIU4TynmML
+	 OnPYetb8p0fLfKBEZsJXYCKzoDndm8n8sv6c5BlqUbWPvLPN5GT7uXbfG3x0uzgHsb
+	 zP8RGHT70spCQ==
+Date: Mon, 24 Nov 2025 12:05:26 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 2/9] dt-bindings: display: add verisilicon,dc
+Message-ID: <20251124-said-overvalue-8a8f49d6c99d@spud>
 References: <20251124105226.2860845-1-uwu@icenowy.me>
- <20251124105226.2860845-7-uwu@icenowy.me>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251124105226.2860845-7-uwu@icenowy.me>
+ <20251124105226.2860845-3-uwu@icenowy.me>
+ <d4cfe8bb-5ca2-40a9-bfe0-96e7ded5586c@kernel.org>
+ <f7bbb57180866a0674fc1d72d4bd3279c7b1c1e9.camel@icenowy.me>
+ <c26dabfb-c4af-428b-a1d4-d626f37ff559@kernel.org>
+ <f944f0b28f62233b1874e0f00c0a130d71845417.camel@icenowy.me>
+ <6ceb41bc-0597-4ea5-84be-51f53e3bc2d8@kernel.org>
+MIME-Version: 1.0
+In-Reply-To: <6ceb41bc-0597-4ea5-84be-51f53e3bc2d8@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_104005_100440_6916959F 
-X-CRM114-Status: UNSURE (   6.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251124_040535_229465_64C52A59 
+X-CRM114-Status: GOOD (  29.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,28 +70,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Drew Fustini <fustini@kernel.org>, Heiko Stuebner <heiko@sntech.de>, dri-devel@lists.freedesktop.org, Guo Ren <guoren@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Yao Zi <ziyao@disroot.org>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Jonas Karlman <jonas@kwiboo.se>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, linux-kernel@vger.kernel.org, Thomas Zimmermann <tzimmermann@suse.de>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
+Content-Type: multipart/mixed; boundary="===============6143112617336152653=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 24/11/2025 11:52, Icenowy Zheng wrote:
-> T-Head TH1520 SoC contains a Verisilicon DC8200 display controller
-> (called DPU in manual) and a Synopsys DesignWare HDMI TX controller.
-> 
-> Add device tree nodes to them.
-> 
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+
+--===============6143112617336152653==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="538wj/U0UoW9sjer"
+Content-Disposition: inline
 
 
-Also incorrect chain order. What is odd, your next patch has a correct
-SoB matching sender, so this feels a bit random.
+--538wj/U0UoW9sjer
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
-Krzysztof
+On Mon, Nov 24, 2025 at 12:27:09PM +0100, Krzysztof Kozlowski wrote:
+> On 24/11/2025 12:13, Icenowy Zheng wrote:
+> > =E5=9C=A8 2025-11-24=E6=98=9F=E6=9C=9F=E4=B8=80=E7=9A=84 12:09 +0100=EF=
+=BC=8CKrzysztof Kozlowski=E5=86=99=E9=81=93=EF=BC=9A
+> >> On 24/11/2025 12:04, Icenowy Zheng wrote:
+> >>> =E5=9C=A8 2025-11-24=E6=98=9F=E6=9C=9F=E4=B8=80=E7=9A=84 12:01 +0100=
+=EF=BC=8CKrzysztof Kozlowski=E5=86=99=E9=81=93=EF=BC=9A
+> >>>> On 24/11/2025 11:52, Icenowy Zheng wrote:
+> >>>>> Verisilicon has a series of display controllers prefixed with
+> >>>>> DC
+> >>>>> and
+> >>>>> with self-identification facility like their GC series GPUs.
+> >>>>>
+> >>>>> Add a device tree binding for it.
+> >>>>>
+> >>>>> Depends on the specific DC model, it can have either one or two
+> >>>>> display
+> >>>>> outputs, and each display output could be set to DPI signal or
+> >>>>> "DP"
+> >>>>> signal (which seems to be some plain parallel bus to HDMI
+> >>>>> controllers).
+> >>>>>> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> >>>>> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> >>>>
+> >>>> Wrong DCO chain order. You send it as icenowy.me, so this must be
+> >>>> last
+> >>>> SoB. This identity is the last one certifying DCO. Please kindly
+> >>>> read
+> >>>> submitting patches, so you know what you are certifying here.
+> >>>
+> >>> Well I mapped the @iscas.ac.cn mail to the @icenowy.me one in the
+> >>> last
+> >>> patch.
+> >>>
+> >>> Or maybe I should make it the first patch?
+> >>
+> >> .mailmap has effect on b4 and git send-email, so maybe that's the
+> >> answer. The problem is that:
+> >> 1. This email has sender address @icenowy.me
+> >> 2. It's SoB is not the last one.
+> >=20
+> > Well, I think a patch that is already sent shouldn't have the From
+> > field changing when bumping revision, and a patch modified by one
+> > identity should have the modifying one's SoB added.
+> >=20
+> > So here I am using the @icenowy.me mail (which can represent the
+> > @iscas.ac.cn mail according to the mailmap) to send the patch that is
+> > processed by @iscas.ac.cn mail.
+> >=20
+> > Sending the patch with @iscas.ac.cn mail needs some extra setup
+> > (because of some weird security requirement).
+>=20
+> I did not ask you to change from. Please read carefully "You send it as
+> icenowy.me, so this must be last sob"
+>=20
+> and later I re-iterated.
+>=20
+> If you insist on not fixing the chain, that's a NAK from me because you
+> must follow the DCO process.
+
+I don't really get what the fuss is with the dual signoff, what's the
+point having both when they represent the same person? Pretty sure it
+was you (Krzysztof) and Arnd that told me not to both doing the double
+signoff.
+I send lots of stuff w/ my kernel.org address but only ever sign off
+with my work email since that's where attribution is going.
+
+
+--538wj/U0UoW9sjer
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaSRKBgAKCRB4tDGHoIJi
+0pDoAP9o1Z5CFCq+ltlB03RgUrPunXHtjmI71AAiETEwSj3kbwEAmDA3YF7DfVAf
+hHIyC/Q0TN/Eo9y5SG6XmQ3VImCekQ0=
+=8YX3
+-----END PGP SIGNATURE-----
+
+--538wj/U0UoW9sjer--
+
+
+--===============6143112617336152653==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6143112617336152653==--
+
