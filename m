@@ -4,107 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037D9CFD317
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 10:55:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD874CFA466
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 10:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YVTemigr4LIffiFFHO+x+hi7nCStjRJoJAGFJAHyc0k=; b=11cDGYAjShjqxs
-	gplgOB7vuouvnnX2xbtWgRrSHQJqIrBBZ1qNHY69muGRUKE66r/GyDHsqW1ZdHhluFtZ5JbxO41ag
-	EztUQVnL+UIiO2HQRVX8hb4qEQA6cgc+gECVSEn1Vvd6UgS9gJdAxw7Dnw4d02tsjlKUMarYH2bRq
-	lKlsu2NI/RhytPpajjCR6OJaZpItvkW8xpN6Tkb6AMRkMCjC4zTk97POMqZmXgcYmDBkrgIXDCM4x
-	RGXI00YVdOnprHda3ht/67XkzOgznKqLz8bqFqyU7E466Q7qnhA1S0sBplIUZ9Kj2Yw2bZKzHX7j+
-	h5k2+mGnSB09Ag33mrag==;
+	List-Owner; bh=H63raD281cKiiZsEFwm4IhpG9VA4oOtegG1YC6sPxvk=; b=c/UilWgA4PPpCr
+	fD22T008oJG8u3Sdxbk/hRM+Ypx4fSg5OMWJmgDVyXqNwasTZCnRi2V42GlchyModY3MOC4OtDZyt
+	557d8CJZ9yvIAkqipJSj8SHKlY72yB0xbCfuLsiO9SIe2VanLQngKbLcNz5ZRGCJfW7DWzDFJnQB2
+	+dipVz4RjG/eZL/gdkT9Le6c8Y9iVJ8tdmD2UIHhoUL7Hmo2qjMM4xRrWmYkp9ig7LftXbubbP93B
+	J0276JKwdeGrgL9dH3YuAHKHapfKLiJTGiJlpn0g533P9uvv/m3XriCvT79euQhIkKjXq2P7AW/dZ
+	Hx0wqn2MC5NduUn6+ILA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNUDf-0000000BSvc-3R8y;
-	Mon, 24 Nov 2025 10:54:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vNUGp-0000000BTzq-2YwG;
+	Mon, 24 Nov 2025 10:58:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNUDf-0000000BSuo-0DMZ
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 24 Nov 2025 10:54:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Dy+F+hKCykPaqJ6R99BwSYKWm6GVFKaTddcik5k44gQ=; b=NnPhznlOycbDIJCSADcVAu/Uup
-	1/ocqaTo+/TDl5TcoUqZF0e9HaO6JouQ2pp2TVS3dhMGMkt02hNm0KAb2R7X26+luv5nQIYHz6Zie
-	cluLjueSiPGMbiHtumTdFyNkvDPc6fmgfscC7JjBtY14Thm+ccnEw85juqCxyLoxFkYjnRgdGBASU
-	al+r+hMAXQp2DZmBY4gTSU5xtuCn2ikjhOpecpU4tLDJqgT70hxMarV5cBkWFUQRGVkum9G3Ib3jc
-	5Pjgm+X4OF8iwrhJFGyu9IlbhI8hjx6CG907sOeyfatD94HcRpwCwizFYLLLyUrVPnvOVtVMnmfs/
-	CVl63YYw==;
-Received: from sender3-op-o15.zoho.com ([136.143.184.15])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNTM0-00000003S99-0fmt
+	id 1vNUGm-0000000BTwY-0iBK
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 09:59:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763981664; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=OIsVpKfcVrxSU2gzPLJqk4yb5n7XUPOjYH5M5eBioR6M5DdFWiT6gHDr1h8zIEhR4f44J1ATEVdfgnOe1kaKUqGpezXjfWQ/eukr5E0Mocf1ItegCe2YCzf0pnrqsCWLqzck1DQhzZSepzbBtL/KNi1HECTC1/0HaeAGzfZe9rs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763981664; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Dy+F+hKCykPaqJ6R99BwSYKWm6GVFKaTddcik5k44gQ=; 
-	b=khfuFXdODYvBWOi1dGP2MymOU++hJSqmOormJO3wN1Qzwbp435JFWx2yeGRh9CVC7EkeCU5CQbY+QbhysLWKjtpcXljBOecQPAJKBN/sZ2ZSpJpz+0PCoRXtaPmQMYnnSjzXLA1fFF+f1bicE857UIIXXknfqjVDs+Wk2S+FOEo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763981664;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=Dy+F+hKCykPaqJ6R99BwSYKWm6GVFKaTddcik5k44gQ=;
-	b=TWWz6X2tNdnd4N9YxF4WFYuHszeONjtMZZTCUUMzJovjYlXCN4Sq8cCRMkWHGK0d
-	kilQ7F9dcpbcQW2j1WrSa03sZZy06E++4HbqHQ/LkFzSRqKXw6OYmkfpK3r/K9NcQs3
-	YuujuphId2JLDSGByTmnZGEjeM4Z04hDUjYyIEsg/PpqmzU2DnQYpyWwWoU5z83foak
-	Y0G6quZTPWCwcepxWCCC8DWA3q6sfy7PNRbApu4f4K7JbDhii9fkueo18XtXLB6r3oY
-	SaaZ3ott9UW2Y7RlIKcpgP2Gr4z7usV4lBIz2w9bLR4rH1IhgtQGgyfbM9zAXQ/TX9U
-	0o/kOHVEyw==
-Received: by mx.zohomail.com with SMTPS id 1763981662595209.19285309448685;
-	Mon, 24 Nov 2025 02:54:22 -0800 (PST)
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Han Gao <rabenda.cn@gmail.com>,
-	Yao Zi <ziyao@disroot.org>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Icenowy Zheng <uwu@icenowy.me>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: [PATCH v3 9/9] mailmap: map all Icenowy Zheng's mail addresses
-Date: Mon, 24 Nov 2025 18:52:26 +0800
-Message-ID: <20251124105226.2860845-10-uwu@icenowy.me>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251124105226.2860845-1-uwu@icenowy.me>
-References: <20251124105226.2860845-1-uwu@icenowy.me>
+	Mon, 24 Nov 2025 10:58:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1408544313;
+	Mon, 24 Nov 2025 10:58:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF73C4CEF1;
+	Mon, 24 Nov 2025 10:58:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763981886;
+	bh=xJ32qcMBKxVPDueStveGgZE8sA3LiRciLoObFyqhpOE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=svMwvO6Qh+i0nm2PBwRuzMt4SaOUaXLqOfDEi0MKj2HGI0OrU6cJbH6m+GLFi1iZq
+	 bloJlvS2q66VBh8K2CO3wpuN/wlB4Al2AQCssFNh2oQI25+5SjQ0rYaH/nqDJpFTO1
+	 ryv0eUPoz2YE4xEjTicFCBIMTfrg4vuJzN+ZnaryTbqSWly+WKACxwm8Q1lhO3ciS0
+	 S+U7T4Ym/GkjkHuE0tODZAwWc2YDaUNcm+vr3NQt4Ncu5iHKZqfXUnynHp+EaV1pLp
+	 NBGCPZucUOSNdUI+oq67WjQOO3+YlTyPeXCxwTERWq+CJdFnw9oJsAfDD6d6lYgBVq
+	 OENpdeux+1erA==
+Message-ID: <374aa38b-c16f-46da-985e-266fdfb4c717@kernel.org>
+Date: Mon, 24 Nov 2025 11:57:59 +0100
 MIME-Version: 1.0
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/9] Verisilicon DC8200 driver (and adaption to TH1520)
+To: Icenowy Zheng <uwu@icenowy.me>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Han Gao <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20251124105226.2860845-1-uwu@icenowy.me>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251124105226.2860845-1-uwu@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_095928_481861_0D99C05B 
-X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-CacheID: sfid-20251124_025808_252566_095527FA 
+X-CRM114-Status: UNSURE (   8.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,38 +130,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Map all mail addresses Icenowy Zheng had used to the personal mailbox
-prefixed "uwu".
+On 24/11/2025 11:52, Icenowy Zheng wrote:
+> This patchset tries to add a driver for Verisilicon DC8200 driver, and
+> demonstrates the driver on T-Head TH1520 with its HDMI output.
+> 
+> This display controller IP is used on StarFive JH7110 too, but as the
+> HDMI controller used there isn't as common as the DesignWare one, I
+> choose to use TH1520 in this patchset.
 
-All these mailboxes, except the one of Sipeed (which was only used
-during a summer vacation internship), can accept mails now.
 
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
----
-New patch in v3.
+That's a v3, so please kindly always write changelog.
 
- .mailmap | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/.mailmap b/.mailmap
-index d2edd256b19d6..f023a0c4e565c 100644
---- a/.mailmap
-+++ b/.mailmap
-@@ -308,6 +308,10 @@ Henrik Rydberg <rydberg@bitmath.org>
- Herbert Xu <herbert@gondor.apana.org.au>
- Huacai Chen <chenhuacai@kernel.org> <chenhc@lemote.com>
- Huacai Chen <chenhuacai@kernel.org> <chenhuacai@loongson.cn>
-+Icenowy Zheng <uwu@icenowy.me> <zhengxingda@iscas.ac.cn>
-+Icenowy Zheng <uwu@icenowy.me> <icenowy@aosc.io>
-+Icenowy Zheng <uwu@icenowy.me> <icenowy@aosc.xyz>
-+Icenowy Zheng <uwu@icenowy.me> <icenowy@sipeed.com>
- Ike Panhc <ikepanhc@gmail.com> <ike.pan@canonical.com>
- J. Bruce Fields <bfields@fieldses.org> <bfields@redhat.com>
- J. Bruce Fields <bfields@fieldses.org> <bfields@citi.umich.edu>
--- 
-2.52.0
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
