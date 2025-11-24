@@ -4,55 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4587CFD317
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 12:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB05ACFA466
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 12:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=r8TxNV2GIpPyXyo4oVvJtaqv/dnXGYf8N1sNO1PQzE0=; b=qRo
-	ip0Fwjji0xo1ohmhe2Z6bBtxbkBrMJjJC7xcNFNHcUh53EDmh0XGwBUCK0Xqo7nKyMRwKxxsaSSJK
-	JhauNYqOHciGMJnt15MwtuqNl7E1DiiLabNIm3bUig6DVRCs8JxPhGTDiqc7c79UJ4yhJa008ZBcd
-	TuxxHe5rUrZqTDq/xMyTilZUgkzsausxxzninCIU9Rehn/UzJ/T4xN0LCBiU4kI6iJKEs4L1j61ku
-	skUIupeNovJsOZ9ZkAkZujhvBtmpUdmwjfy6jYKJkqNxnQPre9je1RsF9/SI04y9f/hx4KPlPmI+P
-	GWpDwnJ+j0DTLVjFsTFWGi+3XjLpIJQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PE3ztxNDR2Ef36oSaW/36BD/E7sDefC9jIf8VMjRFsY=; b=xQbm3x7FNXrIfR
+	YHwmDyQmnWE/TgH/aVc0u0JQOHoGuMlY9yDZyy/7aLHKnrqvL7OHxb9ZMAuXHyBZBQ3sgGOf52yr/
+	Ra1hnjBKFK/mDhgCcYm474pwHXlRY+jDERMS6JI/OCandVYfwuvTRA00eZpkIxuNWokQrEHtGonEm
+	y7+XhLSd1UvIE5JU0DODx4D3wAJFkLMm8n77HIlN8CGh5QfRNUzA9NAzbqPgg2V8jtjTAASDbxVUH
+	4aeIMhOgjVBheZrUFyw2kDzbkQ07RIefGboYDuLpw5tQ76MW56TghQr6m/jQ2+sglV4meoJjVStST
+	lV0IuR0GL35lQSZPUQMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVcQ-0000000BeFw-2OEt;
-	Mon, 24 Nov 2025 12:24:34 +0000
+	id 1vNVjK-0000000BefL-2oXh;
+	Mon, 24 Nov 2025 12:31:42 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVcK-0000000BeEq-06Uf
+	id 1vNVjH-0000000Bees-3KR5
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 12:24:32 +0000
+	Mon, 24 Nov 2025 12:31:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4466843DA2;
-	Mon, 24 Nov 2025 12:24:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24BD1C4CEF1;
-	Mon, 24 Nov 2025 12:24:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 076AA404A1;
+	Mon, 24 Nov 2025 12:31:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3B68C4CEF1;
+	Mon, 24 Nov 2025 12:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763987067;
-	bh=XZ7WMDoI/XoXRQeV29Io8NxMCxmeA+N4VPHXU22i06E=;
-	h=Date:From:To:Cc:Subject:From;
-	b=EBGz/+9SNTfl1EbYGbUiL2yBVDqHDsYjRVuROyy91QH5TU/LxZkPEM1hKG+myowYN
-	 Nip7leC5W++6h9KUQBgM6JUjokcyQc6OMq4l0MwN5XCk+zGpRvkdKKY7jiekA+flNU
-	 q2qOqwcjORp2ilU0Kuiuqn5YcjP22CWvPwyH44V47/Ysi9NmC19WIYyM98kijOrcxj
-	 SZwg/pJx1AyP3hsIv0E/kB048inucR6zj7lOHic9cdLEsAwFyqePK7gqvZr50TlsjO
-	 wuGK9aPVrmwk6wpc8N9K0XnLwnKduRTVKw5VwKyJYT7pk1vKDbF5Y2F7ljzaffA9Cu
-	 9p98vxtRX0tPw==
-Date: Mon, 24 Nov 2025 12:24:23 +0000
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: pjw@kernel.org, palmer@dabbelt.com, Andy Chiu <andybnac@gmail.com>
-Subject: [Bug 220795] riscv_hwprobe and AT_HWCAP diverge after
- PR_RISCV_V_VSTATE_CTRL_OFF
-Message-ID: <20251124-yam-whoever-7f1c635f94c8@spud>
+	s=k20201202; t=1763987498;
+	bh=BXnUB3brULQ2gNFKGkmCdPaz98+uYeUAh5WOqfPiJ2U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JNNGjwYD3VCqpwTS/kEfNoWId8SXKoNq+gbZfwRU0rhHFuYhFGDTMr5heTu5Xlq+N
+	 OPRxoAR7Vq56olur53Fpoi/xf1M+fu03hZGFnymIh2b/JnF/zgyzEzXVmEUqsJ9mg4
+	 ip575w8RdN408EOJbMTxjF3gNV6/nsaOg8DTpGY+TtBVUR6TyrwJdIOPb3NuTkXYbZ
+	 +9cpp5jkfmbOXEktGOUR90Gdn6f1SE5gA2QBAyivUDAjFrXxqdTHbPl/1TlzVZzQWw
+	 xrDJy635ZVmZmKyJNEOIZawejB9Bg/ushJ2tk9XQ0zqdrBNLLjrM7vNIoIUO7mRRnr
+	 mz8ALc3CoHt5A==
+Message-ID: <390caea1-bc75-4cde-bd6d-9bc15a12f32d@kernel.org>
+Date: Mon, 24 Nov 2025 13:31:31 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/9] dt-bindings: display: add verisilicon,dc
+To: Conor Dooley <conor@kernel.org>
+References: <20251124105226.2860845-1-uwu@icenowy.me>
+ <20251124105226.2860845-3-uwu@icenowy.me>
+ <d4cfe8bb-5ca2-40a9-bfe0-96e7ded5586c@kernel.org>
+ <f7bbb57180866a0674fc1d72d4bd3279c7b1c1e9.camel@icenowy.me>
+ <c26dabfb-c4af-428b-a1d4-d626f37ff559@kernel.org>
+ <f944f0b28f62233b1874e0f00c0a130d71845417.camel@icenowy.me>
+ <6ceb41bc-0597-4ea5-84be-51f53e3bc2d8@kernel.org>
+ <20251124-said-overvalue-8a8f49d6c99d@spud>
+ <477bbcbe-17d9-40ae-be10-be4fd107687e@kernel.org>
+ <20251124-pulp-pound-a2b6d749dcfc@spud>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251124-pulp-pound-a2b6d749dcfc@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_042429_852362_76437CCC 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20251124_043139_899964_972CF026 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,115 +118,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0782835468453051069=="
+Cc: Drew Fustini <fustini@kernel.org>, Heiko Stuebner <heiko@sntech.de>, dri-devel@lists.freedesktop.org, Guo Ren <guoren@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Yao Zi <ziyao@disroot.org>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Jonas Karlman <jonas@kwiboo.se>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, linux-kernel@vger.kernel.org, Thomas Zimmermann <tzimmermann@suse.de>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 24/11/2025 13:20, Conor Dooley wrote:
+> On Mon, Nov 24, 2025 at 01:08:00PM +0100, Krzysztof Kozlowski wrote:
+>> On 24/11/2025 13:05, Conor Dooley wrote:
+>>>
+>>> I don't really get what the fuss is with the dual signoff, what's the
+>>> point having both when they represent the same person? Pretty sure it
+>>> was you (Krzysztof) and Arnd that told me not to both doing the double
+>>> signoff.
+>>
+>> I do not object having or not having dual signed off HERE.
+>>
+>> I never said that. Just like I never said "From" has to be changed.
+> 
+> I didn't say you objected to both being there. *I* am saying that it is
 
---===============0782835468453051069==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SuwoVLJJx4e2oI/T"
-Content-Disposition: inline
+Ah, sure. Yes, if both identities work I would propose to skip second
+SoB. But I also stopped objecting of having two identities listed, as
+long as they are correct.
 
-
---SuwoVLJJx4e2oI/T
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Yo
-
-I got added to some bugzilla thing last week about the vector prctl and
-how it interacts with hwprobe. I have no idea why I alone was chosen,
-since I didn't write this stuff, so I'm linking the issue here so that
-someone that does understand it can reply:
-https://bugzilla.kernel.org/show_bug.cgi?id=3D220795
-
-The content of that is:
-| Overview:
-|=20
-| On RISC-V systems with Vector support, invoking
-|=20
-| prctl(PR_RISCV_V_SET_CONTROL, PR_RISCV_V_VSTATE_CTRL_OFF)
-|=20
-|=20
-| disables execution of V instructions for subsequently executed ELF progra=
-ms, as expected.
-|=20
-| However, after this call:
-|=20
-| AT_HWCAP no longer reports the V bit, indicating that Vector execution is=
- not allowed for new programs, while
-|=20
-| riscv_hwprobe() continues to report RISCV_HWPROBE_IMA_V as present.
-|=20
-| At the same time, multiple downstream user-space components (such as libg=
-cc [1]) already treat riscv_hwprobe as the authoritative source of ISA capa=
-bility information, since AT_HWCAP has historically been polluted by incons=
-istent vendor reporting for RVV and cannot represent multi-letter extension=
-s (V, Zve*, Zvfh*, etc.).
-|=20
-| As a result, downstream runtimes may select RVV-enabled code paths even w=
-hen V has been disabled for the program by system policy.
-|=20
-| To proceed with downstream libc RVV multiversioning work, we would like t=
-o confirm whether this divergence between AT_HWCAP and riscv_hwprobe() afte=
-r PR_RISCV_V_VSTATE_CTRL_OFF is intended (by design), or if it should be co=
-nsidered an unintended semantic inconsistency.
-|=20
-| Additional Context:
-|=20
-| This concern has been raised before in prior discussions [2], noting that=
- hwprobe reports capability while AT_HWCAP reflects availability, creating =
-ambiguity about which interface user space should rely on.
-|=20
-| Reproduce Log:
-| [init] ./rvv_check
-| AT_HWCAP =3D 0x000000000020112d
-| V via HWCAP:   yes
-| hwprobe KEY_IMA_EXT_0 =3D 0x038d2bf1200000ff
-| V via hwprobe: yes
-| [init] ./rvv_off rvv_check
-| PR_RISCV_V_GET_CONTROL =3D 0x16
-| AT_HWCAP =3D 0x000000000000112d
-| V via HWCAP:   no
-| hwprobe KEY_IMA_EXT_0 =3D 0x038d2bf1200000ff
-| V via hwprobe: yes
-| [init] poweroff
-| [    1.880906] reboot: Power down
-|=20
-| References:
-| [1] https://gcc.gnu.org/git/?p=3Dgcc.git;a=3Dblob;f=3Dlibgcc/config/riscv=
-/feature_bits.c;h=3D157bcdcad69a939037f6faca3a90c2598dd61f89;hb=3DHEAD
-| [2] https://lists.infradead.org/pipermail/kvm-riscv/2023-June/003915.html
-
-Cheers,
-Conor.
-
---SuwoVLJJx4e2oI/T
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaSROdwAKCRB4tDGHoIJi
-0uneAP9WlXOie/phlinThm6vJQV08PP+wsW+UBaNphpemvyiXwEAzaNJ1NnDmONT
-qqKrsxw4idniTOrkcy9cEavZ1Wkenwg=
-=EXOc
------END PGP SIGNATURE-----
-
---SuwoVLJJx4e2oI/T--
+> probably not worth doing. That's especially the case when it is adding
+> complication about correct ordering of signoffs and maybe interacting with
+> how git-send-email decides to insert From: fields.
+> 
 
 
---===============0782835468453051069==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0782835468453051069==--
-
