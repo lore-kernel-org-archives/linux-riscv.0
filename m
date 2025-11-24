@@ -4,83 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EAECFD313
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 16:52:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A182CFD318
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 16:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QSbfo5VxCLmiyU/jftzADh28lCwI7fkEWKdYofzVvQc=; b=dtlEH8s5FRmLIL
-	IiQubwMKffLA8yVt7GuMmA0LFgb2WN5Srv1KniN/v2p4iVxW1WSlmW4peKlYXYkDN/RTCFWXvnDt0
-	INurZA5ihsgstRD2+93Fa1Bw6QcYtkdIJevXy8XF6PA+ordIem17E64wXrLFjxonM6JQJ552ahMWt
-	tN6SoRrSF6NXkkgF5L2N+E+G12DfS9tCDo9qYvh2g7X9qkGpgmAsBBqKviD1scs/bYQPPna8WLh7Q
-	rqsJBI0FXZKiza3RvEmLpVxdq8F4SOqbNF6LDdmNl0xndQvH3ibtKYj+SaJ7VeU4UNQwrRJB2v5Ku
-	KA3EupuEJ+nAHQ2S3SSQ==;
+	List-Owner; bh=S9sgMluBUat5e/r/qSdLBkTVDdA9V5ubDmZXULBTET4=; b=zQ+kzr73LJtErD
+	zsKdg7nmuOHrrzlMb0nuDyQCNIyE5toam+MDemeNOLX1hOJihaiKpbn38Q3uoH0VED8t/5DME72k4
+	4fSyASHd19FSuieRg1CiHKVqUhfUIf9eRT3LqTC/bvXkMSfmNqmLlH9yLtmHn+PWUO6KyPy2OsIcW
+	aspkJmf8J6oSw9ZHuoO7A8cD2O6VY7ym8rot01Iks8EHnNwy4rOfG7XWV6x4l/OlZpaKBXS8zpZUr
+	zhXNfW/UhDzy5d5XQbip1VJbxjxpyNEizUPZZIE4prABWXMxnSibFK/Nw9/q9wPgZdj4r+IYPj+Vf
+	JIlA1Bm7YbwFrB5hmymg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZnM-0000000C21c-2ETc;
-	Mon, 24 Nov 2025 16:52:08 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1vNZnS-0000000C28A-2iYe;
+	Mon, 24 Nov 2025 16:52:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZn8-0000000C1i0-2FCB
+	id 1vNZnK-0000000C1y6-04mZ
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 24 Nov 2025 16:52:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Fyql6Tx9djnJiYcyVTN9LI7S1hn01itqY+i13dgaIEA=; b=WzNs6Zcv3wGuBJN+x4hZWnytsu
+	sQv9TfEOyDvbGLRqFwrnQQAC+oTOJ4XERLR2SxcOCkpaVgthoWtnZdlaPfOs1E4/mRyEQL/qe+L1k
+	0Up5XbNtsb0vFNZkztTgEqnpvi0OwcnA8y7TRdYu8XsAJrU/nS4TZvmF3g127E/AqD6+y1vim9U/J
+	GmNNPejJ61hKdZ2Mx8ZFzE2c3G3hEvjzNcy7ktr4P/rdOlOwqi/SAInm8YnJIf7MzE0G0iwTHc/W7
+	+ZQO5f4dWYGb5W2ghiacRnOmUYAZ22sIQ8L73UZ+a1wkyE6Cu+sjA0T6Nru5c7iOSJMGVHQgrsn+1
+	c22tuQHA==;
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNYve-00000004864-1kTs
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 16:51:55 +0000
+	Mon, 24 Nov 2025 15:56:41 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id BFDDD221A7;
-	Mon, 24 Nov 2025 16:51:27 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 3CBF6221C7;
+	Mon, 24 Nov 2025 16:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764003087; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1764003088; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=np/o9SOrUSR89NMerp0bJqsfAGpMRXdw2KZq5Jl7t3Q=;
-	b=AUggWQU+6ckSsSY/c4BMmI2L/8XZM5vOJmTtGeKSmplTVI1mEabPt9FUMSfWS/eSJnmwNi
-	gIszqYVsyYE+0KvlTu5+La5eFmWg4VtasYPyULsk4jvBwbxO996bFQmhUsMRWCB6ks5Axp
-	Skim4bUMl26PQUaIphOH18a9BghHdWY=
+	bh=Fyql6Tx9djnJiYcyVTN9LI7S1hn01itqY+i13dgaIEA=;
+	b=USTSMD3di0zWAbvMvh0U0iSxZVNHEKbe74gZb3tLNPXEhDBJzlLLdwBX8iLcN/oVLiQXxU
+	jd9FuQi1MULpJJCVAoBRKEjjk/tquFNbqjqeEeccM4WMyjHLm5SE4hEsNtcoEss4PgEj+M
+	sTNy2SdOSjzt1XxIOr18frXnjg278wY=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764003087;
+	s=susede2_ed25519; t=1764003088;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=np/o9SOrUSR89NMerp0bJqsfAGpMRXdw2KZq5Jl7t3Q=;
-	b=HHlUpBPSWxldPZZVTbY1X7EPBi+NSjCLePO78/756h+98ddnIo9kd/Y3ClperxIeScfdqw
-	HirlRk/dUnnPiJCA==
+	bh=Fyql6Tx9djnJiYcyVTN9LI7S1hn01itqY+i13dgaIEA=;
+	b=p4ZEFBOZwasoIGMm1XvU+zqP7yQeyxTaq2CJ6XHD4eB6fM9QWM9yelhH0/VSigYWkkyrtM
+	gMKIaq3IJ/9TTRCA==
 Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=AUggWQU+;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=HHlUpBPS
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=USTSMD3d;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=p4ZEFBOZ
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764003087; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1764003088; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=np/o9SOrUSR89NMerp0bJqsfAGpMRXdw2KZq5Jl7t3Q=;
-	b=AUggWQU+6ckSsSY/c4BMmI2L/8XZM5vOJmTtGeKSmplTVI1mEabPt9FUMSfWS/eSJnmwNi
-	gIszqYVsyYE+0KvlTu5+La5eFmWg4VtasYPyULsk4jvBwbxO996bFQmhUsMRWCB6ks5Axp
-	Skim4bUMl26PQUaIphOH18a9BghHdWY=
+	bh=Fyql6Tx9djnJiYcyVTN9LI7S1hn01itqY+i13dgaIEA=;
+	b=USTSMD3di0zWAbvMvh0U0iSxZVNHEKbe74gZb3tLNPXEhDBJzlLLdwBX8iLcN/oVLiQXxU
+	jd9FuQi1MULpJJCVAoBRKEjjk/tquFNbqjqeEeccM4WMyjHLm5SE4hEsNtcoEss4PgEj+M
+	sTNy2SdOSjzt1XxIOr18frXnjg278wY=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764003087;
+	s=susede2_ed25519; t=1764003088;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=np/o9SOrUSR89NMerp0bJqsfAGpMRXdw2KZq5Jl7t3Q=;
-	b=HHlUpBPSWxldPZZVTbY1X7EPBi+NSjCLePO78/756h+98ddnIo9kd/Y3ClperxIeScfdqw
-	HirlRk/dUnnPiJCA==
+	bh=Fyql6Tx9djnJiYcyVTN9LI7S1hn01itqY+i13dgaIEA=;
+	b=p4ZEFBOZwasoIGMm1XvU+zqP7yQeyxTaq2CJ6XHD4eB6fM9QWM9yelhH0/VSigYWkkyrtM
+	gMKIaq3IJ/9TTRCA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 55AE83EA63;
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C70613EA65;
 	Mon, 24 Nov 2025 16:51:27 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id wBCAEw+NJGm3GgAAD6G6ig
+	id gKYiLw+NJGm3GgAAD6G6ig
 	(envelope-from <tzimmermann@suse.de>); Mon, 24 Nov 2025 16:51:27 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: ardb@kernel.org,
@@ -98,15 +113,16 @@ Cc: x86@kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-fbdev@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v2 06/10] sysfb: Move edid_info into sysfb_primary_display
-Date: Mon, 24 Nov 2025 17:40:18 +0100
-Message-ID: <20251124165116.502813-7-tzimmermann@suse.de>
+Subject: [PATCH v2 07/10] efi: Refactor init_primary_display() helpers
+Date: Mon, 24 Nov 2025 17:40:19 +0100
+Message-ID: <20251124165116.502813-8-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251124165116.502813-1-tzimmermann@suse.de>
 References: <20251124165116.502813-1-tzimmermann@suse.de>
 MIME-Version: 1.0
-X-Rspamd-Queue-Id: BFDDD221A7
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 3CBF6221C7
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-Spamd-Result: default: False [-3.01 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
 	MID_CONTAINS_FROM(1.00)[];
@@ -116,9 +132,9 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
 	MX_GOOD(-0.01)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
 	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
 	MIME_TRACE(0.00)[0:+];
 	ARC_NA(0.00)[];
@@ -133,11 +149,10 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	RCVD_TLS_ALL(0.00)[];
 	DKIM_TRACE(0.00)[suse.de:+];
 	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Action: no action
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_085154_770752_FB8A59D2 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20251124_155638_534423_8EC56949 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,169 +169,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move x86's edid_info into sysfb_primary_display as a new field named
-edid. Adapt all users.
-
-An instance of edid_info has only been defined on x86. With the move
-into sysfb_primary_display, it becomes available on all architectures.
-Therefore remove this contraint from CONFIG_FIRMWARE_EDID.
-
-x86 fills the EDID data from boot_params.edid_info. DRM drivers pick
-up the raw data and make it available to DRM clients. Replace the
-drivers' references to edid_info and instead use the sysfb_display_info
-as passed from sysfb.
-
-v2:
-- drop changes to CONFIG_FIRMWARE_EDID
+Rework the kernel's init_primary_display() helpers to allow for later
+support of additional config-table entries and EDID information. No
+functional changes.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/x86/kernel/setup.c          | 6 +-----
- drivers/gpu/drm/sysfb/efidrm.c   | 5 ++---
- drivers/gpu/drm/sysfb/vesadrm.c  | 5 ++---
- drivers/video/fbdev/core/fbmon.c | 8 +++++---
- include/linux/sysfb.h            | 6 ++++++
- include/video/edid.h             | 4 ----
- 6 files changed, 16 insertions(+), 18 deletions(-)
+ arch/loongarch/kernel/efi.c     | 22 +++++++++++-----------
+ drivers/firmware/efi/efi-init.c | 19 ++++++++++---------
+ 2 files changed, 21 insertions(+), 20 deletions(-)
 
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 675e4b9deb1f..d9bfe2032cd9 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -215,10 +215,6 @@ arch_initcall(init_x86_sysctl);
+diff --git a/arch/loongarch/kernel/efi.c b/arch/loongarch/kernel/efi.c
+index 638a392d2cd2..1ef38036e8ae 100644
+--- a/arch/loongarch/kernel/efi.c
++++ b/arch/loongarch/kernel/efi.c
+@@ -81,19 +81,19 @@ EXPORT_SYMBOL_GPL(sysfb_primary_display);
  
- struct sysfb_display_info sysfb_primary_display;
- EXPORT_SYMBOL(sysfb_primary_display);
--#if defined(CONFIG_FIRMWARE_EDID)
--struct edid_info edid_info;
--EXPORT_SYMBOL_GPL(edid_info);
--#endif
- 
- extern int root_mountflags;
- 
-@@ -530,7 +526,7 @@ static void __init parse_boot_params(void)
- 	ROOT_DEV = old_decode_dev(boot_params.hdr.root_dev);
- 	sysfb_primary_display.screen = boot_params.screen_info;
- #if defined(CONFIG_FIRMWARE_EDID)
--	edid_info = boot_params.edid_info;
-+	sysfb_primary_display.edid = boot_params.edid_info;
- #endif
- #ifdef CONFIG_X86_32
- 	apm_info.bios = boot_params.apm_bios_info;
-diff --git a/drivers/gpu/drm/sysfb/efidrm.c b/drivers/gpu/drm/sysfb/efidrm.c
-index 29533ae8fbbf..50e0aeef709c 100644
---- a/drivers/gpu/drm/sysfb/efidrm.c
-+++ b/drivers/gpu/drm/sysfb/efidrm.c
-@@ -24,7 +24,6 @@
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
--#include <video/edid.h>
- #include <video/pixel_format.h>
- 
- #include "drm_sysfb_helper.h"
-@@ -207,8 +206,8 @@ static struct efidrm_device *efidrm_device_create(struct drm_driver *drv,
- 		&format->format, width, height, stride);
- 
- #if defined(CONFIG_FIRMWARE_EDID)
--	if (drm_edid_header_is_valid(edid_info.dummy) == 8)
--		sysfb->edid = edid_info.dummy;
-+	if (drm_edid_header_is_valid(dpy->edid.dummy) == 8)
-+		sysfb->edid = dpy->edid.dummy;
- #endif
- 	sysfb->fb_mode = drm_sysfb_mode(width, height, 0, 0);
- 	sysfb->fb_format = format;
-diff --git a/drivers/gpu/drm/sysfb/vesadrm.c b/drivers/gpu/drm/sysfb/vesadrm.c
-index 16fc223f8c5b..0680638b8131 100644
---- a/drivers/gpu/drm/sysfb/vesadrm.c
-+++ b/drivers/gpu/drm/sysfb/vesadrm.c
-@@ -25,7 +25,6 @@
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
--#include <video/edid.h>
- #include <video/pixel_format.h>
- #include <video/vga.h>
- 
-@@ -474,8 +473,8 @@ static struct vesadrm_device *vesadrm_device_create(struct drm_driver *drv,
- 	}
- 
- #if defined(CONFIG_FIRMWARE_EDID)
--	if (drm_edid_header_is_valid(edid_info.dummy) == 8)
--		sysfb->edid = edid_info.dummy;
-+	if (drm_edid_header_is_valid(dpy->edid.dummy) == 8)
-+		sysfb->edid = dpy->edid.dummy;
- #endif
- 	sysfb->fb_mode = drm_sysfb_mode(width, height, 0, 0);
- 	sysfb->fb_format = format;
-diff --git a/drivers/video/fbdev/core/fbmon.c b/drivers/video/fbdev/core/fbmon.c
-index 0a65bef01e3c..07df7e98f8a3 100644
---- a/drivers/video/fbdev/core/fbmon.c
-+++ b/drivers/video/fbdev/core/fbmon.c
-@@ -32,11 +32,13 @@
- #include <linux/module.h>
- #include <linux/pci.h>
- #include <linux/slab.h>
--#include <video/edid.h>
-+#include <linux/string_choices.h>
-+#include <linux/sysfb.h>
-+
- #include <video/of_videomode.h>
- #include <video/videomode.h>
-+
- #include "../edid.h"
--#include <linux/string_choices.h>
- 
- /*
-  * EDID parser
-@@ -1504,7 +1506,7 @@ const unsigned char *fb_firmware_edid(struct device *device)
- 		res = &dev->resource[PCI_ROM_RESOURCE];
- 
- 	if (res && res->flags & IORESOURCE_ROM_SHADOW)
--		edid = edid_info.dummy;
-+		edid = sysfb_primary_display.edid.dummy;
- 
- 	return edid;
- }
-diff --git a/include/linux/sysfb.h b/include/linux/sysfb.h
-index e8bde392c690..5226efde9ad4 100644
---- a/include/linux/sysfb.h
-+++ b/include/linux/sysfb.h
-@@ -12,6 +12,8 @@
- #include <linux/screen_info.h>
- #include <linux/types.h>
- 
-+#include <video/edid.h>
-+
- struct device;
- struct platform_device;
- struct screen_info;
-@@ -62,6 +64,10 @@ struct efifb_dmi_info {
- 
- struct sysfb_display_info {
- 	struct screen_info screen;
-+
-+#if defined(CONFIG_FIRMWARE_EDID)
-+	struct edid_info edid;
-+#endif
- };
- 
- extern struct sysfb_display_info sysfb_primary_display;
-diff --git a/include/video/edid.h b/include/video/edid.h
-index c2b186b1933a..52aabb706032 100644
---- a/include/video/edid.h
-+++ b/include/video/edid.h
-@@ -4,8 +4,4 @@
- 
- #include <uapi/video/edid.h>
- 
--#if defined(CONFIG_FIRMWARE_EDID)
--extern struct edid_info edid_info;
--#endif
+ static void __init init_primary_display(void)
+ {
+-	struct screen_info *si;
 -
- #endif /* __linux_video_edid_h__ */
+-	if (screen_info_table == EFI_INVALID_TABLE_ADDR)
+-		return;
+-
+-	si = early_memremap(screen_info_table, sizeof(*si));
+-	if (!si) {
+-		pr_err("Could not map screen_info config table\n");
++	if (screen_info_table == EFI_INVALID_TABLE_ADDR) {
++		struct screen_info *si = early_memremap(screen_info_table, sizeof(*si));
++
++		if (!si) {
++			pr_err("Could not map screen_info config table\n");
++			return;
++		}
++		sysfb_primary_display.screen = *si;
++		memset(si, 0, sizeof(*si));
++		early_memunmap(si, sizeof(*si));
++	} else {
+ 		return;
+ 	}
+-	sysfb_primary_display.screen = *si;
+-	memset(si, 0, sizeof(*si));
+-	early_memunmap(si, sizeof(*si));
+ 
+ 	memblock_reserve(__screen_info_lfb_base(&sysfb_primary_display.screen),
+ 			 sysfb_primary_display.screen.lfb_size);
+diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
+index d1d418a34407..ca697d485116 100644
+--- a/drivers/firmware/efi/efi-init.c
++++ b/drivers/firmware/efi/efi-init.c
+@@ -67,10 +67,9 @@ EXPORT_SYMBOL_GPL(sysfb_primary_display);
+ 
+ static void __init init_primary_display(void)
+ {
+-	struct screen_info *si;
+-
+ 	if (screen_info_table != EFI_INVALID_TABLE_ADDR) {
+-		si = early_memremap(screen_info_table, sizeof(*si));
++		struct screen_info *si = early_memremap(screen_info_table, sizeof(*si));
++
+ 		if (!si) {
+ 			pr_err("Could not map screen_info config table\n");
+ 			return;
+@@ -78,14 +77,16 @@ static void __init init_primary_display(void)
+ 		sysfb_primary_display.screen = *si;
+ 		memset(si, 0, sizeof(*si));
+ 		early_memunmap(si, sizeof(*si));
++	} else {
++		return;
++	}
+ 
+-		if (memblock_is_map_memory(sysfb_primary_display.screen.lfb_base))
+-			memblock_mark_nomap(sysfb_primary_display.screen.lfb_base,
+-					    sysfb_primary_display.screen.lfb_size);
++	if (memblock_is_map_memory(sysfb_primary_display.screen.lfb_base))
++		memblock_mark_nomap(sysfb_primary_display.screen.lfb_base,
++				    sysfb_primary_display.screen.lfb_size);
+ 
+-		if (IS_ENABLED(CONFIG_EFI_EARLYCON))
+-			efi_earlycon_reprobe();
+-	}
++	if (IS_ENABLED(CONFIG_EFI_EARLYCON))
++		efi_earlycon_reprobe();
+ }
+ 
+ static int __init uefi_init(u64 efi_system_table)
 -- 
 2.51.1
 
