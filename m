@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99562CFD360
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 21:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534E4CFD360
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 22:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U4DnBszIxVgucVOY29krAUMbwUcKS0XdGobdPygGmp8=; b=1dx4Skg8rlGxN8
-	dhQdPb3P1c3whOR0ILRMYb4IxI9QdWPwx2nQY5vcXusU9w9TukzZlysVCzZxcP5GD1FLM5pdtiuQg
-	Wp+e81V7vkRnhLXVitdFqvU70e5nLTopG963HuCCpcKaIwUhydvAK/tQDrPodqyythuIDb8cUQ6vA
-	Q5EHUcawIX/C3E7JKf1NqYQy0d74Kiodc28MW8iLV8shEoTzwlsdPC0dCziIlz7gEGIq0hyhrjI54
-	S5biHUvwG9nyMFh5kP3V2pQuu5bT5T6QsB2bGXkbm/QYLGDCu++0B1U5ZWBWo1Ic5zRNywhqbyFdY
-	QBs5ddX4TNAOIuq6VZrQ==;
+	List-Owner; bh=uJFgGLzhFJfOoUwTXNu53Waz9EgeyKk7ZRc+d4gcHLE=; b=t1eWhGQC7EcjyB
+	KxUQobIUF2nvrtYSQ7D/zJlLNqj+OHO+nN0JmVkZ/AVrsuhBsoNhrtc1c0IvnXxlx021nBlyqRfHQ
+	NzAO8+pedRTFAMua40rMSvkZmWwrStO2RjU5s8PzvZIEuHAmzQDWOfmfn0lfE1CAB0nNtP+ZtCxtE
+	j3JAtygTkoYGEJMdp0xyMFGmqRhfZGmSZSemKqNiM+KDtd2wmqmDyrzyf08pSzq1Q0Xo0ubQuQyfG
+	7N89/guhgtRmGbG5ALvI8OzUgWTX16FbqXKXJ8novwq1LA7j6G+q02ujfUGZAQgrvIAUNG205NmRu
+	sqfT52elFOZwqM26wguA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNeaq-0000000CNP5-2Pz7;
-	Mon, 24 Nov 2025 21:59:32 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1vNej7-0000000CNvv-43v5;
+	Mon, 24 Nov 2025 22:08:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNean-0000000CNOh-2ycb
+	id 1vNej5-0000000CNvW-3uyo
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 21:59:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1764021550;
-	bh=hA/ZGY6qxxf/8F0kJfLsWVi4AY9tMhPfGGSBzlI1JF8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=f1oBHbPT5U4wCG0QPZkAG80xrZ1G4Wzy2j694ZoyyAELsv+7imqYgvdFVH11YVjg5
-	 NSSH1p3s0L0rvv+S1nOljGJWw3byzCEcqnAI5gfuNvVGqqYwwfaIkOTrOrnQHC0R7m
-	 Z/gSOga64h3WG6PJfo53hyp8FIQW4JuhtxU96p+CO+z+pZEBSeq/wu8BzYm1K7SATT
-	 tEFipsgmTp0V6V44ir+nALY+d3qSFVP+0xy1Osu3o/d/3v4gY9syuXeTQL3vEn2DO8
-	 8l4EIX5QbgQ27ZRjwb11UeKj5H9zFihQnD8twDKsCRUzhf63Qu2zMLnxIt9z02ZFiy
-	 9TslpPsgfONvA==
-Received: from [192.168.2.54] (unknown [143.105.119.236])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 312D2B2211B2;
-	Mon, 24 Nov 2025 22:59:07 +0100 (CET)
-Message-ID: <0e851ca0-1f56-437d-ae14-094c114d3b77@freeshell.de>
-Date: Mon, 24 Nov 2025 13:59:05 -0800
+	Mon, 24 Nov 2025 22:08:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A6FF8442FB;
+	Mon, 24 Nov 2025 22:08:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 442DBC4CEF1;
+	Mon, 24 Nov 2025 22:08:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764022082;
+	bh=tRIizhAm0T07j/KjWlRXHqsJfg1L4Mqka5PJmjK76b8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Yi4Lmhlpw+CmUaQsBeZJ/CC0+dmrJeDNcb2LB4tkQo0gJ1gwcsormH560h7ZdKxZS
+	 f0o5n8vJnBtRz5WTql7AOBmEYgDOdxOYvQqMU842AMM7Q3WkVDHSwwsDBIjPizJQg8
+	 DcgwbQJiluIeZ8MltHdHv0W5vgeAVABVYPYXttj+4ekyBxh+mIRYUJg72/EVSGvmhN
+	 BDlTITqJ5+ixP3E+STbmbZGLSLcBI8ttejkwOOpllGQgPwslKjJeK1wmJXjxQvd3S3
+	 nb0sVqo4SiZJwj3bn4ax/hrbfkMP8MO6kOPacC5KeqEUPouboxVINkO/FDAHmMor6G
+	 YAhEmb2jo6moA==
+Date: Mon, 24 Nov 2025 14:08:00 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Subject: Re: [PATCH 2/7] clk: thead: th1520-ap: Poll for PLL lock and wait
+ for stability
+Message-ID: <aSTXQG5yIIGFjflG@x1>
+References: <20251120131416.26236-1-ziyao@disroot.org>
+ <20251120131416.26236-3-ziyao@disroot.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: starfive: add
- xunlong,orangepi-rv
-To: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-References: <20251123225059.49665-1-e@freeshell.de>
- <20251123225059.49665-2-e@freeshell.de>
- <20251124-free-bandicoot-of-skill-fa7d9a@kuoka>
- <20251124-state-campsite-3e7788a495c1@spud>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <20251124-state-campsite-3e7788a495c1@spud>
+Content-Disposition: inline
+In-Reply-To: <20251120131416.26236-3-ziyao@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_135929_934386_17BAFDC3 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20251124_140804_012747_2BED9E16 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,54 +67,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Drew Fustini <drew@beagleboard.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Michael Zhu <michael.zhu@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Guo Ren <guoren@kernel.org>, Han Gao <rabenda.cn@gmail.com>, Han Gao <gaohan@iscas.ac.cn>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 11/24/25 05:22, Conor Dooley wrote:
-> On Mon, Nov 24, 2025 at 08:28:10AM +0100, Krzysztof Kozlowski wrote:
->> On Sun, Nov 23, 2025 at 02:50:44PM -0800, E Shattow wrote:
->>> From: Icenowy Zheng <uwu@icenowy.me>
->>>
->>> Add "xunlong,orangepi-rv" as a StarFive JH7110 SoC-based board.
->>>
->>> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
->>> Signed-off-by: E Shattow <e@freeshell.de>
->>
->> <form letter>
->> This is a friendly reminder during the review process.
->>
->> It looks like you received a tag and forgot to add it.
+On Thu, Nov 20, 2025 at 01:14:11PM +0000, Yao Zi wrote:
+> All PLLs found on TH1520 SoC take 21250ns at maximum to lock, and their
+> lock status is indicated by register PLL_STS (offset 0x80 inside AP
+> clock controller). We should poll the register to ensure the PLL
+> actually locks after enabling it.
 > 
-> It's from me, don't resubmit just to add it since it'll be me applying
-> anyway.
+> Furthermore, a 30us delay is added after enabling the PLL, after which
+> the PLL could be considered stable as stated by vendor clock code.
 > 
+> Fixes: 56a48c1833aa ("clk: thead: add support for enabling/disabling PLLs")
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  drivers/clk/thead/clk-th1520-ap.c | 34 +++++++++++++++++++++++++++++--
+>  1 file changed, 32 insertions(+), 2 deletions(-)
 
-Hi Conor,
+Thanks for working on this patch series.
 
-Okay. Yes I'd dropped the tag since the commit message is appreciably
-different, and you would be handling it again anyways. Thanks! And thank
-you Krzysztof for the reminder -E
+[...]
+> @@ -299,9 +310,21 @@ static void ccu_pll_disable(struct clk_hw *hw)
+>  static int ccu_pll_enable(struct clk_hw *hw)
+>  {
+>  	struct ccu_pll *pll = hw_to_ccu_pll(hw);
+> +	u32 reg;
+> +	int ret;
+>  
+> -	return regmap_clear_bits(pll->common.map, pll->common.cfg1,
+> -				 TH1520_PLL_VCO_RST);
+> +	regmap_clear_bits(pll->common.map, pll->common.cfg1,
+> +			  TH1520_PLL_VCO_RST);
+> +
+> +	ret = regmap_read_poll_timeout_atomic(pll->common.map, TH1520_PLL_STS,
+> +					      reg, reg & pll->lock_sts_mask,
+> +					      5, TH1520_PLL_LOCK_TIMEOUT_US);
 
->>
->> If you do not know the process, here is a short explanation:
->> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
->> versions of patchset, under or above your Signed-off-by tag, unless
->> patch changed significantly (e.g. new properties added to the DT
->> bindings). Tag is "received", when provided in a message replied to you
->> on the mailing list. Tools like b4 can help here. However, there's no
->> need to repost patches *only* to add the tags. The upstream maintainer
->> will do that for tags received on the version they apply.
->>
->> Please read:
->> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
->>
->> If a tag was not added on purpose, please state why and what changed.
->> </form letter>
+Is there a reason for the specific value of 5 uS polling delay?
 
+> +	if (ret)
+> +		return ret;
+> +
+> +	udelay(TH1520_PLL_STABLE_DELAY_US);
+
+Is it the case that the 30 uS delay after the lock bit is set is just so
+that it has the same behavior as the vendor's code? Or did you notice
+stability problems without this?
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
