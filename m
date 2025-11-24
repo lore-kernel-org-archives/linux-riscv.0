@@ -4,163 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DA3CFA466
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 09:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37DE3CFA466
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 10:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zj9Ydlx4+nmEfXFoWUtqPQpKxvji9NYSnPFRHU3/yOc=; b=s2NRPUv2jc1LOvDuBiuz73c1qn
-	smSBYYo0M5tZ+qr8L7h6DWSXAS5yY+is5fHpVCbDG0En3PG4qkv2/DG64PDxqsgTXqKn5ccRpT9au
-	KUKM2PKSMJ6p4Bq6cYKek2WeY5OZ5OqVmS55u7ltbwTwWec1n7qxEJxQOkDaxAT9avjAMy9AJnoiL
-	YAR17/U96/YbyMctIfhRnVMCiaGAortCOqsJuKj9WkjWhfhLXNEvXkfC4PNkN/2tVyNczvT827x3x
-	VCTB6TFLn+UkcxFNi+oO+7CHVgZ0P4I4XzdGucah7OjrsPpGJgd2HR4srGMPMNwsqPRo9TWnaqKX7
-	DFM53Qgw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NFM02NcDJqgih/Y3ADchBG3m5+MATEcZss0q5GsydRA=; b=0M0HL8mbmOGLmb
+	Zpzls5T5kp1FFSZxHqXfe7qa0vlHn0u2Pwnaksi9uro+GEA/m0rwmEuIdeeVs/1iSSoxuB65gUQqD
+	7IXa/xXwdSzZ/Dp/QAcbUTgBVgmo7UqTQGvEVaChFPrp3/8OBl0e2XFohH5JixVr7xU2xUdaPQ+Mu
+	mfO0IsuqkS2QrbpWk3gRA88Enftu0yOKgqjhAF3ROHBQ2uNdSapcVBrVrM6gGWA9fgHrspzL86MXt
+	Un+5L28aQmzS/+78PevGJPquw9b5+5vz4w8s+JPdxDb7U18LwW0b7zZ5EXbnXL4xRj+DlRwxMU3sk
+	okgPIwm7uEYjtZqsMSYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNT65-0000000BMsd-45Pc;
-	Mon, 24 Nov 2025 09:43:01 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1vNUCC-0000000BSKE-0r7h;
+	Mon, 24 Nov 2025 10:53:24 +0000
+Received: from sender3-op-o15.zoho.com ([136.143.184.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNT63-0000000BMqg-1G33
+	id 1vNUC8-0000000BSJS-2XRe
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 09:43:01 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 6A83C220B2;
-	Mon, 24 Nov 2025 09:42:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1763977376; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=A5ow2gR7SRrzbwsXPsB6yI+XFTtoV4Lp3zqNxZd9nls=;
-	b=A+sGL1dr7l7VmjFaYtu7yyZBJCek1xS229QbJpQRyY0SEaWfHyv2//EQQVdRujsF6rF5wN
-	sg7Pf9VAroDESXffx7PYVw+JqzxjV7klIF2/ubCUBv7uK/1e9yLRarAJrga56WxGZvJyPq
-	Mppynsla7GTPRm+lYgBhw7nIOqMiGlc=
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1763977376; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=A5ow2gR7SRrzbwsXPsB6yI+XFTtoV4Lp3zqNxZd9nls=;
-	b=A+sGL1dr7l7VmjFaYtu7yyZBJCek1xS229QbJpQRyY0SEaWfHyv2//EQQVdRujsF6rF5wN
-	sg7Pf9VAroDESXffx7PYVw+JqzxjV7klIF2/ubCUBv7uK/1e9yLRarAJrga56WxGZvJyPq
-	Mppynsla7GTPRm+lYgBhw7nIOqMiGlc=
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C413E3EA61;
-	Mon, 24 Nov 2025 09:42:54 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id ZutXLp4oJGlpeAAAD6G6ig
-	(envelope-from <jgross@suse.com>); Mon, 24 Nov 2025 09:42:54 +0000
-Message-ID: <dec8ee2c-3a00-4027-b762-aada7bc99bd9@suse.com>
-Date: Mon, 24 Nov 2025 10:42:54 +0100
+	Mon, 24 Nov 2025 10:53:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1763981565; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=DfXAcU3AOdEJExd/aWcubjXJgx/VEryj+Lz5clE8Tptwgcmb5BfwiOFG1Lx9b+m/DeJ0X+1OjhnUxIOT/5HzEYcaMzzjTOtkabWbdlWjqx0LR03R4/8b5uAMpbojVedOCoDi/m56hn1e2XveGRrKvjrXWC7SZ1CaKgGJ71r8vps=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1763981565; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=WLHPOQL2gY4iyRqKXWMVrCiY3K6ZeFzt7LPDDQ7BmdQ=; 
+	b=UTlYJwwn3BbdHpBPQjSIX3vtSSFR3+VYKyXKQqtwu3iVtXDxnvoVL9H2+wps82xzPdis+/iKR/od0nT6s72aTOw6zkFBYkWB3gQk2giXjS07afTfciW0uJ4dVK/uorj1TwGYpjRp88OyseAs7NOObfvEB+9C6/UCwiUR/fBp1l0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763981565;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=WLHPOQL2gY4iyRqKXWMVrCiY3K6ZeFzt7LPDDQ7BmdQ=;
+	b=AZs4DLOpmw8q9B5b9Gi9QdtslZte5lC2Po77FObOfqfu6FgO2REL/aAyvcwjVxI4
+	iNjm8vaQvNyiFuRb73En20/ig1cluMXqv/Me4q09JVEb5FaNoPLw5r0a/1oYcVKcbP0
+	4DpgpnV7FAU7Izl4gVZiQL2j+CwBV9Qr/RoAe20oWNz9Q1yN74k/RLAFT6oh0NJB/AU
+	6SWZZJcz+ZxDzij0+I2c1o2gW8PrZSi/yx/Xwit4ttF1ZNCtrcEYntHYFCwGKYGXHex
+	SURj0itwOHHN+qrZtL5mr5EtXi/pgrHyZP0V9weASb/gAELTz0oQ6q3Qga48dof0W7W
+	mh0aUy9F+g==
+Received: by mx.zohomail.com with SMTPS id 1763981562297728.3957582694493;
+	Mon, 24 Nov 2025 02:52:42 -0800 (PST)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Han Gao <rabenda.cn@gmail.com>,
+	Yao Zi <ziyao@disroot.org>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH v3 0/9] Verisilicon DC8200 driver (and adaption to TH1520)
+Date: Mon, 24 Nov 2025 18:52:17 +0800
+Message-ID: <20251124105226.2860845-1-uwu@icenowy.me>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/21] paravirt: cleanup and reorg
-To: linux-kernel@vger.kernel.org, x86@kernel.org,
- linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, kvm@vger.kernel.org
-Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>,
- Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
- Waiman Long <longman@redhat.com>, Jiri Kosina <jikos@kernel.org>,
- Josh Poimboeuf <jpoimboe@kernel.org>,
- Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- xen-devel@lists.xenproject.org, Ajay Kaher <ajay.kaher@broadcom.com>,
- Alexey Makhalov <alexey.makhalov@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
- linux-arm-kernel@lists.infradead.org, Paolo Bonzini <pbonzini@redhat.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Oleg Nesterov <oleg@redhat.com>
-References: <20251006074606.1266-1-jgross@suse.com>
-Content-Language: en-US
-From: Juergen Gross <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <20251006074606.1266-1-jgross@suse.com>
-X-Spamd-Result: default: False [-3.70 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SIGNED_PGP(-2.00)[];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MIME_BASE64_TEXT_BOGUS(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.20)[multipart/signed,multipart/mixed,text/plain];
-	MIME_BASE64_TEXT(0.10)[];
-	MIME_UNKNOWN(0.10)[application/pgp-keys];
-	FREEMAIL_CC(0.00)[kernel.org,linutronix.de,redhat.com,alien8.de,linux.intel.com,zytor.com,microsoft.com,infradead.org,gmail.com,oracle.com,lists.xenproject.org,broadcom.com,armlinux.org.uk,arm.com,xen0n.name,linux.ibm.com,ellerman.id.au,csgroup.eu,dabbelt.com,eecs.berkeley.edu,ghiti.fr,linaro.org,goodmis.org,google.com,suse.de,lists.infradead.org,epam.com];
-	DKIM_SIGNED(0.00)[suse.com:s=susede1];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_TLS_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+,1:+,2:+,3:+,4:~,5:~];
-	ARC_NA(0.00)[];
-	HAS_ATTACHMENT(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLfdszjqhz8kzzb9uwpzdm8png)];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCPT_COUNT_GT_50(0.00)[56];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:mid,imap1.dmz-prg2.suse.org:helo]
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_014259_646042_C4CA3FD2 
-X-CRM114-Status: GOOD (  27.24  )
+X-CRM114-CacheID: sfid-20251124_025320_709767_0094B12C 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,315 +98,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6359777171088963591=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---===============6359777171088963591==
-Content-Language: en-US
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------We5fW6EZMtlKny0A4cau12FQ"
+This patchset tries to add a driver for Verisilicon DC8200 driver, and
+demonstrates the driver on T-Head TH1520 with its HDMI output.
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------We5fW6EZMtlKny0A4cau12FQ
-Content-Type: multipart/mixed; boundary="------------DrSPxjHRDVvfvpOSxXEGqtrJ";
- protected-headers="v1"
-From: Juergen Gross <jgross@suse.com>
-To: linux-kernel@vger.kernel.org, x86@kernel.org,
- linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, kvm@vger.kernel.org
-Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>,
- Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
- Waiman Long <longman@redhat.com>, Jiri Kosina <jikos@kernel.org>,
- Josh Poimboeuf <jpoimboe@kernel.org>,
- Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- xen-devel@lists.xenproject.org, Ajay Kaher <ajay.kaher@broadcom.com>,
- Alexey Makhalov <alexey.makhalov@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
- linux-arm-kernel@lists.infradead.org, Paolo Bonzini <pbonzini@redhat.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Oleg Nesterov <oleg@redhat.com>
-Message-ID: <dec8ee2c-3a00-4027-b762-aada7bc99bd9@suse.com>
-Subject: Re: [PATCH v3 00/21] paravirt: cleanup and reorg
-References: <20251006074606.1266-1-jgross@suse.com>
-In-Reply-To: <20251006074606.1266-1-jgross@suse.com>
+This display controller IP is used on StarFive JH7110 too, but as the
+HDMI controller used there isn't as common as the DesignWare one, I
+choose to use TH1520 in this patchset.
 
---------------DrSPxjHRDVvfvpOSxXEGqtrJ
-Content-Type: multipart/mixed; boundary="------------0mve0WRCUDOgkf9JsJIojBKK"
+The DC driver is written with other DC-series (mainly DC8000, which is
+known to be used on Eswin EIC7700 SoC) display controllers in mind, and
+uses the identification registers available on all Vivante branded IPs.
+A known exception is DCNano display controller, which is unlikely to be
+supported by this driver because of totally different register map and
+no known identification registers. (P.S. the in-tree loongson DRM driver
+seems to be for some DCNano instances based on the register map.)
 
---------------0mve0WRCUDOgkf9JsJIojBKK
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+The HDMI controller seems to come with some common PHY by Synopsys, the
+DesignWare HDMI TX 2.0 PHY. By searching a few register names from the
+BSP driver of that PHY, that PHY seems to be used by a in-tree dw-hdmi
+glue, rcar_dw_hdmi -- an updated downstream version of rcar_dw_hdmi
+contains all 6 registers set here in the th1520-dw-hdmi driver. Some
+more suprising thing is that RK3288 uses the same PHY too, but the
+in-tree dw_hdmi-rockchip driver writes the configuration data array in a
+weird way to reuse the HDMI 3D TX PHY configuring function. It might be
+valuable to add common configuring function and configuration data
+definition for this HDMI 2.0 PHY too, but the current driver in this
+patchset simply duplicated most configuration logic from rcar_dw_hdmi
+driver (but with 3 extra configuration registers configured).
 
-UGluZz8NCg0KSSB0aGluayBhdCBsZWFzdCB0aGUgZmlyc3QgMTIgcGF0Y2hlcyBjYW4ganVz
-dCBnbyBpbi4NCg0KVGhlIG90aGVycyBzdGlsbCBsYWNrIHJldmlldy4NCg0KDQpKdWVyZ2Vu
-DQoNCk9uIDA2LjEwLjI1IDA5OjQ1LCBKdWVyZ2VuIEdyb3NzIHdyb3RlOg0KPiBTb21lIGNs
-ZWFudXBzIGFuZCByZW9yZyBvZiBwYXJhdmlydCBjb2RlIGFuZCBoZWFkZXJzOg0KPiANCj4g
-LSBUaGUgZmlyc3QgMiBwYXRjaGVzIHNob3VsZCBiZSBub3QgY29udHJvdmVyc2lhbCBhdCBh
-bGwsIGFzIHRoZXkNCj4gICAgcmVtb3ZlIGp1c3Qgc29tZSBubyBsb25nZXIgbmVlZGVkICNp
-bmNsdWRlIGFuZCBzdHJ1Y3QgZm9yd2FyZA0KPiAgICBkZWNsYXJhdGlvbnMuDQo+IA0KPiAt
-IFRoZSAzcmQgcGF0Y2ggaXMgcmVtb3ZpbmcgQ09ORklHX1BBUkFWSVJUX0RFQlVHLCB3aGlj
-aCBJTU8gaGFzDQo+ICAgIG5vIHJlYWwgdmFsdWUsIGFzIGl0IGp1c3QgY2hhbmdlcyBhIGNy
-YXNoIHRvIGEgQlVHKCkgKHRoZSBzdGFjaw0KPiAgICB0cmFjZSB3aWxsIGJhc2ljYWxseSBi
-ZSB0aGUgc2FtZSkuIEFzIHRoZSBtYWludGFpbmVyIG9mIHRoZSBtYWluDQo+ICAgIHBhcmF2
-aXJ0IHVzZXIgKFhlbikgSSBoYXZlIG5ldmVyIHNlZW4gdGhpcyBjcmFzaC9CVUcoKSB0byBo
-YXBwZW4uDQo+IA0KPiAtIFRoZSA0dGggcGF0Y2ggaXMganVzdCBhIG1vdmVtZW50IG9mIGNv
-ZGUuDQo+IA0KPiAtIEkgZG9uJ3Qga25vdyBmb3Igd2hhdCByZWFzb24gYXNtL3BhcmF2aXJ0
-X2FwaV9jbG9jay5oIHdhcyBhZGRlZCwNCj4gICAgYXMgYWxsIGFyY2hzIHN1cHBvcnRpbmcg
-aXQgZG8gaXQgZXhhY3RseSBpbiB0aGUgc2FtZSB3YXkuIFBhdGNoDQo+ICAgIDUgaXMgcmVt
-b3ZpbmcgaXQuDQo+IA0KPiAtIFBhdGNoZXMgNi0xNCBhcmUgc3RyZWFtbGluaW5nIHRoZSBw
-YXJhdmlydCBjbG9jayBpbnRlcmZhY2VzIGJ5DQo+ICAgIHVzaW5nIGEgY29tbW9uIGltcGxl
-bWVudGF0aW9uIGFjcm9zcyBhcmNoaXRlY3R1cmVzIHdoZXJlIHBvc3NpYmxlDQo+ICAgIGFu
-ZCBieSBtb3ZpbmcgdGhlIHJlbGF0ZWQgY29kZSBpbnRvIGNvbW1vbiBzY2hlZCBjb2RlLCBh
-cyB0aGlzIGlzDQo+ICAgIHdoZXJlIGl0IHNob3VsZCBsaXZlLg0KPiANCj4gLSBQYXRjaGVz
-IDE1LTIwIGFyZSBtb3JlIGxpa2UgUkZDIG1hdGVyaWFsIHByZXBhcmluZyB0aGUgcGFyYXZp
-cnQNCj4gICAgaW5mcmFzdHJ1Y3R1cmUgdG8gc3VwcG9ydCBtdWx0aXBsZSBwdl9vcHMgZnVu
-Y3Rpb24gYXJyYXlzLg0KPiAgICBBcyBhIHByZXJlcXVpc2l0ZSBmb3IgdGhhdCBpdCBtYWtl
-cyBsaWZlIGluIG9ianRvb2wgbXVjaCBlYXNpZXINCj4gICAgd2l0aCBkcm9wcGluZyB0aGUg
-WGVuIHN0YXRpYyBpbml0aWFsaXplcnMgb2YgdGhlIHB2X29wcyBzdWItDQo+ICAgIHN0cnVj
-dHVyZXMsIHdoaWNoIGlzIGRvbmUgaW4gcGF0Y2hlcyAxNS0xNy4NCj4gICAgUGF0Y2hlcyAx
-OC0yMCBhcmUgZG9pbmcgdGhlIHJlYWwgcHJlcGFyYXRpb25zIGZvciBtdWx0aXBsZSBwdl9v
-cHMNCj4gICAgYXJyYXlzIGFuZCB1c2luZyB0aG9zZSBhcnJheXMgaW4gbXVsdGlwbGUgaGVh
-ZGVycy4NCj4gDQo+IC0gUGF0Y2ggMjEgaXMgYW4gZXhhbXBsZSBob3cgdGhlIG5ldyBzY2hl
-bWUgY2FuIGxvb2sgbGlrZSB1c2luZyB0aGUNCj4gICAgUFYtc3BpbmxvY2tzLg0KPiANCj4g
-Q2hhbmdlcyBpbiBWMjoNCj4gLSBuZXcgcGF0Y2hlcyAxMy0xOCBhbmQgMjANCj4gLSBjb21w
-bGV0ZSByZXdvcmsgb2YgcGF0Y2ggMjENCj4gDQo+IENoYW5nZXMgaW4gVjM6DQo+IC0gZml4
-ZWQgMiBpc3N1ZXMgZGV0ZWN0ZWQgYnkga2VybmVsIHRlc3Qgcm9ib3QNCj4gDQo+IEp1ZXJn
-ZW4gR3Jvc3MgKDIxKToNCj4gICAgeDg2L3BhcmF2aXJ0OiBSZW1vdmUgbm90IG5lZWRlZCBp
-bmNsdWRlcyBvZiBwYXJhdmlydC5oDQo+ICAgIHg4Ni9wYXJhdmlydDogUmVtb3ZlIHNvbWUg
-dW5uZWVkZWQgc3RydWN0IGRlY2xhcmF0aW9ucw0KPiAgICB4ODYvcGFyYXZpcnQ6IFJlbW92
-ZSBQQVJBVklSVF9ERUJVRyBjb25maWcgb3B0aW9uDQo+ICAgIHg4Ni9wYXJhdmlydDogTW92
-ZSB0aHVuayBtYWNyb3MgdG8gcGFyYXZpcnRfdHlwZXMuaA0KPiAgICBwYXJhdmlydDogUmVt
-b3ZlIGFzbS9wYXJhdmlydF9hcGlfY2xvY2suaA0KPiAgICBzY2hlZDogTW92ZSBjbG9jayBy
-ZWxhdGVkIHBhcmF2aXJ0IGNvZGUgdG8ga2VybmVsL3NjaGVkDQo+ICAgIGFybS9wYXJhdmly
-dDogVXNlIGNvbW1vbiBjb2RlIGZvciBwYXJhdmlydF9zdGVhbF9jbG9jaygpDQo+ICAgIGFy
-bTY0L3BhcmF2aXJ0OiBVc2UgY29tbW9uIGNvZGUgZm9yIHBhcmF2aXJ0X3N0ZWFsX2Nsb2Nr
-KCkNCj4gICAgbG9vbmdhcmNoL3BhcmF2aXJ0OiBVc2UgY29tbW9uIGNvZGUgZm9yIHBhcmF2
-aXJ0X3N0ZWFsX2Nsb2NrKCkNCj4gICAgcmlzY3YvcGFyYXZpcnQ6IFVzZSBjb21tb24gY29k
-ZSBmb3IgcGFyYXZpcnRfc3RlYWxfY2xvY2soKQ0KPiAgICB4ODYvcGFyYXZpcnQ6IFVzZSBj
-b21tb24gY29kZSBmb3IgcGFyYXZpcnRfc3RlYWxfY2xvY2soKQ0KPiAgICB4ODYvcGFyYXZp
-cnQ6IE1vdmUgcGFyYXZpcnRfc2NoZWRfY2xvY2soKSByZWxhdGVkIGNvZGUgaW50byB0c2Mu
-Yw0KPiAgICB4ODYvcGFyYXZpcnQ6IEludHJvZHVjZSBuZXcgcGFyYXZpcnQtYmFzZS5oIGhl
-YWRlcg0KPiAgICB4ODYvcGFyYXZpcnQ6IE1vdmUgcHZfbmF0aXZlXyooKSBwcm90b3R5cGVz
-IHRvIHBhcmF2aXJ0LmMNCj4gICAgeDg2L3hlbjogRHJvcCB4ZW5faXJxX29wcw0KPiAgICB4
-ODYveGVuOiBEcm9wIHhlbl9jcHVfb3BzDQo+ICAgIHg4Ni94ZW46IERyb3AgeGVuX21tdV9v
-cHMNCj4gICAgb2JqdG9vbDogQWxsb3cgbXVsdGlwbGUgcHZfb3BzIGFycmF5cw0KPiAgICB4
-ODYvcGFyYXZpcnQ6IEFsbG93IHB2LWNhbGxzIG91dHNpZGUgcGFyYXZpcnQuaA0KPiAgICB4
-ODYvcGFyYXZpcnQ6IFNwZWNpZnkgcHZfb3BzIGFycmF5IGluIHBhcmF2aXJ0IG1hY3Jvcw0K
-PiAgICB4ODYvcHZsb2NrczogTW92ZSBwYXJhdmlydCBzcGlubG9jayBmdW5jdGlvbnMgaW50
-byBvd24gaGVhZGVyDQo+IA0KPiAgIGFyY2gvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICB8ICAgMyArDQo+ICAgYXJjaC9hcm0vS2NvbmZpZyAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIHwgICAxICsNCj4gICBhcmNoL2FybS9pbmNsdWRlL2FzbS9w
-YXJhdmlydC5oICAgICAgICAgICAgICAgfCAgMjIgLS0NCj4gICBhcmNoL2FybS9pbmNsdWRl
-L2FzbS9wYXJhdmlydF9hcGlfY2xvY2suaCAgICAgfCAgIDEgLQ0KPiAgIGFyY2gvYXJtL2tl
-cm5lbC9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICB8ICAgMSAtDQo+ICAgYXJjaC9h
-cm0va2VybmVsL3BhcmF2aXJ0LmMgICAgICAgICAgICAgICAgICAgIHwgIDIzIC0tDQo+ICAg
-YXJjaC9hcm02NC9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAxICsN
-Cj4gICBhcmNoL2FybTY0L2luY2x1ZGUvYXNtL3BhcmF2aXJ0LmggICAgICAgICAgICAgfCAg
-MTQgLQ0KPiAgIGFyY2gvYXJtNjQvaW5jbHVkZS9hc20vcGFyYXZpcnRfYXBpX2Nsb2NrLmgg
-ICB8ICAgMSAtDQo+ICAgYXJjaC9hcm02NC9rZXJuZWwvcGFyYXZpcnQuYyAgICAgICAgICAg
-ICAgICAgIHwgIDExICstDQo+ICAgYXJjaC9sb29uZ2FyY2gvS2NvbmZpZyAgICAgICAgICAg
-ICAgICAgICAgICAgIHwgICAxICsNCj4gICBhcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9w
-YXJhdmlydC5oICAgICAgICAgfCAgMTMgLQ0KPiAgIC4uLi9pbmNsdWRlL2FzbS9wYXJhdmly
-dF9hcGlfY2xvY2suaCAgICAgICAgICB8ICAgMSAtDQo+ICAgYXJjaC9sb29uZ2FyY2gva2Vy
-bmVsL3BhcmF2aXJ0LmMgICAgICAgICAgICAgIHwgIDEwICstDQo+ICAgYXJjaC9wb3dlcnBj
-L2luY2x1ZGUvYXNtL3BhcmF2aXJ0LmggICAgICAgICAgIHwgICAzIC0NCj4gICBhcmNoL3Bv
-d2VycGMvaW5jbHVkZS9hc20vcGFyYXZpcnRfYXBpX2Nsb2NrLmggfCAgIDIgLQ0KPiAgIGFy
-Y2gvcG93ZXJwYy9wbGF0Zm9ybXMvcHNlcmllcy9zZXR1cC5jICAgICAgICB8ICAgNCArLQ0K
-PiAgIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAg
-MSArDQo+ICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYXJhdmlydC5oICAgICAgICAgICAg
-IHwgIDE0IC0NCj4gICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhcmF2aXJ0X2FwaV9jbG9j
-ay5oICAgfCAgIDEgLQ0KPiAgIGFyY2gvcmlzY3Yva2VybmVsL3BhcmF2aXJ0LmMgICAgICAg
-ICAgICAgICAgICB8ICAxMSArLQ0KPiAgIGFyY2gveDg2L0tjb25maWcgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICB8ICAgOCArLQ0KPiAgIGFyY2gveDg2L2VudHJ5L2VudHJ5XzY0
-LlMgICAgICAgICAgICAgICAgICAgICB8ICAgMSAtDQo+ICAgYXJjaC94ODYvZW50cnkvdnN5
-c2NhbGwvdnN5c2NhbGxfNjQuYyAgICAgICAgIHwgICAxIC0NCj4gICBhcmNoL3g4Ni9oeXBl
-cnYvaHZfc3BpbmxvY2suYyAgICAgICAgICAgICAgICAgfCAgMTEgKy0NCj4gICBhcmNoL3g4
-Ni9pbmNsdWRlL2FzbS9hcGljLmggICAgICAgICAgICAgICAgICAgfCAgIDQgLQ0KPiAgIGFy
-Y2gveDg2L2luY2x1ZGUvYXNtL2hpZ2htZW0uaCAgICAgICAgICAgICAgICB8ICAgMSAtDQo+
-ICAgYXJjaC94ODYvaW5jbHVkZS9hc20vbXNoeXBlcnYuaCAgICAgICAgICAgICAgIHwgICAx
-IC0NCj4gICBhcmNoL3g4Ni9pbmNsdWRlL2FzbS9wYXJhdmlydC1iYXNlLmggICAgICAgICAg
-fCAgMjkgKysNCj4gICBhcmNoL3g4Ni9pbmNsdWRlL2FzbS9wYXJhdmlydC1zcGlubG9jay5o
-ICAgICAgfCAxNDYgKysrKysrKysNCj4gICBhcmNoL3g4Ni9pbmNsdWRlL2FzbS9wYXJhdmly
-dC5oICAgICAgICAgICAgICAgfCAzMzEgKysrKystLS0tLS0tLS0tLS0tDQo+ICAgYXJjaC94
-ODYvaW5jbHVkZS9hc20vcGFyYXZpcnRfYXBpX2Nsb2NrLmggICAgIHwgICAxIC0NCj4gICBh
-cmNoL3g4Ni9pbmNsdWRlL2FzbS9wYXJhdmlydF90eXBlcy5oICAgICAgICAgfCAyNjkgKysr
-KysrKy0tLS0tLS0NCj4gICBhcmNoL3g4Ni9pbmNsdWRlL2FzbS9wZ3RhYmxlXzMyLmggICAg
-ICAgICAgICAgfCAgIDEgLQ0KPiAgIGFyY2gveDg2L2luY2x1ZGUvYXNtL3B0cmFjZS5oICAg
-ICAgICAgICAgICAgICB8ICAgMiArLQ0KPiAgIGFyY2gveDg2L2luY2x1ZGUvYXNtL3FzcGlu
-bG9jay5oICAgICAgICAgICAgICB8ICA4OSArLS0tLQ0KPiAgIGFyY2gveDg2L2luY2x1ZGUv
-YXNtL3NwaW5sb2NrLmggICAgICAgICAgICAgICB8ICAgMSAtDQo+ICAgYXJjaC94ODYvaW5j
-bHVkZS9hc20vdGltZXIuaCAgICAgICAgICAgICAgICAgIHwgICAxICsNCj4gICBhcmNoL3g4
-Ni9pbmNsdWRlL2FzbS90bGJmbHVzaC5oICAgICAgICAgICAgICAgfCAgIDQgLQ0KPiAgIGFy
-Y2gveDg2L2tlcm5lbC9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICB8ICAgMiArLQ0K
-PiAgIGFyY2gveDg2L2tlcm5lbC9hcG1fMzIuYyAgICAgICAgICAgICAgICAgICAgICB8ICAg
-MSAtDQo+ICAgYXJjaC94ODYva2VybmVsL2NhbGx0aHVua3MuYyAgICAgICAgICAgICAgICAg
-IHwgICAxIC0NCj4gICBhcmNoL3g4Ni9rZXJuZWwvY3B1L2J1Z3MuYyAgICAgICAgICAgICAg
-ICAgICAgfCAgIDEgLQ0KPiAgIGFyY2gveDg2L2tlcm5lbC9jcHUvdm13YXJlLmMgICAgICAg
-ICAgICAgICAgICB8ICAgMSArDQo+ICAgYXJjaC94ODYva2VybmVsL2t2bS5jICAgICAgICAg
-ICAgICAgICAgICAgICAgIHwgIDExICstDQo+ICAgYXJjaC94ODYva2VybmVsL2t2bWNsb2Nr
-LmMgICAgICAgICAgICAgICAgICAgIHwgICAxICsNCj4gICBhcmNoL3g4Ni9rZXJuZWwvcGFy
-YXZpcnQtc3BpbmxvY2tzLmMgICAgICAgICAgfCAgMjYgKy0NCj4gICBhcmNoL3g4Ni9rZXJu
-ZWwvcGFyYXZpcnQuYyAgICAgICAgICAgICAgICAgICAgfCAgNDIgKy0tDQo+ICAgYXJjaC94
-ODYva2VybmVsL3RzYy5jICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDEwICstDQo+ICAg
-YXJjaC94ODYva2VybmVsL3ZzbXBfNjQuYyAgICAgICAgICAgICAgICAgICAgIHwgICAxIC0N
-Cj4gICBhcmNoL3g4Ni9rZXJuZWwveDg2X2luaXQuYyAgICAgICAgICAgICAgICAgICAgfCAg
-IDEgLQ0KPiAgIGFyY2gveDg2L2xpYi9jYWNoZS1zbXAuYyAgICAgICAgICAgICAgICAgICAg
-ICB8ICAgMSAtDQo+ICAgYXJjaC94ODYvbW0vaW5pdC5jICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIHwgICAxIC0NCj4gICBhcmNoL3g4Ni94ZW4vZW5saWdodGVuX3B2LmMgICAgICAg
-ICAgICAgICAgICAgfCAgODIgKystLS0NCj4gICBhcmNoL3g4Ni94ZW4vaXJxLmMgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgfCAgMjAgKy0NCj4gICBhcmNoL3g4Ni94ZW4vbW11X3B2
-LmMgICAgICAgICAgICAgICAgICAgICAgICAgfCAxMDAgKystLS0tDQo+ICAgYXJjaC94ODYv
-eGVuL3NwaW5sb2NrLmMgICAgICAgICAgICAgICAgICAgICAgIHwgIDExICstDQo+ICAgYXJj
-aC94ODYveGVuL3RpbWUuYyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAyICsNCj4g
-ICBkcml2ZXJzL2Nsb2Nrc291cmNlL2h5cGVydl90aW1lci5jICAgICAgICAgICAgfCAgIDIg
-Kw0KPiAgIGRyaXZlcnMveGVuL3RpbWUuYyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
-ICAgMiArLQ0KPiAgIGluY2x1ZGUvbGludXgvc2NoZWQvY3B1dGltZS5oICAgICAgICAgICAg
-ICAgICB8ICAxOCArDQo+ICAga2VybmVsL3NjaGVkL2NvcmUuYyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIHwgICA1ICsNCj4gICBrZXJuZWwvc2NoZWQvY3B1dGltZS5jICAgICAgICAg
-ICAgICAgICAgICAgICAgfCAgMTMgKw0KPiAgIGtlcm5lbC9zY2hlZC9zY2hlZC5oICAgICAg
-ICAgICAgICAgICAgICAgICAgICB8ICAgMyArLQ0KPiAgIHRvb2xzL29ianRvb2wvYXJjaC94
-ODYvZGVjb2RlLmMgICAgICAgICAgICAgICB8ICAgOCArLQ0KPiAgIHRvb2xzL29ianRvb2wv
-Y2hlY2suYyAgICAgICAgICAgICAgICAgICAgICAgICB8ICA3OCArKysrLQ0KPiAgIHRvb2xz
-L29ianRvb2wvaW5jbHVkZS9vYmp0b29sL2NoZWNrLmggICAgICAgICB8ICAgMiArDQo+ICAg
-NjcgZmlsZXMgY2hhbmdlZCwgNjU5IGluc2VydGlvbnMoKyksIDgyNyBkZWxldGlvbnMoLSkN
-Cj4gICBkZWxldGUgbW9kZSAxMDA2NDQgYXJjaC9hcm0vaW5jbHVkZS9hc20vcGFyYXZpcnQu
-aA0KPiAgIGRlbGV0ZSBtb2RlIDEwMDY0NCBhcmNoL2FybS9pbmNsdWRlL2FzbS9wYXJhdmly
-dF9hcGlfY2xvY2suaA0KPiAgIGRlbGV0ZSBtb2RlIDEwMDY0NCBhcmNoL2FybS9rZXJuZWwv
-cGFyYXZpcnQuYw0KPiAgIGRlbGV0ZSBtb2RlIDEwMDY0NCBhcmNoL2FybTY0L2luY2x1ZGUv
-YXNtL3BhcmF2aXJ0X2FwaV9jbG9jay5oDQo+ICAgZGVsZXRlIG1vZGUgMTAwNjQ0IGFyY2gv
-bG9vbmdhcmNoL2luY2x1ZGUvYXNtL3BhcmF2aXJ0X2FwaV9jbG9jay5oDQo+ICAgZGVsZXRl
-IG1vZGUgMTAwNjQ0IGFyY2gvcG93ZXJwYy9pbmNsdWRlL2FzbS9wYXJhdmlydF9hcGlfY2xv
-Y2suaA0KPiAgIGRlbGV0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Bh
-cmF2aXJ0X2FwaV9jbG9jay5oDQo+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gveDg2L2lu
-Y2x1ZGUvYXNtL3BhcmF2aXJ0LWJhc2UuaA0KPiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNo
-L3g4Ni9pbmNsdWRlL2FzbS9wYXJhdmlydC1zcGlubG9jay5oDQo+ICAgZGVsZXRlIG1vZGUg
-MTAwNjQ0IGFyY2gveDg2L2luY2x1ZGUvYXNtL3BhcmF2aXJ0X2FwaV9jbG9jay5oDQo+IA0K
-DQo=
---------------0mve0WRCUDOgkf9JsJIojBKK
-Content-Type: application/pgp-keys; name="OpenPGP_0xB0DE9DD628BF132F.asc"
-Content-Disposition: attachment; filename="OpenPGP_0xB0DE9DD628BF132F.asc"
-Content-Description: OpenPGP public key
-Content-Transfer-Encoding: quoted-printable
+Revision v3 bump is part of my work for ISCAS, so the patches changed
+are added with SoB from my ISCAS mailbox, and a patch modifying mailmap
+is added.
 
------BEGIN PGP PUBLIC KEY BLOCK-----
+Because of gaining knowledge about a chip reusing the whole DC RTL of
+another chip (thus the same identification registers) without
+re-generating, I decided to add SoC-specific compatible string in v3.
 
-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
-kt+z4drzFUyEjLM1vVvIMjkUoJs=3D
-=3DeeAB
------END PGP PUBLIC KEY BLOCK-----
+Icenowy Zheng (9):
+  dt-bindings: vendor-prefixes: add verisilicon
+  dt-bindings: display: add verisilicon,dc
+  drm: verisilicon: add a driver for Verisilicon display controllers
+  dt-bindings: display/bridge: add binding for TH1520 HDMI controller
+  drm/bridge: add a driver for T-Head TH1520 HDMI controller
+  riscv: dts: thead: add DPU and HDMI device tree nodes
+  riscv: dts: thead: lichee-pi-4a: enable HDMI
+  MAINTAINERS: assign myself as maintainer for verisilicon DC driver
+  mailmap: map all Icenowy Zheng's mail addresses
 
---------------0mve0WRCUDOgkf9JsJIojBKK--
+ .mailmap                                      |   4 +
+ .../display/bridge/thead,th1520-dw-hdmi.yaml  | 120 +++++++
+ .../bindings/display/verisilicon,dc.yaml      | 146 ++++++++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ MAINTAINERS                                   |   8 +
+ .../boot/dts/thead/th1520-lichee-pi-4a.dts    |  25 ++
+ arch/riscv/boot/dts/thead/th1520.dtsi         |  70 ++++
+ drivers/gpu/drm/Kconfig                       |   2 +
+ drivers/gpu/drm/Makefile                      |   1 +
+ drivers/gpu/drm/bridge/Kconfig                |  10 +
+ drivers/gpu/drm/bridge/Makefile               |   1 +
+ drivers/gpu/drm/bridge/th1520-dw-hdmi.c       | 173 +++++++++
+ drivers/gpu/drm/verisilicon/Kconfig           |  15 +
+ drivers/gpu/drm/verisilicon/Makefile          |   5 +
+ drivers/gpu/drm/verisilicon/vs_bridge.c       | 330 ++++++++++++++++++
+ drivers/gpu/drm/verisilicon/vs_bridge.h       |  40 +++
+ drivers/gpu/drm/verisilicon/vs_bridge_regs.h  |  54 +++
+ drivers/gpu/drm/verisilicon/vs_crtc.c         | 217 ++++++++++++
+ drivers/gpu/drm/verisilicon/vs_crtc.h         |  29 ++
+ drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |  60 ++++
+ drivers/gpu/drm/verisilicon/vs_dc.c           | 205 +++++++++++
+ drivers/gpu/drm/verisilicon/vs_dc.h           |  39 +++
+ drivers/gpu/drm/verisilicon/vs_dc_top_regs.h  |  27 ++
+ drivers/gpu/drm/verisilicon/vs_drm.c          | 177 ++++++++++
+ drivers/gpu/drm/verisilicon/vs_drm.h          |  29 ++
+ drivers/gpu/drm/verisilicon/vs_hwdb.c         | 150 ++++++++
+ drivers/gpu/drm/verisilicon/vs_hwdb.h         |  29 ++
+ drivers/gpu/drm/verisilicon/vs_plane.c        | 102 ++++++
+ drivers/gpu/drm/verisilicon/vs_plane.h        |  68 ++++
+ .../gpu/drm/verisilicon/vs_primary_plane.c    | 157 +++++++++
+ .../drm/verisilicon/vs_primary_plane_regs.h   |  53 +++
+ 31 files changed, 2348 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+ create mode 100644 drivers/gpu/drm/bridge/th1520-dw-hdmi.c
+ create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
+ create mode 100644 drivers/gpu/drm/verisilicon/Makefile
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge_regs.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc_regs.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_top_regs.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
 
---------------DrSPxjHRDVvfvpOSxXEGqtrJ--
+-- 
+2.52.0
 
---------------We5fW6EZMtlKny0A4cau12FQ
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmkkKJ4FAwAAAAAACgkQsN6d1ii/Ey96
-XQf/SZ63IJyquodbQLgO7UOlhatNR0JUxtLBGXtzzD9lLJ9MGtRZn78fU/peXEGHNZEA2wJlcKOY
-+2AJ32Xsn9JL/9ZmbQyt014ovVTablifIrv8xlTgAgN99kTtFi2NiYD/AF98VCabwNRx+QK9Vo4n
-N4Eb1eW7YQFGLSAya7T7u2xWNW41xgedaRvQNEMOvGajK6VExI9lo9cXSp5bS+VKZqQWygNsQjAy
-BYg/u1+1sDr7L56331yDxmStB00H20evlCYda5vlv1qP2WpF3CuT+rpLAfQ4Wf1YCS+2ZW6UvLfy
-A6h35oFwyf1ohDIh7OysCxTH57L6hrDqciTpulba8Q==
-=JJbu
------END PGP SIGNATURE-----
-
---------------We5fW6EZMtlKny0A4cau12FQ--
-
-
---===============6359777171088963591==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6359777171088963591==--
-
