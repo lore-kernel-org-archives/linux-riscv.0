@@ -4,106 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BADC0CFD2F6
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 02:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E36CCFD316
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 03:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:MIME-Version:
-	Date:Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GgJVpj0/snnPbwxr0UrjY0eGLrSTgkGWpuw0sunw9eY=; b=zP4RAQ5G1tV3SuWAjPRpEIMc0y
-	2osnej8s++GBSnd30m0TOmjOQ4Ukczip7xEIZCZvzSMSXMOUzllfcx/fCT6ki1n8v3zEaR4qbZPUB
-	Lo6qIJyxvUo90TNt6WsiooBi9SnedDDKgYsTTt8k8X5t6daXZlrPg84pMNvORvshk//5hP+RYciSa
-	YKQQieedBpJVxcY3lT3CekTAjr05HJ+wRbDGqN0+F81Ez19jj3QZ8qeOi7nDJ11/OZfigulhFF4uP
-	+93V1/6wm526sR55sZ/atjqywXRbZ5hJeiibmO24F7SBn6/EzFNL5TpG2FEr1JuRBkEWAMOTpO5yQ
-	mDpX3sow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RUmTZ1OQAS5uoXJvGXfDU17ufDAGUIdRgmwaVYtgVvg=; b=n8eoqRSHaUNT/P
+	Az/Ijz/G4Jz0AP/2cqYedwJWbPQuLMFh64/sfWJIH0bnQk8SBdyGSzu9oTVa++sg48eBfY6Fk4C0S
+	zrcQnp/fNHA2IfMlbXZBe6kxQkmC3WXcBbuDmvTODMavALFQzeLbL2TFRmnWVM9Du+Shicajwq1b6
+	q/G568bEpy6iSyuLoUPbK3+q1wgJYVRpTRoFfDhlsEVWEgruzl7O7PiVsZ21swWJaZ+rqh1hFncVr
+	Lgn34vf5Py9761uMmO+4gZzhGZrnAKijq0oBJTyuBFoyelJkNZaRmCcxnXNNmjbx+xna1bXHL4l/H
+	wbo3efnhg2wabmnRJe2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNMWw-0000000AzPp-0Ztj;
-	Mon, 24 Nov 2025 02:42:18 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1vNMwe-0000000B1DG-0BLo;
+	Mon, 24 Nov 2025 03:08:52 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNMWt-0000000AzPT-2WJZ
+	id 1vNMwb-0000000B1CT-11XA
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 02:42:16 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b99bfb451e5so2490472a12.2
-        for <linux-riscv@lists.infradead.org>; Sun, 23 Nov 2025 18:42:15 -0800 (PST)
+	Mon, 24 Nov 2025 03:08:50 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-29806bd4776so5462425ad.0
+        for <linux-riscv@lists.infradead.org>; Sun, 23 Nov 2025 19:08:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763952134; x=1764556934; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=DvmpkL2pKIFur0kWWa5PPAZWhiSzKqhwPQTIwYGauJ4=;
-        b=M0DoPheHHLd2TDEYrml10W1Xs7Ruc0qqSm1JgjAlfh1pDDeAkFlP81ZL2KqFQsrvXO
-         lLqs64SaYyzT/RhKzRdswTZQc1jjfm6feS4Mm/a+zN/FlUOXmCKdN2zG/r35SRx5aVCn
-         sAj6Ay3z7KLYR/WPJXlplXggdg+Fxl7wbVzijSHuQmntZ/XzN3bttSd+IBvx1Ieg26xO
-         jv9SCfZ6jqhm0flxtNYO8jfZ6E3sgfIREb9h66YYJNiWVAvQuqS+CAtaxrM/2XqV5APP
-         s+GNE/ItWr3EZr1+gKRn0o7LwTmlaAOjZgL8pCQKFmxuT58c9XbghFj7GB3ci17GHoHs
-         kefw==
+        d=gmail.com; s=20230601; t=1763953728; x=1764558528; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5UfLdLz36N6jy+cgiPZv0EbkiK293E7zjZZj2yGuukA=;
+        b=BtEFFFKncOEvI04mOruLv6c2ZdBRcpSkjmc16l8QTFzx0pHTwX+jcgDfMW2kDQplI0
+         eyvUBEO7WY7ibYDrjVf1v2+acGDsyBlbghT8HP4OSoFWEh/x3MZJmiTUhE1S1UF36EWT
+         14Q53314Ngdd7xJ5dT+ehXY/cbFdYDSKDvOEkq9dQ47BtHGRtD1jfGfEAWjmv1qOWWKZ
+         GhsQL5aJn15DldMfZ9CILHwLKKZfIwG1JZludh1IkfPXQU1ZFa1kplqbYk16WZWNziXb
+         GewhbfOh0fR5CEHfEvLnNNQPi0O+wABYv2FWSK5BR6+3hQcVV+XfsSfbT8lQXHBV+LFS
+         6ZBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763952134; x=1764556934;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DvmpkL2pKIFur0kWWa5PPAZWhiSzKqhwPQTIwYGauJ4=;
-        b=jKbUnqKFy4KJ3gu9tFD1gedPSjf1ufBZktC6magK1R6rzi9/tDf+Da5E0Yh8SMfZ+/
-         pCARo3Kc4BMqhZ2F7/XZkji/9e8cIFeDlS09uUzD4P0Suj/U7QRKQBpHWaDxtZvzV6Py
-         bX8Wcpc+zGd+9HdxXDBKRt7CPnweJeiOiV+V6XzfII40eCT3gsKEZnzo7twUJu7gkU1b
-         hQhuL9V+t0gQKGeszntBdg/bv86j7GxdsOxDlU/qM9SePHNtVNSHAKVYEysShqwOYHqh
-         BfXApMKmSfDe+xjDHGeNhCWTO7CViJbpTIIHFv+Lf8+jCKWP4PRN+vLUZfjljed3RvB1
-         lS4A==
-X-Forwarded-Encrypted: i=1; AJvYcCXq38FnIlFT5kvwSi9dHMQS19ehX3fArsO/y3+IA/9s4qrq4i8cI4ARVOxK78Ao8aMkIXr2zpmfPGSKkQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUNL11afkd0ZXMoB4YZBgcGphFpDj87M6SqFf2rB150ilLpYVi
-	0BXSyNcjzUXEE/RQVQq4VtW/vppMZFXAvHzopKHCXBlBY2DN+7jMHA4h
-X-Gm-Gg: ASbGncsdLK5oD78e8BqNfYTfWIe1kolCKJpPA8LqqaI8hLPdZrz1LgPKOx+vaE2fY4s
-	w0joqDtcOrdcukbvE+EVoqzARh+Poj1uf5iU9SjyXB6AcZlw+QX8QWIo99jUz4TKM2Ee1z+CMB9
-	szvUodWAwzJ9ccdKOzQ6WiNJ9j6lJf8THKLxvD46TQ/Nm6ZxYxmqUdfFQdBzcdH42yDMRl3CsRA
-	HtJ9RTLvwN13AboH+zzhGBy2jqfypzVCoSpG15WU29GU02DHWSoAfFKBj1jT9dy9Fqf4TObP6F0
-	3Qhh/Mzv5YJ95cP5vSglMEoE7Akh+k/HEyQz21UeoPrHpRMEUmYkkUaOhX7RxgY0s3pQEsqf9dI
-	wucAyNm6+LfdlUFWY5pGMEfP7j+aURpeF8ZGg5ohZkcQI2CFJ58SOx5JQNcWYuDPRgCwnhUxoSx
-	9p1kH9FKPL1GtcdufwZ8Nwkw==
-X-Google-Smtp-Source: AGHT+IG1OvJ94QxB/0B5dUPh/eDPLHHoAzRcr/MIUUe+KPUWPK22zAbeB/idFdwPhcR+hgsYZWBgug==
-X-Received: by 2002:a05:7022:f50e:b0:11b:38c:5370 with SMTP id a92af1059eb24-11c9d712e3dmr5385199c88.20.1763952133924;
-        Sun, 23 Nov 2025 18:42:13 -0800 (PST)
-Received: from [192.168.1.209] ([65.87.8.213])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11c93e55af3sm67907613c88.7.2025.11.23.18.42.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Nov 2025 18:42:13 -0800 (PST)
-From: Asuna Yang <spriteovo@gmail.com>
-X-Google-Original-From: Asuna Yang <SpriteOvO@gmail.com>
-Message-ID: <ef617970-5539-400a-8717-dd96e82bf271@gmail.com>
-Date: Mon, 24 Nov 2025 10:42:04 +0800
+        d=1e100.net; s=20230601; t=1763953728; x=1764558528;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5UfLdLz36N6jy+cgiPZv0EbkiK293E7zjZZj2yGuukA=;
+        b=xTMOF+HkQce8iExEwkG/UsxG8duJn6rXIaX0eFLnwNOu8dV9I1VpNsC2eMhM1VBNLO
+         F2Xx1TkUXo/OuzMXy8hCiIlES+yrhhzsUYZPZo2vUCZIaLPWOQgNOLU8CeWiW3YiGQYI
+         w6Ncn0zRLQUWHMHwxcjJ6PqJZiA7i3jWg26AddEEM8/+Gvq/iL1hnDmePbssBH9aZjyf
+         HZNZ53MqFEqRnLjXB7CIEOeNz4NpcJ0gbYa5hPEoKKDa4oFy/kI9ZUKH4PUQpMVjj/nj
+         dPxlcAxVU5S46ZWsReLq9iIvG57xA4TziTXwgBtZzF5LInYKjqc+nClGVBWlPsK6oAMs
+         5FnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV6ZeJyzbw5RUiQ2XdvUemVA2K6eIj99kFF3i11L3PhP7dhiLgvk/T6zx+CDlTdFk37/zbmHTbkpZuxdw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGD0Z/7EUd0XYT5t+WukeR3Lv5Ke4Eqmaku3j4iLTfAaZPBGCq
+	qiQ+IXF6iJmPjwz2OXDlnoRqYKE6qPxhZ3x8ql8lqPvnU2cIoGoqw7X6hRHkyWJgJ1jECqZlY30
+	0eTVZxvqKKcKp197YzcW2tEqiTcwh8Rk=
+X-Gm-Gg: ASbGncuFgCZZDNaUxzfUXsOz1leT5fF1GRoMmaQv92HnZCp5C/pXKhaVpwljbZMMcmY
+	CJF1IBlA9Sn7uJxOb3You/Aar3cYxLDL6W0mg+Uggc5skG13aHX3vGFzPoo0wSQhSxsNjIZEKzm
+	jdhRcfXu2GLCNQT/Dddh58ZfWeDX4yKdeq5xMUdGygIjxvE7oAKbqn10s82VTuONlyieaN17BHK
+	EkovJFd0j232tubfKv+0GSEr06hy1ZCIGK4abJETujGopeEWteN8PFICJb4B+ll/XWjZvmjl9U1
+	d3MQhmHAN/tdbTbGkjkL+RI/LRubtK2XXjEuD4tz0MryFcphrz2GPV05z9JbKzoHvsJ6RXWoXfw
+	Hz/EYrXm1Bo+ggw==
+X-Google-Smtp-Source: AGHT+IHODcnccPs9iRgVIOwlcuA2DDRG3ls89WHmZSy8djjz85e63ugOsI0kgj+n0Sr7cHyi8QYJvH0K9Tj0s1pUI8E=
+X-Received: by 2002:a05:7300:dc93:b0:2a6:9dbf:bbe1 with SMTP id
+ 5a478bee46e88-2a719324a83mr5922485eec.3.1763953728292; Sun, 23 Nov 2025
+ 19:08:48 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+References: <20251124-gcc-rust-v4-v4-0-4e06e07421ae@gmail.com>
+ <20251124-gcc-rust-v4-v4-3-4e06e07421ae@gmail.com> <CANiq72k=XXRR6pw0Uhk89dmRHFYan6WzJhnDTC0T5oMYAaNnZw@mail.gmail.com>
+ <ef617970-5539-400a-8717-dd96e82bf271@gmail.com>
+In-Reply-To: <ef617970-5539-400a-8717-dd96e82bf271@gmail.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Mon, 24 Nov 2025 04:08:36 +0100
+X-Gm-Features: AWmQ_blIu7x6QT0VZIH89GBJq9q0tlaW_UfH33KPy6C0uRHf1k8ZydlwBKRhGvI
+Message-ID: <CANiq72nDpBodFh5Zqy2p9jwWyfAiY6KcEEyugHeMDEmOR6Rogw@mail.gmail.com>
 Subject: Re: [PATCH v4 3/4] rust: add a Kconfig function to test for support
  of bindgen options
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nicolas.schier@linux.dev>, Miguel Ojeda <ojeda@kernel.org>,
- Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Nicolas Schier <nsc@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Vivian Wang <wangruikang@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>,
- Jason Montleon <jmontleo@redhat.com>, Conor Dooley <conor@kernel.org>,
- linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, llvm@lists.linux.dev,
- linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20251124-gcc-rust-v4-v4-0-4e06e07421ae@gmail.com>
- <20251124-gcc-rust-v4-v4-3-4e06e07421ae@gmail.com>
- <CANiq72k=XXRR6pw0Uhk89dmRHFYan6WzJhnDTC0T5oMYAaNnZw@mail.gmail.com>
-Content-Language: en-US
-In-Reply-To: <CANiq72k=XXRR6pw0Uhk89dmRHFYan6WzJhnDTC0T5oMYAaNnZw@mail.gmail.com>
+To: Asuna Yang <spriteovo@gmail.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>, 
+	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Nicolas Schier <nsc@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Vivian Wang <wangruikang@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, 
+	Jason Montleon <jmontleo@redhat.com>, Conor Dooley <conor@kernel.org>, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	llvm@lists.linux.dev, linux-doc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_184215_675448_292F0816 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20251123_190849_286872_63CB54E4 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,38 +109,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/24/25 9:48 AM, Miguel Ojeda wrote:
-> More importantly, should we just have a separate function for backend
-> flags? That would be easier and would avoid having to use the
-> environment variable, if I understand the commit message here
-> correctly. And, anyway, it is actually the only function we need so
-> far.
-
-You are right, separated might be better.
-
-Another reason is, in `scripts/Makefile.compiler`, there is a set of 
-functions with the same name provided for use by Makefile. Since we 
-currently do not need to check for bindgen options in Makefile, I didn't 
-add function for bindgen there. If we add it in the future, the 
-`bindgen-option` function in `Kconfig.include` will correspond to the 
-`bindgen-option-yn` function in `Makefile.compiler`, and 
-`bindgen-option` function in `Makefile.compiler` will return the 
-selected option instead of yn.
-
-If we don't separate them now, for consistency, in `Makefile.compiler`, 
-`$(call bindgen-option,-- --some-flag-a,-- --some-flag-b)` will return 
-an option prefixed with --, which makes it difficult to use.
-
-I will separate them into two functions in the next revision, 
-`bindgen-option` and `bindgen-backend-option` (or `bindgen-cc-option`? 
-Which one do you prefer?).
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBOb3YgMjQsIDIwMjUgYXQgMzo0MuKAr0FNIEFzdW5hIFlhbmcgPHNwcml0ZW92b0Bn
+bWFpbC5jb20+IHdyb3RlOgo+Cj4gSSB3aWxsIHNlcGFyYXRlIHRoZW0gaW50byB0d28gZnVuY3Rp
+b25zIGluIHRoZSBuZXh0IHJldmlzaW9uLAo+IGBiaW5kZ2VuLW9wdGlvbmAgYW5kIGBiaW5kZ2Vu
+LWJhY2tlbmQtb3B0aW9uYCAob3IgYGJpbmRnZW4tY2Mtb3B0aW9uYD8KPiBXaGljaCBvbmUgZG8g
+eW91IHByZWZlcj8pLgoKSWYgd2UgZG9uJ3QgbmVlZCBgYmluZGdlbi1vcHRpb25gICh0aGUgbm9y
+bWFsIG9uZSBJIG1lYW4pIHNvIGZhciwKcGVyaGFwcyB3ZSBzaG91bGQgc2tpcCBpdC4gT24gdGhl
+IG90aGVyIGhhbmQsIGBydXN0Yy1vcHRpb24teW5gIGlzCnRoZXJlIGFuZCBpcyBub3QgdXNlZCBl
+aXRoZXIgKGl0IHdhcyBhZGRlZCBmb3IgY29uc2lzdGVuY3kpLiBVcCB0byB0aGUKS2J1aWxkIHRl
+YW0sIEkgZ3Vlc3MuCgpBcyBmb3IgdGhlIG5hbWUsIG5vIHN0cm9uZyBwcmVmZXJlbmNlLiBgYmlu
+ZGdlbi1iYWNrZW5kLW9wdGlvbmAgc291bmRzCmdvb2QsIGJ1dCBgYmluZGdlbi1jYy1vcHRpb25g
+IGlzIG1vcmUgY29uc2lzdGVudCB3aXRoIGBjYy1vcHRpb25gIGFuZApwcm9iYWJseSBlYXNpZXIg
+dG8gdW5kZXJzdGFuZCBmb3IgcGVvcGxlIG5ldyB0byBgYmluZGdlbmAsIGFuZCBhbnl3YXkKdGhl
+IGZsYWdzIHdlIHBhc3MgdGhlcmUgd291bGRuJ3QgbWFrZSBzZW5zZSBpZiB0aGUgYmFja2VuZCBp
+cyBub3QgYSBDCmNvbXBpbGVyLgoKVGhhbmtzIQoKQ2hlZXJzLApNaWd1ZWwKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
