@@ -4,98 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9C9CFD313
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 12:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B89CFA466
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 12:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iudgFSS0uGEOl5Qk4ZUrE/va2YiCqUwfoteId6EmYDc=; b=TbBMD7Ff4xkXB4
-	bM9iN5KUbtOFixs51hRbcYcfrwFPTO4JKY0Db03GgGojOqGKLU2BptOnqJFUt6zFLCKdjK1L2LOCq
-	vxhwjuV8htFkLMC9rcfRfCkO40g6FcNSacG4/e/5QRpTRhce7jrb7hvJhcv0PmKn6dgqTVgMuo1ZP
-	ms14Ns1vZs7Y4pyCdNLHCJ4PflLqcdUpUTHdIjMSVUsVeYbOy1h0zNVmrbONE6BNSkh0GgG9+0sWo
-	6TbVxhOwbDMg1aaPQloyHuFnlYz0YLRt9LG1zlWGwv9Lxsd8YSOjGwBGuh0e7ZDpY/mIVS7YbUUIM
-	tbSu7zjAJBWqb3R2EcNQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PfCzwKrPHUeDedib68SjaeoqNuD4cHFrMCVsEWDO3H0=; b=dXxjNq07KYSzzlmeAN6YNYbTe2
+	kHWcGkWSKmgfAgoNyMV5koxc992yxawGqUTJ5CYtbb+2n+3/qLZ0ZPPukrUKNswJtQW8UsDb6jCT9
+	8f5vjw91Fh4NSlx22ks662hNz5CtdaDOhAoAW1yq4+zzRGUjKgQF0D+AbCfXF9npoOfks08QfvqvN
+	yWAAawQFWX+4+wO1mNVjt2Nrt0chvSrZyMYKdJsrMfhMgUpzSDRr0mKVuiQZiBfXMpsgRVyZoOaiH
+	tnpBegFjOJ2GKak5kMDpoi374IcIarQuy3kZRx90AYJpoBkD+AArj6JSSWRIid1nqI7xl11OPHVwP
+	iLpUe1/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVXZ-0000000Bdtg-2f8v;
-	Mon, 24 Nov 2025 12:19:33 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1vNVYF-0000000BdyM-02UE;
+	Mon, 24 Nov 2025 12:20:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVXV-0000000Bdt9-3eOc
+	id 1vNVYC-0000000Bdxu-2VIP
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 12:19:32 +0000
-Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com [209.85.218.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 497433F59A
-	for <linux-riscv@lists.infradead.org>; Mon, 24 Nov 2025 12:19:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1763986763;
-	bh=bCRLZifp4rTECd0rvH9pvqGqlkqO8pNJxlD0CHTlV8k=;
-	h=MIME-Version:In-Reply-To:References:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=Sh+WcqQScQeURg2UlZg13QMR80LgU3P/cL/JkuPIYiwC6ypeK6kVJfPSUVDtp/UZ9
-	 hdaqYnH8fBfsQ+dCy1rSs1iJrzut/9B5pZY4hNTIAUqxwpFFx2V4WeFPPDcpBS84Vr
-	 gyYrYiPXSXg4/t9yvIGctphffvw8cr7bsnhJPVcVAQv8YDB9q80iz5K/WD4zV8XGPa
-	 qzqYsuxhFcr2QYHupOOGegGqswF65NWCUsyE2W3BU+bfoS0YYPtuRNJ6jBsuPQu1+t
-	 1vs2f92gQkNtIDDm70nx/SdhXCY7cOJ1ZW9yol2RCCyeZhAEhN1UGEdIXAvd/bV7aT
-	 Ahjm6ibQvcvOqG1D/ZAx1U0gduOa5ds0z5n+Gxig/ZVmS4hpRQt8IBA63YSfuJAJl4
-	 X9l1Y0q0S+bz848CFOvRyoq0KJxJkw/Fo46DFtg+w75jVA1xQSQV41vMqJmybIXh/C
-	 MErtKJAU1utFo2A0lqicfkPrP51VS2e6qoBDDjv3Oijgb2r6glx5ooUrDC72Nos6RY
-	 rh54e5rxjBRcMhIh/5lEUZoAxEq9YpyyBkORVWZcXPt7CQ84uy7RjGBNNzCNCN61Xw
-	 SFtQ+PcJRi6pc06Vhvk+DVG/eD9wyCJU3RGSQa/ajVJvcS+8aKJVOL+wSN29/CP4+U
-	 Ew45qWa3zvrynpXgkPVURi4Q=
-Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-b736eca894fso328068866b.1
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Nov 2025 04:19:23 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763986761; x=1764591561;
-        h=cc:to:subject:message-id:date:user-agent:from:references
-         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bCRLZifp4rTECd0rvH9pvqGqlkqO8pNJxlD0CHTlV8k=;
-        b=RorpLQXmvTcy7OUAQnKtDCyjgRWPu6DLPPsy5+R9T45JqCO9cssyk2XCcUu47pLD4A
-         FzdBf/74hrVF5jR8VGotNWqyvn4OgFIRgeDWor9IfsX2y65RIqP9cnI8D7GB69Uq70Q+
-         /25ga2I+mCptE3HTh0Y1BXQdDgzGZxFHM8aC4/YjpIWOOAqYzMnS4ml2tGcjjs6shJiC
-         0PSKyoILP2y7UBddhyFCHV442hvpeo7/mCBiiKsHTT/YclyzW3UKifls+78qlhdTwZp1
-         1hk3GQ3goFpskPFam5yPYEI6uTPKZrDJ9KWvxmlWz2JRqAU8DoX5KY0pngymBr7s33bQ
-         TDgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV3vy97W6O5caA9q8AQWZ6QgMZuiUGACwkMqWW99I96RQujfiUQ6ZqpdqQvoOM2V672buCqYAm4lI1+Pg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/AJRZ/Sn0JVR1NtPeKT39jGdKnnGT/OHpXoVvEpn9/VekqCah
-	w8jRrU9po83j9PfyxUzY5jLClBK/SvelcM/zVUYGCeFU/vG8PR30LFQJoxFs6lj4XNATc1lGBlg
-	ULCggBPXJrz6NSnLpFRvg97VIOdqbbY1vLlFQcB29KBDj12UNpWj/KIT/LxoIRihRsbENdZCE0V
-	ZZGFaElG8LG7gq8vwtiYUHPKbMWYYNs027qRmHM2FTHOUlHDpeLN9CjJpOLaLE1yBSgEqg
-X-Gm-Gg: ASbGncsWcCD5bchvpuJoTFjVGqqpgivjo7YPEcwAX4O+AGshun2ZyoPLYbRz6wZx5N7
-	wXCEnaKyIAtx67q8O7oBYLXYEg6M7a9QsRqZGb/zm+AEsxaM9k52cWlxrCo+XnOPGgkI3aF6Gbh
-	nhoHc715MvHEG1qrNdL96CI1+N3IlS01q8H2HbGa/sVTrQdhMfRIjzNMpRu5ikYM8F
-X-Received: by 2002:a17:907:6eaa:b0:b72:e158:8234 with SMTP id a640c23a62f3a-b7671558169mr1195243166b.3.1763986761149;
-        Mon, 24 Nov 2025 04:19:21 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGWpvA5AZsU9hd0FhbQhD6jmXvVQ3XWcRt42zqy7pGEVPOKqtKoLyqFA+m4JfhLtz3/uVzmsQLU/40dOSJ6M7s=
-X-Received: by 2002:a17:907:6eaa:b0:b72:e158:8234 with SMTP id
- a640c23a62f3a-b7671558169mr1195240566b.3.1763986760732; Mon, 24 Nov 2025
- 04:19:20 -0800 (PST)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 24 Nov 2025 04:19:19 -0800
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 24 Nov 2025 04:19:19 -0800
+	Mon, 24 Nov 2025 12:20:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DFDC440E87;
+	Mon, 24 Nov 2025 12:20:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CABBEC4CEF1;
+	Mon, 24 Nov 2025 12:20:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763986811;
+	bh=/Yj6YE4nwthYIL0rOIKkvsqhHOAJVwTXZM7e6cPjilI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FOW8LXM6jn+tyShA7JzzS7B75rWdGAjSbVmsNC7op1FkTrHLxbqL056CpUrHTOaAt
+	 Fmo0V/XYMdFbgaqArrJxeJmlocKsGcE+x3XN/YvFQWtP6cvwA/VWdG5JqWo0T7qf0i
+	 jspUtiynQyQGf1MTZkUTC8MhxQx1NDQsAnZvXC+4q/REblJHzdxed1VBecfN8Zgzml
+	 38YrA3tOYAVqq9rt6avIhg6TmPxGEUQ9QfWezFxniOkuTAJEmfVrHKINKtRgwOd7W1
+	 q70gB+M8/fT5A13BDmWFTWaOQpDjpiPnQ4AWNah9S5GEXbYeRs9whu27vLViO9fmZi
+	 F5oC6MKpai3Bg==
+Date: Mon, 24 Nov 2025 12:20:04 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 2/9] dt-bindings: display: add verisilicon,dc
+Message-ID: <20251124-pulp-pound-a2b6d749dcfc@spud>
+References: <20251124105226.2860845-1-uwu@icenowy.me>
+ <20251124105226.2860845-3-uwu@icenowy.me>
+ <d4cfe8bb-5ca2-40a9-bfe0-96e7ded5586c@kernel.org>
+ <f7bbb57180866a0674fc1d72d4bd3279c7b1c1e9.camel@icenowy.me>
+ <c26dabfb-c4af-428b-a1d4-d626f37ff559@kernel.org>
+ <f944f0b28f62233b1874e0f00c0a130d71845417.camel@icenowy.me>
+ <6ceb41bc-0597-4ea5-84be-51f53e3bc2d8@kernel.org>
+ <20251124-said-overvalue-8a8f49d6c99d@spud>
+ <477bbcbe-17d9-40ae-be10-be4fd107687e@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20251123-shopper-stunner-c3c5ff00b0ee@spud>
-References: <20251123-shopper-stunner-c3c5ff00b0ee@spud>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-User-Agent: alot/0.0.0
-Date: Mon, 24 Nov 2025 04:19:19 -0800
-X-Gm-Features: AWmQ_bmtNan9T1eukBSF652dUFMoGNOaNEsLx1nZSY1JC3kM7j9cXMs0IKvAZbQ
-Message-ID: <CAJM55Z8q6YvVPHDmZtATW0eB=uuWz8=kiR0CDS6RJSM8Qz79Sg@mail.gmail.com>
-Subject: Re: [PATCH v1 1/4] MAINTAINERS: add Conor to StarFive entry
-To: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org
-Cc: Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <477bbcbe-17d9-40ae-be10-be4fd107687e@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_041930_299059_C8B60F3A 
-X-CRM114-Status: UNSURE (   6.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251124_042012_679504_BD203651 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,28 +72,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Drew Fustini <fustini@kernel.org>, Heiko Stuebner <heiko@sntech.de>, dri-devel@lists.freedesktop.org, Guo Ren <guoren@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Yao Zi <ziyao@disroot.org>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Michal Wilczynski <m.wilczynski@samsung.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Jonas Karlman <jonas@kwiboo.se>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, linux-kernel@vger.kernel.org, Thomas Zimmermann <tzimmermann@suse.de>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
+Content-Type: multipart/mixed; boundary="===============0207647842124007805=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Conor Dooley (2025-11-23 19:53:40)
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> I apply the patches for StarFive devicetrees, add me to the entry along
-> with my tree location etc. This is not a functional change, as this info
-> was in the "RISC-V MISC" entry but I'd rather not have the duplication
-> of entries covering the StarFive directory.
->
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks for updating this to match the actual workflow.
+--===============0207647842124007805==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="kdnfVisB77n/BULr"
+Content-Disposition: inline
 
-Acked-by: Emil Renner Berthing <kernel@esmil.dk>
 
-/Emil
+--kdnfVisB77n/BULr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Nov 24, 2025 at 01:08:00PM +0100, Krzysztof Kozlowski wrote:
+> On 24/11/2025 13:05, Conor Dooley wrote:
+> >=20
+> > I don't really get what the fuss is with the dual signoff, what's the
+> > point having both when they represent the same person? Pretty sure it
+> > was you (Krzysztof) and Arnd that told me not to both doing the double
+> > signoff.
+>=20
+> I do not object having or not having dual signed off HERE.
+>=20
+> I never said that. Just like I never said "From" has to be changed.
+
+I didn't say you objected to both being there. *I* am saying that it is
+probably not worth doing. That's especially the case when it is adding
+complication about correct ordering of signoffs and maybe interacting with
+how git-send-email decides to insert From: fields.
+
+> So repeating THIRD time: sender's SoB cannot be somewhere else than the
+> last one.
+>=20
+> ... and before you attribute me another thing I did not say - if you
+> change the "From" field, rules will be different a bit...
+
+
+
+--kdnfVisB77n/BULr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaSRNdAAKCRB4tDGHoIJi
+0ptBAP956X1zit1/KmamkExrxDO5JHMTMOIMyhqNrJtUut8iogEA/6YMiCwput82
+DBhi2ECBNDPoqb3RvOun1DrwHY3DUA4=
+=uorq
+-----END PGP SIGNATURE-----
+
+--kdnfVisB77n/BULr--
+
+
+--===============0207647842124007805==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0207647842124007805==--
+
