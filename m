@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD874CFA466
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 10:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E396CFA466
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 11:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H63raD281cKiiZsEFwm4IhpG9VA4oOtegG1YC6sPxvk=; b=c/UilWgA4PPpCr
-	fD22T008oJG8u3Sdxbk/hRM+Ypx4fSg5OMWJmgDVyXqNwasTZCnRi2V42GlchyModY3MOC4OtDZyt
-	557d8CJZ9yvIAkqipJSj8SHKlY72yB0xbCfuLsiO9SIe2VanLQngKbLcNz5ZRGCJfW7DWzDFJnQB2
-	+dipVz4RjG/eZL/gdkT9Le6c8Y9iVJ8tdmD2UIHhoUL7Hmo2qjMM4xRrWmYkp9ig7LftXbubbP93B
-	J0276JKwdeGrgL9dH3YuAHKHapfKLiJTGiJlpn0g533P9uvv/m3XriCvT79euQhIkKjXq2P7AW/dZ
-	Hx0wqn2MC5NduUn6+ILA==;
+	List-Owner; bh=5aZQiJbnNMK6sbC4uQJ88khf5PgOiiQ8Epy0IETalr8=; b=NAjLMcOVpniFAX
+	gEjldYnMTdRLaTt3N1rMs56S6iWxxHKMrHdaUoNNmEnljSDLG4Q0bGCO+lQgLHDTldJ9aE/2y/n4D
+	C0JhSI3ihJZJfPCV+Zd4sIsjPnz3dS/Hl0uP6lkhN9H71CQVKM5YYFrFoXJCqytxeANLIoYQKHnxc
+	2iUi95KL2fQ8RrGv+ww3umDueNzxq3T2//VrLSPWFOMJO8nMhxETGKGxKwbv2HfaKbQ3bTIA8jK1W
+	jiMSQ0PQoKOslqnXGaEDIDgSadNgLkdLH0XzlroltlLsVBkaUr7kNkPK5VjhYpijjBmv811GVHiFc
+	+X1h0S4GmPd1FqhQ+Adw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNUGp-0000000BTzq-2YwG;
-	Mon, 24 Nov 2025 10:58:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vNUKZ-0000000BUTb-2QoP;
+	Mon, 24 Nov 2025 11:02:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNUGm-0000000BTwY-0iBK
+	id 1vNUKY-0000000BUTP-0qP0
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 10:58:09 +0000
+	Mon, 24 Nov 2025 11:02:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1408544313;
-	Mon, 24 Nov 2025 10:58:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF73C4CEF1;
-	Mon, 24 Nov 2025 10:58:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 36D1060138;
+	Mon, 24 Nov 2025 11:02:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BC77C4CEF1;
+	Mon, 24 Nov 2025 11:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763981886;
-	bh=xJ32qcMBKxVPDueStveGgZE8sA3LiRciLoObFyqhpOE=;
+	s=k20201202; t=1763982120;
+	bh=5yQwGr1/pbPjCyfg6TPiWd9jFRt4jfCH8hsUv6oL3yE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=svMwvO6Qh+i0nm2PBwRuzMt4SaOUaXLqOfDEi0MKj2HGI0OrU6cJbH6m+GLFi1iZq
-	 bloJlvS2q66VBh8K2CO3wpuN/wlB4Al2AQCssFNh2oQI25+5SjQ0rYaH/nqDJpFTO1
-	 ryv0eUPoz2YE4xEjTicFCBIMTfrg4vuJzN+ZnaryTbqSWly+WKACxwm8Q1lhO3ciS0
-	 S+U7T4Ym/GkjkHuE0tODZAwWc2YDaUNcm+vr3NQt4Ncu5iHKZqfXUnynHp+EaV1pLp
-	 NBGCPZucUOSNdUI+oq67WjQOO3+YlTyPeXCxwTERWq+CJdFnw9oJsAfDD6d6lYgBVq
-	 OENpdeux+1erA==
-Message-ID: <374aa38b-c16f-46da-985e-266fdfb4c717@kernel.org>
-Date: Mon, 24 Nov 2025 11:57:59 +0100
+	b=ClvydOwcxIZ/QmFPbloxmstWi9B5ijiLtxK7AN9a1kls7Ki4WZr+rhTC1doL+c1U2
+	 W/OSWae2uHBHL7pnrKGfSSSvx7ZbdTsDnyI6bwbH7tlNzoB+5gWMdjxj7qtXRCfY3I
+	 n3dbPTKMiOBKHmOw0KdecqSVrlnztU9gwGmiNTRaYAEIhIjlC9CEqzMAmOs4jLRlW2
+	 OwpDbc8nwyYvgEAfIDHbeE4n3jyxmETfGKaAqbdRaBAx1dvvrahw/gqOVF1/xlvUJS
+	 GKqwl5AbRcZNX2S6vuby5RcNTj8wrWiCEzmmYWufZUrI1mw+pr/o//kjsFGHP85TWI
+	 uoY3NJRPbkVPw==
+Message-ID: <d4cfe8bb-5ca2-40a9-bfe0-96e7ded5586c@kernel.org>
+Date: Mon, 24 Nov 2025 12:01:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/9] Verisilicon DC8200 driver (and adaption to TH1520)
+Subject: Re: [PATCH v3 2/9] dt-bindings: display: add verisilicon,dc
 To: Icenowy Zheng <uwu@icenowy.me>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -62,8 +62,10 @@ To: Icenowy Zheng <uwu@icenowy.me>,
  Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: Han Gao <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>,
  dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>
 References: <20251124105226.2860845-1-uwu@icenowy.me>
+ <20251124105226.2860845-3-uwu@icenowy.me>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,11 +111,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251124105226.2860845-1-uwu@icenowy.me>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_025808_252566_095527FA 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251124105226.2860845-3-uwu@icenowy.me>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,15 +129,87 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 24/11/2025 11:52, Icenowy Zheng wrote:
-> This patchset tries to add a driver for Verisilicon DC8200 driver, and
-> demonstrates the driver on T-Head TH1520 with its HDMI output.
+> Verisilicon has a series of display controllers prefixed with DC and
+> with self-identification facility like their GC series GPUs.
 > 
-> This display controller IP is used on StarFive JH7110 too, but as the
-> HDMI controller used there isn't as common as the DesignWare one, I
-> choose to use TH1520 in this patchset.
+> Add a device tree binding for it.
+> 
+> Depends on the specific DC model, it can have either one or two display
+> outputs, and each display output could be set to DPI signal or "DP"
+> signal (which seems to be some plain parallel bus to HDMI controllers).
+> > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+
+Wrong DCO chain order. You send it as icenowy.me, so this must be last
+SoB. This identity is the last one certifying DCO. Please kindly read
+submitting patches, so you know what you are certifying here.
+
+> ---
+> Changes in v3:
+> - Added SoC-specific compatible string, and arm the binding with clock /
+>   port checking for the specific SoC (with a 2-output DC).
+> 
+> Changes in v2:
+> - Fixed misspelt "versilicon" in title.
+> - Moved minItems in clock properties to be earlier than items.
+> - Re-aligned multi-line clocks and resets in example.
+> 
+>  .../bindings/display/verisilicon,dc.yaml      | 146 ++++++++++++++++++
+>  1 file changed, 146 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> new file mode 100644
+> index 0000000000000..522a544498bea
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> @@ -0,0 +1,146 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/verisilicon,dc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Verisilicon DC-series display controllers
+> +
+> +maintainers:
+> +  - Icenowy Zheng <uwu@icenowy.me>
+> +
+> +properties:
+> +  $nodename:
+> +    pattern: "^display@[0-9a-f]+$"
+> +
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - thead,th1520-dc8200
+> +      - const: verisilicon,dc
+
+I do not see any explanation of exception for generic compatibles, maybe
+except "self-identification" remark. Rob already pointed this out, so be
+explicit in commit msg why you are using a generic compatible.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    minItems: 4
+
+This is not flexible. Device either has or has not these clocks.
+
+> +    items:
+> +      - description: DC Core clock
+> +      - description: DMA AXI bus clock
+> +      - description: Configuration AHB bus clock
+> +      - description: Pixel clock of output 0
+> +      - description: Pixel clock of output 1
+> +
 
 
-That's a v3, so please kindly always write changelog.
 
 Best regards,
 Krzysztof
