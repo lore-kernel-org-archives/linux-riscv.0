@@ -4,89 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55689CFA466
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 15:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C4F1CFD31F
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 16:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ecxn45hPYWeiStg00N5SIwL9oRRRNj96Cl0PPoSuyIk=; b=4WevF+X2b5GIsl
-	GDoZojEzggBHTURtB3tQ9g0NiGbhUgahVn5U7ThQxQgU12U1iSh6YRJ8KJSzs0aZLfbjxl2mA0zw/
-	cFs0oaN/thviJolgliz0F6x6urT4HasddOZLt7jxgauOoQxxyhW9/R1qwPjKOr3INo8crFer7NBBc
-	liI65l7HAklLp4C5zQEN3o8cJBD9TS/o1kNKLFcLPkMx1HLD+l4a2G23miFFpYOGKWZoPo6EeRe9n
-	4F8IMNLnDj29OVVMA4uwUIVptyU8eRp7ZONooqc2EEGns5J+1UxXKZGQGGqKBLuMxZMr0iLCtqTjd
-	RBQzlFEVgknoxAX+SVLQ==;
+	List-Owner; bh=O5P82G/2E7rZGsOgRXSH+v2W1/+0OH82Q1itKggKN7M=; b=qYCzYpCkKPKz56
+	noZ1EEY4J2cJJ09hHdFzdM+iYFJx/A6mLZoUYW0E4K49RYid+PCN5JtEwRQRArBTHF5yotL2uf3u6
+	XHGHOl4Y9jilwr8BcPgXjX9h7j/q3OOaF4Q38u8fg0UbyRffA0yNI/4S4TzzZjsyZa54V8np5SEzS
+	n8yh0Ljfbn6gEDp71ZLB+iM3gT6/OQ3UwMHDZnauiHO6kj/qWYubX65BvXmSTvOEZcl1Gyuwou/cw
+	aWSY06HAPD4YaS9MjNy64m1/oKw0yb7B5EJ00fyi0YbtmzLqOmfJxzM9KnJxIiXDRBKTjx3N+V5Ii
+	MJYCq+Y/R4TT0V75tHgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYTy-0000000BvBJ-3uQR;
-	Mon, 24 Nov 2025 15:28:02 +0000
-Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
+	id 1vNZmm-0000000C1Q0-1IgP;
+	Mon, 24 Nov 2025 16:51:32 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYTx-0000000BvAM-153Z
+	id 1vNZmi-0000000C1Nz-3N31
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 15:28:02 +0000
-Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-43346da8817so21095855ab.0
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Nov 2025 07:28:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1763998080; x=1764602880; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=q1RSYP6MsAvIm0Pq2Uruz+WZQe9fgkegsjE1gjboYnk=;
-        b=b5BBTp6ObLbrACYdFbo/vr5UEqRQT2NPhZGvMejyz1BaOh1vOeOKQrr3Z/9WbFAqQZ
-         3siezo5pRuLP/AAk9WxuAbTJ/LWCsBE40qa6VK/MD/BahUtkd+PTXuxbN9ElMZYFoeH2
-         XxLI3vfVQalNNAbll532jr9cSunUGX6CXzDLEMSp4aaF1A5N8u3TaNb87vEjpM6uejHo
-         wontdpN55fpHLO+RDwFXXnKnkK5OxpmVShh3zHqvX6Qi1L1SvOOAbalW+uTWMVOwAun5
-         X8y/IzJ1ZH1Qb/rr8O0qYrkWn1vn7UZ+p5li+g72wLo+uL2PMqp5ECqHJ52UOmw+dp35
-         Fh9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763998080; x=1764602880;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=q1RSYP6MsAvIm0Pq2Uruz+WZQe9fgkegsjE1gjboYnk=;
-        b=Un+pjW/TAaWb3A8US4GnVPsM64JGsdqBR5iYWbxX4Sm4KrH4WIpj2Qz3GtR92Kg7Y8
-         KvrX7gQda4FYPqC9XIH8iR1cEtBTCFj2/xC4lU4C2UgWzkOK7Tggtis3o2sHGcCyNeWY
-         LpIYfZC6Oe+17AkXFzSzTe7rlJGC63bWrL0ZQt+BV+TGICIt+B335ojbonzSyZzBWmVD
-         cC6DauDSsTtoFKPelgB3XRfcdn9yoAuDY5ELXtbkVrC9k8yecdRUf3+LzPw6+b+jOp1M
-         ZVMaIZKeSyipGM0JezowrLZGgIyLnDhot9BbXTmcu0WF/Ga+Or7HUrtPZUomvSaVOVMG
-         7E8w==
-X-Forwarded-Encrypted: i=1; AJvYcCU6uNfMAVzQwI0QyaxcgJzUL1/9ymj38EINN5KxLZwIgyZ4hdI6T01uE9ZS/Cv/Pp3YhraO7iEXxRtAqw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZSEbT5zE7zYnjl6heYn0TmxKIwiTIKhxfY/PMIK6vPoVrB9Nh
-	2jk+6XfwMoMOLFMa4kx87v9bGMj/bkFXaCHhMqRgs8BvzEeL0wXAY/72aoH7V5MlZAw=
-X-Gm-Gg: ASbGncvCpQrtU326BphYLfz8mD/PJiMdO3XtIQ3pxkL2T97UjLh0kUmFatSOIXKK5Sg
-	yAV+WW3+Ni5T7XnT1pnCplj9o6vtjG7g2x9BR6CftYmlt4a00XoldLepsF5qYXuC2TjU3sceP9u
-	JRb+vlOT15dnypm7Q2EJTDHeu9eRQG593cu9GqMvNf5IOKkBN8W9QKA4EXUjOtKKTKzeh8ovID6
-	4xeXX2oZgjZJLpvk1ekJpNaH0o85nQRvI9iiXGCe6tm5Gnxx5Acw5YX+YmEuISHrPRmMjaMMKYK
-	lWGU6aYFmtNhmMwxusQzy6ZFb4YgTAORtSZM/s9kPmrzXE/edOQg6C6pYjZwxmY9eWtReffe/8x
-	eWno96GQaEB1bIdJPAlDlBeiVA6EiReana6g6M4RcmDebFjN9wiiZjNHdgHVuWUn+F5R2HBa3aw
-	+qmvsFumtfkRc0
-X-Google-Smtp-Source: AGHT+IHmDpkWVE+bXi7YcFx06zdDu1mvUX5E8wtndVMa3n+flWgwc0GhUUEOVNOo3pwJ3is8DkRQDw==
-X-Received: by 2002:a05:6e02:3187:b0:433:7842:7967 with SMTP id e9e14a558f8ab-435b90f7448mr96578225ab.11.1763998079832;
-        Mon, 24 Nov 2025 07:27:59 -0800 (PST)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-435a90dba32sm60356135ab.28.2025.11.24.07.27.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Nov 2025 07:27:59 -0800 (PST)
-Date: Mon, 24 Nov 2025 09:27:57 -0600
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Guo Ren <guoren@kernel.org>
-Cc: fangyu.yu@linux.alibaba.com, anup@brainfault.org, 
-	atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] RISC-V: KVM: Allow to downgrade HGATP mode via SATP mode
-Message-ID: <20251124-4ecf1b6b91b8f0688b762698@orel>
-References: <20251122075023.27589-1-fangyu.yu@linux.alibaba.com>
- <CAJF2gTTRBFTnu2pA5rh16EWLvF_Wo=+vpZMUK9roDkDPes4Fpg@mail.gmail.com>
+	Mon, 24 Nov 2025 16:51:30 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 477095BCFB;
+	Mon, 24 Nov 2025 16:51:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1764003085; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=63HXk2asPcR6HKGFSmIOTJlWneEzg1F4AZ9qPy2VUyc=;
+	b=dcDUjCI3uj/QmtPJnbVXTs2PBaK75kBtz5OqbM0Ly9ubTksmw4pjAKOEWb7b70uMGsWAEF
+	Ripb3MiANiHw6A5S7I7KHj200WMVggKr0MXXHsBIS5MPthtJoTEKzck1aF5734yPgd73qO
+	ZoC7dhAzSo4rgjJH4s0oymibQbqySro=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1764003085;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=63HXk2asPcR6HKGFSmIOTJlWneEzg1F4AZ9qPy2VUyc=;
+	b=gWriWF6D8Q9+do0pE8VLw3CTkcfh5ZRwMCG4sFZAPf4FLq/ypiCgcVxDskWfrbOzAOlchX
+	KN4QRHEfnqfo62Cw==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=dcDUjCI3;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=gWriWF6D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1764003085; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=63HXk2asPcR6HKGFSmIOTJlWneEzg1F4AZ9qPy2VUyc=;
+	b=dcDUjCI3uj/QmtPJnbVXTs2PBaK75kBtz5OqbM0Ly9ubTksmw4pjAKOEWb7b70uMGsWAEF
+	Ripb3MiANiHw6A5S7I7KHj200WMVggKr0MXXHsBIS5MPthtJoTEKzck1aF5734yPgd73qO
+	ZoC7dhAzSo4rgjJH4s0oymibQbqySro=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1764003085;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=63HXk2asPcR6HKGFSmIOTJlWneEzg1F4AZ9qPy2VUyc=;
+	b=gWriWF6D8Q9+do0pE8VLw3CTkcfh5ZRwMCG4sFZAPf4FLq/ypiCgcVxDskWfrbOzAOlchX
+	KN4QRHEfnqfo62Cw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A1CC63EA65;
+	Mon, 24 Nov 2025 16:51:24 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id mDQXJgyNJGm3GgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Mon, 24 Nov 2025 16:51:24 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: ardb@kernel.org,
+	javierm@redhat.com,
+	arnd@arndb.de,
+	richard.lyu@suse.com
+Cc: x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-hyperv@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-fbdev@vger.kernel.org,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: [PATCH v2 01/10] efi: earlycon: Reduce number of references to global screen_info
+Date: Mon, 24 Nov 2025 17:40:13 +0100
+Message-ID: <20251124165116.502813-2-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20251124165116.502813-1-tzimmermann@suse.de>
+References: <20251124165116.502813-1-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTTRBFTnu2pA5rh16EWLvF_Wo=+vpZMUK9roDkDPes4Fpg@mail.gmail.com>
+X-Rspamd-Queue-Id: 477095BCFB
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[15];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	FROM_EQ_ENVFROM(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLtfyjk8sg4x43ngtem9djprcp)];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.de:email,suse.de:mid,suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_072801_304925_979086DF 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20251124_085129_001263_25EC1215 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,27 +149,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBOb3YgMjMsIDIwMjUgYXQgMTA6MzM6MTlBTSArMDgwMCwgR3VvIFJlbiB3cm90ZToK
-PiBPbiBTYXQsIE5vdiAyMiwgMjAyNSBhdCAzOjUw4oCvUE0gPGZhbmd5dS55dUBsaW51eC5hbGli
-YWJhLmNvbT4gd3JvdGU6Cj4gPgo+ID4gRnJvbTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXgu
-YWxpYmFiYS5jb20+Cj4gPgo+ID4gQ3VycmVudGx5LCBIR0FUUCBtb2RlIHVzZXMgdGhlIG1heGlt
-dW0gdmFsdWUgZGV0ZWN0ZWQgYnkgdGhlIGhhcmR3YXJlCj4gPiBidXQgb2Z0ZW4gc3VjaCBhIHdp
-ZGUgR1BBIGlzIHVubmVjZXNzYXJ5LCBqdXN0IGFzIGEgaG9zdCBzb21ldGltZXMKPiA+IGRvZXNu
-J3QgbmVlZCBzdjU3Lgo+ID4gSXQncyBsaWtlbHkgdGhhdCBubyBhZGRpdGlvbmFsIHBhcmFtZXRl
-cnMgKGxpa2Ugbm81bHZsIGFuZCBubzRsdmwpIGFyZQo+ID4gbmVlZGVkLCBhbGlnbmluZyBIR0FU
-UCBtb2RlIHRvIFNBVFAgbW9kZSBzaG91bGQgbWVldCB0aGUgcmVxdWlyZW1lbnRzCj4gPiBvZiBt
-b3N0IHNjZW5hcmlvcy4KPiBZZXMsIG5vNS80bHZsIGlzIG5vdCBjbGVhciBhYm91dCBzYXRwIG9y
-IGhnYXRwLiBTbywgY292ZXJpbmcgSEdQQVRQIGlzCj4gcmVhc29uYWJsZS4KClRoZSBkb2N1bWVu
-dGF0aW9uIHNob3VsZCBiZSBpbXByb3ZlZCwgYnV0IEkgZG9uJ3QgdGhpbmsgd2Ugd2FudCB0byBz
-dGF0ZQp0aGF0IHRoZXNlIHBhcmFtZXRlcnMgYXBwbHkgdG8gYm90aCBzLSBhbmQgZy1zdGFnZS4g
-SWYgd2UgbmVlZCBwYXJhbWV0ZXJzCnRvIGRpY3RhdGUgS1ZNIGJlaGF2aW9yIChnLXN0YWdlIG1h
-bmFnZW1lbnQpLCB0aGVuIHdlIHNob3VsZCBhZGQgS1ZNCm1vZHVsZSBwYXJhbWV0ZXJzLgoKVGhh
-bmtzLApkcmV3CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+Replace usage of global screen_info with local pointers. This will
+later reduce churn when screen_info is being moved.
+
+v2:
+- fix coding style
+
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reviewed-by: Richard Lyu <richard.lyu@suse.com>
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ drivers/firmware/efi/earlycon.c | 40 ++++++++++++++++-----------------
+ 1 file changed, 20 insertions(+), 20 deletions(-)
+
+diff --git a/drivers/firmware/efi/earlycon.c b/drivers/firmware/efi/earlycon.c
+index d18a1a5de144..42e3a173dac1 100644
+--- a/drivers/firmware/efi/earlycon.c
++++ b/drivers/firmware/efi/earlycon.c
+@@ -32,12 +32,13 @@ static void *efi_fb;
+  */
+ static int __init efi_earlycon_remap_fb(void)
+ {
++	const struct screen_info *si = &screen_info;
++
+ 	/* bail if there is no bootconsole or it was unregistered already */
+ 	if (!earlycon_console || !console_is_registered(earlycon_console))
+ 		return 0;
+ 
+-	efi_fb = memremap(fb_base, screen_info.lfb_size,
+-			  fb_wb ? MEMREMAP_WB : MEMREMAP_WC);
++	efi_fb = memremap(fb_base, si->lfb_size, fb_wb ? MEMREMAP_WB : MEMREMAP_WC);
+ 
+ 	return efi_fb ? 0 : -ENOMEM;
+ }
+@@ -71,12 +72,12 @@ static __ref void efi_earlycon_unmap(void *addr, unsigned long len)
+ 	early_memunmap(addr, len);
+ }
+ 
+-static void efi_earlycon_clear_scanline(unsigned int y)
++static void efi_earlycon_clear_scanline(unsigned int y, const struct screen_info *si)
+ {
+ 	unsigned long *dst;
+ 	u16 len;
+ 
+-	len = screen_info.lfb_linelength;
++	len = si->lfb_linelength;
+ 	dst = efi_earlycon_map(y*len, len);
+ 	if (!dst)
+ 		return;
+@@ -85,7 +86,7 @@ static void efi_earlycon_clear_scanline(unsigned int y)
+ 	efi_earlycon_unmap(dst, len);
+ }
+ 
+-static void efi_earlycon_scroll_up(void)
++static void efi_earlycon_scroll_up(const struct screen_info *si)
+ {
+ 	unsigned long *dst, *src;
+ 	u16 maxlen = 0;
+@@ -99,8 +100,8 @@ static void efi_earlycon_scroll_up(void)
+ 	}
+ 	maxlen *= 4;
+ 
+-	len = screen_info.lfb_linelength;
+-	height = screen_info.lfb_height;
++	len = si->lfb_linelength;
++	height = si->lfb_height;
+ 
+ 	for (i = 0; i < height - font->height; i++) {
+ 		dst = efi_earlycon_map(i*len, len);
+@@ -120,7 +121,8 @@ static void efi_earlycon_scroll_up(void)
+ 	}
+ }
+ 
+-static void efi_earlycon_write_char(u32 *dst, unsigned char c, unsigned int h)
++static void efi_earlycon_write_char(u32 *dst, unsigned char c, unsigned int h,
++				    const struct screen_info *si)
+ {
+ 	const u32 color_black = 0x00000000;
+ 	const u32 color_white = 0x00ffffff;
+@@ -145,13 +147,12 @@ static void efi_earlycon_write_char(u32 *dst, unsigned char c, unsigned int h)
+ static void
+ efi_earlycon_write(struct console *con, const char *str, unsigned int num)
+ {
+-	struct screen_info *si;
++	const struct screen_info *si = &screen_info;
+ 	u32 cur_efi_x = efi_x;
+ 	unsigned int len;
+ 	const char *s;
+ 	void *dst;
+ 
+-	si = &screen_info;
+ 	len = si->lfb_linelength;
+ 
+ 	while (num) {
+@@ -174,7 +175,7 @@ efi_earlycon_write(struct console *con, const char *str, unsigned int num)
+ 			x = efi_x;
+ 
+ 			while (n-- > 0) {
+-				efi_earlycon_write_char(dst + x*4, *s, h);
++				efi_earlycon_write_char(dst + x * 4, *s, h, si);
+ 				x += font->width;
+ 				s++;
+ 			}
+@@ -207,10 +208,10 @@ efi_earlycon_write(struct console *con, const char *str, unsigned int num)
+ 			cur_line_y = (cur_line_y + 1) % max_line_y;
+ 
+ 			efi_y -= font->height;
+-			efi_earlycon_scroll_up();
++			efi_earlycon_scroll_up(si);
+ 
+ 			for (i = 0; i < font->height; i++)
+-				efi_earlycon_clear_scanline(efi_y + i);
++				efi_earlycon_clear_scanline(efi_y + i, si);
+ 		}
+ 	}
+ }
+@@ -226,22 +227,21 @@ void __init efi_earlycon_reprobe(void)
+ static int __init efi_earlycon_setup(struct earlycon_device *device,
+ 				     const char *opt)
+ {
+-	struct screen_info *si;
++	const struct screen_info *si = &screen_info;
+ 	u16 xres, yres;
+ 	u32 i;
+ 
+ 	fb_wb = opt && !strcmp(opt, "ram");
+ 
+-	if (screen_info.orig_video_isVGA != VIDEO_TYPE_EFI) {
++	if (si->orig_video_isVGA != VIDEO_TYPE_EFI) {
+ 		fb_probed = true;
+ 		return -ENODEV;
+ 	}
+ 
+-	fb_base = screen_info.lfb_base;
+-	if (screen_info.capabilities & VIDEO_CAPABILITY_64BIT_BASE)
+-		fb_base |= (u64)screen_info.ext_lfb_base << 32;
++	fb_base = si->lfb_base;
++	if (si->capabilities & VIDEO_CAPABILITY_64BIT_BASE)
++		fb_base |= (u64)si->ext_lfb_base << 32;
+ 
+-	si = &screen_info;
+ 	xres = si->lfb_width;
+ 	yres = si->lfb_height;
+ 
+@@ -266,7 +266,7 @@ static int __init efi_earlycon_setup(struct earlycon_device *device,
+ 
+ 	efi_y -= font->height;
+ 	for (i = 0; i < (yres - efi_y) / font->height; i++)
+-		efi_earlycon_scroll_up();
++		efi_earlycon_scroll_up(si);
+ 
+ 	device->con->write = efi_earlycon_write;
+ 	earlycon_console = device->con;
+-- 
+2.51.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
