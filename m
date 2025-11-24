@@ -4,145 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF69DCFD31F
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 16:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A747BCFD318
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Nov 2025 17:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AvXtGMzvojm5uh2MTyMR8PDq63sYmFDLOAkwsZtcwx8=; b=AwTGSuHWvVR7FP
-	5qGLTpsU9gGLEztQBIIKHPfGhREHtV1wzIZg1MM2JtztQbblXUdAhFt0UND9QqyAAX48/KG76J+nf
-	WZ0Me3VnycmgwJlWU8TI4mR/rAHGwGpvAolCF/ClEWO3RbX68F5MzO7RXyPbPPw7jYfLcBN57t8cx
-	x0WgdrKfnegN4hun+N6lpxxWq7OJL7EERQZ/fWkoVtmD98/EVvoyf29Brx8Qg89YG3gcDOZknfukN
-	/cfdy3nP3cFibURFlCh4fCe0hz3/sEGQW9uTl6vOsWjcONzgDBSlhhAKxY6scNMr0Bjc1KRreDdwr
-	b6+DXAk4h1Tyk0uVgjXw==;
+	List-Owner; bh=0gFILC98mnuMsZs7G+y5eVbmvs85qYQBKxp0SOgV7VY=; b=yHA/C0lamMYNPM
+	tpdBr3jXgwqUIoz0GqBZ/fqvQ3ze092OKrHq2dj/xxdseTrPSKY7u/7LCsit8CSDlMf2JyKEVN/rp
+	xbAnVieNR0xP3OGn6eHFOwm+jH3b26qaWeQ6+UhC173OvwpulqUCtuKQV3wyFut+50oxWN5Mv8hCg
+	4vKgixSB+Jy7sMsVyqVk4Uk+mklPxmlVeFsIgdgZ+DMDDC1cao5jBTkvy95yYGBoidSWtasHVkrAV
+	lrIuJA1sDzp0W49somer2yWv4mEiDj8UcPVtM7KOJ+BsCIlNAB9OivI+mUPHhd7hWM+iovSLSN50V
+	FD8mCMYJT8WXZ6EA8rfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZnY-0000000C2Ep-0T9q;
-	Mon, 24 Nov 2025 16:52:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vNZwu-0000000C3u0-2bIG;
+	Mon, 24 Nov 2025 17:02:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZnQ-0000000C24a-0PlL
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 24 Nov 2025 16:52:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=q40PbJMg7A3dUZZLVKq6MPnz1PxTO2HWYwqFK0YitdQ=; b=HKB8P3m7QGfWVNiBAuy87+irJq
-	plKayMjYh2I2Ki8MZ+HPZL3faZoUqLrpoWeRvcHJM4qr78jOymgeZlYtNZ2AkRITpNnMuVZ5t/yf5
-	AGyhvSy++aNYH6dRBKr1Dxp79vPCN8GLjiPLqKyGgfa43r1AHJklLe6fBDPPw54thi35oP2Yf9N0E
-	BA4Kj0ouHg8FbwNG+r0t0xsN4q50TCJdZT0fRxRBl5O8O+Fgg8Hr9+A/WncbyNhWzj5eAYJJGjc1e
-	cwT3hdvBrmGST/iHN6r43YEwZPqOWkYocPKf4xSdKSdaxSDh3Vb2lva+hTR8H+rT2FejDUPyhBa7/
-	my12/GMg==;
-Received: from smtp-out1.suse.de ([195.135.223.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYvl-0000000488b-25Cf
+	id 1vNZws-0000000C3sr-0cKC
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Nov 2025 15:56:47 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id AD4C6221CE;
-	Mon, 24 Nov 2025 16:51:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764003088; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=q40PbJMg7A3dUZZLVKq6MPnz1PxTO2HWYwqFK0YitdQ=;
-	b=BCy4+1ufcI1NkjODbnYhuMAOzcigiwRTmHDqNuxJy3rmU9ByXtpGEEeCJXcJemvR5BFPyI
-	UFJuryqur64wIBAXPD0VrNiqpRm4DaourWfHkrh/EvEVeS9VzSMoWb9S6lNWyG+JI3IYaS
-	FKN6kLhtnq161eIUh4hqpmPT7lh3o4M=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764003088;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=q40PbJMg7A3dUZZLVKq6MPnz1PxTO2HWYwqFK0YitdQ=;
-	b=VSFfIL5IYfeInDs7imxSPtmf5WKE6avLzawrzpuR/CgvO15yRmLlak1S8j3/GyM1ZpiEwS
-	uIt5OkLRe+mDtCCg==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764003088; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=q40PbJMg7A3dUZZLVKq6MPnz1PxTO2HWYwqFK0YitdQ=;
-	b=BCy4+1ufcI1NkjODbnYhuMAOzcigiwRTmHDqNuxJy3rmU9ByXtpGEEeCJXcJemvR5BFPyI
-	UFJuryqur64wIBAXPD0VrNiqpRm4DaourWfHkrh/EvEVeS9VzSMoWb9S6lNWyG+JI3IYaS
-	FKN6kLhtnq161eIUh4hqpmPT7lh3o4M=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764003088;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=q40PbJMg7A3dUZZLVKq6MPnz1PxTO2HWYwqFK0YitdQ=;
-	b=VSFfIL5IYfeInDs7imxSPtmf5WKE6avLzawrzpuR/CgvO15yRmLlak1S8j3/GyM1ZpiEwS
-	uIt5OkLRe+mDtCCg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 441CC3EA63;
-	Mon, 24 Nov 2025 16:51:28 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id sAVADxCNJGm3GgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Mon, 24 Nov 2025 16:51:28 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: ardb@kernel.org,
-	javierm@redhat.com,
-	arnd@arndb.de,
-	richard.lyu@suse.com
-Cc: x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-hyperv@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-fbdev@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v2 08/10] efi: Support EDID information
-Date: Mon, 24 Nov 2025 17:40:20 +0100
-Message-ID: <20251124165116.502813-9-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251124165116.502813-1-tzimmermann@suse.de>
-References: <20251124165116.502813-1-tzimmermann@suse.de>
+	Mon, 24 Nov 2025 17:01:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2988044402
+	for <linux-riscv@lists.infradead.org>; Mon, 24 Nov 2025 17:01:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06C00C19421
+	for <linux-riscv@lists.infradead.org>; Mon, 24 Nov 2025 17:01:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764003717;
+	bh=XDhGPvCTlOtAm8SqKxFXp1SKGN8a8Hpm3y1hfKtziVA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=gzmEM6WSKPQMGV5/A+ZcpP0TC88Ynd4koWonDEvt7Tpu5I51pHMgJIYTEr9jpnw+i
+	 XBVd2o1IKp+nbVw/XW0Fz2p2kpUD04wvWOg+53hh0k5b5CAFKzQw8bi3TDmErKyfQk
+	 Uo+pwx7yRnMVsbw0Tk5sIlBKGsNaWmZQQxRuDZwJQweSJFQzCfGRavSpXxzzlXcth0
+	 nRq1Ix6B90O561UkGPaLq2gzbzgUoNVuWEBhLFi05cZPlq2/Tc9sDD4Gl9nJxcK2Nu
+	 ensstYX4cw6lGt/0ds24M15GZt88AZ/RSoOPObnbKz1uoVpcvwIZ4xV1zfSiShc6X6
+	 30izJ8Wk3kmCA==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-37b935df7bfso40607761fa.2
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Nov 2025 09:01:56 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXR8mS5PTjXn20y3Nerfkp4QLXimktPJUHkhTYzWNnBHALUj3+fqVlwbYOOoRjui1m0AADWcAbcwvHQIQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgQPX11ZE6lxcxjDauUab5X2+YdRrS1TN+eOmMKidn2HxARl/n
+	uQJii/vGWnRJhRl0rmOQjzEm1tgUh2OkvM7Yn9/rBzteq0jjMFx3mV7wvb62cGzADKRIA7HuWQb
+	SihTF7kP4RXnuzfY8SfilmKm5akWjLMo=
+X-Google-Smtp-Source: AGHT+IEkrNgd288Aqd1i1HDm93x0vAhowPn36mtRKqLj65b7gv3inzfOeHOQeeyCnEde8qAor/6mFb9m0iGrYzU8Hgo=
+X-Received: by 2002:a05:6512:3096:b0:57c:2474:371f with SMTP id
+ 2adb3069b0e04-596a3ee5d4amr4443842e87.45.1764003715146; Mon, 24 Nov 2025
+ 09:01:55 -0800 (PST)
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[15];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	R_RATELIMIT(0.00)[to_ip_from(RLykjg6e7ifkwtw7jmpw7b9yio)];
-	RCVD_TLS_ALL(0.00)[]
+References: <20251124165116.502813-1-tzimmermann@suse.de> <20251124165116.502813-9-tzimmermann@suse.de>
+In-Reply-To: <20251124165116.502813-9-tzimmermann@suse.de>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 24 Nov 2025 18:01:43 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFu4=L=ROVAaRORG5HMmYWHb6OXQf6pJ3yAZpeDmfmSeg@mail.gmail.com>
+X-Gm-Features: AWmQ_bnUH2gOYPeFmtZhOt2fEadNyKSus8BJC5fWuG0lZCUM3RmsKIXfaGHDqcM
+Message-ID: <CAMj1kXFu4=L=ROVAaRORG5HMmYWHb6OXQf6pJ3yAZpeDmfmSeg@mail.gmail.com>
+Subject: Re: [PATCH v2 08/10] efi: Support EDID information
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: javierm@redhat.com, arnd@arndb.de, richard.lyu@suse.com, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-efi@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-fbdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_155645_634243_19FE9117 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20251124_090158_238133_DF47B65A 
+X-CRM114-Status: GOOD (  31.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,156 +87,162 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID to the list of config-table
-UUIDs. Read sysfb_primary_display from the entry. The UUID has been
-generated with uuidgen.
+On Mon, 24 Nov 2025 at 17:52, Thomas Zimmermann <tzimmermann@suse.de> wrote:
+>
+> Add LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID to the list of config-table
+> UUIDs. Read sysfb_primary_display from the entry. The UUID has been
+> generated with uuidgen.
+>
+> Still support LINUX_EFI_SCREEN_INFO_TABLE_GUID as fallback in case an
+> older boot loader invokes the kernel.
+>
+> If CONFIG_FIRMWARE_EDID=n, EDID information is disabled.
+>
+> Make the Kconfig symbol CONFIG_FIRMWARE_EDID available with EFI. Setting
+> the value to 'n' disables EDID support.
+>
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-Still support LINUX_EFI_SCREEN_INFO_TABLE_GUID as fallback in case an
-older boot loader invokes the kernel.
+Why are we adding a new config table again?
 
-If CONFIG_FIRMWARE_EDID=n, EDID information is disabled.
 
-Make the Kconfig symbol CONFIG_FIRMWARE_EDID available with EFI. Setting
-the value to 'n' disables EDID support.
-
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- arch/loongarch/kernel/efi.c     | 14 +++++++++++++-
- drivers/firmware/efi/efi-init.c | 14 +++++++++++++-
- drivers/firmware/efi/efi.c      |  2 ++
- drivers/video/Kconfig           |  8 +++++---
- include/linux/efi.h             |  8 +++++---
- 5 files changed, 38 insertions(+), 8 deletions(-)
-
-diff --git a/arch/loongarch/kernel/efi.c b/arch/loongarch/kernel/efi.c
-index 1ef38036e8ae..2d90758e5037 100644
---- a/arch/loongarch/kernel/efi.c
-+++ b/arch/loongarch/kernel/efi.c
-@@ -72,6 +72,7 @@ bool efi_poweroff_required(void)
- 		(acpi_gbl_reduced_hardware || acpi_no_s5);
- }
- 
-+unsigned long __initdata primary_display_table = EFI_INVALID_TABLE_ADDR;
- unsigned long __initdata screen_info_table = EFI_INVALID_TABLE_ADDR;
- 
- #if defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON)
-@@ -81,7 +82,18 @@ EXPORT_SYMBOL_GPL(sysfb_primary_display);
- 
- static void __init init_primary_display(void)
- {
--	if (screen_info_table == EFI_INVALID_TABLE_ADDR) {
-+	if (primary_display_table != EFI_INVALID_TABLE_ADDR) {
-+		struct sysfb_display_info *dpy =
-+			early_memremap(primary_display_table, sizeof(*dpy));
-+
-+		if (!dpy) {
-+			pr_err("Could not map primary_display config table\n");
-+			return;
-+		}
-+		sysfb_primary_display = *dpy;
-+		memset(dpy, 0, sizeof(*dpy));
-+		early_memunmap(dpy, sizeof(*dpy));
-+	} else if (screen_info_table != EFI_INVALID_TABLE_ADDR) {
- 		struct screen_info *si = early_memremap(screen_info_table, sizeof(*si));
- 
- 		if (!si) {
-diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
-index ca697d485116..0f167c0e058e 100644
---- a/drivers/firmware/efi/efi-init.c
-+++ b/drivers/firmware/efi/efi-init.c
-@@ -23,6 +23,7 @@
- 
- #include <asm/efi.h>
- 
-+unsigned long __initdata primary_display_table = EFI_INVALID_TABLE_ADDR;
- unsigned long __initdata screen_info_table = EFI_INVALID_TABLE_ADDR;
- 
- static int __init is_memory(efi_memory_desc_t *md)
-@@ -67,7 +68,18 @@ EXPORT_SYMBOL_GPL(sysfb_primary_display);
- 
- static void __init init_primary_display(void)
- {
--	if (screen_info_table != EFI_INVALID_TABLE_ADDR) {
-+	if (primary_display_table != EFI_INVALID_TABLE_ADDR) {
-+		struct sysfb_display_info *dpy =
-+			early_memremap(primary_display_table, sizeof(*dpy));
-+
-+		if (!dpy) {
-+			pr_err("Could not map primary_display config table\n");
-+			return;
-+		}
-+		sysfb_primary_display = *dpy;
-+		memset(dpy, 0, sizeof(*dpy));
-+		early_memunmap(dpy, sizeof(*dpy));
-+	} else if (screen_info_table != EFI_INVALID_TABLE_ADDR) {
- 		struct screen_info *si = early_memremap(screen_info_table, sizeof(*si));
- 
- 		if (!si) {
-diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
-index a9070d00b833..c07f0878a4d6 100644
---- a/drivers/firmware/efi/efi.c
-+++ b/drivers/firmware/efi/efi.c
-@@ -63,6 +63,7 @@ static unsigned long __initdata mem_reserve = EFI_INVALID_TABLE_ADDR;
- static unsigned long __initdata rt_prop = EFI_INVALID_TABLE_ADDR;
- static unsigned long __initdata initrd = EFI_INVALID_TABLE_ADDR;
- 
-+extern unsigned long primary_display_table;
- extern unsigned long screen_info_table;
- 
- struct mm_struct efi_mm = {
-@@ -641,6 +642,7 @@ static const efi_config_table_type_t common_tables[] __initconst = {
- 	{LINUX_EFI_UNACCEPTED_MEM_TABLE_GUID,	&efi.unaccepted,	"Unaccepted"	},
- #endif
- #ifdef CONFIG_EFI_GENERIC_STUB
-+	{LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID,	&primary_display_table			},
- 	{LINUX_EFI_SCREEN_INFO_TABLE_GUID,	&screen_info_table			},
- #endif
- 	{},
-diff --git a/drivers/video/Kconfig b/drivers/video/Kconfig
-index d51777df12d1..f452fac90a9f 100644
---- a/drivers/video/Kconfig
-+++ b/drivers/video/Kconfig
-@@ -63,11 +63,13 @@ endif # HAS_IOMEM
- 
- config FIRMWARE_EDID
- 	bool "Enable firmware EDID"
--	depends on X86
-+	depends on EFI || X86
- 	help
- 	  This enables access to the EDID transferred from the firmware.
--	  On x86, this is from the VESA BIOS. DRM display drivers will
--	  be able to export the information to userspace.
-+	  On EFI systems, the EDID comes from the same device as the
-+	  primary GOP. On x86 with BIOS, it comes from the VESA BIOS.
-+	  DRM display drivers will be able to export the information
-+	  to userspace.
- 
- 	  Also enable this if DDC/I2C transfers do not work for your driver
- 	  and if you are using nvidiafb, i810fb or savagefb.
-diff --git a/include/linux/efi.h b/include/linux/efi.h
-index 2a43094e23f7..f645bcc66ee2 100644
---- a/include/linux/efi.h
-+++ b/include/linux/efi.h
-@@ -406,11 +406,13 @@ void efi_native_runtime_setup(void);
- #define EFI_CC_FINAL_EVENTS_TABLE_GUID		EFI_GUID(0xdd4a4648, 0x2de7, 0x4665, 0x96, 0x4d, 0x21, 0xd9, 0xef, 0x5f, 0xb4, 0x46)
- 
- /*
-- * This GUID is used to pass to the kernel proper the struct screen_info
-- * structure that was populated by the stub based on the GOP protocol instance
-- * associated with ConOut
-+ * These GUIDs are used to pass to the kernel proper the info
-+ * structures that were populated by the stub based on the GOP
-+ * instance associated with ConOut.
-  */
-+#define LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID	EFI_GUID(0x8700a405, 0xcda4, 0x46d4,  0xb8, 0xc3, 0x04, 0xe5, 0xcd, 0xb4, 0x30, 0x21)
- #define LINUX_EFI_SCREEN_INFO_TABLE_GUID	EFI_GUID(0xe03fc20a, 0x85dc, 0x406e,  0xb9, 0x0e, 0x4a, 0xb5, 0x02, 0x37, 0x1d, 0x95)
-+
- #define LINUX_EFI_ARM_CPU_STATE_TABLE_GUID	EFI_GUID(0xef79e4aa, 0x3c3d, 0x4989,  0xb9, 0x02, 0x07, 0xa9, 0x43, 0xe5, 0x50, 0xd2)
- #define LINUX_EFI_LOADER_ENTRY_GUID		EFI_GUID(0x4a67b082, 0x0a4c, 0x41cf,  0xb6, 0xc7, 0x44, 0x0b, 0x29, 0xbb, 0x8c, 0x4f)
- #define LINUX_EFI_RANDOM_SEED_TABLE_GUID	EFI_GUID(0x1ce1e5bc, 0x7ceb, 0x42f2,  0x81, 0xe5, 0x8a, 0xad, 0xf1, 0x80, 0xf5, 0x7b)
--- 
-2.51.1
-
+> ---
+>  arch/loongarch/kernel/efi.c     | 14 +++++++++++++-
+>  drivers/firmware/efi/efi-init.c | 14 +++++++++++++-
+>  drivers/firmware/efi/efi.c      |  2 ++
+>  drivers/video/Kconfig           |  8 +++++---
+>  include/linux/efi.h             |  8 +++++---
+>  5 files changed, 38 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/loongarch/kernel/efi.c b/arch/loongarch/kernel/efi.c
+> index 1ef38036e8ae..2d90758e5037 100644
+> --- a/arch/loongarch/kernel/efi.c
+> +++ b/arch/loongarch/kernel/efi.c
+> @@ -72,6 +72,7 @@ bool efi_poweroff_required(void)
+>                 (acpi_gbl_reduced_hardware || acpi_no_s5);
+>  }
+>
+> +unsigned long __initdata primary_display_table = EFI_INVALID_TABLE_ADDR;
+>  unsigned long __initdata screen_info_table = EFI_INVALID_TABLE_ADDR;
+>
+>  #if defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON)
+> @@ -81,7 +82,18 @@ EXPORT_SYMBOL_GPL(sysfb_primary_display);
+>
+>  static void __init init_primary_display(void)
+>  {
+> -       if (screen_info_table == EFI_INVALID_TABLE_ADDR) {
+> +       if (primary_display_table != EFI_INVALID_TABLE_ADDR) {
+> +               struct sysfb_display_info *dpy =
+> +                       early_memremap(primary_display_table, sizeof(*dpy));
+> +
+> +               if (!dpy) {
+> +                       pr_err("Could not map primary_display config table\n");
+> +                       return;
+> +               }
+> +               sysfb_primary_display = *dpy;
+> +               memset(dpy, 0, sizeof(*dpy));
+> +               early_memunmap(dpy, sizeof(*dpy));
+> +       } else if (screen_info_table != EFI_INVALID_TABLE_ADDR) {
+>                 struct screen_info *si = early_memremap(screen_info_table, sizeof(*si));
+>
+>                 if (!si) {
+> diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
+> index ca697d485116..0f167c0e058e 100644
+> --- a/drivers/firmware/efi/efi-init.c
+> +++ b/drivers/firmware/efi/efi-init.c
+> @@ -23,6 +23,7 @@
+>
+>  #include <asm/efi.h>
+>
+> +unsigned long __initdata primary_display_table = EFI_INVALID_TABLE_ADDR;
+>  unsigned long __initdata screen_info_table = EFI_INVALID_TABLE_ADDR;
+>
+>  static int __init is_memory(efi_memory_desc_t *md)
+> @@ -67,7 +68,18 @@ EXPORT_SYMBOL_GPL(sysfb_primary_display);
+>
+>  static void __init init_primary_display(void)
+>  {
+> -       if (screen_info_table != EFI_INVALID_TABLE_ADDR) {
+> +       if (primary_display_table != EFI_INVALID_TABLE_ADDR) {
+> +               struct sysfb_display_info *dpy =
+> +                       early_memremap(primary_display_table, sizeof(*dpy));
+> +
+> +               if (!dpy) {
+> +                       pr_err("Could not map primary_display config table\n");
+> +                       return;
+> +               }
+> +               sysfb_primary_display = *dpy;
+> +               memset(dpy, 0, sizeof(*dpy));
+> +               early_memunmap(dpy, sizeof(*dpy));
+> +       } else if (screen_info_table != EFI_INVALID_TABLE_ADDR) {
+>                 struct screen_info *si = early_memremap(screen_info_table, sizeof(*si));
+>
+>                 if (!si) {
+> diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
+> index a9070d00b833..c07f0878a4d6 100644
+> --- a/drivers/firmware/efi/efi.c
+> +++ b/drivers/firmware/efi/efi.c
+> @@ -63,6 +63,7 @@ static unsigned long __initdata mem_reserve = EFI_INVALID_TABLE_ADDR;
+>  static unsigned long __initdata rt_prop = EFI_INVALID_TABLE_ADDR;
+>  static unsigned long __initdata initrd = EFI_INVALID_TABLE_ADDR;
+>
+> +extern unsigned long primary_display_table;
+>  extern unsigned long screen_info_table;
+>
+>  struct mm_struct efi_mm = {
+> @@ -641,6 +642,7 @@ static const efi_config_table_type_t common_tables[] __initconst = {
+>         {LINUX_EFI_UNACCEPTED_MEM_TABLE_GUID,   &efi.unaccepted,        "Unaccepted"    },
+>  #endif
+>  #ifdef CONFIG_EFI_GENERIC_STUB
+> +       {LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID,  &primary_display_table                  },
+>         {LINUX_EFI_SCREEN_INFO_TABLE_GUID,      &screen_info_table                      },
+>  #endif
+>         {},
+> diff --git a/drivers/video/Kconfig b/drivers/video/Kconfig
+> index d51777df12d1..f452fac90a9f 100644
+> --- a/drivers/video/Kconfig
+> +++ b/drivers/video/Kconfig
+> @@ -63,11 +63,13 @@ endif # HAS_IOMEM
+>
+>  config FIRMWARE_EDID
+>         bool "Enable firmware EDID"
+> -       depends on X86
+> +       depends on EFI || X86
+>         help
+>           This enables access to the EDID transferred from the firmware.
+> -         On x86, this is from the VESA BIOS. DRM display drivers will
+> -         be able to export the information to userspace.
+> +         On EFI systems, the EDID comes from the same device as the
+> +         primary GOP. On x86 with BIOS, it comes from the VESA BIOS.
+> +         DRM display drivers will be able to export the information
+> +         to userspace.
+>
+>           Also enable this if DDC/I2C transfers do not work for your driver
+>           and if you are using nvidiafb, i810fb or savagefb.
+> diff --git a/include/linux/efi.h b/include/linux/efi.h
+> index 2a43094e23f7..f645bcc66ee2 100644
+> --- a/include/linux/efi.h
+> +++ b/include/linux/efi.h
+> @@ -406,11 +406,13 @@ void efi_native_runtime_setup(void);
+>  #define EFI_CC_FINAL_EVENTS_TABLE_GUID         EFI_GUID(0xdd4a4648, 0x2de7, 0x4665, 0x96, 0x4d, 0x21, 0xd9, 0xef, 0x5f, 0xb4, 0x46)
+>
+>  /*
+> - * This GUID is used to pass to the kernel proper the struct screen_info
+> - * structure that was populated by the stub based on the GOP protocol instance
+> - * associated with ConOut
+> + * These GUIDs are used to pass to the kernel proper the info
+> + * structures that were populated by the stub based on the GOP
+> + * instance associated with ConOut.
+>   */
+> +#define LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID   EFI_GUID(0x8700a405, 0xcda4, 0x46d4,  0xb8, 0xc3, 0x04, 0xe5, 0xcd, 0xb4, 0x30, 0x21)
+>  #define LINUX_EFI_SCREEN_INFO_TABLE_GUID       EFI_GUID(0xe03fc20a, 0x85dc, 0x406e,  0xb9, 0x0e, 0x4a, 0xb5, 0x02, 0x37, 0x1d, 0x95)
+> +
+>  #define LINUX_EFI_ARM_CPU_STATE_TABLE_GUID     EFI_GUID(0xef79e4aa, 0x3c3d, 0x4989,  0xb9, 0x02, 0x07, 0xa9, 0x43, 0xe5, 0x50, 0xd2)
+>  #define LINUX_EFI_LOADER_ENTRY_GUID            EFI_GUID(0x4a67b082, 0x0a4c, 0x41cf,  0xb6, 0xc7, 0x44, 0x0b, 0x29, 0xbb, 0x8c, 0x4f)
+>  #define LINUX_EFI_RANDOM_SEED_TABLE_GUID       EFI_GUID(0x1ce1e5bc, 0x7ceb, 0x42f2,  0x81, 0xe5, 0x8a, 0xad, 0xf1, 0x80, 0xf5, 0x7b)
+> --
+> 2.51.1
+>
 
 _______________________________________________
 linux-riscv mailing list
