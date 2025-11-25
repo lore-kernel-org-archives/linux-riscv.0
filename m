@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E47CFD364
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 09:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAAEFCFD379
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 09:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YXdlOro2KT55itQU3c8NnoAJ3vd3the71M4jkoA37LY=; b=KnHKydtZDApo4G
-	ZB82k7F5Ns/851882l35lnV2zIUwrL35eNhdS+zWak8+lDTWAtG23D2o41SHbEhBsHK6AEHTDucmg
-	8c3Hf1k+JsdU0hxKQDWq4im0ybOiefOSqdwdbCY4LHV1707NBWWRtYkQIINqrUBQnuw7dymcoM5xO
-	1BWisCVQyrOYB2iPPtqwR0C0hTOfa0O9YxXai53AWW57NvLYPbnham0gLCg0AVvIhEXnVELsi6lZs
-	aK4buTsqmz8lguVL74ABlYY5fJJVmb/MSZdXsU/A2GDRypEXXM7OOJ5tIeFHU/pF7gE36R/On3dVm
-	ol8nXKe9UrYCkSi8W8TQ==;
+	List-Owner; bh=X4gAHpfaL91KH3pqvxb+wD4mIXsTNaOf9qgBOSa7dwE=; b=PAZXynhSWB5e4H
+	VtQXbm565qxtQT5SqX3KxFt8rTHtJInE9LUlxjdsYMn3It5n/H8I11yvF/ylmVKZlKD6D20hThfp2
+	WsOBkpK1SFFyiOGL2HwsB/OAeSncfHvMWue3nZ4u84znj/TTtPludWHLoDMlTCoX3O/dUuKPVyL1B
+	9K1xpJ/5Tz7MLCGRUi3iV2bC0Uyc5M8zDRmqQoPcn6y1MYchCjWhbRCLdXxtgqQFoDaklrYMq99xp
+	IB1nj1OY3x3wni2tF4PuYdFNV3bGVwF+K/alBN2X8yzUKMkbrGJj2HFDrYewbfcJzLS+fLe+sbVUL
+	2n21X3riq+S4eGb3D3/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNpJy-0000000D1TZ-0HIc;
-	Tue, 25 Nov 2025 09:26:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vNpN0-0000000D1rN-1kCe;
+	Tue, 25 Nov 2025 09:29:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNpJw-0000000D1TD-0MiB
+	id 1vNpMy-0000000D1qx-3XRZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Nov 2025 09:26:49 +0000
+	Tue, 25 Nov 2025 09:29:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 56A6240914;
-	Tue, 25 Nov 2025 09:26:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B145C4CEF1;
-	Tue, 25 Nov 2025 09:26:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F25F4601F6;
+	Tue, 25 Nov 2025 09:29:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04936C16AAE;
+	Tue, 25 Nov 2025 09:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764062805;
-	bh=ErOM444bOXMh61rVrobY83T6XHQyhnCIIqDGmHNaO+I=;
+	s=k20201202; t=1764062995;
+	bh=NKy/zIFWyoD4WdHy+i3KxKzG5ZrXrwfJwFkWFvGtJrs=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=Di2nBLOSNMYX6/HckJXKqSEkHKif8fCu581MJdcRl+4veXlIsc/3xu6iRJGs+hpKl
-	 V6+bg9GgXqXVsUUcgkHeUK+pgDF6yBX61eckxujcWVQypJbtq5l2t3O4QztdVBPkdD
-	 CpPQ8f0JLhU0yzVeggD9iM4gBiA70aJN0C8o0VSgI3cR6AJVrP9BpuQimskeTzAJpq
-	 Y46OB2fvCIHwiQ283v5+MaIhIAepLBh7gn7Y7vyQC5YEDvvEt/mNidsUpu7TOdv/IM
-	 ZG8UgXssLmyrsV2Mvgktxd7uFea9k2K3GGUE6/WuWpheswv549N/WDWQkWyqMkCffG
-	 Vccy3I6xp8ldA==
-Date: Tue, 25 Nov 2025 02:26:42 -0700 (MST)
+	b=FyjPSYV6Vtt9/jriwhz4nzuLnq4mO09e4a8whVOQTZhC4M/7s5i2tBc6jrErFT7/Y
+	 qLfmotNxFAruxkh4l5m86DFv3/pO/oPaZArv1tB4fs9hdJojMc9XlGPb3bDrK/x10d
+	 3wukyfQ1Nztt7vEpkhQMgTPby2ykWKBVZuAawI0VOfQQsO40GPx9+5ou1nsAO9CL+N
+	 dGBENDPC0u+RDwQEPp9K3PFfxGkHTKtxbbB1ng6heW7rkrE+ZzKy/KbfAO29S1XZHL
+	 Z/LcZkSq8ps3AHEL+6Ph66g6QZ1jQJRCiBOz1BTM8fvW4ZvLwt//wd8jLkMoyvqFj8
+	 CuUGCzBr9g1fQ==
+Date: Tue, 25 Nov 2025 02:29:53 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
-To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+To: Chunyan Zhang <zhang.lyra@gmail.com>
+cc: Alexandre Ghiti <alex@ghiti.fr>, Chunyan Zhang <zhangchunyan@iscas.ac.cn>, 
+    Paul Walmsley <paul.walmsley@sifive.com>, 
     Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Charlie Jenkins <charlie@rivosinc.com>, 
-    Song Liu <song@kernel.org>, Yu Kuai <yukuai3@huawei.com>, 
-    linux-riscv@lists.infradead.org, linux-raid@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: Re: [PATCH V3 3/5] raid6: riscv: Prevent compiler with vector support
- to build already vectorized code
-In-Reply-To: <20250718072711.3865118-4-zhangchunyan@iscas.ac.cn>
-Message-ID: <6c2a11f4-27ac-1389-23a6-5f5bcf1c5048@kernel.org>
-References: <20250718072711.3865118-1-zhangchunyan@iscas.ac.cn> <20250718072711.3865118-4-zhangchunyan@iscas.ac.cn>
+    Charlie Jenkins <charlie@rivosinc.com>, Song Liu <song@kernel.org>, 
+    Yu Kuai <yukuai3@huawei.com>, linux-riscv@lists.infradead.org, 
+    linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V3 5/5] raid6: test: Add support for RISC-V
+In-Reply-To: <CAAfSe-umv64D011cjxPJEc0dBK29Xa4u6m1T=-THZ+V=a3f+JA@mail.gmail.com>
+Message-ID: <2b81141c-2fcf-3083-e99f-a6205e121ab3@kernel.org>
+References: <20250718072711.3865118-1-zhangchunyan@iscas.ac.cn> <20250718072711.3865118-6-zhangchunyan@iscas.ac.cn> <00a97b26-0269-4c07-99b9-33bb759067f5@ghiti.fr> <CAAfSe-umv64D011cjxPJEc0dBK29Xa4u6m1T=-THZ+V=a3f+JA@mail.gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_012648_174702_874DE608 
-X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,58 +72,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Chunyan Zhang,
 
-On Fri, 18 Jul 2025, Chunyan Zhang wrote:
+On Mon, 13 Oct 2025, Chunyan Zhang wrote:
 
-> To avoid the inline assembly code to break what the compiler could have
-> vectorized, this code must be built without compiler support for vector.
-> 
-> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> I noticed patch 1-2 are in 6.18-rc1, patch 3-5 haven't got merged, not
+> sure if there's some other plan for these patches.
 
-This one has been queued with a somewhat modified commit message to 
-reflect what I thought the intention is.  But I might be wrong.  Can you 
-check it, please?
+Those were deferred since I wanted more time to review them.  I've queued 
+them for v6.19.
 
 thanks,
 
-
 - Paul
-
-From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-Date: Mon, 17 Nov 2025 21:19:24 -0700
-
-raid6: riscv: Prevent compiler from breaking inline vector assembly code
-
-To prevent the compiler from breaking the inline vector assembly code,
-this code must be built without compiler support for vector.
-
-Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-Link: https://patch.msgid.link/20250718072711.3865118-4-zhangchunyan@iscas.ac.cn
-[pjw@kernel.org: cleaned up commit message]
-Signed-off-by: Paul Walmsley <pjw@kernel.org>
----
- lib/raid6/rvv.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/lib/raid6/rvv.c b/lib/raid6/rvv.c
-index 89da5fc247aa..015f3ee4da25 100644
---- a/lib/raid6/rvv.c
-+++ b/lib/raid6/rvv.c
-@@ -20,6 +20,10 @@ static int rvv_has_vector(void)
- 	return has_vector();
- }
- 
-+#ifdef __riscv_vector
-+#error "This code must be built without compiler support for vector"
-+#endif
-+
- static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
- {
- 	u8 **dptr = (u8 **)ptrs;
--- 
-2.48.1
-
 
 _______________________________________________
 linux-riscv mailing list
