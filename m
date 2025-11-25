@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98567CFD315
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 07:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200D9CFD364
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 07:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eksOcbPYmsT+XbVYwOFQaQOeyKOKsiMng1gkRvsxDw0=; b=4x+V9a06EfcqQ1
-	eZMPk/+e+cTNkD/hEc//EZ2Il2eLACPKuNCRZ26DM5h0yu9xHUYG3g9bSFbfkmdPPTiSMkVChRAW/
-	43vZpk8pAhQG/sO5o9MdU+eN7QypFYYQoXoxAv3qbJkKEO5+FeB/EW9NcFXG8AgMhub9uCHTLJNp3
-	g6/IrZKxQdtOBWqCWReUj6OhjNlRItVyhztenxOTUw+XBE7HKyfigcBksYAFDGBRcEbc6t6X3UwNt
-	6LCYzZOfbq5u1SazFY2hos03y4M67yf3qfOQv6oDQxS1i1RXEUwvjId4rReMRWV+s7AL/c7+1h32l
-	qajbWWdwhIlvHYOD9AfA==;
+	List-Owner; bh=y/tqZ+DnK4+M3KT4THUKfj6fE8nhBbwMQETOA2jbGPc=; b=WdEiTRFoC6WQ4a
+	f8u3MKlxoWoOGsYf6KWTqyVWvOaa5gG7zLj/AS+si7hYqBL6+KGF+fue6OLGrwChHqdLrrULbnmra
+	pN6uo04nWQijbRAM/a4Egc73r1IfLn24UXAZL2N0ZrgRWULH/h/6JcNBu1Bj676jen3dOe03Sqomy
+	8hk4mK1G4K6XA1c9Yrr2+LN0Utmbsx2mdjLFdrVSRXavJRFpVUWEjgzg6Y+COHKi11BSBtc0j+JJo
+	XmyStnVI/MnsBSDbMyK8udU/fkNAqCOIZqhIYPp5lftUjWl6u1Wb5TSxsM+p22JnqVQD1jqFfN4pS
+	bKPu9Bpk6PXKaoWhC/SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNnud-0000000Cvur-34JQ;
-	Tue, 25 Nov 2025 07:56:35 +0000
+	id 1vNnuf-0000000Cvve-06wB;
+	Tue, 25 Nov 2025 07:56:37 +0000
 Received: from mail-bjschn02on2071e.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::71e] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNnub-0000000CvtJ-1HzI
+	id 1vNnuc-0000000CvtJ-3mv3
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Nov 2025 07:56:34 +0000
+	Tue, 25 Nov 2025 07:56:36 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=YNG6lQYjK4+7My0Lh6c3rnGImMFJ8k5KFRhs4J4juF7iyKpQz0hOaODVD1NEyTZK6DCIGiZwcgbppJdLNk6Dq7e0oeG9zCihKcsrRYcC1qDIoG3m0YE7M4PmUUCcYeAbFrTxT226ezH3xhbaeijlMB6dFT3R/HbDPAaHbDWkMYgoMBuYpbuXFr2Q56FJ3puiter74PSHrcnwEQT6SdjmLdykGStUO3gV5uKLfYuhFplYoOgwfP8T3myag9ESWz0pZUMeI05g4R5XPmYnkHMaF7wGLFEyTW8FRb63zpIcipge74CITpGpoKEwLEOZQ7jcnXK9C/rmRaViPD3uCiuvHw==
+ b=b87NK3mRvIEXU0EMqFs+EpcHDX3IQ6epkSZ1VhkQIUtohtQf0Y3dVsW8L+u9hHzYCdfCcxBNtzPMzWzSvTBKCHHOFxlTVzXP6KxNmuX/QhFKePQCo2wBw4ft9/p96JX0+BeTFDyfVnHfkIA95azjqGnWiDeDDXntp7XLytP4XMplVI/a+R/tpxlQKuob5490zY7jtZbGKme0o562qr1UrN7OGiMdZN9Bd4Jgl0sFdQPteEjpn52Fdr0R23uwY9risg3rLajw33H2lexLTeAdiCpeCpKzLUQw8lzgP6YKirOPbIOBxD/+aTRMV+mzzsMqPswuz7ejGBymt8nnmk7K7Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C9eeqaHiWI3NRJEDeADCIVPG/hAcZNLH7BERolwoN70=;
- b=MsP93u9/NnzANIv9AxvU5eWDxLIIL0hSfvP7E38d9ZEoFbtttZnxte94POzTR+d5Q3WeCV90Xy6M/UnhEBFR+5TfwbUmtUj3ula3oW13zkdBEvk1aDXgJVFhd1m3XwYVtbDgDnZ29QX/d9P1VR0Uo6jB4scYFyKwv4gzKDIgknKRAeC983ac/fe6DJ0mGyX9l8abBWW3551pkIR4Bvo6sTlqW9OfWPPl/pLDc6q7i0FQrgQfFgNVspiHTFZ0QDqNga5A6frVr/lPM/177K1enXJjO0maHNmBZONz4b7cnpBkdQuhRmN/2NgP4XJRheX1dGt0Ty4XsFuQLLlEqTFXmg==
+ bh=X+HmaGtirQ6clmPxONtMJgCxZv9AvlRi7a4E53AV3Ww=;
+ b=Hep1YRYE4+kWqvljFXC0LJWGCFNRIHwpz/z9dVP4bSsLuF07grDzRgtnDlhK1d3ip6hoSRlLQg2wJ3i7dELEV6iiv9X3emsPExU0maLz5ln59azvU9gWUsvkP7L0P9cRkcFMNsGgEEsYh6Nj9PSPF3MLuw36J8p3jzO09/BVGaohXJmXDH03oWXCWOB2EqtIDDQWHquv/sr5ixQMmzXRXmeEGbQ5wnEDTbAlIUY/vxnQElCPtA6/fUBuI17lgs3WTKbkcMCPT4V3jpL5EoI39IFQC39xU8A0Crlwowc6Z4ALWEH1N3c8XzvDhXS3+WyQXoxul8dDBofwwftteEQs/g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:7::14) by ZQ2PR01MB1241.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:6::13) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.18; Tue, 25 Nov
- 2025 07:56:14 +0000
+ 2025 07:56:21 +0000
 Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
  ([fe80::2595:ef4d:fae:37d7]) by ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
  ([fe80::2595:ef4d:fae:37d7%6]) with mapi id 15.20.9320.024; Tue, 25 Nov 2025
- 07:56:14 +0000
+ 07:56:21 +0000
 From: Hal Feng <hal.feng@starfivetech.com>
 To: Conor Dooley <conor+dt@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -71,9 +71,9 @@ Cc: Hal Feng <hal.feng@starfivetech.com>,
 	linux-pci@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 1/6] PCI: starfive: Use regulator APIs instead of GPIO APIs to enable the 3V3 power supply of PCIe slots
-Date: Tue, 25 Nov 2025 15:55:59 +0800
-Message-ID: <20251125075604.69370-2-hal.feng@starfivetech.com>
+Subject: [PATCH v4 6/6] riscv: dts: starfive: Add VisionFive 2 Lite eMMC board device tree
+Date: Tue, 25 Nov 2025 15:56:04 +0800
+Message-ID: <20251125075604.69370-7-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.43.2
 In-Reply-To: <20251125075604.69370-1-hal.feng@starfivetech.com>
 References: <20251125075604.69370-1-hal.feng@starfivetech.com>
@@ -83,54 +83,54 @@ X-ClientProxiedBy: SH0PR01CA0018.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1241:EE_
-X-MS-Office365-Filtering-Correlation-Id: ac80b638-060d-46f3-6cbc-08de2bf81b02
+X-MS-Office365-Filtering-Correlation-Id: 08e503df-f2fb-4ff9-00e4-08de2bf81f8f
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|41320700013|366016|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: 2FWasuTxfwg2Nx6GbAPZupAQvnpWp4T2pvyb4YCioVNkVV2YTV5WHXZ+CKtwpQyt7q7PB5YB0khSzUbOi0+dsU1PRukPyZ3nUjCgO+atRSe/5/MD8lvy6FATav47f603L98gzQcZEZZX7uAxOb4+5eGJVq1nvCvVEC4aJ9C8pXt90uEgHMIGxEM11spx9P9BHraqMIMGrT77cfMRyMPqfbO2hOxGDKA1psoS8D+sHAM0vuBGanyHPv0STXh80ZlbEOsPVV0OegM5RNyJyJ3OE/t6oo3gitngHkyrpnFx0n8IxG3M0LlAuBQ3EzlBTkYXsc812bmLYVA4TqNEy3KWXeH28eXK8AMJ1scItNJGvODXOT24o8nAfr+vEluQDifvlD9ONubyrh2xyYGGx3KX5/hNh3bXu+x2XqSBjo/2CUBfRy5Pxc2A8gBPalj+ptsesp0pZCzG1UD85lpdF7EPSs5sXSENxWQpNUdMBIb6W94rj2ql9ALTFX2zkheviL7TnIravcxMOeg8wQaWAhoSyFrKHG3aYCSeWZ9rNuPwiC3WZo+oDEitYfiSvUiqSa29FJw2tmbw1mlNcJqtaj2Q7KBcizDAcVv8HigX8Ep2I/w=
+X-Microsoft-Antispam-Message-Info: L08m2flTpnr0qbin1QKEor6QKd81yb4kAn0I7AmZx37K2+A+bUloQed7dVvSh0vF+WNu1B4H20HAmyx+BkSaeAHpLxSJwXYnqTz5lU4p4RoEsK/Jd4JaZprDGO8qBxROctt98q1DxzFJkiPMmco/BKiok6beJf7+v+ChlPW2lwDsiQtxBYqv35G08nwN1N9wx4flDfqxRAXzj77wczoq3Ea8InUlrQyVR2REkXq6Nie7XIWgpPCoUj8s/C+7w7GTnaq7pwI0eHsD6hANmn0i9GQ5siPaWhJuof+0huuNdz/LPFjlY/MGHiliSfz6lIu/jT0Z00bebqYBU22VWk2DdHP5JyJdvnQecFtqtLM4E8YxkDziw5tKkuDCIB7X9D+MsnwNQPPiwhMAUPiMDt+IT03G4dYSdTuxA0yg5I1SGVM6Lc3dn1JqC65FQdq0mP2lJsnSQeDPMwvWEoa3hBYJaWgLFtZCysAuj4RoBIfQd4zWGeJuDsxBOop/ODq0mFe+3IlhxSnb9toa8VMLsnx2ONDQqw/UHHk3qd7Z2QMYZrvhofzE7D+tCOchednre9PHph6vaWnuSGiHuwf7FoE77QQa1bert8L22nkbXRpO34g=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(41320700013)(366016)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EgSNI0H2EgtC3JMOQ4SwA65XXWNm20RsPbFg208Rfup03Gat8QXdTfDD+QwU?=
- =?us-ascii?Q?U5xGo5fn/yRwX4SELyTiVbH5CNLkavWYqCJ5ONX37RcnBRi9DYlP+HF2zcS1?=
- =?us-ascii?Q?Thhd2ygF2Q1pYNlaLdYnqWhNMgO6cn8NjsW9tS1LZXAbzpnzsFeB6Z857D9Y?=
- =?us-ascii?Q?9oTnDD1vsP8T0ONRhi+Blz+BY//0Oq6hrP8Mz6ORdNAn2H+h9zLeahQ2WcKU?=
- =?us-ascii?Q?pbexWVPd4MY7oubB7tQFAWNmAipY3jFSXqCK0tpxReTcOCdvO0F4lnPY1iIL?=
- =?us-ascii?Q?WwArmBnYoLAe40py7Fx8pRS8jA4Ac2mr6MfAY8G7PSX3hFm1+mE6OjVocuaJ?=
- =?us-ascii?Q?i7FY6TduKGvVr+qACxlbW5pElzIha9FE8AVwkkJPicH59slQTiyhClcvz75r?=
- =?us-ascii?Q?+hj2XMqFys7TwpTvlXExV3ebdGURt4w7eIVjz3HMFMrRpq2Ba4IPZdVkd7So?=
- =?us-ascii?Q?3BfMpMmTx/EHCc/wtoIHx4s4vMltPirqG0nw7l/gQyR8P2uesl7277Ak5EZR?=
- =?us-ascii?Q?vLVj6IOy5CN1CiS5Z/1+0bYq5PJxIy2J952GjXVsT4PV7UWmyuR2+6TSSOtY?=
- =?us-ascii?Q?JDioVZ0CrVwybNejuwjYEzDrt4emSnACeWcWnaH5v+/eee+hnlEu6gWaP264?=
- =?us-ascii?Q?0zlc3TmfUR/018YgB6ZoZTlsGwVlt5/A0noRcP6bi1yHJAVLcnWKFZyOcTx9?=
- =?us-ascii?Q?bXX0wGjLO6tQWoKlDMVoxk+DlOAfUj1o7CKU8lKQVmTJCRtKU4WKRoXsdZKr?=
- =?us-ascii?Q?yGiNYG1WFlCcLH31vn4vhUsXtDRb5IOsJwzbyR0uW0LytIq+GCCf3wpAEd3J?=
- =?us-ascii?Q?OzR8rOh2AcXx0hV89/OI2vknAoaSAmx30/g/0PQSFgvYyG7R8EZTlrTkfqmj?=
- =?us-ascii?Q?OWwsTleOxLF8/V0rFFuLWtm8hTl1P/KA0AqZjqvu57qjbR4++a+z7UuF5phL?=
- =?us-ascii?Q?+Xpo0WTCpkUR5wjRAddfuLur2uqEqw8z+dpoxpaNeJ+SBFzb1lajDyRelWfh?=
- =?us-ascii?Q?JP4yETDDlMFWHIhsqPvjnG9/RhiuyGKQ0okVI+FL8PKx2+xMrlaPzqwX+ZYo?=
- =?us-ascii?Q?SLhVi8kj5cKdXK0rx5c+zbF/CmCcr6CaUXbDklSFceT2l2HVVNHBnCeX8K0K?=
- =?us-ascii?Q?IDNfalK08cinIw94AvL+FeLEFa77m5MA4KZRwESj1ClNW79do64fWQgT6eph?=
- =?us-ascii?Q?4oMll/s7cQ/vfNDiOLYsTI44pa63eogVSI4r0AG2oaqdPsWeZAmDLLVwgxc1?=
- =?us-ascii?Q?aGoOiOYVVrXtPKatUkscxFDSfy+K5NrOsj5R3d6Ye1JySfO1TvPZObgAQDXs?=
- =?us-ascii?Q?8SwKF4cEcZiKh/JMfMLTbH9GhdNjs+s29geugweJ3osIjYHhInKWMKqjOSSs?=
- =?us-ascii?Q?+YihXmwAo6iq6APyr2F9F7E/296aODiqnH3t+ZUWvHZ7N/6o5Kt+tD4sypch?=
- =?us-ascii?Q?eTbrFUqmXjyw4BX+o36vY+yfCNrMlJo2u0WYC+AbNgapgNuEVkdVyiIPjyvv?=
- =?us-ascii?Q?XX/Ct//YM0Rb9J4SOSPqgnfexKBq6J2nsLp1jPg0l3G4U6KflZqC0noic/EJ?=
- =?us-ascii?Q?g4ReIZHkGOel4iAnf1U7VFz4WzAjnJEZ2Nymny3/yEHwbpnhGAwDPgBfv8GR?=
- =?us-ascii?Q?LA=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Djltacx1tUXWfaHa7twJfvut2UnrChuiHPZwMYBfupx+Y2XSC1FE8jQKZQNF?=
+ =?us-ascii?Q?5vX2iMYwGDK7Vpa/Iu02itKsbDw6smefaN20/i9lXZ3QmrJbUMyUVzRuRNz8?=
+ =?us-ascii?Q?nkZL+gZkfNa6+9QN7Xw3xwUtKBZWNcNHnzrT5MDJ9gQaWu3mMpJnuXA4lzOW?=
+ =?us-ascii?Q?tapNJ2iH9AjALkfMp+Ma0mTOpaHz0kdJvGtguIuD2B/xsH44PEEyoIy1ehl4?=
+ =?us-ascii?Q?VA62O2H+l+nvXLg2ZaZ6t03Ijkb1TI/bcleTEEVFcR1r/rDogSi8zV8oCLLy?=
+ =?us-ascii?Q?Ab2OpqfT9Qe6g4H2y6XmKr0JYO4i9r5I1WaLWxEn6c+xPnro8zCwGEGxH17M?=
+ =?us-ascii?Q?JwhoXEbROlxwwWguQKxiAmreAVoVj7y6dq10omlvm9H9GoLsp1sFcAuM+4FR?=
+ =?us-ascii?Q?bHFWD6hWbhDtETACMV383go6v+NccqBTkToAUaNO4KlcqNuaq91kxDizx9QO?=
+ =?us-ascii?Q?WIaGKQEuZQsjHTpoLzqDn3cLDzBNTNLDMSgOu/tcsaL2K6srEinzY7HpFUHx?=
+ =?us-ascii?Q?YS2PwxwvG1UzGhyAPDPBiJBWFS1PS1kO1r8ffG9d2w/wvQGTNSFBKKrgq614?=
+ =?us-ascii?Q?vPc9doWgJF19wd+cjci4yM4LRAWYfFxDmLgqaP23CsQxH+5MxVcJGgNiRGUy?=
+ =?us-ascii?Q?OsVSNuY/t3+Bx/Ite9O8qfhspph2kZ/QO9v0N+289QZIDY3XYLRJT9YrsJjf?=
+ =?us-ascii?Q?BKLzjXWDk66ON0oMwtMb4Jk+xiBNZfsr6skFapObiQKdlgYTsqRsSifLQos4?=
+ =?us-ascii?Q?k+ndQ1Sqp3Gl7z3kvRWqWlqbPvm1inFfJIlEnhwNCT1SaTAsFr/MLnEhGPCF?=
+ =?us-ascii?Q?cZzqT8Jv0uAk9Akl1xMpiJxWG+hs6MFxqCghJrM2qclsGZK69GOeX1wZEblV?=
+ =?us-ascii?Q?wco/bZLWAS9f8qBqBePE9eBLsjLrsx27GWkz3YF1DZXNmW3032IjxtQJDmxB?=
+ =?us-ascii?Q?k+q5oGiMl34ZNkF7VeX3msuqqt8WZkpi8yCZZgqlgDdXkbbA1C2pHiPUmY+o?=
+ =?us-ascii?Q?NfN/zOzS3VmffbfXSGUglhjzgdkbzyMF2TC6z+voI87WNWs0ppoarj0+CtF/?=
+ =?us-ascii?Q?Fa09JTO9f7rOmoxL6OPRKK+ceUZPsgPlYWO38tG6hZJZKq1Qu58eeBW/Ss5L?=
+ =?us-ascii?Q?C8XxOqcwlo+G2/o9ualm2/zwpm6lW0yQLl+W2zd8/I2cvWGwuiGPMLfGBCXD?=
+ =?us-ascii?Q?ezZEmL7U08zfaNcQLhNSbBM2n6aWH6HtMmqLhj65AcWQvW3Ex3KvY+nxLhrC?=
+ =?us-ascii?Q?GHpSiFRqvCWuSkZYkyqoK9+cXpLoSop+rkKhbkSwI75CWv+gxpYXfuplimja?=
+ =?us-ascii?Q?U2cGgJwaJLOojc5j4MN2kdELM6QFk8JBg/FWTU4YsPiLi3YnN7vP9j9Ntr/0?=
+ =?us-ascii?Q?jkmApKB8kmPQ0OOrR+PaI+8n954+5We+1oWxRrNPvdqpwaeOayGx2ByITwzp?=
+ =?us-ascii?Q?a6WbNlEvPLWhufFiqwLcfCntK5R32XkMYtpP40rqWvYu1Cpl9GtGgXlk2iqn?=
+ =?us-ascii?Q?3k/eBhdyiJP7eNrsTJdLcQUyGhqyhJnssMWsmsxeZMPi1Uc7KHKfNpW95Nit?=
+ =?us-ascii?Q?M558BNRfyBEcVdc06FxGRvsjwP/ebpwVb8+c/lC5WTnONhtfn6dqX6KMV9Ym?=
+ =?us-ascii?Q?YQ=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ac80b638-060d-46f3-6cbc-08de2bf81b02
+X-MS-Exchange-CrossTenant-Network-Message-Id: 08e503df-f2fb-4ff9-00e4-08de2bf81f8f
 X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 07:56:13.9540
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 07:56:21.5539
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3GEcVm7n6CZ0o5takKqC6BtWa3hS6A8Hq5ILkTu7kg5vM6JXP99Q0C3vk93VNEKoiI8rp0D9XQITcF3/vkQcryqrwBSx6bGtkmcyKiwHPIc=
+X-MS-Exchange-CrossTenant-UserPrincipalName: /fim7iZ7j2eKgDWdrssYm0vUzmokzCyB9xYQGs9ONDiu71SrWaulzsTVAIp0Ag0/mYWIrUK+XVmFVPxS2TTVsQC0oMOkNJHnDx/r9rbi070=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1241
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_235633_348100_B4AAD01E 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20251124_235634_943918_736B2A85 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,74 +147,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The "enable-gpio" property is not documented in the dt-bindings and
-using GPIO APIs is not a standard method to enable or disable PCIe
-slot power, so use regulator APIs to replace them.
+VisionFive 2 Lite eMMC board uses a non-removable onboard 64GiB eMMC
+instead of the MicroSD slot.
 
+Acked-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Tested-by: Matthias Brugger <mbrugger@suse.com>
-Fixes: 39b91eb40c6a ("PCI: starfive: Add JH7110 PCIe controller")
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- drivers/pci/controller/plda/pcie-starfive.c | 25 ++++++++++++---------
- 1 file changed, 15 insertions(+), 10 deletions(-)
+ arch/riscv/boot/dts/starfive/Makefile         |  1 +
+ ...jh7110-starfive-visionfive-2-lite-emmc.dts | 22 +++++++++++++++++++
+ 2 files changed, 23 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-lite-emmc.dts
 
-diff --git a/drivers/pci/controller/plda/pcie-starfive.c b/drivers/pci/controller/plda/pcie-starfive.c
-index 3caf53c6c082..298036c3e7f9 100644
---- a/drivers/pci/controller/plda/pcie-starfive.c
-+++ b/drivers/pci/controller/plda/pcie-starfive.c
-@@ -55,7 +55,7 @@ struct starfive_jh7110_pcie {
- 	struct reset_control *resets;
- 	struct clk_bulk_data *clks;
- 	struct regmap *reg_syscon;
--	struct gpio_desc *power_gpio;
-+	struct regulator *vpcie3v3;
- 	struct gpio_desc *reset_gpio;
- 	struct phy *phy;
- 
-@@ -153,11 +153,13 @@ static int starfive_pcie_parse_dt(struct starfive_jh7110_pcie *pcie,
- 		return dev_err_probe(dev, PTR_ERR(pcie->reset_gpio),
- 				     "failed to get perst-gpio\n");
- 
--	pcie->power_gpio = devm_gpiod_get_optional(dev, "enable",
--						   GPIOD_OUT_LOW);
--	if (IS_ERR(pcie->power_gpio))
--		return dev_err_probe(dev, PTR_ERR(pcie->power_gpio),
--				     "failed to get power-gpio\n");
-+	pcie->vpcie3v3 = devm_regulator_get_optional(dev, "vpcie3v3");
-+	if (IS_ERR(pcie->vpcie3v3)) {
-+		if (PTR_ERR(pcie->vpcie3v3) != -ENODEV)
-+			return dev_err_probe(dev, PTR_ERR(pcie->vpcie3v3),
-+					     "failed to get vpcie3v3 regulator\n");
-+		pcie->vpcie3v3 = NULL;
-+	}
- 
- 	return 0;
- }
-@@ -270,8 +272,8 @@ static void starfive_pcie_host_deinit(struct plda_pcie_rp *plda)
- 		container_of(plda, struct starfive_jh7110_pcie, plda);
- 
- 	starfive_pcie_clk_rst_deinit(pcie);
--	if (pcie->power_gpio)
--		gpiod_set_value_cansleep(pcie->power_gpio, 0);
-+	if (pcie->vpcie3v3)
-+		regulator_disable(pcie->vpcie3v3);
- 	starfive_pcie_disable_phy(pcie);
- }
- 
-@@ -304,8 +306,11 @@ static int starfive_pcie_host_init(struct plda_pcie_rp *plda)
- 	if (ret)
- 		return ret;
- 
--	if (pcie->power_gpio)
--		gpiod_set_value_cansleep(pcie->power_gpio, 1);
-+	if (pcie->vpcie3v3) {
-+		ret = regulator_enable(pcie->vpcie3v3);
-+		if (ret)
-+			dev_err_probe(dev, ret, "failed to enable vpcie3v3 regulator\n");
-+	}
- 
- 	if (pcie->reset_gpio)
- 		gpiod_set_value_cansleep(pcie->reset_gpio, 1);
+diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+index 2b1e7fcd6f84..a640ed5dc5a1 100644
+--- a/arch/riscv/boot/dts/starfive/Makefile
++++ b/arch/riscv/boot/dts/starfive/Makefile
+@@ -14,5 +14,6 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-marscm-emmc.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-marscm-lite.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-lite.dtb
++dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-lite-emmc.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-lite-emmc.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-lite-emmc.dts
+new file mode 100644
+index 000000000000..e27a662d4022
+--- /dev/null
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-lite-emmc.dts
+@@ -0,0 +1,22 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2025 StarFive Technology Co., Ltd.
++ * Copyright (C) 2025 Hal Feng <hal.feng@starfivetech.com>
++ */
++
++/dts-v1/;
++#include "jh7110-starfive-visionfive-2-lite.dtsi"
++
++/ {
++	model = "StarFive VisionFive 2 Lite eMMC";
++	compatible = "starfive,visionfive-2-lite-emmc", "starfive,jh7110s";
++};
++
++&mmc0 {
++	cap-mmc-highspeed;
++	cap-mmc-hw-reset;
++	mmc-ddr-1_8v;
++	mmc-hs200-1_8v;
++	vmmc-supply = <&vcc_3v3>;
++	vqmmc-supply = <&emmc_vdd>;
++};
 -- 
 2.43.2
 
