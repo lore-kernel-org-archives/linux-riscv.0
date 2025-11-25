@@ -4,68 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C556CFD37A
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 09:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C24CFD37A
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 09:53:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g8rDTvyL0cga1cSwzLk7uDeBzI3uZZpxc5llDufIIfs=; b=Vkh8/azQq+d09w
-	cjXnLnBV4wvvuCjRW7LE60PQs7/7FkYvLrXySnPakunNY4HlbUTn20MB8GLNkDI9tKvapDAcRdTK+
-	xdXvY4wqHRRtvKTrrMZ7lmvApM1TSOtlU/jDWahwVrVyl7rqirdLvaiyW6gOrWYmMQrSMP7FEnlNQ
-	lgrIq1jFEBPL6M7m+p9dBJz1DIINtt07msrBJExM2X+68Q69vZ+l0PV1/hubHu+YoiuGhkwzUpkp2
-	3pjIR8hAEU1Hrb18HGa+ZnrpQQzFtvJQ0G3clkOMLtZJW6+2UA6CKSsO8g7ncXHYxbC5OZgIBSqhE
-	Zyw8UnJqxGzIiFwSxqRQ==;
+	List-Owner; bh=LwyzJ+KLu6fbhBwCb8aES/F6hz4P1Jz76TBk9YPHzmo=; b=sfly18uEBsTaIY
+	FuQ05Z9yVilc7NNhtUdFqYG4HXbPxzjIrxpZxUQsQ2ZLMdzR44XxtOPmH7O6oqjJKGaSQfk42xQvA
+	7dEWs6syi073kmd1OLH7Sfqa48gmkAc5+yzhfY/dJMkXbJyZ4g5fezwLJHCufxSmUWJOpx1Nduuja
+	TtJmKRiy+ciJiaMJLyX2kpyz7NWI5ZkW6/JvpBpNyhr7x5pVe5TR2iYejcH5LbzgG4fJ7nAz0dUGf
+	KE/PeOl/n93YUWwUNggYf5X3oybboG73XPHJpBEfpbDReqIJ2FKVrw2hPTThKqeE36IdVvp+Eu/Eo
+	2/HHOjwmSSWhmcJ+LS+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNphI-0000000D2xJ-05bt;
-	Tue, 25 Nov 2025 09:50:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vNpjD-0000000D39F-2X5y;
+	Tue, 25 Nov 2025 09:52:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNphE-0000000D2wi-20lM;
-	Tue, 25 Nov 2025 09:50:53 +0000
+	id 1vNpjC-0000000D391-2zJr
+	for linux-riscv@lists.infradead.org;
+	Tue, 25 Nov 2025 09:52:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5109643A5C;
-	Tue, 25 Nov 2025 09:50:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F13BC4CEF1;
-	Tue, 25 Nov 2025 09:50:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B5D14601F3;
+	Tue, 25 Nov 2025 09:52:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 364BEC4CEF1;
+	Tue, 25 Nov 2025 09:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764064251;
-	bh=ZpZ7Gn9GLkQYXGHbd52ia/vfx8XpDdhT9cEzlscmjek=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=YQ3TY/wNjqodeZHs7cE5lAYdvVZ23Fk0Y3iJU+nqRkQWEwN1q2k5fFzjwd8uM381Z
-	 t/Kit8WUH7idwZdNOPhAI1oZUmyQBAVSrWq2dwIiZDn6okk2bd+6GbU+zmlPhlhva0
-	 21EikZ0Rgdiz8jg8xj2uWPn0SqzW8Uy4TXOVHuEMf3QNiXxThyJ9Evwr6e5nUik/eV
-	 sG5HT5RmS98jBKN8HeKtVb6SL0sq6jCkUNEOpMhiv8jufsbqDQpqWlf9dDfxlZ+vjM
-	 Pwicdetk7YIZ3BF4huugAu/dM1N1xA/Qz44hIwEXzwQ2gRKja2j7C5deCLw0L59icH
-	 hFVqBmVLRX5jg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB0513A8D142;
-	Tue, 25 Nov 2025 09:50:14 +0000 (UTC)
-MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/5] Add Zilsd/Zclsd support in hwprobe and KVM
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176406421375.657800.9856634072172881689.git-patchwork-notify@kernel.org>
-Date: Tue, 25 Nov 2025 09:50:13 +0000
-References: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn>
-In-Reply-To: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn>
+	s=k20201202; t=1764064373;
+	bh=I3QihUs/VAKs2ahnOX4mCsV6pA2nrN2cnK13Z00SXA4=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=kd+UGwIQQ+9bJsscawW/ThS4Jznf6WBn9pKw0+10MbZM0wh02I4om3dqJgOEeEjrT
+	 ydjPc1rnOK2EAXVbx8tE9WfL0D9BX59qFQt9KCEjgaZa8C9+OL2uUTuTpo9MkIRc4b
+	 nt4xJJ1Oylu1K3C+Wf4QYA6KaFTJE30MUZP2g8Fhlx4Kd45UMY+3h+INqMcOMJxxII
+	 IsRVlY1NgJCbXXn3YYFzQ6TRx42rGfHU5WlIUJMf46HhrEOEnWtsYuduu3WnJkPZZH
+	 56radJ/A5XJ7G7AmknV2bWuJOFxHpsajP53oe8Ld2UliXK4UDD4CEjyt04bU56bVDO
+	 NBzUg3rZw2gag==
+Date: Tue, 25 Nov 2025 02:52:50 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
 To: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, anup@brainfault.org,
- pbonzini@redhat.com, shuah@kernel.org, cyan.yang@sifive.com,
- cleger@rivosinc.com, charlie@rivosinc.com, cuiyunhui@bytedance.com,
- samuel.holland@sifive.com, namcao@linutronix.de, jesse@rivosinc.com,
- inochiama@gmail.com, yongxuan.wang@sifive.com, ajones@ventanamicro.com,
- parri.andrea@gmail.com, mikisabate@gmail.com, yikming2222@gmail.com,
- thomas.weissschuh@linutronix.de, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, devicetree@vger.kernel.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_015052_563212_DAEB7D0E 
-X-CRM114-Status: GOOD (  10.54  )
+cc: pjw@kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 0/5] Add Zilsd/Zclsd support in hwprobe and KVM
+In-Reply-To: <ca507aa5-670e-405a-a1dc-3316f96cef3b@isrc.iscas.ac.cn>
+Message-ID: <4d7863cd-34c4-281f-48e8-f128bcefaee5@kernel.org>
+References: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn> <ca507aa5-670e-405a-a1dc-3316f96cef3b@isrc.iscas.ac.cn>
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,40 +67,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Pincheng Wang,
 
-This series was applied to riscv/linux.git (for-next)
-by Paul Walmsley <pjw@kernel.org>:
+On Fri, 21 Nov 2025, Pincheng Wang wrote:
 
-On Wed, 27 Aug 2025 00:29:34 +0800 you wrote:
-> Hi all,
+> I noticed that this patch has remained in the testing branch for some time,
+> while the other patches in the same batch have already moved into the
+> experimental/merged and for-next branch.
 > 
-> This is v2 of a short series that adds kernel support for the ratified
-> Zilsd (Load/Store pair) and Zclsd (Compressed Load/Store pair) RISC-V
-> ISA extensions. The series enables kernel-side exposure so user-space
-> (for example glibc) can detect and use these extensions via hwprobe and
-> runtime checks.
+> When testing locally by merging the current testing branch onto the latest
+> for-next, I observed merge conflicts in the related areas. I would be glad to
+> rebase the patch onto the current tree and send a new version if that would
+> help resolve the conflicts.
 > 
-> [...]
+> Please let me know whether you would prefer me to prepare a rebased v3, or if
+> the merge will be handled on your side.
+> 
+> Happy to rebase and resend if that would help.
 
-Here is the summary with links:
-  - [v2,1/5] dt-bindings: riscv: add Zilsd and Zclsd extension descriptions
-    https://git.kernel.org/riscv/c/aeec6a5ddd8a
-  - [v2,2/5] riscv: add ISA extension parsing for Zilsd and Zclsd
-    https://git.kernel.org/riscv/c/ac3b03f8a4eb
-  - [v2,3/5] riscv: hwprobe: export Zilsd and Zclsd ISA extensions
-    https://git.kernel.org/riscv/c/668a3bd57466
-  - [v2,4/5] riscv: KVM: allow Zilsd and Zclsd extensions for Guest/VM
-    (no matching commit)
-  - [v2,5/5] KVM: riscv: selftests: add Zilsd and Zclsd extension to get-reg-list test
-    (no matching commit)
+These are now queued for v6.19.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+I had to clean up a few checkpatch and whitespace issues; please keep that 
+in mind for future patches.
 
 
+thanks,
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
