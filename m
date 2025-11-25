@@ -4,61 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664D6D0EE00
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 16:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF0F5D0EE00
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 17:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9fve8rldD01fp0Rb+9UO/yoXNPHGcELUUTZNFmZ/2E8=; b=Hgx2frTk/r/++9
-	GLaZ9zJ3dWKfUNpcswODC0YjRgXhQyYwfke2ZqY+yN6tYVme8U7a+AACI6eK9DlYiA3FH/zHO8hAk
-	M3YE/AYwwfrf/rljgQ7jBWNJYxo1t7KAYjAR23PCIjPmBtpESSxjdGlivaxfNEq4TWhlZ9oqDjL6D
-	UsCIsBNQDnXHUDzdUJtJouILQZKrZK/QmsgDtYuRkbowBCjOb9shB+EG+WFm+W9oQUrJCykAE2kGY
-	qHabRi6e98HSW6FvnMqKXiysxKArb2zkHNdl0d5GXCoS4ECimcbbpFOsnNhqMck3SBrKn55C0b4c3
-	kjyYFnTnV5KgZjZS3TYA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=2iFnVY4QrWWKZEkMdT4vheLtEjx7XbQyu6kKodezqoQ=; b=CDsyCmBxhF02rgPGWfJC52nrxM
+	+Q5w1ZpHHmkXjs0D35hzcKIO04fm4omTBz7YKYGXPP2jnGOsVIxraPtJxCmLwmTWH7Ts1jql3CHNb
+	XrZNrNnghVc3uwpGDbpByCYF7nqywJk1KpeyDURHR/rYG2HNqzgsE0q7udSaWAxZID7Q6Y+gVQic+
+	qaRS11tIS5E3C5yYv8dBk8ynmpzSFppp/xz9lXXlk3jhl2MV+8SLP9/ed+fD6X0jSsN1vxqEbTRn7
+	lnoM94Z3MJHU7q2mibEbGMroTangZY/+UcB6CsrgXcPWVyHbXjBkuley6xrWTsA0yWG2vjnB2ydSL
+	Jzck4CtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNw7P-0000000DbxK-1EhH;
-	Tue, 25 Nov 2025 16:42:19 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vNwWc-0000000DeVy-42n3;
+	Tue, 25 Nov 2025 17:08:22 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNw7M-0000000DbwY-1KwN;
-	Tue, 25 Nov 2025 16:42:17 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1764088931;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RqI/He4CXhxTqt1ORMpFG3AopoID5E8hGxslNMITl9U=;
-	b=BRKm/5YqnAEslcwBxsyMTHuzR9ldnsuWz5QiEuNFqf6Se/BSvMJiR62denHc38fMMV4/eH
-	64t5YjC0QO/W2zS2TC0JL0kvOFnBWPZHF9jcRRykf+l27iFAt+a8QrveFiHX9863iZL5T8
-	U8B4peXW0sJ3fWr0chktkJW9MxnnqjpknThCAy58LcqvYP2Hl5tWO8o1MPrnDe2CiwY4kB
-	rFceVWN50zghNvXg7aWDItckZ3VYOCi66Kgx39EdPemmB5IVLoy5cxJAyZ3nxXRfCgE4Hu
-	vueYJUllGCVGlcc2AVMUHXKWOdq+2JlKWCKT6HVlVrCOyb0fMOCS6SoyurqXbA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1764088931;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RqI/He4CXhxTqt1ORMpFG3AopoID5E8hGxslNMITl9U=;
-	b=omlDhUqqI0HGAMnbqE8yDvcl2p3bPEETMZA4RakZOyDhFjiNjQm864/EESg8nt/uuNgwwB
-	kpjfamcMhA9S/5Dw==
-To: niliqiang <ni_liqiang@126.com>, maz@kernel.org
-Subject: Re: [PATCH v16 6/9] irqchip: Add RISC-V advanced PLIC driver for
- direct-mode
-In-Reply-To: <20251125160731.4902-1-ni_liqiang@126.com>
-References: <87ms4eflvt.wl-maz@kernel.org>
- <20251125160731.4902-1-ni_liqiang@126.com>
-Date: Tue, 25 Nov 2025 17:42:09 +0100
-Message-ID: <87qztmgj32.ffs@tglx>
-MIME-Version: 1.0
+	id 1vNwWZ-0000000DeUZ-3I2S
+	for linux-riscv@lists.infradead.org;
+	Tue, 25 Nov 2025 17:08:21 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3437863d0easo10013541a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Nov 2025 09:08:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1764090498; x=1764695298; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=y4ndUQJXblyMVIEo31GQ2aPBJsTj4kLS2trQiSNmxdk=;
+        b=ubR9kjIS14bAasPSbK/E7iQuxnlvvp9DpGWaWwn90UD53U4klDPtXdfZcRCewDubK2
+         Azxn/4o4k657yLxao7VLMNDLD+NZ2bvOpLpwMX/mVbf8tbKyxSx+bCTVKOX5YUpKZVNa
+         6KK2hEbUvWpO+ztfrTepcdB4CP9tm2Dn7hCAUvyoSc5ppbjyYsysVXsPf0lSzDQ1L5zh
+         8v+AQYdqG4mF0I+a7NxOeMcMJ+F7FdZNkDUhVLbC80XC03RpScVZmHzK9KCapT2Yknqc
+         rk1/nc3f/DB7x111um79YmQswakfsR0LM1IwRHD95iXtTye5siJBiQVIIvgBR1GUVIK5
+         FEcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764090498; x=1764695298;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=y4ndUQJXblyMVIEo31GQ2aPBJsTj4kLS2trQiSNmxdk=;
+        b=k4Q7NQ2Nq2U8CSrLrs9tCLj/1db3ukSQ27naZ+xN7H2/rVnc8nFfzXCww0sQU7zC3M
+         P76TDT00QqsX7YYfm8PQ0xJDKv8U36lF5h+WqyXG0HHY5WFT/Q3XtZI3k1iuR1MT6Er1
+         hBAnZ5FayXTL37kiKEAZHaaKgdM+lHvEoIpMmpZ/F0vtn/fW9r0GR7mI+tD1MlN5JW1t
+         7KiTICmoxJm9LABXw0WRq8j3BlCBwsBOqhp1ARYQVTOMKGlOd24VLgXdSgSY3efDRLvr
+         v00ihIW/ZgBNqS5JyhhlqIMt/my/7v/ncwwq/W52m1E/BDuZR6x/nX83ceCizHrtn3lA
+         xGqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUPQIkcd23cmRNQOg3r02t7MDZsxQhWNApVfMNPZE2iEN6DOYDmsF1TIkdLfKm8f+8IUt12si0S/jKhLA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUq5X6B+rL2ojQAQD5A1erIkqW0FugryWUBjunzHluKxZf9rUL
+	zOGJjH8aeHI96WeTyRubcW77YSdBnVEe9Q4sOCYQQ4paMoPyTCNunN0mQs8XtdZYuSgMdqqV/yd
+	VmNy6eQ==
+X-Google-Smtp-Source: AGHT+IFzDAUOZTDNFOssfEjC4490DRPTOVZZ7CJwR5gD19Yg3yMCKcUxEwLwt1d5WA+HAajf5nh9jS9CJiQ=
+X-Received: from pjbpw1.prod.google.com ([2002:a17:90b:2781:b0:33b:c211:1fa9])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:384f:b0:341:8c8e:38b5
+ with SMTP id 98e67ed59e1d1-34733f3e483mr14061440a91.25.1764090498218; Tue, 25
+ Nov 2025 09:08:18 -0800 (PST)
+Date: Tue, 25 Nov 2025 09:08:16 -0800
+In-Reply-To: <83067602-325a-4655-a1b7-e6bd6a31eed4@linux.intel.com>
+Mime-Version: 1.0
+References: <20250806195706.1650976-1-seanjc@google.com> <20250806195706.1650976-29-seanjc@google.com>
+ <aSUK8FuWT4lpMP3F@google.com> <83067602-325a-4655-a1b7-e6bd6a31eed4@linux.intel.com>
+Message-ID: <aSXigAQznhuxZmy7@google.com>
+Subject: Re: [PATCH v5 28/44] KVM: x86/pmu: Load/save GLOBAL_CTRL via
+ entry/exit fields for mediated PMU
+From: Sean Christopherson <seanjc@google.com>
+To: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>, 
+	Mingwei Zhang <mizhang@google.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
+	Sandipan Das <sandipan.das@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_084216_516767_5039CAAD 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251125_090819_822566_6E96479D 
+X-CRM114-Status: GOOD (  33.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,34 +99,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: paul.walmsley@sifive.com, atishp@atishpatra.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, frowand.list@gmail.com, hu.yuye@zte.com.cn, guo.chang2@zte.com.cn, anup@brainfault.org, liu.qingtao2@zte.com.cn, ni_liqiang@126.com, wu.jiabao@zte.com.cn, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, liu.wenhong35@zte.com.cn, dai.hualiang@zte.com.cn, linux-arm-kernel@lists.infradead.org, apatel@ventanamicro.com, saravanak@google.com, ni.liqiang@zte.com.cn, linux-kernel@vger.kernel.org, bjorn@kernel.org, robh+dt@kernel.org, palmer@dabbelt.com, deng.weixian@zte.com.cn
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26 2025 at 00:07, niliqiang wrote:
-> We've noticed that PCIe enumeration order tends to vary across system reboots (for example: first
-> boot showed PC08->PC06->PC10->PC07->PC11->PC09, while second boot showed
-> PC09->PC06->PC08->PC11->PC07->PC10), even though the ACPI firmware consistently reports the root
-> bridge sequence as PC06->PC07->PC08->PC09->PC10->PC11.
->
-> In our testing, we found that adjusting the registration priority of the aplic driver seems to help
-> ensure the interrupt controller initializes before PCI enumeration, leading to more consistent
-> device ordering.
+On Tue, Nov 25, 2025, Dapeng Mi wrote:
+> On 11/25/2025 9:48 AM, Sean Christopherson wrote:
+> >> +	if (host_pmu->version < 4 || !(host_perf_cap & PERF_CAP_FW_WRITES))
+> >> +		return false;
+> >> +
+> >> +	/*
+> >> +	 * All CPUs that support a mediated PMU are expected to support loading
+> >> +	 * and saving PERF_GLOBAL_CTRL via dedicated VMCS fields.
+> >> +	 */
+> >> +	if (WARN_ON_ONCE(!cpu_has_load_perf_global_ctrl() ||
+> >> +			 !cpu_has_save_perf_global_ctrl()))
+> >> +		return false;
+> > And so this WARN fires due to cpu_has_save_perf_global_ctrl() being false.  The
+> > bad changelog is mine, but the code isn't entirely my fault.  I did suggest the
+> > WARN in v3[1], probably because I forgot when PMU v4 was introduced and no one
+> > corrected me.
+> >
+> > v4 of the series[2] then made cpu_has_save_perf_global_ctrl() a hard requirement,
+> > based on my miguided feedback.
+> >
+> >    * Only support GLOBAL_CTRL save/restore with VMCS exec_ctrl, drop the MSR
+> >      save/retore list support for GLOBAL_CTRL, thus the support of mediated
+> >      vPMU is constrained to SapphireRapids and later CPUs on Intel side.
+> >
+> > Doubly frustrating is that this was discussed in the original RFC, where Jim
+> > pointed out[3] that requiring VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL would prevent
+> > enabling the mediated PMU on Skylake+, and I completely forgot that conversation
+> > by the time v3 of the series rolled around :-(
+> 
+> VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL is introduced from SPR and later. I
+> remember the original requirements includes to support Skylake and Icelake,
+> but I ever thought there were some offline sync and the requirement changed...
 
-You're repeating yourself over and over, but you're missing the point.
+Two things:
 
-The ACPI table does not provide a sequence, it provides a collection and
-it's nowhere written in stone that this collection has to be processed
-in order.
+ 1) Upstream's "requirements" are not the same as Google's requirements (or those
+    of any company/individual).  Upstream most definitely is influenced by the
+    needs and desires of end users, but ultimately the decision to do something
+    (or not) is one that needs to be made by the upstream community.
 
-If you want a sequence then put dependencies into the table and be done
-with it, no?
+ 2) Decisions made off-list need to be summarized and communicated on-list,
+    especially in cases like this where it's a relatively minor detail in a
+    large series/feature, and thus easy to overlook.
 
-Thanks,
+I'll follow-up internally to make sure these points are well-understood by Google
+folks as well (at least, those working on KVM).
 
-        tglx
+> My bad,
+
+Eh, this was a group "effort".  I'm as much to blame as anyone else.
+
+> I should double confirm this at then.
+
+No need, as above, Google's requirements (assuming the requirements you're referring
+to are coming from Google people) are effectively just one data point.  At this
+point, I want to drive the decision to support Sylake+ (or not) purely through
+discussion of upstream patches.
+
+> > As mentioned in the discussion with Jim, _if_ PMU v4 was introduced with ICX (or
+> > later), then I'd be in favor of making VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL a hard
+> > requirement.  But losing supporting Skylake+ is a bit much.
+> >
+> > There are a few warts with nVMX's use of the auto-store list that need to be
+> > cleaned up, but on the plus side it's also a good excuse to clean up
+> > {add,clear}_atomic_switch_msr(), which have accumulated some cruft and quite a
+> > bit of duplicate code.  And while I still dislike using the auto-store list, the
+> > code isn't as ugly as it was back in v3 because we _can_ make the "load" VMCS
+> > controls mandatory without losing support for any CPUs (they predate PMU v4).
+> 
+> Yes, xxx_atomic_switch_msr() helpers need to be cleaned up and optimized. I
+> suppose we can have an independent patch-set to clean up and support
+> global_ctrl with auto-store list for Skylake and Icelake.
+
+I have the code written (I wanted to see how much complexity it would add before
+re-opening this discussion).  My plan is to put the Skylake+ support at the end
+of the series, not a separate series, so that it can be reviewed in one shot.
+E.g. if we can make a change in the "main" series that would simplify Skylake+
+support, then I'd prefer to find and implement any such change right away.
 
 _______________________________________________
 linux-riscv mailing list
