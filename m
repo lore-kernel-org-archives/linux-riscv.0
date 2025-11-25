@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC576CFD377
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 03:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D8FECFD364
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 05:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LvKAFpORm5vsjrUlAJzyKTDYpWbZQ6/qVhEygyM+ryQ=; b=nvPN9Kn5mqcNQs
-	0ietySCmA/0n27QCudN1qJ6S8gkBkVbeFF1KiwCxaSfUk3uS0qIdieTgijf8R9ZtyjZEdQdYfHhyO
-	6QhCF+CrVy3UjkGcX+WW2LUSQgywQZfCv0K9mRRXQvZdkbbxChZ6WRPUYujliGvVb6OKxvEiQgJ0r
-	S6jtzwV0q5apbrwfkk43g14okECC2d6k1cqTrnW/DSb5TsL5w/KqdLvcPooU+OiOK2Kf0RbIIgscC
-	eEJE0PXgp9m3fCpMBkIlQroxpw5OsgGFEeBjqQfBeTDQafBp4XcZMYeU8tBgGawbv3VWhRQGvvAkk
-	FIDWQBM0mkk5JDI4cOeQ==;
+	List-Owner; bh=X7pZuwF2MZLgYTvI8aE+5YTy03XUny/uUh/mQ4ZjXMM=; b=ikCmPG/GwMI8iB
+	fB0TUSpTeALS2AkiS5Kd6/JTa4zocIlKnFoS+rurLvYnZOBzEkZLmgXAhpzgtIcaoq8ukdNldWt1s
+	klPVOWf60CM2O/newOnhqF8HbhjgK4G0rSQluaMRDYuUf+ZF0Jscf74W2UvkuhHvI4ieHwffBQdkT
+	e840MQyr43y+II77En2JcKJnno6OZgALB1U2MVMwR5Asg5d0KR1jA/okIITDEqpSuVhEq8OyWGMPf
+	U0QHqW4zPiQZOnwF3Pbklthv+3m0fQ/wHTusGIVkm/EoazjcoBJiDG07h6wxnXBnmu5Ha/1QJeYri
+	+ZKFbDJHyqGlCfqtAyLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNjhG-0000000Cg3X-2l4C;
-	Tue, 25 Nov 2025 03:26:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vNlCe-0000000ClRt-3jrH;
+	Tue, 25 Nov 2025 05:03:00 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNjhG-0000000Cg3Q-17rH
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 25 Nov 2025 03:26:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Z6b3jIy5U29fYjk2YowbODbgMZwh0DPU1URFbpiQ8TU=; b=Bgidt8g3fOBcjVvlKj+4+8EQgJ
-	izURK3ERdFEOLGTl+0fwFX0E6np5peAZm88WT32i2zryEAFaDsiUg2b2o367Ve/K6B4D9QfWOCT/x
-	nX6zmoL2GptVJjZwvq3Zhz7gT6sUcdb5ynyiJh49KaPttNut2+zJTZ5Efox0NvulDseTq7id81Lha
-	ReonU8OWmIN8fLxTstXHkLywH+okaZ14fwHJJffkLB/6CeicBSFC8ib35unC0rutwqtp/jbwwH7eG
-	Eb+75YsUZwPXdSJQr6R5UmU3GlpkHWVDrmrxqV79Bx6BChm3RYXtxOffI8VV4nteYoM7fQKFe9CFg
-	YcruiokA==;
-Received: from layka.disroot.org ([178.21.23.139])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNipb-00000004xLk-2qRR
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Nov 2025 02:31:05 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 3D49225FAE;
-	Tue, 25 Nov 2025 04:26:01 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id OoLdeC5lYiO1; Tue, 25 Nov 2025 04:26:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1764041160; bh=WZOjQURqId+CZRRksRPejtKE7iaWEe0VkQ6Rm92giGM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BrcIIohoKNNkMI5m3sBYxAL6MUaym4qL4VxXqj6mBdmYccDyW0/M3pRIibsNWATrF
-	 +wpaFRbTHjpfB7GojepF6QK83pZmjDgKbuwJwRbaank+aico/a7lYUhzlGlOCx44Fw
-	 WZiyMZXPYCfmszvqN29j0ht/0fnu7VceNmOkn6JsrtHFEGujDTKpbW1BvHgQxHRYaJ
-	 6rXsTRmcAjLv7I7izPNvM+A4CjH8g418bf7Dylux5u/3niP7TsQbYdlXIhXGarvCGc
-	 kUp3lQ63pFIU2sm1U/K1GCxHtVjV2wh/aq7tee9ZLpSUG28pOo89WHRPLXPDXQE5KV
-	 ei65w2kolZX4g==
-Date: Tue, 25 Nov 2025 03:25:48 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org, Guo Ren <guoren@kernel.org>,
-	Han Gao <rabenda.cn@gmail.com>, Han Gao <gaohan@iscas.ac.cn>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
-Subject: Re: [PATCH 5/7] clk: thead: th1520-ap: Add macro to define
- multiplexers with flags
-Message-ID: <aSUhvEOIFclRP3Wg@pie>
-References: <20251120131416.26236-1-ziyao@disroot.org>
- <20251120131416.26236-6-ziyao@disroot.org>
- <aSTYt3mlJCC0f5TG@x1>
+	id 1vNlCc-0000000ClRI-0kd9;
+	Tue, 25 Nov 2025 05:02:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764046978; x=1795582978;
+  h=message-id:date:mime-version:subject:to:references:from:
+   in-reply-to:content-transfer-encoding;
+  bh=CxuoyWDMjnvPVlANis+bdBxUp4A0mu3YzVIP24vTdmw=;
+  b=jTPVMannSWMfc3fm+OSavYVcsCmnGbne+dbW1FG5nA7sGPkFWRtBNLWp
+   VuVrx/aqCG6JKLrrVABkL1TzZs8q2Cf/VxVA4aJgAaY2lia67aw0bnD7g
+   Fwtj/siUvr3JCtXVEfAR9QBKFxSh7VoJQma3SP7axSGR3wOE2mVcH6KQ3
+   7TUK/nyZCRARppkKwGO9JKPTAi/xFeT3CwVALAoNkCrKAh3adzudcJ8bh
+   h88cLGohhxCwPkjFqDtk438C47dWYq8pTHyVlb4H9fymLLa/kAjDT+ZL/
+   VnYTtY+w+dI0pcfAF0TvTA5QFuL46hIYyj+35Y4VWBopSR49Ebc236pXq
+   A==;
+X-CSE-ConnectionGUID: ptbUomSoQlOTg8soc63A7Q==
+X-CSE-MsgGUID: ZbTzBQ77T6+SQZtmczzajA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11623"; a="66219506"
+X-IronPort-AV: E=Sophos;i="6.20,224,1758610800"; 
+   d="scan'208";a="66219506"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 21:02:56 -0800
+X-CSE-ConnectionGUID: rs3B5ijhTVGv+kSjCL9fAA==
+X-CSE-MsgGUID: urT/xi6OQOK7RTeKmDyI0w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,224,1758610800"; 
+   d="scan'208";a="191669191"
+Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.213]) ([10.124.240.213])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 21:02:48 -0800
+Message-ID: <83067602-325a-4655-a1b7-e6bd6a31eed4@linux.intel.com>
+Date: Tue, 25 Nov 2025 13:02:46 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aSTYt3mlJCC0f5TG@x1>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 28/44] KVM: x86/pmu: Load/save GLOBAL_CTRL via
+ entry/exit fields for mediated PMU
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
+ <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
+ Mingwei Zhang <mizhang@google.com>,
+ Xiong Zhang <xiong.y.zhang@linux.intel.com>,
+ Sandipan Das <sandipan.das@amd.com>
+References: <20250806195706.1650976-1-seanjc@google.com>
+ <20250806195706.1650976-29-seanjc@google.com> <aSUK8FuWT4lpMP3F@google.com>
+Content-Language: en-US
+From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+In-Reply-To: <aSUK8FuWT4lpMP3F@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_023103_934478_7F9638E9 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20251124_210258_295909_1A1BFEFD 
+X-CRM114-Status: GOOD (  29.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,57 +101,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 02:14:15PM -0800, Drew Fustini wrote:
-> On Thu, Nov 20, 2025 at 01:14:14PM +0000, Yao Zi wrote:
-> > The new macro, TH_CCU_MUX_FLAGS, extends TH_CCU_MUX macro by adding two
-> > parameters to specify clock flags and multiplexer flags.
-> > 
-> > Signed-off-by: Yao Zi <ziyao@disroot.org>
-> > ---
-> >  drivers/clk/thead/clk-th1520-ap.c | 9 +++++++--
-> >  1 file changed, 7 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-> > index bf8e80c39a9e..79f001a047b2 100644
-> > --- a/drivers/clk/thead/clk-th1520-ap.c
-> > +++ b/drivers/clk/thead/clk-th1520-ap.c
-> > @@ -101,17 +101,22 @@ struct ccu_pll {
-> >  		.flags	= _flags,					\
-> >  	}
-> >  
-> > -#define TH_CCU_MUX(_name, _parents, _shift, _width)			\
-> > +#define TH_CCU_MUX_FLAGS(_name, _parents, _shift, _width, _flags,	\
-> > +			 _mux_flags)					\
-> >  	{								\
-> >  		.mask		= GENMASK(_width - 1, 0),		\
-> 
-> checkpatch warns [1] about this line:
-> 
-> CHECK: Macro argument '_width' may be better as '(_width)' to avoid precedence issues
-> 
-> I noticed it in the patchwork CI results [2] but I think we can ignore
-> that as this patch is not actually changing that line.
 
-Agree. This is only a "CHECK"-level warning, and for these clock
-definition macros, I don't think there's a chance that precedence
-problem would happen since only literals are feed into _width.
+On 11/25/2025 9:48 AM, Sean Christopherson wrote:
+> On Wed, Aug 06, 2025, Sean Christopherson wrote:
+>> From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+>>
+>> When running a guest with a mediated PMU, context switch PERF_GLOBAL_CTRL
+>> via the dedicated VMCS fields for both host and guest.  For the host,
+>> always zero GLOBAL_CTRL on exit as the guest's state will still be loaded
+>> in hardware (KVM will context switch the bulk of PMU state outside of the
+>> inner run loop).  For the guest, use the dedicated fields to atomically
+>> load and save PERF_GLOBAL_CTRL on all entry/exits.
+>>
+>> Note, VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL was introduced by Sapphire
+>> Rapids, and is expected to be supported on all CPUs with PMU v4+.  WARN if
+>> that expectation is not met.  Alternatively, KVM could manually save
+>> PERF_GLOBAL_CTRL via the MSR save list, but the associated complexity and
+>> runtime overhead is unjustified given that the feature should always be
+>> available on relevant CPUs.
+> This is wrong, PMU v4 has been supported since Skylake.
 
-Enclosing the parameter in parentheses also makes the code a little
-messy. so I'd prefer to keep it as-is, too.
+Yes, the v4+ restriction is to meet the requirement of existence of
+IA32_PERF_GLOBAL_STATUS_SET MSR which is needed to restore the guest
+global_ctrl.
 
-> Thanks,
-> Drew
 
-Regards,
-Yao Zi
+>
+>> diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
+>> index 7ab35ef4a3b1..98f7b45ea391 100644
+>> --- a/arch/x86/kvm/vmx/pmu_intel.c
+>> +++ b/arch/x86/kvm/vmx/pmu_intel.c
+>> @@ -787,7 +787,23 @@ static bool intel_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_
+>>  	 * Require v4+ for MSR_CORE_PERF_GLOBAL_STATUS_SET, and full-width
+>>  	 * writes so that KVM can precisely load guest counter values.
+>>  	 */
+>> -	return host_pmu->version >= 4 && host_perf_cap & PERF_CAP_FW_WRITES;
+>> +	if (host_pmu->version < 4 || !(host_perf_cap & PERF_CAP_FW_WRITES))
+>> +		return false;
+>> +
+>> +	/*
+>> +	 * All CPUs that support a mediated PMU are expected to support loading
+>> +	 * and saving PERF_GLOBAL_CTRL via dedicated VMCS fields.
+>> +	 */
+>> +	if (WARN_ON_ONCE(!cpu_has_load_perf_global_ctrl() ||
+>> +			 !cpu_has_save_perf_global_ctrl()))
+>> +		return false;
+> And so this WARN fires due to cpu_has_save_perf_global_ctrl() being false.  The
+> bad changelog is mine, but the code isn't entirely my fault.  I did suggest the
+> WARN in v3[1], probably because I forgot when PMU v4 was introduced and no one
+> corrected me.
+>
+> v4 of the series[2] then made cpu_has_save_perf_global_ctrl() a hard requirement,
+> based on my miguided feedback.
+>
+>    * Only support GLOBAL_CTRL save/restore with VMCS exec_ctrl, drop the MSR
+>      save/retore list support for GLOBAL_CTRL, thus the support of mediated
+>      vPMU is constrained to SapphireRapids and later CPUs on Intel side.
+>
+> Doubly frustrating is that this was discussed in the original RFC, where Jim
+> pointed out[3] that requiring VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL would prevent
+> enabling the mediated PMU on Skylake+, and I completely forgot that conversation
+> by the time v3 of the series rolled around :-(
 
-> [1] https://gist.github.com/linux-riscv-bot/a335020c99ef628bb38e0a4ea85e0c45
-> [2] https://patchwork.kernel.org/project/linux-riscv/patch/20251120131416.26236-6-ziyao@disroot.org/
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL is introduced from SPR and later. I
+remember the original requirements includes to support Skylake and Icelake,
+but I ever thought there were some offline sync and the requirement changed...
+
+My bad, I should double confirm this at then.
+
+
+>
+> As mentioned in the discussion with Jim, _if_ PMU v4 was introduced with ICX (or
+> later), then I'd be in favor of making VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL a hard
+> requirement.  But losing supporting Skylake+ is a bit much.
+>
+> There are a few warts with nVMX's use of the auto-store list that need to be
+> cleaned up, but on the plus side it's also a good excuse to clean up
+> {add,clear}_atomic_switch_msr(), which have accumulated some cruft and quite a
+> bit of duplicate code.  And while I still dislike using the auto-store list, the
+> code isn't as ugly as it was back in v3 because we _can_ make the "load" VMCS
+> controls mandatory without losing support for any CPUs (they predate PMU v4).
+
+Yes, xxx_atomic_switch_msr() helpers need to be cleaned up and optimized. I
+suppose we can have an independent patch-set to clean up and support
+global_ctrl with auto-store list for Skylake and Icelake.
+
+
+>
+> [1] https://lore.kernel.org/all/ZzyWKTMdNi5YjvEM@google.com
+> [2] https://lore.kernel.org/all/20250324173121.1275209-1-mizhang@google.com
+> [3] https://lore.kernel.org/all/CALMp9eQ+-wcj8QMmFR07zvxFF22-bWwQgV-PZvD04ruQ=0NBBA@mail.gmail.com
 
 _______________________________________________
 linux-riscv mailing list
