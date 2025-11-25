@@ -4,64 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED588CFD36B
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 00:22:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CD2CFD36C
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Nov 2025 01:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9E7EpLDv1ikKpsWlL3ZVMkLEJHu9IXfntMNp7BvMpBg=; b=0benSfLy2KD6r6
-	HfKcK+de7VdpsUxcui8EHpYSvO/RFgJQXZ7qTm55uk8xhk2oQthzpV87o3w8wRA/+MJWCOBOiWDek
-	BCcI+kBWme+6ZXvpGDTtGHUU2Tfn61t9rOtgLcX+xahz5fjOooMjf1TxT7nMteHnJhaBI1H0FPCGm
-	j6APThvX7NvD6kYqGb0HTfP+Mr0irtL99fbHo7hHyBf95dsvlrcJ3j303GiTVufhKmpMc+KijKxgj
-	fg7hDX3ZTLNNoiUX7O8xrp+VKfT9v8tm5y5N9KEvQfAN10/ZPnaI4iqZhymRObrUlDS9JsVsyArO2
-	CdnbZDVkpjseV0/TDH4g==;
+	List-Owner; bh=GXBLAyepogd0Xh6FiZ9oWPN93jqSp1p/xs/yRLcliuY=; b=c8a+9nQta1ccyk
+	xMNc0H8F1lmrVYsiR0HelUp2+kIX8JtxRk+SfbNlV/2vNTZ+2nBGDT2ZUpy9s+jkUVPNpR4c+Vyqw
+	OvVCSH+dvA9fWo4xdk6R/PNV1nN8FEpiogUurnN0vUT8jlQYhLScLJY1E84sRmc8Poz/1yV/expwv
+	5oq7HY+8Qj0xO83Jm55XQUdXf+eJCToFm2UDNb3+Ckmn9mzrIcWTnNB0HQH5pE4D/D4PU9MwX2EQG
+	8MIt9GyFxH2a6evxyPeQTdeygO45HLBK5C4ULl9zOEaRFG/4MUoiN0hQJJC5trZS8EYHOaF3hHwFL
+	bygwjL+Lc1LbG9mIJuMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNgoX-0000000CVwH-0TQu;
-	Tue, 25 Nov 2025 00:21:49 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vNi1s-0000000CZNK-30q6;
+	Tue, 25 Nov 2025 01:39:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNgoV-0000000CVvu-302U
+	id 1vNi1q-0000000CZN8-1WdS
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Nov 2025 00:21:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=J+TANZWcOgQJfDvygww+ASmyXzn+Rs4bLGiVbxMb90k=; b=tIr5G9glL6VbI7ZTorMTvbjU4o
-	JDpX5zVtTUXBKeOzKZjxTkHmD6kxO/hzfbsh2AqvZlypONdc4QmZmyqfvR2C7enOt/24ywYaskjoj
-	3Bm7mz+GQyT5RRjAUsl2ZPwKSz0v/tkkZB2S6bSdGPgSLbZ974xZrLL82Aw7RHTwlNbs=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vNgnn-00ExY1-Kx; Tue, 25 Nov 2025 01:21:03 +0100
-Date: Tue, 25 Nov 2025 01:21:03 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Yixun Lan <dlan@gentoo.org>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: spacemit: Remove broken flow control
- support
-Message-ID: <78328381-db8a-4bc9-b520-eb1c687b846f@lunn.ch>
-References: <20251124-k1-ethernet-actually-remove-fc-v2-1-5e77ab69b791@iscas.ac.cn>
+	Tue, 25 Nov 2025 01:39:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 77E8960185;
+	Tue, 25 Nov 2025 01:39:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFC92C4CEF1;
+	Tue, 25 Nov 2025 01:39:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764034777;
+	bh=XcG+wX+vO5qk7R+ji0dAoSo1q+3C1oPCLIkEdpBcrVU=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=is4X4yYRxkREM06tbuvKyBKg/zbLJzhlHnAmBctt1fVHWvQJxayE2lwwJbMSZOSRm
+	 3rHqkXRHJIz/GXfQw+R26Dgmv4woDo1Oo6VKllGHHx/Qi8Kz3OXcqQHsyPvylZ+Wnu
+	 GDGYfdXuJMrQwLdMyg5iEolcEWCmWn7EVI3lV/QdWagysz7b2USsCnFMTBnLKZWAb4
+	 PVxu+q96VepjNE+Ba4kKPDfozl69GpRrhDH1LgFYkJs03q5Hl4sWtA2EIMv2vTwPcJ
+	 PoWV2dwIvYhAu1CZ2a6jMZnu1jnzexw31BNPN/iXwuUe1nsAkDRMtTxjj9duu6YAss
+	 0/9LfmjZpJH9Q==
+Date: Mon, 24 Nov 2025 18:39:33 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com, 
+    Andy Chiu <andybnac@gmail.com>
+Subject: Re: [Bug 220795] riscv_hwprobe and AT_HWCAP diverge after
+ PR_RISCV_V_VSTATE_CTRL_OFF
+In-Reply-To: <20251124-yam-whoever-7f1c635f94c8@spud>
+Message-ID: <b5880f78-e3ce-08d9-9865-dc7373c196e6@kernel.org>
+References: <20251124-yam-whoever-7f1c635f94c8@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251124-k1-ethernet-actually-remove-fc-v2-1-5e77ab69b791@iscas.ac.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_162147_756238_98C66853 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,23 +69,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 01:28:27PM +0800, Vivian Wang wrote:
-> The current flow control implementation doesn't handle autonegotiation
-> and ethtool operations properly. Remove it for now so we don't claim
-> support for something that doesn't really work. A better implementation
-> will be sent in future patches.
-> 
-> Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> ---
-> Starting at v2 as this is the net-next successor of:
+Hi Conor,
 
-If this is for net-next, and not for backporting to stable, you should
-not have a Fixes: tag.
+On Mon, 24 Nov 2025, Conor Dooley wrote:
 
-Otherwise it looks O.K.
+> I got added to some bugzilla thing last week about the vector prctl and
+> how it interacts with hwprobe. I have no idea why I alone was chosen,
+> since I didn't write this stuff, so I'm linking the issue here so that
+> someone that does understand it can reply:
+> https://bugzilla.kernel.org/show_bug.cgi?id=220795
 
-	Andrew
+Thanks for passing this along.
+
+> The content of that is:
+> | Overview:
+> | 
+> | On RISC-V systems with Vector support, invoking
+> | 
+> | prctl(PR_RISCV_V_SET_CONTROL, PR_RISCV_V_VSTATE_CTRL_OFF)
+> | 
+> | 
+> | disables execution of V instructions for subsequently executed ELF programs, as expected.
+> | 
+> | However, after this call:
+> | 
+> | AT_HWCAP no longer reports the V bit, indicating that Vector execution is not allowed for new programs, while
+> | 
+> | riscv_hwprobe() continues to report RISCV_HWPROBE_IMA_V as present.
+> | 
+> | At the same time, multiple downstream user-space components (such as libgcc [1]) already treat riscv_hwprobe as the authoritative source of ISA capability information, since AT_HWCAP has historically been polluted by inconsistent vendor reporting for RVV and cannot represent multi-letter extensions (V, Zve*, Zvfh*, etc.).
+> | 
+> | As a result, downstream runtimes may select RVV-enabled code paths even when V has been disabled for the program by system policy.
+> | 
+> | To proceed with downstream libc RVV multiversioning work, we would like to confirm whether this divergence between AT_HWCAP and riscv_hwprobe() after PR_RISCV_V_VSTATE_CTRL_OFF is intended (by design), or if it should be considered an unintended semantic inconsistency.
+> | 
+> | Additional Context:
+> | 
+> | This concern has been raised before in prior discussions [2], noting that hwprobe reports capability while AT_HWCAP reflects availability, creating ambiguity about which interface user space should rely on.
+> | 
+> | Reproduce Log:
+> | [init] ./rvv_check
+> | AT_HWCAP = 0x000000000020112d
+> | V via HWCAP:   yes
+> | hwprobe KEY_IMA_EXT_0 = 0x038d2bf1200000ff
+> | V via hwprobe: yes
+> | [init] ./rvv_off rvv_check
+> | PR_RISCV_V_GET_CONTROL = 0x16
+> | AT_HWCAP = 0x000000000000112d
+> | V via HWCAP:   no
+> | hwprobe KEY_IMA_EXT_0 = 0x038d2bf1200000ff
+> | V via hwprobe: yes
+> | [init] poweroff
+> | [    1.880906] reboot: Power down
+> | 
+> | References:
+> | [1] https://gcc.gnu.org/git/?p=gcc.git;a=blob;f=libgcc/config/riscv/feature_bits.c;h=157bcdcad69a939037f6faca3a90c2598dd61f89;hb=HEAD
+> | [2] https://lists.infradead.org/pipermail/kvm-riscv/2023-June/003915.html
+
+Will reply in more detail on the Bugzilla.  For the archives: the short 
+version of the story is that, so far, this is the intended behavior.  This 
+became possible because we wished to avoid a potential ABI break in a 
+corner case when non-vector-supporting userspace code is mixed with 
+vector-supporting userspace code.  Context:
+
+    https://lore.kernel.org/all/87cz4048rp.fsf@all.your.base.are.belong.to.us/
+
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
