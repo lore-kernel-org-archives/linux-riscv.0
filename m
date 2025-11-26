@@ -4,84 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF17CD11183
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 16:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB31D11183
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 16:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7ZAh3Eh+74oKQhcq6yy1RNPTRuX4Yyl6fahoDHDcN0k=; b=sFS0CzSRFHlH/R
-	bZIu9GaRUVfEA0gl925Z3vCBLFwIyqcmeLxlsKeWpsVnncIXEltv+e0tP5Ze7r1ITjhHCk19vLfyl
-	Ml2IMv4B+SKdOeDuSpnXEHWH22n4YTItGvdrtmzdp4eg4FPUYFWvorqwO8lq0AUNPLNTtfELFdb/5
-	u7nHGnpq7VZmcv1eGzwqx4ZCv4PGte5j0KenWXea6yIjdHlYAkhsw+CMe88OoLsTBzYHTbAKmElUn
-	FQs71xGLqDlzm3+sPlIrDCmzcxCMg0t17euHbxnITz3jCbsplnfAlsaTgfa06uE1ZRCSci7jhX1zB
-	9Zy9SuJ++X+9W1HI3qQg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IOM7V2jSuO5RL2rOYqXFyyjeZwTls6XnMBETUcIXrj8=; b=zPJzcH4bAlmVE3BUopG+2HauuE
+	lWogtO9EL6M5PFJ0iMgrKzvO3MqJnGIAjjqLG893bZVc5t/OtkVgkC04wCxJFyyuzZMjWInXhL70K
+	loEKDe/2+CK40vl7shq4XDzWYiiwmz9fW4qnel2waq4LskOfn1ZMBsPY+LF3fhzuB7SSZg3FMfgWr
+	nrvKqRYBTs8BRAcQkLHeW5dwlfEMYVYja0rKqSE/l0fiNH3iilrM66K9Hq7GILF0llTuCOqSn+rKn
+	bzGv7Yi7pahNWtVn3FAlbm2v3JPaP0voChlQ4GqJ/JCLU0+OcRl3otnu88wKvUhg8nS05Bym5dtET
+	117/ldpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIA5-0000000FH6B-1gTv;
-	Wed, 26 Nov 2025 16:14:33 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vOICa-0000000FHQM-1o7H;
+	Wed, 26 Nov 2025 16:17:08 +0000
+Received: from m16.mail.126.com ([117.135.210.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIA4-0000000FH63-0FqM
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 26 Nov 2025 16:14:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xDPyy9pi5OVhyM1CdkyG9VuNPRZRoyX93URKiDj11Fc=; b=kRmOJvMKChFgfhIlV6C8ItrRbf
-	lPcMjYBge2okklcvRaq/HD3ngAULN+1bKSAZ62GJ/icu1PtlFJ3u/8OnHR/8neEBOFcaKKiGbu0rL
-	E5DhDP+xWmu7nc5P/0k2mcQztwwPFi/m/AHuvZPQ1cDITWN7FZgu9eCYuxTZPuAtLpF8kz6vvShcz
-	RvYNeSMryPmk4EhYXCupcwTkQv4Kq8i31qKudVmwyWZl4oDauO/EV8jXBlfZ5unvc3/y6Dv7Sd8xo
-	giW+niM1dtIMAjwZEjCoy3tQg1UYACwg6Ceq+YPhBK1KGsUEICgUmH7+G5Ihk/GjgCRSPxUZ4T3za
-	w6E+uwXg==;
-Received: from layka.disroot.org ([178.21.23.139])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIA1-0000000AMgH-0Wp8
-	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 16:14:30 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 2CCC620E95;
-	Wed, 26 Nov 2025 17:14:20 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id plvOBBVR04nM; Wed, 26 Nov 2025 17:14:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1764173659; bh=x0kK1Zt9GMug1E5KSufQyhfENjqsQBZR+UYh60o3iuw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=a+adtWVJRPL5kbbUY2jOqIkmrmPlTEZpk3zUcm9uIYtnZHEa7GPIOeT6siRgbKfny
-	 UHZVKelDJF5J7A2zoLHoVxsgsdJAAvmgYr2NUFscOuCvcu25NGG8lzRdkBsHG72FCU
-	 mnT6wIYwmQTcnmzZQvoYW2HcbSEa+6YLNMUssyyb80RovbqPnb1BuoyYsbW95keBUV
-	 M0yy1fo6EIlUCvnTKtdQmDygJiAB04HmseDBEDXcgtAfUN+wEhMstJ8+ZLjp3RMBk5
-	 SSOih19lEyPDE63aSxJIKyzuSfwee4knPASEzbCg85Z8aC3dp6lebLpFC9dbMUmAls
-	 k5o5hRuPXwwCg==
-Date: Wed, 26 Nov 2025 16:13:54 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Shuwei Wu <shuweiwoo@163.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] thermal: K1: Add driver for K1 SoC thermal sensor
-Message-ID: <aScnQgLuV3kMLBJg@pie>
-References: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
- <20251127-b4-k1-thermal-v1-2-f32ce47b1aba@163.com>
+	id 1vOICX-0000000FHO8-08Cq;
+	Wed, 26 Nov 2025 16:17:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version:
+	Content-Type; bh=0wKcNy5FCGaqY9FV62oZYjgf+u3MGcY8a3yEAdQ09gg=;
+	b=OS4HJrS2AI3Mq9+R1ebwCF7RSLe0YDcy9vKKM7EgPNueQa5eKfuFJcNqGQt/+a
+	FPmV2XYlcxtPlEa7HwrepPyZX2FZvOXuDWKb/q6VEoKYSWiyBiMpQYO5wXPlJTLG
+	3xYALoktHnRmfdQQwX4sg8mMV78vnwIW+DNg0tWNCdDEE=
+Received: from nilq-virtual-machine.. (unknown [])
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3b++sJydpfQcMAA--.52027S2;
+	Thu, 27 Nov 2025 00:15:42 +0800 (CST)
+From: niliqiang <ni_liqiang@126.com>
+To: tglx@linutronix.de
+Subject: Re: [PATCH v16 6/9] irqchip: Add RISC-V advanced PLIC driver for direct-mode
+Date: Thu, 27 Nov 2025 00:15:40 +0800
+Message-Id: <20251126161540.6460-1-ni_liqiang@126.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <87qztmgj32.ffs@tglx>
+References: <87qztmgj32.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251127-b4-k1-thermal-v1-2-f32ce47b1aba@163.com>
+X-CM-TRANSID: _____wD3b++sJydpfQcMAA--.52027S2
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUjeHqDUUUU
+X-Originating-IP: [111.162.113.123]
+X-CM-SenderInfo: xqlbzxxtld0wa6rslhhfrp/1tbirwES5WknGuiyWgAAsN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_161429_240225_DD5A01C8 
-X-CRM114-Status: GOOD (  28.68  )
+X-CRM114-CacheID: sfid-20251126_081705_475936_F5BEF06D 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,278 +63,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: atishp@atishpatra.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, frowand.list@gmail.com, hu.yuye@zte.com.cn, guo.chang2@zte.com.cn, maz@kernel.org, liu.qingtao2@zte.com.cn, ni_liqiang@126.com, wu.jiabao@zte.com.cn, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, liu.wenhong35@zte.com.cn, paul.walmsley@sifive.com, dai.hualiang@zte.com.cn, deng.weixian@zte.com.cn, linux-arm-kernel@lists.infradead.org, apatel@ventanamicro.com, saravanak@google.com, ni.liqiang@zte.com.cn, linux-kernel@vger.kernel.org, bjorn@kernel.org, robh+dt@kernel.org, palmer@dabbelt.com, anup@brainfault.org
+Content-Type: multipart/mixed; boundary="===============8845514396587370317=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025 at 02:44:08AM +0800, Shuwei Wu wrote:
-> The thermal sensor unit (TSU) on K1 supports monitoring five temperature
-> zones. The driver registers these sensors with the thermal framework
-> and supports standard operations:
-> - Reading temperature (millidegree Celsius)
-> - Setting high/low thresholds for interrupts
-> =
+--===============8845514396587370317==
+Content-Type: text/plain; charset=y
+Content-Transfer-Encoding: 8bit
 
-> Signed-off-by: Shuwei Wu <shuweiwoo@163.com>
-> ---
->  drivers/thermal/Kconfig      |  14 ++
->  drivers/thermal/Makefile     |   1 +
->  drivers/thermal/k1_thermal.c | 307 +++++++++++++++++++++++++++++++++++++=
-++++++
->  3 files changed, 322 insertions(+)
+Hi, tglx
 
-...
+> > We've noticed that PCIe enumeration order tends to vary across system reboots (for example: first
+> > boot showed PC08->PC06->PC10->PC07->PC11->PC09, while second boot showed
+> > PC09->PC06->PC08->PC11->PC07->PC10), even though the ACPI firmware consistently reports the root
+> > bridge sequence as PC06->PC07->PC08->PC09->PC10->PC11.
+> 
+> > In our testing, we found that adjusting the registration priority of the aplic driver seems to help
+> > ensure the interrupt controller initializes before PCI enumeration, leading to more consistent
+> > device ordering.
 
-> diff --git a/drivers/thermal/k1_thermal.c b/drivers/thermal/k1_thermal.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..a0e9585cbc5a4e0f7c3a47deb=
-b3cfa8e82082d88
-> --- /dev/null
-> +++ b/drivers/thermal/k1_thermal.c
-> @@ -0,0 +1,307 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Thermal sensor driver for SpacemiT K1 SoC
-> + *
-> + * Copyright (C) 2025 Shuwei Wu <shuweiwoo@163.com>
-> + */
-> +#include <linux/clk.h>
-> +#include <linux/err.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/reset.h>
-> +#include <linux/thermal.h>
+> The ACPI table does not provide a sequence, it provides a collection and
+> it's nowhere written in stone that this collection has to be processed
+> in order.
+> If you want a sequence then put dependencies into the table and be done
+> with it, no?
 
-devm_kzalloc() is used in the file, but include for linux/slab.h is
-missing.
+Thank you for your suggestions. 
 
-> +#include "thermal_hwmon.h"
-> +
-> +#define MAX_SENSOR_NUMBER		5
-> +#define TEMPERATURE_OFFSET		278
-> +
-> +#define K1_TSU_INT_EN			0x14
-> +#define K1_TSU_INT_CLR			0x10
-> +#define K1_TSU_INT_STA			0x18
+Through our validation, We have observed that the current kernel appears to lack an effective
+dependency resolution mechanism between ACPI PCIe host bridge devices.
 
-...
+The specific manifestation is as follows: when establishing dependencies between host bridges via
+the _DEP method (for example, PC07 depends on PC06), only PC06 is enumerated successfully, while
+PC07 is skipped. Our investigation reveals that the root cause lies in the current limitation where
+ACPI PCIe devices have only a single opportunity to resolve dependencies—specifically within the
+acpi_dev_clear_dependencies function inside the APLIC driver. PC06, having its dependency resolved
+earlier by the APLIC driver, is asynchronously processed in the system_unbound_wq queue. At this
+point, PC07 still depends on PC06, which has not yet completed enumeration. As a result, PC07 cannot
+proceed and subsequently misses its enumeration opportunity.
 
-> +#define K1_TSU_EN			0x8
+To address this issue, we have introduced the following dependency resolution mechanism at the end
+of the acpi_pci_root_add function in the kernel's PCIe enumeration path to achieve the desired
+fixed-order enumeration:
 
-...
+#ifdef CONFIG_ACPI
+if (!acpi_disabled)
+acpi_dev_clear_dependencies(device);
+#endif
 
-> +#define K1_TSU_DATA_BASE		0x20
-
-...
-
-> +#define K1_TSU_THRSH_BASE		0x40
-
-...
-
-> +#define K1_TSU_TIME			0x0C
-
-...
-
-> +#define K1_TSU_PCTRL			0x00
-
-...
-
-> +#define K1_TSU_PCTRL2			0x04
-
-Why not sort these register offsets?
-
-> +struct k1_thermal_sensor {
-> +	struct k1_thermal_priv *priv;
-> +	struct thermal_zone_device *tzd;
-> +	int id;
-> +};
-
-> +struct k1_thermal_priv {
-> +	void __iomem *base;
-> +	struct device *dev;
-
-This variable is set but used nowhere, so I think this could be dropped.
-
-> +	struct clk *clk;
-> +	struct clk *bus_clk;
-> +	struct reset_control *reset;
-
-With devres-managed API, these three variables are only used in the
-probe function, thus could be dropped, too.
-
-> +	struct k1_thermal_sensor sensors[MAX_SENSOR_NUMBER];
-> +};
-> +
-> +static int k1_init_sensors(struct platform_device *pdev)
-
-Suggest passing k1_thermal_priv directly into the function, since
-struct platform_device isn't really necessary for it. Also it could
-return void, since there's no error to happen.
-
-> +{
-
-...
-
-> +	/*
-> +	 * Enable all sensors' auto mode, enable dither control,
-> +	 * consecutive mode, and power up sensor.
-> +	 */
-> +	temp =3D readl(priv->base + K1_TSU_PCTRL);
-> +	temp |=3D K1_TSU_PCTRL_RAW_SEL |
-> +		K1_TSU_PCTRL_TEMP_MODE |
-> +		K1_TSU_PCTRL_HW_AUTO_MODE |
-> +		K1_TSU_PCTRL_ENABLE;
-> +	temp &=3D ~K1_TSU_PCTRL_SW_CTRL;
-> +	temp &=3D ~K1_TSU_PCTRL_CTUNE;
-> +	writel(temp, priv->base + K1_TSU_PCTRL);
-
-It's a nitpick, but I think it'll be better if you follow the same
-pattern as in other readl-modification-writel blocks, to clear the bits
-then set the desired ones later,
-
-> +	/* Select 24M clk for high speed mode */
-
-This looks a little confusing, in dt-bindings you only listed a core
-clock and a bus clock, but neither core nor bus clock runs at 24MHz. So
-I suspect there's another clock source supplying the "24MHz clk",
-possibly the 24MHz oscillator, and it should be described in
-dt-bindings, too.
-
-> +	temp =3D readl(priv->base + K1_TSU_PCTRL2);
-> +	temp &=3D ~K1_TSU_PCTRL2_CLK_SEL_MASK;
-> +	temp |=3D K1_TSU_PCTRL2_CLK_SEL_24M;
-> +	writel(temp, priv->base + K1_TSU_PCTRL2);
-
-...
-
-> +	/* Enable each sensor */
-> +	for (i =3D 0; i < MAX_SENSOR_NUMBER; ++i) {
-> +		temp =3D readl(priv->base + K1_TSU_EN);
-> +		temp &=3D ~K1_TSU_EN_MASK(i);
-> +		temp |=3D K1_TSU_EN_MASK(i);
-
-What's the point of clearing a bit and setting it again?
-
-Furthermore, this is the only place K1_TSU_EN_MASK is used. If you fold
-the modified bits into a macro, let's say, K1_TSU_EN_ALL, to be
-GENMASK(MAX_SENSOR_NUNBER - 1, 0), this loop could be replaced with
-readl-or-writel operation, which seems much simpler to me.
-
-> +		writel(temp, priv->base + K1_TSU_EN);
-> +	}
-> +
-> +	return 0;
-> +}
-
-...
-
-> +/*
-> + * The conversion formula used is:
-> + * T(m=B0C) =3D (((raw_value & mask) >> shift) - TEMPERATURE_OFFSET) * 1=
-000
-> + */
-> +static int k1_thermal_get_temp(struct thermal_zone_device *tz, int *temp)
-> +{
-> +	struct k1_thermal_sensor *sensor =3D thermal_zone_device_priv(tz);
-> +	struct k1_thermal_priv *priv =3D sensor->priv;
-> +
-> +	*temp =3D readl(priv->base + K1_TSU_DATA(sensor->id));
-> +	*temp &=3D K1_TSU_DATA_MASK(sensor->id);
-> +	*temp >>=3D K1_TSU_DATA_SHIFT(sensor->id);
-
-FIELD_GET() would help here.
-
-> +
-> +	*temp -=3D TEMPERATURE_OFFSET;
-> +
-> +	*temp *=3D 1000;
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * For each sensor, the hardware threshold register is 32 bits:
-> + * - Lower 16 bits [15:0] configure the low threshold temperature.
-> + * - Upper 16 bits [31:16] configure the high threshold temperature.
-> + */
-> +static int k1_thermal_set_trips(struct thermal_zone_device *tz, int low,=
- int high)
-> +{
-
-...
-
-> +	high_code =3D high_code / 1000 + TEMPERATURE_OFFSET;
-> +	temp =3D readl(priv->base + K1_TSU_THRSH(sensor->id));
-> +	temp &=3D ~K1_TSU_THRSH_HIGH_MASK;
-> +	temp |=3D (high_code << K1_TSU_THRSH_HIGH_SHIFT);
-> +	writel(temp, priv->base + K1_TSU_THRSH(sensor->id));
-> +
-> +	low_code =3D low_code / 1000 + TEMPERATURE_OFFSET;
-> +	temp =3D readl(priv->base + K1_TSU_THRSH(sensor->id));
-> +	temp &=3D ~K1_TSU_THRSH_LOW_MASK;
-> +	temp |=3D (low_code << K1_TSU_THRSH_LOW_SHIFT);
-> +	writel(temp, priv->base + K1_TSU_THRSH(sensor->id));
-
-Similarly, FIELD_PUT() could simplify these threshold setting code.
-
-> +
-> +	return 0;
-> +}
-
-...
-
-> +static irqreturn_t k1_thermal_irq_thread(int irq, void *data)
-> +{
-> +	struct k1_thermal_priv *priv =3D (struct k1_thermal_priv *)data;
-> +	int msk, status, i;
-> +
-> +	status =3D readl(priv->base + K1_TSU_INT_STA);
-> +
-> +	for (i =3D 0; i < MAX_SENSOR_NUMBER; i++) {
-> +		if (status & K1_TSU_INT_MASK(i)) {
-> +			msk =3D readl(priv->base + K1_TSU_INT_CLR);
-> +			msk |=3D K1_TSU_INT_MASK(i);
-> +			writel(msk, priv->base + K1_TSU_INT_CLR);
-> +			/* Notify thermal framework to update trips */
-
-Purpose of the code looks obvious, do you think the comment should be
-dropped?
-
-> +			thermal_zone_device_update(priv->sensors[i].tzd, THERMAL_EVENT_UNSPEC=
-IFIED);
-> +		}
-> +	}
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int k1_thermal_probe(struct platform_device *pdev)
-> +{
-
-...
-
-> +	priv->base =3D devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(priv->base))
-> +		return PTR_ERR(priv->base);
-
-Why not using dev_err_probe() here?
-
-...
-
-> +	ret =3D k1_init_sensors(pdev);
-
-k1_init_sensors would never fail, suggest changing it to return void,
-and get rid of assignment to ret here.
+We have observed that other drivers in the kernel also utilize acpi_dev_clear_dependencies to handle
+device dependencies. We seek confirmation on whether this approach is reasonable and welcome
+feedback regarding alternative effective solutions.
 
 Best regards,
-Yao Zi
+Liqiang
+
+
+
+--===============8845514396587370317==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8845514396587370317==--
