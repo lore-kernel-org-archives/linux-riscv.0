@@ -4,74 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A3ED1039B
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 16:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257FBD1039B
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 17:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w+vB7Mx1/gU8EuagM8KHyMwbMzVzClBbcwjZyXrYis8=; b=x9Wrfn7zDj7Usw
-	208GcrgrwsZ2mxloWbp7p6CMgsKbqQeXOcoOh0OFUkhcf6nuohwY23f44cffz4WID0cogIQDVXecH
-	MRCwNU/E0MhYY2FZxDcxZA7fWk/WYlXv0r4pWVRIsze9iQ8IUT+6ksRg4h1+aczJMfXhS18w4o+tz
-	jVO+jY7brMBGUueB3d+4T7WV9Bzao5TIoNS/+Qp5TtlvJmiT7Oka3suCXrt+8nT7k24MKf55bSXkd
-	xCssqB73bYZ8SD+JOAguzN4YeA0ggpeXgxokvUXPC6W0mFUcOafp0MIEDDnEmE6K5EVyGHiffqWxL
-	XZYNRgSvGkSHWVBzlUeA==;
+	List-Owner; bh=xqqXaW57BCLYj2KkPQil1eMdKJ4kQ6itJ04erQJJmZM=; b=EfZSB3HWnQ5wDb
+	2tAxjA9FZEvtda/htMIOTFk/8W6SFiGV/oSxR+cRqq0IaoF32o53o7hm40NoLUWkPsg7WpAyyacXZ
+	Uc4kggj+JzsTgyy6la8f9KWfeUxQmK/BE3sYGgoFva3UjBlbHX5KK9k4yTqiTv/ACvbF7ERgBz9mQ
+	PHFmCgCItntX9gG9soAraRIo8vUhWaY9V5wVq8OFMufsbV1JMSK6NVnuYvuea54UKApQ/T1UxgWIw
+	V2ohkPWVUbo9HAHUzBztt7piMlgTb+1Q2hEdnm/uOXK5/tmx8wuRlvtlZXDhJgft5+sdOVRzieP4u
+	vGHgoaU0UP2MCkvnDFNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOITr-0000000FJSU-1TOt;
-	Wed, 26 Nov 2025 16:34:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOITo-0000000FJS8-3rWg
+	id 1vOJJZ-0000000FO6D-0Ait;
+	Wed, 26 Nov 2025 17:28:25 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOJJV-0000000FO5l-25NL
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 16:34:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0459C168F;
-	Wed, 26 Nov 2025 08:34:48 -0800 (PST)
-Received: from [10.1.33.153] (unknown [10.1.33.153])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B2E773F73B;
-	Wed, 26 Nov 2025 08:34:52 -0800 (PST)
-Message-ID: <150ffcb7-2df2-4f3a-a12e-9807f13c6ab9@arm.com>
-Date: Wed, 26 Nov 2025 16:34:51 +0000
+	Wed, 26 Nov 2025 17:28:24 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b32a3e78bso88885f8f.0
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Nov 2025 09:28:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764178099; x=1764782899; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5iIZajcwOeO3JlEw92TE30lt4StjWSsYhVcOwVzrTLk=;
+        b=PSUw1/6KRX0pRwD02UYR19Jv/brcFTXwaK/qsGg8UrsdG4Gq2s6UgX34TAh4+BIOht
+         lNaJHtjYRws7qZ3s+v/yxqigDNeXpLmk7p9MTKXjbNkY7fvVhMINYHh71DElm40yUOjC
+         SIb8HV/GU0p9unEtjtbTp/QfoJsyytmLLV6gy6gGxvP69pF27HT9qpJpfolX0mOTfIyx
+         4agjFPzsFWoL5X/nwjWKN/WVNrsiMaKUb3ZGrXNKclDAX5h6fAo9278lNpBwA/XLK3yq
+         UpaRt33qgDnbIpssfjZGNkPjY93NHR22V6dl78WwgFhAlwa7DlIkAcvsNiX7IVZJpo5x
+         vYQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764178099; x=1764782899;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5iIZajcwOeO3JlEw92TE30lt4StjWSsYhVcOwVzrTLk=;
+        b=Xecp0CmjU+gi0N/VTKjYS9rCspzfruvolRc1ap4jXPvBNOF0nahbDpR7Cx6NZXboaT
+         LT/w0NOeV7X0Us7T8uuu/sVNqY61e1WvdtlKBm0pdK2RewhdwRXeaArVAQ73QxvpR09n
+         jAUwoTGMlCq0iHtsVaRKZtrnZDVoYTqqdZzZyLZq+4Jp0XaWaUlx1Km1+X1A4QHks7oA
+         gorGlUYsfjqlAuxZdvwYX4ugGYEsfiw5KyUOdWOrS8sY9PAXQg/m5rHJhPEeARIJ42tN
+         3mQHDmlFsXzaEv+88x41rpdXr2qfj/612VdcRhXoXbnW3PNYuecDyl9v4VmPm0tqvxm1
+         RANQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJwJsLe+CDq2//eKoLvd0x6rAePUeTNQTAykMMp34tyxBeee+7WJvxTpACtb0XnP15kTmWQJZvIaJLsQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxc7ZagUt0BPPH8rYoGtSFUQPv5y6LYXhWqosM2Aq/TdJMMrL7W
+	m9DgVz2vWjyUsUPI3CssvlJpzW+dlBQU/NNYttkIhr4RIYgJhwA5VuEx
+X-Gm-Gg: ASbGncteqA6dCIhAtAVsNj2M3uEvlSpye3/CI2sTqLKuhpodcPDuAYXmhCn/gmhjaQI
+	M5GxPK6TFD+ERyCmnlE0CXRHUSon2eSdv12jo6d7BX2CcaukcJ8DdYMaKHYo6RW/Le3Zv8ojc2v
+	X2jzEg6j7D+HV4ISCxUwgsR11ML2pYorWJaS1FUtp5AeA2P68jvyGFMQf19tqKa8zqClI8Y3R9k
+	RG27rvvU+YxaOj+1bFUO7XrPdEXywIaEJviIKZJ/C4Gmz3IXahOp71ZKe/4BzYSnuCEAkFeozcZ
+	hvJSkAOW1mzt8hFshtJSr6clJ0WVUxuTefoLlYnarKUU3iBtDe1ApwdNI8BykVqQ5JoVIri1Eb5
+	Wij3jkZ4J8dxOFP5ryRTphFFL2ucKQ+dkhoPk12k78jrTTShJTXogyezwSpHKgo0fJyuLxLXkU6
+	2uBMkBCAzqFsZpWqVuOKRPOvLweV1EHxxG9wdbV/9RGuZKNwIsrJ9NvOw=
+X-Google-Smtp-Source: AGHT+IHkE1xTyUwd1e1nQxaACHjDh3t9YedvuMNt3v7wo3xJTnJ11as69WRfu3TcTpDawcaME3AxHA==
+X-Received: by 2002:a05:6000:2881:b0:429:bc56:cd37 with SMTP id ffacd0b85a97d-42cc1ac9ce9mr21647296f8f.6.1764178099006;
+        Wed, 26 Nov 2025 09:28:19 -0800 (PST)
+Received: from dev-AI-Series.. (bba-86-96-93-57.alshamil.net.ae. [86.96.93.57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f34fddsm42423862f8f.14.2025.11.26.09.28.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Nov 2025 09:28:18 -0800 (PST)
+From: "Anton D. Stavinskii" <stavinsky@gmail.com>
+To: inochiama@gmail.com
+Cc: alex@ghiti.fr,
+	alexander.sverdlin@gmail.com,
+	aou@eecs.berkeley.edu,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dlan@gentoo.org,
+	huangze@whut.edu.cn,
+	krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	looong.bin@gmail.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh@kernel.org,
+	sophgo@lists.linux.dev,
+	thomas.bonnefille@bootlin.com,
+	unicorn_wang@outlook.com,
+	yu.yuan@sjtu.edu.cn,
+	"Anton D. Stavinskii" <stavinsky@gmail.com>
+Subject: [PATCH] riscv: dts: sophgo: cv180x: fix USB dwc2 FIFO sizes
+Date: Wed, 26 Nov 2025 21:21:16 +0400
+Message-ID: <20251126172115.1894190-2-stavinsky@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250611082452.1218817-4-inochiama@gmail.com>
+References: <20250611082452.1218817-4-inochiama@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
-Content-Language: en-GB
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: "David Hildenbrand (Red Hat)" <david@kernel.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Wei Yang <richard.weiyang@gmail.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
- linux-mm@kvack.org, devicetree@vger.kernel.org,
- Suren Baghdasaryan <surenb@google.com>, linux-kernel@vger.kernel.org,
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
- Rob Herring <robh+dt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-References: <bc88d132-452a-42a1-9ee5-5407334d8aac@kernel.org>
- <df7d10ba-bb42-4ea1-8c5b-5db88a18eccb@kernel.org>
- <6bdf2b89-7768-4b90-b5e7-ff174196ea7b@lucifer.local>
- <71123d7a-641b-41df-b959-88e6c2a3a441@kernel.org>
- <c0818f5b-b8a1-4730-aa1d-df0f547a3d47@arm.com>
- <20251126134726.yrya5xxayfcde3kl@master>
- <ee5f5da3-8c6b-4381-aee8-b0fab56cbf83@arm.com>
- <6b966403-91e0-4f06-86a9-a4f7780b9557@kernel.org>
- <ab39d448-aa1c-4c93-8e2b-5d97a9c76af5@lucifer.local>
- <1ca9f99f-6266-47ca-8c94-1a9b9aaa717f@kernel.org>
- <37973e21-e8f4-4603-b93d-4e0b1b2499fa@lucifer.local>
- <a1d25bde-3ab6-46b5-a957-db80da7e737b@kernel.org>
- <4505a93b-2bac-4ce1-8971-4c31f1ce1362@arm.com>
-In-Reply-To: <4505a93b-2bac-4ce1-8971-4c31f1ce1362@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_083457_042297_5B60340E 
-X-CRM114-Status: GOOD (  28.86  )
+X-CRM114-CacheID: sfid-20251126_092821_576615_F4AB1C7C 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,125 +117,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26/11/2025 16:07, Ryan Roberts wrote:
-> On 26/11/2025 15:12, David Hildenbrand (Red Hat) wrote:
->> On 11/26/25 16:08, Lorenzo Stoakes wrote:
->>> On Wed, Nov 26, 2025 at 03:56:13PM +0100, David Hildenbrand (Red Hat) wrote:
->>>> On 11/26/25 15:52, Lorenzo Stoakes wrote:
->>>>>
->>>>> Would the pmdp_get() never get invoked then? Or otherwise wouldn't that end up
->>>>> requiring a READ_ONCE() further up the stack?
->>>>
->>>> See my other reply, I think the pmdp_get() is required because all pud_*
->>>> functions are just simple stubs.
->>>
->>> OK, thought you were saying we should push further down the stack? Or up
->>> depending on how you view these things :P as in READ_ONCE at leaf?
->>
->> I think at leaf because I think the previous ones should essentially be only
->> used by stubs.
->>
->> But I haven't fully digested how this is all working. Or supposed to work.
->>
->> I'm trying to chew through the arch/arm/include/asm/pgtable-2level.h example to
->> see if I can make sense of it,
-> 
-> I wonder if we can think about this slightly differently;
-> 
-> READ_ONCE() has two important properties:
-> 
->  - It guarrantees that a load will be issued, *even if output is unused*
->  - It guarrantees that the read will be single-copy-atomic (no tearing)
-> 
-> I think for the existing places where READ_ONCE() is used for pagetable reads we
-> only care about:
-> 
->  - It guarrantees that a load will be issued, *if output is used*
->  - It guarrantees that the read will be single-copy-atomic (no tearing)
-> 
-> I think if we can weaken to the "if output is used" property, then the compiler
-> will optimize out all the unneccessary reads.
-> 
-> AIUI, a C dereference provides neither of the guarrantees so that's no good.
-> 
-> What about non-volatile asm? I'm told (thought need to verify) that for
-> non-volatile asm, the compiler will emit it if the output is used and remove it
-> otherwise. So if the asm contains the required single-copy-atomic, perhaps we
-> are in business?
-> 
-> So we would need a new READ_SCA() macro that could default to READ_ONCE() (which
-> is stronger) and arches could opt in to providing a weaker asm version. Then the
-> default pXdp_get() could be READ_SCA(). And this should work for all cases.
-> 
-> I think.
+I've tested the current dwc2 FIFO configuration and found that USB
+device mode breaks in ECM mode when transmitting frames larger than
+128 bytes. For example, large ICMP packets or iperf3 traffic cause
+the USB link to hang and eventually disconnect without any messages in
+dmesg.
 
-I'm not sure this works. It looks like the compiler is free to move non-volatile
-asm sections which might be problematic for places where we are currently using
-READ_ONCE() in lockless algorithms, (e.g. GUP?). We wouldn't want to end up with
-a stale value.
+After switching to more conservative FIFO sizes, ECM becomes stable
+and no longer drops the connection. iperf3 now shows ~130 Mbit/s RX
+and ~100 Mbit/s TX on SG2002 (MilkV Duo 256M).
 
-Another idea:
+Fix the FIFO sizes accordingly.
 
-Given the main pattern where we are aiming to optimize out the read is something
-like:
+Signed-off-by: Anton D. Stavinskii <stavinsky@gmail.com>
+---
+ arch/riscv/boot/dts/sophgo/cv180x.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-if (!pud_present(*pud))
-
-where for a folded pmd:
-
-static inline int pud_present(pud_t pud)	{ return 1; }
-
-And we will change it to this:
-
-if (!pud_present(pudp_get(pud)))
-
-...
-
-perhaps we can just define the folded pXd_present(), pXd_none(), pXd_bad(),
-pXd_user() and pXd_leaf() as macros:
-
-#define pud_present(pud)	1
-
-Then the compiler will never even see the pudp_get().
-
-Thanks,
-Ryan
-
-
-> 
->>
->>>
->>> Anyway. I am now designating you the expert at this ;)
->>
->> Oh no. :)
->>
->>>
->>>>
->>>>>
->>>>>>
->>>>>> IOW, push the READ_ONCE() down to the lowest level so the previous ones
->>>>>> (that will get essentially ignore?) will get folded into the last
->>>>>> READ_ONCE()?
->>>>>>
->>>>>> But my head still hurts and I am focusing on something else concurrently :)
->>>>>
->>>>> Even if we could make this work, I don't love that there's some implicit
->>>>> assumption there that could easily break later on.
->>>>>
->>>>> I'd rather we kept it as stupid/obvious as possible...
->>>>
->>>> Looking at include/asm-generic/pgtable-nopmd.h I am not sure we are talking
->>>> about implicit assumptions here. It's kind-of the design that the pud_t
->>>> values are dummies, so why shoul the pudp_get() give you any guarantees.
->>>>
->>>> At least that's my current understanding, which might be very flawed :)
->>>
->>> I mean I'm waving my hands around like I'm working on an aircraft carrier here
->>> so if you're _sure_ it's _absolutely_ safe then fine :)
->>
->> Well, not yet ... :)
->>
-> 
+diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+index 1b2b1969a648..06b0ce5a2db7 100644
+--- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+@@ -438,8 +438,8 @@ usb: usb@4340000 {
+ 			clocks = <&clk CLK_AXI4_USB>, <&clk CLK_APB_USB>;
+ 			clock-names = "otg", "utmi";
+ 			g-np-tx-fifo-size = <32>;
+-			g-rx-fifo-size = <536>;
+-			g-tx-fifo-size = <768 512 512 384 128 128>;
++			g-rx-fifo-size = <1536>;
++			g-tx-fifo-size = <128 128 64 64 64 64 32 32>;
+ 			interrupts = <SOC_PERIPHERAL_IRQ(14) IRQ_TYPE_LEVEL_HIGH>;
+ 			phys = <&usbphy>;
+ 			phy-names = "usb2-phy";
+-- 
+2.43.0
 
 
 _______________________________________________
