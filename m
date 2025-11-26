@@ -4,58 +4,213 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF43D10F5F
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 14:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D01DD10F58
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 14:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hl+ZczCNsSC/0zkjjFpV0lgy0zMEhar28WsTphtwRNw=; b=qpb8BIzA293Wwv
-	X/m/MUwGDijtgWCSMSs1jEnHLEigginVUy67NGhSkv0JHQqPF23T69RC5UbLtE7TaF14VJEl1MeKa
-	Mez84UeVNAyCTBEVqdIqYJqzlecoZaASdGPND0NPisIXIixXd18BtyTs4L/Ghbg2B7XPLUf8k5kIc
-	iPWGX2QBhvv53KfLEnPANYnj9G/d1hjhS8GQRwHPX8H5Izf3VQhumqAj2rQQ1HiCQq6dPbf+cxiIv
-	SQH30IU4/zDkLnDKmgH+oABG9vcsdP+DPcBSBzb4rbWgibpWxLBG/7gHs/HiXd8KC4Vz+fG81lPJD
-	9ieFniANymZHe/57wDMg==;
+	List-Owner; bh=VmffiCEv7BWqFgDjNPIcNj/UDfFwx9xrtAC1bmcCiAw=; b=urBD8OxH/0sY06
+	PQY3y4rhbgl/DHnN5hK9Jp8m9yeXKTDRwhIRJnLkNOmOjUcQXMIAPQ1qzcNyICO8B7Sbo/TNk0Hgl
+	oWxPWHGUmcyFfRK8UmGrBU+KctP/ew6a56ae/zmhul/H8R77I6y5uPLKzEIipyZZTAA9pyakfKKi2
+	yFOF4z8fhQJ00SGsERW7lXbITaYmGcee3N/51kWiDkCqpuglMWhtP35O+nrw93/kKzbVkxPP8vHtl
+	+cGWSrjF6DN99iX4oh0c0C0XlE3mph+C5sUbn0+d1ReCfQVDpNNhKkhGItLuJaaCAkptVchrvAxSC
+	o2zVI6jCj+tWBLknlsbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOGsN-0000000F8Rp-09Ae;
-	Wed, 26 Nov 2025 14:52:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vOGt2-0000000F8d7-3s2a;
+	Wed, 26 Nov 2025 14:52:52 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOGsL-0000000F8RD-1TIZ
+	id 1vOGsz-0000000F8bk-2lO1
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 14:52:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25D1843C2E;
-	Wed, 26 Nov 2025 14:52:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAA5EC4CEF8;
-	Wed, 26 Nov 2025 14:52:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764168728;
-	bh=/74vt1wLn3+rm0dgzz3/LNuVx0j7rjTd7baJ/SYk8AM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Nyw+WcUQ7QSYKvf6wezEamKmiyBYM04xUfnv5bwOL0E5nqP2N0ztvewCWm52Zxp9y
-	 o94JbfSlu8BLWmtJqHyFbqJiEZvNB/hcSpLKZhe6OOn6q/ZHRcKoe0ddJ9w7TbMgA+
-	 1O+FKE+jx1kUpKz/PU7pLhzQ/m2WipEQsYI6S8Ey1GUu6egcjJBXlfE1L9lrF/U5XV
-	 k/OKe17lvW5yLelWzsaap78f55rwQy84r9v8wHtkzUPXJoxB+a7IPENviSNUxPdd6f
-	 Qidov0tRgNKAywqD57PVZiLxeHHC7tqU3imEQQV1A+sWFrhcrQX+xpjqTo7UFYAweh
-	 eMB3J2zoViyRw==
-Date: Wed, 26 Nov 2025 08:52:00 -0600
-From: Drew Fustini <fustini@kernel.org>
-To: Yao Zi <ziyao@disroot.org>
-Subject: Re: [PATCH 2/7] clk: thead: th1520-ap: Poll for PLL lock and wait
- for stability
-Message-ID: <aScUELnY-TC8kVzV@gen8>
-References: <20251120131416.26236-1-ziyao@disroot.org>
- <20251120131416.26236-3-ziyao@disroot.org>
-MIME-Version: 1.0
+	Wed, 26 Nov 2025 14:52:51 +0000
+Received: from pps.filterd (m0246627.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AQEoZjU2453400;
+	Wed, 26 Nov 2025 14:52:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=WXotIamsdSSiLRRf+y
+	T2yOOeV1Hsklghqi5yVR6CuyE=; b=ZUTYXJxps5KXZUR2Ser5FEFcT4LTlBr9zL
+	BTZ+PPNOdFl5DWPWu4m3tpUWxUTsUsuqFhtIvOHOPVSzhnhjAnt/rExybyAv4t8L
+	R+ZKsQ+OouKIPf4NE3Pebwaxo6DNcNTbsFM/5VFH9bsqsEjvJX0vaEBBKKYDKyDJ
+	DMBJb9I4fARQkwlF688ZGhsUhewzNPrPRwBT1Ds6mBH/sLEiVI/GLsrSV6xLI4is
+	UucDepNnKkSD+C/R5AHJNSbpT0Fe+QRNcIg38HQoE9Lp2n1ekxVBQxtxAO8ZrnSW
+	rHnbf70wvGKCV8db60z3LcqIJxlm3NIWXTrNcsTsp1ZbtEC6JF2g==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4ak8fkme44-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 26 Nov 2025 14:52:23 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5AQDwBDk023147;
+	Wed, 26 Nov 2025 14:52:22 GMT
+Received: from dm1pr04cu001.outbound.protection.outlook.com (mail-centralusazon11010015.outbound.protection.outlook.com [52.101.61.15])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4ak3mn4wt1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 26 Nov 2025 14:52:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZebI8qn5Y5amZh0hsxp+bpzyYx4rvBhUnbIqeAHGfpTQBPvyUtPGe2pr5EqbZK/VGSoPJCjuuYnZdT9hNKiBRdoHZtGTnHOHJhOt/Y3E6WsGsotQKEqOhsFHP+9rzVomLemRP/dcRKQzBLLkoRqYagTPkRbTeNPVIsy9VhH9nM/hFFW2oYRvw/DKiyPqMP9mgARPcgmLwe3jQmWmdXcg2KBQCpSVkv0FtJxJW5/meDXvni1oTNcU/h02VjjfUWyFPhisLc0i1u7lgn/IeREGjgBUEwf472nEPtRnIYKXBebkkk+woTm4OfGDEOdHy5zcWRlMENMa6j4QBk2xuF+Z2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WXotIamsdSSiLRRf+yT2yOOeV1Hsklghqi5yVR6CuyE=;
+ b=Y5+im7iHJdDpyoGZhD9DvC3bWfbEUDd1o5dnmv+qzP3y4rFxgYYJk0S4l7xCap0vAe3sDBeHWdGpx3nt9aIc4oaqQOfDnVojlX5VUmR3LB2YZfRitc0achTszjqzVqA9k0x6jmFQLLjHNkLeMqmBsOtIYu45Xwzd46QBskYrpACPKbXE2HO+qUJ2cvLUFoZ9uw/uV4J3LWtouzmtVxBX71DD0UUOv3TG6XqEV3qQRkvyKxHGnOz86o7FCz4LUFREQze8yoWvqRRMaFSEsrfBLVEc+6rvKjZ8d6ISOBdYT4qYqyYV3Mo0VctqICLK9YSu0B7bfK97EXom2BETYGO7Zw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WXotIamsdSSiLRRf+yT2yOOeV1Hsklghqi5yVR6CuyE=;
+ b=ge+tqEs8LREcrLTZT6x0BpyJc5Z/huYo/12PyNDTSrZ+424xmzTmbCVVmDs5PRmJ7+IEqtf6li5e8JNn+xOoeIlnfIyY+3CvP0HyLM1QN4cUfyZebJ8nVg/aCPCunV5LnW2kLoe3ypBrO38TbaXTaYX8JIgw7TO0vmSuKDOfNnc=
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
+ by SA1PR10MB7754.namprd10.prod.outlook.com (2603:10b6:806:3a7::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Wed, 26 Nov
+ 2025 14:52:18 +0000
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2%7]) with mapi id 15.20.9366.009; Wed, 26 Nov 2025
+ 14:52:18 +0000
+Date: Wed, 26 Nov 2025 14:52:15 +0000
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: "David Hildenbrand (Red Hat)" <david@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Wei Yang <richard.weiyang@gmail.com>,
+        Samuel Holland <samuel.holland@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+        linux-riscv@lists.infradead.org,
+        Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+        devicetree@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>,
+        linux-kernel@vger.kernel.org, Mike Rapoport <rppt@kernel.org>,
+        Michal Hocko <mhocko@suse.com>, Conor Dooley <conor@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Alexandre Ghiti <alex@ghiti.fr>,
+        Emil Renner Berthing <kernel@esmil.dk>,
+        Rob Herring <robh+dt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
+        "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+        Julia Lawall <Julia.Lawall@inria.fr>,
+        Nicolas Palix <nicolas.palix@imag.fr>,
+        Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
+Message-ID: <ab39d448-aa1c-4c93-8e2b-5d97a9c76af5@lucifer.local>
+References: <20251113014656.2605447-7-samuel.holland@sifive.com>
+ <02e3b3bd-ae6a-4db4-b4a1-8cbc1bc0a1c8@arm.com>
+ <bc88d132-452a-42a1-9ee5-5407334d8aac@kernel.org>
+ <df7d10ba-bb42-4ea1-8c5b-5db88a18eccb@kernel.org>
+ <6bdf2b89-7768-4b90-b5e7-ff174196ea7b@lucifer.local>
+ <71123d7a-641b-41df-b959-88e6c2a3a441@kernel.org>
+ <c0818f5b-b8a1-4730-aa1d-df0f547a3d47@arm.com>
+ <20251126134726.yrya5xxayfcde3kl@master>
+ <ee5f5da3-8c6b-4381-aee8-b0fab56cbf83@arm.com>
+ <6b966403-91e0-4f06-86a9-a4f7780b9557@kernel.org>
 Content-Disposition: inline
-In-Reply-To: <20251120131416.26236-3-ziyao@disroot.org>
+In-Reply-To: <6b966403-91e0-4f06-86a9-a4f7780b9557@kernel.org>
+X-ClientProxiedBy: LO4P265CA0058.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2af::8) To DM4PR10MB8218.namprd10.prod.outlook.com
+ (2603:10b6:8:1cc::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|SA1PR10MB7754:EE_
+X-MS-Office365-Filtering-Correlation-Id: c2d91d78-353a-4ac0-94e9-08de2cfb658c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KnMKw++6we9iqOka2XRst09HCucHDE/Bel5wTIFBbmD1daBHGvGaCdSTER4H?=
+ =?us-ascii?Q?f6xxWk+TZk9l+Xaohp/4aZKNGw0UvnkRVNWna6nAxN2kVdwBxVxxsgzj+GOS?=
+ =?us-ascii?Q?2nKkuIjVsF9j8zTwukKvAiWNLozTdqhbd2+1WKZMqrJnk/DgMXnwepYSDzbW?=
+ =?us-ascii?Q?xlME5CnyeaeAUA57JONHUsZjBItUBQVhcj2AhLpUsd0Kf//xknW/9XkjswfI?=
+ =?us-ascii?Q?OLQoi8G7JScDeH+nLpWqHwgR11wHXMLQoEpes2PKTWmRpvcCUWpXn8oa/T+i?=
+ =?us-ascii?Q?7HXyjnHH2P1MfXtkf+J+uPV3p1LT5dY1hC9X3xujrvKBklNRztProXBM4ACk?=
+ =?us-ascii?Q?IwMxavfDsKByE/wRum/BEWIXQGR6NgQ5fdnidkgx+HLL8YTuPDdlRzhG/HwS?=
+ =?us-ascii?Q?cXER0Ct4tWC22qtaF+VMisRfnL3PNi2VJJl/SAV9vz/qB/bMHx7GRGKw6Pm1?=
+ =?us-ascii?Q?Pv8LFxJoiSLifkaHGNfHZj1Zq2BfGeWmwmnYvcd48CJTDESUFNCAZZPSEbAM?=
+ =?us-ascii?Q?W+fqqqFPpRQftgCaHYIYGucmbqFK1Gjv9fBC42vtqhhXaShCsmhYerDqd5x/?=
+ =?us-ascii?Q?eCLd30NjKFeJSpWkKFm+qHa9ZTirOov4kWQQCmURYA73oWTmY2jVdM2LK6N7?=
+ =?us-ascii?Q?Lc3iEHtn/yZtt8VhnwWRbFyk4wFhVAow+3RIpiAioiinX0jbM/lCWS5xVooO?=
+ =?us-ascii?Q?HrkpRzriun25dguI6eSMztCAO9sOQEyCI54tGmeyjiWThjc6uWaHLTUZHAYM?=
+ =?us-ascii?Q?ppuj2e4Zdcqp7TUJFogEun7ok3CXCXbO9IpI2g6QwPMPUzqIxOQeXTOBIerQ?=
+ =?us-ascii?Q?muV0mxXo0QKErg0XAg5lDuxwKU5WiLrQ912bFV/O1VcZZzjNXtytIy1/n1wX?=
+ =?us-ascii?Q?oEjznx5u0Xvp0Vc4QHFjg+cjdTugd09W+HfTWoCUmGzWI0kVOU6131lkezQq?=
+ =?us-ascii?Q?b5mSgLmvgGGUwkwmlANSrBdzOhTX3X4w0kdKzFO5Iafkx5Rmsy3PJMmdIXns?=
+ =?us-ascii?Q?JPt/PDSNXzJZuiBW6xBu8EpJdxKG16iw1Y6l64o97S63QlSThd53jbCLW9st?=
+ =?us-ascii?Q?I1KBHTo8T8A3croOEUxdRIWpKx0hTtbbmY5AkAOw9+BkJC28ZpoGHA12gLLn?=
+ =?us-ascii?Q?G+X7tFgToIvLCYdDeAbTvNvBtJTDLz+HUtSTMXCNOhJILyfLQuMiAJV4Vm/F?=
+ =?us-ascii?Q?9KNg318ngV53XaEPbqaxl9re4Vlp2Stv3XRxgwBH0AwUnQA4sQeiHxpLX6SM?=
+ =?us-ascii?Q?uwKvKcbTI+QRvZPx97i+sPsCBHQU2as8dUVP8PCRgZAyPZyDQcydtTsOV58a?=
+ =?us-ascii?Q?e50b6GBCayUJnHu1TgfMfF8P09MxFnTpPcXPec/rwBGfS4HiJ4QlvqDtYnEL?=
+ =?us-ascii?Q?4ff0eV3jEDuOrGyvhFJAKAYtPF7BsI9P+aYbbuRsyBEpx0dPkujj/y/6M3AT?=
+ =?us-ascii?Q?A/0p1vovBXZt2f18GJnxis6+uhnpVa4lgIuTL6FDo7B21Z0M1RhV2g=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vwRpImDHl/7aX/dY+CCzNeBdaU67LyXXUmltxftD8z9y+fA6p+6+b/EVae1j?=
+ =?us-ascii?Q?q0i+ujGqGMdIGrILJXKmdqnkHri/SEe8BBLsDJh+byGjKKsMnxzTQ5q2MxCy?=
+ =?us-ascii?Q?rYuPLJrAS+v23jrgiC9HUBbkbhqNLLzm8Yl4HDyIe+bDHlbzpyvK2unhXA/U?=
+ =?us-ascii?Q?GclBkpfhkWXAcfIGoQJPzQU4W8gcmRFxeP0GMbJPZF4ETz3Yp2we11WCu5r8?=
+ =?us-ascii?Q?jf2nOcqDRZ9lOkscauyG4Ps735f5/EsqFiU2hLJNq6SbhMGJYJolyLhjH3SM?=
+ =?us-ascii?Q?CjlUfQhbd0Fi48X02/WjOeIL/hlOZh5HY0hddoAzZokFVBW4jOuyfDGZJoCK?=
+ =?us-ascii?Q?S3DqS4CTRg88nULSyY30TIvXAG5+qbCe5qK9mx3kzcglnFR8oHFvSCnf6J4B?=
+ =?us-ascii?Q?dfwfolDM0QwEVm3GhuEGzcxWmGiIfD6IjGciY6FzTIYQhxtSCznlS7gCMd6k?=
+ =?us-ascii?Q?ZGoaNN83iesFZyU2pKuyRxM4XjZZdTNt66j80caUSNpjazf/UiKbg8UtcSW5?=
+ =?us-ascii?Q?0DmYPUmG4fQGPTooGCqfUnP2+D6xedDfuIgd0qceJin7JenxHhwZA7vQ/vil?=
+ =?us-ascii?Q?74k5ZES02pDvoh7EvCOsvX8TrO0GOKqpjcTtZgBrzCLF6HlDfeJ3iWKJ8KFd?=
+ =?us-ascii?Q?nO2bw43Q9AWBMdZwMd/frfa540LrQftIFyukoYcakA290Xh+WAJXlM7kDUd2?=
+ =?us-ascii?Q?PnFXWago2/LMX84lJ7UBmsca6UZBQTpxyESs2C7DvXkiLu3FrnwD6n643XZQ?=
+ =?us-ascii?Q?nmRTsviWe324XSjY8MnBtZAZVPxJDtSDRfjWWiPwEg5rwjt15Yh6DKGIf7D0?=
+ =?us-ascii?Q?iCMMPfOYTwGuyiSa8+eIksRhsJ1NZo9TOY2Whz7IJIAKGAkEQRLFMih/mPMZ?=
+ =?us-ascii?Q?ZQyuitdouLyymyHwboXgDphURnSZ9B011rsRjfx9/FL8pJTMXJkbqPSXsQsK?=
+ =?us-ascii?Q?XomPbWdPs4orrFxEc5AmN0fn+QF1bv5VTLf2zSRHntP/m7Da6/o/QjwvwT4j?=
+ =?us-ascii?Q?MCmGu6wBSGpdEoRqO3lYwLoyX1cYI8aLYewffE+0CF7HBPxBqZqKhsoBvN8a?=
+ =?us-ascii?Q?eJDNBZCnwmT/FAcAl8yoSXg1DlfhHEEh7xDX3LcIZA69/8LTu6qVud8xUuhE?=
+ =?us-ascii?Q?z4o/XO/roFZPmsFMffV3ZbAYHJZva+bdIomlLjJV2EJo6QgND7TQyXdK9dm9?=
+ =?us-ascii?Q?m21GRhpLeAiCwUQy4vviCEnZ+Bl6aTS6CPuYaa8PtahE4HoO8emQzpWdyTQ2?=
+ =?us-ascii?Q?GXrCIHVyfo8zFrVBI02aIG9yNp+OMhCuR5nDHhb9/YtMuIdisb1pZeaWFOuO?=
+ =?us-ascii?Q?cYw0uzSOVZdLlKyEOdubBoCoPtA1ebUQStf+O7suOk77RzuKuDuOLijK6SJz?=
+ =?us-ascii?Q?y+6f4Klnd51Eobjb9DhqMH4zJ2vfDXMhjNEKjyYX3MsbMT1ID9S/kkNqPGW7?=
+ =?us-ascii?Q?+iCc0aPRSG/diEydWb1BA2aWieFu7WyxVR2rjzxwp4kl0JmgiCuruuxVuWmy?=
+ =?us-ascii?Q?pyb6kg3swvfM9ec+aNJlE0TX/885HlAM1rSRwWOpz9TxUW9Macadwq2u5oF3?=
+ =?us-ascii?Q?+ZFRFV9Uc40lwYndtOXP4Cf6eQ79gFkT6kEVmDZk7PQaig8zJ5a4uhg0mgXW?=
+ =?us-ascii?Q?5w=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: /LT/rgpUzUcEElR+objSJIa+5teUTQBVzl8ojpMndaA/6gcNPUCdNqjU8Q+5ykuTft2EPwcHWyXOmQfPhp7pqU5FNiRTuxhBGf0JtG0OyG0ff74aMCL1PAkMRb/Pn6Bnp5gJgIrnm8KQAWIBo2bZlxuJoLbBI6sySOOgYCcKNl88A3R8S17SjJy0xWl/EdqZ+5YIzsWWMreSc5IdmNOA3Cv2b2pSn047fE+cCot6f+iXOXyxbSxMwhBNMT1cEuJE+xFAWelIlF+Nb+RYXUucuBR8TgyQRdYVz3yo4i5SxQagsVHN9YDnwWtrq5s5VT6UQJVXddH9KHAhHsGVOMoZslxelMeOi1uE2KnLGQ3SHqLl6vuKC8Cgd2dcNP15Xen+SgTiHta3c4nBxz3EMFpsUSWA9e/8vhPvRwnfJMBNV/jyKyLestErbLOBVBO4tt2tYBdI8DAM+EYQeJD+oAksyHQwyllEDxZH5yk8GAPwXILSCXwuIMU16XHpiOB2LLLS6HwvPob3u7sn7eo7qaijJvvKKmKO/eh1SrTqqWscTNy2OCLNYJliwYxoR5OTpOs9njAtQGTR0AFtlTD6hS2oEO7Qa99RQ4GNmqeG0VD4DHk=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c2d91d78-353a-4ac0-94e9-08de2cfb658c
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 14:52:18.6913
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bNA58QFcMkWTIGNpe8fLIbPC9McGrSyiS5Mi0jWlK8HiZVJB+kf21x9eMuIHsfLrNS0+HerHoAbqayC0BrseKJEwrWKQEdjZxHH73tsNcis=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB7754
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-25_02,2025-11-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 adultscore=0
+ mlxlogscore=999 suspectscore=0 malwarescore=0 phishscore=0 mlxscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2510240000 definitions=main-2511260121
+X-Authority-Analysis: v=2.4 cv=f4RFxeyM c=1 sm=1 tr=0 ts=69271427 b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=6UeiqGixMTsA:10 a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=YdfN3bKcdGmksHapDwMA:9 a=CjuIK1q_8ugA:10 cc=ntf
+ awl=host:13642
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTI2MDEyMiBTYWx0ZWRfX6Kc+QUj+v/+/
+ a96L2U52/DSDU6+Ptf3AetDbZ4gtPzsKNGEc8jrlnok1fbLjqrin3Eu44bbquZlLmWuQn+Ev/Q2
+ Rv9Ew4ylMuIcWfIAJCHU1hqCDWnnPlKZ7DD+rdbv5A/Q8AJZQdu2iisvnbDbJV6l63nb6v0BhmM
+ 7UpXP3/vYw7ueSSfoFbyyYdk2fDSTNnQTAGIJCaPXS5dykmjJvNipmRJDzhS4znnhRGHOk6A521
+ EHyvG+1cHGiwzHXNpo9ZTCX2CDk0qsph+k2yoK8ac0Odw01C2172lfSKn/UhU6R8XHN7VCgvg9A
+ 0kouhF8Dza24wGGke9SH/vv6uxMerPXbVh4VwtgxhYs/iLaNzFIlGFXSndRzjiWGpyHXYSzYhZo
+ GsvAUZET0vQQaQg/grxh96Kv1AMv+iBW74flgUbA+gX487OcBZI=
+X-Proofpoint-ORIG-GUID: II1c14rFcdBsrgEug_ROy1exADd9k6Xp
+X-Proofpoint-GUID: II1c14rFcdBsrgEug_ROy1exADd9k6Xp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_065209_432526_73F5C4ED 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20251126_065249_737765_C5D24F27 
+X-CRM114-Status: GOOD (  30.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,58 +222,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Guo Ren <guoren@kernel.org>, Han Gao <rabenda.cn@gmail.com>, Han Gao <gaohan@iscas.ac.cn>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 01:14:11PM +0000, Yao Zi wrote:
-> All PLLs found on TH1520 SoC take 21250ns at maximum to lock, and their
-> lock status is indicated by register PLL_STS (offset 0x80 inside AP
-> clock controller). We should poll the register to ensure the PLL
-> actually locks after enabling it.
-> 
-> Furthermore, a 30us delay is added after enabling the PLL, after which
-> the PLL could be considered stable as stated by vendor clock code.
-> 
-> Fixes: 56a48c1833aa ("clk: thead: add support for enabling/disabling PLLs")
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> ---
->  drivers/clk/thead/clk-th1520-ap.c | 34 +++++++++++++++++++++++++++++--
->  1 file changed, 32 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-[...]
-> +/*
-> + * All PLLs in TH1520 take 21250ns at maximum to lock, let's take its double
-> + * for safety.
-> + */
-> +#define TH1520_PLL_LOCK_TIMEOUT_US	44
-> +#define TH1520_PLL_STABLE_DELAY_US	30
+On Wed, Nov 26, 2025 at 03:46:40PM +0100, David Hildenbrand (Red Hat) wrote:
+> On 11/26/25 15:22, Ryan Roberts wrote:
+> > On 26/11/2025 13:47, Wei Yang wrote:
+> > > On Wed, Nov 26, 2025 at 01:03:42PM +0000, Ryan Roberts wrote:
+> > > > On 26/11/2025 12:35, David Hildenbrand (Red Hat) wrote:
+> > > [...]
+> > > > > > > > > Hi,
+> > > > > > > > >
+> > > > > > > > > I've just come across this patch and wanted to mention that we could also
+> > > > > > > > > benefit from this improved absraction for some features we are looking at for
+> > > > > > > > > arm64. As you mention, Anshuman had a go but hit some roadblocks.
+> > > > > > > > >
+> > > > > > > > > The main issue is that the compiler was unable to optimize away the
+> > > > > > > > > READ_ONCE()s
+> > > > > > > > > for the case where certain levels of the pgtable are folded. But it can
+> > > > > > > > > optimize
+> > > > > > > > > the plain C dereferences. There were complaints the the generated code for arm
+> > > > > > > > > (32) and powerpc was significantly impacted due to having many more
+> > > > > > > > > (redundant)
+> > > > > > > > > loads.
+> > > > > > > > >
+> > > > > > > >
+> > > > > > > > We do have mm_pmd_folded()/p4d_folded() etc, could that help to sort
+> > > > > > > > this out internally?
+> > > > > > > >
+> > > > > > >
+> > > > > > > Just stumbled over the reply from Christope:
+> > > > > > >
+> > > > > > > https://lkml.kernel.org/r/0019d675-ce3d-4a5c-89ed-f126c45145c9@kernel.org
+> > > > > > >
+> > > > > > > And wonder if we could handle that somehow directly in the pgdp_get() etc.
+> > > >
+> > > > I certainly don't like the suggestion of doing the is_folded() test outside the
+> > > > helper, but if we can push that logic down into pXdp_get() that would be pretty
+> > > > neat. Anshuman and I did briefly play with the idea of doing a C dereference if
+> > > > the level is folded and a READ_ONCE() otherwise, all inside each pXdp_get()
+> > > > helper. Although we never proved it to be correct. I struggle with the model for
+> > > > folding. Do you want to optimize out all-but-the-highest level's access or
+> > > > all-but-the-lowest level's access? Makes my head hurt...
+> > > >
+> > > >
+> > >
+> > > You mean sth like:
+> > >
+> > > static inline pmd_t pmdp_get(pmd_t *pmdp)
+> > > {
+> > > #ifdef __PAGETABLE_PMD_FOLDED
+> > > 	return *pmdp;
+> > > #else
+> > > 	return READ_ONCE(*pmdp);
+> > > #endif
+> > > }
+> >
+> > Yes. But I'm not convinced it's correct.
+>
+> Yeah, I'm also still trying to understand how it could work.
+>
+> >
+> > I *think* (but please correct me if I'm wrong) if the PMD is folded, the PUD and
+> > P4D must also be folded, and you effectively have a 2 level pgtable consisting
+> > of the PGD table and the PTE table. p4dp_get(), pudp_get() and pmdp_get() are
+> > all effectively duplicating the load of the pgd entry? So assuming pgdp_get()
+> > was already called and used READ_ONCE(), you might hope the compiler will just
+> > drop the other loads and just use the value returned by READ_ONCE(). But I doubt
+> > there is any guarantee of that and you might be in a situation where pgdp_get()
+> > never even got called (perhaps you already have the pmd pointer).
+> With __PAGETABLE_PMD_FOLDED we treat the PUD to be fake-present, like
+>
+> static inline int pud_present(pud_t pud)	{ return 1; }
+>
+> And obtaining the pmd_t* is essentially  cast of the pud_t*
+>
+> static inline pmd_t * pmd_offset(pud_t * pud, unsigned long address)
+> {
+> 	return (pmd_t *)pud;
+> }
+>
+> So in that case we might want to have the READ_ONCE() remove from the
+> pudp_get(), not the pmdp_get()?
 
-I'm taking a second look at this and I think it might be best to add a
-define for the polling loop delay of 5. It could be helpful when other
-people read the code later.
+Would the pmdp_get() never get invoked then? Or otherwise wouldn't that end up
+requiring a READ_ONCE() further up the stack?
 
-[...]
-> +	ret = regmap_read_poll_timeout_atomic(pll->common.map, TH1520_PLL_STS,
-> +					      reg, reg & pll->lock_sts_mask,
-> +					      5, TH1520_PLL_LOCK_TIMEOUT_US);
+>
+> IOW, push the READ_ONCE() down to the lowest level so the previous ones
+> (that will get essentially ignore?) will get folded into the last
+> READ_ONCE()?
+>
+> But my head still hurts and I am focusing on something else concurrently :)
 
-The loop delay is only used here but I think using a #define would make
-it more readable.
+Even if we could make this work, I don't love that there's some implicit
+assumption there that could easily break later on.
 
-Other than that:
-Reviewed-by: Drew Fustini <fustini@kernel.org>
+I'd rather we kept it as stupid/obvious as possible...
 
-If no other changes are needed I could fix this up on apply. Let's see
-what other comments there may be. It's too late for me to send a 6.19
-clk pull request so this will have to target the next merge window. I
-can put it into linux-next once 6.19-rc1 is released.
-
-Thanks,
-Drew
+>
+> --
+> Cheers
+>
+> David
 
 _______________________________________________
 linux-riscv mailing list
