@@ -4,81 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B581D11196
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 20:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E92D11195
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 20:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8C1kJVmdawm/D2roOWVf+x8REyiYZ91XwsE412TiLpc=; b=TKACO3R+0+zhDQ
-	pWOTiU+riRuHPEOJ0/GbNJR+KA5MOYC2aWv7CBvx15mNKkqzMtXYfABGc3QD/cCBtl2oO9ItByC4Y
-	Nipkjq2eNyZYg3Odvx36vYilbsDrnWO07z4Oh3DjD8vRwLlY6eBRgLgHbumRLyUlueEveRzHeduiy
-	eQU98X6lO7mQTPWYtIejgW7PdrOK0eH0qFZ5ptej3RBake1f/5aCy4UYIg3riFC7BnLtIGvHU3i+R
-	/rXSAsWK7OqbMIQGJjyP28IdSk+sugW+iPdu91oOhwroxL+Z1jd4wcuWgt+ok54vo17/dmZTc6iQ/
-	Yvm9Nsn7CDzTBXPJoc9A==;
+	List-Owner; bh=zLVGzGe1F0Dfu+ZTIuNYyooPfue4GEKHCSBD1bVUJ90=; b=OXBC0Ng7OPq8JA
+	Ow1nLfSizNoTHYqu8+jF8DOAloUpGReqLH/3VwZwZeiXZPKndz9lIskncT+EACmqPSpj9XKLHt5K5
+	0h1tSciYXJMqWn2n6QZ+NcnhFIFslwR2Tyvx0lNBCh0/HnxKOdB8PgdBal+OtGWlt2O5t/qaa8j50
+	jNpMew53oPJViDhFnryB8KcR/4K6XTteKcX1CGOaYF2K6KSpGB9E9zZbUCKT/V1JuPrezHPB98ocS
+	sUiK9rc4s7hZs5W1hy41EMPG4VoTixGpvay0RYi/Z6AZfXUzr+ZsvWeCAw443OyWuQVRxskshW4Hn
+	+SB0CwGBMU9owjCbqkrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOMBQ-0000000FcjJ-0GVk;
-	Wed, 26 Nov 2025 20:32:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vOMEn-0000000Fd25-47ND;
+	Wed, 26 Nov 2025 20:35:42 +0000
+Received: from freeshell.de ([116.202.128.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOMBP-0000000Fcj0-0kZT
+	id 1vOMEj-0000000Fd19-3mn6
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 20:32:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C98D60240;
-	Wed, 26 Nov 2025 20:32:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3847CC4CEF7;
-	Wed, 26 Nov 2025 20:32:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764189129;
-	bh=khfCF391HTb9ZHzqQ+60+gHc4LAP9io5EVEWBl7iijM=;
+	Wed, 26 Nov 2025 20:35:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
+	s=s2025; t=1764189303;
+	bh=izXh+/ex/S8HOJXHsJcERBFQl/fmMLPe+sQvN1oeXII=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Jx/Kgk+52Vj2FhMiZ6roXAU107DOPSpYbR54l0SQDWU1t4R7bMm8s+HInc6989b/V
-	 2cDeU+ZWwLLmnlIHfOpksf+IBP4hNK1ffXi/vUjPpjPeMUHWhngzJAH08bkmRCtygB
-	 JQYHqUKbcZT0vUQ9yMZl+kC9/gmskU6bpNYXfnQDKqkyCGA0RSgB7OzgPbQ8c3/498
-	 Hj59w7VENc7+o6gJI8CLIr1pUNoVV+wBzyXoI68l0omVxKWgWCP/hDOMsqKxthd0sc
-	 wzgbPhsCM4izLtPHPs9w/dlr+8C1vK0GSmWsZcSnhl5za7yLVxWM4Vlo72RSYvYAyJ
-	 DvL8Jn/H8RkGQ==
-Message-ID: <b2fbe58e-f47b-4a76-879b-fd38a915c2ce@kernel.org>
-Date: Wed, 26 Nov 2025 21:31:59 +0100
+	b=e98aQG4mS/zX/LytJxg3IMJngS/y/yyxBUbLogwjdgmEpF0YDcDZnU5orSfS02L58
+	 RBoFI6BSUrD4/dny3V/wNvIpp3PsJwa8tb739UNjlp77RQFaVP1lUQYTIxe362QsrK
+	 bF4RbIT/Hdxi8uJWwV2Ux6FleMBbz9RXvoShtvm6FfK0cqyfn4aC6BzAh77sDISTnD
+	 tyaRU+UcuFRmwSrGHDRdBvrieKiE/XUCA0ROBydyL9LXhnJ3tfRF0UBk5voWYvYpEM
+	 NRtwAkooocUX8XxUld+go8rCGdRpb8R9lFa5pNoAxlkbpeNB23M67UpY7PMLP+hy/Y
+	 tVSkPe/VIaXzQ==
+Received: from [192.168.2.54] (unknown [98.97.63.250])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id A99DFB2214C4;
+	Wed, 26 Nov 2025 21:35:00 +0100 (CET)
+Message-ID: <e4aa0839-1b2e-46a6-a33c-94d0da4922bd@freeshell.de>
+Date: Wed, 26 Nov 2025 12:34:58 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Wei Yang <richard.weiyang@gmail.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
- linux-mm@kvack.org, devicetree@vger.kernel.org,
- Suren Baghdasaryan <surenb@google.com>, linux-kernel@vger.kernel.org,
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
- Rob Herring <robh+dt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-References: <bc88d132-452a-42a1-9ee5-5407334d8aac@kernel.org>
- <df7d10ba-bb42-4ea1-8c5b-5db88a18eccb@kernel.org>
- <6bdf2b89-7768-4b90-b5e7-ff174196ea7b@lucifer.local>
- <71123d7a-641b-41df-b959-88e6c2a3a441@kernel.org>
- <c0818f5b-b8a1-4730-aa1d-df0f547a3d47@arm.com>
- <20251126134726.yrya5xxayfcde3kl@master>
- <ee5f5da3-8c6b-4381-aee8-b0fab56cbf83@arm.com>
- <6b966403-91e0-4f06-86a9-a4f7780b9557@kernel.org>
- <ab39d448-aa1c-4c93-8e2b-5d97a9c76af5@lucifer.local>
- <1ca9f99f-6266-47ca-8c94-1a9b9aaa717f@kernel.org>
- <37973e21-e8f4-4603-b93d-4e0b1b2499fa@lucifer.local>
- <a1d25bde-3ab6-46b5-a957-db80da7e737b@kernel.org>
- <4505a93b-2bac-4ce1-8971-4c31f1ce1362@arm.com>
- <150ffcb7-2df2-4f3a-a12e-9807f13c6ab9@arm.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
+Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: starfive: add
+ xunlong,orangepi-rv
+To: Conor Dooley <conor@kernel.org>
+References: <20251123225059.49665-1-e@freeshell.de>
+ <20251123225059.49665-2-e@freeshell.de>
+ <20251124-free-bandicoot-of-skill-fa7d9a@kuoka>
+ <20251124-state-campsite-3e7788a495c1@spud>
+ <0e851ca0-1f56-437d-ae14-094c114d3b77@freeshell.de>
+ <dc48fa76-0a08-4c9d-a3d7-724eb255aff8@kernel.org>
+ <ff1f0e6b95150896136ab31ce13e0a2c7a3a5fe3.camel@icenowy.me>
+ <489e9d44-fac6-4aa8-b094-ef20196e392b@kernel.org>
+ <0a2104faee332ee143b5499c18aea3625971156c.camel@icenowy.me>
+ <fb9ca9fd-1591-4e43-b055-b6ea8d55a42a@freeshell.de>
+ <20251125-borrowing-arming-9c256497af8f@spud>
 Content-Language: en-US
-In-Reply-To: <150ffcb7-2df2-4f3a-a12e-9807f13c6ab9@arm.com>
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <20251125-borrowing-arming-9c256497af8f@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251126_123538_416144_F3405AB3 
+X-CRM114-Status: GOOD (  26.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,139 +76,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Drew Fustini <drew@beagleboard.org>, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, Michael Zhu <michael.zhu@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/26/25 17:34, Ryan Roberts wrote:
-> On 26/11/2025 16:07, Ryan Roberts wrote:
->> On 26/11/2025 15:12, David Hildenbrand (Red Hat) wrote:
->>> On 11/26/25 16:08, Lorenzo Stoakes wrote:
->>>> On Wed, Nov 26, 2025 at 03:56:13PM +0100, David Hildenbrand (Red Hat) wrote:
->>>>> On 11/26/25 15:52, Lorenzo Stoakes wrote:
->>>>>>
->>>>>> Would the pmdp_get() never get invoked then? Or otherwise wouldn't that end up
->>>>>> requiring a READ_ONCE() further up the stack?
->>>>>
->>>>> See my other reply, I think the pmdp_get() is required because all pud_*
->>>>> functions are just simple stubs.
->>>>
->>>> OK, thought you were saying we should push further down the stack? Or up
->>>> depending on how you view these things :P as in READ_ONCE at leaf?
->>>
->>> I think at leaf because I think the previous ones should essentially be only
->>> used by stubs.
->>>
->>> But I haven't fully digested how this is all working. Or supposed to work.
->>>
->>> I'm trying to chew through the arch/arm/include/asm/pgtable-2level.h example to
->>> see if I can make sense of it,
->>
->> I wonder if we can think about this slightly differently;
->>
->> READ_ONCE() has two important properties:
->>
->>   - It guarrantees that a load will be issued, *even if output is unused*
->>   - It guarrantees that the read will be single-copy-atomic (no tearing)
->>
->> I think for the existing places where READ_ONCE() is used for pagetable reads we
->> only care about:
->>
->>   - It guarrantees that a load will be issued, *if output is used*
->>   - It guarrantees that the read will be single-copy-atomic (no tearing)
->>
->> I think if we can weaken to the "if output is used" property, then the compiler
->> will optimize out all the unneccessary reads.
->>
->> AIUI, a C dereference provides neither of the guarrantees so that's no good.
->>
->> What about non-volatile asm? I'm told (thought need to verify) that for
->> non-volatile asm, the compiler will emit it if the output is used and remove it
->> otherwise. So if the asm contains the required single-copy-atomic, perhaps we
->> are in business?
->>
->> So we would need a new READ_SCA() macro that could default to READ_ONCE() (which
->> is stronger) and arches could opt in to providing a weaker asm version. Then the
->> default pXdp_get() could be READ_SCA(). And this should work for all cases.
->>
->> I think.
-> 
-> I'm not sure this works. It looks like the compiler is free to move non-volatile
-> asm sections which might be problematic for places where we are currently using
-> READ_ONCE() in lockless algorithms, (e.g. GUP?). We wouldn't want to end up with
-> a stale value.
-> 
-> Another idea:
-> 
-> Given the main pattern where we are aiming to optimize out the read is something
-> like:
-> 
-> if (!pud_present(*pud))
-> 
-> where for a folded pmd:
-> 
-> static inline int pud_present(pud_t pud)	{ return 1; }
-> 
-> And we will change it to this:
-> 
-> if (!pud_present(pudp_get(pud)))
-> 
-> ...
-> 
-> perhaps we can just define the folded pXd_present(), pXd_none(), pXd_bad(),
-> pXd_user() and pXd_leaf() as macros:
-> 
-> #define pud_present(pud)	1
-> 
-
-Let's take a step back and realize that with __PAGETABLE_PMD_FOLDED
-
-(a) *pudp does not make any sense
-
-For a folded PMD, *pudp == *pmdp and consequently we would actually
-get a PMD, not a PUD.
-
-For this reason all these pud_* helpers ignore the passed value
-completely. It would be wrong.
-
-(b) pmd_offset() does *not* consume a pud but instead a pudp.
-
-That makes sense, just imagine what would happen if someone would pass
-*pudp to that helper (we'd dereference twice ...).
-
-
-So I wonder if we can just teach get_pudp() and friends to ... return
-true garbage instead of dereferencing something that does not make sense?
-
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 32e8457ad5352..c95d0d89ab3f1 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -351,7 +351,13 @@ static inline pmd_t pmdp_get(pmd_t *pmdp)
-  #ifndef pudp_get
-  static inline pud_t pudp_get(pud_t *pudp)
-  {
-+#ifdef __PAGETABLE_PMD_FOLDED
-+       pud_t dummy = { 0 };
-+
-+       return dummy;
-+#else
-         return READ_ONCE(*pudp);
-+#endif
-  }
-  #endif
-  
-set_pud/pud_page/pud_pgtable helper are confusing, I would
-assume they are essentially unused (like documented for set_put)
-and only required to keep compilers happy.
-
--- 
-Cheers
-
-David
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDExLzI1LzI1IDExOjE0LCBDb25vciBEb29sZXkgd3JvdGU6Cj4gT24gVHVlLCBOb3YgMjUs
+IDIwMjUgYXQgMDU6MDc6MDBBTSAtMDgwMCwgRSBTaGF0dG93IHdyb3RlOgo+Pgo+Pgo+PiBPbiAx
+MS8yNS8yNSAwMDowMSwgSWNlbm93eSBaaGVuZyB3cm90ZToKPj4+IOWcqCAyMDI1LTExLTI15pif
+5pyf5LqM55qEIDA4OjQ4ICswMTAw77yMS3J6eXN6dG9mIEtvemxvd3NraeWGmemBk++8mgo+Pj4+
+IE9uIDI1LzExLzIwMjUgMDg6MzMsIEljZW5vd3kgWmhlbmcgd3JvdGU6Cj4+Pj4+IOWcqCAyMDI1
+LTExLTI15pif5pyf5LqM55qEIDA4OjI4ICswMTAw77yMS3J6eXN6dG9mIEtvemxvd3NraeWGmemB
+k++8mgo+Pj4+Pj4gT24gMjQvMTEvMjAyNSAyMjo1OSwgRSBTaGF0dG93IHdyb3RlOgo+Pj4+Pj4+
+Cj4+Pj4+Pj4gT24gMTEvMjQvMjUgMDU6MjIsIENvbm9yIERvb2xleSB3cm90ZToKPj4+Pj4+Pj4g
+T24gTW9uLCBOb3YgMjQsIDIwMjUgYXQgMDg6Mjg6MTBBTSArMDEwMCwgS3J6eXN6dG9mIEtvemxv
+d3NraQo+Pj4+Pj4+PiB3cm90ZToKPj4+Pj4+Pj4+IE9uIFN1biwgTm92IDIzLCAyMDI1IGF0IDAy
+OjUwOjQ0UE0gLTA4MDAsIEUgU2hhdHRvdyB3cm90ZToKPj4+Pj4+Pj4+PiBGcm9tOiBJY2Vub3d5
+IFpoZW5nIDx1d3VAaWNlbm93eS5tZT4KPj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+IEFkZCAieHVubG9u
+ZyxvcmFuZ2VwaS1ydiIgYXMgYSBTdGFyRml2ZSBKSDcxMTAgU29DLWJhc2VkCj4+Pj4+Pj4+Pj4g
+Ym9hcmQuCj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+PiBTaWduZWQtb2ZmLWJ5OiBJY2Vub3d5IFpoZW5n
+IDx1d3VAaWNlbm93eS5tZT4KPj4+Pj4+Pj4+PiBTaWduZWQtb2ZmLWJ5OiBFIFNoYXR0b3cgPGVA
+ZnJlZXNoZWxsLmRlPgo+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+IDxmb3JtIGxldHRlcj4KPj4+Pj4+Pj4+
+IFRoaXMgaXMgYSBmcmllbmRseSByZW1pbmRlciBkdXJpbmcgdGhlIHJldmlldyBwcm9jZXNzLgo+
+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+IEl0IGxvb2tzIGxpa2UgeW91IHJlY2VpdmVkIGEgdGFnIGFuZCBm
+b3Jnb3QgdG8gYWRkIGl0Lgo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBJdCdzIGZyb20gbWUsIGRvbid0IHJl
+c3VibWl0IGp1c3QgdG8gYWRkIGl0IHNpbmNlIGl0J2xsIGJlIG1lCj4+Pj4+Pj4+IGFwcGx5aW5n
+Cj4+Pj4+Pj4+IGFueXdheS4KPj4+Pj4+Pj4KPj4+Pj4+Pgo+Pj4+Pj4+IEhpIENvbm9yLAo+Pj4+
+Pj4+Cj4+Pj4+Pj4gT2theS4gWWVzIEknZCBkcm9wcGVkIHRoZSB0YWcgc2luY2UgdGhlIGNvbW1p
+dCBtZXNzYWdlIGlzCj4+Pj4+Pj4gYXBwcmVjaWFibHkKPj4+Pj4+PiBkaWZmZXJlbnQsIGFuZCB5
+b3Ugd291bGQgYmUgaGFuZGxpbmcgaXQgYWdhaW4gYW55d2F5cy4gVGhhbmtzIQo+Pj4+Pj4+IEFu
+ZAo+Pj4+Pj4+IHRoYW5rCj4+Pj4+Pj4geW91IEtyenlzenRvZiBmb3IgdGhlIHJlbWluZGVyIC1F
+Cj4+Pj4+Pgo+Pj4+Pj4KPj4+Pj4+IEFuZCB3aGVyZSBkaWQgeW91IGV4cGxhaW4gdGhhdCB5b3Ug
+ZHJvcHBlZCB0aGUgdGFnIGJlY2F1c2Ugb2YKPj4+Pj4+IHRoYXQ/Cj4+Pj4+PiBQbGVhc2UgcmVh
+ZCB0aGUgZm9ybSBsZXR0ZXIgY2FyZWZ1bGx5Lgo+Pj4+Pgo+Pj4+PiBXZWxsIEkgdGhpbmsgdGhl
+cmUncyBubyBjbGVhciBkZWZpbml0aW9uIG9mICJ0aGUgcGF0Y2ggaGFzIGNoYW5nZWQKPj4+Pj4g
+c3Vic3RhbnRpYWxseSIgaGVyZS4KPj4+Pj4KPj4+Pj4gRSBtYXkgdGhpbmsgZm9yIHRoaXMgc3Vj
+aC1zaG9ydCBwYXRjaCwgdGhlIGNvbW1pdCBtZXNzYWdlIHdlaWdocyBhCj4+Pj4+IGxvdAo+Pj4+
+PiBhbmQgdGhlIGNoYW5nZSB0byBpdCBpcyBzaWduaWZpY2FudCB0byB0aGUgcGF0Y2ggKGUuZy4g
+bWFraW5nIHRoZQo+Pj4+PiBwYXRjaAo+Pj4+PiBub3QgY2xlYXIgZW5vdWdoKS4KPj4+Pgo+Pj4+
+IFlvdSBzdGlsbCBkaWQgbm90IGJvdGhlciB0byByZWFkIHdoYXQgd2UgZXhwZWN0LiBJIGRvIG5v
+dCBkaXNjdXNzIGlmCj4+Pj4gdGhpcyBjaGFuZ2VkIHNpZ25pZmljYW50bHkgb3Igbm90LCBhbHRo
+b3VnaCBpdCBpcyBvYnZpb3VzIHRoYXQgaXQgZGlkCj4+Pj4gbm90IGNoYW5nZSBhbmQgdGFnIHNo
+b3VsZCBoYXZlIGJlZW4gcmV0YWluZWQuCj4+Pj4KPj4+PiBMb29rIGFnYWluOgo+Pj4+IDxRVU9U
+RT4KPj4+PiBQbGVhc2UgcmVhZDoKPj4+PiBodHRwczovL2VsaXhpci5ib290bGluLmNvbS9saW51
+eC92Ni4xMi1yYzMvc291cmNlL0RvY3VtZW50YXRpb24vcHJvY2Vzcy9zdWJtaXR0aW5nLXBhdGNo
+ZXMucnN0I0w1NzcKPj4+Pgo+Pj4+IElmIGEgdGFnIHdhcyBub3QgYWRkZWQgb24gcHVycG9zZSwg
+cGxlYXNlIHN0YXRlIHdoeSBhbmQgd2hhdCBjaGFuZ2VkLgo+Pj4+IDwvUVVPVEU+Cj4+Pj4KPj4+
+PiBXaGVyZSBkaWQgeW91IGV4cGxhaW4gdGhhdD8KPj4+Cj4+PiBTdXJlLCBJIGFncmVlIHRoYXQg
+ZXhwbGFpbmF0aW9uIG9mIHRoaXMgc2hvdWxkIGJlIGRlbGl2ZXJlZC4KPj4+Cj4+Pj4KPj4+Pgo+
+Pj4+IEJlc3QgcmVnYXJkcywKPj4+PiBLcnp5c3p0b2YKPj4+Cj4+Cj4+IEtyenlzenRvZiwKPj4K
+Pj4gVGhlIHN1Ym1pdHRpbmctcGF0Y2hlcyBkb2N1bWVudCBkb2VzIG5vdCBzdXBwb3J0IHlvdXIg
+YXNzZXJ0aW9uIGluIHRoaXMKPj4gc2l0dWF0aW9uLiBJIGV2aWRlbnRseSBoYXZlIGEgZGlmZmVy
+ZW50IHVuZGVyc3RhbmRpbmcgb2YgdGhhbiB5b3UsIGFzCj4+IHdoZW4gSSByZWFkIGl0IGJlZm9y
+ZSBzZW5kaW5nIHRoZSBzZXJpZXMgSSBkaWQgYXJyaXZlIGF0IHRoZSBhY3Rpb24gb2Y6Cj4+Cj4+
+IDEuIEFja2VkLWJ5IGlzIGxlc3MgZm9ybWFsIGFuZCBzbyBpdCBpcyBhIG1hdHRlciBvZiBvcGlu
+aW9uIGFuZAo+PiBqdWRnZW1lbnQgd2hldGhlciB0byByZXRhaW4gaXQgb3Igbm90LiBJIGNob29z
+ZSBub3QgdG8gaGVyZSBkdWUgdG8KPj4gY2hhbmdlcyB2aXNpYmxlIGluIHRoZSBjb21taXQgbG9n
+ICh0aGUgY29tbWl0IG1lc3NhZ2VzIGFuZCB0aXRsZXMpLiBJCj4+IHdvdWxkIGxldCBDb25vciBk
+ZWNpZGUgaWYgdGhleSB3aWxsIGFja25vd2xlZGdlIHRoZSByZXZpc2VkIHNlcmllcwo+PiBpbnN0
+ZWFkIG9mIG1ha2luZyB0aGF0IGRlY2lzaW9uIGZvciB0aGVtLgo+IAo+IElmIGFueXRoaW5nLCBh
+Y2tlZC1ieSBiZWluZyAibGVzcyBmb3JtYWwiIHdvdWxkIG1lYW4gdGhhdCBpdCdzIG1vcmUKPiBy
+ZXNpc3RhbnQgdG8gY2hhbmNlcyBpbiB0aGUgcGF0Y2guCj4gCgpUaGF0IGlzIGFuIGludGVyZXN0
+aW5nICJyZWFkIGJldHdlZW4gdGhlIGxpbmVzIiBvcHBvc2l0ZSBtZWFuaW5nIG9mCmZvcm1hbGl0
+eSB0aGFuIHdoYXQgSSB1bmRlcnN0YW5kIGl0IHRvIGJlLiBJJ20gbWFraW5nIG15IGludGVybmFs
+IG1lbnRhbApub3RlLCB3ZWlyZCwgYnV0IG9rYXkuCgo+PiAyLiBJIGFtIG5vdCByZXF1aXJlZCB0
+byBtZW50aW9uIHRoZSBkcm9wIG9mIGFueSBBY2tlZC1ieSB0YWcgaW4gdGhlCj4+IGNvdmVyIGxl
+dHRlciBmb3IgdGhpcyBzaXR1YXRpb24uIENvbm9yIGlzIGhhbmRsaW5nIHRoaXMgc2VyaWVzIHNv
+IEkgZG8KPj4gbmVlZCB0byBwYXJ0aWNpcGF0ZSBvbiB0aGUgbWFpbGluZyBsaXN0IHdoZW4gdGhl
+cmUncyBhIHF1ZXN0aW9uIG9yCj4+IGNvbW1lbnQgYWJvdXQgcGlja2luZyB1cCB0aGUgbGFjayBv
+ZiBBY2tlZC1ieS4KPiAKPiBJZiBJIHdlcmUgeW91LCBJIHdvdWxkIHByZXR0eSBtdWNoIGFsd2F5
+cyBtZW50aW9uIHRoZSByZWFzb24gZm9yCj4gZHJvcHBpbmcgdGFncyB1bmxlc3MgdGhlIGNoYW5n
+ZWxvZyBvciBjb3ZlciBsZXR0ZXIgY29udGFpbnMgc29tZSBwcmV0dHkKPiBkcmFzdGljIGNoYW5n
+ZXMgYmV0d2VlbiB2ZXJzaW9ucyB0aGVyZWJ5IG1ha2luZyBpdCByZWFsbHkgb2J2aW91cyB3aHkK
+PiB0aGUgdGFncyBhcmUgZ29uZS4KClNvdW5kcyBnb29kIHRvIG1lIGFuZCBJIHdpbGwgY29tcGx5
+LiBJIGRpZCBpbmZlciB0aGlzIGZyb20gdGhlIGluaXRpYWwKZm9ybS1sZXR0ZXIgcmVwbHkgYnkg
+S3J6eXN6dG9mIHRoYXQgc29tZXRoaW5nIGhhZCBydW4gYWZvdWwgb2Ygbm9ybXMuIE5vCnByb2Js
+ZW0gZm9yIG1lIHRvIGV4cGxhaW4gbXkgdW5kZXJzdGFuZGluZyBzbyBpdCBjYW4gYmUgd29ya2Vk
+IG91dCB3aGF0Cm5lZWRzIHRvIGhhcHBlbiwgYW5kIHNvIHRoYW5rIHlvdSBmb3IgdGhlIGNsYXJp
+ZmljYXRpb24uIFRoaXMgd2FzIG5vdAp0aGUgdGltZS1zYXZpbmcgbm9pc2UgcmVkdWN0aW9uIEkg
+aW50ZW5kZWQgZm9yLgoKLUUKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
