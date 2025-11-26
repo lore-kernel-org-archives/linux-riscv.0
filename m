@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B0FD1039D
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 10:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B58CD1039D
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 10:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kEx5Q+rYpPeX2zX9eVUHPqxFcFzqTZMchucaUqvtrh8=; b=K/X5CA2VRjI/9V
-	6jXaI+VAz53RZ8XQjzffMdH9w8rsfXRAOK8YCF4gh652y9jEjnlOnmd0a0DTHEIJnTja9Cn77MvUm
-	2vnCMn/O2XkNAVhhMMkz/+vToPgpUMkG5FjVtyYTgsFblTj9K0FxwM9xLhyL+fIwpSwr3FcqzKwWt
-	kGGpweF+D0i/7UzVuY0cNIYOnndLRf1bRlsEbXtrJTUmGIX+NdbQqvKd+wgk4XdS6Ev9ALw0dAR3S
-	kyv2Q2CAW8V7BW0UoJzoncTQ7ILol75lXx7jO66yyxAUEs2fazUAxjexuWF9LMMgqmaha8W9EndRx
-	s95A7OCzL3YTP9bpLfsw==;
+	List-Owner; bh=7srOw9RK1VB/q42aGOBGFgJbdBX9z/aw1i8k504ZR0k=; b=IjZI9+QBf1Plyo
+	TnSatLE6z6Is9t/i461WngSe3W3fUy/4W2iq1hNIapnaBsbqilKj5XF2lgYr+b9E97Qwbv0DKe9TG
+	4SaWzHIwt4DNkrJNLCM5IrZQ2IrzbplFy6tDMdR9d3QhLcqUqXH/PlQnaHtiMkyVOgk1ONlLLZsj8
+	bh+IXbYOfDI6GZWe/DXv2TSBf5L8WNIBj5x/Lo/5A33yg60y59JMBqXAR6WqpbJoxiDSmjqhRWKZZ
+	qNCpaq8AEJsQW5qTWLUsX4DsPhJcUoBXSWZ4QN02vXQtWIW6Q1j6kvbh9BUNNaxnt1glWh607HZg3
+	pwksewdlfUO8wiaS6DPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOCjA-0000000Emre-0vTl;
-	Wed, 26 Nov 2025 10:26:24 +0000
+	id 1vOCjp-0000000En0f-2uCE;
+	Wed, 26 Nov 2025 10:27:05 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOCj7-0000000Emqt-3qj5
+	id 1vOCjn-0000000En0B-1s9Q
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 10:26:23 +0000
+	Wed, 26 Nov 2025 10:27:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93297406E4;
-	Wed, 26 Nov 2025 10:26:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFEB0C113D0;
-	Wed, 26 Nov 2025 10:26:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 26953434B5;
+	Wed, 26 Nov 2025 10:27:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67518C113D0;
+	Wed, 26 Nov 2025 10:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764152781;
-	bh=4o8AAgAX3uGYd5JwGNRXzhQ98L2e18JgO3QaTUdL4wk=;
+	s=k20201202; t=1764152823;
+	bh=X173jI6K5WGGNcMt3o1WArskN9T6c5xeSlkd0kXFIic=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oRzMj5sbIAoKp/p53zan2Oe1zkj1Irq+jZWNQ+w2L9VJS3NlF2zYdVGlHw2a4YDR0
-	 PwF5vVlbTVk7g9UADbmQTha2Mr7pnb1cLzGT86vmhahAtOZmH69rYm+LkdDf1/r+1K
-	 TsDsUXg/tpIPnt+FL/XkDTwlQWM1F0uKEVgRwAo3bcOkFkv87ldVHmjRDBK1SW+Idu
-	 bCueCTiskIyIsGbs4L7tCcq2jCXKwfLcmOmT07S4thKzngiYJd0aJpswdZ7cIES1mu
-	 Kxbs/9xvNjwI4leTYkknyDjxVSXuiYvq4XtIoJjX8aSvNURT51G0xJy4L8dx2pSzGL
-	 LBBaXRkQ+ko+g==
-Message-ID: <b1511382-1fce-4a1b-a1c3-962a05fc07b5@kernel.org>
-Date: Wed, 26 Nov 2025 11:26:17 +0100
+	b=lhXUUze8aAGxmr3Ajs1eXk3me0sJagbKM5qDigSaRCm5fUB0zQkzAwJKghZyRG2Zr
+	 AQeKVp/EXYs3ymPMJ5ZJrtDOFbn9zysWOS9pEoeiJexX29FTwYgWQfbs7vnAM923/8
+	 7wbD/s4KF8OkgKGYeJErjrd4E+S0IB8g+QMM8A5vRmoXiVzGNzvScTE1wX9tM8Na1+
+	 cwjmSmuCUr8az2VzAEBQu/hX2+rrrS0vfUI5gNpLLtYW0T5avNlVV0il6kZXRunEK9
+	 eaOMq2uyI6+ofT1PgU3AknGgJk4jNx1xeBCZpoWJFObSU3DpDsL7DU77i5xnddX8Ze
+	 vtCpyWce32NKw==
+Message-ID: <40a34f9d-92d7-433a-b7d7-145f5faaf0a8@kernel.org>
+Date: Wed, 26 Nov 2025 11:26:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [net-next v2] dt-bindings: can: mpfs: document resets
-To: Marc Kleine-Budde <mkl@pengutronix.de>, Conor Dooley <conor@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+To: Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org
+Cc: Conor Dooley <conor.dooley@microchip.com>,
  Daire McNamara <daire.mcnamara@microchip.com>,
- Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>,
+ Marc Kleine-Budde <mkl@pengutronix.de>, Vincent Mailhol
+ <mailhol@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org,
  linux-can@vger.kernel.org, devicetree@vger.kernel.org
 References: <20251121-sample-footsore-743d81772efc@spud>
- <20251126-famous-hummingbird-of-fruition-13a9ac-mkl@pengutronix.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,10 +100,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251126-famous-hummingbird-of-fruition-13a9ac-mkl@pengutronix.de>
+In-Reply-To: <20251121-sample-footsore-743d81772efc@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_022621_997620_0E63FD72 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20251126_022703_528070_DE38E9DD 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,65 +116,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjYvMTEvMjAyNSAxMToyNCwgTWFyYyBLbGVpbmUtQnVkZGUgd3JvdGU6Cj4gSGVsbG8sCj4g
-Cj4gY2FuIEkgZ2V0IGEgcmV2aWV3IGZyb20gdGhlIERUIHBlb3BsZT8KCldlIGRvbid0IGFsd2F5
-cyByZXZpZXcgZWFjaCBvdGhlciBwYXRjaGVzLCBzbyB5b3Uga2luZCBvZiBoYXZlIERUIHJldmll
-dwphbHJlYWR5LiBJIGNhbiByZXZpZXcsIGJ1dCBJIGp1c3QgZGlkIG5vdCBwbGFuIHRvIHJldmll
-dyB0aGlzLi4uIGxlc3MKd29yayBuZWVkZWQuLi4KCj4gCj4gcmVnYXJkcywKPiBNYXJjCj4gCj4g
-T24gMjEuMTEuMjAyNSAxMzo0MjozMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+PiBGcm9tOiBDb25v
-ciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+Pgo+PiBUaGUgQ0FOIGNvcmVz
-IG9uIFBvbGFyZmlyZSBTb0MgYm90aCBoYXZlIGEgcmVzZXQuIFRoZSBwbGF0Zm9ybSBmaXJtd2Fy
-ZQo+PiBicmluZ3MgYm90aCBjb3JlcyBvdXQgb2YgcmVzZXQsIGJ1dCB0aGUgbGludXggZHJpdmVy
-IG11c3QgdXNlIHRoZW0KPj4gZHVyaW5nIG5vcm1hbCBvcGVyYXRpb24uIFRoZSByZXNldHMgc2hv
-dWxkIGhhdmUgYmVlbiBtYWRlIHJlcXVpcmVkLCBidXQKPj4gdGhpcyBpcyBvbmUgb2YgdGhlIHRo
-aW5ncyB0aGF0IGNhbiBoYXBwZW4gd2hlbiB0aGUgYmluZGluZyBpcyB3cml0dGVuCj4+IHdpdGhv
-dXQgZHJpdmVyIHN1cHBvcnQuCj4+Cj4+IEZpeGVzOiBjODc4ZDUxOGQ3YjYgKCJkdC1iaW5kaW5n
-czogY2FuOiBtcGZzOiBkb2N1bWVudCB0aGUgbXBmcyBDQU4gY29udHJvbGxlciIpCj4+IFNpZ25l
-ZC1vZmYtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4+IC0t
-LQo+PiBUaGlzIGlzIHRoZSBzZWNvbmQgbWlzdGFrZSBpbiB0aGlzIGJpbmRpbmcsIGJvdGggc3Bv
-dHRlZCBiZWNhdXNlIG9mIHRoZQo+PiBkcml2ZXIgYmVpbmcgd3JpdHRlbiAoYWx0aG91Z2ggdGhp
-cyBvbmUgc2F0IGRvd25zdHJlYW0gZm9yIGEgd2hpbGUgZm9yCj4+IHcvZSByZWFzb24pLiBJIHdp
-c2ggSSBjb3VsZCBzYXkgdGhhdCBJJ2Qgc2VuZCB0aGUgZHJpdmVyIHNvb24sIGJ1dCBJIGFtCj4+
-IGJ1c3kgdXBzdHJlYW1pbmcgdGhpbmdzIEkgd3JvdGUgYW5kIHRoZXJlZm9yZSB1bmRlcnN0YW5k
-IGF0IHRoZSBtb21lbnQsCj4+IHNvIGEgZHJpdmVyIHRoYXQgSSdkIGhhdmUgdG8gZ28gdW5kZXJz
-dGFuZCBhbmQgcmV2aWV3IGJlZm9yZSBzZW5kaW5nIGlzCj4+IGxvdyBwcmlvcml0eSwgc29ycnkh
-Cj4+Cj4+IHYyOiB1cGRhdGUgdGhlIGV4YW1wbGUgdG9vLi4uCj4+Cj4+IENDOiBDb25vciBEb29s
-ZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+PiBDQzogRGFpcmUgTWNOYW1hcmEgPGRh
-aXJlLm1jbmFtYXJhQG1pY3JvY2hpcC5jb20+Cj4+IENDOiBNYXJjIEtsZWluZS1CdWRkZSA8bWts
-QHBlbmd1dHJvbml4LmRlPgo+PiBDQzogVmluY2VudCBNYWlsaG9sIDxtYWlsaG9sQGtlcm5lbC5v
-cmc+Cj4+IENDOiBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwub3JnPgo+PiBDQzogS3J6eXN6dG9m
-IEtvemxvd3NraSA8a3J6aytkdEBrZXJuZWwub3JnPgo+PiBDQzogbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwo+PiBDQzogbGludXgtY2FuQHZnZXIua2VybmVsLm9yZwo+PiBDQzogZGV2
-aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmcKPj4gQ0M6IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5v
-cmcKPj4gLS0tCj4+ICAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9uZXQvY2FuL21pY3JvY2hpcCxt
-cGZzLWNhbi55YW1sICAgICAgfCA1ICsrKysrCj4+ICAxIGZpbGUgY2hhbmdlZCwgNSBpbnNlcnRp
-b25zKCspCj4+Cj4+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGlu
-Z3MvbmV0L2Nhbi9taWNyb2NoaXAsbXBmcy1jYW4ueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNl
-dHJlZS9iaW5kaW5ncy9uZXQvY2FuL21pY3JvY2hpcCxtcGZzLWNhbi55YW1sCj4+IGluZGV4IDEy
-MTljNWNiNjAxZi4uNTE5YTExZmJlOTcyIDEwMDY0NAo+PiAtLS0gYS9Eb2N1bWVudGF0aW9uL2Rl
-dmljZXRyZWUvYmluZGluZ3MvbmV0L2Nhbi9taWNyb2NoaXAsbXBmcy1jYW4ueWFtbAo+PiArKysg
-Yi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbmV0L2Nhbi9taWNyb2NoaXAsbXBm
-cy1jYW4ueWFtbAo+PiBAQCAtMzIsMTEgKzMyLDE1IEBAIHByb3BlcnRpZXM6Cj4+ICAgICAgICAt
-IGRlc2NyaXB0aW9uOiBBSEIgcGVyaXBoZXJhbCBjbG9jawo+PiAgICAgICAgLSBkZXNjcmlwdGlv
-bjogQ0FOIGJ1cyBjbG9jawo+Pgo+PiArICByZXNldHM6Cj4+ICsgICAgbWF4SXRlbXM6IDEKPj4g
-Kwo+PiAgcmVxdWlyZWQ6Cj4+ICAgIC0gY29tcGF0aWJsZQo+PiAgICAtIHJlZwo+PiAgICAtIGlu
-dGVycnVwdHMKPj4gICAgLSBjbG9ja3MKPj4gKyAgLSByZXNldHMKPj4KPj4gIGFkZGl0aW9uYWxQ
-cm9wZXJ0aWVzOiBmYWxzZQo+Pgo+PiBAQCAtNDYsNiArNTAsNyBAQCBleGFtcGxlczoKPj4gICAg
-ICAgICAgY29tcGF0aWJsZSA9ICJtaWNyb2NoaXAsbXBmcy1jYW4iOwo+PiAgICAgICAgICByZWcg
-PSA8MHgyMDEwYzAwMCAweDEwMDA+Owo+PiAgICAgICAgICBjbG9ja3MgPSA8JmNsa2NmZyAxNz4s
-IDwmY2xrY2ZnIDM3PjsKPj4gKyAgICAgICAgcmVzZXRzID0gPCZjbGtjZmcgMTc+Owo+PiAgICAg
-ICAgICBpbnRlcnJ1cHQtcGFyZW50ID0gPCZwbGljPjsKPj4gICAgICAgICAgaW50ZXJydXB0cyA9
-IDw1Nj47Cj4+ICAgICAgfTsKPj4gLS0KPj4gMi41MS4wCj4+Cj4+Cj4+Cj4gCj4gLS0KPiBQZW5n
-dXRyb25peCBlLksuICAgICAgICAgICAgICAgICB8IE1hcmMgS2xlaW5lLUJ1ZGRlICAgICAgICAg
-IHwKPiBFbWJlZGRlZCBMaW51eCAgICAgICAgICAgICAgICAgICB8IGh0dHBzOi8vd3d3LnBlbmd1
-dHJvbml4LmRlIHwKPiBWZXJ0cmV0dW5nIE7DvHJuYmVyZyAgICAgICAgICAgICAgfCBQaG9uZTog
-KzQ5LTUxMjEtMjA2OTE3LTEyOSB8Cj4gQW10c2dlcmljaHQgSGlsZGVzaGVpbSwgSFJBIDI2ODYg
-fCBGYXg6ICAgKzQ5LTUxMjEtMjA2OTE3LTkgICB8CgoKQmVzdCByZWdhcmRzLApLcnp5c3p0b2YK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 21/11/2025 14:42, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> The CAN cores on Polarfire SoC both have a reset. The platform firmware
+> brings both cores out of reset, but the linux driver must use them
+> during normal operation. The resets should have been made required, but
+> this is one of the things that can happen when the binding is written
+> without driver support.
+> 
+> Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN controller")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+
+FWIW, if you insist:
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
