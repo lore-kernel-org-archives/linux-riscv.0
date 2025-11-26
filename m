@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1E5D11185
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 16:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EBCED11182
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 16:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O5P82G/2E7rZGsOgRXSH+v2W1/+0OH82Q1itKggKN7M=; b=VzsrJtt/8bz3Fi
-	zuwq/EE839l9bHOWxiD07OhraBGWcwAB8q0EQLPpRbovN3qM+eV0UtRnTAr30rJiVpYphfS9e/k6j
-	sFJjd/oNYOAGBJyr/kB/OrQuLs6PlZjscNpX66SLSZ+Qkkzj7fN+Z2uUJVBZ7gQT/8NT9qWGc2SHu
-	Y+ia0UyljI06ITDYvkD+vZBc77CWjkZAm7JHmFKuowcXjPVzitJK5DaNn/BYq44n4hDpeppvDE79N
-	nIRlOxIDPtJaJsGSdgtS1r/Y0VE4NuAmQhtpPJ6sqI0owwMNtJDh6IQrouxYEDgBWmuBWuUGSAkhu
-	rj7hW/hSO9OyZyy/grgg==;
+	List-Owner; bh=QSbfo5VxCLmiyU/jftzADh28lCwI7fkEWKdYofzVvQc=; b=d3JpFbCLqCeAZ+
+	Yo7msRU+BpLkOuwPgIPE9jhaXbrB7XbSis0WYMM8+rVdc2ZNOKnvvxlmXpIygnBj1bSz9zdn4nW/f
+	t4TG1yt2rjFuBfsVYPuMnRwYvJ1REFPbmfH+n+tb9kAiLz+dKm5MfurwOk/GDtyQAVEPOb3lL+gRN
+	PuOyu9vh5gFCDpdfNeWWixkbfo3llc2URsJHTcYyYJ+TFnzy3y8jxdESCs5Rdsod+1wmPpbUoz59m
+	oIAWrRRxCUNzSSuUulXHznoHPZemuxVM3MfjoQmCIKoH2En1qfuq8gTxRg35VX8XsAR2UJIqRE7mY
+	djlenjJfFH4ixRRzvRoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOI4s-0000000FFH8-1OG5;
-	Wed, 26 Nov 2025 16:09:10 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1vOI54-0000000FFPi-0531;
+	Wed, 26 Nov 2025 16:09:22 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOI4q-0000000FFE1-0dON
+	id 1vOI4w-0000000FFJR-09cU
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 16:09:09 +0000
+	Wed, 26 Nov 2025 16:09:15 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id EB0005BE8D;
-	Wed, 26 Nov 2025 16:08:59 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 48E6D336F2;
+	Wed, 26 Nov 2025 16:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764173340; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1764173342; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=63HXk2asPcR6HKGFSmIOTJlWneEzg1F4AZ9qPy2VUyc=;
-	b=HNlHLdT4+ftHDfSGcOLmy/wgSh5PB0cIxN3PxYieoVKiFvyEg8LqW4ET/7i469pmj8Lj8r
-	FFYRB2BMSM5Cjq6CIf+WPNeq6UfL04Jz+h3N19417jz3JnfrAY52w+MeBLNLemJLqAjoTl
-	pID0na9X6myqM8n7YH+zioeY7M/kMQ8=
+	bh=np/o9SOrUSR89NMerp0bJqsfAGpMRXdw2KZq5Jl7t3Q=;
+	b=sPkIenejRUDLewaW3vnNRqaw7t86Ma99tLNBzMYYlMSwKwwoZKzKjAOa0TZ9X+fQM1t0xf
+	RjrUGb9hpGyNBogufJJLumbgplcPn9Zd8xSZwNyOm4DhBOWe/yPcsAI2YxL9GOkeZbSna3
+	4E2P5U8/eyITwhnqFZ25AN1sO+Av6cE=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764173340;
+	s=susede2_ed25519; t=1764173342;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=63HXk2asPcR6HKGFSmIOTJlWneEzg1F4AZ9qPy2VUyc=;
-	b=BtXYUld8tzzkYVjOlVGH33TFv6Kfv0PQxIUS+XyuDDZpunpaFqz3IKfrOFfn5OCn5VAeEF
-	OOtQyrTU0ueFv8Dg==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=EyCENnQs;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="x1rd6/pA"
+	bh=np/o9SOrUSR89NMerp0bJqsfAGpMRXdw2KZq5Jl7t3Q=;
+	b=kM8HVdyMpjcj6DidHZKS96kdXotXOFf0rAPcZ2oV9IXUcgDW70OhSUtuigzKx0HsVah9iF
+	snPjYLQ2oqMladBw==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=sPkIenej;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=kM8HVdyM
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764173339; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1764173342; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=63HXk2asPcR6HKGFSmIOTJlWneEzg1F4AZ9qPy2VUyc=;
-	b=EyCENnQsl8ql14ma1fvIBorWD44yIEHI8lT/qCunnUIaRK1Ao+djFjva9osjmJ1wh7q49T
-	46MPz3orf+H4x0zBFul1vfD9JsUmomlTSyzC/+g+duBwOe0GRJaZFyKigWcDkFEhhFI+MS
-	MEdpWIq3AQR5UNvOlmCX8bmiicagCc8=
+	bh=np/o9SOrUSR89NMerp0bJqsfAGpMRXdw2KZq5Jl7t3Q=;
+	b=sPkIenejRUDLewaW3vnNRqaw7t86Ma99tLNBzMYYlMSwKwwoZKzKjAOa0TZ9X+fQM1t0xf
+	RjrUGb9hpGyNBogufJJLumbgplcPn9Zd8xSZwNyOm4DhBOWe/yPcsAI2YxL9GOkeZbSna3
+	4E2P5U8/eyITwhnqFZ25AN1sO+Av6cE=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764173339;
+	s=susede2_ed25519; t=1764173342;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=63HXk2asPcR6HKGFSmIOTJlWneEzg1F4AZ9qPy2VUyc=;
-	b=x1rd6/pAixjpIpLzme3cxM2k/UuYVXhrQrtn+ltzf+fRuYOB2bhlwpUamTWylLS2vhJrV5
-	o3i4EkgeCsw7HDBA==
+	bh=np/o9SOrUSR89NMerp0bJqsfAGpMRXdw2KZq5Jl7t3Q=;
+	b=kM8HVdyMpjcj6DidHZKS96kdXotXOFf0rAPcZ2oV9IXUcgDW70OhSUtuigzKx0HsVah9iF
+	snPjYLQ2oqMladBw==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7CDC83EA65;
-	Wed, 26 Nov 2025 16:08:59 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D3BE53EA63;
+	Wed, 26 Nov 2025 16:09:01 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id SHoMHRsmJ2lnIgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 26 Nov 2025 16:08:59 +0000
+	id gPp/Mh0mJ2lnIgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 26 Nov 2025 16:09:01 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: ardb@kernel.org,
 	javierm@redhat.com,
@@ -99,9 +99,9 @@ Cc: x86@kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-fbdev@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v3 1/9] efi: earlycon: Reduce number of references to global screen_info
-Date: Wed, 26 Nov 2025 17:03:18 +0100
-Message-ID: <20251126160854.553077-2-tzimmermann@suse.de>
+Subject: [PATCH v3 6/9] sysfb: Move edid_info into sysfb_primary_display
+Date: Wed, 26 Nov 2025 17:03:23 +0100
+Message-ID: <20251126160854.553077-7-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251126160854.553077-1-tzimmermann@suse.de>
 References: <20251126160854.553077-1-tzimmermann@suse.de>
@@ -126,19 +126,19 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
 	FROM_HAS_DN(0.00)[];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
 	FROM_EQ_ENVFROM(0.00)[];
 	R_RATELIMIT(0.00)[to_ip_from(RLtfyjk8sg4x43ngtem9djprcp)];
 	RCVD_TLS_ALL(0.00)[];
 	DKIM_TRACE(0.00)[suse.de:+];
 	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,suse.de:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:email]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: EB0005BE8D
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:mid,suse.de:email,suse.de:dkim]
 X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 48E6D336F2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_080908_340118_98CAA49F 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20251126_080914_229292_38340754 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,159 +155,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace usage of global screen_info with local pointers. This will
-later reduce churn when screen_info is being moved.
+Move x86's edid_info into sysfb_primary_display as a new field named
+edid. Adapt all users.
+
+An instance of edid_info has only been defined on x86. With the move
+into sysfb_primary_display, it becomes available on all architectures.
+Therefore remove this contraint from CONFIG_FIRMWARE_EDID.
+
+x86 fills the EDID data from boot_params.edid_info. DRM drivers pick
+up the raw data and make it available to DRM clients. Replace the
+drivers' references to edid_info and instead use the sysfb_display_info
+as passed from sysfb.
 
 v2:
-- fix coding style
+- drop changes to CONFIG_FIRMWARE_EDID
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Reviewed-by: Richard Lyu <richard.lyu@suse.com>
 Acked-by: Arnd Bergmann <arnd@arndb.de>
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- drivers/firmware/efi/earlycon.c | 40 ++++++++++++++++-----------------
- 1 file changed, 20 insertions(+), 20 deletions(-)
+ arch/x86/kernel/setup.c          | 6 +-----
+ drivers/gpu/drm/sysfb/efidrm.c   | 5 ++---
+ drivers/gpu/drm/sysfb/vesadrm.c  | 5 ++---
+ drivers/video/fbdev/core/fbmon.c | 8 +++++---
+ include/linux/sysfb.h            | 6 ++++++
+ include/video/edid.h             | 4 ----
+ 6 files changed, 16 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/firmware/efi/earlycon.c b/drivers/firmware/efi/earlycon.c
-index d18a1a5de144..42e3a173dac1 100644
---- a/drivers/firmware/efi/earlycon.c
-+++ b/drivers/firmware/efi/earlycon.c
-@@ -32,12 +32,13 @@ static void *efi_fb;
-  */
- static int __init efi_earlycon_remap_fb(void)
- {
-+	const struct screen_info *si = &screen_info;
+diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+index 675e4b9deb1f..d9bfe2032cd9 100644
+--- a/arch/x86/kernel/setup.c
++++ b/arch/x86/kernel/setup.c
+@@ -215,10 +215,6 @@ arch_initcall(init_x86_sysctl);
+ 
+ struct sysfb_display_info sysfb_primary_display;
+ EXPORT_SYMBOL(sysfb_primary_display);
+-#if defined(CONFIG_FIRMWARE_EDID)
+-struct edid_info edid_info;
+-EXPORT_SYMBOL_GPL(edid_info);
+-#endif
+ 
+ extern int root_mountflags;
+ 
+@@ -530,7 +526,7 @@ static void __init parse_boot_params(void)
+ 	ROOT_DEV = old_decode_dev(boot_params.hdr.root_dev);
+ 	sysfb_primary_display.screen = boot_params.screen_info;
+ #if defined(CONFIG_FIRMWARE_EDID)
+-	edid_info = boot_params.edid_info;
++	sysfb_primary_display.edid = boot_params.edid_info;
+ #endif
+ #ifdef CONFIG_X86_32
+ 	apm_info.bios = boot_params.apm_bios_info;
+diff --git a/drivers/gpu/drm/sysfb/efidrm.c b/drivers/gpu/drm/sysfb/efidrm.c
+index 29533ae8fbbf..50e0aeef709c 100644
+--- a/drivers/gpu/drm/sysfb/efidrm.c
++++ b/drivers/gpu/drm/sysfb/efidrm.c
+@@ -24,7 +24,6 @@
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+ 
+-#include <video/edid.h>
+ #include <video/pixel_format.h>
+ 
+ #include "drm_sysfb_helper.h"
+@@ -207,8 +206,8 @@ static struct efidrm_device *efidrm_device_create(struct drm_driver *drv,
+ 		&format->format, width, height, stride);
+ 
+ #if defined(CONFIG_FIRMWARE_EDID)
+-	if (drm_edid_header_is_valid(edid_info.dummy) == 8)
+-		sysfb->edid = edid_info.dummy;
++	if (drm_edid_header_is_valid(dpy->edid.dummy) == 8)
++		sysfb->edid = dpy->edid.dummy;
+ #endif
+ 	sysfb->fb_mode = drm_sysfb_mode(width, height, 0, 0);
+ 	sysfb->fb_format = format;
+diff --git a/drivers/gpu/drm/sysfb/vesadrm.c b/drivers/gpu/drm/sysfb/vesadrm.c
+index 16fc223f8c5b..0680638b8131 100644
+--- a/drivers/gpu/drm/sysfb/vesadrm.c
++++ b/drivers/gpu/drm/sysfb/vesadrm.c
+@@ -25,7 +25,6 @@
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+ 
+-#include <video/edid.h>
+ #include <video/pixel_format.h>
+ #include <video/vga.h>
+ 
+@@ -474,8 +473,8 @@ static struct vesadrm_device *vesadrm_device_create(struct drm_driver *drv,
+ 	}
+ 
+ #if defined(CONFIG_FIRMWARE_EDID)
+-	if (drm_edid_header_is_valid(edid_info.dummy) == 8)
+-		sysfb->edid = edid_info.dummy;
++	if (drm_edid_header_is_valid(dpy->edid.dummy) == 8)
++		sysfb->edid = dpy->edid.dummy;
+ #endif
+ 	sysfb->fb_mode = drm_sysfb_mode(width, height, 0, 0);
+ 	sysfb->fb_format = format;
+diff --git a/drivers/video/fbdev/core/fbmon.c b/drivers/video/fbdev/core/fbmon.c
+index 0a65bef01e3c..07df7e98f8a3 100644
+--- a/drivers/video/fbdev/core/fbmon.c
++++ b/drivers/video/fbdev/core/fbmon.c
+@@ -32,11 +32,13 @@
+ #include <linux/module.h>
+ #include <linux/pci.h>
+ #include <linux/slab.h>
+-#include <video/edid.h>
++#include <linux/string_choices.h>
++#include <linux/sysfb.h>
 +
- 	/* bail if there is no bootconsole or it was unregistered already */
- 	if (!earlycon_console || !console_is_registered(earlycon_console))
- 		return 0;
+ #include <video/of_videomode.h>
+ #include <video/videomode.h>
++
+ #include "../edid.h"
+-#include <linux/string_choices.h>
  
--	efi_fb = memremap(fb_base, screen_info.lfb_size,
--			  fb_wb ? MEMREMAP_WB : MEMREMAP_WC);
-+	efi_fb = memremap(fb_base, si->lfb_size, fb_wb ? MEMREMAP_WB : MEMREMAP_WC);
+ /*
+  * EDID parser
+@@ -1504,7 +1506,7 @@ const unsigned char *fb_firmware_edid(struct device *device)
+ 		res = &dev->resource[PCI_ROM_RESOURCE];
  
- 	return efi_fb ? 0 : -ENOMEM;
+ 	if (res && res->flags & IORESOURCE_ROM_SHADOW)
+-		edid = edid_info.dummy;
++		edid = sysfb_primary_display.edid.dummy;
+ 
+ 	return edid;
  }
-@@ -71,12 +72,12 @@ static __ref void efi_earlycon_unmap(void *addr, unsigned long len)
- 	early_memunmap(addr, len);
- }
+diff --git a/include/linux/sysfb.h b/include/linux/sysfb.h
+index e8bde392c690..5226efde9ad4 100644
+--- a/include/linux/sysfb.h
++++ b/include/linux/sysfb.h
+@@ -12,6 +12,8 @@
+ #include <linux/screen_info.h>
+ #include <linux/types.h>
  
--static void efi_earlycon_clear_scanline(unsigned int y)
-+static void efi_earlycon_clear_scanline(unsigned int y, const struct screen_info *si)
- {
- 	unsigned long *dst;
- 	u16 len;
++#include <video/edid.h>
++
+ struct device;
+ struct platform_device;
+ struct screen_info;
+@@ -62,6 +64,10 @@ struct efifb_dmi_info {
  
--	len = screen_info.lfb_linelength;
-+	len = si->lfb_linelength;
- 	dst = efi_earlycon_map(y*len, len);
- 	if (!dst)
- 		return;
-@@ -85,7 +86,7 @@ static void efi_earlycon_clear_scanline(unsigned int y)
- 	efi_earlycon_unmap(dst, len);
- }
+ struct sysfb_display_info {
+ 	struct screen_info screen;
++
++#if defined(CONFIG_FIRMWARE_EDID)
++	struct edid_info edid;
++#endif
+ };
  
--static void efi_earlycon_scroll_up(void)
-+static void efi_earlycon_scroll_up(const struct screen_info *si)
- {
- 	unsigned long *dst, *src;
- 	u16 maxlen = 0;
-@@ -99,8 +100,8 @@ static void efi_earlycon_scroll_up(void)
- 	}
- 	maxlen *= 4;
+ extern struct sysfb_display_info sysfb_primary_display;
+diff --git a/include/video/edid.h b/include/video/edid.h
+index c2b186b1933a..52aabb706032 100644
+--- a/include/video/edid.h
++++ b/include/video/edid.h
+@@ -4,8 +4,4 @@
  
--	len = screen_info.lfb_linelength;
--	height = screen_info.lfb_height;
-+	len = si->lfb_linelength;
-+	height = si->lfb_height;
+ #include <uapi/video/edid.h>
  
- 	for (i = 0; i < height - font->height; i++) {
- 		dst = efi_earlycon_map(i*len, len);
-@@ -120,7 +121,8 @@ static void efi_earlycon_scroll_up(void)
- 	}
- }
- 
--static void efi_earlycon_write_char(u32 *dst, unsigned char c, unsigned int h)
-+static void efi_earlycon_write_char(u32 *dst, unsigned char c, unsigned int h,
-+				    const struct screen_info *si)
- {
- 	const u32 color_black = 0x00000000;
- 	const u32 color_white = 0x00ffffff;
-@@ -145,13 +147,12 @@ static void efi_earlycon_write_char(u32 *dst, unsigned char c, unsigned int h)
- static void
- efi_earlycon_write(struct console *con, const char *str, unsigned int num)
- {
--	struct screen_info *si;
-+	const struct screen_info *si = &screen_info;
- 	u32 cur_efi_x = efi_x;
- 	unsigned int len;
- 	const char *s;
- 	void *dst;
- 
--	si = &screen_info;
- 	len = si->lfb_linelength;
- 
- 	while (num) {
-@@ -174,7 +175,7 @@ efi_earlycon_write(struct console *con, const char *str, unsigned int num)
- 			x = efi_x;
- 
- 			while (n-- > 0) {
--				efi_earlycon_write_char(dst + x*4, *s, h);
-+				efi_earlycon_write_char(dst + x * 4, *s, h, si);
- 				x += font->width;
- 				s++;
- 			}
-@@ -207,10 +208,10 @@ efi_earlycon_write(struct console *con, const char *str, unsigned int num)
- 			cur_line_y = (cur_line_y + 1) % max_line_y;
- 
- 			efi_y -= font->height;
--			efi_earlycon_scroll_up();
-+			efi_earlycon_scroll_up(si);
- 
- 			for (i = 0; i < font->height; i++)
--				efi_earlycon_clear_scanline(efi_y + i);
-+				efi_earlycon_clear_scanline(efi_y + i, si);
- 		}
- 	}
- }
-@@ -226,22 +227,21 @@ void __init efi_earlycon_reprobe(void)
- static int __init efi_earlycon_setup(struct earlycon_device *device,
- 				     const char *opt)
- {
--	struct screen_info *si;
-+	const struct screen_info *si = &screen_info;
- 	u16 xres, yres;
- 	u32 i;
- 
- 	fb_wb = opt && !strcmp(opt, "ram");
- 
--	if (screen_info.orig_video_isVGA != VIDEO_TYPE_EFI) {
-+	if (si->orig_video_isVGA != VIDEO_TYPE_EFI) {
- 		fb_probed = true;
- 		return -ENODEV;
- 	}
- 
--	fb_base = screen_info.lfb_base;
--	if (screen_info.capabilities & VIDEO_CAPABILITY_64BIT_BASE)
--		fb_base |= (u64)screen_info.ext_lfb_base << 32;
-+	fb_base = si->lfb_base;
-+	if (si->capabilities & VIDEO_CAPABILITY_64BIT_BASE)
-+		fb_base |= (u64)si->ext_lfb_base << 32;
- 
--	si = &screen_info;
- 	xres = si->lfb_width;
- 	yres = si->lfb_height;
- 
-@@ -266,7 +266,7 @@ static int __init efi_earlycon_setup(struct earlycon_device *device,
- 
- 	efi_y -= font->height;
- 	for (i = 0; i < (yres - efi_y) / font->height; i++)
--		efi_earlycon_scroll_up();
-+		efi_earlycon_scroll_up(si);
- 
- 	device->con->write = efi_earlycon_write;
- 	earlycon_console = device->con;
+-#if defined(CONFIG_FIRMWARE_EDID)
+-extern struct edid_info edid_info;
+-#endif
+-
+ #endif /* __linux_video_edid_h__ */
 -- 
 2.51.1
 
