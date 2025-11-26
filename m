@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F19DAD1037C
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 04:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB6B6D1037E
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 06:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k4ExTBijWO9bwG1dKZ6AsJEeMfoaq78S+PJbRlUgTYA=; b=bRizAAt8GfOs+1
-	0msVI8BY6idZzHR0SeXfT/hC6OFaUxlBnQwVe6CVVDSqfs4qMjpgzZrNirH6MvFZserBPJNC2DeDd
-	dmaBqEAWviyKMadd5ZIv1Tq0RM5kGHZQZJZWifyTJHEyATBqO+MSHDfrWvg37zBpoX6R1GetEFAra
-	k9h63PtuGB2Lhb38bjR7OitDLe+/zKKKyrN5dIwzUTpK6JV4kU4tzCHlbhZT1OnFniPYSE+OIn91J
-	/EWbxxqbLS7WlZW7JhvioK6FafhuEtC/Kv5T9+M2c/tJ7QilauhgbSSEgDh/RhEiSBYH2QnXskCJC
-	2zXgcEIGFJT3FT1Zqljg==;
+	List-Owner; bh=GM4p6V+e59/GWtyfBL0koz/eDtMANsiomMdV4L3vWcw=; b=XjU11Ew6XPDLD2
+	bja+0nAWeN5aGSFJuPuu1/Dc7hjlu7MbBD4SW4KgcObqSGbXl/Kq1QI/xY6UBssilQ7ocKAkZWA1D
+	WtQAfPju0982x+dAUMSGk7MmY6kiLYI2fUNL3vYyjEeyv9zCdmnBLh5BKy7tT2Bv71zf5gtB0pRk2
+	lMHSC+boeSvC+HwlCSiKWbg0bbVmjFUCESdMO19Hbej0q0RIRnllT/8GQR0YbzoYX4ZOfE0+dK8i6
+	6kOhkRzsDliRdLZQ0eXyzMGMLzBXx1gI1cxKJlQklwKLmDctVzLPP3+YmUxmFX5+PBnlkElxAk2r7
+	w/Q4VNVEbUwaDvIZSDyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO7Ws-0000000EMVc-3Q6K;
-	Wed, 26 Nov 2025 04:53:22 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1vO9AU-0000000ERn7-3RUz;
+	Wed, 26 Nov 2025 06:38:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO7Wq-0000000EMTX-2aLz
+	id 1vO9AS-0000000ERn0-3osR
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 04:53:22 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.155])
-	by APP-05 (Coremail) with SMTP id zQCowADn4mOUhyZpi2gbAg--.38374S11;
-	Wed, 26 Nov 2025 12:53:03 +0800 (CST)
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH RESEND v3 9/9] mailmap: map all Icenowy Zheng's mail addresses
-Date: Wed, 26 Nov 2025 12:52:33 +0800
-Message-ID: <20251126045233.218286-10-zhengxingda@iscas.ac.cn>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251126045233.218286-1-zhengxingda@iscas.ac.cn>
-References: <20251126045233.218286-1-zhengxingda@iscas.ac.cn>
+	Wed, 26 Nov 2025 06:38:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C879E6013A
+	for <linux-riscv@lists.infradead.org>; Wed, 26 Nov 2025 06:38:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CDBCC4AF0B
+	for <linux-riscv@lists.infradead.org>; Wed, 26 Nov 2025 06:38:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764139099;
+	bh=IHcn8poodH//FU1MA5VWzEcXDJSpMUbDUfboDcSleBw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=JekaNptcX8SnxevqpavPO2YS78STQdKQ8KyL6PXQWg++Wkk787/8FtnYB7tjzvQJc
+	 jB8XmEIHb1v3Ffou0RxHiLfu6gDKclHjI/WCRiWq/eucUmFGxpgQIgG8Jk1/Aj9nU/
+	 B0gvE1aTi1WXVd/EK12BYUgcg5lfpkwyPJfJZ3tEQECTIhVz3Rm6Dl9SODIU+pNI9M
+	 ibauMdWNSWRAiVYH5AeG9P3qYibeNh0f675lfKOApAjBUvan51a3HfzBQnRGEyKF8e
+	 Zu0HFqX1U1k4+YAirJjy5jpnd8nKRZ6pfKK0JfYrIeoXV5ktU4hDhQQCiiVaIkh02O
+	 HkiLgwNwNFfDg==
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5957d7e0bf3so599357e87.0
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Nov 2025 22:38:19 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWM3NVsW6aKLnJyIm5/T/MVYx6h9MVEwOlRIS+8LehbBfvHcuEdM9IQvJtqTr2vG0OIC83wu6oAmOGfMg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3VZhoPtDvxlC3o9gVa9hBhBnI9bWHnWUc91obrQHYzvJfWCMs
+	MR2QMOVw5sbTJlpXol8QZ+ENkddr89oNfrQCFzprPp/x9Pk2XRb5xxStDhmMoKD1hMNDoTPfBPI
+	cnaTkYSjqDUaRfrCeCpF7NAaachH6Wo8=
+X-Google-Smtp-Source: AGHT+IGgbB0yJvyFDsxvPnqjZKGrRr0GuCZSWkaPRw856NhzHZOODkomFBVO/pt6qkNhS64UG52bzDpH5Ucaj05SyXE=
+X-Received: by 2002:a05:6512:2301:b0:595:83d5:7b47 with SMTP id
+ 2adb3069b0e04-5969e9d3083mr7486321e87.5.1764139097778; Tue, 25 Nov 2025
+ 22:38:17 -0800 (PST)
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowADn4mOUhyZpi2gbAg--.38374S11
-X-Coremail-Antispam: 1UD129KBjvJXoWrKryDWr4ktryDKw4fCFWDXFb_yoW8Jry5pr
-	4xGF4jgFyvywn29r1qgry5WF18Xa95WF4DGw4avw18ZFZ3tr1kWrsxKayDXw18JrWS93y3
-	JFnFvrZagas7A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmq14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE
-	3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2I
-	x0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8
-	JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2
-	ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Y
-	z7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zV
-	AF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Gr0_Xr1l
-	IxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r
-	1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIY
-	CTnIWIevJa73UjIFyTuYvjTR_nYFDUUUU
-X-Originating-IP: [112.94.101.155]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_205321_021685_7CEFF67E 
-X-CRM114-Status: UNSURE (   6.99  )
-X-CRM114-Notice: Please train this message.
+References: <20251031024328.735161-1-maqianga@uniontech.com>
+ <f9d632d5-22dc-8b14-8a70-37737a78f206@kernel.org> <37CDF8D84A26949E+cc84e626-911b-40ac-90ef-ff5a2df585a9@uniontech.com>
+In-Reply-To: <37CDF8D84A26949E+cc84e626-911b-40ac-90ef-ff5a2df585a9@uniontech.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Wed, 26 Nov 2025 07:38:06 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXE0ic5Jx3J75qocFgvUPMqQF4Xsqf4CCnaYggWJ35bUiQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bm5Kouy_gNO6ASdM7F_2CcaRjX-XGeBmmg295zd55RvtqIf1wAb-jTzdk0
+Message-ID: <CAMj1kXE0ic5Jx3J75qocFgvUPMqQF4Xsqf4CCnaYggWJ35bUiQ@mail.gmail.com>
+Subject: Re: [PATCH] efi/riscv: Remove the useless failure return message print
+To: Qiang Ma <maqianga@uniontech.com>
+Cc: Paul Walmsley <pjw@kernel.org>, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,48 +77,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Icenowy Zheng <uwu@icenowy.me>
-
-Map all mail addresses Icenowy Zheng had used to the personal mailbox
-prefixed "uwu".
-
-All these mailboxes, except the one of Sipeed (which was only used
-during a summer vacation internship), can accept mails now.
-
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
----
-New patch in v3.
-
- .mailmap | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/.mailmap b/.mailmap
-index d2edd256b19d6..f023a0c4e565c 100644
---- a/.mailmap
-+++ b/.mailmap
-@@ -308,6 +308,10 @@ Henrik Rydberg <rydberg@bitmath.org>
- Herbert Xu <herbert@gondor.apana.org.au>
- Huacai Chen <chenhuacai@kernel.org> <chenhc@lemote.com>
- Huacai Chen <chenhuacai@kernel.org> <chenhuacai@loongson.cn>
-+Icenowy Zheng <uwu@icenowy.me> <zhengxingda@iscas.ac.cn>
-+Icenowy Zheng <uwu@icenowy.me> <icenowy@aosc.io>
-+Icenowy Zheng <uwu@icenowy.me> <icenowy@aosc.xyz>
-+Icenowy Zheng <uwu@icenowy.me> <icenowy@sipeed.com>
- Ike Panhc <ikepanhc@gmail.com> <ike.pan@canonical.com>
- J. Bruce Fields <bfields@fieldses.org> <bfields@redhat.com>
- J. Bruce Fields <bfields@fieldses.org> <bfields@citi.umich.edu>
--- 
-2.52.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAyNiBOb3YgMjAyNSBhdCAwMzo1MywgUWlhbmcgTWEgPG1hcWlhbmdhQHVuaW9udGVj
+aC5jb20+IHdyb3RlOgo+Cj4KPiDlnKggMjAyNS8xMS8yNiAwODoyNywgUGF1bCBXYWxtc2xleSDl
+hpnpgZM6Cj4gPiBPbiBGcmksIDMxIE9jdCAyMDI1LCBRaWFuZyBNYSB3cm90ZToKPiA+Cj4gPj4g
+SW4gdGhlIGVmaV9jcmVhdGVfbWFwcGluZygpIGluIGFyY2gvcmlzY3Yva2VybmVsL2VmaS5jLAo+
+ID4+IHRoZSByZXR1cm4gdmFsdWUgaXMgYWx3YXlzIDAsIGFuZCB0aGlzIGRlYnVnIG1lc3NhZ2UK
+PiA+PiBpcyB1bm5lY2Vzc2FyeS4gU28sIHJlbW92ZSBpdC4KPiA+Pgo+ID4+IFNpZ25lZC1vZmYt
+Ynk6IFFpYW5nIE1hIDxtYXFpYW5nYUB1bmlvbnRlY2guY29tPgo+ID4gQ29uc2lkZXJpbmcgdGhh
+dCBBcmQgZG9lc24ndCB0aGluayBlZmlfY3JlYXRlX21hcHBpbmcoKSBzaG91bGQgYmUgY2hhbmdl
+ZAo+ID4gdG8gcmVtb3ZlIHRoZSByZXR1cm4gdmFsdWUsIGFuZCB0aGF0IHRoZSBBUk0gdmVyc2lv
+biBvZiB0aGlzIGNvZGUgcmV0YWlucwo+ID4gdGhlIGRlYnVnIG1lc3NhZ2UsIHdlIHNob3VsZCBw
+cm9iYWJseSBrZWVwIHRoaW5ncyB0aGUgd2F5IHRoZXkgYXJlLiAgQnV0Cj4gPiBpZiB5b3UgY2Fu
+IGdldCBhIFJldmlld2VkLWJ5OiBvciBhbiBBY2tlZC1ieTogZnJvbSBBcmQsIEknZCB0YWtlIGl0
+Lgo+IEhpLCBBcmQsIHdoYXQgYXJlIHlvdXIgc3VnZ2VzdGlvbnMgZm9yIHRoaXMgcGF0Y2g/Cj4K
+PiBDb3VsZCB5b3UgYWRkIGEgUmV2aWV3ZWQtYnk6IG9yIGFuIEFja2VkLWJ5OiB0byB0aGlzIHBh
+dGNoPwoKSSBhbHJlYWR5IHF1ZXVlZCB0aGlzIHVwIGluIGVmaS9uZXh0CgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
