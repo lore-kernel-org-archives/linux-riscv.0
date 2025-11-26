@@ -4,45 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E54E7D10F24
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 11:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C544D10F22
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 11:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1KoxEUWx+WgKyS8VZK8RRaNMlN+yfE3zAqSgR3M/svY=; b=nTlhpmyjXNmm6r
-	9hfs1o8b/UzGEoshoUKP9zYkLPFN9R7i+Hv5O0RjZE9ksQJsxg16YprzqVBvi9wkMmZ47c7NrUXAe
-	26yaS+yko/kj4KFssZC64jO+W+7R/H3S9gj8A0feUJFk84ZuIwcBU9sOSfVbkwdShX88+z03nrBK1
-	TSIgQln5m/5q+iV+F57OoMX6CKCnNIaU0nAuExYuBJWKKrAH/ip2ez5WwZUx6UYxbALg792Ymbjmr
-	2Bx1pSia20xJ31y4s2UqdFv2iP0UYdD74dO/+cRnt4wrRwR/FC9SYmpoGEVubD4SRXboKwqEWyOaU
-	j91symwAKZyPMg3MeH8g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wx+7v626zghJCf3KsrxSbVvpAuL2XFtv+W9w+WF0wBk=; b=ah+C7Rx1MR3bI/
+	D4XJQ+u/e0kTAd5ofavQLhGpHw6CgoFC5rTUuVRIUYb9aHehLJ1O4GvU4U/GdJJE+lI+mIOmfcfTp
+	tyGVHcTyNxAmj9Qyvcex/xqFp+nyd4EBr2L75j0swZa/flAJgEFHDWoW3KgWv8OD7HB0Vb+55kEZn
+	bfybikeIMuWyjy7XAdSYWvoHQJ2LNsyMbzg++J6mUEcHxe4aN8DuOa7Zlw7oHFHDkBtmmyDqm3WL2
+	RHGFUIDTCaCthdHmQzjcYxuz/ip0FfwaOzcwWNJ5k7Fe3K+z/HwXh6jyNnd4L3PXlJcht+Mn8yjOs
+	1ZpqsRHOMuuYAv3ZqXIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOE8V-0000000EwRN-3eHR;
-	Wed, 26 Nov 2025 11:56:39 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1vOE8Q-0000000EwPs-0XmR;
+	Wed, 26 Nov 2025 11:56:34 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOE8R-0000000EwPp-1XSt
+	id 1vOE8M-0000000EwOZ-49VR
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 11:56:36 +0000
+	Wed, 26 Nov 2025 11:56:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Date:Subject:MIME-Version:Content-Type:
-	Message-Id:To; bh=wOF1Tb4hdKgT+VsV0pVwid5+bzJCocSTb9mIOLanReE=;
-	b=eqLxOJbe1xoF/BP0G2y/8umG0/LHkVwmn9QwVPals7otH+ObdqjTGJDwaf5fss
-	GVUvamd7vUSm3f9ejJ+fS9hRXppRrLDtZBqLhxwEYKaJIDQNXrzDx/yZjyNkh4QN
-	oiq/WaK9Yk1tF5jgrER4iMg9lKBvXJEig9nmmsjiUnPpI=
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version:
+	Content-Type:To; bh=Ufeb2Y1qdBth3LcT17BVdapoAoJh2TGcN1TWOhiBKf0=;
+	b=En1Pf8h/dboQ57E/Xg0GvL4gWJTIP0wuL/u6Ci9gG9Qho59PJDIOomubQhmhWf
+	PD8kyMXDdmsWkDxkxWDZGSu+Z+coheekooSe9hCRIaGTw0/NVohNAGfw70A+AOlW
+	fR4+VgeS7DHPaMbXoB5w+m0Def6yMsr2euRr5wGoLpQG4=
 Received: from [192.168.10.1] (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgBnveN26iZpJOi_FQ--.56535S5;
-	Wed, 26 Nov 2025 19:54:38 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id PigvCgBnveN26iZpJOi_FQ--.56535S2;
+	Wed, 26 Nov 2025 19:54:32 +0800 (CST)
 From: Shuwei Wu <shuweiwoo@163.com>
-Date: Thu, 27 Nov 2025 02:44:09 +0800
-Subject: [PATCH 3/3] riscv: dts: spacemit: Add thermal sensor for K1 SoC
+Subject: [PATCH 0/3] thermal: spacemit: Add support for SpacemiT K1 SoC
+ thermal sensor
+Date: Thu, 27 Nov 2025 02:44:06 +0800
+Message-Id: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
 MIME-Version: 1.0
-Message-Id: <20251127-b4-k1-thermal-v1-3-f32ce47b1aba@163.com>
-References: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
-In-Reply-To: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
+X-B4-Tracking: v=1; b=H4sIAHZKJ2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDQyMT3SQT3WxD3ZKM1KLcxBzd1ORESwOzVLOUFPNEJaCegqLUtMwKsHn
+ RsbW1AH3F1YdfAAAA
+X-Change-ID: 20251124-b4-k1-thermal-eca906e6dd7a
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
  Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
  Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
@@ -55,23 +58,23 @@ Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764182662; l=3083;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764182662; l=1444;
  i=shuweiwoo@163.com; s=20251125; h=from:subject:message-id;
- bh=FbsOThTrOK1Y/J4tVtyPVao7glCLEJI4mGN39AL4NMQ=;
- b=5qfoCVv1RYJJOaOFBlH40yx4L/yjtsCKGCP81+u/pjMb+oCIc/0VcR2naijW2pAhw8TGNO1vS
- /HH6dBRwZTuC75jdRRQh+JAa2XQYx9Xs3UqO17RS1WazITCSt22Jpcs
+ bh=6Bc8ctkWf0MlDErFTWLIrGe04KSla5uK/67iOY4E08w=;
+ b=ewyJRJ6JRELmsRZPHaJEV8DBkEtk7N+18zJKoIBSbmPdtwi4m63YqOpjVgAIPRh4VI1SCd20c
+ qSkdZ2ZYXZFDhOZNrSanVi6kHXeT8TrSF8d8Cdcb6eq1OFiZ7rMGVXs
 X-Developer-Key: i=shuweiwoo@163.com; a=ed25519;
  pk=qZs6i2UZnXkmjUrwO5HJxcfpCvgSNrR4dcU5cjtfTSk=
-X-CM-TRANSID: PigvCgBnveN26iZpJOi_FQ--.56535S5
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXr1rKF48GFyfCw4xtw48Xrb_yoW5XFyDpF
-	1Skws5GFZrAryfXa13CryDK398Ka1vva48Xan7uryrArn0qFZI93y0k3W5tF18Gr4rW34j
-	vryqy34DuF1qy3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U17K3UUUUU=
+X-CM-TRANSID: PigvCgBnveN26iZpJOi_FQ--.56535S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7uw43JF4rJF17GF47Ww1xKrg_yoW8Gr4xpa
+	1Uurn8Cw1DGFs3Jw13uF1DCFZ8tr4ftFy3Xrn3Kw15tr45GryfJrW5Kr15W348GrWvga1D
+	ArsrCr4rCr1DArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRBOJwUUUUU=
 X-Originating-IP: [240c:c983:3:1d94:eae4:9ca1:49b8:c024]
-X-CM-SenderInfo: 5vkx4vplzr0qqrwthudrp/1tbioBMSjmkm4WqyYwAAs6
+X-CM-SenderInfo: 5vkx4vplzr0qqrwthudrp/xtbBzxUSjmkm5A563gAAsH
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_035635_828431_EF2101A6 
-X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-CacheID: sfid-20251126_035631_487796_7FEAEC2E 
+X-CRM114-Status: UNSURE (   6.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,138 +92,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Include the Thermal Sensor Unit (TSU) node in the SpacemiT K1 dtsi
-with definitions for registers, clocks, and interrupts.
-Additionally, configure thermal zones for the soc, package, gpu, and
-clusters to enable temperature monitoring via the thermal framework.
+Introduce support for the on-die thermal sensor unit (TSU)
+found on the SpacemiT K1 SoC.
 
-Signed-off-by: Shuwei Wu <shuweiwoo@163.com>
+Include the device tree binding documentation in YAML format, the
+thermal sensor driver implementation, and the device tree changes to
+enable the sensor on K1 SoC.
+
+Test logs:
+Hardware: OrangePi-RV2 integrates SpacemiT K1 SoC
+Kernel: 6.18.0-rc4 mainline
+
+Verified that all five thermal sensors are registered and reporting
+valid temperatures.
+
+$ cat /sys/class/thermal/thermal_zone*/type
+soc-thermal
+package-thermal
+gpu-thermal
+cluster0-thermal
+cluster1-thermal
+
+$ cat /sys/class/thermal/thermal_zone3/temp
+28000
+
+Dynamic threshold and interrupt tests passed via sysfs trip_point
+manipulation.
+
 ---
- arch/riscv/boot/dts/spacemit/k1.dtsi | 101 +++++++++++++++++++++++++++++++++++
- 1 file changed, 101 insertions(+)
+Shuwei Wu (3):
+      dt-bindings: thermal: Add SpacemiT K1 thermal sensor
+      thermal: K1: Add driver for K1 SoC thermal sensor
+      riscv: dts: spacemit: Add thermal sensor for K1 SoC
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 6cdcd80a7c83b3f62500f226e8ed16787ded5016..67596c230396056eea4b2cfa9c6d7f04627c0209 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -338,6 +338,96 @@ osc_32k: clock-32k {
- 		};
- 	};
- 
-+	thermal-zones {
-+		soc-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&thermal 0>;
-+
-+			trips {
-+				soc-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		package-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&thermal 1>;
-+
-+			trips {
-+				package-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		gpu-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&thermal 2>;
-+
-+			trips {
-+				gpu-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				gpu-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		cluster0-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&thermal 3>;
-+
-+			trips {
-+				cluster0-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				cluster0-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		cluster1-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&thermal 4>;
-+
-+			trips {
-+				cluster1-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				cluster1-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -369,6 +459,17 @@ syscon_apbc: system-controller@d4015000 {
- 			#reset-cells = <1>;
- 		};
- 
-+		thermal: thermal@d4018000 {
-+			compatible = "spacemit,k1-thermal";
-+			reg = <0x0 0xd4018000 0x0 0x100>;
-+			clocks = <&syscon_apbc CLK_TSEN>,
-+				 <&syscon_apbc CLK_TSEN_BUS>;
-+			clock-names = "core", "bus";
-+			interrupts = <61>;
-+			resets = <&syscon_apbc RESET_TSEN>;
-+			#thermal-sensor-cells = <1>;
-+		};
-+
- 		gpio: gpio@d4019000 {
- 			compatible = "spacemit,k1-gpio";
- 			reg = <0x0 0xd4019000 0x0 0x100>;
+ .../bindings/thermal/spacemit,k1-thermal.yaml      |  76 +++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi               | 101 +++++++
+ drivers/thermal/Kconfig                            |  14 +
+ drivers/thermal/Makefile                           |   1 +
+ drivers/thermal/k1_thermal.c                       | 307 +++++++++++++++++++++
+ 5 files changed, 499 insertions(+)
+---
+base-commit: f5f2e20b1cbc5f9ea20b372d15967b24921ede19
+change-id: 20251124-b4-k1-thermal-eca906e6dd7a
 
+Best regards,
 -- 
-2.51.0
+Shuwei Wu <shuweiwoo@163.com>
 
 
 _______________________________________________
