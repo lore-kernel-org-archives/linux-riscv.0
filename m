@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A631D10F22
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 11:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 310B3D10F22
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 11:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VUyPzrR1+YB2AlOFp3G+pO/B6G5d/hdVl86RxX6YqLQ=; b=HJ17QFcbr5wpbf
-	p85sf8/dbMWMjRutVQt5tGIN7VRPTiC0/M+ksMNw1GggQ/rII77/M/yB2gLdIw+tZQV3obTxav4A0
-	//TEsP3HgYxBaweOPbeIIcdd0RmF4vyDw9IFJut2bkeh0BGzJ6x1QoAzF8RlredDiR60XPbHGqSVD
-	E8hJbK+6g8PbT1Zu8OkDoFerxW32JbVf9B/jKLV9C2TrioVQktn9ivwbM1H6oELL6mlXneqhM8Mty
-	c7ioAgi6TBbeIvSk1jLH5IIaXTQyDCFYsCrxgkmu7e+a03IBkVeXKwu1/MxsAHn4f0CZzC8RCe0Nq
-	8I2dLaw/woGO/f0aNrgg==;
+	List-Owner; bh=tF8MvxD0kS7J0WWPLbk4KBK8KPJQHwKrT6CyKFV/vKs=; b=tceGSAE8Mw+k5K
+	GUqNEpkrId1cKdaN7ZSS496Q9b8NMO+Znbm2yNMkyAG3DiS2vFji1E1ce2GuLT6MogJjDw41z5R3n
+	Q4Lth1A8xFsdNNSXQktQZKjZn8a7aXr8uIs9qCwMWLBwTjv6nidbklZ4ou3gJOXSCMYUsNFq2Lp3Y
+	Wggd34tC+WJjEYmRQX91+SF9cn++4gZXbyN2QS/uGlQfwUUQ+kc8WFVTx9RA1/e7s01y3BnJlDFWl
+	gq9JAKpfMl9trk2BPJl6pJGVW0ERnOrE7L2TPrigsFq6yuA9xGXUXkNeCXeDnVT4Cg684G1Aq+ZoH
+	5P85/l3AOKZR2o2Q4Qqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vODPL-0000000Et94-154L;
-	Wed, 26 Nov 2025 11:09:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vODPI-0000000Et7v-0qOY
+	id 1vOE8R-0000000EwPw-2G9l;
+	Wed, 26 Nov 2025 11:56:35 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOE8M-0000000EwOa-4AHo
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 11:09:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 47C0D168F;
-	Wed, 26 Nov 2025 03:09:45 -0800 (PST)
-Received: from [10.1.33.153] (unknown [10.1.33.153])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DF653F66E;
-	Wed, 26 Nov 2025 03:09:50 -0800 (PST)
-Message-ID: <02e3b3bd-ae6a-4db4-b4a1-8cbc1bc0a1c8@arm.com>
-Date: Wed, 26 Nov 2025 11:09:48 +0000
+	Wed, 26 Nov 2025 11:56:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Date:Subject:MIME-Version:Content-Type:
+	Message-Id:To; bh=FsFZAa7mJuleKXtIm8+lL9WVy7it1dzq5lspUZWFQw0=;
+	b=kzd2/VaW+u698FJU+P+tgqVd5Kr7/xilVyCY5jZAyHARzsGT4d3XZ6dTc88vHp
+	eFJtjLlHaSWorpjUBZiUq6xiM7EwJquS7s4PJONFiFFHYU7Qj9ni6FtDGC9QJud9
+	smm43nQM5PMyZ5gy01CxVWptX3ik7je4WXCQIBzQLkUmI=
+Received: from [192.168.10.1] (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgBnveN26iZpJOi_FQ--.56535S3;
+	Wed, 26 Nov 2025 19:54:34 +0800 (CST)
+From: Shuwei Wu <shuweiwoo@163.com>
+Date: Thu, 27 Nov 2025 02:44:07 +0800
+Subject: [PATCH 1/3] dt-bindings: thermal: Add SpacemiT K1 thermal sensor
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
-Content-Language: en-GB
-To: Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
-Cc: devicetree@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>,
- linux-kernel@vger.kernel.org, Mike Rapoport <rppt@kernel.org>,
- Michal Hocko <mhocko@suse.com>, Conor Dooley <conor@kernel.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
- Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
- Vlastimil Babka <vbabka@suse.cz>, "Liam R . Howlett"
- <Liam.Howlett@oracle.com>, Julia Lawall <Julia.Lawall@inria.fr>,
- Nicolas Palix <nicolas.palix@imag.fr>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-References: <20251113014656.2605447-1-samuel.holland@sifive.com>
- <20251113014656.2605447-7-samuel.holland@sifive.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20251113014656.2605447-7-samuel.holland@sifive.com>
+Message-Id: <20251127-b4-k1-thermal-v1-1-f32ce47b1aba@163.com>
+References: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
+In-Reply-To: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Shuwei Wu <shuweiwoo@163.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764182662; l=2456;
+ i=shuweiwoo@163.com; s=20251125; h=from:subject:message-id;
+ bh=FL5o5y1/Twpcu8Mqfn+GwJ0PqQ90brtbtK8QQ2rfmuE=;
+ b=tC7J82dJezjNQsCZQVsA75NIKy+KngltMFnBrvPel/zXVL0GCVi2i2dA4Daa06GoQkm6eJttX
+ akAhUWCgCAJBVNhHzpxN+3UfQL6nXbuixZUYFpv1EqfyK8qO+PyFiCX
+X-Developer-Key: i=shuweiwoo@163.com; a=ed25519;
+ pk=qZs6i2UZnXkmjUrwO5HJxcfpCvgSNrR4dcU5cjtfTSk=
+X-CM-TRANSID: PigvCgBnveN26iZpJOi_FQ--.56535S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Ar17Gr4kuF1kZFW8Gr4kWFg_yoW8tw4rpF
+	4fGrn8Grs7uF17Xw4SgFykAan8Kw40yFWUXrn7Ww15trn0gFySqr9Fkr1UZa48CryjgayU
+	ZF4UurW2k3WDA3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRV6wiUUUUU=
+X-Originating-IP: [240c:c983:3:1d94:eae4:9ca1:49b8:c024]
+X-CM-SenderInfo: 5vkx4vplzr0qqrwthudrp/1tbiNhcSjmkm3gD8mAAAsI
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_030956_324658_087AD366 
-X-CRM114-Status: GOOD (  43.88  )
+X-CRM114-CacheID: sfid-20251126_035631_487880_1C20F860 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,257 +88,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/11/2025 01:45, Samuel Holland wrote:
-> Some platforms need to fix up the values when reading or writing page
-> tables. Because of this, the accessors must always be used; it is not
-> valid to simply dereference a pXX_t pointer.
-> 
-> Fix all of the instances of this pattern in generic code, mostly by
-> applying the below coccinelle semantic patch, repeated for each page
-> table level. Some additional fixes were applied manually, mostly to
-> macros where type information is unavailable.
-> 
-> In a few places, a `pte_t *` or `pmd_t *` is actually a pointer to a PTE
-> or PMDE value stored on the stack, not a pointer to a page table. In
-> those cases, it is not appropriate to use the accessors, because the
-> value is not globally visible, and any transformation from pXXp_get()
-> has already been applied. Those places are marked by naming the pointer
-> `ptentp` or `pmdvalp`, as opposed to `ptep` or `pmdp`.
-> 
-> @@
-> pte_t *P;
-> expression E;
-> expression I;
-> @@
-> - P[I] = E
-> + set_pte(P + I, E)
-> 
-> @@
-> pte_t *P;
-> expression E;
-> @@
-> (
-> - WRITE_ONCE(*P, E)
-> + set_pte(P, E)
-> |
-> - *P = E
-> + set_pte(P, E)
-> )
+Document the SpacemiT K1 Thermal Sensor Unit (TSU), which supports
+monitoring temperatures for five zones: soc, package, gpu, cluster0,
+and cluster1.
 
-There should absolutely never be any instances of core code directly setting an
-entry at any level. This *must* always go via the arch code helpers. Did you
-find any instances of this? If so, I would consider these bugs and suggest
-sending as a separate bugfix patch. Bad things could happen on arm64 because we
-may need to break a contiguous mapping, which would not happen if the value is
-set directly.
+Signed-off-by: Shuwei Wu <shuweiwoo@163.com>
+---
+ .../bindings/thermal/spacemit,k1-thermal.yaml      | 76 ++++++++++++++++++++++
+ 1 file changed, 76 insertions(+)
 
-> 
-> @@
-> pte_t *P;
-> expression I;
-> @@
-> (
->   &P[I]
-> |
-> - READ_ONCE(P[I])
-> + ptep_get(P + I)
-> |
-> - P[I]
-> + ptep_get(P + I)
-> )
-> 
-> @@
-> pte_t *P;
-> @@
-> (
-> - READ_ONCE(*P)
-> + ptep_get(P)
-> |
-> - *P
-> + ptep_get(P)
-> )
+diff --git a/Documentation/devicetree/bindings/thermal/spacemit,k1-thermal.yaml b/Documentation/devicetree/bindings/thermal/spacemit,k1-thermal.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..6057161b4b00c8f869d16199a1cc0fc964fed998
+--- /dev/null
++++ b/Documentation/devicetree/bindings/thermal/spacemit,k1-thermal.yaml
+@@ -0,0 +1,76 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/thermal/spacemit,k1-thermal.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K1 Thermal Sensor Unit
++
++description:
++  The SpacemiT K1 Thermal Sensor Unit (TSU) monitors the temperature of
++  the SoC using multiple internal sensors (e.g., soc, package, gpu, clusters).
++
++maintainers:
++  - Shuwei Wu <shuweiwoo@163.com>
++
++$ref: thermal-sensor.yaml#
++
++properties:
++  compatible:
++    const: spacemit,k1-thermal
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Core clock for thermal sensor
++      - description: Bus clock for thermal sensor
++
++  clock-names:
++    items:
++      - const: core
++      - const: bus
++
++  interrupts:
++    maxItems: 1
++
++  resets:
++    items:
++      - description: Reset for the thermal sensor
++
++  "#thermal-sensor-cells":
++    const: 1
++    description:
++      The first cell indicates the sensor ID.
++      0 = soc
++      1 = package
++      2 = gpu
++      3 = cluster0
++      4 = cluster1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - resets
++  - "#thermal-sensor-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/spacemit,k1-syscon.h>
++
++    thermal@d4018000 {
++        compatible = "spacemit,k1-thermal";
++        reg = <0xd4018000 0x100>;
++        clocks = <&syscon_apbc CLK_TSEN>,
++                 <&syscon_apbc CLK_TSEN_BUS>;
++        clock-names = "core", "bus";
++        interrupts = <61>;
++        resets = <&syscon_apbc RESET_TSEN>;
++        #thermal-sensor-cells = <1>;
++    };
 
-For reading the *PTE*, conversion over to ptep_get() should have already been
-done (I did this a few years back when implementing support for arm64 contiguous
-mappings). If you find any cases where direct dereference or READ_ONCE() is
-being done in generic code for PTE, then that's a bug and should also be sent as
-a separate patch.
-
-FYI, my experience was that Coccinelle didn't find everything when I was
-converting to ptep_get() - although it could have been that my Cochinelle skills
-were not up to scratch! I ended up using an additional method where I did a
-find/replace to convert "pte_t *" to "ptep_handle_t" and declared pte_handle_t
-as a void* which causes a compiler error on dereference. Then in a few key
-places I did a manual case from pte_handle_t to (pte_t *) and compiled allyesconfig.
-
-I'm assuming the above Cocchinelle template was also used for pmd_t, pud_t,
-p4d_t and pgd_t?
-
-> 
-> Additionally, the following semantic patch was used to convert PMD and
-> PUD references inside struct vm_fault:
-> 
-> @@
-> struct vm_fault vmf;
-> @@
-> (
-> - *vmf.pmd
-> + pmdp_get(vmf.pmd)
-> |
-> - *vmf.pud
-> + pudp_get(vmf.pud)
-> )
-> 
-> @@
-> struct vm_fault *vmf;
-> @@
-> (
-> - *vmf->pmd
-> + pmdp_get(vmf->pmd)
-> |
-> - *vmf->pud
-> + pudp_get(vmf->pud)
-> )
-> 
-> 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
-> This commit covers some of the same changes as an existing series from
-> Anshuman Khandual[1]. Unlike that series, this commit is a purely
-> mechanical conversion to demonstrate the RISC-V changes, so it does not
-> insert local variables to avoid redundant calls to the accessors. A
-> manual conversion like in that series could improve performance.
-> 
-> [1]: https://lore.kernel.org/linux-mm/20240917073117.1531207-1-anshuman.khandual@arm.com/
-
-Hi,
-
-I've just come across this patch and wanted to mention that we could also
-benefit from this improved absraction for some features we are looking at for
-arm64. As you mention, Anshuman had a go but hit some roadblocks.
-
-The main issue is that the compiler was unable to optimize away the READ_ONCE()s
-for the case where certain levels of the pgtable are folded. But it can optimize
-the plain C dereferences. There were complaints the the generated code for arm
-(32) and powerpc was significantly impacted due to having many more (redundant)
-loads.
-
-Were you able to solve this problem?
-
-I think it stems from there really being 2 types of access; READ_ONCE() and
-plain C dereference. The existing READ_ONCE() accesses require the
-single-copy-atomic guarantees but the plain c dereferences don't actually need
-that; they are usually just checking "is the value the same as a value I
-previously read?", "is the pXd none?", etc. so it doesn't matter if they get torn.
-
-It would be nice to have only a single flavour of accessor, but in that case it
-obviously needs to be the strongest (READ_ONCE()). Perhaps we should settle for
-2 flavours, and the compiler should then be able to continue to optimize out the
-c dereferences. There are already 2 flavours for pte (which never gets folded);
-ptep_get() and ptep_get_lockless(), but the semantics don't quite match.
-
-Perhaps:
-
-pXdp_get() -> READ_ONCE()
-pXdp_get_weak() -> c dereference?
-
-or pXdp_deref()? I'm not great with names...
-
-
-The other problem is that there is nothing preventing new code from introducing
-new direct dereferences or READ_ONCE()s. One possible solution to this is to use
-an opaque handle type (similar to what I described above with pte_handle_t). But
-that introduces a lot more code churn. I think that's a nice-to-have/incremental
-improvement that could be done later.
-
-> 
-> Changes in v3:
->  - Rebased on top of torvalds/master (v6.18-rc5+)
-> 
-> Changes in v2:
->  - New patch for v2
-> 
->  fs/dax.c                |  4 +-
->  fs/proc/task_mmu.c      | 27 +++++++------
->  fs/userfaultfd.c        |  6 +--
->  include/linux/huge_mm.h |  8 ++--
->  include/linux/mm.h      | 14 +++----
->  include/linux/pgtable.h | 42 +++++++++----------
->  mm/damon/vaddr.c        |  2 +-
->  mm/debug_vm_pgtable.c   |  4 +-
->  mm/filemap.c            |  6 +--
->  mm/gup.c                | 24 +++++------
->  mm/huge_memory.c        | 90 ++++++++++++++++++++---------------------
->  mm/hugetlb.c            | 10 ++---
->  mm/hugetlb_vmemmap.c    |  4 +-
->  mm/kasan/init.c         | 39 +++++++++---------
->  mm/kasan/shadow.c       | 12 +++---
->  mm/khugepaged.c         |  4 +-
->  mm/ksm.c                |  2 +-
->  mm/madvise.c            |  8 ++--
->  mm/memory-failure.c     | 14 +++----
->  mm/memory.c             | 76 +++++++++++++++++-----------------
->  mm/mempolicy.c          |  4 +-
->  mm/migrate.c            |  4 +-
->  mm/migrate_device.c     | 10 ++---
->  mm/mlock.c              |  6 +--
->  mm/mprotect.c           |  2 +-
->  mm/mremap.c             | 30 +++++++-------
->  mm/page_table_check.c   |  4 +-
->  mm/page_vma_mapped.c    |  6 +--
->  mm/pagewalk.c           | 14 +++----
->  mm/percpu.c             |  8 ++--
->  mm/pgalloc-track.h      |  8 ++--
->  mm/pgtable-generic.c    | 23 ++++++-----
->  mm/rmap.c               |  8 ++--
->  mm/sparse-vmemmap.c     |  8 ++--
->  mm/userfaultfd.c        | 10 ++---
->  mm/vmalloc.c            | 49 +++++++++++-----------
->  mm/vmscan.c             | 14 +++----
->  37 files changed, 304 insertions(+), 300 deletions(-)
-> 
-
-[...]
-
-> --- a/mm/ksm.c
-> +++ b/mm/ksm.c
-> @@ -1322,7 +1322,7 @@ static int write_protect_page(struct vm_area_struct *vma, struct folio *folio,
->  
->  		set_pte_at(mm, pvmw.address, pvmw.pte, entry);
->  	}
-> -	*orig_pte = entry;
-> +	set_pte(orig_pte, entry);
-
-This is incorrect. orig_pte points to a location on stack. Please revert.
-
->  	err = 0;
->  
->  out_unlock:
-
-[...]
-
-> @@ -1116,7 +1116,7 @@ static int guard_install_set_pte(unsigned long addr, unsigned long next,
->  	unsigned long *nr_pages = (unsigned long *)walk->private;
->  
->  	/* Simply install a PTE marker, this causes segfault on access. */
-> -	*ptep = make_pte_marker(PTE_MARKER_GUARD);
-> +	set_pte(ptep, make_pte_marker(PTE_MARKER_GUARD));
-
-I tried "fixing" this before. But it's correct as is. ptep is pointing to a
-value on the stack. See [2].
-
-https://lore.kernel.org/linux-mm/2308a4d0-273e-4cf8-9c9f-3008c42b6d18@arm.com/
-
->  	(*nr_pages)++;
-
-[...]
-
-It's all very difficult to review at the moment since it is so big. Any chance
-of at least splitting by level in future versions?
-
-Thanks,
-Ryan
-
+-- 
+2.51.0
 
 
 _______________________________________________
