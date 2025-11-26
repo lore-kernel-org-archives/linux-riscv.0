@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21927D10367
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B3D2D10379
 	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 04:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VVvVbUpy1j1UFDq7NuMSOxhvV0j/vK0S0N3kSIjmTgs=; b=cj3i9yg8HvqiJj
-	EFpNV9SPQwmb6JkGBJ1INafMMIt8QyCpD6Be2tjDzZQmCj4LKnheoUhXECPXFsXzhpkbKiZe5MINx
-	it++1wKuQVZ+sLYOa/uaNvtXKKu8w94H8tYiV1HNl2frFRnc3DI5J6rMsoHieotsT1T+mX3/eBi4D
-	O+Em5BiZcU/NmS3EDBe+MzuYfcHn8HknnCd0XsoLIurnqrQWVATbN2zrV8AEZCOLzs0cz0lZ9zF0x
-	g59BteKiP+0l2A4bAGnKYtuXP5pdyFIxZPuyR3v/v4TMHDJ5y0gYdk7CnWH9i04Qe85YJqtRPfnBp
-	0T0/kY+hudckkhAozVfg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=00GqEiUPnFr+43cldvdGtPqEoyts6/24xrUyG0kXiMY=; b=WizboT+/RwJyju
+	ihpfq0oSlD5ujEh1gGPQFjRSnPDnQZy8rInSMOXgvo5gIlwj/KNuhvoBTsm2/aEcuxDJWiloXYE2x
+	rQDIJlEtoXJM37e9P4hce7CfApiZV7PlPgabi0iEtU5fcry4bzxmjKQv4MdX+yBTOCFMeNoF2ywsu
+	fG6tzectngL3kEYp7kX3cJe1sSX7Gbv+fLSRC+fbBmT/ZY9uPPrcr55cS5+QpnzLZ0uYmYKHkJtj3
+	4Y4OgyPXMHg6XKdfHoMExp1skCELyXF8NijDQABZyzTDesMAFfDPRYNp0IDYR7MEWg03qlGbmQf7J
+	MSL+ZpgRn4C5vjTQs6ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO7Wf-0000000EMOh-1YDx;
-	Wed, 26 Nov 2025 04:53:09 +0000
+	id 1vO7Wj-0000000EMR6-1GJb;
+	Wed, 26 Nov 2025 04:53:13 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO7Wa-0000000EMN5-3HJL
+	id 1vO7Wf-0000000EMOJ-1KUS
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 04:53:08 +0000
+	Wed, 26 Nov 2025 04:53:10 +0000
 Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.155])
-	by APP-05 (Coremail) with SMTP id zQCowADn4mOUhyZpi2gbAg--.38374S2;
-	Wed, 26 Nov 2025 12:52:38 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowADn4mOUhyZpi2gbAg--.38374S7;
+	Wed, 26 Nov 2025 12:52:55 +0800 (CST)
 From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -51,33 +51,36 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Jonas Karlman <jonas@kwiboo.se>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH RESEND v3 0/9] Verisilicon DC8200 driver (and adaption to TH1520)
-Date: Wed, 26 Nov 2025 12:52:24 +0800
-Message-ID: <20251126045233.218286-1-zhengxingda@iscas.ac.cn>
+Subject: [PATCH RESEND v3 5/9] drm/bridge: add a driver for T-Head TH1520 HDMI controller
+Date: Wed, 26 Nov 2025 12:52:29 +0800
+Message-ID: <20251126045233.218286-6-zhengxingda@iscas.ac.cn>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20251126045233.218286-1-zhengxingda@iscas.ac.cn>
+References: <20251126045233.218286-1-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowADn4mOUhyZpi2gbAg--.38374S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Aw18Cw1UArykGr13tw1UJrb_yoW7Zr13pF
-	47AFWFyFyDAa1aqrZ7tF10gay3Aas7JFWfWr47XwnxZ39FyFy5Zr98Ary5JFWDJr17AryI
-	vF4vkr42kr12yF7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
-	wI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjxUv5l8UUUUU
+X-CM-TRANSID: zQCowADn4mOUhyZpi2gbAg--.38374S7
+X-Coremail-Antispam: 1UD129KBjvJXoW3XF13tFy5KFW3trWUtrWxXrb_yoWfXryxpa
+	y7AayYkrWkXF1aga1fAr48ZrZaya9FqFy5t3y2qwsavw1ftF4rXryDJrWrXFWrArsrZw13
+	tFn8uFWYgF17J3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmq14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE
+	3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2I
+	x0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8
+	JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2
+	ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Y
+	z7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zV
+	AF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1l
+	IxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r
+	1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIY
+	CTnIWIevJa73UjIFyTuYvjTR_nYFDUUUU
 X-Originating-IP: [112.94.101.155]
 X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_205305_192047_A1137E72 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20251125_205309_914075_0C1A3E02 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,7 +92,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org, Yao Zi <ziyao@disroot.org>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -97,103 +100,253 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Icenowy Zheng <uwu@icenowy.me>
 
-This patchset tries to add a driver for Verisilicon DC8200 driver, and
-demonstrates the driver on T-Head TH1520 with its HDMI output.
+T-Head TH1520 SoC contains a Synopsys DesignWare HDMI controller (paired
+with DesignWare HDMI TX PHY Gen2) that takes the "DP" output from the
+display controller.
 
-This display controller IP is used on StarFive JH7110 too, but as the
-HDMI controller used there isn't as common as the DesignWare one, I
-choose to use TH1520 in this patchset.
+Add a driver for this controller utilizing the common DesignWare HDMI
+code in the kernel.
 
-The DC driver is written with other DC-series (mainly DC8000, which is
-known to be used on Eswin EIC7700 SoC) display controllers in mind, and
-uses the identification registers available on all Vivante branded IPs.
-A known exception is DCNano display controller, which is unlikely to be
-supported by this driver because of totally different register map and
-no known identification registers. (P.S. the in-tree loongson DRM driver
-seems to be for some DCNano instances based on the register map.)
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+---
+No changes in v3.
 
-The HDMI controller seems to come with some common PHY by Synopsys, the
-DesignWare HDMI TX 2.0 PHY. By searching a few register names from the
-BSP driver of that PHY, that PHY seems to be used by a in-tree dw-hdmi
-glue, rcar_dw_hdmi -- an updated downstream version of rcar_dw_hdmi
-contains all 6 registers set here in the th1520-dw-hdmi driver. Some
-more suprising thing is that RK3288 uses the same PHY too, but the
-in-tree dw_hdmi-rockchip driver writes the configuration data array in a
-weird way to reuse the HDMI 3D TX PHY configuring function. It might be
-valuable to add common configuring function and configuration data
-definition for this HDMI 2.0 PHY too, but the current driver in this
-patchset simply duplicated most configuration logic from rcar_dw_hdmi
-driver (but with 3 extra configuration registers configured).
+Changes in v2:
+- Created a new function to set PHY parameters and refactored the
+  control flow of the configure_phy callback.
 
-Resent for switching the sending email to ISCAS one -- the password
-keeping problem is solved thanks to git-credential-libsecret .
-
-Icenowy Zheng (9):
-  dt-bindings: vendor-prefixes: add verisilicon
-  dt-bindings: display: add verisilicon,dc
-  drm: verisilicon: add a driver for Verisilicon display controllers
-  dt-bindings: display/bridge: add binding for TH1520 HDMI controller
-  drm/bridge: add a driver for T-Head TH1520 HDMI controller
-  riscv: dts: thead: add DPU and HDMI device tree nodes
-  riscv: dts: thead: lichee-pi-4a: enable HDMI
-  MAINTAINERS: assign myself as maintainer for verisilicon DC driver
-  mailmap: map all Icenowy Zheng's mail addresses
-
- .mailmap                                      |   4 +
- .../display/bridge/thead,th1520-dw-hdmi.yaml  | 120 +++++++
- .../bindings/display/verisilicon,dc.yaml      | 146 ++++++++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- MAINTAINERS                                   |   8 +
- .../boot/dts/thead/th1520-lichee-pi-4a.dts    |  25 ++
- arch/riscv/boot/dts/thead/th1520.dtsi         |  70 ++++
- drivers/gpu/drm/Kconfig                       |   2 +
- drivers/gpu/drm/Makefile                      |   1 +
- drivers/gpu/drm/bridge/Kconfig                |  10 +
- drivers/gpu/drm/bridge/Makefile               |   1 +
- drivers/gpu/drm/bridge/th1520-dw-hdmi.c       | 173 +++++++++
- drivers/gpu/drm/verisilicon/Kconfig           |  15 +
- drivers/gpu/drm/verisilicon/Makefile          |   5 +
- drivers/gpu/drm/verisilicon/vs_bridge.c       | 330 ++++++++++++++++++
- drivers/gpu/drm/verisilicon/vs_bridge.h       |  40 +++
- drivers/gpu/drm/verisilicon/vs_bridge_regs.h  |  54 +++
- drivers/gpu/drm/verisilicon/vs_crtc.c         | 217 ++++++++++++
- drivers/gpu/drm/verisilicon/vs_crtc.h         |  29 ++
- drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |  60 ++++
- drivers/gpu/drm/verisilicon/vs_dc.c           | 205 +++++++++++
- drivers/gpu/drm/verisilicon/vs_dc.h           |  39 +++
- drivers/gpu/drm/verisilicon/vs_dc_top_regs.h  |  27 ++
- drivers/gpu/drm/verisilicon/vs_drm.c          | 177 ++++++++++
- drivers/gpu/drm/verisilicon/vs_drm.h          |  29 ++
- drivers/gpu/drm/verisilicon/vs_hwdb.c         | 150 ++++++++
- drivers/gpu/drm/verisilicon/vs_hwdb.h         |  29 ++
- drivers/gpu/drm/verisilicon/vs_plane.c        | 102 ++++++
- drivers/gpu/drm/verisilicon/vs_plane.h        |  68 ++++
- .../gpu/drm/verisilicon/vs_primary_plane.c    | 157 +++++++++
- .../drm/verisilicon/vs_primary_plane_regs.h   |  53 +++
- 31 files changed, 2348 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
- create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+ MAINTAINERS                             |   1 +
+ drivers/gpu/drm/bridge/Kconfig          |  10 ++
+ drivers/gpu/drm/bridge/Makefile         |   1 +
+ drivers/gpu/drm/bridge/th1520-dw-hdmi.c | 173 ++++++++++++++++++++++++
+ 4 files changed, 185 insertions(+)
  create mode 100644 drivers/gpu/drm/bridge/th1520-dw-hdmi.c
- create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
- create mode 100644 drivers/gpu/drm/verisilicon/Makefile
- create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge_regs.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc_regs.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_top_regs.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 46126ce2f968e..32715100a1e10 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22175,6 +22175,7 @@ F:	Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+ F:	arch/riscv/boot/dts/thead/
+ F:	drivers/clk/thead/clk-th1520-ap.c
+ F:	drivers/firmware/thead,th1520-aon.c
++F:	drivers/gpu/drm/bridge/th1520-dw-hdmi.c
+ F:	drivers/mailbox/mailbox-th1520.c
+ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+ F:	drivers/pinctrl/pinctrl-th1520.c
+diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+index a250afd8d6622..8e19f5fb9ad7c 100644
+--- a/drivers/gpu/drm/bridge/Kconfig
++++ b/drivers/gpu/drm/bridge/Kconfig
+@@ -335,6 +335,16 @@ config DRM_THINE_THC63LVD1024
+ 	help
+ 	  Thine THC63LVD1024 LVDS/parallel converter driver.
+ 
++config DRM_THEAD_TH1520_DW_HDMI
++	tristate "T-Head TH1520 DesignWare HDMI bridge"
++	depends on OF
++	depends on COMMON_CLK
++	depends on ARCH_THEAD || COMPILE_TEST
++	select DRM_DW_HDMI
++	help
++	  Choose this to enable support for the internal HDMI bridge found
++	  on the T-Head TH1520 SoC.
++
+ config DRM_TOSHIBA_TC358762
+ 	tristate "TC358762 DSI/DPI bridge"
+ 	depends on OF
+diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
+index c7dc03182e592..085b5db45d6fd 100644
+--- a/drivers/gpu/drm/bridge/Makefile
++++ b/drivers/gpu/drm/bridge/Makefile
+@@ -28,6 +28,7 @@ obj-$(CONFIG_DRM_SII902X) += sii902x.o
+ obj-$(CONFIG_DRM_SII9234) += sii9234.o
+ obj-$(CONFIG_DRM_SIMPLE_BRIDGE) += simple-bridge.o
+ obj-$(CONFIG_DRM_SOLOMON_SSD2825) += ssd2825.o
++obj-$(CONFIG_DRM_THEAD_TH1520_DW_HDMI) += th1520-dw-hdmi.o
+ obj-$(CONFIG_DRM_THINE_THC63LVD1024) += thc63lvd1024.o
+ obj-$(CONFIG_DRM_TOSHIBA_TC358762) += tc358762.o
+ obj-$(CONFIG_DRM_TOSHIBA_TC358764) += tc358764.o
+diff --git a/drivers/gpu/drm/bridge/th1520-dw-hdmi.c b/drivers/gpu/drm/bridge/th1520-dw-hdmi.c
+new file mode 100644
+index 0000000000000..389eead5f1c45
+--- /dev/null
++++ b/drivers/gpu/drm/bridge/th1520-dw-hdmi.c
+@@ -0,0 +1,173 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
++ *
++ * Based on rcar_dw_hdmi.c, which is:
++ *   Copyright (C) 2016 Renesas Electronics Corporation
++ * Based on imx8mp-hdmi-tx.c, which is:
++ *   Copyright (C) 2022 Pengutronix, Lucas Stach <kernel@pengutronix.de>
++ */
++
++#include <linux/clk.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/reset.h>
++
++#include <drm/bridge/dw_hdmi.h>
++#include <drm/drm_modes.h>
++
++#define TH1520_HDMI_PHY_OPMODE_PLLCFG	0x06	/* Mode of operation and PLL dividers */
++#define TH1520_HDMI_PHY_CKSYMTXCTRL	0x09	/* Clock Symbol and Transmitter Control Register */
++#define TH1520_HDMI_PHY_VLEVCTRL	0x0e	/* Voltage Level Control Register */
++#define TH1520_HDMI_PHY_PLLCURRGMPCTRL	0x10	/* PLL current and Gmp (conductance) */
++#define TH1520_HDMI_PHY_PLLDIVCTRL	0x11	/* PLL dividers */
++#define TH1520_HDMI_PHY_TXTERM		0x19	/* Transmission Termination Register */
++
++struct th1520_hdmi_phy_params {
++	unsigned long mpixelclock;
++	u16 opmode_pllcfg;
++	u16 pllcurrgmpctrl;
++	u16 plldivctrl;
++	u16 cksymtxctrl;
++	u16 vlevctrl;
++	u16 txterm;
++};
++
++static const struct th1520_hdmi_phy_params th1520_hdmi_phy_params[] = {
++	{ 35500000,  0x0003, 0x0283, 0x0628, 0x8088, 0x01a0, 0x0007 },
++	{ 44900000,  0x0003, 0x0285, 0x0228, 0x8088, 0x01a0, 0x0007 },
++	{ 71000000,  0x0002, 0x1183, 0x0614, 0x8088, 0x01a0, 0x0007 },
++	{ 90000000,  0x0002, 0x1142, 0x0214, 0x8088, 0x01a0, 0x0007 },
++	{ 121750000, 0x0001, 0x20c0, 0x060a, 0x8088, 0x01a0, 0x0007 },
++	{ 165000000, 0x0001, 0x2080, 0x020a, 0x8088, 0x01a0, 0x0007 },
++	{ 198000000, 0x0000, 0x3040, 0x0605, 0x83c8, 0x0120, 0x0004 },
++	{ 297000000, 0x0000, 0x3041, 0x0205, 0x81dc, 0x0200, 0x0005 },
++	{ 371250000, 0x0640, 0x3041, 0x0205, 0x80f6, 0x0140, 0x0000 },
++	{ 495000000, 0x0640, 0x3080, 0x0005, 0x80f6, 0x0140, 0x0000 },
++	{ 594000000, 0x0640, 0x3080, 0x0005, 0x80fa, 0x01e0, 0x0004 },
++};
++
++struct th1520_hdmi {
++	struct dw_hdmi_plat_data plat_data;
++	struct dw_hdmi *dw_hdmi;
++	struct clk *pixclk;
++	struct reset_control *mainrst, *prst;
++};
++
++static enum drm_mode_status
++th1520_hdmi_mode_valid(struct dw_hdmi *hdmi, void *data,
++		       const struct drm_display_info *info,
++		       const struct drm_display_mode *mode)
++{
++	/*
++	 * The maximum supported clock frequency is 594 MHz, as shown in the PHY
++	 * parameters table.
++	 */
++	if (mode->clock > 594000)
++		return MODE_CLOCK_HIGH;
++
++	return MODE_OK;
++}
++
++static void th1520_hdmi_phy_set_params(struct dw_hdmi *hdmi,
++				const struct th1520_hdmi_phy_params *params)
++{
++	dw_hdmi_phy_i2c_write(hdmi, params->opmode_pllcfg,
++			      TH1520_HDMI_PHY_OPMODE_PLLCFG);
++	dw_hdmi_phy_i2c_write(hdmi, params->pllcurrgmpctrl,
++			      TH1520_HDMI_PHY_PLLCURRGMPCTRL);
++	dw_hdmi_phy_i2c_write(hdmi, params->plldivctrl,
++			      TH1520_HDMI_PHY_PLLDIVCTRL);
++	dw_hdmi_phy_i2c_write(hdmi, params->vlevctrl,
++			      TH1520_HDMI_PHY_VLEVCTRL);
++	dw_hdmi_phy_i2c_write(hdmi, params->cksymtxctrl,
++			      TH1520_HDMI_PHY_CKSYMTXCTRL);
++	dw_hdmi_phy_i2c_write(hdmi, params->txterm,
++			      TH1520_HDMI_PHY_TXTERM);
++}
++
++static int th1520_hdmi_phy_configure(struct dw_hdmi *hdmi, void *data,
++				     unsigned long mpixelclock)
++{
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(th1520_hdmi_phy_params); i++) {
++		if (mpixelclock <= th1520_hdmi_phy_params[i].mpixelclock) {
++			th1520_hdmi_phy_set_params(hdmi,
++						   &th1520_hdmi_phy_params[i]);
++			return 0;
++		}
++	}
++
++	return -EINVAL;
++}
++
++static int th1520_dw_hdmi_probe(struct platform_device *pdev)
++{
++	struct th1520_hdmi *hdmi;
++	struct dw_hdmi_plat_data *plat_data;
++	struct device *dev = &pdev->dev;
++
++	hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
++	if (!hdmi)
++		return -ENOMEM;
++
++	plat_data = &hdmi->plat_data;
++
++	hdmi->pixclk = devm_clk_get_enabled(dev, "pix");
++	if (IS_ERR(hdmi->pixclk))
++		return dev_err_probe(dev, PTR_ERR(hdmi->pixclk),
++				     "Unable to get pixel clock\n");
++
++	hdmi->mainrst = devm_reset_control_get_exclusive_deasserted(dev, "main");
++	if (IS_ERR(hdmi->mainrst))
++		return dev_err_probe(dev, PTR_ERR(hdmi->mainrst),
++				     "Unable to get main reset\n");
++
++	hdmi->prst = devm_reset_control_get_exclusive_deasserted(dev, "apb");
++	if (IS_ERR(hdmi->prst))
++		return dev_err_probe(dev, PTR_ERR(hdmi->prst),
++				     "Unable to get apb reset\n");
++
++	plat_data->output_port = 1;
++	plat_data->mode_valid = th1520_hdmi_mode_valid;
++	plat_data->configure_phy = th1520_hdmi_phy_configure;
++	plat_data->priv_data = hdmi;
++
++	hdmi->dw_hdmi = dw_hdmi_probe(pdev, plat_data);
++	if (IS_ERR(hdmi))
++		return PTR_ERR(hdmi);
++
++	platform_set_drvdata(pdev, hdmi);
++
++	return 0;
++}
++
++static void th1520_dw_hdmi_remove(struct platform_device *pdev)
++{
++	struct dw_hdmi *hdmi = platform_get_drvdata(pdev);
++
++	dw_hdmi_remove(hdmi);
++}
++
++static const struct of_device_id th1520_dw_hdmi_of_table[] = {
++	{ .compatible = "thead,th1520-dw-hdmi" },
++	{ /* Sentinel */ },
++};
++MODULE_DEVICE_TABLE(of, th1520_dw_hdmi_of_table);
++
++static struct platform_driver th1520_dw_hdmi_platform_driver = {
++	.probe		= th1520_dw_hdmi_probe,
++	.remove		= th1520_dw_hdmi_remove,
++	.driver		= {
++		.name	= "th1520-dw-hdmi",
++		.of_match_table = th1520_dw_hdmi_of_table,
++	},
++};
++
++module_platform_driver(th1520_dw_hdmi_platform_driver);
++
++MODULE_AUTHOR("Icenowy Zheng <uwu@icenowy.me>");
++MODULE_DESCRIPTION("T-Head TH1520 HDMI Encoder Driver");
++MODULE_LICENSE("GPL");
 -- 
 2.52.0
 
