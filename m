@@ -4,103 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257FBD1039B
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 17:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD50D1118B
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 17:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xqqXaW57BCLYj2KkPQil1eMdKJ4kQ6itJ04erQJJmZM=; b=EfZSB3HWnQ5wDb
-	2tAxjA9FZEvtda/htMIOTFk/8W6SFiGV/oSxR+cRqq0IaoF32o53o7hm40NoLUWkPsg7WpAyyacXZ
-	Uc4kggj+JzsTgyy6la8f9KWfeUxQmK/BE3sYGgoFva3UjBlbHX5KK9k4yTqiTv/ACvbF7ERgBz9mQ
-	PHFmCgCItntX9gG9soAraRIo8vUhWaY9V5wVq8OFMufsbV1JMSK6NVnuYvuea54UKApQ/T1UxgWIw
-	V2ohkPWVUbo9HAHUzBztt7piMlgTb+1Q2hEdnm/uOXK5/tmx8wuRlvtlZXDhJgft5+sdOVRzieP4u
-	vGHgoaU0UP2MCkvnDFNg==;
+	List-Owner; bh=sH7rW49V8YHxGtX6/KtpWR/aZU9oYS7/8mbDibxTqJw=; b=slBoMvJeGIAPAW
+	eQKe1uwYz6xaavr5v+GrSzWrwq20xJao6rJvZEIx9jeDU3IE4zwfW9O2QxX/m9TUUaN4rDk0lOe1Z
+	DXRe0y8nHPUBaoVH9CMeDDlu6T2V/2o4aUe1Bc2DjEfL9If+LpOLkjCwnd0Z2tPPeEAUDbVm0VSt1
+	KGlv0u4zoaW3E3jC8UhU2oFBXhuVxwuKg64nIYxbD4LmVGMSvsCZRu8R177AcfNKh8WFOfnaQPKlL
+	U7ONBBDI1DZkUpE8Hs4LfGFRdb/q+s5rjGa6dW/i14q1T3lCFVhsAtY/E+bZF/qb8TDdyNKSVUfY1
+	8vq6hkn/1lK6/yY2Jl0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJJZ-0000000FO6D-0Ait;
-	Wed, 26 Nov 2025 17:28:25 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1vOJnS-0000000FSaA-3NFq;
+	Wed, 26 Nov 2025 17:59:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJJV-0000000FO5l-25NL
+	id 1vOJnP-0000000FSZl-2tvm
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 17:28:24 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b32a3e78bso88885f8f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Nov 2025 09:28:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764178099; x=1764782899; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5iIZajcwOeO3JlEw92TE30lt4StjWSsYhVcOwVzrTLk=;
-        b=PSUw1/6KRX0pRwD02UYR19Jv/brcFTXwaK/qsGg8UrsdG4Gq2s6UgX34TAh4+BIOht
-         lNaJHtjYRws7qZ3s+v/yxqigDNeXpLmk7p9MTKXjbNkY7fvVhMINYHh71DElm40yUOjC
-         SIb8HV/GU0p9unEtjtbTp/QfoJsyytmLLV6gy6gGxvP69pF27HT9qpJpfolX0mOTfIyx
-         4agjFPzsFWoL5X/nwjWKN/WVNrsiMaKUb3ZGrXNKclDAX5h6fAo9278lNpBwA/XLK3yq
-         UpaRt33qgDnbIpssfjZGNkPjY93NHR22V6dl78WwgFhAlwa7DlIkAcvsNiX7IVZJpo5x
-         vYQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764178099; x=1764782899;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=5iIZajcwOeO3JlEw92TE30lt4StjWSsYhVcOwVzrTLk=;
-        b=Xecp0CmjU+gi0N/VTKjYS9rCspzfruvolRc1ap4jXPvBNOF0nahbDpR7Cx6NZXboaT
-         LT/w0NOeV7X0Us7T8uuu/sVNqY61e1WvdtlKBm0pdK2RewhdwRXeaArVAQ73QxvpR09n
-         jAUwoTGMlCq0iHtsVaRKZtrnZDVoYTqqdZzZyLZq+4Jp0XaWaUlx1Km1+X1A4QHks7oA
-         gorGlUYsfjqlAuxZdvwYX4ugGYEsfiw5KyUOdWOrS8sY9PAXQg/m5rHJhPEeARIJ42tN
-         3mQHDmlFsXzaEv+88x41rpdXr2qfj/612VdcRhXoXbnW3PNYuecDyl9v4VmPm0tqvxm1
-         RANQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUJwJsLe+CDq2//eKoLvd0x6rAePUeTNQTAykMMp34tyxBeee+7WJvxTpACtb0XnP15kTmWQJZvIaJLsQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxc7ZagUt0BPPH8rYoGtSFUQPv5y6LYXhWqosM2Aq/TdJMMrL7W
-	m9DgVz2vWjyUsUPI3CssvlJpzW+dlBQU/NNYttkIhr4RIYgJhwA5VuEx
-X-Gm-Gg: ASbGncteqA6dCIhAtAVsNj2M3uEvlSpye3/CI2sTqLKuhpodcPDuAYXmhCn/gmhjaQI
-	M5GxPK6TFD+ERyCmnlE0CXRHUSon2eSdv12jo6d7BX2CcaukcJ8DdYMaKHYo6RW/Le3Zv8ojc2v
-	X2jzEg6j7D+HV4ISCxUwgsR11ML2pYorWJaS1FUtp5AeA2P68jvyGFMQf19tqKa8zqClI8Y3R9k
-	RG27rvvU+YxaOj+1bFUO7XrPdEXywIaEJviIKZJ/C4Gmz3IXahOp71ZKe/4BzYSnuCEAkFeozcZ
-	hvJSkAOW1mzt8hFshtJSr6clJ0WVUxuTefoLlYnarKUU3iBtDe1ApwdNI8BykVqQ5JoVIri1Eb5
-	Wij3jkZ4J8dxOFP5ryRTphFFL2ucKQ+dkhoPk12k78jrTTShJTXogyezwSpHKgo0fJyuLxLXkU6
-	2uBMkBCAzqFsZpWqVuOKRPOvLweV1EHxxG9wdbV/9RGuZKNwIsrJ9NvOw=
-X-Google-Smtp-Source: AGHT+IHkE1xTyUwd1e1nQxaACHjDh3t9YedvuMNt3v7wo3xJTnJ11as69WRfu3TcTpDawcaME3AxHA==
-X-Received: by 2002:a05:6000:2881:b0:429:bc56:cd37 with SMTP id ffacd0b85a97d-42cc1ac9ce9mr21647296f8f.6.1764178099006;
-        Wed, 26 Nov 2025 09:28:19 -0800 (PST)
-Received: from dev-AI-Series.. (bba-86-96-93-57.alshamil.net.ae. [86.96.93.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f34fddsm42423862f8f.14.2025.11.26.09.28.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Nov 2025 09:28:18 -0800 (PST)
-From: "Anton D. Stavinskii" <stavinsky@gmail.com>
-To: inochiama@gmail.com
-Cc: alex@ghiti.fr,
-	alexander.sverdlin@gmail.com,
-	aou@eecs.berkeley.edu,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dlan@gentoo.org,
-	huangze@whut.edu.cn,
-	krzk+dt@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	looong.bin@gmail.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh@kernel.org,
-	sophgo@lists.linux.dev,
-	thomas.bonnefille@bootlin.com,
-	unicorn_wang@outlook.com,
-	yu.yuan@sjtu.edu.cn,
-	"Anton D. Stavinskii" <stavinsky@gmail.com>
-Subject: [PATCH] riscv: dts: sophgo: cv180x: fix USB dwc2 FIFO sizes
-Date: Wed, 26 Nov 2025 21:21:16 +0400
-Message-ID: <20251126172115.1894190-2-stavinsky@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250611082452.1218817-4-inochiama@gmail.com>
-References: <20250611082452.1218817-4-inochiama@gmail.com>
+	Wed, 26 Nov 2025 17:59:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1354742ABC;
+	Wed, 26 Nov 2025 17:59:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAF0FC4CEF7;
+	Wed, 26 Nov 2025 17:59:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764179954;
+	bh=sg7NBwz1aZkzxUCOqukiMge4OdzUmxVy6rn4f9CoMP4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KupS65j56O+AwX7I5MA/zxdTivvpPaDSXgT6biSrkVI31Z0bqs7sFSVh+2AKTR4S7
+	 Eu+csty9DcP9SdmXS94C9xM+etNHT7LNCvOuwlM6J4XFR2WZhSEd7hpdFEPVKShZnz
+	 ZKqxtC+khzi6W9zeQGnejP086Dy/g5F34K5BRMP1wYsC3Ap6iTtalhotLLcpVPPhov
+	 qU2qRCpedGaiWVZjwhQ9TL3mIULocec9N/0BNTAkQimLqlAGXBcJYs8k9vGNJSG99a
+	 7MOdktnvZJnsXwXiFVAGbPS1fw62WiFC6fJbMIIductD5WIi9+hb9qmUJEFIZRU51R
+	 x+3UrpL+c5eBA==
+Date: Wed, 26 Nov 2025 09:59:09 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Eric Lin <eric.lin@sifive.com>, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v2] perf vendor events riscv: add T-HEAD C920V2 JSON
+ support
+Message-ID: <aSc_7dGgKKPzxo9K@google.com>
+References: <20251014014830.613399-1-inochiama@gmail.com>
+ <ac26535e-01c8-d8c4-9f25-f5716065b37f@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ac26535e-01c8-d8c4-9f25-f5716065b37f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_092821_576615_F4AB1C7C 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20251126_095915_760836_8703E0FD 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,40 +85,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I've tested the current dwc2 FIFO configuration and found that USB
-device mode breaks in ECM mode when transmitting frames larger than
-128 bytes. For example, large ICMP packets or iperf3 traffic cause
-the USB link to hang and eventually disconnect without any messages in
-dmesg.
+Hello,
 
-After switching to more conservative FIFO sizes, ECM becomes stable
-and no longer drops the connection. iperf3 now shows ~130 Mbit/s RX
-and ~100 Mbit/s TX on SG2002 (MilkV Duo 256M).
+On Tue, Nov 25, 2025 at 05:52:10PM -0700, Paul Walmsley wrote:
+> Hello tools/perf maintainers,
+> 
+> On Tue, 14 Oct 2025, Inochi Amaoto wrote:
+> 
+> > T-HEAD C920 has a V2 iteration, which supports Sscompmf. The V2
+> > iteration supports the same perf events as V1.
+> > 
+> > Reuse T-HEAD c900-legacy JSON file for T-HEAD C920V2.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> 
+> Would you like to take this one, or would you prefer that we take it 
+> through arch/riscv ?
+> 
+> If it's needed:
+> 
+> Acked-by: Paul Walmsley <pjw@kernel.org>
 
-Fix the FIFO sizes accordingly.
-
-Signed-off-by: Anton D. Stavinskii <stavinsky@gmail.com>
----
- arch/riscv/boot/dts/sophgo/cv180x.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-index 1b2b1969a648..06b0ce5a2db7 100644
---- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-@@ -438,8 +438,8 @@ usb: usb@4340000 {
- 			clocks = <&clk CLK_AXI4_USB>, <&clk CLK_APB_USB>;
- 			clock-names = "otg", "utmi";
- 			g-np-tx-fifo-size = <32>;
--			g-rx-fifo-size = <536>;
--			g-tx-fifo-size = <768 512 512 384 128 128>;
-+			g-rx-fifo-size = <1536>;
-+			g-tx-fifo-size = <128 128 64 64 64 64 32 32>;
- 			interrupts = <SOC_PERIPHERAL_IRQ(14) IRQ_TYPE_LEVEL_HIGH>;
- 			phys = <&usbphy>;
- 			phy-names = "usb2-phy";
--- 
-2.43.0
+I'll pick it up to perf-tools-next, thanks!
+Namhyung
 
 
 _______________________________________________
