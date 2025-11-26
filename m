@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB8ED1037E
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 04:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C870FD1037D
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 04:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qM2VVt3BGGynlE0GG5nVCzWUBxD0iNQvyEsYZRC5lBA=; b=keX+M9ehBRAcyC
-	5ctW7iPFYa4lBABhqaE4Pzw1RIjUQJo5TtBrgq9/sy3m4ImMELO4i3vZMEUlLJ4rASSufroqQEGuy
-	TAy1MpTlido+PDB3SMyXpCUsjfDub+YmtB11tM3I2/YmrhgMF57UXFtZnQ402IEjqoczfmpHGVhh4
-	ZeuSW9pNfSKYY5A6D0tPYaxa3mLsfnU1HlXpkdQXR2nZ2WduKSS+no+hjHKC6R2+o+Jd5kQ5iXIv7
-	28VX2UM+P7vjTGE+FVuapikbXmeORzuH4KbO0I37vMjRXoUouu4PlNWWLWX9DRYls7eSri1UJmi08
-	2L2mSh9zI6BiNT5iFjZg==;
+	List-Owner; bh=xW3n0HVfvGunBt6meuR17EVOUDCE1IvVfPYHPUmFv1c=; b=KG6Z9GO/XrtmDb
+	/PIJuPIK+hpPVAgKjnYzpRJAqy7ME6dheCkJ4KQtR/Y2PS7hT9gsv2Q1RQXQkxCmp+c+4gZ4o2q55
+	CIzTvi9QpwcVBCa5pBzI0X/fZzIV7LdJVCUPMWLOZIH/lGu8L1aerU3IoOzhlw52QzzXOGlj/yCcq
+	TNw+PJP+mTcnx8VXSBYTRrMnRGSfENEd+Oh6f62vkxck0WNrDb1hTPP1hADiDZYjvC9p5qHrp/wYQ
+	ZJ5m95p60YR/Pv7cyNxg2i3WCkRndLqQd+Pt90C80VzCsaqWgxBLd9t4n3vdQF1yE1Nz5tL3Oxt2f
+	Spma/Q7ghoT2fVGKn+kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO7Wn-0000000EMT7-29M4;
-	Wed, 26 Nov 2025 04:53:17 +0000
+	id 1vO7Wk-0000000EMRv-0rMW;
+	Wed, 26 Nov 2025 04:53:14 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO7Wk-0000000EMR5-3Fkt
+	id 1vO7Wg-0000000EMOg-3VeR
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 04:53:16 +0000
+	Wed, 26 Nov 2025 04:53:12 +0000
 Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.155])
-	by APP-05 (Coremail) with SMTP id zQCowADn4mOUhyZpi2gbAg--.38374S10;
-	Wed, 26 Nov 2025 12:53:01 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowADn4mOUhyZpi2gbAg--.38374S9;
+	Wed, 26 Nov 2025 12:52:59 +0800 (CST)
 From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -51,36 +51,36 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Jonas Karlman <jonas@kwiboo.se>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH RESEND v3 8/9] MAINTAINERS: assign myself as maintainer for verisilicon DC driver
-Date: Wed, 26 Nov 2025 12:52:32 +0800
-Message-ID: <20251126045233.218286-9-zhengxingda@iscas.ac.cn>
+Subject: [PATCH RESEND v3 7/9] riscv: dts: thead: lichee-pi-4a: enable HDMI
+Date: Wed, 26 Nov 2025 12:52:31 +0800
+Message-ID: <20251126045233.218286-8-zhengxingda@iscas.ac.cn>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251126045233.218286-1-zhengxingda@iscas.ac.cn>
 References: <20251126045233.218286-1-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowADn4mOUhyZpi2gbAg--.38374S10
-X-Coremail-Antispam: 1UD129KBjvdXoWrKrW5tFyfCw1kXr18KF4DArb_yoWkJFb_GF
-	4kA34DZw47GFnYk395AFs8Kayav3y5Jr4rZ3Zxtwsay34Utryqg3WkXw15Cw1UCFWfGF1D
-	Aa9rJryfGF4a9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb98FF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAVCq3wA2048vs2
-	IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28E
-	F7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr
-	1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
-	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
-	IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4U
-	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
-	kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
-	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
-	AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI
-	42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
-	4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
-	daVFxhVjvjDU0xZFpf9x0pRJ3kZUUUUU=
+X-CM-TRANSID: zQCowADn4mOUhyZpi2gbAg--.38374S9
+X-Coremail-Antispam: 1UD129KBjvJXoW7WFy8Kw1kKF4kZr1fKr4DJwb_yoW8Gr4kpa
+	17JrZaqFyDursxu3W3Aa48Grn8tFs5ZF9xKw43ua4UJrsxWFWkt3yfK39YgF1UXFZ3Xw43
+	AFn5XF4Uur1jyw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmq14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE
+	3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2I
+	x0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8
+	JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2
+	ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Y
+	z7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zV
+	AF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1l
+	IxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r
+	1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIY
+	CTnIWIevJa73UjIFyTuYvjTR_nYFDUUUU
 X-Originating-IP: [112.94.101.155]
 X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_205315_187232_042885AF 
-X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-CacheID: sfid-20251125_205311_234848_43538D98 
+X-CRM114-Status: UNSURE (   8.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,40 +101,63 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Icenowy Zheng <uwu@icenowy.me>
 
-As I am the author of this rewritten driver, it makes sense for me to be
-the maintainer.
+Lichee Pi 4A board features a HDMI Type-A connector connected to the
+HDMI TX controller of TH1520 SoC.
 
-Confirm this in MAINTAINERS file.
+Add a device tree node describing the connector, connect it to the HDMI
+controller, and enable everything on this display pipeline.
 
 Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 ---
-Changes in v3:
-- Switch to my ISCAS mailbox.
+No changes in v2, v3.
 
-No changes in v2.
+ .../boot/dts/thead/th1520-lichee-pi-4a.dts    | 25 +++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 32715100a1e10..45f879ee02dc4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8538,6 +8538,13 @@ F:	Documentation/devicetree/bindings/display/brcm,bcm2835-*.yaml
- F:	drivers/gpu/drm/vc4/
- F:	include/uapi/drm/vc4_drm.h
- 
-+DRM DRIVERS FOR VERISILICON DISPLAY CONTROLLER IP
-+M:	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-+L:	dri-devel@lists.freedesktop.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-+F:	drivers/gpu/drm/verisilicon/
+diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+index 4020c727f09e8..3e99f905dc316 100644
+--- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
++++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+@@ -28,6 +28,17 @@ aliases {
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
 +
- DRM DRIVERS FOR VIVANTE GPU IP
- M:	Lucas Stach <l.stach@pengutronix.de>
- R:	Russell King <linux+etnaviv@armlinux.org.uk>
++	hdmi-connector {
++		compatible = "hdmi-connector";
++		type = "a";
++
++		port {
++			hdmi_con_in: endpoint {
++				remote-endpoint = <&hdmi_out_con>;
++			};
++		};
++	};
+ };
+ 
+ &padctrl0_apsys {
+@@ -54,6 +65,20 @@ rx-pins {
+ 	};
+ };
+ 
++&dpu {
++	status = "okay";
++};
++
++&hdmi {
++	status = "okay";
++};
++
++&hdmi_out_port {
++	hdmi_out_con: endpoint {
++		remote-endpoint = <&hdmi_con_in>;
++	};
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_pins>;
 -- 
 2.52.0
 
