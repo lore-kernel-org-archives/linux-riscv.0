@@ -4,131 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E503BD10F58
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 16:09:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF17CD11183
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 16:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PI+JaYKkr7eJ9w9iofBHQcYpxEDqDGnoAJs+mWguFMc=; b=FafgKAm9tmxmZi
-	MKvU4hLg8h16fDqJ7VfMAEbK9anvIy1E8rbFsd6XeobET4zDiX4kB9I9FCN/xsbVs/NIwiK+hpOce
-	rDTgoRr3xCMiyuCpHoj3N12G+Lo4Acnxqc9YEQ0lg8fT7p6IYFFnMWT2Ejk+iJ8VskVpNkk77W4Is
-	wBAwNV1aCaWwcsE4PYjOYscM47zv2V12GfRpggv3jI7nLcd29tGd1XrPBxChQtmKQnWRAKQHQJOJy
-	zfhLy0dQuwgBTm9p2NEcAJmCO99u9vqGcsjYQS5nrsU2+G8qJvGc5MtJWTVPTKXBL12owQh5Muhyk
-	xzrAXoAk0jNKqXB46jTQ==;
+	List-Owner; bh=7ZAh3Eh+74oKQhcq6yy1RNPTRuX4Yyl6fahoDHDcN0k=; b=sFS0CzSRFHlH/R
+	bZIu9GaRUVfEA0gl925Z3vCBLFwIyqcmeLxlsKeWpsVnncIXEltv+e0tP5Ze7r1ITjhHCk19vLfyl
+	Ml2IMv4B+SKdOeDuSpnXEHWH22n4YTItGvdrtmzdp4eg4FPUYFWvorqwO8lq0AUNPLNTtfELFdb/5
+	u7nHGnpq7VZmcv1eGzwqx4ZCv4PGte5j0KenWXea6yIjdHlYAkhsw+CMe88OoLsTBzYHTbAKmElUn
+	FQs71xGLqDlzm3+sPlIrDCmzcxCMg0t17euHbxnITz3jCbsplnfAlsaTgfa06uE1ZRCSci7jhX1zB
+	9Zy9SuJ++X+9W1HI3qQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOI5M-0000000FFob-2VIO;
-	Wed, 26 Nov 2025 16:09:40 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1vOIA5-0000000FH6B-1gTv;
+	Wed, 26 Nov 2025 16:14:33 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOI5B-0000000FFXy-0gHu
+	id 1vOIA4-0000000FH63-0FqM
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 26 Nov 2025 16:14:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=xDPyy9pi5OVhyM1CdkyG9VuNPRZRoyX93URKiDj11Fc=; b=kRmOJvMKChFgfhIlV6C8ItrRbf
+	lPcMjYBge2okklcvRaq/HD3ngAULN+1bKSAZ62GJ/icu1PtlFJ3u/8OnHR/8neEBOFcaKKiGbu0rL
+	E5DhDP+xWmu7nc5P/0k2mcQztwwPFi/m/AHuvZPQ1cDITWN7FZgu9eCYuxTZPuAtLpF8kz6vvShcz
+	RvYNeSMryPmk4EhYXCupcwTkQv4Kq8i31qKudVmwyWZl4oDauO/EV8jXBlfZ5unvc3/y6Dv7Sd8xo
+	giW+niM1dtIMAjwZEjCoy3tQg1UYACwg6Ceq+YPhBK1KGsUEICgUmH7+G5Ihk/GjgCRSPxUZ4T3za
+	w6E+uwXg==;
+Received: from layka.disroot.org ([178.21.23.139])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOIA1-0000000AMgH-0Wp8
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 16:09:32 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 3E2415BEA5;
-	Wed, 26 Nov 2025 16:09:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764173343; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CkmGR33aKTjgb6kQRBytVJN0qrs/mJkqfSEDrbecCv4=;
-	b=SsXffjt4e0FU5WaaOVe0pPb3Sp1cKeBnl+HW+kStFrGW/i1SkWF78HqOYaFB6l1x9zmKkn
-	4SPBaRuuQvE7N6ZfjugXdzbHGUikzB1C0SAYthYC8NhDyjRqbK0raKL9vIf6UDfLRP2xID
-	LlZJv/CGppOPnpwgegPKquwsA21X9P8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764173343;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CkmGR33aKTjgb6kQRBytVJN0qrs/mJkqfSEDrbecCv4=;
-	b=O0gwtwx9ongiEC4E6G/rmRyKUr73fZvZZTppH7kBWIwloKGwL6pE5IePdz/Km+dohBWXak
-	1ZahN3CYVTbtcEBA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764173343; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CkmGR33aKTjgb6kQRBytVJN0qrs/mJkqfSEDrbecCv4=;
-	b=SsXffjt4e0FU5WaaOVe0pPb3Sp1cKeBnl+HW+kStFrGW/i1SkWF78HqOYaFB6l1x9zmKkn
-	4SPBaRuuQvE7N6ZfjugXdzbHGUikzB1C0SAYthYC8NhDyjRqbK0raKL9vIf6UDfLRP2xID
-	LlZJv/CGppOPnpwgegPKquwsA21X9P8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764173343;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CkmGR33aKTjgb6kQRBytVJN0qrs/mJkqfSEDrbecCv4=;
-	b=O0gwtwx9ongiEC4E6G/rmRyKUr73fZvZZTppH7kBWIwloKGwL6pE5IePdz/Km+dohBWXak
-	1ZahN3CYVTbtcEBA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C51723EA63;
-	Wed, 26 Nov 2025 16:09:02 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id aP2sLh4mJ2lnIgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 26 Nov 2025 16:09:02 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: ardb@kernel.org,
-	javierm@redhat.com,
-	arnd@arndb.de,
-	richard.lyu@suse.com,
-	helgaas@kernel.org
-Cc: x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-hyperv@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-fbdev@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v3 8/9] efi: Support EDID information
-Date: Wed, 26 Nov 2025 17:03:25 +0100
-Message-ID: <20251126160854.553077-9-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251126160854.553077-1-tzimmermann@suse.de>
-References: <20251126160854.553077-1-tzimmermann@suse.de>
+	Wed, 26 Nov 2025 16:14:30 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 2CCC620E95;
+	Wed, 26 Nov 2025 17:14:20 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id plvOBBVR04nM; Wed, 26 Nov 2025 17:14:19 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1764173659; bh=x0kK1Zt9GMug1E5KSufQyhfENjqsQBZR+UYh60o3iuw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=a+adtWVJRPL5kbbUY2jOqIkmrmPlTEZpk3zUcm9uIYtnZHEa7GPIOeT6siRgbKfny
+	 UHZVKelDJF5J7A2zoLHoVxsgsdJAAvmgYr2NUFscOuCvcu25NGG8lzRdkBsHG72FCU
+	 mnT6wIYwmQTcnmzZQvoYW2HcbSEa+6YLNMUssyyb80RovbqPnb1BuoyYsbW95keBUV
+	 M0yy1fo6EIlUCvnTKtdQmDygJiAB04HmseDBEDXcgtAfUN+wEhMstJ8+ZLjp3RMBk5
+	 SSOih19lEyPDE63aSxJIKyzuSfwee4knPASEzbCg85Z8aC3dp6lebLpFC9dbMUmAls
+	 k5o5hRuPXwwCg==
+Date: Wed, 26 Nov 2025 16:13:54 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Shuwei Wu <shuweiwoo@163.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] thermal: K1: Add driver for K1 SoC thermal sensor
+Message-ID: <aScnQgLuV3kMLBJg@pie>
+References: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
+ <20251127-b4-k1-thermal-v1-2-f32ce47b1aba@163.com>
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[16];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLykjg6e7ifkwtw7jmpw7b9yio)];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo]
+Content-Disposition: inline
+In-Reply-To: <20251127-b4-k1-thermal-v1-2-f32ce47b1aba@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_080929_563716_E8934B7B 
-X-CRM114-Status: GOOD (  26.81  )
+X-CRM114-CacheID: sfid-20251126_161429_240225_DD5A01C8 
+X-CRM114-Status: GOOD (  28.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,481 +93,276 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the EFI config table, rename LINUX_EFI_SCREEN_INFO_TABLE_GUID to
-LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID. Read sysfb_primary_display
-from the entry. In addition to the screen_info, the entry now also
-contains EDID information.
+On Thu, Nov 27, 2025 at 02:44:08AM +0800, Shuwei Wu wrote:
+> The thermal sensor unit (TSU) on K1 supports monitoring five temperature
+> zones. The driver registers these sensors with the thermal framework
+> and supports standard operations:
+> - Reading temperature (millidegree Celsius)
+> - Setting high/low thresholds for interrupts
+> =
 
-In libstub, replace struct screen_info with struct sysfb_display_info
-from the kernel's sysfb_primary_display and rename functions accordingly.
-Transfer it to the runtime kernel using the kernel's global state or
-the config-table entry LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID.
+> Signed-off-by: Shuwei Wu <shuweiwoo@163.com>
+> ---
+>  drivers/thermal/Kconfig      |  14 ++
+>  drivers/thermal/Makefile     |   1 +
+>  drivers/thermal/k1_thermal.c | 307 +++++++++++++++++++++++++++++++++++++=
+++++++
+>  3 files changed, 322 insertions(+)
 
-With CONFIG_FIRMWARE_EDID=y, libstub now transfers the GOP device's
-EDID information to the kernel. If CONFIG_FIRMWARE_EDID=n, EDID
-information is disabled. Make the Kconfig symbol CONFIG_FIRMWARE_EDID
-available with EFI. Setting the value to 'n' disables EDID support.
+...
 
-Also rename screen_info.c to primary_display.c and adapt the contained
-comment according to the changes.
+> diff --git a/drivers/thermal/k1_thermal.c b/drivers/thermal/k1_thermal.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..a0e9585cbc5a4e0f7c3a47deb=
+b3cfa8e82082d88
+> --- /dev/null
+> +++ b/drivers/thermal/k1_thermal.c
+> @@ -0,0 +1,307 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Thermal sensor driver for SpacemiT K1 SoC
+> + *
+> + * Copyright (C) 2025 Shuwei Wu <shuweiwoo@163.com>
+> + */
+> +#include <linux/clk.h>
+> +#include <linux/err.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset.h>
+> +#include <linux/thermal.h>
 
-v3:
-- replace SCREEN_INFO table (Ard)
-- merge libstub changes
+devm_kzalloc() is used in the file, but include for linux/slab.h is
+missing.
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- arch/loongarch/kernel/efi.c                   | 17 +++---
- drivers/firmware/efi/efi-init.c               | 17 +++---
- drivers/firmware/efi/efi.c                    |  4 +-
- drivers/firmware/efi/libstub/Makefile         |  2 +-
- drivers/firmware/efi/libstub/efi-stub-entry.c | 11 ++--
- drivers/firmware/efi/libstub/efi-stub.c       | 41 +++++++++-----
- drivers/firmware/efi/libstub/efistub.h        |  7 ++-
- .../firmware/efi/libstub/primary_display.c    | 56 +++++++++++++++++++
- drivers/firmware/efi/libstub/screen_info.c    | 53 ------------------
- drivers/firmware/efi/libstub/zboot.c          |  4 +-
- drivers/video/Kconfig                         |  8 ++-
- include/linux/efi.h                           |  9 +--
- 12 files changed, 123 insertions(+), 106 deletions(-)
- create mode 100644 drivers/firmware/efi/libstub/primary_display.c
- delete mode 100644 drivers/firmware/efi/libstub/screen_info.c
+> +#include "thermal_hwmon.h"
+> +
+> +#define MAX_SENSOR_NUMBER		5
+> +#define TEMPERATURE_OFFSET		278
+> +
+> +#define K1_TSU_INT_EN			0x14
+> +#define K1_TSU_INT_CLR			0x10
+> +#define K1_TSU_INT_STA			0x18
 
-diff --git a/arch/loongarch/kernel/efi.c b/arch/loongarch/kernel/efi.c
-index 1ef38036e8ae..342aca00d42c 100644
---- a/arch/loongarch/kernel/efi.c
-+++ b/arch/loongarch/kernel/efi.c
-@@ -72,7 +72,7 @@ bool efi_poweroff_required(void)
- 		(acpi_gbl_reduced_hardware || acpi_no_s5);
- }
- 
--unsigned long __initdata screen_info_table = EFI_INVALID_TABLE_ADDR;
-+unsigned long __initdata primary_display_table = EFI_INVALID_TABLE_ADDR;
- 
- #if defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON)
- struct sysfb_display_info sysfb_primary_display __section(".data");
-@@ -81,16 +81,17 @@ EXPORT_SYMBOL_GPL(sysfb_primary_display);
- 
- static void __init init_primary_display(void)
- {
--	if (screen_info_table == EFI_INVALID_TABLE_ADDR) {
--		struct screen_info *si = early_memremap(screen_info_table, sizeof(*si));
-+	if (primary_display_table != EFI_INVALID_TABLE_ADDR) {
-+		struct sysfb_display_info *dpy =
-+			early_memremap(primary_display_table, sizeof(*dpy));
- 
--		if (!si) {
--			pr_err("Could not map screen_info config table\n");
-+		if (!dpy) {
-+			pr_err("Could not map primary_display config table\n");
- 			return;
- 		}
--		sysfb_primary_display.screen = *si;
--		memset(si, 0, sizeof(*si));
--		early_memunmap(si, sizeof(*si));
-+		sysfb_primary_display = *dpy;
-+		memset(dpy, 0, sizeof(*dpy));
-+		early_memunmap(dpy, sizeof(*dpy));
- 	} else {
- 		return;
- 	}
-diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
-index ca697d485116..b22e208a1aae 100644
---- a/drivers/firmware/efi/efi-init.c
-+++ b/drivers/firmware/efi/efi-init.c
-@@ -23,7 +23,7 @@
- 
- #include <asm/efi.h>
- 
--unsigned long __initdata screen_info_table = EFI_INVALID_TABLE_ADDR;
-+unsigned long __initdata primary_display_table = EFI_INVALID_TABLE_ADDR;
- 
- static int __init is_memory(efi_memory_desc_t *md)
- {
-@@ -67,16 +67,17 @@ EXPORT_SYMBOL_GPL(sysfb_primary_display);
- 
- static void __init init_primary_display(void)
- {
--	if (screen_info_table != EFI_INVALID_TABLE_ADDR) {
--		struct screen_info *si = early_memremap(screen_info_table, sizeof(*si));
-+	if (primary_display_table != EFI_INVALID_TABLE_ADDR) {
-+		struct sysfb_display_info *dpy =
-+			early_memremap(primary_display_table, sizeof(*dpy));
- 
--		if (!si) {
--			pr_err("Could not map screen_info config table\n");
-+		if (!dpy) {
-+			pr_err("Could not map primary_display config table\n");
- 			return;
- 		}
--		sysfb_primary_display.screen = *si;
--		memset(si, 0, sizeof(*si));
--		early_memunmap(si, sizeof(*si));
-+		sysfb_primary_display = *dpy;
-+		memset(dpy, 0, sizeof(*dpy));
-+		early_memunmap(dpy, sizeof(*dpy));
- 	} else {
- 		return;
- 	}
-diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
-index a9070d00b833..955193691f10 100644
---- a/drivers/firmware/efi/efi.c
-+++ b/drivers/firmware/efi/efi.c
-@@ -63,7 +63,7 @@ static unsigned long __initdata mem_reserve = EFI_INVALID_TABLE_ADDR;
- static unsigned long __initdata rt_prop = EFI_INVALID_TABLE_ADDR;
- static unsigned long __initdata initrd = EFI_INVALID_TABLE_ADDR;
- 
--extern unsigned long screen_info_table;
-+extern unsigned long primary_display_table;
- 
- struct mm_struct efi_mm = {
- 	.mm_mt			= MTREE_INIT_EXT(mm_mt, MM_MT_FLAGS, efi_mm.mmap_lock),
-@@ -641,7 +641,7 @@ static const efi_config_table_type_t common_tables[] __initconst = {
- 	{LINUX_EFI_UNACCEPTED_MEM_TABLE_GUID,	&efi.unaccepted,	"Unaccepted"	},
- #endif
- #ifdef CONFIG_EFI_GENERIC_STUB
--	{LINUX_EFI_SCREEN_INFO_TABLE_GUID,	&screen_info_table			},
-+	{LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID,	&primary_display_table			},
- #endif
- 	{},
- };
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index 7d15a85d579f..e386ffd009b7 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -80,7 +80,7 @@ $(obj)/lib-%.o: $(srctree)/lib/%.c FORCE
- 	$(call if_changed_rule,cc_o_c)
- 
- lib-$(CONFIG_EFI_GENERIC_STUB)	+= efi-stub.o string.o intrinsics.o systable.o \
--				   screen_info.o efi-stub-entry.o
-+				   primary_display.o efi-stub-entry.o
- 
- lib-$(CONFIG_ARM)		+= arm32-stub.o
- lib-$(CONFIG_ARM64)		+= kaslr.o arm64.o arm64-stub.o smbios.o
-diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
-index 401ecbbdf331..aa85e910fe59 100644
---- a/drivers/firmware/efi/libstub/efi-stub-entry.c
-+++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
-@@ -14,18 +14,15 @@ static void *kernel_image_addr(void *addr)
- 	return addr + kernel_image_offset;
- }
- 
--struct screen_info *alloc_screen_info(void)
-+struct sysfb_display_info *alloc_primary_display(void)
- {
- 	if (IS_ENABLED(CONFIG_ARM))
--		return __alloc_screen_info();
-+		return __alloc_primary_display();
- 
- 	if (IS_ENABLED(CONFIG_X86) ||
- 	    IS_ENABLED(CONFIG_EFI_EARLYCON) ||
--	    IS_ENABLED(CONFIG_SYSFB)) {
--		struct sysfb_display_info *dpy = kernel_image_addr(&sysfb_primary_display);
--
--		return &dpy->screen;
--	}
-+	    IS_ENABLED(CONFIG_SYSFB))
-+		return kernel_image_addr(&sysfb_primary_display);
- 
- 	return NULL;
- }
-diff --git a/drivers/firmware/efi/libstub/efi-stub.c b/drivers/firmware/efi/libstub/efi-stub.c
-index 9cb814c5ba1b..42d6073bcd06 100644
---- a/drivers/firmware/efi/libstub/efi-stub.c
-+++ b/drivers/firmware/efi/libstub/efi-stub.c
-@@ -10,7 +10,7 @@
-  */
- 
- #include <linux/efi.h>
--#include <linux/screen_info.h>
-+#include <linux/sysfb.h>
- #include <asm/efi.h>
- 
- #include "efistub.h"
-@@ -48,23 +48,33 @@
- static u64 virtmap_base = EFI_RT_VIRTUAL_BASE;
- static bool flat_va_mapping = (EFI_RT_VIRTUAL_OFFSET != 0);
- 
--void __weak free_screen_info(struct screen_info *si)
--{
--}
-+void __weak free_primary_display(struct sysfb_display_info *dpy)
-+{ }
- 
--static struct screen_info *setup_graphics(void)
-+static struct sysfb_display_info *setup_primary_display(void)
- {
--	struct screen_info *si, tmp = {};
-+	struct sysfb_display_info *dpy;
-+	struct screen_info *screen = NULL;
-+	struct edid_info *edid = NULL;
-+	efi_status_t status;
- 
--	if (efi_setup_graphics(&tmp, NULL) != EFI_SUCCESS)
-+	dpy = alloc_primary_display();
-+	if (!dpy)
- 		return NULL;
-+	screen = &dpy->screen;
-+#if defined(CONFIG_FIRMWARE_EDID)
-+	edid = &dpy->edid;
-+#endif
- 
--	si = alloc_screen_info();
--	if (!si)
--		return NULL;
-+	status = efi_setup_graphics(screen, edid);
-+	if (status != EFI_SUCCESS)
-+		goto err_free_primary_display;
- 
--	*si = tmp;
--	return si;
-+	return dpy;
-+
-+err_free_primary_display:
-+	free_primary_display(dpy);
-+	return NULL;
- }
- 
- static void install_memreserve_table(void)
-@@ -145,14 +155,14 @@ efi_status_t efi_stub_common(efi_handle_t handle,
- 			     unsigned long image_addr,
- 			     char *cmdline_ptr)
- {
--	struct screen_info *si;
-+	struct sysfb_display_info *dpy;
- 	efi_status_t status;
- 
- 	status = check_platform_features();
- 	if (status != EFI_SUCCESS)
- 		return status;
- 
--	si = setup_graphics();
-+	dpy = setup_primary_display();
- 
- 	efi_retrieve_eventlog();
- 
-@@ -172,7 +182,8 @@ efi_status_t efi_stub_common(efi_handle_t handle,
- 
- 	status = efi_boot_kernel(handle, image, image_addr, cmdline_ptr);
- 
--	free_screen_info(si);
-+	free_primary_display(dpy);
-+
- 	return status;
- }
- 
-diff --git a/drivers/firmware/efi/libstub/efistub.h b/drivers/firmware/efi/libstub/efistub.h
-index b2fb0c3fa721..979a21818cc1 100644
---- a/drivers/firmware/efi/libstub/efistub.h
-+++ b/drivers/firmware/efi/libstub/efistub.h
-@@ -36,6 +36,7 @@
- 
- struct edid_info;
- struct screen_info;
-+struct sysfb_display_info;
- 
- extern bool efi_no5lvl;
- extern bool efi_nochunk;
-@@ -1175,9 +1176,9 @@ efi_enable_reset_attack_mitigation(void) { }
- 
- void efi_retrieve_eventlog(void);
- 
--struct screen_info *alloc_screen_info(void);
--struct screen_info *__alloc_screen_info(void);
--void free_screen_info(struct screen_info *si);
-+struct sysfb_display_info *alloc_primary_display(void);
-+struct sysfb_display_info *__alloc_primary_display(void);
-+void free_primary_display(struct sysfb_display_info *dpy);
- 
- void efi_cache_sync_image(unsigned long image_base,
- 			  unsigned long alloc_size);
-diff --git a/drivers/firmware/efi/libstub/primary_display.c b/drivers/firmware/efi/libstub/primary_display.c
-new file mode 100644
-index 000000000000..cdaebab26514
---- /dev/null
-+++ b/drivers/firmware/efi/libstub/primary_display.c
-@@ -0,0 +1,56 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/efi.h>
-+#include <linux/sysfb.h>
-+
-+#include <asm/efi.h>
-+
-+#include "efistub.h"
-+
-+/*
-+ * There are two ways of populating the core kernel's sysfb_primary_display
-+ * via the stub:
-+ *
-+ *   - using a configuration table, which relies on the EFI init code to
-+ *     locate the table and copy the contents; or
-+ *
-+ *   - by linking directly to the core kernel's copy of the global symbol.
-+ *
-+ * The latter is preferred because it makes the EFIFB earlycon available very
-+ * early, but it only works if the EFI stub is part of the core kernel image
-+ * itself. The zboot decompressor can only use the configuration table
-+ * approach.
-+ */
-+
-+static efi_guid_t primary_display_guid = LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID;
-+
-+struct sysfb_display_info *__alloc_primary_display(void)
-+{
-+	struct sysfb_display_info *dpy;
-+	efi_status_t status;
-+
-+	status = efi_bs_call(allocate_pool, EFI_ACPI_RECLAIM_MEMORY,
-+			     sizeof(*dpy), (void **)&dpy);
-+
-+	if (status != EFI_SUCCESS)
-+		return NULL;
-+
-+	memset(dpy, 0, sizeof(*dpy));
-+
-+	status = efi_bs_call(install_configuration_table,
-+			     &primary_display_guid, dpy);
-+	if (status == EFI_SUCCESS)
-+		return dpy;
-+
-+	efi_bs_call(free_pool, dpy);
-+	return NULL;
-+}
-+
-+void free_primary_display(struct sysfb_display_info *dpy)
-+{
-+	if (!dpy)
-+		return;
-+
-+	efi_bs_call(install_configuration_table, &primary_display_guid, NULL);
-+	efi_bs_call(free_pool, dpy);
-+}
-diff --git a/drivers/firmware/efi/libstub/screen_info.c b/drivers/firmware/efi/libstub/screen_info.c
-deleted file mode 100644
-index 5d3a1e32d177..000000000000
---- a/drivers/firmware/efi/libstub/screen_info.c
-+++ /dev/null
-@@ -1,53 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--
--#include <linux/efi.h>
--#include <linux/screen_info.h>
--
--#include <asm/efi.h>
--
--#include "efistub.h"
--
--/*
-- * There are two ways of populating the core kernel's struct screen_info via the stub:
-- * - using a configuration table, like below, which relies on the EFI init code
-- *   to locate the table and copy the contents;
-- * - by linking directly to the core kernel's copy of the global symbol.
-- *
-- * The latter is preferred because it makes the EFIFB earlycon available very
-- * early, but it only works if the EFI stub is part of the core kernel image
-- * itself. The zboot decompressor can only use the configuration table
-- * approach.
-- */
--
--static efi_guid_t screen_info_guid = LINUX_EFI_SCREEN_INFO_TABLE_GUID;
--
--struct screen_info *__alloc_screen_info(void)
--{
--	struct screen_info *si;
--	efi_status_t status;
--
--	status = efi_bs_call(allocate_pool, EFI_ACPI_RECLAIM_MEMORY,
--			     sizeof(*si), (void **)&si);
--
--	if (status != EFI_SUCCESS)
--		return NULL;
--
--	memset(si, 0, sizeof(*si));
--
--	status = efi_bs_call(install_configuration_table,
--			     &screen_info_guid, si);
--	if (status == EFI_SUCCESS)
--		return si;
--
--	efi_bs_call(free_pool, si);
--	return NULL;
--}
--
--void free_screen_info(struct screen_info *si)
--{
--	if (!si)
--		return;
--
--	efi_bs_call(install_configuration_table, &screen_info_guid, NULL);
--	efi_bs_call(free_pool, si);
--}
-diff --git a/drivers/firmware/efi/libstub/zboot.c b/drivers/firmware/efi/libstub/zboot.c
-index c47ace06f010..4b76f74c56da 100644
---- a/drivers/firmware/efi/libstub/zboot.c
-+++ b/drivers/firmware/efi/libstub/zboot.c
-@@ -26,9 +26,9 @@ void __weak efi_cache_sync_image(unsigned long image_base,
- 	// executable code loaded into memory to be safe for execution.
- }
- 
--struct screen_info *alloc_screen_info(void)
-+struct sysfb_display_info *alloc_primary_display(void)
- {
--	return __alloc_screen_info();
-+	return __alloc_primary_display();
- }
- 
- asmlinkage efi_status_t __efiapi
-diff --git a/drivers/video/Kconfig b/drivers/video/Kconfig
-index d51777df12d1..f452fac90a9f 100644
---- a/drivers/video/Kconfig
-+++ b/drivers/video/Kconfig
-@@ -63,11 +63,13 @@ endif # HAS_IOMEM
- 
- config FIRMWARE_EDID
- 	bool "Enable firmware EDID"
--	depends on X86
-+	depends on EFI || X86
- 	help
- 	  This enables access to the EDID transferred from the firmware.
--	  On x86, this is from the VESA BIOS. DRM display drivers will
--	  be able to export the information to userspace.
-+	  On EFI systems, the EDID comes from the same device as the
-+	  primary GOP. On x86 with BIOS, it comes from the VESA BIOS.
-+	  DRM display drivers will be able to export the information
-+	  to userspace.
- 
- 	  Also enable this if DDC/I2C transfers do not work for your driver
- 	  and if you are using nvidiafb, i810fb or savagefb.
-diff --git a/include/linux/efi.h b/include/linux/efi.h
-index 2a43094e23f7..664898d09ff5 100644
---- a/include/linux/efi.h
-+++ b/include/linux/efi.h
-@@ -406,11 +406,12 @@ void efi_native_runtime_setup(void);
- #define EFI_CC_FINAL_EVENTS_TABLE_GUID		EFI_GUID(0xdd4a4648, 0x2de7, 0x4665, 0x96, 0x4d, 0x21, 0xd9, 0xef, 0x5f, 0xb4, 0x46)
- 
- /*
-- * This GUID is used to pass to the kernel proper the struct screen_info
-- * structure that was populated by the stub based on the GOP protocol instance
-- * associated with ConOut
-+ * This GUIDs are used to pass to the kernel proper the primary
-+ * display that has been populated by the stub based on the GOP
-+ * instance associated with ConOut.
-  */
--#define LINUX_EFI_SCREEN_INFO_TABLE_GUID	EFI_GUID(0xe03fc20a, 0x85dc, 0x406e,  0xb9, 0x0e, 0x4a, 0xb5, 0x02, 0x37, 0x1d, 0x95)
-+#define LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID	EFI_GUID(0xe03fc20a, 0x85dc, 0x406e,  0xb9, 0x0e, 0x4a, 0xb5, 0x02, 0x37, 0x1d, 0x95)
-+
- #define LINUX_EFI_ARM_CPU_STATE_TABLE_GUID	EFI_GUID(0xef79e4aa, 0x3c3d, 0x4989,  0xb9, 0x02, 0x07, 0xa9, 0x43, 0xe5, 0x50, 0xd2)
- #define LINUX_EFI_LOADER_ENTRY_GUID		EFI_GUID(0x4a67b082, 0x0a4c, 0x41cf,  0xb6, 0xc7, 0x44, 0x0b, 0x29, 0xbb, 0x8c, 0x4f)
- #define LINUX_EFI_RANDOM_SEED_TABLE_GUID	EFI_GUID(0x1ce1e5bc, 0x7ceb, 0x42f2,  0x81, 0xe5, 0x8a, 0xad, 0xf1, 0x80, 0xf5, 0x7b)
--- 
-2.51.1
+...
 
+> +#define K1_TSU_EN			0x8
+
+...
+
+> +#define K1_TSU_DATA_BASE		0x20
+
+...
+
+> +#define K1_TSU_THRSH_BASE		0x40
+
+...
+
+> +#define K1_TSU_TIME			0x0C
+
+...
+
+> +#define K1_TSU_PCTRL			0x00
+
+...
+
+> +#define K1_TSU_PCTRL2			0x04
+
+Why not sort these register offsets?
+
+> +struct k1_thermal_sensor {
+> +	struct k1_thermal_priv *priv;
+> +	struct thermal_zone_device *tzd;
+> +	int id;
+> +};
+
+> +struct k1_thermal_priv {
+> +	void __iomem *base;
+> +	struct device *dev;
+
+This variable is set but used nowhere, so I think this could be dropped.
+
+> +	struct clk *clk;
+> +	struct clk *bus_clk;
+> +	struct reset_control *reset;
+
+With devres-managed API, these three variables are only used in the
+probe function, thus could be dropped, too.
+
+> +	struct k1_thermal_sensor sensors[MAX_SENSOR_NUMBER];
+> +};
+> +
+> +static int k1_init_sensors(struct platform_device *pdev)
+
+Suggest passing k1_thermal_priv directly into the function, since
+struct platform_device isn't really necessary for it. Also it could
+return void, since there's no error to happen.
+
+> +{
+
+...
+
+> +	/*
+> +	 * Enable all sensors' auto mode, enable dither control,
+> +	 * consecutive mode, and power up sensor.
+> +	 */
+> +	temp =3D readl(priv->base + K1_TSU_PCTRL);
+> +	temp |=3D K1_TSU_PCTRL_RAW_SEL |
+> +		K1_TSU_PCTRL_TEMP_MODE |
+> +		K1_TSU_PCTRL_HW_AUTO_MODE |
+> +		K1_TSU_PCTRL_ENABLE;
+> +	temp &=3D ~K1_TSU_PCTRL_SW_CTRL;
+> +	temp &=3D ~K1_TSU_PCTRL_CTUNE;
+> +	writel(temp, priv->base + K1_TSU_PCTRL);
+
+It's a nitpick, but I think it'll be better if you follow the same
+pattern as in other readl-modification-writel blocks, to clear the bits
+then set the desired ones later,
+
+> +	/* Select 24M clk for high speed mode */
+
+This looks a little confusing, in dt-bindings you only listed a core
+clock and a bus clock, but neither core nor bus clock runs at 24MHz. So
+I suspect there's another clock source supplying the "24MHz clk",
+possibly the 24MHz oscillator, and it should be described in
+dt-bindings, too.
+
+> +	temp =3D readl(priv->base + K1_TSU_PCTRL2);
+> +	temp &=3D ~K1_TSU_PCTRL2_CLK_SEL_MASK;
+> +	temp |=3D K1_TSU_PCTRL2_CLK_SEL_24M;
+> +	writel(temp, priv->base + K1_TSU_PCTRL2);
+
+...
+
+> +	/* Enable each sensor */
+> +	for (i =3D 0; i < MAX_SENSOR_NUMBER; ++i) {
+> +		temp =3D readl(priv->base + K1_TSU_EN);
+> +		temp &=3D ~K1_TSU_EN_MASK(i);
+> +		temp |=3D K1_TSU_EN_MASK(i);
+
+What's the point of clearing a bit and setting it again?
+
+Furthermore, this is the only place K1_TSU_EN_MASK is used. If you fold
+the modified bits into a macro, let's say, K1_TSU_EN_ALL, to be
+GENMASK(MAX_SENSOR_NUNBER - 1, 0), this loop could be replaced with
+readl-or-writel operation, which seems much simpler to me.
+
+> +		writel(temp, priv->base + K1_TSU_EN);
+> +	}
+> +
+> +	return 0;
+> +}
+
+...
+
+> +/*
+> + * The conversion formula used is:
+> + * T(m=B0C) =3D (((raw_value & mask) >> shift) - TEMPERATURE_OFFSET) * 1=
+000
+> + */
+> +static int k1_thermal_get_temp(struct thermal_zone_device *tz, int *temp)
+> +{
+> +	struct k1_thermal_sensor *sensor =3D thermal_zone_device_priv(tz);
+> +	struct k1_thermal_priv *priv =3D sensor->priv;
+> +
+> +	*temp =3D readl(priv->base + K1_TSU_DATA(sensor->id));
+> +	*temp &=3D K1_TSU_DATA_MASK(sensor->id);
+> +	*temp >>=3D K1_TSU_DATA_SHIFT(sensor->id);
+
+FIELD_GET() would help here.
+
+> +
+> +	*temp -=3D TEMPERATURE_OFFSET;
+> +
+> +	*temp *=3D 1000;
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * For each sensor, the hardware threshold register is 32 bits:
+> + * - Lower 16 bits [15:0] configure the low threshold temperature.
+> + * - Upper 16 bits [31:16] configure the high threshold temperature.
+> + */
+> +static int k1_thermal_set_trips(struct thermal_zone_device *tz, int low,=
+ int high)
+> +{
+
+...
+
+> +	high_code =3D high_code / 1000 + TEMPERATURE_OFFSET;
+> +	temp =3D readl(priv->base + K1_TSU_THRSH(sensor->id));
+> +	temp &=3D ~K1_TSU_THRSH_HIGH_MASK;
+> +	temp |=3D (high_code << K1_TSU_THRSH_HIGH_SHIFT);
+> +	writel(temp, priv->base + K1_TSU_THRSH(sensor->id));
+> +
+> +	low_code =3D low_code / 1000 + TEMPERATURE_OFFSET;
+> +	temp =3D readl(priv->base + K1_TSU_THRSH(sensor->id));
+> +	temp &=3D ~K1_TSU_THRSH_LOW_MASK;
+> +	temp |=3D (low_code << K1_TSU_THRSH_LOW_SHIFT);
+> +	writel(temp, priv->base + K1_TSU_THRSH(sensor->id));
+
+Similarly, FIELD_PUT() could simplify these threshold setting code.
+
+> +
+> +	return 0;
+> +}
+
+...
+
+> +static irqreturn_t k1_thermal_irq_thread(int irq, void *data)
+> +{
+> +	struct k1_thermal_priv *priv =3D (struct k1_thermal_priv *)data;
+> +	int msk, status, i;
+> +
+> +	status =3D readl(priv->base + K1_TSU_INT_STA);
+> +
+> +	for (i =3D 0; i < MAX_SENSOR_NUMBER; i++) {
+> +		if (status & K1_TSU_INT_MASK(i)) {
+> +			msk =3D readl(priv->base + K1_TSU_INT_CLR);
+> +			msk |=3D K1_TSU_INT_MASK(i);
+> +			writel(msk, priv->base + K1_TSU_INT_CLR);
+> +			/* Notify thermal framework to update trips */
+
+Purpose of the code looks obvious, do you think the comment should be
+dropped?
+
+> +			thermal_zone_device_update(priv->sensors[i].tzd, THERMAL_EVENT_UNSPEC=
+IFIED);
+> +		}
+> +	}
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int k1_thermal_probe(struct platform_device *pdev)
+> +{
+
+...
+
+> +	priv->base =3D devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(priv->base))
+> +		return PTR_ERR(priv->base);
+
+Why not using dev_err_probe() here?
+
+...
+
+> +	ret =3D k1_init_sensors(pdev);
+
+k1_init_sensors would never fail, suggest changing it to return void,
+and get rid of assignment to ret here.
+
+Best regards,
+Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
