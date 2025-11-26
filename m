@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69009D10F28
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 16:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A3ED1039B
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 16:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PVfqwiRY0Qyzj/laVJZjnFCD3g8um55GLEFdu7gJ9wc=; b=cRatMjL/Gf9tEd
-	D2JdsjzKYMk+oD/OYUfeWPR8u1j8kzOB6Uq6C1lEF5+504Kl7/tbYp1uaJudIOL0Qq90Ct+m9JzAy
-	csUNhnzOaP3ljCCaNA+QJHlFjbSOimsoQB95tyGnb4IFbjul/PFGrGcO3B+vzYkj/d5oRe6SHVhmi
-	KMRvgEXyTbokO1kWRyHm+I7wCFm3vIc0lBSCRBTjYKwFyyoJk/b84i5fzUe3E7r2OGIvTSbtBFYED
-	uUIN5BD5YFDmVZBB2Qkp9u8KCrdCFNBNzIdaMfFeazokZs0Xssn8wUIsnT4rzaVljxNHZfJVRmJBT
-	G2HPKTcEH0ouIx8Bhqfg==;
+	List-Owner; bh=w+vB7Mx1/gU8EuagM8KHyMwbMzVzClBbcwjZyXrYis8=; b=x9Wrfn7zDj7Usw
+	208GcrgrwsZ2mxloWbp7p6CMgsKbqQeXOcoOh0OFUkhcf6nuohwY23f44cffz4WID0cogIQDVXecH
+	MRCwNU/E0MhYY2FZxDcxZA7fWk/WYlXv0r4pWVRIsze9iQ8IUT+6ksRg4h1+aczJMfXhS18w4o+tz
+	jVO+jY7brMBGUueB3d+4T7WV9Bzao5TIoNS/+Qp5TtlvJmiT7Oka3suCXrt+8nT7k24MKf55bSXkd
+	xCssqB73bYZ8SD+JOAguzN4YeA0ggpeXgxokvUXPC6W0mFUcOafp0MIEDDnEmE6K5EVyGHiffqWxL
+	XZYNRgSvGkSHWVBzlUeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIJK-0000000FIVT-0FLi;
-	Wed, 26 Nov 2025 16:24:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIJJ-0000000FIVK-1R5J
+	id 1vOITr-0000000FJSU-1TOt;
+	Wed, 26 Nov 2025 16:34:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOITo-0000000FJS8-3rWg
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 16:24:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E96A601B2;
-	Wed, 26 Nov 2025 16:24:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251B9C4CEF7;
-	Wed, 26 Nov 2025 16:24:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764174244;
-	bh=xkgwF078Wy7iyBarI+z1Q/5lGrdVNPXLHbM0vTEeQRE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pivBNJQ0uIcxpd7mJi7OVhRQ1/s4KNNegcRY3Nk7u6oND9eQLWUU8JFbSW1c0UqqG
-	 iJ9wgQmO1vBLvgbV9SrQjoSbEkepHpoY6G3KDJln2ozeZ2eVxX+h6TbYu3ZpWAXq88
-	 eCURFu4u56NpC9ATLBqeTX0WwBH7pscqYEtctJbO0yLO8RGC0tTIvFsiPKftMVuAXt
-	 8OjZd2fYQlq6YeHDz3T65OpBWfRhGlHU5vy9S5oAl/fFFAyeGlcoFDQfqCf5V2cwKS
-	 ywE6aZ59NmlNUMSkz0f13JirqIX8O3zKI5DvKYuoVzdIgK++qRkx1g+xVP5n+TRdtZ
-	 Ho6pN2w/iR8og==
-Received: from johan by xi.lan with local (Exim 4.98.2)
-	(envelope-from <johan@kernel.org>)
-	id 1vOIJJ-000000003G6-3LNN;
-	Wed, 26 Nov 2025 17:24:05 +0100
-Date: Wed, 26 Nov 2025 17:24:05 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Jassi Brar <jassisinghbrar@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: Re: [PATCH] mailbox: th1520: fix clock imbalance on probe failure
-Message-ID: <aScppcza9xwGwqn3@hovoldconsulting.com>
-References: <20251017055414.7753-1-johan@kernel.org>
- <aRGswsgOmPGXMjMI@hovoldconsulting.com>
+	Wed, 26 Nov 2025 16:34:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0459C168F;
+	Wed, 26 Nov 2025 08:34:48 -0800 (PST)
+Received: from [10.1.33.153] (unknown [10.1.33.153])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B2E773F73B;
+	Wed, 26 Nov 2025 08:34:52 -0800 (PST)
+Message-ID: <150ffcb7-2df2-4f3a-a12e-9807f13c6ab9@arm.com>
+Date: Wed, 26 Nov 2025 16:34:51 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aRGswsgOmPGXMjMI@hovoldconsulting.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: "David Hildenbrand (Red Hat)" <david@kernel.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Wei Yang <richard.weiyang@gmail.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-mm@kvack.org, devicetree@vger.kernel.org,
+ Suren Baghdasaryan <surenb@google.com>, linux-kernel@vger.kernel.org,
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
+ Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
+ Rob Herring <robh+dt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
+ Anshuman Khandual <anshuman.khandual@arm.com>
+References: <bc88d132-452a-42a1-9ee5-5407334d8aac@kernel.org>
+ <df7d10ba-bb42-4ea1-8c5b-5db88a18eccb@kernel.org>
+ <6bdf2b89-7768-4b90-b5e7-ff174196ea7b@lucifer.local>
+ <71123d7a-641b-41df-b959-88e6c2a3a441@kernel.org>
+ <c0818f5b-b8a1-4730-aa1d-df0f547a3d47@arm.com>
+ <20251126134726.yrya5xxayfcde3kl@master>
+ <ee5f5da3-8c6b-4381-aee8-b0fab56cbf83@arm.com>
+ <6b966403-91e0-4f06-86a9-a4f7780b9557@kernel.org>
+ <ab39d448-aa1c-4c93-8e2b-5d97a9c76af5@lucifer.local>
+ <1ca9f99f-6266-47ca-8c94-1a9b9aaa717f@kernel.org>
+ <37973e21-e8f4-4603-b93d-4e0b1b2499fa@lucifer.local>
+ <a1d25bde-3ab6-46b5-a957-db80da7e737b@kernel.org>
+ <4505a93b-2bac-4ce1-8971-4c31f1ce1362@arm.com>
+In-Reply-To: <4505a93b-2bac-4ce1-8971-4c31f1ce1362@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251126_083457_042297_5B60340E 
+X-CRM114-Status: GOOD (  28.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,23 +88,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 10:13:38AM +0100, Johan Hovold wrote:
-> On Fri, Oct 17, 2025 at 07:54:14AM +0200, Johan Hovold wrote:
-> > The purpose of the devm_add_action_or_reset() helper is to call the
-> > action function in case adding an action ever fails so drop the clock
-> > disable from the error path to avoid disabling the clocks twice.
-> > 
-> > Fixes: 5d4d263e1c6b ("mailbox: Introduce support for T-head TH1520 Mailbox driver")
-> > Cc: Michal Wilczynski <m.wilczynski@samsung.com>
-> > Signed-off-by: Johan Hovold <johan@kernel.org>
-> > ---
+On 26/11/2025 16:07, Ryan Roberts wrote:
+> On 26/11/2025 15:12, David Hildenbrand (Red Hat) wrote:
+>> On 11/26/25 16:08, Lorenzo Stoakes wrote:
+>>> On Wed, Nov 26, 2025 at 03:56:13PM +0100, David Hildenbrand (Red Hat) wrote:
+>>>> On 11/26/25 15:52, Lorenzo Stoakes wrote:
+>>>>>
+>>>>> Would the pmdp_get() never get invoked then? Or otherwise wouldn't that end up
+>>>>> requiring a READ_ONCE() further up the stack?
+>>>>
+>>>> See my other reply, I think the pmdp_get() is required because all pud_*
+>>>> functions are just simple stubs.
+>>>
+>>> OK, thought you were saying we should push further down the stack? Or up
+>>> depending on how you view these things :P as in READ_ONCE at leaf?
+>>
+>> I think at leaf because I think the previous ones should essentially be only
+>> used by stubs.
+>>
+>> But I haven't fully digested how this is all working. Or supposed to work.
+>>
+>> I'm trying to chew through the arch/arm/include/asm/pgtable-2level.h example to
+>> see if I can make sense of it,
 > 
-> Can this one be picked up for 6.19?
+> I wonder if we can think about this slightly differently;
+> 
+> READ_ONCE() has two important properties:
+> 
+>  - It guarrantees that a load will be issued, *even if output is unused*
+>  - It guarrantees that the read will be single-copy-atomic (no tearing)
+> 
+> I think for the existing places where READ_ONCE() is used for pagetable reads we
+> only care about:
+> 
+>  - It guarrantees that a load will be issued, *if output is used*
+>  - It guarrantees that the read will be single-copy-atomic (no tearing)
+> 
+> I think if we can weaken to the "if output is used" property, then the compiler
+> will optimize out all the unneccessary reads.
+> 
+> AIUI, a C dereference provides neither of the guarrantees so that's no good.
+> 
+> What about non-volatile asm? I'm told (thought need to verify) that for
+> non-volatile asm, the compiler will emit it if the output is used and remove it
+> otherwise. So if the asm contains the required single-copy-atomic, perhaps we
+> are in business?
+> 
+> So we would need a new READ_SCA() macro that could default to READ_ONCE() (which
+> is stronger) and arches could opt in to providing a weaker asm version. Then the
+> default pXdp_get() could be READ_SCA(). And this should work for all cases.
+> 
+> I think.
 
-It's been another month so sending another reminder. Can this one be
-picked up for 6.19?
+I'm not sure this works. It looks like the compiler is free to move non-volatile
+asm sections which might be problematic for places where we are currently using
+READ_ONCE() in lockless algorithms, (e.g. GUP?). We wouldn't want to end up with
+a stale value.
 
-Johan
+Another idea:
+
+Given the main pattern where we are aiming to optimize out the read is something
+like:
+
+if (!pud_present(*pud))
+
+where for a folded pmd:
+
+static inline int pud_present(pud_t pud)	{ return 1; }
+
+And we will change it to this:
+
+if (!pud_present(pudp_get(pud)))
+
+...
+
+perhaps we can just define the folded pXd_present(), pXd_none(), pXd_bad(),
+pXd_user() and pXd_leaf() as macros:
+
+#define pud_present(pud)	1
+
+Then the compiler will never even see the pudp_get().
+
+Thanks,
+Ryan
+
+
+> 
+>>
+>>>
+>>> Anyway. I am now designating you the expert at this ;)
+>>
+>> Oh no. :)
+>>
+>>>
+>>>>
+>>>>>
+>>>>>>
+>>>>>> IOW, push the READ_ONCE() down to the lowest level so the previous ones
+>>>>>> (that will get essentially ignore?) will get folded into the last
+>>>>>> READ_ONCE()?
+>>>>>>
+>>>>>> But my head still hurts and I am focusing on something else concurrently :)
+>>>>>
+>>>>> Even if we could make this work, I don't love that there's some implicit
+>>>>> assumption there that could easily break later on.
+>>>>>
+>>>>> I'd rather we kept it as stupid/obvious as possible...
+>>>>
+>>>> Looking at include/asm-generic/pgtable-nopmd.h I am not sure we are talking
+>>>> about implicit assumptions here. It's kind-of the design that the pud_t
+>>>> values are dummies, so why shoul the pudp_get() give you any guarantees.
+>>>>
+>>>> At least that's my current understanding, which might be very flawed :)
+>>>
+>>> I mean I'm waving my hands around like I'm working on an aircraft carrier here
+>>> so if you're _sure_ it's _absolutely_ safe then fine :)
+>>
+>> Well, not yet ... :)
+>>
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
