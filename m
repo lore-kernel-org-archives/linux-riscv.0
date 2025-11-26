@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B19AD11181
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 15:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D8ACD10F58
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 16:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cdZgqU4x4ASLql3rafU59reRfAInBra0trGfYKpQepk=; b=eC0waVH2BsZZAM
-	MoQMrxfcdjymWWQe+kTP62JoS4jHwGZET9ZvMnmY9VCYrvaIaeO6WFj/f6AS2anv+cAxbdsSyImQ0
-	aUPi2h20JnSLhMEipNn7DtAKejyGAyPD/QeZab/mv2ah+Az/nJVaIWC+BR5L2bVbCxi0scYdL4cej
-	VwxokIG2CZapW7wMtvZ/awz9x2Tp7atzwn7nUvjOMbPfFLopL3uoSb+QMSsHD9OsN4zFbk5PSQA8X
-	esgV5xoWDv4RkAS+5l6RQWhuj79cYgHxlrPV9x8OsaJDfQ/pb5BhojvRAjGqkjNxx8I3maIT/7UHT
-	mD3+OqI1NVi0wZEEkevA==;
+	List-Owner; bh=Dqx3u01mED0F+Yub32DRXkCHKvfBmwxDp8TXww/mi1A=; b=G5+sP7JQAAL6B4
+	jZnaHnv3YKhjJHtyBgtFLWUrqgtVLIFIE0aTDQmbLuBnZmWcVdsHKvjx5VTExfLhO5K+lXLN34ofU
+	UpbfO1ESK+aScT86Ey4CkTSvKue26dLPCfb8qe38104ejZ6wpX30e+R5Pmofj81qiYoumpNl5qwBD
+	VNALS+II6gRM4ERdUTlBiUHr1fwdZBlEPyieJOVBygKCdlAb2EF/r9oHopcwUHQ3gq1gvHqfQdtVB
+	WT0HpT1cOjfogwyRedi3Zv0CFaYOYAB2ZIHb+qUa9HUdGk3n4zLxonSXsmgCZFw8DFJLrDix3bA2Q
+	xUANlSiXgNXeRmL0fYJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHuO-0000000FDSF-3UWb;
-	Wed, 26 Nov 2025 15:58:20 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHuN-0000000FDRo-1k9r
+	id 1vOI3H-0000000FEye-35vV;
+	Wed, 26 Nov 2025 16:07:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOI3F-0000000FEyH-0dG4
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 15:58:20 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-7b9387df58cso10871125b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Nov 2025 07:58:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764172698; x=1764777498; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6coizwMX32tnMFy7SCv4fyC/T1+n7CiPp+H9M25tD1k=;
-        b=GYxOnWiYnuJQzkyZvCvYXRaKtv7G7RA2nr2q3yBgRPY2p7RamTM++Z2XWyye13RWLb
-         gg9c5LORcAlSGjxjcYYzL+K5VUZ3jrNpo8bVSXJ5OC3yQZHoHyBtO9uiZK0evfCJXibp
-         W6qD5SjOBHi+7ggMPmxqAxA96BEPKr1xzQEij2QyGIGMy3jOY1nSWPHlN3kpAHDmYGwU
-         fTdEDTy/vAKWavb5xyj/HKtvDQcdds4dPJfF/l7VW+HpTrSMnUB7+AAj2SChp4u/Z5sZ
-         Ts4+Nz2OI+8f7esr+bhHJs0ea+NZcQq1ER+KN5nARpFbIho/jo35fiovLgJN09KJeYh0
-         Sk4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764172698; x=1764777498;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6coizwMX32tnMFy7SCv4fyC/T1+n7CiPp+H9M25tD1k=;
-        b=OmZiyz9yYn+7CXVaCz7M8oLXxL6jl6HjemCJJHnT+G2T9Pf5Fjaj+xib5lY3V+UJMG
-         08LNT+RvE0JLHKYLkKP1slM39DSKUp9GPr4Uyk1xMMXOOFbvXFIv3MKbunQEl3IeW5Ti
-         8h1saLho1M6RFU6Py3lxVXUVIdE+Wdc5T7rkNBZQ7AjmbH5Kg6fFvpNw30PYEYYiCQ+1
-         Ukq0rQUfq99xrAFzdSXF4deXnbgBALot2JqjbBz6nhva3iw0mlflOpIPPD/33uuUPsf1
-         RFxn3zat8WgDfpZPexHMGto+xiExIJAdYPcJXuoJV/HFdNtO3NPXhcq1Q+rGKJAEQp3x
-         oe9w==
-X-Forwarded-Encrypted: i=1; AJvYcCU+XhX/mBTr/AfXkiRCtJtx4pHQp3Nc3sdHVy0q4kw6jcUM2rx4aMUl+YCGpsKEb5f2iEMHqw/c2SdB7A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzpnl0259tqLQy7YatGNCxDGHiWQ93Qst0wAdDGj096Xs5B3lrL
-	cdF3fYzfRP/lnTwCELWsv6+hUUlU8NzKjzcAKvDKHDXhsZDYl8maTphL
-X-Gm-Gg: ASbGncupZ+fus/0DY6A2btGmsQeA3yWvYs8mOGT+bWYDQfH2sONR8+FqDkTMF9z2/hI
-	pnsEQbs0YmHf3bMytI8jiNdpayzdcReVZ+Fb4A/25JlS+dad21qqOWIB3cgSw0Mkv7zJjsYlngi
-	847UWFqaod1b0NRnsK5TZXBpeNbDwBdmbWYAPXxtXed3BRnIGktahtjQs4z3maelrWo2l4UNi0k
-	i2zIVgX22nRsDlQ7hjpH7MHCiCUdnoCE+UHblBqjN7CNalvHb7ROn55TjoITylE151cn7n7FYRI
-	rFkYsyVlf2nZ9xC8kv2Kg3o8DYcZUTQduS3ULr0h9hqIc51Sp3qp2xDsalPMHMPraKAKzSFV4Tl
-	GArnKVXfVFoi662sgDvk2apBccZM7cA7rDpvAtPdHFxPVgBhg2820mHNHCtsKAjK17VCA0Xb/Ai
-	Gx32xwnufADnTeXk5m9uvjxjM=
-X-Google-Smtp-Source: AGHT+IEAlrEBX63dNuljqMvsO08ZhEyk1nD47uVvFnK6rNCBnZjVQlF3NDTXlkiQ1hlZiiZ6Qsu8Wg==
-X-Received: by 2002:a05:7023:b89:b0:11b:3742:1257 with SMTP id a92af1059eb24-11cbba4a6aemr6896636c88.34.1764172698336;
-        Wed, 26 Nov 2025 07:58:18 -0800 (PST)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11c93de82c1sm68952231c88.3.2025.11.26.07.58.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Nov 2025 07:58:17 -0800 (PST)
-Date: Wed, 26 Nov 2025 07:58:17 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Rob Herring <robh@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] of: Skip devicetree kunit tests when RISCV+ACPI doesn't
- populate root node
-Message-ID: <04241600-c5f7-4b49-80e0-ad4d58355623@roeck-us.net>
-References: <20251023160415.705294-1-linux@roeck-us.net>
- <176297731621.2151636.2516355929483523874.robh@kernel.org>
- <f5cc4e3e-ef66-7786-f9b5-f9d5f0846386@kernel.org>
- <CAL_JsqKzLARKeM8xP+TeVhuksth7F9p8kaU7KtRxHFe=q1Q=9w@mail.gmail.com>
+	Wed, 26 Nov 2025 16:07:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B9C41692;
+	Wed, 26 Nov 2025 08:07:20 -0800 (PST)
+Received: from [10.1.33.153] (unknown [10.1.33.153])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 051ED3F73B;
+	Wed, 26 Nov 2025 08:07:24 -0800 (PST)
+Message-ID: <4505a93b-2bac-4ce1-8971-4c31f1ce1362@arm.com>
+Date: Wed, 26 Nov 2025 16:07:23 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAL_JsqKzLARKeM8xP+TeVhuksth7F9p8kaU7KtRxHFe=q1Q=9w@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
+Content-Language: en-GB
+To: "David Hildenbrand (Red Hat)" <david@kernel.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Wei Yang <richard.weiyang@gmail.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-mm@kvack.org, devicetree@vger.kernel.org,
+ Suren Baghdasaryan <surenb@google.com>, linux-kernel@vger.kernel.org,
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
+ Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
+ Rob Herring <robh+dt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
+ Anshuman Khandual <anshuman.khandual@arm.com>
+References: <bc88d132-452a-42a1-9ee5-5407334d8aac@kernel.org>
+ <df7d10ba-bb42-4ea1-8c5b-5db88a18eccb@kernel.org>
+ <6bdf2b89-7768-4b90-b5e7-ff174196ea7b@lucifer.local>
+ <71123d7a-641b-41df-b959-88e6c2a3a441@kernel.org>
+ <c0818f5b-b8a1-4730-aa1d-df0f547a3d47@arm.com>
+ <20251126134726.yrya5xxayfcde3kl@master>
+ <ee5f5da3-8c6b-4381-aee8-b0fab56cbf83@arm.com>
+ <6b966403-91e0-4f06-86a9-a4f7780b9557@kernel.org>
+ <ab39d448-aa1c-4c93-8e2b-5d97a9c76af5@lucifer.local>
+ <1ca9f99f-6266-47ca-8c94-1a9b9aaa717f@kernel.org>
+ <37973e21-e8f4-4603-b93d-4e0b1b2499fa@lucifer.local>
+ <a1d25bde-3ab6-46b5-a957-db80da7e737b@kernel.org>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <a1d25bde-3ab6-46b5-a957-db80da7e737b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_075819_457931_F4D6ABA2 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20251126_080729_278678_0FDD1BDD 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,33 +82,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBOb3YgMjAsIDIwMjUgYXQgMDc6MDY6NDZQTSAtMDYwMCwgUm9iIEhlcnJpbmcgd3Jv
-dGU6Cj4gT24gVGh1LCBOb3YgMTMsIDIwMjUgYXQgODo1M+KAr1BNIFBhdWwgV2FsbXNsZXkgPHBq
-d0BrZXJuZWwub3JnPiB3cm90ZToKPiA+Cj4gPiBIaSBSb2IsCj4gPgo+ID4gT24gV2VkLCAxMiBO
-b3YgMjAyNSwgUm9iIEhlcnJpbmcgKEFybSkgd3JvdGU6Cj4gPgo+ID4gPiBJIGd1ZXNzIHRoZSBy
-aXNjdiBmb2xrcyBkb24ndCBjYXJlIGFib3V0IHN1cHBvcnRpbmcgdGhlIHJlbGV2YW50Cj4gPiA+
-IGZlYXR1cmVzIGVpdGhlciwgc28gSSd2ZSBhcHBsaWVkIGl0LiBDYW4ga2lja2VkIGRvd24gdGhl
-IHJvYWQgYWdhaW4uCj4gPgo+ID4gRm9yIHRoZSByZWNvcmQ6IHdlIGRvIGNhcmUuICBIb3dldmVy
-LCBpdCBsb29rcyBsaWtlIHRoaXMgcHJvYmxlbSBuZWVkcyBhCj4gPiBtb3JlIGdlbmVyYWwgc29s
-dXRpb24sIHNvbWV0aGluZyB0aGF0IGFwcGxpZXMgYWNyb3NzIENQVSBhcmNoaXRlY3R1cmVzLgo+
-ID4gTGFja2luZyB0aGF0LCB3ZSBtaWdodCBhcyB3ZWxsIGhhdmUgYmVoYXZpb3IgY29uc2lzdGVu
-dCB3aXRoIEFSTTY0IC0gYW5kCj4gPiBmb3IgaXRzIGZhdWx0cywgdGhpcyBhcHByb2FjaCBpcyBh
-dCBsZWFzdCBzaW1wbGVyIHRvIHJlYXNvbiBhYm91dC4KPiAKPiBUaGUgdGhpbmcgaXMgdGhhdCBw
-cm9ibGVtcyBzaG93IHVwIG9uIHNwZWNpZmljIG1hY2hpbmVzIHdoaWNoIGhhcwo+IGxpdHRsZSB0
-byBkbyB3aXRoIHRoZSBzcGVjaWZpYyBDUFUgYXJjaC4gSSBkb24ndCBoYXZlIGFueSB2aXNpYmls
-aXR5Cj4gYXMgdG8gd2hhdCBwcm9ibGVtIHlvdSBhbGwgaGFkIHdoaWNoIHByb21wdGVkIGRpc2Fi
-bGluZyBpdCAoZm9yIHRoZQo+IGFyY2gsIG5vdCB0aGUga3VuaXQgdGVzdHMpIHRvIGJlIGFibGUg
-dG8gdGhpbmsgYWJvdXQgYSBzb2x1dGlvbi4KPiBMZWF2aW5nIGl0IG9mZiBqdXN0IG1lYW5zIHdl
-J3JlIHBvdGVudGlhbGx5IGFkZGluZyByZWdyZXNzaW9ucyBpbiB0aGUKPiBmdXR1cmUgd2hlbiB3
-ZSB0cnkgdG8gdHVybiBpdCBvbi4KPiAKClNpbmNlIHRoZSBwYXRjaCBpbnRyb2R1Y2luZyB0aGUg
-cHJvYmxlbSBoYXMgbm93IGJlZW4gYmFja3BvcnRlZCB0byB2Ni4xMgphbmQgdjYuMTcsIEkgZGlz
-YWJsZWQgQ09ORklHX09GX0tVTklUX1RFU1QgZm9yIHJpc2N2IGVudGlyZWx5IGluIG15IHRlc3QK
-c3lzdGVtLgoKR3VlbnRlcgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+On 26/11/2025 15:12, David Hildenbrand (Red Hat) wrote:
+> On 11/26/25 16:08, Lorenzo Stoakes wrote:
+>> On Wed, Nov 26, 2025 at 03:56:13PM +0100, David Hildenbrand (Red Hat) wrote:
+>>> On 11/26/25 15:52, Lorenzo Stoakes wrote:
+>>>>
+>>>> Would the pmdp_get() never get invoked then? Or otherwise wouldn't that end up
+>>>> requiring a READ_ONCE() further up the stack?
+>>>
+>>> See my other reply, I think the pmdp_get() is required because all pud_*
+>>> functions are just simple stubs.
+>>
+>> OK, thought you were saying we should push further down the stack? Or up
+>> depending on how you view these things :P as in READ_ONCE at leaf?
+> 
+> I think at leaf because I think the previous ones should essentially be only
+> used by stubs.
+> 
+> But I haven't fully digested how this is all working. Or supposed to work.
+> 
+> I'm trying to chew through the arch/arm/include/asm/pgtable-2level.h example to
+> see if I can make sense of it,
+
+I wonder if we can think about this slightly differently;
+
+READ_ONCE() has two important properties:
+
+ - It guarrantees that a load will be issued, *even if output is unused*
+ - It guarrantees that the read will be single-copy-atomic (no tearing)
+
+I think for the existing places where READ_ONCE() is used for pagetable reads we
+only care about:
+
+ - It guarrantees that a load will be issued, *if output is used*
+ - It guarrantees that the read will be single-copy-atomic (no tearing)
+
+I think if we can weaken to the "if output is used" property, then the compiler
+will optimize out all the unneccessary reads.
+
+AIUI, a C dereference provides neither of the guarrantees so that's no good.
+
+What about non-volatile asm? I'm told (thought need to verify) that for
+non-volatile asm, the compiler will emit it if the output is used and remove it
+otherwise. So if the asm contains the required single-copy-atomic, perhaps we
+are in business?
+
+So we would need a new READ_SCA() macro that could default to READ_ONCE() (which
+is stronger) and arches could opt in to providing a weaker asm version. Then the
+default pXdp_get() could be READ_SCA(). And this should work for all cases.
+
+I think.
+
+> 
+>>
+>> Anyway. I am now designating you the expert at this ;)
+> 
+> Oh no. :)
+> 
+>>
+>>>
+>>>>
+>>>>>
+>>>>> IOW, push the READ_ONCE() down to the lowest level so the previous ones
+>>>>> (that will get essentially ignore?) will get folded into the last
+>>>>> READ_ONCE()?
+>>>>>
+>>>>> But my head still hurts and I am focusing on something else concurrently :)
+>>>>
+>>>> Even if we could make this work, I don't love that there's some implicit
+>>>> assumption there that could easily break later on.
+>>>>
+>>>> I'd rather we kept it as stupid/obvious as possible...
+>>>
+>>> Looking at include/asm-generic/pgtable-nopmd.h I am not sure we are talking
+>>> about implicit assumptions here. It's kind-of the design that the pud_t
+>>> values are dummies, so why shoul the pudp_get() give you any guarantees.
+>>>
+>>> At least that's my current understanding, which might be very flawed :)
+>>
+>> I mean I'm waving my hands around like I'm working on an aircraft carrier here
+>> so if you're _sure_ it's _absolutely_ safe then fine :)
+> 
+> Well, not yet ... :)
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
