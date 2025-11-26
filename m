@@ -4,79 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58034D10F58
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 14:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF43D10F5F
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Nov 2025 14:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MiXx4T79i2fVaYDFuHC5PDkycA0GAxAtt67YdautJrs=; b=tjjQCnG1KKFXx1
-	VlmLtlYc3Qk4bImoalzHVrWPmINIIa3rR5SvOHMPOOfKGxkCUtklnDo0gFAUVss4UzTOLnuX0o7Qz
-	5zyytXe3CI4u9FMfSAk64HxuHmhWiANtcsFpVWI72nyQL92qROKIF4eKY1VhxmBycBVBcRJxsB0g6
-	qbajwKiT/gCL9K/Q15UPRZnoPkA9aVcBUdWohpn8SN9P6RTWdtcDFeeHNWEPkP8t+DT2q0YJDc83R
-	HS9d0eaZUq/bJvhiet/jBgXgWf3mLgtPMleWIzqFFQ7yb6xF/aWg2qyfaouPE0Qy/l+RD8Gan8zrT
-	V3gbnasHgH1CT/94yL5w==;
+	List-Owner; bh=hl+ZczCNsSC/0zkjjFpV0lgy0zMEhar28WsTphtwRNw=; b=qpb8BIzA293Wwv
+	X/m/MUwGDijtgWCSMSs1jEnHLEigginVUy67NGhSkv0JHQqPF23T69RC5UbLtE7TaF14VJEl1MeKa
+	Mez84UeVNAyCTBEVqdIqYJqzlecoZaASdGPND0NPisIXIixXd18BtyTs4L/Ghbg2B7XPLUf8k5kIc
+	iPWGX2QBhvv53KfLEnPANYnj9G/d1hjhS8GQRwHPX8H5Izf3VQhumqAj2rQQ1HiCQq6dPbf+cxiIv
+	SQH30IU4/zDkLnDKmgH+oABG9vcsdP+DPcBSBzb4rbWgibpWxLBG/7gHs/HiXd8KC4Vz+fG81lPJD
+	9ieFniANymZHe/57wDMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOGnC-0000000F87A-3Vkr;
-	Wed, 26 Nov 2025 14:46:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vOGsN-0000000F8Rp-09Ae;
+	Wed, 26 Nov 2025 14:52:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOGnA-0000000F86n-1JHk
+	id 1vOGsL-0000000F8RD-1TIZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Nov 2025 14:46:49 +0000
+	Wed, 26 Nov 2025 14:52:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A908F41A3B;
-	Wed, 26 Nov 2025 14:46:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D951FC4CEF7;
-	Wed, 26 Nov 2025 14:46:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 25D1843C2E;
+	Wed, 26 Nov 2025 14:52:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAA5EC4CEF8;
+	Wed, 26 Nov 2025 14:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764168407;
-	bh=rN8uuyU8RJxsQK9SI2vsik5bVZRYdR4fDfMryS9LdTo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Knb6dB6KKmlnmfJpGMk6rLZZg/Xct6yBU+L1A5tJGCzb90ZgbFIwltq2rnJrqAlb7
-	 1m5cTDHSno9KWGcw9J9xR1Vx6XYBkWdCJzainHhBbiuiOXeYZyf1CNuUDvRsEFpkVV
-	 7IJu0+1HHJuTC+uWYmKLKfGHbKpiReXDB7NMDr5kMlBx9faWmr3mgZ6PD6RzEcGh6y
-	 wtbFL4cEKyAzFnXjBZeg4brZpmGf/C3fwJost64KZLAqrMU0dQsh+XijAoVcsQU8Ij
-	 3VZVb7gospy7DoVSKnuqOIyjQ0D9N3e2LKLO3PtlK7etI21gf96UYXggvB3TqwbADK
-	 adsHLAl4WA45A==
-Message-ID: <6b966403-91e0-4f06-86a9-a4f7780b9557@kernel.org>
-Date: Wed, 26 Nov 2025 15:46:40 +0100
+	s=k20201202; t=1764168728;
+	bh=/74vt1wLn3+rm0dgzz3/LNuVx0j7rjTd7baJ/SYk8AM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Nyw+WcUQ7QSYKvf6wezEamKmiyBYM04xUfnv5bwOL0E5nqP2N0ztvewCWm52Zxp9y
+	 o94JbfSlu8BLWmtJqHyFbqJiEZvNB/hcSpLKZhe6OOn6q/ZHRcKoe0ddJ9w7TbMgA+
+	 1O+FKE+jx1kUpKz/PU7pLhzQ/m2WipEQsYI6S8Ey1GUu6egcjJBXlfE1L9lrF/U5XV
+	 k/OKe17lvW5yLelWzsaap78f55rwQy84r9v8wHtkzUPXJoxB+a7IPENviSNUxPdd6f
+	 Qidov0tRgNKAywqD57PVZiLxeHHC7tqU3imEQQV1A+sWFrhcrQX+xpjqTo7UFYAweh
+	 eMB3J2zoViyRw==
+Date: Wed, 26 Nov 2025 08:52:00 -0600
+From: Drew Fustini <fustini@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Subject: Re: [PATCH 2/7] clk: thead: th1520-ap: Poll for PLL lock and wait
+ for stability
+Message-ID: <aScUELnY-TC8kVzV@gen8>
+References: <20251120131416.26236-1-ziyao@disroot.org>
+ <20251120131416.26236-3-ziyao@disroot.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
-To: Ryan Roberts <ryan.roberts@arm.com>, Wei Yang <richard.weiyang@gmail.com>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
- linux-mm@kvack.org, devicetree@vger.kernel.org,
- Suren Baghdasaryan <surenb@google.com>, linux-kernel@vger.kernel.org,
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
- Rob Herring <robh+dt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-References: <20251113014656.2605447-1-samuel.holland@sifive.com>
- <20251113014656.2605447-7-samuel.holland@sifive.com>
- <02e3b3bd-ae6a-4db4-b4a1-8cbc1bc0a1c8@arm.com>
- <bc88d132-452a-42a1-9ee5-5407334d8aac@kernel.org>
- <df7d10ba-bb42-4ea1-8c5b-5db88a18eccb@kernel.org>
- <6bdf2b89-7768-4b90-b5e7-ff174196ea7b@lucifer.local>
- <71123d7a-641b-41df-b959-88e6c2a3a441@kernel.org>
- <c0818f5b-b8a1-4730-aa1d-df0f547a3d47@arm.com>
- <20251126134726.yrya5xxayfcde3kl@master>
- <ee5f5da3-8c6b-4381-aee8-b0fab56cbf83@arm.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Content-Language: en-US
-In-Reply-To: <ee5f5da3-8c6b-4381-aee8-b0fab56cbf83@arm.com>
+Content-Disposition: inline
+In-Reply-To: <20251120131416.26236-3-ziyao@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_064648_424545_BFAA9C1C 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20251126_065209_432526_73F5C4ED 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,100 +67,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Guo Ren <guoren@kernel.org>, Han Gao <rabenda.cn@gmail.com>, Han Gao <gaohan@iscas.ac.cn>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/26/25 15:22, Ryan Roberts wrote:
-> On 26/11/2025 13:47, Wei Yang wrote:
->> On Wed, Nov 26, 2025 at 01:03:42PM +0000, Ryan Roberts wrote:
->>> On 26/11/2025 12:35, David Hildenbrand (Red Hat) wrote:
->> [...]
->>>>>>>> Hi,
->>>>>>>>
->>>>>>>> I've just come across this patch and wanted to mention that we could also
->>>>>>>> benefit from this improved absraction for some features we are looking at for
->>>>>>>> arm64. As you mention, Anshuman had a go but hit some roadblocks.
->>>>>>>>
->>>>>>>> The main issue is that the compiler was unable to optimize away the
->>>>>>>> READ_ONCE()s
->>>>>>>> for the case where certain levels of the pgtable are folded. But it can
->>>>>>>> optimize
->>>>>>>> the plain C dereferences. There were complaints the the generated code for arm
->>>>>>>> (32) and powerpc was significantly impacted due to having many more
->>>>>>>> (redundant)
->>>>>>>> loads.
->>>>>>>>
->>>>>>>
->>>>>>> We do have mm_pmd_folded()/p4d_folded() etc, could that help to sort
->>>>>>> this out internally?
->>>>>>>
->>>>>>
->>>>>> Just stumbled over the reply from Christope:
->>>>>>
->>>>>> https://lkml.kernel.org/r/0019d675-ce3d-4a5c-89ed-f126c45145c9@kernel.org
->>>>>>
->>>>>> And wonder if we could handle that somehow directly in the pgdp_get() etc.
->>>
->>> I certainly don't like the suggestion of doing the is_folded() test outside the
->>> helper, but if we can push that logic down into pXdp_get() that would be pretty
->>> neat. Anshuman and I did briefly play with the idea of doing a C dereference if
->>> the level is folded and a READ_ONCE() otherwise, all inside each pXdp_get()
->>> helper. Although we never proved it to be correct. I struggle with the model for
->>> folding. Do you want to optimize out all-but-the-highest level's access or
->>> all-but-the-lowest level's access? Makes my head hurt...
->>>
->>>
->>
->> You mean sth like:
->>
->> static inline pmd_t pmdp_get(pmd_t *pmdp)
->> {
->> #ifdef __PAGETABLE_PMD_FOLDED
->> 	return *pmdp;
->> #else
->> 	return READ_ONCE(*pmdp);
->> #endif
->> }
+On Thu, Nov 20, 2025 at 01:14:11PM +0000, Yao Zi wrote:
+> All PLLs found on TH1520 SoC take 21250ns at maximum to lock, and their
+> lock status is indicated by register PLL_STS (offset 0x80 inside AP
+> clock controller). We should poll the register to ensure the PLL
+> actually locks after enabling it.
 > 
-> Yes. But I'm not convinced it's correct.
-
-Yeah, I'm also still trying to understand how it could work.
-
+> Furthermore, a 30us delay is added after enabling the PLL, after which
+> the PLL could be considered stable as stated by vendor clock code.
 > 
-> I *think* (but please correct me if I'm wrong) if the PMD is folded, the PUD and
-> P4D must also be folded, and you effectively have a 2 level pgtable consisting
-> of the PGD table and the PTE table. p4dp_get(), pudp_get() and pmdp_get() are
-> all effectively duplicating the load of the pgd entry? So assuming pgdp_get()
-> was already called and used READ_ONCE(), you might hope the compiler will just
-> drop the other loads and just use the value returned by READ_ONCE(). But I doubt
-> there is any guarantee of that and you might be in a situation where pgdp_get()
-> never even got called (perhaps you already have the pmd pointer).
-With __PAGETABLE_PMD_FOLDED we treat the PUD to be fake-present, like
+> Fixes: 56a48c1833aa ("clk: thead: add support for enabling/disabling PLLs")
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  drivers/clk/thead/clk-th1520-ap.c | 34 +++++++++++++++++++++++++++++--
+>  1 file changed, 32 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+[...]
+> +/*
+> + * All PLLs in TH1520 take 21250ns at maximum to lock, let's take its double
+> + * for safety.
+> + */
+> +#define TH1520_PLL_LOCK_TIMEOUT_US	44
+> +#define TH1520_PLL_STABLE_DELAY_US	30
 
-static inline int pud_present(pud_t pud)	{ return 1; }
+I'm taking a second look at this and I think it might be best to add a
+define for the polling loop delay of 5. It could be helpful when other
+people read the code later.
 
-And obtaining the pmd_t* is essentially  cast of the pud_t*
+[...]
+> +	ret = regmap_read_poll_timeout_atomic(pll->common.map, TH1520_PLL_STS,
+> +					      reg, reg & pll->lock_sts_mask,
+> +					      5, TH1520_PLL_LOCK_TIMEOUT_US);
 
-static inline pmd_t * pmd_offset(pud_t * pud, unsigned long address)
-{
-	return (pmd_t *)pud;
-}
+The loop delay is only used here but I think using a #define would make
+it more readable.
 
-So in that case we might want to have the READ_ONCE() remove from the 
-pudp_get(), not the pmdp_get()?
+Other than that:
+Reviewed-by: Drew Fustini <fustini@kernel.org>
 
-IOW, push the READ_ONCE() down to the lowest level so the previous ones 
-(that will get essentially ignore?) will get folded into the last 
-READ_ONCE()?
+If no other changes are needed I could fix this up on apply. Let's see
+what other comments there may be. It's too late for me to send a 6.19
+clk pull request so this will have to target the next merge window. I
+can put it into linux-next once 6.19-rc1 is released.
 
-But my head still hurts and I am focusing on something else concurrently :)
-
--- 
-Cheers
-
-David
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
