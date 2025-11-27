@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED12D10375
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 07:09:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1170D116E2
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 07:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1s5ffey2oX4dUmh675knav6JdmPYm80yXlTCNjFtIxo=; b=VanHnVSYDhRu4S
-	raC359wltwER9pXQrSH6aPS4+r7AfTT1XW7G7NZGTnWjiIIBSTXpvI746p0aX6PAkBUl7JP4ofXTJ
-	rY+ZhyEWn9LckvjmN6V6WTG4j3NHJEIbWG0GNcmEQIoBYc7paU3Oya3jQ9TP5LB2FYOTdXvTWEEmd
-	gfO2QS6pkO0dVAoQwR9q4HqD6gMa2bgEG0szV0sgafkyDD4YAaent08ep7uFg65u/DnRKoMneWMTZ
-	j/DSTf8+OUOeKx8F40/BA3ps98wNiE/TOowVkS3Q9e3cikaY1ikiuiISVNLyd42tfZKJ0SxbhWKwB
-	VK0c05cNEZUajjiz+YHw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NAuYy4SFTaASIIPz9kVIUL5TcnpuG6/dlR5BZSMr0aI=; b=Fyxyg/AvW5vwM2
+	LXqGI1KkwJ4kSMb7MUgPRCZ292izjgrVkWOwFUs+2vAlOnQ7VrH18d8KdJxFnKWi3ZZxj/Xxeq49O
+	t6j9SqJpjOCEHlcBDCJhb6HpfG+sZNFjBwd8Sxj5hgpxCwd19xsTQ/ugKiosBheOCVaZ0U0NHn6UC
+	cJfJHQF09MZKkS3jEy2xbLLxFYMXt6YMoa1jbeNJvdXcNfoC78QGD4I20n4vIpjqb4I6Os6VI6oba
+	dPlMHEHEp1fHV2BoE7HxcvVhU//G4aCc/T+UnU5qrcXVbkkJtsJ4nX5ay+V7tjcCwfwH56f90sLtt
+	EWvDQ16nWBN9Qtupaujg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOW7b-0000000G5eH-24ZB;
-	Thu, 27 Nov 2025 07:08:55 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1vOW82-0000000G5jg-423l;
+	Thu, 27 Nov 2025 07:09:23 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOW7Y-0000000G5ck-0ict
+	id 1vOW7z-0000000G5iS-3pPs
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 07:08:53 +0000
+	Thu, 27 Nov 2025 07:09:21 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 508465BCC4;
-	Thu, 27 Nov 2025 07:08:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1764227329; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=GkYN9sQBp6dFq1RSSSZnuQ9AZ+VFB0EPlCzVmqFi3YU=;
-	b=NRFjlEQEFRUF7MB0YXXuWH+hccvSptPQkIWcQIN42Eujd+3DypnWRVBsEJOEQpawsBHhRT
-	DZCAXZ/+rWHpMsRmIsSSJO7Q0/+CGg09JHud8frJouhM+o9x2Jc+uC8CI7ytj0uFvKEN6J
-	1q+u7R80ryYQ3g0sjK8vydN/B0Qf08k=
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.com header.s=susede1 header.b=uKKXG1H+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1764227328; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=GkYN9sQBp6dFq1RSSSZnuQ9AZ+VFB0EPlCzVmqFi3YU=;
-	b=uKKXG1H+6MZGr/tZefnbzOsYOgrhg2akWRcpCnauAJm2xDHwX7cweR+dsw1lfTmF6IjuH5
-	vzBWHYIhEpeDfzWOo6Kp6y/QHgKEtErU0VGcSns5/+PZDcnsbDi9V133ATlarmPHbh0An/
-	TbbVvbnfugeXzU5GIet2NqMAuAkNa1o=
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 4206A33693;
+	Thu, 27 Nov 2025 07:09:18 +0000 (UTC)
+Authentication-Results: smtp-out1.suse.de;
+	none
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CCCEF3EA63;
-	Thu, 27 Nov 2025 07:08:46 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 353CD3EA63;
+	Thu, 27 Nov 2025 07:09:17 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id +HFzMP74J2lYXAAAD6G6ig
-	(envelope-from <jgross@suse.com>); Thu, 27 Nov 2025 07:08:46 +0000
+	id EWuXCx35J2l8XAAAD6G6ig
+	(envelope-from <jgross@suse.com>); Thu, 27 Nov 2025 07:09:17 +0000
 From: Juergen Gross <jgross@suse.com>
 To: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
-	linux-hyperv@vger.kernel.org,
 	virtualization@lists.linux.dev,
 	loongarch@lists.linux.dev,
 	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
+	linux-riscv@lists.infradead.org
 Cc: Juergen Gross <jgross@suse.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Dexuan Cui <decui@microsoft.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Will Deacon <will@kernel.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Waiman Long <longman@redhat.com>,
-	Jiri Kosina <jikos@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	xen-devel@lists.xenproject.org,
 	Ajay Kaher <ajay.kaher@broadcom.com>,
 	Alexey Makhalov <alexey.makhalov@broadcom.com>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
 	Russell King <linux@armlinux.org.uk>,
 	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	Huacai Chen <chenhuacai@kernel.org>,
 	WANG Xuerui <kernel@xen0n.name>,
 	Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -103,6 +69,12 @@ Cc: Juergen Gross <jgross@suse.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
 	Juri Lelli <juri.lelli@redhat.com>,
 	Vincent Guittot <vincent.guittot@linaro.org>,
 	Dietmar Eggemann <dietmar.eggemann@arm.com>,
@@ -111,50 +83,29 @@ Cc: Juergen Gross <jgross@suse.com>,
 	Mel Gorman <mgorman@suse.de>,
 	Valentin Schneider <vschneid@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>
-Subject: [PATCH v4 00/21] paravirt: cleanup and reorg
-Date: Thu, 27 Nov 2025 08:08:23 +0100
-Message-ID: <20251127070844.21919-1-jgross@suse.com>
+	Shrikanth Hegde <sshegde@linux.ibm.com>
+Subject: [PATCH v4 05/21] paravirt: Remove asm/paravirt_api_clock.h
+Date: Thu, 27 Nov 2025 08:08:28 +0100
+Message-ID: <20251127070844.21919-6-jgross@suse.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251127070844.21919-1-jgross@suse.com>
+References: <20251127070844.21919-1-jgross@suse.com>
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-1.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.com:s=susede1];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	MIME_TRACE(0.00)[0:+];
-	DKIM_SIGNED(0.00)[suse.com:s=susede1];
-	ARC_NA(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FREEMAIL_CC(0.00)[suse.com,kernel.org,linutronix.de,redhat.com,alien8.de,linux.intel.com,zytor.com,microsoft.com,infradead.org,gmail.com,oracle.com,lists.xenproject.org,broadcom.com,armlinux.org.uk,arm.com,xen0n.name,linux.ibm.com,ellerman.id.au,csgroup.eu,dabbelt.com,eecs.berkeley.edu,ghiti.fr,linaro.org,goodmis.org,google.com,suse.de,lists.infradead.org,epam.com];
-	DKIM_TRACE(0.00)[suse.com:+];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	RCPT_COUNT_GT_50(0.00)[57];
-	R_RATELIMIT(0.00)[to_ip_from(RLkdkdrsxe9hqhhs5ask8616i6)];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 508465BCC4
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Spamd-Result: default: False [-4.00 / 50.00];
+	REPLY(-4.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLkdkdrsxe9hqhhs5ask8616i6)]
+X-Rspamd-Queue-Id: 4206A33693
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
 X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_230852_503689_8B30C31D 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20251126_230920_093138_BCF50ED4 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,150 +122,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some cleanups and reorg of paravirt code and headers:
+All architectures supporting CONFIG_PARAVIRT share the same contents
+of asm/paravirt_api_clock.h:
 
-- The first 2 patches should be not controversial at all, as they
-  remove just some no longer needed #include and struct forward
-  declarations.
+  #include <asm/paravirt.h>
 
-- The 3rd patch is removing CONFIG_PARAVIRT_DEBUG, which IMO has
-  no real value, as it just changes a crash to a BUG() (the stack
-  trace will basically be the same). As the maintainer of the main
-  paravirt user (Xen) I have never seen this crash/BUG() to happen.
+So remove all incarnations of asm/paravirt_api_clock.h and remove the
+only place where it is included, as there asm/paravirt.h is included
+anyway.
 
-- The 4th patch is just a movement of code.
-
-- I don't know for what reason asm/paravirt_api_clock.h was added,
-  as all archs supporting it do it exactly in the same way. Patch
-  5 is removing it.
-
-- Patches 6-14 are streamlining the paravirt clock interfaces by
-  using a common implementation across architectures where possible
-  and by moving the related code into common sched code, as this is
-  where it should live.
-
-- Patches 15-20 are more like RFC material preparing the paravirt
-  infrastructure to support multiple pv_ops function arrays.
-  As a prerequisite for that it makes life in objtool much easier
-  with dropping the Xen static initializers of the pv_ops sub-
-  structures, which is done in patches 15-17.
-  Patches 18-20 are doing the real preparations for multiple pv_ops
-  arrays and using those arrays in multiple headers.
-
-- Patch 21 is an example how the new scheme can look like using the
-  PV-spinlocks.
-
-Changes in V2:
-- new patches 13-18 and 20
-- complete rework of patch 21
-
-Changes in V3:
-- fixed 2 issues detected by kernel test robot
-
-Changes in V4:
-- fixed one build issue
-
-Juergen Gross (21):
-  x86/paravirt: Remove not needed includes of paravirt.h
-  x86/paravirt: Remove some unneeded struct declarations
-  x86/paravirt: Remove PARAVIRT_DEBUG config option
-  x86/paravirt: Move thunk macros to paravirt_types.h
-  paravirt: Remove asm/paravirt_api_clock.h
-  sched: Move clock related paravirt code to kernel/sched
-  arm/paravirt: Use common code for paravirt_steal_clock()
-  arm64/paravirt: Use common code for paravirt_steal_clock()
-  loongarch/paravirt: Use common code for paravirt_steal_clock()
-  riscv/paravirt: Use common code for paravirt_steal_clock()
-  x86/paravirt: Use common code for paravirt_steal_clock()
-  x86/paravirt: Move paravirt_sched_clock() related code into tsc.c
-  x86/paravirt: Introduce new paravirt-base.h header
-  x86/paravirt: Move pv_native_*() prototypes to paravirt.c
-  x86/xen: Drop xen_irq_ops
-  x86/xen: Drop xen_cpu_ops
-  x86/xen: Drop xen_mmu_ops
-  objtool: Allow multiple pv_ops arrays
-  x86/paravirt: Allow pv-calls outside paravirt.h
-  x86/paravirt: Specify pv_ops array in paravirt macros
-  x86/pvlocks: Move paravirt spinlock functions into own header
-
- arch/Kconfig                                  |   3 +
- arch/arm/Kconfig                              |   1 +
- arch/arm/include/asm/paravirt.h               |  22 --
- arch/arm/include/asm/paravirt_api_clock.h     |   1 -
- arch/arm/kernel/Makefile                      |   1 -
- arch/arm/kernel/paravirt.c                    |  23 --
- arch/arm64/Kconfig                            |   1 +
- arch/arm64/include/asm/paravirt.h             |  14 -
- arch/arm64/include/asm/paravirt_api_clock.h   |   1 -
- arch/arm64/kernel/paravirt.c                  |  11 +-
- arch/loongarch/Kconfig                        |   1 +
- arch/loongarch/include/asm/paravirt.h         |  13 -
- .../include/asm/paravirt_api_clock.h          |   1 -
- arch/loongarch/kernel/paravirt.c              |  10 +-
- arch/powerpc/include/asm/paravirt.h           |   3 -
- arch/powerpc/include/asm/paravirt_api_clock.h |   2 -
- arch/powerpc/platforms/pseries/setup.c        |   4 +-
- arch/riscv/Kconfig                            |   1 +
- arch/riscv/include/asm/paravirt.h             |  14 -
- arch/riscv/include/asm/paravirt_api_clock.h   |   1 -
- arch/riscv/kernel/paravirt.c                  |  11 +-
- arch/x86/Kconfig                              |   8 +-
- arch/x86/entry/entry_64.S                     |   1 -
- arch/x86/entry/vsyscall/vsyscall_64.c         |   1 -
- arch/x86/hyperv/hv_spinlock.c                 |  11 +-
- arch/x86/include/asm/apic.h                   |   4 -
- arch/x86/include/asm/highmem.h                |   1 -
- arch/x86/include/asm/mshyperv.h               |   1 -
- arch/x86/include/asm/paravirt-base.h          |  29 ++
- arch/x86/include/asm/paravirt-spinlock.h      | 146 ++++++++
- arch/x86/include/asm/paravirt.h               | 331 +++++-------------
- arch/x86/include/asm/paravirt_api_clock.h     |   1 -
- arch/x86/include/asm/paravirt_types.h         | 269 +++++++-------
- arch/x86/include/asm/pgtable_32.h             |   1 -
- arch/x86/include/asm/ptrace.h                 |   2 +-
- arch/x86/include/asm/qspinlock.h              |  89 +----
- arch/x86/include/asm/spinlock.h               |   1 -
- arch/x86/include/asm/timer.h                  |   1 +
- arch/x86/include/asm/tlbflush.h               |   4 -
- arch/x86/kernel/Makefile                      |   2 +-
- arch/x86/kernel/apm_32.c                      |   1 -
- arch/x86/kernel/callthunks.c                  |   1 -
- arch/x86/kernel/cpu/bugs.c                    |   1 -
- arch/x86/kernel/cpu/vmware.c                  |   1 +
- arch/x86/kernel/kvm.c                         |  13 +-
- arch/x86/kernel/kvmclock.c                    |   1 +
- arch/x86/kernel/paravirt-spinlocks.c          |  26 +-
- arch/x86/kernel/paravirt.c                    |  42 +--
- arch/x86/kernel/tsc.c                         |  10 +-
- arch/x86/kernel/vsmp_64.c                     |   1 -
- arch/x86/lib/cache-smp.c                      |   1 -
- arch/x86/mm/init.c                            |   1 -
- arch/x86/xen/enlighten_pv.c                   |  82 ++---
- arch/x86/xen/irq.c                            |  20 +-
- arch/x86/xen/mmu_pv.c                         | 100 ++----
- arch/x86/xen/spinlock.c                       |  11 +-
- arch/x86/xen/time.c                           |   2 +
- drivers/clocksource/hyperv_timer.c            |   2 +
- drivers/xen/time.c                            |   2 +-
- include/linux/sched/cputime.h                 |  18 +
- kernel/sched/core.c                           |   5 +
- kernel/sched/cputime.c                        |  13 +
- kernel/sched/sched.h                          |   3 +-
- tools/objtool/arch/x86/decode.c               |   8 +-
- tools/objtool/check.c                         |  78 ++++-
- tools/objtool/include/objtool/check.h         |   2 +
- 66 files changed, 661 insertions(+), 826 deletions(-)
- delete mode 100644 arch/arm/include/asm/paravirt.h
+Signed-off-by: Juergen Gross <jgross@suse.com>
+Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com> # powerpc, scheduler bits
+---
+ arch/arm/include/asm/paravirt_api_clock.h       | 1 -
+ arch/arm64/include/asm/paravirt_api_clock.h     | 1 -
+ arch/loongarch/include/asm/paravirt_api_clock.h | 1 -
+ arch/powerpc/include/asm/paravirt_api_clock.h   | 2 --
+ arch/riscv/include/asm/paravirt_api_clock.h     | 1 -
+ arch/x86/include/asm/paravirt_api_clock.h       | 1 -
+ kernel/sched/sched.h                            | 1 -
+ 7 files changed, 8 deletions(-)
  delete mode 100644 arch/arm/include/asm/paravirt_api_clock.h
- delete mode 100644 arch/arm/kernel/paravirt.c
  delete mode 100644 arch/arm64/include/asm/paravirt_api_clock.h
  delete mode 100644 arch/loongarch/include/asm/paravirt_api_clock.h
  delete mode 100644 arch/powerpc/include/asm/paravirt_api_clock.h
  delete mode 100644 arch/riscv/include/asm/paravirt_api_clock.h
- create mode 100644 arch/x86/include/asm/paravirt-base.h
- create mode 100644 arch/x86/include/asm/paravirt-spinlock.h
  delete mode 100644 arch/x86/include/asm/paravirt_api_clock.h
 
+diff --git a/arch/arm/include/asm/paravirt_api_clock.h b/arch/arm/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/arm/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/arm64/include/asm/paravirt_api_clock.h b/arch/arm64/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/arm64/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/loongarch/include/asm/paravirt_api_clock.h b/arch/loongarch/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/loongarch/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/powerpc/include/asm/paravirt_api_clock.h b/arch/powerpc/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index d25ca7ac57c7..000000000000
+--- a/arch/powerpc/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/paravirt.h>
+diff --git a/arch/riscv/include/asm/paravirt_api_clock.h b/arch/riscv/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/riscv/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/x86/include/asm/paravirt_api_clock.h b/arch/x86/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/x86/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index adfb6e3409d7..ccd0d92ff7d1 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -84,7 +84,6 @@ struct cpuidle_state;
+ 
+ #ifdef CONFIG_PARAVIRT
+ # include <asm/paravirt.h>
+-# include <asm/paravirt_api_clock.h>
+ #endif
+ 
+ #include <asm/barrier.h>
 -- 
 2.51.0
 
