@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE5DCFD2F6
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 20:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14467CFD2F6
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 21:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KxmdV7+ec7w+cQlsycbsAS4LSVlIGIWHdrEbbHAKXQQ=; b=gGT2Wge2+gfv2N
-	RNjfB4ZzPb7cKT6y+u1hFsQcFtLw5QmEndmR3CDgkLRYeqa2WPLn1S7KhdO8qYtx8aKArVHAVzwTl
-	fZrQy0ByXbgjj7ULW6n/7xT3uzUWmdD0p0ohDfNgeXVH/Aai5jUgU2L/WMZKjhHIiSzyw9kjFdwcB
-	U6XhGSXHrhBFf2mTSksqcmwMxk4hgVH5keFIrG0WjljhOwBGjwym9++2dVDz5cCGgsje4WHOsN00b
-	6dtIQbW9/cLEaflTxbbTJrivytp83tn/N9Y2A6E9QZqN/MyM5CJLyOqdusMp7LHRoddwWsntDmc1R
-	r79lPv73jOc3euRxp8yA==;
+	List-Owner; bh=cmEvdaF5aWXiO9VD4cCkny6DBdAThrxTJtNIDS7wW0Q=; b=Me4G+b6ZDDvtOs
+	sETt2gqXuun3+MXuFjZH2YzdAmOCGx+H5/IVgaJ5EHk1Q/095dWPMyOshMmFCxZQ7QOJrZ8U3hZ9G
+	BsSxOor0xZAmI6WkIGBSWy8a5weLnatbLxwnUOndy806uvb4AtNAUlXRHzYb46XUVHFjbqPr9Z7z+
+	Qimm6+uNMHsUVUbmQQsjiEyRJXu9coA2m/hWxLZRzyICRBSpqBov9aOgZarXpb4CNyc5tR7FgO20v
+	c2AsODUrEEN5vB1lcTcyA7sdWrF1r1s51aRW2Edpf5v5axDkypGkkcgHPwypdwZSCy+pwFB3Ld6/g
+	3cs4V9VQF6gcnrp/37ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOj4x-0000000HDO1-0mv7;
-	Thu, 27 Nov 2025 20:59:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vOjJc-0000000HDrP-2COH;
+	Thu, 27 Nov 2025 21:14:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOj4v-0000000HDNg-09a7
+	id 1vOjJb-0000000HDrH-17Uq
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 20:59:02 +0000
+	Thu, 27 Nov 2025 21:14:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B990143F9E;
-	Thu, 27 Nov 2025 20:58:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4AA7C116D0;
-	Thu, 27 Nov 2025 20:58:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 29E5D60242;
+	Thu, 27 Nov 2025 21:14:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDA79C4CEF8;
+	Thu, 27 Nov 2025 21:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764277138;
-	bh=8qXLl43reLBtbzmBTNWDE4MJUHwA1dop+9l0UdnkVco=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=TiT4YQsyCoy8TZK8P1AxQqBRVTpAC53msertu5McSZHEDZ+3VVMob5QbHkcereSMU
-	 6z+Mufs6hvu9uXPi3bm6N4n2vfE/J4xr2vDzL1WfIF9NvgnbYPhxQpGa7mhSsdKVLG
-	 wXz8c7zmgLC1yMP9i6eEkGYHPRKpMpTC//WFqvwaMANny7hZKYPIO+XWIEmD0ebTIX
-	 6oVKqFEK6OnJ9fH/PRC3WymYtvoYC2+VH7oY9D8HD5NNC0arGENMdy3g782MTRqxxJ
-	 vtdDfIsxccJsUtXaFy/olLDKq2Ffd7BwrMaojntz325AzhCfMh1BXCKCsh5EeMkxyI
-	 0mbg0bhdKQWjw==
-From: Namhyung Kim <namhyung@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland <samuel.holland@sifive.com>, 
- Eric Lin <eric.lin@sifive.com>, Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
- Longbin Li <looong.bin@gmail.com>
-In-Reply-To: <20251014014830.613399-1-inochiama@gmail.com>
-References: <20251014014830.613399-1-inochiama@gmail.com>
-Subject: Re: [PATCH v2] perf vendor events riscv: add T-HEAD C920V2 JSON
- support
-Message-Id: <176427713670.3725736.11717672882692868206.b4-ty@kernel.org>
-Date: Thu, 27 Nov 2025 12:58:56 -0800
+	s=k20201202; t=1764278049;
+	bh=Fi9uBpjCD9vm8iluPdYQEZRrTQxH47uO4POYpNrObW4=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=khkgOJ3jyY5Z1bRFubXx8+PfzwwpzTLhKmfop/KpcKgOZsNorgafnpms8HWthBlZm
+	 Qjd+fBibf2KNWHwA60kRIHSzeqjIvG22F7oj5vdloc93fv9hv4l8KaBkJrRVc+ix3A
+	 qNW9H3ZKe0qRJMBV3nBa8qM1pz0GxGYSnGlezZ1NnfqTcyE8nX44WgR2tKPkYUEgbJ
+	 3hnD1zdApuKj+qKpcUvRaPdSb99IEx4ut3J/Re5H872dPTVyRnff2sxsVeH6S+e7Jz
+	 l8F4gH+/wnKZ+XCg81W1LX+OH0VsQa/DCQaWbyYoHg+PnmOL68kDGpGTByinNHagPP
+	 od+aoTIJWdbgg==
+Date: Thu, 27 Nov 2025 14:14:03 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: linux-riscv@lists.infradead.org
+cc: Deepak Gupta <debug@rivosinc.com>, tglx@linutronix.de, mingo@redhat.com, 
+    bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+    akpm@linux-foundation.org, Liam.Howlett@oracle.com, vbabka@suse.cz, 
+    lorenzo.stoakes@oracle.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+    aou@eecs.berkeley.edu, conor@kernel.org, robh@kernel.org, 
+    krzk+dt@kernel.org, arnd@arndb.de, brauner@kernel.org, 
+    peterz@infradead.org, oleg@redhat.com, ebiederm@xmission.com, 
+    kees@kernel.org, corbet@lwn.net, shuah@kernel.org, jannh@google.com, 
+    conor+dt@kernel.org, ojeda@kernel.org, alex.gaynor@gmail.com, 
+    boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, 
+    a.hindborg@kernel.org, aliceryhl@google.com, tmgross@umich.edu, 
+    lossin@kernel.org, linux-kernel@vger.kernel.org, 
+    linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+    devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
+    linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+    alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
+    andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
+    atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
+    alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
+    rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
+    zong.li@sifive.com, david@redhat.com, cmirabil@redhat.com
+Subject: Re: [PATCH v23 00/28] riscv control-flow integrity for usermode
+In-Reply-To: <176423222224.2476283.17736612090314280039.git-patchwork-notify@kernel.org>
+Message-ID: <b82ffcca-3173-8c07-4a8a-c42d8d092a72@kernel.org>
+References: <20251112-v5_user_cfi_series-v23-0-b55691eacf4f@rivosinc.com> <176423222224.2476283.17736612090314280039.git-patchwork-notify@kernel.org>
 MIME-Version: 1.0
-X-Mailer: b4 0.15-dev-c04d2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_125901_100056_05411AB2 
-X-CRM114-Status: UNSURE (   6.22  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,19 +87,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Oct 2025 09:48:29 +0800, Inochi Amaoto wrote:
-> T-HEAD C920 has a V2 iteration, which supports Sscompmf. The V2
-> iteration supports the same perf events as V1.
-> 
-> Reuse T-HEAD c900-legacy JSON file for T-HEAD C920V2.
-> 
-> 
-Applied to perf-tools-next, thanks!
+On Thu, 27 Nov 2025, patchwork-bot+linux-riscv@kernel.org wrote:
 
-Best regards,
-Namhyung
+> This series was applied to riscv/linux.git (for-next)
+> by Paul Walmsley <pjw@kernel.org>:
+> 
+
+[ the RISC-V CFI patch series ]
+
+> 
+> Here is the summary with links:
+>   - [v23,01/28] mm: VM_SHADOW_STACK definition for riscv
+>     https://git.kernel.org/riscv/c/ae8460ac9db2
+>   - [v23,02/28] dt-bindings: riscv: zicfilp and zicfiss in dt-bindings (extensions.yaml)
+>     https://git.kernel.org/riscv/c/b32ccfc268db
+>   - [v23,03/28] riscv: zicfiss / zicfilp enumeration
+>     https://git.kernel.org/riscv/c/55a811a7f304
+>   - [v23,04/28] riscv: zicfiss / zicfilp extension csr and bit definitions
+>     https://git.kernel.org/riscv/c/92c96b16548e
+>   - [v23,05/28] riscv: usercfi state for task and save/restore of CSR_SSP on trap entry/exit
+>     https://git.kernel.org/riscv/c/7720cdd21962
+>   - [v23,06/28] riscv/mm : ensure PROT_WRITE leads to VM_READ | VM_WRITE
+>     https://git.kernel.org/riscv/c/e60eb198b13d
+>   - [v23,07/28] riscv/mm: manufacture shadow stack pte
+>     https://git.kernel.org/riscv/c/f8fcb7b5bf30
+>   - [v23,08/28] riscv/mm: teach pte_mkwrite to manufacture shadow stack PTEs
+>     https://git.kernel.org/riscv/c/0276a5ea1105
+>   - [v23,09/28] riscv/mm: write protect and shadow stack
+>     https://git.kernel.org/riscv/c/ae615676bc37
+>   - [v23,10/28] riscv/mm: Implement map_shadow_stack() syscall
+>     https://git.kernel.org/riscv/c/d291fd38f841
+>   - [v23,11/28] riscv/shstk: If needed allocate a new shadow stack on clone
+>     https://git.kernel.org/riscv/c/d209ea2fa4bb
+>   - [v23,12/28] riscv: Implements arch agnostic shadow stack prctls
+>     https://git.kernel.org/riscv/c/8b49f512abc2
+>   - [v23,13/28] prctl: arch-agnostic prctl for indirect branch tracking
+>     https://git.kernel.org/riscv/c/3363a8d1044e
+>   - [v23,14/28] riscv: Implements arch agnostic indirect branch tracking prctls
+>     https://git.kernel.org/riscv/c/0177891ccdb7
+>   - [v23,15/28] riscv/traps: Introduce software check exception and uprobe handling
+>     https://git.kernel.org/riscv/c/6f71171a7448
+>   - [v23,16/28] riscv: signal: abstract header saving for setup_sigcontext
+>     (no matching commit)
+>   - [v23,17/28] riscv/signal: save and restore of shadow stack for signal
+>     https://git.kernel.org/riscv/c/4f9da7ad3478
+>   - [v23,18/28] riscv/kernel: update __show_regs to print shadow stack register
+>     https://git.kernel.org/riscv/c/320c96a55d73
+>   - [v23,19/28] riscv/ptrace: riscv cfi status and state via ptrace and in core files
+>     https://git.kernel.org/riscv/c/7a39f89a817e
+>   - [v23,20/28] riscv/hwprobe: zicfilp / zicfiss enumeration in hwprobe
+>     https://git.kernel.org/riscv/c/c09b490a9267
+>   - [v23,21/28] riscv: kernel command line option to opt out of user cfi
+>     https://git.kernel.org/riscv/c/6e0dc40ceb45
+>   - [v23,22/28] riscv: enable kernel access to shadow stack memory via FWFT sbi call
+>     https://git.kernel.org/riscv/c/dfd087078357
+>   - [v23,23/28] arch/riscv: compile vdso with landing pad and shadow stack note
+>     https://git.kernel.org/riscv/c/2cfe57e3bd9b
+>   - [v23,24/28] arch/riscv: dual vdso creation logic and select vdso based on hw
+>     https://git.kernel.org/riscv/c/418316aa61e8
+>   - [v23,25/28] riscv: create a config for shadow stack and landing pad instr support
+>     https://git.kernel.org/riscv/c/c5f5ce714457
+>   - [v23,26/28] riscv: Documentation for landing pad / indirect branch tracking
+>     https://git.kernel.org/riscv/c/73d0ccec35b8
+>   - [v23,27/28] riscv: Documentation for shadow stack on riscv
+>     https://git.kernel.org/riscv/c/6b8214c8cbd6
+>   - [v23,28/28] kselftest/riscv: kselftest for user mode cfi
+>     https://git.kernel.org/riscv/c/0f226cf6026f
+
+As I noted with the SSE series (before we removed it from for-next), I may 
+not ultimately send this in a PR this merge window, for several reasons.  
+The series has been around for a while, and although I know some vendors 
+have tested it privately, I'd really like to have more public testing of 
+this code, particularly on hardware emulation platforms or unreleased 
+silicon.  It would be good to see some Tested-by:s. 
+
+Thanks to everyone who has helped test this so far over the past few weeks 
+- particularly Joel Stanley of TensTorrent.
 
 
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
