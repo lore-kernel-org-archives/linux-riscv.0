@@ -4,55 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0913D1118D
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 00:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD5CD1118D
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 00:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XxVuKWDWt6twr6L8vGLiNIIJP+yDrXR6YwHHYDIrdwo=; b=USO3yGlsaljZpN
-	ttGCjLEtlDkzeMl8DYxthzEK2SVJloz8yNI7haLOq3gRU+Hd9iWzR5veeDhMpJdGl0FZWW6uFjyBI
-	5otRLUoDr5hYmSsoLRN/28WuBL17zjuciPzzpH9rNxKEzXpiRRTmn2OXak2l8iD0BQPLeGldmeuuT
-	6uSKBuCER3rEe4fOacSqUTonPBWELuqInEjtFuiZP0Pq9UWH8HVivNePL/dmeFAOQ8s/v5E9eGhqf
-	KrmgxK1nNWCVUSR6hhkmlbfthsTJnxYujI/1bjGx12Dtq2VOL3rP679PjinVtbl1wVc6SYSa6SqJL
-	M3j4DyyTISGPjMiGUELg==;
+	List-Owner; bh=x6wwrzZqy56TUW+h3mNQ3vvZIqQLJ5h3uHX8Pg4ebtE=; b=qhPPkpVFnMMxqC
+	rvgD88iHXwOuMM73TTSr5W4fqIZBvR1ItcgpzAoo8EEJiBohzZhk8N5dqcA5jTlHVo594yFq93hQ3
+	YIYq8e/kOj77qqX2cqcgj1ucR38nAnoWA/e4u+fnhcoXzLeEYwHbDWh1nPoAg8Ic5VdfjgyjEPkHf
+	qhN7DXSmGLlgGHc47AF0EzB5sjtzLBeSb9EvwTQhx0p5yZpU6J1nD/8rQcirlgNK+bzeysfOCU8Q+
+	OKsS53Rw/ZyLy1snNXeIUgrZIROqV2Qow6AVSc9kPtreo+GtnJO6+Ee1K8uRv3Ajgn7tjFT8C0ANx
+	0fgEFgw7vvnVQ8OpdZgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOQAQ-0000000Foek-3tJF;
-	Thu, 27 Nov 2025 00:47:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vOQCi-0000000Foo4-1nOC;
+	Thu, 27 Nov 2025 00:49:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOQAQ-0000000Foed-0wCx
+	id 1vOQCg-0000000Foni-312N
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 00:47:26 +0000
+	Thu, 27 Nov 2025 00:49:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 636FF60145;
-	Thu, 27 Nov 2025 00:47:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8E99C4CEF7;
-	Thu, 27 Nov 2025 00:47:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C33D9408A8;
+	Thu, 27 Nov 2025 00:49:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B885C4CEF7;
+	Thu, 27 Nov 2025 00:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764204445;
-	bh=i06fKk7VETrEAyFbV2Adc4g3CHVZmHovX+6PZqyAAQc=;
+	s=k20201202; t=1764204585;
+	bh=wS8EVxR6YX2P5yfvi9alZyf7r7Sl51mfZ6kFOeOmBmI=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=dgX+clQC3PgwvnBxxq0nMaIbQaZwO6D8WdZwHN+EE6hsZMSiwsZZ2JZAMIW+rKob9
-	 Q/CVVsqqodpGuH4SoKFPFWauFEOQuKHRAWJit9pKKJI2LBJtEYwh+T8rmX7+0SbbJF
-	 0QTMUvWNOtFVl9KX/ZQDW6RsysgPfeBJT1iZyHb5T1ol9ReZaIO+GZFLS3Id8fcjK6
-	 rdc9TyhCOrBIxfhwSAYLGChYbg7IufQweb/g3uN0bFyNXZLP/8QxwNurnIIsxPykzt
-	 hEXffNkNSIS9RUiMGc+INTHvuL+/5mN3aGCEJMppSO1cf8A8jmQvM+k/c/8ITGCqqz
-	 p/d+wbl9kL9DA==
-Date: Wed, 26 Nov 2025 17:47:21 -0700 (MST)
+	b=rXPYIhklTxIiLyCDyhxyeHHU5ZBJjqxgbp8nS/Iu0fF5lJv8kW9QKfTKOkP1qbTsL
+	 zSOL6s9vJZ78fvpYVbJoOzwvH35EIBkpsK8MhEPFK6AwT1/iuG2nl8/ENOjtTT/bL/
+	 ybJjF3LsTiubj5CidvjIV2VZxxkT++qZ1pQaAIdob/XyoeFEtws+SFMKATCZtutZxR
+	 BQa6j6amENy0VDu1G7rGMiD/qFfn+xeEfC4pQxJzh/6WbUuJjyPiJlFkn09N5TIHno
+	 5n2/ps6A+i8UyMO2KOl7CVrc0EAao10ZKfPPO3NqB2jIPWDbi3J6K9hKdkCP+vJ77v
+	 HII24ulEsng0A==
+Date: Wed, 26 Nov 2025 17:49:43 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
 To: Himanshu Chauhan <hchauhan@ventanamicro.com>
 cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
     linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/2] riscv: Add SBI debug trigger extension and function
- ids
-In-Reply-To: <20250710125231.653967-2-hchauhan@ventanamicro.com>
-Message-ID: <1a75ab7e-0329-e3d6-d66f-ad20de3f3ae1@kernel.org>
-References: <20250710125231.653967-1-hchauhan@ventanamicro.com> <20250710125231.653967-2-hchauhan@ventanamicro.com>
+Subject: Re: [PATCH v1 2/2] riscv: Introduce support for hardware
+ break/watchpoints
+In-Reply-To: <20250710125231.653967-3-hchauhan@ventanamicro.com>
+Message-ID: <0b77ac0f-a18f-e577-ff92-98ddd1d2bed8@kernel.org>
+References: <20250710125231.653967-1-hchauhan@ventanamicro.com> <20250710125231.653967-3-hchauhan@ventanamicro.com>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251126_164946_778060_39EE0DF4 
+X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,13 +75,16 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Thu, 10 Jul 2025, Himanshu Chauhan wrote:
 
-> Debug trigger extension is an SBI extension to support native debugging
-> in S-mode and VS-mode. This patch adds the extension and the function
-> IDs defined by the extension.
+> RISC-V hardware breakpoint framework is built on top of perf subsystem
+> and uses SBI debug trigger extension to
+> install/uninstall/update/enable/disable hardware triggers as specified
+> in Sdtrig ISA extension.
 > 
 > Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
 
-Thanks, queued for v6.19.
+Talking with Anup, it sounds like you're planning an updated version of 
+this one, so will hold off on it.
+
 
 - Paul
 
