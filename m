@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14467CFD2F6
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 21:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385A2D111A8
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 21:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cmEvdaF5aWXiO9VD4cCkny6DBdAThrxTJtNIDS7wW0Q=; b=Me4G+b6ZDDvtOs
-	sETt2gqXuun3+MXuFjZH2YzdAmOCGx+H5/IVgaJ5EHk1Q/095dWPMyOshMmFCxZQ7QOJrZ8U3hZ9G
-	BsSxOor0xZAmI6WkIGBSWy8a5weLnatbLxwnUOndy806uvb4AtNAUlXRHzYb46XUVHFjbqPr9Z7z+
-	Qimm6+uNMHsUVUbmQQsjiEyRJXu9coA2m/hWxLZRzyICRBSpqBov9aOgZarXpb4CNyc5tR7FgO20v
-	c2AsODUrEEN5vB1lcTcyA7sdWrF1r1s51aRW2Edpf5v5axDkypGkkcgHPwypdwZSCy+pwFB3Ld6/g
-	3cs4V9VQF6gcnrp/37ZA==;
+	List-Owner; bh=rYB3OR/8V05GohLtu6iqbwY6k9cMG1Dsg20WQtyn50s=; b=KrZw5LjtIKVet2
+	qqIcM45X8fwxJ1irBx/PLic8VKgCuVjJggY2jHMMWKD8s9AV2Ie7NDtWK8P9hVQr4W4NEaaKNkHSl
+	JJKFO09xe40Tz13IjA8x96sjthLXy0ly0IG1XhY2VPEUrS9x/Xj82mTFKcRo4QsajKPX3KyIMNWDO
+	msR35otYeTKNPpQjFeXsalHY4hIKfwGeRc19tDX1OIxUmex/j5m8N4CMxQ+7Qb3NpxxHdju+0ogz0
+	EQIK99W/q0kIgpchwnxB5NOlzzrnqYkn0yiO48G3501Sbp+F7FhriWwWVfJQnZr6cQx3TmPLLDTru
+	1F+nMk7LZtY3iMlIS7dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOjJc-0000000HDrP-2COH;
-	Thu, 27 Nov 2025 21:14:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vOjv6-0000000HFHh-1nJ3;
+	Thu, 27 Nov 2025 21:52:56 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOjJb-0000000HDrH-17Uq
+	id 1vOjv3-0000000HFGy-4762
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 21:14:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29E5D60242;
-	Thu, 27 Nov 2025 21:14:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDA79C4CEF8;
-	Thu, 27 Nov 2025 21:14:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764278049;
-	bh=Fi9uBpjCD9vm8iluPdYQEZRrTQxH47uO4POYpNrObW4=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=khkgOJ3jyY5Z1bRFubXx8+PfzwwpzTLhKmfop/KpcKgOZsNorgafnpms8HWthBlZm
-	 Qjd+fBibf2KNWHwA60kRIHSzeqjIvG22F7oj5vdloc93fv9hv4l8KaBkJrRVc+ix3A
-	 qNW9H3ZKe0qRJMBV3nBa8qM1pz0GxGYSnGlezZ1NnfqTcyE8nX44WgR2tKPkYUEgbJ
-	 3hnD1zdApuKj+qKpcUvRaPdSb99IEx4ut3J/Re5H872dPTVyRnff2sxsVeH6S+e7Jz
-	 l8F4gH+/wnKZ+XCg81W1LX+OH0VsQa/DCQaWbyYoHg+PnmOL68kDGpGTByinNHagPP
-	 od+aoTIJWdbgg==
-Date: Thu, 27 Nov 2025 14:14:03 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: linux-riscv@lists.infradead.org
-cc: Deepak Gupta <debug@rivosinc.com>, tglx@linutronix.de, mingo@redhat.com, 
-    bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
-    akpm@linux-foundation.org, Liam.Howlett@oracle.com, vbabka@suse.cz, 
-    lorenzo.stoakes@oracle.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-    aou@eecs.berkeley.edu, conor@kernel.org, robh@kernel.org, 
-    krzk+dt@kernel.org, arnd@arndb.de, brauner@kernel.org, 
-    peterz@infradead.org, oleg@redhat.com, ebiederm@xmission.com, 
-    kees@kernel.org, corbet@lwn.net, shuah@kernel.org, jannh@google.com, 
-    conor+dt@kernel.org, ojeda@kernel.org, alex.gaynor@gmail.com, 
-    boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, 
-    a.hindborg@kernel.org, aliceryhl@google.com, tmgross@umich.edu, 
-    lossin@kernel.org, linux-kernel@vger.kernel.org, 
-    linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-    devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
-    linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-    alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
-    andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
-    atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
-    alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
-    rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
-    zong.li@sifive.com, david@redhat.com, cmirabil@redhat.com
-Subject: Re: [PATCH v23 00/28] riscv control-flow integrity for usermode
-In-Reply-To: <176423222224.2476283.17736612090314280039.git-patchwork-notify@kernel.org>
-Message-ID: <b82ffcca-3173-8c07-4a8a-c42d8d092a72@kernel.org>
-References: <20251112-v5_user_cfi_series-v23-0-b55691eacf4f@rivosinc.com> <176423222224.2476283.17736612090314280039.git-patchwork-notify@kernel.org>
+	Thu, 27 Nov 2025 21:52:55 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-8843ebf2facso15684616d6.1
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Nov 2025 13:52:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764280372; x=1764885172; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jttLJ8TWGePu+ngSo1n4o5hp2pzXFGAv2t0XowsTZMg=;
+        b=f+yrPyopZP0fkW1LQIGWt4Fi8IH5AgO8OEwbVUPtCWKMOPKzLabNst01Q8FDwht9qm
+         h0fQceivTh6onPumDYP/9TOlwHjTsgJCL3qP0lxPjG1x9/eL3lmm45m1oEo3gUbvPvHK
+         X/trKisgZ8xyFTi1wLVrO7wfUGNu4DXDaBodxAz+s4WDEhw3oGgiSo9Arzx8r6E1jNLo
+         rgwRr946rZwvVw8iF8hNkn7WpKVJp73ltZTHIyAz7rISDgX7M7iPVxqkpeaFx+qGDPWe
+         fQQeU3LAkgLHkHa3gu8BXSastNqtfk2bZy+HpGClppaeLSKeTOmBkb4O1f+eUO7fv09H
+         arAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764280372; x=1764885172;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=jttLJ8TWGePu+ngSo1n4o5hp2pzXFGAv2t0XowsTZMg=;
+        b=t6C6mJ4NePp2d9w/s4H6MeyvKKXvSjv2LyxACln5JhAeENQwpLJTsRUF8n1dj4Tnqi
+         sIyFUXWacVnteoTAWsNCZ+EwqxF5Opjvai88jIYCQpDpd/iZ7o5zoakiNYvAnqgi5ZsM
+         seqFomN5+RRqdKHN6+4nfZYaU+BwbvLc1riX9lLbbVDjWON4VCcj7wC2+MvCGhTuIDbJ
+         kNw8Y9a7pCM1oavRu/vUrkZE0cJ3ho5ARc2OhKP1GDMgiM/H40aNvf3dllcWLRMYW0CD
+         37vHfceP71sW04mRhXGPHRvKE/PAj1TRKPqqFao4Ly0WupNbxPwG0xoFep5w6N76K1NM
+         YqzA==
+X-Forwarded-Encrypted: i=1; AJvYcCWXkaRKZgjQ04ZPf1hfOQ9UA0x+KxRhwlEREbyR7xTjkTC5oDneQ2mnWEyVvIdOzs4/SMp7PH86TAGG9w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4zG4HEYlTUdRmm6uB6gKZCV6czYzHJENN0x8v9ME49wC+0n7T
+	D/SMh8CVApOCc+uYoSx8M3XNvazOLhIvOSY8HD3EXh8rew1c3BQjVRc83v994jfv5Mae9+jplo2
+	93cwohuNo6A0t/PLh1mjP6+T866FExC4=
+X-Gm-Gg: ASbGncuwwFLtEMgHko34m3HZquRe75e+8QrT/4A5lMELdmQZO/Jcn+6fMwW2vGZJmmv
+	77o2cBLGzka802ZOtgtIZknlb6ZTiCylzNLM9CQ8zJUxogNcx7tDqMKx521MwygF86WShT2u9JE
+	m+R3DSanzM3gqEFDsPi1nxobfzJF1leaVvRRmO82/NIgcOH/7k2sC6nOBbn4a8KQen0b/Hv5H7X
+	Ycipt8vfS28NZVBwF3NDmx0BdkwVdmfpBDfPHyO2kGhMAHxcfrC7ndO6ry75JiUdS9LuQ==
+X-Google-Smtp-Source: AGHT+IGi53ssJfVFEVeCKpbOH4PM/Uba/gyP2VL/mpIj2xLrn6No0jDJl3wOawm61ht0VMTz1HcUV32B95MPtil1ISg=
+X-Received: by 2002:a05:6214:19c9:b0:880:49bd:e217 with SMTP id
+ 6a1803df08f44-8847c486a0bmr364162506d6.10.1764280372486; Thu, 27 Nov 2025
+ 13:52:52 -0800 (PST)
 MIME-Version: 1.0
+References: <20251127011438.6918-1-21cnbao@gmail.com> <aSfO7fA-04SBtTug@casper.infradead.org>
+ <CAGsJ_4zyZeLtxVe56OSYQx0OcjETw2ru1FjZjBOnTszMe_MW2g@mail.gmail.com>
+ <aSip2mWX13sqPW_l@casper.infradead.org> <CAGsJ_4zWGYiu1wv=D7bV5zd0h8TEHTCARhyu_9_gL36PiNvbHQ@mail.gmail.com>
+In-Reply-To: <CAGsJ_4zWGYiu1wv=D7bV5zd0h8TEHTCARhyu_9_gL36PiNvbHQ@mail.gmail.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Fri, 28 Nov 2025 05:52:40 +0800
+X-Gm-Features: AWmQ_blYpw-GPSWAvHSSwIXD1PKL1aIx4iCUo78DT2gXpdF1CZ018OhwLE5_XJY
+Message-ID: <CAGsJ_4wvaieWtTrK+koM3SFu9rDExkVHX5eUwYiEotVqP-ndEQ@mail.gmail.com>
+Subject: Re: [RFC PATCH 0/2] mm: continue using per-VMA lock when retrying
+ page faults after I/O
+To: Matthew Wilcox <willy@infradead.org>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251127_135254_025012_C7C01E56 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,92 +96,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Nov 2025, patchwork-bot+linux-riscv@kernel.org wrote:
-
-> This series was applied to riscv/linux.git (for-next)
-> by Paul Walmsley <pjw@kernel.org>:
-> 
-
-[ the RISC-V CFI patch series ]
-
-> 
-> Here is the summary with links:
->   - [v23,01/28] mm: VM_SHADOW_STACK definition for riscv
->     https://git.kernel.org/riscv/c/ae8460ac9db2
->   - [v23,02/28] dt-bindings: riscv: zicfilp and zicfiss in dt-bindings (extensions.yaml)
->     https://git.kernel.org/riscv/c/b32ccfc268db
->   - [v23,03/28] riscv: zicfiss / zicfilp enumeration
->     https://git.kernel.org/riscv/c/55a811a7f304
->   - [v23,04/28] riscv: zicfiss / zicfilp extension csr and bit definitions
->     https://git.kernel.org/riscv/c/92c96b16548e
->   - [v23,05/28] riscv: usercfi state for task and save/restore of CSR_SSP on trap entry/exit
->     https://git.kernel.org/riscv/c/7720cdd21962
->   - [v23,06/28] riscv/mm : ensure PROT_WRITE leads to VM_READ | VM_WRITE
->     https://git.kernel.org/riscv/c/e60eb198b13d
->   - [v23,07/28] riscv/mm: manufacture shadow stack pte
->     https://git.kernel.org/riscv/c/f8fcb7b5bf30
->   - [v23,08/28] riscv/mm: teach pte_mkwrite to manufacture shadow stack PTEs
->     https://git.kernel.org/riscv/c/0276a5ea1105
->   - [v23,09/28] riscv/mm: write protect and shadow stack
->     https://git.kernel.org/riscv/c/ae615676bc37
->   - [v23,10/28] riscv/mm: Implement map_shadow_stack() syscall
->     https://git.kernel.org/riscv/c/d291fd38f841
->   - [v23,11/28] riscv/shstk: If needed allocate a new shadow stack on clone
->     https://git.kernel.org/riscv/c/d209ea2fa4bb
->   - [v23,12/28] riscv: Implements arch agnostic shadow stack prctls
->     https://git.kernel.org/riscv/c/8b49f512abc2
->   - [v23,13/28] prctl: arch-agnostic prctl for indirect branch tracking
->     https://git.kernel.org/riscv/c/3363a8d1044e
->   - [v23,14/28] riscv: Implements arch agnostic indirect branch tracking prctls
->     https://git.kernel.org/riscv/c/0177891ccdb7
->   - [v23,15/28] riscv/traps: Introduce software check exception and uprobe handling
->     https://git.kernel.org/riscv/c/6f71171a7448
->   - [v23,16/28] riscv: signal: abstract header saving for setup_sigcontext
->     (no matching commit)
->   - [v23,17/28] riscv/signal: save and restore of shadow stack for signal
->     https://git.kernel.org/riscv/c/4f9da7ad3478
->   - [v23,18/28] riscv/kernel: update __show_regs to print shadow stack register
->     https://git.kernel.org/riscv/c/320c96a55d73
->   - [v23,19/28] riscv/ptrace: riscv cfi status and state via ptrace and in core files
->     https://git.kernel.org/riscv/c/7a39f89a817e
->   - [v23,20/28] riscv/hwprobe: zicfilp / zicfiss enumeration in hwprobe
->     https://git.kernel.org/riscv/c/c09b490a9267
->   - [v23,21/28] riscv: kernel command line option to opt out of user cfi
->     https://git.kernel.org/riscv/c/6e0dc40ceb45
->   - [v23,22/28] riscv: enable kernel access to shadow stack memory via FWFT sbi call
->     https://git.kernel.org/riscv/c/dfd087078357
->   - [v23,23/28] arch/riscv: compile vdso with landing pad and shadow stack note
->     https://git.kernel.org/riscv/c/2cfe57e3bd9b
->   - [v23,24/28] arch/riscv: dual vdso creation logic and select vdso based on hw
->     https://git.kernel.org/riscv/c/418316aa61e8
->   - [v23,25/28] riscv: create a config for shadow stack and landing pad instr support
->     https://git.kernel.org/riscv/c/c5f5ce714457
->   - [v23,26/28] riscv: Documentation for landing pad / indirect branch tracking
->     https://git.kernel.org/riscv/c/73d0ccec35b8
->   - [v23,27/28] riscv: Documentation for shadow stack on riscv
->     https://git.kernel.org/riscv/c/6b8214c8cbd6
->   - [v23,28/28] kselftest/riscv: kselftest for user mode cfi
->     https://git.kernel.org/riscv/c/0f226cf6026f
-
-As I noted with the SSE series (before we removed it from for-next), I may 
-not ultimately send this in a PR this merge window, for several reasons.  
-The series has been around for a while, and although I know some vendors 
-have tested it privately, I'd really like to have more public testing of 
-this code, particularly on hardware emulation platforms or unreleased 
-silicon.  It would be good to see some Tested-by:s. 
-
-Thanks to everyone who has helped test this so far over the past few weeks 
-- particularly Joel Stanley of TensTorrent.
-
-
-- Paul
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMjgsIDIwMjUgYXQgNDoyOeKAr0FNIEJhcnJ5IFNvbmcgPDIxY25iYW9AZ21h
+aWwuY29tPiB3cm90ZToKPgo+IE9uIEZyaSwgTm92IDI4LCAyMDI1IGF0IDM6NDPigK9BTSBNYXR0
+aGV3IFdpbGNveCA8d2lsbHlAaW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4gPgo+ID4gW2Ryb3BwaW5n
+IGluZGl2aWR1YWxzLCBsZWF2aW5nIG9ubHkgbWFpbGluZyBsaXN0cy4gIHBsZWFzZSBkb24ndCBz
+ZW5kCj4gPiB0aGlzIGtpbmQgb2YgdGhpbmcgdG8gc28gbWFueSBwZW9wbGUgaW4gZnV0dXJlXQoK
+QXBvbG9naWVzLCBJIG1pc3NlZCB0aGlzIG9uZS4KClRoZSBvdXRwdXQgY29tZXMgZnJvbSAuL3Nj
+cmlwdHMvZ2V0X21haW50YWluZXIucGwuIElmIHlvdSB0aGluayB0aGUgZ3JvdXAgaXMKdG9vIGxh
+cmdlLCBJIGd1ZXNzIHdlIHNob3VsZCBhdCBsZWFzdCBpbmNsdWRlIFN1cmVuLCBMb3JlbnpvLCBE
+YXZpZCwgYW5kCmEgZmV3IG90aGVycyBpbiB0aGUgZGlzY3Vzc2lvbj8KClsuLi5dCgo+Cj4gPgo+
+ID4gVGhpcyB1c2UgY2FzZSBhbHNvIG1hbmFnZXMgdG8gZ2V0IHV0dGVybHkgaHVuZy11cCB0cnlp
+bmcgdG8gZG8gcmVjbGFpbQo+ID4gdG9kYXkgd2l0aCB0aGUgbW1hcF9sb2NrIGhlbGQuICBTTyBp
+dCBtYW5pZmVzdHMgc29tZXdoYXQgc2ltaWxhcmx5IHRvCj4gPiB5b3VyIHByb2JsZW0gKGV2ZXJ5
+Ym9keSBlbmRzIHVwIGJsb2NrZWQgb24gbW1hcF9sb2NrKSBidXQgaXQgaGFzIGEKPiA+IHJhdGhl
+ciBkaWZmZXJlbnQgcm9vdCBjYXVzZS4KCklmIEkgdW5kZXJzdGFuZCB0aGUgdXNlIGNhc2UgY29y
+cmVjdGx5LCBJIGJlbGlldmUgcmV0cnlpbmcgd2l0aCB0aGUgcGVyLVZNQQpsb2NrIHdvdWxkIGFs
+c28gYmUgdmVyeSBoZWxwZnVsLiBQcmV2aW91c2x5LCB3ZSBhbHdheXMgcmV0cmllZCB1c2luZwpt
+bWFwX2xvY2ssIHdoaWNoIGNhbiBiZSBkaWZmaWN1bHQgdG8gYWNxdWlyZSB1bmRlciBoZWF2eSBj
+b250ZW50aW9uLCBsZWFkaW5nCnRvIGxvbmcgbGF0ZW5jeSB3aGlsZSB0aGUgcGFnZXMgbWlnaHQg
+YmUgcmVjbGFpbWVkLiBXaXRoIHRoZSBwZXItVk1BIGxvY2ssIGl0CmlzIG11Y2ggZWFzaWVyIHRv
+IGhvbGQgYW5kIHByb2NlZWQgd2l0aCB0aGUgd29yay4KClRoYW5rcwpCYXJyeQoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
