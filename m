@@ -4,87 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385A2D111A8
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 21:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 174EDD111A8
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 22:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rYB3OR/8V05GohLtu6iqbwY6k9cMG1Dsg20WQtyn50s=; b=KrZw5LjtIKVet2
-	qqIcM45X8fwxJ1irBx/PLic8VKgCuVjJggY2jHMMWKD8s9AV2Ie7NDtWK8P9hVQr4W4NEaaKNkHSl
-	JJKFO09xe40Tz13IjA8x96sjthLXy0ly0IG1XhY2VPEUrS9x/Xj82mTFKcRo4QsajKPX3KyIMNWDO
-	msR35otYeTKNPpQjFeXsalHY4hIKfwGeRc19tDX1OIxUmex/j5m8N4CMxQ+7Qb3NpxxHdju+0ogz0
-	EQIK99W/q0kIgpchwnxB5NOlzzrnqYkn0yiO48G3501Sbp+F7FhriWwWVfJQnZr6cQx3TmPLLDTru
-	1F+nMk7LZtY3iMlIS7dw==;
+	List-Owner; bh=BpXWjfUhJv+NiAxjDNEbq+2TjjH56NmFF+0fESPimWU=; b=Mb8DZm+6XkpFlP
+	GNqPEp84enwViiWfoHTEGKAsCkrJ9Y1XRl8Qnc6yhvXT4UEGvPwOEUnHLhLMEsX9lS0Qm++CQelqm
+	VWUOUkXG4+4gAfco2xTLrcqASemB0TV6HJ/cOFhCj5z2mdDn4Y/Vhi3/+g6ssVesgKKBMABnzzqir
+	gmQpPoOqYAw07KtAjYfZWg6xj5pdlUOKnHQBto3wmUYOduMgd+UPtltDr37F6luMKtT/p5j5y1ySK
+	ZGQhhmV8Vu0Lp0zqjJDy4CKDBkshJcQVkg8RdzaFaK34v3pDq1gJ3r8wM7/wvTdsIe9Gz4WfI3pQs
+	OIBLtakxN+fJFaJ0WZqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOjv6-0000000HFHh-1nJ3;
-	Thu, 27 Nov 2025 21:52:56 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1vOkx1-0000000HHsg-1uc3;
+	Thu, 27 Nov 2025 22:58:59 +0000
+Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOjv3-0000000HFGy-4762
+	id 1vOkwy-0000000HHsE-2e64
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 21:52:55 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-8843ebf2facso15684616d6.1
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Nov 2025 13:52:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764280372; x=1764885172; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jttLJ8TWGePu+ngSo1n4o5hp2pzXFGAv2t0XowsTZMg=;
-        b=f+yrPyopZP0fkW1LQIGWt4Fi8IH5AgO8OEwbVUPtCWKMOPKzLabNst01Q8FDwht9qm
-         h0fQceivTh6onPumDYP/9TOlwHjTsgJCL3qP0lxPjG1x9/eL3lmm45m1oEo3gUbvPvHK
-         X/trKisgZ8xyFTi1wLVrO7wfUGNu4DXDaBodxAz+s4WDEhw3oGgiSo9Arzx8r6E1jNLo
-         rgwRr946rZwvVw8iF8hNkn7WpKVJp73ltZTHIyAz7rISDgX7M7iPVxqkpeaFx+qGDPWe
-         fQQeU3LAkgLHkHa3gu8BXSastNqtfk2bZy+HpGClppaeLSKeTOmBkb4O1f+eUO7fv09H
-         arAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764280372; x=1764885172;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=jttLJ8TWGePu+ngSo1n4o5hp2pzXFGAv2t0XowsTZMg=;
-        b=t6C6mJ4NePp2d9w/s4H6MeyvKKXvSjv2LyxACln5JhAeENQwpLJTsRUF8n1dj4Tnqi
-         sIyFUXWacVnteoTAWsNCZ+EwqxF5Opjvai88jIYCQpDpd/iZ7o5zoakiNYvAnqgi5ZsM
-         seqFomN5+RRqdKHN6+4nfZYaU+BwbvLc1riX9lLbbVDjWON4VCcj7wC2+MvCGhTuIDbJ
-         kNw8Y9a7pCM1oavRu/vUrkZE0cJ3ho5ARc2OhKP1GDMgiM/H40aNvf3dllcWLRMYW0CD
-         37vHfceP71sW04mRhXGPHRvKE/PAj1TRKPqqFao4Ly0WupNbxPwG0xoFep5w6N76K1NM
-         YqzA==
-X-Forwarded-Encrypted: i=1; AJvYcCWXkaRKZgjQ04ZPf1hfOQ9UA0x+KxRhwlEREbyR7xTjkTC5oDneQ2mnWEyVvIdOzs4/SMp7PH86TAGG9w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4zG4HEYlTUdRmm6uB6gKZCV6czYzHJENN0x8v9ME49wC+0n7T
-	D/SMh8CVApOCc+uYoSx8M3XNvazOLhIvOSY8HD3EXh8rew1c3BQjVRc83v994jfv5Mae9+jplo2
-	93cwohuNo6A0t/PLh1mjP6+T866FExC4=
-X-Gm-Gg: ASbGncuwwFLtEMgHko34m3HZquRe75e+8QrT/4A5lMELdmQZO/Jcn+6fMwW2vGZJmmv
-	77o2cBLGzka802ZOtgtIZknlb6ZTiCylzNLM9CQ8zJUxogNcx7tDqMKx521MwygF86WShT2u9JE
-	m+R3DSanzM3gqEFDsPi1nxobfzJF1leaVvRRmO82/NIgcOH/7k2sC6nOBbn4a8KQen0b/Hv5H7X
-	Ycipt8vfS28NZVBwF3NDmx0BdkwVdmfpBDfPHyO2kGhMAHxcfrC7ndO6ry75JiUdS9LuQ==
-X-Google-Smtp-Source: AGHT+IGi53ssJfVFEVeCKpbOH4PM/Uba/gyP2VL/mpIj2xLrn6No0jDJl3wOawm61ht0VMTz1HcUV32B95MPtil1ISg=
-X-Received: by 2002:a05:6214:19c9:b0:880:49bd:e217 with SMTP id
- 6a1803df08f44-8847c486a0bmr364162506d6.10.1764280372486; Thu, 27 Nov 2025
- 13:52:52 -0800 (PST)
+	Thu, 27 Nov 2025 22:58:57 +0000
+Received: from localhost (unknown [116.232.18.222])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 0560C341F8A;
+	Thu, 27 Nov 2025 22:58:52 +0000 (UTC)
+Date: Fri, 28 Nov 2025 06:58:48 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Shuwei Wu <shuweiwoo@163.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] thermal: K1: Add driver for K1 SoC thermal sensor
+Message-ID: <20251127225848-GYA1797866@gentoo.org>
+References: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
+ <20251127-b4-k1-thermal-v1-2-f32ce47b1aba@163.com>
 MIME-Version: 1.0
-References: <20251127011438.6918-1-21cnbao@gmail.com> <aSfO7fA-04SBtTug@casper.infradead.org>
- <CAGsJ_4zyZeLtxVe56OSYQx0OcjETw2ru1FjZjBOnTszMe_MW2g@mail.gmail.com>
- <aSip2mWX13sqPW_l@casper.infradead.org> <CAGsJ_4zWGYiu1wv=D7bV5zd0h8TEHTCARhyu_9_gL36PiNvbHQ@mail.gmail.com>
-In-Reply-To: <CAGsJ_4zWGYiu1wv=D7bV5zd0h8TEHTCARhyu_9_gL36PiNvbHQ@mail.gmail.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Fri, 28 Nov 2025 05:52:40 +0800
-X-Gm-Features: AWmQ_blYpw-GPSWAvHSSwIXD1PKL1aIx4iCUo78DT2gXpdF1CZ018OhwLE5_XJY
-Message-ID: <CAGsJ_4wvaieWtTrK+koM3SFu9rDExkVHX5eUwYiEotVqP-ndEQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/2] mm: continue using per-VMA lock when retrying
- page faults after I/O
-To: Matthew Wilcox <willy@infradead.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20251127-b4-k1-thermal-v1-2-f32ce47b1aba@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_135254_025012_C7C01E56 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20251127_145856_732663_561B1F70 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +70,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBOb3YgMjgsIDIwMjUgYXQgNDoyOeKAr0FNIEJhcnJ5IFNvbmcgPDIxY25iYW9AZ21h
-aWwuY29tPiB3cm90ZToKPgo+IE9uIEZyaSwgTm92IDI4LCAyMDI1IGF0IDM6NDPigK9BTSBNYXR0
-aGV3IFdpbGNveCA8d2lsbHlAaW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4gPgo+ID4gW2Ryb3BwaW5n
-IGluZGl2aWR1YWxzLCBsZWF2aW5nIG9ubHkgbWFpbGluZyBsaXN0cy4gIHBsZWFzZSBkb24ndCBz
-ZW5kCj4gPiB0aGlzIGtpbmQgb2YgdGhpbmcgdG8gc28gbWFueSBwZW9wbGUgaW4gZnV0dXJlXQoK
-QXBvbG9naWVzLCBJIG1pc3NlZCB0aGlzIG9uZS4KClRoZSBvdXRwdXQgY29tZXMgZnJvbSAuL3Nj
-cmlwdHMvZ2V0X21haW50YWluZXIucGwuIElmIHlvdSB0aGluayB0aGUgZ3JvdXAgaXMKdG9vIGxh
-cmdlLCBJIGd1ZXNzIHdlIHNob3VsZCBhdCBsZWFzdCBpbmNsdWRlIFN1cmVuLCBMb3JlbnpvLCBE
-YXZpZCwgYW5kCmEgZmV3IG90aGVycyBpbiB0aGUgZGlzY3Vzc2lvbj8KClsuLi5dCgo+Cj4gPgo+
-ID4gVGhpcyB1c2UgY2FzZSBhbHNvIG1hbmFnZXMgdG8gZ2V0IHV0dGVybHkgaHVuZy11cCB0cnlp
-bmcgdG8gZG8gcmVjbGFpbQo+ID4gdG9kYXkgd2l0aCB0aGUgbW1hcF9sb2NrIGhlbGQuICBTTyBp
-dCBtYW5pZmVzdHMgc29tZXdoYXQgc2ltaWxhcmx5IHRvCj4gPiB5b3VyIHByb2JsZW0gKGV2ZXJ5
-Ym9keSBlbmRzIHVwIGJsb2NrZWQgb24gbW1hcF9sb2NrKSBidXQgaXQgaGFzIGEKPiA+IHJhdGhl
-ciBkaWZmZXJlbnQgcm9vdCBjYXVzZS4KCklmIEkgdW5kZXJzdGFuZCB0aGUgdXNlIGNhc2UgY29y
-cmVjdGx5LCBJIGJlbGlldmUgcmV0cnlpbmcgd2l0aCB0aGUgcGVyLVZNQQpsb2NrIHdvdWxkIGFs
-c28gYmUgdmVyeSBoZWxwZnVsLiBQcmV2aW91c2x5LCB3ZSBhbHdheXMgcmV0cmllZCB1c2luZwpt
-bWFwX2xvY2ssIHdoaWNoIGNhbiBiZSBkaWZmaWN1bHQgdG8gYWNxdWlyZSB1bmRlciBoZWF2eSBj
-b250ZW50aW9uLCBsZWFkaW5nCnRvIGxvbmcgbGF0ZW5jeSB3aGlsZSB0aGUgcGFnZXMgbWlnaHQg
-YmUgcmVjbGFpbWVkLiBXaXRoIHRoZSBwZXItVk1BIGxvY2ssIGl0CmlzIG11Y2ggZWFzaWVyIHRv
-IGhvbGQgYW5kIHByb2NlZWQgd2l0aCB0aGUgd29yay4KClRoYW5rcwpCYXJyeQoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Shuwei, 
+
+for the title, you could simplify it by adding short prefix/annotation with
+my previous comments
+
+thermal: K1: Add driver for K1 SoC thermal sensor
+-> thermal: spacemit: k1: Add thermal sensor support
+
+
+On 02:44 Thu 27 Nov     , Shuwei Wu wrote:
+> The thermal sensor unit (TSU) on K1 supports monitoring five temperature
+> zones. The driver registers these sensors with the thermal framework
+> and supports standard operations:
+> - Reading temperature (millidegree Celsius)
+> - Setting high/low thresholds for interrupts
+> 
+> Signed-off-by: Shuwei Wu <shuweiwoo@163.com>
+> ---
+>  drivers/thermal/Kconfig      |  14 ++
+>  drivers/thermal/Makefile     |   1 +
+>  drivers/thermal/k1_thermal.c | 307 +++++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 322 insertions(+)
+> 
+> +}
+[snip]..
+> +
+> +static int k1_thermal_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct k1_thermal_priv *priv;
+> +	int i, irq, ret;
+> +
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	priv->dev = dev;
+> +	platform_set_drvdata(pdev, priv);
+> +
+> +	priv->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(priv->base))
+> +		return PTR_ERR(priv->base);
+> +
+> +	priv->reset = devm_reset_control_get_exclusive_deasserted(dev, NULL);
+> +	if (IS_ERR(priv->reset))
+> +		return dev_err_probe(dev, PTR_ERR(priv->reset),
+> +				     "Failed to get/deassert reset control\n");
+no need to break the line, it's ok to have 100 column per line
+https://elixir.bootlin.com/linux/v6.18-rc7/source/Documentation/dev-tools/checkpatch.rst#L688
+
+P.S: this isn't hard rule and may still up to maintainer..
+> +
+> +	priv->clk = devm_clk_get_enabled(dev, "core");
+> +	if (IS_ERR(priv->clk))
+> +		return dev_err_probe(dev, PTR_ERR(priv->clk),
+> +				     "Failed to get core clock\n");
+ditto
+> +
+> +	priv->bus_clk = devm_clk_get_enabled(dev, "bus");
+> +	if (IS_ERR(priv->bus_clk))
+> +		return dev_err_probe(dev, PTR_ERR(priv->bus_clk),
+> +				     "Failed to get bus clock\n");
+ditto
+> +
+> +	irq = platform_get_irq(pdev, 0);
+> +	if (irq < 0)
+> +		return irq;
+I suggest to group this with dev_request_threaded_irq(), since both of them
+are taking care of IRQ related operation
+> +
+> +	ret = k1_init_sensors(pdev);
+> +
+> +	for (i = 0; i < MAX_SENSOR_NUMBER; ++i) {
+> +		priv->sensors[i].id = i;
+> +		priv->sensors[i].priv = priv;
+> +		priv->sensors[i].tzd = devm_thermal_of_zone_register(dev,
+> +									i, priv->sensors + i,
+> +									&k1_thermal_ops);
+                                                                  ~~~~~~~~
+here is wrong, alignment should match open parentheses, didn't checkpatch.pl warn about this?
+
+> +		if (IS_ERR(priv->sensors[i].tzd))
+> +			return dev_err_probe(dev, PTR_ERR(priv->sensors[i].tzd),
+> +						"Failed to register thermal zone: %d\n", i);
+I'd say, no need to do the verbose print, almost every error path has
+print message already
+> +
+> +		/* Attach sysfs hwmon attributes for userspace monitoring */
+> +		ret = devm_thermal_add_hwmon_sysfs(dev, priv->sensors[i].tzd);
+> +		if (ret)
+> +			dev_warn(dev, "Failed to add hwmon sysfs attributes\n");
+> +
+> +		k1_enable_sensor_irq(priv->sensors + i);
+> +	}
+> +
+> +	ret = devm_request_threaded_irq(dev, irq, NULL,
+> +					k1_thermal_irq_thread,
+> +					IRQF_ONESHOT, "k1_thermal", priv);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Failed to request IRQ\n");
+no need to print extra error message, please refer to:
+ https://lore.kernel.org/all/20250805092922.135500-2-panchuang@vivo.com
+ https://github.com/torvalds/linux/commit/55b48e23f5c4b6f5ca9b7ab09599b17dcf501c10
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
