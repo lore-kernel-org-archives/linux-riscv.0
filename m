@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863A1CFD2F6
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 07:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63677CFD2F6
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 07:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YuoOHkKK0KpAMIwY1k1Ee6YdI45QTuBSbXgjvEDAulo=; b=KQXH/9jdvs+Bqq
-	wMKCeC4wC1MjO4sSXpDZAZfltlhXziYiBkcD4O4FM84hwzHfDIzOG2SILaOQP5W/uvOZkU3mnEoPO
-	wyx0mD/Um84ihlg6Mf0N9udEgx1WqAQlppp6Z6X/XI8V6HUu+LaGatbFlO/9HuA9ngNdXsYDLcfui
-	vwTlWn/Ko8EtN+FJsqO+a2R4YteZFrOlsiIq+DM/9NeQjvmc8Ccce/Vky2RiqmDR8i9EB8h28Mgym
-	ImJcGruk1xWaERT1GSY+AU508y4Hj25CxYv3jf0XhK/PRlyfsBExyK5xUrJ8Hgwhi9OqTn0Zhiyru
-	Q62MCUBo5WRjFxPYSKSg==;
+	List-Owner; bh=mKRhfYpy3IVuvEyFpBDUEWAeUQY4fH3HKVF5yq3x4vY=; b=AxMF8oLJdwjBwQ
+	B8DDmR5l56sRLHr78HLh9zkVZyt6aF0v6XuGbE0T1YYt1ZIi8gDe6/yxI+WCGo50wAymGL6KucBj2
+	AdvCiHW14zmLQctFGe6LAGJNC1eOuJlbyYU024od3flR0bf3Y+GwSCjMdzYKaUCMAiMID0a77QpZ8
+	jou8I524CCSI8Av+L78vPt/a3t/3sfudCNioGmB4Ltal3JqznA4ErPB+6AEQyagFHXOQ2Wa9+Eu03
+	0N2xU1rrn5Wp4Xs3/fYlWvb2A7NoQbkqGv+vRshTOG9OQUR+SJbzh/7KiMwKbWY923v23qe0aw+wi
+	VLYqiGPybsCWW7YgJWpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOW8W-0000000G61k-3Li0;
-	Thu, 27 Nov 2025 07:09:52 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1vOWDR-0000000G6ik-2CIX;
+	Thu, 27 Nov 2025 07:14:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOW8T-0000000G5yu-2Jyr
+	id 1vOWDQ-0000000G6iS-1cwP
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 07:09:51 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 092515BCC4;
-	Thu, 27 Nov 2025 07:09:48 +0000 (UTC)
-Authentication-Results: smtp-out2.suse.de;
-	none
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 944343EA63;
-	Thu, 27 Nov 2025 07:09:47 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id KpXDIjv5J2myXQAAD6G6ig
-	(envelope-from <jgross@suse.com>); Thu, 27 Nov 2025 07:09:47 +0000
-From: Juergen Gross <jgross@suse.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	virtualization@lists.linux.dev,
-	x86@kernel.org
-Cc: Juergen Gross <jgross@suse.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Ajay Kaher <ajay.kaher@broadcom.com>,
-	Alexey Makhalov <alexey.makhalov@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: [PATCH v4 10/21] riscv/paravirt: Use common code for paravirt_steal_clock()
-Date: Thu, 27 Nov 2025 08:08:33 +0100
-Message-ID: <20251127070844.21919-11-jgross@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251127070844.21919-1-jgross@suse.com>
-References: <20251127070844.21919-1-jgross@suse.com>
+	Thu, 27 Nov 2025 07:14:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ED57360186;
+	Thu, 27 Nov 2025 07:14:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08EE2C4CEF8;
+	Thu, 27 Nov 2025 07:14:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764227694;
+	bh=nG1HIGyDMlgn0rC/3lX9+hsIsnZ635QMJyYQCko+Bio=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=ksVrEcCCQASGC1x7cUjW8qzLgPsEpPh2R7b+sIcTD7eXFEI6M2WxpWQcmIrC/E1iX
+	 EsoMz9AFQVpS3mokC3TqIYlZIok1kDTYNurKw3uyaCTORVJQh630uqj2bO1rvzhGv+
+	 8zfXxfKpIv+xyJcKSv7MmbGj/xgY2oMo+LhDDeV3pj7bwiiR51dBmw+FIhe2nBPPw2
+	 B8FMh2V5FtJDeyHcDjQOwoH8FNRqNoUpO4w6LYgCx7TjPc00Kwhsiq+TtG9gVKpynr
+	 k6RpuSVIoNXfdLS9AB7NaP7zBPA/fXkZhYoW9iML+EGqrIpQcIJztFUuEJKAfEd7Vv
+	 VtPOl+v12EneQ==
+Message-ID: <bcd2a49d-a42f-41e8-9f64-4fd24fc862c7@kernel.org>
+Date: Thu, 27 Nov 2025 08:14:45 +0100
 MIME-Version: 1.0
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Rspamd-Queue-Id: 092515BCC4
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_230949_742083_9CEE4928 
-X-CRM114-Status: GOOD (  11.05  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
+From: "David Hildenbrand (Red Hat)" <david@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Wei Yang <richard.weiyang@gmail.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-mm@kvack.org, devicetree@vger.kernel.org,
+ Suren Baghdasaryan <surenb@google.com>, linux-kernel@vger.kernel.org,
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
+ Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
+ Rob Herring <robh+dt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
+ Anshuman Khandual <anshuman.khandual@arm.com>
+References: <bc88d132-452a-42a1-9ee5-5407334d8aac@kernel.org>
+ <df7d10ba-bb42-4ea1-8c5b-5db88a18eccb@kernel.org>
+ <6bdf2b89-7768-4b90-b5e7-ff174196ea7b@lucifer.local>
+ <71123d7a-641b-41df-b959-88e6c2a3a441@kernel.org>
+ <c0818f5b-b8a1-4730-aa1d-df0f547a3d47@arm.com>
+ <20251126134726.yrya5xxayfcde3kl@master>
+ <ee5f5da3-8c6b-4381-aee8-b0fab56cbf83@arm.com>
+ <6b966403-91e0-4f06-86a9-a4f7780b9557@kernel.org>
+ <ab39d448-aa1c-4c93-8e2b-5d97a9c76af5@lucifer.local>
+ <1ca9f99f-6266-47ca-8c94-1a9b9aaa717f@kernel.org>
+ <37973e21-e8f4-4603-b93d-4e0b1b2499fa@lucifer.local>
+ <a1d25bde-3ab6-46b5-a957-db80da7e737b@kernel.org>
+ <4505a93b-2bac-4ce1-8971-4c31f1ce1362@arm.com>
+ <150ffcb7-2df2-4f3a-a12e-9807f13c6ab9@arm.com>
+ <b2fbe58e-f47b-4a76-879b-fd38a915c2ce@kernel.org>
+Content-Language: en-US
+In-Reply-To: <b2fbe58e-f47b-4a76-879b-fd38a915c2ce@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,77 +91,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove the arch specific variant of paravirt_steal_clock() and use
-the common one instead.
+On 11/26/25 21:31, David Hildenbrand (Red Hat) wrote:
+> On 11/26/25 17:34, Ryan Roberts wrote:
+>> On 26/11/2025 16:07, Ryan Roberts wrote:
+>>> On 26/11/2025 15:12, David Hildenbrand (Red Hat) wrote:
+>>>> On 11/26/25 16:08, Lorenzo Stoakes wrote:
+>>>>> On Wed, Nov 26, 2025 at 03:56:13PM +0100, David Hildenbrand (Red Hat) wrote:
+>>>>>> On 11/26/25 15:52, Lorenzo Stoakes wrote:
+>>>>>>>
+>>>>>>> Would the pmdp_get() never get invoked then? Or otherwise wouldn't that end up
+>>>>>>> requiring a READ_ONCE() further up the stack?
+>>>>>>
+>>>>>> See my other reply, I think the pmdp_get() is required because all pud_*
+>>>>>> functions are just simple stubs.
+>>>>>
+>>>>> OK, thought you were saying we should push further down the stack? Or up
+>>>>> depending on how you view these things :P as in READ_ONCE at leaf?
+>>>>
+>>>> I think at leaf because I think the previous ones should essentially be only
+>>>> used by stubs.
+>>>>
+>>>> But I haven't fully digested how this is all working. Or supposed to work.
+>>>>
+>>>> I'm trying to chew through the arch/arm/include/asm/pgtable-2level.h example to
+>>>> see if I can make sense of it,
+>>>
+>>> I wonder if we can think about this slightly differently;
+>>>
+>>> READ_ONCE() has two important properties:
+>>>
+>>>    - It guarrantees that a load will be issued, *even if output is unused*
+>>>    - It guarrantees that the read will be single-copy-atomic (no tearing)
+>>>
+>>> I think for the existing places where READ_ONCE() is used for pagetable reads we
+>>> only care about:
+>>>
+>>>    - It guarrantees that a load will be issued, *if output is used*
+>>>    - It guarrantees that the read will be single-copy-atomic (no tearing)
+>>>
+>>> I think if we can weaken to the "if output is used" property, then the compiler
+>>> will optimize out all the unneccessary reads.
+>>>
+>>> AIUI, a C dereference provides neither of the guarrantees so that's no good.
+>>>
+>>> What about non-volatile asm? I'm told (thought need to verify) that for
+>>> non-volatile asm, the compiler will emit it if the output is used and remove it
+>>> otherwise. So if the asm contains the required single-copy-atomic, perhaps we
+>>> are in business?
+>>>
+>>> So we would need a new READ_SCA() macro that could default to READ_ONCE() (which
+>>> is stronger) and arches could opt in to providing a weaker asm version. Then the
+>>> default pXdp_get() could be READ_SCA(). And this should work for all cases.
+>>>
+>>> I think.
+>>
+>> I'm not sure this works. It looks like the compiler is free to move non-volatile
+>> asm sections which might be problematic for places where we are currently using
+>> READ_ONCE() in lockless algorithms, (e.g. GUP?). We wouldn't want to end up with
+>> a stale value.
+>>
+>> Another idea:
+>>
+>> Given the main pattern where we are aiming to optimize out the read is something
+>> like:
+>>
+>> if (!pud_present(*pud))
+>>
+>> where for a folded pmd:
+>>
+>> static inline int pud_present(pud_t pud)	{ return 1; }
+>>
+>> And we will change it to this:
+>>
+>> if (!pud_present(pudp_get(pud)))
+>>
+>> ...
+>>
+>> perhaps we can just define the folded pXd_present(), pXd_none(), pXd_bad(),
+>> pXd_user() and pXd_leaf() as macros:
+>>
+>> #define pud_present(pud)	1
+>>
+> 
+> Let's take a step back and realize that with __PAGETABLE_PMD_FOLDED
+> 
+> (a) *pudp does not make any sense
+> 
+> For a folded PMD, *pudp == *pmdp and consequently we would actually
+> get a PMD, not a PUD.
+> 
+> For this reason all these pud_* helpers ignore the passed value
+> completely. It would be wrong.
+> 
+> (b) pmd_offset() does *not* consume a pud but instead a pudp.
+> 
+> That makes sense, just imagine what would happen if someone would pass
+> *pudp to that helper (we'd dereference twice ...).
+> 
+> 
+> So I wonder if we can just teach get_pudp() and friends to ... return
+> true garbage instead of dereferencing something that does not make sense?
+> 
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 32e8457ad5352..c95d0d89ab3f1 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -351,7 +351,13 @@ static inline pmd_t pmdp_get(pmd_t *pmdp)
+>    #ifndef pudp_get
+>    static inline pud_t pudp_get(pud_t *pudp)
+>    {
+> +#ifdef __PAGETABLE_PMD_FOLDED
+> +       pud_t dummy = { 0 };
+> +
+> +       return dummy;
+> +#else
+>           return READ_ONCE(*pudp);
+> +#endif
+>    }
+>    #endif
+>    
+> set_pud/pud_page/pud_pgtable helper are confusing, I would
+> assume they are essentially unused (like documented for set_put)
+> and only required to keep compilers happy.
 
-Signed-off-by: Juergen Gross <jgross@suse.com>
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/Kconfig                |  1 +
- arch/riscv/include/asm/paravirt.h | 10 ----------
- arch/riscv/kernel/paravirt.c      |  7 -------
- 3 files changed, 1 insertion(+), 17 deletions(-)
+Staring at GUP-fast and perf_get_pgtable_size()---which should better be 
+converted to pudp_get() etc--I guess we might have to rework 
+p4d_offset_lockless() to do something that doesn't rely on
+passing variables of local variables.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index fadec20b87a8..6455c57e03fb 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -1095,6 +1095,7 @@ config COMPAT
- config PARAVIRT
- 	bool "Enable paravirtualization code"
- 	depends on RISCV_SBI
-+	select HAVE_PV_STEAL_CLOCK_GEN
- 	help
- 	  This changes the kernel so it can modify itself when it is run
- 	  under a hypervisor, potentially improving performance significantly
-diff --git a/arch/riscv/include/asm/paravirt.h b/arch/riscv/include/asm/paravirt.h
-index 17e5e39c72c0..c49c55b266f3 100644
---- a/arch/riscv/include/asm/paravirt.h
-+++ b/arch/riscv/include/asm/paravirt.h
-@@ -3,16 +3,6 @@
- #define _ASM_RISCV_PARAVIRT_H
- 
- #ifdef CONFIG_PARAVIRT
--#include <linux/static_call_types.h>
--
--u64 dummy_steal_clock(int cpu);
--
--DECLARE_STATIC_CALL(pv_steal_clock, dummy_steal_clock);
--
--static inline u64 paravirt_steal_clock(int cpu)
--{
--	return static_call(pv_steal_clock)(cpu);
--}
- 
- int __init pv_time_init(void);
- 
-diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
-index d3c334f16172..5f56be79cd06 100644
---- a/arch/riscv/kernel/paravirt.c
-+++ b/arch/riscv/kernel/paravirt.c
-@@ -23,13 +23,6 @@
- #include <asm/paravirt.h>
- #include <asm/sbi.h>
- 
--static u64 native_steal_clock(int cpu)
--{
--	return 0;
--}
--
--DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
--
- static bool steal_acc = true;
- static int __init parse_no_stealacc(char *arg)
- {
+We might have to enlighten these walkers (and only these) about folded 
+page tables such that they don't depend on the result of pudp_get() and 
+friends.
+
 -- 
-2.51.0
+Cheers
 
+David
 
 _______________________________________________
 linux-riscv mailing list
