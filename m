@@ -4,51 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EEC5D111A8
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 16:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B393D111A8
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 16:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=7ikt3FudSkhzJdAoJXOpkhN9hTcjQBkF5PghOgBrEgQ=; b=oSz
-	n3uIiGwMQhsUaWySjQwYTu7P3IyAcg4ZTP6FUfvEFWV2WdooO29TGbCCj6G5cAB8N1hFp/jbeg/0u
-	TNBonytglgr3S9uDBPnJaHZiqrM8BxU7BQHacXB5hsaJqRFsTwchH3yGp2Mp2UqzYwCcxltkT0EPB
-	Uf8YucUKQQdDaM4UB4yUdNG9z6VOK6siIn3EPDwh3pUDiXmwVZr2oB2azxSF+461tSURP9catfmzj
-	jidvn0H/FyPYGHZCbanrQ0oNH6K7T2owKWpNXFEeNythCvHCc2RDh+3Vq4sREa0kM8hMr1mwT3XEZ
-	/8+P4mjBXpYcZssPqwkG3uMzTsZREAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=P7/YkA7O9G3oq+L1t4lzz5Ez1umZU5rTR1AXhDwHDco=; b=IFfL0ulSyy+imI
+	DWw1lnmCQCSE5sm03Jhd+2YLTG0UON+kMe3NuJjYebhQt3ir35AGuUtLEGrxLf87nclC+EExl8pDh
+	cljwt4aJdcJsNwVOoxHFcTc9KulnyP6Xs0ugS+dCRQqKtpRyHcvFpkur9PjaK12r9Q57jSa36cbyA
+	tJSmajdZb6fyAX9DbN+J5tI3fqBn9v3QIOpHO8r2K221sKm5UE07Iva2ipiVEQKA+tBoSRlWn8jC4
+	qWH8iEV67b3PiAd6fRorcU1bM80BXICHT72rzu03oI4Ft987bGgG+SQ6eFbvn4aGGsas/z1oMCqfM
+	XRbhiIDALneu+hugDw+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOezI-0000000Gw5b-1RHI;
-	Thu, 27 Nov 2025 16:36:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOezH-0000000Gw5N-23Qd
+	id 1vOfIw-0000000GwxH-2nR4;
+	Thu, 27 Nov 2025 16:57:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOfIu-0000000GwwW-3dHy
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 16:36:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD78C6022B
-	for <linux-riscv@lists.infradead.org>; Thu, 27 Nov 2025 16:36:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96888C4CEF8;
-	Thu, 27 Nov 2025 16:36:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764261414;
-	bh=Aa6TofsDgEtlr/eVXyb0tnk9QiuGSJrfHim0d0dEtuU=;
-	h=Date:From:To:Cc:Subject:From;
-	b=NvXxf7DANd4/o5pEdsxmGwFcmVANV5Hnxf2Q22nrM7BaZrreYTx4KjiXR23SNOsMI
-	 secQiWLAWlau+7eXACzzOuoufutI/jlbiq9cnFnDLmts5FG68LIX3/UPqUJNcrDy1w
-	 n0LgSt/JiINJD0gu0HXPsvfCyto9jLvQtSl0Ju/yJ6wokD1VpkCdS92pyAEHG/EHUy
-	 nsOBJXZkdX22b7Leu8EDgLRMasWByiDtX+Auu4OjxQ5HQjW7Jpii2HFLPvx3KD4I4z
-	 fHy4L+GvBnJWAAqEHearF4rc0vz2qthDQRTtaWCwKNf3jPyx2Qtygb3e7s0zoQEuFJ
-	 DFFnz4ba30hfg==
-Date: Thu, 27 Nov 2025 16:36:51 +0000
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V config for v6.19
-Message-ID: <20251127-saturate-slam-ab92576bcca7@spud>
+	Thu, 27 Nov 2025 16:57:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA0C2176A;
+	Thu, 27 Nov 2025 08:57:03 -0800 (PST)
+Received: from [10.57.87.167] (unknown [10.57.87.167])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 199DA3F66E;
+	Thu, 27 Nov 2025 08:57:07 -0800 (PST)
+Message-ID: <fbfef7fc-4030-462b-b514-498eea6620aa@arm.com>
+Date: Thu, 27 Nov 2025 16:57:06 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 08/22] mm: Allow page table accessors to be
+ non-idempotent
+Content-Language: en-GB
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
+Cc: devicetree@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>,
+ linux-kernel@vger.kernel.org, Mike Rapoport <rppt@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, Conor Dooley <conor@kernel.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+ Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+ Vlastimil Babka <vbabka@suse.cz>, "Liam R . Howlett"
+ <Liam.Howlett@oracle.com>
+References: <20251113014656.2605447-1-samuel.holland@sifive.com>
+ <20251113014656.2605447-9-samuel.holland@sifive.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20251113014656.2605447-9-samuel.holland@sifive.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251127_085712_995652_3C877359 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,82 +70,142 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3191016551937122569=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 13/11/2025 01:45, Samuel Holland wrote:
+> Currently, some functions such as pte_offset_map() are passed both
+> pointers to hardware page tables, and pointers to previously-read PMD
+> entries on the stack. To ensure correctness in the first case, these
+> functions must use the page table accessor function (pmdp_get()) to
+> dereference the supplied pointer. However, this means pmdp_get() is
+> called twice in the second case. This double call must be avoided if
+> pmdp_get() applies some non-idempotent transformation to the value.
+> 
+> Avoid the double transformation by calling set_pmd() on the stack
+> variables where necessary to keep set_pmd()/pmdp_get() calls balanced.
 
---===============3191016551937122569==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="d0a3FAk5e90PPeWm"
-Content-Disposition: inline
+I don't think this is a good solution.
 
+arm64, at least, expects and requires that only pointers to entries in pgtables
+are passed to the arch helpers (e.g. set_pte(), ptep_get(), etc). For PTEs,
+arm64 accesses adjacent entries within the page table to manage contiguous
+mappings. If it is passed a pointer to a stack variable, it may erroneously
+access other stuff on the stack thinking it is an entry in a page table.
 
---d0a3FAk5e90PPeWm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I think we should formalize this as a clear requirement for all these functions;
+all pte/pmd/pud/p4d/pgd pointers passed to the arch pgtable helpers must always
+point to entries in pgtables.
 
-Hey folks,
+arm64 will very likely take advantage of this in future in the pmd/pud/...
+helpers as it does today for the pte level. But even today, arm64's set_pmd()
+will emit barriers which are totally unnecessary when operating on a stack
+variable that the HW PTW will never see.
 
-On behalf of the spacemit platform maintainers, I grabbed a config
-option, so here it is. It's the only thing I have config wise this
-time around.
+Thanks,
+Ryan
 
-Cheers,
-Conor.
+> 
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+> 
+> (no changes since v2)
+> 
+> Changes in v2:
+>  - New patch for v2
+> 
+>  kernel/events/core.c  | 2 ++
+>  mm/gup.c              | 3 +++
+>  mm/khugepaged.c       | 6 ++++--
+>  mm/page_table_check.c | 3 +++
+>  mm/pgtable-generic.c  | 2 ++
+>  5 files changed, 14 insertions(+), 2 deletions(-)
+> 
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index fa4f9165bd94..7969b060bf2d 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -8154,6 +8154,8 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
+>  	if (pmd_leaf(pmd))
+>  		return pmd_leaf_size(pmd);
+>  
+> +	/* transform pmd as if &pmd pointed to a hardware page table */
+> +	set_pmd(&pmd, pmd);
+>  	ptep = pte_offset_map(&pmd, addr);
+>  	if (!ptep)
+>  		goto again;
+> diff --git a/mm/gup.c b/mm/gup.c
+> index 549f9e868311..aba61704049e 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -2844,7 +2844,10 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
+>  	int ret = 0;
+>  	pte_t *ptep, *ptem;
+>  
+> +	/* transform pmd as if &pmd pointed to a hardware page table */
+> +	set_pmd(&pmd, pmd);
+>  	ptem = ptep = pte_offset_map(&pmd, addr);
+> +	pmd = pmdp_get(&pmd);
+>  	if (!ptep)
+>  		return 0;
+>  	do {
+> diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+> index 1bff8ade751a..ab1f68a7bc83 100644
+> --- a/mm/khugepaged.c
+> +++ b/mm/khugepaged.c
+> @@ -1724,7 +1724,7 @@ static void retract_page_tables(struct address_space *mapping, pgoff_t pgoff)
+>  		struct mmu_notifier_range range;
+>  		struct mm_struct *mm;
+>  		unsigned long addr;
+> -		pmd_t *pmd, pgt_pmd;
+> +		pmd_t *pmd, pgt_pmd, pmdval;
+>  		spinlock_t *pml;
+>  		spinlock_t *ptl;
+>  		bool success = false;
+> @@ -1777,7 +1777,9 @@ static void retract_page_tables(struct address_space *mapping, pgoff_t pgoff)
+>  		 */
+>  		if (check_pmd_state(pmd) != SCAN_SUCCEED)
+>  			goto drop_pml;
+> -		ptl = pte_lockptr(mm, pmd);
+> +		/* pte_lockptr() needs a value, not a pointer to a page table */
+> +		pmdval = pmdp_get(pmd);
+> +		ptl = pte_lockptr(mm, &pmdval);
+>  		if (ptl != pml)
+>  			spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
+>  
+> diff --git a/mm/page_table_check.c b/mm/page_table_check.c
+> index 31f4c39d20ef..77d6688db0de 100644
+> --- a/mm/page_table_check.c
+> +++ b/mm/page_table_check.c
+> @@ -260,7 +260,10 @@ void __page_table_check_pte_clear_range(struct mm_struct *mm,
+>  		return;
+>  
+>  	if (!pmd_bad(pmd) && !pmd_leaf(pmd)) {
+> +		/* transform pmd as if &pmd pointed to a hardware page table */
+> +		set_pmd(&pmd, pmd);
+>  		pte_t *ptep = pte_offset_map(&pmd, addr);
+> +		pmd = pmdp_get(&pmd);
+>  		unsigned long i;
+>  
+>  		if (WARN_ON(!ptep))
+> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+> index 63a573306bfa..6602deb002f1 100644
+> --- a/mm/pgtable-generic.c
+> +++ b/mm/pgtable-generic.c
+> @@ -299,6 +299,8 @@ pte_t *___pte_offset_map(pmd_t *pmd, unsigned long addr, pmd_t *pmdvalp)
+>  		pmd_clear_bad(pmd);
+>  		goto nomap;
+>  	}
+> +	/* transform pmdval as if &pmdval pointed to a hardware page table */
+> +	set_pmd(&pmdval, pmdval);
+>  	return __pte_map(&pmdval, addr);
+>  nomap:
+>  	rcu_read_unlock();
 
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
-
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-config-for-v6.19
-
-for you to fetch changes up to 3187e25eb2705dec9f0509f6e42da7e018718c74:
-
-  riscv: defconfig: enable SPI_FSL_QUADSPI as a module (2025-11-12 11:26:51 +0000)
-
-----------------------------------------------------------------
-RISC-V config for v6.19
-
-Spacemit:
-The Spacemit k1 wants the freescale qspi driver enabled as a module
-as they appear to be rather similar IPs.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Alex Elder (1):
-      riscv: defconfig: enable SPI_FSL_QUADSPI as a module
-
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
-
---d0a3FAk5e90PPeWm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaSh+IwAKCRB4tDGHoIJi
-0iJMAP0aRCYPja92Y3M72E7oDltBp2qgEIk2bxJ2S873n8H6LgD9El+Vagf/hr1N
-bAzmTjiFY6AahhQHcTavEeJ3aa4zKgk=
-=T+S3
------END PGP SIGNATURE-----
-
---d0a3FAk5e90PPeWm--
-
-
---===============3191016551937122569==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3191016551937122569==--
-
