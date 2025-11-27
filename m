@@ -4,73 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBCED11183
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 12:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A185AD11183
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 12:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bsrPNCYvcS4M1qDVQ9rkpuxciR4sGvneoEUry2dcuV0=; b=41YkFP/BMrp8GY
-	brgy4zpG46H/Kvs3QNJnQmhPk3ZciN6o710cWreJe1mCuA1VZj99KVF5gXfh1rBMabX3WlUYlmghk
-	+T6iHwUD8yIibM4XhqNaHdxARmS+ApOJAHLVNEnoof9fvO6z8naDo/BrFE+E0cRml5dl7P8Nf0Kwk
-	PUcbVa/3C0XDnaqbqLfPj4bQLh3QV13n+1RySOxMy1JKQEuVImD0tcZrn7oGYDoKTap5N84qLhugO
-	xR1tgiN9YPiu6mCpcwOjaX3XJlPXV07GFF7pEJTqVo6uLKecoYHS+H7opsY+P89CdainNFyxsji/8
-	u1SArhII7//xWwHHeBFA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9ze021CeDVoQURh16auzbtYxDi2CCXIJwy2J1CSuDR8=; b=xVhjO3pAIYyyPP
+	QcahEoKJlD1kox8A8SXmLxTwuUURRI+1gJAyvOH1me/ql/S0juMO0o/fHoz71eZxpndXWwc81yspx
+	K+pafa+PMFrK0BKYmaXGK0YOLInfaG1SP7W+nvrEmQF6WyUsHi3TEM31QDjjk8g2nsF9yh3TRUwsZ
+	/BLz2ll34jShGD7s2J0sFyI3VWU1OBnk/kB5JVWJQts+KtQzbMG24kj6OwFWgL3c0LvA2PsGzcmVi
+	cf/OIVfGL67C7BIwZdaE+84Erte2Dgcq2gsOq9nTviIqVgUnwROnp0UMrYb5cPFj0KKPO8VrCbIIx
+	In2d4TcyNvdO0gjQ36MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObOm-0000000GaZj-1Jz2;
-	Thu, 27 Nov 2025 12:47:00 +0000
-Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
+	id 1vObUx-0000000GbDP-0oTK;
+	Thu, 27 Nov 2025 12:53:23 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObOi-0000000GaXz-49BZ
+	id 1vObUu-0000000GbCe-0CO9
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 12:46:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1764247595; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=K/KuTZPUGXxLRAm94FZJe5TWKKtBlD0iOxEB7sfCOO04HFSFqhGEIaxRrp7WX2gcIqGkWaNgOMT+rESZFq7V+TtWns81Jdr3tnitP6OSvPzPBQaoDlOARG1tcREqeKORTenors/VY/NrgAtP9enEGLtVuMB0MnrarF4eVGfgHHE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1764247595; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Uk8p9LgpPoAiawj3uNhnu3nSqrQyd8EhyLBL85bAStc=; 
-	b=lYfM16RkkvePPKbE5y86epCRytsmMa7UIJdYc+gNggQhXjph28wrG4tY7TvO0BgTgYrQnMfgpUToeXaRTMl1+g+tyWYGah2tewO+t/d3xwT/PHfnxCTbNgxp6KK+4wI8WZxfUcIqWlSzQb9eJpiYKz2LgH/DnmSkA0ZldhSv588=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
-	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1764247595;
-	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Feedback-ID:Reply-To;
-	bh=Uk8p9LgpPoAiawj3uNhnu3nSqrQyd8EhyLBL85bAStc=;
-	b=NUJzg2x6Ywe9f7iu9S4/wFVkPmCiiJRWzgIr2MJk9BUIvEBKyw7JGwRRHrFzH48m
-	SMnz72SkxqFkgcbzUfjYGYXBqPcDlei/vTgSWH0mfFb4XemqLqyf+3GKeWJvAiC07dJ
-	IWD0+7Y605Co9jJG7DbQVaBCXJNLths+9P1ON1JI=
-Received: by mx.zohomail.com with SMTPS id 1764247593154975.9506260730468;
-	Thu, 27 Nov 2025 04:46:33 -0800 (PST)
-From: Xukai Wang <kingxukai@zohomail.com>
-Date: Thu, 27 Nov 2025 20:45:14 +0800
-Subject: [PATCH v9 3/3] riscv: dts: canaan: Add clock definition for K230
+	Thu, 27 Nov 2025 12:53:21 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-29812589890so10276145ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Nov 2025 04:53:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1764247999; x=1764852799; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9ZNZVofZGu1foCFk4iS7YYI+xiRyGLmnKQ99yJXtiPY=;
+        b=k9A7JDsWEaUN7Bnju4SuqPOvV5rYRc1rV7gZEQNVSfOXLPdnnrikZwHaF6qgaeJwMp
+         +lBnK6dz0T2cGYJUM4z7u1LwG6t/H8NuiK3H43wQSpjGTKPWcNWzPtRzbZ23vHF+BUuA
+         VtJ7R4PGGrV9IP50P2L/x3QUTNOHlipCpnnXGf7409HMWaQ0GBdxKTdnlxO6ZkMhAM9i
+         3dEZuW8kPtkb2RwlA3HZM5R8EOo9RbaAuEa8oDC3J5L6clMXL+gBG5k0gIhZfgl8ps8i
+         AMIBmtryC/fn2s5AkBfuveMNI4+WBK+8nLrD1GX0PfCiuX7pOjlVihPvkHtdgmLvX/UU
+         OMRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764247999; x=1764852799;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9ZNZVofZGu1foCFk4iS7YYI+xiRyGLmnKQ99yJXtiPY=;
+        b=K+QvoKMW08nP6OxeQpFHgGDtjU085s6Mog8zsjkcjNEF7jo1sVcloYek9xRsGBZdcb
+         8fBUqXHSgEun9XI18bn+Rj2lJCWR1lequOXDwMwVYFs/Lmcel5xsnJtiYQjEmpEuSStw
+         w7rAaWWikCwSLK3VVPYoTB5DoSGq5DcQKlNE0sGP9GQU40aGRfUoRNQSPgEqYbN6Ax32
+         7TamdCz3ea/ium/NpuRmINTQX3mvhLNxtDFarVfQGzCA9u2QwJHDVsFWdehr66hW5eGq
+         ZJHSkWDTEyJg6RFo2tBiN79q3elr5+iQSsBmqtbx8o109Kdi3lY0h2eu73t0mK120Q3O
+         +Ixw==
+X-Forwarded-Encrypted: i=1; AJvYcCUYRFZl15sOVfxMzsIobfmyx0+m/FQJxGnchKjabxVnCTDjVx6egT9CqTm1hmWB/S+Jnu+DZ9oQapVOHg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4D7i53VL+0q03ub60vO5eGvasfU3/uX9jPbFs+lsjzMI2VhNa
+	UqJvCLeRfDP/HWh1hOpTq1nG9p+IEVWMzj3zG5jao9kQRQuh+4lAGuXhen+hfTwq6Ao=
+X-Gm-Gg: ASbGncu2I8aiMbMDTGiLBC4KkLNmprfsjHD3VzKG4HfyVSniCWS3gZcdWaQ948Wbnmb
+	oYG+v0gJO8aC+1/a/z6SCFl0lUcTl/QU9VVvXN7y4fNjPxlsPgi3wI5WcJG02biwREW2FREF5DM
+	qM6D6mR2/7UmOqnawIeq0pPZ2gai14i/Z+b7eGjgMIdlNr6j2dn2F2eiHQPf4dK0TdQ6z60kiEF
+	m//5w+BBTD0aQRjF/TREaC+WzYITthyEo6vLq7rH0tzWr4LaxxZcus7prGy/tqqbfVMBX/0lL2U
+	RREl0PY30X1qRuJkmbYZQnt8gP3CLyGgALpOL6Cs0X53eTB/cofwiPB2VjAg+PHoNtscHO+MNFW
+	nnnUjresBsa0DC8l12/FI+q/u7sthVyZQfn6MmmkD+S2bDqpXkPaEqLIOMe5O38sek9r06Ww40J
+	4B/kMV+FE1FcLNSQcgofrDNUSOQolZiTqdWDY87bPjAA11
+X-Google-Smtp-Source: AGHT+IFbPB3VBDRPpGKotxjjK89VWCiAp8ON0AApdZA0so65+L08mE9nOchaP5UOxH57kW6BMrEMPg==
+X-Received: by 2002:a17:902:e548:b0:295:28a4:f0be with SMTP id d9443c01a7336-29b6be8e2ddmr285613205ad.10.1764247998954;
+        Thu, 27 Nov 2025 04:53:18 -0800 (PST)
+Received: from L6YN4KR4K9.bytedance.net ([139.177.225.225])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bce470347sm17771255ad.41.2025.11.27.04.53.11
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 27 Nov 2025 04:53:18 -0800 (PST)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: conor@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	cuiyunhui@bytedance.com,
+	luxu.kernel@bytedance.com,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	jassisinghbrar@gmail.com,
+	conor.dooley@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	maz@kernel.org,
+	timothy.hayes@arm.com,
+	lpieralisi@kernel.org,
+	arnd@arndb.de,
+	kees@kernel.org,
+	tglx@linutronix.de,
+	viresh.kumar@linaro.org,
+	boqun.feng@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	cleger@rivosinc.com,
+	atishp@rivosinc.com,
+	ajones@ventanamicro.com
+Subject: [PATCH v3 0/8] Add NMI Support to RISC-V via SSE
+Date: Thu, 27 Nov 2025 20:52:57 +0800
+Message-Id: <20251127125305.89961-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 MIME-Version: 1.0
-Message-Id: <20251127-b4-k230-clk-v9-3-3aa09e17faf5@zohomail.com>
-References: <20251127-b4-k230-clk-v9-0-3aa09e17faf5@zohomail.com>
-In-Reply-To: <20251127-b4-k230-clk-v9-0-3aa09e17faf5@zohomail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Xukai Wang <kingxukai@zohomail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Troy Mitchell <TroyMitchell988@gmail.com>
-X-Mailer: b4 0.14.2
-Feedback-ID: rr0801122734571273cfab92a4d0b5d2ce000019ece0c9857013a3952af54177a777664bcb1d8b9c3da11570:zu08011227bfbc3da15590c35381310a3e0000d4a068accd49835ab720fc4ae1755e3ae1073c1ad70a1e3437:rf0801122cc83acc86e681fc278a999b56000048a42f561c6034a28b3975bf377070f72447941adf3868707055cf987bbe:ZohoMail
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_044657_131795_4598C00E 
-X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-CacheID: sfid-20251127_045320_097109_6DF2773F 
+X-CRM114-Status: UNSURE (   9.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,156 +121,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch describes the clock controller integrated in K230 SoC
-and replace dummy clocks with the real ones for UARTs.
+This patchset is based on SSE[1]. It adds support for inter CPU NMI
+interfaces, enabling operations such as CPU stopping, backtrace, and
+kgdb to be performed via NMI which is a more robust approach compared
+to IPI. In addition to inter CPU NMIs, it also adds support for unknown
+NMI[2].
 
-For k230-canmv and k230-evb, they provide an additional external
-pulse input through a pin to serve as clock source.
+v1->v2: Utilized SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED for inter
+CPU NMI communication.
 
-Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
-Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
-Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
----
- arch/riscv/boot/dts/canaan/k230-canmv.dts | 11 +++++++++++
- arch/riscv/boot/dts/canaan/k230-evb.dts   | 11 +++++++++++
- arch/riscv/boot/dts/canaan/k230.dtsi      | 26 ++++++++++++++++++--------
- 3 files changed, 40 insertions(+), 8 deletions(-)
+v2->v3:
+1. Since CPU stop is not a high frequency operation, NMI is directly
+used instead of IPI, without first attempting IPI and using NMI as
+a fallback.
 
-diff --git a/arch/riscv/boot/dts/canaan/k230-canmv.dts b/arch/riscv/boot/dts/canaan/k230-canmv.dts
-index 9565915cead6ad2381ea8249b616e79575feb896..cf33a5df9ff520a0dbb408864e615f61a115b673 100644
---- a/arch/riscv/boot/dts/canaan/k230-canmv.dts
-+++ b/arch/riscv/boot/dts/canaan/k230-canmv.dts
-@@ -17,8 +17,19 @@ ddr: memory@0 {
- 		device_type = "memory";
- 		reg = <0x0 0x0 0x0 0x20000000>;
- 	};
-+
-+	timerx_pulse_in: clock-50m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <50000000>;
-+	};
- };
- 
- &uart0 {
- 	status = "okay";
- };
-+
-+&sysclk {
-+	clocks = <&osc24m>, <&timerx_pulse_in>;
-+	clock-names = "osc24m", "timer-pulse-in";
-+};
-diff --git a/arch/riscv/boot/dts/canaan/k230-evb.dts b/arch/riscv/boot/dts/canaan/k230-evb.dts
-index f898b8e62368c3740d6795fd1e3cb0b261a460ac..24dba44955690e01e53f11d6720e60a81a9f435d 100644
---- a/arch/riscv/boot/dts/canaan/k230-evb.dts
-+++ b/arch/riscv/boot/dts/canaan/k230-evb.dts
-@@ -17,8 +17,19 @@ ddr: memory@0 {
- 		device_type = "memory";
- 		reg = <0x0 0x0 0x0 0x20000000>;
- 	};
-+
-+	timerx_pulse_in: clock-50m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <50000000>;
-+	};
- };
- 
- &uart0 {
- 	status = "okay";
- };
-+
-+&sysclk {
-+	clocks = <&osc24m>, <&timerx_pulse_in>;
-+	clock-names = "osc24m", "timer-pulse-in";
-+};
-diff --git a/arch/riscv/boot/dts/canaan/k230.dtsi b/arch/riscv/boot/dts/canaan/k230.dtsi
-index 95c1a3d8fb1192e30113d96d3e96329545bc6ae7..7868cd4c6c9e9d82c9271f8585a71b67738d1ca7 100644
---- a/arch/riscv/boot/dts/canaan/k230.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k230.dtsi
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
-  */
- 
-+#include <dt-bindings/clock/canaan,k230-clk.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- 
- /dts-v1/;
-@@ -58,11 +59,11 @@ l2_cache: l2-cache {
- 		};
- 	};
- 
--	apb_clk: apb-clk-clock {
-+	osc24m: clock-24m {
- 		compatible = "fixed-clock";
--		clock-frequency = <50000000>;
--		clock-output-names = "apb_clk";
- 		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+		clock-output-names = "osc24m";
- 	};
- 
- 	soc {
-@@ -89,10 +90,19 @@ clint: timer@f04000000 {
- 			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
- 		};
- 
-+		sysclk: clock-controller@91102000 {
-+			compatible = "canaan,k230-clk";
-+			reg = <0x0 0x91102000 0x0 0x40>,
-+			      <0x0 0x91100000 0x0 0x108>;
-+			clocks = <&osc24m>;
-+			clock-names = "osc24m";
-+			#clock-cells = <1>;
-+		};
-+
- 		uart0: serial@91400000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x91400000 0x0 0x1000>;
--			clocks = <&apb_clk>;
-+			clocks = <&sysclk K230_LS_UART0_RATE>;
- 			interrupts = <16 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -102,7 +112,7 @@ uart0: serial@91400000 {
- 		uart1: serial@91401000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x91401000 0x0 0x1000>;
--			clocks = <&apb_clk>;
-+			clocks = <&sysclk K230_LS_UART1_RATE>;
- 			interrupts = <17 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -112,7 +122,7 @@ uart1: serial@91401000 {
- 		uart2: serial@91402000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x91402000 0x0 0x1000>;
--			clocks = <&apb_clk>;
-+			clocks = <&sysclk K230_LS_UART2_RATE>;
- 			interrupts = <18 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -122,7 +132,7 @@ uart2: serial@91402000 {
- 		uart3: serial@91403000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x91403000 0x0 0x1000>;
--			clocks = <&apb_clk>;
-+			clocks = <&sysclk K230_LS_UART3_RATE>;
- 			interrupts = <19 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -132,7 +142,7 @@ uart3: serial@91403000 {
- 		uart4: serial@91404000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x91404000 0x0 0x1000>;
--			clocks = <&apb_clk>;
-+			clocks = <&sysclk K230_LS_UART4_RATE>;
- 			interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
+2. The parameter local_nmi_arg used by sse_event_register cannot represent
+local NMI types (Crash, Stop, Backtrace, Kgdb) for multiple CPUs, so a new
+per CPU variable local_nmi has been added to address this.
+
+[1] https://lore.kernel.org/all/20251105082639.342973-1-cleger@rivosinc.com/
+[2] https://github.com/riscv-non-isa/riscv-sbi-doc/pull/223
+
+Yunhui Cui (8):
+  drivers: firmware: riscv: add SSE NMI support
+  riscv: smp: move ipi_cpu_crash_stop() declaration to smp.h
+  smp: move num_other_online_cpus() into smp.h
+  riscv: smp: use NMI for crash stop
+  riscv: smp: use NMI for CPU stop
+  riscv: smp: use NMI for backtrace
+  riscv: smp: kgdb: use NMI for CPU roundup
+  drivers: firmware: riscv: add unknown nmi support
+
+ MAINTAINERS                            |   8 ++
+ arch/arm64/kernel/smp.c                |  11 --
+ arch/riscv/include/asm/sbi.h           |   1 +
+ arch/riscv/include/asm/smp.h           |  11 ++
+ arch/riscv/kernel/smp.c                |  58 ++++----
+ drivers/firmware/riscv/Kconfig         |  10 ++
+ drivers/firmware/riscv/Makefile        |   1 +
+ drivers/firmware/riscv/riscv_sse_nmi.c | 175 +++++++++++++++++++++++++
+ include/linux/riscv_sse_nmi.h          |  26 ++++
+ include/linux/smp.h                    |  11 ++
+ 10 files changed, 277 insertions(+), 35 deletions(-)
+ create mode 100644 drivers/firmware/riscv/riscv_sse_nmi.c
+ create mode 100644 include/linux/riscv_sse_nmi.h
 
 -- 
-2.34.1
+2.39.5
 
 
 _______________________________________________
