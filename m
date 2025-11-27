@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5127D11183
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 08:31:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ACB0D11183
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 08:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QSaII1tglIdGJ1di+m5P/6hoUjVik83+gAO3vkhUysI=; b=2K3yad3ZdGeTSo
-	sctWh797X2PKqHAgiJZ6NA+OnX6iqE57U7a+0vm4Pim29sV8TGpC4B/HTnujNEZWCRjU3UdkzmjQD
-	xpOc/tCEjgupqtseGmQc6BNqsHZot4yXHPevLXRvd31pWKcMj1tcuM3a27Go6OI6KDWLW7J85RGgr
-	M0qk7dE3XejxSZOuGTQSgyS/2aa0t3Zi9rrcBoyp1CtfG/Z/6TaHS+dHZX+fUnIokUojukp/P5bhs
-	dykpvAYLAFB1u5FckvSVxlzjOoBsrzuscLRyuFTAdCNGNX2GmLjqfFq8UkKKzbg+2YfOz8eNFAY7b
-	EGwJC+PG0ZYdZcBWCb2Q==;
+	List-Owner; bh=i9diL5mbibq9YBRdQ1heQBENsOErJJ9pTufADa3BfcI=; b=GOEEPLQ5YxOw7u
+	w63qQIEsfes/jz84dS0mEq+0vz27DM5SDS1DqcmntvX5NzyoJvoglIm0Wo7PMIvar1HTPb2jpCAst
+	0YIfhNqXlNg+1JZqO6D/PQfFnSzCYAtHdEFtPmGNdjxKHqFG9LJdksXQTs6sfAlEIIxrn/YSrJ/p9
+	CaUPiosClc2g0WQ5zxA2gTwTGTmH5y2TET8cBkV2A6MaiPOV6umgT10znnM5tIIBhKQ1avfyrDMaX
+	OLT3EN+gnPoiaQTUPmn1B3W5vaMvdM9jBdPEe5OVHxBZvN+0ql6FrZ8njMd633VBOAslTFbi9dl1O
+	ZrSYrIcG28spu92VCPSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOXP6-0000000GCpI-1xsN;
-	Thu, 27 Nov 2025 08:31:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vOXTh-0000000GDGG-3dU0;
+	Thu, 27 Nov 2025 08:35:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOXP4-0000000GCoX-2cQT
+	id 1vOXTf-0000000GDFs-0RDX
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 08:31:02 +0000
+	Thu, 27 Nov 2025 08:35:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 567F460178;
-	Thu, 27 Nov 2025 08:31:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F21C9C4CEF8;
-	Thu, 27 Nov 2025 08:31:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3167540879;
+	Thu, 27 Nov 2025 08:35:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E346C4CEF8;
+	Thu, 27 Nov 2025 08:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764232261;
-	bh=Hw3rpyjIs5q2m80mOXGPqWY/yNyazFCdz/ULb4y5eE8=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=hy3wn4pIoJRjHnOpzYoslQqGho8xq0Z9RYYtBYN7+2U4rmY+LWmfVf7QjhnFLU0Mv
-	 QEDP6WThf6o5Q53L7jnlkEhpeYY48FZgFAt4ZuoKkLd8wdchRSGHF/bEWGOnGHYBBT
-	 FZ8xnt7DwDjwc8HuYv/UEioqMANa99L8z5klJ7kXO7QR9T1fKlc6GLVl08SqYFo5Lg
-	 RaTsa2Z8ARaoDxgBAXOvRTYOfrpd22vE5+10ciSjeYr16NsDt0ap+IHbaB2YhBdfA5
-	 1+WTRwoaMqCQwXUJPSdoVgujZPRxtohgp1aIb2iJZsXu+3yC16Y7s79nq8I1k8N+Fe
-	 fXBu/eflyUvhQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE9D380CFC2;
-	Thu, 27 Nov 2025 08:30:23 +0000 (UTC)
+	s=k20201202; t=1764232546;
+	bh=qx0VZrdqJksxpKXVCVyXb4JAI2P5dCq0KsV9HbIKGek=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JgZwtp8Tu+n8p3LaI0AsCxvsyQZRHcTfkmQ3l9GMb6+DsJHERvHrUAVvuNANZGssM
+	 1M16aKThUv8pm2fpPqzK2E3IHdPvq+aq3wozuehRIzN/auBNvkuBrLr6jWjsAJGCMq
+	 gKw7f/dbAyg/ijfp+HAJRn+vODfnzRDqa1NPE8PNzovArQpUEyQnNO9IlK9lVOFcaU
+	 rIQPl3NMUd1o23B2Hqadw35UJ/5HrnWAquZp5u0emedD51lI/HoUp9yu7BgsLOvQ8k
+	 XMwxnK1OciERhD8X2cpmZm/yFv7fG7M0DIasL3/JLatgVzgnVpA/FBj2y3iK0eiQu3
+	 ClsmI9yWdvtIg==
+Message-ID: <46ca641c-6a39-49e4-b1b2-23262841ecc8@kernel.org>
+Date: Thu, 27 Nov 2025 09:35:37 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH v23 00/28] riscv control-flow integrity for usermode
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <176423222224.2476283.17736612090314280039.git-patchwork-notify@kernel.org>
-Date: Thu, 27 Nov 2025 08:30:22 +0000
-References: <20251112-v5_user_cfi_series-v23-0-b55691eacf4f@rivosinc.com>
-In-Reply-To: <20251112-v5_user_cfi_series-v23-0-b55691eacf4f@rivosinc.com>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- akpm@linux-foundation.org, Liam.Howlett@oracle.com, vbabka@suse.cz,
- lorenzo.stoakes@oracle.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, conor@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- arnd@arndb.de, brauner@kernel.org, peterz@infradead.org, oleg@redhat.com,
- ebiederm@xmission.com, kees@kernel.org, corbet@lwn.net, shuah@kernel.org,
- jannh@google.com, conor+dt@kernel.org, ojeda@kernel.org,
- alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
- bjorn3_gh@protonmail.com, a.hindborg@kernel.org, aliceryhl@google.com,
- tmgross@umich.edu, lossin@kernel.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com,
- andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
- atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
- alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
- rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org,
- zong.li@sifive.com, david@redhat.com, cmirabil@redhat.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Wei Yang <richard.weiyang@gmail.com>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-mm@kvack.org, devicetree@vger.kernel.org,
+ Suren Baghdasaryan <surenb@google.com>, linux-kernel@vger.kernel.org,
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
+ Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
+ Rob Herring <robh+dt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
+ Anshuman Khandual <anshuman.khandual@arm.com>
+References: <20251113014656.2605447-1-samuel.holland@sifive.com>
+ <20251113014656.2605447-7-samuel.holland@sifive.com>
+ <02e3b3bd-ae6a-4db4-b4a1-8cbc1bc0a1c8@arm.com>
+ <bc88d132-452a-42a1-9ee5-5407334d8aac@kernel.org>
+ <df7d10ba-bb42-4ea1-8c5b-5db88a18eccb@kernel.org>
+ <6bdf2b89-7768-4b90-b5e7-ff174196ea7b@lucifer.local>
+ <71123d7a-641b-41df-b959-88e6c2a3a441@kernel.org>
+ <c0818f5b-b8a1-4730-aa1d-df0f547a3d47@arm.com>
+ <20251126134726.yrya5xxayfcde3kl@master>
+ <ee5f5da3-8c6b-4381-aee8-b0fab56cbf83@arm.com>
+ <a33b87ab-b24f-45d5-bd4a-646988b54a2b@kernel.org>
+From: "David Hildenbrand (Red Hat)" <david@kernel.org>
+Content-Language: en-US
+In-Reply-To: <a33b87ab-b24f-45d5-bd4a-646988b54a2b@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251127_003547_206841_DAE84F09 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,97 +90,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (for-next)
-by Paul Walmsley <pjw@kernel.org>:
-
-On Wed, 12 Nov 2025 16:42:58 -0800 you wrote:
-> v23:
-> fixed some of the "CHECK:" reported on checkpatch --strict.
-> Accepted Joel's suggestion for kselftest's Makefile.
-> CONFIG_RISCV_USER_CFI is enabled when zicfiss, zicfilp and fcf-protection
-> are all present in toolchain
-> 
-> v22: fixing build error due to -march=zicfiss being picked in gcc-13 and above
-> but not actually doing any codegen or recognizing instruction for zicfiss.
-> Change in v22 makes dependence on `-fcf-protection=full` compiler flag to
-> ensure that toolchain has support and then only CONFIG_RISCV_USER_CFI will be
-> visible in menuconfig.
-> 
-> [...]
-
-Here is the summary with links:
-  - [v23,01/28] mm: VM_SHADOW_STACK definition for riscv
-    https://git.kernel.org/riscv/c/ae8460ac9db2
-  - [v23,02/28] dt-bindings: riscv: zicfilp and zicfiss in dt-bindings (extensions.yaml)
-    https://git.kernel.org/riscv/c/b32ccfc268db
-  - [v23,03/28] riscv: zicfiss / zicfilp enumeration
-    https://git.kernel.org/riscv/c/55a811a7f304
-  - [v23,04/28] riscv: zicfiss / zicfilp extension csr and bit definitions
-    https://git.kernel.org/riscv/c/92c96b16548e
-  - [v23,05/28] riscv: usercfi state for task and save/restore of CSR_SSP on trap entry/exit
-    https://git.kernel.org/riscv/c/7720cdd21962
-  - [v23,06/28] riscv/mm : ensure PROT_WRITE leads to VM_READ | VM_WRITE
-    https://git.kernel.org/riscv/c/e60eb198b13d
-  - [v23,07/28] riscv/mm: manufacture shadow stack pte
-    https://git.kernel.org/riscv/c/f8fcb7b5bf30
-  - [v23,08/28] riscv/mm: teach pte_mkwrite to manufacture shadow stack PTEs
-    https://git.kernel.org/riscv/c/0276a5ea1105
-  - [v23,09/28] riscv/mm: write protect and shadow stack
-    https://git.kernel.org/riscv/c/ae615676bc37
-  - [v23,10/28] riscv/mm: Implement map_shadow_stack() syscall
-    https://git.kernel.org/riscv/c/d291fd38f841
-  - [v23,11/28] riscv/shstk: If needed allocate a new shadow stack on clone
-    https://git.kernel.org/riscv/c/d209ea2fa4bb
-  - [v23,12/28] riscv: Implements arch agnostic shadow stack prctls
-    https://git.kernel.org/riscv/c/8b49f512abc2
-  - [v23,13/28] prctl: arch-agnostic prctl for indirect branch tracking
-    https://git.kernel.org/riscv/c/3363a8d1044e
-  - [v23,14/28] riscv: Implements arch agnostic indirect branch tracking prctls
-    https://git.kernel.org/riscv/c/0177891ccdb7
-  - [v23,15/28] riscv/traps: Introduce software check exception and uprobe handling
-    https://git.kernel.org/riscv/c/6f71171a7448
-  - [v23,16/28] riscv: signal: abstract header saving for setup_sigcontext
-    (no matching commit)
-  - [v23,17/28] riscv/signal: save and restore of shadow stack for signal
-    https://git.kernel.org/riscv/c/4f9da7ad3478
-  - [v23,18/28] riscv/kernel: update __show_regs to print shadow stack register
-    https://git.kernel.org/riscv/c/320c96a55d73
-  - [v23,19/28] riscv/ptrace: riscv cfi status and state via ptrace and in core files
-    https://git.kernel.org/riscv/c/7a39f89a817e
-  - [v23,20/28] riscv/hwprobe: zicfilp / zicfiss enumeration in hwprobe
-    https://git.kernel.org/riscv/c/c09b490a9267
-  - [v23,21/28] riscv: kernel command line option to opt out of user cfi
-    https://git.kernel.org/riscv/c/6e0dc40ceb45
-  - [v23,22/28] riscv: enable kernel access to shadow stack memory via FWFT sbi call
-    https://git.kernel.org/riscv/c/dfd087078357
-  - [v23,23/28] arch/riscv: compile vdso with landing pad and shadow stack note
-    https://git.kernel.org/riscv/c/2cfe57e3bd9b
-  - [v23,24/28] arch/riscv: dual vdso creation logic and select vdso based on hw
-    https://git.kernel.org/riscv/c/418316aa61e8
-  - [v23,25/28] riscv: create a config for shadow stack and landing pad instr support
-    https://git.kernel.org/riscv/c/c5f5ce714457
-  - [v23,26/28] riscv: Documentation for landing pad / indirect branch tracking
-    https://git.kernel.org/riscv/c/73d0ccec35b8
-  - [v23,27/28] riscv: Documentation for shadow stack on riscv
-    https://git.kernel.org/riscv/c/6b8214c8cbd6
-  - [v23,28/28] kselftest/riscv: kselftest for user mode cfi
-    https://git.kernel.org/riscv/c/0f226cf6026f
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTEvMjcvMjUgMDk6MjYsIENocmlzdG9waGUgTGVyb3kgKENTIEdST1VQKSB3cm90ZToKPiAK
+PiAKPiBMZSAyNi8xMS8yMDI1IMOgIDE1OjIyLCBSeWFuIFJvYmVydHMgYSDDqWNyaXTCoDoKPj4g
+T24gMjYvMTEvMjAyNSAxMzo0NywgV2VpIFlhbmcgd3JvdGU6Cj4+PiBPbiBXZWQsIE5vdiAyNiwg
+MjAyNSBhdCAwMTowMzo0MlBNICswMDAwLCBSeWFuIFJvYmVydHMgd3JvdGU6Cj4+Pj4gT24gMjYv
+MTEvMjAyNSAxMjozNSwgRGF2aWQgSGlsZGVuYnJhbmQgKFJlZCBIYXQpIHdyb3RlOgo+Pj4gWy4u
+Ll0KPj4+Pj4+Pj4+IEhpLAo+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+IEkndmUganVzdCBjb21lIGFjcm9z
+cyB0aGlzIHBhdGNoIGFuZCB3YW50ZWQgdG8gbWVudGlvbiB0aGF0IHdlIGNvdWxkIGFsc28KPj4+
+Pj4+Pj4+IGJlbmVmaXQgZnJvbSB0aGlzIGltcHJvdmVkIGFic3JhY3Rpb24gZm9yIHNvbWUgZmVh
+dHVyZXMgd2UgYXJlIGxvb2tpbmcgYXQgZm9yCj4+Pj4+Pj4+PiBhcm02NC4gQXMgeW91IG1lbnRp
+b24sIEFuc2h1bWFuIGhhZCBhIGdvIGJ1dCBoaXQgc29tZSByb2FkYmxvY2tzLgo+Pj4+Pj4+Pj4K
+Pj4+Pj4+Pj4+IFRoZSBtYWluIGlzc3VlIGlzIHRoYXQgdGhlIGNvbXBpbGVyIHdhcyB1bmFibGUg
+dG8gb3B0aW1pemUgYXdheSB0aGUKPj4+Pj4+Pj4+IFJFQURfT05DRSgpcwo+Pj4+Pj4+Pj4gZm9y
+IHRoZSBjYXNlIHdoZXJlIGNlcnRhaW4gbGV2ZWxzIG9mIHRoZSBwZ3RhYmxlIGFyZSBmb2xkZWQu
+IEJ1dCBpdCBjYW4KPj4+Pj4+Pj4+IG9wdGltaXplCj4+Pj4+Pj4+PiB0aGUgcGxhaW4gQyBkZXJl
+ZmVyZW5jZXMuIFRoZXJlIHdlcmUgY29tcGxhaW50cyB0aGUgdGhlIGdlbmVyYXRlZCBjb2RlIGZv
+ciBhcm0KPj4+Pj4+Pj4+ICgzMikgYW5kIHBvd2VycGMgd2FzIHNpZ25pZmljYW50bHkgaW1wYWN0
+ZWQgZHVlIHRvIGhhdmluZyBtYW55IG1vcmUKPj4+Pj4+Pj4+IChyZWR1bmRhbnQpCj4+Pj4+Pj4+
+PiBsb2Fkcy4KPj4+Pj4+Pj4+Cj4+Pj4+Pj4+Cj4+Pj4+Pj4+IFdlIGRvIGhhdmUgbW1fcG1kX2Zv
+bGRlZCgpL3A0ZF9mb2xkZWQoKSBldGMsIGNvdWxkIHRoYXQgaGVscCB0byBzb3J0Cj4+Pj4+Pj4+
+IHRoaXMgb3V0IGludGVybmFsbHk/Cj4+Pj4+Pj4+Cj4+Pj4+Pj4KPj4+Pj4+PiBKdXN0IHN0dW1i
+bGVkIG92ZXIgdGhlIHJlcGx5IGZyb20gQ2hyaXN0b3BlOgo+Pj4+Pj4+Cj4+Pj4+Pj4gaHR0cHM6
+Ly9ldXIwMS5zYWZlbGlua3MucHJvdGVjdGlvbi5vdXRsb29rLmNvbS8/dXJsPWh0dHBzJTNBJTJG
+JTJGbGttbC5rZXJuZWwub3JnJTJGciUyRjAwMTlkNjc1LWNlM2QtNGE1Yy04OWVkLWYxMjZjNDUx
+NDVjOSU0MGtlcm5lbC5vcmcmZGF0YT0wNSU3QzAyJTdDY2hyaXN0b3BoZS5sZXJveSU0MGNzZ3Jv
+dXAuZXUlN0MyMmQwYTAyOGIxZWM0YThiNjc4MTA4ZGUyY2Y3Mzc2OSU3QzhiODdhZjdkODY0NzRk
+Yzc4ZGY0NWY2OWEyMDExYmI1JTdDMCU3QzAlN0M2Mzg5OTc2Mzc0ODExMTk5NTQlN0NVbmtub3du
+JTdDVFdGcGJHWnNiM2Q4ZXlKRmJYQjBlVTFoY0draU9uUnlkV1VzSWxZaU9pSXdMakF1TURBd01D
+SXNJbEFpT2lKWGFXNHpNaUlzSWtGT0lqb2lUV0ZwYkNJc0lsZFVJam95ZlElM0QlM0QlN0MwJTdD
+JTdDJTdDJnNkYXRhPW9jUjZ1c1ZnUkhmdWUwTXJ0YlFuRE84d2hJTnZ5JTJGRE1BZk5FM2NhaVk4
+YyUzRCZyZXNlcnZlZD0wCj4+Pj4+Pj4KPj4+Pj4+PiBBbmQgd29uZGVyIGlmIHdlIGNvdWxkIGhh
+bmRsZSB0aGF0IHNvbWVob3cgZGlyZWN0bHkgaW4gdGhlIHBnZHBfZ2V0KCkgZXRjLgo+Pj4+Cj4+
+Pj4gSSBjZXJ0YWlubHkgZG9uJ3QgbGlrZSB0aGUgc3VnZ2VzdGlvbiBvZiBkb2luZyB0aGUgaXNf
+Zm9sZGVkKCkgdGVzdCBvdXRzaWRlIHRoZQo+Pj4+IGhlbHBlciwgYnV0IGlmIHdlIGNhbiBwdXNo
+IHRoYXQgbG9naWMgZG93biBpbnRvIHBYZHBfZ2V0KCkgdGhhdCB3b3VsZCBiZSBwcmV0dHkKPj4+
+PiBuZWF0LiBBbnNodW1hbiBhbmQgSSBkaWQgYnJpZWZseSBwbGF5IHdpdGggdGhlIGlkZWEgb2Yg
+ZG9pbmcgYSBDIGRlcmVmZXJlbmNlIGlmCj4+Pj4gdGhlIGxldmVsIGlzIGZvbGRlZCBhbmQgYSBS
+RUFEX09OQ0UoKSBvdGhlcndpc2UsIGFsbCBpbnNpZGUgZWFjaCBwWGRwX2dldCgpCj4+Pj4gaGVs
+cGVyLiBBbHRob3VnaCB3ZSBuZXZlciBwcm92ZWQgaXQgdG8gYmUgY29ycmVjdC4gSSBzdHJ1Z2ds
+ZSB3aXRoIHRoZSBtb2RlbCBmb3IKPj4+PiBmb2xkaW5nLiBEbyB5b3Ugd2FudCB0byBvcHRpbWl6
+ZSBvdXQgYWxsLWJ1dC10aGUtaGlnaGVzdCBsZXZlbCdzIGFjY2VzcyBvcgo+Pj4+IGFsbC1idXQt
+dGhlLWxvd2VzdCBsZXZlbCdzIGFjY2Vzcz8gTWFrZXMgbXkgaGVhZCBodXJ0Li4uCj4+Pj4KPj4+
+Pgo+Pj4KPj4+IFlvdSBtZWFuIHN0aCBsaWtlOgo+Pj4KPj4+IHN0YXRpYyBpbmxpbmUgcG1kX3Qg
+cG1kcF9nZXQocG1kX3QgKnBtZHApCj4+PiB7Cj4+PiAjaWZkZWYgX19QQUdFVEFCTEVfUE1EX0ZP
+TERFRAo+Pj4gCXJldHVybiAqcG1kcDsKPj4+ICNlbHNlCj4+PiAJcmV0dXJuIFJFQURfT05DRSgq
+cG1kcCk7Cj4+PiAjZW5kaWYKPj4+IH0KPj4KPj4gWWVzLiBCdXQgSSdtIG5vdCBjb252aW5jZWQg
+aXQncyBjb3JyZWN0Lgo+Pgo+PiBJICp0aGluayogKGJ1dCBwbGVhc2UgY29ycmVjdCBtZSBpZiBJ
+J20gd3JvbmcpIGlmIHRoZSBQTUQgaXMgZm9sZGVkLCB0aGUgUFVEIGFuZAo+PiBQNEQgbXVzdCBh
+bHNvIGJlIGZvbGRlZCwgYW5kIHlvdSBlZmZlY3RpdmVseSBoYXZlIGEgMiBsZXZlbCBwZ3RhYmxl
+IGNvbnNpc3RpbmcKPj4gb2YgdGhlIFBHRCB0YWJsZSBhbmQgdGhlIFBURSB0YWJsZS4gcDRkcF9n
+ZXQoKSwgcHVkcF9nZXQoKSBhbmQgcG1kcF9nZXQoKSBhcmUKPj4gYWxsIGVmZmVjdGl2ZWx5IGR1
+cGxpY2F0aW5nIHRoZSBsb2FkIG9mIHRoZSBwZ2QgZW50cnk/IFNvIGFzc3VtaW5nIHBnZHBfZ2V0
+KCkKPj4gd2FzIGFscmVhZHkgY2FsbGVkIGFuZCB1c2VkIFJFQURfT05DRSgpLCB5b3UgbWlnaHQg
+aG9wZSB0aGUgY29tcGlsZXIgd2lsbCBqdXN0Cj4+IGRyb3AgdGhlIG90aGVyIGxvYWRzIGFuZCBq
+dXN0IHVzZSB0aGUgdmFsdWUgcmV0dXJuZWQgYnkgUkVBRF9PTkNFKCkuIEJ1dCBJIGRvdWJ0Cj4+
+IHRoZXJlIGlzIGFueSBndWFyYW50ZWUgb2YgdGhhdCBhbmQgeW91IG1pZ2h0IGJlIGluIGEgc2l0
+dWF0aW9uIHdoZXJlIHBnZHBfZ2V0KCkKPj4gbmV2ZXIgZXZlbiBnb3QgY2FsbGVkIChwZXJoYXBz
+IHlvdSBhbHJlYWR5IGhhdmUgdGhlIHBtZCBwb2ludGVyKS4KPiAKPiBJIHRoaW5rIHlvdSBjYW4n
+dCBhc3N1bWUgcGdkcF9nZXQoKSB3YXMgYWxyZWFkeSBjYWxsZWQsIGJlY2F1c2Ugc29tZQo+IHBh
+cnRzIG9mIGNvZGUgd2lsbCBkaXJlY3RseSBkZXNjZW5kIHRvIFBNRCBsZXZlbCB1c2luZyBwbWRf
+b2ZmKCkgb3IKPiBwbWRfb2ZmX2soKQo+IAo+IHN0YXRpYyBpbmxpbmUgcG1kX3QgKnBtZF9vZmYo
+c3RydWN0IG1tX3N0cnVjdCAqbW0sIHVuc2lnbmVkIGxvbmcgdmEpCj4gewo+IAlyZXR1cm4gcG1k
+X29mZnNldChwdWRfb2Zmc2V0KHA0ZF9vZmZzZXQocGdkX29mZnNldChtbSwgdmEpLCB2YSksIHZh
+KSwgdmEpOwo+IH0KPiAKPiBzdGF0aWMgaW5saW5lIHBtZF90ICpwbWRfb2ZmX2sodW5zaWduZWQg
+bG9uZyB2YSkKPiB7Cj4gCXJldHVybiBwbWRfb2Zmc2V0KHB1ZF9vZmZzZXQocDRkX29mZnNldChw
+Z2Rfb2Zmc2V0X2sodmEpLCB2YSksIHZhKSwgdmEpOwo+IH0KCkknbGwgbm90ZSB0aGF0IHRoZXNl
+IChuZXN0eSkgaGVscGVycyBvbmx5IHdvcmsgd2hlbiB5b3Uga25vdyB0aGF0IHlvdSAKaGF2ZSBm
+b2xkZWQgcGFnZSB0YWJsZXMuCgpBbmQgdGhhdCdzIHdoeSBJIGFtIGFyZ3VpbmcgdGhhdCB0aGUg
+cG1kcF9nZXQoKSBtdXN0IGFjdHVhbGx5IGJlIGtlcHQgYXMgaXMuCgotLSAKQ2hlZXJzCgpEYXZp
+ZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
