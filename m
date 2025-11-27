@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63677CFD2F6
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 07:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB540CFD2F6
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 07:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mKRhfYpy3IVuvEyFpBDUEWAeUQY4fH3HKVF5yq3x4vY=; b=AxMF8oLJdwjBwQ
-	B8DDmR5l56sRLHr78HLh9zkVZyt6aF0v6XuGbE0T1YYt1ZIi8gDe6/yxI+WCGo50wAymGL6KucBj2
-	AdvCiHW14zmLQctFGe6LAGJNC1eOuJlbyYU024od3flR0bf3Y+GwSCjMdzYKaUCMAiMID0a77QpZ8
-	jou8I524CCSI8Av+L78vPt/a3t/3sfudCNioGmB4Ltal3JqznA4ErPB+6AEQyagFHXOQ2Wa9+Eu03
-	0N2xU1rrn5Wp4Xs3/fYlWvb2A7NoQbkqGv+vRshTOG9OQUR+SJbzh/7KiMwKbWY923v23qe0aw+wi
-	VLYqiGPybsCWW7YgJWpw==;
+	List-Owner; bh=SfRebOFhSdc5ykS0QN0N3D8zsyDRFHeaag3DYVITN2s=; b=neSEkKbQMWI7Vm
+	sbgBduQv41LmLruIG24Fawh8o68s+Ln1q7VhJDw36vB7npprmgjK3z+0X/NCVuW9bZyL0GkEQ60Rj
+	sQFcO9syE4qQWs63qx9Yd6VKEzbzfHTLMkr4+zfwipTSQKbCHP2qrMgRV3zbqg1oMu0VMb/Ierwlw
+	7Jt4C9VmQPBa3M9e/ilwW2xHQnCJwWFKsTOdI8mvfrRyz6+XuaAeqZjy2HwA6yxKu1Pu/bELC412f
+	VOuzQ5M/NXAoaZDdXEnYmIPUIg58wQuxFgdvR8JAx14qti6QkvqxCGBntVIIAbN/NauFqHzNBG96n
+	CtcI09ddMhUPY6Iqffpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOWDR-0000000G6ik-2CIX;
-	Thu, 27 Nov 2025 07:14:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vOWTz-0000000G8Ba-0m0t;
+	Thu, 27 Nov 2025 07:32:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOWDQ-0000000G6iS-1cwP
+	id 1vOWTx-0000000G8BO-2Vxw
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 07:14:56 +0000
+	Thu, 27 Nov 2025 07:32:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED57360186;
-	Thu, 27 Nov 2025 07:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08EE2C4CEF8;
-	Thu, 27 Nov 2025 07:14:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0CE9D60182;
+	Thu, 27 Nov 2025 07:32:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0188FC4CEF8;
+	Thu, 27 Nov 2025 07:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764227694;
-	bh=nG1HIGyDMlgn0rC/3lX9+hsIsnZ635QMJyYQCko+Bio=;
+	s=k20201202; t=1764228720;
+	bh=QiLZ0ytg5DNB713odlGgPihhex3UHwBxH/QBLHPI5QM=;
 	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=ksVrEcCCQASGC1x7cUjW8qzLgPsEpPh2R7b+sIcTD7eXFEI6M2WxpWQcmIrC/E1iX
-	 EsoMz9AFQVpS3mokC3TqIYlZIok1kDTYNurKw3uyaCTORVJQh630uqj2bO1rvzhGv+
-	 8zfXxfKpIv+xyJcKSv7MmbGj/xgY2oMo+LhDDeV3pj7bwiiR51dBmw+FIhe2nBPPw2
-	 B8FMh2V5FtJDeyHcDjQOwoH8FNRqNoUpO4w6LYgCx7TjPc00Kwhsiq+TtG9gVKpynr
-	 k6RpuSVIoNXfdLS9AB7NaP7zBPA/fXkZhYoW9iML+EGqrIpQcIJztFUuEJKAfEd7Vv
-	 VtPOl+v12EneQ==
-Message-ID: <bcd2a49d-a42f-41e8-9f64-4fd24fc862c7@kernel.org>
-Date: Thu, 27 Nov 2025 08:14:45 +0100
+	b=ouf03M9UhTmrdYrBI9Rg68Ds2egIB5Eo2fkqNFaJj60mj+MZ1UpDU3dqMC5CDr4GZ
+	 1e1gbHEEAg3GZX9zxrxJ5KqhDXcOhmLhpY7NEziDAEgzhE6YlqPGeBk8RiSPxSlsSa
+	 F2AmTGyncDeM6RFOOttkf+LPPLRiELWkkHwOnudis6yd88kSiYYjwzNFzwrzcMcnE3
+	 2SmtBdNPsXtGJnXzp0X2chXdyd/01FFiIsag/c9gEZZXoXmJrfLd03SpdDW+HPf69H
+	 RoxGo8DTISAtMr5xSaJ2uJoznD6XMpaOBMkLlXyYlE7Obw1135MsaqTVAdJ2n+N2BU
+	 TxSMaHEWH6ASA==
+Message-ID: <bd4d746b-8929-4fd2-bd59-70654e794ee6@kernel.org>
+Date: Thu, 27 Nov 2025 08:31:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
@@ -78,8 +78,9 @@ References: <bc88d132-452a-42a1-9ee5-5407334d8aac@kernel.org>
  <4505a93b-2bac-4ce1-8971-4c31f1ce1362@arm.com>
  <150ffcb7-2df2-4f3a-a12e-9807f13c6ab9@arm.com>
  <b2fbe58e-f47b-4a76-879b-fd38a915c2ce@kernel.org>
+ <bcd2a49d-a42f-41e8-9f64-4fd24fc862c7@kernel.org>
 Content-Language: en-US
-In-Reply-To: <b2fbe58e-f47b-4a76-879b-fd38a915c2ce@kernel.org>
+In-Reply-To: <bcd2a49d-a42f-41e8-9f64-4fd24fc862c7@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,137 +97,170 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/26/25 21:31, David Hildenbrand (Red Hat) wrote:
-> On 11/26/25 17:34, Ryan Roberts wrote:
->> On 26/11/2025 16:07, Ryan Roberts wrote:
->>> On 26/11/2025 15:12, David Hildenbrand (Red Hat) wrote:
->>>> On 11/26/25 16:08, Lorenzo Stoakes wrote:
->>>>> On Wed, Nov 26, 2025 at 03:56:13PM +0100, David Hildenbrand (Red Hat) wrote:
->>>>>> On 11/26/25 15:52, Lorenzo Stoakes wrote:
+On 11/27/25 08:14, David Hildenbrand (Red Hat) wrote:
+> On 11/26/25 21:31, David Hildenbrand (Red Hat) wrote:
+>> On 11/26/25 17:34, Ryan Roberts wrote:
+>>> On 26/11/2025 16:07, Ryan Roberts wrote:
+>>>> On 26/11/2025 15:12, David Hildenbrand (Red Hat) wrote:
+>>>>> On 11/26/25 16:08, Lorenzo Stoakes wrote:
+>>>>>> On Wed, Nov 26, 2025 at 03:56:13PM +0100, David Hildenbrand (Red Hat) wrote:
+>>>>>>> On 11/26/25 15:52, Lorenzo Stoakes wrote:
+>>>>>>>>
+>>>>>>>> Would the pmdp_get() never get invoked then? Or otherwise wouldn't that end up
+>>>>>>>> requiring a READ_ONCE() further up the stack?
 >>>>>>>
->>>>>>> Would the pmdp_get() never get invoked then? Or otherwise wouldn't that end up
->>>>>>> requiring a READ_ONCE() further up the stack?
+>>>>>>> See my other reply, I think the pmdp_get() is required because all pud_*
+>>>>>>> functions are just simple stubs.
 >>>>>>
->>>>>> See my other reply, I think the pmdp_get() is required because all pud_*
->>>>>> functions are just simple stubs.
+>>>>>> OK, thought you were saying we should push further down the stack? Or up
+>>>>>> depending on how you view these things :P as in READ_ONCE at leaf?
 >>>>>
->>>>> OK, thought you were saying we should push further down the stack? Or up
->>>>> depending on how you view these things :P as in READ_ONCE at leaf?
+>>>>> I think at leaf because I think the previous ones should essentially be only
+>>>>> used by stubs.
+>>>>>
+>>>>> But I haven't fully digested how this is all working. Or supposed to work.
+>>>>>
+>>>>> I'm trying to chew through the arch/arm/include/asm/pgtable-2level.h example to
+>>>>> see if I can make sense of it,
 >>>>
->>>> I think at leaf because I think the previous ones should essentially be only
->>>> used by stubs.
+>>>> I wonder if we can think about this slightly differently;
 >>>>
->>>> But I haven't fully digested how this is all working. Or supposed to work.
+>>>> READ_ONCE() has two important properties:
 >>>>
->>>> I'm trying to chew through the arch/arm/include/asm/pgtable-2level.h example to
->>>> see if I can make sense of it,
+>>>>     - It guarrantees that a load will be issued, *even if output is unused*
+>>>>     - It guarrantees that the read will be single-copy-atomic (no tearing)
+>>>>
+>>>> I think for the existing places where READ_ONCE() is used for pagetable reads we
+>>>> only care about:
+>>>>
+>>>>     - It guarrantees that a load will be issued, *if output is used*
+>>>>     - It guarrantees that the read will be single-copy-atomic (no tearing)
+>>>>
+>>>> I think if we can weaken to the "if output is used" property, then the compiler
+>>>> will optimize out all the unneccessary reads.
+>>>>
+>>>> AIUI, a C dereference provides neither of the guarrantees so that's no good.
+>>>>
+>>>> What about non-volatile asm? I'm told (thought need to verify) that for
+>>>> non-volatile asm, the compiler will emit it if the output is used and remove it
+>>>> otherwise. So if the asm contains the required single-copy-atomic, perhaps we
+>>>> are in business?
+>>>>
+>>>> So we would need a new READ_SCA() macro that could default to READ_ONCE() (which
+>>>> is stronger) and arches could opt in to providing a weaker asm version. Then the
+>>>> default pXdp_get() could be READ_SCA(). And this should work for all cases.
+>>>>
+>>>> I think.
 >>>
->>> I wonder if we can think about this slightly differently;
+>>> I'm not sure this works. It looks like the compiler is free to move non-volatile
+>>> asm sections which might be problematic for places where we are currently using
+>>> READ_ONCE() in lockless algorithms, (e.g. GUP?). We wouldn't want to end up with
+>>> a stale value.
 >>>
->>> READ_ONCE() has two important properties:
+>>> Another idea:
 >>>
->>>    - It guarrantees that a load will be issued, *even if output is unused*
->>>    - It guarrantees that the read will be single-copy-atomic (no tearing)
+>>> Given the main pattern where we are aiming to optimize out the read is something
+>>> like:
 >>>
->>> I think for the existing places where READ_ONCE() is used for pagetable reads we
->>> only care about:
+>>> if (!pud_present(*pud))
 >>>
->>>    - It guarrantees that a load will be issued, *if output is used*
->>>    - It guarrantees that the read will be single-copy-atomic (no tearing)
+>>> where for a folded pmd:
 >>>
->>> I think if we can weaken to the "if output is used" property, then the compiler
->>> will optimize out all the unneccessary reads.
+>>> static inline int pud_present(pud_t pud)	{ return 1; }
 >>>
->>> AIUI, a C dereference provides neither of the guarrantees so that's no good.
+>>> And we will change it to this:
 >>>
->>> What about non-volatile asm? I'm told (thought need to verify) that for
->>> non-volatile asm, the compiler will emit it if the output is used and remove it
->>> otherwise. So if the asm contains the required single-copy-atomic, perhaps we
->>> are in business?
+>>> if (!pud_present(pudp_get(pud)))
 >>>
->>> So we would need a new READ_SCA() macro that could default to READ_ONCE() (which
->>> is stronger) and arches could opt in to providing a weaker asm version. Then the
->>> default pXdp_get() could be READ_SCA(). And this should work for all cases.
+>>> ...
 >>>
->>> I think.
+>>> perhaps we can just define the folded pXd_present(), pXd_none(), pXd_bad(),
+>>> pXd_user() and pXd_leaf() as macros:
+>>>
+>>> #define pud_present(pud)	1
+>>>
 >>
->> I'm not sure this works. It looks like the compiler is free to move non-volatile
->> asm sections which might be problematic for places where we are currently using
->> READ_ONCE() in lockless algorithms, (e.g. GUP?). We wouldn't want to end up with
->> a stale value.
+>> Let's take a step back and realize that with __PAGETABLE_PMD_FOLDED
 >>
->> Another idea:
+>> (a) *pudp does not make any sense
 >>
->> Given the main pattern where we are aiming to optimize out the read is something
->> like:
+>> For a folded PMD, *pudp == *pmdp and consequently we would actually
+>> get a PMD, not a PUD.
 >>
->> if (!pud_present(*pud))
+>> For this reason all these pud_* helpers ignore the passed value
+>> completely. It would be wrong.
 >>
->> where for a folded pmd:
+>> (b) pmd_offset() does *not* consume a pud but instead a pudp.
 >>
->> static inline int pud_present(pud_t pud)	{ return 1; }
+>> That makes sense, just imagine what would happen if someone would pass
+>> *pudp to that helper (we'd dereference twice ...).
 >>
->> And we will change it to this:
 >>
->> if (!pud_present(pudp_get(pud)))
+>> So I wonder if we can just teach get_pudp() and friends to ... return
+>> true garbage instead of dereferencing something that does not make sense?
 >>
->> ...
->>
->> perhaps we can just define the folded pXd_present(), pXd_none(), pXd_bad(),
->> pXd_user() and pXd_leaf() as macros:
->>
->> #define pud_present(pud)	1
->>
+>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>> index 32e8457ad5352..c95d0d89ab3f1 100644
+>> --- a/include/linux/pgtable.h
+>> +++ b/include/linux/pgtable.h
+>> @@ -351,7 +351,13 @@ static inline pmd_t pmdp_get(pmd_t *pmdp)
+>>     #ifndef pudp_get
+>>     static inline pud_t pudp_get(pud_t *pudp)
+>>     {
+>> +#ifdef __PAGETABLE_PMD_FOLDED
+>> +       pud_t dummy = { 0 };
+>> +
+>> +       return dummy;
+>> +#else
+>>            return READ_ONCE(*pudp);
+>> +#endif
+>>     }
+>>     #endif
+>>     
+>> set_pud/pud_page/pud_pgtable helper are confusing, I would
+>> assume they are essentially unused (like documented for set_put)
+>> and only required to keep compilers happy.
 > 
-> Let's take a step back and realize that with __PAGETABLE_PMD_FOLDED
+> Staring at GUP-fast and perf_get_pgtable_size()---which should better be
+> converted to pudp_get() etc--I guess we might have to rework
+> p4d_offset_lockless() to do something that doesn't rely on
+> passing variables of local variables.
 > 
-> (a) *pudp does not make any sense
-> 
-> For a folded PMD, *pudp == *pmdp and consequently we would actually
-> get a PMD, not a PUD.
-> 
-> For this reason all these pud_* helpers ignore the passed value
-> completely. It would be wrong.
-> 
-> (b) pmd_offset() does *not* consume a pud but instead a pudp.
-> 
-> That makes sense, just imagine what would happen if someone would pass
-> *pudp to that helper (we'd dereference twice ...).
-> 
-> 
-> So I wonder if we can just teach get_pudp() and friends to ... return
-> true garbage instead of dereferencing something that does not make sense?
-> 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 32e8457ad5352..c95d0d89ab3f1 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -351,7 +351,13 @@ static inline pmd_t pmdp_get(pmd_t *pmdp)
->    #ifndef pudp_get
->    static inline pud_t pudp_get(pud_t *pudp)
->    {
-> +#ifdef __PAGETABLE_PMD_FOLDED
-> +       pud_t dummy = { 0 };
-> +
-> +       return dummy;
-> +#else
->           return READ_ONCE(*pudp);
-> +#endif
->    }
->    #endif
->    
-> set_pud/pud_page/pud_pgtable helper are confusing, I would
-> assume they are essentially unused (like documented for set_put)
-> and only required to keep compilers happy.
+> We might have to enlighten these walkers (and only these) about folded
+> page tables such that they don't depend on the result of pudp_get() and
+> friends.
 
-Staring at GUP-fast and perf_get_pgtable_size()---which should better be 
-converted to pudp_get() etc--I guess we might have to rework 
-p4d_offset_lockless() to do something that doesn't rely on
-passing variables of local variables.
+Talking to myself (I know), handling this might be as simple as having
 
-We might have to enlighten these walkers (and only these) about folded 
-page tables such that they don't depend on the result of pudp_get() and 
-friends.
+diff --git a/include/asm-generic/pgtable-nopmd.h b/include/asm-generic/pgtable-nopmd.h
+index 8ffd64e7a24cb..60e5ba02bcf06 100644
+--- a/include/asm-generic/pgtable-nopmd.h
++++ b/include/asm-generic/pgtable-nopmd.h
+@@ -49,6 +49,13 @@ static inline pmd_t * pmd_offset(pud_t * pud, unsigned long address)
+  }
+  #define pmd_offset pmd_offset
+  
++static inline pmd_t * pmd_offset_lockless(pud_t *pud, puf_t pud, unsigned long address)
++{
++       return (pmd_t *)pud;
++}
++#define pmd_offset_lcokless pmd_offset_lockless
++
++
+  #define pmd_val(x)                             (pud_val((x).pud))
+  #define __pmd(x)                               ((pmd_t) { __pud(x) } )
+  
+
+IOW, just like for pmd_offset() we cast the pointer and don't ever touch the pud.
+
+
+As a reminder, the default is
+
+#ifndef pmd_offset_lockless
+#define pmd_offset_lockless(pudp, pud, address) pmd_offset(&(pud), address)
+#endif
+
+(isn't that nasty? :) )
 
 -- 
 Cheers
