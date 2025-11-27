@@ -4,61 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B393D111A8
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 16:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F37D111A8
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 17:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P7/YkA7O9G3oq+L1t4lzz5Ez1umZU5rTR1AXhDwHDco=; b=IFfL0ulSyy+imI
-	DWw1lnmCQCSE5sm03Jhd+2YLTG0UON+kMe3NuJjYebhQt3ir35AGuUtLEGrxLf87nclC+EExl8pDh
-	cljwt4aJdcJsNwVOoxHFcTc9KulnyP6Xs0ugS+dCRQqKtpRyHcvFpkur9PjaK12r9Q57jSa36cbyA
-	tJSmajdZb6fyAX9DbN+J5tI3fqBn9v3QIOpHO8r2K221sKm5UE07Iva2ipiVEQKA+tBoSRlWn8jC4
-	qWH8iEV67b3PiAd6fRorcU1bM80BXICHT72rzu03oI4Ft987bGgG+SQ6eFbvn4aGGsas/z1oMCqfM
-	XRbhiIDALneu+hugDw+A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rln22Mordl0/fWvzWTh/SKRrjl5skT5DytYUbl8y9nw=; b=x8c0oJ1Cv9p867
+	kKWa0YtkR1kYR0E6A33z2N/wzLD8uz7kIltft4N5MMGfDGQO374gFrMFt6F0NTQnfnhuPxQwmhh+y
+	quVv1vQr0yqcM8BhWvlSJ+yyqVTuW+7MHPNk+12BG0sm7crwW9Vya3qZT0ZqREZ1+TlUYGVJUBFYM
+	oFdAPauIbv8UTjJMiUT2LC+vLm6JDm1DACDMNbBK4a0Uu3Cu/Z9Zv7J49mzVvGBDVTKw613/uQbH5
+	uCd++NjjB38J45NOlg9d+fl2F5fL3zbk8azzjzcT+LReMFepjeTBvt0JiOxHJpFn19M011XtW8yt/
+	NCb7Aj12qz2RGF6+o6DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfIw-0000000GwxH-2nR4;
-	Thu, 27 Nov 2025 16:57:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfIu-0000000GwwW-3dHy
+	id 1vOfaO-0000000GyWo-3kSK;
+	Thu, 27 Nov 2025 17:15:16 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOfaL-0000000GyWC-2P3c
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 16:57:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA0C2176A;
-	Thu, 27 Nov 2025 08:57:03 -0800 (PST)
-Received: from [10.57.87.167] (unknown [10.57.87.167])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 199DA3F66E;
-	Thu, 27 Nov 2025 08:57:07 -0800 (PST)
-Message-ID: <fbfef7fc-4030-462b-b514-498eea6620aa@arm.com>
-Date: Thu, 27 Nov 2025 16:57:06 +0000
+	Thu, 27 Nov 2025 17:15:15 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 7D008240028
+	for <linux-riscv@lists.infradead.org>; Thu, 27 Nov 2025 18:15:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
+	t=1764263707; bh=1JYlqOooCL8ydN0owtkf6sjw7iJYZv7Bd4tNLpKEf0Q=;
+	h=From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
+	b=ih8ufMESgkTJ3xr44g+7OheAZ5RRNI8pIxmZtRYTtnfwzWw9yVvMYOQk+jGGECJUY
+	 UFhfrY3/aufQRNrO3cqPmO0ptC78xE1aJomCrdsvnVdBvmNFcxfxuJX6OQ5cXcMqWQ
+	 vmf0/n/ZEuIth3iOc5TVdzB/2QQWjlrCzWilFP/ofru4J512t/Q/sbI26ER1t04JXW
+	 ZA5/ud7Sk27DFrRqftT2L5mc+Zn3hY+zg7tQrDgqIGgIg9uuMI6PTBLPDioyQYK8xo
+	 kcCQzf3WnNvD7yWCOM2/vk0BEsxO0OFaWnQ0JYlzVtdQ1bB2hqEvZHO+o3C2aKHsrB
+	 CLhHVZfVESOvg==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4dHNN754sqz6txn;
+	Thu, 27 Nov 2025 18:15:03 +0100 (CET)
+From: Markus Probst <markus.probst@posteo.de>
+Date: Thu, 27 Nov 2025 17:15:06 +0000
+Subject: [PATCH] Move pwm registration into pwm::Chip::new
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/22] mm: Allow page table accessors to be
- non-idempotent
-Content-Language: en-GB
-To: Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
-Cc: devicetree@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>,
- linux-kernel@vger.kernel.org, Mike Rapoport <rppt@kernel.org>,
- Michal Hocko <mhocko@suse.com>, Conor Dooley <conor@kernel.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
- Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
- Vlastimil Babka <vbabka@suse.cz>, "Liam R . Howlett"
- <Liam.Howlett@oracle.com>
-References: <20251113014656.2605447-1-samuel.holland@sifive.com>
- <20251113014656.2605447-9-samuel.holland@sifive.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20251113014656.2605447-9-samuel.holland@sifive.com>
+Message-Id: <20251127-pwm_safe_register-v1-1-d22d0ed068ac@posteo.de>
+X-B4-Tracking: v=1; b=H4sIAAeHKGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDQyNz3YLy3PjixLTU+KLU9MziktQi3VQTyySDRCMzQ0MDQyWgvoKi1LT
+ MCrCZ0bG1tQDN9qaZYwAAAA==
+X-Change-ID: 20251127-pwm_safe_register-e49b0a261101
+To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Michal Wilczynski <m.wilczynski@samsung.com>, 
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ Markus Probst <markus.probst@posteo.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6164;
+ i=markus.probst@posteo.de; h=from:subject:message-id;
+ bh=sjCGpsFWtUuaf2ehQRqAWM1hmZoxe+jPZ9b+8Ms+qys=;
+ b=owEBbQKS/ZANAwAIATR2H/jnrUPSAcsmYgBpKIcXMTC2YLm6RK3psqVT9D3FPeDNbIUVS0/Z6
+ uVDeu2svLuJAjMEAAEIAB0WIQSCdBjE9KxY53IwxHM0dh/4561D0gUCaSiHFwAKCRA0dh/4561D
+ 0jYBD/9fj59gj2a/JoETjtKfRkc64iwDSeuNsxcK2D0MSGELYtluS88sGMMupAjqa+6mc1q0KVX
+ N4xQmfuyhi75IpHLRAwGIsANci6mcrsO9m/p3grvVNZB6YnAdP6iI3YAqGVU3X9faFEyEyutoRB
+ cUb+P3WT2gPP1Kk8VdfFuiHYPDGDrwuHhgyrcwbIBv/wC9HXGLH95mSvs7olmIvqnJ4fFFJWJQn
+ HRhm7q2XIuQVN6cU5vJlWoKfYr/UhpDPgBNLgYg2+eJIkND4MJllLhejczm2Bip36oALvQczMV7
+ zjlFgFv11e5wvMRa5bp2WPHtw/jaCwhRRkvkcSUz3MQ/8Zb3g+tgAgsS7LsxGIisys00PhVO179
+ tio8zi9FAs++vzPfA+vJsSrVUDXBIkPXIz/UT0FWDvNaruANzUxmgS8KZ1PTGZk5KmNG7u/dEd0
+ wDBPeYN6sK7w6eS1NjOzR5Ff7gvnZuNl5PrUYFH7wyulGterDjMEcyVilJ25/CCY/5WJmbf3Pe3
+ QRZBpdzJQmMeC2/wc2vOQxSP0hxuBXZVEPOnQAz5eZ7bfFP4YviDq5I+pqMF4ovVeFoayRMwDQB
+ Ne/R0M0Oco0loG42NCzX2ThvPi8X+WFOumb7CtXgaCAvldzeYdZ02/yJauCMABINa2frTJLAklg
+ uJgsBPRgtv0SO4Q==
+X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
+ fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+  keydata=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
+  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_085712_995652_3C877359 
-X-CRM114-Status: GOOD (  24.45  )
+X-CRM114-CacheID: sfid-20251127_091513_907852_56F1E464 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,134 +143,157 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/11/2025 01:45, Samuel Holland wrote:
-> Currently, some functions such as pte_offset_map() are passed both
-> pointers to hardware page tables, and pointers to previously-read PMD
-> entries on the stack. To ensure correctness in the first case, these
-> functions must use the page table accessor function (pmdp_get()) to
-> dereference the supplied pointer. However, this means pmdp_get() is
-> called twice in the second case. This double call must be avoided if
-> pmdp_get() applies some non-idempotent transformation to the value.
-> 
-> Avoid the double transformation by calling set_pmd() on the stack
-> variables where necessary to keep set_pmd()/pmdp_get() calls balanced.
+The `pwm::Registration::register` function provides no guarantee that the
+function isn't called twice with the same pwm chip, which is considered
+unsafe.
 
-I don't think this is a good solution.
+Add the code responsible for the registration into `pwm::Chip::new`. The
+registration will happen before the driver gets access to the refcounted
+pwm chip and can therefore guarantee that the registration isn't called
+twice on the same pwm chip.
 
-arm64, at least, expects and requires that only pointers to entries in pgtables
-are passed to the arch helpers (e.g. set_pte(), ptep_get(), etc). For PTEs,
-arm64 accesses adjacent entries within the page table to manage contiguous
-mappings. If it is passed a pointer to a stack variable, it may erroneously
-access other stuff on the stack thinking it is an entry in a page table.
+Signed-off-by: Markus Probst <markus.probst@posteo.de>
+---
+This patch provides the additional guarantee that the pwm chip doesn't
+get registered twice.
 
-I think we should formalize this as a clear requirement for all these functions;
-all pte/pmd/pud/p4d/pgd pointers passed to the arch pgtable helpers must always
-point to entries in pgtables.
+The following changes were made:
+- change the visibility of `pwm::Registration` to private
+- remove the `pwm::Registration::register` function
+- add code for registering the pwm chip in `pwm::Chip::new`
+- add Send + Sync bounds to `PwmOps`
 
-arm64 will very likely take advantage of this in future in the pmd/pud/...
-helpers as it does today for the pte level. But even today, arm64's set_pmd()
-will emit barriers which are totally unnecessary when operating on a stack
-variable that the HW PTW will never see.
+Note that I wasn't able to test this patch, due to the lack of hardware.
+---
+ drivers/pwm/pwm_th1520.rs |  4 +---
+ rust/kernel/pwm.rs        | 53 ++++++++++++++++++-----------------------------
+ 2 files changed, 21 insertions(+), 36 deletions(-)
 
-Thanks,
-Ryan
+diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+index 955c359b07fb..1919b5a1f69e 100644
+--- a/drivers/pwm/pwm_th1520.rs
++++ b/drivers/pwm/pwm_th1520.rs
+@@ -363,7 +363,7 @@ fn probe(
+             return Err(EINVAL);
+         }
+ 
+-        let chip = pwm::Chip::new(
++        pwm::Chip::new(
+             dev,
+             TH1520_MAX_PWM_NUM,
+             try_pin_init!(Th1520PwmDriverData {
+@@ -372,8 +372,6 @@ fn probe(
+             }),
+         )?;
+ 
+-        pwm::Registration::register(dev, chip)?;
+-
+         Ok(KBox::new(Th1520PwmPlatformDriver, GFP_KERNEL)?.into())
+     }
+ }
+diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
+index cb00f8a8765c..c5d03ee8bc95 100644
+--- a/rust/kernel/pwm.rs
++++ b/rust/kernel/pwm.rs
+@@ -173,7 +173,7 @@ pub struct RoundedWaveform<WfHw> {
+ }
+ 
+ /// Trait defining the operations for a PWM driver.
+-pub trait PwmOps: 'static + Sized {
++pub trait PwmOps: 'static + Send + Sync + Sized {
+     /// The driver-specific hardware representation of a waveform.
+     ///
+     /// This type must be [`Copy`], [`Default`], and fit within `PWM_WFHWSIZE`.
+@@ -585,7 +585,7 @@ unsafe fn bound_parent_device(&self) -> &device::Device<Bound> {
+     /// Returns an [`ARef<Chip>`] managing the chip's lifetime via refcounting
+     /// on its embedded `struct device`.
+     pub fn new(
+-        parent_dev: &device::Device,
++        parent_dev: &device::Device<Bound>,
+         num_channels: u32,
+         data: impl pin_init::PinInit<T, Error>,
+     ) -> Result<ARef<Self>> {
+@@ -623,7 +623,21 @@ pub fn new(
+         // SAFETY: `chip_ptr_as_self` points to a valid `Chip` (layout-compatible with
+         // `bindings::pwm_chip`) whose embedded device has refcount 1.
+         // `ARef::from_raw` takes this pointer and manages it via `AlwaysRefCounted`.
+-        Ok(unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) })
++        let chip = unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) };
++
++        // SAFETY: `c_chip_ptr` points to a valid chip with its ops initialized.
++        // `__pwmchip_add` is the C function to register the chip with the PWM core.
++        unsafe {
++            to_result(bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()))?;
++        }
++
++        let registration = Registration {
++            chip: ARef::clone(&chip),
++        };
++
++        devres::register(parent_dev, registration, GFP_KERNEL)?;
++
++        Ok(chip)
+     }
+ }
+ 
+@@ -654,50 +668,23 @@ unsafe fn dec_ref(obj: NonNull<Chip<T>>) {
+ // structure's state is managed and synchronized by the kernel's device model
+ // and PWM core locking mechanisms. Therefore, it is safe to move the `Chip`
+ // wrapper (and the pointer it contains) across threads.
+-unsafe impl<T: PwmOps + Send> Send for Chip<T> {}
++unsafe impl<T: PwmOps> Send for Chip<T> {}
+ 
+ // SAFETY: It is safe for multiple threads to have shared access (`&Chip`) because
+ // the `Chip` data is immutable from the Rust side without holding the appropriate
+ // kernel locks, which the C core is responsible for. Any interior mutability is
+ // handled and synchronized by the C kernel code.
+-unsafe impl<T: PwmOps + Sync> Sync for Chip<T> {}
++unsafe impl<T: PwmOps> Sync for Chip<T> {}
+ 
+ /// A resource guard that ensures `pwmchip_remove` is called on drop.
+ ///
+ /// This struct is intended to be managed by the `devres` framework by transferring its ownership
+ /// via [`devres::register`]. This ties the lifetime of the PWM chip registration
+ /// to the lifetime of the underlying device.
+-pub struct Registration<T: PwmOps> {
++struct Registration<T: PwmOps> {
+     chip: ARef<Chip<T>>,
+ }
+ 
+-impl<T: 'static + PwmOps + Send + Sync> Registration<T> {
+-    /// Registers a PWM chip with the PWM subsystem.
+-    ///
+-    /// Transfers its ownership to the `devres` framework, which ties its lifetime
+-    /// to the parent device.
+-    /// On unbind of the parent device, the `devres` entry will be dropped, automatically
+-    /// calling `pwmchip_remove`. This function should be called from the driver's `probe`.
+-    pub fn register(dev: &device::Device<Bound>, chip: ARef<Chip<T>>) -> Result {
+-        let chip_parent = chip.device().parent().ok_or(EINVAL)?;
+-        if dev.as_raw() != chip_parent.as_raw() {
+-            return Err(EINVAL);
+-        }
+-
+-        let c_chip_ptr = chip.as_raw();
+-
+-        // SAFETY: `c_chip_ptr` points to a valid chip with its ops initialized.
+-        // `__pwmchip_add` is the C function to register the chip with the PWM core.
+-        unsafe {
+-            to_result(bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()))?;
+-        }
+-
+-        let registration = Registration { chip };
+-
+-        devres::register(dev, registration, GFP_KERNEL)
+-    }
+-}
+-
+ impl<T: PwmOps> Drop for Registration<T> {
+     fn drop(&mut self) {
+         let chip_raw = self.chip.as_raw();
 
-> 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
-> 
-> (no changes since v2)
-> 
-> Changes in v2:
->  - New patch for v2
-> 
->  kernel/events/core.c  | 2 ++
->  mm/gup.c              | 3 +++
->  mm/khugepaged.c       | 6 ++++--
->  mm/page_table_check.c | 3 +++
->  mm/pgtable-generic.c  | 2 ++
->  5 files changed, 14 insertions(+), 2 deletions(-)
-> 
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index fa4f9165bd94..7969b060bf2d 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -8154,6 +8154,8 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
->  	if (pmd_leaf(pmd))
->  		return pmd_leaf_size(pmd);
->  
-> +	/* transform pmd as if &pmd pointed to a hardware page table */
-> +	set_pmd(&pmd, pmd);
->  	ptep = pte_offset_map(&pmd, addr);
->  	if (!ptep)
->  		goto again;
-> diff --git a/mm/gup.c b/mm/gup.c
-> index 549f9e868311..aba61704049e 100644
-> --- a/mm/gup.c
-> +++ b/mm/gup.c
-> @@ -2844,7 +2844,10 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
->  	int ret = 0;
->  	pte_t *ptep, *ptem;
->  
-> +	/* transform pmd as if &pmd pointed to a hardware page table */
-> +	set_pmd(&pmd, pmd);
->  	ptem = ptep = pte_offset_map(&pmd, addr);
-> +	pmd = pmdp_get(&pmd);
->  	if (!ptep)
->  		return 0;
->  	do {
-> diff --git a/mm/khugepaged.c b/mm/khugepaged.c
-> index 1bff8ade751a..ab1f68a7bc83 100644
-> --- a/mm/khugepaged.c
-> +++ b/mm/khugepaged.c
-> @@ -1724,7 +1724,7 @@ static void retract_page_tables(struct address_space *mapping, pgoff_t pgoff)
->  		struct mmu_notifier_range range;
->  		struct mm_struct *mm;
->  		unsigned long addr;
-> -		pmd_t *pmd, pgt_pmd;
-> +		pmd_t *pmd, pgt_pmd, pmdval;
->  		spinlock_t *pml;
->  		spinlock_t *ptl;
->  		bool success = false;
-> @@ -1777,7 +1777,9 @@ static void retract_page_tables(struct address_space *mapping, pgoff_t pgoff)
->  		 */
->  		if (check_pmd_state(pmd) != SCAN_SUCCEED)
->  			goto drop_pml;
-> -		ptl = pte_lockptr(mm, pmd);
-> +		/* pte_lockptr() needs a value, not a pointer to a page table */
-> +		pmdval = pmdp_get(pmd);
-> +		ptl = pte_lockptr(mm, &pmdval);
->  		if (ptl != pml)
->  			spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
->  
-> diff --git a/mm/page_table_check.c b/mm/page_table_check.c
-> index 31f4c39d20ef..77d6688db0de 100644
-> --- a/mm/page_table_check.c
-> +++ b/mm/page_table_check.c
-> @@ -260,7 +260,10 @@ void __page_table_check_pte_clear_range(struct mm_struct *mm,
->  		return;
->  
->  	if (!pmd_bad(pmd) && !pmd_leaf(pmd)) {
-> +		/* transform pmd as if &pmd pointed to a hardware page table */
-> +		set_pmd(&pmd, pmd);
->  		pte_t *ptep = pte_offset_map(&pmd, addr);
-> +		pmd = pmdp_get(&pmd);
->  		unsigned long i;
->  
->  		if (WARN_ON(!ptep))
-> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
-> index 63a573306bfa..6602deb002f1 100644
-> --- a/mm/pgtable-generic.c
-> +++ b/mm/pgtable-generic.c
-> @@ -299,6 +299,8 @@ pte_t *___pte_offset_map(pmd_t *pmd, unsigned long addr, pmd_t *pmdvalp)
->  		pmd_clear_bad(pmd);
->  		goto nomap;
->  	}
-> +	/* transform pmdval as if &pmdval pointed to a hardware page table */
-> +	set_pmd(&pmdval, pmdval);
->  	return __pte_map(&pmdval, addr);
->  nomap:
->  	rcu_read_unlock();
+---
+base-commit: fae00ea9f00367771003ace78f29549dead58fc7
+change-id: 20251127-pwm_safe_register-e49b0a261101
 
 
 _______________________________________________
