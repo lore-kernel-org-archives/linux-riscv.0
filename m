@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4C11D111A8
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 17:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A76CD111A8
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 19:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+hoQZETuCCBM0Dk2wHE/oaPCfLR0uRykm1d9pgSOj8o=; b=QOAYrJtBmasTxd
-	DFUYetACumZsiGCA9grg0Gl3ahd7g2i87lt5u52sY/CgKMzCPQtnnbZuWns81uFRbBjyNQCNvv1Gu
-	a2weOBrKrL7HC+jE+eT7Id4XE9iQZbLjWyZBE7wr8wCFl/ZzWnBkxbUSEeymYGd84K/yy2+WTq6tr
-	EzxNkiWDAPLIIZzA9TUPKmJJ+KxsIsGsDPO9k421s79auQgg5TLp8nYgKubot11zigzeKauPjS+pi
-	XJPX5DO8VKCEypTMOWqzYMXgQXa0wbolGPeETi+f5gO3uDqoP49Sq41ztPlegvw51hG7qPP0T5lOd
-	Dy/wRtd1wrKQC9HRVUuQ==;
+	List-Owner; bh=6ec+wI9iuVY7a7Wxs6924Nt0LnQjwdC9geJUeHriXWs=; b=Ug48FAFKQUdNkp
+	N/+xEOHZW0pBrl5POgif730U/NSoCCsbrd/Liq9J54eS1r7fz2GJEK15n3xoANpXlK+R37ml88h8c
+	Al91uRUS1+pjYbIm5fMYA1uHyeH7F4qdd6ujPRUoWaCPaMFawq5JQxRB8qrjgBHpG+GL0EwZZvkfi
+	NYv84ioVSAkFSK5512xYPQK9S50URSSwtxZ8ZtAuvedoAvkO7SWxoDEy/00lngOHIBjk108HQ2X9O
+	CYD2ekSk11QkqZtrA97G1Oz0chJVjH+pw4YSZU9RzuTJ0s3RJnSmQHA2OyDBRLd3raqfTbarPbzVv
+	PwImPTT3YdX5Ki7PAXFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOg5u-0000000H1si-0xL4;
-	Thu, 27 Nov 2025 17:47:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vOhpi-0000000H9Z1-1RSo;
+	Thu, 27 Nov 2025 19:39:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOg5s-0000000H1sc-3SDZ
+	id 1vOhpg-0000000H9Ya-0iYS
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 17:47:48 +0000
+	Thu, 27 Nov 2025 19:39:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BD99F60242;
-	Thu, 27 Nov 2025 17:47:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50BA4C4CEF8;
-	Thu, 27 Nov 2025 17:47:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EE4DA43DF8;
+	Thu, 27 Nov 2025 19:39:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 671B7C4CEF8;
+	Thu, 27 Nov 2025 19:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764265667;
-	bh=Mlj7IZZ9H7pQFN5atJKwwNiI0cnR56p2vYQ4LsbFBWg=;
+	s=k20201202; t=1764272350;
+	bh=9CmP20l5fh1wI0Qc9aslBQ2/q51oJ57cp2te1agYTJ4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iEQQhc+ttHIHJkNB4yomtmyZLO6gdTFX5PHlESo0TWPWQL5MlnAywIoAm1AvBiW/5
-	 nrB+DeAsOtyZPTc/P2z5EmWv6f4s9q9xTRzwyPn5V/xzzWFwxMzlrHThBl8AUy8ICg
-	 9ZrBpeodUN5Q6lvikvYgjXz3KzIHK3eoiv8A6LXSMSl7HWJqvzOkTJQB7M60mpnosl
-	 DYWSlcTeWY/75NXidb/E0FWSvZ/AsC6BhYZBodRJJi9JU+NWOQl5appR4AQ3DePDII
-	 EI4DFC0FWXGhMp6Jhe07jPc/d9LGLcY1XSCmbC9JIngzm2WjeHo45t7mTu4YBHJbcs
-	 MyQiKQ7x3LlsQ==
-Message-ID: <c2597d43-d909-4259-bb5b-9294e4069385@kernel.org>
-Date: Thu, 27 Nov 2025 18:47:38 +0100
+	b=CC1qyyXKyo4HeL/hyEiAmjyrdFYZCtsA9ufEs1ZbODnUMjPMpmfB0ekb5LgdLYCLX
+	 CHpUVRLmWiP618uKzGcw7wbVXFiwRW6iCG11whNx4s8RBhJ8T9/2zgzHzeMA5neH+X
+	 jzNpS88WZd5RjEB1yebsUUYBbWhpHDbiEFxPLMdhwQ4oBHPrIE4ZWkloGCINaM2Td4
+	 NRFHi45iMDD6psQhkBxKT8Hte/o1Jf+XR9XXzKyaG1hLm6nKuFwYsMDrEhw0+17Fso
+	 Ig8qddeXGqDngyGmHRXeegLObMvmeRhAeq0whuZCSxPlUukv5cYyvoYlWUMy+FQ+1D
+	 EZxUxaIVmEl9w==
+Message-ID: <cdfb3e14-f85b-4c85-9042-f9bc7728b375@kernel.org>
+Date: Thu, 27 Nov 2025 20:39:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/22] mm: Allow page table accessors to be
- non-idempotent
+Subject: Re: [PATCH v3 06/22] mm: Always use page table accessor functions
 To: Ryan Roberts <ryan.roberts@arm.com>,
+ "David Hildenbrand (Red Hat)" <david@kernel.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Wei Yang <richard.weiyang@gmail.com>,
  Samuel Holland <samuel.holland@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
  linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
- linux-mm@kvack.org
-Cc: devicetree@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>,
- linux-kernel@vger.kernel.org, Mike Rapoport <rppt@kernel.org>,
- Michal Hocko <mhocko@suse.com>, Conor Dooley <conor@kernel.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
- Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
- Vlastimil Babka <vbabka@suse.cz>, "Liam R . Howlett"
- <Liam.Howlett@oracle.com>
-References: <20251113014656.2605447-1-samuel.holland@sifive.com>
- <20251113014656.2605447-9-samuel.holland@sifive.com>
- <fbfef7fc-4030-462b-b514-498eea6620aa@arm.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Content-Language: en-US
-In-Reply-To: <fbfef7fc-4030-462b-b514-498eea6620aa@arm.com>
+ linux-mm@kvack.org, devicetree@vger.kernel.org,
+ Suren Baghdasaryan <surenb@google.com>, linux-kernel@vger.kernel.org,
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
+ Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>,
+ Rob Herring <robh+dt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
+ Anshuman Khandual <anshuman.khandual@arm.com>
+References: <bc88d132-452a-42a1-9ee5-5407334d8aac@kernel.org>
+ <df7d10ba-bb42-4ea1-8c5b-5db88a18eccb@kernel.org>
+ <6bdf2b89-7768-4b90-b5e7-ff174196ea7b@lucifer.local>
+ <71123d7a-641b-41df-b959-88e6c2a3a441@kernel.org>
+ <c0818f5b-b8a1-4730-aa1d-df0f547a3d47@arm.com>
+ <20251126134726.yrya5xxayfcde3kl@master>
+ <ee5f5da3-8c6b-4381-aee8-b0fab56cbf83@arm.com>
+ <6b966403-91e0-4f06-86a9-a4f7780b9557@kernel.org>
+ <ab39d448-aa1c-4c93-8e2b-5d97a9c76af5@lucifer.local>
+ <1ca9f99f-6266-47ca-8c94-1a9b9aaa717f@kernel.org>
+ <37973e21-e8f4-4603-b93d-4e0b1b2499fa@lucifer.local>
+ <a1d25bde-3ab6-46b5-a957-db80da7e737b@kernel.org>
+ <4505a93b-2bac-4ce1-8971-4c31f1ce1362@arm.com>
+ <150ffcb7-2df2-4f3a-a12e-9807f13c6ab9@arm.com>
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Content-Language: fr-FR
+In-Reply-To: <150ffcb7-2df2-4f3a-a12e-9807f13c6ab9@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251127_113912_270709_B051F966 
+X-CRM114-Status: GOOD (  24.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +94,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/27/25 17:57, Ryan Roberts wrote:
-> On 13/11/2025 01:45, Samuel Holland wrote:
->> Currently, some functions such as pte_offset_map() are passed both
->> pointers to hardware page tables, and pointers to previously-read PMD
->> entries on the stack. To ensure correctness in the first case, these
->> functions must use the page table accessor function (pmdp_get()) to
->> dereference the supplied pointer. However, this means pmdp_get() is
->> called twice in the second case. This double call must be avoided if
->> pmdp_get() applies some non-idempotent transformation to the value.
->>
->> Avoid the double transformation by calling set_pmd() on the stack
->> variables where necessary to keep set_pmd()/pmdp_get() calls balanced.
-> 
-> I don't think this is a good solution.
-
-Agreed,
-
-	set_pmd(&pmd, pmd);
-
-is rather horrible.
-
--- 
-Cheers
-
-David
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAyNi8xMS8yMDI1IMOgIDE3OjM0LCBSeWFuIFJvYmVydHMgYSDDqWNyaXTCoDoKPiBPbiAy
+Ni8xMS8yMDI1IDE2OjA3LCBSeWFuIFJvYmVydHMgd3JvdGU6Cj4+IE9uIDI2LzExLzIwMjUgMTU6
+MTIsIERhdmlkIEhpbGRlbmJyYW5kIChSZWQgSGF0KSB3cm90ZToKPj4+IE9uIDExLzI2LzI1IDE2
+OjA4LCBMb3JlbnpvIFN0b2FrZXMgd3JvdGU6Cj4+Pj4gT24gV2VkLCBOb3YgMjYsIDIwMjUgYXQg
+MDM6NTY6MTNQTSArMDEwMCwgRGF2aWQgSGlsZGVuYnJhbmQgKFJlZCBIYXQpIHdyb3RlOgo+Pj4+
+PiBPbiAxMS8yNi8yNSAxNTo1MiwgTG9yZW56byBTdG9ha2VzIHdyb3RlOgo+Pj4+Pj4KPj4+Pj4+
+IFdvdWxkIHRoZSBwbWRwX2dldCgpIG5ldmVyIGdldCBpbnZva2VkIHRoZW4/IE9yIG90aGVyd2lz
+ZSB3b3VsZG4ndCB0aGF0IGVuZCB1cAo+Pj4+Pj4gcmVxdWlyaW5nIGEgUkVBRF9PTkNFKCkgZnVy
+dGhlciB1cCB0aGUgc3RhY2s/Cj4+Pj4+Cj4+Pj4+IFNlZSBteSBvdGhlciByZXBseSwgSSB0aGlu
+ayB0aGUgcG1kcF9nZXQoKSBpcyByZXF1aXJlZCBiZWNhdXNlIGFsbCBwdWRfKgo+Pj4+PiBmdW5j
+dGlvbnMgYXJlIGp1c3Qgc2ltcGxlIHN0dWJzLgo+Pj4+Cj4+Pj4gT0ssIHRob3VnaHQgeW91IHdl
+cmUgc2F5aW5nIHdlIHNob3VsZCBwdXNoIGZ1cnRoZXIgZG93biB0aGUgc3RhY2s/IE9yIHVwCj4+
+Pj4gZGVwZW5kaW5nIG9uIGhvdyB5b3UgdmlldyB0aGVzZSB0aGluZ3MgOlAgYXMgaW4gUkVBRF9P
+TkNFIGF0IGxlYWY/Cj4+Pgo+Pj4gSSB0aGluayBhdCBsZWFmIGJlY2F1c2UgSSB0aGluayB0aGUg
+cHJldmlvdXMgb25lcyBzaG91bGQgZXNzZW50aWFsbHkgYmUgb25seQo+Pj4gdXNlZCBieSBzdHVi
+cy4KPj4+Cj4+PiBCdXQgSSBoYXZlbid0IGZ1bGx5IGRpZ2VzdGVkIGhvdyB0aGlzIGlzIGFsbCB3
+b3JraW5nLiBPciBzdXBwb3NlZCB0byB3b3JrLgo+Pj4KPj4+IEknbSB0cnlpbmcgdG8gY2hldyB0
+aHJvdWdoIHRoZSBhcmNoL2FybS9pbmNsdWRlL2FzbS9wZ3RhYmxlLTJsZXZlbC5oIGV4YW1wbGUg
+dG8KPj4+IHNlZSBpZiBJIGNhbiBtYWtlIHNlbnNlIG9mIGl0LAo+Pgo+PiBJIHdvbmRlciBpZiB3
+ZSBjYW4gdGhpbmsgYWJvdXQgdGhpcyBzbGlnaHRseSBkaWZmZXJlbnRseTsKPj4KPj4gUkVBRF9P
+TkNFKCkgaGFzIHR3byBpbXBvcnRhbnQgcHJvcGVydGllczoKPj4KPj4gICAtIEl0IGd1YXJyYW50
+ZWVzIHRoYXQgYSBsb2FkIHdpbGwgYmUgaXNzdWVkLCAqZXZlbiBpZiBvdXRwdXQgaXMgdW51c2Vk
+Kgo+PiAgIC0gSXQgZ3VhcnJhbnRlZXMgdGhhdCB0aGUgcmVhZCB3aWxsIGJlIHNpbmdsZS1jb3B5
+LWF0b21pYyAobm8gdGVhcmluZykKPj4KPj4gSSB0aGluayBmb3IgdGhlIGV4aXN0aW5nIHBsYWNl
+cyB3aGVyZSBSRUFEX09OQ0UoKSBpcyB1c2VkIGZvciBwYWdldGFibGUgcmVhZHMgd2UKPj4gb25s
+eSBjYXJlIGFib3V0Ogo+Pgo+PiAgIC0gSXQgZ3VhcnJhbnRlZXMgdGhhdCBhIGxvYWQgd2lsbCBi
+ZSBpc3N1ZWQsICppZiBvdXRwdXQgaXMgdXNlZCoKPj4gICAtIEl0IGd1YXJyYW50ZWVzIHRoYXQg
+dGhlIHJlYWQgd2lsbCBiZSBzaW5nbGUtY29weS1hdG9taWMgKG5vIHRlYXJpbmcpCj4+Cj4+IEkg
+dGhpbmsgaWYgd2UgY2FuIHdlYWtlbiB0byB0aGUgImlmIG91dHB1dCBpcyB1c2VkIiBwcm9wZXJ0
+eSwgdGhlbiB0aGUgY29tcGlsZXIKPj4gd2lsbCBvcHRpbWl6ZSBvdXQgYWxsIHRoZSB1bm5lY2Nl
+c3NhcnkgcmVhZHMuCj4+Cj4+IEFJVUksIGEgQyBkZXJlZmVyZW5jZSBwcm92aWRlcyBuZWl0aGVy
+IG9mIHRoZSBndWFycmFudGVlcyBzbyB0aGF0J3Mgbm8gZ29vZC4KPj4KPj4gV2hhdCBhYm91dCBu
+b24tdm9sYXRpbGUgYXNtPyBJJ20gdG9sZCAodGhvdWdodCBuZWVkIHRvIHZlcmlmeSkgdGhhdCBm
+b3IKPj4gbm9uLXZvbGF0aWxlIGFzbSwgdGhlIGNvbXBpbGVyIHdpbGwgZW1pdCBpdCBpZiB0aGUg
+b3V0cHV0IGlzIHVzZWQgYW5kIHJlbW92ZSBpdAo+PiBvdGhlcndpc2UuIFNvIGlmIHRoZSBhc20g
+Y29udGFpbnMgdGhlIHJlcXVpcmVkIHNpbmdsZS1jb3B5LWF0b21pYywgcGVyaGFwcyB3ZQo+PiBh
+cmUgaW4gYnVzaW5lc3M/Cj4+Cj4+IFNvIHdlIHdvdWxkIG5lZWQgYSBuZXcgUkVBRF9TQ0EoKSBt
+YWNybyB0aGF0IGNvdWxkIGRlZmF1bHQgdG8gUkVBRF9PTkNFKCkgKHdoaWNoCj4+IGlzIHN0cm9u
+Z2VyKSBhbmQgYXJjaGVzIGNvdWxkIG9wdCBpbiB0byBwcm92aWRpbmcgYSB3ZWFrZXIgYXNtIHZl
+cnNpb24uIFRoZW4gdGhlCj4+IGRlZmF1bHQgcFhkcF9nZXQoKSBjb3VsZCBiZSBSRUFEX1NDQSgp
+LiBBbmQgdGhpcyBzaG91bGQgd29yayBmb3IgYWxsIGNhc2VzLgo+Pgo+PiBJIHRoaW5rLgo+IAo+
+IEknbSBub3Qgc3VyZSB0aGlzIHdvcmtzLiBJdCBsb29rcyBsaWtlIHRoZSBjb21waWxlciBpcyBm
+cmVlIHRvIG1vdmUgbm9uLXZvbGF0aWxlCj4gYXNtIHNlY3Rpb25zIHdoaWNoIG1pZ2h0IGJlIHBy
+b2JsZW1hdGljIGZvciBwbGFjZXMgd2hlcmUgd2UgYXJlIGN1cnJlbnRseSB1c2luZwo+IFJFQURf
+T05DRSgpIGluIGxvY2tsZXNzIGFsZ29yaXRobXMsIChlLmcuIEdVUD8pLiBXZSB3b3VsZG4ndCB3
+YW50IHRvIGVuZCB1cCB3aXRoCj4gYSBzdGFsZSB2YWx1ZS4KPiAKPiBBbm90aGVyIGlkZWE6Cj4g
+Cj4gR2l2ZW4gdGhlIG1haW4gcGF0dGVybiB3aGVyZSB3ZSBhcmUgYWltaW5nIHRvIG9wdGltaXpl
+IG91dCB0aGUgcmVhZCBpcyBzb21ldGhpbmcKPiBsaWtlOgo+IAo+IGlmICghcHVkX3ByZXNlbnQo
+KnB1ZCkpCj4gCj4gd2hlcmUgZm9yIGEgZm9sZGVkIHBtZDoKPiAKPiBzdGF0aWMgaW5saW5lIGlu
+dCBwdWRfcHJlc2VudChwdWRfdCBwdWQpCXsgcmV0dXJuIDE7IH0KPiAKPiBBbmQgd2Ugd2lsbCBj
+aGFuZ2UgaXQgdG8gdGhpczoKPiAKPiBpZiAoIXB1ZF9wcmVzZW50KHB1ZHBfZ2V0KHB1ZCkpKQo+
+IAo+IC4uLgo+IAo+IHBlcmhhcHMgd2UgY2FuIGp1c3QgZGVmaW5lIHRoZSBmb2xkZWQgcFhkX3By
+ZXNlbnQoKSwgcFhkX25vbmUoKSwgcFhkX2JhZCgpLAo+IHBYZF91c2VyKCkgYW5kIHBYZF9sZWFm
+KCkgYXMgbWFjcm9zOgo+IAo+ICNkZWZpbmUgcHVkX3ByZXNlbnQocHVkKQkxCj4gCj4gVGhlbiB0
+aGUgY29tcGlsZXIgd2lsbCBuZXZlciBldmVuIHNlZSB0aGUgcHVkcF9nZXQoKS4KClRha2UgY2Fy
+ZSBhYm91dCBtYWNyb3Mgd2l0aCB1bnVzZWQgcGFyYW1ldGVycywgaXQgY2FuIGJlIGEgcHJvYmxl
+bSAKc29tZXRpbWVzLCBzZWUgY29tbWl0IDA1YTRhYjgyMzk4MyAoInBvd2VycGMvdWFjY2Vzczog
+Zml4IHdhcm5pbmcvZXJyb3IgCndpdGggYWNjZXNzX29rKCkiKQoKQ2hyaXN0b3BoZQoKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
