@@ -4,81 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A73D116F3
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Nov 2025 11:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94033D116F3
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Nov 2025 12:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dsEBjpmMplxfMGPcke1DNa0sPGrsBoxRshBu2PRCGVg=; b=a2hozfvbimLK+9
-	3jSHjeplGDE945FftFl0E5lhk+cDPS+4CflG4gMxaB+G+phhk7Wt54ERKOv4yHNx3B1lckJO2Bh2m
-	rbWn7kYElbUcIM/4d33G8G3lsjPmmDCfJaS8OmzqUtDU+jO0MuRG1nJCsWeGETMlqEcH4EyvEKh6C
-	bMmTf0akU5q7c7ueYAFolTcNl5xcNjHtbag1uebcn1I26UrVJVGeRTKFxPknhqfAouWDusOW5Rvqb
-	+DVdWyN0nOzhc8t6WpWzinN0cwQoY6SjuOlKqgzLSoI1BNYNdbfH3wejW9Kr6nEja10aaElnsJZXa
-	4ztP4eiHrLejzl15zqMw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=91hfvcwx/0LeO/KvE6AOsBgHradWbMq67Lpg/Yn2AXI=; b=n1BQectojaytH3PXQXICUPlkjA
+	/RWgG3ePGVYHytUboy0dN6r+UmI6k/u9DzlHHitXiStgnjjLgQy/xWdVn49nvCWQl5O8+In74WkCH
+	1+287Psd3msrLI7jQMCulvePkwntCrAHXiZ4ypNdObAWNpfwjnmV+8GEsFwwlve0BBtQp7g828CWJ
+	12KvCyIQ6rlUBKEScnlVHJ+GW5lzVT3q9WQSRmEHoVpT8qdGftLTo6EEkAsyxFAChNJNKEnuTp6+4
+	B8p3Vb1rob0NIJoNHbHpx4479Mm1EeSRHk6melRvN1rr8aD0he6M/JM8xL58WPC+hXAAX1t4cERgv
+	CM/sjnog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOwM2-00000000LFp-39ct;
-	Fri, 28 Nov 2025 11:09:34 +0000
-Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
+	id 1vOxXE-00000000QOj-0OSt;
+	Fri, 28 Nov 2025 12:25:12 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOwLz-00000000LF6-3yek
+	id 1vOxXB-00000000QNc-0V05
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Nov 2025 11:09:33 +0000
-Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-433101f2032so9283685ab.1
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Nov 2025 03:09:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1764328170; x=1764932970; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Ev8osqQslZ1HDuUmpz2SAJrU4WVNGotFbl7NHJTtz5M=;
-        b=ryUGBQ4pJ8smm3lbytubmukQ2CCdcrwcDACyQTiuymBneaRSE2quYOTm/bUELV7uuK
-         S/VqVT/D0WGQsyC+PU70NHj/bWJG/7+6r2YX8fnTlCEKo7E3i6QN+WH1GZoyW8sLkzER
-         leVmPf33g2pAw8CyiOqNMecc7S1HjFEYkic05xPjBcv68HNWhXuBR1WseEGXaiRPFLup
-         HD75hDz8fP/WYRYKKx50W02heTv5LJ7oiGHAqabJ/EWL+v0D8QxEbkCBen/d/y37/X78
-         CZG6xcOAvmSjJSMXcklINu3lugMd6vW7nM7X890eCSuHzsg2xT5wKX4gOYUtoMcpYA6h
-         2Mfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764328170; x=1764932970;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ev8osqQslZ1HDuUmpz2SAJrU4WVNGotFbl7NHJTtz5M=;
-        b=BJ1kXpZo7cIHcs4xQZEerUR2nLhL25HETVQpSrrU6qZ+6bjv9ViPWKBatgsE+lMdBD
-         Fv5DN+wwYVXE0YZgJnVYFj/B+saViI3xx9u5KvOyGUipjgF9JWa5Rp5J+5Ll0IMKyWrA
-         9/CBGDzXoJn1kzVEfiaP3Dy7mkG6ZTgkYR3Jdm8wr6xS8NMqxRjjWxNqfCZFb0vBBiV6
-         7xZIo/8cz1eb++Q2NW2/smx0gPi3qTLCwUg+yZX0tzLPigM6ccub+gw8V3we/9MdkPvW
-         bKjRYz3f8YwL1aRqm+5TKvWy/RVR7jWFIGmw8UNSv8HH+cjx+m+Rw7h1Dzk6YDMdEuvW
-         NbBg==
-X-Forwarded-Encrypted: i=1; AJvYcCWq/RCo4uGGhY6zHFukRQWd1U7plKBbvHiKYo/mseHtCjnUd7BEf6A8BwNI3fAtK0OK9h1GwRc/EsGD4A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywji8DZf9sqiqJC10dZHH3yteLKYJmLEPkXh85drtV7bCmpED4t
-	t08ohx07K3lmTpjm4YUwxYd13CuBf/W/C/x/q1sUA0MgfJlmmrZ2zfN4CkfqnNRGH5kvgsAeOMw
-	mB06IM8GgHQPF/SMUvENRaVHsr8ZfV9mZCQPW9SerOQ==
-X-Gm-Gg: ASbGncsiKhxLwghQxAksZdsrEp9MITgtB+YpR7mh/Q8vRuWcFLNToGBJyyxSG3qxCq2
-	TNTHKVdT73biFiPzM7u0ciVuotiiSh5nGpQetMZLJF9or3B/nNuQDTI3K58fo/oFjA6aG/IyF9E
-	eAsretUHHxz7FEM6JGtjJdte3Rwh/flY9KEpRjPgfHC9jEvWy1Q8Yogh5QJz6WCexMNN82gvpnk
-	scsstPLvV+SDrjUdHNbQmMF5rGdpQkj1YHUhgTzuI66rjL/ibGDZvOZU8QPZWb8jErWKJE=
-X-Google-Smtp-Source: AGHT+IFc/ry5UpHjP3r/OfTOToFIN7uuwb7cq3NZruvPD9SmePUAvE+8mJAN0tC4qknnjQrfmNXoFUaXRVof3Et5lUs=
-X-Received: by 2002:a05:6e02:1fe8:b0:433:7e25:b93d with SMTP id
- e9e14a558f8ab-435b98e6823mr258774305ab.28.1764328170460; Fri, 28 Nov 2025
- 03:09:30 -0800 (PST)
+	Fri, 28 Nov 2025 12:25:10 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 757D1240029
+	for <linux-riscv@lists.infradead.org>; Fri, 28 Nov 2025 13:25:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
+	t=1764332705; bh=ygIWY5afUFzvHpwhYDklQ/i75zkS+Wu119xSFraOeSM=;
+	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
+	 MIME-Version:OpenPGP:From;
+	b=G3BW2x9RGG0O1+QELbAPhvd5tLXbzhCMYEk9H90d9IbnKjn5o/spNFfJfJ/TsDGDH
+	 jOFHR5UiUzcb28hF/N6YN118SL/+ltyT4Zu67aNMhO7K0ddiaSxGmR6yIf3rKBeXur
+	 LrU0sO4NKHdZY9R8qouSdFYd94LMsly3W64uhIQtyBLTIXFjQr+HlFmJQPQ8xwMSYx
+	 YpfIpYuJ6JpApbzJpF29pF1pW+A0E8v40jPhzcl3/JX05ZPq+74WDveWHZU6QWzASZ
+	 yCUHhWsjCG+JTYYY0w9ccpb2+asUAhmS0YwkJp2F8IOroMqXm/PxIM06m6uNeUE3WM
+	 syvRiCaOSgMwQ==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4dHsv16jN3z6tn4;
+	Fri, 28 Nov 2025 13:25:01 +0100 (CET)
+Message-ID: <8711d40496e0e12e3efcd7fd9e11bdea6de68c6d.camel@posteo.de>
+Subject: Re: [PATCH] Move pwm registration into pwm::Chip::new
+From: Markus Probst <markus.probst@posteo.de>
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei	
+ <wefu@redhat.com>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
+ <ukleinek@kernel.org>,  Michal Wilczynski <m.wilczynski@samsung.com>,
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+ =?ISO-8859-1?Q?Bj=F6rn?= Roy Baron	 <bjorn3_gh@protonmail.com>, Benno
+ Lossin <lossin@kernel.org>, Andreas Hindborg	 <a.hindborg@kernel.org>,
+ Trevor Gross <tmgross@umich.edu>, Danilo Krummrich	 <dakr@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org
+Date: Fri, 28 Nov 2025 12:25:04 +0000
+In-Reply-To: <aSlrVLT92kmazgyh@google.com>
+References: <20251127-pwm_safe_register-v1-1-d22d0ed068ac@posteo.de>
+	 <aSlrVLT92kmazgyh@google.com>
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+ keydata=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
+ 66sLA9g==
 MIME-Version: 1.0
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 28 Nov 2025 16:39:20 +0530
-X-Gm-Features: AWmQ_bmhFxPdJkF-zIY_yLVqZOdy6yi8l1326gMlp_2aI20DPgm8qhw27bUypWs
-Message-ID: <CAAhSdy3C7zxovYDZJvzpuCytRmdBrGwgLF2MtOMzP7vFVm4ohQ@mail.gmail.com>
-Subject: [GIT PULL] KVM/riscv changes for 6.19
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atish.patra@linux.dev>, 
-	Atish Patra <atishp@rivosinc.com>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_030932_122137_0F96E783 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251128_042509_461211_C97489D4 
+X-CRM114-Status: GOOD (  24.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,92 +110,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3020533624353306229=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
 
-We have the following KVM RISC-V changes for 6.19:
-1) SBI MPXY support for KVM guest
-2) New KVM_EXIT_FAIL_ENTRY_NO_VSFILE
-3) Enable dirty logging gradually in small chunks
-4) Fix guest page fault within HLV* instructions
-5) Flush VS-stage TLB after VCPU migration for Andes cores
+--===============3020533624353306229==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-OiyZeEsFRz6+aj2Addkj"
 
-Please pull.
 
-Regards,
-Anup
+--=-OiyZeEsFRz6+aj2Addkj
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The following changes since commit ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d:
+On Fri, 2025-11-28 at 09:28 +0000, Alice Ryhl wrote:
+> On Thu, Nov 27, 2025 at 05:15:06PM +0000, Markus Probst wrote:
+> > The `pwm::Registration::register` function provides no guarantee that t=
+he
+> > function isn't called twice with the same pwm chip, which is considered
+> > unsafe.
+> >=20
+> > Add the code responsible for the registration into `pwm::Chip::new`. Th=
+e
+> > registration will happen before the driver gets access to the refcounte=
+d
+> > pwm chip and can therefore guarantee that the registration isn't called
+> > twice on the same pwm chip.
+> >=20
+> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
+> > ---
+> > This patch provides the additional guarantee that the pwm chip doesn't
+> > get registered twice.
+> >=20
+> > The following changes were made:
+> > - change the visibility of `pwm::Registration` to private
+> > - remove the `pwm::Registration::register` function
+> > - add code for registering the pwm chip in `pwm::Chip::new`
+> > - add Send + Sync bounds to `PwmOps`
+> >=20
+> > Note that I wasn't able to test this patch, due to the lack of hardware=
+.
+>=20
+> Overall looks reasonable, but I have one question:
+>=20
+> > @@ -654,50 +668,23 @@ unsafe fn dec_ref(obj: NonNull<Chip<T>>) {
+> >  // structure's state is managed and synchronized by the kernel's devic=
+e model
+> >  // and PWM core locking mechanisms. Therefore, it is safe to move the =
+`Chip`
+> >  // wrapper (and the pointer it contains) across threads.
+> > -unsafe impl<T: PwmOps + Send> Send for Chip<T> {}
+> > +unsafe impl<T: PwmOps> Send for Chip<T> {}
+> > =20
+> >  // SAFETY: It is safe for multiple threads to have shared access (`&Ch=
+ip`) because
+> >  // the `Chip` data is immutable from the Rust side without holding the=
+ appropriate
+> >  // kernel locks, which the C core is responsible for. Any interior mut=
+ability is
+> >  // handled and synchronized by the C kernel code.
+> > -unsafe impl<T: PwmOps + Sync> Sync for Chip<T> {}
+> > +unsafe impl<T: PwmOps> Sync for Chip<T> {}
+>=20
+> Why was this changed?
 
-  Linux 6.18-rc7 (2025-11-23 14:53:16 -0800)
+Registration::register required PwmOps to be Send + Sync.
+Prior to this change, Chip::new didn't require it for PwmOps. Meaning
+it was possible to allocate a new Chip with a PwmOps that is not Send +
+Sync. As there was no use for it and it isn't possible anymore to
+allocate a new Chip without registering it, I added Send + Sync as
+trait dependency (see 1. hunk of rust/kernel/pwm.rs in the patch).
 
-are available in the Git repository at:
+Because PwmOps now implied Send + Sync, it wasn't necessary anymore to
+have the additional bounds there.
 
-  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.19-1
+Thanks
+- Markus Probst
 
-for you to fetch changes up to 3239c52fd21257c80579875e74c9956c2f9cd1f9:
+>=20
+> Alice
 
-  RISC-V: KVM: Flush VS-stage TLB after VCPU migration for Andes cores
-(2025-11-24 09:55:36 +0530)
+--=-OiyZeEsFRz6+aj2Addkj
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
-----------------------------------------------------------------
-KVM/riscv changes for 6.19
+-----BEGIN PGP SIGNATURE-----
 
-- SBI MPXY support for KVM guest
-- New KVM_EXIT_FAIL_ENTRY_NO_VSFILE for the case when in-kernel
-  AIA virtualization fails to allocate IMSIC VS-file
-- Support enabling dirty log gradually in small chunks
-- Fix guest page fault within HLV* instructions
-- Flush VS-stage TLB after VCPU migration for Andes cores
+iQIzBAABCAAdFiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmkplJkACgkQNHYf+Oet
+Q9KJhQ//clYqiwDcWI4RaF0O+C3T96TqVmJsruXKfEMATKWDSFg5P8EJecH/Vgd8
+Jdk5FN8xjMy/+ZCP7rW8AZCUOi5vrL8d8EJQNTS0EXuG04UUUIgUPwqNXX9LxdG4
+2m4ZUqXN34HCxs2ojwN0irOogL9Bt0JlWwWDOm0fzvSEe1NCrtx4A7LOOUgdqplg
+vjQbxdR5qJ+/0bgGFk42h+nstvz1s05vOHJrMFcPSlvapzCL72jhnR2f/a6/1rSd
+VEZPuxp+K6VZ72YpFgG6SZDeRKgtKz8LSuKTSr11qXAL4UkKZXGpU9KSuD3eBLBD
+ERYNZ0ovq/m7JSv8q7tBSzgX5bGyw0FHnLmuar2CmYh/WNZ5FqagfF75sLgYnoVU
++DFo3d26+O4V5QYGyu32iPEhpnoKMHvbm8EcLdjzepZ8tAgxX7f4daEPYJz1qyA0
+wxTrNY2qE6DHJfDe9pBXqj2giLjCyEKjY1cLbM8gV9k4aDEHxFTvufclosRuptWN
+n/IITBOMrdzD7cMnaZcs/6OBk+pQa1QDyqYMy4fqBVX3ZdhnkbzkDM6Owhd4oMuI
+MQJE3IPzullpRwAr+/8rtuSqikDuEMgXdCHrjv8kD2qeeAkgoodkwV1tpG+bs6Qi
+0vfjW+HbeawQw9wpFpiBb74tSzRpcf31cmi5ScevMCGHrQ6QYAw=
+=oy2y
+-----END PGP SIGNATURE-----
 
-----------------------------------------------------------------
-Anup Patel (4):
-      RISC-V: KVM: Convert kvm_riscv_vcpu_sbi_forward() into extension handler
-      RISC-V: KVM: Add separate source for forwarded SBI extensions
-      RISC-V: KVM: Add SBI MPXY extension support for Guest
-      KVM: riscv: selftests: Add SBI MPXY extension to get-reg-list
+--=-OiyZeEsFRz6+aj2Addkj--
 
-BillXiang (1):
-      RISC-V: KVM: Introduce KVM_EXIT_FAIL_ENTRY_NO_VSFILE
 
-Dong Yang (1):
-      KVM: riscv: Support enabling dirty log gradually in small chunks
-
-Fangyu Yu (1):
-      RISC-V: KVM: Fix guest page fault within HLV* instructions
-
-Hui Min Mina Chou (1):
-      RISC-V: KVM: Flush VS-stage TLB after VCPU migration for Andes cores
-
- Documentation/virt/kvm/api.rst                   |  2 +-
- arch/riscv/include/asm/kvm_host.h                |  6 +++++
- arch/riscv/include/asm/kvm_tlb.h                 |  1 +
- arch/riscv/include/asm/kvm_vcpu_sbi.h            |  5 +++-
- arch/riscv/include/asm/kvm_vmid.h                |  1 -
- arch/riscv/include/uapi/asm/kvm.h                |  3 +++
- arch/riscv/kvm/Makefile                          |  1 +
- arch/riscv/kvm/aia_imsic.c                       |  2 +-
- arch/riscv/kvm/main.c                            | 14 ++++++++++
- arch/riscv/kvm/mmu.c                             |  5 +++-
- arch/riscv/kvm/tlb.c                             | 30 +++++++++++++++++++++
- arch/riscv/kvm/vcpu.c                            |  2 +-
- arch/riscv/kvm/vcpu_insn.c                       | 22 +++++++++++++++
- arch/riscv/kvm/vcpu_sbi.c                        | 10 ++++++-
- arch/riscv/kvm/vcpu_sbi_base.c                   | 28 +------------------
- arch/riscv/kvm/vcpu_sbi_forward.c                | 34 ++++++++++++++++++++++++
- arch/riscv/kvm/vcpu_sbi_replace.c                | 32 ----------------------
- arch/riscv/kvm/vcpu_sbi_system.c                 |  4 +--
- arch/riscv/kvm/vcpu_sbi_v01.c                    |  3 +--
- arch/riscv/kvm/vmid.c                            | 23 ----------------
- tools/testing/selftests/kvm/riscv/get-reg-list.c |  4 +++
- 21 files changed, 138 insertions(+), 94 deletions(-)
- create mode 100644 arch/riscv/kvm/vcpu_sbi_forward.c
+--===============3020533624353306229==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3020533624353306229==--
+
