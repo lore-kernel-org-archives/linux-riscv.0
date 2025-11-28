@@ -4,61 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 174EDD111A8
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Nov 2025 22:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03928D116F1
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Nov 2025 03:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BpXWjfUhJv+NiAxjDNEbq+2TjjH56NmFF+0fESPimWU=; b=Mb8DZm+6XkpFlP
-	GNqPEp84enwViiWfoHTEGKAsCkrJ9Y1XRl8Qnc6yhvXT4UEGvPwOEUnHLhLMEsX9lS0Qm++CQelqm
-	VWUOUkXG4+4gAfco2xTLrcqASemB0TV6HJ/cOFhCj5z2mdDn4Y/Vhi3/+g6ssVesgKKBMABnzzqir
-	gmQpPoOqYAw07KtAjYfZWg6xj5pdlUOKnHQBto3wmUYOduMgd+UPtltDr37F6luMKtT/p5j5y1ySK
-	ZGQhhmV8Vu0Lp0zqjJDy4CKDBkshJcQVkg8RdzaFaK34v3pDq1gJ3r8wM7/wvTdsIe9Gz4WfI3pQs
-	OIBLtakxN+fJFaJ0WZqA==;
+	List-Owner; bh=IJ/EM/ywjfgZVY6uolC6UYm9Gli7NkqIVTh+MWrMH54=; b=qwctz7P3xMm5MC
+	yrnslsbjF4TnH/YlfhHuxEHAMLDOXqoUuvsGGctJrZXlSM/W1oO99lkPNvQf+VRuAVxXH7jiYF+QC
+	Zy/FqaQzay4+WhdbSU9/HKnlHG6vyury+glE0mRGDO4f9B+h21FtS/+3byz9OBv+uP1i/pvZWIQgD
+	oDzv80Ja3qV1UbIsTsPQWEudlgXw8wAdfeY+H3oRZvKdpMg5475xCb0jVmawpYylKQKBHTAGy+FW+
+	VjylQaWMsAUr8xabYy6QXqvQUj4WBw6B6y7LJ91NPkQD9hzzFJF8ruUy1lvvT2webnZht3zo89gWo
+	nzSxRB2sGSlBcSOruE4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOkx1-0000000HHsg-1uc3;
-	Thu, 27 Nov 2025 22:58:59 +0000
-Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1vOpFz-0000000HWw6-3we1;
+	Fri, 28 Nov 2025 03:34:51 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOkwy-0000000HHsE-2e64
+	id 1vOpFy-0000000HWtS-0axl
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Nov 2025 22:58:57 +0000
-Received: from localhost (unknown [116.232.18.222])
+	Fri, 28 Nov 2025 03:34:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1764300889;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=r92fL9oKQlRTavP6tbfc36+c9pPVRtr0L8H+RYQ9Yos=;
+	b=hZe9/+eR+xTZxMA2BClYQ2BlImqZbL9V3UtqXnS/cv7NcoPNgFDWQtnenGSTPQu2YJf44/
+	9/NMb0/6cLV1Bw28QaODThJ7ORRYsQvUyJMCTrNTm0vM9U/BFYRz/5gLTcwRRzQCn9LQi0
+	+r8hyDYSLv1TTcRVyZ30OncEb7T8y+w=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-119-wgaq95i9OjubHDsKvyV9Bw-1; Thu,
+ 27 Nov 2025 22:34:45 -0500
+X-MC-Unique: wgaq95i9OjubHDsKvyV9Bw-1
+X-Mimecast-MFC-AGG-ID: wgaq95i9OjubHDsKvyV9Bw_1764300883
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 0560C341F8A;
-	Thu, 27 Nov 2025 22:58:52 +0000 (UTC)
-Date: Fri, 28 Nov 2025 06:58:48 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Shuwei Wu <shuweiwoo@163.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] thermal: K1: Add driver for K1 SoC thermal sensor
-Message-ID: <20251127225848-GYA1797866@gentoo.org>
-References: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
- <20251127-b4-k1-thermal-v1-2-f32ce47b1aba@163.com>
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EFFC8180009D;
+	Fri, 28 Nov 2025 03:34:42 +0000 (UTC)
+Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.7])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 46F4D19560B0;
+	Fri, 28 Nov 2025 03:34:34 +0000 (UTC)
+From: Baoquan He <bhe@redhat.com>
+To: linux-mm@kvack.org
+Cc: ryabinin.a.a@gmail.com,
+	andreyknvl@gmail.com,
+	glider@google.com,
+	dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	akpm@linux-foundation.org,
+	kasan-dev@googlegroups.com,
+	linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org,
+	elver@google.com,
+	sj@kernel.org,
+	lorenzo.stoakes@oracle.com,
+	snovitoll@gmail.com,
+	christophe.leroy@csgroup.eu,
+	Baoquan He <bhe@redhat.com>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 08/12] arch/riscv: don't initialize kasan if it's disabled
+Date: Fri, 28 Nov 2025 11:33:16 +0800
+Message-ID: <20251128033320.1349620-9-bhe@redhat.com>
+In-Reply-To: <20251128033320.1349620-1-bhe@redhat.com>
+References: <20251128033320.1349620-1-bhe@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251127-b4-k1-thermal-v1-2-f32ce47b1aba@163.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_145856_732663_561B1F70 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20251127_193450_257320_F3DEB4B5 
+X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,112 +98,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Shuwei, 
+Signed-off-by: Baoquan He <bhe@redhat.com>
+Cc: linux-riscv@lists.infradead.org
+---
+ arch/riscv/mm/kasan_init.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-for the title, you could simplify it by adding short prefix/annotation with
-my previous comments
-
-thermal: K1: Add driver for K1 SoC thermal sensor
--> thermal: spacemit: k1: Add thermal sensor support
-
-
-On 02:44 Thu 27 Nov     , Shuwei Wu wrote:
-> The thermal sensor unit (TSU) on K1 supports monitoring five temperature
-> zones. The driver registers these sensors with the thermal framework
-> and supports standard operations:
-> - Reading temperature (millidegree Celsius)
-> - Setting high/low thresholds for interrupts
-> 
-> Signed-off-by: Shuwei Wu <shuweiwoo@163.com>
-> ---
->  drivers/thermal/Kconfig      |  14 ++
->  drivers/thermal/Makefile     |   1 +
->  drivers/thermal/k1_thermal.c | 307 +++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 322 insertions(+)
-> 
-> +}
-[snip]..
-> +
-> +static int k1_thermal_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct k1_thermal_priv *priv;
-> +	int i, irq, ret;
-> +
-> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	priv->dev = dev;
-> +	platform_set_drvdata(pdev, priv);
-> +
-> +	priv->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(priv->base))
-> +		return PTR_ERR(priv->base);
-> +
-> +	priv->reset = devm_reset_control_get_exclusive_deasserted(dev, NULL);
-> +	if (IS_ERR(priv->reset))
-> +		return dev_err_probe(dev, PTR_ERR(priv->reset),
-> +				     "Failed to get/deassert reset control\n");
-no need to break the line, it's ok to have 100 column per line
-https://elixir.bootlin.com/linux/v6.18-rc7/source/Documentation/dev-tools/checkpatch.rst#L688
-
-P.S: this isn't hard rule and may still up to maintainer..
-> +
-> +	priv->clk = devm_clk_get_enabled(dev, "core");
-> +	if (IS_ERR(priv->clk))
-> +		return dev_err_probe(dev, PTR_ERR(priv->clk),
-> +				     "Failed to get core clock\n");
-ditto
-> +
-> +	priv->bus_clk = devm_clk_get_enabled(dev, "bus");
-> +	if (IS_ERR(priv->bus_clk))
-> +		return dev_err_probe(dev, PTR_ERR(priv->bus_clk),
-> +				     "Failed to get bus clock\n");
-ditto
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0)
-> +		return irq;
-I suggest to group this with dev_request_threaded_irq(), since both of them
-are taking care of IRQ related operation
-> +
-> +	ret = k1_init_sensors(pdev);
-> +
-> +	for (i = 0; i < MAX_SENSOR_NUMBER; ++i) {
-> +		priv->sensors[i].id = i;
-> +		priv->sensors[i].priv = priv;
-> +		priv->sensors[i].tzd = devm_thermal_of_zone_register(dev,
-> +									i, priv->sensors + i,
-> +									&k1_thermal_ops);
-                                                                  ~~~~~~~~
-here is wrong, alignment should match open parentheses, didn't checkpatch.pl warn about this?
-
-> +		if (IS_ERR(priv->sensors[i].tzd))
-> +			return dev_err_probe(dev, PTR_ERR(priv->sensors[i].tzd),
-> +						"Failed to register thermal zone: %d\n", i);
-I'd say, no need to do the verbose print, almost every error path has
-print message already
-> +
-> +		/* Attach sysfs hwmon attributes for userspace monitoring */
-> +		ret = devm_thermal_add_hwmon_sysfs(dev, priv->sensors[i].tzd);
-> +		if (ret)
-> +			dev_warn(dev, "Failed to add hwmon sysfs attributes\n");
-> +
-> +		k1_enable_sensor_irq(priv->sensors + i);
-> +	}
-> +
-> +	ret = devm_request_threaded_irq(dev, irq, NULL,
-> +					k1_thermal_irq_thread,
-> +					IRQF_ONESHOT, "k1_thermal", priv);
-> +	if (ret < 0)
-> +		return dev_err_probe(dev, ret, "Failed to request IRQ\n");
-no need to print extra error message, please refer to:
- https://lore.kernel.org/all/20250805092922.135500-2-panchuang@vivo.com
- https://github.com/torvalds/linux/commit/55b48e23f5c4b6f5ca9b7ab09599b17dcf501c10
-
+diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+index c4a2a9e5586e..aa464466e482 100644
+--- a/arch/riscv/mm/kasan_init.c
++++ b/arch/riscv/mm/kasan_init.c
+@@ -485,6 +485,9 @@ void __init kasan_init(void)
+ 	phys_addr_t p_start, p_end;
+ 	u64 i;
+ 
++	if (kasan_arg_disabled)
++		return;
++
+ 	create_tmp_mapping();
+ 	csr_write(CSR_SATP, PFN_DOWN(__pa(tmp_pg_dir)) | satp_mode);
+ 
 -- 
-Yixun Lan (dlan)
+2.41.0
+
 
 _______________________________________________
 linux-riscv mailing list
