@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF112D116F3
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Nov 2025 09:26:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16888CFD2F6
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Nov 2025 16:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5B+Xv6GiBT0sPmBydiXmtdfDm65z6176rLuUXOwNfdI=; b=YQ3VNQ2/O/XtO/
-	9KY52hLO2hSvEfVKcwv+uDcO4cqvQ/33oW0vCnrsnxq4R4XVRw9GMUDZN/gpcbYUnoZO4fZXrSBDR
-	BLFVu2H/EVs50IChXmheZQBSB3ZApjwkzPrvUMZ79/PWxF5qGfKmfUMZHcBu36RNFnWS0jVybXDUB
-	NdbvpNUoJGa23GwgKuSG390FNoZzN4zXbXLwA3n+WzBD2MYJ8dbmIPkqkflpgZrbvbIQjEJ1Wy+ZK
-	eIBOlW2Upf70c3f1AccjzUn6URGaYrkQjLo9duZC29P6jAsS5b/g91KTUhqZRXjlaFQos81CHacRM
-	Lcqs7md3tZXAFHv5k/Qg==;
+	List-Owner; bh=3FwASrV68RwgZfz7zVsABwnDlJLYz3DziD9fojROiGY=; b=zZFog3Rnuzdqom
+	+Y32Dl6D7dyqLJQgBAquuhpOMiHTDFDgjNRCNs9WTAJCWKQuJij/WnowKw+sVNZbwrEaRLKlPlbet
+	UqiJBtgmAToPHe6/WwAf+4vqeJnthmUzxGghJtEablRBFf2nGAfdyqUTT/EGefcRKfy7UvjAjE2pU
+	NFXAnGuXoB+3VM5bKZLXblJypL35M9QiY3zR42obrC/OmudzaJYOao7g5/SM21EY2TaDk+yKbzbBd
+	X/2JRxpSmrY04WRljznKfd17GarmoJj55HwOaF5IAimrXPZFBdNdkid+Q/DEqLkbU+3N/1hG4Rbf9
+	A+DJnMWbk+Ixb0bgVeXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPHD3-00000001QVI-2NmL;
-	Sat, 29 Nov 2025 09:25:41 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1vPO48-00000001ft4-1AnM;
+	Sat, 29 Nov 2025 16:44:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPHD0-00000001QUb-04Ch;
-	Sat, 29 Nov 2025 09:25:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1764408332; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
-	bh=18rum/pY9Ed+XYcJLfQetzjeK0JKcDWxc6EMLCywlk8=;
-	b=Y/1rqFamSCTp8+N6nwmIEyjQRDYUsE0PORSqLDfrgb1KWSvrI8NIkZu7kSLL3qSVWXE8UhW2Klawg92/k0l+sy1BpUwqdPgKjlM16kQHFZVYVtw1T2w73BOQSN9o4bP7dr/Y/kenOgSldHupFYuheEdyBsMYB98sJvW9jrJp2Cw=
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0Wtew5QK_1764408328 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sat, 29 Nov 2025 17:25:29 +0800
-From: fangyu.yu@linux.alibaba.com
-To: rkrcmar@ventanamicro.com
-Cc: ajones@ventanamicro.com,
-	alex@ghiti.fr,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	fangyu.yu@linux.alibaba.com,
-	guoren@kernel.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv-bounces@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org
-Subject: Re: [PATCH] RISC-V: KVM: Allow to downgrade HGATP mode via SATP mode
-Date: Sat, 29 Nov 2025 17:25:27 +0800
-Message-Id: <20251129092527.7502-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <DEHZBIAB842A.1AUCJS0OR923@ventanamicro.com>
-References: <DEHZBIAB842A.1AUCJS0OR923@ventanamicro.com>
+	id 1vPO46-00000001fsx-2uOM
+	for linux-riscv@lists.infradead.org;
+	Sat, 29 Nov 2025 16:44:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B2DAD60051;
+	Sat, 29 Nov 2025 16:44:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4992FC4CEF7;
+	Sat, 29 Nov 2025 16:44:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764434693;
+	bh=XbdQrctocb5sLnKbVGTUwZksoGZGaJ2xjbY3U1nwOPc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X9GIHPxFgSo1TfwonKR/Fuxcdt/JgFBeUiMI9ljnQw29XbQlwvSOH5/8r7UXsy/g/
+	 w7reA8wPk/Boll0dRCXIXj1Ntt8foScekJ2UU0FsHNPHI7K6HFOIcKZaKI8v9MQfaO
+	 IqmoA1FX1nr9hiYv6+L/s/jG7fDLQNY5lTrla+yydhEmVIwIqHYQE+8RG4DB4pPkTy
+	 BJEyIKfOeFyc5Okd0REI3JQMj2tLEpFvvhLQrE2jIhe1+JqmgofZLADgKYaJx/jvXx
+	 HaikJiaGTzUm9G9iHt15oq1jt/Ftb/1unF4faCyNRgACYCpC7gLy5Ca7mK56R/77kA
+	 t7CuPTbSgAj/g==
+Date: Sat, 29 Nov 2025 08:44:51 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Johan Hovold <johan@kernel.org>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Subject: Re: [PATCH] mailbox: th1520: fix clock imbalance on probe failure
+Message-ID: <aSsjA9RimtLpQ0KF@x1>
+References: <20251017055414.7753-1-johan@kernel.org>
+ <aRGswsgOmPGXMjMI@hovoldconsulting.com>
+ <aScppcza9xwGwqn3@hovoldconsulting.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_012538_828433_69B02A51 
-X-CRM114-Status: GOOD (  14.04  )
+Content-Disposition: inline
+In-Reply-To: <aScppcza9xwGwqn3@hovoldconsulting.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,48 +68,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pj4+PiBPbiBTYXQsIE5vdiAyMiwgMjAyNSBhdCAzOjUw4oCvUE0gPGZhbmd5dS55dUBsaW51eC5h
-bGliYWJhLmNvbT4gd3JvdGU6Cj4+Pj4gPgo+Pj4+ID4gRnJvbTogRmFuZ3l1IFl1IDxmYW5neXUu
-eXVAbGludXguYWxpYmFiYS5jb20+Cj4+Pj4gPgo+Pj4+ID4gQ3VycmVudGx5LCBIR0FUUCBtb2Rl
-IHVzZXMgdGhlIG1heGltdW0gdmFsdWUgZGV0ZWN0ZWQgYnkgdGhlIGhhcmR3YXJlCj4+Pj4gPiBi
-dXQgb2Z0ZW4gc3VjaCBhIHdpZGUgR1BBIGlzIHVubmVjZXNzYXJ5LCBqdXN0IGFzIGEgaG9zdCBz
-b21ldGltZXMKPj4+PiA+IGRvZXNuJ3QgbmVlZCBzdjU3Lgo+Pj4+ID4gSXQncyBsaWtlbHkgdGhh
-dCBubyBhZGRpdGlvbmFsIHBhcmFtZXRlcnMgKGxpa2Ugbm81bHZsIGFuZCBubzRsdmwpIGFyZQo+
-Pj4+ID4gbmVlZGVkLCBhbGlnbmluZyBIR0FUUCBtb2RlIHRvIFNBVFAgbW9kZSBzaG91bGQgbWVl
-dCB0aGUgcmVxdWlyZW1lbnRzCj4+Pj4gPiBvZiBtb3N0IHNjZW5hcmlvcy4KPj4+PiBZZXMsIG5v
-NS80bHZsIGlzIG5vdCBjbGVhciBhYm91dCBzYXRwIG9yIGhnYXRwLiBTbywgY292ZXJpbmcgSEdQ
-QVRQIGlzCj4+Pj4gcmVhc29uYWJsZS4KPj4+Cj4+PlRoZSBkb2N1bWVudGF0aW9uIHNob3VsZCBi
-ZSBpbXByb3ZlZCwgYnV0IEkgZG9uJ3QgdGhpbmsgd2Ugd2FudCB0byBzdGF0ZQo+Pj50aGF0IHRo
-ZXNlIHBhcmFtZXRlcnMgYXBwbHkgdG8gYm90aCBzLSBhbmQgZy1zdGFnZS4gSWYgd2UgbmVlZCBw
-YXJhbWV0ZXJzCj4+PnRvIGRpY3RhdGUgS1ZNIGJlaGF2aW9yIChnLXN0YWdlIG1hbmFnZW1lbnQp
-LCB0aGVuIHdlIHNob3VsZCBhZGQgS1ZNCj4+Pm1vZHVsZSBwYXJhbWV0ZXJzLgo+Pgo+PiBSaWdo
-dCwgYWRkaW5nIG5ldyBwYXJhbWV0ZXJzIGZvciBnLXN0YWdlIG1hbmFnZW1lbnQgaXMgY2xlYXIu
-Cj4+Cj4+IE9yIHdlIGNvdWxkIGRpc2N1c3MgdGhpcyB0b3BpYywgZnJvbSBhIHZpcnR1YWwgbWFj
-aGluZSBwZXJzcGVjdGl2ZSwKPj4gaXQgbWF5IG5vdCBiZSBuZWNlc3NhcnkgdG8gcHJvdmlkZSBh
-bGwgaGFyZHdhcmUgY29uZmlndXJhdGlvbgo+PiBjb21iaW5hdGlvbnMuIEZvciBleGFtcGxlLCB3
-aGVuIFNBVFAgaXMgY29uZmlndXJlZCBhcyBzdjQ4LAo+PiBjb25maWd1cmluZyBIR0FUUCBhcyBz
-djU3KjQgaXMgbm90IHZlcnkgbWVhbmluZ2Z1bCwgQmVjYXVzZSB0aGUKPj4gVk0gY2Fubm90IGFj
-dHVhbGx5IHVzZSBtb3JlIHRoYW4gNDggYml0cyBvZiBHUEEgcmFuZ2UuCj4KPlRoZSBjaG9pY2Ug
-b2YgaGdhdHAgbW9kZSBkZXBlbmRzIG9uIGhvdyB1c2VycyBjb25maWd1cmUgZ3Vlc3QncyBtZW1v
-cnkKPm1hcCwgcmVnYXJkbGVzcyBvZiB3aGF0IHNhdHAgb3IgdnNhdHAgbW9kZXMgYXJlLgo+KEFs
-bCBSVjY0IFN2WFkgbW9kZXMgbWFwIFhZIGJpdCBWQSB0byA1NiBiaXQgUEEuKQo+Cj5JZiB0aGUg
-bWFjaGluZSBtb2RlbCBtYXBzIG1lbW9yeSB3aXRoIHNldCBiaXQgNTUsIHRoZW4gS1ZNIG5lZWRz
-IHRvCj5jb25maWd1cmUgU3Y1N3g0LCBhbmQgaWYgbm90aGluZyBpcyBtYXBwZWQgYWJvdmUgMiBU
-aUIsIHRoZW4gS1ZNIGlzCj5jb21wbGV0ZWx5IGZpbmUgd2l0aCBTdjM5eDQuCj4KPkEgbW9kdWxl
-IHBhcmFtZXRlciB3b3JrcywgYnV0IEkgdGhpbmsgaXQgd291bGQgYmUgbmljZXIgdG8gc2V0IHRo
-ZSBoZ2F0cAo+bW9kZSBwZXItVk0sIGJlY2F1c2UgbW9zdCBWTXMgY291bGQgdXNlIHRoZSBlZmZp
-Y2llbnQgU3YzOXg0LCB3aGlsZSBpdCdzCj5ub3QgYSBnb29kIGlkZWEgdG8gcGljayBpdCBhcyB0
-aGUgZGVmYXVsdC4KPkkgdGhpbmsgS1ZNIGhhcyBlbm91Z2ggaW5mb3JtYXRpb24gdG8gZG8gaXQg
-YXV0b21hdGljYWxseSAoYW5kIHdpdGhvdXQKPnRvbyBtdWNoIGNvbXBsZXhpdHkpIGJ5IHN0YXJ0
-aW5nIHdpdGggU3YzOXg0LCBhbmQgZXhwYW5kaW5nIGFzIG5lZWRlZC4KPgoKSXQgZG9lcyBzZWVt
-IG1vcmUgcmVhc29uYWJsZSB0byBzZWxlY3QgdGhlIEhHQVRQIG1vZGUgZm9yIGVhY2ggVk0gYmFz
-ZWQKb24gdGhlIGFjdHVhbCByZXF1aXJlZCBHUEEgcmFuZ2UuCkkgd2lsbCBzZW5kIGFuIHVwZGF0
-ZWQgcGF0Y2ggYmFzZWQgb24gdGhpcyBzdWdnZXN0aW9uLgoKVGhhbmtzLApGYW5neXUKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Nov 26, 2025 at 05:24:05PM +0100, Johan Hovold wrote:
+> On Mon, Nov 10, 2025 at 10:13:38AM +0100, Johan Hovold wrote:
+> > On Fri, Oct 17, 2025 at 07:54:14AM +0200, Johan Hovold wrote:
+> > > The purpose of the devm_add_action_or_reset() helper is to call the
+> > > action function in case adding an action ever fails so drop the clock
+> > > disable from the error path to avoid disabling the clocks twice.
+> > > 
+> > > Fixes: 5d4d263e1c6b ("mailbox: Introduce support for T-head TH1520 Mailbox driver")
+> > > Cc: Michal Wilczynski <m.wilczynski@samsung.com>
+> > > Signed-off-by: Johan Hovold <johan@kernel.org>
+> > > ---
+> > 
+> > Can this one be picked up for 6.19?
+> 
+> It's been another month so sending another reminder. Can this one be
+> picked up for 6.19?
+> 
+> Johan
+
+It looks like this is now in the 6.18-rc7 PR from Jassi :)
+
+https://lore.kernel.org/all/CABb+yY2GeWHWeASzemit8XvgvHg=Cse+46CqF3KJfsBXNPEBAw@mail.gmail.com/
+
+-Drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
