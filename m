@@ -4,101 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54FAAD111A8
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Nov 2025 07:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80BA9CFD376
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Nov 2025 09:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6qu74LpcO0+XiheHeusOtC1Kxl6IX7KadmG61mUi4qw=; b=mPicBGlaonLJqu
-	ubQiDpOrpuhz8RI63+MGHxEgPZkGTv4dXVi7QMEXKScYgAtogzBbTx1A+SO/JMhCC3QpQZ6tgi+yF
-	BhUBbw9GMAAj+++CSjRGO94JD8wZdUma13EUsDASL9j39g2qYXHbm0+IxXFIE02AS6vCuMK/glLRV
-	wLyLDfr8ENkhrpPZaqInz1sjBMopFRGNo10iX9TEZvi32XdNWilqjb1d9IsmusktVRLH688dQCc4B
-	fnKcc2uC7nY27/RQIehH0X1M4PtgxVUMNvSlSIddmExuxqlZhBlwb9E5D4DtxoU+2fWXzuailMHUb
-	CNrr1lZ6PLukTF5DSCVw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eImYg0jmOkJy8KmsE1XfIjirdx8HFigjnKMEJGC2T6M=; b=kNrfd1p1vXBy21
+	OFbvmyINlrQSnTMG6bcIvEA8wxJxmqKOkf6vzQeTuYAJbba0ScSnrwSwO8NKdLR7V1PUyMgxsC5wn
+	sfhFX4qGjGIHHOjVqqrGHM+KcfPHa8M5cwWXznH58Ba7O5gT4jnRYzbMsweXS6qoM2dtPOtw6j0tf
+	PZRwMXKTtLa88rti1PsaRRGXQz/PpeGchj5LsUA9yAiKTxY6VYUco4J78c9CAIY5AX5Nvmhiv9gYJ
+	opkzM4cYJ9GOjEz0gG8HKGk82VpfH1As5GNWL5pKijHop9SHanm7l8uWpm40sNEUf19gyExIG85Gi
+	MfotIsDzKvwafXhf/JWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPc9h-000000027v3-2ZJ8;
-	Sun, 30 Nov 2025 07:47:37 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1vPdUv-00000002At0-0bWN;
+	Sun, 30 Nov 2025 09:13:37 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPc9f-000000027uc-0KuU
+	id 1vPdUr-00000002AsK-1QyV
 	for linux-riscv@lists.infradead.org;
-	Sun, 30 Nov 2025 07:47:37 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2956d816c10so35080475ad.1
-        for <linux-riscv@lists.infradead.org>; Sat, 29 Nov 2025 23:47:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764488853; x=1765093653; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dMz7/I31vULNcXSLjphmBDw8pJN8azXEYtV3XhWvRkg=;
-        b=KpW0BrGcqbWTxaPrh+8WjVy+QPFjBMUvz0Pc/No7kXtSodm1eSEAzgQSuXQqnY3d9g
-         xyDTboOAcDpyvbfQtUJ1VPZE/6p41CahkeDF3VOTK0gy5lOhg+d0udeumhWmiV5Ix+AN
-         pgrYce/pMYmYk+t2eaJk5dpp7lfxNBwQgl/0I51jYazF7MCL6b64tTCswEYb+4BFtuuL
-         /GVVqapW7i4MM9LSkhjAuDuAFNLKsNXGugrDpDM+hhoH6HHwgmPBSINaGHDEh7187T/G
-         MP3GgNgulpukaT1WtKCiUeaTy57sPigaBXjTWvjjmE4U/BJRl/rBm+AeflknN9C6dxhp
-         PbrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764488853; x=1765093653;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dMz7/I31vULNcXSLjphmBDw8pJN8azXEYtV3XhWvRkg=;
-        b=WFOYkya7NYPxactMB1jObFPExYkf9KNIW76NoOE6uRSEGJTWcfPbXudl2V2SwJjgl8
-         Zelxu4xaMOQbtUyw4OR1qTm2Ylt1ojCgh3uxH/XKxkCNpwMSUugHnzyLLWfkAMrr1Kgh
-         +0lQgnXtMHZzaFQqaJXd/+J2d2SpRWeH6IOBE1EnrLu7U4FejUyZbycvx1fFzpkAmAOE
-         uT/MCVt00KjHl/If91qClSIsvouWw0wzKpt3Hnp2/xdCMGN8uQ0OWDMfAVRlHWkwa+Tn
-         X3+pdC4jpH5trngd6KuBF/lEYQIlNE/e+F2iiSZgCrQP6qPQCNS5ctLKpaDzvz5ToUuj
-         p3Qw==
-X-Forwarded-Encrypted: i=1; AJvYcCWVmA5aCM8jHM7Q+Xy1OAyOct1O1YbZWhwX5nq+vb1M03hPsZwgp8mlQGq7FlSa168LMcBdJyfo/OJ9gQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3sLUIKf9PCtO9XyiKLbcjGU6q8b1Vz3wrJftamWpxrT/DIKs+
-	U9HjX/fom3G1+fKc7verT8wNM/hUk2n8C39snrJxiFM3TzW9zfLIvhs9
-X-Gm-Gg: ASbGncuvzdkEwQoLDLNvZ5qLZTaGyd+w5Lbs9eokHWuwD1pB3OhHwpi6yRRPlp9sd4O
-	sXV6CilWJrhUxeWHoDJYosvRNiYvPTOtnAJ0fKPdjW6wS5GTukc1ddV05ulxT1PPVxwzOIWqkXi
-	JrWsR9dJ45fl4vwK4hqxgl/AYWrhmezBSO6XVOhFtBxP+IosWnbErGnHQ8GhLKhDyNwFWjohaTM
-	QRsj/tDaUTCEXlUj4HS5uUehFyOdMPeErPjmz/NCwFSgeycWMCNQEnu1YRmjlUu58/tqw1K0phF
-	uqeouKIJKD5PYsif6bftXj7JkX11XHRHVB3eLIU2Dvi95WHgJ5cE6jZUIWW5kkolGqD4XlHfIbW
-	FojCk5fUZTFiej3jRPpJRsZTFWuxjC74uD8KB1P1FTs47vcjKkzG2km8knbCk4HOuze8YQZ8hvn
-	XOfPWBgXRRPxpz
-X-Google-Smtp-Source: AGHT+IFnsg6lvBgHv0uVnuDXa01/Q8nuA7CaFKt7HKnSprbW5Bz97Z1RPpsVroxJIvb/eUosWYvNLg==
-X-Received: by 2002:a17:902:da4d:b0:298:2e7a:3c47 with SMTP id d9443c01a7336-29b6bf5c107mr377978425ad.42.1764488853387;
-        Sat, 29 Nov 2025 23:47:33 -0800 (PST)
-Received: from [192.168.0.13] ([172.92.174.155])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bceb40021sm90300855ad.68.2025.11.29.23.47.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 29 Nov 2025 23:47:32 -0800 (PST)
-Message-ID: <26475221-f852-4d76-80dd-43f04f9e7ec4@gmail.com>
-Date: Sat, 29 Nov 2025 23:45:39 -0800
+	Sun, 30 Nov 2025 09:13:35 +0000
+Received: from [192.168.0.112] (unknown [114.241.82.59])
+	by APP-03 (Coremail) with SMTP id rQCowADnd9quCixpX5qqAg--.16371S2;
+	Sun, 30 Nov 2025 17:13:20 +0800 (CST)
+Message-ID: <b3cfcdac-0337-4db0-a611-258f2868855f@iscas.ac.cn>
+Date: Sun, 30 Nov 2025 17:13:18 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/12] rvtrace: Add trace ramsink driver
-To: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Greg KH <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Ian Rogers <irogers@google.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>,
- Peter Zijlstra <peterz@infradead.org>, Anup Patel <anup@brainfault.org>,
- Adrian Hunter <adrian.hunter@intel.com>, linux-kernel@vger.kernel.org,
- Mayuresh Chitale <mchitale@ventanamicro.com>, Ingo Molnar
- <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>,
- Mayuresh Chitale <mchitale@gmail.com>, Namhyung Kim <namhyung@kernel.org>,
- linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>,
- Liang Kan <kan.liang@linux.intel.com>
-References: <20251101154245.162492-1-apatel@ventanamicro.com>
- <20251101154245.162492-8-apatel@ventanamicro.com>
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Subject: lib/crypto: riscv: crypto_zvkb crashes on selftest if no misaligned
+ vector support
+To: Jerry Shih <jerry.shih@sifive.com>, Eric Biggers <ebiggers@kernel.org>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>, "Jason A. Donenfeld"
+ <Jason@zx2c4.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>
+Cc: Han Gao <gaohan@iscas.ac.cn>, linux-crypto@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20251101154245.162492-8-apatel@ventanamicro.com>
+X-CM-TRANSID: rQCowADnd9quCixpX5qqAg--.16371S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZw18XrWkWFy7GFy5Aw1xuFg_yoWrGrWxpF
+	45tr1fCr48Ar4kGr48Ar1rKr4rJw1UCa47Jwn7J3Z8Za1UWw1UXrn2yrW7uF1Dtr1UJry7
+	twsYqr4Igw1UKaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
+	wI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
+	73UjIFyTuYvjxUqiFxDUUUU
+X-Originating-IP: [114.241.82.59]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_234735_193906_0D14A625 
-X-CRM114-Status: GOOD (  37.58  )
+X-CRM114-CacheID: sfid-20251130_011333_750163_BA378FB1 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,389 +81,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anup,
+Hi,
 
-My comments below:
+We ran into a problem with chacha_zvkb, where having:
 
-On 11/1/25 08:42, Anup Patel wrote:
-> From: Mayuresh Chitale <mchitale@ventanamicro.com>
-> 
-> Add initial implementation of RISC-V trace ramsink driver. The ramsink
-> is defined in the RISC-V Trace Control Interface specification.
-> 
-> Co-developed-by: Anup Patel <apatel@ventanamicro.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-> ---
->   drivers/hwtracing/rvtrace/Kconfig           |   9 +
->   drivers/hwtracing/rvtrace/Makefile          |   1 +
->   drivers/hwtracing/rvtrace/rvtrace-ramsink.c | 262 ++++++++++++++++++++
->   3 files changed, 272 insertions(+)
->   create mode 100644 drivers/hwtracing/rvtrace/rvtrace-ramsink.c
-> 
-> diff --git a/drivers/hwtracing/rvtrace/Kconfig b/drivers/hwtracing/rvtrace/Kconfig
-> index ba35c05f3f54..0577f9acb858 100644
-> --- a/drivers/hwtracing/rvtrace/Kconfig
-> +++ b/drivers/hwtracing/rvtrace/Kconfig
-> @@ -21,3 +21,12 @@ config RVTRACE_ENCODER
->   	default y
->   	help
->   	  This driver provides support for RISC-V Trace Encoder component.
-> +
-> +config RVTRACE_RAMSINK
-> +	tristate "RISC-V Trace Ramsink driver"
-> +	depends on RVTRACE
-> +	select DMA_SHARED_BUFFER
-> +	default y
-> +	help
-> +	  This driver provides support for Risc-V E-Trace Ramsink
-> +	  component.
-> diff --git a/drivers/hwtracing/rvtrace/Makefile b/drivers/hwtracing/rvtrace/Makefile
-> index f320693a1fc5..122e575da9fb 100644
-> --- a/drivers/hwtracing/rvtrace/Makefile
-> +++ b/drivers/hwtracing/rvtrace/Makefile
-> @@ -3,3 +3,4 @@
->   obj-$(CONFIG_RVTRACE) += rvtrace.o
->   rvtrace-y := rvtrace-core.o rvtrace-platform.o
->   obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
-> +obj-$(CONFIG_RVTRACE_RAMSINK) += rvtrace-ramsink.o
-> diff --git a/drivers/hwtracing/rvtrace/rvtrace-ramsink.c b/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
-> new file mode 100644
-> index 000000000000..676344c9387c
-> --- /dev/null
-> +++ b/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
-> @@ -0,0 +1,262 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2025 Ventana Micro Systems Inc.
-> + */
-> +
-> +#include <linux/device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/dma-mapping.h>
-> +#include <linux/rvtrace.h>
-> +#include <linux/types.h>
-> +#include <linux/sizes.h>
-> +
-> +#define RVTRACE_RAMSINK_STARTLOW_OFF		0x010
-> +#define RVTRACE_RAMSINK_STARTHIGH_OFF		0x014
-> +#define RVTRACE_RAMSINK_LIMITLOW_OFF		0x018
-> +#define RVTRACE_RAMSINK_LIMITHIGH_OFF		0x01c
-> +#define RVTRACE_RAMSINK_WPLOW_OFF		0x020
-> +#define   RVTRACE_RAMSINK_WPLOW_WRAP		0x1
+- OpenSBI 1.7+ (for FWFT support)
+- CRYPTO_CHACHA20POLY1305=y and CRYPTO_SELFTESTS=y (and deps, of course)
+- Hardware with Zvkb support
+- Hardware *without* misaligned vector load/store support
 
-nit: wrong spacing
+Leads to a crash on boot during selftest on a vlsseg8e32.v instruction,
+because it requires 4-byte alignment of the buffers.
 
-> +#define RVTRACE_RAMSINK_WPHIGH_OFF		0x024
-> +#define RVTRACE_RAMSINK_RPLOW_OFF		0x028
-> +#define RVTRACE_RAMSINK_RPHIGH_OFF		0x02c
-> +
-> +struct rvtrace_ramsink_priv {
-> +	size_t size;
-> +	void *va;
-> +	dma_addr_t start;
-> +	dma_addr_t end;
-> +	/* WP from prev iteration */
-> +	dma_addr_t prev_head;
-> +};
-> +
-> +struct trace_buf {
-> +	void *base;
-> +	size_t size;
-> +	long cur;
-> +	size_t len;
-> +};
-> +
-> +static int rvtrace_ramsink_stop(struct rvtrace_component *comp)
-> +{
-> +	return rvtrace_comp_is_empty(comp);
-> +}
-> +
+OpenSBI by default emulates vector misaligned operations, however Linux
+explicitly disables it with SBI FWFT while not providing vector
+misaligned emulation of its own.
 
-We should first set trRamEnable to 0, poll it, then poll trRamEmpty. It's
-essentially the same as encoder, so perhaps move it to core.c. Here we're
-just checking whether it's empty, which is wrong. We're also doing similar
-things in encoder.c Should fix that as well.
+This can be reproduced by running everything in Spike without
+--misaligned, and is reproducible on stable 6.17.9, 6.18-rc1 and
+6.18-rc7. See log at the end. Note that I had to fix chacha_zvkb
+somewhat to have it retain a frame pointer to get a stack trace - patch
+will be sent later.
 
-> +static void tbuf_to_pbuf_copy(struct trace_buf *src, struct trace_buf *dst)
-> +{
-> +	int bytes_dst, bytes_src, bytes;
-> +	void *dst_addr, *src_addr;
-> +
-> +	while (src->size) {
-> +		src_addr = src->base + src->cur;
-> +		dst_addr = dst->base + dst->cur;
-> +
-> +		if (dst->len - dst->cur < src->size)
-> +			bytes_dst = dst->len - dst->cur;
-> +		else
-> +			bytes_dst = src->size;
-> +		if (src->len - src->cur < src->size)
-> +			bytes_src = src->len - src->cur;
-> +		else
-> +			bytes_src = src->size;
-> +		bytes = bytes_dst < bytes_src ? bytes_dst : bytes_src;
-> +		memcpy(dst_addr, src_addr, bytes);
-> +		dst->cur = (dst->cur + bytes) % dst->len;
-> +		src->cur = (src->cur + bytes) % src->len;
-> +		src->size -= bytes;
-> +	}
-> +}
-> +
-> +static size_t rvtrace_ramsink_copyto_auxbuf(struct rvtrace_component *comp,
-> +					    struct rvtrace_perf_auxbuf *buf)
-> +{
-> +	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
-> +	struct trace_buf src, dst;
-> +	u32 wp_low, wp_high;
-> +	u64 buf_cur_head;
-> +	size_t size;
-> +
-> +	wp_low = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_WPLOW_OFF);
-> +	wp_high = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_WPHIGH_OFF);
-> +	buf_cur_head = (u64)(wp_high) << 32 | (wp_low & ~RVTRACE_RAMSINK_WPLOW_WRAP);
-> +
-> +	if (buf_cur_head == priv->prev_head)
-> +		return 0;
+Setting cra_alignmask to 3 for everything in crypto/chacha.c "fixes"
+this, but there seems to be no obvious way to say "if use_zvkb then
+cra_alignmask = 3", and, not being familiar with the crypto API stuff, I
+can't figure out a good way to say "if riscv then cra_alignmask = 3" either.
 
-cur_head == prev_head could mean that we've wrapped around and stopped at
-the exact position. Thus, we need to check for the wrapped around bit. If
-set, then this case can be merged into buf_cur_head <= priv->prev_head
-below.
+AFAICT, this problem was missed from the very start since commit
+bb54668837a0 ("crypto: riscv - add vector crypto accelerated ChaCha20").
 
-For cur_head > prev_head case, we also need to check for wrap-around. If
-wrapped-around, we actually filled the entire buffer, not just cur - prev
-We also should consider the possibility that the buffer has been wrapped
-around multiple times. In all cases, maintaining a prev_head seems to
-complicate things, so why don't we just reset the WP to priv->start each
-time we start the ramsink component and get rid of prev_head? This way,
-we'll always have cur >= start, and depending on wrapped bit, we either
-get the whole buffer, or cur - start.
+Please advise.
 
-> +
-> +	dst.base = buf->base;
-> +	dst.len = buf->length;
-> +	dst.cur = buf->pos;
-> +
-> +	src.base = priv->va;
-> +	src.len = priv->end - priv->start;
-> +	if (buf_cur_head > priv->prev_head) {
-> +		src.size = buf_cur_head - priv->prev_head;
-> +	} else {
-> +		src.size = priv->end - priv->prev_head;
-> +		src.size += buf_cur_head - priv->start;
-> +	}
-> +
-> +	src.cur = buf_cur_head - priv->start;
-> +	size = src.size;
-> +	tbuf_to_pbuf_copy(&src, &dst);
-> +	buf->pos = dst.cur;
-> +	priv->prev_head = buf_cur_head;
-> +
-> +	return size;
-> +}
-> +
-> +static int rvtrace_ramsink_setup_buf(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
-> +	u64 start_min, limit_max, end;
-> +	u32 low, high;
-> +
-> +	/* Probe min and max values for start and limit registers */
-> +	rvtrace_write32(comp->pdata, 0, RVTRACE_RAMSINK_STARTLOW_OFF);
-> +	rvtrace_write32(comp->pdata, 0, RVTRACE_RAMSINK_STARTHIGH_OFF);
-> +	low = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_STARTLOW_OFF);
-> +	high = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_STARTHIGH_OFF);
-> +	start_min = (u64)(high) << 32 | low;
-> +
-> +	rvtrace_write32(comp->pdata, 0xffffffff, RVTRACE_RAMSINK_LIMITLOW_OFF);
-> +	rvtrace_write32(comp->pdata, 0xffffffff, RVTRACE_RAMSINK_LIMITHIGH_OFF);
-> +	low = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_LIMITLOW_OFF);
-> +	high = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_LIMITHIGH_OFF);
-> +	limit_max = (u64)(high) << 32 | low;
-> +
-> +	if (priv->end < start_min) {
+Thanks,
+Vivian "dramforever" Wang
 
-Where was priv->end initialized before this check?
+Crash log:
 
-> +		dev_err(&comp->dev, "DMA memory not addressable by device\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* Setup ram sink start addresses */
-> +	if (priv->start < start_min) {
+[    0.160370] Oops - load address misaligned [#1]
+[    0.160370] Modules linked in:
+[    0.160375] CPU: 0 UID: 0 PID: 44 Comm: cryptomgr_test Not tainted 6.18.0-rc1-dirty #5 NONE
+[    0.160385] Hardware name: ucbbar,spike-bare (DT)
+[    0.160385] epc : chacha_zvkb+0xa4/0x300
+[    0.160395]  ra : chacha_crypt+0xe0/0x134
+[    0.160400] epc : ffffffff8051eff8 ra : ffffffff8051eee8 sp : ff2000000022b730
+[    0.160405]  gp : ffffffff81a1f650 tp : ff600000027d1800 t0 : 000000006b206574
+[    0.160410]  t1 : 00000000000000d8 t2 : 0000000000000001 s0 : ff2000000022b790
+[    0.160415]  s1 : ffffffffbca3aa27 a0 : ff2000000022b8a8 a1 : ff600000030a8001
+[    0.160420]  a2 : ff600000030b8001 a3 : 0000000000000001 a4 : 000000000000000c
+[    0.160425]  a5 : 0000000061707865 a6 : 000000003320646e a7 : 0000000079622d32
+[    0.160430]  s2 : 000000001a00608f s3 : ffffffff948be502 s4 : 0000000032e565c6
+[    0.160440]  s5 : 000000005b7013d5 s6 : ffffffffc159e731 s7 : ffffffff8a5fbd3a
+[    0.160445]  s8 : 0000000000000000 s9 : 0000000000000000 s10: ffffffffaf1e2dd8
+[    0.160450]  s11: ffffffff9e109452 t3 : 0000000000000040 t4 : ffffffffbca3aa27
+[    0.160455]  t5 : 00000000294d72a5 t6 : ffffffff948be502
+[    0.160460] status: 8000000200000720 badaddr: ff600000030a8001 cause: 0000000000000004
+[    0.160465] [<ffffffff8051eff8>] chacha_zvkb+0xa4/0x300
+[    0.160470] [<ffffffff8051eee8>] chacha_crypt+0xe0/0x134
+[    0.160480] [<ffffffff804ab952>] chacha_stream_xor+0x192/0x1cc
+[    0.160485] [<ffffffff804abbc6>] crypto_xchacha_crypt+0x1ca/0x1f0
+[    0.160495] [<ffffffff8049ea84>] crypto_skcipher_encrypt+0x28/0x44
+[    0.160505] [<ffffffff804a7bde>] test_skcipher_vec_cfg+0x266/0x5d8
+[    0.160515] [<ffffffff804a7fcc>] test_skcipher+0x7c/0xf4
+[    0.160530] [<ffffffff804a80b8>] alg_test_skcipher+0x74/0x16c
+[    0.160540] [<ffffffff804a8c08>] alg_test+0xe4/0x49c
+[    0.160545] [<ffffffff804a53b8>] cryptomgr_test+0x1c/0x3c
+[    0.160555] [<ffffffff8004dff4>] kthread+0xc0/0x178
+[    0.160565] [<ffffffff80012306>] ret_from_fork_kernel+0xe/0xcc
+[    0.160580] [<ffffffff80b61bbe>] ret_from_fork_kernel_asm+0x16/0x18
+[    0.160595] Code: a657 5208 4657 02cc c6d7 5e0c 4757 5e0d c7d7 5e0d (e807) ebc5
+[    0.160600] ---[ end trace 0000000000000000 ]---
+[    0.160605] Kernel panic - not syncing: Fatal exception in interrupt
+[    0.161415] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---
 
-No checks for start_min >= priv->end?
-
-> +		dev_warn(&comp->dev, "Ramsink start address updated from %llx to %llx\n",
-> +			 priv->start, start_min);
-> +		priv->va += start_min - priv->start;
-> +		priv->start = start_min;
-> +	}
-> +
-> +	priv->prev_head = priv->start;
-> +	priv->end = priv->start + priv->size;
-> +	rvtrace_write32(comp->pdata, lower_32_bits(priv->start), RVTRACE_RAMSINK_STARTLOW_OFF);
-> +	rvtrace_write32(comp->pdata, upper_32_bits(priv->start), RVTRACE_RAMSINK_STARTHIGH_OFF);
-> +	rvtrace_write32(comp->pdata, lower_32_bits(priv->start), RVTRACE_RAMSINK_WPLOW_OFF);
-> +	rvtrace_write32(comp->pdata, upper_32_bits(priv->start), RVTRACE_RAMSINK_WPHIGH_OFF);
-> +	/* Setup ram sink limit addresses */
-> +	if (priv->end > limit_max) {
-> +		dev_warn(&comp->dev, "Ramsink limit address updated from %llx to %llx\n", priv->end,
-> +			 limit_max);
-> +		priv->end = limit_max;
-> +		priv->size = priv->end - priv->start;
-> +	}
-> +
-> +	/* Limit address needs to be set to end - 4 to avoid overflow */
-> +	end = priv->end - 4;
-
-Should not hard-code 4, instead, do write32(0xfffffff, RamLimit), then
-ffs(RamLimit) to probe for the the write width, aka, "A" value in Table
-47. Typical Trace RAM Sink Configuration in the Spec.
-
-> +	rvtrace_write32(comp->pdata, lower_32_bits(end), RVTRACE_RAMSINK_LIMITLOW_OFF);
-> +	rvtrace_write32(comp->pdata, upper_32_bits(end), RVTRACE_RAMSINK_LIMITHIGH_OFF);
-> +	low = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_LIMITLOW_OFF);
-> +	high = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_LIMITHIGH_OFF);
-> +	end = (u64)(high) << 32 | low;
-> +	if (end != (priv->end - 4)) {
-> +		dev_warn(&comp->dev, "Ramsink limit address updated from %llx to %llx\n", priv->end,
-> +			 end);
-> +		priv->end = end;
-> +		priv->size = priv->end - priv->start;
-
-Actually the RamLimit read is not the real limit. It's Limit - "A" (the
-write width).
-
-> +	}
-> +
-> +	return 0;
-> +}
-
-I think overall we should simplify this setup_buf function. For RamStart
-alone, there're alignment + min_addr requirement, which is very unlikely
-that the lowest valid address happens to be within the range that dma-
-allocated in the caller (when you need to adjust priv->start). Thus, to
-do it properly, we first need to detect the min_addr + alignment *before*
-dma-alloc, and pass such requirements into dma-alloc, then depending on
-what dma-alloc returns, detect the "M" value by interrogating RamLimit.
-I'm not sure if dma-alloc can be passed a hint address that whatever
-returned must be higher, and whether it can enforce random alignment, so
-may be we can just program RamStart/Limit based on what dma-alloc gives
-and error out if value is not retained. We do however need to probe for
-write width ("A" value). It's usually 4 or 8, but it does vary per-impl,
-and remember, the total buffer size is still 1MB, not 1MB - 4 or -8.
-
-> +
-> +static int rvtrace_ramsink_setup(struct rvtrace_component *comp)
-> +{
-> +	struct device *pdev = comp->pdata->dev;
-> +	struct rvtrace_ramsink_priv *priv;
-> +
-> +	priv = devm_kzalloc(&comp->dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	dev_set_drvdata(&comp->dev, priv);
-> +
-> +	/* Derive RAM sink memory size based on component implementation ID */
-> +	switch (comp->pdata->impid) {
-> +	default:
-> +		priv->size = SZ_1M;
-> +		break;
-> +	}
-> +
-> +	priv->va = dma_alloc_coherent(pdev, priv->size, &priv->start, GFP_KERNEL);
-> +	if (!priv->va)
-> +		return -ENOMEM;
-> +
-> +	return rvtrace_ramsink_setup_buf(comp);
-> +}
-> +
-> +static void rvtrace_ramsink_cleanup(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
-> +
-> +	dma_free_coherent(&comp->dev, priv->size, priv->va, priv->start);
-> +}
-> +
-> +static int rvtrace_ramsink_probe(struct rvtrace_component *comp)
-> +{
-> +	int ret;
-> +
-> +	ret = rvtrace_ramsink_setup(comp);
-> +	if (ret)
-> +		return dev_err_probe(&comp->dev, ret, "failed to setup ramsink.\n");
-> +
-> +	ret = rvtrace_enable_component(comp);
-> +	if (ret)
-> +		return dev_err_probe(&comp->dev, ret, "failed to enable ramsink.\n");
-> +
-> +	return ret;
-> +}
-
-In probe, we should detect and set it to SMEM mode. The default is SRAM
-mode.
-
-> +
-> +static void rvtrace_ramsink_remove(struct rvtrace_component *comp)
-> +{
-> +	int ret;
-> +
-> +	ret = rvtrace_disable_component(comp);
-> +	if (ret)
-> +		dev_err(&comp->dev, "failed to disable ramsink.\n");
-> +
-> +	rvtrace_ramsink_cleanup(comp);
-> +}
-> +
-> +static struct rvtrace_component_id rvtrace_ramsink_ids[] = {
-> +	{ .type = RVTRACE_COMPONENT_TYPE_RAMSINK,
-> +	  .version = rvtrace_component_mkversion(1, 0), },
-> +	{},
-> +};
-> +
-> +static struct rvtrace_driver rvtrace_ramsink_driver = {
-> +	.id_table = rvtrace_ramsink_ids,
-> +	.copyto_auxbuf = rvtrace_ramsink_copyto_auxbuf,
-
-Should have a .start function like the encoder (setting trRamEnable),
-and reset the WP to priv->start, as suggested above.
-
-> +	.stop = rvtrace_ramsink_stop,
-> +	.probe = rvtrace_ramsink_probe,
-> +	.remove = rvtrace_ramsink_remove,
-> +	.driver = {
-> +		.name = "rvtrace-ramsink",
-> +	},
-> +};
-> +
-> +static int __init rvtrace_ramsink_init(void)
-> +{
-> +	return rvtrace_register_driver(&rvtrace_ramsink_driver);
-> +}
-> +
-> +static void __exit rvtrace_ramsink_exit(void)
-> +{
-> +	rvtrace_unregister_driver(&rvtrace_ramsink_driver);
-> +}
-> +
-> +module_init(rvtrace_ramsink_init);
-> +module_exit(rvtrace_ramsink_exit);
-> +
-> +/* Module information */
-> +MODULE_AUTHOR("Mayuresh Chitale <mchitale@ventanamicro.com>");
-> +MODULE_DESCRIPTION("RISC-V Trace Ramsink Driver");
-> +MODULE_LICENSE("GPL");
-
-Bo
 
 
 _______________________________________________
