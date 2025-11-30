@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B72FD111A8
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Nov 2025 18:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07940CFD376
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Nov 2025 22:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5AjBbhNKQf8xMc3OZVbDa0cjdmcTdayvOfSYYwBIS5w=; b=UrD+JFTGMS1md6
-	pN6v672WMYN3defYdp8gaTboET3z/CcXjrEjuv9ijptss4/UWIBG9fe1ToNJXmo/FNrz7WV0aSjZq
-	+R5EWEhNRj6XSb0xvXmBQf07IUqUoe2c8NFOF+o8IeuKpCN20JM0xurOAovErAax8zg6Kxt+Qoujc
-	Mh7qX4bwVKMRXyNFHg1JcER6vAKiyl1pHBM1qVkEuhWdiwgj8VatY6b/AWOoj3xgpJuy2GNvaihKE
-	UTwPbm4sA/sK53/VTHYaiW2XyliPBJBO8JOp+o6AFbU7GgztP/QLoE2WnQxIMr2BJiWHjOI33cwAu
-	Simbk3P3LyyVWHkq8bcw==;
+	List-Owner; bh=tsTgH3hYsgFt+0tJZYyu/iB9RXV8DPl56zf3mJAqi3Y=; b=utipK440r65hgn
+	WhbHbPZhQ7mPmE87RHNSdDfAKBU9kk6ScWxZUh0s5LTsQ9LkdEF5HfIUGG5acLFZ2Ix+fs+o2mXfp
+	QENuOIdNTo5j6eBKJLg52eYNLtnH6l2cUUTOs/d6CHIMXdCOoJkAD3Dx4en+UVQ1kkNE34/QUX+l+
+	khg55WstsbcyBYZLitV+aIc6+VRS7xkd5fMSt0JNC2SeL6sO1wkXCVPtBDzgqtORlycZguA9PUhte
+	8AbaZsKw3EkPiyEUK+98aOEfjbCwFsJtdJ8w+1wP7VcdAo0/OKVVNsqOcOUiOaMGinO60W8SvsGsE
+	w+jlW8UqwzzW2vqiuoew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPmQQ-00000002UPc-187b;
-	Sun, 30 Nov 2025 18:45:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vPpfi-00000002cBf-17gv;
+	Sun, 30 Nov 2025 22:13:34 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPmQO-00000002UPO-23Ud
+	id 1vPpfc-00000002cBL-2gVv
 	for linux-riscv@lists.infradead.org;
-	Sun, 30 Nov 2025 18:45:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9AFFC6011E;
-	Sun, 30 Nov 2025 18:45:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6A98C4CEF8;
-	Sun, 30 Nov 2025 18:45:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764528331;
-	bh=NoYwhL82OTkfqklX3Hn4HvRLgE2/r83s1+XUgC3spa0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eGx1zIH3WMjTP2AeubhRERkZ5Y4ijr5mnHxEfinBLsRh/Lscr3ET8OBr1zgHSlUQ0
-	 Gia1LFYQRTNZbCunzFOjDCHzXaP2UP1Ztazo8ppuvAAcHmTTrSebMcNXBCDlKPUmT1
-	 lE+OkZrW39Uhm5ewpf+1Be1pdRCQNTEB+9i3aTQAIgtleZJb7Qup25Wto+4OxYWYH1
-	 5GSxfx+6xgx9NrJoelHJQJg9KTkMPYGZCHcB984xcKi3aJ1UotR5nKsiGGYdPUdAws
-	 3y+3U1hAFCSC/NQh/cbYldQ3s+vc6dObt66zr9V/Te84S/2NoFhSGsvNw5ZeToBh+d
-	 TtLSAuJRaqOAw==
-Date: Sun, 30 Nov 2025 10:43:41 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Vivian Wang <wangruikang@iscas.ac.cn>,
-	Jerry Shih <jerry.shih@sifive.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Han Gao <gaohan@iscas.ac.cn>, linux-crypto@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: lib/crypto: riscv: crypto_zvkb crashes on selftest if no
- misaligned vector support
-Message-ID: <20251130184341.GB1395@sol>
-References: <b3cfcdac-0337-4db0-a611-258f2868855f@iscas.ac.cn>
- <CAMj1kXHesHJ2oFzGPewp2V=rA0-BU2Y_PffuDDhxioftOKZYHg@mail.gmail.com>
+	Sun, 30 Nov 2025 22:13:32 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251130221324euoutp0203a8e2a6ad585d6a18d442fb66a2b34a~86IM2xky71853318533euoutp02B
+	for <linux-riscv@lists.infradead.org>; Sun, 30 Nov 2025 22:13:24 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251130221324euoutp0203a8e2a6ad585d6a18d442fb66a2b34a~86IM2xky71853318533euoutp02B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1764540804;
+	bh=4OsLgv/4/Kf3LZJYEQIvCogYjuXNU2BKQiAZmiyor6o=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=PlFJiBDHJet2fbjVBhK/w57tjjMasx4JVQ1n875y6C8DJpBP5IHz2mByiTbcFMuG7
+	 VoHft7zm38qb1xgYg73L/shvH5sUqa2GDNiytR22TWwuuLPh4lGW+deaPTIqQhlFTM
+	 +dVswwHe6taKa/OTysuioyrgCftr6l1PM5QiGb9c=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251130221323eucas1p1194eb8ea8564946329033f14941c2794~86IL8XB7l2038820388eucas1p1o;
+	Sun, 30 Nov 2025 22:13:23 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20251130221321eusmtip1f3821b65e9b95e4c544d8f094b4d7175~86IKt2aHw2338123381eusmtip1d;
+	Sun, 30 Nov 2025 22:13:21 +0000 (GMT)
+Message-ID: <9394dd00-a8a2-4ffd-98bd-a4d512e80591@samsung.com>
+Date: Sun, 30 Nov 2025 23:13:21 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXHesHJ2oFzGPewp2V=rA0-BU2Y_PffuDDhxioftOKZYHg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Move pwm registration into pwm::Chip::new
+To: Markus Probst <markus.probst@posteo.de>
+Cc: linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, Drew Fustini
+	<fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Miguel Ojeda
+	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng
+	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, Benno Lossin
+	<lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl
+	<aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, Danilo Krummrich
+	<dakr@kernel.org>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20251127-pwm_safe_register-v1-1-d22d0ed068ac@posteo.de>
+X-CMS-MailID: 20251130221323eucas1p1194eb8ea8564946329033f14941c2794
+X-Msg-Generator: CA
+X-RootMTR: 20251127171512eucas1p2eded6a14bdcba1e4dbeb15cc29b7860d
+X-EPHeader: CA
+X-CMS-RootMailID: 20251127171512eucas1p2eded6a14bdcba1e4dbeb15cc29b7860d
+References: <CGME20251127171512eucas1p2eded6a14bdcba1e4dbeb15cc29b7860d@eucas1p2.samsung.com>
+	<20251127-pwm_safe_register-v1-1-d22d0ed068ac@posteo.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251130_141329_302898_CC756C39 
+X-CRM114-Status: GOOD (  34.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,75 +91,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 30, 2025 at 11:59:58AM +0100, Ard Biesheuvel wrote:
-> On Sun, 30 Nov 2025 at 10:13, Vivian Wang <wangruikang@iscas.ac.cn> wrote:
-> >
-> > Hi,
-> >
-> > We ran into a problem with chacha_zvkb, where having:
-> >
-> > - OpenSBI 1.7+ (for FWFT support)
-> > - CRYPTO_CHACHA20POLY1305=y and CRYPTO_SELFTESTS=y (and deps, of course)
-> > - Hardware with Zvkb support
-> > - Hardware *without* misaligned vector load/store support
-> >
-> > Leads to a crash on boot during selftest on a vlsseg8e32.v instruction,
-> > because it requires 4-byte alignment of the buffers.
-> >
-> > OpenSBI by default emulates vector misaligned operations, however Linux
-> > explicitly disables it with SBI FWFT while not providing vector
-> > misaligned emulation of its own.
-> >
-> > This can be reproduced by running everything in Spike without
-> > --misaligned, and is reproducible on stable 6.17.9, 6.18-rc1 and
-> > 6.18-rc7. See log at the end. Note that I had to fix chacha_zvkb
-> > somewhat to have it retain a frame pointer to get a stack trace - patch
-> > will be sent later.
-> >
-> > Setting cra_alignmask to 3 for everything in crypto/chacha.c "fixes"
-> > this, but there seems to be no obvious way to say "if use_zvkb then
-> > cra_alignmask = 3", and, not being familiar with the crypto API stuff, I
-> > can't figure out a good way to say "if riscv then cra_alignmask = 3" either.
-> >
-> > AFAICT, this problem was missed from the very start since commit
-> > bb54668837a0 ("crypto: riscv - add vector crypto accelerated ChaCha20").
-> >
-> > Please advise.
-> >
+
+Hi Markus,
+On 11/27/25 18:15, Markus Probst wrote:
+> The `pwm::Registration::register` function provides no guarantee that the
+> function isn't called twice with the same pwm chip, which is considered
+> unsafe.
 > 
-> I'd suggest to only enable this version of the code if both Zicclsm
-> and Zvkb are supported (assuming that Zicclsm is the extension that
-> would result in these misaligned accesses to be permitted).
+> Add the code responsible for the registration into `pwm::Chip::new`. The
+> registration will happen before the driver gets access to the refcounted
+> pwm chip and can therefore guarantee that the registration isn't called
+> twice on the same pwm chip.
+
+I agree that the double registration safety issue needs to be fixed.
+
+However, merging the allocation and registration steps into Chip::new
+restricts the API significantly.
+
+There is a specific reason the C API separates pwmchip_alloc and
+pwmchip_add. Drivers might need to configure the chip e.g. setting the
+atomic flag, or acquire resources that require a pointer to the chip
+(like requesting an IRQ) after allocation but before the device is
+registered and visible to the subsystem.
+
+I suggest we solve this using the Builder Pattern instead. This would
+allow us to allocate, configure, and finally register the chip in
+distinct safe steps.
+
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
+
 > 
-> Playing with the cra_alignmask is likely insufficient, because it does
-> not fix the use cases that call the library interface directly.
-
-Yes, we should make all the RISC-V vector crypto code (i.e., anything in
-lib/crypto/riscv/ and arch/riscv/crypto/ that uses vector instructions)
-be enabled only when the CPU supports fast misaligned vector accesses.
-That was the original intent, but it seems the check never actually made
-it into the code because it predated the core RISC-V support for
-detecting that capability.
-
-That support later got added by the following commit:
-
-    commit e7c9d66e313bc0f7cb185c4972c3c9383a0da70f
-    Author: Jesse Taube <jesse@rivosinc.com>
-    Date:   Thu Oct 17 12:00:22 2024 -0700
-
-        RISC-V: Report vector unaligned access speed hwprobe
-
-Note that Zicclsm is supposedly not the correct thing to check.  See
-https://lore.kernel.org/linux-riscv/20231122-displace-reformat-9ca68c3dc66c@spud/
-
-It looks like all the RISC-V crypto code needs to check for
-this_cpu_read(vector_misaligned_access) ==
-RISCV_HWPROBE_MISALIGNED_VECTOR_FAST.
-But it may be in need of a helper function.
-
-Any volunteers?  Again, many files need this, not just the ChaCha code.
-
-- Eric
+> Signed-off-by: Markus Probst <markus.probst@posteo.de>
+> ---
+> This patch provides the additional guarantee that the pwm chip doesn't
+> get registered twice.
+> 
+> The following changes were made:
+> - change the visibility of `pwm::Registration` to private
+> - remove the `pwm::Registration::register` function
+> - add code for registering the pwm chip in `pwm::Chip::new`
+> - add Send + Sync bounds to `PwmOps`
+> 
+> Note that I wasn't able to test this patch, due to the lack of hardware.
+> ---
+>  drivers/pwm/pwm_th1520.rs |  4 +---
+>  rust/kernel/pwm.rs        | 53 ++++++++++++++++++-----------------------------
+>  2 files changed, 21 insertions(+), 36 deletions(-)
+> 
+> diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+> index 955c359b07fb..1919b5a1f69e 100644
+> --- a/drivers/pwm/pwm_th1520.rs
+> +++ b/drivers/pwm/pwm_th1520.rs
+> @@ -363,7 +363,7 @@ fn probe(
+>              return Err(EINVAL);
+>          }
+>  
+> -        let chip = pwm::Chip::new(
+> +        pwm::Chip::new(
+>              dev,
+>              TH1520_MAX_PWM_NUM,
+>              try_pin_init!(Th1520PwmDriverData {
+> @@ -372,8 +372,6 @@ fn probe(
+>              }),
+>          )?;
+>  
+> -        pwm::Registration::register(dev, chip)?;
+> -
+>          Ok(KBox::new(Th1520PwmPlatformDriver, GFP_KERNEL)?.into())
+>      }
+>  }
+> diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
+> index cb00f8a8765c..c5d03ee8bc95 100644
+> --- a/rust/kernel/pwm.rs
+> +++ b/rust/kernel/pwm.rs
+> @@ -173,7 +173,7 @@ pub struct RoundedWaveform<WfHw> {
+>  }
+>  
+>  /// Trait defining the operations for a PWM driver.
+> -pub trait PwmOps: 'static + Sized {
+> +pub trait PwmOps: 'static + Send + Sync + Sized {
+>      /// The driver-specific hardware representation of a waveform.
+>      ///
+>      /// This type must be [`Copy`], [`Default`], and fit within `PWM_WFHWSIZE`.
+> @@ -585,7 +585,7 @@ unsafe fn bound_parent_device(&self) -> &device::Device<Bound> {
+>      /// Returns an [`ARef<Chip>`] managing the chip's lifetime via refcounting
+>      /// on its embedded `struct device`.
+>      pub fn new(
+> -        parent_dev: &device::Device,
+> +        parent_dev: &device::Device<Bound>,
+>          num_channels: u32,
+>          data: impl pin_init::PinInit<T, Error>,
+>      ) -> Result<ARef<Self>> {
+> @@ -623,7 +623,21 @@ pub fn new(
+>          // SAFETY: `chip_ptr_as_self` points to a valid `Chip` (layout-compatible with
+>          // `bindings::pwm_chip`) whose embedded device has refcount 1.
+>          // `ARef::from_raw` takes this pointer and manages it via `AlwaysRefCounted`.
+> -        Ok(unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) })
+> +        let chip = unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) };
+> +
+> +        // SAFETY: `c_chip_ptr` points to a valid chip with its ops initialized.
+> +        // `__pwmchip_add` is the C function to register the chip with the PWM core.
+> +        unsafe {
+> +            to_result(bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()))?;
+> +        }
+> +
+> +        let registration = Registration {
+> +            chip: ARef::clone(&chip),
+> +        };
+> +
+> +        devres::register(parent_dev, registration, GFP_KERNEL)?;
+> +
+> +        Ok(chip)
+>      }
+>  }
+>  
+> @@ -654,50 +668,23 @@ unsafe fn dec_ref(obj: NonNull<Chip<T>>) {
+>  // structure's state is managed and synchronized by the kernel's device model
+>  // and PWM core locking mechanisms. Therefore, it is safe to move the `Chip`
+>  // wrapper (and the pointer it contains) across threads.
+> -unsafe impl<T: PwmOps + Send> Send for Chip<T> {}
+> +unsafe impl<T: PwmOps> Send for Chip<T> {}
+>  
+>  // SAFETY: It is safe for multiple threads to have shared access (`&Chip`) because
+>  // the `Chip` data is immutable from the Rust side without holding the appropriate
+>  // kernel locks, which the C core is responsible for. Any interior mutability is
+>  // handled and synchronized by the C kernel code.
+> -unsafe impl<T: PwmOps + Sync> Sync for Chip<T> {}
+> +unsafe impl<T: PwmOps> Sync for Chip<T> {}
+>  
+>  /// A resource guard that ensures `pwmchip_remove` is called on drop.
+>  ///
+>  /// This struct is intended to be managed by the `devres` framework by transferring its ownership
+>  /// via [`devres::register`]. This ties the lifetime of the PWM chip registration
+>  /// to the lifetime of the underlying device.
+> -pub struct Registration<T: PwmOps> {
+> +struct Registration<T: PwmOps> {
+>      chip: ARef<Chip<T>>,
+>  }
+>  
+> -impl<T: 'static + PwmOps + Send + Sync> Registration<T> {
+> -    /// Registers a PWM chip with the PWM subsystem.
+> -    ///
+> -    /// Transfers its ownership to the `devres` framework, which ties its lifetime
+> -    /// to the parent device.
+> -    /// On unbind of the parent device, the `devres` entry will be dropped, automatically
+> -    /// calling `pwmchip_remove`. This function should be called from the driver's `probe`.
+> -    pub fn register(dev: &device::Device<Bound>, chip: ARef<Chip<T>>) -> Result {
+> -        let chip_parent = chip.device().parent().ok_or(EINVAL)?;
+> -        if dev.as_raw() != chip_parent.as_raw() {
+> -            return Err(EINVAL);
+> -        }
+> -
+> -        let c_chip_ptr = chip.as_raw();
+> -
+> -        // SAFETY: `c_chip_ptr` points to a valid chip with its ops initialized.
+> -        // `__pwmchip_add` is the C function to register the chip with the PWM core.
+> -        unsafe {
+> -            to_result(bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()))?;
+> -        }
+> -
+> -        let registration = Registration { chip };
+> -
+> -        devres::register(dev, registration, GFP_KERNEL)
+> -    }
+> -}
+> -
+>  impl<T: PwmOps> Drop for Registration<T> {
+>      fn drop(&mut self) {
+>          let chip_raw = self.chip.as_raw();
+> 
+> ---
+> base-commit: fae00ea9f00367771003ace78f29549dead58fc7
+> change-id: 20251127-pwm_safe_register-e49b0a261101
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
