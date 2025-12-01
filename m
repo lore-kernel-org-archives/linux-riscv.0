@@ -4,84 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EB7D116F1
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Dec 2025 10:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E02A7D116F1
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Dec 2025 10:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=87+eH8hrd1StCv+FdDmt8PnD00qx9PE2YWsostra3Jg=; b=yj1NUeolUKDilpUE6gxTgVieFp
-	ii7/PpuFJroWbwyMt5JrDffUeEQNwJCZubum9+wji8p/Q1Ub6M++XbyCs+6joqfeodToAixG9mVAU
-	kHKgsJQ+PgUTN2uYpEdfVnJiHkLvTSowbg7MYrfyfoA6WjRu5BKjr5uDj8eSfTW/JqDWypWvmvl8S
-	k5XX6okYspTToj253WOfi71f3QJNAE4Z3EGw+8vGPg98ZG6BGnUx2r6rr3ZowV1R4emIDso8gwnS1
-	fPTGLlCNJqfhaSLhMPki+AXuIGr1BoLGYOpRSDxfvQx4riYlbso+HeBG2ThiUfuK8Dj8eFO3X+1r1
-	6+fVwjjA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pWmszHLVynLfSHcrTpI0CuZMzYhITJQ/wYCUITLLsTk=; b=DxkYthS0ezD6ie
+	qVsYCJxeAP5kd+WKthivIBA3D8i43UzgrgmSLHKiX8qHI/7y1eMv77gICh5MsGONVXNVL22wLcZMi
+	X1Hqe5QhyA8ZGGbNaxUF01VG+gs4kA1/EcbYKjou2Buj+8PfPVujgpaPhkdIXQjAZtSxtPNB2uZ4f
+	dxTwFJrQeEY9qZf7S904fvoFVevYsADl4hNyFsgn3ZfaR6wvW3a3XxBta2w3b+Taj3xFYmBTGNRSo
+	EEL7Nnegrooo++7oNUsJN3XzFush0KKSjtQGXxN/WI/PAtxu3isH0yMXgwIF+y4I2Xo4ECz9ysaD9
+	oTfVsGGPq4vasDe/QTpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0o8-00000003HTF-18Gu;
-	Mon, 01 Dec 2025 10:07:01 +0000
-Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	id 1vQ1W0-00000003NHG-07J1;
+	Mon, 01 Dec 2025 10:52:20 +0000
+Received: from mx-relay19-hz1.antispameurope.com ([94.100.132.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0o3-00000003HNt-1Gx7
+	id 1vQ1Vv-00000003NDz-3eHW
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Dec 2025 10:06:59 +0000
-Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-64097bef0e2so5637710a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Dec 2025 02:06:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764583613; x=1765188413; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=y78SsuGizE+1e9Q4bskrWLC1Ufu93jXaYzNMiAyIc9M=;
-        b=Wp/UCWw5M74ZzBmE0px5IxfpfH3WWYhi114sbIvHR85OhFx5/vswcOk1usGhxZci1d
-         etOija1/WV0vmWW/xpZwSnj+8vy+/HeAu+0yPKgTlpchHeKKuOLHKVA4idMAGjpkg345
-         CoMY5GIWf3I+T9coMoSczONwlU9t3XH5gV3xYGqnovAYcHOzrKWk6B+xeW2FnWeynMIP
-         ztA8cipdJQks01+mzAo+gbGQ2Z5iizstMjKrQ4iGL8mGVxB47m653asde03ZYNF7IBYC
-         1dBJb6kilL+V4gIXbR6UNpbm9EYnRfTsZWtefqKXXE9mZWvzidhM3HlM0Tg1kHz4ZwFX
-         Pm+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764583613; x=1765188413;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=y78SsuGizE+1e9Q4bskrWLC1Ufu93jXaYzNMiAyIc9M=;
-        b=jGdwOBXA33Q2VIR525KhlfxizS928s9z0GPVNdVOxsj7w5w7FljiB8rEQSYq4nfIkJ
-         qFqzN2Tsq5KoZjnSASIyqivtM1ybV+K8wQ3t0Z6ARzARzMuYEGRMS/6xFessC6WjQ1wa
-         lLTi+zDSc/AEPk5+sTfd4oNFMvti+04CrBwPzFdyhOXGRAQN9PnzElz88CRDXp+Pq2Ve
-         U+DU7yonSXS1CXgLII/glr1R28sln8NsJIMHpA1vwvQ8myGGeEP1Chp1tlc1Jp3efIYc
-         djobC1C19aYN1Xotkmhhmo2uI1CTgAJTd5kydWrizF8tnLPU8m7ekwYi84tKcchGqNjS
-         BNEw==
-X-Forwarded-Encrypted: i=1; AJvYcCXJgzT0kaUFFzc84zpz/MGwQgS6kWBZwgxQdh/hNaOEon8vRh/P1euDHbWp8ag50kkrQy9C0nnOKdcFtg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCBEPvgwK1xpKu923ixmPchf9FKwBjJrHaf06ln6GkaaQeMiuV
-	WDXKyQK6JHHbyAP9iw4GuiK12f4yHxb4J8WCU10LUouBQz2pznxcO1TZdu4AS5PUfpRJa7zOX4G
-	hJhhNUe4MOYOv3glhUA==
-X-Google-Smtp-Source: AGHT+IF7Nf4tyLidMi826QBnaIkv9+KTWKCNs4nqjEi7MZMGKXpqsVJ18dJbqgVsjR384JG+Wx64Hagz7SnILms=
-X-Received: from edc24.prod.google.com ([2002:a05:6402:4618:b0:641:8d26:68db])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:5247:b0:640:74f5:d9f6 with SMTP id 4fb4d7f45d1cf-64555ce8d37mr32130609a12.25.1764583612724;
- Mon, 01 Dec 2025 02:06:52 -0800 (PST)
-Date: Mon, 1 Dec 2025 10:06:51 +0000
-In-Reply-To: <8711d40496e0e12e3efcd7fd9e11bdea6de68c6d.camel@posteo.de>
-Mime-Version: 1.0
-References: <20251127-pwm_safe_register-v1-1-d22d0ed068ac@posteo.de>
- <aSlrVLT92kmazgyh@google.com> <8711d40496e0e12e3efcd7fd9e11bdea6de68c6d.camel@posteo.de>
-Message-ID: <aS1ouzXP5U5kSNJu@google.com>
-Subject: Re: [PATCH] Move pwm registration into pwm::Chip::new
-From: Alice Ryhl <aliceryhl@google.com>
-To: Markus Probst <markus.probst@posteo.de>
-Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	"Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=" <ukleinek@kernel.org>, Michal Wilczynski <m.wilczynski@samsung.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	"=?utf-8?B?QmrDtnJu?= Roy Baron" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org
+	Mon, 01 Dec 2025 10:52:18 +0000
+ARC-Authentication-Results: i=1; mx-gate19-hz1.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=K96yAKM+xcrHhzOcR0zBqIliZQSixR1YCX/rN6x1xxY=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1764586325;
+ b=WvbzFGHeAOiuDtdqKd/kLqzS4JatPjayrfxJ8I5WsH8ILvmg9X0wHsRsBqxYaY/x2ZZ0Xqo5
+ faS/b62caEkt8QZ3sDWiNgCi7PFQ7gseLbzgm6qmum/aHFQC5iirFEapzZPNgzbIvt+R/HEPiWY
+ YMi81wzvekxMouzibDJ+VL8iMF+U2wONHYrx3Cn6V6iGUo32zxCzqgJtG8auA5tHbFAPYIPRiQI
+ GKB2ABSvYg5XLB7u0Fy8+hMt7d5Tk0xIgUybZ++U8IFtRlcTWQOmGc/Y1zg1zxP+xNKF0Dn5obQ
+ gG6jOL9L5CdJjozkDa+/sCNmoGT1Woan123Jujp3Kp7PQ==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1764586325;
+ b=ih4x19gBhVJN88ETA/lCsEbh7ryzLk/2APe5Y7BsKGHRRfRE0ZErSdAeblNHuvxyG/Cp7ZSQ
+ Nmt8BrcVKbwlkBOa+a5Ce/L8FuuQs4iWn2Nj3j+40DEbSe3MCMutxCjeJ0Wcekj3AHCL2nCx49i
+ wVnr2x9I7XItfEN3EZhTCLG6olC914TNTF1nn/UawmuCKNuiCrYyzrYbn8xv35piOgHrIiQT+tV
+ /3fQoj2u6on/lUuaY6B2LVqVC26/fhN3DnyEvx6Vh+9l4KrdUERbSJoiJ9kqvQn2Z0BzTOjqPs9
+ A6NwJvULqA4M6I/e1lCXBTOE2N5hsIe4Tp3EqnRpTt/Qw==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay19-hz1.antispameurope.com;
+ Mon, 01 Dec 2025 11:52:05 +0100
+Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id AA9ADCC0DC2;
+	Mon,  1 Dec 2025 11:51:52 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [RFC PATCH 0/3] ls-extirq platform device conversion
+Date: Mon,  1 Dec 2025 11:51:39 +0100
+Message-ID: <20251201105144.539450-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-riscv@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay19-hz1.antispameurope.com with 4dKgh927gRz3DJLr
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 690fad471cfd5f66c6a94f5d6552821d
+X-cloud-security: scantime:1.904
+DKIM-Signature: a=rsa-sha256;
+ bh=K96yAKM+xcrHhzOcR0zBqIliZQSixR1YCX/rN6x1xxY=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1764586325; v=1;
+ b=RAJwL1wGRxY2DhbXp4sw/YDwr2dwjK25A0QNyjVLDQz0VU88LroUiJhn3BS0g1JjKtJ+wsCp
+ nguzYHJCgnsoEjs79F4gtuQHkGap5G5vqVfpgKgWYSfcZcBficr07okQH2mdNZC1f75LAvGQ1Ln
+ mNKHXUQS4LM47H7WQKTKKAVj31u2DYjTTY7E02N6MHqBKdQCRbGqUZc0xU7nrCp5CWCS2NPDJtS
+ uRe5//iZ5g3yfOeMexIu8Ua0BXDHchn2z1ZOXPkvN9u0ewIaT3IRz0mp0ijW/0/Efj4B97A0bzX
+ 6zlvgpOI2rqfalxtRej+WDvNttk97qAp0gXHVczjoVAEA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_020655_364923_A4D1ABE2 
-X-CRM114-Status: GOOD (  27.53  )
+X-CRM114-CacheID: sfid-20251201_025216_057647_F0374771 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,62 +111,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 12:25:04PM +0000, Markus Probst wrote:
-> On Fri, 2025-11-28 at 09:28 +0000, Alice Ryhl wrote:
-> > On Thu, Nov 27, 2025 at 05:15:06PM +0000, Markus Probst wrote:
-> > > The `pwm::Registration::register` function provides no guarantee that the
-> > > function isn't called twice with the same pwm chip, which is considered
-> > > unsafe.
-> > > 
-> > > Add the code responsible for the registration into `pwm::Chip::new`. The
-> > > registration will happen before the driver gets access to the refcounted
-> > > pwm chip and can therefore guarantee that the registration isn't called
-> > > twice on the same pwm chip.
-> > > 
-> > > Signed-off-by: Markus Probst <markus.probst@posteo.de>
-> > > ---
-> > > This patch provides the additional guarantee that the pwm chip doesn't
-> > > get registered twice.
-> > > 
-> > > The following changes were made:
-> > > - change the visibility of `pwm::Registration` to private
-> > > - remove the `pwm::Registration::register` function
-> > > - add code for registering the pwm chip in `pwm::Chip::new`
-> > > - add Send + Sync bounds to `PwmOps`
-> > > 
-> > > Note that I wasn't able to test this patch, due to the lack of hardware.
-> > 
-> > Overall looks reasonable, but I have one question:
-> > 
-> > > @@ -654,50 +668,23 @@ unsafe fn dec_ref(obj: NonNull<Chip<T>>) {
-> > >  // structure's state is managed and synchronized by the kernel's device model
-> > >  // and PWM core locking mechanisms. Therefore, it is safe to move the `Chip`
-> > >  // wrapper (and the pointer it contains) across threads.
-> > > -unsafe impl<T: PwmOps + Send> Send for Chip<T> {}
-> > > +unsafe impl<T: PwmOps> Send for Chip<T> {}
-> > >  
-> > >  // SAFETY: It is safe for multiple threads to have shared access (`&Chip`) because
-> > >  // the `Chip` data is immutable from the Rust side without holding the appropriate
-> > >  // kernel locks, which the C core is responsible for. Any interior mutability is
-> > >  // handled and synchronized by the C kernel code.
-> > > -unsafe impl<T: PwmOps + Sync> Sync for Chip<T> {}
-> > > +unsafe impl<T: PwmOps> Sync for Chip<T> {}
-> > 
-> > Why was this changed?
-> 
-> Registration::register required PwmOps to be Send + Sync.
-> Prior to this change, Chip::new didn't require it for PwmOps. Meaning
-> it was possible to allocate a new Chip with a PwmOps that is not Send +
-> Sync. As there was no use for it and it isn't possible anymore to
-> allocate a new Chip without registering it, I added Send + Sync as
-> trait dependency (see 1. hunk of rust/kernel/pwm.rs in the patch).
-> 
-> Because PwmOps now implied Send + Sync, it wasn't necessary anymore to
-> have the additional bounds there.
+Hi,
 
-Ah ok, I missed that. That's fine then.
+this RFC tried to address the problem that sometimes at time of probing the
+parent IRQ domain is not yet ready. This results in the error message:
+> irq-ls-extirq: Cannot find parent domain
+> OF: of_irq_init: Failed to init /soc/syscon@1f70000/interrupt-controller@14
+>  ((____ptrval____)), parent 0000000000000000
 
-Alice
+Probe deferral is only possible having a platform device so the driver is
+converted accordingly. It is inspired by commit 8ec99b033147e
+("irqchip/sifive-plic: Convert PLIC driver into a platform driver").
+
+Because the interrupt-controller@1f70014 is a child of a syscon node, it is
+not probed after platform device conversion. So it has to be moved outside.
+This DT change has to be done for all layerscape SoC .dtsi
+This is an incompatible change and I don't really know how to address that for
+now. I've done it for LS1088A as a proof-of-concept for now.
+
+Comments if this is the way to go or a different approach is more suitable
+are very much welcome.
+
+Best regards,
+Alexander
+
+Alexander Stein (3):
+  irqchip/ls-extirq: Convert to platform driver
+  irqchip/ls-extirq: Use managed resources
+  arm64: dts: ls1088a: Move extirq outside of syscon
+
+ .../arm64/boot/dts/freescale/fsl-ls1088a.dtsi | 42 +++++------
+ drivers/irqchip/irq-ls-extirq.c               | 75 +++++++++----------
+ 2 files changed, 56 insertions(+), 61 deletions(-)
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
