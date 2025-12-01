@@ -4,86 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D9AED116F3
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Dec 2025 14:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8064ED116F3
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Dec 2025 14:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DAR3qqNjss4YkCWQ7JWKm3G6KMxOndlEd2XLeRiUSaA=; b=p9tbKeIf69sEoq
-	7hxt6aS8T4qh9/Xocps4W3Kr+YswCadf+2c2JPEaa5/K2EdNFxI2iURnD5I8u/rAd1MAJo0rIfGav
-	+gc2UInjANdpqmx8GlYWskkceab9QqYOKTkcIqKDXBlMIC8AYSV2zv4tQi6tomzXGcUarNfmCNxgk
-	CQZTpamgp69fyL9JPgkdAnqF770iHH+g9oh7sgTO6wpI4PZF6UM7g5ylw+t34gW8/fOZ7tUsYIWG9
-	DxRsCgaFSllHPjpIyNuhAgIPIBJBDn2m3G8w5/1vF6gvP8pvmcq2e8Bb1YcKJtZ00SVo7OZG4G9j8
-	6uzwfXyqmiEN0besVJtw==;
+	List-Owner; bh=uoLUFcCQKPmV8pYr6uGavITs+Ce35MJjWhOFMLbE7Cg=; b=mAaRz0MmGU/aLE
+	G6smqKK8QvexYlHmm+qxO1U10fu+YhmqPEkO30tdWuJ2YzI0HvSNRWUbq4WL3RSAkyhjmH/6wnhIw
+	Fo5rjVSaTiYc9jwdXmAdNlPFDnH4n/UlgjBxPUhXP92vJpffDHx79DlpcYE7VoBALLfi3ofuDcglj
+	WFWv8Dc0zPSxwQVuL0X/aRKeHIpPMf3IF594uNJFg2R8t9FVz1gIXFzTswzhC6JivnhyFWUI3xNEa
+	bHVUV+ngF4tfV9S/nvXuWz+1arh58rL5TjSi5ioZReqC27gbynuGS5FwwBqZnuRJGcBLwILbsZH3y
+	zZUhr8raXx9MfI2aw34Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ4f1-0000000449L-26YX;
-	Mon, 01 Dec 2025 14:13:51 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1vQ4jk-000000044ra-3uON;
+	Mon, 01 Dec 2025 14:18:44 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ4ey-0000000446m-21tl;
-	Mon, 01 Dec 2025 14:13:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version:
-	Content-Type; bh=4jcweNi6psPpjlZDmC6qZ/Q4mO7N38WsRkszImaw/p0=;
-	b=fLHGQTB2wwpyAu5ym/trd8UA27IhVG8yhhJGQFFZO+C46/FSaJA398a3OGiE8y
-	oFIgx/AYYq+CfIXUNiV56NthlUeuQ5u/Rzhktg0uOuS5P0rXaxxtf2RRu0oaXWnC
-	dhNBE1cSq399PRWZNKq/vhKcLL4cdIKcBq8vAySanWS1Q=
-Received: from emily-VMware-Virtual-Platform.. (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgC3Ha9Qoi1p2MM7GA--.20690S2;
-	Mon, 01 Dec 2025 22:12:34 +0800 (CST)
-From: huyuye <huyuye812@163.com>
-To: sunilvl@ventanamicro.com
-Cc: ajones@ventanamicro.com,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atishp@rivosinc.com,
-	bhelgaas@google.com,
-	catalin.marinas@arm.com,
-	conor.dooley@microchip.com,
-	dfustini@tenstorrent.com,
-	haibo1.xu@intel.com,
-	lenb@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	rafael@kernel.org,
-	robert.moore@intel.com,
-	samuel.holland@sifive.com,
-	tglx@linutronix.de,
-	will@kernel.org,
-	dai.hualiang@zte.com.cn,
-	deng.weixian@zte.com.cn,
-	guo.chang2@zte.com.cn,
-	liu.qingtao2@zte.com.cn,
-	wu.jiabao@zte.com.cn,
-	lin.yongchun@zte.com.cn,
-	hu.yuye@zte.com.cn,
-	zhang.longxiang@zte.com.cn,
-	huyuye <huyuye812@163.com>
-Subject: Re:[PATCH v7 08/17] ACPI: pci_link: Clear the dependencies after probe
-Date: Mon,  1 Dec 2025 22:12:29 +0800
-Message-ID: <20251201141230.12656-1-huyuye812@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240729142241.733357-9-sunilvl@ventanamicro.com>
-References: <20240729142241.733357-9-sunilvl@ventanamicro.com>
+	id 1vQ4jh-000000044qp-2tV9
+	for linux-riscv@lists.infradead.org;
+	Mon, 01 Dec 2025 14:18:43 +0000
+Date: Mon, 1 Dec 2025 22:17:40 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1764598694;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZfA8A/DpOfcKGNnl3CUwcM7Rf2gaT/hhoAOsm0Fd8DY=;
+	b=gg4VSefjcdreHywji05j6Z+Tm3nLxDrWzQGC+NcXuAsW0l/zNZNTeUZ/tx0gcQu3iMpHUu
+	4dpTmA2lwIGnTLw7mXuwrMQM7X87/f8LwGjCNkuU8UHLLogxyQDieHuurXphH+rojU0K2u
+	GtUD2sZgEbAyfAYMQ4JjF/jQ0l0c/qE=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Ze Huang <huang.ze@linux.dev>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Ze Huang <huang.ze@linux.dev>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Ze Huang <huangze@whut.edu.cn>
+Subject: Re: [PATCH v6 2/2] phy: spacemit: support K1 USB2.0 PHY controller
+Message-ID: <aS2jhKiZ7Iuochvs@diana-arch>
+References: <20251017-k1-usb2phy-v6-0-7cf9ea2477a1@linux.dev>
+ <20251017-k1-usb2phy-v6-2-7cf9ea2477a1@linux.dev>
 MIME-Version: 1.0
-X-CM-TRANSID: PigvCgC3Ha9Qoi1p2MM7GA--.20690S2
-X-Coremail-Antispam: 1Uf129KBjvdXoW7JF4DWr1ruFy8AFWkArykGrg_yoWfuwc_Kr
-	1kAFyDZw4fK3W7tFy3GFykJFW3K3yagr9xGayIq392kw43Zan8Cws29r4Iyr45CFWxGrn0
-	kr13Zw47K34a9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7VUjVOptUUUUU==
-X-Originating-IP: [111.30.199.151]
-X-CM-SenderInfo: 5kx135bhyrjqqrwthudrp/1tbioBkXCGktloy9jAADsK
+Content-Disposition: inline
+In-Reply-To: <20251017-k1-usb2phy-v6-2-7cf9ea2477a1@linux.dev>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_061348_854922_CDAB4C22 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251201_061842_187671_BA860861 
+X-CRM114-Status: GOOD (  34.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,28 +70,303 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PiBIaSwgc3VuaWx2bAoKPiBCYXNlZCBvbiB0aGUgYWJvdmUgcGF0Y2gsIEkgdW5kZXJzdGFuZCB0
-aGF0IHlvdSBwcmV2aW91c2x5ID5yZXNvbHZlZCBkZXBlbmRlbmNpZXMgYmV0d2VlbiBMaW5rIGRl
-dmljZXMgYW5kIFBDSSBIb3N0IEJyaWRnZXMgYnkgPmNhbGxpbmcgYWNwaV9kZXZfY2xlYXJfZGVw
-ZW5kZW5jaWVzKGRldmljZSkuIEkgd291bGQgbGlrZSB0byBhc2s6ID5vbiBSSVND4oCRViBwbGF0
-Zm9ybXMsIGlmIHdlIG5lZWQgdG8gbWFuYWdlIGRlcGVuZGVuY2llcyBiZXR3ZWVuID5tdWx0aXBs
-ZSBQQ0kgSG9zdCBCcmlkZ2VzLCBjb3VsZCB0aGlzIGJlIGFkZHJlc3NlZCBieSBhZGRpbmcgYSA+
-Y2FsbCB0byBhY3BpX2Rldl9jbGVhcl9kZXBlbmRlbmNpZXMoZGV2aWNlKSBhdCB0aGUgZW5kIG9m
-IHRoZSA+YWNwaV9wY2lfcm9vdF9hZGQgZW51bWVyYXRpb24gZnVuY3Rpb24/Cgo+IEluaXRpYWxp
-emF0aW9uIG9yZGVyIGRlcGVuZGVuY2llcyBjYW4gYmUgZGVmaW5lZCB2aWEgdGhlIEFDUEkgPl9E
-RVAgbWV0aG9kIGluIHRoZSBEU0RULiBGb3IgZXhhbXBsZSwgaWYgaG9zdCBicmlkZ2UgQiBkZXBl
-bmRzIG9uID5ob3N0IGJyaWRnZSBBLCBicmlkZ2UgQiBzaG91bGQgbm90IGJlIGVudW1lcmF0ZWQg
-dW50aWwgYnJpZGdlIEEgaXMgPmZ1bGx5IGluaXRpYWxpemVkLgoKPiBZZXMsIHRoYXQgc2hvdWxk
-IHdvcmsuCj4gUmVnYXJkcywKPiBTdW5pbAoKSGksU3VuaWwKCkknbSB0cnVseSBob25vcmVkIGJ5
-IHlvdXIgYWZmaXJtYXRpb24gb2YgbXkgYW5zd2VyLkRvIHlvdSB0aGluayB0aGlzIHNvbHV0aW9u
-IGhhcyBhIGNoYW5jZSBvZiBiZWluZyBhY2NlcHRlZCBpbnRvIHRoZSB1cHN0cmVhbSBrZXJuZWw/
-IEFyZSB0aGVyZSBhbnkgdW5pbnRlbmRlZCBzaWRlIGVmZmVjdHMgd2UgbWF5IGhhdmUgb3Zlcmxv
-b2tlZD8KClJlZ2FyZHMsCll1eWUKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Fri, Oct 17, 2025 at 10:49:53PM +0800, Ze Huang wrote:
+> The SpacemiT K1 SoC includes three USB ports:
+> 
+> - One USB2.0 OTG port
+> - One USB2.0 host-only port
+> - One USB3.0 port with an integrated USB2.0 DRD interface
+> 
+> Each of these ports is connected to a USB2.0 PHY responsible for USB2
+> transmission.
+> 
+> This commit adds support for the SpacemiT K1 USB2.0 PHY, which is
+> compliant with the USB 2.0 specification and supports both 8-bit 60MHz
+> and 16-bit 30MHz parallel interfaces.
+> 
+
+Gentle ping
+
+This patch still needs review. Any feedback to help move it forward would
+be appreciated!
+
+> Signed-off-by: Ze Huang <huang.ze@linux.dev>
+> ---
+>  drivers/phy/Kconfig                |   1 +
+>  drivers/phy/Makefile               |   1 +
+>  drivers/phy/spacemit/Kconfig       |  13 +++
+>  drivers/phy/spacemit/Makefile      |   2 +
+>  drivers/phy/spacemit/phy-k1-usb2.c | 200 +++++++++++++++++++++++++++++++++++++
+>  5 files changed, 217 insertions(+)
+> 
+> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+> index 1984c2e56122..95ee47f0fbc7 100644
+> --- a/drivers/phy/Kconfig
+> +++ b/drivers/phy/Kconfig
+> @@ -134,6 +134,7 @@ source "drivers/phy/rockchip/Kconfig"
+>  source "drivers/phy/samsung/Kconfig"
+>  source "drivers/phy/socionext/Kconfig"
+>  source "drivers/phy/sophgo/Kconfig"
+> +source "drivers/phy/spacemit/Kconfig"
+>  source "drivers/phy/st/Kconfig"
+>  source "drivers/phy/starfive/Kconfig"
+>  source "drivers/phy/sunplus/Kconfig"
+> diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
+> index a206133a3515..950dd4f14372 100644
+> --- a/drivers/phy/Makefile
+> +++ b/drivers/phy/Makefile
+> @@ -37,6 +37,7 @@ obj-y					+= allwinner/	\
+>  					   samsung/	\
+>  					   socionext/	\
+>  					   sophgo/	\
+> +					   spacemit/	\
+>  					   st/		\
+>  					   starfive/	\
+>  					   sunplus/	\
+> diff --git a/drivers/phy/spacemit/Kconfig b/drivers/phy/spacemit/Kconfig
+> new file mode 100644
+> index 000000000000..0136aee2e8a2
+> --- /dev/null
+> +++ b/drivers/phy/spacemit/Kconfig
+> @@ -0,0 +1,13 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# Phy drivers for SpacemiT platforms
+> +#
+> +config PHY_SPACEMIT_K1_USB2
+> +	tristate "SpacemiT K1 USB 2.0 PHY support"
+> +	depends on (ARCH_SPACEMIT || COMPILE_TEST) && OF
+> +	depends on COMMON_CLK
+> +	depends on USB_COMMON
+> +	select GENERIC_PHY
+> +	help
+> +	  Enable this to support K1 USB 2.0 PHY driver. This driver takes care of
+> +	  enabling and clock setup and will be used by K1 udc/ehci/otg/xhci driver.
+> diff --git a/drivers/phy/spacemit/Makefile b/drivers/phy/spacemit/Makefile
+> new file mode 100644
+> index 000000000000..fec0b425a948
+> --- /dev/null
+> +++ b/drivers/phy/spacemit/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +obj-$(CONFIG_PHY_SPACEMIT_K1_USB2)		+= phy-k1-usb2.o
+> diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
+> new file mode 100644
+> index 000000000000..342061380012
+> --- /dev/null
+> +++ b/drivers/phy/spacemit/phy-k1-usb2.c
+> @@ -0,0 +1,200 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * SpacemiT K1 USB 2.0 PHY driver
+> + *
+> + * Copyright (C) 2025 SpacemiT (Hangzhou) Technology Co. Ltd
+> + * Copyright (C) 2025 Ze Huang <huang.ze@linux.dev>
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/usb/of.h>
+> +
+> +#define PHY_RST_MODE_CTRL		0x04
+> +#define  PHY_PLL_RDY			BIT(0)
+> +#define  PHY_CLK_CDR_EN			BIT(1)
+> +#define  PHY_CLK_PLL_EN			BIT(2)
+> +#define  PHY_CLK_MAC_EN			BIT(3)
+> +#define  PHY_MAC_RSTN			BIT(5)
+> +#define  PHY_CDR_RSTN			BIT(6)
+> +#define  PHY_PLL_RSTN			BIT(7)
+> +/*
+> + * hs line state sel (Bit 13):
+> + * - 1 (Default): Internal HS line state is set to 01 when usb_hs_tx_en is valid.
+> + * - 0: Internal HS line state is always driven by usb_hs_lstate.
+> + *
+> + * fs line state sel (Bit 14):
+> + * - 1 (Default): FS line state is determined by the output data
+> + * (usb_fs_datain/b).
+> + * - 0: FS line state is always determined by the input data (dmo/dpo).
+> + */
+> +#define  PHY_HS_LINE_TX_MODE		BIT(13)
+> +#define  PHY_FS_LINE_TX_MODE		BIT(14)
+> +
+> +#define  PHY_INIT_MODE_BITS		(PHY_FS_LINE_TX_MODE | PHY_HS_LINE_TX_MODE)
+> +#define  PHY_CLK_ENABLE_BITS		(PHY_CLK_PLL_EN | PHY_CLK_CDR_EN | \
+> +					 PHY_CLK_MAC_EN)
+> +#define  PHY_DEASSERT_RST_BITS		(PHY_PLL_RSTN | PHY_CDR_RSTN | \
+> +					 PHY_MAC_RSTN)
+> +
+> +#define PHY_TX_HOST_CTRL		0x10
+> +#define  PHY_HST_DISC_AUTO_CLR		BIT(2)		/* autoclear hs host disc when re-connect */
+> +
+> +#define PHY_HSTXP_HW_CTRL		0x34
+> +#define  PHY_HSTXP_RSTN			BIT(2)		/* generate reset for clock hstxp */
+> +#define  PHY_CLK_HSTXP_EN		BIT(3)		/* clock hstxp enable */
+> +#define  PHY_HSTXP_MODE			BIT(4)		/* 0: force en_txp to be 1; 1: no force */
+> +
+> +#define PHY_PLL_DIV_CFG			0x98
+> +#define  PHY_FDIV_FRACT_8_15		GENMASK(7, 0)
+> +#define  PHY_FDIV_FRACT_16_19		GENMASK(11, 8)
+> +#define  PHY_FDIV_FRACT_20_21		BIT(12)		/* fdiv_reg<21>, <20>, bit21 == bit20 */
+> +/*
+> + * freq_sel<1:0>
+> + * if ref clk freq=24.0MHz-->freq_sel<2:0> == 3b'001, then internal divider value == 80
+> + */
+> +#define  PHY_FDIV_FRACT_0_1		GENMASK(14, 13)
+> +/*
+> + * pll divider value selection
+> + * 1: divider value will choose internal default value ,dependent on freq_sel<1:0>
+> + * 0: divider value will be over ride by fdiv_reg<21:0>
+> + */
+> +#define  PHY_DIV_LOCAL_EN		BIT(15)
+> +
+> +#define  PHY_SEL_FREQ_24MHZ		0x01
+> +#define  FDIV_REG_MASK			(PHY_FDIV_FRACT_20_21 | PHY_FDIV_FRACT_16_19 | \
+> +					 PHY_FDIV_FRACT_8_15)
+> +#define  FDIV_REG_VAL			0x1ec4		/* 0x100 selects 24MHz, rest are default */
+> +
+> +#define K1_USB2PHY_RESET_TIME_MS	50
+> +
+> +struct spacemit_usb2phy {
+> +	struct phy *phy;
+> +	struct clk *clk;
+> +	struct regmap *regmap_base;
+> +};
+> +
+> +static const struct regmap_config phy_regmap_config = {
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +	.max_register = 0x200,
+> +};
+> +
+> +static int spacemit_usb2phy_init(struct phy *phy)
+> +{
+> +	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
+> +	struct regmap *map = sphy->regmap_base;
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret = clk_enable(sphy->clk);
+> +	if (ret) {
+> +		dev_err(&phy->dev, "failed to enable clock\n");
+> +		clk_disable(sphy->clk);
+> +		return ret;
+> +	}
+> +
+> +	/*
+> +	 * make sure the usb controller is not under reset process before
+> +	 * any configuration
+> +	 */
+> +	usleep_range(150, 200);
+> +
+> +	/* 24M ref clk */
+> +	val = FIELD_PREP(FDIV_REG_MASK, FDIV_REG_VAL) |
+> +	      FIELD_PREP(PHY_FDIV_FRACT_0_1, PHY_SEL_FREQ_24MHZ) |
+> +	      PHY_DIV_LOCAL_EN;
+> +	regmap_write(map, PHY_PLL_DIV_CFG, val);
+> +
+> +	ret = regmap_read_poll_timeout(map, PHY_RST_MODE_CTRL, val,
+> +				       (val & PHY_PLL_RDY),
+> +				       500, K1_USB2PHY_RESET_TIME_MS * 1000);
+> +	if (ret) {
+> +		dev_err(&phy->dev, "wait PLLREADY timeout\n");
+> +		clk_disable(sphy->clk);
+> +		return ret;
+> +	}
+> +
+> +	/* release usb2 phy internal reset and enable clock gating */
+> +	val = (PHY_INIT_MODE_BITS | PHY_CLK_ENABLE_BITS | PHY_DEASSERT_RST_BITS);
+> +	regmap_write(map, PHY_RST_MODE_CTRL, val);
+> +
+> +	val = (PHY_HSTXP_RSTN | PHY_CLK_HSTXP_EN | PHY_HSTXP_MODE);
+> +	regmap_write(map, PHY_HSTXP_HW_CTRL, val);
+> +
+> +	/* auto clear host disc */
+> +	regmap_update_bits(map, PHY_TX_HOST_CTRL, PHY_HST_DISC_AUTO_CLR,
+> +			   PHY_HST_DISC_AUTO_CLR);
+> +
+> +	return 0;
+> +}
+> +
+> +static int spacemit_usb2phy_exit(struct phy *phy)
+> +{
+> +	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
+> +
+> +	clk_disable(sphy->clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct phy_ops spacemit_usb2phy_ops = {
+> +	.init = spacemit_usb2phy_init,
+> +	.exit = spacemit_usb2phy_exit,
+> +	.owner = THIS_MODULE,
+> +};
+> +
+> +static int spacemit_usb2phy_probe(struct platform_device *pdev)
+> +{
+> +	struct phy_provider *phy_provider;
+> +	struct device *dev = &pdev->dev;
+> +	struct spacemit_usb2phy *sphy;
+> +	void __iomem *base;
+> +
+> +	sphy = devm_kzalloc(dev, sizeof(*sphy), GFP_KERNEL);
+> +	if (!sphy)
+> +		return -ENOMEM;
+> +
+> +	sphy->clk = devm_clk_get_prepared(&pdev->dev, NULL);
+> +	if (IS_ERR(sphy->clk))
+> +		return dev_err_probe(dev, PTR_ERR(sphy->clk), "Failed to get clock\n");
+> +
+> +	base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	sphy->regmap_base = devm_regmap_init_mmio(dev, base, &phy_regmap_config);
+> +	if (IS_ERR(sphy->regmap_base))
+> +		return dev_err_probe(dev, PTR_ERR(sphy->regmap_base), "Failed to init regmap\n");
+> +
+> +	sphy->phy = devm_phy_create(dev, NULL, &spacemit_usb2phy_ops);
+> +	if (IS_ERR(sphy->phy))
+> +		return dev_err_probe(dev, PTR_ERR(sphy->phy), "Failed to create phy\n");
+> +
+> +	phy_set_drvdata(sphy->phy, sphy);
+> +	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+> +
+> +	return PTR_ERR_OR_ZERO(phy_provider);
+> +}
+> +
+> +static const struct of_device_id spacemit_usb2phy_dt_match[] = {
+> +	{ .compatible = "spacemit,k1-usb2-phy", },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, spacemit_usb2phy_dt_match);
+> +
+> +static struct platform_driver spacemit_usb2_phy_driver = {
+> +	.probe	= spacemit_usb2phy_probe,
+> +	.driver = {
+> +		.name   = "spacemit-usb2-phy",
+> +		.of_match_table = spacemit_usb2phy_dt_match,
+> +	},
+> +};
+> +module_platform_driver(spacemit_usb2_phy_driver);
+> +
+> +MODULE_DESCRIPTION("Spacemit USB 2.0 PHY driver");
+> +MODULE_LICENSE("GPL");
+> 
+> -- 
+> 2.51.1.dirty
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
