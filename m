@@ -4,130 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FB4D111A8
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Dec 2025 06:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC959D116F1
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Dec 2025 09:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9aWjs0qKTPcFyxRrcfqYmvbANFc+TI3bLQKWFyDgGJ8=; b=yWc71PWl4NDn8z
-	WY+xUlfbmxDSZqng8eIJ4eHVmQ4EnCpggU7v5GNX1dRL4oDQ1vm0wImWWkoJ5jdRL2X6j/a1nCrHd
-	Du0Jhri9aDaLw83EUt5cqXAiRCXOIwwM+ERFjfNZ/lLc2/o3kVu3fsh8kuo8D05BVlKznceYSoSiW
-	qmdsMs1WdKkXDr4kYYsVIxlSN9eVLl9x34+IuMrVSVhNtitLBH2eoSpgZXXJ7CP0w757tMmdmSGQ+
-	x/CUPn6MSgfPgQvZARtvMOM12Dzb69uiSTUBj8mYRYTUKLznSyrZ2tacXFMY1Z+2nmlDda8pIihtS
-	PVDifH2UZrHNFjYlWdUw==;
+	List-Owner; bh=z/0aDZsn7v0jqa1XzeOg0t2AB/U4upRbXf5JlKv+LBg=; b=YXrpFPJ928aDJp
+	k62mGgZlTxX/Z3VvFETePPpqUwialpig5FdORvZSWcNM0VPluhpF5kJ+tdv2mADJ5BBZuYXjHjb6n
+	qXixJrm50CWRtoDBIAyaU4qfVzGhjPYCo7/7l9R/wKKNUt1PoTQrLaJQ4acfxh6MHpvPa3BJ7nu7m
+	LISKW+QkG/GyqXT5U8K2p9EH4nedaiqAYQUbhvuf+jTZ98aNjdty3kISyyun9+B7Co4n5kNjb9hKB
+	jJ8AZwXgMrwK5xVLVFVLFOFLXdNY7PPK97AuTcEGw0ogWMmQgFQzFDYOpimrnutwx9yTikP6kAWi0
+	z+4e9bKlPH7bwmRhmG5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPxf1-000000030vN-3gP7;
-	Mon, 01 Dec 2025 06:45:23 +0000
-Received: from mail-bjschn02on2127.outbound.protection.partner.outlook.cn ([139.219.17.127] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1vQ0CY-00000003DAu-1ZeV;
+	Mon, 01 Dec 2025 09:28:10 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPxez-000000030up-1vvD
+	id 1vQ0CV-00000003DAH-2deQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Dec 2025 06:45:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=YOIX7Bbf81aBE9egnYjcUovv4nsFGGAMPSoAgafUBVGldYqHobiG8qFUJbnbV0B0UUlhA6pYi+Oy6FvITEMCmeFIBGmAYMfMLMl/b+h9/EZKf8K+/ThAlTNNP9ox3mCpiiU1K6U3HwKLlRw4rapPlNP4/GaqxVd9qvQfJ20xLb18Kh3ZprTzwhZkGcEwzSpncCK+ZUCZRnH30NCExQipxPVJWoIm3yH5SjCJ3KL9LpMVR5aiYzp3aenzZOSs1SqRHd47/lENh6tBnoOCeZRciL8mIVAMp8wJ5vHotGVt6rQl08Cz2jecJwU5JKymHigt5CUvZtB8tS+9e8g4SdvLjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NXA3AGNyQwQenYzaQ29cGfb4Da98rvs/9NircOm28ho=;
- b=THU7trq70jLzqhxtggY09h/EAq2FcNSdyweHHaywko7pFX5xBroBhxJYTMkieCaPWA1wKkE1UPHfV/vNrtfAk6kvK+d6Pe8vWLJculYqrhemgakYwRqyYPaWgk7+tKIUM+lKJfL8zs3u2eXUfL+0fzUEIfSh2T2iX9CgidSiRPOz9Mx6Rt2YR+ASnvoZMpC/Y+ddUDgdwpfcB/zMHYulXBQRLeFH7YpvlmkHRM/mD2zShLv5bDeTxa4zwOmxGeHs42ThY9jryreuNFLZBSKvykLECGMfHfUYlkgPlCxxY06YNz89Q7fcwhKMED3AYrKe1V/wtKoB3bYdYfBnG0Y3Zg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:7::14) by ZQ2PR01MB1257.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:11::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.26; Mon, 1 Dec
- 2025 06:45:15 +0000
-Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- ([fe80::2595:ef4d:fae:37d7]) by ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- ([fe80::2595:ef4d:fae:37d7%4]) with mapi id 15.20.9366.012; Mon, 1 Dec 2025
- 06:45:15 +0000
-From: Hal Feng <hal.feng@starfivetech.com>
-To: Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Albert Ou
-	<aou@eecs.berkeley.edu>, "Rafael J . Wysocki" <rafael@kernel.org>, Viresh
- Kumar <viresh.kumar@linaro.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kwilczynski@kernel.org>, Manivannan
- Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Liam
- Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Emil Renner
- Berthing <emil.renner.berthing@canonical.com>, Heinrich Schuchardt
-	<heinrich.schuchardt@canonical.com>, E Shattow <e@freeshell.de>
-CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v4 1/6] PCI: starfive: Use regulator APIs instead of GPIO
- APIs to enable the 3V3 power supply of PCIe slots
-Thread-Topic: [PATCH v4 1/6] PCI: starfive: Use regulator APIs instead of GPIO
- APIs to enable the 3V3 power supply of PCIe slots
-Thread-Index: AQHcXeD4WDMn2zfogkuoU7yPusoik7UMXCgQ
-Date: Mon, 1 Dec 2025 06:45:14 +0000
-Message-ID: <ZQ2PR01MB13073F4D8A360402E3C55013E6DB2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
-References: <20251125075604.69370-1-hal.feng@starfivetech.com>
- <20251125075604.69370-2-hal.feng@starfivetech.com>
-In-Reply-To: <20251125075604.69370-2-hal.feng@starfivetech.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1257:EE_
-x-ms-office365-filtering-correlation-id: 3812b704-c8e9-4759-5c62-08de30a52f15
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|41320700013|7416014|366016|921020|38070700021;
-x-microsoft-antispam-message-info: rvqV4wvlgJGTDXuQIrNTsHIdn7FVFx3k4O4c/l8iXQOXLGpUTWKRrj1SDqKwUqVb60QVeexvIU1d8/ENt6vI2P9W3rIugbpmPANL9YmbjLVMbw0GW0bhJE4X4LFHEidiFKOVpZCodJ/G+OhAR/BoSboeaodMIs8i6n1tQB9xGDZV2Lv7RLvgccHoAjYsWvRnTkBttr4yj4ubusyB2mje39NAWDPsFs3mTDveKloHJPiBYYvRcViw/2ij7dYp8b/pQop+/7upANWOz5kQqcS7fqAsZw9LRH2p/ev/kPfKOpGGKV+JvCycsKkZpnVAK8GBFJddWQ0hEYbEVonQ91oKK9Kpy9RlQrOJLnC5Yy5XcES9bERVOs9TS3XmFxU5GRFXVd1MzKIJAcJt0iQGLoSjWC4RmxTzUnxBpkgdhrZ/0vOnYjKo6HO806Bv8qa4zUdwAo81BBnqB4HZaYdvGlegZJl64PVac5xozP9eVYwDHeEozZB8mbuU0UxErnuXpq7fnmbVJo79uHAy1mWn+iVgLxLhXuJsDerff1GIwtLwCQeR3S4/OZcT6JMfbbr6WYMoAUIeez1sftfvAnYCMk8+ulfFq5yM/51xETRIarwWkAM=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(41320700013)(7416014)(366016)(921020)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?Z+7anuIo9PHtsVsMv1k9bk1HfWN9yA4vgJk7bTEekglYocwtqRhRHGEc4M?=
- =?iso-8859-2?Q?Df81iJgaHo6CWH1rJOGcGvpNA1eaG0m+MtNqJmMA1cuA1HoapKfNVwzxNa?=
- =?iso-8859-2?Q?oklFB2gZ/r8ht4Sd/dhObxnfVEP9/wK9Wy+7NoW6Qr2uLwfm3dV8rd+y/C?=
- =?iso-8859-2?Q?EShRIbLYpXdMD4aBy7QfaduniylFmOnAlP+JfeZeqaXq3LdXjhxzxhmo5W?=
- =?iso-8859-2?Q?56qvC+3K/EFiMBJdR+SfPYPLwCcZQc6nXBHmUXBCmC5cIIUP4rBcuK8ErU?=
- =?iso-8859-2?Q?JTQh3UHxtyRN3dpq5sD8s8yLPxjmwRTsu34XeH53FIXj7frpcXHDXUmRwm?=
- =?iso-8859-2?Q?r4ysiveCrc9QQQlufha9n5W6+JZBgto6Nm9cZqkqhVD3viT636m0GBUb+R?=
- =?iso-8859-2?Q?RGNr/kQDDfH6p17g6Lf/pbwzz7BwirIwOYmtPlst37IPv2j8MuKBb6vdiX?=
- =?iso-8859-2?Q?ueQ7VHMan9uy4DarlFIUBAS7pR5WJ8JiCJxMcPWYkVPjBoF0GFdrmRCoFY?=
- =?iso-8859-2?Q?3OAMH8OsvVcEtZpWSgSibKRJfTnhEHNNH2HOch6IU6Gz/kj/UNl8WdLX8f?=
- =?iso-8859-2?Q?AypgIMDdNqFDe15lgAvVXSQGa7aiacWZDrybKwEktcbhev9AsWwysg8SKT?=
- =?iso-8859-2?Q?u+z7QuDyueq6PS9XHWGgPdpJIQoJVsV9xpOmT5MpRwdbwNEKRs3uy/kDA3?=
- =?iso-8859-2?Q?aYzLVo5X5cx0YA1IZh6qtkD5AOiqUlSJS9lQSjGkARmkvV52IpDjsuTRRR?=
- =?iso-8859-2?Q?yBPsO4MpWHzHNT5Nbx1O3pdhsWAGUOy9MUWE649+iZ9Q7e9GCHpodhSHSF?=
- =?iso-8859-2?Q?y/04WNrORY5YhE1SEaVMw1GTBUMcJ08hxV49P0IAGtGVg1iU8V5/lBucZb?=
- =?iso-8859-2?Q?GZAY/uktjC+QILC2hfFZE7SyHRYdK5Amx8I/k6rZLikk5GTTz12zKZK2Fb?=
- =?iso-8859-2?Q?7EaTP5MFl5YMYzGxNBjJBO12xFL/1TyswFoGMTNfOAdbAMyvXOr2BhMb2J?=
- =?iso-8859-2?Q?cFJuhFoDS+Av3+pZ6s2f4sAs8N7mZ0IKALHZh4ATJyXk3GfXduAXGcLvG3?=
- =?iso-8859-2?Q?6AqD/Hj30MwduiSa1VpdE3t3OL/CspypoZHE/MPO7rHsUUN+7gqa767azr?=
- =?iso-8859-2?Q?Ul8wFLtTWLaCpCJta63jdHSEAIVcHAkEbMbdafUlYENxXALxlTKIQmm96c?=
- =?iso-8859-2?Q?kLCoP/kgfH+nZ5aiIjeywqEDcK9VusPvTZvlFpOmQbv4QxcJhe5MvfwYAE?=
- =?iso-8859-2?Q?fh1zGqr8O/uoyzYPGqpfJ3Ylb2rZZYKJUYX/evcOWNBoWwqiznjvaSQTYE?=
- =?iso-8859-2?Q?fVTr+rE+EuIbqyU9VyT5Uq0xSu5aICgPJhcE0OWYaBbNjTdMTllC9cPohr?=
- =?iso-8859-2?Q?u2cmmikRxGuQtgYUI//DPeYPqwjWngwt+hFjJWyDIg51GRQSUPBzD9dY7Y?=
- =?iso-8859-2?Q?dTU8B5ErRXW0MGgb6hDLUczYJuuJwgaYkvTUuI2agRk3w5JDYTATJlFD/g?=
- =?iso-8859-2?Q?W45IcFz0aaXOLjA/P5xHaXZ/6oRRsrRyK3htQiMObPjFpMsbpwQXL/CQh5?=
- =?iso-8859-2?Q?j2olXSv3XGYEetmy0faOtEP9+goXha5o9nKXm5aMJ+iAbC5fkDUiHJkWRM?=
- =?iso-8859-2?Q?QKrio1opgLsFUHsVb6HauTlo7B9ghRBD6s?=
+	Mon, 01 Dec 2025 09:28:09 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=fCj9Mj40Upz7olHyIbpNdyZOXDCrkRaNysKVGCWLnco=;
+	b=0eIMpJ64gSzjJBAKdb/gW3vzgtjNhxT2kEU/aFpeW1C4d2YyyQU+VQOkgdXpBkq43XjBnYzyf
+	ys+PxLhdZcnuORIjm7sQ9Rlb3sXGVBdR3ArakVAKlnN4IP8f74Qccgdolv1HhjyxxH3/bdJ6C7o
+	GI+3XQk1V63igaUxWeTa5k0=
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4dKdmW3wFQznTVZ;
+	Mon,  1 Dec 2025 17:25:31 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 325F4140276;
+	Mon,  1 Dec 2025 17:27:54 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 1 Dec 2025 17:27:53 +0800
+Message-ID: <812ce4ef-16cc-6c75-f1b0-ee128dcf45f1@huawei.com>
+Date: Mon, 1 Dec 2025 17:27:52 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3812b704-c8e9-4759-5c62-08de30a52f15
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Dec 2025 06:45:15.0360
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: xRcDhN9OrRKh6Re8rrXKikXpHhgIe8bJgc1IVj6KgjQ8Iex4kwOYCTY2dZ547Lb59yANtFt8HqSsURfqaHoO9E1FlHEx4Kx+VOtufcDcLl8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1257
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH] riscv: pgtable: Cleanup useless VA_USER_XXX definitions
+Content-Language: en-US
+To: <guoren@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<alex@ghiti.fr>, <charlie@rivosinc.com>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20251201005850.702569-1-guoren@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20251201005850.702569-1-guoren@kernel.org>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_224521_502065_1EBE9E9C 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20251201_012808_138520_893C590D 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,88 +80,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On 25.11.25 15:56, Hal Feng wrote: 
-> The "enable-gpio" property is not documented in the dt-bindings and using
-> GPIO APIs is not a standard method to enable or disable PCIe slot power, so
-> use regulator APIs to replace them.
+
+
+On 2025/12/1 8:58, guoren@kernel.org wrote:
+> From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 > 
-> Tested-by: Matthias Brugger <mbrugger@suse.com>
-> Fixes: 39b91eb40c6a ("PCI: starfive: Add JH7110 PCIe controller")
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> These marcos are not used after commit b5b4287accd7 ("riscv: mm: Use
+> hint address in mmap if available"). Cleanup VA_USER_XXX definitions
+> in asm/pgtable.h.
+> 
+> Fixes: b5b4287accd7 ("riscv: mm: Use hint address in mmap if available")
+> Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 > ---
->  drivers/pci/controller/plda/pcie-starfive.c | 25 ++++++++++++---------
->  1 file changed, 15 insertions(+), 10 deletions(-)
+>  arch/riscv/include/asm/pgtable.h | 4 ----
+>  1 file changed, 4 deletions(-)
 > 
-> diff --git a/drivers/pci/controller/plda/pcie-starfive.c
-> b/drivers/pci/controller/plda/pcie-starfive.c
-> index 3caf53c6c082..298036c3e7f9 100644
-> --- a/drivers/pci/controller/plda/pcie-starfive.c
-> +++ b/drivers/pci/controller/plda/pcie-starfive.c
-> @@ -55,7 +55,7 @@ struct starfive_jh7110_pcie {
->  	struct reset_control *resets;
->  	struct clk_bulk_data *clks;
->  	struct regmap *reg_syscon;
-> -	struct gpio_desc *power_gpio;
-> +	struct regulator *vpcie3v3;
->  	struct gpio_desc *reset_gpio;
->  	struct phy *phy;
-> 
-> @@ -153,11 +153,13 @@ static int starfive_pcie_parse_dt(struct
-> starfive_jh7110_pcie *pcie,
->  		return dev_err_probe(dev, PTR_ERR(pcie->reset_gpio),
->  				     "failed to get perst-gpio\n");
-> 
-> -	pcie->power_gpio = devm_gpiod_get_optional(dev, "enable",
-> -						   GPIOD_OUT_LOW);
-> -	if (IS_ERR(pcie->power_gpio))
-> -		return dev_err_probe(dev, PTR_ERR(pcie->power_gpio),
-> -				     "failed to get power-gpio\n");
-> +	pcie->vpcie3v3 = devm_regulator_get_optional(dev, "vpcie3v3");
-> +	if (IS_ERR(pcie->vpcie3v3)) {
-> +		if (PTR_ERR(pcie->vpcie3v3) != -ENODEV)
-> +			return dev_err_probe(dev, PTR_ERR(pcie->vpcie3v3),
-> +					     "failed to get vpcie3v3
-> regulator\n");
-> +		pcie->vpcie3v3 = NULL;
-> +	}
-> 
->  	return 0;
->  }
-> @@ -270,8 +272,8 @@ static void starfive_pcie_host_deinit(struct
-> plda_pcie_rp *plda)
->  		container_of(plda, struct starfive_jh7110_pcie, plda);
-> 
->  	starfive_pcie_clk_rst_deinit(pcie);
-> -	if (pcie->power_gpio)
-> -		gpiod_set_value_cansleep(pcie->power_gpio, 0);
-> +	if (pcie->vpcie3v3)
-> +		regulator_disable(pcie->vpcie3v3);
->  	starfive_pcie_disable_phy(pcie);
->  }
-> 
-> @@ -304,8 +306,11 @@ static int starfive_pcie_host_init(struct plda_pcie_rp
-> *plda)
->  	if (ret)
->  		return ret;
-> 
-> -	if (pcie->power_gpio)
-> -		gpiod_set_value_cansleep(pcie->power_gpio, 1);
-> +	if (pcie->vpcie3v3) {
-> +		ret = regulator_enable(pcie->vpcie3v3);
-> +		if (ret)
-> +			dev_err_probe(dev, ret, "failed to enable vpcie3v3
-> regulator\n");
-> +	}
-> 
->  	if (pcie->reset_gpio)
->  		gpiod_set_value_cansleep(pcie->reset_gpio, 1);
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 5a08eb5fe99f..30d1ea93dde3 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -124,10 +124,6 @@
+>  #ifdef CONFIG_64BIT
+>  #include <asm/pgtable-64.h>
+>  
+> -#define VA_USER_SV39 (UL(1) << (VA_BITS_SV39 - 1))
+> -#define VA_USER_SV48 (UL(1) << (VA_BITS_SV48 - 1))
+> -#define VA_USER_SV57 (UL(1) << (VA_BITS_SV57 - 1))
 
-Hi, Manivannan and the other PCIe maintainers,
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-Could you please help review and merge this patch? Thanks.
-
-Best regards,
-Hal
+> -
+>  #define MMAP_VA_BITS_64 ((VA_BITS >= VA_BITS_SV48) ? VA_BITS_SV48 : VA_BITS)
+>  #define MMAP_MIN_VA_BITS_64 (VA_BITS_SV39)
+>  #define MMAP_VA_BITS (is_compat_task() ? VA_BITS_SV32 : MMAP_VA_BITS_64)
 
 _______________________________________________
 linux-riscv mailing list
