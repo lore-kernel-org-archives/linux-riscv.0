@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04BCACFD376
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Dec 2025 01:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0897CFD376
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Dec 2025 01:47:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5O4xDTtrHXgUR7P8XXsdH+XfDRx7oDW+/P4UADQQ56Q=; b=ao8FKnmEIGiZXI
-	nCiY2oJic5mTT8S6hgmVrvAM+RdVeaoxbAnJrkvZ4lsCzG2yL4ipogZ/6gOUoMv7XWkM9y29NaRfK
-	jVIr8EzhmF5cZ0iiSuRq998hCZsVWWu/V/qQoW4N+aq4MZ14Bk7MPKbyNsBr24iOtH7XMR1mhg8AO
-	uuR+iICcN3hcoz2tiAPY2rMs32owrpKPk8eJLx8oMaMq51zASEpYagesBX4k4s59F4hTKTTUNdAhD
-	NSe9RXBIwvU/8f/VDR9nGEdwsdfVlj4HrmuzU+CGW9F1aeBTD3w8bCJI210/wTOQi3G5qiM9LINCO
-	cGMoBXlY5j+cHEfm8Zng==;
+	List-Owner; bh=JW/ebPsEVS+oIAdnsFdoJXE4TOL4qqsXel5FD5YQB4w=; b=YCr4Nx4iyY5iBG
+	H67yqHRhNYlO9g9mTn77x9587GBIMJiHGzAXBAxRY0oGB3FlQpGX9tuXDTvEKpmzJDIwVKEVGONGC
+	7sfW1ASNytim/UfzPtV2OOBqezcBhNUvNWrQsE17nMJHqTCQAsnIvDK/AbtMzDuv/6VuWPBDLY3WC
+	06c7VnBw3uVuIpwxdQNluNItrsLAO2oft9jGEcUpGcMN5rWq4QQ0PlJoXI8T43CsgYcvgRholEiyX
+	S1WC3XYdSZmc+fgJGbdO6sZmQp2uFpCQo3bsYTeOtK1JPSABFMQo4PTSq5UZ/Gf5r7ziTkBUcS+G5
+	pRar+4sqyr4NerY5tG8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPszn-00000002mGT-3MpV;
-	Mon, 01 Dec 2025 01:46:31 +0000
+	id 1vPt07-00000002mOm-2czI;
+	Mon, 01 Dec 2025 01:46:51 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPszk-00000002mEH-3esY;
-	Mon, 01 Dec 2025 01:46:30 +0000
+	id 1vPt04-00000002mNO-3l8X;
+	Mon, 01 Dec 2025 01:46:50 +0000
 Received: from zq-Legion-Y7000.. (unknown [121.237.244.238])
-	by APP-01 (Coremail) with SMTP id qwCowABX7Mtv8yxp69+vAg--.18496S2;
-	Mon, 01 Dec 2025 09:46:24 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowAC3SMiC8yxpZOGvAg--.12442S2;
+	Mon, 01 Dec 2025 09:46:44 +0800 (CST)
 From: zhouquan@iscas.ac.cn
 To: anup@brainfault.org,
 	ajones@ventanamicro.com,
@@ -40,36 +40,37 @@ Cc: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org,
 	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH 3/4] RISC-V: KVM: Add suuport for zicfiss/zicfilp/svadu FWFT features
-Date: Mon,  1 Dec 2025 09:28:48 +0800
-Message-Id: <1793aa636969da0a09d27c9c12f6d5f8f0d1cd21.1764509485.git.zhouquan@iscas.ac.cn>
+Subject: [PATCH 4/4] KVM: riscv: selftests: Add zicfiss/zicfilp/svadu and SBI FWFT to get-reg-list test
+Date: Mon,  1 Dec 2025 09:29:07 +0800
+Message-Id: <aa8d1ac8956ecbf23372e5c9fd26e7c21ce212bc.1764509485.git.zhouquan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1764509485.git.zhouquan@iscas.ac.cn>
 References: <cover.1764509485.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABX7Mtv8yxp69+vAg--.18496S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxtw1xGr1UXF47Zr1rWryDJrb_yoW7tw4UpF
-	WxWF9rWayfJr9Y93ZYyrsrWFWYgws7K3ZFyay7G34FvFy2kF45JF1kKr9rAryDA340vFWS
-	kF4qqF1UCrs0v3JanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: qwCowAC3SMiC8yxpZOGvAg--.12442S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Jw1DGF1xCw1fZF1fAF45GFg_yoW7trWUpr
+	yqyanI9r1kAwnYyrWvka4DWF4xZw4UAws5ua1xuw18tFyjyFyIqw1qyF1DGF1DJr18XrWS
+	yFWrJr4Yya1FywUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUBK14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
 	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxV
 	WxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2Wl
-	Yx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbV
+	Yx0E2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbV
 	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7Cj
 	xVA2Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwV
 	WkMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_
 	Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x
 	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8
 	JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIx
-	AIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjiSdPUUUUU=
+	AIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjKZX7UUUUU=
 	=
 X-Originating-IP: [121.237.244.238]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAgDBmks7K0aZgAAs5
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBwkDBmks7NMaQgABso
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_174629_276372_FEA05930 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20251130_174649_303061_4023D089 
+X-CRM114-Status: UNSURE (   6.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,176 +89,86 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-Add support in KVM SBI FWFT extension to allow VS-mode to request
-SBI_FWFT_{LANDING_PAD/SHADOW_STACK/PTE_AD_HW_UPDATING}.
+The KVM RISC-V allows zicfiss/zicfilp/svadu and SBI FWFT for Guest/VM,
+so add them to get-reg-list test.
 
 Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
 ---
- arch/riscv/include/uapi/asm/kvm.h |   3 +
- arch/riscv/kvm/vcpu_sbi_fwft.c    | 129 ++++++++++++++++++++++++++++++
- 2 files changed, 132 insertions(+)
+ .../selftests/kvm/riscv/get-reg-list.c        | 26 +++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 7ca087848a43..d93b70d89010 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -232,6 +232,9 @@ struct kvm_riscv_sbi_fwft_feature {
- struct kvm_riscv_sbi_fwft {
- 	struct kvm_riscv_sbi_fwft_feature misaligned_deleg;
- 	struct kvm_riscv_sbi_fwft_feature pointer_masking;
-+	struct kvm_riscv_sbi_fwft_feature landing_pad;
-+	struct kvm_riscv_sbi_fwft_feature shadow_stack;
-+	struct kvm_riscv_sbi_fwft_feature pte_ad_hw_updating;
- };
- 
- /* Possible states for kvm_riscv_timer */
-diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft.c
-index 62cc9c3d5759..0dc0e70fc83b 100644
---- a/arch/riscv/kvm/vcpu_sbi_fwft.c
-+++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
-@@ -213,6 +213,108 @@ static long kvm_sbi_fwft_get_pointer_masking_pmlen(struct kvm_vcpu *vcpu,
- 	return SBI_SUCCESS;
+diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
+index 705ab3d7778b..cd9304943c9c 100644
+--- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
++++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
+@@ -87,6 +87,8 @@ bool filter_reg(__u64 reg)
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOP:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOZ:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICCRSE:
++	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICFILP:
++	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICFISS:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICNTR:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICOND:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICSR:
+@@ -546,6 +548,8 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
+ 		KVM_ISA_EXT_ARR(ZICBOP),
+ 		KVM_ISA_EXT_ARR(ZICBOZ),
+ 		KVM_ISA_EXT_ARR(ZICCRSE),
++		KVM_ISA_EXT_ARR(ZICFILP),
++		KVM_ISA_EXT_ARR(ZICFISS),
+ 		KVM_ISA_EXT_ARR(ZICNTR),
+ 		KVM_ISA_EXT_ARR(ZICOND),
+ 		KVM_ISA_EXT_ARR(ZICSR),
+@@ -704,6 +708,15 @@ static const char *sbi_fwft_id_to_str(__u64 reg_off)
+ 	case 3: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.enable)";
+ 	case 4: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.flags)";
+ 	case 5: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.value)";
++	case 6: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(landing_pad.enable)";
++	case 7: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(landing_pad.flags)";
++	case 8: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(landing_pad.value)";
++	case 9: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(shadow_stack.enable)";
++	case 10: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(shadow_stack.flags)";
++	case 11: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(shadow_stack.value)";
++	case 12: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pte_ad_hw_updating.enable)";
++	case 13: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pte_ad_hw_updating.flags)";
++	case 14: return "KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pte_ad_hw_updating.value)";
+ 	}
+ 	return strdup_printf("KVM_REG_RISCV_SBI_FWFT | %lld /* UNKNOWN */", reg_off);
  }
- 
-+static long kvm_sbi_fwft_set_henvcfg_flag(struct kvm_vcpu *vcpu,
-+					 struct kvm_sbi_fwft_config *conf,
-+					 bool one_reg_access, unsigned long value,
-+					 unsigned long flag)
-+{
-+	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
-+
-+	if (value == 1)
-+		cfg->henvcfg |= flag;
-+	else if (value == 0)
-+		cfg->henvcfg &= ~flag;
-+	else
-+		return SBI_ERR_INVALID_PARAM;
-+
-+	if (!one_reg_access)
-+		csr_write(CSR_HENVCFG, cfg->henvcfg);
-+
-+	return SBI_SUCCESS;
-+}
-+
-+static bool kvm_sbi_fwft_pointer_landing_pad_supported(struct kvm_vcpu *vcpu)
-+{
-+	return riscv_isa_extension_available(vcpu->arch.isa, ZICFILP);
-+}
-+
-+static void kvm_sbi_fwft_reset_landing_pad(struct kvm_vcpu *vcpu)
-+{
-+	vcpu->arch.cfg.henvcfg &= ~ENVCFG_LPE;
-+}
-+
-+static long kvm_sbi_fwft_set_landing_pad(struct kvm_vcpu *vcpu,
-+						   struct kvm_sbi_fwft_config *conf,
-+						   bool one_reg_access, unsigned long value)
-+{
-+	return kvm_sbi_fwft_set_henvcfg_flag(vcpu, conf, one_reg_access, value, ENVCFG_LPE);
-+}
-+
-+static long kvm_sbi_fwft_get_landing_pad(struct kvm_vcpu *vcpu,
-+						   struct kvm_sbi_fwft_config *conf,
-+						   bool one_reg_access, unsigned long *value)
-+{
-+	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
-+
-+	*value = (cfg->henvcfg & ENVCFG_LPE) == ENVCFG_LPE;
-+	return SBI_SUCCESS;
-+}
-+
-+static bool kvm_sbi_fwft_pointer_shadow_stack_supported(struct kvm_vcpu *vcpu)
-+{
-+	return riscv_isa_extension_available(vcpu->arch.isa, ZICFISS);
-+}
-+
-+static void kvm_sbi_fwft_reset_shadow_stack(struct kvm_vcpu *vcpu)
-+{
-+	vcpu->arch.cfg.henvcfg &= ~ENVCFG_SSE;
-+}
-+
-+static long kvm_sbi_fwft_set_shadow_stack(struct kvm_vcpu *vcpu,
-+						   struct kvm_sbi_fwft_config *conf,
-+						   bool one_reg_access, unsigned long value)
-+{
-+	return kvm_sbi_fwft_set_henvcfg_flag(vcpu, conf, one_reg_access, value, ENVCFG_SSE);
-+}
-+
-+static long kvm_sbi_fwft_get_shadow_stack(struct kvm_vcpu *vcpu,
-+						   struct kvm_sbi_fwft_config *conf,
-+						   bool one_reg_access, unsigned long *value)
-+{
-+	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
-+
-+	*value = (cfg->henvcfg & ENVCFG_SSE) == ENVCFG_SSE;
-+	return SBI_SUCCESS;
-+}
-+
-+static bool kvm_sbi_fwft_pointer_pte_ad_hw_updating_supported(struct kvm_vcpu *vcpu)
-+{
-+	return riscv_isa_extension_available(vcpu->arch.isa, SVADU) &&
-+		!riscv_isa_extension_available(vcpu->arch.isa, SVADE);
-+}
-+
-+static void kvm_sbi_fwft_reset_pte_ad_hw_updating(struct kvm_vcpu *vcpu)
-+{
-+	vcpu->arch.cfg.henvcfg &= ~ENVCFG_ADUE;
-+}
-+
-+static long kvm_sbi_fwft_set_pte_ad_hw_updating(struct kvm_vcpu *vcpu,
-+						   struct kvm_sbi_fwft_config *conf,
-+						   bool one_reg_access, unsigned long value)
-+{
-+	return kvm_sbi_fwft_set_henvcfg_flag(vcpu, conf, one_reg_access, value, ENVCFG_ADUE);
-+}
-+
-+static long kvm_sbi_fwft_get_pte_ad_hw_updating(struct kvm_vcpu *vcpu,
-+						   struct kvm_sbi_fwft_config *conf,
-+						   bool one_reg_access, unsigned long *value)
-+{
-+	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
-+
-+	*value = (cfg->henvcfg & ENVCFG_ADUE) == ENVCFG_ADUE;
-+	return SBI_SUCCESS;
-+}
-+
- #endif
- 
- static const struct kvm_sbi_fwft_feature features[] = {
-@@ -236,6 +338,33 @@ static const struct kvm_sbi_fwft_feature features[] = {
- 		.get = kvm_sbi_fwft_get_pointer_masking_pmlen,
- 	},
- #endif
-+	{
-+		.id = SBI_FWFT_LANDING_PAD,
-+		.first_reg_num = offsetof(struct kvm_riscv_sbi_fwft, landing_pad.enable) /
-+				 sizeof(unsigned long),
-+		.supported = kvm_sbi_fwft_landing_pad_supported,
-+		.reset = kvm_sbi_fwft_reset_landing_pad,
-+		.set = kvm_sbi_fwft_set_landing_pad,
-+		.get = kvm_sbi_fwft_get_landing_pad,
-+	},
-+	{
-+		.id = SBI_FWFT_SHADOW_STACK,
-+		.first_reg_num = offsetof(struct kvm_riscv_sbi_fwft, shadow_stack.enable) /
-+				 sizeof(unsigned long),
-+		.supported = kvm_sbi_fwft_shadow_stack_supported,
-+		.reset = kvm_sbi_fwft_reset_shadow_stack,
-+		.set = kvm_sbi_fwft_set_shadow_stack,
-+		.get = kvm_sbi_fwft_get_shadow_stack,
-+	},
-+	{
-+		.id = SBI_FWFT_PTE_AD_HW_UPDATING,
-+		.first_reg_num = offsetof(struct kvm_riscv_sbi_fwft, pte_ad_hw_updating.enable) /
-+				 sizeof(unsigned long),
-+		.supported = kvm_sbi_fwft_pte_ad_hw_updating_supported,
-+		.reset = kvm_sbi_fwft_reset_pte_ad_hw_updating,
-+		.set = kvm_sbi_fwft_set_pte_ad_hw_updating,
-+		.get = kvm_sbi_fwft_get_pte_ad_hw_updating,
-+	},
+@@ -897,6 +910,15 @@ static __u64 sbi_fwft_regs[] = {
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.enable),
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.flags),
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pointer_masking.value),
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(landing_pad.enable),
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(landing_pad.flags),
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(landing_pad.value),
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(shadow_stack.enable),
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(shadow_stack.flags),
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(shadow_stack.value),
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pte_ad_hw_updating.enable),
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pte_ad_hw_updating.flags),
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_STATE | KVM_REG_RISCV_SBI_FWFT | KVM_REG_RISCV_SBI_FWFT_REG(pte_ad_hw_updating.value),
  };
  
- static const struct kvm_sbi_fwft_feature *kvm_sbi_fwft_regnum_to_feature(unsigned long reg_num)
+ static __u64 zicbom_regs[] = {
+@@ -1185,6 +1207,8 @@ KVM_ISA_EXT_SUBLIST_CONFIG(zicbom, ZICBOM);
+ KVM_ISA_EXT_SUBLIST_CONFIG(zicbop, ZICBOP);
+ KVM_ISA_EXT_SUBLIST_CONFIG(zicboz, ZICBOZ);
+ KVM_ISA_EXT_SIMPLE_CONFIG(ziccrse, ZICCRSE);
++KVM_ISA_EXT_SIMPLE_CONFIG(zicfilp, ZICFILP);
++KVM_ISA_EXT_SIMPLE_CONFIG(zicfiss, ZICFISS);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zicntr, ZICNTR);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zicond, ZICOND);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zicsr, ZICSR);
+@@ -1264,6 +1288,8 @@ struct vcpu_reg_list *vcpu_configs[] = {
+ 	&config_zicbop,
+ 	&config_zicboz,
+ 	&config_ziccrse,
++	&config_zicfilp,
++	&config_zicfiss,
+ 	&config_zicntr,
+ 	&config_zicond,
+ 	&config_zicsr,
 -- 
 2.34.1
 
