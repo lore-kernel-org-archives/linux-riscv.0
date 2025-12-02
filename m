@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C53ACFD376
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Dec 2025 06:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45430CFD376
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Dec 2025 06:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lcnyOMxNWRj5wBKcSleie5Px46b5O3gx4hhTLO8pY8w=; b=4mKKRLzIR57TH8
-	yp1eHesbdQzl8sndvX6a9LobOlIf7tFloIwwWMaqyZfGcbXoiQ1RqMGLxg9SL78JvefEgmdWuM8fD
-	k3RnJpPINuleeqaKspTl0jiO+vsxqekXY4KQqEObaR+TWtZXh0ckWSat5KVVldcUUqJGQnqIjOJ70
-	JXbcBjV4PEg+sEILejMEGwE14Rr5eyeCY4gOR4prGiETRwrJ650c6PFyzAXtPGVl0gQla1oIybcX9
-	04aKPxKF8itMOW4UDgnsgbaeOFSrGLe7BhZYmg31KLnzCVfBKxsugGtXrdX92ni/ScAOIxgnY0vrn
-	q4rVw++n/uUXtPFHY8kw==;
+	List-Owner; bh=yltZy5bq8+PO7hotnl9f8zg4vWoXdFEmrryfc3FLr7s=; b=TF26ldw8TU3nVk
+	1qh0NRZCFufmiObdrjm8UAPPgnQfekmxNR2fuBqmAg8+URz5q48nUAojtIFSPzwAGiUXuKUaCXqKE
+	ldYKSnSFu/ePAp5dthU/agI46OocKj7zV322RuE3qRGWG0SEB1GNxcR9OuAHcsYVxWxP2bk43tXhf
+	8xXLHyzGUp9bRdUKZbKv4JrWC0p0om8k4VijNjpezMvlEdATD6b9Z3dm5rSaMjgNMH+I59rGHFUT9
+	vH4tUmq7w2X8BnUubwKNv2v+qZVPexiDqdTPVrGfq0eWQ2RgUBl8IzSQalkNH3TnIDQLiqncWUdZQ
+	CGBtMRX45DPi7BVlUEfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQJS3-00000004sO2-1Yea;
-	Tue, 02 Dec 2025 06:01:27 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1vQJok-00000004tvr-0MBD;
+	Tue, 02 Dec 2025 06:24:54 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQJS1-00000004sNV-2C6N
+	id 1vQJoh-00000004tv3-3Ggp
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Dec 2025 06:01:26 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-343ee44d89aso7091573a91.2
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Dec 2025 22:01:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1764655285; x=1765260085; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Z+0bwtwpEeyVYpmofwpoipaViqDC4tDJleo3CtFrHJI=;
-        b=PlfSEpkfO6X5FYKCSivT1nKgPxkyTQ+cfJ7Nny7feN/Y40kx67rlJihBiVPDDqMSUl
-         OUFlJHDNaIiK2IU1zZKM+PKjx5taww0o1Z3kZB6D5fanLF16q4B7cuCbwZ/vPTiILU3O
-         Up6TTVVDu7v3JGDMWqWIlwuVXkZy//stPr122cg1lDi98I7AGTrXoSN6t+p+FZTl47fX
-         EDWrXAusFlmpL0mpt0q2IxtW6XeNUdBI2oovGhRvvqN5Q0jhy0yziY/KY+L6lfkxf1Rz
-         Tmw4/pZUiOgQqkjvG9O7ZN5IeeLLYbjUqHfG7ZwbW/SL2ZzEayF9MbTbCduPE5YjtFIH
-         9LTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764655285; x=1765260085;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Z+0bwtwpEeyVYpmofwpoipaViqDC4tDJleo3CtFrHJI=;
-        b=PEGw+oGiJMuuaF6UH2poqFhI48PbSWYRRMd7zchGjoqPlilin+AMelVswEn/00L/1z
-         zXSm//MITRScE/xs+930+Et6RtSk4aq6vT8ByoJTmR4bqImo9EKwNcp6w7LGEUml93U8
-         nCp78INN6ADW6jeuRIABik7eFfKowYJN4uvn+cIzuLzBC16T7ezcwOrR368shEQQc2rG
-         04U2BmlSbUt23LMEJWdvtR24FBV+GHqnWm1QbUO2h33Z4rqew/IAlZ0QNQVoDFc3o09D
-         7dKnlFFtX2Kh/ZAbWoP5wvk0gCGtWdgINx1TsPvNPN2Xp+LdKCsR831iRMpKsenh+sxb
-         fV+g==
-X-Gm-Message-State: AOJu0Yyt0Gw6hCyodOjNSx4EOqJIEr9xHut1neCM8ZUY+Ci6IHewZYic
-	SieK+c/v5doUmhy3Gjm0V/1gNMHXZRYWanumceFDTryE2hlgJeiU+F0HDXep1idVDwo=
-X-Gm-Gg: ASbGncs9ZlwMf+y2R8G7InmhgJes0Onj2v7wPsjVJwmrywzxXxB+qufw8MPhLRS16lU
-	9bAEgtUDgFWRg3zbjE7qS1EQ/3myv50LOPtL6mkdZqi+rOE/Vv33X4lM+JtcCJpoz2VyKEQp5ZK
-	SGjeJ2eI6SNNtuhzi9abS9tyGzwcVt5fjpH+WLfGshHx5pJuEo92ICnee0YmQ42xtWwFCPrPG5r
-	h97pkBKXb4NEx3iyHlhwo3td8GiFz6gP33fl8+N5bm/cpWnyHxxBsUlHMsaG9QsnJ+/6nFdU0Zh
-	XTSc0oo3ZPEoFFddQXDF2DY6AHZ0tlvJifHlp2a5dEO1Wl8NXmGSony9NXHyc7hsVlmZr4GNFsY
-	5fTmJpRnJI0nVqi8yI2cqe/0hhKX3BIh51O4qQWIjvdptQNydhrmWFC/IkIdx47U9sT8h2aGju5
-	h9LuOLLIyQ
-X-Google-Smtp-Source: AGHT+IEnfEWG66It067xSAX9BxgaSPW2cyBqDhkU4hrpj7sZyUsCv1ote9pGTUAbus8Lyv4F4oawAg==
-X-Received: by 2002:a17:90b:3841:b0:343:6d82:9278 with SMTP id 98e67ed59e1d1-34733f36040mr37615818a91.30.1764655284576;
-        Mon, 01 Dec 2025 22:01:24 -0800 (PST)
-Received: from [127.0.1.1] ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3476a547483sm19083810a91.4.2025.12.01.22.01.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 22:01:24 -0800 (PST)
-From: Nick Hu <nick.hu@sifive.com>
-Date: Tue, 02 Dec 2025 14:07:40 +0800
-Subject: [PATCH v3 1/2] irqchip/riscv-imsic: Add a CPU pm notifier to
- restore the IMSIC on exit
+	Tue, 02 Dec 2025 06:24:53 +0000
+Received: from [192.168.0.107] (unknown [114.241.82.59])
+	by APP-01 (Coremail) with SMTP id qwCowABn_cwuhi5pmijUAg--.285S2;
+	Tue, 02 Dec 2025 14:24:46 +0800 (CST)
+Message-ID: <80cb6553-af8f-4fce-a010-dff3a33c3779@iscas.ac.cn>
+Date: Tue, 2 Dec 2025 14:24:46 +0800
 MIME-Version: 1.0
-Message-Id: <20251202-preserve-aplic-imsic-v3-1-1844fbf1fe92@sifive.com>
-References: <20251202-preserve-aplic-imsic-v3-0-1844fbf1fe92@sifive.com>
-In-Reply-To: <20251202-preserve-aplic-imsic-v3-0-1844fbf1fe92@sifive.com>
-To: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Yong-Xuan Wang <yongxuan.wang@sifive.com>, Cyan Yang <cyan.yang@sifive.com>, 
- Nutty Liu <liujingqi@lanxincomputing.com>, Nick Hu <nick.hu@sifive.com>
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] lib/crypto: riscv/chacha: Avoid s0/fp register
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Jerry Shih <jerry.shih@sifive.com>, "Jason A. Donenfeld"
+ <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251202-riscv-chacha_zvkb-fp-v2-1-7bd00098c9dc@iscas.ac.cn>
+ <20251202053119.GA1416@sol>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20251202053119.GA1416@sol>
+X-CM-TRANSID: qwCowABn_cwuhi5pmijUAg--.285S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrZFWDKr1xJw15tr1kGry3Arb_yoWfGrbEvr
+	WYyrn7Cwn8WFnrtFyjkr4UtrWDGw1fWFyIgryrXwsrKrW8Zan5Zr1kZrn5Aw1Sqw42yF9F
+	kr98Jay3W34a9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbskYjsxI4VWkCwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Cr1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxU2VbyDUUUU
+X-Originating-IP: [114.241.82.59]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_220125_567733_DF67E742 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20251201_222452_208617_210C0D14 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,102 +86,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The IMSIC might be reset when the system enters a low power state, but on
-exit nothing restores the registers, which prevents interrupt delivery.
-Solve this by registering a CPU power management notifier, which restores
-the IMSIC on exit.
+On 12/2/25 13:31, Eric Biggers wrote:
+> On Tue, Dec 02, 2025 at 01:25:07PM +0800, Vivian Wang wrote:
+>> In chacha_zvkb, avoid using the s0 register, which is the frame pointer,
+>> by reallocating KEY0 to t5. This makes stack traces available if e.g. a
+>> crash happens in chacha_zvkb.
+>>
+>> No frame pointer maintenence is otherwise required since this is a leaf
+>> function.
+> maintenence => maintenance
+>
+Ouch... I swear I specifically checked this before sending, but
+apparently didn't see this. Thanks for the catch.
 
-Reviewed-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Reviewed-by: Cyan Yang <cyan.yang@sifive.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Nutty Liu <liujingqi@lanxincomputing.com>
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
----
- drivers/irqchip/irq-riscv-imsic-early.c | 39 ++++++++++++++++++++++++++-------
- 1 file changed, 31 insertions(+), 8 deletions(-)
+>>  SYM_FUNC_START(chacha_zvkb)
+>>  	addi		sp, sp, -96
+>> -	sd		s0, 0(sp)
+> I know it's annoying, but would you mind also changing the 96 to 88, and
+> decreasing all the offsets by 8, so that we don't leave a hole in the
+> stack where s0 used to be?  Likewise at the end of the function.
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
-index 2c4c682627b8cc81ad51a98a1f341aa506d649ac..d1727c343c38f6f88a25b3327aaa080c1cfe3078 100644
---- a/drivers/irqchip/irq-riscv-imsic-early.c
-+++ b/drivers/irqchip/irq-riscv-imsic-early.c
-@@ -7,6 +7,7 @@
- #define pr_fmt(fmt) "riscv-imsic: " fmt
- #include <linux/acpi.h>
- #include <linux/cpu.h>
-+#include <linux/cpu_pm.h>
- #include <linux/export.h>
- #include <linux/interrupt.h>
- #include <linux/init.h>
-@@ -128,14 +129,8 @@ static void imsic_handle_irq(struct irq_desc *desc)
- 	chained_irq_exit(chip, desc);
- }
- 
--static int imsic_starting_cpu(unsigned int cpu)
-+static void imsic_hw_states_init(void)
- {
--	/* Mark per-CPU IMSIC state as online */
--	imsic_state_online();
--
--	/* Enable per-CPU parent interrupt */
--	enable_percpu_irq(imsic_parent_irq, irq_get_trigger_type(imsic_parent_irq));
--
- 	/* Setup IPIs */
- 	imsic_ipi_starting_cpu();
- 
-@@ -147,6 +142,18 @@ static int imsic_starting_cpu(unsigned int cpu)
- 
- 	/* Enable local interrupt delivery */
- 	imsic_local_delivery(true);
-+}
-+
-+static int imsic_starting_cpu(unsigned int cpu)
-+{
-+	/* Mark per-CPU IMSIC state as online */
-+	imsic_state_online();
-+
-+	/* Enable per-CPU parent interrupt */
-+	enable_percpu_irq(imsic_parent_irq, irq_get_trigger_type(imsic_parent_irq));
-+
-+	/* Initialize the IMSIC registers to enable the interrupt delivery */
-+	imsic_hw_states_init();
- 
- 	return 0;
- }
-@@ -162,6 +169,22 @@ static int imsic_dying_cpu(unsigned int cpu)
- 	return 0;
- }
- 
-+static int imsic_pm_notifier(struct notifier_block *self, unsigned long cmd, void *v)
-+{
-+	switch (cmd) {
-+	case CPU_PM_EXIT:
-+		/* Initialize the IMSIC registers to enable the interrupt delivery */
-+		imsic_hw_states_init();
-+		break;
-+	}
-+
-+	return NOTIFY_OK;
-+}
-+
-+static struct notifier_block imsic_pm_notifier_block = {
-+	.notifier_call = imsic_pm_notifier,
-+};
-+
- static int __init imsic_early_probe(struct fwnode_handle *fwnode)
- {
- 	struct irq_domain *domain;
-@@ -199,7 +222,7 @@ static int __init imsic_early_probe(struct fwnode_handle *fwnode)
- 	cpuhp_setup_state(CPUHP_AP_IRQ_RISCV_IMSIC_STARTING, "irqchip/riscv/imsic:starting",
- 			  imsic_starting_cpu, imsic_dying_cpu);
- 
--	return 0;
-+	return cpu_pm_register_notifier(&imsic_pm_notifier_block);
- }
- 
- static int __init imsic_early_dt_init(struct device_node *node, struct device_node *parent)
-
--- 
-2.34.1
+No can do. Stack alignment on RISC-V is 16 bytes, and 80 won't fit.
 
 
 _______________________________________________
