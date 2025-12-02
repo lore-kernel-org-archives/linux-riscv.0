@@ -4,102 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB5CCFD376
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Dec 2025 10:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617BFD116F6
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Dec 2025 11:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lCWhwxdC7f4TgqKAkViQ16nEifDv1DZk9qc630CtYlQ=; b=toEdf8AlHHhZN7
-	p+zZn72+0Zzc5RpsOhtqz64Jb1Fq+EWmCBQHFTFuf9dlZeun983ZHm2z6BR809aApnkP/4/2y25Yp
-	49I1XDYgwfDvF9w3AiL3WR3xFGoUJBJwE1ICVUxl5rHf8bZJAh+9CncnVQIritlfz4063x47mo3gy
-	UzJkPM0XV9XRuUMIKyZ6pFWat883n6xHY4sNxowhxfUXdFuxrlL8cwflP8u0tf57sM5SCLfPXvvju
-	EqeCio4nuHjQjiarvIMgGkym3qYMCXU9GtnlhT/1EDudAMhfW5+hxhnAiUnBxZ+ta1NyAtia5TQU0
-	U816rgJjxUKQrdlEUYKg==;
+	List-Owner; bh=ofnebrDXjgeuOsyLQYoXhhOsNo41ywwudjUorCmgQsc=; b=xmjpjN4NTXLv49
+	OV9efCcLSaa7VQa9Nv5HUfOFjH3gyPTlPHi3AZKGATzAbso2RsroAsBcb1W2Bp0GrDsoDSWQdgM7F
+	C8vjN2HzAa+7nkX6+sk+Ll/Gqrt/NqU5ljKVfba3zwvuUw7YPO0ofeu25ifkO8v/gHEnZy1odgocT
+	XIXFmGR5KVVV7Gne+qK5Q+W03W0lRwhqAfCFp+MhNgfzhamoItCQr91K6ggXJ6T5vJspO6PMxy5B9
+	MOFpLx/K0hLgIqgwydEs2krAiV1nFho1+zJlC19OK0ql67eJVLv8au95QHZ5hWzLcslD8rpygkQae
+	2JqS+MrA60MKOfyT3Xew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQNrB-00000005HDX-2t1O;
-	Tue, 02 Dec 2025 10:43:41 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1vQOrb-00000005KkD-3jnI;
+	Tue, 02 Dec 2025 11:48:11 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQNr6-00000005HCT-3Yja
+	id 1vQOrX-00000005KjR-0xBt
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Dec 2025 10:43:38 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7b75e366866so2528148b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Dec 2025 02:43:36 -0800 (PST)
+	Tue, 02 Dec 2025 11:48:08 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-bdde8f1814fso4502944a12.2
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Dec 2025 03:48:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764672216; x=1765277016; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Kd/r/DimJ9qtIDlt68XznwS7M81iRS4xgSxFZR4YK3Y=;
-        b=Lr3JyanSbD3+ohtM7MCLQ2lnaI3RUU9r+c9iJSyDzNnOMoSvItcjIzOSBoGB/K7VXZ
-         9h5AQzJhV6mco6Wb6mRyJhXiKDN9Rf0/AQgmCPOzMY6YHg1HbOHoR6zb3NaIfxe05w3Y
-         +4Hkk9GqZLTNS2mmMWK4b/G5gOw5fj0Qh0rqE8nT0aoaBGMg/9zd+RceO6AbUrCrlTgI
-         8VdJWYoTiPkLWFcPwNRZVoIguacAOYvwtpO5nbCe77JXzedsGv7nfmFro8CKVu1gsLGe
-         L73wIGpD3VLdQaqvA1aIKONsrKMMRFPH/eirdxCJtihemq8nYblstpbVvTMDuuqur2nu
-         yDVw==
+        d=ventanamicro.com; s=google; t=1764676086; x=1765280886; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=r1nSvtdcW42kUTG/wzEhKzXOp4xqTaPJgXnRyGebc+k=;
+        b=W4ZWrQ7UUTmGu7N35aqzzxObSD3WScezuZcrCosn21iQE7c+HfOFY+9qntcZQ5KkgQ
+         wrWR0d2/YsaKXJWR0NS3AgAKICDcgQpYW0fTUzn0quLOBLa5Aj7oXwiJ4g7FpKxbwghH
+         tSZcjDdwehaSVKsOLkQ8PsZ52271CK2UOBK/9ak4GD4Gviq6dV8VQ5F96FKhwixKdwbE
+         7dBEeK00uhSm7LmvOHkOmI6T/TyrRwmaQZViX6k14Z9XA5Gr7htywZzGn2eegwrz4biA
+         Fskk91EU1dHqDMSBtZJndzyzkYcwgrhZUr1j1g9Wvgd6jry3ZjFpYpOUmbHlfZ5wimkl
+         hgAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764672216; x=1765277016;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Kd/r/DimJ9qtIDlt68XznwS7M81iRS4xgSxFZR4YK3Y=;
-        b=fB5e2fSjI57zxPoFQ7/jPDCaMmJ6tAq+WSmfq3/ZvIRPIHpQTOtsWDOjGbqa0dD/x1
-         1TRFDMbeGLnIVGQgjuOm7B1YznV6e8TuZ+GYLrN+O5NwvWVv8FjVIF28Vi1WJQ2Vd1Xu
-         KPPmejtTDPTaOpc3ZFe6bKe+taL3U5IAqj5/TR1KUS7LoB8UOteS6F0CycnSibQXX2va
-         /dY66tuKuFb19lBqksrAQVTa/mQoR8546UkAR1tKZX2qwkBVrNQG3D8gWl8w1rQHTRkU
-         71sL8SiZqTTWL+7mRQRZC67iqn1R8r1Q/N8p1yyedsF2oEi99zZ5pZXHh5qEFEsFddLS
-         42NA==
-X-Forwarded-Encrypted: i=1; AJvYcCVakA/G+We5UuY7m3+VbjVSwbInzxCPB6hJQCk8MxGan+cFow+zcCWWB98U0NNU+pouxWJjHZ0JNN+GRA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyC4J5CxpnXRGObZeFIeWXxk5rHEGL6xXQiSR46RMc/P85DZQba
-	/sgpjqbuAY02qena11P82VI2913vVm1IRfqF/NCKpKbeAuo7mu1UjbMO
-X-Gm-Gg: ASbGncsOKU5WOL8pBf/zws2vLdBXBujMbfdEDIEBbo27Te2nCTuDvDBgR97spYb76IK
-	G//0tKjpuuosxS2CCOagV8lmtcmeX7yzlX9DfuK7S+12XNSsgjW8EVFl1Gc1q4xOTGCKxnejQtp
-	V8ibkYQz+jBNu3E3jM5gxTCRXO+tLRN+ToL/cv2eXUPGv46ByxhUrz3vbsaPyKpHMTsKBsYd/aB
-	HILPgHchW0kDRQN+JybHaOUl8vb/nHKeSFa8p5GCJC0LITDARLttcWakK+4V+45OQF46APJxvs5
-	2RLH/DCm41I0tiD2XKtg+vRjf3UCIW+r8oyiEyht7BQjqSLhWb2KljMcnLNQ/AWdW5yilGAGm7t
-	4MrH4qa+JRu4Pb53BxNdwI9wkQAQhN+BgOra95q5SQZPXRLzzXwBLob55F5sk8/khxzPQQUZQGo
-	FzIRz/TkoGfhW+
-X-Google-Smtp-Source: AGHT+IED5nFkzSB3/1UNBlrDsuBG9p2Zb1q4sw31x1/MiWplDvt4R6PSti9U7VTR272WCUIwhviVSA==
-X-Received: by 2002:a05:6a20:6a2b:b0:358:dc7d:a2b3 with SMTP id adf61e73a8af0-3637e0a0a86mr31167964637.44.1764672215624;
-        Tue, 02 Dec 2025 02:43:35 -0800 (PST)
-Received: from [192.168.0.13] ([172.92.174.155])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7d15fcfd0fbsm16618485b3a.66.2025.12.02.02.43.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Dec 2025 02:43:34 -0800 (PST)
-Message-ID: <2a2f842f-ddfd-4bd0-b3a4-efcd1a82df73@gmail.com>
-Date: Tue, 2 Dec 2025 02:41:52 -0800
+        d=1e100.net; s=20230601; t=1764676086; x=1765280886;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=r1nSvtdcW42kUTG/wzEhKzXOp4xqTaPJgXnRyGebc+k=;
+        b=twe2nQyLLbQw5AhbVBP5O4OJ1M4xMexN957fzgldggHh4An/b8G0Ts7st2LNSRZne/
+         p+TDO9hcgnN+FBtS95YJFqd5fN5WoLGno6WDFKzoAPqZZgQrE+u6pEIc6jczeVJYXzQL
+         hl270yhRSR74TARFspr6cpmlAzM+3kmupw5BoHidgaJ7Ho7YRMbLIBDE3DpLi7BX7loZ
+         6Y84hgBQSScMshYvsCpOU3TK0McE1ppnXi02mCvRMWskp7yMagT458a+G+iM3B5gnuIh
+         GdhNO3g8ChsEbU06nxkq+HUTIfeO0M6Ul/+2XghTlt4IHUSzDoxvkIyliANLl8ghO+ro
+         9pWg==
+X-Forwarded-Encrypted: i=1; AJvYcCVVztMe/dpXTrFWWe58X1xjHiCdFqRrgnMvAH4kmN8Sqol2fRGDzek/oNru+ksiYtAmRiknukLsMX+Psg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXE6bU66ZwkdURJDUN+77uRifzhubgE4nzibrGT0APZHrKpGSa
+	Kmh6p/+3csoe+yfIzcT8zF7sy3Uz8PHMjBpkdDTewYd/G32lHGRboZJZEZlfuaP1IiISRrc8eag
+	35T+A1sepylKsGDw1FWUhgLe2wtdFDhVKEXCWPa087g==
+X-Gm-Gg: ASbGncsg7I+NdfDNzVVr/EZLIPLuj7fJT7yEiJ5aCexHgnpOR15GDaBRMrhmdMcn/lU
+	6mrKFbaaOUJoZNGFu7XTRfAGAdP/yPdO3ZrylWlYWNDAwmcog3wJ9ChWhJQQ3FvG4gtCivglL58
+	csRBieWa6c7lBZI7ZZ3YBTB18b6EUDdxlbOP6pAngSXAbTU/NF2MqBlpnI6/J85hRwMotIy1Uap
+	oGIt25jfL74ifvZnUFtZm5HosOyqytPLr2ZA4GB2ys+ZzjPQX25vjnugqKWjkI0FRNfzEM/
+X-Google-Smtp-Source: AGHT+IFnVc1t1G14Kt7Zal75rURx0ORTxmHSm4bbbP2tF+nmp38zJ1I10rfoez6FbRsszNw1cFaEwx4d9IsqUXLU55A=
+X-Received: by 2002:a05:7300:4793:b0:2a6:d0bd:4a07 with SMTP id
+ 5a478bee46e88-2a71929771cmr29880591eec.18.1764676085641; Tue, 02 Dec 2025
+ 03:48:05 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/12] rvtrace: Initial implementation of driver
- framework
-To: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Greg KH <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Ian Rogers <irogers@google.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>,
- Peter Zijlstra <peterz@infradead.org>, Anup Patel <anup@brainfault.org>,
- Adrian Hunter <adrian.hunter@intel.com>, linux-kernel@vger.kernel.org,
- Mayuresh Chitale <mchitale@ventanamicro.com>, Ingo Molnar
- <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>,
- Mayuresh Chitale <mchitale@gmail.com>, Namhyung Kim <namhyung@kernel.org>,
- linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>,
- Liang Kan <kan.liang@linux.intel.com>
 References: <20251101154245.162492-1-apatel@ventanamicro.com>
- <20251101154245.162492-3-apatel@ventanamicro.com>
-Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20251101154245.162492-3-apatel@ventanamicro.com>
+ <20251101154245.162492-8-apatel@ventanamicro.com> <26475221-f852-4d76-80dd-43f04f9e7ec4@gmail.com>
+In-Reply-To: <26475221-f852-4d76-80dd-43f04f9e7ec4@gmail.com>
+From: Mayuresh Chitale <mchitale@ventanamicro.com>
+Date: Tue, 2 Dec 2025 17:17:29 +0530
+X-Gm-Features: AWmQ_bmrz0puAsCfEKr58UFIOo7lGm68BJYozYF9PdsfaKrUsAeKySjyxFqbFes
+Message-ID: <CAN37VV4BSsy5C6+PT0s+8KQgisF7M60=JPnM2oAdjYYYC-LNrA@mail.gmail.com>
+Subject: Re: [PATCH v2 07/12] rvtrace: Add trace ramsink driver
+To: Bo Gan <ganboing@gmail.com>, Anup Patel <apatel@ventanamicro.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Greg KH <gregkh@linuxfoundation.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Ian Rogers <irogers@google.com>, 
+	Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org, 
+	Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, 
+	Peter Zijlstra <peterz@infradead.org>, Anup Patel <anup@brainfault.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, linux-kernel@vger.kernel.org, 
+	Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Mayuresh Chitale <mchitale@gmail.com>, Namhyung Kim <namhyung@kernel.org>, 
+	linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>, 
+	Liang Kan <kan.liang@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_024336_968839_FF2B9D7D 
-X-CRM114-Status: GOOD (  35.76  )
+X-CRM114-CacheID: sfid-20251202_034807_327545_21EEBB6A 
+X-CRM114-Status: GOOD (  46.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,1131 +101,310 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anup,
-
-See my comments below. I'll probably have another round of review later
-so expect more comments coming.
-
-On 11/1/25 08:42, Anup Patel wrote:
-> The RISC-V Trace Control Interface Specification [1] defines a standard
-> way of implementing RISC-V trace related modular components irrespective
-> to underlying trace format (E-trace or N-trace). These RISC-V trace
-> components are organized in a graph-like topology where each RISC-V
-> hart has its own RISC-V trace encoder component.
-> 
-> Implement a basic driver framework for RISC-V trace where RISC-V trace
-> components are instantiated by a common platform driver and a separate
-> RISC-V trace driver for each type of RISC-V trace component.
-> 
-> [1] https://github.com/riscv-non-isa/tg-nexus-trace/releases/download/1.0_Ratified/RISC-V-Trace-Control-Interface.pdf
-> 
-> Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->   drivers/Makefile                             |   1 +
->   drivers/hwtracing/Kconfig                    |   2 +
->   drivers/hwtracing/rvtrace/Kconfig            |  16 +
->   drivers/hwtracing/rvtrace/Makefile           |   4 +
->   drivers/hwtracing/rvtrace/rvtrace-core.c     | 501 +++++++++++++++++++
->   drivers/hwtracing/rvtrace/rvtrace-platform.c | 192 +++++++
->   include/linux/rvtrace.h                      | 280 +++++++++++
->   7 files changed, 996 insertions(+)
->   create mode 100644 drivers/hwtracing/rvtrace/Kconfig
->   create mode 100644 drivers/hwtracing/rvtrace/Makefile
->   create mode 100644 drivers/hwtracing/rvtrace/rvtrace-core.c
->   create mode 100644 drivers/hwtracing/rvtrace/rvtrace-platform.c
->   create mode 100644 include/linux/rvtrace.h
-> 
-> diff --git a/drivers/Makefile b/drivers/Makefile
-> index 8e1ffa4358d5..3c0c3bd40a89 100644
-> --- a/drivers/Makefile
-> +++ b/drivers/Makefile
-> @@ -178,6 +178,7 @@ obj-$(CONFIG_CORESIGHT)		+= hwtracing/coresight/
->   obj-y				+= hwtracing/intel_th/
->   obj-$(CONFIG_STM)		+= hwtracing/stm/
->   obj-$(CONFIG_HISI_PTT)		+= hwtracing/ptt/
-> +obj-$(CONFIG_RVTRACE)		+= hwtracing/rvtrace/
->   obj-y				+= android/
->   obj-$(CONFIG_NVMEM)		+= nvmem/
->   obj-$(CONFIG_FPGA)		+= fpga/
-> diff --git a/drivers/hwtracing/Kconfig b/drivers/hwtracing/Kconfig
-> index 911ee977103c..daeb38fe332d 100644
-> --- a/drivers/hwtracing/Kconfig
-> +++ b/drivers/hwtracing/Kconfig
-> @@ -7,4 +7,6 @@ source "drivers/hwtracing/intel_th/Kconfig"
->   
->   source "drivers/hwtracing/ptt/Kconfig"
->   
-> +source "drivers/hwtracing/rvtrace/Kconfig"
-> +
->   endmenu
-> diff --git a/drivers/hwtracing/rvtrace/Kconfig b/drivers/hwtracing/rvtrace/Kconfig
-> new file mode 100644
-> index 000000000000..f8f6feea1953
-> --- /dev/null
-> +++ b/drivers/hwtracing/rvtrace/Kconfig
-> @@ -0,0 +1,16 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +menuconfig RVTRACE
-> +	tristate "RISC-V Trace Support"
-> +	depends on RISCV
-> +	depends on OF
-> +	default RISCV
-> +	help
-> +	  This framework provides a kernel interface for the RISC-V trace
-> +	  drivers (including both e-trace and n-trace). It's intended to
-> +	  build a topological view of the RISC-V trace components and
-> +	  configure the right series of components when trace is enabled
-> +	  on a CPU.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called rvtrace.
-> diff --git a/drivers/hwtracing/rvtrace/Makefile b/drivers/hwtracing/rvtrace/Makefile
-> new file mode 100644
-> index 000000000000..988525a379cf
-> --- /dev/null
-> +++ b/drivers/hwtracing/rvtrace/Makefile
-> @@ -0,0 +1,4 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +obj-$(CONFIG_RVTRACE) += rvtrace.o
-> +rvtrace-y := rvtrace-core.o rvtrace-platform.o
-> diff --git a/drivers/hwtracing/rvtrace/rvtrace-core.c b/drivers/hwtracing/rvtrace/rvtrace-core.c
-> new file mode 100644
-> index 000000000000..32fda1647b39
-> --- /dev/null
-> +++ b/drivers/hwtracing/rvtrace/rvtrace-core.c
-> @@ -0,0 +1,501 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2025 Ventana Micro Systems Inc.
-> + */
-> +
-> +#include <linux/cpumask.h>
-> +#include <linux/delay.h>
-> +#include <linux/export.h>
-> +#include <linux/idr.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/percpu.h>
-> +#include <linux/rvtrace.h>
-> +
-> +/* Mutex to serialize component registration/unregistration */
-> +static DEFINE_MUTEX(rvtrace_mutex);
-> +
-> +/* Per-CPU encoder instances */
-> +static DEFINE_PER_CPU(struct rvtrace_component *, rvtrace_cpu_encoder);
-> +
-> +/* Component type based id generator */
-> +struct rvtrace_type_idx {
-> +	/* Lock to protect the type ID generator */
-> +	struct mutex lock;
-> +	struct idr idr;
-> +};
-> +
-> +/* Array of component type based id generator */
-> +static struct rvtrace_type_idx rvtrace_type_idx_array[RVTRACE_COMPONENT_TYPE_MAX];
-> +
-> +static int rvtrace_alloc_type_idx(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_type_idx *rvidx = &rvtrace_type_idx_array[comp->id.type];
-> +	int idx;
-> +
-> +	mutex_lock(&rvidx->lock);
-> +	idx = idr_alloc(&rvidx->idr, comp, 0, 0, GFP_KERNEL);
-> +	mutex_unlock(&rvidx->lock);
-> +	if (idx < 0)
-> +		return idx;
-> +
-> +	comp->type_idx = idx;
-> +	return 0;
-> +}
-> +
-> +static void rvtrace_free_type_idx(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_type_idx *rvidx = &rvtrace_type_idx_array[comp->id.type];
-> +
-> +	mutex_lock(&rvidx->lock);
-> +	idr_remove(&rvidx->idr, comp->type_idx);
-> +	mutex_unlock(&rvidx->lock);
-> +}
-> +
-> +static void __init rvtrace_init_type_idx(void)
-> +{
-> +	struct rvtrace_type_idx *rvidx;
-> +	int i;
-> +
-> +	for (i = 0; i < RVTRACE_COMPONENT_TYPE_MAX; i++) {
-> +		rvidx = &rvtrace_type_idx_array[i];
-> +		mutex_init(&rvidx->lock);
-> +		idr_init(&rvidx->idr);
-> +	}
-> +}
-> +
-> +const struct rvtrace_component_id *rvtrace_match_id(struct rvtrace_component *comp,
-> +						    const struct rvtrace_component_id *ids)
-> +{
-> +	u32 comp_maj, comp_min, id_maj, id_min;
-> +	const struct rvtrace_component_id *id;
-> +
-> +	for (id = ids; id->version && id->type; id++) {
-> +		if (comp->id.type != id->type)
-> +			return NULL;
-> +
-> +		id_maj = rvtrace_component_version_major(id->version);
-> +		id_min = rvtrace_component_version_minor(id->version);
-> +		comp_maj = rvtrace_component_version_major(comp->id.version);
-> +		comp_min = rvtrace_component_version_minor(comp->id.version);
-> +		if (comp_maj > id_maj)
-> +			continue;
-> +
-> +		/* Refer to Ch. 5 'Versioning of components of the Trace Control spec. */
-> +		if (comp_maj < id_maj)
-> +			dev_warn(&comp->dev, "Older component with major version %d\n", comp_maj);
-> +		if (comp_min == 15)
-> +			dev_warn(&comp->dev, "Experimental component\n");
-> +		else if (comp_min > id_min)
-> +			dev_warn(&comp->dev, "Newer component with minor version %d\n", comp_min);
-> +
-> +		return id;
-> +	}
-> +
-> +	return NULL;
-> +}
-> +EXPORT_SYMBOL_GPL(rvtrace_match_id);
-> +
-> +static int rvtrace_match_device(struct device *dev, const struct device_driver *drv)
-> +{
-> +	const struct rvtrace_driver *rtdrv = to_rvtrace_driver(drv);
-> +	struct rvtrace_component *comp = to_rvtrace_component(dev);
-> +
-> +	return rvtrace_match_id(comp, rtdrv->id_table) ? 1 : 0;
-> +}
-> +
-> +static int rvtrace_probe(struct device *dev)
-> +{
-> +	const struct rvtrace_driver *rtdrv = to_rvtrace_driver(dev->driver);
-> +	struct rvtrace_component *comp = to_rvtrace_component(dev);
-> +	int ret = -ENODEV;
-> +
-> +	if (!rtdrv->probe)
-> +		return ret;
-> +
-> +	ret = rtdrv->probe(comp);
-> +	if (!ret)
-> +		comp->ready = true;
-> +
-> +	return ret;
-> +}
-> +
-> +static void rvtrace_remove(struct device *dev)
-> +{
-> +	const struct rvtrace_driver *rtdrv = to_rvtrace_driver(dev->driver);
-> +	struct rvtrace_component *comp = to_rvtrace_component(dev);
-> +
-> +	comp->ready = false;
-> +	if (rtdrv->remove)
-> +		rtdrv->remove(comp);
-> +}
-> +
-> +const struct bus_type rvtrace_bustype = {
-> +	.name	= "rvtrace",
-> +	.match	= rvtrace_match_device,
-> +	.probe	= rvtrace_probe,
-> +	.remove	= rvtrace_remove,
-> +};
-> +
-> +struct rvtrace_fwnode_match_data {
-> +	struct fwnode_handle *fwnode;
-> +	struct rvtrace_component *match;
-> +};
-> +
-> +static int rvtrace_match_fwnode(struct device *dev, void *data)
-> +{
-> +	struct rvtrace_component *comp = to_rvtrace_component(dev);
-> +	struct rvtrace_fwnode_match_data *d = data;
-> +
-> +	if (device_match_fwnode(&comp->dev, d->fwnode)) {
-> +		d->match = comp;
-> +		return 1;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +struct rvtrace_component *rvtrace_find_by_fwnode(struct fwnode_handle *fwnode)
-> +{
-> +	struct rvtrace_fwnode_match_data d = { .fwnode = fwnode, .match = NULL };
-> +	int ret;
-> +
-> +	ret = bus_for_each_dev(&rvtrace_bustype, NULL, &d, rvtrace_match_fwnode);
-> +	if (ret < 0)
-> +		return ERR_PTR(ret);
-> +
-> +	return d.match;
-> +}
-> +EXPORT_SYMBOL_GPL(rvtrace_find_by_fwnode);
-> +
-> +int rvtrace_poll_bit(struct rvtrace_platform_data *pdata, int offset,
-> +		     int bit, int bitval, int timeout)
-> +{
-> +	int i = 10;
-> +	u32 val;
-> +
-> +	while (i--) {
-> +		val = rvtrace_read32(pdata, offset);
-> +		if (((val >> bit) & 0x1) == bitval)
-> +			break;
-> +		udelay(timeout);
-> +	}
-
-I suggest we use delay(1) and let i = timeout. With i = 10, we basically
-are using "timeout" as the polling interval, and 10* polling_interval as
-the actual timeout value. It's not clear to the user and may cause some
-confusion. delay(1) also helps to poll faster.
-
-> +
-> +	return (i < 0) ? -ETIMEDOUT : 0;
-> +}
-> +EXPORT_SYMBOL_GPL(rvtrace_poll_bit);
-> +
-> +int rvtrace_enable_component(struct rvtrace_component *comp)
-> +{
-> +	u32 val;
-> +
-> +	val = rvtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	val |= BIT(RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT);
-> +	rvtrace_write32(comp->pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	return rvtrace_poll_bit(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-> +				RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT, 1,
-> +				comp->pdata->control_poll_timeout_usecs);
-
-Suggest adding 2 more helper functions such as:
-
-   rvtrace_set_poll_bit()
-   rvtrace_unset_poll_bit()
-
-It'll simplify several use cases that need to set/unset and poll for that
-bit to get set/unset.
-
-> +}
-> +EXPORT_SYMBOL_GPL(rvtrace_enable_component);
-> +
-> +int rvtrace_disable_component(struct rvtrace_component *comp)
-> +{
-> +	u32 val;
-> +
-> +	val = rvtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	val &= ~BIT(RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT);
-> +	rvtrace_write32(comp->pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	return rvtrace_poll_bit(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-> +				RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT, 0,
-> +				comp->pdata->control_poll_timeout_usecs);
-> +}
-> +EXPORT_SYMBOL_GPL(rvtrace_disable_component);
-> +
-> +struct rvtrace_component *rvtrace_cpu_source(unsigned int cpu)
-> +{
-> +	if (!cpu_present(cpu))
-> +		return NULL;
-> +
-> +	return per_cpu(rvtrace_cpu_encoder, cpu);
-> +}
-> +EXPORT_SYMBOL_GPL(rvtrace_cpu_source);
-> +
-> +static int rvtrace_cleanup_inconn(struct device *dev, void *data)
-> +{
-> +	struct rvtrace_component *comp = to_rvtrace_component(dev);
-> +	struct rvtrace_platform_data *pdata = comp->pdata;
-> +	struct rvtrace_connection *conn = data;
-> +	int i;
-> +
-> +	if (device_match_fwnode(&comp->dev, conn->dest_fwnode)) {
-> +		for (i = 0; i < pdata->nr_inconns; i++) {
-> +			if (pdata->inconns[i] != conn)
-> +				continue;
-> +			pdata->inconns[i] = NULL;
-> +			return 1;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void rvtrace_cleanup_inconns_from_outconns(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_platform_data *pdata = comp->pdata;
-> +	struct rvtrace_connection *conn;
-> +	int i;
-> +
-> +	lockdep_assert_held(&rvtrace_mutex);
-> +
-> +	for (i = 0; i < pdata->nr_outconns; i++) {
-> +		conn = pdata->outconns[i];
-> +		bus_for_each_dev(&rvtrace_bustype, NULL, conn, rvtrace_cleanup_inconn);
-> +	}
-> +}
-> +
-> +static int rvtrace_setup_inconn(struct device *dev, void *data)
-> +{
-> +	struct rvtrace_component *comp = to_rvtrace_component(dev);
-> +	struct rvtrace_platform_data *pdata = comp->pdata;
-> +	struct rvtrace_connection *conn = data;
-> +	int i;
-> +
-> +	if (device_match_fwnode(&comp->dev, conn->dest_fwnode)) {
-> +		for (i = 0; i < pdata->nr_inconns; i++) {
-> +			if (pdata->inconns[i])
-> +				continue;
-> +			pdata->inconns[i] = conn;
-> +			return 1;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int rvtrace_setup_inconns_from_outconns(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_platform_data *pdata = comp->pdata;
-> +	struct rvtrace_connection *conn;
-> +	int i, ret;
-> +
-> +	lockdep_assert_held(&rvtrace_mutex);
-> +
-> +	for (i = 0; i < pdata->nr_outconns; i++) {
-> +		conn = pdata->outconns[i];
-> +		ret = bus_for_each_dev(&rvtrace_bustype, NULL, conn, rvtrace_setup_inconn);
-> +		if (ret < 0) {
-> +			rvtrace_cleanup_inconns_from_outconns(comp);
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void rvtrace_component_release(struct device *dev)
-> +{
-> +	struct rvtrace_component *comp = to_rvtrace_component(dev);
-> +
-> +	fwnode_handle_put(comp->dev.fwnode);
-> +	rvtrace_free_type_idx(comp);
-> +	kfree(comp);
-> +}
-> +
-> +static int rvtrace_component_reset(struct rvtrace_platform_data *pdata)
-> +{
-> +	int ret;
-> +
-> +	rvtrace_write32(pdata, 0, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	ret = rvtrace_poll_bit(pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-> +			       RVTRACE_COMPONENT_CTRL_ACTIVE_SHIFT, 0,
-> +			       pdata->control_poll_timeout_usecs);
-> +	if (ret)
-> +		return ret;
-> +
-> +	rvtrace_write32(pdata, RVTRACE_COMPONENT_CTRL_ACTIVE_MASK,
-> +			RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	return rvtrace_poll_bit(pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-> +				RVTRACE_COMPONENT_CTRL_ACTIVE_SHIFT, 1,
-> +				pdata->control_poll_timeout_usecs);
-> +}
-> +
-> +struct rvtrace_component *rvtrace_register_component(struct rvtrace_platform_data *pdata)
-> +{
-> +	struct rvtrace_connection *conn;
-> +	struct rvtrace_component *comp;
-> +	u32 impl, type, major, minor;
-> +	int i, ret = 0;
-> +
-> +	if (!pdata || !pdata->dev) {
-> +		ret = -EINVAL;
-> +		goto err_out;
-> +	}
-> +
-> +	for (i = 0; i < pdata->nr_inconns; i++) {
-> +		if (pdata->inconns[i]) {
-> +			ret = -EINVAL;
-> +			goto err_out;
-> +		}
-> +	}
-> +
-> +	for (i = 0; i < pdata->nr_outconns; i++) {
-> +		conn = pdata->outconns[i];
-> +		if (!conn || conn->src_port < 0 || conn->src_comp ||
-> +		    !device_match_fwnode(pdata->dev, conn->src_fwnode) ||
-> +		    conn->dest_port < 0 || !conn->dest_fwnode || !conn->dest_comp) {
-> +			ret = -EINVAL;
-> +			goto err_out;
-
-I feel like this complex condition should be simplified. If tested false,
-it indicates a logic error in the code, rather than a failure to validate
-some external input, such as the topology in the device-tree, as the para-
-meters are all controlled by the caller. They are not simply de-serialized
-from device-tree or something. Perhaps use BUG_ON on some of them to do
-assert()?
-
-> +		}
-> +	}
-> +
-> +	ret = rvtrace_component_reset(pdata);
-> +	if (ret)
-> +		goto err_out;
-> +
-> +	impl = rvtrace_read32(pdata, RVTRACE_COMPONENT_IMPL_OFFSET);
-> +	type = (impl >> RVTRACE_COMPONENT_IMPL_TYPE_SHIFT) &
-> +		RVTRACE_COMPONENT_IMPL_TYPE_MASK;
-> +	major = (impl >> RVTRACE_COMPONENT_IMPL_VERMAJOR_SHIFT) &
-> +		RVTRACE_COMPONENT_IMPL_VERMAJOR_MASK;
-> +	minor = (impl >> RVTRACE_COMPONENT_IMPL_VERMINOR_SHIFT) &
-> +		RVTRACE_COMPONENT_IMPL_VERMINOR_MASK;
-> +
-> +	if (pdata->bound_cpu >= 0 && !cpu_present(pdata->bound_cpu)) {
-> +		ret = -EINVAL;
-> +		goto err_out;
-> +	}
-> +	if (type == RVTRACE_COMPONENT_TYPE_ENCODER && pdata->bound_cpu < 0) {
-> +		ret = -EINVAL;
-> +		goto err_out;
-> +	}
-> +
-> +	comp = kzalloc(sizeof(*comp), GFP_KERNEL);
-> +	if (!comp) {
-> +		ret = -ENOMEM;
-> +		goto err_out;
-> +	}
-> +	comp->pdata = pdata;
-> +	comp->id.type = type;
-> +	comp->id.version = rvtrace_component_mkversion(major, minor);
-> +	ret = rvtrace_alloc_type_idx(comp);
-> +	if (ret) {
-> +		kfree(comp);
-> +		goto err_out;
-> +	}
-> +
-> +	comp->dev.parent = pdata->dev;
-> +	comp->dev.coherent_dma_mask = pdata->dev->coherent_dma_mask;
-> +	comp->dev.release = rvtrace_component_release;
-> +	comp->dev.bus = &rvtrace_bustype;
-> +	comp->dev.fwnode = fwnode_handle_get(dev_fwnode(pdata->dev));
-> +	switch (comp->id.type) {
-> +	case RVTRACE_COMPONENT_TYPE_ENCODER:
-> +		dev_set_name(&comp->dev, "encoder-%d", comp->type_idx);
-> +		break;
-> +	case RVTRACE_COMPONENT_TYPE_FUNNEL:
-> +		dev_set_name(&comp->dev, "funnel-%d", comp->type_idx);
-> +		break;
-> +	case RVTRACE_COMPONENT_TYPE_RAMSINK:
-> +		dev_set_name(&comp->dev, "ramsink-%d", comp->type_idx);
-> +		break;
-> +	case RVTRACE_COMPONENT_TYPE_PIBSINK:
-> +		dev_set_name(&comp->dev, "pibsink-%d", comp->type_idx);
-> +		break;
-> +	case RVTRACE_COMPONENT_TYPE_ATBBRIDGE:
-> +		dev_set_name(&comp->dev, "atbbridge-%d", comp->type_idx);
-> +		break;
-> +	default:
-> +		dev_set_name(&comp->dev, "type%d-%d", comp->id.type, comp->type_idx);
-> +		break;
-> +	}
-> +
-> +	mutex_lock(&rvtrace_mutex);
-> +
-> +	ret = device_register(&comp->dev);
-> +	if (ret) {
-> +		put_device(&comp->dev);
-> +		goto err_out_unlock;
-> +	}
-> +
-> +	for (i = 0; i < pdata->nr_outconns; i++) {
-> +		conn = pdata->outconns[i];
-> +		conn->src_comp = comp;
-> +	}
-> +
-> +	ret = rvtrace_setup_inconns_from_outconns(comp);
-> +	if (ret < 0) {
-> +		device_unregister(&comp->dev);
-> +		goto err_out_unlock;
-> +	}
-> +
-> +	if (comp->id.type == RVTRACE_COMPONENT_TYPE_ENCODER) {
-> +		rvtrace_get_component(comp);
-> +		per_cpu(rvtrace_cpu_encoder, comp->pdata->bound_cpu) = comp;
-> +	}
-> +
-> +	mutex_unlock(&rvtrace_mutex);
-> +
-> +	return comp;
-> +
-> +err_out_unlock:
-> +	mutex_unlock(&rvtrace_mutex);
-> +err_out:
-> +	return ERR_PTR(ret);
-> +}
-> +EXPORT_SYMBOL_GPL(rvtrace_register_component);
-> +
-> +void rvtrace_unregister_component(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_component *c;
-> +
-> +	mutex_lock(&rvtrace_mutex);
-> +
-> +	if (comp->id.type == RVTRACE_COMPONENT_TYPE_ENCODER) {
-> +		c = per_cpu(rvtrace_cpu_encoder, comp->pdata->bound_cpu);
-> +		per_cpu(rvtrace_cpu_encoder, comp->pdata->bound_cpu) = NULL;
-> +		rvtrace_put_component(c);
-> +	}
-> +
-> +	rvtrace_cleanup_inconns_from_outconns(comp);
-> +	device_unregister(&comp->dev);
-> +
-> +	mutex_unlock(&rvtrace_mutex);
-> +}
-> +EXPORT_SYMBOL_GPL(rvtrace_unregister_component);
-> +
-> +int __rvtrace_register_driver(struct module *owner, struct rvtrace_driver *rtdrv)
-> +{
-> +	rtdrv->driver.owner = owner;
-> +	rtdrv->driver.bus = &rvtrace_bustype;
-> +
-> +	return driver_register(&rtdrv->driver);
-> +}
-> +EXPORT_SYMBOL_GPL(__rvtrace_register_driver);
-> +
-> +static int __init rvtrace_init(void)
-> +{
-> +	int ret;
-> +
-> +	rvtrace_init_type_idx();
-> +
-> +	ret = bus_register(&rvtrace_bustype);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = platform_driver_register(&rvtrace_platform_driver);
-> +	if (ret) {
-> +		bus_unregister(&rvtrace_bustype);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void __exit rvtrace_exit(void)
-> +{
-> +	platform_driver_unregister(&rvtrace_platform_driver);
-> +	bus_unregister(&rvtrace_bustype);
-> +}
-> +
-> +module_init(rvtrace_init);
-> +module_exit(rvtrace_exit);
-> diff --git a/drivers/hwtracing/rvtrace/rvtrace-platform.c b/drivers/hwtracing/rvtrace/rvtrace-platform.c
-> new file mode 100644
-> index 000000000000..6eb362880e5c
-> --- /dev/null
-> +++ b/drivers/hwtracing/rvtrace/rvtrace-platform.c
-> @@ -0,0 +1,192 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2025 Ventana Micro Systems Inc.
-> + */
-> +
-> +#include <linux/device.h>
-> +#include <linux/io.h>
-> +#include <linux/of.h>
-> +#include <linux/of_graph.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/rvtrace.h>
-> +#include <linux/types.h>
-> +
-> +static int rvtrace_of_parse_outconns(struct rvtrace_platform_data *pdata)
-> +{
-> +	struct device_node *parent, *ep_node, *rep_node, *rdev_node;
-> +	struct rvtrace_connection *conn;
-> +	struct of_endpoint ep, rep;
-> +	int ret = 0, i = 0;
-> +
-> +	parent = of_get_child_by_name(dev_of_node(pdata->dev), "out-ports");
-> +	if (!parent)
-> +		return 0;
-> +
-> +	pdata->nr_outconns = of_graph_get_endpoint_count(parent);
-> +	pdata->outconns = devm_kcalloc(pdata->dev, pdata->nr_outconns,
-> +				       sizeof(*pdata->outconns), GFP_KERNEL);
-> +	if (!pdata->outconns) {
-> +		ret = -ENOMEM;
-> +		goto done;
-> +	}
-> +
-> +	for_each_endpoint_of_node(parent, ep_node) {
-> +		conn = devm_kzalloc(pdata->dev, sizeof(*conn), GFP_KERNEL);
-> +		if (!conn) {
-> +			of_node_put(ep_node);
-> +			ret = -ENOMEM;
-> +			break;
-> +		}
-> +
-> +		ret = of_graph_parse_endpoint(ep_node, &ep);
-> +		if (ret) {
-> +			of_node_put(ep_node);
-> +			break;
-> +		}
-> +
-> +		rep_node = of_graph_get_remote_endpoint(ep_node);
-
-There's no put() of the rep_node. I printed the refcount of rep_node,
-and confirmed that it's always increasing, and never decrements even
-after the rvtrace.ko gets unloaded. Needs to be fixed.
-
-> +		if (!rep_node) {
-> +			ret = -ENODEV;
-> +			of_node_put(ep_node);
-> +			break;
-> +		}
-> +		rdev_node = of_graph_get_port_parent(rep_node);
-
-Same for rdev_node.
-
----
-
-Bo
-
-> +
-> +		ret = of_graph_parse_endpoint(rep_node, &rep);
-> +		if (ret) {
-> +			of_node_put(ep_node);
-> +			break;
-> +		}
-> +
-> +		conn->src_port = ep.port;
-> +		conn->src_fwnode = dev_fwnode(pdata->dev);
-> +		/* The 'src_comp' is set by rvtrace_register_component() */
-> +		conn->src_comp = NULL;
-> +		conn->dest_port = rep.port;
-> +		conn->dest_fwnode = of_fwnode_handle(rdev_node);
-> +		fwnode_handle_get(conn->dest_fwnode);
-> +		conn->dest_comp = rvtrace_find_by_fwnode(conn->dest_fwnode);
-> +		if (!conn->dest_comp) {
-> +			ret = -EPROBE_DEFER;
-> +			of_node_put(ep_node);
-> +			break;
-> +		}
-> +
-> +		pdata->outconns[i] = conn;
-> +		i++;
-> +	}
-> +
-> +done:
-> +	if (ret) {
-> +		for (i = 0; i < pdata->nr_outconns; i++) {
-> +			conn = pdata->outconns[i];
-> +			if (conn && conn->dest_fwnode)
-> +				fwnode_handle_put(conn->dest_fwnode);
-> +		}
-> +	}
-> +	of_node_put(parent);
-> +	return ret;
-> +}
-> +
-> +static int rvtrace_of_parse_inconns(struct rvtrace_platform_data *pdata)
-> +{
-> +	struct device_node *parent;
-> +	int ret = 0;
-> +
-> +	parent = of_get_child_by_name(dev_of_node(pdata->dev), "in-ports");
-> +	if (!parent)
-> +		return 0;
-> +
-> +	pdata->nr_inconns = of_graph_get_endpoint_count(parent);
-> +	pdata->inconns = devm_kcalloc(pdata->dev, pdata->nr_inconns,
-> +				      sizeof(*pdata->inconns), GFP_KERNEL);
-> +	if (!pdata->inconns)
-> +		ret = -ENOMEM;
-> +
-> +	of_node_put(parent);
-> +	return ret;
-> +}
-> +
-> +static int rvtrace_platform_probe(struct platform_device *pdev)
-> +{
-> +	struct rvtrace_platform_data *pdata;
-> +	struct device *dev = &pdev->dev;
-> +	struct rvtrace_component *comp;
-> +	struct device_node *node;
-> +	struct resource *res;
-> +	int ret;
-> +
-> +	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
-> +	if (!pdata)
-> +		return -ENOMEM;
-> +	pdata->dev = dev;
-> +	pdata->impid = RVTRACE_COMPONENT_IMPID_UNKNOWN;
-> +
-> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	if (!res)
-> +		return -EINVAL;
-> +
-> +	pdata->io_mem = true;
-> +	pdata->base = devm_ioremap(&pdev->dev, res->start, resource_size(res));
-> +	if (!pdata->base)
-> +		return dev_err_probe(dev, -ENOMEM, "failed to ioremap %pR\n", res);
-> +
-> +	pdata->bound_cpu = -1;
-> +	node = of_parse_phandle(dev_of_node(dev), "cpus", 0);
-> +	if (node) {
-> +		ret = of_cpu_node_to_id(node);
-> +		of_node_put(node);
-> +		if (ret < 0)
-> +			return dev_err_probe(dev, ret, "failed to get CPU id for %pOF\n", node);
-> +		pdata->bound_cpu = ret;
-> +	}
-> +
-> +	/* Default control poll timeout */
-> +	pdata->control_poll_timeout_usecs = 10;
-> +
-> +	ret = rvtrace_of_parse_outconns(pdata);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to parse output connections\n");
-> +
-> +	ret = rvtrace_of_parse_inconns(pdata);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to parse input connections\n");
-> +
-> +	comp = rvtrace_register_component(pdata);
-> +	if (IS_ERR(comp))
-> +		return PTR_ERR(comp);
-> +
-> +	platform_set_drvdata(pdev, comp);
-> +	return 0;
-> +}
-> +
-> +static void rvtrace_platform_remove(struct platform_device *pdev)
-> +{
-> +	struct rvtrace_component *comp = platform_get_drvdata(pdev);
-> +	struct rvtrace_platform_data *pdata = comp->pdata;
-> +	struct rvtrace_connection *conn;
-> +	int i;
-> +
-> +	for (i = 0; i < pdata->nr_outconns; i++) {
-> +		conn = pdata->outconns[i];
-> +		if (conn && conn->dest_fwnode)
-> +			fwnode_handle_put(conn->dest_fwnode);
-> +	}
-> +
-> +	rvtrace_unregister_component(comp);
-> +}
-> +
-> +static const struct of_device_id rvtrace_platform_match[] = {
-> +	{ .compatible = "riscv,trace-component" },
-> +	{}
-> +};
-> +
-> +struct platform_driver rvtrace_platform_driver = {
-> +	.driver = {
-> +		.name		= "rvtrace",
-> +		.of_match_table	= rvtrace_platform_match,
-> +	},
-> +	.probe = rvtrace_platform_probe,
-> +	.remove = rvtrace_platform_remove,
-> +};
-> diff --git a/include/linux/rvtrace.h b/include/linux/rvtrace.h
-> new file mode 100644
-> index 000000000000..e8e055ad6583
-> --- /dev/null
-> +++ b/include/linux/rvtrace.h
-> @@ -0,0 +1,280 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (c) 2025 Ventana Micro Systems Inc.
-> + */
-> +
-> +#ifndef __LINUX_RVTRACE_H__
-> +#define __LINUX_RVTRACE_H__
-> +
-> +#include <linux/device.h>
-> +#include <linux/io.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/types.h>
-> +
-> +/* Control register common across all RISC-V trace components */
-> +#define RVTRACE_COMPONENT_CTRL_OFFSET		0x000
-> +#define RVTRACE_COMPONENT_CTRL_ACTIVE_MASK	0x1
-> +#define RVTRACE_COMPONENT_CTRL_ACTIVE_SHIFT	0
-> +#define RVTRACE_COMPONENT_CTRL_ENABLE_MASK	0x1
-> +#define RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT	1
-> +#define RVTRACE_COMPONENT_CTRL_EMPTY_SHIFT	3
-> +
-> +/* Implementation register common across all RISC-V trace components */
-> +#define RVTRACE_COMPONENT_IMPL_OFFSET		0x004
-> +#define RVTRACE_COMPONENT_IMPL_VERMAJOR_MASK	0xf
-> +#define RVTRACE_COMPONENT_IMPL_VERMAJOR_SHIFT	0
-> +#define RVTRACE_COMPONENT_IMPL_VERMINOR_MASK	0xf
-> +#define RVTRACE_COMPONENT_IMPL_VERMINOR_SHIFT	4
-> +#define RVTRACE_COMPONENT_IMPL_TYPE_MASK	0xf
-> +#define RVTRACE_COMPONENT_IMPL_TYPE_SHIFT	8
-> +
-> +/* Possible component types defined by the RISC-V Trace Control Interface */
-> +enum rvtrace_component_type {
-> +	RVTRACE_COMPONENT_TYPE_RESV0,
-> +	RVTRACE_COMPONENT_TYPE_ENCODER, /* 0x1 */
-> +	RVTRACE_COMPONENT_TYPE_RESV2,
-> +	RVTRACE_COMPONENT_TYPE_RESV3,
-> +	RVTRACE_COMPONENT_TYPE_RESV4,
-> +	RVTRACE_COMPONENT_TYPE_RESV5,
-> +	RVTRACE_COMPONENT_TYPE_RESV6,
-> +	RVTRACE_COMPONENT_TYPE_RESV7,
-> +	RVTRACE_COMPONENT_TYPE_FUNNEL, /* 0x8 */
-> +	RVTRACE_COMPONENT_TYPE_RAMSINK, /* 0x9 */
-> +	RVTRACE_COMPONENT_TYPE_PIBSINK, /* 0xA */
-> +	RVTRACE_COMPONENT_TYPE_RESV11,
-> +	RVTRACE_COMPONENT_TYPE_RESV12,
-> +	RVTRACE_COMPONENT_TYPE_RESV13,
-> +	RVTRACE_COMPONENT_TYPE_ATBBRIDGE, /* 0xE */
-> +	RVTRACE_COMPONENT_TYPE_RESV15,
-> +	RVTRACE_COMPONENT_TYPE_MAX
-> +};
-> +
-> +/* Encoding/decoding macros for RISC-V trace component version */
-> +#define rvtrace_component_version_major(__version)	\
-> +	(((__version) >> 16) & 0xffff)
-> +#define rvtrace_component_version_minor(__version)	\
-> +	((__version) & 0xffff)
-> +#define rvtrace_component_mkversion(__major, __minor)	\
-> +	((((__major) & 0xffff) << 16) |	((__minor) & 0xffff))
-> +
-> +/*
-> + * Possible component implementation IDs discovered from DT or ACPI
-> + * shared across the RISC-V trace drivers to infer trace parameters,
-> + * quirks, and work-arounds. These component implementation IDs are
-> + * internal to Linux and must not be exposed to user-space.
-> + *
-> + * The component implementation ID should be named as follows:
-> + *    RVTRACE_COMPONENT_IMPID_<vendor>_<part>
-> + */
-> +enum rvtrace_component_impid {
-> +	RVTRACE_COMPONENT_IMPID_UNKNOWN,
-> +	RVTRACE_COMPONENT_IMPID_MAX
-> +};
-> +
-> +/**
-> + * struct rvtrace_connection - Representation of a physical connection between
-> + * two RISC-V trace components.
-> + * @src_port:    A connection's source port number.
-> + * @src_fwnode:  Source component's fwnode handle..
-> + * @src_comp:    Source component's pointer.
-> + * @dest_port:   A connection's destination port number.
-> + * @dest_fwnode: Destination component's fwnode handle.
-> + * @dest_comp:   Destination component's pointer.
-> + */
-> +struct rvtrace_connection {
-> +	int src_port;
-> +	struct fwnode_handle *src_fwnode;
-> +	int dest_port;
-> +	struct fwnode_handle *dest_fwnode;
-> +	struct rvtrace_component *src_comp;
-> +	struct rvtrace_component *dest_comp;
-> +};
-> +
-> +/**
-> + * struct rvtrace_platform_data - Platform-level data for a RISC-V trace component
-> + * discovered from DT or ACPI.
-> + * @dev:         Parent device.
-> + * @impid:       Component implementation ID
-> + * @io_mem:      Flag showing whether component registers are memory mapped.
-> + * @base:        If io_mem == true then base address of the memory mapped registers.
-> + * @read:        If io_mem == false then read register from the given "offset".
-> + * @write:       If io_mem == false then write register to the given "offset".
-> + * @bound_cpu:   CPU to which the component is bound. This should be -1 if
-> + *               the component is not bound to any CPU. For encoder component
-> + *               type this must not be -1.
-> + * @nr_inconns:  Number of input connections.
-> + * @inconns:     Array of pointers to input connections.
-> + * @nr_outconns: Number of output connections.
-> + * @outconns:    Array of pointers to output connections.
-> + */
-> +struct rvtrace_platform_data {
-> +	struct device *dev;
-> +
-> +	enum rvtrace_component_impid impid;
-> +
-> +	bool io_mem;
-> +	union {
-> +		void __iomem *base;
-> +		struct {
-> +			u32 (*read)(struct rvtrace_platform_data *pdata,
-> +				    u32 offset, bool relaxed);
-> +			void (*write)(struct rvtrace_platform_data *pdata,
-> +				      u32 val, u32 offset, bool relaxed);
-> +		};
-> +	};
-> +
-> +	int bound_cpu;
-> +
-> +	/* Delay in microseconds when polling control register bits */
-> +	int control_poll_timeout_usecs;
-> +
-> +	/*
-> +	 * Platform driver must only populate empty pointer array without
-> +	 * any actual input connections.
-> +	 */
-> +	unsigned int nr_inconns;
-> +	struct rvtrace_connection **inconns;
-> +
-> +	/*
-> +	 * Platform driver must fully populate pointer array with individual
-> +	 * array elements pointing to actual output connections. The src_comp
-> +	 * of each output connection is automatically updated at the time of
-> +	 * registering component.
-> +	 */
-> +	unsigned int nr_outconns;
-> +	struct rvtrace_connection **outconns;
-> +};
-> +
-> +static inline u32 rvtrace_read32(struct rvtrace_platform_data *pdata, u32 offset)
-> +{
-> +	if (likely(pdata->io_mem))
-> +		return readl(pdata->base + offset);
-> +
-> +	return pdata->read(pdata, offset, false);
-> +}
-> +
-> +static inline u32 rvtrace_relaxed_read32(struct rvtrace_platform_data *pdata, u32 offset)
-> +{
-> +	if (likely(pdata->io_mem))
-> +		return readl_relaxed(pdata->base + offset);
-> +
-> +	return pdata->read(pdata, offset, true);
-> +}
-> +
-> +static inline void rvtrace_write32(struct rvtrace_platform_data *pdata, u32 val, u32 offset)
-> +{
-> +	if (likely(pdata->io_mem))
-> +		writel(val, pdata->base + offset);
-> +	else
-> +		pdata->write(pdata, val, offset, false);
-> +}
-> +
-> +static inline void rvtrace_relaxed_write32(struct rvtrace_platform_data *pdata,
-> +					   u32 val, u32 offset)
-> +{
-> +	if (likely(pdata->io_mem))
-> +		writel_relaxed(val, pdata->base + offset);
-> +	else
-> +		pdata->write(pdata, val, offset, true);
-> +}
-> +
-> +static inline bool rvtrace_is_source(struct rvtrace_platform_data *pdata)
-> +{
-> +	return !pdata->nr_inconns ? true : false;
-> +}
-> +
-> +static inline bool rvtrace_is_sink(struct rvtrace_platform_data *pdata)
-> +{
-> +	return !pdata->nr_outconns ? true : false;
-> +}
-> +
-> +/**
-> + * struct rvtrace_component_id - Details to identify or match a RISC-V trace component
-> + * @type:      Type of the component
-> + * @version:   Version of the component
-> + * @data:      Data pointer for driver use
-> + */
-> +struct rvtrace_component_id {
-> +	enum rvtrace_component_type type;
-> +	u32 version;
-> +	void *data;
-> +};
-> +
-> +/**
-> + * struct rvtrace_component - Representation of a RISC-V trace component
-> + * pdata:    Pointer to underlying platform data
-> + * id:       Details to match the component
-> + * type_idx: Unique number based on component type
-> + * dev:      Device instance
-> + * ready:    Flag showing whether RISC-V trace driver was probed successfully
-> + */
-> +struct rvtrace_component {
-> +	struct rvtrace_platform_data *pdata;
-> +	struct rvtrace_component_id id;
-> +	u32 type_idx;
-> +	struct device dev;
-> +	bool ready;
-> +};
-> +
-> +#define to_rvtrace_component(__dev)	container_of_const(__dev, struct rvtrace_component, dev)
-> +
-> +static inline void rvtrace_get_component(struct rvtrace_component *comp)
-> +{
-> +	get_device(&comp->dev);
-> +}
-> +
-> +static inline void rvtrace_put_component(struct rvtrace_component *comp)
-> +{
-> +	put_device(&comp->dev);
-> +}
-> +
-> +const struct rvtrace_component_id *rvtrace_match_id(struct rvtrace_component *comp,
-> +						    const struct rvtrace_component_id *ids);
-> +struct rvtrace_component *rvtrace_find_by_fwnode(struct fwnode_handle *fwnode);
-> +
-> +int rvtrace_poll_bit(struct rvtrace_platform_data *pdata, int offset,
-> +		     int bit, int bitval, int timeout);
-> +int rvtrace_enable_component(struct rvtrace_component *comp);
-> +int rvtrace_disable_component(struct rvtrace_component *comp);
-> +
-> +struct rvtrace_component *rvtrace_cpu_source(unsigned int cpu);
-> +
-> +struct rvtrace_component *rvtrace_register_component(struct rvtrace_platform_data *pdata);
-> +void rvtrace_unregister_component(struct rvtrace_component *comp);
-> +
-> +/**
-> + * struct rvtrace_driver - Representation of a RISC-V trace driver
-> + * id_table: Table to match components handled by the driver
-> + * probe:    Driver probe() function
-> + * remove:   Driver remove() function
-> + * driver:   Device driver instance
-> + */
-> +struct rvtrace_driver {
-> +	const struct rvtrace_component_id *id_table;
-> +	int			(*probe)(struct rvtrace_component *comp);
-> +	void			(*remove)(struct rvtrace_component *comp);
-> +	struct device_driver	driver;
-> +};
-> +
-> +#define to_rvtrace_driver(__drv)   \
-> +	((__drv) ? container_of_const((__drv), struct rvtrace_driver, driver) : NULL)
-> +
-> +extern struct platform_driver rvtrace_platform_driver;
-> +
-> +int __rvtrace_register_driver(struct module *owner, struct rvtrace_driver *rtdrv);
-> +#define rvtrace_register_driver(driver) __rvtrace_register_driver(THIS_MODULE, driver)
-> +static inline void rvtrace_unregister_driver(struct rvtrace_driver *rtdrv)
-> +{
-> +	if (rtdrv)
-> +		driver_unregister(&rtdrv->driver);
-> +}
-> +
-> +static inline int rvtrace_comp_is_empty(struct rvtrace_component *comp)
-> +{
-> +	return rvtrace_poll_bit(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-> +				RVTRACE_COMPONENT_CTRL_EMPTY_SHIFT, 1,
-> +				comp->pdata->control_poll_timeout_usecs);
-> +}
-> +
-> +#endif
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQm8sCgpPbiBTdW4sIE5vdiAzMCwgMjAyNSBhdCAxOjE34oCvUE0gQm8gR2FuIDxnYW5ib2lu
+Z0BnbWFpbC5jb20+IHdyb3RlOgo+Cj4gSGkgQW51cCwKPgo+IE15IGNvbW1lbnRzIGJlbG93Ogo+
+Cj4gT24gMTEvMS8yNSAwODo0MiwgQW51cCBQYXRlbCB3cm90ZToKPiA+IEZyb206IE1heXVyZXNo
+IENoaXRhbGUgPG1jaGl0YWxlQHZlbnRhbmFtaWNyby5jb20+Cj4gPgo+ID4gQWRkIGluaXRpYWwg
+aW1wbGVtZW50YXRpb24gb2YgUklTQy1WIHRyYWNlIHJhbXNpbmsgZHJpdmVyLiBUaGUgcmFtc2lu
+awo+ID4gaXMgZGVmaW5lZCBpbiB0aGUgUklTQy1WIFRyYWNlIENvbnRyb2wgSW50ZXJmYWNlIHNw
+ZWNpZmljYXRpb24uCj4gPgo+ID4gQ28tZGV2ZWxvcGVkLWJ5OiBBbnVwIFBhdGVsIDxhcGF0ZWxA
+dmVudGFuYW1pY3JvLmNvbT4KPiA+IFNpZ25lZC1vZmYtYnk6IEFudXAgUGF0ZWwgPGFwYXRlbEB2
+ZW50YW5hbWljcm8uY29tPgo+ID4gU2lnbmVkLW9mZi1ieTogTWF5dXJlc2ggQ2hpdGFsZSA8bWNo
+aXRhbGVAdmVudGFuYW1pY3JvLmNvbT4KPiA+IC0tLQo+ID4gICBkcml2ZXJzL2h3dHJhY2luZy9y
+dnRyYWNlL0tjb25maWcgICAgICAgICAgIHwgICA5ICsKPiA+ICAgZHJpdmVycy9od3RyYWNpbmcv
+cnZ0cmFjZS9NYWtlZmlsZSAgICAgICAgICB8ICAgMSArCj4gPiAgIGRyaXZlcnMvaHd0cmFjaW5n
+L3J2dHJhY2UvcnZ0cmFjZS1yYW1zaW5rLmMgfCAyNjIgKysrKysrKysrKysrKysrKysrKysKPiA+
+ICAgMyBmaWxlcyBjaGFuZ2VkLCAyNzIgaW5zZXJ0aW9ucygrKQo+ID4gICBjcmVhdGUgbW9kZSAx
+MDA2NDQgZHJpdmVycy9od3RyYWNpbmcvcnZ0cmFjZS9ydnRyYWNlLXJhbXNpbmsuYwo+ID4KPiA+
+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2h3dHJhY2luZy9ydnRyYWNlL0tjb25maWcgYi9kcml2ZXJz
+L2h3dHJhY2luZy9ydnRyYWNlL0tjb25maWcKPiA+IGluZGV4IGJhMzVjMDVmM2Y1NC4uMDU3N2Y5
+YWNiODU4IDEwMDY0NAo+ID4gLS0tIGEvZHJpdmVycy9od3RyYWNpbmcvcnZ0cmFjZS9LY29uZmln
+Cj4gPiArKysgYi9kcml2ZXJzL2h3dHJhY2luZy9ydnRyYWNlL0tjb25maWcKPiA+IEBAIC0yMSwz
+ICsyMSwxMiBAQCBjb25maWcgUlZUUkFDRV9FTkNPREVSCj4gPiAgICAgICBkZWZhdWx0IHkKPiA+
+ICAgICAgIGhlbHAKPiA+ICAgICAgICAgVGhpcyBkcml2ZXIgcHJvdmlkZXMgc3VwcG9ydCBmb3Ig
+UklTQy1WIFRyYWNlIEVuY29kZXIgY29tcG9uZW50Lgo+ID4gKwo+ID4gK2NvbmZpZyBSVlRSQUNF
+X1JBTVNJTksKPiA+ICsgICAgIHRyaXN0YXRlICJSSVNDLVYgVHJhY2UgUmFtc2luayBkcml2ZXIi
+Cj4gPiArICAgICBkZXBlbmRzIG9uIFJWVFJBQ0UKPiA+ICsgICAgIHNlbGVjdCBETUFfU0hBUkVE
+X0JVRkZFUgo+ID4gKyAgICAgZGVmYXVsdCB5Cj4gPiArICAgICBoZWxwCj4gPiArICAgICAgIFRo
+aXMgZHJpdmVyIHByb3ZpZGVzIHN1cHBvcnQgZm9yIFJpc2MtViBFLVRyYWNlIFJhbXNpbmsKPiA+
+ICsgICAgICAgY29tcG9uZW50Lgo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaHd0cmFjaW5nL3J2
+dHJhY2UvTWFrZWZpbGUgYi9kcml2ZXJzL2h3dHJhY2luZy9ydnRyYWNlL01ha2VmaWxlCj4gPiBp
+bmRleCBmMzIwNjkzYTFmYzUuLjEyMmU1NzVkYTlmYiAxMDA2NDQKPiA+IC0tLSBhL2RyaXZlcnMv
+aHd0cmFjaW5nL3J2dHJhY2UvTWFrZWZpbGUKPiA+ICsrKyBiL2RyaXZlcnMvaHd0cmFjaW5nL3J2
+dHJhY2UvTWFrZWZpbGUKPiA+IEBAIC0zLDMgKzMsNCBAQAo+ID4gICBvYmotJChDT05GSUdfUlZU
+UkFDRSkgKz0gcnZ0cmFjZS5vCj4gPiAgIHJ2dHJhY2UteSA6PSBydnRyYWNlLWNvcmUubyBydnRy
+YWNlLXBsYXRmb3JtLm8KPiA+ICAgb2JqLSQoQ09ORklHX1JWVFJBQ0VfRU5DT0RFUikgKz0gcnZ0
+cmFjZS1lbmNvZGVyLm8KPiA+ICtvYmotJChDT05GSUdfUlZUUkFDRV9SQU1TSU5LKSArPSBydnRy
+YWNlLXJhbXNpbmsubwo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaHd0cmFjaW5nL3J2dHJhY2Uv
+cnZ0cmFjZS1yYW1zaW5rLmMgYi9kcml2ZXJzL2h3dHJhY2luZy9ydnRyYWNlL3J2dHJhY2UtcmFt
+c2luay5jCj4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+ID4gaW5kZXggMDAwMDAwMDAwMDAwLi42
+NzYzNDRjOTM4N2MKPiA+IC0tLSAvZGV2L251bGwKPiA+ICsrKyBiL2RyaXZlcnMvaHd0cmFjaW5n
+L3J2dHJhY2UvcnZ0cmFjZS1yYW1zaW5rLmMKPiA+IEBAIC0wLDAgKzEsMjYyIEBACj4gPiArLy8g
+U1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPiA+ICsvKgo+ID4gKyAqIENvcHlyaWdo
+dCAoYykgMjAyNSBWZW50YW5hIE1pY3JvIFN5c3RlbXMgSW5jLgo+ID4gKyAqLwo+ID4gKwo+ID4g
+KyNpbmNsdWRlIDxsaW51eC9kZXZpY2UuaD4KPiA+ICsjaW5jbHVkZSA8bGludXgvcGxhdGZvcm1f
+ZGV2aWNlLmg+Cj4gPiArI2luY2x1ZGUgPGxpbnV4L3Byb3BlcnR5Lmg+Cj4gPiArI2luY2x1ZGUg
+PGxpbnV4L2RtYS1tYXBwaW5nLmg+Cj4gPiArI2luY2x1ZGUgPGxpbnV4L3J2dHJhY2UuaD4KPiA+
+ICsjaW5jbHVkZSA8bGludXgvdHlwZXMuaD4KPiA+ICsjaW5jbHVkZSA8bGludXgvc2l6ZXMuaD4K
+PiA+ICsKPiA+ICsjZGVmaW5lIFJWVFJBQ0VfUkFNU0lOS19TVEFSVExPV19PRkYgICAgICAgICAw
+eDAxMAo+ID4gKyNkZWZpbmUgUlZUUkFDRV9SQU1TSU5LX1NUQVJUSElHSF9PRkYgICAgICAgICAg
+ICAgICAgMHgwMTQKPiA+ICsjZGVmaW5lIFJWVFJBQ0VfUkFNU0lOS19MSU1JVExPV19PRkYgICAg
+ICAgICAweDAxOAo+ID4gKyNkZWZpbmUgUlZUUkFDRV9SQU1TSU5LX0xJTUlUSElHSF9PRkYgICAg
+ICAgICAgICAgICAgMHgwMWMKPiA+ICsjZGVmaW5lIFJWVFJBQ0VfUkFNU0lOS19XUExPV19PRkYg
+ICAgICAgICAgICAweDAyMAo+ID4gKyNkZWZpbmUgICBSVlRSQUNFX1JBTVNJTktfV1BMT1dfV1JB
+UCAgICAgICAgIDB4MQo+Cj4gbml0OiB3cm9uZyBzcGFjaW5nCj4KPiA+ICsjZGVmaW5lIFJWVFJB
+Q0VfUkFNU0lOS19XUEhJR0hfT0ZGICAgICAgICAgICAweDAyNAo+ID4gKyNkZWZpbmUgUlZUUkFD
+RV9SQU1TSU5LX1JQTE9XX09GRiAgICAgICAgICAgIDB4MDI4Cj4gPiArI2RlZmluZSBSVlRSQUNF
+X1JBTVNJTktfUlBISUdIX09GRiAgICAgICAgICAgMHgwMmMKPiA+ICsKPiA+ICtzdHJ1Y3QgcnZ0
+cmFjZV9yYW1zaW5rX3ByaXYgewo+ID4gKyAgICAgc2l6ZV90IHNpemU7Cj4gPiArICAgICB2b2lk
+ICp2YTsKPiA+ICsgICAgIGRtYV9hZGRyX3Qgc3RhcnQ7Cj4gPiArICAgICBkbWFfYWRkcl90IGVu
+ZDsKPiA+ICsgICAgIC8qIFdQIGZyb20gcHJldiBpdGVyYXRpb24gKi8KPiA+ICsgICAgIGRtYV9h
+ZGRyX3QgcHJldl9oZWFkOwo+ID4gK307Cj4gPiArCj4gPiArc3RydWN0IHRyYWNlX2J1ZiB7Cj4g
+PiArICAgICB2b2lkICpiYXNlOwo+ID4gKyAgICAgc2l6ZV90IHNpemU7Cj4gPiArICAgICBsb25n
+IGN1cjsKPiA+ICsgICAgIHNpemVfdCBsZW47Cj4gPiArfTsKPiA+ICsKPiA+ICtzdGF0aWMgaW50
+IHJ2dHJhY2VfcmFtc2lua19zdG9wKHN0cnVjdCBydnRyYWNlX2NvbXBvbmVudCAqY29tcCkKPiA+
+ICt7Cj4gPiArICAgICByZXR1cm4gcnZ0cmFjZV9jb21wX2lzX2VtcHR5KGNvbXApOwo+ID4gK30K
+PiA+ICsKPgo+IFdlIHNob3VsZCBmaXJzdCBzZXQgdHJSYW1FbmFibGUgdG8gMCwgcG9sbCBpdCwg
+dGhlbiBwb2xsIHRyUmFtRW1wdHkuIEl0J3MKPiBlc3NlbnRpYWxseSB0aGUgc2FtZSBhcyBlbmNv
+ZGVyLCBzbyBwZXJoYXBzIG1vdmUgaXQgdG8gY29yZS5jLiBIZXJlIHdlJ3JlCj4ganVzdCBjaGVj
+a2luZyB3aGV0aGVyIGl0J3MgZW1wdHksIHdoaWNoIGlzIHdyb25nLiBXZSdyZSBhbHNvIGRvaW5n
+IHNpbWlsYXIKPiB0aGluZ3MgaW4gZW5jb2Rlci5jIFNob3VsZCBmaXggdGhhdCBhcyB3ZWxsLgpU
+aGlzIGNvZGUgaXMgY2FsbGVkIHRvIGp1c3Qgc3RvcCBhbGwgY29tcG9uZW50cyBpbiBhIHBhdGgg
+d2hpY2ggbWVhbnM6Ci0gZm9yIGVuY29kZXJzIHRoZSBkcml2ZXIgY2xlYXJzIHRoZSB0clRlSW5z
+dFRyYWNpbmcgYml0IGFuZCB0aGVuCnBvbGxzIGZvciBlbXB0eSBiaXQgdG8gYmUgY2xlYXJlZAot
+IGZvciByYW1zaW5rcyB0aGUgZHJpdmVyIGp1c3QgcG9sbHMgZm9yIHRoZSBlbXB0eSBiaXQgdG8g
+YmUgY2xlYXJlZApNb3JlIG9uIHRoaXMgYmVsb3cuCj4KPiA+ICtzdGF0aWMgdm9pZCB0YnVmX3Rv
+X3BidWZfY29weShzdHJ1Y3QgdHJhY2VfYnVmICpzcmMsIHN0cnVjdCB0cmFjZV9idWYgKmRzdCkK
+PiA+ICt7Cj4gPiArICAgICBpbnQgYnl0ZXNfZHN0LCBieXRlc19zcmMsIGJ5dGVzOwo+ID4gKyAg
+ICAgdm9pZCAqZHN0X2FkZHIsICpzcmNfYWRkcjsKPiA+ICsKPiA+ICsgICAgIHdoaWxlIChzcmMt
+PnNpemUpIHsKPiA+ICsgICAgICAgICAgICAgc3JjX2FkZHIgPSBzcmMtPmJhc2UgKyBzcmMtPmN1
+cjsKPiA+ICsgICAgICAgICAgICAgZHN0X2FkZHIgPSBkc3QtPmJhc2UgKyBkc3QtPmN1cjsKPiA+
+ICsKPiA+ICsgICAgICAgICAgICAgaWYgKGRzdC0+bGVuIC0gZHN0LT5jdXIgPCBzcmMtPnNpemUp
+Cj4gPiArICAgICAgICAgICAgICAgICAgICAgYnl0ZXNfZHN0ID0gZHN0LT5sZW4gLSBkc3QtPmN1
+cjsKPiA+ICsgICAgICAgICAgICAgZWxzZQo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGJ5dGVz
+X2RzdCA9IHNyYy0+c2l6ZTsKPiA+ICsgICAgICAgICAgICAgaWYgKHNyYy0+bGVuIC0gc3JjLT5j
+dXIgPCBzcmMtPnNpemUpCj4gPiArICAgICAgICAgICAgICAgICAgICAgYnl0ZXNfc3JjID0gc3Jj
+LT5sZW4gLSBzcmMtPmN1cjsKPiA+ICsgICAgICAgICAgICAgZWxzZQo+ID4gKyAgICAgICAgICAg
+ICAgICAgICAgIGJ5dGVzX3NyYyA9IHNyYy0+c2l6ZTsKPiA+ICsgICAgICAgICAgICAgYnl0ZXMg
+PSBieXRlc19kc3QgPCBieXRlc19zcmMgPyBieXRlc19kc3QgOiBieXRlc19zcmM7Cj4gPiArICAg
+ICAgICAgICAgIG1lbWNweShkc3RfYWRkciwgc3JjX2FkZHIsIGJ5dGVzKTsKPiA+ICsgICAgICAg
+ICAgICAgZHN0LT5jdXIgPSAoZHN0LT5jdXIgKyBieXRlcykgJSBkc3QtPmxlbjsKPiA+ICsgICAg
+ICAgICAgICAgc3JjLT5jdXIgPSAoc3JjLT5jdXIgKyBieXRlcykgJSBzcmMtPmxlbjsKPiA+ICsg
+ICAgICAgICAgICAgc3JjLT5zaXplIC09IGJ5dGVzOwo+ID4gKyAgICAgfQo+ID4gK30KPiA+ICsK
+PiA+ICtzdGF0aWMgc2l6ZV90IHJ2dHJhY2VfcmFtc2lua19jb3B5dG9fYXV4YnVmKHN0cnVjdCBy
+dnRyYWNlX2NvbXBvbmVudCAqY29tcCwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIHN0cnVjdCBydnRyYWNlX3BlcmZfYXV4YnVmICpidWYpCj4gPiArewo+ID4g
+KyAgICAgc3RydWN0IHJ2dHJhY2VfcmFtc2lua19wcml2ICpwcml2ID0gZGV2X2dldF9kcnZkYXRh
+KCZjb21wLT5kZXYpOwo+ID4gKyAgICAgc3RydWN0IHRyYWNlX2J1ZiBzcmMsIGRzdDsKPiA+ICsg
+ICAgIHUzMiB3cF9sb3csIHdwX2hpZ2g7Cj4gPiArICAgICB1NjQgYnVmX2N1cl9oZWFkOwo+ID4g
+KyAgICAgc2l6ZV90IHNpemU7Cj4gPiArCj4gPiArICAgICB3cF9sb3cgPSBydnRyYWNlX3JlYWQz
+Mihjb21wLT5wZGF0YSwgUlZUUkFDRV9SQU1TSU5LX1dQTE9XX09GRik7Cj4gPiArICAgICB3cF9o
+aWdoID0gcnZ0cmFjZV9yZWFkMzIoY29tcC0+cGRhdGEsIFJWVFJBQ0VfUkFNU0lOS19XUEhJR0hf
+T0ZGKTsKPiA+ICsgICAgIGJ1Zl9jdXJfaGVhZCA9ICh1NjQpKHdwX2hpZ2gpIDw8IDMyIHwgKHdw
+X2xvdyAmIH5SVlRSQUNFX1JBTVNJTktfV1BMT1dfV1JBUCk7Cj4gPiArCj4gPiArICAgICBpZiAo
+YnVmX2N1cl9oZWFkID09IHByaXYtPnByZXZfaGVhZCkKPiA+ICsgICAgICAgICAgICAgcmV0dXJu
+IDA7Cj4KPiBjdXJfaGVhZCA9PSBwcmV2X2hlYWQgY291bGQgbWVhbiB0aGF0IHdlJ3ZlIHdyYXBw
+ZWQgYXJvdW5kIGFuZCBzdG9wcGVkIGF0Cj4gdGhlIGV4YWN0IHBvc2l0aW9uLiBUaHVzLCB3ZSBu
+ZWVkIHRvIGNoZWNrIGZvciB0aGUgd3JhcHBlZCBhcm91bmQgYml0LiBJZgo+IHNldCwgdGhlbiB0
+aGlzIGNhc2UgY2FuIGJlIG1lcmdlZCBpbnRvIGJ1Zl9jdXJfaGVhZCA8PSBwcml2LT5wcmV2X2hl
+YWQKPiBiZWxvdy4KY3VyX2hlYWQgaXMgdGhlIGN1cnJlbnQgdmFsdWUgaW4gdGhlIHdwIHJlZ2lz
+dGVycyB3aGVyZWFzIHByZXZfaGVhZCBpcwp0aGUgdmFsdWUgaW4gd3AgcmVnaXN0ZXJzIGZyb20g
+dGhlIHByZXZpb3VzIGl0ZXJhdGlvbiB3aGljaCBpcyBzYXZlZApleHBsaWNpdGx5IGJ5IHNvZnR3
+YXJlLiBTbyBwcmV2X2hlYWQgY2FuJ3QgY2hhbmdlIGR5bmFtaWNhbGx5LgoKPgo+IEZvciBjdXJf
+aGVhZCA+IHByZXZfaGVhZCBjYXNlLCB3ZSBhbHNvIG5lZWQgdG8gY2hlY2sgZm9yIHdyYXAtYXJv
+dW5kLiBJZgo+IHdyYXBwZWQtYXJvdW5kLCB3ZSBhY3R1YWxseSBmaWxsZWQgdGhlIGVudGlyZSBi
+dWZmZXIsIG5vdCBqdXN0IGN1ciAtIHByZXYKPiBXZSBhbHNvIHNob3VsZCBjb25zaWRlciB0aGUg
+cG9zc2liaWxpdHkgdGhhdCB0aGUgYnVmZmVyIGhhcyBiZWVuIHdyYXBwZWQKPiBhcm91bmQgbXVs
+dGlwbGUgdGltZXMuIEluIGFsbCBjYXNlcywgbWFpbnRhaW5pbmcgYSBwcmV2X2hlYWQgc2VlbXMg
+dG8KPiBjb21wbGljYXRlIHRoaW5ncywgc28gd2h5IGRvbid0IHdlIGp1c3QgcmVzZXQgdGhlIFdQ
+IHRvIHByaXYtPnN0YXJ0IGVhY2gKPiB0aW1lIHdlIHN0YXJ0IHRoZSByYW1zaW5rIGNvbXBvbmVu
+dCBhbmQgZ2V0IHJpZCBvZiBwcmV2X2hlYWQ/IFRoaXMgd2F5LAo+IHdlJ2xsIGFsd2F5cyBoYXZl
+IGN1ciA+PSBzdGFydCwgYW5kIGRlcGVuZGluZyBvbiB3cmFwcGVkIGJpdCwgd2UgZWl0aGVyCj4g
+Z2V0IHRoZSB3aG9sZSBidWZmZXIsIG9yIGN1ciAtIHN0YXJ0LgpDdXJyZW50bHkgdGhlIHNvZnR3
+YXJlIG5ldmVyIGNsZWFycyB0clJhbVdyYXAgYml0IGJlY2F1c2UgYXMgcGVyIHRoZSBzcGVjOgot
+IEl0IGlzIG9ubHkgc2V0IHRvIDAgaWYgdHJSYW1XUExvdyBpcyB3cml0dGVuCi0gQWZ0ZXIgdHJh
+Y2UgaXMgZW5hYmxlZCBhbmQgYWN0aXZlICwgdGhlIHRyYWNlIHRvb2wgc2hvdWxkIE5PVCB3cml0
+ZQphbnkgb2YgdHJSYW1TdGFydC9MaW1pdC9XUD8/IHJlZ2lzdGVycy4KTGV0IG1lIHRlc3QgdGhp
+cyBjaGFuZ2UgdG8gZGlzYWJsZSBhbGwgdGhlIGNvbXBvbmVudHMgKGluc3RlYWQgb2YganVzdApz
+dG9wcGluZyB0cmFjZSkgZXZlcnkgdGltZSB3ZSB3YW50IHRvIGNvcHkgZGF0YSB0byBwZXJmIGJ1
+ZmZlci4gVGhpcwpzaG91bGQgbGV0IHVzIHVzZSB0aGUgdHJSYW1XcmFwIGJpdCBhcyBleHBlY3Rl
+ZC4gTXVsdGlwbGUgd3JhcGFyb3VuZHMKY2FuJ3QgYmUgYXZvaWRlZCB1bmxlc3MgU3RvcE9uV3Jh
+cCB3YXMgc2V0LiBJIHdpbGwgdXBkYXRlIHRoZSByYW1zaW5rCmRyaXZlciB0byBzZXQgU3RvcE9u
+V3JhcCBiYXNlZCBvbiB0aGUgaW1wbGVtZW50YXRpb24gaWQuCj4KCj4gPiArCj4gPiArICAgICBk
+c3QuYmFzZSA9IGJ1Zi0+YmFzZTsKPiA+ICsgICAgIGRzdC5sZW4gPSBidWYtPmxlbmd0aDsKPiA+
+ICsgICAgIGRzdC5jdXIgPSBidWYtPnBvczsKPiA+ICsKPiA+ICsgICAgIHNyYy5iYXNlID0gcHJp
+di0+dmE7Cj4gPiArICAgICBzcmMubGVuID0gcHJpdi0+ZW5kIC0gcHJpdi0+c3RhcnQ7Cj4gPiAr
+ICAgICBpZiAoYnVmX2N1cl9oZWFkID4gcHJpdi0+cHJldl9oZWFkKSB7Cj4gPiArICAgICAgICAg
+ICAgIHNyYy5zaXplID0gYnVmX2N1cl9oZWFkIC0gcHJpdi0+cHJldl9oZWFkOwo+ID4gKyAgICAg
+fSBlbHNlIHsKPiA+ICsgICAgICAgICAgICAgc3JjLnNpemUgPSBwcml2LT5lbmQgLSBwcml2LT5w
+cmV2X2hlYWQ7Cj4gPiArICAgICAgICAgICAgIHNyYy5zaXplICs9IGJ1Zl9jdXJfaGVhZCAtIHBy
+aXYtPnN0YXJ0Owo+ID4gKyAgICAgfQo+ID4gKwo+ID4gKyAgICAgc3JjLmN1ciA9IGJ1Zl9jdXJf
+aGVhZCAtIHByaXYtPnN0YXJ0Owo+ID4gKyAgICAgc2l6ZSA9IHNyYy5zaXplOwo+ID4gKyAgICAg
+dGJ1Zl90b19wYnVmX2NvcHkoJnNyYywgJmRzdCk7Cj4gPiArICAgICBidWYtPnBvcyA9IGRzdC5j
+dXI7Cj4gPiArICAgICBwcml2LT5wcmV2X2hlYWQgPSBidWZfY3VyX2hlYWQ7Cj4gPiArCj4gPiAr
+ICAgICByZXR1cm4gc2l6ZTsKPiA+ICt9Cj4gPiArCj4gPiArc3RhdGljIGludCBydnRyYWNlX3Jh
+bXNpbmtfc2V0dXBfYnVmKHN0cnVjdCBydnRyYWNlX2NvbXBvbmVudCAqY29tcCkKPiA+ICt7Cj4g
+PiArICAgICBzdHJ1Y3QgcnZ0cmFjZV9yYW1zaW5rX3ByaXYgKnByaXYgPSBkZXZfZ2V0X2RydmRh
+dGEoJmNvbXAtPmRldik7Cj4gPiArICAgICB1NjQgc3RhcnRfbWluLCBsaW1pdF9tYXgsIGVuZDsK
+PiA+ICsgICAgIHUzMiBsb3csIGhpZ2g7Cj4gPiArCj4gPiArICAgICAvKiBQcm9iZSBtaW4gYW5k
+IG1heCB2YWx1ZXMgZm9yIHN0YXJ0IGFuZCBsaW1pdCByZWdpc3RlcnMgKi8KPiA+ICsgICAgIHJ2
+dHJhY2Vfd3JpdGUzMihjb21wLT5wZGF0YSwgMCwgUlZUUkFDRV9SQU1TSU5LX1NUQVJUTE9XX09G
+Rik7Cj4gPiArICAgICBydnRyYWNlX3dyaXRlMzIoY29tcC0+cGRhdGEsIDAsIFJWVFJBQ0VfUkFN
+U0lOS19TVEFSVEhJR0hfT0ZGKTsKPiA+ICsgICAgIGxvdyA9IHJ2dHJhY2VfcmVhZDMyKGNvbXAt
+PnBkYXRhLCBSVlRSQUNFX1JBTVNJTktfU1RBUlRMT1dfT0ZGKTsKPiA+ICsgICAgIGhpZ2ggPSBy
+dnRyYWNlX3JlYWQzMihjb21wLT5wZGF0YSwgUlZUUkFDRV9SQU1TSU5LX1NUQVJUSElHSF9PRkYp
+Owo+ID4gKyAgICAgc3RhcnRfbWluID0gKHU2NCkoaGlnaCkgPDwgMzIgfCBsb3c7Cj4gPiArCj4g
+PiArICAgICBydnRyYWNlX3dyaXRlMzIoY29tcC0+cGRhdGEsIDB4ZmZmZmZmZmYsIFJWVFJBQ0Vf
+UkFNU0lOS19MSU1JVExPV19PRkYpOwo+ID4gKyAgICAgcnZ0cmFjZV93cml0ZTMyKGNvbXAtPnBk
+YXRhLCAweGZmZmZmZmZmLCBSVlRSQUNFX1JBTVNJTktfTElNSVRISUdIX09GRik7Cj4gPiArICAg
+ICBsb3cgPSBydnRyYWNlX3JlYWQzMihjb21wLT5wZGF0YSwgUlZUUkFDRV9SQU1TSU5LX0xJTUlU
+TE9XX09GRik7Cj4gPiArICAgICBoaWdoID0gcnZ0cmFjZV9yZWFkMzIoY29tcC0+cGRhdGEsIFJW
+VFJBQ0VfUkFNU0lOS19MSU1JVEhJR0hfT0ZGKTsKPiA+ICsgICAgIGxpbWl0X21heCA9ICh1NjQp
+KGhpZ2gpIDw8IDMyIHwgbG93Owo+ID4gKwo+ID4gKyAgICAgaWYgKHByaXYtPmVuZCA8IHN0YXJ0
+X21pbikgewo+Cj4gV2hlcmUgd2FzIHByaXYtPmVuZCBpbml0aWFsaXplZCBiZWZvcmUgdGhpcyBj
+aGVjaz8KSSB3aWxsIG1vdmUgaXQgYmVmb3JlIHRoZSBjaGVjay4KPgo+ID4gKyAgICAgICAgICAg
+ICBkZXZfZXJyKCZjb21wLT5kZXYsICJETUEgbWVtb3J5IG5vdCBhZGRyZXNzYWJsZSBieSBkZXZp
+Y2VcbiIpOwo+ID4gKyAgICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsKPiA+ICsgICAgIH0KPiA+
+ICsKPiA+ICsgICAgIC8qIFNldHVwIHJhbSBzaW5rIHN0YXJ0IGFkZHJlc3NlcyAqLwo+ID4gKyAg
+ICAgaWYgKHByaXYtPnN0YXJ0IDwgc3RhcnRfbWluKSB7Cj4KPiBObyBjaGVja3MgZm9yIHN0YXJ0
+X21pbiA+PSBwcml2LT5lbmQ/Cj4KPiA+ICsgICAgICAgICAgICAgZGV2X3dhcm4oJmNvbXAtPmRl
+diwgIlJhbXNpbmsgc3RhcnQgYWRkcmVzcyB1cGRhdGVkIGZyb20gJWxseCB0byAlbGx4XG4iLAo+
+ID4gKyAgICAgICAgICAgICAgICAgICAgICBwcml2LT5zdGFydCwgc3RhcnRfbWluKTsKPiA+ICsg
+ICAgICAgICAgICAgcHJpdi0+dmEgKz0gc3RhcnRfbWluIC0gcHJpdi0+c3RhcnQ7Cj4gPiArICAg
+ICAgICAgICAgIHByaXYtPnN0YXJ0ID0gc3RhcnRfbWluOwo+ID4gKyAgICAgfQo+ID4gKwo+ID4g
+KyAgICAgcHJpdi0+cHJldl9oZWFkID0gcHJpdi0+c3RhcnQ7Cj4gPiArICAgICBwcml2LT5lbmQg
+PSBwcml2LT5zdGFydCArIHByaXYtPnNpemU7Cj4gPiArICAgICBydnRyYWNlX3dyaXRlMzIoY29t
+cC0+cGRhdGEsIGxvd2VyXzMyX2JpdHMocHJpdi0+c3RhcnQpLCBSVlRSQUNFX1JBTVNJTktfU1RB
+UlRMT1dfT0ZGKTsKPiA+ICsgICAgIHJ2dHJhY2Vfd3JpdGUzMihjb21wLT5wZGF0YSwgdXBwZXJf
+MzJfYml0cyhwcml2LT5zdGFydCksIFJWVFJBQ0VfUkFNU0lOS19TVEFSVEhJR0hfT0ZGKTsKPiA+
+ICsgICAgIHJ2dHJhY2Vfd3JpdGUzMihjb21wLT5wZGF0YSwgbG93ZXJfMzJfYml0cyhwcml2LT5z
+dGFydCksIFJWVFJBQ0VfUkFNU0lOS19XUExPV19PRkYpOwo+ID4gKyAgICAgcnZ0cmFjZV93cml0
+ZTMyKGNvbXAtPnBkYXRhLCB1cHBlcl8zMl9iaXRzKHByaXYtPnN0YXJ0KSwgUlZUUkFDRV9SQU1T
+SU5LX1dQSElHSF9PRkYpOwo+ID4gKyAgICAgLyogU2V0dXAgcmFtIHNpbmsgbGltaXQgYWRkcmVz
+c2VzICovCj4gPiArICAgICBpZiAocHJpdi0+ZW5kID4gbGltaXRfbWF4KSB7Cj4gPiArICAgICAg
+ICAgICAgIGRldl93YXJuKCZjb21wLT5kZXYsICJSYW1zaW5rIGxpbWl0IGFkZHJlc3MgdXBkYXRl
+ZCBmcm9tICVsbHggdG8gJWxseFxuIiwgcHJpdi0+ZW5kLAo+ID4gKyAgICAgICAgICAgICAgICAg
+ICAgICBsaW1pdF9tYXgpOwo+ID4gKyAgICAgICAgICAgICBwcml2LT5lbmQgPSBsaW1pdF9tYXg7
+Cj4gPiArICAgICAgICAgICAgIHByaXYtPnNpemUgPSBwcml2LT5lbmQgLSBwcml2LT5zdGFydDsK
+PiA+ICsgICAgIH0KPiA+ICsKPiA+ICsgICAgIC8qIExpbWl0IGFkZHJlc3MgbmVlZHMgdG8gYmUg
+c2V0IHRvIGVuZCAtIDQgdG8gYXZvaWQgb3ZlcmZsb3cgKi8KPiA+ICsgICAgIGVuZCA9IHByaXYt
+PmVuZCAtIDQ7Cj4KPiBTaG91bGQgbm90IGhhcmQtY29kZSA0LCBpbnN0ZWFkLCBkbyB3cml0ZTMy
+KDB4ZmZmZmZmZiwgUmFtTGltaXQpLCB0aGVuCj4gZmZzKFJhbUxpbWl0KSB0byBwcm9iZSBmb3Ig
+dGhlIHRoZSB3cml0ZSB3aWR0aCwgYWthLCAiQSIgdmFsdWUgaW4gVGFibGUKPiA0Ny4gVHlwaWNh
+bCBUcmFjZSBSQU0gU2luayBDb25maWd1cmF0aW9uIGluIHRoZSBTcGVjLgpJIGRvbnQgdGhpbmsg
+J0EnIGNhbiBiZSBwcm9iZWQgdGhhdCB3YXkgYmVjYXVzZSBhcyBwZXIgc2VjdGlvbiA3LjE6CiJO
+b3QgZXZlcnkgdmFsdWUgbWF5IGJlIHNldHRhYmxlIGluIHRyUmFtU3RhcnQvTGltaXQgcmVnaXN0
+ZXJzLiBWYWx1ZQp3cml0dGVuIG1heSBiZSB0cmltbWVkIChmb3IgZXhhbXBsZSBhbGlnbmVkIG9u
+IGEgcGFydGljdWxhciAyXk4KYm91bmRhcnkpIi4gU28gd3JpdGluZyAweGZmZmZmZmZmIHRvIGxp
+bWl0IHJlZ2lzdGVyIHdpbGwgcmV2ZWFsIHRoZQpib3VuZGFyeSBhbGlnbm1lbnQgYnV0IG5vdCAn
+QScuIEkgdGhpbmsgJ0EnIG5lZWRzIHRvIGJlIHNwZWNpZmllZCBieQphbiBpbXBsZW1lbnRhdGlv
+biB3aXRoIGRlZmF1bHQgYXMgNC4gSSB3aWxsIGNoYW5nZSBpdCBhY2NvcmRpbmdseS4KCj4KPiA+
+ICsgICAgIHJ2dHJhY2Vfd3JpdGUzMihjb21wLT5wZGF0YSwgbG93ZXJfMzJfYml0cyhlbmQpLCBS
+VlRSQUNFX1JBTVNJTktfTElNSVRMT1dfT0ZGKTsKPiA+ICsgICAgIHJ2dHJhY2Vfd3JpdGUzMihj
+b21wLT5wZGF0YSwgdXBwZXJfMzJfYml0cyhlbmQpLCBSVlRSQUNFX1JBTVNJTktfTElNSVRISUdI
+X09GRik7Cj4gPiArICAgICBsb3cgPSBydnRyYWNlX3JlYWQzMihjb21wLT5wZGF0YSwgUlZUUkFD
+RV9SQU1TSU5LX0xJTUlUTE9XX09GRik7Cj4gPiArICAgICBoaWdoID0gcnZ0cmFjZV9yZWFkMzIo
+Y29tcC0+cGRhdGEsIFJWVFJBQ0VfUkFNU0lOS19MSU1JVEhJR0hfT0ZGKTsKPiA+ICsgICAgIGVu
+ZCA9ICh1NjQpKGhpZ2gpIDw8IDMyIHwgbG93Owo+ID4gKyAgICAgaWYgKGVuZCAhPSAocHJpdi0+
+ZW5kIC0gNCkpIHsKPiA+ICsgICAgICAgICAgICAgZGV2X3dhcm4oJmNvbXAtPmRldiwgIlJhbXNp
+bmsgbGltaXQgYWRkcmVzcyB1cGRhdGVkIGZyb20gJWxseCB0byAlbGx4XG4iLCBwcml2LT5lbmQs
+Cj4gPiArICAgICAgICAgICAgICAgICAgICAgIGVuZCk7Cj4gPiArICAgICAgICAgICAgIHByaXYt
+PmVuZCA9IGVuZDsKPiA+ICsgICAgICAgICAgICAgcHJpdi0+c2l6ZSA9IHByaXYtPmVuZCAtIHBy
+aXYtPnN0YXJ0Owo+Cj4gQWN0dWFsbHkgdGhlIFJhbUxpbWl0IHJlYWQgaXMgbm90IHRoZSByZWFs
+IGxpbWl0LiBJdCdzIExpbWl0IC0gIkEiICh0aGUKPiB3cml0ZSB3aWR0aCkuCj4KPiA+ICsgICAg
+IH0KPiA+ICsKPiA+ICsgICAgIHJldHVybiAwOwo+ID4gK30KPgo+IEkgdGhpbmsgb3ZlcmFsbCB3
+ZSBzaG91bGQgc2ltcGxpZnkgdGhpcyBzZXR1cF9idWYgZnVuY3Rpb24uIEZvciBSYW1TdGFydAo+
+IGFsb25lLCB0aGVyZSdyZSBhbGlnbm1lbnQgKyBtaW5fYWRkciByZXF1aXJlbWVudCwgd2hpY2gg
+aXMgdmVyeSB1bmxpa2VseQo+IHRoYXQgdGhlIGxvd2VzdCB2YWxpZCBhZGRyZXNzIGhhcHBlbnMg
+dG8gYmUgd2l0aGluIHRoZSByYW5nZSB0aGF0IGRtYS0KPiBhbGxvY2F0ZWQgaW4gdGhlIGNhbGxl
+ciAod2hlbiB5b3UgbmVlZCB0byBhZGp1c3QgcHJpdi0+c3RhcnQpLiBUaHVzLCB0bwo+IGRvIGl0
+IHByb3Blcmx5LCB3ZSBmaXJzdCBuZWVkIHRvIGRldGVjdCB0aGUgbWluX2FkZHIgKyBhbGlnbm1l
+bnQgKmJlZm9yZSoKPiBkbWEtYWxsb2MsIGFuZCBwYXNzIHN1Y2ggcmVxdWlyZW1lbnRzIGludG8g
+ZG1hLWFsbG9jLCB0aGVuIGRlcGVuZGluZyBvbgo+IHdoYXQgZG1hLWFsbG9jIHJldHVybnMsIGRl
+dGVjdCB0aGUgIk0iIHZhbHVlIGJ5IGludGVycm9nYXRpbmcgUmFtTGltaXQuCj4gSSdtIG5vdCBz
+dXJlIGlmIGRtYS1hbGxvYyBjYW4gYmUgcGFzc2VkIGEgaGludCBhZGRyZXNzIHRoYXQgd2hhdGV2
+ZXIKPiByZXR1cm5lZCBtdXN0IGJlIGhpZ2hlciwgYW5kIHdoZXRoZXIgaXQgY2FuIGVuZm9yY2Ug
+cmFuZG9tIGFsaWdubWVudCwgc28KPiBtYXkgYmUgd2UgY2FuIGp1c3QgcHJvZ3JhbSBSYW1TdGFy
+dC9MaW1pdCBiYXNlZCBvbiB3aGF0IGRtYS1hbGxvYyBnaXZlcwo+IGFuZCBlcnJvciBvdXQgaWYg
+dmFsdWUgaXMgbm90IHJldGFpbmVkLiBXZSBkbyBob3dldmVyIG5lZWQgdG8gcHJvYmUgZm9yCj4g
+d3JpdGUgd2lkdGggKCJBIiB2YWx1ZSkuIEl0J3MgdXN1YWxseSA0IG9yIDgsIGJ1dCBpdCBkb2Vz
+IHZhcnkgcGVyLWltcGwsCj4gYW5kIHJlbWVtYmVyLCB0aGUgdG90YWwgYnVmZmVyIHNpemUgaXMg
+c3RpbGwgMU1CLCBub3QgMU1CIC0gNCBvciAtOC4KCkkgdGhpbmsgdGhlIGlzc3VlIGlzIHRoYXQg
+dGhlIHBoeXNpY2FsIG1lbW9yeSByZWdpb24gcmV0dXJuZWQgYnkKZG1hX2FsbG9jKiBtaWdodCBu
+b3QgYmUgYWRkcmVzc2FibGUgYnkgdGhlIGh3IGFuZCBzbyB0aGUgc3RhcnQgLyBlbmQKYWRkcmVz
+c2VzIGFyZSBhbHJlYWR5IHRyaW1tZWQgaW4gdGhlIGNvZGUgYWNjb3JkaW5nbHkgYnV0IEkgYWdy
+ZWUgdGhpcwpjYW4gYmUgaGFuZGxlZCBkaWZmZXJlbnRseS4gRm9yIGUuZwotIHByb2JlIG1heCBS
+YW1MaW1pdCB2YWx1ZSAuCi0gc2V0IHRoZSBkbWFfbWFzayB0byB0aGUgcHJvYmVkIHZhbHVlCi0g
+ZG1hX2FsbG9jKgotIGZ1cnRoZXIgYWRkcmVzcyBjaGVja3MKCj4KPiA+ICsKPiA+ICtzdGF0aWMg
+aW50IHJ2dHJhY2VfcmFtc2lua19zZXR1cChzdHJ1Y3QgcnZ0cmFjZV9jb21wb25lbnQgKmNvbXAp
+Cj4gPiArewo+ID4gKyAgICAgc3RydWN0IGRldmljZSAqcGRldiA9IGNvbXAtPnBkYXRhLT5kZXY7
+Cj4gPiArICAgICBzdHJ1Y3QgcnZ0cmFjZV9yYW1zaW5rX3ByaXYgKnByaXY7Cj4gPiArCj4gPiAr
+ICAgICBwcml2ID0gZGV2bV9remFsbG9jKCZjb21wLT5kZXYsIHNpemVvZigqcHJpdiksIEdGUF9L
+RVJORUwpOwo+ID4gKyAgICAgaWYgKCFwcml2KQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gLUVO
+T01FTTsKPiA+ICsKPiA+ICsgICAgIGRldl9zZXRfZHJ2ZGF0YSgmY29tcC0+ZGV2LCBwcml2KTsK
+PiA+ICsKPiA+ICsgICAgIC8qIERlcml2ZSBSQU0gc2luayBtZW1vcnkgc2l6ZSBiYXNlZCBvbiBj
+b21wb25lbnQgaW1wbGVtZW50YXRpb24gSUQgKi8KPiA+ICsgICAgIHN3aXRjaCAoY29tcC0+cGRh
+dGEtPmltcGlkKSB7Cj4gPiArICAgICBkZWZhdWx0Ogo+ID4gKyAgICAgICAgICAgICBwcml2LT5z
+aXplID0gU1pfMU07Cj4gPiArICAgICAgICAgICAgIGJyZWFrOwo+ID4gKyAgICAgfQo+ID4gKwo+
+ID4gKyAgICAgcHJpdi0+dmEgPSBkbWFfYWxsb2NfY29oZXJlbnQocGRldiwgcHJpdi0+c2l6ZSwg
+JnByaXYtPnN0YXJ0LCBHRlBfS0VSTkVMKTsKPiA+ICsgICAgIGlmICghcHJpdi0+dmEpCj4gPiAr
+ICAgICAgICAgICAgIHJldHVybiAtRU5PTUVNOwo+ID4gKwo+ID4gKyAgICAgcmV0dXJuIHJ2dHJh
+Y2VfcmFtc2lua19zZXR1cF9idWYoY29tcCk7Cj4gPiArfQo+ID4gKwo+ID4gK3N0YXRpYyB2b2lk
+IHJ2dHJhY2VfcmFtc2lua19jbGVhbnVwKHN0cnVjdCBydnRyYWNlX2NvbXBvbmVudCAqY29tcCkK
+PiA+ICt7Cj4gPiArICAgICBzdHJ1Y3QgcnZ0cmFjZV9yYW1zaW5rX3ByaXYgKnByaXYgPSBkZXZf
+Z2V0X2RydmRhdGEoJmNvbXAtPmRldik7Cj4gPiArCj4gPiArICAgICBkbWFfZnJlZV9jb2hlcmVu
+dCgmY29tcC0+ZGV2LCBwcml2LT5zaXplLCBwcml2LT52YSwgcHJpdi0+c3RhcnQpOwo+ID4gK30K
+PiA+ICsKPiA+ICtzdGF0aWMgaW50IHJ2dHJhY2VfcmFtc2lua19wcm9iZShzdHJ1Y3QgcnZ0cmFj
+ZV9jb21wb25lbnQgKmNvbXApCj4gPiArewo+ID4gKyAgICAgaW50IHJldDsKPiA+ICsKPiA+ICsg
+ICAgIHJldCA9IHJ2dHJhY2VfcmFtc2lua19zZXR1cChjb21wKTsKPiA+ICsgICAgIGlmIChyZXQp
+Cj4gPiArICAgICAgICAgICAgIHJldHVybiBkZXZfZXJyX3Byb2JlKCZjb21wLT5kZXYsIHJldCwg
+ImZhaWxlZCB0byBzZXR1cCByYW1zaW5rLlxuIik7Cj4gPiArCj4gPiArICAgICByZXQgPSBydnRy
+YWNlX2VuYWJsZV9jb21wb25lbnQoY29tcCk7Cj4gPiArICAgICBpZiAocmV0KQo+ID4gKyAgICAg
+ICAgICAgICByZXR1cm4gZGV2X2Vycl9wcm9iZSgmY29tcC0+ZGV2LCByZXQsICJmYWlsZWQgdG8g
+ZW5hYmxlIHJhbXNpbmsuXG4iKTsKPiA+ICsKPiA+ICsgICAgIHJldHVybiByZXQ7Cj4gPiArfQo+
+Cj4gSW4gcHJvYmUsIHdlIHNob3VsZCBkZXRlY3QgYW5kIHNldCBpdCB0byBTTUVNIG1vZGUuIFRo
+ZSBkZWZhdWx0IGlzIFNSQU0KPiBtb2RlLgpBY3R1YWxseSB0aGUgZGVmYXVsdCBpcyBub3Qgc2V0
+IGJ1dCBJIGFncmVlIHRoaXMgbmVlZHMgdG8gYmUgaGFuZGxlZApkaWZmZXJlbnRseS4gV2UgY2Fu
+IG1ha2UgdGhpcyBhbiBpbXBsZW1lbnRhdGlvbiBkZWZpbmVkIHBhcmFtZXRlciBhbmQKdGhlbiBj
+cm9zcyBjaGVjayB3aXRoIHRyUmFtSW1wbCByZWdpc3RlciBkdXJpbmcgcHJvYmUuCj4KPiA+ICsK
+PiA+ICtzdGF0aWMgdm9pZCBydnRyYWNlX3JhbXNpbmtfcmVtb3ZlKHN0cnVjdCBydnRyYWNlX2Nv
+bXBvbmVudCAqY29tcCkKPiA+ICt7Cj4gPiArICAgICBpbnQgcmV0Owo+ID4gKwo+ID4gKyAgICAg
+cmV0ID0gcnZ0cmFjZV9kaXNhYmxlX2NvbXBvbmVudChjb21wKTsKPiA+ICsgICAgIGlmIChyZXQp
+Cj4gPiArICAgICAgICAgICAgIGRldl9lcnIoJmNvbXAtPmRldiwgImZhaWxlZCB0byBkaXNhYmxl
+IHJhbXNpbmsuXG4iKTsKPiA+ICsKPiA+ICsgICAgIHJ2dHJhY2VfcmFtc2lua19jbGVhbnVwKGNv
+bXApOwo+ID4gK30KPiA+ICsKPiA+ICtzdGF0aWMgc3RydWN0IHJ2dHJhY2VfY29tcG9uZW50X2lk
+IHJ2dHJhY2VfcmFtc2lua19pZHNbXSA9IHsKPiA+ICsgICAgIHsgLnR5cGUgPSBSVlRSQUNFX0NP
+TVBPTkVOVF9UWVBFX1JBTVNJTkssCj4gPiArICAgICAgIC52ZXJzaW9uID0gcnZ0cmFjZV9jb21w
+b25lbnRfbWt2ZXJzaW9uKDEsIDApLCB9LAo+ID4gKyAgICAge30sCj4gPiArfTsKPiA+ICsKPiA+
+ICtzdGF0aWMgc3RydWN0IHJ2dHJhY2VfZHJpdmVyIHJ2dHJhY2VfcmFtc2lua19kcml2ZXIgPSB7
+Cj4gPiArICAgICAuaWRfdGFibGUgPSBydnRyYWNlX3JhbXNpbmtfaWRzLAo+ID4gKyAgICAgLmNv
+cHl0b19hdXhidWYgPSBydnRyYWNlX3JhbXNpbmtfY29weXRvX2F1eGJ1ZiwKPgo+IFNob3VsZCBo
+YXZlIGEgLnN0YXJ0IGZ1bmN0aW9uIGxpa2UgdGhlIGVuY29kZXIgKHNldHRpbmcgdHJSYW1FbmFi
+bGUpLAo+IGFuZCByZXNldCB0aGUgV1AgdG8gcHJpdi0+c3RhcnQsIGFzIHN1Z2dlc3RlZCBhYm92
+ZS4KVGhlIGFjdGl2ZSBhbmQgZW5hYmxlIGJpdHMgZm9yIGFsbCBjb21wb25lbnRzIGFyZSBoYW5k
+bGVkIHZpYSBnZW5lcmljCnJ2dHJhY2VfZW5hYmxlX2NvbXBvbmVudC9ydnRyYWNlX2Rpc2FibGVf
+Y29tcG9uZW50IGZ1bmN0aW9ucy4gV2hlbiBhbGwKY29tcG9uZW50cyBhcmUgZGlzYWJsZWQgYmVm
+b3JlIGNvcHlpbmcgZGF0YSB0byBwZXJmIHRoZW4gV1Agd291bGQgYmUKcmVzZXQgdG8gcHJpdi0+
+c3RhcnQgYXMgYSBwYXJ0IG9mIGNvcHlfdG9fYXV4YnVmIGNhbGxiYWNrLgo+Cj4gPiArICAgICAu
+c3RvcCA9IHJ2dHJhY2VfcmFtc2lua19zdG9wLAo+ID4gKyAgICAgLnByb2JlID0gcnZ0cmFjZV9y
+YW1zaW5rX3Byb2JlLAo+ID4gKyAgICAgLnJlbW92ZSA9IHJ2dHJhY2VfcmFtc2lua19yZW1vdmUs
+Cj4gPiArICAgICAuZHJpdmVyID0gewo+ID4gKyAgICAgICAgICAgICAubmFtZSA9ICJydnRyYWNl
+LXJhbXNpbmsiLAo+ID4gKyAgICAgfSwKPiA+ICt9Owo+ID4gKwo+ID4gK3N0YXRpYyBpbnQgX19p
+bml0IHJ2dHJhY2VfcmFtc2lua19pbml0KHZvaWQpCj4gPiArewo+ID4gKyAgICAgcmV0dXJuIHJ2
+dHJhY2VfcmVnaXN0ZXJfZHJpdmVyKCZydnRyYWNlX3JhbXNpbmtfZHJpdmVyKTsKPiA+ICt9Cj4g
+PiArCj4gPiArc3RhdGljIHZvaWQgX19leGl0IHJ2dHJhY2VfcmFtc2lua19leGl0KHZvaWQpCj4g
+PiArewo+ID4gKyAgICAgcnZ0cmFjZV91bnJlZ2lzdGVyX2RyaXZlcigmcnZ0cmFjZV9yYW1zaW5r
+X2RyaXZlcik7Cj4gPiArfQo+ID4gKwo+ID4gK21vZHVsZV9pbml0KHJ2dHJhY2VfcmFtc2lua19p
+bml0KTsKPiA+ICttb2R1bGVfZXhpdChydnRyYWNlX3JhbXNpbmtfZXhpdCk7Cj4gPiArCj4gPiAr
+LyogTW9kdWxlIGluZm9ybWF0aW9uICovCj4gPiArTU9EVUxFX0FVVEhPUigiTWF5dXJlc2ggQ2hp
+dGFsZSA8bWNoaXRhbGVAdmVudGFuYW1pY3JvLmNvbT4iKTsKPiA+ICtNT0RVTEVfREVTQ1JJUFRJ
+T04oIlJJU0MtViBUcmFjZSBSYW1zaW5rIERyaXZlciIpOwo+ID4gK01PRFVMRV9MSUNFTlNFKCJH
+UEwiKTsKPgo+IEJvCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
