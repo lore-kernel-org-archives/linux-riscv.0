@@ -4,129 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1238D12663
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Dec 2025 18:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D411D116F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Dec 2025 21:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8txtbFQnOpyI8F+as/3fqLnntEPDM2c5vcy8bb5FV/8=; b=OLLvZy+xKq9U9s
-	UkOB3hPucBAz5ZIndw1Nb0+r5SpQTP/oTW8gb/d7hjjU6YbYPZeRwCeLCoOQMpeEGoPIwU5iy35vO
-	cgjpIc3PNuTmLrTmDKre12cxNixlasRQORjlF+orj9r8b4OzG7q5vvAaaNt2Ez5YQ9UhCIWd5oyrY
-	PMsmVv7+Z7T4t+Ol2LFaABRr3YyfaVMvXtsFL4t7cpmSJiM6XQUwfXbKq9dbx5O3a/aWRqEqCg9r0
-	bDF4lxopYRiAZucXve/wvg5Zkbfss9nvHY4Ttid6tHShm0BF6hRI9OVL3+4EbABCmVJaXtfdq8qd2
-	mBc18wwF+P+I1WQCdtwA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=w8dwGBuqZZuid/9Gfx7ry4n0OgBPkZT7OUShhY/wim0=; b=mDL+izoPrftUuS
+	6wBaQAnclGziOaqEjqj5mqbc7hgH/+pKBF/QSkrgYUveIp3nBvL/vBa+ItkDycRE0uzLTcncY24PE
+	1GP3UEYeXAj6L1J44K/QBtv4v4Qy8sRizis23a+1YK133TUcpWI5XYLxYmR0Zvx9LK5hUMOQzj9pl
+	/mHq0N88dc8JC8aeLixhtSjbnQshR4nvhj5COgir0olbGP8eOY8hIUxsz/WlGWv1cfWk+gRkmcsaw
+	rT8OkzAvAcRV6v4fEa0aldDzAfJt7KMWfC8hbRvuHCHzJBsiNtbdC/zyFHM57slWYPO+2h7eDlSAy
+	Ki3EFqG7A40YkyrHc/Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQUwq-00000005i6t-44Ob;
-	Tue, 02 Dec 2025 18:18:00 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1vQXmY-00000005qFy-0OBv;
+	Tue, 02 Dec 2025 21:19:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQUwo-00000005i5s-2c2Q
+	id 1vQXmV-00000005qFZ-1YBj
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Dec 2025 18:18:00 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id BA9FC240101
-	for <linux-riscv@lists.infradead.org>; Tue,  2 Dec 2025 19:17:53 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
-	t=1764699473; bh=Pu0+u562w2Z1QakDHh9EJgqlDt80PY/8xKNxC2S7QTw=;
-	h=From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
-	b=kD1mn6PtVZRzlQ5kzXL4pwKiEt83C45zbwm6lurhE+tlQcP5wrRPNeG/QcsL5R1Vy
-	 gGoDuGhszTA/zAKkW1c67KfmkEnI3muQkDGP5+01WKDDWIj4hVYWtGZYPD/2N07X9W
-	 zJOPU88bKnDMBToP3MV19Mwuq9c8fJhsLRdWb7r81UKPaECGvaT0TNMXD9WjmnNt5M
-	 aEsLtDL4Yt5C5chUy0sw8r2v9U7COOj49/jJQuNu1UZRLzAhU0XEDCmFeqYxIXAWVT
-	 Ez1kZupcxdSbolT3hpgksuX7N8pf5cAIc5M0AMJ/pj+7VeIYitUbbdtGMRqXphNhCF
-	 0eAM9wc73iXAg==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4dLTXG2ZG8z9rxF;
-	Tue,  2 Dec 2025 19:17:50 +0100 (CET)
-From: Markus Probst <markus.probst@posteo.de>
-Date: Tue, 02 Dec 2025 18:17:52 +0000
-Subject: [PATCH v2] rust: pwm: Add UnregisteredChip wrapper around Chip
+	Tue, 02 Dec 2025 21:19:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B3AD44286
+	for <linux-riscv@lists.infradead.org>; Tue,  2 Dec 2025 21:19:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A78BC2BCB0
+	for <linux-riscv@lists.infradead.org>; Tue,  2 Dec 2025 21:19:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764710370;
+	bh=AZASaj5aXBVLP8FVAp2pUANC9RpCBKlvtMSjV9a7KLY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=kuWVE5xAUKf/RoJrUZHluwZNMMyyIOEbqPK1wJPuyFMYKRYusp9GI4o8NFuwoZVmO
+	 QvVt9ok0NJiQFISw9ZZDaPsPjH9aStDkI7LjAox9GjKIKPs9orNnuuUsxUrbwgDhiG
+	 hR2u1kZy/fe+OvZ9G3gxySVxgXRy8UYMgaaW6iw5UQeRxfMtGr1wytKBoRKT00eLwu
+	 dHykF3EJz2qTNpN0cPrq4eoaO/zqenlv6FUzBDdN8ygent2GYGucY9049YsB8gk3Fa
+	 8Tao9s1xqW8SCfddD8KKZL1O7+HnnSooIZ3l5b3IBMH4DfLJhqgvYPDTn2In96Fs+J
+	 myQTVRC5tvVPQ==
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-b734fcbf1e3so802599166b.3
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Dec 2025 13:19:30 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXL4vu1jgc9Xo/S/GB9J14y3udwlEcWGdslc3xNqeCRtW2YIIJfni11ktZlNvP/yvBTXv3ZuxGe7s1BNQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/0tvoY/Lw+397VgDeAKEH1CHjGfcpZ+SDQdXt6Us4fslZSujp
+	KvGsl9WJSguGmloIrqP3uW/0mSeu+DyztXeySsFRwINrgWfWdUFFRhpntKZfcYQLmIL8YyY5U9h
+	A+usG+LLDXVIIQlGqhHm7nzV0i9WDhg==
+X-Google-Smtp-Source: AGHT+IGSvertTLJx8KV/G+O5qP6vmOOBt66zoC19fcl1TNbrYXNS/rPJp4BO31NUjhkWZrh153Dkp7jy+quBZlZ+Dig=
+X-Received: by 2002:a17:906:b84b:b0:b76:7b85:f630 with SMTP id
+ a640c23a62f3a-b767b8643d6mr3409596366b.34.1764710368753; Tue, 02 Dec 2025
+ 13:19:28 -0800 (PST)
 MIME-Version: 1.0
-Message-Id: <20251202-pwm_safe_register-v2-1-7a2e0d1e287f@posteo.de>
-X-B4-Tracking: v=1; b=H4sIACEtL2kC/32NSw6CMBCGr0JmbU1novhYcQ9DSKUDzELaTA1qS
- O9u5QAuv/+5QmIVTnCtVlBeJEmYC9Cugn5y88hGfGEgS0dEOpn4enTJDdwpj5KerIYPl7t1VCN
- ahNKLyoO8t81bW3gqsaCf7WLBn/pvbUGDxhN5y97WZ9c3MRQj7D1Dm3P+AuuCXZGyAAAA
-X-Change-ID: 20251127-pwm_safe_register-e49b0a261101
-To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Michal Wilczynski <m.wilczynski@samsung.com>, 
- Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
- Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
- Markus Probst <markus.probst@posteo.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8114;
- i=markus.probst@posteo.de; h=from:subject:message-id;
- bh=3lzG2YBF6gCwvm0GKJ0zdou1peFUrELTgnosqhb3t0g=;
- b=owEBbQKS/ZANAwAIATR2H/jnrUPSAcsmYgBpLy1Oi+HpXdo7gjLCcBJJAuYa6s07qCyQ4MrLK
- gm8xZxO/C+JAjMEAAEIAB0WIQSCdBjE9KxY53IwxHM0dh/4561D0gUCaS8tTgAKCRA0dh/4561D
- 0u3bEACv2cm0GNB7emdHp3o3Q5aWVh+mxcgotRfK/QYw4288EuNsRRsis7qgcl4+jYdrII1dQkY
- efbcm55NXj/JvCi/ZgLa6kTucFaB6ltYWzuO9zUqjO3VwutnpfS8zGmb0QbGmvT7DqYp8vrbRGy
- NxXxPjsP4ybj09wjNeNksZSDcYSoqI8KSo2EBlu1LpjnDta8jvT6xbVVcl98ZrcIGiYBSDUUyww
- pAGgKhJmF4vVHcanAOrEuzA3YWe97Ofdq3NklPSBST9sHlD/8hqHqJlMsRCJcCK6fmpKHV9kS44
- pIKmXUAKuYSXQkRfU9fRw+Ev/NpA+OMZi3rooyE6O1UE6H913xeMVhkMCRApYGOkyFtAMTBpICB
- UI3cE2UP7FBypzw+qrWUKh+yzXfdn337NQvmOyJKx1/7TXI+xCdfsJuKEHIj0C/E82S7cAMyIx3
- Z8Jlk8weTqx58sFZzO+sMRO2YxIXxX05vOQ85Z/wknPStr9C0W+f2jJKRgtiRZkicbK0a6edf9L
- IJj4POR+szKW80fP2rkvyHynIxMjHKoyqo/to6ygoz6zdt/VPsn4f0QgqNfoYMSdnT2Fkl/EVPk
- vS0/SKtzIrZ+DZrkwQYFuC8aNkvqcceFAhNp5tqCQGJohfneF3tCrcG9W6/DSb7G2nWmllUmHvq
- HPKfZsCDJNx+OxQ==
-X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
- fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
-  keydata=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
-  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
+References: <fbe6fc3657070fe2df7f0529043542b52b827449.1763116833.git.geert+renesas@glider.be>
+ <dyaqe3ssrn65r5xndlwe7tlbiw2lbwvu3q3lzusfgr5mgycp6h@gfzyxk7uyva7>
+ <CAL_JsqJ4q2=UJbuhfbvsbr2T+SRGXsPSXCLk6iXZid_qwYrN4g@mail.gmail.com> <bgieskezxsscyg65ihbzq45opwfjavcfut7bz7ywsvufeeaoqe@47hx5fvmsi22>
+In-Reply-To: <bgieskezxsscyg65ihbzq45opwfjavcfut7bz7ywsvufeeaoqe@47hx5fvmsi22>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 2 Dec 2025 15:19:17 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJ9YUe6cy0YEMLvQhGTGmog6onTA9W5owQBP4q1viijug@mail.gmail.com>
+X-Gm-Features: AWmQ_bmTQVJ_hL0pc9x1GncG71ibSKGCHF04s-qMqZd6-07jLgk75ahA_73hYM4
+Message-ID: <CAL_JsqJ9YUe6cy0YEMLvQhGTGmog6onTA9W5owQBP4q1viijug@mail.gmail.com>
+Subject: Re: [PATCH v2] of/irq: Ignore interrupt parent for nodes without interrupts
+To: Ioana Ciornei <ioana.ciornei@nxp.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Saravana Kannan <saravanak@google.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland <samuel@sholland.org>, Marc Zyngier <maz@kernel.org>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_101758_952854_2E2B43FB 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20251202_131931_477944_89CF9B62 
+X-CRM114-Status: GOOD (  40.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,211 +86,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The `pwm::Registration::register` function provides no guarantee that the
-function isn't called twice with the same pwm chip, which is considered
-unsafe.
-
-Add `pwm::UnregisteredChip` as wrapper around `pwm::Chip`.
-Implement `pwm::UnregisteredChip::register` for the registration. This
-function takes ownership of `pwm::UnregisteredChip` and therefore
-guarantees that the registration can't be called twice on the same pwm
-chip.
-
-Signed-off-by: Markus Probst <markus.probst@posteo.de>
----
-This patch provides the additional guarantee that the pwm chip doesn't
-get registered twice.
-
-The following changes were made:
-- change the visibility of `pwm::Registration` to private
-- remove the `pwm::Registration::register` function
-- add `pwm::UnregisteredChip` - a wrapper around `pwm::Chip`
-- return `pwm::UnregisteredChip` in `pwm::Chip::new`
-- add `pwm::UnregisteredChip::register` for registering the pwm chip
-  once
-- add Send + Sync bounds to `PwmOps`
-
-Note that I wasn't able to test this patch, due to the lack of hardware.
-
-Also I was not able to successfully compile drivers/pwm/pwm_th1520.rs,
-as `clk::Clk` seems to be missing. I haven't found the missing patch
-in linux-next nor in
-
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git/log/?h=pwm/for-next
-
-(the tree in which the th1520 pwm driver was merged).
-So please verify yourself that the driver compiles and throws no errors.
----
-Changes in v2:
-- use the `pwm::UnregisteredChip` wrapper instead of moving the
-  registration into `pwm::Chip::new` to allow access to the chip prior
-  to the registration
-- Link to v1: https://lore.kernel.org/r/20251127-pwm_safe_register-v1-1-d22d0ed068ac@posteo.de
----
- drivers/pwm/pwm_th1520.rs |  2 +-
- rust/kernel/pwm.rs        | 68 ++++++++++++++++++++++++++++++-----------------
- 2 files changed, 45 insertions(+), 25 deletions(-)
-
-diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
-index 955c359b07fb..65a52b6620ab 100644
---- a/drivers/pwm/pwm_th1520.rs
-+++ b/drivers/pwm/pwm_th1520.rs
-@@ -372,7 +372,7 @@ fn probe(
-             }),
-         )?;
- 
--        pwm::Registration::register(dev, chip)?;
-+        chip.register()?;
- 
-         Ok(KBox::new(Th1520PwmPlatformDriver, GFP_KERNEL)?.into())
-     }
-diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
-index cb00f8a8765c..bf7515d04d8a 100644
---- a/rust/kernel/pwm.rs
-+++ b/rust/kernel/pwm.rs
-@@ -15,7 +15,11 @@
-     prelude::*,
-     types::{ARef, AlwaysRefCounted, Opaque}, //
- };
--use core::{marker::PhantomData, ptr::NonNull};
-+use core::{
-+    marker::PhantomData,
-+    ops::Deref,
-+    ptr::NonNull, //
-+};
- 
- /// Represents a PWM waveform configuration.
- /// Mirrors struct [`struct pwm_waveform`](srctree/include/linux/pwm.h).
-@@ -173,7 +177,7 @@ pub struct RoundedWaveform<WfHw> {
- }
- 
- /// Trait defining the operations for a PWM driver.
--pub trait PwmOps: 'static + Sized {
-+pub trait PwmOps: 'static + Send + Sync + Sized {
-     /// The driver-specific hardware representation of a waveform.
-     ///
-     /// This type must be [`Copy`], [`Default`], and fit within `PWM_WFHWSIZE`.
-@@ -584,11 +588,12 @@ unsafe fn bound_parent_device(&self) -> &device::Device<Bound> {
-     ///
-     /// Returns an [`ARef<Chip>`] managing the chip's lifetime via refcounting
-     /// on its embedded `struct device`.
--    pub fn new(
--        parent_dev: &device::Device,
-+    #[allow(clippy::new_ret_no_self)]
-+    pub fn new<'a>(
-+        parent_dev: &'a device::Device<Bound>,
-         num_channels: u32,
-         data: impl pin_init::PinInit<T, Error>,
--    ) -> Result<ARef<Self>> {
-+    ) -> Result<UnregisteredChip<'a, T>> {
-         let sizeof_priv = core::mem::size_of::<T>();
-         // SAFETY: `pwmchip_alloc` allocates memory for the C struct and our private data.
-         let c_chip_ptr_raw =
-@@ -623,7 +628,9 @@ pub fn new(
-         // SAFETY: `chip_ptr_as_self` points to a valid `Chip` (layout-compatible with
-         // `bindings::pwm_chip`) whose embedded device has refcount 1.
-         // `ARef::from_raw` takes this pointer and manages it via `AlwaysRefCounted`.
--        Ok(unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) })
-+        let chip = unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) };
-+
-+        Ok(UnregisteredChip { chip, parent_dev })
-     }
- }
- 
-@@ -654,37 +661,29 @@ unsafe fn dec_ref(obj: NonNull<Chip<T>>) {
- // structure's state is managed and synchronized by the kernel's device model
- // and PWM core locking mechanisms. Therefore, it is safe to move the `Chip`
- // wrapper (and the pointer it contains) across threads.
--unsafe impl<T: PwmOps + Send> Send for Chip<T> {}
-+unsafe impl<T: PwmOps> Send for Chip<T> {}
- 
- // SAFETY: It is safe for multiple threads to have shared access (`&Chip`) because
- // the `Chip` data is immutable from the Rust side without holding the appropriate
- // kernel locks, which the C core is responsible for. Any interior mutability is
- // handled and synchronized by the C kernel code.
--unsafe impl<T: PwmOps + Sync> Sync for Chip<T> {}
-+unsafe impl<T: PwmOps> Sync for Chip<T> {}
- 
--/// A resource guard that ensures `pwmchip_remove` is called on drop.
--///
--/// This struct is intended to be managed by the `devres` framework by transferring its ownership
--/// via [`devres::register`]. This ties the lifetime of the PWM chip registration
--/// to the lifetime of the underlying device.
--pub struct Registration<T: PwmOps> {
-+/// A wrapper arround `ARef<Chip<T>>` that ensures that `register` can only be called once.
-+pub struct UnregisteredChip<'a, T: PwmOps> {
-     chip: ARef<Chip<T>>,
-+    parent_dev: &'a device::Device<Bound>,
- }
- 
--impl<T: 'static + PwmOps + Send + Sync> Registration<T> {
-+impl<T: PwmOps> UnregisteredChip<'_, T> {
-     /// Registers a PWM chip with the PWM subsystem.
-     ///
-     /// Transfers its ownership to the `devres` framework, which ties its lifetime
-     /// to the parent device.
-     /// On unbind of the parent device, the `devres` entry will be dropped, automatically
-     /// calling `pwmchip_remove`. This function should be called from the driver's `probe`.
--    pub fn register(dev: &device::Device<Bound>, chip: ARef<Chip<T>>) -> Result {
--        let chip_parent = chip.device().parent().ok_or(EINVAL)?;
--        if dev.as_raw() != chip_parent.as_raw() {
--            return Err(EINVAL);
--        }
--
--        let c_chip_ptr = chip.as_raw();
-+    pub fn register(self) -> Result<ARef<Chip<T>>> {
-+        let c_chip_ptr = self.chip.as_raw();
- 
-         // SAFETY: `c_chip_ptr` points to a valid chip with its ops initialized.
-         // `__pwmchip_add` is the C function to register the chip with the PWM core.
-@@ -692,12 +691,33 @@ pub fn register(dev: &device::Device<Bound>, chip: ARef<Chip<T>>) -> Result {
-             to_result(bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()))?;
-         }
- 
--        let registration = Registration { chip };
-+        let registration = Registration {
-+            chip: ARef::clone(&self.chip),
-+        };
-+
-+        devres::register(self.parent_dev, registration, GFP_KERNEL)?;
- 
--        devres::register(dev, registration, GFP_KERNEL)
-+        Ok(self.chip)
-     }
- }
- 
-+impl<T: PwmOps> Deref for UnregisteredChip<'_, T> {
-+    type Target = Chip<T>;
-+
-+    fn deref(&self) -> &Self::Target {
-+        &self.chip
-+    }
-+}
-+
-+/// A resource guard that ensures `pwmchip_remove` is called on drop.
-+///
-+/// This struct is intended to be managed by the `devres` framework by transferring its ownership
-+/// via [`devres::register`]. This ties the lifetime of the PWM chip registration
-+/// to the lifetime of the underlying device.
-+struct Registration<T: PwmOps> {
-+    chip: ARef<Chip<T>>,
-+}
-+
- impl<T: PwmOps> Drop for Registration<T> {
-     fn drop(&mut self) {
-         let chip_raw = self.chip.as_raw();
-
----
-base-commit: fae00ea9f00367771003ace78f29549dead58fc7
-change-id: 20251127-pwm_safe_register-e49b0a261101
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBEZWMgMiwgMjAyNSBhdCAxMDozNuKAr0FNIElvYW5hIENpb3JuZWkgPGlvYW5hLmNp
+b3JuZWlAbnhwLmNvbT4gd3JvdGU6Cj4KPiBPbiBNb24sIERlYyAwMSwgMjAyNSBhdCAwNjowOTox
+OUFNIC0wNjAwLCBSb2IgSGVycmluZyB3cm90ZToKPiA+IE9uIEZyaSwgTm92IDI4LCAyMDI1IGF0
+IDEwOjQz4oCvQU0gSW9hbmEgQ2lvcm5laSA8aW9hbmEuY2lvcm5laUBueHAuY29tPiB3cm90ZToK
+PiA+ID4KPiA+ID4gT24gRnJpLCBOb3YgMTQsIDIwMjUgYXQgMTE6NDc6NTRBTSArMDEwMCwgR2Vl
+cnQgVXl0dGVyaG9ldmVuIHdyb3RlOgo+ID4gPiA+IFRoZSBEZXZpY2V0cmVlIFNwZWNpZmljYXRp
+b24gc3RhdGVzOgo+ID4gPiA+Cj4gPiA+ID4gICAgIFRoZSByb290IG9mIHRoZSBpbnRlcnJ1cHQg
+dHJlZSBpcyBkZXRlcm1pbmVkIHdoZW4gdHJhdmVyc2FsIG9mIHRoZQo+ID4gPiA+ICAgICBpbnRl
+cnJ1cHQgdHJlZSByZWFjaGVzIGFuIGludGVycnVwdCBjb250cm9sbGVyIG5vZGUgd2l0aG91dCBh
+bgo+ID4gPiA+ICAgICBpbnRlcnJ1cHRzIHByb3BlcnR5IGFuZCB0aHVzIG5vIGV4cGxpY2l0IGlu
+dGVycnVwdCBwYXJlbnQuCj4gPiA+ID4KPiA+ID4gPiBIb3dldmVyLCBvZl9pcnFfaW5pdCgpIGdy
+YXR1aXRvdXNseSBhc3N1bWVzIHRoYXQgYSBub2RlIHdpdGhvdXQKPiA+ID4gPiBpbnRlcnJ1cHRz
+IGhhcyBhbiBhY3R1YWwgaW50ZXJydXB0IHBhcmVudCBpZiBpdCBmaW5kcyBhbgo+ID4gPiA+IGlu
+dGVycnVwdC1wYXJlbnQgcHJvcGVydHkgaGlnaGVyIHVwIGluIHRoZSBkZXZpY2UgdHJlZS4gIEhl
+bmNlIHdoZW4gc3VjaAo+ID4gPiA+IGEgcHJvcGVydHkgaXMgcHJlc2VudCAoZS5nLiBpbiB0aGUg
+cm9vdCBub2RlKSwgdGhlIHJvb3QgaW50ZXJydXB0Cj4gPiA+ID4gY29udHJvbGxlciBtYXkgbm90
+IGJlIGRldGVjdGVkIGFzIHN1Y2gsIGNhdXNpbmcgYSBwYW5pYzoKPiA+ID4gPgo+ID4gPiA+ICAg
+ICBPRjogb2ZfaXJxX2luaXQ6IGNoaWxkcmVuIHJlbWFpbiwgYnV0IG5vIHBhcmVudHMKPiA+ID4g
+PiAgICAgS2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6IE5vIGludGVycnVwdCBjb250cm9sbGVy
+IGZvdW5kLgo+ID4gPiA+Cj4gPiA+ID4gQ29tbWl0IGU5MTAzMzYyMWQ1NmUwNTUgKCJvZi9pcnE6
+IFVzZSBpbnRlcnJ1cHRzLWV4dGVuZGVkIHRvIGZpbmQKPiA+ID4gPiBwYXJlbnQiKSBhbHJlYWR5
+IGZpeGVkIGEgZmlyc3QgcGFydCwgYnkgY2hlY2tpbmcgZm9yIHRoZSBwcmVzZW5jZSBvZiBhbgo+
+ID4gPiA+IGludGVycnVwdHMtZXh0ZW5kZWQgcHJvcGVydHkuICBGaXggdGhlIHNlY29uZCBwYXJ0
+IGJ5IG9ubHkgY2FsbGluZwo+ID4gPiA+IG9mX2lycV9maW5kX3BhcmVudCgpIHdoZW4gYW4gaW50
+ZXJydXB0cyBwcm9wZXJ0eSBpcyBwcmVzZW50Lgo+ID4gPiA+Cj4gPiA+ID4gU2lnbmVkLW9mZi1i
+eTogR2VlcnQgVXl0dGVyaG9ldmVuIDxnZWVydCtyZW5lc2FzQGdsaWRlci5iZT4KPiA+ID4gPiB2
+MjoKPiA+ID4gPiAgIC0gU3BsaXQgb2ZmIGZyb20gc2VyaWVzICJbUEFUQ0gvUkZDIDAvMl0gb2Yv
+aXJxOiBGaXggcm9vdCBpbnRlcnJ1cHQKPiA+ID4gPiAgICAgY29udHJvbGxlciBoYW5kbGluZyJb
+MV0gdG8gcmVsYXggZGVwZW5kZW5jaWVzLAo+ID4gPiA+ICAgLSBEcm9wIFJGQy4KPiA+ID4gPgo+
+ID4gPiA+IFsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvY292ZXIuMTc1OTQ4NTY2OC5n
+aXQuZ2VlcnQrcmVuZXNhc0BnbGlkZXIuYmUKPiA+ID4gPiAtLS0KPiA+ID4gPiAgZHJpdmVycy9v
+Zi9pcnEuYyB8IDIgKy0KPiA+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAx
+IGRlbGV0aW9uKC0pCj4gPiA+ID4KPiA+ID4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9vZi9pcnEu
+YyBiL2RyaXZlcnMvb2YvaXJxLmMKPiA+ID4gPiBpbmRleCBiMTc0ZWMyOTY0ODk1NWM2Li41Y2Ix
+Y2E4OWMxZDg3MjVkIDEwMDY0NAo+ID4gPiA+IC0tLSBhL2RyaXZlcnMvb2YvaXJxLmMKPiA+ID4g
+PiArKysgYi9kcml2ZXJzL29mL2lycS5jCj4gPiA+ID4gQEAgLTYxMyw3ICs2MTMsNyBAQCB2b2lk
+IF9faW5pdCBvZl9pcnFfaW5pdChjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkICptYXRjaGVzKQo+
+ID4gPiA+ICAgICAgICAgICAgICAgICogYXJlIHRoZSBzYW1lIGRpc3RhbmNlIGF3YXkgZnJvbSB0
+aGUgcm9vdCBpcnEgY29udHJvbGxlci4KPiA+ID4gPiAgICAgICAgICAgICAgICAqLwo+ID4gPiA+
+ICAgICAgICAgICAgICAgZGVzYy0+aW50ZXJydXB0X3BhcmVudCA9IG9mX3BhcnNlX3BoYW5kbGUo
+bnAsICJpbnRlcnJ1cHRzLWV4dGVuZGVkIiwgMCk7Cj4gPiA+ID4gLSAgICAgICAgICAgICBpZiAo
+IWRlc2MtPmludGVycnVwdF9wYXJlbnQpCj4gPiA+ID4gKyAgICAgICAgICAgICBpZiAoIWRlc2Mt
+PmludGVycnVwdF9wYXJlbnQgJiYgb2ZfcHJvcGVydHlfcHJlc2VudChucCwgImludGVycnVwdHMi
+KSkKPiA+ID4gPiAgICAgICAgICAgICAgICAgICAgICAgZGVzYy0+aW50ZXJydXB0X3BhcmVudCA9
+IG9mX2lycV9maW5kX3BhcmVudChucCk7Cj4gPiA+ID4gICAgICAgICAgICAgICBpZiAoZGVzYy0+
+aW50ZXJydXB0X3BhcmVudCA9PSBucCkgewo+ID4gPiA+ICAgICAgICAgICAgICAgICAgICAgICBv
+Zl9ub2RlX3B1dChkZXNjLT5pbnRlcnJ1cHRfcGFyZW50KTsKPiA+ID4gPiAtLQo+ID4gPiA+IDIu
+NDMuMAo+ID4gPiA+Cj4gPiA+ID4KPiA+ID4KPiA+ID4gVGhpcyBjaGFuZ2UgaXJxLWxzLWV4dGly
+cSBhbmQgY29tbWl0IDZiYTUxYjdiMzRjYSAoIm9mL2lycTogSGFuZGxlCj4gPiA+IGV4cGxpY2l0
+IGludGVycnVwdCBwYXJlbnQiKSBkb2VzIG5vdCBoZWxwIHdpdGggdGhlIGlzc3VlLgo+ID4gPgo+
+ID4gPiBUaGlzIGlzIGhvdyB0aGUgRFQgbm9kZSBpbiBseDIxNjBhLmR0c2kgbG9va3MgbGlrZToK
+PiA+Cj4gPiBscy1leHRpcnEgc3RyaWtlcyBhZ2FpbiEKPiA+Cj4gPiBJIHRoaW5rIHNvbWV0aGlu
+ZyBsaWtlIHRoaXMgc2hvdWxkIGZpeCBpdDoKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9v
+Zi9pcnEuYyBiL2RyaXZlcnMvb2YvaXJxLmMKPiA+IGluZGV4IDIyNzExMTBiNWY3Yy4uYzA2Yzc0
+YWVmODAxIDEwMDY0NAo+ID4gLS0tIGEvZHJpdmVycy9vZi9pcnEuYwo+ID4gKysrIGIvZHJpdmVy
+cy9vZi9pcnEuYwo+ID4gQEAgLTU5Myw3ICs1OTMsOCBAQCB2b2lkIF9faW5pdCBvZl9pcnFfaW5p
+dChjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkICptYXRjaGVzKQo+ID4gICAgICAgICAgICAgICAg
+ICAqIGFyZSB0aGUgc2FtZSBkaXN0YW5jZSBhd2F5IGZyb20gdGhlIHJvb3QgaXJxIGNvbnRyb2xs
+ZXIuCj4gPiAgICAgICAgICAgICAgICAgICovCj4gPiAgICAgICAgICAgICAgICAgZGVzYy0+aW50
+ZXJydXB0X3BhcmVudCA9IG9mX3BhcnNlX3BoYW5kbGUobnAsCj4gPiAiaW50ZXJydXB0cy1leHRl
+bmRlZCIsIDApOwo+ID4gLSAgICAgICAgICAgICAgIGlmICghZGVzYy0+aW50ZXJydXB0X3BhcmVu
+dCAmJiBvZl9wcm9wZXJ0eV9wcmVzZW50KG5wLAo+ID4gImludGVycnVwdHMiKSkKPiA+ICsgICAg
+ICAgICAgICAgICBpZiAoIWRlc2MtPmludGVycnVwdF9wYXJlbnQgJiYKPiA+ICsgICAgICAgICAg
+ICAgICAgICAgKG9mX3Byb3BlcnR5X3ByZXNlbnQobnAsICJpbnRlcnJ1cHRzIikgfHwKPiA+IG9m
+X3Byb3BlcnR5X3ByZXNlbnQobnAsICJpbnRlcnJ1cHQtbWFwIikpCj4gPiAgICAgICAgICAgICAg
+ICAgICAgICAgICBkZXNjLT5pbnRlcnJ1cHRfcGFyZW50ID0gb2ZfaXJxX2ZpbmRfcGFyZW50KG5w
+KTsKPiA+ICAgICAgICAgICAgICAgICBlbHNlIGlmICghZGVzYy0+aW50ZXJydXB0X3BhcmVudCkK
+PiA+ICAgICAgICAgICAgICAgICAgICAgICAgIGRlc2MtPmludGVycnVwdF9wYXJlbnQgPSBvZl9w
+YXJzZV9waGFuZGxlKG5wLAo+ID4gImludGVycnVwdC1wYXJlbnQiLCAwKTsKPiA+Cj4gPgo+ID4g
+QnV0IHJlYWxseSwgYXQgc29tZSBwb2ludCBpdCBzaG91bGQgYmUgY29udmVydGVkIHRvIGEgcHJv
+cGVyIGRyaXZlciBhcwo+ID4gdGhlcmUncyBubyByZWFzb24gZXh0aXJxIG5lZWRzIHRvIGJlIGlu
+aXRpYWxpemVkIGVhcmx5Lgo+ID4KPgo+IEkganVzdCB0cmllZCBjb252ZXJ0aW5nIGxzLWV4dGly
+cSB0byBhIHByb3BlciBwbGF0Zm9ybSBkcml2ZXIgYW5kIGl0J3MKPiBwcmV0dHkgc3RyYWlnaHRm
+b3J3YXJkLiBUaGUgcHJvYmxlbSBpcyBnZXR0aW5nIHRoYXQgZHJpdmVyIHRvIHByb2JlIG9uCj4g
+dGhlIGxzLWV4dGlycSBkdCBub2RlIHNpbmNlIG9mX3BsYXRmb3JtX3BvcHVsYXRlKCkgaXMgbm90
+IGNhbGxlZCBvbiBpdHMKPiBwYXJlbnQgbm9kZS4KPgo+IEkgd291bGQgYXZvaWQgY2hhbmdpbmcg
+dGhlIERUIGFuZCBhZGRpbmcgYSAic2ltcGxlLWJ1cyIgY29tcGF0aWJsZSB0bwo+IHRoZSBwYXJl
+bnQgbm9kZXMuIFRoZSBvdGhlciBvcHRpb24gaXMgdG8gYWRkIGFub3RoZXIgc2ltcGxlIGRyaXZl
+ciB3aGljaAo+IGp1c3QgY2FsbHMgb2ZfcGxhdGZvcm1fcG9wdWxhdGUoKSBmb3IgYWxsIGNvbXBh
+dGlibGUgc3RyaW5ncyBkZWZpbmVkIGluCj4gZnNsLGxheWVyc2NhcGUtc2NmZy55YW1sLgoKVGhl
+IHNpbXBsZXN0IHNvbHV0aW9uIG1pZ2h0IGJlIGFkZGluZyAnc3lzY29uJyB0byB0aGUgZGVmYXVs
+dCBtYXRjaApsaXN0IGZvciBvZl9wbGF0Zm9ybV9wb3B1bGF0ZSgpLiBUaGF0J3Mga2luZCBvZiBh
+IGJpZyBoYW1tZXIgdGhvdWdoCmFuZCBjb3VsZCBicmVhayBzb21ldGhpbmcuIE5vdCBzdXJlLCBi
+dXQgSSdtIHdpbGxpbmcgdG8gc3RpY2sgdGhhdCBpbgpsaW51eC1uZXh0IGFuZCBzZWUuCgpBbm90
+aGVyIG9wdGlvbiBpcyBoaWphY2sgdGhlIHNpbXBsZS1wbS1idXMgZHJpdmVyIHdoaWNoIGFscmVh
+ZHkgZG9lcwpqdXN0IHdoYXQgeW91IHNhaWQuCgpSb2IKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
