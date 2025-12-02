@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104B9CFD376
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A30BECFD2F6
 	for <linux-riscv@archiver.kernel.org>; Tue,  2 Dec 2025 07:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3LemZhpCv4z2zkaOxWu07JhRJWwnQEn8PQvC1L8pdrk=; b=qzYzulXhFd3+bW
-	i9i6W7kUVp7Tgat+KnNJnW/omGmqZBaSNil13BggLFJK2jThGobTArcqoX3Iaklt81Zol+5BE/aDn
-	C1ueUaIWfdpPAEKcTGtkM/gmHptM3UL/2P5/COMR3TbAvz9V4GXm5kG8E/+y/d/ILZ7FrtTRHFgEl
-	rhK7fYh+D0dnWgSabVN3fzJoO4BMDFC1wyIz7q+x/RJyK/9f2nHN8fcl+12+LeFK6a8AhLOPM5Nnp
-	dqv0uY1xVWk4fAOp3s9OhDOafdBmef+vdNAjnzYnHijyw9RTSwzTOziMCwLPBjCY2SbVsNueOvjW6
-	+X/EZpg/GdO6/QUZy2XA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ypwaf34B7nG3SwEZ1gm2IAXylVau9J11WCC4aUogygo=; b=LtSAp0V5opEN5m
+	ezbTVgkXwLPYAEWhKpc9lDzc1SxF3DbNrKl2tfSZoD+b6BcdH9Ue5ReDxkY9elHqhv8bwK8polROm
+	oyWJYolIvcdRwwjYdHMkO77yAO/yQuO4jgdgeQrt2LsaAon6/mvcPXUhIbRUbYONyYTtopKpG+wVt
+	lrek+M4bu2AjUBWbp3BTFPB12+JsYcjmf2sCugdNP5x5TKTc6sf5sycJMffYfo7ZJkMrNXmtpPPNN
+	Uz+n/o3/QuyhQj02mdrFdCxigK5WMWgVwrfob7+ib2JoKC0JP+NIwFn4kvK5xg6pQVi76kMqnnTdH
+	Z6BtvnCYbR21jHkgp/CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQL0w-00000004yd8-3p8u;
-	Tue, 02 Dec 2025 07:41:34 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1vQL14-00000004yjB-157o;
+	Tue, 02 Dec 2025 07:41:42 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQL0s-00000004yZL-2leg
+	id 1vQL11-00000004yfs-048M
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Dec 2025 07:41:31 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-297ec50477aso20896245ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Dec 2025 23:41:29 -0800 (PST)
+	Tue, 02 Dec 2025 07:41:40 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-29568d93e87so52684415ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Dec 2025 23:41:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764661289; x=1765266089; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=w2q6telcg/QsshlBLoOse/YPsUmfsRR7i8AupYK9gqY=;
-        b=Y7OMDAN+DBM8wfY5qtygjaAV8XXHMqYc4HV4hBq5/FXlExQvDtkJxR5sp+bZFB5Yir
-         n9SfaT9KldjHVyUqFJ8Jk0e6j6pmHSSnE9IguLIvjYVwl4spPTbK293Bx2o2/QwQIfY1
-         SzecXWeXH3krMjsosxajlXh87mMDzIWNOyxdK/dCbOh9GV2gRv+2nFjxDNYWyJJR5AI7
-         UMrXw0f7oWneH4A4bbUWhwtHjZvqVqf2oDXCmrv/AQqMvcbRIEW+hYIG6ysrYGMLU2Wt
-         sOkWcmpHKVFzXIDDCMhi7M3XyOtGovygtzNjS7/OPJUtdDx2BGTSKD4nDzTQECjF5++S
-         Tpig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764661289; x=1765266089;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1764661298; x=1765266098; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=w2q6telcg/QsshlBLoOse/YPsUmfsRR7i8AupYK9gqY=;
-        b=HmrqlyAnMFVubpHF83vQZtFys7JEGeUGgHpNaj6l918uGzZ40sOZQ63KvKGTPwxRYD
-         Gn6X5P78pkc2Dqqmqs3cQ2bJdKxAOikRue1eBzu53A+ozJ8v0O8GHmlZTzDCWGMgiat/
-         cdz91yOcf6LL4EspYuVZ7AjDCUSBdIFzv3z+i5ZNrBclkRBPrrLC+ktCy0Qjn9v4xu3H
-         EZNGpa3wTmlDHz7iDsMneW0oYlvOto9zMKcG9xn30RrxFznygY52+0+YaI7npaeieFwp
-         4arD3bk5oaLqO1ZB/9rwv89aqHza7rCQEGFWK2D+AnLhzSuBznKPIWWprZRcb2sTxaAc
-         2fww==
-X-Forwarded-Encrypted: i=1; AJvYcCVnz3ynLsnALliluREut5Tp1kERU4C1TxVnGkK60/ttGzi4GdYqGKnoi1WvwbitX5/JRlD7nb17/06JBA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrLl1U/LwYClj38Q7Cqq2kCk98+t5C5QaHV+RHHHGoJSCpCsAF
-	S+eFM24fVlx9MFEWJHIn0iU5uOkFPb2kPxHD2pxpQwPss9kwskUzsPg9
-X-Gm-Gg: ASbGnctU8mzCYP+CxTxFCbjFCCnLHTmycp48OIqAbkEx39d4U3na/F6R9/xB9XMnq59
-	9VcY0bCr1PHy3WvMsFodv4g32sXgAzJfhU2yvGIDt3lAyIfKIySfvv6x1P37u95wfVJZ2OzN3sE
-	pUXzp7FThCXv2VjMx/f9KsfkqwT2JXVPQn36BpwwWBc/qPDt5Zk13FtIFh8TKO/jfBYtqSWcLB0
-	IRiK0EzwXBaO92OYsK0a35fnY2MA9rvDPb6LGj4cZt6ozaUyTjXm0idSCCJZQwWoX+LZzsJ4zGG
-	wZ5v/s18JbVGePMlL+WaFoxNG8TbekpplDaXaMH4mB8KxMGPbHynjQ+aPV0oSdRKX0tcHumzaMz
-	71ErC5p5Aqrf2vruRlCKnzxAUTmUc/s13yv9Ql+wmQaH0ycbKEJN1mYrhpPd0TaWOuaO1P7XEPv
-	KIAD0oV+Nd6sraNZ5rotrfB7Zf54c5rOizmbGDCR6Sj/iF
-X-Google-Smtp-Source: AGHT+IFznH971tY4p3rpMndCd98S3a5M91d+eC9g7o4pmW7WaT8RC+BcW6tVEoSAhAE25ttCWo2c0w==
-X-Received: by 2002:a17:902:e950:b0:295:28a4:f0c6 with SMTP id d9443c01a7336-29d5a359bd8mr20672965ad.0.1764661289223;
-        Mon, 01 Dec 2025 23:41:29 -0800 (PST)
+        bh=pdY669oPFp64Z/oUf+jdUTfbYCRwgKwWZWXra6Qr1vI=;
+        b=jRZHOKPpekoZvvXbh8MYSAuAIoUaeuyWn4GQIOLp7lwoYznr/tik2SnPuqlYtvlFML
+         Ir6/HDs33n+8JY9V9m8pre6OchHO9bnD4v6hVqClqONO2c9vkpeg5ioTiuAECNTztkBB
+         oAoT7+36mO48U6A7N2RDTl1DetQ32rWAJQ/EeurR3FwFk9vm3LCrGjBw7IrV/E3DA+og
+         ak3x7c0459KYibN/3UGmC4JqnAPFlN3kG8TBntJ38YTpC/sMoCGwwK6vSfGAQYXHtlkl
+         fRmUoj0+LlDnjbKNlexifsvn3udDfq+JgsXNdimWdDDF/S9rdw9+oeWX12MW/hiL3QcS
+         5ACw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764661298; x=1765266098;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=pdY669oPFp64Z/oUf+jdUTfbYCRwgKwWZWXra6Qr1vI=;
+        b=OCzGb2jk8gImYVicZu95KQSe6vjvcUYrdu474jbIhFoz8ri6BW+nvwXTVR/NznaKjE
+         GNtPT1KLizzU9mF0wTWQECwuEfRcGToy+AMJXLeIHh0sF3p+jPRtc5ZN26lHgk11UTeG
+         IDP06zECPwvAFxNM9HrEDwxsDdxiq+R/duFfvZciFZ6iv12XjtG1k5BdNW8qXs6VSLXE
+         mmMLlea1l0XPUdH/FMElhVEK8XzcDfXmKNvD2ayODKfnAclYrCLmv/vacXGQRjzcSPAk
+         vVd62EAoo9+5Y24vRImxxkUV9KnSMHXXkhdcypxymdOuLqIxrYyhpX9lTs5S7oJixIzz
+         DJrw==
+X-Forwarded-Encrypted: i=1; AJvYcCUYdNDkDXXugXYcz2i1fuYt8fbqdMYrm4/adPqXnMIeoWE0nhCHEM3zNqvGZDgTppGa3JvEYkPkkPsvvQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/P5OtIpnAfP1yIWmUFCMLZgtfFKkRURdNPE9tk2Doo+rFrXOd
+	XVNklMu79GhSMG2e2H2DUI1HXulxG1dq0i2L/dcCOb2pJcYEu5vDhC6/
+X-Gm-Gg: ASbGnctb/6YqfUPygzKcNHXb5QpIP9Pq49s7ORQZ9js1wcIm5Mf49UC9ri2iT++8JOc
+	NqT9C5fuk6Eto08hswASoEmZ4Yd2oIQZp2HjXM4cL2o0hO0Zq11x5OEGmx/XRSUs7GZyLDiUB8E
+	Ffd7nfyvsfdvusPuHAgoXJReI6cfqLQaT0AG8CzHo7edBD2BhVHAD+S2HK7AnWbm5P+CiML4VTn
+	SSR2WkXKqKF7Vo2nJhPvtH0mACmQ1SQ10DLyLet0uvs6ma0mT6m4ijJH04XyvbxdswWKkiMCMw6
+	nqiUkjJa5nFNByjN2hMyFj9aSobSsLbvTTUaU5rgHPZH5cmJw7tazF9wFigu11XEjntbcmVA8VR
+	mKqHjVP9cdW20F1Wn3Qses8d1V4WelXRv7pqc0EzK44t8v/CetGsk553kqUjKqD/hGOQ/kt3YSU
+	Okd4J4aXUpIA5rwguS/NXBIIcu1dGX+EDHmA==
+X-Google-Smtp-Source: AGHT+IEi6+/L2LO/9oDve9kx9ZLziN85TJNVlxJPaA1DiO6RqWCP8Y1ivDHqQ4sUsQ/zqpXNrnohTg==
+X-Received: by 2002:a17:903:1a0f:b0:27c:56af:88ea with SMTP id d9443c01a7336-29bab3166acmr289375615ad.60.1764661297941;
+        Mon, 01 Dec 2025 23:41:37 -0800 (PST)
 Received: from mao-OptiPlex-3050.hz.ali.com ([47.246.101.226])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bceb7f69asm142957605ad.102.2025.12.01.23.41.27
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bceb7f69asm142957605ad.102.2025.12.01.23.41.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 23:41:28 -0800 (PST)
+        Mon, 01 Dec 2025 23:41:37 -0800 (PST)
 From: maohan4761@gmail.com
 To: pjw@kernel.org,
 	palmer@dabbelt.com
@@ -76,15 +77,16 @@ Cc: guoren@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Mao Han <han_mao@linux.alibaba.com>
-Subject: [PATCH 0/1] riscv: Optimize user copy with efficient unaligned access support
-Date: Tue,  2 Dec 2025 15:41:20 +0800
-Message-Id: <20251202074121.81364-1-maohan4761@gmail.com>
+Subject: [PATCH 1/1] riscv: Optimize user copy with efficient unaligned access support
+Date: Tue,  2 Dec 2025 15:41:21 +0800
+Message-Id: <20251202074121.81364-2-maohan4761@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251202074121.81364-1-maohan4761@gmail.com>
+References: <20251202074121.81364-1-maohan4761@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_234130_706117_31F26F77 
-X-CRM114-Status: UNSURE (   6.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251201_234139_082976_318F4114 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,37 +98,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogTWFvIEhhbiA8aGFuX21hb0BsaW51eC5hbGliYWJhLmNvbT4KCk1hbnkgbW9kZXJuIGhp
-Z2gtcGVyZm9ybWFuY2UgcHJvY2Vzc29ycyBub3cgaGFuZGxlIHVuYWxpZ25lZCBtZW1vcnkKYWNj
-ZXNzZXMgd2l0aCBwZXJmb3JtYW5jZSBuZWFybHkgb24gcGFyIHdpdGggYWxpZ25lZCBhY2Nlc3Nl
-cy4gSG93ZXZlciwKdGhlIGN1cnJlbnQga2VybmVsIGltcGxlbWVudGF0aW9uIG9mCmZhbGxiYWNr
-X3NjYWxhcl91c2VyY29weV9zdW1fZW5hYmxlZCBzdGlsbCBkZWZhdWx0cyB0byBhbGlnbmluZyBh
-Y2Nlc3Nlcwp0byByZWdpc3RlciBzaXplIGJvdW5kYXJpZXMuIFRoaXMgcGF0aCBpbmN1cnMgYWRk
-aXRpb25hbApzaGlmdC1hbmQtY29tYmluZSBvcGVyYXRpb25zIHRoYXQgZmFpbCB0byBmdWxseSBs
-ZXZlcmFnZSBoYXJkd2FyZQpjYXBhYmlsaXRpZXMgYW5kIGNhbm5vdCB1dGlsaXplIHdpZGUtbG9h
-ZC9zdG9yZSBpbnN0cnVjdGlvbnMgZm9yCnRyYWlsaW5nIGRhdGEgY2h1bmtzIHNtYWxsZXIgdGhh
-biA5IMOXIFNaUkVHLgoKVGhpcyBwYXRjaCBpbnRyb2R1Y2VzIGFuIG9wdGltaXplZCBjb2RlIHBh
-dGggZW5hYmxlZCBieQpSSVNDVl9FRkZJQ0lFTlRfVU5BTElHTkVEX0FDQ0VTUywgd2hpY2ggcmVs
-aWVzIG9uIGhhcmR3YXJlIHN1cHBvcnQgZm9yCmVmZmljaWVudCB1bmFsaWduZWQgbWVtb3J5IGFj
-Y2Vzc2VzLiBCeSBkb2luZyBzbywgdGhlIHNvZnR3YXJlIGNhbiBmdWxseQpleHBsb2l0IHRoZSBt
-YXhpbXVtIGF2YWlsYWJsZSBsb2FkL3N0b3JlIGluc3RydWN0aW9uIHdpZHRoIGFuZCBhdm9pZHMK
-Y29tcGxleCBiaXQtbWFuaXB1bGF0aW9uIGxvZ2ljIGZvciByZWFzc2VtYmx5LgoKVGhlIG9wdGlt
-aXphdGlvbiBzaWduaWZpY2FudGx5IGltcHJvdmVzIHBlcmZvcm1hbmNlIG9mCl9fYXNtX2NvcHlf
-dG8vZnJvbV91c2VyIGZvciB0cmFuc2ZlcnMgc21hbGxlciB0aGFuCnJpc2N2X3ZfdXNlcmNvcHlf
-dGhyZXNob2xkLiBJbiBwYXJ0aWN1bGFyLCBmb3Igc21hbGwgZGF0YSBzaXplcyAoOOKAkzcyCmJ5
-dGVzKSB1bmRlciB1bmFsaWduZWQgc2NlbmFyaW9zLCBwZXJmb3JtYW5jZSBnYWlucyByYW5nZSBm
-cm9tIDQwJSB0bwo2MDAlLgoKbG1iZW5jaOKAmXMgc2lnIGhuZGwvY2F0Y2ggdGVzdCBzaG93cyBh
-cHByb3hpbWF0ZWx5IGEgMjAlIGltcHJvdmVtZW50LAphbmQgaXBlcmYgc21hbGwtcGFja2V0IHRo
-cm91Z2hwdXQgc2VlcyBub3RpY2VhYmxlIGdhaW5zIGFzIHdlbGwuCgpNYW8gSGFuICgxKToKICBy
-aXNjdjogT3B0aW1pemUgdXNlciBjb3B5IHdpdGggZWZmaWNpZW50IHVuYWxpZ25lZCBhY2Nlc3Mg
-c3VwcG9ydAoKIGFyY2gvcmlzY3YvbGliL3VhY2Nlc3MuUyB8IDExMyArKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysKIDEgZmlsZSBjaGFuZ2VkLCAxMTMgaW5zZXJ0aW9ucygr
-KQoKLS0gCjIuMjUuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+From: Mao Han <han_mao@linux.alibaba.com>
+
+Introduce an optimized path in fallback_scalar_usercopy_sum_enabled for
+systems that support efficient unaligned memory accesses (i.e., when
+CONFIG_RISCV_EFFICIENT_UNALIGNED_ACCESS is enabled).
+This eliminates the overhead of bit-shifting and OR-ing partial words to
+reconstruct misaligned values, which was previously required for handling
+protential alignments. Medium-sized buffers between 8 and 9*SZREG also see
+noticeable improvement, as the original path would fall back to
+byte-by-byte copying.
+
+Signed-off-by: Mao Han <han_mao@linux.alibaba.com>
+---
+ arch/riscv/lib/uaccess.S | 113 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 113 insertions(+)
+
+diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
+index 4efea1b..bf124a1 100644
+--- a/arch/riscv/lib/uaccess.S
++++ b/arch/riscv/lib/uaccess.S
+@@ -54,6 +54,118 @@ EXPORT_SYMBOL(__asm_copy_from_user_sum_enabled)
+ EXPORT_SYMBOL(__asm_copy_to_user_sum_enabled)
+ 
+ SYM_FUNC_START(fallback_scalar_usercopy_sum_enabled)
++       /*
++         * Save the terminal address which will be used to compute the number
++         * of bytes copied in case of a fixup exception.
++         */
++        add     t5, a0, a2
++
++        /*
++         * Register allocation for code below:
++         * a0 - start of uncopied dst
++         * a1 - start of uncopied src
++         * a2 - size
++         * t0 - end of uncopied dst
++         */
++        add     t0, a0, a2
++#ifdef CONFIG_RISCV_EFFICIENT_UNALIGNED_ACCESS
++        /* If length < 8, go to byte copy */
++        li      a3, 8
++        bltu    a2, a3, .Lbyte_copy_tail
++
++        /* check length >= 128 */
++        li      t1, 128
++        bltu    a2, t1, .L_len_less_16x_szreg
++
++.L_loop_16x_reg:
++        fixup REG_L   a4,        0(a1), 10f
++        fixup REG_L   a5,    SZREG(a1), 10f
++        fixup REG_L   a6,  2*SZREG(a1), 10f
++        fixup REG_L   a7,  3*SZREG(a1), 10f
++        fixup REG_S   a4,        0(a0), 10f
++        fixup REG_S   a5,    SZREG(a0), 10f
++        fixup REG_S   a6,  2*SZREG(a0), 10f
++        fixup REG_S   a7,  3*SZREG(a0), 10f
++
++        fixup REG_L   t1,  4*SZREG(a1), 10f
++        fixup REG_L   t2,  5*SZREG(a1), 10f
++        fixup REG_L   t3,  6*SZREG(a1), 10f
++        fixup REG_L   t4,  7*SZREG(a1), 10f
++        fixup REG_S   t1,  4*SZREG(a0), 10f
++        fixup REG_S   t2,  5*SZREG(a0), 10f
++        fixup REG_S   t3,  6*SZREG(a0), 10f
++        fixup REG_S   t4,  7*SZREG(a0), 10f
++
++        fixup REG_L   a4,  8*SZREG(a1), 10f
++        fixup REG_L   a5,  9*SZREG(a1), 10f
++        fixup REG_L   a6,  10*SZREG(a1), 10f
++        fixup REG_L   a7,  11*SZREG(a1), 10f
++        fixup REG_S   a4,  8*SZREG(a0), 10f
++        fixup REG_S   a5,  9*SZREG(a0), 10f
++        fixup REG_S   a6,  10*SZREG(a0), 10f
++        fixup REG_S   a7,  11*SZREG(a0), 10f
++
++        fixup REG_L   t1,  12*SZREG(a1), 10f
++        fixup REG_L   t2,  13*SZREG(a1), 10f
++        fixup REG_L   t3,  14*SZREG(a1), 10f
++        fixup REG_L   t4,  15*SZREG(a1), 10f
++        fixup REG_S   t1,  12*SZREG(a0), 10f
++        fixup REG_S   t2,  13*SZREG(a0), 10f
++        fixup REG_S   t3,  14*SZREG(a0), 10f
++        fixup REG_S   t4,  15*SZREG(a0), 10f
++
++        addi    a1, a1, 16*SZREG
++        addi    a0, a0, 16*SZREG
++
++        addi    t1, a0, 16*SZREG
++        bleu    t1, t0, .L_loop_16x_reg
++
++.L_len_less_16x_szreg:
++        # Pre-check: ensure at least one register copy is possible
++        addi     t1, a0, 4*SZREG
++        bgtu    t1, t0, .L_len_less_4x_szreg
++
++.L_loop_4x_reg:
++        fixup REG_L   a4,        0(a1), 10f
++        fixup REG_L   a5,    SZREG(a1), 10f
++        fixup REG_L   a6,  2*SZREG(a1), 10f
++        fixup REG_L   a7,  3*SZREG(a1), 10f
++        fixup REG_S   a4,        0(a0), 10f
++        fixup REG_S   a5,    SZREG(a0), 10f
++        fixup REG_S   a6,  2*SZREG(a0), 10f
++        fixup REG_S   a7,  3*SZREG(a0), 10f
++        addi    a1, a1, 4*SZREG
++        addi    a0, a0, 4*SZREG
++
++        # Check if another register copy is safe
++        addi    t1, a0, 4*SZREG
++        bleu    t1, t0, .L_loop_4x_reg
++
++.L_len_less_4x_szreg:
++        # Pre-check: ensure at least one register copy is possible
++        add     t1, a0, SZREG
++        bgtu    t1, t0, .Lbyte_copy_word
++
++.L_loop_reg:
++        fixup REG_L   a4, 0(a1), 10f
++        addi    a1, a1, SZREG
++        fixup REG_S   a4, 0(a0), 10f
++        addi    a0, a0, SZREG
++
++        # Check if another register copy is safe
++        addi    t1, a0, SZREG
++        bleu    t1, t0, .L_loop_reg
++.Lbyte_copy_word:
++#if __riscv_xlen == 64
++        add     t1, a0, 4
++        bgtu    t1, t0, .Lbyte_copy_tail
++
++        fixup lw   a4, 0(a1), 10f
++        addi    a1, a1, 4
++        fixup sw   a4, 0(a0), 10f
++        addi    a0, a0, 4
++#endif
++#else
+ 	/*
+ 	 * Save the terminal address which will be used to compute the number
+ 	 * of bytes copied in case of a fixup exception.
+@@ -190,6 +302,7 @@ SYM_FUNC_START(fallback_scalar_usercopy_sum_enabled)
+ 	/* Revert src to original unaligned value  */
+ 	add	a1, a1, a3
+ 
++#endif  /* CONFIG_RISCV_EFFICIENT_UNALIGNED_ACCESS */
+ .Lbyte_copy_tail:
+ 	/*
+ 	 * Byte copy anything left.
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
