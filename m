@@ -4,57 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4AB8D12696
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Dec 2025 09:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C94DED12D41
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Dec 2025 10:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=meIyd8dDccU8XL9hv2QlfVBm6whF4i5gxOiDVdKnuE0=; b=EksSHqAWLqhYGHADT9UDAIwt5e
-	C3lyq7inwTrsnFTrDowl0dySTFCGJd+pxDLRt7mctZtTQlTTT69SNPbngzWG2m6ahsWi7doqbKrI/
-	g7kRYaKPSSLJOOMTl+37HZndzK4AKCpr6fzA/1l0wAbeLWgxhxt997s9MUU3ITpll9faReVHqjF/S
-	AMP0SUKTZ7zf/MwFgT4hy5sgvaHVvBsXtWNusK1+S2yc1AiDMos1WuPf7AFdF/SHcKaHEzhronmGa
-	9xfKzlIdGRKWVF45hJzXYqTfdpdXuXi68bPsygXJ/pX+BJSDeA8XhvIKuz4PaJdIM+rdPra+SZWzE
-	/CmUKO5A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QhA5K9c4CZVZcmGt6VDa+pVda6WCYnpyNVveoWbnHs0=; b=eoopPbOKt33cXQ
+	nUFSnf1vHyVAkEHhT1rVj4Jes6qH6jMKSVuvXrQDuWhxaL7JUypVGQ0PxEWzo1hiGOBK8uSwfU2gd
+	8ASS0cvFkM+sXB9lHu60upJoNeFibrWVcTqTOSYkSIkx9Yi6icLoB+WqsGyGSYQXPB3K3KD2TDHWz
+	P3Zb1FD7UDBfB7QRTLZkeWWPIP5Bxo6frKZptNjtTVjCXBftZby6TsNdnuhUbbU9sWgKj5cn53JyB
+	TBgCftQ1uDw87uIOGACCY/rj64WwCUFx2lvIHR1eQwM0b7+dwkrP9KIjXDwuE9k3b+hETLZ/z6sQk
+	6whuRVQCLF8iEAaK+GuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQje7-00000006QuT-3wd9;
-	Wed, 03 Dec 2025 09:59:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vQkUO-00000006TKs-16ir;
+	Wed, 03 Dec 2025 10:53:40 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQje7-00000006QuJ-0kuc
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Dec 2025 09:59:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 946B66019C;
-	Wed,  3 Dec 2025 09:59:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CEB7C116B1;
-	Wed,  3 Dec 2025 09:59:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764755978;
-	bh=6PyAJ7Eg3clMxeFkKYcFWYPwBDOpc67yNwjsHzUqEDE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jg0a5Jw15hTfmxhXB/43MkYtQbAbuvrZ3oGP7F/MgEsT4NlSQ8jmWxHis/Bmtv70F
-	 fvqVYrjBzpFLkOg47NdjSd/OePQxNQ89IdiWjIu0/Z2+heTC/rBdv60NtjttJfMuEd
-	 LIf8qkebWNtc1Nx5CfQDDVABmXa2O4y6wTxJ3cEg3r/DDUKnqz5Yt/qi7lZBqaLcrJ
-	 LJD5g9PXnivpTkcr2/iybdKl7PohB7vloQhgy7J3ql5SSRMGDN1U7cVtH/nOfI0uN/
-	 xOcQQlnqJw+4VvdqFFZnGuv+JV+JHHHLhD4aXbkdhU8ykahrPhz/9+USvdWtcTzNpG
-	 xmDyzdqU0Z6vw==
-Date: Wed, 3 Dec 2025 09:59:33 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: q691800735@163.com, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: canaan: Add K230 clock provider DTSI
-Message-ID: <20251203-glowing-janitor-7220bf3bcadc@spud>
-References: <20251203092643.219600-1-q691800735@163.com>
- <935ab772-fc9d-443b-8c8d-f2d17f9259aa@kernel.org>
+	id 1vQkUL-00000006TKT-3MBO;
+	Wed, 03 Dec 2025 10:53:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764759218; x=1796295218;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/lMt6d6wt5EpklsqUXRg85Drw1rS3QE+lNt8vHdf2Do=;
+  b=R9zMI1V/sj98zCRoRZpXYgJxnLn8pEQrLRQLTJa417/JLByGaBlNS6WZ
+   kk5BnvhVSQMftl4Tn5OAv7hjHa2Jrv+4X7X5h07G0VYhuO4RRfLzWswVI
+   mR2PDx5rAXwfVYXaRjk5FqOI1vH5NNRuoyLh+gJqsF2CHWqJghYiQY6BI
+   xcp4anEiIWoPQ2obTDE6oqVgcwd4amTXxR72V7YcDUuwV0HZUHCq1CmJB
+   dHI5zSK+q3mURI0PSUic0ha/fuRXaO04h+UGce4C3FLRRI8vrIaaS4Alg
+   FzYdGxV2dNK2iBEWRdI3wlsHI4VQ/CsU1FEW7osS6jTgBI9uhT0eoGlte
+   g==;
+X-CSE-ConnectionGUID: Wsswd+OtRFmFANBwN+5Zow==
+X-CSE-MsgGUID: 6X5d/uBxTEq5Fz0fBvsEOg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11631"; a="77428990"
+X-IronPort-AV: E=Sophos;i="6.20,245,1758610800"; 
+   d="scan'208";a="77428990"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2025 02:53:35 -0800
+X-CSE-ConnectionGUID: m/uL1YpIQeaVmK5xAQXRYg==
+X-CSE-MsgGUID: D0vFuoSVTtCTr+d7xR1F3w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,245,1758610800"; 
+   d="scan'208";a="231989776"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 03 Dec 2025 02:53:31 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vQkUC-00000000AtZ-3diz;
+	Wed, 03 Dec 2025 10:53:28 +0000
+Date: Wed, 3 Dec 2025 18:52:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: zhouquan@iscas.ac.cn, anup@brainfault.org, ajones@ventanamicro.com,
+	atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, Quan Zhou <zhouquan@iscas.ac.cn>
+Subject: Re: [PATCH 3/4] RISC-V: KVM: Add suuport for zicfiss/zicfilp/svadu
+ FWFT features
+Message-ID: <202512031835.rfeAWiCJ-lkp@intel.com>
+References: <1793aa636969da0a09d27c9c12f6d5f8f0d1cd21.1764509485.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
-In-Reply-To: <935ab772-fc9d-443b-8c8d-f2d17f9259aa@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <1793aa636969da0a09d27c9c12f6d5f8f0d1cd21.1764509485.git.zhouquan@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251203_025337_884535_5765014C 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,100 +85,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2109017318701241447=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---===============2109017318701241447==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Qb3wmTQxO5Vd90Cz"
-Content-Disposition: inline
+kernel test robot noticed the following build errors:
 
+[auto build test ERROR on kvm/queue]
+[also build test ERROR on kvm/next linus/master v6.18 next-20251203]
+[cannot apply to kvm/linux-next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
---Qb3wmTQxO5Vd90Cz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+url:    https://github.com/intel-lab-lkp/linux/commits/zhouquan-iscas-ac-cn/RISC-V-KVM-Allow-zicfiss-zicfilp-exts-for-Guest-VM/20251201-094857
+base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
+patch link:    https://lore.kernel.org/r/1793aa636969da0a09d27c9c12f6d5f8f0d1cd21.1764509485.git.zhouquan%40iscas.ac.cn
+patch subject: [PATCH 3/4] RISC-V: KVM: Add suuport for zicfiss/zicfilp/svadu FWFT features
+config: riscv-randconfig-001-20251203 (https://download.01.org/0day-ci/archive/20251203/202512031835.rfeAWiCJ-lkp@intel.com/config)
+compiler: riscv32-linux-gcc (GCC) 14.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251203/202512031835.rfeAWiCJ-lkp@intel.com/reproduce)
 
-On Wed, Dec 03, 2025 at 10:50:18AM +0100, Krzysztof Kozlowski wrote:
-> On 03/12/2025 10:26, q691800735@163.com wrote:
-> > From: jybruceupup <q691800735@163.com>
-> >=20
-> > Add clock provider DTSI for Kendryte K230 SoC, required for subsystem
-> > clock management and boot.
-> >=20
-> > Signed-off-by: jybruceupup <q691800735@163.com>
-> > ---
-> >  .../boot/dts/canaan/k230_clock_provider.dtsi  | 2724 +++++++++++++++++
-> >  1 file changed, 2724 insertions(+)
-> >  create mode 100644 arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi
-> >=20
-> > diff --git a/arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi b/arch=
-/riscv/boot/dts/canaan/k230_clock_provider.dtsi
-> > new file mode 100644
-> > index 000000000..9d193ca22
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi
-> > @@ -0,0 +1,2724 @@
-> > +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> > +/*
-> > + * Copyright (c) 2023, Canaan Bright Sight Co., Ltd
-> > + * Copyright (c) 2025 jybruceupup <q691800735@163.com>
-> > + *
-> > + * This program is free software; you can redistribute it and/or modify
-> > + * it under the terms of the GNU General Public License version 2 as
-> > + * published by the Free Software Foundation.
-> > + */
-> > +
-> > +&sysctl_boot {
-> > +/* osc24m clock */
-> > +	osc24m: osc24m {
-> > +		#clock-cells		=3D <0>;	/* only one clock output */
-> > +		compatible		=3D "fixed-clock";/* It's clock source, no parent */
-> > +		clock-frequency		=3D <24000000>;	/* clock freqence is 24MHz */
-> > +		clock-accuracy		=3D <0>;	/* software assume clock no jitter/wander.*/
-> > +		status				=3D "okay";
-> > +		read-only			=3D <0>;
-> > +	};
-> > +
-> > +	/* pll clock */
-> > +	pll0: pll0 {
->=20
->=20
-> NAK.
->=20
-> Not at all Linux style (actually DTS coding style), not used, no benefit
-> of any of this.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512031835.rfeAWiCJ-lkp@intel.com/
 
-I don't really understand what jybryceupup is doing here, because there
-is someone actually working on a clk driver etc that is in a pretty good
-state.
+All errors (new ones prefixed by >>):
 
---Qb3wmTQxO5Vd90Cz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaTAKBQAKCRB4tDGHoIJi
-0tYaAP4+hSGWXAONngfqJuubpxx6tF0rLWldnj+M0HistGEVwwD9HkUpndb4OF9/
-b2heGIhfOB0l3II+tibN53ZkH+l6pgM=
-=Q6Oy
------END PGP SIGNATURE-----
-
---Qb3wmTQxO5Vd90Cz--
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:345:30: error: 'kvm_sbi_fwft_landing_pad_supported' undeclared here (not in a function)
+     345 |                 .supported = kvm_sbi_fwft_landing_pad_supported,
+         |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:346:26: error: 'kvm_sbi_fwft_reset_landing_pad' undeclared here (not in a function)
+     346 |                 .reset = kvm_sbi_fwft_reset_landing_pad,
+         |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:347:24: error: 'kvm_sbi_fwft_set_landing_pad' undeclared here (not in a function)
+     347 |                 .set = kvm_sbi_fwft_set_landing_pad,
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:348:24: error: 'kvm_sbi_fwft_get_landing_pad' undeclared here (not in a function)
+     348 |                 .get = kvm_sbi_fwft_get_landing_pad,
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:354:30: error: 'kvm_sbi_fwft_shadow_stack_supported' undeclared here (not in a function)
+     354 |                 .supported = kvm_sbi_fwft_shadow_stack_supported,
+         |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:355:26: error: 'kvm_sbi_fwft_reset_shadow_stack' undeclared here (not in a function)
+     355 |                 .reset = kvm_sbi_fwft_reset_shadow_stack,
+         |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:356:24: error: 'kvm_sbi_fwft_set_shadow_stack' undeclared here (not in a function)
+     356 |                 .set = kvm_sbi_fwft_set_shadow_stack,
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:357:24: error: 'kvm_sbi_fwft_get_shadow_stack' undeclared here (not in a function)
+     357 |                 .get = kvm_sbi_fwft_get_shadow_stack,
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:363:30: error: 'kvm_sbi_fwft_pte_ad_hw_updating_supported' undeclared here (not in a function)
+     363 |                 .supported = kvm_sbi_fwft_pte_ad_hw_updating_supported,
+         |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:364:26: error: 'kvm_sbi_fwft_reset_pte_ad_hw_updating' undeclared here (not in a function)
+     364 |                 .reset = kvm_sbi_fwft_reset_pte_ad_hw_updating,
+         |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:365:24: error: 'kvm_sbi_fwft_set_pte_ad_hw_updating' undeclared here (not in a function)
+     365 |                 .set = kvm_sbi_fwft_set_pte_ad_hw_updating,
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kvm/vcpu_sbi_fwft.c:366:24: error: 'kvm_sbi_fwft_get_pte_ad_hw_updating' undeclared here (not in a function)
+     366 |                 .get = kvm_sbi_fwft_get_pte_ad_hw_updating,
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
---===============2109017318701241447==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+vim +/kvm_sbi_fwft_landing_pad_supported +345 arch/riscv/kvm/vcpu_sbi_fwft.c
+
+   319	
+   320	static const struct kvm_sbi_fwft_feature features[] = {
+   321		{
+   322			.id = SBI_FWFT_MISALIGNED_EXC_DELEG,
+   323			.first_reg_num = offsetof(struct kvm_riscv_sbi_fwft, misaligned_deleg.enable) /
+   324					 sizeof(unsigned long),
+   325			.supported = kvm_sbi_fwft_misaligned_delegation_supported,
+   326			.reset = kvm_sbi_fwft_reset_misaligned_delegation,
+   327			.set = kvm_sbi_fwft_set_misaligned_delegation,
+   328			.get = kvm_sbi_fwft_get_misaligned_delegation,
+   329		},
+   330	#ifndef CONFIG_32BIT
+   331		{
+   332			.id = SBI_FWFT_POINTER_MASKING_PMLEN,
+   333			.first_reg_num = offsetof(struct kvm_riscv_sbi_fwft, pointer_masking.enable) /
+   334					 sizeof(unsigned long),
+   335			.supported = kvm_sbi_fwft_pointer_masking_pmlen_supported,
+   336			.reset = kvm_sbi_fwft_reset_pointer_masking_pmlen,
+   337			.set = kvm_sbi_fwft_set_pointer_masking_pmlen,
+   338			.get = kvm_sbi_fwft_get_pointer_masking_pmlen,
+   339		},
+   340	#endif
+   341		{
+   342			.id = SBI_FWFT_LANDING_PAD,
+   343			.first_reg_num = offsetof(struct kvm_riscv_sbi_fwft, landing_pad.enable) /
+   344					 sizeof(unsigned long),
+ > 345			.supported = kvm_sbi_fwft_landing_pad_supported,
+ > 346			.reset = kvm_sbi_fwft_reset_landing_pad,
+ > 347			.set = kvm_sbi_fwft_set_landing_pad,
+ > 348			.get = kvm_sbi_fwft_get_landing_pad,
+   349		},
+   350		{
+   351			.id = SBI_FWFT_SHADOW_STACK,
+   352			.first_reg_num = offsetof(struct kvm_riscv_sbi_fwft, shadow_stack.enable) /
+   353					 sizeof(unsigned long),
+ > 354			.supported = kvm_sbi_fwft_shadow_stack_supported,
+ > 355			.reset = kvm_sbi_fwft_reset_shadow_stack,
+ > 356			.set = kvm_sbi_fwft_set_shadow_stack,
+ > 357			.get = kvm_sbi_fwft_get_shadow_stack,
+   358		},
+   359		{
+   360			.id = SBI_FWFT_PTE_AD_HW_UPDATING,
+   361			.first_reg_num = offsetof(struct kvm_riscv_sbi_fwft, pte_ad_hw_updating.enable) /
+   362					 sizeof(unsigned long),
+ > 363			.supported = kvm_sbi_fwft_pte_ad_hw_updating_supported,
+ > 364			.reset = kvm_sbi_fwft_reset_pte_ad_hw_updating,
+ > 365			.set = kvm_sbi_fwft_set_pte_ad_hw_updating,
+ > 366			.get = kvm_sbi_fwft_get_pte_ad_hw_updating,
+   367		},
+   368	};
+   369	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2109017318701241447==--
-
