@@ -4,76 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4BE4D1BDD9
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Dec 2025 20:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B23D1BDD8
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Dec 2025 20:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B6elI6Idq3cxpDFx5mh2wgppMnFMpRqVerV7VRMiUOw=; b=cCCfZH2aztmREs
-	8P+xXZsCoKip3L1iAVfSa3xdC5w6jJVHKtfn6IxX33xGtE+1PY11q8iBvivdyQvGDYROHRuK3tEKn
-	6/bwRMSAK8urkCCm7P/TwTvIz08viPm3eH6uORzTGkWh8IlMwEsVZfZbxKXboaoNdFBeGDkTgdrTo
-	DQwIDbxPH0W51niZ7dhWOQ1f07BY3sabHU6wExBR0p50FdhzTxrND4DvpDKHgryBnXtfqjMs57Ioe
-	neph+Ay2/Uj84KYt+qlQRK9DA7+A0x9eXJs51eaRFmLx4kF85GE8VpwVKrlPzRGN1//Pd+TVMrXmH
-	O6DLwRt1A6XA3mFyX5HA==;
+	List-Owner; bh=cxxYcBuPIJZ4bmJGPrLl8LYJkKVw4SUVAGRuhvURKXs=; b=S+NH8JrSS4ELNp
+	8xVt6UswAK+DWPnDbVGbGxiWMHSoSxMOceFDFp7Njj0ELOthNanrcNb7vcPoFfMdsWtDFJthL5dtX
+	PpE+x0b8sQo6rrJLeQ03KvrVtxhYUL2ge3vtsCQ78bbsXrPkLNjXLL8a1IX5F+lkP5wqs3YpoxnYG
+	ycUChY8GoW0qTCX5nv+aj0nicGIIMLeCLicwpfSRuUrfwfAgD7K705Tg5Di9jTuECvt9k3lAQF2VT
+	S6fHot30n7fzA3vuxwh6F0FitURfbxM+G13i2xtmsdnYX8XVpS/fKjp2TjS18aieCxJJP6gfVB/2s
+	Mff0jtt96RKZTBUd19aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQtCK-000000071GX-0hSV;
-	Wed, 03 Dec 2025 20:11:36 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1vQtjm-000000073Lv-3pM9;
+	Wed, 03 Dec 2025 20:46:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQtCH-000000071G8-1eGn
+	id 1vQtjj-000000073LM-2its
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Dec 2025 20:11:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764792693; x=1796328693;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=I758qliCdtplIdGqwUFlqO36aPwJac6JISp46RJBXj4=;
-  b=DXX+EeDUFUgyFXDtu9V/MYUPlG8rYLqPJMWFE1wFdLEibJCbvcT9GoSW
-   nJxHSy/BZLwqm5gWnPta4+8Y42g+QdSSvQjKgBRupXkA0Bd0iDCN3YK6o
-   1ihxbw4wuX312+j/QoKSLklEhxwK0mCxXg+/93uptURpZC+szRLMRDr01
-   5C/rHVtp9bFk6H6bu00VfqpRudRtzj9JS37i0so8sJdHHU492fCDQaNYk
-   uKw7+3WwnyCldnljAGILmE5gB5Bx3cE5cPWp++20oth1ZQpx6Wm8keyr/
-   fvcOa9d9g7PEZrcu/rhVjaPvx8XaPy0PHLehhWXA7xdynmnACDb3EGvXv
-   w==;
-X-CSE-ConnectionGUID: bYXGhd7wQ0iUyT7rqeIylA==
-X-CSE-MsgGUID: hbZexRxoTEGCc/7t6ZYQ6w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11631"; a="66966277"
-X-IronPort-AV: E=Sophos;i="6.20,246,1758610800"; 
-   d="scan'208";a="66966277"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2025 12:11:33 -0800
-X-CSE-ConnectionGUID: Tcpy918UT6OOqGGwUAcJNw==
-X-CSE-MsgGUID: tY5TI1SiRFSm8ZeXnGh3tw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,246,1758610800"; 
-   d="scan'208";a="194441174"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 03 Dec 2025 12:11:30 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vQtCB-00000000D6z-3gVK;
-	Wed, 03 Dec 2025 20:11:27 +0000
-Date: Thu, 4 Dec 2025 04:10:55 +0800
-From: kernel test robot <lkp@intel.com>
-To: maohan4761@gmail.com, pjw@kernel.org, palmer@dabbelt.com
-Cc: oe-kbuild-all@lists.linux.dev, guoren@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Mao Han <han_mao@linux.alibaba.com>
-Subject: Re: [PATCH 1/1] riscv: Optimize signal handling with sum enabled
- accesses
-Message-ID: <202512040335.j2VwCIKL-lkp@intel.com>
-References: <20251202074303.81485-2-maohan4761@gmail.com>
+	Wed, 03 Dec 2025 20:46:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E4054401EC;
+	Wed,  3 Dec 2025 20:46:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5166BC4CEF5;
+	Wed,  3 Dec 2025 20:46:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764794766;
+	bh=67TvZRH+k7C9k9ySFwvqEZOgGkKKvpNdfGsHbvBaEHw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lxaT1ghx1Cs5MaoUEnTc4f9jhRSUKSJAF7UgE5hUAFZb9glFdog1YhNf26FFZ+ODM
+	 2XpRCjnaC780TF64mA137Fo3sG22iUlTuerwvwhgTkDv91QVatU0nRpjSUjUG67QbK
+	 AmpHO8lcQ56nVINOYt+Tw5V6mBisl3R18B7ogUVC6B00EGzrbk5LiErJufV0F83+MK
+	 ttreOENNQlJWRrRzpZVF5TqeQtOPbqgKN8YY/gf4/Oer9jGwg7C7mVHLK1etikxxE3
+	 cy1h2INC06cWpbrglUi/YfZOn+gzJ2P1QMmzbygjOGW7OoZ2Nbepn+Y/KzDTPdPOsb
+	 hRAZk6IX3D0Og==
+Date: Wed, 3 Dec 2025 21:46:02 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>, 
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>, Aurelien Jarno <aurelien@aurel32.net>, 
+	Troy Mitchell <troymitchell988@gmail.com>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v2] i2c: spacemit: fix detect issue
+Message-ID: <rha5zun6qxzpbi5arzsjaywgzzardvsrjyibaw42yqpom6nx47@wmusvc7bqhl5>
+References: <20251113-fix-k1-detect-failure-v2-1-b02a9a74f65a@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251202074303.81485-2-maohan4761@gmail.com>
+In-Reply-To: <20251113-fix-k1-detect-failure-v2-1-b02a9a74f65a@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_121133_486624_0672D63B 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20251203_124607_735788_E44A9B17 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,301 +69,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.18]
-[cannot apply to next-20251203]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/maohan4761-gmail-com/riscv-Optimize-signal-handling-with-sum-enabled-accesses/20251202-154643
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20251202074303.81485-2-maohan4761%40gmail.com
-patch subject: [PATCH 1/1] riscv: Optimize signal handling with sum enabled accesses
-config: riscv-nommu_k210_sdcard_defconfig (https://download.01.org/0day-ci/archive/20251204/202512040335.j2VwCIKL-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251204/202512040335.j2VwCIKL-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512040335.j2VwCIKL-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   arch/riscv/kernel/signal.c: In function 'restore_fp_state':
->> arch/riscv/kernel/signal.c:48:15: error: implicit declaration of function '__asm_copy_from_user_sum_enabled' [-Wimplicit-function-declaration]
-      48 |         err = __asm_copy_from_user_sum_enabled(&current->thread.fstate, state, sizeof(*state));
-         |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/kernel/signal.c: In function 'save_fp_state':
->> arch/riscv/kernel/signal.c:63:15: error: implicit declaration of function '__asm_copy_to_user_sum_enabled' [-Wimplicit-function-declaration]
-      63 |         err = __asm_copy_to_user_sum_enabled(state, &current->thread.fstate, sizeof(*state));
-         |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/kernel/signal.c: In function 'save_v_state':
->> arch/riscv/kernel/signal.c:97:16: error: implicit declaration of function '__put_user_sum_enabled' [-Wimplicit-function-declaration]
-      97 |         err |= __put_user_sum_enabled((__force void *)datap, &state->v_state.datap);
-         |                ^~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/kernel/signal.c: In function '__restore_v_state':
->> arch/riscv/kernel/signal.c:136:15: error: implicit declaration of function '__get_user_sum_enabled' [-Wimplicit-function-declaration]
-     136 |         err = __get_user_sum_enabled(datap, &state->v_state.datap);
-         |               ^~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/kernel/signal.c: In function '__riscv_sys_rt_sigreturn':
->> arch/riscv/kernel/signal.c:241:9: error: implicit declaration of function '__enable_user_access' [-Wimplicit-function-declaration]
-     241 |         __enable_user_access();
-         |         ^~~~~~~~~~~~~~~~~~~~
->> arch/riscv/kernel/signal.c:252:9: error: implicit declaration of function '__disable_user_access' [-Wimplicit-function-declaration]
-     252 |         __disable_user_access();
-         |         ^~~~~~~~~~~~~~~~~~~~~
-
-
-vim +/__asm_copy_from_user_sum_enabled +48 arch/riscv/kernel/signal.c
-
-    40	
-    41	#ifdef CONFIG_FPU
-    42	static long restore_fp_state(struct pt_regs *regs,
-    43				     union __riscv_fp_state __user *sc_fpregs)
-    44	{
-    45		long err;
-    46		struct __riscv_d_ext_state __user *state = &sc_fpregs->d;
-    47	
-  > 48		err = __asm_copy_from_user_sum_enabled(&current->thread.fstate, state, sizeof(*state));
-    49		if (unlikely(err))
-    50			return err;
-    51	
-    52		fstate_restore(current, regs);
-    53		return 0;
-    54	}
-    55	
-    56	static long save_fp_state(struct pt_regs *regs,
-    57				  union __riscv_fp_state __user *sc_fpregs)
-    58	{
-    59		long err;
-    60		struct __riscv_d_ext_state __user *state = &sc_fpregs->d;
-    61	
-    62		fstate_save(current, regs);
-  > 63		err = __asm_copy_to_user_sum_enabled(state, &current->thread.fstate, sizeof(*state));
-    64		return err;
-    65	}
-    66	#else
-    67	#define save_fp_state(task, regs) (0)
-    68	#define restore_fp_state(task, regs) (0)
-    69	#endif
-    70	
-    71	#ifdef CONFIG_RISCV_ISA_V
-    72	
-    73	static long save_v_state(struct pt_regs *regs, void __user **sc_vec)
-    74	{
-    75		struct __riscv_ctx_hdr __user *hdr;
-    76		struct __sc_riscv_v_state __user *state;
-    77		void __user *datap;
-    78		long err;
-    79	
-    80		hdr = *sc_vec;
-    81		/* Place state to the user's signal context space after the hdr */
-    82		state = (struct __sc_riscv_v_state __user *)(hdr + 1);
-    83		/* Point datap right after the end of __sc_riscv_v_state */
-    84		datap = state + 1;
-    85	
-    86		/* datap is designed to be 16 byte aligned for better performance */
-    87		WARN_ON(!IS_ALIGNED((unsigned long)datap, 16));
-    88	
-    89		get_cpu_vector_context();
-    90		riscv_v_vstate_save(&current->thread.vstate, regs);
-    91		put_cpu_vector_context();
-    92	
-    93		/* Copy everything of vstate but datap. */
-    94		err = __asm_copy_to_user_sum_enabled(&state->v_state, &current->thread.vstate,
-    95						offsetof(struct __riscv_v_ext_state, datap));
-    96		/* Copy the pointer datap itself. */
-  > 97		err |= __put_user_sum_enabled((__force void *)datap, &state->v_state.datap);
-    98		/* Copy the whole vector content to user space datap. */
-    99		err |= __asm_copy_to_user_sum_enabled(datap, current->thread.vstate.datap, riscv_v_vsize);
-   100		/* Copy magic to the user space after saving  all vector conetext */
-   101		err |= __put_user_sum_enabled(RISCV_V_MAGIC, &hdr->magic);
-   102		err |= __put_user_sum_enabled(riscv_v_sc_size, &hdr->size);
-   103		if (unlikely(err))
-   104			return err;
-   105	
-   106		/* Only progress the sv_vec if everything has done successfully  */
-   107		*sc_vec += riscv_v_sc_size;
-   108		return 0;
-   109	}
-   110	
-   111	/*
-   112	 * Restore Vector extension context from the user's signal frame. This function
-   113	 * assumes a valid extension header. So magic and size checking must be done by
-   114	 * the caller.
-   115	 */
-   116	static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
-   117	{
-   118		long err;
-   119		struct __sc_riscv_v_state __user *state = sc_vec;
-   120		void __user *datap;
-   121	
-   122		/*
-   123		 * Mark the vstate as clean prior performing the actual copy,
-   124		 * to avoid getting the vstate incorrectly clobbered by the
-   125		 *  discarded vector state.
-   126		 */
-   127		riscv_v_vstate_set_restore(current, regs);
-   128	
-   129		/* Copy everything of __sc_riscv_v_state except datap. */
-   130		err = __asm_copy_from_user_sum_enabled(&current->thread.vstate, &state->v_state,
-   131						offsetof(struct __riscv_v_ext_state, datap));
-   132		if (unlikely(err))
-   133			return err;
-   134	
-   135		/* Copy the pointer datap itself. */
- > 136		err = __get_user_sum_enabled(datap, &state->v_state.datap);
-   137		if (unlikely(err))
-   138			return err;
-   139		/*
-   140		 * Copy the whole vector content from user space datap. Use
-   141		 * copy_from_user to prevent information leak.
-   142		 */
-   143		return __asm_copy_from_user_sum_enabled(current->thread.vstate.datap, datap, riscv_v_vsize);
-   144	}
-   145	#else
-   146	#define save_v_state(task, regs) (0)
-   147	#define __restore_v_state(task, regs) (0)
-   148	#endif
-   149	
-   150	static long restore_sigcontext(struct pt_regs *regs,
-   151		struct sigcontext __user *sc)
-   152	{
-   153		void __user *sc_ext_ptr = &sc->sc_extdesc.hdr;
-   154		__u32 rsvd;
-   155		long err;
-   156		/* sc_regs is structured the same as the start of pt_regs */
-   157		err = __asm_copy_from_user_sum_enabled(regs, &sc->sc_regs, sizeof(sc->sc_regs));
-   158		if (unlikely(err))
-   159			return err;
-   160	
-   161		/* Restore the floating-point state. */
-   162		if (has_fpu()) {
-   163			err = restore_fp_state(regs, &sc->sc_fpregs);
-   164			if (unlikely(err))
-   165				return err;
-   166		}
-   167	
-   168		/* Check the reserved word before extensions parsing */
-   169		err = __get_user_sum_enabled(rsvd, &sc->sc_extdesc.reserved);
-   170		if (unlikely(err))
-   171			return err;
-   172		if (unlikely(rsvd))
-   173			return -EINVAL;
-   174	
-   175		while (!err) {
-   176			__u32 magic, size;
-   177			struct __riscv_ctx_hdr __user *head = sc_ext_ptr;
-   178	
-   179			err |= __get_user_sum_enabled(magic, &head->magic);
-   180			err |= __get_user_sum_enabled(size, &head->size);
-   181			if (unlikely(err))
-   182				return err;
-   183	
-   184			sc_ext_ptr += sizeof(*head);
-   185			switch (magic) {
-   186			case END_MAGIC:
-   187				if (size != END_HDR_SIZE)
-   188					return -EINVAL;
-   189	
-   190				return 0;
-   191			case RISCV_V_MAGIC:
-   192				if (!(has_vector() || has_xtheadvector()) || !riscv_v_vstate_query(regs) ||
-   193				    size != riscv_v_sc_size)
-   194					return -EINVAL;
-   195	
-   196				err = __restore_v_state(regs, sc_ext_ptr);
-   197				break;
-   198			default:
-   199				return -EINVAL;
-   200			}
-   201			sc_ext_ptr = (void __user *)head + size;
-   202		}
-   203		return err;
-   204	}
-   205	
-   206	static size_t get_rt_frame_size(bool cal_all)
-   207	{
-   208		struct rt_sigframe __user *frame;
-   209		size_t frame_size;
-   210		size_t total_context_size = 0;
-   211	
-   212		frame_size = sizeof(*frame);
-   213	
-   214		if (has_vector() || has_xtheadvector()) {
-   215			if (cal_all || riscv_v_vstate_query(task_pt_regs(current)))
-   216				total_context_size += riscv_v_sc_size;
-   217		}
-   218	
-   219		frame_size += total_context_size;
-   220	
-   221		frame_size = round_up(frame_size, 16);
-   222		return frame_size;
-   223	}
-   224	
-   225	SYSCALL_DEFINE0(rt_sigreturn)
-   226	{
-   227		struct pt_regs *regs = current_pt_regs();
-   228		struct rt_sigframe __user *frame;
-   229		struct task_struct *task;
-   230		sigset_t set;
-   231		size_t frame_size = get_rt_frame_size(false);
-   232	
-   233		/* Always make any pending restarted system calls return -EINTR */
-   234		current->restart_block.fn = do_no_restart_syscall;
-   235	
-   236		frame = (struct rt_sigframe __user *)regs->sp;
-   237	
-   238		if (!access_ok(frame, frame_size))
-   239			goto badframe;
-   240	
- > 241		__enable_user_access();
-   242		if (__asm_copy_from_user_sum_enabled(&set, &frame->uc.uc_sigmask, sizeof(set)))
-   243			goto badframe;
-   244	
-   245		set_current_blocked(&set);
-   246	
-   247		if (restore_sigcontext(regs, &frame->uc.uc_mcontext))
-   248			goto badframe;
-   249	
-   250		if (restore_altstack(&frame->uc.uc_stack))
-   251			goto badframe;
-   252		__disable_user_access();
-   253	
-   254		regs->cause = -1UL;
-   255	
-   256		return regs->a0;
-   257	
-   258	badframe:
-   259		__disable_user_access();
-   260		task = current;
-   261		if (show_unhandled_signals) {
-   262			pr_info_ratelimited(
-   263				"%s[%d]: bad frame in %s: frame=%p pc=%p sp=%p\n",
-   264				task->comm, task_pid_nr(task), __func__,
-   265				frame, (void *)regs->epc, (void *)regs->sp);
-   266		}
-   267		force_sig(SIGSEGV);
-   268		return 0;
-   269	}
-   270	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgVHJveSwKCk9uIFRodSwgTm92IDEzLCAyMDI1IGF0IDA5OjIxOjUwUE0gKzA4MDAsIFRyb3kg
+TWl0Y2hlbGwgd3JvdGU6Cj4gVGhpcyBjb21taXQgYWRkcmVzc2VzIHR3byBpc3N1ZXMgY2F1c2lu
+ZyBpMmMgZGV0ZWN0IHRvIGZhaWwuCj4gCj4gVGhlIGlkZW50aWZpZWQgaXNzdWVzIGFyZToKPiAK
+PiAxLiBJbmNvcnJlY3QgZXJyb3IgaGFuZGxpbmcgZm9yIEJFRCAoQnVzIEVycm9yIE5vIEFDSy9O
+QUspOgo+ICAgIEJlZm9yZSB0aGlzIGNvbW1pdCwgQm90aCBBTEQgKEFyYml0cmF0aW9uIExvc3Mg
+RGV0ZWN0ZWQpIGFuZAo+ICAgIEJFRCByZXR1cm5lZCAtRUFHQUlOLgo+IDIuIE1pc3NpbmcgaW50
+ZXJydXB0IHN0YXR1cyBjbGVhciBhZnRlciBpbml0aWFsaXphdGlvbiBpbiB4ZmVyKCk6Cj4gICAg
+T24gdGhlIEsxIFNvQywgc2ltcGx5IGZpeGluZyB0aGUgZmlyc3QgaXNzdWUgY2hhbmdlZCB0aGUg
+ZXJyb3IKPiAgICBmcm9tIC1FQUdBSU4gdG8gLUVUSU1FT1VULiBUaHJvdWdoIHRyYWNpbmcsIGl0
+IHdhcyBkZXRlcm1pbmVkIHRoYXQKPiAgICB0aGlzIGlzIGxpa2VseSBkdWUgdG8gTVNEIChNYXN0
+ZXIgU3RvcCBEZXRlY3RlZCkgbGF0ZW5jeSBpc3N1ZXMuCj4gCj4gICAgVGhhdCBtZWFucyB0aGUg
+TVNEIGJpdCBpbiB0aGUgSVNSIG1heSBzdGlsbCBiZSBzZXQgb24gdGhlIG5leHQgdHJhbnNmZXIu
+Cj4gICAgQXMgYSByZXN1bHQsIHRoZSBjb250cm9sbGVyIHdvbid0IHdvcmsg4oCUIHdlIGNhbiBz
+ZWUgZnJvbSB0aGUgc2NvcGUgdGhhdAo+ICAgIGl0IGRvZXNuJ3QgaXNzdWUgYW55IHNpZ25hbC4K
+PiAgICAoVGhpcyBvbmx5IG9jY3VycyBkdXJpbmcgcmFwaWQgY29uc2VjdXRpdmUgSTJDIHRyYW5z
+ZmVycy4KPiAgICBUaGF0IGV4cGxhaW5zIHdoeSB0aGUgaXNzdWUgb25seSBzaG93cyB1cCB3aXRo
+IGkyY2RldGVjdC4pCj4gCj4gV2l0aCB0aGVzZSB0d28gZml4ZXMsIGkyYyBkZXZpY2UgZGV0ZWN0
+aW9uIG5vdyBmdW5jdGlvbnMgY29ycmVjdGx5IG9uIHRoZSBLMSBTb0MuCj4gCj4gRml4ZXM6IDVl
+YTU1ODQ3M2ZhMzEgKCJpMmM6IHNwYWNlbWl0OiBhZGQgc3VwcG9ydCBmb3IgU3BhY2VtaVQgSzEg
+U29DIikKPiBUZXN0ZWQtYnk6IEF1cmVsaWVuIEphcm5vIDxhdXJlbGllbkBhdXJlbDMyLm5ldD4K
+PiBTaWduZWQtb2ZmLWJ5OiBUcm95IE1pdGNoZWxsIDx0cm95Lm1pdGNoZWxsQGxpbnV4LnNwYWNl
+bWl0LmNvbT4KCm1lcmdlZCB0byBpMmMvaTJjLWhvc3QuCgpUaGFua3MsCkFuZGkKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
