@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C2D5D12691
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Dec 2025 09:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31538D12696
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Dec 2025 09:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ynh+znWmu4+oUBcED4DbB4nzVUuoh4QaT/OOpemVO9E=; b=cdIID3Sa5OTGSS
-	3XwyewgAs7dE5/de7kiXnnSomGmLhBzFSPrMPAuh3eDm4WAQgsnVpOHqmokuFXZFwQqB+wRFt6SO2
-	aZv+05IGrWBQds/PiGegGCQwTMkSy9FiHXNeIt6KMrPJTYZylOKKL6WIL4MtNhDktllJGSgqsI+Nt
-	VxJv9sVQnSOzZjVKTq18wK5vZv1RyFmaqhD4N9Gk+HDW5xxNmWuGR+yLtrBLSvsOEc5sPuNrYqs9G
-	JuM83pky9mOk2OLtZ0de3MpQuznwX7VQlu86W3fVYIaAWtjezTTAzN0kLLmF4nLNKlZswIuxOTEef
-	stGHcS00UrpPxMm7IUyg==;
+	List-Owner; bh=ZezcouKzbC1axBFLSxn6tq0HfxC7kfNtU/SpxwYbQfk=; b=DMQlayGQjhfU0N
+	RREOknPqFmqDAzlbmHKJKR57H2D3HdQH4RuTeHfO6fb46x7st+4BvldWPCV0yioqMc/nmrSezB0vF
+	ZgH4YNGsABJHV4ef6nfMjDWglmSR5pQVyJQwiGFI7P5aVmMy+efE9L+ltIAxatzAPBMA51nX35+C6
+	rsPE4dQLNX4HjxqRNwx5EVf5hY1vIdgpYIsJamBsqlF9CnKsSMQOjNjV/yHsSgQouWU27V10bgKew
+	WXHhSZDt6kipMmqmOGmI9qITaLnPmTlOu8IAbSHAmRH32IU/KJxaYN+qjmHk5hiOFpAz00fxhyO75
+	BEBxTwiSaCEakwl+RtLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQjUX-00000006POG-2t3O;
-	Wed, 03 Dec 2025 09:49:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vQjVG-00000006Pdb-4020;
+	Wed, 03 Dec 2025 09:50:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQjUW-00000006PO3-3ZiO
+	id 1vQjV8-00000006Pc8-3XJO
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Dec 2025 09:49:44 +0000
+	Wed, 03 Dec 2025 09:50:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A3B9160172;
-	Wed,  3 Dec 2025 09:49:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9219C19421;
-	Wed,  3 Dec 2025 09:49:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4B5CA42A95;
+	Wed,  3 Dec 2025 09:50:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2AFCC4CEFB;
+	Wed,  3 Dec 2025 09:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764755383;
-	bh=1Q0juVv3QS7IN3/L0TdHpfkcmkqsXvWprvoMe6iP3q4=;
+	s=k20201202; t=1764755422;
+	bh=ypAa1rLSkfeBsNSGctvSt8bFB36bS7lgItPXaVr3bnE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WdTKG7s+mmNH/4wLZ2zi6ud8PI9zq0vO+dn+Ev6yUhkeeuHCcpN+xczIKuRZfrFLn
-	 AH9KGe9gViWjgtouAV5Im6nOAeNVWg4QFc83urFDhvUvjzjtH/FawT3LEKabdHu+so
-	 IASUK2WUOWfqfLpGhZ8s/4x6bQ57hOwoPpZzHdk86EGqL2WfuQ/bFx1vTGxuqbtoVx
-	 Io3ZBWxZb1dv1jJE5ghxvgkjCkTGNvQ46dgTtWgdQoDwv3C6T0dStOYYkGTwWP+4EB
-	 Oc+0BAo5QGKeZIzwqcJkvken5qtaGKtGz+JH6XH1cNAU8tcHWY32ZYlLHxzfEIaa5K
-	 niRYQ8iWPKWTA==
-Message-ID: <58fb5001-6b4b-4da4-acfe-1196ec9ce11d@kernel.org>
-Date: Wed, 3 Dec 2025 10:49:39 +0100
+	b=SjrfD6b8JryIU1opyvRMaivc5+bKpRbtnUgLpfRrepvlmagb6sLaRqabQJcj6iikl
+	 NJzRQ3CbYguKwRGMjkBnEjN6r4TFH4SkbjtrjAei62OK3yFks/8SHlrFr1atHmitRj
+	 rRxqfGdX+VPIq+A9KM0jlTrHSn641tSGX4xEeJzc6v7eccn0mxn5rC9YF54uHdMCGY
+	 8wim0mFuWr7eBeU+M2iGO3dDiMF04q5mktXMb3lb1oa9pCnaP6ay73f2t5k1dOO3JV
+	 OCplpJ2y2D5mFmlxtmo0BCMKbNihULDGFXDVaDcAiIcHfy9WkH23yQZmWv+Zuf31j/
+	 LYIzXXhrVA3Bg==
+Message-ID: <935ab772-fc9d-443b-8c8d-f2d17f9259aa@kernel.org>
+Date: Wed, 3 Dec 2025 10:50:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: soc: Add Kendryte K230 power domain bindings
+Subject: Re: [PATCH] riscv: dts: canaan: Add K230 clock provider DTSI
 To: q691800735@163.com, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+Cc: conor@kernel.org, robh@kernel.org, krzk+dt@kernel.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
  linux-kernel@vger.kernel.org
-References: <20251203092624.219460-1-q691800735@163.com>
+References: <20251203092643.219600-1-q691800735@163.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,7 +98,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251203092624.219460-1-q691800735@163.com>
+In-Reply-To: <20251203092643.219600-1-q691800735@163.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251203_015022_928057_5436F236 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,46 +121,50 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 03/12/2025 10:26, q691800735@163.com wrote:
 > From: jybruceupup <q691800735@163.com>
 > 
-> Add canaan,k230_pm_domains.h to define power domain IDs for Kendryte K230
-> RISC-V SoC (CPU1, AI, display, VPU, 3D-struct engine).
-> 
-> Update MAINTAINERS RISC-V entry to include the new binding header for
-> proper maintenance tracking.
+> Add clock provider DTSI for Kendryte K230 SoC, required for subsystem
+> clock management and boot.
 > 
 > Signed-off-by: jybruceupup <q691800735@163.com>
-
-Are you sure this is proper transliteration/translation of your name to
-Latin alphabet?
-
 > ---
->  MAINTAINERS                                      |  1 +
->  include/dt-bindings/soc/canaan,k230_pm_domains.h | 13 +++++++++++++
->  2 files changed, 14 insertions(+)
->  create mode 100644 include/dt-bindings/soc/canaan,k230_pm_domains.h
+>  .../boot/dts/canaan/k230_clock_provider.dtsi  | 2724 +++++++++++++++++
+>  1 file changed, 2724 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 980a3d5d6..d83920cbc 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22105,6 +22105,7 @@ C:	irc://irc.libera.chat/riscv
->  P:	Documentation/arch/riscv/patch-acceptance.rst
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
->  F:	arch/riscv/
-> +F:	include/dt-bindings/soc/canaan,k230_pm_domains.h
->  N:	riscv
->  K:	riscv
->  
-> diff --git a/include/dt-bindings/soc/canaan,k230_pm_domains.h b/include/dt-bindings/soc/canaan,k230_pm_domains.h
+> diff --git a/arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi b/arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi
 > new file mode 100644
-> index 000000000..e212126e4
+> index 000000000..9d193ca22
 > --- /dev/null
-> +++ b/include/dt-bindings/soc/canaan,k230_pm_domains.h
-> @@ -0,0 +1,13 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +++ b/arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi
+> @@ -0,0 +1,2724 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (c) 2023, Canaan Bright Sight Co., Ltd
+> + * Copyright (c) 2025 jybruceupup <q691800735@163.com>
+> + *
+> + * This program is free software; you can redistribute it and/or modify
+> + * it under the terms of the GNU General Public License version 2 as
+> + * published by the Free Software Foundation.
+> + */
+> +
+> +&sysctl_boot {
+> +/* osc24m clock */
+> +	osc24m: osc24m {
+> +		#clock-cells		= <0>;	/* only one clock output */
+> +		compatible		= "fixed-clock";/* It's clock source, no parent */
+> +		clock-frequency		= <24000000>;	/* clock freqence is 24MHz */
+> +		clock-accuracy		= <0>;	/* software assume clock no jitter/wander.*/
+> +		status				= "okay";
+> +		read-only			= <0>;
+> +	};
+> +
+> +	/* pll clock */
+> +	pll0: pll0 {
 
-All the same comments as for other patch plus wrong license.
 
-Heh, and please organize your work in reasonable patchsets...
+NAK.
+
+Not at all Linux style (actually DTS coding style), not used, no benefit
+of any of this.
 
 Best regards,
 Krzysztof
