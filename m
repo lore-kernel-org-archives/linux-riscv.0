@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31538D12696
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Dec 2025 09:50:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4480AD12691
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Dec 2025 09:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZezcouKzbC1axBFLSxn6tq0HfxC7kfNtU/SpxwYbQfk=; b=DMQlayGQjhfU0N
-	RREOknPqFmqDAzlbmHKJKR57H2D3HdQH4RuTeHfO6fb46x7st+4BvldWPCV0yioqMc/nmrSezB0vF
-	ZgH4YNGsABJHV4ef6nfMjDWglmSR5pQVyJQwiGFI7P5aVmMy+efE9L+ltIAxatzAPBMA51nX35+C6
-	rsPE4dQLNX4HjxqRNwx5EVf5hY1vIdgpYIsJamBsqlF9CnKsSMQOjNjV/yHsSgQouWU27V10bgKew
-	WXHhSZDt6kipMmqmOGmI9qITaLnPmTlOu8IAbSHAmRH32IU/KJxaYN+qjmHk5hiOFpAz00fxhyO75
-	BEBxTwiSaCEakwl+RtLw==;
+	List-Owner; bh=+yI+CiO41MBXSPFlJambQcokvaxN/lgNW78NmHZHme0=; b=T+P668SfM5+Kh4
+	D7lIVJEBVQrvl/EX7bWz1cVTpxIGKfO3L0KdyUdHgyIWB7Hj5T7xpnwoRx+OV8L8YxLDkc6dOL+08
+	dTWVtO6RXQF7l/k4XUlB57Vu55e1+WCLdIxqKhKvzY5hA39OjSZKKZ3bKnClYabWVGdMAm3ALZjD+
+	rHOD6M8iocCWxTViu4xIv/qq6eyGkDxdQz2dFgKHRGJPOCKo00N7s1wQZCefkZWz5M2TiS/JPIeqb
+	ATS1Gv156S0GyhCSqY+ztHAZpm8x9UZy/G04yzWUz1WRdQZtD04XexBPm6J04j16U7XRGz5MQplAa
+	PyxHeAqadDphX3ZsFuLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQjVG-00000006Pdb-4020;
-	Wed, 03 Dec 2025 09:50:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vQjVx-00000006PqI-1Cnt;
+	Wed, 03 Dec 2025 09:51:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQjV8-00000006Pc8-3XJO
+	id 1vQjVw-00000006Ppc-0iVy
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Dec 2025 09:50:29 +0000
+	Wed, 03 Dec 2025 09:51:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4B5CA42A95;
-	Wed,  3 Dec 2025 09:50:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2AFCC4CEFB;
-	Wed,  3 Dec 2025 09:50:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 50E886013C;
+	Wed,  3 Dec 2025 09:51:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1B95C4CEFB;
+	Wed,  3 Dec 2025 09:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764755422;
-	bh=ypAa1rLSkfeBsNSGctvSt8bFB36bS7lgItPXaVr3bnE=;
+	s=k20201202; t=1764755471;
+	bh=GDmIEK5sOsHTbOAIfEMkXpjT/NcHXehWLeN/cxxV6oA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SjrfD6b8JryIU1opyvRMaivc5+bKpRbtnUgLpfRrepvlmagb6sLaRqabQJcj6iikl
-	 NJzRQ3CbYguKwRGMjkBnEjN6r4TFH4SkbjtrjAei62OK3yFks/8SHlrFr1atHmitRj
-	 rRxqfGdX+VPIq+A9KM0jlTrHSn641tSGX4xEeJzc6v7eccn0mxn5rC9YF54uHdMCGY
-	 8wim0mFuWr7eBeU+M2iGO3dDiMF04q5mktXMb3lb1oa9pCnaP6ay73f2t5k1dOO3JV
-	 OCplpJ2y2D5mFmlxtmo0BCMKbNihULDGFXDVaDcAiIcHfy9WkH23yQZmWv+Zuf31j/
-	 LYIzXXhrVA3Bg==
-Message-ID: <935ab772-fc9d-443b-8c8d-f2d17f9259aa@kernel.org>
-Date: Wed, 3 Dec 2025 10:50:18 +0100
+	b=teUcCu/nIhe7NpCqb3rSN+uIFNY0EOBdk0WCj65VQhVA7uqlbZ3eAvhhM+8pdrtz9
+	 0nk+qQygZkta7kzG+wKzbFkkvuSVE6ZokQ0t0a8f1RHZ7Y5oKb9wNymmm1l/qWLyVM
+	 CmK6h0k/pWl7pbs42xfK01NJUIt0OkKSJkWc+HxDbZNLg546L6AQmJ3X3G+nmUmzFy
+	 pfq3lXj8WtqhvcAdizPBiFxq8O+8P290DVTgC0Nac+qwHw/cselXPm/bRy1ESGCuhS
+	 Z6zxfEIoXAGJdOQe9Ghq/k7sqjDSk3Rrquspq/njm4PoK+nTr3MeDmXRmAW7lNIcp5
+	 lrYavuUeBs1kA==
+Message-ID: <e1e3c625-b735-4245-acbb-3492468abc0c@kernel.org>
+Date: Wed, 3 Dec 2025 10:51:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: dts: canaan: Add K230 clock provider DTSI
-To: q691800735@163.com, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org
-Cc: conor@kernel.org, robh@kernel.org, krzk+dt@kernel.org, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-kernel@vger.kernel.org
-References: <20251203092643.219600-1-q691800735@163.com>
+Subject: Re: [PATCH] dt-bindings: soc: canaan: Add K230 power domain bindings
+To: q691800735@163.com, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+References: <20251203032107.31388-1-q691800735@163.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,10 +99,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251203092643.219600-1-q691800735@163.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_015022_928057_5436F236 
-X-CRM114-Status: GOOD (  15.51  )
+In-Reply-To: <20251203032107.31388-1-q691800735@163.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,53 +116,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/12/2025 10:26, q691800735@163.com wrote:
+On 03/12/2025 04:21, q691800735@163.com wrote:
 > From: jybruceupup <q691800735@163.com>
 > 
-> Add clock provider DTSI for Kendryte K230 SoC, required for subsystem
-> clock management and boot.
+> Add device tree bindings for the Kendryte K230 power management domains
+> (PM domains), which control power gating of core peripherals (I2C, SPI,
+> MMC, AI2D).
+> 
+> Key properties:
+> - compatible: "canaan,k230-pm-domains"
+> 
+> This binding follows the Devicetree Specification v0.4 and upstream
+> PM domain framework requirements. It is a prerequisite for peripheral
+> drivers requiring power gating control.
 > 
 > Signed-off-by: jybruceupup <q691800735@163.com>
-> ---
->  .../boot/dts/canaan/k230_clock_provider.dtsi  | 2724 +++++++++++++++++
->  1 file changed, 2724 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi
-> 
-> diff --git a/arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi b/arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi
-> new file mode 100644
-> index 000000000..9d193ca22
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi
-> @@ -0,0 +1,2724 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (c) 2023, Canaan Bright Sight Co., Ltd
-> + * Copyright (c) 2025 jybruceupup <q691800735@163.com>
-> + *
-> + * This program is free software; you can redistribute it and/or modify
-> + * it under the terms of the GNU General Public License version 2 as
-> + * published by the Free Software Foundation.
-> + */
-> +
-> +&sysctl_boot {
-> +/* osc24m clock */
-> +	osc24m: osc24m {
-> +		#clock-cells		= <0>;	/* only one clock output */
-> +		compatible		= "fixed-clock";/* It's clock source, no parent */
-> +		clock-frequency		= <24000000>;	/* clock freqence is 24MHz */
-> +		clock-accuracy		= <0>;	/* software assume clock no jitter/wander.*/
-> +		status				= "okay";
-> +		read-only			= <0>;
-> +	};
-> +
-> +	/* pll clock */
-> +	pll0: pll0 {
 
-
-NAK.
-
-Not at all Linux style (actually DTS coding style), not used, no benefit
-of any of this.
+Don't send duplicates. You already sent this patch, so which are we
+suppose to review? Why aren't you versioning your patchsets?
 
 Best regards,
 Krzysztof
