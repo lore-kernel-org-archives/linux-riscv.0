@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E00DBD1268C
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Dec 2025 02:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB823D116F3
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Dec 2025 03:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dCYx+OcxwyxiKqzAafeaHNb9tFLv2NMjXc3qmEHs+jg=; b=psq/8aAHAT/a3Q
-	S+0SkW+rKW6NLuSvQWGVtfwQ6q51Y32OFvzTf24YnWe2bnUcqBmHCdjKgXnaFdyjsIrZKviBr+4lx
-	pFi4joXgsOVjRldIgcWyrTSBEvyLa2E38yhk/QP/iuLZV2kQdsfriynGPWFUZtS/9G5evhS+bJtK1
-	IDFXESZTgL6outJRmaiFPd9LFGJ6KspIyGhI8XyCk38VRF4htcp1pEFhHMq6IOzkMrnadWpwwiUIA
-	VBHy/0vH33hrlagplKQBvdpjj2EyIPktLk2vQUfhfOafxqqdetla1bn/nCs+eY7PhohRsPI5e3DO4
-	ggHLeLeQzz/xgaiQpJaQ==;
+	List-Owner; bh=k/nbE2ACEbea+/U/OX+GjxoR/j+iJtk1tgRiTmzce1g=; b=UgOTSEUUAQksAX
+	T3CHiqHhrrlr3XK1U+RrK8R66eFihwGX6/PfOMsfu0W3Gky5mXc+ahC1WpQII7aPgrhwTwerRnFyO
+	nz4dzXNJLBzPXnlDQ/WWqjhdgxgE9+4AZk1uOr6RUtToXWVGi22fqRSyUgtZGqLd2qEr7FkvEC3mC
+	MMCUH6vXp90TbkIbRPPZa1VfmWEiMm/7+Q+suF8W+PlyjLswVKalueNKZNbNWcBo+5xJkoVngJyxe
+	nmVNOL4LOrkuyD6IJmED33+QeDfsSb+rwyiHflEFrOZ0/PkGKca2eRvq7ATcY04g5bRtGa8jlalAo
+	lCJ4cEEqVw6nu0Faqw/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQcGi-000000061lk-08oe;
-	Wed, 03 Dec 2025 02:07:00 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1vQdR8-000000064OX-1LmI;
+	Wed, 03 Dec 2025 03:21:50 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQcGe-000000061kL-2eYg
+	id 1vQdR5-000000064Nx-2l0u
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Dec 2025 02:06:59 +0000
+	Wed, 03 Dec 2025 03:21:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=kK
-	JbNEXYyl+YPdKOys2kplKlORYJmnr6tE2vZyiSF54=; b=IkhdaTX7AooNnU7+QO
-	vFtYVSwjTOHd6ETlwlwwsknadn8z2AQxpB4xN+GHlBg9Ugju+fBf5mQoQaJQrD8W
-	ssWvtOzFPCIaubrF26ryimxWEtABc6YN3IULeTLf0QZ/lKfcWGl4NcFB2NlkQkJ5
-	lVj1oeqy92A+iO2+cU3uVp+BU=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=zG
+	BGq2OtLr/Tw+dOoyB+U8Aa2Y5bi5NGEkZsJSUoqR4=; b=ismz0VN6S1IQx6cpWG
+	yq39uCK6PiH/Df++6voqJqSpfCJbjEi25Clh2mpgJYwelfS1p6qkbPz+e0eCMfsr
+	SygSHyIiCXskBbnyMGcsT2aAI6pnenkvymcG/MuBdfQasmsE7N7DrAel9WToB79x
+	6pi+zAwN4/4FZcDvmolp+mIos=
 Received: from duge-virtual-machine (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD3n2Mfmy9pQNRYEg--.23345S2;
-	Wed, 03 Dec 2025 10:06:24 +0800 (CST)
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDnR4amrC9pKWlQDg--.349S2;
+	Wed, 03 Dec 2025 11:21:14 +0800 (CST)
 From: q691800735@163.com
-To: linux-riscv@lists.infradead.org
-Cc: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	q691800735@163.com
-Subject: [PATCH] riscv: configs: defconfig: Add initial Kendryte K230 defconfig
-Date: Wed,  3 Dec 2025 10:06:19 +0800
-Message-ID: <20251203020619.16496-1-q691800735@163.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	jybruceupup <q691800735@163.com>
+Subject: [PATCH] dt-bindings: soc: canaan: Add K230 power domain bindings
+Date: Wed,  3 Dec 2025 11:21:07 +0800
+Message-ID: <20251203032107.31388-1-q691800735@163.com>
 X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-X-CM-TRANSID: _____wD3n2Mfmy9pQNRYEg--.23345S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3AFW7XFyrXF4Utw1kJry3CFg_yoWftFW5pr
-	n7JrW8Jr48Jr17trW7AryDGrZ8tF1DGFW5Jr1UJr1UJ34kJw43Jr1Yyr1UGr1UXF1UXr48
-	JFn7Jr13Ar1UJwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRaYLhUUUUU=
+X-CM-TRANSID: _____wDnR4amrC9pKWlQDg--.349S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7uF1fJr47WFWDWrW8Zw47Jwb_yoW8Cw4kpF
+	yrCr95Gr4UJr1Skw4Sga4Y9343u3ykCr12y3sxWr1qyF4DWr1jqwnagF9Fvr9rArsa9r4I
+	vF9IkFnI93y7ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRHv3UUUUUU=
 X-Originating-IP: [223.160.207.238]
-X-CM-SenderInfo: jtwzimyqqxjki6rwjhhfrp/xtbC2wAVRWkvmyBi1wAA3D
+X-CM-SenderInfo: jtwzimyqqxjki6rwjhhfrp/1tbiFA4ZMGkvpbKuvQAAsx
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_180657_853877_42E14D3C 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20251202_192148_236338_77E53023 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,344 +81,55 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: jybruceupup <q691800735@163.com>
 
-Add initial defconfig for the Kendryte K230 RISC-V SoC.
-This configuration enables core features for basic boot and functionality:
-- Essential RISC-V architecture support (64-bit, S-mode, page tables)
-- Boot-critical peripherals (UART, GPIO, MMC, clock controller)
-- Device Tree overlay support
-- Basic power management and reset functionality
+Add device tree bindings for the Kendryte K230 power management domains
+(PM domains), which control power gating of core peripherals (I2C, SPI,
+MMC, AI2D).
 
-This defconfig serves as the base for K230-based platforms (including
-CanMV DongshanPi) and maintains compatibility with upstream RISC-V
-kernel features.
+Key properties:
+- compatible: "canaan,k230-pm-domains"
+
+This binding follows the Devicetree Specification v0.4 and upstream
+PM domain framework requirements. It is a prerequisite for peripheral
+drivers requiring power gating control.
 
 Signed-off-by: jybruceupup <q691800735@163.com>
 ---
- MAINTAINERS                       |   1 +
- arch/riscv/configs/k230_defconfig | 302 ++++++++++++++++++++++++++++++
- 2 files changed, 303 insertions(+)
- create mode 100644 arch/riscv/configs/k230_defconfig
+ MAINTAINERS                                      |  1 +
+ include/dt-bindings/soc/canaan,k230_pm_domains.h | 13 +++++++++++++
+ 2 files changed, 14 insertions(+)
+ create mode 100644 include/dt-bindings/soc/canaan,k230_pm_domains.h
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 980a3d5d6..4d456982a 100644
+index 4d456982a..13cdbf647 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22105,6 +22105,7 @@ C:	irc://irc.libera.chat/riscv
- P:	Documentation/arch/riscv/patch-acceptance.rst
+@@ -22106,6 +22106,7 @@ P:	Documentation/arch/riscv/patch-acceptance.rst
  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
  F:	arch/riscv/
-+F:	arch/riscv/configs/k230_defconfig
+ F:	arch/riscv/configs/k230_defconfig
++F:	include/dt-bindings/soc/canaan,k230_pm_domains.h
  N:	riscv
  K:	riscv
  
-diff --git a/arch/riscv/configs/k230_defconfig b/arch/riscv/configs/k230_defconfig
+diff --git a/include/dt-bindings/soc/canaan,k230_pm_domains.h b/include/dt-bindings/soc/canaan,k230_pm_domains.h
 new file mode 100644
-index 000000000..369cd24be
+index 000000000..e212126e4
 --- /dev/null
-+++ b/arch/riscv/configs/k230_defconfig
-@@ -0,0 +1,302 @@
-+CONFIG_SYSVIPC=y
-+CONFIG_POSIX_MQUEUE=y
-+CONFIG_NO_HZ_IDLE=y
-+CONFIG_HIGH_RES_TIMERS=y
-+CONFIG_BPF_SYSCALL=y
-+CONFIG_BPF_JIT=y
-+CONFIG_IKCONFIG=y
-+CONFIG_IKCONFIG_PROC=y
-+CONFIG_NONPORTABLE=y
-+CONFIG_CGROUPS=y
-+CONFIG_MEMCG=y
-+CONFIG_CGROUP_SCHED=y
-+CONFIG_CFS_BANDWIDTH=y
-+CONFIG_RT_GROUP_SCHED=y
-+CONFIG_CGROUP_PIDS=y
-+CONFIG_CGROUP_FREEZER=y
-+CONFIG_CGROUP_HUGETLB=y
-+CONFIG_CPUSETS=y
-+CONFIG_CGROUP_DEVICE=y
-+CONFIG_CGROUP_CPUACCT=y
-+CONFIG_CGROUP_PERF=y
-+CONFIG_CGROUP_BPF=y
-+CONFIG_NAMESPACES=y
-+CONFIG_USER_NS=y
-+CONFIG_CHECKPOINT_RESTORE=y
-+CONFIG_BLK_DEV_INITRD=y
-+CONFIG_EXPERT=y
-+# CONFIG_SYSFS_SYSCALL is not set
-+CONFIG_PROFILING=y
-+CONFIG_SOC_MICROCHIP_POLARFIRE=y
-+CONFIG_ARCH_RENESAS=y
-+CONFIG_SOC_SIFIVE=y
-+CONFIG_SOC_STARFIVE=y
-+CONFIG_ARCH_SUNXI=y
-+CONFIG_ARCH_THEAD=y
-+CONFIG_SOC_VIRT=y
-+CONFIG_ARCH_CANAAN=y
-+CONFIG_SMP=y
-+CONFIG_VIRTUALIZATION=y
-+CONFIG_KVM=m
-+CONFIG_ACPI=y
-+CONFIG_JUMP_LABEL=y
-+# CONFIG_STRICT_KERNEL_RWX is not set
-+CONFIG_MODULES=y
-+CONFIG_MODULE_UNLOAD=y
-+CONFIG_SPARSEMEM_MANUAL=y
-+CONFIG_CMA=y
-+CONFIG_CMA_DEBUGFS=y
-+CONFIG_CMA_SYSFS=y
-+CONFIG_NET=y
-+CONFIG_PACKET=y
-+CONFIG_XFRM_USER=m
-+CONFIG_IP_MULTICAST=y
-+CONFIG_IP_ADVANCED_ROUTER=y
-+CONFIG_IP_PNP=y
-+CONFIG_IP_PNP_DHCP=y
-+CONFIG_IP_PNP_BOOTP=y
-+CONFIG_IP_PNP_RARP=y
-+CONFIG_INET_ESP=m
-+CONFIG_NETFILTER=y
-+CONFIG_BRIDGE_NETFILTER=m
-+CONFIG_NF_CONNTRACK=m
-+CONFIG_NF_CONNTRACK_FTP=m
-+CONFIG_NF_CONNTRACK_TFTP=m
-+CONFIG_NETFILTER_XT_MARK=m
-+CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=m
-+CONFIG_NETFILTER_XT_MATCH_CONNTRACK=m
-+CONFIG_NETFILTER_XT_MATCH_IPVS=m
-+CONFIG_IP_VS=m
-+CONFIG_IP_VS_PROTO_TCP=y
-+CONFIG_IP_VS_PROTO_UDP=y
-+CONFIG_IP_VS_RR=m
-+CONFIG_IP_VS_NFCT=y
-+CONFIG_NF_LOG_ARP=m
-+CONFIG_NF_LOG_IPV4=m
-+CONFIG_IP_NF_IPTABLES=m
-+CONFIG_IP_NF_FILTER=m
-+CONFIG_IP_NF_TARGET_REJECT=m
-+CONFIG_IP_NF_NAT=m
-+CONFIG_IP_NF_TARGET_MASQUERADE=m
-+CONFIG_IP_NF_TARGET_REDIRECT=m
-+CONFIG_IP_NF_MANGLE=m
-+CONFIG_NF_LOG_IPV6=m
-+CONFIG_IP6_NF_IPTABLES=m
-+CONFIG_IP6_NF_MATCH_IPV6HEADER=m
-+CONFIG_IP6_NF_FILTER=m
-+CONFIG_IP6_NF_TARGET_REJECT=m
-+CONFIG_IP6_NF_MANGLE=m
-+CONFIG_BRIDGE=m
-+CONFIG_BRIDGE_VLAN_FILTERING=y
-+CONFIG_VLAN_8021Q=m
-+CONFIG_NET_SCHED=y
-+CONFIG_NET_CLS_CGROUP=m
-+CONFIG_NETLINK_DIAG=y
-+CONFIG_CGROUP_NET_PRIO=y
-+CONFIG_NET_9P=y
-+CONFIG_NET_9P_VIRTIO=y
-+CONFIG_PCI=y
-+CONFIG_PCIEPORTBUS=y
-+CONFIG_PCI_HOST_GENERIC=y
-+CONFIG_PCIE_XILINX=y
-+CONFIG_PCIE_FU740=y
-+CONFIG_DEVTMPFS=y
-+CONFIG_DEVTMPFS_MOUNT=y
-+CONFIG_MTD=y
-+CONFIG_MTD_TESTS=m
-+CONFIG_MTD_BLOCK=y
-+CONFIG_MTD_SLRAM=m
-+CONFIG_MTD_PHRAM=m
-+CONFIG_MTD_SPI_NAND=y
-+CONFIG_MTD_SPI_NOR=y
-+CONFIG_MTD_UBI=y
-+CONFIG_BLK_DEV_LOOP=y
-+CONFIG_BLK_DEV_NBD=y
-+CONFIG_VIRTIO_BLK=y
-+CONFIG_BLK_DEV_NVME=m
-+CONFIG_K230_GNNE_DRIVER=y
-+CONFIG_K230_AI2D_DRIVER=y
-+CONFIG_K230_MMZ=y
-+CONFIG_BLK_DEV_SD=y
-+CONFIG_BLK_DEV_SR=y
-+CONFIG_SCSI_VIRTIO=y
-+CONFIG_ATA=y
-+CONFIG_SATA_AHCI=y
-+CONFIG_SATA_AHCI_PLATFORM=y
-+CONFIG_MD=y
-+CONFIG_BLK_DEV_DM=m
-+CONFIG_DM_THIN_PROVISIONING=m
-+CONFIG_NETDEVICES=y
-+CONFIG_DUMMY=m
-+CONFIG_MACVLAN=m
-+CONFIG_IPVLAN=m
-+CONFIG_VXLAN=m
-+CONFIG_VETH=m
-+CONFIG_VIRTIO_NET=y
-+CONFIG_MACB=y
-+CONFIG_E1000E=y
-+CONFIG_R8169=y
-+CONFIG_STMMAC_ETH=y
-+CONFIG_DWMAC_XUANTIE=m
-+CONFIG_MICROSEMI_PHY=y
-+CONFIG_USB_RTL8152=y
-+CONFIG_INPUT_MOUSEDEV=y
-+CONFIG_KEYBOARD_SUN4I_LRADC=m
-+CONFIG_SERIAL_8250=y
-+CONFIG_SERIAL_8250_CONSOLE=y
-+CONFIG_SERIAL_8250_DW=y
-+CONFIG_SERIAL_OF_PLATFORM=y
-+CONFIG_SERIAL_SH_SCI=y
-+CONFIG_VIRTIO_CONSOLE=y
-+CONFIG_HW_RANDOM=y
-+CONFIG_HW_RANDOM_VIRTIO=y
-+CONFIG_I2C_MV64XXX=m
-+CONFIG_SPI=y
-+CONFIG_SPI_DESIGNWARE=y
-+CONFIG_SPI_DW_MMIO=y
-+CONFIG_SPI_SPIDEV=y
-+# CONFIG_PTP_1588_CLOCK is not set
-+CONFIG_GPIO_K230=y
-+CONFIG_SENSORS_MR75203=m
-+CONFIG_SENSORS_PWM_FAN=m
-+CONFIG_CPU_THERMAL=y
-+CONFIG_THERMAL=y
-+CONFIG_THERMAL_EMULATION=y
-+CONFIG_WATCHDOG=y
-+CONFIG_DW_WATCHDOG=y
-+CONFIG_REGULATOR=y
-+CONFIG_REGULATOR_FIXED_VOLTAGE=y
-+CONFIG_FB=y
-+CONFIG_USB=y
-+CONFIG_USB_STORAGE=y
-+CONFIG_USB_DWC2=y
-+CONFIG_USB_DWC2_DUAL_ROLE=y
-+CONFIG_USB_GADGET=y
-+CONFIG_USB_F_UVC=y
-+CONFIG_USB_CONFIGFS_F_UVC=y
-+CONFIG_MMC=y
-+CONFIG_MMC_SDHCI=y
-+CONFIG_MMC_SDHCI_PLTFM=y
-+CONFIG_MMC_SDHCI_OF_DWCMSHC=y
-+CONFIG_MMC_SDHCI_OF_DWCMSHC_KENDRYTE=y
-+CONFIG_MMC_SDHCI_CADENCE=y
-+CONFIG_MMC_SPI=y
-+CONFIG_MMC_SUNXI=y
-+CONFIG_RTC_CLASS=y
-+CONFIG_RTC_DRV_SUN6I=y
-+CONFIG_DMADEVICES=y
-+CONFIG_DMA_SUN6I=m
-+CONFIG_DW_AXI_DMAC=y
-+CONFIG_DMATEST=y
-+CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_BALLOON=y
-+CONFIG_VIRTIO_INPUT=y
-+CONFIG_VIRTIO_MMIO=y
-+CONFIG_SUN8I_DE2_CCU=m
-+CONFIG_CLK_TH1520_FM=y
-+CONFIG_MAILBOX=y
-+CONFIG_SUN50I_IOMMU=y
-+CONFIG_RPMSG_CHAR=y
-+CONFIG_RPMSG_CTRL=y
-+CONFIG_RPMSG_VIRTIO=y
-+CONFIG_IIO=y
-+CONFIG_K230_ADC=y
-+CONFIG_PWM=y
-+CONFIG_PWM_K230=y
-+CONFIG_PHY_SUN4I_USB=m
-+CONFIG_LIBNVDIMM=y
-+CONFIG_NVMEM_SUNXI_SID=y
-+CONFIG_TEE=y
-+CONFIG_OPTEE=y
-+CONFIG_EXT4_FS=y
-+CONFIG_EXT4_FS_POSIX_ACL=y
-+CONFIG_EXT4_FS_SECURITY=y
-+CONFIG_BTRFS_FS=m
-+CONFIG_BTRFS_FS_POSIX_ACL=y
-+CONFIG_AUTOFS_FS=y
-+CONFIG_FUSE_FS=y
-+CONFIG_OVERLAY_FS=m
-+CONFIG_ISO9660_FS=y
-+CONFIG_JOLIET=y
-+CONFIG_ZISOFS=y
-+CONFIG_MSDOS_FS=y
-+CONFIG_VFAT_FS=y
-+CONFIG_TMPFS=y
-+CONFIG_TMPFS_POSIX_ACL=y
-+CONFIG_HUGETLBFS=y
-+CONFIG_NFS_FS=y
-+CONFIG_NFS_V4=y
-+CONFIG_NFS_V4_1=y
-+CONFIG_NFS_V4_2=y
-+CONFIG_ROOT_NFS=y
-+CONFIG_9P_FS=y
-+CONFIG_NLS_CODEPAGE_437=y
-+CONFIG_NLS_ISO8859_1=m
-+CONFIG_SECURITY=y
-+CONFIG_SECURITY_SELINUX=y
-+CONFIG_SECURITY_APPARMOR=y
-+CONFIG_DEFAULT_SECURITY_DAC=y
-+CONFIG_CRYPTO_USER_API_HASH=y
-+CONFIG_CRYPTO_DEV_VIRTIO=y
-+CONFIG_DMA_CMA=y
-+CONFIG_CMA_SIZE_PERCENTAGE=50
-+CONFIG_CMA_SIZE_SEL_PERCENTAGE=y
-+CONFIG_PRINTK_TIME=y
-+CONFIG_DEBUG_FS=y
-+CONFIG_DEBUG_PAGEALLOC=y
-+CONFIG_SCHED_STACK_END_CHECK=y
-+CONFIG_DEBUG_VM=y
-+CONFIG_DEBUG_VM_PGFLAGS=y
-+CONFIG_DEBUG_MEMORY_INIT=y
-+CONFIG_DEBUG_PER_CPU_MAPS=y
-+CONFIG_SOFTLOCKUP_DETECTOR=y
-+CONFIG_WQ_WATCHDOG=y
-+CONFIG_DEBUG_TIMEKEEPING=y
-+CONFIG_DEBUG_RT_MUTEXES=y
-+CONFIG_DEBUG_SPINLOCK=y
-+CONFIG_DEBUG_MUTEXES=y
-+CONFIG_DEBUG_RWSEMS=y
-+CONFIG_DEBUG_ATOMIC_SLEEP=y
-+CONFIG_LOCK_TORTURE_TEST=m
-+CONFIG_DEBUG_LIST=y
-+CONFIG_DEBUG_PLIST=y
-+CONFIG_DEBUG_SG=y
-+CONFIG_RCU_TORTURE_TEST=m
-+# CONFIG_RCU_TRACE is not set
-+CONFIG_RCU_EQS_DEBUG=y
-+# CONFIG_FTRACE is not set
-+# CONFIG_RUNTIME_TESTING_MENU is not set
-+CONFIG_MEMTEST=y
-+CONFIG_USB_ANNOUNCE_NEW_DEVICES=y
-+CONFIG_COMMON_CLK_K230=y
-+CONFIG_I2C_CHARDEV=y
-+CONFIG_I2C_DESIGNWARE_PLATFORM=y
-+CONFIG_INPUT_TOUCHSCREEN=y
-+CONFIG_TOUCHSCREEN_EDT_FT5X06=y
-+CONFIG_TOUCHSCREEN_GOODIX=y
-+CONFIG_INPUT_EVDEV=y
-+CONFIG_GPU_VGLITE=y
-+CONFIG_BACKLIGHT_CLASS_DEVICE=y
-+CONFIG_I2C=y
-+CONFIG_MEDIA_SUPPORT=y
-+CONFIG_MEDIA_PLATFORM_SUPPORT=y
-+CONFIG_V4L_PLATFORM_DRIVERS=y
-+CONFIG_VPU_CANAAN=y
-+CONFIG_DRM_DISPLAY_CONNECTOR=y
-+CONFIG_DRM_LONTIUM_LT9611=y
-+CONFIG_CFG80211=y
-+CONFIG_CFG80211_WEXT=y
-+CONFIG_MAC80211=y
-+CONFIG_MEDIA_USB_SUPPORT=y
-+CONFIG_USB_VIDEO_CLASS=y
-+CONFIG_SOUND=y
-+CONFIG_SND=y
-+CONFIG_SND_SOC=y
-+# CONFIG_SND_DESIGNWARE_I2S=y
-+# CONFIG_SND_DESIGNWARE_PCM=y
-+CONFIG_CANAAN_SND_DESIGNWARE_I2S=y
-+CONFIG_CANAAN_SND_DESIGNWARE_PCM=y
-+CONFIG_SND_SOC_K230_INNO=y
-+CONFIG_SND_SOC_CANAAN_K230_INNO=y
-+CONFIG_SND_SOC_CANAAN_K230_AUDIO=y
-+CONFIG_K230_PERIDMA=y
++++ b/include/dt-bindings/soc/canaan,k230_pm_domains.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#ifndef _DT_BINDINGS_SOC_K230_PM_DOMAINS_H
++#define _DT_BINDINGS_SOC_K230_PM_DOMAINS_H
++
++#define K230_PM_DOMAIN_CPU1       0       /* CPU1 subsystem */
++#define K230_PM_DOMAIN_AI         1       /* AI Subsystem */
++#define K230_PM_DOMAIN_DISP       2       /* Display, 2.5D Engine */
++#define K230_PM_DOMAIN_VPU        3       /* Video subsystem */
++#define K230_PM_DOMAIN_DPU        4       /* 3D-struct Engine */
++#define K230_PM_DOMAIN_MAX        5
++
++#endif /* _DT_BINDINGS_SOC_K230_PM_DOMAINS_H */
 -- 
 2.52.0
 
