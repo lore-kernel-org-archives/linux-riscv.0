@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D1B0D2A551
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 22:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DCE9D2A54F
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 22:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NhWr3w+YNy6LPNWo4lVD5DfyHQ7XJERV2OkOggFFvPc=; b=ezs8j4bYKHRDuZ
-	CuzAsWyJGONueNXSI1lVKE+IcwprgezzAbRcHZs/5LYQrTX5i8k5cZJoGhtx4y00Delxoiw832Gvi
-	iLtiHbff7mI1Rs0pCjA3BbIfyaRzFi/nG4xhGn/iLgZ1MTBNwJsM9NdCaQDdEZlY3MvtSvp8dQcYM
-	xuZlsWua2N74BJrL+8Ax04SX5LcvbW2d9TRgRon8vd/lj+6k/jmOuaqgQPYXe93wklNy9GsN2G29y
-	T15M8XnxdtDEr0TbICZ5BSP4rBh+8uADuPdtVc1mvLmNiF7JVfdt4htHvMAE+Fy/RIAskXX8G4WgS
-	8kS+H6USNC9vQ9pjsVKg==;
+	List-Owner; bh=5py14TfVhoUcTf6DbjD017Zn9ZAiC2xswnUT7NF44OI=; b=WjVY0YZL4JtMYk
+	noYwg3BL+0ROOYMa+rcNlyIm5vetkitHu3FSm/Fst6OfnTk2/UbaP5cxki4j4PWliJJPLCK5jUgWh
+	L8lB/dEGjrnKmhHaCPunTSIu7dpm5XU5ErgGtRFQhoCmDDxVPIWY9zIvDtsT7V5zYzzSCac8pboUG
+	+vGdYpbdTYW7MET8uvronTTZlzj+KSt/y0np0fFsV/BFqwUh5lMWmZ8i1/V7CJWRfngIOTb1xsMOZ
+	uUNt1fvY1OBGegJ0u62K3OqF27YfCRDtzgIenOgBGyLd1zAZmvJKvD0ZecxfSpHROBnJ9VgOzDLbH
+	uZOprETRIEezWsZ2PzJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRHaG-00000008iJ4-3qFx;
-	Thu, 04 Dec 2025 22:13:56 +0000
+	id 1vRHdp-00000008ihs-28w5;
+	Thu, 04 Dec 2025 22:17:37 +0000
 Received: from [50.53.43.113] (helo=[192.168.254.34])
 	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRHaB-00000008iId-3UjH;
-	Thu, 04 Dec 2025 22:13:51 +0000
-Message-ID: <20273cd5-afbc-4208-aa2a-11ac04256c38@infradead.org>
-Date: Thu, 4 Dec 2025 14:13:49 -0800
+	id 1vRHdh-00000008ihQ-23Ud;
+	Thu, 04 Dec 2025 22:17:31 +0000
+Message-ID: <b5feba48-7e7c-4ab9-a193-072f3980f525@infradead.org>
+Date: Thu, 4 Dec 2025 14:17:27 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v24 21/28] riscv: kernel command line option to opt out of
- user cfi
+Subject: Re: [PATCH v24 25/28] riscv: create a config for shadow stack and
+ landing pad instr support
 To: Deepak Gupta <debug@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>,
  Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
  Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
@@ -61,13 +61,14 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
  rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org,
- Paul Walmsley <pjw@kernel.org>,
+ Zong Li <zong.li@sifive.com>, Andreas Korb
+ <andreas.korb@aisec.fraunhofer.de>,
  Valentin Haudiquet <valentin.haudiquet@canonical.com>
 References: <20251204-v5_user_cfi_series-v24-0-ada7a3ba14dc@rivosinc.com>
- <20251204-v5_user_cfi_series-v24-21-ada7a3ba14dc@rivosinc.com>
+ <20251204-v5_user_cfi_series-v24-25-ada7a3ba14dc@rivosinc.com>
 Content-Language: en-US
 From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20251204-v5_user_cfi_series-v24-21-ada7a3ba14dc@rivosinc.com>
+In-Reply-To: <20251204-v5_user_cfi_series-v24-25-ada7a3ba14dc@rivosinc.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +88,63 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 12/4/25 12:04 PM, Deepak Gupta wrote:
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 6c42061ca20e..453127ef8746 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -6453,6 +6453,14 @@
->  			replacement properties are not found. See the Kconfig
->  			entry for RISCV_ISA_FALLBACK.
+> This patch creates a config for shadow stack support and landing pad instr
+> support. Shadow stack support and landing instr support can be enabled by
+> selecting `CONFIG_RISCV_USER_CFI`. Selecting `CONFIG_RISCV_USER_CFI` wires
+> up path to enumerate CPU support and if cpu support exists, kernel will
+> support cpu assisted user mode cfi.
+> 
+> If CONFIG_RISCV_USER_CFI is selected, select `ARCH_USES_HIGH_VMA_FLAGS`,
+> `ARCH_HAS_USER_SHADOW_STACK` and DYNAMIC_SIGFRAME for riscv.
+> 
+> Reviewed-by: Zong Li <zong.li@sifive.com>
+> Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
+> Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>  arch/riscv/Kconfig                  | 22 ++++++++++++++++++++++
+>  arch/riscv/configs/hardening.config |  4 ++++
+>  2 files changed, 26 insertions(+)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 0c6038dc5dfd..f5574c6f66d8 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -1146,6 +1146,28 @@ config RANDOMIZE_BASE
 >  
-> +	riscv_nousercfi=
-> +		all	Disable user cfi ABI to userspace even if cpu extension
+>            If unsure, say N.
+>  
+> +config RISCV_USER_CFI
+> +	def_bool y
+> +	bool "riscv userspace control flow integrity"
+> +	depends on 64BIT && \
+> +		$(cc-option,-mabi=lp64 -march=rv64ima_zicfiss_zicfilp -fcf-protection=full)
+> +	depends on RISCV_ALTERNATIVE
+> +	select RISCV_SBI
+> +	select ARCH_HAS_USER_SHADOW_STACK
+> +	select ARCH_USES_HIGH_VMA_FLAGS
+> +	select DYNAMIC_SIGFRAME
+> +	help
+> +	  Provides CPU assisted control flow integrity to userspace tasks.
 
-			                                              extensions
+	           CPU-assisted
 
-> +			are available.
-> +		bcfi	Disable user backward cfi ABI to userspace even if
-> +			shadow stack extension is available.
-> +		fcfi	Disable user forward cfi ABI to userspace even if landing
-> +			pad extension is available.
+> +	  Control flow integrity is provided by implementing shadow stack for
+> +	  backward edge and indirect branch tracking for forward edge in program.
+> +	  Shadow stack protection is a hardware feature that detects function
+> +	  return address corruption. This helps mitigate ROP attacks.
+> +	  Indirect branch tracking enforces that all indirect branches must land
+> +	  on a landing pad instruction else CPU will fault. This mitigates against
+> +	  JOP / COP attacks. Applications must be enabled to use it, and old user-
+> +	  space does not get protection "for free".
+> +	  default y.
+
+	  Default is y if hardware supports it.
+?
+
 > +
->  	ro		[KNL] Mount root device read-only on boot
->  
->  	rodata=		[KNL,EARLY]
+>  endmenu # "Kernel features"
+
 
 -- 
 ~Randy
