@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E08AD1D885
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 07:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C33DD1D887
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 07:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WSXapBFh53j+c2Aiwm9tdUIPhwS17R7GgHJTkszRAoE=; b=caE0vAlRCVgQTV
-	7/PR71CqKI492lCfySM0yynTmXMWwCVZW8E5JLoIOb/Zk1fqO2WDCauims0UK+FBt7K3jVXNoRNpc
-	DTJkC1Cq/awkmRsThLMgQ6iOoKQ3Eeif4SPF1d8Ft9UZE99PC5TV65QrBTNwe70Q0Pa2Hxz/7HFLI
-	p9a3ZYjHdmRDVFV2fKdWCCwgzW3QCNLEki3geYsZieul1hE4NLv2GwcsLCqlSj7Xijc3X1Nxgq9Lh
-	wg8ssU4HlJugsm0YcHl2bWmq+B/k4QenYrogIDPgR5UccJN0hAQMnWsG37UOS9qFvOMGTdVQc9Xzk
-	a7LkLXK6e+fVQqcT58aA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IMetP4flndfzH1TfhfDQ7iRLoid5f8xBtFtbn++7Mi8=; b=iQ3bey5HiUKvKX
+	JTquPsssfFeOwRRHHUyo/JnA+p6X5W8BNP5Yly/11A/gRbkC9/Y9gmp3LdkWaQSkuL+58CrYKfwvC
+	UCuVXXOYFxp5VcoYLEXjKByprUbt4Aaa5oWkQ3hn8BqCSSELVT3wr5aHMHe2jvWZ+tsv+sJroXPvJ
+	iuZNNfWIZsD7j3jkdETq2uEPS7N6sXUO+vgcVoStAoDBX3mDmK0+kuLg5sQhmzbmsVo67LSSB6QSY
+	YF9wCWDmj3fjpmNrlvRpAbr0dL0ifWHeG6KITzXYlW+v2y9jaKz9SBwhGGy0D/vQYp+xYZNYW5nFa
+	1nuYPhzREQrVqG+tf1yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR4BQ-00000007dMK-0ySx;
-	Thu, 04 Dec 2025 07:55:24 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1vR4BR-00000007dMu-2InQ;
+	Thu, 04 Dec 2025 07:55:25 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR4BO-00000007dL5-2wQs
+	id 1vR4BO-00000007dL4-2odY
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Dec 2025 07:55:23 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-594330147efso523316e87.2
+	Thu, 04 Dec 2025 07:55:24 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-597d712c0a7so362371e87.0
         for <linux-riscv@lists.infradead.org>; Wed, 03 Dec 2025 23:55:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20230601; t=1764834920; x=1765439720; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Z9GtPr5taZTAzyn89OMPpDe+uAgwZM83gWeHrAtje3E=;
-        b=LYSnDssTfN1k7prxbXv/wil1t4ig7sXgj8hPy+wybNe3AZIRDGuURp32oFext4usBD
-         v/g56B4hYOf7eqPB9sr0uCldksLUjrq5QF+5WQRF7Ws5xEj5uDRc5f903SP6Upm7aox/
-         6mp8lRopZqEAQAwRoM19Av2seT4gAgBdan28ai+uSA2110L3cw6qyQemZ+ovfCtQ8hCe
-         jUGrSNpv2CrGswjIlwCjHvy2SNvPwzxfDeVUHyW9Hy5ZRTBLf2OLd2pmwgi9kjuP+q08
-         X/UO0v1TCPXZG+uI+2G1LceU90h8ZM90pvVS37xHcpmEFgXtlSnV9+Udozr0ZVbyt8B/
-         8H+A==
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9GoQPHU9Mpip9gR91Y3C4UfAkxVzcGqXTOlsYo71eKE=;
+        b=MMXxboVA3sQ2B4/Din4gJH9gXE0/adwszMTCf3DzCEjDfDOxLFq8mw8+xhYYGPU4Yz
+         PRDKys0x5caq04ssDMlhuAF79Njn8HLKK4sIeGs+5j83NP9/EWpBHPXZ+PkucazGrpzN
+         qfHEi+hABuuxSf+3JR3g4NjNUANT8/xMP6A3B8v43qHW41IsY4w9wzVCRbNuJ0ozJzo9
+         l5KnN6WsC3VMfnG5tfEHP2nnIpbJM5FPhMb8f+Y5eLuCulNBqKpE0fostOSZUtrVPS3x
+         KJaEZxaHbCX6PSr7VULZZnvOTRj9v7tP2Ysz1KVBNF/gDOsOj3xOi2cah/r9kUG300b8
+         47Vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1764834920; x=1765439720;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Z9GtPr5taZTAzyn89OMPpDe+uAgwZM83gWeHrAtje3E=;
-        b=tXounpAb3LijZx4PBUOl0eAfrHKLfjv+/tUQrHkbE4kYvHPqJxpsaus6d0AGPNfKcf
-         kXugqz/MKESlBMgycEmQHpZCJeNFsqeDkOVzToccs5+dFiWVbVrY8FymKgrWD7mfMJDW
-         DteDbaK4LnX8jMjYCVTreVVW43IHY86m+Buc+//mqkJBsGkZU/IXqpHYwkVE4PVq3Unv
-         VjcQzuaXGQ1V4R335vY+alYrVpxW/cFloe+TeJ1lezT2dw2ocjL179eWKA1U7GT1m9fk
-         Nv07clYbcG75eERc4LWHMp1c2RSErOqACLdo3otEzqMjn9yweuOZqk29JJORlfiLGlpe
-         M6ng==
-X-Forwarded-Encrypted: i=1; AJvYcCV+8SNjdf5HA8sG4UQMZr9LumolxQdu3F+MmLH0E6IIQZMfzvNz2FeK1QUMPPy0JnLOa6XT0O1tVePvnw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3ndQaZctRR3e1wepr4GBMYD8H0pbXrWRBebK9vNvFIz0ieeN1
-	EZUa1uruo+2KnxRJX7vChPIU3n0VTtQiTSKFKB5zFKginafizwRhQ2wG
-X-Gm-Gg: ASbGnctA+fNigCntCG+XLhoXhRAvGfpU0nQzMFiKAxgFgfho5u5Uc0fVqys3l414SLp
-	wFRjqEiVX72PuJSXQ6TBtA1TUviZIYOZf7/0/0bJVQzwC+ybr0MGLrnvwzi1FfyDoWoWTfhuUQ0
-	F+IyAcx6Gnp1g5SBihxUb/iFX8kJhZCx15YP46S02IdmHATYB5MgMLsXl40+pZshAu3hfLejy6Z
-	lDtOxWQXUa6jPMvMSmU5ZsE7mc1bEV4MUl50UciOel76EZ3ZJVcMvBIYPP7SffErJPj9f25WRxs
-	Mi0QMSjJ8vc8z75w4dU9c1ENzeowidK5cRt94YzP1MfaFm+axbsPA2l28GeyZXsTsDvwRyRhv2n
-	hyJ1hKWTeovh+MO47IUkMT/KApPe5bqIAyZwNx2dkxM+1yjut6NwENuUu+KCRUwGmH4Uu0Q==
-X-Google-Smtp-Source: AGHT+IEldMEBa+Y+2+8e9BBmMa+iraf8wmEl/ZT2sdU4A9p2jyG2tZG76w7egCqyyaaevWjMOuPaow==
-X-Received: by 2002:a05:6512:3c9c:b0:595:9d6b:1175 with SMTP id 2adb3069b0e04-597d3f27914mr1982243e87.14.1764834919940;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9GoQPHU9Mpip9gR91Y3C4UfAkxVzcGqXTOlsYo71eKE=;
+        b=pUTw69yCBTMa4w5VBoUjpcH0xwMWBWZ7pT4qhgtQnjhp8/2pziGJnd1BKzYuzVfeUH
+         sRwZTbuXFjTkVF0pm1ySAm16yCX31bYwpbfs8jjR/JoVGTcWPAb2a1NoSL97OJQCcQTh
+         RAbiz/cb6OSdwZzW9DdQPI1ctsejtR9EzSaJqh0YpWIYLwba4odR8XBYxYfWntB3MWFd
+         uAnig6T6ARhetuPUOlKl7/diRZfJjDOyEUC4wEGLakZJSuF0kI9/749d//a6EXCdki/E
+         UzamYFF1Mj19lrl4P4LoCV2GtDx7XY50XK7ERIUuzxODYGuI6ZcL+sFwypnH7iYLKEJ7
+         lcCw==
+X-Forwarded-Encrypted: i=1; AJvYcCW3YWQcnwsU7OaPLYd6KR4ZKHN75VfaF5xgK7FRk/jN2Ibi+FRea2sPpw4DIC7maUDGUh2fbiqIXpKpUw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLox4oywp9aTH2Ou0uw/GlRB3HUXyIYI0zOm4Ep4cS0/AvRZvM
+	aUQJ0ASpuTiEo6m2NsI54k4BVtP5YHiL2/WQ/g1ftig8jOJkGu9sicWJ
+X-Gm-Gg: ASbGncu1x18iGqNRO1XCluFy+qSLZueapiuI2k0cImQSLhI1skz278T/8MnUFze29ih
+	PBdQf/FfK0YCUu4rjiA04G8uFlFQzPhs52Wdu3O/00zFGicIDGwY+npgYLeie4guZtXOZM0R7ZZ
+	Ph9wTTogc3ysgg0ut+OwJSsVT3gW+zjDrIUXCzB3OcLxlIN8qXYzdYhZh6ifc80jufQQUw/rkpK
+	pIICVUOdVKp4OnEYXNNRhwR2ZJSzpQFZ5qvgAW6xxjpbf3s1rH8e3xNKOWQK2dN/ounTCRMGHlC
+	ppsbVpj/04tq1t9QyeH9zMxDGlZKaIdoXrN8P+NR+HH/q59V8407Knk2LC3SXiIb5BAlLAW/xLm
+	exJf7N3MBsqk09sWb1Da6YaCmNdK7HonXj6kAXt0v23xAKIukv9ceb92Gwm2LD6HRnlUngA==
+X-Google-Smtp-Source: AGHT+IHbKKwv3Cd14fMbRlzVZpxoDoNXbiyghddISZDjVQeIjBR6wf7cZ5tNAwGCF94LJdZf6RcGDg==
+X-Received: by 2002:a05:6512:3f14:b0:594:27fb:e7f5 with SMTP id 2adb3069b0e04-597d3feb5f1mr1891895e87.42.1764834919370;
         Wed, 03 Dec 2025 23:55:19 -0800 (PST)
 Received: from minun.felixc.at ([2a01:4f9:6b:1cc4::2])
-        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-597d7c28019sm239190e87.69.2025.12.03.23.55.19
+        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-597d7c28019sm239190e87.69.2025.12.03.23.55.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Dec 2025 23:55:19 -0800 (PST)
+        Wed, 03 Dec 2025 23:55:18 -0800 (PST)
 From: Asuna Yang <spriteovo@gmail.com>
 X-Google-Original-From: Asuna Yang <SpriteOvO@gmail.com>
-Date: Thu, 04 Dec 2025 08:54:51 +0100
-Subject: [PATCH v5 1/4] rust: export BINDGEN_TARGET from a separate
- Makefile
+Subject: [PATCH v5 0/4] EDITME: RISC-V: re-enable gcc + rust builds
+Date: Thu, 04 Dec 2025 08:54:50 +0100
+Message-Id: <20251204-gcc-rust-v5-v5-0-2d4f20d86c24@gmail.com>
 MIME-Version: 1.0
-Message-Id: <20251204-gcc-rust-v5-v5-1-2d4f20d86c24@gmail.com>
-References: <20251204-gcc-rust-v5-v5-0-2d4f20d86c24@gmail.com>
-In-Reply-To: <20251204-gcc-rust-v5-v5-0-2d4f20d86c24@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAEo+MWkC/x3MTQqAIBBA4avIrBvwJzddJVqIjjYbCy0JwrsnL
+ b/Fey9UKkwVFvFCocaVjzxgJwF+dzkRchgGLbVVWs6YvMdy1wubReeip0BGkTMwirNQ5Oe/rVv
+ vH4A+U+BdAAAA
+X-Change-ID: 20251204-gcc-rust-v5-aafcede31ea3
 To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
  Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
  Gary Guo <gary@garyguo.net>, 
@@ -98,8 +98,9 @@ Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
  Asuna Yang <SpriteOvO@gmail.com>, Asuna Yang <spriteovo@gmail.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_235522_774202_6602AFA3 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20251203_235522_741224_C5BBAC57 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,82 +117,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Asuna Yang <spriteovo@gmail.com>
+Previous v4 patch:
+https://lore.kernel.org/rust-for-linux/20251124-gcc-rust-v4-v4-0-4e06e07421ae@gmail.com/T/#t
 
-A subsequent commit will add a new function `bindgen-option` to
-`scripts/Kconfig.include`. The bindgen backend requires the `--target`
-option for cross compiling, but variable `BINDGEN_TARGET` in
-`rust/Makefile` cannot be exported to `scripts/Kconfig.include`.
-
-Therefore, move this variable to a separate new `Makefile.rust` file and
-include it from `scripts/Makefile` to make the exported variable
-available for use in Kconfig. Place the include in the `need-compiler`
-branch to avoid including it in irrelevant make targets.
-
-Since the new file name is `Makefile.rust`, it matches an existing
-MAINTAINERS rule `scripts/*rust*`, so no modification to the MAINTAINERS
-file is needed.
+Compared to v4, this v5:
+- Placed `include Makefile.rust` under `ifdef need-compiler` branch. From my local testing, this did not cause any issues.
+- The Kconfig function now only tests backend flags and has been renamed to `bindgen-option`, without depending on environment variable. Added a comment explaining the meaning of "backend".
+- Improved the wording of commit messages and provided further details.
 
 Signed-off-by: Asuna Yang <SpriteOvO@gmail.com>
 ---
- Makefile              | 3 ++-
- rust/Makefile         | 8 --------
- scripts/Makefile.rust | 9 +++++++++
- 3 files changed, 11 insertions(+), 9 deletions(-)
+Asuna Yang (4):
+      rust: export BINDGEN_TARGET from a separate Makefile
+      rust: generate a fatal error if BINDGEN_TARGET is undefined
+      rust: add a Kconfig function to test for support of bindgen options
+      RISC-V: handle extension configs for bindgen, re-enable gcc + rust builds
 
-diff --git a/Makefile b/Makefile
-index e61f1300fea0..bdbf2025e68c 100644
---- a/Makefile
-+++ b/Makefile
-@@ -718,9 +718,10 @@ ifneq ($(findstring clang,$(CC_VERSION_TEXT)),)
- include $(srctree)/scripts/Makefile.clang
- endif
- 
-+ifdef need-compiler
-+include $(srctree)/scripts/Makefile.rust
- # Include this also for config targets because some architectures need
- # cc-cross-prefix to determine CROSS_COMPILE.
--ifdef need-compiler
- include $(srctree)/scripts/Makefile.compiler
- endif
- 
-diff --git a/rust/Makefile b/rust/Makefile
-index 5d357dce1704..2603b34f9833 100644
---- a/rust/Makefile
-+++ b/rust/Makefile
-@@ -385,14 +385,6 @@ bindgen_skip_c_flags := -mno-fp-ret-in-387 -mpreferred-stack-boundary=% \
- 	-fzero-init-padding-bits=% -mno-fdpic \
- 	--param=% --param asan-% -fno-isolate-erroneous-paths-dereference
- 
--# Derived from `scripts/Makefile.clang`.
--BINDGEN_TARGET_x86	:= x86_64-linux-gnu
--BINDGEN_TARGET_arm64	:= aarch64-linux-gnu
--BINDGEN_TARGET_arm	:= arm-linux-gnueabi
--BINDGEN_TARGET_loongarch	:= loongarch64-linux-gnusf
--BINDGEN_TARGET_um	:= $(BINDGEN_TARGET_$(SUBARCH))
--BINDGEN_TARGET		:= $(BINDGEN_TARGET_$(SRCARCH))
--
- # All warnings are inhibited since GCC builds are very experimental,
- # many GCC warnings are not supported by Clang, they may only appear in
- # some configurations, with new GCC versions, etc.
-diff --git a/scripts/Makefile.rust b/scripts/Makefile.rust
-new file mode 100644
-index 000000000000..5c12b4b8c8b6
---- /dev/null
-+++ b/scripts/Makefile.rust
-@@ -0,0 +1,9 @@
-+# Derived from `scripts/Makefile.clang`.
-+BINDGEN_TARGET_x86	:= x86_64-linux-gnu
-+BINDGEN_TARGET_arm64	:= aarch64-linux-gnu
-+BINDGEN_TARGET_arm	:= arm-linux-gnueabi
-+BINDGEN_TARGET_loongarch	:= loongarch64-linux-gnusf
-+BINDGEN_TARGET_um	:= $(BINDGEN_TARGET_$(SUBARCH))
-+BINDGEN_TARGET		:= $(BINDGEN_TARGET_$(SRCARCH))
-+
-+export BINDGEN_TARGET
+ Documentation/rust/arch-support.rst |  2 +-
+ Makefile                            |  3 ++-
+ arch/riscv/Kconfig                  | 35 ++++++++++++++++++++++++++++++++++-
+ rust/Makefile                       | 11 ++---------
+ scripts/Kconfig.include             |  5 +++++
+ scripts/Makefile.rust               | 14 ++++++++++++++
+ 6 files changed, 58 insertions(+), 12 deletions(-)
+---
+base-commit: 559e608c46553c107dbba19dae0854af7b219400
+change-id: 20251204-gcc-rust-v5-aafcede31ea3
 
+Best regards,
 -- 
-2.51.1
+Asuna Yang <SpriteOvO@gmail.com>
 
 
 _______________________________________________
