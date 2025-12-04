@@ -4,93 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C1CD1D87F
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 07:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED7C9D1D887
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 07:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=hi6J2mpog3tQ2Mc9boxwxcs/CPGUsVgFgBDEaqxHsYg=; b=ZbUGiuNKopglp80QUSWrrYkqEo
-	Ej1hLhfCvL8Vlgb5gp4YKGYZqGk1/2fkjLi8nDJykOfA0uaJDBl9zdqzaMfV7IotVmeI+oW+d6xCR
-	lZoikkqee+pYP8E0/HIf9E2dnTu3TbqKtsJWl/lkg9Qu4MJ0Nm+IkUc4NLiiM81uYsBMiUkbhMOnk
-	3eWGboomVQA7OPE3fw9XCAjYAqTn2V4zOnYRvVjpoL/KVlgs/jMzmQH3OT+bkSGr4ZL6Pz1kK7SPR
-	ZaYs/+YZZwcdHrUvAxCUwqJ/ND6lNin14K3sc52hybJBKMsgFbBUxZPuJCuhO59MaoqN51pvgxWIc
-	Il1USbRA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0wlkVRPhFRpojhgddjPvQCAoah4NIKMj+Ev159uGwa4=; b=bkkGSdaCgmFwbV
+	rt0JBZ1PBQ4qAwq7zuxLBxOK9jx8Ra3cEcjv6hMsEIdE0mxUc5a64BMqjSI+KrHniFCZQomZ8fF3F
+	yumNsmkkloqQOoTqdPCLEdEuJjplVHCOO/5f0nwV2vS9pz6ewrjmLxSnWZzoSp9L6JcG6lypIN38j
+	Fljb5SNXyMLT5ISHs7AwAR3bvZ5B5yhWBWulpuruIuPFBaOgpQWXtndJJhNAfMREh/NXDKEM3AUB+
+	DW8NjHmyCLGKjg+eXg3veYeV1RSAOIVETENOMtIj/ili2yPFjRXpxP6OwZ/V+9fMgKOUhiBh/Q+6I
+	qxfR2cAm9zNle2CVoONQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR3gM-00000007bul-1kSB;
-	Thu, 04 Dec 2025 07:23:18 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1vR4BS-00000007dN7-0pkG;
+	Thu, 04 Dec 2025 07:55:26 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR3gJ-00000007bu0-46Hb
+	id 1vR4BP-00000007dL7-2GLa
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Dec 2025 07:23:17 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-42e2d44c727so294499f8f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Dec 2025 23:23:15 -0800 (PST)
+	Thu, 04 Dec 2025 07:55:24 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-59578e38613so600385e87.2
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Dec 2025 23:55:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1764832994; x=1765437794; darn=lists.infradead.org;
-        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=okWEC/iPxwHapBCL3ZZGyYvTBzssGUbkrGoBgDrV58Y=;
-        b=bCnSaiehozvQkiVhRSJruYMHWBGZQNE57drE+oxtLnoBBpLmQ9AkLBFRIfTHnjRuYm
-         Uzh6PSp64iVF7suhKojaAAL6hmP+pHl7mzxj15HA1AK34lsfI+YalVbpV0I02DXWwGrn
-         TddNLfGIY3WXhDAj3hnYRHOcwhGAYEykhgFlfIparykByaaOSYSqK2LxVGFLrvLV7gES
-         /WbZIat/tkbb+bghAVrtnoS1OG/+yr20UPZNmZ9y6KSxZHxZULYNoqhfyswwEtTcWgDR
-         iLjS8shH4PbLAAWgpiGUs37+Zh+CQ3X4Vp7FV2ejlgUqim8a71z1xwaU+uJXFw2NOpXm
-         7FbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764832994; x=1765437794;
-        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1764834921; x=1765439721; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=okWEC/iPxwHapBCL3ZZGyYvTBzssGUbkrGoBgDrV58Y=;
-        b=uqOSbWx581Bs9fGvbaHXZOsii0sgG9gOkyakXwIxSlKddLANhLtfr/FXjg/a7dV4QK
-         IE7SywMUmsQA7RaCEwqhdNGl/xZ4wDOmKG52uYzD8N8wyyt0YmVH8pRFCG6WI+JJfA9E
-         zWNx6q8dfT/kCLMPTQ5DaVq+5HQInDmD1fcxJLQVRBavKdg8RV7irxeTI/MDrxKLbx9p
-         AxaMVmblKZB7ck+dA8XyEkcbHi+iRtqeoczuwjC/5kF+vH5PH2YrYbgcbIOrMUGVVWOD
-         D8jSe447wikfZP4HEYk6oHPkNCcXO11qhhwKCcV6SiUJHea8A7FHuJbiFljoGMcLrTHd
-         kVJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVS+L2Km9syFUTJYI2VWDTGheqexmfdYJVx9dglp89FS64AXcmgOEuRk1Tqyyt8B/T8h2s6yMQ1STaqVA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL88eDkDSb205NB26xj2nHWtf+JrjAWpBgqOgePmcSoiyyMDmp
-	XWi2t3O9nPMnSDvBBMnHsToHUFSIDAg2Q8mhjlJMCnHCUEftf3v8cJIEUa1VlinEdCa2nK8AwgM
-	WycqpLDmOhGWGxXTZt3PeCxvFi90EeXWSMhM/QFDX/A==
-X-Gm-Gg: ASbGncv3WwdmMS4bE/JE3bH7aAd1r9KCZfVXHu0aKANQtsyujM4UkH27hIJ7bzZpQdH
-	bREAKnDISe/az0R3/eQKgik6VhbxB/18vWh95tPtL7mTWyy3aViq2Qr3V83NyNDnH4swkpNps8/
-	pkEGJtr6J3InwjdyFTqoNxgxjG+ThMaFgI7inrcjZEWJ/94A8ZFBvjU+UDHHtAMcevHhWY+nR9M
-	f7zIVSaOg5xlLM0mYloGjoSNHWxBgUIUHIgaq4ltxNKclSzkqUQPsc7lMeHVz4KrNeS8ii+8g==
-X-Google-Smtp-Source: AGHT+IFaKGk1a1cfaFCq3oEJHjtRMI9goTFpitEtb54cbEHZjPz6jL2+k2TkdRXspbNqqeM3uYcrqB70IssR3M+MU1k=
-X-Received: by 2002:a05:6000:4012:b0:42b:3701:c4c6 with SMTP id
- ffacd0b85a97d-42f731eb4d1mr4801776f8f.38.1764832993790; Wed, 03 Dec 2025
- 23:23:13 -0800 (PST)
+        bh=l5CWhh0bivbAxLbPHjrdPNLbMwbFtGK6KhcOChIXS0I=;
+        b=eLslI91JSgBftDPS0xMqgiXy30tUZRIjxhhe8AHMGGIuXzgygwWM5IbfEE7NED0yQZ
+         k/hqd2Z5o5QHk7CkNiACIiIJf5V2sDepefzpxf9398Hl5up0Wc0sNC5Dn95qCd+a4B7i
+         D40p/RAiiPXLAFN0CCveefE3suLMgkOtVm99k2rl74Rb85Zc8J9Jxu7jntBmd9392pgG
+         x4f7Q9cTyDfZ1RATBA6pjiElZ/D4tAEpiBNnPOonxGsb4ULm7+m+m7K4RNNN13LA6KCN
+         v6eq2sQyuJyfR9A+3vNOc6xjQFuKpvS6OjA+s+RsrIJKaDBJzqAmLhDGkUYlSPP8uUev
+         CJKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764834921; x=1765439721;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=l5CWhh0bivbAxLbPHjrdPNLbMwbFtGK6KhcOChIXS0I=;
+        b=gKR1YurxadTVCifJcsxPDQ0eRRvPaqcD2my0MKDujByANNJZzgPKgcGABlvQdcFyaO
+         +fdAywu4SiVXMP922B/BXG59YFbHiwh7vIfKbIkQi9/E59OqSO16iWJv6MbUG4QBbKjP
+         +j8/cfvm8CHlRhbpspG4eOtttRJhTdZqfyxbdSwJ9uwrUDD+Whw9Q0T+GD78WnYP+YC0
+         BRxOTYwEMnlnlKlmxxtWpQxIJt7/reqTdvZyYwILRnei6mI5Yu2SqYoidziOL3BNWiQA
+         6P3AQVfsAeq/3+SOpehHCbuxfruv6fOJcb8VJ0+bYaHuVQArjI3ThApqduKmDMrrqLPj
+         tsZg==
+X-Forwarded-Encrypted: i=1; AJvYcCX0ImoWKsmJFiMTOVt9Hc3lhUMv6zI57/RkDgjppSNH3IRScNjZCfG0aofcWWM2iC3GcPGo+WTXzUooAQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2gSaH10ZS0R/LTt+IcVuw+2Uhg6kaqo1xDk1UojHNoZtLYWhb
+	KMPNjbdING2uzDBhvoZTAYbk6TgUa8Py8kBwMRLvNyXf9vx7vpe8JCmg
+X-Gm-Gg: ASbGncubV5TrY6MKU9ssBbbzvgInrVGIAYV3GYb2myzY3C0Rw4GzuqplSsVMsoqSzNU
+	nFtZklHKhTYwrm1HRcpFYzxVs1mPJ/qfPqe0gLIgF/j9EUe2PIwalClMzOMyPwyKDWi0yKhCApk
+	a7/jjHLffHpf0K0+KvPe85k+3V4xxhnNqgamkgzgxNXjZyeLmt3sHMJifqLmUKo+oosISGZCkHm
+	j2dwl+rymMGmB32o85peYMiHTTfIFNtOpAjXlUtAHCxeEhDLmALyRRLPvE/tcPMllpqbEBtvK7a
+	b69Lg6bIcEgGXR+n74KkaHizVbx+Vh9Kuxqbn3ChgnBcdCe0pW1KdMJH9+ViRS8QbwlM8NecZcx
+	CMHH1NWAwzIUHKbwE3jdzhQCgfQ8lNqcS7tMuJHonivhoMyqt1kLbkDkf80tV0sCv2pIJwQ==
+X-Google-Smtp-Source: AGHT+IHtNtKovriM8w2pLkDHwyMQApqeD8GW60UnConeyFy7gFY99L8zBySpoiS8naABTGPgdJC9Sw==
+X-Received: by 2002:a05:6512:159b:b0:592:f521:188a with SMTP id 2adb3069b0e04-597d6709d9emr571551e87.49.1764834921103;
+        Wed, 03 Dec 2025 23:55:21 -0800 (PST)
+Received: from minun.felixc.at ([2a01:4f9:6b:1cc4::2])
+        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-597d7c28019sm239190e87.69.2025.12.03.23.55.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Dec 2025 23:55:20 -0800 (PST)
+From: Asuna Yang <spriteovo@gmail.com>
+X-Google-Original-From: Asuna Yang <SpriteOvO@gmail.com>
+Date: Thu, 04 Dec 2025 08:54:53 +0100
+Subject: [PATCH v5 3/4] rust: add a Kconfig function to test for support of
+ bindgen options
 MIME-Version: 1.0
-References: <20250523-b4-ctr_upstream_v3-v3-0-ad355304ba1c@rivosinc.com>
- <20250523-b4-ctr_upstream_v3-v3-6-ad355304ba1c@rivosinc.com>
- <CAPqJEFr=3Re=L0CmEpCRHxovB74MDB9C8neNMfouYvWWbR0hyw@mail.gmail.com> <CAJh9TSJk0nZvqJrvTe5ENMpAB=56--+CFai0tXQnYFakKxQxQw@mail.gmail.com>
-In-Reply-To: <CAJh9TSJk0nZvqJrvTe5ENMpAB=56--+CFai0tXQnYFakKxQxQw@mail.gmail.com>
-From: Jimmy Ho <jimmy.ho@sifive.com>
-Date: Thu, 4 Dec 2025 15:23:02 +0800
-X-Gm-Features: AWmQ_bmUiiW9pn488x-Fr8fuYuHfeGljg_pilmkGRtBxdEqZhbPqlS98C4-BBjg
-Message-ID: <CAJh9TS+MM+4ytsQ4tOhddNihvTrRMwV0rFRmMv1xRQTGcE18Dw@mail.gmail.com>
-Subject: Re: [PATCH v3 6/7] riscv: pmu: Integrate CTR Ext support in
- riscv_pmu_dev driver
-To: Peter Zijlstra <peterz@infradead.org>, mingo@redhat.com, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, mark.rutland@arm.com, 
-	alexander.shishkin@linux.intel.com, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, adrian.hunter@intel.com, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, 
-	Alexandre Ghiti <alex@ghiti.fr>, Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
-	Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>, Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Beeman Strong <beeman@rivosinc.com>, 
-	"Cc:" <linux-perf-users@vger.kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	palmer@sifive.com, Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
-	Rajnesh Kanwal <rkanwal@rivosinc.com>
+Message-Id: <20251204-gcc-rust-v5-v5-3-2d4f20d86c24@gmail.com>
+References: <20251204-gcc-rust-v5-v5-0-2d4f20d86c24@gmail.com>
+In-Reply-To: <20251204-gcc-rust-v5-v5-0-2d4f20d86c24@gmail.com>
+To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Jonathan Corbet <corbet@lwn.net>, Jason Montleon <jmontleo@redhat.com>, 
+ Han Gao <rabenda.cn@gmail.com>, Conor Dooley <conor@kernel.org>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ rust-for-linux@vger.kernel.org, llvm@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
+ Asuna Yang <SpriteOvO@gmail.com>, Asuna Yang <spriteovo@gmail.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_232316_092700_FD7B2ACA 
-X-CRM114-Status: GOOD (  29.05  )
+X-CRM114-CacheID: sfid-20251203_235523_621184_1D4CFA19 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,236 +117,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Rajnesh,
+From: Asuna Yang <spriteovo@gmail.com>
 
-> This integrates recently added CTR ext support in riscv_pmu_dev driver
-> to enable branch stack sampling using PMU events.
->
-> This mainly adds CTR enable/disable callbacks in rvpmu_ctr_stop()
-> and rvpmu_ctr_start() function to start/stop branch recording along
-> with the event.
->
-> PMU overflow handler rvpmu_ovf_handler() is also updated to sample
-> CTR entries in case of the overflow for the particular event programmed
-> to records branches. The recorded entries are fed to core perf for
-> further processing.
->
-> Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
-> ---
->  drivers/perf/riscv_pmu_common.c |  3 +-
->  drivers/perf/riscv_pmu_dev.c    | 67 ++++++++++++++++++++++++++++++++++++++++-
->  2 files changed, 67 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/perf/riscv_pmu_common.c b/drivers/perf/riscv_pmu_common.c
-> index b2dc78cbbb93926964f81f30be9ef4a1c02501df..0b032b8d8762e77d2b553643b0f9064e7c789cfe
-> 100644
-> --- a/drivers/perf/riscv_pmu_common.c
-> +++ b/drivers/perf/riscv_pmu_common.c
-> @@ -329,8 +329,7 @@ static int riscv_pmu_event_init(struct perf_event *event)
->         u64 event_config = 0;
->         uint64_t cmask;
->
-> -       /* driver does not support branch stack sampling */
-> -       if (has_branch_stack(event))
-> +       if (needs_branch_stack(event) && !riscv_pmu_ctr_supported(rvpmu))
->                 return -EOPNOTSUPP;
->
->         hwc->flags = 0;
-> diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-> index 95e6dd272db69f53b679e5fc3450785e45d5e8b9..b0c616fb939fcc61f7493877a8801916069f16f7
-> 100644
-> --- a/drivers/perf/riscv_pmu_dev.c
-> +++ b/drivers/perf/riscv_pmu_dev.c
-> @@ -1038,7 +1038,7 @@ static void rvpmu_sbi_ctr_stop(struct perf_event
-> *event, unsigned long flag)
->  static void pmu_sched_task(struct perf_event_pmu_context *pmu_ctx,
->                            bool sched_in)
->  {
-> -       /* Call CTR specific Sched hook. */
-> +       riscv_pmu_ctr_sched_task(pmu_ctx, sched_in);
->  }
->
->  static int rvpmu_sbi_find_num_ctrs(void)
-> @@ -1370,6 +1370,13 @@ static irqreturn_t rvpmu_ovf_handler(int irq, void *dev)
->                 hw_evt->state |= PERF_HES_UPTODATE;
->                 perf_sample_data_init(&data, 0, hw_evt->last_period);
->                 if (riscv_pmu_event_set_period(event)) {
-> +                       if (needs_branch_stack(event)) {
-> +                               riscv_pmu_ctr_consume(cpu_hw_evt, event);
-> +                               perf_sample_save_brstack(
-> +                                       &data, event,
-> +
-> &cpu_hw_evt->branches->branch_stack, NULL);
-> +                       }
-> +
->                         /*
->                          * Unlike other ISAs, RISC-V don't have to
-> disable interrupts
->                          * to avoid throttling here. As per the
-> specification, the
-> @@ -1569,16 +1576,23 @@ static int rvpmu_deleg_ctr_get_idx(struct
-> perf_event *event)
->
->  static void rvpmu_ctr_add(struct perf_event *event, int flags)
->  {
-> +       if (needs_branch_stack(event))
-> +               riscv_pmu_ctr_add(event);
->  }
->
->  static void rvpmu_ctr_del(struct perf_event *event, int flags)
->  {
-> +       if (needs_branch_stack(event))
-> +               riscv_pmu_ctr_del(event);
->  }
->
->  static void rvpmu_ctr_start(struct perf_event *event, u64 ival)
->  {
->         struct hw_perf_event *hwc = &event->hw;
->
-> +       if (needs_branch_stack(event))
-> +               riscv_pmu_ctr_enable(event);
-> +
->         if (riscv_pmu_cdeleg_available() && !pmu_sbi_is_fw_event(event))
->                 rvpmu_deleg_ctr_start(event, ival);
->         else
-> @@ -1593,6 +1607,9 @@ static void rvpmu_ctr_stop(struct perf_event
-> *event, unsigned long flag)
->  {
->         struct hw_perf_event *hwc = &event->hw;
->
-> +       if (needs_branch_stack(event) && flag != RISCV_PMU_STOP_FLAG_RESET)
-> +               riscv_pmu_ctr_disable(event);
-> +
->         if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
->             (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
->                 rvpmu_reset_scounteren((void *)event);
-> @@ -1650,6 +1667,9 @@ static u32 rvpmu_find_ctrs(void)
->
->  static int rvpmu_event_map(struct perf_event *event, u64 *econfig)
->  {
-> +       if (needs_branch_stack(event) && !riscv_pmu_ctr_valid(event))
-> +               return -EOPNOTSUPP;
-> +
->         if (riscv_pmu_cdeleg_available() && !pmu_sbi_is_fw_event(event))
->                 return rvpmu_cdeleg_event_map(event, econfig);
->         else
-> @@ -1696,6 +1716,8 @@ static int rvpmu_starting_cpu(unsigned int cpu,
-> struct hlist_node *node)
->                 enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
->         }
->
-> +       riscv_pmu_ctr_starting_cpu();
-> +
->         if (sbi_pmu_snapshot_available())
->                 return pmu_sbi_snapshot_setup(pmu, cpu);
->
-> @@ -1710,6 +1732,7 @@ static int rvpmu_dying_cpu(unsigned int cpu,
-> struct hlist_node *node)
->
->         /* Disable all counters access for user mode now */
->         csr_write(CSR_SCOUNTEREN, 0x0);
-> +       riscv_pmu_ctr_dying_cpu();
->
->         if (sbi_pmu_snapshot_available())
->                 return pmu_sbi_snapshot_disable();
-> @@ -1833,6 +1856,29 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
->         cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
->  }
->
-> +static int branch_records_alloc(struct riscv_pmu *pmu)
-> +{
-> +       struct branch_records __percpu *tmp_alloc_ptr;
-> +       struct branch_records *records;
-> +       struct cpu_hw_events *events;
-> +       int cpu;
-> +
-> +       if (!riscv_pmu_ctr_supported(pmu))
-> +               return 0;
-> +
-> +       tmp_alloc_ptr = alloc_percpu_gfp(struct branch_records, GFP_KERNEL);
-> +       if (!tmp_alloc_ptr)
-> +               return -ENOMEM;
-> +
-> +       for_each_possible_cpu(cpu) {
-> +               events = per_cpu_ptr(pmu->hw_events, cpu);
-> +               records = per_cpu_ptr(tmp_alloc_ptr, cpu);
-> +               events->branches = records;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
->  static void rvpmu_event_init(struct perf_event *event)
->  {
->         /*
-> @@ -1845,6 +1891,9 @@ static void rvpmu_event_init(struct perf_event *event)
->                 event->hw.flags |= PERF_EVENT_FLAG_USER_ACCESS;
->         else
->                 event->hw.flags |= PERF_EVENT_FLAG_LEGACY;
-> +
-> +       if (branch_sample_call_stack(event))
-> +               event->attach_state |= PERF_ATTACH_TASK_DATA;
->  }
->
->  static void rvpmu_event_mapped(struct perf_event *event, struct mm_struct *mm)
-> @@ -1992,6 +2041,15 @@ static int rvpmu_device_probe(struct
-> platform_device *pdev)
->                 pmu->pmu.attr_groups = riscv_cdeleg_pmu_attr_groups;
->         else
->                 pmu->pmu.attr_groups = riscv_sbi_pmu_attr_groups;
-> +
-> +       ret = riscv_pmu_ctr_init(pmu);
-> +       if (ret)
-> +               goto out_free;
-> +
-> +       ret = branch_records_alloc(pmu);
-> +       if (ret)
-> +               goto out_ctr_finish;
-> +
->         pmu->cmask = cmask;
->         pmu->ctr_add = rvpmu_ctr_add;
->         pmu->ctr_del = rvpmu_ctr_del;
-> @@ -2008,6 +2066,10 @@ static int rvpmu_device_probe(struct
-> platform_device *pdev)
->         pmu->csr_index = rvpmu_csr_index;
->         pmu->sched_task = pmu_sched_task;
->
-> +       ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING,
-> &pmu->node);
-> +       if (ret)
-> +               goto out_ctr_finish;
+Add a new `bindgen-backend-option` Kconfig function to test whether the
+bindgen backend supports a given flag.
 
-This hotplug registration should be removed, since there is already
-one in the original code.
-Otherwise, It will cause the CPU hotplug down to loop infinitely.
+A subsequent commit will use this function to test for RISC-V extension
+flags.
 
-Best regards,
-Jimmy Ho
+Signed-off-by: Asuna Yang <SpriteOvO@gmail.com>
+---
+ scripts/Kconfig.include | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-> +
->         ret = riscv_pm_pmu_register(pmu);
->         if (ret)
->                 goto out_unregister;
-> @@ -2057,6 +2119,9 @@ static int rvpmu_device_probe(struct
-> platform_device *pdev)
->  out_unregister:
->         riscv_pmu_destroy(pmu);
->
-> +out_ctr_finish:
-> +       riscv_pmu_ctr_finish(pmu);
-> +
->  out_free:
->         kfree(pmu);
->         return ret;
->
-> --
-> 2.43.0
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+index d42042b6c9e2..5d4d29eed0b3 100644
+--- a/scripts/Kconfig.include
++++ b/scripts/Kconfig.include
+@@ -78,3 +78,8 @@ rustc-llvm-version := $(shell,$(srctree)/scripts/rustc-llvm-version.sh $(RUSTC))
+ # If you are testing for unstable features, consider testing RUSTC_VERSION
+ # instead, as features may have different completeness while available.
+ rustc-option = $(success,trap "rm -rf .tmp_$$" EXIT; mkdir .tmp_$$; $(RUSTC) $(1) --crate-type=rlib /dev/null --out-dir=.tmp_$$ -o .tmp_$$/tmp.rlib)
++
++# $(bindgen-backend-option,<flag>)
++# Return y if bindgen backend supports <flag>, n otherwise
++# For now, the backend refers only to libclang, so more specifically, this function tests whether the given flag is recognized by the libclang used by bindgen.
++bindgen-backend-option = $(success,trap "rm -f .tmp_$$.h" EXIT; touch .tmp_$$.h; $(BINDGEN) .tmp_$$.h -- --target=$(BINDGEN_TARGET) $(1))
+
+-- 
+2.51.1
+
 
 _______________________________________________
 linux-riscv mailing list
