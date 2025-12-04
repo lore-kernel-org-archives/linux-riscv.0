@@ -4,102 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49EAD1D892
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 08:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC43D1D89D
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 09:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:MIME-Version:
-	Date:Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vYd5bdwzatGru2OC+6Mlf9LHeH4/vv7ovqS2b6z+rbg=; b=JTFSQclEYsjGK2nQr4PyJEh9f2
-	bb3xZ3iCcvGpHjhTS1iPTadpBBB5GlWqZNt7hu+bBjkuokWy/JxXpASR16myCG67h1t6FkAOgX9d9
-	GcGzgkf25UKw/mu1pEAlicW8VsoAPtQCV8rAj3FpW16Mw4WzMOupc3e3gTZexX5X8WmVymGZL+6WK
-	Qjl7uXdECnVRH30n/E4VklixMu5Up/mEv6IZKJw3Oc2+7XLY4Nnbr0wjMaDR+pCe4HW7TQVCelnQU
-	jWKM8WYXNWG3r754u4nJ6XLEGTsWB/ozIq/H8EjKXC+9DfRwSyDyD+YUrOMXUBEbP8zxvBnhz7Gvd
-	rmIQaCuw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xNBlY8CX+MzE55aKksUcfS1NCuMPtwm1M2RGh8MGzAA=; b=nZFyC0ReNGHScW
+	VzKVEmE0m7z/krQ8Nrjt+Sp0c7yJmC932Mc7RLU10tEqWcPs+zcN9bufoz7olz0nlAQaRRGQxfBL0
+	jv4g0DRqrwVZvpkZO+B+RYImcqs9J/j2/e1IpL1AqyQJtEBH30uXVJLSOgW2Kc+QEU1lXKiZExxTk
+	jx74PnoRvB0HPujtgyhGMZDTVb7VGy0lAudfHV1L24qD2GwzE6wVieEhu9YLeC1lgww2TI4RDy/TO
+	ObFBgTGXWMFEZiOKbb3mlZ66Lw/WRsPv+TRRSsb9mlV55AK1tIrCh81P40ghDMvVzpoNZ+/9YwS9K
+	fmhw9EYBJYEn3ImShOdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR4fi-00000007hmr-1JA1;
-	Thu, 04 Dec 2025 08:26:42 +0000
-Received: from mail-yx1-xb12b.google.com ([2607:f8b0:4864:20::b12b])
+	id 1vR5ID-00000007jbR-0m8o;
+	Thu, 04 Dec 2025 09:06:29 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR4ff-00000007hmY-3LLC
+	id 1vR5I9-00000007jai-2Kpt
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Dec 2025 08:26:40 +0000
-Received: by mail-yx1-xb12b.google.com with SMTP id 956f58d0204a3-63fc72db706so523893d50.2
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Dec 2025 00:26:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764836798; x=1765441598; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=VEV9l3fSrsq44TPrk2Pd9zy/qdoP+RNvY5XPGpJtMhE=;
-        b=E26R9ABXyaJ7FZmsCj1JSE+V9/aAR7uAzjmrvligs4C3pG3tjv5G37J2DsIiA091ye
-         oHQUT706nm+rVuwBC5kC8CVyAdegqieCUJm+BDsje9qS8fUKektDrrVExBSai44MmFr+
-         SCO73FkBBXM3xwGSbxCB2uJFKUydtry8kN7sUMN6KdazpW/8Xet3eOQSlXQKbZdwDC+G
-         R0Xzxcs3QgZWrT4ZYMJOj+XSey1ZLxWnxJUOTEJ/XqpQAbaM8PfZidugeeHo5XMFExCa
-         7ACzTbR0aTpqreUpPWdb8ttVPTH5YgS9vXFHI3BG3BFAKi36eIT3b4UqPya2KIs2EuKp
-         X4mA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764836798; x=1765441598;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VEV9l3fSrsq44TPrk2Pd9zy/qdoP+RNvY5XPGpJtMhE=;
-        b=Qu6HSS/QkC8xzYf7ZcrSfJt+XVDiBbPygiesmNcsC4Q0RVekdrdjqKDdHf8o3CYmee
-         dq9/RSDC098SXOSyOyOs3G3hwvdWl/QuqrzZIoIArp4QlV2zW65kK4XwffEossK+Wa5/
-         TDiSB5fsSAFobcQtrWNpYtzgl722c160iS8F1vvKSywxiIzqhqvY/zFsdoPFH9v94Prp
-         qOWDhCT12i/A9nN9RXeldKYIkCgWEPMQzXIx8v7ZVoyC1wCPipDkgzqdmsR/bS8SPBXL
-         zs+hSKzYTNqK+2ejK9PcS07qDSr8RfbPwRhs+UEfjWDQ/FSzS6zrQ8UBHjX+pCPieRUN
-         53mw==
-X-Forwarded-Encrypted: i=1; AJvYcCWiW3yFjgGj6174T+RYWwDGlf8LcVkD7qkxg38bg9mkjctKIeo0STIdPdyx4da1USAz7jWEqWnDVXyoiw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDVWrqj/lWPgIx8Hx1CNkX4Rr5lPOoT5skw6hqxyRoG1y2IJsT
-	U18sAlRe1i4mwgELlB/w+RIAoR7UIMAJSVRD7dhzbsYlM1eIdrTjhkMb
-X-Gm-Gg: ASbGncuXqgxrg77YQsAnTOjl5fINPW+IUffjaI6z1ycbN6wHblA6HKqH4lcKDie1HQj
-	oYlt3yg+aJyfBEUSmB2iMNkpB2Mnpyw3xWZC4GK5Z7DpUF/aaf7xXw3hcxuDcRvrTWzevjdjJzG
-	/btUFYcUlNMxQcsLiuCM1aj40A75qZpbeEfwdV1BzWwLjYhN94dY2n+DXcZoxygaycnFT9MQ7ZG
-	SD5Mj10qR/vYvnfXEWrUPe47sCU03CwtDiD25c+4mIyo+5sy6/FjTZxF+Cz0cGvelv9XhHV4+Xz
-	3INe8bgMoZLEC2RlZbya1zvfTmnPaoWZELdeobRiHDyf/94JAV2KBEAVfHFtfj+L03n9N5LdfPn
-	Z/4TrfTvurwr0pUUMrfccW8C+MRrXUFpsKzwPYg9XCAIP3yzIcSH665nttWYz6xV6Kc16ymIYEK
-	0pDO1S5YqTAsV3DPXgJP8Mg7+y0WMpuym1a5dRAvoS
-X-Google-Smtp-Source: AGHT+IEToPXaJNU3FPitOhzv7XRD5fMJv3RarJ69HwAUtDs8DEKyQvLYwMwVPCfHblHOk8hTaaSfgg==
-X-Received: by 2002:a05:690c:6f06:b0:788:e1b:5ec5 with SMTP id 00721157ae682-78c18956f0emr15033157b3.70.1764836798216;
-        Thu, 04 Dec 2025 00:26:38 -0800 (PST)
-Received: from [192.168.1.209] (89.208.240.37.16clouds.com. [89.208.240.37])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-78c1b4ae534sm3349687b3.3.2025.12.04.00.26.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Dec 2025 00:26:37 -0800 (PST)
-From: Asuna Yang <spriteovo@gmail.com>
-X-Google-Original-From: Asuna Yang <SpriteOvO@gmail.com>
-Message-ID: <74cf3591-fe3d-4005-a5af-269e4c806d9f@gmail.com>
-Date: Thu, 4 Dec 2025 16:26:28 +0800
+	Thu, 04 Dec 2025 09:06:28 +0000
+Received: from [192.168.0.107] (unknown [114.241.82.59])
+	by APP-01 (Coremail) with SMTP id qwCowAAnwdD+TjFpm+0MAw--.960S2;
+	Thu, 04 Dec 2025 17:06:06 +0800 (CST)
+Message-ID: <1a6bb8cd-cc08-458f-a6f6-cdfefd327320@iscas.ac.cn>
+Date: Thu, 4 Dec 2025 17:06:05 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/4] EDITME: RISC-V: re-enable gcc + rust builds
-To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
+Subject: Re: [PATCH v5 3/4] rust: add a Kconfig function to test for support
+ of bindgen options
+To: Asuna Yang <spriteovo@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+ =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+ Danilo Krummrich <dakr@kernel.org>,
  Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
  Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
  Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
  Jonathan Corbet <corbet@lwn.net>, Jason Montleon <jmontleo@redhat.com>,
- Han Gao <rabenda.cn@gmail.com>, Conor Dooley <conor@kernel.org>,
- Vivian Wang <wangruikang@iscas.ac.cn>
+ Han Gao <rabenda.cn@gmail.com>, Conor Dooley <conor@kernel.org>
 Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
  rust-for-linux@vger.kernel.org, llvm@lists.linux.dev,
  linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org
 References: <20251204-gcc-rust-v5-v5-0-2d4f20d86c24@gmail.com>
+ <20251204-gcc-rust-v5-v5-3-2d4f20d86c24@gmail.com>
 Content-Language: en-US
-In-Reply-To: <20251204-gcc-rust-v5-v5-0-2d4f20d86c24@gmail.com>
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20251204-gcc-rust-v5-v5-3-2d4f20d86c24@gmail.com>
+X-CM-TRANSID: qwCowAAnwdD+TjFpm+0MAw--.960S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZrWUWr4rtFWrCry7tw1fJFb_yoW8Xw1fpr
+	yvkF1q9rW8J3W8Aw17CFW0qF13ua1xtrWfW34kt347JrW7Xw40gaySkr47try8CFWv9ry2
+	vF4F9as09F4UCw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxUVhL0UUUUU
+X-Originating-IP: [114.241.82.59]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_002639_841668_1F10E465 
-X-CRM114-Status: UNSURE (   4.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251204_010625_965021_E16A42A2 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,13 +90,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Please ignore the "EDITME" in the title, I forgot to remove it from `b4 
---edit-cover`.
+
+On 12/4/25 15:54, Asuna Yang wrote:
+> From: Asuna Yang <spriteovo@gmail.com>
+>
+> Add a new `bindgen-backend-option` Kconfig function to test whether the
+> bindgen backend supports a given flag.
+>
+> A subsequent commit will use this function to test for RISC-V extension
+> flags.
+>
+> Signed-off-by: Asuna Yang <SpriteOvO@gmail.com>
+> ---
+>  scripts/Kconfig.include | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+> index d42042b6c9e2..5d4d29eed0b3 100644
+> --- a/scripts/Kconfig.include
+> +++ b/scripts/Kconfig.include
+> @@ -78,3 +78,8 @@ rustc-llvm-version := $(shell,$(srctree)/scripts/rustc-llvm-version.sh $(RUSTC))
+>  # If you are testing for unstable features, consider testing RUSTC_VERSION
+>  # instead, as features may have different completeness while available.
+>  rustc-option = $(success,trap "rm -rf .tmp_$$" EXIT; mkdir .tmp_$$; $(RUSTC) $(1) --crate-type=rlib /dev/null --out-dir=.tmp_$$ -o .tmp_$$/tmp.rlib)
+> +
+> +# $(bindgen-backend-option,<flag>)
+> +# Return y if bindgen backend supports <flag>, n otherwise
+> +# For now, the backend refers only to libclang, so more specifically, this function tests whether the given flag is recognized by the libclang used by bindgen.
+> +bindgen-backend-option = $(success,trap "rm -f .tmp_$$.h" EXIT; touch .tmp_$$.h; $(BINDGEN) .tmp_$$.h -- --target=$(BINDGEN_TARGET) $(1))
+>
+Can probably be simplified down to:
+
+$(BINDGEN) /dev/null -- -x c --target=$(BINDGEN_TARGET) $(1)
+
 
 _______________________________________________
 linux-riscv mailing list
