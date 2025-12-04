@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6193ED2A524
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 20:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E34D29FB2
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 20:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ulzxxIOrRM41DXxDG71PiKcn1kz7l7JpGzJbBsIyENg=; b=QIhnE8/Zv5wQV0
-	panpxOuH2hCjtCEygdwS3USezKobEnEIGxme+7+rn22EENaM8JIkhywt/5Rmcy+jrlkAPnWdvKc+w
-	FMJBJ/5mrSCvYbiqgvqZR0XnN52DCjvUwNogWBi/SzkTolozFFiYR6OIFVHY/TwNH0t/mRuKUKGyq
-	l3lgLQeP2gHZSebCPQtgJ6Z/bTZNhpaVM44jC5yiG6jd/Bkls4hog/He560IyHcJvcfqvdbeH8fHD
-	fxgDOnS4ZqeJTleUSNE39qyE01tkVwsX2waKieC/L195BVrf1HyE6YJE21GXs1loGIii4ukVsOu7X
-	lzZY28BPpmP5nJ/zd+Mg==;
+	List-Owner; bh=BO9ctQJgHmufL8x2iogfeHxduXrhGlNfEmLz9YCnS6A=; b=TbZX/us2cZCfl3
+	J/NeRWjjXKGn1+EuB7w9OJPeSe5Rr4mULR6WzH+UL1xLIBSl+cCYunwLxX5IYIEGKgIwhdGuAspcr
+	SPZFlXDF0RBxAi4DHAURgBJZok20tAlJCNh/ezX8uYDdw+Y0id6JspN0M0lxYN808yRoh3JL5kium
+	8AB39hxHeI+5RoGV8WVeRILtSHaCV8aPk1eB2ChfgGM4ndZ+tHyDQSbpivC0frQ9BQ93V45YnF3K6
+	6GpzMPnY/depbBjlJuIENlYeNaeHsDQ6zKJV6Ibhwpvu7iTCFaQ6P3FRZv/Lrg2R+dQewguJFPf4S
+	CP0q+NIc5gyN9I3ba/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRFYf-00000008YAV-0fab;
-	Thu, 04 Dec 2025 20:04:09 +0000
+	id 1vRFYk-00000008YFn-0W09;
+	Thu, 04 Dec 2025 20:04:14 +0000
 Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRFYb-00000008Y8D-2yu5
+	id 1vRFYh-00000008YD7-2nBY
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Dec 2025 20:04:06 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7b9387df58cso2092614b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Dec 2025 12:04:05 -0800 (PST)
+	Thu, 04 Dec 2025 20:04:12 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7b80fed1505so1522956b3a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Dec 2025 12:04:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1764878645; x=1765483445; darn=lists.infradead.org;
+        d=rivosinc.com; s=google; t=1764878651; x=1765483451; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Dse2BU+tFA5XFpg+kLbFKrS+f5gCoIar5kBy1XNyEFE=;
-        b=Sp5XjJYv9luBVnftdVcGFpZB2wTirEE1svg3d7Rw83u0Vs2vAsLGGrezgjzpuGnosB
-         GLJ3kPZ6nNNTxweGKTwhSO1+8Rnvw+eRJiNCh0aiB9o/AqfJfQ2C9aFOC/eG5rR4LrPR
-         Ugvw4vP2Rj3j8rVCpZTp5nuat/Axsg9U/BcPbiyzshxkbhAvQUxPCQs1o+ZWWzre38qj
-         nj2HZcr1N6KVWqADaIlNZmgU+0U8lfJXattETvh5aLcIALmIHKIxOijdV9UzogoajeGy
-         Iq5VWCwmhk8sWnxxODy7rlFyp33uoMRNQGdXJhpcHybG7wT66OjmNddGjs26uSFLVaQW
-         h1rQ==
+        bh=Qa06X7BN7aAxeMRj1RtrRZw6MLM+PhxlK6i/AnJxckg=;
+        b=fBLokYsJr+Yuuc1OBHl+8m2twNbxkfgF6V7OCU0CrKLPCQImysVUO2tS4bajymG7I9
+         nJOGK3AOzONM+vlKFID96SL02bfQ6MlHh5aX+b4DXeQ32UTaloDCkrSmh8NM1ur22YM4
+         DwEF4OdQwtHGlRK5sqa8OOzr9Pu5xQsuxvmcr01ldwjVZiq2oHUts1FPSR4KZkO04x3m
+         4O5+byb8UQPVmhny7KpwPbscP6hMBqQfpRWP2N2okfcmViYCvYu0PU6QmMviDYQRl13s
+         zY7HW/wkVELweWqFLAXYUnPwz7ZVkKKEGrg5kq/PKc+ej8Wv4eaGcGs28gwRL0hrtDES
+         oIgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764878645; x=1765483445;
+        d=1e100.net; s=20230601; t=1764878651; x=1765483451;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Dse2BU+tFA5XFpg+kLbFKrS+f5gCoIar5kBy1XNyEFE=;
-        b=cuEsnATiEnpKqDO+6V6/eAJB9uH6Qg96nGrYTbLo7ojZA/LqhzFjzdPYeAevmLRnVD
-         Q0W9EqihhK3owme/Q5qq8HNRLIhPuMxI/Jo8FAiLnVAZBegHx22OJV+l1HaTrz24VXNh
-         sq7r4Ef83q9hiUj5C1POql72q78X2suDg/kVG1iWRz9OR191vUFOHiwQnDMwGhCLGUvg
-         /eAQoAMLb8QEiox1MrtNrLjTPn9evYhnzcjz9gA+jGMqvJ/dDuTYyUveL39cMikfS1Tw
-         tkVSLOY/seNbRmRFUq1y7XoRMpXeVCzqWJ7IjJNx/WksacZlcWVMcr8pvtZkOcnkrRyA
-         8KmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU+5kT0drfkmeseVg1ZaLUPvBmqDfTsgrUrVNw2BZnajb3s5suMG/FHjUayY4V6wUAZ6O+Nx+VrhalogA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNOx6V34Nagn6wZbvCgXsJEX/K53pIAl7kGJBVMjjSJV34rD93
-	TipEXXrGVgACG4+ALXTseyMKEcSrU4GXQP+j+LGQ/+ouhyamxmJr65PmUGwkX7pf4mE=
-X-Gm-Gg: ASbGnctTHUQLkEzYNgz8tKvghYglODdMYy/AZOrRElEcymwN5ibpdpm+y/SEIcryxzV
-	2UlehJcDD6THhT4BC02nk2u4lOgMDGWEomuWwWWj9+FA32xDFZ2fJuIwt4V75cw2EaW69Yn2JzP
-	GvYWeMtopCruhZMp0YEQX/hwt/E/X5OAQGQaypD/5wfYZTN3y8PjcP3wNPDZmXzJi30inIli6T6
-	/7FABCwM/fvHp59Wg6dxLp3YJEjqMvbz8q4SQtsv7XfNwkyZDdMOetBFWTv187Lx8NfpqGZ6kwm
-	qh7t6iRcH8XEL8svaYDMdTaMRpPtiwEjGamAZRV7ebWxyVoNLg9z9kLnOiwE7tuh+VJuaGN+7+o
-	NsmOt0aLfacIN0CZjcz430v6sKRGRh72CUACaJZCqYYxGXZUXpjQjBdBwsxt3v5wwHgOmWQ5h0t
-	1KIu/iA+PXMg+FB672HU20
-X-Google-Smtp-Source: AGHT+IE6g5en90WXrl3ZEnboKqts+eBcZS3P4Z0a/whlRK6sw4bJgNhh+d5L/+hs3tXCG2T1uDOqfQ==
-X-Received: by 2002:a05:701a:c949:b0:11d:f682:e475 with SMTP id a92af1059eb24-11df682e6f1mr1767600c88.40.1764878644680;
-        Thu, 04 Dec 2025 12:04:04 -0800 (PST)
+        bh=Qa06X7BN7aAxeMRj1RtrRZw6MLM+PhxlK6i/AnJxckg=;
+        b=iMsNshensUePfMH2bUhxjogLI10qlDG6tgohNrZkrmDosUIH9JPBsNTI7ZrfsXhEUQ
+         T42pFfUFcCguu5vqjMFTIwsVP5LddNp+XtyrN1mkyMImVLD9F7dK2sO0OXtzqASbuOiP
+         wJ3TLUh4VeKrHXf6pMrfD/es5Adga9X/w7SysWXNvBVf6QC75sUuJYaPm9CdoAzltjhM
+         vLD8J7YK46di0dS7HIyomZx3QndRvQmhEq2sNkfRrX5FwxAZ3SOqjBPXnHhCD8PbO3MX
+         t7RdMUXX0cCSApY1ZD61iTF/9vXi6HKG30VPgifUAwYEYAVVpvZp1N2FF0KoO4PHbafG
+         GhWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU8znnIi5dhwGIFrltFs8eheyO54054ptyd7y5SnRZwwug4wN7P0pTwJ1DRhSNXaUukeewaBmaH56ZkRg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWVimEMjMse1Kvlq3IKKl4ynOJ18LJXfTdFH3Rcvl3MeV49Efz
+	UOzUyxzZNVRPfAFtK63vXVNBHk+uCETqlQM7YdPkoo3M2DQv++9x3GcH+R2Pu1+7Wsc=
+X-Gm-Gg: ASbGnctOyaPsr6atO/hMfbP625vVKLO9HDXgM2fgcSZhPFqQiMeSRjUvkOgyUNRtPqJ
+	1OkzIKDYnu04CL74EiRPQQUo3j+O8nxNEjoPnUA4FfiG9u2CwptIrLeZlqZDsbkZBl4LwEkTC+W
+	I+6I3ef6IAH5rlA+smF9+FSa1IgNDAl05hT2xLMqn3FI0LblaPpDyhWA4iNtrx4vQVU9Vm8ZqEk
+	uLHYpkeKdD26+YpRa1f6W/r0RrBjD2fQ5G4SByM+RH57Lpk17r4j5PIRIqHJPh0/jNjF5caX5gn
+	CIs3G7HpmFtw0G33dwxy6HGUaLJprlIJb5Qpz7Y2uj53ozqi1f1DDPoRjjSWSdVUUeXHatyGYWU
+	l+lSU9V352Ep4LZb5osdrGcZqYUcKE/cvqwsjQz5J6THLd8GVfUiuxzU0FyKiWIIZkXK7OTuHec
+	bFxPYgE+0jl6pp4HW+WwR+LtmrskMBV4E=
+X-Google-Smtp-Source: AGHT+IGQ93TqFVL+sx8jsqiI8XZ+MJnFlOmBjVkc1eOo+ShzyvN/Bpvd/OzCquioUD3nqZACMQrvyw==
+X-Received: by 2002:a05:7022:aa3:b0:11a:f5e0:dc8 with SMTP id a92af1059eb24-11df0cc5e15mr5352198c88.28.1764878650785;
+        Thu, 04 Dec 2025 12:04:10 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11df76e2eefsm10417454c88.6.2025.12.04.12.04.02
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11df76e2eefsm10417454c88.6.2025.12.04.12.04.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Dec 2025 12:04:04 -0800 (PST)
+        Thu, 04 Dec 2025 12:04:10 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Thu, 04 Dec 2025 12:03:52 -0800
-Subject: [PATCH v24 03/28] riscv: zicfiss / zicfilp enumeration
+Date: Thu, 04 Dec 2025 12:03:55 -0800
+Subject: [PATCH v24 06/28] riscv/mm : ensure PROT_WRITE leads to VM_READ |
+ VM_WRITE
 MIME-Version: 1.0
-Message-Id: <20251204-v5_user_cfi_series-v24-3-ada7a3ba14dc@rivosinc.com>
+Message-Id: <20251204-v5_user_cfi_series-v24-6-ada7a3ba14dc@rivosinc.com>
 References: <20251204-v5_user_cfi_series-v24-0-ada7a3ba14dc@rivosinc.com>
 In-Reply-To: <20251204-v5_user_cfi_series-v24-0-ada7a3ba14dc@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -112,16 +113,16 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
  Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764878635; l=3702;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764878635; l=4345;
  i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
- bh=ZNC9a/En39m8CKIDJtxwHFeTcpc9wzeOUsHgDemdXXU=;
- b=5o2zU5rsxOxcJKC2p1yqW7GuhtDJPFoThZH8CdeiyFSiUJMGHC8P2JMq2k+6z9+4nWVfwRGik
- 1gzSe/qpXZgCW6LPHP+kjurdK3b0lQ02ZbqKtkuHdzcrl2GjgJMK9O/
+ bh=7yLe9hWq2WlkWVyw5cBB8KO8waygymuFRUw/WyJutrk=;
+ b=4OgDyO5tFJc8wg90W1KsiGKi047tWI8HtvaRrWwmNmenU8ADgWOP8b1W62zFmhDNTHv/KW36L
+ xv14zidE25aBEmYL3yAmlNekT+HnSHKI91F7Dppn3WkodGabRQAR+R0
 X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
  pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_120405_765163_8C64744C 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20251204_120411_715914_76122AC3 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,100 +139,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds support for detecting zicfiss and zicfilp. zicfiss and
-zicfilp stands for unprivleged integer spec extension for shadow stack
-and branch tracking on indirect branches, respectively.
+`arch_calc_vm_prot_bits` is implemented on risc-v to return VM_READ |
+VM_WRITE if PROT_WRITE is specified. Similarly `riscv_sys_mmap` is
+updated to convert all incoming PROT_WRITE to (PROT_WRITE | PROT_READ).
+This is to make sure that any existing apps using PROT_WRITE still work.
 
-This patch looks for zicfiss and zicfilp in device tree and accordinlgy
-lights up bit in cpu feature bitmap. Furthermore this patch adds detection
-utility functions to return whether shadow stack or landing pads are
-supported by cpu.
+Earlier `protection_map[VM_WRITE]` used to pick read-write PTE encodings.
+Now `protection_map[VM_WRITE]` will always pick PAGE_SHADOWSTACK PTE
+encodings for shadow stack. Above changes ensure that existing apps
+continue to work because underneath kernel will be picking
+`protection_map[VM_WRITE|VM_READ]` PTE encodings.
 
 Reviewed-by: Zong Li <zong.li@sifive.com>
 Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
 Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/cpufeature.h | 12 ++++++++++++
- arch/riscv/include/asm/hwcap.h      |  2 ++
- arch/riscv/kernel/cpufeature.c      | 22 ++++++++++++++++++++++
- 3 files changed, 36 insertions(+)
+ arch/riscv/include/asm/mman.h    | 26 ++++++++++++++++++++++++++
+ arch/riscv/include/asm/pgtable.h |  1 +
+ arch/riscv/kernel/sys_riscv.c    | 10 ++++++++++
+ arch/riscv/mm/init.c             |  2 +-
+ 4 files changed, 38 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index fbd0e4306c93..481f483ebf15 100644
---- a/arch/riscv/include/asm/cpufeature.h
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -150,4 +150,16 @@ static __always_inline bool riscv_cpu_has_extension_unlikely(int cpu, const unsi
- 	return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
+diff --git a/arch/riscv/include/asm/mman.h b/arch/riscv/include/asm/mman.h
+new file mode 100644
+index 000000000000..0ad1d19832eb
+--- /dev/null
++++ b/arch/riscv/include/asm/mman.h
+@@ -0,0 +1,26 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __ASM_MMAN_H__
++#define __ASM_MMAN_H__
++
++#include <linux/compiler.h>
++#include <linux/types.h>
++#include <linux/mm.h>
++#include <uapi/asm/mman.h>
++
++static inline unsigned long arch_calc_vm_prot_bits(unsigned long prot,
++						   unsigned long pkey __always_unused)
++{
++	unsigned long ret = 0;
++
++	/*
++	 * If PROT_WRITE was specified, force it to VM_READ | VM_WRITE.
++	 * Only VM_WRITE means shadow stack.
++	 */
++	if (prot & PROT_WRITE)
++		ret = (VM_READ | VM_WRITE);
++	return ret;
++}
++
++#define arch_calc_vm_prot_bits(prot, pkey) arch_calc_vm_prot_bits(prot, pkey)
++
++#endif /* ! __ASM_MMAN_H__ */
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 29e994a9afb6..4c4057a2550e 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -182,6 +182,7 @@ extern struct pt_alloc_ops pt_ops __meminitdata;
+ #define PAGE_READ_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ | _PAGE_EXEC)
+ #define PAGE_WRITE_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ |	\
+ 					 _PAGE_EXEC | _PAGE_WRITE)
++#define PAGE_SHADOWSTACK       __pgprot(_PAGE_BASE | _PAGE_WRITE)
+ 
+ #define PAGE_COPY		PAGE_READ
+ #define PAGE_COPY_EXEC		PAGE_READ_EXEC
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 795b2e815ac9..22fc9b3268be 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/syscalls.h>
+ #include <asm/cacheflush.h>
++#include <asm-generic/mman-common.h>
+ 
+ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+ 			   unsigned long prot, unsigned long flags,
+@@ -16,6 +17,15 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+ 	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
+ 		return -EINVAL;
+ 
++	/*
++	 * If PROT_WRITE is specified then extend that to PROT_READ
++	 * protection_map[VM_WRITE] is now going to select shadow stack encodings.
++	 * So specifying PROT_WRITE actually should select protection_map [VM_WRITE | VM_READ]
++	 * If user wants to create shadow stack then they should use `map_shadow_stack` syscall.
++	 */
++	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
++		prot |= PROT_READ;
++
+ 	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
+ 			       offset >> (PAGE_SHIFT - page_shift_offset));
  }
- 
-+static inline bool cpu_supports_shadow_stack(void)
-+{
-+	return (IS_ENABLED(CONFIG_RISCV_USER_CFI) &&
-+		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFISS));
-+}
-+
-+static inline bool cpu_supports_indirect_br_lp_instr(void)
-+{
-+	return (IS_ENABLED(CONFIG_RISCV_USER_CFI) &&
-+		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFILP));
-+}
-+
- #endif
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index affd63e11b0a..7c4619a6d70d 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -106,6 +106,8 @@
- #define RISCV_ISA_EXT_ZAAMO		97
- #define RISCV_ISA_EXT_ZALRSC		98
- #define RISCV_ISA_EXT_ZICBOP		99
-+#define RISCV_ISA_EXT_ZICFILP		100
-+#define RISCV_ISA_EXT_ZICFISS		101
- 
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
- 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 67b59699357d..17b9e77bafc3 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -274,6 +274,24 @@ static int riscv_ext_svadu_validate(const struct riscv_isa_ext_data *data,
- 	return 0;
- }
- 
-+static int riscv_cfilp_validate(const struct riscv_isa_ext_data *data,
-+				const unsigned long *isa_bitmap)
-+{
-+	if (!IS_ENABLED(CONFIG_RISCV_USER_CFI))
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
-+static int riscv_cfiss_validate(const struct riscv_isa_ext_data *data,
-+				const unsigned long *isa_bitmap)
-+{
-+	if (!IS_ENABLED(CONFIG_RISCV_USER_CFI))
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
- static const unsigned int riscv_a_exts[] = {
- 	RISCV_ISA_EXT_ZAAMO,
- 	RISCV_ISA_EXT_ZALRSC,
-@@ -461,6 +479,10 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA_VALIDATE(zicbop, RISCV_ISA_EXT_ZICBOP, riscv_ext_zicbop_validate),
- 	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicboz, RISCV_ISA_EXT_ZICBOZ, riscv_xlinuxenvcfg_exts, riscv_ext_zicboz_validate),
- 	__RISCV_ISA_EXT_DATA(ziccrse, RISCV_ISA_EXT_ZICCRSE),
-+	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicfilp, RISCV_ISA_EXT_ZICFILP, riscv_xlinuxenvcfg_exts,
-+					  riscv_cfilp_validate),
-+	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicfiss, RISCV_ISA_EXT_ZICFISS, riscv_xlinuxenvcfg_exts,
-+					  riscv_cfiss_validate),
- 	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
- 	__RISCV_ISA_EXT_DATA(zicond, RISCV_ISA_EXT_ZICOND),
- 	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index d85efe74a4b6..62ab2c7de7c8 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -376,7 +376,7 @@ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+ static const pgprot_t protection_map[16] = {
+ 	[VM_NONE]					= PAGE_NONE,
+ 	[VM_READ]					= PAGE_READ,
+-	[VM_WRITE]					= PAGE_COPY,
++	[VM_WRITE]					= PAGE_SHADOWSTACK,
+ 	[VM_WRITE | VM_READ]				= PAGE_COPY,
+ 	[VM_EXEC]					= PAGE_EXEC,
+ 	[VM_EXEC | VM_READ]				= PAGE_READ_EXEC,
 
 -- 
 2.45.0
