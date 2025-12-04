@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC43D1D89D
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 09:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF63FD1D892
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Dec 2025 09:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xNBlY8CX+MzE55aKksUcfS1NCuMPtwm1M2RGh8MGzAA=; b=nZFyC0ReNGHScW
-	VzKVEmE0m7z/krQ8Nrjt+Sp0c7yJmC932Mc7RLU10tEqWcPs+zcN9bufoz7olz0nlAQaRRGQxfBL0
-	jv4g0DRqrwVZvpkZO+B+RYImcqs9J/j2/e1IpL1AqyQJtEBH30uXVJLSOgW2Kc+QEU1lXKiZExxTk
-	jx74PnoRvB0HPujtgyhGMZDTVb7VGy0lAudfHV1L24qD2GwzE6wVieEhu9YLeC1lgww2TI4RDy/TO
-	ObFBgTGXWMFEZiOKbb3mlZ66Lw/WRsPv+TRRSsb9mlV55AK1tIrCh81P40ghDMvVzpoNZ+/9YwS9K
-	fmhw9EYBJYEn3ImShOdQ==;
+	List-Owner; bh=PLgPsXrxtYEm8JYSwB1ZeuTyFTQJwhcS8OPEfFThz1U=; b=I+tJy3cVLd5nvI
+	T/8Cam2y1PNPiSMw/xEV6uUZmjBMAm77sPok/t+LgGhlaGh0tecPArnIHAr6sh1c4Kg8b44JgvcB1
+	Xaxb+7bMeK5bzHYs1mu3DKkAG3vZPP7sWU4dj9Jo2bJ8cSSC00tJjRIW2TE3C5js5IOdlUITHHaey
+	Hfj2n1U6rFC8+q6YL81IPKlwv6oQWvunAQA4SXvmXEnuK39EDJXBksieYDDQW/QQh/JmXCsEsImA7
+	NkqeUjT/0t7Lk7Ayjs2wYBUu6Ap+SUq0JI2Wz/3oLgwyvG4HfPz9sIUwbs4IfLF+uCezGYi+bWrt5
+	88t37taX1rZacWfB4AOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5ID-00000007jbR-0m8o;
-	Thu, 04 Dec 2025 09:06:29 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vR5T9-00000007kfU-0gkM;
+	Thu, 04 Dec 2025 09:17:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5I9-00000007jai-2Kpt
+	id 1vR5T6-00000007kek-0Gek
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Dec 2025 09:06:28 +0000
-Received: from [192.168.0.107] (unknown [114.241.82.59])
-	by APP-01 (Coremail) with SMTP id qwCowAAnwdD+TjFpm+0MAw--.960S2;
-	Thu, 04 Dec 2025 17:06:06 +0800 (CST)
-Message-ID: <1a6bb8cd-cc08-458f-a6f6-cdfefd327320@iscas.ac.cn>
-Date: Thu, 4 Dec 2025 17:06:05 +0800
+	Thu, 04 Dec 2025 09:17:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BA1D043B16
+	for <linux-riscv@lists.infradead.org>; Thu,  4 Dec 2025 09:17:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 937F1C19425
+	for <linux-riscv@lists.infradead.org>; Thu,  4 Dec 2025 09:17:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764839863;
+	bh=bdxR7v9DL4giaQ0nD6cGSOn8HPdLK+CBHB+mv5p51TE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=lXMJFlx51rTedas29KHnOrmyDSqkZ9OMYrKSulTiX57PBwHm2eQiqLevCstNDBnVT
+	 nCVGTNp7fzETozRNuQAA5mbYmXhdurch8QsIn1ts0SUX0878qPP6F5FVDYrBr3wT9W
+	 AkgTKbQXFCzm1WMgZMKHaINZLTSqwLCCAD0dAxU5Kk45tsxO0uZPJvt91vcWn+0bYC
+	 C2IgMJeK7my4B4xpP9tsR0pWBNKZ4d4GMAlf00wpJGT2bjit1qFoztrZDlC8sl6QNP
+	 7TWkDlYiX/OoujuaVpQfW9eeV92YLP9lkU3JZRQx/bEk4561i1k13l8QYbKxWEI4oz
+	 nLySSoiGo2EBQ==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-37902f130e1so5163501fa.1
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Dec 2025 01:17:43 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUTi27ha1BQMnJ/xwMeFY22QipXNA3ylWNeonDYDaxRWnpxUW+YBvWhohFbLXG86HCxVgBf92wth2MBIg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1BgC98vgibjWAChN/MhwjaLEGIzqKYYoKip+SvMGuAMgTfK6P
+	YQppZ03acOuI3pS4vJ2uRsxuXaVp6YkdWJG8Fk4IOTzkRqUp6uIUhz0HnlmkD9/9e8SSpyttgS4
+	BqAYJv/WRlvsUiWmBhPyQ6q7F3bsjiGw=
+X-Google-Smtp-Source: AGHT+IEepIIomfWFRr0Rx3UmKjb+4HGFPEe9u/4871RbpTRAjdKjp2QqrAmQWNspq2CaP1lGYKWgUBnucw5FQcFMAE4=
+X-Received: by 2002:a05:6512:3b0e:b0:55f:4633:7b2 with SMTP id
+ 2adb3069b0e04-597d3fdddf4mr1972090e87.46.1764839861912; Thu, 04 Dec 2025
+ 01:17:41 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/4] rust: add a Kconfig function to test for support
- of bindgen options
-To: Asuna Yang <spriteovo@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
- Danilo Krummrich <dakr@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Jonathan Corbet <corbet@lwn.net>, Jason Montleon <jmontleo@redhat.com>,
- Han Gao <rabenda.cn@gmail.com>, Conor Dooley <conor@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, llvm@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org
-References: <20251204-gcc-rust-v5-v5-0-2d4f20d86c24@gmail.com>
- <20251204-gcc-rust-v5-v5-3-2d4f20d86c24@gmail.com>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20251204-gcc-rust-v5-v5-3-2d4f20d86c24@gmail.com>
-X-CM-TRANSID: qwCowAAnwdD+TjFpm+0MAw--.960S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ZrWUWr4rtFWrCry7tw1fJFb_yoW8Xw1fpr
-	yvkF1q9rW8J3W8Aw17CFW0qF13ua1xtrWfW34kt347JrW7Xw40gaySkr47try8CFWv9ry2
-	vF4F9as09F4UCw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUVhL0UUUUU
-X-Originating-IP: [114.241.82.59]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+References: <20251126160854.553077-1-tzimmermann@suse.de> <aSe1ZBXa3JBidhem@r1chard>
+ <fc4ea259-3389-46e2-b860-972aa8179507@suse.de>
+In-Reply-To: <fc4ea259-3389-46e2-b860-972aa8179507@suse.de>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 4 Dec 2025 10:17:29 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXE8Q6FGX5+64gPyW=ExicR4UbnEDeW4ycCsSsD2WtaYJA@mail.gmail.com>
+X-Gm-Features: AWmQ_bm9xn92SSdHRbzJXHCDOFUkHMVJIr0kEdVYpgmMwEspup4WiDKMgeR24mo
+Message-ID: <CAMj1kXE8Q6FGX5+64gPyW=ExicR4UbnEDeW4ycCsSsD2WtaYJA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/9] arch,sysfb,efi: Support EDID on non-x86 EFI systems
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Richard Lyu <richard.lyu@suse.com>, javierm@redhat.com, arnd@arndb.de, 
+	helgaas@kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-fbdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_010625_965021_E16A42A2 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20251204_011744_164637_75C7A9B0 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,39 +88,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 27 Nov 2025 at 08:43, Thomas Zimmermann <tzimmermann@suse.de> wrote:
+>
+> Hi
+>
+> Am 27.11.25 um 03:20 schrieb Richard Lyu:
+> > Hi Thomas,
+> >
+> > I am attempting to test this patch series but encountered merge conflicts when applying it to various trees.
+> > Could you please clarify the specific base commit (or branch/tag) this series was generated against?
+>
+> Thanks for testing.
+>
+> >
+> > When testing on the next branch on commits 7a2ff00 and e41ef37, I hit a conflict on PATCH v3 4/9:
+> > patching file drivers/pci/vgaarb.c
+> > Hunk #2 FAILED at 557.
+> > 1 out of 2 hunks FAILED -- rejects in file drivers/pci/vgaarb.c
+> >
+> > When testing against 3a86608 (Linux 6.18-rc1), the following conflicts occurred:
+> > patching file drivers/gpu/drm/sysfb/efidrm.c
+> > Hunk #1 FAILED at 24.
+> > 1 out of 2 hunks FAILED -- rejects in file drivers/gpu/drm/sysfb/efidrm.c
+> > patching file drivers/gpu/drm/sysfb/vesadrm.c
+> > Hunk #1 FAILED at 25.
+> > 1 out of 2 hunks FAILED -- rejects in file drivers/gpu/drm/sysfb/vesadrm.c
+> >
+> > Please let me know the correct base, and I will retest.
+>
+> It's in the cover letter: d724c6f85e80a23ed46b7ebc6e38b527c09d64f5 The
+> commit is in linux-next. The idea is that the EFI tree can pick up the
+> changes easily in the next cycle. linux-next seemed like the best
+> choice. Best regards Thomas
 
-On 12/4/25 15:54, Asuna Yang wrote:
-> From: Asuna Yang <spriteovo@gmail.com>
->
-> Add a new `bindgen-backend-option` Kconfig function to test whether the
-> bindgen backend supports a given flag.
->
-> A subsequent commit will use this function to test for RISC-V extension
-> flags.
->
-> Signed-off-by: Asuna Yang <SpriteOvO@gmail.com>
-> ---
->  scripts/Kconfig.include | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
-> index d42042b6c9e2..5d4d29eed0b3 100644
-> --- a/scripts/Kconfig.include
-> +++ b/scripts/Kconfig.include
-> @@ -78,3 +78,8 @@ rustc-llvm-version := $(shell,$(srctree)/scripts/rustc-llvm-version.sh $(RUSTC))
->  # If you are testing for unstable features, consider testing RUSTC_VERSION
->  # instead, as features may have different completeness while available.
->  rustc-option = $(success,trap "rm -rf .tmp_$$" EXIT; mkdir .tmp_$$; $(RUSTC) $(1) --crate-type=rlib /dev/null --out-dir=.tmp_$$ -o .tmp_$$/tmp.rlib)
-> +
-> +# $(bindgen-backend-option,<flag>)
-> +# Return y if bindgen backend supports <flag>, n otherwise
-> +# For now, the backend refers only to libclang, so more specifically, this function tests whether the given flag is recognized by the libclang used by bindgen.
-> +bindgen-backend-option = $(success,trap "rm -f .tmp_$$.h" EXIT; touch .tmp_$$.h; $(BINDGEN) .tmp_$$.h -- --target=$(BINDGEN_TARGET) $(1))
->
-Can probably be simplified down to:
-
-$(BINDGEN) /dev/null -- -x c --target=$(BINDGEN_TARGET) $(1)
-
+Thanks. I will queue this up as soon as -rc1 is released.
 
 _______________________________________________
 linux-riscv mailing list
