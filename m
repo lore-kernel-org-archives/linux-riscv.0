@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2804AD339BB
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552B9D339B9
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Dec 2025 18:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PB9l3hTA4SbHzdyd932uVP1p/wjCIiSmf0971rVa0fU=; b=LRPtCwa8RylBSR
-	9SZ3kWvMjOFtWbycUVuazahx7ov37Jmy19lZrYT62HgNwItpQQYh8dND1OUP3Q2IvMx5mDid4ZchM
-	3XMG2ubh8J6Vpp/sj3VDYohnQBVk1aupwZmbrpDIxBMXUGSSmjXuavAQPTUuO/J17xZrRTN5zQqmm
-	E2ZhrDl9mA3oulbZuBz4mVsLbUKF7HP4hL65O881pS0A9oKGPArwvPgRKQun+TB4L0/elSxJRBAQf
-	9hYjS/mW/qTWa8zdHOvKBSt501ySIIOkmbI1l67MEQ4m1szLK09/4lhDGcbnVoUxYZTtQoJrWuH3k
-	k9EAzERxTEhKJX0Yj7vw==;
+	List-Owner; bh=hqkAUjo6xIPBiC5EOQr+P1VfaTDUY6SKF1aR/obKP0w=; b=YxgLk5pLi1494T
+	r4q+23NXPJ0NOvwaNpS5MWKTACYjk7BtBGaBBmELatudUHoxCoLnyO3sanUE7x4s5zm54WZlvG+4S
+	Vmrr6ZLDbgZA+T1RjfpbE3bIH3K2CCwN0TiNt3QAgJSNBv2eiw0srdzN+ZYNCdcS8/TEUc4Pr+1V8
+	3ukDXzyogMmvE/CQykh9/iEeww04EigeIUrQyu5HI8LA8oUB/U5BXCQQ5uECN1J6p5DcGa0GmSzmX
+	KXNd74wRZ9S5PJF3Jb1HD26v8WLCqBfb/VIfuUHBQiZNsQP59jy2YywaQSexiBfG4ZPzQBDklga1U
+	wKpWgsonBc4qAEC/LTgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRakm-00000009rYq-0ntX;
-	Fri, 05 Dec 2025 18:42:04 +0000
+	id 1vRakn-00000009rcd-46dq;
+	Fri, 05 Dec 2025 18:42:05 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRakg-00000009rLc-46IE
+	id 1vRaki-00000009rLc-23iX
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Dec 2025 18:42:00 +0000
+	Fri, 05 Dec 2025 18:42:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A8450445A7;
+	by sea.source.kernel.org (Postfix) with ESMTP id F4097445D6;
 	Fri,  5 Dec 2025 18:41:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4E26CC2BCC9;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id AB00CC32782;
 	Fri,  5 Dec 2025 18:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1764960111;
-	bh=HdNiZJqM6D0VyTTwRtYP1mVmu0G8OaSHRfodSNYlNJ4=;
+	bh=gKj05EfXWRzFgsdHcGDwkowJM1p6i+3gIjza9qiTqkA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=iAxiXLo7P2d1RH4Ja0xOnS5NbkRsHXeCdw3XoDzi62PEpqjuZQS4N+HJGNHu6vvVq
-	 +mB85a+v68lgCWgKln8OgAw8BTPPbQCFS3p5EJWvjIViXMF9tWHMf7hFLJ8JPOEcyM
-	 H2sOe/h3ukP0grYYEPo+/w6LyQ4nxrgTPMoQvquT0Sizdnjy5I47Yv3Dvla3GKQoiF
-	 4JJ+UMCrSBjisTnAP4TiF38v/Tqwg8bN4R8d1vIHIyMWcEWlTgG3OVtDKcC+Chzy+X
-	 LqroJAVlMcvabzgjHzuWMTXIHxG1eUG//DmCk4Dc011n1pHE4YE4jnMnOn6RUvy7Ya
-	 aTth9cXLX9i5w==
+	b=lrA9+hoTr2rXtUg3iXXS/9M9Jv5840hMcRepNTJgpUxDVzm1+raQrK77SQYuDEzNH
+	 GJogM9EuVytNk5wmPOa/jAOUZvXObYgzuRR4ZknaF+v2zDM45YdRIA+9IM3w6NByFr
+	 Ch7G8laVMENMImxp1btsjJ23j8pE/K7y5IN5Rf/OWZ0FqShFmhFzCqLaPhpOMV5rww
+	 jhvPSjSve+BHc/1fIf4NV8uOtncVBiUbPjDK5dNVatIEya3QtDkt9Uxmt88FW3lbiq
+	 NQgVJIfTc+fBUufFb15XI+/sVpjqsPEV4YHvVT/3VPhXN0hrVtX0RIUFI2QH8rMJuO
+	 LQYIUPy+K56Bg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3EFB3D339B9;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C0B8D2F7F6;
 	Fri,  5 Dec 2025 18:41:51 +0000 (UTC)
 From: Deepak Gupta via B4 Relay <devnull+debug.rivosinc.com@kernel.org>
-Date: Fri, 05 Dec 2025 10:41:53 -0800
-Subject: [PATCH v25 15/28] riscv/traps: Introduce software check exception
- and uprobe handling
+Date: Fri, 05 Dec 2025 10:41:56 -0800
+Subject: [PATCH v25 18/28] riscv/kernel: update __show_regs to print shadow
+ stack register
 MIME-Version: 1.0
-Message-Id: <20251205-v5_user_cfi_series-v25-15-1a07c0127361@rivosinc.com>
+Message-Id: <20251205-v5_user_cfi_series-v25-18-1a07c0127361@rivosinc.com>
 References: <20251205-v5_user_cfi_series-v25-0-1a07c0127361@rivosinc.com>
 In-Reply-To: <20251205-v5_user_cfi_series-v25-0-1a07c0127361@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -83,24 +83,23 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
  rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
- Zong Li <zong.li@sifive.com>, 
  Andreas Korb <andreas.korb@aisec.fraunhofer.de>, 
  Valentin Haudiquet <valentin.haudiquet@canonical.com>, 
  Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764960107; l=5652;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764960107; l=1182;
  i=debug@rivosinc.com; s=20251023; h=from:subject:message-id;
- bh=pDv4J86Pof3YK1pZH0o5q7LZtPnnQoynOcq+79RnSA4=;
- b=FA0dwWAf+SlsTvEyCwkwWI2vi3Xk4w4ZSLWYO5Izu2jboLX6nm3cXc/b/icI33DeXyCpdVvws
- KyYb+7CWqiiATUA5TOiKUOAg+oAmRsA1Mi4AWS/kc4fk/15UGfdF4Fv
+ bh=XI4ppsK62Fegg41RmjuRUH5R6YykPAMiGtdfLotNIGk=;
+ b=l6Q7qF73uJomHw0ehkP1t2QZ7pGlMrNsJbPbw5cJvi95Vi+ilYXg5KGXrCDdAnxDZhga/lxhp
+ xahKwdn8tu7DmrT3yXGJiEa3qCcNZ52OENO38Q/98iauV2pY4SXd480
 X-Developer-Key: i=debug@rivosinc.com; a=ed25519;
  pk=O37GQv1thBhZToXyQKdecPDhtWVbEDRQ0RIndijvpjk=
 X-Endpoint-Received: by B4 Relay for debug@rivosinc.com/20251023 with
  auth_id=553
 X-Original-From: Deepak Gupta <debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_104159_067372_8E29F9C5 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20251205_104200_579286_6284AA25 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,143 +119,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Deepak Gupta <debug@rivosinc.com>
 
-zicfiss / zicfilp introduces a new exception to priv isa `software check
-exception` with cause code = 18. This patch implements software check
-exception.
+Updating __show_regs to print captured shadow stack pointer as well.
+On tasks where shadow stack is disabled, it'll simply print 0.
 
-Additionally it implements a cfi violation handler which checks for code
-in xtval. If xtval=2, it means that sw check exception happened because of
-an indirect branch not landing on 4 byte aligned PC or not landing on
-`lpad` instruction or label value embedded in `lpad` not matching label
-value setup in `x7`. If xtval=3, it means that sw check exception happened
-because of mismatch between link register (x1 or x5) and top of shadow
-stack (on execution of `sspopchk`).
-
-In case of cfi violation, SIGSEGV is raised with code=SEGV_CPERR.
-SEGV_CPERR was introduced by x86 shadow stack patches.
-
-To keep uprobes working, handle the uprobe event first before reporting
-the CFI violation in software-check exception handler. Because when the
-landing pad is activated, if the uprobe point is set at the lpad
-instruction at the beginning of a function, the system triggers a software
--check exception instead of an ebreak exception due to the exception
-priority, then uprobe can't work successfully.
-
-Co-developed-by: Zong Li <zong.li@sifive.com>
-Reviewed-by: Zong Li <zong.li@sifive.com>
-Signed-off-by: Zong Li <zong.li@sifive.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 Tested-by: Andreas Korb <andreas.korb@aisec.fraunhofer.de>
 Tested-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/asm-prototypes.h |  1 +
- arch/riscv/include/asm/entry-common.h   |  2 ++
- arch/riscv/kernel/entry.S               |  3 ++
- arch/riscv/kernel/traps.c               | 54 +++++++++++++++++++++++++++++++++
- 4 files changed, 60 insertions(+)
+ arch/riscv/kernel/process.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-index a9988bf21ec8..41ec5cdec367 100644
---- a/arch/riscv/include/asm/asm-prototypes.h
-+++ b/arch/riscv/include/asm/asm-prototypes.h
-@@ -51,6 +51,7 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_u);
- DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
- DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
- DECLARE_DO_ERROR_INFO(do_trap_break);
-+DECLARE_DO_ERROR_INFO(do_trap_software_check);
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 49f527e3acfd..aacb23978f93 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -93,8 +93,8 @@ void __show_regs(struct pt_regs *regs)
+ 		regs->s8, regs->s9, regs->s10);
+ 	pr_cont(" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
+ 		regs->s11, regs->t3, regs->t4);
+-	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT "\n",
+-		regs->t5, regs->t6);
++	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT " ssp : " REG_FMT "\n",
++		regs->t5, regs->t6, get_active_shstk(current));
  
- asmlinkage void ret_from_fork_kernel(void *fn_arg, int (*fn)(void *), struct pt_regs *regs);
- asmlinkage void ret_from_fork_user(struct pt_regs *regs);
-diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
-index b28ccc6cdeea..34ed149af5d1 100644
---- a/arch/riscv/include/asm/entry-common.h
-+++ b/arch/riscv/include/asm/entry-common.h
-@@ -40,4 +40,6 @@ static inline int handle_misaligned_store(struct pt_regs *regs)
- }
- #endif
- 
-+bool handle_user_cfi_violation(struct pt_regs *regs);
-+
- #endif /* _ASM_RISCV_ENTRY_COMMON_H */
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 036a6ca7641f..53c5aa0b6a16 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -495,6 +495,9 @@ SYM_DATA_START_LOCAL(excp_vect_table)
- 	RISCV_PTR do_page_fault   /* load page fault */
- 	RISCV_PTR do_trap_unknown
- 	RISCV_PTR do_page_fault   /* store page fault */
-+	RISCV_PTR do_trap_unknown /* cause=16 */
-+	RISCV_PTR do_trap_unknown /* cause=17 */
-+	RISCV_PTR do_trap_software_check /* cause=18 is sw check exception */
- SYM_DATA_END_LABEL(excp_vect_table, SYM_L_LOCAL, excp_vect_table_end)
- 
- #ifndef CONFIG_MMU
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 80230de167de..d939a8dbdb15 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -366,6 +366,60 @@ void do_trap_ecall_u(struct pt_regs *regs)
- 
- }
- 
-+#define CFI_TVAL_FCFI_CODE	2
-+#define CFI_TVAL_BCFI_CODE	3
-+/* handle cfi violations */
-+bool handle_user_cfi_violation(struct pt_regs *regs)
-+{
-+	unsigned long tval = csr_read(CSR_TVAL);
-+	bool is_fcfi = (tval == CFI_TVAL_FCFI_CODE && cpu_supports_indirect_br_lp_instr());
-+	bool is_bcfi = (tval == CFI_TVAL_BCFI_CODE && cpu_supports_shadow_stack());
-+
-+	/*
-+	 * Handle uprobe event first. The probe point can be a valid target
-+	 * of indirect jumps or calls, in this case, forward cfi violation
-+	 * will be triggered instead of breakpoint exception. Clear ELP flag
-+	 * on sstatus image as well to avoid recurring fault.
-+	 */
-+	if (is_fcfi && probe_breakpoint_handler(regs)) {
-+		regs->status &= ~SR_ELP;
-+		return true;
-+	}
-+
-+	if (is_fcfi || is_bcfi) {
-+		do_trap_error(regs, SIGSEGV, SEGV_CPERR, regs->epc,
-+			      "Oops - control flow violation");
-+		return true;
-+	}
-+
-+	return false;
-+}
-+
-+/*
-+ * software check exception is defined with risc-v cfi spec. Software check
-+ * exception is raised when:-
-+ * a) An indirect branch doesn't land on 4 byte aligned PC or `lpad`
-+ *    instruction or `label` value programmed in `lpad` instr doesn't
-+ *    match with value setup in `x7`. reported code in `xtval` is 2.
-+ * b) `sspopchk` instruction finds a mismatch between top of shadow stack (ssp)
-+ *    and x1/x5. reported code in `xtval` is 3.
-+ */
-+asmlinkage __visible __trap_section void do_trap_software_check(struct pt_regs *regs)
-+{
-+	if (user_mode(regs)) {
-+		irqentry_enter_from_user_mode(regs);
-+
-+		/* not a cfi violation, then merge into flow of unknown trap handler */
-+		if (!handle_user_cfi_violation(regs))
-+			do_trap_unknown(regs);
-+
-+		irqentry_exit_to_user_mode(regs);
-+	} else {
-+		/* sw check exception coming from kernel is a bug in kernel */
-+		die(regs, "Kernel BUG");
-+	}
-+}
-+
- #ifdef CONFIG_MMU
- asmlinkage __visible noinstr void do_page_fault(struct pt_regs *regs)
- {
+ 	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
+ 		regs->status, regs->badaddr, regs->cause);
 
 -- 
 2.43.0
